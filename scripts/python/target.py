@@ -48,11 +48,11 @@ class Target:
           # TODO remove this part
           if release:
             with pushd("cm7"):
-              shutil.copy('/home/jacob/evtol/nxp/mimxrt1170evk-platform/bin/mimxrt1176-debug/cm4/test/cm4/hello_world/hello-world-cm4.bin', 
+              shutil.copy('/home/jacob/embedded/nxp/mimxrt1170evk/bin/mimxrt1176-debug/cm4/test/cm4/hello_world/hello-world-cm4.bin', 
                         'core1_image.bin')
           else:
             with pushd("cm7"):
-              shutil.copy('/home/jacob/evtol/nxp/mimxrt1170evk-platform/bin/mimxrt1176-debug/cm4/test/cm4/hello_world/hello-world-cm4.bin', 
+              shutil.copy('/home/jacob/embedded/nxp/mimxrt1170evk/bin/mimxrt1176-debug/cm4/test/cm4/hello_world/hello-world-cm4.bin', 
                         'core1_image.bin')
         else:
           preset.build(release, verbose)
