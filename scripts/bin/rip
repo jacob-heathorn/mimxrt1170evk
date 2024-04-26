@@ -1,0 +1,5 @@
+#!/bin/bash
+
+# Delegate to the python build tool
+source $FORGE_ROOT/.venv/bin/activate
+$PROJECT_ROOT/scripts/python/rip.py "$@"
