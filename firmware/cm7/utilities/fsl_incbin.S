@@ -12,7 +12,7 @@
         EXPORT core1_image_start
         EXPORT core1_image_end
 core1_image_start
-        INCBIN core1_image.bin
+        INCBIN "/home/jacob/embedded/nxp/mimxrt1170evk/bin/cm4-debug/test/cm4/hello_world/hello-world-cm4.bin"
 core1_image_end
         END
 
@@ -23,7 +23,7 @@ core1_image_end
         .type core1_image_start, %object
         .align 4
 core1_image_start:
-        .incbin "core1_image.bin"
+        .incbin "/home/jacob/embedded/nxp/mimxrt1170evk/bin/cm4-debug/test/cm4/hello_world/hello-world-cm4.bin"
         .global core1_image_end
         .type core1_image_end, %object
 core1_image_end:
