@@ -19,9 +19,21 @@
       "toolchainFile": "${sourceDir}/cmake/cm7/toolchain.cmake"
     },
     {
+      "name": "cm4",
+      "hidden": true,
+      "inherits": "default",
+      "toolchainFile": "${sourceDir}/cmake/cm4/toolchain.cmake"
+    },
+    {
       "name": "cm7-debug",
       "inherits": "cm7",
-      "description": "cortex-m7 debug build",
+      "binaryDir": "${sourceDir}/bin/${presetName}",
+      "cacheVariables": {},
+      "environment": {}
+    },
+    {
+      "name": "cm4-debug",
+      "inherits": "cm4",
       "binaryDir": "${sourceDir}/bin/${presetName}",
       "cacheVariables": {},
       "environment": {}
@@ -31,6 +43,10 @@
     {
       "name": "cm7-debug",
       "configurePreset": "cm7-debug"
+    },
+    {
+      "name": "cm4-debug",
+      "configurePreset": "cm4-debug"
     }
   ]
 }
