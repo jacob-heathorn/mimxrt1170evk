@@ -9,79 +9,28 @@
   "configurePresets": [
     {
       "name": "default",
+      "hidden": true,
       "generator": "Ninja"
-
+    },
+    {
+      "name": "cm7",
+      "hidden": true,
+      "inherits": "default",
+      "toolchainFile": "${sourceDir}/cmake/cm7/toolchain.cmake"
     },
     {
       "name": "cm7-debug",
-      "inherits": "default",
+      "inherits": "cm7",
       "description": "cortex-m7 debug build",
       "binaryDir": "${sourceDir}/bin/${presetName}",
       "cacheVariables": {},
-      "environment": {},
-      "vendor": {
-        "example.com/ExampleIDE/1.0": {
-          "autoFormat": true
-        }
-      }
-    },
-    {
-      "name": "ninja-multi",
-      "inherits": "default",
-      "displayName": "Ninja Multi-Config",
-      "description": "Default build using Ninja Multi-Config generator",
-      "generator": "Ninja Multi-Config"
+      "environment": {}
     }
   ],
   "buildPresets": [
     {
-      "name": "default",
-      "configurePreset": "default"
+      "name": "cm7-debug",
+      "configurePreset": "cm7-debug"
     }
-  ],
-  "testPresets": [
-    {
-      "name": "default",
-      "configurePreset": "default",
-      "output": {"outputOnFailure": true},
-      "execution": {"noTestsAction": "error", "stopOnFailure": true}
-    }
-  ],
-  "packagePresets": [
-    {
-      "name": "default",
-      "configurePreset": "default",
-      "generators": [
-        "TGZ"
-      ]
-    }
-  ],
-  "workflowPresets": [
-    {
-      "name": "default",
-      "steps": [
-        {
-          "type": "configure",
-          "name": "default"
-        },
-        {
-          "type": "build",
-          "name": "default"
-        },
-        {
-          "type": "test",
-          "name": "default"
-        },
-        {
-          "type": "package",
-          "name": "default"
-        }
-      ]
-    }
-  ],
-  "vendor": {
-    "example.com/ExampleIDE/1.0": {
-      "autoFormat": false
-    }
-  }
+  ]
 }
