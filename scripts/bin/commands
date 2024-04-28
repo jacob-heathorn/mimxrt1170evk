@@ -1,0 +1,23 @@
+#!/bin/bash
+
+# Function to configure, build, and run the project using CMake presets
+function build-cm7-debug() {
+    # Define the project directory (assuming this script is located in the project root)
+    local project_dir=$(pwd)
+
+    # Configure the project using the default preset
+    echo "Configuring the project..."
+    cmake --preset cm7-debug
+    if [ $? -ne 0 ]; then
+        echo "Configuration failed."
+        return 1
+    fi
+
+    # # Build the project using the default build preset
+    # echo "Building the project..."
+    # cmake --build --preset cm7-debug
+    # if [ $? -ne 0 ]; then
+    #     echo "Build failed."
+    #     return 1
+    # fi
+}
