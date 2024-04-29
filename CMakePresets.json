@@ -28,15 +28,33 @@
       "name": "cm7-debug",
       "inherits": "cm7",
       "binaryDir": "${sourceDir}/bin/${presetName}",
-      "cacheVariables": {},
-      "environment": {}
+      "cacheVariables": {
+        "CMAKE_BUILD_TYPE": "Debug"
+      }
     },
     {
       "name": "cm4-debug",
       "inherits": "cm4",
       "binaryDir": "${sourceDir}/bin/${presetName}",
-      "cacheVariables": {},
-      "environment": {}
+      "cacheVariables": {
+        "CMAKE_BUILD_TYPE": "Debug"
+      }
+    },
+    {
+      "name": "cm7-release",
+      "inherits": "cm7",
+      "binaryDir": "${sourceDir}/bin/${presetName}",
+      "cacheVariables": {
+        "CMAKE_BUILD_TYPE": "Release"
+      }
+    },
+    {
+      "name": "cm4-release",
+      "inherits": "cm4",
+      "binaryDir": "${sourceDir}/bin/${presetName}",
+      "cacheVariables": {
+        "CMAKE_BUILD_TYPE": "Release"
+      }
     }
   ],
   "buildPresets": [
@@ -47,6 +65,14 @@
     {
       "name": "cm4-debug",
       "configurePreset": "cm4-debug"
+    },
+    {
+      "name": "cm7-release",
+      "configurePreset": "cm7-release"
+    },
+    {
+      "name": "cm4-release",
+      "configurePreset": "cm4-release"
     }
   ]
 }
