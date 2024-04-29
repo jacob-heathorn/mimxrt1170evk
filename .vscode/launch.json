@@ -8,7 +8,7 @@
       {
           "cwd": "${workspaceRoot}",
           "preLaunchTask": "Launch LinkServer's GDB Server (cm7 & cm4)",
-          "executable": "/home/jacob/embedded/nxp/mimxrt1170evk/bin/mimxrt1176-debug/cm7/test/cm7/hello_world/hello-world-cm7.elf",
+          "executable": "/home/jacob/embedded/nxp/mimxrt1170evk/bin/cm7-debug/test/cm7/hello_world/hello-world-cm7.elf",
           "name": "core0 (cortex m7)",
           "request": "launch",
           "type": "cortex-debug",
@@ -51,7 +51,7 @@
           "presentation": {
             "hidden": true
           },
-          "executable": "/home/jacob/embedded/nxp/mimxrt1170evk/bin/mimxrt1176-debug/cm4/test/cm4/hello_world/hello-world-cm4.elf",
+          "executable": "/home/jacob/embedded/nxp/mimxrt1170evk/bin/cm4-debug/test/cm4/hello_world/hello-world-cm4.elf",
           "name": "core1 (cortex m4)",
           "request": "attach",
           "type": "cortex-debug",
