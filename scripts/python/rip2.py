@@ -43,14 +43,15 @@ def main():
   args = parser.parse_args()
 
   # Do flash
-  for preset_application in args.flash:
-    preset, application = resolve_application(preset_application)
+  if args.flash:
+    for preset_application in args.flash:
+      preset, application = resolve_application(preset_application)
 
-    if preset.startswith("cm7"):
-      flasher = Cm7Flasher()
-      flasher.flash(application)
+      if preset.startswith("cm7"):
+        flasher = Cm7Flasher()
+        flasher.flash(application)
 
-    # TODO error cm4
+      # TODO error cm4
 
   # Do Debug
   for preset_application in args.debug:
