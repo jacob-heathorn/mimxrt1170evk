@@ -74,5 +74,59 @@
       "name": "cm4-release",
       "configurePreset": "cm4-release"
     }
+  ],
+  "workflowPresets": [
+    {
+      "name": "cm4-debug",
+      "steps": [
+        {
+          "type": "configure",
+          "name": "cm4-debug"
+        },
+        {
+          "type": "build",
+          "name": "cm4-debug"
+        }
+      ]
+    },
+    {
+      "name": "cm7-debug",
+      "steps": [
+        {
+          "type": "configure",
+          "name": "cm7-debug"
+        },
+        {
+          "type": "build",
+          "name": "cm7-debug"
+        }
+      ]
+    },
+    {
+      "name": "cm4-release",
+      "steps": [
+        {
+          "type": "configure",
+          "name": "cm4-release"
+        },
+        {
+          "type": "build",
+          "name": "cm4-release"
+        }
+      ]
+    },
+    {
+      "name": "cm7-release",
+      "steps": [
+        {
+          "type": "configure",
+          "name": "cm7-release"
+        },
+        {
+          "type": "build",
+          "name": "cm7-release"
+        }
+      ]
+    }
   ]
 }
