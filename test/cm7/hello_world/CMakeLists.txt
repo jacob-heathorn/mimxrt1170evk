@@ -1,4 +1,7 @@
-add_executable(hello-world-cm7 hello_world_cm7.c)
+add_executable(hello-world-cm7
+  hello_world_cm7.c
+  /home/jacob/embedded/nxp/mimxrt1170evk/bin/cm4-debug/test/cm4/hello_world/hello-world-cm4.c
+)
 platformify(hello-world-cm7)
 target_link_libraries(hello-world-cm7 PRIVATE device utilities drivers board mcmgr)
 

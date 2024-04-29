@@ -45,15 +45,15 @@ class Target:
         
         if preset.name == "cm4":
           preset.build(release, verbose)
-          # TODO remove this part
-          if release:
-            with pushd("cm7"):
-              shutil.copy('/home/jacob/embedded/nxp/mimxrt1170evk/bin/mimxrt1176-debug/cm4/test/cm4/hello_world/hello-world-cm4.bin', 
-                        'core1_image.bin')
-          else:
-            with pushd("cm7"):
-              shutil.copy('/home/jacob/embedded/nxp/mimxrt1170evk/bin/mimxrt1176-debug/cm4/test/cm4/hello_world/hello-world-cm4.bin', 
-                        'core1_image.bin')
+          # # TODO remove this part
+          # if release:
+          #   with pushd("cm7"):
+          #     shutil.copy('/home/jacob/embedded/nxp/mimxrt1170evk/bin/mimxrt1176-debug/cm4/test/cm4/hello_world/hello-world-cm4.bin', 
+          #               'core1_image.bin')
+          # else:
+          #   with pushd("cm7"):
+          #     shutil.copy('/home/jacob/embedded/nxp/mimxrt1170evk/bin/mimxrt1176-debug/cm4/test/cm4/hello_world/hello-world-cm4.bin', 
+          #               'core1_image.bin')
         else:
           preset.build(release, verbose)
 
@@ -74,11 +74,6 @@ class Target:
       # args = ['cmake', '--build', self.bin_dir(release)]
       # subprocess.check_call(args)
 
-  def bin_dir(self, release: bool):
-    if release:
-      return os.path.join(self.top_build_root, f"{self.name}-release")
-    else:
-      return os.path.join(self.top_build_root, f"{self.name}-debug")
     
   def resolve_application(self, release: bool, preset_application: str):
     # Split the string into two parts at the first colon
@@ -88,6 +83,10 @@ class Target:
     preset = parts[0]  # The part before the colon
     application = parts[1] if len(parts) > 1 else None  # The part after the colon, or None if no colon
 
-    search_dir = os.path.join(self.bin_dir(release), preset)
+    if release:
+      search_dir = os.path.join(self.top_build_root, f"{preset}-release")
+    else:
+      search_dir = os.path.join(self.top_build_root, f"{preset}-debug")
+    print(search_dir)
     return find_application(application, search_dir)
   
