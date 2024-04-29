@@ -1,11 +1,8 @@
-set(CORE0_BIN_SOURCE "")
-FIND_CORE0_DEBUG(CORE0_BIN_SOURCE "hello-world-cm4.c")
-
-################################################################3
+FIND_CORE0_DEBUG(CORE0 "hello-world-cm4.c")
 
 add_executable(hello-world-cm7
   hello_world_cm7.c
-  ${CORE0_BIN_SOURCE}
+  ${CORE0}
 )
 platformify(hello-world-cm7)
 target_link_libraries(hello-world-cm7 PRIVATE device utilities drivers board mcmgr)

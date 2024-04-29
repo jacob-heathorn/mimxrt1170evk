@@ -137,8 +137,6 @@ endfunction()
 
 # Function to find the core0 debug file
 function(FIND_CORE0_DEBUG result_var input_filename)
-    # Invoke FIND_FILE_IN_DIRECTORY
-    set(FILE_PATH "")
     FIND_FILE_IN_DIRECTORY(FILE_PATH "$ENV{PROJECT_ROOT}/bin/cm4-debug" "${input_filename}")
 
     # Pass the result to the caller's variable
