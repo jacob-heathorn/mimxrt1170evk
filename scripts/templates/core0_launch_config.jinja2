@@ -1,0 +1,36 @@
+// Core 0 debug configuration. This launches the LinkServer's GDB Server for BOTH core0 and
+// core1. Then it uses a dedicated GDB session to "launch" core0. Then it uses the
+// cortex-debug "chained configuration" to automatically launch the core1 debug configuration,
+// which uses a separate GDB session to "attach" to core1.
+{
+    "cwd": "${workspaceRoot}",
+    "preLaunchTask": "Launch LinkServer's GDB Server (cm7 & cm4)",
+    "executable": "/home/jacob/embedded/nxp/mimxrt1170evk/bin/cm7-debug/test/cm7/hello_world/hello-world-cm7.elf",
+    "name": "core0 (cortex m7)",
+    "request": "launch",
+    "type": "cortex-debug",
+    "servertype": "external",
+    "configFiles": [],
+    "searchDir": [],
+    "runToEntryPoint": "main",
+    "armToolchainPath": "/home/jacob/.mcuxpressotools/arm-gnu-toolchain-12.2.rel1-x86_64-arm-none-eabi/bin",
+    "gdbPath": "/home/jacob/.mcuxpressotools/arm-gnu-toolchain-12.2.rel1-x86_64-arm-none-eabi/bin/arm-none-eabi-gdb",
+    "gdbTarget": "localhost:2457",
+    "showDevDebugOutput":"raw",
+    "numberOfProcessors": 1,
+    "targetProcessor": 0,
+    "preLaunchCommands": [
+    "set mem inaccessible-by-default off"
+    ],
+    "chainedConfigurations": {
+    "enabled": true,
+    "waitOnEvent": "postInit",
+    "lifeCycleShared": true,
+    "launches": [
+        {
+            "name": "core1 (cortex m4)",
+            "folder": ""
+        }
+    ]
+    }
+}

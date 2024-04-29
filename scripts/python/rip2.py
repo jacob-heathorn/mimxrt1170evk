@@ -16,6 +16,7 @@ from nxp.cm7_flasher import Cm7Flasher
 from nxp.cm7_vscode_debugger import Cm7VscodeDebugger
 from target import Target
 from forge.preset import find_application
+from update_launch import test_generate
 
 
 PROJECT_ROOT = os.environ.get("PROJECT_ROOT")
@@ -38,18 +39,25 @@ def resolve_application(preset_application: str):
 def main():
   parser = argparse.ArgumentParser(description="Process some applications.")
   parser.add_argument('-f', '--flash', nargs='+', help='List of applications to flash')
+  parser.add_argument('-d', '--debug', nargs='+', help='List of applications to debug')
   args = parser.parse_args()
 
   # Do flash
   for preset_application in args.flash:
-     preset, application = resolve_application(preset_application)
+    preset, application = resolve_application(preset_application)
 
-     if preset.startswith("cm7"):
-        flasher = Cm7Flasher()
-        flasher.flash(application)
+    if preset.startswith("cm7"):
+      flasher = Cm7Flasher()
+      flasher.flash(application)
 
+    # TODO error cm4
 
+  # Do Debug
+  for preset_application in args.debug:
+    preset, application = resolve_application(preset_application)
 
+    if preset.startswith("cm7"):
+      test_generate()
 
 
 
