@@ -1,5 +1,3 @@
-message(STATUS "Current build type: '${CMAKE_BUILD_TYPE}'")
-
 FIND_CORE0(CORE0 "hello-world-cm4.c")
 
 add_executable(hello-world-cm7
