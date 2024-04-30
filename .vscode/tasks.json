@@ -9,7 +9,7 @@
            "--no-boot",
            "MIMXRT1176xxxxx:MIMXRT1170-EVK",
            "--gdb-port",
-           "2467",
+           "2400",
            "-c",
            "all"
         ],

@@ -14,3 +14,12 @@ TODO
 `rip2 -d cm7-debug:hello-world-cm7`
 
 
+# Problems Debugging
+sudo lsof -i :2400
+sudo lsof -i :2401
+
+pkill LinkServer
+
+Unplug/Replug usb
+
+Reboot device
