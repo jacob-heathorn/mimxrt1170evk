@@ -1,9 +1,10 @@
 {
   "version": "2.0.0",
-  "tasks": [
+  "tasks":
+  [
     {
-        "label": "Launch LinkServer's GDB Server (cm7 & cm4)",
-        "command": "/usr/local/LinkServer_1.4.85/LinkServer",
+        "label": "Idempotent Launch LinkServer's GDB Server (cm7 & cm4)",
+        "command": "idempotent_linkserver",
         "args": [
            "gdbserver",
            "--no-boot",
@@ -30,38 +31,6 @@
               "endsPattern": "^Semihosting server listening on port.*$"
           }
         }
-    },
-  //   {
-  //     "label": "Launch GDB Server (cm4)",
-  //     "command": "/usr/local/LinkServer_1.4.85/LinkServer",
-  //     "args": [
-  //        "gdbserver",
-  //        "--no-boot",
-  //        "MIMXRT1176xxxxx:MIMXRT1170-EVK",
-  //        "--gdb-port",
-  //        "3383",
-  //        "-c",
-  //        "cm4",
-  //        // Note attach mode, since core0 loads core1
-  //        "-a"
-  //     ],
-  //     "type": "shell",
-  //     "isBackground": true,
-  //     "problemMatcher": {
-  //       "pattern": [
-  //           {
-  //               "regexp": ".*",
-  //               "file": 1,
-  //               "location": 2,
-  //               "message": 3
-  //           }
-  //       ],
-  //       "background": {
-  //           "activeOnStart": false,
-  //           "beginsPattern": "^GDB server listening on port.*$",
-  //           "endsPattern": "^Semihosting server listening on port.*$"
-  //       }
-  //     }
-  // }
+    }
   ]
 }
