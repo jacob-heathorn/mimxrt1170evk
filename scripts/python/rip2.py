@@ -13,7 +13,7 @@ import string
 from forge.preset import Preset, subset_presets
 from forge.helpers import error, pushd
 from nxp.cm7_flasher import Cm7Flasher
-from nxp.core0_vscode_debugger import Core0VscodeDebugger
+import nxp
 from target import Target
 from forge.preset import find_application
 
@@ -53,16 +53,17 @@ def main():
 
   # Do Debug
   if args.debug:
+    print(args.debug)
     for preset_application in args.debug:
       preset, application = resolve_application(preset_application)
 
       if preset.startswith("cm7"):
-        debugger = Core0VscodeDebugger()
-        debugger.generate(application)
+        debugger = nxp.VSCodeDebugger()
+        debugger.generate_core0(application)
 
-      # if preset.startswith("cm4"):
-      #   debugger = Core0VscodeDebugger()
-      #   debugger.generate(application)
+      if preset.startswith("cm4"):
+        debugger = nxp.VSCodeDebugger()
+        debugger.generate_core1(application)
   
 
 if __name__ == '__main__':

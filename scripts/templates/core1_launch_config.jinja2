@@ -1,21 +1,21 @@
 {
-  "name": "core0 (cortex m7)",
+  "name": "core1 (cortex m4)",
   "cwd": "${workspaceRoot}",
-  "preLaunchTask": "Idempotent Launch LinkServer's GDB Server (cm7 & cm4)",
   "executable": "{{ executable }}",
-  "request": "launch",
+  "preLaunchTask": "Idempotent Launch LinkServer's GDB Server (cm7 & cm4)",
+  "request": "attach",
   "type": "cortex-debug",
   "servertype": "external",
   "configFiles": [],
   "searchDir": [],
-  "runToEntryPoint": "main",
+  "breakAfterReset": false,
   "armToolchainPath": "/home/jacob/.mcuxpressotools/arm-gnu-toolchain-12.2.rel1-x86_64-arm-none-eabi/bin",
   "gdbPath": "/home/jacob/.mcuxpressotools/arm-gnu-toolchain-12.2.rel1-x86_64-arm-none-eabi/bin/arm-none-eabi-gdb",
-  "gdbTarget": "localhost:2400",
-  "showDevDebugOutput":"raw",
+  "gdbTarget": "localhost:2401",
+  "showDevDebugOutput": "raw",
   "numberOfProcessors": 1,
   "targetProcessor": 0,
-  "preLaunchCommands": [
+  "overrideAttachCommands": [
     "set mem inaccessible-by-default off"
   ]
 }
