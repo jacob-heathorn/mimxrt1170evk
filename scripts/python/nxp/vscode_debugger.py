@@ -17,11 +17,12 @@ class VSCodeDebugger():
 
     # Define the context for your template rendering
     context = {
+      'name': 'core0 (cortex m7)',
       'executable': executable
     }
 
     manager.update(template_fullfile, context)
-    print_green("Dude, where's my car")
+    print_green(f"In VSCode use run config: {context['name']}")
 
   def generate_core1(self, executable: os.path):
     launch_fullfile = os.path.join(PROJECT_ROOT, '.vscode', 'launch.json')
@@ -31,7 +32,9 @@ class VSCodeDebugger():
 
     # Define the context for your template rendering
     context = {
+      'name': 'core1 (cortex m4)',
       'executable': executable
     }
 
     manager.update(template_fullfile, context)
+    print_green(f"In VSCode use run config: {context['name']}")

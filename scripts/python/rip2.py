@@ -36,34 +36,40 @@ def resolve_application(preset_application: str):
 
 def main():
   parser = argparse.ArgumentParser(description="Process some applications.")
-  parser.add_argument('-f', '--flash', nargs='+', help='List of applications to flash')
-  parser.add_argument('-d', '--debug', nargs='+', help='List of applications to debug')
+  parser.add_argument('-fc0', '--flash_core0', type=str, help='Flash core0')
+  parser.add_argument('-dc0', '--debug_core0', type=str, help='Application to debug on core0')
+  parser.add_argument('-dc1', '--debug_core1', type=str, help='Application to debug on core1')
   args = parser.parse_args()
 
   # Do flash
-  if args.flash:
-    for preset_application in args.flash:
-      preset, application = resolve_application(preset_application)
+  if args.flash_core0:
+    preset, application = resolve_application(args.flash_core0)
 
-      if preset.startswith("cm7"):
-        flasher = Cm7Flasher()
-        flasher.flash(application)
+    if preset.startswith("cm7"):
+      flasher = Cm7Flasher()
+      flasher.flash(application)
+    else:
+      error("You can only flash core0, which is cortex-m7 architecture")
 
-      # TODO error cm4
+  # Do Debug (core0)
+  if args.debug_core0:
+    preset, application = resolve_application(args.debug_core0)
 
-  # Do Debug
-  if args.debug:
-    print(args.debug)
-    for preset_application in args.debug:
-      preset, application = resolve_application(preset_application)
+    if preset.startswith("cm7"):
+      debugger = nxp.VSCodeDebugger()
+      debugger.generate_core0(application)
+    else:
+      error("Core0 is cortex-m7 architecture")
+  
+  # Do Debug (core1)
+  if args.debug_core1:
+    preset, application = resolve_application(args.debug_core1)
 
-      if preset.startswith("cm7"):
-        debugger = nxp.VSCodeDebugger()
-        debugger.generate_core0(application)
-
-      if preset.startswith("cm4"):
-        debugger = nxp.VSCodeDebugger()
-        debugger.generate_core1(application)
+    if preset.startswith("cm4"):
+      debugger = nxp.VSCodeDebugger()
+      debugger.generate_core1(application)
+    else:
+      error("Core0 is cortex-m4 architecture")
   
 
 if __name__ == '__main__':
