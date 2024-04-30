@@ -13,11 +13,9 @@ import string
 from forge.preset import Preset, subset_presets
 from forge.helpers import error, pushd
 from nxp.cm7_flasher import Cm7Flasher
-from nxp.cm7_vscode_debugger import Cm7VscodeDebugger
+from nxp.core0_vscode_debugger import Core0VscodeDebugger
 from target import Target
 from forge.preset import find_application
-from update_launch import test_generate
-
 
 PROJECT_ROOT = os.environ.get("PROJECT_ROOT")
 BIN_ROOT = os.path.join(PROJECT_ROOT, 'bin')
@@ -59,11 +57,8 @@ def main():
       preset, application = resolve_application(preset_application)
 
       if preset.startswith("cm7"):
-        test_generate()
-
-
-
-
+        debugger = Core0VscodeDebugger()
+        debugger.generate(application)
   
 
 if __name__ == '__main__':
