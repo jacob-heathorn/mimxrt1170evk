@@ -21,5 +21,5 @@ class Core0VscodeDebugger():
     }
 
     manager.update(template_fullfile, context)
-    print_green("Open VSCode and hit F5 :)")
+    print_green("Dude, where's my car")
 
