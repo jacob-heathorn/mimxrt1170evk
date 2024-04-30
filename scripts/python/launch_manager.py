@@ -24,14 +24,13 @@ class LaunchManager:
 
     # Replace the existing configuration if it exists
     for idx, config in enumerate(self.data['configurations']):
-      print(idx)
       if config['name'] == new_config['name']:
         print(f"Updating launch configuration {config['name']}.")
         self.data['configurations'][idx] = new_config
         break
     else:
       print(f"Adding new launch configuration {new_config['name']}.")
-      print(idx)
+      self.data['configurations'].append(new_config)
 
     # Save
     with open(self.file, 'w', encoding='utf-8') as file:

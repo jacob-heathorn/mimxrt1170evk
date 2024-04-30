@@ -1,27 +1,6 @@
 {
   "configurations": [
     {
-      "name": "core0 (cortex m7)",
-      "cwd": "${workspaceRoot}",
-      "preLaunchTask": "Idempotent Launch LinkServer's GDB Server (cm7 & cm4)",
-      "executable": "/home/jacob/embedded/nxp/mimxrt1170evk/bin/cm7-debug/test/cm7/hello_world/hello-world-cm7.elf",
-      "request": "launch",
-      "type": "cortex-debug",
-      "servertype": "external",
-      "configFiles": [],
-      "searchDir": [],
-      "runToEntryPoint": "main",
-      "armToolchainPath": "/home/jacob/.mcuxpressotools/arm-gnu-toolchain-12.2.rel1-x86_64-arm-none-eabi/bin",
-      "gdbPath": "/home/jacob/.mcuxpressotools/arm-gnu-toolchain-12.2.rel1-x86_64-arm-none-eabi/bin/arm-none-eabi-gdb",
-      "gdbTarget": "localhost:2400",
-      "showDevDebugOutput": "raw",
-      "numberOfProcessors": 1,
-      "targetProcessor": 0,
-      "preLaunchCommands": [
-        "set mem inaccessible-by-default off"
-      ]
-    },
-    {
       "name": "core1 (cortex m4)",
       "cwd": "${workspaceRoot}",
       "executable": "/home/jacob/embedded/nxp/mimxrt1170evk/bin/cm4-debug/test/cm4/hello_world/hello-world-cm4.elf",
@@ -39,6 +18,27 @@
       "numberOfProcessors": 1,
       "targetProcessor": 0,
       "overrideAttachCommands": [
+        "set mem inaccessible-by-default off"
+      ]
+    },
+    {
+      "name": "core0 (cortex m7)",
+      "cwd": "${workspaceRoot}",
+      "preLaunchTask": "Idempotent Launch LinkServer's GDB Server (cm7 & cm4)",
+      "executable": "/home/jacob/embedded/nxp/mimxrt1170evk/bin/cm7-debug/test/cm7/hello_world/hello-world-cm7.elf",
+      "request": "launch",
+      "type": "cortex-debug",
+      "servertype": "external",
+      "configFiles": [],
+      "searchDir": [],
+      "runToEntryPoint": "main",
+      "armToolchainPath": "/home/jacob/.mcuxpressotools/arm-gnu-toolchain-12.2.rel1-x86_64-arm-none-eabi/bin",
+      "gdbPath": "/home/jacob/.mcuxpressotools/arm-gnu-toolchain-12.2.rel1-x86_64-arm-none-eabi/bin/arm-none-eabi-gdb",
+      "gdbTarget": "localhost:2400",
+      "showDevDebugOutput": "raw",
+      "numberOfProcessors": 1,
+      "targetProcessor": 0,
+      "preLaunchCommands": [
         "set mem inaccessible-by-default off"
       ]
     }
