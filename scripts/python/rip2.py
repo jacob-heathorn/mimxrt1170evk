@@ -54,11 +54,12 @@ def main():
       # TODO error cm4
 
   # Do Debug
-  for preset_application in args.debug:
-    preset, application = resolve_application(preset_application)
+  if args.debug:
+    for preset_application in args.debug:
+      preset, application = resolve_application(preset_application)
 
-    if preset.startswith("cm7"):
-      test_generate()
+      if preset.startswith("cm7"):
+        test_generate()
 
 
 

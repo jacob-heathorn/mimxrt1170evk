@@ -1,24 +1,24 @@
-import json
+import json5
 import os
 from jinja2 import Environment, FileSystemLoader
-
 PROJECT_ROOT = os.environ.get("PROJECT_ROOT")
 
 # Function to load the launch configuration
 def load_launch_config(file_path):
     with open(file_path, 'r') as file:
-        return json.load(file)
+        return json5.load(file)
 
 # Function to save the launch configuration
 def save_launch_config(file_path, config):
     with open(file_path, 'w', encoding='utf-8') as file:
-        json.dump(config, file, indent=4)
+        json5.dump(config, file, indent=2, quote_keys=True, trailing_commas=False)
 
 # Function to generate new configuration from a Jinja2 template
 def generate_new_config(template_path, template_name, context):
     env = Environment(loader=FileSystemLoader(template_path))
     template = env.get_template(template_name)
-    new_config = json.loads(template.render(context))
+    # We assume that the template output will be valid JSON5, parse it as such
+    new_config = json5.loads(template.render(context))
     return new_config
 
 def test_generate():
@@ -36,7 +36,7 @@ def test_generate():
   }
 
   # Generate the new configuration from the Jinja template
-  new_config = generate_new_config(os.path.join(PROJECT_ROOT, 'scripts', 'templates'), 'core0_launch_config.jinja', context)
+  new_config = generate_new_config(os.path.join(PROJECT_ROOT, 'scripts', 'templates'), 'core0_launch_config.jinja2', context)
 
   # Replace the existing configuration if it exists
   for idx, config in enumerate(launch_config['configurations']):

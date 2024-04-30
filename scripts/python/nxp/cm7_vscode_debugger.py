@@ -7,6 +7,7 @@ class Cm7VscodeDebugger():
     pass
 
   def generate(self, application: os.path):
+    
     print("TODO autogenerate launch.json and tasks.json")
     pass
 
