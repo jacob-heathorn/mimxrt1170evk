@@ -15,19 +15,14 @@ def generate_new_config(template_path, template_name, context):
     return new_config
 
 def test_generate():
-  # Load the existing launch.json
-  launch_file_path = os.path.join(PROJECT_ROOT, '.vscode', 'launch.json')
+  launch_fullfile = os.path.join(PROJECT_ROOT, '.vscode', 'launch.json')
+  template_fullfile = os.path.join(PROJECT_ROOT, 'scripts', 'templates', 'core0_launch_config.jinja2')
 
-  manager = LaunchManager(launch_file_path)
+  manager = LaunchManager(launch_fullfile)
 
   # Define the context for your template rendering
   context = {
-      'program': '${file}',
-      'console': 'integratedTerminal'
+    'executable': '/home/jacob/embedded/nxp/mimxrt1170evk/bin/cm7-debug/test/cm7/hello_world/hello-world-cm7.elf'
   }
 
-  # Generate the new configuration from the Jinja template
-  new_config = generate_new_config(os.path.join(PROJECT_ROOT, 'scripts', 'templates'), 'core0_launch_config.jinja2', context)
-
-  manager.update(new_config)
-  manager.save()
+  manager.update(template_fullfile, context)
