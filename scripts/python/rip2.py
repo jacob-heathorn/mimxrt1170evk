@@ -59,6 +59,10 @@ def main():
       if preset.startswith("cm7"):
         debugger = Core0VscodeDebugger()
         debugger.generate(application)
+
+      # if preset.startswith("cm4"):
+      #   debugger = Core0VscodeDebugger()
+      #   debugger.generate(application)
   
 
 if __name__ == '__main__':
