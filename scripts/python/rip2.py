@@ -5,15 +5,11 @@
 # System pythonmodules
 import argparse
 import os
-import shutil
 from typing import List
-import string
 
 # Custom imports
-from forge.preset import Preset, subset_presets
 from forge.helpers import error, pushd
-from nxp.cm7_flasher import Cm7Flasher
-import nxp
+import mimxrt1170evk
 from target import Target
 from forge.preset import find_application
 
@@ -46,7 +42,7 @@ def main():
     preset, application = resolve_application(args.flash_core0)
 
     if preset.startswith("cm7"):
-      flasher = Cm7Flasher()
+      flasher = mimxrt1170evk.Core0Flasher()
       flasher.flash(application)
     else:
       error("You can only flash core0, which is cortex-m7 architecture")
@@ -56,7 +52,7 @@ def main():
     preset, application = resolve_application(args.debug_core0)
 
     if preset.startswith("cm7"):
-      debugger = nxp.VSCodeDebugger()
+      debugger = mimxrt1170evk.VSCodeDebugger()
       debugger.generate_core0(application)
     else:
       error("Core0 is cortex-m7 architecture")
@@ -66,7 +62,7 @@ def main():
     preset, application = resolve_application(args.debug_core1)
 
     if preset.startswith("cm4"):
-      debugger = nxp.VSCodeDebugger()
+      debugger = mimxrt1170evk.VSCodeDebugger()
       debugger.generate_core1(application)
     else:
       error("Core0 is cortex-m4 architecture")
