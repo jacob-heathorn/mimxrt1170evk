@@ -1,0 +1,30 @@
+{
+  "label": "Idempotent Launch LinkServer's GDB Server (cm7 & cm4)",
+  "command": "idempotent_linkserver",
+  "args": [
+      "gdbserver",
+      "--no-boot",
+      "MIMXRT1176xxxxx:MIMXRT1170-EVK",
+      "--gdb-port",
+      "2400",
+      "-c",
+      "all"
+  ],
+  "type": "shell",
+  "isBackground": true,
+  "problemMatcher": {
+    "pattern": [
+        {
+            "regexp": ".*",
+            "file": 1,
+            "location": 2,
+            "message": 3
+        }
+    ],
+    "background": {
+        "activeOnStart": false,
+        "beginsPattern": "^GDB server listening on port.*$",
+        "endsPattern": "^Semihosting server listening on port.*$"
+    }
+  }
+}

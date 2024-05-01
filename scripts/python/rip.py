@@ -5,100 +5,67 @@
 # System pythonmodules
 import argparse
 import os
-import shutil
 from typing import List
-import string
 
 # Custom imports
-from forge.preset import Preset, subset_presets
-from forge.helpers import error, pushd
-from nxp.cm7_flasher import Cm7Flasher
-from nxp.cm7_vscode_debugger import Cm7VscodeDebugger
-from target import Target
+from forge.helpers import error
+import mimxrt1170evk
+from forge.preset import find_application
 
-# Pull in environment variables
-FORGE_ROOT = os.environ.get("FORGE_ROOT")
 PROJECT_ROOT = os.environ.get("PROJECT_ROOT")
-ARM_GDB_PATH = os.environ.get("ARM_GDB_PATH")
+BIN_ROOT = os.path.join(PROJECT_ROOT, 'bin')
 
+def resolve_application(preset_application: str):
+    # Split the string into two parts at the first colon
+    parts = preset_application.split(':', 1)  # '1' is the maxsplit argument
 
-# Define presets
-mimxrt1176 = Target("mimxrt1176", PROJECT_ROOT)
+    # Assign the parts to respective variables
+    preset = parts[0]  # The part before the colon
+    application = parts[1] if len(parts) > 1 else None  # The part after the colon, or None if no colon
 
-# cortex-m4
-cm4 = Preset("cm4", PROJECT_ROOT) # TODO use CMakePresets.json at this level
-cm4.cmake_toolchain_file = os.path.join(PROJECT_ROOT, 'cmake','cm4', 'toolchain.cmake')
-mimxrt1176.presets.append(cm4)
-
-# cortex-m7
-cm7 = Preset("cm7", PROJECT_ROOT) # TODO use CMakePresets.json at this level
-cm7.cmake_toolchain_file = os.path.join(PROJECT_ROOT, 'cmake','cm7', 'toolchain.cmake')
-mimxrt1176.presets.append(cm7)
-
-mimxrt1176.flasher = Cm7Flasher()
-mimxrt1176.debugger = Cm7VscodeDebugger()
-
-# ALL_PRESETS = [mimxrt1176]
+    # Resolve
+    search_dir = os.path.join(BIN_ROOT, preset)
+    application_fullfile = find_application(application, search_dir)
+    print(f"Found: {preset}:{application_fullfile}")
+    return preset, application_fullfile
 
 def main():
-  parser = argparse.ArgumentParser(description='Repository build driver')
-  # parser.add_argument('-p', '--presets', dest="presets", required=False, nargs='+', help='CMake build preset(s)')
-  parser.add_argument('-c', '--clean', action='store_true', default=False, help='Delete the build folder')
-  parser.add_argument('-b', '--build', action='store_true', default=False, help='Compile')
-  parser.add_argument('-a', '--application', dest="application", required=False, help='Application binary')
-  parser.add_argument('-f', '--flash', action='store_true', default=False, help='Flash the application to the preset target')
-  parser.add_argument('-v', '--verbose', action='store_true', default=False, help='Build verbose')
-  parser.add_argument('-r', '--release', action='store_true', default=False, help='Build in release mode')
-  parser.add_argument('-sd', '--start_debugger', action='store_true', default=False, help="Start the debugger.")
+  parser = argparse.ArgumentParser(description="Process some applications.")
+  parser.add_argument('-fc0', '--flash_core0', type=str, help='Flash core0')
+  parser.add_argument('-dc0', '--debug_core0', type=str, help='Application to debug on core0')
+  parser.add_argument('-dc1', '--debug_core1', type=str, help='Application to debug on core1')
   args = parser.parse_args()
 
-  # # Don't require a preset, default to all presets if one is not specified
-  # if args.presets is None:
-  #   presets = ALL_PRESETS
-  # else:
-  #   presets = subset_presets(args.presets, ALL_PRESETS)
-  target = mimxrt1176
-
-  # Do clean
-  # if args.clean:
-  #   if presets == ALL_PRESETS:
-  #     if os.path.exists(os.path.join(PROJECT_ROOT, 'bin')):
-  #       shutil.rmtree(os.path.join(PROJECT_ROOT, 'bin'))
-  if args.clean:
-    shutil.rmtree(os.path.join(PROJECT_ROOT, 'bin'))
-
-    # else:
-    #   for preset in presets:
-    #     preset.clean()
-  
-  # # # TODO remove this part
-  # if args.release:
-  #   with pushd('bin/mimxrt1176-release/cm7'):
-  #     shutil.copy('/home/jacob/evtol/nxp/examples/evkmimxrt1170_hello_world_cm4/armgcc/debug/core1_image.bin', 
-  #               'core1_image.bin')
-  # else:
-  #   with pushd('bin/mimxrt1176-debug/cm7'):
-  #     shutil.copy('/home/jacob/evtol/nxp/examples/evkmimxrt1170_hello_world_cm4/armgcc/debug/core1_image.bin', 
-  #               'core1_image.bin')
-
-  # Do build
-  if args.build:
-    target.build(args.release, args.verbose)
-
-  # Resolve Application
-  if args.application:
-    args.application = target.resolve_application(args.release, args.application)
-  
   # Do flash
-  if args.flash:
-    if target.flasher:
-      target.flasher.flash(args.application)
+  if args.flash_core0:
+    preset, application = resolve_application(args.flash_core0)
 
-  # Do Debug
-  if target.debugger:
-    target.debugger.generate(args.application)
-    if args.start_debugger:
-      target.debugger.debug()
+    if preset.startswith("cm7"):
+      flasher = mimxrt1170evk.Core0Flasher()
+      flasher.flash(application)
+    else:
+      error("You can only flash core0, which is cortex-m7 architecture")
+
+  # Do Debug (core0)
+  if args.debug_core0:
+    preset, application = resolve_application(args.debug_core0)
+
+    if preset.startswith("cm7"):
+      debugger = mimxrt1170evk.VSCodeDebugger()
+      debugger.generate_core0(application)
+    else:
+      error("Core0 is cortex-m7 architecture")
+  
+  # Do Debug (core1)
+  if args.debug_core1:
+    preset, application = resolve_application(args.debug_core1)
+
+    if preset.startswith("cm4"):
+      debugger = mimxrt1170evk.VSCodeDebugger()
+      debugger.generate_core1(application)
+    else:
+      error("Core0 is cortex-m4 architecture")
+  
 
 if __name__ == '__main__':
   main()

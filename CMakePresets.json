@@ -1,0 +1,132 @@
+{
+  "version": 6,
+  "cmakeMinimumRequired": {
+    "major": 3,
+    "minor": 23,
+    "patch": 0
+  },
+  "include": [],
+  "configurePresets": [
+    {
+      "name": "default",
+      "hidden": true,
+      "generator": "Ninja"
+    },
+    {
+      "name": "cm7",
+      "hidden": true,
+      "inherits": "default",
+      "toolchainFile": "${sourceDir}/cmake/cm7/toolchain.cmake"
+    },
+    {
+      "name": "cm4",
+      "hidden": true,
+      "inherits": "default",
+      "toolchainFile": "${sourceDir}/cmake/cm4/toolchain.cmake"
+    },
+    {
+      "name": "cm7-debug",
+      "inherits": "cm7",
+      "binaryDir": "${sourceDir}/bin/${presetName}",
+      "cacheVariables": {
+        "CMAKE_BUILD_TYPE": "Debug"
+      }
+    },
+    {
+      "name": "cm4-debug",
+      "inherits": "cm4",
+      "binaryDir": "${sourceDir}/bin/${presetName}",
+      "cacheVariables": {
+        "CMAKE_BUILD_TYPE": "Debug"
+      }
+    },
+    {
+      "name": "cm7-release",
+      "inherits": "cm7",
+      "binaryDir": "${sourceDir}/bin/${presetName}",
+      "cacheVariables": {
+        "CMAKE_BUILD_TYPE": "Release"
+      }
+    },
+    {
+      "name": "cm4-release",
+      "inherits": "cm4",
+      "binaryDir": "${sourceDir}/bin/${presetName}",
+      "cacheVariables": {
+        "CMAKE_BUILD_TYPE": "Release"
+      }
+    }
+  ],
+  "buildPresets": [
+    {
+      "name": "cm7-debug",
+      "configurePreset": "cm7-debug"
+    },
+    {
+      "name": "cm4-debug",
+      "configurePreset": "cm4-debug"
+    },
+    {
+      "name": "cm7-release",
+      "configurePreset": "cm7-release"
+    },
+    {
+      "name": "cm4-release",
+      "configurePreset": "cm4-release"
+    }
+  ],
+  "workflowPresets": [
+    {
+      "name": "cm4-debug",
+      "steps": [
+        {
+          "type": "configure",
+          "name": "cm4-debug"
+        },
+        {
+          "type": "build",
+          "name": "cm4-debug"
+        }
+      ]
+    },
+    {
+      "name": "cm7-debug",
+      "steps": [
+        {
+          "type": "configure",
+          "name": "cm7-debug"
+        },
+        {
+          "type": "build",
+          "name": "cm7-debug"
+        }
+      ]
+    },
+    {
+      "name": "cm4-release",
+      "steps": [
+        {
+          "type": "configure",
+          "name": "cm4-release"
+        },
+        {
+          "type": "build",
+          "name": "cm4-release"
+        }
+      ]
+    },
+    {
+      "name": "cm7-release",
+      "steps": [
+        {
+          "type": "configure",
+          "name": "cm7-release"
+        },
+        {
+          "type": "build",
+          "name": "cm7-release"
+        }
+      ]
+    }
+  ]
+}

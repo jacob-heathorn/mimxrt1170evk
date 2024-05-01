@@ -9,7 +9,7 @@ target_link_libraries(utilities PRIVATE
 file(GLOB public_headers "*.h")
 file(GLOB private_sources 
   "*.c"
-  "*.S"
+  "fsl_memcpy.S"
 )
 
 target_sources(utilities
