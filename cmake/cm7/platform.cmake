@@ -113,7 +113,7 @@ endfunction()
 # Other utilities
 
 # TODO move to forge
-# Findsy a file recursively in a given directory
+# Finds a file recursively in a given directory
 function(FIND_FILE_IN_DIRECTORY result_var input_directory input_filename)
   # Use GLOB_RECURSE to search for the file recursively
   file(GLOB_RECURSE found_files
@@ -135,27 +135,26 @@ function(FIND_FILE_IN_DIRECTORY result_var input_directory input_filename)
   endif()
 endfunction()
 
-# Finds the core0 debug binary source
-function(FIND_CORE0_DEBUG result_var input_filename)
+# Finds a file in the cortex-m4 debug build directory
+function(FIND_CM4_DEBUG result_var input_filename)
   FIND_FILE_IN_DIRECTORY(FILE_PATH "$ENV{PROJECT_ROOT}/bin/cm4-debug" "${input_filename}")
   set(${result_var} ${FILE_PATH} PARENT_SCOPE)
-  message(STATUS "Core0 found: ${FILE_PATH}")
+  message(STATUS "cortex-m4 debug build file found found: ${FILE_PATH}")
 endfunction()
 
-# Finds the core0 release binary source
-function(FIND_CORE0_RELEASE result_var input_filename)
+# Finds a file in the cortex-m4 release build directory
+function(FIND_CM4_RELEASE result_var input_filename)
   FIND_FILE_IN_DIRECTORY(FILE_PATH "$ENV{PROJECT_ROOT}/bin/cm4-release" "${input_filename}")
   set(${result_var} ${FILE_PATH} PARENT_SCOPE)
-  message(STATUS "Core0 found: ${FILE_PATH}")
+  message(STATUS "cortex-m4 release build file found: ${FILE_PATH}")
 endfunction()
 
-# Finds either the release or debug version of the core0 binary source depending on the local build
-# type
-function(FIND_CORE0 result_var input_filename)
+# Finds a file in either the release or debug build of cortex-m4 depending on the local build type.
+function(FIND_CM4 result_var input_filename)
   if("${CMAKE_BUILD_TYPE}" STREQUAL "Debug")
-    FIND_CORE0_DEBUG(CORE0 "${input_filename}")
+    FIND_CM4_DEBUG(CORE0 "${input_filename}")
   elseif("${CMAKE_BUILD_TYPE}" STREQUAL "Release")
-    FIND_CORE0_RELEASE(CORE0 "${input_filename}")
+    FIND_CM4_RELEASE(CORE0 "${input_filename}")
   else()
     message(FATAL_ERROR "Unsupported build type: ${CMAKE_BUILD_TYPE}")
   endif()
