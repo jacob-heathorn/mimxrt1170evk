@@ -9,9 +9,9 @@ TODO
 # New
 `cmake --workflow --preset cm4-debug && cmake --workflow --preset cm7-debug`
 
-`rip2 -fc0 cm7-debug:hello-world-cm7`
+`rip -fc0 cm7-debug:hello-world-cm7`
 
-`rip2 -dc0 cm7-debug:hello-world-cm7 -dc1 cm4-debug:hello-world-cm4`
+`rip -dc0 cm7-debug:hello-world-cm7 -dc1 cm4-debug:hello-world-cm4`
 
 
 # Problems Debugging
