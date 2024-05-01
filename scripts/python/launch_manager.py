@@ -7,9 +7,36 @@ PROJECT_ROOT = os.environ.get("PROJECT_ROOT")
 class LaunchManager:
   def __init__(self, file: os.path):
     self.file = file
-    
-    with open(self.file, 'r') as file:
-      self.data = json5.load(file)
+    self.data = self._load_or_create_default()
+
+  def _load_or_create_default(self):
+        if not os.path.exists(self.file):
+            # File does not exist, create it with default configuration
+            return self._create_default_file()
+        else:
+            # File exists, load its content
+            with open(self.file, 'r') as file:
+                try:
+                    data = json5.load(file)
+                except ValueError:
+                    # Handle case where file is empty or contains invalid JSON5
+                    return self._create_default_file()
+
+                # Check if 'configurations' key exists
+                if 'configurations' not in data:
+                    # Add default configurations and save the file
+                    data['configurations'] = []
+                    with open(self.file, 'w') as file:
+                        json5.dump(data, file, indent=4)
+                return data
+  
+  def _create_default_file(self):
+        default_data = {
+            "configurations": []
+        }
+        with open(self.file, 'w') as file:
+            json5.dump(default_data, file, indent=4)
+        return default_data
 
   def update(self, template_fullfile, context):
     # Read the template file
