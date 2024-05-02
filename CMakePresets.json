@@ -16,13 +16,13 @@
       "name": "cm7",
       "hidden": true,
       "inherits": "default",
-      "toolchainFile": "${sourceDir}/cmake/cm7/toolchain.cmake"
+      "toolchainFile": "${fileDir}/cmake/cm7/toolchain.cmake"
     },
     {
       "name": "cm4",
       "hidden": true,
       "inherits": "default",
-      "toolchainFile": "${sourceDir}/cmake/cm4/toolchain.cmake"
+      "toolchainFile": "${fileDir}/cmake/cm4/toolchain.cmake"
     },
     {
       "name": "cm7-debug",
