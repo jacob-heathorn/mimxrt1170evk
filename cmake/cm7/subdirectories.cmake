@@ -1,2 +1,2 @@
-add_subdirectory(firmware/cm7)
-add_subdirectory(test/cm7)
+add_subdirectory(${CMAKE_CURRENT_SOURCE_DIR}/firmware/cm7)
+add_subdirectory(${CMAKE_CURRENT_SOURCE_DIR}/test/cm7)
