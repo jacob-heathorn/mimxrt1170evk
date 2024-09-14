@@ -7,7 +7,7 @@ readme = "README.md"
 
 [tool.poetry.dependencies]
 python = "^3.10"
-forge = {path = "../../gordion/forge/scripts/package"}
+forge = {path = "../../../forge/scripts/package"}
 
 
 [build-system]
