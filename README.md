@@ -7,6 +7,13 @@
 # Debug
 `rip -d0 cm7-debug:hello-world-cm7 -d1 cm4-debug:hello-world-cm4`
 
+# Full test
+```
+cmake --workflow --preset cm4-debug && cmake --workflow --preset cm7-debug && \
+rip -f0 cm7-debug:hello-world-cm7 && \
+rip -d0 cm7-debug:hello-world-cm7 -d1 cm4-debug:hello-world-cm4
+````
+
 
 # Problems Debugging
 sudo lsof -i :2400
