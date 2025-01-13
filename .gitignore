@@ -3,3 +3,6 @@
 /.vscode/launch.json
 /.vscode/tasks.json
 /.direnv/
+/scripts/package/.venv
+/scripts/package/poetry.lock
+/scripts/package/pyproject.toml
