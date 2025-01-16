@@ -1,2 +1,9 @@
-add_subdirectory(${CMAKE_CURRENT_SOURCE_DIR}/firmware/cm4)
-add_subdirectory(${CMAKE_CURRENT_SOURCE_DIR}/test/cm4)
+include_guard(GLOBAL)
+add_subdirectory(
+  $ENV{MIMXRT1170EVK_ROOT}/firmware/cm4
+  ${CMAKE_BINARY_DIR}/mimxrt1170evk/firmware
+)
+add_subdirectory(
+  $ENV{MIMXRT1170EVK_ROOT}/test/cm4 
+  ${CMAKE_BINARY_DIR}/mimxrt1170evk/test
+)

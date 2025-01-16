@@ -5,24 +5,27 @@
     "minor": 23,
     "patch": 0
   },
-  "include": [],
+  "include": [
+    "$penv{FORGE_ROOT}/CMakePresets.json"
+  ],
   "configurePresets": [
-    {
-      "name": "default",
-      "hidden": true,
-      "generator": "Ninja"
-    },
     {
       "name": "cm7",
       "hidden": true,
       "inherits": "default",
-      "toolchainFile": "${fileDir}/cmake/cm7/toolchain.cmake"
+      "toolchainFile": "${sourceDir}/cmake/cm7/toolchain.cmake",
+      "cacheVariables": {
+        "PLATFORM_PATH": "${sourceDir}/cmake/cm7"
+      }
     },
     {
       "name": "cm4",
       "hidden": true,
       "inherits": "default",
-      "toolchainFile": "${fileDir}/cmake/cm4/toolchain.cmake"
+      "toolchainFile": "${sourceDir}/cmake/cm4/toolchain.cmake",
+      "cacheVariables": {
+        "PLATFORM_PATH": "${sourceDir}/cmake/cm4"
+      }
     },
     {
       "name": "cm7-debug",
