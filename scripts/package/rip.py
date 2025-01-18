@@ -1,6 +1,6 @@
 #!/usr/bin/env python3
 #
-# Top-level repository build tool.
+# Deployment tool.
 
 import argparse
 import shutil
@@ -25,13 +25,13 @@ def main():
 
   # Do flash
   if args.flash_core_0:
-    mimxrt1170evk.flash_core_0(args.flash_core_0)
+    mimxrt1170evk.Core0Application(args.flash_core_0).flash()
 
   # Do debug
   if args.debug_core_0:
-    mimxrt1170evk.debug_core_0(args.debug_core_0)
+    mimxrt1170evk.Core0Application(args.debug_core_0).debug()
   if args.debug_core_1:
-    mimxrt1170evk.debug_core_1(args.debug_core_1)
+    mimxrt1170evk.Core1Application(args.debug_core_1).debug()
 
 
 if __name__ == '__main__':

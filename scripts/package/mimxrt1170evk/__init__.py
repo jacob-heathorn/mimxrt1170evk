@@ -2,3 +2,4 @@
 from .vscode_debugger import VSCodeDebugger
 from .core0_flasher import Core0Flasher
 from .commands import flash_core_0, debug_core_0, debug_core_1
+from .application import Core0Application, Core1Application
