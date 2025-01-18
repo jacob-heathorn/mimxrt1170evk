@@ -6,6 +6,7 @@ import argparse
 import shutil
 import os
 import mimxrt1170evk
+import forge
 
 
 PROJECT_ROOT = os.environ.get("PROJECT_ROOT")
@@ -22,6 +23,8 @@ def main():
   # Do clean
   if args.clean:
     shutil.rmtree(os.path.join(PROJECT_ROOT, 'bin'), ignore_errors=True)
+    forge.remove_file(os.path.join(PROJECT_ROOT, '.vscode', 'launch.json'))
+    forge.remove_file(os.path.join(PROJECT_ROOT, '.vscode', 'tasks.json'))
 
   # Do flash
   if args.flash_core_0:
