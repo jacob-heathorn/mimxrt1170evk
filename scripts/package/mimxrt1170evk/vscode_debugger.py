@@ -1,6 +1,6 @@
 import os
-from forge.helpers import print_green
-import vscode
+import forge
+from forge import print_green
 
 PROJECT_ROOT = os.environ.get("PROJECT_ROOT")
 FILE_DIR = os.path.dirname(os.path.abspath(__file__))
@@ -16,7 +16,7 @@ class VSCodeDebugger():
     launch_fullfile = os.path.join(PROJECT_ROOT, '.vscode', 'launch.json')
     template_fullfile = os.path.join(TEMPLATES_DIR, 'core0_launch_config.jinja2')
 
-    launch_manager = vscode.LaunchManager(launch_fullfile)
+    launch_manager = forge.vscode.LaunchManager(launch_fullfile)
 
     # Define the context for your template rendering
     name = 'core0 (cortex m7)'
@@ -32,7 +32,7 @@ class VSCodeDebugger():
     launch_fullfile = os.path.join(PROJECT_ROOT, '.vscode', 'launch.json')
     template_fullfile = os.path.join(TEMPLATES_DIR, 'core1_launch_config.jinja2')
 
-    launch_manager = vscode.LaunchManager(launch_fullfile)
+    launch_manager = forge.vscode.LaunchManager(launch_fullfile)
 
     # Define the context for your template rendering
     name = 'core1 (cortex m4)'
@@ -48,7 +48,7 @@ class VSCodeDebugger():
     tasks_fullfile = os.path.join(PROJECT_ROOT, '.vscode', 'tasks.json')
     template_fullfile = os.path.join(TEMPLATES_DIR, 'linkserver_task.jinja2')
 
-    tasks_manager = vscode.TasksManager(tasks_fullfile)
+    tasks_manager = forge.vscode.TasksManager(tasks_fullfile)
 
     # Define the context for your template rendering
     context = {}
