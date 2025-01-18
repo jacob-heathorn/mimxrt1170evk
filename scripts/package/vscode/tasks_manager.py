@@ -4,6 +4,7 @@ from jinja2 import Template
 
 PROJECT_ROOT = os.environ.get("PROJECT_ROOT")
 
+
 class TasksManager:
   def __init__(self, file: os.path):
     self.file = file
@@ -29,15 +30,15 @@ class TasksManager:
           with open(self.file, 'w') as file:
             json5.dump(data, file, indent=4)
         return data
-  
+
   def _create_default_file(self):
-        default_data = {
-          "version": "2.0.0",
-          "tasks": []
-        }
-        with open(self.file, 'w') as file:
-            json5.dump(default_data, file, indent=4)
-        return default_data
+    default_data = {
+        "version": "2.0.0",
+        "tasks": []
+    }
+    with open(self.file, 'w') as file:
+      json5.dump(default_data, file, indent=4)
+    return default_data
 
   def update(self, template_fullfile, context):
     # Read the template file
