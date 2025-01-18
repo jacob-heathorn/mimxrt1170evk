@@ -5,7 +5,7 @@ name = "forge"
 version = "0.1.0"
 description = "Embedded tooling"
 optional = false
-python-versions = "^3.10"
+python-versions = "^3.12"
 files = []
 develop = true
 
@@ -176,5 +176,5 @@ files = [
 
 [metadata]
 lock-version = "2.0"
-python-versions = "^3.10"
-content-hash = "cf38036d6e1fa28e503f30b82bf1a49ab2334bc9e7a93e831943b7809a401fb1"
+python-versions = "^3.12"
+content-hash = "22eac53a341583a2df992bc358d13170fd7942bf32bca048fec8de342bc91d19"
