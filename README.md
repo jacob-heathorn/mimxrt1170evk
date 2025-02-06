@@ -1,3 +1,22 @@
+# Setup Instructions
+
+1) Clone this repository: `git clone https://github.com/jacob-heathorn/mimxrt1170evk.git`
+2) Install gordion: TODO
+3) Update the gordion dependencies: `gordion -u`
+4) Install direnv:
+  * `sudo apt install direnv`
+  * Add the following to your .bashrc: `eval "$(direnv hook bash)"`
+  * Open a new terminal and change directory to here.
+  * `direnv allow .`
+5) Install nix:
+  * `sh <(curl -L https://nixos.org/nix/install) --daemon`
+  * TODO: enable nix-direnv (I forgot)
+6) Install LinkServer from NXP:
+  * Download:
+    https://www.nxp.com/design/design-center/software/development-software/mcuxpresso-software-and-tools-/linkserver-for-microcontrollers:LINKERSERVER
+  * chmod +x and run the download.
+7) Run the setup script `setup`
+
 # Build
 `cmake --workflow --preset cm4-debug && cmake --workflow --preset cm7-debug`
 
