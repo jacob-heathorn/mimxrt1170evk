@@ -5,6 +5,8 @@ from forge import print_green
 PROJECT_ROOT = os.environ.get("PROJECT_ROOT")
 FILE_DIR = os.path.dirname(os.path.abspath(__file__))
 TEMPLATES_DIR = os.path.normpath(os.path.join(FILE_DIR, '..', '..', 'templates'))
+ARM_GCC_TOOLCHAIN_PATH = os.environ.get("ARM_GCC_TOOLCHAIN_PATH")
+GDB_PATH = os.path.join(ARM_GCC_TOOLCHAIN_PATH, "arm-none-eabi-gdb")
 
 
 class VSCodeDebugger():
@@ -22,7 +24,9 @@ class VSCodeDebugger():
     name = 'core0 (cortex m7)'
     context = {
         'name': name,
-        'executable': executable
+        'executable': executable,
+        'arm_gcc_toolchain_path': ARM_GCC_TOOLCHAIN_PATH,
+        'gcc_path': GDB_PATH
     }
 
     launch_manager.update(template_fullfile, context)
@@ -38,7 +42,9 @@ class VSCodeDebugger():
     name = 'core1 (cortex m4)'
     context = {
         'name': name,
-        'executable': executable
+        'executable': executable,
+        'arm_gcc_toolchain_path': ARM_GCC_TOOLCHAIN_PATH,
+        'gcc_path': GDB_PATH
     }
 
     launch_manager.update(template_fullfile, context)
