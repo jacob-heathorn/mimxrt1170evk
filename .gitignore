@@ -4,3 +4,5 @@
 /.direnv/
 /scripts/package/pyproject.toml
 /scripts/package/.venv
+/.pycache
+/.tox
