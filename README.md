@@ -17,6 +17,9 @@
   * chmod +x and run the download.
 7) Run the setup script `setup`
 
+# Repository tests
+`tox`
+
 # Build
 `cmake --workflow --preset cm4-debug && cmake --workflow --preset cm7-debug`
 
