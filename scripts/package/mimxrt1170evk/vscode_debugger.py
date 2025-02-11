@@ -1,12 +1,15 @@
 import os
 import forge
 from forge import print_green
+from typing import Dict
 
-PROJECT_ROOT = os.environ.get("PROJECT_ROOT")
+PROJECT_ROOT = os.environ.get("PROJECT_ROOT", "")
 FILE_DIR = os.path.dirname(os.path.abspath(__file__))
 TEMPLATES_DIR = os.path.normpath(os.path.join(FILE_DIR, '..', '..', 'templates'))
-ARM_GCC_TOOLCHAIN_PATH = os.environ.get("ARM_GCC_TOOLCHAIN_PATH")
+ARM_GCC_TOOLCHAIN_PATH = os.environ.get("ARM_GCC_TOOLCHAIN_PATH", "")
 GDB_PATH = os.path.join(ARM_GCC_TOOLCHAIN_PATH, "arm-none-eabi-gdb")
+
+# TODO rename?
 
 
 class VSCodeDebugger():
@@ -14,7 +17,7 @@ class VSCodeDebugger():
   def __init__(self):
     pass
 
-  def generate_core0_launch_config(self, executable: os.path):
+  def generate_core0_launch_config(self, executable: str):
     launch_fullfile = os.path.join(PROJECT_ROOT, '.vscode', 'launch.json')
     template_fullfile = os.path.join(TEMPLATES_DIR, 'core0_launch_config.jinja2')
 
@@ -32,7 +35,7 @@ class VSCodeDebugger():
     launch_manager.update(template_fullfile, context)
     return name
 
-  def generate_core1_launch_config(self, executable: os.path):
+  def generate_core1_launch_config(self, executable: str):
     launch_fullfile = os.path.join(PROJECT_ROOT, '.vscode', 'launch.json')
     template_fullfile = os.path.join(TEMPLATES_DIR, 'core1_launch_config.jinja2')
 
@@ -57,15 +60,15 @@ class VSCodeDebugger():
     tasks_manager = forge.vscode.TasksManager(tasks_fullfile)
 
     # Define the context for your template rendering
-    context = {}
+    context: Dict[str, str] = {}
     tasks_manager.update(template_fullfile, context)
 
-  def generate_core0(self, executable: os.path):
+  def generate_core0(self, executable: str):
     self.generate_linkserver_task()
     name = self.generate_core0_launch_config(executable)
     print_green(f"In VSCode use run config: {name}")
 
-  def generate_core1(self, executable: os.path):
+  def generate_core1(self, executable: str):
     self.generate_linkserver_task()
     name = self.generate_core1_launch_config(executable)
     print_green(f"In VSCode use run config: {name}")

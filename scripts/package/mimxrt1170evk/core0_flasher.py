@@ -1,7 +1,7 @@
 import os
 import subprocess
 
-LINK_SERVER = os.environ.get("LINK_SERVER")
+LINK_SERVER = os.environ.get("LINK_SERVER", "")
 
 
 class Core0Flasher():
@@ -9,7 +9,7 @@ class Core0Flasher():
   def __init__(self):
     pass
 
-  def flash(self, application: os.path):
+  def flash(self, application: str):
     # Kill any existing link server
     args = ['pkill', 'LinkServer']
     subprocess.call(args)
