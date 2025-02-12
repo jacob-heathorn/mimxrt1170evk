@@ -12,14 +12,13 @@
       "--indent-size", "2",
       "--aggressive"
   ],
+  "flake8.path": ["flake8"],
   "flake8.args": [
       "--indent-size", "2",
       "--max-line-length", "100",
   ],
-
   "editor.tabSize": 2,
   "editor.wordWrapColumn": 100,
-
   "files.associations": {
     "array": "cpp",
     "atomic": "cpp",
