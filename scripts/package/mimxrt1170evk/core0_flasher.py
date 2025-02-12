@@ -5,6 +5,9 @@ LINK_SERVER = os.environ.get("LINK_SERVER", "")
 
 
 class Core0Flasher():
+  """
+  Flashes core 0.
+  """
 
   def __init__(self):
     pass

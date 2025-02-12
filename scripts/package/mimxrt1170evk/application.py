@@ -21,7 +21,7 @@ class Core0Application(forge.Application):
     flasher.flash(self.application_fullfile)
 
   def debug(self):
-    debugger = mimxrt1170evk.VSCodeDebugger()
+    debugger = mimxrt1170evk.Mimxrt1170Debugger()
     debugger.generate_core0(self.application_fullfile)
 
 
@@ -40,5 +40,5 @@ class Core1Application(forge.Application):
     forge.error("The run() method is not supported, use flash().")
 
   def debug(self):
-    debugger = mimxrt1170evk.VSCodeDebugger()
+    debugger = mimxrt1170evk.Mimxrt1170Debugger()
     debugger.generate_core1(self.application_fullfile)
