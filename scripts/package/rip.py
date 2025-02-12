@@ -26,6 +26,8 @@ def main():
     forge.remove_file(os.path.join(PROJECT_ROOT, '.vscode', 'launch.json'))
     forge.remove_file(os.path.join(PROJECT_ROOT, '.vscode', 'tasks.json'))
 
+  print("This is a very long line of code that is definitely going to be longer than seventy-nine characters and should trigger a line too long error.")
+
   # Do flash
   if args.flash_core_0:
     mimxrt1170evk.Core0Application(args.flash_core_0).flash()

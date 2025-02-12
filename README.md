@@ -15,7 +15,16 @@
   * Download:
     https://www.nxp.com/design/design-center/software/development-software/mcuxpresso-software-and-tools-/linkserver-for-microcontrollers:LINKERSERVER
   * chmod +x and run the download.
-7) Run the setup script `setup`
+7) Install vscode extensions:
+  * autopep8
+  * Better Jinja
+  * C/C++
+  * Cortext-Debug
+  * Flake8
+  * Nix
+  * Pylance
+  * Python
+8) Run the setup script `setup`
 
 # Repository tests
 `tox`
