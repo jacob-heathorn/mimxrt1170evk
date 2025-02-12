@@ -1,6 +1,7 @@
 import os
 import subprocess
 import forge
+import mimxrt1170evk
 
 PROJECT_ROOT = os.environ.get("PROJECT_ROOT")
 
@@ -87,3 +88,13 @@ def test_build_cm7_release():
             'test',
             'hello_world',
             'hello-world-cm7.elf'))
+
+
+def test_debug():
+  """
+  Verifies that debugging generates the vscode launch.json and tasks.json script.
+  """
+  mimxrt1170evk.Core0Application("cm7-debug:hello-world-cm7").debug()
+  mimxrt1170evk.Core1Application("cm4-debug:hello-world-cm4").debug()
+  assert os.path.exists(os.path.join(PROJECT_ROOT, '.vscode', 'launch.json'))
+  assert os.path.exists(os.path.join(PROJECT_ROOT, '.vscode', 'tasks.json'))
