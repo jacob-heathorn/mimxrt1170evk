@@ -18,6 +18,7 @@ def main():
   parser.add_argument('-d0', '--debug_core_0', type=str, help='Debug core 0 <preset:application>')
   parser.add_argument('-d1', '--debug_core_1', type=str, help='Debug core 1 <preset:application>')
   parser.add_argument('-c', '--clean', action='store_true', help='Clean bin/ directories')
+  parser.add_argument('-g', '--generate', action='store_true', help='Generate svd register')
   args = parser.parse_args()
 
   # Do clean
@@ -35,6 +36,12 @@ def main():
     mimxrt1170evk.Core0Application(args.debug_core_0).debug()
   if args.debug_core_1:
     mimxrt1170evk.Core1Application(args.debug_core_1).debug()
+
+  # Do generate registers
+  if args.generate:
+    svd_parser_wrapper = forge.SVDParserWrapper('STMicro', 'STM32H743x.svd')
+    output_dir = os.path.join(PROJECT_ROOT, '.bin')
+    svd_parser_wrapper.generate(output_dir)
 
 
 if __name__ == '__main__':
