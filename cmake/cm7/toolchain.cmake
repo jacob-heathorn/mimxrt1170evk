@@ -30,9 +30,6 @@ set(CMAKE_FIND_ROOT_PATH_MODE_LIBRARY ONLY)
 set(CMAKE_FIND_ROOT_PATH_MODE_INCLUDE ONLY)
 set(CMAKE_FIND_ROOT_PATH_MODE_PACKAGE ONLY)
 
-# Declare the platform path.
-set(PLATFORM_PATH ${CMAKE_CURRENT_LIST_DIR})
-
 # NOTE: Even while using target_compile_options() to explicitly set these flags on each target,
 # cmake still generates an error saying they differ. I am not sure if this is a bug, but they need
 # to be set here as well. CMake seems to be generating other stuff that links with the targets with

@@ -5,5 +5,5 @@ if pgrep -x "LinkServer" > /dev/null
 then
     echo "Process is already running."
 else
-    exec /usr/local/LinkServer_1.4.85/LinkServer ${@}
+    exec $LINK_SERVER ${@}
 fi

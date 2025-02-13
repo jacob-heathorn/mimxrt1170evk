@@ -1,33 +1,36 @@
 {
-  "version": 6,
+  "version": 7,
   "cmakeMinimumRequired": {
     "major": 3,
     "minor": 23,
     "patch": 0
   },
-  "include": [],
+  "include": [
+    "$penv{FORGE_ROOT}/CMakePresets.json"
+  ],
   "configurePresets": [
-    {
-      "name": "default",
-      "hidden": true,
-      "generator": "Ninja"
-    },
     {
       "name": "cm7",
       "hidden": true,
       "inherits": "default",
-      "toolchainFile": "${fileDir}/cmake/cm7/toolchain.cmake"
+      "toolchainFile": "${sourceDir}/cmake/cm7/toolchain.cmake",
+      "cacheVariables": {
+        "PLATFORM_PATH": "${sourceDir}/cmake/cm7"
+      }
     },
     {
       "name": "cm4",
       "hidden": true,
       "inherits": "default",
-      "toolchainFile": "${fileDir}/cmake/cm4/toolchain.cmake"
+      "toolchainFile": "${sourceDir}/cmake/cm4/toolchain.cmake",
+      "cacheVariables": {
+        "PLATFORM_PATH": "${sourceDir}/cmake/cm4"
+      }
     },
     {
       "name": "cm7-debug",
       "inherits": "cm7",
-      "binaryDir": "${sourceDir}/bin/${presetName}",
+      "binaryDir": "${sourceDir}/.bin/${presetName}",
       "cacheVariables": {
         "CMAKE_BUILD_TYPE": "Debug"
       }
@@ -35,7 +38,7 @@
     {
       "name": "cm4-debug",
       "inherits": "cm4",
-      "binaryDir": "${sourceDir}/bin/${presetName}",
+      "binaryDir": "${sourceDir}/.bin/${presetName}",
       "cacheVariables": {
         "CMAKE_BUILD_TYPE": "Debug"
       }
@@ -43,7 +46,7 @@
     {
       "name": "cm7-release",
       "inherits": "cm7",
-      "binaryDir": "${sourceDir}/bin/${presetName}",
+      "binaryDir": "${sourceDir}/.bin/${presetName}",
       "cacheVariables": {
         "CMAKE_BUILD_TYPE": "Release"
       }
@@ -51,7 +54,7 @@
     {
       "name": "cm4-release",
       "inherits": "cm4",
-      "binaryDir": "${sourceDir}/bin/${presetName}",
+      "binaryDir": "${sourceDir}/.bin/${presetName}",
       "cacheVariables": {
         "CMAKE_BUILD_TYPE": "Release"
       }

@@ -1,11 +1,12 @@
 #!/usr/bin/env python3
 #
-# Top-level repository build tool.
+# Deployment tool.
 
 import argparse
 import shutil
 import os
 import mimxrt1170evk
+import forge
 
 
 PROJECT_ROOT = os.environ.get("PROJECT_ROOT")
@@ -21,17 +22,19 @@ def main():
 
   # Do clean
   if args.clean:
-    shutil.rmtree(os.path.join(PROJECT_ROOT, 'bin'), ignore_errors=True)
+    shutil.rmtree(os.path.join(PROJECT_ROOT, '.bin'), ignore_errors=True)
+    forge.remove_file(os.path.join(PROJECT_ROOT, '.vscode', 'launch.json'))
+    forge.remove_file(os.path.join(PROJECT_ROOT, '.vscode', 'tasks.json'))
 
   # Do flash
   if args.flash_core_0:
-    mimxrt1170evk.flash_core_0(args.flash_core_0)
+    mimxrt1170evk.Core0Application(args.flash_core_0).flash()
 
   # Do debug
   if args.debug_core_0:
-    mimxrt1170evk.debug_core_0(args.debug_core_0)
+    mimxrt1170evk.Core0Application(args.debug_core_0).debug()
   if args.debug_core_1:
-    mimxrt1170evk.debug_core_1(args.debug_core_1)
+    mimxrt1170evk.Core1Application(args.debug_core_1).debug()
 
 
 if __name__ == '__main__':
