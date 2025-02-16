@@ -39,9 +39,12 @@ def main():
 
   # Do generate registers
   if args.generate:
-    svd_parser_wrapper = forge.SVDParserWrapper('STMicro', 'STM32H743x.svd')
+    # TODO: get mcux-sdk in nix.
+    file = '/home/jacob/evtol/nxp/repos/mcux-sdk/svd/MIMXRT1176/MIMXRT1176_cm7.xml'
     output_dir = os.path.join(PROJECT_ROOT, '.bin')
-    svd_parser_wrapper.generate(output_dir)
+    svd_parser_wrapper = forge.SVDParserWrapper(file, output_dir)
+    svd_parser_wrapper.generate_peripheral("LPUART1")
+    # svd_parser_wrapper.generate()
 
 
 if __name__ == '__main__':
