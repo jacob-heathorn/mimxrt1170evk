@@ -1,4 +1,4 @@
-add_executable(hello-world-cm4 hello_world_cm4.c)
+add_executable(hello-world-cm4 hello_world_cm4.cpp)
 platformify(hello-world-cm4)
 target_link_libraries(hello-world-cm4 PRIVATE board drivers device utilities mcmgr registers)
 target_compile_options(hello-world-cm4 PRIVATE 

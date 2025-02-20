@@ -18,7 +18,7 @@ target_sources(mcmgr
 target_include_directories(mcmgr INTERFACE ${CMAKE_CURRENT_SOURCE_DIR})
 platformify(mcmgr)
 target_compile_options(mcmgr PUBLIC 
-  -Wno-discarded-qualifiers
+  # -Wno-discarded-qualifiers
   -Wno-cast-align
 )
 
