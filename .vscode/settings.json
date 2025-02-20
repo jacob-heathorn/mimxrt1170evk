@@ -67,7 +67,10 @@
     "fsl_device_registers.h": "c",
     "mcmgr.h": "c",
     "fsl_mu.h": "c",
-    "clock_config.h": "c"
+    "clock_config.h": "c",
+    "any": "cpp",
+    "ratio": "cpp",
+    "variant": "cpp"
   },
   "cortex-debug.variableUseNaturalFormat": true
 }
