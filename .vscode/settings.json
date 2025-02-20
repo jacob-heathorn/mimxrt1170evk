@@ -70,7 +70,8 @@
     "clock_config.h": "c",
     "any": "cpp",
     "ratio": "cpp",
-    "variant": "cpp"
+    "variant": "cpp",
+    "gpio9.hpp": "c"
   },
   "cortex-debug.variableUseNaturalFormat": true
 }

@@ -6,17 +6,17 @@
 
 #include "register32.hpp"
 
-// Register definitions for GPIO1
+// Register definitions for GPIO9
 //
 // GPIO
 //
 // NOTE: This file was generated from the forge CMSIS-svd wrapper tool.
 
-namespace GPIO1 {
+namespace GPIO9 {
 
 // GPIO data register
 struct DR_t : public Register {
-  DR_t() : Register(0x4012c000) {}
+  DR_t() : Register(0x40c64000) {}
 
   
   // DR data bits
@@ -29,7 +29,7 @@ struct DR_t : public Register {
 
 // GPIO direction register
 struct GDIR_t : public Register {
-  GDIR_t() : Register(0x4012c004) {}
+  GDIR_t() : Register(0x40c64004) {}
 
   
   // GPIO direction bits
@@ -42,7 +42,7 @@ struct GDIR_t : public Register {
 
 // GPIO pad status register
 struct PSR_t : public Register {
-  PSR_t() : Register(0x4012c008) {}
+  PSR_t() : Register(0x40c64008) {}
 
   
   // GPIO pad status bits
@@ -55,7 +55,7 @@ struct PSR_t : public Register {
 
 // GPIO interrupt configuration register1
 struct ICR1_t : public Register {
-  ICR1_t() : Register(0x4012c00c) {}
+  ICR1_t() : Register(0x40c6400c) {}
 
   
   // Interrupt configuration field for GPIO interrupt 0
@@ -239,7 +239,7 @@ struct ICR1_t : public Register {
 
 // GPIO interrupt configuration register2
 struct ICR2_t : public Register {
-  ICR2_t() : Register(0x4012c010) {}
+  ICR2_t() : Register(0x40c64010) {}
 
   
   // Interrupt configuration field for GPIO interrupt 16
@@ -423,7 +423,7 @@ struct ICR2_t : public Register {
 
 // GPIO interrupt mask register
 struct IMR_t : public Register {
-  IMR_t() : Register(0x4012c014) {}
+  IMR_t() : Register(0x40c64014) {}
 
   
   // Interrupt Mask bits
@@ -436,7 +436,7 @@ struct IMR_t : public Register {
 
 // GPIO interrupt status register
 struct ISR_t : public Register {
-  ISR_t() : Register(0x4012c018) {}
+  ISR_t() : Register(0x40c64018) {}
 
   
   // Interrupt status bits
@@ -449,7 +449,7 @@ struct ISR_t : public Register {
 
 // GPIO edge select register
 struct EDGE_SEL_t : public Register {
-  EDGE_SEL_t() : Register(0x4012c01c) {}
+  EDGE_SEL_t() : Register(0x40c6401c) {}
 
   
   // Edge select
@@ -462,7 +462,7 @@ struct EDGE_SEL_t : public Register {
 
 // GPIO data register SET
 struct DR_SET_t : public Register {
-  DR_SET_t() : Register(0x4012c084) {}
+  DR_SET_t() : Register(0x40c64084) {}
 
   
   // Set
@@ -474,7 +474,7 @@ struct DR_SET_t : public Register {
 
 // GPIO data register CLEAR
 struct DR_CLEAR_t : public Register {
-  DR_CLEAR_t() : Register(0x4012c088) {}
+  DR_CLEAR_t() : Register(0x40c64088) {}
 
   
   // Clear
@@ -486,7 +486,7 @@ struct DR_CLEAR_t : public Register {
 
 // GPIO data register TOGGLE
 struct DR_TOGGLE_t : public Register {
-  DR_TOGGLE_t() : Register(0x4012c08c) {}
+  DR_TOGGLE_t() : Register(0x40c6408c) {}
 
   
   // Toggle
@@ -511,4 +511,4 @@ struct Registers {
   DR_TOGGLE_t DR_TOGGLE{};
 };
 
-} // namespace GPIO1
+} // namespace GPIO9

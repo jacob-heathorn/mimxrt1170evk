@@ -1,3 +1,5 @@
+add_subdirectory(registers)
+
 add_subdirectory(startup)
 add_subdirectory(cmsis)
 add_subdirectory(utilities)
