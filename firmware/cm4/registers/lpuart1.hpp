@@ -12,7 +12,7 @@
 //
 // NOTE: This file was generated from the forge CMSIS-svd wrapper tool.
 
-namespace LPUART1 {
+namespace nLPUART1 {
 
 // Version ID Register
 struct VERID_t : public Register {
@@ -21,12 +21,12 @@ struct VERID_t : public Register {
   
   // Feature Identification Number
   //
-  enum class FEATURE : uint32_t {
-    kSTANDARD=1, // Standard feature set.
-    kMODEM=3, // Standard feature set with MODEM/IrDA support.
+  enum class eFEATURE : uint32_t {
+    eSTANDARD=1, // Standard feature set.
+    eMODEM=3, // Standard feature set with MODEM/IrDA support.
   };
-  FEATURE GetFEATURE() const { return GetBits<16>(0).to_ulong(); }
-  void WaitForFEATURE(FEATURE value) { WaitForBits<16>(0, value); }
+  eFEATURE GetFEATURE() const { return static_cast<eFEATURE>(GetBits<16>(0).to_ulong()); }
+  void WaitForFEATURE(eFEATURE value) { WaitForBits<16>(0, static_cast<uint32_t>(value)); }
   
   // Minor Version Number
   //
@@ -66,12 +66,12 @@ struct GLOBAL_t : public Register {
   
   // Software Reset
   //
-  enum class RST : uint32_t {
-    kNO_EFFECT=0, // Module is not reset.
-    kRESET=1, // Module is reset.
+  enum class eRST : uint32_t {
+    eNO_EFFECT=0, // Module is not reset.
+    eRESET=1, // Module is reset.
   };
-  RST GetRST() const { return GetBit(1); }
-  void WaitForRST(RST value) { WaitForBit(1, value); }
+  eRST GetRST() const { return static_cast<eRST>(GetBit(1)); }
+  void WaitForRST(eRST value) { WaitForBit(1, static_cast<uint32_t>(value)); }
   
   void Reset() { this->Set(0x00000000); }
 };
@@ -83,14 +83,14 @@ struct PINCFG_t : public Register {
   
   // Trigger Select
   //
-  enum class TRGSEL : uint32_t {
-    kDISABLED=0, // Input trigger is disabled.
-    kTRG_RXD=1, // Input trigger is used instead of RXD pin input.
-    kTRG_CTS=2, // Input trigger is used instead of CTS_B pin input.
-    kTRG_TXD=3, // Input trigger is used to modulate the TXD pin output. The TXD pin output (after TXINV configuration) is internally ANDed with the input trigger.
+  enum class eTRGSEL : uint32_t {
+    eDISABLED=0, // Input trigger is disabled.
+    eTRG_RXD=1, // Input trigger is used instead of RXD pin input.
+    eTRG_CTS=2, // Input trigger is used instead of CTS_B pin input.
+    eTRG_TXD=3, // Input trigger is used to modulate the TXD pin output. The TXD pin output (after TXINV configuration) is internally ANDed with the input trigger.
   };
-  TRGSEL GetTRGSEL() const { return GetBits<2>(0).to_ulong(); }
-  void WaitForTRGSEL(TRGSEL value) { WaitForBits<2>(0, value); }
+  eTRGSEL GetTRGSEL() const { return static_cast<eTRGSEL>(GetBits<2>(0).to_ulong()); }
+  void WaitForTRGSEL(eTRGSEL value) { WaitForBits<2>(0, static_cast<uint32_t>(value)); }
   
   void Reset() { this->Set(0x00000000); }
 };
@@ -107,141 +107,141 @@ struct BAUD_t : public Register {
   
   // Stop Bit Number Select
   //
-  enum class SBNS : uint32_t {
-    kONE=0, // One stop bit.
-    kTWO=1, // Two stop bits.
+  enum class eSBNS : uint32_t {
+    eONE=0, // One stop bit.
+    eTWO=1, // Two stop bits.
   };
-  SBNS GetSBNS() const { return GetBit(13); }
-  void WaitForSBNS(SBNS value) { WaitForBit(13, value); }
+  eSBNS GetSBNS() const { return static_cast<eSBNS>(GetBit(13)); }
+  void WaitForSBNS(eSBNS value) { WaitForBit(13, static_cast<uint32_t>(value)); }
   
   // RX Input Active Edge Interrupt Enable
   //
-  enum class RXEDGIE : uint32_t {
-    kDISABLE=0, // Hardware interrupts from STAT[RXEDGIF] are disabled.
-    kENABLE=1, // Hardware interrupt is requested when STAT[RXEDGIF] flag is 1.
+  enum class eRXEDGIE : uint32_t {
+    eDISABLE=0, // Hardware interrupts from STAT[RXEDGIF] are disabled.
+    eENABLE=1, // Hardware interrupt is requested when STAT[RXEDGIF] flag is 1.
   };
-  RXEDGIE GetRXEDGIE() const { return GetBit(14); }
-  void WaitForRXEDGIE(RXEDGIE value) { WaitForBit(14, value); }
+  eRXEDGIE GetRXEDGIE() const { return static_cast<eRXEDGIE>(GetBit(14)); }
+  void WaitForRXEDGIE(eRXEDGIE value) { WaitForBit(14, static_cast<uint32_t>(value)); }
   
   // LIN Break Detect Interrupt Enable
   //
-  enum class LBKDIE : uint32_t {
-    kDISABLE=0, // Hardware interrupts from STAT[LBKDIF] flag are disabled (use polling).
-    kENABLE=1, // Hardware interrupt is requested when STAT[LBKDIF] flag is 1.
+  enum class eLBKDIE : uint32_t {
+    eDISABLE=0, // Hardware interrupts from STAT[LBKDIF] flag are disabled (use polling).
+    eENABLE=1, // Hardware interrupt is requested when STAT[LBKDIF] flag is 1.
   };
-  LBKDIE GetLBKDIE() const { return GetBit(15); }
-  void WaitForLBKDIE(LBKDIE value) { WaitForBit(15, value); }
+  eLBKDIE GetLBKDIE() const { return static_cast<eLBKDIE>(GetBit(15)); }
+  void WaitForLBKDIE(eLBKDIE value) { WaitForBit(15, static_cast<uint32_t>(value)); }
   
   // Resynchronization Disable
   //
-  enum class RESYNCDIS : uint32_t {
-    kRESYNC=0, // Resynchronization during received data word is supported.
-    kNO_RESYNC=1, // Resynchronization during received data word is disabled.
+  enum class eRESYNCDIS : uint32_t {
+    eRESYNC=0, // Resynchronization during received data word is supported.
+    eNO_RESYNC=1, // Resynchronization during received data word is disabled.
   };
-  RESYNCDIS GetRESYNCDIS() const { return GetBit(16); }
-  void WaitForRESYNCDIS(RESYNCDIS value) { WaitForBit(16, value); }
+  eRESYNCDIS GetRESYNCDIS() const { return static_cast<eRESYNCDIS>(GetBit(16)); }
+  void WaitForRESYNCDIS(eRESYNCDIS value) { WaitForBit(16, static_cast<uint32_t>(value)); }
   
   // Both Edge Sampling
   //
-  enum class BOTHEDGE : uint32_t {
-    kDISABLED=0, // Receiver samples input data using the rising edge of the baud rate clock.
-    kENABLED=1, // Receiver samples input data using the rising and falling edge of the baud rate clock.
+  enum class eBOTHEDGE : uint32_t {
+    eDISABLED=0, // Receiver samples input data using the rising edge of the baud rate clock.
+    eENABLED=1, // Receiver samples input data using the rising and falling edge of the baud rate clock.
   };
-  BOTHEDGE GetBOTHEDGE() const { return GetBit(17); }
-  void WaitForBOTHEDGE(BOTHEDGE value) { WaitForBit(17, value); }
+  eBOTHEDGE GetBOTHEDGE() const { return static_cast<eBOTHEDGE>(GetBit(17)); }
+  void WaitForBOTHEDGE(eBOTHEDGE value) { WaitForBit(17, static_cast<uint32_t>(value)); }
   
   // Match Configuration
   //
-  enum class MATCFG : uint32_t {
-    kADDR_MATCH=0, // Address Match Wakeup
-    kIDLE_MATCH=1, // Idle Match Wakeup
-    kONOFF_MATCH=2, // Match On and Match Off
-    kRWU_MATCH=3, // Enables RWU on Data Match and Match On/Off for transmitter CTS input
+  enum class eMATCFG : uint32_t {
+    eADDR_MATCH=0, // Address Match Wakeup
+    eIDLE_MATCH=1, // Idle Match Wakeup
+    eONOFF_MATCH=2, // Match On and Match Off
+    eRWU_MATCH=3, // Enables RWU on Data Match and Match On/Off for transmitter CTS input
   };
-  MATCFG GetMATCFG() const { return GetBits<2>(18).to_ulong(); }
-  void WaitForMATCFG(MATCFG value) { WaitForBits<2>(18, value); }
+  eMATCFG GetMATCFG() const { return static_cast<eMATCFG>(GetBits<2>(18).to_ulong()); }
+  void WaitForMATCFG(eMATCFG value) { WaitForBits<2>(18, static_cast<uint32_t>(value)); }
   
   // Receiver Full DMA Enable
   //
-  enum class RDMAE : uint32_t {
-    kDISABLED=0, // DMA request disabled.
-    kENABLED=1, // DMA request enabled.
+  enum class eRDMAE : uint32_t {
+    eDISABLED=0, // DMA request disabled.
+    eENABLED=1, // DMA request enabled.
   };
-  RDMAE GetRDMAE() const { return GetBit(21); }
-  void WaitForRDMAE(RDMAE value) { WaitForBit(21, value); }
+  eRDMAE GetRDMAE() const { return static_cast<eRDMAE>(GetBit(21)); }
+  void WaitForRDMAE(eRDMAE value) { WaitForBit(21, static_cast<uint32_t>(value)); }
   
   // Transmitter DMA Enable
   //
-  enum class TDMAE : uint32_t {
-    kDISABLED=0, // DMA request disabled.
-    kENABLED=1, // DMA request enabled.
+  enum class eTDMAE : uint32_t {
+    eDISABLED=0, // DMA request disabled.
+    eENABLED=1, // DMA request enabled.
   };
-  TDMAE GetTDMAE() const { return GetBit(23); }
-  void WaitForTDMAE(TDMAE value) { WaitForBit(23, value); }
+  eTDMAE GetTDMAE() const { return static_cast<eTDMAE>(GetBit(23)); }
+  void WaitForTDMAE(eTDMAE value) { WaitForBit(23, static_cast<uint32_t>(value)); }
   
   // Oversampling Ratio
   //
-  enum class OSR : uint32_t {
-    kDEFAULT=0, // Writing 0 to this field results in an oversampling ratio of 16
-    kOSR_4=3, // Oversampling ratio of 4, requires BOTHEDGE to be set.
-    kOSR_5=4, // Oversampling ratio of 5, requires BOTHEDGE to be set.
-    kOSR_6=5, // Oversampling ratio of 6, requires BOTHEDGE to be set.
-    kOSR_7=6, // Oversampling ratio of 7, requires BOTHEDGE to be set.
-    kOSR_8=7, // Oversampling ratio of 8.
-    kOSR_9=8, // Oversampling ratio of 9.
-    kOSR_10=9, // Oversampling ratio of 10.
-    kOSR_11=10, // Oversampling ratio of 11.
-    kOSR_12=11, // Oversampling ratio of 12.
-    kOSR_13=12, // Oversampling ratio of 13.
-    kOSR_14=13, // Oversampling ratio of 14.
-    kOSR_15=14, // Oversampling ratio of 15.
-    kOSR_16=15, // Oversampling ratio of 16.
-    kOSR_17=16, // Oversampling ratio of 17.
-    kOSR_18=17, // Oversampling ratio of 18.
-    kOSR_19=18, // Oversampling ratio of 19.
-    kOSR_20=19, // Oversampling ratio of 20.
-    kOSR_21=20, // Oversampling ratio of 21.
-    kOSR_22=21, // Oversampling ratio of 22.
-    kOSR_23=22, // Oversampling ratio of 23.
-    kOSR_24=23, // Oversampling ratio of 24.
-    kOSR_25=24, // Oversampling ratio of 25.
-    kOSR_26=25, // Oversampling ratio of 26.
-    kOSR_27=26, // Oversampling ratio of 27.
-    kOSR_28=27, // Oversampling ratio of 28.
-    kOSR_29=28, // Oversampling ratio of 29.
-    kOSR_30=29, // Oversampling ratio of 30.
-    kOSR_31=30, // Oversampling ratio of 31.
-    kOSR_32=31, // Oversampling ratio of 32.
+  enum class eOSR : uint32_t {
+    eDEFAULT=0, // Writing 0 to this field results in an oversampling ratio of 16
+    eOSR_4=3, // Oversampling ratio of 4, requires BOTHEDGE to be set.
+    eOSR_5=4, // Oversampling ratio of 5, requires BOTHEDGE to be set.
+    eOSR_6=5, // Oversampling ratio of 6, requires BOTHEDGE to be set.
+    eOSR_7=6, // Oversampling ratio of 7, requires BOTHEDGE to be set.
+    eOSR_8=7, // Oversampling ratio of 8.
+    eOSR_9=8, // Oversampling ratio of 9.
+    eOSR_10=9, // Oversampling ratio of 10.
+    eOSR_11=10, // Oversampling ratio of 11.
+    eOSR_12=11, // Oversampling ratio of 12.
+    eOSR_13=12, // Oversampling ratio of 13.
+    eOSR_14=13, // Oversampling ratio of 14.
+    eOSR_15=14, // Oversampling ratio of 15.
+    eOSR_16=15, // Oversampling ratio of 16.
+    eOSR_17=16, // Oversampling ratio of 17.
+    eOSR_18=17, // Oversampling ratio of 18.
+    eOSR_19=18, // Oversampling ratio of 19.
+    eOSR_20=19, // Oversampling ratio of 20.
+    eOSR_21=20, // Oversampling ratio of 21.
+    eOSR_22=21, // Oversampling ratio of 22.
+    eOSR_23=22, // Oversampling ratio of 23.
+    eOSR_24=23, // Oversampling ratio of 24.
+    eOSR_25=24, // Oversampling ratio of 25.
+    eOSR_26=25, // Oversampling ratio of 26.
+    eOSR_27=26, // Oversampling ratio of 27.
+    eOSR_28=27, // Oversampling ratio of 28.
+    eOSR_29=28, // Oversampling ratio of 29.
+    eOSR_30=29, // Oversampling ratio of 30.
+    eOSR_31=30, // Oversampling ratio of 31.
+    eOSR_32=31, // Oversampling ratio of 32.
   };
-  OSR GetOSR() const { return GetBits<5>(24).to_ulong(); }
-  void WaitForOSR(OSR value) { WaitForBits<5>(24, value); }
+  eOSR GetOSR() const { return static_cast<eOSR>(GetBits<5>(24).to_ulong()); }
+  void WaitForOSR(eOSR value) { WaitForBits<5>(24, static_cast<uint32_t>(value)); }
   
   // 10-bit Mode select
   //
-  enum class M10 : uint32_t {
-    kDISABLED=0, // Receiver and transmitter use 7-bit to 9-bit data characters.
-    kENABLED=1, // Receiver and transmitter use 10-bit data characters.
+  enum class eM10 : uint32_t {
+    eDISABLED=0, // Receiver and transmitter use 7-bit to 9-bit data characters.
+    eENABLED=1, // Receiver and transmitter use 10-bit data characters.
   };
-  M10 GetM10() const { return GetBit(29); }
-  void WaitForM10(M10 value) { WaitForBit(29, value); }
+  eM10 GetM10() const { return static_cast<eM10>(GetBit(29)); }
+  void WaitForM10(eM10 value) { WaitForBit(29, static_cast<uint32_t>(value)); }
   
   // Match Address Mode Enable 2
   //
-  enum class MAEN2 : uint32_t {
-    kDISABLED=0, // Normal operation.
-    kENABLED=1, // Enables automatic address matching or data matching mode for MATCH[MA2].
+  enum class eMAEN2 : uint32_t {
+    eDISABLED=0, // Normal operation.
+    eENABLED=1, // Enables automatic address matching or data matching mode for MATCH[MA2].
   };
-  MAEN2 GetMAEN2() const { return GetBit(30); }
-  void WaitForMAEN2(MAEN2 value) { WaitForBit(30, value); }
+  eMAEN2 GetMAEN2() const { return static_cast<eMAEN2>(GetBit(30)); }
+  void WaitForMAEN2(eMAEN2 value) { WaitForBit(30, static_cast<uint32_t>(value)); }
   
   // Match Address Mode Enable 1
   //
-  enum class MAEN1 : uint32_t {
-    kDISABLED=0, // Normal operation.
-    kENABLED=1, // Enables automatic address matching or data matching mode for MATCH[MA1].
+  enum class eMAEN1 : uint32_t {
+    eDISABLED=0, // Normal operation.
+    eENABLED=1, // Enables automatic address matching or data matching mode for MATCH[MA1].
   };
-  MAEN1 GetMAEN1() const { return GetBit(31); }
-  void WaitForMAEN1(MAEN1 value) { WaitForBit(31, value); }
+  eMAEN1 GetMAEN1() const { return static_cast<eMAEN1>(GetBit(31)); }
+  void WaitForMAEN1(eMAEN1 value) { WaitForBit(31, static_cast<uint32_t>(value)); }
   
   void Reset() { this->Set(0x0f000004); }
 };
@@ -253,165 +253,165 @@ struct STAT_t : public Register {
   
   // Match 2 Flag
   //
-  enum class MA2F : uint32_t {
-    kNOMATCH=0, // Received data is not equal to MA2
-    kMATCH=1, // Received data is equal to MA2
+  enum class eMA2F : uint32_t {
+    eNOMATCH=0, // Received data is not equal to MA2
+    eMATCH=1, // Received data is equal to MA2
   };
-  MA2F GetMA2F() const { return GetBit(14); }
-  void WaitForMA2F(MA2F value) { WaitForBit(14, value); }
+  eMA2F GetMA2F() const { return static_cast<eMA2F>(GetBit(14)); }
+  void WaitForMA2F(eMA2F value) { WaitForBit(14, static_cast<uint32_t>(value)); }
   
   // Match 1 Flag
   //
-  enum class MA1F : uint32_t {
-    kNOMATCH=0, // Received data is not equal to MA1
-    kMATCH=1, // Received data is equal to MA1
+  enum class eMA1F : uint32_t {
+    eNOMATCH=0, // Received data is not equal to MA1
+    eMATCH=1, // Received data is equal to MA1
   };
-  MA1F GetMA1F() const { return GetBit(15); }
-  void WaitForMA1F(MA1F value) { WaitForBit(15, value); }
+  eMA1F GetMA1F() const { return static_cast<eMA1F>(GetBit(15)); }
+  void WaitForMA1F(eMA1F value) { WaitForBit(15, static_cast<uint32_t>(value)); }
   
   // Parity Error Flag
   //
-  enum class PF : uint32_t {
-    kNOPARITY=0, // No parity error.
-    kPARITY=1, // Parity error.
+  enum class ePF : uint32_t {
+    eNOPARITY=0, // No parity error.
+    ePARITY=1, // Parity error.
   };
-  PF GetPF() const { return GetBit(16); }
-  void WaitForPF(PF value) { WaitForBit(16, value); }
+  ePF GetPF() const { return static_cast<ePF>(GetBit(16)); }
+  void WaitForPF(ePF value) { WaitForBit(16, static_cast<uint32_t>(value)); }
   
   // Framing Error Flag
   //
-  enum class FE : uint32_t {
-    kNOERROR=0, // No framing error detected. This does not guarantee the framing is correct.
-    kERROR=1, // Framing error.
+  enum class eFE : uint32_t {
+    eNOERROR=0, // No framing error detected. This does not guarantee the framing is correct.
+    eERROR=1, // Framing error.
   };
-  FE GetFE() const { return GetBit(17); }
-  void WaitForFE(FE value) { WaitForBit(17, value); }
+  eFE GetFE() const { return static_cast<eFE>(GetBit(17)); }
+  void WaitForFE(eFE value) { WaitForBit(17, static_cast<uint32_t>(value)); }
   
   // Noise Flag
   //
-  enum class NF : uint32_t {
-    kNONOISE=0, // No noise detected.
-    kNOISE=1, // Noise detected in the received character in the DATA register.
+  enum class eNF : uint32_t {
+    eNONOISE=0, // No noise detected.
+    eNOISE=1, // Noise detected in the received character in the DATA register.
   };
-  NF GetNF() const { return GetBit(18); }
-  void WaitForNF(NF value) { WaitForBit(18, value); }
+  eNF GetNF() const { return static_cast<eNF>(GetBit(18)); }
+  void WaitForNF(eNF value) { WaitForBit(18, static_cast<uint32_t>(value)); }
   
   // Receiver Overrun Flag
   //
-  enum class OR : uint32_t {
-    kNO_OVERRUN=0, // No overrun.
-    kOVERRUN=1, // Receive overrun (new LPUART data lost).
+  enum class eOR : uint32_t {
+    eNO_OVERRUN=0, // No overrun.
+    eOVERRUN=1, // Receive overrun (new LPUART data lost).
   };
-  OR GetOR() const { return GetBit(19); }
-  void WaitForOR(OR value) { WaitForBit(19, value); }
+  eOR GetOR() const { return static_cast<eOR>(GetBit(19)); }
+  void WaitForOR(eOR value) { WaitForBit(19, static_cast<uint32_t>(value)); }
   
   // Idle Line Flag
   //
-  enum class IDLE : uint32_t {
-    kNOIDLE=0, // No idle line detected.
-    kIDLE=1, // Idle line is detected.
+  enum class eIDLE : uint32_t {
+    eNOIDLE=0, // No idle line detected.
+    eIDLE=1, // Idle line is detected.
   };
-  IDLE GetIDLE() const { return GetBit(20); }
-  void WaitForIDLE(IDLE value) { WaitForBit(20, value); }
+  eIDLE GetIDLE() const { return static_cast<eIDLE>(GetBit(20)); }
+  void WaitForIDLE(eIDLE value) { WaitForBit(20, static_cast<uint32_t>(value)); }
   
   // Receive Data Register Full Flag
   //
-  enum class RDRF : uint32_t {
-    kNO_RXDATA=0, // Receive FIFO level is less than watermark.
-    kRXDATA=1, // Receive FIFO level is equal or greater than watermark.
+  enum class eRDRF : uint32_t {
+    eNO_RXDATA=0, // Receive FIFO level is less than watermark.
+    eRXDATA=1, // Receive FIFO level is equal or greater than watermark.
   };
-  RDRF GetRDRF() const { return GetBit(21); }
-  void WaitForRDRF(RDRF value) { WaitForBit(21, value); }
+  eRDRF GetRDRF() const { return static_cast<eRDRF>(GetBit(21)); }
+  void WaitForRDRF(eRDRF value) { WaitForBit(21, static_cast<uint32_t>(value)); }
   
   // Transmission Complete Flag
   //
-  enum class TC : uint32_t {
-    kACTIVE=0, // Transmitter active (sending data, a preamble, or a break).
-    kCOMPLETE=1, // Transmitter idle (transmission activity complete).
+  enum class eTC : uint32_t {
+    eACTIVE=0, // Transmitter active (sending data, a preamble, or a break).
+    eCOMPLETE=1, // Transmitter idle (transmission activity complete).
   };
-  TC GetTC() const { return GetBit(22); }
-  void WaitForTC(TC value) { WaitForBit(22, value); }
+  eTC GetTC() const { return static_cast<eTC>(GetBit(22)); }
+  void WaitForTC(eTC value) { WaitForBit(22, static_cast<uint32_t>(value)); }
   
   // Transmit Data Register Empty Flag
   //
-  enum class TDRE : uint32_t {
-    kTXDATA=0, // Transmit FIFO level is greater than watermark.
-    kNO_TXDATA=1, // Transmit FIFO level is equal or less than watermark.
+  enum class eTDRE : uint32_t {
+    eTXDATA=0, // Transmit FIFO level is greater than watermark.
+    eNO_TXDATA=1, // Transmit FIFO level is equal or less than watermark.
   };
-  TDRE GetTDRE() const { return GetBit(23); }
-  void WaitForTDRE(TDRE value) { WaitForBit(23, value); }
+  eTDRE GetTDRE() const { return static_cast<eTDRE>(GetBit(23)); }
+  void WaitForTDRE(eTDRE value) { WaitForBit(23, static_cast<uint32_t>(value)); }
   
   // Receiver Active Flag
   //
-  enum class RAF : uint32_t {
-    kIDLE=0, // LPUART receiver idle waiting for a start bit.
-    kACTIVE=1, // LPUART receiver active (RXD input not idle).
+  enum class eRAF : uint32_t {
+    eIDLE=0, // LPUART receiver idle waiting for a start bit.
+    eACTIVE=1, // LPUART receiver active (RXD input not idle).
   };
-  RAF GetRAF() const { return GetBit(24); }
-  void WaitForRAF(RAF value) { WaitForBit(24, value); }
+  eRAF GetRAF() const { return static_cast<eRAF>(GetBit(24)); }
+  void WaitForRAF(eRAF value) { WaitForBit(24, static_cast<uint32_t>(value)); }
   
   // LIN Break Detection Enable
   //
-  enum class LBKDE : uint32_t {
-    kDISABLED=0, // LIN break detect is disabled, normal break character can be detected.
-    kENABLED=1, // LIN break detect is enabled. LIN break character is detected at length of 11 bit times (if M = 0) or 12 (if M = 1) or 13 (M10 = 1).
+  enum class eLBKDE : uint32_t {
+    eDISABLED=0, // LIN break detect is disabled, normal break character can be detected.
+    eENABLED=1, // LIN break detect is enabled. LIN break character is detected at length of 11 bit times (if M = 0) or 12 (if M = 1) or 13 (M10 = 1).
   };
-  LBKDE GetLBKDE() const { return GetBit(25); }
-  void WaitForLBKDE(LBKDE value) { WaitForBit(25, value); }
+  eLBKDE GetLBKDE() const { return static_cast<eLBKDE>(GetBit(25)); }
+  void WaitForLBKDE(eLBKDE value) { WaitForBit(25, static_cast<uint32_t>(value)); }
   
   // Break Character Generation Length
   //
-  enum class BRK13 : uint32_t {
-    kSHORT=0, // Break character is transmitted with length of 9 to 13 bit times.
-    kLONG=1, // Break character is transmitted with length of 12 to 15 bit times.
+  enum class eBRK13 : uint32_t {
+    eSHORT=0, // Break character is transmitted with length of 9 to 13 bit times.
+    eLONG=1, // Break character is transmitted with length of 12 to 15 bit times.
   };
-  BRK13 GetBRK13() const { return GetBit(26); }
-  void WaitForBRK13(BRK13 value) { WaitForBit(26, value); }
+  eBRK13 GetBRK13() const { return static_cast<eBRK13>(GetBit(26)); }
+  void WaitForBRK13(eBRK13 value) { WaitForBit(26, static_cast<uint32_t>(value)); }
   
   // Receive Wake Up Idle Detect
   //
-  enum class RWUID : uint32_t {
-    kIDLE_NOTSET=0, // During receive standby state (RWU = 1), the IDLE bit does not get set upon detection of an idle character. During address match wakeup, the IDLE bit does not set when an address does not match.
-    kIDLE_SET=1, // During receive standby state (RWU = 1), the IDLE bit gets set upon detection of an idle character. During address match wakeup, the IDLE bit does set when an address does not match.
+  enum class eRWUID : uint32_t {
+    eIDLE_NOTSET=0, // During receive standby state (RWU = 1), the IDLE bit does not get set upon detection of an idle character. During address match wakeup, the IDLE bit does not set when an address does not match.
+    eIDLE_SET=1, // During receive standby state (RWU = 1), the IDLE bit gets set upon detection of an idle character. During address match wakeup, the IDLE bit does set when an address does not match.
   };
-  RWUID GetRWUID() const { return GetBit(27); }
-  void WaitForRWUID(RWUID value) { WaitForBit(27, value); }
+  eRWUID GetRWUID() const { return static_cast<eRWUID>(GetBit(27)); }
+  void WaitForRWUID(eRWUID value) { WaitForBit(27, static_cast<uint32_t>(value)); }
   
   // Receive Data Inversion
   //
-  enum class RXINV : uint32_t {
-    kNOT_INVERTED=0, // Receive data not inverted.
-    kINVERTED=1, // Receive data inverted.
+  enum class eRXINV : uint32_t {
+    eNOT_INVERTED=0, // Receive data not inverted.
+    eINVERTED=1, // Receive data inverted.
   };
-  RXINV GetRXINV() const { return GetBit(28); }
-  void WaitForRXINV(RXINV value) { WaitForBit(28, value); }
+  eRXINV GetRXINV() const { return static_cast<eRXINV>(GetBit(28)); }
+  void WaitForRXINV(eRXINV value) { WaitForBit(28, static_cast<uint32_t>(value)); }
   
   // MSB First
   //
-  enum class MSBF : uint32_t {
-    kLSB_FIRST=0, // LSB (bit0) is the first bit that is transmitted following the start bit. Further, the first bit received after the start bit is identified as bit0.
-    kMSB_FIRST=1, // MSB (identified as bit9, bit8, bit7 or bit6) is the first bit that is transmitted following the start bit depending on the setting of CTRL[M], CTRL[PE] and BAUD[M10]. .
+  enum class eMSBF : uint32_t {
+    eLSB_FIRST=0, // LSB (bit0) is the first bit that is transmitted following the start bit. Further, the first bit received after the start bit is identified as bit0.
+    eMSB_FIRST=1, // MSB (identified as bit9, bit8, bit7 or bit6) is the first bit that is transmitted following the start bit depending on the setting of CTRL[M], CTRL[PE] and BAUD[M10]. .
   };
-  MSBF GetMSBF() const { return GetBit(29); }
-  void WaitForMSBF(MSBF value) { WaitForBit(29, value); }
+  eMSBF GetMSBF() const { return static_cast<eMSBF>(GetBit(29)); }
+  void WaitForMSBF(eMSBF value) { WaitForBit(29, static_cast<uint32_t>(value)); }
   
   // RXD Pin Active Edge Interrupt Flag
   //
-  enum class RXEDGIF : uint32_t {
-    kNO_EDGE=0, // No active edge on the receive pin has occurred.
-    kEDGE=1, // An active edge on the receive pin has occurred.
+  enum class eRXEDGIF : uint32_t {
+    eNO_EDGE=0, // No active edge on the receive pin has occurred.
+    eEDGE=1, // An active edge on the receive pin has occurred.
   };
-  RXEDGIF GetRXEDGIF() const { return GetBit(30); }
-  void WaitForRXEDGIF(RXEDGIF value) { WaitForBit(30, value); }
+  eRXEDGIF GetRXEDGIF() const { return static_cast<eRXEDGIF>(GetBit(30)); }
+  void WaitForRXEDGIF(eRXEDGIF value) { WaitForBit(30, static_cast<uint32_t>(value)); }
   
   // LIN Break Detect Interrupt Flag
   //
-  enum class LBKDIF : uint32_t {
-    kNOT_DETECTED=0, // No LIN break character has been detected.
-    kDETECTED=1, // LIN break character has been detected.
+  enum class eLBKDIF : uint32_t {
+    eNOT_DETECTED=0, // No LIN break character has been detected.
+    eDETECTED=1, // LIN break character has been detected.
   };
-  LBKDIF GetLBKDIF() const { return GetBit(31); }
-  void WaitForLBKDIF(LBKDIF value) { WaitForBit(31, value); }
+  eLBKDIF GetLBKDIF() const { return static_cast<eLBKDIF>(GetBit(31)); }
+  void WaitForLBKDIF(eLBKDIF value) { WaitForBit(31, static_cast<uint32_t>(value)); }
   
   void Reset() { this->Set(0x00c00000); }
 };
@@ -423,243 +423,243 @@ struct CTRL_t : public Register {
   
   // Parity Type
   //
-  enum class PT : uint32_t {
-    kEVEN=0, // Even parity.
-    kODD=1, // Odd parity.
+  enum class ePT : uint32_t {
+    eEVEN=0, // Even parity.
+    eODD=1, // Odd parity.
   };
-  PT GetPT() const { return GetBit(0); }
-  void WaitForPT(PT value) { WaitForBit(0, value); }
+  ePT GetPT() const { return static_cast<ePT>(GetBit(0)); }
+  void WaitForPT(ePT value) { WaitForBit(0, static_cast<uint32_t>(value)); }
   
   // Parity Enable
   //
-  enum class PE : uint32_t {
-    kDISABLED=0, // No hardware parity generation or checking.
-    kENABLED=1, // Parity enabled.
+  enum class ePE : uint32_t {
+    eDISABLED=0, // No hardware parity generation or checking.
+    eENABLED=1, // Parity enabled.
   };
-  PE GetPE() const { return GetBit(1); }
-  void WaitForPE(PE value) { WaitForBit(1, value); }
+  ePE GetPE() const { return static_cast<ePE>(GetBit(1)); }
+  void WaitForPE(ePE value) { WaitForBit(1, static_cast<uint32_t>(value)); }
   
   // Idle Line Type Select
   //
-  enum class ILT : uint32_t {
-    kFROM_START=0, // Idle character bit count starts after start bit.
-    kFROM_STOP=1, // Idle character bit count starts after stop bit.
+  enum class eILT : uint32_t {
+    eFROM_START=0, // Idle character bit count starts after start bit.
+    eFROM_STOP=1, // Idle character bit count starts after stop bit.
   };
-  ILT GetILT() const { return GetBit(2); }
-  void WaitForILT(ILT value) { WaitForBit(2, value); }
+  eILT GetILT() const { return static_cast<eILT>(GetBit(2)); }
+  void WaitForILT(eILT value) { WaitForBit(2, static_cast<uint32_t>(value)); }
   
   // Receiver Wakeup Method Select
   //
-  enum class WAKE : uint32_t {
-    kIDLE=0, // Configures RWU for idle-line wakeup.
-    kMARK=1, // Configures RWU with address-mark wakeup.
+  enum class eWAKE : uint32_t {
+    eIDLE=0, // Configures RWU for idle-line wakeup.
+    eMARK=1, // Configures RWU with address-mark wakeup.
   };
-  WAKE GetWAKE() const { return GetBit(3); }
-  void WaitForWAKE(WAKE value) { WaitForBit(3, value); }
+  eWAKE GetWAKE() const { return static_cast<eWAKE>(GetBit(3)); }
+  void WaitForWAKE(eWAKE value) { WaitForBit(3, static_cast<uint32_t>(value)); }
   
   // 9-Bit or 8-Bit Mode Select
   //
-  enum class M : uint32_t {
-    kDATA8=0, // Receiver and transmitter use 8-bit data characters.
-    kDATA9=1, // Receiver and transmitter use 9-bit data characters.
+  enum class eM : uint32_t {
+    eDATA8=0, // Receiver and transmitter use 8-bit data characters.
+    eDATA9=1, // Receiver and transmitter use 9-bit data characters.
   };
-  M GetM() const { return GetBit(4); }
-  void WaitForM(M value) { WaitForBit(4, value); }
+  eM GetM() const { return static_cast<eM>(GetBit(4)); }
+  void WaitForM(eM value) { WaitForBit(4, static_cast<uint32_t>(value)); }
   
   // Receiver Source Select
   //
-  enum class RSRC : uint32_t {
-    kNO_EFFECT=0, // Provided LOOPS is set, RSRC is cleared, selects internal loop back mode and the LPUART does not use the RXD pin.
-    kONEWIRE=1, // Single-wire LPUART mode where the TXD pin is connected to the transmitter output and receiver input.
+  enum class eRSRC : uint32_t {
+    eNO_EFFECT=0, // Provided LOOPS is set, RSRC is cleared, selects internal loop back mode and the LPUART does not use the RXD pin.
+    eONEWIRE=1, // Single-wire LPUART mode where the TXD pin is connected to the transmitter output and receiver input.
   };
-  RSRC GetRSRC() const { return GetBit(5); }
-  void WaitForRSRC(RSRC value) { WaitForBit(5, value); }
+  eRSRC GetRSRC() const { return static_cast<eRSRC>(GetBit(5)); }
+  void WaitForRSRC(eRSRC value) { WaitForBit(5, static_cast<uint32_t>(value)); }
   
   // Doze Enable
   //
-  enum class DOZEEN : uint32_t {
-    kENABLED=0, // LPUART is enabled in Doze mode.
-    kDISABLED=1, // LPUART is disabled in Doze mode .
+  enum class eDOZEEN : uint32_t {
+    eENABLED=0, // LPUART is enabled in Doze mode.
+    eDISABLED=1, // LPUART is disabled in Doze mode .
   };
-  DOZEEN GetDOZEEN() const { return GetBit(6); }
-  void WaitForDOZEEN(DOZEEN value) { WaitForBit(6, value); }
+  eDOZEEN GetDOZEEN() const { return static_cast<eDOZEEN>(GetBit(6)); }
+  void WaitForDOZEEN(eDOZEEN value) { WaitForBit(6, static_cast<uint32_t>(value)); }
   
   // Loop Mode Select
   //
-  enum class LOOPS : uint32_t {
-    kNOFFECT=0, // Normal operation - RXD and TXD use separate pins.
-    kLOOPBACK=1, // Loop mode or single-wire mode where transmitter outputs are internally connected to receiver input (see RSRC bit).
+  enum class eLOOPS : uint32_t {
+    eNOFFECT=0, // Normal operation - RXD and TXD use separate pins.
+    eLOOPBACK=1, // Loop mode or single-wire mode where transmitter outputs are internally connected to receiver input (see RSRC bit).
   };
-  LOOPS GetLOOPS() const { return GetBit(7); }
-  void WaitForLOOPS(LOOPS value) { WaitForBit(7, value); }
+  eLOOPS GetLOOPS() const { return static_cast<eLOOPS>(GetBit(7)); }
+  void WaitForLOOPS(eLOOPS value) { WaitForBit(7, static_cast<uint32_t>(value)); }
   
   // Idle Configuration
   //
-  enum class IDLECFG : uint32_t {
-    kIDLE_1=0, // 1 idle character
-    kIDLE_2=1, // 2 idle characters
-    kIDLE_4=2, // 4 idle characters
-    kIDLE_8=3, // 8 idle characters
-    kIDLE_16=4, // 16 idle characters
-    kIDLE_32=5, // 32 idle characters
-    kIDLE_64=6, // 64 idle characters
-    kIDLE_128=7, // 128 idle characters
+  enum class eIDLECFG : uint32_t {
+    eIDLE_1=0, // 1 idle character
+    eIDLE_2=1, // 2 idle characters
+    eIDLE_4=2, // 4 idle characters
+    eIDLE_8=3, // 8 idle characters
+    eIDLE_16=4, // 16 idle characters
+    eIDLE_32=5, // 32 idle characters
+    eIDLE_64=6, // 64 idle characters
+    eIDLE_128=7, // 128 idle characters
   };
-  IDLECFG GetIDLECFG() const { return GetBits<3>(8).to_ulong(); }
-  void WaitForIDLECFG(IDLECFG value) { WaitForBits<3>(8, value); }
+  eIDLECFG GetIDLECFG() const { return static_cast<eIDLECFG>(GetBits<3>(8).to_ulong()); }
+  void WaitForIDLECFG(eIDLECFG value) { WaitForBits<3>(8, static_cast<uint32_t>(value)); }
   
   // 7-Bit Mode Select
   //
-  enum class M7 : uint32_t {
-    kNO_EFFECT=0, // Receiver and transmitter use 8-bit to 10-bit data characters.
-    kDATA7=1, // Receiver and transmitter use 7-bit data characters.
+  enum class eM7 : uint32_t {
+    eNO_EFFECT=0, // Receiver and transmitter use 8-bit to 10-bit data characters.
+    eDATA7=1, // Receiver and transmitter use 7-bit data characters.
   };
-  M7 GetM7() const { return GetBit(11); }
-  void WaitForM7(M7 value) { WaitForBit(11, value); }
+  eM7 GetM7() const { return static_cast<eM7>(GetBit(11)); }
+  void WaitForM7(eM7 value) { WaitForBit(11, static_cast<uint32_t>(value)); }
   
   // Match 2 Interrupt Enable
   //
-  enum class MA2IE : uint32_t {
-    kDISABLED=0, // MA2F interrupt disabled
-    kENABLED=1, // MA2F interrupt enabled
+  enum class eMA2IE : uint32_t {
+    eDISABLED=0, // MA2F interrupt disabled
+    eENABLED=1, // MA2F interrupt enabled
   };
-  MA2IE GetMA2IE() const { return GetBit(14); }
-  void WaitForMA2IE(MA2IE value) { WaitForBit(14, value); }
+  eMA2IE GetMA2IE() const { return static_cast<eMA2IE>(GetBit(14)); }
+  void WaitForMA2IE(eMA2IE value) { WaitForBit(14, static_cast<uint32_t>(value)); }
   
   // Match 1 Interrupt Enable
   //
-  enum class MA1IE : uint32_t {
-    kDISABLED=0, // MA1F interrupt disabled
-    kENABLED=1, // MA1F interrupt enabled
+  enum class eMA1IE : uint32_t {
+    eDISABLED=0, // MA1F interrupt disabled
+    eENABLED=1, // MA1F interrupt enabled
   };
-  MA1IE GetMA1IE() const { return GetBit(15); }
-  void WaitForMA1IE(MA1IE value) { WaitForBit(15, value); }
+  eMA1IE GetMA1IE() const { return static_cast<eMA1IE>(GetBit(15)); }
+  void WaitForMA1IE(eMA1IE value) { WaitForBit(15, static_cast<uint32_t>(value)); }
   
   // Send Break
   //
-  enum class SBK : uint32_t {
-    kNO_EFFECT=0, // Normal transmitter operation.
-    kTX_BREAK=1, // Queue break character(s) to be sent.
+  enum class eSBK : uint32_t {
+    eNO_EFFECT=0, // Normal transmitter operation.
+    eTX_BREAK=1, // Queue break character(s) to be sent.
   };
-  SBK GetSBK() const { return GetBit(16); }
-  void WaitForSBK(SBK value) { WaitForBit(16, value); }
+  eSBK GetSBK() const { return static_cast<eSBK>(GetBit(16)); }
+  void WaitForSBK(eSBK value) { WaitForBit(16, static_cast<uint32_t>(value)); }
   
   // Receiver Wakeup Control
   //
-  enum class RWU : uint32_t {
-    kNO_EFFECT=0, // Normal receiver operation.
-    kRX_WAKEUP=1, // LPUART receiver in standby waiting for wakeup condition.
+  enum class eRWU : uint32_t {
+    eNO_EFFECT=0, // Normal receiver operation.
+    eRX_WAKEUP=1, // LPUART receiver in standby waiting for wakeup condition.
   };
-  RWU GetRWU() const { return GetBit(17); }
-  void WaitForRWU(RWU value) { WaitForBit(17, value); }
+  eRWU GetRWU() const { return static_cast<eRWU>(GetBit(17)); }
+  void WaitForRWU(eRWU value) { WaitForBit(17, static_cast<uint32_t>(value)); }
   
   // Receiver Enable
   //
-  enum class RE : uint32_t {
-    kDISABLED=0, // Receiver disabled.
-    kENABLED=1, // Receiver enabled.
+  enum class eRE : uint32_t {
+    eDISABLED=0, // Receiver disabled.
+    eENABLED=1, // Receiver enabled.
   };
-  RE GetRE() const { return GetBit(18); }
-  void WaitForRE(RE value) { WaitForBit(18, value); }
+  eRE GetRE() const { return static_cast<eRE>(GetBit(18)); }
+  void WaitForRE(eRE value) { WaitForBit(18, static_cast<uint32_t>(value)); }
   
   // Transmitter Enable
   //
-  enum class TE : uint32_t {
-    kDISABLED=0, // Transmitter disabled.
-    kENABLED=1, // Transmitter enabled.
+  enum class eTE : uint32_t {
+    eDISABLED=0, // Transmitter disabled.
+    eENABLED=1, // Transmitter enabled.
   };
-  TE GetTE() const { return GetBit(19); }
-  void WaitForTE(TE value) { WaitForBit(19, value); }
+  eTE GetTE() const { return static_cast<eTE>(GetBit(19)); }
+  void WaitForTE(eTE value) { WaitForBit(19, static_cast<uint32_t>(value)); }
   
   // Idle Line Interrupt Enable
   //
-  enum class ILIE : uint32_t {
-    kDISABLED=0, // Hardware interrupts from IDLE disabled; use polling.
-    kENABLED=1, // Hardware interrupt is requested when IDLE flag is 1.
+  enum class eILIE : uint32_t {
+    eDISABLED=0, // Hardware interrupts from IDLE disabled; use polling.
+    eENABLED=1, // Hardware interrupt is requested when IDLE flag is 1.
   };
-  ILIE GetILIE() const { return GetBit(20); }
-  void WaitForILIE(ILIE value) { WaitForBit(20, value); }
+  eILIE GetILIE() const { return static_cast<eILIE>(GetBit(20)); }
+  void WaitForILIE(eILIE value) { WaitForBit(20, static_cast<uint32_t>(value)); }
   
   // Receiver Interrupt Enable
   //
-  enum class RIE : uint32_t {
-    kDISABLED=0, // Hardware interrupts from RDRF disabled.
-    kENABLED=1, // Hardware interrupt is requested when RDRF flag is 1.
+  enum class eRIE : uint32_t {
+    eDISABLED=0, // Hardware interrupts from RDRF disabled.
+    eENABLED=1, // Hardware interrupt is requested when RDRF flag is 1.
   };
-  RIE GetRIE() const { return GetBit(21); }
-  void WaitForRIE(RIE value) { WaitForBit(21, value); }
+  eRIE GetRIE() const { return static_cast<eRIE>(GetBit(21)); }
+  void WaitForRIE(eRIE value) { WaitForBit(21, static_cast<uint32_t>(value)); }
   
   // Transmission Complete Interrupt Enable for
   //
-  enum class TCIE : uint32_t {
-    kDISABLED=0, // Hardware interrupts from TC disabled.
-    kENABLED=1, // Hardware interrupt is requested when TC flag is 1.
+  enum class eTCIE : uint32_t {
+    eDISABLED=0, // Hardware interrupts from TC disabled.
+    eENABLED=1, // Hardware interrupt is requested when TC flag is 1.
   };
-  TCIE GetTCIE() const { return GetBit(22); }
-  void WaitForTCIE(TCIE value) { WaitForBit(22, value); }
+  eTCIE GetTCIE() const { return static_cast<eTCIE>(GetBit(22)); }
+  void WaitForTCIE(eTCIE value) { WaitForBit(22, static_cast<uint32_t>(value)); }
   
   // Transmit Interrupt Enable
   //
-  enum class TIE : uint32_t {
-    kDISABLED=0, // Hardware interrupts from TDRE disabled.
-    kENABLED=1, // Hardware interrupt is requested when TDRE flag is 1.
+  enum class eTIE : uint32_t {
+    eDISABLED=0, // Hardware interrupts from TDRE disabled.
+    eENABLED=1, // Hardware interrupt is requested when TDRE flag is 1.
   };
-  TIE GetTIE() const { return GetBit(23); }
-  void WaitForTIE(TIE value) { WaitForBit(23, value); }
+  eTIE GetTIE() const { return static_cast<eTIE>(GetBit(23)); }
+  void WaitForTIE(eTIE value) { WaitForBit(23, static_cast<uint32_t>(value)); }
   
   // Parity Error Interrupt Enable
   //
-  enum class PEIE : uint32_t {
-    kDISABLED=0, // PF interrupts disabled; use polling).
-    kENABLED=1, // Hardware interrupt is requested when PF is set.
+  enum class ePEIE : uint32_t {
+    eDISABLED=0, // PF interrupts disabled; use polling).
+    eENABLED=1, // Hardware interrupt is requested when PF is set.
   };
-  PEIE GetPEIE() const { return GetBit(24); }
-  void WaitForPEIE(PEIE value) { WaitForBit(24, value); }
+  ePEIE GetPEIE() const { return static_cast<ePEIE>(GetBit(24)); }
+  void WaitForPEIE(ePEIE value) { WaitForBit(24, static_cast<uint32_t>(value)); }
   
   // Framing Error Interrupt Enable
   //
-  enum class FEIE : uint32_t {
-    kDISABLED=0, // FE interrupts disabled; use polling.
-    kENABLED=1, // Hardware interrupt is requested when FE is set.
+  enum class eFEIE : uint32_t {
+    eDISABLED=0, // FE interrupts disabled; use polling.
+    eENABLED=1, // Hardware interrupt is requested when FE is set.
   };
-  FEIE GetFEIE() const { return GetBit(25); }
-  void WaitForFEIE(FEIE value) { WaitForBit(25, value); }
+  eFEIE GetFEIE() const { return static_cast<eFEIE>(GetBit(25)); }
+  void WaitForFEIE(eFEIE value) { WaitForBit(25, static_cast<uint32_t>(value)); }
   
   // Noise Error Interrupt Enable
   //
-  enum class NEIE : uint32_t {
-    kDISABLED=0, // NF interrupts disabled; use polling.
-    kENABLED=1, // Hardware interrupt is requested when NF is set.
+  enum class eNEIE : uint32_t {
+    eDISABLED=0, // NF interrupts disabled; use polling.
+    eENABLED=1, // Hardware interrupt is requested when NF is set.
   };
-  NEIE GetNEIE() const { return GetBit(26); }
-  void WaitForNEIE(NEIE value) { WaitForBit(26, value); }
+  eNEIE GetNEIE() const { return static_cast<eNEIE>(GetBit(26)); }
+  void WaitForNEIE(eNEIE value) { WaitForBit(26, static_cast<uint32_t>(value)); }
   
   // Overrun Interrupt Enable
   //
-  enum class ORIE : uint32_t {
-    kDISABLED=0, // OR interrupts disabled; use polling.
-    kENABLED=1, // Hardware interrupt is requested when OR is set.
+  enum class eORIE : uint32_t {
+    eDISABLED=0, // OR interrupts disabled; use polling.
+    eENABLED=1, // Hardware interrupt is requested when OR is set.
   };
-  ORIE GetORIE() const { return GetBit(27); }
-  void WaitForORIE(ORIE value) { WaitForBit(27, value); }
+  eORIE GetORIE() const { return static_cast<eORIE>(GetBit(27)); }
+  void WaitForORIE(eORIE value) { WaitForBit(27, static_cast<uint32_t>(value)); }
   
   // Transmit Data Inversion
   //
-  enum class TXINV : uint32_t {
-    kNOT_INVERTED=0, // Transmit data not inverted.
-    kINVERTED=1, // Transmit data inverted.
+  enum class eTXINV : uint32_t {
+    eNOT_INVERTED=0, // Transmit data not inverted.
+    eINVERTED=1, // Transmit data inverted.
   };
-  TXINV GetTXINV() const { return GetBit(28); }
-  void WaitForTXINV(TXINV value) { WaitForBit(28, value); }
+  eTXINV GetTXINV() const { return static_cast<eTXINV>(GetBit(28)); }
+  void WaitForTXINV(eTXINV value) { WaitForBit(28, static_cast<uint32_t>(value)); }
   
   // TXD Pin Direction in Single-Wire Mode
   //
-  enum class TXDIR : uint32_t {
-    kTX_INPUT=0, // TXD pin is an input in single-wire mode.
-    kTX_OUTPUT=1, // TXD pin is an output in single-wire mode.
+  enum class eTXDIR : uint32_t {
+    eTX_INPUT=0, // TXD pin is an input in single-wire mode.
+    eTX_OUTPUT=1, // TXD pin is an output in single-wire mode.
   };
-  TXDIR GetTXDIR() const { return GetBit(29); }
-  void WaitForTXDIR(TXDIR value) { WaitForBit(29, value); }
+  eTXDIR GetTXDIR() const { return static_cast<eTXDIR>(GetBit(29)); }
+  void WaitForTXDIR(eTXDIR value) { WaitForBit(29, static_cast<uint32_t>(value)); }
   
   // Receive Bit 9 / Transmit Bit 8
   //
@@ -731,48 +731,48 @@ struct DATA_t : public Register {
   
   // Idle Line
   //
-  enum class IDLINE : uint32_t {
-    kNO_IDLE=0, // Receiver was not idle before receiving this character.
-    kIDLE=1, // Receiver was idle before receiving this character.
+  enum class eIDLINE : uint32_t {
+    eNO_IDLE=0, // Receiver was not idle before receiving this character.
+    eIDLE=1, // Receiver was idle before receiving this character.
   };
-  IDLINE GetIDLINE() const { return GetBit(11); }
-  void WaitForIDLINE(IDLINE value) { WaitForBit(11, value); }
+  eIDLINE GetIDLINE() const { return static_cast<eIDLINE>(GetBit(11)); }
+  void WaitForIDLINE(eIDLINE value) { WaitForBit(11, static_cast<uint32_t>(value)); }
   
   // Receive Buffer Empty
   //
-  enum class RXEMPT : uint32_t {
-    kNOT_EMPTY=0, // Receive buffer contains valid data.
-    kEMPTY=1, // Receive buffer is empty, data returned on read is not valid.
+  enum class eRXEMPT : uint32_t {
+    eNOT_EMPTY=0, // Receive buffer contains valid data.
+    eEMPTY=1, // Receive buffer is empty, data returned on read is not valid.
   };
-  RXEMPT GetRXEMPT() const { return GetBit(12); }
-  void WaitForRXEMPT(RXEMPT value) { WaitForBit(12, value); }
+  eRXEMPT GetRXEMPT() const { return static_cast<eRXEMPT>(GetBit(12)); }
+  void WaitForRXEMPT(eRXEMPT value) { WaitForBit(12, static_cast<uint32_t>(value)); }
   
   // Frame Error / Transmit Special Character
   //
-  enum class FRETSC : uint32_t {
-    kNO_ERROR=0, // The dataword is received without a frame error on read, or transmit a normal character on write.
-    kERROR=1, // The dataword is received with a frame error, or transmit an idle or break character on transmit.
+  enum class eFRETSC : uint32_t {
+    eNO_ERROR=0, // The dataword is received without a frame error on read, or transmit a normal character on write.
+    eERROR=1, // The dataword is received with a frame error, or transmit an idle or break character on transmit.
   };
-  FRETSC GetFRETSC() const { return GetBit(13); }
-  void WaitForFRETSC(FRETSC value) { WaitForBit(13, value); }
+  eFRETSC GetFRETSC() const { return static_cast<eFRETSC>(GetBit(13)); }
+  void WaitForFRETSC(eFRETSC value) { WaitForBit(13, static_cast<uint32_t>(value)); }
   
   // Parity Error
   //
-  enum class PARITYE : uint32_t {
-    kNO_PARITY=0, // The dataword is received without a parity error.
-    kPARITY=1, // The dataword is received with a parity error.
+  enum class ePARITYE : uint32_t {
+    eNO_PARITY=0, // The dataword is received without a parity error.
+    ePARITY=1, // The dataword is received with a parity error.
   };
-  PARITYE GetPARITYE() const { return GetBit(14); }
-  void WaitForPARITYE(PARITYE value) { WaitForBit(14, value); }
+  ePARITYE GetPARITYE() const { return static_cast<ePARITYE>(GetBit(14)); }
+  void WaitForPARITYE(ePARITYE value) { WaitForBit(14, static_cast<uint32_t>(value)); }
   
   // Noisy Data Received
   //
-  enum class NOISY : uint32_t {
-    kNO_NOISE=0, // The dataword is received without noise.
-    kNOISE=1, // The data is received with noise.
+  enum class eNOISY : uint32_t {
+    eNO_NOISE=0, // The dataword is received without noise.
+    eNOISE=1, // The data is received with noise.
   };
-  NOISY GetNOISY() const { return GetBit(15); }
-  void WaitForNOISY(NOISY value) { WaitForBit(15, value); }
+  eNOISY GetNOISY() const { return static_cast<eNOISY>(GetBit(15)); }
+  void WaitForNOISY(eNOISY value) { WaitForBit(15, static_cast<uint32_t>(value)); }
   
   void Reset() { this->Set(0x00001000); }
 };
@@ -802,57 +802,57 @@ struct MODIR_t : public Register {
   
   // Transmitter clear-to-send enable
   //
-  enum class TXCTSE : uint32_t {
-    kDISABLED=0, // CTS has no effect on the transmitter.
-    kENABLED=1, // Enables clear-to-send operation. The transmitter checks the state of CTS each time it is ready to send a character. If CTS is asserted, the character is sent. If CTS is deasserted, the signal TXD remains in the mark state and transmission is delayed until CTS is asserted. Changes in CTS as a character is being sent do not affect its transmission.
+  enum class eTXCTSE : uint32_t {
+    eDISABLED=0, // CTS has no effect on the transmitter.
+    eENABLED=1, // Enables clear-to-send operation. The transmitter checks the state of CTS each time it is ready to send a character. If CTS is asserted, the character is sent. If CTS is deasserted, the signal TXD remains in the mark state and transmission is delayed until CTS is asserted. Changes in CTS as a character is being sent do not affect its transmission.
   };
-  TXCTSE GetTXCTSE() const { return GetBit(0); }
-  void WaitForTXCTSE(TXCTSE value) { WaitForBit(0, value); }
+  eTXCTSE GetTXCTSE() const { return static_cast<eTXCTSE>(GetBit(0)); }
+  void WaitForTXCTSE(eTXCTSE value) { WaitForBit(0, static_cast<uint32_t>(value)); }
   
   // Transmitter request-to-send enable
   //
-  enum class TXRTSE : uint32_t {
-    kDISABLED=0, // The transmitter has no effect on RTS.
-    kENABLED=1, // When a character is placed into an empty transmit shift register, RTS asserts one bit time before the start bit is transmitted. RTS deasserts one bit time after all characters in the transmitter FIFO and shift register are completely sent, including the last stop bit.
+  enum class eTXRTSE : uint32_t {
+    eDISABLED=0, // The transmitter has no effect on RTS.
+    eENABLED=1, // When a character is placed into an empty transmit shift register, RTS asserts one bit time before the start bit is transmitted. RTS deasserts one bit time after all characters in the transmitter FIFO and shift register are completely sent, including the last stop bit.
   };
-  TXRTSE GetTXRTSE() const { return GetBit(1); }
-  void WaitForTXRTSE(TXRTSE value) { WaitForBit(1, value); }
+  eTXRTSE GetTXRTSE() const { return static_cast<eTXRTSE>(GetBit(1)); }
+  void WaitForTXRTSE(eTXRTSE value) { WaitForBit(1, static_cast<uint32_t>(value)); }
   
   // Transmitter request-to-send polarity
   //
-  enum class TXRTSPOL : uint32_t {
-    kLOW=0, // Transmitter RTS is active low.
-    kHIGH=1, // Transmitter RTS is active high.
+  enum class eTXRTSPOL : uint32_t {
+    eLOW=0, // Transmitter RTS is active low.
+    eHIGH=1, // Transmitter RTS is active high.
   };
-  TXRTSPOL GetTXRTSPOL() const { return GetBit(2); }
-  void WaitForTXRTSPOL(TXRTSPOL value) { WaitForBit(2, value); }
+  eTXRTSPOL GetTXRTSPOL() const { return static_cast<eTXRTSPOL>(GetBit(2)); }
+  void WaitForTXRTSPOL(eTXRTSPOL value) { WaitForBit(2, static_cast<uint32_t>(value)); }
   
   // Receiver request-to-send enable
   //
-  enum class RXRTSE : uint32_t {
-    kDISABLED=0, // The receiver has no effect on RTS.
-    kENABLED=1, // RTS is deasserted if the receiver data register is full or a start bit has been detected that would cause the receiver data register to become full. RTS is asserted if the receiver data register is not full and has not detected a start bit that would cause the receiver data register to become full.
+  enum class eRXRTSE : uint32_t {
+    eDISABLED=0, // The receiver has no effect on RTS.
+    eENABLED=1, // RTS is deasserted if the receiver data register is full or a start bit has been detected that would cause the receiver data register to become full. RTS is asserted if the receiver data register is not full and has not detected a start bit that would cause the receiver data register to become full.
   };
-  RXRTSE GetRXRTSE() const { return GetBit(3); }
-  void WaitForRXRTSE(RXRTSE value) { WaitForBit(3, value); }
+  eRXRTSE GetRXRTSE() const { return static_cast<eRXRTSE>(GetBit(3)); }
+  void WaitForRXRTSE(eRXRTSE value) { WaitForBit(3, static_cast<uint32_t>(value)); }
   
   // Transmit CTS Configuration
   //
-  enum class TXCTSC : uint32_t {
-    kSTART=0, // CTS input is sampled at the start of each character.
-    kIDLE=1, // CTS input is sampled when the transmitter is idle.
+  enum class eTXCTSC : uint32_t {
+    eSTART=0, // CTS input is sampled at the start of each character.
+    eIDLE=1, // CTS input is sampled when the transmitter is idle.
   };
-  TXCTSC GetTXCTSC() const { return GetBit(4); }
-  void WaitForTXCTSC(TXCTSC value) { WaitForBit(4, value); }
+  eTXCTSC GetTXCTSC() const { return static_cast<eTXCTSC>(GetBit(4)); }
+  void WaitForTXCTSC(eTXCTSC value) { WaitForBit(4, static_cast<uint32_t>(value)); }
   
   // Transmit CTS Source
   //
-  enum class TXCTSSRC : uint32_t {
-    kCTS=0, // CTS input is the CTS_B pin.
-    kMATCH=1, // CTS input is an internal connection to the receiver address match result.
+  enum class eTXCTSSRC : uint32_t {
+    eCTS=0, // CTS input is the CTS_B pin.
+    eMATCH=1, // CTS input is an internal connection to the receiver address match result.
   };
-  TXCTSSRC GetTXCTSSRC() const { return GetBit(5); }
-  void WaitForTXCTSSRC(TXCTSSRC value) { WaitForBit(5, value); }
+  eTXCTSSRC GetTXCTSSRC() const { return static_cast<eTXCTSSRC>(GetBit(5)); }
+  void WaitForTXCTSSRC(eTXCTSSRC value) { WaitForBit(5, static_cast<uint32_t>(value)); }
   
   // Receive RTS Configuration
   //
@@ -861,23 +861,23 @@ struct MODIR_t : public Register {
   
   // Transmitter narrow pulse
   //
-  enum class TNP : uint32_t {
-    kONE_SAMPLE=0, // 1/OSR.
-    kTWO_SAMPLE=1, // 2/OSR.
-    kTHREE_SAMPLE=2, // 3/OSR.
-    kFOUR_SAMPLE=3, // 4/OSR.
+  enum class eTNP : uint32_t {
+    eONE_SAMPLE=0, // 1/OSR.
+    eTWO_SAMPLE=1, // 2/OSR.
+    eTHREE_SAMPLE=2, // 3/OSR.
+    eFOUR_SAMPLE=3, // 4/OSR.
   };
-  TNP GetTNP() const { return GetBits<2>(16).to_ulong(); }
-  void WaitForTNP(TNP value) { WaitForBits<2>(16, value); }
+  eTNP GetTNP() const { return static_cast<eTNP>(GetBits<2>(16).to_ulong()); }
+  void WaitForTNP(eTNP value) { WaitForBits<2>(16, static_cast<uint32_t>(value)); }
   
   // Infrared enable
   //
-  enum class IREN : uint32_t {
-    kDISABLED=0, // IR disabled.
-    kENABLED=1, // IR enabled.
+  enum class eIREN : uint32_t {
+    eDISABLED=0, // IR disabled.
+    eENABLED=1, // IR enabled.
   };
-  IREN GetIREN() const { return GetBit(18); }
-  void WaitForIREN(IREN value) { WaitForBit(18, value); }
+  eIREN GetIREN() const { return static_cast<eIREN>(GetBit(18)); }
+  void WaitForIREN(eIREN value) { WaitForBit(18, static_cast<uint32_t>(value)); }
   
   void Reset() { this->Set(0x00000000); }
 };
@@ -889,138 +889,138 @@ struct FIFO_t : public Register {
   
   // Receive FIFO Buffer Depth
   //
-  enum class RXFIFOSIZE : uint32_t {
-    kFIFO_1=0, // Receive FIFO/Buffer depth = 1 dataword.
-    kFIFO_4=1, // Receive FIFO/Buffer depth = 4 datawords.
-    kFIFO_8=2, // Receive FIFO/Buffer depth = 8 datawords.
-    kFIFO_16=3, // Receive FIFO/Buffer depth = 16 datawords.
-    kFIFO_32=4, // Receive FIFO/Buffer depth = 32 datawords.
-    kFIFO_64=5, // Receive FIFO/Buffer depth = 64 datawords.
-    kFIFO_128=6, // Receive FIFO/Buffer depth = 128 datawords.
-    kFIFO_256=7, // Receive FIFO/Buffer depth = 256 datawords.
+  enum class eRXFIFOSIZE : uint32_t {
+    eFIFO_1=0, // Receive FIFO/Buffer depth = 1 dataword.
+    eFIFO_4=1, // Receive FIFO/Buffer depth = 4 datawords.
+    eFIFO_8=2, // Receive FIFO/Buffer depth = 8 datawords.
+    eFIFO_16=3, // Receive FIFO/Buffer depth = 16 datawords.
+    eFIFO_32=4, // Receive FIFO/Buffer depth = 32 datawords.
+    eFIFO_64=5, // Receive FIFO/Buffer depth = 64 datawords.
+    eFIFO_128=6, // Receive FIFO/Buffer depth = 128 datawords.
+    eFIFO_256=7, // Receive FIFO/Buffer depth = 256 datawords.
   };
-  RXFIFOSIZE GetRXFIFOSIZE() const { return GetBits<3>(0).to_ulong(); }
-  void WaitForRXFIFOSIZE(RXFIFOSIZE value) { WaitForBits<3>(0, value); }
+  eRXFIFOSIZE GetRXFIFOSIZE() const { return static_cast<eRXFIFOSIZE>(GetBits<3>(0).to_ulong()); }
+  void WaitForRXFIFOSIZE(eRXFIFOSIZE value) { WaitForBits<3>(0, static_cast<uint32_t>(value)); }
   
   // Receive FIFO Enable
   //
-  enum class RXFE : uint32_t {
-    kDISABLED=0, // Receive FIFO is not enabled. Buffer depth is 1.
-    kENABLED=1, // Receive FIFO is enabled. Buffer depth is indicted by RXFIFOSIZE.
+  enum class eRXFE : uint32_t {
+    eDISABLED=0, // Receive FIFO is not enabled. Buffer depth is 1.
+    eENABLED=1, // Receive FIFO is enabled. Buffer depth is indicted by RXFIFOSIZE.
   };
-  RXFE GetRXFE() const { return GetBit(3); }
-  void WaitForRXFE(RXFE value) { WaitForBit(3, value); }
+  eRXFE GetRXFE() const { return static_cast<eRXFE>(GetBit(3)); }
+  void WaitForRXFE(eRXFE value) { WaitForBit(3, static_cast<uint32_t>(value)); }
   
   // Transmit FIFO Buffer Depth
   //
-  enum class TXFIFOSIZE : uint32_t {
-    kFIFO_1=0, // Transmit FIFO/Buffer depth = 1 dataword.
-    kFIFO_4=1, // Transmit FIFO/Buffer depth = 4 datawords.
-    kFIFO_8=2, // Transmit FIFO/Buffer depth = 8 datawords.
-    kFIFO_16=3, // Transmit FIFO/Buffer depth = 16 datawords.
-    kFIFO_32=4, // Transmit FIFO/Buffer depth = 32 datawords.
-    kFIFO_64=5, // Transmit FIFO/Buffer depth = 64 datawords.
-    kFIFO_128=6, // Transmit FIFO/Buffer depth = 128 datawords.
-    kFIFO_256=7, // Transmit FIFO/Buffer depth = 256 datawords
+  enum class eTXFIFOSIZE : uint32_t {
+    eFIFO_1=0, // Transmit FIFO/Buffer depth = 1 dataword.
+    eFIFO_4=1, // Transmit FIFO/Buffer depth = 4 datawords.
+    eFIFO_8=2, // Transmit FIFO/Buffer depth = 8 datawords.
+    eFIFO_16=3, // Transmit FIFO/Buffer depth = 16 datawords.
+    eFIFO_32=4, // Transmit FIFO/Buffer depth = 32 datawords.
+    eFIFO_64=5, // Transmit FIFO/Buffer depth = 64 datawords.
+    eFIFO_128=6, // Transmit FIFO/Buffer depth = 128 datawords.
+    eFIFO_256=7, // Transmit FIFO/Buffer depth = 256 datawords
   };
-  TXFIFOSIZE GetTXFIFOSIZE() const { return GetBits<3>(4).to_ulong(); }
-  void WaitForTXFIFOSIZE(TXFIFOSIZE value) { WaitForBits<3>(4, value); }
+  eTXFIFOSIZE GetTXFIFOSIZE() const { return static_cast<eTXFIFOSIZE>(GetBits<3>(4).to_ulong()); }
+  void WaitForTXFIFOSIZE(eTXFIFOSIZE value) { WaitForBits<3>(4, static_cast<uint32_t>(value)); }
   
   // Transmit FIFO Enable
   //
-  enum class TXFE : uint32_t {
-    kDISABLED=0, // Transmit FIFO is not enabled. Buffer depth is 1.
-    kENABLED=1, // Transmit FIFO is enabled. Buffer depth is indicated by TXFIFOSIZE.
+  enum class eTXFE : uint32_t {
+    eDISABLED=0, // Transmit FIFO is not enabled. Buffer depth is 1.
+    eENABLED=1, // Transmit FIFO is enabled. Buffer depth is indicated by TXFIFOSIZE.
   };
-  TXFE GetTXFE() const { return GetBit(7); }
-  void WaitForTXFE(TXFE value) { WaitForBit(7, value); }
+  eTXFE GetTXFE() const { return static_cast<eTXFE>(GetBit(7)); }
+  void WaitForTXFE(eTXFE value) { WaitForBit(7, static_cast<uint32_t>(value)); }
   
   // Receive FIFO Underflow Interrupt Enable
   //
-  enum class RXUFE : uint32_t {
-    kDISABLED=0, // RXUF flag does not generate an interrupt to the host.
-    kENABLED=1, // RXUF flag generates an interrupt to the host.
+  enum class eRXUFE : uint32_t {
+    eDISABLED=0, // RXUF flag does not generate an interrupt to the host.
+    eENABLED=1, // RXUF flag generates an interrupt to the host.
   };
-  RXUFE GetRXUFE() const { return GetBit(8); }
-  void WaitForRXUFE(RXUFE value) { WaitForBit(8, value); }
+  eRXUFE GetRXUFE() const { return static_cast<eRXUFE>(GetBit(8)); }
+  void WaitForRXUFE(eRXUFE value) { WaitForBit(8, static_cast<uint32_t>(value)); }
   
   // Transmit FIFO Overflow Interrupt Enable
   //
-  enum class TXOFE : uint32_t {
-    kDISABLED=0, // TXOF flag does not generate an interrupt to the host.
-    kENABLED=1, // TXOF flag generates an interrupt to the host.
+  enum class eTXOFE : uint32_t {
+    eDISABLED=0, // TXOF flag does not generate an interrupt to the host.
+    eENABLED=1, // TXOF flag generates an interrupt to the host.
   };
-  TXOFE GetTXOFE() const { return GetBit(9); }
-  void WaitForTXOFE(TXOFE value) { WaitForBit(9, value); }
+  eTXOFE GetTXOFE() const { return static_cast<eTXOFE>(GetBit(9)); }
+  void WaitForTXOFE(eTXOFE value) { WaitForBit(9, static_cast<uint32_t>(value)); }
   
   // Receiver Idle Empty Enable
   //
-  enum class RXIDEN : uint32_t {
-    kDISABLED=0, // Disable RDRF assertion due to partially filled FIFO when receiver is idle.
-    kIDLE_1=1, // Enable RDRF assertion due to partially filled FIFO when receiver is idle for 1 character.
-    kIDLE_2=2, // Enable RDRF assertion due to partially filled FIFO when receiver is idle for 2 characters.
-    kIDLE_4=3, // Enable RDRF assertion due to partially filled FIFO when receiver is idle for 4 characters.
-    kIDLE_8=4, // Enable RDRF assertion due to partially filled FIFO when receiver is idle for 8 characters.
-    kIDLE_16=5, // Enable RDRF assertion due to partially filled FIFO when receiver is idle for 16 characters.
-    kIDLE_32=6, // Enable RDRF assertion due to partially filled FIFO when receiver is idle for 32 characters.
-    kIDLE_64=7, // Enable RDRF assertion due to partially filled FIFO when receiver is idle for 64 characters.
+  enum class eRXIDEN : uint32_t {
+    eDISABLED=0, // Disable RDRF assertion due to partially filled FIFO when receiver is idle.
+    eIDLE_1=1, // Enable RDRF assertion due to partially filled FIFO when receiver is idle for 1 character.
+    eIDLE_2=2, // Enable RDRF assertion due to partially filled FIFO when receiver is idle for 2 characters.
+    eIDLE_4=3, // Enable RDRF assertion due to partially filled FIFO when receiver is idle for 4 characters.
+    eIDLE_8=4, // Enable RDRF assertion due to partially filled FIFO when receiver is idle for 8 characters.
+    eIDLE_16=5, // Enable RDRF assertion due to partially filled FIFO when receiver is idle for 16 characters.
+    eIDLE_32=6, // Enable RDRF assertion due to partially filled FIFO when receiver is idle for 32 characters.
+    eIDLE_64=7, // Enable RDRF assertion due to partially filled FIFO when receiver is idle for 64 characters.
   };
-  RXIDEN GetRXIDEN() const { return GetBits<3>(10).to_ulong(); }
-  void WaitForRXIDEN(RXIDEN value) { WaitForBits<3>(10, value); }
+  eRXIDEN GetRXIDEN() const { return static_cast<eRXIDEN>(GetBits<3>(10).to_ulong()); }
+  void WaitForRXIDEN(eRXIDEN value) { WaitForBits<3>(10, static_cast<uint32_t>(value)); }
   
   // Receive FIFO Flush
   //
-  enum class RXFLUSH : uint32_t {
-    kNO_EFFECT=0, // No flush operation occurs.
-    kRXFIFO_RST=1, // All data in the receive FIFO/buffer is cleared out.
+  enum class eRXFLUSH : uint32_t {
+    eNO_EFFECT=0, // No flush operation occurs.
+    eRXFIFO_RST=1, // All data in the receive FIFO/buffer is cleared out.
   };
-  RXFLUSH GetRXFLUSH() const { return GetBit(14); }
-  void WaitForRXFLUSH(RXFLUSH value) { WaitForBit(14, value); }
+  eRXFLUSH GetRXFLUSH() const { return static_cast<eRXFLUSH>(GetBit(14)); }
+  void WaitForRXFLUSH(eRXFLUSH value) { WaitForBit(14, static_cast<uint32_t>(value)); }
   
   // Transmit FIFO Flush
   //
-  enum class TXFLUSH : uint32_t {
-    kNO_EFFECT=0, // No flush operation occurs.
-    kTXFIFO_RST=1, // All data in the transmit FIFO is cleared out.
+  enum class eTXFLUSH : uint32_t {
+    eNO_EFFECT=0, // No flush operation occurs.
+    eTXFIFO_RST=1, // All data in the transmit FIFO is cleared out.
   };
-  TXFLUSH GetTXFLUSH() const { return GetBit(15); }
-  void WaitForTXFLUSH(TXFLUSH value) { WaitForBit(15, value); }
+  eTXFLUSH GetTXFLUSH() const { return static_cast<eTXFLUSH>(GetBit(15)); }
+  void WaitForTXFLUSH(eTXFLUSH value) { WaitForBit(15, static_cast<uint32_t>(value)); }
   
   // Receiver FIFO Underflow Flag
   //
-  enum class RXUF : uint32_t {
-    kNO_UNDERFLOW=0, // No receive FIFO underflow has occurred since the last time the flag was cleared.
-    kUNDERFLOW=1, // At least one receive FIFO underflow has occurred since the last time the flag was cleared.
+  enum class eRXUF : uint32_t {
+    eNO_UNDERFLOW=0, // No receive FIFO underflow has occurred since the last time the flag was cleared.
+    eUNDERFLOW=1, // At least one receive FIFO underflow has occurred since the last time the flag was cleared.
   };
-  RXUF GetRXUF() const { return GetBit(16); }
-  void WaitForRXUF(RXUF value) { WaitForBit(16, value); }
+  eRXUF GetRXUF() const { return static_cast<eRXUF>(GetBit(16)); }
+  void WaitForRXUF(eRXUF value) { WaitForBit(16, static_cast<uint32_t>(value)); }
   
   // Transmitter FIFO Overflow Flag
   //
-  enum class TXOF : uint32_t {
-    kNO_OVERFLOW=0, // No transmit FIFO overflow has occurred since the last time the flag was cleared.
-    kOVERFLOW=1, // At least one transmit FIFO overflow has occurred since the last time the flag was cleared.
+  enum class eTXOF : uint32_t {
+    eNO_OVERFLOW=0, // No transmit FIFO overflow has occurred since the last time the flag was cleared.
+    eOVERFLOW=1, // At least one transmit FIFO overflow has occurred since the last time the flag was cleared.
   };
-  TXOF GetTXOF() const { return GetBit(17); }
-  void WaitForTXOF(TXOF value) { WaitForBit(17, value); }
+  eTXOF GetTXOF() const { return static_cast<eTXOF>(GetBit(17)); }
+  void WaitForTXOF(eTXOF value) { WaitForBit(17, static_cast<uint32_t>(value)); }
   
   // Receive FIFO/Buffer Empty
   //
-  enum class RXEMPT : uint32_t {
-    kNOT_EMPTY=0, // Receive buffer is not empty.
-    kEMPTY=1, // Receive buffer is empty.
+  enum class eRXEMPT : uint32_t {
+    eNOT_EMPTY=0, // Receive buffer is not empty.
+    eEMPTY=1, // Receive buffer is empty.
   };
-  RXEMPT GetRXEMPT() const { return GetBit(22); }
-  void WaitForRXEMPT(RXEMPT value) { WaitForBit(22, value); }
+  eRXEMPT GetRXEMPT() const { return static_cast<eRXEMPT>(GetBit(22)); }
+  void WaitForRXEMPT(eRXEMPT value) { WaitForBit(22, static_cast<uint32_t>(value)); }
   
   // Transmit FIFO/Buffer Empty
   //
-  enum class TXEMPT : uint32_t {
-    kNOT_EMPTY=0, // Transmit buffer is not empty.
-    kEMPTY=1, // Transmit buffer is empty.
+  enum class eTXEMPT : uint32_t {
+    eNOT_EMPTY=0, // Transmit buffer is not empty.
+    eEMPTY=1, // Transmit buffer is empty.
   };
-  TXEMPT GetTXEMPT() const { return GetBit(23); }
-  void WaitForTXEMPT(TXEMPT value) { WaitForBit(23, value); }
+  eTXEMPT GetTXEMPT() const { return static_cast<eTXEMPT>(GetBit(23)); }
+  void WaitForTXEMPT(eTXEMPT value) { WaitForBit(23, static_cast<uint32_t>(value)); }
   
   void Reset() { this->Set(0x00c00011); }
 };

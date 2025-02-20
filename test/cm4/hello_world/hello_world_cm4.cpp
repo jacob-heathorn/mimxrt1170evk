@@ -9,7 +9,7 @@
 #include "clock_config.h"
 #include "board.h"
 #include "mcmgr.h"
-// #include "registers/gpio9.hpp"
+#include "registers/gpio9.hpp"
 
 #include "fsl_gpio.h"
 volatile bool g_pinSet = false;
