@@ -40,8 +40,8 @@ def main():
   # Do generate registers
   if args.generate:
     # TODO: get mcux-sdk in nix.
-    file = '/home/jacob/evtol/nxp/repos/mcux-sdk/svd/MIMXRT1176/MIMXRT1176_cm7.xml'
-    output_dir = os.path.join(PROJECT_ROOT, '.bin')
+    file = '/home/jacob/evtol/nxp/repos/mcux-sdk/svd/MIMXRT1176/MIMXRT1176_cm4.xml'
+    output_dir = os.path.join(PROJECT_ROOT, 'firmware', 'cm4', 'registers')
     svd_parser_wrapper = forge.SVDParserWrapper(file, output_dir)
     svd_parser_wrapper.generate_peripheral("LPUART1")
     svd_parser_wrapper.generate_peripheral('GPIO1')

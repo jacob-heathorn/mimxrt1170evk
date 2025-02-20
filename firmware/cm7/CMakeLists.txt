@@ -1,3 +1,5 @@
+add_subdirectory(registers)
+
 # add_subdirectory(library)
 add_subdirectory(startup)
 add_subdirectory(cmsis)
