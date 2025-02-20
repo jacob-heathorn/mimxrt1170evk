@@ -44,7 +44,7 @@ def main():
     output_dir = os.path.join(PROJECT_ROOT, '.bin')
     svd_parser_wrapper = forge.SVDParserWrapper(file, output_dir)
     svd_parser_wrapper.generate_peripheral("LPUART1")
-    # svd_parser_wrapper.generate()
+    svd_parser_wrapper.generate_peripheral('GPIO1')
 
 
 if __name__ == '__main__':
