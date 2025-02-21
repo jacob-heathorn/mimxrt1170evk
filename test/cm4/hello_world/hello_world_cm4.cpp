@@ -44,6 +44,19 @@ volatile bool g_pinSet = false;
  * Code
  ******************************************************************************/
 
+// void LedToggle(nGPIO9::DR_t *gpio9_dr)
+// {
+//     // gpio9_dr->DR_TOGGLE.SetDR_TOGGLE(1);
+//     // if (gpio9_dr->GetDR() > 0)
+//     // {
+//     //    gpio9_dr->SetDR(0) 
+//     // }
+//     // else
+//     // {
+//     //     gpio9_dr->SetDR(8);
+//     // }
+// }
+
 /*!
  * @brief Application-specific implementation of the SystemInitHook() weak function.
  */
@@ -86,6 +99,9 @@ int main(void)
 
     /* Configure LED */
     LED_INIT();
+    nGPIO9::Registers gpio9{};
+    // nGPIO9::DR_t gpio9_dr;
+    // auto dr = gpio9_dr.GetDR();
 
     for (int j = 0; j < 20; ++j)
     {
@@ -108,6 +124,12 @@ int main(void)
             int y = i * 3 / 2;
             (void)y;
         }
-        LED_TOGGLE();
+        // gpio9_dr->DR_TOGGLE.SetDR_TOGGLE(1);
+        // dr = gpio9_dr.GetDR();
+        //LED_TOGGLE();
+        // dr = gpio9_dr.GetDR();
+        // auto x = dr;
+        // (void)x;
+        gpio9.DR_TOGGLE.SetDR_TOGGLE(8);
     }
 }

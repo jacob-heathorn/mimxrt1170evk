@@ -1,6 +1,6 @@
 add_executable(hello-world-cm4 hello_world_cm4.cpp)
 platformify(hello-world-cm4)
-target_link_libraries(hello-world-cm4 PRIVATE board drivers device utilities mcmgr registers)
+target_link_libraries(hello-world-cm4 PRIVATE board drivers device utilities mcmgr registers cm4-platform)
 target_compile_options(hello-world-cm4 PRIVATE 
   -Wno-missing-field-initializers
   -Wno-shadow
