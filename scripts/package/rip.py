@@ -45,6 +45,8 @@ def main():
     svd_parser_wrapper = forge.SVDParserWrapper(file, output_dir)
     svd_parser_wrapper.generate_peripheral("LPUART1")
     svd_parser_wrapper.generate_peripheral('GPIO9')
+    svd_parser_wrapper.generate_peripheral('IOMUXC_GPR')
+    svd_parser_wrapper.generate_peripheral('IOMUXC')
 
 
 if __name__ == '__main__':

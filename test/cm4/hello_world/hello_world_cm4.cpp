@@ -10,6 +10,8 @@
 #include "board.h"
 #include "mcmgr.h"
 #include "registers/gpio9.hpp"
+#include "registers/iomuxc_gpr.hpp"
+#include "registers/iomuxc.hpp"
 
 #include "fsl_gpio.h"
 volatile bool g_pinSet = false;
@@ -44,19 +46,6 @@ volatile bool g_pinSet = false;
  * Code
  ******************************************************************************/
 
-// void LedToggle(nGPIO9::DR_t *gpio9_dr)
-// {
-//     // gpio9_dr->DR_TOGGLE.SetDR_TOGGLE(1);
-//     // if (gpio9_dr->GetDR() > 0)
-//     // {
-//     //    gpio9_dr->SetDR(0) 
-//     // }
-//     // else
-//     // {
-//     //     gpio9_dr->SetDR(8);
-//     // }
-// }
-
 /*!
  * @brief Application-specific implementation of the SystemInitHook() weak function.
  */
@@ -68,6 +57,20 @@ void SystemInitHook(void)
        application. */
     (void)MCMGR_EarlyInit();
 }
+
+
+void BoardInitPins()
+{
+    // IOMUXC_SetPinMux(
+    //   IOMUXC_GPIO_AD_04_GPIO9_IO03,           /* GPIO_AD_04 is configured as GPIO9_IO03 */
+    //   0U);
+
+    // Set GPIO9, pin3 mux.
+    nIOMUXC::SW_MUX_CTL_PAD_GPIO_AD_04_t iomuxc_sw_pad{};
+    iomuxc_sw_pad.SetMUX_MODE(nIOMUXC::SW_MUX_CTL_PAD_GPIO_AD_04_t::eMUX_MODE::eALT10_gpio9_IO3);
+}
+
+
 /*!
  * @brief Main function
  */
@@ -79,6 +82,7 @@ int main(void)
     /* Init board hardware.*/
     BOARD_ConfigMPU();
     BOARD_InitPins();
+    BoardInitPins();
     SystemCoreClock = CLOCK_GetRootClockFreq(kCLOCK_Root_M4);
 
     /* Initialize MCMGR, install generic event handlers */
