@@ -59,6 +59,30 @@ void SystemInitHook(void)
 }
 
 
+namespace n_IOMUXC
+{
+union SW_MUX_CTL_PAD_GPIO_AD_04 {
+    uint32_t value;  // Full 32-bit register access
+    struct {
+        uint32_t MUX_MODE : 4;
+        uint32_t SION : 1;
+        uint32_t reserved : 27;
+    } bits;  // Bit-field struct (automatically optimized)
+
+    // // Constructor initializes the reference to the real register
+    // SW_MUX_CTL_PAD_GPIO_AD_04() : value(*address) {}
+    SW_MUX_CTL_PAD_GPIO_AD_04() = delete;
+
+    static inline volatile SW_MUX_CTL_PAD_GPIO_AD_04 &Instance() {
+        return *reinterpret_cast<volatile SW_MUX_CTL_PAD_GPIO_AD_04*>(0x400E811C);
+    }
+
+    
+    inline void Reset() volatile { this->value = 0x00000005; }
+
+};
+}
+
 void BoardInitPins()
 {
     // IOMUXC_SetPinMux(
@@ -66,8 +90,15 @@ void BoardInitPins()
     //   0U);
 
     // Set GPIO9, pin3 mux.
-    nIOMUXC::SW_MUX_CTL_PAD_GPIO_AD_04_t iomuxc_sw_pad{};
-    iomuxc_sw_pad.SetMUX_MODE(nIOMUXC::SW_MUX_CTL_PAD_GPIO_AD_04_t::eMUX_MODE::eALT10_gpio9_IO3);
+    // nIOMUXC::SW_MUX_CTL_PAD_GPIO_AD_04_t iomuxc_sw_pad{};
+    // iomuxc_sw_pad.SetMUX_MODE(nIOMUXC::SW_MUX_CTL_PAD_GPIO_AD_04_t::eMUX_MODE::eALT10_gpio9_IO3);
+
+    n_IOMUXC::SW_MUX_CTL_PAD_GPIO_AD_04::Instance().Reset();
+    n_IOMUXC::SW_MUX_CTL_PAD_GPIO_AD_04::Instance().bits.MUX_MODE = 10u;
+    // volatile n_IOMUXC::SW_MUX_CTL_PAD_GPIO_AD_04* const reg = reinterpret_cast<volatile n_IOMUXC::SW_MUX_CTL_PAD_GPIO_AD_04*>(0x400e811c);
+    // reg->Reset();
+    // reg->bits.MUX_MODE = 10u;
+    // void();
 }
 
 
