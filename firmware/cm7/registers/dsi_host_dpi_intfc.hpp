@@ -5,6 +5,8 @@
 #include <cstring>
 
 // DSI Host DPI Interface
+//
+// NOTE: This file was generated from the forge CMSIS-svd wrapper tool.
 namespace nDSI_HOST_DPI_INTFC {
 
 

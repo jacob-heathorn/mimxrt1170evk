@@ -5,6 +5,8 @@
 #include <cstring>
 
 // IPS Domain
+//
+// NOTE: This file was generated from the forge CMSIS-svd wrapper tool.
 namespace nIPS_DOMAIN {
 
 

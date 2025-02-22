@@ -5,6 +5,8 @@
 #include <cstring>
 
 // DCIC
+//
+// NOTE: This file was generated from the forge CMSIS-svd wrapper tool.
 namespace nDCIC2 {
 
 

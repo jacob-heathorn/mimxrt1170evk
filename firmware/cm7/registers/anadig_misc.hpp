@@ -5,6 +5,8 @@
 #include <cstring>
 
 // MX6RT_ANADIG_REGISTER
+//
+// NOTE: This file was generated from the forge CMSIS-svd wrapper tool.
 namespace nANADIG_MISC {
 
 

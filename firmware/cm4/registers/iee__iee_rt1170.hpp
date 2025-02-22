@@ -5,6 +5,8 @@
 #include <cstring>
 
 // IEE
+//
+// NOTE: This file was generated from the forge CMSIS-svd wrapper tool.
 namespace nIEE__IEE_RT1170 {
 
 

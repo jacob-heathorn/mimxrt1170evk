@@ -5,6 +5,8 @@
 #include <cstring>
 
 // GPC_CPU
+//
+// NOTE: This file was generated from the forge CMSIS-svd wrapper tool.
 namespace nGPC_CPU_MODE_CTRL_0 {
 
 

@@ -5,6 +5,8 @@
 #include <cstring>
 
 // GPC_SP
+//
+// NOTE: This file was generated from the forge CMSIS-svd wrapper tool.
 namespace nGPC_SET_POINT_CTRL {
 
 

@@ -5,6 +5,8 @@
 #include <cstring>
 
 // USB
+//
+// NOTE: This file was generated from the forge CMSIS-svd wrapper tool.
 namespace nUSB_OTG2 {
 
 

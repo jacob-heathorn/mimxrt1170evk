@@ -5,6 +5,8 @@
 #include <cstring>
 
 // IPS_Semaphores
+//
+// NOTE: This file was generated from the forge CMSIS-svd wrapper tool.
 namespace nSEMA4 {
 
 

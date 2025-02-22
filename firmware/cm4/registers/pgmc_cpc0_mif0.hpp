@@ -5,6 +5,8 @@
 #include <cstring>
 
 // PGMC_MIF
+//
+// NOTE: This file was generated from the forge CMSIS-svd wrapper tool.
 namespace nPGMC_CPC0_MIF0 {
 
 

@@ -5,6 +5,8 @@
 #include <cstring>
 
 // DSI HOST APB PKT Interface
+//
+// NOTE: This file was generated from the forge CMSIS-svd wrapper tool.
 namespace nDSI_HOST_APB_PKT_IF {
 
 

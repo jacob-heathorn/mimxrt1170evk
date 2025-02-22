@@ -5,6 +5,8 @@
 #include <cstring>
 
 // FlexCAN wrapper
+//
+// NOTE: This file was generated from the forge CMSIS-svd wrapper tool.
 namespace nCAN2_WRAPPER {
 
 

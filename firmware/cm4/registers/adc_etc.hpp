@@ -5,6 +5,8 @@
 #include <cstring>
 
 // ADC_ETC
+//
+// NOTE: This file was generated from the forge CMSIS-svd wrapper tool.
 namespace nADC_ETC {
 
 

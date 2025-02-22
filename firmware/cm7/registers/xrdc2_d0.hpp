@@ -5,6 +5,8 @@
 #include <cstring>
 
 // XRDC2
+//
+// NOTE: This file was generated from the forge CMSIS-svd wrapper tool.
 namespace nXRDC2_D0 {
 
 

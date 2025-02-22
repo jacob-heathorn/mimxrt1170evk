@@ -5,6 +5,8 @@
 #include <cstring>
 
 // LCDIF_V2
+//
+// NOTE: This file was generated from the forge CMSIS-svd wrapper tool.
 namespace nLCDIFV2 {
 
 

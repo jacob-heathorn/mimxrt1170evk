@@ -5,6 +5,8 @@
 #include <cstring>
 
 // DSI HOST DPHY INTFC
+//
+// NOTE: This file was generated from the forge CMSIS-svd wrapper tool.
 namespace nDSI_HOST_DPHY_INTFC {
 
 

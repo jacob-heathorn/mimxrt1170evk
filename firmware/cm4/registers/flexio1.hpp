@@ -5,6 +5,8 @@
 #include <cstring>
 
 // FLEXIO
+//
+// NOTE: This file was generated from the forge CMSIS-svd wrapper tool.
 namespace nFLEXIO1 {
 
 

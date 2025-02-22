@@ -5,6 +5,8 @@
 #include <cstring>
 
 // Nested Vectored Interrupt Controller
+//
+// NOTE: This file was generated from the forge CMSIS-svd wrapper tool.
 namespace nCM7_NVIC {
 
 

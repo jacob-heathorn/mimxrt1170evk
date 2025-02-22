@@ -5,6 +5,8 @@
 #include <cstring>
 
 // LPI2C
+//
+// NOTE: This file was generated from the forge CMSIS-svd wrapper tool.
 namespace nLPI2C1 {
 
 

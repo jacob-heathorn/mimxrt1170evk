@@ -5,6 +5,8 @@
 #include <cstring>
 
 // IEE_APC
+//
+// NOTE: This file was generated from the forge CMSIS-svd wrapper tool.
 namespace nIEE_APC {
 
 

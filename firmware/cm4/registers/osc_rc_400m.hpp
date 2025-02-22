@@ -5,6 +5,8 @@
 #include <cstring>
 
 // no description available
+//
+// NOTE: This file was generated from the forge CMSIS-svd wrapper tool.
 namespace nOSC_RC_400M {
 
 

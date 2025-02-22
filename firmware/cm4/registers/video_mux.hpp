@@ -5,6 +5,8 @@
 #include <cstring>
 
 // VIDEO_MUX
+//
+// NOTE: This file was generated from the forge CMSIS-svd wrapper tool.
 namespace nVIDEO_MUX {
 
 

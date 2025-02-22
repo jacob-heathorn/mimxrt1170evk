@@ -5,6 +5,8 @@
 #include <cstring>
 
 // SEMA42
+//
+// NOTE: This file was generated from the forge CMSIS-svd wrapper tool.
 namespace nRDC_SEMAPHORE2 {
 
 

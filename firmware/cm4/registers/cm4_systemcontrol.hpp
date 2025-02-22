@@ -5,6 +5,8 @@
 #include <cstring>
 
 // System Control Block
+//
+// NOTE: This file was generated from the forge CMSIS-svd wrapper tool.
 namespace nCM4_SystemControl {
 
 

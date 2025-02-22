@@ -5,6 +5,8 @@
 #include <cstring>
 
 // MUB
+//
+// NOTE: This file was generated from the forge CMSIS-svd wrapper tool.
 namespace nMUB {
 
 

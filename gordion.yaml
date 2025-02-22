@@ -1,6 +1,6 @@
 repositories:
   forge:
-    tag: 9b5ee6c1b28bad1bcfdf2faef31aeb8d88dade41
+    tag: fb92826c6e70950f6ddc0aaa9e72774858561c0c
     url: https://github.com/jacob-heathorn/forge.git
   mcux-soc-svd:
     tag: MCUX_2.16.100

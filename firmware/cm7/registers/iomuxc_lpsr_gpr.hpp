@@ -5,6 +5,8 @@
 #include <cstring>
 
 // IOMUXC LPSR GPR
+//
+// NOTE: This file was generated from the forge CMSIS-svd wrapper tool.
 namespace nIOMUXC_LPSR_GPR {
 
 
