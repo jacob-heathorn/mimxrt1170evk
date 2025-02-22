@@ -47,12 +47,18 @@ union CTRL {
   
   // Bit field definition.
   struct {
+    /// read-write - Begin Zeroize operation for PUF and go to Error state
     eZEROIZE ZEROIZE : 1;
+    /// read-write - Begin Enroll operation
     eENROLL ENROLL : 1;
+    /// read-write - Begin Start operation
     eSTART START : 1;
+    /// read-write - Begin Set Intrinsic Key operation
     eGENERATEKEY GENERATEKEY : 1;
+    /// read-write - Begin Set User Key operation
     eSETKEY SETKEY : 1;
     uint32_t _reserved_0 : 1;
+    /// read-write - Begin Get Key operation
     eGETKEY GETKEY : 1;
     uint32_t _reserved_1 : 25;
   } bits;
@@ -90,6 +96,7 @@ union KEYINDEX {
   
   // Bit field definition.
   struct {
+    /// read-write - PUF Key Index
     eKEYIDX KEYIDX : 4;
     uint32_t _reserved_0 : 28;
   } bits;
@@ -175,6 +182,7 @@ union KEYSIZE {
   
   // Bit field definition.
   struct {
+    /// read-write - PUF Key Size
     eKEYSIZE KEYSIZE : 6;
     uint32_t _reserved_0 : 26;
   } bits;
@@ -228,13 +236,20 @@ union STAT {
   
   // Bit field definition.
   struct {
+    /// read-only - puf_busy
     eBUSY BUSY : 1;
+    /// read-only - puf_ok
     eSUCCESS SUCCESS : 1;
+    /// read-only - puf_error
     eERROR ERROR : 1;
     uint32_t _reserved_0 : 1;
+    /// read-only - KI_ir
     eKEYINREQ KEYINREQ : 1;
+    /// read-only - KO_or
     eKEYOUTAVAIL KEYOUTAVAIL : 1;
+    /// read-only - CI_ir
     eCODEINREQ CODEINREQ : 1;
+    /// read-only - CO_or
     eCODEOUTAVAIL CODEOUTAVAIL : 1;
     uint32_t _reserved_1 : 24;
   } bits;
@@ -273,9 +288,13 @@ union ALLOW {
   
   // Bit field definition.
   struct {
+    /// read-only - Allow Enroll operation
     eALLOWENROLL ALLOWENROLL : 1;
+    /// read-only - Allow Start operation
     eALLOWSTART ALLOWSTART : 1;
+    /// read-only - Allow Set Key operations
     eALLOWSETKEY ALLOWSETKEY : 1;
+    /// read-only - Allow Get Key operation
     eALLOWGETKEY ALLOWGETKEY : 1;
     uint32_t _reserved_0 : 28;
   } bits;
@@ -294,6 +313,7 @@ union KEYINPUT {
   
   // Bit field definition.
   struct {
+    /// write-only - Key input data
     uint32_t KEYIN : 32;
   } bits;
   
@@ -311,6 +331,7 @@ union CODEINPUT {
   
   // Bit field definition.
   struct {
+    /// write-only - AC/KC input data
     uint32_t CODEIN : 32;
   } bits;
   
@@ -328,6 +349,7 @@ union CODEOUTPUT {
   
   // Bit field definition.
   struct {
+    /// read-only - AC/KC output data
     uint32_t CODEOUT : 32;
   } bits;
   
@@ -345,6 +367,7 @@ union KEYOUTINDEX {
   
   // Bit field definition.
   struct {
+    /// read-only - Output Key index
     uint32_t KEYOUTIDX : 32;
   } bits;
   
@@ -362,6 +385,7 @@ union KEYOUTPUT {
   
   // Bit field definition.
   struct {
+    /// read-only - Key output data from a Get Key operation
     uint32_t KEYOUT : 32;
   } bits;
   
@@ -384,6 +408,7 @@ union IFSTAT {
   
   // Bit field definition.
   struct {
+    /// read-write - APB error has occurred
     eERROR ERROR : 1;
     uint32_t _reserved_0 : 31;
   } bits;
@@ -402,6 +427,7 @@ union VERSION {
   
   // Bit field definition.
   struct {
+    /// read-only - Version of PUF
     uint32_t VERSION : 32;
   } bits;
   
@@ -454,13 +480,20 @@ union INTEN {
   
   // Bit field definition.
   struct {
+    /// read-write - PUF Ready Interrupt Enable
     eREADYEN READYEN : 1;
+    /// read-write - PUF_OK Interrupt Enable
     eSUCCESSEN SUCCESSEN : 1;
+    /// read-write - PUF Error Interrupt Enable
     eERROREN ERROREN : 1;
     uint32_t _reserved_0 : 1;
+    /// read-write - PUF Key Input Register Interrupt Enable
     eKEYINREQEN KEYINREQEN : 1;
+    /// read-write - PUF Key Output Register Interrupt Enable
     eKEYOUTAVAILEN KEYOUTAVAILEN : 1;
+    /// read-write - PUF Code Input Register Interrupt Enable
     eCODEINREQEN CODEINREQEN : 1;
+    /// read-write - PUF Code Output Register Interrupt Enable
     eCODEOUTAVAILEN CODEOUTAVAILEN : 1;
     uint32_t _reserved_1 : 24;
   } bits;
@@ -514,13 +547,20 @@ union INTSTAT {
   
   // Bit field definition.
   struct {
+    /// read-write - PUF_FINISH Interrupt Status
     eREADY READY : 1;
+    /// read-only - PUF_OK Interrupt Status
     eSUCCESS SUCCESS : 1;
+    /// read-only - PUF_ERROR Interrupt Status
     eERROR ERROR : 1;
     uint32_t _reserved_0 : 1;
+    /// read-only - PUF Key Input Register Interrupt Status
     eKEYINREQ KEYINREQ : 1;
+    /// read-only - PUF Key Output Register Interrupt Status
     eKEYOUTAVAIL KEYOUTAVAIL : 1;
+    /// read-only - PUF Code Input Register Interrupt Status
     eCODEINREQ CODEINREQ : 1;
+    /// read-only - PUF Code Output Register Interrupt Status
     eCODEOUTAVAIL CODEOUTAVAIL : 1;
     uint32_t _reserved_1 : 24;
   } bits;
@@ -554,10 +594,14 @@ union PWRCTRL {
   
   // Bit field definition.
   struct {
+    /// read-write - PUF RAM on
     eRAM_ON RAM_ON : 1;
     uint32_t _reserved_0 : 1;
+    /// read-write - Clock disable
     eCK_DIS CK_DIS : 1;
+    /// read-write - RAM initialization
     eRAM_INITN RAM_INITN : 1;
+    /// read-write - PUF RAM power switches
     uint32_t RAM_PSW : 4;
     uint32_t _reserved_1 : 24;
   } bits;
@@ -586,7 +630,9 @@ union CFG {
   
   // Bit field definition.
   struct {
+    /// read-writeOnce - PUF Block Set Key Disable
     ePUF_BLOCK_SET_KEY PUF_BLOCK_SET_KEY : 1;
+    /// read-writeOnce - PUF Block Enroll Disable
     ePUF_BLOCK_ENROLL PUF_BLOCK_ENROLL : 1;
     uint32_t _reserved_0 : 30;
   } bits;
@@ -619,7 +665,9 @@ union KEYLOCK {
   
   // Bit field definition.
   struct {
+    /// read-writeOnce - Lock Block 0
     eLOCK0 LOCK0 : 2;
+    /// read-writeOnce - Lock Block 1
     eLOCK1 LOCK1 : 2;
     uint32_t _reserved_0 : 28;
   } bits;
@@ -652,7 +700,9 @@ union KEYENABLE {
   
   // Bit field definition.
   struct {
+    /// read-write - Enable Block 0
     eENABLE0 ENABLE0 : 2;
+    /// read-write - Enable Block 1
     eENABLE1 ENABLE1 : 2;
     uint32_t _reserved_0 : 28;
   } bits;
@@ -685,7 +735,9 @@ union KEYRESET {
   
   // Bit field definition.
   struct {
+    /// write-only - Reset Block 0
     eRESET0 RESET0 : 2;
+    /// write-only - Reset Block 1
     eRESET1 RESET1 : 2;
     uint32_t _reserved_0 : 28;
   } bits;
@@ -704,21 +756,37 @@ union IDXBLK {
   
   // Bit field definition.
   struct {
+    /// write-only - idxblk0
     uint32_t IDXBLK0 : 2;
+    /// write-only - idxblk1
     uint32_t IDXBLK1 : 2;
+    /// write-only - idxblk2
     uint32_t IDXBLK2 : 2;
+    /// write-only - idxblk3
     uint32_t IDXBLK3 : 2;
+    /// write-only - idxblk4
     uint32_t IDXBLK4 : 2;
+    /// write-only - idxblk5
     uint32_t IDXBLK5 : 2;
+    /// write-only - idxblk6
     uint32_t IDXBLK6 : 2;
+    /// write-only - idxblk7
     uint32_t IDXBLK7 : 2;
+    /// write-only - idxblk8
     uint32_t IDXBLK8 : 2;
+    /// write-only - idxblk9
     uint32_t IDXBLK9 : 2;
+    /// write-only - idxblk10
     uint32_t IDXBLK10 : 2;
+    /// write-only - idxblk11
     uint32_t IDXBLK11 : 2;
+    /// write-only - idxblk12
     uint32_t IDXBLK12 : 2;
+    /// write-only - idxblk13
     uint32_t IDXBLK13 : 2;
+    /// write-only - idxblk14
     uint32_t IDXBLK14 : 2;
+    /// write-only - idxblk15
     uint32_t IDXBLK15 : 2;
   } bits;
   
@@ -736,21 +804,37 @@ union IDXBLK_DP {
   
   // Bit field definition.
   struct {
+    /// write-only - idxblk_dp0
     uint32_t IDXBLK_DP0 : 2;
+    /// write-only - idxblk_dp1
     uint32_t IDXBLK_DP1 : 2;
+    /// write-only - idxblk_dp2
     uint32_t IDXBLK_DP2 : 2;
+    /// write-only - idxblk_dp3
     uint32_t IDXBLK_DP3 : 2;
+    /// write-only - idxblk_dp4
     uint32_t IDXBLK_DP4 : 2;
+    /// write-only - idxblk_dp5
     uint32_t IDXBLK_DP5 : 2;
+    /// write-only - idxblk_dp6
     uint32_t IDXBLK_DP6 : 2;
+    /// write-only - idxblk_dp7
     uint32_t IDXBLK_DP7 : 2;
+    /// write-only - idxblk_dp8
     uint32_t IDXBLK_DP8 : 2;
+    /// write-only - idxblk_dp9
     uint32_t IDXBLK_DP9 : 2;
+    /// write-only - idxblk_dp10
     uint32_t IDXBLK_DP10 : 2;
+    /// write-only - idxblk_dp11
     uint32_t IDXBLK_DP11 : 2;
+    /// write-only - idxblk_dp12
     uint32_t IDXBLK_DP12 : 2;
+    /// write-only - idxblk_dp13
     uint32_t IDXBLK_DP13 : 2;
+    /// write-only - idxblk_dp14
     uint32_t IDXBLK_DP14 : 2;
+    /// write-only - idxblk_dp15
     uint32_t IDXBLK_DP15 : 2;
   } bits;
   
@@ -768,6 +852,7 @@ union KEYMASK0 {
   
   // Bit field definition.
   struct {
+    /// write-only - KEYMASK0
     uint32_t KEYMASK : 32;
   } bits;
   
@@ -785,6 +870,7 @@ union KEYMASK1 {
   
   // Bit field definition.
   struct {
+    /// write-only - KEYMASK1
     uint32_t KEYMASK : 32;
   } bits;
   
@@ -802,21 +888,37 @@ union IDXBLK_STATUS {
   
   // Bit field definition.
   struct {
+    /// read-only - idxblk_status0
     uint32_t IDXBLK_STATUS0 : 2;
+    /// read-only - idxblk_status1
     uint32_t IDXBLK_STATUS1 : 2;
+    /// read-only - idxblk_status2
     uint32_t IDXBLK_STATUS2 : 2;
+    /// read-only - idxblk_status3
     uint32_t IDXBLK_STATUS3 : 2;
+    /// read-only - idxblk_status4
     uint32_t IDXBLK_STATUS4 : 2;
+    /// read-only - idxblk_status5
     uint32_t IDXBLK_STATUS5 : 2;
+    /// read-only - idxblk_status6
     uint32_t IDXBLK_STATUS6 : 2;
+    /// read-only - idxblk_status7
     uint32_t IDXBLK_STATUS7 : 2;
+    /// read-only - idxblk_status8
     uint32_t IDXBLK_STATUS8 : 2;
+    /// read-only - idxblk_status9
     uint32_t IDXBLK_STATUS9 : 2;
+    /// read-only - idxblk_status10
     uint32_t IDXBLK_STATUS10 : 2;
+    /// read-only - idxblk_status11
     uint32_t IDXBLK_STATUS11 : 2;
+    /// read-only - idxblk_status12
     uint32_t IDXBLK_STATUS12 : 2;
+    /// read-only - idxblk_status13
     uint32_t IDXBLK_STATUS13 : 2;
+    /// read-only - idxblk_status14
     uint32_t IDXBLK_STATUS14 : 2;
+    /// read-only - idxblk_status15
     uint32_t IDXBLK_STATUS15 : 2;
   } bits;
   
@@ -834,7 +936,9 @@ union IDXBLK_SHIFT {
   
   // Bit field definition.
   struct {
+    /// read-only - Index of key space in block 0
     uint32_t IND_KEY0 : 4;
+    /// read-only - Index of key space in block 1
     uint32_t IND_KEY1 : 4;
     uint32_t _reserved_0 : 24;
   } bits;

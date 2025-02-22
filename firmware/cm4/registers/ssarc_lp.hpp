@@ -27,9 +27,13 @@ union DESC_CTRL0_0 {
   
   // Bit field definition.
   struct {
+    /// read-write - Start index
     uint32_t START : 10;
+    /// read-write - End index
     uint32_t END : 10;
+    /// read-write - Save Order
     eSV_ORDER SV_ORDER : 1;
+    /// read-write - Restore order
     eRT_ORDER RT_ORDER : 1;
     uint32_t _reserved_0 : 10;
   } bits;
@@ -89,16 +93,26 @@ union DESC_CTRL1_0 {
   
   // Bit field definition.
   struct {
+    /// read-write - Software trigger save
     eSW_TRIG_SV SW_TRIG_SV : 1;
+    /// read-write - Software trigger restore
     eSW_TRIG_RT SW_TRIG_RT : 1;
     uint32_t _reserved_0 : 2;
+    /// read-write - This field describes the mapping (0-7) to external request signals from different domains
     ePOWER_DOMAIN POWER_DOMAIN : 3;
+    /// read-write - Group Enable
     eGP_EN GP_EN : 1;
+    /// read-write - Save Priority
     uint32_t SV_PRIORITY : 4;
+    /// read-write - Restore Priority
     uint32_t RT_PRIORITY : 4;
+    /// read-write - CPU Domain
     uint32_t CPUD : 2;
+    /// read-write - Read Lock
     eRL RL : 1;
+    /// read-write - Write Lock
     eWL WL : 1;
+    /// read-write - Domain lock
     eDL DL : 1;
     uint32_t _reserved_1 : 11;
   } bits;
@@ -117,6 +131,7 @@ union DESC_ADDR_UP_0 {
   
   // Bit field definition.
   struct {
+    /// read-write - Address field (High)
     uint32_t ADDR_UP : 32;
   } bits;
   
@@ -134,6 +149,7 @@ union DESC_ADDR_DOWN_0 {
   
   // Bit field definition.
   struct {
+    /// read-write - Address field (Low)
     uint32_t ADDR_DOWN : 32;
   } bits;
   
@@ -161,9 +177,13 @@ union DESC_CTRL0_1 {
   
   // Bit field definition.
   struct {
+    /// read-write - Start index
     uint32_t START : 10;
+    /// read-write - End index
     uint32_t END : 10;
+    /// read-write - Save Order
     eSV_ORDER SV_ORDER : 1;
+    /// read-write - Restore order
     eRT_ORDER RT_ORDER : 1;
     uint32_t _reserved_0 : 10;
   } bits;
@@ -223,16 +243,26 @@ union DESC_CTRL1_1 {
   
   // Bit field definition.
   struct {
+    /// read-write - Software trigger save
     eSW_TRIG_SV SW_TRIG_SV : 1;
+    /// read-write - Software trigger restore
     eSW_TRIG_RT SW_TRIG_RT : 1;
     uint32_t _reserved_0 : 2;
+    /// read-write - This field describes the mapping (0-7) to external request signals from different domains
     ePOWER_DOMAIN POWER_DOMAIN : 3;
+    /// read-write - Group Enable
     eGP_EN GP_EN : 1;
+    /// read-write - Save Priority
     uint32_t SV_PRIORITY : 4;
+    /// read-write - Restore Priority
     uint32_t RT_PRIORITY : 4;
+    /// read-write - CPU Domain
     uint32_t CPUD : 2;
+    /// read-write - Read Lock
     eRL RL : 1;
+    /// read-write - Write Lock
     eWL WL : 1;
+    /// read-write - Domain lock
     eDL DL : 1;
     uint32_t _reserved_1 : 11;
   } bits;
@@ -251,6 +281,7 @@ union DESC_ADDR_UP_1 {
   
   // Bit field definition.
   struct {
+    /// read-write - Address field (High)
     uint32_t ADDR_UP : 32;
   } bits;
   
@@ -268,6 +299,7 @@ union DESC_ADDR_DOWN_1 {
   
   // Bit field definition.
   struct {
+    /// read-write - Address field (Low)
     uint32_t ADDR_DOWN : 32;
   } bits;
   
@@ -295,9 +327,13 @@ union DESC_CTRL0_2 {
   
   // Bit field definition.
   struct {
+    /// read-write - Start index
     uint32_t START : 10;
+    /// read-write - End index
     uint32_t END : 10;
+    /// read-write - Save Order
     eSV_ORDER SV_ORDER : 1;
+    /// read-write - Restore order
     eRT_ORDER RT_ORDER : 1;
     uint32_t _reserved_0 : 10;
   } bits;
@@ -357,16 +393,26 @@ union DESC_CTRL1_2 {
   
   // Bit field definition.
   struct {
+    /// read-write - Software trigger save
     eSW_TRIG_SV SW_TRIG_SV : 1;
+    /// read-write - Software trigger restore
     eSW_TRIG_RT SW_TRIG_RT : 1;
     uint32_t _reserved_0 : 2;
+    /// read-write - This field describes the mapping (0-7) to external request signals from different domains
     ePOWER_DOMAIN POWER_DOMAIN : 3;
+    /// read-write - Group Enable
     eGP_EN GP_EN : 1;
+    /// read-write - Save Priority
     uint32_t SV_PRIORITY : 4;
+    /// read-write - Restore Priority
     uint32_t RT_PRIORITY : 4;
+    /// read-write - CPU Domain
     uint32_t CPUD : 2;
+    /// read-write - Read Lock
     eRL RL : 1;
+    /// read-write - Write Lock
     eWL WL : 1;
+    /// read-write - Domain lock
     eDL DL : 1;
     uint32_t _reserved_1 : 11;
   } bits;
@@ -385,6 +431,7 @@ union DESC_ADDR_UP_2 {
   
   // Bit field definition.
   struct {
+    /// read-write - Address field (High)
     uint32_t ADDR_UP : 32;
   } bits;
   
@@ -402,6 +449,7 @@ union DESC_ADDR_DOWN_2 {
   
   // Bit field definition.
   struct {
+    /// read-write - Address field (Low)
     uint32_t ADDR_DOWN : 32;
   } bits;
   
@@ -429,9 +477,13 @@ union DESC_CTRL0_3 {
   
   // Bit field definition.
   struct {
+    /// read-write - Start index
     uint32_t START : 10;
+    /// read-write - End index
     uint32_t END : 10;
+    /// read-write - Save Order
     eSV_ORDER SV_ORDER : 1;
+    /// read-write - Restore order
     eRT_ORDER RT_ORDER : 1;
     uint32_t _reserved_0 : 10;
   } bits;
@@ -491,16 +543,26 @@ union DESC_CTRL1_3 {
   
   // Bit field definition.
   struct {
+    /// read-write - Software trigger save
     eSW_TRIG_SV SW_TRIG_SV : 1;
+    /// read-write - Software trigger restore
     eSW_TRIG_RT SW_TRIG_RT : 1;
     uint32_t _reserved_0 : 2;
+    /// read-write - This field describes the mapping (0-7) to external request signals from different domains
     ePOWER_DOMAIN POWER_DOMAIN : 3;
+    /// read-write - Group Enable
     eGP_EN GP_EN : 1;
+    /// read-write - Save Priority
     uint32_t SV_PRIORITY : 4;
+    /// read-write - Restore Priority
     uint32_t RT_PRIORITY : 4;
+    /// read-write - CPU Domain
     uint32_t CPUD : 2;
+    /// read-write - Read Lock
     eRL RL : 1;
+    /// read-write - Write Lock
     eWL WL : 1;
+    /// read-write - Domain lock
     eDL DL : 1;
     uint32_t _reserved_1 : 11;
   } bits;
@@ -519,6 +581,7 @@ union DESC_ADDR_UP_3 {
   
   // Bit field definition.
   struct {
+    /// read-write - Address field (High)
     uint32_t ADDR_UP : 32;
   } bits;
   
@@ -536,6 +599,7 @@ union DESC_ADDR_DOWN_3 {
   
   // Bit field definition.
   struct {
+    /// read-write - Address field (Low)
     uint32_t ADDR_DOWN : 32;
   } bits;
   
@@ -563,9 +627,13 @@ union DESC_CTRL0_4 {
   
   // Bit field definition.
   struct {
+    /// read-write - Start index
     uint32_t START : 10;
+    /// read-write - End index
     uint32_t END : 10;
+    /// read-write - Save Order
     eSV_ORDER SV_ORDER : 1;
+    /// read-write - Restore order
     eRT_ORDER RT_ORDER : 1;
     uint32_t _reserved_0 : 10;
   } bits;
@@ -625,16 +693,26 @@ union DESC_CTRL1_4 {
   
   // Bit field definition.
   struct {
+    /// read-write - Software trigger save
     eSW_TRIG_SV SW_TRIG_SV : 1;
+    /// read-write - Software trigger restore
     eSW_TRIG_RT SW_TRIG_RT : 1;
     uint32_t _reserved_0 : 2;
+    /// read-write - This field describes the mapping (0-7) to external request signals from different domains
     ePOWER_DOMAIN POWER_DOMAIN : 3;
+    /// read-write - Group Enable
     eGP_EN GP_EN : 1;
+    /// read-write - Save Priority
     uint32_t SV_PRIORITY : 4;
+    /// read-write - Restore Priority
     uint32_t RT_PRIORITY : 4;
+    /// read-write - CPU Domain
     uint32_t CPUD : 2;
+    /// read-write - Read Lock
     eRL RL : 1;
+    /// read-write - Write Lock
     eWL WL : 1;
+    /// read-write - Domain lock
     eDL DL : 1;
     uint32_t _reserved_1 : 11;
   } bits;
@@ -653,6 +731,7 @@ union DESC_ADDR_UP_4 {
   
   // Bit field definition.
   struct {
+    /// read-write - Address field (High)
     uint32_t ADDR_UP : 32;
   } bits;
   
@@ -670,6 +749,7 @@ union DESC_ADDR_DOWN_4 {
   
   // Bit field definition.
   struct {
+    /// read-write - Address field (Low)
     uint32_t ADDR_DOWN : 32;
   } bits;
   
@@ -697,9 +777,13 @@ union DESC_CTRL0_5 {
   
   // Bit field definition.
   struct {
+    /// read-write - Start index
     uint32_t START : 10;
+    /// read-write - End index
     uint32_t END : 10;
+    /// read-write - Save Order
     eSV_ORDER SV_ORDER : 1;
+    /// read-write - Restore order
     eRT_ORDER RT_ORDER : 1;
     uint32_t _reserved_0 : 10;
   } bits;
@@ -759,16 +843,26 @@ union DESC_CTRL1_5 {
   
   // Bit field definition.
   struct {
+    /// read-write - Software trigger save
     eSW_TRIG_SV SW_TRIG_SV : 1;
+    /// read-write - Software trigger restore
     eSW_TRIG_RT SW_TRIG_RT : 1;
     uint32_t _reserved_0 : 2;
+    /// read-write - This field describes the mapping (0-7) to external request signals from different domains
     ePOWER_DOMAIN POWER_DOMAIN : 3;
+    /// read-write - Group Enable
     eGP_EN GP_EN : 1;
+    /// read-write - Save Priority
     uint32_t SV_PRIORITY : 4;
+    /// read-write - Restore Priority
     uint32_t RT_PRIORITY : 4;
+    /// read-write - CPU Domain
     uint32_t CPUD : 2;
+    /// read-write - Read Lock
     eRL RL : 1;
+    /// read-write - Write Lock
     eWL WL : 1;
+    /// read-write - Domain lock
     eDL DL : 1;
     uint32_t _reserved_1 : 11;
   } bits;
@@ -787,6 +881,7 @@ union DESC_ADDR_UP_5 {
   
   // Bit field definition.
   struct {
+    /// read-write - Address field (High)
     uint32_t ADDR_UP : 32;
   } bits;
   
@@ -804,6 +899,7 @@ union DESC_ADDR_DOWN_5 {
   
   // Bit field definition.
   struct {
+    /// read-write - Address field (Low)
     uint32_t ADDR_DOWN : 32;
   } bits;
   
@@ -831,9 +927,13 @@ union DESC_CTRL0_6 {
   
   // Bit field definition.
   struct {
+    /// read-write - Start index
     uint32_t START : 10;
+    /// read-write - End index
     uint32_t END : 10;
+    /// read-write - Save Order
     eSV_ORDER SV_ORDER : 1;
+    /// read-write - Restore order
     eRT_ORDER RT_ORDER : 1;
     uint32_t _reserved_0 : 10;
   } bits;
@@ -893,16 +993,26 @@ union DESC_CTRL1_6 {
   
   // Bit field definition.
   struct {
+    /// read-write - Software trigger save
     eSW_TRIG_SV SW_TRIG_SV : 1;
+    /// read-write - Software trigger restore
     eSW_TRIG_RT SW_TRIG_RT : 1;
     uint32_t _reserved_0 : 2;
+    /// read-write - This field describes the mapping (0-7) to external request signals from different domains
     ePOWER_DOMAIN POWER_DOMAIN : 3;
+    /// read-write - Group Enable
     eGP_EN GP_EN : 1;
+    /// read-write - Save Priority
     uint32_t SV_PRIORITY : 4;
+    /// read-write - Restore Priority
     uint32_t RT_PRIORITY : 4;
+    /// read-write - CPU Domain
     uint32_t CPUD : 2;
+    /// read-write - Read Lock
     eRL RL : 1;
+    /// read-write - Write Lock
     eWL WL : 1;
+    /// read-write - Domain lock
     eDL DL : 1;
     uint32_t _reserved_1 : 11;
   } bits;
@@ -921,6 +1031,7 @@ union DESC_ADDR_UP_6 {
   
   // Bit field definition.
   struct {
+    /// read-write - Address field (High)
     uint32_t ADDR_UP : 32;
   } bits;
   
@@ -938,6 +1049,7 @@ union DESC_ADDR_DOWN_6 {
   
   // Bit field definition.
   struct {
+    /// read-write - Address field (Low)
     uint32_t ADDR_DOWN : 32;
   } bits;
   
@@ -965,9 +1077,13 @@ union DESC_CTRL0_7 {
   
   // Bit field definition.
   struct {
+    /// read-write - Start index
     uint32_t START : 10;
+    /// read-write - End index
     uint32_t END : 10;
+    /// read-write - Save Order
     eSV_ORDER SV_ORDER : 1;
+    /// read-write - Restore order
     eRT_ORDER RT_ORDER : 1;
     uint32_t _reserved_0 : 10;
   } bits;
@@ -1027,16 +1143,26 @@ union DESC_CTRL1_7 {
   
   // Bit field definition.
   struct {
+    /// read-write - Software trigger save
     eSW_TRIG_SV SW_TRIG_SV : 1;
+    /// read-write - Software trigger restore
     eSW_TRIG_RT SW_TRIG_RT : 1;
     uint32_t _reserved_0 : 2;
+    /// read-write - This field describes the mapping (0-7) to external request signals from different domains
     ePOWER_DOMAIN POWER_DOMAIN : 3;
+    /// read-write - Group Enable
     eGP_EN GP_EN : 1;
+    /// read-write - Save Priority
     uint32_t SV_PRIORITY : 4;
+    /// read-write - Restore Priority
     uint32_t RT_PRIORITY : 4;
+    /// read-write - CPU Domain
     uint32_t CPUD : 2;
+    /// read-write - Read Lock
     eRL RL : 1;
+    /// read-write - Write Lock
     eWL WL : 1;
+    /// read-write - Domain lock
     eDL DL : 1;
     uint32_t _reserved_1 : 11;
   } bits;
@@ -1055,6 +1181,7 @@ union DESC_ADDR_UP_7 {
   
   // Bit field definition.
   struct {
+    /// read-write - Address field (High)
     uint32_t ADDR_UP : 32;
   } bits;
   
@@ -1072,6 +1199,7 @@ union DESC_ADDR_DOWN_7 {
   
   // Bit field definition.
   struct {
+    /// read-write - Address field (Low)
     uint32_t ADDR_DOWN : 32;
   } bits;
   
@@ -1099,9 +1227,13 @@ union DESC_CTRL0_8 {
   
   // Bit field definition.
   struct {
+    /// read-write - Start index
     uint32_t START : 10;
+    /// read-write - End index
     uint32_t END : 10;
+    /// read-write - Save Order
     eSV_ORDER SV_ORDER : 1;
+    /// read-write - Restore order
     eRT_ORDER RT_ORDER : 1;
     uint32_t _reserved_0 : 10;
   } bits;
@@ -1161,16 +1293,26 @@ union DESC_CTRL1_8 {
   
   // Bit field definition.
   struct {
+    /// read-write - Software trigger save
     eSW_TRIG_SV SW_TRIG_SV : 1;
+    /// read-write - Software trigger restore
     eSW_TRIG_RT SW_TRIG_RT : 1;
     uint32_t _reserved_0 : 2;
+    /// read-write - This field describes the mapping (0-7) to external request signals from different domains
     ePOWER_DOMAIN POWER_DOMAIN : 3;
+    /// read-write - Group Enable
     eGP_EN GP_EN : 1;
+    /// read-write - Save Priority
     uint32_t SV_PRIORITY : 4;
+    /// read-write - Restore Priority
     uint32_t RT_PRIORITY : 4;
+    /// read-write - CPU Domain
     uint32_t CPUD : 2;
+    /// read-write - Read Lock
     eRL RL : 1;
+    /// read-write - Write Lock
     eWL WL : 1;
+    /// read-write - Domain lock
     eDL DL : 1;
     uint32_t _reserved_1 : 11;
   } bits;
@@ -1189,6 +1331,7 @@ union DESC_ADDR_UP_8 {
   
   // Bit field definition.
   struct {
+    /// read-write - Address field (High)
     uint32_t ADDR_UP : 32;
   } bits;
   
@@ -1206,6 +1349,7 @@ union DESC_ADDR_DOWN_8 {
   
   // Bit field definition.
   struct {
+    /// read-write - Address field (Low)
     uint32_t ADDR_DOWN : 32;
   } bits;
   
@@ -1233,9 +1377,13 @@ union DESC_CTRL0_9 {
   
   // Bit field definition.
   struct {
+    /// read-write - Start index
     uint32_t START : 10;
+    /// read-write - End index
     uint32_t END : 10;
+    /// read-write - Save Order
     eSV_ORDER SV_ORDER : 1;
+    /// read-write - Restore order
     eRT_ORDER RT_ORDER : 1;
     uint32_t _reserved_0 : 10;
   } bits;
@@ -1295,16 +1443,26 @@ union DESC_CTRL1_9 {
   
   // Bit field definition.
   struct {
+    /// read-write - Software trigger save
     eSW_TRIG_SV SW_TRIG_SV : 1;
+    /// read-write - Software trigger restore
     eSW_TRIG_RT SW_TRIG_RT : 1;
     uint32_t _reserved_0 : 2;
+    /// read-write - This field describes the mapping (0-7) to external request signals from different domains
     ePOWER_DOMAIN POWER_DOMAIN : 3;
+    /// read-write - Group Enable
     eGP_EN GP_EN : 1;
+    /// read-write - Save Priority
     uint32_t SV_PRIORITY : 4;
+    /// read-write - Restore Priority
     uint32_t RT_PRIORITY : 4;
+    /// read-write - CPU Domain
     uint32_t CPUD : 2;
+    /// read-write - Read Lock
     eRL RL : 1;
+    /// read-write - Write Lock
     eWL WL : 1;
+    /// read-write - Domain lock
     eDL DL : 1;
     uint32_t _reserved_1 : 11;
   } bits;
@@ -1323,6 +1481,7 @@ union DESC_ADDR_UP_9 {
   
   // Bit field definition.
   struct {
+    /// read-write - Address field (High)
     uint32_t ADDR_UP : 32;
   } bits;
   
@@ -1340,6 +1499,7 @@ union DESC_ADDR_DOWN_9 {
   
   // Bit field definition.
   struct {
+    /// read-write - Address field (Low)
     uint32_t ADDR_DOWN : 32;
   } bits;
   
@@ -1367,9 +1527,13 @@ union DESC_CTRL0_10 {
   
   // Bit field definition.
   struct {
+    /// read-write - Start index
     uint32_t START : 10;
+    /// read-write - End index
     uint32_t END : 10;
+    /// read-write - Save Order
     eSV_ORDER SV_ORDER : 1;
+    /// read-write - Restore order
     eRT_ORDER RT_ORDER : 1;
     uint32_t _reserved_0 : 10;
   } bits;
@@ -1429,16 +1593,26 @@ union DESC_CTRL1_10 {
   
   // Bit field definition.
   struct {
+    /// read-write - Software trigger save
     eSW_TRIG_SV SW_TRIG_SV : 1;
+    /// read-write - Software trigger restore
     eSW_TRIG_RT SW_TRIG_RT : 1;
     uint32_t _reserved_0 : 2;
+    /// read-write - This field describes the mapping (0-7) to external request signals from different domains
     ePOWER_DOMAIN POWER_DOMAIN : 3;
+    /// read-write - Group Enable
     eGP_EN GP_EN : 1;
+    /// read-write - Save Priority
     uint32_t SV_PRIORITY : 4;
+    /// read-write - Restore Priority
     uint32_t RT_PRIORITY : 4;
+    /// read-write - CPU Domain
     uint32_t CPUD : 2;
+    /// read-write - Read Lock
     eRL RL : 1;
+    /// read-write - Write Lock
     eWL WL : 1;
+    /// read-write - Domain lock
     eDL DL : 1;
     uint32_t _reserved_1 : 11;
   } bits;
@@ -1457,6 +1631,7 @@ union DESC_ADDR_UP_10 {
   
   // Bit field definition.
   struct {
+    /// read-write - Address field (High)
     uint32_t ADDR_UP : 32;
   } bits;
   
@@ -1474,6 +1649,7 @@ union DESC_ADDR_DOWN_10 {
   
   // Bit field definition.
   struct {
+    /// read-write - Address field (Low)
     uint32_t ADDR_DOWN : 32;
   } bits;
   
@@ -1501,9 +1677,13 @@ union DESC_CTRL0_11 {
   
   // Bit field definition.
   struct {
+    /// read-write - Start index
     uint32_t START : 10;
+    /// read-write - End index
     uint32_t END : 10;
+    /// read-write - Save Order
     eSV_ORDER SV_ORDER : 1;
+    /// read-write - Restore order
     eRT_ORDER RT_ORDER : 1;
     uint32_t _reserved_0 : 10;
   } bits;
@@ -1563,16 +1743,26 @@ union DESC_CTRL1_11 {
   
   // Bit field definition.
   struct {
+    /// read-write - Software trigger save
     eSW_TRIG_SV SW_TRIG_SV : 1;
+    /// read-write - Software trigger restore
     eSW_TRIG_RT SW_TRIG_RT : 1;
     uint32_t _reserved_0 : 2;
+    /// read-write - This field describes the mapping (0-7) to external request signals from different domains
     ePOWER_DOMAIN POWER_DOMAIN : 3;
+    /// read-write - Group Enable
     eGP_EN GP_EN : 1;
+    /// read-write - Save Priority
     uint32_t SV_PRIORITY : 4;
+    /// read-write - Restore Priority
     uint32_t RT_PRIORITY : 4;
+    /// read-write - CPU Domain
     uint32_t CPUD : 2;
+    /// read-write - Read Lock
     eRL RL : 1;
+    /// read-write - Write Lock
     eWL WL : 1;
+    /// read-write - Domain lock
     eDL DL : 1;
     uint32_t _reserved_1 : 11;
   } bits;
@@ -1591,6 +1781,7 @@ union DESC_ADDR_UP_11 {
   
   // Bit field definition.
   struct {
+    /// read-write - Address field (High)
     uint32_t ADDR_UP : 32;
   } bits;
   
@@ -1608,6 +1799,7 @@ union DESC_ADDR_DOWN_11 {
   
   // Bit field definition.
   struct {
+    /// read-write - Address field (Low)
     uint32_t ADDR_DOWN : 32;
   } bits;
   
@@ -1635,9 +1827,13 @@ union DESC_CTRL0_12 {
   
   // Bit field definition.
   struct {
+    /// read-write - Start index
     uint32_t START : 10;
+    /// read-write - End index
     uint32_t END : 10;
+    /// read-write - Save Order
     eSV_ORDER SV_ORDER : 1;
+    /// read-write - Restore order
     eRT_ORDER RT_ORDER : 1;
     uint32_t _reserved_0 : 10;
   } bits;
@@ -1697,16 +1893,26 @@ union DESC_CTRL1_12 {
   
   // Bit field definition.
   struct {
+    /// read-write - Software trigger save
     eSW_TRIG_SV SW_TRIG_SV : 1;
+    /// read-write - Software trigger restore
     eSW_TRIG_RT SW_TRIG_RT : 1;
     uint32_t _reserved_0 : 2;
+    /// read-write - This field describes the mapping (0-7) to external request signals from different domains
     ePOWER_DOMAIN POWER_DOMAIN : 3;
+    /// read-write - Group Enable
     eGP_EN GP_EN : 1;
+    /// read-write - Save Priority
     uint32_t SV_PRIORITY : 4;
+    /// read-write - Restore Priority
     uint32_t RT_PRIORITY : 4;
+    /// read-write - CPU Domain
     uint32_t CPUD : 2;
+    /// read-write - Read Lock
     eRL RL : 1;
+    /// read-write - Write Lock
     eWL WL : 1;
+    /// read-write - Domain lock
     eDL DL : 1;
     uint32_t _reserved_1 : 11;
   } bits;
@@ -1725,6 +1931,7 @@ union DESC_ADDR_UP_12 {
   
   // Bit field definition.
   struct {
+    /// read-write - Address field (High)
     uint32_t ADDR_UP : 32;
   } bits;
   
@@ -1742,6 +1949,7 @@ union DESC_ADDR_DOWN_12 {
   
   // Bit field definition.
   struct {
+    /// read-write - Address field (Low)
     uint32_t ADDR_DOWN : 32;
   } bits;
   
@@ -1769,9 +1977,13 @@ union DESC_CTRL0_13 {
   
   // Bit field definition.
   struct {
+    /// read-write - Start index
     uint32_t START : 10;
+    /// read-write - End index
     uint32_t END : 10;
+    /// read-write - Save Order
     eSV_ORDER SV_ORDER : 1;
+    /// read-write - Restore order
     eRT_ORDER RT_ORDER : 1;
     uint32_t _reserved_0 : 10;
   } bits;
@@ -1831,16 +2043,26 @@ union DESC_CTRL1_13 {
   
   // Bit field definition.
   struct {
+    /// read-write - Software trigger save
     eSW_TRIG_SV SW_TRIG_SV : 1;
+    /// read-write - Software trigger restore
     eSW_TRIG_RT SW_TRIG_RT : 1;
     uint32_t _reserved_0 : 2;
+    /// read-write - This field describes the mapping (0-7) to external request signals from different domains
     ePOWER_DOMAIN POWER_DOMAIN : 3;
+    /// read-write - Group Enable
     eGP_EN GP_EN : 1;
+    /// read-write - Save Priority
     uint32_t SV_PRIORITY : 4;
+    /// read-write - Restore Priority
     uint32_t RT_PRIORITY : 4;
+    /// read-write - CPU Domain
     uint32_t CPUD : 2;
+    /// read-write - Read Lock
     eRL RL : 1;
+    /// read-write - Write Lock
     eWL WL : 1;
+    /// read-write - Domain lock
     eDL DL : 1;
     uint32_t _reserved_1 : 11;
   } bits;
@@ -1859,6 +2081,7 @@ union DESC_ADDR_UP_13 {
   
   // Bit field definition.
   struct {
+    /// read-write - Address field (High)
     uint32_t ADDR_UP : 32;
   } bits;
   
@@ -1876,6 +2099,7 @@ union DESC_ADDR_DOWN_13 {
   
   // Bit field definition.
   struct {
+    /// read-write - Address field (Low)
     uint32_t ADDR_DOWN : 32;
   } bits;
   
@@ -1903,9 +2127,13 @@ union DESC_CTRL0_14 {
   
   // Bit field definition.
   struct {
+    /// read-write - Start index
     uint32_t START : 10;
+    /// read-write - End index
     uint32_t END : 10;
+    /// read-write - Save Order
     eSV_ORDER SV_ORDER : 1;
+    /// read-write - Restore order
     eRT_ORDER RT_ORDER : 1;
     uint32_t _reserved_0 : 10;
   } bits;
@@ -1965,16 +2193,26 @@ union DESC_CTRL1_14 {
   
   // Bit field definition.
   struct {
+    /// read-write - Software trigger save
     eSW_TRIG_SV SW_TRIG_SV : 1;
+    /// read-write - Software trigger restore
     eSW_TRIG_RT SW_TRIG_RT : 1;
     uint32_t _reserved_0 : 2;
+    /// read-write - This field describes the mapping (0-7) to external request signals from different domains
     ePOWER_DOMAIN POWER_DOMAIN : 3;
+    /// read-write - Group Enable
     eGP_EN GP_EN : 1;
+    /// read-write - Save Priority
     uint32_t SV_PRIORITY : 4;
+    /// read-write - Restore Priority
     uint32_t RT_PRIORITY : 4;
+    /// read-write - CPU Domain
     uint32_t CPUD : 2;
+    /// read-write - Read Lock
     eRL RL : 1;
+    /// read-write - Write Lock
     eWL WL : 1;
+    /// read-write - Domain lock
     eDL DL : 1;
     uint32_t _reserved_1 : 11;
   } bits;
@@ -1993,6 +2231,7 @@ union DESC_ADDR_UP_14 {
   
   // Bit field definition.
   struct {
+    /// read-write - Address field (High)
     uint32_t ADDR_UP : 32;
   } bits;
   
@@ -2010,6 +2249,7 @@ union DESC_ADDR_DOWN_14 {
   
   // Bit field definition.
   struct {
+    /// read-write - Address field (Low)
     uint32_t ADDR_DOWN : 32;
   } bits;
   
@@ -2037,9 +2277,13 @@ union DESC_CTRL0_15 {
   
   // Bit field definition.
   struct {
+    /// read-write - Start index
     uint32_t START : 10;
+    /// read-write - End index
     uint32_t END : 10;
+    /// read-write - Save Order
     eSV_ORDER SV_ORDER : 1;
+    /// read-write - Restore order
     eRT_ORDER RT_ORDER : 1;
     uint32_t _reserved_0 : 10;
   } bits;
@@ -2099,16 +2343,26 @@ union DESC_CTRL1_15 {
   
   // Bit field definition.
   struct {
+    /// read-write - Software trigger save
     eSW_TRIG_SV SW_TRIG_SV : 1;
+    /// read-write - Software trigger restore
     eSW_TRIG_RT SW_TRIG_RT : 1;
     uint32_t _reserved_0 : 2;
+    /// read-write - This field describes the mapping (0-7) to external request signals from different domains
     ePOWER_DOMAIN POWER_DOMAIN : 3;
+    /// read-write - Group Enable
     eGP_EN GP_EN : 1;
+    /// read-write - Save Priority
     uint32_t SV_PRIORITY : 4;
+    /// read-write - Restore Priority
     uint32_t RT_PRIORITY : 4;
+    /// read-write - CPU Domain
     uint32_t CPUD : 2;
+    /// read-write - Read Lock
     eRL RL : 1;
+    /// read-write - Write Lock
     eWL WL : 1;
+    /// read-write - Domain lock
     eDL DL : 1;
     uint32_t _reserved_1 : 11;
   } bits;
@@ -2127,6 +2381,7 @@ union DESC_ADDR_UP_15 {
   
   // Bit field definition.
   struct {
+    /// read-write - Address field (High)
     uint32_t ADDR_UP : 32;
   } bits;
   
@@ -2144,6 +2399,7 @@ union DESC_ADDR_DOWN_15 {
   
   // Bit field definition.
   struct {
+    /// read-write - Address field (Low)
     uint32_t ADDR_DOWN : 32;
   } bits;
   
@@ -2167,8 +2423,10 @@ union CTRL {
   // Bit field definition.
   struct {
     uint32_t _reserved_0 : 27;
+    /// read-write - Save/Restore request disable
     eDIS_HW_REQ DIS_HW_REQ : 1;
     uint32_t _reserved_1 : 3;
+    /// read-write - Software reset
     uint32_t SW_RESET : 1;
   } bits;
   
@@ -2211,13 +2469,20 @@ union INT_STATUS {
   
   // Bit field definition.
   struct {
+    /// read-only - Error Index
     uint32_t ERR_INDEX : 10;
+    /// read-only - AHB Bus response field
     uint32_t AHB_RESP : 2;
     uint32_t _reserved_0 : 15;
+    /// read-write - Group Conflict field
     eGROUP_CONFLICT GROUP_CONFLICT : 1;
+    /// read-write - Timeout field
     eTIMEOUT TIMEOUT : 1;
+    /// read-only - Software Request Done
     eSW_REQ_DONE SW_REQ_DONE : 1;
+    /// read-write - AHB Error field
     eAHB_ERR AHB_ERR : 1;
+    /// read-write - Address Error field
     eADDR_ERR ADDR_ERR : 1;
   } bits;
   
@@ -2235,6 +2500,7 @@ union HP_TIMEOUT {
   
   // Bit field definition.
   struct {
+    /// read-write - Time out value
     uint32_t TIMEOUT_VALUE : 32;
   } bits;
   
@@ -2252,7 +2518,9 @@ union HW_GROUP_PENDING {
   
   // Bit field definition.
   struct {
+    /// read-only - This field indicates which groups are pending for save from hardware request
     uint32_t HW_SAVE_PENDING : 16;
+    /// read-only - This field indicates which groups are pending for restore from hardware request
     uint32_t HW_RESTORE_PENDING : 16;
   } bits;
   
@@ -2270,7 +2538,9 @@ union SW_GROUP_PENDING {
   
   // Bit field definition.
   struct {
+    /// read-only - This field indicates which groups are pending for save from software request
     uint32_t SW_SAVE_PENDING : 16;
+    /// read-only - This field indicates which groups are pending for restore from software request
     uint32_t SW_RESTORE_PENDING : 16;
   } bits;
   

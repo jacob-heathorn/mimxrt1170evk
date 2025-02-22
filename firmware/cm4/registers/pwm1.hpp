@@ -17,6 +17,7 @@ union SM0CNT {
   
   // Bit field definition.
   struct {
+    /// read-only - Counter Register Bits
     uint32_t CNT : 16;
     uint32_t _reserved_0 : 16;
   } bits;
@@ -35,6 +36,7 @@ union SM0INIT {
   
   // Bit field definition.
   struct {
+    /// read-write - Initial Count Register Bits
     uint32_t INIT : 16;
     uint32_t _reserved_0 : 16;
   } bits;
@@ -92,17 +94,29 @@ union SM0CTRL2 {
   
   // Bit field definition.
   struct {
+    /// read-write - Clock Source Select
     eCLK_SEL CLK_SEL : 2;
+    /// read-write - Reload Source Select
     eRELOAD_SEL RELOAD_SEL : 1;
+    /// read-write - Force Select
     eFORCE_SEL FORCE_SEL : 3;
+    /// read-write - Force Initialization
     uint32_t FORCE : 1;
+    /// read-write - Force Enable
     eFRCEN FRCEN : 1;
+    /// read-write - Initialization Control Select
     eINIT_SEL INIT_SEL : 2;
+    /// read-write - PWM_X Initial Value
     uint32_t PWMX_INIT : 1;
+    /// read-write - PWM45 Initial Value
     uint32_t PWM45_INIT : 1;
+    /// read-write - PWM23 Initial Value
     uint32_t PWM23_INIT : 1;
+    /// read-write - Independent or Complementary Pair Operation
     eINDEP INDEP : 1;
+    /// read-write - Wait Enable
     uint32_t WAITEN : 1;
+    /// read-write - Debug Enable
     uint32_t DBGEN : 1;
     uint32_t _reserved_0 : 16;
   } bits;
@@ -186,15 +200,25 @@ union SM0CTRL {
   
   // Bit field definition.
   struct {
+    /// read-write - Double Switching Enable
     eDBLEN DBLEN : 1;
+    /// read-write - PWM_X Double Switching Enable
     eDBLX DBLX : 1;
+    /// read-write - Load Mode Select
     eLDMOD LDMOD : 1;
+    /// read-write - Split the DBLPWM signal to PWM_A and PWM_B
     eSPLIT SPLIT : 1;
+    /// read-write - Prescaler
     ePRSC PRSC : 3;
+    /// read-write - Compare Mode
     eCOMPMODE COMPMODE : 1;
+    /// read-only - Deadtime
     uint32_t DT : 2;
+    /// read-write - Full Cycle Reload
     eFULL FULL : 1;
+    /// read-write - Half Cycle Reload
     eHALF HALF : 1;
+    /// read-write - Load Frequency
     eLDFQ LDFQ : 4;
     uint32_t _reserved_0 : 16;
   } bits;
@@ -213,6 +237,7 @@ union SM0VAL0 {
   
   // Bit field definition.
   struct {
+    /// read-write - Value 0
     uint32_t VAL0 : 16;
     uint32_t _reserved_0 : 16;
   } bits;
@@ -232,6 +257,7 @@ union SM0FRACVAL1 {
   // Bit field definition.
   struct {
     uint32_t _reserved_0 : 11;
+    /// read-write - Fractional Value 1
     uint32_t FRACVAL1 : 5;
     uint32_t _reserved_1 : 16;
   } bits;
@@ -250,6 +276,7 @@ union SM0VAL1 {
   
   // Bit field definition.
   struct {
+    /// read-write - Value 1
     uint32_t VAL1 : 16;
     uint32_t _reserved_0 : 16;
   } bits;
@@ -269,6 +296,7 @@ union SM0FRACVAL2 {
   // Bit field definition.
   struct {
     uint32_t _reserved_0 : 11;
+    /// read-write - Fractional Value 2
     uint32_t FRACVAL2 : 5;
     uint32_t _reserved_1 : 16;
   } bits;
@@ -287,6 +315,7 @@ union SM0VAL2 {
   
   // Bit field definition.
   struct {
+    /// read-write - Value 2
     uint32_t VAL2 : 16;
     uint32_t _reserved_0 : 16;
   } bits;
@@ -306,6 +335,7 @@ union SM0FRACVAL3 {
   // Bit field definition.
   struct {
     uint32_t _reserved_0 : 11;
+    /// read-write - Fractional Value 3
     uint32_t FRACVAL3 : 5;
     uint32_t _reserved_1 : 16;
   } bits;
@@ -324,6 +354,7 @@ union SM0VAL3 {
   
   // Bit field definition.
   struct {
+    /// read-write - Value 3
     uint32_t VAL3 : 16;
     uint32_t _reserved_0 : 16;
   } bits;
@@ -343,6 +374,7 @@ union SM0FRACVAL4 {
   // Bit field definition.
   struct {
     uint32_t _reserved_0 : 11;
+    /// read-write - Fractional Value 4
     uint32_t FRACVAL4 : 5;
     uint32_t _reserved_1 : 16;
   } bits;
@@ -361,6 +393,7 @@ union SM0VAL4 {
   
   // Bit field definition.
   struct {
+    /// read-write - Value 4
     uint32_t VAL4 : 16;
     uint32_t _reserved_0 : 16;
   } bits;
@@ -380,6 +413,7 @@ union SM0FRACVAL5 {
   // Bit field definition.
   struct {
     uint32_t _reserved_0 : 11;
+    /// read-write - Fractional Value 5
     uint32_t FRACVAL5 : 5;
     uint32_t _reserved_1 : 16;
   } bits;
@@ -398,6 +432,7 @@ union SM0VAL5 {
   
   // Bit field definition.
   struct {
+    /// read-write - Value 5
     uint32_t VAL5 : 16;
     uint32_t _reserved_0 : 16;
   } bits;
@@ -432,11 +467,15 @@ union SM0FRCTRL {
   // Bit field definition.
   struct {
     uint32_t _reserved_0 : 1;
+    /// read-write - Fractional Cycle PWM Period Enable
     eFRAC1_EN FRAC1_EN : 1;
+    /// read-write - Fractional Cycle Placement Enable for PWM_A
     eFRAC23_EN FRAC23_EN : 1;
     uint32_t _reserved_1 : 1;
+    /// read-write - Fractional Cycle Placement Enable for PWM_B
     eFRAC45_EN FRAC45_EN : 1;
     uint32_t _reserved_2 : 10;
+    /// read-only - Test Status Bit
     uint32_t TEST : 1;
     uint32_t _reserved_3 : 16;
   } bits;
@@ -491,16 +530,25 @@ union SM0OCTRL {
   
   // Bit field definition.
   struct {
+    /// read-write - PWM_X Fault State
     ePWMXFS PWMXFS : 2;
+    /// read-write - PWM_B Fault State
     ePWMBFS PWMBFS : 2;
+    /// read-write - PWM_A Fault State
     ePWMAFS PWMAFS : 2;
     uint32_t _reserved_0 : 2;
+    /// read-write - PWM_X Output Polarity
     ePOLX POLX : 1;
+    /// read-write - PWM_B Output Polarity
     ePOLB POLB : 1;
+    /// read-write - PWM_A Output Polarity
     ePOLA POLA : 1;
     uint32_t _reserved_1 : 2;
+    /// read-only - PWM_X Input
     uint32_t PWMX_IN : 1;
+    /// read-only - PWM_B Input
     uint32_t PWMB_IN : 1;
+    /// read-only - PWM_A Input
     uint32_t PWMA_IN : 1;
     uint32_t _reserved_2 : 16;
   } bits;
@@ -539,15 +587,25 @@ union SM0STS {
   
   // Bit field definition.
   struct {
+    /// read-write - Compare Flags
     eCMPF CMPF : 6;
+    /// read-write - Capture Flag X0
     uint32_t CFX0 : 1;
+    /// read-write - Capture Flag X1
     uint32_t CFX1 : 1;
+    /// read-write - Capture Flag B0
     uint32_t CFB0 : 1;
+    /// read-write - Capture Flag B1
     uint32_t CFB1 : 1;
+    /// read-write - Capture Flag A0
     uint32_t CFA0 : 1;
+    /// read-write - Capture Flag A1
     uint32_t CFA1 : 1;
+    /// read-write - Reload Flag
     eRF RF : 1;
+    /// read-write - Reload Error Flag
     eREF REF : 1;
+    /// read-only - Registers Updated Flag
     eRUF RUF : 1;
     uint32_t _reserved_0 : 17;
   } bits;
@@ -611,14 +669,23 @@ union SM0INTEN {
   
   // Bit field definition.
   struct {
+    /// read-write - Compare Interrupt Enables
     eCMPIE CMPIE : 6;
+    /// read-write - Capture X 0 Interrupt Enable
     eCX0IE CX0IE : 1;
+    /// read-write - Capture X 1 Interrupt Enable
     eCX1IE CX1IE : 1;
+    /// read-write - Capture B 0 Interrupt Enable
     eCB0IE CB0IE : 1;
+    /// read-write - Capture B 1 Interrupt Enable
     eCB1IE CB1IE : 1;
+    /// read-write - Capture A 0 Interrupt Enable
     eCA0IE CA0IE : 1;
+    /// read-write - Capture A 1 Interrupt Enable
     eCA1IE CA1IE : 1;
+    /// read-write - Reload Interrupt Enable
     eRIE RIE : 1;
+    /// read-write - Reload Error Interrupt Enable
     eREIE REIE : 1;
     uint32_t _reserved_0 : 18;
   } bits;
@@ -654,14 +721,23 @@ union SM0DMAEN {
   
   // Bit field definition.
   struct {
+    /// read-write - Capture X0 FIFO DMA Enable
     uint32_t CX0DE : 1;
+    /// read-write - Capture X1 FIFO DMA Enable
     uint32_t CX1DE : 1;
+    /// read-write - Capture B0 FIFO DMA Enable
     uint32_t CB0DE : 1;
+    /// read-write - Capture B1 FIFO DMA Enable
     uint32_t CB1DE : 1;
+    /// read-write - Capture A0 FIFO DMA Enable
     uint32_t CA0DE : 1;
+    /// read-write - Capture A1 FIFO DMA Enable
     uint32_t CA1DE : 1;
+    /// read-write - Capture DMA Enable Source Select
     eCAPTDE CAPTDE : 2;
+    /// read-write - FIFO Watermark AND Control
     eFAND FAND : 1;
+    /// read-write - Value Registers DMA Enable
     eVALDE VALDE : 1;
     uint32_t _reserved_0 : 22;
   } bits;
@@ -699,11 +775,15 @@ union SM0TCTRL {
   
   // Bit field definition.
   struct {
+    /// read-write - Output Trigger Enables
     eOUT_TRIG_EN OUT_TRIG_EN : 6;
     uint32_t _reserved_0 : 6;
+    /// read-write - Trigger Frequency
     eTRGFRQ TRGFRQ : 1;
     uint32_t _reserved_1 : 1;
+    /// read-write - Output Trigger 1 Source Select
     ePWBOT1 PWBOT1 : 1;
+    /// read-write - Output Trigger 0 Source Select
     ePWAOT0 PWAOT0 : 1;
     uint32_t _reserved_2 : 16;
   } bits;
@@ -722,8 +802,11 @@ union SM0DISMAP0 {
   
   // Bit field definition.
   struct {
+    /// read-write - PWM_A Fault Disable Mask 0
     uint32_t DIS0A : 4;
+    /// read-write - PWM_B Fault Disable Mask 0
     uint32_t DIS0B : 4;
+    /// read-write - PWM_X Fault Disable Mask 0
     uint32_t DIS0X : 4;
     uint32_t _reserved_0 : 20;
   } bits;
@@ -742,6 +825,7 @@ union SM0DTCNT0 {
   
   // Bit field definition.
   struct {
+    /// read-write - DTCNT0
     uint32_t DTCNT0 : 16;
     uint32_t _reserved_0 : 16;
   } bits;
@@ -760,6 +844,7 @@ union SM0DTCNT1 {
   
   // Bit field definition.
   struct {
+    /// read-write - DTCNT1
     uint32_t DTCNT1 : 16;
     uint32_t _reserved_0 : 16;
   } bits;
@@ -812,14 +897,23 @@ union SM0CAPTCTRLA {
   
   // Bit field definition.
   struct {
+    /// read-write - Arm A
     eARMA ARMA : 1;
+    /// read-write - One Shot Mode A
     eONESHOTA ONESHOTA : 1;
+    /// read-write - Edge A 0
     eEDGA0 EDGA0 : 2;
+    /// read-write - Edge A 1
     eEDGA1 EDGA1 : 2;
+    /// read-write - Input Select A
     eINP_SELA INP_SELA : 1;
+    /// read-write - Edge Counter A Enable
     eEDGCNTA_EN EDGCNTA_EN : 1;
+    /// read-write - Capture A FIFOs Water Mark
     uint32_t CFAWM : 2;
+    /// read-only - Capture A0 FIFO Word Count
     uint32_t CA0CNT : 3;
+    /// read-only - Capture A1 FIFO Word Count
     uint32_t CA1CNT : 3;
     uint32_t _reserved_0 : 16;
   } bits;
@@ -838,7 +932,9 @@ union SM0CAPTCOMPA {
   
   // Bit field definition.
   struct {
+    /// read-write - Edge Compare A
     uint32_t EDGCMPA : 8;
+    /// read-only - Edge Counter A
     uint32_t EDGCNTA : 8;
     uint32_t _reserved_0 : 16;
   } bits;
@@ -891,14 +987,23 @@ union SM0CAPTCTRLB {
   
   // Bit field definition.
   struct {
+    /// read-write - Arm B
     eARMB ARMB : 1;
+    /// read-write - One Shot Mode B
     eONESHOTB ONESHOTB : 1;
+    /// read-write - Edge B 0
     eEDGB0 EDGB0 : 2;
+    /// read-write - Edge B 1
     eEDGB1 EDGB1 : 2;
+    /// read-write - Input Select B
     eINP_SELB INP_SELB : 1;
+    /// read-write - Edge Counter B Enable
     eEDGCNTB_EN EDGCNTB_EN : 1;
+    /// read-write - Capture B FIFOs Water Mark
     uint32_t CFBWM : 2;
+    /// read-only - Capture B0 FIFO Word Count
     uint32_t CB0CNT : 3;
+    /// read-only - Capture B1 FIFO Word Count
     uint32_t CB1CNT : 3;
     uint32_t _reserved_0 : 16;
   } bits;
@@ -917,7 +1022,9 @@ union SM0CAPTCOMPB {
   
   // Bit field definition.
   struct {
+    /// read-write - Edge Compare B
     uint32_t EDGCMPB : 8;
+    /// read-only - Edge Counter B
     uint32_t EDGCNTB : 8;
     uint32_t _reserved_0 : 16;
   } bits;
@@ -970,14 +1077,23 @@ union SM0CAPTCTRLX {
   
   // Bit field definition.
   struct {
+    /// read-write - Arm X
     eARMX ARMX : 1;
+    /// read-write - One Shot Mode Aux
     eONESHOTX ONESHOTX : 1;
+    /// read-write - Edge X 0
     eEDGX0 EDGX0 : 2;
+    /// read-write - Edge X 1
     eEDGX1 EDGX1 : 2;
+    /// read-write - Input Select X
     eINP_SELX INP_SELX : 1;
+    /// read-write - Edge Counter X Enable
     eEDGCNTX_EN EDGCNTX_EN : 1;
+    /// read-write - Capture X FIFOs Water Mark
     uint32_t CFXWM : 2;
+    /// read-only - Capture X0 FIFO Word Count
     uint32_t CX0CNT : 3;
+    /// read-only - Capture X1 FIFO Word Count
     uint32_t CX1CNT : 3;
     uint32_t _reserved_0 : 16;
   } bits;
@@ -996,7 +1112,9 @@ union SM0CAPTCOMPX {
   
   // Bit field definition.
   struct {
+    /// read-write - Edge Compare X
     uint32_t EDGCMPX : 8;
+    /// read-only - Edge Counter X
     uint32_t EDGCNTX : 8;
     uint32_t _reserved_0 : 16;
   } bits;
@@ -1015,6 +1133,7 @@ union SM0CVAL0 {
   
   // Bit field definition.
   struct {
+    /// read-only - Capture Value 0
     uint32_t CAPTVAL0 : 16;
     uint32_t _reserved_0 : 16;
   } bits;
@@ -1033,6 +1152,7 @@ union SM0CVAL0CYC {
   
   // Bit field definition.
   struct {
+    /// read-only - Capture Value 0 Cycle
     uint32_t CVAL0CYC : 4;
     uint32_t _reserved_0 : 28;
   } bits;
@@ -1051,6 +1171,7 @@ union SM0CVAL1 {
   
   // Bit field definition.
   struct {
+    /// read-only - Capture Value 1
     uint32_t CAPTVAL1 : 16;
     uint32_t _reserved_0 : 16;
   } bits;
@@ -1069,6 +1190,7 @@ union SM0CVAL1CYC {
   
   // Bit field definition.
   struct {
+    /// read-only - Capture Value 1 Cycle
     uint32_t CVAL1CYC : 4;
     uint32_t _reserved_0 : 28;
   } bits;
@@ -1087,6 +1209,7 @@ union SM0CVAL2 {
   
   // Bit field definition.
   struct {
+    /// read-only - Capture Value 2
     uint32_t CAPTVAL2 : 16;
     uint32_t _reserved_0 : 16;
   } bits;
@@ -1105,6 +1228,7 @@ union SM0CVAL2CYC {
   
   // Bit field definition.
   struct {
+    /// read-only - Capture Value 2 Cycle
     uint32_t CVAL2CYC : 4;
     uint32_t _reserved_0 : 28;
   } bits;
@@ -1123,6 +1247,7 @@ union SM0CVAL3 {
   
   // Bit field definition.
   struct {
+    /// read-only - Capture Value 3
     uint32_t CAPTVAL3 : 16;
     uint32_t _reserved_0 : 16;
   } bits;
@@ -1141,6 +1266,7 @@ union SM0CVAL3CYC {
   
   // Bit field definition.
   struct {
+    /// read-only - Capture Value 3 Cycle
     uint32_t CVAL3CYC : 4;
     uint32_t _reserved_0 : 28;
   } bits;
@@ -1159,6 +1285,7 @@ union SM0CVAL4 {
   
   // Bit field definition.
   struct {
+    /// read-only - Capture Value 4
     uint32_t CAPTVAL4 : 16;
     uint32_t _reserved_0 : 16;
   } bits;
@@ -1177,6 +1304,7 @@ union SM0CVAL4CYC {
   
   // Bit field definition.
   struct {
+    /// read-only - Capture Value 4 Cycle
     uint32_t CVAL4CYC : 4;
     uint32_t _reserved_0 : 28;
   } bits;
@@ -1195,6 +1323,7 @@ union SM0CVAL5 {
   
   // Bit field definition.
   struct {
+    /// read-only - Capture Value 5
     uint32_t CAPTVAL5 : 16;
     uint32_t _reserved_0 : 16;
   } bits;
@@ -1213,6 +1342,7 @@ union SM0CVAL5CYC {
   
   // Bit field definition.
   struct {
+    /// read-only - Capture Value 5 Cycle
     uint32_t CVAL5CYC : 4;
     uint32_t _reserved_0 : 28;
   } bits;
@@ -1231,6 +1361,7 @@ union SM1CNT {
   
   // Bit field definition.
   struct {
+    /// read-only - Counter Register Bits
     uint32_t CNT : 16;
     uint32_t _reserved_0 : 16;
   } bits;
@@ -1249,6 +1380,7 @@ union SM1INIT {
   
   // Bit field definition.
   struct {
+    /// read-write - Initial Count Register Bits
     uint32_t INIT : 16;
     uint32_t _reserved_0 : 16;
   } bits;
@@ -1306,17 +1438,29 @@ union SM1CTRL2 {
   
   // Bit field definition.
   struct {
+    /// read-write - Clock Source Select
     eCLK_SEL CLK_SEL : 2;
+    /// read-write - Reload Source Select
     eRELOAD_SEL RELOAD_SEL : 1;
+    /// read-write - Force Select
     eFORCE_SEL FORCE_SEL : 3;
+    /// read-write - Force Initialization
     uint32_t FORCE : 1;
+    /// read-write - Force Enable
     eFRCEN FRCEN : 1;
+    /// read-write - Initialization Control Select
     eINIT_SEL INIT_SEL : 2;
+    /// read-write - PWM_X Initial Value
     uint32_t PWMX_INIT : 1;
+    /// read-write - PWM45 Initial Value
     uint32_t PWM45_INIT : 1;
+    /// read-write - PWM23 Initial Value
     uint32_t PWM23_INIT : 1;
+    /// read-write - Independent or Complementary Pair Operation
     eINDEP INDEP : 1;
+    /// read-write - Wait Enable
     uint32_t WAITEN : 1;
+    /// read-write - Debug Enable
     uint32_t DBGEN : 1;
     uint32_t _reserved_0 : 16;
   } bits;
@@ -1400,15 +1544,25 @@ union SM1CTRL {
   
   // Bit field definition.
   struct {
+    /// read-write - Double Switching Enable
     eDBLEN DBLEN : 1;
+    /// read-write - PWM_X Double Switching Enable
     eDBLX DBLX : 1;
+    /// read-write - Load Mode Select
     eLDMOD LDMOD : 1;
+    /// read-write - Split the DBLPWM signal to PWM_A and PWM_B
     eSPLIT SPLIT : 1;
+    /// read-write - Prescaler
     ePRSC PRSC : 3;
+    /// read-write - Compare Mode
     eCOMPMODE COMPMODE : 1;
+    /// read-only - Deadtime
     uint32_t DT : 2;
+    /// read-write - Full Cycle Reload
     eFULL FULL : 1;
+    /// read-write - Half Cycle Reload
     eHALF HALF : 1;
+    /// read-write - Load Frequency
     eLDFQ LDFQ : 4;
     uint32_t _reserved_0 : 16;
   } bits;
@@ -1427,6 +1581,7 @@ union SM1VAL0 {
   
   // Bit field definition.
   struct {
+    /// read-write - Value 0
     uint32_t VAL0 : 16;
     uint32_t _reserved_0 : 16;
   } bits;
@@ -1446,6 +1601,7 @@ union SM1FRACVAL1 {
   // Bit field definition.
   struct {
     uint32_t _reserved_0 : 11;
+    /// read-write - Fractional Value 1
     uint32_t FRACVAL1 : 5;
     uint32_t _reserved_1 : 16;
   } bits;
@@ -1464,6 +1620,7 @@ union SM1VAL1 {
   
   // Bit field definition.
   struct {
+    /// read-write - Value 1
     uint32_t VAL1 : 16;
     uint32_t _reserved_0 : 16;
   } bits;
@@ -1483,6 +1640,7 @@ union SM1FRACVAL2 {
   // Bit field definition.
   struct {
     uint32_t _reserved_0 : 11;
+    /// read-write - Fractional Value 2
     uint32_t FRACVAL2 : 5;
     uint32_t _reserved_1 : 16;
   } bits;
@@ -1501,6 +1659,7 @@ union SM1VAL2 {
   
   // Bit field definition.
   struct {
+    /// read-write - Value 2
     uint32_t VAL2 : 16;
     uint32_t _reserved_0 : 16;
   } bits;
@@ -1520,6 +1679,7 @@ union SM1FRACVAL3 {
   // Bit field definition.
   struct {
     uint32_t _reserved_0 : 11;
+    /// read-write - Fractional Value 3
     uint32_t FRACVAL3 : 5;
     uint32_t _reserved_1 : 16;
   } bits;
@@ -1538,6 +1698,7 @@ union SM1VAL3 {
   
   // Bit field definition.
   struct {
+    /// read-write - Value 3
     uint32_t VAL3 : 16;
     uint32_t _reserved_0 : 16;
   } bits;
@@ -1557,6 +1718,7 @@ union SM1FRACVAL4 {
   // Bit field definition.
   struct {
     uint32_t _reserved_0 : 11;
+    /// read-write - Fractional Value 4
     uint32_t FRACVAL4 : 5;
     uint32_t _reserved_1 : 16;
   } bits;
@@ -1575,6 +1737,7 @@ union SM1VAL4 {
   
   // Bit field definition.
   struct {
+    /// read-write - Value 4
     uint32_t VAL4 : 16;
     uint32_t _reserved_0 : 16;
   } bits;
@@ -1594,6 +1757,7 @@ union SM1FRACVAL5 {
   // Bit field definition.
   struct {
     uint32_t _reserved_0 : 11;
+    /// read-write - Fractional Value 5
     uint32_t FRACVAL5 : 5;
     uint32_t _reserved_1 : 16;
   } bits;
@@ -1612,6 +1776,7 @@ union SM1VAL5 {
   
   // Bit field definition.
   struct {
+    /// read-write - Value 5
     uint32_t VAL5 : 16;
     uint32_t _reserved_0 : 16;
   } bits;
@@ -1646,11 +1811,15 @@ union SM1FRCTRL {
   // Bit field definition.
   struct {
     uint32_t _reserved_0 : 1;
+    /// read-write - Fractional Cycle PWM Period Enable
     eFRAC1_EN FRAC1_EN : 1;
+    /// read-write - Fractional Cycle Placement Enable for PWM_A
     eFRAC23_EN FRAC23_EN : 1;
     uint32_t _reserved_1 : 1;
+    /// read-write - Fractional Cycle Placement Enable for PWM_B
     eFRAC45_EN FRAC45_EN : 1;
     uint32_t _reserved_2 : 10;
+    /// read-only - Test Status Bit
     uint32_t TEST : 1;
     uint32_t _reserved_3 : 16;
   } bits;
@@ -1705,16 +1874,25 @@ union SM1OCTRL {
   
   // Bit field definition.
   struct {
+    /// read-write - PWM_X Fault State
     ePWMXFS PWMXFS : 2;
+    /// read-write - PWM_B Fault State
     ePWMBFS PWMBFS : 2;
+    /// read-write - PWM_A Fault State
     ePWMAFS PWMAFS : 2;
     uint32_t _reserved_0 : 2;
+    /// read-write - PWM_X Output Polarity
     ePOLX POLX : 1;
+    /// read-write - PWM_B Output Polarity
     ePOLB POLB : 1;
+    /// read-write - PWM_A Output Polarity
     ePOLA POLA : 1;
     uint32_t _reserved_1 : 2;
+    /// read-only - PWM_X Input
     uint32_t PWMX_IN : 1;
+    /// read-only - PWM_B Input
     uint32_t PWMB_IN : 1;
+    /// read-only - PWM_A Input
     uint32_t PWMA_IN : 1;
     uint32_t _reserved_2 : 16;
   } bits;
@@ -1753,15 +1931,25 @@ union SM1STS {
   
   // Bit field definition.
   struct {
+    /// read-write - Compare Flags
     eCMPF CMPF : 6;
+    /// read-write - Capture Flag X0
     uint32_t CFX0 : 1;
+    /// read-write - Capture Flag X1
     uint32_t CFX1 : 1;
+    /// read-write - Capture Flag B0
     uint32_t CFB0 : 1;
+    /// read-write - Capture Flag B1
     uint32_t CFB1 : 1;
+    /// read-write - Capture Flag A0
     uint32_t CFA0 : 1;
+    /// read-write - Capture Flag A1
     uint32_t CFA1 : 1;
+    /// read-write - Reload Flag
     eRF RF : 1;
+    /// read-write - Reload Error Flag
     eREF REF : 1;
+    /// read-only - Registers Updated Flag
     eRUF RUF : 1;
     uint32_t _reserved_0 : 17;
   } bits;
@@ -1825,14 +2013,23 @@ union SM1INTEN {
   
   // Bit field definition.
   struct {
+    /// read-write - Compare Interrupt Enables
     eCMPIE CMPIE : 6;
+    /// read-write - Capture X 0 Interrupt Enable
     eCX0IE CX0IE : 1;
+    /// read-write - Capture X 1 Interrupt Enable
     eCX1IE CX1IE : 1;
+    /// read-write - Capture B 0 Interrupt Enable
     eCB0IE CB0IE : 1;
+    /// read-write - Capture B 1 Interrupt Enable
     eCB1IE CB1IE : 1;
+    /// read-write - Capture A 0 Interrupt Enable
     eCA0IE CA0IE : 1;
+    /// read-write - Capture A 1 Interrupt Enable
     eCA1IE CA1IE : 1;
+    /// read-write - Reload Interrupt Enable
     eRIE RIE : 1;
+    /// read-write - Reload Error Interrupt Enable
     eREIE REIE : 1;
     uint32_t _reserved_0 : 18;
   } bits;
@@ -1868,14 +2065,23 @@ union SM1DMAEN {
   
   // Bit field definition.
   struct {
+    /// read-write - Capture X0 FIFO DMA Enable
     uint32_t CX0DE : 1;
+    /// read-write - Capture X1 FIFO DMA Enable
     uint32_t CX1DE : 1;
+    /// read-write - Capture B0 FIFO DMA Enable
     uint32_t CB0DE : 1;
+    /// read-write - Capture B1 FIFO DMA Enable
     uint32_t CB1DE : 1;
+    /// read-write - Capture A0 FIFO DMA Enable
     uint32_t CA0DE : 1;
+    /// read-write - Capture A1 FIFO DMA Enable
     uint32_t CA1DE : 1;
+    /// read-write - Capture DMA Enable Source Select
     eCAPTDE CAPTDE : 2;
+    /// read-write - FIFO Watermark AND Control
     eFAND FAND : 1;
+    /// read-write - Value Registers DMA Enable
     eVALDE VALDE : 1;
     uint32_t _reserved_0 : 22;
   } bits;
@@ -1913,11 +2119,15 @@ union SM1TCTRL {
   
   // Bit field definition.
   struct {
+    /// read-write - Output Trigger Enables
     eOUT_TRIG_EN OUT_TRIG_EN : 6;
     uint32_t _reserved_0 : 6;
+    /// read-write - Trigger Frequency
     eTRGFRQ TRGFRQ : 1;
     uint32_t _reserved_1 : 1;
+    /// read-write - Output Trigger 1 Source Select
     ePWBOT1 PWBOT1 : 1;
+    /// read-write - Output Trigger 0 Source Select
     ePWAOT0 PWAOT0 : 1;
     uint32_t _reserved_2 : 16;
   } bits;
@@ -1936,8 +2146,11 @@ union SM1DISMAP0 {
   
   // Bit field definition.
   struct {
+    /// read-write - PWM_A Fault Disable Mask 0
     uint32_t DIS0A : 4;
+    /// read-write - PWM_B Fault Disable Mask 0
     uint32_t DIS0B : 4;
+    /// read-write - PWM_X Fault Disable Mask 0
     uint32_t DIS0X : 4;
     uint32_t _reserved_0 : 20;
   } bits;
@@ -1956,6 +2169,7 @@ union SM1DTCNT0 {
   
   // Bit field definition.
   struct {
+    /// read-write - DTCNT0
     uint32_t DTCNT0 : 16;
     uint32_t _reserved_0 : 16;
   } bits;
@@ -1974,6 +2188,7 @@ union SM1DTCNT1 {
   
   // Bit field definition.
   struct {
+    /// read-write - DTCNT1
     uint32_t DTCNT1 : 16;
     uint32_t _reserved_0 : 16;
   } bits;
@@ -2026,14 +2241,23 @@ union SM1CAPTCTRLA {
   
   // Bit field definition.
   struct {
+    /// read-write - Arm A
     eARMA ARMA : 1;
+    /// read-write - One Shot Mode A
     eONESHOTA ONESHOTA : 1;
+    /// read-write - Edge A 0
     eEDGA0 EDGA0 : 2;
+    /// read-write - Edge A 1
     eEDGA1 EDGA1 : 2;
+    /// read-write - Input Select A
     eINP_SELA INP_SELA : 1;
+    /// read-write - Edge Counter A Enable
     eEDGCNTA_EN EDGCNTA_EN : 1;
+    /// read-write - Capture A FIFOs Water Mark
     uint32_t CFAWM : 2;
+    /// read-only - Capture A0 FIFO Word Count
     uint32_t CA0CNT : 3;
+    /// read-only - Capture A1 FIFO Word Count
     uint32_t CA1CNT : 3;
     uint32_t _reserved_0 : 16;
   } bits;
@@ -2052,7 +2276,9 @@ union SM1CAPTCOMPA {
   
   // Bit field definition.
   struct {
+    /// read-write - Edge Compare A
     uint32_t EDGCMPA : 8;
+    /// read-only - Edge Counter A
     uint32_t EDGCNTA : 8;
     uint32_t _reserved_0 : 16;
   } bits;
@@ -2105,14 +2331,23 @@ union SM1CAPTCTRLB {
   
   // Bit field definition.
   struct {
+    /// read-write - Arm B
     eARMB ARMB : 1;
+    /// read-write - One Shot Mode B
     eONESHOTB ONESHOTB : 1;
+    /// read-write - Edge B 0
     eEDGB0 EDGB0 : 2;
+    /// read-write - Edge B 1
     eEDGB1 EDGB1 : 2;
+    /// read-write - Input Select B
     eINP_SELB INP_SELB : 1;
+    /// read-write - Edge Counter B Enable
     eEDGCNTB_EN EDGCNTB_EN : 1;
+    /// read-write - Capture B FIFOs Water Mark
     uint32_t CFBWM : 2;
+    /// read-only - Capture B0 FIFO Word Count
     uint32_t CB0CNT : 3;
+    /// read-only - Capture B1 FIFO Word Count
     uint32_t CB1CNT : 3;
     uint32_t _reserved_0 : 16;
   } bits;
@@ -2131,7 +2366,9 @@ union SM1CAPTCOMPB {
   
   // Bit field definition.
   struct {
+    /// read-write - Edge Compare B
     uint32_t EDGCMPB : 8;
+    /// read-only - Edge Counter B
     uint32_t EDGCNTB : 8;
     uint32_t _reserved_0 : 16;
   } bits;
@@ -2184,14 +2421,23 @@ union SM1CAPTCTRLX {
   
   // Bit field definition.
   struct {
+    /// read-write - Arm X
     eARMX ARMX : 1;
+    /// read-write - One Shot Mode Aux
     eONESHOTX ONESHOTX : 1;
+    /// read-write - Edge X 0
     eEDGX0 EDGX0 : 2;
+    /// read-write - Edge X 1
     eEDGX1 EDGX1 : 2;
+    /// read-write - Input Select X
     eINP_SELX INP_SELX : 1;
+    /// read-write - Edge Counter X Enable
     eEDGCNTX_EN EDGCNTX_EN : 1;
+    /// read-write - Capture X FIFOs Water Mark
     uint32_t CFXWM : 2;
+    /// read-only - Capture X0 FIFO Word Count
     uint32_t CX0CNT : 3;
+    /// read-only - Capture X1 FIFO Word Count
     uint32_t CX1CNT : 3;
     uint32_t _reserved_0 : 16;
   } bits;
@@ -2210,7 +2456,9 @@ union SM1CAPTCOMPX {
   
   // Bit field definition.
   struct {
+    /// read-write - Edge Compare X
     uint32_t EDGCMPX : 8;
+    /// read-only - Edge Counter X
     uint32_t EDGCNTX : 8;
     uint32_t _reserved_0 : 16;
   } bits;
@@ -2229,6 +2477,7 @@ union SM1CVAL0 {
   
   // Bit field definition.
   struct {
+    /// read-only - Capture Value 0
     uint32_t CAPTVAL0 : 16;
     uint32_t _reserved_0 : 16;
   } bits;
@@ -2247,6 +2496,7 @@ union SM1CVAL0CYC {
   
   // Bit field definition.
   struct {
+    /// read-only - Capture Value 0 Cycle
     uint32_t CVAL0CYC : 4;
     uint32_t _reserved_0 : 28;
   } bits;
@@ -2265,6 +2515,7 @@ union SM1CVAL1 {
   
   // Bit field definition.
   struct {
+    /// read-only - Capture Value 1
     uint32_t CAPTVAL1 : 16;
     uint32_t _reserved_0 : 16;
   } bits;
@@ -2283,6 +2534,7 @@ union SM1CVAL1CYC {
   
   // Bit field definition.
   struct {
+    /// read-only - Capture Value 1 Cycle
     uint32_t CVAL1CYC : 4;
     uint32_t _reserved_0 : 28;
   } bits;
@@ -2301,6 +2553,7 @@ union SM1CVAL2 {
   
   // Bit field definition.
   struct {
+    /// read-only - Capture Value 2
     uint32_t CAPTVAL2 : 16;
     uint32_t _reserved_0 : 16;
   } bits;
@@ -2319,6 +2572,7 @@ union SM1CVAL2CYC {
   
   // Bit field definition.
   struct {
+    /// read-only - Capture Value 2 Cycle
     uint32_t CVAL2CYC : 4;
     uint32_t _reserved_0 : 28;
   } bits;
@@ -2337,6 +2591,7 @@ union SM1CVAL3 {
   
   // Bit field definition.
   struct {
+    /// read-only - Capture Value 3
     uint32_t CAPTVAL3 : 16;
     uint32_t _reserved_0 : 16;
   } bits;
@@ -2355,6 +2610,7 @@ union SM1CVAL3CYC {
   
   // Bit field definition.
   struct {
+    /// read-only - Capture Value 3 Cycle
     uint32_t CVAL3CYC : 4;
     uint32_t _reserved_0 : 28;
   } bits;
@@ -2373,6 +2629,7 @@ union SM1CVAL4 {
   
   // Bit field definition.
   struct {
+    /// read-only - Capture Value 4
     uint32_t CAPTVAL4 : 16;
     uint32_t _reserved_0 : 16;
   } bits;
@@ -2391,6 +2648,7 @@ union SM1CVAL4CYC {
   
   // Bit field definition.
   struct {
+    /// read-only - Capture Value 4 Cycle
     uint32_t CVAL4CYC : 4;
     uint32_t _reserved_0 : 28;
   } bits;
@@ -2409,6 +2667,7 @@ union SM1CVAL5 {
   
   // Bit field definition.
   struct {
+    /// read-only - Capture Value 5
     uint32_t CAPTVAL5 : 16;
     uint32_t _reserved_0 : 16;
   } bits;
@@ -2427,6 +2686,7 @@ union SM1CVAL5CYC {
   
   // Bit field definition.
   struct {
+    /// read-only - Capture Value 5 Cycle
     uint32_t CVAL5CYC : 4;
     uint32_t _reserved_0 : 28;
   } bits;
@@ -2445,6 +2705,7 @@ union SM2CNT {
   
   // Bit field definition.
   struct {
+    /// read-only - Counter Register Bits
     uint32_t CNT : 16;
     uint32_t _reserved_0 : 16;
   } bits;
@@ -2463,6 +2724,7 @@ union SM2INIT {
   
   // Bit field definition.
   struct {
+    /// read-write - Initial Count Register Bits
     uint32_t INIT : 16;
     uint32_t _reserved_0 : 16;
   } bits;
@@ -2520,17 +2782,29 @@ union SM2CTRL2 {
   
   // Bit field definition.
   struct {
+    /// read-write - Clock Source Select
     eCLK_SEL CLK_SEL : 2;
+    /// read-write - Reload Source Select
     eRELOAD_SEL RELOAD_SEL : 1;
+    /// read-write - Force Select
     eFORCE_SEL FORCE_SEL : 3;
+    /// read-write - Force Initialization
     uint32_t FORCE : 1;
+    /// read-write - Force Enable
     eFRCEN FRCEN : 1;
+    /// read-write - Initialization Control Select
     eINIT_SEL INIT_SEL : 2;
+    /// read-write - PWM_X Initial Value
     uint32_t PWMX_INIT : 1;
+    /// read-write - PWM45 Initial Value
     uint32_t PWM45_INIT : 1;
+    /// read-write - PWM23 Initial Value
     uint32_t PWM23_INIT : 1;
+    /// read-write - Independent or Complementary Pair Operation
     eINDEP INDEP : 1;
+    /// read-write - Wait Enable
     uint32_t WAITEN : 1;
+    /// read-write - Debug Enable
     uint32_t DBGEN : 1;
     uint32_t _reserved_0 : 16;
   } bits;
@@ -2614,15 +2888,25 @@ union SM2CTRL {
   
   // Bit field definition.
   struct {
+    /// read-write - Double Switching Enable
     eDBLEN DBLEN : 1;
+    /// read-write - PWM_X Double Switching Enable
     eDBLX DBLX : 1;
+    /// read-write - Load Mode Select
     eLDMOD LDMOD : 1;
+    /// read-write - Split the DBLPWM signal to PWM_A and PWM_B
     eSPLIT SPLIT : 1;
+    /// read-write - Prescaler
     ePRSC PRSC : 3;
+    /// read-write - Compare Mode
     eCOMPMODE COMPMODE : 1;
+    /// read-only - Deadtime
     uint32_t DT : 2;
+    /// read-write - Full Cycle Reload
     eFULL FULL : 1;
+    /// read-write - Half Cycle Reload
     eHALF HALF : 1;
+    /// read-write - Load Frequency
     eLDFQ LDFQ : 4;
     uint32_t _reserved_0 : 16;
   } bits;
@@ -2641,6 +2925,7 @@ union SM2VAL0 {
   
   // Bit field definition.
   struct {
+    /// read-write - Value 0
     uint32_t VAL0 : 16;
     uint32_t _reserved_0 : 16;
   } bits;
@@ -2660,6 +2945,7 @@ union SM2FRACVAL1 {
   // Bit field definition.
   struct {
     uint32_t _reserved_0 : 11;
+    /// read-write - Fractional Value 1
     uint32_t FRACVAL1 : 5;
     uint32_t _reserved_1 : 16;
   } bits;
@@ -2678,6 +2964,7 @@ union SM2VAL1 {
   
   // Bit field definition.
   struct {
+    /// read-write - Value 1
     uint32_t VAL1 : 16;
     uint32_t _reserved_0 : 16;
   } bits;
@@ -2697,6 +2984,7 @@ union SM2FRACVAL2 {
   // Bit field definition.
   struct {
     uint32_t _reserved_0 : 11;
+    /// read-write - Fractional Value 2
     uint32_t FRACVAL2 : 5;
     uint32_t _reserved_1 : 16;
   } bits;
@@ -2715,6 +3003,7 @@ union SM2VAL2 {
   
   // Bit field definition.
   struct {
+    /// read-write - Value 2
     uint32_t VAL2 : 16;
     uint32_t _reserved_0 : 16;
   } bits;
@@ -2734,6 +3023,7 @@ union SM2FRACVAL3 {
   // Bit field definition.
   struct {
     uint32_t _reserved_0 : 11;
+    /// read-write - Fractional Value 3
     uint32_t FRACVAL3 : 5;
     uint32_t _reserved_1 : 16;
   } bits;
@@ -2752,6 +3042,7 @@ union SM2VAL3 {
   
   // Bit field definition.
   struct {
+    /// read-write - Value 3
     uint32_t VAL3 : 16;
     uint32_t _reserved_0 : 16;
   } bits;
@@ -2771,6 +3062,7 @@ union SM2FRACVAL4 {
   // Bit field definition.
   struct {
     uint32_t _reserved_0 : 11;
+    /// read-write - Fractional Value 4
     uint32_t FRACVAL4 : 5;
     uint32_t _reserved_1 : 16;
   } bits;
@@ -2789,6 +3081,7 @@ union SM2VAL4 {
   
   // Bit field definition.
   struct {
+    /// read-write - Value 4
     uint32_t VAL4 : 16;
     uint32_t _reserved_0 : 16;
   } bits;
@@ -2808,6 +3101,7 @@ union SM2FRACVAL5 {
   // Bit field definition.
   struct {
     uint32_t _reserved_0 : 11;
+    /// read-write - Fractional Value 5
     uint32_t FRACVAL5 : 5;
     uint32_t _reserved_1 : 16;
   } bits;
@@ -2826,6 +3120,7 @@ union SM2VAL5 {
   
   // Bit field definition.
   struct {
+    /// read-write - Value 5
     uint32_t VAL5 : 16;
     uint32_t _reserved_0 : 16;
   } bits;
@@ -2860,11 +3155,15 @@ union SM2FRCTRL {
   // Bit field definition.
   struct {
     uint32_t _reserved_0 : 1;
+    /// read-write - Fractional Cycle PWM Period Enable
     eFRAC1_EN FRAC1_EN : 1;
+    /// read-write - Fractional Cycle Placement Enable for PWM_A
     eFRAC23_EN FRAC23_EN : 1;
     uint32_t _reserved_1 : 1;
+    /// read-write - Fractional Cycle Placement Enable for PWM_B
     eFRAC45_EN FRAC45_EN : 1;
     uint32_t _reserved_2 : 10;
+    /// read-only - Test Status Bit
     uint32_t TEST : 1;
     uint32_t _reserved_3 : 16;
   } bits;
@@ -2919,16 +3218,25 @@ union SM2OCTRL {
   
   // Bit field definition.
   struct {
+    /// read-write - PWM_X Fault State
     ePWMXFS PWMXFS : 2;
+    /// read-write - PWM_B Fault State
     ePWMBFS PWMBFS : 2;
+    /// read-write - PWM_A Fault State
     ePWMAFS PWMAFS : 2;
     uint32_t _reserved_0 : 2;
+    /// read-write - PWM_X Output Polarity
     ePOLX POLX : 1;
+    /// read-write - PWM_B Output Polarity
     ePOLB POLB : 1;
+    /// read-write - PWM_A Output Polarity
     ePOLA POLA : 1;
     uint32_t _reserved_1 : 2;
+    /// read-only - PWM_X Input
     uint32_t PWMX_IN : 1;
+    /// read-only - PWM_B Input
     uint32_t PWMB_IN : 1;
+    /// read-only - PWM_A Input
     uint32_t PWMA_IN : 1;
     uint32_t _reserved_2 : 16;
   } bits;
@@ -2967,15 +3275,25 @@ union SM2STS {
   
   // Bit field definition.
   struct {
+    /// read-write - Compare Flags
     eCMPF CMPF : 6;
+    /// read-write - Capture Flag X0
     uint32_t CFX0 : 1;
+    /// read-write - Capture Flag X1
     uint32_t CFX1 : 1;
+    /// read-write - Capture Flag B0
     uint32_t CFB0 : 1;
+    /// read-write - Capture Flag B1
     uint32_t CFB1 : 1;
+    /// read-write - Capture Flag A0
     uint32_t CFA0 : 1;
+    /// read-write - Capture Flag A1
     uint32_t CFA1 : 1;
+    /// read-write - Reload Flag
     eRF RF : 1;
+    /// read-write - Reload Error Flag
     eREF REF : 1;
+    /// read-only - Registers Updated Flag
     eRUF RUF : 1;
     uint32_t _reserved_0 : 17;
   } bits;
@@ -3039,14 +3357,23 @@ union SM2INTEN {
   
   // Bit field definition.
   struct {
+    /// read-write - Compare Interrupt Enables
     eCMPIE CMPIE : 6;
+    /// read-write - Capture X 0 Interrupt Enable
     eCX0IE CX0IE : 1;
+    /// read-write - Capture X 1 Interrupt Enable
     eCX1IE CX1IE : 1;
+    /// read-write - Capture B 0 Interrupt Enable
     eCB0IE CB0IE : 1;
+    /// read-write - Capture B 1 Interrupt Enable
     eCB1IE CB1IE : 1;
+    /// read-write - Capture A 0 Interrupt Enable
     eCA0IE CA0IE : 1;
+    /// read-write - Capture A 1 Interrupt Enable
     eCA1IE CA1IE : 1;
+    /// read-write - Reload Interrupt Enable
     eRIE RIE : 1;
+    /// read-write - Reload Error Interrupt Enable
     eREIE REIE : 1;
     uint32_t _reserved_0 : 18;
   } bits;
@@ -3082,14 +3409,23 @@ union SM2DMAEN {
   
   // Bit field definition.
   struct {
+    /// read-write - Capture X0 FIFO DMA Enable
     uint32_t CX0DE : 1;
+    /// read-write - Capture X1 FIFO DMA Enable
     uint32_t CX1DE : 1;
+    /// read-write - Capture B0 FIFO DMA Enable
     uint32_t CB0DE : 1;
+    /// read-write - Capture B1 FIFO DMA Enable
     uint32_t CB1DE : 1;
+    /// read-write - Capture A0 FIFO DMA Enable
     uint32_t CA0DE : 1;
+    /// read-write - Capture A1 FIFO DMA Enable
     uint32_t CA1DE : 1;
+    /// read-write - Capture DMA Enable Source Select
     eCAPTDE CAPTDE : 2;
+    /// read-write - FIFO Watermark AND Control
     eFAND FAND : 1;
+    /// read-write - Value Registers DMA Enable
     eVALDE VALDE : 1;
     uint32_t _reserved_0 : 22;
   } bits;
@@ -3127,11 +3463,15 @@ union SM2TCTRL {
   
   // Bit field definition.
   struct {
+    /// read-write - Output Trigger Enables
     eOUT_TRIG_EN OUT_TRIG_EN : 6;
     uint32_t _reserved_0 : 6;
+    /// read-write - Trigger Frequency
     eTRGFRQ TRGFRQ : 1;
     uint32_t _reserved_1 : 1;
+    /// read-write - Output Trigger 1 Source Select
     ePWBOT1 PWBOT1 : 1;
+    /// read-write - Output Trigger 0 Source Select
     ePWAOT0 PWAOT0 : 1;
     uint32_t _reserved_2 : 16;
   } bits;
@@ -3150,8 +3490,11 @@ union SM2DISMAP0 {
   
   // Bit field definition.
   struct {
+    /// read-write - PWM_A Fault Disable Mask 0
     uint32_t DIS0A : 4;
+    /// read-write - PWM_B Fault Disable Mask 0
     uint32_t DIS0B : 4;
+    /// read-write - PWM_X Fault Disable Mask 0
     uint32_t DIS0X : 4;
     uint32_t _reserved_0 : 20;
   } bits;
@@ -3170,6 +3513,7 @@ union SM2DTCNT0 {
   
   // Bit field definition.
   struct {
+    /// read-write - DTCNT0
     uint32_t DTCNT0 : 16;
     uint32_t _reserved_0 : 16;
   } bits;
@@ -3188,6 +3532,7 @@ union SM2DTCNT1 {
   
   // Bit field definition.
   struct {
+    /// read-write - DTCNT1
     uint32_t DTCNT1 : 16;
     uint32_t _reserved_0 : 16;
   } bits;
@@ -3240,14 +3585,23 @@ union SM2CAPTCTRLA {
   
   // Bit field definition.
   struct {
+    /// read-write - Arm A
     eARMA ARMA : 1;
+    /// read-write - One Shot Mode A
     eONESHOTA ONESHOTA : 1;
+    /// read-write - Edge A 0
     eEDGA0 EDGA0 : 2;
+    /// read-write - Edge A 1
     eEDGA1 EDGA1 : 2;
+    /// read-write - Input Select A
     eINP_SELA INP_SELA : 1;
+    /// read-write - Edge Counter A Enable
     eEDGCNTA_EN EDGCNTA_EN : 1;
+    /// read-write - Capture A FIFOs Water Mark
     uint32_t CFAWM : 2;
+    /// read-only - Capture A0 FIFO Word Count
     uint32_t CA0CNT : 3;
+    /// read-only - Capture A1 FIFO Word Count
     uint32_t CA1CNT : 3;
     uint32_t _reserved_0 : 16;
   } bits;
@@ -3266,7 +3620,9 @@ union SM2CAPTCOMPA {
   
   // Bit field definition.
   struct {
+    /// read-write - Edge Compare A
     uint32_t EDGCMPA : 8;
+    /// read-only - Edge Counter A
     uint32_t EDGCNTA : 8;
     uint32_t _reserved_0 : 16;
   } bits;
@@ -3319,14 +3675,23 @@ union SM2CAPTCTRLB {
   
   // Bit field definition.
   struct {
+    /// read-write - Arm B
     eARMB ARMB : 1;
+    /// read-write - One Shot Mode B
     eONESHOTB ONESHOTB : 1;
+    /// read-write - Edge B 0
     eEDGB0 EDGB0 : 2;
+    /// read-write - Edge B 1
     eEDGB1 EDGB1 : 2;
+    /// read-write - Input Select B
     eINP_SELB INP_SELB : 1;
+    /// read-write - Edge Counter B Enable
     eEDGCNTB_EN EDGCNTB_EN : 1;
+    /// read-write - Capture B FIFOs Water Mark
     uint32_t CFBWM : 2;
+    /// read-only - Capture B0 FIFO Word Count
     uint32_t CB0CNT : 3;
+    /// read-only - Capture B1 FIFO Word Count
     uint32_t CB1CNT : 3;
     uint32_t _reserved_0 : 16;
   } bits;
@@ -3345,7 +3710,9 @@ union SM2CAPTCOMPB {
   
   // Bit field definition.
   struct {
+    /// read-write - Edge Compare B
     uint32_t EDGCMPB : 8;
+    /// read-only - Edge Counter B
     uint32_t EDGCNTB : 8;
     uint32_t _reserved_0 : 16;
   } bits;
@@ -3398,14 +3765,23 @@ union SM2CAPTCTRLX {
   
   // Bit field definition.
   struct {
+    /// read-write - Arm X
     eARMX ARMX : 1;
+    /// read-write - One Shot Mode Aux
     eONESHOTX ONESHOTX : 1;
+    /// read-write - Edge X 0
     eEDGX0 EDGX0 : 2;
+    /// read-write - Edge X 1
     eEDGX1 EDGX1 : 2;
+    /// read-write - Input Select X
     eINP_SELX INP_SELX : 1;
+    /// read-write - Edge Counter X Enable
     eEDGCNTX_EN EDGCNTX_EN : 1;
+    /// read-write - Capture X FIFOs Water Mark
     uint32_t CFXWM : 2;
+    /// read-only - Capture X0 FIFO Word Count
     uint32_t CX0CNT : 3;
+    /// read-only - Capture X1 FIFO Word Count
     uint32_t CX1CNT : 3;
     uint32_t _reserved_0 : 16;
   } bits;
@@ -3424,7 +3800,9 @@ union SM2CAPTCOMPX {
   
   // Bit field definition.
   struct {
+    /// read-write - Edge Compare X
     uint32_t EDGCMPX : 8;
+    /// read-only - Edge Counter X
     uint32_t EDGCNTX : 8;
     uint32_t _reserved_0 : 16;
   } bits;
@@ -3443,6 +3821,7 @@ union SM2CVAL0 {
   
   // Bit field definition.
   struct {
+    /// read-only - Capture Value 0
     uint32_t CAPTVAL0 : 16;
     uint32_t _reserved_0 : 16;
   } bits;
@@ -3461,6 +3840,7 @@ union SM2CVAL0CYC {
   
   // Bit field definition.
   struct {
+    /// read-only - Capture Value 0 Cycle
     uint32_t CVAL0CYC : 4;
     uint32_t _reserved_0 : 28;
   } bits;
@@ -3479,6 +3859,7 @@ union SM2CVAL1 {
   
   // Bit field definition.
   struct {
+    /// read-only - Capture Value 1
     uint32_t CAPTVAL1 : 16;
     uint32_t _reserved_0 : 16;
   } bits;
@@ -3497,6 +3878,7 @@ union SM2CVAL1CYC {
   
   // Bit field definition.
   struct {
+    /// read-only - Capture Value 1 Cycle
     uint32_t CVAL1CYC : 4;
     uint32_t _reserved_0 : 28;
   } bits;
@@ -3515,6 +3897,7 @@ union SM2CVAL2 {
   
   // Bit field definition.
   struct {
+    /// read-only - Capture Value 2
     uint32_t CAPTVAL2 : 16;
     uint32_t _reserved_0 : 16;
   } bits;
@@ -3533,6 +3916,7 @@ union SM2CVAL2CYC {
   
   // Bit field definition.
   struct {
+    /// read-only - Capture Value 2 Cycle
     uint32_t CVAL2CYC : 4;
     uint32_t _reserved_0 : 28;
   } bits;
@@ -3551,6 +3935,7 @@ union SM2CVAL3 {
   
   // Bit field definition.
   struct {
+    /// read-only - Capture Value 3
     uint32_t CAPTVAL3 : 16;
     uint32_t _reserved_0 : 16;
   } bits;
@@ -3569,6 +3954,7 @@ union SM2CVAL3CYC {
   
   // Bit field definition.
   struct {
+    /// read-only - Capture Value 3 Cycle
     uint32_t CVAL3CYC : 4;
     uint32_t _reserved_0 : 28;
   } bits;
@@ -3587,6 +3973,7 @@ union SM2CVAL4 {
   
   // Bit field definition.
   struct {
+    /// read-only - Capture Value 4
     uint32_t CAPTVAL4 : 16;
     uint32_t _reserved_0 : 16;
   } bits;
@@ -3605,6 +3992,7 @@ union SM2CVAL4CYC {
   
   // Bit field definition.
   struct {
+    /// read-only - Capture Value 4 Cycle
     uint32_t CVAL4CYC : 4;
     uint32_t _reserved_0 : 28;
   } bits;
@@ -3623,6 +4011,7 @@ union SM2CVAL5 {
   
   // Bit field definition.
   struct {
+    /// read-only - Capture Value 5
     uint32_t CAPTVAL5 : 16;
     uint32_t _reserved_0 : 16;
   } bits;
@@ -3641,6 +4030,7 @@ union SM2CVAL5CYC {
   
   // Bit field definition.
   struct {
+    /// read-only - Capture Value 5 Cycle
     uint32_t CVAL5CYC : 4;
     uint32_t _reserved_0 : 28;
   } bits;
@@ -3659,6 +4049,7 @@ union SM3CNT {
   
   // Bit field definition.
   struct {
+    /// read-only - Counter Register Bits
     uint32_t CNT : 16;
     uint32_t _reserved_0 : 16;
   } bits;
@@ -3677,6 +4068,7 @@ union SM3INIT {
   
   // Bit field definition.
   struct {
+    /// read-write - Initial Count Register Bits
     uint32_t INIT : 16;
     uint32_t _reserved_0 : 16;
   } bits;
@@ -3734,17 +4126,29 @@ union SM3CTRL2 {
   
   // Bit field definition.
   struct {
+    /// read-write - Clock Source Select
     eCLK_SEL CLK_SEL : 2;
+    /// read-write - Reload Source Select
     eRELOAD_SEL RELOAD_SEL : 1;
+    /// read-write - Force Select
     eFORCE_SEL FORCE_SEL : 3;
+    /// read-write - Force Initialization
     uint32_t FORCE : 1;
+    /// read-write - Force Enable
     eFRCEN FRCEN : 1;
+    /// read-write - Initialization Control Select
     eINIT_SEL INIT_SEL : 2;
+    /// read-write - PWM_X Initial Value
     uint32_t PWMX_INIT : 1;
+    /// read-write - PWM45 Initial Value
     uint32_t PWM45_INIT : 1;
+    /// read-write - PWM23 Initial Value
     uint32_t PWM23_INIT : 1;
+    /// read-write - Independent or Complementary Pair Operation
     eINDEP INDEP : 1;
+    /// read-write - Wait Enable
     uint32_t WAITEN : 1;
+    /// read-write - Debug Enable
     uint32_t DBGEN : 1;
     uint32_t _reserved_0 : 16;
   } bits;
@@ -3828,15 +4232,25 @@ union SM3CTRL {
   
   // Bit field definition.
   struct {
+    /// read-write - Double Switching Enable
     eDBLEN DBLEN : 1;
+    /// read-write - PWM_X Double Switching Enable
     eDBLX DBLX : 1;
+    /// read-write - Load Mode Select
     eLDMOD LDMOD : 1;
+    /// read-write - Split the DBLPWM signal to PWM_A and PWM_B
     eSPLIT SPLIT : 1;
+    /// read-write - Prescaler
     ePRSC PRSC : 3;
+    /// read-write - Compare Mode
     eCOMPMODE COMPMODE : 1;
+    /// read-only - Deadtime
     uint32_t DT : 2;
+    /// read-write - Full Cycle Reload
     eFULL FULL : 1;
+    /// read-write - Half Cycle Reload
     eHALF HALF : 1;
+    /// read-write - Load Frequency
     eLDFQ LDFQ : 4;
     uint32_t _reserved_0 : 16;
   } bits;
@@ -3855,6 +4269,7 @@ union SM3VAL0 {
   
   // Bit field definition.
   struct {
+    /// read-write - Value 0
     uint32_t VAL0 : 16;
     uint32_t _reserved_0 : 16;
   } bits;
@@ -3874,6 +4289,7 @@ union SM3FRACVAL1 {
   // Bit field definition.
   struct {
     uint32_t _reserved_0 : 11;
+    /// read-write - Fractional Value 1
     uint32_t FRACVAL1 : 5;
     uint32_t _reserved_1 : 16;
   } bits;
@@ -3892,6 +4308,7 @@ union SM3VAL1 {
   
   // Bit field definition.
   struct {
+    /// read-write - Value 1
     uint32_t VAL1 : 16;
     uint32_t _reserved_0 : 16;
   } bits;
@@ -3911,6 +4328,7 @@ union SM3FRACVAL2 {
   // Bit field definition.
   struct {
     uint32_t _reserved_0 : 11;
+    /// read-write - Fractional Value 2
     uint32_t FRACVAL2 : 5;
     uint32_t _reserved_1 : 16;
   } bits;
@@ -3929,6 +4347,7 @@ union SM3VAL2 {
   
   // Bit field definition.
   struct {
+    /// read-write - Value 2
     uint32_t VAL2 : 16;
     uint32_t _reserved_0 : 16;
   } bits;
@@ -3948,6 +4367,7 @@ union SM3FRACVAL3 {
   // Bit field definition.
   struct {
     uint32_t _reserved_0 : 11;
+    /// read-write - Fractional Value 3
     uint32_t FRACVAL3 : 5;
     uint32_t _reserved_1 : 16;
   } bits;
@@ -3966,6 +4386,7 @@ union SM3VAL3 {
   
   // Bit field definition.
   struct {
+    /// read-write - Value 3
     uint32_t VAL3 : 16;
     uint32_t _reserved_0 : 16;
   } bits;
@@ -3985,6 +4406,7 @@ union SM3FRACVAL4 {
   // Bit field definition.
   struct {
     uint32_t _reserved_0 : 11;
+    /// read-write - Fractional Value 4
     uint32_t FRACVAL4 : 5;
     uint32_t _reserved_1 : 16;
   } bits;
@@ -4003,6 +4425,7 @@ union SM3VAL4 {
   
   // Bit field definition.
   struct {
+    /// read-write - Value 4
     uint32_t VAL4 : 16;
     uint32_t _reserved_0 : 16;
   } bits;
@@ -4022,6 +4445,7 @@ union SM3FRACVAL5 {
   // Bit field definition.
   struct {
     uint32_t _reserved_0 : 11;
+    /// read-write - Fractional Value 5
     uint32_t FRACVAL5 : 5;
     uint32_t _reserved_1 : 16;
   } bits;
@@ -4040,6 +4464,7 @@ union SM3VAL5 {
   
   // Bit field definition.
   struct {
+    /// read-write - Value 5
     uint32_t VAL5 : 16;
     uint32_t _reserved_0 : 16;
   } bits;
@@ -4074,11 +4499,15 @@ union SM3FRCTRL {
   // Bit field definition.
   struct {
     uint32_t _reserved_0 : 1;
+    /// read-write - Fractional Cycle PWM Period Enable
     eFRAC1_EN FRAC1_EN : 1;
+    /// read-write - Fractional Cycle Placement Enable for PWM_A
     eFRAC23_EN FRAC23_EN : 1;
     uint32_t _reserved_1 : 1;
+    /// read-write - Fractional Cycle Placement Enable for PWM_B
     eFRAC45_EN FRAC45_EN : 1;
     uint32_t _reserved_2 : 10;
+    /// read-only - Test Status Bit
     uint32_t TEST : 1;
     uint32_t _reserved_3 : 16;
   } bits;
@@ -4133,16 +4562,25 @@ union SM3OCTRL {
   
   // Bit field definition.
   struct {
+    /// read-write - PWM_X Fault State
     ePWMXFS PWMXFS : 2;
+    /// read-write - PWM_B Fault State
     ePWMBFS PWMBFS : 2;
+    /// read-write - PWM_A Fault State
     ePWMAFS PWMAFS : 2;
     uint32_t _reserved_0 : 2;
+    /// read-write - PWM_X Output Polarity
     ePOLX POLX : 1;
+    /// read-write - PWM_B Output Polarity
     ePOLB POLB : 1;
+    /// read-write - PWM_A Output Polarity
     ePOLA POLA : 1;
     uint32_t _reserved_1 : 2;
+    /// read-only - PWM_X Input
     uint32_t PWMX_IN : 1;
+    /// read-only - PWM_B Input
     uint32_t PWMB_IN : 1;
+    /// read-only - PWM_A Input
     uint32_t PWMA_IN : 1;
     uint32_t _reserved_2 : 16;
   } bits;
@@ -4181,15 +4619,25 @@ union SM3STS {
   
   // Bit field definition.
   struct {
+    /// read-write - Compare Flags
     eCMPF CMPF : 6;
+    /// read-write - Capture Flag X0
     uint32_t CFX0 : 1;
+    /// read-write - Capture Flag X1
     uint32_t CFX1 : 1;
+    /// read-write - Capture Flag B0
     uint32_t CFB0 : 1;
+    /// read-write - Capture Flag B1
     uint32_t CFB1 : 1;
+    /// read-write - Capture Flag A0
     uint32_t CFA0 : 1;
+    /// read-write - Capture Flag A1
     uint32_t CFA1 : 1;
+    /// read-write - Reload Flag
     eRF RF : 1;
+    /// read-write - Reload Error Flag
     eREF REF : 1;
+    /// read-only - Registers Updated Flag
     eRUF RUF : 1;
     uint32_t _reserved_0 : 17;
   } bits;
@@ -4253,14 +4701,23 @@ union SM3INTEN {
   
   // Bit field definition.
   struct {
+    /// read-write - Compare Interrupt Enables
     eCMPIE CMPIE : 6;
+    /// read-write - Capture X 0 Interrupt Enable
     eCX0IE CX0IE : 1;
+    /// read-write - Capture X 1 Interrupt Enable
     eCX1IE CX1IE : 1;
+    /// read-write - Capture B 0 Interrupt Enable
     eCB0IE CB0IE : 1;
+    /// read-write - Capture B 1 Interrupt Enable
     eCB1IE CB1IE : 1;
+    /// read-write - Capture A 0 Interrupt Enable
     eCA0IE CA0IE : 1;
+    /// read-write - Capture A 1 Interrupt Enable
     eCA1IE CA1IE : 1;
+    /// read-write - Reload Interrupt Enable
     eRIE RIE : 1;
+    /// read-write - Reload Error Interrupt Enable
     eREIE REIE : 1;
     uint32_t _reserved_0 : 18;
   } bits;
@@ -4296,14 +4753,23 @@ union SM3DMAEN {
   
   // Bit field definition.
   struct {
+    /// read-write - Capture X0 FIFO DMA Enable
     uint32_t CX0DE : 1;
+    /// read-write - Capture X1 FIFO DMA Enable
     uint32_t CX1DE : 1;
+    /// read-write - Capture B0 FIFO DMA Enable
     uint32_t CB0DE : 1;
+    /// read-write - Capture B1 FIFO DMA Enable
     uint32_t CB1DE : 1;
+    /// read-write - Capture A0 FIFO DMA Enable
     uint32_t CA0DE : 1;
+    /// read-write - Capture A1 FIFO DMA Enable
     uint32_t CA1DE : 1;
+    /// read-write - Capture DMA Enable Source Select
     eCAPTDE CAPTDE : 2;
+    /// read-write - FIFO Watermark AND Control
     eFAND FAND : 1;
+    /// read-write - Value Registers DMA Enable
     eVALDE VALDE : 1;
     uint32_t _reserved_0 : 22;
   } bits;
@@ -4341,11 +4807,15 @@ union SM3TCTRL {
   
   // Bit field definition.
   struct {
+    /// read-write - Output Trigger Enables
     eOUT_TRIG_EN OUT_TRIG_EN : 6;
     uint32_t _reserved_0 : 6;
+    /// read-write - Trigger Frequency
     eTRGFRQ TRGFRQ : 1;
     uint32_t _reserved_1 : 1;
+    /// read-write - Output Trigger 1 Source Select
     ePWBOT1 PWBOT1 : 1;
+    /// read-write - Output Trigger 0 Source Select
     ePWAOT0 PWAOT0 : 1;
     uint32_t _reserved_2 : 16;
   } bits;
@@ -4364,8 +4834,11 @@ union SM3DISMAP0 {
   
   // Bit field definition.
   struct {
+    /// read-write - PWM_A Fault Disable Mask 0
     uint32_t DIS0A : 4;
+    /// read-write - PWM_B Fault Disable Mask 0
     uint32_t DIS0B : 4;
+    /// read-write - PWM_X Fault Disable Mask 0
     uint32_t DIS0X : 4;
     uint32_t _reserved_0 : 20;
   } bits;
@@ -4384,6 +4857,7 @@ union SM3DTCNT0 {
   
   // Bit field definition.
   struct {
+    /// read-write - DTCNT0
     uint32_t DTCNT0 : 16;
     uint32_t _reserved_0 : 16;
   } bits;
@@ -4402,6 +4876,7 @@ union SM3DTCNT1 {
   
   // Bit field definition.
   struct {
+    /// read-write - DTCNT1
     uint32_t DTCNT1 : 16;
     uint32_t _reserved_0 : 16;
   } bits;
@@ -4454,14 +4929,23 @@ union SM3CAPTCTRLA {
   
   // Bit field definition.
   struct {
+    /// read-write - Arm A
     eARMA ARMA : 1;
+    /// read-write - One Shot Mode A
     eONESHOTA ONESHOTA : 1;
+    /// read-write - Edge A 0
     eEDGA0 EDGA0 : 2;
+    /// read-write - Edge A 1
     eEDGA1 EDGA1 : 2;
+    /// read-write - Input Select A
     eINP_SELA INP_SELA : 1;
+    /// read-write - Edge Counter A Enable
     eEDGCNTA_EN EDGCNTA_EN : 1;
+    /// read-write - Capture A FIFOs Water Mark
     uint32_t CFAWM : 2;
+    /// read-only - Capture A0 FIFO Word Count
     uint32_t CA0CNT : 3;
+    /// read-only - Capture A1 FIFO Word Count
     uint32_t CA1CNT : 3;
     uint32_t _reserved_0 : 16;
   } bits;
@@ -4480,7 +4964,9 @@ union SM3CAPTCOMPA {
   
   // Bit field definition.
   struct {
+    /// read-write - Edge Compare A
     uint32_t EDGCMPA : 8;
+    /// read-only - Edge Counter A
     uint32_t EDGCNTA : 8;
     uint32_t _reserved_0 : 16;
   } bits;
@@ -4533,14 +5019,23 @@ union SM3CAPTCTRLB {
   
   // Bit field definition.
   struct {
+    /// read-write - Arm B
     eARMB ARMB : 1;
+    /// read-write - One Shot Mode B
     eONESHOTB ONESHOTB : 1;
+    /// read-write - Edge B 0
     eEDGB0 EDGB0 : 2;
+    /// read-write - Edge B 1
     eEDGB1 EDGB1 : 2;
+    /// read-write - Input Select B
     eINP_SELB INP_SELB : 1;
+    /// read-write - Edge Counter B Enable
     eEDGCNTB_EN EDGCNTB_EN : 1;
+    /// read-write - Capture B FIFOs Water Mark
     uint32_t CFBWM : 2;
+    /// read-only - Capture B0 FIFO Word Count
     uint32_t CB0CNT : 3;
+    /// read-only - Capture B1 FIFO Word Count
     uint32_t CB1CNT : 3;
     uint32_t _reserved_0 : 16;
   } bits;
@@ -4559,7 +5054,9 @@ union SM3CAPTCOMPB {
   
   // Bit field definition.
   struct {
+    /// read-write - Edge Compare B
     uint32_t EDGCMPB : 8;
+    /// read-only - Edge Counter B
     uint32_t EDGCNTB : 8;
     uint32_t _reserved_0 : 16;
   } bits;
@@ -4612,14 +5109,23 @@ union SM3CAPTCTRLX {
   
   // Bit field definition.
   struct {
+    /// read-write - Arm X
     eARMX ARMX : 1;
+    /// read-write - One Shot Mode Aux
     eONESHOTX ONESHOTX : 1;
+    /// read-write - Edge X 0
     eEDGX0 EDGX0 : 2;
+    /// read-write - Edge X 1
     eEDGX1 EDGX1 : 2;
+    /// read-write - Input Select X
     eINP_SELX INP_SELX : 1;
+    /// read-write - Edge Counter X Enable
     eEDGCNTX_EN EDGCNTX_EN : 1;
+    /// read-write - Capture X FIFOs Water Mark
     uint32_t CFXWM : 2;
+    /// read-only - Capture X0 FIFO Word Count
     uint32_t CX0CNT : 3;
+    /// read-only - Capture X1 FIFO Word Count
     uint32_t CX1CNT : 3;
     uint32_t _reserved_0 : 16;
   } bits;
@@ -4638,7 +5144,9 @@ union SM3CAPTCOMPX {
   
   // Bit field definition.
   struct {
+    /// read-write - Edge Compare X
     uint32_t EDGCMPX : 8;
+    /// read-only - Edge Counter X
     uint32_t EDGCNTX : 8;
     uint32_t _reserved_0 : 16;
   } bits;
@@ -4657,6 +5165,7 @@ union SM3CVAL0 {
   
   // Bit field definition.
   struct {
+    /// read-only - Capture Value 0
     uint32_t CAPTVAL0 : 16;
     uint32_t _reserved_0 : 16;
   } bits;
@@ -4675,6 +5184,7 @@ union SM3CVAL0CYC {
   
   // Bit field definition.
   struct {
+    /// read-only - Capture Value 0 Cycle
     uint32_t CVAL0CYC : 4;
     uint32_t _reserved_0 : 28;
   } bits;
@@ -4693,6 +5203,7 @@ union SM3CVAL1 {
   
   // Bit field definition.
   struct {
+    /// read-only - Capture Value 1
     uint32_t CAPTVAL1 : 16;
     uint32_t _reserved_0 : 16;
   } bits;
@@ -4711,6 +5222,7 @@ union SM3CVAL1CYC {
   
   // Bit field definition.
   struct {
+    /// read-only - Capture Value 1 Cycle
     uint32_t CVAL1CYC : 4;
     uint32_t _reserved_0 : 28;
   } bits;
@@ -4729,6 +5241,7 @@ union SM3CVAL2 {
   
   // Bit field definition.
   struct {
+    /// read-only - Capture Value 2
     uint32_t CAPTVAL2 : 16;
     uint32_t _reserved_0 : 16;
   } bits;
@@ -4747,6 +5260,7 @@ union SM3CVAL2CYC {
   
   // Bit field definition.
   struct {
+    /// read-only - Capture Value 2 Cycle
     uint32_t CVAL2CYC : 4;
     uint32_t _reserved_0 : 28;
   } bits;
@@ -4765,6 +5279,7 @@ union SM3CVAL3 {
   
   // Bit field definition.
   struct {
+    /// read-only - Capture Value 3
     uint32_t CAPTVAL3 : 16;
     uint32_t _reserved_0 : 16;
   } bits;
@@ -4783,6 +5298,7 @@ union SM3CVAL3CYC {
   
   // Bit field definition.
   struct {
+    /// read-only - Capture Value 3 Cycle
     uint32_t CVAL3CYC : 4;
     uint32_t _reserved_0 : 28;
   } bits;
@@ -4801,6 +5317,7 @@ union SM3CVAL4 {
   
   // Bit field definition.
   struct {
+    /// read-only - Capture Value 4
     uint32_t CAPTVAL4 : 16;
     uint32_t _reserved_0 : 16;
   } bits;
@@ -4819,6 +5336,7 @@ union SM3CVAL4CYC {
   
   // Bit field definition.
   struct {
+    /// read-only - Capture Value 4 Cycle
     uint32_t CVAL4CYC : 4;
     uint32_t _reserved_0 : 28;
   } bits;
@@ -4837,6 +5355,7 @@ union SM3CVAL5 {
   
   // Bit field definition.
   struct {
+    /// read-only - Capture Value 5
     uint32_t CAPTVAL5 : 16;
     uint32_t _reserved_0 : 16;
   } bits;
@@ -4855,6 +5374,7 @@ union SM3CVAL5CYC {
   
   // Bit field definition.
   struct {
+    /// read-only - Capture Value 5 Cycle
     uint32_t CVAL5CYC : 4;
     uint32_t _reserved_0 : 28;
   } bits;
@@ -4873,8 +5393,11 @@ union OUTEN {
   
   // Bit field definition.
   struct {
+    /// read-write - PWM_X Output Enables
     uint32_t PWMX_EN : 4;
+    /// read-write - PWM_B Output Enables
     uint32_t PWMB_EN : 4;
+    /// read-write - PWM_A Output Enables
     uint32_t PWMA_EN : 4;
     uint32_t _reserved_0 : 20;
   } bits;
@@ -4893,9 +5416,13 @@ union MASK {
   
   // Bit field definition.
   struct {
+    /// read-write - PWM_X Masks
     uint32_t MASKX : 4;
+    /// read-write - PWM_B Masks
     uint32_t MASKB : 4;
+    /// read-write - PWM_A Masks
     uint32_t MASKA : 4;
+    /// write-only - Update Mask Bits Immediately
     uint32_t UPDATE_MASK : 4;
     uint32_t _reserved_0 : 16;
   } bits;
@@ -4954,13 +5481,21 @@ union SWCOUT {
   
   // Bit field definition.
   struct {
+    /// read-write - Submodule 0 Software Controlled Output 45
     eSM0OUT45 SM0OUT45 : 1;
+    /// read-write - Submodule 0 Software Controlled Output 23
     eSM0OUT23 SM0OUT23 : 1;
+    /// read-write - Submodule 1 Software Controlled Output 45
     eSM1OUT45 SM1OUT45 : 1;
+    /// read-write - Submodule 1 Software Controlled Output 23
     eSM1OUT23 SM1OUT23 : 1;
+    /// read-write - Submodule 2 Software Controlled Output 45
     eSM2OUT45 SM2OUT45 : 1;
+    /// read-write - Submodule 2 Software Controlled Output 23
     eSM2OUT23 SM2OUT23 : 1;
+    /// read-write - Submodule 3 Software Controlled Output 45
     eSM3OUT45 SM3OUT45 : 1;
+    /// read-write - Submodule 3 Software Controlled Output 23
     eSM3OUT23 SM3OUT23 : 1;
     uint32_t _reserved_0 : 24;
   } bits;
@@ -5031,13 +5566,21 @@ union DTSRCSEL {
   
   // Bit field definition.
   struct {
+    /// read-write - Submodule 0 PWM45 Control Select
     eSM0SEL45 SM0SEL45 : 2;
+    /// read-write - Submodule 0 PWM23 Control Select
     eSM0SEL23 SM0SEL23 : 2;
+    /// read-write - Submodule 1 PWM45 Control Select
     eSM1SEL45 SM1SEL45 : 2;
+    /// read-write - Submodule 1 PWM23 Control Select
     eSM1SEL23 SM1SEL23 : 2;
+    /// read-write - Submodule 2 PWM45 Control Select
     eSM2SEL45 SM2SEL45 : 2;
+    /// read-write - Submodule 2 PWM23 Control Select
     eSM2SEL23 SM2SEL23 : 2;
+    /// read-write - Submodule 3 PWM45 Control Select
     eSM3SEL45 SM3SEL45 : 2;
+    /// read-write - Submodule 3 PWM23 Control Select
     eSM3SEL23 SM3SEL23 : 2;
     uint32_t _reserved_0 : 16;
   } bits;
@@ -5071,9 +5614,13 @@ union MCTRL {
   
   // Bit field definition.
   struct {
+    /// read-write - Load Okay
     eLDOK LDOK : 4;
+    /// read-write - Clear Load Okay
     uint32_t CLDOK : 4;
+    /// read-write - Run
     eRUN RUN : 4;
+    /// read-write - Current Polarity
     eIPOL IPOL : 4;
     uint32_t _reserved_0 : 16;
   } bits;
@@ -5112,9 +5659,13 @@ union FCTRL0 {
   
   // Bit field definition.
   struct {
+    /// read-write - Fault Interrupt Enables
     eFIE FIE : 4;
+    /// read-write - Fault Safety Mode
     eFSAFE FSAFE : 4;
+    /// read-write - Automatic Fault Clearing
     eFAUTO FAUTO : 4;
+    /// read-write - Fault Level
     eFLVL FLVL : 4;
     uint32_t _reserved_0 : 16;
   } bits;
@@ -5148,9 +5699,13 @@ union FSTS0 {
   
   // Bit field definition.
   struct {
+    /// read-write - Fault Flags
     eFFLAG FFLAG : 4;
+    /// read-write - Full Cycle
     eFFULL FFULL : 4;
+    /// read-only - Filtered Fault Pins
     uint32_t FFPIN : 4;
+    /// read-write - Half Cycle Fault Recovery
     eFHALF FHALF : 4;
     uint32_t _reserved_0 : 16;
   } bits;
@@ -5174,9 +5729,12 @@ union FFILT0 {
   
   // Bit field definition.
   struct {
+    /// read-write - Fault Filter Period
     uint32_t FILT_PER : 8;
+    /// read-write - Fault Filter Count
     uint32_t FILT_CNT : 3;
     uint32_t _reserved_0 : 4;
+    /// read-write - Fault Glitch Stretch Enable
     eGSTR GSTR : 1;
     uint32_t _reserved_1 : 16;
   } bits;
@@ -5200,6 +5758,7 @@ union FTST0 {
   
   // Bit field definition.
   struct {
+    /// read-write - Fault Test
     eFTEST FTEST : 1;
     uint32_t _reserved_0 : 31;
   } bits;
@@ -5223,6 +5782,7 @@ union FCTRL20 {
   
   // Bit field definition.
   struct {
+    /// read-write - No Combinational Path From Fault Input To PWM Output
     eNOCOMB NOCOMB : 4;
     uint32_t _reserved_0 : 28;
   } bits;

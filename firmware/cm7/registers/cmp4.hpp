@@ -17,8 +17,11 @@ union VERID {
   
   // Bit field definition.
   struct {
+    /// read-only - Feature Specification Number. This read only filed returns the feature set number.
     uint32_t FEATURE : 16;
+    /// read-only - Minor Version Number. This read only field returns the minor version number for the module specification.
     uint32_t MINOR : 8;
+    /// read-only - Major Version Number. This read only field returns the major version number for the module specification.
     uint32_t MAJOR : 8;
   } bits;
   
@@ -36,6 +39,7 @@ union PARAM {
   
   // Bit field definition.
   struct {
+    /// read-only - Parameter Registers. This read only filed returns the feature parameters implemented along with the Version ID register.
     uint32_t PARAM : 32;
   } bits;
   
@@ -136,26 +140,43 @@ union C0 {
   
   // Bit field definition.
   struct {
+    /// read-write - Comparator hard block hysteresis control. See chip data sheet to get the actual hystersis value with each level
     eHYSTCTR HYSTCTR : 2;
     uint32_t _reserved_0 : 2;
+    /// read-write - Filter Sample Count
     eFILTER_CNT FILTER_CNT : 3;
     uint32_t _reserved_1 : 1;
+    /// read-write - Comparator Module Enable
     eEN EN : 1;
+    /// read-write - Comparator Output Pin Enable
     eOPE OPE : 1;
+    /// read-write - Comparator Output Select
     eCOS COS : 1;
+    /// read-write - Comparator invert
     eINVT INVT : 1;
+    /// read-write - Power Mode Select
     ePMODE PMODE : 1;
     uint32_t _reserved_2 : 1;
+    /// read-write - Windowing Enable
     eWE WE : 1;
+    /// read-write - Sample Enable
     eSE SE : 1;
+    /// read-write - Filter Sample Period
     uint32_t FPR : 8;
+    /// read-only - Analog Comparator Output
     uint32_t COUT : 1;
+    /// read-write - Analog Comparator Flag Falling
     eCFF CFF : 1;
+    /// read-write - Analog Comparator Flag Rising
     eCFR CFR : 1;
+    /// read-write - Comparator Interrupt Enable Falling
     eIEF IEF : 1;
+    /// read-write - Comparator Interrupt Enable Rising
     eIER IER : 1;
     uint32_t _reserved_3 : 1;
+    /// read-write - DMA Enable
     eDMAEN DMAEN : 1;
+    /// read-write - CMP to DAC link enable.
     eLINKEN LINKEN : 1;
   } bits;
   
@@ -210,20 +231,32 @@ union C1 {
   
   // Bit field definition.
   struct {
+    /// read-write - DAC Output Voltage Select
     uint32_t VOSEL : 8;
+    /// read-write - DAC Mode Selection
     eDMODE DMODE : 1;
+    /// read-write - Supply Voltage Reference Source Select
     eVRSEL VRSEL : 1;
+    /// read-write - DAC Enable
     eDACEN DACEN : 1;
     uint32_t _reserved_0 : 5;
+    /// read-write - Channel 0 input enable
     uint32_t CHN0 : 1;
+    /// read-write - Channel 1 input enable
     uint32_t CHN1 : 1;
+    /// read-write - Channel 2 input enable
     uint32_t CHN2 : 1;
+    /// read-write - Channel 3 input enable
     uint32_t CHN3 : 1;
+    /// read-write - Channel 4 input enable
     uint32_t CHN4 : 1;
+    /// read-write - Channel 5 input enable
     uint32_t CHN5 : 1;
     uint32_t _reserved_1 : 2;
+    /// read-write - Minus Input MUX Control
     eMSEL MSEL : 3;
     uint32_t _reserved_2 : 1;
+    /// read-write - Plus Input MUX Control
     ePSEL PSEL : 3;
     uint32_t _reserved_3 : 1;
   } bits;
@@ -269,20 +302,32 @@ union C2 {
   
   // Bit field definition.
   struct {
+    /// read-write - ACOn
     uint32_t ACOn : 6;
     uint32_t _reserved_0 : 2;
+    /// read-write - Comparator and DAC initialization delay modulus.
     uint32_t INITMOD : 6;
+    /// read-write - Number of sample clocks
     eNSAM NSAM : 2;
+    /// read-write - CH0F
     uint32_t CH0F : 1;
+    /// read-write - CH1F
     uint32_t CH1F : 1;
+    /// read-write - CH2F
     uint32_t CH2F : 1;
+    /// read-write - CH3F
     uint32_t CH3F : 1;
+    /// read-write - CH4F
     uint32_t CH4F : 1;
+    /// read-write - CH5F
     uint32_t CH5F : 1;
     uint32_t _reserved_1 : 3;
+    /// read-write - Fixed channel selection
     eFXMXCH FXMXCH : 3;
     uint32_t _reserved_2 : 1;
+    /// read-write - Fixed MUX Port
     eFXMP FXMP : 1;
+    /// read-write - Round-Robin interrupt enable
     eRRIE RRIE : 1;
     uint32_t _reserved_3 : 1;
   } bits;
@@ -355,18 +400,25 @@ union C3 {
   // Bit field definition.
   struct {
     uint32_t _reserved_0 : 4;
+    /// read-write - Analog Comparator Phase2 Timing Control.
     eACPH2TC ACPH2TC : 3;
     uint32_t _reserved_1 : 1;
+    /// read-write - Analog Comparator Phase1 Timing Control.
     eACPH1TC ACPH1TC : 3;
     uint32_t _reserved_2 : 1;
+    /// read-write - Analog Comparator Sampling Time control.
     eACSAT ACSAT : 3;
     uint32_t _reserved_3 : 1;
+    /// read-write - Discrete Mode Clock Selection
     eDMCS DMCS : 1;
     uint32_t _reserved_4 : 3;
+    /// read-write - Resistor Divider Enable
     eRDIVE RDIVE : 1;
     uint32_t _reserved_5 : 3;
+    /// read-write - Negative Channel Continuous Mode Enable.
     eNCHCTEN NCHCTEN : 1;
     uint32_t _reserved_6 : 3;
+    /// read-write - Positive Channel Continuous Mode Enable.
     ePCHCTEN PCHCTEN : 1;
     uint32_t _reserved_7 : 3;
   } bits;

@@ -42,11 +42,16 @@ union DCIC1_DCICC {
   
   // Bit field definition.
   struct {
+    /// read-write - Integrity Check enable. Main enable switch.
     eIC_EN IC_EN : 1;
     uint32_t _reserved_0 : 3;
+    /// read-write - DATA_EN_IN signal polarity.
     eDE_POL DE_POL : 1;
+    /// read-write - HSYNC_IN signal polarity.
     eHSYNC_POL HSYNC_POL : 1;
+    /// read-write - VSYNC_IN signal polarity.
     eVSYNC_POL VSYNC_POL : 1;
+    /// read-write - DISP_CLK signal polarity.
     eCLK_POL CLK_POL : 1;
     uint32_t _reserved_1 : 24;
   } bits;
@@ -85,11 +90,15 @@ union DCIC1_DCICIC {
   
   // Bit field definition.
   struct {
+    /// read-write - Error Interrupt mask. Can be changed only while FREEZE_MASK = 0.
     eEI_MASK EI_MASK : 1;
+    /// read-write - Functional Interrupt mask. Can be changed only while FREEZE_MASK = 0.
     eFI_MASK FI_MASK : 1;
     uint32_t _reserved_0 : 1;
+    /// read-write - Disable change of interrupt masks. "Sticky" bit which can be set once and cleared by reset only.
     eFREEZE_MASK FREEZE_MASK : 1;
     uint32_t _reserved_1 : 12;
+    /// read-write - External controller mismatch indication signal.
     eEXT_SIG_EN EXT_SIG_EN : 1;
     uint32_t _reserved_2 : 15;
   } bits;
@@ -123,8 +132,11 @@ union DCIC1_DCICS {
   
   // Bit field definition.
   struct {
+    /// read-write - Each set bit of this field indicates there was a mismatch at the appropriate ROIs signature during the last frame
     eROI_MATCH_STAT ROI_MATCH_STAT : 16;
+    /// read-only - Error Interrupt status
     eEI_STAT EI_STAT : 1;
+    /// read-write - Functional Interrupt status. Write "1" to clear.
     eFI_STAT FI_STAT : 1;
     uint32_t _reserved_0 : 14;
   } bits;
@@ -153,11 +165,15 @@ union DCIC1_DCICRC1 {
   
   // Bit field definition.
   struct {
+    /// read-write - Column number of ROIs upper-left corner (X coordinate) Range: 0 to 2^13-1
     uint32_t START_OFFSET_X : 13;
     uint32_t _reserved_0 : 3;
+    /// read-write - Row number of ROIs upper-left corner (Y coordinate) Range: 0 to 2^12-1
     uint32_t START_OFFSET_Y : 12;
     uint32_t _reserved_1 : 2;
+    /// read-write - When set, the only parameter of the ROI that can be changed is the reference signature
     eROI_FREEZE ROI_FREEZE : 1;
+    /// read-write - ROI tracking enable
     eROI_EN ROI_EN : 1;
   } bits;
   
@@ -184,11 +200,15 @@ union DCIC1_DCICRC2 {
   
   // Bit field definition.
   struct {
+    /// read-write - Column number of ROIs upper-left corner (X coordinate) Range: 0 to 2^13-1
     uint32_t START_OFFSET_X : 13;
     uint32_t _reserved_0 : 3;
+    /// read-write - Row number of ROIs upper-left corner (Y coordinate) Range: 0 to 2^12-1
     uint32_t START_OFFSET_Y : 12;
     uint32_t _reserved_1 : 2;
+    /// read-write - When set, the only parameter of the ROI that can be changed is the reference signature
     eROI_FREEZE ROI_FREEZE : 1;
+    /// read-write - ROI tracking enable
     eROI_EN ROI_EN : 1;
   } bits;
   
@@ -215,11 +235,15 @@ union DCIC1_DCICRC3 {
   
   // Bit field definition.
   struct {
+    /// read-write - Column number of ROIs upper-left corner (X coordinate) Range: 0 to 2^13-1
     uint32_t START_OFFSET_X : 13;
     uint32_t _reserved_0 : 3;
+    /// read-write - Row number of ROIs upper-left corner (Y coordinate) Range: 0 to 2^12-1
     uint32_t START_OFFSET_Y : 12;
     uint32_t _reserved_1 : 2;
+    /// read-write - When set, the only parameter of the ROI that can be changed is the reference signature
     eROI_FREEZE ROI_FREEZE : 1;
+    /// read-write - ROI tracking enable
     eROI_EN ROI_EN : 1;
   } bits;
   
@@ -246,11 +270,15 @@ union DCIC1_DCICRC4 {
   
   // Bit field definition.
   struct {
+    /// read-write - Column number of ROIs upper-left corner (X coordinate) Range: 0 to 2^13-1
     uint32_t START_OFFSET_X : 13;
     uint32_t _reserved_0 : 3;
+    /// read-write - Row number of ROIs upper-left corner (Y coordinate) Range: 0 to 2^12-1
     uint32_t START_OFFSET_Y : 12;
     uint32_t _reserved_1 : 2;
+    /// read-write - When set, the only parameter of the ROI that can be changed is the reference signature
     eROI_FREEZE ROI_FREEZE : 1;
+    /// read-write - ROI tracking enable
     eROI_EN ROI_EN : 1;
   } bits;
   
@@ -277,11 +305,15 @@ union DCIC1_DCICRC5 {
   
   // Bit field definition.
   struct {
+    /// read-write - Column number of ROIs upper-left corner (X coordinate) Range: 0 to 2^13-1
     uint32_t START_OFFSET_X : 13;
     uint32_t _reserved_0 : 3;
+    /// read-write - Row number of ROIs upper-left corner (Y coordinate) Range: 0 to 2^12-1
     uint32_t START_OFFSET_Y : 12;
     uint32_t _reserved_1 : 2;
+    /// read-write - When set, the only parameter of the ROI that can be changed is the reference signature
     eROI_FREEZE ROI_FREEZE : 1;
+    /// read-write - ROI tracking enable
     eROI_EN ROI_EN : 1;
   } bits;
   
@@ -308,11 +340,15 @@ union DCIC1_DCICRC6 {
   
   // Bit field definition.
   struct {
+    /// read-write - Column number of ROIs upper-left corner (X coordinate) Range: 0 to 2^13-1
     uint32_t START_OFFSET_X : 13;
     uint32_t _reserved_0 : 3;
+    /// read-write - Row number of ROIs upper-left corner (Y coordinate) Range: 0 to 2^12-1
     uint32_t START_OFFSET_Y : 12;
     uint32_t _reserved_1 : 2;
+    /// read-write - When set, the only parameter of the ROI that can be changed is the reference signature
     eROI_FREEZE ROI_FREEZE : 1;
+    /// read-write - ROI tracking enable
     eROI_EN ROI_EN : 1;
   } bits;
   
@@ -339,11 +375,15 @@ union DCIC1_DCICRC7 {
   
   // Bit field definition.
   struct {
+    /// read-write - Column number of ROIs upper-left corner (X coordinate) Range: 0 to 2^13-1
     uint32_t START_OFFSET_X : 13;
     uint32_t _reserved_0 : 3;
+    /// read-write - Row number of ROIs upper-left corner (Y coordinate) Range: 0 to 2^12-1
     uint32_t START_OFFSET_Y : 12;
     uint32_t _reserved_1 : 2;
+    /// read-write - When set, the only parameter of the ROI that can be changed is the reference signature
     eROI_FREEZE ROI_FREEZE : 1;
+    /// read-write - ROI tracking enable
     eROI_EN ROI_EN : 1;
   } bits;
   
@@ -370,11 +410,15 @@ union DCIC1_DCICRC8 {
   
   // Bit field definition.
   struct {
+    /// read-write - Column number of ROIs upper-left corner (X coordinate) Range: 0 to 2^13-1
     uint32_t START_OFFSET_X : 13;
     uint32_t _reserved_0 : 3;
+    /// read-write - Row number of ROIs upper-left corner (Y coordinate) Range: 0 to 2^12-1
     uint32_t START_OFFSET_Y : 12;
     uint32_t _reserved_1 : 2;
+    /// read-write - When set, the only parameter of the ROI that can be changed is the reference signature
     eROI_FREEZE ROI_FREEZE : 1;
+    /// read-write - ROI tracking enable
     eROI_EN ROI_EN : 1;
   } bits;
   
@@ -401,11 +445,15 @@ union DCIC1_DCICRC9 {
   
   // Bit field definition.
   struct {
+    /// read-write - Column number of ROIs upper-left corner (X coordinate) Range: 0 to 2^13-1
     uint32_t START_OFFSET_X : 13;
     uint32_t _reserved_0 : 3;
+    /// read-write - Row number of ROIs upper-left corner (Y coordinate) Range: 0 to 2^12-1
     uint32_t START_OFFSET_Y : 12;
     uint32_t _reserved_1 : 2;
+    /// read-write - When set, the only parameter of the ROI that can be changed is the reference signature
     eROI_FREEZE ROI_FREEZE : 1;
+    /// read-write - ROI tracking enable
     eROI_EN ROI_EN : 1;
   } bits;
   
@@ -432,11 +480,15 @@ union DCIC1_DCICRC10 {
   
   // Bit field definition.
   struct {
+    /// read-write - Column number of ROIs upper-left corner (X coordinate) Range: 0 to 2^13-1
     uint32_t START_OFFSET_X : 13;
     uint32_t _reserved_0 : 3;
+    /// read-write - Row number of ROIs upper-left corner (Y coordinate) Range: 0 to 2^12-1
     uint32_t START_OFFSET_Y : 12;
     uint32_t _reserved_1 : 2;
+    /// read-write - When set, the only parameter of the ROI that can be changed is the reference signature
     eROI_FREEZE ROI_FREEZE : 1;
+    /// read-write - ROI tracking enable
     eROI_EN ROI_EN : 1;
   } bits;
   
@@ -463,11 +515,15 @@ union DCIC1_DCICRC11 {
   
   // Bit field definition.
   struct {
+    /// read-write - Column number of ROIs upper-left corner (X coordinate) Range: 0 to 2^13-1
     uint32_t START_OFFSET_X : 13;
     uint32_t _reserved_0 : 3;
+    /// read-write - Row number of ROIs upper-left corner (Y coordinate) Range: 0 to 2^12-1
     uint32_t START_OFFSET_Y : 12;
     uint32_t _reserved_1 : 2;
+    /// read-write - When set, the only parameter of the ROI that can be changed is the reference signature
     eROI_FREEZE ROI_FREEZE : 1;
+    /// read-write - ROI tracking enable
     eROI_EN ROI_EN : 1;
   } bits;
   
@@ -494,11 +550,15 @@ union DCIC1_DCICRC12 {
   
   // Bit field definition.
   struct {
+    /// read-write - Column number of ROIs upper-left corner (X coordinate) Range: 0 to 2^13-1
     uint32_t START_OFFSET_X : 13;
     uint32_t _reserved_0 : 3;
+    /// read-write - Row number of ROIs upper-left corner (Y coordinate) Range: 0 to 2^12-1
     uint32_t START_OFFSET_Y : 12;
     uint32_t _reserved_1 : 2;
+    /// read-write - When set, the only parameter of the ROI that can be changed is the reference signature
     eROI_FREEZE ROI_FREEZE : 1;
+    /// read-write - ROI tracking enable
     eROI_EN ROI_EN : 1;
   } bits;
   
@@ -525,11 +585,15 @@ union DCIC1_DCICRC13 {
   
   // Bit field definition.
   struct {
+    /// read-write - Column number of ROIs upper-left corner (X coordinate) Range: 0 to 2^13-1
     uint32_t START_OFFSET_X : 13;
     uint32_t _reserved_0 : 3;
+    /// read-write - Row number of ROIs upper-left corner (Y coordinate) Range: 0 to 2^12-1
     uint32_t START_OFFSET_Y : 12;
     uint32_t _reserved_1 : 2;
+    /// read-write - When set, the only parameter of the ROI that can be changed is the reference signature
     eROI_FREEZE ROI_FREEZE : 1;
+    /// read-write - ROI tracking enable
     eROI_EN ROI_EN : 1;
   } bits;
   
@@ -556,11 +620,15 @@ union DCIC1_DCICRC14 {
   
   // Bit field definition.
   struct {
+    /// read-write - Column number of ROIs upper-left corner (X coordinate) Range: 0 to 2^13-1
     uint32_t START_OFFSET_X : 13;
     uint32_t _reserved_0 : 3;
+    /// read-write - Row number of ROIs upper-left corner (Y coordinate) Range: 0 to 2^12-1
     uint32_t START_OFFSET_Y : 12;
     uint32_t _reserved_1 : 2;
+    /// read-write - When set, the only parameter of the ROI that can be changed is the reference signature
     eROI_FREEZE ROI_FREEZE : 1;
+    /// read-write - ROI tracking enable
     eROI_EN ROI_EN : 1;
   } bits;
   
@@ -587,11 +655,15 @@ union DCIC1_DCICRC15 {
   
   // Bit field definition.
   struct {
+    /// read-write - Column number of ROIs upper-left corner (X coordinate) Range: 0 to 2^13-1
     uint32_t START_OFFSET_X : 13;
     uint32_t _reserved_0 : 3;
+    /// read-write - Row number of ROIs upper-left corner (Y coordinate) Range: 0 to 2^12-1
     uint32_t START_OFFSET_Y : 12;
     uint32_t _reserved_1 : 2;
+    /// read-write - When set, the only parameter of the ROI that can be changed is the reference signature
     eROI_FREEZE ROI_FREEZE : 1;
+    /// read-write - ROI tracking enable
     eROI_EN ROI_EN : 1;
   } bits;
   
@@ -618,11 +690,15 @@ union DCIC1_DCICRC16 {
   
   // Bit field definition.
   struct {
+    /// read-write - Column number of ROIs upper-left corner (X coordinate) Range: 0 to 2^13-1
     uint32_t START_OFFSET_X : 13;
     uint32_t _reserved_0 : 3;
+    /// read-write - Row number of ROIs upper-left corner (Y coordinate) Range: 0 to 2^12-1
     uint32_t START_OFFSET_Y : 12;
     uint32_t _reserved_1 : 2;
+    /// read-write - When set, the only parameter of the ROI that can be changed is the reference signature
     eROI_FREEZE ROI_FREEZE : 1;
+    /// read-write - ROI tracking enable
     eROI_EN ROI_EN : 1;
   } bits;
   
@@ -640,8 +716,10 @@ union DCIC1_DCICRS1 {
   
   // Bit field definition.
   struct {
+    /// read-write - Column number of ROIs lower-right corner (X coordinate) Range: 1 to 2^13-1
     uint32_t END_OFFSET_X : 13;
     uint32_t _reserved_0 : 3;
+    /// read-write - Row number of ROIs lower-right corner (Y coordinate) Range: 1 to 2^12-1
     uint32_t END_OFFSET_Y : 12;
     uint32_t _reserved_1 : 4;
   } bits;
@@ -659,8 +737,10 @@ union DCIC1_DCICRS2 {
   
   // Bit field definition.
   struct {
+    /// read-write - Column number of ROIs lower-right corner (X coordinate) Range: 1 to 2^13-1
     uint32_t END_OFFSET_X : 13;
     uint32_t _reserved_0 : 3;
+    /// read-write - Row number of ROIs lower-right corner (Y coordinate) Range: 1 to 2^12-1
     uint32_t END_OFFSET_Y : 12;
     uint32_t _reserved_1 : 4;
   } bits;
@@ -678,8 +758,10 @@ union DCIC1_DCICRS3 {
   
   // Bit field definition.
   struct {
+    /// read-write - Column number of ROIs lower-right corner (X coordinate) Range: 1 to 2^13-1
     uint32_t END_OFFSET_X : 13;
     uint32_t _reserved_0 : 3;
+    /// read-write - Row number of ROIs lower-right corner (Y coordinate) Range: 1 to 2^12-1
     uint32_t END_OFFSET_Y : 12;
     uint32_t _reserved_1 : 4;
   } bits;
@@ -697,8 +779,10 @@ union DCIC1_DCICRS4 {
   
   // Bit field definition.
   struct {
+    /// read-write - Column number of ROIs lower-right corner (X coordinate) Range: 1 to 2^13-1
     uint32_t END_OFFSET_X : 13;
     uint32_t _reserved_0 : 3;
+    /// read-write - Row number of ROIs lower-right corner (Y coordinate) Range: 1 to 2^12-1
     uint32_t END_OFFSET_Y : 12;
     uint32_t _reserved_1 : 4;
   } bits;
@@ -716,8 +800,10 @@ union DCIC1_DCICRS5 {
   
   // Bit field definition.
   struct {
+    /// read-write - Column number of ROIs lower-right corner (X coordinate) Range: 1 to 2^13-1
     uint32_t END_OFFSET_X : 13;
     uint32_t _reserved_0 : 3;
+    /// read-write - Row number of ROIs lower-right corner (Y coordinate) Range: 1 to 2^12-1
     uint32_t END_OFFSET_Y : 12;
     uint32_t _reserved_1 : 4;
   } bits;
@@ -735,8 +821,10 @@ union DCIC1_DCICRS6 {
   
   // Bit field definition.
   struct {
+    /// read-write - Column number of ROIs lower-right corner (X coordinate) Range: 1 to 2^13-1
     uint32_t END_OFFSET_X : 13;
     uint32_t _reserved_0 : 3;
+    /// read-write - Row number of ROIs lower-right corner (Y coordinate) Range: 1 to 2^12-1
     uint32_t END_OFFSET_Y : 12;
     uint32_t _reserved_1 : 4;
   } bits;
@@ -754,8 +842,10 @@ union DCIC1_DCICRS7 {
   
   // Bit field definition.
   struct {
+    /// read-write - Column number of ROIs lower-right corner (X coordinate) Range: 1 to 2^13-1
     uint32_t END_OFFSET_X : 13;
     uint32_t _reserved_0 : 3;
+    /// read-write - Row number of ROIs lower-right corner (Y coordinate) Range: 1 to 2^12-1
     uint32_t END_OFFSET_Y : 12;
     uint32_t _reserved_1 : 4;
   } bits;
@@ -773,8 +863,10 @@ union DCIC1_DCICRS8 {
   
   // Bit field definition.
   struct {
+    /// read-write - Column number of ROIs lower-right corner (X coordinate) Range: 1 to 2^13-1
     uint32_t END_OFFSET_X : 13;
     uint32_t _reserved_0 : 3;
+    /// read-write - Row number of ROIs lower-right corner (Y coordinate) Range: 1 to 2^12-1
     uint32_t END_OFFSET_Y : 12;
     uint32_t _reserved_1 : 4;
   } bits;
@@ -792,8 +884,10 @@ union DCIC1_DCICRS9 {
   
   // Bit field definition.
   struct {
+    /// read-write - Column number of ROIs lower-right corner (X coordinate) Range: 1 to 2^13-1
     uint32_t END_OFFSET_X : 13;
     uint32_t _reserved_0 : 3;
+    /// read-write - Row number of ROIs lower-right corner (Y coordinate) Range: 1 to 2^12-1
     uint32_t END_OFFSET_Y : 12;
     uint32_t _reserved_1 : 4;
   } bits;
@@ -811,8 +905,10 @@ union DCIC1_DCICRS10 {
   
   // Bit field definition.
   struct {
+    /// read-write - Column number of ROIs lower-right corner (X coordinate) Range: 1 to 2^13-1
     uint32_t END_OFFSET_X : 13;
     uint32_t _reserved_0 : 3;
+    /// read-write - Row number of ROIs lower-right corner (Y coordinate) Range: 1 to 2^12-1
     uint32_t END_OFFSET_Y : 12;
     uint32_t _reserved_1 : 4;
   } bits;
@@ -830,8 +926,10 @@ union DCIC1_DCICRS11 {
   
   // Bit field definition.
   struct {
+    /// read-write - Column number of ROIs lower-right corner (X coordinate) Range: 1 to 2^13-1
     uint32_t END_OFFSET_X : 13;
     uint32_t _reserved_0 : 3;
+    /// read-write - Row number of ROIs lower-right corner (Y coordinate) Range: 1 to 2^12-1
     uint32_t END_OFFSET_Y : 12;
     uint32_t _reserved_1 : 4;
   } bits;
@@ -849,8 +947,10 @@ union DCIC1_DCICRS12 {
   
   // Bit field definition.
   struct {
+    /// read-write - Column number of ROIs lower-right corner (X coordinate) Range: 1 to 2^13-1
     uint32_t END_OFFSET_X : 13;
     uint32_t _reserved_0 : 3;
+    /// read-write - Row number of ROIs lower-right corner (Y coordinate) Range: 1 to 2^12-1
     uint32_t END_OFFSET_Y : 12;
     uint32_t _reserved_1 : 4;
   } bits;
@@ -868,8 +968,10 @@ union DCIC1_DCICRS13 {
   
   // Bit field definition.
   struct {
+    /// read-write - Column number of ROIs lower-right corner (X coordinate) Range: 1 to 2^13-1
     uint32_t END_OFFSET_X : 13;
     uint32_t _reserved_0 : 3;
+    /// read-write - Row number of ROIs lower-right corner (Y coordinate) Range: 1 to 2^12-1
     uint32_t END_OFFSET_Y : 12;
     uint32_t _reserved_1 : 4;
   } bits;
@@ -887,8 +989,10 @@ union DCIC1_DCICRS14 {
   
   // Bit field definition.
   struct {
+    /// read-write - Column number of ROIs lower-right corner (X coordinate) Range: 1 to 2^13-1
     uint32_t END_OFFSET_X : 13;
     uint32_t _reserved_0 : 3;
+    /// read-write - Row number of ROIs lower-right corner (Y coordinate) Range: 1 to 2^12-1
     uint32_t END_OFFSET_Y : 12;
     uint32_t _reserved_1 : 4;
   } bits;
@@ -906,8 +1010,10 @@ union DCIC1_DCICRS15 {
   
   // Bit field definition.
   struct {
+    /// read-write - Column number of ROIs lower-right corner (X coordinate) Range: 1 to 2^13-1
     uint32_t END_OFFSET_X : 13;
     uint32_t _reserved_0 : 3;
+    /// read-write - Row number of ROIs lower-right corner (Y coordinate) Range: 1 to 2^12-1
     uint32_t END_OFFSET_Y : 12;
     uint32_t _reserved_1 : 4;
   } bits;
@@ -925,8 +1031,10 @@ union DCIC1_DCICRS16 {
   
   // Bit field definition.
   struct {
+    /// read-write - Column number of ROIs lower-right corner (X coordinate) Range: 1 to 2^13-1
     uint32_t END_OFFSET_X : 13;
     uint32_t _reserved_0 : 3;
+    /// read-write - Row number of ROIs lower-right corner (Y coordinate) Range: 1 to 2^12-1
     uint32_t END_OFFSET_Y : 12;
     uint32_t _reserved_1 : 4;
   } bits;
@@ -945,6 +1053,7 @@ union DCIC1_DCICRRS1 {
   
   // Bit field definition.
   struct {
+    /// read-write - 32-bit expected signature (CRC calculation result) for the ROI
     uint32_t REFERENCE_SIGNATURE : 32;
   } bits;
   
@@ -961,6 +1070,7 @@ union DCIC1_DCICRRS2 {
   
   // Bit field definition.
   struct {
+    /// read-write - 32-bit expected signature (CRC calculation result) for the ROI
     uint32_t REFERENCE_SIGNATURE : 32;
   } bits;
   
@@ -977,6 +1087,7 @@ union DCIC1_DCICRRS3 {
   
   // Bit field definition.
   struct {
+    /// read-write - 32-bit expected signature (CRC calculation result) for the ROI
     uint32_t REFERENCE_SIGNATURE : 32;
   } bits;
   
@@ -993,6 +1104,7 @@ union DCIC1_DCICRRS4 {
   
   // Bit field definition.
   struct {
+    /// read-write - 32-bit expected signature (CRC calculation result) for the ROI
     uint32_t REFERENCE_SIGNATURE : 32;
   } bits;
   
@@ -1009,6 +1121,7 @@ union DCIC1_DCICRRS5 {
   
   // Bit field definition.
   struct {
+    /// read-write - 32-bit expected signature (CRC calculation result) for the ROI
     uint32_t REFERENCE_SIGNATURE : 32;
   } bits;
   
@@ -1025,6 +1138,7 @@ union DCIC1_DCICRRS6 {
   
   // Bit field definition.
   struct {
+    /// read-write - 32-bit expected signature (CRC calculation result) for the ROI
     uint32_t REFERENCE_SIGNATURE : 32;
   } bits;
   
@@ -1041,6 +1155,7 @@ union DCIC1_DCICRRS7 {
   
   // Bit field definition.
   struct {
+    /// read-write - 32-bit expected signature (CRC calculation result) for the ROI
     uint32_t REFERENCE_SIGNATURE : 32;
   } bits;
   
@@ -1057,6 +1172,7 @@ union DCIC1_DCICRRS8 {
   
   // Bit field definition.
   struct {
+    /// read-write - 32-bit expected signature (CRC calculation result) for the ROI
     uint32_t REFERENCE_SIGNATURE : 32;
   } bits;
   
@@ -1073,6 +1189,7 @@ union DCIC1_DCICRRS9 {
   
   // Bit field definition.
   struct {
+    /// read-write - 32-bit expected signature (CRC calculation result) for the ROI
     uint32_t REFERENCE_SIGNATURE : 32;
   } bits;
   
@@ -1089,6 +1206,7 @@ union DCIC1_DCICRRS10 {
   
   // Bit field definition.
   struct {
+    /// read-write - 32-bit expected signature (CRC calculation result) for the ROI
     uint32_t REFERENCE_SIGNATURE : 32;
   } bits;
   
@@ -1105,6 +1223,7 @@ union DCIC1_DCICRRS11 {
   
   // Bit field definition.
   struct {
+    /// read-write - 32-bit expected signature (CRC calculation result) for the ROI
     uint32_t REFERENCE_SIGNATURE : 32;
   } bits;
   
@@ -1121,6 +1240,7 @@ union DCIC1_DCICRRS12 {
   
   // Bit field definition.
   struct {
+    /// read-write - 32-bit expected signature (CRC calculation result) for the ROI
     uint32_t REFERENCE_SIGNATURE : 32;
   } bits;
   
@@ -1137,6 +1257,7 @@ union DCIC1_DCICRRS13 {
   
   // Bit field definition.
   struct {
+    /// read-write - 32-bit expected signature (CRC calculation result) for the ROI
     uint32_t REFERENCE_SIGNATURE : 32;
   } bits;
   
@@ -1153,6 +1274,7 @@ union DCIC1_DCICRRS14 {
   
   // Bit field definition.
   struct {
+    /// read-write - 32-bit expected signature (CRC calculation result) for the ROI
     uint32_t REFERENCE_SIGNATURE : 32;
   } bits;
   
@@ -1169,6 +1291,7 @@ union DCIC1_DCICRRS15 {
   
   // Bit field definition.
   struct {
+    /// read-write - 32-bit expected signature (CRC calculation result) for the ROI
     uint32_t REFERENCE_SIGNATURE : 32;
   } bits;
   
@@ -1185,6 +1308,7 @@ union DCIC1_DCICRRS16 {
   
   // Bit field definition.
   struct {
+    /// read-write - 32-bit expected signature (CRC calculation result) for the ROI
     uint32_t REFERENCE_SIGNATURE : 32;
   } bits;
   
@@ -1202,6 +1326,7 @@ union DCIC1_DCICRCS1 {
   
   // Bit field definition.
   struct {
+    /// read-only - 32-bit actual signature (CRC calculation result) for the ROI during the last frame
     uint32_t CALCULATED_SIGNATURE : 32;
   } bits;
   
@@ -1218,6 +1343,7 @@ union DCIC1_DCICRCS2 {
   
   // Bit field definition.
   struct {
+    /// read-only - 32-bit actual signature (CRC calculation result) for the ROI during the last frame
     uint32_t CALCULATED_SIGNATURE : 32;
   } bits;
   
@@ -1234,6 +1360,7 @@ union DCIC1_DCICRCS3 {
   
   // Bit field definition.
   struct {
+    /// read-only - 32-bit actual signature (CRC calculation result) for the ROI during the last frame
     uint32_t CALCULATED_SIGNATURE : 32;
   } bits;
   
@@ -1250,6 +1377,7 @@ union DCIC1_DCICRCS4 {
   
   // Bit field definition.
   struct {
+    /// read-only - 32-bit actual signature (CRC calculation result) for the ROI during the last frame
     uint32_t CALCULATED_SIGNATURE : 32;
   } bits;
   
@@ -1266,6 +1394,7 @@ union DCIC1_DCICRCS5 {
   
   // Bit field definition.
   struct {
+    /// read-only - 32-bit actual signature (CRC calculation result) for the ROI during the last frame
     uint32_t CALCULATED_SIGNATURE : 32;
   } bits;
   
@@ -1282,6 +1411,7 @@ union DCIC1_DCICRCS6 {
   
   // Bit field definition.
   struct {
+    /// read-only - 32-bit actual signature (CRC calculation result) for the ROI during the last frame
     uint32_t CALCULATED_SIGNATURE : 32;
   } bits;
   
@@ -1298,6 +1428,7 @@ union DCIC1_DCICRCS7 {
   
   // Bit field definition.
   struct {
+    /// read-only - 32-bit actual signature (CRC calculation result) for the ROI during the last frame
     uint32_t CALCULATED_SIGNATURE : 32;
   } bits;
   
@@ -1314,6 +1445,7 @@ union DCIC1_DCICRCS8 {
   
   // Bit field definition.
   struct {
+    /// read-only - 32-bit actual signature (CRC calculation result) for the ROI during the last frame
     uint32_t CALCULATED_SIGNATURE : 32;
   } bits;
   
@@ -1330,6 +1462,7 @@ union DCIC1_DCICRCS9 {
   
   // Bit field definition.
   struct {
+    /// read-only - 32-bit actual signature (CRC calculation result) for the ROI during the last frame
     uint32_t CALCULATED_SIGNATURE : 32;
   } bits;
   
@@ -1346,6 +1479,7 @@ union DCIC1_DCICRCS10 {
   
   // Bit field definition.
   struct {
+    /// read-only - 32-bit actual signature (CRC calculation result) for the ROI during the last frame
     uint32_t CALCULATED_SIGNATURE : 32;
   } bits;
   
@@ -1362,6 +1496,7 @@ union DCIC1_DCICRCS11 {
   
   // Bit field definition.
   struct {
+    /// read-only - 32-bit actual signature (CRC calculation result) for the ROI during the last frame
     uint32_t CALCULATED_SIGNATURE : 32;
   } bits;
   
@@ -1378,6 +1513,7 @@ union DCIC1_DCICRCS12 {
   
   // Bit field definition.
   struct {
+    /// read-only - 32-bit actual signature (CRC calculation result) for the ROI during the last frame
     uint32_t CALCULATED_SIGNATURE : 32;
   } bits;
   
@@ -1394,6 +1530,7 @@ union DCIC1_DCICRCS13 {
   
   // Bit field definition.
   struct {
+    /// read-only - 32-bit actual signature (CRC calculation result) for the ROI during the last frame
     uint32_t CALCULATED_SIGNATURE : 32;
   } bits;
   
@@ -1410,6 +1547,7 @@ union DCIC1_DCICRCS14 {
   
   // Bit field definition.
   struct {
+    /// read-only - 32-bit actual signature (CRC calculation result) for the ROI during the last frame
     uint32_t CALCULATED_SIGNATURE : 32;
   } bits;
   
@@ -1426,6 +1564,7 @@ union DCIC1_DCICRCS15 {
   
   // Bit field definition.
   struct {
+    /// read-only - 32-bit actual signature (CRC calculation result) for the ROI during the last frame
     uint32_t CALCULATED_SIGNATURE : 32;
   } bits;
   
@@ -1442,6 +1581,7 @@ union DCIC1_DCICRCS16 {
   
   // Bit field definition.
   struct {
+    /// read-only - 32-bit actual signature (CRC calculation result) for the ROI during the last frame
     uint32_t CALCULATED_SIGNATURE : 32;
   } bits;
   

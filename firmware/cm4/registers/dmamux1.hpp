@@ -32,10 +32,14 @@ union CHCFG[0] {
   
   // Bit field definition.
   struct {
+    /// read-write - DMA Channel Source (Slot Number)
     uint32_t SOURCE : 8;
     uint32_t _reserved_0 : 21;
+    /// read-write - DMA Channel Always Enable
     eA_ON A_ON : 1;
+    /// read-write - DMA Channel Trigger Enable
     eTRIG TRIG : 1;
+    /// read-write - DMA Mux Channel Enable
     eENBL ENBL : 1;
   } bits;
   
@@ -67,10 +71,14 @@ union CHCFG[1] {
   
   // Bit field definition.
   struct {
+    /// read-write - DMA Channel Source (Slot Number)
     uint32_t SOURCE : 8;
     uint32_t _reserved_0 : 21;
+    /// read-write - DMA Channel Always Enable
     eA_ON A_ON : 1;
+    /// read-write - DMA Channel Trigger Enable
     eTRIG TRIG : 1;
+    /// read-write - DMA Mux Channel Enable
     eENBL ENBL : 1;
   } bits;
   
@@ -102,10 +110,14 @@ union CHCFG[2] {
   
   // Bit field definition.
   struct {
+    /// read-write - DMA Channel Source (Slot Number)
     uint32_t SOURCE : 8;
     uint32_t _reserved_0 : 21;
+    /// read-write - DMA Channel Always Enable
     eA_ON A_ON : 1;
+    /// read-write - DMA Channel Trigger Enable
     eTRIG TRIG : 1;
+    /// read-write - DMA Mux Channel Enable
     eENBL ENBL : 1;
   } bits;
   
@@ -137,10 +149,14 @@ union CHCFG[3] {
   
   // Bit field definition.
   struct {
+    /// read-write - DMA Channel Source (Slot Number)
     uint32_t SOURCE : 8;
     uint32_t _reserved_0 : 21;
+    /// read-write - DMA Channel Always Enable
     eA_ON A_ON : 1;
+    /// read-write - DMA Channel Trigger Enable
     eTRIG TRIG : 1;
+    /// read-write - DMA Mux Channel Enable
     eENBL ENBL : 1;
   } bits;
   
@@ -172,10 +188,14 @@ union CHCFG[4] {
   
   // Bit field definition.
   struct {
+    /// read-write - DMA Channel Source (Slot Number)
     uint32_t SOURCE : 8;
     uint32_t _reserved_0 : 21;
+    /// read-write - DMA Channel Always Enable
     eA_ON A_ON : 1;
+    /// read-write - DMA Channel Trigger Enable
     eTRIG TRIG : 1;
+    /// read-write - DMA Mux Channel Enable
     eENBL ENBL : 1;
   } bits;
   
@@ -207,10 +227,14 @@ union CHCFG[5] {
   
   // Bit field definition.
   struct {
+    /// read-write - DMA Channel Source (Slot Number)
     uint32_t SOURCE : 8;
     uint32_t _reserved_0 : 21;
+    /// read-write - DMA Channel Always Enable
     eA_ON A_ON : 1;
+    /// read-write - DMA Channel Trigger Enable
     eTRIG TRIG : 1;
+    /// read-write - DMA Mux Channel Enable
     eENBL ENBL : 1;
   } bits;
   
@@ -242,10 +266,14 @@ union CHCFG[6] {
   
   // Bit field definition.
   struct {
+    /// read-write - DMA Channel Source (Slot Number)
     uint32_t SOURCE : 8;
     uint32_t _reserved_0 : 21;
+    /// read-write - DMA Channel Always Enable
     eA_ON A_ON : 1;
+    /// read-write - DMA Channel Trigger Enable
     eTRIG TRIG : 1;
+    /// read-write - DMA Mux Channel Enable
     eENBL ENBL : 1;
   } bits;
   
@@ -277,10 +305,14 @@ union CHCFG[7] {
   
   // Bit field definition.
   struct {
+    /// read-write - DMA Channel Source (Slot Number)
     uint32_t SOURCE : 8;
     uint32_t _reserved_0 : 21;
+    /// read-write - DMA Channel Always Enable
     eA_ON A_ON : 1;
+    /// read-write - DMA Channel Trigger Enable
     eTRIG TRIG : 1;
+    /// read-write - DMA Mux Channel Enable
     eENBL ENBL : 1;
   } bits;
   
@@ -312,10 +344,14 @@ union CHCFG[8] {
   
   // Bit field definition.
   struct {
+    /// read-write - DMA Channel Source (Slot Number)
     uint32_t SOURCE : 8;
     uint32_t _reserved_0 : 21;
+    /// read-write - DMA Channel Always Enable
     eA_ON A_ON : 1;
+    /// read-write - DMA Channel Trigger Enable
     eTRIG TRIG : 1;
+    /// read-write - DMA Mux Channel Enable
     eENBL ENBL : 1;
   } bits;
   
@@ -347,10 +383,14 @@ union CHCFG[9] {
   
   // Bit field definition.
   struct {
+    /// read-write - DMA Channel Source (Slot Number)
     uint32_t SOURCE : 8;
     uint32_t _reserved_0 : 21;
+    /// read-write - DMA Channel Always Enable
     eA_ON A_ON : 1;
+    /// read-write - DMA Channel Trigger Enable
     eTRIG TRIG : 1;
+    /// read-write - DMA Mux Channel Enable
     eENBL ENBL : 1;
   } bits;
   
@@ -382,10 +422,14 @@ union CHCFG[10] {
   
   // Bit field definition.
   struct {
+    /// read-write - DMA Channel Source (Slot Number)
     uint32_t SOURCE : 8;
     uint32_t _reserved_0 : 21;
+    /// read-write - DMA Channel Always Enable
     eA_ON A_ON : 1;
+    /// read-write - DMA Channel Trigger Enable
     eTRIG TRIG : 1;
+    /// read-write - DMA Mux Channel Enable
     eENBL ENBL : 1;
   } bits;
   
@@ -417,10 +461,14 @@ union CHCFG[11] {
   
   // Bit field definition.
   struct {
+    /// read-write - DMA Channel Source (Slot Number)
     uint32_t SOURCE : 8;
     uint32_t _reserved_0 : 21;
+    /// read-write - DMA Channel Always Enable
     eA_ON A_ON : 1;
+    /// read-write - DMA Channel Trigger Enable
     eTRIG TRIG : 1;
+    /// read-write - DMA Mux Channel Enable
     eENBL ENBL : 1;
   } bits;
   
@@ -452,10 +500,14 @@ union CHCFG[12] {
   
   // Bit field definition.
   struct {
+    /// read-write - DMA Channel Source (Slot Number)
     uint32_t SOURCE : 8;
     uint32_t _reserved_0 : 21;
+    /// read-write - DMA Channel Always Enable
     eA_ON A_ON : 1;
+    /// read-write - DMA Channel Trigger Enable
     eTRIG TRIG : 1;
+    /// read-write - DMA Mux Channel Enable
     eENBL ENBL : 1;
   } bits;
   
@@ -487,10 +539,14 @@ union CHCFG[13] {
   
   // Bit field definition.
   struct {
+    /// read-write - DMA Channel Source (Slot Number)
     uint32_t SOURCE : 8;
     uint32_t _reserved_0 : 21;
+    /// read-write - DMA Channel Always Enable
     eA_ON A_ON : 1;
+    /// read-write - DMA Channel Trigger Enable
     eTRIG TRIG : 1;
+    /// read-write - DMA Mux Channel Enable
     eENBL ENBL : 1;
   } bits;
   
@@ -522,10 +578,14 @@ union CHCFG[14] {
   
   // Bit field definition.
   struct {
+    /// read-write - DMA Channel Source (Slot Number)
     uint32_t SOURCE : 8;
     uint32_t _reserved_0 : 21;
+    /// read-write - DMA Channel Always Enable
     eA_ON A_ON : 1;
+    /// read-write - DMA Channel Trigger Enable
     eTRIG TRIG : 1;
+    /// read-write - DMA Mux Channel Enable
     eENBL ENBL : 1;
   } bits;
   
@@ -557,10 +617,14 @@ union CHCFG[15] {
   
   // Bit field definition.
   struct {
+    /// read-write - DMA Channel Source (Slot Number)
     uint32_t SOURCE : 8;
     uint32_t _reserved_0 : 21;
+    /// read-write - DMA Channel Always Enable
     eA_ON A_ON : 1;
+    /// read-write - DMA Channel Trigger Enable
     eTRIG TRIG : 1;
+    /// read-write - DMA Mux Channel Enable
     eENBL ENBL : 1;
   } bits;
   
@@ -592,10 +656,14 @@ union CHCFG[16] {
   
   // Bit field definition.
   struct {
+    /// read-write - DMA Channel Source (Slot Number)
     uint32_t SOURCE : 8;
     uint32_t _reserved_0 : 21;
+    /// read-write - DMA Channel Always Enable
     eA_ON A_ON : 1;
+    /// read-write - DMA Channel Trigger Enable
     eTRIG TRIG : 1;
+    /// read-write - DMA Mux Channel Enable
     eENBL ENBL : 1;
   } bits;
   
@@ -627,10 +695,14 @@ union CHCFG[17] {
   
   // Bit field definition.
   struct {
+    /// read-write - DMA Channel Source (Slot Number)
     uint32_t SOURCE : 8;
     uint32_t _reserved_0 : 21;
+    /// read-write - DMA Channel Always Enable
     eA_ON A_ON : 1;
+    /// read-write - DMA Channel Trigger Enable
     eTRIG TRIG : 1;
+    /// read-write - DMA Mux Channel Enable
     eENBL ENBL : 1;
   } bits;
   
@@ -662,10 +734,14 @@ union CHCFG[18] {
   
   // Bit field definition.
   struct {
+    /// read-write - DMA Channel Source (Slot Number)
     uint32_t SOURCE : 8;
     uint32_t _reserved_0 : 21;
+    /// read-write - DMA Channel Always Enable
     eA_ON A_ON : 1;
+    /// read-write - DMA Channel Trigger Enable
     eTRIG TRIG : 1;
+    /// read-write - DMA Mux Channel Enable
     eENBL ENBL : 1;
   } bits;
   
@@ -697,10 +773,14 @@ union CHCFG[19] {
   
   // Bit field definition.
   struct {
+    /// read-write - DMA Channel Source (Slot Number)
     uint32_t SOURCE : 8;
     uint32_t _reserved_0 : 21;
+    /// read-write - DMA Channel Always Enable
     eA_ON A_ON : 1;
+    /// read-write - DMA Channel Trigger Enable
     eTRIG TRIG : 1;
+    /// read-write - DMA Mux Channel Enable
     eENBL ENBL : 1;
   } bits;
   
@@ -732,10 +812,14 @@ union CHCFG[20] {
   
   // Bit field definition.
   struct {
+    /// read-write - DMA Channel Source (Slot Number)
     uint32_t SOURCE : 8;
     uint32_t _reserved_0 : 21;
+    /// read-write - DMA Channel Always Enable
     eA_ON A_ON : 1;
+    /// read-write - DMA Channel Trigger Enable
     eTRIG TRIG : 1;
+    /// read-write - DMA Mux Channel Enable
     eENBL ENBL : 1;
   } bits;
   
@@ -767,10 +851,14 @@ union CHCFG[21] {
   
   // Bit field definition.
   struct {
+    /// read-write - DMA Channel Source (Slot Number)
     uint32_t SOURCE : 8;
     uint32_t _reserved_0 : 21;
+    /// read-write - DMA Channel Always Enable
     eA_ON A_ON : 1;
+    /// read-write - DMA Channel Trigger Enable
     eTRIG TRIG : 1;
+    /// read-write - DMA Mux Channel Enable
     eENBL ENBL : 1;
   } bits;
   
@@ -802,10 +890,14 @@ union CHCFG[22] {
   
   // Bit field definition.
   struct {
+    /// read-write - DMA Channel Source (Slot Number)
     uint32_t SOURCE : 8;
     uint32_t _reserved_0 : 21;
+    /// read-write - DMA Channel Always Enable
     eA_ON A_ON : 1;
+    /// read-write - DMA Channel Trigger Enable
     eTRIG TRIG : 1;
+    /// read-write - DMA Mux Channel Enable
     eENBL ENBL : 1;
   } bits;
   
@@ -837,10 +929,14 @@ union CHCFG[23] {
   
   // Bit field definition.
   struct {
+    /// read-write - DMA Channel Source (Slot Number)
     uint32_t SOURCE : 8;
     uint32_t _reserved_0 : 21;
+    /// read-write - DMA Channel Always Enable
     eA_ON A_ON : 1;
+    /// read-write - DMA Channel Trigger Enable
     eTRIG TRIG : 1;
+    /// read-write - DMA Mux Channel Enable
     eENBL ENBL : 1;
   } bits;
   
@@ -872,10 +968,14 @@ union CHCFG[24] {
   
   // Bit field definition.
   struct {
+    /// read-write - DMA Channel Source (Slot Number)
     uint32_t SOURCE : 8;
     uint32_t _reserved_0 : 21;
+    /// read-write - DMA Channel Always Enable
     eA_ON A_ON : 1;
+    /// read-write - DMA Channel Trigger Enable
     eTRIG TRIG : 1;
+    /// read-write - DMA Mux Channel Enable
     eENBL ENBL : 1;
   } bits;
   
@@ -907,10 +1007,14 @@ union CHCFG[25] {
   
   // Bit field definition.
   struct {
+    /// read-write - DMA Channel Source (Slot Number)
     uint32_t SOURCE : 8;
     uint32_t _reserved_0 : 21;
+    /// read-write - DMA Channel Always Enable
     eA_ON A_ON : 1;
+    /// read-write - DMA Channel Trigger Enable
     eTRIG TRIG : 1;
+    /// read-write - DMA Mux Channel Enable
     eENBL ENBL : 1;
   } bits;
   
@@ -942,10 +1046,14 @@ union CHCFG[26] {
   
   // Bit field definition.
   struct {
+    /// read-write - DMA Channel Source (Slot Number)
     uint32_t SOURCE : 8;
     uint32_t _reserved_0 : 21;
+    /// read-write - DMA Channel Always Enable
     eA_ON A_ON : 1;
+    /// read-write - DMA Channel Trigger Enable
     eTRIG TRIG : 1;
+    /// read-write - DMA Mux Channel Enable
     eENBL ENBL : 1;
   } bits;
   
@@ -977,10 +1085,14 @@ union CHCFG[27] {
   
   // Bit field definition.
   struct {
+    /// read-write - DMA Channel Source (Slot Number)
     uint32_t SOURCE : 8;
     uint32_t _reserved_0 : 21;
+    /// read-write - DMA Channel Always Enable
     eA_ON A_ON : 1;
+    /// read-write - DMA Channel Trigger Enable
     eTRIG TRIG : 1;
+    /// read-write - DMA Mux Channel Enable
     eENBL ENBL : 1;
   } bits;
   
@@ -1012,10 +1124,14 @@ union CHCFG[28] {
   
   // Bit field definition.
   struct {
+    /// read-write - DMA Channel Source (Slot Number)
     uint32_t SOURCE : 8;
     uint32_t _reserved_0 : 21;
+    /// read-write - DMA Channel Always Enable
     eA_ON A_ON : 1;
+    /// read-write - DMA Channel Trigger Enable
     eTRIG TRIG : 1;
+    /// read-write - DMA Mux Channel Enable
     eENBL ENBL : 1;
   } bits;
   
@@ -1047,10 +1163,14 @@ union CHCFG[29] {
   
   // Bit field definition.
   struct {
+    /// read-write - DMA Channel Source (Slot Number)
     uint32_t SOURCE : 8;
     uint32_t _reserved_0 : 21;
+    /// read-write - DMA Channel Always Enable
     eA_ON A_ON : 1;
+    /// read-write - DMA Channel Trigger Enable
     eTRIG TRIG : 1;
+    /// read-write - DMA Mux Channel Enable
     eENBL ENBL : 1;
   } bits;
   
@@ -1082,10 +1202,14 @@ union CHCFG[30] {
   
   // Bit field definition.
   struct {
+    /// read-write - DMA Channel Source (Slot Number)
     uint32_t SOURCE : 8;
     uint32_t _reserved_0 : 21;
+    /// read-write - DMA Channel Always Enable
     eA_ON A_ON : 1;
+    /// read-write - DMA Channel Trigger Enable
     eTRIG TRIG : 1;
+    /// read-write - DMA Mux Channel Enable
     eENBL ENBL : 1;
   } bits;
   
@@ -1117,10 +1241,14 @@ union CHCFG[31] {
   
   // Bit field definition.
   struct {
+    /// read-write - DMA Channel Source (Slot Number)
     uint32_t SOURCE : 8;
     uint32_t _reserved_0 : 21;
+    /// read-write - DMA Channel Always Enable
     eA_ON A_ON : 1;
+    /// read-write - DMA Channel Trigger Enable
     eTRIG TRIG : 1;
+    /// read-write - DMA Mux Channel Enable
     eENBL ENBL : 1;
   } bits;
   

@@ -27,7 +27,9 @@ union MCR {
   
   // Bit field definition.
   struct {
+    /// read-write - Freeze
     eFRZ FRZ : 1;
+    /// read-write - Module Disable for PIT
     eMDIS MDIS : 1;
     uint32_t _reserved_0 : 30;
   } bits;
@@ -46,6 +48,7 @@ union LTMR64H {
   
   // Bit field definition.
   struct {
+    /// read-only - Life Timer value
     uint32_t LTH : 32;
   } bits;
   
@@ -63,6 +66,7 @@ union LTMR64L {
   
   // Bit field definition.
   struct {
+    /// read-only - Life Timer value
     uint32_t LTL : 32;
   } bits;
   

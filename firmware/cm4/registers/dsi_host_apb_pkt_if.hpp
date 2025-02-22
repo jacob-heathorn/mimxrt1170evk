@@ -17,6 +17,7 @@ union TX_PAYLOAD {
   
   // Bit field definition.
   struct {
+    /// read-write - Tx Payload data write register. Write to this register loads the payload FIFO with 32 bit values.
     uint32_t PAYLOAD : 32;
   } bits;
   
@@ -34,6 +35,7 @@ union PKT_CONTROL {
   
   // Bit field definition.
   struct {
+    /// read-write - Tx packet control
     uint32_t CTRL : 27;
     uint32_t _reserved_0 : 5;
   } bits;
@@ -57,6 +59,7 @@ union SEND_PACKET {
   
   // Bit field definition.
   struct {
+    /// read-write - Tx send packet, writing to this register causes the packet described in dsi_host_pkt_control to be sent.
     eTX_SEND TX_SEND : 1;
     uint32_t _reserved_0 : 31;
   } bits;
@@ -75,6 +78,7 @@ union PKT_STATUS {
   
   // Bit field definition.
   struct {
+    /// read-only - Status of APB to packet interface.
     uint32_t STATUS : 9;
     uint32_t _reserved_0 : 23;
   } bits;
@@ -93,6 +97,7 @@ union PKT_FIFO_WR_LEVEL {
   
   // Bit field definition.
   struct {
+    /// read-only - Write level of APB to pkt interface FIFO
     uint32_t WR : 16;
     uint32_t _reserved_0 : 16;
   } bits;
@@ -111,6 +116,7 @@ union PKT_FIFO_RD_LEVEL {
   
   // Bit field definition.
   struct {
+    /// read-only - Read level of APB to pkt interface FIFO
     uint32_t RD : 16;
     uint32_t _reserved_0 : 16;
   } bits;
@@ -129,6 +135,7 @@ union PKT_RX_PAYLOAD {
   
   // Bit field definition.
   struct {
+    /// read-only - APB to pkt interface Rx payload read
     uint32_t PAYLOAD : 32;
   } bits;
   
@@ -146,6 +153,7 @@ union PKT_RX_PKT_HEADER {
   
   // Bit field definition.
   struct {
+    /// read-only - APB to pkt interface Rx packet header
     uint32_t HEADER : 24;
     uint32_t _reserved_0 : 8;
   } bits;
@@ -164,6 +172,7 @@ union IRQ_STATUS {
   
   // Bit field definition.
   struct {
+    /// read-only - Status of APB to packet interface.
     uint32_t STATUS : 32;
   } bits;
   
@@ -181,6 +190,7 @@ union IRQ_STATUS2 {
   
   // Bit field definition.
   struct {
+    /// read-only - Status of APB to packet interface part 2, read part 2 first then dsi_host_irq_status. Reading dsi_host_irq_status will clear both status and status2.
     uint32_t STATUS2 : 3;
     uint32_t _reserved_0 : 29;
   } bits;
@@ -199,6 +209,7 @@ union IRQ_MASK {
   
   // Bit field definition.
   struct {
+    /// read-write - IRQ Mask
     uint32_t MASK : 32;
   } bits;
   
@@ -216,6 +227,7 @@ union IRQ_MASK2 {
   
   // Bit field definition.
   struct {
+    /// read-write - IRQ mask 2
     uint32_t MASK2 : 3;
     uint32_t _reserved_0 : 29;
   } bits;

@@ -17,9 +17,13 @@ union RDC_VIR {
   
   // Bit field definition.
   struct {
+    /// read-only - Number of Domains
     uint32_t NDID : 4;
+    /// read-only - Number of Masters
     uint32_t NMSTR : 8;
+    /// read-only - Number of Peripherals
     uint32_t NPER : 8;
+    /// read-only - Number of Memory Regions
     uint32_t NRGN : 8;
     uint32_t _reserved_0 : 4;
   } bits;
@@ -43,8 +47,10 @@ union RDC_STAT {
   
   // Bit field definition.
   struct {
+    /// read-write - Domain ID
     uint32_t DID : 4;
     uint32_t _reserved_0 : 4;
+    /// read-write - Power Domain Status
     ePDS PDS : 1;
     uint32_t _reserved_1 : 23;
   } bits;
@@ -68,6 +74,7 @@ union RDC_INTCTRL {
   
   // Bit field definition.
   struct {
+    /// read-write - Restoration Complete Interrupt
     eRCI_EN RCI_EN : 1;
     uint32_t _reserved_0 : 31;
   } bits;
@@ -91,6 +98,7 @@ union RDC_INTSTAT {
   
   // Bit field definition.
   struct {
+    /// read-write - Interrupt Status
     eINT INT : 1;
     uint32_t _reserved_0 : 31;
   } bits;
@@ -119,8 +127,10 @@ union RDC_MDA0 {
   
   // Bit field definition.
   struct {
+    /// read-write - Domain ID
     eDID DID : 2;
     uint32_t _reserved_0 : 29;
+    /// read-write - Assignment Lock
     eLCK LCK : 1;
   } bits;
   
@@ -147,8 +157,10 @@ union RDC_MDA1 {
   
   // Bit field definition.
   struct {
+    /// read-write - Domain ID
     eDID DID : 2;
     uint32_t _reserved_0 : 29;
+    /// read-write - Assignment Lock
     eLCK LCK : 1;
   } bits;
   
@@ -175,8 +187,10 @@ union RDC_MDA2 {
   
   // Bit field definition.
   struct {
+    /// read-write - Domain ID
     eDID DID : 2;
     uint32_t _reserved_0 : 29;
+    /// read-write - Assignment Lock
     eLCK LCK : 1;
   } bits;
   
@@ -203,8 +217,10 @@ union RDC_MDA3 {
   
   // Bit field definition.
   struct {
+    /// read-write - Domain ID
     eDID DID : 2;
     uint32_t _reserved_0 : 29;
+    /// read-write - Assignment Lock
     eLCK LCK : 1;
   } bits;
   
@@ -231,8 +247,10 @@ union RDC_MDA4 {
   
   // Bit field definition.
   struct {
+    /// read-write - Domain ID
     eDID DID : 2;
     uint32_t _reserved_0 : 29;
+    /// read-write - Assignment Lock
     eLCK LCK : 1;
   } bits;
   
@@ -259,8 +277,10 @@ union RDC_MDA5 {
   
   // Bit field definition.
   struct {
+    /// read-write - Domain ID
     eDID DID : 2;
     uint32_t _reserved_0 : 29;
+    /// read-write - Assignment Lock
     eLCK LCK : 1;
   } bits;
   
@@ -287,8 +307,10 @@ union RDC_MDA6 {
   
   // Bit field definition.
   struct {
+    /// read-write - Domain ID
     eDID DID : 2;
     uint32_t _reserved_0 : 29;
+    /// read-write - Assignment Lock
     eLCK LCK : 1;
   } bits;
   
@@ -315,8 +337,10 @@ union RDC_MDA7 {
   
   // Bit field definition.
   struct {
+    /// read-write - Domain ID
     eDID DID : 2;
     uint32_t _reserved_0 : 29;
+    /// read-write - Assignment Lock
     eLCK LCK : 1;
   } bits;
   
@@ -343,8 +367,10 @@ union RDC_MDA8 {
   
   // Bit field definition.
   struct {
+    /// read-write - Domain ID
     eDID DID : 2;
     uint32_t _reserved_0 : 29;
+    /// read-write - Assignment Lock
     eLCK LCK : 1;
   } bits;
   
@@ -371,8 +397,10 @@ union RDC_MDA9 {
   
   // Bit field definition.
   struct {
+    /// read-write - Domain ID
     eDID DID : 2;
     uint32_t _reserved_0 : 29;
+    /// read-write - Assignment Lock
     eLCK LCK : 1;
   } bits;
   
@@ -399,8 +427,10 @@ union RDC_MDA10 {
   
   // Bit field definition.
   struct {
+    /// read-write - Domain ID
     eDID DID : 2;
     uint32_t _reserved_0 : 29;
+    /// read-write - Assignment Lock
     eLCK LCK : 1;
   } bits;
   
@@ -427,8 +457,10 @@ union RDC_MDA11 {
   
   // Bit field definition.
   struct {
+    /// read-write - Domain ID
     eDID DID : 2;
     uint32_t _reserved_0 : 29;
+    /// read-write - Assignment Lock
     eLCK LCK : 1;
   } bits;
   
@@ -476,12 +508,18 @@ union RDC_PDAP0 {
   
   // Bit field definition.
   struct {
+    /// read-write - Domain 0 Write Access
     eD0W D0W : 1;
+    /// read-write - Domain 0 Read Access
     eD0R D0R : 1;
+    /// read-write - Domain 1 Write Access
     eD1W D1W : 1;
+    /// read-write - Domain 1 Read Access
     eD1R D1R : 1;
     uint32_t _reserved_0 : 26;
+    /// read-write - Semaphore Required
     eSREQ SREQ : 1;
+    /// read-write - Peripheral Permissions Lock
     eLCK LCK : 1;
   } bits;
   
@@ -528,12 +566,18 @@ union RDC_PDAP1 {
   
   // Bit field definition.
   struct {
+    /// read-write - Domain 0 Write Access
     eD0W D0W : 1;
+    /// read-write - Domain 0 Read Access
     eD0R D0R : 1;
+    /// read-write - Domain 1 Write Access
     eD1W D1W : 1;
+    /// read-write - Domain 1 Read Access
     eD1R D1R : 1;
     uint32_t _reserved_0 : 26;
+    /// read-write - Semaphore Required
     eSREQ SREQ : 1;
+    /// read-write - Peripheral Permissions Lock
     eLCK LCK : 1;
   } bits;
   
@@ -580,12 +624,18 @@ union RDC_PDAP2 {
   
   // Bit field definition.
   struct {
+    /// read-write - Domain 0 Write Access
     eD0W D0W : 1;
+    /// read-write - Domain 0 Read Access
     eD0R D0R : 1;
+    /// read-write - Domain 1 Write Access
     eD1W D1W : 1;
+    /// read-write - Domain 1 Read Access
     eD1R D1R : 1;
     uint32_t _reserved_0 : 26;
+    /// read-write - Semaphore Required
     eSREQ SREQ : 1;
+    /// read-write - Peripheral Permissions Lock
     eLCK LCK : 1;
   } bits;
   
@@ -632,12 +682,18 @@ union RDC_PDAP3 {
   
   // Bit field definition.
   struct {
+    /// read-write - Domain 0 Write Access
     eD0W D0W : 1;
+    /// read-write - Domain 0 Read Access
     eD0R D0R : 1;
+    /// read-write - Domain 1 Write Access
     eD1W D1W : 1;
+    /// read-write - Domain 1 Read Access
     eD1R D1R : 1;
     uint32_t _reserved_0 : 26;
+    /// read-write - Semaphore Required
     eSREQ SREQ : 1;
+    /// read-write - Peripheral Permissions Lock
     eLCK LCK : 1;
   } bits;
   
@@ -684,12 +740,18 @@ union RDC_PDAP4 {
   
   // Bit field definition.
   struct {
+    /// read-write - Domain 0 Write Access
     eD0W D0W : 1;
+    /// read-write - Domain 0 Read Access
     eD0R D0R : 1;
+    /// read-write - Domain 1 Write Access
     eD1W D1W : 1;
+    /// read-write - Domain 1 Read Access
     eD1R D1R : 1;
     uint32_t _reserved_0 : 26;
+    /// read-write - Semaphore Required
     eSREQ SREQ : 1;
+    /// read-write - Peripheral Permissions Lock
     eLCK LCK : 1;
   } bits;
   
@@ -736,12 +798,18 @@ union RDC_PDAP5 {
   
   // Bit field definition.
   struct {
+    /// read-write - Domain 0 Write Access
     eD0W D0W : 1;
+    /// read-write - Domain 0 Read Access
     eD0R D0R : 1;
+    /// read-write - Domain 1 Write Access
     eD1W D1W : 1;
+    /// read-write - Domain 1 Read Access
     eD1R D1R : 1;
     uint32_t _reserved_0 : 26;
+    /// read-write - Semaphore Required
     eSREQ SREQ : 1;
+    /// read-write - Peripheral Permissions Lock
     eLCK LCK : 1;
   } bits;
   
@@ -788,12 +856,18 @@ union RDC_PDAP6 {
   
   // Bit field definition.
   struct {
+    /// read-write - Domain 0 Write Access
     eD0W D0W : 1;
+    /// read-write - Domain 0 Read Access
     eD0R D0R : 1;
+    /// read-write - Domain 1 Write Access
     eD1W D1W : 1;
+    /// read-write - Domain 1 Read Access
     eD1R D1R : 1;
     uint32_t _reserved_0 : 26;
+    /// read-write - Semaphore Required
     eSREQ SREQ : 1;
+    /// read-write - Peripheral Permissions Lock
     eLCK LCK : 1;
   } bits;
   
@@ -840,12 +914,18 @@ union RDC_PDAP7 {
   
   // Bit field definition.
   struct {
+    /// read-write - Domain 0 Write Access
     eD0W D0W : 1;
+    /// read-write - Domain 0 Read Access
     eD0R D0R : 1;
+    /// read-write - Domain 1 Write Access
     eD1W D1W : 1;
+    /// read-write - Domain 1 Read Access
     eD1R D1R : 1;
     uint32_t _reserved_0 : 26;
+    /// read-write - Semaphore Required
     eSREQ SREQ : 1;
+    /// read-write - Peripheral Permissions Lock
     eLCK LCK : 1;
   } bits;
   
@@ -892,12 +972,18 @@ union RDC_PDAP8 {
   
   // Bit field definition.
   struct {
+    /// read-write - Domain 0 Write Access
     eD0W D0W : 1;
+    /// read-write - Domain 0 Read Access
     eD0R D0R : 1;
+    /// read-write - Domain 1 Write Access
     eD1W D1W : 1;
+    /// read-write - Domain 1 Read Access
     eD1R D1R : 1;
     uint32_t _reserved_0 : 26;
+    /// read-write - Semaphore Required
     eSREQ SREQ : 1;
+    /// read-write - Peripheral Permissions Lock
     eLCK LCK : 1;
   } bits;
   
@@ -944,12 +1030,18 @@ union RDC_PDAP9 {
   
   // Bit field definition.
   struct {
+    /// read-write - Domain 0 Write Access
     eD0W D0W : 1;
+    /// read-write - Domain 0 Read Access
     eD0R D0R : 1;
+    /// read-write - Domain 1 Write Access
     eD1W D1W : 1;
+    /// read-write - Domain 1 Read Access
     eD1R D1R : 1;
     uint32_t _reserved_0 : 26;
+    /// read-write - Semaphore Required
     eSREQ SREQ : 1;
+    /// read-write - Peripheral Permissions Lock
     eLCK LCK : 1;
   } bits;
   
@@ -996,12 +1088,18 @@ union RDC_PDAP10 {
   
   // Bit field definition.
   struct {
+    /// read-write - Domain 0 Write Access
     eD0W D0W : 1;
+    /// read-write - Domain 0 Read Access
     eD0R D0R : 1;
+    /// read-write - Domain 1 Write Access
     eD1W D1W : 1;
+    /// read-write - Domain 1 Read Access
     eD1R D1R : 1;
     uint32_t _reserved_0 : 26;
+    /// read-write - Semaphore Required
     eSREQ SREQ : 1;
+    /// read-write - Peripheral Permissions Lock
     eLCK LCK : 1;
   } bits;
   
@@ -1048,12 +1146,18 @@ union RDC_PDAP11 {
   
   // Bit field definition.
   struct {
+    /// read-write - Domain 0 Write Access
     eD0W D0W : 1;
+    /// read-write - Domain 0 Read Access
     eD0R D0R : 1;
+    /// read-write - Domain 1 Write Access
     eD1W D1W : 1;
+    /// read-write - Domain 1 Read Access
     eD1R D1R : 1;
     uint32_t _reserved_0 : 26;
+    /// read-write - Semaphore Required
     eSREQ SREQ : 1;
+    /// read-write - Peripheral Permissions Lock
     eLCK LCK : 1;
   } bits;
   
@@ -1100,12 +1204,18 @@ union RDC_PDAP12 {
   
   // Bit field definition.
   struct {
+    /// read-write - Domain 0 Write Access
     eD0W D0W : 1;
+    /// read-write - Domain 0 Read Access
     eD0R D0R : 1;
+    /// read-write - Domain 1 Write Access
     eD1W D1W : 1;
+    /// read-write - Domain 1 Read Access
     eD1R D1R : 1;
     uint32_t _reserved_0 : 26;
+    /// read-write - Semaphore Required
     eSREQ SREQ : 1;
+    /// read-write - Peripheral Permissions Lock
     eLCK LCK : 1;
   } bits;
   
@@ -1152,12 +1262,18 @@ union RDC_PDAP13 {
   
   // Bit field definition.
   struct {
+    /// read-write - Domain 0 Write Access
     eD0W D0W : 1;
+    /// read-write - Domain 0 Read Access
     eD0R D0R : 1;
+    /// read-write - Domain 1 Write Access
     eD1W D1W : 1;
+    /// read-write - Domain 1 Read Access
     eD1R D1R : 1;
     uint32_t _reserved_0 : 26;
+    /// read-write - Semaphore Required
     eSREQ SREQ : 1;
+    /// read-write - Peripheral Permissions Lock
     eLCK LCK : 1;
   } bits;
   
@@ -1204,12 +1320,18 @@ union RDC_PDAP14 {
   
   // Bit field definition.
   struct {
+    /// read-write - Domain 0 Write Access
     eD0W D0W : 1;
+    /// read-write - Domain 0 Read Access
     eD0R D0R : 1;
+    /// read-write - Domain 1 Write Access
     eD1W D1W : 1;
+    /// read-write - Domain 1 Read Access
     eD1R D1R : 1;
     uint32_t _reserved_0 : 26;
+    /// read-write - Semaphore Required
     eSREQ SREQ : 1;
+    /// read-write - Peripheral Permissions Lock
     eLCK LCK : 1;
   } bits;
   
@@ -1256,12 +1378,18 @@ union RDC_PDAP15 {
   
   // Bit field definition.
   struct {
+    /// read-write - Domain 0 Write Access
     eD0W D0W : 1;
+    /// read-write - Domain 0 Read Access
     eD0R D0R : 1;
+    /// read-write - Domain 1 Write Access
     eD1W D1W : 1;
+    /// read-write - Domain 1 Read Access
     eD1R D1R : 1;
     uint32_t _reserved_0 : 26;
+    /// read-write - Semaphore Required
     eSREQ SREQ : 1;
+    /// read-write - Peripheral Permissions Lock
     eLCK LCK : 1;
   } bits;
   
@@ -1308,12 +1436,18 @@ union RDC_PDAP16 {
   
   // Bit field definition.
   struct {
+    /// read-write - Domain 0 Write Access
     eD0W D0W : 1;
+    /// read-write - Domain 0 Read Access
     eD0R D0R : 1;
+    /// read-write - Domain 1 Write Access
     eD1W D1W : 1;
+    /// read-write - Domain 1 Read Access
     eD1R D1R : 1;
     uint32_t _reserved_0 : 26;
+    /// read-write - Semaphore Required
     eSREQ SREQ : 1;
+    /// read-write - Peripheral Permissions Lock
     eLCK LCK : 1;
   } bits;
   
@@ -1360,12 +1494,18 @@ union RDC_PDAP17 {
   
   // Bit field definition.
   struct {
+    /// read-write - Domain 0 Write Access
     eD0W D0W : 1;
+    /// read-write - Domain 0 Read Access
     eD0R D0R : 1;
+    /// read-write - Domain 1 Write Access
     eD1W D1W : 1;
+    /// read-write - Domain 1 Read Access
     eD1R D1R : 1;
     uint32_t _reserved_0 : 26;
+    /// read-write - Semaphore Required
     eSREQ SREQ : 1;
+    /// read-write - Peripheral Permissions Lock
     eLCK LCK : 1;
   } bits;
   
@@ -1412,12 +1552,18 @@ union RDC_PDAP18 {
   
   // Bit field definition.
   struct {
+    /// read-write - Domain 0 Write Access
     eD0W D0W : 1;
+    /// read-write - Domain 0 Read Access
     eD0R D0R : 1;
+    /// read-write - Domain 1 Write Access
     eD1W D1W : 1;
+    /// read-write - Domain 1 Read Access
     eD1R D1R : 1;
     uint32_t _reserved_0 : 26;
+    /// read-write - Semaphore Required
     eSREQ SREQ : 1;
+    /// read-write - Peripheral Permissions Lock
     eLCK LCK : 1;
   } bits;
   
@@ -1464,12 +1610,18 @@ union RDC_PDAP19 {
   
   // Bit field definition.
   struct {
+    /// read-write - Domain 0 Write Access
     eD0W D0W : 1;
+    /// read-write - Domain 0 Read Access
     eD0R D0R : 1;
+    /// read-write - Domain 1 Write Access
     eD1W D1W : 1;
+    /// read-write - Domain 1 Read Access
     eD1R D1R : 1;
     uint32_t _reserved_0 : 26;
+    /// read-write - Semaphore Required
     eSREQ SREQ : 1;
+    /// read-write - Peripheral Permissions Lock
     eLCK LCK : 1;
   } bits;
   
@@ -1516,12 +1668,18 @@ union RDC_PDAP20 {
   
   // Bit field definition.
   struct {
+    /// read-write - Domain 0 Write Access
     eD0W D0W : 1;
+    /// read-write - Domain 0 Read Access
     eD0R D0R : 1;
+    /// read-write - Domain 1 Write Access
     eD1W D1W : 1;
+    /// read-write - Domain 1 Read Access
     eD1R D1R : 1;
     uint32_t _reserved_0 : 26;
+    /// read-write - Semaphore Required
     eSREQ SREQ : 1;
+    /// read-write - Peripheral Permissions Lock
     eLCK LCK : 1;
   } bits;
   
@@ -1568,12 +1726,18 @@ union RDC_PDAP21 {
   
   // Bit field definition.
   struct {
+    /// read-write - Domain 0 Write Access
     eD0W D0W : 1;
+    /// read-write - Domain 0 Read Access
     eD0R D0R : 1;
+    /// read-write - Domain 1 Write Access
     eD1W D1W : 1;
+    /// read-write - Domain 1 Read Access
     eD1R D1R : 1;
     uint32_t _reserved_0 : 26;
+    /// read-write - Semaphore Required
     eSREQ SREQ : 1;
+    /// read-write - Peripheral Permissions Lock
     eLCK LCK : 1;
   } bits;
   
@@ -1620,12 +1784,18 @@ union RDC_PDAP22 {
   
   // Bit field definition.
   struct {
+    /// read-write - Domain 0 Write Access
     eD0W D0W : 1;
+    /// read-write - Domain 0 Read Access
     eD0R D0R : 1;
+    /// read-write - Domain 1 Write Access
     eD1W D1W : 1;
+    /// read-write - Domain 1 Read Access
     eD1R D1R : 1;
     uint32_t _reserved_0 : 26;
+    /// read-write - Semaphore Required
     eSREQ SREQ : 1;
+    /// read-write - Peripheral Permissions Lock
     eLCK LCK : 1;
   } bits;
   
@@ -1672,12 +1842,18 @@ union RDC_PDAP23 {
   
   // Bit field definition.
   struct {
+    /// read-write - Domain 0 Write Access
     eD0W D0W : 1;
+    /// read-write - Domain 0 Read Access
     eD0R D0R : 1;
+    /// read-write - Domain 1 Write Access
     eD1W D1W : 1;
+    /// read-write - Domain 1 Read Access
     eD1R D1R : 1;
     uint32_t _reserved_0 : 26;
+    /// read-write - Semaphore Required
     eSREQ SREQ : 1;
+    /// read-write - Peripheral Permissions Lock
     eLCK LCK : 1;
   } bits;
   
@@ -1724,12 +1900,18 @@ union RDC_PDAP24 {
   
   // Bit field definition.
   struct {
+    /// read-write - Domain 0 Write Access
     eD0W D0W : 1;
+    /// read-write - Domain 0 Read Access
     eD0R D0R : 1;
+    /// read-write - Domain 1 Write Access
     eD1W D1W : 1;
+    /// read-write - Domain 1 Read Access
     eD1R D1R : 1;
     uint32_t _reserved_0 : 26;
+    /// read-write - Semaphore Required
     eSREQ SREQ : 1;
+    /// read-write - Peripheral Permissions Lock
     eLCK LCK : 1;
   } bits;
   
@@ -1776,12 +1958,18 @@ union RDC_PDAP25 {
   
   // Bit field definition.
   struct {
+    /// read-write - Domain 0 Write Access
     eD0W D0W : 1;
+    /// read-write - Domain 0 Read Access
     eD0R D0R : 1;
+    /// read-write - Domain 1 Write Access
     eD1W D1W : 1;
+    /// read-write - Domain 1 Read Access
     eD1R D1R : 1;
     uint32_t _reserved_0 : 26;
+    /// read-write - Semaphore Required
     eSREQ SREQ : 1;
+    /// read-write - Peripheral Permissions Lock
     eLCK LCK : 1;
   } bits;
   
@@ -1828,12 +2016,18 @@ union RDC_PDAP26 {
   
   // Bit field definition.
   struct {
+    /// read-write - Domain 0 Write Access
     eD0W D0W : 1;
+    /// read-write - Domain 0 Read Access
     eD0R D0R : 1;
+    /// read-write - Domain 1 Write Access
     eD1W D1W : 1;
+    /// read-write - Domain 1 Read Access
     eD1R D1R : 1;
     uint32_t _reserved_0 : 26;
+    /// read-write - Semaphore Required
     eSREQ SREQ : 1;
+    /// read-write - Peripheral Permissions Lock
     eLCK LCK : 1;
   } bits;
   
@@ -1880,12 +2074,18 @@ union RDC_PDAP27 {
   
   // Bit field definition.
   struct {
+    /// read-write - Domain 0 Write Access
     eD0W D0W : 1;
+    /// read-write - Domain 0 Read Access
     eD0R D0R : 1;
+    /// read-write - Domain 1 Write Access
     eD1W D1W : 1;
+    /// read-write - Domain 1 Read Access
     eD1R D1R : 1;
     uint32_t _reserved_0 : 26;
+    /// read-write - Semaphore Required
     eSREQ SREQ : 1;
+    /// read-write - Peripheral Permissions Lock
     eLCK LCK : 1;
   } bits;
   
@@ -1932,12 +2132,18 @@ union RDC_PDAP28 {
   
   // Bit field definition.
   struct {
+    /// read-write - Domain 0 Write Access
     eD0W D0W : 1;
+    /// read-write - Domain 0 Read Access
     eD0R D0R : 1;
+    /// read-write - Domain 1 Write Access
     eD1W D1W : 1;
+    /// read-write - Domain 1 Read Access
     eD1R D1R : 1;
     uint32_t _reserved_0 : 26;
+    /// read-write - Semaphore Required
     eSREQ SREQ : 1;
+    /// read-write - Peripheral Permissions Lock
     eLCK LCK : 1;
   } bits;
   
@@ -1984,12 +2190,18 @@ union RDC_PDAP29 {
   
   // Bit field definition.
   struct {
+    /// read-write - Domain 0 Write Access
     eD0W D0W : 1;
+    /// read-write - Domain 0 Read Access
     eD0R D0R : 1;
+    /// read-write - Domain 1 Write Access
     eD1W D1W : 1;
+    /// read-write - Domain 1 Read Access
     eD1R D1R : 1;
     uint32_t _reserved_0 : 26;
+    /// read-write - Semaphore Required
     eSREQ SREQ : 1;
+    /// read-write - Peripheral Permissions Lock
     eLCK LCK : 1;
   } bits;
   
@@ -2036,12 +2248,18 @@ union RDC_PDAP30 {
   
   // Bit field definition.
   struct {
+    /// read-write - Domain 0 Write Access
     eD0W D0W : 1;
+    /// read-write - Domain 0 Read Access
     eD0R D0R : 1;
+    /// read-write - Domain 1 Write Access
     eD1W D1W : 1;
+    /// read-write - Domain 1 Read Access
     eD1R D1R : 1;
     uint32_t _reserved_0 : 26;
+    /// read-write - Semaphore Required
     eSREQ SREQ : 1;
+    /// read-write - Peripheral Permissions Lock
     eLCK LCK : 1;
   } bits;
   
@@ -2088,12 +2306,18 @@ union RDC_PDAP31 {
   
   // Bit field definition.
   struct {
+    /// read-write - Domain 0 Write Access
     eD0W D0W : 1;
+    /// read-write - Domain 0 Read Access
     eD0R D0R : 1;
+    /// read-write - Domain 1 Write Access
     eD1W D1W : 1;
+    /// read-write - Domain 1 Read Access
     eD1R D1R : 1;
     uint32_t _reserved_0 : 26;
+    /// read-write - Semaphore Required
     eSREQ SREQ : 1;
+    /// read-write - Peripheral Permissions Lock
     eLCK LCK : 1;
   } bits;
   
@@ -2140,12 +2364,18 @@ union RDC_PDAP32 {
   
   // Bit field definition.
   struct {
+    /// read-write - Domain 0 Write Access
     eD0W D0W : 1;
+    /// read-write - Domain 0 Read Access
     eD0R D0R : 1;
+    /// read-write - Domain 1 Write Access
     eD1W D1W : 1;
+    /// read-write - Domain 1 Read Access
     eD1R D1R : 1;
     uint32_t _reserved_0 : 26;
+    /// read-write - Semaphore Required
     eSREQ SREQ : 1;
+    /// read-write - Peripheral Permissions Lock
     eLCK LCK : 1;
   } bits;
   
@@ -2192,12 +2422,18 @@ union RDC_PDAP33 {
   
   // Bit field definition.
   struct {
+    /// read-write - Domain 0 Write Access
     eD0W D0W : 1;
+    /// read-write - Domain 0 Read Access
     eD0R D0R : 1;
+    /// read-write - Domain 1 Write Access
     eD1W D1W : 1;
+    /// read-write - Domain 1 Read Access
     eD1R D1R : 1;
     uint32_t _reserved_0 : 26;
+    /// read-write - Semaphore Required
     eSREQ SREQ : 1;
+    /// read-write - Peripheral Permissions Lock
     eLCK LCK : 1;
   } bits;
   
@@ -2244,12 +2480,18 @@ union RDC_PDAP34 {
   
   // Bit field definition.
   struct {
+    /// read-write - Domain 0 Write Access
     eD0W D0W : 1;
+    /// read-write - Domain 0 Read Access
     eD0R D0R : 1;
+    /// read-write - Domain 1 Write Access
     eD1W D1W : 1;
+    /// read-write - Domain 1 Read Access
     eD1R D1R : 1;
     uint32_t _reserved_0 : 26;
+    /// read-write - Semaphore Required
     eSREQ SREQ : 1;
+    /// read-write - Peripheral Permissions Lock
     eLCK LCK : 1;
   } bits;
   
@@ -2296,12 +2538,18 @@ union RDC_PDAP35 {
   
   // Bit field definition.
   struct {
+    /// read-write - Domain 0 Write Access
     eD0W D0W : 1;
+    /// read-write - Domain 0 Read Access
     eD0R D0R : 1;
+    /// read-write - Domain 1 Write Access
     eD1W D1W : 1;
+    /// read-write - Domain 1 Read Access
     eD1R D1R : 1;
     uint32_t _reserved_0 : 26;
+    /// read-write - Semaphore Required
     eSREQ SREQ : 1;
+    /// read-write - Peripheral Permissions Lock
     eLCK LCK : 1;
   } bits;
   
@@ -2348,12 +2596,18 @@ union RDC_PDAP36 {
   
   // Bit field definition.
   struct {
+    /// read-write - Domain 0 Write Access
     eD0W D0W : 1;
+    /// read-write - Domain 0 Read Access
     eD0R D0R : 1;
+    /// read-write - Domain 1 Write Access
     eD1W D1W : 1;
+    /// read-write - Domain 1 Read Access
     eD1R D1R : 1;
     uint32_t _reserved_0 : 26;
+    /// read-write - Semaphore Required
     eSREQ SREQ : 1;
+    /// read-write - Peripheral Permissions Lock
     eLCK LCK : 1;
   } bits;
   
@@ -2400,12 +2654,18 @@ union RDC_PDAP37 {
   
   // Bit field definition.
   struct {
+    /// read-write - Domain 0 Write Access
     eD0W D0W : 1;
+    /// read-write - Domain 0 Read Access
     eD0R D0R : 1;
+    /// read-write - Domain 1 Write Access
     eD1W D1W : 1;
+    /// read-write - Domain 1 Read Access
     eD1R D1R : 1;
     uint32_t _reserved_0 : 26;
+    /// read-write - Semaphore Required
     eSREQ SREQ : 1;
+    /// read-write - Peripheral Permissions Lock
     eLCK LCK : 1;
   } bits;
   
@@ -2452,12 +2712,18 @@ union RDC_PDAP38 {
   
   // Bit field definition.
   struct {
+    /// read-write - Domain 0 Write Access
     eD0W D0W : 1;
+    /// read-write - Domain 0 Read Access
     eD0R D0R : 1;
+    /// read-write - Domain 1 Write Access
     eD1W D1W : 1;
+    /// read-write - Domain 1 Read Access
     eD1R D1R : 1;
     uint32_t _reserved_0 : 26;
+    /// read-write - Semaphore Required
     eSREQ SREQ : 1;
+    /// read-write - Peripheral Permissions Lock
     eLCK LCK : 1;
   } bits;
   
@@ -2504,12 +2770,18 @@ union RDC_PDAP39 {
   
   // Bit field definition.
   struct {
+    /// read-write - Domain 0 Write Access
     eD0W D0W : 1;
+    /// read-write - Domain 0 Read Access
     eD0R D0R : 1;
+    /// read-write - Domain 1 Write Access
     eD1W D1W : 1;
+    /// read-write - Domain 1 Read Access
     eD1R D1R : 1;
     uint32_t _reserved_0 : 26;
+    /// read-write - Semaphore Required
     eSREQ SREQ : 1;
+    /// read-write - Peripheral Permissions Lock
     eLCK LCK : 1;
   } bits;
   
@@ -2556,12 +2828,18 @@ union RDC_PDAP40 {
   
   // Bit field definition.
   struct {
+    /// read-write - Domain 0 Write Access
     eD0W D0W : 1;
+    /// read-write - Domain 0 Read Access
     eD0R D0R : 1;
+    /// read-write - Domain 1 Write Access
     eD1W D1W : 1;
+    /// read-write - Domain 1 Read Access
     eD1R D1R : 1;
     uint32_t _reserved_0 : 26;
+    /// read-write - Semaphore Required
     eSREQ SREQ : 1;
+    /// read-write - Peripheral Permissions Lock
     eLCK LCK : 1;
   } bits;
   
@@ -2608,12 +2886,18 @@ union RDC_PDAP41 {
   
   // Bit field definition.
   struct {
+    /// read-write - Domain 0 Write Access
     eD0W D0W : 1;
+    /// read-write - Domain 0 Read Access
     eD0R D0R : 1;
+    /// read-write - Domain 1 Write Access
     eD1W D1W : 1;
+    /// read-write - Domain 1 Read Access
     eD1R D1R : 1;
     uint32_t _reserved_0 : 26;
+    /// read-write - Semaphore Required
     eSREQ SREQ : 1;
+    /// read-write - Peripheral Permissions Lock
     eLCK LCK : 1;
   } bits;
   
@@ -2660,12 +2944,18 @@ union RDC_PDAP42 {
   
   // Bit field definition.
   struct {
+    /// read-write - Domain 0 Write Access
     eD0W D0W : 1;
+    /// read-write - Domain 0 Read Access
     eD0R D0R : 1;
+    /// read-write - Domain 1 Write Access
     eD1W D1W : 1;
+    /// read-write - Domain 1 Read Access
     eD1R D1R : 1;
     uint32_t _reserved_0 : 26;
+    /// read-write - Semaphore Required
     eSREQ SREQ : 1;
+    /// read-write - Peripheral Permissions Lock
     eLCK LCK : 1;
   } bits;
   
@@ -2712,12 +3002,18 @@ union RDC_PDAP43 {
   
   // Bit field definition.
   struct {
+    /// read-write - Domain 0 Write Access
     eD0W D0W : 1;
+    /// read-write - Domain 0 Read Access
     eD0R D0R : 1;
+    /// read-write - Domain 1 Write Access
     eD1W D1W : 1;
+    /// read-write - Domain 1 Read Access
     eD1R D1R : 1;
     uint32_t _reserved_0 : 26;
+    /// read-write - Semaphore Required
     eSREQ SREQ : 1;
+    /// read-write - Peripheral Permissions Lock
     eLCK LCK : 1;
   } bits;
   
@@ -2764,12 +3060,18 @@ union RDC_PDAP44 {
   
   // Bit field definition.
   struct {
+    /// read-write - Domain 0 Write Access
     eD0W D0W : 1;
+    /// read-write - Domain 0 Read Access
     eD0R D0R : 1;
+    /// read-write - Domain 1 Write Access
     eD1W D1W : 1;
+    /// read-write - Domain 1 Read Access
     eD1R D1R : 1;
     uint32_t _reserved_0 : 26;
+    /// read-write - Semaphore Required
     eSREQ SREQ : 1;
+    /// read-write - Peripheral Permissions Lock
     eLCK LCK : 1;
   } bits;
   
@@ -2816,12 +3118,18 @@ union RDC_PDAP45 {
   
   // Bit field definition.
   struct {
+    /// read-write - Domain 0 Write Access
     eD0W D0W : 1;
+    /// read-write - Domain 0 Read Access
     eD0R D0R : 1;
+    /// read-write - Domain 1 Write Access
     eD1W D1W : 1;
+    /// read-write - Domain 1 Read Access
     eD1R D1R : 1;
     uint32_t _reserved_0 : 26;
+    /// read-write - Semaphore Required
     eSREQ SREQ : 1;
+    /// read-write - Peripheral Permissions Lock
     eLCK LCK : 1;
   } bits;
   
@@ -2868,12 +3176,18 @@ union RDC_PDAP46 {
   
   // Bit field definition.
   struct {
+    /// read-write - Domain 0 Write Access
     eD0W D0W : 1;
+    /// read-write - Domain 0 Read Access
     eD0R D0R : 1;
+    /// read-write - Domain 1 Write Access
     eD1W D1W : 1;
+    /// read-write - Domain 1 Read Access
     eD1R D1R : 1;
     uint32_t _reserved_0 : 26;
+    /// read-write - Semaphore Required
     eSREQ SREQ : 1;
+    /// read-write - Peripheral Permissions Lock
     eLCK LCK : 1;
   } bits;
   
@@ -2920,12 +3234,18 @@ union RDC_PDAP47 {
   
   // Bit field definition.
   struct {
+    /// read-write - Domain 0 Write Access
     eD0W D0W : 1;
+    /// read-write - Domain 0 Read Access
     eD0R D0R : 1;
+    /// read-write - Domain 1 Write Access
     eD1W D1W : 1;
+    /// read-write - Domain 1 Read Access
     eD1R D1R : 1;
     uint32_t _reserved_0 : 26;
+    /// read-write - Semaphore Required
     eSREQ SREQ : 1;
+    /// read-write - Peripheral Permissions Lock
     eLCK LCK : 1;
   } bits;
   
@@ -2972,12 +3292,18 @@ union RDC_PDAP48 {
   
   // Bit field definition.
   struct {
+    /// read-write - Domain 0 Write Access
     eD0W D0W : 1;
+    /// read-write - Domain 0 Read Access
     eD0R D0R : 1;
+    /// read-write - Domain 1 Write Access
     eD1W D1W : 1;
+    /// read-write - Domain 1 Read Access
     eD1R D1R : 1;
     uint32_t _reserved_0 : 26;
+    /// read-write - Semaphore Required
     eSREQ SREQ : 1;
+    /// read-write - Peripheral Permissions Lock
     eLCK LCK : 1;
   } bits;
   
@@ -3024,12 +3350,18 @@ union RDC_PDAP49 {
   
   // Bit field definition.
   struct {
+    /// read-write - Domain 0 Write Access
     eD0W D0W : 1;
+    /// read-write - Domain 0 Read Access
     eD0R D0R : 1;
+    /// read-write - Domain 1 Write Access
     eD1W D1W : 1;
+    /// read-write - Domain 1 Read Access
     eD1R D1R : 1;
     uint32_t _reserved_0 : 26;
+    /// read-write - Semaphore Required
     eSREQ SREQ : 1;
+    /// read-write - Peripheral Permissions Lock
     eLCK LCK : 1;
   } bits;
   
@@ -3076,12 +3408,18 @@ union RDC_PDAP50 {
   
   // Bit field definition.
   struct {
+    /// read-write - Domain 0 Write Access
     eD0W D0W : 1;
+    /// read-write - Domain 0 Read Access
     eD0R D0R : 1;
+    /// read-write - Domain 1 Write Access
     eD1W D1W : 1;
+    /// read-write - Domain 1 Read Access
     eD1R D1R : 1;
     uint32_t _reserved_0 : 26;
+    /// read-write - Semaphore Required
     eSREQ SREQ : 1;
+    /// read-write - Peripheral Permissions Lock
     eLCK LCK : 1;
   } bits;
   
@@ -3128,12 +3466,18 @@ union RDC_PDAP51 {
   
   // Bit field definition.
   struct {
+    /// read-write - Domain 0 Write Access
     eD0W D0W : 1;
+    /// read-write - Domain 0 Read Access
     eD0R D0R : 1;
+    /// read-write - Domain 1 Write Access
     eD1W D1W : 1;
+    /// read-write - Domain 1 Read Access
     eD1R D1R : 1;
     uint32_t _reserved_0 : 26;
+    /// read-write - Semaphore Required
     eSREQ SREQ : 1;
+    /// read-write - Peripheral Permissions Lock
     eLCK LCK : 1;
   } bits;
   
@@ -3180,12 +3524,18 @@ union RDC_PDAP52 {
   
   // Bit field definition.
   struct {
+    /// read-write - Domain 0 Write Access
     eD0W D0W : 1;
+    /// read-write - Domain 0 Read Access
     eD0R D0R : 1;
+    /// read-write - Domain 1 Write Access
     eD1W D1W : 1;
+    /// read-write - Domain 1 Read Access
     eD1R D1R : 1;
     uint32_t _reserved_0 : 26;
+    /// read-write - Semaphore Required
     eSREQ SREQ : 1;
+    /// read-write - Peripheral Permissions Lock
     eLCK LCK : 1;
   } bits;
   
@@ -3232,12 +3582,18 @@ union RDC_PDAP53 {
   
   // Bit field definition.
   struct {
+    /// read-write - Domain 0 Write Access
     eD0W D0W : 1;
+    /// read-write - Domain 0 Read Access
     eD0R D0R : 1;
+    /// read-write - Domain 1 Write Access
     eD1W D1W : 1;
+    /// read-write - Domain 1 Read Access
     eD1R D1R : 1;
     uint32_t _reserved_0 : 26;
+    /// read-write - Semaphore Required
     eSREQ SREQ : 1;
+    /// read-write - Peripheral Permissions Lock
     eLCK LCK : 1;
   } bits;
   
@@ -3284,12 +3640,18 @@ union RDC_PDAP54 {
   
   // Bit field definition.
   struct {
+    /// read-write - Domain 0 Write Access
     eD0W D0W : 1;
+    /// read-write - Domain 0 Read Access
     eD0R D0R : 1;
+    /// read-write - Domain 1 Write Access
     eD1W D1W : 1;
+    /// read-write - Domain 1 Read Access
     eD1R D1R : 1;
     uint32_t _reserved_0 : 26;
+    /// read-write - Semaphore Required
     eSREQ SREQ : 1;
+    /// read-write - Peripheral Permissions Lock
     eLCK LCK : 1;
   } bits;
   
@@ -3336,12 +3698,18 @@ union RDC_PDAP55 {
   
   // Bit field definition.
   struct {
+    /// read-write - Domain 0 Write Access
     eD0W D0W : 1;
+    /// read-write - Domain 0 Read Access
     eD0R D0R : 1;
+    /// read-write - Domain 1 Write Access
     eD1W D1W : 1;
+    /// read-write - Domain 1 Read Access
     eD1R D1R : 1;
     uint32_t _reserved_0 : 26;
+    /// read-write - Semaphore Required
     eSREQ SREQ : 1;
+    /// read-write - Peripheral Permissions Lock
     eLCK LCK : 1;
   } bits;
   
@@ -3388,12 +3756,18 @@ union RDC_PDAP56 {
   
   // Bit field definition.
   struct {
+    /// read-write - Domain 0 Write Access
     eD0W D0W : 1;
+    /// read-write - Domain 0 Read Access
     eD0R D0R : 1;
+    /// read-write - Domain 1 Write Access
     eD1W D1W : 1;
+    /// read-write - Domain 1 Read Access
     eD1R D1R : 1;
     uint32_t _reserved_0 : 26;
+    /// read-write - Semaphore Required
     eSREQ SREQ : 1;
+    /// read-write - Peripheral Permissions Lock
     eLCK LCK : 1;
   } bits;
   
@@ -3440,12 +3814,18 @@ union RDC_PDAP57 {
   
   // Bit field definition.
   struct {
+    /// read-write - Domain 0 Write Access
     eD0W D0W : 1;
+    /// read-write - Domain 0 Read Access
     eD0R D0R : 1;
+    /// read-write - Domain 1 Write Access
     eD1W D1W : 1;
+    /// read-write - Domain 1 Read Access
     eD1R D1R : 1;
     uint32_t _reserved_0 : 26;
+    /// read-write - Semaphore Required
     eSREQ SREQ : 1;
+    /// read-write - Peripheral Permissions Lock
     eLCK LCK : 1;
   } bits;
   
@@ -3492,12 +3872,18 @@ union RDC_PDAP58 {
   
   // Bit field definition.
   struct {
+    /// read-write - Domain 0 Write Access
     eD0W D0W : 1;
+    /// read-write - Domain 0 Read Access
     eD0R D0R : 1;
+    /// read-write - Domain 1 Write Access
     eD1W D1W : 1;
+    /// read-write - Domain 1 Read Access
     eD1R D1R : 1;
     uint32_t _reserved_0 : 26;
+    /// read-write - Semaphore Required
     eSREQ SREQ : 1;
+    /// read-write - Peripheral Permissions Lock
     eLCK LCK : 1;
   } bits;
   
@@ -3544,12 +3930,18 @@ union RDC_PDAP59 {
   
   // Bit field definition.
   struct {
+    /// read-write - Domain 0 Write Access
     eD0W D0W : 1;
+    /// read-write - Domain 0 Read Access
     eD0R D0R : 1;
+    /// read-write - Domain 1 Write Access
     eD1W D1W : 1;
+    /// read-write - Domain 1 Read Access
     eD1R D1R : 1;
     uint32_t _reserved_0 : 26;
+    /// read-write - Semaphore Required
     eSREQ SREQ : 1;
+    /// read-write - Peripheral Permissions Lock
     eLCK LCK : 1;
   } bits;
   
@@ -3596,12 +3988,18 @@ union RDC_PDAP60 {
   
   // Bit field definition.
   struct {
+    /// read-write - Domain 0 Write Access
     eD0W D0W : 1;
+    /// read-write - Domain 0 Read Access
     eD0R D0R : 1;
+    /// read-write - Domain 1 Write Access
     eD1W D1W : 1;
+    /// read-write - Domain 1 Read Access
     eD1R D1R : 1;
     uint32_t _reserved_0 : 26;
+    /// read-write - Semaphore Required
     eSREQ SREQ : 1;
+    /// read-write - Peripheral Permissions Lock
     eLCK LCK : 1;
   } bits;
   
@@ -3648,12 +4046,18 @@ union RDC_PDAP61 {
   
   // Bit field definition.
   struct {
+    /// read-write - Domain 0 Write Access
     eD0W D0W : 1;
+    /// read-write - Domain 0 Read Access
     eD0R D0R : 1;
+    /// read-write - Domain 1 Write Access
     eD1W D1W : 1;
+    /// read-write - Domain 1 Read Access
     eD1R D1R : 1;
     uint32_t _reserved_0 : 26;
+    /// read-write - Semaphore Required
     eSREQ SREQ : 1;
+    /// read-write - Peripheral Permissions Lock
     eLCK LCK : 1;
   } bits;
   
@@ -3700,12 +4104,18 @@ union RDC_PDAP62 {
   
   // Bit field definition.
   struct {
+    /// read-write - Domain 0 Write Access
     eD0W D0W : 1;
+    /// read-write - Domain 0 Read Access
     eD0R D0R : 1;
+    /// read-write - Domain 1 Write Access
     eD1W D1W : 1;
+    /// read-write - Domain 1 Read Access
     eD1R D1R : 1;
     uint32_t _reserved_0 : 26;
+    /// read-write - Semaphore Required
     eSREQ SREQ : 1;
+    /// read-write - Peripheral Permissions Lock
     eLCK LCK : 1;
   } bits;
   
@@ -3752,12 +4162,18 @@ union RDC_PDAP63 {
   
   // Bit field definition.
   struct {
+    /// read-write - Domain 0 Write Access
     eD0W D0W : 1;
+    /// read-write - Domain 0 Read Access
     eD0R D0R : 1;
+    /// read-write - Domain 1 Write Access
     eD1W D1W : 1;
+    /// read-write - Domain 1 Read Access
     eD1R D1R : 1;
     uint32_t _reserved_0 : 26;
+    /// read-write - Semaphore Required
     eSREQ SREQ : 1;
+    /// read-write - Peripheral Permissions Lock
     eLCK LCK : 1;
   } bits;
   
@@ -3804,12 +4220,18 @@ union RDC_PDAP64 {
   
   // Bit field definition.
   struct {
+    /// read-write - Domain 0 Write Access
     eD0W D0W : 1;
+    /// read-write - Domain 0 Read Access
     eD0R D0R : 1;
+    /// read-write - Domain 1 Write Access
     eD1W D1W : 1;
+    /// read-write - Domain 1 Read Access
     eD1R D1R : 1;
     uint32_t _reserved_0 : 26;
+    /// read-write - Semaphore Required
     eSREQ SREQ : 1;
+    /// read-write - Peripheral Permissions Lock
     eLCK LCK : 1;
   } bits;
   
@@ -3856,12 +4278,18 @@ union RDC_PDAP65 {
   
   // Bit field definition.
   struct {
+    /// read-write - Domain 0 Write Access
     eD0W D0W : 1;
+    /// read-write - Domain 0 Read Access
     eD0R D0R : 1;
+    /// read-write - Domain 1 Write Access
     eD1W D1W : 1;
+    /// read-write - Domain 1 Read Access
     eD1R D1R : 1;
     uint32_t _reserved_0 : 26;
+    /// read-write - Semaphore Required
     eSREQ SREQ : 1;
+    /// read-write - Peripheral Permissions Lock
     eLCK LCK : 1;
   } bits;
   
@@ -3908,12 +4336,18 @@ union RDC_PDAP66 {
   
   // Bit field definition.
   struct {
+    /// read-write - Domain 0 Write Access
     eD0W D0W : 1;
+    /// read-write - Domain 0 Read Access
     eD0R D0R : 1;
+    /// read-write - Domain 1 Write Access
     eD1W D1W : 1;
+    /// read-write - Domain 1 Read Access
     eD1R D1R : 1;
     uint32_t _reserved_0 : 26;
+    /// read-write - Semaphore Required
     eSREQ SREQ : 1;
+    /// read-write - Peripheral Permissions Lock
     eLCK LCK : 1;
   } bits;
   
@@ -3960,12 +4394,18 @@ union RDC_PDAP67 {
   
   // Bit field definition.
   struct {
+    /// read-write - Domain 0 Write Access
     eD0W D0W : 1;
+    /// read-write - Domain 0 Read Access
     eD0R D0R : 1;
+    /// read-write - Domain 1 Write Access
     eD1W D1W : 1;
+    /// read-write - Domain 1 Read Access
     eD1R D1R : 1;
     uint32_t _reserved_0 : 26;
+    /// read-write - Semaphore Required
     eSREQ SREQ : 1;
+    /// read-write - Peripheral Permissions Lock
     eLCK LCK : 1;
   } bits;
   
@@ -4012,12 +4452,18 @@ union RDC_PDAP68 {
   
   // Bit field definition.
   struct {
+    /// read-write - Domain 0 Write Access
     eD0W D0W : 1;
+    /// read-write - Domain 0 Read Access
     eD0R D0R : 1;
+    /// read-write - Domain 1 Write Access
     eD1W D1W : 1;
+    /// read-write - Domain 1 Read Access
     eD1R D1R : 1;
     uint32_t _reserved_0 : 26;
+    /// read-write - Semaphore Required
     eSREQ SREQ : 1;
+    /// read-write - Peripheral Permissions Lock
     eLCK LCK : 1;
   } bits;
   
@@ -4064,12 +4510,18 @@ union RDC_PDAP69 {
   
   // Bit field definition.
   struct {
+    /// read-write - Domain 0 Write Access
     eD0W D0W : 1;
+    /// read-write - Domain 0 Read Access
     eD0R D0R : 1;
+    /// read-write - Domain 1 Write Access
     eD1W D1W : 1;
+    /// read-write - Domain 1 Read Access
     eD1R D1R : 1;
     uint32_t _reserved_0 : 26;
+    /// read-write - Semaphore Required
     eSREQ SREQ : 1;
+    /// read-write - Peripheral Permissions Lock
     eLCK LCK : 1;
   } bits;
   
@@ -4116,12 +4568,18 @@ union RDC_PDAP70 {
   
   // Bit field definition.
   struct {
+    /// read-write - Domain 0 Write Access
     eD0W D0W : 1;
+    /// read-write - Domain 0 Read Access
     eD0R D0R : 1;
+    /// read-write - Domain 1 Write Access
     eD1W D1W : 1;
+    /// read-write - Domain 1 Read Access
     eD1R D1R : 1;
     uint32_t _reserved_0 : 26;
+    /// read-write - Semaphore Required
     eSREQ SREQ : 1;
+    /// read-write - Peripheral Permissions Lock
     eLCK LCK : 1;
   } bits;
   
@@ -4168,12 +4626,18 @@ union RDC_PDAP71 {
   
   // Bit field definition.
   struct {
+    /// read-write - Domain 0 Write Access
     eD0W D0W : 1;
+    /// read-write - Domain 0 Read Access
     eD0R D0R : 1;
+    /// read-write - Domain 1 Write Access
     eD1W D1W : 1;
+    /// read-write - Domain 1 Read Access
     eD1R D1R : 1;
     uint32_t _reserved_0 : 26;
+    /// read-write - Semaphore Required
     eSREQ SREQ : 1;
+    /// read-write - Peripheral Permissions Lock
     eLCK LCK : 1;
   } bits;
   
@@ -4220,12 +4684,18 @@ union RDC_PDAP72 {
   
   // Bit field definition.
   struct {
+    /// read-write - Domain 0 Write Access
     eD0W D0W : 1;
+    /// read-write - Domain 0 Read Access
     eD0R D0R : 1;
+    /// read-write - Domain 1 Write Access
     eD1W D1W : 1;
+    /// read-write - Domain 1 Read Access
     eD1R D1R : 1;
     uint32_t _reserved_0 : 26;
+    /// read-write - Semaphore Required
     eSREQ SREQ : 1;
+    /// read-write - Peripheral Permissions Lock
     eLCK LCK : 1;
   } bits;
   
@@ -4272,12 +4742,18 @@ union RDC_PDAP73 {
   
   // Bit field definition.
   struct {
+    /// read-write - Domain 0 Write Access
     eD0W D0W : 1;
+    /// read-write - Domain 0 Read Access
     eD0R D0R : 1;
+    /// read-write - Domain 1 Write Access
     eD1W D1W : 1;
+    /// read-write - Domain 1 Read Access
     eD1R D1R : 1;
     uint32_t _reserved_0 : 26;
+    /// read-write - Semaphore Required
     eSREQ SREQ : 1;
+    /// read-write - Peripheral Permissions Lock
     eLCK LCK : 1;
   } bits;
   
@@ -4324,12 +4800,18 @@ union RDC_PDAP74 {
   
   // Bit field definition.
   struct {
+    /// read-write - Domain 0 Write Access
     eD0W D0W : 1;
+    /// read-write - Domain 0 Read Access
     eD0R D0R : 1;
+    /// read-write - Domain 1 Write Access
     eD1W D1W : 1;
+    /// read-write - Domain 1 Read Access
     eD1R D1R : 1;
     uint32_t _reserved_0 : 26;
+    /// read-write - Semaphore Required
     eSREQ SREQ : 1;
+    /// read-write - Peripheral Permissions Lock
     eLCK LCK : 1;
   } bits;
   
@@ -4376,12 +4858,18 @@ union RDC_PDAP75 {
   
   // Bit field definition.
   struct {
+    /// read-write - Domain 0 Write Access
     eD0W D0W : 1;
+    /// read-write - Domain 0 Read Access
     eD0R D0R : 1;
+    /// read-write - Domain 1 Write Access
     eD1W D1W : 1;
+    /// read-write - Domain 1 Read Access
     eD1R D1R : 1;
     uint32_t _reserved_0 : 26;
+    /// read-write - Semaphore Required
     eSREQ SREQ : 1;
+    /// read-write - Peripheral Permissions Lock
     eLCK LCK : 1;
   } bits;
   
@@ -4428,12 +4916,18 @@ union RDC_PDAP76 {
   
   // Bit field definition.
   struct {
+    /// read-write - Domain 0 Write Access
     eD0W D0W : 1;
+    /// read-write - Domain 0 Read Access
     eD0R D0R : 1;
+    /// read-write - Domain 1 Write Access
     eD1W D1W : 1;
+    /// read-write - Domain 1 Read Access
     eD1R D1R : 1;
     uint32_t _reserved_0 : 26;
+    /// read-write - Semaphore Required
     eSREQ SREQ : 1;
+    /// read-write - Peripheral Permissions Lock
     eLCK LCK : 1;
   } bits;
   
@@ -4480,12 +4974,18 @@ union RDC_PDAP77 {
   
   // Bit field definition.
   struct {
+    /// read-write - Domain 0 Write Access
     eD0W D0W : 1;
+    /// read-write - Domain 0 Read Access
     eD0R D0R : 1;
+    /// read-write - Domain 1 Write Access
     eD1W D1W : 1;
+    /// read-write - Domain 1 Read Access
     eD1R D1R : 1;
     uint32_t _reserved_0 : 26;
+    /// read-write - Semaphore Required
     eSREQ SREQ : 1;
+    /// read-write - Peripheral Permissions Lock
     eLCK LCK : 1;
   } bits;
   
@@ -4532,12 +5032,18 @@ union RDC_PDAP78 {
   
   // Bit field definition.
   struct {
+    /// read-write - Domain 0 Write Access
     eD0W D0W : 1;
+    /// read-write - Domain 0 Read Access
     eD0R D0R : 1;
+    /// read-write - Domain 1 Write Access
     eD1W D1W : 1;
+    /// read-write - Domain 1 Read Access
     eD1R D1R : 1;
     uint32_t _reserved_0 : 26;
+    /// read-write - Semaphore Required
     eSREQ SREQ : 1;
+    /// read-write - Peripheral Permissions Lock
     eLCK LCK : 1;
   } bits;
   
@@ -4584,12 +5090,18 @@ union RDC_PDAP79 {
   
   // Bit field definition.
   struct {
+    /// read-write - Domain 0 Write Access
     eD0W D0W : 1;
+    /// read-write - Domain 0 Read Access
     eD0R D0R : 1;
+    /// read-write - Domain 1 Write Access
     eD1W D1W : 1;
+    /// read-write - Domain 1 Read Access
     eD1R D1R : 1;
     uint32_t _reserved_0 : 26;
+    /// read-write - Semaphore Required
     eSREQ SREQ : 1;
+    /// read-write - Peripheral Permissions Lock
     eLCK LCK : 1;
   } bits;
   
@@ -4636,12 +5148,18 @@ union RDC_PDAP80 {
   
   // Bit field definition.
   struct {
+    /// read-write - Domain 0 Write Access
     eD0W D0W : 1;
+    /// read-write - Domain 0 Read Access
     eD0R D0R : 1;
+    /// read-write - Domain 1 Write Access
     eD1W D1W : 1;
+    /// read-write - Domain 1 Read Access
     eD1R D1R : 1;
     uint32_t _reserved_0 : 26;
+    /// read-write - Semaphore Required
     eSREQ SREQ : 1;
+    /// read-write - Peripheral Permissions Lock
     eLCK LCK : 1;
   } bits;
   
@@ -4688,12 +5206,18 @@ union RDC_PDAP81 {
   
   // Bit field definition.
   struct {
+    /// read-write - Domain 0 Write Access
     eD0W D0W : 1;
+    /// read-write - Domain 0 Read Access
     eD0R D0R : 1;
+    /// read-write - Domain 1 Write Access
     eD1W D1W : 1;
+    /// read-write - Domain 1 Read Access
     eD1R D1R : 1;
     uint32_t _reserved_0 : 26;
+    /// read-write - Semaphore Required
     eSREQ SREQ : 1;
+    /// read-write - Peripheral Permissions Lock
     eLCK LCK : 1;
   } bits;
   
@@ -4740,12 +5264,18 @@ union RDC_PDAP82 {
   
   // Bit field definition.
   struct {
+    /// read-write - Domain 0 Write Access
     eD0W D0W : 1;
+    /// read-write - Domain 0 Read Access
     eD0R D0R : 1;
+    /// read-write - Domain 1 Write Access
     eD1W D1W : 1;
+    /// read-write - Domain 1 Read Access
     eD1R D1R : 1;
     uint32_t _reserved_0 : 26;
+    /// read-write - Semaphore Required
     eSREQ SREQ : 1;
+    /// read-write - Peripheral Permissions Lock
     eLCK LCK : 1;
   } bits;
   
@@ -4792,12 +5322,18 @@ union RDC_PDAP83 {
   
   // Bit field definition.
   struct {
+    /// read-write - Domain 0 Write Access
     eD0W D0W : 1;
+    /// read-write - Domain 0 Read Access
     eD0R D0R : 1;
+    /// read-write - Domain 1 Write Access
     eD1W D1W : 1;
+    /// read-write - Domain 1 Read Access
     eD1R D1R : 1;
     uint32_t _reserved_0 : 26;
+    /// read-write - Semaphore Required
     eSREQ SREQ : 1;
+    /// read-write - Peripheral Permissions Lock
     eLCK LCK : 1;
   } bits;
   
@@ -4844,12 +5380,18 @@ union RDC_PDAP84 {
   
   // Bit field definition.
   struct {
+    /// read-write - Domain 0 Write Access
     eD0W D0W : 1;
+    /// read-write - Domain 0 Read Access
     eD0R D0R : 1;
+    /// read-write - Domain 1 Write Access
     eD1W D1W : 1;
+    /// read-write - Domain 1 Read Access
     eD1R D1R : 1;
     uint32_t _reserved_0 : 26;
+    /// read-write - Semaphore Required
     eSREQ SREQ : 1;
+    /// read-write - Peripheral Permissions Lock
     eLCK LCK : 1;
   } bits;
   
@@ -4896,12 +5438,18 @@ union RDC_PDAP85 {
   
   // Bit field definition.
   struct {
+    /// read-write - Domain 0 Write Access
     eD0W D0W : 1;
+    /// read-write - Domain 0 Read Access
     eD0R D0R : 1;
+    /// read-write - Domain 1 Write Access
     eD1W D1W : 1;
+    /// read-write - Domain 1 Read Access
     eD1R D1R : 1;
     uint32_t _reserved_0 : 26;
+    /// read-write - Semaphore Required
     eSREQ SREQ : 1;
+    /// read-write - Peripheral Permissions Lock
     eLCK LCK : 1;
   } bits;
   
@@ -4948,12 +5496,18 @@ union RDC_PDAP86 {
   
   // Bit field definition.
   struct {
+    /// read-write - Domain 0 Write Access
     eD0W D0W : 1;
+    /// read-write - Domain 0 Read Access
     eD0R D0R : 1;
+    /// read-write - Domain 1 Write Access
     eD1W D1W : 1;
+    /// read-write - Domain 1 Read Access
     eD1R D1R : 1;
     uint32_t _reserved_0 : 26;
+    /// read-write - Semaphore Required
     eSREQ SREQ : 1;
+    /// read-write - Peripheral Permissions Lock
     eLCK LCK : 1;
   } bits;
   
@@ -5000,12 +5554,18 @@ union RDC_PDAP87 {
   
   // Bit field definition.
   struct {
+    /// read-write - Domain 0 Write Access
     eD0W D0W : 1;
+    /// read-write - Domain 0 Read Access
     eD0R D0R : 1;
+    /// read-write - Domain 1 Write Access
     eD1W D1W : 1;
+    /// read-write - Domain 1 Read Access
     eD1R D1R : 1;
     uint32_t _reserved_0 : 26;
+    /// read-write - Semaphore Required
     eSREQ SREQ : 1;
+    /// read-write - Peripheral Permissions Lock
     eLCK LCK : 1;
   } bits;
   
@@ -5052,12 +5612,18 @@ union RDC_PDAP88 {
   
   // Bit field definition.
   struct {
+    /// read-write - Domain 0 Write Access
     eD0W D0W : 1;
+    /// read-write - Domain 0 Read Access
     eD0R D0R : 1;
+    /// read-write - Domain 1 Write Access
     eD1W D1W : 1;
+    /// read-write - Domain 1 Read Access
     eD1R D1R : 1;
     uint32_t _reserved_0 : 26;
+    /// read-write - Semaphore Required
     eSREQ SREQ : 1;
+    /// read-write - Peripheral Permissions Lock
     eLCK LCK : 1;
   } bits;
   
@@ -5104,12 +5670,18 @@ union RDC_PDAP89 {
   
   // Bit field definition.
   struct {
+    /// read-write - Domain 0 Write Access
     eD0W D0W : 1;
+    /// read-write - Domain 0 Read Access
     eD0R D0R : 1;
+    /// read-write - Domain 1 Write Access
     eD1W D1W : 1;
+    /// read-write - Domain 1 Read Access
     eD1R D1R : 1;
     uint32_t _reserved_0 : 26;
+    /// read-write - Semaphore Required
     eSREQ SREQ : 1;
+    /// read-write - Peripheral Permissions Lock
     eLCK LCK : 1;
   } bits;
   
@@ -5156,12 +5728,18 @@ union RDC_PDAP90 {
   
   // Bit field definition.
   struct {
+    /// read-write - Domain 0 Write Access
     eD0W D0W : 1;
+    /// read-write - Domain 0 Read Access
     eD0R D0R : 1;
+    /// read-write - Domain 1 Write Access
     eD1W D1W : 1;
+    /// read-write - Domain 1 Read Access
     eD1R D1R : 1;
     uint32_t _reserved_0 : 26;
+    /// read-write - Semaphore Required
     eSREQ SREQ : 1;
+    /// read-write - Peripheral Permissions Lock
     eLCK LCK : 1;
   } bits;
   
@@ -5208,12 +5786,18 @@ union RDC_PDAP91 {
   
   // Bit field definition.
   struct {
+    /// read-write - Domain 0 Write Access
     eD0W D0W : 1;
+    /// read-write - Domain 0 Read Access
     eD0R D0R : 1;
+    /// read-write - Domain 1 Write Access
     eD1W D1W : 1;
+    /// read-write - Domain 1 Read Access
     eD1R D1R : 1;
     uint32_t _reserved_0 : 26;
+    /// read-write - Semaphore Required
     eSREQ SREQ : 1;
+    /// read-write - Peripheral Permissions Lock
     eLCK LCK : 1;
   } bits;
   
@@ -5260,12 +5844,18 @@ union RDC_PDAP92 {
   
   // Bit field definition.
   struct {
+    /// read-write - Domain 0 Write Access
     eD0W D0W : 1;
+    /// read-write - Domain 0 Read Access
     eD0R D0R : 1;
+    /// read-write - Domain 1 Write Access
     eD1W D1W : 1;
+    /// read-write - Domain 1 Read Access
     eD1R D1R : 1;
     uint32_t _reserved_0 : 26;
+    /// read-write - Semaphore Required
     eSREQ SREQ : 1;
+    /// read-write - Peripheral Permissions Lock
     eLCK LCK : 1;
   } bits;
   
@@ -5312,12 +5902,18 @@ union RDC_PDAP93 {
   
   // Bit field definition.
   struct {
+    /// read-write - Domain 0 Write Access
     eD0W D0W : 1;
+    /// read-write - Domain 0 Read Access
     eD0R D0R : 1;
+    /// read-write - Domain 1 Write Access
     eD1W D1W : 1;
+    /// read-write - Domain 1 Read Access
     eD1R D1R : 1;
     uint32_t _reserved_0 : 26;
+    /// read-write - Semaphore Required
     eSREQ SREQ : 1;
+    /// read-write - Peripheral Permissions Lock
     eLCK LCK : 1;
   } bits;
   
@@ -5364,12 +5960,18 @@ union RDC_PDAP94 {
   
   // Bit field definition.
   struct {
+    /// read-write - Domain 0 Write Access
     eD0W D0W : 1;
+    /// read-write - Domain 0 Read Access
     eD0R D0R : 1;
+    /// read-write - Domain 1 Write Access
     eD1W D1W : 1;
+    /// read-write - Domain 1 Read Access
     eD1R D1R : 1;
     uint32_t _reserved_0 : 26;
+    /// read-write - Semaphore Required
     eSREQ SREQ : 1;
+    /// read-write - Peripheral Permissions Lock
     eLCK LCK : 1;
   } bits;
   
@@ -5416,12 +6018,18 @@ union RDC_PDAP95 {
   
   // Bit field definition.
   struct {
+    /// read-write - Domain 0 Write Access
     eD0W D0W : 1;
+    /// read-write - Domain 0 Read Access
     eD0R D0R : 1;
+    /// read-write - Domain 1 Write Access
     eD1W D1W : 1;
+    /// read-write - Domain 1 Read Access
     eD1R D1R : 1;
     uint32_t _reserved_0 : 26;
+    /// read-write - Semaphore Required
     eSREQ SREQ : 1;
+    /// read-write - Peripheral Permissions Lock
     eLCK LCK : 1;
   } bits;
   
@@ -5468,12 +6076,18 @@ union RDC_PDAP96 {
   
   // Bit field definition.
   struct {
+    /// read-write - Domain 0 Write Access
     eD0W D0W : 1;
+    /// read-write - Domain 0 Read Access
     eD0R D0R : 1;
+    /// read-write - Domain 1 Write Access
     eD1W D1W : 1;
+    /// read-write - Domain 1 Read Access
     eD1R D1R : 1;
     uint32_t _reserved_0 : 26;
+    /// read-write - Semaphore Required
     eSREQ SREQ : 1;
+    /// read-write - Peripheral Permissions Lock
     eLCK LCK : 1;
   } bits;
   
@@ -5520,12 +6134,18 @@ union RDC_PDAP97 {
   
   // Bit field definition.
   struct {
+    /// read-write - Domain 0 Write Access
     eD0W D0W : 1;
+    /// read-write - Domain 0 Read Access
     eD0R D0R : 1;
+    /// read-write - Domain 1 Write Access
     eD1W D1W : 1;
+    /// read-write - Domain 1 Read Access
     eD1R D1R : 1;
     uint32_t _reserved_0 : 26;
+    /// read-write - Semaphore Required
     eSREQ SREQ : 1;
+    /// read-write - Peripheral Permissions Lock
     eLCK LCK : 1;
   } bits;
   
@@ -5572,12 +6192,18 @@ union RDC_PDAP98 {
   
   // Bit field definition.
   struct {
+    /// read-write - Domain 0 Write Access
     eD0W D0W : 1;
+    /// read-write - Domain 0 Read Access
     eD0R D0R : 1;
+    /// read-write - Domain 1 Write Access
     eD1W D1W : 1;
+    /// read-write - Domain 1 Read Access
     eD1R D1R : 1;
     uint32_t _reserved_0 : 26;
+    /// read-write - Semaphore Required
     eSREQ SREQ : 1;
+    /// read-write - Peripheral Permissions Lock
     eLCK LCK : 1;
   } bits;
   
@@ -5624,12 +6250,18 @@ union RDC_PDAP99 {
   
   // Bit field definition.
   struct {
+    /// read-write - Domain 0 Write Access
     eD0W D0W : 1;
+    /// read-write - Domain 0 Read Access
     eD0R D0R : 1;
+    /// read-write - Domain 1 Write Access
     eD1W D1W : 1;
+    /// read-write - Domain 1 Read Access
     eD1R D1R : 1;
     uint32_t _reserved_0 : 26;
+    /// read-write - Semaphore Required
     eSREQ SREQ : 1;
+    /// read-write - Peripheral Permissions Lock
     eLCK LCK : 1;
   } bits;
   
@@ -5676,12 +6308,18 @@ union RDC_PDAP100 {
   
   // Bit field definition.
   struct {
+    /// read-write - Domain 0 Write Access
     eD0W D0W : 1;
+    /// read-write - Domain 0 Read Access
     eD0R D0R : 1;
+    /// read-write - Domain 1 Write Access
     eD1W D1W : 1;
+    /// read-write - Domain 1 Read Access
     eD1R D1R : 1;
     uint32_t _reserved_0 : 26;
+    /// read-write - Semaphore Required
     eSREQ SREQ : 1;
+    /// read-write - Peripheral Permissions Lock
     eLCK LCK : 1;
   } bits;
   
@@ -5728,12 +6366,18 @@ union RDC_PDAP101 {
   
   // Bit field definition.
   struct {
+    /// read-write - Domain 0 Write Access
     eD0W D0W : 1;
+    /// read-write - Domain 0 Read Access
     eD0R D0R : 1;
+    /// read-write - Domain 1 Write Access
     eD1W D1W : 1;
+    /// read-write - Domain 1 Read Access
     eD1R D1R : 1;
     uint32_t _reserved_0 : 26;
+    /// read-write - Semaphore Required
     eSREQ SREQ : 1;
+    /// read-write - Peripheral Permissions Lock
     eLCK LCK : 1;
   } bits;
   
@@ -5780,12 +6424,18 @@ union RDC_PDAP102 {
   
   // Bit field definition.
   struct {
+    /// read-write - Domain 0 Write Access
     eD0W D0W : 1;
+    /// read-write - Domain 0 Read Access
     eD0R D0R : 1;
+    /// read-write - Domain 1 Write Access
     eD1W D1W : 1;
+    /// read-write - Domain 1 Read Access
     eD1R D1R : 1;
     uint32_t _reserved_0 : 26;
+    /// read-write - Semaphore Required
     eSREQ SREQ : 1;
+    /// read-write - Peripheral Permissions Lock
     eLCK LCK : 1;
   } bits;
   
@@ -5832,12 +6482,18 @@ union RDC_PDAP103 {
   
   // Bit field definition.
   struct {
+    /// read-write - Domain 0 Write Access
     eD0W D0W : 1;
+    /// read-write - Domain 0 Read Access
     eD0R D0R : 1;
+    /// read-write - Domain 1 Write Access
     eD1W D1W : 1;
+    /// read-write - Domain 1 Read Access
     eD1R D1R : 1;
     uint32_t _reserved_0 : 26;
+    /// read-write - Semaphore Required
     eSREQ SREQ : 1;
+    /// read-write - Peripheral Permissions Lock
     eLCK LCK : 1;
   } bits;
   
@@ -5884,12 +6540,18 @@ union RDC_PDAP104 {
   
   // Bit field definition.
   struct {
+    /// read-write - Domain 0 Write Access
     eD0W D0W : 1;
+    /// read-write - Domain 0 Read Access
     eD0R D0R : 1;
+    /// read-write - Domain 1 Write Access
     eD1W D1W : 1;
+    /// read-write - Domain 1 Read Access
     eD1R D1R : 1;
     uint32_t _reserved_0 : 26;
+    /// read-write - Semaphore Required
     eSREQ SREQ : 1;
+    /// read-write - Peripheral Permissions Lock
     eLCK LCK : 1;
   } bits;
   
@@ -5936,12 +6598,18 @@ union RDC_PDAP105 {
   
   // Bit field definition.
   struct {
+    /// read-write - Domain 0 Write Access
     eD0W D0W : 1;
+    /// read-write - Domain 0 Read Access
     eD0R D0R : 1;
+    /// read-write - Domain 1 Write Access
     eD1W D1W : 1;
+    /// read-write - Domain 1 Read Access
     eD1R D1R : 1;
     uint32_t _reserved_0 : 26;
+    /// read-write - Semaphore Required
     eSREQ SREQ : 1;
+    /// read-write - Peripheral Permissions Lock
     eLCK LCK : 1;
   } bits;
   
@@ -5988,12 +6656,18 @@ union RDC_PDAP106 {
   
   // Bit field definition.
   struct {
+    /// read-write - Domain 0 Write Access
     eD0W D0W : 1;
+    /// read-write - Domain 0 Read Access
     eD0R D0R : 1;
+    /// read-write - Domain 1 Write Access
     eD1W D1W : 1;
+    /// read-write - Domain 1 Read Access
     eD1R D1R : 1;
     uint32_t _reserved_0 : 26;
+    /// read-write - Semaphore Required
     eSREQ SREQ : 1;
+    /// read-write - Peripheral Permissions Lock
     eLCK LCK : 1;
   } bits;
   
@@ -6040,12 +6714,18 @@ union RDC_PDAP107 {
   
   // Bit field definition.
   struct {
+    /// read-write - Domain 0 Write Access
     eD0W D0W : 1;
+    /// read-write - Domain 0 Read Access
     eD0R D0R : 1;
+    /// read-write - Domain 1 Write Access
     eD1W D1W : 1;
+    /// read-write - Domain 1 Read Access
     eD1R D1R : 1;
     uint32_t _reserved_0 : 26;
+    /// read-write - Semaphore Required
     eSREQ SREQ : 1;
+    /// read-write - Peripheral Permissions Lock
     eLCK LCK : 1;
   } bits;
   
@@ -6092,12 +6772,18 @@ union RDC_PDAP108 {
   
   // Bit field definition.
   struct {
+    /// read-write - Domain 0 Write Access
     eD0W D0W : 1;
+    /// read-write - Domain 0 Read Access
     eD0R D0R : 1;
+    /// read-write - Domain 1 Write Access
     eD1W D1W : 1;
+    /// read-write - Domain 1 Read Access
     eD1R D1R : 1;
     uint32_t _reserved_0 : 26;
+    /// read-write - Semaphore Required
     eSREQ SREQ : 1;
+    /// read-write - Peripheral Permissions Lock
     eLCK LCK : 1;
   } bits;
   
@@ -6144,12 +6830,18 @@ union RDC_PDAP109 {
   
   // Bit field definition.
   struct {
+    /// read-write - Domain 0 Write Access
     eD0W D0W : 1;
+    /// read-write - Domain 0 Read Access
     eD0R D0R : 1;
+    /// read-write - Domain 1 Write Access
     eD1W D1W : 1;
+    /// read-write - Domain 1 Read Access
     eD1R D1R : 1;
     uint32_t _reserved_0 : 26;
+    /// read-write - Semaphore Required
     eSREQ SREQ : 1;
+    /// read-write - Peripheral Permissions Lock
     eLCK LCK : 1;
   } bits;
   
@@ -6196,12 +6888,18 @@ union RDC_PDAP110 {
   
   // Bit field definition.
   struct {
+    /// read-write - Domain 0 Write Access
     eD0W D0W : 1;
+    /// read-write - Domain 0 Read Access
     eD0R D0R : 1;
+    /// read-write - Domain 1 Write Access
     eD1W D1W : 1;
+    /// read-write - Domain 1 Read Access
     eD1R D1R : 1;
     uint32_t _reserved_0 : 26;
+    /// read-write - Semaphore Required
     eSREQ SREQ : 1;
+    /// read-write - Peripheral Permissions Lock
     eLCK LCK : 1;
   } bits;
   
@@ -6248,12 +6946,18 @@ union RDC_PDAP111 {
   
   // Bit field definition.
   struct {
+    /// read-write - Domain 0 Write Access
     eD0W D0W : 1;
+    /// read-write - Domain 0 Read Access
     eD0R D0R : 1;
+    /// read-write - Domain 1 Write Access
     eD1W D1W : 1;
+    /// read-write - Domain 1 Read Access
     eD1R D1R : 1;
     uint32_t _reserved_0 : 26;
+    /// read-write - Semaphore Required
     eSREQ SREQ : 1;
+    /// read-write - Peripheral Permissions Lock
     eLCK LCK : 1;
   } bits;
   
@@ -6300,12 +7004,18 @@ union RDC_PDAP112 {
   
   // Bit field definition.
   struct {
+    /// read-write - Domain 0 Write Access
     eD0W D0W : 1;
+    /// read-write - Domain 0 Read Access
     eD0R D0R : 1;
+    /// read-write - Domain 1 Write Access
     eD1W D1W : 1;
+    /// read-write - Domain 1 Read Access
     eD1R D1R : 1;
     uint32_t _reserved_0 : 26;
+    /// read-write - Semaphore Required
     eSREQ SREQ : 1;
+    /// read-write - Peripheral Permissions Lock
     eLCK LCK : 1;
   } bits;
   
@@ -6352,12 +7062,18 @@ union RDC_PDAP113 {
   
   // Bit field definition.
   struct {
+    /// read-write - Domain 0 Write Access
     eD0W D0W : 1;
+    /// read-write - Domain 0 Read Access
     eD0R D0R : 1;
+    /// read-write - Domain 1 Write Access
     eD1W D1W : 1;
+    /// read-write - Domain 1 Read Access
     eD1R D1R : 1;
     uint32_t _reserved_0 : 26;
+    /// read-write - Semaphore Required
     eSREQ SREQ : 1;
+    /// read-write - Peripheral Permissions Lock
     eLCK LCK : 1;
   } bits;
   
@@ -6404,12 +7120,18 @@ union RDC_PDAP114 {
   
   // Bit field definition.
   struct {
+    /// read-write - Domain 0 Write Access
     eD0W D0W : 1;
+    /// read-write - Domain 0 Read Access
     eD0R D0R : 1;
+    /// read-write - Domain 1 Write Access
     eD1W D1W : 1;
+    /// read-write - Domain 1 Read Access
     eD1R D1R : 1;
     uint32_t _reserved_0 : 26;
+    /// read-write - Semaphore Required
     eSREQ SREQ : 1;
+    /// read-write - Peripheral Permissions Lock
     eLCK LCK : 1;
   } bits;
   
@@ -6456,12 +7178,18 @@ union RDC_PDAP115 {
   
   // Bit field definition.
   struct {
+    /// read-write - Domain 0 Write Access
     eD0W D0W : 1;
+    /// read-write - Domain 0 Read Access
     eD0R D0R : 1;
+    /// read-write - Domain 1 Write Access
     eD1W D1W : 1;
+    /// read-write - Domain 1 Read Access
     eD1R D1R : 1;
     uint32_t _reserved_0 : 26;
+    /// read-write - Semaphore Required
     eSREQ SREQ : 1;
+    /// read-write - Peripheral Permissions Lock
     eLCK LCK : 1;
   } bits;
   
@@ -6508,12 +7236,18 @@ union RDC_PDAP116 {
   
   // Bit field definition.
   struct {
+    /// read-write - Domain 0 Write Access
     eD0W D0W : 1;
+    /// read-write - Domain 0 Read Access
     eD0R D0R : 1;
+    /// read-write - Domain 1 Write Access
     eD1W D1W : 1;
+    /// read-write - Domain 1 Read Access
     eD1R D1R : 1;
     uint32_t _reserved_0 : 26;
+    /// read-write - Semaphore Required
     eSREQ SREQ : 1;
+    /// read-write - Peripheral Permissions Lock
     eLCK LCK : 1;
   } bits;
   
@@ -6560,12 +7294,18 @@ union RDC_PDAP117 {
   
   // Bit field definition.
   struct {
+    /// read-write - Domain 0 Write Access
     eD0W D0W : 1;
+    /// read-write - Domain 0 Read Access
     eD0R D0R : 1;
+    /// read-write - Domain 1 Write Access
     eD1W D1W : 1;
+    /// read-write - Domain 1 Read Access
     eD1R D1R : 1;
     uint32_t _reserved_0 : 26;
+    /// read-write - Semaphore Required
     eSREQ SREQ : 1;
+    /// read-write - Peripheral Permissions Lock
     eLCK LCK : 1;
   } bits;
   
@@ -6612,12 +7352,18 @@ union RDC_PDAP118 {
   
   // Bit field definition.
   struct {
+    /// read-write - Domain 0 Write Access
     eD0W D0W : 1;
+    /// read-write - Domain 0 Read Access
     eD0R D0R : 1;
+    /// read-write - Domain 1 Write Access
     eD1W D1W : 1;
+    /// read-write - Domain 1 Read Access
     eD1R D1R : 1;
     uint32_t _reserved_0 : 26;
+    /// read-write - Semaphore Required
     eSREQ SREQ : 1;
+    /// read-write - Peripheral Permissions Lock
     eLCK LCK : 1;
   } bits;
   
@@ -6664,12 +7410,18 @@ union RDC_PDAP119 {
   
   // Bit field definition.
   struct {
+    /// read-write - Domain 0 Write Access
     eD0W D0W : 1;
+    /// read-write - Domain 0 Read Access
     eD0R D0R : 1;
+    /// read-write - Domain 1 Write Access
     eD1W D1W : 1;
+    /// read-write - Domain 1 Read Access
     eD1R D1R : 1;
     uint32_t _reserved_0 : 26;
+    /// read-write - Semaphore Required
     eSREQ SREQ : 1;
+    /// read-write - Peripheral Permissions Lock
     eLCK LCK : 1;
   } bits;
   
@@ -6716,12 +7468,18 @@ union RDC_PDAP120 {
   
   // Bit field definition.
   struct {
+    /// read-write - Domain 0 Write Access
     eD0W D0W : 1;
+    /// read-write - Domain 0 Read Access
     eD0R D0R : 1;
+    /// read-write - Domain 1 Write Access
     eD1W D1W : 1;
+    /// read-write - Domain 1 Read Access
     eD1R D1R : 1;
     uint32_t _reserved_0 : 26;
+    /// read-write - Semaphore Required
     eSREQ SREQ : 1;
+    /// read-write - Peripheral Permissions Lock
     eLCK LCK : 1;
   } bits;
   
@@ -6768,12 +7526,18 @@ union RDC_PDAP121 {
   
   // Bit field definition.
   struct {
+    /// read-write - Domain 0 Write Access
     eD0W D0W : 1;
+    /// read-write - Domain 0 Read Access
     eD0R D0R : 1;
+    /// read-write - Domain 1 Write Access
     eD1W D1W : 1;
+    /// read-write - Domain 1 Read Access
     eD1R D1R : 1;
     uint32_t _reserved_0 : 26;
+    /// read-write - Semaphore Required
     eSREQ SREQ : 1;
+    /// read-write - Peripheral Permissions Lock
     eLCK LCK : 1;
   } bits;
   
@@ -6820,12 +7584,18 @@ union RDC_PDAP122 {
   
   // Bit field definition.
   struct {
+    /// read-write - Domain 0 Write Access
     eD0W D0W : 1;
+    /// read-write - Domain 0 Read Access
     eD0R D0R : 1;
+    /// read-write - Domain 1 Write Access
     eD1W D1W : 1;
+    /// read-write - Domain 1 Read Access
     eD1R D1R : 1;
     uint32_t _reserved_0 : 26;
+    /// read-write - Semaphore Required
     eSREQ SREQ : 1;
+    /// read-write - Peripheral Permissions Lock
     eLCK LCK : 1;
   } bits;
   
@@ -6872,12 +7642,18 @@ union RDC_PDAP123 {
   
   // Bit field definition.
   struct {
+    /// read-write - Domain 0 Write Access
     eD0W D0W : 1;
+    /// read-write - Domain 0 Read Access
     eD0R D0R : 1;
+    /// read-write - Domain 1 Write Access
     eD1W D1W : 1;
+    /// read-write - Domain 1 Read Access
     eD1R D1R : 1;
     uint32_t _reserved_0 : 26;
+    /// read-write - Semaphore Required
     eSREQ SREQ : 1;
+    /// read-write - Peripheral Permissions Lock
     eLCK LCK : 1;
   } bits;
   
@@ -6924,12 +7700,18 @@ union RDC_PDAP124 {
   
   // Bit field definition.
   struct {
+    /// read-write - Domain 0 Write Access
     eD0W D0W : 1;
+    /// read-write - Domain 0 Read Access
     eD0R D0R : 1;
+    /// read-write - Domain 1 Write Access
     eD1W D1W : 1;
+    /// read-write - Domain 1 Read Access
     eD1R D1R : 1;
     uint32_t _reserved_0 : 26;
+    /// read-write - Semaphore Required
     eSREQ SREQ : 1;
+    /// read-write - Peripheral Permissions Lock
     eLCK LCK : 1;
   } bits;
   
@@ -6976,12 +7758,18 @@ union RDC_PDAP125 {
   
   // Bit field definition.
   struct {
+    /// read-write - Domain 0 Write Access
     eD0W D0W : 1;
+    /// read-write - Domain 0 Read Access
     eD0R D0R : 1;
+    /// read-write - Domain 1 Write Access
     eD1W D1W : 1;
+    /// read-write - Domain 1 Read Access
     eD1R D1R : 1;
     uint32_t _reserved_0 : 26;
+    /// read-write - Semaphore Required
     eSREQ SREQ : 1;
+    /// read-write - Peripheral Permissions Lock
     eLCK LCK : 1;
   } bits;
   
@@ -7028,12 +7816,18 @@ union RDC_PDAP126 {
   
   // Bit field definition.
   struct {
+    /// read-write - Domain 0 Write Access
     eD0W D0W : 1;
+    /// read-write - Domain 0 Read Access
     eD0R D0R : 1;
+    /// read-write - Domain 1 Write Access
     eD1W D1W : 1;
+    /// read-write - Domain 1 Read Access
     eD1R D1R : 1;
     uint32_t _reserved_0 : 26;
+    /// read-write - Semaphore Required
     eSREQ SREQ : 1;
+    /// read-write - Peripheral Permissions Lock
     eLCK LCK : 1;
   } bits;
   
@@ -7080,12 +7874,18 @@ union RDC_PDAP127 {
   
   // Bit field definition.
   struct {
+    /// read-write - Domain 0 Write Access
     eD0W D0W : 1;
+    /// read-write - Domain 0 Read Access
     eD0R D0R : 1;
+    /// read-write - Domain 1 Write Access
     eD1W D1W : 1;
+    /// read-write - Domain 1 Read Access
     eD1R D1R : 1;
     uint32_t _reserved_0 : 26;
+    /// read-write - Semaphore Required
     eSREQ SREQ : 1;
+    /// read-write - Peripheral Permissions Lock
     eLCK LCK : 1;
   } bits;
   
@@ -7104,6 +7904,7 @@ union RDC_MRSA0 {
   // Bit field definition.
   struct {
     uint32_t _reserved_0 : 7;
+    /// read-write - Start address for memory region
     uint32_t SADR : 25;
   } bits;
   
@@ -7121,6 +7922,7 @@ union RDC_MRSA1 {
   // Bit field definition.
   struct {
     uint32_t _reserved_0 : 7;
+    /// read-write - Start address for memory region
     uint32_t SADR : 25;
   } bits;
   
@@ -7138,6 +7940,7 @@ union RDC_MRSA2 {
   // Bit field definition.
   struct {
     uint32_t _reserved_0 : 7;
+    /// read-write - Start address for memory region
     uint32_t SADR : 25;
   } bits;
   
@@ -7155,6 +7958,7 @@ union RDC_MRSA3 {
   // Bit field definition.
   struct {
     uint32_t _reserved_0 : 7;
+    /// read-write - Start address for memory region
     uint32_t SADR : 25;
   } bits;
   
@@ -7172,6 +7976,7 @@ union RDC_MRSA4 {
   // Bit field definition.
   struct {
     uint32_t _reserved_0 : 7;
+    /// read-write - Start address for memory region
     uint32_t SADR : 25;
   } bits;
   
@@ -7189,6 +7994,7 @@ union RDC_MRSA5 {
   // Bit field definition.
   struct {
     uint32_t _reserved_0 : 7;
+    /// read-write - Start address for memory region
     uint32_t SADR : 25;
   } bits;
   
@@ -7206,6 +8012,7 @@ union RDC_MRSA6 {
   // Bit field definition.
   struct {
     uint32_t _reserved_0 : 7;
+    /// read-write - Start address for memory region
     uint32_t SADR : 25;
   } bits;
   
@@ -7223,6 +8030,7 @@ union RDC_MRSA7 {
   // Bit field definition.
   struct {
     uint32_t _reserved_0 : 7;
+    /// read-write - Start address for memory region
     uint32_t SADR : 25;
   } bits;
   
@@ -7240,6 +8048,7 @@ union RDC_MRSA8 {
   // Bit field definition.
   struct {
     uint32_t _reserved_0 : 7;
+    /// read-write - Start address for memory region
     uint32_t SADR : 25;
   } bits;
   
@@ -7257,6 +8066,7 @@ union RDC_MRSA9 {
   // Bit field definition.
   struct {
     uint32_t _reserved_0 : 7;
+    /// read-write - Start address for memory region
     uint32_t SADR : 25;
   } bits;
   
@@ -7274,6 +8084,7 @@ union RDC_MRSA10 {
   // Bit field definition.
   struct {
     uint32_t _reserved_0 : 7;
+    /// read-write - Start address for memory region
     uint32_t SADR : 25;
   } bits;
   
@@ -7291,6 +8102,7 @@ union RDC_MRSA11 {
   // Bit field definition.
   struct {
     uint32_t _reserved_0 : 7;
+    /// read-write - Start address for memory region
     uint32_t SADR : 25;
   } bits;
   
@@ -7308,6 +8120,7 @@ union RDC_MRSA12 {
   // Bit field definition.
   struct {
     uint32_t _reserved_0 : 7;
+    /// read-write - Start address for memory region
     uint32_t SADR : 25;
   } bits;
   
@@ -7325,6 +8138,7 @@ union RDC_MRSA13 {
   // Bit field definition.
   struct {
     uint32_t _reserved_0 : 7;
+    /// read-write - Start address for memory region
     uint32_t SADR : 25;
   } bits;
   
@@ -7342,6 +8156,7 @@ union RDC_MRSA14 {
   // Bit field definition.
   struct {
     uint32_t _reserved_0 : 7;
+    /// read-write - Start address for memory region
     uint32_t SADR : 25;
   } bits;
   
@@ -7359,6 +8174,7 @@ union RDC_MRSA15 {
   // Bit field definition.
   struct {
     uint32_t _reserved_0 : 7;
+    /// read-write - Start address for memory region
     uint32_t SADR : 25;
   } bits;
   
@@ -7376,6 +8192,7 @@ union RDC_MRSA16 {
   // Bit field definition.
   struct {
     uint32_t _reserved_0 : 7;
+    /// read-write - Start address for memory region
     uint32_t SADR : 25;
   } bits;
   
@@ -7393,6 +8210,7 @@ union RDC_MRSA17 {
   // Bit field definition.
   struct {
     uint32_t _reserved_0 : 7;
+    /// read-write - Start address for memory region
     uint32_t SADR : 25;
   } bits;
   
@@ -7410,6 +8228,7 @@ union RDC_MRSA18 {
   // Bit field definition.
   struct {
     uint32_t _reserved_0 : 7;
+    /// read-write - Start address for memory region
     uint32_t SADR : 25;
   } bits;
   
@@ -7427,6 +8246,7 @@ union RDC_MRSA19 {
   // Bit field definition.
   struct {
     uint32_t _reserved_0 : 7;
+    /// read-write - Start address for memory region
     uint32_t SADR : 25;
   } bits;
   
@@ -7444,6 +8264,7 @@ union RDC_MRSA20 {
   // Bit field definition.
   struct {
     uint32_t _reserved_0 : 7;
+    /// read-write - Start address for memory region
     uint32_t SADR : 25;
   } bits;
   
@@ -7461,6 +8282,7 @@ union RDC_MRSA21 {
   // Bit field definition.
   struct {
     uint32_t _reserved_0 : 7;
+    /// read-write - Start address for memory region
     uint32_t SADR : 25;
   } bits;
   
@@ -7478,6 +8300,7 @@ union RDC_MRSA22 {
   // Bit field definition.
   struct {
     uint32_t _reserved_0 : 7;
+    /// read-write - Start address for memory region
     uint32_t SADR : 25;
   } bits;
   
@@ -7495,6 +8318,7 @@ union RDC_MRSA23 {
   // Bit field definition.
   struct {
     uint32_t _reserved_0 : 7;
+    /// read-write - Start address for memory region
     uint32_t SADR : 25;
   } bits;
   
@@ -7512,6 +8336,7 @@ union RDC_MRSA24 {
   // Bit field definition.
   struct {
     uint32_t _reserved_0 : 7;
+    /// read-write - Start address for memory region
     uint32_t SADR : 25;
   } bits;
   
@@ -7529,6 +8354,7 @@ union RDC_MRSA25 {
   // Bit field definition.
   struct {
     uint32_t _reserved_0 : 7;
+    /// read-write - Start address for memory region
     uint32_t SADR : 25;
   } bits;
   
@@ -7546,6 +8372,7 @@ union RDC_MRSA26 {
   // Bit field definition.
   struct {
     uint32_t _reserved_0 : 7;
+    /// read-write - Start address for memory region
     uint32_t SADR : 25;
   } bits;
   
@@ -7563,6 +8390,7 @@ union RDC_MRSA27 {
   // Bit field definition.
   struct {
     uint32_t _reserved_0 : 7;
+    /// read-write - Start address for memory region
     uint32_t SADR : 25;
   } bits;
   
@@ -7580,6 +8408,7 @@ union RDC_MRSA28 {
   // Bit field definition.
   struct {
     uint32_t _reserved_0 : 7;
+    /// read-write - Start address for memory region
     uint32_t SADR : 25;
   } bits;
   
@@ -7597,6 +8426,7 @@ union RDC_MRSA29 {
   // Bit field definition.
   struct {
     uint32_t _reserved_0 : 7;
+    /// read-write - Start address for memory region
     uint32_t SADR : 25;
   } bits;
   
@@ -7614,6 +8444,7 @@ union RDC_MRSA30 {
   // Bit field definition.
   struct {
     uint32_t _reserved_0 : 7;
+    /// read-write - Start address for memory region
     uint32_t SADR : 25;
   } bits;
   
@@ -7631,6 +8462,7 @@ union RDC_MRSA31 {
   // Bit field definition.
   struct {
     uint32_t _reserved_0 : 7;
+    /// read-write - Start address for memory region
     uint32_t SADR : 25;
   } bits;
   
@@ -7648,6 +8480,7 @@ union RDC_MRSA32 {
   // Bit field definition.
   struct {
     uint32_t _reserved_0 : 7;
+    /// read-write - Start address for memory region
     uint32_t SADR : 25;
   } bits;
   
@@ -7665,6 +8498,7 @@ union RDC_MRSA33 {
   // Bit field definition.
   struct {
     uint32_t _reserved_0 : 7;
+    /// read-write - Start address for memory region
     uint32_t SADR : 25;
   } bits;
   
@@ -7682,6 +8516,7 @@ union RDC_MRSA34 {
   // Bit field definition.
   struct {
     uint32_t _reserved_0 : 7;
+    /// read-write - Start address for memory region
     uint32_t SADR : 25;
   } bits;
   
@@ -7699,6 +8534,7 @@ union RDC_MRSA35 {
   // Bit field definition.
   struct {
     uint32_t _reserved_0 : 7;
+    /// read-write - Start address for memory region
     uint32_t SADR : 25;
   } bits;
   
@@ -7716,6 +8552,7 @@ union RDC_MRSA36 {
   // Bit field definition.
   struct {
     uint32_t _reserved_0 : 7;
+    /// read-write - Start address for memory region
     uint32_t SADR : 25;
   } bits;
   
@@ -7733,6 +8570,7 @@ union RDC_MRSA37 {
   // Bit field definition.
   struct {
     uint32_t _reserved_0 : 7;
+    /// read-write - Start address for memory region
     uint32_t SADR : 25;
   } bits;
   
@@ -7750,6 +8588,7 @@ union RDC_MRSA38 {
   // Bit field definition.
   struct {
     uint32_t _reserved_0 : 7;
+    /// read-write - Start address for memory region
     uint32_t SADR : 25;
   } bits;
   
@@ -7767,6 +8606,7 @@ union RDC_MRSA39 {
   // Bit field definition.
   struct {
     uint32_t _reserved_0 : 7;
+    /// read-write - Start address for memory region
     uint32_t SADR : 25;
   } bits;
   
@@ -7784,6 +8624,7 @@ union RDC_MRSA40 {
   // Bit field definition.
   struct {
     uint32_t _reserved_0 : 7;
+    /// read-write - Start address for memory region
     uint32_t SADR : 25;
   } bits;
   
@@ -7801,6 +8642,7 @@ union RDC_MRSA41 {
   // Bit field definition.
   struct {
     uint32_t _reserved_0 : 7;
+    /// read-write - Start address for memory region
     uint32_t SADR : 25;
   } bits;
   
@@ -7818,6 +8660,7 @@ union RDC_MRSA42 {
   // Bit field definition.
   struct {
     uint32_t _reserved_0 : 7;
+    /// read-write - Start address for memory region
     uint32_t SADR : 25;
   } bits;
   
@@ -7835,6 +8678,7 @@ union RDC_MRSA43 {
   // Bit field definition.
   struct {
     uint32_t _reserved_0 : 7;
+    /// read-write - Start address for memory region
     uint32_t SADR : 25;
   } bits;
   
@@ -7852,6 +8696,7 @@ union RDC_MRSA44 {
   // Bit field definition.
   struct {
     uint32_t _reserved_0 : 7;
+    /// read-write - Start address for memory region
     uint32_t SADR : 25;
   } bits;
   
@@ -7869,6 +8714,7 @@ union RDC_MRSA45 {
   // Bit field definition.
   struct {
     uint32_t _reserved_0 : 7;
+    /// read-write - Start address for memory region
     uint32_t SADR : 25;
   } bits;
   
@@ -7886,6 +8732,7 @@ union RDC_MRSA46 {
   // Bit field definition.
   struct {
     uint32_t _reserved_0 : 7;
+    /// read-write - Start address for memory region
     uint32_t SADR : 25;
   } bits;
   
@@ -7903,6 +8750,7 @@ union RDC_MRSA47 {
   // Bit field definition.
   struct {
     uint32_t _reserved_0 : 7;
+    /// read-write - Start address for memory region
     uint32_t SADR : 25;
   } bits;
   
@@ -7920,6 +8768,7 @@ union RDC_MRSA48 {
   // Bit field definition.
   struct {
     uint32_t _reserved_0 : 7;
+    /// read-write - Start address for memory region
     uint32_t SADR : 25;
   } bits;
   
@@ -7937,6 +8786,7 @@ union RDC_MRSA49 {
   // Bit field definition.
   struct {
     uint32_t _reserved_0 : 7;
+    /// read-write - Start address for memory region
     uint32_t SADR : 25;
   } bits;
   
@@ -7954,6 +8804,7 @@ union RDC_MRSA50 {
   // Bit field definition.
   struct {
     uint32_t _reserved_0 : 7;
+    /// read-write - Start address for memory region
     uint32_t SADR : 25;
   } bits;
   
@@ -7971,6 +8822,7 @@ union RDC_MRSA51 {
   // Bit field definition.
   struct {
     uint32_t _reserved_0 : 7;
+    /// read-write - Start address for memory region
     uint32_t SADR : 25;
   } bits;
   
@@ -7988,6 +8840,7 @@ union RDC_MRSA52 {
   // Bit field definition.
   struct {
     uint32_t _reserved_0 : 7;
+    /// read-write - Start address for memory region
     uint32_t SADR : 25;
   } bits;
   
@@ -8005,6 +8858,7 @@ union RDC_MRSA53 {
   // Bit field definition.
   struct {
     uint32_t _reserved_0 : 7;
+    /// read-write - Start address for memory region
     uint32_t SADR : 25;
   } bits;
   
@@ -8022,6 +8876,7 @@ union RDC_MRSA54 {
   // Bit field definition.
   struct {
     uint32_t _reserved_0 : 7;
+    /// read-write - Start address for memory region
     uint32_t SADR : 25;
   } bits;
   
@@ -8039,6 +8894,7 @@ union RDC_MRSA55 {
   // Bit field definition.
   struct {
     uint32_t _reserved_0 : 7;
+    /// read-write - Start address for memory region
     uint32_t SADR : 25;
   } bits;
   
@@ -8056,6 +8912,7 @@ union RDC_MRSA56 {
   // Bit field definition.
   struct {
     uint32_t _reserved_0 : 7;
+    /// read-write - Start address for memory region
     uint32_t SADR : 25;
   } bits;
   
@@ -8073,6 +8930,7 @@ union RDC_MRSA57 {
   // Bit field definition.
   struct {
     uint32_t _reserved_0 : 7;
+    /// read-write - Start address for memory region
     uint32_t SADR : 25;
   } bits;
   
@@ -8090,6 +8948,7 @@ union RDC_MRSA58 {
   // Bit field definition.
   struct {
     uint32_t _reserved_0 : 7;
+    /// read-write - Start address for memory region
     uint32_t SADR : 25;
   } bits;
   
@@ -8108,6 +8967,7 @@ union RDC_MREA0 {
   // Bit field definition.
   struct {
     uint32_t _reserved_0 : 7;
+    /// read-write - Upper bound for memory region
     uint32_t EADR : 25;
   } bits;
   
@@ -8125,6 +8985,7 @@ union RDC_MREA1 {
   // Bit field definition.
   struct {
     uint32_t _reserved_0 : 7;
+    /// read-write - Upper bound for memory region
     uint32_t EADR : 25;
   } bits;
   
@@ -8142,6 +9003,7 @@ union RDC_MREA2 {
   // Bit field definition.
   struct {
     uint32_t _reserved_0 : 7;
+    /// read-write - Upper bound for memory region
     uint32_t EADR : 25;
   } bits;
   
@@ -8159,6 +9021,7 @@ union RDC_MREA3 {
   // Bit field definition.
   struct {
     uint32_t _reserved_0 : 7;
+    /// read-write - Upper bound for memory region
     uint32_t EADR : 25;
   } bits;
   
@@ -8176,6 +9039,7 @@ union RDC_MREA4 {
   // Bit field definition.
   struct {
     uint32_t _reserved_0 : 7;
+    /// read-write - Upper bound for memory region
     uint32_t EADR : 25;
   } bits;
   
@@ -8193,6 +9057,7 @@ union RDC_MREA5 {
   // Bit field definition.
   struct {
     uint32_t _reserved_0 : 7;
+    /// read-write - Upper bound for memory region
     uint32_t EADR : 25;
   } bits;
   
@@ -8210,6 +9075,7 @@ union RDC_MREA6 {
   // Bit field definition.
   struct {
     uint32_t _reserved_0 : 7;
+    /// read-write - Upper bound for memory region
     uint32_t EADR : 25;
   } bits;
   
@@ -8227,6 +9093,7 @@ union RDC_MREA7 {
   // Bit field definition.
   struct {
     uint32_t _reserved_0 : 7;
+    /// read-write - Upper bound for memory region
     uint32_t EADR : 25;
   } bits;
   
@@ -8244,6 +9111,7 @@ union RDC_MREA8 {
   // Bit field definition.
   struct {
     uint32_t _reserved_0 : 7;
+    /// read-write - Upper bound for memory region
     uint32_t EADR : 25;
   } bits;
   
@@ -8261,6 +9129,7 @@ union RDC_MREA9 {
   // Bit field definition.
   struct {
     uint32_t _reserved_0 : 7;
+    /// read-write - Upper bound for memory region
     uint32_t EADR : 25;
   } bits;
   
@@ -8278,6 +9147,7 @@ union RDC_MREA10 {
   // Bit field definition.
   struct {
     uint32_t _reserved_0 : 7;
+    /// read-write - Upper bound for memory region
     uint32_t EADR : 25;
   } bits;
   
@@ -8295,6 +9165,7 @@ union RDC_MREA11 {
   // Bit field definition.
   struct {
     uint32_t _reserved_0 : 7;
+    /// read-write - Upper bound for memory region
     uint32_t EADR : 25;
   } bits;
   
@@ -8312,6 +9183,7 @@ union RDC_MREA12 {
   // Bit field definition.
   struct {
     uint32_t _reserved_0 : 7;
+    /// read-write - Upper bound for memory region
     uint32_t EADR : 25;
   } bits;
   
@@ -8329,6 +9201,7 @@ union RDC_MREA13 {
   // Bit field definition.
   struct {
     uint32_t _reserved_0 : 7;
+    /// read-write - Upper bound for memory region
     uint32_t EADR : 25;
   } bits;
   
@@ -8346,6 +9219,7 @@ union RDC_MREA14 {
   // Bit field definition.
   struct {
     uint32_t _reserved_0 : 7;
+    /// read-write - Upper bound for memory region
     uint32_t EADR : 25;
   } bits;
   
@@ -8363,6 +9237,7 @@ union RDC_MREA15 {
   // Bit field definition.
   struct {
     uint32_t _reserved_0 : 7;
+    /// read-write - Upper bound for memory region
     uint32_t EADR : 25;
   } bits;
   
@@ -8380,6 +9255,7 @@ union RDC_MREA16 {
   // Bit field definition.
   struct {
     uint32_t _reserved_0 : 7;
+    /// read-write - Upper bound for memory region
     uint32_t EADR : 25;
   } bits;
   
@@ -8397,6 +9273,7 @@ union RDC_MREA17 {
   // Bit field definition.
   struct {
     uint32_t _reserved_0 : 7;
+    /// read-write - Upper bound for memory region
     uint32_t EADR : 25;
   } bits;
   
@@ -8414,6 +9291,7 @@ union RDC_MREA18 {
   // Bit field definition.
   struct {
     uint32_t _reserved_0 : 7;
+    /// read-write - Upper bound for memory region
     uint32_t EADR : 25;
   } bits;
   
@@ -8431,6 +9309,7 @@ union RDC_MREA19 {
   // Bit field definition.
   struct {
     uint32_t _reserved_0 : 7;
+    /// read-write - Upper bound for memory region
     uint32_t EADR : 25;
   } bits;
   
@@ -8448,6 +9327,7 @@ union RDC_MREA20 {
   // Bit field definition.
   struct {
     uint32_t _reserved_0 : 7;
+    /// read-write - Upper bound for memory region
     uint32_t EADR : 25;
   } bits;
   
@@ -8465,6 +9345,7 @@ union RDC_MREA21 {
   // Bit field definition.
   struct {
     uint32_t _reserved_0 : 7;
+    /// read-write - Upper bound for memory region
     uint32_t EADR : 25;
   } bits;
   
@@ -8482,6 +9363,7 @@ union RDC_MREA22 {
   // Bit field definition.
   struct {
     uint32_t _reserved_0 : 7;
+    /// read-write - Upper bound for memory region
     uint32_t EADR : 25;
   } bits;
   
@@ -8499,6 +9381,7 @@ union RDC_MREA23 {
   // Bit field definition.
   struct {
     uint32_t _reserved_0 : 7;
+    /// read-write - Upper bound for memory region
     uint32_t EADR : 25;
   } bits;
   
@@ -8516,6 +9399,7 @@ union RDC_MREA24 {
   // Bit field definition.
   struct {
     uint32_t _reserved_0 : 7;
+    /// read-write - Upper bound for memory region
     uint32_t EADR : 25;
   } bits;
   
@@ -8533,6 +9417,7 @@ union RDC_MREA25 {
   // Bit field definition.
   struct {
     uint32_t _reserved_0 : 7;
+    /// read-write - Upper bound for memory region
     uint32_t EADR : 25;
   } bits;
   
@@ -8550,6 +9435,7 @@ union RDC_MREA26 {
   // Bit field definition.
   struct {
     uint32_t _reserved_0 : 7;
+    /// read-write - Upper bound for memory region
     uint32_t EADR : 25;
   } bits;
   
@@ -8567,6 +9453,7 @@ union RDC_MREA27 {
   // Bit field definition.
   struct {
     uint32_t _reserved_0 : 7;
+    /// read-write - Upper bound for memory region
     uint32_t EADR : 25;
   } bits;
   
@@ -8584,6 +9471,7 @@ union RDC_MREA28 {
   // Bit field definition.
   struct {
     uint32_t _reserved_0 : 7;
+    /// read-write - Upper bound for memory region
     uint32_t EADR : 25;
   } bits;
   
@@ -8601,6 +9489,7 @@ union RDC_MREA29 {
   // Bit field definition.
   struct {
     uint32_t _reserved_0 : 7;
+    /// read-write - Upper bound for memory region
     uint32_t EADR : 25;
   } bits;
   
@@ -8618,6 +9507,7 @@ union RDC_MREA30 {
   // Bit field definition.
   struct {
     uint32_t _reserved_0 : 7;
+    /// read-write - Upper bound for memory region
     uint32_t EADR : 25;
   } bits;
   
@@ -8635,6 +9525,7 @@ union RDC_MREA31 {
   // Bit field definition.
   struct {
     uint32_t _reserved_0 : 7;
+    /// read-write - Upper bound for memory region
     uint32_t EADR : 25;
   } bits;
   
@@ -8652,6 +9543,7 @@ union RDC_MREA32 {
   // Bit field definition.
   struct {
     uint32_t _reserved_0 : 7;
+    /// read-write - Upper bound for memory region
     uint32_t EADR : 25;
   } bits;
   
@@ -8669,6 +9561,7 @@ union RDC_MREA33 {
   // Bit field definition.
   struct {
     uint32_t _reserved_0 : 7;
+    /// read-write - Upper bound for memory region
     uint32_t EADR : 25;
   } bits;
   
@@ -8686,6 +9579,7 @@ union RDC_MREA34 {
   // Bit field definition.
   struct {
     uint32_t _reserved_0 : 7;
+    /// read-write - Upper bound for memory region
     uint32_t EADR : 25;
   } bits;
   
@@ -8703,6 +9597,7 @@ union RDC_MREA35 {
   // Bit field definition.
   struct {
     uint32_t _reserved_0 : 7;
+    /// read-write - Upper bound for memory region
     uint32_t EADR : 25;
   } bits;
   
@@ -8720,6 +9615,7 @@ union RDC_MREA36 {
   // Bit field definition.
   struct {
     uint32_t _reserved_0 : 7;
+    /// read-write - Upper bound for memory region
     uint32_t EADR : 25;
   } bits;
   
@@ -8737,6 +9633,7 @@ union RDC_MREA37 {
   // Bit field definition.
   struct {
     uint32_t _reserved_0 : 7;
+    /// read-write - Upper bound for memory region
     uint32_t EADR : 25;
   } bits;
   
@@ -8754,6 +9651,7 @@ union RDC_MREA38 {
   // Bit field definition.
   struct {
     uint32_t _reserved_0 : 7;
+    /// read-write - Upper bound for memory region
     uint32_t EADR : 25;
   } bits;
   
@@ -8771,6 +9669,7 @@ union RDC_MREA39 {
   // Bit field definition.
   struct {
     uint32_t _reserved_0 : 7;
+    /// read-write - Upper bound for memory region
     uint32_t EADR : 25;
   } bits;
   
@@ -8788,6 +9687,7 @@ union RDC_MREA40 {
   // Bit field definition.
   struct {
     uint32_t _reserved_0 : 7;
+    /// read-write - Upper bound for memory region
     uint32_t EADR : 25;
   } bits;
   
@@ -8805,6 +9705,7 @@ union RDC_MREA41 {
   // Bit field definition.
   struct {
     uint32_t _reserved_0 : 7;
+    /// read-write - Upper bound for memory region
     uint32_t EADR : 25;
   } bits;
   
@@ -8822,6 +9723,7 @@ union RDC_MREA42 {
   // Bit field definition.
   struct {
     uint32_t _reserved_0 : 7;
+    /// read-write - Upper bound for memory region
     uint32_t EADR : 25;
   } bits;
   
@@ -8839,6 +9741,7 @@ union RDC_MREA43 {
   // Bit field definition.
   struct {
     uint32_t _reserved_0 : 7;
+    /// read-write - Upper bound for memory region
     uint32_t EADR : 25;
   } bits;
   
@@ -8856,6 +9759,7 @@ union RDC_MREA44 {
   // Bit field definition.
   struct {
     uint32_t _reserved_0 : 7;
+    /// read-write - Upper bound for memory region
     uint32_t EADR : 25;
   } bits;
   
@@ -8873,6 +9777,7 @@ union RDC_MREA45 {
   // Bit field definition.
   struct {
     uint32_t _reserved_0 : 7;
+    /// read-write - Upper bound for memory region
     uint32_t EADR : 25;
   } bits;
   
@@ -8890,6 +9795,7 @@ union RDC_MREA46 {
   // Bit field definition.
   struct {
     uint32_t _reserved_0 : 7;
+    /// read-write - Upper bound for memory region
     uint32_t EADR : 25;
   } bits;
   
@@ -8907,6 +9813,7 @@ union RDC_MREA47 {
   // Bit field definition.
   struct {
     uint32_t _reserved_0 : 7;
+    /// read-write - Upper bound for memory region
     uint32_t EADR : 25;
   } bits;
   
@@ -8924,6 +9831,7 @@ union RDC_MREA48 {
   // Bit field definition.
   struct {
     uint32_t _reserved_0 : 7;
+    /// read-write - Upper bound for memory region
     uint32_t EADR : 25;
   } bits;
   
@@ -8941,6 +9849,7 @@ union RDC_MREA49 {
   // Bit field definition.
   struct {
     uint32_t _reserved_0 : 7;
+    /// read-write - Upper bound for memory region
     uint32_t EADR : 25;
   } bits;
   
@@ -8958,6 +9867,7 @@ union RDC_MREA50 {
   // Bit field definition.
   struct {
     uint32_t _reserved_0 : 7;
+    /// read-write - Upper bound for memory region
     uint32_t EADR : 25;
   } bits;
   
@@ -8975,6 +9885,7 @@ union RDC_MREA51 {
   // Bit field definition.
   struct {
     uint32_t _reserved_0 : 7;
+    /// read-write - Upper bound for memory region
     uint32_t EADR : 25;
   } bits;
   
@@ -8992,6 +9903,7 @@ union RDC_MREA52 {
   // Bit field definition.
   struct {
     uint32_t _reserved_0 : 7;
+    /// read-write - Upper bound for memory region
     uint32_t EADR : 25;
   } bits;
   
@@ -9009,6 +9921,7 @@ union RDC_MREA53 {
   // Bit field definition.
   struct {
     uint32_t _reserved_0 : 7;
+    /// read-write - Upper bound for memory region
     uint32_t EADR : 25;
   } bits;
   
@@ -9026,6 +9939,7 @@ union RDC_MREA54 {
   // Bit field definition.
   struct {
     uint32_t _reserved_0 : 7;
+    /// read-write - Upper bound for memory region
     uint32_t EADR : 25;
   } bits;
   
@@ -9043,6 +9957,7 @@ union RDC_MREA55 {
   // Bit field definition.
   struct {
     uint32_t _reserved_0 : 7;
+    /// read-write - Upper bound for memory region
     uint32_t EADR : 25;
   } bits;
   
@@ -9060,6 +9975,7 @@ union RDC_MREA56 {
   // Bit field definition.
   struct {
     uint32_t _reserved_0 : 7;
+    /// read-write - Upper bound for memory region
     uint32_t EADR : 25;
   } bits;
   
@@ -9077,6 +9993,7 @@ union RDC_MREA57 {
   // Bit field definition.
   struct {
     uint32_t _reserved_0 : 7;
+    /// read-write - Upper bound for memory region
     uint32_t EADR : 25;
   } bits;
   
@@ -9094,6 +10011,7 @@ union RDC_MREA58 {
   // Bit field definition.
   struct {
     uint32_t _reserved_0 : 7;
+    /// read-write - Upper bound for memory region
     uint32_t EADR : 25;
   } bits;
   
@@ -9141,12 +10059,18 @@ union RDC_MRC0 {
   
   // Bit field definition.
   struct {
+    /// read-write - Domain 0 Write Access to Region
     eD0W D0W : 1;
+    /// read-write - Domain 0 Read Access to Region
     eD0R D0R : 1;
+    /// read-write - Domain 1 Write Access to Region
     eD1W D1W : 1;
+    /// read-write - Domain 1 Read Access to Region
     eD1R D1R : 1;
     uint32_t _reserved_0 : 26;
+    /// read-write - Region Enable
     eENA ENA : 1;
+    /// read-write - Region Lock
     eLCK LCK : 1;
   } bits;
   
@@ -9193,12 +10117,18 @@ union RDC_MRC1 {
   
   // Bit field definition.
   struct {
+    /// read-write - Domain 0 Write Access to Region
     eD0W D0W : 1;
+    /// read-write - Domain 0 Read Access to Region
     eD0R D0R : 1;
+    /// read-write - Domain 1 Write Access to Region
     eD1W D1W : 1;
+    /// read-write - Domain 1 Read Access to Region
     eD1R D1R : 1;
     uint32_t _reserved_0 : 26;
+    /// read-write - Region Enable
     eENA ENA : 1;
+    /// read-write - Region Lock
     eLCK LCK : 1;
   } bits;
   
@@ -9245,12 +10175,18 @@ union RDC_MRC2 {
   
   // Bit field definition.
   struct {
+    /// read-write - Domain 0 Write Access to Region
     eD0W D0W : 1;
+    /// read-write - Domain 0 Read Access to Region
     eD0R D0R : 1;
+    /// read-write - Domain 1 Write Access to Region
     eD1W D1W : 1;
+    /// read-write - Domain 1 Read Access to Region
     eD1R D1R : 1;
     uint32_t _reserved_0 : 26;
+    /// read-write - Region Enable
     eENA ENA : 1;
+    /// read-write - Region Lock
     eLCK LCK : 1;
   } bits;
   
@@ -9297,12 +10233,18 @@ union RDC_MRC3 {
   
   // Bit field definition.
   struct {
+    /// read-write - Domain 0 Write Access to Region
     eD0W D0W : 1;
+    /// read-write - Domain 0 Read Access to Region
     eD0R D0R : 1;
+    /// read-write - Domain 1 Write Access to Region
     eD1W D1W : 1;
+    /// read-write - Domain 1 Read Access to Region
     eD1R D1R : 1;
     uint32_t _reserved_0 : 26;
+    /// read-write - Region Enable
     eENA ENA : 1;
+    /// read-write - Region Lock
     eLCK LCK : 1;
   } bits;
   
@@ -9349,12 +10291,18 @@ union RDC_MRC4 {
   
   // Bit field definition.
   struct {
+    /// read-write - Domain 0 Write Access to Region
     eD0W D0W : 1;
+    /// read-write - Domain 0 Read Access to Region
     eD0R D0R : 1;
+    /// read-write - Domain 1 Write Access to Region
     eD1W D1W : 1;
+    /// read-write - Domain 1 Read Access to Region
     eD1R D1R : 1;
     uint32_t _reserved_0 : 26;
+    /// read-write - Region Enable
     eENA ENA : 1;
+    /// read-write - Region Lock
     eLCK LCK : 1;
   } bits;
   
@@ -9401,12 +10349,18 @@ union RDC_MRC5 {
   
   // Bit field definition.
   struct {
+    /// read-write - Domain 0 Write Access to Region
     eD0W D0W : 1;
+    /// read-write - Domain 0 Read Access to Region
     eD0R D0R : 1;
+    /// read-write - Domain 1 Write Access to Region
     eD1W D1W : 1;
+    /// read-write - Domain 1 Read Access to Region
     eD1R D1R : 1;
     uint32_t _reserved_0 : 26;
+    /// read-write - Region Enable
     eENA ENA : 1;
+    /// read-write - Region Lock
     eLCK LCK : 1;
   } bits;
   
@@ -9453,12 +10407,18 @@ union RDC_MRC6 {
   
   // Bit field definition.
   struct {
+    /// read-write - Domain 0 Write Access to Region
     eD0W D0W : 1;
+    /// read-write - Domain 0 Read Access to Region
     eD0R D0R : 1;
+    /// read-write - Domain 1 Write Access to Region
     eD1W D1W : 1;
+    /// read-write - Domain 1 Read Access to Region
     eD1R D1R : 1;
     uint32_t _reserved_0 : 26;
+    /// read-write - Region Enable
     eENA ENA : 1;
+    /// read-write - Region Lock
     eLCK LCK : 1;
   } bits;
   
@@ -9505,12 +10465,18 @@ union RDC_MRC7 {
   
   // Bit field definition.
   struct {
+    /// read-write - Domain 0 Write Access to Region
     eD0W D0W : 1;
+    /// read-write - Domain 0 Read Access to Region
     eD0R D0R : 1;
+    /// read-write - Domain 1 Write Access to Region
     eD1W D1W : 1;
+    /// read-write - Domain 1 Read Access to Region
     eD1R D1R : 1;
     uint32_t _reserved_0 : 26;
+    /// read-write - Region Enable
     eENA ENA : 1;
+    /// read-write - Region Lock
     eLCK LCK : 1;
   } bits;
   
@@ -9557,12 +10523,18 @@ union RDC_MRC8 {
   
   // Bit field definition.
   struct {
+    /// read-write - Domain 0 Write Access to Region
     eD0W D0W : 1;
+    /// read-write - Domain 0 Read Access to Region
     eD0R D0R : 1;
+    /// read-write - Domain 1 Write Access to Region
     eD1W D1W : 1;
+    /// read-write - Domain 1 Read Access to Region
     eD1R D1R : 1;
     uint32_t _reserved_0 : 26;
+    /// read-write - Region Enable
     eENA ENA : 1;
+    /// read-write - Region Lock
     eLCK LCK : 1;
   } bits;
   
@@ -9609,12 +10581,18 @@ union RDC_MRC9 {
   
   // Bit field definition.
   struct {
+    /// read-write - Domain 0 Write Access to Region
     eD0W D0W : 1;
+    /// read-write - Domain 0 Read Access to Region
     eD0R D0R : 1;
+    /// read-write - Domain 1 Write Access to Region
     eD1W D1W : 1;
+    /// read-write - Domain 1 Read Access to Region
     eD1R D1R : 1;
     uint32_t _reserved_0 : 26;
+    /// read-write - Region Enable
     eENA ENA : 1;
+    /// read-write - Region Lock
     eLCK LCK : 1;
   } bits;
   
@@ -9661,12 +10639,18 @@ union RDC_MRC10 {
   
   // Bit field definition.
   struct {
+    /// read-write - Domain 0 Write Access to Region
     eD0W D0W : 1;
+    /// read-write - Domain 0 Read Access to Region
     eD0R D0R : 1;
+    /// read-write - Domain 1 Write Access to Region
     eD1W D1W : 1;
+    /// read-write - Domain 1 Read Access to Region
     eD1R D1R : 1;
     uint32_t _reserved_0 : 26;
+    /// read-write - Region Enable
     eENA ENA : 1;
+    /// read-write - Region Lock
     eLCK LCK : 1;
   } bits;
   
@@ -9713,12 +10697,18 @@ union RDC_MRC11 {
   
   // Bit field definition.
   struct {
+    /// read-write - Domain 0 Write Access to Region
     eD0W D0W : 1;
+    /// read-write - Domain 0 Read Access to Region
     eD0R D0R : 1;
+    /// read-write - Domain 1 Write Access to Region
     eD1W D1W : 1;
+    /// read-write - Domain 1 Read Access to Region
     eD1R D1R : 1;
     uint32_t _reserved_0 : 26;
+    /// read-write - Region Enable
     eENA ENA : 1;
+    /// read-write - Region Lock
     eLCK LCK : 1;
   } bits;
   
@@ -9765,12 +10755,18 @@ union RDC_MRC12 {
   
   // Bit field definition.
   struct {
+    /// read-write - Domain 0 Write Access to Region
     eD0W D0W : 1;
+    /// read-write - Domain 0 Read Access to Region
     eD0R D0R : 1;
+    /// read-write - Domain 1 Write Access to Region
     eD1W D1W : 1;
+    /// read-write - Domain 1 Read Access to Region
     eD1R D1R : 1;
     uint32_t _reserved_0 : 26;
+    /// read-write - Region Enable
     eENA ENA : 1;
+    /// read-write - Region Lock
     eLCK LCK : 1;
   } bits;
   
@@ -9817,12 +10813,18 @@ union RDC_MRC13 {
   
   // Bit field definition.
   struct {
+    /// read-write - Domain 0 Write Access to Region
     eD0W D0W : 1;
+    /// read-write - Domain 0 Read Access to Region
     eD0R D0R : 1;
+    /// read-write - Domain 1 Write Access to Region
     eD1W D1W : 1;
+    /// read-write - Domain 1 Read Access to Region
     eD1R D1R : 1;
     uint32_t _reserved_0 : 26;
+    /// read-write - Region Enable
     eENA ENA : 1;
+    /// read-write - Region Lock
     eLCK LCK : 1;
   } bits;
   
@@ -9869,12 +10871,18 @@ union RDC_MRC14 {
   
   // Bit field definition.
   struct {
+    /// read-write - Domain 0 Write Access to Region
     eD0W D0W : 1;
+    /// read-write - Domain 0 Read Access to Region
     eD0R D0R : 1;
+    /// read-write - Domain 1 Write Access to Region
     eD1W D1W : 1;
+    /// read-write - Domain 1 Read Access to Region
     eD1R D1R : 1;
     uint32_t _reserved_0 : 26;
+    /// read-write - Region Enable
     eENA ENA : 1;
+    /// read-write - Region Lock
     eLCK LCK : 1;
   } bits;
   
@@ -9921,12 +10929,18 @@ union RDC_MRC15 {
   
   // Bit field definition.
   struct {
+    /// read-write - Domain 0 Write Access to Region
     eD0W D0W : 1;
+    /// read-write - Domain 0 Read Access to Region
     eD0R D0R : 1;
+    /// read-write - Domain 1 Write Access to Region
     eD1W D1W : 1;
+    /// read-write - Domain 1 Read Access to Region
     eD1R D1R : 1;
     uint32_t _reserved_0 : 26;
+    /// read-write - Region Enable
     eENA ENA : 1;
+    /// read-write - Region Lock
     eLCK LCK : 1;
   } bits;
   
@@ -9973,12 +10987,18 @@ union RDC_MRC16 {
   
   // Bit field definition.
   struct {
+    /// read-write - Domain 0 Write Access to Region
     eD0W D0W : 1;
+    /// read-write - Domain 0 Read Access to Region
     eD0R D0R : 1;
+    /// read-write - Domain 1 Write Access to Region
     eD1W D1W : 1;
+    /// read-write - Domain 1 Read Access to Region
     eD1R D1R : 1;
     uint32_t _reserved_0 : 26;
+    /// read-write - Region Enable
     eENA ENA : 1;
+    /// read-write - Region Lock
     eLCK LCK : 1;
   } bits;
   
@@ -10025,12 +11045,18 @@ union RDC_MRC17 {
   
   // Bit field definition.
   struct {
+    /// read-write - Domain 0 Write Access to Region
     eD0W D0W : 1;
+    /// read-write - Domain 0 Read Access to Region
     eD0R D0R : 1;
+    /// read-write - Domain 1 Write Access to Region
     eD1W D1W : 1;
+    /// read-write - Domain 1 Read Access to Region
     eD1R D1R : 1;
     uint32_t _reserved_0 : 26;
+    /// read-write - Region Enable
     eENA ENA : 1;
+    /// read-write - Region Lock
     eLCK LCK : 1;
   } bits;
   
@@ -10077,12 +11103,18 @@ union RDC_MRC18 {
   
   // Bit field definition.
   struct {
+    /// read-write - Domain 0 Write Access to Region
     eD0W D0W : 1;
+    /// read-write - Domain 0 Read Access to Region
     eD0R D0R : 1;
+    /// read-write - Domain 1 Write Access to Region
     eD1W D1W : 1;
+    /// read-write - Domain 1 Read Access to Region
     eD1R D1R : 1;
     uint32_t _reserved_0 : 26;
+    /// read-write - Region Enable
     eENA ENA : 1;
+    /// read-write - Region Lock
     eLCK LCK : 1;
   } bits;
   
@@ -10129,12 +11161,18 @@ union RDC_MRC19 {
   
   // Bit field definition.
   struct {
+    /// read-write - Domain 0 Write Access to Region
     eD0W D0W : 1;
+    /// read-write - Domain 0 Read Access to Region
     eD0R D0R : 1;
+    /// read-write - Domain 1 Write Access to Region
     eD1W D1W : 1;
+    /// read-write - Domain 1 Read Access to Region
     eD1R D1R : 1;
     uint32_t _reserved_0 : 26;
+    /// read-write - Region Enable
     eENA ENA : 1;
+    /// read-write - Region Lock
     eLCK LCK : 1;
   } bits;
   
@@ -10181,12 +11219,18 @@ union RDC_MRC20 {
   
   // Bit field definition.
   struct {
+    /// read-write - Domain 0 Write Access to Region
     eD0W D0W : 1;
+    /// read-write - Domain 0 Read Access to Region
     eD0R D0R : 1;
+    /// read-write - Domain 1 Write Access to Region
     eD1W D1W : 1;
+    /// read-write - Domain 1 Read Access to Region
     eD1R D1R : 1;
     uint32_t _reserved_0 : 26;
+    /// read-write - Region Enable
     eENA ENA : 1;
+    /// read-write - Region Lock
     eLCK LCK : 1;
   } bits;
   
@@ -10233,12 +11277,18 @@ union RDC_MRC21 {
   
   // Bit field definition.
   struct {
+    /// read-write - Domain 0 Write Access to Region
     eD0W D0W : 1;
+    /// read-write - Domain 0 Read Access to Region
     eD0R D0R : 1;
+    /// read-write - Domain 1 Write Access to Region
     eD1W D1W : 1;
+    /// read-write - Domain 1 Read Access to Region
     eD1R D1R : 1;
     uint32_t _reserved_0 : 26;
+    /// read-write - Region Enable
     eENA ENA : 1;
+    /// read-write - Region Lock
     eLCK LCK : 1;
   } bits;
   
@@ -10285,12 +11335,18 @@ union RDC_MRC22 {
   
   // Bit field definition.
   struct {
+    /// read-write - Domain 0 Write Access to Region
     eD0W D0W : 1;
+    /// read-write - Domain 0 Read Access to Region
     eD0R D0R : 1;
+    /// read-write - Domain 1 Write Access to Region
     eD1W D1W : 1;
+    /// read-write - Domain 1 Read Access to Region
     eD1R D1R : 1;
     uint32_t _reserved_0 : 26;
+    /// read-write - Region Enable
     eENA ENA : 1;
+    /// read-write - Region Lock
     eLCK LCK : 1;
   } bits;
   
@@ -10337,12 +11393,18 @@ union RDC_MRC23 {
   
   // Bit field definition.
   struct {
+    /// read-write - Domain 0 Write Access to Region
     eD0W D0W : 1;
+    /// read-write - Domain 0 Read Access to Region
     eD0R D0R : 1;
+    /// read-write - Domain 1 Write Access to Region
     eD1W D1W : 1;
+    /// read-write - Domain 1 Read Access to Region
     eD1R D1R : 1;
     uint32_t _reserved_0 : 26;
+    /// read-write - Region Enable
     eENA ENA : 1;
+    /// read-write - Region Lock
     eLCK LCK : 1;
   } bits;
   
@@ -10389,12 +11451,18 @@ union RDC_MRC24 {
   
   // Bit field definition.
   struct {
+    /// read-write - Domain 0 Write Access to Region
     eD0W D0W : 1;
+    /// read-write - Domain 0 Read Access to Region
     eD0R D0R : 1;
+    /// read-write - Domain 1 Write Access to Region
     eD1W D1W : 1;
+    /// read-write - Domain 1 Read Access to Region
     eD1R D1R : 1;
     uint32_t _reserved_0 : 26;
+    /// read-write - Region Enable
     eENA ENA : 1;
+    /// read-write - Region Lock
     eLCK LCK : 1;
   } bits;
   
@@ -10441,12 +11509,18 @@ union RDC_MRC25 {
   
   // Bit field definition.
   struct {
+    /// read-write - Domain 0 Write Access to Region
     eD0W D0W : 1;
+    /// read-write - Domain 0 Read Access to Region
     eD0R D0R : 1;
+    /// read-write - Domain 1 Write Access to Region
     eD1W D1W : 1;
+    /// read-write - Domain 1 Read Access to Region
     eD1R D1R : 1;
     uint32_t _reserved_0 : 26;
+    /// read-write - Region Enable
     eENA ENA : 1;
+    /// read-write - Region Lock
     eLCK LCK : 1;
   } bits;
   
@@ -10493,12 +11567,18 @@ union RDC_MRC26 {
   
   // Bit field definition.
   struct {
+    /// read-write - Domain 0 Write Access to Region
     eD0W D0W : 1;
+    /// read-write - Domain 0 Read Access to Region
     eD0R D0R : 1;
+    /// read-write - Domain 1 Write Access to Region
     eD1W D1W : 1;
+    /// read-write - Domain 1 Read Access to Region
     eD1R D1R : 1;
     uint32_t _reserved_0 : 26;
+    /// read-write - Region Enable
     eENA ENA : 1;
+    /// read-write - Region Lock
     eLCK LCK : 1;
   } bits;
   
@@ -10545,12 +11625,18 @@ union RDC_MRC27 {
   
   // Bit field definition.
   struct {
+    /// read-write - Domain 0 Write Access to Region
     eD0W D0W : 1;
+    /// read-write - Domain 0 Read Access to Region
     eD0R D0R : 1;
+    /// read-write - Domain 1 Write Access to Region
     eD1W D1W : 1;
+    /// read-write - Domain 1 Read Access to Region
     eD1R D1R : 1;
     uint32_t _reserved_0 : 26;
+    /// read-write - Region Enable
     eENA ENA : 1;
+    /// read-write - Region Lock
     eLCK LCK : 1;
   } bits;
   
@@ -10597,12 +11683,18 @@ union RDC_MRC28 {
   
   // Bit field definition.
   struct {
+    /// read-write - Domain 0 Write Access to Region
     eD0W D0W : 1;
+    /// read-write - Domain 0 Read Access to Region
     eD0R D0R : 1;
+    /// read-write - Domain 1 Write Access to Region
     eD1W D1W : 1;
+    /// read-write - Domain 1 Read Access to Region
     eD1R D1R : 1;
     uint32_t _reserved_0 : 26;
+    /// read-write - Region Enable
     eENA ENA : 1;
+    /// read-write - Region Lock
     eLCK LCK : 1;
   } bits;
   
@@ -10649,12 +11741,18 @@ union RDC_MRC29 {
   
   // Bit field definition.
   struct {
+    /// read-write - Domain 0 Write Access to Region
     eD0W D0W : 1;
+    /// read-write - Domain 0 Read Access to Region
     eD0R D0R : 1;
+    /// read-write - Domain 1 Write Access to Region
     eD1W D1W : 1;
+    /// read-write - Domain 1 Read Access to Region
     eD1R D1R : 1;
     uint32_t _reserved_0 : 26;
+    /// read-write - Region Enable
     eENA ENA : 1;
+    /// read-write - Region Lock
     eLCK LCK : 1;
   } bits;
   
@@ -10701,12 +11799,18 @@ union RDC_MRC30 {
   
   // Bit field definition.
   struct {
+    /// read-write - Domain 0 Write Access to Region
     eD0W D0W : 1;
+    /// read-write - Domain 0 Read Access to Region
     eD0R D0R : 1;
+    /// read-write - Domain 1 Write Access to Region
     eD1W D1W : 1;
+    /// read-write - Domain 1 Read Access to Region
     eD1R D1R : 1;
     uint32_t _reserved_0 : 26;
+    /// read-write - Region Enable
     eENA ENA : 1;
+    /// read-write - Region Lock
     eLCK LCK : 1;
   } bits;
   
@@ -10753,12 +11857,18 @@ union RDC_MRC31 {
   
   // Bit field definition.
   struct {
+    /// read-write - Domain 0 Write Access to Region
     eD0W D0W : 1;
+    /// read-write - Domain 0 Read Access to Region
     eD0R D0R : 1;
+    /// read-write - Domain 1 Write Access to Region
     eD1W D1W : 1;
+    /// read-write - Domain 1 Read Access to Region
     eD1R D1R : 1;
     uint32_t _reserved_0 : 26;
+    /// read-write - Region Enable
     eENA ENA : 1;
+    /// read-write - Region Lock
     eLCK LCK : 1;
   } bits;
   
@@ -10805,12 +11915,18 @@ union RDC_MRC32 {
   
   // Bit field definition.
   struct {
+    /// read-write - Domain 0 Write Access to Region
     eD0W D0W : 1;
+    /// read-write - Domain 0 Read Access to Region
     eD0R D0R : 1;
+    /// read-write - Domain 1 Write Access to Region
     eD1W D1W : 1;
+    /// read-write - Domain 1 Read Access to Region
     eD1R D1R : 1;
     uint32_t _reserved_0 : 26;
+    /// read-write - Region Enable
     eENA ENA : 1;
+    /// read-write - Region Lock
     eLCK LCK : 1;
   } bits;
   
@@ -10857,12 +11973,18 @@ union RDC_MRC33 {
   
   // Bit field definition.
   struct {
+    /// read-write - Domain 0 Write Access to Region
     eD0W D0W : 1;
+    /// read-write - Domain 0 Read Access to Region
     eD0R D0R : 1;
+    /// read-write - Domain 1 Write Access to Region
     eD1W D1W : 1;
+    /// read-write - Domain 1 Read Access to Region
     eD1R D1R : 1;
     uint32_t _reserved_0 : 26;
+    /// read-write - Region Enable
     eENA ENA : 1;
+    /// read-write - Region Lock
     eLCK LCK : 1;
   } bits;
   
@@ -10909,12 +12031,18 @@ union RDC_MRC34 {
   
   // Bit field definition.
   struct {
+    /// read-write - Domain 0 Write Access to Region
     eD0W D0W : 1;
+    /// read-write - Domain 0 Read Access to Region
     eD0R D0R : 1;
+    /// read-write - Domain 1 Write Access to Region
     eD1W D1W : 1;
+    /// read-write - Domain 1 Read Access to Region
     eD1R D1R : 1;
     uint32_t _reserved_0 : 26;
+    /// read-write - Region Enable
     eENA ENA : 1;
+    /// read-write - Region Lock
     eLCK LCK : 1;
   } bits;
   
@@ -10961,12 +12089,18 @@ union RDC_MRC35 {
   
   // Bit field definition.
   struct {
+    /// read-write - Domain 0 Write Access to Region
     eD0W D0W : 1;
+    /// read-write - Domain 0 Read Access to Region
     eD0R D0R : 1;
+    /// read-write - Domain 1 Write Access to Region
     eD1W D1W : 1;
+    /// read-write - Domain 1 Read Access to Region
     eD1R D1R : 1;
     uint32_t _reserved_0 : 26;
+    /// read-write - Region Enable
     eENA ENA : 1;
+    /// read-write - Region Lock
     eLCK LCK : 1;
   } bits;
   
@@ -11013,12 +12147,18 @@ union RDC_MRC36 {
   
   // Bit field definition.
   struct {
+    /// read-write - Domain 0 Write Access to Region
     eD0W D0W : 1;
+    /// read-write - Domain 0 Read Access to Region
     eD0R D0R : 1;
+    /// read-write - Domain 1 Write Access to Region
     eD1W D1W : 1;
+    /// read-write - Domain 1 Read Access to Region
     eD1R D1R : 1;
     uint32_t _reserved_0 : 26;
+    /// read-write - Region Enable
     eENA ENA : 1;
+    /// read-write - Region Lock
     eLCK LCK : 1;
   } bits;
   
@@ -11065,12 +12205,18 @@ union RDC_MRC37 {
   
   // Bit field definition.
   struct {
+    /// read-write - Domain 0 Write Access to Region
     eD0W D0W : 1;
+    /// read-write - Domain 0 Read Access to Region
     eD0R D0R : 1;
+    /// read-write - Domain 1 Write Access to Region
     eD1W D1W : 1;
+    /// read-write - Domain 1 Read Access to Region
     eD1R D1R : 1;
     uint32_t _reserved_0 : 26;
+    /// read-write - Region Enable
     eENA ENA : 1;
+    /// read-write - Region Lock
     eLCK LCK : 1;
   } bits;
   
@@ -11117,12 +12263,18 @@ union RDC_MRC38 {
   
   // Bit field definition.
   struct {
+    /// read-write - Domain 0 Write Access to Region
     eD0W D0W : 1;
+    /// read-write - Domain 0 Read Access to Region
     eD0R D0R : 1;
+    /// read-write - Domain 1 Write Access to Region
     eD1W D1W : 1;
+    /// read-write - Domain 1 Read Access to Region
     eD1R D1R : 1;
     uint32_t _reserved_0 : 26;
+    /// read-write - Region Enable
     eENA ENA : 1;
+    /// read-write - Region Lock
     eLCK LCK : 1;
   } bits;
   
@@ -11169,12 +12321,18 @@ union RDC_MRC39 {
   
   // Bit field definition.
   struct {
+    /// read-write - Domain 0 Write Access to Region
     eD0W D0W : 1;
+    /// read-write - Domain 0 Read Access to Region
     eD0R D0R : 1;
+    /// read-write - Domain 1 Write Access to Region
     eD1W D1W : 1;
+    /// read-write - Domain 1 Read Access to Region
     eD1R D1R : 1;
     uint32_t _reserved_0 : 26;
+    /// read-write - Region Enable
     eENA ENA : 1;
+    /// read-write - Region Lock
     eLCK LCK : 1;
   } bits;
   
@@ -11221,12 +12379,18 @@ union RDC_MRC40 {
   
   // Bit field definition.
   struct {
+    /// read-write - Domain 0 Write Access to Region
     eD0W D0W : 1;
+    /// read-write - Domain 0 Read Access to Region
     eD0R D0R : 1;
+    /// read-write - Domain 1 Write Access to Region
     eD1W D1W : 1;
+    /// read-write - Domain 1 Read Access to Region
     eD1R D1R : 1;
     uint32_t _reserved_0 : 26;
+    /// read-write - Region Enable
     eENA ENA : 1;
+    /// read-write - Region Lock
     eLCK LCK : 1;
   } bits;
   
@@ -11273,12 +12437,18 @@ union RDC_MRC41 {
   
   // Bit field definition.
   struct {
+    /// read-write - Domain 0 Write Access to Region
     eD0W D0W : 1;
+    /// read-write - Domain 0 Read Access to Region
     eD0R D0R : 1;
+    /// read-write - Domain 1 Write Access to Region
     eD1W D1W : 1;
+    /// read-write - Domain 1 Read Access to Region
     eD1R D1R : 1;
     uint32_t _reserved_0 : 26;
+    /// read-write - Region Enable
     eENA ENA : 1;
+    /// read-write - Region Lock
     eLCK LCK : 1;
   } bits;
   
@@ -11325,12 +12495,18 @@ union RDC_MRC42 {
   
   // Bit field definition.
   struct {
+    /// read-write - Domain 0 Write Access to Region
     eD0W D0W : 1;
+    /// read-write - Domain 0 Read Access to Region
     eD0R D0R : 1;
+    /// read-write - Domain 1 Write Access to Region
     eD1W D1W : 1;
+    /// read-write - Domain 1 Read Access to Region
     eD1R D1R : 1;
     uint32_t _reserved_0 : 26;
+    /// read-write - Region Enable
     eENA ENA : 1;
+    /// read-write - Region Lock
     eLCK LCK : 1;
   } bits;
   
@@ -11377,12 +12553,18 @@ union RDC_MRC43 {
   
   // Bit field definition.
   struct {
+    /// read-write - Domain 0 Write Access to Region
     eD0W D0W : 1;
+    /// read-write - Domain 0 Read Access to Region
     eD0R D0R : 1;
+    /// read-write - Domain 1 Write Access to Region
     eD1W D1W : 1;
+    /// read-write - Domain 1 Read Access to Region
     eD1R D1R : 1;
     uint32_t _reserved_0 : 26;
+    /// read-write - Region Enable
     eENA ENA : 1;
+    /// read-write - Region Lock
     eLCK LCK : 1;
   } bits;
   
@@ -11429,12 +12611,18 @@ union RDC_MRC44 {
   
   // Bit field definition.
   struct {
+    /// read-write - Domain 0 Write Access to Region
     eD0W D0W : 1;
+    /// read-write - Domain 0 Read Access to Region
     eD0R D0R : 1;
+    /// read-write - Domain 1 Write Access to Region
     eD1W D1W : 1;
+    /// read-write - Domain 1 Read Access to Region
     eD1R D1R : 1;
     uint32_t _reserved_0 : 26;
+    /// read-write - Region Enable
     eENA ENA : 1;
+    /// read-write - Region Lock
     eLCK LCK : 1;
   } bits;
   
@@ -11481,12 +12669,18 @@ union RDC_MRC45 {
   
   // Bit field definition.
   struct {
+    /// read-write - Domain 0 Write Access to Region
     eD0W D0W : 1;
+    /// read-write - Domain 0 Read Access to Region
     eD0R D0R : 1;
+    /// read-write - Domain 1 Write Access to Region
     eD1W D1W : 1;
+    /// read-write - Domain 1 Read Access to Region
     eD1R D1R : 1;
     uint32_t _reserved_0 : 26;
+    /// read-write - Region Enable
     eENA ENA : 1;
+    /// read-write - Region Lock
     eLCK LCK : 1;
   } bits;
   
@@ -11533,12 +12727,18 @@ union RDC_MRC46 {
   
   // Bit field definition.
   struct {
+    /// read-write - Domain 0 Write Access to Region
     eD0W D0W : 1;
+    /// read-write - Domain 0 Read Access to Region
     eD0R D0R : 1;
+    /// read-write - Domain 1 Write Access to Region
     eD1W D1W : 1;
+    /// read-write - Domain 1 Read Access to Region
     eD1R D1R : 1;
     uint32_t _reserved_0 : 26;
+    /// read-write - Region Enable
     eENA ENA : 1;
+    /// read-write - Region Lock
     eLCK LCK : 1;
   } bits;
   
@@ -11585,12 +12785,18 @@ union RDC_MRC47 {
   
   // Bit field definition.
   struct {
+    /// read-write - Domain 0 Write Access to Region
     eD0W D0W : 1;
+    /// read-write - Domain 0 Read Access to Region
     eD0R D0R : 1;
+    /// read-write - Domain 1 Write Access to Region
     eD1W D1W : 1;
+    /// read-write - Domain 1 Read Access to Region
     eD1R D1R : 1;
     uint32_t _reserved_0 : 26;
+    /// read-write - Region Enable
     eENA ENA : 1;
+    /// read-write - Region Lock
     eLCK LCK : 1;
   } bits;
   
@@ -11637,12 +12843,18 @@ union RDC_MRC48 {
   
   // Bit field definition.
   struct {
+    /// read-write - Domain 0 Write Access to Region
     eD0W D0W : 1;
+    /// read-write - Domain 0 Read Access to Region
     eD0R D0R : 1;
+    /// read-write - Domain 1 Write Access to Region
     eD1W D1W : 1;
+    /// read-write - Domain 1 Read Access to Region
     eD1R D1R : 1;
     uint32_t _reserved_0 : 26;
+    /// read-write - Region Enable
     eENA ENA : 1;
+    /// read-write - Region Lock
     eLCK LCK : 1;
   } bits;
   
@@ -11689,12 +12901,18 @@ union RDC_MRC49 {
   
   // Bit field definition.
   struct {
+    /// read-write - Domain 0 Write Access to Region
     eD0W D0W : 1;
+    /// read-write - Domain 0 Read Access to Region
     eD0R D0R : 1;
+    /// read-write - Domain 1 Write Access to Region
     eD1W D1W : 1;
+    /// read-write - Domain 1 Read Access to Region
     eD1R D1R : 1;
     uint32_t _reserved_0 : 26;
+    /// read-write - Region Enable
     eENA ENA : 1;
+    /// read-write - Region Lock
     eLCK LCK : 1;
   } bits;
   
@@ -11741,12 +12959,18 @@ union RDC_MRC50 {
   
   // Bit field definition.
   struct {
+    /// read-write - Domain 0 Write Access to Region
     eD0W D0W : 1;
+    /// read-write - Domain 0 Read Access to Region
     eD0R D0R : 1;
+    /// read-write - Domain 1 Write Access to Region
     eD1W D1W : 1;
+    /// read-write - Domain 1 Read Access to Region
     eD1R D1R : 1;
     uint32_t _reserved_0 : 26;
+    /// read-write - Region Enable
     eENA ENA : 1;
+    /// read-write - Region Lock
     eLCK LCK : 1;
   } bits;
   
@@ -11793,12 +13017,18 @@ union RDC_MRC51 {
   
   // Bit field definition.
   struct {
+    /// read-write - Domain 0 Write Access to Region
     eD0W D0W : 1;
+    /// read-write - Domain 0 Read Access to Region
     eD0R D0R : 1;
+    /// read-write - Domain 1 Write Access to Region
     eD1W D1W : 1;
+    /// read-write - Domain 1 Read Access to Region
     eD1R D1R : 1;
     uint32_t _reserved_0 : 26;
+    /// read-write - Region Enable
     eENA ENA : 1;
+    /// read-write - Region Lock
     eLCK LCK : 1;
   } bits;
   
@@ -11845,12 +13075,18 @@ union RDC_MRC52 {
   
   // Bit field definition.
   struct {
+    /// read-write - Domain 0 Write Access to Region
     eD0W D0W : 1;
+    /// read-write - Domain 0 Read Access to Region
     eD0R D0R : 1;
+    /// read-write - Domain 1 Write Access to Region
     eD1W D1W : 1;
+    /// read-write - Domain 1 Read Access to Region
     eD1R D1R : 1;
     uint32_t _reserved_0 : 26;
+    /// read-write - Region Enable
     eENA ENA : 1;
+    /// read-write - Region Lock
     eLCK LCK : 1;
   } bits;
   
@@ -11897,12 +13133,18 @@ union RDC_MRC53 {
   
   // Bit field definition.
   struct {
+    /// read-write - Domain 0 Write Access to Region
     eD0W D0W : 1;
+    /// read-write - Domain 0 Read Access to Region
     eD0R D0R : 1;
+    /// read-write - Domain 1 Write Access to Region
     eD1W D1W : 1;
+    /// read-write - Domain 1 Read Access to Region
     eD1R D1R : 1;
     uint32_t _reserved_0 : 26;
+    /// read-write - Region Enable
     eENA ENA : 1;
+    /// read-write - Region Lock
     eLCK LCK : 1;
   } bits;
   
@@ -11949,12 +13191,18 @@ union RDC_MRC54 {
   
   // Bit field definition.
   struct {
+    /// read-write - Domain 0 Write Access to Region
     eD0W D0W : 1;
+    /// read-write - Domain 0 Read Access to Region
     eD0R D0R : 1;
+    /// read-write - Domain 1 Write Access to Region
     eD1W D1W : 1;
+    /// read-write - Domain 1 Read Access to Region
     eD1R D1R : 1;
     uint32_t _reserved_0 : 26;
+    /// read-write - Region Enable
     eENA ENA : 1;
+    /// read-write - Region Lock
     eLCK LCK : 1;
   } bits;
   
@@ -12001,12 +13249,18 @@ union RDC_MRC55 {
   
   // Bit field definition.
   struct {
+    /// read-write - Domain 0 Write Access to Region
     eD0W D0W : 1;
+    /// read-write - Domain 0 Read Access to Region
     eD0R D0R : 1;
+    /// read-write - Domain 1 Write Access to Region
     eD1W D1W : 1;
+    /// read-write - Domain 1 Read Access to Region
     eD1R D1R : 1;
     uint32_t _reserved_0 : 26;
+    /// read-write - Region Enable
     eENA ENA : 1;
+    /// read-write - Region Lock
     eLCK LCK : 1;
   } bits;
   
@@ -12053,12 +13307,18 @@ union RDC_MRC56 {
   
   // Bit field definition.
   struct {
+    /// read-write - Domain 0 Write Access to Region
     eD0W D0W : 1;
+    /// read-write - Domain 0 Read Access to Region
     eD0R D0R : 1;
+    /// read-write - Domain 1 Write Access to Region
     eD1W D1W : 1;
+    /// read-write - Domain 1 Read Access to Region
     eD1R D1R : 1;
     uint32_t _reserved_0 : 26;
+    /// read-write - Region Enable
     eENA ENA : 1;
+    /// read-write - Region Lock
     eLCK LCK : 1;
   } bits;
   
@@ -12105,12 +13365,18 @@ union RDC_MRC57 {
   
   // Bit field definition.
   struct {
+    /// read-write - Domain 0 Write Access to Region
     eD0W D0W : 1;
+    /// read-write - Domain 0 Read Access to Region
     eD0R D0R : 1;
+    /// read-write - Domain 1 Write Access to Region
     eD1W D1W : 1;
+    /// read-write - Domain 1 Read Access to Region
     eD1R D1R : 1;
     uint32_t _reserved_0 : 26;
+    /// read-write - Region Enable
     eENA ENA : 1;
+    /// read-write - Region Lock
     eLCK LCK : 1;
   } bits;
   
@@ -12157,12 +13423,18 @@ union RDC_MRC58 {
   
   // Bit field definition.
   struct {
+    /// read-write - Domain 0 Write Access to Region
     eD0W D0W : 1;
+    /// read-write - Domain 0 Read Access to Region
     eD0R D0R : 1;
+    /// read-write - Domain 1 Write Access to Region
     eD1W D1W : 1;
+    /// read-write - Domain 1 Read Access to Region
     eD1R D1R : 1;
     uint32_t _reserved_0 : 26;
+    /// read-write - Region Enable
     eENA ENA : 1;
+    /// read-write - Region Lock
     eLCK LCK : 1;
   } bits;
   
@@ -12185,9 +13457,12 @@ union RDC_MRVS0 {
   
   // Bit field definition.
   struct {
+    /// read-only - Violating Domain ID
     eVDID VDID : 2;
     uint32_t _reserved_0 : 2;
+    /// read-write - Access Denied
     uint32_t AD : 1;
+    /// read-only - Violating Address
     uint32_t VADR : 27;
   } bits;
   
@@ -12209,9 +13484,12 @@ union RDC_MRVS1 {
   
   // Bit field definition.
   struct {
+    /// read-only - Violating Domain ID
     eVDID VDID : 2;
     uint32_t _reserved_0 : 2;
+    /// read-write - Access Denied
     uint32_t AD : 1;
+    /// read-only - Violating Address
     uint32_t VADR : 27;
   } bits;
   
@@ -12233,9 +13511,12 @@ union RDC_MRVS2 {
   
   // Bit field definition.
   struct {
+    /// read-only - Violating Domain ID
     eVDID VDID : 2;
     uint32_t _reserved_0 : 2;
+    /// read-write - Access Denied
     uint32_t AD : 1;
+    /// read-only - Violating Address
     uint32_t VADR : 27;
   } bits;
   
@@ -12257,9 +13538,12 @@ union RDC_MRVS3 {
   
   // Bit field definition.
   struct {
+    /// read-only - Violating Domain ID
     eVDID VDID : 2;
     uint32_t _reserved_0 : 2;
+    /// read-write - Access Denied
     uint32_t AD : 1;
+    /// read-only - Violating Address
     uint32_t VADR : 27;
   } bits;
   
@@ -12281,9 +13565,12 @@ union RDC_MRVS4 {
   
   // Bit field definition.
   struct {
+    /// read-only - Violating Domain ID
     eVDID VDID : 2;
     uint32_t _reserved_0 : 2;
+    /// read-write - Access Denied
     uint32_t AD : 1;
+    /// read-only - Violating Address
     uint32_t VADR : 27;
   } bits;
   
@@ -12305,9 +13592,12 @@ union RDC_MRVS5 {
   
   // Bit field definition.
   struct {
+    /// read-only - Violating Domain ID
     eVDID VDID : 2;
     uint32_t _reserved_0 : 2;
+    /// read-write - Access Denied
     uint32_t AD : 1;
+    /// read-only - Violating Address
     uint32_t VADR : 27;
   } bits;
   
@@ -12329,9 +13619,12 @@ union RDC_MRVS6 {
   
   // Bit field definition.
   struct {
+    /// read-only - Violating Domain ID
     eVDID VDID : 2;
     uint32_t _reserved_0 : 2;
+    /// read-write - Access Denied
     uint32_t AD : 1;
+    /// read-only - Violating Address
     uint32_t VADR : 27;
   } bits;
   
@@ -12353,9 +13646,12 @@ union RDC_MRVS7 {
   
   // Bit field definition.
   struct {
+    /// read-only - Violating Domain ID
     eVDID VDID : 2;
     uint32_t _reserved_0 : 2;
+    /// read-write - Access Denied
     uint32_t AD : 1;
+    /// read-only - Violating Address
     uint32_t VADR : 27;
   } bits;
   
@@ -12377,9 +13673,12 @@ union RDC_MRVS8 {
   
   // Bit field definition.
   struct {
+    /// read-only - Violating Domain ID
     eVDID VDID : 2;
     uint32_t _reserved_0 : 2;
+    /// read-write - Access Denied
     uint32_t AD : 1;
+    /// read-only - Violating Address
     uint32_t VADR : 27;
   } bits;
   
@@ -12401,9 +13700,12 @@ union RDC_MRVS9 {
   
   // Bit field definition.
   struct {
+    /// read-only - Violating Domain ID
     eVDID VDID : 2;
     uint32_t _reserved_0 : 2;
+    /// read-write - Access Denied
     uint32_t AD : 1;
+    /// read-only - Violating Address
     uint32_t VADR : 27;
   } bits;
   
@@ -12425,9 +13727,12 @@ union RDC_MRVS10 {
   
   // Bit field definition.
   struct {
+    /// read-only - Violating Domain ID
     eVDID VDID : 2;
     uint32_t _reserved_0 : 2;
+    /// read-write - Access Denied
     uint32_t AD : 1;
+    /// read-only - Violating Address
     uint32_t VADR : 27;
   } bits;
   
@@ -12449,9 +13754,12 @@ union RDC_MRVS11 {
   
   // Bit field definition.
   struct {
+    /// read-only - Violating Domain ID
     eVDID VDID : 2;
     uint32_t _reserved_0 : 2;
+    /// read-write - Access Denied
     uint32_t AD : 1;
+    /// read-only - Violating Address
     uint32_t VADR : 27;
   } bits;
   
@@ -12473,9 +13781,12 @@ union RDC_MRVS12 {
   
   // Bit field definition.
   struct {
+    /// read-only - Violating Domain ID
     eVDID VDID : 2;
     uint32_t _reserved_0 : 2;
+    /// read-write - Access Denied
     uint32_t AD : 1;
+    /// read-only - Violating Address
     uint32_t VADR : 27;
   } bits;
   
@@ -12497,9 +13808,12 @@ union RDC_MRVS13 {
   
   // Bit field definition.
   struct {
+    /// read-only - Violating Domain ID
     eVDID VDID : 2;
     uint32_t _reserved_0 : 2;
+    /// read-write - Access Denied
     uint32_t AD : 1;
+    /// read-only - Violating Address
     uint32_t VADR : 27;
   } bits;
   
@@ -12521,9 +13835,12 @@ union RDC_MRVS14 {
   
   // Bit field definition.
   struct {
+    /// read-only - Violating Domain ID
     eVDID VDID : 2;
     uint32_t _reserved_0 : 2;
+    /// read-write - Access Denied
     uint32_t AD : 1;
+    /// read-only - Violating Address
     uint32_t VADR : 27;
   } bits;
   
@@ -12545,9 +13862,12 @@ union RDC_MRVS15 {
   
   // Bit field definition.
   struct {
+    /// read-only - Violating Domain ID
     eVDID VDID : 2;
     uint32_t _reserved_0 : 2;
+    /// read-write - Access Denied
     uint32_t AD : 1;
+    /// read-only - Violating Address
     uint32_t VADR : 27;
   } bits;
   
@@ -12569,9 +13889,12 @@ union RDC_MRVS16 {
   
   // Bit field definition.
   struct {
+    /// read-only - Violating Domain ID
     eVDID VDID : 2;
     uint32_t _reserved_0 : 2;
+    /// read-write - Access Denied
     uint32_t AD : 1;
+    /// read-only - Violating Address
     uint32_t VADR : 27;
   } bits;
   
@@ -12593,9 +13916,12 @@ union RDC_MRVS17 {
   
   // Bit field definition.
   struct {
+    /// read-only - Violating Domain ID
     eVDID VDID : 2;
     uint32_t _reserved_0 : 2;
+    /// read-write - Access Denied
     uint32_t AD : 1;
+    /// read-only - Violating Address
     uint32_t VADR : 27;
   } bits;
   
@@ -12617,9 +13943,12 @@ union RDC_MRVS18 {
   
   // Bit field definition.
   struct {
+    /// read-only - Violating Domain ID
     eVDID VDID : 2;
     uint32_t _reserved_0 : 2;
+    /// read-write - Access Denied
     uint32_t AD : 1;
+    /// read-only - Violating Address
     uint32_t VADR : 27;
   } bits;
   
@@ -12641,9 +13970,12 @@ union RDC_MRVS19 {
   
   // Bit field definition.
   struct {
+    /// read-only - Violating Domain ID
     eVDID VDID : 2;
     uint32_t _reserved_0 : 2;
+    /// read-write - Access Denied
     uint32_t AD : 1;
+    /// read-only - Violating Address
     uint32_t VADR : 27;
   } bits;
   
@@ -12665,9 +13997,12 @@ union RDC_MRVS20 {
   
   // Bit field definition.
   struct {
+    /// read-only - Violating Domain ID
     eVDID VDID : 2;
     uint32_t _reserved_0 : 2;
+    /// read-write - Access Denied
     uint32_t AD : 1;
+    /// read-only - Violating Address
     uint32_t VADR : 27;
   } bits;
   
@@ -12689,9 +14024,12 @@ union RDC_MRVS21 {
   
   // Bit field definition.
   struct {
+    /// read-only - Violating Domain ID
     eVDID VDID : 2;
     uint32_t _reserved_0 : 2;
+    /// read-write - Access Denied
     uint32_t AD : 1;
+    /// read-only - Violating Address
     uint32_t VADR : 27;
   } bits;
   
@@ -12713,9 +14051,12 @@ union RDC_MRVS22 {
   
   // Bit field definition.
   struct {
+    /// read-only - Violating Domain ID
     eVDID VDID : 2;
     uint32_t _reserved_0 : 2;
+    /// read-write - Access Denied
     uint32_t AD : 1;
+    /// read-only - Violating Address
     uint32_t VADR : 27;
   } bits;
   
@@ -12737,9 +14078,12 @@ union RDC_MRVS23 {
   
   // Bit field definition.
   struct {
+    /// read-only - Violating Domain ID
     eVDID VDID : 2;
     uint32_t _reserved_0 : 2;
+    /// read-write - Access Denied
     uint32_t AD : 1;
+    /// read-only - Violating Address
     uint32_t VADR : 27;
   } bits;
   
@@ -12761,9 +14105,12 @@ union RDC_MRVS24 {
   
   // Bit field definition.
   struct {
+    /// read-only - Violating Domain ID
     eVDID VDID : 2;
     uint32_t _reserved_0 : 2;
+    /// read-write - Access Denied
     uint32_t AD : 1;
+    /// read-only - Violating Address
     uint32_t VADR : 27;
   } bits;
   
@@ -12785,9 +14132,12 @@ union RDC_MRVS25 {
   
   // Bit field definition.
   struct {
+    /// read-only - Violating Domain ID
     eVDID VDID : 2;
     uint32_t _reserved_0 : 2;
+    /// read-write - Access Denied
     uint32_t AD : 1;
+    /// read-only - Violating Address
     uint32_t VADR : 27;
   } bits;
   
@@ -12809,9 +14159,12 @@ union RDC_MRVS26 {
   
   // Bit field definition.
   struct {
+    /// read-only - Violating Domain ID
     eVDID VDID : 2;
     uint32_t _reserved_0 : 2;
+    /// read-write - Access Denied
     uint32_t AD : 1;
+    /// read-only - Violating Address
     uint32_t VADR : 27;
   } bits;
   
@@ -12833,9 +14186,12 @@ union RDC_MRVS27 {
   
   // Bit field definition.
   struct {
+    /// read-only - Violating Domain ID
     eVDID VDID : 2;
     uint32_t _reserved_0 : 2;
+    /// read-write - Access Denied
     uint32_t AD : 1;
+    /// read-only - Violating Address
     uint32_t VADR : 27;
   } bits;
   
@@ -12857,9 +14213,12 @@ union RDC_MRVS28 {
   
   // Bit field definition.
   struct {
+    /// read-only - Violating Domain ID
     eVDID VDID : 2;
     uint32_t _reserved_0 : 2;
+    /// read-write - Access Denied
     uint32_t AD : 1;
+    /// read-only - Violating Address
     uint32_t VADR : 27;
   } bits;
   
@@ -12881,9 +14240,12 @@ union RDC_MRVS29 {
   
   // Bit field definition.
   struct {
+    /// read-only - Violating Domain ID
     eVDID VDID : 2;
     uint32_t _reserved_0 : 2;
+    /// read-write - Access Denied
     uint32_t AD : 1;
+    /// read-only - Violating Address
     uint32_t VADR : 27;
   } bits;
   
@@ -12905,9 +14267,12 @@ union RDC_MRVS30 {
   
   // Bit field definition.
   struct {
+    /// read-only - Violating Domain ID
     eVDID VDID : 2;
     uint32_t _reserved_0 : 2;
+    /// read-write - Access Denied
     uint32_t AD : 1;
+    /// read-only - Violating Address
     uint32_t VADR : 27;
   } bits;
   
@@ -12929,9 +14294,12 @@ union RDC_MRVS31 {
   
   // Bit field definition.
   struct {
+    /// read-only - Violating Domain ID
     eVDID VDID : 2;
     uint32_t _reserved_0 : 2;
+    /// read-write - Access Denied
     uint32_t AD : 1;
+    /// read-only - Violating Address
     uint32_t VADR : 27;
   } bits;
   
@@ -12953,9 +14321,12 @@ union RDC_MRVS32 {
   
   // Bit field definition.
   struct {
+    /// read-only - Violating Domain ID
     eVDID VDID : 2;
     uint32_t _reserved_0 : 2;
+    /// read-write - Access Denied
     uint32_t AD : 1;
+    /// read-only - Violating Address
     uint32_t VADR : 27;
   } bits;
   
@@ -12977,9 +14348,12 @@ union RDC_MRVS33 {
   
   // Bit field definition.
   struct {
+    /// read-only - Violating Domain ID
     eVDID VDID : 2;
     uint32_t _reserved_0 : 2;
+    /// read-write - Access Denied
     uint32_t AD : 1;
+    /// read-only - Violating Address
     uint32_t VADR : 27;
   } bits;
   
@@ -13001,9 +14375,12 @@ union RDC_MRVS34 {
   
   // Bit field definition.
   struct {
+    /// read-only - Violating Domain ID
     eVDID VDID : 2;
     uint32_t _reserved_0 : 2;
+    /// read-write - Access Denied
     uint32_t AD : 1;
+    /// read-only - Violating Address
     uint32_t VADR : 27;
   } bits;
   
@@ -13025,9 +14402,12 @@ union RDC_MRVS35 {
   
   // Bit field definition.
   struct {
+    /// read-only - Violating Domain ID
     eVDID VDID : 2;
     uint32_t _reserved_0 : 2;
+    /// read-write - Access Denied
     uint32_t AD : 1;
+    /// read-only - Violating Address
     uint32_t VADR : 27;
   } bits;
   
@@ -13049,9 +14429,12 @@ union RDC_MRVS36 {
   
   // Bit field definition.
   struct {
+    /// read-only - Violating Domain ID
     eVDID VDID : 2;
     uint32_t _reserved_0 : 2;
+    /// read-write - Access Denied
     uint32_t AD : 1;
+    /// read-only - Violating Address
     uint32_t VADR : 27;
   } bits;
   
@@ -13073,9 +14456,12 @@ union RDC_MRVS37 {
   
   // Bit field definition.
   struct {
+    /// read-only - Violating Domain ID
     eVDID VDID : 2;
     uint32_t _reserved_0 : 2;
+    /// read-write - Access Denied
     uint32_t AD : 1;
+    /// read-only - Violating Address
     uint32_t VADR : 27;
   } bits;
   
@@ -13097,9 +14483,12 @@ union RDC_MRVS38 {
   
   // Bit field definition.
   struct {
+    /// read-only - Violating Domain ID
     eVDID VDID : 2;
     uint32_t _reserved_0 : 2;
+    /// read-write - Access Denied
     uint32_t AD : 1;
+    /// read-only - Violating Address
     uint32_t VADR : 27;
   } bits;
   
@@ -13121,9 +14510,12 @@ union RDC_MRVS39 {
   
   // Bit field definition.
   struct {
+    /// read-only - Violating Domain ID
     eVDID VDID : 2;
     uint32_t _reserved_0 : 2;
+    /// read-write - Access Denied
     uint32_t AD : 1;
+    /// read-only - Violating Address
     uint32_t VADR : 27;
   } bits;
   
@@ -13145,9 +14537,12 @@ union RDC_MRVS40 {
   
   // Bit field definition.
   struct {
+    /// read-only - Violating Domain ID
     eVDID VDID : 2;
     uint32_t _reserved_0 : 2;
+    /// read-write - Access Denied
     uint32_t AD : 1;
+    /// read-only - Violating Address
     uint32_t VADR : 27;
   } bits;
   
@@ -13169,9 +14564,12 @@ union RDC_MRVS41 {
   
   // Bit field definition.
   struct {
+    /// read-only - Violating Domain ID
     eVDID VDID : 2;
     uint32_t _reserved_0 : 2;
+    /// read-write - Access Denied
     uint32_t AD : 1;
+    /// read-only - Violating Address
     uint32_t VADR : 27;
   } bits;
   
@@ -13193,9 +14591,12 @@ union RDC_MRVS42 {
   
   // Bit field definition.
   struct {
+    /// read-only - Violating Domain ID
     eVDID VDID : 2;
     uint32_t _reserved_0 : 2;
+    /// read-write - Access Denied
     uint32_t AD : 1;
+    /// read-only - Violating Address
     uint32_t VADR : 27;
   } bits;
   
@@ -13217,9 +14618,12 @@ union RDC_MRVS43 {
   
   // Bit field definition.
   struct {
+    /// read-only - Violating Domain ID
     eVDID VDID : 2;
     uint32_t _reserved_0 : 2;
+    /// read-write - Access Denied
     uint32_t AD : 1;
+    /// read-only - Violating Address
     uint32_t VADR : 27;
   } bits;
   
@@ -13241,9 +14645,12 @@ union RDC_MRVS44 {
   
   // Bit field definition.
   struct {
+    /// read-only - Violating Domain ID
     eVDID VDID : 2;
     uint32_t _reserved_0 : 2;
+    /// read-write - Access Denied
     uint32_t AD : 1;
+    /// read-only - Violating Address
     uint32_t VADR : 27;
   } bits;
   
@@ -13265,9 +14672,12 @@ union RDC_MRVS45 {
   
   // Bit field definition.
   struct {
+    /// read-only - Violating Domain ID
     eVDID VDID : 2;
     uint32_t _reserved_0 : 2;
+    /// read-write - Access Denied
     uint32_t AD : 1;
+    /// read-only - Violating Address
     uint32_t VADR : 27;
   } bits;
   
@@ -13289,9 +14699,12 @@ union RDC_MRVS46 {
   
   // Bit field definition.
   struct {
+    /// read-only - Violating Domain ID
     eVDID VDID : 2;
     uint32_t _reserved_0 : 2;
+    /// read-write - Access Denied
     uint32_t AD : 1;
+    /// read-only - Violating Address
     uint32_t VADR : 27;
   } bits;
   
@@ -13313,9 +14726,12 @@ union RDC_MRVS47 {
   
   // Bit field definition.
   struct {
+    /// read-only - Violating Domain ID
     eVDID VDID : 2;
     uint32_t _reserved_0 : 2;
+    /// read-write - Access Denied
     uint32_t AD : 1;
+    /// read-only - Violating Address
     uint32_t VADR : 27;
   } bits;
   
@@ -13337,9 +14753,12 @@ union RDC_MRVS48 {
   
   // Bit field definition.
   struct {
+    /// read-only - Violating Domain ID
     eVDID VDID : 2;
     uint32_t _reserved_0 : 2;
+    /// read-write - Access Denied
     uint32_t AD : 1;
+    /// read-only - Violating Address
     uint32_t VADR : 27;
   } bits;
   
@@ -13361,9 +14780,12 @@ union RDC_MRVS49 {
   
   // Bit field definition.
   struct {
+    /// read-only - Violating Domain ID
     eVDID VDID : 2;
     uint32_t _reserved_0 : 2;
+    /// read-write - Access Denied
     uint32_t AD : 1;
+    /// read-only - Violating Address
     uint32_t VADR : 27;
   } bits;
   
@@ -13385,9 +14807,12 @@ union RDC_MRVS50 {
   
   // Bit field definition.
   struct {
+    /// read-only - Violating Domain ID
     eVDID VDID : 2;
     uint32_t _reserved_0 : 2;
+    /// read-write - Access Denied
     uint32_t AD : 1;
+    /// read-only - Violating Address
     uint32_t VADR : 27;
   } bits;
   
@@ -13409,9 +14834,12 @@ union RDC_MRVS51 {
   
   // Bit field definition.
   struct {
+    /// read-only - Violating Domain ID
     eVDID VDID : 2;
     uint32_t _reserved_0 : 2;
+    /// read-write - Access Denied
     uint32_t AD : 1;
+    /// read-only - Violating Address
     uint32_t VADR : 27;
   } bits;
   
@@ -13433,9 +14861,12 @@ union RDC_MRVS52 {
   
   // Bit field definition.
   struct {
+    /// read-only - Violating Domain ID
     eVDID VDID : 2;
     uint32_t _reserved_0 : 2;
+    /// read-write - Access Denied
     uint32_t AD : 1;
+    /// read-only - Violating Address
     uint32_t VADR : 27;
   } bits;
   
@@ -13457,9 +14888,12 @@ union RDC_MRVS53 {
   
   // Bit field definition.
   struct {
+    /// read-only - Violating Domain ID
     eVDID VDID : 2;
     uint32_t _reserved_0 : 2;
+    /// read-write - Access Denied
     uint32_t AD : 1;
+    /// read-only - Violating Address
     uint32_t VADR : 27;
   } bits;
   
@@ -13481,9 +14915,12 @@ union RDC_MRVS54 {
   
   // Bit field definition.
   struct {
+    /// read-only - Violating Domain ID
     eVDID VDID : 2;
     uint32_t _reserved_0 : 2;
+    /// read-write - Access Denied
     uint32_t AD : 1;
+    /// read-only - Violating Address
     uint32_t VADR : 27;
   } bits;
   
@@ -13505,9 +14942,12 @@ union RDC_MRVS55 {
   
   // Bit field definition.
   struct {
+    /// read-only - Violating Domain ID
     eVDID VDID : 2;
     uint32_t _reserved_0 : 2;
+    /// read-write - Access Denied
     uint32_t AD : 1;
+    /// read-only - Violating Address
     uint32_t VADR : 27;
   } bits;
   
@@ -13529,9 +14969,12 @@ union RDC_MRVS56 {
   
   // Bit field definition.
   struct {
+    /// read-only - Violating Domain ID
     eVDID VDID : 2;
     uint32_t _reserved_0 : 2;
+    /// read-write - Access Denied
     uint32_t AD : 1;
+    /// read-only - Violating Address
     uint32_t VADR : 27;
   } bits;
   
@@ -13553,9 +14996,12 @@ union RDC_MRVS57 {
   
   // Bit field definition.
   struct {
+    /// read-only - Violating Domain ID
     eVDID VDID : 2;
     uint32_t _reserved_0 : 2;
+    /// read-write - Access Denied
     uint32_t AD : 1;
+    /// read-only - Violating Address
     uint32_t VADR : 27;
   } bits;
   
@@ -13577,9 +15023,12 @@ union RDC_MRVS58 {
   
   // Bit field definition.
   struct {
+    /// read-only - Violating Domain ID
     eVDID VDID : 2;
     uint32_t _reserved_0 : 2;
+    /// read-write - Access Denied
     uint32_t AD : 1;
+    /// read-only - Violating Address
     uint32_t VADR : 27;
   } bits;
   

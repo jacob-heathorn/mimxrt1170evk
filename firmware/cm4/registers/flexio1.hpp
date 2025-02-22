@@ -24,8 +24,11 @@ union VERID {
   
   // Bit field definition.
   struct {
+    /// read-only - Feature Specification Number
     eFEATURE FEATURE : 16;
+    /// read-only - Minor Version Number
     uint32_t MINOR : 8;
+    /// read-only - Major Version Number
     uint32_t MAJOR : 8;
   } bits;
   
@@ -43,9 +46,13 @@ union PARAM {
   
   // Bit field definition.
   struct {
+    /// read-only - Shifter Number
     uint32_t SHIFTER : 8;
+    /// read-only - Timer Number
     uint32_t TIMER : 8;
+    /// read-only - Pin Number
     uint32_t PIN : 8;
+    /// read-only - Trigger Number
     uint32_t TRIGGER : 8;
   } bits;
   
@@ -88,11 +95,16 @@ union CTRL {
   
   // Bit field definition.
   struct {
+    /// read-write - FlexIO Enable
     eFLEXEN FLEXEN : 1;
+    /// read-write - Software Reset
     eSWRST SWRST : 1;
+    /// read-write - Fast Access
     eFASTACC FASTACC : 1;
     uint32_t _reserved_0 : 27;
+    /// read-write - Debug Enable
     eDBGE DBGE : 1;
+    /// read-write - Doze Enable
     eDOZEN DOZEN : 1;
   } bits;
   
@@ -110,6 +122,7 @@ union PIN {
   
   // Bit field definition.
   struct {
+    /// read-only - Pin Data Input
     uint32_t PDI : 32;
   } bits;
   
@@ -127,6 +140,7 @@ union SHIFTSTAT {
   
   // Bit field definition.
   struct {
+    /// read-write - Shifter Status Flag
     uint32_t SSF : 8;
     uint32_t _reserved_0 : 24;
   } bits;
@@ -145,6 +159,7 @@ union SHIFTERR {
   
   // Bit field definition.
   struct {
+    /// read-write - Shifter Error Flags
     uint32_t SEF : 8;
     uint32_t _reserved_0 : 24;
   } bits;
@@ -163,6 +178,7 @@ union TIMSTAT {
   
   // Bit field definition.
   struct {
+    /// read-write - Timer Status Flags
     uint32_t TSF : 8;
     uint32_t _reserved_0 : 24;
   } bits;
@@ -181,6 +197,7 @@ union SHIFTSIEN {
   
   // Bit field definition.
   struct {
+    /// read-write - Shifter Status Interrupt Enable
     uint32_t SSIE : 8;
     uint32_t _reserved_0 : 24;
   } bits;
@@ -199,6 +216,7 @@ union SHIFTEIEN {
   
   // Bit field definition.
   struct {
+    /// read-write - Shifter Error Interrupt Enable
     uint32_t SEIE : 8;
     uint32_t _reserved_0 : 24;
   } bits;
@@ -217,6 +235,7 @@ union TIMIEN {
   
   // Bit field definition.
   struct {
+    /// read-write - Timer Status Interrupt Enable
     uint32_t TEIE : 8;
     uint32_t _reserved_0 : 24;
   } bits;
@@ -235,6 +254,7 @@ union SHIFTSDEN {
   
   // Bit field definition.
   struct {
+    /// read-write - Shifter Status DMA Enable
     uint32_t SSDE : 8;
     uint32_t _reserved_0 : 24;
   } bits;
@@ -253,6 +273,7 @@ union TIMERSDEN {
   
   // Bit field definition.
   struct {
+    /// read-write - Timer Status DMA Enable
     uint32_t TSDE : 8;
     uint32_t _reserved_0 : 24;
   } bits;
@@ -271,6 +292,7 @@ union SHIFTSTATE {
   
   // Bit field definition.
   struct {
+    /// read-write - Current State Pointer
     uint32_t STATE : 3;
     uint32_t _reserved_0 : 29;
   } bits;
@@ -316,14 +338,20 @@ union SHIFTCTL[0] {
   
   // Bit field definition.
   struct {
+    /// read-write - Shifter Mode
     eSMOD SMOD : 3;
     uint32_t _reserved_0 : 4;
+    /// read-write - Shifter Pin Polarity
     ePINPOL PINPOL : 1;
+    /// read-write - Shifter Pin Select
     uint32_t PINSEL : 5;
     uint32_t _reserved_1 : 3;
+    /// read-write - Shifter Pin Configuration
     ePINCFG PINCFG : 2;
     uint32_t _reserved_2 : 5;
+    /// read-write - Timer Polarity
     eTIMPOL TIMPOL : 1;
+    /// read-write - Timer Select
     uint32_t TIMSEL : 3;
     uint32_t _reserved_3 : 5;
   } bits;
@@ -368,14 +396,20 @@ union SHIFTCTL[1] {
   
   // Bit field definition.
   struct {
+    /// read-write - Shifter Mode
     eSMOD SMOD : 3;
     uint32_t _reserved_0 : 4;
+    /// read-write - Shifter Pin Polarity
     ePINPOL PINPOL : 1;
+    /// read-write - Shifter Pin Select
     uint32_t PINSEL : 5;
     uint32_t _reserved_1 : 3;
+    /// read-write - Shifter Pin Configuration
     ePINCFG PINCFG : 2;
     uint32_t _reserved_2 : 5;
+    /// read-write - Timer Polarity
     eTIMPOL TIMPOL : 1;
+    /// read-write - Timer Select
     uint32_t TIMSEL : 3;
     uint32_t _reserved_3 : 5;
   } bits;
@@ -420,14 +454,20 @@ union SHIFTCTL[2] {
   
   // Bit field definition.
   struct {
+    /// read-write - Shifter Mode
     eSMOD SMOD : 3;
     uint32_t _reserved_0 : 4;
+    /// read-write - Shifter Pin Polarity
     ePINPOL PINPOL : 1;
+    /// read-write - Shifter Pin Select
     uint32_t PINSEL : 5;
     uint32_t _reserved_1 : 3;
+    /// read-write - Shifter Pin Configuration
     ePINCFG PINCFG : 2;
     uint32_t _reserved_2 : 5;
+    /// read-write - Timer Polarity
     eTIMPOL TIMPOL : 1;
+    /// read-write - Timer Select
     uint32_t TIMSEL : 3;
     uint32_t _reserved_3 : 5;
   } bits;
@@ -472,14 +512,20 @@ union SHIFTCTL[3] {
   
   // Bit field definition.
   struct {
+    /// read-write - Shifter Mode
     eSMOD SMOD : 3;
     uint32_t _reserved_0 : 4;
+    /// read-write - Shifter Pin Polarity
     ePINPOL PINPOL : 1;
+    /// read-write - Shifter Pin Select
     uint32_t PINSEL : 5;
     uint32_t _reserved_1 : 3;
+    /// read-write - Shifter Pin Configuration
     ePINCFG PINCFG : 2;
     uint32_t _reserved_2 : 5;
+    /// read-write - Timer Polarity
     eTIMPOL TIMPOL : 1;
+    /// read-write - Timer Select
     uint32_t TIMSEL : 3;
     uint32_t _reserved_3 : 5;
   } bits;
@@ -524,14 +570,20 @@ union SHIFTCTL[4] {
   
   // Bit field definition.
   struct {
+    /// read-write - Shifter Mode
     eSMOD SMOD : 3;
     uint32_t _reserved_0 : 4;
+    /// read-write - Shifter Pin Polarity
     ePINPOL PINPOL : 1;
+    /// read-write - Shifter Pin Select
     uint32_t PINSEL : 5;
     uint32_t _reserved_1 : 3;
+    /// read-write - Shifter Pin Configuration
     ePINCFG PINCFG : 2;
     uint32_t _reserved_2 : 5;
+    /// read-write - Timer Polarity
     eTIMPOL TIMPOL : 1;
+    /// read-write - Timer Select
     uint32_t TIMSEL : 3;
     uint32_t _reserved_3 : 5;
   } bits;
@@ -576,14 +628,20 @@ union SHIFTCTL[5] {
   
   // Bit field definition.
   struct {
+    /// read-write - Shifter Mode
     eSMOD SMOD : 3;
     uint32_t _reserved_0 : 4;
+    /// read-write - Shifter Pin Polarity
     ePINPOL PINPOL : 1;
+    /// read-write - Shifter Pin Select
     uint32_t PINSEL : 5;
     uint32_t _reserved_1 : 3;
+    /// read-write - Shifter Pin Configuration
     ePINCFG PINCFG : 2;
     uint32_t _reserved_2 : 5;
+    /// read-write - Timer Polarity
     eTIMPOL TIMPOL : 1;
+    /// read-write - Timer Select
     uint32_t TIMSEL : 3;
     uint32_t _reserved_3 : 5;
   } bits;
@@ -628,14 +686,20 @@ union SHIFTCTL[6] {
   
   // Bit field definition.
   struct {
+    /// read-write - Shifter Mode
     eSMOD SMOD : 3;
     uint32_t _reserved_0 : 4;
+    /// read-write - Shifter Pin Polarity
     ePINPOL PINPOL : 1;
+    /// read-write - Shifter Pin Select
     uint32_t PINSEL : 5;
     uint32_t _reserved_1 : 3;
+    /// read-write - Shifter Pin Configuration
     ePINCFG PINCFG : 2;
     uint32_t _reserved_2 : 5;
+    /// read-write - Timer Polarity
     eTIMPOL TIMPOL : 1;
+    /// read-write - Timer Select
     uint32_t TIMSEL : 3;
     uint32_t _reserved_3 : 5;
   } bits;
@@ -680,14 +744,20 @@ union SHIFTCTL[7] {
   
   // Bit field definition.
   struct {
+    /// read-write - Shifter Mode
     eSMOD SMOD : 3;
     uint32_t _reserved_0 : 4;
+    /// read-write - Shifter Pin Polarity
     ePINPOL PINPOL : 1;
+    /// read-write - Shifter Pin Select
     uint32_t PINSEL : 5;
     uint32_t _reserved_1 : 3;
+    /// read-write - Shifter Pin Configuration
     ePINCFG PINCFG : 2;
     uint32_t _reserved_2 : 5;
+    /// read-write - Timer Polarity
     eTIMPOL TIMPOL : 1;
+    /// read-write - Timer Select
     uint32_t TIMSEL : 3;
     uint32_t _reserved_3 : 5;
   } bits;
@@ -729,13 +799,18 @@ union SHIFTCFG[0] {
   
   // Bit field definition.
   struct {
+    /// read-write - Shifter Start bit
     eSSTART SSTART : 2;
     uint32_t _reserved_0 : 2;
+    /// read-write - Shifter Stop bit
     eSSTOP SSTOP : 2;
     uint32_t _reserved_1 : 2;
+    /// read-write - Input Source
     eINSRC INSRC : 1;
+    /// read-write - Late Store
     eLATST LATST : 1;
     uint32_t _reserved_2 : 6;
+    /// read-write - Parallel Width
     uint32_t PWIDTH : 5;
     uint32_t _reserved_3 : 11;
   } bits;
@@ -776,13 +851,18 @@ union SHIFTCFG[1] {
   
   // Bit field definition.
   struct {
+    /// read-write - Shifter Start bit
     eSSTART SSTART : 2;
     uint32_t _reserved_0 : 2;
+    /// read-write - Shifter Stop bit
     eSSTOP SSTOP : 2;
     uint32_t _reserved_1 : 2;
+    /// read-write - Input Source
     eINSRC INSRC : 1;
+    /// read-write - Late Store
     eLATST LATST : 1;
     uint32_t _reserved_2 : 6;
+    /// read-write - Parallel Width
     uint32_t PWIDTH : 5;
     uint32_t _reserved_3 : 11;
   } bits;
@@ -823,13 +903,18 @@ union SHIFTCFG[2] {
   
   // Bit field definition.
   struct {
+    /// read-write - Shifter Start bit
     eSSTART SSTART : 2;
     uint32_t _reserved_0 : 2;
+    /// read-write - Shifter Stop bit
     eSSTOP SSTOP : 2;
     uint32_t _reserved_1 : 2;
+    /// read-write - Input Source
     eINSRC INSRC : 1;
+    /// read-write - Late Store
     eLATST LATST : 1;
     uint32_t _reserved_2 : 6;
+    /// read-write - Parallel Width
     uint32_t PWIDTH : 5;
     uint32_t _reserved_3 : 11;
   } bits;
@@ -870,13 +955,18 @@ union SHIFTCFG[3] {
   
   // Bit field definition.
   struct {
+    /// read-write - Shifter Start bit
     eSSTART SSTART : 2;
     uint32_t _reserved_0 : 2;
+    /// read-write - Shifter Stop bit
     eSSTOP SSTOP : 2;
     uint32_t _reserved_1 : 2;
+    /// read-write - Input Source
     eINSRC INSRC : 1;
+    /// read-write - Late Store
     eLATST LATST : 1;
     uint32_t _reserved_2 : 6;
+    /// read-write - Parallel Width
     uint32_t PWIDTH : 5;
     uint32_t _reserved_3 : 11;
   } bits;
@@ -917,13 +1007,18 @@ union SHIFTCFG[4] {
   
   // Bit field definition.
   struct {
+    /// read-write - Shifter Start bit
     eSSTART SSTART : 2;
     uint32_t _reserved_0 : 2;
+    /// read-write - Shifter Stop bit
     eSSTOP SSTOP : 2;
     uint32_t _reserved_1 : 2;
+    /// read-write - Input Source
     eINSRC INSRC : 1;
+    /// read-write - Late Store
     eLATST LATST : 1;
     uint32_t _reserved_2 : 6;
+    /// read-write - Parallel Width
     uint32_t PWIDTH : 5;
     uint32_t _reserved_3 : 11;
   } bits;
@@ -964,13 +1059,18 @@ union SHIFTCFG[5] {
   
   // Bit field definition.
   struct {
+    /// read-write - Shifter Start bit
     eSSTART SSTART : 2;
     uint32_t _reserved_0 : 2;
+    /// read-write - Shifter Stop bit
     eSSTOP SSTOP : 2;
     uint32_t _reserved_1 : 2;
+    /// read-write - Input Source
     eINSRC INSRC : 1;
+    /// read-write - Late Store
     eLATST LATST : 1;
     uint32_t _reserved_2 : 6;
+    /// read-write - Parallel Width
     uint32_t PWIDTH : 5;
     uint32_t _reserved_3 : 11;
   } bits;
@@ -1011,13 +1111,18 @@ union SHIFTCFG[6] {
   
   // Bit field definition.
   struct {
+    /// read-write - Shifter Start bit
     eSSTART SSTART : 2;
     uint32_t _reserved_0 : 2;
+    /// read-write - Shifter Stop bit
     eSSTOP SSTOP : 2;
     uint32_t _reserved_1 : 2;
+    /// read-write - Input Source
     eINSRC INSRC : 1;
+    /// read-write - Late Store
     eLATST LATST : 1;
     uint32_t _reserved_2 : 6;
+    /// read-write - Parallel Width
     uint32_t PWIDTH : 5;
     uint32_t _reserved_3 : 11;
   } bits;
@@ -1058,13 +1163,18 @@ union SHIFTCFG[7] {
   
   // Bit field definition.
   struct {
+    /// read-write - Shifter Start bit
     eSSTART SSTART : 2;
     uint32_t _reserved_0 : 2;
+    /// read-write - Shifter Stop bit
     eSSTOP SSTOP : 2;
     uint32_t _reserved_1 : 2;
+    /// read-write - Input Source
     eINSRC INSRC : 1;
+    /// read-write - Late Store
     eLATST LATST : 1;
     uint32_t _reserved_2 : 6;
+    /// read-write - Parallel Width
     uint32_t PWIDTH : 5;
     uint32_t _reserved_3 : 11;
   } bits;
@@ -1083,6 +1193,7 @@ union SHIFTBUF[0] {
   
   // Bit field definition.
   struct {
+    /// read-write - Shift Buffer
     uint32_t SHIFTBUF : 32;
   } bits;
   
@@ -1099,6 +1210,7 @@ union SHIFTBUF[1] {
   
   // Bit field definition.
   struct {
+    /// read-write - Shift Buffer
     uint32_t SHIFTBUF : 32;
   } bits;
   
@@ -1115,6 +1227,7 @@ union SHIFTBUF[2] {
   
   // Bit field definition.
   struct {
+    /// read-write - Shift Buffer
     uint32_t SHIFTBUF : 32;
   } bits;
   
@@ -1131,6 +1244,7 @@ union SHIFTBUF[3] {
   
   // Bit field definition.
   struct {
+    /// read-write - Shift Buffer
     uint32_t SHIFTBUF : 32;
   } bits;
   
@@ -1147,6 +1261,7 @@ union SHIFTBUF[4] {
   
   // Bit field definition.
   struct {
+    /// read-write - Shift Buffer
     uint32_t SHIFTBUF : 32;
   } bits;
   
@@ -1163,6 +1278,7 @@ union SHIFTBUF[5] {
   
   // Bit field definition.
   struct {
+    /// read-write - Shift Buffer
     uint32_t SHIFTBUF : 32;
   } bits;
   
@@ -1179,6 +1295,7 @@ union SHIFTBUF[6] {
   
   // Bit field definition.
   struct {
+    /// read-write - Shift Buffer
     uint32_t SHIFTBUF : 32;
   } bits;
   
@@ -1195,6 +1312,7 @@ union SHIFTBUF[7] {
   
   // Bit field definition.
   struct {
+    /// read-write - Shift Buffer
     uint32_t SHIFTBUF : 32;
   } bits;
   
@@ -1212,6 +1330,7 @@ union SHIFTBUFBIS[0] {
   
   // Bit field definition.
   struct {
+    /// read-write - Shift Buffer
     uint32_t SHIFTBUFBIS : 32;
   } bits;
   
@@ -1228,6 +1347,7 @@ union SHIFTBUFBIS[1] {
   
   // Bit field definition.
   struct {
+    /// read-write - Shift Buffer
     uint32_t SHIFTBUFBIS : 32;
   } bits;
   
@@ -1244,6 +1364,7 @@ union SHIFTBUFBIS[2] {
   
   // Bit field definition.
   struct {
+    /// read-write - Shift Buffer
     uint32_t SHIFTBUFBIS : 32;
   } bits;
   
@@ -1260,6 +1381,7 @@ union SHIFTBUFBIS[3] {
   
   // Bit field definition.
   struct {
+    /// read-write - Shift Buffer
     uint32_t SHIFTBUFBIS : 32;
   } bits;
   
@@ -1276,6 +1398,7 @@ union SHIFTBUFBIS[4] {
   
   // Bit field definition.
   struct {
+    /// read-write - Shift Buffer
     uint32_t SHIFTBUFBIS : 32;
   } bits;
   
@@ -1292,6 +1415,7 @@ union SHIFTBUFBIS[5] {
   
   // Bit field definition.
   struct {
+    /// read-write - Shift Buffer
     uint32_t SHIFTBUFBIS : 32;
   } bits;
   
@@ -1308,6 +1432,7 @@ union SHIFTBUFBIS[6] {
   
   // Bit field definition.
   struct {
+    /// read-write - Shift Buffer
     uint32_t SHIFTBUFBIS : 32;
   } bits;
   
@@ -1324,6 +1449,7 @@ union SHIFTBUFBIS[7] {
   
   // Bit field definition.
   struct {
+    /// read-write - Shift Buffer
     uint32_t SHIFTBUFBIS : 32;
   } bits;
   
@@ -1341,6 +1467,7 @@ union SHIFTBUFBYS[0] {
   
   // Bit field definition.
   struct {
+    /// read-write - Shift Buffer
     uint32_t SHIFTBUFBYS : 32;
   } bits;
   
@@ -1357,6 +1484,7 @@ union SHIFTBUFBYS[1] {
   
   // Bit field definition.
   struct {
+    /// read-write - Shift Buffer
     uint32_t SHIFTBUFBYS : 32;
   } bits;
   
@@ -1373,6 +1501,7 @@ union SHIFTBUFBYS[2] {
   
   // Bit field definition.
   struct {
+    /// read-write - Shift Buffer
     uint32_t SHIFTBUFBYS : 32;
   } bits;
   
@@ -1389,6 +1518,7 @@ union SHIFTBUFBYS[3] {
   
   // Bit field definition.
   struct {
+    /// read-write - Shift Buffer
     uint32_t SHIFTBUFBYS : 32;
   } bits;
   
@@ -1405,6 +1535,7 @@ union SHIFTBUFBYS[4] {
   
   // Bit field definition.
   struct {
+    /// read-write - Shift Buffer
     uint32_t SHIFTBUFBYS : 32;
   } bits;
   
@@ -1421,6 +1552,7 @@ union SHIFTBUFBYS[5] {
   
   // Bit field definition.
   struct {
+    /// read-write - Shift Buffer
     uint32_t SHIFTBUFBYS : 32;
   } bits;
   
@@ -1437,6 +1569,7 @@ union SHIFTBUFBYS[6] {
   
   // Bit field definition.
   struct {
+    /// read-write - Shift Buffer
     uint32_t SHIFTBUFBYS : 32;
   } bits;
   
@@ -1453,6 +1586,7 @@ union SHIFTBUFBYS[7] {
   
   // Bit field definition.
   struct {
+    /// read-write - Shift Buffer
     uint32_t SHIFTBUFBYS : 32;
   } bits;
   
@@ -1470,6 +1604,7 @@ union SHIFTBUFBBS[0] {
   
   // Bit field definition.
   struct {
+    /// read-write - Shift Buffer
     uint32_t SHIFTBUFBBS : 32;
   } bits;
   
@@ -1486,6 +1621,7 @@ union SHIFTBUFBBS[1] {
   
   // Bit field definition.
   struct {
+    /// read-write - Shift Buffer
     uint32_t SHIFTBUFBBS : 32;
   } bits;
   
@@ -1502,6 +1638,7 @@ union SHIFTBUFBBS[2] {
   
   // Bit field definition.
   struct {
+    /// read-write - Shift Buffer
     uint32_t SHIFTBUFBBS : 32;
   } bits;
   
@@ -1518,6 +1655,7 @@ union SHIFTBUFBBS[3] {
   
   // Bit field definition.
   struct {
+    /// read-write - Shift Buffer
     uint32_t SHIFTBUFBBS : 32;
   } bits;
   
@@ -1534,6 +1672,7 @@ union SHIFTBUFBBS[4] {
   
   // Bit field definition.
   struct {
+    /// read-write - Shift Buffer
     uint32_t SHIFTBUFBBS : 32;
   } bits;
   
@@ -1550,6 +1689,7 @@ union SHIFTBUFBBS[5] {
   
   // Bit field definition.
   struct {
+    /// read-write - Shift Buffer
     uint32_t SHIFTBUFBBS : 32;
   } bits;
   
@@ -1566,6 +1706,7 @@ union SHIFTBUFBBS[6] {
   
   // Bit field definition.
   struct {
+    /// read-write - Shift Buffer
     uint32_t SHIFTBUFBBS : 32;
   } bits;
   
@@ -1582,6 +1723,7 @@ union SHIFTBUFBBS[7] {
   
   // Bit field definition.
   struct {
+    /// read-write - Shift Buffer
     uint32_t SHIFTBUFBBS : 32;
   } bits;
   
@@ -1642,17 +1784,26 @@ union TIMCTL[0] {
   
   // Bit field definition.
   struct {
+    /// read-write - Timer Mode
     eTIMOD TIMOD : 3;
     uint32_t _reserved_0 : 2;
+    /// read-write - Timer One Time Operation
     eONETIM ONETIM : 1;
+    /// read-write - Timer Pin Input Select
     ePININS PININS : 1;
+    /// read-write - Timer Pin Polarity
     ePINPOL PINPOL : 1;
+    /// read-write - Timer Pin Select
     uint32_t PINSEL : 5;
     uint32_t _reserved_1 : 3;
+    /// read-write - Timer Pin Configuration
     ePINCFG PINCFG : 2;
     uint32_t _reserved_2 : 4;
+    /// read-write - Trigger Source
     eTRGSRC TRGSRC : 1;
+    /// read-write - Trigger Polarity
     eTRGPOL TRGPOL : 1;
+    /// read-write - Trigger Select
     uint32_t TRGSEL : 6;
     uint32_t _reserved_3 : 2;
   } bits;
@@ -1713,17 +1864,26 @@ union TIMCTL[1] {
   
   // Bit field definition.
   struct {
+    /// read-write - Timer Mode
     eTIMOD TIMOD : 3;
     uint32_t _reserved_0 : 2;
+    /// read-write - Timer One Time Operation
     eONETIM ONETIM : 1;
+    /// read-write - Timer Pin Input Select
     ePININS PININS : 1;
+    /// read-write - Timer Pin Polarity
     ePINPOL PINPOL : 1;
+    /// read-write - Timer Pin Select
     uint32_t PINSEL : 5;
     uint32_t _reserved_1 : 3;
+    /// read-write - Timer Pin Configuration
     ePINCFG PINCFG : 2;
     uint32_t _reserved_2 : 4;
+    /// read-write - Trigger Source
     eTRGSRC TRGSRC : 1;
+    /// read-write - Trigger Polarity
     eTRGPOL TRGPOL : 1;
+    /// read-write - Trigger Select
     uint32_t TRGSEL : 6;
     uint32_t _reserved_3 : 2;
   } bits;
@@ -1784,17 +1944,26 @@ union TIMCTL[2] {
   
   // Bit field definition.
   struct {
+    /// read-write - Timer Mode
     eTIMOD TIMOD : 3;
     uint32_t _reserved_0 : 2;
+    /// read-write - Timer One Time Operation
     eONETIM ONETIM : 1;
+    /// read-write - Timer Pin Input Select
     ePININS PININS : 1;
+    /// read-write - Timer Pin Polarity
     ePINPOL PINPOL : 1;
+    /// read-write - Timer Pin Select
     uint32_t PINSEL : 5;
     uint32_t _reserved_1 : 3;
+    /// read-write - Timer Pin Configuration
     ePINCFG PINCFG : 2;
     uint32_t _reserved_2 : 4;
+    /// read-write - Trigger Source
     eTRGSRC TRGSRC : 1;
+    /// read-write - Trigger Polarity
     eTRGPOL TRGPOL : 1;
+    /// read-write - Trigger Select
     uint32_t TRGSEL : 6;
     uint32_t _reserved_3 : 2;
   } bits;
@@ -1855,17 +2024,26 @@ union TIMCTL[3] {
   
   // Bit field definition.
   struct {
+    /// read-write - Timer Mode
     eTIMOD TIMOD : 3;
     uint32_t _reserved_0 : 2;
+    /// read-write - Timer One Time Operation
     eONETIM ONETIM : 1;
+    /// read-write - Timer Pin Input Select
     ePININS PININS : 1;
+    /// read-write - Timer Pin Polarity
     ePINPOL PINPOL : 1;
+    /// read-write - Timer Pin Select
     uint32_t PINSEL : 5;
     uint32_t _reserved_1 : 3;
+    /// read-write - Timer Pin Configuration
     ePINCFG PINCFG : 2;
     uint32_t _reserved_2 : 4;
+    /// read-write - Trigger Source
     eTRGSRC TRGSRC : 1;
+    /// read-write - Trigger Polarity
     eTRGPOL TRGPOL : 1;
+    /// read-write - Trigger Select
     uint32_t TRGSEL : 6;
     uint32_t _reserved_3 : 2;
   } bits;
@@ -1926,17 +2104,26 @@ union TIMCTL[4] {
   
   // Bit field definition.
   struct {
+    /// read-write - Timer Mode
     eTIMOD TIMOD : 3;
     uint32_t _reserved_0 : 2;
+    /// read-write - Timer One Time Operation
     eONETIM ONETIM : 1;
+    /// read-write - Timer Pin Input Select
     ePININS PININS : 1;
+    /// read-write - Timer Pin Polarity
     ePINPOL PINPOL : 1;
+    /// read-write - Timer Pin Select
     uint32_t PINSEL : 5;
     uint32_t _reserved_1 : 3;
+    /// read-write - Timer Pin Configuration
     ePINCFG PINCFG : 2;
     uint32_t _reserved_2 : 4;
+    /// read-write - Trigger Source
     eTRGSRC TRGSRC : 1;
+    /// read-write - Trigger Polarity
     eTRGPOL TRGPOL : 1;
+    /// read-write - Trigger Select
     uint32_t TRGSEL : 6;
     uint32_t _reserved_3 : 2;
   } bits;
@@ -1997,17 +2184,26 @@ union TIMCTL[5] {
   
   // Bit field definition.
   struct {
+    /// read-write - Timer Mode
     eTIMOD TIMOD : 3;
     uint32_t _reserved_0 : 2;
+    /// read-write - Timer One Time Operation
     eONETIM ONETIM : 1;
+    /// read-write - Timer Pin Input Select
     ePININS PININS : 1;
+    /// read-write - Timer Pin Polarity
     ePINPOL PINPOL : 1;
+    /// read-write - Timer Pin Select
     uint32_t PINSEL : 5;
     uint32_t _reserved_1 : 3;
+    /// read-write - Timer Pin Configuration
     ePINCFG PINCFG : 2;
     uint32_t _reserved_2 : 4;
+    /// read-write - Trigger Source
     eTRGSRC TRGSRC : 1;
+    /// read-write - Trigger Polarity
     eTRGPOL TRGPOL : 1;
+    /// read-write - Trigger Select
     uint32_t TRGSEL : 6;
     uint32_t _reserved_3 : 2;
   } bits;
@@ -2068,17 +2264,26 @@ union TIMCTL[6] {
   
   // Bit field definition.
   struct {
+    /// read-write - Timer Mode
     eTIMOD TIMOD : 3;
     uint32_t _reserved_0 : 2;
+    /// read-write - Timer One Time Operation
     eONETIM ONETIM : 1;
+    /// read-write - Timer Pin Input Select
     ePININS PININS : 1;
+    /// read-write - Timer Pin Polarity
     ePINPOL PINPOL : 1;
+    /// read-write - Timer Pin Select
     uint32_t PINSEL : 5;
     uint32_t _reserved_1 : 3;
+    /// read-write - Timer Pin Configuration
     ePINCFG PINCFG : 2;
     uint32_t _reserved_2 : 4;
+    /// read-write - Trigger Source
     eTRGSRC TRGSRC : 1;
+    /// read-write - Trigger Polarity
     eTRGPOL TRGPOL : 1;
+    /// read-write - Trigger Select
     uint32_t TRGSEL : 6;
     uint32_t _reserved_3 : 2;
   } bits;
@@ -2139,17 +2344,26 @@ union TIMCTL[7] {
   
   // Bit field definition.
   struct {
+    /// read-write - Timer Mode
     eTIMOD TIMOD : 3;
     uint32_t _reserved_0 : 2;
+    /// read-write - Timer One Time Operation
     eONETIM ONETIM : 1;
+    /// read-write - Timer Pin Input Select
     ePININS PININS : 1;
+    /// read-write - Timer Pin Polarity
     ePINPOL PINPOL : 1;
+    /// read-write - Timer Pin Select
     uint32_t PINSEL : 5;
     uint32_t _reserved_1 : 3;
+    /// read-write - Timer Pin Configuration
     ePINCFG PINCFG : 2;
     uint32_t _reserved_2 : 4;
+    /// read-write - Trigger Source
     eTRGSRC TRGSRC : 1;
+    /// read-write - Trigger Polarity
     eTRGPOL TRGPOL : 1;
+    /// read-write - Trigger Select
     uint32_t TRGSEL : 6;
     uint32_t _reserved_3 : 2;
   } bits;
@@ -2230,18 +2444,25 @@ union TIMCFG[0] {
   // Bit field definition.
   struct {
     uint32_t _reserved_0 : 1;
+    /// read-write - Timer Start Bit
     eTSTART TSTART : 1;
     uint32_t _reserved_1 : 2;
+    /// read-write - Timer Stop Bit
     eTSTOP TSTOP : 2;
     uint32_t _reserved_2 : 2;
+    /// read-write - Timer Enable
     eTIMENA TIMENA : 3;
     uint32_t _reserved_3 : 1;
+    /// read-write - Timer Disable
     eTIMDIS TIMDIS : 3;
     uint32_t _reserved_4 : 1;
+    /// read-write - Timer Reset
     eTIMRST TIMRST : 3;
     uint32_t _reserved_5 : 1;
+    /// read-write - Timer Decrement
     eTIMDEC TIMDEC : 3;
     uint32_t _reserved_6 : 1;
+    /// read-write - Timer Output
     eTIMOUT TIMOUT : 2;
     uint32_t _reserved_7 : 6;
   } bits;
@@ -2321,18 +2542,25 @@ union TIMCFG[1] {
   // Bit field definition.
   struct {
     uint32_t _reserved_0 : 1;
+    /// read-write - Timer Start Bit
     eTSTART TSTART : 1;
     uint32_t _reserved_1 : 2;
+    /// read-write - Timer Stop Bit
     eTSTOP TSTOP : 2;
     uint32_t _reserved_2 : 2;
+    /// read-write - Timer Enable
     eTIMENA TIMENA : 3;
     uint32_t _reserved_3 : 1;
+    /// read-write - Timer Disable
     eTIMDIS TIMDIS : 3;
     uint32_t _reserved_4 : 1;
+    /// read-write - Timer Reset
     eTIMRST TIMRST : 3;
     uint32_t _reserved_5 : 1;
+    /// read-write - Timer Decrement
     eTIMDEC TIMDEC : 3;
     uint32_t _reserved_6 : 1;
+    /// read-write - Timer Output
     eTIMOUT TIMOUT : 2;
     uint32_t _reserved_7 : 6;
   } bits;
@@ -2412,18 +2640,25 @@ union TIMCFG[2] {
   // Bit field definition.
   struct {
     uint32_t _reserved_0 : 1;
+    /// read-write - Timer Start Bit
     eTSTART TSTART : 1;
     uint32_t _reserved_1 : 2;
+    /// read-write - Timer Stop Bit
     eTSTOP TSTOP : 2;
     uint32_t _reserved_2 : 2;
+    /// read-write - Timer Enable
     eTIMENA TIMENA : 3;
     uint32_t _reserved_3 : 1;
+    /// read-write - Timer Disable
     eTIMDIS TIMDIS : 3;
     uint32_t _reserved_4 : 1;
+    /// read-write - Timer Reset
     eTIMRST TIMRST : 3;
     uint32_t _reserved_5 : 1;
+    /// read-write - Timer Decrement
     eTIMDEC TIMDEC : 3;
     uint32_t _reserved_6 : 1;
+    /// read-write - Timer Output
     eTIMOUT TIMOUT : 2;
     uint32_t _reserved_7 : 6;
   } bits;
@@ -2503,18 +2738,25 @@ union TIMCFG[3] {
   // Bit field definition.
   struct {
     uint32_t _reserved_0 : 1;
+    /// read-write - Timer Start Bit
     eTSTART TSTART : 1;
     uint32_t _reserved_1 : 2;
+    /// read-write - Timer Stop Bit
     eTSTOP TSTOP : 2;
     uint32_t _reserved_2 : 2;
+    /// read-write - Timer Enable
     eTIMENA TIMENA : 3;
     uint32_t _reserved_3 : 1;
+    /// read-write - Timer Disable
     eTIMDIS TIMDIS : 3;
     uint32_t _reserved_4 : 1;
+    /// read-write - Timer Reset
     eTIMRST TIMRST : 3;
     uint32_t _reserved_5 : 1;
+    /// read-write - Timer Decrement
     eTIMDEC TIMDEC : 3;
     uint32_t _reserved_6 : 1;
+    /// read-write - Timer Output
     eTIMOUT TIMOUT : 2;
     uint32_t _reserved_7 : 6;
   } bits;
@@ -2594,18 +2836,25 @@ union TIMCFG[4] {
   // Bit field definition.
   struct {
     uint32_t _reserved_0 : 1;
+    /// read-write - Timer Start Bit
     eTSTART TSTART : 1;
     uint32_t _reserved_1 : 2;
+    /// read-write - Timer Stop Bit
     eTSTOP TSTOP : 2;
     uint32_t _reserved_2 : 2;
+    /// read-write - Timer Enable
     eTIMENA TIMENA : 3;
     uint32_t _reserved_3 : 1;
+    /// read-write - Timer Disable
     eTIMDIS TIMDIS : 3;
     uint32_t _reserved_4 : 1;
+    /// read-write - Timer Reset
     eTIMRST TIMRST : 3;
     uint32_t _reserved_5 : 1;
+    /// read-write - Timer Decrement
     eTIMDEC TIMDEC : 3;
     uint32_t _reserved_6 : 1;
+    /// read-write - Timer Output
     eTIMOUT TIMOUT : 2;
     uint32_t _reserved_7 : 6;
   } bits;
@@ -2685,18 +2934,25 @@ union TIMCFG[5] {
   // Bit field definition.
   struct {
     uint32_t _reserved_0 : 1;
+    /// read-write - Timer Start Bit
     eTSTART TSTART : 1;
     uint32_t _reserved_1 : 2;
+    /// read-write - Timer Stop Bit
     eTSTOP TSTOP : 2;
     uint32_t _reserved_2 : 2;
+    /// read-write - Timer Enable
     eTIMENA TIMENA : 3;
     uint32_t _reserved_3 : 1;
+    /// read-write - Timer Disable
     eTIMDIS TIMDIS : 3;
     uint32_t _reserved_4 : 1;
+    /// read-write - Timer Reset
     eTIMRST TIMRST : 3;
     uint32_t _reserved_5 : 1;
+    /// read-write - Timer Decrement
     eTIMDEC TIMDEC : 3;
     uint32_t _reserved_6 : 1;
+    /// read-write - Timer Output
     eTIMOUT TIMOUT : 2;
     uint32_t _reserved_7 : 6;
   } bits;
@@ -2776,18 +3032,25 @@ union TIMCFG[6] {
   // Bit field definition.
   struct {
     uint32_t _reserved_0 : 1;
+    /// read-write - Timer Start Bit
     eTSTART TSTART : 1;
     uint32_t _reserved_1 : 2;
+    /// read-write - Timer Stop Bit
     eTSTOP TSTOP : 2;
     uint32_t _reserved_2 : 2;
+    /// read-write - Timer Enable
     eTIMENA TIMENA : 3;
     uint32_t _reserved_3 : 1;
+    /// read-write - Timer Disable
     eTIMDIS TIMDIS : 3;
     uint32_t _reserved_4 : 1;
+    /// read-write - Timer Reset
     eTIMRST TIMRST : 3;
     uint32_t _reserved_5 : 1;
+    /// read-write - Timer Decrement
     eTIMDEC TIMDEC : 3;
     uint32_t _reserved_6 : 1;
+    /// read-write - Timer Output
     eTIMOUT TIMOUT : 2;
     uint32_t _reserved_7 : 6;
   } bits;
@@ -2867,18 +3130,25 @@ union TIMCFG[7] {
   // Bit field definition.
   struct {
     uint32_t _reserved_0 : 1;
+    /// read-write - Timer Start Bit
     eTSTART TSTART : 1;
     uint32_t _reserved_1 : 2;
+    /// read-write - Timer Stop Bit
     eTSTOP TSTOP : 2;
     uint32_t _reserved_2 : 2;
+    /// read-write - Timer Enable
     eTIMENA TIMENA : 3;
     uint32_t _reserved_3 : 1;
+    /// read-write - Timer Disable
     eTIMDIS TIMDIS : 3;
     uint32_t _reserved_4 : 1;
+    /// read-write - Timer Reset
     eTIMRST TIMRST : 3;
     uint32_t _reserved_5 : 1;
+    /// read-write - Timer Decrement
     eTIMDEC TIMDEC : 3;
     uint32_t _reserved_6 : 1;
+    /// read-write - Timer Output
     eTIMOUT TIMOUT : 2;
     uint32_t _reserved_7 : 6;
   } bits;
@@ -2897,6 +3167,7 @@ union TIMCMP[0] {
   
   // Bit field definition.
   struct {
+    /// read-write - Timer Compare Value
     uint32_t CMP : 16;
     uint32_t _reserved_0 : 16;
   } bits;
@@ -2914,6 +3185,7 @@ union TIMCMP[1] {
   
   // Bit field definition.
   struct {
+    /// read-write - Timer Compare Value
     uint32_t CMP : 16;
     uint32_t _reserved_0 : 16;
   } bits;
@@ -2931,6 +3203,7 @@ union TIMCMP[2] {
   
   // Bit field definition.
   struct {
+    /// read-write - Timer Compare Value
     uint32_t CMP : 16;
     uint32_t _reserved_0 : 16;
   } bits;
@@ -2948,6 +3221,7 @@ union TIMCMP[3] {
   
   // Bit field definition.
   struct {
+    /// read-write - Timer Compare Value
     uint32_t CMP : 16;
     uint32_t _reserved_0 : 16;
   } bits;
@@ -2965,6 +3239,7 @@ union TIMCMP[4] {
   
   // Bit field definition.
   struct {
+    /// read-write - Timer Compare Value
     uint32_t CMP : 16;
     uint32_t _reserved_0 : 16;
   } bits;
@@ -2982,6 +3257,7 @@ union TIMCMP[5] {
   
   // Bit field definition.
   struct {
+    /// read-write - Timer Compare Value
     uint32_t CMP : 16;
     uint32_t _reserved_0 : 16;
   } bits;
@@ -2999,6 +3275,7 @@ union TIMCMP[6] {
   
   // Bit field definition.
   struct {
+    /// read-write - Timer Compare Value
     uint32_t CMP : 16;
     uint32_t _reserved_0 : 16;
   } bits;
@@ -3016,6 +3293,7 @@ union TIMCMP[7] {
   
   // Bit field definition.
   struct {
+    /// read-write - Timer Compare Value
     uint32_t CMP : 16;
     uint32_t _reserved_0 : 16;
   } bits;
@@ -3034,6 +3312,7 @@ union SHIFTBUFNBS[0] {
   
   // Bit field definition.
   struct {
+    /// read-write - Shift Buffer
     uint32_t SHIFTBUFNBS : 32;
   } bits;
   
@@ -3050,6 +3329,7 @@ union SHIFTBUFNBS[1] {
   
   // Bit field definition.
   struct {
+    /// read-write - Shift Buffer
     uint32_t SHIFTBUFNBS : 32;
   } bits;
   
@@ -3066,6 +3346,7 @@ union SHIFTBUFNBS[2] {
   
   // Bit field definition.
   struct {
+    /// read-write - Shift Buffer
     uint32_t SHIFTBUFNBS : 32;
   } bits;
   
@@ -3082,6 +3363,7 @@ union SHIFTBUFNBS[3] {
   
   // Bit field definition.
   struct {
+    /// read-write - Shift Buffer
     uint32_t SHIFTBUFNBS : 32;
   } bits;
   
@@ -3098,6 +3380,7 @@ union SHIFTBUFNBS[4] {
   
   // Bit field definition.
   struct {
+    /// read-write - Shift Buffer
     uint32_t SHIFTBUFNBS : 32;
   } bits;
   
@@ -3114,6 +3397,7 @@ union SHIFTBUFNBS[5] {
   
   // Bit field definition.
   struct {
+    /// read-write - Shift Buffer
     uint32_t SHIFTBUFNBS : 32;
   } bits;
   
@@ -3130,6 +3414,7 @@ union SHIFTBUFNBS[6] {
   
   // Bit field definition.
   struct {
+    /// read-write - Shift Buffer
     uint32_t SHIFTBUFNBS : 32;
   } bits;
   
@@ -3146,6 +3431,7 @@ union SHIFTBUFNBS[7] {
   
   // Bit field definition.
   struct {
+    /// read-write - Shift Buffer
     uint32_t SHIFTBUFNBS : 32;
   } bits;
   
@@ -3163,6 +3449,7 @@ union SHIFTBUFHWS[0] {
   
   // Bit field definition.
   struct {
+    /// read-write - Shift Buffer
     uint32_t SHIFTBUFHWS : 32;
   } bits;
   
@@ -3179,6 +3466,7 @@ union SHIFTBUFHWS[1] {
   
   // Bit field definition.
   struct {
+    /// read-write - Shift Buffer
     uint32_t SHIFTBUFHWS : 32;
   } bits;
   
@@ -3195,6 +3483,7 @@ union SHIFTBUFHWS[2] {
   
   // Bit field definition.
   struct {
+    /// read-write - Shift Buffer
     uint32_t SHIFTBUFHWS : 32;
   } bits;
   
@@ -3211,6 +3500,7 @@ union SHIFTBUFHWS[3] {
   
   // Bit field definition.
   struct {
+    /// read-write - Shift Buffer
     uint32_t SHIFTBUFHWS : 32;
   } bits;
   
@@ -3227,6 +3517,7 @@ union SHIFTBUFHWS[4] {
   
   // Bit field definition.
   struct {
+    /// read-write - Shift Buffer
     uint32_t SHIFTBUFHWS : 32;
   } bits;
   
@@ -3243,6 +3534,7 @@ union SHIFTBUFHWS[5] {
   
   // Bit field definition.
   struct {
+    /// read-write - Shift Buffer
     uint32_t SHIFTBUFHWS : 32;
   } bits;
   
@@ -3259,6 +3551,7 @@ union SHIFTBUFHWS[6] {
   
   // Bit field definition.
   struct {
+    /// read-write - Shift Buffer
     uint32_t SHIFTBUFHWS : 32;
   } bits;
   
@@ -3275,6 +3568,7 @@ union SHIFTBUFHWS[7] {
   
   // Bit field definition.
   struct {
+    /// read-write - Shift Buffer
     uint32_t SHIFTBUFHWS : 32;
   } bits;
   
@@ -3292,6 +3586,7 @@ union SHIFTBUFNIS[0] {
   
   // Bit field definition.
   struct {
+    /// read-write - Shift Buffer
     uint32_t SHIFTBUFNIS : 32;
   } bits;
   
@@ -3308,6 +3603,7 @@ union SHIFTBUFNIS[1] {
   
   // Bit field definition.
   struct {
+    /// read-write - Shift Buffer
     uint32_t SHIFTBUFNIS : 32;
   } bits;
   
@@ -3324,6 +3620,7 @@ union SHIFTBUFNIS[2] {
   
   // Bit field definition.
   struct {
+    /// read-write - Shift Buffer
     uint32_t SHIFTBUFNIS : 32;
   } bits;
   
@@ -3340,6 +3637,7 @@ union SHIFTBUFNIS[3] {
   
   // Bit field definition.
   struct {
+    /// read-write - Shift Buffer
     uint32_t SHIFTBUFNIS : 32;
   } bits;
   
@@ -3356,6 +3654,7 @@ union SHIFTBUFNIS[4] {
   
   // Bit field definition.
   struct {
+    /// read-write - Shift Buffer
     uint32_t SHIFTBUFNIS : 32;
   } bits;
   
@@ -3372,6 +3671,7 @@ union SHIFTBUFNIS[5] {
   
   // Bit field definition.
   struct {
+    /// read-write - Shift Buffer
     uint32_t SHIFTBUFNIS : 32;
   } bits;
   
@@ -3388,6 +3688,7 @@ union SHIFTBUFNIS[6] {
   
   // Bit field definition.
   struct {
+    /// read-write - Shift Buffer
     uint32_t SHIFTBUFNIS : 32;
   } bits;
   
@@ -3404,6 +3705,7 @@ union SHIFTBUFNIS[7] {
   
   // Bit field definition.
   struct {
+    /// read-write - Shift Buffer
     uint32_t SHIFTBUFNIS : 32;
   } bits;
   
@@ -3421,6 +3723,7 @@ union SHIFTBUFOES[0] {
   
   // Bit field definition.
   struct {
+    /// read-write - Shift Buffer
     uint32_t SHIFTBUFOES : 32;
   } bits;
   
@@ -3437,6 +3740,7 @@ union SHIFTBUFOES[1] {
   
   // Bit field definition.
   struct {
+    /// read-write - Shift Buffer
     uint32_t SHIFTBUFOES : 32;
   } bits;
   
@@ -3453,6 +3757,7 @@ union SHIFTBUFOES[2] {
   
   // Bit field definition.
   struct {
+    /// read-write - Shift Buffer
     uint32_t SHIFTBUFOES : 32;
   } bits;
   
@@ -3469,6 +3774,7 @@ union SHIFTBUFOES[3] {
   
   // Bit field definition.
   struct {
+    /// read-write - Shift Buffer
     uint32_t SHIFTBUFOES : 32;
   } bits;
   
@@ -3485,6 +3791,7 @@ union SHIFTBUFOES[4] {
   
   // Bit field definition.
   struct {
+    /// read-write - Shift Buffer
     uint32_t SHIFTBUFOES : 32;
   } bits;
   
@@ -3501,6 +3808,7 @@ union SHIFTBUFOES[5] {
   
   // Bit field definition.
   struct {
+    /// read-write - Shift Buffer
     uint32_t SHIFTBUFOES : 32;
   } bits;
   
@@ -3517,6 +3825,7 @@ union SHIFTBUFOES[6] {
   
   // Bit field definition.
   struct {
+    /// read-write - Shift Buffer
     uint32_t SHIFTBUFOES : 32;
   } bits;
   
@@ -3533,6 +3842,7 @@ union SHIFTBUFOES[7] {
   
   // Bit field definition.
   struct {
+    /// read-write - Shift Buffer
     uint32_t SHIFTBUFOES : 32;
   } bits;
   
@@ -3550,6 +3860,7 @@ union SHIFTBUFEOS[0] {
   
   // Bit field definition.
   struct {
+    /// read-write - Shift Buffer
     uint32_t SHIFTBUFEOS : 32;
   } bits;
   
@@ -3566,6 +3877,7 @@ union SHIFTBUFEOS[1] {
   
   // Bit field definition.
   struct {
+    /// read-write - Shift Buffer
     uint32_t SHIFTBUFEOS : 32;
   } bits;
   
@@ -3582,6 +3894,7 @@ union SHIFTBUFEOS[2] {
   
   // Bit field definition.
   struct {
+    /// read-write - Shift Buffer
     uint32_t SHIFTBUFEOS : 32;
   } bits;
   
@@ -3598,6 +3911,7 @@ union SHIFTBUFEOS[3] {
   
   // Bit field definition.
   struct {
+    /// read-write - Shift Buffer
     uint32_t SHIFTBUFEOS : 32;
   } bits;
   
@@ -3614,6 +3928,7 @@ union SHIFTBUFEOS[4] {
   
   // Bit field definition.
   struct {
+    /// read-write - Shift Buffer
     uint32_t SHIFTBUFEOS : 32;
   } bits;
   
@@ -3630,6 +3945,7 @@ union SHIFTBUFEOS[5] {
   
   // Bit field definition.
   struct {
+    /// read-write - Shift Buffer
     uint32_t SHIFTBUFEOS : 32;
   } bits;
   
@@ -3646,6 +3962,7 @@ union SHIFTBUFEOS[6] {
   
   // Bit field definition.
   struct {
+    /// read-write - Shift Buffer
     uint32_t SHIFTBUFEOS : 32;
   } bits;
   
@@ -3662,6 +3979,7 @@ union SHIFTBUFEOS[7] {
   
   // Bit field definition.
   struct {
+    /// read-write - Shift Buffer
     uint32_t SHIFTBUFEOS : 32;
   } bits;
   

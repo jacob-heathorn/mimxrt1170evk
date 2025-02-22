@@ -22,9 +22,12 @@ union CLOCK_GROUP0_CONTROL {
   
   // Bit field definition.
   struct {
+    /// read-write - Clock divider0
     uint32_t DIV0 : 4;
     uint32_t _reserved_0 : 12;
+    /// read-write - Clock group global restart count
     uint32_t RSTDIV : 8;
+    /// read-write - OFF
     eOFF OFF : 1;
     uint32_t _reserved_1 : 7;
   } bits;
@@ -43,9 +46,12 @@ union CLOCK_GROUP0_CONTROL_SET {
   
   // Bit field definition.
   struct {
+    /// read-write - Clock divider0
     uint32_t DIV0 : 4;
     uint32_t _reserved_0 : 12;
+    /// read-write - Clock group global restart count
     uint32_t RSTDIV : 8;
+    /// read-write - OFF
     uint32_t OFF : 1;
     uint32_t _reserved_1 : 7;
   } bits;
@@ -64,9 +70,12 @@ union CLOCK_GROUP0_CONTROL_CLR {
   
   // Bit field definition.
   struct {
+    /// read-write - Clock divider0
     uint32_t DIV0 : 4;
     uint32_t _reserved_0 : 12;
+    /// read-write - Clock group global restart count
     uint32_t RSTDIV : 8;
+    /// read-write - OFF
     uint32_t OFF : 1;
     uint32_t _reserved_1 : 7;
   } bits;
@@ -85,9 +94,12 @@ union CLOCK_GROUP0_CONTROL_TOG {
   
   // Bit field definition.
   struct {
+    /// read-write - Clock divider0
     uint32_t DIV0 : 4;
     uint32_t _reserved_0 : 12;
+    /// read-write - Clock group global restart count
     uint32_t RSTDIV : 8;
+    /// read-write - OFF
     uint32_t OFF : 1;
     uint32_t _reserved_1 : 7;
   } bits;
@@ -136,15 +148,23 @@ union CLOCK_GROUP0_STATUS0 {
   
   // Bit field definition.
   struct {
+    /// read-write - Clock divider
     uint32_t DIV0 : 4;
     uint32_t _reserved_0 : 12;
+    /// read-write - Clock divider
     uint32_t RSTDIV : 8;
+    /// read-write - OFF
     eOFF OFF : 1;
     uint32_t _reserved_1 : 2;
+    /// read-only - Current clock root POWERDOWN setting
     ePOWERDOWN POWERDOWN : 1;
+    /// read-only - Internal updating in generation logic
     eSLICE_BUSY SLICE_BUSY : 1;
+    /// read-only - Internal status synchronization to clock generation logic
     eUPDATE_FORWARD UPDATE_FORWARD : 1;
+    /// read-only - Internal status synchronization from clock generation logic
     eUPDATE_REVERSE UPDATE_REVERSE : 1;
+    /// read-only - Internal updating in clock group
     eCHANGING CHANGING : 1;
   } bits;
   
@@ -183,11 +203,17 @@ union CLOCK_GROUP0_STATUS1 {
   // Bit field definition.
   struct {
     uint32_t _reserved_0 : 16;
+    /// read-only - Next Setpoint to change to
     uint32_t TARGET_SETPOINT : 4;
+    /// read-only - Current Setpoint
     uint32_t CURRENT_SETPOINT : 4;
+    /// read-only - Clock frequency decrease request
     eDOWN_REQUEST DOWN_REQUEST : 1;
+    /// read-only - Clock frequency decrease complete
     eDOWN_DONE DOWN_DONE : 1;
+    /// read-only - Clock frequency increase request
     eUP_REQUEST UP_REQUEST : 1;
+    /// read-only - Clock frequency increase complete
     eUP_DONE UP_DONE : 1;
     uint32_t _reserved_1 : 4;
   } bits;
@@ -212,6 +238,7 @@ union CLOCK_GROUP0_CONFIG {
   // Bit field definition.
   struct {
     uint32_t _reserved_0 : 4;
+    /// read-only - Setpoint present
     eSETPOINT_PRESENT SETPOINT_PRESENT : 1;
     uint32_t _reserved_1 : 27;
   } bits;
@@ -260,17 +287,25 @@ union CLOCK_GROUP0_AUTHEN {
   
   // Bit field definition.
   struct {
+    /// read-write - User access
     eTZ_USER TZ_USER : 1;
+    /// read-write - Non-secure access
     eTZ_NS TZ_NS : 1;
     uint32_t _reserved_0 : 2;
+    /// read-write - Lock truszone setting
     eLOCK_TZ LOCK_TZ : 1;
     uint32_t _reserved_1 : 3;
+    /// read-write - Whitelist
     uint32_t WHITE_LIST : 4;
+    /// read-write - Lock Whitelist
     eLOCK_LIST LOCK_LIST : 1;
     uint32_t _reserved_2 : 3;
+    /// read-write - Low power and access control by domain
     eDOMAIN_MODE DOMAIN_MODE : 1;
+    /// read-write - Low power and access control by Setpoint
     uint32_t SETPOINT_MODE : 1;
     uint32_t _reserved_3 : 2;
+    /// read-write - Lock low power and access mode
     eLOCK_MODE LOCK_MODE : 1;
     uint32_t _reserved_4 : 11;
   } bits;
@@ -289,17 +324,25 @@ union CLOCK_GROUP0_AUTHEN_SET {
   
   // Bit field definition.
   struct {
+    /// read-write - User access
     uint32_t TZ_USER : 1;
+    /// read-write - Non-secure access
     uint32_t TZ_NS : 1;
     uint32_t _reserved_0 : 2;
+    /// read-write - Lock truszone setting
     uint32_t LOCK_TZ : 1;
     uint32_t _reserved_1 : 3;
+    /// read-write - Whitelist
     uint32_t WHITE_LIST : 4;
+    /// read-write - Lock Whitelist
     uint32_t LOCK_LIST : 1;
     uint32_t _reserved_2 : 3;
+    /// read-write - Low power and access control by domain
     uint32_t DOMAIN_MODE : 1;
+    /// read-write - Low power and access control by Setpoint
     uint32_t SETPOINT_MODE : 1;
     uint32_t _reserved_3 : 2;
+    /// read-write - Lock low power and access mode
     uint32_t LOCK_MODE : 1;
     uint32_t _reserved_4 : 11;
   } bits;
@@ -318,17 +361,25 @@ union CLOCK_GROUP0_AUTHEN_CLR {
   
   // Bit field definition.
   struct {
+    /// read-write - User access
     uint32_t TZ_USER : 1;
+    /// read-write - Non-secure access
     uint32_t TZ_NS : 1;
     uint32_t _reserved_0 : 2;
+    /// read-write - Lock truszone setting
     uint32_t LOCK_TZ : 1;
     uint32_t _reserved_1 : 3;
+    /// read-write - Whitelist
     uint32_t WHITE_LIST : 4;
+    /// read-write - Lock Whitelist
     uint32_t LOCK_LIST : 1;
     uint32_t _reserved_2 : 3;
+    /// read-write - Low power and access control by domain
     uint32_t DOMAIN_MODE : 1;
+    /// read-write - Low power and access control by Setpoint
     uint32_t SETPOINT_MODE : 1;
     uint32_t _reserved_3 : 2;
+    /// read-write - Lock low power and access mode
     uint32_t LOCK_MODE : 1;
     uint32_t _reserved_4 : 11;
   } bits;
@@ -347,17 +398,25 @@ union CLOCK_GROUP0_AUTHEN_TOG {
   
   // Bit field definition.
   struct {
+    /// read-write - User access
     uint32_t TZ_USER : 1;
+    /// read-write - Non-secure access
     uint32_t TZ_NS : 1;
     uint32_t _reserved_0 : 2;
+    /// read-write - Lock truszone setting
     uint32_t LOCK_TZ : 1;
     uint32_t _reserved_1 : 3;
+    /// read-write - Whitelist
     uint32_t WHITE_LIST : 4;
+    /// read-write - Lock Whitelist
     uint32_t LOCK_LIST : 1;
     uint32_t _reserved_2 : 3;
+    /// read-write - Low power and access control by domain
     uint32_t DOMAIN_MODE : 1;
+    /// read-write - Low power and access control by Setpoint
     uint32_t SETPOINT_MODE : 1;
     uint32_t _reserved_3 : 2;
+    /// read-write - Lock low power and access mode
     uint32_t LOCK_MODE : 1;
     uint32_t _reserved_4 : 11;
   } bits;
@@ -389,11 +448,15 @@ union CLOCK_GROUP0_SETPOINT0 {
   
   // Bit field definition.
   struct {
+    /// read-write - Clock divider
     eDIV0 DIV0 : 4;
     uint32_t _reserved_0 : 12;
+    /// read-write - Clock group global restart count
     uint32_t RSTDIV : 8;
+    /// read-write - OFF
     eOFF OFF : 1;
     uint32_t _reserved_1 : 3;
+    /// read-write - Grade
     uint32_t GRADE : 4;
   } bits;
   
@@ -424,11 +487,15 @@ union CLOCK_GROUP0_SETPOINT1 {
   
   // Bit field definition.
   struct {
+    /// read-write - Clock divider
     eDIV0 DIV0 : 4;
     uint32_t _reserved_0 : 12;
+    /// read-write - Clock group global restart count
     uint32_t RSTDIV : 8;
+    /// read-write - OFF
     eOFF OFF : 1;
     uint32_t _reserved_1 : 3;
+    /// read-write - Grade
     uint32_t GRADE : 4;
   } bits;
   
@@ -459,11 +526,15 @@ union CLOCK_GROUP0_SETPOINT2 {
   
   // Bit field definition.
   struct {
+    /// read-write - Clock divider
     eDIV0 DIV0 : 4;
     uint32_t _reserved_0 : 12;
+    /// read-write - Clock group global restart count
     uint32_t RSTDIV : 8;
+    /// read-write - OFF
     eOFF OFF : 1;
     uint32_t _reserved_1 : 3;
+    /// read-write - Grade
     uint32_t GRADE : 4;
   } bits;
   
@@ -494,11 +565,15 @@ union CLOCK_GROUP0_SETPOINT3 {
   
   // Bit field definition.
   struct {
+    /// read-write - Clock divider
     eDIV0 DIV0 : 4;
     uint32_t _reserved_0 : 12;
+    /// read-write - Clock group global restart count
     uint32_t RSTDIV : 8;
+    /// read-write - OFF
     eOFF OFF : 1;
     uint32_t _reserved_1 : 3;
+    /// read-write - Grade
     uint32_t GRADE : 4;
   } bits;
   
@@ -529,11 +604,15 @@ union CLOCK_GROUP0_SETPOINT4 {
   
   // Bit field definition.
   struct {
+    /// read-write - Clock divider
     eDIV0 DIV0 : 4;
     uint32_t _reserved_0 : 12;
+    /// read-write - Clock group global restart count
     uint32_t RSTDIV : 8;
+    /// read-write - OFF
     eOFF OFF : 1;
     uint32_t _reserved_1 : 3;
+    /// read-write - Grade
     uint32_t GRADE : 4;
   } bits;
   
@@ -564,11 +643,15 @@ union CLOCK_GROUP0_SETPOINT5 {
   
   // Bit field definition.
   struct {
+    /// read-write - Clock divider
     eDIV0 DIV0 : 4;
     uint32_t _reserved_0 : 12;
+    /// read-write - Clock group global restart count
     uint32_t RSTDIV : 8;
+    /// read-write - OFF
     eOFF OFF : 1;
     uint32_t _reserved_1 : 3;
+    /// read-write - Grade
     uint32_t GRADE : 4;
   } bits;
   
@@ -599,11 +682,15 @@ union CLOCK_GROUP0_SETPOINT6 {
   
   // Bit field definition.
   struct {
+    /// read-write - Clock divider
     eDIV0 DIV0 : 4;
     uint32_t _reserved_0 : 12;
+    /// read-write - Clock group global restart count
     uint32_t RSTDIV : 8;
+    /// read-write - OFF
     eOFF OFF : 1;
     uint32_t _reserved_1 : 3;
+    /// read-write - Grade
     uint32_t GRADE : 4;
   } bits;
   
@@ -634,11 +721,15 @@ union CLOCK_GROUP0_SETPOINT7 {
   
   // Bit field definition.
   struct {
+    /// read-write - Clock divider
     eDIV0 DIV0 : 4;
     uint32_t _reserved_0 : 12;
+    /// read-write - Clock group global restart count
     uint32_t RSTDIV : 8;
+    /// read-write - OFF
     eOFF OFF : 1;
     uint32_t _reserved_1 : 3;
+    /// read-write - Grade
     uint32_t GRADE : 4;
   } bits;
   
@@ -669,11 +760,15 @@ union CLOCK_GROUP0_SETPOINT8 {
   
   // Bit field definition.
   struct {
+    /// read-write - Clock divider
     eDIV0 DIV0 : 4;
     uint32_t _reserved_0 : 12;
+    /// read-write - Clock group global restart count
     uint32_t RSTDIV : 8;
+    /// read-write - OFF
     eOFF OFF : 1;
     uint32_t _reserved_1 : 3;
+    /// read-write - Grade
     uint32_t GRADE : 4;
   } bits;
   
@@ -704,11 +799,15 @@ union CLOCK_GROUP0_SETPOINT9 {
   
   // Bit field definition.
   struct {
+    /// read-write - Clock divider
     eDIV0 DIV0 : 4;
     uint32_t _reserved_0 : 12;
+    /// read-write - Clock group global restart count
     uint32_t RSTDIV : 8;
+    /// read-write - OFF
     eOFF OFF : 1;
     uint32_t _reserved_1 : 3;
+    /// read-write - Grade
     uint32_t GRADE : 4;
   } bits;
   
@@ -739,11 +838,15 @@ union CLOCK_GROUP0_SETPOINT10 {
   
   // Bit field definition.
   struct {
+    /// read-write - Clock divider
     eDIV0 DIV0 : 4;
     uint32_t _reserved_0 : 12;
+    /// read-write - Clock group global restart count
     uint32_t RSTDIV : 8;
+    /// read-write - OFF
     eOFF OFF : 1;
     uint32_t _reserved_1 : 3;
+    /// read-write - Grade
     uint32_t GRADE : 4;
   } bits;
   
@@ -774,11 +877,15 @@ union CLOCK_GROUP0_SETPOINT11 {
   
   // Bit field definition.
   struct {
+    /// read-write - Clock divider
     eDIV0 DIV0 : 4;
     uint32_t _reserved_0 : 12;
+    /// read-write - Clock group global restart count
     uint32_t RSTDIV : 8;
+    /// read-write - OFF
     eOFF OFF : 1;
     uint32_t _reserved_1 : 3;
+    /// read-write - Grade
     uint32_t GRADE : 4;
   } bits;
   
@@ -809,11 +916,15 @@ union CLOCK_GROUP0_SETPOINT12 {
   
   // Bit field definition.
   struct {
+    /// read-write - Clock divider
     eDIV0 DIV0 : 4;
     uint32_t _reserved_0 : 12;
+    /// read-write - Clock group global restart count
     uint32_t RSTDIV : 8;
+    /// read-write - OFF
     eOFF OFF : 1;
     uint32_t _reserved_1 : 3;
+    /// read-write - Grade
     uint32_t GRADE : 4;
   } bits;
   
@@ -844,11 +955,15 @@ union CLOCK_GROUP0_SETPOINT13 {
   
   // Bit field definition.
   struct {
+    /// read-write - Clock divider
     eDIV0 DIV0 : 4;
     uint32_t _reserved_0 : 12;
+    /// read-write - Clock group global restart count
     uint32_t RSTDIV : 8;
+    /// read-write - OFF
     eOFF OFF : 1;
     uint32_t _reserved_1 : 3;
+    /// read-write - Grade
     uint32_t GRADE : 4;
   } bits;
   
@@ -879,11 +994,15 @@ union CLOCK_GROUP0_SETPOINT14 {
   
   // Bit field definition.
   struct {
+    /// read-write - Clock divider
     eDIV0 DIV0 : 4;
     uint32_t _reserved_0 : 12;
+    /// read-write - Clock group global restart count
     uint32_t RSTDIV : 8;
+    /// read-write - OFF
     eOFF OFF : 1;
     uint32_t _reserved_1 : 3;
+    /// read-write - Grade
     uint32_t GRADE : 4;
   } bits;
   
@@ -914,11 +1033,15 @@ union CLOCK_GROUP0_SETPOINT15 {
   
   // Bit field definition.
   struct {
+    /// read-write - Clock divider
     eDIV0 DIV0 : 4;
     uint32_t _reserved_0 : 12;
+    /// read-write - Clock group global restart count
     uint32_t RSTDIV : 8;
+    /// read-write - OFF
     eOFF OFF : 1;
     uint32_t _reserved_1 : 3;
+    /// read-write - Grade
     uint32_t GRADE : 4;
   } bits;
   
@@ -941,9 +1064,12 @@ union CLOCK_GROUP1_CONTROL {
   
   // Bit field definition.
   struct {
+    /// read-write - Clock divider0
     uint32_t DIV0 : 4;
     uint32_t _reserved_0 : 12;
+    /// read-write - Clock group global restart count
     uint32_t RSTDIV : 8;
+    /// read-write - OFF
     eOFF OFF : 1;
     uint32_t _reserved_1 : 7;
   } bits;
@@ -962,9 +1088,12 @@ union CLOCK_GROUP1_CONTROL_SET {
   
   // Bit field definition.
   struct {
+    /// read-write - Clock divider0
     uint32_t DIV0 : 4;
     uint32_t _reserved_0 : 12;
+    /// read-write - Clock group global restart count
     uint32_t RSTDIV : 8;
+    /// read-write - OFF
     uint32_t OFF : 1;
     uint32_t _reserved_1 : 7;
   } bits;
@@ -983,9 +1112,12 @@ union CLOCK_GROUP1_CONTROL_CLR {
   
   // Bit field definition.
   struct {
+    /// read-write - Clock divider0
     uint32_t DIV0 : 4;
     uint32_t _reserved_0 : 12;
+    /// read-write - Clock group global restart count
     uint32_t RSTDIV : 8;
+    /// read-write - OFF
     uint32_t OFF : 1;
     uint32_t _reserved_1 : 7;
   } bits;
@@ -1004,9 +1136,12 @@ union CLOCK_GROUP1_CONTROL_TOG {
   
   // Bit field definition.
   struct {
+    /// read-write - Clock divider0
     uint32_t DIV0 : 4;
     uint32_t _reserved_0 : 12;
+    /// read-write - Clock group global restart count
     uint32_t RSTDIV : 8;
+    /// read-write - OFF
     uint32_t OFF : 1;
     uint32_t _reserved_1 : 7;
   } bits;
@@ -1055,15 +1190,23 @@ union CLOCK_GROUP1_STATUS0 {
   
   // Bit field definition.
   struct {
+    /// read-write - Clock divider
     uint32_t DIV0 : 4;
     uint32_t _reserved_0 : 12;
+    /// read-write - Clock divider
     uint32_t RSTDIV : 8;
+    /// read-write - OFF
     eOFF OFF : 1;
     uint32_t _reserved_1 : 2;
+    /// read-only - Current clock root POWERDOWN setting
     ePOWERDOWN POWERDOWN : 1;
+    /// read-only - Internal updating in generation logic
     eSLICE_BUSY SLICE_BUSY : 1;
+    /// read-only - Internal status synchronization to clock generation logic
     eUPDATE_FORWARD UPDATE_FORWARD : 1;
+    /// read-only - Internal status synchronization from clock generation logic
     eUPDATE_REVERSE UPDATE_REVERSE : 1;
+    /// read-only - Internal updating in clock group
     eCHANGING CHANGING : 1;
   } bits;
   
@@ -1102,11 +1245,17 @@ union CLOCK_GROUP1_STATUS1 {
   // Bit field definition.
   struct {
     uint32_t _reserved_0 : 16;
+    /// read-only - Next Setpoint to change to
     uint32_t TARGET_SETPOINT : 4;
+    /// read-only - Current Setpoint
     uint32_t CURRENT_SETPOINT : 4;
+    /// read-only - Clock frequency decrease request
     eDOWN_REQUEST DOWN_REQUEST : 1;
+    /// read-only - Clock frequency decrease complete
     eDOWN_DONE DOWN_DONE : 1;
+    /// read-only - Clock frequency increase request
     eUP_REQUEST UP_REQUEST : 1;
+    /// read-only - Clock frequency increase complete
     eUP_DONE UP_DONE : 1;
     uint32_t _reserved_1 : 4;
   } bits;
@@ -1131,6 +1280,7 @@ union CLOCK_GROUP1_CONFIG {
   // Bit field definition.
   struct {
     uint32_t _reserved_0 : 4;
+    /// read-only - Setpoint present
     eSETPOINT_PRESENT SETPOINT_PRESENT : 1;
     uint32_t _reserved_1 : 27;
   } bits;
@@ -1179,17 +1329,25 @@ union CLOCK_GROUP1_AUTHEN {
   
   // Bit field definition.
   struct {
+    /// read-write - User access
     eTZ_USER TZ_USER : 1;
+    /// read-write - Non-secure access
     eTZ_NS TZ_NS : 1;
     uint32_t _reserved_0 : 2;
+    /// read-write - Lock truszone setting
     eLOCK_TZ LOCK_TZ : 1;
     uint32_t _reserved_1 : 3;
+    /// read-write - Whitelist
     uint32_t WHITE_LIST : 4;
+    /// read-write - Lock Whitelist
     eLOCK_LIST LOCK_LIST : 1;
     uint32_t _reserved_2 : 3;
+    /// read-write - Low power and access control by domain
     eDOMAIN_MODE DOMAIN_MODE : 1;
+    /// read-write - Low power and access control by Setpoint
     uint32_t SETPOINT_MODE : 1;
     uint32_t _reserved_3 : 2;
+    /// read-write - Lock low power and access mode
     eLOCK_MODE LOCK_MODE : 1;
     uint32_t _reserved_4 : 11;
   } bits;
@@ -1208,17 +1366,25 @@ union CLOCK_GROUP1_AUTHEN_SET {
   
   // Bit field definition.
   struct {
+    /// read-write - User access
     uint32_t TZ_USER : 1;
+    /// read-write - Non-secure access
     uint32_t TZ_NS : 1;
     uint32_t _reserved_0 : 2;
+    /// read-write - Lock truszone setting
     uint32_t LOCK_TZ : 1;
     uint32_t _reserved_1 : 3;
+    /// read-write - Whitelist
     uint32_t WHITE_LIST : 4;
+    /// read-write - Lock Whitelist
     uint32_t LOCK_LIST : 1;
     uint32_t _reserved_2 : 3;
+    /// read-write - Low power and access control by domain
     uint32_t DOMAIN_MODE : 1;
+    /// read-write - Low power and access control by Setpoint
     uint32_t SETPOINT_MODE : 1;
     uint32_t _reserved_3 : 2;
+    /// read-write - Lock low power and access mode
     uint32_t LOCK_MODE : 1;
     uint32_t _reserved_4 : 11;
   } bits;
@@ -1237,17 +1403,25 @@ union CLOCK_GROUP1_AUTHEN_CLR {
   
   // Bit field definition.
   struct {
+    /// read-write - User access
     uint32_t TZ_USER : 1;
+    /// read-write - Non-secure access
     uint32_t TZ_NS : 1;
     uint32_t _reserved_0 : 2;
+    /// read-write - Lock truszone setting
     uint32_t LOCK_TZ : 1;
     uint32_t _reserved_1 : 3;
+    /// read-write - Whitelist
     uint32_t WHITE_LIST : 4;
+    /// read-write - Lock Whitelist
     uint32_t LOCK_LIST : 1;
     uint32_t _reserved_2 : 3;
+    /// read-write - Low power and access control by domain
     uint32_t DOMAIN_MODE : 1;
+    /// read-write - Low power and access control by Setpoint
     uint32_t SETPOINT_MODE : 1;
     uint32_t _reserved_3 : 2;
+    /// read-write - Lock low power and access mode
     uint32_t LOCK_MODE : 1;
     uint32_t _reserved_4 : 11;
   } bits;
@@ -1266,17 +1440,25 @@ union CLOCK_GROUP1_AUTHEN_TOG {
   
   // Bit field definition.
   struct {
+    /// read-write - User access
     uint32_t TZ_USER : 1;
+    /// read-write - Non-secure access
     uint32_t TZ_NS : 1;
     uint32_t _reserved_0 : 2;
+    /// read-write - Lock truszone setting
     uint32_t LOCK_TZ : 1;
     uint32_t _reserved_1 : 3;
+    /// read-write - Whitelist
     uint32_t WHITE_LIST : 4;
+    /// read-write - Lock Whitelist
     uint32_t LOCK_LIST : 1;
     uint32_t _reserved_2 : 3;
+    /// read-write - Low power and access control by domain
     uint32_t DOMAIN_MODE : 1;
+    /// read-write - Low power and access control by Setpoint
     uint32_t SETPOINT_MODE : 1;
     uint32_t _reserved_3 : 2;
+    /// read-write - Lock low power and access mode
     uint32_t LOCK_MODE : 1;
     uint32_t _reserved_4 : 11;
   } bits;
@@ -1308,11 +1490,15 @@ union CLOCK_GROUP1_SETPOINT0 {
   
   // Bit field definition.
   struct {
+    /// read-write - Clock divider
     eDIV0 DIV0 : 4;
     uint32_t _reserved_0 : 12;
+    /// read-write - Clock group global restart count
     uint32_t RSTDIV : 8;
+    /// read-write - OFF
     eOFF OFF : 1;
     uint32_t _reserved_1 : 3;
+    /// read-write - Grade
     uint32_t GRADE : 4;
   } bits;
   
@@ -1343,11 +1529,15 @@ union CLOCK_GROUP1_SETPOINT1 {
   
   // Bit field definition.
   struct {
+    /// read-write - Clock divider
     eDIV0 DIV0 : 4;
     uint32_t _reserved_0 : 12;
+    /// read-write - Clock group global restart count
     uint32_t RSTDIV : 8;
+    /// read-write - OFF
     eOFF OFF : 1;
     uint32_t _reserved_1 : 3;
+    /// read-write - Grade
     uint32_t GRADE : 4;
   } bits;
   
@@ -1378,11 +1568,15 @@ union CLOCK_GROUP1_SETPOINT2 {
   
   // Bit field definition.
   struct {
+    /// read-write - Clock divider
     eDIV0 DIV0 : 4;
     uint32_t _reserved_0 : 12;
+    /// read-write - Clock group global restart count
     uint32_t RSTDIV : 8;
+    /// read-write - OFF
     eOFF OFF : 1;
     uint32_t _reserved_1 : 3;
+    /// read-write - Grade
     uint32_t GRADE : 4;
   } bits;
   
@@ -1413,11 +1607,15 @@ union CLOCK_GROUP1_SETPOINT3 {
   
   // Bit field definition.
   struct {
+    /// read-write - Clock divider
     eDIV0 DIV0 : 4;
     uint32_t _reserved_0 : 12;
+    /// read-write - Clock group global restart count
     uint32_t RSTDIV : 8;
+    /// read-write - OFF
     eOFF OFF : 1;
     uint32_t _reserved_1 : 3;
+    /// read-write - Grade
     uint32_t GRADE : 4;
   } bits;
   
@@ -1448,11 +1646,15 @@ union CLOCK_GROUP1_SETPOINT4 {
   
   // Bit field definition.
   struct {
+    /// read-write - Clock divider
     eDIV0 DIV0 : 4;
     uint32_t _reserved_0 : 12;
+    /// read-write - Clock group global restart count
     uint32_t RSTDIV : 8;
+    /// read-write - OFF
     eOFF OFF : 1;
     uint32_t _reserved_1 : 3;
+    /// read-write - Grade
     uint32_t GRADE : 4;
   } bits;
   
@@ -1483,11 +1685,15 @@ union CLOCK_GROUP1_SETPOINT5 {
   
   // Bit field definition.
   struct {
+    /// read-write - Clock divider
     eDIV0 DIV0 : 4;
     uint32_t _reserved_0 : 12;
+    /// read-write - Clock group global restart count
     uint32_t RSTDIV : 8;
+    /// read-write - OFF
     eOFF OFF : 1;
     uint32_t _reserved_1 : 3;
+    /// read-write - Grade
     uint32_t GRADE : 4;
   } bits;
   
@@ -1518,11 +1724,15 @@ union CLOCK_GROUP1_SETPOINT6 {
   
   // Bit field definition.
   struct {
+    /// read-write - Clock divider
     eDIV0 DIV0 : 4;
     uint32_t _reserved_0 : 12;
+    /// read-write - Clock group global restart count
     uint32_t RSTDIV : 8;
+    /// read-write - OFF
     eOFF OFF : 1;
     uint32_t _reserved_1 : 3;
+    /// read-write - Grade
     uint32_t GRADE : 4;
   } bits;
   
@@ -1553,11 +1763,15 @@ union CLOCK_GROUP1_SETPOINT7 {
   
   // Bit field definition.
   struct {
+    /// read-write - Clock divider
     eDIV0 DIV0 : 4;
     uint32_t _reserved_0 : 12;
+    /// read-write - Clock group global restart count
     uint32_t RSTDIV : 8;
+    /// read-write - OFF
     eOFF OFF : 1;
     uint32_t _reserved_1 : 3;
+    /// read-write - Grade
     uint32_t GRADE : 4;
   } bits;
   
@@ -1588,11 +1802,15 @@ union CLOCK_GROUP1_SETPOINT8 {
   
   // Bit field definition.
   struct {
+    /// read-write - Clock divider
     eDIV0 DIV0 : 4;
     uint32_t _reserved_0 : 12;
+    /// read-write - Clock group global restart count
     uint32_t RSTDIV : 8;
+    /// read-write - OFF
     eOFF OFF : 1;
     uint32_t _reserved_1 : 3;
+    /// read-write - Grade
     uint32_t GRADE : 4;
   } bits;
   
@@ -1623,11 +1841,15 @@ union CLOCK_GROUP1_SETPOINT9 {
   
   // Bit field definition.
   struct {
+    /// read-write - Clock divider
     eDIV0 DIV0 : 4;
     uint32_t _reserved_0 : 12;
+    /// read-write - Clock group global restart count
     uint32_t RSTDIV : 8;
+    /// read-write - OFF
     eOFF OFF : 1;
     uint32_t _reserved_1 : 3;
+    /// read-write - Grade
     uint32_t GRADE : 4;
   } bits;
   
@@ -1658,11 +1880,15 @@ union CLOCK_GROUP1_SETPOINT10 {
   
   // Bit field definition.
   struct {
+    /// read-write - Clock divider
     eDIV0 DIV0 : 4;
     uint32_t _reserved_0 : 12;
+    /// read-write - Clock group global restart count
     uint32_t RSTDIV : 8;
+    /// read-write - OFF
     eOFF OFF : 1;
     uint32_t _reserved_1 : 3;
+    /// read-write - Grade
     uint32_t GRADE : 4;
   } bits;
   
@@ -1693,11 +1919,15 @@ union CLOCK_GROUP1_SETPOINT11 {
   
   // Bit field definition.
   struct {
+    /// read-write - Clock divider
     eDIV0 DIV0 : 4;
     uint32_t _reserved_0 : 12;
+    /// read-write - Clock group global restart count
     uint32_t RSTDIV : 8;
+    /// read-write - OFF
     eOFF OFF : 1;
     uint32_t _reserved_1 : 3;
+    /// read-write - Grade
     uint32_t GRADE : 4;
   } bits;
   
@@ -1728,11 +1958,15 @@ union CLOCK_GROUP1_SETPOINT12 {
   
   // Bit field definition.
   struct {
+    /// read-write - Clock divider
     eDIV0 DIV0 : 4;
     uint32_t _reserved_0 : 12;
+    /// read-write - Clock group global restart count
     uint32_t RSTDIV : 8;
+    /// read-write - OFF
     eOFF OFF : 1;
     uint32_t _reserved_1 : 3;
+    /// read-write - Grade
     uint32_t GRADE : 4;
   } bits;
   
@@ -1763,11 +1997,15 @@ union CLOCK_GROUP1_SETPOINT13 {
   
   // Bit field definition.
   struct {
+    /// read-write - Clock divider
     eDIV0 DIV0 : 4;
     uint32_t _reserved_0 : 12;
+    /// read-write - Clock group global restart count
     uint32_t RSTDIV : 8;
+    /// read-write - OFF
     eOFF OFF : 1;
     uint32_t _reserved_1 : 3;
+    /// read-write - Grade
     uint32_t GRADE : 4;
   } bits;
   
@@ -1798,11 +2036,15 @@ union CLOCK_GROUP1_SETPOINT14 {
   
   // Bit field definition.
   struct {
+    /// read-write - Clock divider
     eDIV0 DIV0 : 4;
     uint32_t _reserved_0 : 12;
+    /// read-write - Clock group global restart count
     uint32_t RSTDIV : 8;
+    /// read-write - OFF
     eOFF OFF : 1;
     uint32_t _reserved_1 : 3;
+    /// read-write - Grade
     uint32_t GRADE : 4;
   } bits;
   
@@ -1833,11 +2075,15 @@ union CLOCK_GROUP1_SETPOINT15 {
   
   // Bit field definition.
   struct {
+    /// read-write - Clock divider
     eDIV0 DIV0 : 4;
     uint32_t _reserved_0 : 12;
+    /// read-write - Clock group global restart count
     uint32_t RSTDIV : 8;
+    /// read-write - OFF
     eOFF OFF : 1;
     uint32_t _reserved_1 : 3;
+    /// read-write - Grade
     uint32_t GRADE : 4;
   } bits;
   
@@ -1855,6 +2101,7 @@ union GPR_PRIVATE1 {
   
   // Bit field definition.
   struct {
+    /// read-write - GP register
     uint32_t GPR : 32;
   } bits;
   
@@ -1872,6 +2119,7 @@ union GPR_PRIVATE1_SET {
   
   // Bit field definition.
   struct {
+    /// read-write - GP register
     uint32_t GPR : 32;
   } bits;
   
@@ -1889,6 +2137,7 @@ union GPR_PRIVATE1_CLR {
   
   // Bit field definition.
   struct {
+    /// read-write - GP register
     uint32_t GPR : 32;
   } bits;
   
@@ -1906,6 +2155,7 @@ union GPR_PRIVATE1_TOG {
   
   // Bit field definition.
   struct {
+    /// read-write - GP register
     uint32_t GPR : 32;
   } bits;
   
@@ -1958,16 +2208,23 @@ union GPR_PRIVATE1_AUTHEN {
   
   // Bit field definition.
   struct {
+    /// read-write - User access
     eTZ_USER TZ_USER : 1;
+    /// read-write - Non-secure access
     eTZ_NS TZ_NS : 1;
     uint32_t _reserved_0 : 2;
+    /// read-write - Lock truszone setting
     eLOCK_TZ LOCK_TZ : 1;
     uint32_t _reserved_1 : 3;
+    /// read-write - Whitelist
     eWHITE_LIST WHITE_LIST : 4;
+    /// read-write - Lock Whitelist
     eLOCK_LIST LOCK_LIST : 1;
     uint32_t _reserved_2 : 3;
+    /// read-write - Low power and access control by Domain
     eDOMAIN_MODE DOMAIN_MODE : 1;
     uint32_t _reserved_3 : 3;
+    /// read-write - Lock low power and access mode
     eLOCK_MODE LOCK_MODE : 1;
     uint32_t _reserved_4 : 11;
   } bits;
@@ -1986,16 +2243,23 @@ union GPR_PRIVATE1_AUTHEN_SET {
   
   // Bit field definition.
   struct {
+    /// read-write - User access
     uint32_t TZ_USER : 1;
+    /// read-write - Non-secure access
     uint32_t TZ_NS : 1;
     uint32_t _reserved_0 : 2;
+    /// read-write - Lock truszone setting
     uint32_t LOCK_TZ : 1;
     uint32_t _reserved_1 : 3;
+    /// read-write - Whitelist
     uint32_t WHITE_LIST : 4;
+    /// read-write - Lock Whitelist
     uint32_t LOCK_LIST : 1;
     uint32_t _reserved_2 : 3;
+    /// read-write - Low power and access control by Domain
     uint32_t DOMAIN_MODE : 1;
     uint32_t _reserved_3 : 3;
+    /// read-write - Lock low power and access mode
     uint32_t LOCK_MODE : 1;
     uint32_t _reserved_4 : 11;
   } bits;
@@ -2014,16 +2278,23 @@ union GPR_PRIVATE1_AUTHEN_CLR {
   
   // Bit field definition.
   struct {
+    /// read-write - User access
     uint32_t TZ_USER : 1;
+    /// read-write - Non-secure access
     uint32_t TZ_NS : 1;
     uint32_t _reserved_0 : 2;
+    /// read-write - Lock truszone setting
     uint32_t LOCK_TZ : 1;
     uint32_t _reserved_1 : 3;
+    /// read-write - Whitelist
     uint32_t WHITE_LIST : 4;
+    /// read-write - Lock Whitelist
     uint32_t LOCK_LIST : 1;
     uint32_t _reserved_2 : 3;
+    /// read-write - Low power and access control by Domain
     uint32_t DOMAIN_MODE : 1;
     uint32_t _reserved_3 : 3;
+    /// read-write - Lock low power and access mode
     uint32_t LOCK_MODE : 1;
     uint32_t _reserved_4 : 11;
   } bits;
@@ -2042,16 +2313,23 @@ union GPR_PRIVATE1_AUTHEN_TOG {
   
   // Bit field definition.
   struct {
+    /// read-write - User access
     uint32_t TZ_USER : 1;
+    /// read-write - Non-secure access
     uint32_t TZ_NS : 1;
     uint32_t _reserved_0 : 2;
+    /// read-write - Lock truszone setting
     uint32_t LOCK_TZ : 1;
     uint32_t _reserved_1 : 3;
+    /// read-write - Whitelist
     uint32_t WHITE_LIST : 4;
+    /// read-write - Lock Whitelist
     uint32_t LOCK_LIST : 1;
     uint32_t _reserved_2 : 3;
+    /// read-write - Low power and access control by Domain
     uint32_t DOMAIN_MODE : 1;
     uint32_t _reserved_3 : 3;
+    /// read-write - Lock low power and access mode
     uint32_t LOCK_MODE : 1;
     uint32_t _reserved_4 : 11;
   } bits;
@@ -2070,6 +2348,7 @@ union GPR_PRIVATE2 {
   
   // Bit field definition.
   struct {
+    /// read-write - GP register
     uint32_t GPR : 32;
   } bits;
   
@@ -2087,6 +2366,7 @@ union GPR_PRIVATE2_SET {
   
   // Bit field definition.
   struct {
+    /// read-write - GP register
     uint32_t GPR : 32;
   } bits;
   
@@ -2104,6 +2384,7 @@ union GPR_PRIVATE2_CLR {
   
   // Bit field definition.
   struct {
+    /// read-write - GP register
     uint32_t GPR : 32;
   } bits;
   
@@ -2121,6 +2402,7 @@ union GPR_PRIVATE2_TOG {
   
   // Bit field definition.
   struct {
+    /// read-write - GP register
     uint32_t GPR : 32;
   } bits;
   
@@ -2173,16 +2455,23 @@ union GPR_PRIVATE2_AUTHEN {
   
   // Bit field definition.
   struct {
+    /// read-write - User access
     eTZ_USER TZ_USER : 1;
+    /// read-write - Non-secure access
     eTZ_NS TZ_NS : 1;
     uint32_t _reserved_0 : 2;
+    /// read-write - Lock truszone setting
     eLOCK_TZ LOCK_TZ : 1;
     uint32_t _reserved_1 : 3;
+    /// read-write - Whitelist
     eWHITE_LIST WHITE_LIST : 4;
+    /// read-write - Lock Whitelist
     eLOCK_LIST LOCK_LIST : 1;
     uint32_t _reserved_2 : 3;
+    /// read-write - Low power and access control by Domain
     eDOMAIN_MODE DOMAIN_MODE : 1;
     uint32_t _reserved_3 : 3;
+    /// read-write - Lock low power and access mode
     eLOCK_MODE LOCK_MODE : 1;
     uint32_t _reserved_4 : 11;
   } bits;
@@ -2201,16 +2490,23 @@ union GPR_PRIVATE2_AUTHEN_SET {
   
   // Bit field definition.
   struct {
+    /// read-write - User access
     uint32_t TZ_USER : 1;
+    /// read-write - Non-secure access
     uint32_t TZ_NS : 1;
     uint32_t _reserved_0 : 2;
+    /// read-write - Lock truszone setting
     uint32_t LOCK_TZ : 1;
     uint32_t _reserved_1 : 3;
+    /// read-write - Whitelist
     uint32_t WHITE_LIST : 4;
+    /// read-write - Lock Whitelist
     uint32_t LOCK_LIST : 1;
     uint32_t _reserved_2 : 3;
+    /// read-write - Low power and access control by Domain
     uint32_t DOMAIN_MODE : 1;
     uint32_t _reserved_3 : 3;
+    /// read-write - Lock low power and access mode
     uint32_t LOCK_MODE : 1;
     uint32_t _reserved_4 : 11;
   } bits;
@@ -2229,16 +2525,23 @@ union GPR_PRIVATE2_AUTHEN_CLR {
   
   // Bit field definition.
   struct {
+    /// read-write - User access
     uint32_t TZ_USER : 1;
+    /// read-write - Non-secure access
     uint32_t TZ_NS : 1;
     uint32_t _reserved_0 : 2;
+    /// read-write - Lock truszone setting
     uint32_t LOCK_TZ : 1;
     uint32_t _reserved_1 : 3;
+    /// read-write - Whitelist
     uint32_t WHITE_LIST : 4;
+    /// read-write - Lock Whitelist
     uint32_t LOCK_LIST : 1;
     uint32_t _reserved_2 : 3;
+    /// read-write - Low power and access control by Domain
     uint32_t DOMAIN_MODE : 1;
     uint32_t _reserved_3 : 3;
+    /// read-write - Lock low power and access mode
     uint32_t LOCK_MODE : 1;
     uint32_t _reserved_4 : 11;
   } bits;
@@ -2257,16 +2560,23 @@ union GPR_PRIVATE2_AUTHEN_TOG {
   
   // Bit field definition.
   struct {
+    /// read-write - User access
     uint32_t TZ_USER : 1;
+    /// read-write - Non-secure access
     uint32_t TZ_NS : 1;
     uint32_t _reserved_0 : 2;
+    /// read-write - Lock truszone setting
     uint32_t LOCK_TZ : 1;
     uint32_t _reserved_1 : 3;
+    /// read-write - Whitelist
     uint32_t WHITE_LIST : 4;
+    /// read-write - Lock Whitelist
     uint32_t LOCK_LIST : 1;
     uint32_t _reserved_2 : 3;
+    /// read-write - Low power and access control by Domain
     uint32_t DOMAIN_MODE : 1;
     uint32_t _reserved_3 : 3;
+    /// read-write - Lock low power and access mode
     uint32_t LOCK_MODE : 1;
     uint32_t _reserved_4 : 11;
   } bits;
@@ -2285,6 +2595,7 @@ union GPR_PRIVATE3 {
   
   // Bit field definition.
   struct {
+    /// read-write - GP register
     uint32_t GPR : 32;
   } bits;
   
@@ -2302,6 +2613,7 @@ union GPR_PRIVATE3_SET {
   
   // Bit field definition.
   struct {
+    /// read-write - GP register
     uint32_t GPR : 32;
   } bits;
   
@@ -2319,6 +2631,7 @@ union GPR_PRIVATE3_CLR {
   
   // Bit field definition.
   struct {
+    /// read-write - GP register
     uint32_t GPR : 32;
   } bits;
   
@@ -2336,6 +2649,7 @@ union GPR_PRIVATE3_TOG {
   
   // Bit field definition.
   struct {
+    /// read-write - GP register
     uint32_t GPR : 32;
   } bits;
   
@@ -2388,16 +2702,23 @@ union GPR_PRIVATE3_AUTHEN {
   
   // Bit field definition.
   struct {
+    /// read-write - User access
     eTZ_USER TZ_USER : 1;
+    /// read-write - Non-secure access
     eTZ_NS TZ_NS : 1;
     uint32_t _reserved_0 : 2;
+    /// read-write - Lock truszone setting
     eLOCK_TZ LOCK_TZ : 1;
     uint32_t _reserved_1 : 3;
+    /// read-write - Whitelist
     eWHITE_LIST WHITE_LIST : 4;
+    /// read-write - Lock Whitelist
     eLOCK_LIST LOCK_LIST : 1;
     uint32_t _reserved_2 : 3;
+    /// read-write - Low power and access control by Domain
     eDOMAIN_MODE DOMAIN_MODE : 1;
     uint32_t _reserved_3 : 3;
+    /// read-write - Lock low power and access mode
     eLOCK_MODE LOCK_MODE : 1;
     uint32_t _reserved_4 : 11;
   } bits;
@@ -2416,16 +2737,23 @@ union GPR_PRIVATE3_AUTHEN_SET {
   
   // Bit field definition.
   struct {
+    /// read-write - User access
     uint32_t TZ_USER : 1;
+    /// read-write - Non-secure access
     uint32_t TZ_NS : 1;
     uint32_t _reserved_0 : 2;
+    /// read-write - Lock truszone setting
     uint32_t LOCK_TZ : 1;
     uint32_t _reserved_1 : 3;
+    /// read-write - Whitelist
     uint32_t WHITE_LIST : 4;
+    /// read-write - Lock Whitelist
     uint32_t LOCK_LIST : 1;
     uint32_t _reserved_2 : 3;
+    /// read-write - Low power and access control by Domain
     uint32_t DOMAIN_MODE : 1;
     uint32_t _reserved_3 : 3;
+    /// read-write - Lock low power and access mode
     uint32_t LOCK_MODE : 1;
     uint32_t _reserved_4 : 11;
   } bits;
@@ -2444,16 +2772,23 @@ union GPR_PRIVATE3_AUTHEN_CLR {
   
   // Bit field definition.
   struct {
+    /// read-write - User access
     uint32_t TZ_USER : 1;
+    /// read-write - Non-secure access
     uint32_t TZ_NS : 1;
     uint32_t _reserved_0 : 2;
+    /// read-write - Lock truszone setting
     uint32_t LOCK_TZ : 1;
     uint32_t _reserved_1 : 3;
+    /// read-write - Whitelist
     uint32_t WHITE_LIST : 4;
+    /// read-write - Lock Whitelist
     uint32_t LOCK_LIST : 1;
     uint32_t _reserved_2 : 3;
+    /// read-write - Low power and access control by Domain
     uint32_t DOMAIN_MODE : 1;
     uint32_t _reserved_3 : 3;
+    /// read-write - Lock low power and access mode
     uint32_t LOCK_MODE : 1;
     uint32_t _reserved_4 : 11;
   } bits;
@@ -2472,16 +2807,23 @@ union GPR_PRIVATE3_AUTHEN_TOG {
   
   // Bit field definition.
   struct {
+    /// read-write - User access
     uint32_t TZ_USER : 1;
+    /// read-write - Non-secure access
     uint32_t TZ_NS : 1;
     uint32_t _reserved_0 : 2;
+    /// read-write - Lock truszone setting
     uint32_t LOCK_TZ : 1;
     uint32_t _reserved_1 : 3;
+    /// read-write - Whitelist
     uint32_t WHITE_LIST : 4;
+    /// read-write - Lock Whitelist
     uint32_t LOCK_LIST : 1;
     uint32_t _reserved_2 : 3;
+    /// read-write - Low power and access control by Domain
     uint32_t DOMAIN_MODE : 1;
     uint32_t _reserved_3 : 3;
+    /// read-write - Lock low power and access mode
     uint32_t LOCK_MODE : 1;
     uint32_t _reserved_4 : 11;
   } bits;
@@ -2500,6 +2842,7 @@ union GPR_PRIVATE4 {
   
   // Bit field definition.
   struct {
+    /// read-write - GP register
     uint32_t GPR : 32;
   } bits;
   
@@ -2517,6 +2860,7 @@ union GPR_PRIVATE4_SET {
   
   // Bit field definition.
   struct {
+    /// read-write - GP register
     uint32_t GPR : 32;
   } bits;
   
@@ -2534,6 +2878,7 @@ union GPR_PRIVATE4_CLR {
   
   // Bit field definition.
   struct {
+    /// read-write - GP register
     uint32_t GPR : 32;
   } bits;
   
@@ -2551,6 +2896,7 @@ union GPR_PRIVATE4_TOG {
   
   // Bit field definition.
   struct {
+    /// read-write - GP register
     uint32_t GPR : 32;
   } bits;
   
@@ -2603,16 +2949,23 @@ union GPR_PRIVATE4_AUTHEN {
   
   // Bit field definition.
   struct {
+    /// read-write - User access
     eTZ_USER TZ_USER : 1;
+    /// read-write - Non-secure access
     eTZ_NS TZ_NS : 1;
     uint32_t _reserved_0 : 2;
+    /// read-write - Lock truszone setting
     eLOCK_TZ LOCK_TZ : 1;
     uint32_t _reserved_1 : 3;
+    /// read-write - Whitelist
     eWHITE_LIST WHITE_LIST : 4;
+    /// read-write - Lock Whitelist
     eLOCK_LIST LOCK_LIST : 1;
     uint32_t _reserved_2 : 3;
+    /// read-write - Low power and access control by Domain
     eDOMAIN_MODE DOMAIN_MODE : 1;
     uint32_t _reserved_3 : 3;
+    /// read-write - Lock low power and access mode
     eLOCK_MODE LOCK_MODE : 1;
     uint32_t _reserved_4 : 11;
   } bits;
@@ -2631,16 +2984,23 @@ union GPR_PRIVATE4_AUTHEN_SET {
   
   // Bit field definition.
   struct {
+    /// read-write - User access
     uint32_t TZ_USER : 1;
+    /// read-write - Non-secure access
     uint32_t TZ_NS : 1;
     uint32_t _reserved_0 : 2;
+    /// read-write - Lock truszone setting
     uint32_t LOCK_TZ : 1;
     uint32_t _reserved_1 : 3;
+    /// read-write - Whitelist
     uint32_t WHITE_LIST : 4;
+    /// read-write - Lock Whitelist
     uint32_t LOCK_LIST : 1;
     uint32_t _reserved_2 : 3;
+    /// read-write - Low power and access control by Domain
     uint32_t DOMAIN_MODE : 1;
     uint32_t _reserved_3 : 3;
+    /// read-write - Lock low power and access mode
     uint32_t LOCK_MODE : 1;
     uint32_t _reserved_4 : 11;
   } bits;
@@ -2659,16 +3019,23 @@ union GPR_PRIVATE4_AUTHEN_CLR {
   
   // Bit field definition.
   struct {
+    /// read-write - User access
     uint32_t TZ_USER : 1;
+    /// read-write - Non-secure access
     uint32_t TZ_NS : 1;
     uint32_t _reserved_0 : 2;
+    /// read-write - Lock truszone setting
     uint32_t LOCK_TZ : 1;
     uint32_t _reserved_1 : 3;
+    /// read-write - Whitelist
     uint32_t WHITE_LIST : 4;
+    /// read-write - Lock Whitelist
     uint32_t LOCK_LIST : 1;
     uint32_t _reserved_2 : 3;
+    /// read-write - Low power and access control by Domain
     uint32_t DOMAIN_MODE : 1;
     uint32_t _reserved_3 : 3;
+    /// read-write - Lock low power and access mode
     uint32_t LOCK_MODE : 1;
     uint32_t _reserved_4 : 11;
   } bits;
@@ -2687,16 +3054,23 @@ union GPR_PRIVATE4_AUTHEN_TOG {
   
   // Bit field definition.
   struct {
+    /// read-write - User access
     uint32_t TZ_USER : 1;
+    /// read-write - Non-secure access
     uint32_t TZ_NS : 1;
     uint32_t _reserved_0 : 2;
+    /// read-write - Lock truszone setting
     uint32_t LOCK_TZ : 1;
     uint32_t _reserved_1 : 3;
+    /// read-write - Whitelist
     uint32_t WHITE_LIST : 4;
+    /// read-write - Lock Whitelist
     uint32_t LOCK_LIST : 1;
     uint32_t _reserved_2 : 3;
+    /// read-write - Low power and access control by Domain
     uint32_t DOMAIN_MODE : 1;
     uint32_t _reserved_3 : 3;
+    /// read-write - Lock low power and access mode
     uint32_t LOCK_MODE : 1;
     uint32_t _reserved_4 : 11;
   } bits;
@@ -2715,6 +3089,7 @@ union GPR_PRIVATE5 {
   
   // Bit field definition.
   struct {
+    /// read-write - GP register
     uint32_t GPR : 32;
   } bits;
   
@@ -2732,6 +3107,7 @@ union GPR_PRIVATE5_SET {
   
   // Bit field definition.
   struct {
+    /// read-write - GP register
     uint32_t GPR : 32;
   } bits;
   
@@ -2749,6 +3125,7 @@ union GPR_PRIVATE5_CLR {
   
   // Bit field definition.
   struct {
+    /// read-write - GP register
     uint32_t GPR : 32;
   } bits;
   
@@ -2766,6 +3143,7 @@ union GPR_PRIVATE5_TOG {
   
   // Bit field definition.
   struct {
+    /// read-write - GP register
     uint32_t GPR : 32;
   } bits;
   
@@ -2818,16 +3196,23 @@ union GPR_PRIVATE5_AUTHEN {
   
   // Bit field definition.
   struct {
+    /// read-write - User access
     eTZ_USER TZ_USER : 1;
+    /// read-write - Non-secure access
     eTZ_NS TZ_NS : 1;
     uint32_t _reserved_0 : 2;
+    /// read-write - Lock truszone setting
     eLOCK_TZ LOCK_TZ : 1;
     uint32_t _reserved_1 : 3;
+    /// read-write - Whitelist
     eWHITE_LIST WHITE_LIST : 4;
+    /// read-write - Lock Whitelist
     eLOCK_LIST LOCK_LIST : 1;
     uint32_t _reserved_2 : 3;
+    /// read-write - Low power and access control by Domain
     eDOMAIN_MODE DOMAIN_MODE : 1;
     uint32_t _reserved_3 : 3;
+    /// read-write - Lock low power and access mode
     eLOCK_MODE LOCK_MODE : 1;
     uint32_t _reserved_4 : 11;
   } bits;
@@ -2846,16 +3231,23 @@ union GPR_PRIVATE5_AUTHEN_SET {
   
   // Bit field definition.
   struct {
+    /// read-write - User access
     uint32_t TZ_USER : 1;
+    /// read-write - Non-secure access
     uint32_t TZ_NS : 1;
     uint32_t _reserved_0 : 2;
+    /// read-write - Lock truszone setting
     uint32_t LOCK_TZ : 1;
     uint32_t _reserved_1 : 3;
+    /// read-write - Whitelist
     uint32_t WHITE_LIST : 4;
+    /// read-write - Lock Whitelist
     uint32_t LOCK_LIST : 1;
     uint32_t _reserved_2 : 3;
+    /// read-write - Low power and access control by Domain
     uint32_t DOMAIN_MODE : 1;
     uint32_t _reserved_3 : 3;
+    /// read-write - Lock low power and access mode
     uint32_t LOCK_MODE : 1;
     uint32_t _reserved_4 : 11;
   } bits;
@@ -2874,16 +3266,23 @@ union GPR_PRIVATE5_AUTHEN_CLR {
   
   // Bit field definition.
   struct {
+    /// read-write - User access
     uint32_t TZ_USER : 1;
+    /// read-write - Non-secure access
     uint32_t TZ_NS : 1;
     uint32_t _reserved_0 : 2;
+    /// read-write - Lock truszone setting
     uint32_t LOCK_TZ : 1;
     uint32_t _reserved_1 : 3;
+    /// read-write - Whitelist
     uint32_t WHITE_LIST : 4;
+    /// read-write - Lock Whitelist
     uint32_t LOCK_LIST : 1;
     uint32_t _reserved_2 : 3;
+    /// read-write - Low power and access control by Domain
     uint32_t DOMAIN_MODE : 1;
     uint32_t _reserved_3 : 3;
+    /// read-write - Lock low power and access mode
     uint32_t LOCK_MODE : 1;
     uint32_t _reserved_4 : 11;
   } bits;
@@ -2902,16 +3301,23 @@ union GPR_PRIVATE5_AUTHEN_TOG {
   
   // Bit field definition.
   struct {
+    /// read-write - User access
     uint32_t TZ_USER : 1;
+    /// read-write - Non-secure access
     uint32_t TZ_NS : 1;
     uint32_t _reserved_0 : 2;
+    /// read-write - Lock truszone setting
     uint32_t LOCK_TZ : 1;
     uint32_t _reserved_1 : 3;
+    /// read-write - Whitelist
     uint32_t WHITE_LIST : 4;
+    /// read-write - Lock Whitelist
     uint32_t LOCK_LIST : 1;
     uint32_t _reserved_2 : 3;
+    /// read-write - Low power and access control by Domain
     uint32_t DOMAIN_MODE : 1;
     uint32_t _reserved_3 : 3;
+    /// read-write - Lock low power and access mode
     uint32_t LOCK_MODE : 1;
     uint32_t _reserved_4 : 11;
   } bits;
@@ -2930,6 +3336,7 @@ union GPR_PRIVATE6 {
   
   // Bit field definition.
   struct {
+    /// read-write - GP register
     uint32_t GPR : 32;
   } bits;
   
@@ -2947,6 +3354,7 @@ union GPR_PRIVATE6_SET {
   
   // Bit field definition.
   struct {
+    /// read-write - GP register
     uint32_t GPR : 32;
   } bits;
   
@@ -2964,6 +3372,7 @@ union GPR_PRIVATE6_CLR {
   
   // Bit field definition.
   struct {
+    /// read-write - GP register
     uint32_t GPR : 32;
   } bits;
   
@@ -2981,6 +3390,7 @@ union GPR_PRIVATE6_TOG {
   
   // Bit field definition.
   struct {
+    /// read-write - GP register
     uint32_t GPR : 32;
   } bits;
   
@@ -3033,16 +3443,23 @@ union GPR_PRIVATE6_AUTHEN {
   
   // Bit field definition.
   struct {
+    /// read-write - User access
     eTZ_USER TZ_USER : 1;
+    /// read-write - Non-secure access
     eTZ_NS TZ_NS : 1;
     uint32_t _reserved_0 : 2;
+    /// read-write - Lock truszone setting
     eLOCK_TZ LOCK_TZ : 1;
     uint32_t _reserved_1 : 3;
+    /// read-write - Whitelist
     eWHITE_LIST WHITE_LIST : 4;
+    /// read-write - Lock Whitelist
     eLOCK_LIST LOCK_LIST : 1;
     uint32_t _reserved_2 : 3;
+    /// read-write - Low power and access control by Domain
     eDOMAIN_MODE DOMAIN_MODE : 1;
     uint32_t _reserved_3 : 3;
+    /// read-write - Lock low power and access mode
     eLOCK_MODE LOCK_MODE : 1;
     uint32_t _reserved_4 : 11;
   } bits;
@@ -3061,16 +3478,23 @@ union GPR_PRIVATE6_AUTHEN_SET {
   
   // Bit field definition.
   struct {
+    /// read-write - User access
     uint32_t TZ_USER : 1;
+    /// read-write - Non-secure access
     uint32_t TZ_NS : 1;
     uint32_t _reserved_0 : 2;
+    /// read-write - Lock truszone setting
     uint32_t LOCK_TZ : 1;
     uint32_t _reserved_1 : 3;
+    /// read-write - Whitelist
     uint32_t WHITE_LIST : 4;
+    /// read-write - Lock Whitelist
     uint32_t LOCK_LIST : 1;
     uint32_t _reserved_2 : 3;
+    /// read-write - Low power and access control by Domain
     uint32_t DOMAIN_MODE : 1;
     uint32_t _reserved_3 : 3;
+    /// read-write - Lock low power and access mode
     uint32_t LOCK_MODE : 1;
     uint32_t _reserved_4 : 11;
   } bits;
@@ -3089,16 +3513,23 @@ union GPR_PRIVATE6_AUTHEN_CLR {
   
   // Bit field definition.
   struct {
+    /// read-write - User access
     uint32_t TZ_USER : 1;
+    /// read-write - Non-secure access
     uint32_t TZ_NS : 1;
     uint32_t _reserved_0 : 2;
+    /// read-write - Lock truszone setting
     uint32_t LOCK_TZ : 1;
     uint32_t _reserved_1 : 3;
+    /// read-write - Whitelist
     uint32_t WHITE_LIST : 4;
+    /// read-write - Lock Whitelist
     uint32_t LOCK_LIST : 1;
     uint32_t _reserved_2 : 3;
+    /// read-write - Low power and access control by Domain
     uint32_t DOMAIN_MODE : 1;
     uint32_t _reserved_3 : 3;
+    /// read-write - Lock low power and access mode
     uint32_t LOCK_MODE : 1;
     uint32_t _reserved_4 : 11;
   } bits;
@@ -3117,16 +3548,23 @@ union GPR_PRIVATE6_AUTHEN_TOG {
   
   // Bit field definition.
   struct {
+    /// read-write - User access
     uint32_t TZ_USER : 1;
+    /// read-write - Non-secure access
     uint32_t TZ_NS : 1;
     uint32_t _reserved_0 : 2;
+    /// read-write - Lock truszone setting
     uint32_t LOCK_TZ : 1;
     uint32_t _reserved_1 : 3;
+    /// read-write - Whitelist
     uint32_t WHITE_LIST : 4;
+    /// read-write - Lock Whitelist
     uint32_t LOCK_LIST : 1;
     uint32_t _reserved_2 : 3;
+    /// read-write - Low power and access control by Domain
     uint32_t DOMAIN_MODE : 1;
     uint32_t _reserved_3 : 3;
+    /// read-write - Lock low power and access mode
     uint32_t LOCK_MODE : 1;
     uint32_t _reserved_4 : 11;
   } bits;
@@ -3145,6 +3583,7 @@ union GPR_PRIVATE7 {
   
   // Bit field definition.
   struct {
+    /// read-write - GP register
     uint32_t GPR : 32;
   } bits;
   
@@ -3162,6 +3601,7 @@ union GPR_PRIVATE7_SET {
   
   // Bit field definition.
   struct {
+    /// read-write - GP register
     uint32_t GPR : 32;
   } bits;
   
@@ -3179,6 +3619,7 @@ union GPR_PRIVATE7_CLR {
   
   // Bit field definition.
   struct {
+    /// read-write - GP register
     uint32_t GPR : 32;
   } bits;
   
@@ -3196,6 +3637,7 @@ union GPR_PRIVATE7_TOG {
   
   // Bit field definition.
   struct {
+    /// read-write - GP register
     uint32_t GPR : 32;
   } bits;
   
@@ -3248,16 +3690,23 @@ union GPR_PRIVATE7_AUTHEN {
   
   // Bit field definition.
   struct {
+    /// read-write - User access
     eTZ_USER TZ_USER : 1;
+    /// read-write - Non-secure access
     eTZ_NS TZ_NS : 1;
     uint32_t _reserved_0 : 2;
+    /// read-write - Lock truszone setting
     eLOCK_TZ LOCK_TZ : 1;
     uint32_t _reserved_1 : 3;
+    /// read-write - Whitelist
     eWHITE_LIST WHITE_LIST : 4;
+    /// read-write - Lock Whitelist
     eLOCK_LIST LOCK_LIST : 1;
     uint32_t _reserved_2 : 3;
+    /// read-write - Low power and access control by Domain
     eDOMAIN_MODE DOMAIN_MODE : 1;
     uint32_t _reserved_3 : 3;
+    /// read-write - Lock low power and access mode
     eLOCK_MODE LOCK_MODE : 1;
     uint32_t _reserved_4 : 11;
   } bits;
@@ -3276,16 +3725,23 @@ union GPR_PRIVATE7_AUTHEN_SET {
   
   // Bit field definition.
   struct {
+    /// read-write - User access
     uint32_t TZ_USER : 1;
+    /// read-write - Non-secure access
     uint32_t TZ_NS : 1;
     uint32_t _reserved_0 : 2;
+    /// read-write - Lock truszone setting
     uint32_t LOCK_TZ : 1;
     uint32_t _reserved_1 : 3;
+    /// read-write - Whitelist
     uint32_t WHITE_LIST : 4;
+    /// read-write - Lock Whitelist
     uint32_t LOCK_LIST : 1;
     uint32_t _reserved_2 : 3;
+    /// read-write - Low power and access control by Domain
     uint32_t DOMAIN_MODE : 1;
     uint32_t _reserved_3 : 3;
+    /// read-write - Lock low power and access mode
     uint32_t LOCK_MODE : 1;
     uint32_t _reserved_4 : 11;
   } bits;
@@ -3304,16 +3760,23 @@ union GPR_PRIVATE7_AUTHEN_CLR {
   
   // Bit field definition.
   struct {
+    /// read-write - User access
     uint32_t TZ_USER : 1;
+    /// read-write - Non-secure access
     uint32_t TZ_NS : 1;
     uint32_t _reserved_0 : 2;
+    /// read-write - Lock truszone setting
     uint32_t LOCK_TZ : 1;
     uint32_t _reserved_1 : 3;
+    /// read-write - Whitelist
     uint32_t WHITE_LIST : 4;
+    /// read-write - Lock Whitelist
     uint32_t LOCK_LIST : 1;
     uint32_t _reserved_2 : 3;
+    /// read-write - Low power and access control by Domain
     uint32_t DOMAIN_MODE : 1;
     uint32_t _reserved_3 : 3;
+    /// read-write - Lock low power and access mode
     uint32_t LOCK_MODE : 1;
     uint32_t _reserved_4 : 11;
   } bits;
@@ -3332,16 +3795,23 @@ union GPR_PRIVATE7_AUTHEN_TOG {
   
   // Bit field definition.
   struct {
+    /// read-write - User access
     uint32_t TZ_USER : 1;
+    /// read-write - Non-secure access
     uint32_t TZ_NS : 1;
     uint32_t _reserved_0 : 2;
+    /// read-write - Lock truszone setting
     uint32_t LOCK_TZ : 1;
     uint32_t _reserved_1 : 3;
+    /// read-write - Whitelist
     uint32_t WHITE_LIST : 4;
+    /// read-write - Lock Whitelist
     uint32_t LOCK_LIST : 1;
     uint32_t _reserved_2 : 3;
+    /// read-write - Low power and access control by Domain
     uint32_t DOMAIN_MODE : 1;
     uint32_t _reserved_3 : 3;
+    /// read-write - Lock low power and access mode
     uint32_t LOCK_MODE : 1;
     uint32_t _reserved_4 : 11;
   } bits;
@@ -3365,6 +3835,7 @@ union LPCG0_DIRECT {
   
   // Bit field definition.
   struct {
+    /// read-write - LPCG on
     eON ON : 1;
     uint32_t _reserved_0 : 31;
   } bits;
@@ -3423,14 +3894,19 @@ union LPCG0_DOMAIN {
   
   // Bit field definition.
   struct {
+    /// read-write - Current dependence level
     eLEVEL LEVEL : 3;
     uint32_t _reserved_0 : 13;
+    /// read-write - Depend level
     eLEVEL0 LEVEL0 : 3;
     uint32_t _reserved_1 : 1;
+    /// read-write - Depend level
     eLEVEL1 LEVEL1 : 3;
     uint32_t _reserved_2 : 1;
+    /// read-write - Depend level
     eLEVEL2 LEVEL2 : 3;
     uint32_t _reserved_3 : 1;
+    /// read-write - Depend level
     eLEVEL3 LEVEL3 : 3;
     uint32_t _reserved_4 : 1;
   } bits;
@@ -3492,9 +3968,12 @@ union LPCG0_STATUS0 {
   
   // Bit field definition.
   struct {
+    /// read-only - LPCG current state
     eON ON : 1;
     uint32_t _reserved_0 : 7;
+    /// read-only - Domains that own this clock gate
     eACTIVE_DOMAIN ACTIVE_DOMAIN : 4;
+    /// read-only - Enable status from each domain
     eDOMAIN_ENABLE DOMAIN_ENABLE : 4;
     uint32_t _reserved_1 : 16;
   } bits;
@@ -3601,23 +4080,41 @@ union LPCG0_STATUS1 {
   
   // Bit field definition.
   struct {
+    /// read-only - Domain0 Low Power Mode
     eCPU0_MODE CPU0_MODE : 2;
+    /// read-only - Domain0 request enter Low Power Mode
     eCPU0_MODE_REQUEST CPU0_MODE_REQUEST : 1;
+    /// read-only - Domain0 Low Power Mode task done
     eCPU0_MODE_DONE CPU0_MODE_DONE : 1;
+    /// read-only - Domain1 Low Power Mode
     eCPU1_MODE CPU1_MODE : 2;
+    /// read-only - Domain1 request enter Low Power Mode
     eCPU1_MODE_REQUEST CPU1_MODE_REQUEST : 1;
+    /// read-only - Domain1 Low Power Mode task done
     eCPU1_MODE_DONE CPU1_MODE_DONE : 1;
+    /// read-only - Domain2 Low Power Mode
     eCPU2_MODE CPU2_MODE : 2;
+    /// read-only - Domain2 request enter Low Power Mode
     eCPU2_MODE_REQUEST CPU2_MODE_REQUEST : 1;
+    /// read-only - Domain2 Low Power Mode task done
     eCPU2_MODE_DONE CPU2_MODE_DONE : 1;
+    /// read-only - Domain3 Low Power Mode
     eCPU3_MODE CPU3_MODE : 2;
+    /// read-only - Domain3 request enter Low Power Mode
     eCPU3_MODE_REQUEST CPU3_MODE_REQUEST : 1;
+    /// read-only - Domain3 Low Power Mode task done
     eCPU3_MODE_DONE CPU3_MODE_DONE : 1;
+    /// read-only - Next Setpoint to change to
     uint32_t TARGET_SETPOINT : 4;
+    /// read-only - Current Setpoint
     uint32_t CURRENT_SETPOINT : 4;
+    /// read-only - Clock gate turn off request from GPC Setpoint
     eSETPOINT_OFF_REQUEST SETPOINT_OFF_REQUEST : 1;
+    /// read-only - Clock gate turn off finish from GPC Setpoint
     eSETPOINT_OFF_DONE SETPOINT_OFF_DONE : 1;
+    /// read-only - Clock gate turn on request from GPC Setpoint
     eSETPOINT_ON_REQUEST SETPOINT_ON_REQUEST : 1;
+    /// read-only - Clock gate turn on finish from GPC Setpoint
     eSETPOINT_ON_DONE SETPOINT_ON_DONE : 1;
     uint32_t _reserved_0 : 4;
   } bits;
@@ -3642,6 +4139,7 @@ union LPCG0_CONFIG {
   // Bit field definition.
   struct {
     uint32_t _reserved_0 : 4;
+    /// read-only - Setpoint present
     eSETPOINT_PRESENT SETPOINT_PRESENT : 1;
     uint32_t _reserved_1 : 27;
   } bits;
@@ -3700,18 +4198,27 @@ union LPCG0_AUTHEN {
   
   // Bit field definition.
   struct {
+    /// read-write - User access
     eTZ_USER TZ_USER : 1;
+    /// read-write - Non-secure access
     eTZ_NS TZ_NS : 1;
     uint32_t _reserved_0 : 2;
+    /// read-write - lock truszone setting
     eLOCK_TZ LOCK_TZ : 1;
     uint32_t _reserved_1 : 3;
+    /// read-write - Whitelist
     uint32_t WHITE_LIST : 4;
+    /// read-write - Lock Whitelist
     eLOCK_LIST LOCK_LIST : 1;
     uint32_t _reserved_2 : 3;
+    /// read-write - Low power and access control by domain
     eDOMAIN_MODE DOMAIN_MODE : 1;
+    /// read-write - Low power and access control by Setpoint
     eSETPOINT_MODE SETPOINT_MODE : 1;
+    /// read-write - CPU Low Power Mode
     eCPULPM CPULPM : 1;
     uint32_t _reserved_3 : 1;
+    /// read-write - Lock low power and access mode
     eLOCK_MODE LOCK_MODE : 1;
     uint32_t _reserved_4 : 11;
   } bits;
@@ -3735,6 +4242,7 @@ union LPCG1_DIRECT {
   
   // Bit field definition.
   struct {
+    /// read-write - LPCG on
     eON ON : 1;
     uint32_t _reserved_0 : 31;
   } bits;
@@ -3793,14 +4301,19 @@ union LPCG1_DOMAIN {
   
   // Bit field definition.
   struct {
+    /// read-write - Current dependence level
     eLEVEL LEVEL : 3;
     uint32_t _reserved_0 : 13;
+    /// read-write - Depend level
     eLEVEL0 LEVEL0 : 3;
     uint32_t _reserved_1 : 1;
+    /// read-write - Depend level
     eLEVEL1 LEVEL1 : 3;
     uint32_t _reserved_2 : 1;
+    /// read-write - Depend level
     eLEVEL2 LEVEL2 : 3;
     uint32_t _reserved_3 : 1;
+    /// read-write - Depend level
     eLEVEL3 LEVEL3 : 3;
     uint32_t _reserved_4 : 1;
   } bits;
@@ -3862,9 +4375,12 @@ union LPCG1_STATUS0 {
   
   // Bit field definition.
   struct {
+    /// read-only - LPCG current state
     eON ON : 1;
     uint32_t _reserved_0 : 7;
+    /// read-only - Domains that own this clock gate
     eACTIVE_DOMAIN ACTIVE_DOMAIN : 4;
+    /// read-only - Enable status from each domain
     eDOMAIN_ENABLE DOMAIN_ENABLE : 4;
     uint32_t _reserved_1 : 16;
   } bits;
@@ -3971,23 +4487,41 @@ union LPCG1_STATUS1 {
   
   // Bit field definition.
   struct {
+    /// read-only - Domain0 Low Power Mode
     eCPU0_MODE CPU0_MODE : 2;
+    /// read-only - Domain0 request enter Low Power Mode
     eCPU0_MODE_REQUEST CPU0_MODE_REQUEST : 1;
+    /// read-only - Domain0 Low Power Mode task done
     eCPU0_MODE_DONE CPU0_MODE_DONE : 1;
+    /// read-only - Domain1 Low Power Mode
     eCPU1_MODE CPU1_MODE : 2;
+    /// read-only - Domain1 request enter Low Power Mode
     eCPU1_MODE_REQUEST CPU1_MODE_REQUEST : 1;
+    /// read-only - Domain1 Low Power Mode task done
     eCPU1_MODE_DONE CPU1_MODE_DONE : 1;
+    /// read-only - Domain2 Low Power Mode
     eCPU2_MODE CPU2_MODE : 2;
+    /// read-only - Domain2 request enter Low Power Mode
     eCPU2_MODE_REQUEST CPU2_MODE_REQUEST : 1;
+    /// read-only - Domain2 Low Power Mode task done
     eCPU2_MODE_DONE CPU2_MODE_DONE : 1;
+    /// read-only - Domain3 Low Power Mode
     eCPU3_MODE CPU3_MODE : 2;
+    /// read-only - Domain3 request enter Low Power Mode
     eCPU3_MODE_REQUEST CPU3_MODE_REQUEST : 1;
+    /// read-only - Domain3 Low Power Mode task done
     eCPU3_MODE_DONE CPU3_MODE_DONE : 1;
+    /// read-only - Next Setpoint to change to
     uint32_t TARGET_SETPOINT : 4;
+    /// read-only - Current Setpoint
     uint32_t CURRENT_SETPOINT : 4;
+    /// read-only - Clock gate turn off request from GPC Setpoint
     eSETPOINT_OFF_REQUEST SETPOINT_OFF_REQUEST : 1;
+    /// read-only - Clock gate turn off finish from GPC Setpoint
     eSETPOINT_OFF_DONE SETPOINT_OFF_DONE : 1;
+    /// read-only - Clock gate turn on request from GPC Setpoint
     eSETPOINT_ON_REQUEST SETPOINT_ON_REQUEST : 1;
+    /// read-only - Clock gate turn on finish from GPC Setpoint
     eSETPOINT_ON_DONE SETPOINT_ON_DONE : 1;
     uint32_t _reserved_0 : 4;
   } bits;
@@ -4012,6 +4546,7 @@ union LPCG1_CONFIG {
   // Bit field definition.
   struct {
     uint32_t _reserved_0 : 4;
+    /// read-only - Setpoint present
     eSETPOINT_PRESENT SETPOINT_PRESENT : 1;
     uint32_t _reserved_1 : 27;
   } bits;
@@ -4070,18 +4605,27 @@ union LPCG1_AUTHEN {
   
   // Bit field definition.
   struct {
+    /// read-write - User access
     eTZ_USER TZ_USER : 1;
+    /// read-write - Non-secure access
     eTZ_NS TZ_NS : 1;
     uint32_t _reserved_0 : 2;
+    /// read-write - lock truszone setting
     eLOCK_TZ LOCK_TZ : 1;
     uint32_t _reserved_1 : 3;
+    /// read-write - Whitelist
     uint32_t WHITE_LIST : 4;
+    /// read-write - Lock Whitelist
     eLOCK_LIST LOCK_LIST : 1;
     uint32_t _reserved_2 : 3;
+    /// read-write - Low power and access control by domain
     eDOMAIN_MODE DOMAIN_MODE : 1;
+    /// read-write - Low power and access control by Setpoint
     eSETPOINT_MODE SETPOINT_MODE : 1;
+    /// read-write - CPU Low Power Mode
     eCPULPM CPULPM : 1;
     uint32_t _reserved_3 : 1;
+    /// read-write - Lock low power and access mode
     eLOCK_MODE LOCK_MODE : 1;
     uint32_t _reserved_4 : 11;
   } bits;
@@ -4105,6 +4649,7 @@ union LPCG2_DIRECT {
   
   // Bit field definition.
   struct {
+    /// read-write - LPCG on
     eON ON : 1;
     uint32_t _reserved_0 : 31;
   } bits;
@@ -4163,14 +4708,19 @@ union LPCG2_DOMAIN {
   
   // Bit field definition.
   struct {
+    /// read-write - Current dependence level
     eLEVEL LEVEL : 3;
     uint32_t _reserved_0 : 13;
+    /// read-write - Depend level
     eLEVEL0 LEVEL0 : 3;
     uint32_t _reserved_1 : 1;
+    /// read-write - Depend level
     eLEVEL1 LEVEL1 : 3;
     uint32_t _reserved_2 : 1;
+    /// read-write - Depend level
     eLEVEL2 LEVEL2 : 3;
     uint32_t _reserved_3 : 1;
+    /// read-write - Depend level
     eLEVEL3 LEVEL3 : 3;
     uint32_t _reserved_4 : 1;
   } bits;
@@ -4189,7 +4739,9 @@ union LPCG2_SETPOINT {
   
   // Bit field definition.
   struct {
+    /// read-write - Setpoints
     uint32_t SETPOINT : 16;
+    /// read-write - Standby
     uint32_t STANDBY : 16;
   } bits;
   
@@ -4250,9 +4802,12 @@ union LPCG2_STATUS0 {
   
   // Bit field definition.
   struct {
+    /// read-only - LPCG current state
     eON ON : 1;
     uint32_t _reserved_0 : 7;
+    /// read-only - Domains that own this clock gate
     eACTIVE_DOMAIN ACTIVE_DOMAIN : 4;
+    /// read-only - Enable status from each domain
     eDOMAIN_ENABLE DOMAIN_ENABLE : 4;
     uint32_t _reserved_1 : 16;
   } bits;
@@ -4359,23 +4914,41 @@ union LPCG2_STATUS1 {
   
   // Bit field definition.
   struct {
+    /// read-only - Domain0 Low Power Mode
     eCPU0_MODE CPU0_MODE : 2;
+    /// read-only - Domain0 request enter Low Power Mode
     eCPU0_MODE_REQUEST CPU0_MODE_REQUEST : 1;
+    /// read-only - Domain0 Low Power Mode task done
     eCPU0_MODE_DONE CPU0_MODE_DONE : 1;
+    /// read-only - Domain1 Low Power Mode
     eCPU1_MODE CPU1_MODE : 2;
+    /// read-only - Domain1 request enter Low Power Mode
     eCPU1_MODE_REQUEST CPU1_MODE_REQUEST : 1;
+    /// read-only - Domain1 Low Power Mode task done
     eCPU1_MODE_DONE CPU1_MODE_DONE : 1;
+    /// read-only - Domain2 Low Power Mode
     eCPU2_MODE CPU2_MODE : 2;
+    /// read-only - Domain2 request enter Low Power Mode
     eCPU2_MODE_REQUEST CPU2_MODE_REQUEST : 1;
+    /// read-only - Domain2 Low Power Mode task done
     eCPU2_MODE_DONE CPU2_MODE_DONE : 1;
+    /// read-only - Domain3 Low Power Mode
     eCPU3_MODE CPU3_MODE : 2;
+    /// read-only - Domain3 request enter Low Power Mode
     eCPU3_MODE_REQUEST CPU3_MODE_REQUEST : 1;
+    /// read-only - Domain3 Low Power Mode task done
     eCPU3_MODE_DONE CPU3_MODE_DONE : 1;
+    /// read-only - Next Setpoint to change to
     uint32_t TARGET_SETPOINT : 4;
+    /// read-only - Current Setpoint
     uint32_t CURRENT_SETPOINT : 4;
+    /// read-only - Clock gate turn off request from GPC Setpoint
     eSETPOINT_OFF_REQUEST SETPOINT_OFF_REQUEST : 1;
+    /// read-only - Clock gate turn off finish from GPC Setpoint
     eSETPOINT_OFF_DONE SETPOINT_OFF_DONE : 1;
+    /// read-only - Clock gate turn on request from GPC Setpoint
     eSETPOINT_ON_REQUEST SETPOINT_ON_REQUEST : 1;
+    /// read-only - Clock gate turn on finish from GPC Setpoint
     eSETPOINT_ON_DONE SETPOINT_ON_DONE : 1;
     uint32_t _reserved_0 : 4;
   } bits;
@@ -4400,6 +4973,7 @@ union LPCG2_CONFIG {
   // Bit field definition.
   struct {
     uint32_t _reserved_0 : 4;
+    /// read-only - Setpoint present
     eSETPOINT_PRESENT SETPOINT_PRESENT : 1;
     uint32_t _reserved_1 : 27;
   } bits;
@@ -4458,18 +5032,27 @@ union LPCG2_AUTHEN {
   
   // Bit field definition.
   struct {
+    /// read-write - User access
     eTZ_USER TZ_USER : 1;
+    /// read-write - Non-secure access
     eTZ_NS TZ_NS : 1;
     uint32_t _reserved_0 : 2;
+    /// read-write - lock truszone setting
     eLOCK_TZ LOCK_TZ : 1;
     uint32_t _reserved_1 : 3;
+    /// read-write - Whitelist
     uint32_t WHITE_LIST : 4;
+    /// read-write - Lock Whitelist
     eLOCK_LIST LOCK_LIST : 1;
     uint32_t _reserved_2 : 3;
+    /// read-write - Low power and access control by domain
     eDOMAIN_MODE DOMAIN_MODE : 1;
+    /// read-write - Low power and access control by Setpoint
     eSETPOINT_MODE SETPOINT_MODE : 1;
+    /// read-write - CPU Low Power Mode
     eCPULPM CPULPM : 1;
     uint32_t _reserved_3 : 1;
+    /// read-write - Lock low power and access mode
     eLOCK_MODE LOCK_MODE : 1;
     uint32_t _reserved_4 : 11;
   } bits;
@@ -4493,6 +5076,7 @@ union LPCG3_DIRECT {
   
   // Bit field definition.
   struct {
+    /// read-write - LPCG on
     eON ON : 1;
     uint32_t _reserved_0 : 31;
   } bits;
@@ -4551,14 +5135,19 @@ union LPCG3_DOMAIN {
   
   // Bit field definition.
   struct {
+    /// read-write - Current dependence level
     eLEVEL LEVEL : 3;
     uint32_t _reserved_0 : 13;
+    /// read-write - Depend level
     eLEVEL0 LEVEL0 : 3;
     uint32_t _reserved_1 : 1;
+    /// read-write - Depend level
     eLEVEL1 LEVEL1 : 3;
     uint32_t _reserved_2 : 1;
+    /// read-write - Depend level
     eLEVEL2 LEVEL2 : 3;
     uint32_t _reserved_3 : 1;
+    /// read-write - Depend level
     eLEVEL3 LEVEL3 : 3;
     uint32_t _reserved_4 : 1;
   } bits;
@@ -4577,7 +5166,9 @@ union LPCG3_SETPOINT {
   
   // Bit field definition.
   struct {
+    /// read-write - Setpoints
     uint32_t SETPOINT : 16;
+    /// read-write - Standby
     uint32_t STANDBY : 16;
   } bits;
   
@@ -4638,9 +5229,12 @@ union LPCG3_STATUS0 {
   
   // Bit field definition.
   struct {
+    /// read-only - LPCG current state
     eON ON : 1;
     uint32_t _reserved_0 : 7;
+    /// read-only - Domains that own this clock gate
     eACTIVE_DOMAIN ACTIVE_DOMAIN : 4;
+    /// read-only - Enable status from each domain
     eDOMAIN_ENABLE DOMAIN_ENABLE : 4;
     uint32_t _reserved_1 : 16;
   } bits;
@@ -4747,23 +5341,41 @@ union LPCG3_STATUS1 {
   
   // Bit field definition.
   struct {
+    /// read-only - Domain0 Low Power Mode
     eCPU0_MODE CPU0_MODE : 2;
+    /// read-only - Domain0 request enter Low Power Mode
     eCPU0_MODE_REQUEST CPU0_MODE_REQUEST : 1;
+    /// read-only - Domain0 Low Power Mode task done
     eCPU0_MODE_DONE CPU0_MODE_DONE : 1;
+    /// read-only - Domain1 Low Power Mode
     eCPU1_MODE CPU1_MODE : 2;
+    /// read-only - Domain1 request enter Low Power Mode
     eCPU1_MODE_REQUEST CPU1_MODE_REQUEST : 1;
+    /// read-only - Domain1 Low Power Mode task done
     eCPU1_MODE_DONE CPU1_MODE_DONE : 1;
+    /// read-only - Domain2 Low Power Mode
     eCPU2_MODE CPU2_MODE : 2;
+    /// read-only - Domain2 request enter Low Power Mode
     eCPU2_MODE_REQUEST CPU2_MODE_REQUEST : 1;
+    /// read-only - Domain2 Low Power Mode task done
     eCPU2_MODE_DONE CPU2_MODE_DONE : 1;
+    /// read-only - Domain3 Low Power Mode
     eCPU3_MODE CPU3_MODE : 2;
+    /// read-only - Domain3 request enter Low Power Mode
     eCPU3_MODE_REQUEST CPU3_MODE_REQUEST : 1;
+    /// read-only - Domain3 Low Power Mode task done
     eCPU3_MODE_DONE CPU3_MODE_DONE : 1;
+    /// read-only - Next Setpoint to change to
     uint32_t TARGET_SETPOINT : 4;
+    /// read-only - Current Setpoint
     uint32_t CURRENT_SETPOINT : 4;
+    /// read-only - Clock gate turn off request from GPC Setpoint
     eSETPOINT_OFF_REQUEST SETPOINT_OFF_REQUEST : 1;
+    /// read-only - Clock gate turn off finish from GPC Setpoint
     eSETPOINT_OFF_DONE SETPOINT_OFF_DONE : 1;
+    /// read-only - Clock gate turn on request from GPC Setpoint
     eSETPOINT_ON_REQUEST SETPOINT_ON_REQUEST : 1;
+    /// read-only - Clock gate turn on finish from GPC Setpoint
     eSETPOINT_ON_DONE SETPOINT_ON_DONE : 1;
     uint32_t _reserved_0 : 4;
   } bits;
@@ -4788,6 +5400,7 @@ union LPCG3_CONFIG {
   // Bit field definition.
   struct {
     uint32_t _reserved_0 : 4;
+    /// read-only - Setpoint present
     eSETPOINT_PRESENT SETPOINT_PRESENT : 1;
     uint32_t _reserved_1 : 27;
   } bits;
@@ -4846,18 +5459,27 @@ union LPCG3_AUTHEN {
   
   // Bit field definition.
   struct {
+    /// read-write - User access
     eTZ_USER TZ_USER : 1;
+    /// read-write - Non-secure access
     eTZ_NS TZ_NS : 1;
     uint32_t _reserved_0 : 2;
+    /// read-write - lock truszone setting
     eLOCK_TZ LOCK_TZ : 1;
     uint32_t _reserved_1 : 3;
+    /// read-write - Whitelist
     uint32_t WHITE_LIST : 4;
+    /// read-write - Lock Whitelist
     eLOCK_LIST LOCK_LIST : 1;
     uint32_t _reserved_2 : 3;
+    /// read-write - Low power and access control by domain
     eDOMAIN_MODE DOMAIN_MODE : 1;
+    /// read-write - Low power and access control by Setpoint
     eSETPOINT_MODE SETPOINT_MODE : 1;
+    /// read-write - CPU Low Power Mode
     eCPULPM CPULPM : 1;
     uint32_t _reserved_3 : 1;
+    /// read-write - Lock low power and access mode
     eLOCK_MODE LOCK_MODE : 1;
     uint32_t _reserved_4 : 11;
   } bits;
@@ -4881,6 +5503,7 @@ union LPCG4_DIRECT {
   
   // Bit field definition.
   struct {
+    /// read-write - LPCG on
     eON ON : 1;
     uint32_t _reserved_0 : 31;
   } bits;
@@ -4939,14 +5562,19 @@ union LPCG4_DOMAIN {
   
   // Bit field definition.
   struct {
+    /// read-write - Current dependence level
     eLEVEL LEVEL : 3;
     uint32_t _reserved_0 : 13;
+    /// read-write - Depend level
     eLEVEL0 LEVEL0 : 3;
     uint32_t _reserved_1 : 1;
+    /// read-write - Depend level
     eLEVEL1 LEVEL1 : 3;
     uint32_t _reserved_2 : 1;
+    /// read-write - Depend level
     eLEVEL2 LEVEL2 : 3;
     uint32_t _reserved_3 : 1;
+    /// read-write - Depend level
     eLEVEL3 LEVEL3 : 3;
     uint32_t _reserved_4 : 1;
   } bits;
@@ -4965,7 +5593,9 @@ union LPCG4_SETPOINT {
   
   // Bit field definition.
   struct {
+    /// read-write - Setpoints
     uint32_t SETPOINT : 16;
+    /// read-write - Standby
     uint32_t STANDBY : 16;
   } bits;
   
@@ -5026,9 +5656,12 @@ union LPCG4_STATUS0 {
   
   // Bit field definition.
   struct {
+    /// read-only - LPCG current state
     eON ON : 1;
     uint32_t _reserved_0 : 7;
+    /// read-only - Domains that own this clock gate
     eACTIVE_DOMAIN ACTIVE_DOMAIN : 4;
+    /// read-only - Enable status from each domain
     eDOMAIN_ENABLE DOMAIN_ENABLE : 4;
     uint32_t _reserved_1 : 16;
   } bits;
@@ -5135,23 +5768,41 @@ union LPCG4_STATUS1 {
   
   // Bit field definition.
   struct {
+    /// read-only - Domain0 Low Power Mode
     eCPU0_MODE CPU0_MODE : 2;
+    /// read-only - Domain0 request enter Low Power Mode
     eCPU0_MODE_REQUEST CPU0_MODE_REQUEST : 1;
+    /// read-only - Domain0 Low Power Mode task done
     eCPU0_MODE_DONE CPU0_MODE_DONE : 1;
+    /// read-only - Domain1 Low Power Mode
     eCPU1_MODE CPU1_MODE : 2;
+    /// read-only - Domain1 request enter Low Power Mode
     eCPU1_MODE_REQUEST CPU1_MODE_REQUEST : 1;
+    /// read-only - Domain1 Low Power Mode task done
     eCPU1_MODE_DONE CPU1_MODE_DONE : 1;
+    /// read-only - Domain2 Low Power Mode
     eCPU2_MODE CPU2_MODE : 2;
+    /// read-only - Domain2 request enter Low Power Mode
     eCPU2_MODE_REQUEST CPU2_MODE_REQUEST : 1;
+    /// read-only - Domain2 Low Power Mode task done
     eCPU2_MODE_DONE CPU2_MODE_DONE : 1;
+    /// read-only - Domain3 Low Power Mode
     eCPU3_MODE CPU3_MODE : 2;
+    /// read-only - Domain3 request enter Low Power Mode
     eCPU3_MODE_REQUEST CPU3_MODE_REQUEST : 1;
+    /// read-only - Domain3 Low Power Mode task done
     eCPU3_MODE_DONE CPU3_MODE_DONE : 1;
+    /// read-only - Next Setpoint to change to
     uint32_t TARGET_SETPOINT : 4;
+    /// read-only - Current Setpoint
     uint32_t CURRENT_SETPOINT : 4;
+    /// read-only - Clock gate turn off request from GPC Setpoint
     eSETPOINT_OFF_REQUEST SETPOINT_OFF_REQUEST : 1;
+    /// read-only - Clock gate turn off finish from GPC Setpoint
     eSETPOINT_OFF_DONE SETPOINT_OFF_DONE : 1;
+    /// read-only - Clock gate turn on request from GPC Setpoint
     eSETPOINT_ON_REQUEST SETPOINT_ON_REQUEST : 1;
+    /// read-only - Clock gate turn on finish from GPC Setpoint
     eSETPOINT_ON_DONE SETPOINT_ON_DONE : 1;
     uint32_t _reserved_0 : 4;
   } bits;
@@ -5176,6 +5827,7 @@ union LPCG4_CONFIG {
   // Bit field definition.
   struct {
     uint32_t _reserved_0 : 4;
+    /// read-only - Setpoint present
     eSETPOINT_PRESENT SETPOINT_PRESENT : 1;
     uint32_t _reserved_1 : 27;
   } bits;
@@ -5234,18 +5886,27 @@ union LPCG4_AUTHEN {
   
   // Bit field definition.
   struct {
+    /// read-write - User access
     eTZ_USER TZ_USER : 1;
+    /// read-write - Non-secure access
     eTZ_NS TZ_NS : 1;
     uint32_t _reserved_0 : 2;
+    /// read-write - lock truszone setting
     eLOCK_TZ LOCK_TZ : 1;
     uint32_t _reserved_1 : 3;
+    /// read-write - Whitelist
     uint32_t WHITE_LIST : 4;
+    /// read-write - Lock Whitelist
     eLOCK_LIST LOCK_LIST : 1;
     uint32_t _reserved_2 : 3;
+    /// read-write - Low power and access control by domain
     eDOMAIN_MODE DOMAIN_MODE : 1;
+    /// read-write - Low power and access control by Setpoint
     eSETPOINT_MODE SETPOINT_MODE : 1;
+    /// read-write - CPU Low Power Mode
     eCPULPM CPULPM : 1;
     uint32_t _reserved_3 : 1;
+    /// read-write - Lock low power and access mode
     eLOCK_MODE LOCK_MODE : 1;
     uint32_t _reserved_4 : 11;
   } bits;
@@ -5269,6 +5930,7 @@ union LPCG5_DIRECT {
   
   // Bit field definition.
   struct {
+    /// read-write - LPCG on
     eON ON : 1;
     uint32_t _reserved_0 : 31;
   } bits;
@@ -5327,14 +5989,19 @@ union LPCG5_DOMAIN {
   
   // Bit field definition.
   struct {
+    /// read-write - Current dependence level
     eLEVEL LEVEL : 3;
     uint32_t _reserved_0 : 13;
+    /// read-write - Depend level
     eLEVEL0 LEVEL0 : 3;
     uint32_t _reserved_1 : 1;
+    /// read-write - Depend level
     eLEVEL1 LEVEL1 : 3;
     uint32_t _reserved_2 : 1;
+    /// read-write - Depend level
     eLEVEL2 LEVEL2 : 3;
     uint32_t _reserved_3 : 1;
+    /// read-write - Depend level
     eLEVEL3 LEVEL3 : 3;
     uint32_t _reserved_4 : 1;
   } bits;
@@ -5353,7 +6020,9 @@ union LPCG5_SETPOINT {
   
   // Bit field definition.
   struct {
+    /// read-write - Setpoints
     uint32_t SETPOINT : 16;
+    /// read-write - Standby
     uint32_t STANDBY : 16;
   } bits;
   
@@ -5414,9 +6083,12 @@ union LPCG5_STATUS0 {
   
   // Bit field definition.
   struct {
+    /// read-only - LPCG current state
     eON ON : 1;
     uint32_t _reserved_0 : 7;
+    /// read-only - Domains that own this clock gate
     eACTIVE_DOMAIN ACTIVE_DOMAIN : 4;
+    /// read-only - Enable status from each domain
     eDOMAIN_ENABLE DOMAIN_ENABLE : 4;
     uint32_t _reserved_1 : 16;
   } bits;
@@ -5523,23 +6195,41 @@ union LPCG5_STATUS1 {
   
   // Bit field definition.
   struct {
+    /// read-only - Domain0 Low Power Mode
     eCPU0_MODE CPU0_MODE : 2;
+    /// read-only - Domain0 request enter Low Power Mode
     eCPU0_MODE_REQUEST CPU0_MODE_REQUEST : 1;
+    /// read-only - Domain0 Low Power Mode task done
     eCPU0_MODE_DONE CPU0_MODE_DONE : 1;
+    /// read-only - Domain1 Low Power Mode
     eCPU1_MODE CPU1_MODE : 2;
+    /// read-only - Domain1 request enter Low Power Mode
     eCPU1_MODE_REQUEST CPU1_MODE_REQUEST : 1;
+    /// read-only - Domain1 Low Power Mode task done
     eCPU1_MODE_DONE CPU1_MODE_DONE : 1;
+    /// read-only - Domain2 Low Power Mode
     eCPU2_MODE CPU2_MODE : 2;
+    /// read-only - Domain2 request enter Low Power Mode
     eCPU2_MODE_REQUEST CPU2_MODE_REQUEST : 1;
+    /// read-only - Domain2 Low Power Mode task done
     eCPU2_MODE_DONE CPU2_MODE_DONE : 1;
+    /// read-only - Domain3 Low Power Mode
     eCPU3_MODE CPU3_MODE : 2;
+    /// read-only - Domain3 request enter Low Power Mode
     eCPU3_MODE_REQUEST CPU3_MODE_REQUEST : 1;
+    /// read-only - Domain3 Low Power Mode task done
     eCPU3_MODE_DONE CPU3_MODE_DONE : 1;
+    /// read-only - Next Setpoint to change to
     uint32_t TARGET_SETPOINT : 4;
+    /// read-only - Current Setpoint
     uint32_t CURRENT_SETPOINT : 4;
+    /// read-only - Clock gate turn off request from GPC Setpoint
     eSETPOINT_OFF_REQUEST SETPOINT_OFF_REQUEST : 1;
+    /// read-only - Clock gate turn off finish from GPC Setpoint
     eSETPOINT_OFF_DONE SETPOINT_OFF_DONE : 1;
+    /// read-only - Clock gate turn on request from GPC Setpoint
     eSETPOINT_ON_REQUEST SETPOINT_ON_REQUEST : 1;
+    /// read-only - Clock gate turn on finish from GPC Setpoint
     eSETPOINT_ON_DONE SETPOINT_ON_DONE : 1;
     uint32_t _reserved_0 : 4;
   } bits;
@@ -5564,6 +6254,7 @@ union LPCG5_CONFIG {
   // Bit field definition.
   struct {
     uint32_t _reserved_0 : 4;
+    /// read-only - Setpoint present
     eSETPOINT_PRESENT SETPOINT_PRESENT : 1;
     uint32_t _reserved_1 : 27;
   } bits;
@@ -5622,18 +6313,27 @@ union LPCG5_AUTHEN {
   
   // Bit field definition.
   struct {
+    /// read-write - User access
     eTZ_USER TZ_USER : 1;
+    /// read-write - Non-secure access
     eTZ_NS TZ_NS : 1;
     uint32_t _reserved_0 : 2;
+    /// read-write - lock truszone setting
     eLOCK_TZ LOCK_TZ : 1;
     uint32_t _reserved_1 : 3;
+    /// read-write - Whitelist
     uint32_t WHITE_LIST : 4;
+    /// read-write - Lock Whitelist
     eLOCK_LIST LOCK_LIST : 1;
     uint32_t _reserved_2 : 3;
+    /// read-write - Low power and access control by domain
     eDOMAIN_MODE DOMAIN_MODE : 1;
+    /// read-write - Low power and access control by Setpoint
     eSETPOINT_MODE SETPOINT_MODE : 1;
+    /// read-write - CPU Low Power Mode
     eCPULPM CPULPM : 1;
     uint32_t _reserved_3 : 1;
+    /// read-write - Lock low power and access mode
     eLOCK_MODE LOCK_MODE : 1;
     uint32_t _reserved_4 : 11;
   } bits;
@@ -5657,6 +6357,7 @@ union LPCG6_DIRECT {
   
   // Bit field definition.
   struct {
+    /// read-write - LPCG on
     eON ON : 1;
     uint32_t _reserved_0 : 31;
   } bits;
@@ -5715,14 +6416,19 @@ union LPCG6_DOMAIN {
   
   // Bit field definition.
   struct {
+    /// read-write - Current dependence level
     eLEVEL LEVEL : 3;
     uint32_t _reserved_0 : 13;
+    /// read-write - Depend level
     eLEVEL0 LEVEL0 : 3;
     uint32_t _reserved_1 : 1;
+    /// read-write - Depend level
     eLEVEL1 LEVEL1 : 3;
     uint32_t _reserved_2 : 1;
+    /// read-write - Depend level
     eLEVEL2 LEVEL2 : 3;
     uint32_t _reserved_3 : 1;
+    /// read-write - Depend level
     eLEVEL3 LEVEL3 : 3;
     uint32_t _reserved_4 : 1;
   } bits;
@@ -5741,7 +6447,9 @@ union LPCG6_SETPOINT {
   
   // Bit field definition.
   struct {
+    /// read-write - Setpoints
     uint32_t SETPOINT : 16;
+    /// read-write - Standby
     uint32_t STANDBY : 16;
   } bits;
   
@@ -5802,9 +6510,12 @@ union LPCG6_STATUS0 {
   
   // Bit field definition.
   struct {
+    /// read-only - LPCG current state
     eON ON : 1;
     uint32_t _reserved_0 : 7;
+    /// read-only - Domains that own this clock gate
     eACTIVE_DOMAIN ACTIVE_DOMAIN : 4;
+    /// read-only - Enable status from each domain
     eDOMAIN_ENABLE DOMAIN_ENABLE : 4;
     uint32_t _reserved_1 : 16;
   } bits;
@@ -5911,23 +6622,41 @@ union LPCG6_STATUS1 {
   
   // Bit field definition.
   struct {
+    /// read-only - Domain0 Low Power Mode
     eCPU0_MODE CPU0_MODE : 2;
+    /// read-only - Domain0 request enter Low Power Mode
     eCPU0_MODE_REQUEST CPU0_MODE_REQUEST : 1;
+    /// read-only - Domain0 Low Power Mode task done
     eCPU0_MODE_DONE CPU0_MODE_DONE : 1;
+    /// read-only - Domain1 Low Power Mode
     eCPU1_MODE CPU1_MODE : 2;
+    /// read-only - Domain1 request enter Low Power Mode
     eCPU1_MODE_REQUEST CPU1_MODE_REQUEST : 1;
+    /// read-only - Domain1 Low Power Mode task done
     eCPU1_MODE_DONE CPU1_MODE_DONE : 1;
+    /// read-only - Domain2 Low Power Mode
     eCPU2_MODE CPU2_MODE : 2;
+    /// read-only - Domain2 request enter Low Power Mode
     eCPU2_MODE_REQUEST CPU2_MODE_REQUEST : 1;
+    /// read-only - Domain2 Low Power Mode task done
     eCPU2_MODE_DONE CPU2_MODE_DONE : 1;
+    /// read-only - Domain3 Low Power Mode
     eCPU3_MODE CPU3_MODE : 2;
+    /// read-only - Domain3 request enter Low Power Mode
     eCPU3_MODE_REQUEST CPU3_MODE_REQUEST : 1;
+    /// read-only - Domain3 Low Power Mode task done
     eCPU3_MODE_DONE CPU3_MODE_DONE : 1;
+    /// read-only - Next Setpoint to change to
     uint32_t TARGET_SETPOINT : 4;
+    /// read-only - Current Setpoint
     uint32_t CURRENT_SETPOINT : 4;
+    /// read-only - Clock gate turn off request from GPC Setpoint
     eSETPOINT_OFF_REQUEST SETPOINT_OFF_REQUEST : 1;
+    /// read-only - Clock gate turn off finish from GPC Setpoint
     eSETPOINT_OFF_DONE SETPOINT_OFF_DONE : 1;
+    /// read-only - Clock gate turn on request from GPC Setpoint
     eSETPOINT_ON_REQUEST SETPOINT_ON_REQUEST : 1;
+    /// read-only - Clock gate turn on finish from GPC Setpoint
     eSETPOINT_ON_DONE SETPOINT_ON_DONE : 1;
     uint32_t _reserved_0 : 4;
   } bits;
@@ -5952,6 +6681,7 @@ union LPCG6_CONFIG {
   // Bit field definition.
   struct {
     uint32_t _reserved_0 : 4;
+    /// read-only - Setpoint present
     eSETPOINT_PRESENT SETPOINT_PRESENT : 1;
     uint32_t _reserved_1 : 27;
   } bits;
@@ -6010,18 +6740,27 @@ union LPCG6_AUTHEN {
   
   // Bit field definition.
   struct {
+    /// read-write - User access
     eTZ_USER TZ_USER : 1;
+    /// read-write - Non-secure access
     eTZ_NS TZ_NS : 1;
     uint32_t _reserved_0 : 2;
+    /// read-write - lock truszone setting
     eLOCK_TZ LOCK_TZ : 1;
     uint32_t _reserved_1 : 3;
+    /// read-write - Whitelist
     uint32_t WHITE_LIST : 4;
+    /// read-write - Lock Whitelist
     eLOCK_LIST LOCK_LIST : 1;
     uint32_t _reserved_2 : 3;
+    /// read-write - Low power and access control by domain
     eDOMAIN_MODE DOMAIN_MODE : 1;
+    /// read-write - Low power and access control by Setpoint
     eSETPOINT_MODE SETPOINT_MODE : 1;
+    /// read-write - CPU Low Power Mode
     eCPULPM CPULPM : 1;
     uint32_t _reserved_3 : 1;
+    /// read-write - Lock low power and access mode
     eLOCK_MODE LOCK_MODE : 1;
     uint32_t _reserved_4 : 11;
   } bits;
@@ -6045,6 +6784,7 @@ union LPCG7_DIRECT {
   
   // Bit field definition.
   struct {
+    /// read-write - LPCG on
     eON ON : 1;
     uint32_t _reserved_0 : 31;
   } bits;
@@ -6103,14 +6843,19 @@ union LPCG7_DOMAIN {
   
   // Bit field definition.
   struct {
+    /// read-write - Current dependence level
     eLEVEL LEVEL : 3;
     uint32_t _reserved_0 : 13;
+    /// read-write - Depend level
     eLEVEL0 LEVEL0 : 3;
     uint32_t _reserved_1 : 1;
+    /// read-write - Depend level
     eLEVEL1 LEVEL1 : 3;
     uint32_t _reserved_2 : 1;
+    /// read-write - Depend level
     eLEVEL2 LEVEL2 : 3;
     uint32_t _reserved_3 : 1;
+    /// read-write - Depend level
     eLEVEL3 LEVEL3 : 3;
     uint32_t _reserved_4 : 1;
   } bits;
@@ -6129,7 +6874,9 @@ union LPCG7_SETPOINT {
   
   // Bit field definition.
   struct {
+    /// read-write - Setpoints
     uint32_t SETPOINT : 16;
+    /// read-write - Standby
     uint32_t STANDBY : 16;
   } bits;
   
@@ -6190,9 +6937,12 @@ union LPCG7_STATUS0 {
   
   // Bit field definition.
   struct {
+    /// read-only - LPCG current state
     eON ON : 1;
     uint32_t _reserved_0 : 7;
+    /// read-only - Domains that own this clock gate
     eACTIVE_DOMAIN ACTIVE_DOMAIN : 4;
+    /// read-only - Enable status from each domain
     eDOMAIN_ENABLE DOMAIN_ENABLE : 4;
     uint32_t _reserved_1 : 16;
   } bits;
@@ -6299,23 +7049,41 @@ union LPCG7_STATUS1 {
   
   // Bit field definition.
   struct {
+    /// read-only - Domain0 Low Power Mode
     eCPU0_MODE CPU0_MODE : 2;
+    /// read-only - Domain0 request enter Low Power Mode
     eCPU0_MODE_REQUEST CPU0_MODE_REQUEST : 1;
+    /// read-only - Domain0 Low Power Mode task done
     eCPU0_MODE_DONE CPU0_MODE_DONE : 1;
+    /// read-only - Domain1 Low Power Mode
     eCPU1_MODE CPU1_MODE : 2;
+    /// read-only - Domain1 request enter Low Power Mode
     eCPU1_MODE_REQUEST CPU1_MODE_REQUEST : 1;
+    /// read-only - Domain1 Low Power Mode task done
     eCPU1_MODE_DONE CPU1_MODE_DONE : 1;
+    /// read-only - Domain2 Low Power Mode
     eCPU2_MODE CPU2_MODE : 2;
+    /// read-only - Domain2 request enter Low Power Mode
     eCPU2_MODE_REQUEST CPU2_MODE_REQUEST : 1;
+    /// read-only - Domain2 Low Power Mode task done
     eCPU2_MODE_DONE CPU2_MODE_DONE : 1;
+    /// read-only - Domain3 Low Power Mode
     eCPU3_MODE CPU3_MODE : 2;
+    /// read-only - Domain3 request enter Low Power Mode
     eCPU3_MODE_REQUEST CPU3_MODE_REQUEST : 1;
+    /// read-only - Domain3 Low Power Mode task done
     eCPU3_MODE_DONE CPU3_MODE_DONE : 1;
+    /// read-only - Next Setpoint to change to
     uint32_t TARGET_SETPOINT : 4;
+    /// read-only - Current Setpoint
     uint32_t CURRENT_SETPOINT : 4;
+    /// read-only - Clock gate turn off request from GPC Setpoint
     eSETPOINT_OFF_REQUEST SETPOINT_OFF_REQUEST : 1;
+    /// read-only - Clock gate turn off finish from GPC Setpoint
     eSETPOINT_OFF_DONE SETPOINT_OFF_DONE : 1;
+    /// read-only - Clock gate turn on request from GPC Setpoint
     eSETPOINT_ON_REQUEST SETPOINT_ON_REQUEST : 1;
+    /// read-only - Clock gate turn on finish from GPC Setpoint
     eSETPOINT_ON_DONE SETPOINT_ON_DONE : 1;
     uint32_t _reserved_0 : 4;
   } bits;
@@ -6340,6 +7108,7 @@ union LPCG7_CONFIG {
   // Bit field definition.
   struct {
     uint32_t _reserved_0 : 4;
+    /// read-only - Setpoint present
     eSETPOINT_PRESENT SETPOINT_PRESENT : 1;
     uint32_t _reserved_1 : 27;
   } bits;
@@ -6398,18 +7167,27 @@ union LPCG7_AUTHEN {
   
   // Bit field definition.
   struct {
+    /// read-write - User access
     eTZ_USER TZ_USER : 1;
+    /// read-write - Non-secure access
     eTZ_NS TZ_NS : 1;
     uint32_t _reserved_0 : 2;
+    /// read-write - lock truszone setting
     eLOCK_TZ LOCK_TZ : 1;
     uint32_t _reserved_1 : 3;
+    /// read-write - Whitelist
     uint32_t WHITE_LIST : 4;
+    /// read-write - Lock Whitelist
     eLOCK_LIST LOCK_LIST : 1;
     uint32_t _reserved_2 : 3;
+    /// read-write - Low power and access control by domain
     eDOMAIN_MODE DOMAIN_MODE : 1;
+    /// read-write - Low power and access control by Setpoint
     eSETPOINT_MODE SETPOINT_MODE : 1;
+    /// read-write - CPU Low Power Mode
     eCPULPM CPULPM : 1;
     uint32_t _reserved_3 : 1;
+    /// read-write - Lock low power and access mode
     eLOCK_MODE LOCK_MODE : 1;
     uint32_t _reserved_4 : 11;
   } bits;
@@ -6433,6 +7211,7 @@ union LPCG8_DIRECT {
   
   // Bit field definition.
   struct {
+    /// read-write - LPCG on
     eON ON : 1;
     uint32_t _reserved_0 : 31;
   } bits;
@@ -6491,14 +7270,19 @@ union LPCG8_DOMAIN {
   
   // Bit field definition.
   struct {
+    /// read-write - Current dependence level
     eLEVEL LEVEL : 3;
     uint32_t _reserved_0 : 13;
+    /// read-write - Depend level
     eLEVEL0 LEVEL0 : 3;
     uint32_t _reserved_1 : 1;
+    /// read-write - Depend level
     eLEVEL1 LEVEL1 : 3;
     uint32_t _reserved_2 : 1;
+    /// read-write - Depend level
     eLEVEL2 LEVEL2 : 3;
     uint32_t _reserved_3 : 1;
+    /// read-write - Depend level
     eLEVEL3 LEVEL3 : 3;
     uint32_t _reserved_4 : 1;
   } bits;
@@ -6517,7 +7301,9 @@ union LPCG8_SETPOINT {
   
   // Bit field definition.
   struct {
+    /// read-write - Setpoints
     uint32_t SETPOINT : 16;
+    /// read-write - Standby
     uint32_t STANDBY : 16;
   } bits;
   
@@ -6578,9 +7364,12 @@ union LPCG8_STATUS0 {
   
   // Bit field definition.
   struct {
+    /// read-only - LPCG current state
     eON ON : 1;
     uint32_t _reserved_0 : 7;
+    /// read-only - Domains that own this clock gate
     eACTIVE_DOMAIN ACTIVE_DOMAIN : 4;
+    /// read-only - Enable status from each domain
     eDOMAIN_ENABLE DOMAIN_ENABLE : 4;
     uint32_t _reserved_1 : 16;
   } bits;
@@ -6687,23 +7476,41 @@ union LPCG8_STATUS1 {
   
   // Bit field definition.
   struct {
+    /// read-only - Domain0 Low Power Mode
     eCPU0_MODE CPU0_MODE : 2;
+    /// read-only - Domain0 request enter Low Power Mode
     eCPU0_MODE_REQUEST CPU0_MODE_REQUEST : 1;
+    /// read-only - Domain0 Low Power Mode task done
     eCPU0_MODE_DONE CPU0_MODE_DONE : 1;
+    /// read-only - Domain1 Low Power Mode
     eCPU1_MODE CPU1_MODE : 2;
+    /// read-only - Domain1 request enter Low Power Mode
     eCPU1_MODE_REQUEST CPU1_MODE_REQUEST : 1;
+    /// read-only - Domain1 Low Power Mode task done
     eCPU1_MODE_DONE CPU1_MODE_DONE : 1;
+    /// read-only - Domain2 Low Power Mode
     eCPU2_MODE CPU2_MODE : 2;
+    /// read-only - Domain2 request enter Low Power Mode
     eCPU2_MODE_REQUEST CPU2_MODE_REQUEST : 1;
+    /// read-only - Domain2 Low Power Mode task done
     eCPU2_MODE_DONE CPU2_MODE_DONE : 1;
+    /// read-only - Domain3 Low Power Mode
     eCPU3_MODE CPU3_MODE : 2;
+    /// read-only - Domain3 request enter Low Power Mode
     eCPU3_MODE_REQUEST CPU3_MODE_REQUEST : 1;
+    /// read-only - Domain3 Low Power Mode task done
     eCPU3_MODE_DONE CPU3_MODE_DONE : 1;
+    /// read-only - Next Setpoint to change to
     uint32_t TARGET_SETPOINT : 4;
+    /// read-only - Current Setpoint
     uint32_t CURRENT_SETPOINT : 4;
+    /// read-only - Clock gate turn off request from GPC Setpoint
     eSETPOINT_OFF_REQUEST SETPOINT_OFF_REQUEST : 1;
+    /// read-only - Clock gate turn off finish from GPC Setpoint
     eSETPOINT_OFF_DONE SETPOINT_OFF_DONE : 1;
+    /// read-only - Clock gate turn on request from GPC Setpoint
     eSETPOINT_ON_REQUEST SETPOINT_ON_REQUEST : 1;
+    /// read-only - Clock gate turn on finish from GPC Setpoint
     eSETPOINT_ON_DONE SETPOINT_ON_DONE : 1;
     uint32_t _reserved_0 : 4;
   } bits;
@@ -6728,6 +7535,7 @@ union LPCG8_CONFIG {
   // Bit field definition.
   struct {
     uint32_t _reserved_0 : 4;
+    /// read-only - Setpoint present
     eSETPOINT_PRESENT SETPOINT_PRESENT : 1;
     uint32_t _reserved_1 : 27;
   } bits;
@@ -6786,18 +7594,27 @@ union LPCG8_AUTHEN {
   
   // Bit field definition.
   struct {
+    /// read-write - User access
     eTZ_USER TZ_USER : 1;
+    /// read-write - Non-secure access
     eTZ_NS TZ_NS : 1;
     uint32_t _reserved_0 : 2;
+    /// read-write - lock truszone setting
     eLOCK_TZ LOCK_TZ : 1;
     uint32_t _reserved_1 : 3;
+    /// read-write - Whitelist
     uint32_t WHITE_LIST : 4;
+    /// read-write - Lock Whitelist
     eLOCK_LIST LOCK_LIST : 1;
     uint32_t _reserved_2 : 3;
+    /// read-write - Low power and access control by domain
     eDOMAIN_MODE DOMAIN_MODE : 1;
+    /// read-write - Low power and access control by Setpoint
     eSETPOINT_MODE SETPOINT_MODE : 1;
+    /// read-write - CPU Low Power Mode
     eCPULPM CPULPM : 1;
     uint32_t _reserved_3 : 1;
+    /// read-write - Lock low power and access mode
     eLOCK_MODE LOCK_MODE : 1;
     uint32_t _reserved_4 : 11;
   } bits;
@@ -6821,6 +7638,7 @@ union LPCG9_DIRECT {
   
   // Bit field definition.
   struct {
+    /// read-write - LPCG on
     eON ON : 1;
     uint32_t _reserved_0 : 31;
   } bits;
@@ -6879,14 +7697,19 @@ union LPCG9_DOMAIN {
   
   // Bit field definition.
   struct {
+    /// read-write - Current dependence level
     eLEVEL LEVEL : 3;
     uint32_t _reserved_0 : 13;
+    /// read-write - Depend level
     eLEVEL0 LEVEL0 : 3;
     uint32_t _reserved_1 : 1;
+    /// read-write - Depend level
     eLEVEL1 LEVEL1 : 3;
     uint32_t _reserved_2 : 1;
+    /// read-write - Depend level
     eLEVEL2 LEVEL2 : 3;
     uint32_t _reserved_3 : 1;
+    /// read-write - Depend level
     eLEVEL3 LEVEL3 : 3;
     uint32_t _reserved_4 : 1;
   } bits;
@@ -6905,7 +7728,9 @@ union LPCG9_SETPOINT {
   
   // Bit field definition.
   struct {
+    /// read-write - Setpoints
     uint32_t SETPOINT : 16;
+    /// read-write - Standby
     uint32_t STANDBY : 16;
   } bits;
   
@@ -6966,9 +7791,12 @@ union LPCG9_STATUS0 {
   
   // Bit field definition.
   struct {
+    /// read-only - LPCG current state
     eON ON : 1;
     uint32_t _reserved_0 : 7;
+    /// read-only - Domains that own this clock gate
     eACTIVE_DOMAIN ACTIVE_DOMAIN : 4;
+    /// read-only - Enable status from each domain
     eDOMAIN_ENABLE DOMAIN_ENABLE : 4;
     uint32_t _reserved_1 : 16;
   } bits;
@@ -7075,23 +7903,41 @@ union LPCG9_STATUS1 {
   
   // Bit field definition.
   struct {
+    /// read-only - Domain0 Low Power Mode
     eCPU0_MODE CPU0_MODE : 2;
+    /// read-only - Domain0 request enter Low Power Mode
     eCPU0_MODE_REQUEST CPU0_MODE_REQUEST : 1;
+    /// read-only - Domain0 Low Power Mode task done
     eCPU0_MODE_DONE CPU0_MODE_DONE : 1;
+    /// read-only - Domain1 Low Power Mode
     eCPU1_MODE CPU1_MODE : 2;
+    /// read-only - Domain1 request enter Low Power Mode
     eCPU1_MODE_REQUEST CPU1_MODE_REQUEST : 1;
+    /// read-only - Domain1 Low Power Mode task done
     eCPU1_MODE_DONE CPU1_MODE_DONE : 1;
+    /// read-only - Domain2 Low Power Mode
     eCPU2_MODE CPU2_MODE : 2;
+    /// read-only - Domain2 request enter Low Power Mode
     eCPU2_MODE_REQUEST CPU2_MODE_REQUEST : 1;
+    /// read-only - Domain2 Low Power Mode task done
     eCPU2_MODE_DONE CPU2_MODE_DONE : 1;
+    /// read-only - Domain3 Low Power Mode
     eCPU3_MODE CPU3_MODE : 2;
+    /// read-only - Domain3 request enter Low Power Mode
     eCPU3_MODE_REQUEST CPU3_MODE_REQUEST : 1;
+    /// read-only - Domain3 Low Power Mode task done
     eCPU3_MODE_DONE CPU3_MODE_DONE : 1;
+    /// read-only - Next Setpoint to change to
     uint32_t TARGET_SETPOINT : 4;
+    /// read-only - Current Setpoint
     uint32_t CURRENT_SETPOINT : 4;
+    /// read-only - Clock gate turn off request from GPC Setpoint
     eSETPOINT_OFF_REQUEST SETPOINT_OFF_REQUEST : 1;
+    /// read-only - Clock gate turn off finish from GPC Setpoint
     eSETPOINT_OFF_DONE SETPOINT_OFF_DONE : 1;
+    /// read-only - Clock gate turn on request from GPC Setpoint
     eSETPOINT_ON_REQUEST SETPOINT_ON_REQUEST : 1;
+    /// read-only - Clock gate turn on finish from GPC Setpoint
     eSETPOINT_ON_DONE SETPOINT_ON_DONE : 1;
     uint32_t _reserved_0 : 4;
   } bits;
@@ -7116,6 +7962,7 @@ union LPCG9_CONFIG {
   // Bit field definition.
   struct {
     uint32_t _reserved_0 : 4;
+    /// read-only - Setpoint present
     eSETPOINT_PRESENT SETPOINT_PRESENT : 1;
     uint32_t _reserved_1 : 27;
   } bits;
@@ -7174,18 +8021,27 @@ union LPCG9_AUTHEN {
   
   // Bit field definition.
   struct {
+    /// read-write - User access
     eTZ_USER TZ_USER : 1;
+    /// read-write - Non-secure access
     eTZ_NS TZ_NS : 1;
     uint32_t _reserved_0 : 2;
+    /// read-write - lock truszone setting
     eLOCK_TZ LOCK_TZ : 1;
     uint32_t _reserved_1 : 3;
+    /// read-write - Whitelist
     uint32_t WHITE_LIST : 4;
+    /// read-write - Lock Whitelist
     eLOCK_LIST LOCK_LIST : 1;
     uint32_t _reserved_2 : 3;
+    /// read-write - Low power and access control by domain
     eDOMAIN_MODE DOMAIN_MODE : 1;
+    /// read-write - Low power and access control by Setpoint
     eSETPOINT_MODE SETPOINT_MODE : 1;
+    /// read-write - CPU Low Power Mode
     eCPULPM CPULPM : 1;
     uint32_t _reserved_3 : 1;
+    /// read-write - Lock low power and access mode
     eLOCK_MODE LOCK_MODE : 1;
     uint32_t _reserved_4 : 11;
   } bits;
@@ -7209,6 +8065,7 @@ union LPCG10_DIRECT {
   
   // Bit field definition.
   struct {
+    /// read-write - LPCG on
     eON ON : 1;
     uint32_t _reserved_0 : 31;
   } bits;
@@ -7267,14 +8124,19 @@ union LPCG10_DOMAIN {
   
   // Bit field definition.
   struct {
+    /// read-write - Current dependence level
     eLEVEL LEVEL : 3;
     uint32_t _reserved_0 : 13;
+    /// read-write - Depend level
     eLEVEL0 LEVEL0 : 3;
     uint32_t _reserved_1 : 1;
+    /// read-write - Depend level
     eLEVEL1 LEVEL1 : 3;
     uint32_t _reserved_2 : 1;
+    /// read-write - Depend level
     eLEVEL2 LEVEL2 : 3;
     uint32_t _reserved_3 : 1;
+    /// read-write - Depend level
     eLEVEL3 LEVEL3 : 3;
     uint32_t _reserved_4 : 1;
   } bits;
@@ -7293,7 +8155,9 @@ union LPCG10_SETPOINT {
   
   // Bit field definition.
   struct {
+    /// read-write - Setpoints
     uint32_t SETPOINT : 16;
+    /// read-write - Standby
     uint32_t STANDBY : 16;
   } bits;
   
@@ -7354,9 +8218,12 @@ union LPCG10_STATUS0 {
   
   // Bit field definition.
   struct {
+    /// read-only - LPCG current state
     eON ON : 1;
     uint32_t _reserved_0 : 7;
+    /// read-only - Domains that own this clock gate
     eACTIVE_DOMAIN ACTIVE_DOMAIN : 4;
+    /// read-only - Enable status from each domain
     eDOMAIN_ENABLE DOMAIN_ENABLE : 4;
     uint32_t _reserved_1 : 16;
   } bits;
@@ -7463,23 +8330,41 @@ union LPCG10_STATUS1 {
   
   // Bit field definition.
   struct {
+    /// read-only - Domain0 Low Power Mode
     eCPU0_MODE CPU0_MODE : 2;
+    /// read-only - Domain0 request enter Low Power Mode
     eCPU0_MODE_REQUEST CPU0_MODE_REQUEST : 1;
+    /// read-only - Domain0 Low Power Mode task done
     eCPU0_MODE_DONE CPU0_MODE_DONE : 1;
+    /// read-only - Domain1 Low Power Mode
     eCPU1_MODE CPU1_MODE : 2;
+    /// read-only - Domain1 request enter Low Power Mode
     eCPU1_MODE_REQUEST CPU1_MODE_REQUEST : 1;
+    /// read-only - Domain1 Low Power Mode task done
     eCPU1_MODE_DONE CPU1_MODE_DONE : 1;
+    /// read-only - Domain2 Low Power Mode
     eCPU2_MODE CPU2_MODE : 2;
+    /// read-only - Domain2 request enter Low Power Mode
     eCPU2_MODE_REQUEST CPU2_MODE_REQUEST : 1;
+    /// read-only - Domain2 Low Power Mode task done
     eCPU2_MODE_DONE CPU2_MODE_DONE : 1;
+    /// read-only - Domain3 Low Power Mode
     eCPU3_MODE CPU3_MODE : 2;
+    /// read-only - Domain3 request enter Low Power Mode
     eCPU3_MODE_REQUEST CPU3_MODE_REQUEST : 1;
+    /// read-only - Domain3 Low Power Mode task done
     eCPU3_MODE_DONE CPU3_MODE_DONE : 1;
+    /// read-only - Next Setpoint to change to
     uint32_t TARGET_SETPOINT : 4;
+    /// read-only - Current Setpoint
     uint32_t CURRENT_SETPOINT : 4;
+    /// read-only - Clock gate turn off request from GPC Setpoint
     eSETPOINT_OFF_REQUEST SETPOINT_OFF_REQUEST : 1;
+    /// read-only - Clock gate turn off finish from GPC Setpoint
     eSETPOINT_OFF_DONE SETPOINT_OFF_DONE : 1;
+    /// read-only - Clock gate turn on request from GPC Setpoint
     eSETPOINT_ON_REQUEST SETPOINT_ON_REQUEST : 1;
+    /// read-only - Clock gate turn on finish from GPC Setpoint
     eSETPOINT_ON_DONE SETPOINT_ON_DONE : 1;
     uint32_t _reserved_0 : 4;
   } bits;
@@ -7504,6 +8389,7 @@ union LPCG10_CONFIG {
   // Bit field definition.
   struct {
     uint32_t _reserved_0 : 4;
+    /// read-only - Setpoint present
     eSETPOINT_PRESENT SETPOINT_PRESENT : 1;
     uint32_t _reserved_1 : 27;
   } bits;
@@ -7562,18 +8448,27 @@ union LPCG10_AUTHEN {
   
   // Bit field definition.
   struct {
+    /// read-write - User access
     eTZ_USER TZ_USER : 1;
+    /// read-write - Non-secure access
     eTZ_NS TZ_NS : 1;
     uint32_t _reserved_0 : 2;
+    /// read-write - lock truszone setting
     eLOCK_TZ LOCK_TZ : 1;
     uint32_t _reserved_1 : 3;
+    /// read-write - Whitelist
     uint32_t WHITE_LIST : 4;
+    /// read-write - Lock Whitelist
     eLOCK_LIST LOCK_LIST : 1;
     uint32_t _reserved_2 : 3;
+    /// read-write - Low power and access control by domain
     eDOMAIN_MODE DOMAIN_MODE : 1;
+    /// read-write - Low power and access control by Setpoint
     eSETPOINT_MODE SETPOINT_MODE : 1;
+    /// read-write - CPU Low Power Mode
     eCPULPM CPULPM : 1;
     uint32_t _reserved_3 : 1;
+    /// read-write - Lock low power and access mode
     eLOCK_MODE LOCK_MODE : 1;
     uint32_t _reserved_4 : 11;
   } bits;
@@ -7597,6 +8492,7 @@ union LPCG11_DIRECT {
   
   // Bit field definition.
   struct {
+    /// read-write - LPCG on
     eON ON : 1;
     uint32_t _reserved_0 : 31;
   } bits;
@@ -7655,14 +8551,19 @@ union LPCG11_DOMAIN {
   
   // Bit field definition.
   struct {
+    /// read-write - Current dependence level
     eLEVEL LEVEL : 3;
     uint32_t _reserved_0 : 13;
+    /// read-write - Depend level
     eLEVEL0 LEVEL0 : 3;
     uint32_t _reserved_1 : 1;
+    /// read-write - Depend level
     eLEVEL1 LEVEL1 : 3;
     uint32_t _reserved_2 : 1;
+    /// read-write - Depend level
     eLEVEL2 LEVEL2 : 3;
     uint32_t _reserved_3 : 1;
+    /// read-write - Depend level
     eLEVEL3 LEVEL3 : 3;
     uint32_t _reserved_4 : 1;
   } bits;
@@ -7681,7 +8582,9 @@ union LPCG11_SETPOINT {
   
   // Bit field definition.
   struct {
+    /// read-write - Setpoints
     uint32_t SETPOINT : 16;
+    /// read-write - Standby
     uint32_t STANDBY : 16;
   } bits;
   
@@ -7742,9 +8645,12 @@ union LPCG11_STATUS0 {
   
   // Bit field definition.
   struct {
+    /// read-only - LPCG current state
     eON ON : 1;
     uint32_t _reserved_0 : 7;
+    /// read-only - Domains that own this clock gate
     eACTIVE_DOMAIN ACTIVE_DOMAIN : 4;
+    /// read-only - Enable status from each domain
     eDOMAIN_ENABLE DOMAIN_ENABLE : 4;
     uint32_t _reserved_1 : 16;
   } bits;
@@ -7851,23 +8757,41 @@ union LPCG11_STATUS1 {
   
   // Bit field definition.
   struct {
+    /// read-only - Domain0 Low Power Mode
     eCPU0_MODE CPU0_MODE : 2;
+    /// read-only - Domain0 request enter Low Power Mode
     eCPU0_MODE_REQUEST CPU0_MODE_REQUEST : 1;
+    /// read-only - Domain0 Low Power Mode task done
     eCPU0_MODE_DONE CPU0_MODE_DONE : 1;
+    /// read-only - Domain1 Low Power Mode
     eCPU1_MODE CPU1_MODE : 2;
+    /// read-only - Domain1 request enter Low Power Mode
     eCPU1_MODE_REQUEST CPU1_MODE_REQUEST : 1;
+    /// read-only - Domain1 Low Power Mode task done
     eCPU1_MODE_DONE CPU1_MODE_DONE : 1;
+    /// read-only - Domain2 Low Power Mode
     eCPU2_MODE CPU2_MODE : 2;
+    /// read-only - Domain2 request enter Low Power Mode
     eCPU2_MODE_REQUEST CPU2_MODE_REQUEST : 1;
+    /// read-only - Domain2 Low Power Mode task done
     eCPU2_MODE_DONE CPU2_MODE_DONE : 1;
+    /// read-only - Domain3 Low Power Mode
     eCPU3_MODE CPU3_MODE : 2;
+    /// read-only - Domain3 request enter Low Power Mode
     eCPU3_MODE_REQUEST CPU3_MODE_REQUEST : 1;
+    /// read-only - Domain3 Low Power Mode task done
     eCPU3_MODE_DONE CPU3_MODE_DONE : 1;
+    /// read-only - Next Setpoint to change to
     uint32_t TARGET_SETPOINT : 4;
+    /// read-only - Current Setpoint
     uint32_t CURRENT_SETPOINT : 4;
+    /// read-only - Clock gate turn off request from GPC Setpoint
     eSETPOINT_OFF_REQUEST SETPOINT_OFF_REQUEST : 1;
+    /// read-only - Clock gate turn off finish from GPC Setpoint
     eSETPOINT_OFF_DONE SETPOINT_OFF_DONE : 1;
+    /// read-only - Clock gate turn on request from GPC Setpoint
     eSETPOINT_ON_REQUEST SETPOINT_ON_REQUEST : 1;
+    /// read-only - Clock gate turn on finish from GPC Setpoint
     eSETPOINT_ON_DONE SETPOINT_ON_DONE : 1;
     uint32_t _reserved_0 : 4;
   } bits;
@@ -7892,6 +8816,7 @@ union LPCG11_CONFIG {
   // Bit field definition.
   struct {
     uint32_t _reserved_0 : 4;
+    /// read-only - Setpoint present
     eSETPOINT_PRESENT SETPOINT_PRESENT : 1;
     uint32_t _reserved_1 : 27;
   } bits;
@@ -7950,18 +8875,27 @@ union LPCG11_AUTHEN {
   
   // Bit field definition.
   struct {
+    /// read-write - User access
     eTZ_USER TZ_USER : 1;
+    /// read-write - Non-secure access
     eTZ_NS TZ_NS : 1;
     uint32_t _reserved_0 : 2;
+    /// read-write - lock truszone setting
     eLOCK_TZ LOCK_TZ : 1;
     uint32_t _reserved_1 : 3;
+    /// read-write - Whitelist
     uint32_t WHITE_LIST : 4;
+    /// read-write - Lock Whitelist
     eLOCK_LIST LOCK_LIST : 1;
     uint32_t _reserved_2 : 3;
+    /// read-write - Low power and access control by domain
     eDOMAIN_MODE DOMAIN_MODE : 1;
+    /// read-write - Low power and access control by Setpoint
     eSETPOINT_MODE SETPOINT_MODE : 1;
+    /// read-write - CPU Low Power Mode
     eCPULPM CPULPM : 1;
     uint32_t _reserved_3 : 1;
+    /// read-write - Lock low power and access mode
     eLOCK_MODE LOCK_MODE : 1;
     uint32_t _reserved_4 : 11;
   } bits;
@@ -7985,6 +8919,7 @@ union LPCG12_DIRECT {
   
   // Bit field definition.
   struct {
+    /// read-write - LPCG on
     eON ON : 1;
     uint32_t _reserved_0 : 31;
   } bits;
@@ -8043,14 +8978,19 @@ union LPCG12_DOMAIN {
   
   // Bit field definition.
   struct {
+    /// read-write - Current dependence level
     eLEVEL LEVEL : 3;
     uint32_t _reserved_0 : 13;
+    /// read-write - Depend level
     eLEVEL0 LEVEL0 : 3;
     uint32_t _reserved_1 : 1;
+    /// read-write - Depend level
     eLEVEL1 LEVEL1 : 3;
     uint32_t _reserved_2 : 1;
+    /// read-write - Depend level
     eLEVEL2 LEVEL2 : 3;
     uint32_t _reserved_3 : 1;
+    /// read-write - Depend level
     eLEVEL3 LEVEL3 : 3;
     uint32_t _reserved_4 : 1;
   } bits;
@@ -8069,7 +9009,9 @@ union LPCG12_SETPOINT {
   
   // Bit field definition.
   struct {
+    /// read-write - Setpoints
     uint32_t SETPOINT : 16;
+    /// read-write - Standby
     uint32_t STANDBY : 16;
   } bits;
   
@@ -8130,9 +9072,12 @@ union LPCG12_STATUS0 {
   
   // Bit field definition.
   struct {
+    /// read-only - LPCG current state
     eON ON : 1;
     uint32_t _reserved_0 : 7;
+    /// read-only - Domains that own this clock gate
     eACTIVE_DOMAIN ACTIVE_DOMAIN : 4;
+    /// read-only - Enable status from each domain
     eDOMAIN_ENABLE DOMAIN_ENABLE : 4;
     uint32_t _reserved_1 : 16;
   } bits;
@@ -8239,23 +9184,41 @@ union LPCG12_STATUS1 {
   
   // Bit field definition.
   struct {
+    /// read-only - Domain0 Low Power Mode
     eCPU0_MODE CPU0_MODE : 2;
+    /// read-only - Domain0 request enter Low Power Mode
     eCPU0_MODE_REQUEST CPU0_MODE_REQUEST : 1;
+    /// read-only - Domain0 Low Power Mode task done
     eCPU0_MODE_DONE CPU0_MODE_DONE : 1;
+    /// read-only - Domain1 Low Power Mode
     eCPU1_MODE CPU1_MODE : 2;
+    /// read-only - Domain1 request enter Low Power Mode
     eCPU1_MODE_REQUEST CPU1_MODE_REQUEST : 1;
+    /// read-only - Domain1 Low Power Mode task done
     eCPU1_MODE_DONE CPU1_MODE_DONE : 1;
+    /// read-only - Domain2 Low Power Mode
     eCPU2_MODE CPU2_MODE : 2;
+    /// read-only - Domain2 request enter Low Power Mode
     eCPU2_MODE_REQUEST CPU2_MODE_REQUEST : 1;
+    /// read-only - Domain2 Low Power Mode task done
     eCPU2_MODE_DONE CPU2_MODE_DONE : 1;
+    /// read-only - Domain3 Low Power Mode
     eCPU3_MODE CPU3_MODE : 2;
+    /// read-only - Domain3 request enter Low Power Mode
     eCPU3_MODE_REQUEST CPU3_MODE_REQUEST : 1;
+    /// read-only - Domain3 Low Power Mode task done
     eCPU3_MODE_DONE CPU3_MODE_DONE : 1;
+    /// read-only - Next Setpoint to change to
     uint32_t TARGET_SETPOINT : 4;
+    /// read-only - Current Setpoint
     uint32_t CURRENT_SETPOINT : 4;
+    /// read-only - Clock gate turn off request from GPC Setpoint
     eSETPOINT_OFF_REQUEST SETPOINT_OFF_REQUEST : 1;
+    /// read-only - Clock gate turn off finish from GPC Setpoint
     eSETPOINT_OFF_DONE SETPOINT_OFF_DONE : 1;
+    /// read-only - Clock gate turn on request from GPC Setpoint
     eSETPOINT_ON_REQUEST SETPOINT_ON_REQUEST : 1;
+    /// read-only - Clock gate turn on finish from GPC Setpoint
     eSETPOINT_ON_DONE SETPOINT_ON_DONE : 1;
     uint32_t _reserved_0 : 4;
   } bits;
@@ -8280,6 +9243,7 @@ union LPCG12_CONFIG {
   // Bit field definition.
   struct {
     uint32_t _reserved_0 : 4;
+    /// read-only - Setpoint present
     eSETPOINT_PRESENT SETPOINT_PRESENT : 1;
     uint32_t _reserved_1 : 27;
   } bits;
@@ -8338,18 +9302,27 @@ union LPCG12_AUTHEN {
   
   // Bit field definition.
   struct {
+    /// read-write - User access
     eTZ_USER TZ_USER : 1;
+    /// read-write - Non-secure access
     eTZ_NS TZ_NS : 1;
     uint32_t _reserved_0 : 2;
+    /// read-write - lock truszone setting
     eLOCK_TZ LOCK_TZ : 1;
     uint32_t _reserved_1 : 3;
+    /// read-write - Whitelist
     uint32_t WHITE_LIST : 4;
+    /// read-write - Lock Whitelist
     eLOCK_LIST LOCK_LIST : 1;
     uint32_t _reserved_2 : 3;
+    /// read-write - Low power and access control by domain
     eDOMAIN_MODE DOMAIN_MODE : 1;
+    /// read-write - Low power and access control by Setpoint
     eSETPOINT_MODE SETPOINT_MODE : 1;
+    /// read-write - CPU Low Power Mode
     eCPULPM CPULPM : 1;
     uint32_t _reserved_3 : 1;
+    /// read-write - Lock low power and access mode
     eLOCK_MODE LOCK_MODE : 1;
     uint32_t _reserved_4 : 11;
   } bits;
@@ -8373,6 +9346,7 @@ union LPCG13_DIRECT {
   
   // Bit field definition.
   struct {
+    /// read-write - LPCG on
     eON ON : 1;
     uint32_t _reserved_0 : 31;
   } bits;
@@ -8431,14 +9405,19 @@ union LPCG13_DOMAIN {
   
   // Bit field definition.
   struct {
+    /// read-write - Current dependence level
     eLEVEL LEVEL : 3;
     uint32_t _reserved_0 : 13;
+    /// read-write - Depend level
     eLEVEL0 LEVEL0 : 3;
     uint32_t _reserved_1 : 1;
+    /// read-write - Depend level
     eLEVEL1 LEVEL1 : 3;
     uint32_t _reserved_2 : 1;
+    /// read-write - Depend level
     eLEVEL2 LEVEL2 : 3;
     uint32_t _reserved_3 : 1;
+    /// read-write - Depend level
     eLEVEL3 LEVEL3 : 3;
     uint32_t _reserved_4 : 1;
   } bits;
@@ -8500,9 +9479,12 @@ union LPCG13_STATUS0 {
   
   // Bit field definition.
   struct {
+    /// read-only - LPCG current state
     eON ON : 1;
     uint32_t _reserved_0 : 7;
+    /// read-only - Domains that own this clock gate
     eACTIVE_DOMAIN ACTIVE_DOMAIN : 4;
+    /// read-only - Enable status from each domain
     eDOMAIN_ENABLE DOMAIN_ENABLE : 4;
     uint32_t _reserved_1 : 16;
   } bits;
@@ -8609,23 +9591,41 @@ union LPCG13_STATUS1 {
   
   // Bit field definition.
   struct {
+    /// read-only - Domain0 Low Power Mode
     eCPU0_MODE CPU0_MODE : 2;
+    /// read-only - Domain0 request enter Low Power Mode
     eCPU0_MODE_REQUEST CPU0_MODE_REQUEST : 1;
+    /// read-only - Domain0 Low Power Mode task done
     eCPU0_MODE_DONE CPU0_MODE_DONE : 1;
+    /// read-only - Domain1 Low Power Mode
     eCPU1_MODE CPU1_MODE : 2;
+    /// read-only - Domain1 request enter Low Power Mode
     eCPU1_MODE_REQUEST CPU1_MODE_REQUEST : 1;
+    /// read-only - Domain1 Low Power Mode task done
     eCPU1_MODE_DONE CPU1_MODE_DONE : 1;
+    /// read-only - Domain2 Low Power Mode
     eCPU2_MODE CPU2_MODE : 2;
+    /// read-only - Domain2 request enter Low Power Mode
     eCPU2_MODE_REQUEST CPU2_MODE_REQUEST : 1;
+    /// read-only - Domain2 Low Power Mode task done
     eCPU2_MODE_DONE CPU2_MODE_DONE : 1;
+    /// read-only - Domain3 Low Power Mode
     eCPU3_MODE CPU3_MODE : 2;
+    /// read-only - Domain3 request enter Low Power Mode
     eCPU3_MODE_REQUEST CPU3_MODE_REQUEST : 1;
+    /// read-only - Domain3 Low Power Mode task done
     eCPU3_MODE_DONE CPU3_MODE_DONE : 1;
+    /// read-only - Next Setpoint to change to
     uint32_t TARGET_SETPOINT : 4;
+    /// read-only - Current Setpoint
     uint32_t CURRENT_SETPOINT : 4;
+    /// read-only - Clock gate turn off request from GPC Setpoint
     eSETPOINT_OFF_REQUEST SETPOINT_OFF_REQUEST : 1;
+    /// read-only - Clock gate turn off finish from GPC Setpoint
     eSETPOINT_OFF_DONE SETPOINT_OFF_DONE : 1;
+    /// read-only - Clock gate turn on request from GPC Setpoint
     eSETPOINT_ON_REQUEST SETPOINT_ON_REQUEST : 1;
+    /// read-only - Clock gate turn on finish from GPC Setpoint
     eSETPOINT_ON_DONE SETPOINT_ON_DONE : 1;
     uint32_t _reserved_0 : 4;
   } bits;
@@ -8650,6 +9650,7 @@ union LPCG13_CONFIG {
   // Bit field definition.
   struct {
     uint32_t _reserved_0 : 4;
+    /// read-only - Setpoint present
     eSETPOINT_PRESENT SETPOINT_PRESENT : 1;
     uint32_t _reserved_1 : 27;
   } bits;
@@ -8708,18 +9709,27 @@ union LPCG13_AUTHEN {
   
   // Bit field definition.
   struct {
+    /// read-write - User access
     eTZ_USER TZ_USER : 1;
+    /// read-write - Non-secure access
     eTZ_NS TZ_NS : 1;
     uint32_t _reserved_0 : 2;
+    /// read-write - lock truszone setting
     eLOCK_TZ LOCK_TZ : 1;
     uint32_t _reserved_1 : 3;
+    /// read-write - Whitelist
     uint32_t WHITE_LIST : 4;
+    /// read-write - Lock Whitelist
     eLOCK_LIST LOCK_LIST : 1;
     uint32_t _reserved_2 : 3;
+    /// read-write - Low power and access control by domain
     eDOMAIN_MODE DOMAIN_MODE : 1;
+    /// read-write - Low power and access control by Setpoint
     eSETPOINT_MODE SETPOINT_MODE : 1;
+    /// read-write - CPU Low Power Mode
     eCPULPM CPULPM : 1;
     uint32_t _reserved_3 : 1;
+    /// read-write - Lock low power and access mode
     eLOCK_MODE LOCK_MODE : 1;
     uint32_t _reserved_4 : 11;
   } bits;
@@ -8743,6 +9753,7 @@ union LPCG14_DIRECT {
   
   // Bit field definition.
   struct {
+    /// read-write - LPCG on
     eON ON : 1;
     uint32_t _reserved_0 : 31;
   } bits;
@@ -8801,14 +9812,19 @@ union LPCG14_DOMAIN {
   
   // Bit field definition.
   struct {
+    /// read-write - Current dependence level
     eLEVEL LEVEL : 3;
     uint32_t _reserved_0 : 13;
+    /// read-write - Depend level
     eLEVEL0 LEVEL0 : 3;
     uint32_t _reserved_1 : 1;
+    /// read-write - Depend level
     eLEVEL1 LEVEL1 : 3;
     uint32_t _reserved_2 : 1;
+    /// read-write - Depend level
     eLEVEL2 LEVEL2 : 3;
     uint32_t _reserved_3 : 1;
+    /// read-write - Depend level
     eLEVEL3 LEVEL3 : 3;
     uint32_t _reserved_4 : 1;
   } bits;
@@ -8827,7 +9843,9 @@ union LPCG14_SETPOINT {
   
   // Bit field definition.
   struct {
+    /// read-write - Setpoints
     uint32_t SETPOINT : 16;
+    /// read-write - Standby
     uint32_t STANDBY : 16;
   } bits;
   
@@ -8888,9 +9906,12 @@ union LPCG14_STATUS0 {
   
   // Bit field definition.
   struct {
+    /// read-only - LPCG current state
     eON ON : 1;
     uint32_t _reserved_0 : 7;
+    /// read-only - Domains that own this clock gate
     eACTIVE_DOMAIN ACTIVE_DOMAIN : 4;
+    /// read-only - Enable status from each domain
     eDOMAIN_ENABLE DOMAIN_ENABLE : 4;
     uint32_t _reserved_1 : 16;
   } bits;
@@ -8997,23 +10018,41 @@ union LPCG14_STATUS1 {
   
   // Bit field definition.
   struct {
+    /// read-only - Domain0 Low Power Mode
     eCPU0_MODE CPU0_MODE : 2;
+    /// read-only - Domain0 request enter Low Power Mode
     eCPU0_MODE_REQUEST CPU0_MODE_REQUEST : 1;
+    /// read-only - Domain0 Low Power Mode task done
     eCPU0_MODE_DONE CPU0_MODE_DONE : 1;
+    /// read-only - Domain1 Low Power Mode
     eCPU1_MODE CPU1_MODE : 2;
+    /// read-only - Domain1 request enter Low Power Mode
     eCPU1_MODE_REQUEST CPU1_MODE_REQUEST : 1;
+    /// read-only - Domain1 Low Power Mode task done
     eCPU1_MODE_DONE CPU1_MODE_DONE : 1;
+    /// read-only - Domain2 Low Power Mode
     eCPU2_MODE CPU2_MODE : 2;
+    /// read-only - Domain2 request enter Low Power Mode
     eCPU2_MODE_REQUEST CPU2_MODE_REQUEST : 1;
+    /// read-only - Domain2 Low Power Mode task done
     eCPU2_MODE_DONE CPU2_MODE_DONE : 1;
+    /// read-only - Domain3 Low Power Mode
     eCPU3_MODE CPU3_MODE : 2;
+    /// read-only - Domain3 request enter Low Power Mode
     eCPU3_MODE_REQUEST CPU3_MODE_REQUEST : 1;
+    /// read-only - Domain3 Low Power Mode task done
     eCPU3_MODE_DONE CPU3_MODE_DONE : 1;
+    /// read-only - Next Setpoint to change to
     uint32_t TARGET_SETPOINT : 4;
+    /// read-only - Current Setpoint
     uint32_t CURRENT_SETPOINT : 4;
+    /// read-only - Clock gate turn off request from GPC Setpoint
     eSETPOINT_OFF_REQUEST SETPOINT_OFF_REQUEST : 1;
+    /// read-only - Clock gate turn off finish from GPC Setpoint
     eSETPOINT_OFF_DONE SETPOINT_OFF_DONE : 1;
+    /// read-only - Clock gate turn on request from GPC Setpoint
     eSETPOINT_ON_REQUEST SETPOINT_ON_REQUEST : 1;
+    /// read-only - Clock gate turn on finish from GPC Setpoint
     eSETPOINT_ON_DONE SETPOINT_ON_DONE : 1;
     uint32_t _reserved_0 : 4;
   } bits;
@@ -9038,6 +10077,7 @@ union LPCG14_CONFIG {
   // Bit field definition.
   struct {
     uint32_t _reserved_0 : 4;
+    /// read-only - Setpoint present
     eSETPOINT_PRESENT SETPOINT_PRESENT : 1;
     uint32_t _reserved_1 : 27;
   } bits;
@@ -9096,18 +10136,27 @@ union LPCG14_AUTHEN {
   
   // Bit field definition.
   struct {
+    /// read-write - User access
     eTZ_USER TZ_USER : 1;
+    /// read-write - Non-secure access
     eTZ_NS TZ_NS : 1;
     uint32_t _reserved_0 : 2;
+    /// read-write - lock truszone setting
     eLOCK_TZ LOCK_TZ : 1;
     uint32_t _reserved_1 : 3;
+    /// read-write - Whitelist
     uint32_t WHITE_LIST : 4;
+    /// read-write - Lock Whitelist
     eLOCK_LIST LOCK_LIST : 1;
     uint32_t _reserved_2 : 3;
+    /// read-write - Low power and access control by domain
     eDOMAIN_MODE DOMAIN_MODE : 1;
+    /// read-write - Low power and access control by Setpoint
     eSETPOINT_MODE SETPOINT_MODE : 1;
+    /// read-write - CPU Low Power Mode
     eCPULPM CPULPM : 1;
     uint32_t _reserved_3 : 1;
+    /// read-write - Lock low power and access mode
     eLOCK_MODE LOCK_MODE : 1;
     uint32_t _reserved_4 : 11;
   } bits;
@@ -9131,6 +10180,7 @@ union LPCG15_DIRECT {
   
   // Bit field definition.
   struct {
+    /// read-write - LPCG on
     eON ON : 1;
     uint32_t _reserved_0 : 31;
   } bits;
@@ -9189,14 +10239,19 @@ union LPCG15_DOMAIN {
   
   // Bit field definition.
   struct {
+    /// read-write - Current dependence level
     eLEVEL LEVEL : 3;
     uint32_t _reserved_0 : 13;
+    /// read-write - Depend level
     eLEVEL0 LEVEL0 : 3;
     uint32_t _reserved_1 : 1;
+    /// read-write - Depend level
     eLEVEL1 LEVEL1 : 3;
     uint32_t _reserved_2 : 1;
+    /// read-write - Depend level
     eLEVEL2 LEVEL2 : 3;
     uint32_t _reserved_3 : 1;
+    /// read-write - Depend level
     eLEVEL3 LEVEL3 : 3;
     uint32_t _reserved_4 : 1;
   } bits;
@@ -9215,7 +10270,9 @@ union LPCG15_SETPOINT {
   
   // Bit field definition.
   struct {
+    /// read-write - Setpoints
     uint32_t SETPOINT : 16;
+    /// read-write - Standby
     uint32_t STANDBY : 16;
   } bits;
   
@@ -9276,9 +10333,12 @@ union LPCG15_STATUS0 {
   
   // Bit field definition.
   struct {
+    /// read-only - LPCG current state
     eON ON : 1;
     uint32_t _reserved_0 : 7;
+    /// read-only - Domains that own this clock gate
     eACTIVE_DOMAIN ACTIVE_DOMAIN : 4;
+    /// read-only - Enable status from each domain
     eDOMAIN_ENABLE DOMAIN_ENABLE : 4;
     uint32_t _reserved_1 : 16;
   } bits;
@@ -9385,23 +10445,41 @@ union LPCG15_STATUS1 {
   
   // Bit field definition.
   struct {
+    /// read-only - Domain0 Low Power Mode
     eCPU0_MODE CPU0_MODE : 2;
+    /// read-only - Domain0 request enter Low Power Mode
     eCPU0_MODE_REQUEST CPU0_MODE_REQUEST : 1;
+    /// read-only - Domain0 Low Power Mode task done
     eCPU0_MODE_DONE CPU0_MODE_DONE : 1;
+    /// read-only - Domain1 Low Power Mode
     eCPU1_MODE CPU1_MODE : 2;
+    /// read-only - Domain1 request enter Low Power Mode
     eCPU1_MODE_REQUEST CPU1_MODE_REQUEST : 1;
+    /// read-only - Domain1 Low Power Mode task done
     eCPU1_MODE_DONE CPU1_MODE_DONE : 1;
+    /// read-only - Domain2 Low Power Mode
     eCPU2_MODE CPU2_MODE : 2;
+    /// read-only - Domain2 request enter Low Power Mode
     eCPU2_MODE_REQUEST CPU2_MODE_REQUEST : 1;
+    /// read-only - Domain2 Low Power Mode task done
     eCPU2_MODE_DONE CPU2_MODE_DONE : 1;
+    /// read-only - Domain3 Low Power Mode
     eCPU3_MODE CPU3_MODE : 2;
+    /// read-only - Domain3 request enter Low Power Mode
     eCPU3_MODE_REQUEST CPU3_MODE_REQUEST : 1;
+    /// read-only - Domain3 Low Power Mode task done
     eCPU3_MODE_DONE CPU3_MODE_DONE : 1;
+    /// read-only - Next Setpoint to change to
     uint32_t TARGET_SETPOINT : 4;
+    /// read-only - Current Setpoint
     uint32_t CURRENT_SETPOINT : 4;
+    /// read-only - Clock gate turn off request from GPC Setpoint
     eSETPOINT_OFF_REQUEST SETPOINT_OFF_REQUEST : 1;
+    /// read-only - Clock gate turn off finish from GPC Setpoint
     eSETPOINT_OFF_DONE SETPOINT_OFF_DONE : 1;
+    /// read-only - Clock gate turn on request from GPC Setpoint
     eSETPOINT_ON_REQUEST SETPOINT_ON_REQUEST : 1;
+    /// read-only - Clock gate turn on finish from GPC Setpoint
     eSETPOINT_ON_DONE SETPOINT_ON_DONE : 1;
     uint32_t _reserved_0 : 4;
   } bits;
@@ -9426,6 +10504,7 @@ union LPCG15_CONFIG {
   // Bit field definition.
   struct {
     uint32_t _reserved_0 : 4;
+    /// read-only - Setpoint present
     eSETPOINT_PRESENT SETPOINT_PRESENT : 1;
     uint32_t _reserved_1 : 27;
   } bits;
@@ -9484,18 +10563,27 @@ union LPCG15_AUTHEN {
   
   // Bit field definition.
   struct {
+    /// read-write - User access
     eTZ_USER TZ_USER : 1;
+    /// read-write - Non-secure access
     eTZ_NS TZ_NS : 1;
     uint32_t _reserved_0 : 2;
+    /// read-write - lock truszone setting
     eLOCK_TZ LOCK_TZ : 1;
     uint32_t _reserved_1 : 3;
+    /// read-write - Whitelist
     uint32_t WHITE_LIST : 4;
+    /// read-write - Lock Whitelist
     eLOCK_LIST LOCK_LIST : 1;
     uint32_t _reserved_2 : 3;
+    /// read-write - Low power and access control by domain
     eDOMAIN_MODE DOMAIN_MODE : 1;
+    /// read-write - Low power and access control by Setpoint
     eSETPOINT_MODE SETPOINT_MODE : 1;
+    /// read-write - CPU Low Power Mode
     eCPULPM CPULPM : 1;
     uint32_t _reserved_3 : 1;
+    /// read-write - Lock low power and access mode
     eLOCK_MODE LOCK_MODE : 1;
     uint32_t _reserved_4 : 11;
   } bits;
@@ -9519,6 +10607,7 @@ union LPCG16_DIRECT {
   
   // Bit field definition.
   struct {
+    /// read-write - LPCG on
     eON ON : 1;
     uint32_t _reserved_0 : 31;
   } bits;
@@ -9577,14 +10666,19 @@ union LPCG16_DOMAIN {
   
   // Bit field definition.
   struct {
+    /// read-write - Current dependence level
     eLEVEL LEVEL : 3;
     uint32_t _reserved_0 : 13;
+    /// read-write - Depend level
     eLEVEL0 LEVEL0 : 3;
     uint32_t _reserved_1 : 1;
+    /// read-write - Depend level
     eLEVEL1 LEVEL1 : 3;
     uint32_t _reserved_2 : 1;
+    /// read-write - Depend level
     eLEVEL2 LEVEL2 : 3;
     uint32_t _reserved_3 : 1;
+    /// read-write - Depend level
     eLEVEL3 LEVEL3 : 3;
     uint32_t _reserved_4 : 1;
   } bits;
@@ -9603,7 +10697,9 @@ union LPCG16_SETPOINT {
   
   // Bit field definition.
   struct {
+    /// read-write - Setpoints
     uint32_t SETPOINT : 16;
+    /// read-write - Standby
     uint32_t STANDBY : 16;
   } bits;
   
@@ -9664,9 +10760,12 @@ union LPCG16_STATUS0 {
   
   // Bit field definition.
   struct {
+    /// read-only - LPCG current state
     eON ON : 1;
     uint32_t _reserved_0 : 7;
+    /// read-only - Domains that own this clock gate
     eACTIVE_DOMAIN ACTIVE_DOMAIN : 4;
+    /// read-only - Enable status from each domain
     eDOMAIN_ENABLE DOMAIN_ENABLE : 4;
     uint32_t _reserved_1 : 16;
   } bits;
@@ -9773,23 +10872,41 @@ union LPCG16_STATUS1 {
   
   // Bit field definition.
   struct {
+    /// read-only - Domain0 Low Power Mode
     eCPU0_MODE CPU0_MODE : 2;
+    /// read-only - Domain0 request enter Low Power Mode
     eCPU0_MODE_REQUEST CPU0_MODE_REQUEST : 1;
+    /// read-only - Domain0 Low Power Mode task done
     eCPU0_MODE_DONE CPU0_MODE_DONE : 1;
+    /// read-only - Domain1 Low Power Mode
     eCPU1_MODE CPU1_MODE : 2;
+    /// read-only - Domain1 request enter Low Power Mode
     eCPU1_MODE_REQUEST CPU1_MODE_REQUEST : 1;
+    /// read-only - Domain1 Low Power Mode task done
     eCPU1_MODE_DONE CPU1_MODE_DONE : 1;
+    /// read-only - Domain2 Low Power Mode
     eCPU2_MODE CPU2_MODE : 2;
+    /// read-only - Domain2 request enter Low Power Mode
     eCPU2_MODE_REQUEST CPU2_MODE_REQUEST : 1;
+    /// read-only - Domain2 Low Power Mode task done
     eCPU2_MODE_DONE CPU2_MODE_DONE : 1;
+    /// read-only - Domain3 Low Power Mode
     eCPU3_MODE CPU3_MODE : 2;
+    /// read-only - Domain3 request enter Low Power Mode
     eCPU3_MODE_REQUEST CPU3_MODE_REQUEST : 1;
+    /// read-only - Domain3 Low Power Mode task done
     eCPU3_MODE_DONE CPU3_MODE_DONE : 1;
+    /// read-only - Next Setpoint to change to
     uint32_t TARGET_SETPOINT : 4;
+    /// read-only - Current Setpoint
     uint32_t CURRENT_SETPOINT : 4;
+    /// read-only - Clock gate turn off request from GPC Setpoint
     eSETPOINT_OFF_REQUEST SETPOINT_OFF_REQUEST : 1;
+    /// read-only - Clock gate turn off finish from GPC Setpoint
     eSETPOINT_OFF_DONE SETPOINT_OFF_DONE : 1;
+    /// read-only - Clock gate turn on request from GPC Setpoint
     eSETPOINT_ON_REQUEST SETPOINT_ON_REQUEST : 1;
+    /// read-only - Clock gate turn on finish from GPC Setpoint
     eSETPOINT_ON_DONE SETPOINT_ON_DONE : 1;
     uint32_t _reserved_0 : 4;
   } bits;
@@ -9814,6 +10931,7 @@ union LPCG16_CONFIG {
   // Bit field definition.
   struct {
     uint32_t _reserved_0 : 4;
+    /// read-only - Setpoint present
     eSETPOINT_PRESENT SETPOINT_PRESENT : 1;
     uint32_t _reserved_1 : 27;
   } bits;
@@ -9872,18 +10990,27 @@ union LPCG16_AUTHEN {
   
   // Bit field definition.
   struct {
+    /// read-write - User access
     eTZ_USER TZ_USER : 1;
+    /// read-write - Non-secure access
     eTZ_NS TZ_NS : 1;
     uint32_t _reserved_0 : 2;
+    /// read-write - lock truszone setting
     eLOCK_TZ LOCK_TZ : 1;
     uint32_t _reserved_1 : 3;
+    /// read-write - Whitelist
     uint32_t WHITE_LIST : 4;
+    /// read-write - Lock Whitelist
     eLOCK_LIST LOCK_LIST : 1;
     uint32_t _reserved_2 : 3;
+    /// read-write - Low power and access control by domain
     eDOMAIN_MODE DOMAIN_MODE : 1;
+    /// read-write - Low power and access control by Setpoint
     eSETPOINT_MODE SETPOINT_MODE : 1;
+    /// read-write - CPU Low Power Mode
     eCPULPM CPULPM : 1;
     uint32_t _reserved_3 : 1;
+    /// read-write - Lock low power and access mode
     eLOCK_MODE LOCK_MODE : 1;
     uint32_t _reserved_4 : 11;
   } bits;
@@ -9907,6 +11034,7 @@ union LPCG17_DIRECT {
   
   // Bit field definition.
   struct {
+    /// read-write - LPCG on
     eON ON : 1;
     uint32_t _reserved_0 : 31;
   } bits;
@@ -9965,14 +11093,19 @@ union LPCG17_DOMAIN {
   
   // Bit field definition.
   struct {
+    /// read-write - Current dependence level
     eLEVEL LEVEL : 3;
     uint32_t _reserved_0 : 13;
+    /// read-write - Depend level
     eLEVEL0 LEVEL0 : 3;
     uint32_t _reserved_1 : 1;
+    /// read-write - Depend level
     eLEVEL1 LEVEL1 : 3;
     uint32_t _reserved_2 : 1;
+    /// read-write - Depend level
     eLEVEL2 LEVEL2 : 3;
     uint32_t _reserved_3 : 1;
+    /// read-write - Depend level
     eLEVEL3 LEVEL3 : 3;
     uint32_t _reserved_4 : 1;
   } bits;
@@ -9991,7 +11124,9 @@ union LPCG17_SETPOINT {
   
   // Bit field definition.
   struct {
+    /// read-write - Setpoints
     uint32_t SETPOINT : 16;
+    /// read-write - Standby
     uint32_t STANDBY : 16;
   } bits;
   
@@ -10052,9 +11187,12 @@ union LPCG17_STATUS0 {
   
   // Bit field definition.
   struct {
+    /// read-only - LPCG current state
     eON ON : 1;
     uint32_t _reserved_0 : 7;
+    /// read-only - Domains that own this clock gate
     eACTIVE_DOMAIN ACTIVE_DOMAIN : 4;
+    /// read-only - Enable status from each domain
     eDOMAIN_ENABLE DOMAIN_ENABLE : 4;
     uint32_t _reserved_1 : 16;
   } bits;
@@ -10161,23 +11299,41 @@ union LPCG17_STATUS1 {
   
   // Bit field definition.
   struct {
+    /// read-only - Domain0 Low Power Mode
     eCPU0_MODE CPU0_MODE : 2;
+    /// read-only - Domain0 request enter Low Power Mode
     eCPU0_MODE_REQUEST CPU0_MODE_REQUEST : 1;
+    /// read-only - Domain0 Low Power Mode task done
     eCPU0_MODE_DONE CPU0_MODE_DONE : 1;
+    /// read-only - Domain1 Low Power Mode
     eCPU1_MODE CPU1_MODE : 2;
+    /// read-only - Domain1 request enter Low Power Mode
     eCPU1_MODE_REQUEST CPU1_MODE_REQUEST : 1;
+    /// read-only - Domain1 Low Power Mode task done
     eCPU1_MODE_DONE CPU1_MODE_DONE : 1;
+    /// read-only - Domain2 Low Power Mode
     eCPU2_MODE CPU2_MODE : 2;
+    /// read-only - Domain2 request enter Low Power Mode
     eCPU2_MODE_REQUEST CPU2_MODE_REQUEST : 1;
+    /// read-only - Domain2 Low Power Mode task done
     eCPU2_MODE_DONE CPU2_MODE_DONE : 1;
+    /// read-only - Domain3 Low Power Mode
     eCPU3_MODE CPU3_MODE : 2;
+    /// read-only - Domain3 request enter Low Power Mode
     eCPU3_MODE_REQUEST CPU3_MODE_REQUEST : 1;
+    /// read-only - Domain3 Low Power Mode task done
     eCPU3_MODE_DONE CPU3_MODE_DONE : 1;
+    /// read-only - Next Setpoint to change to
     uint32_t TARGET_SETPOINT : 4;
+    /// read-only - Current Setpoint
     uint32_t CURRENT_SETPOINT : 4;
+    /// read-only - Clock gate turn off request from GPC Setpoint
     eSETPOINT_OFF_REQUEST SETPOINT_OFF_REQUEST : 1;
+    /// read-only - Clock gate turn off finish from GPC Setpoint
     eSETPOINT_OFF_DONE SETPOINT_OFF_DONE : 1;
+    /// read-only - Clock gate turn on request from GPC Setpoint
     eSETPOINT_ON_REQUEST SETPOINT_ON_REQUEST : 1;
+    /// read-only - Clock gate turn on finish from GPC Setpoint
     eSETPOINT_ON_DONE SETPOINT_ON_DONE : 1;
     uint32_t _reserved_0 : 4;
   } bits;
@@ -10202,6 +11358,7 @@ union LPCG17_CONFIG {
   // Bit field definition.
   struct {
     uint32_t _reserved_0 : 4;
+    /// read-only - Setpoint present
     eSETPOINT_PRESENT SETPOINT_PRESENT : 1;
     uint32_t _reserved_1 : 27;
   } bits;
@@ -10260,18 +11417,27 @@ union LPCG17_AUTHEN {
   
   // Bit field definition.
   struct {
+    /// read-write - User access
     eTZ_USER TZ_USER : 1;
+    /// read-write - Non-secure access
     eTZ_NS TZ_NS : 1;
     uint32_t _reserved_0 : 2;
+    /// read-write - lock truszone setting
     eLOCK_TZ LOCK_TZ : 1;
     uint32_t _reserved_1 : 3;
+    /// read-write - Whitelist
     uint32_t WHITE_LIST : 4;
+    /// read-write - Lock Whitelist
     eLOCK_LIST LOCK_LIST : 1;
     uint32_t _reserved_2 : 3;
+    /// read-write - Low power and access control by domain
     eDOMAIN_MODE DOMAIN_MODE : 1;
+    /// read-write - Low power and access control by Setpoint
     eSETPOINT_MODE SETPOINT_MODE : 1;
+    /// read-write - CPU Low Power Mode
     eCPULPM CPULPM : 1;
     uint32_t _reserved_3 : 1;
+    /// read-write - Lock low power and access mode
     eLOCK_MODE LOCK_MODE : 1;
     uint32_t _reserved_4 : 11;
   } bits;
@@ -10295,6 +11461,7 @@ union LPCG18_DIRECT {
   
   // Bit field definition.
   struct {
+    /// read-write - LPCG on
     eON ON : 1;
     uint32_t _reserved_0 : 31;
   } bits;
@@ -10353,14 +11520,19 @@ union LPCG18_DOMAIN {
   
   // Bit field definition.
   struct {
+    /// read-write - Current dependence level
     eLEVEL LEVEL : 3;
     uint32_t _reserved_0 : 13;
+    /// read-write - Depend level
     eLEVEL0 LEVEL0 : 3;
     uint32_t _reserved_1 : 1;
+    /// read-write - Depend level
     eLEVEL1 LEVEL1 : 3;
     uint32_t _reserved_2 : 1;
+    /// read-write - Depend level
     eLEVEL2 LEVEL2 : 3;
     uint32_t _reserved_3 : 1;
+    /// read-write - Depend level
     eLEVEL3 LEVEL3 : 3;
     uint32_t _reserved_4 : 1;
   } bits;
@@ -10379,7 +11551,9 @@ union LPCG18_SETPOINT {
   
   // Bit field definition.
   struct {
+    /// read-write - Setpoints
     uint32_t SETPOINT : 16;
+    /// read-write - Standby
     uint32_t STANDBY : 16;
   } bits;
   
@@ -10440,9 +11614,12 @@ union LPCG18_STATUS0 {
   
   // Bit field definition.
   struct {
+    /// read-only - LPCG current state
     eON ON : 1;
     uint32_t _reserved_0 : 7;
+    /// read-only - Domains that own this clock gate
     eACTIVE_DOMAIN ACTIVE_DOMAIN : 4;
+    /// read-only - Enable status from each domain
     eDOMAIN_ENABLE DOMAIN_ENABLE : 4;
     uint32_t _reserved_1 : 16;
   } bits;
@@ -10549,23 +11726,41 @@ union LPCG18_STATUS1 {
   
   // Bit field definition.
   struct {
+    /// read-only - Domain0 Low Power Mode
     eCPU0_MODE CPU0_MODE : 2;
+    /// read-only - Domain0 request enter Low Power Mode
     eCPU0_MODE_REQUEST CPU0_MODE_REQUEST : 1;
+    /// read-only - Domain0 Low Power Mode task done
     eCPU0_MODE_DONE CPU0_MODE_DONE : 1;
+    /// read-only - Domain1 Low Power Mode
     eCPU1_MODE CPU1_MODE : 2;
+    /// read-only - Domain1 request enter Low Power Mode
     eCPU1_MODE_REQUEST CPU1_MODE_REQUEST : 1;
+    /// read-only - Domain1 Low Power Mode task done
     eCPU1_MODE_DONE CPU1_MODE_DONE : 1;
+    /// read-only - Domain2 Low Power Mode
     eCPU2_MODE CPU2_MODE : 2;
+    /// read-only - Domain2 request enter Low Power Mode
     eCPU2_MODE_REQUEST CPU2_MODE_REQUEST : 1;
+    /// read-only - Domain2 Low Power Mode task done
     eCPU2_MODE_DONE CPU2_MODE_DONE : 1;
+    /// read-only - Domain3 Low Power Mode
     eCPU3_MODE CPU3_MODE : 2;
+    /// read-only - Domain3 request enter Low Power Mode
     eCPU3_MODE_REQUEST CPU3_MODE_REQUEST : 1;
+    /// read-only - Domain3 Low Power Mode task done
     eCPU3_MODE_DONE CPU3_MODE_DONE : 1;
+    /// read-only - Next Setpoint to change to
     uint32_t TARGET_SETPOINT : 4;
+    /// read-only - Current Setpoint
     uint32_t CURRENT_SETPOINT : 4;
+    /// read-only - Clock gate turn off request from GPC Setpoint
     eSETPOINT_OFF_REQUEST SETPOINT_OFF_REQUEST : 1;
+    /// read-only - Clock gate turn off finish from GPC Setpoint
     eSETPOINT_OFF_DONE SETPOINT_OFF_DONE : 1;
+    /// read-only - Clock gate turn on request from GPC Setpoint
     eSETPOINT_ON_REQUEST SETPOINT_ON_REQUEST : 1;
+    /// read-only - Clock gate turn on finish from GPC Setpoint
     eSETPOINT_ON_DONE SETPOINT_ON_DONE : 1;
     uint32_t _reserved_0 : 4;
   } bits;
@@ -10590,6 +11785,7 @@ union LPCG18_CONFIG {
   // Bit field definition.
   struct {
     uint32_t _reserved_0 : 4;
+    /// read-only - Setpoint present
     eSETPOINT_PRESENT SETPOINT_PRESENT : 1;
     uint32_t _reserved_1 : 27;
   } bits;
@@ -10648,18 +11844,27 @@ union LPCG18_AUTHEN {
   
   // Bit field definition.
   struct {
+    /// read-write - User access
     eTZ_USER TZ_USER : 1;
+    /// read-write - Non-secure access
     eTZ_NS TZ_NS : 1;
     uint32_t _reserved_0 : 2;
+    /// read-write - lock truszone setting
     eLOCK_TZ LOCK_TZ : 1;
     uint32_t _reserved_1 : 3;
+    /// read-write - Whitelist
     uint32_t WHITE_LIST : 4;
+    /// read-write - Lock Whitelist
     eLOCK_LIST LOCK_LIST : 1;
     uint32_t _reserved_2 : 3;
+    /// read-write - Low power and access control by domain
     eDOMAIN_MODE DOMAIN_MODE : 1;
+    /// read-write - Low power and access control by Setpoint
     eSETPOINT_MODE SETPOINT_MODE : 1;
+    /// read-write - CPU Low Power Mode
     eCPULPM CPULPM : 1;
     uint32_t _reserved_3 : 1;
+    /// read-write - Lock low power and access mode
     eLOCK_MODE LOCK_MODE : 1;
     uint32_t _reserved_4 : 11;
   } bits;
@@ -10683,6 +11888,7 @@ union LPCG19_DIRECT {
   
   // Bit field definition.
   struct {
+    /// read-write - LPCG on
     eON ON : 1;
     uint32_t _reserved_0 : 31;
   } bits;
@@ -10741,14 +11947,19 @@ union LPCG19_DOMAIN {
   
   // Bit field definition.
   struct {
+    /// read-write - Current dependence level
     eLEVEL LEVEL : 3;
     uint32_t _reserved_0 : 13;
+    /// read-write - Depend level
     eLEVEL0 LEVEL0 : 3;
     uint32_t _reserved_1 : 1;
+    /// read-write - Depend level
     eLEVEL1 LEVEL1 : 3;
     uint32_t _reserved_2 : 1;
+    /// read-write - Depend level
     eLEVEL2 LEVEL2 : 3;
     uint32_t _reserved_3 : 1;
+    /// read-write - Depend level
     eLEVEL3 LEVEL3 : 3;
     uint32_t _reserved_4 : 1;
   } bits;
@@ -10767,7 +11978,9 @@ union LPCG19_SETPOINT {
   
   // Bit field definition.
   struct {
+    /// read-write - Setpoints
     uint32_t SETPOINT : 16;
+    /// read-write - Standby
     uint32_t STANDBY : 16;
   } bits;
   
@@ -10828,9 +12041,12 @@ union LPCG19_STATUS0 {
   
   // Bit field definition.
   struct {
+    /// read-only - LPCG current state
     eON ON : 1;
     uint32_t _reserved_0 : 7;
+    /// read-only - Domains that own this clock gate
     eACTIVE_DOMAIN ACTIVE_DOMAIN : 4;
+    /// read-only - Enable status from each domain
     eDOMAIN_ENABLE DOMAIN_ENABLE : 4;
     uint32_t _reserved_1 : 16;
   } bits;
@@ -10937,23 +12153,41 @@ union LPCG19_STATUS1 {
   
   // Bit field definition.
   struct {
+    /// read-only - Domain0 Low Power Mode
     eCPU0_MODE CPU0_MODE : 2;
+    /// read-only - Domain0 request enter Low Power Mode
     eCPU0_MODE_REQUEST CPU0_MODE_REQUEST : 1;
+    /// read-only - Domain0 Low Power Mode task done
     eCPU0_MODE_DONE CPU0_MODE_DONE : 1;
+    /// read-only - Domain1 Low Power Mode
     eCPU1_MODE CPU1_MODE : 2;
+    /// read-only - Domain1 request enter Low Power Mode
     eCPU1_MODE_REQUEST CPU1_MODE_REQUEST : 1;
+    /// read-only - Domain1 Low Power Mode task done
     eCPU1_MODE_DONE CPU1_MODE_DONE : 1;
+    /// read-only - Domain2 Low Power Mode
     eCPU2_MODE CPU2_MODE : 2;
+    /// read-only - Domain2 request enter Low Power Mode
     eCPU2_MODE_REQUEST CPU2_MODE_REQUEST : 1;
+    /// read-only - Domain2 Low Power Mode task done
     eCPU2_MODE_DONE CPU2_MODE_DONE : 1;
+    /// read-only - Domain3 Low Power Mode
     eCPU3_MODE CPU3_MODE : 2;
+    /// read-only - Domain3 request enter Low Power Mode
     eCPU3_MODE_REQUEST CPU3_MODE_REQUEST : 1;
+    /// read-only - Domain3 Low Power Mode task done
     eCPU3_MODE_DONE CPU3_MODE_DONE : 1;
+    /// read-only - Next Setpoint to change to
     uint32_t TARGET_SETPOINT : 4;
+    /// read-only - Current Setpoint
     uint32_t CURRENT_SETPOINT : 4;
+    /// read-only - Clock gate turn off request from GPC Setpoint
     eSETPOINT_OFF_REQUEST SETPOINT_OFF_REQUEST : 1;
+    /// read-only - Clock gate turn off finish from GPC Setpoint
     eSETPOINT_OFF_DONE SETPOINT_OFF_DONE : 1;
+    /// read-only - Clock gate turn on request from GPC Setpoint
     eSETPOINT_ON_REQUEST SETPOINT_ON_REQUEST : 1;
+    /// read-only - Clock gate turn on finish from GPC Setpoint
     eSETPOINT_ON_DONE SETPOINT_ON_DONE : 1;
     uint32_t _reserved_0 : 4;
   } bits;
@@ -10978,6 +12212,7 @@ union LPCG19_CONFIG {
   // Bit field definition.
   struct {
     uint32_t _reserved_0 : 4;
+    /// read-only - Setpoint present
     eSETPOINT_PRESENT SETPOINT_PRESENT : 1;
     uint32_t _reserved_1 : 27;
   } bits;
@@ -11036,18 +12271,27 @@ union LPCG19_AUTHEN {
   
   // Bit field definition.
   struct {
+    /// read-write - User access
     eTZ_USER TZ_USER : 1;
+    /// read-write - Non-secure access
     eTZ_NS TZ_NS : 1;
     uint32_t _reserved_0 : 2;
+    /// read-write - lock truszone setting
     eLOCK_TZ LOCK_TZ : 1;
     uint32_t _reserved_1 : 3;
+    /// read-write - Whitelist
     uint32_t WHITE_LIST : 4;
+    /// read-write - Lock Whitelist
     eLOCK_LIST LOCK_LIST : 1;
     uint32_t _reserved_2 : 3;
+    /// read-write - Low power and access control by domain
     eDOMAIN_MODE DOMAIN_MODE : 1;
+    /// read-write - Low power and access control by Setpoint
     eSETPOINT_MODE SETPOINT_MODE : 1;
+    /// read-write - CPU Low Power Mode
     eCPULPM CPULPM : 1;
     uint32_t _reserved_3 : 1;
+    /// read-write - Lock low power and access mode
     eLOCK_MODE LOCK_MODE : 1;
     uint32_t _reserved_4 : 11;
   } bits;
@@ -11071,6 +12315,7 @@ union LPCG20_DIRECT {
   
   // Bit field definition.
   struct {
+    /// read-write - LPCG on
     eON ON : 1;
     uint32_t _reserved_0 : 31;
   } bits;
@@ -11129,14 +12374,19 @@ union LPCG20_DOMAIN {
   
   // Bit field definition.
   struct {
+    /// read-write - Current dependence level
     eLEVEL LEVEL : 3;
     uint32_t _reserved_0 : 13;
+    /// read-write - Depend level
     eLEVEL0 LEVEL0 : 3;
     uint32_t _reserved_1 : 1;
+    /// read-write - Depend level
     eLEVEL1 LEVEL1 : 3;
     uint32_t _reserved_2 : 1;
+    /// read-write - Depend level
     eLEVEL2 LEVEL2 : 3;
     uint32_t _reserved_3 : 1;
+    /// read-write - Depend level
     eLEVEL3 LEVEL3 : 3;
     uint32_t _reserved_4 : 1;
   } bits;
@@ -11198,9 +12448,12 @@ union LPCG20_STATUS0 {
   
   // Bit field definition.
   struct {
+    /// read-only - LPCG current state
     eON ON : 1;
     uint32_t _reserved_0 : 7;
+    /// read-only - Domains that own this clock gate
     eACTIVE_DOMAIN ACTIVE_DOMAIN : 4;
+    /// read-only - Enable status from each domain
     eDOMAIN_ENABLE DOMAIN_ENABLE : 4;
     uint32_t _reserved_1 : 16;
   } bits;
@@ -11307,23 +12560,41 @@ union LPCG20_STATUS1 {
   
   // Bit field definition.
   struct {
+    /// read-only - Domain0 Low Power Mode
     eCPU0_MODE CPU0_MODE : 2;
+    /// read-only - Domain0 request enter Low Power Mode
     eCPU0_MODE_REQUEST CPU0_MODE_REQUEST : 1;
+    /// read-only - Domain0 Low Power Mode task done
     eCPU0_MODE_DONE CPU0_MODE_DONE : 1;
+    /// read-only - Domain1 Low Power Mode
     eCPU1_MODE CPU1_MODE : 2;
+    /// read-only - Domain1 request enter Low Power Mode
     eCPU1_MODE_REQUEST CPU1_MODE_REQUEST : 1;
+    /// read-only - Domain1 Low Power Mode task done
     eCPU1_MODE_DONE CPU1_MODE_DONE : 1;
+    /// read-only - Domain2 Low Power Mode
     eCPU2_MODE CPU2_MODE : 2;
+    /// read-only - Domain2 request enter Low Power Mode
     eCPU2_MODE_REQUEST CPU2_MODE_REQUEST : 1;
+    /// read-only - Domain2 Low Power Mode task done
     eCPU2_MODE_DONE CPU2_MODE_DONE : 1;
+    /// read-only - Domain3 Low Power Mode
     eCPU3_MODE CPU3_MODE : 2;
+    /// read-only - Domain3 request enter Low Power Mode
     eCPU3_MODE_REQUEST CPU3_MODE_REQUEST : 1;
+    /// read-only - Domain3 Low Power Mode task done
     eCPU3_MODE_DONE CPU3_MODE_DONE : 1;
+    /// read-only - Next Setpoint to change to
     uint32_t TARGET_SETPOINT : 4;
+    /// read-only - Current Setpoint
     uint32_t CURRENT_SETPOINT : 4;
+    /// read-only - Clock gate turn off request from GPC Setpoint
     eSETPOINT_OFF_REQUEST SETPOINT_OFF_REQUEST : 1;
+    /// read-only - Clock gate turn off finish from GPC Setpoint
     eSETPOINT_OFF_DONE SETPOINT_OFF_DONE : 1;
+    /// read-only - Clock gate turn on request from GPC Setpoint
     eSETPOINT_ON_REQUEST SETPOINT_ON_REQUEST : 1;
+    /// read-only - Clock gate turn on finish from GPC Setpoint
     eSETPOINT_ON_DONE SETPOINT_ON_DONE : 1;
     uint32_t _reserved_0 : 4;
   } bits;
@@ -11348,6 +12619,7 @@ union LPCG20_CONFIG {
   // Bit field definition.
   struct {
     uint32_t _reserved_0 : 4;
+    /// read-only - Setpoint present
     eSETPOINT_PRESENT SETPOINT_PRESENT : 1;
     uint32_t _reserved_1 : 27;
   } bits;
@@ -11406,18 +12678,27 @@ union LPCG20_AUTHEN {
   
   // Bit field definition.
   struct {
+    /// read-write - User access
     eTZ_USER TZ_USER : 1;
+    /// read-write - Non-secure access
     eTZ_NS TZ_NS : 1;
     uint32_t _reserved_0 : 2;
+    /// read-write - lock truszone setting
     eLOCK_TZ LOCK_TZ : 1;
     uint32_t _reserved_1 : 3;
+    /// read-write - Whitelist
     uint32_t WHITE_LIST : 4;
+    /// read-write - Lock Whitelist
     eLOCK_LIST LOCK_LIST : 1;
     uint32_t _reserved_2 : 3;
+    /// read-write - Low power and access control by domain
     eDOMAIN_MODE DOMAIN_MODE : 1;
+    /// read-write - Low power and access control by Setpoint
     eSETPOINT_MODE SETPOINT_MODE : 1;
+    /// read-write - CPU Low Power Mode
     eCPULPM CPULPM : 1;
     uint32_t _reserved_3 : 1;
+    /// read-write - Lock low power and access mode
     eLOCK_MODE LOCK_MODE : 1;
     uint32_t _reserved_4 : 11;
   } bits;
@@ -11441,6 +12722,7 @@ union LPCG21_DIRECT {
   
   // Bit field definition.
   struct {
+    /// read-write - LPCG on
     eON ON : 1;
     uint32_t _reserved_0 : 31;
   } bits;
@@ -11499,14 +12781,19 @@ union LPCG21_DOMAIN {
   
   // Bit field definition.
   struct {
+    /// read-write - Current dependence level
     eLEVEL LEVEL : 3;
     uint32_t _reserved_0 : 13;
+    /// read-write - Depend level
     eLEVEL0 LEVEL0 : 3;
     uint32_t _reserved_1 : 1;
+    /// read-write - Depend level
     eLEVEL1 LEVEL1 : 3;
     uint32_t _reserved_2 : 1;
+    /// read-write - Depend level
     eLEVEL2 LEVEL2 : 3;
     uint32_t _reserved_3 : 1;
+    /// read-write - Depend level
     eLEVEL3 LEVEL3 : 3;
     uint32_t _reserved_4 : 1;
   } bits;
@@ -11568,9 +12855,12 @@ union LPCG21_STATUS0 {
   
   // Bit field definition.
   struct {
+    /// read-only - LPCG current state
     eON ON : 1;
     uint32_t _reserved_0 : 7;
+    /// read-only - Domains that own this clock gate
     eACTIVE_DOMAIN ACTIVE_DOMAIN : 4;
+    /// read-only - Enable status from each domain
     eDOMAIN_ENABLE DOMAIN_ENABLE : 4;
     uint32_t _reserved_1 : 16;
   } bits;
@@ -11677,23 +12967,41 @@ union LPCG21_STATUS1 {
   
   // Bit field definition.
   struct {
+    /// read-only - Domain0 Low Power Mode
     eCPU0_MODE CPU0_MODE : 2;
+    /// read-only - Domain0 request enter Low Power Mode
     eCPU0_MODE_REQUEST CPU0_MODE_REQUEST : 1;
+    /// read-only - Domain0 Low Power Mode task done
     eCPU0_MODE_DONE CPU0_MODE_DONE : 1;
+    /// read-only - Domain1 Low Power Mode
     eCPU1_MODE CPU1_MODE : 2;
+    /// read-only - Domain1 request enter Low Power Mode
     eCPU1_MODE_REQUEST CPU1_MODE_REQUEST : 1;
+    /// read-only - Domain1 Low Power Mode task done
     eCPU1_MODE_DONE CPU1_MODE_DONE : 1;
+    /// read-only - Domain2 Low Power Mode
     eCPU2_MODE CPU2_MODE : 2;
+    /// read-only - Domain2 request enter Low Power Mode
     eCPU2_MODE_REQUEST CPU2_MODE_REQUEST : 1;
+    /// read-only - Domain2 Low Power Mode task done
     eCPU2_MODE_DONE CPU2_MODE_DONE : 1;
+    /// read-only - Domain3 Low Power Mode
     eCPU3_MODE CPU3_MODE : 2;
+    /// read-only - Domain3 request enter Low Power Mode
     eCPU3_MODE_REQUEST CPU3_MODE_REQUEST : 1;
+    /// read-only - Domain3 Low Power Mode task done
     eCPU3_MODE_DONE CPU3_MODE_DONE : 1;
+    /// read-only - Next Setpoint to change to
     uint32_t TARGET_SETPOINT : 4;
+    /// read-only - Current Setpoint
     uint32_t CURRENT_SETPOINT : 4;
+    /// read-only - Clock gate turn off request from GPC Setpoint
     eSETPOINT_OFF_REQUEST SETPOINT_OFF_REQUEST : 1;
+    /// read-only - Clock gate turn off finish from GPC Setpoint
     eSETPOINT_OFF_DONE SETPOINT_OFF_DONE : 1;
+    /// read-only - Clock gate turn on request from GPC Setpoint
     eSETPOINT_ON_REQUEST SETPOINT_ON_REQUEST : 1;
+    /// read-only - Clock gate turn on finish from GPC Setpoint
     eSETPOINT_ON_DONE SETPOINT_ON_DONE : 1;
     uint32_t _reserved_0 : 4;
   } bits;
@@ -11718,6 +13026,7 @@ union LPCG21_CONFIG {
   // Bit field definition.
   struct {
     uint32_t _reserved_0 : 4;
+    /// read-only - Setpoint present
     eSETPOINT_PRESENT SETPOINT_PRESENT : 1;
     uint32_t _reserved_1 : 27;
   } bits;
@@ -11776,18 +13085,27 @@ union LPCG21_AUTHEN {
   
   // Bit field definition.
   struct {
+    /// read-write - User access
     eTZ_USER TZ_USER : 1;
+    /// read-write - Non-secure access
     eTZ_NS TZ_NS : 1;
     uint32_t _reserved_0 : 2;
+    /// read-write - lock truszone setting
     eLOCK_TZ LOCK_TZ : 1;
     uint32_t _reserved_1 : 3;
+    /// read-write - Whitelist
     uint32_t WHITE_LIST : 4;
+    /// read-write - Lock Whitelist
     eLOCK_LIST LOCK_LIST : 1;
     uint32_t _reserved_2 : 3;
+    /// read-write - Low power and access control by domain
     eDOMAIN_MODE DOMAIN_MODE : 1;
+    /// read-write - Low power and access control by Setpoint
     eSETPOINT_MODE SETPOINT_MODE : 1;
+    /// read-write - CPU Low Power Mode
     eCPULPM CPULPM : 1;
     uint32_t _reserved_3 : 1;
+    /// read-write - Lock low power and access mode
     eLOCK_MODE LOCK_MODE : 1;
     uint32_t _reserved_4 : 11;
   } bits;
@@ -11811,6 +13129,7 @@ union LPCG22_DIRECT {
   
   // Bit field definition.
   struct {
+    /// read-write - LPCG on
     eON ON : 1;
     uint32_t _reserved_0 : 31;
   } bits;
@@ -11869,14 +13188,19 @@ union LPCG22_DOMAIN {
   
   // Bit field definition.
   struct {
+    /// read-write - Current dependence level
     eLEVEL LEVEL : 3;
     uint32_t _reserved_0 : 13;
+    /// read-write - Depend level
     eLEVEL0 LEVEL0 : 3;
     uint32_t _reserved_1 : 1;
+    /// read-write - Depend level
     eLEVEL1 LEVEL1 : 3;
     uint32_t _reserved_2 : 1;
+    /// read-write - Depend level
     eLEVEL2 LEVEL2 : 3;
     uint32_t _reserved_3 : 1;
+    /// read-write - Depend level
     eLEVEL3 LEVEL3 : 3;
     uint32_t _reserved_4 : 1;
   } bits;
@@ -11938,9 +13262,12 @@ union LPCG22_STATUS0 {
   
   // Bit field definition.
   struct {
+    /// read-only - LPCG current state
     eON ON : 1;
     uint32_t _reserved_0 : 7;
+    /// read-only - Domains that own this clock gate
     eACTIVE_DOMAIN ACTIVE_DOMAIN : 4;
+    /// read-only - Enable status from each domain
     eDOMAIN_ENABLE DOMAIN_ENABLE : 4;
     uint32_t _reserved_1 : 16;
   } bits;
@@ -12047,23 +13374,41 @@ union LPCG22_STATUS1 {
   
   // Bit field definition.
   struct {
+    /// read-only - Domain0 Low Power Mode
     eCPU0_MODE CPU0_MODE : 2;
+    /// read-only - Domain0 request enter Low Power Mode
     eCPU0_MODE_REQUEST CPU0_MODE_REQUEST : 1;
+    /// read-only - Domain0 Low Power Mode task done
     eCPU0_MODE_DONE CPU0_MODE_DONE : 1;
+    /// read-only - Domain1 Low Power Mode
     eCPU1_MODE CPU1_MODE : 2;
+    /// read-only - Domain1 request enter Low Power Mode
     eCPU1_MODE_REQUEST CPU1_MODE_REQUEST : 1;
+    /// read-only - Domain1 Low Power Mode task done
     eCPU1_MODE_DONE CPU1_MODE_DONE : 1;
+    /// read-only - Domain2 Low Power Mode
     eCPU2_MODE CPU2_MODE : 2;
+    /// read-only - Domain2 request enter Low Power Mode
     eCPU2_MODE_REQUEST CPU2_MODE_REQUEST : 1;
+    /// read-only - Domain2 Low Power Mode task done
     eCPU2_MODE_DONE CPU2_MODE_DONE : 1;
+    /// read-only - Domain3 Low Power Mode
     eCPU3_MODE CPU3_MODE : 2;
+    /// read-only - Domain3 request enter Low Power Mode
     eCPU3_MODE_REQUEST CPU3_MODE_REQUEST : 1;
+    /// read-only - Domain3 Low Power Mode task done
     eCPU3_MODE_DONE CPU3_MODE_DONE : 1;
+    /// read-only - Next Setpoint to change to
     uint32_t TARGET_SETPOINT : 4;
+    /// read-only - Current Setpoint
     uint32_t CURRENT_SETPOINT : 4;
+    /// read-only - Clock gate turn off request from GPC Setpoint
     eSETPOINT_OFF_REQUEST SETPOINT_OFF_REQUEST : 1;
+    /// read-only - Clock gate turn off finish from GPC Setpoint
     eSETPOINT_OFF_DONE SETPOINT_OFF_DONE : 1;
+    /// read-only - Clock gate turn on request from GPC Setpoint
     eSETPOINT_ON_REQUEST SETPOINT_ON_REQUEST : 1;
+    /// read-only - Clock gate turn on finish from GPC Setpoint
     eSETPOINT_ON_DONE SETPOINT_ON_DONE : 1;
     uint32_t _reserved_0 : 4;
   } bits;
@@ -12088,6 +13433,7 @@ union LPCG22_CONFIG {
   // Bit field definition.
   struct {
     uint32_t _reserved_0 : 4;
+    /// read-only - Setpoint present
     eSETPOINT_PRESENT SETPOINT_PRESENT : 1;
     uint32_t _reserved_1 : 27;
   } bits;
@@ -12146,18 +13492,27 @@ union LPCG22_AUTHEN {
   
   // Bit field definition.
   struct {
+    /// read-write - User access
     eTZ_USER TZ_USER : 1;
+    /// read-write - Non-secure access
     eTZ_NS TZ_NS : 1;
     uint32_t _reserved_0 : 2;
+    /// read-write - lock truszone setting
     eLOCK_TZ LOCK_TZ : 1;
     uint32_t _reserved_1 : 3;
+    /// read-write - Whitelist
     uint32_t WHITE_LIST : 4;
+    /// read-write - Lock Whitelist
     eLOCK_LIST LOCK_LIST : 1;
     uint32_t _reserved_2 : 3;
+    /// read-write - Low power and access control by domain
     eDOMAIN_MODE DOMAIN_MODE : 1;
+    /// read-write - Low power and access control by Setpoint
     eSETPOINT_MODE SETPOINT_MODE : 1;
+    /// read-write - CPU Low Power Mode
     eCPULPM CPULPM : 1;
     uint32_t _reserved_3 : 1;
+    /// read-write - Lock low power and access mode
     eLOCK_MODE LOCK_MODE : 1;
     uint32_t _reserved_4 : 11;
   } bits;
@@ -12181,6 +13536,7 @@ union LPCG23_DIRECT {
   
   // Bit field definition.
   struct {
+    /// read-write - LPCG on
     eON ON : 1;
     uint32_t _reserved_0 : 31;
   } bits;
@@ -12239,14 +13595,19 @@ union LPCG23_DOMAIN {
   
   // Bit field definition.
   struct {
+    /// read-write - Current dependence level
     eLEVEL LEVEL : 3;
     uint32_t _reserved_0 : 13;
+    /// read-write - Depend level
     eLEVEL0 LEVEL0 : 3;
     uint32_t _reserved_1 : 1;
+    /// read-write - Depend level
     eLEVEL1 LEVEL1 : 3;
     uint32_t _reserved_2 : 1;
+    /// read-write - Depend level
     eLEVEL2 LEVEL2 : 3;
     uint32_t _reserved_3 : 1;
+    /// read-write - Depend level
     eLEVEL3 LEVEL3 : 3;
     uint32_t _reserved_4 : 1;
   } bits;
@@ -12308,9 +13669,12 @@ union LPCG23_STATUS0 {
   
   // Bit field definition.
   struct {
+    /// read-only - LPCG current state
     eON ON : 1;
     uint32_t _reserved_0 : 7;
+    /// read-only - Domains that own this clock gate
     eACTIVE_DOMAIN ACTIVE_DOMAIN : 4;
+    /// read-only - Enable status from each domain
     eDOMAIN_ENABLE DOMAIN_ENABLE : 4;
     uint32_t _reserved_1 : 16;
   } bits;
@@ -12417,23 +13781,41 @@ union LPCG23_STATUS1 {
   
   // Bit field definition.
   struct {
+    /// read-only - Domain0 Low Power Mode
     eCPU0_MODE CPU0_MODE : 2;
+    /// read-only - Domain0 request enter Low Power Mode
     eCPU0_MODE_REQUEST CPU0_MODE_REQUEST : 1;
+    /// read-only - Domain0 Low Power Mode task done
     eCPU0_MODE_DONE CPU0_MODE_DONE : 1;
+    /// read-only - Domain1 Low Power Mode
     eCPU1_MODE CPU1_MODE : 2;
+    /// read-only - Domain1 request enter Low Power Mode
     eCPU1_MODE_REQUEST CPU1_MODE_REQUEST : 1;
+    /// read-only - Domain1 Low Power Mode task done
     eCPU1_MODE_DONE CPU1_MODE_DONE : 1;
+    /// read-only - Domain2 Low Power Mode
     eCPU2_MODE CPU2_MODE : 2;
+    /// read-only - Domain2 request enter Low Power Mode
     eCPU2_MODE_REQUEST CPU2_MODE_REQUEST : 1;
+    /// read-only - Domain2 Low Power Mode task done
     eCPU2_MODE_DONE CPU2_MODE_DONE : 1;
+    /// read-only - Domain3 Low Power Mode
     eCPU3_MODE CPU3_MODE : 2;
+    /// read-only - Domain3 request enter Low Power Mode
     eCPU3_MODE_REQUEST CPU3_MODE_REQUEST : 1;
+    /// read-only - Domain3 Low Power Mode task done
     eCPU3_MODE_DONE CPU3_MODE_DONE : 1;
+    /// read-only - Next Setpoint to change to
     uint32_t TARGET_SETPOINT : 4;
+    /// read-only - Current Setpoint
     uint32_t CURRENT_SETPOINT : 4;
+    /// read-only - Clock gate turn off request from GPC Setpoint
     eSETPOINT_OFF_REQUEST SETPOINT_OFF_REQUEST : 1;
+    /// read-only - Clock gate turn off finish from GPC Setpoint
     eSETPOINT_OFF_DONE SETPOINT_OFF_DONE : 1;
+    /// read-only - Clock gate turn on request from GPC Setpoint
     eSETPOINT_ON_REQUEST SETPOINT_ON_REQUEST : 1;
+    /// read-only - Clock gate turn on finish from GPC Setpoint
     eSETPOINT_ON_DONE SETPOINT_ON_DONE : 1;
     uint32_t _reserved_0 : 4;
   } bits;
@@ -12458,6 +13840,7 @@ union LPCG23_CONFIG {
   // Bit field definition.
   struct {
     uint32_t _reserved_0 : 4;
+    /// read-only - Setpoint present
     eSETPOINT_PRESENT SETPOINT_PRESENT : 1;
     uint32_t _reserved_1 : 27;
   } bits;
@@ -12516,18 +13899,27 @@ union LPCG23_AUTHEN {
   
   // Bit field definition.
   struct {
+    /// read-write - User access
     eTZ_USER TZ_USER : 1;
+    /// read-write - Non-secure access
     eTZ_NS TZ_NS : 1;
     uint32_t _reserved_0 : 2;
+    /// read-write - lock truszone setting
     eLOCK_TZ LOCK_TZ : 1;
     uint32_t _reserved_1 : 3;
+    /// read-write - Whitelist
     uint32_t WHITE_LIST : 4;
+    /// read-write - Lock Whitelist
     eLOCK_LIST LOCK_LIST : 1;
     uint32_t _reserved_2 : 3;
+    /// read-write - Low power and access control by domain
     eDOMAIN_MODE DOMAIN_MODE : 1;
+    /// read-write - Low power and access control by Setpoint
     eSETPOINT_MODE SETPOINT_MODE : 1;
+    /// read-write - CPU Low Power Mode
     eCPULPM CPULPM : 1;
     uint32_t _reserved_3 : 1;
+    /// read-write - Lock low power and access mode
     eLOCK_MODE LOCK_MODE : 1;
     uint32_t _reserved_4 : 11;
   } bits;
@@ -12551,6 +13943,7 @@ union LPCG24_DIRECT {
   
   // Bit field definition.
   struct {
+    /// read-write - LPCG on
     eON ON : 1;
     uint32_t _reserved_0 : 31;
   } bits;
@@ -12609,14 +14002,19 @@ union LPCG24_DOMAIN {
   
   // Bit field definition.
   struct {
+    /// read-write - Current dependence level
     eLEVEL LEVEL : 3;
     uint32_t _reserved_0 : 13;
+    /// read-write - Depend level
     eLEVEL0 LEVEL0 : 3;
     uint32_t _reserved_1 : 1;
+    /// read-write - Depend level
     eLEVEL1 LEVEL1 : 3;
     uint32_t _reserved_2 : 1;
+    /// read-write - Depend level
     eLEVEL2 LEVEL2 : 3;
     uint32_t _reserved_3 : 1;
+    /// read-write - Depend level
     eLEVEL3 LEVEL3 : 3;
     uint32_t _reserved_4 : 1;
   } bits;
@@ -12635,7 +14033,9 @@ union LPCG24_SETPOINT {
   
   // Bit field definition.
   struct {
+    /// read-write - Setpoints
     uint32_t SETPOINT : 16;
+    /// read-write - Standby
     uint32_t STANDBY : 16;
   } bits;
   
@@ -12696,9 +14096,12 @@ union LPCG24_STATUS0 {
   
   // Bit field definition.
   struct {
+    /// read-only - LPCG current state
     eON ON : 1;
     uint32_t _reserved_0 : 7;
+    /// read-only - Domains that own this clock gate
     eACTIVE_DOMAIN ACTIVE_DOMAIN : 4;
+    /// read-only - Enable status from each domain
     eDOMAIN_ENABLE DOMAIN_ENABLE : 4;
     uint32_t _reserved_1 : 16;
   } bits;
@@ -12805,23 +14208,41 @@ union LPCG24_STATUS1 {
   
   // Bit field definition.
   struct {
+    /// read-only - Domain0 Low Power Mode
     eCPU0_MODE CPU0_MODE : 2;
+    /// read-only - Domain0 request enter Low Power Mode
     eCPU0_MODE_REQUEST CPU0_MODE_REQUEST : 1;
+    /// read-only - Domain0 Low Power Mode task done
     eCPU0_MODE_DONE CPU0_MODE_DONE : 1;
+    /// read-only - Domain1 Low Power Mode
     eCPU1_MODE CPU1_MODE : 2;
+    /// read-only - Domain1 request enter Low Power Mode
     eCPU1_MODE_REQUEST CPU1_MODE_REQUEST : 1;
+    /// read-only - Domain1 Low Power Mode task done
     eCPU1_MODE_DONE CPU1_MODE_DONE : 1;
+    /// read-only - Domain2 Low Power Mode
     eCPU2_MODE CPU2_MODE : 2;
+    /// read-only - Domain2 request enter Low Power Mode
     eCPU2_MODE_REQUEST CPU2_MODE_REQUEST : 1;
+    /// read-only - Domain2 Low Power Mode task done
     eCPU2_MODE_DONE CPU2_MODE_DONE : 1;
+    /// read-only - Domain3 Low Power Mode
     eCPU3_MODE CPU3_MODE : 2;
+    /// read-only - Domain3 request enter Low Power Mode
     eCPU3_MODE_REQUEST CPU3_MODE_REQUEST : 1;
+    /// read-only - Domain3 Low Power Mode task done
     eCPU3_MODE_DONE CPU3_MODE_DONE : 1;
+    /// read-only - Next Setpoint to change to
     uint32_t TARGET_SETPOINT : 4;
+    /// read-only - Current Setpoint
     uint32_t CURRENT_SETPOINT : 4;
+    /// read-only - Clock gate turn off request from GPC Setpoint
     eSETPOINT_OFF_REQUEST SETPOINT_OFF_REQUEST : 1;
+    /// read-only - Clock gate turn off finish from GPC Setpoint
     eSETPOINT_OFF_DONE SETPOINT_OFF_DONE : 1;
+    /// read-only - Clock gate turn on request from GPC Setpoint
     eSETPOINT_ON_REQUEST SETPOINT_ON_REQUEST : 1;
+    /// read-only - Clock gate turn on finish from GPC Setpoint
     eSETPOINT_ON_DONE SETPOINT_ON_DONE : 1;
     uint32_t _reserved_0 : 4;
   } bits;
@@ -12846,6 +14267,7 @@ union LPCG24_CONFIG {
   // Bit field definition.
   struct {
     uint32_t _reserved_0 : 4;
+    /// read-only - Setpoint present
     eSETPOINT_PRESENT SETPOINT_PRESENT : 1;
     uint32_t _reserved_1 : 27;
   } bits;
@@ -12904,18 +14326,27 @@ union LPCG24_AUTHEN {
   
   // Bit field definition.
   struct {
+    /// read-write - User access
     eTZ_USER TZ_USER : 1;
+    /// read-write - Non-secure access
     eTZ_NS TZ_NS : 1;
     uint32_t _reserved_0 : 2;
+    /// read-write - lock truszone setting
     eLOCK_TZ LOCK_TZ : 1;
     uint32_t _reserved_1 : 3;
+    /// read-write - Whitelist
     uint32_t WHITE_LIST : 4;
+    /// read-write - Lock Whitelist
     eLOCK_LIST LOCK_LIST : 1;
     uint32_t _reserved_2 : 3;
+    /// read-write - Low power and access control by domain
     eDOMAIN_MODE DOMAIN_MODE : 1;
+    /// read-write - Low power and access control by Setpoint
     eSETPOINT_MODE SETPOINT_MODE : 1;
+    /// read-write - CPU Low Power Mode
     eCPULPM CPULPM : 1;
     uint32_t _reserved_3 : 1;
+    /// read-write - Lock low power and access mode
     eLOCK_MODE LOCK_MODE : 1;
     uint32_t _reserved_4 : 11;
   } bits;
@@ -12939,6 +14370,7 @@ union LPCG25_DIRECT {
   
   // Bit field definition.
   struct {
+    /// read-write - LPCG on
     eON ON : 1;
     uint32_t _reserved_0 : 31;
   } bits;
@@ -12997,14 +14429,19 @@ union LPCG25_DOMAIN {
   
   // Bit field definition.
   struct {
+    /// read-write - Current dependence level
     eLEVEL LEVEL : 3;
     uint32_t _reserved_0 : 13;
+    /// read-write - Depend level
     eLEVEL0 LEVEL0 : 3;
     uint32_t _reserved_1 : 1;
+    /// read-write - Depend level
     eLEVEL1 LEVEL1 : 3;
     uint32_t _reserved_2 : 1;
+    /// read-write - Depend level
     eLEVEL2 LEVEL2 : 3;
     uint32_t _reserved_3 : 1;
+    /// read-write - Depend level
     eLEVEL3 LEVEL3 : 3;
     uint32_t _reserved_4 : 1;
   } bits;
@@ -13023,7 +14460,9 @@ union LPCG25_SETPOINT {
   
   // Bit field definition.
   struct {
+    /// read-write - Setpoints
     uint32_t SETPOINT : 16;
+    /// read-write - Standby
     uint32_t STANDBY : 16;
   } bits;
   
@@ -13084,9 +14523,12 @@ union LPCG25_STATUS0 {
   
   // Bit field definition.
   struct {
+    /// read-only - LPCG current state
     eON ON : 1;
     uint32_t _reserved_0 : 7;
+    /// read-only - Domains that own this clock gate
     eACTIVE_DOMAIN ACTIVE_DOMAIN : 4;
+    /// read-only - Enable status from each domain
     eDOMAIN_ENABLE DOMAIN_ENABLE : 4;
     uint32_t _reserved_1 : 16;
   } bits;
@@ -13193,23 +14635,41 @@ union LPCG25_STATUS1 {
   
   // Bit field definition.
   struct {
+    /// read-only - Domain0 Low Power Mode
     eCPU0_MODE CPU0_MODE : 2;
+    /// read-only - Domain0 request enter Low Power Mode
     eCPU0_MODE_REQUEST CPU0_MODE_REQUEST : 1;
+    /// read-only - Domain0 Low Power Mode task done
     eCPU0_MODE_DONE CPU0_MODE_DONE : 1;
+    /// read-only - Domain1 Low Power Mode
     eCPU1_MODE CPU1_MODE : 2;
+    /// read-only - Domain1 request enter Low Power Mode
     eCPU1_MODE_REQUEST CPU1_MODE_REQUEST : 1;
+    /// read-only - Domain1 Low Power Mode task done
     eCPU1_MODE_DONE CPU1_MODE_DONE : 1;
+    /// read-only - Domain2 Low Power Mode
     eCPU2_MODE CPU2_MODE : 2;
+    /// read-only - Domain2 request enter Low Power Mode
     eCPU2_MODE_REQUEST CPU2_MODE_REQUEST : 1;
+    /// read-only - Domain2 Low Power Mode task done
     eCPU2_MODE_DONE CPU2_MODE_DONE : 1;
+    /// read-only - Domain3 Low Power Mode
     eCPU3_MODE CPU3_MODE : 2;
+    /// read-only - Domain3 request enter Low Power Mode
     eCPU3_MODE_REQUEST CPU3_MODE_REQUEST : 1;
+    /// read-only - Domain3 Low Power Mode task done
     eCPU3_MODE_DONE CPU3_MODE_DONE : 1;
+    /// read-only - Next Setpoint to change to
     uint32_t TARGET_SETPOINT : 4;
+    /// read-only - Current Setpoint
     uint32_t CURRENT_SETPOINT : 4;
+    /// read-only - Clock gate turn off request from GPC Setpoint
     eSETPOINT_OFF_REQUEST SETPOINT_OFF_REQUEST : 1;
+    /// read-only - Clock gate turn off finish from GPC Setpoint
     eSETPOINT_OFF_DONE SETPOINT_OFF_DONE : 1;
+    /// read-only - Clock gate turn on request from GPC Setpoint
     eSETPOINT_ON_REQUEST SETPOINT_ON_REQUEST : 1;
+    /// read-only - Clock gate turn on finish from GPC Setpoint
     eSETPOINT_ON_DONE SETPOINT_ON_DONE : 1;
     uint32_t _reserved_0 : 4;
   } bits;
@@ -13234,6 +14694,7 @@ union LPCG25_CONFIG {
   // Bit field definition.
   struct {
     uint32_t _reserved_0 : 4;
+    /// read-only - Setpoint present
     eSETPOINT_PRESENT SETPOINT_PRESENT : 1;
     uint32_t _reserved_1 : 27;
   } bits;
@@ -13292,18 +14753,27 @@ union LPCG25_AUTHEN {
   
   // Bit field definition.
   struct {
+    /// read-write - User access
     eTZ_USER TZ_USER : 1;
+    /// read-write - Non-secure access
     eTZ_NS TZ_NS : 1;
     uint32_t _reserved_0 : 2;
+    /// read-write - lock truszone setting
     eLOCK_TZ LOCK_TZ : 1;
     uint32_t _reserved_1 : 3;
+    /// read-write - Whitelist
     uint32_t WHITE_LIST : 4;
+    /// read-write - Lock Whitelist
     eLOCK_LIST LOCK_LIST : 1;
     uint32_t _reserved_2 : 3;
+    /// read-write - Low power and access control by domain
     eDOMAIN_MODE DOMAIN_MODE : 1;
+    /// read-write - Low power and access control by Setpoint
     eSETPOINT_MODE SETPOINT_MODE : 1;
+    /// read-write - CPU Low Power Mode
     eCPULPM CPULPM : 1;
     uint32_t _reserved_3 : 1;
+    /// read-write - Lock low power and access mode
     eLOCK_MODE LOCK_MODE : 1;
     uint32_t _reserved_4 : 11;
   } bits;
@@ -13327,6 +14797,7 @@ union LPCG26_DIRECT {
   
   // Bit field definition.
   struct {
+    /// read-write - LPCG on
     eON ON : 1;
     uint32_t _reserved_0 : 31;
   } bits;
@@ -13385,14 +14856,19 @@ union LPCG26_DOMAIN {
   
   // Bit field definition.
   struct {
+    /// read-write - Current dependence level
     eLEVEL LEVEL : 3;
     uint32_t _reserved_0 : 13;
+    /// read-write - Depend level
     eLEVEL0 LEVEL0 : 3;
     uint32_t _reserved_1 : 1;
+    /// read-write - Depend level
     eLEVEL1 LEVEL1 : 3;
     uint32_t _reserved_2 : 1;
+    /// read-write - Depend level
     eLEVEL2 LEVEL2 : 3;
     uint32_t _reserved_3 : 1;
+    /// read-write - Depend level
     eLEVEL3 LEVEL3 : 3;
     uint32_t _reserved_4 : 1;
   } bits;
@@ -13411,7 +14887,9 @@ union LPCG26_SETPOINT {
   
   // Bit field definition.
   struct {
+    /// read-write - Setpoints
     uint32_t SETPOINT : 16;
+    /// read-write - Standby
     uint32_t STANDBY : 16;
   } bits;
   
@@ -13472,9 +14950,12 @@ union LPCG26_STATUS0 {
   
   // Bit field definition.
   struct {
+    /// read-only - LPCG current state
     eON ON : 1;
     uint32_t _reserved_0 : 7;
+    /// read-only - Domains that own this clock gate
     eACTIVE_DOMAIN ACTIVE_DOMAIN : 4;
+    /// read-only - Enable status from each domain
     eDOMAIN_ENABLE DOMAIN_ENABLE : 4;
     uint32_t _reserved_1 : 16;
   } bits;
@@ -13581,23 +15062,41 @@ union LPCG26_STATUS1 {
   
   // Bit field definition.
   struct {
+    /// read-only - Domain0 Low Power Mode
     eCPU0_MODE CPU0_MODE : 2;
+    /// read-only - Domain0 request enter Low Power Mode
     eCPU0_MODE_REQUEST CPU0_MODE_REQUEST : 1;
+    /// read-only - Domain0 Low Power Mode task done
     eCPU0_MODE_DONE CPU0_MODE_DONE : 1;
+    /// read-only - Domain1 Low Power Mode
     eCPU1_MODE CPU1_MODE : 2;
+    /// read-only - Domain1 request enter Low Power Mode
     eCPU1_MODE_REQUEST CPU1_MODE_REQUEST : 1;
+    /// read-only - Domain1 Low Power Mode task done
     eCPU1_MODE_DONE CPU1_MODE_DONE : 1;
+    /// read-only - Domain2 Low Power Mode
     eCPU2_MODE CPU2_MODE : 2;
+    /// read-only - Domain2 request enter Low Power Mode
     eCPU2_MODE_REQUEST CPU2_MODE_REQUEST : 1;
+    /// read-only - Domain2 Low Power Mode task done
     eCPU2_MODE_DONE CPU2_MODE_DONE : 1;
+    /// read-only - Domain3 Low Power Mode
     eCPU3_MODE CPU3_MODE : 2;
+    /// read-only - Domain3 request enter Low Power Mode
     eCPU3_MODE_REQUEST CPU3_MODE_REQUEST : 1;
+    /// read-only - Domain3 Low Power Mode task done
     eCPU3_MODE_DONE CPU3_MODE_DONE : 1;
+    /// read-only - Next Setpoint to change to
     uint32_t TARGET_SETPOINT : 4;
+    /// read-only - Current Setpoint
     uint32_t CURRENT_SETPOINT : 4;
+    /// read-only - Clock gate turn off request from GPC Setpoint
     eSETPOINT_OFF_REQUEST SETPOINT_OFF_REQUEST : 1;
+    /// read-only - Clock gate turn off finish from GPC Setpoint
     eSETPOINT_OFF_DONE SETPOINT_OFF_DONE : 1;
+    /// read-only - Clock gate turn on request from GPC Setpoint
     eSETPOINT_ON_REQUEST SETPOINT_ON_REQUEST : 1;
+    /// read-only - Clock gate turn on finish from GPC Setpoint
     eSETPOINT_ON_DONE SETPOINT_ON_DONE : 1;
     uint32_t _reserved_0 : 4;
   } bits;
@@ -13622,6 +15121,7 @@ union LPCG26_CONFIG {
   // Bit field definition.
   struct {
     uint32_t _reserved_0 : 4;
+    /// read-only - Setpoint present
     eSETPOINT_PRESENT SETPOINT_PRESENT : 1;
     uint32_t _reserved_1 : 27;
   } bits;
@@ -13680,18 +15180,27 @@ union LPCG26_AUTHEN {
   
   // Bit field definition.
   struct {
+    /// read-write - User access
     eTZ_USER TZ_USER : 1;
+    /// read-write - Non-secure access
     eTZ_NS TZ_NS : 1;
     uint32_t _reserved_0 : 2;
+    /// read-write - lock truszone setting
     eLOCK_TZ LOCK_TZ : 1;
     uint32_t _reserved_1 : 3;
+    /// read-write - Whitelist
     uint32_t WHITE_LIST : 4;
+    /// read-write - Lock Whitelist
     eLOCK_LIST LOCK_LIST : 1;
     uint32_t _reserved_2 : 3;
+    /// read-write - Low power and access control by domain
     eDOMAIN_MODE DOMAIN_MODE : 1;
+    /// read-write - Low power and access control by Setpoint
     eSETPOINT_MODE SETPOINT_MODE : 1;
+    /// read-write - CPU Low Power Mode
     eCPULPM CPULPM : 1;
     uint32_t _reserved_3 : 1;
+    /// read-write - Lock low power and access mode
     eLOCK_MODE LOCK_MODE : 1;
     uint32_t _reserved_4 : 11;
   } bits;
@@ -13715,6 +15224,7 @@ union LPCG27_DIRECT {
   
   // Bit field definition.
   struct {
+    /// read-write - LPCG on
     eON ON : 1;
     uint32_t _reserved_0 : 31;
   } bits;
@@ -13773,14 +15283,19 @@ union LPCG27_DOMAIN {
   
   // Bit field definition.
   struct {
+    /// read-write - Current dependence level
     eLEVEL LEVEL : 3;
     uint32_t _reserved_0 : 13;
+    /// read-write - Depend level
     eLEVEL0 LEVEL0 : 3;
     uint32_t _reserved_1 : 1;
+    /// read-write - Depend level
     eLEVEL1 LEVEL1 : 3;
     uint32_t _reserved_2 : 1;
+    /// read-write - Depend level
     eLEVEL2 LEVEL2 : 3;
     uint32_t _reserved_3 : 1;
+    /// read-write - Depend level
     eLEVEL3 LEVEL3 : 3;
     uint32_t _reserved_4 : 1;
   } bits;
@@ -13799,7 +15314,9 @@ union LPCG27_SETPOINT {
   
   // Bit field definition.
   struct {
+    /// read-write - Setpoints
     uint32_t SETPOINT : 16;
+    /// read-write - Standby
     uint32_t STANDBY : 16;
   } bits;
   
@@ -13860,9 +15377,12 @@ union LPCG27_STATUS0 {
   
   // Bit field definition.
   struct {
+    /// read-only - LPCG current state
     eON ON : 1;
     uint32_t _reserved_0 : 7;
+    /// read-only - Domains that own this clock gate
     eACTIVE_DOMAIN ACTIVE_DOMAIN : 4;
+    /// read-only - Enable status from each domain
     eDOMAIN_ENABLE DOMAIN_ENABLE : 4;
     uint32_t _reserved_1 : 16;
   } bits;
@@ -13969,23 +15489,41 @@ union LPCG27_STATUS1 {
   
   // Bit field definition.
   struct {
+    /// read-only - Domain0 Low Power Mode
     eCPU0_MODE CPU0_MODE : 2;
+    /// read-only - Domain0 request enter Low Power Mode
     eCPU0_MODE_REQUEST CPU0_MODE_REQUEST : 1;
+    /// read-only - Domain0 Low Power Mode task done
     eCPU0_MODE_DONE CPU0_MODE_DONE : 1;
+    /// read-only - Domain1 Low Power Mode
     eCPU1_MODE CPU1_MODE : 2;
+    /// read-only - Domain1 request enter Low Power Mode
     eCPU1_MODE_REQUEST CPU1_MODE_REQUEST : 1;
+    /// read-only - Domain1 Low Power Mode task done
     eCPU1_MODE_DONE CPU1_MODE_DONE : 1;
+    /// read-only - Domain2 Low Power Mode
     eCPU2_MODE CPU2_MODE : 2;
+    /// read-only - Domain2 request enter Low Power Mode
     eCPU2_MODE_REQUEST CPU2_MODE_REQUEST : 1;
+    /// read-only - Domain2 Low Power Mode task done
     eCPU2_MODE_DONE CPU2_MODE_DONE : 1;
+    /// read-only - Domain3 Low Power Mode
     eCPU3_MODE CPU3_MODE : 2;
+    /// read-only - Domain3 request enter Low Power Mode
     eCPU3_MODE_REQUEST CPU3_MODE_REQUEST : 1;
+    /// read-only - Domain3 Low Power Mode task done
     eCPU3_MODE_DONE CPU3_MODE_DONE : 1;
+    /// read-only - Next Setpoint to change to
     uint32_t TARGET_SETPOINT : 4;
+    /// read-only - Current Setpoint
     uint32_t CURRENT_SETPOINT : 4;
+    /// read-only - Clock gate turn off request from GPC Setpoint
     eSETPOINT_OFF_REQUEST SETPOINT_OFF_REQUEST : 1;
+    /// read-only - Clock gate turn off finish from GPC Setpoint
     eSETPOINT_OFF_DONE SETPOINT_OFF_DONE : 1;
+    /// read-only - Clock gate turn on request from GPC Setpoint
     eSETPOINT_ON_REQUEST SETPOINT_ON_REQUEST : 1;
+    /// read-only - Clock gate turn on finish from GPC Setpoint
     eSETPOINT_ON_DONE SETPOINT_ON_DONE : 1;
     uint32_t _reserved_0 : 4;
   } bits;
@@ -14010,6 +15548,7 @@ union LPCG27_CONFIG {
   // Bit field definition.
   struct {
     uint32_t _reserved_0 : 4;
+    /// read-only - Setpoint present
     eSETPOINT_PRESENT SETPOINT_PRESENT : 1;
     uint32_t _reserved_1 : 27;
   } bits;
@@ -14068,18 +15607,27 @@ union LPCG27_AUTHEN {
   
   // Bit field definition.
   struct {
+    /// read-write - User access
     eTZ_USER TZ_USER : 1;
+    /// read-write - Non-secure access
     eTZ_NS TZ_NS : 1;
     uint32_t _reserved_0 : 2;
+    /// read-write - lock truszone setting
     eLOCK_TZ LOCK_TZ : 1;
     uint32_t _reserved_1 : 3;
+    /// read-write - Whitelist
     uint32_t WHITE_LIST : 4;
+    /// read-write - Lock Whitelist
     eLOCK_LIST LOCK_LIST : 1;
     uint32_t _reserved_2 : 3;
+    /// read-write - Low power and access control by domain
     eDOMAIN_MODE DOMAIN_MODE : 1;
+    /// read-write - Low power and access control by Setpoint
     eSETPOINT_MODE SETPOINT_MODE : 1;
+    /// read-write - CPU Low Power Mode
     eCPULPM CPULPM : 1;
     uint32_t _reserved_3 : 1;
+    /// read-write - Lock low power and access mode
     eLOCK_MODE LOCK_MODE : 1;
     uint32_t _reserved_4 : 11;
   } bits;
@@ -14103,6 +15651,7 @@ union LPCG28_DIRECT {
   
   // Bit field definition.
   struct {
+    /// read-write - LPCG on
     eON ON : 1;
     uint32_t _reserved_0 : 31;
   } bits;
@@ -14161,14 +15710,19 @@ union LPCG28_DOMAIN {
   
   // Bit field definition.
   struct {
+    /// read-write - Current dependence level
     eLEVEL LEVEL : 3;
     uint32_t _reserved_0 : 13;
+    /// read-write - Depend level
     eLEVEL0 LEVEL0 : 3;
     uint32_t _reserved_1 : 1;
+    /// read-write - Depend level
     eLEVEL1 LEVEL1 : 3;
     uint32_t _reserved_2 : 1;
+    /// read-write - Depend level
     eLEVEL2 LEVEL2 : 3;
     uint32_t _reserved_3 : 1;
+    /// read-write - Depend level
     eLEVEL3 LEVEL3 : 3;
     uint32_t _reserved_4 : 1;
   } bits;
@@ -14187,7 +15741,9 @@ union LPCG28_SETPOINT {
   
   // Bit field definition.
   struct {
+    /// read-write - Setpoints
     uint32_t SETPOINT : 16;
+    /// read-write - Standby
     uint32_t STANDBY : 16;
   } bits;
   
@@ -14248,9 +15804,12 @@ union LPCG28_STATUS0 {
   
   // Bit field definition.
   struct {
+    /// read-only - LPCG current state
     eON ON : 1;
     uint32_t _reserved_0 : 7;
+    /// read-only - Domains that own this clock gate
     eACTIVE_DOMAIN ACTIVE_DOMAIN : 4;
+    /// read-only - Enable status from each domain
     eDOMAIN_ENABLE DOMAIN_ENABLE : 4;
     uint32_t _reserved_1 : 16;
   } bits;
@@ -14357,23 +15916,41 @@ union LPCG28_STATUS1 {
   
   // Bit field definition.
   struct {
+    /// read-only - Domain0 Low Power Mode
     eCPU0_MODE CPU0_MODE : 2;
+    /// read-only - Domain0 request enter Low Power Mode
     eCPU0_MODE_REQUEST CPU0_MODE_REQUEST : 1;
+    /// read-only - Domain0 Low Power Mode task done
     eCPU0_MODE_DONE CPU0_MODE_DONE : 1;
+    /// read-only - Domain1 Low Power Mode
     eCPU1_MODE CPU1_MODE : 2;
+    /// read-only - Domain1 request enter Low Power Mode
     eCPU1_MODE_REQUEST CPU1_MODE_REQUEST : 1;
+    /// read-only - Domain1 Low Power Mode task done
     eCPU1_MODE_DONE CPU1_MODE_DONE : 1;
+    /// read-only - Domain2 Low Power Mode
     eCPU2_MODE CPU2_MODE : 2;
+    /// read-only - Domain2 request enter Low Power Mode
     eCPU2_MODE_REQUEST CPU2_MODE_REQUEST : 1;
+    /// read-only - Domain2 Low Power Mode task done
     eCPU2_MODE_DONE CPU2_MODE_DONE : 1;
+    /// read-only - Domain3 Low Power Mode
     eCPU3_MODE CPU3_MODE : 2;
+    /// read-only - Domain3 request enter Low Power Mode
     eCPU3_MODE_REQUEST CPU3_MODE_REQUEST : 1;
+    /// read-only - Domain3 Low Power Mode task done
     eCPU3_MODE_DONE CPU3_MODE_DONE : 1;
+    /// read-only - Next Setpoint to change to
     uint32_t TARGET_SETPOINT : 4;
+    /// read-only - Current Setpoint
     uint32_t CURRENT_SETPOINT : 4;
+    /// read-only - Clock gate turn off request from GPC Setpoint
     eSETPOINT_OFF_REQUEST SETPOINT_OFF_REQUEST : 1;
+    /// read-only - Clock gate turn off finish from GPC Setpoint
     eSETPOINT_OFF_DONE SETPOINT_OFF_DONE : 1;
+    /// read-only - Clock gate turn on request from GPC Setpoint
     eSETPOINT_ON_REQUEST SETPOINT_ON_REQUEST : 1;
+    /// read-only - Clock gate turn on finish from GPC Setpoint
     eSETPOINT_ON_DONE SETPOINT_ON_DONE : 1;
     uint32_t _reserved_0 : 4;
   } bits;
@@ -14398,6 +15975,7 @@ union LPCG28_CONFIG {
   // Bit field definition.
   struct {
     uint32_t _reserved_0 : 4;
+    /// read-only - Setpoint present
     eSETPOINT_PRESENT SETPOINT_PRESENT : 1;
     uint32_t _reserved_1 : 27;
   } bits;
@@ -14456,18 +16034,27 @@ union LPCG28_AUTHEN {
   
   // Bit field definition.
   struct {
+    /// read-write - User access
     eTZ_USER TZ_USER : 1;
+    /// read-write - Non-secure access
     eTZ_NS TZ_NS : 1;
     uint32_t _reserved_0 : 2;
+    /// read-write - lock truszone setting
     eLOCK_TZ LOCK_TZ : 1;
     uint32_t _reserved_1 : 3;
+    /// read-write - Whitelist
     uint32_t WHITE_LIST : 4;
+    /// read-write - Lock Whitelist
     eLOCK_LIST LOCK_LIST : 1;
     uint32_t _reserved_2 : 3;
+    /// read-write - Low power and access control by domain
     eDOMAIN_MODE DOMAIN_MODE : 1;
+    /// read-write - Low power and access control by Setpoint
     eSETPOINT_MODE SETPOINT_MODE : 1;
+    /// read-write - CPU Low Power Mode
     eCPULPM CPULPM : 1;
     uint32_t _reserved_3 : 1;
+    /// read-write - Lock low power and access mode
     eLOCK_MODE LOCK_MODE : 1;
     uint32_t _reserved_4 : 11;
   } bits;
@@ -14491,6 +16078,7 @@ union LPCG29_DIRECT {
   
   // Bit field definition.
   struct {
+    /// read-write - LPCG on
     eON ON : 1;
     uint32_t _reserved_0 : 31;
   } bits;
@@ -14549,14 +16137,19 @@ union LPCG29_DOMAIN {
   
   // Bit field definition.
   struct {
+    /// read-write - Current dependence level
     eLEVEL LEVEL : 3;
     uint32_t _reserved_0 : 13;
+    /// read-write - Depend level
     eLEVEL0 LEVEL0 : 3;
     uint32_t _reserved_1 : 1;
+    /// read-write - Depend level
     eLEVEL1 LEVEL1 : 3;
     uint32_t _reserved_2 : 1;
+    /// read-write - Depend level
     eLEVEL2 LEVEL2 : 3;
     uint32_t _reserved_3 : 1;
+    /// read-write - Depend level
     eLEVEL3 LEVEL3 : 3;
     uint32_t _reserved_4 : 1;
   } bits;
@@ -14575,7 +16168,9 @@ union LPCG29_SETPOINT {
   
   // Bit field definition.
   struct {
+    /// read-write - Setpoints
     uint32_t SETPOINT : 16;
+    /// read-write - Standby
     uint32_t STANDBY : 16;
   } bits;
   
@@ -14636,9 +16231,12 @@ union LPCG29_STATUS0 {
   
   // Bit field definition.
   struct {
+    /// read-only - LPCG current state
     eON ON : 1;
     uint32_t _reserved_0 : 7;
+    /// read-only - Domains that own this clock gate
     eACTIVE_DOMAIN ACTIVE_DOMAIN : 4;
+    /// read-only - Enable status from each domain
     eDOMAIN_ENABLE DOMAIN_ENABLE : 4;
     uint32_t _reserved_1 : 16;
   } bits;
@@ -14745,23 +16343,41 @@ union LPCG29_STATUS1 {
   
   // Bit field definition.
   struct {
+    /// read-only - Domain0 Low Power Mode
     eCPU0_MODE CPU0_MODE : 2;
+    /// read-only - Domain0 request enter Low Power Mode
     eCPU0_MODE_REQUEST CPU0_MODE_REQUEST : 1;
+    /// read-only - Domain0 Low Power Mode task done
     eCPU0_MODE_DONE CPU0_MODE_DONE : 1;
+    /// read-only - Domain1 Low Power Mode
     eCPU1_MODE CPU1_MODE : 2;
+    /// read-only - Domain1 request enter Low Power Mode
     eCPU1_MODE_REQUEST CPU1_MODE_REQUEST : 1;
+    /// read-only - Domain1 Low Power Mode task done
     eCPU1_MODE_DONE CPU1_MODE_DONE : 1;
+    /// read-only - Domain2 Low Power Mode
     eCPU2_MODE CPU2_MODE : 2;
+    /// read-only - Domain2 request enter Low Power Mode
     eCPU2_MODE_REQUEST CPU2_MODE_REQUEST : 1;
+    /// read-only - Domain2 Low Power Mode task done
     eCPU2_MODE_DONE CPU2_MODE_DONE : 1;
+    /// read-only - Domain3 Low Power Mode
     eCPU3_MODE CPU3_MODE : 2;
+    /// read-only - Domain3 request enter Low Power Mode
     eCPU3_MODE_REQUEST CPU3_MODE_REQUEST : 1;
+    /// read-only - Domain3 Low Power Mode task done
     eCPU3_MODE_DONE CPU3_MODE_DONE : 1;
+    /// read-only - Next Setpoint to change to
     uint32_t TARGET_SETPOINT : 4;
+    /// read-only - Current Setpoint
     uint32_t CURRENT_SETPOINT : 4;
+    /// read-only - Clock gate turn off request from GPC Setpoint
     eSETPOINT_OFF_REQUEST SETPOINT_OFF_REQUEST : 1;
+    /// read-only - Clock gate turn off finish from GPC Setpoint
     eSETPOINT_OFF_DONE SETPOINT_OFF_DONE : 1;
+    /// read-only - Clock gate turn on request from GPC Setpoint
     eSETPOINT_ON_REQUEST SETPOINT_ON_REQUEST : 1;
+    /// read-only - Clock gate turn on finish from GPC Setpoint
     eSETPOINT_ON_DONE SETPOINT_ON_DONE : 1;
     uint32_t _reserved_0 : 4;
   } bits;
@@ -14786,6 +16402,7 @@ union LPCG29_CONFIG {
   // Bit field definition.
   struct {
     uint32_t _reserved_0 : 4;
+    /// read-only - Setpoint present
     eSETPOINT_PRESENT SETPOINT_PRESENT : 1;
     uint32_t _reserved_1 : 27;
   } bits;
@@ -14844,18 +16461,27 @@ union LPCG29_AUTHEN {
   
   // Bit field definition.
   struct {
+    /// read-write - User access
     eTZ_USER TZ_USER : 1;
+    /// read-write - Non-secure access
     eTZ_NS TZ_NS : 1;
     uint32_t _reserved_0 : 2;
+    /// read-write - lock truszone setting
     eLOCK_TZ LOCK_TZ : 1;
     uint32_t _reserved_1 : 3;
+    /// read-write - Whitelist
     uint32_t WHITE_LIST : 4;
+    /// read-write - Lock Whitelist
     eLOCK_LIST LOCK_LIST : 1;
     uint32_t _reserved_2 : 3;
+    /// read-write - Low power and access control by domain
     eDOMAIN_MODE DOMAIN_MODE : 1;
+    /// read-write - Low power and access control by Setpoint
     eSETPOINT_MODE SETPOINT_MODE : 1;
+    /// read-write - CPU Low Power Mode
     eCPULPM CPULPM : 1;
     uint32_t _reserved_3 : 1;
+    /// read-write - Lock low power and access mode
     eLOCK_MODE LOCK_MODE : 1;
     uint32_t _reserved_4 : 11;
   } bits;
@@ -14879,6 +16505,7 @@ union LPCG30_DIRECT {
   
   // Bit field definition.
   struct {
+    /// read-write - LPCG on
     eON ON : 1;
     uint32_t _reserved_0 : 31;
   } bits;
@@ -14937,14 +16564,19 @@ union LPCG30_DOMAIN {
   
   // Bit field definition.
   struct {
+    /// read-write - Current dependence level
     eLEVEL LEVEL : 3;
     uint32_t _reserved_0 : 13;
+    /// read-write - Depend level
     eLEVEL0 LEVEL0 : 3;
     uint32_t _reserved_1 : 1;
+    /// read-write - Depend level
     eLEVEL1 LEVEL1 : 3;
     uint32_t _reserved_2 : 1;
+    /// read-write - Depend level
     eLEVEL2 LEVEL2 : 3;
     uint32_t _reserved_3 : 1;
+    /// read-write - Depend level
     eLEVEL3 LEVEL3 : 3;
     uint32_t _reserved_4 : 1;
   } bits;
@@ -14963,7 +16595,9 @@ union LPCG30_SETPOINT {
   
   // Bit field definition.
   struct {
+    /// read-write - Setpoints
     uint32_t SETPOINT : 16;
+    /// read-write - Standby
     uint32_t STANDBY : 16;
   } bits;
   
@@ -15024,9 +16658,12 @@ union LPCG30_STATUS0 {
   
   // Bit field definition.
   struct {
+    /// read-only - LPCG current state
     eON ON : 1;
     uint32_t _reserved_0 : 7;
+    /// read-only - Domains that own this clock gate
     eACTIVE_DOMAIN ACTIVE_DOMAIN : 4;
+    /// read-only - Enable status from each domain
     eDOMAIN_ENABLE DOMAIN_ENABLE : 4;
     uint32_t _reserved_1 : 16;
   } bits;
@@ -15133,23 +16770,41 @@ union LPCG30_STATUS1 {
   
   // Bit field definition.
   struct {
+    /// read-only - Domain0 Low Power Mode
     eCPU0_MODE CPU0_MODE : 2;
+    /// read-only - Domain0 request enter Low Power Mode
     eCPU0_MODE_REQUEST CPU0_MODE_REQUEST : 1;
+    /// read-only - Domain0 Low Power Mode task done
     eCPU0_MODE_DONE CPU0_MODE_DONE : 1;
+    /// read-only - Domain1 Low Power Mode
     eCPU1_MODE CPU1_MODE : 2;
+    /// read-only - Domain1 request enter Low Power Mode
     eCPU1_MODE_REQUEST CPU1_MODE_REQUEST : 1;
+    /// read-only - Domain1 Low Power Mode task done
     eCPU1_MODE_DONE CPU1_MODE_DONE : 1;
+    /// read-only - Domain2 Low Power Mode
     eCPU2_MODE CPU2_MODE : 2;
+    /// read-only - Domain2 request enter Low Power Mode
     eCPU2_MODE_REQUEST CPU2_MODE_REQUEST : 1;
+    /// read-only - Domain2 Low Power Mode task done
     eCPU2_MODE_DONE CPU2_MODE_DONE : 1;
+    /// read-only - Domain3 Low Power Mode
     eCPU3_MODE CPU3_MODE : 2;
+    /// read-only - Domain3 request enter Low Power Mode
     eCPU3_MODE_REQUEST CPU3_MODE_REQUEST : 1;
+    /// read-only - Domain3 Low Power Mode task done
     eCPU3_MODE_DONE CPU3_MODE_DONE : 1;
+    /// read-only - Next Setpoint to change to
     uint32_t TARGET_SETPOINT : 4;
+    /// read-only - Current Setpoint
     uint32_t CURRENT_SETPOINT : 4;
+    /// read-only - Clock gate turn off request from GPC Setpoint
     eSETPOINT_OFF_REQUEST SETPOINT_OFF_REQUEST : 1;
+    /// read-only - Clock gate turn off finish from GPC Setpoint
     eSETPOINT_OFF_DONE SETPOINT_OFF_DONE : 1;
+    /// read-only - Clock gate turn on request from GPC Setpoint
     eSETPOINT_ON_REQUEST SETPOINT_ON_REQUEST : 1;
+    /// read-only - Clock gate turn on finish from GPC Setpoint
     eSETPOINT_ON_DONE SETPOINT_ON_DONE : 1;
     uint32_t _reserved_0 : 4;
   } bits;
@@ -15174,6 +16829,7 @@ union LPCG30_CONFIG {
   // Bit field definition.
   struct {
     uint32_t _reserved_0 : 4;
+    /// read-only - Setpoint present
     eSETPOINT_PRESENT SETPOINT_PRESENT : 1;
     uint32_t _reserved_1 : 27;
   } bits;
@@ -15232,18 +16888,27 @@ union LPCG30_AUTHEN {
   
   // Bit field definition.
   struct {
+    /// read-write - User access
     eTZ_USER TZ_USER : 1;
+    /// read-write - Non-secure access
     eTZ_NS TZ_NS : 1;
     uint32_t _reserved_0 : 2;
+    /// read-write - lock truszone setting
     eLOCK_TZ LOCK_TZ : 1;
     uint32_t _reserved_1 : 3;
+    /// read-write - Whitelist
     uint32_t WHITE_LIST : 4;
+    /// read-write - Lock Whitelist
     eLOCK_LIST LOCK_LIST : 1;
     uint32_t _reserved_2 : 3;
+    /// read-write - Low power and access control by domain
     eDOMAIN_MODE DOMAIN_MODE : 1;
+    /// read-write - Low power and access control by Setpoint
     eSETPOINT_MODE SETPOINT_MODE : 1;
+    /// read-write - CPU Low Power Mode
     eCPULPM CPULPM : 1;
     uint32_t _reserved_3 : 1;
+    /// read-write - Lock low power and access mode
     eLOCK_MODE LOCK_MODE : 1;
     uint32_t _reserved_4 : 11;
   } bits;
@@ -15267,6 +16932,7 @@ union LPCG31_DIRECT {
   
   // Bit field definition.
   struct {
+    /// read-write - LPCG on
     eON ON : 1;
     uint32_t _reserved_0 : 31;
   } bits;
@@ -15325,14 +16991,19 @@ union LPCG31_DOMAIN {
   
   // Bit field definition.
   struct {
+    /// read-write - Current dependence level
     eLEVEL LEVEL : 3;
     uint32_t _reserved_0 : 13;
+    /// read-write - Depend level
     eLEVEL0 LEVEL0 : 3;
     uint32_t _reserved_1 : 1;
+    /// read-write - Depend level
     eLEVEL1 LEVEL1 : 3;
     uint32_t _reserved_2 : 1;
+    /// read-write - Depend level
     eLEVEL2 LEVEL2 : 3;
     uint32_t _reserved_3 : 1;
+    /// read-write - Depend level
     eLEVEL3 LEVEL3 : 3;
     uint32_t _reserved_4 : 1;
   } bits;
@@ -15351,7 +17022,9 @@ union LPCG31_SETPOINT {
   
   // Bit field definition.
   struct {
+    /// read-write - Setpoints
     uint32_t SETPOINT : 16;
+    /// read-write - Standby
     uint32_t STANDBY : 16;
   } bits;
   
@@ -15412,9 +17085,12 @@ union LPCG31_STATUS0 {
   
   // Bit field definition.
   struct {
+    /// read-only - LPCG current state
     eON ON : 1;
     uint32_t _reserved_0 : 7;
+    /// read-only - Domains that own this clock gate
     eACTIVE_DOMAIN ACTIVE_DOMAIN : 4;
+    /// read-only - Enable status from each domain
     eDOMAIN_ENABLE DOMAIN_ENABLE : 4;
     uint32_t _reserved_1 : 16;
   } bits;
@@ -15521,23 +17197,41 @@ union LPCG31_STATUS1 {
   
   // Bit field definition.
   struct {
+    /// read-only - Domain0 Low Power Mode
     eCPU0_MODE CPU0_MODE : 2;
+    /// read-only - Domain0 request enter Low Power Mode
     eCPU0_MODE_REQUEST CPU0_MODE_REQUEST : 1;
+    /// read-only - Domain0 Low Power Mode task done
     eCPU0_MODE_DONE CPU0_MODE_DONE : 1;
+    /// read-only - Domain1 Low Power Mode
     eCPU1_MODE CPU1_MODE : 2;
+    /// read-only - Domain1 request enter Low Power Mode
     eCPU1_MODE_REQUEST CPU1_MODE_REQUEST : 1;
+    /// read-only - Domain1 Low Power Mode task done
     eCPU1_MODE_DONE CPU1_MODE_DONE : 1;
+    /// read-only - Domain2 Low Power Mode
     eCPU2_MODE CPU2_MODE : 2;
+    /// read-only - Domain2 request enter Low Power Mode
     eCPU2_MODE_REQUEST CPU2_MODE_REQUEST : 1;
+    /// read-only - Domain2 Low Power Mode task done
     eCPU2_MODE_DONE CPU2_MODE_DONE : 1;
+    /// read-only - Domain3 Low Power Mode
     eCPU3_MODE CPU3_MODE : 2;
+    /// read-only - Domain3 request enter Low Power Mode
     eCPU3_MODE_REQUEST CPU3_MODE_REQUEST : 1;
+    /// read-only - Domain3 Low Power Mode task done
     eCPU3_MODE_DONE CPU3_MODE_DONE : 1;
+    /// read-only - Next Setpoint to change to
     uint32_t TARGET_SETPOINT : 4;
+    /// read-only - Current Setpoint
     uint32_t CURRENT_SETPOINT : 4;
+    /// read-only - Clock gate turn off request from GPC Setpoint
     eSETPOINT_OFF_REQUEST SETPOINT_OFF_REQUEST : 1;
+    /// read-only - Clock gate turn off finish from GPC Setpoint
     eSETPOINT_OFF_DONE SETPOINT_OFF_DONE : 1;
+    /// read-only - Clock gate turn on request from GPC Setpoint
     eSETPOINT_ON_REQUEST SETPOINT_ON_REQUEST : 1;
+    /// read-only - Clock gate turn on finish from GPC Setpoint
     eSETPOINT_ON_DONE SETPOINT_ON_DONE : 1;
     uint32_t _reserved_0 : 4;
   } bits;
@@ -15562,6 +17256,7 @@ union LPCG31_CONFIG {
   // Bit field definition.
   struct {
     uint32_t _reserved_0 : 4;
+    /// read-only - Setpoint present
     eSETPOINT_PRESENT SETPOINT_PRESENT : 1;
     uint32_t _reserved_1 : 27;
   } bits;
@@ -15620,18 +17315,27 @@ union LPCG31_AUTHEN {
   
   // Bit field definition.
   struct {
+    /// read-write - User access
     eTZ_USER TZ_USER : 1;
+    /// read-write - Non-secure access
     eTZ_NS TZ_NS : 1;
     uint32_t _reserved_0 : 2;
+    /// read-write - lock truszone setting
     eLOCK_TZ LOCK_TZ : 1;
     uint32_t _reserved_1 : 3;
+    /// read-write - Whitelist
     uint32_t WHITE_LIST : 4;
+    /// read-write - Lock Whitelist
     eLOCK_LIST LOCK_LIST : 1;
     uint32_t _reserved_2 : 3;
+    /// read-write - Low power and access control by domain
     eDOMAIN_MODE DOMAIN_MODE : 1;
+    /// read-write - Low power and access control by Setpoint
     eSETPOINT_MODE SETPOINT_MODE : 1;
+    /// read-write - CPU Low Power Mode
     eCPULPM CPULPM : 1;
     uint32_t _reserved_3 : 1;
+    /// read-write - Lock low power and access mode
     eLOCK_MODE LOCK_MODE : 1;
     uint32_t _reserved_4 : 11;
   } bits;
@@ -15655,6 +17359,7 @@ union LPCG32_DIRECT {
   
   // Bit field definition.
   struct {
+    /// read-write - LPCG on
     eON ON : 1;
     uint32_t _reserved_0 : 31;
   } bits;
@@ -15713,14 +17418,19 @@ union LPCG32_DOMAIN {
   
   // Bit field definition.
   struct {
+    /// read-write - Current dependence level
     eLEVEL LEVEL : 3;
     uint32_t _reserved_0 : 13;
+    /// read-write - Depend level
     eLEVEL0 LEVEL0 : 3;
     uint32_t _reserved_1 : 1;
+    /// read-write - Depend level
     eLEVEL1 LEVEL1 : 3;
     uint32_t _reserved_2 : 1;
+    /// read-write - Depend level
     eLEVEL2 LEVEL2 : 3;
     uint32_t _reserved_3 : 1;
+    /// read-write - Depend level
     eLEVEL3 LEVEL3 : 3;
     uint32_t _reserved_4 : 1;
   } bits;
@@ -15739,7 +17449,9 @@ union LPCG32_SETPOINT {
   
   // Bit field definition.
   struct {
+    /// read-write - Setpoints
     uint32_t SETPOINT : 16;
+    /// read-write - Standby
     uint32_t STANDBY : 16;
   } bits;
   
@@ -15800,9 +17512,12 @@ union LPCG32_STATUS0 {
   
   // Bit field definition.
   struct {
+    /// read-only - LPCG current state
     eON ON : 1;
     uint32_t _reserved_0 : 7;
+    /// read-only - Domains that own this clock gate
     eACTIVE_DOMAIN ACTIVE_DOMAIN : 4;
+    /// read-only - Enable status from each domain
     eDOMAIN_ENABLE DOMAIN_ENABLE : 4;
     uint32_t _reserved_1 : 16;
   } bits;
@@ -15909,23 +17624,41 @@ union LPCG32_STATUS1 {
   
   // Bit field definition.
   struct {
+    /// read-only - Domain0 Low Power Mode
     eCPU0_MODE CPU0_MODE : 2;
+    /// read-only - Domain0 request enter Low Power Mode
     eCPU0_MODE_REQUEST CPU0_MODE_REQUEST : 1;
+    /// read-only - Domain0 Low Power Mode task done
     eCPU0_MODE_DONE CPU0_MODE_DONE : 1;
+    /// read-only - Domain1 Low Power Mode
     eCPU1_MODE CPU1_MODE : 2;
+    /// read-only - Domain1 request enter Low Power Mode
     eCPU1_MODE_REQUEST CPU1_MODE_REQUEST : 1;
+    /// read-only - Domain1 Low Power Mode task done
     eCPU1_MODE_DONE CPU1_MODE_DONE : 1;
+    /// read-only - Domain2 Low Power Mode
     eCPU2_MODE CPU2_MODE : 2;
+    /// read-only - Domain2 request enter Low Power Mode
     eCPU2_MODE_REQUEST CPU2_MODE_REQUEST : 1;
+    /// read-only - Domain2 Low Power Mode task done
     eCPU2_MODE_DONE CPU2_MODE_DONE : 1;
+    /// read-only - Domain3 Low Power Mode
     eCPU3_MODE CPU3_MODE : 2;
+    /// read-only - Domain3 request enter Low Power Mode
     eCPU3_MODE_REQUEST CPU3_MODE_REQUEST : 1;
+    /// read-only - Domain3 Low Power Mode task done
     eCPU3_MODE_DONE CPU3_MODE_DONE : 1;
+    /// read-only - Next Setpoint to change to
     uint32_t TARGET_SETPOINT : 4;
+    /// read-only - Current Setpoint
     uint32_t CURRENT_SETPOINT : 4;
+    /// read-only - Clock gate turn off request from GPC Setpoint
     eSETPOINT_OFF_REQUEST SETPOINT_OFF_REQUEST : 1;
+    /// read-only - Clock gate turn off finish from GPC Setpoint
     eSETPOINT_OFF_DONE SETPOINT_OFF_DONE : 1;
+    /// read-only - Clock gate turn on request from GPC Setpoint
     eSETPOINT_ON_REQUEST SETPOINT_ON_REQUEST : 1;
+    /// read-only - Clock gate turn on finish from GPC Setpoint
     eSETPOINT_ON_DONE SETPOINT_ON_DONE : 1;
     uint32_t _reserved_0 : 4;
   } bits;
@@ -15950,6 +17683,7 @@ union LPCG32_CONFIG {
   // Bit field definition.
   struct {
     uint32_t _reserved_0 : 4;
+    /// read-only - Setpoint present
     eSETPOINT_PRESENT SETPOINT_PRESENT : 1;
     uint32_t _reserved_1 : 27;
   } bits;
@@ -16008,18 +17742,27 @@ union LPCG32_AUTHEN {
   
   // Bit field definition.
   struct {
+    /// read-write - User access
     eTZ_USER TZ_USER : 1;
+    /// read-write - Non-secure access
     eTZ_NS TZ_NS : 1;
     uint32_t _reserved_0 : 2;
+    /// read-write - lock truszone setting
     eLOCK_TZ LOCK_TZ : 1;
     uint32_t _reserved_1 : 3;
+    /// read-write - Whitelist
     uint32_t WHITE_LIST : 4;
+    /// read-write - Lock Whitelist
     eLOCK_LIST LOCK_LIST : 1;
     uint32_t _reserved_2 : 3;
+    /// read-write - Low power and access control by domain
     eDOMAIN_MODE DOMAIN_MODE : 1;
+    /// read-write - Low power and access control by Setpoint
     eSETPOINT_MODE SETPOINT_MODE : 1;
+    /// read-write - CPU Low Power Mode
     eCPULPM CPULPM : 1;
     uint32_t _reserved_3 : 1;
+    /// read-write - Lock low power and access mode
     eLOCK_MODE LOCK_MODE : 1;
     uint32_t _reserved_4 : 11;
   } bits;
@@ -16043,6 +17786,7 @@ union LPCG33_DIRECT {
   
   // Bit field definition.
   struct {
+    /// read-write - LPCG on
     eON ON : 1;
     uint32_t _reserved_0 : 31;
   } bits;
@@ -16101,14 +17845,19 @@ union LPCG33_DOMAIN {
   
   // Bit field definition.
   struct {
+    /// read-write - Current dependence level
     eLEVEL LEVEL : 3;
     uint32_t _reserved_0 : 13;
+    /// read-write - Depend level
     eLEVEL0 LEVEL0 : 3;
     uint32_t _reserved_1 : 1;
+    /// read-write - Depend level
     eLEVEL1 LEVEL1 : 3;
     uint32_t _reserved_2 : 1;
+    /// read-write - Depend level
     eLEVEL2 LEVEL2 : 3;
     uint32_t _reserved_3 : 1;
+    /// read-write - Depend level
     eLEVEL3 LEVEL3 : 3;
     uint32_t _reserved_4 : 1;
   } bits;
@@ -16127,7 +17876,9 @@ union LPCG33_SETPOINT {
   
   // Bit field definition.
   struct {
+    /// read-write - Setpoints
     uint32_t SETPOINT : 16;
+    /// read-write - Standby
     uint32_t STANDBY : 16;
   } bits;
   
@@ -16188,9 +17939,12 @@ union LPCG33_STATUS0 {
   
   // Bit field definition.
   struct {
+    /// read-only - LPCG current state
     eON ON : 1;
     uint32_t _reserved_0 : 7;
+    /// read-only - Domains that own this clock gate
     eACTIVE_DOMAIN ACTIVE_DOMAIN : 4;
+    /// read-only - Enable status from each domain
     eDOMAIN_ENABLE DOMAIN_ENABLE : 4;
     uint32_t _reserved_1 : 16;
   } bits;
@@ -16297,23 +18051,41 @@ union LPCG33_STATUS1 {
   
   // Bit field definition.
   struct {
+    /// read-only - Domain0 Low Power Mode
     eCPU0_MODE CPU0_MODE : 2;
+    /// read-only - Domain0 request enter Low Power Mode
     eCPU0_MODE_REQUEST CPU0_MODE_REQUEST : 1;
+    /// read-only - Domain0 Low Power Mode task done
     eCPU0_MODE_DONE CPU0_MODE_DONE : 1;
+    /// read-only - Domain1 Low Power Mode
     eCPU1_MODE CPU1_MODE : 2;
+    /// read-only - Domain1 request enter Low Power Mode
     eCPU1_MODE_REQUEST CPU1_MODE_REQUEST : 1;
+    /// read-only - Domain1 Low Power Mode task done
     eCPU1_MODE_DONE CPU1_MODE_DONE : 1;
+    /// read-only - Domain2 Low Power Mode
     eCPU2_MODE CPU2_MODE : 2;
+    /// read-only - Domain2 request enter Low Power Mode
     eCPU2_MODE_REQUEST CPU2_MODE_REQUEST : 1;
+    /// read-only - Domain2 Low Power Mode task done
     eCPU2_MODE_DONE CPU2_MODE_DONE : 1;
+    /// read-only - Domain3 Low Power Mode
     eCPU3_MODE CPU3_MODE : 2;
+    /// read-only - Domain3 request enter Low Power Mode
     eCPU3_MODE_REQUEST CPU3_MODE_REQUEST : 1;
+    /// read-only - Domain3 Low Power Mode task done
     eCPU3_MODE_DONE CPU3_MODE_DONE : 1;
+    /// read-only - Next Setpoint to change to
     uint32_t TARGET_SETPOINT : 4;
+    /// read-only - Current Setpoint
     uint32_t CURRENT_SETPOINT : 4;
+    /// read-only - Clock gate turn off request from GPC Setpoint
     eSETPOINT_OFF_REQUEST SETPOINT_OFF_REQUEST : 1;
+    /// read-only - Clock gate turn off finish from GPC Setpoint
     eSETPOINT_OFF_DONE SETPOINT_OFF_DONE : 1;
+    /// read-only - Clock gate turn on request from GPC Setpoint
     eSETPOINT_ON_REQUEST SETPOINT_ON_REQUEST : 1;
+    /// read-only - Clock gate turn on finish from GPC Setpoint
     eSETPOINT_ON_DONE SETPOINT_ON_DONE : 1;
     uint32_t _reserved_0 : 4;
   } bits;
@@ -16338,6 +18110,7 @@ union LPCG33_CONFIG {
   // Bit field definition.
   struct {
     uint32_t _reserved_0 : 4;
+    /// read-only - Setpoint present
     eSETPOINT_PRESENT SETPOINT_PRESENT : 1;
     uint32_t _reserved_1 : 27;
   } bits;
@@ -16396,18 +18169,27 @@ union LPCG33_AUTHEN {
   
   // Bit field definition.
   struct {
+    /// read-write - User access
     eTZ_USER TZ_USER : 1;
+    /// read-write - Non-secure access
     eTZ_NS TZ_NS : 1;
     uint32_t _reserved_0 : 2;
+    /// read-write - lock truszone setting
     eLOCK_TZ LOCK_TZ : 1;
     uint32_t _reserved_1 : 3;
+    /// read-write - Whitelist
     uint32_t WHITE_LIST : 4;
+    /// read-write - Lock Whitelist
     eLOCK_LIST LOCK_LIST : 1;
     uint32_t _reserved_2 : 3;
+    /// read-write - Low power and access control by domain
     eDOMAIN_MODE DOMAIN_MODE : 1;
+    /// read-write - Low power and access control by Setpoint
     eSETPOINT_MODE SETPOINT_MODE : 1;
+    /// read-write - CPU Low Power Mode
     eCPULPM CPULPM : 1;
     uint32_t _reserved_3 : 1;
+    /// read-write - Lock low power and access mode
     eLOCK_MODE LOCK_MODE : 1;
     uint32_t _reserved_4 : 11;
   } bits;
@@ -16431,6 +18213,7 @@ union LPCG34_DIRECT {
   
   // Bit field definition.
   struct {
+    /// read-write - LPCG on
     eON ON : 1;
     uint32_t _reserved_0 : 31;
   } bits;
@@ -16489,14 +18272,19 @@ union LPCG34_DOMAIN {
   
   // Bit field definition.
   struct {
+    /// read-write - Current dependence level
     eLEVEL LEVEL : 3;
     uint32_t _reserved_0 : 13;
+    /// read-write - Depend level
     eLEVEL0 LEVEL0 : 3;
     uint32_t _reserved_1 : 1;
+    /// read-write - Depend level
     eLEVEL1 LEVEL1 : 3;
     uint32_t _reserved_2 : 1;
+    /// read-write - Depend level
     eLEVEL2 LEVEL2 : 3;
     uint32_t _reserved_3 : 1;
+    /// read-write - Depend level
     eLEVEL3 LEVEL3 : 3;
     uint32_t _reserved_4 : 1;
   } bits;
@@ -16515,7 +18303,9 @@ union LPCG34_SETPOINT {
   
   // Bit field definition.
   struct {
+    /// read-write - Setpoints
     uint32_t SETPOINT : 16;
+    /// read-write - Standby
     uint32_t STANDBY : 16;
   } bits;
   
@@ -16576,9 +18366,12 @@ union LPCG34_STATUS0 {
   
   // Bit field definition.
   struct {
+    /// read-only - LPCG current state
     eON ON : 1;
     uint32_t _reserved_0 : 7;
+    /// read-only - Domains that own this clock gate
     eACTIVE_DOMAIN ACTIVE_DOMAIN : 4;
+    /// read-only - Enable status from each domain
     eDOMAIN_ENABLE DOMAIN_ENABLE : 4;
     uint32_t _reserved_1 : 16;
   } bits;
@@ -16685,23 +18478,41 @@ union LPCG34_STATUS1 {
   
   // Bit field definition.
   struct {
+    /// read-only - Domain0 Low Power Mode
     eCPU0_MODE CPU0_MODE : 2;
+    /// read-only - Domain0 request enter Low Power Mode
     eCPU0_MODE_REQUEST CPU0_MODE_REQUEST : 1;
+    /// read-only - Domain0 Low Power Mode task done
     eCPU0_MODE_DONE CPU0_MODE_DONE : 1;
+    /// read-only - Domain1 Low Power Mode
     eCPU1_MODE CPU1_MODE : 2;
+    /// read-only - Domain1 request enter Low Power Mode
     eCPU1_MODE_REQUEST CPU1_MODE_REQUEST : 1;
+    /// read-only - Domain1 Low Power Mode task done
     eCPU1_MODE_DONE CPU1_MODE_DONE : 1;
+    /// read-only - Domain2 Low Power Mode
     eCPU2_MODE CPU2_MODE : 2;
+    /// read-only - Domain2 request enter Low Power Mode
     eCPU2_MODE_REQUEST CPU2_MODE_REQUEST : 1;
+    /// read-only - Domain2 Low Power Mode task done
     eCPU2_MODE_DONE CPU2_MODE_DONE : 1;
+    /// read-only - Domain3 Low Power Mode
     eCPU3_MODE CPU3_MODE : 2;
+    /// read-only - Domain3 request enter Low Power Mode
     eCPU3_MODE_REQUEST CPU3_MODE_REQUEST : 1;
+    /// read-only - Domain3 Low Power Mode task done
     eCPU3_MODE_DONE CPU3_MODE_DONE : 1;
+    /// read-only - Next Setpoint to change to
     uint32_t TARGET_SETPOINT : 4;
+    /// read-only - Current Setpoint
     uint32_t CURRENT_SETPOINT : 4;
+    /// read-only - Clock gate turn off request from GPC Setpoint
     eSETPOINT_OFF_REQUEST SETPOINT_OFF_REQUEST : 1;
+    /// read-only - Clock gate turn off finish from GPC Setpoint
     eSETPOINT_OFF_DONE SETPOINT_OFF_DONE : 1;
+    /// read-only - Clock gate turn on request from GPC Setpoint
     eSETPOINT_ON_REQUEST SETPOINT_ON_REQUEST : 1;
+    /// read-only - Clock gate turn on finish from GPC Setpoint
     eSETPOINT_ON_DONE SETPOINT_ON_DONE : 1;
     uint32_t _reserved_0 : 4;
   } bits;
@@ -16726,6 +18537,7 @@ union LPCG34_CONFIG {
   // Bit field definition.
   struct {
     uint32_t _reserved_0 : 4;
+    /// read-only - Setpoint present
     eSETPOINT_PRESENT SETPOINT_PRESENT : 1;
     uint32_t _reserved_1 : 27;
   } bits;
@@ -16784,18 +18596,27 @@ union LPCG34_AUTHEN {
   
   // Bit field definition.
   struct {
+    /// read-write - User access
     eTZ_USER TZ_USER : 1;
+    /// read-write - Non-secure access
     eTZ_NS TZ_NS : 1;
     uint32_t _reserved_0 : 2;
+    /// read-write - lock truszone setting
     eLOCK_TZ LOCK_TZ : 1;
     uint32_t _reserved_1 : 3;
+    /// read-write - Whitelist
     uint32_t WHITE_LIST : 4;
+    /// read-write - Lock Whitelist
     eLOCK_LIST LOCK_LIST : 1;
     uint32_t _reserved_2 : 3;
+    /// read-write - Low power and access control by domain
     eDOMAIN_MODE DOMAIN_MODE : 1;
+    /// read-write - Low power and access control by Setpoint
     eSETPOINT_MODE SETPOINT_MODE : 1;
+    /// read-write - CPU Low Power Mode
     eCPULPM CPULPM : 1;
     uint32_t _reserved_3 : 1;
+    /// read-write - Lock low power and access mode
     eLOCK_MODE LOCK_MODE : 1;
     uint32_t _reserved_4 : 11;
   } bits;
@@ -16819,6 +18640,7 @@ union LPCG35_DIRECT {
   
   // Bit field definition.
   struct {
+    /// read-write - LPCG on
     eON ON : 1;
     uint32_t _reserved_0 : 31;
   } bits;
@@ -16877,14 +18699,19 @@ union LPCG35_DOMAIN {
   
   // Bit field definition.
   struct {
+    /// read-write - Current dependence level
     eLEVEL LEVEL : 3;
     uint32_t _reserved_0 : 13;
+    /// read-write - Depend level
     eLEVEL0 LEVEL0 : 3;
     uint32_t _reserved_1 : 1;
+    /// read-write - Depend level
     eLEVEL1 LEVEL1 : 3;
     uint32_t _reserved_2 : 1;
+    /// read-write - Depend level
     eLEVEL2 LEVEL2 : 3;
     uint32_t _reserved_3 : 1;
+    /// read-write - Depend level
     eLEVEL3 LEVEL3 : 3;
     uint32_t _reserved_4 : 1;
   } bits;
@@ -16903,7 +18730,9 @@ union LPCG35_SETPOINT {
   
   // Bit field definition.
   struct {
+    /// read-write - Setpoints
     uint32_t SETPOINT : 16;
+    /// read-write - Standby
     uint32_t STANDBY : 16;
   } bits;
   
@@ -16964,9 +18793,12 @@ union LPCG35_STATUS0 {
   
   // Bit field definition.
   struct {
+    /// read-only - LPCG current state
     eON ON : 1;
     uint32_t _reserved_0 : 7;
+    /// read-only - Domains that own this clock gate
     eACTIVE_DOMAIN ACTIVE_DOMAIN : 4;
+    /// read-only - Enable status from each domain
     eDOMAIN_ENABLE DOMAIN_ENABLE : 4;
     uint32_t _reserved_1 : 16;
   } bits;
@@ -17073,23 +18905,41 @@ union LPCG35_STATUS1 {
   
   // Bit field definition.
   struct {
+    /// read-only - Domain0 Low Power Mode
     eCPU0_MODE CPU0_MODE : 2;
+    /// read-only - Domain0 request enter Low Power Mode
     eCPU0_MODE_REQUEST CPU0_MODE_REQUEST : 1;
+    /// read-only - Domain0 Low Power Mode task done
     eCPU0_MODE_DONE CPU0_MODE_DONE : 1;
+    /// read-only - Domain1 Low Power Mode
     eCPU1_MODE CPU1_MODE : 2;
+    /// read-only - Domain1 request enter Low Power Mode
     eCPU1_MODE_REQUEST CPU1_MODE_REQUEST : 1;
+    /// read-only - Domain1 Low Power Mode task done
     eCPU1_MODE_DONE CPU1_MODE_DONE : 1;
+    /// read-only - Domain2 Low Power Mode
     eCPU2_MODE CPU2_MODE : 2;
+    /// read-only - Domain2 request enter Low Power Mode
     eCPU2_MODE_REQUEST CPU2_MODE_REQUEST : 1;
+    /// read-only - Domain2 Low Power Mode task done
     eCPU2_MODE_DONE CPU2_MODE_DONE : 1;
+    /// read-only - Domain3 Low Power Mode
     eCPU3_MODE CPU3_MODE : 2;
+    /// read-only - Domain3 request enter Low Power Mode
     eCPU3_MODE_REQUEST CPU3_MODE_REQUEST : 1;
+    /// read-only - Domain3 Low Power Mode task done
     eCPU3_MODE_DONE CPU3_MODE_DONE : 1;
+    /// read-only - Next Setpoint to change to
     uint32_t TARGET_SETPOINT : 4;
+    /// read-only - Current Setpoint
     uint32_t CURRENT_SETPOINT : 4;
+    /// read-only - Clock gate turn off request from GPC Setpoint
     eSETPOINT_OFF_REQUEST SETPOINT_OFF_REQUEST : 1;
+    /// read-only - Clock gate turn off finish from GPC Setpoint
     eSETPOINT_OFF_DONE SETPOINT_OFF_DONE : 1;
+    /// read-only - Clock gate turn on request from GPC Setpoint
     eSETPOINT_ON_REQUEST SETPOINT_ON_REQUEST : 1;
+    /// read-only - Clock gate turn on finish from GPC Setpoint
     eSETPOINT_ON_DONE SETPOINT_ON_DONE : 1;
     uint32_t _reserved_0 : 4;
   } bits;
@@ -17114,6 +18964,7 @@ union LPCG35_CONFIG {
   // Bit field definition.
   struct {
     uint32_t _reserved_0 : 4;
+    /// read-only - Setpoint present
     eSETPOINT_PRESENT SETPOINT_PRESENT : 1;
     uint32_t _reserved_1 : 27;
   } bits;
@@ -17172,18 +19023,27 @@ union LPCG35_AUTHEN {
   
   // Bit field definition.
   struct {
+    /// read-write - User access
     eTZ_USER TZ_USER : 1;
+    /// read-write - Non-secure access
     eTZ_NS TZ_NS : 1;
     uint32_t _reserved_0 : 2;
+    /// read-write - lock truszone setting
     eLOCK_TZ LOCK_TZ : 1;
     uint32_t _reserved_1 : 3;
+    /// read-write - Whitelist
     uint32_t WHITE_LIST : 4;
+    /// read-write - Lock Whitelist
     eLOCK_LIST LOCK_LIST : 1;
     uint32_t _reserved_2 : 3;
+    /// read-write - Low power and access control by domain
     eDOMAIN_MODE DOMAIN_MODE : 1;
+    /// read-write - Low power and access control by Setpoint
     eSETPOINT_MODE SETPOINT_MODE : 1;
+    /// read-write - CPU Low Power Mode
     eCPULPM CPULPM : 1;
     uint32_t _reserved_3 : 1;
+    /// read-write - Lock low power and access mode
     eLOCK_MODE LOCK_MODE : 1;
     uint32_t _reserved_4 : 11;
   } bits;
@@ -17207,6 +19067,7 @@ union LPCG36_DIRECT {
   
   // Bit field definition.
   struct {
+    /// read-write - LPCG on
     eON ON : 1;
     uint32_t _reserved_0 : 31;
   } bits;
@@ -17265,14 +19126,19 @@ union LPCG36_DOMAIN {
   
   // Bit field definition.
   struct {
+    /// read-write - Current dependence level
     eLEVEL LEVEL : 3;
     uint32_t _reserved_0 : 13;
+    /// read-write - Depend level
     eLEVEL0 LEVEL0 : 3;
     uint32_t _reserved_1 : 1;
+    /// read-write - Depend level
     eLEVEL1 LEVEL1 : 3;
     uint32_t _reserved_2 : 1;
+    /// read-write - Depend level
     eLEVEL2 LEVEL2 : 3;
     uint32_t _reserved_3 : 1;
+    /// read-write - Depend level
     eLEVEL3 LEVEL3 : 3;
     uint32_t _reserved_4 : 1;
   } bits;
@@ -17291,7 +19157,9 @@ union LPCG36_SETPOINT {
   
   // Bit field definition.
   struct {
+    /// read-write - Setpoints
     uint32_t SETPOINT : 16;
+    /// read-write - Standby
     uint32_t STANDBY : 16;
   } bits;
   
@@ -17352,9 +19220,12 @@ union LPCG36_STATUS0 {
   
   // Bit field definition.
   struct {
+    /// read-only - LPCG current state
     eON ON : 1;
     uint32_t _reserved_0 : 7;
+    /// read-only - Domains that own this clock gate
     eACTIVE_DOMAIN ACTIVE_DOMAIN : 4;
+    /// read-only - Enable status from each domain
     eDOMAIN_ENABLE DOMAIN_ENABLE : 4;
     uint32_t _reserved_1 : 16;
   } bits;
@@ -17461,23 +19332,41 @@ union LPCG36_STATUS1 {
   
   // Bit field definition.
   struct {
+    /// read-only - Domain0 Low Power Mode
     eCPU0_MODE CPU0_MODE : 2;
+    /// read-only - Domain0 request enter Low Power Mode
     eCPU0_MODE_REQUEST CPU0_MODE_REQUEST : 1;
+    /// read-only - Domain0 Low Power Mode task done
     eCPU0_MODE_DONE CPU0_MODE_DONE : 1;
+    /// read-only - Domain1 Low Power Mode
     eCPU1_MODE CPU1_MODE : 2;
+    /// read-only - Domain1 request enter Low Power Mode
     eCPU1_MODE_REQUEST CPU1_MODE_REQUEST : 1;
+    /// read-only - Domain1 Low Power Mode task done
     eCPU1_MODE_DONE CPU1_MODE_DONE : 1;
+    /// read-only - Domain2 Low Power Mode
     eCPU2_MODE CPU2_MODE : 2;
+    /// read-only - Domain2 request enter Low Power Mode
     eCPU2_MODE_REQUEST CPU2_MODE_REQUEST : 1;
+    /// read-only - Domain2 Low Power Mode task done
     eCPU2_MODE_DONE CPU2_MODE_DONE : 1;
+    /// read-only - Domain3 Low Power Mode
     eCPU3_MODE CPU3_MODE : 2;
+    /// read-only - Domain3 request enter Low Power Mode
     eCPU3_MODE_REQUEST CPU3_MODE_REQUEST : 1;
+    /// read-only - Domain3 Low Power Mode task done
     eCPU3_MODE_DONE CPU3_MODE_DONE : 1;
+    /// read-only - Next Setpoint to change to
     uint32_t TARGET_SETPOINT : 4;
+    /// read-only - Current Setpoint
     uint32_t CURRENT_SETPOINT : 4;
+    /// read-only - Clock gate turn off request from GPC Setpoint
     eSETPOINT_OFF_REQUEST SETPOINT_OFF_REQUEST : 1;
+    /// read-only - Clock gate turn off finish from GPC Setpoint
     eSETPOINT_OFF_DONE SETPOINT_OFF_DONE : 1;
+    /// read-only - Clock gate turn on request from GPC Setpoint
     eSETPOINT_ON_REQUEST SETPOINT_ON_REQUEST : 1;
+    /// read-only - Clock gate turn on finish from GPC Setpoint
     eSETPOINT_ON_DONE SETPOINT_ON_DONE : 1;
     uint32_t _reserved_0 : 4;
   } bits;
@@ -17502,6 +19391,7 @@ union LPCG36_CONFIG {
   // Bit field definition.
   struct {
     uint32_t _reserved_0 : 4;
+    /// read-only - Setpoint present
     eSETPOINT_PRESENT SETPOINT_PRESENT : 1;
     uint32_t _reserved_1 : 27;
   } bits;
@@ -17560,18 +19450,27 @@ union LPCG36_AUTHEN {
   
   // Bit field definition.
   struct {
+    /// read-write - User access
     eTZ_USER TZ_USER : 1;
+    /// read-write - Non-secure access
     eTZ_NS TZ_NS : 1;
     uint32_t _reserved_0 : 2;
+    /// read-write - lock truszone setting
     eLOCK_TZ LOCK_TZ : 1;
     uint32_t _reserved_1 : 3;
+    /// read-write - Whitelist
     uint32_t WHITE_LIST : 4;
+    /// read-write - Lock Whitelist
     eLOCK_LIST LOCK_LIST : 1;
     uint32_t _reserved_2 : 3;
+    /// read-write - Low power and access control by domain
     eDOMAIN_MODE DOMAIN_MODE : 1;
+    /// read-write - Low power and access control by Setpoint
     eSETPOINT_MODE SETPOINT_MODE : 1;
+    /// read-write - CPU Low Power Mode
     eCPULPM CPULPM : 1;
     uint32_t _reserved_3 : 1;
+    /// read-write - Lock low power and access mode
     eLOCK_MODE LOCK_MODE : 1;
     uint32_t _reserved_4 : 11;
   } bits;
@@ -17595,6 +19494,7 @@ union LPCG37_DIRECT {
   
   // Bit field definition.
   struct {
+    /// read-write - LPCG on
     eON ON : 1;
     uint32_t _reserved_0 : 31;
   } bits;
@@ -17653,14 +19553,19 @@ union LPCG37_DOMAIN {
   
   // Bit field definition.
   struct {
+    /// read-write - Current dependence level
     eLEVEL LEVEL : 3;
     uint32_t _reserved_0 : 13;
+    /// read-write - Depend level
     eLEVEL0 LEVEL0 : 3;
     uint32_t _reserved_1 : 1;
+    /// read-write - Depend level
     eLEVEL1 LEVEL1 : 3;
     uint32_t _reserved_2 : 1;
+    /// read-write - Depend level
     eLEVEL2 LEVEL2 : 3;
     uint32_t _reserved_3 : 1;
+    /// read-write - Depend level
     eLEVEL3 LEVEL3 : 3;
     uint32_t _reserved_4 : 1;
   } bits;
@@ -17679,7 +19584,9 @@ union LPCG37_SETPOINT {
   
   // Bit field definition.
   struct {
+    /// read-write - Setpoints
     uint32_t SETPOINT : 16;
+    /// read-write - Standby
     uint32_t STANDBY : 16;
   } bits;
   
@@ -17740,9 +19647,12 @@ union LPCG37_STATUS0 {
   
   // Bit field definition.
   struct {
+    /// read-only - LPCG current state
     eON ON : 1;
     uint32_t _reserved_0 : 7;
+    /// read-only - Domains that own this clock gate
     eACTIVE_DOMAIN ACTIVE_DOMAIN : 4;
+    /// read-only - Enable status from each domain
     eDOMAIN_ENABLE DOMAIN_ENABLE : 4;
     uint32_t _reserved_1 : 16;
   } bits;
@@ -17849,23 +19759,41 @@ union LPCG37_STATUS1 {
   
   // Bit field definition.
   struct {
+    /// read-only - Domain0 Low Power Mode
     eCPU0_MODE CPU0_MODE : 2;
+    /// read-only - Domain0 request enter Low Power Mode
     eCPU0_MODE_REQUEST CPU0_MODE_REQUEST : 1;
+    /// read-only - Domain0 Low Power Mode task done
     eCPU0_MODE_DONE CPU0_MODE_DONE : 1;
+    /// read-only - Domain1 Low Power Mode
     eCPU1_MODE CPU1_MODE : 2;
+    /// read-only - Domain1 request enter Low Power Mode
     eCPU1_MODE_REQUEST CPU1_MODE_REQUEST : 1;
+    /// read-only - Domain1 Low Power Mode task done
     eCPU1_MODE_DONE CPU1_MODE_DONE : 1;
+    /// read-only - Domain2 Low Power Mode
     eCPU2_MODE CPU2_MODE : 2;
+    /// read-only - Domain2 request enter Low Power Mode
     eCPU2_MODE_REQUEST CPU2_MODE_REQUEST : 1;
+    /// read-only - Domain2 Low Power Mode task done
     eCPU2_MODE_DONE CPU2_MODE_DONE : 1;
+    /// read-only - Domain3 Low Power Mode
     eCPU3_MODE CPU3_MODE : 2;
+    /// read-only - Domain3 request enter Low Power Mode
     eCPU3_MODE_REQUEST CPU3_MODE_REQUEST : 1;
+    /// read-only - Domain3 Low Power Mode task done
     eCPU3_MODE_DONE CPU3_MODE_DONE : 1;
+    /// read-only - Next Setpoint to change to
     uint32_t TARGET_SETPOINT : 4;
+    /// read-only - Current Setpoint
     uint32_t CURRENT_SETPOINT : 4;
+    /// read-only - Clock gate turn off request from GPC Setpoint
     eSETPOINT_OFF_REQUEST SETPOINT_OFF_REQUEST : 1;
+    /// read-only - Clock gate turn off finish from GPC Setpoint
     eSETPOINT_OFF_DONE SETPOINT_OFF_DONE : 1;
+    /// read-only - Clock gate turn on request from GPC Setpoint
     eSETPOINT_ON_REQUEST SETPOINT_ON_REQUEST : 1;
+    /// read-only - Clock gate turn on finish from GPC Setpoint
     eSETPOINT_ON_DONE SETPOINT_ON_DONE : 1;
     uint32_t _reserved_0 : 4;
   } bits;
@@ -17890,6 +19818,7 @@ union LPCG37_CONFIG {
   // Bit field definition.
   struct {
     uint32_t _reserved_0 : 4;
+    /// read-only - Setpoint present
     eSETPOINT_PRESENT SETPOINT_PRESENT : 1;
     uint32_t _reserved_1 : 27;
   } bits;
@@ -17948,18 +19877,27 @@ union LPCG37_AUTHEN {
   
   // Bit field definition.
   struct {
+    /// read-write - User access
     eTZ_USER TZ_USER : 1;
+    /// read-write - Non-secure access
     eTZ_NS TZ_NS : 1;
     uint32_t _reserved_0 : 2;
+    /// read-write - lock truszone setting
     eLOCK_TZ LOCK_TZ : 1;
     uint32_t _reserved_1 : 3;
+    /// read-write - Whitelist
     uint32_t WHITE_LIST : 4;
+    /// read-write - Lock Whitelist
     eLOCK_LIST LOCK_LIST : 1;
     uint32_t _reserved_2 : 3;
+    /// read-write - Low power and access control by domain
     eDOMAIN_MODE DOMAIN_MODE : 1;
+    /// read-write - Low power and access control by Setpoint
     eSETPOINT_MODE SETPOINT_MODE : 1;
+    /// read-write - CPU Low Power Mode
     eCPULPM CPULPM : 1;
     uint32_t _reserved_3 : 1;
+    /// read-write - Lock low power and access mode
     eLOCK_MODE LOCK_MODE : 1;
     uint32_t _reserved_4 : 11;
   } bits;
@@ -17983,6 +19921,7 @@ union LPCG38_DIRECT {
   
   // Bit field definition.
   struct {
+    /// read-write - LPCG on
     eON ON : 1;
     uint32_t _reserved_0 : 31;
   } bits;
@@ -18041,14 +19980,19 @@ union LPCG38_DOMAIN {
   
   // Bit field definition.
   struct {
+    /// read-write - Current dependence level
     eLEVEL LEVEL : 3;
     uint32_t _reserved_0 : 13;
+    /// read-write - Depend level
     eLEVEL0 LEVEL0 : 3;
     uint32_t _reserved_1 : 1;
+    /// read-write - Depend level
     eLEVEL1 LEVEL1 : 3;
     uint32_t _reserved_2 : 1;
+    /// read-write - Depend level
     eLEVEL2 LEVEL2 : 3;
     uint32_t _reserved_3 : 1;
+    /// read-write - Depend level
     eLEVEL3 LEVEL3 : 3;
     uint32_t _reserved_4 : 1;
   } bits;
@@ -18067,7 +20011,9 @@ union LPCG38_SETPOINT {
   
   // Bit field definition.
   struct {
+    /// read-write - Setpoints
     uint32_t SETPOINT : 16;
+    /// read-write - Standby
     uint32_t STANDBY : 16;
   } bits;
   
@@ -18128,9 +20074,12 @@ union LPCG38_STATUS0 {
   
   // Bit field definition.
   struct {
+    /// read-only - LPCG current state
     eON ON : 1;
     uint32_t _reserved_0 : 7;
+    /// read-only - Domains that own this clock gate
     eACTIVE_DOMAIN ACTIVE_DOMAIN : 4;
+    /// read-only - Enable status from each domain
     eDOMAIN_ENABLE DOMAIN_ENABLE : 4;
     uint32_t _reserved_1 : 16;
   } bits;
@@ -18237,23 +20186,41 @@ union LPCG38_STATUS1 {
   
   // Bit field definition.
   struct {
+    /// read-only - Domain0 Low Power Mode
     eCPU0_MODE CPU0_MODE : 2;
+    /// read-only - Domain0 request enter Low Power Mode
     eCPU0_MODE_REQUEST CPU0_MODE_REQUEST : 1;
+    /// read-only - Domain0 Low Power Mode task done
     eCPU0_MODE_DONE CPU0_MODE_DONE : 1;
+    /// read-only - Domain1 Low Power Mode
     eCPU1_MODE CPU1_MODE : 2;
+    /// read-only - Domain1 request enter Low Power Mode
     eCPU1_MODE_REQUEST CPU1_MODE_REQUEST : 1;
+    /// read-only - Domain1 Low Power Mode task done
     eCPU1_MODE_DONE CPU1_MODE_DONE : 1;
+    /// read-only - Domain2 Low Power Mode
     eCPU2_MODE CPU2_MODE : 2;
+    /// read-only - Domain2 request enter Low Power Mode
     eCPU2_MODE_REQUEST CPU2_MODE_REQUEST : 1;
+    /// read-only - Domain2 Low Power Mode task done
     eCPU2_MODE_DONE CPU2_MODE_DONE : 1;
+    /// read-only - Domain3 Low Power Mode
     eCPU3_MODE CPU3_MODE : 2;
+    /// read-only - Domain3 request enter Low Power Mode
     eCPU3_MODE_REQUEST CPU3_MODE_REQUEST : 1;
+    /// read-only - Domain3 Low Power Mode task done
     eCPU3_MODE_DONE CPU3_MODE_DONE : 1;
+    /// read-only - Next Setpoint to change to
     uint32_t TARGET_SETPOINT : 4;
+    /// read-only - Current Setpoint
     uint32_t CURRENT_SETPOINT : 4;
+    /// read-only - Clock gate turn off request from GPC Setpoint
     eSETPOINT_OFF_REQUEST SETPOINT_OFF_REQUEST : 1;
+    /// read-only - Clock gate turn off finish from GPC Setpoint
     eSETPOINT_OFF_DONE SETPOINT_OFF_DONE : 1;
+    /// read-only - Clock gate turn on request from GPC Setpoint
     eSETPOINT_ON_REQUEST SETPOINT_ON_REQUEST : 1;
+    /// read-only - Clock gate turn on finish from GPC Setpoint
     eSETPOINT_ON_DONE SETPOINT_ON_DONE : 1;
     uint32_t _reserved_0 : 4;
   } bits;
@@ -18278,6 +20245,7 @@ union LPCG38_CONFIG {
   // Bit field definition.
   struct {
     uint32_t _reserved_0 : 4;
+    /// read-only - Setpoint present
     eSETPOINT_PRESENT SETPOINT_PRESENT : 1;
     uint32_t _reserved_1 : 27;
   } bits;
@@ -18336,18 +20304,27 @@ union LPCG38_AUTHEN {
   
   // Bit field definition.
   struct {
+    /// read-write - User access
     eTZ_USER TZ_USER : 1;
+    /// read-write - Non-secure access
     eTZ_NS TZ_NS : 1;
     uint32_t _reserved_0 : 2;
+    /// read-write - lock truszone setting
     eLOCK_TZ LOCK_TZ : 1;
     uint32_t _reserved_1 : 3;
+    /// read-write - Whitelist
     uint32_t WHITE_LIST : 4;
+    /// read-write - Lock Whitelist
     eLOCK_LIST LOCK_LIST : 1;
     uint32_t _reserved_2 : 3;
+    /// read-write - Low power and access control by domain
     eDOMAIN_MODE DOMAIN_MODE : 1;
+    /// read-write - Low power and access control by Setpoint
     eSETPOINT_MODE SETPOINT_MODE : 1;
+    /// read-write - CPU Low Power Mode
     eCPULPM CPULPM : 1;
     uint32_t _reserved_3 : 1;
+    /// read-write - Lock low power and access mode
     eLOCK_MODE LOCK_MODE : 1;
     uint32_t _reserved_4 : 11;
   } bits;
@@ -18371,6 +20348,7 @@ union LPCG39_DIRECT {
   
   // Bit field definition.
   struct {
+    /// read-write - LPCG on
     eON ON : 1;
     uint32_t _reserved_0 : 31;
   } bits;
@@ -18429,14 +20407,19 @@ union LPCG39_DOMAIN {
   
   // Bit field definition.
   struct {
+    /// read-write - Current dependence level
     eLEVEL LEVEL : 3;
     uint32_t _reserved_0 : 13;
+    /// read-write - Depend level
     eLEVEL0 LEVEL0 : 3;
     uint32_t _reserved_1 : 1;
+    /// read-write - Depend level
     eLEVEL1 LEVEL1 : 3;
     uint32_t _reserved_2 : 1;
+    /// read-write - Depend level
     eLEVEL2 LEVEL2 : 3;
     uint32_t _reserved_3 : 1;
+    /// read-write - Depend level
     eLEVEL3 LEVEL3 : 3;
     uint32_t _reserved_4 : 1;
   } bits;
@@ -18455,7 +20438,9 @@ union LPCG39_SETPOINT {
   
   // Bit field definition.
   struct {
+    /// read-write - Setpoints
     uint32_t SETPOINT : 16;
+    /// read-write - Standby
     uint32_t STANDBY : 16;
   } bits;
   
@@ -18516,9 +20501,12 @@ union LPCG39_STATUS0 {
   
   // Bit field definition.
   struct {
+    /// read-only - LPCG current state
     eON ON : 1;
     uint32_t _reserved_0 : 7;
+    /// read-only - Domains that own this clock gate
     eACTIVE_DOMAIN ACTIVE_DOMAIN : 4;
+    /// read-only - Enable status from each domain
     eDOMAIN_ENABLE DOMAIN_ENABLE : 4;
     uint32_t _reserved_1 : 16;
   } bits;
@@ -18625,23 +20613,41 @@ union LPCG39_STATUS1 {
   
   // Bit field definition.
   struct {
+    /// read-only - Domain0 Low Power Mode
     eCPU0_MODE CPU0_MODE : 2;
+    /// read-only - Domain0 request enter Low Power Mode
     eCPU0_MODE_REQUEST CPU0_MODE_REQUEST : 1;
+    /// read-only - Domain0 Low Power Mode task done
     eCPU0_MODE_DONE CPU0_MODE_DONE : 1;
+    /// read-only - Domain1 Low Power Mode
     eCPU1_MODE CPU1_MODE : 2;
+    /// read-only - Domain1 request enter Low Power Mode
     eCPU1_MODE_REQUEST CPU1_MODE_REQUEST : 1;
+    /// read-only - Domain1 Low Power Mode task done
     eCPU1_MODE_DONE CPU1_MODE_DONE : 1;
+    /// read-only - Domain2 Low Power Mode
     eCPU2_MODE CPU2_MODE : 2;
+    /// read-only - Domain2 request enter Low Power Mode
     eCPU2_MODE_REQUEST CPU2_MODE_REQUEST : 1;
+    /// read-only - Domain2 Low Power Mode task done
     eCPU2_MODE_DONE CPU2_MODE_DONE : 1;
+    /// read-only - Domain3 Low Power Mode
     eCPU3_MODE CPU3_MODE : 2;
+    /// read-only - Domain3 request enter Low Power Mode
     eCPU3_MODE_REQUEST CPU3_MODE_REQUEST : 1;
+    /// read-only - Domain3 Low Power Mode task done
     eCPU3_MODE_DONE CPU3_MODE_DONE : 1;
+    /// read-only - Next Setpoint to change to
     uint32_t TARGET_SETPOINT : 4;
+    /// read-only - Current Setpoint
     uint32_t CURRENT_SETPOINT : 4;
+    /// read-only - Clock gate turn off request from GPC Setpoint
     eSETPOINT_OFF_REQUEST SETPOINT_OFF_REQUEST : 1;
+    /// read-only - Clock gate turn off finish from GPC Setpoint
     eSETPOINT_OFF_DONE SETPOINT_OFF_DONE : 1;
+    /// read-only - Clock gate turn on request from GPC Setpoint
     eSETPOINT_ON_REQUEST SETPOINT_ON_REQUEST : 1;
+    /// read-only - Clock gate turn on finish from GPC Setpoint
     eSETPOINT_ON_DONE SETPOINT_ON_DONE : 1;
     uint32_t _reserved_0 : 4;
   } bits;
@@ -18666,6 +20672,7 @@ union LPCG39_CONFIG {
   // Bit field definition.
   struct {
     uint32_t _reserved_0 : 4;
+    /// read-only - Setpoint present
     eSETPOINT_PRESENT SETPOINT_PRESENT : 1;
     uint32_t _reserved_1 : 27;
   } bits;
@@ -18724,18 +20731,27 @@ union LPCG39_AUTHEN {
   
   // Bit field definition.
   struct {
+    /// read-write - User access
     eTZ_USER TZ_USER : 1;
+    /// read-write - Non-secure access
     eTZ_NS TZ_NS : 1;
     uint32_t _reserved_0 : 2;
+    /// read-write - lock truszone setting
     eLOCK_TZ LOCK_TZ : 1;
     uint32_t _reserved_1 : 3;
+    /// read-write - Whitelist
     uint32_t WHITE_LIST : 4;
+    /// read-write - Lock Whitelist
     eLOCK_LIST LOCK_LIST : 1;
     uint32_t _reserved_2 : 3;
+    /// read-write - Low power and access control by domain
     eDOMAIN_MODE DOMAIN_MODE : 1;
+    /// read-write - Low power and access control by Setpoint
     eSETPOINT_MODE SETPOINT_MODE : 1;
+    /// read-write - CPU Low Power Mode
     eCPULPM CPULPM : 1;
     uint32_t _reserved_3 : 1;
+    /// read-write - Lock low power and access mode
     eLOCK_MODE LOCK_MODE : 1;
     uint32_t _reserved_4 : 11;
   } bits;
@@ -18759,6 +20775,7 @@ union LPCG40_DIRECT {
   
   // Bit field definition.
   struct {
+    /// read-write - LPCG on
     eON ON : 1;
     uint32_t _reserved_0 : 31;
   } bits;
@@ -18817,14 +20834,19 @@ union LPCG40_DOMAIN {
   
   // Bit field definition.
   struct {
+    /// read-write - Current dependence level
     eLEVEL LEVEL : 3;
     uint32_t _reserved_0 : 13;
+    /// read-write - Depend level
     eLEVEL0 LEVEL0 : 3;
     uint32_t _reserved_1 : 1;
+    /// read-write - Depend level
     eLEVEL1 LEVEL1 : 3;
     uint32_t _reserved_2 : 1;
+    /// read-write - Depend level
     eLEVEL2 LEVEL2 : 3;
     uint32_t _reserved_3 : 1;
+    /// read-write - Depend level
     eLEVEL3 LEVEL3 : 3;
     uint32_t _reserved_4 : 1;
   } bits;
@@ -18843,7 +20865,9 @@ union LPCG40_SETPOINT {
   
   // Bit field definition.
   struct {
+    /// read-write - Setpoints
     uint32_t SETPOINT : 16;
+    /// read-write - Standby
     uint32_t STANDBY : 16;
   } bits;
   
@@ -18904,9 +20928,12 @@ union LPCG40_STATUS0 {
   
   // Bit field definition.
   struct {
+    /// read-only - LPCG current state
     eON ON : 1;
     uint32_t _reserved_0 : 7;
+    /// read-only - Domains that own this clock gate
     eACTIVE_DOMAIN ACTIVE_DOMAIN : 4;
+    /// read-only - Enable status from each domain
     eDOMAIN_ENABLE DOMAIN_ENABLE : 4;
     uint32_t _reserved_1 : 16;
   } bits;
@@ -19013,23 +21040,41 @@ union LPCG40_STATUS1 {
   
   // Bit field definition.
   struct {
+    /// read-only - Domain0 Low Power Mode
     eCPU0_MODE CPU0_MODE : 2;
+    /// read-only - Domain0 request enter Low Power Mode
     eCPU0_MODE_REQUEST CPU0_MODE_REQUEST : 1;
+    /// read-only - Domain0 Low Power Mode task done
     eCPU0_MODE_DONE CPU0_MODE_DONE : 1;
+    /// read-only - Domain1 Low Power Mode
     eCPU1_MODE CPU1_MODE : 2;
+    /// read-only - Domain1 request enter Low Power Mode
     eCPU1_MODE_REQUEST CPU1_MODE_REQUEST : 1;
+    /// read-only - Domain1 Low Power Mode task done
     eCPU1_MODE_DONE CPU1_MODE_DONE : 1;
+    /// read-only - Domain2 Low Power Mode
     eCPU2_MODE CPU2_MODE : 2;
+    /// read-only - Domain2 request enter Low Power Mode
     eCPU2_MODE_REQUEST CPU2_MODE_REQUEST : 1;
+    /// read-only - Domain2 Low Power Mode task done
     eCPU2_MODE_DONE CPU2_MODE_DONE : 1;
+    /// read-only - Domain3 Low Power Mode
     eCPU3_MODE CPU3_MODE : 2;
+    /// read-only - Domain3 request enter Low Power Mode
     eCPU3_MODE_REQUEST CPU3_MODE_REQUEST : 1;
+    /// read-only - Domain3 Low Power Mode task done
     eCPU3_MODE_DONE CPU3_MODE_DONE : 1;
+    /// read-only - Next Setpoint to change to
     uint32_t TARGET_SETPOINT : 4;
+    /// read-only - Current Setpoint
     uint32_t CURRENT_SETPOINT : 4;
+    /// read-only - Clock gate turn off request from GPC Setpoint
     eSETPOINT_OFF_REQUEST SETPOINT_OFF_REQUEST : 1;
+    /// read-only - Clock gate turn off finish from GPC Setpoint
     eSETPOINT_OFF_DONE SETPOINT_OFF_DONE : 1;
+    /// read-only - Clock gate turn on request from GPC Setpoint
     eSETPOINT_ON_REQUEST SETPOINT_ON_REQUEST : 1;
+    /// read-only - Clock gate turn on finish from GPC Setpoint
     eSETPOINT_ON_DONE SETPOINT_ON_DONE : 1;
     uint32_t _reserved_0 : 4;
   } bits;
@@ -19054,6 +21099,7 @@ union LPCG40_CONFIG {
   // Bit field definition.
   struct {
     uint32_t _reserved_0 : 4;
+    /// read-only - Setpoint present
     eSETPOINT_PRESENT SETPOINT_PRESENT : 1;
     uint32_t _reserved_1 : 27;
   } bits;
@@ -19112,18 +21158,27 @@ union LPCG40_AUTHEN {
   
   // Bit field definition.
   struct {
+    /// read-write - User access
     eTZ_USER TZ_USER : 1;
+    /// read-write - Non-secure access
     eTZ_NS TZ_NS : 1;
     uint32_t _reserved_0 : 2;
+    /// read-write - lock truszone setting
     eLOCK_TZ LOCK_TZ : 1;
     uint32_t _reserved_1 : 3;
+    /// read-write - Whitelist
     uint32_t WHITE_LIST : 4;
+    /// read-write - Lock Whitelist
     eLOCK_LIST LOCK_LIST : 1;
     uint32_t _reserved_2 : 3;
+    /// read-write - Low power and access control by domain
     eDOMAIN_MODE DOMAIN_MODE : 1;
+    /// read-write - Low power and access control by Setpoint
     eSETPOINT_MODE SETPOINT_MODE : 1;
+    /// read-write - CPU Low Power Mode
     eCPULPM CPULPM : 1;
     uint32_t _reserved_3 : 1;
+    /// read-write - Lock low power and access mode
     eLOCK_MODE LOCK_MODE : 1;
     uint32_t _reserved_4 : 11;
   } bits;
@@ -19147,6 +21202,7 @@ union LPCG41_DIRECT {
   
   // Bit field definition.
   struct {
+    /// read-write - LPCG on
     eON ON : 1;
     uint32_t _reserved_0 : 31;
   } bits;
@@ -19205,14 +21261,19 @@ union LPCG41_DOMAIN {
   
   // Bit field definition.
   struct {
+    /// read-write - Current dependence level
     eLEVEL LEVEL : 3;
     uint32_t _reserved_0 : 13;
+    /// read-write - Depend level
     eLEVEL0 LEVEL0 : 3;
     uint32_t _reserved_1 : 1;
+    /// read-write - Depend level
     eLEVEL1 LEVEL1 : 3;
     uint32_t _reserved_2 : 1;
+    /// read-write - Depend level
     eLEVEL2 LEVEL2 : 3;
     uint32_t _reserved_3 : 1;
+    /// read-write - Depend level
     eLEVEL3 LEVEL3 : 3;
     uint32_t _reserved_4 : 1;
   } bits;
@@ -19274,9 +21335,12 @@ union LPCG41_STATUS0 {
   
   // Bit field definition.
   struct {
+    /// read-only - LPCG current state
     eON ON : 1;
     uint32_t _reserved_0 : 7;
+    /// read-only - Domains that own this clock gate
     eACTIVE_DOMAIN ACTIVE_DOMAIN : 4;
+    /// read-only - Enable status from each domain
     eDOMAIN_ENABLE DOMAIN_ENABLE : 4;
     uint32_t _reserved_1 : 16;
   } bits;
@@ -19383,23 +21447,41 @@ union LPCG41_STATUS1 {
   
   // Bit field definition.
   struct {
+    /// read-only - Domain0 Low Power Mode
     eCPU0_MODE CPU0_MODE : 2;
+    /// read-only - Domain0 request enter Low Power Mode
     eCPU0_MODE_REQUEST CPU0_MODE_REQUEST : 1;
+    /// read-only - Domain0 Low Power Mode task done
     eCPU0_MODE_DONE CPU0_MODE_DONE : 1;
+    /// read-only - Domain1 Low Power Mode
     eCPU1_MODE CPU1_MODE : 2;
+    /// read-only - Domain1 request enter Low Power Mode
     eCPU1_MODE_REQUEST CPU1_MODE_REQUEST : 1;
+    /// read-only - Domain1 Low Power Mode task done
     eCPU1_MODE_DONE CPU1_MODE_DONE : 1;
+    /// read-only - Domain2 Low Power Mode
     eCPU2_MODE CPU2_MODE : 2;
+    /// read-only - Domain2 request enter Low Power Mode
     eCPU2_MODE_REQUEST CPU2_MODE_REQUEST : 1;
+    /// read-only - Domain2 Low Power Mode task done
     eCPU2_MODE_DONE CPU2_MODE_DONE : 1;
+    /// read-only - Domain3 Low Power Mode
     eCPU3_MODE CPU3_MODE : 2;
+    /// read-only - Domain3 request enter Low Power Mode
     eCPU3_MODE_REQUEST CPU3_MODE_REQUEST : 1;
+    /// read-only - Domain3 Low Power Mode task done
     eCPU3_MODE_DONE CPU3_MODE_DONE : 1;
+    /// read-only - Next Setpoint to change to
     uint32_t TARGET_SETPOINT : 4;
+    /// read-only - Current Setpoint
     uint32_t CURRENT_SETPOINT : 4;
+    /// read-only - Clock gate turn off request from GPC Setpoint
     eSETPOINT_OFF_REQUEST SETPOINT_OFF_REQUEST : 1;
+    /// read-only - Clock gate turn off finish from GPC Setpoint
     eSETPOINT_OFF_DONE SETPOINT_OFF_DONE : 1;
+    /// read-only - Clock gate turn on request from GPC Setpoint
     eSETPOINT_ON_REQUEST SETPOINT_ON_REQUEST : 1;
+    /// read-only - Clock gate turn on finish from GPC Setpoint
     eSETPOINT_ON_DONE SETPOINT_ON_DONE : 1;
     uint32_t _reserved_0 : 4;
   } bits;
@@ -19424,6 +21506,7 @@ union LPCG41_CONFIG {
   // Bit field definition.
   struct {
     uint32_t _reserved_0 : 4;
+    /// read-only - Setpoint present
     eSETPOINT_PRESENT SETPOINT_PRESENT : 1;
     uint32_t _reserved_1 : 27;
   } bits;
@@ -19482,18 +21565,27 @@ union LPCG41_AUTHEN {
   
   // Bit field definition.
   struct {
+    /// read-write - User access
     eTZ_USER TZ_USER : 1;
+    /// read-write - Non-secure access
     eTZ_NS TZ_NS : 1;
     uint32_t _reserved_0 : 2;
+    /// read-write - lock truszone setting
     eLOCK_TZ LOCK_TZ : 1;
     uint32_t _reserved_1 : 3;
+    /// read-write - Whitelist
     uint32_t WHITE_LIST : 4;
+    /// read-write - Lock Whitelist
     eLOCK_LIST LOCK_LIST : 1;
     uint32_t _reserved_2 : 3;
+    /// read-write - Low power and access control by domain
     eDOMAIN_MODE DOMAIN_MODE : 1;
+    /// read-write - Low power and access control by Setpoint
     eSETPOINT_MODE SETPOINT_MODE : 1;
+    /// read-write - CPU Low Power Mode
     eCPULPM CPULPM : 1;
     uint32_t _reserved_3 : 1;
+    /// read-write - Lock low power and access mode
     eLOCK_MODE LOCK_MODE : 1;
     uint32_t _reserved_4 : 11;
   } bits;
@@ -19517,6 +21609,7 @@ union LPCG42_DIRECT {
   
   // Bit field definition.
   struct {
+    /// read-write - LPCG on
     eON ON : 1;
     uint32_t _reserved_0 : 31;
   } bits;
@@ -19575,14 +21668,19 @@ union LPCG42_DOMAIN {
   
   // Bit field definition.
   struct {
+    /// read-write - Current dependence level
     eLEVEL LEVEL : 3;
     uint32_t _reserved_0 : 13;
+    /// read-write - Depend level
     eLEVEL0 LEVEL0 : 3;
     uint32_t _reserved_1 : 1;
+    /// read-write - Depend level
     eLEVEL1 LEVEL1 : 3;
     uint32_t _reserved_2 : 1;
+    /// read-write - Depend level
     eLEVEL2 LEVEL2 : 3;
     uint32_t _reserved_3 : 1;
+    /// read-write - Depend level
     eLEVEL3 LEVEL3 : 3;
     uint32_t _reserved_4 : 1;
   } bits;
@@ -19644,9 +21742,12 @@ union LPCG42_STATUS0 {
   
   // Bit field definition.
   struct {
+    /// read-only - LPCG current state
     eON ON : 1;
     uint32_t _reserved_0 : 7;
+    /// read-only - Domains that own this clock gate
     eACTIVE_DOMAIN ACTIVE_DOMAIN : 4;
+    /// read-only - Enable status from each domain
     eDOMAIN_ENABLE DOMAIN_ENABLE : 4;
     uint32_t _reserved_1 : 16;
   } bits;
@@ -19753,23 +21854,41 @@ union LPCG42_STATUS1 {
   
   // Bit field definition.
   struct {
+    /// read-only - Domain0 Low Power Mode
     eCPU0_MODE CPU0_MODE : 2;
+    /// read-only - Domain0 request enter Low Power Mode
     eCPU0_MODE_REQUEST CPU0_MODE_REQUEST : 1;
+    /// read-only - Domain0 Low Power Mode task done
     eCPU0_MODE_DONE CPU0_MODE_DONE : 1;
+    /// read-only - Domain1 Low Power Mode
     eCPU1_MODE CPU1_MODE : 2;
+    /// read-only - Domain1 request enter Low Power Mode
     eCPU1_MODE_REQUEST CPU1_MODE_REQUEST : 1;
+    /// read-only - Domain1 Low Power Mode task done
     eCPU1_MODE_DONE CPU1_MODE_DONE : 1;
+    /// read-only - Domain2 Low Power Mode
     eCPU2_MODE CPU2_MODE : 2;
+    /// read-only - Domain2 request enter Low Power Mode
     eCPU2_MODE_REQUEST CPU2_MODE_REQUEST : 1;
+    /// read-only - Domain2 Low Power Mode task done
     eCPU2_MODE_DONE CPU2_MODE_DONE : 1;
+    /// read-only - Domain3 Low Power Mode
     eCPU3_MODE CPU3_MODE : 2;
+    /// read-only - Domain3 request enter Low Power Mode
     eCPU3_MODE_REQUEST CPU3_MODE_REQUEST : 1;
+    /// read-only - Domain3 Low Power Mode task done
     eCPU3_MODE_DONE CPU3_MODE_DONE : 1;
+    /// read-only - Next Setpoint to change to
     uint32_t TARGET_SETPOINT : 4;
+    /// read-only - Current Setpoint
     uint32_t CURRENT_SETPOINT : 4;
+    /// read-only - Clock gate turn off request from GPC Setpoint
     eSETPOINT_OFF_REQUEST SETPOINT_OFF_REQUEST : 1;
+    /// read-only - Clock gate turn off finish from GPC Setpoint
     eSETPOINT_OFF_DONE SETPOINT_OFF_DONE : 1;
+    /// read-only - Clock gate turn on request from GPC Setpoint
     eSETPOINT_ON_REQUEST SETPOINT_ON_REQUEST : 1;
+    /// read-only - Clock gate turn on finish from GPC Setpoint
     eSETPOINT_ON_DONE SETPOINT_ON_DONE : 1;
     uint32_t _reserved_0 : 4;
   } bits;
@@ -19794,6 +21913,7 @@ union LPCG42_CONFIG {
   // Bit field definition.
   struct {
     uint32_t _reserved_0 : 4;
+    /// read-only - Setpoint present
     eSETPOINT_PRESENT SETPOINT_PRESENT : 1;
     uint32_t _reserved_1 : 27;
   } bits;
@@ -19852,18 +21972,27 @@ union LPCG42_AUTHEN {
   
   // Bit field definition.
   struct {
+    /// read-write - User access
     eTZ_USER TZ_USER : 1;
+    /// read-write - Non-secure access
     eTZ_NS TZ_NS : 1;
     uint32_t _reserved_0 : 2;
+    /// read-write - lock truszone setting
     eLOCK_TZ LOCK_TZ : 1;
     uint32_t _reserved_1 : 3;
+    /// read-write - Whitelist
     uint32_t WHITE_LIST : 4;
+    /// read-write - Lock Whitelist
     eLOCK_LIST LOCK_LIST : 1;
     uint32_t _reserved_2 : 3;
+    /// read-write - Low power and access control by domain
     eDOMAIN_MODE DOMAIN_MODE : 1;
+    /// read-write - Low power and access control by Setpoint
     eSETPOINT_MODE SETPOINT_MODE : 1;
+    /// read-write - CPU Low Power Mode
     eCPULPM CPULPM : 1;
     uint32_t _reserved_3 : 1;
+    /// read-write - Lock low power and access mode
     eLOCK_MODE LOCK_MODE : 1;
     uint32_t _reserved_4 : 11;
   } bits;
@@ -19887,6 +22016,7 @@ union LPCG43_DIRECT {
   
   // Bit field definition.
   struct {
+    /// read-write - LPCG on
     eON ON : 1;
     uint32_t _reserved_0 : 31;
   } bits;
@@ -19945,14 +22075,19 @@ union LPCG43_DOMAIN {
   
   // Bit field definition.
   struct {
+    /// read-write - Current dependence level
     eLEVEL LEVEL : 3;
     uint32_t _reserved_0 : 13;
+    /// read-write - Depend level
     eLEVEL0 LEVEL0 : 3;
     uint32_t _reserved_1 : 1;
+    /// read-write - Depend level
     eLEVEL1 LEVEL1 : 3;
     uint32_t _reserved_2 : 1;
+    /// read-write - Depend level
     eLEVEL2 LEVEL2 : 3;
     uint32_t _reserved_3 : 1;
+    /// read-write - Depend level
     eLEVEL3 LEVEL3 : 3;
     uint32_t _reserved_4 : 1;
   } bits;
@@ -19971,7 +22106,9 @@ union LPCG43_SETPOINT {
   
   // Bit field definition.
   struct {
+    /// read-write - Setpoints
     uint32_t SETPOINT : 16;
+    /// read-write - Standby
     uint32_t STANDBY : 16;
   } bits;
   
@@ -20032,9 +22169,12 @@ union LPCG43_STATUS0 {
   
   // Bit field definition.
   struct {
+    /// read-only - LPCG current state
     eON ON : 1;
     uint32_t _reserved_0 : 7;
+    /// read-only - Domains that own this clock gate
     eACTIVE_DOMAIN ACTIVE_DOMAIN : 4;
+    /// read-only - Enable status from each domain
     eDOMAIN_ENABLE DOMAIN_ENABLE : 4;
     uint32_t _reserved_1 : 16;
   } bits;
@@ -20141,23 +22281,41 @@ union LPCG43_STATUS1 {
   
   // Bit field definition.
   struct {
+    /// read-only - Domain0 Low Power Mode
     eCPU0_MODE CPU0_MODE : 2;
+    /// read-only - Domain0 request enter Low Power Mode
     eCPU0_MODE_REQUEST CPU0_MODE_REQUEST : 1;
+    /// read-only - Domain0 Low Power Mode task done
     eCPU0_MODE_DONE CPU0_MODE_DONE : 1;
+    /// read-only - Domain1 Low Power Mode
     eCPU1_MODE CPU1_MODE : 2;
+    /// read-only - Domain1 request enter Low Power Mode
     eCPU1_MODE_REQUEST CPU1_MODE_REQUEST : 1;
+    /// read-only - Domain1 Low Power Mode task done
     eCPU1_MODE_DONE CPU1_MODE_DONE : 1;
+    /// read-only - Domain2 Low Power Mode
     eCPU2_MODE CPU2_MODE : 2;
+    /// read-only - Domain2 request enter Low Power Mode
     eCPU2_MODE_REQUEST CPU2_MODE_REQUEST : 1;
+    /// read-only - Domain2 Low Power Mode task done
     eCPU2_MODE_DONE CPU2_MODE_DONE : 1;
+    /// read-only - Domain3 Low Power Mode
     eCPU3_MODE CPU3_MODE : 2;
+    /// read-only - Domain3 request enter Low Power Mode
     eCPU3_MODE_REQUEST CPU3_MODE_REQUEST : 1;
+    /// read-only - Domain3 Low Power Mode task done
     eCPU3_MODE_DONE CPU3_MODE_DONE : 1;
+    /// read-only - Next Setpoint to change to
     uint32_t TARGET_SETPOINT : 4;
+    /// read-only - Current Setpoint
     uint32_t CURRENT_SETPOINT : 4;
+    /// read-only - Clock gate turn off request from GPC Setpoint
     eSETPOINT_OFF_REQUEST SETPOINT_OFF_REQUEST : 1;
+    /// read-only - Clock gate turn off finish from GPC Setpoint
     eSETPOINT_OFF_DONE SETPOINT_OFF_DONE : 1;
+    /// read-only - Clock gate turn on request from GPC Setpoint
     eSETPOINT_ON_REQUEST SETPOINT_ON_REQUEST : 1;
+    /// read-only - Clock gate turn on finish from GPC Setpoint
     eSETPOINT_ON_DONE SETPOINT_ON_DONE : 1;
     uint32_t _reserved_0 : 4;
   } bits;
@@ -20182,6 +22340,7 @@ union LPCG43_CONFIG {
   // Bit field definition.
   struct {
     uint32_t _reserved_0 : 4;
+    /// read-only - Setpoint present
     eSETPOINT_PRESENT SETPOINT_PRESENT : 1;
     uint32_t _reserved_1 : 27;
   } bits;
@@ -20240,18 +22399,27 @@ union LPCG43_AUTHEN {
   
   // Bit field definition.
   struct {
+    /// read-write - User access
     eTZ_USER TZ_USER : 1;
+    /// read-write - Non-secure access
     eTZ_NS TZ_NS : 1;
     uint32_t _reserved_0 : 2;
+    /// read-write - lock truszone setting
     eLOCK_TZ LOCK_TZ : 1;
     uint32_t _reserved_1 : 3;
+    /// read-write - Whitelist
     uint32_t WHITE_LIST : 4;
+    /// read-write - Lock Whitelist
     eLOCK_LIST LOCK_LIST : 1;
     uint32_t _reserved_2 : 3;
+    /// read-write - Low power and access control by domain
     eDOMAIN_MODE DOMAIN_MODE : 1;
+    /// read-write - Low power and access control by Setpoint
     eSETPOINT_MODE SETPOINT_MODE : 1;
+    /// read-write - CPU Low Power Mode
     eCPULPM CPULPM : 1;
     uint32_t _reserved_3 : 1;
+    /// read-write - Lock low power and access mode
     eLOCK_MODE LOCK_MODE : 1;
     uint32_t _reserved_4 : 11;
   } bits;
@@ -20275,6 +22443,7 @@ union LPCG44_DIRECT {
   
   // Bit field definition.
   struct {
+    /// read-write - LPCG on
     eON ON : 1;
     uint32_t _reserved_0 : 31;
   } bits;
@@ -20333,14 +22502,19 @@ union LPCG44_DOMAIN {
   
   // Bit field definition.
   struct {
+    /// read-write - Current dependence level
     eLEVEL LEVEL : 3;
     uint32_t _reserved_0 : 13;
+    /// read-write - Depend level
     eLEVEL0 LEVEL0 : 3;
     uint32_t _reserved_1 : 1;
+    /// read-write - Depend level
     eLEVEL1 LEVEL1 : 3;
     uint32_t _reserved_2 : 1;
+    /// read-write - Depend level
     eLEVEL2 LEVEL2 : 3;
     uint32_t _reserved_3 : 1;
+    /// read-write - Depend level
     eLEVEL3 LEVEL3 : 3;
     uint32_t _reserved_4 : 1;
   } bits;
@@ -20359,7 +22533,9 @@ union LPCG44_SETPOINT {
   
   // Bit field definition.
   struct {
+    /// read-write - Setpoints
     uint32_t SETPOINT : 16;
+    /// read-write - Standby
     uint32_t STANDBY : 16;
   } bits;
   
@@ -20420,9 +22596,12 @@ union LPCG44_STATUS0 {
   
   // Bit field definition.
   struct {
+    /// read-only - LPCG current state
     eON ON : 1;
     uint32_t _reserved_0 : 7;
+    /// read-only - Domains that own this clock gate
     eACTIVE_DOMAIN ACTIVE_DOMAIN : 4;
+    /// read-only - Enable status from each domain
     eDOMAIN_ENABLE DOMAIN_ENABLE : 4;
     uint32_t _reserved_1 : 16;
   } bits;
@@ -20529,23 +22708,41 @@ union LPCG44_STATUS1 {
   
   // Bit field definition.
   struct {
+    /// read-only - Domain0 Low Power Mode
     eCPU0_MODE CPU0_MODE : 2;
+    /// read-only - Domain0 request enter Low Power Mode
     eCPU0_MODE_REQUEST CPU0_MODE_REQUEST : 1;
+    /// read-only - Domain0 Low Power Mode task done
     eCPU0_MODE_DONE CPU0_MODE_DONE : 1;
+    /// read-only - Domain1 Low Power Mode
     eCPU1_MODE CPU1_MODE : 2;
+    /// read-only - Domain1 request enter Low Power Mode
     eCPU1_MODE_REQUEST CPU1_MODE_REQUEST : 1;
+    /// read-only - Domain1 Low Power Mode task done
     eCPU1_MODE_DONE CPU1_MODE_DONE : 1;
+    /// read-only - Domain2 Low Power Mode
     eCPU2_MODE CPU2_MODE : 2;
+    /// read-only - Domain2 request enter Low Power Mode
     eCPU2_MODE_REQUEST CPU2_MODE_REQUEST : 1;
+    /// read-only - Domain2 Low Power Mode task done
     eCPU2_MODE_DONE CPU2_MODE_DONE : 1;
+    /// read-only - Domain3 Low Power Mode
     eCPU3_MODE CPU3_MODE : 2;
+    /// read-only - Domain3 request enter Low Power Mode
     eCPU3_MODE_REQUEST CPU3_MODE_REQUEST : 1;
+    /// read-only - Domain3 Low Power Mode task done
     eCPU3_MODE_DONE CPU3_MODE_DONE : 1;
+    /// read-only - Next Setpoint to change to
     uint32_t TARGET_SETPOINT : 4;
+    /// read-only - Current Setpoint
     uint32_t CURRENT_SETPOINT : 4;
+    /// read-only - Clock gate turn off request from GPC Setpoint
     eSETPOINT_OFF_REQUEST SETPOINT_OFF_REQUEST : 1;
+    /// read-only - Clock gate turn off finish from GPC Setpoint
     eSETPOINT_OFF_DONE SETPOINT_OFF_DONE : 1;
+    /// read-only - Clock gate turn on request from GPC Setpoint
     eSETPOINT_ON_REQUEST SETPOINT_ON_REQUEST : 1;
+    /// read-only - Clock gate turn on finish from GPC Setpoint
     eSETPOINT_ON_DONE SETPOINT_ON_DONE : 1;
     uint32_t _reserved_0 : 4;
   } bits;
@@ -20570,6 +22767,7 @@ union LPCG44_CONFIG {
   // Bit field definition.
   struct {
     uint32_t _reserved_0 : 4;
+    /// read-only - Setpoint present
     eSETPOINT_PRESENT SETPOINT_PRESENT : 1;
     uint32_t _reserved_1 : 27;
   } bits;
@@ -20628,18 +22826,27 @@ union LPCG44_AUTHEN {
   
   // Bit field definition.
   struct {
+    /// read-write - User access
     eTZ_USER TZ_USER : 1;
+    /// read-write - Non-secure access
     eTZ_NS TZ_NS : 1;
     uint32_t _reserved_0 : 2;
+    /// read-write - lock truszone setting
     eLOCK_TZ LOCK_TZ : 1;
     uint32_t _reserved_1 : 3;
+    /// read-write - Whitelist
     uint32_t WHITE_LIST : 4;
+    /// read-write - Lock Whitelist
     eLOCK_LIST LOCK_LIST : 1;
     uint32_t _reserved_2 : 3;
+    /// read-write - Low power and access control by domain
     eDOMAIN_MODE DOMAIN_MODE : 1;
+    /// read-write - Low power and access control by Setpoint
     eSETPOINT_MODE SETPOINT_MODE : 1;
+    /// read-write - CPU Low Power Mode
     eCPULPM CPULPM : 1;
     uint32_t _reserved_3 : 1;
+    /// read-write - Lock low power and access mode
     eLOCK_MODE LOCK_MODE : 1;
     uint32_t _reserved_4 : 11;
   } bits;
@@ -20663,6 +22870,7 @@ union LPCG45_DIRECT {
   
   // Bit field definition.
   struct {
+    /// read-write - LPCG on
     eON ON : 1;
     uint32_t _reserved_0 : 31;
   } bits;
@@ -20721,14 +22929,19 @@ union LPCG45_DOMAIN {
   
   // Bit field definition.
   struct {
+    /// read-write - Current dependence level
     eLEVEL LEVEL : 3;
     uint32_t _reserved_0 : 13;
+    /// read-write - Depend level
     eLEVEL0 LEVEL0 : 3;
     uint32_t _reserved_1 : 1;
+    /// read-write - Depend level
     eLEVEL1 LEVEL1 : 3;
     uint32_t _reserved_2 : 1;
+    /// read-write - Depend level
     eLEVEL2 LEVEL2 : 3;
     uint32_t _reserved_3 : 1;
+    /// read-write - Depend level
     eLEVEL3 LEVEL3 : 3;
     uint32_t _reserved_4 : 1;
   } bits;
@@ -20747,7 +22960,9 @@ union LPCG45_SETPOINT {
   
   // Bit field definition.
   struct {
+    /// read-write - Setpoints
     uint32_t SETPOINT : 16;
+    /// read-write - Standby
     uint32_t STANDBY : 16;
   } bits;
   
@@ -20808,9 +23023,12 @@ union LPCG45_STATUS0 {
   
   // Bit field definition.
   struct {
+    /// read-only - LPCG current state
     eON ON : 1;
     uint32_t _reserved_0 : 7;
+    /// read-only - Domains that own this clock gate
     eACTIVE_DOMAIN ACTIVE_DOMAIN : 4;
+    /// read-only - Enable status from each domain
     eDOMAIN_ENABLE DOMAIN_ENABLE : 4;
     uint32_t _reserved_1 : 16;
   } bits;
@@ -20917,23 +23135,41 @@ union LPCG45_STATUS1 {
   
   // Bit field definition.
   struct {
+    /// read-only - Domain0 Low Power Mode
     eCPU0_MODE CPU0_MODE : 2;
+    /// read-only - Domain0 request enter Low Power Mode
     eCPU0_MODE_REQUEST CPU0_MODE_REQUEST : 1;
+    /// read-only - Domain0 Low Power Mode task done
     eCPU0_MODE_DONE CPU0_MODE_DONE : 1;
+    /// read-only - Domain1 Low Power Mode
     eCPU1_MODE CPU1_MODE : 2;
+    /// read-only - Domain1 request enter Low Power Mode
     eCPU1_MODE_REQUEST CPU1_MODE_REQUEST : 1;
+    /// read-only - Domain1 Low Power Mode task done
     eCPU1_MODE_DONE CPU1_MODE_DONE : 1;
+    /// read-only - Domain2 Low Power Mode
     eCPU2_MODE CPU2_MODE : 2;
+    /// read-only - Domain2 request enter Low Power Mode
     eCPU2_MODE_REQUEST CPU2_MODE_REQUEST : 1;
+    /// read-only - Domain2 Low Power Mode task done
     eCPU2_MODE_DONE CPU2_MODE_DONE : 1;
+    /// read-only - Domain3 Low Power Mode
     eCPU3_MODE CPU3_MODE : 2;
+    /// read-only - Domain3 request enter Low Power Mode
     eCPU3_MODE_REQUEST CPU3_MODE_REQUEST : 1;
+    /// read-only - Domain3 Low Power Mode task done
     eCPU3_MODE_DONE CPU3_MODE_DONE : 1;
+    /// read-only - Next Setpoint to change to
     uint32_t TARGET_SETPOINT : 4;
+    /// read-only - Current Setpoint
     uint32_t CURRENT_SETPOINT : 4;
+    /// read-only - Clock gate turn off request from GPC Setpoint
     eSETPOINT_OFF_REQUEST SETPOINT_OFF_REQUEST : 1;
+    /// read-only - Clock gate turn off finish from GPC Setpoint
     eSETPOINT_OFF_DONE SETPOINT_OFF_DONE : 1;
+    /// read-only - Clock gate turn on request from GPC Setpoint
     eSETPOINT_ON_REQUEST SETPOINT_ON_REQUEST : 1;
+    /// read-only - Clock gate turn on finish from GPC Setpoint
     eSETPOINT_ON_DONE SETPOINT_ON_DONE : 1;
     uint32_t _reserved_0 : 4;
   } bits;
@@ -20958,6 +23194,7 @@ union LPCG45_CONFIG {
   // Bit field definition.
   struct {
     uint32_t _reserved_0 : 4;
+    /// read-only - Setpoint present
     eSETPOINT_PRESENT SETPOINT_PRESENT : 1;
     uint32_t _reserved_1 : 27;
   } bits;
@@ -21016,18 +23253,27 @@ union LPCG45_AUTHEN {
   
   // Bit field definition.
   struct {
+    /// read-write - User access
     eTZ_USER TZ_USER : 1;
+    /// read-write - Non-secure access
     eTZ_NS TZ_NS : 1;
     uint32_t _reserved_0 : 2;
+    /// read-write - lock truszone setting
     eLOCK_TZ LOCK_TZ : 1;
     uint32_t _reserved_1 : 3;
+    /// read-write - Whitelist
     uint32_t WHITE_LIST : 4;
+    /// read-write - Lock Whitelist
     eLOCK_LIST LOCK_LIST : 1;
     uint32_t _reserved_2 : 3;
+    /// read-write - Low power and access control by domain
     eDOMAIN_MODE DOMAIN_MODE : 1;
+    /// read-write - Low power and access control by Setpoint
     eSETPOINT_MODE SETPOINT_MODE : 1;
+    /// read-write - CPU Low Power Mode
     eCPULPM CPULPM : 1;
     uint32_t _reserved_3 : 1;
+    /// read-write - Lock low power and access mode
     eLOCK_MODE LOCK_MODE : 1;
     uint32_t _reserved_4 : 11;
   } bits;
@@ -21051,6 +23297,7 @@ union LPCG46_DIRECT {
   
   // Bit field definition.
   struct {
+    /// read-write - LPCG on
     eON ON : 1;
     uint32_t _reserved_0 : 31;
   } bits;
@@ -21109,14 +23356,19 @@ union LPCG46_DOMAIN {
   
   // Bit field definition.
   struct {
+    /// read-write - Current dependence level
     eLEVEL LEVEL : 3;
     uint32_t _reserved_0 : 13;
+    /// read-write - Depend level
     eLEVEL0 LEVEL0 : 3;
     uint32_t _reserved_1 : 1;
+    /// read-write - Depend level
     eLEVEL1 LEVEL1 : 3;
     uint32_t _reserved_2 : 1;
+    /// read-write - Depend level
     eLEVEL2 LEVEL2 : 3;
     uint32_t _reserved_3 : 1;
+    /// read-write - Depend level
     eLEVEL3 LEVEL3 : 3;
     uint32_t _reserved_4 : 1;
   } bits;
@@ -21135,7 +23387,9 @@ union LPCG46_SETPOINT {
   
   // Bit field definition.
   struct {
+    /// read-write - Setpoints
     uint32_t SETPOINT : 16;
+    /// read-write - Standby
     uint32_t STANDBY : 16;
   } bits;
   
@@ -21196,9 +23450,12 @@ union LPCG46_STATUS0 {
   
   // Bit field definition.
   struct {
+    /// read-only - LPCG current state
     eON ON : 1;
     uint32_t _reserved_0 : 7;
+    /// read-only - Domains that own this clock gate
     eACTIVE_DOMAIN ACTIVE_DOMAIN : 4;
+    /// read-only - Enable status from each domain
     eDOMAIN_ENABLE DOMAIN_ENABLE : 4;
     uint32_t _reserved_1 : 16;
   } bits;
@@ -21305,23 +23562,41 @@ union LPCG46_STATUS1 {
   
   // Bit field definition.
   struct {
+    /// read-only - Domain0 Low Power Mode
     eCPU0_MODE CPU0_MODE : 2;
+    /// read-only - Domain0 request enter Low Power Mode
     eCPU0_MODE_REQUEST CPU0_MODE_REQUEST : 1;
+    /// read-only - Domain0 Low Power Mode task done
     eCPU0_MODE_DONE CPU0_MODE_DONE : 1;
+    /// read-only - Domain1 Low Power Mode
     eCPU1_MODE CPU1_MODE : 2;
+    /// read-only - Domain1 request enter Low Power Mode
     eCPU1_MODE_REQUEST CPU1_MODE_REQUEST : 1;
+    /// read-only - Domain1 Low Power Mode task done
     eCPU1_MODE_DONE CPU1_MODE_DONE : 1;
+    /// read-only - Domain2 Low Power Mode
     eCPU2_MODE CPU2_MODE : 2;
+    /// read-only - Domain2 request enter Low Power Mode
     eCPU2_MODE_REQUEST CPU2_MODE_REQUEST : 1;
+    /// read-only - Domain2 Low Power Mode task done
     eCPU2_MODE_DONE CPU2_MODE_DONE : 1;
+    /// read-only - Domain3 Low Power Mode
     eCPU3_MODE CPU3_MODE : 2;
+    /// read-only - Domain3 request enter Low Power Mode
     eCPU3_MODE_REQUEST CPU3_MODE_REQUEST : 1;
+    /// read-only - Domain3 Low Power Mode task done
     eCPU3_MODE_DONE CPU3_MODE_DONE : 1;
+    /// read-only - Next Setpoint to change to
     uint32_t TARGET_SETPOINT : 4;
+    /// read-only - Current Setpoint
     uint32_t CURRENT_SETPOINT : 4;
+    /// read-only - Clock gate turn off request from GPC Setpoint
     eSETPOINT_OFF_REQUEST SETPOINT_OFF_REQUEST : 1;
+    /// read-only - Clock gate turn off finish from GPC Setpoint
     eSETPOINT_OFF_DONE SETPOINT_OFF_DONE : 1;
+    /// read-only - Clock gate turn on request from GPC Setpoint
     eSETPOINT_ON_REQUEST SETPOINT_ON_REQUEST : 1;
+    /// read-only - Clock gate turn on finish from GPC Setpoint
     eSETPOINT_ON_DONE SETPOINT_ON_DONE : 1;
     uint32_t _reserved_0 : 4;
   } bits;
@@ -21346,6 +23621,7 @@ union LPCG46_CONFIG {
   // Bit field definition.
   struct {
     uint32_t _reserved_0 : 4;
+    /// read-only - Setpoint present
     eSETPOINT_PRESENT SETPOINT_PRESENT : 1;
     uint32_t _reserved_1 : 27;
   } bits;
@@ -21404,18 +23680,27 @@ union LPCG46_AUTHEN {
   
   // Bit field definition.
   struct {
+    /// read-write - User access
     eTZ_USER TZ_USER : 1;
+    /// read-write - Non-secure access
     eTZ_NS TZ_NS : 1;
     uint32_t _reserved_0 : 2;
+    /// read-write - lock truszone setting
     eLOCK_TZ LOCK_TZ : 1;
     uint32_t _reserved_1 : 3;
+    /// read-write - Whitelist
     uint32_t WHITE_LIST : 4;
+    /// read-write - Lock Whitelist
     eLOCK_LIST LOCK_LIST : 1;
     uint32_t _reserved_2 : 3;
+    /// read-write - Low power and access control by domain
     eDOMAIN_MODE DOMAIN_MODE : 1;
+    /// read-write - Low power and access control by Setpoint
     eSETPOINT_MODE SETPOINT_MODE : 1;
+    /// read-write - CPU Low Power Mode
     eCPULPM CPULPM : 1;
     uint32_t _reserved_3 : 1;
+    /// read-write - Lock low power and access mode
     eLOCK_MODE LOCK_MODE : 1;
     uint32_t _reserved_4 : 11;
   } bits;
@@ -21439,6 +23724,7 @@ union LPCG47_DIRECT {
   
   // Bit field definition.
   struct {
+    /// read-write - LPCG on
     eON ON : 1;
     uint32_t _reserved_0 : 31;
   } bits;
@@ -21497,14 +23783,19 @@ union LPCG47_DOMAIN {
   
   // Bit field definition.
   struct {
+    /// read-write - Current dependence level
     eLEVEL LEVEL : 3;
     uint32_t _reserved_0 : 13;
+    /// read-write - Depend level
     eLEVEL0 LEVEL0 : 3;
     uint32_t _reserved_1 : 1;
+    /// read-write - Depend level
     eLEVEL1 LEVEL1 : 3;
     uint32_t _reserved_2 : 1;
+    /// read-write - Depend level
     eLEVEL2 LEVEL2 : 3;
     uint32_t _reserved_3 : 1;
+    /// read-write - Depend level
     eLEVEL3 LEVEL3 : 3;
     uint32_t _reserved_4 : 1;
   } bits;
@@ -21523,7 +23814,9 @@ union LPCG47_SETPOINT {
   
   // Bit field definition.
   struct {
+    /// read-write - Setpoints
     uint32_t SETPOINT : 16;
+    /// read-write - Standby
     uint32_t STANDBY : 16;
   } bits;
   
@@ -21584,9 +23877,12 @@ union LPCG47_STATUS0 {
   
   // Bit field definition.
   struct {
+    /// read-only - LPCG current state
     eON ON : 1;
     uint32_t _reserved_0 : 7;
+    /// read-only - Domains that own this clock gate
     eACTIVE_DOMAIN ACTIVE_DOMAIN : 4;
+    /// read-only - Enable status from each domain
     eDOMAIN_ENABLE DOMAIN_ENABLE : 4;
     uint32_t _reserved_1 : 16;
   } bits;
@@ -21693,23 +23989,41 @@ union LPCG47_STATUS1 {
   
   // Bit field definition.
   struct {
+    /// read-only - Domain0 Low Power Mode
     eCPU0_MODE CPU0_MODE : 2;
+    /// read-only - Domain0 request enter Low Power Mode
     eCPU0_MODE_REQUEST CPU0_MODE_REQUEST : 1;
+    /// read-only - Domain0 Low Power Mode task done
     eCPU0_MODE_DONE CPU0_MODE_DONE : 1;
+    /// read-only - Domain1 Low Power Mode
     eCPU1_MODE CPU1_MODE : 2;
+    /// read-only - Domain1 request enter Low Power Mode
     eCPU1_MODE_REQUEST CPU1_MODE_REQUEST : 1;
+    /// read-only - Domain1 Low Power Mode task done
     eCPU1_MODE_DONE CPU1_MODE_DONE : 1;
+    /// read-only - Domain2 Low Power Mode
     eCPU2_MODE CPU2_MODE : 2;
+    /// read-only - Domain2 request enter Low Power Mode
     eCPU2_MODE_REQUEST CPU2_MODE_REQUEST : 1;
+    /// read-only - Domain2 Low Power Mode task done
     eCPU2_MODE_DONE CPU2_MODE_DONE : 1;
+    /// read-only - Domain3 Low Power Mode
     eCPU3_MODE CPU3_MODE : 2;
+    /// read-only - Domain3 request enter Low Power Mode
     eCPU3_MODE_REQUEST CPU3_MODE_REQUEST : 1;
+    /// read-only - Domain3 Low Power Mode task done
     eCPU3_MODE_DONE CPU3_MODE_DONE : 1;
+    /// read-only - Next Setpoint to change to
     uint32_t TARGET_SETPOINT : 4;
+    /// read-only - Current Setpoint
     uint32_t CURRENT_SETPOINT : 4;
+    /// read-only - Clock gate turn off request from GPC Setpoint
     eSETPOINT_OFF_REQUEST SETPOINT_OFF_REQUEST : 1;
+    /// read-only - Clock gate turn off finish from GPC Setpoint
     eSETPOINT_OFF_DONE SETPOINT_OFF_DONE : 1;
+    /// read-only - Clock gate turn on request from GPC Setpoint
     eSETPOINT_ON_REQUEST SETPOINT_ON_REQUEST : 1;
+    /// read-only - Clock gate turn on finish from GPC Setpoint
     eSETPOINT_ON_DONE SETPOINT_ON_DONE : 1;
     uint32_t _reserved_0 : 4;
   } bits;
@@ -21734,6 +24048,7 @@ union LPCG47_CONFIG {
   // Bit field definition.
   struct {
     uint32_t _reserved_0 : 4;
+    /// read-only - Setpoint present
     eSETPOINT_PRESENT SETPOINT_PRESENT : 1;
     uint32_t _reserved_1 : 27;
   } bits;
@@ -21792,18 +24107,27 @@ union LPCG47_AUTHEN {
   
   // Bit field definition.
   struct {
+    /// read-write - User access
     eTZ_USER TZ_USER : 1;
+    /// read-write - Non-secure access
     eTZ_NS TZ_NS : 1;
     uint32_t _reserved_0 : 2;
+    /// read-write - lock truszone setting
     eLOCK_TZ LOCK_TZ : 1;
     uint32_t _reserved_1 : 3;
+    /// read-write - Whitelist
     uint32_t WHITE_LIST : 4;
+    /// read-write - Lock Whitelist
     eLOCK_LIST LOCK_LIST : 1;
     uint32_t _reserved_2 : 3;
+    /// read-write - Low power and access control by domain
     eDOMAIN_MODE DOMAIN_MODE : 1;
+    /// read-write - Low power and access control by Setpoint
     eSETPOINT_MODE SETPOINT_MODE : 1;
+    /// read-write - CPU Low Power Mode
     eCPULPM CPULPM : 1;
     uint32_t _reserved_3 : 1;
+    /// read-write - Lock low power and access mode
     eLOCK_MODE LOCK_MODE : 1;
     uint32_t _reserved_4 : 11;
   } bits;
@@ -21827,6 +24151,7 @@ union LPCG48_DIRECT {
   
   // Bit field definition.
   struct {
+    /// read-write - LPCG on
     eON ON : 1;
     uint32_t _reserved_0 : 31;
   } bits;
@@ -21885,14 +24210,19 @@ union LPCG48_DOMAIN {
   
   // Bit field definition.
   struct {
+    /// read-write - Current dependence level
     eLEVEL LEVEL : 3;
     uint32_t _reserved_0 : 13;
+    /// read-write - Depend level
     eLEVEL0 LEVEL0 : 3;
     uint32_t _reserved_1 : 1;
+    /// read-write - Depend level
     eLEVEL1 LEVEL1 : 3;
     uint32_t _reserved_2 : 1;
+    /// read-write - Depend level
     eLEVEL2 LEVEL2 : 3;
     uint32_t _reserved_3 : 1;
+    /// read-write - Depend level
     eLEVEL3 LEVEL3 : 3;
     uint32_t _reserved_4 : 1;
   } bits;
@@ -21911,7 +24241,9 @@ union LPCG48_SETPOINT {
   
   // Bit field definition.
   struct {
+    /// read-write - Setpoints
     uint32_t SETPOINT : 16;
+    /// read-write - Standby
     uint32_t STANDBY : 16;
   } bits;
   
@@ -21972,9 +24304,12 @@ union LPCG48_STATUS0 {
   
   // Bit field definition.
   struct {
+    /// read-only - LPCG current state
     eON ON : 1;
     uint32_t _reserved_0 : 7;
+    /// read-only - Domains that own this clock gate
     eACTIVE_DOMAIN ACTIVE_DOMAIN : 4;
+    /// read-only - Enable status from each domain
     eDOMAIN_ENABLE DOMAIN_ENABLE : 4;
     uint32_t _reserved_1 : 16;
   } bits;
@@ -22081,23 +24416,41 @@ union LPCG48_STATUS1 {
   
   // Bit field definition.
   struct {
+    /// read-only - Domain0 Low Power Mode
     eCPU0_MODE CPU0_MODE : 2;
+    /// read-only - Domain0 request enter Low Power Mode
     eCPU0_MODE_REQUEST CPU0_MODE_REQUEST : 1;
+    /// read-only - Domain0 Low Power Mode task done
     eCPU0_MODE_DONE CPU0_MODE_DONE : 1;
+    /// read-only - Domain1 Low Power Mode
     eCPU1_MODE CPU1_MODE : 2;
+    /// read-only - Domain1 request enter Low Power Mode
     eCPU1_MODE_REQUEST CPU1_MODE_REQUEST : 1;
+    /// read-only - Domain1 Low Power Mode task done
     eCPU1_MODE_DONE CPU1_MODE_DONE : 1;
+    /// read-only - Domain2 Low Power Mode
     eCPU2_MODE CPU2_MODE : 2;
+    /// read-only - Domain2 request enter Low Power Mode
     eCPU2_MODE_REQUEST CPU2_MODE_REQUEST : 1;
+    /// read-only - Domain2 Low Power Mode task done
     eCPU2_MODE_DONE CPU2_MODE_DONE : 1;
+    /// read-only - Domain3 Low Power Mode
     eCPU3_MODE CPU3_MODE : 2;
+    /// read-only - Domain3 request enter Low Power Mode
     eCPU3_MODE_REQUEST CPU3_MODE_REQUEST : 1;
+    /// read-only - Domain3 Low Power Mode task done
     eCPU3_MODE_DONE CPU3_MODE_DONE : 1;
+    /// read-only - Next Setpoint to change to
     uint32_t TARGET_SETPOINT : 4;
+    /// read-only - Current Setpoint
     uint32_t CURRENT_SETPOINT : 4;
+    /// read-only - Clock gate turn off request from GPC Setpoint
     eSETPOINT_OFF_REQUEST SETPOINT_OFF_REQUEST : 1;
+    /// read-only - Clock gate turn off finish from GPC Setpoint
     eSETPOINT_OFF_DONE SETPOINT_OFF_DONE : 1;
+    /// read-only - Clock gate turn on request from GPC Setpoint
     eSETPOINT_ON_REQUEST SETPOINT_ON_REQUEST : 1;
+    /// read-only - Clock gate turn on finish from GPC Setpoint
     eSETPOINT_ON_DONE SETPOINT_ON_DONE : 1;
     uint32_t _reserved_0 : 4;
   } bits;
@@ -22122,6 +24475,7 @@ union LPCG48_CONFIG {
   // Bit field definition.
   struct {
     uint32_t _reserved_0 : 4;
+    /// read-only - Setpoint present
     eSETPOINT_PRESENT SETPOINT_PRESENT : 1;
     uint32_t _reserved_1 : 27;
   } bits;
@@ -22180,18 +24534,27 @@ union LPCG48_AUTHEN {
   
   // Bit field definition.
   struct {
+    /// read-write - User access
     eTZ_USER TZ_USER : 1;
+    /// read-write - Non-secure access
     eTZ_NS TZ_NS : 1;
     uint32_t _reserved_0 : 2;
+    /// read-write - lock truszone setting
     eLOCK_TZ LOCK_TZ : 1;
     uint32_t _reserved_1 : 3;
+    /// read-write - Whitelist
     uint32_t WHITE_LIST : 4;
+    /// read-write - Lock Whitelist
     eLOCK_LIST LOCK_LIST : 1;
     uint32_t _reserved_2 : 3;
+    /// read-write - Low power and access control by domain
     eDOMAIN_MODE DOMAIN_MODE : 1;
+    /// read-write - Low power and access control by Setpoint
     eSETPOINT_MODE SETPOINT_MODE : 1;
+    /// read-write - CPU Low Power Mode
     eCPULPM CPULPM : 1;
     uint32_t _reserved_3 : 1;
+    /// read-write - Lock low power and access mode
     eLOCK_MODE LOCK_MODE : 1;
     uint32_t _reserved_4 : 11;
   } bits;
@@ -22215,6 +24578,7 @@ union LPCG49_DIRECT {
   
   // Bit field definition.
   struct {
+    /// read-write - LPCG on
     eON ON : 1;
     uint32_t _reserved_0 : 31;
   } bits;
@@ -22273,14 +24637,19 @@ union LPCG49_DOMAIN {
   
   // Bit field definition.
   struct {
+    /// read-write - Current dependence level
     eLEVEL LEVEL : 3;
     uint32_t _reserved_0 : 13;
+    /// read-write - Depend level
     eLEVEL0 LEVEL0 : 3;
     uint32_t _reserved_1 : 1;
+    /// read-write - Depend level
     eLEVEL1 LEVEL1 : 3;
     uint32_t _reserved_2 : 1;
+    /// read-write - Depend level
     eLEVEL2 LEVEL2 : 3;
     uint32_t _reserved_3 : 1;
+    /// read-write - Depend level
     eLEVEL3 LEVEL3 : 3;
     uint32_t _reserved_4 : 1;
   } bits;
@@ -22342,9 +24711,12 @@ union LPCG49_STATUS0 {
   
   // Bit field definition.
   struct {
+    /// read-only - LPCG current state
     eON ON : 1;
     uint32_t _reserved_0 : 7;
+    /// read-only - Domains that own this clock gate
     eACTIVE_DOMAIN ACTIVE_DOMAIN : 4;
+    /// read-only - Enable status from each domain
     eDOMAIN_ENABLE DOMAIN_ENABLE : 4;
     uint32_t _reserved_1 : 16;
   } bits;
@@ -22451,23 +24823,41 @@ union LPCG49_STATUS1 {
   
   // Bit field definition.
   struct {
+    /// read-only - Domain0 Low Power Mode
     eCPU0_MODE CPU0_MODE : 2;
+    /// read-only - Domain0 request enter Low Power Mode
     eCPU0_MODE_REQUEST CPU0_MODE_REQUEST : 1;
+    /// read-only - Domain0 Low Power Mode task done
     eCPU0_MODE_DONE CPU0_MODE_DONE : 1;
+    /// read-only - Domain1 Low Power Mode
     eCPU1_MODE CPU1_MODE : 2;
+    /// read-only - Domain1 request enter Low Power Mode
     eCPU1_MODE_REQUEST CPU1_MODE_REQUEST : 1;
+    /// read-only - Domain1 Low Power Mode task done
     eCPU1_MODE_DONE CPU1_MODE_DONE : 1;
+    /// read-only - Domain2 Low Power Mode
     eCPU2_MODE CPU2_MODE : 2;
+    /// read-only - Domain2 request enter Low Power Mode
     eCPU2_MODE_REQUEST CPU2_MODE_REQUEST : 1;
+    /// read-only - Domain2 Low Power Mode task done
     eCPU2_MODE_DONE CPU2_MODE_DONE : 1;
+    /// read-only - Domain3 Low Power Mode
     eCPU3_MODE CPU3_MODE : 2;
+    /// read-only - Domain3 request enter Low Power Mode
     eCPU3_MODE_REQUEST CPU3_MODE_REQUEST : 1;
+    /// read-only - Domain3 Low Power Mode task done
     eCPU3_MODE_DONE CPU3_MODE_DONE : 1;
+    /// read-only - Next Setpoint to change to
     uint32_t TARGET_SETPOINT : 4;
+    /// read-only - Current Setpoint
     uint32_t CURRENT_SETPOINT : 4;
+    /// read-only - Clock gate turn off request from GPC Setpoint
     eSETPOINT_OFF_REQUEST SETPOINT_OFF_REQUEST : 1;
+    /// read-only - Clock gate turn off finish from GPC Setpoint
     eSETPOINT_OFF_DONE SETPOINT_OFF_DONE : 1;
+    /// read-only - Clock gate turn on request from GPC Setpoint
     eSETPOINT_ON_REQUEST SETPOINT_ON_REQUEST : 1;
+    /// read-only - Clock gate turn on finish from GPC Setpoint
     eSETPOINT_ON_DONE SETPOINT_ON_DONE : 1;
     uint32_t _reserved_0 : 4;
   } bits;
@@ -22492,6 +24882,7 @@ union LPCG49_CONFIG {
   // Bit field definition.
   struct {
     uint32_t _reserved_0 : 4;
+    /// read-only - Setpoint present
     eSETPOINT_PRESENT SETPOINT_PRESENT : 1;
     uint32_t _reserved_1 : 27;
   } bits;
@@ -22550,18 +24941,27 @@ union LPCG49_AUTHEN {
   
   // Bit field definition.
   struct {
+    /// read-write - User access
     eTZ_USER TZ_USER : 1;
+    /// read-write - Non-secure access
     eTZ_NS TZ_NS : 1;
     uint32_t _reserved_0 : 2;
+    /// read-write - lock truszone setting
     eLOCK_TZ LOCK_TZ : 1;
     uint32_t _reserved_1 : 3;
+    /// read-write - Whitelist
     uint32_t WHITE_LIST : 4;
+    /// read-write - Lock Whitelist
     eLOCK_LIST LOCK_LIST : 1;
     uint32_t _reserved_2 : 3;
+    /// read-write - Low power and access control by domain
     eDOMAIN_MODE DOMAIN_MODE : 1;
+    /// read-write - Low power and access control by Setpoint
     eSETPOINT_MODE SETPOINT_MODE : 1;
+    /// read-write - CPU Low Power Mode
     eCPULPM CPULPM : 1;
     uint32_t _reserved_3 : 1;
+    /// read-write - Lock low power and access mode
     eLOCK_MODE LOCK_MODE : 1;
     uint32_t _reserved_4 : 11;
   } bits;
@@ -22585,6 +24985,7 @@ union LPCG50_DIRECT {
   
   // Bit field definition.
   struct {
+    /// read-write - LPCG on
     eON ON : 1;
     uint32_t _reserved_0 : 31;
   } bits;
@@ -22643,14 +25044,19 @@ union LPCG50_DOMAIN {
   
   // Bit field definition.
   struct {
+    /// read-write - Current dependence level
     eLEVEL LEVEL : 3;
     uint32_t _reserved_0 : 13;
+    /// read-write - Depend level
     eLEVEL0 LEVEL0 : 3;
     uint32_t _reserved_1 : 1;
+    /// read-write - Depend level
     eLEVEL1 LEVEL1 : 3;
     uint32_t _reserved_2 : 1;
+    /// read-write - Depend level
     eLEVEL2 LEVEL2 : 3;
     uint32_t _reserved_3 : 1;
+    /// read-write - Depend level
     eLEVEL3 LEVEL3 : 3;
     uint32_t _reserved_4 : 1;
   } bits;
@@ -22712,9 +25118,12 @@ union LPCG50_STATUS0 {
   
   // Bit field definition.
   struct {
+    /// read-only - LPCG current state
     eON ON : 1;
     uint32_t _reserved_0 : 7;
+    /// read-only - Domains that own this clock gate
     eACTIVE_DOMAIN ACTIVE_DOMAIN : 4;
+    /// read-only - Enable status from each domain
     eDOMAIN_ENABLE DOMAIN_ENABLE : 4;
     uint32_t _reserved_1 : 16;
   } bits;
@@ -22821,23 +25230,41 @@ union LPCG50_STATUS1 {
   
   // Bit field definition.
   struct {
+    /// read-only - Domain0 Low Power Mode
     eCPU0_MODE CPU0_MODE : 2;
+    /// read-only - Domain0 request enter Low Power Mode
     eCPU0_MODE_REQUEST CPU0_MODE_REQUEST : 1;
+    /// read-only - Domain0 Low Power Mode task done
     eCPU0_MODE_DONE CPU0_MODE_DONE : 1;
+    /// read-only - Domain1 Low Power Mode
     eCPU1_MODE CPU1_MODE : 2;
+    /// read-only - Domain1 request enter Low Power Mode
     eCPU1_MODE_REQUEST CPU1_MODE_REQUEST : 1;
+    /// read-only - Domain1 Low Power Mode task done
     eCPU1_MODE_DONE CPU1_MODE_DONE : 1;
+    /// read-only - Domain2 Low Power Mode
     eCPU2_MODE CPU2_MODE : 2;
+    /// read-only - Domain2 request enter Low Power Mode
     eCPU2_MODE_REQUEST CPU2_MODE_REQUEST : 1;
+    /// read-only - Domain2 Low Power Mode task done
     eCPU2_MODE_DONE CPU2_MODE_DONE : 1;
+    /// read-only - Domain3 Low Power Mode
     eCPU3_MODE CPU3_MODE : 2;
+    /// read-only - Domain3 request enter Low Power Mode
     eCPU3_MODE_REQUEST CPU3_MODE_REQUEST : 1;
+    /// read-only - Domain3 Low Power Mode task done
     eCPU3_MODE_DONE CPU3_MODE_DONE : 1;
+    /// read-only - Next Setpoint to change to
     uint32_t TARGET_SETPOINT : 4;
+    /// read-only - Current Setpoint
     uint32_t CURRENT_SETPOINT : 4;
+    /// read-only - Clock gate turn off request from GPC Setpoint
     eSETPOINT_OFF_REQUEST SETPOINT_OFF_REQUEST : 1;
+    /// read-only - Clock gate turn off finish from GPC Setpoint
     eSETPOINT_OFF_DONE SETPOINT_OFF_DONE : 1;
+    /// read-only - Clock gate turn on request from GPC Setpoint
     eSETPOINT_ON_REQUEST SETPOINT_ON_REQUEST : 1;
+    /// read-only - Clock gate turn on finish from GPC Setpoint
     eSETPOINT_ON_DONE SETPOINT_ON_DONE : 1;
     uint32_t _reserved_0 : 4;
   } bits;
@@ -22862,6 +25289,7 @@ union LPCG50_CONFIG {
   // Bit field definition.
   struct {
     uint32_t _reserved_0 : 4;
+    /// read-only - Setpoint present
     eSETPOINT_PRESENT SETPOINT_PRESENT : 1;
     uint32_t _reserved_1 : 27;
   } bits;
@@ -22920,18 +25348,27 @@ union LPCG50_AUTHEN {
   
   // Bit field definition.
   struct {
+    /// read-write - User access
     eTZ_USER TZ_USER : 1;
+    /// read-write - Non-secure access
     eTZ_NS TZ_NS : 1;
     uint32_t _reserved_0 : 2;
+    /// read-write - lock truszone setting
     eLOCK_TZ LOCK_TZ : 1;
     uint32_t _reserved_1 : 3;
+    /// read-write - Whitelist
     uint32_t WHITE_LIST : 4;
+    /// read-write - Lock Whitelist
     eLOCK_LIST LOCK_LIST : 1;
     uint32_t _reserved_2 : 3;
+    /// read-write - Low power and access control by domain
     eDOMAIN_MODE DOMAIN_MODE : 1;
+    /// read-write - Low power and access control by Setpoint
     eSETPOINT_MODE SETPOINT_MODE : 1;
+    /// read-write - CPU Low Power Mode
     eCPULPM CPULPM : 1;
     uint32_t _reserved_3 : 1;
+    /// read-write - Lock low power and access mode
     eLOCK_MODE LOCK_MODE : 1;
     uint32_t _reserved_4 : 11;
   } bits;
@@ -22955,6 +25392,7 @@ union LPCG51_DIRECT {
   
   // Bit field definition.
   struct {
+    /// read-write - LPCG on
     eON ON : 1;
     uint32_t _reserved_0 : 31;
   } bits;
@@ -23013,14 +25451,19 @@ union LPCG51_DOMAIN {
   
   // Bit field definition.
   struct {
+    /// read-write - Current dependence level
     eLEVEL LEVEL : 3;
     uint32_t _reserved_0 : 13;
+    /// read-write - Depend level
     eLEVEL0 LEVEL0 : 3;
     uint32_t _reserved_1 : 1;
+    /// read-write - Depend level
     eLEVEL1 LEVEL1 : 3;
     uint32_t _reserved_2 : 1;
+    /// read-write - Depend level
     eLEVEL2 LEVEL2 : 3;
     uint32_t _reserved_3 : 1;
+    /// read-write - Depend level
     eLEVEL3 LEVEL3 : 3;
     uint32_t _reserved_4 : 1;
   } bits;
@@ -23082,9 +25525,12 @@ union LPCG51_STATUS0 {
   
   // Bit field definition.
   struct {
+    /// read-only - LPCG current state
     eON ON : 1;
     uint32_t _reserved_0 : 7;
+    /// read-only - Domains that own this clock gate
     eACTIVE_DOMAIN ACTIVE_DOMAIN : 4;
+    /// read-only - Enable status from each domain
     eDOMAIN_ENABLE DOMAIN_ENABLE : 4;
     uint32_t _reserved_1 : 16;
   } bits;
@@ -23191,23 +25637,41 @@ union LPCG51_STATUS1 {
   
   // Bit field definition.
   struct {
+    /// read-only - Domain0 Low Power Mode
     eCPU0_MODE CPU0_MODE : 2;
+    /// read-only - Domain0 request enter Low Power Mode
     eCPU0_MODE_REQUEST CPU0_MODE_REQUEST : 1;
+    /// read-only - Domain0 Low Power Mode task done
     eCPU0_MODE_DONE CPU0_MODE_DONE : 1;
+    /// read-only - Domain1 Low Power Mode
     eCPU1_MODE CPU1_MODE : 2;
+    /// read-only - Domain1 request enter Low Power Mode
     eCPU1_MODE_REQUEST CPU1_MODE_REQUEST : 1;
+    /// read-only - Domain1 Low Power Mode task done
     eCPU1_MODE_DONE CPU1_MODE_DONE : 1;
+    /// read-only - Domain2 Low Power Mode
     eCPU2_MODE CPU2_MODE : 2;
+    /// read-only - Domain2 request enter Low Power Mode
     eCPU2_MODE_REQUEST CPU2_MODE_REQUEST : 1;
+    /// read-only - Domain2 Low Power Mode task done
     eCPU2_MODE_DONE CPU2_MODE_DONE : 1;
+    /// read-only - Domain3 Low Power Mode
     eCPU3_MODE CPU3_MODE : 2;
+    /// read-only - Domain3 request enter Low Power Mode
     eCPU3_MODE_REQUEST CPU3_MODE_REQUEST : 1;
+    /// read-only - Domain3 Low Power Mode task done
     eCPU3_MODE_DONE CPU3_MODE_DONE : 1;
+    /// read-only - Next Setpoint to change to
     uint32_t TARGET_SETPOINT : 4;
+    /// read-only - Current Setpoint
     uint32_t CURRENT_SETPOINT : 4;
+    /// read-only - Clock gate turn off request from GPC Setpoint
     eSETPOINT_OFF_REQUEST SETPOINT_OFF_REQUEST : 1;
+    /// read-only - Clock gate turn off finish from GPC Setpoint
     eSETPOINT_OFF_DONE SETPOINT_OFF_DONE : 1;
+    /// read-only - Clock gate turn on request from GPC Setpoint
     eSETPOINT_ON_REQUEST SETPOINT_ON_REQUEST : 1;
+    /// read-only - Clock gate turn on finish from GPC Setpoint
     eSETPOINT_ON_DONE SETPOINT_ON_DONE : 1;
     uint32_t _reserved_0 : 4;
   } bits;
@@ -23232,6 +25696,7 @@ union LPCG51_CONFIG {
   // Bit field definition.
   struct {
     uint32_t _reserved_0 : 4;
+    /// read-only - Setpoint present
     eSETPOINT_PRESENT SETPOINT_PRESENT : 1;
     uint32_t _reserved_1 : 27;
   } bits;
@@ -23290,18 +25755,27 @@ union LPCG51_AUTHEN {
   
   // Bit field definition.
   struct {
+    /// read-write - User access
     eTZ_USER TZ_USER : 1;
+    /// read-write - Non-secure access
     eTZ_NS TZ_NS : 1;
     uint32_t _reserved_0 : 2;
+    /// read-write - lock truszone setting
     eLOCK_TZ LOCK_TZ : 1;
     uint32_t _reserved_1 : 3;
+    /// read-write - Whitelist
     uint32_t WHITE_LIST : 4;
+    /// read-write - Lock Whitelist
     eLOCK_LIST LOCK_LIST : 1;
     uint32_t _reserved_2 : 3;
+    /// read-write - Low power and access control by domain
     eDOMAIN_MODE DOMAIN_MODE : 1;
+    /// read-write - Low power and access control by Setpoint
     eSETPOINT_MODE SETPOINT_MODE : 1;
+    /// read-write - CPU Low Power Mode
     eCPULPM CPULPM : 1;
     uint32_t _reserved_3 : 1;
+    /// read-write - Lock low power and access mode
     eLOCK_MODE LOCK_MODE : 1;
     uint32_t _reserved_4 : 11;
   } bits;
@@ -23325,6 +25799,7 @@ union LPCG52_DIRECT {
   
   // Bit field definition.
   struct {
+    /// read-write - LPCG on
     eON ON : 1;
     uint32_t _reserved_0 : 31;
   } bits;
@@ -23383,14 +25858,19 @@ union LPCG52_DOMAIN {
   
   // Bit field definition.
   struct {
+    /// read-write - Current dependence level
     eLEVEL LEVEL : 3;
     uint32_t _reserved_0 : 13;
+    /// read-write - Depend level
     eLEVEL0 LEVEL0 : 3;
     uint32_t _reserved_1 : 1;
+    /// read-write - Depend level
     eLEVEL1 LEVEL1 : 3;
     uint32_t _reserved_2 : 1;
+    /// read-write - Depend level
     eLEVEL2 LEVEL2 : 3;
     uint32_t _reserved_3 : 1;
+    /// read-write - Depend level
     eLEVEL3 LEVEL3 : 3;
     uint32_t _reserved_4 : 1;
   } bits;
@@ -23452,9 +25932,12 @@ union LPCG52_STATUS0 {
   
   // Bit field definition.
   struct {
+    /// read-only - LPCG current state
     eON ON : 1;
     uint32_t _reserved_0 : 7;
+    /// read-only - Domains that own this clock gate
     eACTIVE_DOMAIN ACTIVE_DOMAIN : 4;
+    /// read-only - Enable status from each domain
     eDOMAIN_ENABLE DOMAIN_ENABLE : 4;
     uint32_t _reserved_1 : 16;
   } bits;
@@ -23561,23 +26044,41 @@ union LPCG52_STATUS1 {
   
   // Bit field definition.
   struct {
+    /// read-only - Domain0 Low Power Mode
     eCPU0_MODE CPU0_MODE : 2;
+    /// read-only - Domain0 request enter Low Power Mode
     eCPU0_MODE_REQUEST CPU0_MODE_REQUEST : 1;
+    /// read-only - Domain0 Low Power Mode task done
     eCPU0_MODE_DONE CPU0_MODE_DONE : 1;
+    /// read-only - Domain1 Low Power Mode
     eCPU1_MODE CPU1_MODE : 2;
+    /// read-only - Domain1 request enter Low Power Mode
     eCPU1_MODE_REQUEST CPU1_MODE_REQUEST : 1;
+    /// read-only - Domain1 Low Power Mode task done
     eCPU1_MODE_DONE CPU1_MODE_DONE : 1;
+    /// read-only - Domain2 Low Power Mode
     eCPU2_MODE CPU2_MODE : 2;
+    /// read-only - Domain2 request enter Low Power Mode
     eCPU2_MODE_REQUEST CPU2_MODE_REQUEST : 1;
+    /// read-only - Domain2 Low Power Mode task done
     eCPU2_MODE_DONE CPU2_MODE_DONE : 1;
+    /// read-only - Domain3 Low Power Mode
     eCPU3_MODE CPU3_MODE : 2;
+    /// read-only - Domain3 request enter Low Power Mode
     eCPU3_MODE_REQUEST CPU3_MODE_REQUEST : 1;
+    /// read-only - Domain3 Low Power Mode task done
     eCPU3_MODE_DONE CPU3_MODE_DONE : 1;
+    /// read-only - Next Setpoint to change to
     uint32_t TARGET_SETPOINT : 4;
+    /// read-only - Current Setpoint
     uint32_t CURRENT_SETPOINT : 4;
+    /// read-only - Clock gate turn off request from GPC Setpoint
     eSETPOINT_OFF_REQUEST SETPOINT_OFF_REQUEST : 1;
+    /// read-only - Clock gate turn off finish from GPC Setpoint
     eSETPOINT_OFF_DONE SETPOINT_OFF_DONE : 1;
+    /// read-only - Clock gate turn on request from GPC Setpoint
     eSETPOINT_ON_REQUEST SETPOINT_ON_REQUEST : 1;
+    /// read-only - Clock gate turn on finish from GPC Setpoint
     eSETPOINT_ON_DONE SETPOINT_ON_DONE : 1;
     uint32_t _reserved_0 : 4;
   } bits;
@@ -23602,6 +26103,7 @@ union LPCG52_CONFIG {
   // Bit field definition.
   struct {
     uint32_t _reserved_0 : 4;
+    /// read-only - Setpoint present
     eSETPOINT_PRESENT SETPOINT_PRESENT : 1;
     uint32_t _reserved_1 : 27;
   } bits;
@@ -23660,18 +26162,27 @@ union LPCG52_AUTHEN {
   
   // Bit field definition.
   struct {
+    /// read-write - User access
     eTZ_USER TZ_USER : 1;
+    /// read-write - Non-secure access
     eTZ_NS TZ_NS : 1;
     uint32_t _reserved_0 : 2;
+    /// read-write - lock truszone setting
     eLOCK_TZ LOCK_TZ : 1;
     uint32_t _reserved_1 : 3;
+    /// read-write - Whitelist
     uint32_t WHITE_LIST : 4;
+    /// read-write - Lock Whitelist
     eLOCK_LIST LOCK_LIST : 1;
     uint32_t _reserved_2 : 3;
+    /// read-write - Low power and access control by domain
     eDOMAIN_MODE DOMAIN_MODE : 1;
+    /// read-write - Low power and access control by Setpoint
     eSETPOINT_MODE SETPOINT_MODE : 1;
+    /// read-write - CPU Low Power Mode
     eCPULPM CPULPM : 1;
     uint32_t _reserved_3 : 1;
+    /// read-write - Lock low power and access mode
     eLOCK_MODE LOCK_MODE : 1;
     uint32_t _reserved_4 : 11;
   } bits;
@@ -23695,6 +26206,7 @@ union LPCG53_DIRECT {
   
   // Bit field definition.
   struct {
+    /// read-write - LPCG on
     eON ON : 1;
     uint32_t _reserved_0 : 31;
   } bits;
@@ -23753,14 +26265,19 @@ union LPCG53_DOMAIN {
   
   // Bit field definition.
   struct {
+    /// read-write - Current dependence level
     eLEVEL LEVEL : 3;
     uint32_t _reserved_0 : 13;
+    /// read-write - Depend level
     eLEVEL0 LEVEL0 : 3;
     uint32_t _reserved_1 : 1;
+    /// read-write - Depend level
     eLEVEL1 LEVEL1 : 3;
     uint32_t _reserved_2 : 1;
+    /// read-write - Depend level
     eLEVEL2 LEVEL2 : 3;
     uint32_t _reserved_3 : 1;
+    /// read-write - Depend level
     eLEVEL3 LEVEL3 : 3;
     uint32_t _reserved_4 : 1;
   } bits;
@@ -23822,9 +26339,12 @@ union LPCG53_STATUS0 {
   
   // Bit field definition.
   struct {
+    /// read-only - LPCG current state
     eON ON : 1;
     uint32_t _reserved_0 : 7;
+    /// read-only - Domains that own this clock gate
     eACTIVE_DOMAIN ACTIVE_DOMAIN : 4;
+    /// read-only - Enable status from each domain
     eDOMAIN_ENABLE DOMAIN_ENABLE : 4;
     uint32_t _reserved_1 : 16;
   } bits;
@@ -23931,23 +26451,41 @@ union LPCG53_STATUS1 {
   
   // Bit field definition.
   struct {
+    /// read-only - Domain0 Low Power Mode
     eCPU0_MODE CPU0_MODE : 2;
+    /// read-only - Domain0 request enter Low Power Mode
     eCPU0_MODE_REQUEST CPU0_MODE_REQUEST : 1;
+    /// read-only - Domain0 Low Power Mode task done
     eCPU0_MODE_DONE CPU0_MODE_DONE : 1;
+    /// read-only - Domain1 Low Power Mode
     eCPU1_MODE CPU1_MODE : 2;
+    /// read-only - Domain1 request enter Low Power Mode
     eCPU1_MODE_REQUEST CPU1_MODE_REQUEST : 1;
+    /// read-only - Domain1 Low Power Mode task done
     eCPU1_MODE_DONE CPU1_MODE_DONE : 1;
+    /// read-only - Domain2 Low Power Mode
     eCPU2_MODE CPU2_MODE : 2;
+    /// read-only - Domain2 request enter Low Power Mode
     eCPU2_MODE_REQUEST CPU2_MODE_REQUEST : 1;
+    /// read-only - Domain2 Low Power Mode task done
     eCPU2_MODE_DONE CPU2_MODE_DONE : 1;
+    /// read-only - Domain3 Low Power Mode
     eCPU3_MODE CPU3_MODE : 2;
+    /// read-only - Domain3 request enter Low Power Mode
     eCPU3_MODE_REQUEST CPU3_MODE_REQUEST : 1;
+    /// read-only - Domain3 Low Power Mode task done
     eCPU3_MODE_DONE CPU3_MODE_DONE : 1;
+    /// read-only - Next Setpoint to change to
     uint32_t TARGET_SETPOINT : 4;
+    /// read-only - Current Setpoint
     uint32_t CURRENT_SETPOINT : 4;
+    /// read-only - Clock gate turn off request from GPC Setpoint
     eSETPOINT_OFF_REQUEST SETPOINT_OFF_REQUEST : 1;
+    /// read-only - Clock gate turn off finish from GPC Setpoint
     eSETPOINT_OFF_DONE SETPOINT_OFF_DONE : 1;
+    /// read-only - Clock gate turn on request from GPC Setpoint
     eSETPOINT_ON_REQUEST SETPOINT_ON_REQUEST : 1;
+    /// read-only - Clock gate turn on finish from GPC Setpoint
     eSETPOINT_ON_DONE SETPOINT_ON_DONE : 1;
     uint32_t _reserved_0 : 4;
   } bits;
@@ -23972,6 +26510,7 @@ union LPCG53_CONFIG {
   // Bit field definition.
   struct {
     uint32_t _reserved_0 : 4;
+    /// read-only - Setpoint present
     eSETPOINT_PRESENT SETPOINT_PRESENT : 1;
     uint32_t _reserved_1 : 27;
   } bits;
@@ -24030,18 +26569,27 @@ union LPCG53_AUTHEN {
   
   // Bit field definition.
   struct {
+    /// read-write - User access
     eTZ_USER TZ_USER : 1;
+    /// read-write - Non-secure access
     eTZ_NS TZ_NS : 1;
     uint32_t _reserved_0 : 2;
+    /// read-write - lock truszone setting
     eLOCK_TZ LOCK_TZ : 1;
     uint32_t _reserved_1 : 3;
+    /// read-write - Whitelist
     uint32_t WHITE_LIST : 4;
+    /// read-write - Lock Whitelist
     eLOCK_LIST LOCK_LIST : 1;
     uint32_t _reserved_2 : 3;
+    /// read-write - Low power and access control by domain
     eDOMAIN_MODE DOMAIN_MODE : 1;
+    /// read-write - Low power and access control by Setpoint
     eSETPOINT_MODE SETPOINT_MODE : 1;
+    /// read-write - CPU Low Power Mode
     eCPULPM CPULPM : 1;
     uint32_t _reserved_3 : 1;
+    /// read-write - Lock low power and access mode
     eLOCK_MODE LOCK_MODE : 1;
     uint32_t _reserved_4 : 11;
   } bits;
@@ -24065,6 +26613,7 @@ union LPCG54_DIRECT {
   
   // Bit field definition.
   struct {
+    /// read-write - LPCG on
     eON ON : 1;
     uint32_t _reserved_0 : 31;
   } bits;
@@ -24123,14 +26672,19 @@ union LPCG54_DOMAIN {
   
   // Bit field definition.
   struct {
+    /// read-write - Current dependence level
     eLEVEL LEVEL : 3;
     uint32_t _reserved_0 : 13;
+    /// read-write - Depend level
     eLEVEL0 LEVEL0 : 3;
     uint32_t _reserved_1 : 1;
+    /// read-write - Depend level
     eLEVEL1 LEVEL1 : 3;
     uint32_t _reserved_2 : 1;
+    /// read-write - Depend level
     eLEVEL2 LEVEL2 : 3;
     uint32_t _reserved_3 : 1;
+    /// read-write - Depend level
     eLEVEL3 LEVEL3 : 3;
     uint32_t _reserved_4 : 1;
   } bits;
@@ -24192,9 +26746,12 @@ union LPCG54_STATUS0 {
   
   // Bit field definition.
   struct {
+    /// read-only - LPCG current state
     eON ON : 1;
     uint32_t _reserved_0 : 7;
+    /// read-only - Domains that own this clock gate
     eACTIVE_DOMAIN ACTIVE_DOMAIN : 4;
+    /// read-only - Enable status from each domain
     eDOMAIN_ENABLE DOMAIN_ENABLE : 4;
     uint32_t _reserved_1 : 16;
   } bits;
@@ -24301,23 +26858,41 @@ union LPCG54_STATUS1 {
   
   // Bit field definition.
   struct {
+    /// read-only - Domain0 Low Power Mode
     eCPU0_MODE CPU0_MODE : 2;
+    /// read-only - Domain0 request enter Low Power Mode
     eCPU0_MODE_REQUEST CPU0_MODE_REQUEST : 1;
+    /// read-only - Domain0 Low Power Mode task done
     eCPU0_MODE_DONE CPU0_MODE_DONE : 1;
+    /// read-only - Domain1 Low Power Mode
     eCPU1_MODE CPU1_MODE : 2;
+    /// read-only - Domain1 request enter Low Power Mode
     eCPU1_MODE_REQUEST CPU1_MODE_REQUEST : 1;
+    /// read-only - Domain1 Low Power Mode task done
     eCPU1_MODE_DONE CPU1_MODE_DONE : 1;
+    /// read-only - Domain2 Low Power Mode
     eCPU2_MODE CPU2_MODE : 2;
+    /// read-only - Domain2 request enter Low Power Mode
     eCPU2_MODE_REQUEST CPU2_MODE_REQUEST : 1;
+    /// read-only - Domain2 Low Power Mode task done
     eCPU2_MODE_DONE CPU2_MODE_DONE : 1;
+    /// read-only - Domain3 Low Power Mode
     eCPU3_MODE CPU3_MODE : 2;
+    /// read-only - Domain3 request enter Low Power Mode
     eCPU3_MODE_REQUEST CPU3_MODE_REQUEST : 1;
+    /// read-only - Domain3 Low Power Mode task done
     eCPU3_MODE_DONE CPU3_MODE_DONE : 1;
+    /// read-only - Next Setpoint to change to
     uint32_t TARGET_SETPOINT : 4;
+    /// read-only - Current Setpoint
     uint32_t CURRENT_SETPOINT : 4;
+    /// read-only - Clock gate turn off request from GPC Setpoint
     eSETPOINT_OFF_REQUEST SETPOINT_OFF_REQUEST : 1;
+    /// read-only - Clock gate turn off finish from GPC Setpoint
     eSETPOINT_OFF_DONE SETPOINT_OFF_DONE : 1;
+    /// read-only - Clock gate turn on request from GPC Setpoint
     eSETPOINT_ON_REQUEST SETPOINT_ON_REQUEST : 1;
+    /// read-only - Clock gate turn on finish from GPC Setpoint
     eSETPOINT_ON_DONE SETPOINT_ON_DONE : 1;
     uint32_t _reserved_0 : 4;
   } bits;
@@ -24342,6 +26917,7 @@ union LPCG54_CONFIG {
   // Bit field definition.
   struct {
     uint32_t _reserved_0 : 4;
+    /// read-only - Setpoint present
     eSETPOINT_PRESENT SETPOINT_PRESENT : 1;
     uint32_t _reserved_1 : 27;
   } bits;
@@ -24400,18 +26976,27 @@ union LPCG54_AUTHEN {
   
   // Bit field definition.
   struct {
+    /// read-write - User access
     eTZ_USER TZ_USER : 1;
+    /// read-write - Non-secure access
     eTZ_NS TZ_NS : 1;
     uint32_t _reserved_0 : 2;
+    /// read-write - lock truszone setting
     eLOCK_TZ LOCK_TZ : 1;
     uint32_t _reserved_1 : 3;
+    /// read-write - Whitelist
     uint32_t WHITE_LIST : 4;
+    /// read-write - Lock Whitelist
     eLOCK_LIST LOCK_LIST : 1;
     uint32_t _reserved_2 : 3;
+    /// read-write - Low power and access control by domain
     eDOMAIN_MODE DOMAIN_MODE : 1;
+    /// read-write - Low power and access control by Setpoint
     eSETPOINT_MODE SETPOINT_MODE : 1;
+    /// read-write - CPU Low Power Mode
     eCPULPM CPULPM : 1;
     uint32_t _reserved_3 : 1;
+    /// read-write - Lock low power and access mode
     eLOCK_MODE LOCK_MODE : 1;
     uint32_t _reserved_4 : 11;
   } bits;
@@ -24435,6 +27020,7 @@ union LPCG55_DIRECT {
   
   // Bit field definition.
   struct {
+    /// read-write - LPCG on
     eON ON : 1;
     uint32_t _reserved_0 : 31;
   } bits;
@@ -24493,14 +27079,19 @@ union LPCG55_DOMAIN {
   
   // Bit field definition.
   struct {
+    /// read-write - Current dependence level
     eLEVEL LEVEL : 3;
     uint32_t _reserved_0 : 13;
+    /// read-write - Depend level
     eLEVEL0 LEVEL0 : 3;
     uint32_t _reserved_1 : 1;
+    /// read-write - Depend level
     eLEVEL1 LEVEL1 : 3;
     uint32_t _reserved_2 : 1;
+    /// read-write - Depend level
     eLEVEL2 LEVEL2 : 3;
     uint32_t _reserved_3 : 1;
+    /// read-write - Depend level
     eLEVEL3 LEVEL3 : 3;
     uint32_t _reserved_4 : 1;
   } bits;
@@ -24562,9 +27153,12 @@ union LPCG55_STATUS0 {
   
   // Bit field definition.
   struct {
+    /// read-only - LPCG current state
     eON ON : 1;
     uint32_t _reserved_0 : 7;
+    /// read-only - Domains that own this clock gate
     eACTIVE_DOMAIN ACTIVE_DOMAIN : 4;
+    /// read-only - Enable status from each domain
     eDOMAIN_ENABLE DOMAIN_ENABLE : 4;
     uint32_t _reserved_1 : 16;
   } bits;
@@ -24671,23 +27265,41 @@ union LPCG55_STATUS1 {
   
   // Bit field definition.
   struct {
+    /// read-only - Domain0 Low Power Mode
     eCPU0_MODE CPU0_MODE : 2;
+    /// read-only - Domain0 request enter Low Power Mode
     eCPU0_MODE_REQUEST CPU0_MODE_REQUEST : 1;
+    /// read-only - Domain0 Low Power Mode task done
     eCPU0_MODE_DONE CPU0_MODE_DONE : 1;
+    /// read-only - Domain1 Low Power Mode
     eCPU1_MODE CPU1_MODE : 2;
+    /// read-only - Domain1 request enter Low Power Mode
     eCPU1_MODE_REQUEST CPU1_MODE_REQUEST : 1;
+    /// read-only - Domain1 Low Power Mode task done
     eCPU1_MODE_DONE CPU1_MODE_DONE : 1;
+    /// read-only - Domain2 Low Power Mode
     eCPU2_MODE CPU2_MODE : 2;
+    /// read-only - Domain2 request enter Low Power Mode
     eCPU2_MODE_REQUEST CPU2_MODE_REQUEST : 1;
+    /// read-only - Domain2 Low Power Mode task done
     eCPU2_MODE_DONE CPU2_MODE_DONE : 1;
+    /// read-only - Domain3 Low Power Mode
     eCPU3_MODE CPU3_MODE : 2;
+    /// read-only - Domain3 request enter Low Power Mode
     eCPU3_MODE_REQUEST CPU3_MODE_REQUEST : 1;
+    /// read-only - Domain3 Low Power Mode task done
     eCPU3_MODE_DONE CPU3_MODE_DONE : 1;
+    /// read-only - Next Setpoint to change to
     uint32_t TARGET_SETPOINT : 4;
+    /// read-only - Current Setpoint
     uint32_t CURRENT_SETPOINT : 4;
+    /// read-only - Clock gate turn off request from GPC Setpoint
     eSETPOINT_OFF_REQUEST SETPOINT_OFF_REQUEST : 1;
+    /// read-only - Clock gate turn off finish from GPC Setpoint
     eSETPOINT_OFF_DONE SETPOINT_OFF_DONE : 1;
+    /// read-only - Clock gate turn on request from GPC Setpoint
     eSETPOINT_ON_REQUEST SETPOINT_ON_REQUEST : 1;
+    /// read-only - Clock gate turn on finish from GPC Setpoint
     eSETPOINT_ON_DONE SETPOINT_ON_DONE : 1;
     uint32_t _reserved_0 : 4;
   } bits;
@@ -24712,6 +27324,7 @@ union LPCG55_CONFIG {
   // Bit field definition.
   struct {
     uint32_t _reserved_0 : 4;
+    /// read-only - Setpoint present
     eSETPOINT_PRESENT SETPOINT_PRESENT : 1;
     uint32_t _reserved_1 : 27;
   } bits;
@@ -24770,18 +27383,27 @@ union LPCG55_AUTHEN {
   
   // Bit field definition.
   struct {
+    /// read-write - User access
     eTZ_USER TZ_USER : 1;
+    /// read-write - Non-secure access
     eTZ_NS TZ_NS : 1;
     uint32_t _reserved_0 : 2;
+    /// read-write - lock truszone setting
     eLOCK_TZ LOCK_TZ : 1;
     uint32_t _reserved_1 : 3;
+    /// read-write - Whitelist
     uint32_t WHITE_LIST : 4;
+    /// read-write - Lock Whitelist
     eLOCK_LIST LOCK_LIST : 1;
     uint32_t _reserved_2 : 3;
+    /// read-write - Low power and access control by domain
     eDOMAIN_MODE DOMAIN_MODE : 1;
+    /// read-write - Low power and access control by Setpoint
     eSETPOINT_MODE SETPOINT_MODE : 1;
+    /// read-write - CPU Low Power Mode
     eCPULPM CPULPM : 1;
     uint32_t _reserved_3 : 1;
+    /// read-write - Lock low power and access mode
     eLOCK_MODE LOCK_MODE : 1;
     uint32_t _reserved_4 : 11;
   } bits;
@@ -24805,6 +27427,7 @@ union LPCG56_DIRECT {
   
   // Bit field definition.
   struct {
+    /// read-write - LPCG on
     eON ON : 1;
     uint32_t _reserved_0 : 31;
   } bits;
@@ -24863,14 +27486,19 @@ union LPCG56_DOMAIN {
   
   // Bit field definition.
   struct {
+    /// read-write - Current dependence level
     eLEVEL LEVEL : 3;
     uint32_t _reserved_0 : 13;
+    /// read-write - Depend level
     eLEVEL0 LEVEL0 : 3;
     uint32_t _reserved_1 : 1;
+    /// read-write - Depend level
     eLEVEL1 LEVEL1 : 3;
     uint32_t _reserved_2 : 1;
+    /// read-write - Depend level
     eLEVEL2 LEVEL2 : 3;
     uint32_t _reserved_3 : 1;
+    /// read-write - Depend level
     eLEVEL3 LEVEL3 : 3;
     uint32_t _reserved_4 : 1;
   } bits;
@@ -24932,9 +27560,12 @@ union LPCG56_STATUS0 {
   
   // Bit field definition.
   struct {
+    /// read-only - LPCG current state
     eON ON : 1;
     uint32_t _reserved_0 : 7;
+    /// read-only - Domains that own this clock gate
     eACTIVE_DOMAIN ACTIVE_DOMAIN : 4;
+    /// read-only - Enable status from each domain
     eDOMAIN_ENABLE DOMAIN_ENABLE : 4;
     uint32_t _reserved_1 : 16;
   } bits;
@@ -25041,23 +27672,41 @@ union LPCG56_STATUS1 {
   
   // Bit field definition.
   struct {
+    /// read-only - Domain0 Low Power Mode
     eCPU0_MODE CPU0_MODE : 2;
+    /// read-only - Domain0 request enter Low Power Mode
     eCPU0_MODE_REQUEST CPU0_MODE_REQUEST : 1;
+    /// read-only - Domain0 Low Power Mode task done
     eCPU0_MODE_DONE CPU0_MODE_DONE : 1;
+    /// read-only - Domain1 Low Power Mode
     eCPU1_MODE CPU1_MODE : 2;
+    /// read-only - Domain1 request enter Low Power Mode
     eCPU1_MODE_REQUEST CPU1_MODE_REQUEST : 1;
+    /// read-only - Domain1 Low Power Mode task done
     eCPU1_MODE_DONE CPU1_MODE_DONE : 1;
+    /// read-only - Domain2 Low Power Mode
     eCPU2_MODE CPU2_MODE : 2;
+    /// read-only - Domain2 request enter Low Power Mode
     eCPU2_MODE_REQUEST CPU2_MODE_REQUEST : 1;
+    /// read-only - Domain2 Low Power Mode task done
     eCPU2_MODE_DONE CPU2_MODE_DONE : 1;
+    /// read-only - Domain3 Low Power Mode
     eCPU3_MODE CPU3_MODE : 2;
+    /// read-only - Domain3 request enter Low Power Mode
     eCPU3_MODE_REQUEST CPU3_MODE_REQUEST : 1;
+    /// read-only - Domain3 Low Power Mode task done
     eCPU3_MODE_DONE CPU3_MODE_DONE : 1;
+    /// read-only - Next Setpoint to change to
     uint32_t TARGET_SETPOINT : 4;
+    /// read-only - Current Setpoint
     uint32_t CURRENT_SETPOINT : 4;
+    /// read-only - Clock gate turn off request from GPC Setpoint
     eSETPOINT_OFF_REQUEST SETPOINT_OFF_REQUEST : 1;
+    /// read-only - Clock gate turn off finish from GPC Setpoint
     eSETPOINT_OFF_DONE SETPOINT_OFF_DONE : 1;
+    /// read-only - Clock gate turn on request from GPC Setpoint
     eSETPOINT_ON_REQUEST SETPOINT_ON_REQUEST : 1;
+    /// read-only - Clock gate turn on finish from GPC Setpoint
     eSETPOINT_ON_DONE SETPOINT_ON_DONE : 1;
     uint32_t _reserved_0 : 4;
   } bits;
@@ -25082,6 +27731,7 @@ union LPCG56_CONFIG {
   // Bit field definition.
   struct {
     uint32_t _reserved_0 : 4;
+    /// read-only - Setpoint present
     eSETPOINT_PRESENT SETPOINT_PRESENT : 1;
     uint32_t _reserved_1 : 27;
   } bits;
@@ -25140,18 +27790,27 @@ union LPCG56_AUTHEN {
   
   // Bit field definition.
   struct {
+    /// read-write - User access
     eTZ_USER TZ_USER : 1;
+    /// read-write - Non-secure access
     eTZ_NS TZ_NS : 1;
     uint32_t _reserved_0 : 2;
+    /// read-write - lock truszone setting
     eLOCK_TZ LOCK_TZ : 1;
     uint32_t _reserved_1 : 3;
+    /// read-write - Whitelist
     uint32_t WHITE_LIST : 4;
+    /// read-write - Lock Whitelist
     eLOCK_LIST LOCK_LIST : 1;
     uint32_t _reserved_2 : 3;
+    /// read-write - Low power and access control by domain
     eDOMAIN_MODE DOMAIN_MODE : 1;
+    /// read-write - Low power and access control by Setpoint
     eSETPOINT_MODE SETPOINT_MODE : 1;
+    /// read-write - CPU Low Power Mode
     eCPULPM CPULPM : 1;
     uint32_t _reserved_3 : 1;
+    /// read-write - Lock low power and access mode
     eLOCK_MODE LOCK_MODE : 1;
     uint32_t _reserved_4 : 11;
   } bits;
@@ -25175,6 +27834,7 @@ union LPCG57_DIRECT {
   
   // Bit field definition.
   struct {
+    /// read-write - LPCG on
     eON ON : 1;
     uint32_t _reserved_0 : 31;
   } bits;
@@ -25233,14 +27893,19 @@ union LPCG57_DOMAIN {
   
   // Bit field definition.
   struct {
+    /// read-write - Current dependence level
     eLEVEL LEVEL : 3;
     uint32_t _reserved_0 : 13;
+    /// read-write - Depend level
     eLEVEL0 LEVEL0 : 3;
     uint32_t _reserved_1 : 1;
+    /// read-write - Depend level
     eLEVEL1 LEVEL1 : 3;
     uint32_t _reserved_2 : 1;
+    /// read-write - Depend level
     eLEVEL2 LEVEL2 : 3;
     uint32_t _reserved_3 : 1;
+    /// read-write - Depend level
     eLEVEL3 LEVEL3 : 3;
     uint32_t _reserved_4 : 1;
   } bits;
@@ -25302,9 +27967,12 @@ union LPCG57_STATUS0 {
   
   // Bit field definition.
   struct {
+    /// read-only - LPCG current state
     eON ON : 1;
     uint32_t _reserved_0 : 7;
+    /// read-only - Domains that own this clock gate
     eACTIVE_DOMAIN ACTIVE_DOMAIN : 4;
+    /// read-only - Enable status from each domain
     eDOMAIN_ENABLE DOMAIN_ENABLE : 4;
     uint32_t _reserved_1 : 16;
   } bits;
@@ -25411,23 +28079,41 @@ union LPCG57_STATUS1 {
   
   // Bit field definition.
   struct {
+    /// read-only - Domain0 Low Power Mode
     eCPU0_MODE CPU0_MODE : 2;
+    /// read-only - Domain0 request enter Low Power Mode
     eCPU0_MODE_REQUEST CPU0_MODE_REQUEST : 1;
+    /// read-only - Domain0 Low Power Mode task done
     eCPU0_MODE_DONE CPU0_MODE_DONE : 1;
+    /// read-only - Domain1 Low Power Mode
     eCPU1_MODE CPU1_MODE : 2;
+    /// read-only - Domain1 request enter Low Power Mode
     eCPU1_MODE_REQUEST CPU1_MODE_REQUEST : 1;
+    /// read-only - Domain1 Low Power Mode task done
     eCPU1_MODE_DONE CPU1_MODE_DONE : 1;
+    /// read-only - Domain2 Low Power Mode
     eCPU2_MODE CPU2_MODE : 2;
+    /// read-only - Domain2 request enter Low Power Mode
     eCPU2_MODE_REQUEST CPU2_MODE_REQUEST : 1;
+    /// read-only - Domain2 Low Power Mode task done
     eCPU2_MODE_DONE CPU2_MODE_DONE : 1;
+    /// read-only - Domain3 Low Power Mode
     eCPU3_MODE CPU3_MODE : 2;
+    /// read-only - Domain3 request enter Low Power Mode
     eCPU3_MODE_REQUEST CPU3_MODE_REQUEST : 1;
+    /// read-only - Domain3 Low Power Mode task done
     eCPU3_MODE_DONE CPU3_MODE_DONE : 1;
+    /// read-only - Next Setpoint to change to
     uint32_t TARGET_SETPOINT : 4;
+    /// read-only - Current Setpoint
     uint32_t CURRENT_SETPOINT : 4;
+    /// read-only - Clock gate turn off request from GPC Setpoint
     eSETPOINT_OFF_REQUEST SETPOINT_OFF_REQUEST : 1;
+    /// read-only - Clock gate turn off finish from GPC Setpoint
     eSETPOINT_OFF_DONE SETPOINT_OFF_DONE : 1;
+    /// read-only - Clock gate turn on request from GPC Setpoint
     eSETPOINT_ON_REQUEST SETPOINT_ON_REQUEST : 1;
+    /// read-only - Clock gate turn on finish from GPC Setpoint
     eSETPOINT_ON_DONE SETPOINT_ON_DONE : 1;
     uint32_t _reserved_0 : 4;
   } bits;
@@ -25452,6 +28138,7 @@ union LPCG57_CONFIG {
   // Bit field definition.
   struct {
     uint32_t _reserved_0 : 4;
+    /// read-only - Setpoint present
     eSETPOINT_PRESENT SETPOINT_PRESENT : 1;
     uint32_t _reserved_1 : 27;
   } bits;
@@ -25510,18 +28197,27 @@ union LPCG57_AUTHEN {
   
   // Bit field definition.
   struct {
+    /// read-write - User access
     eTZ_USER TZ_USER : 1;
+    /// read-write - Non-secure access
     eTZ_NS TZ_NS : 1;
     uint32_t _reserved_0 : 2;
+    /// read-write - lock truszone setting
     eLOCK_TZ LOCK_TZ : 1;
     uint32_t _reserved_1 : 3;
+    /// read-write - Whitelist
     uint32_t WHITE_LIST : 4;
+    /// read-write - Lock Whitelist
     eLOCK_LIST LOCK_LIST : 1;
     uint32_t _reserved_2 : 3;
+    /// read-write - Low power and access control by domain
     eDOMAIN_MODE DOMAIN_MODE : 1;
+    /// read-write - Low power and access control by Setpoint
     eSETPOINT_MODE SETPOINT_MODE : 1;
+    /// read-write - CPU Low Power Mode
     eCPULPM CPULPM : 1;
     uint32_t _reserved_3 : 1;
+    /// read-write - Lock low power and access mode
     eLOCK_MODE LOCK_MODE : 1;
     uint32_t _reserved_4 : 11;
   } bits;
@@ -25545,6 +28241,7 @@ union LPCG58_DIRECT {
   
   // Bit field definition.
   struct {
+    /// read-write - LPCG on
     eON ON : 1;
     uint32_t _reserved_0 : 31;
   } bits;
@@ -25603,14 +28300,19 @@ union LPCG58_DOMAIN {
   
   // Bit field definition.
   struct {
+    /// read-write - Current dependence level
     eLEVEL LEVEL : 3;
     uint32_t _reserved_0 : 13;
+    /// read-write - Depend level
     eLEVEL0 LEVEL0 : 3;
     uint32_t _reserved_1 : 1;
+    /// read-write - Depend level
     eLEVEL1 LEVEL1 : 3;
     uint32_t _reserved_2 : 1;
+    /// read-write - Depend level
     eLEVEL2 LEVEL2 : 3;
     uint32_t _reserved_3 : 1;
+    /// read-write - Depend level
     eLEVEL3 LEVEL3 : 3;
     uint32_t _reserved_4 : 1;
   } bits;
@@ -25672,9 +28374,12 @@ union LPCG58_STATUS0 {
   
   // Bit field definition.
   struct {
+    /// read-only - LPCG current state
     eON ON : 1;
     uint32_t _reserved_0 : 7;
+    /// read-only - Domains that own this clock gate
     eACTIVE_DOMAIN ACTIVE_DOMAIN : 4;
+    /// read-only - Enable status from each domain
     eDOMAIN_ENABLE DOMAIN_ENABLE : 4;
     uint32_t _reserved_1 : 16;
   } bits;
@@ -25781,23 +28486,41 @@ union LPCG58_STATUS1 {
   
   // Bit field definition.
   struct {
+    /// read-only - Domain0 Low Power Mode
     eCPU0_MODE CPU0_MODE : 2;
+    /// read-only - Domain0 request enter Low Power Mode
     eCPU0_MODE_REQUEST CPU0_MODE_REQUEST : 1;
+    /// read-only - Domain0 Low Power Mode task done
     eCPU0_MODE_DONE CPU0_MODE_DONE : 1;
+    /// read-only - Domain1 Low Power Mode
     eCPU1_MODE CPU1_MODE : 2;
+    /// read-only - Domain1 request enter Low Power Mode
     eCPU1_MODE_REQUEST CPU1_MODE_REQUEST : 1;
+    /// read-only - Domain1 Low Power Mode task done
     eCPU1_MODE_DONE CPU1_MODE_DONE : 1;
+    /// read-only - Domain2 Low Power Mode
     eCPU2_MODE CPU2_MODE : 2;
+    /// read-only - Domain2 request enter Low Power Mode
     eCPU2_MODE_REQUEST CPU2_MODE_REQUEST : 1;
+    /// read-only - Domain2 Low Power Mode task done
     eCPU2_MODE_DONE CPU2_MODE_DONE : 1;
+    /// read-only - Domain3 Low Power Mode
     eCPU3_MODE CPU3_MODE : 2;
+    /// read-only - Domain3 request enter Low Power Mode
     eCPU3_MODE_REQUEST CPU3_MODE_REQUEST : 1;
+    /// read-only - Domain3 Low Power Mode task done
     eCPU3_MODE_DONE CPU3_MODE_DONE : 1;
+    /// read-only - Next Setpoint to change to
     uint32_t TARGET_SETPOINT : 4;
+    /// read-only - Current Setpoint
     uint32_t CURRENT_SETPOINT : 4;
+    /// read-only - Clock gate turn off request from GPC Setpoint
     eSETPOINT_OFF_REQUEST SETPOINT_OFF_REQUEST : 1;
+    /// read-only - Clock gate turn off finish from GPC Setpoint
     eSETPOINT_OFF_DONE SETPOINT_OFF_DONE : 1;
+    /// read-only - Clock gate turn on request from GPC Setpoint
     eSETPOINT_ON_REQUEST SETPOINT_ON_REQUEST : 1;
+    /// read-only - Clock gate turn on finish from GPC Setpoint
     eSETPOINT_ON_DONE SETPOINT_ON_DONE : 1;
     uint32_t _reserved_0 : 4;
   } bits;
@@ -25822,6 +28545,7 @@ union LPCG58_CONFIG {
   // Bit field definition.
   struct {
     uint32_t _reserved_0 : 4;
+    /// read-only - Setpoint present
     eSETPOINT_PRESENT SETPOINT_PRESENT : 1;
     uint32_t _reserved_1 : 27;
   } bits;
@@ -25880,18 +28604,27 @@ union LPCG58_AUTHEN {
   
   // Bit field definition.
   struct {
+    /// read-write - User access
     eTZ_USER TZ_USER : 1;
+    /// read-write - Non-secure access
     eTZ_NS TZ_NS : 1;
     uint32_t _reserved_0 : 2;
+    /// read-write - lock truszone setting
     eLOCK_TZ LOCK_TZ : 1;
     uint32_t _reserved_1 : 3;
+    /// read-write - Whitelist
     uint32_t WHITE_LIST : 4;
+    /// read-write - Lock Whitelist
     eLOCK_LIST LOCK_LIST : 1;
     uint32_t _reserved_2 : 3;
+    /// read-write - Low power and access control by domain
     eDOMAIN_MODE DOMAIN_MODE : 1;
+    /// read-write - Low power and access control by Setpoint
     eSETPOINT_MODE SETPOINT_MODE : 1;
+    /// read-write - CPU Low Power Mode
     eCPULPM CPULPM : 1;
     uint32_t _reserved_3 : 1;
+    /// read-write - Lock low power and access mode
     eLOCK_MODE LOCK_MODE : 1;
     uint32_t _reserved_4 : 11;
   } bits;
@@ -25915,6 +28648,7 @@ union LPCG59_DIRECT {
   
   // Bit field definition.
   struct {
+    /// read-write - LPCG on
     eON ON : 1;
     uint32_t _reserved_0 : 31;
   } bits;
@@ -25973,14 +28707,19 @@ union LPCG59_DOMAIN {
   
   // Bit field definition.
   struct {
+    /// read-write - Current dependence level
     eLEVEL LEVEL : 3;
     uint32_t _reserved_0 : 13;
+    /// read-write - Depend level
     eLEVEL0 LEVEL0 : 3;
     uint32_t _reserved_1 : 1;
+    /// read-write - Depend level
     eLEVEL1 LEVEL1 : 3;
     uint32_t _reserved_2 : 1;
+    /// read-write - Depend level
     eLEVEL2 LEVEL2 : 3;
     uint32_t _reserved_3 : 1;
+    /// read-write - Depend level
     eLEVEL3 LEVEL3 : 3;
     uint32_t _reserved_4 : 1;
   } bits;
@@ -26042,9 +28781,12 @@ union LPCG59_STATUS0 {
   
   // Bit field definition.
   struct {
+    /// read-only - LPCG current state
     eON ON : 1;
     uint32_t _reserved_0 : 7;
+    /// read-only - Domains that own this clock gate
     eACTIVE_DOMAIN ACTIVE_DOMAIN : 4;
+    /// read-only - Enable status from each domain
     eDOMAIN_ENABLE DOMAIN_ENABLE : 4;
     uint32_t _reserved_1 : 16;
   } bits;
@@ -26151,23 +28893,41 @@ union LPCG59_STATUS1 {
   
   // Bit field definition.
   struct {
+    /// read-only - Domain0 Low Power Mode
     eCPU0_MODE CPU0_MODE : 2;
+    /// read-only - Domain0 request enter Low Power Mode
     eCPU0_MODE_REQUEST CPU0_MODE_REQUEST : 1;
+    /// read-only - Domain0 Low Power Mode task done
     eCPU0_MODE_DONE CPU0_MODE_DONE : 1;
+    /// read-only - Domain1 Low Power Mode
     eCPU1_MODE CPU1_MODE : 2;
+    /// read-only - Domain1 request enter Low Power Mode
     eCPU1_MODE_REQUEST CPU1_MODE_REQUEST : 1;
+    /// read-only - Domain1 Low Power Mode task done
     eCPU1_MODE_DONE CPU1_MODE_DONE : 1;
+    /// read-only - Domain2 Low Power Mode
     eCPU2_MODE CPU2_MODE : 2;
+    /// read-only - Domain2 request enter Low Power Mode
     eCPU2_MODE_REQUEST CPU2_MODE_REQUEST : 1;
+    /// read-only - Domain2 Low Power Mode task done
     eCPU2_MODE_DONE CPU2_MODE_DONE : 1;
+    /// read-only - Domain3 Low Power Mode
     eCPU3_MODE CPU3_MODE : 2;
+    /// read-only - Domain3 request enter Low Power Mode
     eCPU3_MODE_REQUEST CPU3_MODE_REQUEST : 1;
+    /// read-only - Domain3 Low Power Mode task done
     eCPU3_MODE_DONE CPU3_MODE_DONE : 1;
+    /// read-only - Next Setpoint to change to
     uint32_t TARGET_SETPOINT : 4;
+    /// read-only - Current Setpoint
     uint32_t CURRENT_SETPOINT : 4;
+    /// read-only - Clock gate turn off request from GPC Setpoint
     eSETPOINT_OFF_REQUEST SETPOINT_OFF_REQUEST : 1;
+    /// read-only - Clock gate turn off finish from GPC Setpoint
     eSETPOINT_OFF_DONE SETPOINT_OFF_DONE : 1;
+    /// read-only - Clock gate turn on request from GPC Setpoint
     eSETPOINT_ON_REQUEST SETPOINT_ON_REQUEST : 1;
+    /// read-only - Clock gate turn on finish from GPC Setpoint
     eSETPOINT_ON_DONE SETPOINT_ON_DONE : 1;
     uint32_t _reserved_0 : 4;
   } bits;
@@ -26192,6 +28952,7 @@ union LPCG59_CONFIG {
   // Bit field definition.
   struct {
     uint32_t _reserved_0 : 4;
+    /// read-only - Setpoint present
     eSETPOINT_PRESENT SETPOINT_PRESENT : 1;
     uint32_t _reserved_1 : 27;
   } bits;
@@ -26250,18 +29011,27 @@ union LPCG59_AUTHEN {
   
   // Bit field definition.
   struct {
+    /// read-write - User access
     eTZ_USER TZ_USER : 1;
+    /// read-write - Non-secure access
     eTZ_NS TZ_NS : 1;
     uint32_t _reserved_0 : 2;
+    /// read-write - lock truszone setting
     eLOCK_TZ LOCK_TZ : 1;
     uint32_t _reserved_1 : 3;
+    /// read-write - Whitelist
     uint32_t WHITE_LIST : 4;
+    /// read-write - Lock Whitelist
     eLOCK_LIST LOCK_LIST : 1;
     uint32_t _reserved_2 : 3;
+    /// read-write - Low power and access control by domain
     eDOMAIN_MODE DOMAIN_MODE : 1;
+    /// read-write - Low power and access control by Setpoint
     eSETPOINT_MODE SETPOINT_MODE : 1;
+    /// read-write - CPU Low Power Mode
     eCPULPM CPULPM : 1;
     uint32_t _reserved_3 : 1;
+    /// read-write - Lock low power and access mode
     eLOCK_MODE LOCK_MODE : 1;
     uint32_t _reserved_4 : 11;
   } bits;
@@ -26285,6 +29055,7 @@ union LPCG60_DIRECT {
   
   // Bit field definition.
   struct {
+    /// read-write - LPCG on
     eON ON : 1;
     uint32_t _reserved_0 : 31;
   } bits;
@@ -26343,14 +29114,19 @@ union LPCG60_DOMAIN {
   
   // Bit field definition.
   struct {
+    /// read-write - Current dependence level
     eLEVEL LEVEL : 3;
     uint32_t _reserved_0 : 13;
+    /// read-write - Depend level
     eLEVEL0 LEVEL0 : 3;
     uint32_t _reserved_1 : 1;
+    /// read-write - Depend level
     eLEVEL1 LEVEL1 : 3;
     uint32_t _reserved_2 : 1;
+    /// read-write - Depend level
     eLEVEL2 LEVEL2 : 3;
     uint32_t _reserved_3 : 1;
+    /// read-write - Depend level
     eLEVEL3 LEVEL3 : 3;
     uint32_t _reserved_4 : 1;
   } bits;
@@ -26412,9 +29188,12 @@ union LPCG60_STATUS0 {
   
   // Bit field definition.
   struct {
+    /// read-only - LPCG current state
     eON ON : 1;
     uint32_t _reserved_0 : 7;
+    /// read-only - Domains that own this clock gate
     eACTIVE_DOMAIN ACTIVE_DOMAIN : 4;
+    /// read-only - Enable status from each domain
     eDOMAIN_ENABLE DOMAIN_ENABLE : 4;
     uint32_t _reserved_1 : 16;
   } bits;
@@ -26521,23 +29300,41 @@ union LPCG60_STATUS1 {
   
   // Bit field definition.
   struct {
+    /// read-only - Domain0 Low Power Mode
     eCPU0_MODE CPU0_MODE : 2;
+    /// read-only - Domain0 request enter Low Power Mode
     eCPU0_MODE_REQUEST CPU0_MODE_REQUEST : 1;
+    /// read-only - Domain0 Low Power Mode task done
     eCPU0_MODE_DONE CPU0_MODE_DONE : 1;
+    /// read-only - Domain1 Low Power Mode
     eCPU1_MODE CPU1_MODE : 2;
+    /// read-only - Domain1 request enter Low Power Mode
     eCPU1_MODE_REQUEST CPU1_MODE_REQUEST : 1;
+    /// read-only - Domain1 Low Power Mode task done
     eCPU1_MODE_DONE CPU1_MODE_DONE : 1;
+    /// read-only - Domain2 Low Power Mode
     eCPU2_MODE CPU2_MODE : 2;
+    /// read-only - Domain2 request enter Low Power Mode
     eCPU2_MODE_REQUEST CPU2_MODE_REQUEST : 1;
+    /// read-only - Domain2 Low Power Mode task done
     eCPU2_MODE_DONE CPU2_MODE_DONE : 1;
+    /// read-only - Domain3 Low Power Mode
     eCPU3_MODE CPU3_MODE : 2;
+    /// read-only - Domain3 request enter Low Power Mode
     eCPU3_MODE_REQUEST CPU3_MODE_REQUEST : 1;
+    /// read-only - Domain3 Low Power Mode task done
     eCPU3_MODE_DONE CPU3_MODE_DONE : 1;
+    /// read-only - Next Setpoint to change to
     uint32_t TARGET_SETPOINT : 4;
+    /// read-only - Current Setpoint
     uint32_t CURRENT_SETPOINT : 4;
+    /// read-only - Clock gate turn off request from GPC Setpoint
     eSETPOINT_OFF_REQUEST SETPOINT_OFF_REQUEST : 1;
+    /// read-only - Clock gate turn off finish from GPC Setpoint
     eSETPOINT_OFF_DONE SETPOINT_OFF_DONE : 1;
+    /// read-only - Clock gate turn on request from GPC Setpoint
     eSETPOINT_ON_REQUEST SETPOINT_ON_REQUEST : 1;
+    /// read-only - Clock gate turn on finish from GPC Setpoint
     eSETPOINT_ON_DONE SETPOINT_ON_DONE : 1;
     uint32_t _reserved_0 : 4;
   } bits;
@@ -26562,6 +29359,7 @@ union LPCG60_CONFIG {
   // Bit field definition.
   struct {
     uint32_t _reserved_0 : 4;
+    /// read-only - Setpoint present
     eSETPOINT_PRESENT SETPOINT_PRESENT : 1;
     uint32_t _reserved_1 : 27;
   } bits;
@@ -26620,18 +29418,27 @@ union LPCG60_AUTHEN {
   
   // Bit field definition.
   struct {
+    /// read-write - User access
     eTZ_USER TZ_USER : 1;
+    /// read-write - Non-secure access
     eTZ_NS TZ_NS : 1;
     uint32_t _reserved_0 : 2;
+    /// read-write - lock truszone setting
     eLOCK_TZ LOCK_TZ : 1;
     uint32_t _reserved_1 : 3;
+    /// read-write - Whitelist
     uint32_t WHITE_LIST : 4;
+    /// read-write - Lock Whitelist
     eLOCK_LIST LOCK_LIST : 1;
     uint32_t _reserved_2 : 3;
+    /// read-write - Low power and access control by domain
     eDOMAIN_MODE DOMAIN_MODE : 1;
+    /// read-write - Low power and access control by Setpoint
     eSETPOINT_MODE SETPOINT_MODE : 1;
+    /// read-write - CPU Low Power Mode
     eCPULPM CPULPM : 1;
     uint32_t _reserved_3 : 1;
+    /// read-write - Lock low power and access mode
     eLOCK_MODE LOCK_MODE : 1;
     uint32_t _reserved_4 : 11;
   } bits;
@@ -26655,6 +29462,7 @@ union LPCG61_DIRECT {
   
   // Bit field definition.
   struct {
+    /// read-write - LPCG on
     eON ON : 1;
     uint32_t _reserved_0 : 31;
   } bits;
@@ -26713,14 +29521,19 @@ union LPCG61_DOMAIN {
   
   // Bit field definition.
   struct {
+    /// read-write - Current dependence level
     eLEVEL LEVEL : 3;
     uint32_t _reserved_0 : 13;
+    /// read-write - Depend level
     eLEVEL0 LEVEL0 : 3;
     uint32_t _reserved_1 : 1;
+    /// read-write - Depend level
     eLEVEL1 LEVEL1 : 3;
     uint32_t _reserved_2 : 1;
+    /// read-write - Depend level
     eLEVEL2 LEVEL2 : 3;
     uint32_t _reserved_3 : 1;
+    /// read-write - Depend level
     eLEVEL3 LEVEL3 : 3;
     uint32_t _reserved_4 : 1;
   } bits;
@@ -26782,9 +29595,12 @@ union LPCG61_STATUS0 {
   
   // Bit field definition.
   struct {
+    /// read-only - LPCG current state
     eON ON : 1;
     uint32_t _reserved_0 : 7;
+    /// read-only - Domains that own this clock gate
     eACTIVE_DOMAIN ACTIVE_DOMAIN : 4;
+    /// read-only - Enable status from each domain
     eDOMAIN_ENABLE DOMAIN_ENABLE : 4;
     uint32_t _reserved_1 : 16;
   } bits;
@@ -26891,23 +29707,41 @@ union LPCG61_STATUS1 {
   
   // Bit field definition.
   struct {
+    /// read-only - Domain0 Low Power Mode
     eCPU0_MODE CPU0_MODE : 2;
+    /// read-only - Domain0 request enter Low Power Mode
     eCPU0_MODE_REQUEST CPU0_MODE_REQUEST : 1;
+    /// read-only - Domain0 Low Power Mode task done
     eCPU0_MODE_DONE CPU0_MODE_DONE : 1;
+    /// read-only - Domain1 Low Power Mode
     eCPU1_MODE CPU1_MODE : 2;
+    /// read-only - Domain1 request enter Low Power Mode
     eCPU1_MODE_REQUEST CPU1_MODE_REQUEST : 1;
+    /// read-only - Domain1 Low Power Mode task done
     eCPU1_MODE_DONE CPU1_MODE_DONE : 1;
+    /// read-only - Domain2 Low Power Mode
     eCPU2_MODE CPU2_MODE : 2;
+    /// read-only - Domain2 request enter Low Power Mode
     eCPU2_MODE_REQUEST CPU2_MODE_REQUEST : 1;
+    /// read-only - Domain2 Low Power Mode task done
     eCPU2_MODE_DONE CPU2_MODE_DONE : 1;
+    /// read-only - Domain3 Low Power Mode
     eCPU3_MODE CPU3_MODE : 2;
+    /// read-only - Domain3 request enter Low Power Mode
     eCPU3_MODE_REQUEST CPU3_MODE_REQUEST : 1;
+    /// read-only - Domain3 Low Power Mode task done
     eCPU3_MODE_DONE CPU3_MODE_DONE : 1;
+    /// read-only - Next Setpoint to change to
     uint32_t TARGET_SETPOINT : 4;
+    /// read-only - Current Setpoint
     uint32_t CURRENT_SETPOINT : 4;
+    /// read-only - Clock gate turn off request from GPC Setpoint
     eSETPOINT_OFF_REQUEST SETPOINT_OFF_REQUEST : 1;
+    /// read-only - Clock gate turn off finish from GPC Setpoint
     eSETPOINT_OFF_DONE SETPOINT_OFF_DONE : 1;
+    /// read-only - Clock gate turn on request from GPC Setpoint
     eSETPOINT_ON_REQUEST SETPOINT_ON_REQUEST : 1;
+    /// read-only - Clock gate turn on finish from GPC Setpoint
     eSETPOINT_ON_DONE SETPOINT_ON_DONE : 1;
     uint32_t _reserved_0 : 4;
   } bits;
@@ -26932,6 +29766,7 @@ union LPCG61_CONFIG {
   // Bit field definition.
   struct {
     uint32_t _reserved_0 : 4;
+    /// read-only - Setpoint present
     eSETPOINT_PRESENT SETPOINT_PRESENT : 1;
     uint32_t _reserved_1 : 27;
   } bits;
@@ -26990,18 +29825,27 @@ union LPCG61_AUTHEN {
   
   // Bit field definition.
   struct {
+    /// read-write - User access
     eTZ_USER TZ_USER : 1;
+    /// read-write - Non-secure access
     eTZ_NS TZ_NS : 1;
     uint32_t _reserved_0 : 2;
+    /// read-write - lock truszone setting
     eLOCK_TZ LOCK_TZ : 1;
     uint32_t _reserved_1 : 3;
+    /// read-write - Whitelist
     uint32_t WHITE_LIST : 4;
+    /// read-write - Lock Whitelist
     eLOCK_LIST LOCK_LIST : 1;
     uint32_t _reserved_2 : 3;
+    /// read-write - Low power and access control by domain
     eDOMAIN_MODE DOMAIN_MODE : 1;
+    /// read-write - Low power and access control by Setpoint
     eSETPOINT_MODE SETPOINT_MODE : 1;
+    /// read-write - CPU Low Power Mode
     eCPULPM CPULPM : 1;
     uint32_t _reserved_3 : 1;
+    /// read-write - Lock low power and access mode
     eLOCK_MODE LOCK_MODE : 1;
     uint32_t _reserved_4 : 11;
   } bits;
@@ -27025,6 +29869,7 @@ union LPCG62_DIRECT {
   
   // Bit field definition.
   struct {
+    /// read-write - LPCG on
     eON ON : 1;
     uint32_t _reserved_0 : 31;
   } bits;
@@ -27083,14 +29928,19 @@ union LPCG62_DOMAIN {
   
   // Bit field definition.
   struct {
+    /// read-write - Current dependence level
     eLEVEL LEVEL : 3;
     uint32_t _reserved_0 : 13;
+    /// read-write - Depend level
     eLEVEL0 LEVEL0 : 3;
     uint32_t _reserved_1 : 1;
+    /// read-write - Depend level
     eLEVEL1 LEVEL1 : 3;
     uint32_t _reserved_2 : 1;
+    /// read-write - Depend level
     eLEVEL2 LEVEL2 : 3;
     uint32_t _reserved_3 : 1;
+    /// read-write - Depend level
     eLEVEL3 LEVEL3 : 3;
     uint32_t _reserved_4 : 1;
   } bits;
@@ -27152,9 +30002,12 @@ union LPCG62_STATUS0 {
   
   // Bit field definition.
   struct {
+    /// read-only - LPCG current state
     eON ON : 1;
     uint32_t _reserved_0 : 7;
+    /// read-only - Domains that own this clock gate
     eACTIVE_DOMAIN ACTIVE_DOMAIN : 4;
+    /// read-only - Enable status from each domain
     eDOMAIN_ENABLE DOMAIN_ENABLE : 4;
     uint32_t _reserved_1 : 16;
   } bits;
@@ -27261,23 +30114,41 @@ union LPCG62_STATUS1 {
   
   // Bit field definition.
   struct {
+    /// read-only - Domain0 Low Power Mode
     eCPU0_MODE CPU0_MODE : 2;
+    /// read-only - Domain0 request enter Low Power Mode
     eCPU0_MODE_REQUEST CPU0_MODE_REQUEST : 1;
+    /// read-only - Domain0 Low Power Mode task done
     eCPU0_MODE_DONE CPU0_MODE_DONE : 1;
+    /// read-only - Domain1 Low Power Mode
     eCPU1_MODE CPU1_MODE : 2;
+    /// read-only - Domain1 request enter Low Power Mode
     eCPU1_MODE_REQUEST CPU1_MODE_REQUEST : 1;
+    /// read-only - Domain1 Low Power Mode task done
     eCPU1_MODE_DONE CPU1_MODE_DONE : 1;
+    /// read-only - Domain2 Low Power Mode
     eCPU2_MODE CPU2_MODE : 2;
+    /// read-only - Domain2 request enter Low Power Mode
     eCPU2_MODE_REQUEST CPU2_MODE_REQUEST : 1;
+    /// read-only - Domain2 Low Power Mode task done
     eCPU2_MODE_DONE CPU2_MODE_DONE : 1;
+    /// read-only - Domain3 Low Power Mode
     eCPU3_MODE CPU3_MODE : 2;
+    /// read-only - Domain3 request enter Low Power Mode
     eCPU3_MODE_REQUEST CPU3_MODE_REQUEST : 1;
+    /// read-only - Domain3 Low Power Mode task done
     eCPU3_MODE_DONE CPU3_MODE_DONE : 1;
+    /// read-only - Next Setpoint to change to
     uint32_t TARGET_SETPOINT : 4;
+    /// read-only - Current Setpoint
     uint32_t CURRENT_SETPOINT : 4;
+    /// read-only - Clock gate turn off request from GPC Setpoint
     eSETPOINT_OFF_REQUEST SETPOINT_OFF_REQUEST : 1;
+    /// read-only - Clock gate turn off finish from GPC Setpoint
     eSETPOINT_OFF_DONE SETPOINT_OFF_DONE : 1;
+    /// read-only - Clock gate turn on request from GPC Setpoint
     eSETPOINT_ON_REQUEST SETPOINT_ON_REQUEST : 1;
+    /// read-only - Clock gate turn on finish from GPC Setpoint
     eSETPOINT_ON_DONE SETPOINT_ON_DONE : 1;
     uint32_t _reserved_0 : 4;
   } bits;
@@ -27302,6 +30173,7 @@ union LPCG62_CONFIG {
   // Bit field definition.
   struct {
     uint32_t _reserved_0 : 4;
+    /// read-only - Setpoint present
     eSETPOINT_PRESENT SETPOINT_PRESENT : 1;
     uint32_t _reserved_1 : 27;
   } bits;
@@ -27360,18 +30232,27 @@ union LPCG62_AUTHEN {
   
   // Bit field definition.
   struct {
+    /// read-write - User access
     eTZ_USER TZ_USER : 1;
+    /// read-write - Non-secure access
     eTZ_NS TZ_NS : 1;
     uint32_t _reserved_0 : 2;
+    /// read-write - lock truszone setting
     eLOCK_TZ LOCK_TZ : 1;
     uint32_t _reserved_1 : 3;
+    /// read-write - Whitelist
     uint32_t WHITE_LIST : 4;
+    /// read-write - Lock Whitelist
     eLOCK_LIST LOCK_LIST : 1;
     uint32_t _reserved_2 : 3;
+    /// read-write - Low power and access control by domain
     eDOMAIN_MODE DOMAIN_MODE : 1;
+    /// read-write - Low power and access control by Setpoint
     eSETPOINT_MODE SETPOINT_MODE : 1;
+    /// read-write - CPU Low Power Mode
     eCPULPM CPULPM : 1;
     uint32_t _reserved_3 : 1;
+    /// read-write - Lock low power and access mode
     eLOCK_MODE LOCK_MODE : 1;
     uint32_t _reserved_4 : 11;
   } bits;
@@ -27395,6 +30276,7 @@ union LPCG63_DIRECT {
   
   // Bit field definition.
   struct {
+    /// read-write - LPCG on
     eON ON : 1;
     uint32_t _reserved_0 : 31;
   } bits;
@@ -27453,14 +30335,19 @@ union LPCG63_DOMAIN {
   
   // Bit field definition.
   struct {
+    /// read-write - Current dependence level
     eLEVEL LEVEL : 3;
     uint32_t _reserved_0 : 13;
+    /// read-write - Depend level
     eLEVEL0 LEVEL0 : 3;
     uint32_t _reserved_1 : 1;
+    /// read-write - Depend level
     eLEVEL1 LEVEL1 : 3;
     uint32_t _reserved_2 : 1;
+    /// read-write - Depend level
     eLEVEL2 LEVEL2 : 3;
     uint32_t _reserved_3 : 1;
+    /// read-write - Depend level
     eLEVEL3 LEVEL3 : 3;
     uint32_t _reserved_4 : 1;
   } bits;
@@ -27522,9 +30409,12 @@ union LPCG63_STATUS0 {
   
   // Bit field definition.
   struct {
+    /// read-only - LPCG current state
     eON ON : 1;
     uint32_t _reserved_0 : 7;
+    /// read-only - Domains that own this clock gate
     eACTIVE_DOMAIN ACTIVE_DOMAIN : 4;
+    /// read-only - Enable status from each domain
     eDOMAIN_ENABLE DOMAIN_ENABLE : 4;
     uint32_t _reserved_1 : 16;
   } bits;
@@ -27631,23 +30521,41 @@ union LPCG63_STATUS1 {
   
   // Bit field definition.
   struct {
+    /// read-only - Domain0 Low Power Mode
     eCPU0_MODE CPU0_MODE : 2;
+    /// read-only - Domain0 request enter Low Power Mode
     eCPU0_MODE_REQUEST CPU0_MODE_REQUEST : 1;
+    /// read-only - Domain0 Low Power Mode task done
     eCPU0_MODE_DONE CPU0_MODE_DONE : 1;
+    /// read-only - Domain1 Low Power Mode
     eCPU1_MODE CPU1_MODE : 2;
+    /// read-only - Domain1 request enter Low Power Mode
     eCPU1_MODE_REQUEST CPU1_MODE_REQUEST : 1;
+    /// read-only - Domain1 Low Power Mode task done
     eCPU1_MODE_DONE CPU1_MODE_DONE : 1;
+    /// read-only - Domain2 Low Power Mode
     eCPU2_MODE CPU2_MODE : 2;
+    /// read-only - Domain2 request enter Low Power Mode
     eCPU2_MODE_REQUEST CPU2_MODE_REQUEST : 1;
+    /// read-only - Domain2 Low Power Mode task done
     eCPU2_MODE_DONE CPU2_MODE_DONE : 1;
+    /// read-only - Domain3 Low Power Mode
     eCPU3_MODE CPU3_MODE : 2;
+    /// read-only - Domain3 request enter Low Power Mode
     eCPU3_MODE_REQUEST CPU3_MODE_REQUEST : 1;
+    /// read-only - Domain3 Low Power Mode task done
     eCPU3_MODE_DONE CPU3_MODE_DONE : 1;
+    /// read-only - Next Setpoint to change to
     uint32_t TARGET_SETPOINT : 4;
+    /// read-only - Current Setpoint
     uint32_t CURRENT_SETPOINT : 4;
+    /// read-only - Clock gate turn off request from GPC Setpoint
     eSETPOINT_OFF_REQUEST SETPOINT_OFF_REQUEST : 1;
+    /// read-only - Clock gate turn off finish from GPC Setpoint
     eSETPOINT_OFF_DONE SETPOINT_OFF_DONE : 1;
+    /// read-only - Clock gate turn on request from GPC Setpoint
     eSETPOINT_ON_REQUEST SETPOINT_ON_REQUEST : 1;
+    /// read-only - Clock gate turn on finish from GPC Setpoint
     eSETPOINT_ON_DONE SETPOINT_ON_DONE : 1;
     uint32_t _reserved_0 : 4;
   } bits;
@@ -27672,6 +30580,7 @@ union LPCG63_CONFIG {
   // Bit field definition.
   struct {
     uint32_t _reserved_0 : 4;
+    /// read-only - Setpoint present
     eSETPOINT_PRESENT SETPOINT_PRESENT : 1;
     uint32_t _reserved_1 : 27;
   } bits;
@@ -27730,18 +30639,27 @@ union LPCG63_AUTHEN {
   
   // Bit field definition.
   struct {
+    /// read-write - User access
     eTZ_USER TZ_USER : 1;
+    /// read-write - Non-secure access
     eTZ_NS TZ_NS : 1;
     uint32_t _reserved_0 : 2;
+    /// read-write - lock truszone setting
     eLOCK_TZ LOCK_TZ : 1;
     uint32_t _reserved_1 : 3;
+    /// read-write - Whitelist
     uint32_t WHITE_LIST : 4;
+    /// read-write - Lock Whitelist
     eLOCK_LIST LOCK_LIST : 1;
     uint32_t _reserved_2 : 3;
+    /// read-write - Low power and access control by domain
     eDOMAIN_MODE DOMAIN_MODE : 1;
+    /// read-write - Low power and access control by Setpoint
     eSETPOINT_MODE SETPOINT_MODE : 1;
+    /// read-write - CPU Low Power Mode
     eCPULPM CPULPM : 1;
     uint32_t _reserved_3 : 1;
+    /// read-write - Lock low power and access mode
     eLOCK_MODE LOCK_MODE : 1;
     uint32_t _reserved_4 : 11;
   } bits;
@@ -27765,6 +30683,7 @@ union LPCG64_DIRECT {
   
   // Bit field definition.
   struct {
+    /// read-write - LPCG on
     eON ON : 1;
     uint32_t _reserved_0 : 31;
   } bits;
@@ -27823,14 +30742,19 @@ union LPCG64_DOMAIN {
   
   // Bit field definition.
   struct {
+    /// read-write - Current dependence level
     eLEVEL LEVEL : 3;
     uint32_t _reserved_0 : 13;
+    /// read-write - Depend level
     eLEVEL0 LEVEL0 : 3;
     uint32_t _reserved_1 : 1;
+    /// read-write - Depend level
     eLEVEL1 LEVEL1 : 3;
     uint32_t _reserved_2 : 1;
+    /// read-write - Depend level
     eLEVEL2 LEVEL2 : 3;
     uint32_t _reserved_3 : 1;
+    /// read-write - Depend level
     eLEVEL3 LEVEL3 : 3;
     uint32_t _reserved_4 : 1;
   } bits;
@@ -27892,9 +30816,12 @@ union LPCG64_STATUS0 {
   
   // Bit field definition.
   struct {
+    /// read-only - LPCG current state
     eON ON : 1;
     uint32_t _reserved_0 : 7;
+    /// read-only - Domains that own this clock gate
     eACTIVE_DOMAIN ACTIVE_DOMAIN : 4;
+    /// read-only - Enable status from each domain
     eDOMAIN_ENABLE DOMAIN_ENABLE : 4;
     uint32_t _reserved_1 : 16;
   } bits;
@@ -28001,23 +30928,41 @@ union LPCG64_STATUS1 {
   
   // Bit field definition.
   struct {
+    /// read-only - Domain0 Low Power Mode
     eCPU0_MODE CPU0_MODE : 2;
+    /// read-only - Domain0 request enter Low Power Mode
     eCPU0_MODE_REQUEST CPU0_MODE_REQUEST : 1;
+    /// read-only - Domain0 Low Power Mode task done
     eCPU0_MODE_DONE CPU0_MODE_DONE : 1;
+    /// read-only - Domain1 Low Power Mode
     eCPU1_MODE CPU1_MODE : 2;
+    /// read-only - Domain1 request enter Low Power Mode
     eCPU1_MODE_REQUEST CPU1_MODE_REQUEST : 1;
+    /// read-only - Domain1 Low Power Mode task done
     eCPU1_MODE_DONE CPU1_MODE_DONE : 1;
+    /// read-only - Domain2 Low Power Mode
     eCPU2_MODE CPU2_MODE : 2;
+    /// read-only - Domain2 request enter Low Power Mode
     eCPU2_MODE_REQUEST CPU2_MODE_REQUEST : 1;
+    /// read-only - Domain2 Low Power Mode task done
     eCPU2_MODE_DONE CPU2_MODE_DONE : 1;
+    /// read-only - Domain3 Low Power Mode
     eCPU3_MODE CPU3_MODE : 2;
+    /// read-only - Domain3 request enter Low Power Mode
     eCPU3_MODE_REQUEST CPU3_MODE_REQUEST : 1;
+    /// read-only - Domain3 Low Power Mode task done
     eCPU3_MODE_DONE CPU3_MODE_DONE : 1;
+    /// read-only - Next Setpoint to change to
     uint32_t TARGET_SETPOINT : 4;
+    /// read-only - Current Setpoint
     uint32_t CURRENT_SETPOINT : 4;
+    /// read-only - Clock gate turn off request from GPC Setpoint
     eSETPOINT_OFF_REQUEST SETPOINT_OFF_REQUEST : 1;
+    /// read-only - Clock gate turn off finish from GPC Setpoint
     eSETPOINT_OFF_DONE SETPOINT_OFF_DONE : 1;
+    /// read-only - Clock gate turn on request from GPC Setpoint
     eSETPOINT_ON_REQUEST SETPOINT_ON_REQUEST : 1;
+    /// read-only - Clock gate turn on finish from GPC Setpoint
     eSETPOINT_ON_DONE SETPOINT_ON_DONE : 1;
     uint32_t _reserved_0 : 4;
   } bits;
@@ -28042,6 +30987,7 @@ union LPCG64_CONFIG {
   // Bit field definition.
   struct {
     uint32_t _reserved_0 : 4;
+    /// read-only - Setpoint present
     eSETPOINT_PRESENT SETPOINT_PRESENT : 1;
     uint32_t _reserved_1 : 27;
   } bits;
@@ -28100,18 +31046,27 @@ union LPCG64_AUTHEN {
   
   // Bit field definition.
   struct {
+    /// read-write - User access
     eTZ_USER TZ_USER : 1;
+    /// read-write - Non-secure access
     eTZ_NS TZ_NS : 1;
     uint32_t _reserved_0 : 2;
+    /// read-write - lock truszone setting
     eLOCK_TZ LOCK_TZ : 1;
     uint32_t _reserved_1 : 3;
+    /// read-write - Whitelist
     uint32_t WHITE_LIST : 4;
+    /// read-write - Lock Whitelist
     eLOCK_LIST LOCK_LIST : 1;
     uint32_t _reserved_2 : 3;
+    /// read-write - Low power and access control by domain
     eDOMAIN_MODE DOMAIN_MODE : 1;
+    /// read-write - Low power and access control by Setpoint
     eSETPOINT_MODE SETPOINT_MODE : 1;
+    /// read-write - CPU Low Power Mode
     eCPULPM CPULPM : 1;
     uint32_t _reserved_3 : 1;
+    /// read-write - Lock low power and access mode
     eLOCK_MODE LOCK_MODE : 1;
     uint32_t _reserved_4 : 11;
   } bits;
@@ -28135,6 +31090,7 @@ union LPCG65_DIRECT {
   
   // Bit field definition.
   struct {
+    /// read-write - LPCG on
     eON ON : 1;
     uint32_t _reserved_0 : 31;
   } bits;
@@ -28193,14 +31149,19 @@ union LPCG65_DOMAIN {
   
   // Bit field definition.
   struct {
+    /// read-write - Current dependence level
     eLEVEL LEVEL : 3;
     uint32_t _reserved_0 : 13;
+    /// read-write - Depend level
     eLEVEL0 LEVEL0 : 3;
     uint32_t _reserved_1 : 1;
+    /// read-write - Depend level
     eLEVEL1 LEVEL1 : 3;
     uint32_t _reserved_2 : 1;
+    /// read-write - Depend level
     eLEVEL2 LEVEL2 : 3;
     uint32_t _reserved_3 : 1;
+    /// read-write - Depend level
     eLEVEL3 LEVEL3 : 3;
     uint32_t _reserved_4 : 1;
   } bits;
@@ -28262,9 +31223,12 @@ union LPCG65_STATUS0 {
   
   // Bit field definition.
   struct {
+    /// read-only - LPCG current state
     eON ON : 1;
     uint32_t _reserved_0 : 7;
+    /// read-only - Domains that own this clock gate
     eACTIVE_DOMAIN ACTIVE_DOMAIN : 4;
+    /// read-only - Enable status from each domain
     eDOMAIN_ENABLE DOMAIN_ENABLE : 4;
     uint32_t _reserved_1 : 16;
   } bits;
@@ -28371,23 +31335,41 @@ union LPCG65_STATUS1 {
   
   // Bit field definition.
   struct {
+    /// read-only - Domain0 Low Power Mode
     eCPU0_MODE CPU0_MODE : 2;
+    /// read-only - Domain0 request enter Low Power Mode
     eCPU0_MODE_REQUEST CPU0_MODE_REQUEST : 1;
+    /// read-only - Domain0 Low Power Mode task done
     eCPU0_MODE_DONE CPU0_MODE_DONE : 1;
+    /// read-only - Domain1 Low Power Mode
     eCPU1_MODE CPU1_MODE : 2;
+    /// read-only - Domain1 request enter Low Power Mode
     eCPU1_MODE_REQUEST CPU1_MODE_REQUEST : 1;
+    /// read-only - Domain1 Low Power Mode task done
     eCPU1_MODE_DONE CPU1_MODE_DONE : 1;
+    /// read-only - Domain2 Low Power Mode
     eCPU2_MODE CPU2_MODE : 2;
+    /// read-only - Domain2 request enter Low Power Mode
     eCPU2_MODE_REQUEST CPU2_MODE_REQUEST : 1;
+    /// read-only - Domain2 Low Power Mode task done
     eCPU2_MODE_DONE CPU2_MODE_DONE : 1;
+    /// read-only - Domain3 Low Power Mode
     eCPU3_MODE CPU3_MODE : 2;
+    /// read-only - Domain3 request enter Low Power Mode
     eCPU3_MODE_REQUEST CPU3_MODE_REQUEST : 1;
+    /// read-only - Domain3 Low Power Mode task done
     eCPU3_MODE_DONE CPU3_MODE_DONE : 1;
+    /// read-only - Next Setpoint to change to
     uint32_t TARGET_SETPOINT : 4;
+    /// read-only - Current Setpoint
     uint32_t CURRENT_SETPOINT : 4;
+    /// read-only - Clock gate turn off request from GPC Setpoint
     eSETPOINT_OFF_REQUEST SETPOINT_OFF_REQUEST : 1;
+    /// read-only - Clock gate turn off finish from GPC Setpoint
     eSETPOINT_OFF_DONE SETPOINT_OFF_DONE : 1;
+    /// read-only - Clock gate turn on request from GPC Setpoint
     eSETPOINT_ON_REQUEST SETPOINT_ON_REQUEST : 1;
+    /// read-only - Clock gate turn on finish from GPC Setpoint
     eSETPOINT_ON_DONE SETPOINT_ON_DONE : 1;
     uint32_t _reserved_0 : 4;
   } bits;
@@ -28412,6 +31394,7 @@ union LPCG65_CONFIG {
   // Bit field definition.
   struct {
     uint32_t _reserved_0 : 4;
+    /// read-only - Setpoint present
     eSETPOINT_PRESENT SETPOINT_PRESENT : 1;
     uint32_t _reserved_1 : 27;
   } bits;
@@ -28470,18 +31453,27 @@ union LPCG65_AUTHEN {
   
   // Bit field definition.
   struct {
+    /// read-write - User access
     eTZ_USER TZ_USER : 1;
+    /// read-write - Non-secure access
     eTZ_NS TZ_NS : 1;
     uint32_t _reserved_0 : 2;
+    /// read-write - lock truszone setting
     eLOCK_TZ LOCK_TZ : 1;
     uint32_t _reserved_1 : 3;
+    /// read-write - Whitelist
     uint32_t WHITE_LIST : 4;
+    /// read-write - Lock Whitelist
     eLOCK_LIST LOCK_LIST : 1;
     uint32_t _reserved_2 : 3;
+    /// read-write - Low power and access control by domain
     eDOMAIN_MODE DOMAIN_MODE : 1;
+    /// read-write - Low power and access control by Setpoint
     eSETPOINT_MODE SETPOINT_MODE : 1;
+    /// read-write - CPU Low Power Mode
     eCPULPM CPULPM : 1;
     uint32_t _reserved_3 : 1;
+    /// read-write - Lock low power and access mode
     eLOCK_MODE LOCK_MODE : 1;
     uint32_t _reserved_4 : 11;
   } bits;
@@ -28505,6 +31497,7 @@ union LPCG66_DIRECT {
   
   // Bit field definition.
   struct {
+    /// read-write - LPCG on
     eON ON : 1;
     uint32_t _reserved_0 : 31;
   } bits;
@@ -28563,14 +31556,19 @@ union LPCG66_DOMAIN {
   
   // Bit field definition.
   struct {
+    /// read-write - Current dependence level
     eLEVEL LEVEL : 3;
     uint32_t _reserved_0 : 13;
+    /// read-write - Depend level
     eLEVEL0 LEVEL0 : 3;
     uint32_t _reserved_1 : 1;
+    /// read-write - Depend level
     eLEVEL1 LEVEL1 : 3;
     uint32_t _reserved_2 : 1;
+    /// read-write - Depend level
     eLEVEL2 LEVEL2 : 3;
     uint32_t _reserved_3 : 1;
+    /// read-write - Depend level
     eLEVEL3 LEVEL3 : 3;
     uint32_t _reserved_4 : 1;
   } bits;
@@ -28632,9 +31630,12 @@ union LPCG66_STATUS0 {
   
   // Bit field definition.
   struct {
+    /// read-only - LPCG current state
     eON ON : 1;
     uint32_t _reserved_0 : 7;
+    /// read-only - Domains that own this clock gate
     eACTIVE_DOMAIN ACTIVE_DOMAIN : 4;
+    /// read-only - Enable status from each domain
     eDOMAIN_ENABLE DOMAIN_ENABLE : 4;
     uint32_t _reserved_1 : 16;
   } bits;
@@ -28741,23 +31742,41 @@ union LPCG66_STATUS1 {
   
   // Bit field definition.
   struct {
+    /// read-only - Domain0 Low Power Mode
     eCPU0_MODE CPU0_MODE : 2;
+    /// read-only - Domain0 request enter Low Power Mode
     eCPU0_MODE_REQUEST CPU0_MODE_REQUEST : 1;
+    /// read-only - Domain0 Low Power Mode task done
     eCPU0_MODE_DONE CPU0_MODE_DONE : 1;
+    /// read-only - Domain1 Low Power Mode
     eCPU1_MODE CPU1_MODE : 2;
+    /// read-only - Domain1 request enter Low Power Mode
     eCPU1_MODE_REQUEST CPU1_MODE_REQUEST : 1;
+    /// read-only - Domain1 Low Power Mode task done
     eCPU1_MODE_DONE CPU1_MODE_DONE : 1;
+    /// read-only - Domain2 Low Power Mode
     eCPU2_MODE CPU2_MODE : 2;
+    /// read-only - Domain2 request enter Low Power Mode
     eCPU2_MODE_REQUEST CPU2_MODE_REQUEST : 1;
+    /// read-only - Domain2 Low Power Mode task done
     eCPU2_MODE_DONE CPU2_MODE_DONE : 1;
+    /// read-only - Domain3 Low Power Mode
     eCPU3_MODE CPU3_MODE : 2;
+    /// read-only - Domain3 request enter Low Power Mode
     eCPU3_MODE_REQUEST CPU3_MODE_REQUEST : 1;
+    /// read-only - Domain3 Low Power Mode task done
     eCPU3_MODE_DONE CPU3_MODE_DONE : 1;
+    /// read-only - Next Setpoint to change to
     uint32_t TARGET_SETPOINT : 4;
+    /// read-only - Current Setpoint
     uint32_t CURRENT_SETPOINT : 4;
+    /// read-only - Clock gate turn off request from GPC Setpoint
     eSETPOINT_OFF_REQUEST SETPOINT_OFF_REQUEST : 1;
+    /// read-only - Clock gate turn off finish from GPC Setpoint
     eSETPOINT_OFF_DONE SETPOINT_OFF_DONE : 1;
+    /// read-only - Clock gate turn on request from GPC Setpoint
     eSETPOINT_ON_REQUEST SETPOINT_ON_REQUEST : 1;
+    /// read-only - Clock gate turn on finish from GPC Setpoint
     eSETPOINT_ON_DONE SETPOINT_ON_DONE : 1;
     uint32_t _reserved_0 : 4;
   } bits;
@@ -28782,6 +31801,7 @@ union LPCG66_CONFIG {
   // Bit field definition.
   struct {
     uint32_t _reserved_0 : 4;
+    /// read-only - Setpoint present
     eSETPOINT_PRESENT SETPOINT_PRESENT : 1;
     uint32_t _reserved_1 : 27;
   } bits;
@@ -28840,18 +31860,27 @@ union LPCG66_AUTHEN {
   
   // Bit field definition.
   struct {
+    /// read-write - User access
     eTZ_USER TZ_USER : 1;
+    /// read-write - Non-secure access
     eTZ_NS TZ_NS : 1;
     uint32_t _reserved_0 : 2;
+    /// read-write - lock truszone setting
     eLOCK_TZ LOCK_TZ : 1;
     uint32_t _reserved_1 : 3;
+    /// read-write - Whitelist
     uint32_t WHITE_LIST : 4;
+    /// read-write - Lock Whitelist
     eLOCK_LIST LOCK_LIST : 1;
     uint32_t _reserved_2 : 3;
+    /// read-write - Low power and access control by domain
     eDOMAIN_MODE DOMAIN_MODE : 1;
+    /// read-write - Low power and access control by Setpoint
     eSETPOINT_MODE SETPOINT_MODE : 1;
+    /// read-write - CPU Low Power Mode
     eCPULPM CPULPM : 1;
     uint32_t _reserved_3 : 1;
+    /// read-write - Lock low power and access mode
     eLOCK_MODE LOCK_MODE : 1;
     uint32_t _reserved_4 : 11;
   } bits;
@@ -28875,6 +31904,7 @@ union LPCG67_DIRECT {
   
   // Bit field definition.
   struct {
+    /// read-write - LPCG on
     eON ON : 1;
     uint32_t _reserved_0 : 31;
   } bits;
@@ -28933,14 +31963,19 @@ union LPCG67_DOMAIN {
   
   // Bit field definition.
   struct {
+    /// read-write - Current dependence level
     eLEVEL LEVEL : 3;
     uint32_t _reserved_0 : 13;
+    /// read-write - Depend level
     eLEVEL0 LEVEL0 : 3;
     uint32_t _reserved_1 : 1;
+    /// read-write - Depend level
     eLEVEL1 LEVEL1 : 3;
     uint32_t _reserved_2 : 1;
+    /// read-write - Depend level
     eLEVEL2 LEVEL2 : 3;
     uint32_t _reserved_3 : 1;
+    /// read-write - Depend level
     eLEVEL3 LEVEL3 : 3;
     uint32_t _reserved_4 : 1;
   } bits;
@@ -29002,9 +32037,12 @@ union LPCG67_STATUS0 {
   
   // Bit field definition.
   struct {
+    /// read-only - LPCG current state
     eON ON : 1;
     uint32_t _reserved_0 : 7;
+    /// read-only - Domains that own this clock gate
     eACTIVE_DOMAIN ACTIVE_DOMAIN : 4;
+    /// read-only - Enable status from each domain
     eDOMAIN_ENABLE DOMAIN_ENABLE : 4;
     uint32_t _reserved_1 : 16;
   } bits;
@@ -29111,23 +32149,41 @@ union LPCG67_STATUS1 {
   
   // Bit field definition.
   struct {
+    /// read-only - Domain0 Low Power Mode
     eCPU0_MODE CPU0_MODE : 2;
+    /// read-only - Domain0 request enter Low Power Mode
     eCPU0_MODE_REQUEST CPU0_MODE_REQUEST : 1;
+    /// read-only - Domain0 Low Power Mode task done
     eCPU0_MODE_DONE CPU0_MODE_DONE : 1;
+    /// read-only - Domain1 Low Power Mode
     eCPU1_MODE CPU1_MODE : 2;
+    /// read-only - Domain1 request enter Low Power Mode
     eCPU1_MODE_REQUEST CPU1_MODE_REQUEST : 1;
+    /// read-only - Domain1 Low Power Mode task done
     eCPU1_MODE_DONE CPU1_MODE_DONE : 1;
+    /// read-only - Domain2 Low Power Mode
     eCPU2_MODE CPU2_MODE : 2;
+    /// read-only - Domain2 request enter Low Power Mode
     eCPU2_MODE_REQUEST CPU2_MODE_REQUEST : 1;
+    /// read-only - Domain2 Low Power Mode task done
     eCPU2_MODE_DONE CPU2_MODE_DONE : 1;
+    /// read-only - Domain3 Low Power Mode
     eCPU3_MODE CPU3_MODE : 2;
+    /// read-only - Domain3 request enter Low Power Mode
     eCPU3_MODE_REQUEST CPU3_MODE_REQUEST : 1;
+    /// read-only - Domain3 Low Power Mode task done
     eCPU3_MODE_DONE CPU3_MODE_DONE : 1;
+    /// read-only - Next Setpoint to change to
     uint32_t TARGET_SETPOINT : 4;
+    /// read-only - Current Setpoint
     uint32_t CURRENT_SETPOINT : 4;
+    /// read-only - Clock gate turn off request from GPC Setpoint
     eSETPOINT_OFF_REQUEST SETPOINT_OFF_REQUEST : 1;
+    /// read-only - Clock gate turn off finish from GPC Setpoint
     eSETPOINT_OFF_DONE SETPOINT_OFF_DONE : 1;
+    /// read-only - Clock gate turn on request from GPC Setpoint
     eSETPOINT_ON_REQUEST SETPOINT_ON_REQUEST : 1;
+    /// read-only - Clock gate turn on finish from GPC Setpoint
     eSETPOINT_ON_DONE SETPOINT_ON_DONE : 1;
     uint32_t _reserved_0 : 4;
   } bits;
@@ -29152,6 +32208,7 @@ union LPCG67_CONFIG {
   // Bit field definition.
   struct {
     uint32_t _reserved_0 : 4;
+    /// read-only - Setpoint present
     eSETPOINT_PRESENT SETPOINT_PRESENT : 1;
     uint32_t _reserved_1 : 27;
   } bits;
@@ -29210,18 +32267,27 @@ union LPCG67_AUTHEN {
   
   // Bit field definition.
   struct {
+    /// read-write - User access
     eTZ_USER TZ_USER : 1;
+    /// read-write - Non-secure access
     eTZ_NS TZ_NS : 1;
     uint32_t _reserved_0 : 2;
+    /// read-write - lock truszone setting
     eLOCK_TZ LOCK_TZ : 1;
     uint32_t _reserved_1 : 3;
+    /// read-write - Whitelist
     uint32_t WHITE_LIST : 4;
+    /// read-write - Lock Whitelist
     eLOCK_LIST LOCK_LIST : 1;
     uint32_t _reserved_2 : 3;
+    /// read-write - Low power and access control by domain
     eDOMAIN_MODE DOMAIN_MODE : 1;
+    /// read-write - Low power and access control by Setpoint
     eSETPOINT_MODE SETPOINT_MODE : 1;
+    /// read-write - CPU Low Power Mode
     eCPULPM CPULPM : 1;
     uint32_t _reserved_3 : 1;
+    /// read-write - Lock low power and access mode
     eLOCK_MODE LOCK_MODE : 1;
     uint32_t _reserved_4 : 11;
   } bits;
@@ -29245,6 +32311,7 @@ union LPCG68_DIRECT {
   
   // Bit field definition.
   struct {
+    /// read-write - LPCG on
     eON ON : 1;
     uint32_t _reserved_0 : 31;
   } bits;
@@ -29303,14 +32370,19 @@ union LPCG68_DOMAIN {
   
   // Bit field definition.
   struct {
+    /// read-write - Current dependence level
     eLEVEL LEVEL : 3;
     uint32_t _reserved_0 : 13;
+    /// read-write - Depend level
     eLEVEL0 LEVEL0 : 3;
     uint32_t _reserved_1 : 1;
+    /// read-write - Depend level
     eLEVEL1 LEVEL1 : 3;
     uint32_t _reserved_2 : 1;
+    /// read-write - Depend level
     eLEVEL2 LEVEL2 : 3;
     uint32_t _reserved_3 : 1;
+    /// read-write - Depend level
     eLEVEL3 LEVEL3 : 3;
     uint32_t _reserved_4 : 1;
   } bits;
@@ -29372,9 +32444,12 @@ union LPCG68_STATUS0 {
   
   // Bit field definition.
   struct {
+    /// read-only - LPCG current state
     eON ON : 1;
     uint32_t _reserved_0 : 7;
+    /// read-only - Domains that own this clock gate
     eACTIVE_DOMAIN ACTIVE_DOMAIN : 4;
+    /// read-only - Enable status from each domain
     eDOMAIN_ENABLE DOMAIN_ENABLE : 4;
     uint32_t _reserved_1 : 16;
   } bits;
@@ -29481,23 +32556,41 @@ union LPCG68_STATUS1 {
   
   // Bit field definition.
   struct {
+    /// read-only - Domain0 Low Power Mode
     eCPU0_MODE CPU0_MODE : 2;
+    /// read-only - Domain0 request enter Low Power Mode
     eCPU0_MODE_REQUEST CPU0_MODE_REQUEST : 1;
+    /// read-only - Domain0 Low Power Mode task done
     eCPU0_MODE_DONE CPU0_MODE_DONE : 1;
+    /// read-only - Domain1 Low Power Mode
     eCPU1_MODE CPU1_MODE : 2;
+    /// read-only - Domain1 request enter Low Power Mode
     eCPU1_MODE_REQUEST CPU1_MODE_REQUEST : 1;
+    /// read-only - Domain1 Low Power Mode task done
     eCPU1_MODE_DONE CPU1_MODE_DONE : 1;
+    /// read-only - Domain2 Low Power Mode
     eCPU2_MODE CPU2_MODE : 2;
+    /// read-only - Domain2 request enter Low Power Mode
     eCPU2_MODE_REQUEST CPU2_MODE_REQUEST : 1;
+    /// read-only - Domain2 Low Power Mode task done
     eCPU2_MODE_DONE CPU2_MODE_DONE : 1;
+    /// read-only - Domain3 Low Power Mode
     eCPU3_MODE CPU3_MODE : 2;
+    /// read-only - Domain3 request enter Low Power Mode
     eCPU3_MODE_REQUEST CPU3_MODE_REQUEST : 1;
+    /// read-only - Domain3 Low Power Mode task done
     eCPU3_MODE_DONE CPU3_MODE_DONE : 1;
+    /// read-only - Next Setpoint to change to
     uint32_t TARGET_SETPOINT : 4;
+    /// read-only - Current Setpoint
     uint32_t CURRENT_SETPOINT : 4;
+    /// read-only - Clock gate turn off request from GPC Setpoint
     eSETPOINT_OFF_REQUEST SETPOINT_OFF_REQUEST : 1;
+    /// read-only - Clock gate turn off finish from GPC Setpoint
     eSETPOINT_OFF_DONE SETPOINT_OFF_DONE : 1;
+    /// read-only - Clock gate turn on request from GPC Setpoint
     eSETPOINT_ON_REQUEST SETPOINT_ON_REQUEST : 1;
+    /// read-only - Clock gate turn on finish from GPC Setpoint
     eSETPOINT_ON_DONE SETPOINT_ON_DONE : 1;
     uint32_t _reserved_0 : 4;
   } bits;
@@ -29522,6 +32615,7 @@ union LPCG68_CONFIG {
   // Bit field definition.
   struct {
     uint32_t _reserved_0 : 4;
+    /// read-only - Setpoint present
     eSETPOINT_PRESENT SETPOINT_PRESENT : 1;
     uint32_t _reserved_1 : 27;
   } bits;
@@ -29580,18 +32674,27 @@ union LPCG68_AUTHEN {
   
   // Bit field definition.
   struct {
+    /// read-write - User access
     eTZ_USER TZ_USER : 1;
+    /// read-write - Non-secure access
     eTZ_NS TZ_NS : 1;
     uint32_t _reserved_0 : 2;
+    /// read-write - lock truszone setting
     eLOCK_TZ LOCK_TZ : 1;
     uint32_t _reserved_1 : 3;
+    /// read-write - Whitelist
     uint32_t WHITE_LIST : 4;
+    /// read-write - Lock Whitelist
     eLOCK_LIST LOCK_LIST : 1;
     uint32_t _reserved_2 : 3;
+    /// read-write - Low power and access control by domain
     eDOMAIN_MODE DOMAIN_MODE : 1;
+    /// read-write - Low power and access control by Setpoint
     eSETPOINT_MODE SETPOINT_MODE : 1;
+    /// read-write - CPU Low Power Mode
     eCPULPM CPULPM : 1;
     uint32_t _reserved_3 : 1;
+    /// read-write - Lock low power and access mode
     eLOCK_MODE LOCK_MODE : 1;
     uint32_t _reserved_4 : 11;
   } bits;
@@ -29615,6 +32718,7 @@ union LPCG69_DIRECT {
   
   // Bit field definition.
   struct {
+    /// read-write - LPCG on
     eON ON : 1;
     uint32_t _reserved_0 : 31;
   } bits;
@@ -29673,14 +32777,19 @@ union LPCG69_DOMAIN {
   
   // Bit field definition.
   struct {
+    /// read-write - Current dependence level
     eLEVEL LEVEL : 3;
     uint32_t _reserved_0 : 13;
+    /// read-write - Depend level
     eLEVEL0 LEVEL0 : 3;
     uint32_t _reserved_1 : 1;
+    /// read-write - Depend level
     eLEVEL1 LEVEL1 : 3;
     uint32_t _reserved_2 : 1;
+    /// read-write - Depend level
     eLEVEL2 LEVEL2 : 3;
     uint32_t _reserved_3 : 1;
+    /// read-write - Depend level
     eLEVEL3 LEVEL3 : 3;
     uint32_t _reserved_4 : 1;
   } bits;
@@ -29742,9 +32851,12 @@ union LPCG69_STATUS0 {
   
   // Bit field definition.
   struct {
+    /// read-only - LPCG current state
     eON ON : 1;
     uint32_t _reserved_0 : 7;
+    /// read-only - Domains that own this clock gate
     eACTIVE_DOMAIN ACTIVE_DOMAIN : 4;
+    /// read-only - Enable status from each domain
     eDOMAIN_ENABLE DOMAIN_ENABLE : 4;
     uint32_t _reserved_1 : 16;
   } bits;
@@ -29851,23 +32963,41 @@ union LPCG69_STATUS1 {
   
   // Bit field definition.
   struct {
+    /// read-only - Domain0 Low Power Mode
     eCPU0_MODE CPU0_MODE : 2;
+    /// read-only - Domain0 request enter Low Power Mode
     eCPU0_MODE_REQUEST CPU0_MODE_REQUEST : 1;
+    /// read-only - Domain0 Low Power Mode task done
     eCPU0_MODE_DONE CPU0_MODE_DONE : 1;
+    /// read-only - Domain1 Low Power Mode
     eCPU1_MODE CPU1_MODE : 2;
+    /// read-only - Domain1 request enter Low Power Mode
     eCPU1_MODE_REQUEST CPU1_MODE_REQUEST : 1;
+    /// read-only - Domain1 Low Power Mode task done
     eCPU1_MODE_DONE CPU1_MODE_DONE : 1;
+    /// read-only - Domain2 Low Power Mode
     eCPU2_MODE CPU2_MODE : 2;
+    /// read-only - Domain2 request enter Low Power Mode
     eCPU2_MODE_REQUEST CPU2_MODE_REQUEST : 1;
+    /// read-only - Domain2 Low Power Mode task done
     eCPU2_MODE_DONE CPU2_MODE_DONE : 1;
+    /// read-only - Domain3 Low Power Mode
     eCPU3_MODE CPU3_MODE : 2;
+    /// read-only - Domain3 request enter Low Power Mode
     eCPU3_MODE_REQUEST CPU3_MODE_REQUEST : 1;
+    /// read-only - Domain3 Low Power Mode task done
     eCPU3_MODE_DONE CPU3_MODE_DONE : 1;
+    /// read-only - Next Setpoint to change to
     uint32_t TARGET_SETPOINT : 4;
+    /// read-only - Current Setpoint
     uint32_t CURRENT_SETPOINT : 4;
+    /// read-only - Clock gate turn off request from GPC Setpoint
     eSETPOINT_OFF_REQUEST SETPOINT_OFF_REQUEST : 1;
+    /// read-only - Clock gate turn off finish from GPC Setpoint
     eSETPOINT_OFF_DONE SETPOINT_OFF_DONE : 1;
+    /// read-only - Clock gate turn on request from GPC Setpoint
     eSETPOINT_ON_REQUEST SETPOINT_ON_REQUEST : 1;
+    /// read-only - Clock gate turn on finish from GPC Setpoint
     eSETPOINT_ON_DONE SETPOINT_ON_DONE : 1;
     uint32_t _reserved_0 : 4;
   } bits;
@@ -29892,6 +33022,7 @@ union LPCG69_CONFIG {
   // Bit field definition.
   struct {
     uint32_t _reserved_0 : 4;
+    /// read-only - Setpoint present
     eSETPOINT_PRESENT SETPOINT_PRESENT : 1;
     uint32_t _reserved_1 : 27;
   } bits;
@@ -29950,18 +33081,27 @@ union LPCG69_AUTHEN {
   
   // Bit field definition.
   struct {
+    /// read-write - User access
     eTZ_USER TZ_USER : 1;
+    /// read-write - Non-secure access
     eTZ_NS TZ_NS : 1;
     uint32_t _reserved_0 : 2;
+    /// read-write - lock truszone setting
     eLOCK_TZ LOCK_TZ : 1;
     uint32_t _reserved_1 : 3;
+    /// read-write - Whitelist
     uint32_t WHITE_LIST : 4;
+    /// read-write - Lock Whitelist
     eLOCK_LIST LOCK_LIST : 1;
     uint32_t _reserved_2 : 3;
+    /// read-write - Low power and access control by domain
     eDOMAIN_MODE DOMAIN_MODE : 1;
+    /// read-write - Low power and access control by Setpoint
     eSETPOINT_MODE SETPOINT_MODE : 1;
+    /// read-write - CPU Low Power Mode
     eCPULPM CPULPM : 1;
     uint32_t _reserved_3 : 1;
+    /// read-write - Lock low power and access mode
     eLOCK_MODE LOCK_MODE : 1;
     uint32_t _reserved_4 : 11;
   } bits;
@@ -29985,6 +33125,7 @@ union LPCG70_DIRECT {
   
   // Bit field definition.
   struct {
+    /// read-write - LPCG on
     eON ON : 1;
     uint32_t _reserved_0 : 31;
   } bits;
@@ -30043,14 +33184,19 @@ union LPCG70_DOMAIN {
   
   // Bit field definition.
   struct {
+    /// read-write - Current dependence level
     eLEVEL LEVEL : 3;
     uint32_t _reserved_0 : 13;
+    /// read-write - Depend level
     eLEVEL0 LEVEL0 : 3;
     uint32_t _reserved_1 : 1;
+    /// read-write - Depend level
     eLEVEL1 LEVEL1 : 3;
     uint32_t _reserved_2 : 1;
+    /// read-write - Depend level
     eLEVEL2 LEVEL2 : 3;
     uint32_t _reserved_3 : 1;
+    /// read-write - Depend level
     eLEVEL3 LEVEL3 : 3;
     uint32_t _reserved_4 : 1;
   } bits;
@@ -30112,9 +33258,12 @@ union LPCG70_STATUS0 {
   
   // Bit field definition.
   struct {
+    /// read-only - LPCG current state
     eON ON : 1;
     uint32_t _reserved_0 : 7;
+    /// read-only - Domains that own this clock gate
     eACTIVE_DOMAIN ACTIVE_DOMAIN : 4;
+    /// read-only - Enable status from each domain
     eDOMAIN_ENABLE DOMAIN_ENABLE : 4;
     uint32_t _reserved_1 : 16;
   } bits;
@@ -30221,23 +33370,41 @@ union LPCG70_STATUS1 {
   
   // Bit field definition.
   struct {
+    /// read-only - Domain0 Low Power Mode
     eCPU0_MODE CPU0_MODE : 2;
+    /// read-only - Domain0 request enter Low Power Mode
     eCPU0_MODE_REQUEST CPU0_MODE_REQUEST : 1;
+    /// read-only - Domain0 Low Power Mode task done
     eCPU0_MODE_DONE CPU0_MODE_DONE : 1;
+    /// read-only - Domain1 Low Power Mode
     eCPU1_MODE CPU1_MODE : 2;
+    /// read-only - Domain1 request enter Low Power Mode
     eCPU1_MODE_REQUEST CPU1_MODE_REQUEST : 1;
+    /// read-only - Domain1 Low Power Mode task done
     eCPU1_MODE_DONE CPU1_MODE_DONE : 1;
+    /// read-only - Domain2 Low Power Mode
     eCPU2_MODE CPU2_MODE : 2;
+    /// read-only - Domain2 request enter Low Power Mode
     eCPU2_MODE_REQUEST CPU2_MODE_REQUEST : 1;
+    /// read-only - Domain2 Low Power Mode task done
     eCPU2_MODE_DONE CPU2_MODE_DONE : 1;
+    /// read-only - Domain3 Low Power Mode
     eCPU3_MODE CPU3_MODE : 2;
+    /// read-only - Domain3 request enter Low Power Mode
     eCPU3_MODE_REQUEST CPU3_MODE_REQUEST : 1;
+    /// read-only - Domain3 Low Power Mode task done
     eCPU3_MODE_DONE CPU3_MODE_DONE : 1;
+    /// read-only - Next Setpoint to change to
     uint32_t TARGET_SETPOINT : 4;
+    /// read-only - Current Setpoint
     uint32_t CURRENT_SETPOINT : 4;
+    /// read-only - Clock gate turn off request from GPC Setpoint
     eSETPOINT_OFF_REQUEST SETPOINT_OFF_REQUEST : 1;
+    /// read-only - Clock gate turn off finish from GPC Setpoint
     eSETPOINT_OFF_DONE SETPOINT_OFF_DONE : 1;
+    /// read-only - Clock gate turn on request from GPC Setpoint
     eSETPOINT_ON_REQUEST SETPOINT_ON_REQUEST : 1;
+    /// read-only - Clock gate turn on finish from GPC Setpoint
     eSETPOINT_ON_DONE SETPOINT_ON_DONE : 1;
     uint32_t _reserved_0 : 4;
   } bits;
@@ -30262,6 +33429,7 @@ union LPCG70_CONFIG {
   // Bit field definition.
   struct {
     uint32_t _reserved_0 : 4;
+    /// read-only - Setpoint present
     eSETPOINT_PRESENT SETPOINT_PRESENT : 1;
     uint32_t _reserved_1 : 27;
   } bits;
@@ -30320,18 +33488,27 @@ union LPCG70_AUTHEN {
   
   // Bit field definition.
   struct {
+    /// read-write - User access
     eTZ_USER TZ_USER : 1;
+    /// read-write - Non-secure access
     eTZ_NS TZ_NS : 1;
     uint32_t _reserved_0 : 2;
+    /// read-write - lock truszone setting
     eLOCK_TZ LOCK_TZ : 1;
     uint32_t _reserved_1 : 3;
+    /// read-write - Whitelist
     uint32_t WHITE_LIST : 4;
+    /// read-write - Lock Whitelist
     eLOCK_LIST LOCK_LIST : 1;
     uint32_t _reserved_2 : 3;
+    /// read-write - Low power and access control by domain
     eDOMAIN_MODE DOMAIN_MODE : 1;
+    /// read-write - Low power and access control by Setpoint
     eSETPOINT_MODE SETPOINT_MODE : 1;
+    /// read-write - CPU Low Power Mode
     eCPULPM CPULPM : 1;
     uint32_t _reserved_3 : 1;
+    /// read-write - Lock low power and access mode
     eLOCK_MODE LOCK_MODE : 1;
     uint32_t _reserved_4 : 11;
   } bits;
@@ -30355,6 +33532,7 @@ union LPCG71_DIRECT {
   
   // Bit field definition.
   struct {
+    /// read-write - LPCG on
     eON ON : 1;
     uint32_t _reserved_0 : 31;
   } bits;
@@ -30413,14 +33591,19 @@ union LPCG71_DOMAIN {
   
   // Bit field definition.
   struct {
+    /// read-write - Current dependence level
     eLEVEL LEVEL : 3;
     uint32_t _reserved_0 : 13;
+    /// read-write - Depend level
     eLEVEL0 LEVEL0 : 3;
     uint32_t _reserved_1 : 1;
+    /// read-write - Depend level
     eLEVEL1 LEVEL1 : 3;
     uint32_t _reserved_2 : 1;
+    /// read-write - Depend level
     eLEVEL2 LEVEL2 : 3;
     uint32_t _reserved_3 : 1;
+    /// read-write - Depend level
     eLEVEL3 LEVEL3 : 3;
     uint32_t _reserved_4 : 1;
   } bits;
@@ -30482,9 +33665,12 @@ union LPCG71_STATUS0 {
   
   // Bit field definition.
   struct {
+    /// read-only - LPCG current state
     eON ON : 1;
     uint32_t _reserved_0 : 7;
+    /// read-only - Domains that own this clock gate
     eACTIVE_DOMAIN ACTIVE_DOMAIN : 4;
+    /// read-only - Enable status from each domain
     eDOMAIN_ENABLE DOMAIN_ENABLE : 4;
     uint32_t _reserved_1 : 16;
   } bits;
@@ -30591,23 +33777,41 @@ union LPCG71_STATUS1 {
   
   // Bit field definition.
   struct {
+    /// read-only - Domain0 Low Power Mode
     eCPU0_MODE CPU0_MODE : 2;
+    /// read-only - Domain0 request enter Low Power Mode
     eCPU0_MODE_REQUEST CPU0_MODE_REQUEST : 1;
+    /// read-only - Domain0 Low Power Mode task done
     eCPU0_MODE_DONE CPU0_MODE_DONE : 1;
+    /// read-only - Domain1 Low Power Mode
     eCPU1_MODE CPU1_MODE : 2;
+    /// read-only - Domain1 request enter Low Power Mode
     eCPU1_MODE_REQUEST CPU1_MODE_REQUEST : 1;
+    /// read-only - Domain1 Low Power Mode task done
     eCPU1_MODE_DONE CPU1_MODE_DONE : 1;
+    /// read-only - Domain2 Low Power Mode
     eCPU2_MODE CPU2_MODE : 2;
+    /// read-only - Domain2 request enter Low Power Mode
     eCPU2_MODE_REQUEST CPU2_MODE_REQUEST : 1;
+    /// read-only - Domain2 Low Power Mode task done
     eCPU2_MODE_DONE CPU2_MODE_DONE : 1;
+    /// read-only - Domain3 Low Power Mode
     eCPU3_MODE CPU3_MODE : 2;
+    /// read-only - Domain3 request enter Low Power Mode
     eCPU3_MODE_REQUEST CPU3_MODE_REQUEST : 1;
+    /// read-only - Domain3 Low Power Mode task done
     eCPU3_MODE_DONE CPU3_MODE_DONE : 1;
+    /// read-only - Next Setpoint to change to
     uint32_t TARGET_SETPOINT : 4;
+    /// read-only - Current Setpoint
     uint32_t CURRENT_SETPOINT : 4;
+    /// read-only - Clock gate turn off request from GPC Setpoint
     eSETPOINT_OFF_REQUEST SETPOINT_OFF_REQUEST : 1;
+    /// read-only - Clock gate turn off finish from GPC Setpoint
     eSETPOINT_OFF_DONE SETPOINT_OFF_DONE : 1;
+    /// read-only - Clock gate turn on request from GPC Setpoint
     eSETPOINT_ON_REQUEST SETPOINT_ON_REQUEST : 1;
+    /// read-only - Clock gate turn on finish from GPC Setpoint
     eSETPOINT_ON_DONE SETPOINT_ON_DONE : 1;
     uint32_t _reserved_0 : 4;
   } bits;
@@ -30632,6 +33836,7 @@ union LPCG71_CONFIG {
   // Bit field definition.
   struct {
     uint32_t _reserved_0 : 4;
+    /// read-only - Setpoint present
     eSETPOINT_PRESENT SETPOINT_PRESENT : 1;
     uint32_t _reserved_1 : 27;
   } bits;
@@ -30690,18 +33895,27 @@ union LPCG71_AUTHEN {
   
   // Bit field definition.
   struct {
+    /// read-write - User access
     eTZ_USER TZ_USER : 1;
+    /// read-write - Non-secure access
     eTZ_NS TZ_NS : 1;
     uint32_t _reserved_0 : 2;
+    /// read-write - lock truszone setting
     eLOCK_TZ LOCK_TZ : 1;
     uint32_t _reserved_1 : 3;
+    /// read-write - Whitelist
     uint32_t WHITE_LIST : 4;
+    /// read-write - Lock Whitelist
     eLOCK_LIST LOCK_LIST : 1;
     uint32_t _reserved_2 : 3;
+    /// read-write - Low power and access control by domain
     eDOMAIN_MODE DOMAIN_MODE : 1;
+    /// read-write - Low power and access control by Setpoint
     eSETPOINT_MODE SETPOINT_MODE : 1;
+    /// read-write - CPU Low Power Mode
     eCPULPM CPULPM : 1;
     uint32_t _reserved_3 : 1;
+    /// read-write - Lock low power and access mode
     eLOCK_MODE LOCK_MODE : 1;
     uint32_t _reserved_4 : 11;
   } bits;
@@ -30725,6 +33939,7 @@ union LPCG72_DIRECT {
   
   // Bit field definition.
   struct {
+    /// read-write - LPCG on
     eON ON : 1;
     uint32_t _reserved_0 : 31;
   } bits;
@@ -30783,14 +33998,19 @@ union LPCG72_DOMAIN {
   
   // Bit field definition.
   struct {
+    /// read-write - Current dependence level
     eLEVEL LEVEL : 3;
     uint32_t _reserved_0 : 13;
+    /// read-write - Depend level
     eLEVEL0 LEVEL0 : 3;
     uint32_t _reserved_1 : 1;
+    /// read-write - Depend level
     eLEVEL1 LEVEL1 : 3;
     uint32_t _reserved_2 : 1;
+    /// read-write - Depend level
     eLEVEL2 LEVEL2 : 3;
     uint32_t _reserved_3 : 1;
+    /// read-write - Depend level
     eLEVEL3 LEVEL3 : 3;
     uint32_t _reserved_4 : 1;
   } bits;
@@ -30852,9 +34072,12 @@ union LPCG72_STATUS0 {
   
   // Bit field definition.
   struct {
+    /// read-only - LPCG current state
     eON ON : 1;
     uint32_t _reserved_0 : 7;
+    /// read-only - Domains that own this clock gate
     eACTIVE_DOMAIN ACTIVE_DOMAIN : 4;
+    /// read-only - Enable status from each domain
     eDOMAIN_ENABLE DOMAIN_ENABLE : 4;
     uint32_t _reserved_1 : 16;
   } bits;
@@ -30961,23 +34184,41 @@ union LPCG72_STATUS1 {
   
   // Bit field definition.
   struct {
+    /// read-only - Domain0 Low Power Mode
     eCPU0_MODE CPU0_MODE : 2;
+    /// read-only - Domain0 request enter Low Power Mode
     eCPU0_MODE_REQUEST CPU0_MODE_REQUEST : 1;
+    /// read-only - Domain0 Low Power Mode task done
     eCPU0_MODE_DONE CPU0_MODE_DONE : 1;
+    /// read-only - Domain1 Low Power Mode
     eCPU1_MODE CPU1_MODE : 2;
+    /// read-only - Domain1 request enter Low Power Mode
     eCPU1_MODE_REQUEST CPU1_MODE_REQUEST : 1;
+    /// read-only - Domain1 Low Power Mode task done
     eCPU1_MODE_DONE CPU1_MODE_DONE : 1;
+    /// read-only - Domain2 Low Power Mode
     eCPU2_MODE CPU2_MODE : 2;
+    /// read-only - Domain2 request enter Low Power Mode
     eCPU2_MODE_REQUEST CPU2_MODE_REQUEST : 1;
+    /// read-only - Domain2 Low Power Mode task done
     eCPU2_MODE_DONE CPU2_MODE_DONE : 1;
+    /// read-only - Domain3 Low Power Mode
     eCPU3_MODE CPU3_MODE : 2;
+    /// read-only - Domain3 request enter Low Power Mode
     eCPU3_MODE_REQUEST CPU3_MODE_REQUEST : 1;
+    /// read-only - Domain3 Low Power Mode task done
     eCPU3_MODE_DONE CPU3_MODE_DONE : 1;
+    /// read-only - Next Setpoint to change to
     uint32_t TARGET_SETPOINT : 4;
+    /// read-only - Current Setpoint
     uint32_t CURRENT_SETPOINT : 4;
+    /// read-only - Clock gate turn off request from GPC Setpoint
     eSETPOINT_OFF_REQUEST SETPOINT_OFF_REQUEST : 1;
+    /// read-only - Clock gate turn off finish from GPC Setpoint
     eSETPOINT_OFF_DONE SETPOINT_OFF_DONE : 1;
+    /// read-only - Clock gate turn on request from GPC Setpoint
     eSETPOINT_ON_REQUEST SETPOINT_ON_REQUEST : 1;
+    /// read-only - Clock gate turn on finish from GPC Setpoint
     eSETPOINT_ON_DONE SETPOINT_ON_DONE : 1;
     uint32_t _reserved_0 : 4;
   } bits;
@@ -31002,6 +34243,7 @@ union LPCG72_CONFIG {
   // Bit field definition.
   struct {
     uint32_t _reserved_0 : 4;
+    /// read-only - Setpoint present
     eSETPOINT_PRESENT SETPOINT_PRESENT : 1;
     uint32_t _reserved_1 : 27;
   } bits;
@@ -31060,18 +34302,27 @@ union LPCG72_AUTHEN {
   
   // Bit field definition.
   struct {
+    /// read-write - User access
     eTZ_USER TZ_USER : 1;
+    /// read-write - Non-secure access
     eTZ_NS TZ_NS : 1;
     uint32_t _reserved_0 : 2;
+    /// read-write - lock truszone setting
     eLOCK_TZ LOCK_TZ : 1;
     uint32_t _reserved_1 : 3;
+    /// read-write - Whitelist
     uint32_t WHITE_LIST : 4;
+    /// read-write - Lock Whitelist
     eLOCK_LIST LOCK_LIST : 1;
     uint32_t _reserved_2 : 3;
+    /// read-write - Low power and access control by domain
     eDOMAIN_MODE DOMAIN_MODE : 1;
+    /// read-write - Low power and access control by Setpoint
     eSETPOINT_MODE SETPOINT_MODE : 1;
+    /// read-write - CPU Low Power Mode
     eCPULPM CPULPM : 1;
     uint32_t _reserved_3 : 1;
+    /// read-write - Lock low power and access mode
     eLOCK_MODE LOCK_MODE : 1;
     uint32_t _reserved_4 : 11;
   } bits;
@@ -31095,6 +34346,7 @@ union LPCG73_DIRECT {
   
   // Bit field definition.
   struct {
+    /// read-write - LPCG on
     eON ON : 1;
     uint32_t _reserved_0 : 31;
   } bits;
@@ -31153,14 +34405,19 @@ union LPCG73_DOMAIN {
   
   // Bit field definition.
   struct {
+    /// read-write - Current dependence level
     eLEVEL LEVEL : 3;
     uint32_t _reserved_0 : 13;
+    /// read-write - Depend level
     eLEVEL0 LEVEL0 : 3;
     uint32_t _reserved_1 : 1;
+    /// read-write - Depend level
     eLEVEL1 LEVEL1 : 3;
     uint32_t _reserved_2 : 1;
+    /// read-write - Depend level
     eLEVEL2 LEVEL2 : 3;
     uint32_t _reserved_3 : 1;
+    /// read-write - Depend level
     eLEVEL3 LEVEL3 : 3;
     uint32_t _reserved_4 : 1;
   } bits;
@@ -31222,9 +34479,12 @@ union LPCG73_STATUS0 {
   
   // Bit field definition.
   struct {
+    /// read-only - LPCG current state
     eON ON : 1;
     uint32_t _reserved_0 : 7;
+    /// read-only - Domains that own this clock gate
     eACTIVE_DOMAIN ACTIVE_DOMAIN : 4;
+    /// read-only - Enable status from each domain
     eDOMAIN_ENABLE DOMAIN_ENABLE : 4;
     uint32_t _reserved_1 : 16;
   } bits;
@@ -31331,23 +34591,41 @@ union LPCG73_STATUS1 {
   
   // Bit field definition.
   struct {
+    /// read-only - Domain0 Low Power Mode
     eCPU0_MODE CPU0_MODE : 2;
+    /// read-only - Domain0 request enter Low Power Mode
     eCPU0_MODE_REQUEST CPU0_MODE_REQUEST : 1;
+    /// read-only - Domain0 Low Power Mode task done
     eCPU0_MODE_DONE CPU0_MODE_DONE : 1;
+    /// read-only - Domain1 Low Power Mode
     eCPU1_MODE CPU1_MODE : 2;
+    /// read-only - Domain1 request enter Low Power Mode
     eCPU1_MODE_REQUEST CPU1_MODE_REQUEST : 1;
+    /// read-only - Domain1 Low Power Mode task done
     eCPU1_MODE_DONE CPU1_MODE_DONE : 1;
+    /// read-only - Domain2 Low Power Mode
     eCPU2_MODE CPU2_MODE : 2;
+    /// read-only - Domain2 request enter Low Power Mode
     eCPU2_MODE_REQUEST CPU2_MODE_REQUEST : 1;
+    /// read-only - Domain2 Low Power Mode task done
     eCPU2_MODE_DONE CPU2_MODE_DONE : 1;
+    /// read-only - Domain3 Low Power Mode
     eCPU3_MODE CPU3_MODE : 2;
+    /// read-only - Domain3 request enter Low Power Mode
     eCPU3_MODE_REQUEST CPU3_MODE_REQUEST : 1;
+    /// read-only - Domain3 Low Power Mode task done
     eCPU3_MODE_DONE CPU3_MODE_DONE : 1;
+    /// read-only - Next Setpoint to change to
     uint32_t TARGET_SETPOINT : 4;
+    /// read-only - Current Setpoint
     uint32_t CURRENT_SETPOINT : 4;
+    /// read-only - Clock gate turn off request from GPC Setpoint
     eSETPOINT_OFF_REQUEST SETPOINT_OFF_REQUEST : 1;
+    /// read-only - Clock gate turn off finish from GPC Setpoint
     eSETPOINT_OFF_DONE SETPOINT_OFF_DONE : 1;
+    /// read-only - Clock gate turn on request from GPC Setpoint
     eSETPOINT_ON_REQUEST SETPOINT_ON_REQUEST : 1;
+    /// read-only - Clock gate turn on finish from GPC Setpoint
     eSETPOINT_ON_DONE SETPOINT_ON_DONE : 1;
     uint32_t _reserved_0 : 4;
   } bits;
@@ -31372,6 +34650,7 @@ union LPCG73_CONFIG {
   // Bit field definition.
   struct {
     uint32_t _reserved_0 : 4;
+    /// read-only - Setpoint present
     eSETPOINT_PRESENT SETPOINT_PRESENT : 1;
     uint32_t _reserved_1 : 27;
   } bits;
@@ -31430,18 +34709,27 @@ union LPCG73_AUTHEN {
   
   // Bit field definition.
   struct {
+    /// read-write - User access
     eTZ_USER TZ_USER : 1;
+    /// read-write - Non-secure access
     eTZ_NS TZ_NS : 1;
     uint32_t _reserved_0 : 2;
+    /// read-write - lock truszone setting
     eLOCK_TZ LOCK_TZ : 1;
     uint32_t _reserved_1 : 3;
+    /// read-write - Whitelist
     uint32_t WHITE_LIST : 4;
+    /// read-write - Lock Whitelist
     eLOCK_LIST LOCK_LIST : 1;
     uint32_t _reserved_2 : 3;
+    /// read-write - Low power and access control by domain
     eDOMAIN_MODE DOMAIN_MODE : 1;
+    /// read-write - Low power and access control by Setpoint
     eSETPOINT_MODE SETPOINT_MODE : 1;
+    /// read-write - CPU Low Power Mode
     eCPULPM CPULPM : 1;
     uint32_t _reserved_3 : 1;
+    /// read-write - Lock low power and access mode
     eLOCK_MODE LOCK_MODE : 1;
     uint32_t _reserved_4 : 11;
   } bits;
@@ -31465,6 +34753,7 @@ union LPCG74_DIRECT {
   
   // Bit field definition.
   struct {
+    /// read-write - LPCG on
     eON ON : 1;
     uint32_t _reserved_0 : 31;
   } bits;
@@ -31523,14 +34812,19 @@ union LPCG74_DOMAIN {
   
   // Bit field definition.
   struct {
+    /// read-write - Current dependence level
     eLEVEL LEVEL : 3;
     uint32_t _reserved_0 : 13;
+    /// read-write - Depend level
     eLEVEL0 LEVEL0 : 3;
     uint32_t _reserved_1 : 1;
+    /// read-write - Depend level
     eLEVEL1 LEVEL1 : 3;
     uint32_t _reserved_2 : 1;
+    /// read-write - Depend level
     eLEVEL2 LEVEL2 : 3;
     uint32_t _reserved_3 : 1;
+    /// read-write - Depend level
     eLEVEL3 LEVEL3 : 3;
     uint32_t _reserved_4 : 1;
   } bits;
@@ -31592,9 +34886,12 @@ union LPCG74_STATUS0 {
   
   // Bit field definition.
   struct {
+    /// read-only - LPCG current state
     eON ON : 1;
     uint32_t _reserved_0 : 7;
+    /// read-only - Domains that own this clock gate
     eACTIVE_DOMAIN ACTIVE_DOMAIN : 4;
+    /// read-only - Enable status from each domain
     eDOMAIN_ENABLE DOMAIN_ENABLE : 4;
     uint32_t _reserved_1 : 16;
   } bits;
@@ -31701,23 +34998,41 @@ union LPCG74_STATUS1 {
   
   // Bit field definition.
   struct {
+    /// read-only - Domain0 Low Power Mode
     eCPU0_MODE CPU0_MODE : 2;
+    /// read-only - Domain0 request enter Low Power Mode
     eCPU0_MODE_REQUEST CPU0_MODE_REQUEST : 1;
+    /// read-only - Domain0 Low Power Mode task done
     eCPU0_MODE_DONE CPU0_MODE_DONE : 1;
+    /// read-only - Domain1 Low Power Mode
     eCPU1_MODE CPU1_MODE : 2;
+    /// read-only - Domain1 request enter Low Power Mode
     eCPU1_MODE_REQUEST CPU1_MODE_REQUEST : 1;
+    /// read-only - Domain1 Low Power Mode task done
     eCPU1_MODE_DONE CPU1_MODE_DONE : 1;
+    /// read-only - Domain2 Low Power Mode
     eCPU2_MODE CPU2_MODE : 2;
+    /// read-only - Domain2 request enter Low Power Mode
     eCPU2_MODE_REQUEST CPU2_MODE_REQUEST : 1;
+    /// read-only - Domain2 Low Power Mode task done
     eCPU2_MODE_DONE CPU2_MODE_DONE : 1;
+    /// read-only - Domain3 Low Power Mode
     eCPU3_MODE CPU3_MODE : 2;
+    /// read-only - Domain3 request enter Low Power Mode
     eCPU3_MODE_REQUEST CPU3_MODE_REQUEST : 1;
+    /// read-only - Domain3 Low Power Mode task done
     eCPU3_MODE_DONE CPU3_MODE_DONE : 1;
+    /// read-only - Next Setpoint to change to
     uint32_t TARGET_SETPOINT : 4;
+    /// read-only - Current Setpoint
     uint32_t CURRENT_SETPOINT : 4;
+    /// read-only - Clock gate turn off request from GPC Setpoint
     eSETPOINT_OFF_REQUEST SETPOINT_OFF_REQUEST : 1;
+    /// read-only - Clock gate turn off finish from GPC Setpoint
     eSETPOINT_OFF_DONE SETPOINT_OFF_DONE : 1;
+    /// read-only - Clock gate turn on request from GPC Setpoint
     eSETPOINT_ON_REQUEST SETPOINT_ON_REQUEST : 1;
+    /// read-only - Clock gate turn on finish from GPC Setpoint
     eSETPOINT_ON_DONE SETPOINT_ON_DONE : 1;
     uint32_t _reserved_0 : 4;
   } bits;
@@ -31742,6 +35057,7 @@ union LPCG74_CONFIG {
   // Bit field definition.
   struct {
     uint32_t _reserved_0 : 4;
+    /// read-only - Setpoint present
     eSETPOINT_PRESENT SETPOINT_PRESENT : 1;
     uint32_t _reserved_1 : 27;
   } bits;
@@ -31800,18 +35116,27 @@ union LPCG74_AUTHEN {
   
   // Bit field definition.
   struct {
+    /// read-write - User access
     eTZ_USER TZ_USER : 1;
+    /// read-write - Non-secure access
     eTZ_NS TZ_NS : 1;
     uint32_t _reserved_0 : 2;
+    /// read-write - lock truszone setting
     eLOCK_TZ LOCK_TZ : 1;
     uint32_t _reserved_1 : 3;
+    /// read-write - Whitelist
     uint32_t WHITE_LIST : 4;
+    /// read-write - Lock Whitelist
     eLOCK_LIST LOCK_LIST : 1;
     uint32_t _reserved_2 : 3;
+    /// read-write - Low power and access control by domain
     eDOMAIN_MODE DOMAIN_MODE : 1;
+    /// read-write - Low power and access control by Setpoint
     eSETPOINT_MODE SETPOINT_MODE : 1;
+    /// read-write - CPU Low Power Mode
     eCPULPM CPULPM : 1;
     uint32_t _reserved_3 : 1;
+    /// read-write - Lock low power and access mode
     eLOCK_MODE LOCK_MODE : 1;
     uint32_t _reserved_4 : 11;
   } bits;
@@ -31835,6 +35160,7 @@ union LPCG75_DIRECT {
   
   // Bit field definition.
   struct {
+    /// read-write - LPCG on
     eON ON : 1;
     uint32_t _reserved_0 : 31;
   } bits;
@@ -31893,14 +35219,19 @@ union LPCG75_DOMAIN {
   
   // Bit field definition.
   struct {
+    /// read-write - Current dependence level
     eLEVEL LEVEL : 3;
     uint32_t _reserved_0 : 13;
+    /// read-write - Depend level
     eLEVEL0 LEVEL0 : 3;
     uint32_t _reserved_1 : 1;
+    /// read-write - Depend level
     eLEVEL1 LEVEL1 : 3;
     uint32_t _reserved_2 : 1;
+    /// read-write - Depend level
     eLEVEL2 LEVEL2 : 3;
     uint32_t _reserved_3 : 1;
+    /// read-write - Depend level
     eLEVEL3 LEVEL3 : 3;
     uint32_t _reserved_4 : 1;
   } bits;
@@ -31962,9 +35293,12 @@ union LPCG75_STATUS0 {
   
   // Bit field definition.
   struct {
+    /// read-only - LPCG current state
     eON ON : 1;
     uint32_t _reserved_0 : 7;
+    /// read-only - Domains that own this clock gate
     eACTIVE_DOMAIN ACTIVE_DOMAIN : 4;
+    /// read-only - Enable status from each domain
     eDOMAIN_ENABLE DOMAIN_ENABLE : 4;
     uint32_t _reserved_1 : 16;
   } bits;
@@ -32071,23 +35405,41 @@ union LPCG75_STATUS1 {
   
   // Bit field definition.
   struct {
+    /// read-only - Domain0 Low Power Mode
     eCPU0_MODE CPU0_MODE : 2;
+    /// read-only - Domain0 request enter Low Power Mode
     eCPU0_MODE_REQUEST CPU0_MODE_REQUEST : 1;
+    /// read-only - Domain0 Low Power Mode task done
     eCPU0_MODE_DONE CPU0_MODE_DONE : 1;
+    /// read-only - Domain1 Low Power Mode
     eCPU1_MODE CPU1_MODE : 2;
+    /// read-only - Domain1 request enter Low Power Mode
     eCPU1_MODE_REQUEST CPU1_MODE_REQUEST : 1;
+    /// read-only - Domain1 Low Power Mode task done
     eCPU1_MODE_DONE CPU1_MODE_DONE : 1;
+    /// read-only - Domain2 Low Power Mode
     eCPU2_MODE CPU2_MODE : 2;
+    /// read-only - Domain2 request enter Low Power Mode
     eCPU2_MODE_REQUEST CPU2_MODE_REQUEST : 1;
+    /// read-only - Domain2 Low Power Mode task done
     eCPU2_MODE_DONE CPU2_MODE_DONE : 1;
+    /// read-only - Domain3 Low Power Mode
     eCPU3_MODE CPU3_MODE : 2;
+    /// read-only - Domain3 request enter Low Power Mode
     eCPU3_MODE_REQUEST CPU3_MODE_REQUEST : 1;
+    /// read-only - Domain3 Low Power Mode task done
     eCPU3_MODE_DONE CPU3_MODE_DONE : 1;
+    /// read-only - Next Setpoint to change to
     uint32_t TARGET_SETPOINT : 4;
+    /// read-only - Current Setpoint
     uint32_t CURRENT_SETPOINT : 4;
+    /// read-only - Clock gate turn off request from GPC Setpoint
     eSETPOINT_OFF_REQUEST SETPOINT_OFF_REQUEST : 1;
+    /// read-only - Clock gate turn off finish from GPC Setpoint
     eSETPOINT_OFF_DONE SETPOINT_OFF_DONE : 1;
+    /// read-only - Clock gate turn on request from GPC Setpoint
     eSETPOINT_ON_REQUEST SETPOINT_ON_REQUEST : 1;
+    /// read-only - Clock gate turn on finish from GPC Setpoint
     eSETPOINT_ON_DONE SETPOINT_ON_DONE : 1;
     uint32_t _reserved_0 : 4;
   } bits;
@@ -32112,6 +35464,7 @@ union LPCG75_CONFIG {
   // Bit field definition.
   struct {
     uint32_t _reserved_0 : 4;
+    /// read-only - Setpoint present
     eSETPOINT_PRESENT SETPOINT_PRESENT : 1;
     uint32_t _reserved_1 : 27;
   } bits;
@@ -32170,18 +35523,27 @@ union LPCG75_AUTHEN {
   
   // Bit field definition.
   struct {
+    /// read-write - User access
     eTZ_USER TZ_USER : 1;
+    /// read-write - Non-secure access
     eTZ_NS TZ_NS : 1;
     uint32_t _reserved_0 : 2;
+    /// read-write - lock truszone setting
     eLOCK_TZ LOCK_TZ : 1;
     uint32_t _reserved_1 : 3;
+    /// read-write - Whitelist
     uint32_t WHITE_LIST : 4;
+    /// read-write - Lock Whitelist
     eLOCK_LIST LOCK_LIST : 1;
     uint32_t _reserved_2 : 3;
+    /// read-write - Low power and access control by domain
     eDOMAIN_MODE DOMAIN_MODE : 1;
+    /// read-write - Low power and access control by Setpoint
     eSETPOINT_MODE SETPOINT_MODE : 1;
+    /// read-write - CPU Low Power Mode
     eCPULPM CPULPM : 1;
     uint32_t _reserved_3 : 1;
+    /// read-write - Lock low power and access mode
     eLOCK_MODE LOCK_MODE : 1;
     uint32_t _reserved_4 : 11;
   } bits;
@@ -32205,6 +35567,7 @@ union LPCG76_DIRECT {
   
   // Bit field definition.
   struct {
+    /// read-write - LPCG on
     eON ON : 1;
     uint32_t _reserved_0 : 31;
   } bits;
@@ -32263,14 +35626,19 @@ union LPCG76_DOMAIN {
   
   // Bit field definition.
   struct {
+    /// read-write - Current dependence level
     eLEVEL LEVEL : 3;
     uint32_t _reserved_0 : 13;
+    /// read-write - Depend level
     eLEVEL0 LEVEL0 : 3;
     uint32_t _reserved_1 : 1;
+    /// read-write - Depend level
     eLEVEL1 LEVEL1 : 3;
     uint32_t _reserved_2 : 1;
+    /// read-write - Depend level
     eLEVEL2 LEVEL2 : 3;
     uint32_t _reserved_3 : 1;
+    /// read-write - Depend level
     eLEVEL3 LEVEL3 : 3;
     uint32_t _reserved_4 : 1;
   } bits;
@@ -32332,9 +35700,12 @@ union LPCG76_STATUS0 {
   
   // Bit field definition.
   struct {
+    /// read-only - LPCG current state
     eON ON : 1;
     uint32_t _reserved_0 : 7;
+    /// read-only - Domains that own this clock gate
     eACTIVE_DOMAIN ACTIVE_DOMAIN : 4;
+    /// read-only - Enable status from each domain
     eDOMAIN_ENABLE DOMAIN_ENABLE : 4;
     uint32_t _reserved_1 : 16;
   } bits;
@@ -32441,23 +35812,41 @@ union LPCG76_STATUS1 {
   
   // Bit field definition.
   struct {
+    /// read-only - Domain0 Low Power Mode
     eCPU0_MODE CPU0_MODE : 2;
+    /// read-only - Domain0 request enter Low Power Mode
     eCPU0_MODE_REQUEST CPU0_MODE_REQUEST : 1;
+    /// read-only - Domain0 Low Power Mode task done
     eCPU0_MODE_DONE CPU0_MODE_DONE : 1;
+    /// read-only - Domain1 Low Power Mode
     eCPU1_MODE CPU1_MODE : 2;
+    /// read-only - Domain1 request enter Low Power Mode
     eCPU1_MODE_REQUEST CPU1_MODE_REQUEST : 1;
+    /// read-only - Domain1 Low Power Mode task done
     eCPU1_MODE_DONE CPU1_MODE_DONE : 1;
+    /// read-only - Domain2 Low Power Mode
     eCPU2_MODE CPU2_MODE : 2;
+    /// read-only - Domain2 request enter Low Power Mode
     eCPU2_MODE_REQUEST CPU2_MODE_REQUEST : 1;
+    /// read-only - Domain2 Low Power Mode task done
     eCPU2_MODE_DONE CPU2_MODE_DONE : 1;
+    /// read-only - Domain3 Low Power Mode
     eCPU3_MODE CPU3_MODE : 2;
+    /// read-only - Domain3 request enter Low Power Mode
     eCPU3_MODE_REQUEST CPU3_MODE_REQUEST : 1;
+    /// read-only - Domain3 Low Power Mode task done
     eCPU3_MODE_DONE CPU3_MODE_DONE : 1;
+    /// read-only - Next Setpoint to change to
     uint32_t TARGET_SETPOINT : 4;
+    /// read-only - Current Setpoint
     uint32_t CURRENT_SETPOINT : 4;
+    /// read-only - Clock gate turn off request from GPC Setpoint
     eSETPOINT_OFF_REQUEST SETPOINT_OFF_REQUEST : 1;
+    /// read-only - Clock gate turn off finish from GPC Setpoint
     eSETPOINT_OFF_DONE SETPOINT_OFF_DONE : 1;
+    /// read-only - Clock gate turn on request from GPC Setpoint
     eSETPOINT_ON_REQUEST SETPOINT_ON_REQUEST : 1;
+    /// read-only - Clock gate turn on finish from GPC Setpoint
     eSETPOINT_ON_DONE SETPOINT_ON_DONE : 1;
     uint32_t _reserved_0 : 4;
   } bits;
@@ -32482,6 +35871,7 @@ union LPCG76_CONFIG {
   // Bit field definition.
   struct {
     uint32_t _reserved_0 : 4;
+    /// read-only - Setpoint present
     eSETPOINT_PRESENT SETPOINT_PRESENT : 1;
     uint32_t _reserved_1 : 27;
   } bits;
@@ -32540,18 +35930,27 @@ union LPCG76_AUTHEN {
   
   // Bit field definition.
   struct {
+    /// read-write - User access
     eTZ_USER TZ_USER : 1;
+    /// read-write - Non-secure access
     eTZ_NS TZ_NS : 1;
     uint32_t _reserved_0 : 2;
+    /// read-write - lock truszone setting
     eLOCK_TZ LOCK_TZ : 1;
     uint32_t _reserved_1 : 3;
+    /// read-write - Whitelist
     uint32_t WHITE_LIST : 4;
+    /// read-write - Lock Whitelist
     eLOCK_LIST LOCK_LIST : 1;
     uint32_t _reserved_2 : 3;
+    /// read-write - Low power and access control by domain
     eDOMAIN_MODE DOMAIN_MODE : 1;
+    /// read-write - Low power and access control by Setpoint
     eSETPOINT_MODE SETPOINT_MODE : 1;
+    /// read-write - CPU Low Power Mode
     eCPULPM CPULPM : 1;
     uint32_t _reserved_3 : 1;
+    /// read-write - Lock low power and access mode
     eLOCK_MODE LOCK_MODE : 1;
     uint32_t _reserved_4 : 11;
   } bits;
@@ -32575,6 +35974,7 @@ union LPCG77_DIRECT {
   
   // Bit field definition.
   struct {
+    /// read-write - LPCG on
     eON ON : 1;
     uint32_t _reserved_0 : 31;
   } bits;
@@ -32633,14 +36033,19 @@ union LPCG77_DOMAIN {
   
   // Bit field definition.
   struct {
+    /// read-write - Current dependence level
     eLEVEL LEVEL : 3;
     uint32_t _reserved_0 : 13;
+    /// read-write - Depend level
     eLEVEL0 LEVEL0 : 3;
     uint32_t _reserved_1 : 1;
+    /// read-write - Depend level
     eLEVEL1 LEVEL1 : 3;
     uint32_t _reserved_2 : 1;
+    /// read-write - Depend level
     eLEVEL2 LEVEL2 : 3;
     uint32_t _reserved_3 : 1;
+    /// read-write - Depend level
     eLEVEL3 LEVEL3 : 3;
     uint32_t _reserved_4 : 1;
   } bits;
@@ -32702,9 +36107,12 @@ union LPCG77_STATUS0 {
   
   // Bit field definition.
   struct {
+    /// read-only - LPCG current state
     eON ON : 1;
     uint32_t _reserved_0 : 7;
+    /// read-only - Domains that own this clock gate
     eACTIVE_DOMAIN ACTIVE_DOMAIN : 4;
+    /// read-only - Enable status from each domain
     eDOMAIN_ENABLE DOMAIN_ENABLE : 4;
     uint32_t _reserved_1 : 16;
   } bits;
@@ -32811,23 +36219,41 @@ union LPCG77_STATUS1 {
   
   // Bit field definition.
   struct {
+    /// read-only - Domain0 Low Power Mode
     eCPU0_MODE CPU0_MODE : 2;
+    /// read-only - Domain0 request enter Low Power Mode
     eCPU0_MODE_REQUEST CPU0_MODE_REQUEST : 1;
+    /// read-only - Domain0 Low Power Mode task done
     eCPU0_MODE_DONE CPU0_MODE_DONE : 1;
+    /// read-only - Domain1 Low Power Mode
     eCPU1_MODE CPU1_MODE : 2;
+    /// read-only - Domain1 request enter Low Power Mode
     eCPU1_MODE_REQUEST CPU1_MODE_REQUEST : 1;
+    /// read-only - Domain1 Low Power Mode task done
     eCPU1_MODE_DONE CPU1_MODE_DONE : 1;
+    /// read-only - Domain2 Low Power Mode
     eCPU2_MODE CPU2_MODE : 2;
+    /// read-only - Domain2 request enter Low Power Mode
     eCPU2_MODE_REQUEST CPU2_MODE_REQUEST : 1;
+    /// read-only - Domain2 Low Power Mode task done
     eCPU2_MODE_DONE CPU2_MODE_DONE : 1;
+    /// read-only - Domain3 Low Power Mode
     eCPU3_MODE CPU3_MODE : 2;
+    /// read-only - Domain3 request enter Low Power Mode
     eCPU3_MODE_REQUEST CPU3_MODE_REQUEST : 1;
+    /// read-only - Domain3 Low Power Mode task done
     eCPU3_MODE_DONE CPU3_MODE_DONE : 1;
+    /// read-only - Next Setpoint to change to
     uint32_t TARGET_SETPOINT : 4;
+    /// read-only - Current Setpoint
     uint32_t CURRENT_SETPOINT : 4;
+    /// read-only - Clock gate turn off request from GPC Setpoint
     eSETPOINT_OFF_REQUEST SETPOINT_OFF_REQUEST : 1;
+    /// read-only - Clock gate turn off finish from GPC Setpoint
     eSETPOINT_OFF_DONE SETPOINT_OFF_DONE : 1;
+    /// read-only - Clock gate turn on request from GPC Setpoint
     eSETPOINT_ON_REQUEST SETPOINT_ON_REQUEST : 1;
+    /// read-only - Clock gate turn on finish from GPC Setpoint
     eSETPOINT_ON_DONE SETPOINT_ON_DONE : 1;
     uint32_t _reserved_0 : 4;
   } bits;
@@ -32852,6 +36278,7 @@ union LPCG77_CONFIG {
   // Bit field definition.
   struct {
     uint32_t _reserved_0 : 4;
+    /// read-only - Setpoint present
     eSETPOINT_PRESENT SETPOINT_PRESENT : 1;
     uint32_t _reserved_1 : 27;
   } bits;
@@ -32910,18 +36337,27 @@ union LPCG77_AUTHEN {
   
   // Bit field definition.
   struct {
+    /// read-write - User access
     eTZ_USER TZ_USER : 1;
+    /// read-write - Non-secure access
     eTZ_NS TZ_NS : 1;
     uint32_t _reserved_0 : 2;
+    /// read-write - lock truszone setting
     eLOCK_TZ LOCK_TZ : 1;
     uint32_t _reserved_1 : 3;
+    /// read-write - Whitelist
     uint32_t WHITE_LIST : 4;
+    /// read-write - Lock Whitelist
     eLOCK_LIST LOCK_LIST : 1;
     uint32_t _reserved_2 : 3;
+    /// read-write - Low power and access control by domain
     eDOMAIN_MODE DOMAIN_MODE : 1;
+    /// read-write - Low power and access control by Setpoint
     eSETPOINT_MODE SETPOINT_MODE : 1;
+    /// read-write - CPU Low Power Mode
     eCPULPM CPULPM : 1;
     uint32_t _reserved_3 : 1;
+    /// read-write - Lock low power and access mode
     eLOCK_MODE LOCK_MODE : 1;
     uint32_t _reserved_4 : 11;
   } bits;
@@ -32945,6 +36381,7 @@ union LPCG78_DIRECT {
   
   // Bit field definition.
   struct {
+    /// read-write - LPCG on
     eON ON : 1;
     uint32_t _reserved_0 : 31;
   } bits;
@@ -33003,14 +36440,19 @@ union LPCG78_DOMAIN {
   
   // Bit field definition.
   struct {
+    /// read-write - Current dependence level
     eLEVEL LEVEL : 3;
     uint32_t _reserved_0 : 13;
+    /// read-write - Depend level
     eLEVEL0 LEVEL0 : 3;
     uint32_t _reserved_1 : 1;
+    /// read-write - Depend level
     eLEVEL1 LEVEL1 : 3;
     uint32_t _reserved_2 : 1;
+    /// read-write - Depend level
     eLEVEL2 LEVEL2 : 3;
     uint32_t _reserved_3 : 1;
+    /// read-write - Depend level
     eLEVEL3 LEVEL3 : 3;
     uint32_t _reserved_4 : 1;
   } bits;
@@ -33072,9 +36514,12 @@ union LPCG78_STATUS0 {
   
   // Bit field definition.
   struct {
+    /// read-only - LPCG current state
     eON ON : 1;
     uint32_t _reserved_0 : 7;
+    /// read-only - Domains that own this clock gate
     eACTIVE_DOMAIN ACTIVE_DOMAIN : 4;
+    /// read-only - Enable status from each domain
     eDOMAIN_ENABLE DOMAIN_ENABLE : 4;
     uint32_t _reserved_1 : 16;
   } bits;
@@ -33181,23 +36626,41 @@ union LPCG78_STATUS1 {
   
   // Bit field definition.
   struct {
+    /// read-only - Domain0 Low Power Mode
     eCPU0_MODE CPU0_MODE : 2;
+    /// read-only - Domain0 request enter Low Power Mode
     eCPU0_MODE_REQUEST CPU0_MODE_REQUEST : 1;
+    /// read-only - Domain0 Low Power Mode task done
     eCPU0_MODE_DONE CPU0_MODE_DONE : 1;
+    /// read-only - Domain1 Low Power Mode
     eCPU1_MODE CPU1_MODE : 2;
+    /// read-only - Domain1 request enter Low Power Mode
     eCPU1_MODE_REQUEST CPU1_MODE_REQUEST : 1;
+    /// read-only - Domain1 Low Power Mode task done
     eCPU1_MODE_DONE CPU1_MODE_DONE : 1;
+    /// read-only - Domain2 Low Power Mode
     eCPU2_MODE CPU2_MODE : 2;
+    /// read-only - Domain2 request enter Low Power Mode
     eCPU2_MODE_REQUEST CPU2_MODE_REQUEST : 1;
+    /// read-only - Domain2 Low Power Mode task done
     eCPU2_MODE_DONE CPU2_MODE_DONE : 1;
+    /// read-only - Domain3 Low Power Mode
     eCPU3_MODE CPU3_MODE : 2;
+    /// read-only - Domain3 request enter Low Power Mode
     eCPU3_MODE_REQUEST CPU3_MODE_REQUEST : 1;
+    /// read-only - Domain3 Low Power Mode task done
     eCPU3_MODE_DONE CPU3_MODE_DONE : 1;
+    /// read-only - Next Setpoint to change to
     uint32_t TARGET_SETPOINT : 4;
+    /// read-only - Current Setpoint
     uint32_t CURRENT_SETPOINT : 4;
+    /// read-only - Clock gate turn off request from GPC Setpoint
     eSETPOINT_OFF_REQUEST SETPOINT_OFF_REQUEST : 1;
+    /// read-only - Clock gate turn off finish from GPC Setpoint
     eSETPOINT_OFF_DONE SETPOINT_OFF_DONE : 1;
+    /// read-only - Clock gate turn on request from GPC Setpoint
     eSETPOINT_ON_REQUEST SETPOINT_ON_REQUEST : 1;
+    /// read-only - Clock gate turn on finish from GPC Setpoint
     eSETPOINT_ON_DONE SETPOINT_ON_DONE : 1;
     uint32_t _reserved_0 : 4;
   } bits;
@@ -33222,6 +36685,7 @@ union LPCG78_CONFIG {
   // Bit field definition.
   struct {
     uint32_t _reserved_0 : 4;
+    /// read-only - Setpoint present
     eSETPOINT_PRESENT SETPOINT_PRESENT : 1;
     uint32_t _reserved_1 : 27;
   } bits;
@@ -33280,18 +36744,27 @@ union LPCG78_AUTHEN {
   
   // Bit field definition.
   struct {
+    /// read-write - User access
     eTZ_USER TZ_USER : 1;
+    /// read-write - Non-secure access
     eTZ_NS TZ_NS : 1;
     uint32_t _reserved_0 : 2;
+    /// read-write - lock truszone setting
     eLOCK_TZ LOCK_TZ : 1;
     uint32_t _reserved_1 : 3;
+    /// read-write - Whitelist
     uint32_t WHITE_LIST : 4;
+    /// read-write - Lock Whitelist
     eLOCK_LIST LOCK_LIST : 1;
     uint32_t _reserved_2 : 3;
+    /// read-write - Low power and access control by domain
     eDOMAIN_MODE DOMAIN_MODE : 1;
+    /// read-write - Low power and access control by Setpoint
     eSETPOINT_MODE SETPOINT_MODE : 1;
+    /// read-write - CPU Low Power Mode
     eCPULPM CPULPM : 1;
     uint32_t _reserved_3 : 1;
+    /// read-write - Lock low power and access mode
     eLOCK_MODE LOCK_MODE : 1;
     uint32_t _reserved_4 : 11;
   } bits;
@@ -33315,6 +36788,7 @@ union LPCG79_DIRECT {
   
   // Bit field definition.
   struct {
+    /// read-write - LPCG on
     eON ON : 1;
     uint32_t _reserved_0 : 31;
   } bits;
@@ -33373,14 +36847,19 @@ union LPCG79_DOMAIN {
   
   // Bit field definition.
   struct {
+    /// read-write - Current dependence level
     eLEVEL LEVEL : 3;
     uint32_t _reserved_0 : 13;
+    /// read-write - Depend level
     eLEVEL0 LEVEL0 : 3;
     uint32_t _reserved_1 : 1;
+    /// read-write - Depend level
     eLEVEL1 LEVEL1 : 3;
     uint32_t _reserved_2 : 1;
+    /// read-write - Depend level
     eLEVEL2 LEVEL2 : 3;
     uint32_t _reserved_3 : 1;
+    /// read-write - Depend level
     eLEVEL3 LEVEL3 : 3;
     uint32_t _reserved_4 : 1;
   } bits;
@@ -33442,9 +36921,12 @@ union LPCG79_STATUS0 {
   
   // Bit field definition.
   struct {
+    /// read-only - LPCG current state
     eON ON : 1;
     uint32_t _reserved_0 : 7;
+    /// read-only - Domains that own this clock gate
     eACTIVE_DOMAIN ACTIVE_DOMAIN : 4;
+    /// read-only - Enable status from each domain
     eDOMAIN_ENABLE DOMAIN_ENABLE : 4;
     uint32_t _reserved_1 : 16;
   } bits;
@@ -33551,23 +37033,41 @@ union LPCG79_STATUS1 {
   
   // Bit field definition.
   struct {
+    /// read-only - Domain0 Low Power Mode
     eCPU0_MODE CPU0_MODE : 2;
+    /// read-only - Domain0 request enter Low Power Mode
     eCPU0_MODE_REQUEST CPU0_MODE_REQUEST : 1;
+    /// read-only - Domain0 Low Power Mode task done
     eCPU0_MODE_DONE CPU0_MODE_DONE : 1;
+    /// read-only - Domain1 Low Power Mode
     eCPU1_MODE CPU1_MODE : 2;
+    /// read-only - Domain1 request enter Low Power Mode
     eCPU1_MODE_REQUEST CPU1_MODE_REQUEST : 1;
+    /// read-only - Domain1 Low Power Mode task done
     eCPU1_MODE_DONE CPU1_MODE_DONE : 1;
+    /// read-only - Domain2 Low Power Mode
     eCPU2_MODE CPU2_MODE : 2;
+    /// read-only - Domain2 request enter Low Power Mode
     eCPU2_MODE_REQUEST CPU2_MODE_REQUEST : 1;
+    /// read-only - Domain2 Low Power Mode task done
     eCPU2_MODE_DONE CPU2_MODE_DONE : 1;
+    /// read-only - Domain3 Low Power Mode
     eCPU3_MODE CPU3_MODE : 2;
+    /// read-only - Domain3 request enter Low Power Mode
     eCPU3_MODE_REQUEST CPU3_MODE_REQUEST : 1;
+    /// read-only - Domain3 Low Power Mode task done
     eCPU3_MODE_DONE CPU3_MODE_DONE : 1;
+    /// read-only - Next Setpoint to change to
     uint32_t TARGET_SETPOINT : 4;
+    /// read-only - Current Setpoint
     uint32_t CURRENT_SETPOINT : 4;
+    /// read-only - Clock gate turn off request from GPC Setpoint
     eSETPOINT_OFF_REQUEST SETPOINT_OFF_REQUEST : 1;
+    /// read-only - Clock gate turn off finish from GPC Setpoint
     eSETPOINT_OFF_DONE SETPOINT_OFF_DONE : 1;
+    /// read-only - Clock gate turn on request from GPC Setpoint
     eSETPOINT_ON_REQUEST SETPOINT_ON_REQUEST : 1;
+    /// read-only - Clock gate turn on finish from GPC Setpoint
     eSETPOINT_ON_DONE SETPOINT_ON_DONE : 1;
     uint32_t _reserved_0 : 4;
   } bits;
@@ -33592,6 +37092,7 @@ union LPCG79_CONFIG {
   // Bit field definition.
   struct {
     uint32_t _reserved_0 : 4;
+    /// read-only - Setpoint present
     eSETPOINT_PRESENT SETPOINT_PRESENT : 1;
     uint32_t _reserved_1 : 27;
   } bits;
@@ -33650,18 +37151,27 @@ union LPCG79_AUTHEN {
   
   // Bit field definition.
   struct {
+    /// read-write - User access
     eTZ_USER TZ_USER : 1;
+    /// read-write - Non-secure access
     eTZ_NS TZ_NS : 1;
     uint32_t _reserved_0 : 2;
+    /// read-write - lock truszone setting
     eLOCK_TZ LOCK_TZ : 1;
     uint32_t _reserved_1 : 3;
+    /// read-write - Whitelist
     uint32_t WHITE_LIST : 4;
+    /// read-write - Lock Whitelist
     eLOCK_LIST LOCK_LIST : 1;
     uint32_t _reserved_2 : 3;
+    /// read-write - Low power and access control by domain
     eDOMAIN_MODE DOMAIN_MODE : 1;
+    /// read-write - Low power and access control by Setpoint
     eSETPOINT_MODE SETPOINT_MODE : 1;
+    /// read-write - CPU Low Power Mode
     eCPULPM CPULPM : 1;
     uint32_t _reserved_3 : 1;
+    /// read-write - Lock low power and access mode
     eLOCK_MODE LOCK_MODE : 1;
     uint32_t _reserved_4 : 11;
   } bits;
@@ -33685,6 +37195,7 @@ union LPCG80_DIRECT {
   
   // Bit field definition.
   struct {
+    /// read-write - LPCG on
     eON ON : 1;
     uint32_t _reserved_0 : 31;
   } bits;
@@ -33743,14 +37254,19 @@ union LPCG80_DOMAIN {
   
   // Bit field definition.
   struct {
+    /// read-write - Current dependence level
     eLEVEL LEVEL : 3;
     uint32_t _reserved_0 : 13;
+    /// read-write - Depend level
     eLEVEL0 LEVEL0 : 3;
     uint32_t _reserved_1 : 1;
+    /// read-write - Depend level
     eLEVEL1 LEVEL1 : 3;
     uint32_t _reserved_2 : 1;
+    /// read-write - Depend level
     eLEVEL2 LEVEL2 : 3;
     uint32_t _reserved_3 : 1;
+    /// read-write - Depend level
     eLEVEL3 LEVEL3 : 3;
     uint32_t _reserved_4 : 1;
   } bits;
@@ -33812,9 +37328,12 @@ union LPCG80_STATUS0 {
   
   // Bit field definition.
   struct {
+    /// read-only - LPCG current state
     eON ON : 1;
     uint32_t _reserved_0 : 7;
+    /// read-only - Domains that own this clock gate
     eACTIVE_DOMAIN ACTIVE_DOMAIN : 4;
+    /// read-only - Enable status from each domain
     eDOMAIN_ENABLE DOMAIN_ENABLE : 4;
     uint32_t _reserved_1 : 16;
   } bits;
@@ -33921,23 +37440,41 @@ union LPCG80_STATUS1 {
   
   // Bit field definition.
   struct {
+    /// read-only - Domain0 Low Power Mode
     eCPU0_MODE CPU0_MODE : 2;
+    /// read-only - Domain0 request enter Low Power Mode
     eCPU0_MODE_REQUEST CPU0_MODE_REQUEST : 1;
+    /// read-only - Domain0 Low Power Mode task done
     eCPU0_MODE_DONE CPU0_MODE_DONE : 1;
+    /// read-only - Domain1 Low Power Mode
     eCPU1_MODE CPU1_MODE : 2;
+    /// read-only - Domain1 request enter Low Power Mode
     eCPU1_MODE_REQUEST CPU1_MODE_REQUEST : 1;
+    /// read-only - Domain1 Low Power Mode task done
     eCPU1_MODE_DONE CPU1_MODE_DONE : 1;
+    /// read-only - Domain2 Low Power Mode
     eCPU2_MODE CPU2_MODE : 2;
+    /// read-only - Domain2 request enter Low Power Mode
     eCPU2_MODE_REQUEST CPU2_MODE_REQUEST : 1;
+    /// read-only - Domain2 Low Power Mode task done
     eCPU2_MODE_DONE CPU2_MODE_DONE : 1;
+    /// read-only - Domain3 Low Power Mode
     eCPU3_MODE CPU3_MODE : 2;
+    /// read-only - Domain3 request enter Low Power Mode
     eCPU3_MODE_REQUEST CPU3_MODE_REQUEST : 1;
+    /// read-only - Domain3 Low Power Mode task done
     eCPU3_MODE_DONE CPU3_MODE_DONE : 1;
+    /// read-only - Next Setpoint to change to
     uint32_t TARGET_SETPOINT : 4;
+    /// read-only - Current Setpoint
     uint32_t CURRENT_SETPOINT : 4;
+    /// read-only - Clock gate turn off request from GPC Setpoint
     eSETPOINT_OFF_REQUEST SETPOINT_OFF_REQUEST : 1;
+    /// read-only - Clock gate turn off finish from GPC Setpoint
     eSETPOINT_OFF_DONE SETPOINT_OFF_DONE : 1;
+    /// read-only - Clock gate turn on request from GPC Setpoint
     eSETPOINT_ON_REQUEST SETPOINT_ON_REQUEST : 1;
+    /// read-only - Clock gate turn on finish from GPC Setpoint
     eSETPOINT_ON_DONE SETPOINT_ON_DONE : 1;
     uint32_t _reserved_0 : 4;
   } bits;
@@ -33962,6 +37499,7 @@ union LPCG80_CONFIG {
   // Bit field definition.
   struct {
     uint32_t _reserved_0 : 4;
+    /// read-only - Setpoint present
     eSETPOINT_PRESENT SETPOINT_PRESENT : 1;
     uint32_t _reserved_1 : 27;
   } bits;
@@ -34020,18 +37558,27 @@ union LPCG80_AUTHEN {
   
   // Bit field definition.
   struct {
+    /// read-write - User access
     eTZ_USER TZ_USER : 1;
+    /// read-write - Non-secure access
     eTZ_NS TZ_NS : 1;
     uint32_t _reserved_0 : 2;
+    /// read-write - lock truszone setting
     eLOCK_TZ LOCK_TZ : 1;
     uint32_t _reserved_1 : 3;
+    /// read-write - Whitelist
     uint32_t WHITE_LIST : 4;
+    /// read-write - Lock Whitelist
     eLOCK_LIST LOCK_LIST : 1;
     uint32_t _reserved_2 : 3;
+    /// read-write - Low power and access control by domain
     eDOMAIN_MODE DOMAIN_MODE : 1;
+    /// read-write - Low power and access control by Setpoint
     eSETPOINT_MODE SETPOINT_MODE : 1;
+    /// read-write - CPU Low Power Mode
     eCPULPM CPULPM : 1;
     uint32_t _reserved_3 : 1;
+    /// read-write - Lock low power and access mode
     eLOCK_MODE LOCK_MODE : 1;
     uint32_t _reserved_4 : 11;
   } bits;
@@ -34055,6 +37602,7 @@ union LPCG81_DIRECT {
   
   // Bit field definition.
   struct {
+    /// read-write - LPCG on
     eON ON : 1;
     uint32_t _reserved_0 : 31;
   } bits;
@@ -34113,14 +37661,19 @@ union LPCG81_DOMAIN {
   
   // Bit field definition.
   struct {
+    /// read-write - Current dependence level
     eLEVEL LEVEL : 3;
     uint32_t _reserved_0 : 13;
+    /// read-write - Depend level
     eLEVEL0 LEVEL0 : 3;
     uint32_t _reserved_1 : 1;
+    /// read-write - Depend level
     eLEVEL1 LEVEL1 : 3;
     uint32_t _reserved_2 : 1;
+    /// read-write - Depend level
     eLEVEL2 LEVEL2 : 3;
     uint32_t _reserved_3 : 1;
+    /// read-write - Depend level
     eLEVEL3 LEVEL3 : 3;
     uint32_t _reserved_4 : 1;
   } bits;
@@ -34182,9 +37735,12 @@ union LPCG81_STATUS0 {
   
   // Bit field definition.
   struct {
+    /// read-only - LPCG current state
     eON ON : 1;
     uint32_t _reserved_0 : 7;
+    /// read-only - Domains that own this clock gate
     eACTIVE_DOMAIN ACTIVE_DOMAIN : 4;
+    /// read-only - Enable status from each domain
     eDOMAIN_ENABLE DOMAIN_ENABLE : 4;
     uint32_t _reserved_1 : 16;
   } bits;
@@ -34291,23 +37847,41 @@ union LPCG81_STATUS1 {
   
   // Bit field definition.
   struct {
+    /// read-only - Domain0 Low Power Mode
     eCPU0_MODE CPU0_MODE : 2;
+    /// read-only - Domain0 request enter Low Power Mode
     eCPU0_MODE_REQUEST CPU0_MODE_REQUEST : 1;
+    /// read-only - Domain0 Low Power Mode task done
     eCPU0_MODE_DONE CPU0_MODE_DONE : 1;
+    /// read-only - Domain1 Low Power Mode
     eCPU1_MODE CPU1_MODE : 2;
+    /// read-only - Domain1 request enter Low Power Mode
     eCPU1_MODE_REQUEST CPU1_MODE_REQUEST : 1;
+    /// read-only - Domain1 Low Power Mode task done
     eCPU1_MODE_DONE CPU1_MODE_DONE : 1;
+    /// read-only - Domain2 Low Power Mode
     eCPU2_MODE CPU2_MODE : 2;
+    /// read-only - Domain2 request enter Low Power Mode
     eCPU2_MODE_REQUEST CPU2_MODE_REQUEST : 1;
+    /// read-only - Domain2 Low Power Mode task done
     eCPU2_MODE_DONE CPU2_MODE_DONE : 1;
+    /// read-only - Domain3 Low Power Mode
     eCPU3_MODE CPU3_MODE : 2;
+    /// read-only - Domain3 request enter Low Power Mode
     eCPU3_MODE_REQUEST CPU3_MODE_REQUEST : 1;
+    /// read-only - Domain3 Low Power Mode task done
     eCPU3_MODE_DONE CPU3_MODE_DONE : 1;
+    /// read-only - Next Setpoint to change to
     uint32_t TARGET_SETPOINT : 4;
+    /// read-only - Current Setpoint
     uint32_t CURRENT_SETPOINT : 4;
+    /// read-only - Clock gate turn off request from GPC Setpoint
     eSETPOINT_OFF_REQUEST SETPOINT_OFF_REQUEST : 1;
+    /// read-only - Clock gate turn off finish from GPC Setpoint
     eSETPOINT_OFF_DONE SETPOINT_OFF_DONE : 1;
+    /// read-only - Clock gate turn on request from GPC Setpoint
     eSETPOINT_ON_REQUEST SETPOINT_ON_REQUEST : 1;
+    /// read-only - Clock gate turn on finish from GPC Setpoint
     eSETPOINT_ON_DONE SETPOINT_ON_DONE : 1;
     uint32_t _reserved_0 : 4;
   } bits;
@@ -34332,6 +37906,7 @@ union LPCG81_CONFIG {
   // Bit field definition.
   struct {
     uint32_t _reserved_0 : 4;
+    /// read-only - Setpoint present
     eSETPOINT_PRESENT SETPOINT_PRESENT : 1;
     uint32_t _reserved_1 : 27;
   } bits;
@@ -34390,18 +37965,27 @@ union LPCG81_AUTHEN {
   
   // Bit field definition.
   struct {
+    /// read-write - User access
     eTZ_USER TZ_USER : 1;
+    /// read-write - Non-secure access
     eTZ_NS TZ_NS : 1;
     uint32_t _reserved_0 : 2;
+    /// read-write - lock truszone setting
     eLOCK_TZ LOCK_TZ : 1;
     uint32_t _reserved_1 : 3;
+    /// read-write - Whitelist
     uint32_t WHITE_LIST : 4;
+    /// read-write - Lock Whitelist
     eLOCK_LIST LOCK_LIST : 1;
     uint32_t _reserved_2 : 3;
+    /// read-write - Low power and access control by domain
     eDOMAIN_MODE DOMAIN_MODE : 1;
+    /// read-write - Low power and access control by Setpoint
     eSETPOINT_MODE SETPOINT_MODE : 1;
+    /// read-write - CPU Low Power Mode
     eCPULPM CPULPM : 1;
     uint32_t _reserved_3 : 1;
+    /// read-write - Lock low power and access mode
     eLOCK_MODE LOCK_MODE : 1;
     uint32_t _reserved_4 : 11;
   } bits;
@@ -34425,6 +38009,7 @@ union LPCG82_DIRECT {
   
   // Bit field definition.
   struct {
+    /// read-write - LPCG on
     eON ON : 1;
     uint32_t _reserved_0 : 31;
   } bits;
@@ -34483,14 +38068,19 @@ union LPCG82_DOMAIN {
   
   // Bit field definition.
   struct {
+    /// read-write - Current dependence level
     eLEVEL LEVEL : 3;
     uint32_t _reserved_0 : 13;
+    /// read-write - Depend level
     eLEVEL0 LEVEL0 : 3;
     uint32_t _reserved_1 : 1;
+    /// read-write - Depend level
     eLEVEL1 LEVEL1 : 3;
     uint32_t _reserved_2 : 1;
+    /// read-write - Depend level
     eLEVEL2 LEVEL2 : 3;
     uint32_t _reserved_3 : 1;
+    /// read-write - Depend level
     eLEVEL3 LEVEL3 : 3;
     uint32_t _reserved_4 : 1;
   } bits;
@@ -34552,9 +38142,12 @@ union LPCG82_STATUS0 {
   
   // Bit field definition.
   struct {
+    /// read-only - LPCG current state
     eON ON : 1;
     uint32_t _reserved_0 : 7;
+    /// read-only - Domains that own this clock gate
     eACTIVE_DOMAIN ACTIVE_DOMAIN : 4;
+    /// read-only - Enable status from each domain
     eDOMAIN_ENABLE DOMAIN_ENABLE : 4;
     uint32_t _reserved_1 : 16;
   } bits;
@@ -34661,23 +38254,41 @@ union LPCG82_STATUS1 {
   
   // Bit field definition.
   struct {
+    /// read-only - Domain0 Low Power Mode
     eCPU0_MODE CPU0_MODE : 2;
+    /// read-only - Domain0 request enter Low Power Mode
     eCPU0_MODE_REQUEST CPU0_MODE_REQUEST : 1;
+    /// read-only - Domain0 Low Power Mode task done
     eCPU0_MODE_DONE CPU0_MODE_DONE : 1;
+    /// read-only - Domain1 Low Power Mode
     eCPU1_MODE CPU1_MODE : 2;
+    /// read-only - Domain1 request enter Low Power Mode
     eCPU1_MODE_REQUEST CPU1_MODE_REQUEST : 1;
+    /// read-only - Domain1 Low Power Mode task done
     eCPU1_MODE_DONE CPU1_MODE_DONE : 1;
+    /// read-only - Domain2 Low Power Mode
     eCPU2_MODE CPU2_MODE : 2;
+    /// read-only - Domain2 request enter Low Power Mode
     eCPU2_MODE_REQUEST CPU2_MODE_REQUEST : 1;
+    /// read-only - Domain2 Low Power Mode task done
     eCPU2_MODE_DONE CPU2_MODE_DONE : 1;
+    /// read-only - Domain3 Low Power Mode
     eCPU3_MODE CPU3_MODE : 2;
+    /// read-only - Domain3 request enter Low Power Mode
     eCPU3_MODE_REQUEST CPU3_MODE_REQUEST : 1;
+    /// read-only - Domain3 Low Power Mode task done
     eCPU3_MODE_DONE CPU3_MODE_DONE : 1;
+    /// read-only - Next Setpoint to change to
     uint32_t TARGET_SETPOINT : 4;
+    /// read-only - Current Setpoint
     uint32_t CURRENT_SETPOINT : 4;
+    /// read-only - Clock gate turn off request from GPC Setpoint
     eSETPOINT_OFF_REQUEST SETPOINT_OFF_REQUEST : 1;
+    /// read-only - Clock gate turn off finish from GPC Setpoint
     eSETPOINT_OFF_DONE SETPOINT_OFF_DONE : 1;
+    /// read-only - Clock gate turn on request from GPC Setpoint
     eSETPOINT_ON_REQUEST SETPOINT_ON_REQUEST : 1;
+    /// read-only - Clock gate turn on finish from GPC Setpoint
     eSETPOINT_ON_DONE SETPOINT_ON_DONE : 1;
     uint32_t _reserved_0 : 4;
   } bits;
@@ -34702,6 +38313,7 @@ union LPCG82_CONFIG {
   // Bit field definition.
   struct {
     uint32_t _reserved_0 : 4;
+    /// read-only - Setpoint present
     eSETPOINT_PRESENT SETPOINT_PRESENT : 1;
     uint32_t _reserved_1 : 27;
   } bits;
@@ -34760,18 +38372,27 @@ union LPCG82_AUTHEN {
   
   // Bit field definition.
   struct {
+    /// read-write - User access
     eTZ_USER TZ_USER : 1;
+    /// read-write - Non-secure access
     eTZ_NS TZ_NS : 1;
     uint32_t _reserved_0 : 2;
+    /// read-write - lock truszone setting
     eLOCK_TZ LOCK_TZ : 1;
     uint32_t _reserved_1 : 3;
+    /// read-write - Whitelist
     uint32_t WHITE_LIST : 4;
+    /// read-write - Lock Whitelist
     eLOCK_LIST LOCK_LIST : 1;
     uint32_t _reserved_2 : 3;
+    /// read-write - Low power and access control by domain
     eDOMAIN_MODE DOMAIN_MODE : 1;
+    /// read-write - Low power and access control by Setpoint
     eSETPOINT_MODE SETPOINT_MODE : 1;
+    /// read-write - CPU Low Power Mode
     eCPULPM CPULPM : 1;
     uint32_t _reserved_3 : 1;
+    /// read-write - Lock low power and access mode
     eLOCK_MODE LOCK_MODE : 1;
     uint32_t _reserved_4 : 11;
   } bits;
@@ -34795,6 +38416,7 @@ union LPCG83_DIRECT {
   
   // Bit field definition.
   struct {
+    /// read-write - LPCG on
     eON ON : 1;
     uint32_t _reserved_0 : 31;
   } bits;
@@ -34853,14 +38475,19 @@ union LPCG83_DOMAIN {
   
   // Bit field definition.
   struct {
+    /// read-write - Current dependence level
     eLEVEL LEVEL : 3;
     uint32_t _reserved_0 : 13;
+    /// read-write - Depend level
     eLEVEL0 LEVEL0 : 3;
     uint32_t _reserved_1 : 1;
+    /// read-write - Depend level
     eLEVEL1 LEVEL1 : 3;
     uint32_t _reserved_2 : 1;
+    /// read-write - Depend level
     eLEVEL2 LEVEL2 : 3;
     uint32_t _reserved_3 : 1;
+    /// read-write - Depend level
     eLEVEL3 LEVEL3 : 3;
     uint32_t _reserved_4 : 1;
   } bits;
@@ -34922,9 +38549,12 @@ union LPCG83_STATUS0 {
   
   // Bit field definition.
   struct {
+    /// read-only - LPCG current state
     eON ON : 1;
     uint32_t _reserved_0 : 7;
+    /// read-only - Domains that own this clock gate
     eACTIVE_DOMAIN ACTIVE_DOMAIN : 4;
+    /// read-only - Enable status from each domain
     eDOMAIN_ENABLE DOMAIN_ENABLE : 4;
     uint32_t _reserved_1 : 16;
   } bits;
@@ -35031,23 +38661,41 @@ union LPCG83_STATUS1 {
   
   // Bit field definition.
   struct {
+    /// read-only - Domain0 Low Power Mode
     eCPU0_MODE CPU0_MODE : 2;
+    /// read-only - Domain0 request enter Low Power Mode
     eCPU0_MODE_REQUEST CPU0_MODE_REQUEST : 1;
+    /// read-only - Domain0 Low Power Mode task done
     eCPU0_MODE_DONE CPU0_MODE_DONE : 1;
+    /// read-only - Domain1 Low Power Mode
     eCPU1_MODE CPU1_MODE : 2;
+    /// read-only - Domain1 request enter Low Power Mode
     eCPU1_MODE_REQUEST CPU1_MODE_REQUEST : 1;
+    /// read-only - Domain1 Low Power Mode task done
     eCPU1_MODE_DONE CPU1_MODE_DONE : 1;
+    /// read-only - Domain2 Low Power Mode
     eCPU2_MODE CPU2_MODE : 2;
+    /// read-only - Domain2 request enter Low Power Mode
     eCPU2_MODE_REQUEST CPU2_MODE_REQUEST : 1;
+    /// read-only - Domain2 Low Power Mode task done
     eCPU2_MODE_DONE CPU2_MODE_DONE : 1;
+    /// read-only - Domain3 Low Power Mode
     eCPU3_MODE CPU3_MODE : 2;
+    /// read-only - Domain3 request enter Low Power Mode
     eCPU3_MODE_REQUEST CPU3_MODE_REQUEST : 1;
+    /// read-only - Domain3 Low Power Mode task done
     eCPU3_MODE_DONE CPU3_MODE_DONE : 1;
+    /// read-only - Next Setpoint to change to
     uint32_t TARGET_SETPOINT : 4;
+    /// read-only - Current Setpoint
     uint32_t CURRENT_SETPOINT : 4;
+    /// read-only - Clock gate turn off request from GPC Setpoint
     eSETPOINT_OFF_REQUEST SETPOINT_OFF_REQUEST : 1;
+    /// read-only - Clock gate turn off finish from GPC Setpoint
     eSETPOINT_OFF_DONE SETPOINT_OFF_DONE : 1;
+    /// read-only - Clock gate turn on request from GPC Setpoint
     eSETPOINT_ON_REQUEST SETPOINT_ON_REQUEST : 1;
+    /// read-only - Clock gate turn on finish from GPC Setpoint
     eSETPOINT_ON_DONE SETPOINT_ON_DONE : 1;
     uint32_t _reserved_0 : 4;
   } bits;
@@ -35072,6 +38720,7 @@ union LPCG83_CONFIG {
   // Bit field definition.
   struct {
     uint32_t _reserved_0 : 4;
+    /// read-only - Setpoint present
     eSETPOINT_PRESENT SETPOINT_PRESENT : 1;
     uint32_t _reserved_1 : 27;
   } bits;
@@ -35130,18 +38779,27 @@ union LPCG83_AUTHEN {
   
   // Bit field definition.
   struct {
+    /// read-write - User access
     eTZ_USER TZ_USER : 1;
+    /// read-write - Non-secure access
     eTZ_NS TZ_NS : 1;
     uint32_t _reserved_0 : 2;
+    /// read-write - lock truszone setting
     eLOCK_TZ LOCK_TZ : 1;
     uint32_t _reserved_1 : 3;
+    /// read-write - Whitelist
     uint32_t WHITE_LIST : 4;
+    /// read-write - Lock Whitelist
     eLOCK_LIST LOCK_LIST : 1;
     uint32_t _reserved_2 : 3;
+    /// read-write - Low power and access control by domain
     eDOMAIN_MODE DOMAIN_MODE : 1;
+    /// read-write - Low power and access control by Setpoint
     eSETPOINT_MODE SETPOINT_MODE : 1;
+    /// read-write - CPU Low Power Mode
     eCPULPM CPULPM : 1;
     uint32_t _reserved_3 : 1;
+    /// read-write - Lock low power and access mode
     eLOCK_MODE LOCK_MODE : 1;
     uint32_t _reserved_4 : 11;
   } bits;
@@ -35165,6 +38823,7 @@ union LPCG84_DIRECT {
   
   // Bit field definition.
   struct {
+    /// read-write - LPCG on
     eON ON : 1;
     uint32_t _reserved_0 : 31;
   } bits;
@@ -35223,14 +38882,19 @@ union LPCG84_DOMAIN {
   
   // Bit field definition.
   struct {
+    /// read-write - Current dependence level
     eLEVEL LEVEL : 3;
     uint32_t _reserved_0 : 13;
+    /// read-write - Depend level
     eLEVEL0 LEVEL0 : 3;
     uint32_t _reserved_1 : 1;
+    /// read-write - Depend level
     eLEVEL1 LEVEL1 : 3;
     uint32_t _reserved_2 : 1;
+    /// read-write - Depend level
     eLEVEL2 LEVEL2 : 3;
     uint32_t _reserved_3 : 1;
+    /// read-write - Depend level
     eLEVEL3 LEVEL3 : 3;
     uint32_t _reserved_4 : 1;
   } bits;
@@ -35292,9 +38956,12 @@ union LPCG84_STATUS0 {
   
   // Bit field definition.
   struct {
+    /// read-only - LPCG current state
     eON ON : 1;
     uint32_t _reserved_0 : 7;
+    /// read-only - Domains that own this clock gate
     eACTIVE_DOMAIN ACTIVE_DOMAIN : 4;
+    /// read-only - Enable status from each domain
     eDOMAIN_ENABLE DOMAIN_ENABLE : 4;
     uint32_t _reserved_1 : 16;
   } bits;
@@ -35401,23 +39068,41 @@ union LPCG84_STATUS1 {
   
   // Bit field definition.
   struct {
+    /// read-only - Domain0 Low Power Mode
     eCPU0_MODE CPU0_MODE : 2;
+    /// read-only - Domain0 request enter Low Power Mode
     eCPU0_MODE_REQUEST CPU0_MODE_REQUEST : 1;
+    /// read-only - Domain0 Low Power Mode task done
     eCPU0_MODE_DONE CPU0_MODE_DONE : 1;
+    /// read-only - Domain1 Low Power Mode
     eCPU1_MODE CPU1_MODE : 2;
+    /// read-only - Domain1 request enter Low Power Mode
     eCPU1_MODE_REQUEST CPU1_MODE_REQUEST : 1;
+    /// read-only - Domain1 Low Power Mode task done
     eCPU1_MODE_DONE CPU1_MODE_DONE : 1;
+    /// read-only - Domain2 Low Power Mode
     eCPU2_MODE CPU2_MODE : 2;
+    /// read-only - Domain2 request enter Low Power Mode
     eCPU2_MODE_REQUEST CPU2_MODE_REQUEST : 1;
+    /// read-only - Domain2 Low Power Mode task done
     eCPU2_MODE_DONE CPU2_MODE_DONE : 1;
+    /// read-only - Domain3 Low Power Mode
     eCPU3_MODE CPU3_MODE : 2;
+    /// read-only - Domain3 request enter Low Power Mode
     eCPU3_MODE_REQUEST CPU3_MODE_REQUEST : 1;
+    /// read-only - Domain3 Low Power Mode task done
     eCPU3_MODE_DONE CPU3_MODE_DONE : 1;
+    /// read-only - Next Setpoint to change to
     uint32_t TARGET_SETPOINT : 4;
+    /// read-only - Current Setpoint
     uint32_t CURRENT_SETPOINT : 4;
+    /// read-only - Clock gate turn off request from GPC Setpoint
     eSETPOINT_OFF_REQUEST SETPOINT_OFF_REQUEST : 1;
+    /// read-only - Clock gate turn off finish from GPC Setpoint
     eSETPOINT_OFF_DONE SETPOINT_OFF_DONE : 1;
+    /// read-only - Clock gate turn on request from GPC Setpoint
     eSETPOINT_ON_REQUEST SETPOINT_ON_REQUEST : 1;
+    /// read-only - Clock gate turn on finish from GPC Setpoint
     eSETPOINT_ON_DONE SETPOINT_ON_DONE : 1;
     uint32_t _reserved_0 : 4;
   } bits;
@@ -35442,6 +39127,7 @@ union LPCG84_CONFIG {
   // Bit field definition.
   struct {
     uint32_t _reserved_0 : 4;
+    /// read-only - Setpoint present
     eSETPOINT_PRESENT SETPOINT_PRESENT : 1;
     uint32_t _reserved_1 : 27;
   } bits;
@@ -35500,18 +39186,27 @@ union LPCG84_AUTHEN {
   
   // Bit field definition.
   struct {
+    /// read-write - User access
     eTZ_USER TZ_USER : 1;
+    /// read-write - Non-secure access
     eTZ_NS TZ_NS : 1;
     uint32_t _reserved_0 : 2;
+    /// read-write - lock truszone setting
     eLOCK_TZ LOCK_TZ : 1;
     uint32_t _reserved_1 : 3;
+    /// read-write - Whitelist
     uint32_t WHITE_LIST : 4;
+    /// read-write - Lock Whitelist
     eLOCK_LIST LOCK_LIST : 1;
     uint32_t _reserved_2 : 3;
+    /// read-write - Low power and access control by domain
     eDOMAIN_MODE DOMAIN_MODE : 1;
+    /// read-write - Low power and access control by Setpoint
     eSETPOINT_MODE SETPOINT_MODE : 1;
+    /// read-write - CPU Low Power Mode
     eCPULPM CPULPM : 1;
     uint32_t _reserved_3 : 1;
+    /// read-write - Lock low power and access mode
     eLOCK_MODE LOCK_MODE : 1;
     uint32_t _reserved_4 : 11;
   } bits;
@@ -35535,6 +39230,7 @@ union LPCG85_DIRECT {
   
   // Bit field definition.
   struct {
+    /// read-write - LPCG on
     eON ON : 1;
     uint32_t _reserved_0 : 31;
   } bits;
@@ -35593,14 +39289,19 @@ union LPCG85_DOMAIN {
   
   // Bit field definition.
   struct {
+    /// read-write - Current dependence level
     eLEVEL LEVEL : 3;
     uint32_t _reserved_0 : 13;
+    /// read-write - Depend level
     eLEVEL0 LEVEL0 : 3;
     uint32_t _reserved_1 : 1;
+    /// read-write - Depend level
     eLEVEL1 LEVEL1 : 3;
     uint32_t _reserved_2 : 1;
+    /// read-write - Depend level
     eLEVEL2 LEVEL2 : 3;
     uint32_t _reserved_3 : 1;
+    /// read-write - Depend level
     eLEVEL3 LEVEL3 : 3;
     uint32_t _reserved_4 : 1;
   } bits;
@@ -35662,9 +39363,12 @@ union LPCG85_STATUS0 {
   
   // Bit field definition.
   struct {
+    /// read-only - LPCG current state
     eON ON : 1;
     uint32_t _reserved_0 : 7;
+    /// read-only - Domains that own this clock gate
     eACTIVE_DOMAIN ACTIVE_DOMAIN : 4;
+    /// read-only - Enable status from each domain
     eDOMAIN_ENABLE DOMAIN_ENABLE : 4;
     uint32_t _reserved_1 : 16;
   } bits;
@@ -35771,23 +39475,41 @@ union LPCG85_STATUS1 {
   
   // Bit field definition.
   struct {
+    /// read-only - Domain0 Low Power Mode
     eCPU0_MODE CPU0_MODE : 2;
+    /// read-only - Domain0 request enter Low Power Mode
     eCPU0_MODE_REQUEST CPU0_MODE_REQUEST : 1;
+    /// read-only - Domain0 Low Power Mode task done
     eCPU0_MODE_DONE CPU0_MODE_DONE : 1;
+    /// read-only - Domain1 Low Power Mode
     eCPU1_MODE CPU1_MODE : 2;
+    /// read-only - Domain1 request enter Low Power Mode
     eCPU1_MODE_REQUEST CPU1_MODE_REQUEST : 1;
+    /// read-only - Domain1 Low Power Mode task done
     eCPU1_MODE_DONE CPU1_MODE_DONE : 1;
+    /// read-only - Domain2 Low Power Mode
     eCPU2_MODE CPU2_MODE : 2;
+    /// read-only - Domain2 request enter Low Power Mode
     eCPU2_MODE_REQUEST CPU2_MODE_REQUEST : 1;
+    /// read-only - Domain2 Low Power Mode task done
     eCPU2_MODE_DONE CPU2_MODE_DONE : 1;
+    /// read-only - Domain3 Low Power Mode
     eCPU3_MODE CPU3_MODE : 2;
+    /// read-only - Domain3 request enter Low Power Mode
     eCPU3_MODE_REQUEST CPU3_MODE_REQUEST : 1;
+    /// read-only - Domain3 Low Power Mode task done
     eCPU3_MODE_DONE CPU3_MODE_DONE : 1;
+    /// read-only - Next Setpoint to change to
     uint32_t TARGET_SETPOINT : 4;
+    /// read-only - Current Setpoint
     uint32_t CURRENT_SETPOINT : 4;
+    /// read-only - Clock gate turn off request from GPC Setpoint
     eSETPOINT_OFF_REQUEST SETPOINT_OFF_REQUEST : 1;
+    /// read-only - Clock gate turn off finish from GPC Setpoint
     eSETPOINT_OFF_DONE SETPOINT_OFF_DONE : 1;
+    /// read-only - Clock gate turn on request from GPC Setpoint
     eSETPOINT_ON_REQUEST SETPOINT_ON_REQUEST : 1;
+    /// read-only - Clock gate turn on finish from GPC Setpoint
     eSETPOINT_ON_DONE SETPOINT_ON_DONE : 1;
     uint32_t _reserved_0 : 4;
   } bits;
@@ -35812,6 +39534,7 @@ union LPCG85_CONFIG {
   // Bit field definition.
   struct {
     uint32_t _reserved_0 : 4;
+    /// read-only - Setpoint present
     eSETPOINT_PRESENT SETPOINT_PRESENT : 1;
     uint32_t _reserved_1 : 27;
   } bits;
@@ -35870,18 +39593,27 @@ union LPCG85_AUTHEN {
   
   // Bit field definition.
   struct {
+    /// read-write - User access
     eTZ_USER TZ_USER : 1;
+    /// read-write - Non-secure access
     eTZ_NS TZ_NS : 1;
     uint32_t _reserved_0 : 2;
+    /// read-write - lock truszone setting
     eLOCK_TZ LOCK_TZ : 1;
     uint32_t _reserved_1 : 3;
+    /// read-write - Whitelist
     uint32_t WHITE_LIST : 4;
+    /// read-write - Lock Whitelist
     eLOCK_LIST LOCK_LIST : 1;
     uint32_t _reserved_2 : 3;
+    /// read-write - Low power and access control by domain
     eDOMAIN_MODE DOMAIN_MODE : 1;
+    /// read-write - Low power and access control by Setpoint
     eSETPOINT_MODE SETPOINT_MODE : 1;
+    /// read-write - CPU Low Power Mode
     eCPULPM CPULPM : 1;
     uint32_t _reserved_3 : 1;
+    /// read-write - Lock low power and access mode
     eLOCK_MODE LOCK_MODE : 1;
     uint32_t _reserved_4 : 11;
   } bits;
@@ -35905,6 +39637,7 @@ union LPCG86_DIRECT {
   
   // Bit field definition.
   struct {
+    /// read-write - LPCG on
     eON ON : 1;
     uint32_t _reserved_0 : 31;
   } bits;
@@ -35963,14 +39696,19 @@ union LPCG86_DOMAIN {
   
   // Bit field definition.
   struct {
+    /// read-write - Current dependence level
     eLEVEL LEVEL : 3;
     uint32_t _reserved_0 : 13;
+    /// read-write - Depend level
     eLEVEL0 LEVEL0 : 3;
     uint32_t _reserved_1 : 1;
+    /// read-write - Depend level
     eLEVEL1 LEVEL1 : 3;
     uint32_t _reserved_2 : 1;
+    /// read-write - Depend level
     eLEVEL2 LEVEL2 : 3;
     uint32_t _reserved_3 : 1;
+    /// read-write - Depend level
     eLEVEL3 LEVEL3 : 3;
     uint32_t _reserved_4 : 1;
   } bits;
@@ -36032,9 +39770,12 @@ union LPCG86_STATUS0 {
   
   // Bit field definition.
   struct {
+    /// read-only - LPCG current state
     eON ON : 1;
     uint32_t _reserved_0 : 7;
+    /// read-only - Domains that own this clock gate
     eACTIVE_DOMAIN ACTIVE_DOMAIN : 4;
+    /// read-only - Enable status from each domain
     eDOMAIN_ENABLE DOMAIN_ENABLE : 4;
     uint32_t _reserved_1 : 16;
   } bits;
@@ -36141,23 +39882,41 @@ union LPCG86_STATUS1 {
   
   // Bit field definition.
   struct {
+    /// read-only - Domain0 Low Power Mode
     eCPU0_MODE CPU0_MODE : 2;
+    /// read-only - Domain0 request enter Low Power Mode
     eCPU0_MODE_REQUEST CPU0_MODE_REQUEST : 1;
+    /// read-only - Domain0 Low Power Mode task done
     eCPU0_MODE_DONE CPU0_MODE_DONE : 1;
+    /// read-only - Domain1 Low Power Mode
     eCPU1_MODE CPU1_MODE : 2;
+    /// read-only - Domain1 request enter Low Power Mode
     eCPU1_MODE_REQUEST CPU1_MODE_REQUEST : 1;
+    /// read-only - Domain1 Low Power Mode task done
     eCPU1_MODE_DONE CPU1_MODE_DONE : 1;
+    /// read-only - Domain2 Low Power Mode
     eCPU2_MODE CPU2_MODE : 2;
+    /// read-only - Domain2 request enter Low Power Mode
     eCPU2_MODE_REQUEST CPU2_MODE_REQUEST : 1;
+    /// read-only - Domain2 Low Power Mode task done
     eCPU2_MODE_DONE CPU2_MODE_DONE : 1;
+    /// read-only - Domain3 Low Power Mode
     eCPU3_MODE CPU3_MODE : 2;
+    /// read-only - Domain3 request enter Low Power Mode
     eCPU3_MODE_REQUEST CPU3_MODE_REQUEST : 1;
+    /// read-only - Domain3 Low Power Mode task done
     eCPU3_MODE_DONE CPU3_MODE_DONE : 1;
+    /// read-only - Next Setpoint to change to
     uint32_t TARGET_SETPOINT : 4;
+    /// read-only - Current Setpoint
     uint32_t CURRENT_SETPOINT : 4;
+    /// read-only - Clock gate turn off request from GPC Setpoint
     eSETPOINT_OFF_REQUEST SETPOINT_OFF_REQUEST : 1;
+    /// read-only - Clock gate turn off finish from GPC Setpoint
     eSETPOINT_OFF_DONE SETPOINT_OFF_DONE : 1;
+    /// read-only - Clock gate turn on request from GPC Setpoint
     eSETPOINT_ON_REQUEST SETPOINT_ON_REQUEST : 1;
+    /// read-only - Clock gate turn on finish from GPC Setpoint
     eSETPOINT_ON_DONE SETPOINT_ON_DONE : 1;
     uint32_t _reserved_0 : 4;
   } bits;
@@ -36182,6 +39941,7 @@ union LPCG86_CONFIG {
   // Bit field definition.
   struct {
     uint32_t _reserved_0 : 4;
+    /// read-only - Setpoint present
     eSETPOINT_PRESENT SETPOINT_PRESENT : 1;
     uint32_t _reserved_1 : 27;
   } bits;
@@ -36240,18 +40000,27 @@ union LPCG86_AUTHEN {
   
   // Bit field definition.
   struct {
+    /// read-write - User access
     eTZ_USER TZ_USER : 1;
+    /// read-write - Non-secure access
     eTZ_NS TZ_NS : 1;
     uint32_t _reserved_0 : 2;
+    /// read-write - lock truszone setting
     eLOCK_TZ LOCK_TZ : 1;
     uint32_t _reserved_1 : 3;
+    /// read-write - Whitelist
     uint32_t WHITE_LIST : 4;
+    /// read-write - Lock Whitelist
     eLOCK_LIST LOCK_LIST : 1;
     uint32_t _reserved_2 : 3;
+    /// read-write - Low power and access control by domain
     eDOMAIN_MODE DOMAIN_MODE : 1;
+    /// read-write - Low power and access control by Setpoint
     eSETPOINT_MODE SETPOINT_MODE : 1;
+    /// read-write - CPU Low Power Mode
     eCPULPM CPULPM : 1;
     uint32_t _reserved_3 : 1;
+    /// read-write - Lock low power and access mode
     eLOCK_MODE LOCK_MODE : 1;
     uint32_t _reserved_4 : 11;
   } bits;
@@ -36275,6 +40044,7 @@ union LPCG87_DIRECT {
   
   // Bit field definition.
   struct {
+    /// read-write - LPCG on
     eON ON : 1;
     uint32_t _reserved_0 : 31;
   } bits;
@@ -36333,14 +40103,19 @@ union LPCG87_DOMAIN {
   
   // Bit field definition.
   struct {
+    /// read-write - Current dependence level
     eLEVEL LEVEL : 3;
     uint32_t _reserved_0 : 13;
+    /// read-write - Depend level
     eLEVEL0 LEVEL0 : 3;
     uint32_t _reserved_1 : 1;
+    /// read-write - Depend level
     eLEVEL1 LEVEL1 : 3;
     uint32_t _reserved_2 : 1;
+    /// read-write - Depend level
     eLEVEL2 LEVEL2 : 3;
     uint32_t _reserved_3 : 1;
+    /// read-write - Depend level
     eLEVEL3 LEVEL3 : 3;
     uint32_t _reserved_4 : 1;
   } bits;
@@ -36402,9 +40177,12 @@ union LPCG87_STATUS0 {
   
   // Bit field definition.
   struct {
+    /// read-only - LPCG current state
     eON ON : 1;
     uint32_t _reserved_0 : 7;
+    /// read-only - Domains that own this clock gate
     eACTIVE_DOMAIN ACTIVE_DOMAIN : 4;
+    /// read-only - Enable status from each domain
     eDOMAIN_ENABLE DOMAIN_ENABLE : 4;
     uint32_t _reserved_1 : 16;
   } bits;
@@ -36511,23 +40289,41 @@ union LPCG87_STATUS1 {
   
   // Bit field definition.
   struct {
+    /// read-only - Domain0 Low Power Mode
     eCPU0_MODE CPU0_MODE : 2;
+    /// read-only - Domain0 request enter Low Power Mode
     eCPU0_MODE_REQUEST CPU0_MODE_REQUEST : 1;
+    /// read-only - Domain0 Low Power Mode task done
     eCPU0_MODE_DONE CPU0_MODE_DONE : 1;
+    /// read-only - Domain1 Low Power Mode
     eCPU1_MODE CPU1_MODE : 2;
+    /// read-only - Domain1 request enter Low Power Mode
     eCPU1_MODE_REQUEST CPU1_MODE_REQUEST : 1;
+    /// read-only - Domain1 Low Power Mode task done
     eCPU1_MODE_DONE CPU1_MODE_DONE : 1;
+    /// read-only - Domain2 Low Power Mode
     eCPU2_MODE CPU2_MODE : 2;
+    /// read-only - Domain2 request enter Low Power Mode
     eCPU2_MODE_REQUEST CPU2_MODE_REQUEST : 1;
+    /// read-only - Domain2 Low Power Mode task done
     eCPU2_MODE_DONE CPU2_MODE_DONE : 1;
+    /// read-only - Domain3 Low Power Mode
     eCPU3_MODE CPU3_MODE : 2;
+    /// read-only - Domain3 request enter Low Power Mode
     eCPU3_MODE_REQUEST CPU3_MODE_REQUEST : 1;
+    /// read-only - Domain3 Low Power Mode task done
     eCPU3_MODE_DONE CPU3_MODE_DONE : 1;
+    /// read-only - Next Setpoint to change to
     uint32_t TARGET_SETPOINT : 4;
+    /// read-only - Current Setpoint
     uint32_t CURRENT_SETPOINT : 4;
+    /// read-only - Clock gate turn off request from GPC Setpoint
     eSETPOINT_OFF_REQUEST SETPOINT_OFF_REQUEST : 1;
+    /// read-only - Clock gate turn off finish from GPC Setpoint
     eSETPOINT_OFF_DONE SETPOINT_OFF_DONE : 1;
+    /// read-only - Clock gate turn on request from GPC Setpoint
     eSETPOINT_ON_REQUEST SETPOINT_ON_REQUEST : 1;
+    /// read-only - Clock gate turn on finish from GPC Setpoint
     eSETPOINT_ON_DONE SETPOINT_ON_DONE : 1;
     uint32_t _reserved_0 : 4;
   } bits;
@@ -36552,6 +40348,7 @@ union LPCG87_CONFIG {
   // Bit field definition.
   struct {
     uint32_t _reserved_0 : 4;
+    /// read-only - Setpoint present
     eSETPOINT_PRESENT SETPOINT_PRESENT : 1;
     uint32_t _reserved_1 : 27;
   } bits;
@@ -36610,18 +40407,27 @@ union LPCG87_AUTHEN {
   
   // Bit field definition.
   struct {
+    /// read-write - User access
     eTZ_USER TZ_USER : 1;
+    /// read-write - Non-secure access
     eTZ_NS TZ_NS : 1;
     uint32_t _reserved_0 : 2;
+    /// read-write - lock truszone setting
     eLOCK_TZ LOCK_TZ : 1;
     uint32_t _reserved_1 : 3;
+    /// read-write - Whitelist
     uint32_t WHITE_LIST : 4;
+    /// read-write - Lock Whitelist
     eLOCK_LIST LOCK_LIST : 1;
     uint32_t _reserved_2 : 3;
+    /// read-write - Low power and access control by domain
     eDOMAIN_MODE DOMAIN_MODE : 1;
+    /// read-write - Low power and access control by Setpoint
     eSETPOINT_MODE SETPOINT_MODE : 1;
+    /// read-write - CPU Low Power Mode
     eCPULPM CPULPM : 1;
     uint32_t _reserved_3 : 1;
+    /// read-write - Lock low power and access mode
     eLOCK_MODE LOCK_MODE : 1;
     uint32_t _reserved_4 : 11;
   } bits;
@@ -36645,6 +40451,7 @@ union LPCG88_DIRECT {
   
   // Bit field definition.
   struct {
+    /// read-write - LPCG on
     eON ON : 1;
     uint32_t _reserved_0 : 31;
   } bits;
@@ -36703,14 +40510,19 @@ union LPCG88_DOMAIN {
   
   // Bit field definition.
   struct {
+    /// read-write - Current dependence level
     eLEVEL LEVEL : 3;
     uint32_t _reserved_0 : 13;
+    /// read-write - Depend level
     eLEVEL0 LEVEL0 : 3;
     uint32_t _reserved_1 : 1;
+    /// read-write - Depend level
     eLEVEL1 LEVEL1 : 3;
     uint32_t _reserved_2 : 1;
+    /// read-write - Depend level
     eLEVEL2 LEVEL2 : 3;
     uint32_t _reserved_3 : 1;
+    /// read-write - Depend level
     eLEVEL3 LEVEL3 : 3;
     uint32_t _reserved_4 : 1;
   } bits;
@@ -36772,9 +40584,12 @@ union LPCG88_STATUS0 {
   
   // Bit field definition.
   struct {
+    /// read-only - LPCG current state
     eON ON : 1;
     uint32_t _reserved_0 : 7;
+    /// read-only - Domains that own this clock gate
     eACTIVE_DOMAIN ACTIVE_DOMAIN : 4;
+    /// read-only - Enable status from each domain
     eDOMAIN_ENABLE DOMAIN_ENABLE : 4;
     uint32_t _reserved_1 : 16;
   } bits;
@@ -36881,23 +40696,41 @@ union LPCG88_STATUS1 {
   
   // Bit field definition.
   struct {
+    /// read-only - Domain0 Low Power Mode
     eCPU0_MODE CPU0_MODE : 2;
+    /// read-only - Domain0 request enter Low Power Mode
     eCPU0_MODE_REQUEST CPU0_MODE_REQUEST : 1;
+    /// read-only - Domain0 Low Power Mode task done
     eCPU0_MODE_DONE CPU0_MODE_DONE : 1;
+    /// read-only - Domain1 Low Power Mode
     eCPU1_MODE CPU1_MODE : 2;
+    /// read-only - Domain1 request enter Low Power Mode
     eCPU1_MODE_REQUEST CPU1_MODE_REQUEST : 1;
+    /// read-only - Domain1 Low Power Mode task done
     eCPU1_MODE_DONE CPU1_MODE_DONE : 1;
+    /// read-only - Domain2 Low Power Mode
     eCPU2_MODE CPU2_MODE : 2;
+    /// read-only - Domain2 request enter Low Power Mode
     eCPU2_MODE_REQUEST CPU2_MODE_REQUEST : 1;
+    /// read-only - Domain2 Low Power Mode task done
     eCPU2_MODE_DONE CPU2_MODE_DONE : 1;
+    /// read-only - Domain3 Low Power Mode
     eCPU3_MODE CPU3_MODE : 2;
+    /// read-only - Domain3 request enter Low Power Mode
     eCPU3_MODE_REQUEST CPU3_MODE_REQUEST : 1;
+    /// read-only - Domain3 Low Power Mode task done
     eCPU3_MODE_DONE CPU3_MODE_DONE : 1;
+    /// read-only - Next Setpoint to change to
     uint32_t TARGET_SETPOINT : 4;
+    /// read-only - Current Setpoint
     uint32_t CURRENT_SETPOINT : 4;
+    /// read-only - Clock gate turn off request from GPC Setpoint
     eSETPOINT_OFF_REQUEST SETPOINT_OFF_REQUEST : 1;
+    /// read-only - Clock gate turn off finish from GPC Setpoint
     eSETPOINT_OFF_DONE SETPOINT_OFF_DONE : 1;
+    /// read-only - Clock gate turn on request from GPC Setpoint
     eSETPOINT_ON_REQUEST SETPOINT_ON_REQUEST : 1;
+    /// read-only - Clock gate turn on finish from GPC Setpoint
     eSETPOINT_ON_DONE SETPOINT_ON_DONE : 1;
     uint32_t _reserved_0 : 4;
   } bits;
@@ -36922,6 +40755,7 @@ union LPCG88_CONFIG {
   // Bit field definition.
   struct {
     uint32_t _reserved_0 : 4;
+    /// read-only - Setpoint present
     eSETPOINT_PRESENT SETPOINT_PRESENT : 1;
     uint32_t _reserved_1 : 27;
   } bits;
@@ -36980,18 +40814,27 @@ union LPCG88_AUTHEN {
   
   // Bit field definition.
   struct {
+    /// read-write - User access
     eTZ_USER TZ_USER : 1;
+    /// read-write - Non-secure access
     eTZ_NS TZ_NS : 1;
     uint32_t _reserved_0 : 2;
+    /// read-write - lock truszone setting
     eLOCK_TZ LOCK_TZ : 1;
     uint32_t _reserved_1 : 3;
+    /// read-write - Whitelist
     uint32_t WHITE_LIST : 4;
+    /// read-write - Lock Whitelist
     eLOCK_LIST LOCK_LIST : 1;
     uint32_t _reserved_2 : 3;
+    /// read-write - Low power and access control by domain
     eDOMAIN_MODE DOMAIN_MODE : 1;
+    /// read-write - Low power and access control by Setpoint
     eSETPOINT_MODE SETPOINT_MODE : 1;
+    /// read-write - CPU Low Power Mode
     eCPULPM CPULPM : 1;
     uint32_t _reserved_3 : 1;
+    /// read-write - Lock low power and access mode
     eLOCK_MODE LOCK_MODE : 1;
     uint32_t _reserved_4 : 11;
   } bits;
@@ -37015,6 +40858,7 @@ union LPCG89_DIRECT {
   
   // Bit field definition.
   struct {
+    /// read-write - LPCG on
     eON ON : 1;
     uint32_t _reserved_0 : 31;
   } bits;
@@ -37073,14 +40917,19 @@ union LPCG89_DOMAIN {
   
   // Bit field definition.
   struct {
+    /// read-write - Current dependence level
     eLEVEL LEVEL : 3;
     uint32_t _reserved_0 : 13;
+    /// read-write - Depend level
     eLEVEL0 LEVEL0 : 3;
     uint32_t _reserved_1 : 1;
+    /// read-write - Depend level
     eLEVEL1 LEVEL1 : 3;
     uint32_t _reserved_2 : 1;
+    /// read-write - Depend level
     eLEVEL2 LEVEL2 : 3;
     uint32_t _reserved_3 : 1;
+    /// read-write - Depend level
     eLEVEL3 LEVEL3 : 3;
     uint32_t _reserved_4 : 1;
   } bits;
@@ -37142,9 +40991,12 @@ union LPCG89_STATUS0 {
   
   // Bit field definition.
   struct {
+    /// read-only - LPCG current state
     eON ON : 1;
     uint32_t _reserved_0 : 7;
+    /// read-only - Domains that own this clock gate
     eACTIVE_DOMAIN ACTIVE_DOMAIN : 4;
+    /// read-only - Enable status from each domain
     eDOMAIN_ENABLE DOMAIN_ENABLE : 4;
     uint32_t _reserved_1 : 16;
   } bits;
@@ -37251,23 +41103,41 @@ union LPCG89_STATUS1 {
   
   // Bit field definition.
   struct {
+    /// read-only - Domain0 Low Power Mode
     eCPU0_MODE CPU0_MODE : 2;
+    /// read-only - Domain0 request enter Low Power Mode
     eCPU0_MODE_REQUEST CPU0_MODE_REQUEST : 1;
+    /// read-only - Domain0 Low Power Mode task done
     eCPU0_MODE_DONE CPU0_MODE_DONE : 1;
+    /// read-only - Domain1 Low Power Mode
     eCPU1_MODE CPU1_MODE : 2;
+    /// read-only - Domain1 request enter Low Power Mode
     eCPU1_MODE_REQUEST CPU1_MODE_REQUEST : 1;
+    /// read-only - Domain1 Low Power Mode task done
     eCPU1_MODE_DONE CPU1_MODE_DONE : 1;
+    /// read-only - Domain2 Low Power Mode
     eCPU2_MODE CPU2_MODE : 2;
+    /// read-only - Domain2 request enter Low Power Mode
     eCPU2_MODE_REQUEST CPU2_MODE_REQUEST : 1;
+    /// read-only - Domain2 Low Power Mode task done
     eCPU2_MODE_DONE CPU2_MODE_DONE : 1;
+    /// read-only - Domain3 Low Power Mode
     eCPU3_MODE CPU3_MODE : 2;
+    /// read-only - Domain3 request enter Low Power Mode
     eCPU3_MODE_REQUEST CPU3_MODE_REQUEST : 1;
+    /// read-only - Domain3 Low Power Mode task done
     eCPU3_MODE_DONE CPU3_MODE_DONE : 1;
+    /// read-only - Next Setpoint to change to
     uint32_t TARGET_SETPOINT : 4;
+    /// read-only - Current Setpoint
     uint32_t CURRENT_SETPOINT : 4;
+    /// read-only - Clock gate turn off request from GPC Setpoint
     eSETPOINT_OFF_REQUEST SETPOINT_OFF_REQUEST : 1;
+    /// read-only - Clock gate turn off finish from GPC Setpoint
     eSETPOINT_OFF_DONE SETPOINT_OFF_DONE : 1;
+    /// read-only - Clock gate turn on request from GPC Setpoint
     eSETPOINT_ON_REQUEST SETPOINT_ON_REQUEST : 1;
+    /// read-only - Clock gate turn on finish from GPC Setpoint
     eSETPOINT_ON_DONE SETPOINT_ON_DONE : 1;
     uint32_t _reserved_0 : 4;
   } bits;
@@ -37292,6 +41162,7 @@ union LPCG89_CONFIG {
   // Bit field definition.
   struct {
     uint32_t _reserved_0 : 4;
+    /// read-only - Setpoint present
     eSETPOINT_PRESENT SETPOINT_PRESENT : 1;
     uint32_t _reserved_1 : 27;
   } bits;
@@ -37350,18 +41221,27 @@ union LPCG89_AUTHEN {
   
   // Bit field definition.
   struct {
+    /// read-write - User access
     eTZ_USER TZ_USER : 1;
+    /// read-write - Non-secure access
     eTZ_NS TZ_NS : 1;
     uint32_t _reserved_0 : 2;
+    /// read-write - lock truszone setting
     eLOCK_TZ LOCK_TZ : 1;
     uint32_t _reserved_1 : 3;
+    /// read-write - Whitelist
     uint32_t WHITE_LIST : 4;
+    /// read-write - Lock Whitelist
     eLOCK_LIST LOCK_LIST : 1;
     uint32_t _reserved_2 : 3;
+    /// read-write - Low power and access control by domain
     eDOMAIN_MODE DOMAIN_MODE : 1;
+    /// read-write - Low power and access control by Setpoint
     eSETPOINT_MODE SETPOINT_MODE : 1;
+    /// read-write - CPU Low Power Mode
     eCPULPM CPULPM : 1;
     uint32_t _reserved_3 : 1;
+    /// read-write - Lock low power and access mode
     eLOCK_MODE LOCK_MODE : 1;
     uint32_t _reserved_4 : 11;
   } bits;
@@ -37385,6 +41265,7 @@ union LPCG90_DIRECT {
   
   // Bit field definition.
   struct {
+    /// read-write - LPCG on
     eON ON : 1;
     uint32_t _reserved_0 : 31;
   } bits;
@@ -37443,14 +41324,19 @@ union LPCG90_DOMAIN {
   
   // Bit field definition.
   struct {
+    /// read-write - Current dependence level
     eLEVEL LEVEL : 3;
     uint32_t _reserved_0 : 13;
+    /// read-write - Depend level
     eLEVEL0 LEVEL0 : 3;
     uint32_t _reserved_1 : 1;
+    /// read-write - Depend level
     eLEVEL1 LEVEL1 : 3;
     uint32_t _reserved_2 : 1;
+    /// read-write - Depend level
     eLEVEL2 LEVEL2 : 3;
     uint32_t _reserved_3 : 1;
+    /// read-write - Depend level
     eLEVEL3 LEVEL3 : 3;
     uint32_t _reserved_4 : 1;
   } bits;
@@ -37512,9 +41398,12 @@ union LPCG90_STATUS0 {
   
   // Bit field definition.
   struct {
+    /// read-only - LPCG current state
     eON ON : 1;
     uint32_t _reserved_0 : 7;
+    /// read-only - Domains that own this clock gate
     eACTIVE_DOMAIN ACTIVE_DOMAIN : 4;
+    /// read-only - Enable status from each domain
     eDOMAIN_ENABLE DOMAIN_ENABLE : 4;
     uint32_t _reserved_1 : 16;
   } bits;
@@ -37621,23 +41510,41 @@ union LPCG90_STATUS1 {
   
   // Bit field definition.
   struct {
+    /// read-only - Domain0 Low Power Mode
     eCPU0_MODE CPU0_MODE : 2;
+    /// read-only - Domain0 request enter Low Power Mode
     eCPU0_MODE_REQUEST CPU0_MODE_REQUEST : 1;
+    /// read-only - Domain0 Low Power Mode task done
     eCPU0_MODE_DONE CPU0_MODE_DONE : 1;
+    /// read-only - Domain1 Low Power Mode
     eCPU1_MODE CPU1_MODE : 2;
+    /// read-only - Domain1 request enter Low Power Mode
     eCPU1_MODE_REQUEST CPU1_MODE_REQUEST : 1;
+    /// read-only - Domain1 Low Power Mode task done
     eCPU1_MODE_DONE CPU1_MODE_DONE : 1;
+    /// read-only - Domain2 Low Power Mode
     eCPU2_MODE CPU2_MODE : 2;
+    /// read-only - Domain2 request enter Low Power Mode
     eCPU2_MODE_REQUEST CPU2_MODE_REQUEST : 1;
+    /// read-only - Domain2 Low Power Mode task done
     eCPU2_MODE_DONE CPU2_MODE_DONE : 1;
+    /// read-only - Domain3 Low Power Mode
     eCPU3_MODE CPU3_MODE : 2;
+    /// read-only - Domain3 request enter Low Power Mode
     eCPU3_MODE_REQUEST CPU3_MODE_REQUEST : 1;
+    /// read-only - Domain3 Low Power Mode task done
     eCPU3_MODE_DONE CPU3_MODE_DONE : 1;
+    /// read-only - Next Setpoint to change to
     uint32_t TARGET_SETPOINT : 4;
+    /// read-only - Current Setpoint
     uint32_t CURRENT_SETPOINT : 4;
+    /// read-only - Clock gate turn off request from GPC Setpoint
     eSETPOINT_OFF_REQUEST SETPOINT_OFF_REQUEST : 1;
+    /// read-only - Clock gate turn off finish from GPC Setpoint
     eSETPOINT_OFF_DONE SETPOINT_OFF_DONE : 1;
+    /// read-only - Clock gate turn on request from GPC Setpoint
     eSETPOINT_ON_REQUEST SETPOINT_ON_REQUEST : 1;
+    /// read-only - Clock gate turn on finish from GPC Setpoint
     eSETPOINT_ON_DONE SETPOINT_ON_DONE : 1;
     uint32_t _reserved_0 : 4;
   } bits;
@@ -37662,6 +41569,7 @@ union LPCG90_CONFIG {
   // Bit field definition.
   struct {
     uint32_t _reserved_0 : 4;
+    /// read-only - Setpoint present
     eSETPOINT_PRESENT SETPOINT_PRESENT : 1;
     uint32_t _reserved_1 : 27;
   } bits;
@@ -37720,18 +41628,27 @@ union LPCG90_AUTHEN {
   
   // Bit field definition.
   struct {
+    /// read-write - User access
     eTZ_USER TZ_USER : 1;
+    /// read-write - Non-secure access
     eTZ_NS TZ_NS : 1;
     uint32_t _reserved_0 : 2;
+    /// read-write - lock truszone setting
     eLOCK_TZ LOCK_TZ : 1;
     uint32_t _reserved_1 : 3;
+    /// read-write - Whitelist
     uint32_t WHITE_LIST : 4;
+    /// read-write - Lock Whitelist
     eLOCK_LIST LOCK_LIST : 1;
     uint32_t _reserved_2 : 3;
+    /// read-write - Low power and access control by domain
     eDOMAIN_MODE DOMAIN_MODE : 1;
+    /// read-write - Low power and access control by Setpoint
     eSETPOINT_MODE SETPOINT_MODE : 1;
+    /// read-write - CPU Low Power Mode
     eCPULPM CPULPM : 1;
     uint32_t _reserved_3 : 1;
+    /// read-write - Lock low power and access mode
     eLOCK_MODE LOCK_MODE : 1;
     uint32_t _reserved_4 : 11;
   } bits;
@@ -37755,6 +41672,7 @@ union LPCG91_DIRECT {
   
   // Bit field definition.
   struct {
+    /// read-write - LPCG on
     eON ON : 1;
     uint32_t _reserved_0 : 31;
   } bits;
@@ -37813,14 +41731,19 @@ union LPCG91_DOMAIN {
   
   // Bit field definition.
   struct {
+    /// read-write - Current dependence level
     eLEVEL LEVEL : 3;
     uint32_t _reserved_0 : 13;
+    /// read-write - Depend level
     eLEVEL0 LEVEL0 : 3;
     uint32_t _reserved_1 : 1;
+    /// read-write - Depend level
     eLEVEL1 LEVEL1 : 3;
     uint32_t _reserved_2 : 1;
+    /// read-write - Depend level
     eLEVEL2 LEVEL2 : 3;
     uint32_t _reserved_3 : 1;
+    /// read-write - Depend level
     eLEVEL3 LEVEL3 : 3;
     uint32_t _reserved_4 : 1;
   } bits;
@@ -37882,9 +41805,12 @@ union LPCG91_STATUS0 {
   
   // Bit field definition.
   struct {
+    /// read-only - LPCG current state
     eON ON : 1;
     uint32_t _reserved_0 : 7;
+    /// read-only - Domains that own this clock gate
     eACTIVE_DOMAIN ACTIVE_DOMAIN : 4;
+    /// read-only - Enable status from each domain
     eDOMAIN_ENABLE DOMAIN_ENABLE : 4;
     uint32_t _reserved_1 : 16;
   } bits;
@@ -37991,23 +41917,41 @@ union LPCG91_STATUS1 {
   
   // Bit field definition.
   struct {
+    /// read-only - Domain0 Low Power Mode
     eCPU0_MODE CPU0_MODE : 2;
+    /// read-only - Domain0 request enter Low Power Mode
     eCPU0_MODE_REQUEST CPU0_MODE_REQUEST : 1;
+    /// read-only - Domain0 Low Power Mode task done
     eCPU0_MODE_DONE CPU0_MODE_DONE : 1;
+    /// read-only - Domain1 Low Power Mode
     eCPU1_MODE CPU1_MODE : 2;
+    /// read-only - Domain1 request enter Low Power Mode
     eCPU1_MODE_REQUEST CPU1_MODE_REQUEST : 1;
+    /// read-only - Domain1 Low Power Mode task done
     eCPU1_MODE_DONE CPU1_MODE_DONE : 1;
+    /// read-only - Domain2 Low Power Mode
     eCPU2_MODE CPU2_MODE : 2;
+    /// read-only - Domain2 request enter Low Power Mode
     eCPU2_MODE_REQUEST CPU2_MODE_REQUEST : 1;
+    /// read-only - Domain2 Low Power Mode task done
     eCPU2_MODE_DONE CPU2_MODE_DONE : 1;
+    /// read-only - Domain3 Low Power Mode
     eCPU3_MODE CPU3_MODE : 2;
+    /// read-only - Domain3 request enter Low Power Mode
     eCPU3_MODE_REQUEST CPU3_MODE_REQUEST : 1;
+    /// read-only - Domain3 Low Power Mode task done
     eCPU3_MODE_DONE CPU3_MODE_DONE : 1;
+    /// read-only - Next Setpoint to change to
     uint32_t TARGET_SETPOINT : 4;
+    /// read-only - Current Setpoint
     uint32_t CURRENT_SETPOINT : 4;
+    /// read-only - Clock gate turn off request from GPC Setpoint
     eSETPOINT_OFF_REQUEST SETPOINT_OFF_REQUEST : 1;
+    /// read-only - Clock gate turn off finish from GPC Setpoint
     eSETPOINT_OFF_DONE SETPOINT_OFF_DONE : 1;
+    /// read-only - Clock gate turn on request from GPC Setpoint
     eSETPOINT_ON_REQUEST SETPOINT_ON_REQUEST : 1;
+    /// read-only - Clock gate turn on finish from GPC Setpoint
     eSETPOINT_ON_DONE SETPOINT_ON_DONE : 1;
     uint32_t _reserved_0 : 4;
   } bits;
@@ -38032,6 +41976,7 @@ union LPCG91_CONFIG {
   // Bit field definition.
   struct {
     uint32_t _reserved_0 : 4;
+    /// read-only - Setpoint present
     eSETPOINT_PRESENT SETPOINT_PRESENT : 1;
     uint32_t _reserved_1 : 27;
   } bits;
@@ -38090,18 +42035,27 @@ union LPCG91_AUTHEN {
   
   // Bit field definition.
   struct {
+    /// read-write - User access
     eTZ_USER TZ_USER : 1;
+    /// read-write - Non-secure access
     eTZ_NS TZ_NS : 1;
     uint32_t _reserved_0 : 2;
+    /// read-write - lock truszone setting
     eLOCK_TZ LOCK_TZ : 1;
     uint32_t _reserved_1 : 3;
+    /// read-write - Whitelist
     uint32_t WHITE_LIST : 4;
+    /// read-write - Lock Whitelist
     eLOCK_LIST LOCK_LIST : 1;
     uint32_t _reserved_2 : 3;
+    /// read-write - Low power and access control by domain
     eDOMAIN_MODE DOMAIN_MODE : 1;
+    /// read-write - Low power and access control by Setpoint
     eSETPOINT_MODE SETPOINT_MODE : 1;
+    /// read-write - CPU Low Power Mode
     eCPULPM CPULPM : 1;
     uint32_t _reserved_3 : 1;
+    /// read-write - Lock low power and access mode
     eLOCK_MODE LOCK_MODE : 1;
     uint32_t _reserved_4 : 11;
   } bits;
@@ -38125,6 +42079,7 @@ union LPCG92_DIRECT {
   
   // Bit field definition.
   struct {
+    /// read-write - LPCG on
     eON ON : 1;
     uint32_t _reserved_0 : 31;
   } bits;
@@ -38183,14 +42138,19 @@ union LPCG92_DOMAIN {
   
   // Bit field definition.
   struct {
+    /// read-write - Current dependence level
     eLEVEL LEVEL : 3;
     uint32_t _reserved_0 : 13;
+    /// read-write - Depend level
     eLEVEL0 LEVEL0 : 3;
     uint32_t _reserved_1 : 1;
+    /// read-write - Depend level
     eLEVEL1 LEVEL1 : 3;
     uint32_t _reserved_2 : 1;
+    /// read-write - Depend level
     eLEVEL2 LEVEL2 : 3;
     uint32_t _reserved_3 : 1;
+    /// read-write - Depend level
     eLEVEL3 LEVEL3 : 3;
     uint32_t _reserved_4 : 1;
   } bits;
@@ -38252,9 +42212,12 @@ union LPCG92_STATUS0 {
   
   // Bit field definition.
   struct {
+    /// read-only - LPCG current state
     eON ON : 1;
     uint32_t _reserved_0 : 7;
+    /// read-only - Domains that own this clock gate
     eACTIVE_DOMAIN ACTIVE_DOMAIN : 4;
+    /// read-only - Enable status from each domain
     eDOMAIN_ENABLE DOMAIN_ENABLE : 4;
     uint32_t _reserved_1 : 16;
   } bits;
@@ -38361,23 +42324,41 @@ union LPCG92_STATUS1 {
   
   // Bit field definition.
   struct {
+    /// read-only - Domain0 Low Power Mode
     eCPU0_MODE CPU0_MODE : 2;
+    /// read-only - Domain0 request enter Low Power Mode
     eCPU0_MODE_REQUEST CPU0_MODE_REQUEST : 1;
+    /// read-only - Domain0 Low Power Mode task done
     eCPU0_MODE_DONE CPU0_MODE_DONE : 1;
+    /// read-only - Domain1 Low Power Mode
     eCPU1_MODE CPU1_MODE : 2;
+    /// read-only - Domain1 request enter Low Power Mode
     eCPU1_MODE_REQUEST CPU1_MODE_REQUEST : 1;
+    /// read-only - Domain1 Low Power Mode task done
     eCPU1_MODE_DONE CPU1_MODE_DONE : 1;
+    /// read-only - Domain2 Low Power Mode
     eCPU2_MODE CPU2_MODE : 2;
+    /// read-only - Domain2 request enter Low Power Mode
     eCPU2_MODE_REQUEST CPU2_MODE_REQUEST : 1;
+    /// read-only - Domain2 Low Power Mode task done
     eCPU2_MODE_DONE CPU2_MODE_DONE : 1;
+    /// read-only - Domain3 Low Power Mode
     eCPU3_MODE CPU3_MODE : 2;
+    /// read-only - Domain3 request enter Low Power Mode
     eCPU3_MODE_REQUEST CPU3_MODE_REQUEST : 1;
+    /// read-only - Domain3 Low Power Mode task done
     eCPU3_MODE_DONE CPU3_MODE_DONE : 1;
+    /// read-only - Next Setpoint to change to
     uint32_t TARGET_SETPOINT : 4;
+    /// read-only - Current Setpoint
     uint32_t CURRENT_SETPOINT : 4;
+    /// read-only - Clock gate turn off request from GPC Setpoint
     eSETPOINT_OFF_REQUEST SETPOINT_OFF_REQUEST : 1;
+    /// read-only - Clock gate turn off finish from GPC Setpoint
     eSETPOINT_OFF_DONE SETPOINT_OFF_DONE : 1;
+    /// read-only - Clock gate turn on request from GPC Setpoint
     eSETPOINT_ON_REQUEST SETPOINT_ON_REQUEST : 1;
+    /// read-only - Clock gate turn on finish from GPC Setpoint
     eSETPOINT_ON_DONE SETPOINT_ON_DONE : 1;
     uint32_t _reserved_0 : 4;
   } bits;
@@ -38402,6 +42383,7 @@ union LPCG92_CONFIG {
   // Bit field definition.
   struct {
     uint32_t _reserved_0 : 4;
+    /// read-only - Setpoint present
     eSETPOINT_PRESENT SETPOINT_PRESENT : 1;
     uint32_t _reserved_1 : 27;
   } bits;
@@ -38460,18 +42442,27 @@ union LPCG92_AUTHEN {
   
   // Bit field definition.
   struct {
+    /// read-write - User access
     eTZ_USER TZ_USER : 1;
+    /// read-write - Non-secure access
     eTZ_NS TZ_NS : 1;
     uint32_t _reserved_0 : 2;
+    /// read-write - lock truszone setting
     eLOCK_TZ LOCK_TZ : 1;
     uint32_t _reserved_1 : 3;
+    /// read-write - Whitelist
     uint32_t WHITE_LIST : 4;
+    /// read-write - Lock Whitelist
     eLOCK_LIST LOCK_LIST : 1;
     uint32_t _reserved_2 : 3;
+    /// read-write - Low power and access control by domain
     eDOMAIN_MODE DOMAIN_MODE : 1;
+    /// read-write - Low power and access control by Setpoint
     eSETPOINT_MODE SETPOINT_MODE : 1;
+    /// read-write - CPU Low Power Mode
     eCPULPM CPULPM : 1;
     uint32_t _reserved_3 : 1;
+    /// read-write - Lock low power and access mode
     eLOCK_MODE LOCK_MODE : 1;
     uint32_t _reserved_4 : 11;
   } bits;
@@ -38495,6 +42486,7 @@ union LPCG93_DIRECT {
   
   // Bit field definition.
   struct {
+    /// read-write - LPCG on
     eON ON : 1;
     uint32_t _reserved_0 : 31;
   } bits;
@@ -38553,14 +42545,19 @@ union LPCG93_DOMAIN {
   
   // Bit field definition.
   struct {
+    /// read-write - Current dependence level
     eLEVEL LEVEL : 3;
     uint32_t _reserved_0 : 13;
+    /// read-write - Depend level
     eLEVEL0 LEVEL0 : 3;
     uint32_t _reserved_1 : 1;
+    /// read-write - Depend level
     eLEVEL1 LEVEL1 : 3;
     uint32_t _reserved_2 : 1;
+    /// read-write - Depend level
     eLEVEL2 LEVEL2 : 3;
     uint32_t _reserved_3 : 1;
+    /// read-write - Depend level
     eLEVEL3 LEVEL3 : 3;
     uint32_t _reserved_4 : 1;
   } bits;
@@ -38622,9 +42619,12 @@ union LPCG93_STATUS0 {
   
   // Bit field definition.
   struct {
+    /// read-only - LPCG current state
     eON ON : 1;
     uint32_t _reserved_0 : 7;
+    /// read-only - Domains that own this clock gate
     eACTIVE_DOMAIN ACTIVE_DOMAIN : 4;
+    /// read-only - Enable status from each domain
     eDOMAIN_ENABLE DOMAIN_ENABLE : 4;
     uint32_t _reserved_1 : 16;
   } bits;
@@ -38731,23 +42731,41 @@ union LPCG93_STATUS1 {
   
   // Bit field definition.
   struct {
+    /// read-only - Domain0 Low Power Mode
     eCPU0_MODE CPU0_MODE : 2;
+    /// read-only - Domain0 request enter Low Power Mode
     eCPU0_MODE_REQUEST CPU0_MODE_REQUEST : 1;
+    /// read-only - Domain0 Low Power Mode task done
     eCPU0_MODE_DONE CPU0_MODE_DONE : 1;
+    /// read-only - Domain1 Low Power Mode
     eCPU1_MODE CPU1_MODE : 2;
+    /// read-only - Domain1 request enter Low Power Mode
     eCPU1_MODE_REQUEST CPU1_MODE_REQUEST : 1;
+    /// read-only - Domain1 Low Power Mode task done
     eCPU1_MODE_DONE CPU1_MODE_DONE : 1;
+    /// read-only - Domain2 Low Power Mode
     eCPU2_MODE CPU2_MODE : 2;
+    /// read-only - Domain2 request enter Low Power Mode
     eCPU2_MODE_REQUEST CPU2_MODE_REQUEST : 1;
+    /// read-only - Domain2 Low Power Mode task done
     eCPU2_MODE_DONE CPU2_MODE_DONE : 1;
+    /// read-only - Domain3 Low Power Mode
     eCPU3_MODE CPU3_MODE : 2;
+    /// read-only - Domain3 request enter Low Power Mode
     eCPU3_MODE_REQUEST CPU3_MODE_REQUEST : 1;
+    /// read-only - Domain3 Low Power Mode task done
     eCPU3_MODE_DONE CPU3_MODE_DONE : 1;
+    /// read-only - Next Setpoint to change to
     uint32_t TARGET_SETPOINT : 4;
+    /// read-only - Current Setpoint
     uint32_t CURRENT_SETPOINT : 4;
+    /// read-only - Clock gate turn off request from GPC Setpoint
     eSETPOINT_OFF_REQUEST SETPOINT_OFF_REQUEST : 1;
+    /// read-only - Clock gate turn off finish from GPC Setpoint
     eSETPOINT_OFF_DONE SETPOINT_OFF_DONE : 1;
+    /// read-only - Clock gate turn on request from GPC Setpoint
     eSETPOINT_ON_REQUEST SETPOINT_ON_REQUEST : 1;
+    /// read-only - Clock gate turn on finish from GPC Setpoint
     eSETPOINT_ON_DONE SETPOINT_ON_DONE : 1;
     uint32_t _reserved_0 : 4;
   } bits;
@@ -38772,6 +42790,7 @@ union LPCG93_CONFIG {
   // Bit field definition.
   struct {
     uint32_t _reserved_0 : 4;
+    /// read-only - Setpoint present
     eSETPOINT_PRESENT SETPOINT_PRESENT : 1;
     uint32_t _reserved_1 : 27;
   } bits;
@@ -38830,18 +42849,27 @@ union LPCG93_AUTHEN {
   
   // Bit field definition.
   struct {
+    /// read-write - User access
     eTZ_USER TZ_USER : 1;
+    /// read-write - Non-secure access
     eTZ_NS TZ_NS : 1;
     uint32_t _reserved_0 : 2;
+    /// read-write - lock truszone setting
     eLOCK_TZ LOCK_TZ : 1;
     uint32_t _reserved_1 : 3;
+    /// read-write - Whitelist
     uint32_t WHITE_LIST : 4;
+    /// read-write - Lock Whitelist
     eLOCK_LIST LOCK_LIST : 1;
     uint32_t _reserved_2 : 3;
+    /// read-write - Low power and access control by domain
     eDOMAIN_MODE DOMAIN_MODE : 1;
+    /// read-write - Low power and access control by Setpoint
     eSETPOINT_MODE SETPOINT_MODE : 1;
+    /// read-write - CPU Low Power Mode
     eCPULPM CPULPM : 1;
     uint32_t _reserved_3 : 1;
+    /// read-write - Lock low power and access mode
     eLOCK_MODE LOCK_MODE : 1;
     uint32_t _reserved_4 : 11;
   } bits;
@@ -38865,6 +42893,7 @@ union LPCG94_DIRECT {
   
   // Bit field definition.
   struct {
+    /// read-write - LPCG on
     eON ON : 1;
     uint32_t _reserved_0 : 31;
   } bits;
@@ -38923,14 +42952,19 @@ union LPCG94_DOMAIN {
   
   // Bit field definition.
   struct {
+    /// read-write - Current dependence level
     eLEVEL LEVEL : 3;
     uint32_t _reserved_0 : 13;
+    /// read-write - Depend level
     eLEVEL0 LEVEL0 : 3;
     uint32_t _reserved_1 : 1;
+    /// read-write - Depend level
     eLEVEL1 LEVEL1 : 3;
     uint32_t _reserved_2 : 1;
+    /// read-write - Depend level
     eLEVEL2 LEVEL2 : 3;
     uint32_t _reserved_3 : 1;
+    /// read-write - Depend level
     eLEVEL3 LEVEL3 : 3;
     uint32_t _reserved_4 : 1;
   } bits;
@@ -38992,9 +43026,12 @@ union LPCG94_STATUS0 {
   
   // Bit field definition.
   struct {
+    /// read-only - LPCG current state
     eON ON : 1;
     uint32_t _reserved_0 : 7;
+    /// read-only - Domains that own this clock gate
     eACTIVE_DOMAIN ACTIVE_DOMAIN : 4;
+    /// read-only - Enable status from each domain
     eDOMAIN_ENABLE DOMAIN_ENABLE : 4;
     uint32_t _reserved_1 : 16;
   } bits;
@@ -39101,23 +43138,41 @@ union LPCG94_STATUS1 {
   
   // Bit field definition.
   struct {
+    /// read-only - Domain0 Low Power Mode
     eCPU0_MODE CPU0_MODE : 2;
+    /// read-only - Domain0 request enter Low Power Mode
     eCPU0_MODE_REQUEST CPU0_MODE_REQUEST : 1;
+    /// read-only - Domain0 Low Power Mode task done
     eCPU0_MODE_DONE CPU0_MODE_DONE : 1;
+    /// read-only - Domain1 Low Power Mode
     eCPU1_MODE CPU1_MODE : 2;
+    /// read-only - Domain1 request enter Low Power Mode
     eCPU1_MODE_REQUEST CPU1_MODE_REQUEST : 1;
+    /// read-only - Domain1 Low Power Mode task done
     eCPU1_MODE_DONE CPU1_MODE_DONE : 1;
+    /// read-only - Domain2 Low Power Mode
     eCPU2_MODE CPU2_MODE : 2;
+    /// read-only - Domain2 request enter Low Power Mode
     eCPU2_MODE_REQUEST CPU2_MODE_REQUEST : 1;
+    /// read-only - Domain2 Low Power Mode task done
     eCPU2_MODE_DONE CPU2_MODE_DONE : 1;
+    /// read-only - Domain3 Low Power Mode
     eCPU3_MODE CPU3_MODE : 2;
+    /// read-only - Domain3 request enter Low Power Mode
     eCPU3_MODE_REQUEST CPU3_MODE_REQUEST : 1;
+    /// read-only - Domain3 Low Power Mode task done
     eCPU3_MODE_DONE CPU3_MODE_DONE : 1;
+    /// read-only - Next Setpoint to change to
     uint32_t TARGET_SETPOINT : 4;
+    /// read-only - Current Setpoint
     uint32_t CURRENT_SETPOINT : 4;
+    /// read-only - Clock gate turn off request from GPC Setpoint
     eSETPOINT_OFF_REQUEST SETPOINT_OFF_REQUEST : 1;
+    /// read-only - Clock gate turn off finish from GPC Setpoint
     eSETPOINT_OFF_DONE SETPOINT_OFF_DONE : 1;
+    /// read-only - Clock gate turn on request from GPC Setpoint
     eSETPOINT_ON_REQUEST SETPOINT_ON_REQUEST : 1;
+    /// read-only - Clock gate turn on finish from GPC Setpoint
     eSETPOINT_ON_DONE SETPOINT_ON_DONE : 1;
     uint32_t _reserved_0 : 4;
   } bits;
@@ -39142,6 +43197,7 @@ union LPCG94_CONFIG {
   // Bit field definition.
   struct {
     uint32_t _reserved_0 : 4;
+    /// read-only - Setpoint present
     eSETPOINT_PRESENT SETPOINT_PRESENT : 1;
     uint32_t _reserved_1 : 27;
   } bits;
@@ -39200,18 +43256,27 @@ union LPCG94_AUTHEN {
   
   // Bit field definition.
   struct {
+    /// read-write - User access
     eTZ_USER TZ_USER : 1;
+    /// read-write - Non-secure access
     eTZ_NS TZ_NS : 1;
     uint32_t _reserved_0 : 2;
+    /// read-write - lock truszone setting
     eLOCK_TZ LOCK_TZ : 1;
     uint32_t _reserved_1 : 3;
+    /// read-write - Whitelist
     uint32_t WHITE_LIST : 4;
+    /// read-write - Lock Whitelist
     eLOCK_LIST LOCK_LIST : 1;
     uint32_t _reserved_2 : 3;
+    /// read-write - Low power and access control by domain
     eDOMAIN_MODE DOMAIN_MODE : 1;
+    /// read-write - Low power and access control by Setpoint
     eSETPOINT_MODE SETPOINT_MODE : 1;
+    /// read-write - CPU Low Power Mode
     eCPULPM CPULPM : 1;
     uint32_t _reserved_3 : 1;
+    /// read-write - Lock low power and access mode
     eLOCK_MODE LOCK_MODE : 1;
     uint32_t _reserved_4 : 11;
   } bits;
@@ -39235,6 +43300,7 @@ union LPCG95_DIRECT {
   
   // Bit field definition.
   struct {
+    /// read-write - LPCG on
     eON ON : 1;
     uint32_t _reserved_0 : 31;
   } bits;
@@ -39293,14 +43359,19 @@ union LPCG95_DOMAIN {
   
   // Bit field definition.
   struct {
+    /// read-write - Current dependence level
     eLEVEL LEVEL : 3;
     uint32_t _reserved_0 : 13;
+    /// read-write - Depend level
     eLEVEL0 LEVEL0 : 3;
     uint32_t _reserved_1 : 1;
+    /// read-write - Depend level
     eLEVEL1 LEVEL1 : 3;
     uint32_t _reserved_2 : 1;
+    /// read-write - Depend level
     eLEVEL2 LEVEL2 : 3;
     uint32_t _reserved_3 : 1;
+    /// read-write - Depend level
     eLEVEL3 LEVEL3 : 3;
     uint32_t _reserved_4 : 1;
   } bits;
@@ -39362,9 +43433,12 @@ union LPCG95_STATUS0 {
   
   // Bit field definition.
   struct {
+    /// read-only - LPCG current state
     eON ON : 1;
     uint32_t _reserved_0 : 7;
+    /// read-only - Domains that own this clock gate
     eACTIVE_DOMAIN ACTIVE_DOMAIN : 4;
+    /// read-only - Enable status from each domain
     eDOMAIN_ENABLE DOMAIN_ENABLE : 4;
     uint32_t _reserved_1 : 16;
   } bits;
@@ -39471,23 +43545,41 @@ union LPCG95_STATUS1 {
   
   // Bit field definition.
   struct {
+    /// read-only - Domain0 Low Power Mode
     eCPU0_MODE CPU0_MODE : 2;
+    /// read-only - Domain0 request enter Low Power Mode
     eCPU0_MODE_REQUEST CPU0_MODE_REQUEST : 1;
+    /// read-only - Domain0 Low Power Mode task done
     eCPU0_MODE_DONE CPU0_MODE_DONE : 1;
+    /// read-only - Domain1 Low Power Mode
     eCPU1_MODE CPU1_MODE : 2;
+    /// read-only - Domain1 request enter Low Power Mode
     eCPU1_MODE_REQUEST CPU1_MODE_REQUEST : 1;
+    /// read-only - Domain1 Low Power Mode task done
     eCPU1_MODE_DONE CPU1_MODE_DONE : 1;
+    /// read-only - Domain2 Low Power Mode
     eCPU2_MODE CPU2_MODE : 2;
+    /// read-only - Domain2 request enter Low Power Mode
     eCPU2_MODE_REQUEST CPU2_MODE_REQUEST : 1;
+    /// read-only - Domain2 Low Power Mode task done
     eCPU2_MODE_DONE CPU2_MODE_DONE : 1;
+    /// read-only - Domain3 Low Power Mode
     eCPU3_MODE CPU3_MODE : 2;
+    /// read-only - Domain3 request enter Low Power Mode
     eCPU3_MODE_REQUEST CPU3_MODE_REQUEST : 1;
+    /// read-only - Domain3 Low Power Mode task done
     eCPU3_MODE_DONE CPU3_MODE_DONE : 1;
+    /// read-only - Next Setpoint to change to
     uint32_t TARGET_SETPOINT : 4;
+    /// read-only - Current Setpoint
     uint32_t CURRENT_SETPOINT : 4;
+    /// read-only - Clock gate turn off request from GPC Setpoint
     eSETPOINT_OFF_REQUEST SETPOINT_OFF_REQUEST : 1;
+    /// read-only - Clock gate turn off finish from GPC Setpoint
     eSETPOINT_OFF_DONE SETPOINT_OFF_DONE : 1;
+    /// read-only - Clock gate turn on request from GPC Setpoint
     eSETPOINT_ON_REQUEST SETPOINT_ON_REQUEST : 1;
+    /// read-only - Clock gate turn on finish from GPC Setpoint
     eSETPOINT_ON_DONE SETPOINT_ON_DONE : 1;
     uint32_t _reserved_0 : 4;
   } bits;
@@ -39512,6 +43604,7 @@ union LPCG95_CONFIG {
   // Bit field definition.
   struct {
     uint32_t _reserved_0 : 4;
+    /// read-only - Setpoint present
     eSETPOINT_PRESENT SETPOINT_PRESENT : 1;
     uint32_t _reserved_1 : 27;
   } bits;
@@ -39570,18 +43663,27 @@ union LPCG95_AUTHEN {
   
   // Bit field definition.
   struct {
+    /// read-write - User access
     eTZ_USER TZ_USER : 1;
+    /// read-write - Non-secure access
     eTZ_NS TZ_NS : 1;
     uint32_t _reserved_0 : 2;
+    /// read-write - lock truszone setting
     eLOCK_TZ LOCK_TZ : 1;
     uint32_t _reserved_1 : 3;
+    /// read-write - Whitelist
     uint32_t WHITE_LIST : 4;
+    /// read-write - Lock Whitelist
     eLOCK_LIST LOCK_LIST : 1;
     uint32_t _reserved_2 : 3;
+    /// read-write - Low power and access control by domain
     eDOMAIN_MODE DOMAIN_MODE : 1;
+    /// read-write - Low power and access control by Setpoint
     eSETPOINT_MODE SETPOINT_MODE : 1;
+    /// read-write - CPU Low Power Mode
     eCPULPM CPULPM : 1;
     uint32_t _reserved_3 : 1;
+    /// read-write - Lock low power and access mode
     eLOCK_MODE LOCK_MODE : 1;
     uint32_t _reserved_4 : 11;
   } bits;
@@ -39605,6 +43707,7 @@ union LPCG96_DIRECT {
   
   // Bit field definition.
   struct {
+    /// read-write - LPCG on
     eON ON : 1;
     uint32_t _reserved_0 : 31;
   } bits;
@@ -39663,14 +43766,19 @@ union LPCG96_DOMAIN {
   
   // Bit field definition.
   struct {
+    /// read-write - Current dependence level
     eLEVEL LEVEL : 3;
     uint32_t _reserved_0 : 13;
+    /// read-write - Depend level
     eLEVEL0 LEVEL0 : 3;
     uint32_t _reserved_1 : 1;
+    /// read-write - Depend level
     eLEVEL1 LEVEL1 : 3;
     uint32_t _reserved_2 : 1;
+    /// read-write - Depend level
     eLEVEL2 LEVEL2 : 3;
     uint32_t _reserved_3 : 1;
+    /// read-write - Depend level
     eLEVEL3 LEVEL3 : 3;
     uint32_t _reserved_4 : 1;
   } bits;
@@ -39732,9 +43840,12 @@ union LPCG96_STATUS0 {
   
   // Bit field definition.
   struct {
+    /// read-only - LPCG current state
     eON ON : 1;
     uint32_t _reserved_0 : 7;
+    /// read-only - Domains that own this clock gate
     eACTIVE_DOMAIN ACTIVE_DOMAIN : 4;
+    /// read-only - Enable status from each domain
     eDOMAIN_ENABLE DOMAIN_ENABLE : 4;
     uint32_t _reserved_1 : 16;
   } bits;
@@ -39841,23 +43952,41 @@ union LPCG96_STATUS1 {
   
   // Bit field definition.
   struct {
+    /// read-only - Domain0 Low Power Mode
     eCPU0_MODE CPU0_MODE : 2;
+    /// read-only - Domain0 request enter Low Power Mode
     eCPU0_MODE_REQUEST CPU0_MODE_REQUEST : 1;
+    /// read-only - Domain0 Low Power Mode task done
     eCPU0_MODE_DONE CPU0_MODE_DONE : 1;
+    /// read-only - Domain1 Low Power Mode
     eCPU1_MODE CPU1_MODE : 2;
+    /// read-only - Domain1 request enter Low Power Mode
     eCPU1_MODE_REQUEST CPU1_MODE_REQUEST : 1;
+    /// read-only - Domain1 Low Power Mode task done
     eCPU1_MODE_DONE CPU1_MODE_DONE : 1;
+    /// read-only - Domain2 Low Power Mode
     eCPU2_MODE CPU2_MODE : 2;
+    /// read-only - Domain2 request enter Low Power Mode
     eCPU2_MODE_REQUEST CPU2_MODE_REQUEST : 1;
+    /// read-only - Domain2 Low Power Mode task done
     eCPU2_MODE_DONE CPU2_MODE_DONE : 1;
+    /// read-only - Domain3 Low Power Mode
     eCPU3_MODE CPU3_MODE : 2;
+    /// read-only - Domain3 request enter Low Power Mode
     eCPU3_MODE_REQUEST CPU3_MODE_REQUEST : 1;
+    /// read-only - Domain3 Low Power Mode task done
     eCPU3_MODE_DONE CPU3_MODE_DONE : 1;
+    /// read-only - Next Setpoint to change to
     uint32_t TARGET_SETPOINT : 4;
+    /// read-only - Current Setpoint
     uint32_t CURRENT_SETPOINT : 4;
+    /// read-only - Clock gate turn off request from GPC Setpoint
     eSETPOINT_OFF_REQUEST SETPOINT_OFF_REQUEST : 1;
+    /// read-only - Clock gate turn off finish from GPC Setpoint
     eSETPOINT_OFF_DONE SETPOINT_OFF_DONE : 1;
+    /// read-only - Clock gate turn on request from GPC Setpoint
     eSETPOINT_ON_REQUEST SETPOINT_ON_REQUEST : 1;
+    /// read-only - Clock gate turn on finish from GPC Setpoint
     eSETPOINT_ON_DONE SETPOINT_ON_DONE : 1;
     uint32_t _reserved_0 : 4;
   } bits;
@@ -39882,6 +44011,7 @@ union LPCG96_CONFIG {
   // Bit field definition.
   struct {
     uint32_t _reserved_0 : 4;
+    /// read-only - Setpoint present
     eSETPOINT_PRESENT SETPOINT_PRESENT : 1;
     uint32_t _reserved_1 : 27;
   } bits;
@@ -39940,18 +44070,27 @@ union LPCG96_AUTHEN {
   
   // Bit field definition.
   struct {
+    /// read-write - User access
     eTZ_USER TZ_USER : 1;
+    /// read-write - Non-secure access
     eTZ_NS TZ_NS : 1;
     uint32_t _reserved_0 : 2;
+    /// read-write - lock truszone setting
     eLOCK_TZ LOCK_TZ : 1;
     uint32_t _reserved_1 : 3;
+    /// read-write - Whitelist
     uint32_t WHITE_LIST : 4;
+    /// read-write - Lock Whitelist
     eLOCK_LIST LOCK_LIST : 1;
     uint32_t _reserved_2 : 3;
+    /// read-write - Low power and access control by domain
     eDOMAIN_MODE DOMAIN_MODE : 1;
+    /// read-write - Low power and access control by Setpoint
     eSETPOINT_MODE SETPOINT_MODE : 1;
+    /// read-write - CPU Low Power Mode
     eCPULPM CPULPM : 1;
     uint32_t _reserved_3 : 1;
+    /// read-write - Lock low power and access mode
     eLOCK_MODE LOCK_MODE : 1;
     uint32_t _reserved_4 : 11;
   } bits;
@@ -39975,6 +44114,7 @@ union LPCG97_DIRECT {
   
   // Bit field definition.
   struct {
+    /// read-write - LPCG on
     eON ON : 1;
     uint32_t _reserved_0 : 31;
   } bits;
@@ -40033,14 +44173,19 @@ union LPCG97_DOMAIN {
   
   // Bit field definition.
   struct {
+    /// read-write - Current dependence level
     eLEVEL LEVEL : 3;
     uint32_t _reserved_0 : 13;
+    /// read-write - Depend level
     eLEVEL0 LEVEL0 : 3;
     uint32_t _reserved_1 : 1;
+    /// read-write - Depend level
     eLEVEL1 LEVEL1 : 3;
     uint32_t _reserved_2 : 1;
+    /// read-write - Depend level
     eLEVEL2 LEVEL2 : 3;
     uint32_t _reserved_3 : 1;
+    /// read-write - Depend level
     eLEVEL3 LEVEL3 : 3;
     uint32_t _reserved_4 : 1;
   } bits;
@@ -40102,9 +44247,12 @@ union LPCG97_STATUS0 {
   
   // Bit field definition.
   struct {
+    /// read-only - LPCG current state
     eON ON : 1;
     uint32_t _reserved_0 : 7;
+    /// read-only - Domains that own this clock gate
     eACTIVE_DOMAIN ACTIVE_DOMAIN : 4;
+    /// read-only - Enable status from each domain
     eDOMAIN_ENABLE DOMAIN_ENABLE : 4;
     uint32_t _reserved_1 : 16;
   } bits;
@@ -40211,23 +44359,41 @@ union LPCG97_STATUS1 {
   
   // Bit field definition.
   struct {
+    /// read-only - Domain0 Low Power Mode
     eCPU0_MODE CPU0_MODE : 2;
+    /// read-only - Domain0 request enter Low Power Mode
     eCPU0_MODE_REQUEST CPU0_MODE_REQUEST : 1;
+    /// read-only - Domain0 Low Power Mode task done
     eCPU0_MODE_DONE CPU0_MODE_DONE : 1;
+    /// read-only - Domain1 Low Power Mode
     eCPU1_MODE CPU1_MODE : 2;
+    /// read-only - Domain1 request enter Low Power Mode
     eCPU1_MODE_REQUEST CPU1_MODE_REQUEST : 1;
+    /// read-only - Domain1 Low Power Mode task done
     eCPU1_MODE_DONE CPU1_MODE_DONE : 1;
+    /// read-only - Domain2 Low Power Mode
     eCPU2_MODE CPU2_MODE : 2;
+    /// read-only - Domain2 request enter Low Power Mode
     eCPU2_MODE_REQUEST CPU2_MODE_REQUEST : 1;
+    /// read-only - Domain2 Low Power Mode task done
     eCPU2_MODE_DONE CPU2_MODE_DONE : 1;
+    /// read-only - Domain3 Low Power Mode
     eCPU3_MODE CPU3_MODE : 2;
+    /// read-only - Domain3 request enter Low Power Mode
     eCPU3_MODE_REQUEST CPU3_MODE_REQUEST : 1;
+    /// read-only - Domain3 Low Power Mode task done
     eCPU3_MODE_DONE CPU3_MODE_DONE : 1;
+    /// read-only - Next Setpoint to change to
     uint32_t TARGET_SETPOINT : 4;
+    /// read-only - Current Setpoint
     uint32_t CURRENT_SETPOINT : 4;
+    /// read-only - Clock gate turn off request from GPC Setpoint
     eSETPOINT_OFF_REQUEST SETPOINT_OFF_REQUEST : 1;
+    /// read-only - Clock gate turn off finish from GPC Setpoint
     eSETPOINT_OFF_DONE SETPOINT_OFF_DONE : 1;
+    /// read-only - Clock gate turn on request from GPC Setpoint
     eSETPOINT_ON_REQUEST SETPOINT_ON_REQUEST : 1;
+    /// read-only - Clock gate turn on finish from GPC Setpoint
     eSETPOINT_ON_DONE SETPOINT_ON_DONE : 1;
     uint32_t _reserved_0 : 4;
   } bits;
@@ -40252,6 +44418,7 @@ union LPCG97_CONFIG {
   // Bit field definition.
   struct {
     uint32_t _reserved_0 : 4;
+    /// read-only - Setpoint present
     eSETPOINT_PRESENT SETPOINT_PRESENT : 1;
     uint32_t _reserved_1 : 27;
   } bits;
@@ -40310,18 +44477,27 @@ union LPCG97_AUTHEN {
   
   // Bit field definition.
   struct {
+    /// read-write - User access
     eTZ_USER TZ_USER : 1;
+    /// read-write - Non-secure access
     eTZ_NS TZ_NS : 1;
     uint32_t _reserved_0 : 2;
+    /// read-write - lock truszone setting
     eLOCK_TZ LOCK_TZ : 1;
     uint32_t _reserved_1 : 3;
+    /// read-write - Whitelist
     uint32_t WHITE_LIST : 4;
+    /// read-write - Lock Whitelist
     eLOCK_LIST LOCK_LIST : 1;
     uint32_t _reserved_2 : 3;
+    /// read-write - Low power and access control by domain
     eDOMAIN_MODE DOMAIN_MODE : 1;
+    /// read-write - Low power and access control by Setpoint
     eSETPOINT_MODE SETPOINT_MODE : 1;
+    /// read-write - CPU Low Power Mode
     eCPULPM CPULPM : 1;
     uint32_t _reserved_3 : 1;
+    /// read-write - Lock low power and access mode
     eLOCK_MODE LOCK_MODE : 1;
     uint32_t _reserved_4 : 11;
   } bits;
@@ -40345,6 +44521,7 @@ union LPCG98_DIRECT {
   
   // Bit field definition.
   struct {
+    /// read-write - LPCG on
     eON ON : 1;
     uint32_t _reserved_0 : 31;
   } bits;
@@ -40403,14 +44580,19 @@ union LPCG98_DOMAIN {
   
   // Bit field definition.
   struct {
+    /// read-write - Current dependence level
     eLEVEL LEVEL : 3;
     uint32_t _reserved_0 : 13;
+    /// read-write - Depend level
     eLEVEL0 LEVEL0 : 3;
     uint32_t _reserved_1 : 1;
+    /// read-write - Depend level
     eLEVEL1 LEVEL1 : 3;
     uint32_t _reserved_2 : 1;
+    /// read-write - Depend level
     eLEVEL2 LEVEL2 : 3;
     uint32_t _reserved_3 : 1;
+    /// read-write - Depend level
     eLEVEL3 LEVEL3 : 3;
     uint32_t _reserved_4 : 1;
   } bits;
@@ -40472,9 +44654,12 @@ union LPCG98_STATUS0 {
   
   // Bit field definition.
   struct {
+    /// read-only - LPCG current state
     eON ON : 1;
     uint32_t _reserved_0 : 7;
+    /// read-only - Domains that own this clock gate
     eACTIVE_DOMAIN ACTIVE_DOMAIN : 4;
+    /// read-only - Enable status from each domain
     eDOMAIN_ENABLE DOMAIN_ENABLE : 4;
     uint32_t _reserved_1 : 16;
   } bits;
@@ -40581,23 +44766,41 @@ union LPCG98_STATUS1 {
   
   // Bit field definition.
   struct {
+    /// read-only - Domain0 Low Power Mode
     eCPU0_MODE CPU0_MODE : 2;
+    /// read-only - Domain0 request enter Low Power Mode
     eCPU0_MODE_REQUEST CPU0_MODE_REQUEST : 1;
+    /// read-only - Domain0 Low Power Mode task done
     eCPU0_MODE_DONE CPU0_MODE_DONE : 1;
+    /// read-only - Domain1 Low Power Mode
     eCPU1_MODE CPU1_MODE : 2;
+    /// read-only - Domain1 request enter Low Power Mode
     eCPU1_MODE_REQUEST CPU1_MODE_REQUEST : 1;
+    /// read-only - Domain1 Low Power Mode task done
     eCPU1_MODE_DONE CPU1_MODE_DONE : 1;
+    /// read-only - Domain2 Low Power Mode
     eCPU2_MODE CPU2_MODE : 2;
+    /// read-only - Domain2 request enter Low Power Mode
     eCPU2_MODE_REQUEST CPU2_MODE_REQUEST : 1;
+    /// read-only - Domain2 Low Power Mode task done
     eCPU2_MODE_DONE CPU2_MODE_DONE : 1;
+    /// read-only - Domain3 Low Power Mode
     eCPU3_MODE CPU3_MODE : 2;
+    /// read-only - Domain3 request enter Low Power Mode
     eCPU3_MODE_REQUEST CPU3_MODE_REQUEST : 1;
+    /// read-only - Domain3 Low Power Mode task done
     eCPU3_MODE_DONE CPU3_MODE_DONE : 1;
+    /// read-only - Next Setpoint to change to
     uint32_t TARGET_SETPOINT : 4;
+    /// read-only - Current Setpoint
     uint32_t CURRENT_SETPOINT : 4;
+    /// read-only - Clock gate turn off request from GPC Setpoint
     eSETPOINT_OFF_REQUEST SETPOINT_OFF_REQUEST : 1;
+    /// read-only - Clock gate turn off finish from GPC Setpoint
     eSETPOINT_OFF_DONE SETPOINT_OFF_DONE : 1;
+    /// read-only - Clock gate turn on request from GPC Setpoint
     eSETPOINT_ON_REQUEST SETPOINT_ON_REQUEST : 1;
+    /// read-only - Clock gate turn on finish from GPC Setpoint
     eSETPOINT_ON_DONE SETPOINT_ON_DONE : 1;
     uint32_t _reserved_0 : 4;
   } bits;
@@ -40622,6 +44825,7 @@ union LPCG98_CONFIG {
   // Bit field definition.
   struct {
     uint32_t _reserved_0 : 4;
+    /// read-only - Setpoint present
     eSETPOINT_PRESENT SETPOINT_PRESENT : 1;
     uint32_t _reserved_1 : 27;
   } bits;
@@ -40680,18 +44884,27 @@ union LPCG98_AUTHEN {
   
   // Bit field definition.
   struct {
+    /// read-write - User access
     eTZ_USER TZ_USER : 1;
+    /// read-write - Non-secure access
     eTZ_NS TZ_NS : 1;
     uint32_t _reserved_0 : 2;
+    /// read-write - lock truszone setting
     eLOCK_TZ LOCK_TZ : 1;
     uint32_t _reserved_1 : 3;
+    /// read-write - Whitelist
     uint32_t WHITE_LIST : 4;
+    /// read-write - Lock Whitelist
     eLOCK_LIST LOCK_LIST : 1;
     uint32_t _reserved_2 : 3;
+    /// read-write - Low power and access control by domain
     eDOMAIN_MODE DOMAIN_MODE : 1;
+    /// read-write - Low power and access control by Setpoint
     eSETPOINT_MODE SETPOINT_MODE : 1;
+    /// read-write - CPU Low Power Mode
     eCPULPM CPULPM : 1;
     uint32_t _reserved_3 : 1;
+    /// read-write - Lock low power and access mode
     eLOCK_MODE LOCK_MODE : 1;
     uint32_t _reserved_4 : 11;
   } bits;
@@ -40715,6 +44928,7 @@ union LPCG99_DIRECT {
   
   // Bit field definition.
   struct {
+    /// read-write - LPCG on
     eON ON : 1;
     uint32_t _reserved_0 : 31;
   } bits;
@@ -40773,14 +44987,19 @@ union LPCG99_DOMAIN {
   
   // Bit field definition.
   struct {
+    /// read-write - Current dependence level
     eLEVEL LEVEL : 3;
     uint32_t _reserved_0 : 13;
+    /// read-write - Depend level
     eLEVEL0 LEVEL0 : 3;
     uint32_t _reserved_1 : 1;
+    /// read-write - Depend level
     eLEVEL1 LEVEL1 : 3;
     uint32_t _reserved_2 : 1;
+    /// read-write - Depend level
     eLEVEL2 LEVEL2 : 3;
     uint32_t _reserved_3 : 1;
+    /// read-write - Depend level
     eLEVEL3 LEVEL3 : 3;
     uint32_t _reserved_4 : 1;
   } bits;
@@ -40842,9 +45061,12 @@ union LPCG99_STATUS0 {
   
   // Bit field definition.
   struct {
+    /// read-only - LPCG current state
     eON ON : 1;
     uint32_t _reserved_0 : 7;
+    /// read-only - Domains that own this clock gate
     eACTIVE_DOMAIN ACTIVE_DOMAIN : 4;
+    /// read-only - Enable status from each domain
     eDOMAIN_ENABLE DOMAIN_ENABLE : 4;
     uint32_t _reserved_1 : 16;
   } bits;
@@ -40951,23 +45173,41 @@ union LPCG99_STATUS1 {
   
   // Bit field definition.
   struct {
+    /// read-only - Domain0 Low Power Mode
     eCPU0_MODE CPU0_MODE : 2;
+    /// read-only - Domain0 request enter Low Power Mode
     eCPU0_MODE_REQUEST CPU0_MODE_REQUEST : 1;
+    /// read-only - Domain0 Low Power Mode task done
     eCPU0_MODE_DONE CPU0_MODE_DONE : 1;
+    /// read-only - Domain1 Low Power Mode
     eCPU1_MODE CPU1_MODE : 2;
+    /// read-only - Domain1 request enter Low Power Mode
     eCPU1_MODE_REQUEST CPU1_MODE_REQUEST : 1;
+    /// read-only - Domain1 Low Power Mode task done
     eCPU1_MODE_DONE CPU1_MODE_DONE : 1;
+    /// read-only - Domain2 Low Power Mode
     eCPU2_MODE CPU2_MODE : 2;
+    /// read-only - Domain2 request enter Low Power Mode
     eCPU2_MODE_REQUEST CPU2_MODE_REQUEST : 1;
+    /// read-only - Domain2 Low Power Mode task done
     eCPU2_MODE_DONE CPU2_MODE_DONE : 1;
+    /// read-only - Domain3 Low Power Mode
     eCPU3_MODE CPU3_MODE : 2;
+    /// read-only - Domain3 request enter Low Power Mode
     eCPU3_MODE_REQUEST CPU3_MODE_REQUEST : 1;
+    /// read-only - Domain3 Low Power Mode task done
     eCPU3_MODE_DONE CPU3_MODE_DONE : 1;
+    /// read-only - Next Setpoint to change to
     uint32_t TARGET_SETPOINT : 4;
+    /// read-only - Current Setpoint
     uint32_t CURRENT_SETPOINT : 4;
+    /// read-only - Clock gate turn off request from GPC Setpoint
     eSETPOINT_OFF_REQUEST SETPOINT_OFF_REQUEST : 1;
+    /// read-only - Clock gate turn off finish from GPC Setpoint
     eSETPOINT_OFF_DONE SETPOINT_OFF_DONE : 1;
+    /// read-only - Clock gate turn on request from GPC Setpoint
     eSETPOINT_ON_REQUEST SETPOINT_ON_REQUEST : 1;
+    /// read-only - Clock gate turn on finish from GPC Setpoint
     eSETPOINT_ON_DONE SETPOINT_ON_DONE : 1;
     uint32_t _reserved_0 : 4;
   } bits;
@@ -40992,6 +45232,7 @@ union LPCG99_CONFIG {
   // Bit field definition.
   struct {
     uint32_t _reserved_0 : 4;
+    /// read-only - Setpoint present
     eSETPOINT_PRESENT SETPOINT_PRESENT : 1;
     uint32_t _reserved_1 : 27;
   } bits;
@@ -41050,18 +45291,27 @@ union LPCG99_AUTHEN {
   
   // Bit field definition.
   struct {
+    /// read-write - User access
     eTZ_USER TZ_USER : 1;
+    /// read-write - Non-secure access
     eTZ_NS TZ_NS : 1;
     uint32_t _reserved_0 : 2;
+    /// read-write - lock truszone setting
     eLOCK_TZ LOCK_TZ : 1;
     uint32_t _reserved_1 : 3;
+    /// read-write - Whitelist
     uint32_t WHITE_LIST : 4;
+    /// read-write - Lock Whitelist
     eLOCK_LIST LOCK_LIST : 1;
     uint32_t _reserved_2 : 3;
+    /// read-write - Low power and access control by domain
     eDOMAIN_MODE DOMAIN_MODE : 1;
+    /// read-write - Low power and access control by Setpoint
     eSETPOINT_MODE SETPOINT_MODE : 1;
+    /// read-write - CPU Low Power Mode
     eCPULPM CPULPM : 1;
     uint32_t _reserved_3 : 1;
+    /// read-write - Lock low power and access mode
     eLOCK_MODE LOCK_MODE : 1;
     uint32_t _reserved_4 : 11;
   } bits;
@@ -41085,6 +45335,7 @@ union LPCG100_DIRECT {
   
   // Bit field definition.
   struct {
+    /// read-write - LPCG on
     eON ON : 1;
     uint32_t _reserved_0 : 31;
   } bits;
@@ -41143,14 +45394,19 @@ union LPCG100_DOMAIN {
   
   // Bit field definition.
   struct {
+    /// read-write - Current dependence level
     eLEVEL LEVEL : 3;
     uint32_t _reserved_0 : 13;
+    /// read-write - Depend level
     eLEVEL0 LEVEL0 : 3;
     uint32_t _reserved_1 : 1;
+    /// read-write - Depend level
     eLEVEL1 LEVEL1 : 3;
     uint32_t _reserved_2 : 1;
+    /// read-write - Depend level
     eLEVEL2 LEVEL2 : 3;
     uint32_t _reserved_3 : 1;
+    /// read-write - Depend level
     eLEVEL3 LEVEL3 : 3;
     uint32_t _reserved_4 : 1;
   } bits;
@@ -41212,9 +45468,12 @@ union LPCG100_STATUS0 {
   
   // Bit field definition.
   struct {
+    /// read-only - LPCG current state
     eON ON : 1;
     uint32_t _reserved_0 : 7;
+    /// read-only - Domains that own this clock gate
     eACTIVE_DOMAIN ACTIVE_DOMAIN : 4;
+    /// read-only - Enable status from each domain
     eDOMAIN_ENABLE DOMAIN_ENABLE : 4;
     uint32_t _reserved_1 : 16;
   } bits;
@@ -41321,23 +45580,41 @@ union LPCG100_STATUS1 {
   
   // Bit field definition.
   struct {
+    /// read-only - Domain0 Low Power Mode
     eCPU0_MODE CPU0_MODE : 2;
+    /// read-only - Domain0 request enter Low Power Mode
     eCPU0_MODE_REQUEST CPU0_MODE_REQUEST : 1;
+    /// read-only - Domain0 Low Power Mode task done
     eCPU0_MODE_DONE CPU0_MODE_DONE : 1;
+    /// read-only - Domain1 Low Power Mode
     eCPU1_MODE CPU1_MODE : 2;
+    /// read-only - Domain1 request enter Low Power Mode
     eCPU1_MODE_REQUEST CPU1_MODE_REQUEST : 1;
+    /// read-only - Domain1 Low Power Mode task done
     eCPU1_MODE_DONE CPU1_MODE_DONE : 1;
+    /// read-only - Domain2 Low Power Mode
     eCPU2_MODE CPU2_MODE : 2;
+    /// read-only - Domain2 request enter Low Power Mode
     eCPU2_MODE_REQUEST CPU2_MODE_REQUEST : 1;
+    /// read-only - Domain2 Low Power Mode task done
     eCPU2_MODE_DONE CPU2_MODE_DONE : 1;
+    /// read-only - Domain3 Low Power Mode
     eCPU3_MODE CPU3_MODE : 2;
+    /// read-only - Domain3 request enter Low Power Mode
     eCPU3_MODE_REQUEST CPU3_MODE_REQUEST : 1;
+    /// read-only - Domain3 Low Power Mode task done
     eCPU3_MODE_DONE CPU3_MODE_DONE : 1;
+    /// read-only - Next Setpoint to change to
     uint32_t TARGET_SETPOINT : 4;
+    /// read-only - Current Setpoint
     uint32_t CURRENT_SETPOINT : 4;
+    /// read-only - Clock gate turn off request from GPC Setpoint
     eSETPOINT_OFF_REQUEST SETPOINT_OFF_REQUEST : 1;
+    /// read-only - Clock gate turn off finish from GPC Setpoint
     eSETPOINT_OFF_DONE SETPOINT_OFF_DONE : 1;
+    /// read-only - Clock gate turn on request from GPC Setpoint
     eSETPOINT_ON_REQUEST SETPOINT_ON_REQUEST : 1;
+    /// read-only - Clock gate turn on finish from GPC Setpoint
     eSETPOINT_ON_DONE SETPOINT_ON_DONE : 1;
     uint32_t _reserved_0 : 4;
   } bits;
@@ -41362,6 +45639,7 @@ union LPCG100_CONFIG {
   // Bit field definition.
   struct {
     uint32_t _reserved_0 : 4;
+    /// read-only - Setpoint present
     eSETPOINT_PRESENT SETPOINT_PRESENT : 1;
     uint32_t _reserved_1 : 27;
   } bits;
@@ -41420,18 +45698,27 @@ union LPCG100_AUTHEN {
   
   // Bit field definition.
   struct {
+    /// read-write - User access
     eTZ_USER TZ_USER : 1;
+    /// read-write - Non-secure access
     eTZ_NS TZ_NS : 1;
     uint32_t _reserved_0 : 2;
+    /// read-write - lock truszone setting
     eLOCK_TZ LOCK_TZ : 1;
     uint32_t _reserved_1 : 3;
+    /// read-write - Whitelist
     uint32_t WHITE_LIST : 4;
+    /// read-write - Lock Whitelist
     eLOCK_LIST LOCK_LIST : 1;
     uint32_t _reserved_2 : 3;
+    /// read-write - Low power and access control by domain
     eDOMAIN_MODE DOMAIN_MODE : 1;
+    /// read-write - Low power and access control by Setpoint
     eSETPOINT_MODE SETPOINT_MODE : 1;
+    /// read-write - CPU Low Power Mode
     eCPULPM CPULPM : 1;
     uint32_t _reserved_3 : 1;
+    /// read-write - Lock low power and access mode
     eLOCK_MODE LOCK_MODE : 1;
     uint32_t _reserved_4 : 11;
   } bits;
@@ -41455,6 +45742,7 @@ union LPCG101_DIRECT {
   
   // Bit field definition.
   struct {
+    /// read-write - LPCG on
     eON ON : 1;
     uint32_t _reserved_0 : 31;
   } bits;
@@ -41513,14 +45801,19 @@ union LPCG101_DOMAIN {
   
   // Bit field definition.
   struct {
+    /// read-write - Current dependence level
     eLEVEL LEVEL : 3;
     uint32_t _reserved_0 : 13;
+    /// read-write - Depend level
     eLEVEL0 LEVEL0 : 3;
     uint32_t _reserved_1 : 1;
+    /// read-write - Depend level
     eLEVEL1 LEVEL1 : 3;
     uint32_t _reserved_2 : 1;
+    /// read-write - Depend level
     eLEVEL2 LEVEL2 : 3;
     uint32_t _reserved_3 : 1;
+    /// read-write - Depend level
     eLEVEL3 LEVEL3 : 3;
     uint32_t _reserved_4 : 1;
   } bits;
@@ -41582,9 +45875,12 @@ union LPCG101_STATUS0 {
   
   // Bit field definition.
   struct {
+    /// read-only - LPCG current state
     eON ON : 1;
     uint32_t _reserved_0 : 7;
+    /// read-only - Domains that own this clock gate
     eACTIVE_DOMAIN ACTIVE_DOMAIN : 4;
+    /// read-only - Enable status from each domain
     eDOMAIN_ENABLE DOMAIN_ENABLE : 4;
     uint32_t _reserved_1 : 16;
   } bits;
@@ -41691,23 +45987,41 @@ union LPCG101_STATUS1 {
   
   // Bit field definition.
   struct {
+    /// read-only - Domain0 Low Power Mode
     eCPU0_MODE CPU0_MODE : 2;
+    /// read-only - Domain0 request enter Low Power Mode
     eCPU0_MODE_REQUEST CPU0_MODE_REQUEST : 1;
+    /// read-only - Domain0 Low Power Mode task done
     eCPU0_MODE_DONE CPU0_MODE_DONE : 1;
+    /// read-only - Domain1 Low Power Mode
     eCPU1_MODE CPU1_MODE : 2;
+    /// read-only - Domain1 request enter Low Power Mode
     eCPU1_MODE_REQUEST CPU1_MODE_REQUEST : 1;
+    /// read-only - Domain1 Low Power Mode task done
     eCPU1_MODE_DONE CPU1_MODE_DONE : 1;
+    /// read-only - Domain2 Low Power Mode
     eCPU2_MODE CPU2_MODE : 2;
+    /// read-only - Domain2 request enter Low Power Mode
     eCPU2_MODE_REQUEST CPU2_MODE_REQUEST : 1;
+    /// read-only - Domain2 Low Power Mode task done
     eCPU2_MODE_DONE CPU2_MODE_DONE : 1;
+    /// read-only - Domain3 Low Power Mode
     eCPU3_MODE CPU3_MODE : 2;
+    /// read-only - Domain3 request enter Low Power Mode
     eCPU3_MODE_REQUEST CPU3_MODE_REQUEST : 1;
+    /// read-only - Domain3 Low Power Mode task done
     eCPU3_MODE_DONE CPU3_MODE_DONE : 1;
+    /// read-only - Next Setpoint to change to
     uint32_t TARGET_SETPOINT : 4;
+    /// read-only - Current Setpoint
     uint32_t CURRENT_SETPOINT : 4;
+    /// read-only - Clock gate turn off request from GPC Setpoint
     eSETPOINT_OFF_REQUEST SETPOINT_OFF_REQUEST : 1;
+    /// read-only - Clock gate turn off finish from GPC Setpoint
     eSETPOINT_OFF_DONE SETPOINT_OFF_DONE : 1;
+    /// read-only - Clock gate turn on request from GPC Setpoint
     eSETPOINT_ON_REQUEST SETPOINT_ON_REQUEST : 1;
+    /// read-only - Clock gate turn on finish from GPC Setpoint
     eSETPOINT_ON_DONE SETPOINT_ON_DONE : 1;
     uint32_t _reserved_0 : 4;
   } bits;
@@ -41732,6 +46046,7 @@ union LPCG101_CONFIG {
   // Bit field definition.
   struct {
     uint32_t _reserved_0 : 4;
+    /// read-only - Setpoint present
     eSETPOINT_PRESENT SETPOINT_PRESENT : 1;
     uint32_t _reserved_1 : 27;
   } bits;
@@ -41790,18 +46105,27 @@ union LPCG101_AUTHEN {
   
   // Bit field definition.
   struct {
+    /// read-write - User access
     eTZ_USER TZ_USER : 1;
+    /// read-write - Non-secure access
     eTZ_NS TZ_NS : 1;
     uint32_t _reserved_0 : 2;
+    /// read-write - lock truszone setting
     eLOCK_TZ LOCK_TZ : 1;
     uint32_t _reserved_1 : 3;
+    /// read-write - Whitelist
     uint32_t WHITE_LIST : 4;
+    /// read-write - Lock Whitelist
     eLOCK_LIST LOCK_LIST : 1;
     uint32_t _reserved_2 : 3;
+    /// read-write - Low power and access control by domain
     eDOMAIN_MODE DOMAIN_MODE : 1;
+    /// read-write - Low power and access control by Setpoint
     eSETPOINT_MODE SETPOINT_MODE : 1;
+    /// read-write - CPU Low Power Mode
     eCPULPM CPULPM : 1;
     uint32_t _reserved_3 : 1;
+    /// read-write - Lock low power and access mode
     eLOCK_MODE LOCK_MODE : 1;
     uint32_t _reserved_4 : 11;
   } bits;
@@ -41825,6 +46149,7 @@ union LPCG102_DIRECT {
   
   // Bit field definition.
   struct {
+    /// read-write - LPCG on
     eON ON : 1;
     uint32_t _reserved_0 : 31;
   } bits;
@@ -41883,14 +46208,19 @@ union LPCG102_DOMAIN {
   
   // Bit field definition.
   struct {
+    /// read-write - Current dependence level
     eLEVEL LEVEL : 3;
     uint32_t _reserved_0 : 13;
+    /// read-write - Depend level
     eLEVEL0 LEVEL0 : 3;
     uint32_t _reserved_1 : 1;
+    /// read-write - Depend level
     eLEVEL1 LEVEL1 : 3;
     uint32_t _reserved_2 : 1;
+    /// read-write - Depend level
     eLEVEL2 LEVEL2 : 3;
     uint32_t _reserved_3 : 1;
+    /// read-write - Depend level
     eLEVEL3 LEVEL3 : 3;
     uint32_t _reserved_4 : 1;
   } bits;
@@ -41952,9 +46282,12 @@ union LPCG102_STATUS0 {
   
   // Bit field definition.
   struct {
+    /// read-only - LPCG current state
     eON ON : 1;
     uint32_t _reserved_0 : 7;
+    /// read-only - Domains that own this clock gate
     eACTIVE_DOMAIN ACTIVE_DOMAIN : 4;
+    /// read-only - Enable status from each domain
     eDOMAIN_ENABLE DOMAIN_ENABLE : 4;
     uint32_t _reserved_1 : 16;
   } bits;
@@ -42061,23 +46394,41 @@ union LPCG102_STATUS1 {
   
   // Bit field definition.
   struct {
+    /// read-only - Domain0 Low Power Mode
     eCPU0_MODE CPU0_MODE : 2;
+    /// read-only - Domain0 request enter Low Power Mode
     eCPU0_MODE_REQUEST CPU0_MODE_REQUEST : 1;
+    /// read-only - Domain0 Low Power Mode task done
     eCPU0_MODE_DONE CPU0_MODE_DONE : 1;
+    /// read-only - Domain1 Low Power Mode
     eCPU1_MODE CPU1_MODE : 2;
+    /// read-only - Domain1 request enter Low Power Mode
     eCPU1_MODE_REQUEST CPU1_MODE_REQUEST : 1;
+    /// read-only - Domain1 Low Power Mode task done
     eCPU1_MODE_DONE CPU1_MODE_DONE : 1;
+    /// read-only - Domain2 Low Power Mode
     eCPU2_MODE CPU2_MODE : 2;
+    /// read-only - Domain2 request enter Low Power Mode
     eCPU2_MODE_REQUEST CPU2_MODE_REQUEST : 1;
+    /// read-only - Domain2 Low Power Mode task done
     eCPU2_MODE_DONE CPU2_MODE_DONE : 1;
+    /// read-only - Domain3 Low Power Mode
     eCPU3_MODE CPU3_MODE : 2;
+    /// read-only - Domain3 request enter Low Power Mode
     eCPU3_MODE_REQUEST CPU3_MODE_REQUEST : 1;
+    /// read-only - Domain3 Low Power Mode task done
     eCPU3_MODE_DONE CPU3_MODE_DONE : 1;
+    /// read-only - Next Setpoint to change to
     uint32_t TARGET_SETPOINT : 4;
+    /// read-only - Current Setpoint
     uint32_t CURRENT_SETPOINT : 4;
+    /// read-only - Clock gate turn off request from GPC Setpoint
     eSETPOINT_OFF_REQUEST SETPOINT_OFF_REQUEST : 1;
+    /// read-only - Clock gate turn off finish from GPC Setpoint
     eSETPOINT_OFF_DONE SETPOINT_OFF_DONE : 1;
+    /// read-only - Clock gate turn on request from GPC Setpoint
     eSETPOINT_ON_REQUEST SETPOINT_ON_REQUEST : 1;
+    /// read-only - Clock gate turn on finish from GPC Setpoint
     eSETPOINT_ON_DONE SETPOINT_ON_DONE : 1;
     uint32_t _reserved_0 : 4;
   } bits;
@@ -42102,6 +46453,7 @@ union LPCG102_CONFIG {
   // Bit field definition.
   struct {
     uint32_t _reserved_0 : 4;
+    /// read-only - Setpoint present
     eSETPOINT_PRESENT SETPOINT_PRESENT : 1;
     uint32_t _reserved_1 : 27;
   } bits;
@@ -42160,18 +46512,27 @@ union LPCG102_AUTHEN {
   
   // Bit field definition.
   struct {
+    /// read-write - User access
     eTZ_USER TZ_USER : 1;
+    /// read-write - Non-secure access
     eTZ_NS TZ_NS : 1;
     uint32_t _reserved_0 : 2;
+    /// read-write - lock truszone setting
     eLOCK_TZ LOCK_TZ : 1;
     uint32_t _reserved_1 : 3;
+    /// read-write - Whitelist
     uint32_t WHITE_LIST : 4;
+    /// read-write - Lock Whitelist
     eLOCK_LIST LOCK_LIST : 1;
     uint32_t _reserved_2 : 3;
+    /// read-write - Low power and access control by domain
     eDOMAIN_MODE DOMAIN_MODE : 1;
+    /// read-write - Low power and access control by Setpoint
     eSETPOINT_MODE SETPOINT_MODE : 1;
+    /// read-write - CPU Low Power Mode
     eCPULPM CPULPM : 1;
     uint32_t _reserved_3 : 1;
+    /// read-write - Lock low power and access mode
     eLOCK_MODE LOCK_MODE : 1;
     uint32_t _reserved_4 : 11;
   } bits;
@@ -42195,6 +46556,7 @@ union LPCG103_DIRECT {
   
   // Bit field definition.
   struct {
+    /// read-write - LPCG on
     eON ON : 1;
     uint32_t _reserved_0 : 31;
   } bits;
@@ -42253,14 +46615,19 @@ union LPCG103_DOMAIN {
   
   // Bit field definition.
   struct {
+    /// read-write - Current dependence level
     eLEVEL LEVEL : 3;
     uint32_t _reserved_0 : 13;
+    /// read-write - Depend level
     eLEVEL0 LEVEL0 : 3;
     uint32_t _reserved_1 : 1;
+    /// read-write - Depend level
     eLEVEL1 LEVEL1 : 3;
     uint32_t _reserved_2 : 1;
+    /// read-write - Depend level
     eLEVEL2 LEVEL2 : 3;
     uint32_t _reserved_3 : 1;
+    /// read-write - Depend level
     eLEVEL3 LEVEL3 : 3;
     uint32_t _reserved_4 : 1;
   } bits;
@@ -42322,9 +46689,12 @@ union LPCG103_STATUS0 {
   
   // Bit field definition.
   struct {
+    /// read-only - LPCG current state
     eON ON : 1;
     uint32_t _reserved_0 : 7;
+    /// read-only - Domains that own this clock gate
     eACTIVE_DOMAIN ACTIVE_DOMAIN : 4;
+    /// read-only - Enable status from each domain
     eDOMAIN_ENABLE DOMAIN_ENABLE : 4;
     uint32_t _reserved_1 : 16;
   } bits;
@@ -42431,23 +46801,41 @@ union LPCG103_STATUS1 {
   
   // Bit field definition.
   struct {
+    /// read-only - Domain0 Low Power Mode
     eCPU0_MODE CPU0_MODE : 2;
+    /// read-only - Domain0 request enter Low Power Mode
     eCPU0_MODE_REQUEST CPU0_MODE_REQUEST : 1;
+    /// read-only - Domain0 Low Power Mode task done
     eCPU0_MODE_DONE CPU0_MODE_DONE : 1;
+    /// read-only - Domain1 Low Power Mode
     eCPU1_MODE CPU1_MODE : 2;
+    /// read-only - Domain1 request enter Low Power Mode
     eCPU1_MODE_REQUEST CPU1_MODE_REQUEST : 1;
+    /// read-only - Domain1 Low Power Mode task done
     eCPU1_MODE_DONE CPU1_MODE_DONE : 1;
+    /// read-only - Domain2 Low Power Mode
     eCPU2_MODE CPU2_MODE : 2;
+    /// read-only - Domain2 request enter Low Power Mode
     eCPU2_MODE_REQUEST CPU2_MODE_REQUEST : 1;
+    /// read-only - Domain2 Low Power Mode task done
     eCPU2_MODE_DONE CPU2_MODE_DONE : 1;
+    /// read-only - Domain3 Low Power Mode
     eCPU3_MODE CPU3_MODE : 2;
+    /// read-only - Domain3 request enter Low Power Mode
     eCPU3_MODE_REQUEST CPU3_MODE_REQUEST : 1;
+    /// read-only - Domain3 Low Power Mode task done
     eCPU3_MODE_DONE CPU3_MODE_DONE : 1;
+    /// read-only - Next Setpoint to change to
     uint32_t TARGET_SETPOINT : 4;
+    /// read-only - Current Setpoint
     uint32_t CURRENT_SETPOINT : 4;
+    /// read-only - Clock gate turn off request from GPC Setpoint
     eSETPOINT_OFF_REQUEST SETPOINT_OFF_REQUEST : 1;
+    /// read-only - Clock gate turn off finish from GPC Setpoint
     eSETPOINT_OFF_DONE SETPOINT_OFF_DONE : 1;
+    /// read-only - Clock gate turn on request from GPC Setpoint
     eSETPOINT_ON_REQUEST SETPOINT_ON_REQUEST : 1;
+    /// read-only - Clock gate turn on finish from GPC Setpoint
     eSETPOINT_ON_DONE SETPOINT_ON_DONE : 1;
     uint32_t _reserved_0 : 4;
   } bits;
@@ -42472,6 +46860,7 @@ union LPCG103_CONFIG {
   // Bit field definition.
   struct {
     uint32_t _reserved_0 : 4;
+    /// read-only - Setpoint present
     eSETPOINT_PRESENT SETPOINT_PRESENT : 1;
     uint32_t _reserved_1 : 27;
   } bits;
@@ -42530,18 +46919,27 @@ union LPCG103_AUTHEN {
   
   // Bit field definition.
   struct {
+    /// read-write - User access
     eTZ_USER TZ_USER : 1;
+    /// read-write - Non-secure access
     eTZ_NS TZ_NS : 1;
     uint32_t _reserved_0 : 2;
+    /// read-write - lock truszone setting
     eLOCK_TZ LOCK_TZ : 1;
     uint32_t _reserved_1 : 3;
+    /// read-write - Whitelist
     uint32_t WHITE_LIST : 4;
+    /// read-write - Lock Whitelist
     eLOCK_LIST LOCK_LIST : 1;
     uint32_t _reserved_2 : 3;
+    /// read-write - Low power and access control by domain
     eDOMAIN_MODE DOMAIN_MODE : 1;
+    /// read-write - Low power and access control by Setpoint
     eSETPOINT_MODE SETPOINT_MODE : 1;
+    /// read-write - CPU Low Power Mode
     eCPULPM CPULPM : 1;
     uint32_t _reserved_3 : 1;
+    /// read-write - Lock low power and access mode
     eLOCK_MODE LOCK_MODE : 1;
     uint32_t _reserved_4 : 11;
   } bits;
@@ -42565,6 +46963,7 @@ union LPCG104_DIRECT {
   
   // Bit field definition.
   struct {
+    /// read-write - LPCG on
     eON ON : 1;
     uint32_t _reserved_0 : 31;
   } bits;
@@ -42623,14 +47022,19 @@ union LPCG104_DOMAIN {
   
   // Bit field definition.
   struct {
+    /// read-write - Current dependence level
     eLEVEL LEVEL : 3;
     uint32_t _reserved_0 : 13;
+    /// read-write - Depend level
     eLEVEL0 LEVEL0 : 3;
     uint32_t _reserved_1 : 1;
+    /// read-write - Depend level
     eLEVEL1 LEVEL1 : 3;
     uint32_t _reserved_2 : 1;
+    /// read-write - Depend level
     eLEVEL2 LEVEL2 : 3;
     uint32_t _reserved_3 : 1;
+    /// read-write - Depend level
     eLEVEL3 LEVEL3 : 3;
     uint32_t _reserved_4 : 1;
   } bits;
@@ -42692,9 +47096,12 @@ union LPCG104_STATUS0 {
   
   // Bit field definition.
   struct {
+    /// read-only - LPCG current state
     eON ON : 1;
     uint32_t _reserved_0 : 7;
+    /// read-only - Domains that own this clock gate
     eACTIVE_DOMAIN ACTIVE_DOMAIN : 4;
+    /// read-only - Enable status from each domain
     eDOMAIN_ENABLE DOMAIN_ENABLE : 4;
     uint32_t _reserved_1 : 16;
   } bits;
@@ -42801,23 +47208,41 @@ union LPCG104_STATUS1 {
   
   // Bit field definition.
   struct {
+    /// read-only - Domain0 Low Power Mode
     eCPU0_MODE CPU0_MODE : 2;
+    /// read-only - Domain0 request enter Low Power Mode
     eCPU0_MODE_REQUEST CPU0_MODE_REQUEST : 1;
+    /// read-only - Domain0 Low Power Mode task done
     eCPU0_MODE_DONE CPU0_MODE_DONE : 1;
+    /// read-only - Domain1 Low Power Mode
     eCPU1_MODE CPU1_MODE : 2;
+    /// read-only - Domain1 request enter Low Power Mode
     eCPU1_MODE_REQUEST CPU1_MODE_REQUEST : 1;
+    /// read-only - Domain1 Low Power Mode task done
     eCPU1_MODE_DONE CPU1_MODE_DONE : 1;
+    /// read-only - Domain2 Low Power Mode
     eCPU2_MODE CPU2_MODE : 2;
+    /// read-only - Domain2 request enter Low Power Mode
     eCPU2_MODE_REQUEST CPU2_MODE_REQUEST : 1;
+    /// read-only - Domain2 Low Power Mode task done
     eCPU2_MODE_DONE CPU2_MODE_DONE : 1;
+    /// read-only - Domain3 Low Power Mode
     eCPU3_MODE CPU3_MODE : 2;
+    /// read-only - Domain3 request enter Low Power Mode
     eCPU3_MODE_REQUEST CPU3_MODE_REQUEST : 1;
+    /// read-only - Domain3 Low Power Mode task done
     eCPU3_MODE_DONE CPU3_MODE_DONE : 1;
+    /// read-only - Next Setpoint to change to
     uint32_t TARGET_SETPOINT : 4;
+    /// read-only - Current Setpoint
     uint32_t CURRENT_SETPOINT : 4;
+    /// read-only - Clock gate turn off request from GPC Setpoint
     eSETPOINT_OFF_REQUEST SETPOINT_OFF_REQUEST : 1;
+    /// read-only - Clock gate turn off finish from GPC Setpoint
     eSETPOINT_OFF_DONE SETPOINT_OFF_DONE : 1;
+    /// read-only - Clock gate turn on request from GPC Setpoint
     eSETPOINT_ON_REQUEST SETPOINT_ON_REQUEST : 1;
+    /// read-only - Clock gate turn on finish from GPC Setpoint
     eSETPOINT_ON_DONE SETPOINT_ON_DONE : 1;
     uint32_t _reserved_0 : 4;
   } bits;
@@ -42842,6 +47267,7 @@ union LPCG104_CONFIG {
   // Bit field definition.
   struct {
     uint32_t _reserved_0 : 4;
+    /// read-only - Setpoint present
     eSETPOINT_PRESENT SETPOINT_PRESENT : 1;
     uint32_t _reserved_1 : 27;
   } bits;
@@ -42900,18 +47326,27 @@ union LPCG104_AUTHEN {
   
   // Bit field definition.
   struct {
+    /// read-write - User access
     eTZ_USER TZ_USER : 1;
+    /// read-write - Non-secure access
     eTZ_NS TZ_NS : 1;
     uint32_t _reserved_0 : 2;
+    /// read-write - lock truszone setting
     eLOCK_TZ LOCK_TZ : 1;
     uint32_t _reserved_1 : 3;
+    /// read-write - Whitelist
     uint32_t WHITE_LIST : 4;
+    /// read-write - Lock Whitelist
     eLOCK_LIST LOCK_LIST : 1;
     uint32_t _reserved_2 : 3;
+    /// read-write - Low power and access control by domain
     eDOMAIN_MODE DOMAIN_MODE : 1;
+    /// read-write - Low power and access control by Setpoint
     eSETPOINT_MODE SETPOINT_MODE : 1;
+    /// read-write - CPU Low Power Mode
     eCPULPM CPULPM : 1;
     uint32_t _reserved_3 : 1;
+    /// read-write - Lock low power and access mode
     eLOCK_MODE LOCK_MODE : 1;
     uint32_t _reserved_4 : 11;
   } bits;
@@ -42935,6 +47370,7 @@ union LPCG105_DIRECT {
   
   // Bit field definition.
   struct {
+    /// read-write - LPCG on
     eON ON : 1;
     uint32_t _reserved_0 : 31;
   } bits;
@@ -42993,14 +47429,19 @@ union LPCG105_DOMAIN {
   
   // Bit field definition.
   struct {
+    /// read-write - Current dependence level
     eLEVEL LEVEL : 3;
     uint32_t _reserved_0 : 13;
+    /// read-write - Depend level
     eLEVEL0 LEVEL0 : 3;
     uint32_t _reserved_1 : 1;
+    /// read-write - Depend level
     eLEVEL1 LEVEL1 : 3;
     uint32_t _reserved_2 : 1;
+    /// read-write - Depend level
     eLEVEL2 LEVEL2 : 3;
     uint32_t _reserved_3 : 1;
+    /// read-write - Depend level
     eLEVEL3 LEVEL3 : 3;
     uint32_t _reserved_4 : 1;
   } bits;
@@ -43062,9 +47503,12 @@ union LPCG105_STATUS0 {
   
   // Bit field definition.
   struct {
+    /// read-only - LPCG current state
     eON ON : 1;
     uint32_t _reserved_0 : 7;
+    /// read-only - Domains that own this clock gate
     eACTIVE_DOMAIN ACTIVE_DOMAIN : 4;
+    /// read-only - Enable status from each domain
     eDOMAIN_ENABLE DOMAIN_ENABLE : 4;
     uint32_t _reserved_1 : 16;
   } bits;
@@ -43171,23 +47615,41 @@ union LPCG105_STATUS1 {
   
   // Bit field definition.
   struct {
+    /// read-only - Domain0 Low Power Mode
     eCPU0_MODE CPU0_MODE : 2;
+    /// read-only - Domain0 request enter Low Power Mode
     eCPU0_MODE_REQUEST CPU0_MODE_REQUEST : 1;
+    /// read-only - Domain0 Low Power Mode task done
     eCPU0_MODE_DONE CPU0_MODE_DONE : 1;
+    /// read-only - Domain1 Low Power Mode
     eCPU1_MODE CPU1_MODE : 2;
+    /// read-only - Domain1 request enter Low Power Mode
     eCPU1_MODE_REQUEST CPU1_MODE_REQUEST : 1;
+    /// read-only - Domain1 Low Power Mode task done
     eCPU1_MODE_DONE CPU1_MODE_DONE : 1;
+    /// read-only - Domain2 Low Power Mode
     eCPU2_MODE CPU2_MODE : 2;
+    /// read-only - Domain2 request enter Low Power Mode
     eCPU2_MODE_REQUEST CPU2_MODE_REQUEST : 1;
+    /// read-only - Domain2 Low Power Mode task done
     eCPU2_MODE_DONE CPU2_MODE_DONE : 1;
+    /// read-only - Domain3 Low Power Mode
     eCPU3_MODE CPU3_MODE : 2;
+    /// read-only - Domain3 request enter Low Power Mode
     eCPU3_MODE_REQUEST CPU3_MODE_REQUEST : 1;
+    /// read-only - Domain3 Low Power Mode task done
     eCPU3_MODE_DONE CPU3_MODE_DONE : 1;
+    /// read-only - Next Setpoint to change to
     uint32_t TARGET_SETPOINT : 4;
+    /// read-only - Current Setpoint
     uint32_t CURRENT_SETPOINT : 4;
+    /// read-only - Clock gate turn off request from GPC Setpoint
     eSETPOINT_OFF_REQUEST SETPOINT_OFF_REQUEST : 1;
+    /// read-only - Clock gate turn off finish from GPC Setpoint
     eSETPOINT_OFF_DONE SETPOINT_OFF_DONE : 1;
+    /// read-only - Clock gate turn on request from GPC Setpoint
     eSETPOINT_ON_REQUEST SETPOINT_ON_REQUEST : 1;
+    /// read-only - Clock gate turn on finish from GPC Setpoint
     eSETPOINT_ON_DONE SETPOINT_ON_DONE : 1;
     uint32_t _reserved_0 : 4;
   } bits;
@@ -43212,6 +47674,7 @@ union LPCG105_CONFIG {
   // Bit field definition.
   struct {
     uint32_t _reserved_0 : 4;
+    /// read-only - Setpoint present
     eSETPOINT_PRESENT SETPOINT_PRESENT : 1;
     uint32_t _reserved_1 : 27;
   } bits;
@@ -43270,18 +47733,27 @@ union LPCG105_AUTHEN {
   
   // Bit field definition.
   struct {
+    /// read-write - User access
     eTZ_USER TZ_USER : 1;
+    /// read-write - Non-secure access
     eTZ_NS TZ_NS : 1;
     uint32_t _reserved_0 : 2;
+    /// read-write - lock truszone setting
     eLOCK_TZ LOCK_TZ : 1;
     uint32_t _reserved_1 : 3;
+    /// read-write - Whitelist
     uint32_t WHITE_LIST : 4;
+    /// read-write - Lock Whitelist
     eLOCK_LIST LOCK_LIST : 1;
     uint32_t _reserved_2 : 3;
+    /// read-write - Low power and access control by domain
     eDOMAIN_MODE DOMAIN_MODE : 1;
+    /// read-write - Low power and access control by Setpoint
     eSETPOINT_MODE SETPOINT_MODE : 1;
+    /// read-write - CPU Low Power Mode
     eCPULPM CPULPM : 1;
     uint32_t _reserved_3 : 1;
+    /// read-write - Lock low power and access mode
     eLOCK_MODE LOCK_MODE : 1;
     uint32_t _reserved_4 : 11;
   } bits;
@@ -43305,6 +47777,7 @@ union LPCG106_DIRECT {
   
   // Bit field definition.
   struct {
+    /// read-write - LPCG on
     eON ON : 1;
     uint32_t _reserved_0 : 31;
   } bits;
@@ -43363,14 +47836,19 @@ union LPCG106_DOMAIN {
   
   // Bit field definition.
   struct {
+    /// read-write - Current dependence level
     eLEVEL LEVEL : 3;
     uint32_t _reserved_0 : 13;
+    /// read-write - Depend level
     eLEVEL0 LEVEL0 : 3;
     uint32_t _reserved_1 : 1;
+    /// read-write - Depend level
     eLEVEL1 LEVEL1 : 3;
     uint32_t _reserved_2 : 1;
+    /// read-write - Depend level
     eLEVEL2 LEVEL2 : 3;
     uint32_t _reserved_3 : 1;
+    /// read-write - Depend level
     eLEVEL3 LEVEL3 : 3;
     uint32_t _reserved_4 : 1;
   } bits;
@@ -43432,9 +47910,12 @@ union LPCG106_STATUS0 {
   
   // Bit field definition.
   struct {
+    /// read-only - LPCG current state
     eON ON : 1;
     uint32_t _reserved_0 : 7;
+    /// read-only - Domains that own this clock gate
     eACTIVE_DOMAIN ACTIVE_DOMAIN : 4;
+    /// read-only - Enable status from each domain
     eDOMAIN_ENABLE DOMAIN_ENABLE : 4;
     uint32_t _reserved_1 : 16;
   } bits;
@@ -43541,23 +48022,41 @@ union LPCG106_STATUS1 {
   
   // Bit field definition.
   struct {
+    /// read-only - Domain0 Low Power Mode
     eCPU0_MODE CPU0_MODE : 2;
+    /// read-only - Domain0 request enter Low Power Mode
     eCPU0_MODE_REQUEST CPU0_MODE_REQUEST : 1;
+    /// read-only - Domain0 Low Power Mode task done
     eCPU0_MODE_DONE CPU0_MODE_DONE : 1;
+    /// read-only - Domain1 Low Power Mode
     eCPU1_MODE CPU1_MODE : 2;
+    /// read-only - Domain1 request enter Low Power Mode
     eCPU1_MODE_REQUEST CPU1_MODE_REQUEST : 1;
+    /// read-only - Domain1 Low Power Mode task done
     eCPU1_MODE_DONE CPU1_MODE_DONE : 1;
+    /// read-only - Domain2 Low Power Mode
     eCPU2_MODE CPU2_MODE : 2;
+    /// read-only - Domain2 request enter Low Power Mode
     eCPU2_MODE_REQUEST CPU2_MODE_REQUEST : 1;
+    /// read-only - Domain2 Low Power Mode task done
     eCPU2_MODE_DONE CPU2_MODE_DONE : 1;
+    /// read-only - Domain3 Low Power Mode
     eCPU3_MODE CPU3_MODE : 2;
+    /// read-only - Domain3 request enter Low Power Mode
     eCPU3_MODE_REQUEST CPU3_MODE_REQUEST : 1;
+    /// read-only - Domain3 Low Power Mode task done
     eCPU3_MODE_DONE CPU3_MODE_DONE : 1;
+    /// read-only - Next Setpoint to change to
     uint32_t TARGET_SETPOINT : 4;
+    /// read-only - Current Setpoint
     uint32_t CURRENT_SETPOINT : 4;
+    /// read-only - Clock gate turn off request from GPC Setpoint
     eSETPOINT_OFF_REQUEST SETPOINT_OFF_REQUEST : 1;
+    /// read-only - Clock gate turn off finish from GPC Setpoint
     eSETPOINT_OFF_DONE SETPOINT_OFF_DONE : 1;
+    /// read-only - Clock gate turn on request from GPC Setpoint
     eSETPOINT_ON_REQUEST SETPOINT_ON_REQUEST : 1;
+    /// read-only - Clock gate turn on finish from GPC Setpoint
     eSETPOINT_ON_DONE SETPOINT_ON_DONE : 1;
     uint32_t _reserved_0 : 4;
   } bits;
@@ -43582,6 +48081,7 @@ union LPCG106_CONFIG {
   // Bit field definition.
   struct {
     uint32_t _reserved_0 : 4;
+    /// read-only - Setpoint present
     eSETPOINT_PRESENT SETPOINT_PRESENT : 1;
     uint32_t _reserved_1 : 27;
   } bits;
@@ -43640,18 +48140,27 @@ union LPCG106_AUTHEN {
   
   // Bit field definition.
   struct {
+    /// read-write - User access
     eTZ_USER TZ_USER : 1;
+    /// read-write - Non-secure access
     eTZ_NS TZ_NS : 1;
     uint32_t _reserved_0 : 2;
+    /// read-write - lock truszone setting
     eLOCK_TZ LOCK_TZ : 1;
     uint32_t _reserved_1 : 3;
+    /// read-write - Whitelist
     uint32_t WHITE_LIST : 4;
+    /// read-write - Lock Whitelist
     eLOCK_LIST LOCK_LIST : 1;
     uint32_t _reserved_2 : 3;
+    /// read-write - Low power and access control by domain
     eDOMAIN_MODE DOMAIN_MODE : 1;
+    /// read-write - Low power and access control by Setpoint
     eSETPOINT_MODE SETPOINT_MODE : 1;
+    /// read-write - CPU Low Power Mode
     eCPULPM CPULPM : 1;
     uint32_t _reserved_3 : 1;
+    /// read-write - Lock low power and access mode
     eLOCK_MODE LOCK_MODE : 1;
     uint32_t _reserved_4 : 11;
   } bits;
@@ -43675,6 +48184,7 @@ union LPCG107_DIRECT {
   
   // Bit field definition.
   struct {
+    /// read-write - LPCG on
     eON ON : 1;
     uint32_t _reserved_0 : 31;
   } bits;
@@ -43733,14 +48243,19 @@ union LPCG107_DOMAIN {
   
   // Bit field definition.
   struct {
+    /// read-write - Current dependence level
     eLEVEL LEVEL : 3;
     uint32_t _reserved_0 : 13;
+    /// read-write - Depend level
     eLEVEL0 LEVEL0 : 3;
     uint32_t _reserved_1 : 1;
+    /// read-write - Depend level
     eLEVEL1 LEVEL1 : 3;
     uint32_t _reserved_2 : 1;
+    /// read-write - Depend level
     eLEVEL2 LEVEL2 : 3;
     uint32_t _reserved_3 : 1;
+    /// read-write - Depend level
     eLEVEL3 LEVEL3 : 3;
     uint32_t _reserved_4 : 1;
   } bits;
@@ -43802,9 +48317,12 @@ union LPCG107_STATUS0 {
   
   // Bit field definition.
   struct {
+    /// read-only - LPCG current state
     eON ON : 1;
     uint32_t _reserved_0 : 7;
+    /// read-only - Domains that own this clock gate
     eACTIVE_DOMAIN ACTIVE_DOMAIN : 4;
+    /// read-only - Enable status from each domain
     eDOMAIN_ENABLE DOMAIN_ENABLE : 4;
     uint32_t _reserved_1 : 16;
   } bits;
@@ -43911,23 +48429,41 @@ union LPCG107_STATUS1 {
   
   // Bit field definition.
   struct {
+    /// read-only - Domain0 Low Power Mode
     eCPU0_MODE CPU0_MODE : 2;
+    /// read-only - Domain0 request enter Low Power Mode
     eCPU0_MODE_REQUEST CPU0_MODE_REQUEST : 1;
+    /// read-only - Domain0 Low Power Mode task done
     eCPU0_MODE_DONE CPU0_MODE_DONE : 1;
+    /// read-only - Domain1 Low Power Mode
     eCPU1_MODE CPU1_MODE : 2;
+    /// read-only - Domain1 request enter Low Power Mode
     eCPU1_MODE_REQUEST CPU1_MODE_REQUEST : 1;
+    /// read-only - Domain1 Low Power Mode task done
     eCPU1_MODE_DONE CPU1_MODE_DONE : 1;
+    /// read-only - Domain2 Low Power Mode
     eCPU2_MODE CPU2_MODE : 2;
+    /// read-only - Domain2 request enter Low Power Mode
     eCPU2_MODE_REQUEST CPU2_MODE_REQUEST : 1;
+    /// read-only - Domain2 Low Power Mode task done
     eCPU2_MODE_DONE CPU2_MODE_DONE : 1;
+    /// read-only - Domain3 Low Power Mode
     eCPU3_MODE CPU3_MODE : 2;
+    /// read-only - Domain3 request enter Low Power Mode
     eCPU3_MODE_REQUEST CPU3_MODE_REQUEST : 1;
+    /// read-only - Domain3 Low Power Mode task done
     eCPU3_MODE_DONE CPU3_MODE_DONE : 1;
+    /// read-only - Next Setpoint to change to
     uint32_t TARGET_SETPOINT : 4;
+    /// read-only - Current Setpoint
     uint32_t CURRENT_SETPOINT : 4;
+    /// read-only - Clock gate turn off request from GPC Setpoint
     eSETPOINT_OFF_REQUEST SETPOINT_OFF_REQUEST : 1;
+    /// read-only - Clock gate turn off finish from GPC Setpoint
     eSETPOINT_OFF_DONE SETPOINT_OFF_DONE : 1;
+    /// read-only - Clock gate turn on request from GPC Setpoint
     eSETPOINT_ON_REQUEST SETPOINT_ON_REQUEST : 1;
+    /// read-only - Clock gate turn on finish from GPC Setpoint
     eSETPOINT_ON_DONE SETPOINT_ON_DONE : 1;
     uint32_t _reserved_0 : 4;
   } bits;
@@ -43952,6 +48488,7 @@ union LPCG107_CONFIG {
   // Bit field definition.
   struct {
     uint32_t _reserved_0 : 4;
+    /// read-only - Setpoint present
     eSETPOINT_PRESENT SETPOINT_PRESENT : 1;
     uint32_t _reserved_1 : 27;
   } bits;
@@ -44010,18 +48547,27 @@ union LPCG107_AUTHEN {
   
   // Bit field definition.
   struct {
+    /// read-write - User access
     eTZ_USER TZ_USER : 1;
+    /// read-write - Non-secure access
     eTZ_NS TZ_NS : 1;
     uint32_t _reserved_0 : 2;
+    /// read-write - lock truszone setting
     eLOCK_TZ LOCK_TZ : 1;
     uint32_t _reserved_1 : 3;
+    /// read-write - Whitelist
     uint32_t WHITE_LIST : 4;
+    /// read-write - Lock Whitelist
     eLOCK_LIST LOCK_LIST : 1;
     uint32_t _reserved_2 : 3;
+    /// read-write - Low power and access control by domain
     eDOMAIN_MODE DOMAIN_MODE : 1;
+    /// read-write - Low power and access control by Setpoint
     eSETPOINT_MODE SETPOINT_MODE : 1;
+    /// read-write - CPU Low Power Mode
     eCPULPM CPULPM : 1;
     uint32_t _reserved_3 : 1;
+    /// read-write - Lock low power and access mode
     eLOCK_MODE LOCK_MODE : 1;
     uint32_t _reserved_4 : 11;
   } bits;
@@ -44045,6 +48591,7 @@ union LPCG108_DIRECT {
   
   // Bit field definition.
   struct {
+    /// read-write - LPCG on
     eON ON : 1;
     uint32_t _reserved_0 : 31;
   } bits;
@@ -44103,14 +48650,19 @@ union LPCG108_DOMAIN {
   
   // Bit field definition.
   struct {
+    /// read-write - Current dependence level
     eLEVEL LEVEL : 3;
     uint32_t _reserved_0 : 13;
+    /// read-write - Depend level
     eLEVEL0 LEVEL0 : 3;
     uint32_t _reserved_1 : 1;
+    /// read-write - Depend level
     eLEVEL1 LEVEL1 : 3;
     uint32_t _reserved_2 : 1;
+    /// read-write - Depend level
     eLEVEL2 LEVEL2 : 3;
     uint32_t _reserved_3 : 1;
+    /// read-write - Depend level
     eLEVEL3 LEVEL3 : 3;
     uint32_t _reserved_4 : 1;
   } bits;
@@ -44172,9 +48724,12 @@ union LPCG108_STATUS0 {
   
   // Bit field definition.
   struct {
+    /// read-only - LPCG current state
     eON ON : 1;
     uint32_t _reserved_0 : 7;
+    /// read-only - Domains that own this clock gate
     eACTIVE_DOMAIN ACTIVE_DOMAIN : 4;
+    /// read-only - Enable status from each domain
     eDOMAIN_ENABLE DOMAIN_ENABLE : 4;
     uint32_t _reserved_1 : 16;
   } bits;
@@ -44281,23 +48836,41 @@ union LPCG108_STATUS1 {
   
   // Bit field definition.
   struct {
+    /// read-only - Domain0 Low Power Mode
     eCPU0_MODE CPU0_MODE : 2;
+    /// read-only - Domain0 request enter Low Power Mode
     eCPU0_MODE_REQUEST CPU0_MODE_REQUEST : 1;
+    /// read-only - Domain0 Low Power Mode task done
     eCPU0_MODE_DONE CPU0_MODE_DONE : 1;
+    /// read-only - Domain1 Low Power Mode
     eCPU1_MODE CPU1_MODE : 2;
+    /// read-only - Domain1 request enter Low Power Mode
     eCPU1_MODE_REQUEST CPU1_MODE_REQUEST : 1;
+    /// read-only - Domain1 Low Power Mode task done
     eCPU1_MODE_DONE CPU1_MODE_DONE : 1;
+    /// read-only - Domain2 Low Power Mode
     eCPU2_MODE CPU2_MODE : 2;
+    /// read-only - Domain2 request enter Low Power Mode
     eCPU2_MODE_REQUEST CPU2_MODE_REQUEST : 1;
+    /// read-only - Domain2 Low Power Mode task done
     eCPU2_MODE_DONE CPU2_MODE_DONE : 1;
+    /// read-only - Domain3 Low Power Mode
     eCPU3_MODE CPU3_MODE : 2;
+    /// read-only - Domain3 request enter Low Power Mode
     eCPU3_MODE_REQUEST CPU3_MODE_REQUEST : 1;
+    /// read-only - Domain3 Low Power Mode task done
     eCPU3_MODE_DONE CPU3_MODE_DONE : 1;
+    /// read-only - Next Setpoint to change to
     uint32_t TARGET_SETPOINT : 4;
+    /// read-only - Current Setpoint
     uint32_t CURRENT_SETPOINT : 4;
+    /// read-only - Clock gate turn off request from GPC Setpoint
     eSETPOINT_OFF_REQUEST SETPOINT_OFF_REQUEST : 1;
+    /// read-only - Clock gate turn off finish from GPC Setpoint
     eSETPOINT_OFF_DONE SETPOINT_OFF_DONE : 1;
+    /// read-only - Clock gate turn on request from GPC Setpoint
     eSETPOINT_ON_REQUEST SETPOINT_ON_REQUEST : 1;
+    /// read-only - Clock gate turn on finish from GPC Setpoint
     eSETPOINT_ON_DONE SETPOINT_ON_DONE : 1;
     uint32_t _reserved_0 : 4;
   } bits;
@@ -44322,6 +48895,7 @@ union LPCG108_CONFIG {
   // Bit field definition.
   struct {
     uint32_t _reserved_0 : 4;
+    /// read-only - Setpoint present
     eSETPOINT_PRESENT SETPOINT_PRESENT : 1;
     uint32_t _reserved_1 : 27;
   } bits;
@@ -44380,18 +48954,27 @@ union LPCG108_AUTHEN {
   
   // Bit field definition.
   struct {
+    /// read-write - User access
     eTZ_USER TZ_USER : 1;
+    /// read-write - Non-secure access
     eTZ_NS TZ_NS : 1;
     uint32_t _reserved_0 : 2;
+    /// read-write - lock truszone setting
     eLOCK_TZ LOCK_TZ : 1;
     uint32_t _reserved_1 : 3;
+    /// read-write - Whitelist
     uint32_t WHITE_LIST : 4;
+    /// read-write - Lock Whitelist
     eLOCK_LIST LOCK_LIST : 1;
     uint32_t _reserved_2 : 3;
+    /// read-write - Low power and access control by domain
     eDOMAIN_MODE DOMAIN_MODE : 1;
+    /// read-write - Low power and access control by Setpoint
     eSETPOINT_MODE SETPOINT_MODE : 1;
+    /// read-write - CPU Low Power Mode
     eCPULPM CPULPM : 1;
     uint32_t _reserved_3 : 1;
+    /// read-write - Lock low power and access mode
     eLOCK_MODE LOCK_MODE : 1;
     uint32_t _reserved_4 : 11;
   } bits;
@@ -44415,6 +48998,7 @@ union LPCG109_DIRECT {
   
   // Bit field definition.
   struct {
+    /// read-write - LPCG on
     eON ON : 1;
     uint32_t _reserved_0 : 31;
   } bits;
@@ -44473,14 +49057,19 @@ union LPCG109_DOMAIN {
   
   // Bit field definition.
   struct {
+    /// read-write - Current dependence level
     eLEVEL LEVEL : 3;
     uint32_t _reserved_0 : 13;
+    /// read-write - Depend level
     eLEVEL0 LEVEL0 : 3;
     uint32_t _reserved_1 : 1;
+    /// read-write - Depend level
     eLEVEL1 LEVEL1 : 3;
     uint32_t _reserved_2 : 1;
+    /// read-write - Depend level
     eLEVEL2 LEVEL2 : 3;
     uint32_t _reserved_3 : 1;
+    /// read-write - Depend level
     eLEVEL3 LEVEL3 : 3;
     uint32_t _reserved_4 : 1;
   } bits;
@@ -44542,9 +49131,12 @@ union LPCG109_STATUS0 {
   
   // Bit field definition.
   struct {
+    /// read-only - LPCG current state
     eON ON : 1;
     uint32_t _reserved_0 : 7;
+    /// read-only - Domains that own this clock gate
     eACTIVE_DOMAIN ACTIVE_DOMAIN : 4;
+    /// read-only - Enable status from each domain
     eDOMAIN_ENABLE DOMAIN_ENABLE : 4;
     uint32_t _reserved_1 : 16;
   } bits;
@@ -44651,23 +49243,41 @@ union LPCG109_STATUS1 {
   
   // Bit field definition.
   struct {
+    /// read-only - Domain0 Low Power Mode
     eCPU0_MODE CPU0_MODE : 2;
+    /// read-only - Domain0 request enter Low Power Mode
     eCPU0_MODE_REQUEST CPU0_MODE_REQUEST : 1;
+    /// read-only - Domain0 Low Power Mode task done
     eCPU0_MODE_DONE CPU0_MODE_DONE : 1;
+    /// read-only - Domain1 Low Power Mode
     eCPU1_MODE CPU1_MODE : 2;
+    /// read-only - Domain1 request enter Low Power Mode
     eCPU1_MODE_REQUEST CPU1_MODE_REQUEST : 1;
+    /// read-only - Domain1 Low Power Mode task done
     eCPU1_MODE_DONE CPU1_MODE_DONE : 1;
+    /// read-only - Domain2 Low Power Mode
     eCPU2_MODE CPU2_MODE : 2;
+    /// read-only - Domain2 request enter Low Power Mode
     eCPU2_MODE_REQUEST CPU2_MODE_REQUEST : 1;
+    /// read-only - Domain2 Low Power Mode task done
     eCPU2_MODE_DONE CPU2_MODE_DONE : 1;
+    /// read-only - Domain3 Low Power Mode
     eCPU3_MODE CPU3_MODE : 2;
+    /// read-only - Domain3 request enter Low Power Mode
     eCPU3_MODE_REQUEST CPU3_MODE_REQUEST : 1;
+    /// read-only - Domain3 Low Power Mode task done
     eCPU3_MODE_DONE CPU3_MODE_DONE : 1;
+    /// read-only - Next Setpoint to change to
     uint32_t TARGET_SETPOINT : 4;
+    /// read-only - Current Setpoint
     uint32_t CURRENT_SETPOINT : 4;
+    /// read-only - Clock gate turn off request from GPC Setpoint
     eSETPOINT_OFF_REQUEST SETPOINT_OFF_REQUEST : 1;
+    /// read-only - Clock gate turn off finish from GPC Setpoint
     eSETPOINT_OFF_DONE SETPOINT_OFF_DONE : 1;
+    /// read-only - Clock gate turn on request from GPC Setpoint
     eSETPOINT_ON_REQUEST SETPOINT_ON_REQUEST : 1;
+    /// read-only - Clock gate turn on finish from GPC Setpoint
     eSETPOINT_ON_DONE SETPOINT_ON_DONE : 1;
     uint32_t _reserved_0 : 4;
   } bits;
@@ -44692,6 +49302,7 @@ union LPCG109_CONFIG {
   // Bit field definition.
   struct {
     uint32_t _reserved_0 : 4;
+    /// read-only - Setpoint present
     eSETPOINT_PRESENT SETPOINT_PRESENT : 1;
     uint32_t _reserved_1 : 27;
   } bits;
@@ -44750,18 +49361,27 @@ union LPCG109_AUTHEN {
   
   // Bit field definition.
   struct {
+    /// read-write - User access
     eTZ_USER TZ_USER : 1;
+    /// read-write - Non-secure access
     eTZ_NS TZ_NS : 1;
     uint32_t _reserved_0 : 2;
+    /// read-write - lock truszone setting
     eLOCK_TZ LOCK_TZ : 1;
     uint32_t _reserved_1 : 3;
+    /// read-write - Whitelist
     uint32_t WHITE_LIST : 4;
+    /// read-write - Lock Whitelist
     eLOCK_LIST LOCK_LIST : 1;
     uint32_t _reserved_2 : 3;
+    /// read-write - Low power and access control by domain
     eDOMAIN_MODE DOMAIN_MODE : 1;
+    /// read-write - Low power and access control by Setpoint
     eSETPOINT_MODE SETPOINT_MODE : 1;
+    /// read-write - CPU Low Power Mode
     eCPULPM CPULPM : 1;
     uint32_t _reserved_3 : 1;
+    /// read-write - Lock low power and access mode
     eLOCK_MODE LOCK_MODE : 1;
     uint32_t _reserved_4 : 11;
   } bits;
@@ -44785,6 +49405,7 @@ union LPCG110_DIRECT {
   
   // Bit field definition.
   struct {
+    /// read-write - LPCG on
     eON ON : 1;
     uint32_t _reserved_0 : 31;
   } bits;
@@ -44843,14 +49464,19 @@ union LPCG110_DOMAIN {
   
   // Bit field definition.
   struct {
+    /// read-write - Current dependence level
     eLEVEL LEVEL : 3;
     uint32_t _reserved_0 : 13;
+    /// read-write - Depend level
     eLEVEL0 LEVEL0 : 3;
     uint32_t _reserved_1 : 1;
+    /// read-write - Depend level
     eLEVEL1 LEVEL1 : 3;
     uint32_t _reserved_2 : 1;
+    /// read-write - Depend level
     eLEVEL2 LEVEL2 : 3;
     uint32_t _reserved_3 : 1;
+    /// read-write - Depend level
     eLEVEL3 LEVEL3 : 3;
     uint32_t _reserved_4 : 1;
   } bits;
@@ -44912,9 +49538,12 @@ union LPCG110_STATUS0 {
   
   // Bit field definition.
   struct {
+    /// read-only - LPCG current state
     eON ON : 1;
     uint32_t _reserved_0 : 7;
+    /// read-only - Domains that own this clock gate
     eACTIVE_DOMAIN ACTIVE_DOMAIN : 4;
+    /// read-only - Enable status from each domain
     eDOMAIN_ENABLE DOMAIN_ENABLE : 4;
     uint32_t _reserved_1 : 16;
   } bits;
@@ -45021,23 +49650,41 @@ union LPCG110_STATUS1 {
   
   // Bit field definition.
   struct {
+    /// read-only - Domain0 Low Power Mode
     eCPU0_MODE CPU0_MODE : 2;
+    /// read-only - Domain0 request enter Low Power Mode
     eCPU0_MODE_REQUEST CPU0_MODE_REQUEST : 1;
+    /// read-only - Domain0 Low Power Mode task done
     eCPU0_MODE_DONE CPU0_MODE_DONE : 1;
+    /// read-only - Domain1 Low Power Mode
     eCPU1_MODE CPU1_MODE : 2;
+    /// read-only - Domain1 request enter Low Power Mode
     eCPU1_MODE_REQUEST CPU1_MODE_REQUEST : 1;
+    /// read-only - Domain1 Low Power Mode task done
     eCPU1_MODE_DONE CPU1_MODE_DONE : 1;
+    /// read-only - Domain2 Low Power Mode
     eCPU2_MODE CPU2_MODE : 2;
+    /// read-only - Domain2 request enter Low Power Mode
     eCPU2_MODE_REQUEST CPU2_MODE_REQUEST : 1;
+    /// read-only - Domain2 Low Power Mode task done
     eCPU2_MODE_DONE CPU2_MODE_DONE : 1;
+    /// read-only - Domain3 Low Power Mode
     eCPU3_MODE CPU3_MODE : 2;
+    /// read-only - Domain3 request enter Low Power Mode
     eCPU3_MODE_REQUEST CPU3_MODE_REQUEST : 1;
+    /// read-only - Domain3 Low Power Mode task done
     eCPU3_MODE_DONE CPU3_MODE_DONE : 1;
+    /// read-only - Next Setpoint to change to
     uint32_t TARGET_SETPOINT : 4;
+    /// read-only - Current Setpoint
     uint32_t CURRENT_SETPOINT : 4;
+    /// read-only - Clock gate turn off request from GPC Setpoint
     eSETPOINT_OFF_REQUEST SETPOINT_OFF_REQUEST : 1;
+    /// read-only - Clock gate turn off finish from GPC Setpoint
     eSETPOINT_OFF_DONE SETPOINT_OFF_DONE : 1;
+    /// read-only - Clock gate turn on request from GPC Setpoint
     eSETPOINT_ON_REQUEST SETPOINT_ON_REQUEST : 1;
+    /// read-only - Clock gate turn on finish from GPC Setpoint
     eSETPOINT_ON_DONE SETPOINT_ON_DONE : 1;
     uint32_t _reserved_0 : 4;
   } bits;
@@ -45062,6 +49709,7 @@ union LPCG110_CONFIG {
   // Bit field definition.
   struct {
     uint32_t _reserved_0 : 4;
+    /// read-only - Setpoint present
     eSETPOINT_PRESENT SETPOINT_PRESENT : 1;
     uint32_t _reserved_1 : 27;
   } bits;
@@ -45120,18 +49768,27 @@ union LPCG110_AUTHEN {
   
   // Bit field definition.
   struct {
+    /// read-write - User access
     eTZ_USER TZ_USER : 1;
+    /// read-write - Non-secure access
     eTZ_NS TZ_NS : 1;
     uint32_t _reserved_0 : 2;
+    /// read-write - lock truszone setting
     eLOCK_TZ LOCK_TZ : 1;
     uint32_t _reserved_1 : 3;
+    /// read-write - Whitelist
     uint32_t WHITE_LIST : 4;
+    /// read-write - Lock Whitelist
     eLOCK_LIST LOCK_LIST : 1;
     uint32_t _reserved_2 : 3;
+    /// read-write - Low power and access control by domain
     eDOMAIN_MODE DOMAIN_MODE : 1;
+    /// read-write - Low power and access control by Setpoint
     eSETPOINT_MODE SETPOINT_MODE : 1;
+    /// read-write - CPU Low Power Mode
     eCPULPM CPULPM : 1;
     uint32_t _reserved_3 : 1;
+    /// read-write - Lock low power and access mode
     eLOCK_MODE LOCK_MODE : 1;
     uint32_t _reserved_4 : 11;
   } bits;
@@ -45155,6 +49812,7 @@ union LPCG111_DIRECT {
   
   // Bit field definition.
   struct {
+    /// read-write - LPCG on
     eON ON : 1;
     uint32_t _reserved_0 : 31;
   } bits;
@@ -45213,14 +49871,19 @@ union LPCG111_DOMAIN {
   
   // Bit field definition.
   struct {
+    /// read-write - Current dependence level
     eLEVEL LEVEL : 3;
     uint32_t _reserved_0 : 13;
+    /// read-write - Depend level
     eLEVEL0 LEVEL0 : 3;
     uint32_t _reserved_1 : 1;
+    /// read-write - Depend level
     eLEVEL1 LEVEL1 : 3;
     uint32_t _reserved_2 : 1;
+    /// read-write - Depend level
     eLEVEL2 LEVEL2 : 3;
     uint32_t _reserved_3 : 1;
+    /// read-write - Depend level
     eLEVEL3 LEVEL3 : 3;
     uint32_t _reserved_4 : 1;
   } bits;
@@ -45282,9 +49945,12 @@ union LPCG111_STATUS0 {
   
   // Bit field definition.
   struct {
+    /// read-only - LPCG current state
     eON ON : 1;
     uint32_t _reserved_0 : 7;
+    /// read-only - Domains that own this clock gate
     eACTIVE_DOMAIN ACTIVE_DOMAIN : 4;
+    /// read-only - Enable status from each domain
     eDOMAIN_ENABLE DOMAIN_ENABLE : 4;
     uint32_t _reserved_1 : 16;
   } bits;
@@ -45391,23 +50057,41 @@ union LPCG111_STATUS1 {
   
   // Bit field definition.
   struct {
+    /// read-only - Domain0 Low Power Mode
     eCPU0_MODE CPU0_MODE : 2;
+    /// read-only - Domain0 request enter Low Power Mode
     eCPU0_MODE_REQUEST CPU0_MODE_REQUEST : 1;
+    /// read-only - Domain0 Low Power Mode task done
     eCPU0_MODE_DONE CPU0_MODE_DONE : 1;
+    /// read-only - Domain1 Low Power Mode
     eCPU1_MODE CPU1_MODE : 2;
+    /// read-only - Domain1 request enter Low Power Mode
     eCPU1_MODE_REQUEST CPU1_MODE_REQUEST : 1;
+    /// read-only - Domain1 Low Power Mode task done
     eCPU1_MODE_DONE CPU1_MODE_DONE : 1;
+    /// read-only - Domain2 Low Power Mode
     eCPU2_MODE CPU2_MODE : 2;
+    /// read-only - Domain2 request enter Low Power Mode
     eCPU2_MODE_REQUEST CPU2_MODE_REQUEST : 1;
+    /// read-only - Domain2 Low Power Mode task done
     eCPU2_MODE_DONE CPU2_MODE_DONE : 1;
+    /// read-only - Domain3 Low Power Mode
     eCPU3_MODE CPU3_MODE : 2;
+    /// read-only - Domain3 request enter Low Power Mode
     eCPU3_MODE_REQUEST CPU3_MODE_REQUEST : 1;
+    /// read-only - Domain3 Low Power Mode task done
     eCPU3_MODE_DONE CPU3_MODE_DONE : 1;
+    /// read-only - Next Setpoint to change to
     uint32_t TARGET_SETPOINT : 4;
+    /// read-only - Current Setpoint
     uint32_t CURRENT_SETPOINT : 4;
+    /// read-only - Clock gate turn off request from GPC Setpoint
     eSETPOINT_OFF_REQUEST SETPOINT_OFF_REQUEST : 1;
+    /// read-only - Clock gate turn off finish from GPC Setpoint
     eSETPOINT_OFF_DONE SETPOINT_OFF_DONE : 1;
+    /// read-only - Clock gate turn on request from GPC Setpoint
     eSETPOINT_ON_REQUEST SETPOINT_ON_REQUEST : 1;
+    /// read-only - Clock gate turn on finish from GPC Setpoint
     eSETPOINT_ON_DONE SETPOINT_ON_DONE : 1;
     uint32_t _reserved_0 : 4;
   } bits;
@@ -45432,6 +50116,7 @@ union LPCG111_CONFIG {
   // Bit field definition.
   struct {
     uint32_t _reserved_0 : 4;
+    /// read-only - Setpoint present
     eSETPOINT_PRESENT SETPOINT_PRESENT : 1;
     uint32_t _reserved_1 : 27;
   } bits;
@@ -45490,18 +50175,27 @@ union LPCG111_AUTHEN {
   
   // Bit field definition.
   struct {
+    /// read-write - User access
     eTZ_USER TZ_USER : 1;
+    /// read-write - Non-secure access
     eTZ_NS TZ_NS : 1;
     uint32_t _reserved_0 : 2;
+    /// read-write - lock truszone setting
     eLOCK_TZ LOCK_TZ : 1;
     uint32_t _reserved_1 : 3;
+    /// read-write - Whitelist
     uint32_t WHITE_LIST : 4;
+    /// read-write - Lock Whitelist
     eLOCK_LIST LOCK_LIST : 1;
     uint32_t _reserved_2 : 3;
+    /// read-write - Low power and access control by domain
     eDOMAIN_MODE DOMAIN_MODE : 1;
+    /// read-write - Low power and access control by Setpoint
     eSETPOINT_MODE SETPOINT_MODE : 1;
+    /// read-write - CPU Low Power Mode
     eCPULPM CPULPM : 1;
     uint32_t _reserved_3 : 1;
+    /// read-write - Lock low power and access mode
     eLOCK_MODE LOCK_MODE : 1;
     uint32_t _reserved_4 : 11;
   } bits;
@@ -45525,6 +50219,7 @@ union LPCG112_DIRECT {
   
   // Bit field definition.
   struct {
+    /// read-write - LPCG on
     eON ON : 1;
     uint32_t _reserved_0 : 31;
   } bits;
@@ -45583,14 +50278,19 @@ union LPCG112_DOMAIN {
   
   // Bit field definition.
   struct {
+    /// read-write - Current dependence level
     eLEVEL LEVEL : 3;
     uint32_t _reserved_0 : 13;
+    /// read-write - Depend level
     eLEVEL0 LEVEL0 : 3;
     uint32_t _reserved_1 : 1;
+    /// read-write - Depend level
     eLEVEL1 LEVEL1 : 3;
     uint32_t _reserved_2 : 1;
+    /// read-write - Depend level
     eLEVEL2 LEVEL2 : 3;
     uint32_t _reserved_3 : 1;
+    /// read-write - Depend level
     eLEVEL3 LEVEL3 : 3;
     uint32_t _reserved_4 : 1;
   } bits;
@@ -45652,9 +50352,12 @@ union LPCG112_STATUS0 {
   
   // Bit field definition.
   struct {
+    /// read-only - LPCG current state
     eON ON : 1;
     uint32_t _reserved_0 : 7;
+    /// read-only - Domains that own this clock gate
     eACTIVE_DOMAIN ACTIVE_DOMAIN : 4;
+    /// read-only - Enable status from each domain
     eDOMAIN_ENABLE DOMAIN_ENABLE : 4;
     uint32_t _reserved_1 : 16;
   } bits;
@@ -45761,23 +50464,41 @@ union LPCG112_STATUS1 {
   
   // Bit field definition.
   struct {
+    /// read-only - Domain0 Low Power Mode
     eCPU0_MODE CPU0_MODE : 2;
+    /// read-only - Domain0 request enter Low Power Mode
     eCPU0_MODE_REQUEST CPU0_MODE_REQUEST : 1;
+    /// read-only - Domain0 Low Power Mode task done
     eCPU0_MODE_DONE CPU0_MODE_DONE : 1;
+    /// read-only - Domain1 Low Power Mode
     eCPU1_MODE CPU1_MODE : 2;
+    /// read-only - Domain1 request enter Low Power Mode
     eCPU1_MODE_REQUEST CPU1_MODE_REQUEST : 1;
+    /// read-only - Domain1 Low Power Mode task done
     eCPU1_MODE_DONE CPU1_MODE_DONE : 1;
+    /// read-only - Domain2 Low Power Mode
     eCPU2_MODE CPU2_MODE : 2;
+    /// read-only - Domain2 request enter Low Power Mode
     eCPU2_MODE_REQUEST CPU2_MODE_REQUEST : 1;
+    /// read-only - Domain2 Low Power Mode task done
     eCPU2_MODE_DONE CPU2_MODE_DONE : 1;
+    /// read-only - Domain3 Low Power Mode
     eCPU3_MODE CPU3_MODE : 2;
+    /// read-only - Domain3 request enter Low Power Mode
     eCPU3_MODE_REQUEST CPU3_MODE_REQUEST : 1;
+    /// read-only - Domain3 Low Power Mode task done
     eCPU3_MODE_DONE CPU3_MODE_DONE : 1;
+    /// read-only - Next Setpoint to change to
     uint32_t TARGET_SETPOINT : 4;
+    /// read-only - Current Setpoint
     uint32_t CURRENT_SETPOINT : 4;
+    /// read-only - Clock gate turn off request from GPC Setpoint
     eSETPOINT_OFF_REQUEST SETPOINT_OFF_REQUEST : 1;
+    /// read-only - Clock gate turn off finish from GPC Setpoint
     eSETPOINT_OFF_DONE SETPOINT_OFF_DONE : 1;
+    /// read-only - Clock gate turn on request from GPC Setpoint
     eSETPOINT_ON_REQUEST SETPOINT_ON_REQUEST : 1;
+    /// read-only - Clock gate turn on finish from GPC Setpoint
     eSETPOINT_ON_DONE SETPOINT_ON_DONE : 1;
     uint32_t _reserved_0 : 4;
   } bits;
@@ -45802,6 +50523,7 @@ union LPCG112_CONFIG {
   // Bit field definition.
   struct {
     uint32_t _reserved_0 : 4;
+    /// read-only - Setpoint present
     eSETPOINT_PRESENT SETPOINT_PRESENT : 1;
     uint32_t _reserved_1 : 27;
   } bits;
@@ -45860,18 +50582,27 @@ union LPCG112_AUTHEN {
   
   // Bit field definition.
   struct {
+    /// read-write - User access
     eTZ_USER TZ_USER : 1;
+    /// read-write - Non-secure access
     eTZ_NS TZ_NS : 1;
     uint32_t _reserved_0 : 2;
+    /// read-write - lock truszone setting
     eLOCK_TZ LOCK_TZ : 1;
     uint32_t _reserved_1 : 3;
+    /// read-write - Whitelist
     uint32_t WHITE_LIST : 4;
+    /// read-write - Lock Whitelist
     eLOCK_LIST LOCK_LIST : 1;
     uint32_t _reserved_2 : 3;
+    /// read-write - Low power and access control by domain
     eDOMAIN_MODE DOMAIN_MODE : 1;
+    /// read-write - Low power and access control by Setpoint
     eSETPOINT_MODE SETPOINT_MODE : 1;
+    /// read-write - CPU Low Power Mode
     eCPULPM CPULPM : 1;
     uint32_t _reserved_3 : 1;
+    /// read-write - Lock low power and access mode
     eLOCK_MODE LOCK_MODE : 1;
     uint32_t _reserved_4 : 11;
   } bits;
@@ -45895,6 +50626,7 @@ union LPCG113_DIRECT {
   
   // Bit field definition.
   struct {
+    /// read-write - LPCG on
     eON ON : 1;
     uint32_t _reserved_0 : 31;
   } bits;
@@ -45953,14 +50685,19 @@ union LPCG113_DOMAIN {
   
   // Bit field definition.
   struct {
+    /// read-write - Current dependence level
     eLEVEL LEVEL : 3;
     uint32_t _reserved_0 : 13;
+    /// read-write - Depend level
     eLEVEL0 LEVEL0 : 3;
     uint32_t _reserved_1 : 1;
+    /// read-write - Depend level
     eLEVEL1 LEVEL1 : 3;
     uint32_t _reserved_2 : 1;
+    /// read-write - Depend level
     eLEVEL2 LEVEL2 : 3;
     uint32_t _reserved_3 : 1;
+    /// read-write - Depend level
     eLEVEL3 LEVEL3 : 3;
     uint32_t _reserved_4 : 1;
   } bits;
@@ -46022,9 +50759,12 @@ union LPCG113_STATUS0 {
   
   // Bit field definition.
   struct {
+    /// read-only - LPCG current state
     eON ON : 1;
     uint32_t _reserved_0 : 7;
+    /// read-only - Domains that own this clock gate
     eACTIVE_DOMAIN ACTIVE_DOMAIN : 4;
+    /// read-only - Enable status from each domain
     eDOMAIN_ENABLE DOMAIN_ENABLE : 4;
     uint32_t _reserved_1 : 16;
   } bits;
@@ -46131,23 +50871,41 @@ union LPCG113_STATUS1 {
   
   // Bit field definition.
   struct {
+    /// read-only - Domain0 Low Power Mode
     eCPU0_MODE CPU0_MODE : 2;
+    /// read-only - Domain0 request enter Low Power Mode
     eCPU0_MODE_REQUEST CPU0_MODE_REQUEST : 1;
+    /// read-only - Domain0 Low Power Mode task done
     eCPU0_MODE_DONE CPU0_MODE_DONE : 1;
+    /// read-only - Domain1 Low Power Mode
     eCPU1_MODE CPU1_MODE : 2;
+    /// read-only - Domain1 request enter Low Power Mode
     eCPU1_MODE_REQUEST CPU1_MODE_REQUEST : 1;
+    /// read-only - Domain1 Low Power Mode task done
     eCPU1_MODE_DONE CPU1_MODE_DONE : 1;
+    /// read-only - Domain2 Low Power Mode
     eCPU2_MODE CPU2_MODE : 2;
+    /// read-only - Domain2 request enter Low Power Mode
     eCPU2_MODE_REQUEST CPU2_MODE_REQUEST : 1;
+    /// read-only - Domain2 Low Power Mode task done
     eCPU2_MODE_DONE CPU2_MODE_DONE : 1;
+    /// read-only - Domain3 Low Power Mode
     eCPU3_MODE CPU3_MODE : 2;
+    /// read-only - Domain3 request enter Low Power Mode
     eCPU3_MODE_REQUEST CPU3_MODE_REQUEST : 1;
+    /// read-only - Domain3 Low Power Mode task done
     eCPU3_MODE_DONE CPU3_MODE_DONE : 1;
+    /// read-only - Next Setpoint to change to
     uint32_t TARGET_SETPOINT : 4;
+    /// read-only - Current Setpoint
     uint32_t CURRENT_SETPOINT : 4;
+    /// read-only - Clock gate turn off request from GPC Setpoint
     eSETPOINT_OFF_REQUEST SETPOINT_OFF_REQUEST : 1;
+    /// read-only - Clock gate turn off finish from GPC Setpoint
     eSETPOINT_OFF_DONE SETPOINT_OFF_DONE : 1;
+    /// read-only - Clock gate turn on request from GPC Setpoint
     eSETPOINT_ON_REQUEST SETPOINT_ON_REQUEST : 1;
+    /// read-only - Clock gate turn on finish from GPC Setpoint
     eSETPOINT_ON_DONE SETPOINT_ON_DONE : 1;
     uint32_t _reserved_0 : 4;
   } bits;
@@ -46172,6 +50930,7 @@ union LPCG113_CONFIG {
   // Bit field definition.
   struct {
     uint32_t _reserved_0 : 4;
+    /// read-only - Setpoint present
     eSETPOINT_PRESENT SETPOINT_PRESENT : 1;
     uint32_t _reserved_1 : 27;
   } bits;
@@ -46230,18 +50989,27 @@ union LPCG113_AUTHEN {
   
   // Bit field definition.
   struct {
+    /// read-write - User access
     eTZ_USER TZ_USER : 1;
+    /// read-write - Non-secure access
     eTZ_NS TZ_NS : 1;
     uint32_t _reserved_0 : 2;
+    /// read-write - lock truszone setting
     eLOCK_TZ LOCK_TZ : 1;
     uint32_t _reserved_1 : 3;
+    /// read-write - Whitelist
     uint32_t WHITE_LIST : 4;
+    /// read-write - Lock Whitelist
     eLOCK_LIST LOCK_LIST : 1;
     uint32_t _reserved_2 : 3;
+    /// read-write - Low power and access control by domain
     eDOMAIN_MODE DOMAIN_MODE : 1;
+    /// read-write - Low power and access control by Setpoint
     eSETPOINT_MODE SETPOINT_MODE : 1;
+    /// read-write - CPU Low Power Mode
     eCPULPM CPULPM : 1;
     uint32_t _reserved_3 : 1;
+    /// read-write - Lock low power and access mode
     eLOCK_MODE LOCK_MODE : 1;
     uint32_t _reserved_4 : 11;
   } bits;
@@ -46265,6 +51033,7 @@ union LPCG114_DIRECT {
   
   // Bit field definition.
   struct {
+    /// read-write - LPCG on
     eON ON : 1;
     uint32_t _reserved_0 : 31;
   } bits;
@@ -46323,14 +51092,19 @@ union LPCG114_DOMAIN {
   
   // Bit field definition.
   struct {
+    /// read-write - Current dependence level
     eLEVEL LEVEL : 3;
     uint32_t _reserved_0 : 13;
+    /// read-write - Depend level
     eLEVEL0 LEVEL0 : 3;
     uint32_t _reserved_1 : 1;
+    /// read-write - Depend level
     eLEVEL1 LEVEL1 : 3;
     uint32_t _reserved_2 : 1;
+    /// read-write - Depend level
     eLEVEL2 LEVEL2 : 3;
     uint32_t _reserved_3 : 1;
+    /// read-write - Depend level
     eLEVEL3 LEVEL3 : 3;
     uint32_t _reserved_4 : 1;
   } bits;
@@ -46392,9 +51166,12 @@ union LPCG114_STATUS0 {
   
   // Bit field definition.
   struct {
+    /// read-only - LPCG current state
     eON ON : 1;
     uint32_t _reserved_0 : 7;
+    /// read-only - Domains that own this clock gate
     eACTIVE_DOMAIN ACTIVE_DOMAIN : 4;
+    /// read-only - Enable status from each domain
     eDOMAIN_ENABLE DOMAIN_ENABLE : 4;
     uint32_t _reserved_1 : 16;
   } bits;
@@ -46501,23 +51278,41 @@ union LPCG114_STATUS1 {
   
   // Bit field definition.
   struct {
+    /// read-only - Domain0 Low Power Mode
     eCPU0_MODE CPU0_MODE : 2;
+    /// read-only - Domain0 request enter Low Power Mode
     eCPU0_MODE_REQUEST CPU0_MODE_REQUEST : 1;
+    /// read-only - Domain0 Low Power Mode task done
     eCPU0_MODE_DONE CPU0_MODE_DONE : 1;
+    /// read-only - Domain1 Low Power Mode
     eCPU1_MODE CPU1_MODE : 2;
+    /// read-only - Domain1 request enter Low Power Mode
     eCPU1_MODE_REQUEST CPU1_MODE_REQUEST : 1;
+    /// read-only - Domain1 Low Power Mode task done
     eCPU1_MODE_DONE CPU1_MODE_DONE : 1;
+    /// read-only - Domain2 Low Power Mode
     eCPU2_MODE CPU2_MODE : 2;
+    /// read-only - Domain2 request enter Low Power Mode
     eCPU2_MODE_REQUEST CPU2_MODE_REQUEST : 1;
+    /// read-only - Domain2 Low Power Mode task done
     eCPU2_MODE_DONE CPU2_MODE_DONE : 1;
+    /// read-only - Domain3 Low Power Mode
     eCPU3_MODE CPU3_MODE : 2;
+    /// read-only - Domain3 request enter Low Power Mode
     eCPU3_MODE_REQUEST CPU3_MODE_REQUEST : 1;
+    /// read-only - Domain3 Low Power Mode task done
     eCPU3_MODE_DONE CPU3_MODE_DONE : 1;
+    /// read-only - Next Setpoint to change to
     uint32_t TARGET_SETPOINT : 4;
+    /// read-only - Current Setpoint
     uint32_t CURRENT_SETPOINT : 4;
+    /// read-only - Clock gate turn off request from GPC Setpoint
     eSETPOINT_OFF_REQUEST SETPOINT_OFF_REQUEST : 1;
+    /// read-only - Clock gate turn off finish from GPC Setpoint
     eSETPOINT_OFF_DONE SETPOINT_OFF_DONE : 1;
+    /// read-only - Clock gate turn on request from GPC Setpoint
     eSETPOINT_ON_REQUEST SETPOINT_ON_REQUEST : 1;
+    /// read-only - Clock gate turn on finish from GPC Setpoint
     eSETPOINT_ON_DONE SETPOINT_ON_DONE : 1;
     uint32_t _reserved_0 : 4;
   } bits;
@@ -46542,6 +51337,7 @@ union LPCG114_CONFIG {
   // Bit field definition.
   struct {
     uint32_t _reserved_0 : 4;
+    /// read-only - Setpoint present
     eSETPOINT_PRESENT SETPOINT_PRESENT : 1;
     uint32_t _reserved_1 : 27;
   } bits;
@@ -46600,18 +51396,27 @@ union LPCG114_AUTHEN {
   
   // Bit field definition.
   struct {
+    /// read-write - User access
     eTZ_USER TZ_USER : 1;
+    /// read-write - Non-secure access
     eTZ_NS TZ_NS : 1;
     uint32_t _reserved_0 : 2;
+    /// read-write - lock truszone setting
     eLOCK_TZ LOCK_TZ : 1;
     uint32_t _reserved_1 : 3;
+    /// read-write - Whitelist
     uint32_t WHITE_LIST : 4;
+    /// read-write - Lock Whitelist
     eLOCK_LIST LOCK_LIST : 1;
     uint32_t _reserved_2 : 3;
+    /// read-write - Low power and access control by domain
     eDOMAIN_MODE DOMAIN_MODE : 1;
+    /// read-write - Low power and access control by Setpoint
     eSETPOINT_MODE SETPOINT_MODE : 1;
+    /// read-write - CPU Low Power Mode
     eCPULPM CPULPM : 1;
     uint32_t _reserved_3 : 1;
+    /// read-write - Lock low power and access mode
     eLOCK_MODE LOCK_MODE : 1;
     uint32_t _reserved_4 : 11;
   } bits;
@@ -46635,6 +51440,7 @@ union LPCG115_DIRECT {
   
   // Bit field definition.
   struct {
+    /// read-write - LPCG on
     eON ON : 1;
     uint32_t _reserved_0 : 31;
   } bits;
@@ -46693,14 +51499,19 @@ union LPCG115_DOMAIN {
   
   // Bit field definition.
   struct {
+    /// read-write - Current dependence level
     eLEVEL LEVEL : 3;
     uint32_t _reserved_0 : 13;
+    /// read-write - Depend level
     eLEVEL0 LEVEL0 : 3;
     uint32_t _reserved_1 : 1;
+    /// read-write - Depend level
     eLEVEL1 LEVEL1 : 3;
     uint32_t _reserved_2 : 1;
+    /// read-write - Depend level
     eLEVEL2 LEVEL2 : 3;
     uint32_t _reserved_3 : 1;
+    /// read-write - Depend level
     eLEVEL3 LEVEL3 : 3;
     uint32_t _reserved_4 : 1;
   } bits;
@@ -46762,9 +51573,12 @@ union LPCG115_STATUS0 {
   
   // Bit field definition.
   struct {
+    /// read-only - LPCG current state
     eON ON : 1;
     uint32_t _reserved_0 : 7;
+    /// read-only - Domains that own this clock gate
     eACTIVE_DOMAIN ACTIVE_DOMAIN : 4;
+    /// read-only - Enable status from each domain
     eDOMAIN_ENABLE DOMAIN_ENABLE : 4;
     uint32_t _reserved_1 : 16;
   } bits;
@@ -46871,23 +51685,41 @@ union LPCG115_STATUS1 {
   
   // Bit field definition.
   struct {
+    /// read-only - Domain0 Low Power Mode
     eCPU0_MODE CPU0_MODE : 2;
+    /// read-only - Domain0 request enter Low Power Mode
     eCPU0_MODE_REQUEST CPU0_MODE_REQUEST : 1;
+    /// read-only - Domain0 Low Power Mode task done
     eCPU0_MODE_DONE CPU0_MODE_DONE : 1;
+    /// read-only - Domain1 Low Power Mode
     eCPU1_MODE CPU1_MODE : 2;
+    /// read-only - Domain1 request enter Low Power Mode
     eCPU1_MODE_REQUEST CPU1_MODE_REQUEST : 1;
+    /// read-only - Domain1 Low Power Mode task done
     eCPU1_MODE_DONE CPU1_MODE_DONE : 1;
+    /// read-only - Domain2 Low Power Mode
     eCPU2_MODE CPU2_MODE : 2;
+    /// read-only - Domain2 request enter Low Power Mode
     eCPU2_MODE_REQUEST CPU2_MODE_REQUEST : 1;
+    /// read-only - Domain2 Low Power Mode task done
     eCPU2_MODE_DONE CPU2_MODE_DONE : 1;
+    /// read-only - Domain3 Low Power Mode
     eCPU3_MODE CPU3_MODE : 2;
+    /// read-only - Domain3 request enter Low Power Mode
     eCPU3_MODE_REQUEST CPU3_MODE_REQUEST : 1;
+    /// read-only - Domain3 Low Power Mode task done
     eCPU3_MODE_DONE CPU3_MODE_DONE : 1;
+    /// read-only - Next Setpoint to change to
     uint32_t TARGET_SETPOINT : 4;
+    /// read-only - Current Setpoint
     uint32_t CURRENT_SETPOINT : 4;
+    /// read-only - Clock gate turn off request from GPC Setpoint
     eSETPOINT_OFF_REQUEST SETPOINT_OFF_REQUEST : 1;
+    /// read-only - Clock gate turn off finish from GPC Setpoint
     eSETPOINT_OFF_DONE SETPOINT_OFF_DONE : 1;
+    /// read-only - Clock gate turn on request from GPC Setpoint
     eSETPOINT_ON_REQUEST SETPOINT_ON_REQUEST : 1;
+    /// read-only - Clock gate turn on finish from GPC Setpoint
     eSETPOINT_ON_DONE SETPOINT_ON_DONE : 1;
     uint32_t _reserved_0 : 4;
   } bits;
@@ -46912,6 +51744,7 @@ union LPCG115_CONFIG {
   // Bit field definition.
   struct {
     uint32_t _reserved_0 : 4;
+    /// read-only - Setpoint present
     eSETPOINT_PRESENT SETPOINT_PRESENT : 1;
     uint32_t _reserved_1 : 27;
   } bits;
@@ -46970,18 +51803,27 @@ union LPCG115_AUTHEN {
   
   // Bit field definition.
   struct {
+    /// read-write - User access
     eTZ_USER TZ_USER : 1;
+    /// read-write - Non-secure access
     eTZ_NS TZ_NS : 1;
     uint32_t _reserved_0 : 2;
+    /// read-write - lock truszone setting
     eLOCK_TZ LOCK_TZ : 1;
     uint32_t _reserved_1 : 3;
+    /// read-write - Whitelist
     uint32_t WHITE_LIST : 4;
+    /// read-write - Lock Whitelist
     eLOCK_LIST LOCK_LIST : 1;
     uint32_t _reserved_2 : 3;
+    /// read-write - Low power and access control by domain
     eDOMAIN_MODE DOMAIN_MODE : 1;
+    /// read-write - Low power and access control by Setpoint
     eSETPOINT_MODE SETPOINT_MODE : 1;
+    /// read-write - CPU Low Power Mode
     eCPULPM CPULPM : 1;
     uint32_t _reserved_3 : 1;
+    /// read-write - Lock low power and access mode
     eLOCK_MODE LOCK_MODE : 1;
     uint32_t _reserved_4 : 11;
   } bits;
@@ -47005,6 +51847,7 @@ union LPCG116_DIRECT {
   
   // Bit field definition.
   struct {
+    /// read-write - LPCG on
     eON ON : 1;
     uint32_t _reserved_0 : 31;
   } bits;
@@ -47063,14 +51906,19 @@ union LPCG116_DOMAIN {
   
   // Bit field definition.
   struct {
+    /// read-write - Current dependence level
     eLEVEL LEVEL : 3;
     uint32_t _reserved_0 : 13;
+    /// read-write - Depend level
     eLEVEL0 LEVEL0 : 3;
     uint32_t _reserved_1 : 1;
+    /// read-write - Depend level
     eLEVEL1 LEVEL1 : 3;
     uint32_t _reserved_2 : 1;
+    /// read-write - Depend level
     eLEVEL2 LEVEL2 : 3;
     uint32_t _reserved_3 : 1;
+    /// read-write - Depend level
     eLEVEL3 LEVEL3 : 3;
     uint32_t _reserved_4 : 1;
   } bits;
@@ -47132,9 +51980,12 @@ union LPCG116_STATUS0 {
   
   // Bit field definition.
   struct {
+    /// read-only - LPCG current state
     eON ON : 1;
     uint32_t _reserved_0 : 7;
+    /// read-only - Domains that own this clock gate
     eACTIVE_DOMAIN ACTIVE_DOMAIN : 4;
+    /// read-only - Enable status from each domain
     eDOMAIN_ENABLE DOMAIN_ENABLE : 4;
     uint32_t _reserved_1 : 16;
   } bits;
@@ -47241,23 +52092,41 @@ union LPCG116_STATUS1 {
   
   // Bit field definition.
   struct {
+    /// read-only - Domain0 Low Power Mode
     eCPU0_MODE CPU0_MODE : 2;
+    /// read-only - Domain0 request enter Low Power Mode
     eCPU0_MODE_REQUEST CPU0_MODE_REQUEST : 1;
+    /// read-only - Domain0 Low Power Mode task done
     eCPU0_MODE_DONE CPU0_MODE_DONE : 1;
+    /// read-only - Domain1 Low Power Mode
     eCPU1_MODE CPU1_MODE : 2;
+    /// read-only - Domain1 request enter Low Power Mode
     eCPU1_MODE_REQUEST CPU1_MODE_REQUEST : 1;
+    /// read-only - Domain1 Low Power Mode task done
     eCPU1_MODE_DONE CPU1_MODE_DONE : 1;
+    /// read-only - Domain2 Low Power Mode
     eCPU2_MODE CPU2_MODE : 2;
+    /// read-only - Domain2 request enter Low Power Mode
     eCPU2_MODE_REQUEST CPU2_MODE_REQUEST : 1;
+    /// read-only - Domain2 Low Power Mode task done
     eCPU2_MODE_DONE CPU2_MODE_DONE : 1;
+    /// read-only - Domain3 Low Power Mode
     eCPU3_MODE CPU3_MODE : 2;
+    /// read-only - Domain3 request enter Low Power Mode
     eCPU3_MODE_REQUEST CPU3_MODE_REQUEST : 1;
+    /// read-only - Domain3 Low Power Mode task done
     eCPU3_MODE_DONE CPU3_MODE_DONE : 1;
+    /// read-only - Next Setpoint to change to
     uint32_t TARGET_SETPOINT : 4;
+    /// read-only - Current Setpoint
     uint32_t CURRENT_SETPOINT : 4;
+    /// read-only - Clock gate turn off request from GPC Setpoint
     eSETPOINT_OFF_REQUEST SETPOINT_OFF_REQUEST : 1;
+    /// read-only - Clock gate turn off finish from GPC Setpoint
     eSETPOINT_OFF_DONE SETPOINT_OFF_DONE : 1;
+    /// read-only - Clock gate turn on request from GPC Setpoint
     eSETPOINT_ON_REQUEST SETPOINT_ON_REQUEST : 1;
+    /// read-only - Clock gate turn on finish from GPC Setpoint
     eSETPOINT_ON_DONE SETPOINT_ON_DONE : 1;
     uint32_t _reserved_0 : 4;
   } bits;
@@ -47282,6 +52151,7 @@ union LPCG116_CONFIG {
   // Bit field definition.
   struct {
     uint32_t _reserved_0 : 4;
+    /// read-only - Setpoint present
     eSETPOINT_PRESENT SETPOINT_PRESENT : 1;
     uint32_t _reserved_1 : 27;
   } bits;
@@ -47340,18 +52210,27 @@ union LPCG116_AUTHEN {
   
   // Bit field definition.
   struct {
+    /// read-write - User access
     eTZ_USER TZ_USER : 1;
+    /// read-write - Non-secure access
     eTZ_NS TZ_NS : 1;
     uint32_t _reserved_0 : 2;
+    /// read-write - lock truszone setting
     eLOCK_TZ LOCK_TZ : 1;
     uint32_t _reserved_1 : 3;
+    /// read-write - Whitelist
     uint32_t WHITE_LIST : 4;
+    /// read-write - Lock Whitelist
     eLOCK_LIST LOCK_LIST : 1;
     uint32_t _reserved_2 : 3;
+    /// read-write - Low power and access control by domain
     eDOMAIN_MODE DOMAIN_MODE : 1;
+    /// read-write - Low power and access control by Setpoint
     eSETPOINT_MODE SETPOINT_MODE : 1;
+    /// read-write - CPU Low Power Mode
     eCPULPM CPULPM : 1;
     uint32_t _reserved_3 : 1;
+    /// read-write - Lock low power and access mode
     eLOCK_MODE LOCK_MODE : 1;
     uint32_t _reserved_4 : 11;
   } bits;
@@ -47375,6 +52254,7 @@ union LPCG117_DIRECT {
   
   // Bit field definition.
   struct {
+    /// read-write - LPCG on
     eON ON : 1;
     uint32_t _reserved_0 : 31;
   } bits;
@@ -47433,14 +52313,19 @@ union LPCG117_DOMAIN {
   
   // Bit field definition.
   struct {
+    /// read-write - Current dependence level
     eLEVEL LEVEL : 3;
     uint32_t _reserved_0 : 13;
+    /// read-write - Depend level
     eLEVEL0 LEVEL0 : 3;
     uint32_t _reserved_1 : 1;
+    /// read-write - Depend level
     eLEVEL1 LEVEL1 : 3;
     uint32_t _reserved_2 : 1;
+    /// read-write - Depend level
     eLEVEL2 LEVEL2 : 3;
     uint32_t _reserved_3 : 1;
+    /// read-write - Depend level
     eLEVEL3 LEVEL3 : 3;
     uint32_t _reserved_4 : 1;
   } bits;
@@ -47502,9 +52387,12 @@ union LPCG117_STATUS0 {
   
   // Bit field definition.
   struct {
+    /// read-only - LPCG current state
     eON ON : 1;
     uint32_t _reserved_0 : 7;
+    /// read-only - Domains that own this clock gate
     eACTIVE_DOMAIN ACTIVE_DOMAIN : 4;
+    /// read-only - Enable status from each domain
     eDOMAIN_ENABLE DOMAIN_ENABLE : 4;
     uint32_t _reserved_1 : 16;
   } bits;
@@ -47611,23 +52499,41 @@ union LPCG117_STATUS1 {
   
   // Bit field definition.
   struct {
+    /// read-only - Domain0 Low Power Mode
     eCPU0_MODE CPU0_MODE : 2;
+    /// read-only - Domain0 request enter Low Power Mode
     eCPU0_MODE_REQUEST CPU0_MODE_REQUEST : 1;
+    /// read-only - Domain0 Low Power Mode task done
     eCPU0_MODE_DONE CPU0_MODE_DONE : 1;
+    /// read-only - Domain1 Low Power Mode
     eCPU1_MODE CPU1_MODE : 2;
+    /// read-only - Domain1 request enter Low Power Mode
     eCPU1_MODE_REQUEST CPU1_MODE_REQUEST : 1;
+    /// read-only - Domain1 Low Power Mode task done
     eCPU1_MODE_DONE CPU1_MODE_DONE : 1;
+    /// read-only - Domain2 Low Power Mode
     eCPU2_MODE CPU2_MODE : 2;
+    /// read-only - Domain2 request enter Low Power Mode
     eCPU2_MODE_REQUEST CPU2_MODE_REQUEST : 1;
+    /// read-only - Domain2 Low Power Mode task done
     eCPU2_MODE_DONE CPU2_MODE_DONE : 1;
+    /// read-only - Domain3 Low Power Mode
     eCPU3_MODE CPU3_MODE : 2;
+    /// read-only - Domain3 request enter Low Power Mode
     eCPU3_MODE_REQUEST CPU3_MODE_REQUEST : 1;
+    /// read-only - Domain3 Low Power Mode task done
     eCPU3_MODE_DONE CPU3_MODE_DONE : 1;
+    /// read-only - Next Setpoint to change to
     uint32_t TARGET_SETPOINT : 4;
+    /// read-only - Current Setpoint
     uint32_t CURRENT_SETPOINT : 4;
+    /// read-only - Clock gate turn off request from GPC Setpoint
     eSETPOINT_OFF_REQUEST SETPOINT_OFF_REQUEST : 1;
+    /// read-only - Clock gate turn off finish from GPC Setpoint
     eSETPOINT_OFF_DONE SETPOINT_OFF_DONE : 1;
+    /// read-only - Clock gate turn on request from GPC Setpoint
     eSETPOINT_ON_REQUEST SETPOINT_ON_REQUEST : 1;
+    /// read-only - Clock gate turn on finish from GPC Setpoint
     eSETPOINT_ON_DONE SETPOINT_ON_DONE : 1;
     uint32_t _reserved_0 : 4;
   } bits;
@@ -47652,6 +52558,7 @@ union LPCG117_CONFIG {
   // Bit field definition.
   struct {
     uint32_t _reserved_0 : 4;
+    /// read-only - Setpoint present
     eSETPOINT_PRESENT SETPOINT_PRESENT : 1;
     uint32_t _reserved_1 : 27;
   } bits;
@@ -47710,18 +52617,27 @@ union LPCG117_AUTHEN {
   
   // Bit field definition.
   struct {
+    /// read-write - User access
     eTZ_USER TZ_USER : 1;
+    /// read-write - Non-secure access
     eTZ_NS TZ_NS : 1;
     uint32_t _reserved_0 : 2;
+    /// read-write - lock truszone setting
     eLOCK_TZ LOCK_TZ : 1;
     uint32_t _reserved_1 : 3;
+    /// read-write - Whitelist
     uint32_t WHITE_LIST : 4;
+    /// read-write - Lock Whitelist
     eLOCK_LIST LOCK_LIST : 1;
     uint32_t _reserved_2 : 3;
+    /// read-write - Low power and access control by domain
     eDOMAIN_MODE DOMAIN_MODE : 1;
+    /// read-write - Low power and access control by Setpoint
     eSETPOINT_MODE SETPOINT_MODE : 1;
+    /// read-write - CPU Low Power Mode
     eCPULPM CPULPM : 1;
     uint32_t _reserved_3 : 1;
+    /// read-write - Lock low power and access mode
     eLOCK_MODE LOCK_MODE : 1;
     uint32_t _reserved_4 : 11;
   } bits;
@@ -47745,6 +52661,7 @@ union LPCG118_DIRECT {
   
   // Bit field definition.
   struct {
+    /// read-write - LPCG on
     eON ON : 1;
     uint32_t _reserved_0 : 31;
   } bits;
@@ -47803,14 +52720,19 @@ union LPCG118_DOMAIN {
   
   // Bit field definition.
   struct {
+    /// read-write - Current dependence level
     eLEVEL LEVEL : 3;
     uint32_t _reserved_0 : 13;
+    /// read-write - Depend level
     eLEVEL0 LEVEL0 : 3;
     uint32_t _reserved_1 : 1;
+    /// read-write - Depend level
     eLEVEL1 LEVEL1 : 3;
     uint32_t _reserved_2 : 1;
+    /// read-write - Depend level
     eLEVEL2 LEVEL2 : 3;
     uint32_t _reserved_3 : 1;
+    /// read-write - Depend level
     eLEVEL3 LEVEL3 : 3;
     uint32_t _reserved_4 : 1;
   } bits;
@@ -47872,9 +52794,12 @@ union LPCG118_STATUS0 {
   
   // Bit field definition.
   struct {
+    /// read-only - LPCG current state
     eON ON : 1;
     uint32_t _reserved_0 : 7;
+    /// read-only - Domains that own this clock gate
     eACTIVE_DOMAIN ACTIVE_DOMAIN : 4;
+    /// read-only - Enable status from each domain
     eDOMAIN_ENABLE DOMAIN_ENABLE : 4;
     uint32_t _reserved_1 : 16;
   } bits;
@@ -47981,23 +52906,41 @@ union LPCG118_STATUS1 {
   
   // Bit field definition.
   struct {
+    /// read-only - Domain0 Low Power Mode
     eCPU0_MODE CPU0_MODE : 2;
+    /// read-only - Domain0 request enter Low Power Mode
     eCPU0_MODE_REQUEST CPU0_MODE_REQUEST : 1;
+    /// read-only - Domain0 Low Power Mode task done
     eCPU0_MODE_DONE CPU0_MODE_DONE : 1;
+    /// read-only - Domain1 Low Power Mode
     eCPU1_MODE CPU1_MODE : 2;
+    /// read-only - Domain1 request enter Low Power Mode
     eCPU1_MODE_REQUEST CPU1_MODE_REQUEST : 1;
+    /// read-only - Domain1 Low Power Mode task done
     eCPU1_MODE_DONE CPU1_MODE_DONE : 1;
+    /// read-only - Domain2 Low Power Mode
     eCPU2_MODE CPU2_MODE : 2;
+    /// read-only - Domain2 request enter Low Power Mode
     eCPU2_MODE_REQUEST CPU2_MODE_REQUEST : 1;
+    /// read-only - Domain2 Low Power Mode task done
     eCPU2_MODE_DONE CPU2_MODE_DONE : 1;
+    /// read-only - Domain3 Low Power Mode
     eCPU3_MODE CPU3_MODE : 2;
+    /// read-only - Domain3 request enter Low Power Mode
     eCPU3_MODE_REQUEST CPU3_MODE_REQUEST : 1;
+    /// read-only - Domain3 Low Power Mode task done
     eCPU3_MODE_DONE CPU3_MODE_DONE : 1;
+    /// read-only - Next Setpoint to change to
     uint32_t TARGET_SETPOINT : 4;
+    /// read-only - Current Setpoint
     uint32_t CURRENT_SETPOINT : 4;
+    /// read-only - Clock gate turn off request from GPC Setpoint
     eSETPOINT_OFF_REQUEST SETPOINT_OFF_REQUEST : 1;
+    /// read-only - Clock gate turn off finish from GPC Setpoint
     eSETPOINT_OFF_DONE SETPOINT_OFF_DONE : 1;
+    /// read-only - Clock gate turn on request from GPC Setpoint
     eSETPOINT_ON_REQUEST SETPOINT_ON_REQUEST : 1;
+    /// read-only - Clock gate turn on finish from GPC Setpoint
     eSETPOINT_ON_DONE SETPOINT_ON_DONE : 1;
     uint32_t _reserved_0 : 4;
   } bits;
@@ -48022,6 +52965,7 @@ union LPCG118_CONFIG {
   // Bit field definition.
   struct {
     uint32_t _reserved_0 : 4;
+    /// read-only - Setpoint present
     eSETPOINT_PRESENT SETPOINT_PRESENT : 1;
     uint32_t _reserved_1 : 27;
   } bits;
@@ -48080,18 +53024,27 @@ union LPCG118_AUTHEN {
   
   // Bit field definition.
   struct {
+    /// read-write - User access
     eTZ_USER TZ_USER : 1;
+    /// read-write - Non-secure access
     eTZ_NS TZ_NS : 1;
     uint32_t _reserved_0 : 2;
+    /// read-write - lock truszone setting
     eLOCK_TZ LOCK_TZ : 1;
     uint32_t _reserved_1 : 3;
+    /// read-write - Whitelist
     uint32_t WHITE_LIST : 4;
+    /// read-write - Lock Whitelist
     eLOCK_LIST LOCK_LIST : 1;
     uint32_t _reserved_2 : 3;
+    /// read-write - Low power and access control by domain
     eDOMAIN_MODE DOMAIN_MODE : 1;
+    /// read-write - Low power and access control by Setpoint
     eSETPOINT_MODE SETPOINT_MODE : 1;
+    /// read-write - CPU Low Power Mode
     eCPULPM CPULPM : 1;
     uint32_t _reserved_3 : 1;
+    /// read-write - Lock low power and access mode
     eLOCK_MODE LOCK_MODE : 1;
     uint32_t _reserved_4 : 11;
   } bits;
@@ -48115,6 +53068,7 @@ union LPCG119_DIRECT {
   
   // Bit field definition.
   struct {
+    /// read-write - LPCG on
     eON ON : 1;
     uint32_t _reserved_0 : 31;
   } bits;
@@ -48173,14 +53127,19 @@ union LPCG119_DOMAIN {
   
   // Bit field definition.
   struct {
+    /// read-write - Current dependence level
     eLEVEL LEVEL : 3;
     uint32_t _reserved_0 : 13;
+    /// read-write - Depend level
     eLEVEL0 LEVEL0 : 3;
     uint32_t _reserved_1 : 1;
+    /// read-write - Depend level
     eLEVEL1 LEVEL1 : 3;
     uint32_t _reserved_2 : 1;
+    /// read-write - Depend level
     eLEVEL2 LEVEL2 : 3;
     uint32_t _reserved_3 : 1;
+    /// read-write - Depend level
     eLEVEL3 LEVEL3 : 3;
     uint32_t _reserved_4 : 1;
   } bits;
@@ -48242,9 +53201,12 @@ union LPCG119_STATUS0 {
   
   // Bit field definition.
   struct {
+    /// read-only - LPCG current state
     eON ON : 1;
     uint32_t _reserved_0 : 7;
+    /// read-only - Domains that own this clock gate
     eACTIVE_DOMAIN ACTIVE_DOMAIN : 4;
+    /// read-only - Enable status from each domain
     eDOMAIN_ENABLE DOMAIN_ENABLE : 4;
     uint32_t _reserved_1 : 16;
   } bits;
@@ -48351,23 +53313,41 @@ union LPCG119_STATUS1 {
   
   // Bit field definition.
   struct {
+    /// read-only - Domain0 Low Power Mode
     eCPU0_MODE CPU0_MODE : 2;
+    /// read-only - Domain0 request enter Low Power Mode
     eCPU0_MODE_REQUEST CPU0_MODE_REQUEST : 1;
+    /// read-only - Domain0 Low Power Mode task done
     eCPU0_MODE_DONE CPU0_MODE_DONE : 1;
+    /// read-only - Domain1 Low Power Mode
     eCPU1_MODE CPU1_MODE : 2;
+    /// read-only - Domain1 request enter Low Power Mode
     eCPU1_MODE_REQUEST CPU1_MODE_REQUEST : 1;
+    /// read-only - Domain1 Low Power Mode task done
     eCPU1_MODE_DONE CPU1_MODE_DONE : 1;
+    /// read-only - Domain2 Low Power Mode
     eCPU2_MODE CPU2_MODE : 2;
+    /// read-only - Domain2 request enter Low Power Mode
     eCPU2_MODE_REQUEST CPU2_MODE_REQUEST : 1;
+    /// read-only - Domain2 Low Power Mode task done
     eCPU2_MODE_DONE CPU2_MODE_DONE : 1;
+    /// read-only - Domain3 Low Power Mode
     eCPU3_MODE CPU3_MODE : 2;
+    /// read-only - Domain3 request enter Low Power Mode
     eCPU3_MODE_REQUEST CPU3_MODE_REQUEST : 1;
+    /// read-only - Domain3 Low Power Mode task done
     eCPU3_MODE_DONE CPU3_MODE_DONE : 1;
+    /// read-only - Next Setpoint to change to
     uint32_t TARGET_SETPOINT : 4;
+    /// read-only - Current Setpoint
     uint32_t CURRENT_SETPOINT : 4;
+    /// read-only - Clock gate turn off request from GPC Setpoint
     eSETPOINT_OFF_REQUEST SETPOINT_OFF_REQUEST : 1;
+    /// read-only - Clock gate turn off finish from GPC Setpoint
     eSETPOINT_OFF_DONE SETPOINT_OFF_DONE : 1;
+    /// read-only - Clock gate turn on request from GPC Setpoint
     eSETPOINT_ON_REQUEST SETPOINT_ON_REQUEST : 1;
+    /// read-only - Clock gate turn on finish from GPC Setpoint
     eSETPOINT_ON_DONE SETPOINT_ON_DONE : 1;
     uint32_t _reserved_0 : 4;
   } bits;
@@ -48392,6 +53372,7 @@ union LPCG119_CONFIG {
   // Bit field definition.
   struct {
     uint32_t _reserved_0 : 4;
+    /// read-only - Setpoint present
     eSETPOINT_PRESENT SETPOINT_PRESENT : 1;
     uint32_t _reserved_1 : 27;
   } bits;
@@ -48450,18 +53431,27 @@ union LPCG119_AUTHEN {
   
   // Bit field definition.
   struct {
+    /// read-write - User access
     eTZ_USER TZ_USER : 1;
+    /// read-write - Non-secure access
     eTZ_NS TZ_NS : 1;
     uint32_t _reserved_0 : 2;
+    /// read-write - lock truszone setting
     eLOCK_TZ LOCK_TZ : 1;
     uint32_t _reserved_1 : 3;
+    /// read-write - Whitelist
     uint32_t WHITE_LIST : 4;
+    /// read-write - Lock Whitelist
     eLOCK_LIST LOCK_LIST : 1;
     uint32_t _reserved_2 : 3;
+    /// read-write - Low power and access control by domain
     eDOMAIN_MODE DOMAIN_MODE : 1;
+    /// read-write - Low power and access control by Setpoint
     eSETPOINT_MODE SETPOINT_MODE : 1;
+    /// read-write - CPU Low Power Mode
     eCPULPM CPULPM : 1;
     uint32_t _reserved_3 : 1;
+    /// read-write - Lock low power and access mode
     eLOCK_MODE LOCK_MODE : 1;
     uint32_t _reserved_4 : 11;
   } bits;
@@ -48485,6 +53475,7 @@ union LPCG120_DIRECT {
   
   // Bit field definition.
   struct {
+    /// read-write - LPCG on
     eON ON : 1;
     uint32_t _reserved_0 : 31;
   } bits;
@@ -48543,14 +53534,19 @@ union LPCG120_DOMAIN {
   
   // Bit field definition.
   struct {
+    /// read-write - Current dependence level
     eLEVEL LEVEL : 3;
     uint32_t _reserved_0 : 13;
+    /// read-write - Depend level
     eLEVEL0 LEVEL0 : 3;
     uint32_t _reserved_1 : 1;
+    /// read-write - Depend level
     eLEVEL1 LEVEL1 : 3;
     uint32_t _reserved_2 : 1;
+    /// read-write - Depend level
     eLEVEL2 LEVEL2 : 3;
     uint32_t _reserved_3 : 1;
+    /// read-write - Depend level
     eLEVEL3 LEVEL3 : 3;
     uint32_t _reserved_4 : 1;
   } bits;
@@ -48612,9 +53608,12 @@ union LPCG120_STATUS0 {
   
   // Bit field definition.
   struct {
+    /// read-only - LPCG current state
     eON ON : 1;
     uint32_t _reserved_0 : 7;
+    /// read-only - Domains that own this clock gate
     eACTIVE_DOMAIN ACTIVE_DOMAIN : 4;
+    /// read-only - Enable status from each domain
     eDOMAIN_ENABLE DOMAIN_ENABLE : 4;
     uint32_t _reserved_1 : 16;
   } bits;
@@ -48721,23 +53720,41 @@ union LPCG120_STATUS1 {
   
   // Bit field definition.
   struct {
+    /// read-only - Domain0 Low Power Mode
     eCPU0_MODE CPU0_MODE : 2;
+    /// read-only - Domain0 request enter Low Power Mode
     eCPU0_MODE_REQUEST CPU0_MODE_REQUEST : 1;
+    /// read-only - Domain0 Low Power Mode task done
     eCPU0_MODE_DONE CPU0_MODE_DONE : 1;
+    /// read-only - Domain1 Low Power Mode
     eCPU1_MODE CPU1_MODE : 2;
+    /// read-only - Domain1 request enter Low Power Mode
     eCPU1_MODE_REQUEST CPU1_MODE_REQUEST : 1;
+    /// read-only - Domain1 Low Power Mode task done
     eCPU1_MODE_DONE CPU1_MODE_DONE : 1;
+    /// read-only - Domain2 Low Power Mode
     eCPU2_MODE CPU2_MODE : 2;
+    /// read-only - Domain2 request enter Low Power Mode
     eCPU2_MODE_REQUEST CPU2_MODE_REQUEST : 1;
+    /// read-only - Domain2 Low Power Mode task done
     eCPU2_MODE_DONE CPU2_MODE_DONE : 1;
+    /// read-only - Domain3 Low Power Mode
     eCPU3_MODE CPU3_MODE : 2;
+    /// read-only - Domain3 request enter Low Power Mode
     eCPU3_MODE_REQUEST CPU3_MODE_REQUEST : 1;
+    /// read-only - Domain3 Low Power Mode task done
     eCPU3_MODE_DONE CPU3_MODE_DONE : 1;
+    /// read-only - Next Setpoint to change to
     uint32_t TARGET_SETPOINT : 4;
+    /// read-only - Current Setpoint
     uint32_t CURRENT_SETPOINT : 4;
+    /// read-only - Clock gate turn off request from GPC Setpoint
     eSETPOINT_OFF_REQUEST SETPOINT_OFF_REQUEST : 1;
+    /// read-only - Clock gate turn off finish from GPC Setpoint
     eSETPOINT_OFF_DONE SETPOINT_OFF_DONE : 1;
+    /// read-only - Clock gate turn on request from GPC Setpoint
     eSETPOINT_ON_REQUEST SETPOINT_ON_REQUEST : 1;
+    /// read-only - Clock gate turn on finish from GPC Setpoint
     eSETPOINT_ON_DONE SETPOINT_ON_DONE : 1;
     uint32_t _reserved_0 : 4;
   } bits;
@@ -48762,6 +53779,7 @@ union LPCG120_CONFIG {
   // Bit field definition.
   struct {
     uint32_t _reserved_0 : 4;
+    /// read-only - Setpoint present
     eSETPOINT_PRESENT SETPOINT_PRESENT : 1;
     uint32_t _reserved_1 : 27;
   } bits;
@@ -48820,18 +53838,27 @@ union LPCG120_AUTHEN {
   
   // Bit field definition.
   struct {
+    /// read-write - User access
     eTZ_USER TZ_USER : 1;
+    /// read-write - Non-secure access
     eTZ_NS TZ_NS : 1;
     uint32_t _reserved_0 : 2;
+    /// read-write - lock truszone setting
     eLOCK_TZ LOCK_TZ : 1;
     uint32_t _reserved_1 : 3;
+    /// read-write - Whitelist
     uint32_t WHITE_LIST : 4;
+    /// read-write - Lock Whitelist
     eLOCK_LIST LOCK_LIST : 1;
     uint32_t _reserved_2 : 3;
+    /// read-write - Low power and access control by domain
     eDOMAIN_MODE DOMAIN_MODE : 1;
+    /// read-write - Low power and access control by Setpoint
     eSETPOINT_MODE SETPOINT_MODE : 1;
+    /// read-write - CPU Low Power Mode
     eCPULPM CPULPM : 1;
     uint32_t _reserved_3 : 1;
+    /// read-write - Lock low power and access mode
     eLOCK_MODE LOCK_MODE : 1;
     uint32_t _reserved_4 : 11;
   } bits;
@@ -48855,6 +53882,7 @@ union LPCG121_DIRECT {
   
   // Bit field definition.
   struct {
+    /// read-write - LPCG on
     eON ON : 1;
     uint32_t _reserved_0 : 31;
   } bits;
@@ -48913,14 +53941,19 @@ union LPCG121_DOMAIN {
   
   // Bit field definition.
   struct {
+    /// read-write - Current dependence level
     eLEVEL LEVEL : 3;
     uint32_t _reserved_0 : 13;
+    /// read-write - Depend level
     eLEVEL0 LEVEL0 : 3;
     uint32_t _reserved_1 : 1;
+    /// read-write - Depend level
     eLEVEL1 LEVEL1 : 3;
     uint32_t _reserved_2 : 1;
+    /// read-write - Depend level
     eLEVEL2 LEVEL2 : 3;
     uint32_t _reserved_3 : 1;
+    /// read-write - Depend level
     eLEVEL3 LEVEL3 : 3;
     uint32_t _reserved_4 : 1;
   } bits;
@@ -48982,9 +54015,12 @@ union LPCG121_STATUS0 {
   
   // Bit field definition.
   struct {
+    /// read-only - LPCG current state
     eON ON : 1;
     uint32_t _reserved_0 : 7;
+    /// read-only - Domains that own this clock gate
     eACTIVE_DOMAIN ACTIVE_DOMAIN : 4;
+    /// read-only - Enable status from each domain
     eDOMAIN_ENABLE DOMAIN_ENABLE : 4;
     uint32_t _reserved_1 : 16;
   } bits;
@@ -49091,23 +54127,41 @@ union LPCG121_STATUS1 {
   
   // Bit field definition.
   struct {
+    /// read-only - Domain0 Low Power Mode
     eCPU0_MODE CPU0_MODE : 2;
+    /// read-only - Domain0 request enter Low Power Mode
     eCPU0_MODE_REQUEST CPU0_MODE_REQUEST : 1;
+    /// read-only - Domain0 Low Power Mode task done
     eCPU0_MODE_DONE CPU0_MODE_DONE : 1;
+    /// read-only - Domain1 Low Power Mode
     eCPU1_MODE CPU1_MODE : 2;
+    /// read-only - Domain1 request enter Low Power Mode
     eCPU1_MODE_REQUEST CPU1_MODE_REQUEST : 1;
+    /// read-only - Domain1 Low Power Mode task done
     eCPU1_MODE_DONE CPU1_MODE_DONE : 1;
+    /// read-only - Domain2 Low Power Mode
     eCPU2_MODE CPU2_MODE : 2;
+    /// read-only - Domain2 request enter Low Power Mode
     eCPU2_MODE_REQUEST CPU2_MODE_REQUEST : 1;
+    /// read-only - Domain2 Low Power Mode task done
     eCPU2_MODE_DONE CPU2_MODE_DONE : 1;
+    /// read-only - Domain3 Low Power Mode
     eCPU3_MODE CPU3_MODE : 2;
+    /// read-only - Domain3 request enter Low Power Mode
     eCPU3_MODE_REQUEST CPU3_MODE_REQUEST : 1;
+    /// read-only - Domain3 Low Power Mode task done
     eCPU3_MODE_DONE CPU3_MODE_DONE : 1;
+    /// read-only - Next Setpoint to change to
     uint32_t TARGET_SETPOINT : 4;
+    /// read-only - Current Setpoint
     uint32_t CURRENT_SETPOINT : 4;
+    /// read-only - Clock gate turn off request from GPC Setpoint
     eSETPOINT_OFF_REQUEST SETPOINT_OFF_REQUEST : 1;
+    /// read-only - Clock gate turn off finish from GPC Setpoint
     eSETPOINT_OFF_DONE SETPOINT_OFF_DONE : 1;
+    /// read-only - Clock gate turn on request from GPC Setpoint
     eSETPOINT_ON_REQUEST SETPOINT_ON_REQUEST : 1;
+    /// read-only - Clock gate turn on finish from GPC Setpoint
     eSETPOINT_ON_DONE SETPOINT_ON_DONE : 1;
     uint32_t _reserved_0 : 4;
   } bits;
@@ -49132,6 +54186,7 @@ union LPCG121_CONFIG {
   // Bit field definition.
   struct {
     uint32_t _reserved_0 : 4;
+    /// read-only - Setpoint present
     eSETPOINT_PRESENT SETPOINT_PRESENT : 1;
     uint32_t _reserved_1 : 27;
   } bits;
@@ -49190,18 +54245,27 @@ union LPCG121_AUTHEN {
   
   // Bit field definition.
   struct {
+    /// read-write - User access
     eTZ_USER TZ_USER : 1;
+    /// read-write - Non-secure access
     eTZ_NS TZ_NS : 1;
     uint32_t _reserved_0 : 2;
+    /// read-write - lock truszone setting
     eLOCK_TZ LOCK_TZ : 1;
     uint32_t _reserved_1 : 3;
+    /// read-write - Whitelist
     uint32_t WHITE_LIST : 4;
+    /// read-write - Lock Whitelist
     eLOCK_LIST LOCK_LIST : 1;
     uint32_t _reserved_2 : 3;
+    /// read-write - Low power and access control by domain
     eDOMAIN_MODE DOMAIN_MODE : 1;
+    /// read-write - Low power and access control by Setpoint
     eSETPOINT_MODE SETPOINT_MODE : 1;
+    /// read-write - CPU Low Power Mode
     eCPULPM CPULPM : 1;
     uint32_t _reserved_3 : 1;
+    /// read-write - Lock low power and access mode
     eLOCK_MODE LOCK_MODE : 1;
     uint32_t _reserved_4 : 11;
   } bits;
@@ -49225,6 +54289,7 @@ union LPCG122_DIRECT {
   
   // Bit field definition.
   struct {
+    /// read-write - LPCG on
     eON ON : 1;
     uint32_t _reserved_0 : 31;
   } bits;
@@ -49283,14 +54348,19 @@ union LPCG122_DOMAIN {
   
   // Bit field definition.
   struct {
+    /// read-write - Current dependence level
     eLEVEL LEVEL : 3;
     uint32_t _reserved_0 : 13;
+    /// read-write - Depend level
     eLEVEL0 LEVEL0 : 3;
     uint32_t _reserved_1 : 1;
+    /// read-write - Depend level
     eLEVEL1 LEVEL1 : 3;
     uint32_t _reserved_2 : 1;
+    /// read-write - Depend level
     eLEVEL2 LEVEL2 : 3;
     uint32_t _reserved_3 : 1;
+    /// read-write - Depend level
     eLEVEL3 LEVEL3 : 3;
     uint32_t _reserved_4 : 1;
   } bits;
@@ -49352,9 +54422,12 @@ union LPCG122_STATUS0 {
   
   // Bit field definition.
   struct {
+    /// read-only - LPCG current state
     eON ON : 1;
     uint32_t _reserved_0 : 7;
+    /// read-only - Domains that own this clock gate
     eACTIVE_DOMAIN ACTIVE_DOMAIN : 4;
+    /// read-only - Enable status from each domain
     eDOMAIN_ENABLE DOMAIN_ENABLE : 4;
     uint32_t _reserved_1 : 16;
   } bits;
@@ -49461,23 +54534,41 @@ union LPCG122_STATUS1 {
   
   // Bit field definition.
   struct {
+    /// read-only - Domain0 Low Power Mode
     eCPU0_MODE CPU0_MODE : 2;
+    /// read-only - Domain0 request enter Low Power Mode
     eCPU0_MODE_REQUEST CPU0_MODE_REQUEST : 1;
+    /// read-only - Domain0 Low Power Mode task done
     eCPU0_MODE_DONE CPU0_MODE_DONE : 1;
+    /// read-only - Domain1 Low Power Mode
     eCPU1_MODE CPU1_MODE : 2;
+    /// read-only - Domain1 request enter Low Power Mode
     eCPU1_MODE_REQUEST CPU1_MODE_REQUEST : 1;
+    /// read-only - Domain1 Low Power Mode task done
     eCPU1_MODE_DONE CPU1_MODE_DONE : 1;
+    /// read-only - Domain2 Low Power Mode
     eCPU2_MODE CPU2_MODE : 2;
+    /// read-only - Domain2 request enter Low Power Mode
     eCPU2_MODE_REQUEST CPU2_MODE_REQUEST : 1;
+    /// read-only - Domain2 Low Power Mode task done
     eCPU2_MODE_DONE CPU2_MODE_DONE : 1;
+    /// read-only - Domain3 Low Power Mode
     eCPU3_MODE CPU3_MODE : 2;
+    /// read-only - Domain3 request enter Low Power Mode
     eCPU3_MODE_REQUEST CPU3_MODE_REQUEST : 1;
+    /// read-only - Domain3 Low Power Mode task done
     eCPU3_MODE_DONE CPU3_MODE_DONE : 1;
+    /// read-only - Next Setpoint to change to
     uint32_t TARGET_SETPOINT : 4;
+    /// read-only - Current Setpoint
     uint32_t CURRENT_SETPOINT : 4;
+    /// read-only - Clock gate turn off request from GPC Setpoint
     eSETPOINT_OFF_REQUEST SETPOINT_OFF_REQUEST : 1;
+    /// read-only - Clock gate turn off finish from GPC Setpoint
     eSETPOINT_OFF_DONE SETPOINT_OFF_DONE : 1;
+    /// read-only - Clock gate turn on request from GPC Setpoint
     eSETPOINT_ON_REQUEST SETPOINT_ON_REQUEST : 1;
+    /// read-only - Clock gate turn on finish from GPC Setpoint
     eSETPOINT_ON_DONE SETPOINT_ON_DONE : 1;
     uint32_t _reserved_0 : 4;
   } bits;
@@ -49502,6 +54593,7 @@ union LPCG122_CONFIG {
   // Bit field definition.
   struct {
     uint32_t _reserved_0 : 4;
+    /// read-only - Setpoint present
     eSETPOINT_PRESENT SETPOINT_PRESENT : 1;
     uint32_t _reserved_1 : 27;
   } bits;
@@ -49560,18 +54652,27 @@ union LPCG122_AUTHEN {
   
   // Bit field definition.
   struct {
+    /// read-write - User access
     eTZ_USER TZ_USER : 1;
+    /// read-write - Non-secure access
     eTZ_NS TZ_NS : 1;
     uint32_t _reserved_0 : 2;
+    /// read-write - lock truszone setting
     eLOCK_TZ LOCK_TZ : 1;
     uint32_t _reserved_1 : 3;
+    /// read-write - Whitelist
     uint32_t WHITE_LIST : 4;
+    /// read-write - Lock Whitelist
     eLOCK_LIST LOCK_LIST : 1;
     uint32_t _reserved_2 : 3;
+    /// read-write - Low power and access control by domain
     eDOMAIN_MODE DOMAIN_MODE : 1;
+    /// read-write - Low power and access control by Setpoint
     eSETPOINT_MODE SETPOINT_MODE : 1;
+    /// read-write - CPU Low Power Mode
     eCPULPM CPULPM : 1;
     uint32_t _reserved_3 : 1;
+    /// read-write - Lock low power and access mode
     eLOCK_MODE LOCK_MODE : 1;
     uint32_t _reserved_4 : 11;
   } bits;
@@ -49595,6 +54696,7 @@ union LPCG123_DIRECT {
   
   // Bit field definition.
   struct {
+    /// read-write - LPCG on
     eON ON : 1;
     uint32_t _reserved_0 : 31;
   } bits;
@@ -49653,14 +54755,19 @@ union LPCG123_DOMAIN {
   
   // Bit field definition.
   struct {
+    /// read-write - Current dependence level
     eLEVEL LEVEL : 3;
     uint32_t _reserved_0 : 13;
+    /// read-write - Depend level
     eLEVEL0 LEVEL0 : 3;
     uint32_t _reserved_1 : 1;
+    /// read-write - Depend level
     eLEVEL1 LEVEL1 : 3;
     uint32_t _reserved_2 : 1;
+    /// read-write - Depend level
     eLEVEL2 LEVEL2 : 3;
     uint32_t _reserved_3 : 1;
+    /// read-write - Depend level
     eLEVEL3 LEVEL3 : 3;
     uint32_t _reserved_4 : 1;
   } bits;
@@ -49722,9 +54829,12 @@ union LPCG123_STATUS0 {
   
   // Bit field definition.
   struct {
+    /// read-only - LPCG current state
     eON ON : 1;
     uint32_t _reserved_0 : 7;
+    /// read-only - Domains that own this clock gate
     eACTIVE_DOMAIN ACTIVE_DOMAIN : 4;
+    /// read-only - Enable status from each domain
     eDOMAIN_ENABLE DOMAIN_ENABLE : 4;
     uint32_t _reserved_1 : 16;
   } bits;
@@ -49831,23 +54941,41 @@ union LPCG123_STATUS1 {
   
   // Bit field definition.
   struct {
+    /// read-only - Domain0 Low Power Mode
     eCPU0_MODE CPU0_MODE : 2;
+    /// read-only - Domain0 request enter Low Power Mode
     eCPU0_MODE_REQUEST CPU0_MODE_REQUEST : 1;
+    /// read-only - Domain0 Low Power Mode task done
     eCPU0_MODE_DONE CPU0_MODE_DONE : 1;
+    /// read-only - Domain1 Low Power Mode
     eCPU1_MODE CPU1_MODE : 2;
+    /// read-only - Domain1 request enter Low Power Mode
     eCPU1_MODE_REQUEST CPU1_MODE_REQUEST : 1;
+    /// read-only - Domain1 Low Power Mode task done
     eCPU1_MODE_DONE CPU1_MODE_DONE : 1;
+    /// read-only - Domain2 Low Power Mode
     eCPU2_MODE CPU2_MODE : 2;
+    /// read-only - Domain2 request enter Low Power Mode
     eCPU2_MODE_REQUEST CPU2_MODE_REQUEST : 1;
+    /// read-only - Domain2 Low Power Mode task done
     eCPU2_MODE_DONE CPU2_MODE_DONE : 1;
+    /// read-only - Domain3 Low Power Mode
     eCPU3_MODE CPU3_MODE : 2;
+    /// read-only - Domain3 request enter Low Power Mode
     eCPU3_MODE_REQUEST CPU3_MODE_REQUEST : 1;
+    /// read-only - Domain3 Low Power Mode task done
     eCPU3_MODE_DONE CPU3_MODE_DONE : 1;
+    /// read-only - Next Setpoint to change to
     uint32_t TARGET_SETPOINT : 4;
+    /// read-only - Current Setpoint
     uint32_t CURRENT_SETPOINT : 4;
+    /// read-only - Clock gate turn off request from GPC Setpoint
     eSETPOINT_OFF_REQUEST SETPOINT_OFF_REQUEST : 1;
+    /// read-only - Clock gate turn off finish from GPC Setpoint
     eSETPOINT_OFF_DONE SETPOINT_OFF_DONE : 1;
+    /// read-only - Clock gate turn on request from GPC Setpoint
     eSETPOINT_ON_REQUEST SETPOINT_ON_REQUEST : 1;
+    /// read-only - Clock gate turn on finish from GPC Setpoint
     eSETPOINT_ON_DONE SETPOINT_ON_DONE : 1;
     uint32_t _reserved_0 : 4;
   } bits;
@@ -49872,6 +55000,7 @@ union LPCG123_CONFIG {
   // Bit field definition.
   struct {
     uint32_t _reserved_0 : 4;
+    /// read-only - Setpoint present
     eSETPOINT_PRESENT SETPOINT_PRESENT : 1;
     uint32_t _reserved_1 : 27;
   } bits;
@@ -49930,18 +55059,27 @@ union LPCG123_AUTHEN {
   
   // Bit field definition.
   struct {
+    /// read-write - User access
     eTZ_USER TZ_USER : 1;
+    /// read-write - Non-secure access
     eTZ_NS TZ_NS : 1;
     uint32_t _reserved_0 : 2;
+    /// read-write - lock truszone setting
     eLOCK_TZ LOCK_TZ : 1;
     uint32_t _reserved_1 : 3;
+    /// read-write - Whitelist
     uint32_t WHITE_LIST : 4;
+    /// read-write - Lock Whitelist
     eLOCK_LIST LOCK_LIST : 1;
     uint32_t _reserved_2 : 3;
+    /// read-write - Low power and access control by domain
     eDOMAIN_MODE DOMAIN_MODE : 1;
+    /// read-write - Low power and access control by Setpoint
     eSETPOINT_MODE SETPOINT_MODE : 1;
+    /// read-write - CPU Low Power Mode
     eCPULPM CPULPM : 1;
     uint32_t _reserved_3 : 1;
+    /// read-write - Lock low power and access mode
     eLOCK_MODE LOCK_MODE : 1;
     uint32_t _reserved_4 : 11;
   } bits;
@@ -49965,6 +55103,7 @@ union LPCG124_DIRECT {
   
   // Bit field definition.
   struct {
+    /// read-write - LPCG on
     eON ON : 1;
     uint32_t _reserved_0 : 31;
   } bits;
@@ -50023,14 +55162,19 @@ union LPCG124_DOMAIN {
   
   // Bit field definition.
   struct {
+    /// read-write - Current dependence level
     eLEVEL LEVEL : 3;
     uint32_t _reserved_0 : 13;
+    /// read-write - Depend level
     eLEVEL0 LEVEL0 : 3;
     uint32_t _reserved_1 : 1;
+    /// read-write - Depend level
     eLEVEL1 LEVEL1 : 3;
     uint32_t _reserved_2 : 1;
+    /// read-write - Depend level
     eLEVEL2 LEVEL2 : 3;
     uint32_t _reserved_3 : 1;
+    /// read-write - Depend level
     eLEVEL3 LEVEL3 : 3;
     uint32_t _reserved_4 : 1;
   } bits;
@@ -50092,9 +55236,12 @@ union LPCG124_STATUS0 {
   
   // Bit field definition.
   struct {
+    /// read-only - LPCG current state
     eON ON : 1;
     uint32_t _reserved_0 : 7;
+    /// read-only - Domains that own this clock gate
     eACTIVE_DOMAIN ACTIVE_DOMAIN : 4;
+    /// read-only - Enable status from each domain
     eDOMAIN_ENABLE DOMAIN_ENABLE : 4;
     uint32_t _reserved_1 : 16;
   } bits;
@@ -50201,23 +55348,41 @@ union LPCG124_STATUS1 {
   
   // Bit field definition.
   struct {
+    /// read-only - Domain0 Low Power Mode
     eCPU0_MODE CPU0_MODE : 2;
+    /// read-only - Domain0 request enter Low Power Mode
     eCPU0_MODE_REQUEST CPU0_MODE_REQUEST : 1;
+    /// read-only - Domain0 Low Power Mode task done
     eCPU0_MODE_DONE CPU0_MODE_DONE : 1;
+    /// read-only - Domain1 Low Power Mode
     eCPU1_MODE CPU1_MODE : 2;
+    /// read-only - Domain1 request enter Low Power Mode
     eCPU1_MODE_REQUEST CPU1_MODE_REQUEST : 1;
+    /// read-only - Domain1 Low Power Mode task done
     eCPU1_MODE_DONE CPU1_MODE_DONE : 1;
+    /// read-only - Domain2 Low Power Mode
     eCPU2_MODE CPU2_MODE : 2;
+    /// read-only - Domain2 request enter Low Power Mode
     eCPU2_MODE_REQUEST CPU2_MODE_REQUEST : 1;
+    /// read-only - Domain2 Low Power Mode task done
     eCPU2_MODE_DONE CPU2_MODE_DONE : 1;
+    /// read-only - Domain3 Low Power Mode
     eCPU3_MODE CPU3_MODE : 2;
+    /// read-only - Domain3 request enter Low Power Mode
     eCPU3_MODE_REQUEST CPU3_MODE_REQUEST : 1;
+    /// read-only - Domain3 Low Power Mode task done
     eCPU3_MODE_DONE CPU3_MODE_DONE : 1;
+    /// read-only - Next Setpoint to change to
     uint32_t TARGET_SETPOINT : 4;
+    /// read-only - Current Setpoint
     uint32_t CURRENT_SETPOINT : 4;
+    /// read-only - Clock gate turn off request from GPC Setpoint
     eSETPOINT_OFF_REQUEST SETPOINT_OFF_REQUEST : 1;
+    /// read-only - Clock gate turn off finish from GPC Setpoint
     eSETPOINT_OFF_DONE SETPOINT_OFF_DONE : 1;
+    /// read-only - Clock gate turn on request from GPC Setpoint
     eSETPOINT_ON_REQUEST SETPOINT_ON_REQUEST : 1;
+    /// read-only - Clock gate turn on finish from GPC Setpoint
     eSETPOINT_ON_DONE SETPOINT_ON_DONE : 1;
     uint32_t _reserved_0 : 4;
   } bits;
@@ -50242,6 +55407,7 @@ union LPCG124_CONFIG {
   // Bit field definition.
   struct {
     uint32_t _reserved_0 : 4;
+    /// read-only - Setpoint present
     eSETPOINT_PRESENT SETPOINT_PRESENT : 1;
     uint32_t _reserved_1 : 27;
   } bits;
@@ -50300,18 +55466,27 @@ union LPCG124_AUTHEN {
   
   // Bit field definition.
   struct {
+    /// read-write - User access
     eTZ_USER TZ_USER : 1;
+    /// read-write - Non-secure access
     eTZ_NS TZ_NS : 1;
     uint32_t _reserved_0 : 2;
+    /// read-write - lock truszone setting
     eLOCK_TZ LOCK_TZ : 1;
     uint32_t _reserved_1 : 3;
+    /// read-write - Whitelist
     uint32_t WHITE_LIST : 4;
+    /// read-write - Lock Whitelist
     eLOCK_LIST LOCK_LIST : 1;
     uint32_t _reserved_2 : 3;
+    /// read-write - Low power and access control by domain
     eDOMAIN_MODE DOMAIN_MODE : 1;
+    /// read-write - Low power and access control by Setpoint
     eSETPOINT_MODE SETPOINT_MODE : 1;
+    /// read-write - CPU Low Power Mode
     eCPULPM CPULPM : 1;
     uint32_t _reserved_3 : 1;
+    /// read-write - Lock low power and access mode
     eLOCK_MODE LOCK_MODE : 1;
     uint32_t _reserved_4 : 11;
   } bits;
@@ -50335,6 +55510,7 @@ union LPCG125_DIRECT {
   
   // Bit field definition.
   struct {
+    /// read-write - LPCG on
     eON ON : 1;
     uint32_t _reserved_0 : 31;
   } bits;
@@ -50393,14 +55569,19 @@ union LPCG125_DOMAIN {
   
   // Bit field definition.
   struct {
+    /// read-write - Current dependence level
     eLEVEL LEVEL : 3;
     uint32_t _reserved_0 : 13;
+    /// read-write - Depend level
     eLEVEL0 LEVEL0 : 3;
     uint32_t _reserved_1 : 1;
+    /// read-write - Depend level
     eLEVEL1 LEVEL1 : 3;
     uint32_t _reserved_2 : 1;
+    /// read-write - Depend level
     eLEVEL2 LEVEL2 : 3;
     uint32_t _reserved_3 : 1;
+    /// read-write - Depend level
     eLEVEL3 LEVEL3 : 3;
     uint32_t _reserved_4 : 1;
   } bits;
@@ -50462,9 +55643,12 @@ union LPCG125_STATUS0 {
   
   // Bit field definition.
   struct {
+    /// read-only - LPCG current state
     eON ON : 1;
     uint32_t _reserved_0 : 7;
+    /// read-only - Domains that own this clock gate
     eACTIVE_DOMAIN ACTIVE_DOMAIN : 4;
+    /// read-only - Enable status from each domain
     eDOMAIN_ENABLE DOMAIN_ENABLE : 4;
     uint32_t _reserved_1 : 16;
   } bits;
@@ -50571,23 +55755,41 @@ union LPCG125_STATUS1 {
   
   // Bit field definition.
   struct {
+    /// read-only - Domain0 Low Power Mode
     eCPU0_MODE CPU0_MODE : 2;
+    /// read-only - Domain0 request enter Low Power Mode
     eCPU0_MODE_REQUEST CPU0_MODE_REQUEST : 1;
+    /// read-only - Domain0 Low Power Mode task done
     eCPU0_MODE_DONE CPU0_MODE_DONE : 1;
+    /// read-only - Domain1 Low Power Mode
     eCPU1_MODE CPU1_MODE : 2;
+    /// read-only - Domain1 request enter Low Power Mode
     eCPU1_MODE_REQUEST CPU1_MODE_REQUEST : 1;
+    /// read-only - Domain1 Low Power Mode task done
     eCPU1_MODE_DONE CPU1_MODE_DONE : 1;
+    /// read-only - Domain2 Low Power Mode
     eCPU2_MODE CPU2_MODE : 2;
+    /// read-only - Domain2 request enter Low Power Mode
     eCPU2_MODE_REQUEST CPU2_MODE_REQUEST : 1;
+    /// read-only - Domain2 Low Power Mode task done
     eCPU2_MODE_DONE CPU2_MODE_DONE : 1;
+    /// read-only - Domain3 Low Power Mode
     eCPU3_MODE CPU3_MODE : 2;
+    /// read-only - Domain3 request enter Low Power Mode
     eCPU3_MODE_REQUEST CPU3_MODE_REQUEST : 1;
+    /// read-only - Domain3 Low Power Mode task done
     eCPU3_MODE_DONE CPU3_MODE_DONE : 1;
+    /// read-only - Next Setpoint to change to
     uint32_t TARGET_SETPOINT : 4;
+    /// read-only - Current Setpoint
     uint32_t CURRENT_SETPOINT : 4;
+    /// read-only - Clock gate turn off request from GPC Setpoint
     eSETPOINT_OFF_REQUEST SETPOINT_OFF_REQUEST : 1;
+    /// read-only - Clock gate turn off finish from GPC Setpoint
     eSETPOINT_OFF_DONE SETPOINT_OFF_DONE : 1;
+    /// read-only - Clock gate turn on request from GPC Setpoint
     eSETPOINT_ON_REQUEST SETPOINT_ON_REQUEST : 1;
+    /// read-only - Clock gate turn on finish from GPC Setpoint
     eSETPOINT_ON_DONE SETPOINT_ON_DONE : 1;
     uint32_t _reserved_0 : 4;
   } bits;
@@ -50612,6 +55814,7 @@ union LPCG125_CONFIG {
   // Bit field definition.
   struct {
     uint32_t _reserved_0 : 4;
+    /// read-only - Setpoint present
     eSETPOINT_PRESENT SETPOINT_PRESENT : 1;
     uint32_t _reserved_1 : 27;
   } bits;
@@ -50670,18 +55873,27 @@ union LPCG125_AUTHEN {
   
   // Bit field definition.
   struct {
+    /// read-write - User access
     eTZ_USER TZ_USER : 1;
+    /// read-write - Non-secure access
     eTZ_NS TZ_NS : 1;
     uint32_t _reserved_0 : 2;
+    /// read-write - lock truszone setting
     eLOCK_TZ LOCK_TZ : 1;
     uint32_t _reserved_1 : 3;
+    /// read-write - Whitelist
     uint32_t WHITE_LIST : 4;
+    /// read-write - Lock Whitelist
     eLOCK_LIST LOCK_LIST : 1;
     uint32_t _reserved_2 : 3;
+    /// read-write - Low power and access control by domain
     eDOMAIN_MODE DOMAIN_MODE : 1;
+    /// read-write - Low power and access control by Setpoint
     eSETPOINT_MODE SETPOINT_MODE : 1;
+    /// read-write - CPU Low Power Mode
     eCPULPM CPULPM : 1;
     uint32_t _reserved_3 : 1;
+    /// read-write - Lock low power and access mode
     eLOCK_MODE LOCK_MODE : 1;
     uint32_t _reserved_4 : 11;
   } bits;
@@ -50705,6 +55917,7 @@ union LPCG126_DIRECT {
   
   // Bit field definition.
   struct {
+    /// read-write - LPCG on
     eON ON : 1;
     uint32_t _reserved_0 : 31;
   } bits;
@@ -50763,14 +55976,19 @@ union LPCG126_DOMAIN {
   
   // Bit field definition.
   struct {
+    /// read-write - Current dependence level
     eLEVEL LEVEL : 3;
     uint32_t _reserved_0 : 13;
+    /// read-write - Depend level
     eLEVEL0 LEVEL0 : 3;
     uint32_t _reserved_1 : 1;
+    /// read-write - Depend level
     eLEVEL1 LEVEL1 : 3;
     uint32_t _reserved_2 : 1;
+    /// read-write - Depend level
     eLEVEL2 LEVEL2 : 3;
     uint32_t _reserved_3 : 1;
+    /// read-write - Depend level
     eLEVEL3 LEVEL3 : 3;
     uint32_t _reserved_4 : 1;
   } bits;
@@ -50832,9 +56050,12 @@ union LPCG126_STATUS0 {
   
   // Bit field definition.
   struct {
+    /// read-only - LPCG current state
     eON ON : 1;
     uint32_t _reserved_0 : 7;
+    /// read-only - Domains that own this clock gate
     eACTIVE_DOMAIN ACTIVE_DOMAIN : 4;
+    /// read-only - Enable status from each domain
     eDOMAIN_ENABLE DOMAIN_ENABLE : 4;
     uint32_t _reserved_1 : 16;
   } bits;
@@ -50941,23 +56162,41 @@ union LPCG126_STATUS1 {
   
   // Bit field definition.
   struct {
+    /// read-only - Domain0 Low Power Mode
     eCPU0_MODE CPU0_MODE : 2;
+    /// read-only - Domain0 request enter Low Power Mode
     eCPU0_MODE_REQUEST CPU0_MODE_REQUEST : 1;
+    /// read-only - Domain0 Low Power Mode task done
     eCPU0_MODE_DONE CPU0_MODE_DONE : 1;
+    /// read-only - Domain1 Low Power Mode
     eCPU1_MODE CPU1_MODE : 2;
+    /// read-only - Domain1 request enter Low Power Mode
     eCPU1_MODE_REQUEST CPU1_MODE_REQUEST : 1;
+    /// read-only - Domain1 Low Power Mode task done
     eCPU1_MODE_DONE CPU1_MODE_DONE : 1;
+    /// read-only - Domain2 Low Power Mode
     eCPU2_MODE CPU2_MODE : 2;
+    /// read-only - Domain2 request enter Low Power Mode
     eCPU2_MODE_REQUEST CPU2_MODE_REQUEST : 1;
+    /// read-only - Domain2 Low Power Mode task done
     eCPU2_MODE_DONE CPU2_MODE_DONE : 1;
+    /// read-only - Domain3 Low Power Mode
     eCPU3_MODE CPU3_MODE : 2;
+    /// read-only - Domain3 request enter Low Power Mode
     eCPU3_MODE_REQUEST CPU3_MODE_REQUEST : 1;
+    /// read-only - Domain3 Low Power Mode task done
     eCPU3_MODE_DONE CPU3_MODE_DONE : 1;
+    /// read-only - Next Setpoint to change to
     uint32_t TARGET_SETPOINT : 4;
+    /// read-only - Current Setpoint
     uint32_t CURRENT_SETPOINT : 4;
+    /// read-only - Clock gate turn off request from GPC Setpoint
     eSETPOINT_OFF_REQUEST SETPOINT_OFF_REQUEST : 1;
+    /// read-only - Clock gate turn off finish from GPC Setpoint
     eSETPOINT_OFF_DONE SETPOINT_OFF_DONE : 1;
+    /// read-only - Clock gate turn on request from GPC Setpoint
     eSETPOINT_ON_REQUEST SETPOINT_ON_REQUEST : 1;
+    /// read-only - Clock gate turn on finish from GPC Setpoint
     eSETPOINT_ON_DONE SETPOINT_ON_DONE : 1;
     uint32_t _reserved_0 : 4;
   } bits;
@@ -50982,6 +56221,7 @@ union LPCG126_CONFIG {
   // Bit field definition.
   struct {
     uint32_t _reserved_0 : 4;
+    /// read-only - Setpoint present
     eSETPOINT_PRESENT SETPOINT_PRESENT : 1;
     uint32_t _reserved_1 : 27;
   } bits;
@@ -51040,18 +56280,27 @@ union LPCG126_AUTHEN {
   
   // Bit field definition.
   struct {
+    /// read-write - User access
     eTZ_USER TZ_USER : 1;
+    /// read-write - Non-secure access
     eTZ_NS TZ_NS : 1;
     uint32_t _reserved_0 : 2;
+    /// read-write - lock truszone setting
     eLOCK_TZ LOCK_TZ : 1;
     uint32_t _reserved_1 : 3;
+    /// read-write - Whitelist
     uint32_t WHITE_LIST : 4;
+    /// read-write - Lock Whitelist
     eLOCK_LIST LOCK_LIST : 1;
     uint32_t _reserved_2 : 3;
+    /// read-write - Low power and access control by domain
     eDOMAIN_MODE DOMAIN_MODE : 1;
+    /// read-write - Low power and access control by Setpoint
     eSETPOINT_MODE SETPOINT_MODE : 1;
+    /// read-write - CPU Low Power Mode
     eCPULPM CPULPM : 1;
     uint32_t _reserved_3 : 1;
+    /// read-write - Lock low power and access mode
     eLOCK_MODE LOCK_MODE : 1;
     uint32_t _reserved_4 : 11;
   } bits;
@@ -51075,6 +56324,7 @@ union LPCG127_DIRECT {
   
   // Bit field definition.
   struct {
+    /// read-write - LPCG on
     eON ON : 1;
     uint32_t _reserved_0 : 31;
   } bits;
@@ -51133,14 +56383,19 @@ union LPCG127_DOMAIN {
   
   // Bit field definition.
   struct {
+    /// read-write - Current dependence level
     eLEVEL LEVEL : 3;
     uint32_t _reserved_0 : 13;
+    /// read-write - Depend level
     eLEVEL0 LEVEL0 : 3;
     uint32_t _reserved_1 : 1;
+    /// read-write - Depend level
     eLEVEL1 LEVEL1 : 3;
     uint32_t _reserved_2 : 1;
+    /// read-write - Depend level
     eLEVEL2 LEVEL2 : 3;
     uint32_t _reserved_3 : 1;
+    /// read-write - Depend level
     eLEVEL3 LEVEL3 : 3;
     uint32_t _reserved_4 : 1;
   } bits;
@@ -51202,9 +56457,12 @@ union LPCG127_STATUS0 {
   
   // Bit field definition.
   struct {
+    /// read-only - LPCG current state
     eON ON : 1;
     uint32_t _reserved_0 : 7;
+    /// read-only - Domains that own this clock gate
     eACTIVE_DOMAIN ACTIVE_DOMAIN : 4;
+    /// read-only - Enable status from each domain
     eDOMAIN_ENABLE DOMAIN_ENABLE : 4;
     uint32_t _reserved_1 : 16;
   } bits;
@@ -51311,23 +56569,41 @@ union LPCG127_STATUS1 {
   
   // Bit field definition.
   struct {
+    /// read-only - Domain0 Low Power Mode
     eCPU0_MODE CPU0_MODE : 2;
+    /// read-only - Domain0 request enter Low Power Mode
     eCPU0_MODE_REQUEST CPU0_MODE_REQUEST : 1;
+    /// read-only - Domain0 Low Power Mode task done
     eCPU0_MODE_DONE CPU0_MODE_DONE : 1;
+    /// read-only - Domain1 Low Power Mode
     eCPU1_MODE CPU1_MODE : 2;
+    /// read-only - Domain1 request enter Low Power Mode
     eCPU1_MODE_REQUEST CPU1_MODE_REQUEST : 1;
+    /// read-only - Domain1 Low Power Mode task done
     eCPU1_MODE_DONE CPU1_MODE_DONE : 1;
+    /// read-only - Domain2 Low Power Mode
     eCPU2_MODE CPU2_MODE : 2;
+    /// read-only - Domain2 request enter Low Power Mode
     eCPU2_MODE_REQUEST CPU2_MODE_REQUEST : 1;
+    /// read-only - Domain2 Low Power Mode task done
     eCPU2_MODE_DONE CPU2_MODE_DONE : 1;
+    /// read-only - Domain3 Low Power Mode
     eCPU3_MODE CPU3_MODE : 2;
+    /// read-only - Domain3 request enter Low Power Mode
     eCPU3_MODE_REQUEST CPU3_MODE_REQUEST : 1;
+    /// read-only - Domain3 Low Power Mode task done
     eCPU3_MODE_DONE CPU3_MODE_DONE : 1;
+    /// read-only - Next Setpoint to change to
     uint32_t TARGET_SETPOINT : 4;
+    /// read-only - Current Setpoint
     uint32_t CURRENT_SETPOINT : 4;
+    /// read-only - Clock gate turn off request from GPC Setpoint
     eSETPOINT_OFF_REQUEST SETPOINT_OFF_REQUEST : 1;
+    /// read-only - Clock gate turn off finish from GPC Setpoint
     eSETPOINT_OFF_DONE SETPOINT_OFF_DONE : 1;
+    /// read-only - Clock gate turn on request from GPC Setpoint
     eSETPOINT_ON_REQUEST SETPOINT_ON_REQUEST : 1;
+    /// read-only - Clock gate turn on finish from GPC Setpoint
     eSETPOINT_ON_DONE SETPOINT_ON_DONE : 1;
     uint32_t _reserved_0 : 4;
   } bits;
@@ -51352,6 +56628,7 @@ union LPCG127_CONFIG {
   // Bit field definition.
   struct {
     uint32_t _reserved_0 : 4;
+    /// read-only - Setpoint present
     eSETPOINT_PRESENT SETPOINT_PRESENT : 1;
     uint32_t _reserved_1 : 27;
   } bits;
@@ -51410,18 +56687,27 @@ union LPCG127_AUTHEN {
   
   // Bit field definition.
   struct {
+    /// read-write - User access
     eTZ_USER TZ_USER : 1;
+    /// read-write - Non-secure access
     eTZ_NS TZ_NS : 1;
     uint32_t _reserved_0 : 2;
+    /// read-write - lock truszone setting
     eLOCK_TZ LOCK_TZ : 1;
     uint32_t _reserved_1 : 3;
+    /// read-write - Whitelist
     uint32_t WHITE_LIST : 4;
+    /// read-write - Lock Whitelist
     eLOCK_LIST LOCK_LIST : 1;
     uint32_t _reserved_2 : 3;
+    /// read-write - Low power and access control by domain
     eDOMAIN_MODE DOMAIN_MODE : 1;
+    /// read-write - Low power and access control by Setpoint
     eSETPOINT_MODE SETPOINT_MODE : 1;
+    /// read-write - CPU Low Power Mode
     eCPULPM CPULPM : 1;
     uint32_t _reserved_3 : 1;
+    /// read-write - Lock low power and access mode
     eLOCK_MODE LOCK_MODE : 1;
     uint32_t _reserved_4 : 11;
   } bits;
@@ -51445,6 +56731,7 @@ union LPCG128_DIRECT {
   
   // Bit field definition.
   struct {
+    /// read-write - LPCG on
     eON ON : 1;
     uint32_t _reserved_0 : 31;
   } bits;
@@ -51503,14 +56790,19 @@ union LPCG128_DOMAIN {
   
   // Bit field definition.
   struct {
+    /// read-write - Current dependence level
     eLEVEL LEVEL : 3;
     uint32_t _reserved_0 : 13;
+    /// read-write - Depend level
     eLEVEL0 LEVEL0 : 3;
     uint32_t _reserved_1 : 1;
+    /// read-write - Depend level
     eLEVEL1 LEVEL1 : 3;
     uint32_t _reserved_2 : 1;
+    /// read-write - Depend level
     eLEVEL2 LEVEL2 : 3;
     uint32_t _reserved_3 : 1;
+    /// read-write - Depend level
     eLEVEL3 LEVEL3 : 3;
     uint32_t _reserved_4 : 1;
   } bits;
@@ -51572,9 +56864,12 @@ union LPCG128_STATUS0 {
   
   // Bit field definition.
   struct {
+    /// read-only - LPCG current state
     eON ON : 1;
     uint32_t _reserved_0 : 7;
+    /// read-only - Domains that own this clock gate
     eACTIVE_DOMAIN ACTIVE_DOMAIN : 4;
+    /// read-only - Enable status from each domain
     eDOMAIN_ENABLE DOMAIN_ENABLE : 4;
     uint32_t _reserved_1 : 16;
   } bits;
@@ -51681,23 +56976,41 @@ union LPCG128_STATUS1 {
   
   // Bit field definition.
   struct {
+    /// read-only - Domain0 Low Power Mode
     eCPU0_MODE CPU0_MODE : 2;
+    /// read-only - Domain0 request enter Low Power Mode
     eCPU0_MODE_REQUEST CPU0_MODE_REQUEST : 1;
+    /// read-only - Domain0 Low Power Mode task done
     eCPU0_MODE_DONE CPU0_MODE_DONE : 1;
+    /// read-only - Domain1 Low Power Mode
     eCPU1_MODE CPU1_MODE : 2;
+    /// read-only - Domain1 request enter Low Power Mode
     eCPU1_MODE_REQUEST CPU1_MODE_REQUEST : 1;
+    /// read-only - Domain1 Low Power Mode task done
     eCPU1_MODE_DONE CPU1_MODE_DONE : 1;
+    /// read-only - Domain2 Low Power Mode
     eCPU2_MODE CPU2_MODE : 2;
+    /// read-only - Domain2 request enter Low Power Mode
     eCPU2_MODE_REQUEST CPU2_MODE_REQUEST : 1;
+    /// read-only - Domain2 Low Power Mode task done
     eCPU2_MODE_DONE CPU2_MODE_DONE : 1;
+    /// read-only - Domain3 Low Power Mode
     eCPU3_MODE CPU3_MODE : 2;
+    /// read-only - Domain3 request enter Low Power Mode
     eCPU3_MODE_REQUEST CPU3_MODE_REQUEST : 1;
+    /// read-only - Domain3 Low Power Mode task done
     eCPU3_MODE_DONE CPU3_MODE_DONE : 1;
+    /// read-only - Next Setpoint to change to
     uint32_t TARGET_SETPOINT : 4;
+    /// read-only - Current Setpoint
     uint32_t CURRENT_SETPOINT : 4;
+    /// read-only - Clock gate turn off request from GPC Setpoint
     eSETPOINT_OFF_REQUEST SETPOINT_OFF_REQUEST : 1;
+    /// read-only - Clock gate turn off finish from GPC Setpoint
     eSETPOINT_OFF_DONE SETPOINT_OFF_DONE : 1;
+    /// read-only - Clock gate turn on request from GPC Setpoint
     eSETPOINT_ON_REQUEST SETPOINT_ON_REQUEST : 1;
+    /// read-only - Clock gate turn on finish from GPC Setpoint
     eSETPOINT_ON_DONE SETPOINT_ON_DONE : 1;
     uint32_t _reserved_0 : 4;
   } bits;
@@ -51722,6 +57035,7 @@ union LPCG128_CONFIG {
   // Bit field definition.
   struct {
     uint32_t _reserved_0 : 4;
+    /// read-only - Setpoint present
     eSETPOINT_PRESENT SETPOINT_PRESENT : 1;
     uint32_t _reserved_1 : 27;
   } bits;
@@ -51780,18 +57094,27 @@ union LPCG128_AUTHEN {
   
   // Bit field definition.
   struct {
+    /// read-write - User access
     eTZ_USER TZ_USER : 1;
+    /// read-write - Non-secure access
     eTZ_NS TZ_NS : 1;
     uint32_t _reserved_0 : 2;
+    /// read-write - lock truszone setting
     eLOCK_TZ LOCK_TZ : 1;
     uint32_t _reserved_1 : 3;
+    /// read-write - Whitelist
     uint32_t WHITE_LIST : 4;
+    /// read-write - Lock Whitelist
     eLOCK_LIST LOCK_LIST : 1;
     uint32_t _reserved_2 : 3;
+    /// read-write - Low power and access control by domain
     eDOMAIN_MODE DOMAIN_MODE : 1;
+    /// read-write - Low power and access control by Setpoint
     eSETPOINT_MODE SETPOINT_MODE : 1;
+    /// read-write - CPU Low Power Mode
     eCPULPM CPULPM : 1;
     uint32_t _reserved_3 : 1;
+    /// read-write - Lock low power and access mode
     eLOCK_MODE LOCK_MODE : 1;
     uint32_t _reserved_4 : 11;
   } bits;
@@ -51815,6 +57138,7 @@ union LPCG129_DIRECT {
   
   // Bit field definition.
   struct {
+    /// read-write - LPCG on
     eON ON : 1;
     uint32_t _reserved_0 : 31;
   } bits;
@@ -51873,14 +57197,19 @@ union LPCG129_DOMAIN {
   
   // Bit field definition.
   struct {
+    /// read-write - Current dependence level
     eLEVEL LEVEL : 3;
     uint32_t _reserved_0 : 13;
+    /// read-write - Depend level
     eLEVEL0 LEVEL0 : 3;
     uint32_t _reserved_1 : 1;
+    /// read-write - Depend level
     eLEVEL1 LEVEL1 : 3;
     uint32_t _reserved_2 : 1;
+    /// read-write - Depend level
     eLEVEL2 LEVEL2 : 3;
     uint32_t _reserved_3 : 1;
+    /// read-write - Depend level
     eLEVEL3 LEVEL3 : 3;
     uint32_t _reserved_4 : 1;
   } bits;
@@ -51942,9 +57271,12 @@ union LPCG129_STATUS0 {
   
   // Bit field definition.
   struct {
+    /// read-only - LPCG current state
     eON ON : 1;
     uint32_t _reserved_0 : 7;
+    /// read-only - Domains that own this clock gate
     eACTIVE_DOMAIN ACTIVE_DOMAIN : 4;
+    /// read-only - Enable status from each domain
     eDOMAIN_ENABLE DOMAIN_ENABLE : 4;
     uint32_t _reserved_1 : 16;
   } bits;
@@ -52051,23 +57383,41 @@ union LPCG129_STATUS1 {
   
   // Bit field definition.
   struct {
+    /// read-only - Domain0 Low Power Mode
     eCPU0_MODE CPU0_MODE : 2;
+    /// read-only - Domain0 request enter Low Power Mode
     eCPU0_MODE_REQUEST CPU0_MODE_REQUEST : 1;
+    /// read-only - Domain0 Low Power Mode task done
     eCPU0_MODE_DONE CPU0_MODE_DONE : 1;
+    /// read-only - Domain1 Low Power Mode
     eCPU1_MODE CPU1_MODE : 2;
+    /// read-only - Domain1 request enter Low Power Mode
     eCPU1_MODE_REQUEST CPU1_MODE_REQUEST : 1;
+    /// read-only - Domain1 Low Power Mode task done
     eCPU1_MODE_DONE CPU1_MODE_DONE : 1;
+    /// read-only - Domain2 Low Power Mode
     eCPU2_MODE CPU2_MODE : 2;
+    /// read-only - Domain2 request enter Low Power Mode
     eCPU2_MODE_REQUEST CPU2_MODE_REQUEST : 1;
+    /// read-only - Domain2 Low Power Mode task done
     eCPU2_MODE_DONE CPU2_MODE_DONE : 1;
+    /// read-only - Domain3 Low Power Mode
     eCPU3_MODE CPU3_MODE : 2;
+    /// read-only - Domain3 request enter Low Power Mode
     eCPU3_MODE_REQUEST CPU3_MODE_REQUEST : 1;
+    /// read-only - Domain3 Low Power Mode task done
     eCPU3_MODE_DONE CPU3_MODE_DONE : 1;
+    /// read-only - Next Setpoint to change to
     uint32_t TARGET_SETPOINT : 4;
+    /// read-only - Current Setpoint
     uint32_t CURRENT_SETPOINT : 4;
+    /// read-only - Clock gate turn off request from GPC Setpoint
     eSETPOINT_OFF_REQUEST SETPOINT_OFF_REQUEST : 1;
+    /// read-only - Clock gate turn off finish from GPC Setpoint
     eSETPOINT_OFF_DONE SETPOINT_OFF_DONE : 1;
+    /// read-only - Clock gate turn on request from GPC Setpoint
     eSETPOINT_ON_REQUEST SETPOINT_ON_REQUEST : 1;
+    /// read-only - Clock gate turn on finish from GPC Setpoint
     eSETPOINT_ON_DONE SETPOINT_ON_DONE : 1;
     uint32_t _reserved_0 : 4;
   } bits;
@@ -52092,6 +57442,7 @@ union LPCG129_CONFIG {
   // Bit field definition.
   struct {
     uint32_t _reserved_0 : 4;
+    /// read-only - Setpoint present
     eSETPOINT_PRESENT SETPOINT_PRESENT : 1;
     uint32_t _reserved_1 : 27;
   } bits;
@@ -52150,18 +57501,27 @@ union LPCG129_AUTHEN {
   
   // Bit field definition.
   struct {
+    /// read-write - User access
     eTZ_USER TZ_USER : 1;
+    /// read-write - Non-secure access
     eTZ_NS TZ_NS : 1;
     uint32_t _reserved_0 : 2;
+    /// read-write - lock truszone setting
     eLOCK_TZ LOCK_TZ : 1;
     uint32_t _reserved_1 : 3;
+    /// read-write - Whitelist
     uint32_t WHITE_LIST : 4;
+    /// read-write - Lock Whitelist
     eLOCK_LIST LOCK_LIST : 1;
     uint32_t _reserved_2 : 3;
+    /// read-write - Low power and access control by domain
     eDOMAIN_MODE DOMAIN_MODE : 1;
+    /// read-write - Low power and access control by Setpoint
     eSETPOINT_MODE SETPOINT_MODE : 1;
+    /// read-write - CPU Low Power Mode
     eCPULPM CPULPM : 1;
     uint32_t _reserved_3 : 1;
+    /// read-write - Lock low power and access mode
     eLOCK_MODE LOCK_MODE : 1;
     uint32_t _reserved_4 : 11;
   } bits;
@@ -52185,6 +57545,7 @@ union LPCG130_DIRECT {
   
   // Bit field definition.
   struct {
+    /// read-write - LPCG on
     eON ON : 1;
     uint32_t _reserved_0 : 31;
   } bits;
@@ -52243,14 +57604,19 @@ union LPCG130_DOMAIN {
   
   // Bit field definition.
   struct {
+    /// read-write - Current dependence level
     eLEVEL LEVEL : 3;
     uint32_t _reserved_0 : 13;
+    /// read-write - Depend level
     eLEVEL0 LEVEL0 : 3;
     uint32_t _reserved_1 : 1;
+    /// read-write - Depend level
     eLEVEL1 LEVEL1 : 3;
     uint32_t _reserved_2 : 1;
+    /// read-write - Depend level
     eLEVEL2 LEVEL2 : 3;
     uint32_t _reserved_3 : 1;
+    /// read-write - Depend level
     eLEVEL3 LEVEL3 : 3;
     uint32_t _reserved_4 : 1;
   } bits;
@@ -52312,9 +57678,12 @@ union LPCG130_STATUS0 {
   
   // Bit field definition.
   struct {
+    /// read-only - LPCG current state
     eON ON : 1;
     uint32_t _reserved_0 : 7;
+    /// read-only - Domains that own this clock gate
     eACTIVE_DOMAIN ACTIVE_DOMAIN : 4;
+    /// read-only - Enable status from each domain
     eDOMAIN_ENABLE DOMAIN_ENABLE : 4;
     uint32_t _reserved_1 : 16;
   } bits;
@@ -52421,23 +57790,41 @@ union LPCG130_STATUS1 {
   
   // Bit field definition.
   struct {
+    /// read-only - Domain0 Low Power Mode
     eCPU0_MODE CPU0_MODE : 2;
+    /// read-only - Domain0 request enter Low Power Mode
     eCPU0_MODE_REQUEST CPU0_MODE_REQUEST : 1;
+    /// read-only - Domain0 Low Power Mode task done
     eCPU0_MODE_DONE CPU0_MODE_DONE : 1;
+    /// read-only - Domain1 Low Power Mode
     eCPU1_MODE CPU1_MODE : 2;
+    /// read-only - Domain1 request enter Low Power Mode
     eCPU1_MODE_REQUEST CPU1_MODE_REQUEST : 1;
+    /// read-only - Domain1 Low Power Mode task done
     eCPU1_MODE_DONE CPU1_MODE_DONE : 1;
+    /// read-only - Domain2 Low Power Mode
     eCPU2_MODE CPU2_MODE : 2;
+    /// read-only - Domain2 request enter Low Power Mode
     eCPU2_MODE_REQUEST CPU2_MODE_REQUEST : 1;
+    /// read-only - Domain2 Low Power Mode task done
     eCPU2_MODE_DONE CPU2_MODE_DONE : 1;
+    /// read-only - Domain3 Low Power Mode
     eCPU3_MODE CPU3_MODE : 2;
+    /// read-only - Domain3 request enter Low Power Mode
     eCPU3_MODE_REQUEST CPU3_MODE_REQUEST : 1;
+    /// read-only - Domain3 Low Power Mode task done
     eCPU3_MODE_DONE CPU3_MODE_DONE : 1;
+    /// read-only - Next Setpoint to change to
     uint32_t TARGET_SETPOINT : 4;
+    /// read-only - Current Setpoint
     uint32_t CURRENT_SETPOINT : 4;
+    /// read-only - Clock gate turn off request from GPC Setpoint
     eSETPOINT_OFF_REQUEST SETPOINT_OFF_REQUEST : 1;
+    /// read-only - Clock gate turn off finish from GPC Setpoint
     eSETPOINT_OFF_DONE SETPOINT_OFF_DONE : 1;
+    /// read-only - Clock gate turn on request from GPC Setpoint
     eSETPOINT_ON_REQUEST SETPOINT_ON_REQUEST : 1;
+    /// read-only - Clock gate turn on finish from GPC Setpoint
     eSETPOINT_ON_DONE SETPOINT_ON_DONE : 1;
     uint32_t _reserved_0 : 4;
   } bits;
@@ -52462,6 +57849,7 @@ union LPCG130_CONFIG {
   // Bit field definition.
   struct {
     uint32_t _reserved_0 : 4;
+    /// read-only - Setpoint present
     eSETPOINT_PRESENT SETPOINT_PRESENT : 1;
     uint32_t _reserved_1 : 27;
   } bits;
@@ -52520,18 +57908,27 @@ union LPCG130_AUTHEN {
   
   // Bit field definition.
   struct {
+    /// read-write - User access
     eTZ_USER TZ_USER : 1;
+    /// read-write - Non-secure access
     eTZ_NS TZ_NS : 1;
     uint32_t _reserved_0 : 2;
+    /// read-write - lock truszone setting
     eLOCK_TZ LOCK_TZ : 1;
     uint32_t _reserved_1 : 3;
+    /// read-write - Whitelist
     uint32_t WHITE_LIST : 4;
+    /// read-write - Lock Whitelist
     eLOCK_LIST LOCK_LIST : 1;
     uint32_t _reserved_2 : 3;
+    /// read-write - Low power and access control by domain
     eDOMAIN_MODE DOMAIN_MODE : 1;
+    /// read-write - Low power and access control by Setpoint
     eSETPOINT_MODE SETPOINT_MODE : 1;
+    /// read-write - CPU Low Power Mode
     eCPULPM CPULPM : 1;
     uint32_t _reserved_3 : 1;
+    /// read-write - Lock low power and access mode
     eLOCK_MODE LOCK_MODE : 1;
     uint32_t _reserved_4 : 11;
   } bits;
@@ -52555,6 +57952,7 @@ union LPCG131_DIRECT {
   
   // Bit field definition.
   struct {
+    /// read-write - LPCG on
     eON ON : 1;
     uint32_t _reserved_0 : 31;
   } bits;
@@ -52613,14 +58011,19 @@ union LPCG131_DOMAIN {
   
   // Bit field definition.
   struct {
+    /// read-write - Current dependence level
     eLEVEL LEVEL : 3;
     uint32_t _reserved_0 : 13;
+    /// read-write - Depend level
     eLEVEL0 LEVEL0 : 3;
     uint32_t _reserved_1 : 1;
+    /// read-write - Depend level
     eLEVEL1 LEVEL1 : 3;
     uint32_t _reserved_2 : 1;
+    /// read-write - Depend level
     eLEVEL2 LEVEL2 : 3;
     uint32_t _reserved_3 : 1;
+    /// read-write - Depend level
     eLEVEL3 LEVEL3 : 3;
     uint32_t _reserved_4 : 1;
   } bits;
@@ -52682,9 +58085,12 @@ union LPCG131_STATUS0 {
   
   // Bit field definition.
   struct {
+    /// read-only - LPCG current state
     eON ON : 1;
     uint32_t _reserved_0 : 7;
+    /// read-only - Domains that own this clock gate
     eACTIVE_DOMAIN ACTIVE_DOMAIN : 4;
+    /// read-only - Enable status from each domain
     eDOMAIN_ENABLE DOMAIN_ENABLE : 4;
     uint32_t _reserved_1 : 16;
   } bits;
@@ -52791,23 +58197,41 @@ union LPCG131_STATUS1 {
   
   // Bit field definition.
   struct {
+    /// read-only - Domain0 Low Power Mode
     eCPU0_MODE CPU0_MODE : 2;
+    /// read-only - Domain0 request enter Low Power Mode
     eCPU0_MODE_REQUEST CPU0_MODE_REQUEST : 1;
+    /// read-only - Domain0 Low Power Mode task done
     eCPU0_MODE_DONE CPU0_MODE_DONE : 1;
+    /// read-only - Domain1 Low Power Mode
     eCPU1_MODE CPU1_MODE : 2;
+    /// read-only - Domain1 request enter Low Power Mode
     eCPU1_MODE_REQUEST CPU1_MODE_REQUEST : 1;
+    /// read-only - Domain1 Low Power Mode task done
     eCPU1_MODE_DONE CPU1_MODE_DONE : 1;
+    /// read-only - Domain2 Low Power Mode
     eCPU2_MODE CPU2_MODE : 2;
+    /// read-only - Domain2 request enter Low Power Mode
     eCPU2_MODE_REQUEST CPU2_MODE_REQUEST : 1;
+    /// read-only - Domain2 Low Power Mode task done
     eCPU2_MODE_DONE CPU2_MODE_DONE : 1;
+    /// read-only - Domain3 Low Power Mode
     eCPU3_MODE CPU3_MODE : 2;
+    /// read-only - Domain3 request enter Low Power Mode
     eCPU3_MODE_REQUEST CPU3_MODE_REQUEST : 1;
+    /// read-only - Domain3 Low Power Mode task done
     eCPU3_MODE_DONE CPU3_MODE_DONE : 1;
+    /// read-only - Next Setpoint to change to
     uint32_t TARGET_SETPOINT : 4;
+    /// read-only - Current Setpoint
     uint32_t CURRENT_SETPOINT : 4;
+    /// read-only - Clock gate turn off request from GPC Setpoint
     eSETPOINT_OFF_REQUEST SETPOINT_OFF_REQUEST : 1;
+    /// read-only - Clock gate turn off finish from GPC Setpoint
     eSETPOINT_OFF_DONE SETPOINT_OFF_DONE : 1;
+    /// read-only - Clock gate turn on request from GPC Setpoint
     eSETPOINT_ON_REQUEST SETPOINT_ON_REQUEST : 1;
+    /// read-only - Clock gate turn on finish from GPC Setpoint
     eSETPOINT_ON_DONE SETPOINT_ON_DONE : 1;
     uint32_t _reserved_0 : 4;
   } bits;
@@ -52832,6 +58256,7 @@ union LPCG131_CONFIG {
   // Bit field definition.
   struct {
     uint32_t _reserved_0 : 4;
+    /// read-only - Setpoint present
     eSETPOINT_PRESENT SETPOINT_PRESENT : 1;
     uint32_t _reserved_1 : 27;
   } bits;
@@ -52890,18 +58315,27 @@ union LPCG131_AUTHEN {
   
   // Bit field definition.
   struct {
+    /// read-write - User access
     eTZ_USER TZ_USER : 1;
+    /// read-write - Non-secure access
     eTZ_NS TZ_NS : 1;
     uint32_t _reserved_0 : 2;
+    /// read-write - lock truszone setting
     eLOCK_TZ LOCK_TZ : 1;
     uint32_t _reserved_1 : 3;
+    /// read-write - Whitelist
     uint32_t WHITE_LIST : 4;
+    /// read-write - Lock Whitelist
     eLOCK_LIST LOCK_LIST : 1;
     uint32_t _reserved_2 : 3;
+    /// read-write - Low power and access control by domain
     eDOMAIN_MODE DOMAIN_MODE : 1;
+    /// read-write - Low power and access control by Setpoint
     eSETPOINT_MODE SETPOINT_MODE : 1;
+    /// read-write - CPU Low Power Mode
     eCPULPM CPULPM : 1;
     uint32_t _reserved_3 : 1;
+    /// read-write - Lock low power and access mode
     eLOCK_MODE LOCK_MODE : 1;
     uint32_t _reserved_4 : 11;
   } bits;
@@ -52925,6 +58359,7 @@ union LPCG132_DIRECT {
   
   // Bit field definition.
   struct {
+    /// read-write - LPCG on
     eON ON : 1;
     uint32_t _reserved_0 : 31;
   } bits;
@@ -52983,14 +58418,19 @@ union LPCG132_DOMAIN {
   
   // Bit field definition.
   struct {
+    /// read-write - Current dependence level
     eLEVEL LEVEL : 3;
     uint32_t _reserved_0 : 13;
+    /// read-write - Depend level
     eLEVEL0 LEVEL0 : 3;
     uint32_t _reserved_1 : 1;
+    /// read-write - Depend level
     eLEVEL1 LEVEL1 : 3;
     uint32_t _reserved_2 : 1;
+    /// read-write - Depend level
     eLEVEL2 LEVEL2 : 3;
     uint32_t _reserved_3 : 1;
+    /// read-write - Depend level
     eLEVEL3 LEVEL3 : 3;
     uint32_t _reserved_4 : 1;
   } bits;
@@ -53052,9 +58492,12 @@ union LPCG132_STATUS0 {
   
   // Bit field definition.
   struct {
+    /// read-only - LPCG current state
     eON ON : 1;
     uint32_t _reserved_0 : 7;
+    /// read-only - Domains that own this clock gate
     eACTIVE_DOMAIN ACTIVE_DOMAIN : 4;
+    /// read-only - Enable status from each domain
     eDOMAIN_ENABLE DOMAIN_ENABLE : 4;
     uint32_t _reserved_1 : 16;
   } bits;
@@ -53161,23 +58604,41 @@ union LPCG132_STATUS1 {
   
   // Bit field definition.
   struct {
+    /// read-only - Domain0 Low Power Mode
     eCPU0_MODE CPU0_MODE : 2;
+    /// read-only - Domain0 request enter Low Power Mode
     eCPU0_MODE_REQUEST CPU0_MODE_REQUEST : 1;
+    /// read-only - Domain0 Low Power Mode task done
     eCPU0_MODE_DONE CPU0_MODE_DONE : 1;
+    /// read-only - Domain1 Low Power Mode
     eCPU1_MODE CPU1_MODE : 2;
+    /// read-only - Domain1 request enter Low Power Mode
     eCPU1_MODE_REQUEST CPU1_MODE_REQUEST : 1;
+    /// read-only - Domain1 Low Power Mode task done
     eCPU1_MODE_DONE CPU1_MODE_DONE : 1;
+    /// read-only - Domain2 Low Power Mode
     eCPU2_MODE CPU2_MODE : 2;
+    /// read-only - Domain2 request enter Low Power Mode
     eCPU2_MODE_REQUEST CPU2_MODE_REQUEST : 1;
+    /// read-only - Domain2 Low Power Mode task done
     eCPU2_MODE_DONE CPU2_MODE_DONE : 1;
+    /// read-only - Domain3 Low Power Mode
     eCPU3_MODE CPU3_MODE : 2;
+    /// read-only - Domain3 request enter Low Power Mode
     eCPU3_MODE_REQUEST CPU3_MODE_REQUEST : 1;
+    /// read-only - Domain3 Low Power Mode task done
     eCPU3_MODE_DONE CPU3_MODE_DONE : 1;
+    /// read-only - Next Setpoint to change to
     uint32_t TARGET_SETPOINT : 4;
+    /// read-only - Current Setpoint
     uint32_t CURRENT_SETPOINT : 4;
+    /// read-only - Clock gate turn off request from GPC Setpoint
     eSETPOINT_OFF_REQUEST SETPOINT_OFF_REQUEST : 1;
+    /// read-only - Clock gate turn off finish from GPC Setpoint
     eSETPOINT_OFF_DONE SETPOINT_OFF_DONE : 1;
+    /// read-only - Clock gate turn on request from GPC Setpoint
     eSETPOINT_ON_REQUEST SETPOINT_ON_REQUEST : 1;
+    /// read-only - Clock gate turn on finish from GPC Setpoint
     eSETPOINT_ON_DONE SETPOINT_ON_DONE : 1;
     uint32_t _reserved_0 : 4;
   } bits;
@@ -53202,6 +58663,7 @@ union LPCG132_CONFIG {
   // Bit field definition.
   struct {
     uint32_t _reserved_0 : 4;
+    /// read-only - Setpoint present
     eSETPOINT_PRESENT SETPOINT_PRESENT : 1;
     uint32_t _reserved_1 : 27;
   } bits;
@@ -53260,18 +58722,27 @@ union LPCG132_AUTHEN {
   
   // Bit field definition.
   struct {
+    /// read-write - User access
     eTZ_USER TZ_USER : 1;
+    /// read-write - Non-secure access
     eTZ_NS TZ_NS : 1;
     uint32_t _reserved_0 : 2;
+    /// read-write - lock truszone setting
     eLOCK_TZ LOCK_TZ : 1;
     uint32_t _reserved_1 : 3;
+    /// read-write - Whitelist
     uint32_t WHITE_LIST : 4;
+    /// read-write - Lock Whitelist
     eLOCK_LIST LOCK_LIST : 1;
     uint32_t _reserved_2 : 3;
+    /// read-write - Low power and access control by domain
     eDOMAIN_MODE DOMAIN_MODE : 1;
+    /// read-write - Low power and access control by Setpoint
     eSETPOINT_MODE SETPOINT_MODE : 1;
+    /// read-write - CPU Low Power Mode
     eCPULPM CPULPM : 1;
     uint32_t _reserved_3 : 1;
+    /// read-write - Lock low power and access mode
     eLOCK_MODE LOCK_MODE : 1;
     uint32_t _reserved_4 : 11;
   } bits;
@@ -53295,6 +58766,7 @@ union LPCG133_DIRECT {
   
   // Bit field definition.
   struct {
+    /// read-write - LPCG on
     eON ON : 1;
     uint32_t _reserved_0 : 31;
   } bits;
@@ -53353,14 +58825,19 @@ union LPCG133_DOMAIN {
   
   // Bit field definition.
   struct {
+    /// read-write - Current dependence level
     eLEVEL LEVEL : 3;
     uint32_t _reserved_0 : 13;
+    /// read-write - Depend level
     eLEVEL0 LEVEL0 : 3;
     uint32_t _reserved_1 : 1;
+    /// read-write - Depend level
     eLEVEL1 LEVEL1 : 3;
     uint32_t _reserved_2 : 1;
+    /// read-write - Depend level
     eLEVEL2 LEVEL2 : 3;
     uint32_t _reserved_3 : 1;
+    /// read-write - Depend level
     eLEVEL3 LEVEL3 : 3;
     uint32_t _reserved_4 : 1;
   } bits;
@@ -53422,9 +58899,12 @@ union LPCG133_STATUS0 {
   
   // Bit field definition.
   struct {
+    /// read-only - LPCG current state
     eON ON : 1;
     uint32_t _reserved_0 : 7;
+    /// read-only - Domains that own this clock gate
     eACTIVE_DOMAIN ACTIVE_DOMAIN : 4;
+    /// read-only - Enable status from each domain
     eDOMAIN_ENABLE DOMAIN_ENABLE : 4;
     uint32_t _reserved_1 : 16;
   } bits;
@@ -53531,23 +59011,41 @@ union LPCG133_STATUS1 {
   
   // Bit field definition.
   struct {
+    /// read-only - Domain0 Low Power Mode
     eCPU0_MODE CPU0_MODE : 2;
+    /// read-only - Domain0 request enter Low Power Mode
     eCPU0_MODE_REQUEST CPU0_MODE_REQUEST : 1;
+    /// read-only - Domain0 Low Power Mode task done
     eCPU0_MODE_DONE CPU0_MODE_DONE : 1;
+    /// read-only - Domain1 Low Power Mode
     eCPU1_MODE CPU1_MODE : 2;
+    /// read-only - Domain1 request enter Low Power Mode
     eCPU1_MODE_REQUEST CPU1_MODE_REQUEST : 1;
+    /// read-only - Domain1 Low Power Mode task done
     eCPU1_MODE_DONE CPU1_MODE_DONE : 1;
+    /// read-only - Domain2 Low Power Mode
     eCPU2_MODE CPU2_MODE : 2;
+    /// read-only - Domain2 request enter Low Power Mode
     eCPU2_MODE_REQUEST CPU2_MODE_REQUEST : 1;
+    /// read-only - Domain2 Low Power Mode task done
     eCPU2_MODE_DONE CPU2_MODE_DONE : 1;
+    /// read-only - Domain3 Low Power Mode
     eCPU3_MODE CPU3_MODE : 2;
+    /// read-only - Domain3 request enter Low Power Mode
     eCPU3_MODE_REQUEST CPU3_MODE_REQUEST : 1;
+    /// read-only - Domain3 Low Power Mode task done
     eCPU3_MODE_DONE CPU3_MODE_DONE : 1;
+    /// read-only - Next Setpoint to change to
     uint32_t TARGET_SETPOINT : 4;
+    /// read-only - Current Setpoint
     uint32_t CURRENT_SETPOINT : 4;
+    /// read-only - Clock gate turn off request from GPC Setpoint
     eSETPOINT_OFF_REQUEST SETPOINT_OFF_REQUEST : 1;
+    /// read-only - Clock gate turn off finish from GPC Setpoint
     eSETPOINT_OFF_DONE SETPOINT_OFF_DONE : 1;
+    /// read-only - Clock gate turn on request from GPC Setpoint
     eSETPOINT_ON_REQUEST SETPOINT_ON_REQUEST : 1;
+    /// read-only - Clock gate turn on finish from GPC Setpoint
     eSETPOINT_ON_DONE SETPOINT_ON_DONE : 1;
     uint32_t _reserved_0 : 4;
   } bits;
@@ -53572,6 +59070,7 @@ union LPCG133_CONFIG {
   // Bit field definition.
   struct {
     uint32_t _reserved_0 : 4;
+    /// read-only - Setpoint present
     eSETPOINT_PRESENT SETPOINT_PRESENT : 1;
     uint32_t _reserved_1 : 27;
   } bits;
@@ -53630,18 +59129,27 @@ union LPCG133_AUTHEN {
   
   // Bit field definition.
   struct {
+    /// read-write - User access
     eTZ_USER TZ_USER : 1;
+    /// read-write - Non-secure access
     eTZ_NS TZ_NS : 1;
     uint32_t _reserved_0 : 2;
+    /// read-write - lock truszone setting
     eLOCK_TZ LOCK_TZ : 1;
     uint32_t _reserved_1 : 3;
+    /// read-write - Whitelist
     uint32_t WHITE_LIST : 4;
+    /// read-write - Lock Whitelist
     eLOCK_LIST LOCK_LIST : 1;
     uint32_t _reserved_2 : 3;
+    /// read-write - Low power and access control by domain
     eDOMAIN_MODE DOMAIN_MODE : 1;
+    /// read-write - Low power and access control by Setpoint
     eSETPOINT_MODE SETPOINT_MODE : 1;
+    /// read-write - CPU Low Power Mode
     eCPULPM CPULPM : 1;
     uint32_t _reserved_3 : 1;
+    /// read-write - Lock low power and access mode
     eLOCK_MODE LOCK_MODE : 1;
     uint32_t _reserved_4 : 11;
   } bits;
@@ -53665,6 +59173,7 @@ union LPCG134_DIRECT {
   
   // Bit field definition.
   struct {
+    /// read-write - LPCG on
     eON ON : 1;
     uint32_t _reserved_0 : 31;
   } bits;
@@ -53723,14 +59232,19 @@ union LPCG134_DOMAIN {
   
   // Bit field definition.
   struct {
+    /// read-write - Current dependence level
     eLEVEL LEVEL : 3;
     uint32_t _reserved_0 : 13;
+    /// read-write - Depend level
     eLEVEL0 LEVEL0 : 3;
     uint32_t _reserved_1 : 1;
+    /// read-write - Depend level
     eLEVEL1 LEVEL1 : 3;
     uint32_t _reserved_2 : 1;
+    /// read-write - Depend level
     eLEVEL2 LEVEL2 : 3;
     uint32_t _reserved_3 : 1;
+    /// read-write - Depend level
     eLEVEL3 LEVEL3 : 3;
     uint32_t _reserved_4 : 1;
   } bits;
@@ -53792,9 +59306,12 @@ union LPCG134_STATUS0 {
   
   // Bit field definition.
   struct {
+    /// read-only - LPCG current state
     eON ON : 1;
     uint32_t _reserved_0 : 7;
+    /// read-only - Domains that own this clock gate
     eACTIVE_DOMAIN ACTIVE_DOMAIN : 4;
+    /// read-only - Enable status from each domain
     eDOMAIN_ENABLE DOMAIN_ENABLE : 4;
     uint32_t _reserved_1 : 16;
   } bits;
@@ -53901,23 +59418,41 @@ union LPCG134_STATUS1 {
   
   // Bit field definition.
   struct {
+    /// read-only - Domain0 Low Power Mode
     eCPU0_MODE CPU0_MODE : 2;
+    /// read-only - Domain0 request enter Low Power Mode
     eCPU0_MODE_REQUEST CPU0_MODE_REQUEST : 1;
+    /// read-only - Domain0 Low Power Mode task done
     eCPU0_MODE_DONE CPU0_MODE_DONE : 1;
+    /// read-only - Domain1 Low Power Mode
     eCPU1_MODE CPU1_MODE : 2;
+    /// read-only - Domain1 request enter Low Power Mode
     eCPU1_MODE_REQUEST CPU1_MODE_REQUEST : 1;
+    /// read-only - Domain1 Low Power Mode task done
     eCPU1_MODE_DONE CPU1_MODE_DONE : 1;
+    /// read-only - Domain2 Low Power Mode
     eCPU2_MODE CPU2_MODE : 2;
+    /// read-only - Domain2 request enter Low Power Mode
     eCPU2_MODE_REQUEST CPU2_MODE_REQUEST : 1;
+    /// read-only - Domain2 Low Power Mode task done
     eCPU2_MODE_DONE CPU2_MODE_DONE : 1;
+    /// read-only - Domain3 Low Power Mode
     eCPU3_MODE CPU3_MODE : 2;
+    /// read-only - Domain3 request enter Low Power Mode
     eCPU3_MODE_REQUEST CPU3_MODE_REQUEST : 1;
+    /// read-only - Domain3 Low Power Mode task done
     eCPU3_MODE_DONE CPU3_MODE_DONE : 1;
+    /// read-only - Next Setpoint to change to
     uint32_t TARGET_SETPOINT : 4;
+    /// read-only - Current Setpoint
     uint32_t CURRENT_SETPOINT : 4;
+    /// read-only - Clock gate turn off request from GPC Setpoint
     eSETPOINT_OFF_REQUEST SETPOINT_OFF_REQUEST : 1;
+    /// read-only - Clock gate turn off finish from GPC Setpoint
     eSETPOINT_OFF_DONE SETPOINT_OFF_DONE : 1;
+    /// read-only - Clock gate turn on request from GPC Setpoint
     eSETPOINT_ON_REQUEST SETPOINT_ON_REQUEST : 1;
+    /// read-only - Clock gate turn on finish from GPC Setpoint
     eSETPOINT_ON_DONE SETPOINT_ON_DONE : 1;
     uint32_t _reserved_0 : 4;
   } bits;
@@ -53942,6 +59477,7 @@ union LPCG134_CONFIG {
   // Bit field definition.
   struct {
     uint32_t _reserved_0 : 4;
+    /// read-only - Setpoint present
     eSETPOINT_PRESENT SETPOINT_PRESENT : 1;
     uint32_t _reserved_1 : 27;
   } bits;
@@ -54000,18 +59536,27 @@ union LPCG134_AUTHEN {
   
   // Bit field definition.
   struct {
+    /// read-write - User access
     eTZ_USER TZ_USER : 1;
+    /// read-write - Non-secure access
     eTZ_NS TZ_NS : 1;
     uint32_t _reserved_0 : 2;
+    /// read-write - lock truszone setting
     eLOCK_TZ LOCK_TZ : 1;
     uint32_t _reserved_1 : 3;
+    /// read-write - Whitelist
     uint32_t WHITE_LIST : 4;
+    /// read-write - Lock Whitelist
     eLOCK_LIST LOCK_LIST : 1;
     uint32_t _reserved_2 : 3;
+    /// read-write - Low power and access control by domain
     eDOMAIN_MODE DOMAIN_MODE : 1;
+    /// read-write - Low power and access control by Setpoint
     eSETPOINT_MODE SETPOINT_MODE : 1;
+    /// read-write - CPU Low Power Mode
     eCPULPM CPULPM : 1;
     uint32_t _reserved_3 : 1;
+    /// read-write - Lock low power and access mode
     eLOCK_MODE LOCK_MODE : 1;
     uint32_t _reserved_4 : 11;
   } bits;
@@ -54035,6 +59580,7 @@ union LPCG135_DIRECT {
   
   // Bit field definition.
   struct {
+    /// read-write - LPCG on
     eON ON : 1;
     uint32_t _reserved_0 : 31;
   } bits;
@@ -54093,14 +59639,19 @@ union LPCG135_DOMAIN {
   
   // Bit field definition.
   struct {
+    /// read-write - Current dependence level
     eLEVEL LEVEL : 3;
     uint32_t _reserved_0 : 13;
+    /// read-write - Depend level
     eLEVEL0 LEVEL0 : 3;
     uint32_t _reserved_1 : 1;
+    /// read-write - Depend level
     eLEVEL1 LEVEL1 : 3;
     uint32_t _reserved_2 : 1;
+    /// read-write - Depend level
     eLEVEL2 LEVEL2 : 3;
     uint32_t _reserved_3 : 1;
+    /// read-write - Depend level
     eLEVEL3 LEVEL3 : 3;
     uint32_t _reserved_4 : 1;
   } bits;
@@ -54162,9 +59713,12 @@ union LPCG135_STATUS0 {
   
   // Bit field definition.
   struct {
+    /// read-only - LPCG current state
     eON ON : 1;
     uint32_t _reserved_0 : 7;
+    /// read-only - Domains that own this clock gate
     eACTIVE_DOMAIN ACTIVE_DOMAIN : 4;
+    /// read-only - Enable status from each domain
     eDOMAIN_ENABLE DOMAIN_ENABLE : 4;
     uint32_t _reserved_1 : 16;
   } bits;
@@ -54271,23 +59825,41 @@ union LPCG135_STATUS1 {
   
   // Bit field definition.
   struct {
+    /// read-only - Domain0 Low Power Mode
     eCPU0_MODE CPU0_MODE : 2;
+    /// read-only - Domain0 request enter Low Power Mode
     eCPU0_MODE_REQUEST CPU0_MODE_REQUEST : 1;
+    /// read-only - Domain0 Low Power Mode task done
     eCPU0_MODE_DONE CPU0_MODE_DONE : 1;
+    /// read-only - Domain1 Low Power Mode
     eCPU1_MODE CPU1_MODE : 2;
+    /// read-only - Domain1 request enter Low Power Mode
     eCPU1_MODE_REQUEST CPU1_MODE_REQUEST : 1;
+    /// read-only - Domain1 Low Power Mode task done
     eCPU1_MODE_DONE CPU1_MODE_DONE : 1;
+    /// read-only - Domain2 Low Power Mode
     eCPU2_MODE CPU2_MODE : 2;
+    /// read-only - Domain2 request enter Low Power Mode
     eCPU2_MODE_REQUEST CPU2_MODE_REQUEST : 1;
+    /// read-only - Domain2 Low Power Mode task done
     eCPU2_MODE_DONE CPU2_MODE_DONE : 1;
+    /// read-only - Domain3 Low Power Mode
     eCPU3_MODE CPU3_MODE : 2;
+    /// read-only - Domain3 request enter Low Power Mode
     eCPU3_MODE_REQUEST CPU3_MODE_REQUEST : 1;
+    /// read-only - Domain3 Low Power Mode task done
     eCPU3_MODE_DONE CPU3_MODE_DONE : 1;
+    /// read-only - Next Setpoint to change to
     uint32_t TARGET_SETPOINT : 4;
+    /// read-only - Current Setpoint
     uint32_t CURRENT_SETPOINT : 4;
+    /// read-only - Clock gate turn off request from GPC Setpoint
     eSETPOINT_OFF_REQUEST SETPOINT_OFF_REQUEST : 1;
+    /// read-only - Clock gate turn off finish from GPC Setpoint
     eSETPOINT_OFF_DONE SETPOINT_OFF_DONE : 1;
+    /// read-only - Clock gate turn on request from GPC Setpoint
     eSETPOINT_ON_REQUEST SETPOINT_ON_REQUEST : 1;
+    /// read-only - Clock gate turn on finish from GPC Setpoint
     eSETPOINT_ON_DONE SETPOINT_ON_DONE : 1;
     uint32_t _reserved_0 : 4;
   } bits;
@@ -54312,6 +59884,7 @@ union LPCG135_CONFIG {
   // Bit field definition.
   struct {
     uint32_t _reserved_0 : 4;
+    /// read-only - Setpoint present
     eSETPOINT_PRESENT SETPOINT_PRESENT : 1;
     uint32_t _reserved_1 : 27;
   } bits;
@@ -54370,18 +59943,27 @@ union LPCG135_AUTHEN {
   
   // Bit field definition.
   struct {
+    /// read-write - User access
     eTZ_USER TZ_USER : 1;
+    /// read-write - Non-secure access
     eTZ_NS TZ_NS : 1;
     uint32_t _reserved_0 : 2;
+    /// read-write - lock truszone setting
     eLOCK_TZ LOCK_TZ : 1;
     uint32_t _reserved_1 : 3;
+    /// read-write - Whitelist
     uint32_t WHITE_LIST : 4;
+    /// read-write - Lock Whitelist
     eLOCK_LIST LOCK_LIST : 1;
     uint32_t _reserved_2 : 3;
+    /// read-write - Low power and access control by domain
     eDOMAIN_MODE DOMAIN_MODE : 1;
+    /// read-write - Low power and access control by Setpoint
     eSETPOINT_MODE SETPOINT_MODE : 1;
+    /// read-write - CPU Low Power Mode
     eCPULPM CPULPM : 1;
     uint32_t _reserved_3 : 1;
+    /// read-write - Lock low power and access mode
     eLOCK_MODE LOCK_MODE : 1;
     uint32_t _reserved_4 : 11;
   } bits;
@@ -54405,6 +59987,7 @@ union LPCG136_DIRECT {
   
   // Bit field definition.
   struct {
+    /// read-write - LPCG on
     eON ON : 1;
     uint32_t _reserved_0 : 31;
   } bits;
@@ -54463,14 +60046,19 @@ union LPCG136_DOMAIN {
   
   // Bit field definition.
   struct {
+    /// read-write - Current dependence level
     eLEVEL LEVEL : 3;
     uint32_t _reserved_0 : 13;
+    /// read-write - Depend level
     eLEVEL0 LEVEL0 : 3;
     uint32_t _reserved_1 : 1;
+    /// read-write - Depend level
     eLEVEL1 LEVEL1 : 3;
     uint32_t _reserved_2 : 1;
+    /// read-write - Depend level
     eLEVEL2 LEVEL2 : 3;
     uint32_t _reserved_3 : 1;
+    /// read-write - Depend level
     eLEVEL3 LEVEL3 : 3;
     uint32_t _reserved_4 : 1;
   } bits;
@@ -54532,9 +60120,12 @@ union LPCG136_STATUS0 {
   
   // Bit field definition.
   struct {
+    /// read-only - LPCG current state
     eON ON : 1;
     uint32_t _reserved_0 : 7;
+    /// read-only - Domains that own this clock gate
     eACTIVE_DOMAIN ACTIVE_DOMAIN : 4;
+    /// read-only - Enable status from each domain
     eDOMAIN_ENABLE DOMAIN_ENABLE : 4;
     uint32_t _reserved_1 : 16;
   } bits;
@@ -54641,23 +60232,41 @@ union LPCG136_STATUS1 {
   
   // Bit field definition.
   struct {
+    /// read-only - Domain0 Low Power Mode
     eCPU0_MODE CPU0_MODE : 2;
+    /// read-only - Domain0 request enter Low Power Mode
     eCPU0_MODE_REQUEST CPU0_MODE_REQUEST : 1;
+    /// read-only - Domain0 Low Power Mode task done
     eCPU0_MODE_DONE CPU0_MODE_DONE : 1;
+    /// read-only - Domain1 Low Power Mode
     eCPU1_MODE CPU1_MODE : 2;
+    /// read-only - Domain1 request enter Low Power Mode
     eCPU1_MODE_REQUEST CPU1_MODE_REQUEST : 1;
+    /// read-only - Domain1 Low Power Mode task done
     eCPU1_MODE_DONE CPU1_MODE_DONE : 1;
+    /// read-only - Domain2 Low Power Mode
     eCPU2_MODE CPU2_MODE : 2;
+    /// read-only - Domain2 request enter Low Power Mode
     eCPU2_MODE_REQUEST CPU2_MODE_REQUEST : 1;
+    /// read-only - Domain2 Low Power Mode task done
     eCPU2_MODE_DONE CPU2_MODE_DONE : 1;
+    /// read-only - Domain3 Low Power Mode
     eCPU3_MODE CPU3_MODE : 2;
+    /// read-only - Domain3 request enter Low Power Mode
     eCPU3_MODE_REQUEST CPU3_MODE_REQUEST : 1;
+    /// read-only - Domain3 Low Power Mode task done
     eCPU3_MODE_DONE CPU3_MODE_DONE : 1;
+    /// read-only - Next Setpoint to change to
     uint32_t TARGET_SETPOINT : 4;
+    /// read-only - Current Setpoint
     uint32_t CURRENT_SETPOINT : 4;
+    /// read-only - Clock gate turn off request from GPC Setpoint
     eSETPOINT_OFF_REQUEST SETPOINT_OFF_REQUEST : 1;
+    /// read-only - Clock gate turn off finish from GPC Setpoint
     eSETPOINT_OFF_DONE SETPOINT_OFF_DONE : 1;
+    /// read-only - Clock gate turn on request from GPC Setpoint
     eSETPOINT_ON_REQUEST SETPOINT_ON_REQUEST : 1;
+    /// read-only - Clock gate turn on finish from GPC Setpoint
     eSETPOINT_ON_DONE SETPOINT_ON_DONE : 1;
     uint32_t _reserved_0 : 4;
   } bits;
@@ -54682,6 +60291,7 @@ union LPCG136_CONFIG {
   // Bit field definition.
   struct {
     uint32_t _reserved_0 : 4;
+    /// read-only - Setpoint present
     eSETPOINT_PRESENT SETPOINT_PRESENT : 1;
     uint32_t _reserved_1 : 27;
   } bits;
@@ -54740,18 +60350,27 @@ union LPCG136_AUTHEN {
   
   // Bit field definition.
   struct {
+    /// read-write - User access
     eTZ_USER TZ_USER : 1;
+    /// read-write - Non-secure access
     eTZ_NS TZ_NS : 1;
     uint32_t _reserved_0 : 2;
+    /// read-write - lock truszone setting
     eLOCK_TZ LOCK_TZ : 1;
     uint32_t _reserved_1 : 3;
+    /// read-write - Whitelist
     uint32_t WHITE_LIST : 4;
+    /// read-write - Lock Whitelist
     eLOCK_LIST LOCK_LIST : 1;
     uint32_t _reserved_2 : 3;
+    /// read-write - Low power and access control by domain
     eDOMAIN_MODE DOMAIN_MODE : 1;
+    /// read-write - Low power and access control by Setpoint
     eSETPOINT_MODE SETPOINT_MODE : 1;
+    /// read-write - CPU Low Power Mode
     eCPULPM CPULPM : 1;
     uint32_t _reserved_3 : 1;
+    /// read-write - Lock low power and access mode
     eLOCK_MODE LOCK_MODE : 1;
     uint32_t _reserved_4 : 11;
   } bits;
@@ -54775,6 +60394,7 @@ union LPCG137_DIRECT {
   
   // Bit field definition.
   struct {
+    /// read-write - LPCG on
     eON ON : 1;
     uint32_t _reserved_0 : 31;
   } bits;
@@ -54833,14 +60453,19 @@ union LPCG137_DOMAIN {
   
   // Bit field definition.
   struct {
+    /// read-write - Current dependence level
     eLEVEL LEVEL : 3;
     uint32_t _reserved_0 : 13;
+    /// read-write - Depend level
     eLEVEL0 LEVEL0 : 3;
     uint32_t _reserved_1 : 1;
+    /// read-write - Depend level
     eLEVEL1 LEVEL1 : 3;
     uint32_t _reserved_2 : 1;
+    /// read-write - Depend level
     eLEVEL2 LEVEL2 : 3;
     uint32_t _reserved_3 : 1;
+    /// read-write - Depend level
     eLEVEL3 LEVEL3 : 3;
     uint32_t _reserved_4 : 1;
   } bits;
@@ -54902,9 +60527,12 @@ union LPCG137_STATUS0 {
   
   // Bit field definition.
   struct {
+    /// read-only - LPCG current state
     eON ON : 1;
     uint32_t _reserved_0 : 7;
+    /// read-only - Domains that own this clock gate
     eACTIVE_DOMAIN ACTIVE_DOMAIN : 4;
+    /// read-only - Enable status from each domain
     eDOMAIN_ENABLE DOMAIN_ENABLE : 4;
     uint32_t _reserved_1 : 16;
   } bits;
@@ -55011,23 +60639,41 @@ union LPCG137_STATUS1 {
   
   // Bit field definition.
   struct {
+    /// read-only - Domain0 Low Power Mode
     eCPU0_MODE CPU0_MODE : 2;
+    /// read-only - Domain0 request enter Low Power Mode
     eCPU0_MODE_REQUEST CPU0_MODE_REQUEST : 1;
+    /// read-only - Domain0 Low Power Mode task done
     eCPU0_MODE_DONE CPU0_MODE_DONE : 1;
+    /// read-only - Domain1 Low Power Mode
     eCPU1_MODE CPU1_MODE : 2;
+    /// read-only - Domain1 request enter Low Power Mode
     eCPU1_MODE_REQUEST CPU1_MODE_REQUEST : 1;
+    /// read-only - Domain1 Low Power Mode task done
     eCPU1_MODE_DONE CPU1_MODE_DONE : 1;
+    /// read-only - Domain2 Low Power Mode
     eCPU2_MODE CPU2_MODE : 2;
+    /// read-only - Domain2 request enter Low Power Mode
     eCPU2_MODE_REQUEST CPU2_MODE_REQUEST : 1;
+    /// read-only - Domain2 Low Power Mode task done
     eCPU2_MODE_DONE CPU2_MODE_DONE : 1;
+    /// read-only - Domain3 Low Power Mode
     eCPU3_MODE CPU3_MODE : 2;
+    /// read-only - Domain3 request enter Low Power Mode
     eCPU3_MODE_REQUEST CPU3_MODE_REQUEST : 1;
+    /// read-only - Domain3 Low Power Mode task done
     eCPU3_MODE_DONE CPU3_MODE_DONE : 1;
+    /// read-only - Next Setpoint to change to
     uint32_t TARGET_SETPOINT : 4;
+    /// read-only - Current Setpoint
     uint32_t CURRENT_SETPOINT : 4;
+    /// read-only - Clock gate turn off request from GPC Setpoint
     eSETPOINT_OFF_REQUEST SETPOINT_OFF_REQUEST : 1;
+    /// read-only - Clock gate turn off finish from GPC Setpoint
     eSETPOINT_OFF_DONE SETPOINT_OFF_DONE : 1;
+    /// read-only - Clock gate turn on request from GPC Setpoint
     eSETPOINT_ON_REQUEST SETPOINT_ON_REQUEST : 1;
+    /// read-only - Clock gate turn on finish from GPC Setpoint
     eSETPOINT_ON_DONE SETPOINT_ON_DONE : 1;
     uint32_t _reserved_0 : 4;
   } bits;
@@ -55052,6 +60698,7 @@ union LPCG137_CONFIG {
   // Bit field definition.
   struct {
     uint32_t _reserved_0 : 4;
+    /// read-only - Setpoint present
     eSETPOINT_PRESENT SETPOINT_PRESENT : 1;
     uint32_t _reserved_1 : 27;
   } bits;
@@ -55110,18 +60757,27 @@ union LPCG137_AUTHEN {
   
   // Bit field definition.
   struct {
+    /// read-write - User access
     eTZ_USER TZ_USER : 1;
+    /// read-write - Non-secure access
     eTZ_NS TZ_NS : 1;
     uint32_t _reserved_0 : 2;
+    /// read-write - lock truszone setting
     eLOCK_TZ LOCK_TZ : 1;
     uint32_t _reserved_1 : 3;
+    /// read-write - Whitelist
     uint32_t WHITE_LIST : 4;
+    /// read-write - Lock Whitelist
     eLOCK_LIST LOCK_LIST : 1;
     uint32_t _reserved_2 : 3;
+    /// read-write - Low power and access control by domain
     eDOMAIN_MODE DOMAIN_MODE : 1;
+    /// read-write - Low power and access control by Setpoint
     eSETPOINT_MODE SETPOINT_MODE : 1;
+    /// read-write - CPU Low Power Mode
     eCPULPM CPULPM : 1;
     uint32_t _reserved_3 : 1;
+    /// read-write - Lock low power and access mode
     eLOCK_MODE LOCK_MODE : 1;
     uint32_t _reserved_4 : 11;
   } bits;

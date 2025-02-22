@@ -28,12 +28,17 @@ union CTRL0 {
   
   // Bit field definition.
   struct {
+    /// read-write - LinrReg master enable
     uint32_t LINREG_EN : 1;
+    /// read-write - LinReg power-up load disable
     eLINREG_PWRUPLOAD_DIS LINREG_PWRUPLOAD_DIS : 1;
+    /// read-write - LinReg current-limit enable
     uint32_t LINREG_ILIMIT_EN : 1;
     uint32_t _reserved_0 : 1;
+    /// read-write - LinReg output voltage target setting
     eLINREG_OUTPUT_TRG LINREG_OUTPUT_TRG : 5;
     uint32_t _reserved_1 : 6;
+    /// read-write - Isolation control for attached PHY load
     uint32_t LINREG_PHY_ISO_B : 1;
     uint32_t _reserved_2 : 16;
   } bits;
@@ -52,12 +57,17 @@ union CTRL0_SET {
   
   // Bit field definition.
   struct {
+    /// read-write - LinrReg master enable
     uint32_t LINREG_EN : 1;
+    /// read-write - LinReg power-up load disable
     uint32_t LINREG_PWRUPLOAD_DIS : 1;
+    /// read-write - LinReg current-limit enable
     uint32_t LINREG_ILIMIT_EN : 1;
     uint32_t _reserved_0 : 1;
+    /// read-write - LinReg output voltage target setting
     uint32_t LINREG_OUTPUT_TRG : 5;
     uint32_t _reserved_1 : 6;
+    /// read-write - Isolation control for attached PHY load
     uint32_t LINREG_PHY_ISO_B : 1;
     uint32_t _reserved_2 : 16;
   } bits;
@@ -76,12 +86,17 @@ union CTRL0_CLR {
   
   // Bit field definition.
   struct {
+    /// read-write - LinrReg master enable
     uint32_t LINREG_EN : 1;
+    /// read-write - LinReg power-up load disable
     uint32_t LINREG_PWRUPLOAD_DIS : 1;
+    /// read-write - LinReg current-limit enable
     uint32_t LINREG_ILIMIT_EN : 1;
     uint32_t _reserved_0 : 1;
+    /// read-write - LinReg output voltage target setting
     uint32_t LINREG_OUTPUT_TRG : 5;
     uint32_t _reserved_1 : 6;
+    /// read-write - Isolation control for attached PHY load
     uint32_t LINREG_PHY_ISO_B : 1;
     uint32_t _reserved_2 : 16;
   } bits;
@@ -100,12 +115,17 @@ union CTRL0_TOG {
   
   // Bit field definition.
   struct {
+    /// read-write - LinrReg master enable
     uint32_t LINREG_EN : 1;
+    /// read-write - LinReg power-up load disable
     uint32_t LINREG_PWRUPLOAD_DIS : 1;
+    /// read-write - LinReg current-limit enable
     uint32_t LINREG_ILIMIT_EN : 1;
     uint32_t _reserved_0 : 1;
+    /// read-write - LinReg output voltage target setting
     uint32_t LINREG_OUTPUT_TRG : 5;
     uint32_t _reserved_1 : 6;
+    /// read-write - Isolation control for attached PHY load
     uint32_t LINREG_PHY_ISO_B : 1;
     uint32_t _reserved_2 : 16;
   } bits;
@@ -124,6 +144,7 @@ union STAT0 {
   
   // Bit field definition.
   struct {
+    /// read-only - LinReg Status Bits
     uint32_t LINREG_STAT : 4;
     uint32_t _reserved_0 : 28;
   } bits;
@@ -142,6 +163,7 @@ union STAT0_SET {
   
   // Bit field definition.
   struct {
+    /// read-only - LinReg Status Bits
     uint32_t LINREG_STAT : 4;
     uint32_t _reserved_0 : 28;
   } bits;
@@ -160,6 +182,7 @@ union STAT0_CLR {
   
   // Bit field definition.
   struct {
+    /// read-only - LinReg Status Bits
     uint32_t LINREG_STAT : 4;
     uint32_t _reserved_0 : 28;
   } bits;
@@ -178,6 +201,7 @@ union STAT0_TOG {
   
   // Bit field definition.
   struct {
+    /// read-only - LinReg Status Bits
     uint32_t LINREG_STAT : 4;
     uint32_t _reserved_0 : 28;
   } bits;

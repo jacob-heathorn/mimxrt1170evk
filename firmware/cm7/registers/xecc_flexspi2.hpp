@@ -37,9 +37,13 @@ union ECC_CTRL {
   
   // Bit field definition.
   struct {
+    /// read-write - ECC Function Enable
     eECC_EN ECC_EN : 1;
+    /// read-write - Write ECC Encode Function Enable
     eWECC_EN WECC_EN : 1;
+    /// read-write - Read ECC Function Enable
     eRECC_EN RECC_EN : 1;
+    /// read-write - Swap Data Enable
     eSWAP_EN SWAP_EN : 1;
     uint32_t _reserved_0 : 28;
   } bits;
@@ -68,8 +72,11 @@ union ERR_STATUS {
   
   // Bit field definition.
   struct {
+    /// read-write - Single Bit Error
     eSINGLE_ERR SINGLE_ERR : 1;
+    /// read-write - Multiple Bits Error
     eMULTI_ERR MULTI_ERR : 1;
+    /// read-only - Reserved
     uint32_t Reserved1 : 30;
   } bits;
   
@@ -97,8 +104,11 @@ union ERR_STAT_EN {
   
   // Bit field definition.
   struct {
+    /// read-write - Single Bit Error Status Enable
     eSINGLE_ERR_STAT_EN SINGLE_ERR_STAT_EN : 1;
+    /// read-write - Multiple Bits Error Status Enable
     eMULIT_ERR_STAT_EN MULIT_ERR_STAT_EN : 1;
+    /// read-only - Reserved
     uint32_t Reserved1 : 30;
   } bits;
   
@@ -126,8 +136,11 @@ union ERR_SIG_EN {
   
   // Bit field definition.
   struct {
+    /// read-write - Single Bit Error Interrupt Enable
     eSINGLE_ERR_SIG_EN SINGLE_ERR_SIG_EN : 1;
+    /// read-write - Multiple Bits Error Interrupt Enable
     eMULTI_ERR_SIG_EN MULTI_ERR_SIG_EN : 1;
+    /// read-only - Reserved
     uint32_t Reserved1 : 30;
   } bits;
   
@@ -145,6 +158,7 @@ union ERR_DATA_INJ {
   
   // Bit field definition.
   struct {
+    /// read-write - Error Injection On Write Data
     uint32_t ERR_DATA_INJ : 32;
   } bits;
   
@@ -162,6 +176,7 @@ union ERR_ECC_INJ {
   
   // Bit field definition.
   struct {
+    /// read-write - Error Injection On ECC Code of Write Data
     uint32_t ERR_ECC_INJ : 32;
   } bits;
   
@@ -179,6 +194,7 @@ union SINGLE_ERR_ADDR {
   
   // Bit field definition.
   struct {
+    /// read-only - Single Error Address
     uint32_t SINGLE_ERR_ADDR : 32;
   } bits;
   
@@ -196,6 +212,7 @@ union SINGLE_ERR_DATA {
   
   // Bit field definition.
   struct {
+    /// read-only - Single Error Read Data
     uint32_t SINGLE_ERR_DATA : 32;
   } bits;
   
@@ -213,6 +230,7 @@ union SINGLE_ERR_ECC {
   
   // Bit field definition.
   struct {
+    /// read-only - Single Error ECC code
     uint32_t SINGLE_ERR_ECC : 32;
   } bits;
   
@@ -230,6 +248,7 @@ union SINGLE_ERR_POS {
   
   // Bit field definition.
   struct {
+    /// read-only - Single Error bit Position
     uint32_t SINGLE_ERR_POS : 32;
   } bits;
   
@@ -247,7 +266,9 @@ union SINGLE_ERR_BIT_FIELD {
   
   // Bit field definition.
   struct {
+    /// read-only - Single Error Bit Field
     uint32_t SINGLE_ERR_BIT_FIELD : 8;
+    /// read-only - Reserved
     uint32_t Reserved1 : 24;
   } bits;
   
@@ -265,6 +286,7 @@ union MULTI_ERR_ADDR {
   
   // Bit field definition.
   struct {
+    /// read-only - Multiple Error Address
     uint32_t MULTI_ERR_ADDR : 32;
   } bits;
   
@@ -282,6 +304,7 @@ union MULTI_ERR_DATA {
   
   // Bit field definition.
   struct {
+    /// read-only - Multiple Error Read Data
     uint32_t MULTI_ERR_DATA : 32;
   } bits;
   
@@ -299,6 +322,7 @@ union MULTI_ERR_ECC {
   
   // Bit field definition.
   struct {
+    /// read-only - Multiple Error ECC code
     uint32_t MULTI_ERR_ECC : 32;
   } bits;
   
@@ -316,7 +340,9 @@ union MULTI_ERR_BIT_FIELD {
   
   // Bit field definition.
   struct {
+    /// read-only - Multiple Error Bit Field
     uint32_t MULTI_ERR_BIT_FIELD : 8;
+    /// read-only - Reserved
     uint32_t Reserved1 : 24;
   } bits;
   
@@ -334,6 +360,7 @@ union ECC_BASE_ADDR0 {
   
   // Bit field definition.
   struct {
+    /// read-write - ECC Region 0 Base Address
     uint32_t ECC_BASE_ADDR0 : 32;
   } bits;
   
@@ -351,6 +378,7 @@ union ECC_END_ADDR0 {
   
   // Bit field definition.
   struct {
+    /// read-write - ECC Region 0 End Address
     uint32_t ECC_END_ADDR0 : 32;
   } bits;
   
@@ -368,6 +396,7 @@ union ECC_BASE_ADDR1 {
   
   // Bit field definition.
   struct {
+    /// read-write - ECC Region 1 Base Address
     uint32_t ECC_BASE_ADDR1 : 32;
   } bits;
   
@@ -385,6 +414,7 @@ union ECC_END_ADDR1 {
   
   // Bit field definition.
   struct {
+    /// read-write - ECC Region 1 End Address
     uint32_t ECC_END_ADDR1 : 32;
   } bits;
   
@@ -402,6 +432,7 @@ union ECC_BASE_ADDR2 {
   
   // Bit field definition.
   struct {
+    /// read-write - ECC Region 2 Base Address
     uint32_t ECC_BASE_ADDR2 : 32;
   } bits;
   
@@ -419,6 +450,7 @@ union ECC_END_ADDR2 {
   
   // Bit field definition.
   struct {
+    /// read-write - ECC Region 2 End Address
     uint32_t ECC_END_ADDR2 : 32;
   } bits;
   
@@ -436,6 +468,7 @@ union ECC_BASE_ADDR3 {
   
   // Bit field definition.
   struct {
+    /// read-write - ECC Region 3 Base Address
     uint32_t ECC_BASE_ADDR3 : 32;
   } bits;
   
@@ -453,6 +486,7 @@ union ECC_END_ADDR3 {
   
   // Bit field definition.
   struct {
+    /// read-write - ECC Region 3 End Address
     uint32_t ECC_END_ADDR3 : 32;
   } bits;
   

@@ -37,12 +37,18 @@ union CTRL {
   
   // Bit field definition.
   struct {
+    /// read-write - RAM Read Enable (with lock)
     eRAM_RD_EN RAM_RD_EN : 1;
+    /// read-write - RAM Write Enable (with lock)
     eRAM_WR_EN RAM_WR_EN : 1;
+    /// read-write - Power Enable (with lock)
     uint32_t PWR_EN : 4;
+    /// read-write - Tamper Block Enable (with lock)
     eTAMPER_BLOCK_EN TAMPER_BLOCK_EN : 1;
+    /// read-write - Turn off power on tamper event (with lock)
     eTAMPER_PWR_OFF_EN TAMPER_PWR_OFF_EN : 1;
     uint32_t _reserved_0 : 8;
+    /// read-write - Lock bits
     uint32_t LOCK_BIT : 8;
     uint32_t _reserved_1 : 8;
   } bits;

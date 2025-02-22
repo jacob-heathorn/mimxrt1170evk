@@ -17,6 +17,7 @@ union VER_ID {
   
   // Bit field definition.
   struct {
+    /// read-only - Version ID of the module
     uint32_t VER : 32;
   } bits;
   
@@ -34,7 +35,9 @@ union PARAM {
   
   // Bit field definition.
   struct {
+    /// read-only - Receive FIFO Depth
     uint32_t RX_FIFO_DEPTH : 8;
+    /// read-only - Transmit FIFO Depth
     uint32_t TX_FIFO_DEPTH : 8;
     uint32_t _reserved_0 : 16;
   } bits;
@@ -67,8 +70,11 @@ union CLKCFG {
   
   // Bit field definition.
   struct {
+    /// read-write - Clock Prescaler Value
     uint32_t CLK_PRSC : 8;
+    /// read-write - General Purpose Counter 1 Clock Select
     eGPCNT1_CLK_SEL GPCNT1_CLK_SEL : 2;
+    /// read-write - General Purpose Counter 0 Clock Select
     eGPCNT0_CLK_SEL GPCNT0_CLK_SEL : 2;
     uint32_t _reserved_0 : 20;
   } bits;
@@ -100,6 +106,7 @@ union DIVISOR {
   
   // Bit field definition.
   struct {
+    /// read-write - Divisor (F/D) Value
     eDIVISOR_VALUE DIVISOR_VALUE : 9;
     uint32_t _reserved_0 : 23;
   } bits;
@@ -233,31 +240,54 @@ union CTRL {
   
   // Bit field definition.
   struct {
+    /// read-write - Inverse Convention
     eIC IC : 1;
+    /// read-write - Initial Character Mode
     eICM ICM : 1;
+    /// read-write - Auto NACK Enable
     eANACK ANACK : 1;
+    /// read-write - Overrun NACK Enable
     eONACK ONACK : 1;
     uint32_t _reserved_0 : 4;
+    /// read-write - Flush Receiver Bit
     eFLSH_RX FLSH_RX : 1;
+    /// read-write - Flush Transmitter Bit
     eFLSH_TX FLSH_TX : 1;
+    /// read-write - Software Reset Bit
     eSW_RST SW_RST : 1;
+    /// read-write - Kill all internal clocks
     eKILL_CLOCKS KILL_CLOCKS : 1;
+    /// read-write - Doze Enable
     eDOZE_EN DOZE_EN : 1;
+    /// read-write - STOP Enable
     eSTOP_EN STOP_EN : 1;
     uint32_t _reserved_1 : 2;
+    /// read-write - Receiver Enable
     eRCV_EN RCV_EN : 1;
+    /// read-write - Transmitter Enable
     eXMT_EN XMT_EN : 1;
+    /// read-write - Receiver 11 ETU Mode Enable
     eRCVR_11 RCVR_11 : 1;
+    /// read-write - Receive DMA Enable
     eRX_DMA_EN RX_DMA_EN : 1;
+    /// read-write - Transmit DMA Enable
     eTX_DMA_EN TX_DMA_EN : 1;
     uint32_t _reserved_2 : 3;
+    /// read-write - Invert bits in the CRC Output Value
     eINV_CRC_VAL INV_CRC_VAL : 1;
+    /// read-write - CRC Output Value Bit Reversal or Flip
     eCRC_OUT_FLIP CRC_OUT_FLIP : 1;
+    /// read-write - CRC Input Byte's Bit Reversal or Flip Control
     eCRC_IN_FLIP CRC_IN_FLIP : 1;
+    /// read-write - Character Wait Time Counter Enable
     eCWT_EN CWT_EN : 1;
+    /// read-write - LRC Enable
     eLRC_EN LRC_EN : 1;
+    /// read-write - CRC Enable
     eCRC_EN CRC_EN : 1;
+    /// read-write - Transmit CRC or LRC Enable
     eXMT_CRC_LRC XMT_CRC_LRC : 1;
+    /// read-write - Block Wait Time Counter Enable
     eBWT_EN BWT_EN : 1;
   } bits;
   
@@ -355,21 +385,37 @@ union INT_MASK {
   
   // Bit field definition.
   struct {
+    /// read-write - Receive Data Threshold Interrupt Mask
     eRDT_IM RDT_IM : 1;
+    /// read-write - Transmit Complete Interrupt Mask
     eTC_IM TC_IM : 1;
+    /// read-write - Receive FIFO Overflow Interrupt Mask
     eRFO_IM RFO_IM : 1;
+    /// read-write - Early Transmit Complete Interrupt Mask
     eETC_IM ETC_IM : 1;
+    /// read-write - Transmit FIFO Empty Interrupt Mask
     eTFE_IM TFE_IM : 1;
+    /// read-write - Transmit NACK Threshold Interrupt Mask
     eTNACK_IM TNACK_IM : 1;
+    /// read-write - Transmit FIFO Full Interrupt Mask
     eTFF_IM TFF_IM : 1;
+    /// read-write - Transmit Data Threshold Interrupt Mask
     eTDT_IM TDT_IM : 1;
+    /// read-write - General Purpose Timer 0 Timeout Interrupt Mask
     eGPCNT0_IM GPCNT0_IM : 1;
+    /// read-write - Character Wait Time Error Interrupt Mask
     eCWT_ERR_IM CWT_ERR_IM : 1;
+    /// read-write - Receiver NACK Threshold Interrupt Mask
     eRNACK_IM RNACK_IM : 1;
+    /// read-write - Block Wait Time Error Interrupt Mask
     eBWT_ERR_IM BWT_ERR_IM : 1;
+    /// read-write - Block Guard Time Error Interrupt
     eBGT_ERR_IM BGT_ERR_IM : 1;
+    /// read-write - General Purpose Counter 1 Timeout Interrupt Mask
     eGPCNT1_IM GPCNT1_IM : 1;
+    /// read-write - Receive Data Interrupt Mask
     eRX_DATA_IM RX_DATA_IM : 1;
+    /// read-write - Parity Error Interrupt Mask
     ePEF_IM PEF_IM : 1;
     uint32_t _reserved_0 : 16;
   } bits;
@@ -388,8 +434,10 @@ union RX_THD {
   
   // Bit field definition.
   struct {
+    /// read-write - Receiver Data Threshold Value
     uint32_t RDT : 4;
     uint32_t _reserved_0 : 4;
+    /// read-write - Receiver NACK Threshold Value
     uint32_t RNCK_THD : 4;
     uint32_t _reserved_1 : 20;
   } bits;
@@ -408,8 +456,10 @@ union TX_THD {
   
   // Bit field definition.
   struct {
+    /// read-write - Transmitter Data Threshold Value
     uint32_t TDT : 4;
     uint32_t _reserved_0 : 4;
+    /// read-write - Transmitter NACK Threshold Value
     uint32_t TNCK_THD : 4;
     uint32_t _reserved_1 : 20;
   } bits;
@@ -487,21 +537,34 @@ union RX_STATUS {
   
   // Bit field definition.
   struct {
+    /// read-write - Receive FIFO Overflow Flag
     eRFO RFO : 1;
     uint32_t _reserved_0 : 3;
+    /// read-write - Receive Data Interrupt Flag
     eRX_DATA RX_DATA : 1;
+    /// read-only - Receive Data Threshold Interrupt Flag
     eRDTF RDTF : 1;
+    /// read-only - LRC Check OK Flag
     eLRC_OK LRC_OK : 1;
+    /// read-only - CRC Check OK Flag
     eCRC_OK CRC_OK : 1;
+    /// read-write - Character Wait Time Error Flag
     eCWT_ERR CWT_ERR : 1;
+    /// read-write - Received NACK Threshold Error Flag
     eRTE RTE : 1;
+    /// read-write - Block Wait Time Error Flag
     eBWT_ERR BWT_ERR : 1;
+    /// read-write - Block Guard Time Error Flag
     eBGT_ERR BGT_ERR : 1;
+    /// read-write - Parity Error Flag
     ePEF PEF : 1;
+    /// read-write - Frame Error Flag
     eFEF FEF : 1;
     uint32_t _reserved_1 : 2;
+    /// read-only - Receive FIFO Write Pointer Value
     uint32_t RX_WPTR : 4;
     uint32_t _reserved_2 : 4;
+    /// read-only - Receive FIFO Byte Count
     eRX_CNT RX_CNT : 4;
     uint32_t _reserved_3 : 4;
   } bits;
@@ -564,18 +627,28 @@ union TX_STATUS {
   
   // Bit field definition.
   struct {
+    /// read-write - Transmit NACK Threshold Error Flag
     eTNTE TNTE : 1;
     uint32_t _reserved_0 : 2;
+    /// read-write - Transmit FIFO Empty Flag
     eTFE TFE : 1;
+    /// read-write - Early Transmit Complete Flag
     eETCF ETCF : 1;
+    /// read-write - Transmit Complete Flag
     eTCF TCF : 1;
+    /// read-write - Transmit FIFO Full Flag
     eTFF TFF : 1;
+    /// read-only - Transmit Data Threshold Flag
     eTDTF TDTF : 1;
+    /// read-write - General Purpose Counter 0 Timeout Flag
     eGPCNT0_TO GPCNT0_TO : 1;
+    /// read-write - General Purpose Counter 1 Timeout Flag
     eGPCNT1_TO GPCNT1_TO : 1;
     uint32_t _reserved_1 : 6;
+    /// read-only - Transmit FIFO Read Pointer
     uint32_t TX_RPTR : 4;
     uint32_t _reserved_2 : 4;
+    /// read-only - Transmit FIFO Byte Count
     eTX_CNT TX_CNT : 4;
     uint32_t _reserved_3 : 4;
   } bits;
@@ -649,18 +722,29 @@ union PCSR {
   
   // Bit field definition.
   struct {
+    /// read-write - Auto Power Down Enable
     eSAPD SAPD : 1;
+    /// read-write - Vcc Enable for Smart Card
     eSVCC_EN SVCC_EN : 1;
+    /// read-write - VCC Enable Polarity Control
     eVCCENP VCCENP : 1;
+    /// read-write - Reset to Smart Card
     eSRST SRST : 1;
+    /// read-write - Clock Enable for Smart Card
     eSCEN SCEN : 1;
+    /// read-write - Smart Card Clock Stop Polarity
     eSCSP SCSP : 1;
     uint32_t _reserved_0 : 1;
+    /// read-write - Auto Power Down Control
     eSPD SPD : 1;
     uint32_t _reserved_1 : 16;
+    /// read-write - Smart Card Presence Detect Interrupt Mask
     eSPDIM SPDIM : 1;
+    /// read-write - Smart Card Presence Detect Interrupt Flag
     eSPDIF SPDIF : 1;
+    /// read-only - Smart Card Presence Detect Pin Status
     eSPDP SPDP : 1;
+    /// read-write - SIM Presence Detect Edge Select
     eSPDES SPDES : 1;
     uint32_t _reserved_2 : 4;
   } bits;
@@ -679,6 +763,7 @@ union RX_BUF {
   
   // Bit field definition.
   struct {
+    /// read-only - Receive Data Byte Read
     uint32_t RX_BYTE : 8;
     uint32_t _reserved_0 : 24;
   } bits;
@@ -697,6 +782,7 @@ union TX_BUF {
   
   // Bit field definition.
   struct {
+    /// read-write - Transmit Data Byte
     uint32_t TX_BYTE : 8;
     uint32_t _reserved_0 : 24;
   } bits;
@@ -715,6 +801,7 @@ union TX_GETU {
   
   // Bit field definition.
   struct {
+    /// read-write - Transmitter Guard Time Value in ETU
     uint32_t GETU : 8;
     uint32_t _reserved_0 : 24;
   } bits;
@@ -733,6 +820,7 @@ union CWT_VAL {
   
   // Bit field definition.
   struct {
+    /// read-write - Character Wait Time Value
     uint32_t CWT : 16;
     uint32_t _reserved_0 : 16;
   } bits;
@@ -751,6 +839,7 @@ union BWT_VAL {
   
   // Bit field definition.
   struct {
+    /// read-write - Block Wait Time Value
     uint32_t BWT : 32;
   } bits;
   
@@ -768,6 +857,7 @@ union BGT_VAL {
   
   // Bit field definition.
   struct {
+    /// read-write - Block Guard Time Value
     uint32_t BGT : 16;
     uint32_t _reserved_0 : 16;
   } bits;
@@ -786,6 +876,7 @@ union GPCNT0_VAL {
   
   // Bit field definition.
   struct {
+    /// read-write - General Purpose Counter 0 Timeout Value
     uint32_t GPCNT0 : 16;
     uint32_t _reserved_0 : 16;
   } bits;
@@ -804,6 +895,7 @@ union GPCNT1_VAL {
   
   // Bit field definition.
   struct {
+    /// read-write - General Purpose Counter 1 Timeout Value
     uint32_t GPCNT1 : 16;
     uint32_t _reserved_0 : 16;
   } bits;

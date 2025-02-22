@@ -41,7 +41,9 @@ union RDC_SEMAPHORE2_GATE0 {
   
   // Bit field definition.
   struct {
+    /// read-write - Gate Finite State Machine.
     eGTFSM GTFSM : 4;
+    /// read-only - Read-only bits. They indicate which domain had currently locked the gate.
     eLDOM LDOM : 2;
     uint32_t _reserved_0 : 26;
   } bits;
@@ -83,7 +85,9 @@ union RDC_SEMAPHORE2_GATE1 {
   
   // Bit field definition.
   struct {
+    /// read-write - Gate Finite State Machine.
     eGTFSM GTFSM : 4;
+    /// read-only - Read-only bits. They indicate which domain had currently locked the gate.
     eLDOM LDOM : 2;
     uint32_t _reserved_0 : 26;
   } bits;
@@ -125,7 +129,9 @@ union RDC_SEMAPHORE2_GATE2 {
   
   // Bit field definition.
   struct {
+    /// read-write - Gate Finite State Machine.
     eGTFSM GTFSM : 4;
+    /// read-only - Read-only bits. They indicate which domain had currently locked the gate.
     eLDOM LDOM : 2;
     uint32_t _reserved_0 : 26;
   } bits;
@@ -167,7 +173,9 @@ union RDC_SEMAPHORE2_GATE3 {
   
   // Bit field definition.
   struct {
+    /// read-write - Gate Finite State Machine.
     eGTFSM GTFSM : 4;
+    /// read-only - Read-only bits. They indicate which domain had currently locked the gate.
     eLDOM LDOM : 2;
     uint32_t _reserved_0 : 26;
   } bits;
@@ -209,7 +217,9 @@ union RDC_SEMAPHORE2_GATE4 {
   
   // Bit field definition.
   struct {
+    /// read-write - Gate Finite State Machine.
     eGTFSM GTFSM : 4;
+    /// read-only - Read-only bits. They indicate which domain had currently locked the gate.
     eLDOM LDOM : 2;
     uint32_t _reserved_0 : 26;
   } bits;
@@ -251,7 +261,9 @@ union RDC_SEMAPHORE2_GATE5 {
   
   // Bit field definition.
   struct {
+    /// read-write - Gate Finite State Machine.
     eGTFSM GTFSM : 4;
+    /// read-only - Read-only bits. They indicate which domain had currently locked the gate.
     eLDOM LDOM : 2;
     uint32_t _reserved_0 : 26;
   } bits;
@@ -293,7 +305,9 @@ union RDC_SEMAPHORE2_GATE6 {
   
   // Bit field definition.
   struct {
+    /// read-write - Gate Finite State Machine.
     eGTFSM GTFSM : 4;
+    /// read-only - Read-only bits. They indicate which domain had currently locked the gate.
     eLDOM LDOM : 2;
     uint32_t _reserved_0 : 26;
   } bits;
@@ -335,7 +349,9 @@ union RDC_SEMAPHORE2_GATE7 {
   
   // Bit field definition.
   struct {
+    /// read-write - Gate Finite State Machine.
     eGTFSM GTFSM : 4;
+    /// read-only - Read-only bits. They indicate which domain had currently locked the gate.
     eLDOM LDOM : 2;
     uint32_t _reserved_0 : 26;
   } bits;
@@ -377,7 +393,9 @@ union RDC_SEMAPHORE2_GATE8 {
   
   // Bit field definition.
   struct {
+    /// read-write - Gate Finite State Machine.
     eGTFSM GTFSM : 4;
+    /// read-only - Read-only bits. They indicate which domain had currently locked the gate.
     eLDOM LDOM : 2;
     uint32_t _reserved_0 : 26;
   } bits;
@@ -419,7 +437,9 @@ union RDC_SEMAPHORE2_GATE9 {
   
   // Bit field definition.
   struct {
+    /// read-write - Gate Finite State Machine.
     eGTFSM GTFSM : 4;
+    /// read-only - Read-only bits. They indicate which domain had currently locked the gate.
     eLDOM LDOM : 2;
     uint32_t _reserved_0 : 26;
   } bits;
@@ -461,7 +481,9 @@ union RDC_SEMAPHORE2_GATE10 {
   
   // Bit field definition.
   struct {
+    /// read-write - Gate Finite State Machine.
     eGTFSM GTFSM : 4;
+    /// read-only - Read-only bits. They indicate which domain had currently locked the gate.
     eLDOM LDOM : 2;
     uint32_t _reserved_0 : 26;
   } bits;
@@ -503,7 +525,9 @@ union RDC_SEMAPHORE2_GATE11 {
   
   // Bit field definition.
   struct {
+    /// read-write - Gate Finite State Machine.
     eGTFSM GTFSM : 4;
+    /// read-only - Read-only bits. They indicate which domain had currently locked the gate.
     eLDOM LDOM : 2;
     uint32_t _reserved_0 : 26;
   } bits;
@@ -545,7 +569,9 @@ union RDC_SEMAPHORE2_GATE12 {
   
   // Bit field definition.
   struct {
+    /// read-write - Gate Finite State Machine.
     eGTFSM GTFSM : 4;
+    /// read-only - Read-only bits. They indicate which domain had currently locked the gate.
     eLDOM LDOM : 2;
     uint32_t _reserved_0 : 26;
   } bits;
@@ -587,7 +613,9 @@ union RDC_SEMAPHORE2_GATE13 {
   
   // Bit field definition.
   struct {
+    /// read-write - Gate Finite State Machine.
     eGTFSM GTFSM : 4;
+    /// read-only - Read-only bits. They indicate which domain had currently locked the gate.
     eLDOM LDOM : 2;
     uint32_t _reserved_0 : 26;
   } bits;
@@ -629,7 +657,9 @@ union RDC_SEMAPHORE2_GATE14 {
   
   // Bit field definition.
   struct {
+    /// read-write - Gate Finite State Machine.
     eGTFSM GTFSM : 4;
+    /// read-only - Read-only bits. They indicate which domain had currently locked the gate.
     eLDOM LDOM : 2;
     uint32_t _reserved_0 : 26;
   } bits;
@@ -671,7 +701,9 @@ union RDC_SEMAPHORE2_GATE15 {
   
   // Bit field definition.
   struct {
+    /// read-write - Gate Finite State Machine.
     eGTFSM GTFSM : 4;
+    /// read-only - Read-only bits. They indicate which domain had currently locked the gate.
     eLDOM LDOM : 2;
     uint32_t _reserved_0 : 26;
   } bits;
@@ -713,7 +745,9 @@ union RDC_SEMAPHORE2_GATE16 {
   
   // Bit field definition.
   struct {
+    /// read-write - Gate Finite State Machine.
     eGTFSM GTFSM : 4;
+    /// read-only - Read-only bits. They indicate which domain had currently locked the gate.
     eLDOM LDOM : 2;
     uint32_t _reserved_0 : 26;
   } bits;
@@ -755,7 +789,9 @@ union RDC_SEMAPHORE2_GATE17 {
   
   // Bit field definition.
   struct {
+    /// read-write - Gate Finite State Machine.
     eGTFSM GTFSM : 4;
+    /// read-only - Read-only bits. They indicate which domain had currently locked the gate.
     eLDOM LDOM : 2;
     uint32_t _reserved_0 : 26;
   } bits;
@@ -797,7 +833,9 @@ union RDC_SEMAPHORE2_GATE18 {
   
   // Bit field definition.
   struct {
+    /// read-write - Gate Finite State Machine.
     eGTFSM GTFSM : 4;
+    /// read-only - Read-only bits. They indicate which domain had currently locked the gate.
     eLDOM LDOM : 2;
     uint32_t _reserved_0 : 26;
   } bits;
@@ -839,7 +877,9 @@ union RDC_SEMAPHORE2_GATE19 {
   
   // Bit field definition.
   struct {
+    /// read-write - Gate Finite State Machine.
     eGTFSM GTFSM : 4;
+    /// read-only - Read-only bits. They indicate which domain had currently locked the gate.
     eLDOM LDOM : 2;
     uint32_t _reserved_0 : 26;
   } bits;
@@ -881,7 +921,9 @@ union RDC_SEMAPHORE2_GATE20 {
   
   // Bit field definition.
   struct {
+    /// read-write - Gate Finite State Machine.
     eGTFSM GTFSM : 4;
+    /// read-only - Read-only bits. They indicate which domain had currently locked the gate.
     eLDOM LDOM : 2;
     uint32_t _reserved_0 : 26;
   } bits;
@@ -923,7 +965,9 @@ union RDC_SEMAPHORE2_GATE21 {
   
   // Bit field definition.
   struct {
+    /// read-write - Gate Finite State Machine.
     eGTFSM GTFSM : 4;
+    /// read-only - Read-only bits. They indicate which domain had currently locked the gate.
     eLDOM LDOM : 2;
     uint32_t _reserved_0 : 26;
   } bits;
@@ -965,7 +1009,9 @@ union RDC_SEMAPHORE2_GATE22 {
   
   // Bit field definition.
   struct {
+    /// read-write - Gate Finite State Machine.
     eGTFSM GTFSM : 4;
+    /// read-only - Read-only bits. They indicate which domain had currently locked the gate.
     eLDOM LDOM : 2;
     uint32_t _reserved_0 : 26;
   } bits;
@@ -1007,7 +1053,9 @@ union RDC_SEMAPHORE2_GATE23 {
   
   // Bit field definition.
   struct {
+    /// read-write - Gate Finite State Machine.
     eGTFSM GTFSM : 4;
+    /// read-only - Read-only bits. They indicate which domain had currently locked the gate.
     eLDOM LDOM : 2;
     uint32_t _reserved_0 : 26;
   } bits;
@@ -1049,7 +1097,9 @@ union RDC_SEMAPHORE2_GATE24 {
   
   // Bit field definition.
   struct {
+    /// read-write - Gate Finite State Machine.
     eGTFSM GTFSM : 4;
+    /// read-only - Read-only bits. They indicate which domain had currently locked the gate.
     eLDOM LDOM : 2;
     uint32_t _reserved_0 : 26;
   } bits;
@@ -1091,7 +1141,9 @@ union RDC_SEMAPHORE2_GATE25 {
   
   // Bit field definition.
   struct {
+    /// read-write - Gate Finite State Machine.
     eGTFSM GTFSM : 4;
+    /// read-only - Read-only bits. They indicate which domain had currently locked the gate.
     eLDOM LDOM : 2;
     uint32_t _reserved_0 : 26;
   } bits;
@@ -1133,7 +1185,9 @@ union RDC_SEMAPHORE2_GATE26 {
   
   // Bit field definition.
   struct {
+    /// read-write - Gate Finite State Machine.
     eGTFSM GTFSM : 4;
+    /// read-only - Read-only bits. They indicate which domain had currently locked the gate.
     eLDOM LDOM : 2;
     uint32_t _reserved_0 : 26;
   } bits;
@@ -1175,7 +1229,9 @@ union RDC_SEMAPHORE2_GATE27 {
   
   // Bit field definition.
   struct {
+    /// read-write - Gate Finite State Machine.
     eGTFSM GTFSM : 4;
+    /// read-only - Read-only bits. They indicate which domain had currently locked the gate.
     eLDOM LDOM : 2;
     uint32_t _reserved_0 : 26;
   } bits;
@@ -1217,7 +1273,9 @@ union RDC_SEMAPHORE2_GATE28 {
   
   // Bit field definition.
   struct {
+    /// read-write - Gate Finite State Machine.
     eGTFSM GTFSM : 4;
+    /// read-only - Read-only bits. They indicate which domain had currently locked the gate.
     eLDOM LDOM : 2;
     uint32_t _reserved_0 : 26;
   } bits;
@@ -1259,7 +1317,9 @@ union RDC_SEMAPHORE2_GATE29 {
   
   // Bit field definition.
   struct {
+    /// read-write - Gate Finite State Machine.
     eGTFSM GTFSM : 4;
+    /// read-only - Read-only bits. They indicate which domain had currently locked the gate.
     eLDOM LDOM : 2;
     uint32_t _reserved_0 : 26;
   } bits;
@@ -1301,7 +1361,9 @@ union RDC_SEMAPHORE2_GATE30 {
   
   // Bit field definition.
   struct {
+    /// read-write - Gate Finite State Machine.
     eGTFSM GTFSM : 4;
+    /// read-only - Read-only bits. They indicate which domain had currently locked the gate.
     eLDOM LDOM : 2;
     uint32_t _reserved_0 : 26;
   } bits;
@@ -1343,7 +1405,9 @@ union RDC_SEMAPHORE2_GATE31 {
   
   // Bit field definition.
   struct {
+    /// read-write - Gate Finite State Machine.
     eGTFSM GTFSM : 4;
+    /// read-only - Read-only bits. They indicate which domain had currently locked the gate.
     eLDOM LDOM : 2;
     uint32_t _reserved_0 : 26;
   } bits;
@@ -1385,7 +1449,9 @@ union RDC_SEMAPHORE2_GATE32 {
   
   // Bit field definition.
   struct {
+    /// read-write - Gate Finite State Machine.
     eGTFSM GTFSM : 4;
+    /// read-only - Read-only bits. They indicate which domain had currently locked the gate.
     eLDOM LDOM : 2;
     uint32_t _reserved_0 : 26;
   } bits;
@@ -1427,7 +1493,9 @@ union RDC_SEMAPHORE2_GATE33 {
   
   // Bit field definition.
   struct {
+    /// read-write - Gate Finite State Machine.
     eGTFSM GTFSM : 4;
+    /// read-only - Read-only bits. They indicate which domain had currently locked the gate.
     eLDOM LDOM : 2;
     uint32_t _reserved_0 : 26;
   } bits;
@@ -1469,7 +1537,9 @@ union RDC_SEMAPHORE2_GATE34 {
   
   // Bit field definition.
   struct {
+    /// read-write - Gate Finite State Machine.
     eGTFSM GTFSM : 4;
+    /// read-only - Read-only bits. They indicate which domain had currently locked the gate.
     eLDOM LDOM : 2;
     uint32_t _reserved_0 : 26;
   } bits;
@@ -1511,7 +1581,9 @@ union RDC_SEMAPHORE2_GATE35 {
   
   // Bit field definition.
   struct {
+    /// read-write - Gate Finite State Machine.
     eGTFSM GTFSM : 4;
+    /// read-only - Read-only bits. They indicate which domain had currently locked the gate.
     eLDOM LDOM : 2;
     uint32_t _reserved_0 : 26;
   } bits;
@@ -1553,7 +1625,9 @@ union RDC_SEMAPHORE2_GATE36 {
   
   // Bit field definition.
   struct {
+    /// read-write - Gate Finite State Machine.
     eGTFSM GTFSM : 4;
+    /// read-only - Read-only bits. They indicate which domain had currently locked the gate.
     eLDOM LDOM : 2;
     uint32_t _reserved_0 : 26;
   } bits;
@@ -1595,7 +1669,9 @@ union RDC_SEMAPHORE2_GATE37 {
   
   // Bit field definition.
   struct {
+    /// read-write - Gate Finite State Machine.
     eGTFSM GTFSM : 4;
+    /// read-only - Read-only bits. They indicate which domain had currently locked the gate.
     eLDOM LDOM : 2;
     uint32_t _reserved_0 : 26;
   } bits;
@@ -1637,7 +1713,9 @@ union RDC_SEMAPHORE2_GATE38 {
   
   // Bit field definition.
   struct {
+    /// read-write - Gate Finite State Machine.
     eGTFSM GTFSM : 4;
+    /// read-only - Read-only bits. They indicate which domain had currently locked the gate.
     eLDOM LDOM : 2;
     uint32_t _reserved_0 : 26;
   } bits;
@@ -1679,7 +1757,9 @@ union RDC_SEMAPHORE2_GATE39 {
   
   // Bit field definition.
   struct {
+    /// read-write - Gate Finite State Machine.
     eGTFSM GTFSM : 4;
+    /// read-only - Read-only bits. They indicate which domain had currently locked the gate.
     eLDOM LDOM : 2;
     uint32_t _reserved_0 : 26;
   } bits;
@@ -1721,7 +1801,9 @@ union RDC_SEMAPHORE2_GATE40 {
   
   // Bit field definition.
   struct {
+    /// read-write - Gate Finite State Machine.
     eGTFSM GTFSM : 4;
+    /// read-only - Read-only bits. They indicate which domain had currently locked the gate.
     eLDOM LDOM : 2;
     uint32_t _reserved_0 : 26;
   } bits;
@@ -1763,7 +1845,9 @@ union RDC_SEMAPHORE2_GATE41 {
   
   // Bit field definition.
   struct {
+    /// read-write - Gate Finite State Machine.
     eGTFSM GTFSM : 4;
+    /// read-only - Read-only bits. They indicate which domain had currently locked the gate.
     eLDOM LDOM : 2;
     uint32_t _reserved_0 : 26;
   } bits;
@@ -1805,7 +1889,9 @@ union RDC_SEMAPHORE2_GATE42 {
   
   // Bit field definition.
   struct {
+    /// read-write - Gate Finite State Machine.
     eGTFSM GTFSM : 4;
+    /// read-only - Read-only bits. They indicate which domain had currently locked the gate.
     eLDOM LDOM : 2;
     uint32_t _reserved_0 : 26;
   } bits;
@@ -1847,7 +1933,9 @@ union RDC_SEMAPHORE2_GATE43 {
   
   // Bit field definition.
   struct {
+    /// read-write - Gate Finite State Machine.
     eGTFSM GTFSM : 4;
+    /// read-only - Read-only bits. They indicate which domain had currently locked the gate.
     eLDOM LDOM : 2;
     uint32_t _reserved_0 : 26;
   } bits;
@@ -1889,7 +1977,9 @@ union RDC_SEMAPHORE2_GATE44 {
   
   // Bit field definition.
   struct {
+    /// read-write - Gate Finite State Machine.
     eGTFSM GTFSM : 4;
+    /// read-only - Read-only bits. They indicate which domain had currently locked the gate.
     eLDOM LDOM : 2;
     uint32_t _reserved_0 : 26;
   } bits;
@@ -1931,7 +2021,9 @@ union RDC_SEMAPHORE2_GATE45 {
   
   // Bit field definition.
   struct {
+    /// read-write - Gate Finite State Machine.
     eGTFSM GTFSM : 4;
+    /// read-only - Read-only bits. They indicate which domain had currently locked the gate.
     eLDOM LDOM : 2;
     uint32_t _reserved_0 : 26;
   } bits;
@@ -1973,7 +2065,9 @@ union RDC_SEMAPHORE2_GATE46 {
   
   // Bit field definition.
   struct {
+    /// read-write - Gate Finite State Machine.
     eGTFSM GTFSM : 4;
+    /// read-only - Read-only bits. They indicate which domain had currently locked the gate.
     eLDOM LDOM : 2;
     uint32_t _reserved_0 : 26;
   } bits;
@@ -2015,7 +2109,9 @@ union RDC_SEMAPHORE2_GATE47 {
   
   // Bit field definition.
   struct {
+    /// read-write - Gate Finite State Machine.
     eGTFSM GTFSM : 4;
+    /// read-only - Read-only bits. They indicate which domain had currently locked the gate.
     eLDOM LDOM : 2;
     uint32_t _reserved_0 : 26;
   } bits;
@@ -2057,7 +2153,9 @@ union RDC_SEMAPHORE2_GATE48 {
   
   // Bit field definition.
   struct {
+    /// read-write - Gate Finite State Machine.
     eGTFSM GTFSM : 4;
+    /// read-only - Read-only bits. They indicate which domain had currently locked the gate.
     eLDOM LDOM : 2;
     uint32_t _reserved_0 : 26;
   } bits;
@@ -2099,7 +2197,9 @@ union RDC_SEMAPHORE2_GATE49 {
   
   // Bit field definition.
   struct {
+    /// read-write - Gate Finite State Machine.
     eGTFSM GTFSM : 4;
+    /// read-only - Read-only bits. They indicate which domain had currently locked the gate.
     eLDOM LDOM : 2;
     uint32_t _reserved_0 : 26;
   } bits;
@@ -2141,7 +2241,9 @@ union RDC_SEMAPHORE2_GATE50 {
   
   // Bit field definition.
   struct {
+    /// read-write - Gate Finite State Machine.
     eGTFSM GTFSM : 4;
+    /// read-only - Read-only bits. They indicate which domain had currently locked the gate.
     eLDOM LDOM : 2;
     uint32_t _reserved_0 : 26;
   } bits;
@@ -2183,7 +2285,9 @@ union RDC_SEMAPHORE2_GATE51 {
   
   // Bit field definition.
   struct {
+    /// read-write - Gate Finite State Machine.
     eGTFSM GTFSM : 4;
+    /// read-only - Read-only bits. They indicate which domain had currently locked the gate.
     eLDOM LDOM : 2;
     uint32_t _reserved_0 : 26;
   } bits;
@@ -2225,7 +2329,9 @@ union RDC_SEMAPHORE2_GATE52 {
   
   // Bit field definition.
   struct {
+    /// read-write - Gate Finite State Machine.
     eGTFSM GTFSM : 4;
+    /// read-only - Read-only bits. They indicate which domain had currently locked the gate.
     eLDOM LDOM : 2;
     uint32_t _reserved_0 : 26;
   } bits;
@@ -2267,7 +2373,9 @@ union RDC_SEMAPHORE2_GATE53 {
   
   // Bit field definition.
   struct {
+    /// read-write - Gate Finite State Machine.
     eGTFSM GTFSM : 4;
+    /// read-only - Read-only bits. They indicate which domain had currently locked the gate.
     eLDOM LDOM : 2;
     uint32_t _reserved_0 : 26;
   } bits;
@@ -2309,7 +2417,9 @@ union RDC_SEMAPHORE2_GATE54 {
   
   // Bit field definition.
   struct {
+    /// read-write - Gate Finite State Machine.
     eGTFSM GTFSM : 4;
+    /// read-only - Read-only bits. They indicate which domain had currently locked the gate.
     eLDOM LDOM : 2;
     uint32_t _reserved_0 : 26;
   } bits;
@@ -2351,7 +2461,9 @@ union RDC_SEMAPHORE2_GATE55 {
   
   // Bit field definition.
   struct {
+    /// read-write - Gate Finite State Machine.
     eGTFSM GTFSM : 4;
+    /// read-only - Read-only bits. They indicate which domain had currently locked the gate.
     eLDOM LDOM : 2;
     uint32_t _reserved_0 : 26;
   } bits;
@@ -2393,7 +2505,9 @@ union RDC_SEMAPHORE2_GATE56 {
   
   // Bit field definition.
   struct {
+    /// read-write - Gate Finite State Machine.
     eGTFSM GTFSM : 4;
+    /// read-only - Read-only bits. They indicate which domain had currently locked the gate.
     eLDOM LDOM : 2;
     uint32_t _reserved_0 : 26;
   } bits;
@@ -2435,7 +2549,9 @@ union RDC_SEMAPHORE2_GATE57 {
   
   // Bit field definition.
   struct {
+    /// read-write - Gate Finite State Machine.
     eGTFSM GTFSM : 4;
+    /// read-only - Read-only bits. They indicate which domain had currently locked the gate.
     eLDOM LDOM : 2;
     uint32_t _reserved_0 : 26;
   } bits;
@@ -2477,7 +2593,9 @@ union RDC_SEMAPHORE2_GATE58 {
   
   // Bit field definition.
   struct {
+    /// read-write - Gate Finite State Machine.
     eGTFSM GTFSM : 4;
+    /// read-only - Read-only bits. They indicate which domain had currently locked the gate.
     eLDOM LDOM : 2;
     uint32_t _reserved_0 : 26;
   } bits;
@@ -2519,7 +2637,9 @@ union RDC_SEMAPHORE2_GATE59 {
   
   // Bit field definition.
   struct {
+    /// read-write - Gate Finite State Machine.
     eGTFSM GTFSM : 4;
+    /// read-only - Read-only bits. They indicate which domain had currently locked the gate.
     eLDOM LDOM : 2;
     uint32_t _reserved_0 : 26;
   } bits;
@@ -2561,7 +2681,9 @@ union RDC_SEMAPHORE2_GATE60 {
   
   // Bit field definition.
   struct {
+    /// read-write - Gate Finite State Machine.
     eGTFSM GTFSM : 4;
+    /// read-only - Read-only bits. They indicate which domain had currently locked the gate.
     eLDOM LDOM : 2;
     uint32_t _reserved_0 : 26;
   } bits;
@@ -2603,7 +2725,9 @@ union RDC_SEMAPHORE2_GATE61 {
   
   // Bit field definition.
   struct {
+    /// read-write - Gate Finite State Machine.
     eGTFSM GTFSM : 4;
+    /// read-only - Read-only bits. They indicate which domain had currently locked the gate.
     eLDOM LDOM : 2;
     uint32_t _reserved_0 : 26;
   } bits;
@@ -2645,7 +2769,9 @@ union RDC_SEMAPHORE2_GATE62 {
   
   // Bit field definition.
   struct {
+    /// read-write - Gate Finite State Machine.
     eGTFSM GTFSM : 4;
+    /// read-only - Read-only bits. They indicate which domain had currently locked the gate.
     eLDOM LDOM : 2;
     uint32_t _reserved_0 : 26;
   } bits;
@@ -2687,7 +2813,9 @@ union RDC_SEMAPHORE2_GATE63 {
   
   // Bit field definition.
   struct {
+    /// read-write - Gate Finite State Machine.
     eGTFSM GTFSM : 4;
+    /// read-only - Read-only bits. They indicate which domain had currently locked the gate.
     eLDOM LDOM : 2;
     uint32_t _reserved_0 : 26;
   } bits;
@@ -2713,9 +2841,12 @@ union RDC_SEMAPHORE2_RSTGT_R {
   
   // Bit field definition.
   struct {
+    /// read-only - Reset Gate Bus Master
     uint32_t RSTGMS : 4;
+    /// read-only - Reset Gate Finite State Machine
     eRSTGSM RSTGSM : 2;
     uint32_t _reserved_0 : 2;
+    /// read-write - Reset Gate Number
     uint32_t RSTGTN : 8;
     uint32_t _reserved_1 : 16;
   } bits;
@@ -2734,7 +2865,9 @@ union RDC_SEMAPHORE2_RSTGT_W {
   
   // Bit field definition.
   struct {
+    /// read-write - Reset Gate Data Pattern
     uint32_t RSTGDP : 8;
+    /// read-write - Reset Gate Number
     uint32_t RSTGTN : 8;
     uint32_t _reserved_0 : 16;
   } bits;

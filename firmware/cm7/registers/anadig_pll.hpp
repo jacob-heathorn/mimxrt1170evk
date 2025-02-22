@@ -59,16 +59,25 @@ union ARM_PLL_CTRL {
   
   // Bit field definition.
   struct {
+    /// read-write - DIV_SELECT
     uint32_t DIV_SELECT : 8;
     uint32_t _reserved_0 : 4;
+    /// read-write - PLL Start up initialization
     eHOLD_RING_OFF HOLD_RING_OFF : 1;
+    /// read-write - Powers up the PLL.
     ePOWERUP POWERUP : 1;
+    /// read-write - Enable the clock output.
     eENABLE_CLK ENABLE_CLK : 1;
+    /// read-write - POST_DIV_SEL
     ePOST_DIV_SEL POST_DIV_SEL : 2;
+    /// read-write - Bypass the pll.
     eBYPASS BYPASS : 1;
     uint32_t _reserved_1 : 11;
+    /// read-only - ARM_PLL_STABLE
     eARM_PLL_STABLE ARM_PLL_STABLE : 1;
+    /// read-write - ARM_PLL_GATE
     eARM_PLL_GATE ARM_PLL_GATE : 1;
+    /// read-write - pll_arm_control_mode
     eARM_PLL_CONTROL_MODE ARM_PLL_CONTROL_MODE : 1;
   } bits;
   
@@ -122,20 +131,30 @@ union SYS_PLL3_CTRL {
   // Bit field definition.
   struct {
     uint32_t _reserved_0 : 3;
+    /// read-write - SYS PLL3 DIV2 gate
     uint32_t SYS_PLL3_DIV2 : 1;
+    /// read-write - Enable Internal PLL Regulator
     uint32_t PLL_REG_EN : 1;
     uint32_t _reserved_1 : 6;
+    /// read-write - PLL Start up initialization
     eHOLD_RING_OFF HOLD_RING_OFF : 1;
     uint32_t _reserved_2 : 1;
+    /// read-write - Enable the clock output.
     eENABLE_CLK ENABLE_CLK : 1;
     uint32_t _reserved_3 : 2;
+    /// read-write - BYPASS
     eBYPASS BYPASS : 1;
     uint32_t _reserved_4 : 4;
+    /// read-write - Powers up the PLL.
     ePOWERUP POWERUP : 1;
     uint32_t _reserved_5 : 6;
+    /// read-write - SYS_PLL3_DIV2_CONTROL_MODE
     eSYS_PLL3_DIV2_CONTROL_MODE SYS_PLL3_DIV2_CONTROL_MODE : 1;
+    /// read-only - SYS_PLL3_STABLE
     uint32_t SYS_PLL3_STABLE : 1;
+    /// read-write - SYS_PLL3_GATE
     eSYS_PLL3_GATE SYS_PLL3_GATE : 1;
+    /// read-write - SYS_PLL3_control_mode
     eSYS_PLL3_CONTROL_MODE SYS_PLL3_CONTROL_MODE : 1;
   } bits;
   
@@ -174,13 +193,21 @@ union SYS_PLL3_UPDATE {
   // Bit field definition.
   struct {
     uint32_t _reserved_0 : 1;
+    /// read-write - PFD0_OVERRIDE
     uint32_t PFD0_UPDATE : 1;
+    /// read-write - PFD1_OVERRIDE
     uint32_t PFD1_UPDATE : 1;
+    /// read-write - PFD2_OVERRIDE
     uint32_t PFD2_UPDATE : 1;
+    /// read-write - PFD3_UPDATE
     uint32_t PFD3_UPDATE : 1;
+    /// read-write - pfd0_control_mode
     ePFD0_CONTROL_MODE PFD0_CONTROL_MODE : 1;
+    /// read-write - pfd1_control_mode
     ePFD1_CONTROL_MODE PFD1_CONTROL_MODE : 1;
+    /// read-write - pdf2_control_mode
     ePDF2_CONTROL_MODE PDF2_CONTROL_MODE : 1;
+    /// read-write - pfd3_control_mode
     ePFD3_CONTROL_MODE PFD3_CONTROL_MODE : 1;
     uint32_t _reserved_1 : 23;
   } bits;
@@ -219,17 +246,29 @@ union SYS_PLL3_PFD {
   
   // Bit field definition.
   struct {
+    /// read-write - PFD0_FRAC
     uint32_t PFD0_FRAC : 6;
+    /// read-only - PFD0_STABLE
     uint32_t PFD0_STABLE : 1;
+    /// read-write - PFD0_DIV1_CLKGATE
     ePFD0_DIV1_CLKGATE PFD0_DIV1_CLKGATE : 1;
+    /// read-write - PFD1_FRAC
     uint32_t PFD1_FRAC : 6;
+    /// read-only - PFD1_STABLE
     uint32_t PFD1_STABLE : 1;
+    /// read-write - PFD1_DIV1_CLKGATE
     ePFD1_DIV1_CLKGATE PFD1_DIV1_CLKGATE : 1;
+    /// read-write - PFD2_FRAC
     uint32_t PFD2_FRAC : 6;
+    /// read-only - PFD2_STABLE
     uint32_t PFD2_STABLE : 1;
+    /// read-write - PFD2_DIV1_CLKGATE
     ePFD2_DIV1_CLKGATE PFD2_DIV1_CLKGATE : 1;
+    /// read-write - PFD3_FRAC
     uint32_t PFD3_FRAC : 6;
+    /// read-only - PFD3_STABLE
     uint32_t PFD3_STABLE : 1;
+    /// read-write - PFD3_DIV1_CLKGATE
     ePFD3_DIV1_CLKGATE PFD3_DIV1_CLKGATE : 1;
   } bits;
   
@@ -283,21 +322,32 @@ union SYS_PLL2_CTRL {
   // Bit field definition.
   struct {
     uint32_t _reserved_0 : 3;
+    /// read-write - Enable Internal PLL Regulator
     uint32_t PLL_REG_EN : 1;
     uint32_t _reserved_1 : 7;
+    /// read-write - PLL Start up initialization
     eHOLD_RING_OFF HOLD_RING_OFF : 1;
     uint32_t _reserved_2 : 1;
+    /// read-write - Enable the clock output.
     eENABLE_CLK ENABLE_CLK : 1;
     uint32_t _reserved_3 : 2;
+    /// read-write - Bypass the pll.
     eBYPASS BYPASS : 1;
+    /// read-write - DITHER_ENABLE
     eDITHER_ENABLE DITHER_ENABLE : 1;
+    /// read-write - PFD_OFFSET_EN
     uint32_t PFD_OFFSET_EN : 1;
+    /// read-write - PLL_DDR_OVERRIDE
     uint32_t PLL_DDR_OVERRIDE : 1;
     uint32_t _reserved_4 : 3;
+    /// read-write - Powers up the PLL.
     ePOWERUP POWERUP : 1;
     uint32_t _reserved_5 : 5;
+    /// read-only - SYS_PLL2_STABLE
     uint32_t SYS_PLL2_STABLE : 1;
+    /// read-write - SYS_PLL2_GATE
     eSYS_PLL2_GATE SYS_PLL2_GATE : 1;
+    /// read-write - SYS_PLL2_control_mode
     eSYS_PLL2_CONTROL_MODE SYS_PLL2_CONTROL_MODE : 1;
   } bits;
   
@@ -336,13 +386,21 @@ union SYS_PLL2_UPDATE {
   // Bit field definition.
   struct {
     uint32_t _reserved_0 : 1;
+    /// read-write - PFD0_UPDATE
     uint32_t PFD0_UPDATE : 1;
+    /// read-write - PFD1_UPDATE
     uint32_t PFD1_UPDATE : 1;
+    /// read-write - PFD2_UPDATE
     uint32_t PFD2_UPDATE : 1;
+    /// read-write - PFD3_UPDATE
     uint32_t PFD3_UPDATE : 1;
+    /// read-write - pfd0_control_mode
     ePFD0_CONTROL_MODE PFD0_CONTROL_MODE : 1;
+    /// read-write - pfd1_control_mode
     ePFD1_CONTROL_MODE PFD1_CONTROL_MODE : 1;
+    /// read-write - pfd2_control_mode
     ePFD2_CONTROL_MODE PFD2_CONTROL_MODE : 1;
+    /// read-write - pfd3_control_mode
     ePFD3_CONTROL_MODE PFD3_CONTROL_MODE : 1;
     uint32_t _reserved_1 : 23;
   } bits;
@@ -366,8 +424,11 @@ union SYS_PLL2_SS {
   
   // Bit field definition.
   struct {
+    /// read-write - STEP
     uint32_t STEP : 15;
+    /// read-write - ENABLE
     eENABLE ENABLE : 1;
+    /// read-write - STOP
     uint32_t STOP : 16;
   } bits;
   
@@ -385,17 +446,29 @@ union SYS_PLL2_PFD {
   
   // Bit field definition.
   struct {
+    /// read-write - PFD0_FRAC
     uint32_t PFD0_FRAC : 6;
+    /// read-only - PFD0_STABLE
     uint32_t PFD0_STABLE : 1;
+    /// read-write - PFD0_DIV1_CLKGATE
     uint32_t PFD0_DIV1_CLKGATE : 1;
+    /// read-write - PFD1_FRAC
     uint32_t PFD1_FRAC : 6;
+    /// read-only - PFD1_STABLE
     uint32_t PFD1_STABLE : 1;
+    /// read-write - PFD1_DIV1_CLKGATE
     uint32_t PFD1_DIV1_CLKGATE : 1;
+    /// read-write - PFD2_FRAC
     uint32_t PFD2_FRAC : 6;
+    /// read-only - PFD2_STABLE
     uint32_t PFD2_STABLE : 1;
+    /// read-write - PFD2_DIV1_CLKGATE
     uint32_t PFD2_DIV1_CLKGATE : 1;
+    /// read-write - PFD3_FRAC
     uint32_t PFD3_FRAC : 6;
+    /// read-only - PFD3_STABLE
     uint32_t PFD3_STABLE : 1;
+    /// read-write - PFD3_DIV1_CLKGATE
     uint32_t PFD3_DIV1_CLKGATE : 1;
   } bits;
   
@@ -413,6 +486,7 @@ union SYS_PLL2_MFD {
   
   // Bit field definition.
   struct {
+    /// read-write - Denominator
     uint32_t MFD : 30;
     uint32_t _reserved_0 : 2;
   } bits;
@@ -436,8 +510,11 @@ union SYS_PLL1_SS {
   
   // Bit field definition.
   struct {
+    /// read-write - STEP
     uint32_t STEP : 15;
+    /// read-write - ENABLE
     eENABLE ENABLE : 1;
+    /// read-write - STOP
     uint32_t STOP : 16;
   } bits;
   
@@ -476,15 +553,24 @@ union SYS_PLL1_CTRL {
   // Bit field definition.
   struct {
     uint32_t _reserved_0 : 13;
+    /// read-write - ENABLE_CLK
     uint32_t ENABLE_CLK : 1;
+    /// read-write - SYS_PLL1_GATE
     eSYS_PLL1_GATE SYS_PLL1_GATE : 1;
     uint32_t _reserved_1 : 10;
+    /// read-write - SYS_PLL1_DIV2
     uint32_t SYS_PLL1_DIV2 : 1;
+    /// read-write - SYS_PLL1_DIV5
     uint32_t SYS_PLL1_DIV5 : 1;
+    /// read-write - SYS_PLL1_DIV5_CONTROL_MODE
     eSYS_PLL1_DIV5_CONTROL_MODE SYS_PLL1_DIV5_CONTROL_MODE : 1;
+    /// read-write - SYS_PLL1_DIV2_CONTROL_MODE
     eSYS_PLL1_DIV2_CONTROL_MODE SYS_PLL1_DIV2_CONTROL_MODE : 1;
+    /// read-only - SYS_PLL1_STABLE
     uint32_t SYS_PLL1_STABLE : 1;
+    /// read-only - SYS_PLL1_AI_BUSY
     uint32_t SYS_PLL1_AI_BUSY : 1;
+    /// read-write - SYS_PLL1_CONTROL_MODE
     eSYS_PLL1_CONTROL_MODE SYS_PLL1_CONTROL_MODE : 1;
   } bits;
   
@@ -502,6 +588,7 @@ union SYS_PLL1_DENOMINATOR {
   
   // Bit field definition.
   struct {
+    /// read-write - DENOM
     uint32_t DENOM : 30;
     uint32_t _reserved_0 : 2;
   } bits;
@@ -520,6 +607,7 @@ union SYS_PLL1_NUMERATOR {
   
   // Bit field definition.
   struct {
+    /// read-write - NUM
     uint32_t NUM : 30;
     uint32_t _reserved_0 : 2;
   } bits;
@@ -538,6 +626,7 @@ union SYS_PLL1_DIV_SELECT {
   
   // Bit field definition.
   struct {
+    /// read-write - DIV_SELECT
     uint32_t DIV_SELECT : 7;
     uint32_t _reserved_0 : 25;
   } bits;
@@ -567,11 +656,16 @@ union PLL_AUDIO_CTRL {
   // Bit field definition.
   struct {
     uint32_t _reserved_0 : 13;
+    /// read-write - ENABLE_CLK
     uint32_t ENABLE_CLK : 1;
+    /// read-write - PLL_AUDIO_GATE
     ePLL_AUDIO_GATE PLL_AUDIO_GATE : 1;
     uint32_t _reserved_1 : 14;
+    /// read-only - PLL_AUDIO_STABLE
     uint32_t PLL_AUDIO_STABLE : 1;
+    /// read-only - pll_audio_ai_busy
     uint32_t PLL_AUDIO_AI_BUSY : 1;
+    /// read-write - pll_audio_control_mode
     ePLL_AUDIO_CONTROL_MODE PLL_AUDIO_CONTROL_MODE : 1;
   } bits;
   
@@ -594,8 +688,11 @@ union PLL_AUDIO_SS {
   
   // Bit field definition.
   struct {
+    /// read-write - STEP
     uint32_t STEP : 15;
+    /// read-write - ENABLE
     eENABLE ENABLE : 1;
+    /// read-write - STOP
     uint32_t STOP : 16;
   } bits;
   
@@ -613,6 +710,7 @@ union PLL_AUDIO_DENOMINATOR {
   
   // Bit field definition.
   struct {
+    /// read-write - DENOM
     uint32_t DENOM : 30;
     uint32_t _reserved_0 : 2;
   } bits;
@@ -631,6 +729,7 @@ union PLL_AUDIO_NUMERATOR {
   
   // Bit field definition.
   struct {
+    /// read-write - NUM
     uint32_t NUM : 30;
     uint32_t _reserved_0 : 2;
   } bits;
@@ -649,6 +748,7 @@ union PLL_AUDIO_DIV_SELECT {
   
   // Bit field definition.
   struct {
+    /// read-write - PLL_AUDIO_DIV_SELECT
     uint32_t PLL_AUDIO_DIV_SELECT : 7;
     uint32_t _reserved_0 : 25;
   } bits;
@@ -678,13 +778,19 @@ union PLL_VIDEO_CTRL {
   // Bit field definition.
   struct {
     uint32_t _reserved_0 : 13;
+    /// read-write - ENABLE_CLK
     uint32_t ENABLE_CLK : 1;
+    /// read-write - PLL_VIDEO_GATE
     ePLL_VIDEO_GATE PLL_VIDEO_GATE : 1;
     uint32_t _reserved_1 : 9;
+    /// read-write - pll_video_counter_clr
     uint32_t PLL_VIDEO_COUNTER_CLR : 1;
     uint32_t _reserved_2 : 4;
+    /// read-only - PLL_VIDEO_STABLE
     uint32_t PLL_VIDEO_STABLE : 1;
+    /// read-only - pll_video_ai_busy
     uint32_t PLL_VIDEO_AI_BUSY : 1;
+    /// read-write - pll_video_control_mode
     ePLL_VIDEO_CONTROL_MODE PLL_VIDEO_CONTROL_MODE : 1;
   } bits;
   
@@ -707,8 +813,11 @@ union PLL_VIDEO_SS {
   
   // Bit field definition.
   struct {
+    /// read-write - STEP
     uint32_t STEP : 15;
+    /// read-write - ENABLE
     eENABLE ENABLE : 1;
+    /// read-write - STOP
     uint32_t STOP : 16;
   } bits;
   
@@ -726,6 +835,7 @@ union PLL_VIDEO_DENOMINATOR {
   
   // Bit field definition.
   struct {
+    /// read-write - DENOM
     uint32_t DENOM : 30;
     uint32_t _reserved_0 : 2;
   } bits;
@@ -744,6 +854,7 @@ union PLL_VIDEO_NUMERATOR {
   
   // Bit field definition.
   struct {
+    /// read-write - NUM
     uint32_t NUM : 30;
     uint32_t _reserved_0 : 2;
   } bits;
@@ -762,6 +873,7 @@ union PLL_VIDEO_DIV_SELECT {
   
   // Bit field definition.
   struct {
+    /// read-write - DIV_SELECT
     uint32_t DIV_SELECT : 7;
     uint32_t _reserved_0 : 25;
   } bits;

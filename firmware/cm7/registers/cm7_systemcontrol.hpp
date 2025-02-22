@@ -75,18 +75,30 @@ union SCB_ACTLR {
   // Bit field definition.
   struct {
     uint32_t _reserved_0 : 2;
+    /// read-write - Disables folding of IT instructions.
     eDISFOLD DISFOLD : 1;
     uint32_t _reserved_1 : 7;
+    /// read-write - Disables FPU exception outputs.
     eFPEXCODIS FPEXCODIS : 1;
+    /// read-write - Disables dynamic read allocate mode for Write-Back Write-Allocate memory regions.
     eDISRAMODE DISRAMODE : 1;
+    /// read-write - Disables ITM and DWT ATB flush.
     eDISITMATBFLUSH DISITMATBFLUSH : 1;
+    /// read-write - Disables BTAC read.
     eDISBTACREAD DISBTACREAD : 1;
+    /// read-write - Disables BTAC allocate.
     eDISBTACALLOC DISBTACALLOC : 1;
+    /// read-write - Disables critical AXI Read-Under-Read.
     eDISCRITAXIRUR DISCRITAXIRUR : 1;
+    /// read-write - Disables dual-issued.
     eDISDI DISDI : 5;
+    /// read-write - Disables dual-issued.
     eDISISSCH1 DISISSCH1 : 5;
+    /// read-write - Disables dynamic allocation of ADD and SUB instructions
     eDISDYNADD DISDYNADD : 1;
+    /// read-write - Disables critical AXI read-under-write
     eDISCRITAXIRUW DISCRITAXIRUW : 1;
+    /// read-write - Disables critical AXI read-under-write
     eDISFPUISSOPT DISFPUISSOPT : 1;
     uint32_t _reserved_2 : 3;
   } bits;
@@ -105,10 +117,15 @@ union SCB_CPUID {
   
   // Bit field definition.
   struct {
+    /// read-only - Indicates patch release: 0x0 = Patch 0
     uint32_t REVISION : 4;
+    /// read-only - Indicates part number
     uint32_t PARTNO : 12;
+    /// read-only - ARCHITECTURE
     uint32_t ARCHITECTURE : 4;
+    /// read-only - Indicates processor revision: 0x2 = Revision 2
     uint32_t VARIANT : 4;
+    /// read-only - Implementer code
     uint32_t IMPLEMENTER : 8;
   } bits;
   
@@ -161,18 +178,27 @@ union SCB_ICSR {
   
   // Bit field definition.
   struct {
+    /// read-only - Active exception number
     uint32_t VECTACTIVE : 9;
     uint32_t _reserved_0 : 2;
+    /// read-only - Indicates whether there are preempted active exceptions
     eRETTOBASE RETTOBASE : 1;
+    /// read-only - Exception number of the highest priority pending enabled exception
     uint32_t VECTPENDING : 9;
     uint32_t _reserved_1 : 1;
+    /// read-only - Interrupt pending flag, excluding NMI and Faults
     eISRPENDING ISRPENDING : 1;
     uint32_t _reserved_2 : 2;
+    /// write-only - SysTick exception clear-pending bit
     ePENDSTCLR PENDSTCLR : 1;
+    /// read-write - SysTick exception set-pending bit
     ePENDSTSET PENDSTSET : 1;
+    /// write-only - PendSV clear-pending bit
     ePENDSVCLR PENDSVCLR : 1;
+    /// read-write - PendSV set-pending bit
     ePENDSVSET PENDSVSET : 1;
     uint32_t _reserved_3 : 2;
+    /// read-write - NMI set-pending bit
     eNMIPENDSET NMIPENDSET : 1;
   } bits;
   
@@ -191,6 +217,7 @@ union SCB_VTOR {
   // Bit field definition.
   struct {
     uint32_t _reserved_0 : 7;
+    /// read-write - Vector table base offset
     uint32_t TBLOFF : 25;
   } bits;
   
@@ -228,13 +255,19 @@ union SCB_AIRCR {
   
   // Bit field definition.
   struct {
+    /// write-only - Writing 1 to this bit causes a local system reset
     eVECTRESET VECTRESET : 1;
+    /// write-only - Writing 1 to this bit clears all active state information for fixed and configurable exceptions.
     eVECTCLRACTIVE VECTCLRACTIVE : 1;
+    /// write-only - System reset request
     eSYSRESETREQ SYSRESETREQ : 1;
     uint32_t _reserved_0 : 5;
+    /// read-write - Interrupt priority grouping field. This field determines the split of group priority from subpriority.
     uint32_t PRIGROUP : 3;
     uint32_t _reserved_1 : 4;
+    /// read-only - Data endianness
     eENDIANNESS ENDIANNESS : 1;
+    /// read-write - Register key
     uint32_t VECTKEY : 16;
   } bits;
   
@@ -268,9 +301,12 @@ union SCB_SCR {
   // Bit field definition.
   struct {
     uint32_t _reserved_0 : 1;
+    /// read-write - Indicates sleep-on-exit when returning from Handler mode to Thread mode
     eSLEEPONEXIT SLEEPONEXIT : 1;
+    /// read-write - Controls whether the processor uses sleep or deep sleep as its low power mode
     eSLEEPDEEP SLEEPDEEP : 1;
     uint32_t _reserved_1 : 1;
+    /// read-write - Send Event on Pending bit
     eSEVONPEND SEVONPEND : 1;
     uint32_t _reserved_2 : 27;
   } bits;
@@ -329,17 +365,26 @@ union SCB_CCR {
   
   // Bit field definition.
   struct {
+    /// read-write - Indicates how the processor enters Thread mode
     eNONBASETHRDENA NONBASETHRDENA : 1;
+    /// read-write - Enables unprivileged software access to the STIR
     eUSERSETMPEND USERSETMPEND : 1;
     uint32_t _reserved_0 : 1;
+    /// read-write - Enables unaligned access traps
     eUNALIGN_TRP UNALIGN_TRP : 1;
+    /// read-write - Enables faulting or halting when the processor executes an SDIV or UDIV instruction with a divisor of 0
     eDIV_0_TRP DIV_0_TRP : 1;
     uint32_t _reserved_1 : 3;
+    /// read-write - Enables handlers with priority -1 or -2 to ignore data BusFaults caused by load and store instructions.
     eBFHFNMIGN BFHFNMIGN : 1;
+    /// read-write - Indicates stack alignment on exception entry
     eSTKALIGN STKALIGN : 1;
     uint32_t _reserved_2 : 6;
+    /// read-write - Enables L1 data cache.
     eDC DC : 1;
+    /// read-write - Enables L1 instruction cache.
     eIC IC : 1;
+    /// read-only - Always reads-as-one. It indicates branch prediction is enabled.
     uint32_t BP : 1;
     uint32_t _reserved_3 : 13;
   } bits;
@@ -358,8 +403,11 @@ union SCB_SHPR1 {
   
   // Bit field definition.
   struct {
+    /// read-write - Priority of system handler 4, MemManage
     uint32_t PRI_4 : 8;
+    /// read-write - Priority of system handler 5, BusFault
     uint32_t PRI_5 : 8;
+    /// read-write - Priority of system handler 6, UsageFault
     uint32_t PRI_6 : 8;
     uint32_t _reserved_0 : 8;
   } bits;
@@ -379,6 +427,7 @@ union SCB_SHPR2 {
   // Bit field definition.
   struct {
     uint32_t _reserved_0 : 24;
+    /// read-write - Priority of system handler 11, SVCall
     uint32_t PRI_11 : 8;
   } bits;
   
@@ -397,7 +446,9 @@ union SCB_SHPR3 {
   // Bit field definition.
   struct {
     uint32_t _reserved_0 : 16;
+    /// read-write - Priority of system handler 14, PendSV
     uint32_t PRI_14 : 8;
+    /// read-write - Priority of system handler 15, SysTick exception
     uint32_t PRI_15 : 8;
   } bits;
   
@@ -485,22 +536,36 @@ union SCB_SHCSR {
   
   // Bit field definition.
   struct {
+    /// read-write - MemManage exception active bit
     eMEMFAULTACT MEMFAULTACT : 1;
+    /// read-write - BusFault exception active bit
     eBUSFAULTACT BUSFAULTACT : 1;
     uint32_t _reserved_0 : 1;
+    /// read-write - UsageFault exception active bit
     eUSGFAULTACT USGFAULTACT : 1;
     uint32_t _reserved_1 : 3;
+    /// read-write - SVCall active bit
     eSVCALLACT SVCALLACT : 1;
+    /// read-write - Debug monitor active bit
     eMONITORACT MONITORACT : 1;
     uint32_t _reserved_2 : 1;
+    /// read-write - PendSV exception active bit
     ePENDSVACT PENDSVACT : 1;
+    /// read-write - SysTick exception active bit
     eSYSTICKACT SYSTICKACT : 1;
+    /// read-write - UsageFault exception pending bit
     eUSGFAULTPENDED USGFAULTPENDED : 1;
+    /// read-write - MemManage exception pending bit
     eMEMFAULTPENDED MEMFAULTPENDED : 1;
+    /// read-write - BusFault exception pending bit
     eBUSFAULTPENDED BUSFAULTPENDED : 1;
+    /// read-write - SVCall pending bit
     eSVCALLPENDED SVCALLPENDED : 1;
+    /// read-write - MemManage enable bit
     eMEMFAULTENA MEMFAULTENA : 1;
+    /// read-write - BusFault enable bit
     eBUSFAULTENA BUSFAULTENA : 1;
+    /// read-write - UsageFault enable bit
     eUSGFAULTENA USGFAULTENA : 1;
     uint32_t _reserved_3 : 13;
   } bits;
@@ -614,28 +679,47 @@ union SCB_CFSR {
   
   // Bit field definition.
   struct {
+    /// read-write - Instruction access violation flag
     eIACCVIOL IACCVIOL : 1;
+    /// read-write - Data access violation flag
     eDACCVIOL DACCVIOL : 1;
     uint32_t _reserved_0 : 1;
+    /// read-write - MemManage fault on unstacking for a return from exception
     eMUNSTKERR MUNSTKERR : 1;
+    /// read-write - MemManage fault on stacking for exception entry
     eMSTKERR MSTKERR : 1;
+    /// read-write - MemManage fault occurred during floating-point lazy state preservation
     eMLSPERR MLSPERR : 1;
     uint32_t _reserved_1 : 1;
+    /// read-write - MemManage Fault Address Register (MMFAR) valid flag
     eMMARVALID MMARVALID : 1;
+    /// read-write - Instruction bus error
     eIBUSERR IBUSERR : 1;
+    /// read-write - Precise data bus error
     ePRECISERR PRECISERR : 1;
+    /// read-write - Imprecise data bus error
     eIMPRECISERR IMPRECISERR : 1;
+    /// read-write - BusFault on unstacking for a return from exception
     eUNSTKERR UNSTKERR : 1;
+    /// read-write - BusFault on stacking for exception entry
     eSTKERR STKERR : 1;
+    /// read-write - Bus fault occurred during floating-point lazy state preservation
     eLSPERR LSPERR : 1;
     uint32_t _reserved_2 : 1;
+    /// read-write - BusFault Address Register (BFAR) valid flag
     eBFARVALID BFARVALID : 1;
+    /// read-write - Undefined instruction UsageFault
     eUNDEFINSTR UNDEFINSTR : 1;
+    /// read-write - Invalid state UsageFault
     eINVSTATE INVSTATE : 1;
+    /// read-write - Invalid PC load UsageFault, caused by an invalid PC load by EXC_RETURN
     eINVPC INVPC : 1;
+    /// read-write - No coprocessor UsageFault
     eNOCP NOCP : 1;
     uint32_t _reserved_3 : 4;
+    /// read-write - Unaligned access UsageFault
     eUNALIGNED UNALIGNED : 1;
+    /// read-write - Divide by zero UsageFault
     eDIVBYZERO DIVBYZERO : 1;
     uint32_t _reserved_4 : 6;
   } bits;
@@ -670,9 +754,12 @@ union SCB_HFSR {
   // Bit field definition.
   struct {
     uint32_t _reserved_0 : 1;
+    /// read-write - Indicates a BusFault on a vector table read during exception processing.
     eVECTTBL VECTTBL : 1;
     uint32_t _reserved_1 : 28;
+    /// read-write - Indicates a forced hard fault, generated by escalation of a fault with configurable priority that cannot be handles, either because of priority or because it is disabled.
     eFORCED FORCED : 1;
+    /// read-write - Reserved for Debug use. When writing to the register you must write 0 to this bit, otherwise behavior is Unpredictable.
     eDEBUGEVT DEBUGEVT : 1;
   } bits;
   
@@ -715,10 +802,15 @@ union SCB_DFSR {
   
   // Bit field definition.
   struct {
+    /// read-write - Indicates a debug event generated by either a C_HALT or C_STEP request, triggered by a write to the DHCSR or a step request triggered by setting DEMCR.MON_STEP to 1.
     eHALTED HALTED : 1;
+    /// read-write - Debug event generated by BKPT instruction execution or a breakpoint match in FPB
     eBKPT BKPT : 1;
+    /// read-write - Debug event generated by the DWT
     eDWTTRAP DWTTRAP : 1;
+    /// read-write - Indicates triggering of a Vector catch
     eVCATCH VCATCH : 1;
+    /// read-write - Debug event generated because of the assertion of an external debug request
     eEXTERNAL EXTERNAL : 1;
     uint32_t _reserved_0 : 27;
   } bits;
@@ -737,6 +829,7 @@ union SCB_MMFAR {
   
   // Bit field definition.
   struct {
+    /// read-write - Address of MemManage fault location
     uint32_t ADDRESS : 32;
   } bits;
   
@@ -754,6 +847,7 @@ union SCB_BFAR {
   
   // Bit field definition.
   struct {
+    /// read-write - Address of the BusFault location
     uint32_t ADDRESS : 32;
   } bits;
   
@@ -783,9 +877,13 @@ union SCB_ID_PFR0 {
   
   // Bit field definition.
   struct {
+    /// read-only - ARM instruction set support
     eSTATE0 STATE0 : 4;
+    /// read-only - Thumb instruction set support
     eSTATE1 STATE1 : 4;
+    /// read-only - ARMv7-M unused
     uint32_t STATE2 : 4;
+    /// read-only - ARMv7-M unused
     uint32_t STATE3 : 4;
     uint32_t _reserved_0 : 16;
   } bits;
@@ -810,6 +908,7 @@ union SCB_ID_PFR1 {
   // Bit field definition.
   struct {
     uint32_t _reserved_0 : 8;
+    /// read-only - M profile programmers' model
     ePROGMODEL PROGMODEL : 4;
     uint32_t _reserved_1 : 20;
   } bits;
@@ -834,6 +933,7 @@ union SCB_ID_DFR0 {
   // Bit field definition.
   struct {
     uint32_t _reserved_0 : 20;
+    /// read-only - Support for memory-mapped debug model for M profile processors
     eDEBUGMODEL DEBUGMODEL : 4;
     uint32_t _reserved_1 : 8;
   } bits;
@@ -852,9 +952,13 @@ union SCB_ID_AFR0 {
   
   // Bit field definition.
   struct {
+    /// read-only - Gives information about the IMPLEMENTATION DEFINED features of a processor implementation.
     uint32_t IMPLEMENTATION_DEFINED0 : 4;
+    /// read-only - Gives information about the IMPLEMENTATION DEFINED features of a processor implementation.
     uint32_t IMPLEMENTATION_DEFINED1 : 4;
+    /// read-only - Gives information about the IMPLEMENTATION DEFINED features of a processor implementation.
     uint32_t IMPLEMENTATION_DEFINED2 : 4;
+    /// read-only - Gives information about the IMPLEMENTATION DEFINED features of a processor implementation.
     uint32_t IMPLEMENTATION_DEFINED3 : 4;
     uint32_t _reserved_0 : 16;
   } bits;
@@ -917,10 +1021,15 @@ union SCB_ID_MMFR0 {
   // Bit field definition.
   struct {
     uint32_t _reserved_0 : 4;
+    /// read-only - Indicates support for a PMSA
     ePMSASUPPORT PMSASUPPORT : 4;
+    /// read-only - Indicates the outermost shareability domain implemented
     eOUTERMOST_SHAREABILITY OUTERMOST_SHAREABILITY : 4;
+    /// read-only - Indicates the number of shareability levels implemented
     eSHAREABILITY_LEVELS SHAREABILITY_LEVELS : 4;
+    /// read-only - Indicates the support for Tightly Coupled Memory
     eTCM_SUPPORT TCM_SUPPORT : 4;
+    /// read-only - Indicates the support for Auxiliary registers
     eAUXILIARY_REGISTERS AUXILIARY_REGISTERS : 4;
     uint32_t _reserved_1 : 8;
   } bits;
@@ -939,6 +1048,7 @@ union SCB_ID_MMFR1 {
   
   // Bit field definition.
   struct {
+    /// read-only - Gives information about the implemented memory model and memory management support.
     uint32_t ID_MMFR1 : 32;
   } bits;
   
@@ -962,6 +1072,7 @@ union SCB_ID_MMFR2 {
   // Bit field definition.
   struct {
     uint32_t _reserved_0 : 24;
+    /// read-only - Indicates the support for Wait For Interrupt (WFI) stalling
     eWFI_STALL WFI_STALL : 4;
     uint32_t _reserved_1 : 4;
   } bits;
@@ -980,6 +1091,7 @@ union SCB_ID_MMFR3 {
   
   // Bit field definition.
   struct {
+    /// read-only - Gives information about the implemented memory model and memory management support.
     uint32_t ID_MMFR3 : 32;
   } bits;
   
@@ -1031,11 +1143,17 @@ union SCB_ID_ISAR0 {
   // Bit field definition.
   struct {
     uint32_t _reserved_0 : 4;
+    /// read-only - Indicates the supported Bit Counting instructions
     eBITCOUNT_INSTRS BITCOUNT_INSTRS : 4;
+    /// read-only - Indicates the supported BitField instructions
     eBITFIELD_INSTRS BITFIELD_INSTRS : 4;
+    /// read-only - Indicates the supported combined Compare and Branch instructions
     eCMPBRANCH_INSTRS CMPBRANCH_INSTRS : 4;
+    /// read-only - Indicates the supported Coprocessor instructions
     eCOPROC_INSTRS COPROC_INSTRS : 4;
+    /// read-only - Indicates the supported Debug instructions
     eDEBUG_INSTRS DEBUG_INSTRS : 4;
+    /// read-only - Indicates the supported Divide instructions
     eDIVIDE_INSTRS DIVIDE_INSTRS : 4;
     uint32_t _reserved_1 : 4;
   } bits;
@@ -1078,9 +1196,13 @@ union SCB_ID_ISAR1 {
   // Bit field definition.
   struct {
     uint32_t _reserved_0 : 12;
+    /// read-only - Indicates the supported Extend instructions
     eEXTEND_INSTRS EXTEND_INSTRS : 4;
+    /// read-only - Indicates the supported IfThen instructions
     eIFTHEN_INSTRS IFTHEN_INSTRS : 4;
+    /// read-only - Indicates the support for data-processing instructions with long immediate
     eIMMEDIATE_INSTRS IMMEDIATE_INSTRS : 4;
+    /// read-only - Indicates the supported Interworking instructions
     eINTERWORK_INSTRS INTERWORK_INSTRS : 4;
     uint32_t _reserved_1 : 4;
   } bits;
@@ -1142,13 +1264,20 @@ union SCB_ID_ISAR2 {
   
   // Bit field definition.
   struct {
+    /// read-only - Indicates the supported additional load and store instructions
     eLOADSTORE_INSTRS LOADSTORE_INSTRS : 4;
+    /// read-only - Indicates the supported Memory Hint instructions
     eMEMHINT_INSTRS MEMHINT_INSTRS : 4;
+    /// read-only - Indicates the support for multi-access interruptible instructions
     eMULTIACCESSINT_INSTRS MULTIACCESSINT_INSTRS : 4;
+    /// read-only - Indicates the supported additional Multiply instructions
     eMULT_INSTRS MULT_INSTRS : 4;
+    /// read-only - Indicates the supported advanced signed Multiply instructions
     eMULTS_INSTRS MULTS_INSTRS : 4;
+    /// read-only - Indicates the supported advanced unsigned Multiply instructions
     eMULTU_INSTRS MULTU_INSTRS : 4;
     uint32_t _reserved_0 : 4;
+    /// read-only - Indicates the supported Reversal instructions
     eREVERSAL_INSTRS REVERSAL_INSTRS : 4;
   } bits;
   
@@ -1197,12 +1326,19 @@ union SCB_ID_ISAR3 {
   
   // Bit field definition.
   struct {
+    /// read-only - Indicates the supported Saturate instructions
     eSATURATE_INSTRS SATURATE_INSTRS : 4;
+    /// read-only - Indicates the supported SIMD instructions
     eSIMD_INSTRS SIMD_INSTRS : 4;
+    /// read-only - Indicates the supported SVC instructions
     eSVC_INSTRS SVC_INSTRS : 4;
+    /// read-only - Together with the ID_ISAR4[SYNCHPRIM_INSTRS_FRAC] indicates the supported Synchronization Primitives
     uint32_t SYNCHPRIM_INSTRS : 4;
+    /// read-only - Indicates the supported Table Branch instructions
     eTABBRANCH_INSTRS TABBRANCH_INSTRS : 4;
+    /// read-only - Indicates the supported non flag-setting MOV instructions
     eTHUMBCOPY_INSTRS THUMBCOPY_INSTRS : 4;
+    /// read-only - Indicates the supported non flag-setting MOV instructions
     eTRUENOP_INSTRS TRUENOP_INSTRS : 4;
     uint32_t _reserved_0 : 4;
   } bits;
@@ -1249,12 +1385,18 @@ union SCB_ID_ISAR4 {
   
   // Bit field definition.
   struct {
+    /// read-only - Indicates the supported unprivileged instructions. These are the instruction variants indicated by a T suffix.
     eUNPRIV_INSTRS UNPRIV_INSTRS : 4;
+    /// read-only - Indicates the support for instructions with shifts
     eWITHSHIFTS_INSTRS WITHSHIFTS_INSTRS : 4;
+    /// read-only - Indicates the support for Writeback addressing modes
     eWRITEBACK_INSTRS WRITEBACK_INSTRS : 4;
     uint32_t _reserved_0 : 4;
+    /// read-only - Indicates the supported Barrier instructions
     eBARRIER_INSTRS BARRIER_INSTRS : 4;
+    /// read-only - Together with the ID_ISAR3[SYNCHPRIM_INSTRS] indicates the supported Synchronization Primitives
     uint32_t SYNCHPRIM_INSTRS_FRAC : 4;
+    /// read-only - Indicates the supported M profile instructions to modify the PSRs
     ePSR_M_INSTRS PSR_M_INSTRS : 4;
     uint32_t _reserved_1 : 4;
   } bits;
@@ -1362,15 +1504,25 @@ union SCB_CLIDR {
   
   // Bit field definition.
   struct {
+    /// read-only - Indicate the type of cache implemented at level 1.
     eCL1 CL1 : 3;
+    /// read-only - Indicate the type of cache implemented at level 2.
     eCL2 CL2 : 3;
+    /// read-only - Indicate the type of cache implemented at level 3.
     eCL3 CL3 : 3;
+    /// read-only - Indicate the type of cache implemented at level 4.
     eCL4 CL4 : 3;
+    /// read-only - Indicate the type of cache implemented at level 5.
     eCL5 CL5 : 3;
+    /// read-only - Indicate the type of cache implemented at level 6.
     eCL6 CL6 : 3;
+    /// read-only - Indicate the type of cache implemented at level 7.
     eCL7 CL7 : 3;
+    /// read-only - Level of Unification Inner Shareable for the cache hierarchy. This field is RAZ.
     eLOUIS LOUIS : 3;
+    /// read-only - Level of Coherency for the cache hierarchy
     eLOC LOC : 3;
+    /// read-only - Level of Unification for the cache hierarchy
     eLOU LOU : 3;
     uint32_t _reserved_0 : 2;
   } bits;
@@ -1393,12 +1545,17 @@ union SCB_CTR {
   
   // Bit field definition.
   struct {
+    /// read-only - Log2 of the number of words in the smallest cache line of all the instruction caches that are controlled by the processor.
     uint32_t IMINLINE : 4;
     uint32_t _reserved_0 : 12;
+    /// read-only - Log2 of the number of words in the smallest cache line of all the data caches and unified caches that are controlled by the processor.
     uint32_t DMINLINE : 4;
+    /// read-only - Exclusives Reservation Granule. The maximum size of the reservation granule that has been implemented for the Load-Exclusive and Store-Exclusive instructions, encoded as Log2 of the number of words.
     uint32_t ERG : 4;
+    /// read-only - Cache Write-back Granule. The maximum size of memory that can be overwritten as a result of the eviction of a cache entry that has had a memory location in it modified, encoded as Log2 of the number of words.
     uint32_t CWG : 4;
     uint32_t _reserved_1 : 1;
+    /// read-only - Indicates the implemented CTR format.
     eFORMAT FORMAT : 3;
   } bits;
   
@@ -1447,12 +1604,19 @@ union SCB_CCSIDR {
   
   // Bit field definition.
   struct {
+    /// read-only - (Log2(Number of words in cache line)) - 2.
     eLINESIZE LINESIZE : 3;
+    /// read-only - (Associativity of cache) - 1, therefore a value of 0 indicates an associativity of 1. The associativity does not have to be a power of 2.
     uint32_t ASSOCIATIVITY : 10;
+    /// read-only - (Number of sets in cache) - 1, therefore a value of 0 indicates 1 set in the cache. The number of sets does not have to be a power of 2.
     uint32_t NUMSETS : 15;
+    /// read-only - Indicates whether the cache level supports write-allocation
     eWA WA : 1;
+    /// read-only - Indicates whether the cache level supports read-allocation
     eRA RA : 1;
+    /// read-only - Indicates whether the cache level supports write-back
     eWB WB : 1;
+    /// read-only - Indicates whether the cache level supports write-through
     eWT WT : 1;
   } bits;
   
@@ -1485,7 +1649,9 @@ union SCB_CSSELR {
   
   // Bit field definition.
   struct {
+    /// read-write - Instruction not data bit
     eIND IND : 1;
+    /// read-write - Cache level of required cache
     eLEVEL LEVEL : 3;
     uint32_t _reserved_0 : 28;
   } bits;
@@ -1564,16 +1730,26 @@ union SCB_CPACR {
   
   // Bit field definition.
   struct {
+    /// read-write - Access privileges for coprocessor 0.
     eCP0 CP0 : 2;
+    /// read-write - Access privileges for coprocessor 1.
     eCP1 CP1 : 2;
+    /// read-write - Access privileges for coprocessor 2.
     eCP2 CP2 : 2;
+    /// read-write - Access privileges for coprocessor 3.
     eCP3 CP3 : 2;
+    /// read-write - Access privileges for coprocessor 4.
     eCP4 CP4 : 2;
+    /// read-write - Access privileges for coprocessor 5.
     eCP5 CP5 : 2;
+    /// read-write - Access privileges for coprocessor 6.
     eCP6 CP6 : 2;
+    /// read-write - Access privileges for coprocessor 7.
     eCP7 CP7 : 2;
     uint32_t _reserved_0 : 4;
+    /// read-write - Access privileges for coprocessor 10.
     eCP10 CP10 : 2;
+    /// read-write - Access privileges for coprocessor 11.
     eCP11 CP11 : 2;
     uint32_t _reserved_1 : 8;
   } bits;
@@ -1592,6 +1768,7 @@ union SCB_STIR {
   
   // Bit field definition.
   struct {
+    /// write-only - Indicates the interrupt to be triggered
     uint32_t INTID : 9;
     uint32_t _reserved_0 : 23;
   } bits;
@@ -1610,6 +1787,7 @@ union SCB_ICIALLU {
   
   // Bit field definition.
   struct {
+    /// write-only - I-cache invalidate all to PoU
     uint32_t ICIALLU : 32;
   } bits;
   
@@ -1627,6 +1805,7 @@ union SCB_ICIMVAU {
   
   // Bit field definition.
   struct {
+    /// write-only - I-cache invalidate by MVA to PoU
     uint32_t ICIMVAU : 32;
   } bits;
   
@@ -1644,6 +1823,7 @@ union SCB_DCIMVAC {
   
   // Bit field definition.
   struct {
+    /// write-only - D-cache invalidate by MVA to PoC
     uint32_t DCIMVAC : 32;
   } bits;
   
@@ -1661,6 +1841,7 @@ union SCB_DCISW {
   
   // Bit field definition.
   struct {
+    /// write-only - D-cache invalidate by set-way
     uint32_t DCISW : 32;
   } bits;
   
@@ -1678,6 +1859,7 @@ union SCB_DCCMVAU {
   
   // Bit field definition.
   struct {
+    /// write-only - D-cache clean by MVA to PoU
     uint32_t DCCMVAU : 32;
   } bits;
   
@@ -1695,6 +1877,7 @@ union SCB_DCCMVAC {
   
   // Bit field definition.
   struct {
+    /// write-only - D-cache clean by MVA to PoC
     uint32_t DCCMVAC : 32;
   } bits;
   
@@ -1712,6 +1895,7 @@ union SCB_DCCSW {
   
   // Bit field definition.
   struct {
+    /// write-only - D-cache clean by set-way
     uint32_t DCCSW : 32;
   } bits;
   
@@ -1729,6 +1913,7 @@ union SCB_DCCIMVAC {
   
   // Bit field definition.
   struct {
+    /// write-only - D-cache clean and invalidate by MVA to PoC
     uint32_t DCCIMVAC : 32;
   } bits;
   
@@ -1746,6 +1931,7 @@ union SCB_DCCISW {
   
   // Bit field definition.
   struct {
+    /// write-only - D-cache clean and invalidate by set-way
     uint32_t DCCISW : 32;
   } bits;
   
@@ -1795,9 +1981,13 @@ union SCB_CM7_ITCMCR {
   
   // Bit field definition.
   struct {
+    /// read-write - TCM enable. When a TCM is disabled all accesses are made to the AXIM interface.
     eEN EN : 1;
+    /// read-write - Read-Modify-Write (RMW) enable. Indicates that all writes to TCM, that are not the full width of the TCM RAM, use a RMW sequence.
     eRMW RMW : 1;
+    /// read-write - Retry phase enable. When enabled the processor guarantees to honor the retry output on the corresponding TCM interface, re-executing the instruction which carried out the TCM access.
     eRETEN RETEN : 1;
+    /// read-only - TCM size. Indicates the size of the relevant TCM.
     eSZ SZ : 4;
     uint32_t _reserved_0 : 25;
   } bits;
@@ -1848,9 +2038,13 @@ union SCB_CM7_DTCMCR {
   
   // Bit field definition.
   struct {
+    /// read-write - TCM enable. When a TCM is disabled all accesses are made to the AXIM interface.
     eEN EN : 1;
+    /// read-write - Read-Modify-Write (RMW) enable. Indicates that all writes to TCM, that are not the full width of the TCM RAM, use a RMW sequence.
     eRMW RMW : 1;
+    /// read-write - Retry phase enable. When enabled the processor guarantees to honor the retry output on the corresponding TCM interface, re-executing the instruction which carried out the TCM access.
     eRETEN RETEN : 1;
+    /// read-only - TCM size. Indicates the size of the relevant TCM.
     eSZ SZ : 4;
     uint32_t _reserved_0 : 25;
   } bits;
@@ -1882,7 +2076,9 @@ union SCB_CM7_AHBPCR {
   
   // Bit field definition.
   struct {
+    /// read-write - AHBP enable.
     eEN EN : 1;
+    /// read-only - AHBP size.
     eSZ SZ : 3;
     uint32_t _reserved_0 : 28;
   } bits;
@@ -1916,8 +2112,11 @@ union SCB_CM7_CACR {
   
   // Bit field definition.
   struct {
+    /// read-write - Shared cacheable-is-WT for data cache. Enables limited cache coherency usage.
     eSIWT SIWT : 1;
+    /// read-write - Enables ECC in the instruction and data cache.
     eECCDIS ECCDIS : 1;
+    /// read-write - Enables Force Write-Through in the data cache.
     eFORCEWT FORCEWT : 1;
     uint32_t _reserved_0 : 29;
   } bits;
@@ -1943,8 +2142,11 @@ union SCB_CM7_AHBSCR {
   
   // Bit field definition.
   struct {
+    /// read-write - AHBS prioritization control.
     eCTL CTL : 2;
+    /// read-write - Threshold execution priority for AHBS traffic demotion.
     uint32_t TPRI : 9;
+    /// read-write - Fairness counter initialization value.
     uint32_t INITCOUNT : 5;
     uint32_t _reserved_0 : 16;
   } bits;
@@ -1970,12 +2172,18 @@ union SCB_CM7_ABFSR {
   
   // Bit field definition.
   struct {
+    /// read-write - Asynchronous fault on ITCM interface.
     uint32_t ITCM : 1;
+    /// read-write - Asynchronous fault on DTCM interface.
     uint32_t DTCM : 1;
+    /// read-write - Asynchronous fault on AHBP interface.
     uint32_t AHBP : 1;
+    /// read-write - Asynchronous fault on AXIM interface.
     uint32_t AXIM : 1;
+    /// read-write - Asynchronous fault on EPPB interface.
     uint32_t EPPB : 1;
     uint32_t _reserved_0 : 3;
+    /// read-write - Indicates the type of fault on the AXIM interface. Only valid when AXIM is 1.
     eAXIMTYPE AXIMTYPE : 2;
     uint32_t _reserved_1 : 22;
   } bits;

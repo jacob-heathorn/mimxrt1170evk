@@ -17,6 +17,7 @@ union GFWR {
   
   // Bit field definition.
   struct {
+    /// read-write - Glitch Filter Width
     uint32_t GFWR : 8;
     uint32_t _reserved_0 : 24;
   } bits;

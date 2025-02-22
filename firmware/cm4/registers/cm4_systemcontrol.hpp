@@ -17,8 +17,11 @@ union SCB_ACTLR {
   
   // Bit field definition.
   struct {
+    /// read-write - Disables interruption of multi-cycle instructions.
     uint32_t DISMCYCINT : 1;
+    /// read-write - Disables write buffer use during default memory map accesses.
     uint32_t DISDEFWBUF : 1;
+    /// read-write - Disables folding of IT instructions.
     uint32_t DISFOLD : 1;
     uint32_t _reserved_0 : 29;
   } bits;
@@ -37,10 +40,14 @@ union SCB_CPUID {
   
   // Bit field definition.
   struct {
+    /// read-only - Indicates patch release: 0x0 = Patch 0
     uint32_t REVISION : 4;
+    /// read-only - Indicates part number
     uint32_t PARTNO : 12;
     uint32_t _reserved_0 : 4;
+    /// read-only - Indicates processor revision: 0x2 = Revision 2
     uint32_t VARIANT : 4;
+    /// read-only - Implementer code
     uint32_t IMPLEMENTER : 8;
   } bits;
   
@@ -93,19 +100,29 @@ union SCB_ICSR {
   
   // Bit field definition.
   struct {
+    /// read-only - Active exception number
     uint32_t VECTACTIVE : 9;
     uint32_t _reserved_0 : 2;
+    /// read-only - no description available
     eRETTOBASE RETTOBASE : 1;
+    /// read-only - Exception number of the highest priority pending enabled exception
     uint32_t VECTPENDING : 6;
     uint32_t _reserved_1 : 4;
+    /// read-only - no description available
     uint32_t ISRPENDING : 1;
+    /// read-only - no description available
     eISRPREEMPT ISRPREEMPT : 1;
     uint32_t _reserved_2 : 1;
+    /// write-only - no description available
     ePENDSTCLR PENDSTCLR : 1;
+    /// read-write - no description available
     ePENDSTSET PENDSTSET : 1;
+    /// write-only - no description available
     ePENDSVCLR PENDSVCLR : 1;
+    /// read-write - no description available
     ePENDSVSET PENDSVSET : 1;
     uint32_t _reserved_3 : 2;
+    /// read-write - no description available
     eNMIPENDSET NMIPENDSET : 1;
   } bits;
   
@@ -124,6 +141,7 @@ union SCB_VTOR {
   // Bit field definition.
   struct {
     uint32_t _reserved_0 : 7;
+    /// read-write - Vector table base offset
     uint32_t TBLOFF : 25;
   } bits;
   
@@ -151,13 +169,19 @@ union SCB_AIRCR {
   
   // Bit field definition.
   struct {
+    /// write-only - no description available
     uint32_t VECTRESET : 1;
+    /// write-only - no description available
     uint32_t VECTCLRACTIVE : 1;
+    /// write-only - no description available
     eSYSRESETREQ SYSRESETREQ : 1;
     uint32_t _reserved_0 : 5;
+    /// read-write - Interrupt priority grouping field. This field determines the split of group priority from subpriority.
     uint32_t PRIGROUP : 3;
     uint32_t _reserved_1 : 4;
+    /// read-only - no description available
     eENDIANNESS ENDIANNESS : 1;
+    /// read-write - Register key
     uint32_t VECTKEY : 16;
   } bits;
   
@@ -191,9 +215,12 @@ union SCB_SCR {
   // Bit field definition.
   struct {
     uint32_t _reserved_0 : 1;
+    /// read-write - no description available
     eSLEEPONEXIT SLEEPONEXIT : 1;
+    /// read-write - no description available
     eSLEEPDEEP SLEEPDEEP : 1;
     uint32_t _reserved_1 : 1;
+    /// read-write - no description available
     eSEVONPEND SEVONPEND : 1;
     uint32_t _reserved_2 : 27;
   } bits;
@@ -242,13 +269,19 @@ union SCB_CCR {
   
   // Bit field definition.
   struct {
+    /// read-write - no description available
     eNONBASETHRDENA NONBASETHRDENA : 1;
+    /// read-write - Enables unprivileged software access to the STIR
     eUSERSETMPEND USERSETMPEND : 1;
     uint32_t _reserved_0 : 1;
+    /// read-write - Enables unaligned access traps
     eUNALIGN_TRP UNALIGN_TRP : 1;
+    /// read-write - Enables faulting or halting when the processor executes an SDIV or UDIV instruction with a divisor of 0
     eDIV_0_TRP DIV_0_TRP : 1;
     uint32_t _reserved_1 : 3;
+    /// read-write - Enables handlers with priority -1 or -2 to ignore data BusFaults caused by load and store instructions.
     eBFHFNMIGN BFHFNMIGN : 1;
+    /// read-write - Indicates stack alignment on exception entry
     eSTKALIGN STKALIGN : 1;
     uint32_t _reserved_2 : 22;
   } bits;
@@ -267,8 +300,11 @@ union SCB_SHPR1 {
   
   // Bit field definition.
   struct {
+    /// read-write - Priority of system handler 4, MemManage
     uint32_t PRI_4 : 8;
+    /// read-write - Priority of system handler 5, BusFault
     uint32_t PRI_5 : 8;
+    /// read-write - Priority of system handler 6, UsageFault
     uint32_t PRI_6 : 8;
     uint32_t _reserved_0 : 8;
   } bits;
@@ -288,6 +324,7 @@ union SCB_SHPR2 {
   // Bit field definition.
   struct {
     uint32_t _reserved_0 : 24;
+    /// read-write - Priority of system handler 11, SVCall
     uint32_t PRI_11 : 8;
   } bits;
   
@@ -306,7 +343,9 @@ union SCB_SHPR3 {
   // Bit field definition.
   struct {
     uint32_t _reserved_0 : 16;
+    /// read-write - Priority of system handler 14, PendSV
     uint32_t PRI_14 : 8;
+    /// read-write - Priority of system handler 15, SysTick exception
     uint32_t PRI_15 : 8;
   } bits;
   
@@ -394,22 +433,36 @@ union SCB_SHCSR {
   
   // Bit field definition.
   struct {
+    /// read-write - no description available
     eMEMFAULTACT MEMFAULTACT : 1;
+    /// read-write - no description available
     eBUSFAULTACT BUSFAULTACT : 1;
     uint32_t _reserved_0 : 1;
+    /// read-write - no description available
     eUSGFAULTACT USGFAULTACT : 1;
     uint32_t _reserved_1 : 3;
+    /// read-write - no description available
     eSVCALLACT SVCALLACT : 1;
+    /// read-write - no description available
     eMONITORACT MONITORACT : 1;
     uint32_t _reserved_2 : 1;
+    /// read-write - no description available
     ePENDSVACT PENDSVACT : 1;
+    /// read-write - no description available
     eSYSTICKACT SYSTICKACT : 1;
+    /// read-write - no description available
     eUSGFAULTPENDED USGFAULTPENDED : 1;
+    /// read-write - no description available
     eMEMFAULTPENDED MEMFAULTPENDED : 1;
+    /// read-write - no description available
     eBUSFAULTPENDED BUSFAULTPENDED : 1;
+    /// read-write - no description available
     eSVCALLPENDED SVCALLPENDED : 1;
+    /// read-write - no description available
     eMEMFAULTENA MEMFAULTENA : 1;
+    /// read-write - no description available
     eBUSFAULTENA BUSFAULTENA : 1;
+    /// read-write - no description available
     eUSGFAULTENA USGFAULTENA : 1;
     uint32_t _reserved_3 : 13;
   } bits;
@@ -523,28 +576,47 @@ union SCB_CFSR {
   
   // Bit field definition.
   struct {
+    /// read-write - no description available
     eIACCVIOL IACCVIOL : 1;
+    /// read-write - no description available
     eDACCVIOL DACCVIOL : 1;
     uint32_t _reserved_0 : 1;
+    /// read-write - no description available
     eMUNSTKERR MUNSTKERR : 1;
+    /// read-write - no description available
     eMSTKERR MSTKERR : 1;
+    /// read-write - no description available
     eMLSPERR MLSPERR : 1;
     uint32_t _reserved_1 : 1;
+    /// read-write - no description available
     eMMARVALID MMARVALID : 1;
+    /// read-write - no description available
     eIBUSERR IBUSERR : 1;
+    /// read-write - no description available
     ePRECISERR PRECISERR : 1;
+    /// read-write - no description available
     eIMPRECISERR IMPRECISERR : 1;
+    /// read-write - no description available
     eUNSTKERR UNSTKERR : 1;
+    /// read-write - no description available
     eSTKERR STKERR : 1;
+    /// read-write - no description available
     eLSPERR LSPERR : 1;
     uint32_t _reserved_2 : 1;
+    /// read-write - no description available
     eBFARVALID BFARVALID : 1;
+    /// read-write - no description available
     eUNDEFINSTR UNDEFINSTR : 1;
+    /// read-write - no description available
     eINVSTATE INVSTATE : 1;
+    /// read-write - no description available
     eINVPC INVPC : 1;
+    /// read-write - no description available
     eNOCP NOCP : 1;
     uint32_t _reserved_3 : 4;
+    /// read-write - no description available
     eUNALIGNED UNALIGNED : 1;
+    /// read-write - no description available
     eDIVBYZERO DIVBYZERO : 1;
     uint32_t _reserved_4 : 6;
   } bits;
@@ -574,9 +646,12 @@ union SCB_HFSR {
   // Bit field definition.
   struct {
     uint32_t _reserved_0 : 1;
+    /// read-write - no description available
     eVECTTBL VECTTBL : 1;
     uint32_t _reserved_1 : 28;
+    /// read-write - no description available
     eFORCED FORCED : 1;
+    /// read-write - no description available
     uint32_t DEBUGEVT : 1;
   } bits;
   
@@ -619,10 +694,15 @@ union SCB_DFSR {
   
   // Bit field definition.
   struct {
+    /// read-write - no description available
     eHALTED HALTED : 1;
+    /// read-write - no description available
     eBKPT BKPT : 1;
+    /// read-write - no description available
     eDWTTRAP DWTTRAP : 1;
+    /// read-write - no description available
     eVCATCH VCATCH : 1;
+    /// read-write - no description available
     eEXTERNAL EXTERNAL : 1;
     uint32_t _reserved_0 : 27;
   } bits;
@@ -641,6 +721,7 @@ union SCB_MMFAR {
   
   // Bit field definition.
   struct {
+    /// read-write - Address of MemManage fault location
     uint32_t ADDRESS : 32;
   } bits;
   
@@ -658,6 +739,7 @@ union SCB_BFAR {
   
   // Bit field definition.
   struct {
+    /// read-write - Address of the BusFault location
     uint32_t ADDRESS : 32;
   } bits;
   
@@ -675,6 +757,7 @@ union SCB_AFSR {
   
   // Bit field definition.
   struct {
+    /// read-write - Latched version of the AUXFAULT inputs
     uint32_t AUXFAULT : 32;
   } bits;
   
@@ -705,7 +788,9 @@ union SCB_CPACR {
   // Bit field definition.
   struct {
     uint32_t _reserved_0 : 20;
+    /// read-write - Access privileges for coprocessor 10.
     eCP10 CP10 : 2;
+    /// read-write - Access privileges for coprocessor 11.
     eCP11 CP11 : 2;
     uint32_t _reserved_1 : 8;
   } bits;
@@ -769,17 +854,26 @@ union SCB_FPCCR {
   
   // Bit field definition.
   struct {
+    /// read-write - Lazy state preservation.
     eLSPACT LSPACT : 1;
+    /// read-write - Privilege level when the floating-point stack frame was allocated.
     eUSER USER : 1;
     uint32_t _reserved_0 : 1;
+    /// read-write - Mode when the floating-point stack frame was allocated.
     eTHREAD THREAD : 1;
+    /// read-write - Permission to set the HardFault handler to the pending state when the floating-point stack frame was allocated.
     eHFRDY HFRDY : 1;
+    /// read-write - Permission to set the MemManage handler to the pending state when the floating-point stack frame was allocated.
     eMMRDY MMRDY : 1;
+    /// read-write - Permission to set the BusFault handler to the pending state when the floating-point stack frame was allocated.
     eBFRDY BFRDY : 1;
     uint32_t _reserved_1 : 1;
+    /// read-write - Permission to set the MON_PEND when the floating-point stack frame was allocated.
     eMONRDY MONRDY : 1;
     uint32_t _reserved_2 : 21;
+    /// read-write - Lazy state preservation for floating-point context.
     eLSPEN LSPEN : 1;
+    /// read-write - Enables CONTROL2 setting on execution of a floating-point instruction. This results in automatic hardware state preservation and restoration, for floating-point context, on exception entry and exit.
     eASPEN ASPEN : 1;
   } bits;
   
@@ -798,6 +892,7 @@ union SCB_FPCAR {
   // Bit field definition.
   struct {
     uint32_t _reserved_0 : 3;
+    /// read-write - The location of the unpopulated floating-point register space allocated on an exception stack frame.
     uint32_t ADDRESS : 29;
   } bits;
   
@@ -838,9 +933,13 @@ union SCB_FPDSCR {
   // Bit field definition.
   struct {
     uint32_t _reserved_0 : 22;
+    /// read-write - Default value for FPSCR.RMode (Rounding Mode control field).
     eRMode RMode : 2;
+    /// read-write - Default value for FPSCR.FZ (Flush-to-zero mode control bit).
     eFZ FZ : 1;
+    /// read-write - Default value for FPSCR.DN (Default NaN mode control bit).
     eDN DN : 1;
+    /// read-write - Default value for FPSCR.AHP (Alternative half-precision control bit).
     eAHP AHP : 1;
     uint32_t _reserved_1 : 5;
   } bits;

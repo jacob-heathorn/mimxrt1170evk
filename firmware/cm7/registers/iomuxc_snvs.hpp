@@ -27,8 +27,10 @@ union SW_MUX_CTL_PAD_WAKEUP_DIG {
   
   // Bit field definition.
   struct {
+    /// read-write - MUX Mode Select Field.
     eMUX_MODE MUX_MODE : 3;
     uint32_t _reserved_0 : 1;
+    /// read-write - Software Input On Field.
     eSION SION : 1;
     uint32_t _reserved_1 : 27;
   } bits;
@@ -57,8 +59,10 @@ union SW_MUX_CTL_PAD_PMIC_ON_REQ_DIG {
   
   // Bit field definition.
   struct {
+    /// read-write - MUX Mode Select Field.
     eMUX_MODE MUX_MODE : 3;
     uint32_t _reserved_0 : 1;
+    /// read-write - Software Input On Field.
     eSION SION : 1;
     uint32_t _reserved_1 : 27;
   } bits;
@@ -87,8 +91,10 @@ union SW_MUX_CTL_PAD_PMIC_STBY_REQ_DIG {
   
   // Bit field definition.
   struct {
+    /// read-write - MUX Mode Select Field.
     eMUX_MODE MUX_MODE : 3;
     uint32_t _reserved_0 : 1;
+    /// read-write - Software Input On Field.
     eSION SION : 1;
     uint32_t _reserved_1 : 27;
   } bits;
@@ -117,8 +123,10 @@ union SW_MUX_CTL_PAD_GPIO_SNVS_00_DIG {
   
   // Bit field definition.
   struct {
+    /// read-write - MUX Mode Select Field.
     eMUX_MODE MUX_MODE : 3;
     uint32_t _reserved_0 : 1;
+    /// read-write - Software Input On Field.
     eSION SION : 1;
     uint32_t _reserved_1 : 27;
   } bits;
@@ -147,8 +155,10 @@ union SW_MUX_CTL_PAD_GPIO_SNVS_01_DIG {
   
   // Bit field definition.
   struct {
+    /// read-write - MUX Mode Select Field.
     eMUX_MODE MUX_MODE : 3;
     uint32_t _reserved_0 : 1;
+    /// read-write - Software Input On Field.
     eSION SION : 1;
     uint32_t _reserved_1 : 27;
   } bits;
@@ -177,8 +187,10 @@ union SW_MUX_CTL_PAD_GPIO_SNVS_02_DIG {
   
   // Bit field definition.
   struct {
+    /// read-write - MUX Mode Select Field.
     eMUX_MODE MUX_MODE : 3;
     uint32_t _reserved_0 : 1;
+    /// read-write - Software Input On Field.
     eSION SION : 1;
     uint32_t _reserved_1 : 27;
   } bits;
@@ -207,8 +219,10 @@ union SW_MUX_CTL_PAD_GPIO_SNVS_03_DIG {
   
   // Bit field definition.
   struct {
+    /// read-write - MUX Mode Select Field.
     eMUX_MODE MUX_MODE : 3;
     uint32_t _reserved_0 : 1;
+    /// read-write - Software Input On Field.
     eSION SION : 1;
     uint32_t _reserved_1 : 27;
   } bits;
@@ -237,8 +251,10 @@ union SW_MUX_CTL_PAD_GPIO_SNVS_04_DIG {
   
   // Bit field definition.
   struct {
+    /// read-write - MUX Mode Select Field.
     eMUX_MODE MUX_MODE : 3;
     uint32_t _reserved_0 : 1;
+    /// read-write - Software Input On Field.
     eSION SION : 1;
     uint32_t _reserved_1 : 27;
   } bits;
@@ -267,8 +283,10 @@ union SW_MUX_CTL_PAD_GPIO_SNVS_05_DIG {
   
   // Bit field definition.
   struct {
+    /// read-write - MUX Mode Select Field.
     eMUX_MODE MUX_MODE : 3;
     uint32_t _reserved_0 : 1;
+    /// read-write - Software Input On Field.
     eSION SION : 1;
     uint32_t _reserved_1 : 27;
   } bits;
@@ -297,8 +315,10 @@ union SW_MUX_CTL_PAD_GPIO_SNVS_06_DIG {
   
   // Bit field definition.
   struct {
+    /// read-write - MUX Mode Select Field.
     eMUX_MODE MUX_MODE : 3;
     uint32_t _reserved_0 : 1;
+    /// read-write - Software Input On Field.
     eSION SION : 1;
     uint32_t _reserved_1 : 27;
   } bits;
@@ -327,8 +347,10 @@ union SW_MUX_CTL_PAD_GPIO_SNVS_07_DIG {
   
   // Bit field definition.
   struct {
+    /// read-write - MUX Mode Select Field.
     eMUX_MODE MUX_MODE : 3;
     uint32_t _reserved_0 : 1;
+    /// read-write - Software Input On Field.
     eSION SION : 1;
     uint32_t _reserved_1 : 27;
   } bits;
@@ -357,8 +379,10 @@ union SW_MUX_CTL_PAD_GPIO_SNVS_08_DIG {
   
   // Bit field definition.
   struct {
+    /// read-write - MUX Mode Select Field.
     eMUX_MODE MUX_MODE : 3;
     uint32_t _reserved_0 : 1;
+    /// read-write - Software Input On Field.
     eSION SION : 1;
     uint32_t _reserved_1 : 27;
   } bits;
@@ -387,8 +411,10 @@ union SW_MUX_CTL_PAD_GPIO_SNVS_09_DIG {
   
   // Bit field definition.
   struct {
+    /// read-write - MUX Mode Select Field.
     eMUX_MODE MUX_MODE : 3;
     uint32_t _reserved_0 : 1;
+    /// read-write - Software Input On Field.
     eSION SION : 1;
     uint32_t _reserved_1 : 27;
   } bits;
@@ -432,10 +458,14 @@ union SW_PAD_CTL_PAD_TEST_MODE_DIG {
   // Bit field definition.
   struct {
     uint32_t _reserved_0 : 2;
+    /// read-write - Pull / Keep Select Field
     ePUE PUE : 1;
+    /// read-write - Pull Up / Down Config. Field
     ePUS PUS : 1;
     uint32_t _reserved_1 : 24;
+    /// read-write - Domain write protection
     eDWP DWP : 2;
+    /// read-writeOnce - Domain write protection lock
     eDWP_LOCK DWP_LOCK : 2;
   } bits;
   
@@ -478,10 +508,14 @@ union SW_PAD_CTL_PAD_POR_B_DIG {
   // Bit field definition.
   struct {
     uint32_t _reserved_0 : 2;
+    /// read-write - Pull / Keep Select Field
     ePUE PUE : 1;
+    /// read-write - Pull Up / Down Config. Field
     ePUS PUS : 1;
     uint32_t _reserved_1 : 24;
+    /// read-write - Domain write protection
     eDWP DWP : 2;
+    /// read-writeOnce - Domain write protection lock
     eDWP_LOCK DWP_LOCK : 2;
   } bits;
   
@@ -524,10 +558,14 @@ union SW_PAD_CTL_PAD_ONOFF_DIG {
   // Bit field definition.
   struct {
     uint32_t _reserved_0 : 2;
+    /// read-write - Pull / Keep Select Field
     ePUE PUE : 1;
+    /// read-write - Pull Up / Down Config. Field
     ePUS PUS : 1;
     uint32_t _reserved_1 : 24;
+    /// read-write - Domain write protection
     eDWP DWP : 2;
+    /// read-writeOnce - Domain write protection lock
     eDWP_LOCK DWP_LOCK : 2;
   } bits;
   
@@ -575,12 +613,17 @@ union SW_PAD_CTL_PAD_WAKEUP_DIG {
   // Bit field definition.
   struct {
     uint32_t _reserved_0 : 2;
+    /// read-write - Pull / Keep Select Field
     ePUE PUE : 1;
+    /// read-write - Pull Up / Down Config. Field
     ePUS PUS : 1;
     uint32_t _reserved_1 : 2;
+    /// read-write - Open Drain SNVS Field
     eODE_SNVS ODE_SNVS : 1;
     uint32_t _reserved_2 : 21;
+    /// read-write - Domain write protection
     eDWP DWP : 2;
+    /// read-writeOnce - Domain write protection lock
     eDWP_LOCK DWP_LOCK : 2;
   } bits;
   
@@ -628,12 +671,17 @@ union SW_PAD_CTL_PAD_PMIC_ON_REQ_DIG {
   // Bit field definition.
   struct {
     uint32_t _reserved_0 : 2;
+    /// read-write - Pull / Keep Select Field
     ePUE PUE : 1;
+    /// read-write - Pull Up / Down Config. Field
     ePUS PUS : 1;
     uint32_t _reserved_1 : 2;
+    /// read-write - Open Drain SNVS Field
     eODE_SNVS ODE_SNVS : 1;
     uint32_t _reserved_2 : 21;
+    /// read-write - Domain write protection
     eDWP DWP : 2;
+    /// read-writeOnce - Domain write protection lock
     eDWP_LOCK DWP_LOCK : 2;
   } bits;
   
@@ -681,12 +729,17 @@ union SW_PAD_CTL_PAD_PMIC_STBY_REQ_DIG {
   // Bit field definition.
   struct {
     uint32_t _reserved_0 : 2;
+    /// read-write - Pull / Keep Select Field
     ePUE PUE : 1;
+    /// read-write - Pull Up / Down Config. Field
     ePUS PUS : 1;
     uint32_t _reserved_1 : 2;
+    /// read-write - Open Drain SNVS Field
     eODE_SNVS ODE_SNVS : 1;
     uint32_t _reserved_2 : 21;
+    /// read-write - Domain write protection
     eDWP DWP : 2;
+    /// read-writeOnce - Domain write protection lock
     eDWP_LOCK DWP_LOCK : 2;
   } bits;
   
@@ -734,12 +787,17 @@ union SW_PAD_CTL_PAD_GPIO_SNVS_00_DIG {
   // Bit field definition.
   struct {
     uint32_t _reserved_0 : 2;
+    /// read-write - Pull / Keep Select Field
     ePUE PUE : 1;
+    /// read-write - Pull Up / Down Config. Field
     ePUS PUS : 1;
     uint32_t _reserved_1 : 2;
+    /// read-write - Open Drain SNVS Field
     eODE_SNVS ODE_SNVS : 1;
     uint32_t _reserved_2 : 21;
+    /// read-write - Domain write protection
     eDWP DWP : 2;
+    /// read-writeOnce - Domain write protection lock
     eDWP_LOCK DWP_LOCK : 2;
   } bits;
   
@@ -787,12 +845,17 @@ union SW_PAD_CTL_PAD_GPIO_SNVS_01_DIG {
   // Bit field definition.
   struct {
     uint32_t _reserved_0 : 2;
+    /// read-write - Pull / Keep Select Field
     ePUE PUE : 1;
+    /// read-write - Pull Up / Down Config. Field
     ePUS PUS : 1;
     uint32_t _reserved_1 : 2;
+    /// read-write - Open Drain SNVS Field
     eODE_SNVS ODE_SNVS : 1;
     uint32_t _reserved_2 : 21;
+    /// read-write - Domain write protection
     eDWP DWP : 2;
+    /// read-writeOnce - Domain write protection lock
     eDWP_LOCK DWP_LOCK : 2;
   } bits;
   
@@ -840,12 +903,17 @@ union SW_PAD_CTL_PAD_GPIO_SNVS_02_DIG {
   // Bit field definition.
   struct {
     uint32_t _reserved_0 : 2;
+    /// read-write - Pull / Keep Select Field
     ePUE PUE : 1;
+    /// read-write - Pull Up / Down Config. Field
     ePUS PUS : 1;
     uint32_t _reserved_1 : 2;
+    /// read-write - Open Drain SNVS Field
     eODE_SNVS ODE_SNVS : 1;
     uint32_t _reserved_2 : 21;
+    /// read-write - Domain write protection
     eDWP DWP : 2;
+    /// read-writeOnce - Domain write protection lock
     eDWP_LOCK DWP_LOCK : 2;
   } bits;
   
@@ -893,12 +961,17 @@ union SW_PAD_CTL_PAD_GPIO_SNVS_03_DIG {
   // Bit field definition.
   struct {
     uint32_t _reserved_0 : 2;
+    /// read-write - Pull / Keep Select Field
     ePUE PUE : 1;
+    /// read-write - Pull Up / Down Config. Field
     ePUS PUS : 1;
     uint32_t _reserved_1 : 2;
+    /// read-write - Open Drain SNVS Field
     eODE_SNVS ODE_SNVS : 1;
     uint32_t _reserved_2 : 21;
+    /// read-write - Domain write protection
     eDWP DWP : 2;
+    /// read-writeOnce - Domain write protection lock
     eDWP_LOCK DWP_LOCK : 2;
   } bits;
   
@@ -946,12 +1019,17 @@ union SW_PAD_CTL_PAD_GPIO_SNVS_04_DIG {
   // Bit field definition.
   struct {
     uint32_t _reserved_0 : 2;
+    /// read-write - Pull / Keep Select Field
     ePUE PUE : 1;
+    /// read-write - Pull Up / Down Config. Field
     ePUS PUS : 1;
     uint32_t _reserved_1 : 2;
+    /// read-write - Open Drain SNVS Field
     eODE_SNVS ODE_SNVS : 1;
     uint32_t _reserved_2 : 21;
+    /// read-write - Domain write protection
     eDWP DWP : 2;
+    /// read-writeOnce - Domain write protection lock
     eDWP_LOCK DWP_LOCK : 2;
   } bits;
   
@@ -999,12 +1077,17 @@ union SW_PAD_CTL_PAD_GPIO_SNVS_05_DIG {
   // Bit field definition.
   struct {
     uint32_t _reserved_0 : 2;
+    /// read-write - Pull / Keep Select Field
     ePUE PUE : 1;
+    /// read-write - Pull Up / Down Config. Field
     ePUS PUS : 1;
     uint32_t _reserved_1 : 2;
+    /// read-write - Open Drain SNVS Field
     eODE_SNVS ODE_SNVS : 1;
     uint32_t _reserved_2 : 21;
+    /// read-write - Domain write protection
     eDWP DWP : 2;
+    /// read-writeOnce - Domain write protection lock
     eDWP_LOCK DWP_LOCK : 2;
   } bits;
   
@@ -1052,12 +1135,17 @@ union SW_PAD_CTL_PAD_GPIO_SNVS_06_DIG {
   // Bit field definition.
   struct {
     uint32_t _reserved_0 : 2;
+    /// read-write - Pull / Keep Select Field
     ePUE PUE : 1;
+    /// read-write - Pull Up / Down Config. Field
     ePUS PUS : 1;
     uint32_t _reserved_1 : 2;
+    /// read-write - Open Drain SNVS Field
     eODE_SNVS ODE_SNVS : 1;
     uint32_t _reserved_2 : 21;
+    /// read-write - Domain write protection
     eDWP DWP : 2;
+    /// read-writeOnce - Domain write protection lock
     eDWP_LOCK DWP_LOCK : 2;
   } bits;
   
@@ -1105,12 +1193,17 @@ union SW_PAD_CTL_PAD_GPIO_SNVS_07_DIG {
   // Bit field definition.
   struct {
     uint32_t _reserved_0 : 2;
+    /// read-write - Pull / Keep Select Field
     ePUE PUE : 1;
+    /// read-write - Pull Up / Down Config. Field
     ePUS PUS : 1;
     uint32_t _reserved_1 : 2;
+    /// read-write - Open Drain SNVS Field
     eODE_SNVS ODE_SNVS : 1;
     uint32_t _reserved_2 : 21;
+    /// read-write - Domain write protection
     eDWP DWP : 2;
+    /// read-writeOnce - Domain write protection lock
     eDWP_LOCK DWP_LOCK : 2;
   } bits;
   
@@ -1158,12 +1251,17 @@ union SW_PAD_CTL_PAD_GPIO_SNVS_08_DIG {
   // Bit field definition.
   struct {
     uint32_t _reserved_0 : 2;
+    /// read-write - Pull / Keep Select Field
     ePUE PUE : 1;
+    /// read-write - Pull Up / Down Config. Field
     ePUS PUS : 1;
     uint32_t _reserved_1 : 2;
+    /// read-write - Open Drain SNVS Field
     eODE_SNVS ODE_SNVS : 1;
     uint32_t _reserved_2 : 21;
+    /// read-write - Domain write protection
     eDWP DWP : 2;
+    /// read-writeOnce - Domain write protection lock
     eDWP_LOCK DWP_LOCK : 2;
   } bits;
   
@@ -1211,12 +1309,17 @@ union SW_PAD_CTL_PAD_GPIO_SNVS_09_DIG {
   // Bit field definition.
   struct {
     uint32_t _reserved_0 : 2;
+    /// read-write - Pull / Keep Select Field
     ePUE PUE : 1;
+    /// read-write - Pull Up / Down Config. Field
     ePUS PUS : 1;
     uint32_t _reserved_1 : 2;
+    /// read-write - Open Drain SNVS Field
     eODE_SNVS ODE_SNVS : 1;
     uint32_t _reserved_2 : 21;
+    /// read-write - Domain write protection
     eDWP DWP : 2;
+    /// read-writeOnce - Domain write protection lock
     eDWP_LOCK DWP_LOCK : 2;
   } bits;
   

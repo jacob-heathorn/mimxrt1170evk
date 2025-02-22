@@ -17,6 +17,7 @@ union COMP10 {
   
   // Bit field definition.
   struct {
+    /// read-write - Comparison Value 1
     uint32_t COMPARISON_1 : 16;
     uint32_t _reserved_0 : 16;
   } bits;
@@ -35,6 +36,7 @@ union COMP20 {
   
   // Bit field definition.
   struct {
+    /// read-write - Comparison Value 2
     uint32_t COMPARISON_2 : 16;
     uint32_t _reserved_0 : 16;
   } bits;
@@ -53,6 +55,7 @@ union CAPT0 {
   
   // Bit field definition.
   struct {
+    /// read-write - Capture Value
     uint32_t CAPTURE : 16;
     uint32_t _reserved_0 : 16;
   } bits;
@@ -71,6 +74,7 @@ union LOAD0 {
   
   // Bit field definition.
   struct {
+    /// read-write - Timer Load Register
     uint32_t LOAD : 16;
     uint32_t _reserved_0 : 16;
   } bits;
@@ -89,6 +93,7 @@ union HOLD0 {
   
   // Bit field definition.
   struct {
+    /// read-write - HOLD
     uint32_t HOLD : 16;
     uint32_t _reserved_0 : 16;
   } bits;
@@ -107,6 +112,7 @@ union CNTR0 {
   
   // Bit field definition.
   struct {
+    /// read-write - COUNTER
     uint32_t COUNTER : 16;
     uint32_t _reserved_0 : 16;
   } bits;
@@ -193,13 +199,21 @@ union CTRL0 {
   
   // Bit field definition.
   struct {
+    /// read-write - Output Mode
     eOUTMODE OUTMODE : 3;
+    /// read-write - Co-Channel Initialization
     eCOINIT COINIT : 1;
+    /// read-write - Count Direction
     eDIR DIR : 1;
+    /// read-write - Count Length
     eLENGTH LENGTH : 1;
+    /// read-write - Count Once
     eONCE ONCE : 1;
+    /// read-write - Secondary Count Source
     eSCS SCS : 2;
+    /// read-write - Primary Count Source
     ePCS PCS : 4;
+    /// read-write - Count Mode
     eCM CM : 3;
     uint32_t _reserved_0 : 16;
   } bits;
@@ -235,20 +249,35 @@ union SCTRL0 {
   
   // Bit field definition.
   struct {
+    /// read-write - Output Enable
     eOEN OEN : 1;
+    /// read-write - Output Polarity Select
     eOPS OPS : 1;
+    /// read-write - Force OFLAG Output
     uint32_t FORCE : 1;
+    /// read-write - Forced OFLAG Value
     uint32_t VAL : 1;
+    /// read-write - Enable External OFLAG Force
     uint32_t EEOF : 1;
+    /// read-write - Master Mode
     uint32_t MSTR : 1;
+    /// read-write - Input Capture Mode
     eCAPTURE_MODE CAPTURE_MODE : 2;
+    /// read-only - External Input Signal
     uint32_t INPUT : 1;
+    /// read-write - Input Polarity Select
     uint32_t IPS : 1;
+    /// read-write - Input Edge Flag Interrupt Enable
     uint32_t IEFIE : 1;
+    /// read-write - Input Edge Flag
     uint32_t IEF : 1;
+    /// read-write - Timer Overflow Flag Interrupt Enable
     uint32_t TOFIE : 1;
+    /// read-write - Timer Overflow Flag
     uint32_t TOF : 1;
+    /// read-write - Timer Compare Flag Interrupt Enable
     uint32_t TCFIE : 1;
+    /// read-write - Timer Compare Flag
     uint32_t TCF : 1;
     uint32_t _reserved_0 : 16;
   } bits;
@@ -267,6 +296,7 @@ union CMPLD10 {
   
   // Bit field definition.
   struct {
+    /// read-write - COMPARATOR_LOAD_1
     uint32_t COMPARATOR_LOAD_1 : 16;
     uint32_t _reserved_0 : 16;
   } bits;
@@ -285,6 +315,7 @@ union CMPLD20 {
   
   // Bit field definition.
   struct {
+    /// read-write - COMPARATOR_LOAD_2
     uint32_t COMPARATOR_LOAD_2 : 16;
     uint32_t _reserved_0 : 16;
   } bits;
@@ -347,18 +378,31 @@ union CSCTRL0 {
   
   // Bit field definition.
   struct {
+    /// read-write - Compare Load Control 1
     eCL1 CL1 : 2;
+    /// read-write - Compare Load Control 2
     eCL2 CL2 : 2;
+    /// read-write - Timer Compare 1 Interrupt Flag
     uint32_t TCF1 : 1;
+    /// read-write - Timer Compare 2 Interrupt Flag
     uint32_t TCF2 : 1;
+    /// read-write - Timer Compare 1 Interrupt Enable
     uint32_t TCF1EN : 1;
+    /// read-write - Timer Compare 2 Interrupt Enable
     uint32_t TCF2EN : 1;
+    /// read-only - Output flag
     uint32_t OFLAG : 1;
+    /// read-only - Counting Direction Indicator
     eUP UP : 1;
+    /// read-write - Triggered Count Initialization Control
     eTCI TCI : 1;
+    /// read-write - Reload on Capture
     eROC ROC : 1;
+    /// read-write - Alternative Load Enable
     eALT_LOAD ALT_LOAD : 1;
+    /// read-write - Fault Enable
     eFAULT FAULT : 1;
+    /// read-write - Debug Actions Enable
     eDBG_EN DBG_EN : 2;
     uint32_t _reserved_0 : 16;
   } bits;
@@ -377,7 +421,9 @@ union FILT0 {
   
   // Bit field definition.
   struct {
+    /// read-write - Input Filter Sample Period
     uint32_t FILT_PER : 8;
+    /// read-write - Input Filter Sample Count
     uint32_t FILT_CNT : 3;
     uint32_t _reserved_0 : 21;
   } bits;
@@ -396,8 +442,11 @@ union DMA0 {
   
   // Bit field definition.
   struct {
+    /// read-write - Input Edge Flag DMA Enable
     uint32_t IEFDE : 1;
+    /// read-write - Comparator Preload Register 1 DMA Enable
     uint32_t CMPLD1DE : 1;
+    /// read-write - Comparator Preload Register 2 DMA Enable
     uint32_t CMPLD2DE : 1;
     uint32_t _reserved_0 : 29;
   } bits;
@@ -421,6 +470,7 @@ union ENBL {
   
   // Bit field definition.
   struct {
+    /// read-write - Timer Channel Enable
     eENBL ENBL : 4;
     uint32_t _reserved_0 : 28;
   } bits;
@@ -439,6 +489,7 @@ union COMP11 {
   
   // Bit field definition.
   struct {
+    /// read-write - Comparison Value 1
     uint32_t COMPARISON_1 : 16;
     uint32_t _reserved_0 : 16;
   } bits;
@@ -457,6 +508,7 @@ union COMP21 {
   
   // Bit field definition.
   struct {
+    /// read-write - Comparison Value 2
     uint32_t COMPARISON_2 : 16;
     uint32_t _reserved_0 : 16;
   } bits;
@@ -475,6 +527,7 @@ union CAPT1 {
   
   // Bit field definition.
   struct {
+    /// read-write - Capture Value
     uint32_t CAPTURE : 16;
     uint32_t _reserved_0 : 16;
   } bits;
@@ -493,6 +546,7 @@ union LOAD1 {
   
   // Bit field definition.
   struct {
+    /// read-write - Timer Load Register
     uint32_t LOAD : 16;
     uint32_t _reserved_0 : 16;
   } bits;
@@ -511,6 +565,7 @@ union HOLD1 {
   
   // Bit field definition.
   struct {
+    /// read-write - HOLD
     uint32_t HOLD : 16;
     uint32_t _reserved_0 : 16;
   } bits;
@@ -529,6 +584,7 @@ union CNTR1 {
   
   // Bit field definition.
   struct {
+    /// read-write - COUNTER
     uint32_t COUNTER : 16;
     uint32_t _reserved_0 : 16;
   } bits;
@@ -615,13 +671,21 @@ union CTRL1 {
   
   // Bit field definition.
   struct {
+    /// read-write - Output Mode
     eOUTMODE OUTMODE : 3;
+    /// read-write - Co-Channel Initialization
     eCOINIT COINIT : 1;
+    /// read-write - Count Direction
     eDIR DIR : 1;
+    /// read-write - Count Length
     eLENGTH LENGTH : 1;
+    /// read-write - Count Once
     eONCE ONCE : 1;
+    /// read-write - Secondary Count Source
     eSCS SCS : 2;
+    /// read-write - Primary Count Source
     ePCS PCS : 4;
+    /// read-write - Count Mode
     eCM CM : 3;
     uint32_t _reserved_0 : 16;
   } bits;
@@ -657,20 +721,35 @@ union SCTRL1 {
   
   // Bit field definition.
   struct {
+    /// read-write - Output Enable
     eOEN OEN : 1;
+    /// read-write - Output Polarity Select
     eOPS OPS : 1;
+    /// read-write - Force OFLAG Output
     uint32_t FORCE : 1;
+    /// read-write - Forced OFLAG Value
     uint32_t VAL : 1;
+    /// read-write - Enable External OFLAG Force
     uint32_t EEOF : 1;
+    /// read-write - Master Mode
     uint32_t MSTR : 1;
+    /// read-write - Input Capture Mode
     eCAPTURE_MODE CAPTURE_MODE : 2;
+    /// read-only - External Input Signal
     uint32_t INPUT : 1;
+    /// read-write - Input Polarity Select
     uint32_t IPS : 1;
+    /// read-write - Input Edge Flag Interrupt Enable
     uint32_t IEFIE : 1;
+    /// read-write - Input Edge Flag
     uint32_t IEF : 1;
+    /// read-write - Timer Overflow Flag Interrupt Enable
     uint32_t TOFIE : 1;
+    /// read-write - Timer Overflow Flag
     uint32_t TOF : 1;
+    /// read-write - Timer Compare Flag Interrupt Enable
     uint32_t TCFIE : 1;
+    /// read-write - Timer Compare Flag
     uint32_t TCF : 1;
     uint32_t _reserved_0 : 16;
   } bits;
@@ -689,6 +768,7 @@ union CMPLD11 {
   
   // Bit field definition.
   struct {
+    /// read-write - COMPARATOR_LOAD_1
     uint32_t COMPARATOR_LOAD_1 : 16;
     uint32_t _reserved_0 : 16;
   } bits;
@@ -707,6 +787,7 @@ union CMPLD21 {
   
   // Bit field definition.
   struct {
+    /// read-write - COMPARATOR_LOAD_2
     uint32_t COMPARATOR_LOAD_2 : 16;
     uint32_t _reserved_0 : 16;
   } bits;
@@ -769,18 +850,31 @@ union CSCTRL1 {
   
   // Bit field definition.
   struct {
+    /// read-write - Compare Load Control 1
     eCL1 CL1 : 2;
+    /// read-write - Compare Load Control 2
     eCL2 CL2 : 2;
+    /// read-write - Timer Compare 1 Interrupt Flag
     uint32_t TCF1 : 1;
+    /// read-write - Timer Compare 2 Interrupt Flag
     uint32_t TCF2 : 1;
+    /// read-write - Timer Compare 1 Interrupt Enable
     uint32_t TCF1EN : 1;
+    /// read-write - Timer Compare 2 Interrupt Enable
     uint32_t TCF2EN : 1;
+    /// read-only - Output flag
     uint32_t OFLAG : 1;
+    /// read-only - Counting Direction Indicator
     eUP UP : 1;
+    /// read-write - Triggered Count Initialization Control
     eTCI TCI : 1;
+    /// read-write - Reload on Capture
     eROC ROC : 1;
+    /// read-write - Alternative Load Enable
     eALT_LOAD ALT_LOAD : 1;
+    /// read-write - Fault Enable
     eFAULT FAULT : 1;
+    /// read-write - Debug Actions Enable
     eDBG_EN DBG_EN : 2;
     uint32_t _reserved_0 : 16;
   } bits;
@@ -799,7 +893,9 @@ union FILT1 {
   
   // Bit field definition.
   struct {
+    /// read-write - Input Filter Sample Period
     uint32_t FILT_PER : 8;
+    /// read-write - Input Filter Sample Count
     uint32_t FILT_CNT : 3;
     uint32_t _reserved_0 : 21;
   } bits;
@@ -818,8 +914,11 @@ union DMA1 {
   
   // Bit field definition.
   struct {
+    /// read-write - Input Edge Flag DMA Enable
     uint32_t IEFDE : 1;
+    /// read-write - Comparator Preload Register 1 DMA Enable
     uint32_t CMPLD1DE : 1;
+    /// read-write - Comparator Preload Register 2 DMA Enable
     uint32_t CMPLD2DE : 1;
     uint32_t _reserved_0 : 29;
   } bits;
@@ -838,6 +937,7 @@ union COMP12 {
   
   // Bit field definition.
   struct {
+    /// read-write - Comparison Value 1
     uint32_t COMPARISON_1 : 16;
     uint32_t _reserved_0 : 16;
   } bits;
@@ -856,6 +956,7 @@ union COMP22 {
   
   // Bit field definition.
   struct {
+    /// read-write - Comparison Value 2
     uint32_t COMPARISON_2 : 16;
     uint32_t _reserved_0 : 16;
   } bits;
@@ -874,6 +975,7 @@ union CAPT2 {
   
   // Bit field definition.
   struct {
+    /// read-write - Capture Value
     uint32_t CAPTURE : 16;
     uint32_t _reserved_0 : 16;
   } bits;
@@ -892,6 +994,7 @@ union LOAD2 {
   
   // Bit field definition.
   struct {
+    /// read-write - Timer Load Register
     uint32_t LOAD : 16;
     uint32_t _reserved_0 : 16;
   } bits;
@@ -910,6 +1013,7 @@ union HOLD2 {
   
   // Bit field definition.
   struct {
+    /// read-write - HOLD
     uint32_t HOLD : 16;
     uint32_t _reserved_0 : 16;
   } bits;
@@ -928,6 +1032,7 @@ union CNTR2 {
   
   // Bit field definition.
   struct {
+    /// read-write - COUNTER
     uint32_t COUNTER : 16;
     uint32_t _reserved_0 : 16;
   } bits;
@@ -1014,13 +1119,21 @@ union CTRL2 {
   
   // Bit field definition.
   struct {
+    /// read-write - Output Mode
     eOUTMODE OUTMODE : 3;
+    /// read-write - Co-Channel Initialization
     eCOINIT COINIT : 1;
+    /// read-write - Count Direction
     eDIR DIR : 1;
+    /// read-write - Count Length
     eLENGTH LENGTH : 1;
+    /// read-write - Count Once
     eONCE ONCE : 1;
+    /// read-write - Secondary Count Source
     eSCS SCS : 2;
+    /// read-write - Primary Count Source
     ePCS PCS : 4;
+    /// read-write - Count Mode
     eCM CM : 3;
     uint32_t _reserved_0 : 16;
   } bits;
@@ -1056,20 +1169,35 @@ union SCTRL2 {
   
   // Bit field definition.
   struct {
+    /// read-write - Output Enable
     eOEN OEN : 1;
+    /// read-write - Output Polarity Select
     eOPS OPS : 1;
+    /// read-write - Force OFLAG Output
     uint32_t FORCE : 1;
+    /// read-write - Forced OFLAG Value
     uint32_t VAL : 1;
+    /// read-write - Enable External OFLAG Force
     uint32_t EEOF : 1;
+    /// read-write - Master Mode
     uint32_t MSTR : 1;
+    /// read-write - Input Capture Mode
     eCAPTURE_MODE CAPTURE_MODE : 2;
+    /// read-only - External Input Signal
     uint32_t INPUT : 1;
+    /// read-write - Input Polarity Select
     uint32_t IPS : 1;
+    /// read-write - Input Edge Flag Interrupt Enable
     uint32_t IEFIE : 1;
+    /// read-write - Input Edge Flag
     uint32_t IEF : 1;
+    /// read-write - Timer Overflow Flag Interrupt Enable
     uint32_t TOFIE : 1;
+    /// read-write - Timer Overflow Flag
     uint32_t TOF : 1;
+    /// read-write - Timer Compare Flag Interrupt Enable
     uint32_t TCFIE : 1;
+    /// read-write - Timer Compare Flag
     uint32_t TCF : 1;
     uint32_t _reserved_0 : 16;
   } bits;
@@ -1088,6 +1216,7 @@ union CMPLD12 {
   
   // Bit field definition.
   struct {
+    /// read-write - COMPARATOR_LOAD_1
     uint32_t COMPARATOR_LOAD_1 : 16;
     uint32_t _reserved_0 : 16;
   } bits;
@@ -1106,6 +1235,7 @@ union CMPLD22 {
   
   // Bit field definition.
   struct {
+    /// read-write - COMPARATOR_LOAD_2
     uint32_t COMPARATOR_LOAD_2 : 16;
     uint32_t _reserved_0 : 16;
   } bits;
@@ -1168,18 +1298,31 @@ union CSCTRL2 {
   
   // Bit field definition.
   struct {
+    /// read-write - Compare Load Control 1
     eCL1 CL1 : 2;
+    /// read-write - Compare Load Control 2
     eCL2 CL2 : 2;
+    /// read-write - Timer Compare 1 Interrupt Flag
     uint32_t TCF1 : 1;
+    /// read-write - Timer Compare 2 Interrupt Flag
     uint32_t TCF2 : 1;
+    /// read-write - Timer Compare 1 Interrupt Enable
     uint32_t TCF1EN : 1;
+    /// read-write - Timer Compare 2 Interrupt Enable
     uint32_t TCF2EN : 1;
+    /// read-only - Output flag
     uint32_t OFLAG : 1;
+    /// read-only - Counting Direction Indicator
     eUP UP : 1;
+    /// read-write - Triggered Count Initialization Control
     eTCI TCI : 1;
+    /// read-write - Reload on Capture
     eROC ROC : 1;
+    /// read-write - Alternative Load Enable
     eALT_LOAD ALT_LOAD : 1;
+    /// read-write - Fault Enable
     eFAULT FAULT : 1;
+    /// read-write - Debug Actions Enable
     eDBG_EN DBG_EN : 2;
     uint32_t _reserved_0 : 16;
   } bits;
@@ -1198,7 +1341,9 @@ union FILT2 {
   
   // Bit field definition.
   struct {
+    /// read-write - Input Filter Sample Period
     uint32_t FILT_PER : 8;
+    /// read-write - Input Filter Sample Count
     uint32_t FILT_CNT : 3;
     uint32_t _reserved_0 : 21;
   } bits;
@@ -1217,8 +1362,11 @@ union DMA2 {
   
   // Bit field definition.
   struct {
+    /// read-write - Input Edge Flag DMA Enable
     uint32_t IEFDE : 1;
+    /// read-write - Comparator Preload Register 1 DMA Enable
     uint32_t CMPLD1DE : 1;
+    /// read-write - Comparator Preload Register 2 DMA Enable
     uint32_t CMPLD2DE : 1;
     uint32_t _reserved_0 : 29;
   } bits;
@@ -1237,6 +1385,7 @@ union COMP13 {
   
   // Bit field definition.
   struct {
+    /// read-write - Comparison Value 1
     uint32_t COMPARISON_1 : 16;
     uint32_t _reserved_0 : 16;
   } bits;
@@ -1255,6 +1404,7 @@ union COMP23 {
   
   // Bit field definition.
   struct {
+    /// read-write - Comparison Value 2
     uint32_t COMPARISON_2 : 16;
     uint32_t _reserved_0 : 16;
   } bits;
@@ -1273,6 +1423,7 @@ union CAPT3 {
   
   // Bit field definition.
   struct {
+    /// read-write - Capture Value
     uint32_t CAPTURE : 16;
     uint32_t _reserved_0 : 16;
   } bits;
@@ -1291,6 +1442,7 @@ union LOAD3 {
   
   // Bit field definition.
   struct {
+    /// read-write - Timer Load Register
     uint32_t LOAD : 16;
     uint32_t _reserved_0 : 16;
   } bits;
@@ -1309,6 +1461,7 @@ union HOLD3 {
   
   // Bit field definition.
   struct {
+    /// read-write - HOLD
     uint32_t HOLD : 16;
     uint32_t _reserved_0 : 16;
   } bits;
@@ -1327,6 +1480,7 @@ union CNTR3 {
   
   // Bit field definition.
   struct {
+    /// read-write - COUNTER
     uint32_t COUNTER : 16;
     uint32_t _reserved_0 : 16;
   } bits;
@@ -1413,13 +1567,21 @@ union CTRL3 {
   
   // Bit field definition.
   struct {
+    /// read-write - Output Mode
     eOUTMODE OUTMODE : 3;
+    /// read-write - Co-Channel Initialization
     eCOINIT COINIT : 1;
+    /// read-write - Count Direction
     eDIR DIR : 1;
+    /// read-write - Count Length
     eLENGTH LENGTH : 1;
+    /// read-write - Count Once
     eONCE ONCE : 1;
+    /// read-write - Secondary Count Source
     eSCS SCS : 2;
+    /// read-write - Primary Count Source
     ePCS PCS : 4;
+    /// read-write - Count Mode
     eCM CM : 3;
     uint32_t _reserved_0 : 16;
   } bits;
@@ -1455,20 +1617,35 @@ union SCTRL3 {
   
   // Bit field definition.
   struct {
+    /// read-write - Output Enable
     eOEN OEN : 1;
+    /// read-write - Output Polarity Select
     eOPS OPS : 1;
+    /// read-write - Force OFLAG Output
     uint32_t FORCE : 1;
+    /// read-write - Forced OFLAG Value
     uint32_t VAL : 1;
+    /// read-write - Enable External OFLAG Force
     uint32_t EEOF : 1;
+    /// read-write - Master Mode
     uint32_t MSTR : 1;
+    /// read-write - Input Capture Mode
     eCAPTURE_MODE CAPTURE_MODE : 2;
+    /// read-only - External Input Signal
     uint32_t INPUT : 1;
+    /// read-write - Input Polarity Select
     uint32_t IPS : 1;
+    /// read-write - Input Edge Flag Interrupt Enable
     uint32_t IEFIE : 1;
+    /// read-write - Input Edge Flag
     uint32_t IEF : 1;
+    /// read-write - Timer Overflow Flag Interrupt Enable
     uint32_t TOFIE : 1;
+    /// read-write - Timer Overflow Flag
     uint32_t TOF : 1;
+    /// read-write - Timer Compare Flag Interrupt Enable
     uint32_t TCFIE : 1;
+    /// read-write - Timer Compare Flag
     uint32_t TCF : 1;
     uint32_t _reserved_0 : 16;
   } bits;
@@ -1487,6 +1664,7 @@ union CMPLD13 {
   
   // Bit field definition.
   struct {
+    /// read-write - COMPARATOR_LOAD_1
     uint32_t COMPARATOR_LOAD_1 : 16;
     uint32_t _reserved_0 : 16;
   } bits;
@@ -1505,6 +1683,7 @@ union CMPLD23 {
   
   // Bit field definition.
   struct {
+    /// read-write - COMPARATOR_LOAD_2
     uint32_t COMPARATOR_LOAD_2 : 16;
     uint32_t _reserved_0 : 16;
   } bits;
@@ -1567,18 +1746,31 @@ union CSCTRL3 {
   
   // Bit field definition.
   struct {
+    /// read-write - Compare Load Control 1
     eCL1 CL1 : 2;
+    /// read-write - Compare Load Control 2
     eCL2 CL2 : 2;
+    /// read-write - Timer Compare 1 Interrupt Flag
     uint32_t TCF1 : 1;
+    /// read-write - Timer Compare 2 Interrupt Flag
     uint32_t TCF2 : 1;
+    /// read-write - Timer Compare 1 Interrupt Enable
     uint32_t TCF1EN : 1;
+    /// read-write - Timer Compare 2 Interrupt Enable
     uint32_t TCF2EN : 1;
+    /// read-only - Output flag
     uint32_t OFLAG : 1;
+    /// read-only - Counting Direction Indicator
     eUP UP : 1;
+    /// read-write - Triggered Count Initialization Control
     eTCI TCI : 1;
+    /// read-write - Reload on Capture
     eROC ROC : 1;
+    /// read-write - Alternative Load Enable
     eALT_LOAD ALT_LOAD : 1;
+    /// read-write - Fault Enable
     eFAULT FAULT : 1;
+    /// read-write - Debug Actions Enable
     eDBG_EN DBG_EN : 2;
     uint32_t _reserved_0 : 16;
   } bits;
@@ -1597,7 +1789,9 @@ union FILT3 {
   
   // Bit field definition.
   struct {
+    /// read-write - Input Filter Sample Period
     uint32_t FILT_PER : 8;
+    /// read-write - Input Filter Sample Count
     uint32_t FILT_CNT : 3;
     uint32_t _reserved_0 : 21;
   } bits;
@@ -1616,8 +1810,11 @@ union DMA3 {
   
   // Bit field definition.
   struct {
+    /// read-write - Input Edge Flag DMA Enable
     uint32_t IEFDE : 1;
+    /// read-write - Comparator Preload Register 1 DMA Enable
     uint32_t CMPLD1DE : 1;
+    /// read-write - Comparator Preload Register 2 DMA Enable
     uint32_t CMPLD2DE : 1;
     uint32_t _reserved_0 : 29;
   } bits;

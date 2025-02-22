@@ -97,21 +97,37 @@ union CTRL {
   
   // Bit field definition.
   struct {
+    /// read-write - Compare Interrupt Enable
     eCMPIE CMPIE : 1;
+    /// read-write - Compare Interrupt Request
     eCMPIRQ CMPIRQ : 1;
+    /// read-write - Watchdog Enable
     eWDE WDE : 1;
+    /// read-write - Watchdog Timeout Interrupt Enable
     eDIE DIE : 1;
+    /// read-write - Watchdog Timeout Interrupt Request
     eDIRQ DIRQ : 1;
+    /// read-write - Use Negative Edge of INDEX Pulse
     eXNE XNE : 1;
+    /// read-write - INDEX Triggered Initialization of Position Counters UPOS and LPOS
     eXIP XIP : 1;
+    /// read-write - INDEX Pulse Interrupt Enable
     eXIE XIE : 1;
+    /// read-write - INDEX Pulse Interrupt Request
     eXIRQ XIRQ : 1;
+    /// read-write - Enable Signal Phase Count Mode
     ePH1 PH1 : 1;
+    /// read-write - Enable Reverse Direction Counting
     eREV REV : 1;
+    /// read-write - Software-Triggered Initialization of Position Counters UPOS and LPOS
     eSWIP SWIP : 1;
+    /// read-write - Use Negative Edge of HOME Input
     eHNE HNE : 1;
+    /// read-write - Enable HOME to Initialize Position Counters UPOS and LPOS
     eHIP HIP : 1;
+    /// read-write - HOME Interrupt Enable
     eHIE HIE : 1;
+    /// read-write - HOME Signal Transition Interrupt Request
     eHIRQ HIRQ : 1;
     uint32_t _reserved_0 : 16;
   } bits;
@@ -130,7 +146,9 @@ union FILT {
   
   // Bit field definition.
   struct {
+    /// read-write - Input Filter Sample Period
     uint32_t FILT_PER : 8;
+    /// read-write - Input Filter Sample Count
     uint32_t FILT_CNT : 3;
     uint32_t _reserved_0 : 21;
   } bits;
@@ -149,6 +167,7 @@ union WTR {
   
   // Bit field definition.
   struct {
+    /// read-write - WDOG
     uint32_t WDOG : 16;
     uint32_t _reserved_0 : 16;
   } bits;
@@ -167,6 +186,7 @@ union POSD {
   
   // Bit field definition.
   struct {
+    /// read-write - POSD
     uint32_t POSD : 16;
     uint32_t _reserved_0 : 16;
   } bits;
@@ -185,6 +205,7 @@ union POSDH {
   
   // Bit field definition.
   struct {
+    /// read-only - POSDH
     uint32_t POSDH : 16;
     uint32_t _reserved_0 : 16;
   } bits;
@@ -203,6 +224,7 @@ union REV {
   
   // Bit field definition.
   struct {
+    /// read-write - REV
     uint32_t REV : 16;
     uint32_t _reserved_0 : 16;
   } bits;
@@ -221,6 +243,7 @@ union REVH {
   
   // Bit field definition.
   struct {
+    /// read-only - REVH
     uint32_t REVH : 16;
     uint32_t _reserved_0 : 16;
   } bits;
@@ -239,6 +262,7 @@ union UPOS {
   
   // Bit field definition.
   struct {
+    /// read-write - POS
     uint32_t POS : 16;
     uint32_t _reserved_0 : 16;
   } bits;
@@ -257,6 +281,7 @@ union LPOS {
   
   // Bit field definition.
   struct {
+    /// read-write - POS
     uint32_t POS : 16;
     uint32_t _reserved_0 : 16;
   } bits;
@@ -275,6 +300,7 @@ union UPOSH {
   
   // Bit field definition.
   struct {
+    /// read-only - POSH
     uint32_t POSH : 16;
     uint32_t _reserved_0 : 16;
   } bits;
@@ -293,6 +319,7 @@ union LPOSH {
   
   // Bit field definition.
   struct {
+    /// read-only - POSH
     uint32_t POSH : 16;
     uint32_t _reserved_0 : 16;
   } bits;
@@ -311,6 +338,7 @@ union UINIT {
   
   // Bit field definition.
   struct {
+    /// read-write - INIT
     uint32_t INIT : 16;
     uint32_t _reserved_0 : 16;
   } bits;
@@ -329,6 +357,7 @@ union LINIT {
   
   // Bit field definition.
   struct {
+    /// read-write - INIT
     uint32_t INIT : 16;
     uint32_t _reserved_0 : 16;
   } bits;
@@ -347,13 +376,21 @@ union IMR {
   
   // Bit field definition.
   struct {
+    /// read-only - HOME
     uint32_t HOME : 1;
+    /// read-only - INDEX
     uint32_t INDEX : 1;
+    /// read-only - PHB
     uint32_t PHB : 1;
+    /// read-only - PHA
     uint32_t PHA : 1;
+    /// read-only - FHOM
     uint32_t FHOM : 1;
+    /// read-only - FIND
     uint32_t FIND : 1;
+    /// read-only - FPHB
     uint32_t FPHB : 1;
+    /// read-only - FPHA
     uint32_t FPHA : 1;
     uint32_t _reserved_0 : 24;
   } bits;
@@ -387,10 +424,15 @@ union TST {
   
   // Bit field definition.
   struct {
+    /// read-write - TEST_COUNT
     uint32_t TEST_COUNT : 8;
+    /// read-write - TEST_PERIOD
     uint32_t TEST_PERIOD : 5;
+    /// read-write - Quadrature Decoder Negative Signal
     eQDN QDN : 1;
+    /// read-write - Test Counter Enable
     eTCE TCE : 1;
+    /// read-write - Test Mode Enable
     eTEN TEN : 1;
     uint32_t _reserved_0 : 16;
   } bits;
@@ -469,17 +511,29 @@ union CTRL2 {
   
   // Bit field definition.
   struct {
+    /// read-write - Update Hold Registers
     eUPDHLD UPDHLD : 1;
+    /// read-write - Update Position Registers
     eUPDPOS UPDPOS : 1;
+    /// read-write - Enable Modulo Counting
     eMOD MOD : 1;
+    /// read-only - Count Direction Flag
     eDIR DIR : 1;
+    /// read-write - Roll-under Interrupt Enable
     eRUIE RUIE : 1;
+    /// read-write - Roll-under Interrupt Request
     eRUIRQ RUIRQ : 1;
+    /// read-write - Roll-over Interrupt Enable
     eROIE ROIE : 1;
+    /// read-write - Roll-over Interrupt Request
     eROIRQ ROIRQ : 1;
+    /// read-write - Revolution Counter Modulus Enable
     eREVMOD REVMOD : 1;
+    /// read-write - Output Control
     eOUTCTL OUTCTL : 1;
+    /// read-write - Simultaneous PHASEA and PHASEB Change Interrupt Enable
     eSABIE SABIE : 1;
+    /// read-write - Simultaneous PHASEA and PHASEB Change Interrupt Request
     eSABIRQ SABIRQ : 1;
     uint32_t _reserved_0 : 20;
   } bits;
@@ -498,6 +552,7 @@ union UMOD {
   
   // Bit field definition.
   struct {
+    /// read-write - MOD
     uint32_t MOD : 16;
     uint32_t _reserved_0 : 16;
   } bits;
@@ -516,6 +571,7 @@ union LMOD {
   
   // Bit field definition.
   struct {
+    /// read-write - MOD
     uint32_t MOD : 16;
     uint32_t _reserved_0 : 16;
   } bits;
@@ -534,6 +590,7 @@ union UCOMP {
   
   // Bit field definition.
   struct {
+    /// read-write - COMP
     uint32_t COMP : 16;
     uint32_t _reserved_0 : 16;
   } bits;
@@ -552,6 +609,7 @@ union LCOMP {
   
   // Bit field definition.
   struct {
+    /// read-write - COMP
     uint32_t COMP : 16;
     uint32_t _reserved_0 : 16;
   } bits;
@@ -570,6 +628,7 @@ union LASTEDGE {
   
   // Bit field definition.
   struct {
+    /// read-only - Last Edge Time Counter
     uint32_t LASTEDGE : 16;
     uint32_t _reserved_0 : 16;
   } bits;
@@ -588,6 +647,7 @@ union LASTEDGEH {
   
   // Bit field definition.
   struct {
+    /// read-only - Last Edge Time Hold
     uint32_t LASTEDGEH : 16;
     uint32_t _reserved_0 : 16;
   } bits;
@@ -606,6 +666,7 @@ union POSDPER {
   
   // Bit field definition.
   struct {
+    /// read-only - Position difference period
     uint32_t POSDPER : 16;
     uint32_t _reserved_0 : 16;
   } bits;
@@ -624,6 +685,7 @@ union POSDPERBFR {
   
   // Bit field definition.
   struct {
+    /// read-only - Position difference period buffer
     uint32_t POSDPERBFR : 16;
     uint32_t _reserved_0 : 16;
   } bits;
@@ -642,6 +704,7 @@ union POSDPERH {
   
   // Bit field definition.
   struct {
+    /// read-only - Position difference period hold
     uint32_t POSDPERH : 16;
     uint32_t _reserved_0 : 16;
   } bits;
@@ -665,8 +728,10 @@ union CTRL3 {
   
   // Bit field definition.
   struct {
+    /// read-write - Period measurement function enable
     ePMEN PMEN : 1;
     uint32_t _reserved_0 : 3;
+    /// read-write - Prescaler
     uint32_t PRSC : 4;
     uint32_t _reserved_1 : 24;
   } bits;

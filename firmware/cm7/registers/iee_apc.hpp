@@ -17,6 +17,7 @@ union REGION0_TOP_ADDR {
   
   // Bit field definition.
   struct {
+    /// read-write - End address of IEE region
     uint32_t TOP_ADDR : 29;
     uint32_t _reserved_0 : 3;
   } bits;
@@ -35,6 +36,7 @@ union REGION0_BOT_ADDR {
   
   // Bit field definition.
   struct {
+    /// read-write - Start address of IEE region
     uint32_t BOT_ADDR : 29;
     uint32_t _reserved_0 : 3;
   } bits;
@@ -63,7 +65,9 @@ union REGION0_RDC_D0 {
   
   // Bit field definition.
   struct {
+    /// read-write - Write disable of core domain 1
     eRDC_D0_WRITE_DIS RDC_D0_WRITE_DIS : 1;
+    /// read-writeOnce - Lock bit for bit 0
     eRDC_D0_LOCK RDC_D0_LOCK : 1;
     uint32_t _reserved_0 : 30;
   } bits;
@@ -92,7 +96,9 @@ union REGION0_RDC_D1 {
   
   // Bit field definition.
   struct {
+    /// read-write - Write disable of core domain 1
     eRDC_D1_WRITE_DIS RDC_D1_WRITE_DIS : 1;
+    /// read-writeOnce - Lock bit for bit 0
     eRDC_D1_LOCK RDC_D1_LOCK : 1;
     uint32_t _reserved_0 : 30;
   } bits;
@@ -111,6 +117,7 @@ union REGION1_TOP_ADDR {
   
   // Bit field definition.
   struct {
+    /// read-write - End address of IEE region
     uint32_t TOP_ADDR : 29;
     uint32_t _reserved_0 : 3;
   } bits;
@@ -129,6 +136,7 @@ union REGION1_BOT_ADDR {
   
   // Bit field definition.
   struct {
+    /// read-write - Start address of IEE region
     uint32_t BOT_ADDR : 29;
     uint32_t _reserved_0 : 3;
   } bits;
@@ -157,7 +165,9 @@ union REGION1_RDC_D0 {
   
   // Bit field definition.
   struct {
+    /// read-write - Write disable of core domain 1
     eRDC_D0_WRITE_DIS RDC_D0_WRITE_DIS : 1;
+    /// read-writeOnce - Lock bit for bit 0
     eRDC_D0_LOCK RDC_D0_LOCK : 1;
     uint32_t _reserved_0 : 30;
   } bits;
@@ -186,7 +196,9 @@ union REGION1_RDC_D1 {
   
   // Bit field definition.
   struct {
+    /// read-write - Write disable of core domain 1
     eRDC_D1_WRITE_DIS RDC_D1_WRITE_DIS : 1;
+    /// read-writeOnce - Lock bit for bit 0
     eRDC_D1_LOCK RDC_D1_LOCK : 1;
     uint32_t _reserved_0 : 30;
   } bits;
@@ -205,6 +217,7 @@ union REGION2_TOP_ADDR {
   
   // Bit field definition.
   struct {
+    /// read-write - End address of IEE region
     uint32_t TOP_ADDR : 29;
     uint32_t _reserved_0 : 3;
   } bits;
@@ -223,6 +236,7 @@ union REGION2_BOT_ADDR {
   
   // Bit field definition.
   struct {
+    /// read-write - Start address of IEE region
     uint32_t BOT_ADDR : 29;
     uint32_t _reserved_0 : 3;
   } bits;
@@ -251,7 +265,9 @@ union REGION2_RDC_D0 {
   
   // Bit field definition.
   struct {
+    /// read-write - Write disable of core domain 1
     eRDC_D0_WRITE_DIS RDC_D0_WRITE_DIS : 1;
+    /// read-writeOnce - Lock bit for bit 0
     eRDC_D0_LOCK RDC_D0_LOCK : 1;
     uint32_t _reserved_0 : 30;
   } bits;
@@ -280,7 +296,9 @@ union REGION2_RDC_D1 {
   
   // Bit field definition.
   struct {
+    /// read-write - Write disable of core domain 1
     eRDC_D1_WRITE_DIS RDC_D1_WRITE_DIS : 1;
+    /// read-writeOnce - Lock bit for bit 0
     eRDC_D1_LOCK RDC_D1_LOCK : 1;
     uint32_t _reserved_0 : 30;
   } bits;
@@ -299,6 +317,7 @@ union REGION3_TOP_ADDR {
   
   // Bit field definition.
   struct {
+    /// read-write - End address of IEE region
     uint32_t TOP_ADDR : 29;
     uint32_t _reserved_0 : 3;
   } bits;
@@ -317,6 +336,7 @@ union REGION3_BOT_ADDR {
   
   // Bit field definition.
   struct {
+    /// read-write - Start address of IEE region
     uint32_t BOT_ADDR : 29;
     uint32_t _reserved_0 : 3;
   } bits;
@@ -345,7 +365,9 @@ union REGION3_RDC_D0 {
   
   // Bit field definition.
   struct {
+    /// read-write - Write disable of core domain 1
     eRDC_D0_WRITE_DIS RDC_D0_WRITE_DIS : 1;
+    /// read-writeOnce - Lock bit for bit 0
     eRDC_D0_LOCK RDC_D0_LOCK : 1;
     uint32_t _reserved_0 : 30;
   } bits;
@@ -374,7 +396,9 @@ union REGION3_RDC_D1 {
   
   // Bit field definition.
   struct {
+    /// read-write - Write disable of core domain 1
     eRDC_D1_WRITE_DIS RDC_D1_WRITE_DIS : 1;
+    /// read-writeOnce - Lock bit for bit 0
     eRDC_D1_LOCK RDC_D1_LOCK : 1;
     uint32_t _reserved_0 : 30;
   } bits;
@@ -393,6 +417,7 @@ union REGION4_TOP_ADDR {
   
   // Bit field definition.
   struct {
+    /// read-write - End address of IEE region
     uint32_t TOP_ADDR : 29;
     uint32_t _reserved_0 : 3;
   } bits;
@@ -411,6 +436,7 @@ union REGION4_BOT_ADDR {
   
   // Bit field definition.
   struct {
+    /// read-write - Start address of IEE region
     uint32_t BOT_ADDR : 29;
     uint32_t _reserved_0 : 3;
   } bits;
@@ -439,7 +465,9 @@ union REGION4_RDC_D0 {
   
   // Bit field definition.
   struct {
+    /// read-write - Write disable of core domain 1
     eRDC_D0_WRITE_DIS RDC_D0_WRITE_DIS : 1;
+    /// read-writeOnce - Lock bit for bit 0
     eRDC_D0_LOCK RDC_D0_LOCK : 1;
     uint32_t _reserved_0 : 30;
   } bits;
@@ -468,7 +496,9 @@ union REGION4_RDC_D1 {
   
   // Bit field definition.
   struct {
+    /// read-write - Write disable of core domain 1
     eRDC_D1_WRITE_DIS RDC_D1_WRITE_DIS : 1;
+    /// read-writeOnce - Lock bit for bit 0
     eRDC_D1_LOCK RDC_D1_LOCK : 1;
     uint32_t _reserved_0 : 30;
   } bits;
@@ -487,6 +517,7 @@ union REGION5_TOP_ADDR {
   
   // Bit field definition.
   struct {
+    /// read-write - End address of IEE region
     uint32_t TOP_ADDR : 29;
     uint32_t _reserved_0 : 3;
   } bits;
@@ -505,6 +536,7 @@ union REGION5_BOT_ADDR {
   
   // Bit field definition.
   struct {
+    /// read-write - Start address of IEE region
     uint32_t BOT_ADDR : 29;
     uint32_t _reserved_0 : 3;
   } bits;
@@ -533,7 +565,9 @@ union REGION5_RDC_D0 {
   
   // Bit field definition.
   struct {
+    /// read-write - Write disable of core domain 1
     eRDC_D0_WRITE_DIS RDC_D0_WRITE_DIS : 1;
+    /// read-writeOnce - Lock bit for bit 0
     eRDC_D0_LOCK RDC_D0_LOCK : 1;
     uint32_t _reserved_0 : 30;
   } bits;
@@ -562,7 +596,9 @@ union REGION5_RDC_D1 {
   
   // Bit field definition.
   struct {
+    /// read-write - Write disable of core domain 1
     eRDC_D1_WRITE_DIS RDC_D1_WRITE_DIS : 1;
+    /// read-writeOnce - Lock bit for bit 0
     eRDC_D1_LOCK RDC_D1_LOCK : 1;
     uint32_t _reserved_0 : 30;
   } bits;
@@ -581,6 +617,7 @@ union REGION6_TOP_ADDR {
   
   // Bit field definition.
   struct {
+    /// read-write - End address of IEE region
     uint32_t TOP_ADDR : 29;
     uint32_t _reserved_0 : 3;
   } bits;
@@ -599,6 +636,7 @@ union REGION6_BOT_ADDR {
   
   // Bit field definition.
   struct {
+    /// read-write - Start address of IEE region
     uint32_t BOT_ADDR : 29;
     uint32_t _reserved_0 : 3;
   } bits;
@@ -627,7 +665,9 @@ union REGION6_RDC_D0 {
   
   // Bit field definition.
   struct {
+    /// read-write - Write disable of core domain 1
     eRDC_D0_WRITE_DIS RDC_D0_WRITE_DIS : 1;
+    /// read-writeOnce - Lock bit for bit 0
     eRDC_D0_LOCK RDC_D0_LOCK : 1;
     uint32_t _reserved_0 : 30;
   } bits;
@@ -656,7 +696,9 @@ union REGION6_RDC_D1 {
   
   // Bit field definition.
   struct {
+    /// read-write - Write disable of core domain 1
     eRDC_D1_WRITE_DIS RDC_D1_WRITE_DIS : 1;
+    /// read-writeOnce - Lock bit for bit 0
     eRDC_D1_LOCK RDC_D1_LOCK : 1;
     uint32_t _reserved_0 : 30;
   } bits;
@@ -675,6 +717,7 @@ union REGION7_TOP_ADDR {
   
   // Bit field definition.
   struct {
+    /// read-write - End address of IEE region
     uint32_t TOP_ADDR : 29;
     uint32_t _reserved_0 : 3;
   } bits;
@@ -693,6 +736,7 @@ union REGION7_BOT_ADDR {
   
   // Bit field definition.
   struct {
+    /// read-write - Start address of IEE region
     uint32_t BOT_ADDR : 29;
     uint32_t _reserved_0 : 3;
   } bits;
@@ -721,7 +765,9 @@ union REGION7_RDC_D0 {
   
   // Bit field definition.
   struct {
+    /// read-write - Write disable of core domain 1
     eRDC_D0_WRITE_DIS RDC_D0_WRITE_DIS : 1;
+    /// read-writeOnce - Lock bit for bit 0
     eRDC_D0_LOCK RDC_D0_LOCK : 1;
     uint32_t _reserved_0 : 30;
   } bits;
@@ -750,7 +796,9 @@ union REGION7_RDC_D1 {
   
   // Bit field definition.
   struct {
+    /// read-write - Write disable of core domain 1
     eRDC_D1_WRITE_DIS RDC_D1_WRITE_DIS : 1;
+    /// read-writeOnce - Lock bit for bit 0
     eRDC_D1_LOCK RDC_D1_LOCK : 1;
     uint32_t _reserved_0 : 30;
   } bits;

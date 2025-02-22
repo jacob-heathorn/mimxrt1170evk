@@ -48,14 +48,21 @@ union MCR {
   
   // Bit field definition.
   struct {
+    /// read-write - Software Reset
     eSWRST SWRST : 1;
+    /// read-write - Module Disable
     eMDIS MDIS : 1;
+    /// read-write - DQS (read strobe) mode
     eDQSMD DQSMD : 1;
     uint32_t _reserved_0 : 3;
+    /// read-write - WAIT/RDY polarity for SRAM/NOR
     eWPOL0 WPOL0 : 1;
+    /// read-write - R/B# polarity for NAND device
     eWPOL1 WPOL1 : 1;
     uint32_t _reserved_1 : 8;
+    /// read-write - Command Execution timeout cycles
     uint32_t CTO : 8;
+    /// read-write - Bus timeout cycles
     eBTO BTO : 5;
     uint32_t _reserved_2 : 3;
   } bits;
@@ -212,15 +219,25 @@ union IOCR {
   
   // Bit field definition.
   struct {
+    /// read-write - SEMC_ADDR08 output selection
     eMUX_A8 MUX_A8 : 4;
+    /// read-write - SEMC_CSX0 output selection
     eMUX_CSX0 MUX_CSX0 : 4;
+    /// read-write - SEMC_CSX1 output selection
     eMUX_CSX1 MUX_CSX1 : 4;
+    /// read-write - SEMC_CSX2 output selection
     eMUX_CSX2 MUX_CSX2 : 4;
+    /// read-write - SEMC_CSX3 output selection
     eMUX_CSX3 MUX_CSX3 : 4;
+    /// read-write - SEMC_RDY function selection
     eMUX_RDY MUX_RDY : 4;
+    /// read-write - SEMC_CLKX0 function selection
     eMUX_CLKX0 MUX_CLKX0 : 2;
+    /// read-write - SEMC_CLKX1 function selection
     eMUX_CLKX1 MUX_CLKX1 : 2;
+    /// read-write - SEMC_CLKX0 Always On
     eCLKX0_AO CLKX0_AO : 1;
+    /// read-write - SEMC_CLKX1 Always On
     eCLKX1_AO CLKX1_AO : 1;
     uint32_t _reserved_0 : 2;
   } bits;
@@ -239,9 +256,13 @@ union BMCR0 {
   
   // Bit field definition.
   struct {
+    /// read-write - Weight of QOS
     uint32_t WQOS : 4;
+    /// read-write - Weight of AGE
     uint32_t WAGE : 4;
+    /// read-write - Weight of Slave Hit without read/write switch
     uint32_t WSH : 8;
+    /// read-write - Weight of slave hit with Read/Write Switch
     uint32_t WRWS : 8;
     uint32_t _reserved_0 : 8;
   } bits;
@@ -260,10 +281,15 @@ union BMCR1 {
   
   // Bit field definition.
   struct {
+    /// read-write - Weight of QOS
     uint32_t WQOS : 4;
+    /// read-write - Weight of AGE
     uint32_t WAGE : 4;
+    /// read-write - Weight of Page Hit
     uint32_t WPH : 8;
+    /// read-write - Weight of slave hit without Read/Write Switch
     uint32_t WRWS : 8;
+    /// read-write - Weight of Bank Rotation
     uint32_t WBR : 8;
   } bits;
   
@@ -321,9 +347,12 @@ union BR[0] {
   
   // Bit field definition.
   struct {
+    /// read-write - Valid
     eVLD VLD : 1;
+    /// read-write - Memory size
     eMS MS : 5;
     uint32_t _reserved_0 : 6;
+    /// read-write - Base Address
     uint32_t BA : 20;
   } bits;
   
@@ -380,9 +409,12 @@ union BR[1] {
   
   // Bit field definition.
   struct {
+    /// read-write - Valid
     eVLD VLD : 1;
+    /// read-write - Memory size
     eMS MS : 5;
     uint32_t _reserved_0 : 6;
+    /// read-write - Base Address
     uint32_t BA : 20;
   } bits;
   
@@ -439,9 +471,12 @@ union BR[2] {
   
   // Bit field definition.
   struct {
+    /// read-write - Valid
     eVLD VLD : 1;
+    /// read-write - Memory size
     eMS MS : 5;
     uint32_t _reserved_0 : 6;
+    /// read-write - Base Address
     uint32_t BA : 20;
   } bits;
   
@@ -498,9 +533,12 @@ union BR[3] {
   
   // Bit field definition.
   struct {
+    /// read-write - Valid
     eVLD VLD : 1;
+    /// read-write - Memory size
     eMS MS : 5;
     uint32_t _reserved_0 : 6;
+    /// read-write - Base Address
     uint32_t BA : 20;
   } bits;
   
@@ -557,9 +595,12 @@ union BR[4] {
   
   // Bit field definition.
   struct {
+    /// read-write - Valid
     eVLD VLD : 1;
+    /// read-write - Memory size
     eMS MS : 5;
     uint32_t _reserved_0 : 6;
+    /// read-write - Base Address
     uint32_t BA : 20;
   } bits;
   
@@ -616,9 +657,12 @@ union BR[5] {
   
   // Bit field definition.
   struct {
+    /// read-write - Valid
     eVLD VLD : 1;
+    /// read-write - Memory size
     eMS MS : 5;
     uint32_t _reserved_0 : 6;
+    /// read-write - Base Address
     uint32_t BA : 20;
   } bits;
   
@@ -675,9 +719,12 @@ union BR[6] {
   
   // Bit field definition.
   struct {
+    /// read-write - Valid
     eVLD VLD : 1;
+    /// read-write - Memory size
     eMS MS : 5;
     uint32_t _reserved_0 : 6;
+    /// read-write - Base Address
     uint32_t BA : 20;
   } bits;
   
@@ -734,9 +781,12 @@ union BR[7] {
   
   // Bit field definition.
   struct {
+    /// read-write - Valid
     eVLD VLD : 1;
+    /// read-write - Memory size
     eMS MS : 5;
     uint32_t _reserved_0 : 6;
+    /// read-write - Base Address
     uint32_t BA : 20;
   } bits;
   
@@ -793,9 +843,12 @@ union BR[8] {
   
   // Bit field definition.
   struct {
+    /// read-write - Valid
     eVLD VLD : 1;
+    /// read-write - Memory size
     eMS MS : 5;
     uint32_t _reserved_0 : 6;
+    /// read-write - Base Address
     uint32_t BA : 20;
   } bits;
   
@@ -828,12 +881,17 @@ union DLLCR {
   
   // Bit field definition.
   struct {
+    /// read-write - DLL calibration enable
     eDLLEN DLLEN : 1;
+    /// read-write - DLL Reset
     eDLLRESET DLLRESET : 1;
     uint32_t _reserved_0 : 1;
+    /// read-write - Delay Target for Slave
     uint32_t SLVDLYTARGET : 4;
     uint32_t _reserved_1 : 1;
+    /// read-write - Override Enable
     eOVRDEN OVRDEN : 1;
+    /// read-write - Override Value
     uint32_t OVRDVAL : 6;
     uint32_t _reserved_2 : 17;
   } bits;
@@ -882,11 +940,17 @@ union INTEN {
   
   // Bit field definition.
   struct {
+    /// read-write - IP command done interrupt enable
     eIPCMDDONEEN IPCMDDONEEN : 1;
+    /// read-write - IP command error interrupt enable
     eIPCMDERREN IPCMDERREN : 1;
+    /// read-write - AXI command error interrupt enable
     eAXICMDERREN AXICMDERREN : 1;
+    /// read-write - AXI bus error interrupt enable
     eAXIBUSERREN AXIBUSERREN : 1;
+    /// read-write - NAND page end interrupt enable
     eNDPAGEENDEN NDPAGEENDEN : 1;
+    /// read-write - NAND no pending AXI access interrupt enable
     eNDNOPENDEN NDNOPENDEN : 1;
     uint32_t _reserved_0 : 26;
   } bits;
@@ -935,11 +999,17 @@ union INTR {
   
   // Bit field definition.
   struct {
+    /// read-write - IP command normal done interrupt
     eIPCMDDONE IPCMDDONE : 1;
+    /// read-write - IP command error done interrupt
     eIPCMDERR IPCMDERR : 1;
+    /// read-write - AXI command error interrupt
     eAXICMDERR AXICMDERR : 1;
+    /// read-write - AXI bus error interrupt
     eAXIBUSERR AXIBUSERR : 1;
+    /// read-write - NAND page end interrupt
     eNDPAGEEND NDPAGEEND : 1;
+    /// read-write - NAND no pending AXI write transaction interrupt
     eNDNOPEND NDNOPEND : 1;
     uint32_t _reserved_0 : 26;
   } bits;
@@ -999,13 +1069,19 @@ union SDRAMCR0 {
   
   // Bit field definition.
   struct {
+    /// read-write - Port Size
     ePS PS : 2;
     uint32_t _reserved_0 : 2;
+    /// read-write - Burst Length
     eBL BL : 3;
+    /// read-write - Column 8 selection
     eCOL8 COL8 : 1;
+    /// read-write - Column address bit number
     eCOL COL : 2;
+    /// read-write - CAS Latency
     eCL CL : 2;
     uint32_t _reserved_1 : 2;
+    /// read-write - 2 Bank selection bit
     eBANK2 BANK2 : 1;
     uint32_t _reserved_2 : 17;
   } bits;
@@ -1024,11 +1100,17 @@ union SDRAMCR1 {
   
   // Bit field definition.
   struct {
+    /// read-write - PRECHARGE to ACTIVE/REFRESH command wait time
     uint32_t PRE2ACT : 4;
+    /// read-write - ACTIVE to READ/WRITE delay
     uint32_t ACT2RW : 4;
+    /// read-write - REFRESH recovery time
     uint32_t RFRC : 5;
+    /// read-write - WRITE recovery time
     uint32_t WRC : 3;
+    /// read-write - CKE off minimum time
     uint32_t CKEOFF : 4;
+    /// read-write - ACTIVE to PRECHARGE minimum time
     uint32_t ACT2PRE : 4;
     uint32_t _reserved_0 : 8;
   } bits;
@@ -1060,9 +1142,13 @@ union SDRAMCR2 {
   
   // Bit field definition.
   struct {
+    /// read-write - SELF REFRESH recovery time
     uint32_t SRRC : 8;
+    /// read-write - REFRESH to REFRESH delay
     uint32_t REF2REF : 8;
+    /// read-write - ACTIVE to ACTIVE delay
     uint32_t ACT2ACT : 8;
+    /// read-write - SDRAM idle timeout
     eITO ITO : 8;
   } bits;
   
@@ -1135,11 +1221,16 @@ union SDRAMCR3 {
   
   // Bit field definition.
   struct {
+    /// read-write - Refresh enable
     eREN REN : 1;
+    /// read-write - Refresh burst length
     eREBL REBL : 3;
     uint32_t _reserved_0 : 4;
+    /// read-write - Prescaler period
     ePRESCALE PRESCALE : 8;
+    /// read-write - Refresh timer period
     eRT RT : 8;
+    /// read-write - Urgent refresh threshold
     eUT UT : 8;
   } bits;
   
@@ -1194,11 +1285,16 @@ union NANDCR0 {
   
   // Bit field definition.
   struct {
+    /// read-write - Port Size
     ePS PS : 1;
+    /// read-write - Synchronous Mode Enable
     eSYNCEN SYNCEN : 1;
     uint32_t _reserved_0 : 2;
+    /// read-write - Burst Length
     eBL BL : 3;
+    /// read-write - EDO mode enabled
     eEDO EDO : 1;
+    /// read-write - Column address bit number
     eCOL COL : 3;
     uint32_t _reserved_1 : 21;
   } bits;
@@ -1217,13 +1313,21 @@ union NANDCR1 {
   
   // Bit field definition.
   struct {
+    /// read-write - CE# setup time
     uint32_t CES : 4;
+    /// read-write - CE# hold time
     uint32_t CEH : 4;
+    /// read-write - WE# low time
     uint32_t WEL : 4;
+    /// read-write - WE# high time
     uint32_t WEH : 4;
+    /// read-write - RE# low time
     uint32_t REL : 4;
+    /// read-write - RE# high time
     uint32_t REH : 4;
+    /// read-write - Turnaround time
     uint32_t TA : 4;
+    /// read-write - CE# interval time
     uint32_t CEITV : 4;
   } bits;
   
@@ -1241,10 +1345,15 @@ union NANDCR2 {
   
   // Bit field definition.
   struct {
+    /// read-write - WE# high to RE# low time
     uint32_t TWHR : 6;
+    /// read-write - RE# high to WE# low time
     uint32_t TRHW : 6;
+    /// read-write - Address cycle to data loading time
     uint32_t TADL : 6;
+    /// read-write - Ready to RE# low time
     uint32_t TRR : 6;
+    /// read-write - WE# high to busy time
     uint32_t TWB : 6;
     uint32_t _reserved_0 : 2;
   } bits;
@@ -1263,14 +1372,22 @@ union NANDCR3 {
   
   // Bit field definition.
   struct {
+    /// read-write - NAND option bit 1
     uint32_t NDOPT1 : 1;
+    /// read-write - NAND option bit 2
     uint32_t NDOPT2 : 1;
+    /// read-write - NAND option bit 3
     uint32_t NDOPT3 : 1;
+    /// read-write - NAND CLE Option
     uint32_t CLE : 1;
     uint32_t _reserved_0 : 12;
+    /// read-write - Read Data Setup time
     uint32_t RDS : 4;
+    /// read-write - Read Data Hold time
     uint32_t RDH : 4;
+    /// read-write - Write Data Setup time
     uint32_t WDS : 4;
+    /// read-write - Write Data Hold time
     uint32_t WDH : 4;
   } bits;
   
@@ -1345,14 +1462,21 @@ union NORCR0 {
   
   // Bit field definition.
   struct {
+    /// read-write - Port Size
     ePS PS : 1;
+    /// read-write - Synchronous Mode Enable
     eSYNCEN SYNCEN : 1;
     uint32_t _reserved_0 : 2;
+    /// read-write - Burst Length
     eBL BL : 3;
     uint32_t _reserved_1 : 1;
+    /// read-write - Address Mode
     eAM AM : 2;
+    /// read-write - ADV# Polarity
     eADVP ADVP : 1;
+    /// read-write - ADV# level control during address hold state
     eADVH ADVH : 1;
+    /// read-write - Column Address bit width
     eCOL COL : 4;
     uint32_t _reserved_2 : 16;
   } bits;
@@ -1371,13 +1495,21 @@ union NORCR1 {
   
   // Bit field definition.
   struct {
+    /// read-write - CE setup time
     uint32_t CES : 4;
+    /// read-write - CE hold time
     uint32_t CEH : 4;
+    /// read-write - Address setup time
     uint32_t AS : 4;
+    /// read-write - Address hold time
     uint32_t AH : 4;
+    /// read-write - WE low time
     uint32_t WEL : 4;
+    /// read-write - WE high time
     uint32_t WEH : 4;
+    /// read-write - RE low time
     uint32_t REL : 4;
+    /// read-write - RE high time
     uint32_t REH : 4;
   } bits;
   
@@ -1396,11 +1528,17 @@ union NORCR2 {
   // Bit field definition.
   struct {
     uint32_t _reserved_0 : 8;
+    /// read-write - Turnaround time
     uint32_t TA : 4;
+    /// read-write - Address to write data hold time
     uint32_t AWDH : 4;
+    /// read-write - Latency count
     uint32_t LC : 4;
+    /// read-write - Read time
     uint32_t RD : 4;
+    /// read-write - CE# interval time
     uint32_t CEITV : 4;
+    /// read-write - Read hold time
     uint32_t RDH : 4;
   } bits;
   
@@ -1418,7 +1556,9 @@ union NORCR3 {
   
   // Bit field definition.
   struct {
+    /// read-write - Address setup time for SYNC read
     uint32_t ASSR : 4;
+    /// read-write - Address hold time for SYNC read
     uint32_t AHSR : 4;
     uint32_t _reserved_0 : 24;
   } bits;
@@ -1504,15 +1644,24 @@ union SRAMCR0 {
   
   // Bit field definition.
   struct {
+    /// read-write - Port Size
     ePS PS : 1;
+    /// read-write - Synchronous Mode Enable
     eSYNCEN SYNCEN : 1;
+    /// read-write - Wait Enable
     eWAITEN WAITEN : 1;
+    /// read-write - Wait Sample
     eWAITSP WAITSP : 1;
+    /// read-write - Burst Length
     eBL BL : 3;
     uint32_t _reserved_0 : 1;
+    /// read-write - Address Mode
     eAM AM : 2;
+    /// read-write - ADV# polarity
     eADVP ADVP : 1;
+    /// read-write - ADV# level control during address hold state
     eADVH ADVH : 1;
+    /// read-write - Column Address bit width
     eCOL COL : 4;
     uint32_t _reserved_1 : 16;
   } bits;
@@ -1531,13 +1680,21 @@ union SRAMCR1 {
   
   // Bit field definition.
   struct {
+    /// read-write - CE setup time
     uint32_t CES : 4;
+    /// read-write - CE hold time
     uint32_t CEH : 4;
+    /// read-write - Address setup time
     uint32_t AS : 4;
+    /// read-write - Address hold time
     uint32_t AH : 4;
+    /// read-write - WE low time
     uint32_t WEL : 4;
+    /// read-write - WE high time
     uint32_t WEH : 4;
+    /// read-write - RE low time
     uint32_t REL : 4;
+    /// read-write - RE high time
     uint32_t REH : 4;
   } bits;
   
@@ -1555,13 +1712,21 @@ union SRAMCR2 {
   
   // Bit field definition.
   struct {
+    /// read-write - Write Data setup time
     uint32_t WDS : 4;
+    /// read-write - Write Data hold time
     uint32_t WDH : 4;
+    /// read-write - Turnaround time
     uint32_t TA : 4;
+    /// read-write - Address to write data hold time
     uint32_t AWDH : 4;
+    /// read-write - Latency count
     uint32_t LC : 4;
+    /// read-write - Read time
     uint32_t RD : 4;
+    /// read-write - CE# interval time
     uint32_t CEITV : 4;
+    /// read-write - Read hold time
     uint32_t RDH : 4;
   } bits;
   
@@ -1631,10 +1796,13 @@ union DBICR0 {
   
   // Bit field definition.
   struct {
+    /// read-write - Port Size
     ePS PS : 1;
     uint32_t _reserved_0 : 3;
+    /// read-write - Burst Length
     eBL BL : 3;
     uint32_t _reserved_1 : 5;
+    /// read-write - Column Address bit width
     eCOL COL : 4;
     uint32_t _reserved_2 : 16;
   } bits;
@@ -1653,12 +1821,18 @@ union DBICR1 {
   
   // Bit field definition.
   struct {
+    /// read-write - CSX Setup Time
     uint32_t CES : 4;
+    /// read-write - CSX Hold Time
     uint32_t CEH : 4;
+    /// read-write - WRX Low Time
     uint32_t WEL : 4;
+    /// read-write - WRX High Time
     uint32_t WEH : 4;
+    /// read-write - RDX Low Time
     uint32_t REL : 7;
     uint32_t _reserved_0 : 1;
+    /// read-write - RDX High Time
     uint32_t REH : 7;
     uint32_t _reserved_1 : 1;
   } bits;
@@ -1677,6 +1851,7 @@ union DBICR2 {
   
   // Bit field definition.
   struct {
+    /// read-write - CSX interval time
     uint32_t CEITV : 4;
     uint32_t _reserved_0 : 28;
   } bits;
@@ -1695,6 +1870,7 @@ union IPCR0 {
   
   // Bit field definition.
   struct {
+    /// read-write - Slave address
     uint32_t SA : 32;
   } bits;
   
@@ -1723,8 +1899,10 @@ union IPCR1 {
   
   // Bit field definition.
   struct {
+    /// read-write - Data Size in Byte
     eDATSZ DATSZ : 3;
     uint32_t _reserved_0 : 5;
+    /// read-write - NAND Extended Address
     uint32_t NAND_EXT_ADDR : 8;
     uint32_t _reserved_1 : 16;
   } bits;
@@ -1763,9 +1941,13 @@ union IPCR2 {
   
   // Bit field definition.
   struct {
+    /// read-write - Byte Mask for Byte 0 (IPTXDAT bit 7:0)
     eBM0 BM0 : 1;
+    /// read-write - Byte Mask for Byte 1 (IPTXDAT bit 15:8)
     eBM1 BM1 : 1;
+    /// read-write - Byte Mask for Byte 2 (IPTXDAT bit 23:16)
     eBM2 BM2 : 1;
+    /// read-write - Byte Mask for Byte 3 (IPTXDAT bit 31:24)
     eBM3 BM3 : 1;
     uint32_t _reserved_0 : 28;
   } bits;
@@ -1784,7 +1966,9 @@ union IPCMD {
   
   // Bit field definition.
   struct {
+    /// read-write - SDRAM Commands: 0x8: Read 0x9: Write 0xA: Mode Register Set 0xB: Active 0xC: Auto Refresh 0xD: Self Refresh 0xE: Precharge 0xF: Precharge All Others: Reserved Self Refresh is sent to all SDRAM devices because they share the same SEMC_CLK pin
     uint32_t CMD : 16;
+    /// write-only - This field should be written with 0xA55A when trigging an IP command for all device types
     uint32_t KEY : 16;
   } bits;
   
@@ -1802,6 +1986,7 @@ union IPTXDAT {
   
   // Bit field definition.
   struct {
+    /// read-write - Data value to use for an IP write command
     uint32_t DAT : 32;
   } bits;
   
@@ -1819,6 +2004,7 @@ union IPRXDAT {
   
   // Bit field definition.
   struct {
+    /// read-only - Data returned by device for an IP read command.
     uint32_t DAT : 32;
   } bits;
   
@@ -1841,7 +2027,9 @@ union STS0 {
   
   // Bit field definition.
   struct {
+    /// read-only - Indicating whether the SEMC is in idle state.
     uint32_t IDLE : 1;
+    /// read-only - Indicating NAND device Ready/WAIT# pin level.
     eNARDY NARDY : 1;
     uint32_t _reserved_0 : 30;
   } bits;
@@ -1883,6 +2071,7 @@ union STS2 {
   // Bit field definition.
   struct {
     uint32_t _reserved_0 : 3;
+    /// read-only - This field indicating whether there is pending AXI command (write) to NAND device.
     eNDWRPEND NDWRPEND : 1;
     uint32_t _reserved_1 : 28;
   } bits;
@@ -2054,6 +2243,7 @@ union STS12 {
   
   // Bit field definition.
   struct {
+    /// read-only - This field indicating the last write address (AXI command) to NAND device (without base address in SEMC_BR4).
     uint32_t NDADDR : 32;
   } bits;
   
@@ -2081,9 +2271,13 @@ union STS13 {
   
   // Bit field definition.
   struct {
+    /// read-only - Sample clock slave delay line locked.
     eSLVLOCK SLVLOCK : 1;
+    /// read-only - Sample clock reference delay line locked.
     eREFLOCK REFLOCK : 1;
+    /// read-only - Sample clock slave delay line delay cell number selection.
     uint32_t SLVSEL : 6;
+    /// read-only - Sample clock reference delay line delay cell number selection.
     uint32_t REFSEL : 6;
     uint32_t _reserved_0 : 18;
   } bits;
@@ -2176,9 +2370,12 @@ union BR9 {
   
   // Bit field definition.
   struct {
+    /// read-write - Valid
     eVLD VLD : 1;
+    /// read-write - Memory size
     eMS MS : 5;
     uint32_t _reserved_0 : 6;
+    /// read-write - Base Address
     uint32_t BA : 20;
   } bits;
   
@@ -2236,9 +2433,12 @@ union BR10 {
   
   // Bit field definition.
   struct {
+    /// read-write - Valid
     eVLD VLD : 1;
+    /// read-write - Memory size
     eMS MS : 5;
     uint32_t _reserved_0 : 6;
+    /// read-write - Base Address
     uint32_t BA : 20;
   } bits;
   
@@ -2296,9 +2496,12 @@ union BR11 {
   
   // Bit field definition.
   struct {
+    /// read-write - Valid
     eVLD VLD : 1;
+    /// read-write - Memory size
     eMS MS : 5;
     uint32_t _reserved_0 : 6;
+    /// read-write - Base Address
     uint32_t BA : 20;
   } bits;
   
@@ -2383,15 +2586,24 @@ union SRAMCR4 {
   
   // Bit field definition.
   struct {
+    /// read-write - Port Size
     ePS PS : 1;
+    /// read-write - Synchronous Mode Enable
     eSYNCEN SYNCEN : 1;
+    /// read-write - Wait Enable
     eWAITEN WAITEN : 1;
+    /// read-write - Wait Sample
     eWAITSP WAITSP : 1;
+    /// read-write - Burst Length
     eBL BL : 3;
     uint32_t _reserved_0 : 1;
+    /// read-write - Address Mode
     eAM AM : 2;
+    /// read-write - ADV# polarity
     eADVP ADVP : 1;
+    /// read-write - ADV# level control during address hold state
     eADVH ADVH : 1;
+    /// read-write - Column Address bit width
     eCOL COL : 4;
     uint32_t _reserved_1 : 16;
   } bits;
@@ -2410,13 +2622,21 @@ union SRAMCR5 {
   
   // Bit field definition.
   struct {
+    /// read-write - CE setup time
     uint32_t CES : 4;
+    /// read-write - CE hold time
     uint32_t CEH : 4;
+    /// read-write - Address setup time
     uint32_t AS : 4;
+    /// read-write - Address hold time
     uint32_t AH : 4;
+    /// read-write - WE low time
     uint32_t WEL : 4;
+    /// read-write - WE high time
     uint32_t WEH : 4;
+    /// read-write - RE low time
     uint32_t REL : 4;
+    /// read-write - RE high time
     uint32_t REH : 4;
   } bits;
   
@@ -2434,13 +2654,21 @@ union SRAMCR6 {
   
   // Bit field definition.
   struct {
+    /// read-write - Write Data setup time
     uint32_t WDS : 4;
+    /// read-write - Write Data hold time
     uint32_t WDH : 4;
+    /// read-write - Turnaround time
     uint32_t TA : 4;
+    /// read-write - Address to write data hold time
     uint32_t AWDH : 4;
+    /// read-write - Latency count
     uint32_t LC : 4;
+    /// read-write - Read time
     uint32_t RD : 4;
+    /// read-write - CE# interval time
     uint32_t CEITV : 4;
+    /// read-write - Read hold time
     uint32_t RDH : 4;
   } bits;
   
@@ -2478,16 +2706,24 @@ union DCCR {
   
   // Bit field definition.
   struct {
+    /// read-write - Delay chain insertion enable for SRAM device.
     eSDRAMEN SDRAMEN : 1;
+    /// read-write - Clock delay line delay cell number selection value for SDRAM device.
     uint32_t SDRAMVAL : 5;
     uint32_t _reserved_0 : 2;
+    /// read-write - Delay chain insertion enable for NOR device.
     eNOREN NOREN : 1;
+    /// read-write - Clock delay line delay cell number selection value for NOR device.
     uint32_t NORVAL : 5;
     uint32_t _reserved_1 : 2;
+    /// read-write - Delay chain insertion enable for SRAM device 0.
     eSRAM0EN SRAM0EN : 1;
+    /// read-write - Clock delay line delay cell number selection value for SRAM device 0.
     uint32_t SRAM0VAL : 5;
     uint32_t _reserved_2 : 2;
+    /// read-write - Delay chain insertion enable for SRAM device 1-3.
     eSRAMXEN SRAMXEN : 1;
+    /// read-write - Clock delay line delay cell number selection value for SRAM device 1-3.
     uint32_t SRAMXVAL : 5;
     uint32_t _reserved_3 : 2;
   } bits;

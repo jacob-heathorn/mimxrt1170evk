@@ -21,10 +21,13 @@ union CTRL0 {
   
   // Bit field definition.
   struct {
+    /// read-write - Ramp slope calibration control
     uint32_t SLOPE_CAL : 6;
     uint32_t _reserved_0 : 2;
+    /// read-write - Voltage Select
     eV_SEL V_SEL : 2;
     uint32_t _reserved_1 : 2;
+    /// read-write - Current bias trim value
     uint32_t IBIAS_TRIM : 4;
     uint32_t _reserved_2 : 16;
   } bits;
@@ -43,10 +46,13 @@ union CTRL0_SET {
   
   // Bit field definition.
   struct {
+    /// read-write - Ramp slope calibration control
     uint32_t SLOPE_CAL : 6;
     uint32_t _reserved_0 : 2;
+    /// read-write - Voltage Select
     uint32_t V_SEL : 2;
     uint32_t _reserved_1 : 2;
+    /// read-write - Current bias trim value
     uint32_t IBIAS_TRIM : 4;
     uint32_t _reserved_2 : 16;
   } bits;
@@ -65,10 +71,13 @@ union CTRL0_CLR {
   
   // Bit field definition.
   struct {
+    /// read-write - Ramp slope calibration control
     uint32_t SLOPE_CAL : 6;
     uint32_t _reserved_0 : 2;
+    /// read-write - Voltage Select
     uint32_t V_SEL : 2;
     uint32_t _reserved_1 : 2;
+    /// read-write - Current bias trim value
     uint32_t IBIAS_TRIM : 4;
     uint32_t _reserved_2 : 16;
   } bits;
@@ -87,10 +96,13 @@ union CTRL0_TOG {
   
   // Bit field definition.
   struct {
+    /// read-write - Ramp slope calibration control
     uint32_t SLOPE_CAL : 6;
     uint32_t _reserved_0 : 2;
+    /// read-write - Voltage Select
     uint32_t V_SEL : 2;
     uint32_t _reserved_1 : 2;
+    /// read-write - Current bias trim value
     uint32_t IBIAS_TRIM : 4;
     uint32_t _reserved_2 : 16;
   } bits;
@@ -157,15 +169,24 @@ union CTRL1 {
   
   // Bit field definition.
   struct {
+    /// read-write - Temperature Measurement Frequency
     eFREQ FREQ : 16;
+    /// read-write - Measurement finished interrupt enable
     eFINISH_IE FINISH_IE : 1;
+    /// read-write - Low temperature interrupt enable
     eLOW_TEMP_IE LOW_TEMP_IE : 1;
+    /// read-write - High temperature interrupt enable
     eHIGH_TEMP_IE HIGH_TEMP_IE : 1;
+    /// read-write - Panic temperature interrupt enable
     ePANIC_TEMP_IE PANIC_TEMP_IE : 1;
     uint32_t _reserved_0 : 2;
+    /// read-write - Start Temperature Measurement
     eSTART START : 1;
+    /// read-write - Temperature Sensor Power Down
     ePWD PWD : 1;
+    /// read-write - Read/Writeable field. Reserved for future use
     uint32_t RFU : 7;
+    /// read-write - Temperature Sensor Full Power Down
     ePWD_FULL PWD_FULL : 1;
   } bits;
   
@@ -183,15 +204,24 @@ union CTRL1_SET {
   
   // Bit field definition.
   struct {
+    /// read-write - Temperature Measurement Frequency
     uint32_t FREQ : 16;
+    /// read-write - Measurement finished interrupt enable
     uint32_t FINISH_IE : 1;
+    /// read-write - Low temperature interrupt enable
     uint32_t LOW_TEMP_IE : 1;
+    /// read-write - High temperature interrupt enable
     uint32_t HIGH_TEMP_IE : 1;
+    /// read-write - Panic temperature interrupt enable
     uint32_t PANIC_TEMP_IE : 1;
     uint32_t _reserved_0 : 2;
+    /// read-write - Start Temperature Measurement
     uint32_t START : 1;
+    /// read-write - Temperature Sensor Power Down
     uint32_t PWD : 1;
+    /// read-write - Read/Writeable field. Reserved for future use
     uint32_t RFU : 7;
+    /// read-write - Temperature Sensor Full Power Down
     uint32_t PWD_FULL : 1;
   } bits;
   
@@ -209,15 +239,24 @@ union CTRL1_CLR {
   
   // Bit field definition.
   struct {
+    /// read-write - Temperature Measurement Frequency
     uint32_t FREQ : 16;
+    /// read-write - Measurement finished interrupt enable
     uint32_t FINISH_IE : 1;
+    /// read-write - Low temperature interrupt enable
     uint32_t LOW_TEMP_IE : 1;
+    /// read-write - High temperature interrupt enable
     uint32_t HIGH_TEMP_IE : 1;
+    /// read-write - Panic temperature interrupt enable
     uint32_t PANIC_TEMP_IE : 1;
     uint32_t _reserved_0 : 2;
+    /// read-write - Start Temperature Measurement
     uint32_t START : 1;
+    /// read-write - Temperature Sensor Power Down
     uint32_t PWD : 1;
+    /// read-write - Read/Writeable field. Reserved for future use
     uint32_t RFU : 7;
+    /// read-write - Temperature Sensor Full Power Down
     uint32_t PWD_FULL : 1;
   } bits;
   
@@ -235,15 +274,24 @@ union CTRL1_TOG {
   
   // Bit field definition.
   struct {
+    /// read-write - Temperature Measurement Frequency
     uint32_t FREQ : 16;
+    /// read-write - Measurement finished interrupt enable
     uint32_t FINISH_IE : 1;
+    /// read-write - Low temperature interrupt enable
     uint32_t LOW_TEMP_IE : 1;
+    /// read-write - High temperature interrupt enable
     uint32_t HIGH_TEMP_IE : 1;
+    /// read-write - Panic temperature interrupt enable
     uint32_t PANIC_TEMP_IE : 1;
     uint32_t _reserved_0 : 2;
+    /// read-write - Start Temperature Measurement
     uint32_t START : 1;
+    /// read-write - Temperature Sensor Power Down
     uint32_t PWD : 1;
+    /// read-write - Read/Writeable field. Reserved for future use
     uint32_t RFU : 7;
+    /// read-write - Temperature Sensor Full Power Down
     uint32_t PWD_FULL : 1;
   } bits;
   
@@ -261,8 +309,10 @@ union RANGE0 {
   
   // Bit field definition.
   struct {
+    /// read-write - Low temperature threshold value
     uint32_t LOW_TEMP_VAL : 12;
     uint32_t _reserved_0 : 4;
+    /// read-write - High temperature threshold value
     uint32_t HIGH_TEMP_VAL : 12;
     uint32_t _reserved_1 : 4;
   } bits;
@@ -281,8 +331,10 @@ union RANGE0_SET {
   
   // Bit field definition.
   struct {
+    /// read-write - Low temperature threshold value
     uint32_t LOW_TEMP_VAL : 12;
     uint32_t _reserved_0 : 4;
+    /// read-write - High temperature threshold value
     uint32_t HIGH_TEMP_VAL : 12;
     uint32_t _reserved_1 : 4;
   } bits;
@@ -301,8 +353,10 @@ union RANGE0_CLR {
   
   // Bit field definition.
   struct {
+    /// read-write - Low temperature threshold value
     uint32_t LOW_TEMP_VAL : 12;
     uint32_t _reserved_0 : 4;
+    /// read-write - High temperature threshold value
     uint32_t HIGH_TEMP_VAL : 12;
     uint32_t _reserved_1 : 4;
   } bits;
@@ -321,8 +375,10 @@ union RANGE0_TOG {
   
   // Bit field definition.
   struct {
+    /// read-write - Low temperature threshold value
     uint32_t LOW_TEMP_VAL : 12;
     uint32_t _reserved_0 : 4;
+    /// read-write - High temperature threshold value
     uint32_t HIGH_TEMP_VAL : 12;
     uint32_t _reserved_1 : 4;
   } bits;
@@ -341,6 +397,7 @@ union RANGE1 {
   
   // Bit field definition.
   struct {
+    /// read-write - Panic temperature threshold value
     uint32_t PANIC_TEMP_VAL : 12;
     uint32_t _reserved_0 : 20;
   } bits;
@@ -359,6 +416,7 @@ union RANGE1_SET {
   
   // Bit field definition.
   struct {
+    /// read-write - Panic temperature threshold value
     uint32_t PANIC_TEMP_VAL : 12;
     uint32_t _reserved_0 : 20;
   } bits;
@@ -377,6 +435,7 @@ union RANGE1_CLR {
   
   // Bit field definition.
   struct {
+    /// read-write - Panic temperature threshold value
     uint32_t PANIC_TEMP_VAL : 12;
     uint32_t _reserved_0 : 20;
   } bits;
@@ -395,6 +454,7 @@ union RANGE1_TOG {
   
   // Bit field definition.
   struct {
+    /// read-write - Panic temperature threshold value
     uint32_t PANIC_TEMP_VAL : 12;
     uint32_t _reserved_0 : 20;
   } bits;
@@ -433,11 +493,16 @@ union STATUS0 {
   
   // Bit field definition.
   struct {
+    /// read-only - Measured temperature value
     uint32_t TEMP_VAL : 12;
     uint32_t _reserved_0 : 4;
+    /// read-write - Temperature measurement complete
     eFINISH FINISH : 1;
+    /// read-write - Low temperature alarm bit
     eLOW_TEMP LOW_TEMP : 1;
+    /// read-write - High temperature alarm bit
     eHIGH_TEMP HIGH_TEMP : 1;
+    /// read-write - Panic temperature alarm bit
     ePANIC_TEMP PANIC_TEMP : 1;
     uint32_t _reserved_1 : 12;
   } bits;

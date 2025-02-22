@@ -27,14 +27,20 @@ union BPC_AUTHEN_CTRL {
   
   // Bit field definition.
   struct {
+    /// read-write - Allow user mode access
     eUSER USER : 1;
+    /// read-write - Allow non-secure mode access
     eNONSECURE NONSECURE : 1;
     uint32_t _reserved_0 : 2;
+    /// read-write - Lock NONSECURE and USER
     uint32_t LOCK_SETTING : 1;
     uint32_t _reserved_1 : 3;
+    /// read-write - Domain ID white list
     uint32_t WHITE_LIST : 4;
+    /// read-write - White list lock
     uint32_t LOCK_LIST : 1;
     uint32_t _reserved_2 : 7;
+    /// read-write - Configuration lock
     uint32_t LOCK_CFG : 1;
     uint32_t _reserved_3 : 11;
   } bits;
@@ -66,8 +72,10 @@ union BPC_MODE {
   
   // Bit field definition.
   struct {
+    /// read-write - Control mode. This field is locked by AUTHEN_CTRL[LOCK_CFG] field.
     eCTRL_MODE CTRL_MODE : 2;
     uint32_t _reserved_0 : 2;
+    /// read-write - Domain assignment of the BPC
     eDOMAIN_ASSIGN DOMAIN_ASSIGN : 2;
     uint32_t _reserved_1 : 26;
   } bits;
@@ -87,15 +95,23 @@ union BPC_POWER_CTRL {
   // Bit field definition.
   struct {
     uint32_t _reserved_0 : 1;
+    /// read-write - 0x1: Power off when domain enters WAIT mode
     uint32_t PWR_OFF_AT_WAIT : 1;
+    /// read-write - 0x1: Power off when domain enters STOP mode
     uint32_t PWR_OFF_AT_STOP : 1;
+    /// read-write - 0x1: Power off when domain enters SUSPEND mode
     uint32_t PWR_OFF_AT_SUSPEND : 1;
     uint32_t _reserved_1 : 4;
+    /// read-write - Software isolation on trigger
     uint32_t ISO_ON_SOFT : 1;
+    /// read-write - Software power off trigger
     uint32_t PSW_OFF_SOFT : 1;
+    /// read-write - Software power on trigger
     uint32_t PSW_ON_SOFT : 1;
+    /// read-write - Software isolation off trigger
     uint32_t ISO_OFF_SOFT : 1;
     uint32_t _reserved_2 : 4;
+    /// read-write - Power off when system enters Setpoint number
     uint32_t PWR_OFF_AT_SP : 16;
   } bits;
   
@@ -113,6 +129,7 @@ union BPC_FLAG {
   
   // Bit field definition.
   struct {
+    /// read-write - set to 1 after power switch off, cleared by writing 1
     uint32_t PDN_FLAG : 1;
     uint32_t _reserved_0 : 31;
   } bits;
@@ -131,11 +148,16 @@ union BPC_SSAR_SAVE_CTRL {
   
   // Bit field definition.
   struct {
+    /// read-write - Save data at RUN mode, software writting 0x1 to trigger SSARC to execute save process
     uint32_t SAVE_AT_RUN : 1;
+    /// read-write - Save data when domain enters WAIT mode
     uint32_t SAVE_AT_WAIT : 1;
+    /// read-write - Save data when domain enters STOP mode
     uint32_t SAVE_AT_STOP : 1;
+    /// read-write - Save data when domain enters SUSPEND mode
     uint32_t SAVE_AT_SUSPEND : 1;
     uint32_t _reserved_0 : 12;
+    /// read-write - Save data when system enters a Setpoint.
     uint32_t SAVE_AT_SP : 16;
   } bits;
   
@@ -153,8 +175,10 @@ union BPC_SSAR_RESTORE_CTRL {
   
   // Bit field definition.
   struct {
+    /// read-write - Restore data at RUN mode
     uint32_t RESTORE_AT_RUN : 1;
     uint32_t _reserved_0 : 15;
+    /// read-write - Restore data when system enters a Setpoint.
     uint32_t RESTORE_AT_SP : 16;
   } bits;
   

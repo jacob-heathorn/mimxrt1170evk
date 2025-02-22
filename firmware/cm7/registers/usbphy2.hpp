@@ -53,13 +53,20 @@ union PWD {
   // Bit field definition.
   struct {
     uint32_t _reserved_0 : 10;
+    /// read-write - TXPWDFS
     eTXPWDFS TXPWDFS : 1;
+    /// read-write - TXPWDIBIAS
     eTXPWDIBIAS TXPWDIBIAS : 1;
+    /// read-write - TXPWDV2I
     eTXPWDV2I TXPWDV2I : 1;
     uint32_t _reserved_1 : 4;
+    /// read-write - RXPWDENV
     eRXPWDENV RXPWDENV : 1;
+    /// read-write - RXPWD1PT1
     eRXPWD1PT1 RXPWD1PT1 : 1;
+    /// read-write - RXPWDDIFF
     eRXPWDDIFF RXPWDDIFF : 1;
+    /// read-write - RXPWDRX
     eRXPWDRX RXPWDRX : 1;
     uint32_t _reserved_2 : 11;
   } bits;
@@ -79,13 +86,20 @@ union PWD_SET {
   // Bit field definition.
   struct {
     uint32_t _reserved_0 : 10;
+    /// read-write - TXPWDFS
     uint32_t TXPWDFS : 1;
+    /// read-write - TXPWDIBIAS
     uint32_t TXPWDIBIAS : 1;
+    /// read-write - TXPWDV2I
     uint32_t TXPWDV2I : 1;
     uint32_t _reserved_1 : 4;
+    /// read-write - RXPWDENV
     uint32_t RXPWDENV : 1;
+    /// read-write - RXPWD1PT1
     uint32_t RXPWD1PT1 : 1;
+    /// read-write - RXPWDDIFF
     uint32_t RXPWDDIFF : 1;
+    /// read-write - RXPWDRX
     uint32_t RXPWDRX : 1;
     uint32_t _reserved_2 : 11;
   } bits;
@@ -105,13 +119,20 @@ union PWD_CLR {
   // Bit field definition.
   struct {
     uint32_t _reserved_0 : 10;
+    /// read-write - TXPWDFS
     uint32_t TXPWDFS : 1;
+    /// read-write - TXPWDIBIAS
     uint32_t TXPWDIBIAS : 1;
+    /// read-write - TXPWDV2I
     uint32_t TXPWDV2I : 1;
     uint32_t _reserved_1 : 4;
+    /// read-write - RXPWDENV
     uint32_t RXPWDENV : 1;
+    /// read-write - RXPWD1PT1
     uint32_t RXPWD1PT1 : 1;
+    /// read-write - RXPWDDIFF
     uint32_t RXPWDDIFF : 1;
+    /// read-write - RXPWDRX
     uint32_t RXPWDRX : 1;
     uint32_t _reserved_2 : 11;
   } bits;
@@ -131,13 +152,20 @@ union PWD_TOG {
   // Bit field definition.
   struct {
     uint32_t _reserved_0 : 10;
+    /// read-write - TXPWDFS
     uint32_t TXPWDFS : 1;
+    /// read-write - TXPWDIBIAS
     uint32_t TXPWDIBIAS : 1;
+    /// read-write - TXPWDV2I
     uint32_t TXPWDV2I : 1;
     uint32_t _reserved_1 : 4;
+    /// read-write - RXPWDENV
     uint32_t RXPWDENV : 1;
+    /// read-write - RXPWD1PT1
     uint32_t RXPWD1PT1 : 1;
+    /// read-write - RXPWDDIFF
     uint32_t RXPWDDIFF : 1;
+    /// read-write - RXPWDRX
     uint32_t RXPWDRX : 1;
     uint32_t _reserved_2 : 11;
   } bits;
@@ -162,10 +190,13 @@ union TX {
   
   // Bit field definition.
   struct {
+    /// read-write - D_CAL
     eD_CAL D_CAL : 4;
     uint32_t _reserved_0 : 4;
+    /// read-write - TXCAL45DN
     uint32_t TXCAL45DN : 4;
     uint32_t _reserved_1 : 4;
+    /// read-write - TXCAL45DP
     uint32_t TXCAL45DP : 4;
     uint32_t _reserved_2 : 12;
   } bits;
@@ -184,10 +215,13 @@ union TX_SET {
   
   // Bit field definition.
   struct {
+    /// read-write - D_CAL
     uint32_t D_CAL : 4;
     uint32_t _reserved_0 : 4;
+    /// read-write - TXCAL45DN
     uint32_t TXCAL45DN : 4;
     uint32_t _reserved_1 : 4;
+    /// read-write - TXCAL45DP
     uint32_t TXCAL45DP : 4;
     uint32_t _reserved_2 : 12;
   } bits;
@@ -206,10 +240,13 @@ union TX_CLR {
   
   // Bit field definition.
   struct {
+    /// read-write - D_CAL
     uint32_t D_CAL : 4;
     uint32_t _reserved_0 : 4;
+    /// read-write - TXCAL45DN
     uint32_t TXCAL45DN : 4;
     uint32_t _reserved_1 : 4;
+    /// read-write - TXCAL45DP
     uint32_t TXCAL45DP : 4;
     uint32_t _reserved_2 : 12;
   } bits;
@@ -228,10 +265,13 @@ union TX_TOG {
   
   // Bit field definition.
   struct {
+    /// read-write - D_CAL
     uint32_t D_CAL : 4;
     uint32_t _reserved_0 : 4;
+    /// read-write - TXCAL45DN
     uint32_t TXCAL45DN : 4;
     uint32_t _reserved_1 : 4;
+    /// read-write - TXCAL45DP
     uint32_t TXCAL45DP : 4;
     uint32_t _reserved_2 : 12;
   } bits;
@@ -269,10 +309,13 @@ union RX {
   
   // Bit field definition.
   struct {
+    /// read-write - ENVADJ
     eENVADJ ENVADJ : 3;
     uint32_t _reserved_0 : 1;
+    /// read-write - DISCONADJ
     eDISCONADJ DISCONADJ : 3;
     uint32_t _reserved_1 : 15;
+    /// read-write - RXDBYPASS
     eRXDBYPASS RXDBYPASS : 1;
     uint32_t _reserved_2 : 9;
   } bits;
@@ -291,10 +334,13 @@ union RX_SET {
   
   // Bit field definition.
   struct {
+    /// read-write - ENVADJ
     uint32_t ENVADJ : 3;
     uint32_t _reserved_0 : 1;
+    /// read-write - DISCONADJ
     uint32_t DISCONADJ : 3;
     uint32_t _reserved_1 : 15;
+    /// read-write - RXDBYPASS
     uint32_t RXDBYPASS : 1;
     uint32_t _reserved_2 : 9;
   } bits;
@@ -313,10 +359,13 @@ union RX_CLR {
   
   // Bit field definition.
   struct {
+    /// read-write - ENVADJ
     uint32_t ENVADJ : 3;
     uint32_t _reserved_0 : 1;
+    /// read-write - DISCONADJ
     uint32_t DISCONADJ : 3;
     uint32_t _reserved_1 : 15;
+    /// read-write - RXDBYPASS
     uint32_t RXDBYPASS : 1;
     uint32_t _reserved_2 : 9;
   } bits;
@@ -335,10 +384,13 @@ union RX_TOG {
   
   // Bit field definition.
   struct {
+    /// read-write - ENVADJ
     uint32_t ENVADJ : 3;
     uint32_t _reserved_0 : 1;
+    /// read-write - DISCONADJ
     uint32_t DISCONADJ : 3;
     uint32_t _reserved_1 : 15;
+    /// read-write - RXDBYPASS
     uint32_t RXDBYPASS : 1;
     uint32_t _reserved_2 : 9;
   } bits;
@@ -362,36 +414,65 @@ union CTRL {
   
   // Bit field definition.
   struct {
+    /// read-write - ENOTG_ID_CHG_IRQ
     uint32_t ENOTG_ID_CHG_IRQ : 1;
+    /// read-write - ENHOSTDISCONDETECT
     uint32_t ENHOSTDISCONDETECT : 1;
+    /// read-write - ENIRQHOSTDISCON
     uint32_t ENIRQHOSTDISCON : 1;
+    /// read-write - HOSTDISCONDETECT_IRQ
     uint32_t HOSTDISCONDETECT_IRQ : 1;
+    /// read-write - Enables non-standard resistive plugged-in detection
     eENDEVPLUGINDETECT ENDEVPLUGINDETECT : 1;
+    /// read-write - DEVPLUGIN_POLARITY
     uint32_t DEVPLUGIN_POLARITY : 1;
+    /// read-write - OTG_ID_CHG_IRQ
     uint32_t OTG_ID_CHG_IRQ : 1;
+    /// read-write - ENOTGIDDETECT
     uint32_t ENOTGIDDETECT : 1;
+    /// read-write - RESUMEIRQSTICKY
     uint32_t RESUMEIRQSTICKY : 1;
+    /// read-write - ENIRQRESUMEDETECT
     uint32_t ENIRQRESUMEDETECT : 1;
+    /// read-write - RESUME_IRQ
     uint32_t RESUME_IRQ : 1;
+    /// read-write - ENIRQDEVPLUGIN
     uint32_t ENIRQDEVPLUGIN : 1;
+    /// read-write - DEVPLUGIN_IRQ
     uint32_t DEVPLUGIN_IRQ : 1;
     uint32_t _reserved_0 : 1;
+    /// read-write - ENUTMILEVEL2
     uint32_t ENUTMILEVEL2 : 1;
+    /// read-write - ENUTMILEVEL3
     uint32_t ENUTMILEVEL3 : 1;
+    /// read-write - ENIRQWAKEUP
     uint32_t ENIRQWAKEUP : 1;
+    /// read-write - WAKEUP_IRQ
     uint32_t WAKEUP_IRQ : 1;
+    /// read-write - AUTORESUME_EN
     uint32_t AUTORESUME_EN : 1;
+    /// read-write - ENAUTOCLR_CLKGATE
     uint32_t ENAUTOCLR_CLKGATE : 1;
+    /// read-write - ENAUTOCLR_PHY_PWD
     uint32_t ENAUTOCLR_PHY_PWD : 1;
+    /// read-write - ENDPDMCHG_WKUP
     uint32_t ENDPDMCHG_WKUP : 1;
+    /// read-write - ENIDCHG_WKUP
     uint32_t ENIDCHG_WKUP : 1;
+    /// read-write - ENVBUSCHG_WKUP
     uint32_t ENVBUSCHG_WKUP : 1;
+    /// read-write - FSDLL_RST_EN
     uint32_t FSDLL_RST_EN : 1;
     uint32_t _reserved_1 : 2;
+    /// read-only - OTG_ID_VALUE
     uint32_t OTG_ID_VALUE : 1;
+    /// read-write - HOST_FORCE_LS_SE0
     uint32_t HOST_FORCE_LS_SE0 : 1;
+    /// read-only - UTMI_SUSPENDM
     uint32_t UTMI_SUSPENDM : 1;
+    /// read-write - CLKGATE
     uint32_t CLKGATE : 1;
+    /// read-write - SFTRST
     uint32_t SFTRST : 1;
   } bits;
   
@@ -409,36 +490,65 @@ union CTRL_SET {
   
   // Bit field definition.
   struct {
+    /// read-write - ENOTG_ID_CHG_IRQ
     uint32_t ENOTG_ID_CHG_IRQ : 1;
+    /// read-write - ENHOSTDISCONDETECT
     uint32_t ENHOSTDISCONDETECT : 1;
+    /// read-write - ENIRQHOSTDISCON
     uint32_t ENIRQHOSTDISCON : 1;
+    /// read-write - HOSTDISCONDETECT_IRQ
     uint32_t HOSTDISCONDETECT_IRQ : 1;
+    /// read-write - Enables non-standard resistive plugged-in detection
     uint32_t ENDEVPLUGINDETECT : 1;
+    /// read-write - DEVPLUGIN_POLARITY
     uint32_t DEVPLUGIN_POLARITY : 1;
+    /// read-write - OTG_ID_CHG_IRQ
     uint32_t OTG_ID_CHG_IRQ : 1;
+    /// read-write - ENOTGIDDETECT
     uint32_t ENOTGIDDETECT : 1;
+    /// read-write - RESUMEIRQSTICKY
     uint32_t RESUMEIRQSTICKY : 1;
+    /// read-write - ENIRQRESUMEDETECT
     uint32_t ENIRQRESUMEDETECT : 1;
+    /// read-write - RESUME_IRQ
     uint32_t RESUME_IRQ : 1;
+    /// read-write - ENIRQDEVPLUGIN
     uint32_t ENIRQDEVPLUGIN : 1;
+    /// read-write - DEVPLUGIN_IRQ
     uint32_t DEVPLUGIN_IRQ : 1;
     uint32_t _reserved_0 : 1;
+    /// read-write - ENUTMILEVEL2
     uint32_t ENUTMILEVEL2 : 1;
+    /// read-write - ENUTMILEVEL3
     uint32_t ENUTMILEVEL3 : 1;
+    /// read-write - ENIRQWAKEUP
     uint32_t ENIRQWAKEUP : 1;
+    /// read-write - WAKEUP_IRQ
     uint32_t WAKEUP_IRQ : 1;
+    /// read-write - AUTORESUME_EN
     uint32_t AUTORESUME_EN : 1;
+    /// read-write - ENAUTOCLR_CLKGATE
     uint32_t ENAUTOCLR_CLKGATE : 1;
+    /// read-write - ENAUTOCLR_PHY_PWD
     uint32_t ENAUTOCLR_PHY_PWD : 1;
+    /// read-write - ENDPDMCHG_WKUP
     uint32_t ENDPDMCHG_WKUP : 1;
+    /// read-write - ENIDCHG_WKUP
     uint32_t ENIDCHG_WKUP : 1;
+    /// read-write - ENVBUSCHG_WKUP
     uint32_t ENVBUSCHG_WKUP : 1;
+    /// read-write - FSDLL_RST_EN
     uint32_t FSDLL_RST_EN : 1;
     uint32_t _reserved_1 : 2;
+    /// read-only - OTG_ID_VALUE
     uint32_t OTG_ID_VALUE : 1;
+    /// read-write - HOST_FORCE_LS_SE0
     uint32_t HOST_FORCE_LS_SE0 : 1;
+    /// read-only - UTMI_SUSPENDM
     uint32_t UTMI_SUSPENDM : 1;
+    /// read-write - CLKGATE
     uint32_t CLKGATE : 1;
+    /// read-write - SFTRST
     uint32_t SFTRST : 1;
   } bits;
   
@@ -456,36 +566,65 @@ union CTRL_CLR {
   
   // Bit field definition.
   struct {
+    /// read-write - ENOTG_ID_CHG_IRQ
     uint32_t ENOTG_ID_CHG_IRQ : 1;
+    /// read-write - ENHOSTDISCONDETECT
     uint32_t ENHOSTDISCONDETECT : 1;
+    /// read-write - ENIRQHOSTDISCON
     uint32_t ENIRQHOSTDISCON : 1;
+    /// read-write - HOSTDISCONDETECT_IRQ
     uint32_t HOSTDISCONDETECT_IRQ : 1;
+    /// read-write - Enables non-standard resistive plugged-in detection
     uint32_t ENDEVPLUGINDETECT : 1;
+    /// read-write - DEVPLUGIN_POLARITY
     uint32_t DEVPLUGIN_POLARITY : 1;
+    /// read-write - OTG_ID_CHG_IRQ
     uint32_t OTG_ID_CHG_IRQ : 1;
+    /// read-write - ENOTGIDDETECT
     uint32_t ENOTGIDDETECT : 1;
+    /// read-write - RESUMEIRQSTICKY
     uint32_t RESUMEIRQSTICKY : 1;
+    /// read-write - ENIRQRESUMEDETECT
     uint32_t ENIRQRESUMEDETECT : 1;
+    /// read-write - RESUME_IRQ
     uint32_t RESUME_IRQ : 1;
+    /// read-write - ENIRQDEVPLUGIN
     uint32_t ENIRQDEVPLUGIN : 1;
+    /// read-write - DEVPLUGIN_IRQ
     uint32_t DEVPLUGIN_IRQ : 1;
     uint32_t _reserved_0 : 1;
+    /// read-write - ENUTMILEVEL2
     uint32_t ENUTMILEVEL2 : 1;
+    /// read-write - ENUTMILEVEL3
     uint32_t ENUTMILEVEL3 : 1;
+    /// read-write - ENIRQWAKEUP
     uint32_t ENIRQWAKEUP : 1;
+    /// read-write - WAKEUP_IRQ
     uint32_t WAKEUP_IRQ : 1;
+    /// read-write - AUTORESUME_EN
     uint32_t AUTORESUME_EN : 1;
+    /// read-write - ENAUTOCLR_CLKGATE
     uint32_t ENAUTOCLR_CLKGATE : 1;
+    /// read-write - ENAUTOCLR_PHY_PWD
     uint32_t ENAUTOCLR_PHY_PWD : 1;
+    /// read-write - ENDPDMCHG_WKUP
     uint32_t ENDPDMCHG_WKUP : 1;
+    /// read-write - ENIDCHG_WKUP
     uint32_t ENIDCHG_WKUP : 1;
+    /// read-write - ENVBUSCHG_WKUP
     uint32_t ENVBUSCHG_WKUP : 1;
+    /// read-write - FSDLL_RST_EN
     uint32_t FSDLL_RST_EN : 1;
     uint32_t _reserved_1 : 2;
+    /// read-only - OTG_ID_VALUE
     uint32_t OTG_ID_VALUE : 1;
+    /// read-write - HOST_FORCE_LS_SE0
     uint32_t HOST_FORCE_LS_SE0 : 1;
+    /// read-only - UTMI_SUSPENDM
     uint32_t UTMI_SUSPENDM : 1;
+    /// read-write - CLKGATE
     uint32_t CLKGATE : 1;
+    /// read-write - SFTRST
     uint32_t SFTRST : 1;
   } bits;
   
@@ -503,36 +642,65 @@ union CTRL_TOG {
   
   // Bit field definition.
   struct {
+    /// read-write - ENOTG_ID_CHG_IRQ
     uint32_t ENOTG_ID_CHG_IRQ : 1;
+    /// read-write - ENHOSTDISCONDETECT
     uint32_t ENHOSTDISCONDETECT : 1;
+    /// read-write - ENIRQHOSTDISCON
     uint32_t ENIRQHOSTDISCON : 1;
+    /// read-write - HOSTDISCONDETECT_IRQ
     uint32_t HOSTDISCONDETECT_IRQ : 1;
+    /// read-write - Enables non-standard resistive plugged-in detection
     uint32_t ENDEVPLUGINDETECT : 1;
+    /// read-write - DEVPLUGIN_POLARITY
     uint32_t DEVPLUGIN_POLARITY : 1;
+    /// read-write - OTG_ID_CHG_IRQ
     uint32_t OTG_ID_CHG_IRQ : 1;
+    /// read-write - ENOTGIDDETECT
     uint32_t ENOTGIDDETECT : 1;
+    /// read-write - RESUMEIRQSTICKY
     uint32_t RESUMEIRQSTICKY : 1;
+    /// read-write - ENIRQRESUMEDETECT
     uint32_t ENIRQRESUMEDETECT : 1;
+    /// read-write - RESUME_IRQ
     uint32_t RESUME_IRQ : 1;
+    /// read-write - ENIRQDEVPLUGIN
     uint32_t ENIRQDEVPLUGIN : 1;
+    /// read-write - DEVPLUGIN_IRQ
     uint32_t DEVPLUGIN_IRQ : 1;
     uint32_t _reserved_0 : 1;
+    /// read-write - ENUTMILEVEL2
     uint32_t ENUTMILEVEL2 : 1;
+    /// read-write - ENUTMILEVEL3
     uint32_t ENUTMILEVEL3 : 1;
+    /// read-write - ENIRQWAKEUP
     uint32_t ENIRQWAKEUP : 1;
+    /// read-write - WAKEUP_IRQ
     uint32_t WAKEUP_IRQ : 1;
+    /// read-write - AUTORESUME_EN
     uint32_t AUTORESUME_EN : 1;
+    /// read-write - ENAUTOCLR_CLKGATE
     uint32_t ENAUTOCLR_CLKGATE : 1;
+    /// read-write - ENAUTOCLR_PHY_PWD
     uint32_t ENAUTOCLR_PHY_PWD : 1;
+    /// read-write - ENDPDMCHG_WKUP
     uint32_t ENDPDMCHG_WKUP : 1;
+    /// read-write - ENIDCHG_WKUP
     uint32_t ENIDCHG_WKUP : 1;
+    /// read-write - ENVBUSCHG_WKUP
     uint32_t ENVBUSCHG_WKUP : 1;
+    /// read-write - FSDLL_RST_EN
     uint32_t FSDLL_RST_EN : 1;
     uint32_t _reserved_1 : 2;
+    /// read-only - OTG_ID_VALUE
     uint32_t OTG_ID_VALUE : 1;
+    /// read-write - HOST_FORCE_LS_SE0
     uint32_t HOST_FORCE_LS_SE0 : 1;
+    /// read-only - UTMI_SUSPENDM
     uint32_t UTMI_SUSPENDM : 1;
+    /// read-write - CLKGATE
     uint32_t CLKGATE : 1;
+    /// read-write - SFTRST
     uint32_t SFTRST : 1;
   } bits;
   
@@ -561,12 +729,16 @@ union STATUS {
   // Bit field definition.
   struct {
     uint32_t _reserved_0 : 3;
+    /// read-only - HOSTDISCONDETECT_STATUS
     eHOSTDISCONDETECT_STATUS HOSTDISCONDETECT_STATUS : 1;
     uint32_t _reserved_1 : 2;
+    /// read-only - Status indicator for non-standard resistive plugged-in detection
     eDEVPLUGIN_STATUS DEVPLUGIN_STATUS : 1;
     uint32_t _reserved_2 : 1;
+    /// read-write - OTGID_STATUS
     uint32_t OTGID_STATUS : 1;
     uint32_t _reserved_3 : 1;
+    /// read-only - RESUME_STATUS
     uint32_t RESUME_STATUS : 1;
     uint32_t _reserved_4 : 21;
   } bits;
@@ -585,19 +757,30 @@ union DEBUG {
   
   // Bit field definition.
   struct {
+    /// read-write - OTGIDPIOLOCK
     uint32_t OTGIDPIOLOCK : 1;
+    /// read-write - DEBUG_INTERFACE_HOLD
     uint32_t DEBUG_INTERFACE_HOLD : 1;
+    /// read-write - HSTPULLDOWN
     uint32_t HSTPULLDOWN : 2;
+    /// read-write - ENHSTPULLDOWN
     uint32_t ENHSTPULLDOWN : 2;
     uint32_t _reserved_0 : 2;
+    /// read-write - TX2RXCOUNT
     uint32_t TX2RXCOUNT : 4;
+    /// read-write - ENTX2RXCOUNT
     uint32_t ENTX2RXCOUNT : 1;
     uint32_t _reserved_1 : 3;
+    /// read-write - SQUELCHRESETCOUNT
     uint32_t SQUELCHRESETCOUNT : 5;
     uint32_t _reserved_2 : 3;
+    /// read-write - ENSQUELCHRESET
     uint32_t ENSQUELCHRESET : 1;
+    /// read-write - SQUELCHRESETLENGTH
     uint32_t SQUELCHRESETLENGTH : 4;
+    /// read-write - HOST_RESUME_DEBUG
     uint32_t HOST_RESUME_DEBUG : 1;
+    /// read-write - CLKGATE
     uint32_t CLKGATE : 1;
     uint32_t _reserved_3 : 1;
   } bits;
@@ -616,19 +799,30 @@ union DEBUG_SET {
   
   // Bit field definition.
   struct {
+    /// read-write - OTGIDPIOLOCK
     uint32_t OTGIDPIOLOCK : 1;
+    /// read-write - DEBUG_INTERFACE_HOLD
     uint32_t DEBUG_INTERFACE_HOLD : 1;
+    /// read-write - HSTPULLDOWN
     uint32_t HSTPULLDOWN : 2;
+    /// read-write - ENHSTPULLDOWN
     uint32_t ENHSTPULLDOWN : 2;
     uint32_t _reserved_0 : 2;
+    /// read-write - TX2RXCOUNT
     uint32_t TX2RXCOUNT : 4;
+    /// read-write - ENTX2RXCOUNT
     uint32_t ENTX2RXCOUNT : 1;
     uint32_t _reserved_1 : 3;
+    /// read-write - SQUELCHRESETCOUNT
     uint32_t SQUELCHRESETCOUNT : 5;
     uint32_t _reserved_2 : 3;
+    /// read-write - ENSQUELCHRESET
     uint32_t ENSQUELCHRESET : 1;
+    /// read-write - SQUELCHRESETLENGTH
     uint32_t SQUELCHRESETLENGTH : 4;
+    /// read-write - HOST_RESUME_DEBUG
     uint32_t HOST_RESUME_DEBUG : 1;
+    /// read-write - CLKGATE
     uint32_t CLKGATE : 1;
     uint32_t _reserved_3 : 1;
   } bits;
@@ -647,19 +841,30 @@ union DEBUG_CLR {
   
   // Bit field definition.
   struct {
+    /// read-write - OTGIDPIOLOCK
     uint32_t OTGIDPIOLOCK : 1;
+    /// read-write - DEBUG_INTERFACE_HOLD
     uint32_t DEBUG_INTERFACE_HOLD : 1;
+    /// read-write - HSTPULLDOWN
     uint32_t HSTPULLDOWN : 2;
+    /// read-write - ENHSTPULLDOWN
     uint32_t ENHSTPULLDOWN : 2;
     uint32_t _reserved_0 : 2;
+    /// read-write - TX2RXCOUNT
     uint32_t TX2RXCOUNT : 4;
+    /// read-write - ENTX2RXCOUNT
     uint32_t ENTX2RXCOUNT : 1;
     uint32_t _reserved_1 : 3;
+    /// read-write - SQUELCHRESETCOUNT
     uint32_t SQUELCHRESETCOUNT : 5;
     uint32_t _reserved_2 : 3;
+    /// read-write - ENSQUELCHRESET
     uint32_t ENSQUELCHRESET : 1;
+    /// read-write - SQUELCHRESETLENGTH
     uint32_t SQUELCHRESETLENGTH : 4;
+    /// read-write - HOST_RESUME_DEBUG
     uint32_t HOST_RESUME_DEBUG : 1;
+    /// read-write - CLKGATE
     uint32_t CLKGATE : 1;
     uint32_t _reserved_3 : 1;
   } bits;
@@ -678,19 +883,30 @@ union DEBUG_TOG {
   
   // Bit field definition.
   struct {
+    /// read-write - OTGIDPIOLOCK
     uint32_t OTGIDPIOLOCK : 1;
+    /// read-write - DEBUG_INTERFACE_HOLD
     uint32_t DEBUG_INTERFACE_HOLD : 1;
+    /// read-write - HSTPULLDOWN
     uint32_t HSTPULLDOWN : 2;
+    /// read-write - ENHSTPULLDOWN
     uint32_t ENHSTPULLDOWN : 2;
     uint32_t _reserved_0 : 2;
+    /// read-write - TX2RXCOUNT
     uint32_t TX2RXCOUNT : 4;
+    /// read-write - ENTX2RXCOUNT
     uint32_t ENTX2RXCOUNT : 1;
     uint32_t _reserved_1 : 3;
+    /// read-write - SQUELCHRESETCOUNT
     uint32_t SQUELCHRESETCOUNT : 5;
     uint32_t _reserved_2 : 3;
+    /// read-write - ENSQUELCHRESET
     uint32_t ENSQUELCHRESET : 1;
+    /// read-write - SQUELCHRESETLENGTH
     uint32_t SQUELCHRESETLENGTH : 4;
+    /// read-write - HOST_RESUME_DEBUG
     uint32_t HOST_RESUME_DEBUG : 1;
+    /// read-write - CLKGATE
     uint32_t CLKGATE : 1;
     uint32_t _reserved_3 : 1;
   } bits;
@@ -709,8 +925,11 @@ union DEBUG0_STATUS {
   
   // Bit field definition.
   struct {
+    /// read-only - LOOP_BACK_FAIL_COUNT
     uint32_t LOOP_BACK_FAIL_COUNT : 16;
+    /// read-only - UTMI_RXERROR_FAIL_COUNT
     uint32_t UTMI_RXERROR_FAIL_COUNT : 10;
+    /// read-only - SQUELCH_COUNT
     uint32_t SQUELCH_COUNT : 6;
   } bits;
   
@@ -736,11 +955,17 @@ union DEBUG1 {
   // Bit field definition.
   struct {
     uint32_t _reserved_0 : 13;
+    /// read-write - ENTAILADJVD
     eENTAILADJVD ENTAILADJVD : 2;
+    /// read-write - Set to 1 to disable self bias, 100 us after power up refbias(usb2_refbias_pwd).This can reduce noise on power.
     uint32_t USB2_REFBIAS_SELFBIASOFF : 1;
+    /// read-write - Powers down the bandgap detect logic, will affect vbgup on misc1 register.
     uint32_t USB2_REFBIAS_PWDVBGUP : 1;
+    /// read-write - to be added
     uint32_t USB2_REFBIAS_LOWPWR : 1;
+    /// read-write - Adjustment bits on bandgap
     uint32_t USB2_REFBIAS_VBGADJ : 3;
+    /// read-write - Bias current control for usb2_phy
     uint32_t USB2_REFBIAS_TST : 2;
     uint32_t _reserved_1 : 9;
   } bits;
@@ -760,11 +985,17 @@ union DEBUG1_SET {
   // Bit field definition.
   struct {
     uint32_t _reserved_0 : 13;
+    /// read-write - ENTAILADJVD
     uint32_t ENTAILADJVD : 2;
+    /// read-write - Set to 1 to disable self bias, 100 us after power up refbias(usb2_refbias_pwd).This can reduce noise on power.
     uint32_t USB2_REFBIAS_SELFBIASOFF : 1;
+    /// read-write - Powers down the bandgap detect logic, will affect vbgup on misc1 register.
     uint32_t USB2_REFBIAS_PWDVBGUP : 1;
+    /// read-write - to be added
     uint32_t USB2_REFBIAS_LOWPWR : 1;
+    /// read-write - Adjustment bits on bandgap
     uint32_t USB2_REFBIAS_VBGADJ : 3;
+    /// read-write - Bias current control for usb2_phy
     uint32_t USB2_REFBIAS_TST : 2;
     uint32_t _reserved_1 : 9;
   } bits;
@@ -784,11 +1015,17 @@ union DEBUG1_CLR {
   // Bit field definition.
   struct {
     uint32_t _reserved_0 : 13;
+    /// read-write - ENTAILADJVD
     uint32_t ENTAILADJVD : 2;
+    /// read-write - Set to 1 to disable self bias, 100 us after power up refbias(usb2_refbias_pwd).This can reduce noise on power.
     uint32_t USB2_REFBIAS_SELFBIASOFF : 1;
+    /// read-write - Powers down the bandgap detect logic, will affect vbgup on misc1 register.
     uint32_t USB2_REFBIAS_PWDVBGUP : 1;
+    /// read-write - to be added
     uint32_t USB2_REFBIAS_LOWPWR : 1;
+    /// read-write - Adjustment bits on bandgap
     uint32_t USB2_REFBIAS_VBGADJ : 3;
+    /// read-write - Bias current control for usb2_phy
     uint32_t USB2_REFBIAS_TST : 2;
     uint32_t _reserved_1 : 9;
   } bits;
@@ -808,11 +1045,17 @@ union DEBUG1_TOG {
   // Bit field definition.
   struct {
     uint32_t _reserved_0 : 13;
+    /// read-write - ENTAILADJVD
     uint32_t ENTAILADJVD : 2;
+    /// read-write - Set to 1 to disable self bias, 100 us after power up refbias(usb2_refbias_pwd).This can reduce noise on power.
     uint32_t USB2_REFBIAS_SELFBIASOFF : 1;
+    /// read-write - Powers down the bandgap detect logic, will affect vbgup on misc1 register.
     uint32_t USB2_REFBIAS_PWDVBGUP : 1;
+    /// read-write - to be added
     uint32_t USB2_REFBIAS_LOWPWR : 1;
+    /// read-write - Adjustment bits on bandgap
     uint32_t USB2_REFBIAS_VBGADJ : 3;
+    /// read-write - Bias current control for usb2_phy
     uint32_t USB2_REFBIAS_TST : 2;
     uint32_t _reserved_1 : 9;
   } bits;
@@ -831,8 +1074,11 @@ union VERSION {
   
   // Bit field definition.
   struct {
+    /// read-only - STEP
     uint32_t STEP : 16;
+    /// read-only - MINOR
     uint32_t MINOR : 8;
+    /// read-only - MAJOR
     uint32_t MAJOR : 8;
   } bits;
   
@@ -872,20 +1118,30 @@ union PLL_SIC {
   // Bit field definition.
   struct {
     uint32_t _reserved_0 : 2;
+    /// read-write - PLL_POSTDIV
     uint32_t PLL_POSTDIV : 3;
     uint32_t _reserved_1 : 1;
+    /// read-write - PLL_EN_USB_CLKS
     uint32_t PLL_EN_USB_CLKS : 1;
     uint32_t _reserved_2 : 5;
+    /// read-write - PLL_POWER
     uint32_t PLL_POWER : 1;
+    /// read-write - PLL_ENABLE
     uint32_t PLL_ENABLE : 1;
     uint32_t _reserved_3 : 2;
+    /// read-write - PLL_BYPASS
     uint32_t PLL_BYPASS : 1;
     uint32_t _reserved_4 : 2;
+    /// read-write - REFBIAS_PWD_SEL
     eREFBIAS_PWD_SEL REFBIAS_PWD_SEL : 1;
+    /// read-write - Power down the reference bias
     uint32_t REFBIAS_PWD : 1;
+    /// read-write - PLL_REG_ENABLE
     uint32_t PLL_REG_ENABLE : 1;
+    /// read-write - PLL_DIV_SEL
     ePLL_DIV_SEL PLL_DIV_SEL : 3;
     uint32_t _reserved_5 : 6;
+    /// read-only - PLL_LOCK
     ePLL_LOCK PLL_LOCK : 1;
   } bits;
   
@@ -904,20 +1160,30 @@ union PLL_SIC_SET {
   // Bit field definition.
   struct {
     uint32_t _reserved_0 : 2;
+    /// read-write - PLL_POSTDIV
     uint32_t PLL_POSTDIV : 3;
     uint32_t _reserved_1 : 1;
+    /// read-write - PLL_EN_USB_CLKS
     uint32_t PLL_EN_USB_CLKS : 1;
     uint32_t _reserved_2 : 5;
+    /// read-write - PLL_POWER
     uint32_t PLL_POWER : 1;
+    /// read-write - PLL_ENABLE
     uint32_t PLL_ENABLE : 1;
     uint32_t _reserved_3 : 2;
+    /// read-write - PLL_BYPASS
     uint32_t PLL_BYPASS : 1;
     uint32_t _reserved_4 : 2;
+    /// read-write - REFBIAS_PWD_SEL
     uint32_t REFBIAS_PWD_SEL : 1;
+    /// read-write - Power down the reference bias
     uint32_t REFBIAS_PWD : 1;
+    /// read-write - PLL_REG_ENABLE
     uint32_t PLL_REG_ENABLE : 1;
+    /// read-write - PLL_DIV_SEL
     uint32_t PLL_DIV_SEL : 3;
     uint32_t _reserved_5 : 6;
+    /// read-only - PLL_LOCK
     uint32_t PLL_LOCK : 1;
   } bits;
   
@@ -936,20 +1202,30 @@ union PLL_SIC_CLR {
   // Bit field definition.
   struct {
     uint32_t _reserved_0 : 2;
+    /// read-write - PLL_POSTDIV
     uint32_t PLL_POSTDIV : 3;
     uint32_t _reserved_1 : 1;
+    /// read-write - PLL_EN_USB_CLKS
     uint32_t PLL_EN_USB_CLKS : 1;
     uint32_t _reserved_2 : 5;
+    /// read-write - PLL_POWER
     uint32_t PLL_POWER : 1;
+    /// read-write - PLL_ENABLE
     uint32_t PLL_ENABLE : 1;
     uint32_t _reserved_3 : 2;
+    /// read-write - PLL_BYPASS
     uint32_t PLL_BYPASS : 1;
     uint32_t _reserved_4 : 2;
+    /// read-write - REFBIAS_PWD_SEL
     uint32_t REFBIAS_PWD_SEL : 1;
+    /// read-write - Power down the reference bias
     uint32_t REFBIAS_PWD : 1;
+    /// read-write - PLL_REG_ENABLE
     uint32_t PLL_REG_ENABLE : 1;
+    /// read-write - PLL_DIV_SEL
     uint32_t PLL_DIV_SEL : 3;
     uint32_t _reserved_5 : 6;
+    /// read-only - PLL_LOCK
     uint32_t PLL_LOCK : 1;
   } bits;
   
@@ -968,20 +1244,30 @@ union PLL_SIC_TOG {
   // Bit field definition.
   struct {
     uint32_t _reserved_0 : 2;
+    /// read-write - PLL_POSTDIV
     uint32_t PLL_POSTDIV : 3;
     uint32_t _reserved_1 : 1;
+    /// read-write - PLL_EN_USB_CLKS
     uint32_t PLL_EN_USB_CLKS : 1;
     uint32_t _reserved_2 : 5;
+    /// read-write - PLL_POWER
     uint32_t PLL_POWER : 1;
+    /// read-write - PLL_ENABLE
     uint32_t PLL_ENABLE : 1;
     uint32_t _reserved_3 : 2;
+    /// read-write - PLL_BYPASS
     uint32_t PLL_BYPASS : 1;
     uint32_t _reserved_4 : 2;
+    /// read-write - REFBIAS_PWD_SEL
     uint32_t REFBIAS_PWD_SEL : 1;
+    /// read-write - Power down the reference bias
     uint32_t REFBIAS_PWD : 1;
+    /// read-write - PLL_REG_ENABLE
     uint32_t PLL_REG_ENABLE : 1;
+    /// read-write - PLL_DIV_SEL
     uint32_t PLL_DIV_SEL : 3;
     uint32_t _reserved_5 : 6;
+    /// read-only - PLL_LOCK
     uint32_t PLL_LOCK : 1;
   } bits;
   
@@ -1047,23 +1333,37 @@ union USB1_VBUS_DETECT {
   
   // Bit field definition.
   struct {
+    /// read-write - VBUSVALID_THRESH
     eVBUSVALID_THRESH VBUSVALID_THRESH : 3;
+    /// read-write - VBUS detect signal override enable
     eVBUS_OVERRIDE_EN VBUS_OVERRIDE_EN : 1;
+    /// read-write - Override value for SESSEND
     uint32_t SESSEND_OVERRIDE : 1;
+    /// read-write - Override value for B-Device Session Valid
     uint32_t BVALID_OVERRIDE : 1;
+    /// read-write - Override value for A-Device Session Valid
     uint32_t AVALID_OVERRIDE : 1;
+    /// read-write - Override value for VBUS_VALID signal sent to USB controller
     uint32_t VBUSVALID_OVERRIDE : 1;
+    /// read-write - Selects the source of the VBUS_VALID signal reported to the USB controller
     eVBUSVALID_SEL VBUSVALID_SEL : 1;
+    /// read-write - Selects the source of the VBUS_VALID signal reported to the USB controller
     eVBUS_SOURCE_SEL VBUS_SOURCE_SEL : 2;
+    /// read-write - TBA
     uint32_t ID_OVERRIDE_EN : 1;
+    /// read-write - TBA
     uint32_t ID_OVERRIDE : 1;
     uint32_t _reserved_0 : 5;
+    /// read-write - Selects the comparator used for VBUS_VALID
     eVBUSVALID_TO_SESSVALID VBUSVALID_TO_SESSVALID : 1;
     uint32_t _reserved_1 : 1;
+    /// read-write - Enables the VBUS_VALID comparator
     ePWRUP_CMPS PWRUP_CMPS : 3;
     uint32_t _reserved_2 : 3;
+    /// read-write - Controls VBUS discharge resistor
     eDISCHARGE_VBUS DISCHARGE_VBUS : 1;
     uint32_t _reserved_3 : 4;
+    /// read-write - Enables resistors used for an older method of resistive battery charger detection
     eEN_CHARGER_RESISTOR EN_CHARGER_RESISTOR : 1;
   } bits;
   
@@ -1081,23 +1381,37 @@ union USB1_VBUS_DETECT_SET {
   
   // Bit field definition.
   struct {
+    /// read-write - VBUSVALID_THRESH
     uint32_t VBUSVALID_THRESH : 3;
+    /// read-write - VBUS detect signal override enable
     uint32_t VBUS_OVERRIDE_EN : 1;
+    /// read-write - Override value for SESSEND
     uint32_t SESSEND_OVERRIDE : 1;
+    /// read-write - Override value for B-Device Session Valid
     uint32_t BVALID_OVERRIDE : 1;
+    /// read-write - Override value for A-Device Session Valid
     uint32_t AVALID_OVERRIDE : 1;
+    /// read-write - Override value for VBUS_VALID signal sent to USB controller
     uint32_t VBUSVALID_OVERRIDE : 1;
+    /// read-write - Selects the source of the VBUS_VALID signal reported to the USB controller
     uint32_t VBUSVALID_SEL : 1;
+    /// read-write - Selects the source of the VBUS_VALID signal reported to the USB controller
     uint32_t VBUS_SOURCE_SEL : 2;
+    /// read-write - TBA
     uint32_t ID_OVERRIDE_EN : 1;
+    /// read-write - TBA
     uint32_t ID_OVERRIDE : 1;
     uint32_t _reserved_0 : 5;
+    /// read-write - Selects the comparator used for VBUS_VALID
     uint32_t VBUSVALID_TO_SESSVALID : 1;
     uint32_t _reserved_1 : 1;
+    /// read-write - Enables the VBUS_VALID comparator
     uint32_t PWRUP_CMPS : 3;
     uint32_t _reserved_2 : 3;
+    /// read-write - Controls VBUS discharge resistor
     uint32_t DISCHARGE_VBUS : 1;
     uint32_t _reserved_3 : 4;
+    /// read-write - Enables resistors used for an older method of resistive battery charger detection
     uint32_t EN_CHARGER_RESISTOR : 1;
   } bits;
   
@@ -1115,23 +1429,37 @@ union USB1_VBUS_DETECT_CLR {
   
   // Bit field definition.
   struct {
+    /// read-write - VBUSVALID_THRESH
     uint32_t VBUSVALID_THRESH : 3;
+    /// read-write - VBUS detect signal override enable
     uint32_t VBUS_OVERRIDE_EN : 1;
+    /// read-write - Override value for SESSEND
     uint32_t SESSEND_OVERRIDE : 1;
+    /// read-write - Override value for B-Device Session Valid
     uint32_t BVALID_OVERRIDE : 1;
+    /// read-write - Override value for A-Device Session Valid
     uint32_t AVALID_OVERRIDE : 1;
+    /// read-write - Override value for VBUS_VALID signal sent to USB controller
     uint32_t VBUSVALID_OVERRIDE : 1;
+    /// read-write - Selects the source of the VBUS_VALID signal reported to the USB controller
     uint32_t VBUSVALID_SEL : 1;
+    /// read-write - Selects the source of the VBUS_VALID signal reported to the USB controller
     uint32_t VBUS_SOURCE_SEL : 2;
+    /// read-write - TBA
     uint32_t ID_OVERRIDE_EN : 1;
+    /// read-write - TBA
     uint32_t ID_OVERRIDE : 1;
     uint32_t _reserved_0 : 5;
+    /// read-write - Selects the comparator used for VBUS_VALID
     uint32_t VBUSVALID_TO_SESSVALID : 1;
     uint32_t _reserved_1 : 1;
+    /// read-write - Enables the VBUS_VALID comparator
     uint32_t PWRUP_CMPS : 3;
     uint32_t _reserved_2 : 3;
+    /// read-write - Controls VBUS discharge resistor
     uint32_t DISCHARGE_VBUS : 1;
     uint32_t _reserved_3 : 4;
+    /// read-write - Enables resistors used for an older method of resistive battery charger detection
     uint32_t EN_CHARGER_RESISTOR : 1;
   } bits;
   
@@ -1149,23 +1477,37 @@ union USB1_VBUS_DETECT_TOG {
   
   // Bit field definition.
   struct {
+    /// read-write - VBUSVALID_THRESH
     uint32_t VBUSVALID_THRESH : 3;
+    /// read-write - VBUS detect signal override enable
     uint32_t VBUS_OVERRIDE_EN : 1;
+    /// read-write - Override value for SESSEND
     uint32_t SESSEND_OVERRIDE : 1;
+    /// read-write - Override value for B-Device Session Valid
     uint32_t BVALID_OVERRIDE : 1;
+    /// read-write - Override value for A-Device Session Valid
     uint32_t AVALID_OVERRIDE : 1;
+    /// read-write - Override value for VBUS_VALID signal sent to USB controller
     uint32_t VBUSVALID_OVERRIDE : 1;
+    /// read-write - Selects the source of the VBUS_VALID signal reported to the USB controller
     uint32_t VBUSVALID_SEL : 1;
+    /// read-write - Selects the source of the VBUS_VALID signal reported to the USB controller
     uint32_t VBUS_SOURCE_SEL : 2;
+    /// read-write - TBA
     uint32_t ID_OVERRIDE_EN : 1;
+    /// read-write - TBA
     uint32_t ID_OVERRIDE : 1;
     uint32_t _reserved_0 : 5;
+    /// read-write - Selects the comparator used for VBUS_VALID
     uint32_t VBUSVALID_TO_SESSVALID : 1;
     uint32_t _reserved_1 : 1;
+    /// read-write - Enables the VBUS_VALID comparator
     uint32_t PWRUP_CMPS : 3;
     uint32_t _reserved_2 : 3;
+    /// read-write - Controls VBUS discharge resistor
     uint32_t DISCHARGE_VBUS : 1;
     uint32_t _reserved_3 : 4;
+    /// read-write - Enables resistors used for an older method of resistive battery charger detection
     uint32_t EN_CHARGER_RESISTOR : 1;
   } bits;
   
@@ -1208,10 +1550,15 @@ union USB1_VBUS_DET_STAT {
   
   // Bit field definition.
   struct {
+    /// read-only - Session End indicator
     eSESSEND SESSEND : 1;
+    /// read-only - B-Device Session Valid status
     eBVALID BVALID : 1;
+    /// read-only - A-Device Session Valid status
     eAVALID AVALID : 1;
+    /// read-only - VBUS voltage status
     eVBUS_VALID VBUS_VALID : 1;
+    /// read-only - VBUS_VALID_3V detector status
     eVBUS_VALID_3V VBUS_VALID_3V : 1;
     uint32_t _reserved_0 : 27;
   } bits;
@@ -1236,8 +1583,10 @@ union USB1_CHRG_DETECT {
   // Bit field definition.
   struct {
     uint32_t _reserved_0 : 2;
+    /// read-write - PULLUP_DP
     uint32_t PULLUP_DP : 1;
     uint32_t _reserved_1 : 20;
+    /// read-write - BGR_BIAS
     eBGR_BIAS BGR_BIAS : 1;
     uint32_t _reserved_2 : 8;
   } bits;
@@ -1257,8 +1606,10 @@ union USB1_CHRG_DETECT_SET {
   // Bit field definition.
   struct {
     uint32_t _reserved_0 : 2;
+    /// read-write - PULLUP_DP
     uint32_t PULLUP_DP : 1;
     uint32_t _reserved_1 : 20;
+    /// read-write - BGR_BIAS
     uint32_t BGR_BIAS : 1;
     uint32_t _reserved_2 : 8;
   } bits;
@@ -1278,8 +1629,10 @@ union USB1_CHRG_DETECT_CLR {
   // Bit field definition.
   struct {
     uint32_t _reserved_0 : 2;
+    /// read-write - PULLUP_DP
     uint32_t PULLUP_DP : 1;
     uint32_t _reserved_1 : 20;
+    /// read-write - BGR_BIAS
     uint32_t BGR_BIAS : 1;
     uint32_t _reserved_2 : 8;
   } bits;
@@ -1299,8 +1652,10 @@ union USB1_CHRG_DETECT_TOG {
   // Bit field definition.
   struct {
     uint32_t _reserved_0 : 2;
+    /// read-write - PULLUP_DP
     uint32_t PULLUP_DP : 1;
     uint32_t _reserved_1 : 20;
+    /// read-write - BGR_BIAS
     uint32_t BGR_BIAS : 1;
     uint32_t _reserved_2 : 8;
   } bits;
@@ -1344,10 +1699,15 @@ union USB1_CHRG_DET_STAT {
   
   // Bit field definition.
   struct {
+    /// read-only - Battery Charging Data Contact Detection phase output
     ePLUG_CONTACT PLUG_CONTACT : 1;
+    /// read-only - Battery Charging Primary Detection phase output
     eCHRG_DETECTED CHRG_DETECTED : 1;
+    /// read-only - DN_STATE
     eDN_STATE DN_STATE : 1;
+    /// read-only - DP_STATE
     eDP_STATE DP_STATE : 1;
+    /// read-only - Battery Charging Secondary Detection phase output
     eSECDET_DCP SECDET_DCP : 1;
     uint32_t _reserved_0 : 27;
   } bits;
@@ -1372,6 +1732,7 @@ union ANACTRL {
   // Bit field definition.
   struct {
     uint32_t _reserved_0 : 10;
+    /// read-write - DEV_PULLDOWN
     eDEV_PULLDOWN DEV_PULLDOWN : 1;
     uint32_t _reserved_1 : 21;
   } bits;
@@ -1391,6 +1752,7 @@ union ANACTRL_SET {
   // Bit field definition.
   struct {
     uint32_t _reserved_0 : 10;
+    /// read-write - DEV_PULLDOWN
     uint32_t DEV_PULLDOWN : 1;
     uint32_t _reserved_1 : 21;
   } bits;
@@ -1410,6 +1772,7 @@ union ANACTRL_CLR {
   // Bit field definition.
   struct {
     uint32_t _reserved_0 : 10;
+    /// read-write - DEV_PULLDOWN
     uint32_t DEV_PULLDOWN : 1;
     uint32_t _reserved_1 : 21;
   } bits;
@@ -1429,6 +1792,7 @@ union ANACTRL_TOG {
   // Bit field definition.
   struct {
     uint32_t _reserved_0 : 10;
+    /// read-write - DEV_PULLDOWN
     uint32_t DEV_PULLDOWN : 1;
     uint32_t _reserved_1 : 21;
   } bits;
@@ -1447,17 +1811,28 @@ union USB1_LOOPBACK {
   
   // Bit field definition.
   struct {
+    /// read-write - UTMI_TESTSTART
     uint32_t UTMI_TESTSTART : 1;
+    /// read-write - UTMI_DIG_TST0
     uint32_t UTMI_DIG_TST0 : 1;
+    /// read-write - UTMI_DIG_TST1
     uint32_t UTMI_DIG_TST1 : 1;
+    /// read-write - TSTI_TX_HS_MODE
     uint32_t TSTI_TX_HS_MODE : 1;
+    /// read-write - TSTI_TX_LS_MODE
     uint32_t TSTI_TX_LS_MODE : 1;
+    /// read-write - TSTI_TX_EN
     uint32_t TSTI_TX_EN : 1;
+    /// read-write - TSTI_TX_HIZ
     uint32_t TSTI_TX_HIZ : 1;
+    /// read-only - UTMO_DIG_TST0
     uint32_t UTMO_DIG_TST0 : 1;
+    /// read-only - UTMO_DIG_TST1
     uint32_t UTMO_DIG_TST1 : 1;
     uint32_t _reserved_0 : 6;
+    /// read-write - TSTI_HSFS_MODE_EN
     uint32_t TSTI_HSFS_MODE_EN : 1;
+    /// read-write - TSTPKT
     uint32_t TSTPKT : 8;
     uint32_t _reserved_1 : 8;
   } bits;
@@ -1476,17 +1851,28 @@ union USB1_LOOPBACK_SET {
   
   // Bit field definition.
   struct {
+    /// read-write - UTMI_TESTSTART
     uint32_t UTMI_TESTSTART : 1;
+    /// read-write - UTMI_DIG_TST0
     uint32_t UTMI_DIG_TST0 : 1;
+    /// read-write - UTMI_DIG_TST1
     uint32_t UTMI_DIG_TST1 : 1;
+    /// read-write - TSTI_TX_HS_MODE
     uint32_t TSTI_TX_HS_MODE : 1;
+    /// read-write - TSTI_TX_LS_MODE
     uint32_t TSTI_TX_LS_MODE : 1;
+    /// read-write - TSTI_TX_EN
     uint32_t TSTI_TX_EN : 1;
+    /// read-write - TSTI_TX_HIZ
     uint32_t TSTI_TX_HIZ : 1;
+    /// read-only - UTMO_DIG_TST0
     uint32_t UTMO_DIG_TST0 : 1;
+    /// read-only - UTMO_DIG_TST1
     uint32_t UTMO_DIG_TST1 : 1;
     uint32_t _reserved_0 : 6;
+    /// read-write - TSTI_HSFS_MODE_EN
     uint32_t TSTI_HSFS_MODE_EN : 1;
+    /// read-write - TSTPKT
     uint32_t TSTPKT : 8;
     uint32_t _reserved_1 : 8;
   } bits;
@@ -1505,17 +1891,28 @@ union USB1_LOOPBACK_CLR {
   
   // Bit field definition.
   struct {
+    /// read-write - UTMI_TESTSTART
     uint32_t UTMI_TESTSTART : 1;
+    /// read-write - UTMI_DIG_TST0
     uint32_t UTMI_DIG_TST0 : 1;
+    /// read-write - UTMI_DIG_TST1
     uint32_t UTMI_DIG_TST1 : 1;
+    /// read-write - TSTI_TX_HS_MODE
     uint32_t TSTI_TX_HS_MODE : 1;
+    /// read-write - TSTI_TX_LS_MODE
     uint32_t TSTI_TX_LS_MODE : 1;
+    /// read-write - TSTI_TX_EN
     uint32_t TSTI_TX_EN : 1;
+    /// read-write - TSTI_TX_HIZ
     uint32_t TSTI_TX_HIZ : 1;
+    /// read-only - UTMO_DIG_TST0
     uint32_t UTMO_DIG_TST0 : 1;
+    /// read-only - UTMO_DIG_TST1
     uint32_t UTMO_DIG_TST1 : 1;
     uint32_t _reserved_0 : 6;
+    /// read-write - TSTI_HSFS_MODE_EN
     uint32_t TSTI_HSFS_MODE_EN : 1;
+    /// read-write - TSTPKT
     uint32_t TSTPKT : 8;
     uint32_t _reserved_1 : 8;
   } bits;
@@ -1534,17 +1931,28 @@ union USB1_LOOPBACK_TOG {
   
   // Bit field definition.
   struct {
+    /// read-write - UTMI_TESTSTART
     uint32_t UTMI_TESTSTART : 1;
+    /// read-write - UTMI_DIG_TST0
     uint32_t UTMI_DIG_TST0 : 1;
+    /// read-write - UTMI_DIG_TST1
     uint32_t UTMI_DIG_TST1 : 1;
+    /// read-write - TSTI_TX_HS_MODE
     uint32_t TSTI_TX_HS_MODE : 1;
+    /// read-write - TSTI_TX_LS_MODE
     uint32_t TSTI_TX_LS_MODE : 1;
+    /// read-write - TSTI_TX_EN
     uint32_t TSTI_TX_EN : 1;
+    /// read-write - TSTI_TX_HIZ
     uint32_t TSTI_TX_HIZ : 1;
+    /// read-only - UTMO_DIG_TST0
     uint32_t UTMO_DIG_TST0 : 1;
+    /// read-only - UTMO_DIG_TST1
     uint32_t UTMO_DIG_TST1 : 1;
     uint32_t _reserved_0 : 6;
+    /// read-write - TSTI_HSFS_MODE_EN
     uint32_t TSTI_HSFS_MODE_EN : 1;
+    /// read-write - TSTPKT
     uint32_t TSTPKT : 8;
     uint32_t _reserved_1 : 8;
   } bits;
@@ -1563,7 +1971,9 @@ union USB1_LOOPBACK_HSFSCNT {
   
   // Bit field definition.
   struct {
+    /// read-write - TSTI_HS_NUMBER
     uint32_t TSTI_HS_NUMBER : 16;
+    /// read-write - TSTI_FS_NUMBER
     uint32_t TSTI_FS_NUMBER : 16;
   } bits;
   
@@ -1581,7 +1991,9 @@ union USB1_LOOPBACK_HSFSCNT_SET {
   
   // Bit field definition.
   struct {
+    /// read-write - TSTI_HS_NUMBER
     uint32_t TSTI_HS_NUMBER : 16;
+    /// read-write - TSTI_FS_NUMBER
     uint32_t TSTI_FS_NUMBER : 16;
   } bits;
   
@@ -1599,7 +2011,9 @@ union USB1_LOOPBACK_HSFSCNT_CLR {
   
   // Bit field definition.
   struct {
+    /// read-write - TSTI_HS_NUMBER
     uint32_t TSTI_HS_NUMBER : 16;
+    /// read-write - TSTI_FS_NUMBER
     uint32_t TSTI_FS_NUMBER : 16;
   } bits;
   
@@ -1617,7 +2031,9 @@ union USB1_LOOPBACK_HSFSCNT_TOG {
   
   // Bit field definition.
   struct {
+    /// read-write - TSTI_HS_NUMBER
     uint32_t TSTI_HS_NUMBER : 16;
+    /// read-write - TSTI_FS_NUMBER
     uint32_t TSTI_FS_NUMBER : 16;
   } bits;
   
@@ -1635,20 +2051,34 @@ union TRIM_OVERRIDE_EN {
   
   // Bit field definition.
   struct {
+    /// read-write - TRIM_DIV_SEL_OVERRIDE
     uint32_t TRIM_DIV_SEL_OVERRIDE : 1;
+    /// read-write - TRIM_ENV_TAIL_ADJ_VD_OVERRIDE
     uint32_t TRIM_ENV_TAIL_ADJ_VD_OVERRIDE : 1;
+    /// read-write - TRIM_TX_D_CAL_OVERRIDE
     uint32_t TRIM_TX_D_CAL_OVERRIDE : 1;
+    /// read-write - TRIM_TX_CAL45DP_OVERRIDE
     uint32_t TRIM_TX_CAL45DP_OVERRIDE : 1;
+    /// read-write - TRIM_TX_CAL45DN_OVERRIDE
     uint32_t TRIM_TX_CAL45DN_OVERRIDE : 1;
+    /// read-write - Override enable for bandgap adjustment.
     uint32_t TRIM_REFBIAS_VBGADJ_OVERRIDE : 1;
+    /// read-write - Override enable for bias current control
     uint32_t TRIM_REFBIAS_TST_OVERRIDE : 1;
     uint32_t _reserved_0 : 3;
+    /// read-only - TRIM_USB2_REFBIAS_VBGADJ
     uint32_t TRIM_USB2_REFBIAS_VBGADJ : 3;
+    /// read-only - TRIM_USB2_REFBIAS_TST
     uint32_t TRIM_USB2_REFBIAS_TST : 2;
+    /// read-only - TRIM_PLL_CTRL0_DIV_SEL
     uint32_t TRIM_PLL_CTRL0_DIV_SEL : 3;
+    /// read-only - TRIM_USB_REG_ENV_TAIL_ADJ_VD
     uint32_t TRIM_USB_REG_ENV_TAIL_ADJ_VD : 2;
+    /// read-only - TRIM_USBPHY_TX_D_CAL
     uint32_t TRIM_USBPHY_TX_D_CAL : 4;
+    /// read-only - TRIM_USBPHY_TX_CAL45DP
     uint32_t TRIM_USBPHY_TX_CAL45DP : 4;
+    /// read-only - TRIM_USBPHY_TX_CAL45DN
     uint32_t TRIM_USBPHY_TX_CAL45DN : 4;
   } bits;
   
@@ -1666,20 +2096,34 @@ union TRIM_OVERRIDE_EN_SET {
   
   // Bit field definition.
   struct {
+    /// read-write - TRIM_DIV_SEL_OVERRIDE
     uint32_t TRIM_DIV_SEL_OVERRIDE : 1;
+    /// read-write - TRIM_ENV_TAIL_ADJ_VD_OVERRIDE
     uint32_t TRIM_ENV_TAIL_ADJ_VD_OVERRIDE : 1;
+    /// read-write - TRIM_TX_D_CAL_OVERRIDE
     uint32_t TRIM_TX_D_CAL_OVERRIDE : 1;
+    /// read-write - TRIM_TX_CAL45DP_OVERRIDE
     uint32_t TRIM_TX_CAL45DP_OVERRIDE : 1;
+    /// read-write - TRIM_TX_CAL45DN_OVERRIDE
     uint32_t TRIM_TX_CAL45DN_OVERRIDE : 1;
+    /// read-write - Override enable for bandgap adjustment.
     uint32_t TRIM_REFBIAS_VBGADJ_OVERRIDE : 1;
+    /// read-write - Override enable for bias current control
     uint32_t TRIM_REFBIAS_TST_OVERRIDE : 1;
     uint32_t _reserved_0 : 3;
+    /// read-only - TRIM_USB2_REFBIAS_VBGADJ
     uint32_t TRIM_USB2_REFBIAS_VBGADJ : 3;
+    /// read-only - TRIM_USB2_REFBIAS_TST
     uint32_t TRIM_USB2_REFBIAS_TST : 2;
+    /// read-only - TRIM_PLL_CTRL0_DIV_SEL
     uint32_t TRIM_PLL_CTRL0_DIV_SEL : 3;
+    /// read-only - TRIM_USB_REG_ENV_TAIL_ADJ_VD
     uint32_t TRIM_USB_REG_ENV_TAIL_ADJ_VD : 2;
+    /// read-only - TRIM_USBPHY_TX_D_CAL
     uint32_t TRIM_USBPHY_TX_D_CAL : 4;
+    /// read-only - TRIM_USBPHY_TX_CAL45DP
     uint32_t TRIM_USBPHY_TX_CAL45DP : 4;
+    /// read-only - TRIM_USBPHY_TX_CAL45DN
     uint32_t TRIM_USBPHY_TX_CAL45DN : 4;
   } bits;
   
@@ -1697,20 +2141,34 @@ union TRIM_OVERRIDE_EN_CLR {
   
   // Bit field definition.
   struct {
+    /// read-write - TRIM_DIV_SEL_OVERRIDE
     uint32_t TRIM_DIV_SEL_OVERRIDE : 1;
+    /// read-write - TRIM_ENV_TAIL_ADJ_VD_OVERRIDE
     uint32_t TRIM_ENV_TAIL_ADJ_VD_OVERRIDE : 1;
+    /// read-write - TRIM_TX_D_CAL_OVERRIDE
     uint32_t TRIM_TX_D_CAL_OVERRIDE : 1;
+    /// read-write - TRIM_TX_CAL45DP_OVERRIDE
     uint32_t TRIM_TX_CAL45DP_OVERRIDE : 1;
+    /// read-write - TRIM_TX_CAL45DN_OVERRIDE
     uint32_t TRIM_TX_CAL45DN_OVERRIDE : 1;
+    /// read-write - Override enable for bandgap adjustment.
     uint32_t TRIM_REFBIAS_VBGADJ_OVERRIDE : 1;
+    /// read-write - Override enable for bias current control
     uint32_t TRIM_REFBIAS_TST_OVERRIDE : 1;
     uint32_t _reserved_0 : 3;
+    /// read-only - TRIM_USB2_REFBIAS_VBGADJ
     uint32_t TRIM_USB2_REFBIAS_VBGADJ : 3;
+    /// read-only - TRIM_USB2_REFBIAS_TST
     uint32_t TRIM_USB2_REFBIAS_TST : 2;
+    /// read-only - TRIM_PLL_CTRL0_DIV_SEL
     uint32_t TRIM_PLL_CTRL0_DIV_SEL : 3;
+    /// read-only - TRIM_USB_REG_ENV_TAIL_ADJ_VD
     uint32_t TRIM_USB_REG_ENV_TAIL_ADJ_VD : 2;
+    /// read-only - TRIM_USBPHY_TX_D_CAL
     uint32_t TRIM_USBPHY_TX_D_CAL : 4;
+    /// read-only - TRIM_USBPHY_TX_CAL45DP
     uint32_t TRIM_USBPHY_TX_CAL45DP : 4;
+    /// read-only - TRIM_USBPHY_TX_CAL45DN
     uint32_t TRIM_USBPHY_TX_CAL45DN : 4;
   } bits;
   
@@ -1728,20 +2186,34 @@ union TRIM_OVERRIDE_EN_TOG {
   
   // Bit field definition.
   struct {
+    /// read-write - TRIM_DIV_SEL_OVERRIDE
     uint32_t TRIM_DIV_SEL_OVERRIDE : 1;
+    /// read-write - TRIM_ENV_TAIL_ADJ_VD_OVERRIDE
     uint32_t TRIM_ENV_TAIL_ADJ_VD_OVERRIDE : 1;
+    /// read-write - TRIM_TX_D_CAL_OVERRIDE
     uint32_t TRIM_TX_D_CAL_OVERRIDE : 1;
+    /// read-write - TRIM_TX_CAL45DP_OVERRIDE
     uint32_t TRIM_TX_CAL45DP_OVERRIDE : 1;
+    /// read-write - TRIM_TX_CAL45DN_OVERRIDE
     uint32_t TRIM_TX_CAL45DN_OVERRIDE : 1;
+    /// read-write - Override enable for bandgap adjustment.
     uint32_t TRIM_REFBIAS_VBGADJ_OVERRIDE : 1;
+    /// read-write - Override enable for bias current control
     uint32_t TRIM_REFBIAS_TST_OVERRIDE : 1;
     uint32_t _reserved_0 : 3;
+    /// read-only - TRIM_USB2_REFBIAS_VBGADJ
     uint32_t TRIM_USB2_REFBIAS_VBGADJ : 3;
+    /// read-only - TRIM_USB2_REFBIAS_TST
     uint32_t TRIM_USB2_REFBIAS_TST : 2;
+    /// read-only - TRIM_PLL_CTRL0_DIV_SEL
     uint32_t TRIM_PLL_CTRL0_DIV_SEL : 3;
+    /// read-only - TRIM_USB_REG_ENV_TAIL_ADJ_VD
     uint32_t TRIM_USB_REG_ENV_TAIL_ADJ_VD : 2;
+    /// read-only - TRIM_USBPHY_TX_D_CAL
     uint32_t TRIM_USBPHY_TX_D_CAL : 4;
+    /// read-only - TRIM_USBPHY_TX_CAL45DP
     uint32_t TRIM_USBPHY_TX_CAL45DP : 4;
+    /// read-only - TRIM_USBPHY_TX_CAL45DN
     uint32_t TRIM_USBPHY_TX_CAL45DN : 4;
   } bits;
   

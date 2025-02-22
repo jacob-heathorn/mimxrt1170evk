@@ -17,6 +17,7 @@ union TR0 {
   
   // Bit field definition.
   struct {
+    /// read-write - TR0
     uint32_t DATA : 32;
   } bits;
   
@@ -34,6 +35,7 @@ union TR1 {
   
   // Bit field definition.
   struct {
+    /// read-write - TR1
     uint32_t DATA : 32;
   } bits;
   
@@ -51,6 +53,7 @@ union TR2 {
   
   // Bit field definition.
   struct {
+    /// read-write - TR2
     uint32_t DATA : 32;
   } bits;
   
@@ -68,6 +71,7 @@ union TR3 {
   
   // Bit field definition.
   struct {
+    /// read-write - TR3
     uint32_t DATA : 32;
   } bits;
   
@@ -85,6 +89,7 @@ union RR0 {
   
   // Bit field definition.
   struct {
+    /// read-only - RR0
     uint32_t DATA : 32;
   } bits;
   
@@ -102,6 +107,7 @@ union RR1 {
   
   // Bit field definition.
   struct {
+    /// read-only - RR1
     uint32_t DATA : 32;
   } bits;
   
@@ -119,6 +125,7 @@ union RR2 {
   
   // Bit field definition.
   struct {
+    /// read-only - RR2
     uint32_t DATA : 32;
   } bits;
   
@@ -136,6 +143,7 @@ union RR3 {
   
   // Bit field definition.
   struct {
+    /// read-only - RR3
     uint32_t DATA : 32;
   } bits;
   
@@ -188,15 +196,22 @@ union SR {
   
   // Bit field definition.
   struct {
+    /// read-only - Fn
     eFn Fn : 3;
     uint32_t _reserved_0 : 1;
+    /// read-only - EP
     eEP EP : 1;
     uint32_t _reserved_1 : 2;
+    /// read-only - RS
     eRS RS : 1;
+    /// read-only - FUP
     eFUP FUP : 1;
     uint32_t _reserved_2 : 11;
+    /// read-only - TEn
     eTEn TEn : 4;
+    /// read-only - RFn
     eRFn RFn : 4;
+    /// read-write - GIPn
     eGIPn GIPn : 4;
   } bits;
   
@@ -244,13 +259,19 @@ union CR {
   
   // Bit field definition.
   struct {
+    /// read-write - Fn
     eFn Fn : 3;
     uint32_t _reserved_0 : 2;
+    /// read-write - MUR
     eMUR MUR : 1;
     uint32_t _reserved_1 : 10;
+    /// read-write - GIRn
     eGIRn GIRn : 4;
+    /// read-write - TIEn
     eTIEn TIEn : 4;
+    /// read-write - RIEn
     eRIEn RIEn : 4;
+    /// read-write - GIEn
     eGIEn GIEn : 4;
   } bits;
   

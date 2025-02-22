@@ -17,14 +17,20 @@ union PPC_AUTHEN_CTRL {
   
   // Bit field definition.
   struct {
+    /// read-write - Allow user mode access
     uint32_t USER : 1;
+    /// read-write - Allow non-secure mode access
     uint32_t NONSECURE : 1;
     uint32_t _reserved_0 : 2;
+    /// read-write - Lock NONSECURE and USER
     uint32_t LOCK_SETTING : 1;
     uint32_t _reserved_1 : 3;
+    /// read-write - Domain ID white list
     uint32_t WHITE_LIST : 4;
+    /// read-write - White list lock
     uint32_t LOCK_LIST : 1;
     uint32_t _reserved_2 : 7;
+    /// read-write - Configuration lock
     uint32_t LOCK_CFG : 1;
     uint32_t _reserved_3 : 11;
   } bits;
@@ -56,8 +62,10 @@ union PPC_MODE {
   
   // Bit field definition.
   struct {
+    /// read-write - Control mode. This field is locked by AUTHEN_CTRL[LOCK_CFG] field.
     eCTRL_MODE CTRL_MODE : 2;
     uint32_t _reserved_0 : 2;
+    /// read-write - Domain assignment of the BPC
     eDOMAIN_ASSIGN DOMAIN_ASSIGN : 2;
     uint32_t _reserved_1 : 26;
   } bits;
@@ -77,11 +85,16 @@ union PPC_STBY_CM_CTRL {
   // Bit field definition.
   struct {
     uint32_t _reserved_0 : 1;
+    /// read-write - PMIC Standby on when domain enters WAIT mode. This field is locked by AUTHEN_CTRL[LOCK_CFG] field.
     uint32_t STBY_ON_AT_WAIT : 1;
+    /// read-write - PMIC Standby on when domain enters STOP mode. This field is locked by AUTHEN_CTRL[LOCK_CFG] field.
     uint32_t STBY_ON_AT_STOP : 1;
+    /// read-write - PMIC Standby on when domain enters SUSPEND mode. This field is locked by AUTHEN_CTRL[LOCK_CFG] field.
     uint32_t STBY_ON_AT_SUSPEND : 1;
     uint32_t _reserved_1 : 4;
+    /// read-write - Software PMIC standby on trigger
     uint32_t STBY_ON_SOFT : 1;
+    /// read-write - Software PMIC standby off trigger
     uint32_t STBY_OFF_SOFT : 1;
     uint32_t _reserved_2 : 22;
   } bits;
@@ -100,7 +113,9 @@ union PPC_STBY_SP_CTRL {
   
   // Bit field definition.
   struct {
+    /// read-write - PMIC standby on when system enters Setpoint number. This field is locked by AUTHEN_CTRL[LOCK_CFG] field.
     uint32_t STBY_ON_AT_SP_ACTIVE : 16;
+    /// read-write - PMIC standby on when system enters Setpoint number and system is in standby mode. This field is locked by AUTHEN_CTRL[LOCK_CFG] field.
     uint32_t STBY_ON_AT_SP_SLEEP : 16;
   } bits;
   

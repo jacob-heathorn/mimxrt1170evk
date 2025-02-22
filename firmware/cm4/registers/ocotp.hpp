@@ -311,12 +311,18 @@ union CTRL {
   
   // Bit field definition.
   struct {
+    /// read-write - OTP write and read access address register
     eADDR ADDR : 10;
+    /// read-only - OTP controller status bit
     eBUSY BUSY : 1;
+    /// read-write - Locked Region Access Error
     eERROR ERROR : 1;
+    /// read-write - Reload Shadow Registers
     eRELOAD_SHADOWS RELOAD_SHADOWS : 1;
     uint32_t _reserved_0 : 2;
+    /// read-write - Lock fuse word
     eWORDLOCK WORDLOCK : 1;
+    /// read-write - Write unlock
     eWR_UNLOCK WR_UNLOCK : 16;
   } bits;
   
@@ -334,12 +340,18 @@ union CTRL_SET {
   
   // Bit field definition.
   struct {
+    /// read-write - OTP write and read access address register
     uint32_t ADDR : 10;
+    /// read-only - OTP controller status bit
     uint32_t BUSY : 1;
+    /// read-write - Locked Region Access Error
     uint32_t ERROR : 1;
+    /// read-write - Reload Shadow Registers
     uint32_t RELOAD_SHADOWS : 1;
     uint32_t _reserved_0 : 2;
+    /// read-write - Lock fuse word
     uint32_t WORDLOCK : 1;
+    /// read-write - Write unlock
     uint32_t WR_UNLOCK : 16;
   } bits;
   
@@ -357,12 +369,18 @@ union CTRL_CLR {
   
   // Bit field definition.
   struct {
+    /// read-write - OTP write and read access address register
     uint32_t ADDR : 10;
+    /// read-only - OTP controller status bit
     uint32_t BUSY : 1;
+    /// read-write - Locked Region Access Error
     uint32_t ERROR : 1;
+    /// read-write - Reload Shadow Registers
     uint32_t RELOAD_SHADOWS : 1;
     uint32_t _reserved_0 : 2;
+    /// read-write - Lock fuse word
     uint32_t WORDLOCK : 1;
+    /// read-write - Write unlock
     uint32_t WR_UNLOCK : 16;
   } bits;
   
@@ -380,12 +398,18 @@ union CTRL_TOG {
   
   // Bit field definition.
   struct {
+    /// read-write - OTP write and read access address register
     uint32_t ADDR : 10;
+    /// read-only - OTP controller status bit
     uint32_t BUSY : 1;
+    /// read-write - Locked Region Access Error
     uint32_t ERROR : 1;
+    /// read-write - Reload Shadow Registers
     uint32_t RELOAD_SHADOWS : 1;
     uint32_t _reserved_0 : 2;
+    /// read-write - Lock fuse word
     uint32_t WORDLOCK : 1;
+    /// read-write - Write unlock
     uint32_t WR_UNLOCK : 16;
   } bits;
   
@@ -408,6 +432,7 @@ union PDN {
   
   // Bit field definition.
   struct {
+    /// read-write - PDN value
     ePDN PDN : 1;
     uint32_t _reserved_0 : 31;
   } bits;
@@ -426,6 +451,7 @@ union DATA {
   
   // Bit field definition.
   struct {
+    /// read-write - Data
     uint32_t DATA : 32;
   } bits;
   
@@ -465,9 +491,13 @@ union READ_CTRL {
   
   // Bit field definition.
   struct {
+    /// read-write - Read Fuse
     eREAD_FUSE READ_FUSE : 1;
+    /// read-write - Number of words to read.
     eREAD_FUSE_CNTR READ_FUSE_CNTR : 2;
+    /// read-write - Enable read-done interrupt
     eREAD_FUSE_DONE_INTR_ENA READ_FUSE_DONE_INTR_ENA : 1;
+    /// read-write - Enable read-error interrupt
     eREAD_FUSE_ERROR_INTR_ENA READ_FUSE_ERROR_INTR_ENA : 1;
     uint32_t _reserved_0 : 27;
   } bits;
@@ -492,21 +522,37 @@ union OUT_STATUS {
   // Bit field definition.
   struct {
     uint32_t _reserved_0 : 9;
+    /// read-write - Single Error Correct
     uint32_t SEC : 1;
+    /// read-write - Double error detect
     uint32_t DED : 1;
+    /// read-write - Word Locked
     uint32_t LOCKED : 1;
+    /// read-write - Programming failed
     uint32_t PROGFAIL : 1;
+    /// read-only - Acknowledge
     uint32_t ACK : 1;
+    /// read-only - Power OK
     uint32_t PWOK : 1;
+    /// read-only - Flag state
     uint32_t FLAGSTATE : 4;
+    /// read-write - Indicates single error correction occured on reload
     uint32_t SEC_RELOAD : 1;
+    /// read-write - Indicates double error detection occured on reload
     uint32_t DED_RELOAD : 1;
+    /// read-only - Calibrated status
     uint32_t CALIBRATED : 1;
+    /// read-write - Read fuse done
     uint32_t READ_DONE_INTR : 1;
+    /// read-write - Fuse read error
     eREAD_ERROR_INTR READ_ERROR_INTR : 1;
+    /// read-write - Double error detect
     uint32_t DED0 : 1;
+    /// read-write - Double error detect
     uint32_t DED1 : 1;
+    /// read-write - Double error detect
     uint32_t DED2 : 1;
+    /// read-write - Double error detect
     uint32_t DED3 : 1;
     uint32_t _reserved_1 : 4;
   } bits;
@@ -526,21 +572,37 @@ union OUT_STATUS_SET {
   // Bit field definition.
   struct {
     uint32_t _reserved_0 : 9;
+    /// read-write - Single Error Correct
     uint32_t SEC : 1;
+    /// read-write - Double error detect
     uint32_t DED : 1;
+    /// read-write - Word Locked
     uint32_t LOCKED : 1;
+    /// read-write - Programming failed
     uint32_t PROGFAIL : 1;
+    /// read-only - Acknowledge
     uint32_t ACK : 1;
+    /// read-only - Power OK
     uint32_t PWOK : 1;
+    /// read-only - Flag state
     uint32_t FLAGSTATE : 4;
+    /// read-write - Indicates single error correction occured on reload
     uint32_t SEC_RELOAD : 1;
+    /// read-write - Indicates double error detection occured on reload
     uint32_t DED_RELOAD : 1;
+    /// read-only - Calibrated status
     uint32_t CALIBRATED : 1;
+    /// read-write - Read fuse done
     uint32_t READ_DONE_INTR : 1;
+    /// read-write - Fuse read error
     uint32_t READ_ERROR_INTR : 1;
+    /// read-write - Double error detect
     uint32_t DED0 : 1;
+    /// read-write - Double error detect
     uint32_t DED1 : 1;
+    /// read-write - Double error detect
     uint32_t DED2 : 1;
+    /// read-write - Double error detect
     uint32_t DED3 : 1;
     uint32_t _reserved_1 : 4;
   } bits;
@@ -560,21 +622,37 @@ union OUT_STATUS_CLR {
   // Bit field definition.
   struct {
     uint32_t _reserved_0 : 9;
+    /// read-write - Single Error Correct
     uint32_t SEC : 1;
+    /// read-write - Double error detect
     uint32_t DED : 1;
+    /// read-write - Word Locked
     uint32_t LOCKED : 1;
+    /// read-write - Programming failed
     uint32_t PROGFAIL : 1;
+    /// read-only - Acknowledge
     uint32_t ACK : 1;
+    /// read-only - Power OK
     uint32_t PWOK : 1;
+    /// read-only - Flag state
     uint32_t FLAGSTATE : 4;
+    /// read-write - Indicates single error correction occured on reload
     uint32_t SEC_RELOAD : 1;
+    /// read-write - Indicates double error detection occured on reload
     uint32_t DED_RELOAD : 1;
+    /// read-only - Calibrated status
     uint32_t CALIBRATED : 1;
+    /// read-write - Read fuse done
     uint32_t READ_DONE_INTR : 1;
+    /// read-write - Fuse read error
     uint32_t READ_ERROR_INTR : 1;
+    /// read-write - Double error detect
     uint32_t DED0 : 1;
+    /// read-write - Double error detect
     uint32_t DED1 : 1;
+    /// read-write - Double error detect
     uint32_t DED2 : 1;
+    /// read-write - Double error detect
     uint32_t DED3 : 1;
     uint32_t _reserved_1 : 4;
   } bits;
@@ -594,21 +672,37 @@ union OUT_STATUS_TOG {
   // Bit field definition.
   struct {
     uint32_t _reserved_0 : 9;
+    /// read-write - Single Error Correct
     uint32_t SEC : 1;
+    /// read-write - Double error detect
     uint32_t DED : 1;
+    /// read-write - Word Locked
     uint32_t LOCKED : 1;
+    /// read-write - Programming failed
     uint32_t PROGFAIL : 1;
+    /// read-only - Acknowledge
     uint32_t ACK : 1;
+    /// read-only - Power OK
     uint32_t PWOK : 1;
+    /// read-only - Flag state
     uint32_t FLAGSTATE : 4;
+    /// read-write - Indicates single error correction occured on reload
     uint32_t SEC_RELOAD : 1;
+    /// read-write - Indicates double error detection occured on reload
     uint32_t DED_RELOAD : 1;
+    /// read-only - Calibrated status
     uint32_t CALIBRATED : 1;
+    /// read-write - Read fuse done
     uint32_t READ_DONE_INTR : 1;
+    /// read-write - Fuse read error
     uint32_t READ_ERROR_INTR : 1;
+    /// read-write - Double error detect
     uint32_t DED0 : 1;
+    /// read-write - Double error detect
     uint32_t DED1 : 1;
+    /// read-write - Double error detect
     uint32_t DED2 : 1;
+    /// read-write - Double error detect
     uint32_t DED3 : 1;
     uint32_t _reserved_1 : 4;
   } bits;
@@ -627,8 +721,11 @@ union VERSION {
   
   // Bit field definition.
   struct {
+    /// read-only - RTL Version Stepping
     uint32_t STEP : 16;
+    /// read-only - Minor RTL Version
     uint32_t MINOR : 8;
+    /// read-only - Major RTL Version
     uint32_t MAJOR : 8;
   } bits;
   
@@ -646,6 +743,7 @@ union READ_FUSE_DATA0 {
   
   // Bit field definition.
   struct {
+    /// read-write - Data
     uint32_t DATA : 32;
   } bits;
   
@@ -663,6 +761,7 @@ union READ_FUSE_DATA1 {
   
   // Bit field definition.
   struct {
+    /// read-write - Data
     uint32_t DATA : 32;
   } bits;
   
@@ -680,6 +779,7 @@ union READ_FUSE_DATA2 {
   
   // Bit field definition.
   struct {
+    /// read-write - Data
     uint32_t DATA : 32;
   } bits;
   
@@ -697,6 +797,7 @@ union READ_FUSE_DATA3 {
   
   // Bit field definition.
   struct {
+    /// read-write - Data
     uint32_t DATA : 32;
   } bits;
   
@@ -714,6 +815,7 @@ union SW_LOCK {
   
   // Bit field definition.
   struct {
+    /// read-write - This register contains lock information, which has the same function as the RLOCK fuse words (supplementary fuse words 8 (0x880) and 9 (0x890)) in fuse memory
     uint32_t SW_LOCK : 32;
   } bits;
   
@@ -731,6 +833,7 @@ union BIT_LOCK {
   
   // Bit field definition.
   struct {
+    /// read-write - Each bit controls the corresponding bit in supplementary fuse word 13 and its shadow register
     uint32_t BIT_LOCK : 32;
   } bits;
   
@@ -748,6 +851,7 @@ union LOCKED0 {
   
   // Bit field definition.
   struct {
+    /// read-only - Stores program locked status for fuse words 0-15.
     uint32_t LOCKED : 16;
     uint32_t _reserved_0 : 16;
   } bits;
@@ -766,6 +870,7 @@ union LOCKED1 {
   
   // Bit field definition.
   struct {
+    /// read-only - Stores program locked status for fuse words 16-47
     uint32_t LOCKED : 32;
   } bits;
   

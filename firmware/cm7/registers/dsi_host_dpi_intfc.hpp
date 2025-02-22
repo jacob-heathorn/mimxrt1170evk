@@ -17,6 +17,7 @@ union PIXEL_PAYLOAD_SIZE {
   
   // Bit field definition.
   struct {
+    /// read-write - Maximum number of pixels that should be sent as one DSI packet. Recommended to be evenly divisible by the line size (in pixels).
     uint32_t PAYLOAD_SIZE : 16;
     uint32_t _reserved_0 : 16;
   } bits;
@@ -35,6 +36,7 @@ union PIXEL_FIFO_SEND_LEVEL {
   
   // Bit field definition.
   struct {
+    /// read-write - In order to optimize DSI utility, the DPI bridge buffers a certain number of DPI pixels before initiating a DSI packet. This configuration port controls the level at which the DPI Host bridge begins sending pixels.
     uint32_t FIFO_SEND_LEVEL : 16;
     uint32_t _reserved_0 : 16;
   } bits;
@@ -62,6 +64,7 @@ union INTERFACE_COLOR_CODING {
   
   // Bit field definition.
   struct {
+    /// read-write - Sets the distribution of RGB bits within the 24-bit d bus, as specified by the DPI specification.
     eRGB_CONFIG RGB_CONFIG : 3;
     uint32_t _reserved_0 : 29;
   } bits;
@@ -87,6 +90,7 @@ union PIXEL_FORMAT {
   
   // Bit field definition.
   struct {
+    /// read-write - Sets the DSI packet type of the pixels
     ePIXEL_FORMAT PIXEL_FORMAT : 2;
     uint32_t _reserved_0 : 30;
   } bits;
@@ -110,6 +114,7 @@ union VSYNC_POLARITY {
   
   // Bit field definition.
   struct {
+    /// read-write - Sets polarity of dpi_vsync_input
     eVSYNC_POLARITY VSYNC_POLARITY : 1;
     uint32_t _reserved_0 : 31;
   } bits;
@@ -133,6 +138,7 @@ union HSYNC_POLARITY {
   
   // Bit field definition.
   struct {
+    /// read-write - Sets polarity of dpi_hsync_input
     eHSYNC_POLARITY HSYNC_POLARITY : 1;
     uint32_t _reserved_0 : 31;
   } bits;
@@ -157,6 +163,7 @@ union VIDEO_MODE {
   
   // Bit field definition.
   struct {
+    /// read-write - Select DSI video mode that the host DPI module should generate packets for.
     eVIDEO_MODE VIDEO_MODE : 2;
     uint32_t _reserved_0 : 30;
   } bits;
@@ -175,6 +182,7 @@ union HFP {
   
   // Bit field definition.
   struct {
+    /// read-write - Sets the DSI packet payload size, in bytes, of the horizontal front porch blanking packet.
     uint32_t PAYLOAD_SIZE : 16;
     uint32_t _reserved_0 : 16;
   } bits;
@@ -193,6 +201,7 @@ union HBP {
   
   // Bit field definition.
   struct {
+    /// read-write - Sets the DSI packet payload size, in bytes, of the horizontal back porch blanking packet.
     uint32_t PAYLOAD_SIZE : 16;
     uint32_t _reserved_0 : 16;
   } bits;
@@ -211,6 +220,7 @@ union HSA {
   
   // Bit field definition.
   struct {
+    /// read-write - Sets the DSI packet payload size, in bytes, of the horizontal sync width filler blanking packet.
     uint32_t PAYLOAD_SIZE : 16;
     uint32_t _reserved_0 : 16;
   } bits;
@@ -234,6 +244,7 @@ union ENABLE_MULT_PKTS {
   
   // Bit field definition.
   struct {
+    /// read-write - Enable Multiple packets per video line. When enabled, PIXEL_PAYLOAD_SIZE[PAYLOAD_SIZE] must be set to exactly half the size of the video line
     eENABLE_MULT_PKTS ENABLE_MULT_PKTS : 1;
     uint32_t _reserved_0 : 31;
   } bits;
@@ -252,6 +263,7 @@ union VBP {
   
   // Bit field definition.
   struct {
+    /// read-write - Sets the number of lines in the vertical back porch.
     uint32_t NUM_LINES : 8;
     uint32_t _reserved_0 : 24;
   } bits;
@@ -270,6 +282,7 @@ union VFP {
   
   // Bit field definition.
   struct {
+    /// read-write - Sets the number of lines in the vertical front porch.
     uint32_t NUM_LINES : 8;
     uint32_t _reserved_0 : 24;
   } bits;
@@ -293,6 +306,7 @@ union BLLP_MODE {
   
   // Bit field definition.
   struct {
+    /// read-write - Optimize bllp periods to Low Power mode when possible
     eLP LP : 1;
     uint32_t _reserved_0 : 31;
   } bits;
@@ -316,6 +330,7 @@ union USE_NULL_PKT_BLLP {
   
   // Bit field definition.
   struct {
+    /// read-write - Selects type of blanking packet to be sent during bllp
     eNULL NULL : 1;
     uint32_t _reserved_0 : 31;
   } bits;
@@ -334,6 +349,7 @@ union VACTIVE {
   
   // Bit field definition.
   struct {
+    /// read-write - Sets the number of lines in the vertical active aread.
     uint32_t NUM_LINES : 14;
     uint32_t _reserved_0 : 18;
   } bits;

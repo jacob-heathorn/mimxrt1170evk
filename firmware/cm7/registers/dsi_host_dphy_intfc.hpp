@@ -22,6 +22,7 @@ union PD_TX {
   
   // Bit field definition.
   struct {
+    /// read-write - Power Down input for D-PHY
     ePD_TX PD_TX : 1;
     uint32_t _reserved_0 : 31;
   } bits;
@@ -40,6 +41,7 @@ union M_PRG_HS_PREPARE {
   
   // Bit field definition.
   struct {
+    /// read-write - DPHY m_PRG_HS_PREPARE input
     uint32_t M_PRG_HS_PREPARE : 2;
     uint32_t _reserved_0 : 30;
   } bits;
@@ -58,6 +60,7 @@ union MC_PRG_HS_PREPARE {
   
   // Bit field definition.
   struct {
+    /// read-write - DPHY mc_PRG_HS_PREPARE input
     uint32_t MC_PRG_HS_PREPARE : 1;
     uint32_t _reserved_0 : 31;
   } bits;
@@ -76,6 +79,7 @@ union M_PRG_HS_ZERO {
   
   // Bit field definition.
   struct {
+    /// read-write - DPHY m_PRG_HS_ZERO input
     uint32_t M_PRG_HS_ZERO : 5;
     uint32_t _reserved_0 : 27;
   } bits;
@@ -94,6 +98,7 @@ union MC_PRG_HS_ZERO {
   
   // Bit field definition.
   struct {
+    /// read-write - DPHY mc_PRG_HS_ZERO input
     uint32_t MC_PRG_HS_ZERO : 6;
     uint32_t _reserved_0 : 26;
   } bits;
@@ -112,6 +117,7 @@ union M_PRG_HS_TRAIL {
   
   // Bit field definition.
   struct {
+    /// read-write - DPHY m_PRG_HS_TRAIL input
     uint32_t M_PRG_HS_TRAIL : 4;
     uint32_t _reserved_0 : 28;
   } bits;
@@ -130,6 +136,7 @@ union MC_PRG_HS_TRAIL {
   
   // Bit field definition.
   struct {
+    /// read-write - DPHY mc_PRG_HS_TRAIL input
     uint32_t MC_PRG_HS_TRAIL : 4;
     uint32_t _reserved_0 : 28;
   } bits;
@@ -153,6 +160,7 @@ union PD_PLL {
   
   // Bit field definition.
   struct {
+    /// read-write - Power-down signal
     ePD_PLL PD_PLL : 1;
     uint32_t _reserved_0 : 31;
   } bits;
@@ -171,6 +179,7 @@ union TST {
   
   // Bit field definition.
   struct {
+    /// read-write - Test
     uint32_t TST : 6;
     uint32_t _reserved_0 : 26;
   } bits;
@@ -189,6 +198,7 @@ union CN {
   
   // Bit field definition.
   struct {
+    /// read-write - Control N divider
     uint32_t CN : 5;
     uint32_t _reserved_0 : 27;
   } bits;
@@ -207,6 +217,7 @@ union CM {
   
   // Bit field definition.
   struct {
+    /// read-write - Control M divider
     uint32_t CM : 8;
     uint32_t _reserved_0 : 24;
   } bits;
@@ -232,6 +243,7 @@ union CO {
   
   // Bit field definition.
   struct {
+    /// read-write - Control O divider
     eCO CO : 2;
     uint32_t _reserved_0 : 30;
   } bits;
@@ -255,6 +267,7 @@ union LOCK {
   
   // Bit field definition.
   struct {
+    /// read-only - Lock Detect output
     eLOCK LOCK : 1;
     uint32_t _reserved_0 : 31;
   } bits;
@@ -278,6 +291,7 @@ union LOCK_BYP {
   
   // Bit field definition.
   struct {
+    /// read-write - DPHY LOCK_BYP input
     eLOCK_BYP LOCK_BYP : 1;
     uint32_t _reserved_0 : 31;
   } bits;
@@ -303,6 +317,7 @@ union TX_RCAL {
   
   // Bit field definition.
   struct {
+    /// read-write - On-chip termination control bits for manual calibration of HS-TX
     eTX_RCAL TX_RCAL : 2;
     uint32_t _reserved_0 : 30;
   } bits;
@@ -326,6 +341,7 @@ union AUTO_PD_EN {
   
   // Bit field definition.
   struct {
+    /// read-write - DPHY AUTO_PD_EN input
     eAUTO_PD_EN AUTO_PD_EN : 1;
     uint32_t _reserved_0 : 31;
   } bits;
@@ -344,6 +360,7 @@ union RXLPRP {
   
   // Bit field definition.
   struct {
+    /// read-write - DPHY RXLPRP input
     uint32_t RXLPRP : 2;
     uint32_t _reserved_0 : 30;
   } bits;
@@ -369,6 +386,7 @@ union RXCDRP {
   
   // Bit field definition.
   struct {
+    /// read-write - DPHY RXCDRP input
     eRXCDRP RXCDRP : 2;
     uint32_t _reserved_0 : 30;
   } bits;

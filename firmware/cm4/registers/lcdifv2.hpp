@@ -47,12 +47,18 @@ union CTRL {
   
   // Bit field definition.
   struct {
+    /// read-write - Invert Horizontal synchronization signal
     eINV_HS INV_HS : 1;
+    /// read-write - Invert Vertical synchronization signal
     eINV_VS INV_VS : 1;
+    /// read-write - Invert Data Enable polarity
     eINV_DE INV_DE : 1;
+    /// read-write - Polarity change of Pixel Clock
     eINV_PXCK INV_PXCK : 1;
+    /// read-write - Indicates if value at the output (pixel data output) needs to be negated
     eNEG NEG : 1;
     uint32_t _reserved_0 : 26;
+    /// read-write - Software Reset
     eSW_RESET SW_RESET : 1;
   } bits;
   
@@ -70,12 +76,18 @@ union CTRL_SET {
   
   // Bit field definition.
   struct {
+    /// read-write - Invert Horizontal synchronization signal
     uint32_t INV_HS : 1;
+    /// read-write - Invert Vertical synchronization signal
     uint32_t INV_VS : 1;
+    /// read-write - Invert Data Enable polarity
     uint32_t INV_DE : 1;
+    /// read-write - Polarity change of Pixel Clock
     uint32_t INV_PXCK : 1;
+    /// read-write - Indicates if value at the output (pixel data output) needs to be negated
     uint32_t NEG : 1;
     uint32_t _reserved_0 : 26;
+    /// read-write - Software Reset
     uint32_t SW_RESET : 1;
   } bits;
   
@@ -93,12 +105,18 @@ union CTRL_CLR {
   
   // Bit field definition.
   struct {
+    /// read-write - Invert Horizontal synchronization signal
     uint32_t INV_HS : 1;
+    /// read-write - Invert Vertical synchronization signal
     uint32_t INV_VS : 1;
+    /// read-write - Invert Data Enable polarity
     uint32_t INV_DE : 1;
+    /// read-write - Polarity change of Pixel Clock
     uint32_t INV_PXCK : 1;
+    /// read-write - Indicates if value at the output (pixel data output) needs to be negated
     uint32_t NEG : 1;
     uint32_t _reserved_0 : 26;
+    /// read-write - Software Reset
     uint32_t SW_RESET : 1;
   } bits;
   
@@ -116,12 +134,18 @@ union CTRL_TOG {
   
   // Bit field definition.
   struct {
+    /// read-write - Invert Horizontal synchronization signal
     uint32_t INV_HS : 1;
+    /// read-write - Invert Vertical synchronization signal
     uint32_t INV_VS : 1;
+    /// read-write - Invert Data Enable polarity
     uint32_t INV_DE : 1;
+    /// read-write - Polarity change of Pixel Clock
     uint32_t INV_PXCK : 1;
+    /// read-write - Indicates if value at the output (pixel data output) needs to be negated
     uint32_t NEG : 1;
     uint32_t _reserved_0 : 26;
+    /// read-write - Software Reset
     uint32_t SW_RESET : 1;
   } bits;
   
@@ -160,12 +184,18 @@ union DISP_PARA {
   
   // Bit field definition.
   struct {
+    /// read-write - Blue component of the default color displayed in the sectors where no layer is active
     uint32_t BGND_B : 8;
+    /// read-write - Green component of the default color displayed in the sectors where no layer is active
     uint32_t BGND_G : 8;
+    /// read-write - Red component of the default color displayed in the sectors where no layer is active
     uint32_t BGND_R : 8;
+    /// read-write - LCDIFv2 operating mode
     eDISP_MODE DISP_MODE : 2;
+    /// read-write - LCDIFv2 line output order
     eLINE_PATTERN LINE_PATTERN : 3;
     uint32_t _reserved_0 : 2;
+    /// read-write - Display panel On/Off mode
     eDISP_ON DISP_ON : 1;
   } bits;
   
@@ -183,8 +213,10 @@ union DISP_SIZE {
   
   // Bit field definition.
   struct {
+    /// read-write - Sets the display size horizontal resolution in pixels
     uint32_t DELTA_X : 12;
     uint32_t _reserved_0 : 4;
+    /// read-write - Sets the display size vertical resolution in pixels
     uint32_t DELTA_Y : 12;
     uint32_t _reserved_1 : 4;
   } bits;
@@ -203,10 +235,13 @@ union HSYN_PARA {
   
   // Bit field definition.
   struct {
+    /// read-write - HSYNC front-porch pulse width (in pixel clock cycles). Pulse width has a minimum value of 1
     uint32_t FP_H : 9;
     uint32_t _reserved_0 : 2;
+    /// read-write - HSYNC active pulse width (in pixel clock cycles). Pulse width has a minimum value of 1
     uint32_t PW_H : 9;
     uint32_t _reserved_1 : 2;
+    /// read-write - HSYNC back-porch pulse width (in pixel clock cycles). Pulse width has a minimum value of 1
     uint32_t BP_H : 9;
     uint32_t _reserved_2 : 1;
   } bits;
@@ -225,10 +260,13 @@ union VSYN_PARA {
   
   // Bit field definition.
   struct {
+    /// read-write - VSYNC front-porch pulse width (in horizontal line cycles). Pulse width has a minimum value of 1
     uint32_t FP_V : 9;
     uint32_t _reserved_0 : 2;
+    /// read-write - VSYNC active pulse width (in horizontal line cycles). Pulse width has a minimum value of 1
     uint32_t PW_V : 9;
     uint32_t _reserved_1 : 2;
+    /// read-write - VSYNC back-porch pulse width (in horizontal line cycles). Pulse width has a minimum value of 1
     uint32_t BP_V : 9;
     uint32_t _reserved_2 : 1;
   } bits;
@@ -262,12 +300,18 @@ union INT_STATUS_D0 {
   
   // Bit field definition.
   struct {
+    /// read-write - Interrupt flag to indicate that the vertical synchronization phase(The beginning of a frame)
     eVSYNC VSYNC : 1;
+    /// read-write - Interrupt flag to indicate the output buffer underrun condition
     eUNDERRUN UNDERRUN : 1;
+    /// read-write - Interrupt flag to indicate vertical blanking period
     eVS_BLANK VS_BLANK : 1;
     uint32_t _reserved_0 : 5;
+    /// read-write - Interrupt flag to indicate that which PLANE has Read Error on the AXI interface
     uint32_t DMA_ERR : 8;
+    /// read-write - Interrupt flag to indicate that which PLANE has fetched the last pixel from memory
     uint32_t DMA_DONE : 8;
+    /// read-write - Interrupt flag to indicate that which FIFO in the pixel blending underflowed
     uint32_t FIFO_EMPTY : 8;
   } bits;
   
@@ -300,12 +344,18 @@ union INT_ENABLE_D0 {
   
   // Bit field definition.
   struct {
+    /// read-write - Enable Interrupt flag to indicate that the vertical synchronization phase(The beginning of a frame)
     eVSYNC_EN VSYNC_EN : 1;
+    /// read-write - Enable Interrupt flag to indicate the output buffer underrun condition
     eUNDERRUN_EN UNDERRUN_EN : 1;
+    /// read-write - Enable Interrupt flag to indicate vertical blanking period
     eVS_BLANK_EN VS_BLANK_EN : 1;
     uint32_t _reserved_0 : 5;
+    /// read-write - Enable Interrupt flag to indicate that which PLANE has Read Error on the AXI interface
     uint32_t DMA_ERR_EN : 8;
+    /// read-write - Enable Interrupt flag to indicate that which PLANE has fetched the last pixel from memory
     uint32_t DMA_DONE_EN : 8;
+    /// read-write - Enable Interrupt flag to indicate that which FIFO in the pixel blending underflowed
     uint32_t FIFO_EMPTY_EN : 8;
   } bits;
   
@@ -323,12 +373,18 @@ union INT_STATUS_D1 {
   
   // Bit field definition.
   struct {
+    /// read-write - Interrupt flag to indicate that the vertical synchronization phase(The beginning of a frame)
     uint32_t VSYNC : 1;
+    /// read-write - Interrupt flag to indicate the output buffer underrun condition
     uint32_t UNDERRUN : 1;
+    /// read-write - Interrupt flag to indicate vertical blanking period
     uint32_t VS_BLANK : 1;
     uint32_t _reserved_0 : 5;
+    /// read-write - Interrupt flag to indicate that which PLANE has Read Error on the AXI interface
     uint32_t DMA_ERR : 8;
+    /// read-write - Interrupt flag to indicate that which PLANE has fetched the last pixel from memory
     uint32_t DMA_DONE : 8;
+    /// read-write - Interrupt flag to indicate that which FIFO in the pixel blending underflowed
     uint32_t FIFO_EMPTY : 8;
   } bits;
   
@@ -346,12 +402,18 @@ union INT_ENABLE_D1 {
   
   // Bit field definition.
   struct {
+    /// read-write - Enable Interrupt flag to indicate that the vertical synchronization phase(The beginning of a frame)
     uint32_t VSYNC_EN : 1;
+    /// read-write - Enable Interrupt flag to indicate the output buffer underrun condition
     uint32_t UNDERRUN_EN : 1;
+    /// read-write - Enable Interrupt flag to indicate vertical blanking period
     uint32_t VS_BLANK_EN : 1;
     uint32_t _reserved_0 : 5;
+    /// read-write - Enable Interrupt flag to indicate that which PLANE has Read Error on the AXI interface
     uint32_t DMA_ERR_EN : 8;
+    /// read-write - Enable Interrupt flag to indicate that which PLANE has fetched the last pixel from memory
     uint32_t DMA_DONE_EN : 8;
+    /// read-write - Enable Interrupt flag to indicate that which FIFO in the pixel blending underflowed
     uint32_t FIFO_EMPTY_EN : 8;
   } bits;
   
@@ -386,8 +448,10 @@ union CTRLDESCL0_1 {
   
   // Bit field definition.
   struct {
+    /// read-write - Width of the layer in pixels
     uint32_t WIDTH : 12;
     uint32_t _reserved_0 : 4;
+    /// read-write - Height of the layer in pixels
     uint32_t HEIGHT : 12;
     uint32_t _reserved_1 : 4;
   } bits;
@@ -406,8 +470,10 @@ union CTRLDESCL0_2 {
   
   // Bit field definition.
   struct {
+    /// read-write - POS X
     uint32_t POSX : 12;
     uint32_t _reserved_0 : 4;
+    /// read-write - The vertical position of top row of the layer, where 0 is the top row of the panel, only positive values are below the top row of the panel
     uint32_t POSY : 12;
     uint32_t _reserved_1 : 4;
   } bits;
@@ -426,6 +492,7 @@ union CTRLDESCL0_3 {
   
   // Bit field definition.
   struct {
+    /// read-write - Number of bytes between 2 vertically adjacent pixels in system memory. Byte granularity is supported, but SW should align to 64B boundry
     uint32_t PITCH : 16;
     uint32_t _reserved_0 : 16;
   } bits;
@@ -444,6 +511,7 @@ union CTRLDESCL0_4 {
   
   // Bit field definition.
   struct {
+    /// read-write - Address of layer data in the memory. The address programmed should be 64-bit aligned
     uint32_t ADDR : 32;
   } bits;
   
@@ -523,19 +591,30 @@ union CTRLDESCL0_5 {
   
   // Bit field definition.
   struct {
+    /// read-write - Alpha Blending Mode
     eAB_MODE AB_MODE : 2;
     uint32_t _reserved_0 : 2;
+    /// read-write - Porter Duff factor mode
     ePD_FACTOR_MODE PD_FACTOR_MODE : 2;
+    /// read-write - Porter Duff global alpha mode
     ePD_GLOBAL_ALPHA_MODE PD_GLOBAL_ALPHA_MODE : 2;
+    /// read-write - Porter Duff alpha mode
     ePD_ALPHA_MODE PD_ALPHA_MODE : 1;
+    /// read-write - Porter Duff alpha mode
     ePD_COLOR_MODE PD_COLOR_MODE : 1;
     uint32_t _reserved_1 : 4;
+    /// read-write - The YUV422 input format selection
     eYUV_FORMAT YUV_FORMAT : 2;
+    /// read-write - Global Alpha
     uint32_t GLOBAL_ALPHA : 8;
+    /// read-write - Layer encoding format (bit per pixel)
     eBPP BPP : 4;
+    /// read-write - Safety Mode Enable Bit
     eSAFETY_EN SAFETY_EN : 1;
     uint32_t _reserved_2 : 1;
+    /// read-write - Shadow Load Enable
     uint32_t SHADOW_LOAD_EN : 1;
+    /// read-write - Enable the layer for DMA
     eEN EN : 1;
   } bits;
   
@@ -553,8 +632,11 @@ union CTRLDESCL0_6 {
   
   // Bit field definition.
   struct {
+    /// read-write - Background B component value
     uint32_t BCLR_B : 8;
+    /// read-write - Background G component value
     uint32_t BCLR_G : 8;
+    /// read-write - Background R component value
     uint32_t BCLR_R : 8;
     uint32_t _reserved_0 : 8;
   } bits;
@@ -583,11 +665,16 @@ union CSC0_COEF0 {
   
   // Bit field definition.
   struct {
+    /// read-write - Y OFFSET
     uint32_t Y_OFFSET : 9;
+    /// read-write - UV OFFSET
     uint32_t UV_OFFSET : 9;
+    /// read-write - Two's compliment Y multiplier coefficient. YUV=0x100 (1.000) YCbCr=0x12A (1.164)
     uint32_t C0 : 11;
     uint32_t _reserved_0 : 1;
+    /// read-write - Enable the CSC unit in the LCDIFv2 plane data path
     eENABLE ENABLE : 1;
+    /// read-write - This bit changes the behavior when performing U/V converting
     eYCBCR_MODE YCBCR_MODE : 1;
   } bits;
   
@@ -605,8 +692,10 @@ union CSC0_COEF1 {
   
   // Bit field definition.
   struct {
+    /// read-write - Two's compliment Blue U/Cb multiplier coefficient. YUV=0x208 (2.032) YCbCr=0x204 (2.017)
     uint32_t C4 : 11;
     uint32_t _reserved_0 : 5;
+    /// read-write - Two's compliment Red V/Cr multiplier coefficient. YUV=0x123 (1.140) YCbCr=0x198 (1.596)
     uint32_t C1 : 11;
     uint32_t _reserved_1 : 5;
   } bits;
@@ -625,8 +714,10 @@ union CSC0_COEF2 {
   
   // Bit field definition.
   struct {
+    /// read-write - Two's compliment Green U/Cb multiplier coefficient. YUV=0x79C (-0.394) YCbCr=0x79C (-0.392)
     uint32_t C3 : 11;
     uint32_t _reserved_0 : 5;
+    /// read-write - Two's compliment Green V/Cr multiplier coefficient. YUV=0x76B (-0.581) YCbCr=0x730 (-0.813)
     uint32_t C2 : 11;
     uint32_t _reserved_1 : 5;
   } bits;
@@ -645,8 +736,10 @@ union CTRLDESCL1_1 {
   
   // Bit field definition.
   struct {
+    /// read-write - Width of the layer in pixels
     uint32_t WIDTH : 12;
     uint32_t _reserved_0 : 4;
+    /// read-write - Height of the layer in pixels
     uint32_t HEIGHT : 12;
     uint32_t _reserved_1 : 4;
   } bits;
@@ -665,8 +758,10 @@ union CTRLDESCL1_2 {
   
   // Bit field definition.
   struct {
+    /// read-write - POS X
     uint32_t POSX : 12;
     uint32_t _reserved_0 : 4;
+    /// read-write - The vertical position of top row of the layer, where 0 is the top row of the panel, only positive values are below the top row of the panel
     uint32_t POSY : 12;
     uint32_t _reserved_1 : 4;
   } bits;
@@ -685,6 +780,7 @@ union CTRLDESCL1_3 {
   
   // Bit field definition.
   struct {
+    /// read-write - Number of bytes between 2 vertically adjacent pixels in system memory. Byte granularity is supported, but SW should align to 64B boundry
     uint32_t PITCH : 16;
     uint32_t _reserved_0 : 16;
   } bits;
@@ -703,6 +799,7 @@ union CTRLDESCL1_4 {
   
   // Bit field definition.
   struct {
+    /// read-write - Address of layer data in the memory. The address programmed should be 64-bit aligned
     uint32_t ADDR : 32;
   } bits;
   
@@ -782,19 +879,30 @@ union CTRLDESCL1_5 {
   
   // Bit field definition.
   struct {
+    /// read-write - Alpha Blending Mode
     eAB_MODE AB_MODE : 2;
     uint32_t _reserved_0 : 2;
+    /// read-write - Porter Duff factor mode
     ePD_FACTOR_MODE PD_FACTOR_MODE : 2;
+    /// read-write - Porter Duff global alpha mode
     ePD_GLOBAL_ALPHA_MODE PD_GLOBAL_ALPHA_MODE : 2;
+    /// read-write - Porter Duff alpha mode
     ePD_ALPHA_MODE PD_ALPHA_MODE : 1;
+    /// read-write - Porter Duff alpha mode
     ePD_COLOR_MODE PD_COLOR_MODE : 1;
     uint32_t _reserved_1 : 4;
+    /// read-write - The YUV422 input format selection
     eYUV_FORMAT YUV_FORMAT : 2;
+    /// read-write - Global Alpha
     uint32_t GLOBAL_ALPHA : 8;
+    /// read-write - Layer encoding format (bit per pixel)
     eBPP BPP : 4;
+    /// read-write - Safety Mode Enable Bit
     eSAFETY_EN SAFETY_EN : 1;
     uint32_t _reserved_2 : 1;
+    /// read-write - Shadow Load Enable
     uint32_t SHADOW_LOAD_EN : 1;
+    /// read-write - Enable the layer for DMA
     eEN EN : 1;
   } bits;
   
@@ -812,8 +920,11 @@ union CTRLDESCL1_6 {
   
   // Bit field definition.
   struct {
+    /// read-write - Background B component value
     uint32_t BCLR_B : 8;
+    /// read-write - Background G component value
     uint32_t BCLR_G : 8;
+    /// read-write - Background R component value
     uint32_t BCLR_R : 8;
     uint32_t _reserved_0 : 8;
   } bits;
@@ -842,11 +953,16 @@ union CSC1_COEF0 {
   
   // Bit field definition.
   struct {
+    /// read-write - Y OFFSET
     uint32_t Y_OFFSET : 9;
+    /// read-write - UV OFFSET
     uint32_t UV_OFFSET : 9;
+    /// read-write - Two's compliment Y multiplier coefficient. YUV=0x100 (1.000) YCbCr=0x12A (1.164)
     uint32_t C0 : 11;
     uint32_t _reserved_0 : 1;
+    /// read-write - Enable the CSC unit in the LCDIFv2 plane data path
     eENABLE ENABLE : 1;
+    /// read-write - This bit changes the behavior when performing U/V converting
     eYCBCR_MODE YCBCR_MODE : 1;
   } bits;
   
@@ -864,8 +980,10 @@ union CSC1_COEF1 {
   
   // Bit field definition.
   struct {
+    /// read-write - Two's compliment Blue U/Cb multiplier coefficient. YUV=0x208 (2.032) YCbCr=0x204 (2.017)
     uint32_t C4 : 11;
     uint32_t _reserved_0 : 5;
+    /// read-write - Two's compliment Red V/Cr multiplier coefficient. YUV=0x123 (1.140) YCbCr=0x198 (1.596)
     uint32_t C1 : 11;
     uint32_t _reserved_1 : 5;
   } bits;
@@ -884,8 +1002,10 @@ union CSC1_COEF2 {
   
   // Bit field definition.
   struct {
+    /// read-write - Two's compliment Green U/Cb multiplier coefficient. YUV=0x79C (-0.394) YCbCr=0x79C (-0.392)
     uint32_t C3 : 11;
     uint32_t _reserved_0 : 5;
+    /// read-write - Two's compliment Green V/Cr multiplier coefficient. YUV=0x76B (-0.581) YCbCr=0x730 (-0.813)
     uint32_t C2 : 11;
     uint32_t _reserved_1 : 5;
   } bits;
@@ -904,8 +1024,10 @@ union CTRLDESCL2_1 {
   
   // Bit field definition.
   struct {
+    /// read-write - Width of the layer in pixels
     uint32_t WIDTH : 12;
     uint32_t _reserved_0 : 4;
+    /// read-write - Height of the layer in pixels
     uint32_t HEIGHT : 12;
     uint32_t _reserved_1 : 4;
   } bits;
@@ -924,8 +1046,10 @@ union CTRLDESCL2_2 {
   
   // Bit field definition.
   struct {
+    /// read-write - POS X
     uint32_t POSX : 12;
     uint32_t _reserved_0 : 4;
+    /// read-write - The vertical position of top row of the layer, where 0 is the top row of the panel, only positive values are below the top row of the panel
     uint32_t POSY : 12;
     uint32_t _reserved_1 : 4;
   } bits;
@@ -944,6 +1068,7 @@ union CTRLDESCL2_3 {
   
   // Bit field definition.
   struct {
+    /// read-write - Number of bytes between 2 vertically adjacent pixels in system memory. Byte granularity is supported, but SW should align to 64B boundry
     uint32_t PITCH : 16;
     uint32_t _reserved_0 : 16;
   } bits;
@@ -962,6 +1087,7 @@ union CTRLDESCL2_4 {
   
   // Bit field definition.
   struct {
+    /// read-write - Address of layer data in the memory. The address programmed should be 64-bit aligned
     uint32_t ADDR : 32;
   } bits;
   
@@ -1041,19 +1167,30 @@ union CTRLDESCL2_5 {
   
   // Bit field definition.
   struct {
+    /// read-write - Alpha Blending Mode
     eAB_MODE AB_MODE : 2;
     uint32_t _reserved_0 : 2;
+    /// read-write - Porter Duff factor mode
     ePD_FACTOR_MODE PD_FACTOR_MODE : 2;
+    /// read-write - Porter Duff global alpha mode
     ePD_GLOBAL_ALPHA_MODE PD_GLOBAL_ALPHA_MODE : 2;
+    /// read-write - Porter Duff alpha mode
     ePD_ALPHA_MODE PD_ALPHA_MODE : 1;
+    /// read-write - Porter Duff alpha mode
     ePD_COLOR_MODE PD_COLOR_MODE : 1;
     uint32_t _reserved_1 : 4;
+    /// read-write - The YUV422 input format selection
     eYUV_FORMAT YUV_FORMAT : 2;
+    /// read-write - Global Alpha
     uint32_t GLOBAL_ALPHA : 8;
+    /// read-write - Layer encoding format (bit per pixel)
     eBPP BPP : 4;
+    /// read-write - Safety Mode Enable Bit
     eSAFETY_EN SAFETY_EN : 1;
     uint32_t _reserved_2 : 1;
+    /// read-write - Shadow Load Enable
     uint32_t SHADOW_LOAD_EN : 1;
+    /// read-write - Enable the layer for DMA
     eEN EN : 1;
   } bits;
   
@@ -1071,8 +1208,11 @@ union CTRLDESCL2_6 {
   
   // Bit field definition.
   struct {
+    /// read-write - Background B component value
     uint32_t BCLR_B : 8;
+    /// read-write - Background G component value
     uint32_t BCLR_G : 8;
+    /// read-write - Background R component value
     uint32_t BCLR_R : 8;
     uint32_t _reserved_0 : 8;
   } bits;
@@ -1091,8 +1231,10 @@ union CTRLDESCL3_1 {
   
   // Bit field definition.
   struct {
+    /// read-write - Width of the layer in pixels
     uint32_t WIDTH : 12;
     uint32_t _reserved_0 : 4;
+    /// read-write - Height of the layer in pixels
     uint32_t HEIGHT : 12;
     uint32_t _reserved_1 : 4;
   } bits;
@@ -1111,8 +1253,10 @@ union CTRLDESCL3_2 {
   
   // Bit field definition.
   struct {
+    /// read-write - POS X
     uint32_t POSX : 12;
     uint32_t _reserved_0 : 4;
+    /// read-write - The vertical position of top row of the layer, where 0 is the top row of the panel, only positive values are below the top row of the panel
     uint32_t POSY : 12;
     uint32_t _reserved_1 : 4;
   } bits;
@@ -1131,6 +1275,7 @@ union CTRLDESCL3_3 {
   
   // Bit field definition.
   struct {
+    /// read-write - Number of bytes between 2 vertically adjacent pixels in system memory. Byte granularity is supported, but SW should align to 64B boundry
     uint32_t PITCH : 16;
     uint32_t _reserved_0 : 16;
   } bits;
@@ -1149,6 +1294,7 @@ union CTRLDESCL3_4 {
   
   // Bit field definition.
   struct {
+    /// read-write - Address of layer data in the memory. The address programmed should be 64-bit aligned
     uint32_t ADDR : 32;
   } bits;
   
@@ -1228,19 +1374,30 @@ union CTRLDESCL3_5 {
   
   // Bit field definition.
   struct {
+    /// read-write - Alpha Blending Mode
     eAB_MODE AB_MODE : 2;
     uint32_t _reserved_0 : 2;
+    /// read-write - Porter Duff factor mode
     ePD_FACTOR_MODE PD_FACTOR_MODE : 2;
+    /// read-write - Porter Duff global alpha mode
     ePD_GLOBAL_ALPHA_MODE PD_GLOBAL_ALPHA_MODE : 2;
+    /// read-write - Porter Duff alpha mode
     ePD_ALPHA_MODE PD_ALPHA_MODE : 1;
+    /// read-write - Porter Duff alpha mode
     ePD_COLOR_MODE PD_COLOR_MODE : 1;
     uint32_t _reserved_1 : 4;
+    /// read-write - The YUV422 input format selection
     eYUV_FORMAT YUV_FORMAT : 2;
+    /// read-write - Global Alpha
     uint32_t GLOBAL_ALPHA : 8;
+    /// read-write - Layer encoding format (bit per pixel)
     eBPP BPP : 4;
+    /// read-write - Safety Mode Enable Bit
     eSAFETY_EN SAFETY_EN : 1;
     uint32_t _reserved_2 : 1;
+    /// read-write - Shadow Load Enable
     uint32_t SHADOW_LOAD_EN : 1;
+    /// read-write - Enable the layer for DMA
     eEN EN : 1;
   } bits;
   
@@ -1258,8 +1415,11 @@ union CTRLDESCL3_6 {
   
   // Bit field definition.
   struct {
+    /// read-write - Background B component value
     uint32_t BCLR_B : 8;
+    /// read-write - Background G component value
     uint32_t BCLR_G : 8;
+    /// read-write - Background R component value
     uint32_t BCLR_R : 8;
     uint32_t _reserved_0 : 8;
   } bits;
@@ -1278,8 +1438,10 @@ union CTRLDESCL4_1 {
   
   // Bit field definition.
   struct {
+    /// read-write - Width of the layer in pixels
     uint32_t WIDTH : 12;
     uint32_t _reserved_0 : 4;
+    /// read-write - Height of the layer in pixels
     uint32_t HEIGHT : 12;
     uint32_t _reserved_1 : 4;
   } bits;
@@ -1298,8 +1460,10 @@ union CTRLDESCL4_2 {
   
   // Bit field definition.
   struct {
+    /// read-write - POS X
     uint32_t POSX : 12;
     uint32_t _reserved_0 : 4;
+    /// read-write - The vertical position of top row of the layer, where 0 is the top row of the panel, only positive values are below the top row of the panel
     uint32_t POSY : 12;
     uint32_t _reserved_1 : 4;
   } bits;
@@ -1318,6 +1482,7 @@ union CTRLDESCL4_3 {
   
   // Bit field definition.
   struct {
+    /// read-write - Number of bytes between 2 vertically adjacent pixels in system memory. Byte granularity is supported, but SW should align to 64B boundry
     uint32_t PITCH : 16;
     uint32_t _reserved_0 : 16;
   } bits;
@@ -1336,6 +1501,7 @@ union CTRLDESCL4_4 {
   
   // Bit field definition.
   struct {
+    /// read-write - Address of layer data in the memory. The address programmed should be 64-bit aligned
     uint32_t ADDR : 32;
   } bits;
   
@@ -1415,19 +1581,30 @@ union CTRLDESCL4_5 {
   
   // Bit field definition.
   struct {
+    /// read-write - Alpha Blending Mode
     eAB_MODE AB_MODE : 2;
     uint32_t _reserved_0 : 2;
+    /// read-write - Porter Duff factor mode
     ePD_FACTOR_MODE PD_FACTOR_MODE : 2;
+    /// read-write - Porter Duff global alpha mode
     ePD_GLOBAL_ALPHA_MODE PD_GLOBAL_ALPHA_MODE : 2;
+    /// read-write - Porter Duff alpha mode
     ePD_ALPHA_MODE PD_ALPHA_MODE : 1;
+    /// read-write - Porter Duff alpha mode
     ePD_COLOR_MODE PD_COLOR_MODE : 1;
     uint32_t _reserved_1 : 4;
+    /// read-write - The YUV422 input format selection
     eYUV_FORMAT YUV_FORMAT : 2;
+    /// read-write - Global Alpha
     uint32_t GLOBAL_ALPHA : 8;
+    /// read-write - Layer encoding format (bit per pixel)
     eBPP BPP : 4;
+    /// read-write - Safety Mode Enable Bit
     eSAFETY_EN SAFETY_EN : 1;
     uint32_t _reserved_2 : 1;
+    /// read-write - Shadow Load Enable
     uint32_t SHADOW_LOAD_EN : 1;
+    /// read-write - Enable the layer for DMA
     eEN EN : 1;
   } bits;
   
@@ -1445,8 +1622,11 @@ union CTRLDESCL4_6 {
   
   // Bit field definition.
   struct {
+    /// read-write - Background B component value
     uint32_t BCLR_B : 8;
+    /// read-write - Background G component value
     uint32_t BCLR_G : 8;
+    /// read-write - Background R component value
     uint32_t BCLR_R : 8;
     uint32_t _reserved_0 : 8;
   } bits;
@@ -1465,8 +1645,10 @@ union CTRLDESCL5_1 {
   
   // Bit field definition.
   struct {
+    /// read-write - Width of the layer in pixels
     uint32_t WIDTH : 12;
     uint32_t _reserved_0 : 4;
+    /// read-write - Height of the layer in pixels
     uint32_t HEIGHT : 12;
     uint32_t _reserved_1 : 4;
   } bits;
@@ -1485,8 +1667,10 @@ union CTRLDESCL5_2 {
   
   // Bit field definition.
   struct {
+    /// read-write - POS X
     uint32_t POSX : 12;
     uint32_t _reserved_0 : 4;
+    /// read-write - The vertical position of top row of the layer, where 0 is the top row of the panel, only positive values are below the top row of the panel
     uint32_t POSY : 12;
     uint32_t _reserved_1 : 4;
   } bits;
@@ -1505,6 +1689,7 @@ union CTRLDESCL5_3 {
   
   // Bit field definition.
   struct {
+    /// read-write - Number of bytes between 2 vertically adjacent pixels in system memory. Byte granularity is supported, but SW should align to 64B boundry
     uint32_t PITCH : 16;
     uint32_t _reserved_0 : 16;
   } bits;
@@ -1523,6 +1708,7 @@ union CTRLDESCL5_4 {
   
   // Bit field definition.
   struct {
+    /// read-write - Address of layer data in the memory. The address programmed should be 64-bit aligned
     uint32_t ADDR : 32;
   } bits;
   
@@ -1602,19 +1788,30 @@ union CTRLDESCL5_5 {
   
   // Bit field definition.
   struct {
+    /// read-write - Alpha Blending Mode
     eAB_MODE AB_MODE : 2;
     uint32_t _reserved_0 : 2;
+    /// read-write - Porter Duff factor mode
     ePD_FACTOR_MODE PD_FACTOR_MODE : 2;
+    /// read-write - Porter Duff global alpha mode
     ePD_GLOBAL_ALPHA_MODE PD_GLOBAL_ALPHA_MODE : 2;
+    /// read-write - Porter Duff alpha mode
     ePD_ALPHA_MODE PD_ALPHA_MODE : 1;
+    /// read-write - Porter Duff alpha mode
     ePD_COLOR_MODE PD_COLOR_MODE : 1;
     uint32_t _reserved_1 : 4;
+    /// read-write - The YUV422 input format selection
     eYUV_FORMAT YUV_FORMAT : 2;
+    /// read-write - Global Alpha
     uint32_t GLOBAL_ALPHA : 8;
+    /// read-write - Layer encoding format (bit per pixel)
     eBPP BPP : 4;
+    /// read-write - Safety Mode Enable Bit
     eSAFETY_EN SAFETY_EN : 1;
     uint32_t _reserved_2 : 1;
+    /// read-write - Shadow Load Enable
     uint32_t SHADOW_LOAD_EN : 1;
+    /// read-write - Enable the layer for DMA
     eEN EN : 1;
   } bits;
   
@@ -1632,8 +1829,11 @@ union CTRLDESCL5_6 {
   
   // Bit field definition.
   struct {
+    /// read-write - Background B component value
     uint32_t BCLR_B : 8;
+    /// read-write - Background G component value
     uint32_t BCLR_G : 8;
+    /// read-write - Background R component value
     uint32_t BCLR_R : 8;
     uint32_t _reserved_0 : 8;
   } bits;
@@ -1652,8 +1852,10 @@ union CTRLDESCL6_1 {
   
   // Bit field definition.
   struct {
+    /// read-write - Width of the layer in pixels
     uint32_t WIDTH : 12;
     uint32_t _reserved_0 : 4;
+    /// read-write - Height of the layer in pixels
     uint32_t HEIGHT : 12;
     uint32_t _reserved_1 : 4;
   } bits;
@@ -1672,8 +1874,10 @@ union CTRLDESCL6_2 {
   
   // Bit field definition.
   struct {
+    /// read-write - POS X
     uint32_t POSX : 12;
     uint32_t _reserved_0 : 4;
+    /// read-write - The vertical position of top row of the layer, where 0 is the top row of the panel, only positive values are below the top row of the panel
     uint32_t POSY : 12;
     uint32_t _reserved_1 : 4;
   } bits;
@@ -1692,6 +1896,7 @@ union CTRLDESCL6_3 {
   
   // Bit field definition.
   struct {
+    /// read-write - Number of bytes between 2 vertically adjacent pixels in system memory. Byte granularity is supported, but SW should align to 64B boundry
     uint32_t PITCH : 16;
     uint32_t _reserved_0 : 16;
   } bits;
@@ -1710,6 +1915,7 @@ union CTRLDESCL6_4 {
   
   // Bit field definition.
   struct {
+    /// read-write - Address of layer data in the memory. The address programmed should be 64-bit aligned
     uint32_t ADDR : 32;
   } bits;
   
@@ -1789,19 +1995,30 @@ union CTRLDESCL6_5 {
   
   // Bit field definition.
   struct {
+    /// read-write - Alpha Blending Mode
     eAB_MODE AB_MODE : 2;
     uint32_t _reserved_0 : 2;
+    /// read-write - Porter Duff factor mode
     ePD_FACTOR_MODE PD_FACTOR_MODE : 2;
+    /// read-write - Porter Duff global alpha mode
     ePD_GLOBAL_ALPHA_MODE PD_GLOBAL_ALPHA_MODE : 2;
+    /// read-write - Porter Duff alpha mode
     ePD_ALPHA_MODE PD_ALPHA_MODE : 1;
+    /// read-write - Porter Duff alpha mode
     ePD_COLOR_MODE PD_COLOR_MODE : 1;
     uint32_t _reserved_1 : 4;
+    /// read-write - The YUV422 input format selection
     eYUV_FORMAT YUV_FORMAT : 2;
+    /// read-write - Global Alpha
     uint32_t GLOBAL_ALPHA : 8;
+    /// read-write - Layer encoding format (bit per pixel)
     eBPP BPP : 4;
+    /// read-write - Safety Mode Enable Bit
     eSAFETY_EN SAFETY_EN : 1;
     uint32_t _reserved_2 : 1;
+    /// read-write - Shadow Load Enable
     uint32_t SHADOW_LOAD_EN : 1;
+    /// read-write - Enable the layer for DMA
     eEN EN : 1;
   } bits;
   
@@ -1819,8 +2036,11 @@ union CTRLDESCL6_6 {
   
   // Bit field definition.
   struct {
+    /// read-write - Background B component value
     uint32_t BCLR_B : 8;
+    /// read-write - Background G component value
     uint32_t BCLR_G : 8;
+    /// read-write - Background R component value
     uint32_t BCLR_R : 8;
     uint32_t _reserved_0 : 8;
   } bits;
@@ -1839,8 +2059,10 @@ union CTRLDESCL7_1 {
   
   // Bit field definition.
   struct {
+    /// read-write - Width of the layer in pixels
     uint32_t WIDTH : 12;
     uint32_t _reserved_0 : 4;
+    /// read-write - Height of the layer in pixels
     uint32_t HEIGHT : 12;
     uint32_t _reserved_1 : 4;
   } bits;
@@ -1859,8 +2081,10 @@ union CTRLDESCL7_2 {
   
   // Bit field definition.
   struct {
+    /// read-write - POS X
     uint32_t POSX : 12;
     uint32_t _reserved_0 : 4;
+    /// read-write - The vertical position of top row of the layer, where 0 is the top row of the panel, only positive values are below the top row of the panel
     uint32_t POSY : 12;
     uint32_t _reserved_1 : 4;
   } bits;
@@ -1879,6 +2103,7 @@ union CTRLDESCL7_3 {
   
   // Bit field definition.
   struct {
+    /// read-write - Number of bytes between 2 vertically adjacent pixels in system memory. Byte granularity is supported, but SW should align to 64B boundry
     uint32_t PITCH : 16;
     uint32_t _reserved_0 : 16;
   } bits;
@@ -1897,6 +2122,7 @@ union CTRLDESCL7_4 {
   
   // Bit field definition.
   struct {
+    /// read-write - Address of layer data in the memory. The address programmed should be 64-bit aligned
     uint32_t ADDR : 32;
   } bits;
   
@@ -1976,19 +2202,30 @@ union CTRLDESCL7_5 {
   
   // Bit field definition.
   struct {
+    /// read-write - Alpha Blending Mode
     eAB_MODE AB_MODE : 2;
     uint32_t _reserved_0 : 2;
+    /// read-write - Porter Duff factor mode
     ePD_FACTOR_MODE PD_FACTOR_MODE : 2;
+    /// read-write - Porter Duff global alpha mode
     ePD_GLOBAL_ALPHA_MODE PD_GLOBAL_ALPHA_MODE : 2;
+    /// read-write - Porter Duff alpha mode
     ePD_ALPHA_MODE PD_ALPHA_MODE : 1;
+    /// read-write - Porter Duff alpha mode
     ePD_COLOR_MODE PD_COLOR_MODE : 1;
     uint32_t _reserved_1 : 4;
+    /// read-write - The YUV422 input format selection
     eYUV_FORMAT YUV_FORMAT : 2;
+    /// read-write - Global Alpha
     uint32_t GLOBAL_ALPHA : 8;
+    /// read-write - Layer encoding format (bit per pixel)
     eBPP BPP : 4;
+    /// read-write - Safety Mode Enable Bit
     eSAFETY_EN SAFETY_EN : 1;
     uint32_t _reserved_2 : 1;
+    /// read-write - Shadow Load Enable
     uint32_t SHADOW_LOAD_EN : 1;
+    /// read-write - Enable the layer for DMA
     eEN EN : 1;
   } bits;
   
@@ -2006,8 +2243,11 @@ union CTRLDESCL7_6 {
   
   // Bit field definition.
   struct {
+    /// read-write - Background B component value
     uint32_t BCLR_B : 8;
+    /// read-write - Background G component value
     uint32_t BCLR_G : 8;
+    /// read-write - Background R component value
     uint32_t BCLR_R : 8;
     uint32_t _reserved_0 : 8;
   } bits;
@@ -2026,8 +2266,10 @@ union CLUT_LOAD {
   
   // Bit field definition.
   struct {
+    /// read-write - CLUT Update Enable
     uint32_t CLUT_UPDATE_EN : 1;
     uint32_t _reserved_0 : 3;
+    /// read-write - Selected CLUT Number
     uint32_t SEL_CLUT_NUM : 3;
     uint32_t _reserved_1 : 25;
   } bits;

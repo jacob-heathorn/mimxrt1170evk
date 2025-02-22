@@ -35,12 +35,16 @@ union CTRL {
   
   // Bit field definition.
   struct {
+    /// read-write - TRIG enable register.
     eTRIG_ENABLE TRIG_ENABLE : 8;
     uint32_t _reserved_0 : 8;
+    /// read-write - Pre-divider for trig delay and interval
     uint32_t PRE_DIVIDER : 8;
     uint32_t _reserved_1 : 5;
+    /// read-write - Select the trigger type of the DMA_REQ.
     eDMA_MODE_SEL DMA_MODE_SEL : 1;
     uint32_t _reserved_2 : 1;
+    /// read-write - Software synchronous reset, active high.
     eSOFTRST SOFTRST : 1;
   } bits;
   
@@ -138,22 +142,38 @@ union DONE0_1_IRQ {
   
   // Bit field definition.
   struct {
+    /// read-write - TRIG0 done0 interrupt detection.
     eTRIG0_DONE0 TRIG0_DONE0 : 1;
+    /// read-write - TRIG1 done0 interrupt detection.
     eTRIG1_DONE0 TRIG1_DONE0 : 1;
+    /// read-write - TRIG2 done0 interrupt detection.
     eTRIG2_DONE0 TRIG2_DONE0 : 1;
+    /// read-write - TRIG3 done0 interrupt detection.
     eTRIG3_DONE0 TRIG3_DONE0 : 1;
+    /// read-write - TRIG4 done0 interrupt detection.
     eTRIG4_DONE0 TRIG4_DONE0 : 1;
+    /// read-write - TRIG5 done0 interrupt detection.
     eTRIG5_DONE0 TRIG5_DONE0 : 1;
+    /// read-write - TRIG6 done0 interrupt detection.
     eTRIG6_DONE0 TRIG6_DONE0 : 1;
+    /// read-write - TRIG7 done0 interrupt detection.
     eTRIG7_DONE0 TRIG7_DONE0 : 1;
     uint32_t _reserved_0 : 8;
+    /// read-write - TRIG0 done1 interrupt detection.
     eTRIG0_DONE1 TRIG0_DONE1 : 1;
+    /// read-write - TRIG1 done1 interrupt detection.
     eTRIG1_DONE1 TRIG1_DONE1 : 1;
+    /// read-write - TRIG2 done1 interrupt detection.
     eTRIG2_DONE1 TRIG2_DONE1 : 1;
+    /// read-write - TRIG3 done1 interrupt detection.
     eTRIG3_DONE1 TRIG3_DONE1 : 1;
+    /// read-write - TRIG4 done1 interrupt detection.
     eTRIG4_DONE1 TRIG4_DONE1 : 1;
+    /// read-write - TRIG5 done1 interrupt detection.
     eTRIG5_DONE1 TRIG5_DONE1 : 1;
+    /// read-write - TRIG6 done1 interrupt detection.
     eTRIG6_DONE1 TRIG6_DONE1 : 1;
+    /// read-write - TRIG7 done1 interrupt detection.
     eTRIG7_DONE1 TRIG7_DONE1 : 1;
     uint32_t _reserved_1 : 8;
   } bits;
@@ -292,29 +312,53 @@ union DONE2_3_ERR_IRQ {
   
   // Bit field definition.
   struct {
+    /// read-write - TRIG0 done2 interrupt detection.
     eTRIG0_DONE2 TRIG0_DONE2 : 1;
+    /// read-write - TRIG1 done2 interrupt detection.
     eTRIG1_DONE2 TRIG1_DONE2 : 1;
+    /// read-write - TRIG2 done2 interrupt detection.
     eTRIG2_DONE2 TRIG2_DONE2 : 1;
+    /// read-write - TRIG3 done2 interrupt detection.
     eTRIG3_DONE2 TRIG3_DONE2 : 1;
+    /// read-write - TRIG4 done2 interrupt detection.
     eTRIG4_DONE2 TRIG4_DONE2 : 1;
+    /// read-write - TRIG5 done2 interrupt detection.
     eTRIG5_DONE2 TRIG5_DONE2 : 1;
+    /// read-write - TRIG6 done2 interrupt detection.
     eTRIG6_DONE2 TRIG6_DONE2 : 1;
+    /// read-write - TRIG7 done2 interrupt detection.
     eTRIG7_DONE2 TRIG7_DONE2 : 1;
+    /// read-write - TRIG0 done3 interrupt detection.
     eTRIG0_DONE3 TRIG0_DONE3 : 1;
+    /// read-write - TRIG1 done3 interrupt detection.
     eTRIG1_DONE3 TRIG1_DONE3 : 1;
+    /// read-write - TRIG2 done3 interrupt detection.
     eTRIG2_DONE3 TRIG2_DONE3 : 1;
+    /// read-write - TRIG3 done3 interrupt detection.
     eTRIG3_DONE3 TRIG3_DONE3 : 1;
+    /// read-write - TRIG4 done3 interrupt detection.
     eTRIG4_DONE3 TRIG4_DONE3 : 1;
+    /// read-write - TRIG5 done3 interrupt detection.
     eTRIG5_DONE3 TRIG5_DONE3 : 1;
+    /// read-write - TRIG6 done3 interrupt detection.
     eTRIG6_DONE3 TRIG6_DONE3 : 1;
+    /// read-write - TRIG7 done3 interrupt detection.
     eTRIG7_DONE3 TRIG7_DONE3 : 1;
+    /// read-write - TRIG0 error interrupt detection.
     eTRIG0_ERR TRIG0_ERR : 1;
+    /// read-write - TRIG1 error interrupt detection.
     eTRIG1_ERR TRIG1_ERR : 1;
+    /// read-write - TRIG2 error interrupt detection.
     eTRIG2_ERR TRIG2_ERR : 1;
+    /// read-write - TRIG3 error interrupt detection.
     eTRIG3_ERR TRIG3_ERR : 1;
+    /// read-write - TRIG4 error interrupt detection.
     eTRIG4_ERR TRIG4_ERR : 1;
+    /// read-write - TRIG5 error interrupt detection.
     eTRIG5_ERR TRIG5_ERR : 1;
+    /// read-write - TRIG6 error interrupt detection.
     eTRIG6_ERR TRIG6_ERR : 1;
+    /// read-write - TRIG7 error interrupt detection.
     eTRIG7_ERR TRIG7_ERR : 1;
     uint32_t _reserved_0 : 8;
   } bits;
@@ -413,22 +457,38 @@ union DMA_CTRL {
   
   // Bit field definition.
   struct {
+    /// read-write - Enable DMA request when TRIG0 done.
     eTRIG0_ENABLE TRIG0_ENABLE : 1;
+    /// read-write - Enable DMA request when TRIG1 done.
     eTRIG1_ENABLE TRIG1_ENABLE : 1;
+    /// read-write - Enable DMA request when TRIG2 done.
     eTRIG2_ENABLE TRIG2_ENABLE : 1;
+    /// read-write - Enable DMA request when TRIG3 done.
     eTRIG3_ENABLE TRIG3_ENABLE : 1;
+    /// read-write - Enable DMA request when TRIG4 done.
     eTRIG4_ENABLE TRIG4_ENABLE : 1;
+    /// read-write - Enable DMA request when TRIG5 done.
     eTRIG5_ENABLE TRIG5_ENABLE : 1;
+    /// read-write - Enable DMA request when TRIG6 done.
     eTRIG6_ENABLE TRIG6_ENABLE : 1;
+    /// read-write - Enable DMA request when TRIG7 done.
     eTRIG7_ENABLE TRIG7_ENABLE : 1;
     uint32_t _reserved_0 : 8;
+    /// read-write - Flag bit for DMA request
     eTRIG0_REQ TRIG0_REQ : 1;
+    /// read-write - Flag bit for DMA request
     eTRIG1_REQ TRIG1_REQ : 1;
+    /// read-write - Flag bit for DMA request
     eTRIG2_REQ TRIG2_REQ : 1;
+    /// read-write - Flag bit for DMA request
     eTRIG3_REQ TRIG3_REQ : 1;
+    /// read-write - Flag bit for DMA request
     eTRIG4_REQ TRIG4_REQ : 1;
+    /// read-write - Flag bit for DMA request
     eTRIG5_REQ TRIG5_REQ : 1;
+    /// read-write - Flag bit for DMA request
     eTRIG6_REQ TRIG6_REQ : 1;
+    /// read-write - Flag bit for DMA request
     eTRIG7_REQ TRIG7_REQ : 1;
     uint32_t _reserved_1 : 8;
   } bits;
@@ -478,16 +538,22 @@ union TRIG0_CTRL {
   
   // Bit field definition.
   struct {
+    /// read-write - Software trigger. This field is self-clearing.
     eSW_TRIG SW_TRIG : 1;
     uint32_t _reserved_0 : 3;
+    /// read-write - Trigger mode selection.
     eTRIG_MODE TRIG_MODE : 1;
     uint32_t _reserved_1 : 3;
+    /// read-write - The number of segments inside the trigger chain of TRIGa.
     eTRIG_CHAIN TRIG_CHAIN : 3;
     uint32_t _reserved_2 : 1;
+    /// read-write - External trigger priority, 7 is highest priority, while 0 is lowest
     uint32_t TRIG_PRIORITY : 3;
     uint32_t _reserved_3 : 1;
+    /// read-write - Trigger synchronization mode selection
     eSYNC_MODE SYNC_MODE : 1;
     uint32_t _reserved_4 : 7;
+    /// read-write - Segment x done detection
     eCHAINx_DONE CHAINx_DONE : 8;
   } bits;
   
@@ -505,7 +571,9 @@ union TRIG0_COUNTER {
   
   // Bit field definition.
   struct {
+    /// read-write - TRIGGER initial delay counter. Initial_delay = (INIT_DELAY+1)*(PRE_DIVIDER+1)*ipg_clk
     uint32_t INIT_DELAY : 16;
+    /// read-write - TRIGGER sampling interval counter
     uint32_t SAMPLE_INTERVAL : 16;
   } bits;
   
@@ -619,15 +687,25 @@ union TRIG0_CHAIN_1_0 {
   
   // Bit field definition.
   struct {
+    /// read-write - ADC hardware trigger command selection
     eCSEL0 CSEL0 : 4;
+    /// read-write - Segment 0 HWTS ADC hardware trigger selection
     eHWTS0 HWTS0 : 8;
+    /// read-write - Segment 0 B2B
     eB2B0 B2B0 : 1;
+    /// read-write - Segment 0 interrupt enable. (This bit field is meaningful only when IE0_EN is set)
     eIE0 IE0 : 2;
+    /// read-write - IRQ enable of segment 0.
     eIE0_EN IE0_EN : 1;
+    /// read-write - ADC hardware trigger command selection
     eCSEL1 CSEL1 : 4;
+    /// read-write - Segment 1 HWTS ADC hardware trigger selection
     eHWTS1 HWTS1 : 8;
+    /// read-write - Segment 1 B2B
     eB2B1 B2B1 : 1;
+    /// read-write - Segment 1 interrupt enable. (This bit field is meaningful only when IE1_EN is set)
     eIE1 IE1 : 2;
+    /// read-write - IRQ enable of segment 1.
     eIE1_EN IE1_EN : 1;
   } bits;
   
@@ -741,15 +819,25 @@ union TRIG0_CHAIN_3_2 {
   
   // Bit field definition.
   struct {
+    /// read-write - ADC hardware trigger command selection
     eCSEL2 CSEL2 : 4;
+    /// read-write - Segment 2 HWTS ADC hardware trigger selection
     eHWTS2 HWTS2 : 8;
+    /// read-write - Segment 2 B2B
     eB2B2 B2B2 : 1;
+    /// read-write - Segment 2 interrupt enable. (This bit field is meaningful only when IE2_EN is set)
     eIE2 IE2 : 2;
+    /// read-write - IRQ enable of segment 2.
     eIE2_EN IE2_EN : 1;
+    /// read-write - ADC hardware trigger command selection
     eCSEL3 CSEL3 : 4;
+    /// read-write - Segment 3 HWTS ADC hardware trigger selection
     eHWTS3 HWTS3 : 8;
+    /// read-write - Segment 3 B2B
     eB2B3 B2B3 : 1;
+    /// read-write - Segment 3 interrupt enable. (This bit field is meaningful only when IE3_EN is set)
     eIE3 IE3 : 2;
+    /// read-write - IRQ enable of segment 3.
     eIE3_EN IE3_EN : 1;
   } bits;
   
@@ -863,15 +951,25 @@ union TRIG0_CHAIN_5_4 {
   
   // Bit field definition.
   struct {
+    /// read-write - ADC hardware trigger command selection
     eCSEL4 CSEL4 : 4;
+    /// read-write - Segment 4 HWTS ADC hardware trigger selection
     eHWTS4 HWTS4 : 8;
+    /// read-write - Segment 4 B2B
     eB2B4 B2B4 : 1;
+    /// read-write - Segment 4 interrupt enable. (This bit field is meaningful only when IE4_EN is set)
     eIE4 IE4 : 2;
+    /// read-write - IRQ enable of segment 4.
     eIE4_EN IE4_EN : 1;
+    /// read-write - ADC hardware trigger command selection
     eCSEL5 CSEL5 : 4;
+    /// read-write - Segment 5 HWTS ADC hardware trigger selection
     eHWTS5 HWTS5 : 8;
+    /// read-write - Segment 5 B2B
     eB2B5 B2B5 : 1;
+    /// read-write - Segment 5 interrupt enable. (This bit field is meaningful only when IE5_EN is set)
     eIE5 IE5 : 2;
+    /// read-write - IRQ enable of segment 5.
     eIE5_EN IE5_EN : 1;
   } bits;
   
@@ -985,15 +1083,25 @@ union TRIG0_CHAIN_7_6 {
   
   // Bit field definition.
   struct {
+    /// read-write - ADC hardware trigger command selection
     eCSEL6 CSEL6 : 4;
+    /// read-write - Segment 6 HWTS ADC hardware trigger selection
     eHWTS6 HWTS6 : 8;
+    /// read-write - Segment 6 B2B
     eB2B6 B2B6 : 1;
+    /// read-write - Segment 6 interrupt enable. (This bit field is meaningful only when IE6_EN is set)
     eIE6 IE6 : 2;
+    /// read-write - IRQ enable of segment 6.
     eIE6_EN IE6_EN : 1;
+    /// read-write - ADC hardware trigger command selection
     eCSEL7 CSEL7 : 4;
+    /// read-write - Segment 7 HWTS ADC hardware trigger selection
     eHWTS7 HWTS7 : 8;
+    /// read-write - Segment 7 B2B
     eB2B7 B2B7 : 1;
+    /// read-write - Segment 7 interrupt enable. (This bit field is meaningful only when IE7_EN is set)
     eIE7 IE7 : 2;
+    /// read-write - IRQ enable of segment 7.
     eIE7_EN IE7_EN : 1;
   } bits;
   
@@ -1011,8 +1119,10 @@ union TRIG0_RESULT_1_0 {
   
   // Bit field definition.
   struct {
+    /// read-only - Result DATA0The sign bit from ADC result FIFO is ignored by ETC_TRIG result, so only 12-bit unsigned results is supported by ADC_ETC module
     uint32_t DATA0 : 12;
     uint32_t _reserved_0 : 4;
+    /// read-only - Result DATA1The sign bit from ADC result FIFO is ignored by ETC_TRIG result, so only 12-bit unsigned results is supported by ADC_ETC module
     uint32_t DATA1 : 12;
     uint32_t _reserved_1 : 4;
   } bits;
@@ -1031,8 +1141,10 @@ union TRIG0_RESULT_3_2 {
   
   // Bit field definition.
   struct {
+    /// read-only - Result DATA2The sign bit from ADC result FIFO is ignored by ETC_TRIG result, so only 12-bit unsigned results is supported by ADC_ETC module
     uint32_t DATA2 : 12;
     uint32_t _reserved_0 : 4;
+    /// read-only - Result DATA3The sign bit from ADC result FIFO is ignored by ETC_TRIG result, so only 12-bit unsigned results is supported by ADC_ETC module
     uint32_t DATA3 : 12;
     uint32_t _reserved_1 : 4;
   } bits;
@@ -1051,8 +1163,10 @@ union TRIG0_RESULT_5_4 {
   
   // Bit field definition.
   struct {
+    /// read-only - Result DATA4The sign bit from ADC result FIFO is ignored by ETC_TRIG result, so only 12-bit unsigned results is supported by ADC_ETC module
     uint32_t DATA4 : 12;
     uint32_t _reserved_0 : 4;
+    /// read-only - Result DATA5The sign bit from ADC result FIFO is ignored by ETC_TRIG result, so only 12-bit unsigned results is supported by ADC_ETC module
     uint32_t DATA5 : 12;
     uint32_t _reserved_1 : 4;
   } bits;
@@ -1071,8 +1185,10 @@ union TRIG0_RESULT_7_6 {
   
   // Bit field definition.
   struct {
+    /// read-only - Result DATA6The sign bit from ADC result FIFO is ignored by ETC_TRIG result, so only 12-bit unsigned results is supported by ADC_ETC module
     uint32_t DATA6 : 12;
     uint32_t _reserved_0 : 4;
+    /// read-only - Result DATA7The sign bit from ADC result FIFO is ignored by ETC_TRIG result, so only 12-bit unsigned results is supported by ADC_ETC module
     uint32_t DATA7 : 12;
     uint32_t _reserved_1 : 4;
   } bits;
@@ -1122,16 +1238,22 @@ union TRIG1_CTRL {
   
   // Bit field definition.
   struct {
+    /// read-write - Software trigger. This field is self-clearing.
     eSW_TRIG SW_TRIG : 1;
     uint32_t _reserved_0 : 3;
+    /// read-write - Trigger mode selection.
     eTRIG_MODE TRIG_MODE : 1;
     uint32_t _reserved_1 : 3;
+    /// read-write - The number of segments inside the trigger chain of TRIGa.
     eTRIG_CHAIN TRIG_CHAIN : 3;
     uint32_t _reserved_2 : 1;
+    /// read-write - External trigger priority, 7 is highest priority, while 0 is lowest
     uint32_t TRIG_PRIORITY : 3;
     uint32_t _reserved_3 : 1;
+    /// read-write - Trigger synchronization mode selection
     eSYNC_MODE SYNC_MODE : 1;
     uint32_t _reserved_4 : 7;
+    /// read-write - Segment x done detection
     eCHAINx_DONE CHAINx_DONE : 8;
   } bits;
   
@@ -1149,7 +1271,9 @@ union TRIG1_COUNTER {
   
   // Bit field definition.
   struct {
+    /// read-write - TRIGGER initial delay counter. Initial_delay = (INIT_DELAY+1)*(PRE_DIVIDER+1)*ipg_clk
     uint32_t INIT_DELAY : 16;
+    /// read-write - TRIGGER sampling interval counter
     uint32_t SAMPLE_INTERVAL : 16;
   } bits;
   
@@ -1263,15 +1387,25 @@ union TRIG1_CHAIN_1_0 {
   
   // Bit field definition.
   struct {
+    /// read-write - ADC hardware trigger command selection
     eCSEL0 CSEL0 : 4;
+    /// read-write - Segment 0 HWTS ADC hardware trigger selection
     eHWTS0 HWTS0 : 8;
+    /// read-write - Segment 0 B2B
     eB2B0 B2B0 : 1;
+    /// read-write - Segment 0 interrupt enable. (This bit field is meaningful only when IE0_EN is set)
     eIE0 IE0 : 2;
+    /// read-write - IRQ enable of segment 0.
     eIE0_EN IE0_EN : 1;
+    /// read-write - ADC hardware trigger command selection
     eCSEL1 CSEL1 : 4;
+    /// read-write - Segment 1 HWTS ADC hardware trigger selection
     eHWTS1 HWTS1 : 8;
+    /// read-write - Segment 1 B2B
     eB2B1 B2B1 : 1;
+    /// read-write - Segment 1 interrupt enable. (This bit field is meaningful only when IE1_EN is set)
     eIE1 IE1 : 2;
+    /// read-write - IRQ enable of segment 1.
     eIE1_EN IE1_EN : 1;
   } bits;
   
@@ -1385,15 +1519,25 @@ union TRIG1_CHAIN_3_2 {
   
   // Bit field definition.
   struct {
+    /// read-write - ADC hardware trigger command selection
     eCSEL2 CSEL2 : 4;
+    /// read-write - Segment 2 HWTS ADC hardware trigger selection
     eHWTS2 HWTS2 : 8;
+    /// read-write - Segment 2 B2B
     eB2B2 B2B2 : 1;
+    /// read-write - Segment 2 interrupt enable. (This bit field is meaningful only when IE2_EN is set)
     eIE2 IE2 : 2;
+    /// read-write - IRQ enable of segment 2.
     eIE2_EN IE2_EN : 1;
+    /// read-write - ADC hardware trigger command selection
     eCSEL3 CSEL3 : 4;
+    /// read-write - Segment 3 HWTS ADC hardware trigger selection
     eHWTS3 HWTS3 : 8;
+    /// read-write - Segment 3 B2B
     eB2B3 B2B3 : 1;
+    /// read-write - Segment 3 interrupt enable. (This bit field is meaningful only when IE3_EN is set)
     eIE3 IE3 : 2;
+    /// read-write - IRQ enable of segment 3.
     eIE3_EN IE3_EN : 1;
   } bits;
   
@@ -1507,15 +1651,25 @@ union TRIG1_CHAIN_5_4 {
   
   // Bit field definition.
   struct {
+    /// read-write - ADC hardware trigger command selection
     eCSEL4 CSEL4 : 4;
+    /// read-write - Segment 4 HWTS ADC hardware trigger selection
     eHWTS4 HWTS4 : 8;
+    /// read-write - Segment 4 B2B
     eB2B4 B2B4 : 1;
+    /// read-write - Segment 4 interrupt enable. (This bit field is meaningful only when IE4_EN is set)
     eIE4 IE4 : 2;
+    /// read-write - IRQ enable of segment 4.
     eIE4_EN IE4_EN : 1;
+    /// read-write - ADC hardware trigger command selection
     eCSEL5 CSEL5 : 4;
+    /// read-write - Segment 5 HWTS ADC hardware trigger selection
     eHWTS5 HWTS5 : 8;
+    /// read-write - Segment 5 B2B
     eB2B5 B2B5 : 1;
+    /// read-write - Segment 5 interrupt enable. (This bit field is meaningful only when IE5_EN is set)
     eIE5 IE5 : 2;
+    /// read-write - IRQ enable of segment 5.
     eIE5_EN IE5_EN : 1;
   } bits;
   
@@ -1629,15 +1783,25 @@ union TRIG1_CHAIN_7_6 {
   
   // Bit field definition.
   struct {
+    /// read-write - ADC hardware trigger command selection
     eCSEL6 CSEL6 : 4;
+    /// read-write - Segment 6 HWTS ADC hardware trigger selection
     eHWTS6 HWTS6 : 8;
+    /// read-write - Segment 6 B2B
     eB2B6 B2B6 : 1;
+    /// read-write - Segment 6 interrupt enable. (This bit field is meaningful only when IE6_EN is set)
     eIE6 IE6 : 2;
+    /// read-write - IRQ enable of segment 6.
     eIE6_EN IE6_EN : 1;
+    /// read-write - ADC hardware trigger command selection
     eCSEL7 CSEL7 : 4;
+    /// read-write - Segment 7 HWTS ADC hardware trigger selection
     eHWTS7 HWTS7 : 8;
+    /// read-write - Segment 7 B2B
     eB2B7 B2B7 : 1;
+    /// read-write - Segment 7 interrupt enable. (This bit field is meaningful only when IE7_EN is set)
     eIE7 IE7 : 2;
+    /// read-write - IRQ enable of segment 7.
     eIE7_EN IE7_EN : 1;
   } bits;
   
@@ -1655,8 +1819,10 @@ union TRIG1_RESULT_1_0 {
   
   // Bit field definition.
   struct {
+    /// read-only - Result DATA0The sign bit from ADC result FIFO is ignored by ETC_TRIG result, so only 12-bit unsigned results is supported by ADC_ETC module
     uint32_t DATA0 : 12;
     uint32_t _reserved_0 : 4;
+    /// read-only - Result DATA1The sign bit from ADC result FIFO is ignored by ETC_TRIG result, so only 12-bit unsigned results is supported by ADC_ETC module
     uint32_t DATA1 : 12;
     uint32_t _reserved_1 : 4;
   } bits;
@@ -1675,8 +1841,10 @@ union TRIG1_RESULT_3_2 {
   
   // Bit field definition.
   struct {
+    /// read-only - Result DATA2The sign bit from ADC result FIFO is ignored by ETC_TRIG result, so only 12-bit unsigned results is supported by ADC_ETC module
     uint32_t DATA2 : 12;
     uint32_t _reserved_0 : 4;
+    /// read-only - Result DATA3The sign bit from ADC result FIFO is ignored by ETC_TRIG result, so only 12-bit unsigned results is supported by ADC_ETC module
     uint32_t DATA3 : 12;
     uint32_t _reserved_1 : 4;
   } bits;
@@ -1695,8 +1863,10 @@ union TRIG1_RESULT_5_4 {
   
   // Bit field definition.
   struct {
+    /// read-only - Result DATA4The sign bit from ADC result FIFO is ignored by ETC_TRIG result, so only 12-bit unsigned results is supported by ADC_ETC module
     uint32_t DATA4 : 12;
     uint32_t _reserved_0 : 4;
+    /// read-only - Result DATA5The sign bit from ADC result FIFO is ignored by ETC_TRIG result, so only 12-bit unsigned results is supported by ADC_ETC module
     uint32_t DATA5 : 12;
     uint32_t _reserved_1 : 4;
   } bits;
@@ -1715,8 +1885,10 @@ union TRIG1_RESULT_7_6 {
   
   // Bit field definition.
   struct {
+    /// read-only - Result DATA6The sign bit from ADC result FIFO is ignored by ETC_TRIG result, so only 12-bit unsigned results is supported by ADC_ETC module
     uint32_t DATA6 : 12;
     uint32_t _reserved_0 : 4;
+    /// read-only - Result DATA7The sign bit from ADC result FIFO is ignored by ETC_TRIG result, so only 12-bit unsigned results is supported by ADC_ETC module
     uint32_t DATA7 : 12;
     uint32_t _reserved_1 : 4;
   } bits;
@@ -1766,16 +1938,22 @@ union TRIG2_CTRL {
   
   // Bit field definition.
   struct {
+    /// read-write - Software trigger. This field is self-clearing.
     eSW_TRIG SW_TRIG : 1;
     uint32_t _reserved_0 : 3;
+    /// read-write - Trigger mode selection.
     eTRIG_MODE TRIG_MODE : 1;
     uint32_t _reserved_1 : 3;
+    /// read-write - The number of segments inside the trigger chain of TRIGa.
     eTRIG_CHAIN TRIG_CHAIN : 3;
     uint32_t _reserved_2 : 1;
+    /// read-write - External trigger priority, 7 is highest priority, while 0 is lowest
     uint32_t TRIG_PRIORITY : 3;
     uint32_t _reserved_3 : 1;
+    /// read-write - Trigger synchronization mode selection
     eSYNC_MODE SYNC_MODE : 1;
     uint32_t _reserved_4 : 7;
+    /// read-write - Segment x done detection
     eCHAINx_DONE CHAINx_DONE : 8;
   } bits;
   
@@ -1793,7 +1971,9 @@ union TRIG2_COUNTER {
   
   // Bit field definition.
   struct {
+    /// read-write - TRIGGER initial delay counter. Initial_delay = (INIT_DELAY+1)*(PRE_DIVIDER+1)*ipg_clk
     uint32_t INIT_DELAY : 16;
+    /// read-write - TRIGGER sampling interval counter
     uint32_t SAMPLE_INTERVAL : 16;
   } bits;
   
@@ -1907,15 +2087,25 @@ union TRIG2_CHAIN_1_0 {
   
   // Bit field definition.
   struct {
+    /// read-write - ADC hardware trigger command selection
     eCSEL0 CSEL0 : 4;
+    /// read-write - Segment 0 HWTS ADC hardware trigger selection
     eHWTS0 HWTS0 : 8;
+    /// read-write - Segment 0 B2B
     eB2B0 B2B0 : 1;
+    /// read-write - Segment 0 interrupt enable. (This bit field is meaningful only when IE0_EN is set)
     eIE0 IE0 : 2;
+    /// read-write - IRQ enable of segment 0.
     eIE0_EN IE0_EN : 1;
+    /// read-write - ADC hardware trigger command selection
     eCSEL1 CSEL1 : 4;
+    /// read-write - Segment 1 HWTS ADC hardware trigger selection
     eHWTS1 HWTS1 : 8;
+    /// read-write - Segment 1 B2B
     eB2B1 B2B1 : 1;
+    /// read-write - Segment 1 interrupt enable. (This bit field is meaningful only when IE1_EN is set)
     eIE1 IE1 : 2;
+    /// read-write - IRQ enable of segment 1.
     eIE1_EN IE1_EN : 1;
   } bits;
   
@@ -2029,15 +2219,25 @@ union TRIG2_CHAIN_3_2 {
   
   // Bit field definition.
   struct {
+    /// read-write - ADC hardware trigger command selection
     eCSEL2 CSEL2 : 4;
+    /// read-write - Segment 2 HWTS ADC hardware trigger selection
     eHWTS2 HWTS2 : 8;
+    /// read-write - Segment 2 B2B
     eB2B2 B2B2 : 1;
+    /// read-write - Segment 2 interrupt enable. (This bit field is meaningful only when IE2_EN is set)
     eIE2 IE2 : 2;
+    /// read-write - IRQ enable of segment 2.
     eIE2_EN IE2_EN : 1;
+    /// read-write - ADC hardware trigger command selection
     eCSEL3 CSEL3 : 4;
+    /// read-write - Segment 3 HWTS ADC hardware trigger selection
     eHWTS3 HWTS3 : 8;
+    /// read-write - Segment 3 B2B
     eB2B3 B2B3 : 1;
+    /// read-write - Segment 3 interrupt enable. (This bit field is meaningful only when IE3_EN is set)
     eIE3 IE3 : 2;
+    /// read-write - IRQ enable of segment 3.
     eIE3_EN IE3_EN : 1;
   } bits;
   
@@ -2151,15 +2351,25 @@ union TRIG2_CHAIN_5_4 {
   
   // Bit field definition.
   struct {
+    /// read-write - ADC hardware trigger command selection
     eCSEL4 CSEL4 : 4;
+    /// read-write - Segment 4 HWTS ADC hardware trigger selection
     eHWTS4 HWTS4 : 8;
+    /// read-write - Segment 4 B2B
     eB2B4 B2B4 : 1;
+    /// read-write - Segment 4 interrupt enable. (This bit field is meaningful only when IE4_EN is set)
     eIE4 IE4 : 2;
+    /// read-write - IRQ enable of segment 4.
     eIE4_EN IE4_EN : 1;
+    /// read-write - ADC hardware trigger command selection
     eCSEL5 CSEL5 : 4;
+    /// read-write - Segment 5 HWTS ADC hardware trigger selection
     eHWTS5 HWTS5 : 8;
+    /// read-write - Segment 5 B2B
     eB2B5 B2B5 : 1;
+    /// read-write - Segment 5 interrupt enable. (This bit field is meaningful only when IE5_EN is set)
     eIE5 IE5 : 2;
+    /// read-write - IRQ enable of segment 5.
     eIE5_EN IE5_EN : 1;
   } bits;
   
@@ -2273,15 +2483,25 @@ union TRIG2_CHAIN_7_6 {
   
   // Bit field definition.
   struct {
+    /// read-write - ADC hardware trigger command selection
     eCSEL6 CSEL6 : 4;
+    /// read-write - Segment 6 HWTS ADC hardware trigger selection
     eHWTS6 HWTS6 : 8;
+    /// read-write - Segment 6 B2B
     eB2B6 B2B6 : 1;
+    /// read-write - Segment 6 interrupt enable. (This bit field is meaningful only when IE6_EN is set)
     eIE6 IE6 : 2;
+    /// read-write - IRQ enable of segment 6.
     eIE6_EN IE6_EN : 1;
+    /// read-write - ADC hardware trigger command selection
     eCSEL7 CSEL7 : 4;
+    /// read-write - Segment 7 HWTS ADC hardware trigger selection
     eHWTS7 HWTS7 : 8;
+    /// read-write - Segment 7 B2B
     eB2B7 B2B7 : 1;
+    /// read-write - Segment 7 interrupt enable. (This bit field is meaningful only when IE7_EN is set)
     eIE7 IE7 : 2;
+    /// read-write - IRQ enable of segment 7.
     eIE7_EN IE7_EN : 1;
   } bits;
   
@@ -2299,8 +2519,10 @@ union TRIG2_RESULT_1_0 {
   
   // Bit field definition.
   struct {
+    /// read-only - Result DATA0The sign bit from ADC result FIFO is ignored by ETC_TRIG result, so only 12-bit unsigned results is supported by ADC_ETC module
     uint32_t DATA0 : 12;
     uint32_t _reserved_0 : 4;
+    /// read-only - Result DATA1The sign bit from ADC result FIFO is ignored by ETC_TRIG result, so only 12-bit unsigned results is supported by ADC_ETC module
     uint32_t DATA1 : 12;
     uint32_t _reserved_1 : 4;
   } bits;
@@ -2319,8 +2541,10 @@ union TRIG2_RESULT_3_2 {
   
   // Bit field definition.
   struct {
+    /// read-only - Result DATA2The sign bit from ADC result FIFO is ignored by ETC_TRIG result, so only 12-bit unsigned results is supported by ADC_ETC module
     uint32_t DATA2 : 12;
     uint32_t _reserved_0 : 4;
+    /// read-only - Result DATA3The sign bit from ADC result FIFO is ignored by ETC_TRIG result, so only 12-bit unsigned results is supported by ADC_ETC module
     uint32_t DATA3 : 12;
     uint32_t _reserved_1 : 4;
   } bits;
@@ -2339,8 +2563,10 @@ union TRIG2_RESULT_5_4 {
   
   // Bit field definition.
   struct {
+    /// read-only - Result DATA4The sign bit from ADC result FIFO is ignored by ETC_TRIG result, so only 12-bit unsigned results is supported by ADC_ETC module
     uint32_t DATA4 : 12;
     uint32_t _reserved_0 : 4;
+    /// read-only - Result DATA5The sign bit from ADC result FIFO is ignored by ETC_TRIG result, so only 12-bit unsigned results is supported by ADC_ETC module
     uint32_t DATA5 : 12;
     uint32_t _reserved_1 : 4;
   } bits;
@@ -2359,8 +2585,10 @@ union TRIG2_RESULT_7_6 {
   
   // Bit field definition.
   struct {
+    /// read-only - Result DATA6The sign bit from ADC result FIFO is ignored by ETC_TRIG result, so only 12-bit unsigned results is supported by ADC_ETC module
     uint32_t DATA6 : 12;
     uint32_t _reserved_0 : 4;
+    /// read-only - Result DATA7The sign bit from ADC result FIFO is ignored by ETC_TRIG result, so only 12-bit unsigned results is supported by ADC_ETC module
     uint32_t DATA7 : 12;
     uint32_t _reserved_1 : 4;
   } bits;
@@ -2410,16 +2638,22 @@ union TRIG3_CTRL {
   
   // Bit field definition.
   struct {
+    /// read-write - Software trigger. This field is self-clearing.
     eSW_TRIG SW_TRIG : 1;
     uint32_t _reserved_0 : 3;
+    /// read-write - Trigger mode selection.
     eTRIG_MODE TRIG_MODE : 1;
     uint32_t _reserved_1 : 3;
+    /// read-write - The number of segments inside the trigger chain of TRIGa.
     eTRIG_CHAIN TRIG_CHAIN : 3;
     uint32_t _reserved_2 : 1;
+    /// read-write - External trigger priority, 7 is highest priority, while 0 is lowest
     uint32_t TRIG_PRIORITY : 3;
     uint32_t _reserved_3 : 1;
+    /// read-write - Trigger synchronization mode selection
     eSYNC_MODE SYNC_MODE : 1;
     uint32_t _reserved_4 : 7;
+    /// read-write - Segment x done detection
     eCHAINx_DONE CHAINx_DONE : 8;
   } bits;
   
@@ -2437,7 +2671,9 @@ union TRIG3_COUNTER {
   
   // Bit field definition.
   struct {
+    /// read-write - TRIGGER initial delay counter. Initial_delay = (INIT_DELAY+1)*(PRE_DIVIDER+1)*ipg_clk
     uint32_t INIT_DELAY : 16;
+    /// read-write - TRIGGER sampling interval counter
     uint32_t SAMPLE_INTERVAL : 16;
   } bits;
   
@@ -2551,15 +2787,25 @@ union TRIG3_CHAIN_1_0 {
   
   // Bit field definition.
   struct {
+    /// read-write - ADC hardware trigger command selection
     eCSEL0 CSEL0 : 4;
+    /// read-write - Segment 0 HWTS ADC hardware trigger selection
     eHWTS0 HWTS0 : 8;
+    /// read-write - Segment 0 B2B
     eB2B0 B2B0 : 1;
+    /// read-write - Segment 0 interrupt enable. (This bit field is meaningful only when IE0_EN is set)
     eIE0 IE0 : 2;
+    /// read-write - IRQ enable of segment 0.
     eIE0_EN IE0_EN : 1;
+    /// read-write - ADC hardware trigger command selection
     eCSEL1 CSEL1 : 4;
+    /// read-write - Segment 1 HWTS ADC hardware trigger selection
     eHWTS1 HWTS1 : 8;
+    /// read-write - Segment 1 B2B
     eB2B1 B2B1 : 1;
+    /// read-write - Segment 1 interrupt enable. (This bit field is meaningful only when IE1_EN is set)
     eIE1 IE1 : 2;
+    /// read-write - IRQ enable of segment 1.
     eIE1_EN IE1_EN : 1;
   } bits;
   
@@ -2673,15 +2919,25 @@ union TRIG3_CHAIN_3_2 {
   
   // Bit field definition.
   struct {
+    /// read-write - ADC hardware trigger command selection
     eCSEL2 CSEL2 : 4;
+    /// read-write - Segment 2 HWTS ADC hardware trigger selection
     eHWTS2 HWTS2 : 8;
+    /// read-write - Segment 2 B2B
     eB2B2 B2B2 : 1;
+    /// read-write - Segment 2 interrupt enable. (This bit field is meaningful only when IE2_EN is set)
     eIE2 IE2 : 2;
+    /// read-write - IRQ enable of segment 2.
     eIE2_EN IE2_EN : 1;
+    /// read-write - ADC hardware trigger command selection
     eCSEL3 CSEL3 : 4;
+    /// read-write - Segment 3 HWTS ADC hardware trigger selection
     eHWTS3 HWTS3 : 8;
+    /// read-write - Segment 3 B2B
     eB2B3 B2B3 : 1;
+    /// read-write - Segment 3 interrupt enable. (This bit field is meaningful only when IE3_EN is set)
     eIE3 IE3 : 2;
+    /// read-write - IRQ enable of segment 3.
     eIE3_EN IE3_EN : 1;
   } bits;
   
@@ -2795,15 +3051,25 @@ union TRIG3_CHAIN_5_4 {
   
   // Bit field definition.
   struct {
+    /// read-write - ADC hardware trigger command selection
     eCSEL4 CSEL4 : 4;
+    /// read-write - Segment 4 HWTS ADC hardware trigger selection
     eHWTS4 HWTS4 : 8;
+    /// read-write - Segment 4 B2B
     eB2B4 B2B4 : 1;
+    /// read-write - Segment 4 interrupt enable. (This bit field is meaningful only when IE4_EN is set)
     eIE4 IE4 : 2;
+    /// read-write - IRQ enable of segment 4.
     eIE4_EN IE4_EN : 1;
+    /// read-write - ADC hardware trigger command selection
     eCSEL5 CSEL5 : 4;
+    /// read-write - Segment 5 HWTS ADC hardware trigger selection
     eHWTS5 HWTS5 : 8;
+    /// read-write - Segment 5 B2B
     eB2B5 B2B5 : 1;
+    /// read-write - Segment 5 interrupt enable. (This bit field is meaningful only when IE5_EN is set)
     eIE5 IE5 : 2;
+    /// read-write - IRQ enable of segment 5.
     eIE5_EN IE5_EN : 1;
   } bits;
   
@@ -2917,15 +3183,25 @@ union TRIG3_CHAIN_7_6 {
   
   // Bit field definition.
   struct {
+    /// read-write - ADC hardware trigger command selection
     eCSEL6 CSEL6 : 4;
+    /// read-write - Segment 6 HWTS ADC hardware trigger selection
     eHWTS6 HWTS6 : 8;
+    /// read-write - Segment 6 B2B
     eB2B6 B2B6 : 1;
+    /// read-write - Segment 6 interrupt enable. (This bit field is meaningful only when IE6_EN is set)
     eIE6 IE6 : 2;
+    /// read-write - IRQ enable of segment 6.
     eIE6_EN IE6_EN : 1;
+    /// read-write - ADC hardware trigger command selection
     eCSEL7 CSEL7 : 4;
+    /// read-write - Segment 7 HWTS ADC hardware trigger selection
     eHWTS7 HWTS7 : 8;
+    /// read-write - Segment 7 B2B
     eB2B7 B2B7 : 1;
+    /// read-write - Segment 7 interrupt enable. (This bit field is meaningful only when IE7_EN is set)
     eIE7 IE7 : 2;
+    /// read-write - IRQ enable of segment 7.
     eIE7_EN IE7_EN : 1;
   } bits;
   
@@ -2943,8 +3219,10 @@ union TRIG3_RESULT_1_0 {
   
   // Bit field definition.
   struct {
+    /// read-only - Result DATA0The sign bit from ADC result FIFO is ignored by ETC_TRIG result, so only 12-bit unsigned results is supported by ADC_ETC module
     uint32_t DATA0 : 12;
     uint32_t _reserved_0 : 4;
+    /// read-only - Result DATA1The sign bit from ADC result FIFO is ignored by ETC_TRIG result, so only 12-bit unsigned results is supported by ADC_ETC module
     uint32_t DATA1 : 12;
     uint32_t _reserved_1 : 4;
   } bits;
@@ -2963,8 +3241,10 @@ union TRIG3_RESULT_3_2 {
   
   // Bit field definition.
   struct {
+    /// read-only - Result DATA2The sign bit from ADC result FIFO is ignored by ETC_TRIG result, so only 12-bit unsigned results is supported by ADC_ETC module
     uint32_t DATA2 : 12;
     uint32_t _reserved_0 : 4;
+    /// read-only - Result DATA3The sign bit from ADC result FIFO is ignored by ETC_TRIG result, so only 12-bit unsigned results is supported by ADC_ETC module
     uint32_t DATA3 : 12;
     uint32_t _reserved_1 : 4;
   } bits;
@@ -2983,8 +3263,10 @@ union TRIG3_RESULT_5_4 {
   
   // Bit field definition.
   struct {
+    /// read-only - Result DATA4The sign bit from ADC result FIFO is ignored by ETC_TRIG result, so only 12-bit unsigned results is supported by ADC_ETC module
     uint32_t DATA4 : 12;
     uint32_t _reserved_0 : 4;
+    /// read-only - Result DATA5The sign bit from ADC result FIFO is ignored by ETC_TRIG result, so only 12-bit unsigned results is supported by ADC_ETC module
     uint32_t DATA5 : 12;
     uint32_t _reserved_1 : 4;
   } bits;
@@ -3003,8 +3285,10 @@ union TRIG3_RESULT_7_6 {
   
   // Bit field definition.
   struct {
+    /// read-only - Result DATA6The sign bit from ADC result FIFO is ignored by ETC_TRIG result, so only 12-bit unsigned results is supported by ADC_ETC module
     uint32_t DATA6 : 12;
     uint32_t _reserved_0 : 4;
+    /// read-only - Result DATA7The sign bit from ADC result FIFO is ignored by ETC_TRIG result, so only 12-bit unsigned results is supported by ADC_ETC module
     uint32_t DATA7 : 12;
     uint32_t _reserved_1 : 4;
   } bits;
@@ -3054,16 +3338,22 @@ union TRIG4_CTRL {
   
   // Bit field definition.
   struct {
+    /// read-write - Software trigger. This field is self-clearing.
     eSW_TRIG SW_TRIG : 1;
     uint32_t _reserved_0 : 3;
+    /// read-write - Trigger mode selection.
     eTRIG_MODE TRIG_MODE : 1;
     uint32_t _reserved_1 : 3;
+    /// read-write - The number of segments inside the trigger chain of TRIGa.
     eTRIG_CHAIN TRIG_CHAIN : 3;
     uint32_t _reserved_2 : 1;
+    /// read-write - External trigger priority, 7 is highest priority, while 0 is lowest
     uint32_t TRIG_PRIORITY : 3;
     uint32_t _reserved_3 : 1;
+    /// read-write - Trigger synchronization mode selection
     eSYNC_MODE SYNC_MODE : 1;
     uint32_t _reserved_4 : 7;
+    /// read-write - Segment x done detection
     eCHAINx_DONE CHAINx_DONE : 8;
   } bits;
   
@@ -3081,7 +3371,9 @@ union TRIG4_COUNTER {
   
   // Bit field definition.
   struct {
+    /// read-write - TRIGGER initial delay counter. Initial_delay = (INIT_DELAY+1)*(PRE_DIVIDER+1)*ipg_clk
     uint32_t INIT_DELAY : 16;
+    /// read-write - TRIGGER sampling interval counter
     uint32_t SAMPLE_INTERVAL : 16;
   } bits;
   
@@ -3195,15 +3487,25 @@ union TRIG4_CHAIN_1_0 {
   
   // Bit field definition.
   struct {
+    /// read-write - ADC hardware trigger command selection
     eCSEL0 CSEL0 : 4;
+    /// read-write - Segment 0 HWTS ADC hardware trigger selection
     eHWTS0 HWTS0 : 8;
+    /// read-write - Segment 0 B2B
     eB2B0 B2B0 : 1;
+    /// read-write - Segment 0 interrupt enable. (This bit field is meaningful only when IE0_EN is set)
     eIE0 IE0 : 2;
+    /// read-write - IRQ enable of segment 0.
     eIE0_EN IE0_EN : 1;
+    /// read-write - ADC hardware trigger command selection
     eCSEL1 CSEL1 : 4;
+    /// read-write - Segment 1 HWTS ADC hardware trigger selection
     eHWTS1 HWTS1 : 8;
+    /// read-write - Segment 1 B2B
     eB2B1 B2B1 : 1;
+    /// read-write - Segment 1 interrupt enable. (This bit field is meaningful only when IE1_EN is set)
     eIE1 IE1 : 2;
+    /// read-write - IRQ enable of segment 1.
     eIE1_EN IE1_EN : 1;
   } bits;
   
@@ -3317,15 +3619,25 @@ union TRIG4_CHAIN_3_2 {
   
   // Bit field definition.
   struct {
+    /// read-write - ADC hardware trigger command selection
     eCSEL2 CSEL2 : 4;
+    /// read-write - Segment 2 HWTS ADC hardware trigger selection
     eHWTS2 HWTS2 : 8;
+    /// read-write - Segment 2 B2B
     eB2B2 B2B2 : 1;
+    /// read-write - Segment 2 interrupt enable. (This bit field is meaningful only when IE2_EN is set)
     eIE2 IE2 : 2;
+    /// read-write - IRQ enable of segment 2.
     eIE2_EN IE2_EN : 1;
+    /// read-write - ADC hardware trigger command selection
     eCSEL3 CSEL3 : 4;
+    /// read-write - Segment 3 HWTS ADC hardware trigger selection
     eHWTS3 HWTS3 : 8;
+    /// read-write - Segment 3 B2B
     eB2B3 B2B3 : 1;
+    /// read-write - Segment 3 interrupt enable. (This bit field is meaningful only when IE3_EN is set)
     eIE3 IE3 : 2;
+    /// read-write - IRQ enable of segment 3.
     eIE3_EN IE3_EN : 1;
   } bits;
   
@@ -3439,15 +3751,25 @@ union TRIG4_CHAIN_5_4 {
   
   // Bit field definition.
   struct {
+    /// read-write - ADC hardware trigger command selection
     eCSEL4 CSEL4 : 4;
+    /// read-write - Segment 4 HWTS ADC hardware trigger selection
     eHWTS4 HWTS4 : 8;
+    /// read-write - Segment 4 B2B
     eB2B4 B2B4 : 1;
+    /// read-write - Segment 4 interrupt enable. (This bit field is meaningful only when IE4_EN is set)
     eIE4 IE4 : 2;
+    /// read-write - IRQ enable of segment 4.
     eIE4_EN IE4_EN : 1;
+    /// read-write - ADC hardware trigger command selection
     eCSEL5 CSEL5 : 4;
+    /// read-write - Segment 5 HWTS ADC hardware trigger selection
     eHWTS5 HWTS5 : 8;
+    /// read-write - Segment 5 B2B
     eB2B5 B2B5 : 1;
+    /// read-write - Segment 5 interrupt enable. (This bit field is meaningful only when IE5_EN is set)
     eIE5 IE5 : 2;
+    /// read-write - IRQ enable of segment 5.
     eIE5_EN IE5_EN : 1;
   } bits;
   
@@ -3561,15 +3883,25 @@ union TRIG4_CHAIN_7_6 {
   
   // Bit field definition.
   struct {
+    /// read-write - ADC hardware trigger command selection
     eCSEL6 CSEL6 : 4;
+    /// read-write - Segment 6 HWTS ADC hardware trigger selection
     eHWTS6 HWTS6 : 8;
+    /// read-write - Segment 6 B2B
     eB2B6 B2B6 : 1;
+    /// read-write - Segment 6 interrupt enable. (This bit field is meaningful only when IE6_EN is set)
     eIE6 IE6 : 2;
+    /// read-write - IRQ enable of segment 6.
     eIE6_EN IE6_EN : 1;
+    /// read-write - ADC hardware trigger command selection
     eCSEL7 CSEL7 : 4;
+    /// read-write - Segment 7 HWTS ADC hardware trigger selection
     eHWTS7 HWTS7 : 8;
+    /// read-write - Segment 7 B2B
     eB2B7 B2B7 : 1;
+    /// read-write - Segment 7 interrupt enable. (This bit field is meaningful only when IE7_EN is set)
     eIE7 IE7 : 2;
+    /// read-write - IRQ enable of segment 7.
     eIE7_EN IE7_EN : 1;
   } bits;
   
@@ -3587,8 +3919,10 @@ union TRIG4_RESULT_1_0 {
   
   // Bit field definition.
   struct {
+    /// read-only - Result DATA0The sign bit from ADC result FIFO is ignored by ETC_TRIG result, so only 12-bit unsigned results is supported by ADC_ETC module
     uint32_t DATA0 : 12;
     uint32_t _reserved_0 : 4;
+    /// read-only - Result DATA1The sign bit from ADC result FIFO is ignored by ETC_TRIG result, so only 12-bit unsigned results is supported by ADC_ETC module
     uint32_t DATA1 : 12;
     uint32_t _reserved_1 : 4;
   } bits;
@@ -3607,8 +3941,10 @@ union TRIG4_RESULT_3_2 {
   
   // Bit field definition.
   struct {
+    /// read-only - Result DATA2The sign bit from ADC result FIFO is ignored by ETC_TRIG result, so only 12-bit unsigned results is supported by ADC_ETC module
     uint32_t DATA2 : 12;
     uint32_t _reserved_0 : 4;
+    /// read-only - Result DATA3The sign bit from ADC result FIFO is ignored by ETC_TRIG result, so only 12-bit unsigned results is supported by ADC_ETC module
     uint32_t DATA3 : 12;
     uint32_t _reserved_1 : 4;
   } bits;
@@ -3627,8 +3963,10 @@ union TRIG4_RESULT_5_4 {
   
   // Bit field definition.
   struct {
+    /// read-only - Result DATA4The sign bit from ADC result FIFO is ignored by ETC_TRIG result, so only 12-bit unsigned results is supported by ADC_ETC module
     uint32_t DATA4 : 12;
     uint32_t _reserved_0 : 4;
+    /// read-only - Result DATA5The sign bit from ADC result FIFO is ignored by ETC_TRIG result, so only 12-bit unsigned results is supported by ADC_ETC module
     uint32_t DATA5 : 12;
     uint32_t _reserved_1 : 4;
   } bits;
@@ -3647,8 +3985,10 @@ union TRIG4_RESULT_7_6 {
   
   // Bit field definition.
   struct {
+    /// read-only - Result DATA6The sign bit from ADC result FIFO is ignored by ETC_TRIG result, so only 12-bit unsigned results is supported by ADC_ETC module
     uint32_t DATA6 : 12;
     uint32_t _reserved_0 : 4;
+    /// read-only - Result DATA7The sign bit from ADC result FIFO is ignored by ETC_TRIG result, so only 12-bit unsigned results is supported by ADC_ETC module
     uint32_t DATA7 : 12;
     uint32_t _reserved_1 : 4;
   } bits;
@@ -3698,16 +4038,22 @@ union TRIG5_CTRL {
   
   // Bit field definition.
   struct {
+    /// read-write - Software trigger. This field is self-clearing.
     eSW_TRIG SW_TRIG : 1;
     uint32_t _reserved_0 : 3;
+    /// read-write - Trigger mode selection.
     eTRIG_MODE TRIG_MODE : 1;
     uint32_t _reserved_1 : 3;
+    /// read-write - The number of segments inside the trigger chain of TRIGa.
     eTRIG_CHAIN TRIG_CHAIN : 3;
     uint32_t _reserved_2 : 1;
+    /// read-write - External trigger priority, 7 is highest priority, while 0 is lowest
     uint32_t TRIG_PRIORITY : 3;
     uint32_t _reserved_3 : 1;
+    /// read-write - Trigger synchronization mode selection
     eSYNC_MODE SYNC_MODE : 1;
     uint32_t _reserved_4 : 7;
+    /// read-write - Segment x done detection
     eCHAINx_DONE CHAINx_DONE : 8;
   } bits;
   
@@ -3725,7 +4071,9 @@ union TRIG5_COUNTER {
   
   // Bit field definition.
   struct {
+    /// read-write - TRIGGER initial delay counter. Initial_delay = (INIT_DELAY+1)*(PRE_DIVIDER+1)*ipg_clk
     uint32_t INIT_DELAY : 16;
+    /// read-write - TRIGGER sampling interval counter
     uint32_t SAMPLE_INTERVAL : 16;
   } bits;
   
@@ -3839,15 +4187,25 @@ union TRIG5_CHAIN_1_0 {
   
   // Bit field definition.
   struct {
+    /// read-write - ADC hardware trigger command selection
     eCSEL0 CSEL0 : 4;
+    /// read-write - Segment 0 HWTS ADC hardware trigger selection
     eHWTS0 HWTS0 : 8;
+    /// read-write - Segment 0 B2B
     eB2B0 B2B0 : 1;
+    /// read-write - Segment 0 interrupt enable. (This bit field is meaningful only when IE0_EN is set)
     eIE0 IE0 : 2;
+    /// read-write - IRQ enable of segment 0.
     eIE0_EN IE0_EN : 1;
+    /// read-write - ADC hardware trigger command selection
     eCSEL1 CSEL1 : 4;
+    /// read-write - Segment 1 HWTS ADC hardware trigger selection
     eHWTS1 HWTS1 : 8;
+    /// read-write - Segment 1 B2B
     eB2B1 B2B1 : 1;
+    /// read-write - Segment 1 interrupt enable. (This bit field is meaningful only when IE1_EN is set)
     eIE1 IE1 : 2;
+    /// read-write - IRQ enable of segment 1.
     eIE1_EN IE1_EN : 1;
   } bits;
   
@@ -3961,15 +4319,25 @@ union TRIG5_CHAIN_3_2 {
   
   // Bit field definition.
   struct {
+    /// read-write - ADC hardware trigger command selection
     eCSEL2 CSEL2 : 4;
+    /// read-write - Segment 2 HWTS ADC hardware trigger selection
     eHWTS2 HWTS2 : 8;
+    /// read-write - Segment 2 B2B
     eB2B2 B2B2 : 1;
+    /// read-write - Segment 2 interrupt enable. (This bit field is meaningful only when IE2_EN is set)
     eIE2 IE2 : 2;
+    /// read-write - IRQ enable of segment 2.
     eIE2_EN IE2_EN : 1;
+    /// read-write - ADC hardware trigger command selection
     eCSEL3 CSEL3 : 4;
+    /// read-write - Segment 3 HWTS ADC hardware trigger selection
     eHWTS3 HWTS3 : 8;
+    /// read-write - Segment 3 B2B
     eB2B3 B2B3 : 1;
+    /// read-write - Segment 3 interrupt enable. (This bit field is meaningful only when IE3_EN is set)
     eIE3 IE3 : 2;
+    /// read-write - IRQ enable of segment 3.
     eIE3_EN IE3_EN : 1;
   } bits;
   
@@ -4083,15 +4451,25 @@ union TRIG5_CHAIN_5_4 {
   
   // Bit field definition.
   struct {
+    /// read-write - ADC hardware trigger command selection
     eCSEL4 CSEL4 : 4;
+    /// read-write - Segment 4 HWTS ADC hardware trigger selection
     eHWTS4 HWTS4 : 8;
+    /// read-write - Segment 4 B2B
     eB2B4 B2B4 : 1;
+    /// read-write - Segment 4 interrupt enable. (This bit field is meaningful only when IE4_EN is set)
     eIE4 IE4 : 2;
+    /// read-write - IRQ enable of segment 4.
     eIE4_EN IE4_EN : 1;
+    /// read-write - ADC hardware trigger command selection
     eCSEL5 CSEL5 : 4;
+    /// read-write - Segment 5 HWTS ADC hardware trigger selection
     eHWTS5 HWTS5 : 8;
+    /// read-write - Segment 5 B2B
     eB2B5 B2B5 : 1;
+    /// read-write - Segment 5 interrupt enable. (This bit field is meaningful only when IE5_EN is set)
     eIE5 IE5 : 2;
+    /// read-write - IRQ enable of segment 5.
     eIE5_EN IE5_EN : 1;
   } bits;
   
@@ -4205,15 +4583,25 @@ union TRIG5_CHAIN_7_6 {
   
   // Bit field definition.
   struct {
+    /// read-write - ADC hardware trigger command selection
     eCSEL6 CSEL6 : 4;
+    /// read-write - Segment 6 HWTS ADC hardware trigger selection
     eHWTS6 HWTS6 : 8;
+    /// read-write - Segment 6 B2B
     eB2B6 B2B6 : 1;
+    /// read-write - Segment 6 interrupt enable. (This bit field is meaningful only when IE6_EN is set)
     eIE6 IE6 : 2;
+    /// read-write - IRQ enable of segment 6.
     eIE6_EN IE6_EN : 1;
+    /// read-write - ADC hardware trigger command selection
     eCSEL7 CSEL7 : 4;
+    /// read-write - Segment 7 HWTS ADC hardware trigger selection
     eHWTS7 HWTS7 : 8;
+    /// read-write - Segment 7 B2B
     eB2B7 B2B7 : 1;
+    /// read-write - Segment 7 interrupt enable. (This bit field is meaningful only when IE7_EN is set)
     eIE7 IE7 : 2;
+    /// read-write - IRQ enable of segment 7.
     eIE7_EN IE7_EN : 1;
   } bits;
   
@@ -4231,8 +4619,10 @@ union TRIG5_RESULT_1_0 {
   
   // Bit field definition.
   struct {
+    /// read-only - Result DATA0The sign bit from ADC result FIFO is ignored by ETC_TRIG result, so only 12-bit unsigned results is supported by ADC_ETC module
     uint32_t DATA0 : 12;
     uint32_t _reserved_0 : 4;
+    /// read-only - Result DATA1The sign bit from ADC result FIFO is ignored by ETC_TRIG result, so only 12-bit unsigned results is supported by ADC_ETC module
     uint32_t DATA1 : 12;
     uint32_t _reserved_1 : 4;
   } bits;
@@ -4251,8 +4641,10 @@ union TRIG5_RESULT_3_2 {
   
   // Bit field definition.
   struct {
+    /// read-only - Result DATA2The sign bit from ADC result FIFO is ignored by ETC_TRIG result, so only 12-bit unsigned results is supported by ADC_ETC module
     uint32_t DATA2 : 12;
     uint32_t _reserved_0 : 4;
+    /// read-only - Result DATA3The sign bit from ADC result FIFO is ignored by ETC_TRIG result, so only 12-bit unsigned results is supported by ADC_ETC module
     uint32_t DATA3 : 12;
     uint32_t _reserved_1 : 4;
   } bits;
@@ -4271,8 +4663,10 @@ union TRIG5_RESULT_5_4 {
   
   // Bit field definition.
   struct {
+    /// read-only - Result DATA4The sign bit from ADC result FIFO is ignored by ETC_TRIG result, so only 12-bit unsigned results is supported by ADC_ETC module
     uint32_t DATA4 : 12;
     uint32_t _reserved_0 : 4;
+    /// read-only - Result DATA5The sign bit from ADC result FIFO is ignored by ETC_TRIG result, so only 12-bit unsigned results is supported by ADC_ETC module
     uint32_t DATA5 : 12;
     uint32_t _reserved_1 : 4;
   } bits;
@@ -4291,8 +4685,10 @@ union TRIG5_RESULT_7_6 {
   
   // Bit field definition.
   struct {
+    /// read-only - Result DATA6The sign bit from ADC result FIFO is ignored by ETC_TRIG result, so only 12-bit unsigned results is supported by ADC_ETC module
     uint32_t DATA6 : 12;
     uint32_t _reserved_0 : 4;
+    /// read-only - Result DATA7The sign bit from ADC result FIFO is ignored by ETC_TRIG result, so only 12-bit unsigned results is supported by ADC_ETC module
     uint32_t DATA7 : 12;
     uint32_t _reserved_1 : 4;
   } bits;
@@ -4342,16 +4738,22 @@ union TRIG6_CTRL {
   
   // Bit field definition.
   struct {
+    /// read-write - Software trigger. This field is self-clearing.
     eSW_TRIG SW_TRIG : 1;
     uint32_t _reserved_0 : 3;
+    /// read-write - Trigger mode selection.
     eTRIG_MODE TRIG_MODE : 1;
     uint32_t _reserved_1 : 3;
+    /// read-write - The number of segments inside the trigger chain of TRIGa.
     eTRIG_CHAIN TRIG_CHAIN : 3;
     uint32_t _reserved_2 : 1;
+    /// read-write - External trigger priority, 7 is highest priority, while 0 is lowest
     uint32_t TRIG_PRIORITY : 3;
     uint32_t _reserved_3 : 1;
+    /// read-write - Trigger synchronization mode selection
     eSYNC_MODE SYNC_MODE : 1;
     uint32_t _reserved_4 : 7;
+    /// read-write - Segment x done detection
     eCHAINx_DONE CHAINx_DONE : 8;
   } bits;
   
@@ -4369,7 +4771,9 @@ union TRIG6_COUNTER {
   
   // Bit field definition.
   struct {
+    /// read-write - TRIGGER initial delay counter. Initial_delay = (INIT_DELAY+1)*(PRE_DIVIDER+1)*ipg_clk
     uint32_t INIT_DELAY : 16;
+    /// read-write - TRIGGER sampling interval counter
     uint32_t SAMPLE_INTERVAL : 16;
   } bits;
   
@@ -4483,15 +4887,25 @@ union TRIG6_CHAIN_1_0 {
   
   // Bit field definition.
   struct {
+    /// read-write - ADC hardware trigger command selection
     eCSEL0 CSEL0 : 4;
+    /// read-write - Segment 0 HWTS ADC hardware trigger selection
     eHWTS0 HWTS0 : 8;
+    /// read-write - Segment 0 B2B
     eB2B0 B2B0 : 1;
+    /// read-write - Segment 0 interrupt enable. (This bit field is meaningful only when IE0_EN is set)
     eIE0 IE0 : 2;
+    /// read-write - IRQ enable of segment 0.
     eIE0_EN IE0_EN : 1;
+    /// read-write - ADC hardware trigger command selection
     eCSEL1 CSEL1 : 4;
+    /// read-write - Segment 1 HWTS ADC hardware trigger selection
     eHWTS1 HWTS1 : 8;
+    /// read-write - Segment 1 B2B
     eB2B1 B2B1 : 1;
+    /// read-write - Segment 1 interrupt enable. (This bit field is meaningful only when IE1_EN is set)
     eIE1 IE1 : 2;
+    /// read-write - IRQ enable of segment 1.
     eIE1_EN IE1_EN : 1;
   } bits;
   
@@ -4605,15 +5019,25 @@ union TRIG6_CHAIN_3_2 {
   
   // Bit field definition.
   struct {
+    /// read-write - ADC hardware trigger command selection
     eCSEL2 CSEL2 : 4;
+    /// read-write - Segment 2 HWTS ADC hardware trigger selection
     eHWTS2 HWTS2 : 8;
+    /// read-write - Segment 2 B2B
     eB2B2 B2B2 : 1;
+    /// read-write - Segment 2 interrupt enable. (This bit field is meaningful only when IE2_EN is set)
     eIE2 IE2 : 2;
+    /// read-write - IRQ enable of segment 2.
     eIE2_EN IE2_EN : 1;
+    /// read-write - ADC hardware trigger command selection
     eCSEL3 CSEL3 : 4;
+    /// read-write - Segment 3 HWTS ADC hardware trigger selection
     eHWTS3 HWTS3 : 8;
+    /// read-write - Segment 3 B2B
     eB2B3 B2B3 : 1;
+    /// read-write - Segment 3 interrupt enable. (This bit field is meaningful only when IE3_EN is set)
     eIE3 IE3 : 2;
+    /// read-write - IRQ enable of segment 3.
     eIE3_EN IE3_EN : 1;
   } bits;
   
@@ -4727,15 +5151,25 @@ union TRIG6_CHAIN_5_4 {
   
   // Bit field definition.
   struct {
+    /// read-write - ADC hardware trigger command selection
     eCSEL4 CSEL4 : 4;
+    /// read-write - Segment 4 HWTS ADC hardware trigger selection
     eHWTS4 HWTS4 : 8;
+    /// read-write - Segment 4 B2B
     eB2B4 B2B4 : 1;
+    /// read-write - Segment 4 interrupt enable. (This bit field is meaningful only when IE4_EN is set)
     eIE4 IE4 : 2;
+    /// read-write - IRQ enable of segment 4.
     eIE4_EN IE4_EN : 1;
+    /// read-write - ADC hardware trigger command selection
     eCSEL5 CSEL5 : 4;
+    /// read-write - Segment 5 HWTS ADC hardware trigger selection
     eHWTS5 HWTS5 : 8;
+    /// read-write - Segment 5 B2B
     eB2B5 B2B5 : 1;
+    /// read-write - Segment 5 interrupt enable. (This bit field is meaningful only when IE5_EN is set)
     eIE5 IE5 : 2;
+    /// read-write - IRQ enable of segment 5.
     eIE5_EN IE5_EN : 1;
   } bits;
   
@@ -4849,15 +5283,25 @@ union TRIG6_CHAIN_7_6 {
   
   // Bit field definition.
   struct {
+    /// read-write - ADC hardware trigger command selection
     eCSEL6 CSEL6 : 4;
+    /// read-write - Segment 6 HWTS ADC hardware trigger selection
     eHWTS6 HWTS6 : 8;
+    /// read-write - Segment 6 B2B
     eB2B6 B2B6 : 1;
+    /// read-write - Segment 6 interrupt enable. (This bit field is meaningful only when IE6_EN is set)
     eIE6 IE6 : 2;
+    /// read-write - IRQ enable of segment 6.
     eIE6_EN IE6_EN : 1;
+    /// read-write - ADC hardware trigger command selection
     eCSEL7 CSEL7 : 4;
+    /// read-write - Segment 7 HWTS ADC hardware trigger selection
     eHWTS7 HWTS7 : 8;
+    /// read-write - Segment 7 B2B
     eB2B7 B2B7 : 1;
+    /// read-write - Segment 7 interrupt enable. (This bit field is meaningful only when IE7_EN is set)
     eIE7 IE7 : 2;
+    /// read-write - IRQ enable of segment 7.
     eIE7_EN IE7_EN : 1;
   } bits;
   
@@ -4875,8 +5319,10 @@ union TRIG6_RESULT_1_0 {
   
   // Bit field definition.
   struct {
+    /// read-only - Result DATA0The sign bit from ADC result FIFO is ignored by ETC_TRIG result, so only 12-bit unsigned results is supported by ADC_ETC module
     uint32_t DATA0 : 12;
     uint32_t _reserved_0 : 4;
+    /// read-only - Result DATA1The sign bit from ADC result FIFO is ignored by ETC_TRIG result, so only 12-bit unsigned results is supported by ADC_ETC module
     uint32_t DATA1 : 12;
     uint32_t _reserved_1 : 4;
   } bits;
@@ -4895,8 +5341,10 @@ union TRIG6_RESULT_3_2 {
   
   // Bit field definition.
   struct {
+    /// read-only - Result DATA2The sign bit from ADC result FIFO is ignored by ETC_TRIG result, so only 12-bit unsigned results is supported by ADC_ETC module
     uint32_t DATA2 : 12;
     uint32_t _reserved_0 : 4;
+    /// read-only - Result DATA3The sign bit from ADC result FIFO is ignored by ETC_TRIG result, so only 12-bit unsigned results is supported by ADC_ETC module
     uint32_t DATA3 : 12;
     uint32_t _reserved_1 : 4;
   } bits;
@@ -4915,8 +5363,10 @@ union TRIG6_RESULT_5_4 {
   
   // Bit field definition.
   struct {
+    /// read-only - Result DATA4The sign bit from ADC result FIFO is ignored by ETC_TRIG result, so only 12-bit unsigned results is supported by ADC_ETC module
     uint32_t DATA4 : 12;
     uint32_t _reserved_0 : 4;
+    /// read-only - Result DATA5The sign bit from ADC result FIFO is ignored by ETC_TRIG result, so only 12-bit unsigned results is supported by ADC_ETC module
     uint32_t DATA5 : 12;
     uint32_t _reserved_1 : 4;
   } bits;
@@ -4935,8 +5385,10 @@ union TRIG6_RESULT_7_6 {
   
   // Bit field definition.
   struct {
+    /// read-only - Result DATA6The sign bit from ADC result FIFO is ignored by ETC_TRIG result, so only 12-bit unsigned results is supported by ADC_ETC module
     uint32_t DATA6 : 12;
     uint32_t _reserved_0 : 4;
+    /// read-only - Result DATA7The sign bit from ADC result FIFO is ignored by ETC_TRIG result, so only 12-bit unsigned results is supported by ADC_ETC module
     uint32_t DATA7 : 12;
     uint32_t _reserved_1 : 4;
   } bits;
@@ -4986,16 +5438,22 @@ union TRIG7_CTRL {
   
   // Bit field definition.
   struct {
+    /// read-write - Software trigger. This field is self-clearing.
     eSW_TRIG SW_TRIG : 1;
     uint32_t _reserved_0 : 3;
+    /// read-write - Trigger mode selection.
     eTRIG_MODE TRIG_MODE : 1;
     uint32_t _reserved_1 : 3;
+    /// read-write - The number of segments inside the trigger chain of TRIGa.
     eTRIG_CHAIN TRIG_CHAIN : 3;
     uint32_t _reserved_2 : 1;
+    /// read-write - External trigger priority, 7 is highest priority, while 0 is lowest
     uint32_t TRIG_PRIORITY : 3;
     uint32_t _reserved_3 : 1;
+    /// read-write - Trigger synchronization mode selection
     eSYNC_MODE SYNC_MODE : 1;
     uint32_t _reserved_4 : 7;
+    /// read-write - Segment x done detection
     eCHAINx_DONE CHAINx_DONE : 8;
   } bits;
   
@@ -5013,7 +5471,9 @@ union TRIG7_COUNTER {
   
   // Bit field definition.
   struct {
+    /// read-write - TRIGGER initial delay counter. Initial_delay = (INIT_DELAY+1)*(PRE_DIVIDER+1)*ipg_clk
     uint32_t INIT_DELAY : 16;
+    /// read-write - TRIGGER sampling interval counter
     uint32_t SAMPLE_INTERVAL : 16;
   } bits;
   
@@ -5127,15 +5587,25 @@ union TRIG7_CHAIN_1_0 {
   
   // Bit field definition.
   struct {
+    /// read-write - ADC hardware trigger command selection
     eCSEL0 CSEL0 : 4;
+    /// read-write - Segment 0 HWTS ADC hardware trigger selection
     eHWTS0 HWTS0 : 8;
+    /// read-write - Segment 0 B2B
     eB2B0 B2B0 : 1;
+    /// read-write - Segment 0 interrupt enable. (This bit field is meaningful only when IE0_EN is set)
     eIE0 IE0 : 2;
+    /// read-write - IRQ enable of segment 0.
     eIE0_EN IE0_EN : 1;
+    /// read-write - ADC hardware trigger command selection
     eCSEL1 CSEL1 : 4;
+    /// read-write - Segment 1 HWTS ADC hardware trigger selection
     eHWTS1 HWTS1 : 8;
+    /// read-write - Segment 1 B2B
     eB2B1 B2B1 : 1;
+    /// read-write - Segment 1 interrupt enable. (This bit field is meaningful only when IE1_EN is set)
     eIE1 IE1 : 2;
+    /// read-write - IRQ enable of segment 1.
     eIE1_EN IE1_EN : 1;
   } bits;
   
@@ -5249,15 +5719,25 @@ union TRIG7_CHAIN_3_2 {
   
   // Bit field definition.
   struct {
+    /// read-write - ADC hardware trigger command selection
     eCSEL2 CSEL2 : 4;
+    /// read-write - Segment 2 HWTS ADC hardware trigger selection
     eHWTS2 HWTS2 : 8;
+    /// read-write - Segment 2 B2B
     eB2B2 B2B2 : 1;
+    /// read-write - Segment 2 interrupt enable. (This bit field is meaningful only when IE2_EN is set)
     eIE2 IE2 : 2;
+    /// read-write - IRQ enable of segment 2.
     eIE2_EN IE2_EN : 1;
+    /// read-write - ADC hardware trigger command selection
     eCSEL3 CSEL3 : 4;
+    /// read-write - Segment 3 HWTS ADC hardware trigger selection
     eHWTS3 HWTS3 : 8;
+    /// read-write - Segment 3 B2B
     eB2B3 B2B3 : 1;
+    /// read-write - Segment 3 interrupt enable. (This bit field is meaningful only when IE3_EN is set)
     eIE3 IE3 : 2;
+    /// read-write - IRQ enable of segment 3.
     eIE3_EN IE3_EN : 1;
   } bits;
   
@@ -5371,15 +5851,25 @@ union TRIG7_CHAIN_5_4 {
   
   // Bit field definition.
   struct {
+    /// read-write - ADC hardware trigger command selection
     eCSEL4 CSEL4 : 4;
+    /// read-write - Segment 4 HWTS ADC hardware trigger selection
     eHWTS4 HWTS4 : 8;
+    /// read-write - Segment 4 B2B
     eB2B4 B2B4 : 1;
+    /// read-write - Segment 4 interrupt enable. (This bit field is meaningful only when IE4_EN is set)
     eIE4 IE4 : 2;
+    /// read-write - IRQ enable of segment 4.
     eIE4_EN IE4_EN : 1;
+    /// read-write - ADC hardware trigger command selection
     eCSEL5 CSEL5 : 4;
+    /// read-write - Segment 5 HWTS ADC hardware trigger selection
     eHWTS5 HWTS5 : 8;
+    /// read-write - Segment 5 B2B
     eB2B5 B2B5 : 1;
+    /// read-write - Segment 5 interrupt enable. (This bit field is meaningful only when IE5_EN is set)
     eIE5 IE5 : 2;
+    /// read-write - IRQ enable of segment 5.
     eIE5_EN IE5_EN : 1;
   } bits;
   
@@ -5493,15 +5983,25 @@ union TRIG7_CHAIN_7_6 {
   
   // Bit field definition.
   struct {
+    /// read-write - ADC hardware trigger command selection
     eCSEL6 CSEL6 : 4;
+    /// read-write - Segment 6 HWTS ADC hardware trigger selection
     eHWTS6 HWTS6 : 8;
+    /// read-write - Segment 6 B2B
     eB2B6 B2B6 : 1;
+    /// read-write - Segment 6 interrupt enable. (This bit field is meaningful only when IE6_EN is set)
     eIE6 IE6 : 2;
+    /// read-write - IRQ enable of segment 6.
     eIE6_EN IE6_EN : 1;
+    /// read-write - ADC hardware trigger command selection
     eCSEL7 CSEL7 : 4;
+    /// read-write - Segment 7 HWTS ADC hardware trigger selection
     eHWTS7 HWTS7 : 8;
+    /// read-write - Segment 7 B2B
     eB2B7 B2B7 : 1;
+    /// read-write - Segment 7 interrupt enable. (This bit field is meaningful only when IE7_EN is set)
     eIE7 IE7 : 2;
+    /// read-write - IRQ enable of segment 7.
     eIE7_EN IE7_EN : 1;
   } bits;
   
@@ -5519,8 +6019,10 @@ union TRIG7_RESULT_1_0 {
   
   // Bit field definition.
   struct {
+    /// read-only - Result DATA0The sign bit from ADC result FIFO is ignored by ETC_TRIG result, so only 12-bit unsigned results is supported by ADC_ETC module
     uint32_t DATA0 : 12;
     uint32_t _reserved_0 : 4;
+    /// read-only - Result DATA1The sign bit from ADC result FIFO is ignored by ETC_TRIG result, so only 12-bit unsigned results is supported by ADC_ETC module
     uint32_t DATA1 : 12;
     uint32_t _reserved_1 : 4;
   } bits;
@@ -5539,8 +6041,10 @@ union TRIG7_RESULT_3_2 {
   
   // Bit field definition.
   struct {
+    /// read-only - Result DATA2The sign bit from ADC result FIFO is ignored by ETC_TRIG result, so only 12-bit unsigned results is supported by ADC_ETC module
     uint32_t DATA2 : 12;
     uint32_t _reserved_0 : 4;
+    /// read-only - Result DATA3The sign bit from ADC result FIFO is ignored by ETC_TRIG result, so only 12-bit unsigned results is supported by ADC_ETC module
     uint32_t DATA3 : 12;
     uint32_t _reserved_1 : 4;
   } bits;
@@ -5559,8 +6063,10 @@ union TRIG7_RESULT_5_4 {
   
   // Bit field definition.
   struct {
+    /// read-only - Result DATA4The sign bit from ADC result FIFO is ignored by ETC_TRIG result, so only 12-bit unsigned results is supported by ADC_ETC module
     uint32_t DATA4 : 12;
     uint32_t _reserved_0 : 4;
+    /// read-only - Result DATA5The sign bit from ADC result FIFO is ignored by ETC_TRIG result, so only 12-bit unsigned results is supported by ADC_ETC module
     uint32_t DATA5 : 12;
     uint32_t _reserved_1 : 4;
   } bits;
@@ -5579,8 +6085,10 @@ union TRIG7_RESULT_7_6 {
   
   // Bit field definition.
   struct {
+    /// read-only - Result DATA6The sign bit from ADC result FIFO is ignored by ETC_TRIG result, so only 12-bit unsigned results is supported by ADC_ETC module
     uint32_t DATA6 : 12;
     uint32_t _reserved_0 : 4;
+    /// read-only - Result DATA7The sign bit from ADC result FIFO is ignored by ETC_TRIG result, so only 12-bit unsigned results is supported by ADC_ETC module
     uint32_t DATA7 : 12;
     uint32_t _reserved_1 : 4;
   } bits;

@@ -17,14 +17,20 @@ union CPC_AUTHEN_CTRL {
   
   // Bit field definition.
   struct {
+    /// read-write - Allow user mode access
     uint32_t USER : 1;
+    /// read-write - Allow non-secure mode access
     uint32_t NONSECURE : 1;
     uint32_t _reserved_0 : 2;
+    /// read-write - Lock NONSECURE and USER
     uint32_t LOCK_SETTING : 1;
     uint32_t _reserved_1 : 3;
+    /// read-write - Domain ID white list
     uint32_t WHITE_LIST : 4;
+    /// read-write - White list lock
     uint32_t LOCK_LIST : 1;
     uint32_t _reserved_2 : 7;
+    /// read-write - Configuration lock
     uint32_t LOCK_CFG : 1;
     uint32_t _reserved_3 : 11;
   } bits;
@@ -48,6 +54,7 @@ union CPC_CORE_MODE {
   
   // Bit field definition.
   struct {
+    /// read-write - Control mode. This field is locked by AUTHEN_CTRL[LOCK_CFG] field.
     eCTRL_MODE CTRL_MODE : 2;
     uint32_t _reserved_0 : 30;
   } bits;
@@ -67,13 +74,20 @@ union CPC_CORE_POWER_CTRL {
   // Bit field definition.
   struct {
     uint32_t _reserved_0 : 1;
+    /// read-write - Power off when domain enters WAIT mode
     uint32_t PWR_OFF_AT_WAIT : 1;
+    /// read-write - Power off when domain enters STOP mode
     uint32_t PWR_OFF_AT_STOP : 1;
+    /// read-write - Power off when domain enters SUSPEND mode
     uint32_t PWR_OFF_AT_SUSPEND : 1;
     uint32_t _reserved_1 : 4;
+    /// read-write - Software isolation on trigger
     uint32_t ISO_ON_SOFT : 1;
+    /// read-write - Software power off trigger
     uint32_t PSW_OFF_SOFT : 1;
+    /// read-write - Software power on trigger
     uint32_t PSW_ON_SOFT : 1;
+    /// read-write - Software isolation off trigger
     uint32_t ISO_OFF_SOFT : 1;
     uint32_t _reserved_2 : 20;
   } bits;
@@ -92,6 +106,7 @@ union CPC_FLAG {
   
   // Bit field definition.
   struct {
+    /// read-write - set to 1 after core power switch off, cleared by writing 1
     uint32_t CORE_PDN_FLAG : 1;
     uint32_t _reserved_0 : 31;
   } bits;
@@ -116,6 +131,7 @@ union CPC_CACHE_MODE {
   
   // Bit field definition.
   struct {
+    /// read-write - Control mode. This field is locked by AUTHEN_CTRL[LOCK_CFG] field.
     eCTRL_MODE CTRL_MODE : 2;
     uint32_t _reserved_0 : 30;
   } bits;
@@ -134,10 +150,15 @@ union CPC_CACHE_CM_CTRL {
   
   // Bit field definition.
   struct {
+    /// read-write - Memory Low Power Level (MLPL) at RUN mode
     uint32_t MLPL_AT_RUN : 4;
+    /// read-write - Memory Low Power Level (MLPL) at WAIT mode. This field is locked by AUTHEN_CTRL[LOCK_CFG] field.
     uint32_t MLPL_AT_WAIT : 4;
+    /// read-write - Memory Low Power Level (MLPL) at STOP mode. This field is locked by AUTHEN_CTRL[LOCK_CFG] field.
     uint32_t MLPL_AT_STOP : 4;
+    /// read-write - Memory Low Power Level (MLPL) at SUSPEND mode. This field is locked by AUTHEN_CTRL[LOCK_CFG] field.
     uint32_t MLPL_AT_SUSPEND : 4;
+    /// read-write - Memory Low Power Level (MLPL) software change request, keep 1 until MLPL transition complete
     uint32_t MLPL_SOFT : 1;
     uint32_t _reserved_0 : 15;
   } bits;
@@ -156,13 +177,21 @@ union CPC_CACHE_SP_CTRL_0 {
   
   // Bit field definition.
   struct {
+    /// read-write - Memory Low Power Level (MLPL) at Setpoint 0. This field is locked by AUTHEN_CTRL[LOCK_CFG] field.
     uint32_t MLPL_AT_SP0 : 4;
+    /// read-write - Memory Low Power Level (MLPL) at Setpoint 1. This field is locked by AUTHEN_CTRL[LOCK_CFG] field.
     uint32_t MLPL_AT_SP1 : 4;
+    /// read-write - Memory Low Power Level (MLPL) at Setpoint 2. This field is locked by AUTHEN_CTRL[LOCK_CFG] field.
     uint32_t MLPL_AT_SP2 : 4;
+    /// read-write - Memory Low Power Level (MLPL) at Setpoint 3. This field is locked by AUTHEN_CTRL[LOCK_CFG] field.
     uint32_t MLPL_AT_SP3 : 4;
+    /// read-write - Memory Low Power Level (MLPL) at Setpoint 4. This field is locked by AUTHEN_CTRL[LOCK_CFG] field.
     uint32_t MLPL_AT_SP4 : 4;
+    /// read-write - Memory Low Power Level (MLPL) at Setpoint 5. This field is locked by AUTHEN_CTRL[LOCK_CFG] field.
     uint32_t MLPL_AT_SP5 : 4;
+    /// read-write - Memory Low Power Level (MLPL) at Setpoint 6. This field is locked by AUTHEN_CTRL[LOCK_CFG] field.
     uint32_t MLPL_AT_SP6 : 4;
+    /// read-write - Memory Low Power Level (MLPL) at Setpoint 7. This field is locked by AUTHEN_CTRL[LOCK_CFG] field.
     uint32_t MLPL_AT_SP7 : 4;
   } bits;
   
@@ -180,13 +209,21 @@ union CPC_CACHE_SP_CTRL_1 {
   
   // Bit field definition.
   struct {
+    /// read-write - Memory Low Power Level (MLPL) at Setpoint 8. This field is locked by AUTHEN_CTRL[LOCK_CFG] field.
     uint32_t MLPL_AT_SP8 : 4;
+    /// read-write - Memory Low Power Level (MLPL) at Setpoint 9. This field is locked by AUTHEN_CTRL[LOCK_CFG] field.
     uint32_t MLPL_AT_SP9 : 4;
+    /// read-write - Memory Low Power Level (MLPL) at Setpoint 10. This field is locked by AUTHEN_CTRL[LOCK_CFG] field.
     uint32_t MLPL_AT_SP10 : 4;
+    /// read-write - Memory Low Power Level (MLPL) at Setpoint 11. This field is locked by AUTHEN_CTRL[LOCK_CFG] field.
     uint32_t MLPL_AT_SP11 : 4;
+    /// read-write - Memory Low Power Level (MLPL) at Setpoint 12. This field is locked by AUTHEN_CTRL[LOCK_CFG] field.
     uint32_t MLPL_AT_SP12 : 4;
+    /// read-write - Memory Low Power Level (MLPL) at Setpoint 13. This field is locked by AUTHEN_CTRL[LOCK_CFG] field.
     uint32_t MLPL_AT_SP13 : 4;
+    /// read-write - Memory Low Power Level (MLPL) at Setpoint 14. This field is locked by AUTHEN_CTRL[LOCK_CFG] field.
     uint32_t MLPL_AT_SP14 : 4;
+    /// read-write - Memory Low Power Level (MLPL) at Setpoint 15. This field is locked by AUTHEN_CTRL[LOCK_CFG] field.
     uint32_t MLPL_AT_SP15 : 4;
   } bits;
   
@@ -210,6 +247,7 @@ union CPC_LMEM_MODE {
   
   // Bit field definition.
   struct {
+    /// read-write - Control mode. This field is locked by AUTHEN_CTRL[LOCK_CFG] field.
     eCTRL_MODE CTRL_MODE : 2;
     uint32_t _reserved_0 : 30;
   } bits;
@@ -228,10 +266,15 @@ union CPC_LMEM_CM_CTRL {
   
   // Bit field definition.
   struct {
+    /// read-write - Memory Low Power Level (MLPL) at RUN mode
     uint32_t MLPL_AT_RUN : 4;
+    /// read-write - Memory Low Power Level (MLPL) at WAIT mode. This field is locked by AUTHEN_CTRL[LOCK_CFG] field.
     uint32_t MLPL_AT_WAIT : 4;
+    /// read-write - Memory Low Power Level (MLPL) at STOP mode. This field is locked by AUTHEN_CTRL[LOCK_CFG] field.
     uint32_t MLPL_AT_STOP : 4;
+    /// read-write - Memory Low Power Level (MLPL) at SUSPEND mode. This field is locked by AUTHEN_CTRL[LOCK_CFG] field.
     uint32_t MLPL_AT_SUSPEND : 4;
+    /// read-write - Memory Low Power Level (MLPL) software change request, keep 1 until MLPL transition complete
     uint32_t MLPL_SOFT : 1;
     uint32_t _reserved_0 : 15;
   } bits;
@@ -250,13 +293,21 @@ union CPC_LMEM_SP_CTRL_0 {
   
   // Bit field definition.
   struct {
+    /// read-write - Memory Low Power Level (MLPL) at Setpoint 0. This field is locked by AUTHEN_CTRL[LOCK_CFG] field.
     uint32_t MLPL_AT_SP0 : 4;
+    /// read-write - Memory Low Power Level (MLPL) at Setpoint 1. This field is locked by AUTHEN_CTRL[LOCK_CFG] field.
     uint32_t MLPL_AT_SP1 : 4;
+    /// read-write - Memory Low Power Level (MLPL) at Setpoint 2. This field is locked by AUTHEN_CTRL[LOCK_CFG] field.
     uint32_t MLPL_AT_SP2 : 4;
+    /// read-write - Memory Low Power Level (MLPL) at Setpoint 3. This field is locked by AUTHEN_CTRL[LOCK_CFG] field.
     uint32_t MLPL_AT_SP3 : 4;
+    /// read-write - Memory Low Power Level (MLPL) at Setpoint 4. This field is locked by AUTHEN_CTRL[LOCK_CFG] field.
     uint32_t MLPL_AT_SP4 : 4;
+    /// read-write - Memory Low Power Level (MLPL) at Setpoint 5. This field is locked by AUTHEN_CTRL[LOCK_CFG] field.
     uint32_t MLPL_AT_SP5 : 4;
+    /// read-write - Memory Low Power Level (MLPL) at Setpoint 6. This field is locked by AUTHEN_CTRL[LOCK_CFG] field.
     uint32_t MLPL_AT_SP6 : 4;
+    /// read-write - Memory Low Power Level (MLPL) at Setpoint 7. This field is locked by AUTHEN_CTRL[LOCK_CFG] field.
     uint32_t MLPL_AT_SP7 : 4;
   } bits;
   
@@ -274,13 +325,21 @@ union CPC_LMEM_SP_CTRL_1 {
   
   // Bit field definition.
   struct {
+    /// read-write - Memory Low Power Level (MLPL) at Setpoint 8. This field is locked by AUTHEN_CTRL[LOCK_CFG] field.
     uint32_t MLPL_AT_SP8 : 4;
+    /// read-write - Memory Low Power Level (MLPL) at Setpoint 9. This field is locked by AUTHEN_CTRL[LOCK_CFG] field.
     uint32_t MLPL_AT_SP9 : 4;
+    /// read-write - Memory Low Power Level (MLPL) at Setpoint 10. This field is locked by AUTHEN_CTRL[LOCK_CFG] field.
     uint32_t MLPL_AT_SP10 : 4;
+    /// read-write - Memory Low Power Level (MLPL) at Setpoint 11. This field is locked by AUTHEN_CTRL[LOCK_CFG] field.
     uint32_t MLPL_AT_SP11 : 4;
+    /// read-write - Memory Low Power Level (MLPL) at Setpoint 12. This field is locked by AUTHEN_CTRL[LOCK_CFG] field.
     uint32_t MLPL_AT_SP12 : 4;
+    /// read-write - Memory Low Power Level (MLPL) at Setpoint 13. This field is locked by AUTHEN_CTRL[LOCK_CFG] field.
     uint32_t MLPL_AT_SP13 : 4;
+    /// read-write - Memory Low Power Level (MLPL) at Setpoint 14. This field is locked by AUTHEN_CTRL[LOCK_CFG] field.
     uint32_t MLPL_AT_SP14 : 4;
+    /// read-write - Memory Low Power Level (MLPL) at Setpoint 15. This field is locked by AUTHEN_CTRL[LOCK_CFG] field.
     uint32_t MLPL_AT_SP15 : 4;
   } bits;
   

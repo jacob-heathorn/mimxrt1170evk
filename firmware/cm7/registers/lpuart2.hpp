@@ -22,8 +22,11 @@ union VERID {
   
   // Bit field definition.
   struct {
+    /// read-only - Feature Identification Number
     eFEATURE FEATURE : 16;
+    /// read-only - Minor Version Number
     uint32_t MINOR : 8;
+    /// read-only - Major Version Number
     uint32_t MAJOR : 8;
   } bits;
   
@@ -41,7 +44,9 @@ union PARAM {
   
   // Bit field definition.
   struct {
+    /// read-only - Transmit FIFO Size
     uint32_t TXFIFO : 8;
+    /// read-only - Receive FIFO Size
     uint32_t RXFIFO : 8;
     uint32_t _reserved_0 : 16;
   } bits;
@@ -66,6 +71,7 @@ union GLOBAL {
   // Bit field definition.
   struct {
     uint32_t _reserved_0 : 1;
+    /// read-write - Software Reset
     eRST RST : 1;
     uint32_t _reserved_1 : 30;
   } bits;
@@ -91,6 +97,7 @@ union PINCFG {
   
   // Bit field definition.
   struct {
+    /// read-write - Trigger Select
     eTRGSEL TRGSEL : 2;
     uint32_t _reserved_0 : 30;
   } bits;
@@ -199,20 +206,33 @@ union BAUD {
   
   // Bit field definition.
   struct {
+    /// read-write - Baud Rate Modulo Divisor.
     uint32_t SBR : 13;
+    /// read-write - Stop Bit Number Select
     eSBNS SBNS : 1;
+    /// read-write - RX Input Active Edge Interrupt Enable
     eRXEDGIE RXEDGIE : 1;
+    /// read-write - LIN Break Detect Interrupt Enable
     eLBKDIE LBKDIE : 1;
+    /// read-write - Resynchronization Disable
     eRESYNCDIS RESYNCDIS : 1;
+    /// read-write - Both Edge Sampling
     eBOTHEDGE BOTHEDGE : 1;
+    /// read-write - Match Configuration
     eMATCFG MATCFG : 2;
     uint32_t _reserved_0 : 1;
+    /// read-write - Receiver Full DMA Enable
     eRDMAE RDMAE : 1;
     uint32_t _reserved_1 : 1;
+    /// read-write - Transmitter DMA Enable
     eTDMAE TDMAE : 1;
+    /// read-write - Oversampling Ratio
     eOSR OSR : 5;
+    /// read-write - 10-bit Mode select
     eM10 M10 : 1;
+    /// read-write - Match Address Mode Enable 2
     eMAEN2 MAEN2 : 1;
+    /// read-write - Match Address Mode Enable 1
     eMAEN1 MAEN1 : 1;
   } bits;
   
@@ -321,23 +341,41 @@ union STAT {
   // Bit field definition.
   struct {
     uint32_t _reserved_0 : 14;
+    /// read-write - Match 2 Flag
     eMA2F MA2F : 1;
+    /// read-write - Match 1 Flag
     eMA1F MA1F : 1;
+    /// read-write - Parity Error Flag
     ePF PF : 1;
+    /// read-write - Framing Error Flag
     eFE FE : 1;
+    /// read-write - Noise Flag
     eNF NF : 1;
+    /// read-write - Receiver Overrun Flag
     eOR OR : 1;
+    /// read-write - Idle Line Flag
     eIDLE IDLE : 1;
+    /// read-only - Receive Data Register Full Flag
     eRDRF RDRF : 1;
+    /// read-only - Transmission Complete Flag
     eTC TC : 1;
+    /// read-only - Transmit Data Register Empty Flag
     eTDRE TDRE : 1;
+    /// read-only - Receiver Active Flag
     eRAF RAF : 1;
+    /// read-write - LIN Break Detection Enable
     eLBKDE LBKDE : 1;
+    /// read-write - Break Character Generation Length
     eBRK13 BRK13 : 1;
+    /// read-write - Receive Wake Up Idle Detect
     eRWUID RWUID : 1;
+    /// read-write - Receive Data Inversion
     eRXINV RXINV : 1;
+    /// read-write - MSB First
     eMSBF MSBF : 1;
+    /// read-write - RXD Pin Active Edge Interrupt Flag
     eRXEDGIF RXEDGIF : 1;
+    /// read-write - LIN Break Detect Interrupt Flag
     eLBKDIF LBKDIF : 1;
   } bits;
   
@@ -491,34 +529,62 @@ union CTRL {
   
   // Bit field definition.
   struct {
+    /// read-write - Parity Type
     ePT PT : 1;
+    /// read-write - Parity Enable
     ePE PE : 1;
+    /// read-write - Idle Line Type Select
     eILT ILT : 1;
+    /// read-write - Receiver Wakeup Method Select
     eWAKE WAKE : 1;
+    /// read-write - 9-Bit or 8-Bit Mode Select
     eM M : 1;
+    /// read-write - Receiver Source Select
     eRSRC RSRC : 1;
+    /// read-write - Doze Enable
     eDOZEEN DOZEEN : 1;
+    /// read-write - Loop Mode Select
     eLOOPS LOOPS : 1;
+    /// read-write - Idle Configuration
     eIDLECFG IDLECFG : 3;
+    /// read-write - 7-Bit Mode Select
     eM7 M7 : 1;
     uint32_t _reserved_0 : 2;
+    /// read-write - Match 2 Interrupt Enable
     eMA2IE MA2IE : 1;
+    /// read-write - Match 1 Interrupt Enable
     eMA1IE MA1IE : 1;
+    /// read-write - Send Break
     eSBK SBK : 1;
+    /// read-write - Receiver Wakeup Control
     eRWU RWU : 1;
+    /// read-write - Receiver Enable
     eRE RE : 1;
+    /// read-write - Transmitter Enable
     eTE TE : 1;
+    /// read-write - Idle Line Interrupt Enable
     eILIE ILIE : 1;
+    /// read-write - Receiver Interrupt Enable
     eRIE RIE : 1;
+    /// read-write - Transmission Complete Interrupt Enable for
     eTCIE TCIE : 1;
+    /// read-write - Transmit Interrupt Enable
     eTIE TIE : 1;
+    /// read-write - Parity Error Interrupt Enable
     ePEIE PEIE : 1;
+    /// read-write - Framing Error Interrupt Enable
     eFEIE FEIE : 1;
+    /// read-write - Noise Error Interrupt Enable
     eNEIE NEIE : 1;
+    /// read-write - Overrun Interrupt Enable
     eORIE ORIE : 1;
+    /// read-write - Transmit Data Inversion
     eTXINV TXINV : 1;
+    /// read-write - TXD Pin Direction in Single-Wire Mode
     eTXDIR TXDIR : 1;
+    /// read-write - Receive Bit 9 / Transmit Bit 8
     uint32_t R9T8 : 1;
+    /// read-write - Receive Bit 8 / Transmit Bit 9
     uint32_t R8T9 : 1;
   } bits;
   
@@ -561,21 +627,36 @@ union DATA {
   
   // Bit field definition.
   struct {
+    /// read-write - R0T0
     uint32_t R0T0 : 1;
+    /// read-write - R1T1
     uint32_t R1T1 : 1;
+    /// read-write - R2T2
     uint32_t R2T2 : 1;
+    /// read-write - R3T3
     uint32_t R3T3 : 1;
+    /// read-write - R4T4
     uint32_t R4T4 : 1;
+    /// read-write - R5T5
     uint32_t R5T5 : 1;
+    /// read-write - R6T6
     uint32_t R6T6 : 1;
+    /// read-write - R7T7
     uint32_t R7T7 : 1;
+    /// read-write - R8T8
     uint32_t R8T8 : 1;
+    /// read-write - R9T9
     uint32_t R9T9 : 1;
     uint32_t _reserved_0 : 1;
+    /// read-only - Idle Line
     eIDLINE IDLINE : 1;
+    /// read-only - Receive Buffer Empty
     eRXEMPT RXEMPT : 1;
+    /// read-write - Frame Error / Transmit Special Character
     eFRETSC FRETSC : 1;
+    /// read-only - Parity Error
     ePARITYE PARITYE : 1;
+    /// read-only - Noisy Data Received
     eNOISY NOISY : 1;
     uint32_t _reserved_1 : 16;
   } bits;
@@ -594,8 +675,10 @@ union MATCH {
   
   // Bit field definition.
   struct {
+    /// read-write - Match Address 1
     uint32_t MA1 : 10;
     uint32_t _reserved_0 : 6;
+    /// read-write - Match Address 2
     uint32_t MA2 : 10;
     uint32_t _reserved_1 : 6;
   } bits;
@@ -656,16 +739,25 @@ union MODIR {
   
   // Bit field definition.
   struct {
+    /// read-write - Transmitter clear-to-send enable
     eTXCTSE TXCTSE : 1;
+    /// read-write - Transmitter request-to-send enable
     eTXRTSE TXRTSE : 1;
+    /// read-write - Transmitter request-to-send polarity
     eTXRTSPOL TXRTSPOL : 1;
+    /// read-write - Receiver request-to-send enable
     eRXRTSE RXRTSE : 1;
+    /// read-write - Transmit CTS Configuration
     eTXCTSC TXCTSC : 1;
+    /// read-write - Transmit CTS Source
     eTXCTSSRC TXCTSSRC : 1;
     uint32_t _reserved_0 : 2;
+    /// read-write - Receive RTS Configuration
     uint32_t RTSWATER : 2;
     uint32_t _reserved_1 : 6;
+    /// read-write - Transmitter narrow pulse
     eTNP TNP : 2;
+    /// read-write - Infrared enable
     eIREN IREN : 1;
     uint32_t _reserved_2 : 13;
   } bits;
@@ -767,20 +859,33 @@ union FIFO {
   
   // Bit field definition.
   struct {
+    /// read-only - Receive FIFO Buffer Depth
     eRXFIFOSIZE RXFIFOSIZE : 3;
+    /// read-write - Receive FIFO Enable
     eRXFE RXFE : 1;
+    /// read-only - Transmit FIFO Buffer Depth
     eTXFIFOSIZE TXFIFOSIZE : 3;
+    /// read-write - Transmit FIFO Enable
     eTXFE TXFE : 1;
+    /// read-write - Receive FIFO Underflow Interrupt Enable
     eRXUFE RXUFE : 1;
+    /// read-write - Transmit FIFO Overflow Interrupt Enable
     eTXOFE TXOFE : 1;
+    /// read-write - Receiver Idle Empty Enable
     eRXIDEN RXIDEN : 3;
     uint32_t _reserved_0 : 1;
+    /// read-write - Receive FIFO Flush
     eRXFLUSH RXFLUSH : 1;
+    /// read-write - Transmit FIFO Flush
     eTXFLUSH TXFLUSH : 1;
+    /// read-write - Receiver FIFO Underflow Flag
     eRXUF RXUF : 1;
+    /// read-write - Transmitter FIFO Overflow Flag
     eTXOF TXOF : 1;
     uint32_t _reserved_1 : 4;
+    /// read-only - Receive FIFO/Buffer Empty
     eRXEMPT RXEMPT : 1;
+    /// read-only - Transmit FIFO/Buffer Empty
     eTXEMPT TXEMPT : 1;
     uint32_t _reserved_2 : 8;
   } bits;
@@ -799,12 +904,16 @@ union WATER {
   
   // Bit field definition.
   struct {
+    /// read-write - Transmit Watermark
     uint32_t TXWATER : 2;
     uint32_t _reserved_0 : 6;
+    /// read-only - Transmit Counter
     uint32_t TXCOUNT : 3;
     uint32_t _reserved_1 : 5;
+    /// read-write - Receive Watermark
     uint32_t RXWATER : 2;
     uint32_t _reserved_2 : 6;
+    /// read-only - Receive Counter
     uint32_t RXCOUNT : 3;
     uint32_t _reserved_3 : 5;
   } bits;

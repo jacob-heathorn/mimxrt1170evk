@@ -32,9 +32,12 @@ union CASR {
   
   // Bit field definition.
   struct {
+    /// read-write - Illegal Command
     eIC IC : 1;
+    /// read-write - DES Parity Error
     eDPE DPE : 1;
     uint32_t _reserved_0 : 26;
+    /// read-only - CAU Version
     eVER VER : 4;
   } bits;
   
@@ -52,6 +55,7 @@ union CAA {
   
   // Bit field definition.
   struct {
+    /// read-write - Accumulator
     uint32_t ACC : 32;
   } bits;
   
@@ -69,6 +73,7 @@ union CA[0] {
   
   // Bit field definition.
   struct {
+    /// read-write - General Purpose Registers
     uint32_t CAn : 32;
   } bits;
   
@@ -85,6 +90,7 @@ union CA[1] {
   
   // Bit field definition.
   struct {
+    /// read-write - General Purpose Registers
     uint32_t CAn : 32;
   } bits;
   
@@ -101,6 +107,7 @@ union CA[2] {
   
   // Bit field definition.
   struct {
+    /// read-write - General Purpose Registers
     uint32_t CAn : 32;
   } bits;
   
@@ -117,6 +124,7 @@ union CA[3] {
   
   // Bit field definition.
   struct {
+    /// read-write - General Purpose Registers
     uint32_t CAn : 32;
   } bits;
   
@@ -133,6 +141,7 @@ union CA[4] {
   
   // Bit field definition.
   struct {
+    /// read-write - General Purpose Registers
     uint32_t CAn : 32;
   } bits;
   
@@ -149,6 +158,7 @@ union CA[5] {
   
   // Bit field definition.
   struct {
+    /// read-write - General Purpose Registers
     uint32_t CAn : 32;
   } bits;
   
@@ -165,6 +175,7 @@ union CA[6] {
   
   // Bit field definition.
   struct {
+    /// read-write - General Purpose Registers
     uint32_t CAn : 32;
   } bits;
   
@@ -181,6 +192,7 @@ union CA[7] {
   
   // Bit field definition.
   struct {
+    /// read-write - General Purpose Registers
     uint32_t CAn : 32;
   } bits;
   
@@ -197,6 +209,7 @@ union CA[8] {
   
   // Bit field definition.
   struct {
+    /// read-write - General Purpose Registers
     uint32_t CAn : 32;
   } bits;
   

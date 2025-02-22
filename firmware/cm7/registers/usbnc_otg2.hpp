@@ -68,18 +68,28 @@ union CTRL1 {
   // Bit field definition.
   struct {
     uint32_t _reserved_0 : 7;
+    /// read-write - OVER_CUR_DIS
     eOVER_CUR_DIS OVER_CUR_DIS : 1;
+    /// read-write - OVER_CUR_POL
     eOVER_CUR_POL OVER_CUR_POL : 1;
+    /// read-write - PWR_POL
     ePWR_POL PWR_POL : 1;
+    /// read-write - WIE
     eWIE WIE : 1;
     uint32_t _reserved_1 : 3;
+    /// read-write - WKUP_SW_EN
     eWKUP_SW_EN WKUP_SW_EN : 1;
+    /// read-write - WKUP_SW
     eWKUP_SW WKUP_SW : 1;
+    /// read-write - WKUP_ID_EN
     eWKUP_ID_EN WKUP_ID_EN : 1;
+    /// read-write - WKUP_VBUS_EN
     eWKUP_VBUS_EN WKUP_VBUS_EN : 1;
     uint32_t _reserved_2 : 11;
+    /// read-write - Wake-up on DPDM change enable
     eWKUP_DPDM_EN WKUP_DPDM_EN : 1;
     uint32_t _reserved_3 : 1;
+    /// read-only - WIR
     eWIR WIR : 1;
   } bits;
   
@@ -116,10 +126,14 @@ union CTRL2 {
   
   // Bit field definition.
   struct {
+    /// read-write - VBUS_SOURCE_SEL
     eVBUS_SOURCE_SEL VBUS_SOURCE_SEL : 2;
+    /// read-write - Auto Resume Enable
     eAUTURESUME_EN AUTURESUME_EN : 1;
+    /// read-write - LOWSPEED_EN
     eLOWSPEED_EN LOWSPEED_EN : 1;
     uint32_t _reserved_0 : 27;
+    /// read-write - UTMI_CLK_VLD
     eUTMI_CLK_VLD UTMI_CLK_VLD : 1;
   } bits;
   
@@ -153,9 +167,12 @@ union HSIC_CTRL {
   // Bit field definition.
   struct {
     uint32_t _reserved_0 : 11;
+    /// read-write - HSIC_CLK_ON
     eHSIC_CLK_ON HSIC_CLK_ON : 1;
+    /// read-write - HSIC_EN
     eHSIC_EN HSIC_EN : 1;
     uint32_t _reserved_1 : 18;
+    /// read-only - CLK_VLD
     eCLK_VLD CLK_VLD : 1;
   } bits;
   

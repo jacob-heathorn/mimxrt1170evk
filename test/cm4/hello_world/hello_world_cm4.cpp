@@ -63,7 +63,7 @@ void BoardInitPins()
 {
     // Enable the IOMUXC clock and wait for it.
     nCCM::LPCG49_DIRECT::Instance().bits.ON = nCCM::LPCG49_DIRECT::eON::eON_1;
-    while (nCCM::LPCG49_STATUS0::Instance().bits.ON != nCCM::LPCG49_STATUS0::eON::eON_1){}
+    while (nCCM::LPCG49_STATUS0::Instance().bits.ON != nCCM::LPCG49_STATUS0::eON::eON_1) {}
     
     // Set GPIO9, pin3 mux, for LED.
     nIOMUXC::SW_MUX_CTL_PAD_GPIO_AD_04::Instance().bits.MUX_MODE = 

@@ -18,6 +18,7 @@ union MIF_AUTHEN_CTRL {
   // Bit field definition.
   struct {
     uint32_t _reserved_0 : 20;
+    /// read-write - Configuration lock
     uint32_t LOCK_CFG : 1;
     uint32_t _reserved_1 : 11;
   } bits;
@@ -36,6 +37,7 @@ union MIF_MLPL_SLEEP {
   
   // Bit field definition.
   struct {
+    /// read-write - Signal behavior at each MLPL
     uint32_t MLPL_CTRL : 16;
     uint32_t _reserved_0 : 16;
   } bits;
@@ -54,6 +56,7 @@ union MIF_MLPL_IG {
   
   // Bit field definition.
   struct {
+    /// read-write - Signal behavior at each MLPL
     uint32_t MLPL_CTRL : 16;
     uint32_t _reserved_0 : 16;
   } bits;
@@ -72,6 +75,7 @@ union MIF_MLPL_LS {
   
   // Bit field definition.
   struct {
+    /// read-write - Signal behavior at each MLPL
     uint32_t MLPL_CTRL : 16;
     uint32_t _reserved_0 : 16;
   } bits;
@@ -90,6 +94,7 @@ union MIF_MLPL_HS {
   
   // Bit field definition.
   struct {
+    /// read-write - Signal behavior at each MLPL
     uint32_t MLPL_CTRL : 16;
     uint32_t _reserved_0 : 16;
   } bits;
@@ -108,6 +113,7 @@ union MIF_MLPL_STDBY {
   
   // Bit field definition.
   struct {
+    /// read-write - Signal behavior at each MLPL
     uint32_t MLPL_CTRL : 16;
     uint32_t _reserved_0 : 16;
   } bits;
@@ -126,6 +132,7 @@ union MIF_MLPL_ARR_PDN {
   
   // Bit field definition.
   struct {
+    /// read-write - Signal behavior at each MLPL
     uint32_t MLPL_CTRL : 16;
     uint32_t _reserved_0 : 16;
   } bits;
@@ -144,6 +151,7 @@ union MIF_MLPL_PER_PDN {
   
   // Bit field definition.
   struct {
+    /// read-write - Signal behavior at each MLPL
     uint32_t MLPL_CTRL : 16;
     uint32_t _reserved_0 : 16;
   } bits;
@@ -162,8 +170,10 @@ union MIF_MLPL_INITN {
   
   // Bit field definition.
   struct {
+    /// read-write - Signal behavior at each MLPL
     uint32_t MLPL_CTRL : 16;
     uint32_t _reserved_0 : 15;
+    /// read-write - Bypass vdd_ok. This field is locked by AUTHEN_CTRL[LOCK_CFG] field.
     uint32_t BYPASS_VDD_OK : 1;
   } bits;
   
@@ -181,6 +191,7 @@ union MIF_MLPL_ISO {
   
   // Bit field definition.
   struct {
+    /// read-write - Signal behavior at each MLPL
     uint32_t MLPL_CTRL : 16;
     uint32_t _reserved_0 : 16;
   } bits;

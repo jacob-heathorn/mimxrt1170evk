@@ -27,7 +27,9 @@ union KPCR {
   
   // Bit field definition.
   struct {
+    /// read-write - KRE
     eKRE KRE : 8;
+    /// read-write - KCO
     eKCO KCO : 8;
     uint32_t _reserved_0 : 16;
   } bits;
@@ -76,12 +78,18 @@ union KPSR {
   
   // Bit field definition.
   struct {
+    /// read-write - KPKD
     eKPKD KPKD : 1;
+    /// read-write - KPKR
     eKPKR KPKR : 1;
+    /// read-write - KDSC
     eKDSC KDSC : 1;
+    /// read-write - KRSS
     eKRSS KRSS : 1;
     uint32_t _reserved_0 : 4;
+    /// read-write - KDIE
     eKDIE KDIE : 1;
+    /// read-write - KRIE
     eKRIE KRIE : 1;
     uint32_t _reserved_1 : 22;
   } bits;
@@ -110,7 +118,9 @@ union KDDR {
   
   // Bit field definition.
   struct {
+    /// read-write - KRDD
     eKRDD KRDD : 8;
+    /// read-write - KCDD
     eKCDD KCDD : 8;
     uint32_t _reserved_0 : 16;
   } bits;
@@ -129,7 +139,9 @@ union KPDR {
   
   // Bit field definition.
   struct {
+    /// read-write - KRD
     uint32_t KRD : 8;
+    /// read-write - KCD
     uint32_t KCD : 8;
     uint32_t _reserved_0 : 16;
   } bits;

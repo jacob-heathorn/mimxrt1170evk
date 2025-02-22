@@ -22,8 +22,11 @@ union VERID {
   
   // Bit field definition.
   struct {
+    /// read-only - Feature Specification Number
     eFEATURE FEATURE : 16;
+    /// read-only - Minor Version Number
     uint32_t MINOR : 8;
+    /// read-only - Major Version Number
     uint32_t MAJOR : 8;
   } bits;
   
@@ -41,8 +44,10 @@ union PARAM {
   
   // Bit field definition.
   struct {
+    /// read-only - Master Transmit FIFO Size
     uint32_t MTXFIFO : 4;
     uint32_t _reserved_0 : 4;
+    /// read-only - Master Receive FIFO Size
     uint32_t MRXFIFO : 4;
     uint32_t _reserved_1 : 20;
   } bits;
@@ -91,12 +96,18 @@ union MCR {
   
   // Bit field definition.
   struct {
+    /// read-write - Master Enable
     eMEN MEN : 1;
+    /// read-write - Software Reset
     eRST RST : 1;
+    /// read-write - Doze mode enable
     eDOZEN DOZEN : 1;
+    /// read-write - Debug Enable
     eDBGEN DBGEN : 1;
     uint32_t _reserved_0 : 4;
+    /// read-write - Reset Transmit FIFO
     eRTF RTF : 1;
+    /// read-write - Reset Receive FIFO
     eRRF RRF : 1;
     uint32_t _reserved_1 : 22;
   } bits;
@@ -170,18 +181,29 @@ union MSR {
   
   // Bit field definition.
   struct {
+    /// read-only - Transmit Data Flag
     eTDF TDF : 1;
+    /// read-only - Receive Data Flag
     eRDF RDF : 1;
     uint32_t _reserved_0 : 6;
+    /// read-write - End Packet Flag
     eEPF EPF : 1;
+    /// read-write - STOP Detect Flag
     eSDF SDF : 1;
+    /// read-write - NACK Detect Flag
     eNDF NDF : 1;
+    /// read-write - Arbitration Lost Flag
     eALF ALF : 1;
+    /// read-write - FIFO Error Flag
     eFEF FEF : 1;
+    /// read-write - Pin Low Timeout Flag
     ePLTF PLTF : 1;
+    /// read-write - Data Match Flag
     eDMF DMF : 1;
     uint32_t _reserved_1 : 9;
+    /// read-only - Master Busy Flag
     eMBF MBF : 1;
+    /// read-only - Bus Busy Flag
     eBBF BBF : 1;
     uint32_t _reserved_2 : 6;
   } bits;
@@ -245,15 +267,24 @@ union MIER {
   
   // Bit field definition.
   struct {
+    /// read-write - Transmit Data Interrupt Enable
     eTDIE TDIE : 1;
+    /// read-write - Receive Data Interrupt Enable
     eRDIE RDIE : 1;
     uint32_t _reserved_0 : 6;
+    /// read-write - End Packet Interrupt Enable
     eEPIE EPIE : 1;
+    /// read-write - STOP Detect Interrupt Enable
     eSDIE SDIE : 1;
+    /// read-write - NACK Detect Interrupt Enable
     eNDIE NDIE : 1;
+    /// read-write - Arbitration Lost Interrupt Enable
     eALIE ALIE : 1;
+    /// read-write - FIFO Error Interrupt Enable
     eFEIE FEIE : 1;
+    /// read-write - Pin Low Timeout Interrupt Enable
     ePLTIE PLTIE : 1;
+    /// read-write - Data Match Interrupt Enable
     eDMIE DMIE : 1;
     uint32_t _reserved_1 : 17;
   } bits;
@@ -282,7 +313,9 @@ union MDER {
   
   // Bit field definition.
   struct {
+    /// read-write - Transmit Data DMA Enable
     eTDDE TDDE : 1;
+    /// read-write - Receive Data DMA Enable
     eRDDE RDDE : 1;
     uint32_t _reserved_0 : 30;
   } bits;
@@ -326,11 +359,16 @@ union MCFGR0 {
   
   // Bit field definition.
   struct {
+    /// read-write - Host Request Enable
     eHREN HREN : 1;
+    /// read-write - Host Request Polarity
     eHRPOL HRPOL : 1;
+    /// read-write - Host Request Select
     eHRSEL HRSEL : 1;
     uint32_t _reserved_0 : 5;
+    /// read-write - Circular FIFO Enable
     eCIRFIFO CIRFIFO : 1;
+    /// read-write - Receive Data Match Only
     eRDMO RDMO : 1;
     uint32_t _reserved_1 : 22;
   } bits;
@@ -396,14 +434,20 @@ union MCFGR1 {
   
   // Bit field definition.
   struct {
+    /// read-write - Prescaler
     ePRESCALE PRESCALE : 3;
     uint32_t _reserved_0 : 5;
+    /// read-write - Automatic STOP Generation
     eAUTOSTOP AUTOSTOP : 1;
+    /// read-write - IGNACK
     eIGNACK IGNACK : 1;
+    /// read-write - Timeout Configuration
     eTIMECFG TIMECFG : 1;
     uint32_t _reserved_1 : 5;
+    /// read-write - Match Configuration
     eMATCFG MATCFG : 3;
     uint32_t _reserved_2 : 5;
+    /// read-write - Pin Configuration
     ePINCFG PINCFG : 3;
     uint32_t _reserved_3 : 5;
   } bits;
@@ -422,10 +466,13 @@ union MCFGR2 {
   
   // Bit field definition.
   struct {
+    /// read-write - Bus Idle Timeout
     uint32_t BUSIDLE : 12;
     uint32_t _reserved_0 : 4;
+    /// read-write - Glitch Filter SCL
     uint32_t FILTSCL : 4;
     uint32_t _reserved_1 : 4;
+    /// read-write - Glitch Filter SDA
     uint32_t FILTSDA : 4;
     uint32_t _reserved_2 : 4;
   } bits;
@@ -445,6 +492,7 @@ union MCFGR3 {
   // Bit field definition.
   struct {
     uint32_t _reserved_0 : 8;
+    /// read-write - Pin Low Timeout
     uint32_t PINLOW : 12;
     uint32_t _reserved_1 : 12;
   } bits;
@@ -463,8 +511,10 @@ union MDMR {
   
   // Bit field definition.
   struct {
+    /// read-write - Match 0 Value
     uint32_t MATCH0 : 8;
     uint32_t _reserved_0 : 8;
+    /// read-write - Match 1 Value
     uint32_t MATCH1 : 8;
     uint32_t _reserved_1 : 8;
   } bits;
@@ -483,12 +533,16 @@ union MCCR0 {
   
   // Bit field definition.
   struct {
+    /// read-write - Clock Low Period
     uint32_t CLKLO : 6;
     uint32_t _reserved_0 : 2;
+    /// read-write - Clock High Period
     uint32_t CLKHI : 6;
     uint32_t _reserved_1 : 2;
+    /// read-write - Setup Hold Delay
     uint32_t SETHOLD : 6;
     uint32_t _reserved_2 : 2;
+    /// read-write - Data Valid Delay
     uint32_t DATAVD : 6;
     uint32_t _reserved_3 : 2;
   } bits;
@@ -507,12 +561,16 @@ union MCCR1 {
   
   // Bit field definition.
   struct {
+    /// read-write - Clock Low Period
     uint32_t CLKLO : 6;
     uint32_t _reserved_0 : 2;
+    /// read-write - Clock High Period
     uint32_t CLKHI : 6;
     uint32_t _reserved_1 : 2;
+    /// read-write - Setup Hold Delay
     uint32_t SETHOLD : 6;
     uint32_t _reserved_2 : 2;
+    /// read-write - Data Valid Delay
     uint32_t DATAVD : 6;
     uint32_t _reserved_3 : 2;
   } bits;
@@ -531,8 +589,10 @@ union MFCR {
   
   // Bit field definition.
   struct {
+    /// read-write - Transmit FIFO Watermark
     uint32_t TXWATER : 2;
     uint32_t _reserved_0 : 14;
+    /// read-write - Receive FIFO Watermark
     uint32_t RXWATER : 2;
     uint32_t _reserved_1 : 14;
   } bits;
@@ -551,8 +611,10 @@ union MFSR {
   
   // Bit field definition.
   struct {
+    /// read-only - Transmit FIFO Count
     uint32_t TXCOUNT : 3;
     uint32_t _reserved_0 : 13;
+    /// read-only - Receive FIFO Count
     uint32_t RXCOUNT : 3;
     uint32_t _reserved_1 : 13;
   } bits;
@@ -582,7 +644,9 @@ union MTDR {
   
   // Bit field definition.
   struct {
+    /// write-only - Transmit Data
     uint32_t DATA : 8;
+    /// write-only - Command Data
     eCMD CMD : 3;
     uint32_t _reserved_0 : 21;
   } bits;
@@ -606,8 +670,10 @@ union MRDR {
   
   // Bit field definition.
   struct {
+    /// read-only - Receive Data
     uint32_t DATA : 8;
     uint32_t _reserved_0 : 6;
+    /// read-only - RX Empty
     eRXEMPTY RXEMPTY : 1;
     uint32_t _reserved_1 : 17;
   } bits;
@@ -656,13 +722,19 @@ union SCR {
   
   // Bit field definition.
   struct {
+    /// read-write - Slave Enable
     eSEN SEN : 1;
+    /// read-write - Software Reset
     eRST RST : 1;
     uint32_t _reserved_0 : 2;
+    /// read-write - Filter Enable
     eFILTEN FILTEN : 1;
+    /// read-write - Filter Doze Enable
     eFILTDZ FILTDZ : 1;
     uint32_t _reserved_1 : 2;
+    /// read-write - Reset Transmit FIFO
     eRTF RTF : 1;
+    /// read-write - Reset Receive FIFO
     eRRF RRF : 1;
     uint32_t _reserved_2 : 22;
   } bits;
@@ -751,21 +823,35 @@ union SSR {
   
   // Bit field definition.
   struct {
+    /// read-only - Transmit Data Flag
     eTDF TDF : 1;
+    /// read-only - Receive Data Flag
     eRDF RDF : 1;
+    /// read-only - Address Valid Flag
     eAVF AVF : 1;
+    /// read-only - Transmit ACK Flag
     eTAF TAF : 1;
     uint32_t _reserved_0 : 4;
+    /// read-write - Repeated Start Flag
     eRSF RSF : 1;
+    /// read-write - STOP Detect Flag
     eSDF SDF : 1;
+    /// read-write - Bit Error Flag
     eBEF BEF : 1;
+    /// read-write - FIFO Error Flag
     eFEF FEF : 1;
+    /// read-only - Address Match 0 Flag
     eAM0F AM0F : 1;
+    /// read-only - Address Match 1 Flag
     eAM1F AM1F : 1;
+    /// read-only - General Call Flag
     eGCF GCF : 1;
+    /// read-only - SMBus Alert Response Flag
     eSARF SARF : 1;
     uint32_t _reserved_1 : 8;
+    /// read-only - Slave Busy Flag
     eSBF SBF : 1;
+    /// read-only - Bus Busy Flag
     eBBF BBF : 1;
     uint32_t _reserved_2 : 6;
   } bits;
@@ -844,18 +930,30 @@ union SIER {
   
   // Bit field definition.
   struct {
+    /// read-write - Transmit Data Interrupt Enable
     eTDIE TDIE : 1;
+    /// read-write - Receive Data Interrupt Enable
     eRDIE RDIE : 1;
+    /// read-write - Address Valid Interrupt Enable
     eAVIE AVIE : 1;
+    /// read-write - Transmit ACK Interrupt Enable
     eTAIE TAIE : 1;
     uint32_t _reserved_0 : 4;
+    /// read-write - Repeated Start Interrupt Enable
     eRSIE RSIE : 1;
+    /// read-write - STOP Detect Interrupt Enable
     eSDIE SDIE : 1;
+    /// read-write - Bit Error Interrupt Enable
     eBEIE BEIE : 1;
+    /// read-write - FIFO Error Interrupt Enable
     eFEIE FEIE : 1;
+    /// read-write - Address Match 0 Interrupt Enable
     eAM0IE AM0IE : 1;
+    /// read-write - Address Match 1 Interrupt Enable
     eAM1IE AM1IE : 1;
+    /// read-write - General Call Interrupt Enable
     eGCIE GCIE : 1;
+    /// read-write - SMBus Alert Response Interrupt Enable
     eSARIE SARIE : 1;
     uint32_t _reserved_1 : 16;
   } bits;
@@ -889,8 +987,11 @@ union SDER {
   
   // Bit field definition.
   struct {
+    /// read-write - Transmit Data DMA Enable
     eTDDE TDDE : 1;
+    /// read-write - Receive Data DMA Enable
     eRDDE RDDE : 1;
+    /// read-write - Address Valid DMA Enable
     eAVDE AVDE : 1;
     uint32_t _reserved_0 : 29;
   } bits;
@@ -970,18 +1071,29 @@ union SCFGR1 {
   
   // Bit field definition.
   struct {
+    /// read-write - Address SCL Stall
     eADRSTALL ADRSTALL : 1;
+    /// read-write - RX SCL Stall
     eRXSTALL RXSTALL : 1;
+    /// read-write - TX Data SCL Stall
     eTXDSTALL TXDSTALL : 1;
+    /// read-write - ACK SCL Stall
     eACKSTALL ACKSTALL : 1;
     uint32_t _reserved_0 : 4;
+    /// read-write - General Call Enable
     eGCEN GCEN : 1;
+    /// read-write - SMBus Alert Enable
     eSAEN SAEN : 1;
+    /// read-write - Transmit Flag Configuration
     eTXCFG TXCFG : 1;
+    /// read-write - Receive Data Configuration
     eRXCFG RXCFG : 1;
+    /// read-write - Ignore NACK
     eIGNACK IGNACK : 1;
+    /// read-write - High Speed Mode Enable
     eHSMEN HSMEN : 1;
     uint32_t _reserved_1 : 2;
+    /// read-write - Address Configuration
     eADDRCFG ADDRCFG : 3;
     uint32_t _reserved_2 : 13;
   } bits;
@@ -1000,12 +1112,16 @@ union SCFGR2 {
   
   // Bit field definition.
   struct {
+    /// read-write - Clock Hold Time
     uint32_t CLKHOLD : 4;
     uint32_t _reserved_0 : 4;
+    /// read-write - Data Valid Delay
     uint32_t DATAVD : 6;
     uint32_t _reserved_1 : 2;
+    /// read-write - Glitch Filter SCL
     uint32_t FILTSCL : 4;
     uint32_t _reserved_2 : 4;
+    /// read-write - Glitch Filter SDA
     uint32_t FILTSDA : 4;
     uint32_t _reserved_3 : 4;
   } bits;
@@ -1025,8 +1141,10 @@ union SAMR {
   // Bit field definition.
   struct {
     uint32_t _reserved_0 : 1;
+    /// read-write - Address 0 Value
     uint32_t ADDR0 : 10;
     uint32_t _reserved_1 : 6;
+    /// read-write - Address 1 Value
     uint32_t ADDR1 : 10;
     uint32_t _reserved_2 : 5;
   } bits;
@@ -1050,8 +1168,10 @@ union SASR {
   
   // Bit field definition.
   struct {
+    /// read-only - Received Address
     uint32_t RADDR : 11;
     uint32_t _reserved_0 : 3;
+    /// read-only - Address Not Valid
     eANV ANV : 1;
     uint32_t _reserved_1 : 17;
   } bits;
@@ -1075,6 +1195,7 @@ union STAR {
   
   // Bit field definition.
   struct {
+    /// read-write - Transmit NACK
     eTXNACK TXNACK : 1;
     uint32_t _reserved_0 : 31;
   } bits;
@@ -1093,6 +1214,7 @@ union STDR {
   
   // Bit field definition.
   struct {
+    /// write-only - Transmit Data
     uint32_t DATA : 8;
     uint32_t _reserved_0 : 24;
   } bits;
@@ -1121,9 +1243,12 @@ union SRDR {
   
   // Bit field definition.
   struct {
+    /// read-only - Receive Data
     uint32_t DATA : 8;
     uint32_t _reserved_0 : 6;
+    /// read-only - RX Empty
     eRXEMPTY RXEMPTY : 1;
+    /// read-only - Start Of Frame
     eSOF SOF : 1;
     uint32_t _reserved_1 : 16;
   } bits;

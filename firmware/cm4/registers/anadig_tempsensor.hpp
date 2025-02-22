@@ -18,7 +18,9 @@ union TEMPSENSOR {
   // Bit field definition.
   struct {
     uint32_t _reserved_0 : 15;
+    /// read-write - AI toggle
     uint32_t TEMPSNS_AI_TOGGLE : 1;
+    /// read-only - AI Busy monitor
     uint32_t TEMPSNS_AI_BUSY : 1;
     uint32_t _reserved_1 : 15;
   } bits;
@@ -38,6 +40,7 @@ union TEMPSNS_OTP_TRIM_VALUE {
   // Bit field definition.
   struct {
     uint32_t _reserved_0 : 10;
+    /// read-only - Temperature Value at 25C
     uint32_t TEMPSNS_TEMP_VAL : 12;
     uint32_t _reserved_1 : 10;
   } bits;

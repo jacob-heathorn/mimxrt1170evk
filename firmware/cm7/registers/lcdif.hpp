@@ -60,27 +60,43 @@ union LCDIF_CTRL {
   
   // Bit field definition.
   struct {
+    /// read-write - When this bit is set by software, the LCDIF will begin transferring data between the SoC and the display
     uint32_t RUN : 1;
+    /// read-write - Used only when WORD_LENGTH = 3, i
     eDATA_FORMAT_24_BIT DATA_FORMAT_24_BIT : 1;
+    /// read-write - Used only when WORD_LENGTH = 2, i.e. 18-bit.
     eDATA_FORMAT_18_BIT DATA_FORMAT_18_BIT : 1;
+    /// read-write - When this bit is 1 and WORD_LENGTH = 0, it implies that the 16-bit data is in ARGB555 format
     uint32_t DATA_FORMAT_16_BIT : 1;
     uint32_t _reserved_0 : 1;
+    /// read-write - Set this bit to make the LCDIF act as a bus master
     uint32_t MASTER : 1;
+    /// read-write - If this bit is set and LCDIF_MASTER bit is set, the LCDIF will act as bus master and the handshake mechanism between LCDIF and PXP will be turned on
     uint32_t ENABLE_PXP_HANDSHAKE : 1;
     uint32_t _reserved_1 : 1;
+    /// read-write - Input data format.
     eWORD_LENGTH WORD_LENGTH : 2;
+    /// read-write - LCD Data bus transfer width. When LUT enabled, this field should be set to 0x01.
     eLCD_DATABUS_WIDTH LCD_DATABUS_WIDTH : 2;
+    /// read-write - This field specifies how to swap the bytes after the data has been converted into an internal representation of 24 bits per pixel and before it is transmitted over the LCD interface bus
     eCSC_DATA_SWIZZLE CSC_DATA_SWIZZLE : 2;
+    /// read-write - This field specifies how to swap the bytes fetched by the bus master interface
     eINPUT_DATA_SWIZZLE INPUT_DATA_SWIZZLE : 2;
     uint32_t _reserved_2 : 1;
+    /// read-write - Set this bit to 1 to make the hardware go into the DOTCLK mode, i
     uint32_t DOTCLK_MODE : 1;
     uint32_t _reserved_3 : 1;
+    /// read-write - When this bit is 0, it means that LCDIF will stop the block operation and turn off the RUN bit after the amount of data indicated by the LCDIF_TRANSFER_COUNT register has been transferred out
     uint32_t BYPASS_COUNT : 1;
     uint32_t _reserved_4 : 1;
+    /// read-write - The data to be transmitted is shifted left or right by this number of bits.
     uint32_t SHIFT_NUM_BITS : 5;
+    /// read-write - Use this bit to determine the direction of shift of transmit data.
     eDATA_SHIFT_DIR DATA_SHIFT_DIR : 1;
     uint32_t _reserved_5 : 3;
+    /// read-write - This bit must be set to zero for normal operation
     uint32_t CLKGATE : 1;
+    /// read-write - This bit must be set to zero to enable normal operation of the LCDIF
     uint32_t SFTRST : 1;
   } bits;
   
@@ -141,27 +157,43 @@ union LCDIF_CTRL_SET {
   
   // Bit field definition.
   struct {
+    /// read-write - When this bit is set by software, the LCDIF will begin transferring data between the SoC and the display
     uint32_t RUN : 1;
+    /// read-write - Used only when WORD_LENGTH = 3, i
     eDATA_FORMAT_24_BIT DATA_FORMAT_24_BIT : 1;
+    /// read-write - Used only when WORD_LENGTH = 2, i.e. 18-bit.
     eDATA_FORMAT_18_BIT DATA_FORMAT_18_BIT : 1;
+    /// read-write - When this bit is 1 and WORD_LENGTH = 0, it implies that the 16-bit data is in ARGB555 format
     uint32_t DATA_FORMAT_16_BIT : 1;
     uint32_t _reserved_0 : 1;
+    /// read-write - Set this bit to make the LCDIF act as a bus master
     uint32_t MASTER : 1;
+    /// read-write - If this bit is set and LCDIF_MASTER bit is set, the LCDIF will act as bus master and the handshake mechanism between LCDIF and PXP will be turned on
     uint32_t ENABLE_PXP_HANDSHAKE : 1;
     uint32_t _reserved_1 : 1;
+    /// read-write - Input data format.
     eWORD_LENGTH WORD_LENGTH : 2;
+    /// read-write - LCD Data bus transfer width. When LUT enabled, this field should be set to 0x01.
     eLCD_DATABUS_WIDTH LCD_DATABUS_WIDTH : 2;
+    /// read-write - This field specifies how to swap the bytes after the data has been converted into an internal representation of 24 bits per pixel and before it is transmitted over the LCD interface bus
     eCSC_DATA_SWIZZLE CSC_DATA_SWIZZLE : 2;
+    /// read-write - This field specifies how to swap the bytes fetched by the bus master interface
     eINPUT_DATA_SWIZZLE INPUT_DATA_SWIZZLE : 2;
     uint32_t _reserved_2 : 1;
+    /// read-write - Set this bit to 1 to make the hardware go into the DOTCLK mode, i
     uint32_t DOTCLK_MODE : 1;
     uint32_t _reserved_3 : 1;
+    /// read-write - When this bit is 0, it means that LCDIF will stop the block operation and turn off the RUN bit after the amount of data indicated by the LCDIF_TRANSFER_COUNT register has been transferred out
     uint32_t BYPASS_COUNT : 1;
     uint32_t _reserved_4 : 1;
+    /// read-write - The data to be transmitted is shifted left or right by this number of bits.
     uint32_t SHIFT_NUM_BITS : 5;
+    /// read-write - Use this bit to determine the direction of shift of transmit data.
     eDATA_SHIFT_DIR DATA_SHIFT_DIR : 1;
     uint32_t _reserved_5 : 3;
+    /// read-write - This bit must be set to zero for normal operation
     uint32_t CLKGATE : 1;
+    /// read-write - This bit must be set to zero to enable normal operation of the LCDIF
     uint32_t SFTRST : 1;
   } bits;
   
@@ -222,27 +254,43 @@ union LCDIF_CTRL_CLR {
   
   // Bit field definition.
   struct {
+    /// read-write - When this bit is set by software, the LCDIF will begin transferring data between the SoC and the display
     uint32_t RUN : 1;
+    /// read-write - Used only when WORD_LENGTH = 3, i
     eDATA_FORMAT_24_BIT DATA_FORMAT_24_BIT : 1;
+    /// read-write - Used only when WORD_LENGTH = 2, i.e. 18-bit.
     eDATA_FORMAT_18_BIT DATA_FORMAT_18_BIT : 1;
+    /// read-write - When this bit is 1 and WORD_LENGTH = 0, it implies that the 16-bit data is in ARGB555 format
     uint32_t DATA_FORMAT_16_BIT : 1;
     uint32_t _reserved_0 : 1;
+    /// read-write - Set this bit to make the LCDIF act as a bus master
     uint32_t MASTER : 1;
+    /// read-write - If this bit is set and LCDIF_MASTER bit is set, the LCDIF will act as bus master and the handshake mechanism between LCDIF and PXP will be turned on
     uint32_t ENABLE_PXP_HANDSHAKE : 1;
     uint32_t _reserved_1 : 1;
+    /// read-write - Input data format.
     eWORD_LENGTH WORD_LENGTH : 2;
+    /// read-write - LCD Data bus transfer width. When LUT enabled, this field should be set to 0x01.
     eLCD_DATABUS_WIDTH LCD_DATABUS_WIDTH : 2;
+    /// read-write - This field specifies how to swap the bytes after the data has been converted into an internal representation of 24 bits per pixel and before it is transmitted over the LCD interface bus
     eCSC_DATA_SWIZZLE CSC_DATA_SWIZZLE : 2;
+    /// read-write - This field specifies how to swap the bytes fetched by the bus master interface
     eINPUT_DATA_SWIZZLE INPUT_DATA_SWIZZLE : 2;
     uint32_t _reserved_2 : 1;
+    /// read-write - Set this bit to 1 to make the hardware go into the DOTCLK mode, i
     uint32_t DOTCLK_MODE : 1;
     uint32_t _reserved_3 : 1;
+    /// read-write - When this bit is 0, it means that LCDIF will stop the block operation and turn off the RUN bit after the amount of data indicated by the LCDIF_TRANSFER_COUNT register has been transferred out
     uint32_t BYPASS_COUNT : 1;
     uint32_t _reserved_4 : 1;
+    /// read-write - The data to be transmitted is shifted left or right by this number of bits.
     uint32_t SHIFT_NUM_BITS : 5;
+    /// read-write - Use this bit to determine the direction of shift of transmit data.
     eDATA_SHIFT_DIR DATA_SHIFT_DIR : 1;
     uint32_t _reserved_5 : 3;
+    /// read-write - This bit must be set to zero for normal operation
     uint32_t CLKGATE : 1;
+    /// read-write - This bit must be set to zero to enable normal operation of the LCDIF
     uint32_t SFTRST : 1;
   } bits;
   
@@ -303,27 +351,43 @@ union LCDIF_CTRL_TOG {
   
   // Bit field definition.
   struct {
+    /// read-write - When this bit is set by software, the LCDIF will begin transferring data between the SoC and the display
     uint32_t RUN : 1;
+    /// read-write - Used only when WORD_LENGTH = 3, i
     eDATA_FORMAT_24_BIT DATA_FORMAT_24_BIT : 1;
+    /// read-write - Used only when WORD_LENGTH = 2, i.e. 18-bit.
     eDATA_FORMAT_18_BIT DATA_FORMAT_18_BIT : 1;
+    /// read-write - When this bit is 1 and WORD_LENGTH = 0, it implies that the 16-bit data is in ARGB555 format
     uint32_t DATA_FORMAT_16_BIT : 1;
     uint32_t _reserved_0 : 1;
+    /// read-write - Set this bit to make the LCDIF act as a bus master
     uint32_t MASTER : 1;
+    /// read-write - If this bit is set and LCDIF_MASTER bit is set, the LCDIF will act as bus master and the handshake mechanism between LCDIF and PXP will be turned on
     uint32_t ENABLE_PXP_HANDSHAKE : 1;
     uint32_t _reserved_1 : 1;
+    /// read-write - Input data format.
     eWORD_LENGTH WORD_LENGTH : 2;
+    /// read-write - LCD Data bus transfer width. When LUT enabled, this field should be set to 0x01.
     eLCD_DATABUS_WIDTH LCD_DATABUS_WIDTH : 2;
+    /// read-write - This field specifies how to swap the bytes after the data has been converted into an internal representation of 24 bits per pixel and before it is transmitted over the LCD interface bus
     eCSC_DATA_SWIZZLE CSC_DATA_SWIZZLE : 2;
+    /// read-write - This field specifies how to swap the bytes fetched by the bus master interface
     eINPUT_DATA_SWIZZLE INPUT_DATA_SWIZZLE : 2;
     uint32_t _reserved_2 : 1;
+    /// read-write - Set this bit to 1 to make the hardware go into the DOTCLK mode, i
     uint32_t DOTCLK_MODE : 1;
     uint32_t _reserved_3 : 1;
+    /// read-write - When this bit is 0, it means that LCDIF will stop the block operation and turn off the RUN bit after the amount of data indicated by the LCDIF_TRANSFER_COUNT register has been transferred out
     uint32_t BYPASS_COUNT : 1;
     uint32_t _reserved_4 : 1;
+    /// read-write - The data to be transmitted is shifted left or right by this number of bits.
     uint32_t SHIFT_NUM_BITS : 5;
+    /// read-write - Use this bit to determine the direction of shift of transmit data.
     eDATA_SHIFT_DIR DATA_SHIFT_DIR : 1;
     uint32_t _reserved_5 : 3;
+    /// read-write - This bit must be set to zero for normal operation
     uint32_t CLKGATE : 1;
+    /// read-write - This bit must be set to zero to enable normal operation of the LCDIF
     uint32_t SFTRST : 1;
   } bits;
   
@@ -367,24 +431,42 @@ union LCDIF_CTRL1 {
   // Bit field definition.
   struct {
     uint32_t _reserved_0 : 8;
+    /// read-write - This bit is set to indicate that an interrupt is requested by the LCDIF block
     eVSYNC_EDGE_IRQ VSYNC_EDGE_IRQ : 1;
+    /// read-write - This bit is set to indicate that an interrupt is requested by the LCDIF block
     eCUR_FRAME_DONE_IRQ CUR_FRAME_DONE_IRQ : 1;
+    /// read-write - This bit is set to indicate that an interrupt is requested by the LCDIF block
     eUNDERFLOW_IRQ UNDERFLOW_IRQ : 1;
+    /// read-write - This bit is set to indicate that an interrupt is requested by the LCDIF block
     eOVERFLOW_IRQ OVERFLOW_IRQ : 1;
+    /// read-write - This bit is set to enable an interrupt every time the hardware encounters the leading VSYNC edge in the VSYNC and DOTCLK modes, or the beginning of every field in DVI mode
     uint32_t VSYNC_EDGE_IRQ_EN : 1;
+    /// read-write - This bit is set to 1 enable an interrupt every time the hardware enters in the vertical blanking state
     uint32_t CUR_FRAME_DONE_IRQ_EN : 1;
+    /// read-write - This bit is set to enable an underflow interrupt in the TXFIFO in the write mode.
     uint32_t UNDERFLOW_IRQ_EN : 1;
+    /// read-write - This bit is set to enable an overflow interrupt in the TXFIFO in the write mode.
     uint32_t OVERFLOW_IRQ_EN : 1;
+    /// read-write - This bitfield is used to show which data bytes in a 32-bit word are valid
     uint32_t BYTE_PACKING_FORMAT : 4;
+    /// read-write - If this bit is set, the LCDIF block will assert the cur_frame_done interrupt only on alternate fields, otherwise it will issue the interrupt on both odd and even field
     uint32_t IRQ_ON_ALTERNATE_FIELDS : 1;
+    /// read-write - Set this bit to clear all the data in the latency FIFO (LFIFO), TXFIFO and the RXFIFO.
     uint32_t FIFO_CLEAR : 1;
+    /// read-write - The default is to grab the odd lines first and then the even lines
     uint32_t START_INTERLACE_FROM_SECOND_FIELD : 1;
+    /// read-write - Set this bit if it is required that the LCDIF block fetches odd lines in one field and even lines in the other field
     uint32_t INTERLACE_FIELDS : 1;
+    /// read-write - Set this bit to enable the LCDIF block to recover in the next field/frame if there was an underflow in the current field/frame
     uint32_t RECOVER_ON_UNDERFLOW : 1;
+    /// read-write - This bit is set to indicate that an interrupt is requested by the LCDIF block
     eBM_ERROR_IRQ BM_ERROR_IRQ : 1;
+    /// read-write - This bit is set to enable bus master error interrupt in the LCDIF master mode.
     uint32_t BM_ERROR_IRQ_EN : 1;
     uint32_t _reserved_1 : 3;
+    /// read-write - This bit is CS0/CS1 valid select signals
     uint32_t CS_OUT_SELECT : 1;
+    /// read-write - Command Mode MIPI image data select bit
     uint32_t IMAGE_DATA_SELECT : 1;
   } bits;
   
@@ -428,24 +510,42 @@ union LCDIF_CTRL1_SET {
   // Bit field definition.
   struct {
     uint32_t _reserved_0 : 8;
+    /// read-write - This bit is set to indicate that an interrupt is requested by the LCDIF block
     eVSYNC_EDGE_IRQ VSYNC_EDGE_IRQ : 1;
+    /// read-write - This bit is set to indicate that an interrupt is requested by the LCDIF block
     eCUR_FRAME_DONE_IRQ CUR_FRAME_DONE_IRQ : 1;
+    /// read-write - This bit is set to indicate that an interrupt is requested by the LCDIF block
     eUNDERFLOW_IRQ UNDERFLOW_IRQ : 1;
+    /// read-write - This bit is set to indicate that an interrupt is requested by the LCDIF block
     eOVERFLOW_IRQ OVERFLOW_IRQ : 1;
+    /// read-write - This bit is set to enable an interrupt every time the hardware encounters the leading VSYNC edge in the VSYNC and DOTCLK modes, or the beginning of every field in DVI mode
     uint32_t VSYNC_EDGE_IRQ_EN : 1;
+    /// read-write - This bit is set to 1 enable an interrupt every time the hardware enters in the vertical blanking state
     uint32_t CUR_FRAME_DONE_IRQ_EN : 1;
+    /// read-write - This bit is set to enable an underflow interrupt in the TXFIFO in the write mode.
     uint32_t UNDERFLOW_IRQ_EN : 1;
+    /// read-write - This bit is set to enable an overflow interrupt in the TXFIFO in the write mode.
     uint32_t OVERFLOW_IRQ_EN : 1;
+    /// read-write - This bitfield is used to show which data bytes in a 32-bit word are valid
     uint32_t BYTE_PACKING_FORMAT : 4;
+    /// read-write - If this bit is set, the LCDIF block will assert the cur_frame_done interrupt only on alternate fields, otherwise it will issue the interrupt on both odd and even field
     uint32_t IRQ_ON_ALTERNATE_FIELDS : 1;
+    /// read-write - Set this bit to clear all the data in the latency FIFO (LFIFO), TXFIFO and the RXFIFO.
     uint32_t FIFO_CLEAR : 1;
+    /// read-write - The default is to grab the odd lines first and then the even lines
     uint32_t START_INTERLACE_FROM_SECOND_FIELD : 1;
+    /// read-write - Set this bit if it is required that the LCDIF block fetches odd lines in one field and even lines in the other field
     uint32_t INTERLACE_FIELDS : 1;
+    /// read-write - Set this bit to enable the LCDIF block to recover in the next field/frame if there was an underflow in the current field/frame
     uint32_t RECOVER_ON_UNDERFLOW : 1;
+    /// read-write - This bit is set to indicate that an interrupt is requested by the LCDIF block
     eBM_ERROR_IRQ BM_ERROR_IRQ : 1;
+    /// read-write - This bit is set to enable bus master error interrupt in the LCDIF master mode.
     uint32_t BM_ERROR_IRQ_EN : 1;
     uint32_t _reserved_1 : 3;
+    /// read-write - This bit is CS0/CS1 valid select signals
     uint32_t CS_OUT_SELECT : 1;
+    /// read-write - Command Mode MIPI image data select bit
     uint32_t IMAGE_DATA_SELECT : 1;
   } bits;
   
@@ -489,24 +589,42 @@ union LCDIF_CTRL1_CLR {
   // Bit field definition.
   struct {
     uint32_t _reserved_0 : 8;
+    /// read-write - This bit is set to indicate that an interrupt is requested by the LCDIF block
     eVSYNC_EDGE_IRQ VSYNC_EDGE_IRQ : 1;
+    /// read-write - This bit is set to indicate that an interrupt is requested by the LCDIF block
     eCUR_FRAME_DONE_IRQ CUR_FRAME_DONE_IRQ : 1;
+    /// read-write - This bit is set to indicate that an interrupt is requested by the LCDIF block
     eUNDERFLOW_IRQ UNDERFLOW_IRQ : 1;
+    /// read-write - This bit is set to indicate that an interrupt is requested by the LCDIF block
     eOVERFLOW_IRQ OVERFLOW_IRQ : 1;
+    /// read-write - This bit is set to enable an interrupt every time the hardware encounters the leading VSYNC edge in the VSYNC and DOTCLK modes, or the beginning of every field in DVI mode
     uint32_t VSYNC_EDGE_IRQ_EN : 1;
+    /// read-write - This bit is set to 1 enable an interrupt every time the hardware enters in the vertical blanking state
     uint32_t CUR_FRAME_DONE_IRQ_EN : 1;
+    /// read-write - This bit is set to enable an underflow interrupt in the TXFIFO in the write mode.
     uint32_t UNDERFLOW_IRQ_EN : 1;
+    /// read-write - This bit is set to enable an overflow interrupt in the TXFIFO in the write mode.
     uint32_t OVERFLOW_IRQ_EN : 1;
+    /// read-write - This bitfield is used to show which data bytes in a 32-bit word are valid
     uint32_t BYTE_PACKING_FORMAT : 4;
+    /// read-write - If this bit is set, the LCDIF block will assert the cur_frame_done interrupt only on alternate fields, otherwise it will issue the interrupt on both odd and even field
     uint32_t IRQ_ON_ALTERNATE_FIELDS : 1;
+    /// read-write - Set this bit to clear all the data in the latency FIFO (LFIFO), TXFIFO and the RXFIFO.
     uint32_t FIFO_CLEAR : 1;
+    /// read-write - The default is to grab the odd lines first and then the even lines
     uint32_t START_INTERLACE_FROM_SECOND_FIELD : 1;
+    /// read-write - Set this bit if it is required that the LCDIF block fetches odd lines in one field and even lines in the other field
     uint32_t INTERLACE_FIELDS : 1;
+    /// read-write - Set this bit to enable the LCDIF block to recover in the next field/frame if there was an underflow in the current field/frame
     uint32_t RECOVER_ON_UNDERFLOW : 1;
+    /// read-write - This bit is set to indicate that an interrupt is requested by the LCDIF block
     eBM_ERROR_IRQ BM_ERROR_IRQ : 1;
+    /// read-write - This bit is set to enable bus master error interrupt in the LCDIF master mode.
     uint32_t BM_ERROR_IRQ_EN : 1;
     uint32_t _reserved_1 : 3;
+    /// read-write - This bit is CS0/CS1 valid select signals
     uint32_t CS_OUT_SELECT : 1;
+    /// read-write - Command Mode MIPI image data select bit
     uint32_t IMAGE_DATA_SELECT : 1;
   } bits;
   
@@ -550,24 +668,42 @@ union LCDIF_CTRL1_TOG {
   // Bit field definition.
   struct {
     uint32_t _reserved_0 : 8;
+    /// read-write - This bit is set to indicate that an interrupt is requested by the LCDIF block
     eVSYNC_EDGE_IRQ VSYNC_EDGE_IRQ : 1;
+    /// read-write - This bit is set to indicate that an interrupt is requested by the LCDIF block
     eCUR_FRAME_DONE_IRQ CUR_FRAME_DONE_IRQ : 1;
+    /// read-write - This bit is set to indicate that an interrupt is requested by the LCDIF block
     eUNDERFLOW_IRQ UNDERFLOW_IRQ : 1;
+    /// read-write - This bit is set to indicate that an interrupt is requested by the LCDIF block
     eOVERFLOW_IRQ OVERFLOW_IRQ : 1;
+    /// read-write - This bit is set to enable an interrupt every time the hardware encounters the leading VSYNC edge in the VSYNC and DOTCLK modes, or the beginning of every field in DVI mode
     uint32_t VSYNC_EDGE_IRQ_EN : 1;
+    /// read-write - This bit is set to 1 enable an interrupt every time the hardware enters in the vertical blanking state
     uint32_t CUR_FRAME_DONE_IRQ_EN : 1;
+    /// read-write - This bit is set to enable an underflow interrupt in the TXFIFO in the write mode.
     uint32_t UNDERFLOW_IRQ_EN : 1;
+    /// read-write - This bit is set to enable an overflow interrupt in the TXFIFO in the write mode.
     uint32_t OVERFLOW_IRQ_EN : 1;
+    /// read-write - This bitfield is used to show which data bytes in a 32-bit word are valid
     uint32_t BYTE_PACKING_FORMAT : 4;
+    /// read-write - If this bit is set, the LCDIF block will assert the cur_frame_done interrupt only on alternate fields, otherwise it will issue the interrupt on both odd and even field
     uint32_t IRQ_ON_ALTERNATE_FIELDS : 1;
+    /// read-write - Set this bit to clear all the data in the latency FIFO (LFIFO), TXFIFO and the RXFIFO.
     uint32_t FIFO_CLEAR : 1;
+    /// read-write - The default is to grab the odd lines first and then the even lines
     uint32_t START_INTERLACE_FROM_SECOND_FIELD : 1;
+    /// read-write - Set this bit if it is required that the LCDIF block fetches odd lines in one field and even lines in the other field
     uint32_t INTERLACE_FIELDS : 1;
+    /// read-write - Set this bit to enable the LCDIF block to recover in the next field/frame if there was an underflow in the current field/frame
     uint32_t RECOVER_ON_UNDERFLOW : 1;
+    /// read-write - This bit is set to indicate that an interrupt is requested by the LCDIF block
     eBM_ERROR_IRQ BM_ERROR_IRQ : 1;
+    /// read-write - This bit is set to enable bus master error interrupt in the LCDIF master mode.
     uint32_t BM_ERROR_IRQ_EN : 1;
     uint32_t _reserved_1 : 3;
+    /// read-write - This bit is CS0/CS1 valid select signals
     uint32_t CS_OUT_SELECT : 1;
+    /// read-write - Command Mode MIPI image data select bit
     uint32_t IMAGE_DATA_SELECT : 1;
   } bits;
   
@@ -612,11 +748,15 @@ union LCDIF_CTRL2 {
   // Bit field definition.
   struct {
     uint32_t _reserved_0 : 12;
+    /// read-write - This field determines the order of the RGB components of each pixel in EVEN lines (line numbers 2,4,6,
     eEVEN_LINE_PATTERN EVEN_LINE_PATTERN : 3;
     uint32_t _reserved_1 : 1;
+    /// read-write - This field determines the order of the RGB components of each pixel in ODD lines (line numbers 1,3,5,
     eODD_LINE_PATTERN ODD_LINE_PATTERN : 3;
     uint32_t _reserved_2 : 1;
+    /// read-write - By default, when the LCDIF is in the bus master mode, it will issue AXI bursts of length 16 (except when in packed 24 bpp mode, it will issue bursts of length 15)
     uint32_t BURST_LEN_8 : 1;
+    /// read-write - This bitfield indicates the maximum number of outstanding transactions that LCDIF should request when it is acting as a bus master
     eOUTSTANDING_REQS OUTSTANDING_REQS : 3;
     uint32_t _reserved_3 : 8;
   } bits;
@@ -662,11 +802,15 @@ union LCDIF_CTRL2_SET {
   // Bit field definition.
   struct {
     uint32_t _reserved_0 : 12;
+    /// read-write - This field determines the order of the RGB components of each pixel in EVEN lines (line numbers 2,4,6,
     eEVEN_LINE_PATTERN EVEN_LINE_PATTERN : 3;
     uint32_t _reserved_1 : 1;
+    /// read-write - This field determines the order of the RGB components of each pixel in ODD lines (line numbers 1,3,5,
     eODD_LINE_PATTERN ODD_LINE_PATTERN : 3;
     uint32_t _reserved_2 : 1;
+    /// read-write - By default, when the LCDIF is in the bus master mode, it will issue AXI bursts of length 16 (except when in packed 24 bpp mode, it will issue bursts of length 15)
     uint32_t BURST_LEN_8 : 1;
+    /// read-write - This bitfield indicates the maximum number of outstanding transactions that LCDIF should request when it is acting as a bus master
     eOUTSTANDING_REQS OUTSTANDING_REQS : 3;
     uint32_t _reserved_3 : 8;
   } bits;
@@ -712,11 +856,15 @@ union LCDIF_CTRL2_CLR {
   // Bit field definition.
   struct {
     uint32_t _reserved_0 : 12;
+    /// read-write - This field determines the order of the RGB components of each pixel in EVEN lines (line numbers 2,4,6,
     eEVEN_LINE_PATTERN EVEN_LINE_PATTERN : 3;
     uint32_t _reserved_1 : 1;
+    /// read-write - This field determines the order of the RGB components of each pixel in ODD lines (line numbers 1,3,5,
     eODD_LINE_PATTERN ODD_LINE_PATTERN : 3;
     uint32_t _reserved_2 : 1;
+    /// read-write - By default, when the LCDIF is in the bus master mode, it will issue AXI bursts of length 16 (except when in packed 24 bpp mode, it will issue bursts of length 15)
     uint32_t BURST_LEN_8 : 1;
+    /// read-write - This bitfield indicates the maximum number of outstanding transactions that LCDIF should request when it is acting as a bus master
     eOUTSTANDING_REQS OUTSTANDING_REQS : 3;
     uint32_t _reserved_3 : 8;
   } bits;
@@ -762,11 +910,15 @@ union LCDIF_CTRL2_TOG {
   // Bit field definition.
   struct {
     uint32_t _reserved_0 : 12;
+    /// read-write - This field determines the order of the RGB components of each pixel in EVEN lines (line numbers 2,4,6,
     eEVEN_LINE_PATTERN EVEN_LINE_PATTERN : 3;
     uint32_t _reserved_1 : 1;
+    /// read-write - This field determines the order of the RGB components of each pixel in ODD lines (line numbers 1,3,5,
     eODD_LINE_PATTERN ODD_LINE_PATTERN : 3;
     uint32_t _reserved_2 : 1;
+    /// read-write - By default, when the LCDIF is in the bus master mode, it will issue AXI bursts of length 16 (except when in packed 24 bpp mode, it will issue bursts of length 15)
     uint32_t BURST_LEN_8 : 1;
+    /// read-write - This bitfield indicates the maximum number of outstanding transactions that LCDIF should request when it is acting as a bus master
     eOUTSTANDING_REQS OUTSTANDING_REQS : 3;
     uint32_t _reserved_3 : 8;
   } bits;
@@ -785,7 +937,9 @@ union LCDIF_TRANSFER_COUNT {
   
   // Bit field definition.
   struct {
+    /// read-write - Total valid data (pixels) in each horizontal line
     uint32_t H_COUNT : 16;
+    /// read-write - Number of horizontal lines per frame which contain valid data
     uint32_t V_COUNT : 16;
   } bits;
   
@@ -803,6 +957,7 @@ union LCDIF_CUR_BUF {
   
   // Bit field definition.
   struct {
+    /// read-write - Address of the current frame being transmitted by LCDIF.
     uint32_t ADDR : 32;
   } bits;
   
@@ -820,6 +975,7 @@ union LCDIF_NEXT_BUF {
   
   // Bit field definition.
   struct {
+    /// read-write - Address of the next frame that will be transmitted by LCDIF.
     uint32_t ADDR : 32;
   } bits;
   
@@ -842,17 +998,28 @@ union LCDIF_VDCTRL0 {
   
   // Bit field definition.
   struct {
+    /// read-write - Number of units for which VSYNC signal is active
     uint32_t VSYNC_PULSE_WIDTH : 18;
+    /// read-write - When this bit is 0, the first field (VSYNC period) will end in half a horizontal line and the second field will begin with half a horizontal line
     uint32_t HALF_LINE_MODE : 1;
+    /// read-write - Setting this bit to 1 will make the total VSYNC period equal to the VSYNC_PERIOD field plus half the HORIZONTAL_PERIOD field (i
     uint32_t HALF_LINE : 1;
+    /// read-write - Default 0 for counting VSYNC_PULSE_WIDTH in terms of DISPLAY CLOCK (pix_clk) cycles
     uint32_t VSYNC_PULSE_WIDTH_UNIT : 1;
+    /// read-write - Default 0 for counting VSYNC_PERIOD in terms of DISPLAY CLOCK (pix_clk) cycles
     uint32_t VSYNC_PERIOD_UNIT : 1;
     uint32_t _reserved_0 : 2;
+    /// read-write - Default 0 active low during valid data transfer on each horizontal line.
     uint32_t ENABLE_POL : 1;
+    /// read-write - Default is data launched at negative edge of DOTCLK and captured at positive edge
     uint32_t DOTCLK_POL : 1;
+    /// read-write - Default 0 active low during HSYNC_PULSE_WIDTH time and will be high during the rest of the HSYNC period
     uint32_t HSYNC_POL : 1;
+    /// read-write - Default 0 active low during VSYNC_PULSE_WIDTH time and will be high during the rest of the VSYNC period
     uint32_t VSYNC_POL : 1;
+    /// read-write - Setting this bit to 1 will make the hardware generate the ENABLE signal in the DOTCLK mode, thereby making it the true RGB interface along with the remaining three signals VSYNC, HSYNC and DOTCLK
     uint32_t ENABLE_PRESENT : 1;
+    /// read-write - 0 means the VSYNC signal is an output, 1 means it is an input
     eVSYNC_OEB VSYNC_OEB : 1;
     uint32_t _reserved_1 : 2;
   } bits;
@@ -876,17 +1043,28 @@ union LCDIF_VDCTRL0_SET {
   
   // Bit field definition.
   struct {
+    /// read-write - Number of units for which VSYNC signal is active
     uint32_t VSYNC_PULSE_WIDTH : 18;
+    /// read-write - When this bit is 0, the first field (VSYNC period) will end in half a horizontal line and the second field will begin with half a horizontal line
     uint32_t HALF_LINE_MODE : 1;
+    /// read-write - Setting this bit to 1 will make the total VSYNC period equal to the VSYNC_PERIOD field plus half the HORIZONTAL_PERIOD field (i
     uint32_t HALF_LINE : 1;
+    /// read-write - Default 0 for counting VSYNC_PULSE_WIDTH in terms of DISPLAY CLOCK (pix_clk) cycles
     uint32_t VSYNC_PULSE_WIDTH_UNIT : 1;
+    /// read-write - Default 0 for counting VSYNC_PERIOD in terms of DISPLAY CLOCK (pix_clk) cycles
     uint32_t VSYNC_PERIOD_UNIT : 1;
     uint32_t _reserved_0 : 2;
+    /// read-write - Default 0 active low during valid data transfer on each horizontal line.
     uint32_t ENABLE_POL : 1;
+    /// read-write - Default is data launched at negative edge of DOTCLK and captured at positive edge
     uint32_t DOTCLK_POL : 1;
+    /// read-write - Default 0 active low during HSYNC_PULSE_WIDTH time and will be high during the rest of the HSYNC period
     uint32_t HSYNC_POL : 1;
+    /// read-write - Default 0 active low during VSYNC_PULSE_WIDTH time and will be high during the rest of the VSYNC period
     uint32_t VSYNC_POL : 1;
+    /// read-write - Setting this bit to 1 will make the hardware generate the ENABLE signal in the DOTCLK mode, thereby making it the true RGB interface along with the remaining three signals VSYNC, HSYNC and DOTCLK
     uint32_t ENABLE_PRESENT : 1;
+    /// read-write - 0 means the VSYNC signal is an output, 1 means it is an input
     eVSYNC_OEB VSYNC_OEB : 1;
     uint32_t _reserved_1 : 2;
   } bits;
@@ -910,17 +1088,28 @@ union LCDIF_VDCTRL0_CLR {
   
   // Bit field definition.
   struct {
+    /// read-write - Number of units for which VSYNC signal is active
     uint32_t VSYNC_PULSE_WIDTH : 18;
+    /// read-write - When this bit is 0, the first field (VSYNC period) will end in half a horizontal line and the second field will begin with half a horizontal line
     uint32_t HALF_LINE_MODE : 1;
+    /// read-write - Setting this bit to 1 will make the total VSYNC period equal to the VSYNC_PERIOD field plus half the HORIZONTAL_PERIOD field (i
     uint32_t HALF_LINE : 1;
+    /// read-write - Default 0 for counting VSYNC_PULSE_WIDTH in terms of DISPLAY CLOCK (pix_clk) cycles
     uint32_t VSYNC_PULSE_WIDTH_UNIT : 1;
+    /// read-write - Default 0 for counting VSYNC_PERIOD in terms of DISPLAY CLOCK (pix_clk) cycles
     uint32_t VSYNC_PERIOD_UNIT : 1;
     uint32_t _reserved_0 : 2;
+    /// read-write - Default 0 active low during valid data transfer on each horizontal line.
     uint32_t ENABLE_POL : 1;
+    /// read-write - Default is data launched at negative edge of DOTCLK and captured at positive edge
     uint32_t DOTCLK_POL : 1;
+    /// read-write - Default 0 active low during HSYNC_PULSE_WIDTH time and will be high during the rest of the HSYNC period
     uint32_t HSYNC_POL : 1;
+    /// read-write - Default 0 active low during VSYNC_PULSE_WIDTH time and will be high during the rest of the VSYNC period
     uint32_t VSYNC_POL : 1;
+    /// read-write - Setting this bit to 1 will make the hardware generate the ENABLE signal in the DOTCLK mode, thereby making it the true RGB interface along with the remaining three signals VSYNC, HSYNC and DOTCLK
     uint32_t ENABLE_PRESENT : 1;
+    /// read-write - 0 means the VSYNC signal is an output, 1 means it is an input
     eVSYNC_OEB VSYNC_OEB : 1;
     uint32_t _reserved_1 : 2;
   } bits;
@@ -944,17 +1133,28 @@ union LCDIF_VDCTRL0_TOG {
   
   // Bit field definition.
   struct {
+    /// read-write - Number of units for which VSYNC signal is active
     uint32_t VSYNC_PULSE_WIDTH : 18;
+    /// read-write - When this bit is 0, the first field (VSYNC period) will end in half a horizontal line and the second field will begin with half a horizontal line
     uint32_t HALF_LINE_MODE : 1;
+    /// read-write - Setting this bit to 1 will make the total VSYNC period equal to the VSYNC_PERIOD field plus half the HORIZONTAL_PERIOD field (i
     uint32_t HALF_LINE : 1;
+    /// read-write - Default 0 for counting VSYNC_PULSE_WIDTH in terms of DISPLAY CLOCK (pix_clk) cycles
     uint32_t VSYNC_PULSE_WIDTH_UNIT : 1;
+    /// read-write - Default 0 for counting VSYNC_PERIOD in terms of DISPLAY CLOCK (pix_clk) cycles
     uint32_t VSYNC_PERIOD_UNIT : 1;
     uint32_t _reserved_0 : 2;
+    /// read-write - Default 0 active low during valid data transfer on each horizontal line.
     uint32_t ENABLE_POL : 1;
+    /// read-write - Default is data launched at negative edge of DOTCLK and captured at positive edge
     uint32_t DOTCLK_POL : 1;
+    /// read-write - Default 0 active low during HSYNC_PULSE_WIDTH time and will be high during the rest of the HSYNC period
     uint32_t HSYNC_POL : 1;
+    /// read-write - Default 0 active low during VSYNC_PULSE_WIDTH time and will be high during the rest of the VSYNC period
     uint32_t VSYNC_POL : 1;
+    /// read-write - Setting this bit to 1 will make the hardware generate the ENABLE signal in the DOTCLK mode, thereby making it the true RGB interface along with the remaining three signals VSYNC, HSYNC and DOTCLK
     uint32_t ENABLE_PRESENT : 1;
+    /// read-write - 0 means the VSYNC signal is an output, 1 means it is an input
     eVSYNC_OEB VSYNC_OEB : 1;
     uint32_t _reserved_1 : 2;
   } bits;
@@ -973,6 +1173,7 @@ union LCDIF_VDCTRL1 {
   
   // Bit field definition.
   struct {
+    /// read-write - Total number of units between two positive or two negative edges of the VSYNC signal
     uint32_t VSYNC_PERIOD : 32;
   } bits;
   
@@ -990,7 +1191,9 @@ union LCDIF_VDCTRL2 {
   
   // Bit field definition.
   struct {
+    /// read-write - Total number of DISPLAY CLOCK (pix_clk) cycles between two positive or two negative edges of the HSYNC signal
     uint32_t HSYNC_PERIOD : 18;
+    /// read-write - Number of DISPLAY CLOCK (pix_clk) cycles for which HSYNC signal is active.
     uint32_t HSYNC_PULSE_WIDTH : 14;
   } bits;
   
@@ -1008,9 +1211,13 @@ union LCDIF_VDCTRL3 {
   
   // Bit field definition.
   struct {
+    /// read-write - In the VSYNC interface mode, wait for this number of DISPLAY CLOCK (pix_clk) cycles from the falling VSYNC edge (or rising if VSYNC_POL is 1) before starting LCD transactions and is applicable only if WAIT_FOR_VSYNC_EDGE is set
     uint32_t VERTICAL_WAIT_CNT : 16;
+    /// read-write - In the DOTCLK mode, wait for this number of clocks from falling edge (or rising if HSYNC_POL is 1) of HSYNC signal to account for horizontal back porch plus the number of DOTCLKs before the moving picture information begins
     uint32_t HORIZONTAL_WAIT_CNT : 12;
+    /// read-write - This bit must be set to 1 in the VSYNC mode of operation, and 0 in the DOTCLK mode of operation.
     uint32_t VSYNC_ONLY : 1;
+    /// read-write - When this bit is set, the LCDIF block will internally mux HSYNC with LCD_D14, DOTCLK with LCD_D13 and ENABLE with LCD_D12, otherwise these signals will go out on separate pins
     uint32_t MUX_SYNC_SIGNALS : 1;
     uint32_t _reserved_0 : 2;
   } bits;
@@ -1029,9 +1236,12 @@ union LCDIF_VDCTRL4 {
   
   // Bit field definition.
   struct {
+    /// read-write - Total number of DISPLAY CLOCK (pix_clk) cycles on each horizontal line that carry valid data in DOTCLK mode
     uint32_t DOTCLK_H_VALID_DATA_CNT : 18;
+    /// read-write - Set this field to 1 if the LCD controller requires that the VSYNC or VSYNC/HSYNC/DOTCLK control signals should be active at least one frame before the data transfers actually start and remain active at least one frame after the data transfers end
     uint32_t SYNC_SIGNALS_ON : 1;
     uint32_t _reserved_0 : 10;
+    /// read-write - This bitfield selects the amount of time by which the DOTCLK signal should be delayed before coming out of the LCD_DOTCK pin
     uint32_t DOTCLK_DLY_SEL : 3;
   } bits;
   
@@ -1049,6 +1259,7 @@ union LCDIF_BM_ERROR_STAT {
   
   // Bit field definition.
   struct {
+    /// read-write - Virtual address at which bus master error occurred.
     uint32_t ADDR : 32;
   } bits;
   
@@ -1066,6 +1277,7 @@ union LCDIF_CRC_STAT {
   
   // Bit field definition.
   struct {
+    /// read-write - Calculated CRC value.
     uint32_t CRC_VALUE : 32;
   } bits;
   
@@ -1083,13 +1295,20 @@ union LCDIF_STAT {
   
   // Bit field definition.
   struct {
+    /// read-only - Read only view of the current count in Latency buffer (LFIFO).
     uint32_t LFIFO_COUNT : 9;
     uint32_t _reserved_0 : 17;
+    /// read-only - Read only view of the signals that indicates LCD TXFIFO is empty.
     uint32_t TXFIFO_EMPTY : 1;
+    /// read-only - Read only view of the signals that indicates LCD TXFIFO is full.
     uint32_t TXFIFO_FULL : 1;
+    /// read-only - Read only view of the signals that indicates LCD LFIFO is empty.
     uint32_t LFIFO_EMPTY : 1;
+    /// read-only - Read only view of the signals that indicates LCD LFIFO is full.
     uint32_t LFIFO_FULL : 1;
+    /// read-only - Reflects the current state of the DMA Request line for the LCDIF
     uint32_t DMA_REQ : 1;
+    /// read-only - 0: LCDIF not present on this product 1: LCDIF is present.
     uint32_t PRESENT : 1;
   } bits;
   
@@ -1108,6 +1327,7 @@ union LCDIF_THRES {
   // Bit field definition.
   struct {
     uint32_t _reserved_0 : 16;
+    /// read-write - This value should be set to a value of pixels, from 0 to 511
     uint32_t FASTCLOCK : 9;
     uint32_t _reserved_1 : 7;
   } bits;
@@ -1126,8 +1346,10 @@ union LCDIF_PIGEONCTRL0 {
   
   // Bit field definition.
   struct {
+    /// read-write - Period of line counter during FD phase
     uint32_t FD_PERIOD : 12;
     uint32_t _reserved_0 : 4;
+    /// read-write - Period of pclk counter during LD phase
     uint32_t LD_PERIOD : 12;
     uint32_t _reserved_1 : 4;
   } bits;
@@ -1146,8 +1368,10 @@ union LCDIF_PIGEONCTRL0_SET {
   
   // Bit field definition.
   struct {
+    /// read-write - Period of line counter during FD phase
     uint32_t FD_PERIOD : 12;
     uint32_t _reserved_0 : 4;
+    /// read-write - Period of pclk counter during LD phase
     uint32_t LD_PERIOD : 12;
     uint32_t _reserved_1 : 4;
   } bits;
@@ -1166,8 +1390,10 @@ union LCDIF_PIGEONCTRL0_CLR {
   
   // Bit field definition.
   struct {
+    /// read-write - Period of line counter during FD phase
     uint32_t FD_PERIOD : 12;
     uint32_t _reserved_0 : 4;
+    /// read-write - Period of pclk counter during LD phase
     uint32_t LD_PERIOD : 12;
     uint32_t _reserved_1 : 4;
   } bits;
@@ -1186,8 +1412,10 @@ union LCDIF_PIGEONCTRL0_TOG {
   
   // Bit field definition.
   struct {
+    /// read-write - Period of line counter during FD phase
     uint32_t FD_PERIOD : 12;
     uint32_t _reserved_0 : 4;
+    /// read-write - Period of pclk counter during LD phase
     uint32_t LD_PERIOD : 12;
     uint32_t _reserved_1 : 4;
   } bits;
@@ -1206,8 +1434,10 @@ union LCDIF_PIGEONCTRL1 {
   
   // Bit field definition.
   struct {
+    /// read-write - Period of frame counter
     uint32_t FRAME_CNT_PERIOD : 12;
     uint32_t _reserved_0 : 4;
+    /// read-write - Max cycles of frame counter
     uint32_t FRAME_CNT_CYCLES : 12;
     uint32_t _reserved_1 : 4;
   } bits;
@@ -1226,8 +1456,10 @@ union LCDIF_PIGEONCTRL1_SET {
   
   // Bit field definition.
   struct {
+    /// read-write - Period of frame counter
     uint32_t FRAME_CNT_PERIOD : 12;
     uint32_t _reserved_0 : 4;
+    /// read-write - Max cycles of frame counter
     uint32_t FRAME_CNT_CYCLES : 12;
     uint32_t _reserved_1 : 4;
   } bits;
@@ -1246,8 +1478,10 @@ union LCDIF_PIGEONCTRL1_CLR {
   
   // Bit field definition.
   struct {
+    /// read-write - Period of frame counter
     uint32_t FRAME_CNT_PERIOD : 12;
     uint32_t _reserved_0 : 4;
+    /// read-write - Max cycles of frame counter
     uint32_t FRAME_CNT_CYCLES : 12;
     uint32_t _reserved_1 : 4;
   } bits;
@@ -1266,8 +1500,10 @@ union LCDIF_PIGEONCTRL1_TOG {
   
   // Bit field definition.
   struct {
+    /// read-write - Period of frame counter
     uint32_t FRAME_CNT_PERIOD : 12;
     uint32_t _reserved_0 : 4;
+    /// read-write - Max cycles of frame counter
     uint32_t FRAME_CNT_CYCLES : 12;
     uint32_t _reserved_1 : 4;
   } bits;
@@ -1286,7 +1522,9 @@ union LCDIF_PIGEONCTRL2 {
   
   // Bit field definition.
   struct {
+    /// read-write - Pigeon mode data enable
     uint32_t PIGEON_DATA_EN : 1;
+    /// read-write - Pigeon mode dot clock gate enable
     uint32_t PIGEON_CLK_GATE : 1;
     uint32_t _reserved_0 : 30;
   } bits;
@@ -1305,7 +1543,9 @@ union LCDIF_PIGEONCTRL2_SET {
   
   // Bit field definition.
   struct {
+    /// read-write - Pigeon mode data enable
     uint32_t PIGEON_DATA_EN : 1;
+    /// read-write - Pigeon mode dot clock gate enable
     uint32_t PIGEON_CLK_GATE : 1;
     uint32_t _reserved_0 : 30;
   } bits;
@@ -1324,7 +1564,9 @@ union LCDIF_PIGEONCTRL2_CLR {
   
   // Bit field definition.
   struct {
+    /// read-write - Pigeon mode data enable
     uint32_t PIGEON_DATA_EN : 1;
+    /// read-write - Pigeon mode dot clock gate enable
     uint32_t PIGEON_CLK_GATE : 1;
     uint32_t _reserved_0 : 30;
   } bits;
@@ -1343,7 +1585,9 @@ union LCDIF_PIGEONCTRL2_TOG {
   
   // Bit field definition.
   struct {
+    /// read-write - Pigeon mode data enable
     uint32_t PIGEON_DATA_EN : 1;
+    /// read-write - Pigeon mode dot clock gate enable
     uint32_t PIGEON_CLK_GATE : 1;
     uint32_t _reserved_0 : 30;
   } bits;
@@ -1396,12 +1640,19 @@ union LCDIF_PIGEON_0_0 {
   
   // Bit field definition.
   struct {
+    /// read-write - Enable pigeon Mode on this signal
     uint32_t EN : 1;
+    /// read-write - Polarity of signal output
     ePOL POL : 1;
+    /// read-write - Event to incrment local counter
     eINC_SEL INC_SEL : 2;
+    /// read-write - offset on pclk unit
     uint32_t OFFSET : 4;
+    /// read-write - select global counters as mask condition, use together with MASK_CNT
     eMASK_CNT_SEL MASK_CNT_SEL : 4;
+    /// read-write - When the global counter selected through MASK_CNT_SEL matches value in this reg, pigeon local counter start ticking
     uint32_t MASK_CNT : 12;
+    /// read-write - state_mask = (FS|FB|FD|FE) and (LS|LB|LD|LE) , select any combination of scan states as reference point for local counter to start ticking
     eSTATE_MASK STATE_MASK : 8;
   } bits;
   
@@ -1427,7 +1678,9 @@ union LCDIF_PIGEON_0_1 {
   
   // Bit field definition.
   struct {
+    /// read-write - Assert signal output when counter match this value
     eSET_CNT SET_CNT : 16;
+    /// read-write - Deassert signal output when counter match this value
     eCLR_CNT CLR_CNT : 16;
   } bits;
   
@@ -1456,7 +1709,9 @@ union LCDIF_PIGEON_0_2 {
   
   // Bit field definition.
   struct {
+    /// read-write - Logic operation with another signal: DIS/AND/OR/COND
     eSIG_LOGIC SIG_LOGIC : 4;
+    /// read-write - Select another signal for logic operation or as mask or counter tick event
     eSIG_ANOTHER SIG_ANOTHER : 5;
     uint32_t _reserved_0 : 23;
   } bits;
@@ -1509,12 +1764,19 @@ union LCDIF_PIGEON_1_0 {
   
   // Bit field definition.
   struct {
+    /// read-write - Enable pigeon Mode on this signal
     uint32_t EN : 1;
+    /// read-write - Polarity of signal output
     ePOL POL : 1;
+    /// read-write - Event to incrment local counter
     eINC_SEL INC_SEL : 2;
+    /// read-write - offset on pclk unit
     uint32_t OFFSET : 4;
+    /// read-write - select global counters as mask condition, use together with MASK_CNT
     eMASK_CNT_SEL MASK_CNT_SEL : 4;
+    /// read-write - When the global counter selected through MASK_CNT_SEL matches value in this reg, pigeon local counter start ticking
     uint32_t MASK_CNT : 12;
+    /// read-write - state_mask = (FS|FB|FD|FE) and (LS|LB|LD|LE) , select any combination of scan states as reference point for local counter to start ticking
     eSTATE_MASK STATE_MASK : 8;
   } bits;
   
@@ -1540,7 +1802,9 @@ union LCDIF_PIGEON_1_1 {
   
   // Bit field definition.
   struct {
+    /// read-write - Assert signal output when counter match this value
     eSET_CNT SET_CNT : 16;
+    /// read-write - Deassert signal output when counter match this value
     eCLR_CNT CLR_CNT : 16;
   } bits;
   
@@ -1569,7 +1833,9 @@ union LCDIF_PIGEON_1_2 {
   
   // Bit field definition.
   struct {
+    /// read-write - Logic operation with another signal: DIS/AND/OR/COND
     eSIG_LOGIC SIG_LOGIC : 4;
+    /// read-write - Select another signal for logic operation or as mask or counter tick event
     eSIG_ANOTHER SIG_ANOTHER : 5;
     uint32_t _reserved_0 : 23;
   } bits;
@@ -1622,12 +1888,19 @@ union LCDIF_PIGEON_2_0 {
   
   // Bit field definition.
   struct {
+    /// read-write - Enable pigeon Mode on this signal
     uint32_t EN : 1;
+    /// read-write - Polarity of signal output
     ePOL POL : 1;
+    /// read-write - Event to incrment local counter
     eINC_SEL INC_SEL : 2;
+    /// read-write - offset on pclk unit
     uint32_t OFFSET : 4;
+    /// read-write - select global counters as mask condition, use together with MASK_CNT
     eMASK_CNT_SEL MASK_CNT_SEL : 4;
+    /// read-write - When the global counter selected through MASK_CNT_SEL matches value in this reg, pigeon local counter start ticking
     uint32_t MASK_CNT : 12;
+    /// read-write - state_mask = (FS|FB|FD|FE) and (LS|LB|LD|LE) , select any combination of scan states as reference point for local counter to start ticking
     eSTATE_MASK STATE_MASK : 8;
   } bits;
   
@@ -1653,7 +1926,9 @@ union LCDIF_PIGEON_2_1 {
   
   // Bit field definition.
   struct {
+    /// read-write - Assert signal output when counter match this value
     eSET_CNT SET_CNT : 16;
+    /// read-write - Deassert signal output when counter match this value
     eCLR_CNT CLR_CNT : 16;
   } bits;
   
@@ -1682,7 +1957,9 @@ union LCDIF_PIGEON_2_2 {
   
   // Bit field definition.
   struct {
+    /// read-write - Logic operation with another signal: DIS/AND/OR/COND
     eSIG_LOGIC SIG_LOGIC : 4;
+    /// read-write - Select another signal for logic operation or as mask or counter tick event
     eSIG_ANOTHER SIG_ANOTHER : 5;
     uint32_t _reserved_0 : 23;
   } bits;
@@ -1735,12 +2012,19 @@ union LCDIF_PIGEON_3_0 {
   
   // Bit field definition.
   struct {
+    /// read-write - Enable pigeon Mode on this signal
     uint32_t EN : 1;
+    /// read-write - Polarity of signal output
     ePOL POL : 1;
+    /// read-write - Event to incrment local counter
     eINC_SEL INC_SEL : 2;
+    /// read-write - offset on pclk unit
     uint32_t OFFSET : 4;
+    /// read-write - select global counters as mask condition, use together with MASK_CNT
     eMASK_CNT_SEL MASK_CNT_SEL : 4;
+    /// read-write - When the global counter selected through MASK_CNT_SEL matches value in this reg, pigeon local counter start ticking
     uint32_t MASK_CNT : 12;
+    /// read-write - state_mask = (FS|FB|FD|FE) and (LS|LB|LD|LE) , select any combination of scan states as reference point for local counter to start ticking
     eSTATE_MASK STATE_MASK : 8;
   } bits;
   
@@ -1766,7 +2050,9 @@ union LCDIF_PIGEON_3_1 {
   
   // Bit field definition.
   struct {
+    /// read-write - Assert signal output when counter match this value
     eSET_CNT SET_CNT : 16;
+    /// read-write - Deassert signal output when counter match this value
     eCLR_CNT CLR_CNT : 16;
   } bits;
   
@@ -1795,7 +2081,9 @@ union LCDIF_PIGEON_3_2 {
   
   // Bit field definition.
   struct {
+    /// read-write - Logic operation with another signal: DIS/AND/OR/COND
     eSIG_LOGIC SIG_LOGIC : 4;
+    /// read-write - Select another signal for logic operation or as mask or counter tick event
     eSIG_ANOTHER SIG_ANOTHER : 5;
     uint32_t _reserved_0 : 23;
   } bits;
@@ -1848,12 +2136,19 @@ union LCDIF_PIGEON_4_0 {
   
   // Bit field definition.
   struct {
+    /// read-write - Enable pigeon Mode on this signal
     uint32_t EN : 1;
+    /// read-write - Polarity of signal output
     ePOL POL : 1;
+    /// read-write - Event to incrment local counter
     eINC_SEL INC_SEL : 2;
+    /// read-write - offset on pclk unit
     uint32_t OFFSET : 4;
+    /// read-write - select global counters as mask condition, use together with MASK_CNT
     eMASK_CNT_SEL MASK_CNT_SEL : 4;
+    /// read-write - When the global counter selected through MASK_CNT_SEL matches value in this reg, pigeon local counter start ticking
     uint32_t MASK_CNT : 12;
+    /// read-write - state_mask = (FS|FB|FD|FE) and (LS|LB|LD|LE) , select any combination of scan states as reference point for local counter to start ticking
     eSTATE_MASK STATE_MASK : 8;
   } bits;
   
@@ -1879,7 +2174,9 @@ union LCDIF_PIGEON_4_1 {
   
   // Bit field definition.
   struct {
+    /// read-write - Assert signal output when counter match this value
     eSET_CNT SET_CNT : 16;
+    /// read-write - Deassert signal output when counter match this value
     eCLR_CNT CLR_CNT : 16;
   } bits;
   
@@ -1908,7 +2205,9 @@ union LCDIF_PIGEON_4_2 {
   
   // Bit field definition.
   struct {
+    /// read-write - Logic operation with another signal: DIS/AND/OR/COND
     eSIG_LOGIC SIG_LOGIC : 4;
+    /// read-write - Select another signal for logic operation or as mask or counter tick event
     eSIG_ANOTHER SIG_ANOTHER : 5;
     uint32_t _reserved_0 : 23;
   } bits;
@@ -1961,12 +2260,19 @@ union LCDIF_PIGEON_5_0 {
   
   // Bit field definition.
   struct {
+    /// read-write - Enable pigeon Mode on this signal
     uint32_t EN : 1;
+    /// read-write - Polarity of signal output
     ePOL POL : 1;
+    /// read-write - Event to incrment local counter
     eINC_SEL INC_SEL : 2;
+    /// read-write - offset on pclk unit
     uint32_t OFFSET : 4;
+    /// read-write - select global counters as mask condition, use together with MASK_CNT
     eMASK_CNT_SEL MASK_CNT_SEL : 4;
+    /// read-write - When the global counter selected through MASK_CNT_SEL matches value in this reg, pigeon local counter start ticking
     uint32_t MASK_CNT : 12;
+    /// read-write - state_mask = (FS|FB|FD|FE) and (LS|LB|LD|LE) , select any combination of scan states as reference point for local counter to start ticking
     eSTATE_MASK STATE_MASK : 8;
   } bits;
   
@@ -1992,7 +2298,9 @@ union LCDIF_PIGEON_5_1 {
   
   // Bit field definition.
   struct {
+    /// read-write - Assert signal output when counter match this value
     eSET_CNT SET_CNT : 16;
+    /// read-write - Deassert signal output when counter match this value
     eCLR_CNT CLR_CNT : 16;
   } bits;
   
@@ -2021,7 +2329,9 @@ union LCDIF_PIGEON_5_2 {
   
   // Bit field definition.
   struct {
+    /// read-write - Logic operation with another signal: DIS/AND/OR/COND
     eSIG_LOGIC SIG_LOGIC : 4;
+    /// read-write - Select another signal for logic operation or as mask or counter tick event
     eSIG_ANOTHER SIG_ANOTHER : 5;
     uint32_t _reserved_0 : 23;
   } bits;
@@ -2074,12 +2384,19 @@ union LCDIF_PIGEON_6_0 {
   
   // Bit field definition.
   struct {
+    /// read-write - Enable pigeon Mode on this signal
     uint32_t EN : 1;
+    /// read-write - Polarity of signal output
     ePOL POL : 1;
+    /// read-write - Event to incrment local counter
     eINC_SEL INC_SEL : 2;
+    /// read-write - offset on pclk unit
     uint32_t OFFSET : 4;
+    /// read-write - select global counters as mask condition, use together with MASK_CNT
     eMASK_CNT_SEL MASK_CNT_SEL : 4;
+    /// read-write - When the global counter selected through MASK_CNT_SEL matches value in this reg, pigeon local counter start ticking
     uint32_t MASK_CNT : 12;
+    /// read-write - state_mask = (FS|FB|FD|FE) and (LS|LB|LD|LE) , select any combination of scan states as reference point for local counter to start ticking
     eSTATE_MASK STATE_MASK : 8;
   } bits;
   
@@ -2105,7 +2422,9 @@ union LCDIF_PIGEON_6_1 {
   
   // Bit field definition.
   struct {
+    /// read-write - Assert signal output when counter match this value
     eSET_CNT SET_CNT : 16;
+    /// read-write - Deassert signal output when counter match this value
     eCLR_CNT CLR_CNT : 16;
   } bits;
   
@@ -2134,7 +2453,9 @@ union LCDIF_PIGEON_6_2 {
   
   // Bit field definition.
   struct {
+    /// read-write - Logic operation with another signal: DIS/AND/OR/COND
     eSIG_LOGIC SIG_LOGIC : 4;
+    /// read-write - Select another signal for logic operation or as mask or counter tick event
     eSIG_ANOTHER SIG_ANOTHER : 5;
     uint32_t _reserved_0 : 23;
   } bits;
@@ -2187,12 +2508,19 @@ union LCDIF_PIGEON_7_0 {
   
   // Bit field definition.
   struct {
+    /// read-write - Enable pigeon Mode on this signal
     uint32_t EN : 1;
+    /// read-write - Polarity of signal output
     ePOL POL : 1;
+    /// read-write - Event to incrment local counter
     eINC_SEL INC_SEL : 2;
+    /// read-write - offset on pclk unit
     uint32_t OFFSET : 4;
+    /// read-write - select global counters as mask condition, use together with MASK_CNT
     eMASK_CNT_SEL MASK_CNT_SEL : 4;
+    /// read-write - When the global counter selected through MASK_CNT_SEL matches value in this reg, pigeon local counter start ticking
     uint32_t MASK_CNT : 12;
+    /// read-write - state_mask = (FS|FB|FD|FE) and (LS|LB|LD|LE) , select any combination of scan states as reference point for local counter to start ticking
     eSTATE_MASK STATE_MASK : 8;
   } bits;
   
@@ -2218,7 +2546,9 @@ union LCDIF_PIGEON_7_1 {
   
   // Bit field definition.
   struct {
+    /// read-write - Assert signal output when counter match this value
     eSET_CNT SET_CNT : 16;
+    /// read-write - Deassert signal output when counter match this value
     eCLR_CNT CLR_CNT : 16;
   } bits;
   
@@ -2247,7 +2577,9 @@ union LCDIF_PIGEON_7_2 {
   
   // Bit field definition.
   struct {
+    /// read-write - Logic operation with another signal: DIS/AND/OR/COND
     eSIG_LOGIC SIG_LOGIC : 4;
+    /// read-write - Select another signal for logic operation or as mask or counter tick event
     eSIG_ANOTHER SIG_ANOTHER : 5;
     uint32_t _reserved_0 : 23;
   } bits;
@@ -2300,12 +2632,19 @@ union LCDIF_PIGEON_8_0 {
   
   // Bit field definition.
   struct {
+    /// read-write - Enable pigeon Mode on this signal
     uint32_t EN : 1;
+    /// read-write - Polarity of signal output
     ePOL POL : 1;
+    /// read-write - Event to incrment local counter
     eINC_SEL INC_SEL : 2;
+    /// read-write - offset on pclk unit
     uint32_t OFFSET : 4;
+    /// read-write - select global counters as mask condition, use together with MASK_CNT
     eMASK_CNT_SEL MASK_CNT_SEL : 4;
+    /// read-write - When the global counter selected through MASK_CNT_SEL matches value in this reg, pigeon local counter start ticking
     uint32_t MASK_CNT : 12;
+    /// read-write - state_mask = (FS|FB|FD|FE) and (LS|LB|LD|LE) , select any combination of scan states as reference point for local counter to start ticking
     eSTATE_MASK STATE_MASK : 8;
   } bits;
   
@@ -2331,7 +2670,9 @@ union LCDIF_PIGEON_8_1 {
   
   // Bit field definition.
   struct {
+    /// read-write - Assert signal output when counter match this value
     eSET_CNT SET_CNT : 16;
+    /// read-write - Deassert signal output when counter match this value
     eCLR_CNT CLR_CNT : 16;
   } bits;
   
@@ -2360,7 +2701,9 @@ union LCDIF_PIGEON_8_2 {
   
   // Bit field definition.
   struct {
+    /// read-write - Logic operation with another signal: DIS/AND/OR/COND
     eSIG_LOGIC SIG_LOGIC : 4;
+    /// read-write - Select another signal for logic operation or as mask or counter tick event
     eSIG_ANOTHER SIG_ANOTHER : 5;
     uint32_t _reserved_0 : 23;
   } bits;
@@ -2413,12 +2756,19 @@ union LCDIF_PIGEON_9_0 {
   
   // Bit field definition.
   struct {
+    /// read-write - Enable pigeon Mode on this signal
     uint32_t EN : 1;
+    /// read-write - Polarity of signal output
     ePOL POL : 1;
+    /// read-write - Event to incrment local counter
     eINC_SEL INC_SEL : 2;
+    /// read-write - offset on pclk unit
     uint32_t OFFSET : 4;
+    /// read-write - select global counters as mask condition, use together with MASK_CNT
     eMASK_CNT_SEL MASK_CNT_SEL : 4;
+    /// read-write - When the global counter selected through MASK_CNT_SEL matches value in this reg, pigeon local counter start ticking
     uint32_t MASK_CNT : 12;
+    /// read-write - state_mask = (FS|FB|FD|FE) and (LS|LB|LD|LE) , select any combination of scan states as reference point for local counter to start ticking
     eSTATE_MASK STATE_MASK : 8;
   } bits;
   
@@ -2444,7 +2794,9 @@ union LCDIF_PIGEON_9_1 {
   
   // Bit field definition.
   struct {
+    /// read-write - Assert signal output when counter match this value
     eSET_CNT SET_CNT : 16;
+    /// read-write - Deassert signal output when counter match this value
     eCLR_CNT CLR_CNT : 16;
   } bits;
   
@@ -2473,7 +2825,9 @@ union LCDIF_PIGEON_9_2 {
   
   // Bit field definition.
   struct {
+    /// read-write - Logic operation with another signal: DIS/AND/OR/COND
     eSIG_LOGIC SIG_LOGIC : 4;
+    /// read-write - Select another signal for logic operation or as mask or counter tick event
     eSIG_ANOTHER SIG_ANOTHER : 5;
     uint32_t _reserved_0 : 23;
   } bits;
@@ -2526,12 +2880,19 @@ union LCDIF_PIGEON_10_0 {
   
   // Bit field definition.
   struct {
+    /// read-write - Enable pigeon Mode on this signal
     uint32_t EN : 1;
+    /// read-write - Polarity of signal output
     ePOL POL : 1;
+    /// read-write - Event to incrment local counter
     eINC_SEL INC_SEL : 2;
+    /// read-write - offset on pclk unit
     uint32_t OFFSET : 4;
+    /// read-write - select global counters as mask condition, use together with MASK_CNT
     eMASK_CNT_SEL MASK_CNT_SEL : 4;
+    /// read-write - When the global counter selected through MASK_CNT_SEL matches value in this reg, pigeon local counter start ticking
     uint32_t MASK_CNT : 12;
+    /// read-write - state_mask = (FS|FB|FD|FE) and (LS|LB|LD|LE) , select any combination of scan states as reference point for local counter to start ticking
     eSTATE_MASK STATE_MASK : 8;
   } bits;
   
@@ -2557,7 +2918,9 @@ union LCDIF_PIGEON_10_1 {
   
   // Bit field definition.
   struct {
+    /// read-write - Assert signal output when counter match this value
     eSET_CNT SET_CNT : 16;
+    /// read-write - Deassert signal output when counter match this value
     eCLR_CNT CLR_CNT : 16;
   } bits;
   
@@ -2586,7 +2949,9 @@ union LCDIF_PIGEON_10_2 {
   
   // Bit field definition.
   struct {
+    /// read-write - Logic operation with another signal: DIS/AND/OR/COND
     eSIG_LOGIC SIG_LOGIC : 4;
+    /// read-write - Select another signal for logic operation or as mask or counter tick event
     eSIG_ANOTHER SIG_ANOTHER : 5;
     uint32_t _reserved_0 : 23;
   } bits;
@@ -2639,12 +3004,19 @@ union LCDIF_PIGEON_11_0 {
   
   // Bit field definition.
   struct {
+    /// read-write - Enable pigeon Mode on this signal
     uint32_t EN : 1;
+    /// read-write - Polarity of signal output
     ePOL POL : 1;
+    /// read-write - Event to incrment local counter
     eINC_SEL INC_SEL : 2;
+    /// read-write - offset on pclk unit
     uint32_t OFFSET : 4;
+    /// read-write - select global counters as mask condition, use together with MASK_CNT
     eMASK_CNT_SEL MASK_CNT_SEL : 4;
+    /// read-write - When the global counter selected through MASK_CNT_SEL matches value in this reg, pigeon local counter start ticking
     uint32_t MASK_CNT : 12;
+    /// read-write - state_mask = (FS|FB|FD|FE) and (LS|LB|LD|LE) , select any combination of scan states as reference point for local counter to start ticking
     eSTATE_MASK STATE_MASK : 8;
   } bits;
   
@@ -2670,7 +3042,9 @@ union LCDIF_PIGEON_11_1 {
   
   // Bit field definition.
   struct {
+    /// read-write - Assert signal output when counter match this value
     eSET_CNT SET_CNT : 16;
+    /// read-write - Deassert signal output when counter match this value
     eCLR_CNT CLR_CNT : 16;
   } bits;
   
@@ -2699,7 +3073,9 @@ union LCDIF_PIGEON_11_2 {
   
   // Bit field definition.
   struct {
+    /// read-write - Logic operation with another signal: DIS/AND/OR/COND
     eSIG_LOGIC SIG_LOGIC : 4;
+    /// read-write - Select another signal for logic operation or as mask or counter tick event
     eSIG_ANOTHER SIG_ANOTHER : 5;
     uint32_t _reserved_0 : 23;
   } bits;
@@ -2718,6 +3094,7 @@ union LCDIF_LUT_CTRL {
   
   // Bit field definition.
   struct {
+    /// read-write - Setting this bit will bypass the LUT memory resource completely
     uint32_t LUT_BYPASS : 1;
     uint32_t _reserved_0 : 31;
   } bits;
@@ -2736,6 +3113,7 @@ union LCDIF_LUT0_ADDR {
   
   // Bit field definition.
   struct {
+    /// read-write - LUT indexed address pointer
     uint32_t ADDR : 8;
     uint32_t _reserved_0 : 24;
   } bits;
@@ -2754,6 +3132,7 @@ union LCDIF_LUT0_DATA {
   
   // Bit field definition.
   struct {
+    /// read-write - Writing this field will load 4 bytes, aligned to four byte boundaries, of data indexed by the ADDR field of the REG_LUT_CTRL register
     uint32_t DATA : 32;
   } bits;
   
@@ -2771,6 +3150,7 @@ union LCDIF_LUT1_ADDR {
   
   // Bit field definition.
   struct {
+    /// read-write - LUT indexed address pointer
     uint32_t ADDR : 8;
     uint32_t _reserved_0 : 24;
   } bits;
@@ -2789,6 +3169,7 @@ union LCDIF_LUT1_DATA {
   
   // Bit field definition.
   struct {
+    /// read-write - Writing this field will load 4 bytes, aligned to four byte boundaries, of data indexed by the ADDR field of the REG_LUT_CTRL register
     uint32_t DATA : 32;
   } bits;
   

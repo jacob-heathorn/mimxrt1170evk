@@ -17,6 +17,7 @@ union MCM_PLREV {
   
   // Bit field definition.
   struct {
+    /// read-only - The PLREV[15:0] field is specified by an platform input signal to define a software-visible revision number.
     uint32_t PLREV : 16;
     uint32_t _reserved_0 : 16;
   } bits;
@@ -39,6 +40,7 @@ union MCM_PCT {
   
   // Bit field definition.
   struct {
+    /// read-only - This MCM design supports the ARM Cortex M4 core. The following value identifies this core complex.
     ePCT PCT : 16;
     uint32_t _reserved_0 : 16;
   } bits;
@@ -58,8 +60,10 @@ union MCM_MEMCFG {
   // Bit field definition.
   struct {
     uint32_t _reserved_0 : 2;
+    /// read-only - TCRAMU size
     uint32_t TCRAMUSZ : 4;
     uint32_t _reserved_1 : 2;
+    /// read-only - TCRAML size
     uint32_t TCRAMLSZ : 4;
     uint32_t _reserved_2 : 20;
   } bits;
@@ -83,6 +87,7 @@ union MCM_PLASC {
   
   // Bit field definition.
   struct {
+    /// read-only - Each bit in the ASC field indicates whether there is a corresponding connection to the crossbar switch's slave input port.
     eASC ASC : 8;
     uint32_t _reserved_0 : 24;
   } bits;
@@ -106,6 +111,7 @@ union MCM_PLAMC {
   
   // Bit field definition.
   struct {
+    /// read-only - Each bit in the AMC field indicates whether there is a corresponding connection to the AXBS master input port.
     eAMC AMC : 8;
     uint32_t _reserved_0 : 24;
   } bits;
@@ -143,13 +149,19 @@ union MCM_CR {
   
   // Bit field definition.
   struct {
+    /// read-only - Status bits
     uint32_t STATUS : 9;
+    /// read-write - Crossbar round-robin arbitration enable
     eCBRR CBRR : 1;
     uint32_t _reserved_0 : 14;
+    /// read-write - System TCM arbitration priority
     eSTCMAP STCMAP : 2;
+    /// read-write - System TCM write protect
     uint32_t STCMWP : 1;
     uint32_t _reserved_1 : 1;
+    /// read-write - Code TCM arbitration priority
     eCTCMAP CTCMAP : 2;
+    /// read-write - Code TCM Write Protect
     uint32_t CTCMWP : 1;
     uint32_t _reserved_2 : 1;
   } bits;
@@ -239,24 +251,38 @@ union MCM_ISCR {
   // Bit field definition.
   struct {
     uint32_t _reserved_0 : 4;
+    /// read-write - Cache write buffer error status
     eCWBER CWBER : 1;
     uint32_t _reserved_1 : 3;
+    /// read-only - FPU invalid operation interrupt status
     eFIOC FIOC : 1;
+    /// read-only - FPU divide-by-zero interrupt status
     eFDZC FDZC : 1;
+    /// read-only - FPU overflow interrupt status
     eFOFC FOFC : 1;
+    /// read-only - FPU underflow interrupt status
     eFUFC FUFC : 1;
+    /// read-only - FPU inexact interrupt status
     eFIXC FIXC : 1;
     uint32_t _reserved_2 : 2;
+    /// read-only - FPU input denormal interrupt status
     eFIDC FIDC : 1;
     uint32_t _reserved_3 : 4;
+    /// read-write - Cache write buffer error enable
     eCWBEE CWBEE : 1;
     uint32_t _reserved_4 : 3;
+    /// read-write - FPU invalid operation interrupt enable
     eFIOCE FIOCE : 1;
+    /// read-write - FPU divide-by-zero interrupt enable
     eFDZCE FDZCE : 1;
+    /// read-write - FPU overflow interrupt enable
     eFOFCE FOFCE : 1;
+    /// read-write - FPU underflow interrupt enable
     eFUFCE FUFCE : 1;
+    /// read-write - FPU inexact interrupt enable
     eFIXCE FIXCE : 1;
     uint32_t _reserved_5 : 2;
+    /// read-write - FPU input denormal interrupt enable
     eFIDCE FIDCE : 1;
   } bits;
   
@@ -274,6 +300,7 @@ union MCM_FADR {
   
   // Bit field definition.
   struct {
+    /// read-only - Fault address
     uint32_t ADDRESS : 32;
   } bits;
   
@@ -317,14 +344,20 @@ union MCM_FATR {
   
   // Bit field definition.
   struct {
+    /// read-only - Bus error access type
     eBEDA BEDA : 1;
+    /// read-only - Bus error privilege level
     eBEMD BEMD : 1;
     uint32_t _reserved_0 : 2;
+    /// read-only - Bus error size
     eBESZ BESZ : 2;
     uint32_t _reserved_1 : 1;
+    /// read-only - Bus error write
     eBEWT BEWT : 1;
+    /// read-only - Bus error master number
     uint32_t BEMN : 4;
     uint32_t _reserved_2 : 19;
+    /// read-only - Bus error overrun
     eBEOVR BEOVR : 1;
   } bits;
   
@@ -342,6 +375,7 @@ union MCM_FDR {
   
   // Bit field definition.
   struct {
+    /// read-only - Fault data
     uint32_t DATA : 32;
   } bits;
   
@@ -411,16 +445,25 @@ union MCM_LMDR0 {
   
   // Bit field definition.
   struct {
+    /// read-write - Control Field 0
     uint32_t CF0 : 4;
+    /// read-write - Control Field 1 - for Cache Parity control functions
     uint32_t CF1 : 4;
     uint32_t _reserved_0 : 5;
+    /// read-only - Memory Type
     eMT MT : 3;
+    /// read-only - Read-Only
     eRO RO : 1;
+    /// read-only - LMEM Data Path Width. This read-only field defines the width of the local memory.
     eDPW DPW : 3;
+    /// read-only - Level 1 Cache Ways
     eWY WY : 4;
+    /// read-only - LMEM Size
     eLMSZ LMSZ : 4;
+    /// read-only - LMEM Size "Hole"
     eLMSZH LMSZH : 1;
     uint32_t _reserved_1 : 2;
+    /// read-only - Local memory Valid bit. This read-only field defines the validity (presence) of the local memory.
     eV V : 1;
   } bits;
   
@@ -489,16 +532,25 @@ union MCM_LMDR1 {
   
   // Bit field definition.
   struct {
+    /// read-write - Control Field 0
     uint32_t CF0 : 4;
+    /// read-write - Control Field 1 - for Cache Parity control functions
     uint32_t CF1 : 4;
     uint32_t _reserved_0 : 5;
+    /// read-only - Memory Type
     eMT MT : 3;
+    /// read-only - Read-Only
     eRO RO : 1;
+    /// read-only - LMEM Data Path Width. This read-only field defines the width of the local memory.
     eDPW DPW : 3;
+    /// read-only - Level 1 Cache Ways
     eWY WY : 4;
+    /// read-only - LMEM Size
     eLMSZ LMSZ : 4;
+    /// read-only - LMEM Size "Hole"
     eLMSZH LMSZH : 1;
     uint32_t _reserved_1 : 2;
+    /// read-only - Local memory Valid bit. This read-only field defines the validity (presence) of the local memory.
     eV V : 1;
   } bits;
   
@@ -567,16 +619,25 @@ union MCM_LMDR2 {
   
   // Bit field definition.
   struct {
+    /// read-write - Control Field 0
     uint32_t CF0 : 4;
+    /// read-write - Control Field 1 - for Cache Parity control functions
     uint32_t CF1 : 4;
     uint32_t _reserved_0 : 5;
+    /// read-only - Memory Type
     eMT MT : 3;
+    /// read-only - Read-Only
     eRO RO : 1;
+    /// read-only - LMEM Data Path Width. This read-only field defines the width of the local memory.
     eDPW DPW : 3;
+    /// read-only - Level 1 Cache Ways
     eWY WY : 4;
+    /// read-only - LMEM Size
     eLMSZ LMSZ : 4;
+    /// read-only - LMEM Size "Hole"
     eLMSZH LMSZH : 1;
     uint32_t _reserved_1 : 2;
+    /// read-only - Local memory Valid bit. This read-only field defines the validity (presence) of the local memory.
     eV V : 1;
   } bits;
   
@@ -645,16 +706,25 @@ union MCM_LMDR3 {
   
   // Bit field definition.
   struct {
+    /// read-write - Control Field 0
     uint32_t CF0 : 4;
+    /// read-write - Control Field 1 - for Cache Parity control functions
     uint32_t CF1 : 4;
     uint32_t _reserved_0 : 5;
+    /// read-only - Memory Type
     eMT MT : 3;
+    /// read-only - Read-Only
     eRO RO : 1;
+    /// read-only - LMEM Data Path Width. This read-only field defines the width of the local memory.
     eDPW DPW : 3;
+    /// read-only - Level 1 Cache Ways
     eWY WY : 4;
+    /// read-only - LMEM Size
     eLMSZ LMSZ : 4;
+    /// read-only - LMEM Size "Hole"
     eLMSZH LMSZH : 1;
     uint32_t _reserved_1 : 2;
+    /// read-only - Local memory Valid bit. This read-only field defines the validity (presence) of the local memory.
     eV V : 1;
   } bits;
   
@@ -702,13 +772,19 @@ union MCM_LMPECR {
   
   // Bit field definition.
   struct {
+    /// read-write - Enable RAM ECC Non-correctable Reporting
     eERNCR ERNCR : 1;
+    /// read-write - Enable RAM Non-correctable ECC Interrupt
     eERNCI ERNCI : 1;
     uint32_t _reserved_0 : 6;
+    /// read-write - Enable RAM ECC 1-bit Reporting
     eER1BR ER1BR : 1;
+    /// read-write - Enable RAM ECC 1-bit Interrupt
     eER1BI ER1BI : 1;
     uint32_t _reserved_1 : 10;
+    /// read-write - Enable Cache Parity Reporting
     eECPR ECPR : 1;
+    /// read-write - Enable Cache Parity IRQ
     eECPI ECPI : 1;
     uint32_t _reserved_2 : 10;
   } bits;
@@ -727,11 +803,16 @@ union MCM_LMPEIR {
   
   // Bit field definition.
   struct {
+    /// read-write - ENCn = ECC Non-correctable Error n
     uint32_t ENC : 8;
+    /// read-write - E1Bn = ECC 1-bit Error n
     uint32_t E1B : 8;
+    /// read-write - Parity Error
     uint32_t PE : 8;
+    /// read-write - Parity or ECC Error Location
     uint32_t PEELOC : 5;
     uint32_t _reserved_0 : 2;
+    /// read-only - Valid bit
     uint32_t V : 1;
   } bits;
   
@@ -749,6 +830,7 @@ union MCM_LMFAR {
   
   // Bit field definition.
   struct {
+    /// read-only - ECC Fault Address
     uint32_t EFADD : 32;
   } bits;
   
@@ -766,13 +848,19 @@ union MCM_LMFATR {
   
   // Bit field definition.
   struct {
+    /// read-write - Parity/ECC Fault Protection FATR[3] is Cacheable: 0=Non-cacheable, 1=Cacheable FATR[2] is Bufferable: 0=Non-bufferable, 1=Bufferable FATR[1] is Mode: 0=User mode, 1=Supervisor mode FATR[0] is Type: 0=I-Fetch, 1=Data
     uint32_t PEFPRT : 4;
+    /// read-write - Parity/ECC Fault Master Size 3'b000 = 8-bit access 3'b001 = 16-bit access 3'b010 = 32-bit access 3'b011 = 64-bit access 3'b1xx = Reserved
     uint32_t PEFSIZE : 3;
+    /// read-only - Parity/ECC Fault Write
     uint32_t PEFW : 1;
+    /// read-only - Parity/ECC Fault Master Number
     uint32_t PEFMST : 8;
     uint32_t _reserved_0 : 8;
+    /// read-only - ID of the word which has ECC error
     uint32_t WORDID : 1;
     uint32_t _reserved_1 : 6;
+    /// read-only - Overrun
     uint32_t OVR : 1;
   } bits;
   
@@ -790,6 +878,7 @@ union MCM_LMFDHR {
   
   // Bit field definition.
   struct {
+    /// read-only - Parity or ECC Fault Data High
     uint32_t PEFDH : 32;
   } bits;
   
@@ -807,6 +896,7 @@ union MCM_LMFDLR {
   
   // Bit field definition.
   struct {
+    /// read-only - Parity or ECC Fault Data Low
     uint32_t PEFDL : 32;
   } bits;
   

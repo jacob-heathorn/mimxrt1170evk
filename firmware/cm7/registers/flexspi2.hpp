@@ -74,19 +74,31 @@ union MCR0 {
   
   // Bit field definition.
   struct {
+    /// read-write - Software Reset
     eSWRESET SWRESET : 1;
+    /// read-write - Module Disable
     eMDIS MDIS : 1;
     uint32_t _reserved_0 : 2;
+    /// read-write - Sample Clock Source for Flash Reading
     eRXCLKSRC RXCLKSRC : 2;
+    /// read-write - AHB Read Access to IP Receive FIFO Enable
     eARDFEN ARDFEN : 1;
+    /// read-write - AHB Write Access to IP Transmit FIFO Enable
     eATDFEN ATDFEN : 1;
+    /// read-write - Serial Root Clock Divider
     eSERCLKDIV SERCLKDIV : 3;
+    /// read-write - Half Speed Serial Flash Memory Access Enable
     eHSEN HSEN : 1;
+    /// read-write - Doze Mode Enable
     eDOZEEN DOZEEN : 1;
+    /// read-write - Combination Mode Enable
     eCOMBINATIONEN COMBINATIONEN : 1;
+    /// read-write - SCLK Free-running Enable
     eSCKFREERUNEN SCKFREERUNEN : 1;
     uint32_t _reserved_1 : 1;
+    /// read-write - Timeout Wait Cycle for IP Command Grant
     uint32_t IPGRANTWAIT : 8;
+    /// read-write - Timeouts Wait Cycle for AHB command Grant
     uint32_t AHBGRANTWAIT : 8;
   } bits;
   
@@ -104,7 +116,9 @@ union MCR1 {
   
   // Bit field definition.
   struct {
+    /// read-write - AHB Bus Wait
     uint32_t AHBBUSWAIT : 16;
+    /// read-write - Command Sequence Wait
     uint32_t SEQWAIT : 16;
   } bits;
   
@@ -138,12 +152,16 @@ union MCR2 {
   // Bit field definition.
   struct {
     uint32_t _reserved_0 : 11;
+    /// read-write - Clear AHB Buffer
     eCLRAHBBUFOPT CLRAHBBUFOPT : 1;
     uint32_t _reserved_1 : 3;
+    /// read-write - Same Device Enable
     eSAMEDEVICEEN SAMEDEVICEEN : 1;
     uint32_t _reserved_2 : 3;
+    /// read-write - SCLK Port B Differential Output
     eSCKBDIFFOPT SCKBDIFFOPT : 1;
     uint32_t _reserved_3 : 4;
+    /// read-write - Resume Wait Duration
     uint32_t RESUMEWAIT : 8;
   } bits;
   
@@ -238,22 +256,37 @@ union AHBCR {
   
   // Bit field definition.
   struct {
+    /// read-write - AHB Parallel Mode Enable
     eAPAREN APAREN : 1;
+    /// read-write - Clear AHB Receive Buffer
     eCLRAHBRXBUF CLRAHBRXBUF : 1;
     uint32_t _reserved_0 : 1;
+    /// read-write - Cacheable Read Access Enable
     eCACHABLEEN CACHABLEEN : 1;
+    /// read-write - Bufferable Write Access Enable
     eBUFFERABLEEN BUFFERABLEEN : 1;
+    /// read-write - AHB Read Prefetch Enable
     ePREFETCHEN PREFETCHEN : 1;
+    /// read-write - AHB Read Address Option
     eREADADDROPT READADDROPT : 1;
     uint32_t _reserved_1 : 3;
+    /// read-write - AHB Read Size Alignment
     eREADSZALIGN READSZALIGN : 1;
+    /// read-write - AHB Read ECC Enable
     eECCEN ECCEN : 1;
+    /// read-write - AHB Transaction Split Enable
     eSPLITEN SPLITEN : 1;
+    /// read-write - AHB Split Limit Size
     eSPLIT_LIMIT SPLIT_LIMIT : 2;
+    /// read-write - OTFAD Key Blob ECC Enable
     eKEYECCEN KEYECCEN : 1;
+    /// read-write - AHB ECC Single-Bit Error Clear
     eECCSINGLEERRCLR ECCSINGLEERRCLR : 1;
+    /// read-write - AHB ECC Multibit Error Clear
     eECCMULTIERRCLR ECCMULTIERRCLR : 1;
+    /// read-write - AHB Controller ID Remapping Enable
     eHMSTRIDREMAP HMSTRIDREMAP : 1;
+    /// read-write - ECC Read Data Swap Enable
     eECCSWAPEN ECCSWAPEN : 1;
     uint32_t _reserved_2 : 12;
   } bits;
@@ -347,21 +380,36 @@ union INTEN {
   
   // Bit field definition.
   struct {
+    /// read-write - IP-Triggered Command Sequences Execution Finished Interrupt Enable
     eIPCMDDONEEN IPCMDDONEEN : 1;
+    /// read-write - IP-Triggered Command Sequences Grant Timeout Interrupt Enable
     eIPCMDGEEN IPCMDGEEN : 1;
+    /// read-write - AHB-Triggered Command Sequences Grant Timeout Interrupt Enable.
     eAHBCMDGEEN AHBCMDGEEN : 1;
+    /// read-write - IP-Triggered Command Sequences Error Detected Interrupt Enable
     eIPCMDERREN IPCMDERREN : 1;
+    /// read-write - AHB-Triggered Command Sequences Error Detected Interrupt Enable
     eAHBCMDERREN AHBCMDERREN : 1;
+    /// read-write - IP Receive FIFO Watermark Available Interrupt Enable
     eIPRXWAEN IPRXWAEN : 1;
+    /// read-write - IP Transmit FIFO Watermark Empty Interrupt Enable
     eIPTXWEEN IPTXWEEN : 1;
     uint32_t _reserved_0 : 1;
+    /// read-write - SCLK Stopped By Read Interrupt Enable
     eSCKSTOPBYRDEN SCKSTOPBYRDEN : 1;
+    /// read-write - SCLK Stopped By Write Interrupt Enable
     eSCKSTOPBYWREN SCKSTOPBYWREN : 1;
+    /// read-write - AHB Bus Error Interrupt Enable
     eAHBBUSERROREN AHBBUSERROREN : 1;
+    /// read-write - Sequence execution Timeout Interrupt Enable
     eSEQTIMEOUTEN SEQTIMEOUTEN : 1;
+    /// read-write - OTFAD Key Blob Processing Done Interrupt Enable
     eKEYDONEEN KEYDONEEN : 1;
+    /// read-write - OTFAD Key Blob Processing Error Interrupt Enable
     eKEYERROREN KEYERROREN : 1;
+    /// read-write - ECC Multibit Error Interrupt Enable
     eECCMULTIERREN ECCMULTIERREN : 1;
+    /// read-write - ECC Single-Bit Error Interrupt Enable
     eECCSINGLEERREN ECCSINGLEERREN : 1;
     uint32_t _reserved_1 : 16;
   } bits;
@@ -450,21 +498,36 @@ union INTR {
   
   // Bit field definition.
   struct {
+    /// read-write - IP-Triggered Command Sequences Execution Finished
     eIPCMDDONE IPCMDDONE : 1;
+    /// read-write - IP-Triggered Command Sequences Grant Timeout
     eIPCMDGE IPCMDGE : 1;
+    /// read-write - AHB-Triggered Command Sequences Grant Timeout
     eAHBCMDGE AHBCMDGE : 1;
+    /// read-write - IP-Triggered Command Sequences Error
     eIPCMDERR IPCMDERR : 1;
+    /// read-write - AHB-Triggered Command Sequences Error
     eAHBCMDERR AHBCMDERR : 1;
+    /// read-write - IP Receive FIFO Watermark Available
     eIPRXWA IPRXWA : 1;
+    /// read-write - IP Transmit FIFO Watermark Empty
     eIPTXWE IPTXWE : 1;
     uint32_t _reserved_0 : 1;
+    /// read-write - SCLK Stopped Due To Full Receive FIFO
     eSCKSTOPBYRD SCKSTOPBYRD : 1;
+    /// read-write - SCLK Stopped Due To Empty Transmit FIFO
     eSCKSTOPBYWR SCKSTOPBYWR : 1;
+    /// read-write - AHB Bus Error
     eAHBBUSERROR AHBBUSERROR : 1;
+    /// read-write - Sequence Execution Timeout
     eSEQTIMEOUT SEQTIMEOUT : 1;
+    /// read-write - OTFAD key blob processing done interrupt.
     uint32_t KEYDONE : 1;
+    /// read-only - OTFAD Key Blob Processing Error
     eKEYERROR KEYERROR : 1;
+    /// read-write - ECC Multibit Error
     eECCMULTIERR ECCMULTIERR : 1;
+    /// read-write - ECC Single-Bit Error
     eECCSINGLEERR ECCSINGLEERR : 1;
     uint32_t _reserved_1 : 16;
   } bits;
@@ -483,6 +546,7 @@ union LUTKEY {
   
   // Bit field definition.
   struct {
+    /// read-write - LUT Key
     uint32_t KEY : 32;
   } bits;
   
@@ -510,7 +574,9 @@ union LUTCR {
   
   // Bit field definition.
   struct {
+    /// read-write - Lock LUT
     eLOCK LOCK : 1;
+    /// read-write - Unlock LUT
     eUNLOCK UNLOCK : 1;
     uint32_t _reserved_0 : 30;
   } bits;
@@ -534,12 +600,16 @@ union AHBRXBUF0CR0 {
   
   // Bit field definition.
   struct {
+    /// read-write - AHB Receive Buffer Size
     uint32_t BUFSZ : 10;
     uint32_t _reserved_0 : 6;
+    /// read-write - AHB Controller ID
     uint32_t MSTRID : 4;
     uint32_t _reserved_1 : 4;
+    /// read-write - AHB Controller Read Priority
     uint32_t PRIORITY : 3;
     uint32_t _reserved_2 : 4;
+    /// read-write - AHB Read Prefetch Enable
     ePREFETCHEN PREFETCHEN : 1;
   } bits;
   
@@ -562,12 +632,16 @@ union AHBRXBUF1CR0 {
   
   // Bit field definition.
   struct {
+    /// read-write - AHB Receive Buffer Size
     uint32_t BUFSZ : 10;
     uint32_t _reserved_0 : 6;
+    /// read-write - AHB Controller ID
     uint32_t MSTRID : 4;
     uint32_t _reserved_1 : 4;
+    /// read-write - AHB Controller Read Priority
     uint32_t PRIORITY : 3;
     uint32_t _reserved_2 : 4;
+    /// read-write - AHB Read Prefetch Enable
     ePREFETCHEN PREFETCHEN : 1;
   } bits;
   
@@ -590,12 +664,16 @@ union AHBRXBUF2CR0 {
   
   // Bit field definition.
   struct {
+    /// read-write - AHB Receive Buffer Size
     uint32_t BUFSZ : 10;
     uint32_t _reserved_0 : 6;
+    /// read-write - AHB Controller ID
     uint32_t MSTRID : 4;
     uint32_t _reserved_1 : 4;
+    /// read-write - AHB Controller Read Priority
     uint32_t PRIORITY : 3;
     uint32_t _reserved_2 : 4;
+    /// read-write - AHB Read Prefetch Enable
     ePREFETCHEN PREFETCHEN : 1;
   } bits;
   
@@ -618,12 +696,16 @@ union AHBRXBUF3CR0 {
   
   // Bit field definition.
   struct {
+    /// read-write - AHB Receive Buffer Size
     uint32_t BUFSZ : 10;
     uint32_t _reserved_0 : 6;
+    /// read-write - AHB Controller ID
     uint32_t MSTRID : 4;
     uint32_t _reserved_1 : 4;
+    /// read-write - AHB Controller Read Priority
     uint32_t PRIORITY : 3;
     uint32_t _reserved_2 : 4;
+    /// read-write - AHB Read Prefetch Enable
     ePREFETCHEN PREFETCHEN : 1;
   } bits;
   
@@ -646,12 +728,16 @@ union AHBRXBUF4CR0 {
   
   // Bit field definition.
   struct {
+    /// read-write - AHB Receive Buffer Size
     uint32_t BUFSZ : 10;
     uint32_t _reserved_0 : 6;
+    /// read-write - AHB Controller ID
     uint32_t MSTRID : 4;
     uint32_t _reserved_1 : 4;
+    /// read-write - AHB Controller Read Priority
     uint32_t PRIORITY : 3;
     uint32_t _reserved_2 : 4;
+    /// read-write - AHB Read Prefetch Enable
     ePREFETCHEN PREFETCHEN : 1;
   } bits;
   
@@ -674,12 +760,16 @@ union AHBRXBUF5CR0 {
   
   // Bit field definition.
   struct {
+    /// read-write - AHB Receive Buffer Size
     uint32_t BUFSZ : 10;
     uint32_t _reserved_0 : 6;
+    /// read-write - AHB Controller ID
     uint32_t MSTRID : 4;
     uint32_t _reserved_1 : 4;
+    /// read-write - AHB Controller Read Priority
     uint32_t PRIORITY : 3;
     uint32_t _reserved_2 : 4;
+    /// read-write - AHB Read Prefetch Enable
     ePREFETCHEN PREFETCHEN : 1;
   } bits;
   
@@ -702,12 +792,16 @@ union AHBRXBUF6CR0 {
   
   // Bit field definition.
   struct {
+    /// read-write - AHB Receive Buffer Size
     uint32_t BUFSZ : 10;
     uint32_t _reserved_0 : 6;
+    /// read-write - AHB Controller ID
     uint32_t MSTRID : 4;
     uint32_t _reserved_1 : 4;
+    /// read-write - AHB Controller Read Priority
     uint32_t PRIORITY : 3;
     uint32_t _reserved_2 : 4;
+    /// read-write - AHB Read Prefetch Enable
     ePREFETCHEN PREFETCHEN : 1;
   } bits;
   
@@ -730,12 +824,16 @@ union AHBRXBUF7CR0 {
   
   // Bit field definition.
   struct {
+    /// read-write - AHB Receive Buffer Size
     uint32_t BUFSZ : 10;
     uint32_t _reserved_0 : 6;
+    /// read-write - AHB Controller ID
     uint32_t MSTRID : 4;
     uint32_t _reserved_1 : 4;
+    /// read-write - AHB Controller Read Priority
     uint32_t PRIORITY : 3;
     uint32_t _reserved_2 : 4;
+    /// read-write - AHB Read Prefetch Enable
     ePREFETCHEN PREFETCHEN : 1;
   } bits;
   
@@ -763,9 +861,12 @@ union FLSHA1CR0 {
   
   // Bit field definition.
   struct {
+    /// read-write - Flash Size in KB
     uint32_t FLSHSZ : 23;
     uint32_t _reserved_0 : 7;
+    /// read-write - AHB Write Access Split Function Enable
     eSPLITWREN SPLITWREN : 1;
+    /// read-write - AHB Read Access Split Function Enable
     eSPLITRDEN SPLITRDEN : 1;
   } bits;
   
@@ -793,9 +894,12 @@ union FLSHA2CR0 {
   
   // Bit field definition.
   struct {
+    /// read-write - Flash Size in KB
     uint32_t FLSHSZ : 23;
     uint32_t _reserved_0 : 7;
+    /// read-write - AHB Write Access Split Function Enable
     eSPLITWREN SPLITWREN : 1;
+    /// read-write - AHB Read Access Split Function Enable
     eSPLITRDEN SPLITRDEN : 1;
   } bits;
   
@@ -823,9 +927,12 @@ union FLSHB1CR0 {
   
   // Bit field definition.
   struct {
+    /// read-write - Flash Size in KB
     uint32_t FLSHSZ : 23;
     uint32_t _reserved_0 : 7;
+    /// read-write - AHB Write Access Split Function Enable
     eSPLITWREN SPLITWREN : 1;
+    /// read-write - AHB Read Access Split Function Enable
     eSPLITRDEN SPLITRDEN : 1;
   } bits;
   
@@ -853,9 +960,12 @@ union FLSHB2CR0 {
   
   // Bit field definition.
   struct {
+    /// read-write - Flash Size in KB
     uint32_t FLSHSZ : 23;
     uint32_t _reserved_0 : 7;
+    /// read-write - AHB Write Access Split Function Enable
     eSPLITWREN SPLITWREN : 1;
+    /// read-write - AHB Read Access Split Function Enable
     eSPLITRDEN SPLITRDEN : 1;
   } bits;
   
@@ -883,11 +993,17 @@ union FLSHCR1A1 {
   
   // Bit field definition.
   struct {
+    /// read-write - Serial Flash CS Setup Time
     uint32_t TCSS : 5;
+    /// read-write - Serial Flash CS Hold Time
     uint32_t TCSH : 5;
+    /// read-write - Word-Addressable
     eWA WA : 1;
+    /// read-write - Column Address Size
     uint32_t CAS : 4;
+    /// read-write - Chip Select Interval Unit
     eCSINTERVALUNIT CSINTERVALUNIT : 1;
+    /// read-write - Chip Select Interval
     uint32_t CSINTERVAL : 16;
   } bits;
   
@@ -914,11 +1030,17 @@ union FLSHCR1A2 {
   
   // Bit field definition.
   struct {
+    /// read-write - Serial Flash CS Setup Time
     uint32_t TCSS : 5;
+    /// read-write - Serial Flash CS Hold Time
     uint32_t TCSH : 5;
+    /// read-write - Word-Addressable
     eWA WA : 1;
+    /// read-write - Column Address Size
     uint32_t CAS : 4;
+    /// read-write - Chip Select Interval Unit
     eCSINTERVALUNIT CSINTERVALUNIT : 1;
+    /// read-write - Chip Select Interval
     uint32_t CSINTERVAL : 16;
   } bits;
   
@@ -945,11 +1067,17 @@ union FLSHCR1B1 {
   
   // Bit field definition.
   struct {
+    /// read-write - Serial Flash CS Setup Time
     uint32_t TCSS : 5;
+    /// read-write - Serial Flash CS Hold Time
     uint32_t TCSH : 5;
+    /// read-write - Word-Addressable
     eWA WA : 1;
+    /// read-write - Column Address Size
     uint32_t CAS : 4;
+    /// read-write - Chip Select Interval Unit
     eCSINTERVALUNIT CSINTERVALUNIT : 1;
+    /// read-write - Chip Select Interval
     uint32_t CSINTERVAL : 16;
   } bits;
   
@@ -976,11 +1104,17 @@ union FLSHCR1B2 {
   
   // Bit field definition.
   struct {
+    /// read-write - Serial Flash CS Setup Time
     uint32_t TCSS : 5;
+    /// read-write - Serial Flash CS Hold Time
     uint32_t TCSH : 5;
+    /// read-write - Word-Addressable
     eWA WA : 1;
+    /// read-write - Column Address Size
     uint32_t CAS : 4;
+    /// read-write - Chip Select Interval Unit
     eCSINTERVALUNIT CSINTERVALUNIT : 1;
+    /// read-write - Chip Select Interval
     uint32_t CSINTERVAL : 16;
   } bits;
   
@@ -1009,14 +1143,21 @@ union FLSHCR2A1 {
   
   // Bit field definition.
   struct {
+    /// read-write - Sequence Index for AHB Read-Triggered Command in LUT
     uint32_t ARDSEQID : 4;
     uint32_t _reserved_0 : 1;
+    /// read-write - Sequence Number for AHB Read-Triggered Command
     uint32_t ARDSEQNUM : 3;
+    /// read-write - Sequence Index for AHB Write-Triggered Command
     uint32_t AWRSEQID : 4;
     uint32_t _reserved_1 : 1;
+    /// read-write - Sequence Number for AHB Write-Triggered Command
     uint32_t AWRSEQNUM : 3;
+    /// read-write - AHB Write Wait
     uint32_t AWRWAIT : 12;
+    /// read-write - AWRWAIT Unit
     eAWRWAITUNIT AWRWAITUNIT : 3;
+    /// read-write - no description available
     uint32_t CLRINSTRPTR : 1;
   } bits;
   
@@ -1044,14 +1185,21 @@ union FLSHCR2A2 {
   
   // Bit field definition.
   struct {
+    /// read-write - Sequence Index for AHB Read-Triggered Command in LUT
     uint32_t ARDSEQID : 4;
     uint32_t _reserved_0 : 1;
+    /// read-write - Sequence Number for AHB Read-Triggered Command
     uint32_t ARDSEQNUM : 3;
+    /// read-write - Sequence Index for AHB Write-Triggered Command
     uint32_t AWRSEQID : 4;
     uint32_t _reserved_1 : 1;
+    /// read-write - Sequence Number for AHB Write-Triggered Command
     uint32_t AWRSEQNUM : 3;
+    /// read-write - AHB Write Wait
     uint32_t AWRWAIT : 12;
+    /// read-write - AWRWAIT Unit
     eAWRWAITUNIT AWRWAITUNIT : 3;
+    /// read-write - no description available
     uint32_t CLRINSTRPTR : 1;
   } bits;
   
@@ -1079,14 +1227,21 @@ union FLSHCR2B1 {
   
   // Bit field definition.
   struct {
+    /// read-write - Sequence Index for AHB Read-Triggered Command in LUT
     uint32_t ARDSEQID : 4;
     uint32_t _reserved_0 : 1;
+    /// read-write - Sequence Number for AHB Read-Triggered Command
     uint32_t ARDSEQNUM : 3;
+    /// read-write - Sequence Index for AHB Write-Triggered Command
     uint32_t AWRSEQID : 4;
     uint32_t _reserved_1 : 1;
+    /// read-write - Sequence Number for AHB Write-Triggered Command
     uint32_t AWRSEQNUM : 3;
+    /// read-write - AHB Write Wait
     uint32_t AWRWAIT : 12;
+    /// read-write - AWRWAIT Unit
     eAWRWAITUNIT AWRWAITUNIT : 3;
+    /// read-write - no description available
     uint32_t CLRINSTRPTR : 1;
   } bits;
   
@@ -1114,14 +1269,21 @@ union FLSHCR2B2 {
   
   // Bit field definition.
   struct {
+    /// read-write - Sequence Index for AHB Read-Triggered Command in LUT
     uint32_t ARDSEQID : 4;
     uint32_t _reserved_0 : 1;
+    /// read-write - Sequence Number for AHB Read-Triggered Command
     uint32_t ARDSEQNUM : 3;
+    /// read-write - Sequence Index for AHB Write-Triggered Command
     uint32_t AWRSEQID : 4;
     uint32_t _reserved_1 : 1;
+    /// read-write - Sequence Number for AHB Write-Triggered Command
     uint32_t AWRSEQNUM : 3;
+    /// read-write - AHB Write Wait
     uint32_t AWRWAIT : 12;
+    /// read-write - AWRWAIT Unit
     eAWRWAITUNIT AWRWAITUNIT : 3;
+    /// read-write - no description available
     uint32_t CLRINSTRPTR : 1;
   } bits;
   
@@ -1159,9 +1321,13 @@ union FLSHCR4 {
   
   // Bit field definition.
   struct {
+    /// read-write - Write Mask Option 1
     eWMOPT1 WMOPT1 : 1;
+    /// read-write - Write Mask Option 2
     eWMOPT2 WMOPT2 : 1;
+    /// read-write - Write Mask Enable for Port A
     eWMENA WMENA : 1;
+    /// read-write - Write Mask Enable for Port B
     eWMENB WMENB : 1;
     uint32_t _reserved_0 : 28;
   } bits;
@@ -1180,6 +1346,7 @@ union IPCR0 {
   
   // Bit field definition.
   struct {
+    /// read-write - Serial Flash Address
     uint32_t SFAR : 32;
   } bits;
   
@@ -1202,11 +1369,15 @@ union IPCR1 {
   
   // Bit field definition.
   struct {
+    /// read-write - Flash Read/Program Data Size (in bytes) for IP command.
     uint32_t IDATSZ : 16;
+    /// read-write - Sequence Index in LUT for IP command.
     uint32_t ISEQID : 4;
     uint32_t _reserved_0 : 4;
+    /// read-write - Sequence Number for IP command: ISEQNUM+1.
     uint32_t ISEQNUM : 3;
     uint32_t _reserved_1 : 4;
+    /// read-write - Parallel Mode Enable for IP Commands
     eIPAREN IPAREN : 1;
   } bits;
   
@@ -1229,6 +1400,7 @@ union IPCMD {
   
   // Bit field definition.
   struct {
+    /// read-write - Command Trigger
     eTRG TRG : 1;
     uint32_t _reserved_0 : 31;
   } bits;
@@ -1257,8 +1429,11 @@ union IPRXFCR {
   
   // Bit field definition.
   struct {
+    /// read-write - Clear IP Receive FIFO
     eCLRIPRXF CLRIPRXF : 1;
+    /// read-write - IP Receive FIFO Reading by DMA Enable
     eRXDMAEN RXDMAEN : 1;
+    /// read-write - IP Receive FIFO Watermark Level
     uint32_t RXWMRK : 5;
     uint32_t _reserved_0 : 25;
   } bits;
@@ -1287,8 +1462,11 @@ union IPTXFCR {
   
   // Bit field definition.
   struct {
+    /// read-write - Clear IP Transmit FIFO
     eCLRIPTXF CLRIPTXF : 1;
+    /// read-write - Transmit FIFO DMA Enable
     eTXDMAEN TXDMAEN : 1;
+    /// read-write - Transmit Watermark Level
     uint32_t TXWMRK : 5;
     uint32_t _reserved_0 : 25;
   } bits;
@@ -1322,13 +1500,19 @@ union DLLCRA {
   
   // Bit field definition.
   struct {
+    /// read-write - DLL Calibration Enable
     eDLLEN DLLEN : 1;
+    /// read-write - DLL reset
     eDLLRESET DLLRESET : 1;
     uint32_t _reserved_0 : 1;
+    /// read-write - Target Delay Line
     uint32_t SLVDLYTARGET : 4;
     uint32_t _reserved_1 : 1;
+    /// read-write - Target Clock Delay Line Override Value Enable
     eOVRDEN OVRDEN : 1;
+    /// read-write - Target Clock Delay Line Override Value
     uint32_t OVRDVAL : 6;
+    /// read-write - Reference Clock Delay Line Phase Adjust Gap. REFPHASEGAP setting of 2h is recommended if DLLEN is set.
     uint32_t REFPHASEGAP : 2;
     uint32_t _reserved_2 : 15;
   } bits;
@@ -1361,13 +1545,19 @@ union DLLCRB {
   
   // Bit field definition.
   struct {
+    /// read-write - DLL Calibration Enable
     eDLLEN DLLEN : 1;
+    /// read-write - DLL reset
     eDLLRESET DLLRESET : 1;
     uint32_t _reserved_0 : 1;
+    /// read-write - Target Delay Line
     uint32_t SLVDLYTARGET : 4;
     uint32_t _reserved_1 : 1;
+    /// read-write - Target Clock Delay Line Override Value Enable
     eOVRDEN OVRDEN : 1;
+    /// read-write - Target Clock Delay Line Override Value
     uint32_t OVRDVAL : 6;
+    /// read-write - Reference Clock Delay Line Phase Adjust Gap. REFPHASEGAP setting of 2h is recommended if DLLEN is set.
     uint32_t REFPHASEGAP : 2;
     uint32_t _reserved_2 : 15;
   } bits;
@@ -1386,6 +1576,7 @@ union MISCCR4 {
   
   // Bit field definition.
   struct {
+    /// read-only - AHB Address
     uint32_t AHBADDRESS : 32;
   } bits;
   
@@ -1403,6 +1594,7 @@ union MISCCR5 {
   
   // Bit field definition.
   struct {
+    /// read-only - ECC Single-Bit Error Correction Indicator
     uint32_t ECCSINGLEERRORCORR : 32;
   } bits;
   
@@ -1430,8 +1622,11 @@ union MISCCR6 {
   
   // Bit field definition.
   struct {
+    /// read-only - ECC Single-Bit Error Information Valid
     eVALID VALID : 1;
+    /// read-only - ECC Single-Bit Error Information Hit
     eHIT HIT : 1;
+    /// read-only - ECC Single-Bit Error Address
     uint32_t ADDRESS : 30;
   } bits;
   
@@ -1454,8 +1649,11 @@ union MISCCR7 {
   
   // Bit field definition.
   struct {
+    /// read-only - ECC Multibit Error Information Valid
     uint32_t VALID : 1;
+    /// read-only - ECC Multibit Error Information Hit
     eHIT HIT : 1;
+    /// read-only - ECC multi error address
     uint32_t ADDRESS : 30;
   } bits;
   
@@ -1490,8 +1688,11 @@ union STS0 {
   
   // Bit field definition.
   struct {
+    /// read-only - SEQ_CTL State Machine Idle
     eSEQIDLE SEQIDLE : 1;
+    /// read-only - ARB_CTL State Machine Idle
     eARBIDLE ARBIDLE : 1;
+    /// read-only - ARB Command Source
     eARBCMDSRC ARBCMDSRC : 2;
     uint32_t _reserved_0 : 28;
   } bits;
@@ -1530,12 +1731,16 @@ union STS1 {
   
   // Bit field definition.
   struct {
+    /// read-only - AHB Command Error ID
     uint32_t AHBCMDERRID : 4;
     uint32_t _reserved_0 : 4;
+    /// read-only - AHB Command Error Code
     eAHBCMDERRCODE AHBCMDERRCODE : 4;
     uint32_t _reserved_1 : 4;
+    /// read-only - IP Command Error ID
     uint32_t IPCMDERRID : 4;
     uint32_t _reserved_2 : 4;
+    /// read-only - IP Command Error Code
     eIPCMDERRCODE IPCMDERRCODE : 4;
     uint32_t _reserved_3 : 4;
   } bits;
@@ -1574,14 +1779,22 @@ union STS2 {
   
   // Bit field definition.
   struct {
+    /// read-only - Flash A Sample Target Delay Line Locked
     eASLVLOCK ASLVLOCK : 1;
+    /// read-only - Flash A Sample Clock Reference Delay Line Locked
     eAREFLOCK AREFLOCK : 1;
+    /// read-only - Flash A Sample Clock Target Delay Line Delay Cell Number
     uint32_t ASLVSEL : 6;
+    /// read-only - Flash A Sample Clock Reference Delay Line Delay Cell Number
     uint32_t AREFSEL : 6;
     uint32_t _reserved_0 : 2;
+    /// read-only - Flash B Sample Target Reference Delay Line Locked
     eBSLVLOCK BSLVLOCK : 1;
+    /// read-only - Flash B Sample Clock Reference Delay Line Locked
     eBREFLOCK BREFLOCK : 1;
+    /// read-only - Flash B Sample Clock Target Delay Line Delay Cell Number
     uint32_t BSLVSEL : 6;
+    /// read-only - Flash B Sample Clock Reference Delay Line Delay Cell Number
     uint32_t BREFSEL : 6;
     uint32_t _reserved_1 : 2;
   } bits;
@@ -1605,9 +1818,12 @@ union AHBSPNDSTS {
   
   // Bit field definition.
   struct {
+    /// read-only - Active AHB Read Prefetch Suspended
     eACTIVE ACTIVE : 1;
+    /// read-only - AHB Receive Buffer ID for Suspended Command Sequence
     uint32_t BUFID : 3;
     uint32_t _reserved_0 : 12;
+    /// read-only - Data Left
     uint32_t DATLFT : 16;
   } bits;
   
@@ -1625,8 +1841,10 @@ union IPRXFSTS {
   
   // Bit field definition.
   struct {
+    /// read-only - Fill Level of IP Receive FIFO
     uint32_t FILL : 8;
     uint32_t _reserved_0 : 8;
+    /// read-only - Read Data Counter
     uint32_t RDCNTR : 16;
   } bits;
   
@@ -1644,8 +1862,10 @@ union IPTXFSTS {
   
   // Bit field definition.
   struct {
+    /// read-only - Fill Level of IP Transmit FIFO
     uint32_t FILL : 8;
     uint32_t _reserved_0 : 8;
+    /// read-only - Write Data Counter
     uint32_t WRCNTR : 16;
   } bits;
   
@@ -1663,6 +1883,7 @@ union RFDR[0] {
   
   // Bit field definition.
   struct {
+    /// read-only - Receive Data
     uint32_t RXDATA : 32;
   } bits;
   
@@ -1679,6 +1900,7 @@ union RFDR[1] {
   
   // Bit field definition.
   struct {
+    /// read-only - Receive Data
     uint32_t RXDATA : 32;
   } bits;
   
@@ -1695,6 +1917,7 @@ union RFDR[2] {
   
   // Bit field definition.
   struct {
+    /// read-only - Receive Data
     uint32_t RXDATA : 32;
   } bits;
   
@@ -1711,6 +1934,7 @@ union RFDR[3] {
   
   // Bit field definition.
   struct {
+    /// read-only - Receive Data
     uint32_t RXDATA : 32;
   } bits;
   
@@ -1727,6 +1951,7 @@ union RFDR[4] {
   
   // Bit field definition.
   struct {
+    /// read-only - Receive Data
     uint32_t RXDATA : 32;
   } bits;
   
@@ -1743,6 +1968,7 @@ union RFDR[5] {
   
   // Bit field definition.
   struct {
+    /// read-only - Receive Data
     uint32_t RXDATA : 32;
   } bits;
   
@@ -1759,6 +1985,7 @@ union RFDR[6] {
   
   // Bit field definition.
   struct {
+    /// read-only - Receive Data
     uint32_t RXDATA : 32;
   } bits;
   
@@ -1775,6 +2002,7 @@ union RFDR[7] {
   
   // Bit field definition.
   struct {
+    /// read-only - Receive Data
     uint32_t RXDATA : 32;
   } bits;
   
@@ -1791,6 +2019,7 @@ union RFDR[8] {
   
   // Bit field definition.
   struct {
+    /// read-only - Receive Data
     uint32_t RXDATA : 32;
   } bits;
   
@@ -1807,6 +2036,7 @@ union RFDR[9] {
   
   // Bit field definition.
   struct {
+    /// read-only - Receive Data
     uint32_t RXDATA : 32;
   } bits;
   
@@ -1823,6 +2053,7 @@ union RFDR[10] {
   
   // Bit field definition.
   struct {
+    /// read-only - Receive Data
     uint32_t RXDATA : 32;
   } bits;
   
@@ -1839,6 +2070,7 @@ union RFDR[11] {
   
   // Bit field definition.
   struct {
+    /// read-only - Receive Data
     uint32_t RXDATA : 32;
   } bits;
   
@@ -1855,6 +2087,7 @@ union RFDR[12] {
   
   // Bit field definition.
   struct {
+    /// read-only - Receive Data
     uint32_t RXDATA : 32;
   } bits;
   
@@ -1871,6 +2104,7 @@ union RFDR[13] {
   
   // Bit field definition.
   struct {
+    /// read-only - Receive Data
     uint32_t RXDATA : 32;
   } bits;
   
@@ -1887,6 +2121,7 @@ union RFDR[14] {
   
   // Bit field definition.
   struct {
+    /// read-only - Receive Data
     uint32_t RXDATA : 32;
   } bits;
   
@@ -1903,6 +2138,7 @@ union RFDR[15] {
   
   // Bit field definition.
   struct {
+    /// read-only - Receive Data
     uint32_t RXDATA : 32;
   } bits;
   
@@ -1919,6 +2155,7 @@ union RFDR[16] {
   
   // Bit field definition.
   struct {
+    /// read-only - Receive Data
     uint32_t RXDATA : 32;
   } bits;
   
@@ -1935,6 +2172,7 @@ union RFDR[17] {
   
   // Bit field definition.
   struct {
+    /// read-only - Receive Data
     uint32_t RXDATA : 32;
   } bits;
   
@@ -1951,6 +2189,7 @@ union RFDR[18] {
   
   // Bit field definition.
   struct {
+    /// read-only - Receive Data
     uint32_t RXDATA : 32;
   } bits;
   
@@ -1967,6 +2206,7 @@ union RFDR[19] {
   
   // Bit field definition.
   struct {
+    /// read-only - Receive Data
     uint32_t RXDATA : 32;
   } bits;
   
@@ -1983,6 +2223,7 @@ union RFDR[20] {
   
   // Bit field definition.
   struct {
+    /// read-only - Receive Data
     uint32_t RXDATA : 32;
   } bits;
   
@@ -1999,6 +2240,7 @@ union RFDR[21] {
   
   // Bit field definition.
   struct {
+    /// read-only - Receive Data
     uint32_t RXDATA : 32;
   } bits;
   
@@ -2015,6 +2257,7 @@ union RFDR[22] {
   
   // Bit field definition.
   struct {
+    /// read-only - Receive Data
     uint32_t RXDATA : 32;
   } bits;
   
@@ -2031,6 +2274,7 @@ union RFDR[23] {
   
   // Bit field definition.
   struct {
+    /// read-only - Receive Data
     uint32_t RXDATA : 32;
   } bits;
   
@@ -2047,6 +2291,7 @@ union RFDR[24] {
   
   // Bit field definition.
   struct {
+    /// read-only - Receive Data
     uint32_t RXDATA : 32;
   } bits;
   
@@ -2063,6 +2308,7 @@ union RFDR[25] {
   
   // Bit field definition.
   struct {
+    /// read-only - Receive Data
     uint32_t RXDATA : 32;
   } bits;
   
@@ -2079,6 +2325,7 @@ union RFDR[26] {
   
   // Bit field definition.
   struct {
+    /// read-only - Receive Data
     uint32_t RXDATA : 32;
   } bits;
   
@@ -2095,6 +2342,7 @@ union RFDR[27] {
   
   // Bit field definition.
   struct {
+    /// read-only - Receive Data
     uint32_t RXDATA : 32;
   } bits;
   
@@ -2111,6 +2359,7 @@ union RFDR[28] {
   
   // Bit field definition.
   struct {
+    /// read-only - Receive Data
     uint32_t RXDATA : 32;
   } bits;
   
@@ -2127,6 +2376,7 @@ union RFDR[29] {
   
   // Bit field definition.
   struct {
+    /// read-only - Receive Data
     uint32_t RXDATA : 32;
   } bits;
   
@@ -2143,6 +2393,7 @@ union RFDR[30] {
   
   // Bit field definition.
   struct {
+    /// read-only - Receive Data
     uint32_t RXDATA : 32;
   } bits;
   
@@ -2159,6 +2410,7 @@ union RFDR[31] {
   
   // Bit field definition.
   struct {
+    /// read-only - Receive Data
     uint32_t RXDATA : 32;
   } bits;
   
@@ -2176,6 +2428,7 @@ union TFDR[0] {
   
   // Bit field definition.
   struct {
+    /// write-only - Transmit Data
     uint32_t TXDATA : 32;
   } bits;
   
@@ -2192,6 +2445,7 @@ union TFDR[1] {
   
   // Bit field definition.
   struct {
+    /// write-only - Transmit Data
     uint32_t TXDATA : 32;
   } bits;
   
@@ -2208,6 +2462,7 @@ union TFDR[2] {
   
   // Bit field definition.
   struct {
+    /// write-only - Transmit Data
     uint32_t TXDATA : 32;
   } bits;
   
@@ -2224,6 +2479,7 @@ union TFDR[3] {
   
   // Bit field definition.
   struct {
+    /// write-only - Transmit Data
     uint32_t TXDATA : 32;
   } bits;
   
@@ -2240,6 +2496,7 @@ union TFDR[4] {
   
   // Bit field definition.
   struct {
+    /// write-only - Transmit Data
     uint32_t TXDATA : 32;
   } bits;
   
@@ -2256,6 +2513,7 @@ union TFDR[5] {
   
   // Bit field definition.
   struct {
+    /// write-only - Transmit Data
     uint32_t TXDATA : 32;
   } bits;
   
@@ -2272,6 +2530,7 @@ union TFDR[6] {
   
   // Bit field definition.
   struct {
+    /// write-only - Transmit Data
     uint32_t TXDATA : 32;
   } bits;
   
@@ -2288,6 +2547,7 @@ union TFDR[7] {
   
   // Bit field definition.
   struct {
+    /// write-only - Transmit Data
     uint32_t TXDATA : 32;
   } bits;
   
@@ -2304,6 +2564,7 @@ union TFDR[8] {
   
   // Bit field definition.
   struct {
+    /// write-only - Transmit Data
     uint32_t TXDATA : 32;
   } bits;
   
@@ -2320,6 +2581,7 @@ union TFDR[9] {
   
   // Bit field definition.
   struct {
+    /// write-only - Transmit Data
     uint32_t TXDATA : 32;
   } bits;
   
@@ -2336,6 +2598,7 @@ union TFDR[10] {
   
   // Bit field definition.
   struct {
+    /// write-only - Transmit Data
     uint32_t TXDATA : 32;
   } bits;
   
@@ -2352,6 +2615,7 @@ union TFDR[11] {
   
   // Bit field definition.
   struct {
+    /// write-only - Transmit Data
     uint32_t TXDATA : 32;
   } bits;
   
@@ -2368,6 +2632,7 @@ union TFDR[12] {
   
   // Bit field definition.
   struct {
+    /// write-only - Transmit Data
     uint32_t TXDATA : 32;
   } bits;
   
@@ -2384,6 +2649,7 @@ union TFDR[13] {
   
   // Bit field definition.
   struct {
+    /// write-only - Transmit Data
     uint32_t TXDATA : 32;
   } bits;
   
@@ -2400,6 +2666,7 @@ union TFDR[14] {
   
   // Bit field definition.
   struct {
+    /// write-only - Transmit Data
     uint32_t TXDATA : 32;
   } bits;
   
@@ -2416,6 +2683,7 @@ union TFDR[15] {
   
   // Bit field definition.
   struct {
+    /// write-only - Transmit Data
     uint32_t TXDATA : 32;
   } bits;
   
@@ -2432,6 +2700,7 @@ union TFDR[16] {
   
   // Bit field definition.
   struct {
+    /// write-only - Transmit Data
     uint32_t TXDATA : 32;
   } bits;
   
@@ -2448,6 +2717,7 @@ union TFDR[17] {
   
   // Bit field definition.
   struct {
+    /// write-only - Transmit Data
     uint32_t TXDATA : 32;
   } bits;
   
@@ -2464,6 +2734,7 @@ union TFDR[18] {
   
   // Bit field definition.
   struct {
+    /// write-only - Transmit Data
     uint32_t TXDATA : 32;
   } bits;
   
@@ -2480,6 +2751,7 @@ union TFDR[19] {
   
   // Bit field definition.
   struct {
+    /// write-only - Transmit Data
     uint32_t TXDATA : 32;
   } bits;
   
@@ -2496,6 +2768,7 @@ union TFDR[20] {
   
   // Bit field definition.
   struct {
+    /// write-only - Transmit Data
     uint32_t TXDATA : 32;
   } bits;
   
@@ -2512,6 +2785,7 @@ union TFDR[21] {
   
   // Bit field definition.
   struct {
+    /// write-only - Transmit Data
     uint32_t TXDATA : 32;
   } bits;
   
@@ -2528,6 +2802,7 @@ union TFDR[22] {
   
   // Bit field definition.
   struct {
+    /// write-only - Transmit Data
     uint32_t TXDATA : 32;
   } bits;
   
@@ -2544,6 +2819,7 @@ union TFDR[23] {
   
   // Bit field definition.
   struct {
+    /// write-only - Transmit Data
     uint32_t TXDATA : 32;
   } bits;
   
@@ -2560,6 +2836,7 @@ union TFDR[24] {
   
   // Bit field definition.
   struct {
+    /// write-only - Transmit Data
     uint32_t TXDATA : 32;
   } bits;
   
@@ -2576,6 +2853,7 @@ union TFDR[25] {
   
   // Bit field definition.
   struct {
+    /// write-only - Transmit Data
     uint32_t TXDATA : 32;
   } bits;
   
@@ -2592,6 +2870,7 @@ union TFDR[26] {
   
   // Bit field definition.
   struct {
+    /// write-only - Transmit Data
     uint32_t TXDATA : 32;
   } bits;
   
@@ -2608,6 +2887,7 @@ union TFDR[27] {
   
   // Bit field definition.
   struct {
+    /// write-only - Transmit Data
     uint32_t TXDATA : 32;
   } bits;
   
@@ -2624,6 +2904,7 @@ union TFDR[28] {
   
   // Bit field definition.
   struct {
+    /// write-only - Transmit Data
     uint32_t TXDATA : 32;
   } bits;
   
@@ -2640,6 +2921,7 @@ union TFDR[29] {
   
   // Bit field definition.
   struct {
+    /// write-only - Transmit Data
     uint32_t TXDATA : 32;
   } bits;
   
@@ -2656,6 +2938,7 @@ union TFDR[30] {
   
   // Bit field definition.
   struct {
+    /// write-only - Transmit Data
     uint32_t TXDATA : 32;
   } bits;
   
@@ -2672,6 +2955,7 @@ union TFDR[31] {
   
   // Bit field definition.
   struct {
+    /// write-only - Transmit Data
     uint32_t TXDATA : 32;
   } bits;
   
@@ -2689,11 +2973,17 @@ union LUT[0] {
   
   // Bit field definition.
   struct {
+    /// read-write - OPERAND0
     uint32_t OPERAND0 : 8;
+    /// read-write - NUM_PADS0
     uint32_t NUM_PADS0 : 2;
+    /// read-write - OPCODE
     uint32_t OPCODE0 : 6;
+    /// read-write - OPERAND1
     uint32_t OPERAND1 : 8;
+    /// read-write - NUM_PADS1
     uint32_t NUM_PADS1 : 2;
+    /// read-write - OPCODE1
     uint32_t OPCODE1 : 6;
   } bits;
   
@@ -2710,11 +3000,17 @@ union LUT[1] {
   
   // Bit field definition.
   struct {
+    /// read-write - OPERAND0
     uint32_t OPERAND0 : 8;
+    /// read-write - NUM_PADS0
     uint32_t NUM_PADS0 : 2;
+    /// read-write - OPCODE
     uint32_t OPCODE0 : 6;
+    /// read-write - OPERAND1
     uint32_t OPERAND1 : 8;
+    /// read-write - NUM_PADS1
     uint32_t NUM_PADS1 : 2;
+    /// read-write - OPCODE1
     uint32_t OPCODE1 : 6;
   } bits;
   
@@ -2731,11 +3027,17 @@ union LUT[2] {
   
   // Bit field definition.
   struct {
+    /// read-write - OPERAND0
     uint32_t OPERAND0 : 8;
+    /// read-write - NUM_PADS0
     uint32_t NUM_PADS0 : 2;
+    /// read-write - OPCODE
     uint32_t OPCODE0 : 6;
+    /// read-write - OPERAND1
     uint32_t OPERAND1 : 8;
+    /// read-write - NUM_PADS1
     uint32_t NUM_PADS1 : 2;
+    /// read-write - OPCODE1
     uint32_t OPCODE1 : 6;
   } bits;
   
@@ -2752,11 +3054,17 @@ union LUT[3] {
   
   // Bit field definition.
   struct {
+    /// read-write - OPERAND0
     uint32_t OPERAND0 : 8;
+    /// read-write - NUM_PADS0
     uint32_t NUM_PADS0 : 2;
+    /// read-write - OPCODE
     uint32_t OPCODE0 : 6;
+    /// read-write - OPERAND1
     uint32_t OPERAND1 : 8;
+    /// read-write - NUM_PADS1
     uint32_t NUM_PADS1 : 2;
+    /// read-write - OPCODE1
     uint32_t OPCODE1 : 6;
   } bits;
   
@@ -2773,11 +3081,17 @@ union LUT[4] {
   
   // Bit field definition.
   struct {
+    /// read-write - OPERAND0
     uint32_t OPERAND0 : 8;
+    /// read-write - NUM_PADS0
     uint32_t NUM_PADS0 : 2;
+    /// read-write - OPCODE
     uint32_t OPCODE0 : 6;
+    /// read-write - OPERAND1
     uint32_t OPERAND1 : 8;
+    /// read-write - NUM_PADS1
     uint32_t NUM_PADS1 : 2;
+    /// read-write - OPCODE1
     uint32_t OPCODE1 : 6;
   } bits;
   
@@ -2794,11 +3108,17 @@ union LUT[5] {
   
   // Bit field definition.
   struct {
+    /// read-write - OPERAND0
     uint32_t OPERAND0 : 8;
+    /// read-write - NUM_PADS0
     uint32_t NUM_PADS0 : 2;
+    /// read-write - OPCODE
     uint32_t OPCODE0 : 6;
+    /// read-write - OPERAND1
     uint32_t OPERAND1 : 8;
+    /// read-write - NUM_PADS1
     uint32_t NUM_PADS1 : 2;
+    /// read-write - OPCODE1
     uint32_t OPCODE1 : 6;
   } bits;
   
@@ -2815,11 +3135,17 @@ union LUT[6] {
   
   // Bit field definition.
   struct {
+    /// read-write - OPERAND0
     uint32_t OPERAND0 : 8;
+    /// read-write - NUM_PADS0
     uint32_t NUM_PADS0 : 2;
+    /// read-write - OPCODE
     uint32_t OPCODE0 : 6;
+    /// read-write - OPERAND1
     uint32_t OPERAND1 : 8;
+    /// read-write - NUM_PADS1
     uint32_t NUM_PADS1 : 2;
+    /// read-write - OPCODE1
     uint32_t OPCODE1 : 6;
   } bits;
   
@@ -2836,11 +3162,17 @@ union LUT[7] {
   
   // Bit field definition.
   struct {
+    /// read-write - OPERAND0
     uint32_t OPERAND0 : 8;
+    /// read-write - NUM_PADS0
     uint32_t NUM_PADS0 : 2;
+    /// read-write - OPCODE
     uint32_t OPCODE0 : 6;
+    /// read-write - OPERAND1
     uint32_t OPERAND1 : 8;
+    /// read-write - NUM_PADS1
     uint32_t NUM_PADS1 : 2;
+    /// read-write - OPCODE1
     uint32_t OPCODE1 : 6;
   } bits;
   
@@ -2857,11 +3189,17 @@ union LUT[8] {
   
   // Bit field definition.
   struct {
+    /// read-write - OPERAND0
     uint32_t OPERAND0 : 8;
+    /// read-write - NUM_PADS0
     uint32_t NUM_PADS0 : 2;
+    /// read-write - OPCODE
     uint32_t OPCODE0 : 6;
+    /// read-write - OPERAND1
     uint32_t OPERAND1 : 8;
+    /// read-write - NUM_PADS1
     uint32_t NUM_PADS1 : 2;
+    /// read-write - OPCODE1
     uint32_t OPCODE1 : 6;
   } bits;
   
@@ -2878,11 +3216,17 @@ union LUT[9] {
   
   // Bit field definition.
   struct {
+    /// read-write - OPERAND0
     uint32_t OPERAND0 : 8;
+    /// read-write - NUM_PADS0
     uint32_t NUM_PADS0 : 2;
+    /// read-write - OPCODE
     uint32_t OPCODE0 : 6;
+    /// read-write - OPERAND1
     uint32_t OPERAND1 : 8;
+    /// read-write - NUM_PADS1
     uint32_t NUM_PADS1 : 2;
+    /// read-write - OPCODE1
     uint32_t OPCODE1 : 6;
   } bits;
   
@@ -2899,11 +3243,17 @@ union LUT[10] {
   
   // Bit field definition.
   struct {
+    /// read-write - OPERAND0
     uint32_t OPERAND0 : 8;
+    /// read-write - NUM_PADS0
     uint32_t NUM_PADS0 : 2;
+    /// read-write - OPCODE
     uint32_t OPCODE0 : 6;
+    /// read-write - OPERAND1
     uint32_t OPERAND1 : 8;
+    /// read-write - NUM_PADS1
     uint32_t NUM_PADS1 : 2;
+    /// read-write - OPCODE1
     uint32_t OPCODE1 : 6;
   } bits;
   
@@ -2920,11 +3270,17 @@ union LUT[11] {
   
   // Bit field definition.
   struct {
+    /// read-write - OPERAND0
     uint32_t OPERAND0 : 8;
+    /// read-write - NUM_PADS0
     uint32_t NUM_PADS0 : 2;
+    /// read-write - OPCODE
     uint32_t OPCODE0 : 6;
+    /// read-write - OPERAND1
     uint32_t OPERAND1 : 8;
+    /// read-write - NUM_PADS1
     uint32_t NUM_PADS1 : 2;
+    /// read-write - OPCODE1
     uint32_t OPCODE1 : 6;
   } bits;
   
@@ -2941,11 +3297,17 @@ union LUT[12] {
   
   // Bit field definition.
   struct {
+    /// read-write - OPERAND0
     uint32_t OPERAND0 : 8;
+    /// read-write - NUM_PADS0
     uint32_t NUM_PADS0 : 2;
+    /// read-write - OPCODE
     uint32_t OPCODE0 : 6;
+    /// read-write - OPERAND1
     uint32_t OPERAND1 : 8;
+    /// read-write - NUM_PADS1
     uint32_t NUM_PADS1 : 2;
+    /// read-write - OPCODE1
     uint32_t OPCODE1 : 6;
   } bits;
   
@@ -2962,11 +3324,17 @@ union LUT[13] {
   
   // Bit field definition.
   struct {
+    /// read-write - OPERAND0
     uint32_t OPERAND0 : 8;
+    /// read-write - NUM_PADS0
     uint32_t NUM_PADS0 : 2;
+    /// read-write - OPCODE
     uint32_t OPCODE0 : 6;
+    /// read-write - OPERAND1
     uint32_t OPERAND1 : 8;
+    /// read-write - NUM_PADS1
     uint32_t NUM_PADS1 : 2;
+    /// read-write - OPCODE1
     uint32_t OPCODE1 : 6;
   } bits;
   
@@ -2983,11 +3351,17 @@ union LUT[14] {
   
   // Bit field definition.
   struct {
+    /// read-write - OPERAND0
     uint32_t OPERAND0 : 8;
+    /// read-write - NUM_PADS0
     uint32_t NUM_PADS0 : 2;
+    /// read-write - OPCODE
     uint32_t OPCODE0 : 6;
+    /// read-write - OPERAND1
     uint32_t OPERAND1 : 8;
+    /// read-write - NUM_PADS1
     uint32_t NUM_PADS1 : 2;
+    /// read-write - OPCODE1
     uint32_t OPCODE1 : 6;
   } bits;
   
@@ -3004,11 +3378,17 @@ union LUT[15] {
   
   // Bit field definition.
   struct {
+    /// read-write - OPERAND0
     uint32_t OPERAND0 : 8;
+    /// read-write - NUM_PADS0
     uint32_t NUM_PADS0 : 2;
+    /// read-write - OPCODE
     uint32_t OPCODE0 : 6;
+    /// read-write - OPERAND1
     uint32_t OPERAND1 : 8;
+    /// read-write - NUM_PADS1
     uint32_t NUM_PADS1 : 2;
+    /// read-write - OPCODE1
     uint32_t OPCODE1 : 6;
   } bits;
   
@@ -3025,11 +3405,17 @@ union LUT[16] {
   
   // Bit field definition.
   struct {
+    /// read-write - OPERAND0
     uint32_t OPERAND0 : 8;
+    /// read-write - NUM_PADS0
     uint32_t NUM_PADS0 : 2;
+    /// read-write - OPCODE
     uint32_t OPCODE0 : 6;
+    /// read-write - OPERAND1
     uint32_t OPERAND1 : 8;
+    /// read-write - NUM_PADS1
     uint32_t NUM_PADS1 : 2;
+    /// read-write - OPCODE1
     uint32_t OPCODE1 : 6;
   } bits;
   
@@ -3046,11 +3432,17 @@ union LUT[17] {
   
   // Bit field definition.
   struct {
+    /// read-write - OPERAND0
     uint32_t OPERAND0 : 8;
+    /// read-write - NUM_PADS0
     uint32_t NUM_PADS0 : 2;
+    /// read-write - OPCODE
     uint32_t OPCODE0 : 6;
+    /// read-write - OPERAND1
     uint32_t OPERAND1 : 8;
+    /// read-write - NUM_PADS1
     uint32_t NUM_PADS1 : 2;
+    /// read-write - OPCODE1
     uint32_t OPCODE1 : 6;
   } bits;
   
@@ -3067,11 +3459,17 @@ union LUT[18] {
   
   // Bit field definition.
   struct {
+    /// read-write - OPERAND0
     uint32_t OPERAND0 : 8;
+    /// read-write - NUM_PADS0
     uint32_t NUM_PADS0 : 2;
+    /// read-write - OPCODE
     uint32_t OPCODE0 : 6;
+    /// read-write - OPERAND1
     uint32_t OPERAND1 : 8;
+    /// read-write - NUM_PADS1
     uint32_t NUM_PADS1 : 2;
+    /// read-write - OPCODE1
     uint32_t OPCODE1 : 6;
   } bits;
   
@@ -3088,11 +3486,17 @@ union LUT[19] {
   
   // Bit field definition.
   struct {
+    /// read-write - OPERAND0
     uint32_t OPERAND0 : 8;
+    /// read-write - NUM_PADS0
     uint32_t NUM_PADS0 : 2;
+    /// read-write - OPCODE
     uint32_t OPCODE0 : 6;
+    /// read-write - OPERAND1
     uint32_t OPERAND1 : 8;
+    /// read-write - NUM_PADS1
     uint32_t NUM_PADS1 : 2;
+    /// read-write - OPCODE1
     uint32_t OPCODE1 : 6;
   } bits;
   
@@ -3109,11 +3513,17 @@ union LUT[20] {
   
   // Bit field definition.
   struct {
+    /// read-write - OPERAND0
     uint32_t OPERAND0 : 8;
+    /// read-write - NUM_PADS0
     uint32_t NUM_PADS0 : 2;
+    /// read-write - OPCODE
     uint32_t OPCODE0 : 6;
+    /// read-write - OPERAND1
     uint32_t OPERAND1 : 8;
+    /// read-write - NUM_PADS1
     uint32_t NUM_PADS1 : 2;
+    /// read-write - OPCODE1
     uint32_t OPCODE1 : 6;
   } bits;
   
@@ -3130,11 +3540,17 @@ union LUT[21] {
   
   // Bit field definition.
   struct {
+    /// read-write - OPERAND0
     uint32_t OPERAND0 : 8;
+    /// read-write - NUM_PADS0
     uint32_t NUM_PADS0 : 2;
+    /// read-write - OPCODE
     uint32_t OPCODE0 : 6;
+    /// read-write - OPERAND1
     uint32_t OPERAND1 : 8;
+    /// read-write - NUM_PADS1
     uint32_t NUM_PADS1 : 2;
+    /// read-write - OPCODE1
     uint32_t OPCODE1 : 6;
   } bits;
   
@@ -3151,11 +3567,17 @@ union LUT[22] {
   
   // Bit field definition.
   struct {
+    /// read-write - OPERAND0
     uint32_t OPERAND0 : 8;
+    /// read-write - NUM_PADS0
     uint32_t NUM_PADS0 : 2;
+    /// read-write - OPCODE
     uint32_t OPCODE0 : 6;
+    /// read-write - OPERAND1
     uint32_t OPERAND1 : 8;
+    /// read-write - NUM_PADS1
     uint32_t NUM_PADS1 : 2;
+    /// read-write - OPCODE1
     uint32_t OPCODE1 : 6;
   } bits;
   
@@ -3172,11 +3594,17 @@ union LUT[23] {
   
   // Bit field definition.
   struct {
+    /// read-write - OPERAND0
     uint32_t OPERAND0 : 8;
+    /// read-write - NUM_PADS0
     uint32_t NUM_PADS0 : 2;
+    /// read-write - OPCODE
     uint32_t OPCODE0 : 6;
+    /// read-write - OPERAND1
     uint32_t OPERAND1 : 8;
+    /// read-write - NUM_PADS1
     uint32_t NUM_PADS1 : 2;
+    /// read-write - OPCODE1
     uint32_t OPCODE1 : 6;
   } bits;
   
@@ -3193,11 +3621,17 @@ union LUT[24] {
   
   // Bit field definition.
   struct {
+    /// read-write - OPERAND0
     uint32_t OPERAND0 : 8;
+    /// read-write - NUM_PADS0
     uint32_t NUM_PADS0 : 2;
+    /// read-write - OPCODE
     uint32_t OPCODE0 : 6;
+    /// read-write - OPERAND1
     uint32_t OPERAND1 : 8;
+    /// read-write - NUM_PADS1
     uint32_t NUM_PADS1 : 2;
+    /// read-write - OPCODE1
     uint32_t OPCODE1 : 6;
   } bits;
   
@@ -3214,11 +3648,17 @@ union LUT[25] {
   
   // Bit field definition.
   struct {
+    /// read-write - OPERAND0
     uint32_t OPERAND0 : 8;
+    /// read-write - NUM_PADS0
     uint32_t NUM_PADS0 : 2;
+    /// read-write - OPCODE
     uint32_t OPCODE0 : 6;
+    /// read-write - OPERAND1
     uint32_t OPERAND1 : 8;
+    /// read-write - NUM_PADS1
     uint32_t NUM_PADS1 : 2;
+    /// read-write - OPCODE1
     uint32_t OPCODE1 : 6;
   } bits;
   
@@ -3235,11 +3675,17 @@ union LUT[26] {
   
   // Bit field definition.
   struct {
+    /// read-write - OPERAND0
     uint32_t OPERAND0 : 8;
+    /// read-write - NUM_PADS0
     uint32_t NUM_PADS0 : 2;
+    /// read-write - OPCODE
     uint32_t OPCODE0 : 6;
+    /// read-write - OPERAND1
     uint32_t OPERAND1 : 8;
+    /// read-write - NUM_PADS1
     uint32_t NUM_PADS1 : 2;
+    /// read-write - OPCODE1
     uint32_t OPCODE1 : 6;
   } bits;
   
@@ -3256,11 +3702,17 @@ union LUT[27] {
   
   // Bit field definition.
   struct {
+    /// read-write - OPERAND0
     uint32_t OPERAND0 : 8;
+    /// read-write - NUM_PADS0
     uint32_t NUM_PADS0 : 2;
+    /// read-write - OPCODE
     uint32_t OPCODE0 : 6;
+    /// read-write - OPERAND1
     uint32_t OPERAND1 : 8;
+    /// read-write - NUM_PADS1
     uint32_t NUM_PADS1 : 2;
+    /// read-write - OPCODE1
     uint32_t OPCODE1 : 6;
   } bits;
   
@@ -3277,11 +3729,17 @@ union LUT[28] {
   
   // Bit field definition.
   struct {
+    /// read-write - OPERAND0
     uint32_t OPERAND0 : 8;
+    /// read-write - NUM_PADS0
     uint32_t NUM_PADS0 : 2;
+    /// read-write - OPCODE
     uint32_t OPCODE0 : 6;
+    /// read-write - OPERAND1
     uint32_t OPERAND1 : 8;
+    /// read-write - NUM_PADS1
     uint32_t NUM_PADS1 : 2;
+    /// read-write - OPCODE1
     uint32_t OPCODE1 : 6;
   } bits;
   
@@ -3298,11 +3756,17 @@ union LUT[29] {
   
   // Bit field definition.
   struct {
+    /// read-write - OPERAND0
     uint32_t OPERAND0 : 8;
+    /// read-write - NUM_PADS0
     uint32_t NUM_PADS0 : 2;
+    /// read-write - OPCODE
     uint32_t OPCODE0 : 6;
+    /// read-write - OPERAND1
     uint32_t OPERAND1 : 8;
+    /// read-write - NUM_PADS1
     uint32_t NUM_PADS1 : 2;
+    /// read-write - OPCODE1
     uint32_t OPCODE1 : 6;
   } bits;
   
@@ -3319,11 +3783,17 @@ union LUT[30] {
   
   // Bit field definition.
   struct {
+    /// read-write - OPERAND0
     uint32_t OPERAND0 : 8;
+    /// read-write - NUM_PADS0
     uint32_t NUM_PADS0 : 2;
+    /// read-write - OPCODE
     uint32_t OPCODE0 : 6;
+    /// read-write - OPERAND1
     uint32_t OPERAND1 : 8;
+    /// read-write - NUM_PADS1
     uint32_t NUM_PADS1 : 2;
+    /// read-write - OPCODE1
     uint32_t OPCODE1 : 6;
   } bits;
   
@@ -3340,11 +3810,17 @@ union LUT[31] {
   
   // Bit field definition.
   struct {
+    /// read-write - OPERAND0
     uint32_t OPERAND0 : 8;
+    /// read-write - NUM_PADS0
     uint32_t NUM_PADS0 : 2;
+    /// read-write - OPCODE
     uint32_t OPCODE0 : 6;
+    /// read-write - OPERAND1
     uint32_t OPERAND1 : 8;
+    /// read-write - NUM_PADS1
     uint32_t NUM_PADS1 : 2;
+    /// read-write - OPCODE1
     uint32_t OPCODE1 : 6;
   } bits;
   
@@ -3361,11 +3837,17 @@ union LUT[32] {
   
   // Bit field definition.
   struct {
+    /// read-write - OPERAND0
     uint32_t OPERAND0 : 8;
+    /// read-write - NUM_PADS0
     uint32_t NUM_PADS0 : 2;
+    /// read-write - OPCODE
     uint32_t OPCODE0 : 6;
+    /// read-write - OPERAND1
     uint32_t OPERAND1 : 8;
+    /// read-write - NUM_PADS1
     uint32_t NUM_PADS1 : 2;
+    /// read-write - OPCODE1
     uint32_t OPCODE1 : 6;
   } bits;
   
@@ -3382,11 +3864,17 @@ union LUT[33] {
   
   // Bit field definition.
   struct {
+    /// read-write - OPERAND0
     uint32_t OPERAND0 : 8;
+    /// read-write - NUM_PADS0
     uint32_t NUM_PADS0 : 2;
+    /// read-write - OPCODE
     uint32_t OPCODE0 : 6;
+    /// read-write - OPERAND1
     uint32_t OPERAND1 : 8;
+    /// read-write - NUM_PADS1
     uint32_t NUM_PADS1 : 2;
+    /// read-write - OPCODE1
     uint32_t OPCODE1 : 6;
   } bits;
   
@@ -3403,11 +3891,17 @@ union LUT[34] {
   
   // Bit field definition.
   struct {
+    /// read-write - OPERAND0
     uint32_t OPERAND0 : 8;
+    /// read-write - NUM_PADS0
     uint32_t NUM_PADS0 : 2;
+    /// read-write - OPCODE
     uint32_t OPCODE0 : 6;
+    /// read-write - OPERAND1
     uint32_t OPERAND1 : 8;
+    /// read-write - NUM_PADS1
     uint32_t NUM_PADS1 : 2;
+    /// read-write - OPCODE1
     uint32_t OPCODE1 : 6;
   } bits;
   
@@ -3424,11 +3918,17 @@ union LUT[35] {
   
   // Bit field definition.
   struct {
+    /// read-write - OPERAND0
     uint32_t OPERAND0 : 8;
+    /// read-write - NUM_PADS0
     uint32_t NUM_PADS0 : 2;
+    /// read-write - OPCODE
     uint32_t OPCODE0 : 6;
+    /// read-write - OPERAND1
     uint32_t OPERAND1 : 8;
+    /// read-write - NUM_PADS1
     uint32_t NUM_PADS1 : 2;
+    /// read-write - OPCODE1
     uint32_t OPCODE1 : 6;
   } bits;
   
@@ -3445,11 +3945,17 @@ union LUT[36] {
   
   // Bit field definition.
   struct {
+    /// read-write - OPERAND0
     uint32_t OPERAND0 : 8;
+    /// read-write - NUM_PADS0
     uint32_t NUM_PADS0 : 2;
+    /// read-write - OPCODE
     uint32_t OPCODE0 : 6;
+    /// read-write - OPERAND1
     uint32_t OPERAND1 : 8;
+    /// read-write - NUM_PADS1
     uint32_t NUM_PADS1 : 2;
+    /// read-write - OPCODE1
     uint32_t OPCODE1 : 6;
   } bits;
   
@@ -3466,11 +3972,17 @@ union LUT[37] {
   
   // Bit field definition.
   struct {
+    /// read-write - OPERAND0
     uint32_t OPERAND0 : 8;
+    /// read-write - NUM_PADS0
     uint32_t NUM_PADS0 : 2;
+    /// read-write - OPCODE
     uint32_t OPCODE0 : 6;
+    /// read-write - OPERAND1
     uint32_t OPERAND1 : 8;
+    /// read-write - NUM_PADS1
     uint32_t NUM_PADS1 : 2;
+    /// read-write - OPCODE1
     uint32_t OPCODE1 : 6;
   } bits;
   
@@ -3487,11 +3999,17 @@ union LUT[38] {
   
   // Bit field definition.
   struct {
+    /// read-write - OPERAND0
     uint32_t OPERAND0 : 8;
+    /// read-write - NUM_PADS0
     uint32_t NUM_PADS0 : 2;
+    /// read-write - OPCODE
     uint32_t OPCODE0 : 6;
+    /// read-write - OPERAND1
     uint32_t OPERAND1 : 8;
+    /// read-write - NUM_PADS1
     uint32_t NUM_PADS1 : 2;
+    /// read-write - OPCODE1
     uint32_t OPCODE1 : 6;
   } bits;
   
@@ -3508,11 +4026,17 @@ union LUT[39] {
   
   // Bit field definition.
   struct {
+    /// read-write - OPERAND0
     uint32_t OPERAND0 : 8;
+    /// read-write - NUM_PADS0
     uint32_t NUM_PADS0 : 2;
+    /// read-write - OPCODE
     uint32_t OPCODE0 : 6;
+    /// read-write - OPERAND1
     uint32_t OPERAND1 : 8;
+    /// read-write - NUM_PADS1
     uint32_t NUM_PADS1 : 2;
+    /// read-write - OPCODE1
     uint32_t OPCODE1 : 6;
   } bits;
   
@@ -3529,11 +4053,17 @@ union LUT[40] {
   
   // Bit field definition.
   struct {
+    /// read-write - OPERAND0
     uint32_t OPERAND0 : 8;
+    /// read-write - NUM_PADS0
     uint32_t NUM_PADS0 : 2;
+    /// read-write - OPCODE
     uint32_t OPCODE0 : 6;
+    /// read-write - OPERAND1
     uint32_t OPERAND1 : 8;
+    /// read-write - NUM_PADS1
     uint32_t NUM_PADS1 : 2;
+    /// read-write - OPCODE1
     uint32_t OPCODE1 : 6;
   } bits;
   
@@ -3550,11 +4080,17 @@ union LUT[41] {
   
   // Bit field definition.
   struct {
+    /// read-write - OPERAND0
     uint32_t OPERAND0 : 8;
+    /// read-write - NUM_PADS0
     uint32_t NUM_PADS0 : 2;
+    /// read-write - OPCODE
     uint32_t OPCODE0 : 6;
+    /// read-write - OPERAND1
     uint32_t OPERAND1 : 8;
+    /// read-write - NUM_PADS1
     uint32_t NUM_PADS1 : 2;
+    /// read-write - OPCODE1
     uint32_t OPCODE1 : 6;
   } bits;
   
@@ -3571,11 +4107,17 @@ union LUT[42] {
   
   // Bit field definition.
   struct {
+    /// read-write - OPERAND0
     uint32_t OPERAND0 : 8;
+    /// read-write - NUM_PADS0
     uint32_t NUM_PADS0 : 2;
+    /// read-write - OPCODE
     uint32_t OPCODE0 : 6;
+    /// read-write - OPERAND1
     uint32_t OPERAND1 : 8;
+    /// read-write - NUM_PADS1
     uint32_t NUM_PADS1 : 2;
+    /// read-write - OPCODE1
     uint32_t OPCODE1 : 6;
   } bits;
   
@@ -3592,11 +4134,17 @@ union LUT[43] {
   
   // Bit field definition.
   struct {
+    /// read-write - OPERAND0
     uint32_t OPERAND0 : 8;
+    /// read-write - NUM_PADS0
     uint32_t NUM_PADS0 : 2;
+    /// read-write - OPCODE
     uint32_t OPCODE0 : 6;
+    /// read-write - OPERAND1
     uint32_t OPERAND1 : 8;
+    /// read-write - NUM_PADS1
     uint32_t NUM_PADS1 : 2;
+    /// read-write - OPCODE1
     uint32_t OPCODE1 : 6;
   } bits;
   
@@ -3613,11 +4161,17 @@ union LUT[44] {
   
   // Bit field definition.
   struct {
+    /// read-write - OPERAND0
     uint32_t OPERAND0 : 8;
+    /// read-write - NUM_PADS0
     uint32_t NUM_PADS0 : 2;
+    /// read-write - OPCODE
     uint32_t OPCODE0 : 6;
+    /// read-write - OPERAND1
     uint32_t OPERAND1 : 8;
+    /// read-write - NUM_PADS1
     uint32_t NUM_PADS1 : 2;
+    /// read-write - OPCODE1
     uint32_t OPCODE1 : 6;
   } bits;
   
@@ -3634,11 +4188,17 @@ union LUT[45] {
   
   // Bit field definition.
   struct {
+    /// read-write - OPERAND0
     uint32_t OPERAND0 : 8;
+    /// read-write - NUM_PADS0
     uint32_t NUM_PADS0 : 2;
+    /// read-write - OPCODE
     uint32_t OPCODE0 : 6;
+    /// read-write - OPERAND1
     uint32_t OPERAND1 : 8;
+    /// read-write - NUM_PADS1
     uint32_t NUM_PADS1 : 2;
+    /// read-write - OPCODE1
     uint32_t OPCODE1 : 6;
   } bits;
   
@@ -3655,11 +4215,17 @@ union LUT[46] {
   
   // Bit field definition.
   struct {
+    /// read-write - OPERAND0
     uint32_t OPERAND0 : 8;
+    /// read-write - NUM_PADS0
     uint32_t NUM_PADS0 : 2;
+    /// read-write - OPCODE
     uint32_t OPCODE0 : 6;
+    /// read-write - OPERAND1
     uint32_t OPERAND1 : 8;
+    /// read-write - NUM_PADS1
     uint32_t NUM_PADS1 : 2;
+    /// read-write - OPCODE1
     uint32_t OPCODE1 : 6;
   } bits;
   
@@ -3676,11 +4242,17 @@ union LUT[47] {
   
   // Bit field definition.
   struct {
+    /// read-write - OPERAND0
     uint32_t OPERAND0 : 8;
+    /// read-write - NUM_PADS0
     uint32_t NUM_PADS0 : 2;
+    /// read-write - OPCODE
     uint32_t OPCODE0 : 6;
+    /// read-write - OPERAND1
     uint32_t OPERAND1 : 8;
+    /// read-write - NUM_PADS1
     uint32_t NUM_PADS1 : 2;
+    /// read-write - OPCODE1
     uint32_t OPCODE1 : 6;
   } bits;
   
@@ -3697,11 +4269,17 @@ union LUT[48] {
   
   // Bit field definition.
   struct {
+    /// read-write - OPERAND0
     uint32_t OPERAND0 : 8;
+    /// read-write - NUM_PADS0
     uint32_t NUM_PADS0 : 2;
+    /// read-write - OPCODE
     uint32_t OPCODE0 : 6;
+    /// read-write - OPERAND1
     uint32_t OPERAND1 : 8;
+    /// read-write - NUM_PADS1
     uint32_t NUM_PADS1 : 2;
+    /// read-write - OPCODE1
     uint32_t OPCODE1 : 6;
   } bits;
   
@@ -3718,11 +4296,17 @@ union LUT[49] {
   
   // Bit field definition.
   struct {
+    /// read-write - OPERAND0
     uint32_t OPERAND0 : 8;
+    /// read-write - NUM_PADS0
     uint32_t NUM_PADS0 : 2;
+    /// read-write - OPCODE
     uint32_t OPCODE0 : 6;
+    /// read-write - OPERAND1
     uint32_t OPERAND1 : 8;
+    /// read-write - NUM_PADS1
     uint32_t NUM_PADS1 : 2;
+    /// read-write - OPCODE1
     uint32_t OPCODE1 : 6;
   } bits;
   
@@ -3739,11 +4323,17 @@ union LUT[50] {
   
   // Bit field definition.
   struct {
+    /// read-write - OPERAND0
     uint32_t OPERAND0 : 8;
+    /// read-write - NUM_PADS0
     uint32_t NUM_PADS0 : 2;
+    /// read-write - OPCODE
     uint32_t OPCODE0 : 6;
+    /// read-write - OPERAND1
     uint32_t OPERAND1 : 8;
+    /// read-write - NUM_PADS1
     uint32_t NUM_PADS1 : 2;
+    /// read-write - OPCODE1
     uint32_t OPCODE1 : 6;
   } bits;
   
@@ -3760,11 +4350,17 @@ union LUT[51] {
   
   // Bit field definition.
   struct {
+    /// read-write - OPERAND0
     uint32_t OPERAND0 : 8;
+    /// read-write - NUM_PADS0
     uint32_t NUM_PADS0 : 2;
+    /// read-write - OPCODE
     uint32_t OPCODE0 : 6;
+    /// read-write - OPERAND1
     uint32_t OPERAND1 : 8;
+    /// read-write - NUM_PADS1
     uint32_t NUM_PADS1 : 2;
+    /// read-write - OPCODE1
     uint32_t OPCODE1 : 6;
   } bits;
   
@@ -3781,11 +4377,17 @@ union LUT[52] {
   
   // Bit field definition.
   struct {
+    /// read-write - OPERAND0
     uint32_t OPERAND0 : 8;
+    /// read-write - NUM_PADS0
     uint32_t NUM_PADS0 : 2;
+    /// read-write - OPCODE
     uint32_t OPCODE0 : 6;
+    /// read-write - OPERAND1
     uint32_t OPERAND1 : 8;
+    /// read-write - NUM_PADS1
     uint32_t NUM_PADS1 : 2;
+    /// read-write - OPCODE1
     uint32_t OPCODE1 : 6;
   } bits;
   
@@ -3802,11 +4404,17 @@ union LUT[53] {
   
   // Bit field definition.
   struct {
+    /// read-write - OPERAND0
     uint32_t OPERAND0 : 8;
+    /// read-write - NUM_PADS0
     uint32_t NUM_PADS0 : 2;
+    /// read-write - OPCODE
     uint32_t OPCODE0 : 6;
+    /// read-write - OPERAND1
     uint32_t OPERAND1 : 8;
+    /// read-write - NUM_PADS1
     uint32_t NUM_PADS1 : 2;
+    /// read-write - OPCODE1
     uint32_t OPCODE1 : 6;
   } bits;
   
@@ -3823,11 +4431,17 @@ union LUT[54] {
   
   // Bit field definition.
   struct {
+    /// read-write - OPERAND0
     uint32_t OPERAND0 : 8;
+    /// read-write - NUM_PADS0
     uint32_t NUM_PADS0 : 2;
+    /// read-write - OPCODE
     uint32_t OPCODE0 : 6;
+    /// read-write - OPERAND1
     uint32_t OPERAND1 : 8;
+    /// read-write - NUM_PADS1
     uint32_t NUM_PADS1 : 2;
+    /// read-write - OPCODE1
     uint32_t OPCODE1 : 6;
   } bits;
   
@@ -3844,11 +4458,17 @@ union LUT[55] {
   
   // Bit field definition.
   struct {
+    /// read-write - OPERAND0
     uint32_t OPERAND0 : 8;
+    /// read-write - NUM_PADS0
     uint32_t NUM_PADS0 : 2;
+    /// read-write - OPCODE
     uint32_t OPCODE0 : 6;
+    /// read-write - OPERAND1
     uint32_t OPERAND1 : 8;
+    /// read-write - NUM_PADS1
     uint32_t NUM_PADS1 : 2;
+    /// read-write - OPCODE1
     uint32_t OPCODE1 : 6;
   } bits;
   
@@ -3865,11 +4485,17 @@ union LUT[56] {
   
   // Bit field definition.
   struct {
+    /// read-write - OPERAND0
     uint32_t OPERAND0 : 8;
+    /// read-write - NUM_PADS0
     uint32_t NUM_PADS0 : 2;
+    /// read-write - OPCODE
     uint32_t OPCODE0 : 6;
+    /// read-write - OPERAND1
     uint32_t OPERAND1 : 8;
+    /// read-write - NUM_PADS1
     uint32_t NUM_PADS1 : 2;
+    /// read-write - OPCODE1
     uint32_t OPCODE1 : 6;
   } bits;
   
@@ -3886,11 +4512,17 @@ union LUT[57] {
   
   // Bit field definition.
   struct {
+    /// read-write - OPERAND0
     uint32_t OPERAND0 : 8;
+    /// read-write - NUM_PADS0
     uint32_t NUM_PADS0 : 2;
+    /// read-write - OPCODE
     uint32_t OPCODE0 : 6;
+    /// read-write - OPERAND1
     uint32_t OPERAND1 : 8;
+    /// read-write - NUM_PADS1
     uint32_t NUM_PADS1 : 2;
+    /// read-write - OPCODE1
     uint32_t OPCODE1 : 6;
   } bits;
   
@@ -3907,11 +4539,17 @@ union LUT[58] {
   
   // Bit field definition.
   struct {
+    /// read-write - OPERAND0
     uint32_t OPERAND0 : 8;
+    /// read-write - NUM_PADS0
     uint32_t NUM_PADS0 : 2;
+    /// read-write - OPCODE
     uint32_t OPCODE0 : 6;
+    /// read-write - OPERAND1
     uint32_t OPERAND1 : 8;
+    /// read-write - NUM_PADS1
     uint32_t NUM_PADS1 : 2;
+    /// read-write - OPCODE1
     uint32_t OPCODE1 : 6;
   } bits;
   
@@ -3928,11 +4566,17 @@ union LUT[59] {
   
   // Bit field definition.
   struct {
+    /// read-write - OPERAND0
     uint32_t OPERAND0 : 8;
+    /// read-write - NUM_PADS0
     uint32_t NUM_PADS0 : 2;
+    /// read-write - OPCODE
     uint32_t OPCODE0 : 6;
+    /// read-write - OPERAND1
     uint32_t OPERAND1 : 8;
+    /// read-write - NUM_PADS1
     uint32_t NUM_PADS1 : 2;
+    /// read-write - OPCODE1
     uint32_t OPCODE1 : 6;
   } bits;
   
@@ -3949,11 +4593,17 @@ union LUT[60] {
   
   // Bit field definition.
   struct {
+    /// read-write - OPERAND0
     uint32_t OPERAND0 : 8;
+    /// read-write - NUM_PADS0
     uint32_t NUM_PADS0 : 2;
+    /// read-write - OPCODE
     uint32_t OPCODE0 : 6;
+    /// read-write - OPERAND1
     uint32_t OPERAND1 : 8;
+    /// read-write - NUM_PADS1
     uint32_t NUM_PADS1 : 2;
+    /// read-write - OPCODE1
     uint32_t OPCODE1 : 6;
   } bits;
   
@@ -3970,11 +4620,17 @@ union LUT[61] {
   
   // Bit field definition.
   struct {
+    /// read-write - OPERAND0
     uint32_t OPERAND0 : 8;
+    /// read-write - NUM_PADS0
     uint32_t NUM_PADS0 : 2;
+    /// read-write - OPCODE
     uint32_t OPCODE0 : 6;
+    /// read-write - OPERAND1
     uint32_t OPERAND1 : 8;
+    /// read-write - NUM_PADS1
     uint32_t NUM_PADS1 : 2;
+    /// read-write - OPCODE1
     uint32_t OPCODE1 : 6;
   } bits;
   
@@ -3991,11 +4647,17 @@ union LUT[62] {
   
   // Bit field definition.
   struct {
+    /// read-write - OPERAND0
     uint32_t OPERAND0 : 8;
+    /// read-write - NUM_PADS0
     uint32_t NUM_PADS0 : 2;
+    /// read-write - OPCODE
     uint32_t OPCODE0 : 6;
+    /// read-write - OPERAND1
     uint32_t OPERAND1 : 8;
+    /// read-write - NUM_PADS1
     uint32_t NUM_PADS1 : 2;
+    /// read-write - OPCODE1
     uint32_t OPCODE1 : 6;
   } bits;
   
@@ -4012,11 +4674,17 @@ union LUT[63] {
   
   // Bit field definition.
   struct {
+    /// read-write - OPERAND0
     uint32_t OPERAND0 : 8;
+    /// read-write - NUM_PADS0
     uint32_t NUM_PADS0 : 2;
+    /// read-write - OPCODE
     uint32_t OPCODE0 : 6;
+    /// read-write - OPERAND1
     uint32_t OPERAND1 : 8;
+    /// read-write - NUM_PADS1
     uint32_t NUM_PADS1 : 2;
+    /// read-write - OPCODE1
     uint32_t OPCODE1 : 6;
   } bits;
   
@@ -4039,7 +4707,9 @@ union HMSTR0CR {
   
   // Bit field definition.
   struct {
+    /// read-write - Mask bits for AHB Controller ID.
     eMASK MASK : 16;
+    /// read-write - Controller ID
     uint32_t MSTRID : 16;
   } bits;
   
@@ -4062,7 +4732,9 @@ union HMSTR1CR {
   
   // Bit field definition.
   struct {
+    /// read-write - Mask bits for AHB Controller ID.
     eMASK MASK : 16;
+    /// read-write - Controller ID
     uint32_t MSTRID : 16;
   } bits;
   
@@ -4085,7 +4757,9 @@ union HMSTR2CR {
   
   // Bit field definition.
   struct {
+    /// read-write - Mask bits for AHB Controller ID.
     eMASK MASK : 16;
+    /// read-write - Controller ID
     uint32_t MSTRID : 16;
   } bits;
   
@@ -4108,7 +4782,9 @@ union HMSTR3CR {
   
   // Bit field definition.
   struct {
+    /// read-write - Mask bits for AHB Controller ID.
     eMASK MASK : 16;
+    /// read-write - Controller ID
     uint32_t MSTRID : 16;
   } bits;
   
@@ -4131,7 +4807,9 @@ union HMSTR4CR {
   
   // Bit field definition.
   struct {
+    /// read-write - Mask bits for AHB Controller ID.
     eMASK MASK : 16;
+    /// read-write - Controller ID
     uint32_t MSTRID : 16;
   } bits;
   
@@ -4154,7 +4832,9 @@ union HMSTR5CR {
   
   // Bit field definition.
   struct {
+    /// read-write - Mask bits for AHB Controller ID.
     eMASK MASK : 16;
+    /// read-write - Controller ID
     uint32_t MSTRID : 16;
   } bits;
   
@@ -4177,7 +4857,9 @@ union HMSTR6CR {
   
   // Bit field definition.
   struct {
+    /// read-write - Mask bits for AHB Controller ID.
     eMASK MASK : 16;
+    /// read-write - Controller ID
     uint32_t MSTRID : 16;
   } bits;
   
@@ -4200,7 +4882,9 @@ union HMSTR7CR {
   
   // Bit field definition.
   struct {
+    /// read-write - Mask bits for AHB Controller ID.
     eMASK MASK : 16;
+    /// read-write - Controller ID
     uint32_t MSTRID : 16;
   } bits;
   
@@ -4228,9 +4912,12 @@ union HADDRSTART {
   
   // Bit field definition.
   struct {
+    /// read-write - AHB Bus Address Remap Enable
     eREMAPEN REMAPEN : 1;
+    /// read-write - OTFAD Keyblob in ECC
     eKBINECC KBINECC : 1;
     uint32_t _reserved_0 : 10;
+    /// read-write - HADDR Start Address
     uint32_t ADDRSTART : 20;
   } bits;
   
@@ -4249,6 +4936,7 @@ union HADDREND {
   // Bit field definition.
   struct {
     uint32_t _reserved_0 : 12;
+    /// read-write - End Address of HADDR Remap Range
     uint32_t ENDSTART : 20;
   } bits;
   
@@ -4267,6 +4955,7 @@ union HADDROFFSET {
   // Bit field definition.
   struct {
     uint32_t _reserved_0 : 12;
+    /// read-write - HADDR Offset
     uint32_t ADDROFFSET : 20;
   } bits;
   

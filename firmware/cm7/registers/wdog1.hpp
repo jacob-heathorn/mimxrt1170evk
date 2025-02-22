@@ -65,14 +65,23 @@ union WCR {
   
   // Bit field definition.
   struct {
+    /// read-write - WDZST
     eWDZST WDZST : 1;
+    /// read-write - WDBG
     eWDBG WDBG : 1;
+    /// read-write - WDE
     eWDE WDE : 1;
+    /// read-write - WDT
     eWDT WDT : 1;
+    /// read-write - SRS
     eSRS SRS : 1;
+    /// read-write - WDA
     eWDA WDA : 1;
+    /// read-write - Software Reset Extension, an optional way to generate software reset
     eSRE SRE : 1;
+    /// read-write - WDW
     eWDW WDW : 1;
+    /// read-write - WT
     eWT WT : 8;
     uint32_t _reserved_0 : 16;
   } bits;
@@ -96,6 +105,7 @@ union WSR {
   
   // Bit field definition.
   struct {
+    /// read-write - WSR
     eWSR WSR : 16;
     uint32_t _reserved_0 : 16;
   } bits;
@@ -129,9 +139,12 @@ union WRSR {
   
   // Bit field definition.
   struct {
+    /// read-only - SFTW
     eSFTW SFTW : 1;
+    /// read-only - TOUT
     eTOUT TOUT : 1;
     uint32_t _reserved_0 : 2;
+    /// read-only - POR
     ePOR POR : 1;
     uint32_t _reserved_1 : 27;
   } bits;
@@ -167,9 +180,12 @@ union WICR {
   
   // Bit field definition.
   struct {
+    /// read-write - WICT
     eWICT WICT : 8;
     uint32_t _reserved_0 : 6;
+    /// read-write - WTIS
     eWTIS WTIS : 1;
+    /// read-write - WIE
     eWIE WIE : 1;
     uint32_t _reserved_1 : 16;
   } bits;
@@ -193,6 +209,7 @@ union WMCR {
   
   // Bit field definition.
   struct {
+    /// read-write - PDE
     ePDE PDE : 1;
     uint32_t _reserved_0 : 31;
   } bits;

@@ -18,9 +18,12 @@ union TYPE {
   
   // Bit field definition.
   struct {
+    /// read-only - Indicates support for separate instruction and data address maps. RAZ. Armv7-M only supports a unified MPU
     uint32_t SEPARATE : 1;
     uint32_t _reserved_0 : 7;
+    /// read-only - Number of regions supported by the MPU. If this field reads-as-zero the processor does not implement an MPU.
     uint32_t DREGION : 8;
+    /// read-only - Instruction region. RAZ. Armv7-M only supports a unified MPU.
     uint32_t IREGION : 8;
     uint32_t _reserved_1 : 8;
   } bits;
@@ -54,8 +57,11 @@ union CTRL {
   
   // Bit field definition.
   struct {
+    /// read-write - Enables the MPU.
     eENABLE ENABLE : 1;
+    /// read-write - Controls whether handlers executing with priority less than 0 access memory with the MPU enabled or with the MPU disabled.
     eHFNMIENA HFNMIENA : 1;
+    /// read-write - no description available
     ePRIVDEFENA PRIVDEFENA : 1;
     uint32_t _reserved_0 : 29;
   } bits;
@@ -74,6 +80,7 @@ union RNR {
   
   // Bit field definition.
   struct {
+    /// read-write - Indicates the memory region accessed by MPU_RBAR and MPU_RASR.
     uint32_t REGION : 8;
     uint32_t _reserved_0 : 24;
   } bits;
@@ -97,8 +104,11 @@ union RBAR {
   
   // Bit field definition.
   struct {
+    /// read-write - On writes, can specify the number of the region to update. On reads, returns bits[3:0] of MPU_RNR.
     uint32_t REGION : 4;
+    /// read-write - On writes, indicates whether the region to update is specified by MPU_RNR.REGION, or by the REGION value specified in this write. When using the REGION value specified by this write, MPU_RNR.REGION is updated to this value.
     eVALID VALID : 1;
+    /// read-write - Base address of the region.
     uint32_t ADDR : 27;
   } bits;
   
@@ -141,17 +151,26 @@ union RASR {
   
   // Bit field definition.
   struct {
+    /// read-write - Enables this region.
     eENABLE ENABLE : 1;
+    /// read-write - Indicates the region size. The region size, in bytes, is 2**(SIZE+1). SIZE field values less than 4 are reserved, because the smallest supported region size is 32 bytes.
     uint32_t SIZE : 5;
     uint32_t _reserved_0 : 2;
+    /// read-write - Subregion Disable. For regions of 256 bytes or larger, each bit of this field controls whether one of the eight equal subregions is enabled. SRD[0-7]=0 - subregion enabled. SRD[0-7]=1 - subregion disabled.
     uint32_t SRD : 8;
+    /// read-write - Memory type attribute B. The TEX[2:0], C, and B bits together indicate the memory type of the region.
     uint32_t B : 1;
+    /// read-write - Memory type attribute C. The TEX[2:0], C, and B bits together indicate the memory type of the region.
     uint32_t C : 1;
+    /// read-write - For Normal memory regions, the S bit indicates whether the region is shareable. For Strongly-ordered and Device memory, the S bit is ignored.
     eS S : 1;
+    /// read-write - Memory type attribute TEX. The TEX[2:0], C, and B bits together indicate the memory type of the region
     uint32_t TEX : 3;
     uint32_t _reserved_1 : 2;
+    /// read-write - The AP[2:0] bits indicate the access and privilege properties of the region.
     eAP AP : 3;
     uint32_t _reserved_2 : 1;
+    /// read-write - The XN bit is an Execute Never bit, that indicates whether the processor can execute instructions from the region.
     eXN XN : 1;
     uint32_t _reserved_3 : 3;
   } bits;
@@ -175,8 +194,11 @@ union RBAR_A1 {
   
   // Bit field definition.
   struct {
+    /// read-write - On writes, can specify the number of the region to update. On reads, returns bits[3:0] of MPU_RNR.
     uint32_t REGION : 4;
+    /// read-write - On writes, indicates whether the region to update is specified by MPU_RNR.REGION, or by the REGION value specified in this write. When using the REGION value specified by this write, MPU_RNR.REGION is updated to this value.
     eVALID VALID : 1;
+    /// read-write - Base address of the region.
     uint32_t ADDR : 27;
   } bits;
   
@@ -219,17 +241,26 @@ union RASR_A1 {
   
   // Bit field definition.
   struct {
+    /// read-write - Enables this region.
     eENABLE ENABLE : 1;
+    /// read-write - Indicates the region size. The region size, in bytes, is 2**(SIZE+1). SIZE field values less than 4 are reserved, because the smallest supported region size is 32 bytes.
     uint32_t SIZE : 5;
     uint32_t _reserved_0 : 2;
+    /// read-write - Subregion Disable. For regions of 256 bytes or larger, each bit of this field controls whether one of the eight equal subregions is enabled. SRD[0-7]=0 - subregion enabled. SRD[0-7]=1 - subregion disabled.
     uint32_t SRD : 8;
+    /// read-write - Memory type attribute B. The TEX[2:0], C, and B bits together indicate the memory type of the region.
     uint32_t B : 1;
+    /// read-write - Memory type attribute C. The TEX[2:0], C, and B bits together indicate the memory type of the region.
     uint32_t C : 1;
+    /// read-write - For Normal memory regions, the S bit indicates whether the region is shareable. For Strongly-ordered and Device memory, the S bit is ignored.
     eS S : 1;
+    /// read-write - Memory type attribute TEX. The TEX[2:0], C, and B bits together indicate the memory type of the region
     uint32_t TEX : 3;
     uint32_t _reserved_1 : 2;
+    /// read-write - The AP[2:0] bits indicate the access and privilege properties of the region.
     eAP AP : 3;
     uint32_t _reserved_2 : 1;
+    /// read-write - The XN bit is an Execute Never bit, that indicates whether the processor can execute instructions from the region.
     eXN XN : 1;
     uint32_t _reserved_3 : 3;
   } bits;
@@ -253,8 +284,11 @@ union RBAR_A2 {
   
   // Bit field definition.
   struct {
+    /// read-write - On writes, can specify the number of the region to update. On reads, returns bits[3:0] of MPU_RNR.
     uint32_t REGION : 4;
+    /// read-write - On writes, indicates whether the region to update is specified by MPU_RNR.REGION, or by the REGION value specified in this write. When using the REGION value specified by this write, MPU_RNR.REGION is updated to this value.
     eVALID VALID : 1;
+    /// read-write - Base address of the region.
     uint32_t ADDR : 27;
   } bits;
   
@@ -297,17 +331,26 @@ union RASR_A2 {
   
   // Bit field definition.
   struct {
+    /// read-write - Enables this region.
     eENABLE ENABLE : 1;
+    /// read-write - Indicates the region size. The region size, in bytes, is 2**(SIZE+1). SIZE field values less than 4 are reserved, because the smallest supported region size is 32 bytes.
     uint32_t SIZE : 5;
     uint32_t _reserved_0 : 2;
+    /// read-write - Subregion Disable. For regions of 256 bytes or larger, each bit of this field controls whether one of the eight equal subregions is enabled. SRD[0-7]=0 - subregion enabled. SRD[0-7]=1 - subregion disabled.
     uint32_t SRD : 8;
+    /// read-write - Memory type attribute B. The TEX[2:0], C, and B bits together indicate the memory type of the region.
     uint32_t B : 1;
+    /// read-write - Memory type attribute C. The TEX[2:0], C, and B bits together indicate the memory type of the region.
     uint32_t C : 1;
+    /// read-write - For Normal memory regions, the S bit indicates whether the region is shareable. For Strongly-ordered and Device memory, the S bit is ignored.
     eS S : 1;
+    /// read-write - Memory type attribute TEX. The TEX[2:0], C, and B bits together indicate the memory type of the region
     uint32_t TEX : 3;
     uint32_t _reserved_1 : 2;
+    /// read-write - The AP[2:0] bits indicate the access and privilege properties of the region.
     eAP AP : 3;
     uint32_t _reserved_2 : 1;
+    /// read-write - The XN bit is an Execute Never bit, that indicates whether the processor can execute instructions from the region.
     eXN XN : 1;
     uint32_t _reserved_3 : 3;
   } bits;
@@ -331,8 +374,11 @@ union RBAR_A3 {
   
   // Bit field definition.
   struct {
+    /// read-write - On writes, can specify the number of the region to update. On reads, returns bits[3:0] of MPU_RNR.
     uint32_t REGION : 4;
+    /// read-write - On writes, indicates whether the region to update is specified by MPU_RNR.REGION, or by the REGION value specified in this write. When using the REGION value specified by this write, MPU_RNR.REGION is updated to this value.
     eVALID VALID : 1;
+    /// read-write - Base address of the region.
     uint32_t ADDR : 27;
   } bits;
   
@@ -375,17 +421,26 @@ union RASR_A3 {
   
   // Bit field definition.
   struct {
+    /// read-write - Enables this region.
     eENABLE ENABLE : 1;
+    /// read-write - Indicates the region size. The region size, in bytes, is 2**(SIZE+1). SIZE field values less than 4 are reserved, because the smallest supported region size is 32 bytes.
     uint32_t SIZE : 5;
     uint32_t _reserved_0 : 2;
+    /// read-write - Subregion Disable. For regions of 256 bytes or larger, each bit of this field controls whether one of the eight equal subregions is enabled. SRD[0-7]=0 - subregion enabled. SRD[0-7]=1 - subregion disabled.
     uint32_t SRD : 8;
+    /// read-write - Memory type attribute B. The TEX[2:0], C, and B bits together indicate the memory type of the region.
     uint32_t B : 1;
+    /// read-write - Memory type attribute C. The TEX[2:0], C, and B bits together indicate the memory type of the region.
     uint32_t C : 1;
+    /// read-write - For Normal memory regions, the S bit indicates whether the region is shareable. For Strongly-ordered and Device memory, the S bit is ignored.
     eS S : 1;
+    /// read-write - Memory type attribute TEX. The TEX[2:0], C, and B bits together indicate the memory type of the region
     uint32_t TEX : 3;
     uint32_t _reserved_1 : 2;
+    /// read-write - The AP[2:0] bits indicate the access and privilege properties of the region.
     eAP AP : 3;
     uint32_t _reserved_2 : 1;
+    /// read-write - The XN bit is an Execute Never bit, that indicates whether the processor can execute instructions from the region.
     eXN XN : 1;
     uint32_t _reserved_3 : 3;
   } bits;

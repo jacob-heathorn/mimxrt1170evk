@@ -27,7 +27,9 @@ union SCR {
   
   // Bit field definition.
   struct {
+    /// read-write - cm4 core reset will be held until boot core write this bit to 1 to release it.
     eBT_RELEASE_M4 BT_RELEASE_M4 : 1;
+    /// read-write - cm7 core reset will be held until boot core write this bit to 1 to release it.
     eBT_RELEASE_M7 BT_RELEASE_M7 : 1;
     uint32_t _reserved_0 : 30;
   } bits;
@@ -101,16 +103,27 @@ union SRMR {
   
   // Bit field definition.
   struct {
+    /// read-write - Wdog reset mode configuration
     eWDOG_RESET_MODE WDOG_RESET_MODE : 2;
+    /// read-write - Wdog3 reset mode configuration
     eWDOG3_RESET_MODE WDOG3_RESET_MODE : 2;
+    /// read-write - Wdog4 reset mode configuration
     eWDOG4_RESET_MODE WDOG4_RESET_MODE : 2;
+    /// read-write - M4 core lockup reset mode configuration
     eM4LOCKUP_RESET_MODE M4LOCKUP_RESET_MODE : 2;
+    /// read-write - M7 core lockup reset mode configuration
     eM7LOCKUP_RESET_MODE M7LOCKUP_RESET_MODE : 2;
+    /// read-write - M4 request reset configuration
     eM4REQ_RESET_MODE M4REQ_RESET_MODE : 2;
+    /// read-write - M7 request reset configuration
     eM7REQ_RESET_MODE M7REQ_RESET_MODE : 2;
+    /// read-write - Tempsense reset mode configuration
     eTEMPSENSE_RESET_MODE TEMPSENSE_RESET_MODE : 2;
+    /// read-write - CSU reset mode configuration
     eCSU_RESET_MODE CSU_RESET_MODE : 2;
+    /// read-write - Jtag SW reset mode configuration
     eJTAGSW_RESET_MODE JTAGSW_RESET_MODE : 2;
+    /// read-write - Jtag SW reset mode configuration
     eOVERVOLT_RESET_MODE OVERVOLT_RESET_MODE : 2;
     uint32_t _reserved_0 : 10;
   } bits;
@@ -129,9 +142,13 @@ union SBMR1 {
   
   // Bit field definition.
   struct {
+    /// read-only - Please see fusemap.
     uint32_t BOOT_CFG1 : 8;
+    /// read-only - Please see fusemap.
     uint32_t BOOT_CFG2 : 8;
+    /// read-only - Please see fusemap.
     uint32_t BOOT_CFG3 : 8;
+    /// read-only - Please see fusemap.
     uint32_t BOOT_CFG4 : 8;
   } bits;
   
@@ -149,10 +166,13 @@ union SBMR2 {
   
   // Bit field definition.
   struct {
+    /// read-only - SECONFIG[1] shows the state of the SECONFIG[1] fuse
     uint32_t SEC_CONFIG : 2;
     uint32_t _reserved_0 : 2;
+    /// read-only - BT_FUSE_SEL shows the state of the BT_FUSE_SEL fuse
     uint32_t BT_FUSE_SEL : 1;
     uint32_t _reserved_1 : 19;
+    /// read-only - BMOD[1:0] shows the latched state of the BOOT_MODE1 and BOOT_MODE0 signals on the rising edge of POR_B
     uint32_t BMOD : 2;
     uint32_t _reserved_2 : 6;
   } bits;
@@ -321,36 +341,66 @@ union SRSR {
   
   // Bit field definition.
   struct {
+    /// read-write - Indicates whether reset was the result of ipp_reset_b pin (Power-up sequence)
     eIPP_RESET_B_M7 IPP_RESET_B_M7 : 1;
+    /// read-write - Indicates whether reset was the result of m7 reset request
     eM7_REQUEST_M7 M7_REQUEST_M7 : 1;
+    /// read-write - Indicates a reset has been caused by M7 CPU lockup or software setting of SYSRESETREQ bit in Application Interrupt and Reset Control Register of the ARM core
     eM7_LOCKUP_M7 M7_LOCKUP_M7 : 1;
+    /// read-write - Indicates whether the reset was the result of the csu_reset_b input.
     eCSU_RESET_B_M7 CSU_RESET_B_M7 : 1;
+    /// read-write - Indicates whether the reset was the result of the ipp_user_reset_b qualified reset.
     eIPP_USER_RESET_B_M7 IPP_USER_RESET_B_M7 : 1;
+    /// read-write - IC Watchdog Time-out reset
     eWDOG_RST_B_M7 WDOG_RST_B_M7 : 1;
+    /// read-write - HIGH - Z JTAG reset. Indicates whether the reset was the result of HIGH-Z reset from JTAG.
     eJTAG_RST_B_M7 JTAG_RST_B_M7 : 1;
+    /// read-write - JTAG software reset. Indicates whether the reset was the result of software reset from JTAG.
     eJTAG_SW_RST_M7 JTAG_SW_RST_M7 : 1;
+    /// read-write - IC Watchdog3 Time-out reset
     eWDOG3_RST_B_M7 WDOG3_RST_B_M7 : 1;
+    /// read-write - IC Watchdog4 Time-out reset
     eWDOG4_RST_B_M7 WDOG4_RST_B_M7 : 1;
+    /// read-write - Temper Sensor software reset
     eTEMPSENSE_RST_B_M7 TEMPSENSE_RST_B_M7 : 1;
+    /// read-write - Indicates whether reset was the result of m4 reset request.
     eM4_REQUEST_M7 M4_REQUEST_M7 : 1;
+    /// read-write - Indicates a reset has been caused by M4 CPU lockup or software setting of SYSRESETREQ bit in Application Interrupt and Reset Control Register of the ARM core
     eM4_LOCKUP_M7 M4_LOCKUP_M7 : 1;
+    /// read-write - Indicates a reset has been caused by power suppy voltage over the highest permitted level.
     eOVERVOLT_RST_M7 OVERVOLT_RST_M7 : 1;
+    /// read-write - Indicates a reset has been caused by CDOG reset.
     eCDOG_RST_M7 CDOG_RST_M7 : 1;
     uint32_t _reserved_0 : 1;
+    /// read-write - Indicates whether reset was the result of ipp_reset_b pin (Power-up sequence)
     eIPP_RESET_B_M4 IPP_RESET_B_M4 : 1;
+    /// read-write - Indicates whether reset was the result of m4 reset request
     eM4_REQUEST_M4 M4_REQUEST_M4 : 1;
+    /// read-write - Indicates a reset has been caused by M4 CPU lockup or software setting of SYSRESETREQ bit in Application Interrupt and Reset Control Register of the ARM core
     eM4_LOCKUP_M4 M4_LOCKUP_M4 : 1;
+    /// read-write - Indicates whether the reset was the result of the csu_reset_b input.
     eCSU_RESET_B_M4 CSU_RESET_B_M4 : 1;
+    /// read-write - Indicates whether the reset was the result of the ipp_user_reset_b qualified reset.
     eIPP_USER_RESET_B_M4 IPP_USER_RESET_B_M4 : 1;
+    /// read-write - IC Watchdog Time-out reset
     eWDOG_RST_B_M4 WDOG_RST_B_M4 : 1;
+    /// read-write - HIGH - Z JTAG reset. Indicates whether the reset was the result of HIGH-Z reset from JTAG.
     eJTAG_RST_B_M4 JTAG_RST_B_M4 : 1;
+    /// read-write - JTAG software reset. Indicates whether the reset was the result of software reset from JTAG.
     eJTAG_SW_RST_M4 JTAG_SW_RST_M4 : 1;
+    /// read-write - IC Watchdog3 Time-out reset
     eWDOG3_RST_B_M4 WDOG3_RST_B_M4 : 1;
+    /// read-write - IC Watchdog4 Time-out reset
     eWDOG4_RST_B_M4 WDOG4_RST_B_M4 : 1;
+    /// read-write - Temper Sensor software reset
     eTEMPSENSE_RST_B_M4 TEMPSENSE_RST_B_M4 : 1;
+    /// read-write - Indicates whether reset was the result of m7 reset request.
     eM7_REQUEST_M4 M7_REQUEST_M4 : 1;
+    /// read-write - Indicates a reset has been caused by M7 CPU lockup or software setting of SYSRESETREQ bit in Application Interrupt and Reset Control Register of the ARM core
     eM7_LOCKUP_M4 M7_LOCKUP_M4 : 1;
+    /// read-write - Indicates a reset has been caused by power suppy voltage over the highest permitted level.
     eOVERVOLT_RST_M4 OVERVOLT_RST_M4 : 1;
+    /// read-write - Indicates a reset has been caused by CDOG reset.
     eCDOG_RST_M4 CDOG_RST_M4 : 1;
     uint32_t _reserved_1 : 1;
   } bits;
@@ -369,6 +419,7 @@ union GPR1 {
   
   // Bit field definition.
   struct {
+    /// read-write - General Purpose Register.
     uint32_t GPR : 32;
   } bits;
   
@@ -385,6 +436,7 @@ union GPR2 {
   
   // Bit field definition.
   struct {
+    /// read-write - General Purpose Register.
     uint32_t GPR : 32;
   } bits;
   
@@ -401,6 +453,7 @@ union GPR3 {
   
   // Bit field definition.
   struct {
+    /// read-write - General Purpose Register.
     uint32_t GPR : 32;
   } bits;
   
@@ -417,6 +470,7 @@ union GPR4 {
   
   // Bit field definition.
   struct {
+    /// read-write - General Purpose Register.
     uint32_t GPR : 32;
   } bits;
   
@@ -433,6 +487,7 @@ union GPR5 {
   
   // Bit field definition.
   struct {
+    /// read-write - General Purpose Register.
     uint32_t GPR : 32;
   } bits;
   
@@ -449,6 +504,7 @@ union GPR6 {
   
   // Bit field definition.
   struct {
+    /// read-write - General Purpose Register.
     uint32_t GPR : 32;
   } bits;
   
@@ -465,6 +521,7 @@ union GPR7 {
   
   // Bit field definition.
   struct {
+    /// read-write - General Purpose Register.
     uint32_t GPR : 32;
   } bits;
   
@@ -481,6 +538,7 @@ union GPR8 {
   
   // Bit field definition.
   struct {
+    /// read-write - General Purpose Register.
     uint32_t GPR : 32;
   } bits;
   
@@ -497,6 +555,7 @@ union GPR9 {
   
   // Bit field definition.
   struct {
+    /// read-write - General Purpose Register.
     uint32_t GPR : 32;
   } bits;
   
@@ -513,6 +572,7 @@ union GPR10 {
   
   // Bit field definition.
   struct {
+    /// read-write - General Purpose Register.
     uint32_t GPR : 32;
   } bits;
   
@@ -529,6 +589,7 @@ union GPR11 {
   
   // Bit field definition.
   struct {
+    /// read-write - General Purpose Register.
     uint32_t GPR : 32;
   } bits;
   
@@ -545,6 +606,7 @@ union GPR12 {
   
   // Bit field definition.
   struct {
+    /// read-write - General Purpose Register.
     uint32_t GPR : 32;
   } bits;
   
@@ -561,6 +623,7 @@ union GPR13 {
   
   // Bit field definition.
   struct {
+    /// read-write - General Purpose Register.
     uint32_t GPR : 32;
   } bits;
   
@@ -577,6 +640,7 @@ union GPR14 {
   
   // Bit field definition.
   struct {
+    /// read-write - General Purpose Register.
     uint32_t GPR : 32;
   } bits;
   
@@ -593,6 +657,7 @@ union GPR15 {
   
   // Bit field definition.
   struct {
+    /// read-write - General Purpose Register.
     uint32_t GPR : 32;
   } bits;
   
@@ -609,6 +674,7 @@ union GPR16 {
   
   // Bit field definition.
   struct {
+    /// read-write - General Purpose Register.
     uint32_t GPR : 32;
   } bits;
   
@@ -625,6 +691,7 @@ union GPR17 {
   
   // Bit field definition.
   struct {
+    /// read-write - General Purpose Register.
     uint32_t GPR : 32;
   } bits;
   
@@ -641,6 +708,7 @@ union GPR18 {
   
   // Bit field definition.
   struct {
+    /// read-write - General Purpose Register.
     uint32_t GPR : 32;
   } bits;
   
@@ -657,6 +725,7 @@ union GPR19 {
   
   // Bit field definition.
   struct {
+    /// read-write - General Purpose Register.
     uint32_t GPR : 32;
   } bits;
   
@@ -673,6 +742,7 @@ union GPR20 {
   
   // Bit field definition.
   struct {
+    /// read-write - General Purpose Register.
     uint32_t GPR : 32;
   } bits;
   
@@ -700,19 +770,29 @@ union AUTHEN_MEGA {
   
   // Bit field definition.
   struct {
+    /// read-write - Control whether reset slice is in domain mode
     eDOMAIN_MODE DOMAIN_MODE : 1;
+    /// read-write - Control whether reset slice is in Setpoint mode
     eSETPOINT_MODE SETPOINT_MODE : 1;
     uint32_t _reserved_0 : 5;
+    /// read-write - Domain/Setpoint mode lock
     uint32_t LOCK_MODE : 1;
+    /// read-write - when this bitfield set to 1, reset of slice would be subject to corresponding core status transition
     uint32_t ASSIGN_LIST : 4;
     uint32_t _reserved_1 : 3;
+    /// read-write - Assign list lock
     uint32_t LOCK_ASSIGN : 1;
+    /// read-write - Domain ID white list
     uint32_t WHITE_LIST : 4;
     uint32_t _reserved_2 : 3;
+    /// read-write - White list lock
     uint32_t LOCK_LIST : 1;
+    /// read-write - Allow user mode access
     uint32_t USER : 1;
+    /// read-write - Allow non-secure mode access
     uint32_t NONSECURE : 1;
     uint32_t _reserved_3 : 5;
+    /// read-write - Lock NONSECURE and USER
     uint32_t LOCK_SETTING : 1;
   } bits;
   
@@ -735,6 +815,7 @@ union CTRL_MEGA {
   
   // Bit field definition.
   struct {
+    /// read-write - This is a self clearing bit
     eSW_RESET SW_RESET : 1;
     uint32_t _reserved_0 : 31;
   } bits;
@@ -833,21 +914,37 @@ union SETPOINT_MEGA {
   
   // Bit field definition.
   struct {
+    /// read-write - SETPOINT0
     eSETPOINT0 SETPOINT0 : 1;
+    /// read-write - SETPOINT1
     eSETPOINT1 SETPOINT1 : 1;
+    /// read-write - SETPOINT2
     eSETPOINT2 SETPOINT2 : 1;
+    /// read-write - SETPOINT3
     eSETPOINT3 SETPOINT3 : 1;
+    /// read-write - SETPOINT4
     eSETPOINT4 SETPOINT4 : 1;
+    /// read-write - SETPOINT5
     eSETPOINT5 SETPOINT5 : 1;
+    /// read-write - SETPOINT6
     eSETPOINT6 SETPOINT6 : 1;
+    /// read-write - SETPOINT7
     eSETPOINT7 SETPOINT7 : 1;
+    /// read-write - SETPOINT8
     eSETPOINT8 SETPOINT8 : 1;
+    /// read-write - SETPOINT9
     eSETPOINT9 SETPOINT9 : 1;
+    /// read-write - SETPOINT10
     eSETPOINT10 SETPOINT10 : 1;
+    /// read-write - SETPOINT11
     eSETPOINT11 SETPOINT11 : 1;
+    /// read-write - SETPOINT12
     eSETPOINT12 SETPOINT12 : 1;
+    /// read-write - SETPOINT13
     eSETPOINT13 SETPOINT13 : 1;
+    /// read-write - SETPOINT14
     eSETPOINT14 SETPOINT14 : 1;
+    /// read-write - SETPOINT15
     eSETPOINT15 SETPOINT15 : 1;
     uint32_t _reserved_0 : 16;
   } bits;
@@ -906,13 +1003,21 @@ union DOMAIN_MEGA {
   
   // Bit field definition.
   struct {
+    /// read-write - CPU mode setting for RUN
     eCPU0_RUN CPU0_RUN : 1;
+    /// read-write - CPU mode setting for WAIT
     eCPU0_WAIT CPU0_WAIT : 1;
+    /// read-write - CPU mode setting for STOP
     eCPU0_STOP CPU0_STOP : 1;
+    /// read-write - CPU mode setting for SUSPEND
     eCPU0_SUSP CPU0_SUSP : 1;
+    /// read-write - CPU mode setting for RUN
     eCPU1_RUN CPU1_RUN : 1;
+    /// read-write - CPU mode setting for WAIT
     eCPU1_WAIT CPU1_WAIT : 1;
+    /// read-write - CPU mode setting for STOP
     eCPU1_STOP CPU1_STOP : 1;
+    /// read-write - CPU mode setting for SUSPEND
     eCPU1_SUSP CPU1_SUSP : 1;
     uint32_t _reserved_0 : 24;
   } bits;
@@ -946,9 +1051,12 @@ union STAT_MEGA {
   
   // Bit field definition.
   struct {
+    /// read-only - This is a Read Only bit. It indicate if the reset is in process.
     eUNDER_RST UNDER_RST : 1;
     uint32_t _reserved_0 : 1;
+    /// read-write - This bit indicate if the reset is caused by the power mode transfer.
     eRST_BY_HW RST_BY_HW : 1;
+    /// read-write - This bit indicate if the reset is caused by setting SW_RESET bit.
     eRST_BY_SW RST_BY_SW : 1;
     uint32_t _reserved_1 : 28;
   } bits;
@@ -977,19 +1085,29 @@ union AUTHEN_DISPLAY {
   
   // Bit field definition.
   struct {
+    /// read-write - Control whether reset slice is in domain mode
     eDOMAIN_MODE DOMAIN_MODE : 1;
+    /// read-write - Control whether reset slice is in Setpoint mode
     eSETPOINT_MODE SETPOINT_MODE : 1;
     uint32_t _reserved_0 : 5;
+    /// read-write - Domain/Setpoint mode lock
     uint32_t LOCK_MODE : 1;
+    /// read-write - when this bitfield set to 1, reset of slice would be subject to corresponding core status transition
     uint32_t ASSIGN_LIST : 4;
     uint32_t _reserved_1 : 3;
+    /// read-write - Assign list lock
     uint32_t LOCK_ASSIGN : 1;
+    /// read-write - Domain ID white list
     uint32_t WHITE_LIST : 4;
     uint32_t _reserved_2 : 3;
+    /// read-write - White list lock
     uint32_t LOCK_LIST : 1;
+    /// read-write - Allow user mode access
     uint32_t USER : 1;
+    /// read-write - Allow non-secure mode access
     uint32_t NONSECURE : 1;
     uint32_t _reserved_3 : 5;
+    /// read-write - Lock NONSECURE and USER
     uint32_t LOCK_SETTING : 1;
   } bits;
   
@@ -1012,6 +1130,7 @@ union CTRL_DISPLAY {
   
   // Bit field definition.
   struct {
+    /// read-write - This is a self clearing bit
     eSW_RESET SW_RESET : 1;
     uint32_t _reserved_0 : 31;
   } bits;
@@ -1110,21 +1229,37 @@ union SETPOINT_DISPLAY {
   
   // Bit field definition.
   struct {
+    /// read-write - SETPOINT0
     eSETPOINT0 SETPOINT0 : 1;
+    /// read-write - SETPOINT1
     eSETPOINT1 SETPOINT1 : 1;
+    /// read-write - SETPOINT2
     eSETPOINT2 SETPOINT2 : 1;
+    /// read-write - SETPOINT3
     eSETPOINT3 SETPOINT3 : 1;
+    /// read-write - SETPOINT4
     eSETPOINT4 SETPOINT4 : 1;
+    /// read-write - SETPOINT5
     eSETPOINT5 SETPOINT5 : 1;
+    /// read-write - SETPOINT6
     eSETPOINT6 SETPOINT6 : 1;
+    /// read-write - SETPOINT7
     eSETPOINT7 SETPOINT7 : 1;
+    /// read-write - SETPOINT8
     eSETPOINT8 SETPOINT8 : 1;
+    /// read-write - SETPOINT9
     eSETPOINT9 SETPOINT9 : 1;
+    /// read-write - SETPOINT10
     eSETPOINT10 SETPOINT10 : 1;
+    /// read-write - SETPOINT11
     eSETPOINT11 SETPOINT11 : 1;
+    /// read-write - SETPOINT12
     eSETPOINT12 SETPOINT12 : 1;
+    /// read-write - SETPOINT13
     eSETPOINT13 SETPOINT13 : 1;
+    /// read-write - SETPOINT14
     eSETPOINT14 SETPOINT14 : 1;
+    /// read-write - SETPOINT15
     eSETPOINT15 SETPOINT15 : 1;
     uint32_t _reserved_0 : 16;
   } bits;
@@ -1183,13 +1318,21 @@ union DOMAIN_DISPLAY {
   
   // Bit field definition.
   struct {
+    /// read-write - CPU mode setting for RUN
     eCPU0_RUN CPU0_RUN : 1;
+    /// read-write - CPU mode setting for WAIT
     eCPU0_WAIT CPU0_WAIT : 1;
+    /// read-write - CPU mode setting for STOP
     eCPU0_STOP CPU0_STOP : 1;
+    /// read-write - CPU mode setting for SUSPEND
     eCPU0_SUSP CPU0_SUSP : 1;
+    /// read-write - CPU mode setting for RUN
     eCPU1_RUN CPU1_RUN : 1;
+    /// read-write - CPU mode setting for WAIT
     eCPU1_WAIT CPU1_WAIT : 1;
+    /// read-write - CPU mode setting for STOP
     eCPU1_STOP CPU1_STOP : 1;
+    /// read-write - CPU mode setting for SUSPEND
     eCPU1_SUSP CPU1_SUSP : 1;
     uint32_t _reserved_0 : 24;
   } bits;
@@ -1223,9 +1366,12 @@ union STAT_DISPLAY {
   
   // Bit field definition.
   struct {
+    /// read-only - This is a Read Only bit. It indicate if the reset is in process.
     eUNDER_RST UNDER_RST : 1;
     uint32_t _reserved_0 : 1;
+    /// read-write - This bit indicate if the reset is caused by the power mode transfer.
     eRST_BY_HW RST_BY_HW : 1;
+    /// read-write - This bit indicate if the reset is caused by setting SW_RESET bit.
     eRST_BY_SW RST_BY_SW : 1;
     uint32_t _reserved_1 : 28;
   } bits;
@@ -1254,19 +1400,29 @@ union AUTHEN_WAKEUP {
   
   // Bit field definition.
   struct {
+    /// read-write - Control whether reset slice is in domain mode
     eDOMAIN_MODE DOMAIN_MODE : 1;
+    /// read-write - Control whether reset slice is in Setpoint mode
     eSETPOINT_MODE SETPOINT_MODE : 1;
     uint32_t _reserved_0 : 5;
+    /// read-write - Domain/Setpoint mode lock
     uint32_t LOCK_MODE : 1;
+    /// read-write - when this bitfield set to 1, reset of slice would be subject to corresponding core status transition
     uint32_t ASSIGN_LIST : 4;
     uint32_t _reserved_1 : 3;
+    /// read-write - Assign list lock
     uint32_t LOCK_ASSIGN : 1;
+    /// read-write - Domain ID white list
     uint32_t WHITE_LIST : 4;
     uint32_t _reserved_2 : 3;
+    /// read-write - White list lock
     uint32_t LOCK_LIST : 1;
+    /// read-write - Allow user mode access
     uint32_t USER : 1;
+    /// read-write - Allow non-secure mode access
     uint32_t NONSECURE : 1;
     uint32_t _reserved_3 : 5;
+    /// read-write - Lock NONSECURE and USER
     uint32_t LOCK_SETTING : 1;
   } bits;
   
@@ -1289,6 +1445,7 @@ union CTRL_WAKEUP {
   
   // Bit field definition.
   struct {
+    /// read-write - This is a self clearing bit
     eSW_RESET SW_RESET : 1;
     uint32_t _reserved_0 : 31;
   } bits;
@@ -1387,21 +1544,37 @@ union SETPOINT_WAKEUP {
   
   // Bit field definition.
   struct {
+    /// read-write - SETPOINT0
     eSETPOINT0 SETPOINT0 : 1;
+    /// read-write - SETPOINT1
     eSETPOINT1 SETPOINT1 : 1;
+    /// read-write - SETPOINT2
     eSETPOINT2 SETPOINT2 : 1;
+    /// read-write - SETPOINT3
     eSETPOINT3 SETPOINT3 : 1;
+    /// read-write - SETPOINT4
     eSETPOINT4 SETPOINT4 : 1;
+    /// read-write - SETPOINT5
     eSETPOINT5 SETPOINT5 : 1;
+    /// read-write - SETPOINT6
     eSETPOINT6 SETPOINT6 : 1;
+    /// read-write - SETPOINT7
     eSETPOINT7 SETPOINT7 : 1;
+    /// read-write - SETPOINT8
     eSETPOINT8 SETPOINT8 : 1;
+    /// read-write - SETPOINT9
     eSETPOINT9 SETPOINT9 : 1;
+    /// read-write - SETPOINT10
     eSETPOINT10 SETPOINT10 : 1;
+    /// read-write - SETPOINT11
     eSETPOINT11 SETPOINT11 : 1;
+    /// read-write - SETPOINT12
     eSETPOINT12 SETPOINT12 : 1;
+    /// read-write - SETPOINT13
     eSETPOINT13 SETPOINT13 : 1;
+    /// read-write - SETPOINT14
     eSETPOINT14 SETPOINT14 : 1;
+    /// read-write - SETPOINT15
     eSETPOINT15 SETPOINT15 : 1;
     uint32_t _reserved_0 : 16;
   } bits;
@@ -1460,13 +1633,21 @@ union DOMAIN_WAKEUP {
   
   // Bit field definition.
   struct {
+    /// read-write - CPU mode setting for RUN
     eCPU0_RUN CPU0_RUN : 1;
+    /// read-write - CPU mode setting for WAIT
     eCPU0_WAIT CPU0_WAIT : 1;
+    /// read-write - CPU mode setting for STOP
     eCPU0_STOP CPU0_STOP : 1;
+    /// read-write - CPU mode setting for SUSPEND
     eCPU0_SUSP CPU0_SUSP : 1;
+    /// read-write - CPU mode setting for RUN
     eCPU1_RUN CPU1_RUN : 1;
+    /// read-write - CPU mode setting for WAIT
     eCPU1_WAIT CPU1_WAIT : 1;
+    /// read-write - CPU mode setting for STOP
     eCPU1_STOP CPU1_STOP : 1;
+    /// read-write - CPU mode setting for SUSPEND
     eCPU1_SUSP CPU1_SUSP : 1;
     uint32_t _reserved_0 : 24;
   } bits;
@@ -1500,9 +1681,12 @@ union STAT_WAKEUP {
   
   // Bit field definition.
   struct {
+    /// read-only - This is a Read Only bit. It indicate if the reset is in process.
     eUNDER_RST UNDER_RST : 1;
     uint32_t _reserved_0 : 1;
+    /// read-write - This bit indicate if the reset is caused by the power mode transfer.
     eRST_BY_HW RST_BY_HW : 1;
+    /// read-write - This bit indicate if the reset is caused by setting SW_RESET bit.
     eRST_BY_SW RST_BY_SW : 1;
     uint32_t _reserved_1 : 28;
   } bits;
@@ -1531,19 +1715,29 @@ union AUTHEN_M4CORE {
   
   // Bit field definition.
   struct {
+    /// read-write - Control whether reset slice is in domain mode
     eDOMAIN_MODE DOMAIN_MODE : 1;
+    /// read-write - Control whether reset slice is in Setpoint mode
     eSETPOINT_MODE SETPOINT_MODE : 1;
     uint32_t _reserved_0 : 5;
+    /// read-write - Domain/Setpoint mode lock
     uint32_t LOCK_MODE : 1;
+    /// read-write - when this bitfield set to 1, reset of slice would be subject to corresponding core status transition
     uint32_t ASSIGN_LIST : 4;
     uint32_t _reserved_1 : 3;
+    /// read-write - Assign list lock
     uint32_t LOCK_ASSIGN : 1;
+    /// read-write - Domain ID white list
     uint32_t WHITE_LIST : 4;
     uint32_t _reserved_2 : 3;
+    /// read-write - White list lock
     uint32_t LOCK_LIST : 1;
+    /// read-write - Allow user mode access
     uint32_t USER : 1;
+    /// read-write - Allow non-secure mode access
     uint32_t NONSECURE : 1;
     uint32_t _reserved_3 : 5;
+    /// read-write - Lock NONSECURE and USER
     uint32_t LOCK_SETTING : 1;
   } bits;
   
@@ -1566,6 +1760,7 @@ union CTRL_M4CORE {
   
   // Bit field definition.
   struct {
+    /// read-write - This is a self clearing bit
     eSW_RESET SW_RESET : 1;
     uint32_t _reserved_0 : 31;
   } bits;
@@ -1664,21 +1859,37 @@ union SETPOINT_M4CORE {
   
   // Bit field definition.
   struct {
+    /// read-write - SETPOINT0
     eSETPOINT0 SETPOINT0 : 1;
+    /// read-write - SETPOINT1
     eSETPOINT1 SETPOINT1 : 1;
+    /// read-write - SETPOINT2
     eSETPOINT2 SETPOINT2 : 1;
+    /// read-write - SETPOINT3
     eSETPOINT3 SETPOINT3 : 1;
+    /// read-write - SETPOINT4
     eSETPOINT4 SETPOINT4 : 1;
+    /// read-write - SETPOINT5
     eSETPOINT5 SETPOINT5 : 1;
+    /// read-write - SETPOINT6
     eSETPOINT6 SETPOINT6 : 1;
+    /// read-write - SETPOINT7
     eSETPOINT7 SETPOINT7 : 1;
+    /// read-write - SETPOINT8
     eSETPOINT8 SETPOINT8 : 1;
+    /// read-write - SETPOINT9
     eSETPOINT9 SETPOINT9 : 1;
+    /// read-write - SETPOINT10
     eSETPOINT10 SETPOINT10 : 1;
+    /// read-write - SETPOINT11
     eSETPOINT11 SETPOINT11 : 1;
+    /// read-write - SETPOINT12
     eSETPOINT12 SETPOINT12 : 1;
+    /// read-write - SETPOINT13
     eSETPOINT13 SETPOINT13 : 1;
+    /// read-write - SETPOINT14
     eSETPOINT14 SETPOINT14 : 1;
+    /// read-write - SETPOINT15
     eSETPOINT15 SETPOINT15 : 1;
     uint32_t _reserved_0 : 16;
   } bits;
@@ -1737,13 +1948,21 @@ union DOMAIN_M4CORE {
   
   // Bit field definition.
   struct {
+    /// read-write - CPU mode setting for RUN
     eCPU0_RUN CPU0_RUN : 1;
+    /// read-write - CPU mode setting for WAIT
     eCPU0_WAIT CPU0_WAIT : 1;
+    /// read-write - CPU mode setting for STOP
     eCPU0_STOP CPU0_STOP : 1;
+    /// read-write - CPU mode setting for SUSPEND
     eCPU0_SUSP CPU0_SUSP : 1;
+    /// read-write - CPU mode setting for RUN
     eCPU1_RUN CPU1_RUN : 1;
+    /// read-write - CPU mode setting for WAIT
     eCPU1_WAIT CPU1_WAIT : 1;
+    /// read-write - CPU mode setting for STOP
     eCPU1_STOP CPU1_STOP : 1;
+    /// read-write - CPU mode setting for SUSPEND
     eCPU1_SUSP CPU1_SUSP : 1;
     uint32_t _reserved_0 : 24;
   } bits;
@@ -1777,9 +1996,12 @@ union STAT_M4CORE {
   
   // Bit field definition.
   struct {
+    /// read-only - This is a Read Only bit. It indicate if the reset is in process.
     eUNDER_RST UNDER_RST : 1;
     uint32_t _reserved_0 : 1;
+    /// read-write - This bit indicate if the reset is caused by the power mode transfer.
     eRST_BY_HW RST_BY_HW : 1;
+    /// read-write - This bit indicate if the reset is caused by setting SW_RESET bit.
     eRST_BY_SW RST_BY_SW : 1;
     uint32_t _reserved_1 : 28;
   } bits;
@@ -1808,19 +2030,29 @@ union AUTHEN_M7CORE {
   
   // Bit field definition.
   struct {
+    /// read-write - Control whether reset slice is in domain mode
     eDOMAIN_MODE DOMAIN_MODE : 1;
+    /// read-write - Control whether reset slice is in Setpoint mode
     eSETPOINT_MODE SETPOINT_MODE : 1;
     uint32_t _reserved_0 : 5;
+    /// read-write - Domain/Setpoint mode lock
     uint32_t LOCK_MODE : 1;
+    /// read-write - when this bitfield set to 1, reset of slice would be subject to corresponding core status transition
     uint32_t ASSIGN_LIST : 4;
     uint32_t _reserved_1 : 3;
+    /// read-write - Assign list lock
     uint32_t LOCK_ASSIGN : 1;
+    /// read-write - Domain ID white list
     uint32_t WHITE_LIST : 4;
     uint32_t _reserved_2 : 3;
+    /// read-write - White list lock
     uint32_t LOCK_LIST : 1;
+    /// read-write - Allow user mode access
     uint32_t USER : 1;
+    /// read-write - Allow non-secure mode access
     uint32_t NONSECURE : 1;
     uint32_t _reserved_3 : 5;
+    /// read-write - Lock NONSECURE and USER
     uint32_t LOCK_SETTING : 1;
   } bits;
   
@@ -1843,6 +2075,7 @@ union CTRL_M7CORE {
   
   // Bit field definition.
   struct {
+    /// read-write - This is a self clearing bit
     eSW_RESET SW_RESET : 1;
     uint32_t _reserved_0 : 31;
   } bits;
@@ -1941,21 +2174,37 @@ union SETPOINT_M7CORE {
   
   // Bit field definition.
   struct {
+    /// read-write - SETPOINT0
     eSETPOINT0 SETPOINT0 : 1;
+    /// read-write - SETPOINT1
     eSETPOINT1 SETPOINT1 : 1;
+    /// read-write - SETPOINT2
     eSETPOINT2 SETPOINT2 : 1;
+    /// read-write - SETPOINT3
     eSETPOINT3 SETPOINT3 : 1;
+    /// read-write - SETPOINT4
     eSETPOINT4 SETPOINT4 : 1;
+    /// read-write - SETPOINT5
     eSETPOINT5 SETPOINT5 : 1;
+    /// read-write - SETPOINT6
     eSETPOINT6 SETPOINT6 : 1;
+    /// read-write - SETPOINT7
     eSETPOINT7 SETPOINT7 : 1;
+    /// read-write - SETPOINT8
     eSETPOINT8 SETPOINT8 : 1;
+    /// read-write - SETPOINT9
     eSETPOINT9 SETPOINT9 : 1;
+    /// read-write - SETPOINT10
     eSETPOINT10 SETPOINT10 : 1;
+    /// read-write - SETPOINT11
     eSETPOINT11 SETPOINT11 : 1;
+    /// read-write - SETPOINT12
     eSETPOINT12 SETPOINT12 : 1;
+    /// read-write - SETPOINT13
     eSETPOINT13 SETPOINT13 : 1;
+    /// read-write - SETPOINT14
     eSETPOINT14 SETPOINT14 : 1;
+    /// read-write - SETPOINT15
     eSETPOINT15 SETPOINT15 : 1;
     uint32_t _reserved_0 : 16;
   } bits;
@@ -2014,13 +2263,21 @@ union DOMAIN_M7CORE {
   
   // Bit field definition.
   struct {
+    /// read-write - CPU mode setting for RUN
     eCPU0_RUN CPU0_RUN : 1;
+    /// read-write - CPU mode setting for WAIT
     eCPU0_WAIT CPU0_WAIT : 1;
+    /// read-write - CPU mode setting for STOP
     eCPU0_STOP CPU0_STOP : 1;
+    /// read-write - CPU mode setting for SUSPEND
     eCPU0_SUSP CPU0_SUSP : 1;
+    /// read-write - CPU mode setting for RUN
     eCPU1_RUN CPU1_RUN : 1;
+    /// read-write - CPU mode setting for WAIT
     eCPU1_WAIT CPU1_WAIT : 1;
+    /// read-write - CPU mode setting for STOP
     eCPU1_STOP CPU1_STOP : 1;
+    /// read-write - CPU mode setting for SUSPEND
     eCPU1_SUSP CPU1_SUSP : 1;
     uint32_t _reserved_0 : 24;
   } bits;
@@ -2054,9 +2311,12 @@ union STAT_M7CORE {
   
   // Bit field definition.
   struct {
+    /// read-only - This is a Read Only bit. It indicate if the reset is in process.
     eUNDER_RST UNDER_RST : 1;
     uint32_t _reserved_0 : 1;
+    /// read-write - This bit indicate if the reset is caused by the power mode transfer.
     eRST_BY_HW RST_BY_HW : 1;
+    /// read-write - This bit indicate if the reset is caused by setting SW_RESET bit.
     eRST_BY_SW RST_BY_SW : 1;
     uint32_t _reserved_1 : 28;
   } bits;
@@ -2085,19 +2345,29 @@ union AUTHEN_M4DEBUG {
   
   // Bit field definition.
   struct {
+    /// read-write - Control whether reset slice is in domain mode
     eDOMAIN_MODE DOMAIN_MODE : 1;
+    /// read-write - Control whether reset slice is in Setpoint mode
     eSETPOINT_MODE SETPOINT_MODE : 1;
     uint32_t _reserved_0 : 5;
+    /// read-write - Domain/Setpoint mode lock
     uint32_t LOCK_MODE : 1;
+    /// read-write - when this bitfield set to 1, reset of slice would be subject to corresponding core status transition
     uint32_t ASSIGN_LIST : 4;
     uint32_t _reserved_1 : 3;
+    /// read-write - Assign list lock
     uint32_t LOCK_ASSIGN : 1;
+    /// read-write - Domain ID white list
     uint32_t WHITE_LIST : 4;
     uint32_t _reserved_2 : 3;
+    /// read-write - White list lock
     uint32_t LOCK_LIST : 1;
+    /// read-write - Allow user mode access
     uint32_t USER : 1;
+    /// read-write - Allow non-secure mode access
     uint32_t NONSECURE : 1;
     uint32_t _reserved_3 : 5;
+    /// read-write - Lock NONSECURE and USER
     uint32_t LOCK_SETTING : 1;
   } bits;
   
@@ -2120,6 +2390,7 @@ union CTRL_M4DEBUG {
   
   // Bit field definition.
   struct {
+    /// read-write - This is a self clearing bit
     eSW_RESET SW_RESET : 1;
     uint32_t _reserved_0 : 31;
   } bits;
@@ -2218,21 +2489,37 @@ union SETPOINT_M4DEBUG {
   
   // Bit field definition.
   struct {
+    /// read-write - SETPOINT0
     eSETPOINT0 SETPOINT0 : 1;
+    /// read-write - SETPOINT1
     eSETPOINT1 SETPOINT1 : 1;
+    /// read-write - SETPOINT2
     eSETPOINT2 SETPOINT2 : 1;
+    /// read-write - SETPOINT3
     eSETPOINT3 SETPOINT3 : 1;
+    /// read-write - SETPOINT4
     eSETPOINT4 SETPOINT4 : 1;
+    /// read-write - SETPOINT5
     eSETPOINT5 SETPOINT5 : 1;
+    /// read-write - SETPOINT6
     eSETPOINT6 SETPOINT6 : 1;
+    /// read-write - SETPOINT7
     eSETPOINT7 SETPOINT7 : 1;
+    /// read-write - SETPOINT8
     eSETPOINT8 SETPOINT8 : 1;
+    /// read-write - SETPOINT9
     eSETPOINT9 SETPOINT9 : 1;
+    /// read-write - SETPOINT10
     eSETPOINT10 SETPOINT10 : 1;
+    /// read-write - SETPOINT11
     eSETPOINT11 SETPOINT11 : 1;
+    /// read-write - SETPOINT12
     eSETPOINT12 SETPOINT12 : 1;
+    /// read-write - SETPOINT13
     eSETPOINT13 SETPOINT13 : 1;
+    /// read-write - SETPOINT14
     eSETPOINT14 SETPOINT14 : 1;
+    /// read-write - SETPOINT15
     eSETPOINT15 SETPOINT15 : 1;
     uint32_t _reserved_0 : 16;
   } bits;
@@ -2291,13 +2578,21 @@ union DOMAIN_M4DEBUG {
   
   // Bit field definition.
   struct {
+    /// read-write - CPU mode setting for RUN
     eCPU0_RUN CPU0_RUN : 1;
+    /// read-write - CPU mode setting for WAIT
     eCPU0_WAIT CPU0_WAIT : 1;
+    /// read-write - CPU mode setting for STOP
     eCPU0_STOP CPU0_STOP : 1;
+    /// read-write - CPU mode setting for SUSPEND
     eCPU0_SUSP CPU0_SUSP : 1;
+    /// read-write - CPU mode setting for RUN
     eCPU1_RUN CPU1_RUN : 1;
+    /// read-write - CPU mode setting for WAIT
     eCPU1_WAIT CPU1_WAIT : 1;
+    /// read-write - CPU mode setting for STOP
     eCPU1_STOP CPU1_STOP : 1;
+    /// read-write - CPU mode setting for SUSPEND
     eCPU1_SUSP CPU1_SUSP : 1;
     uint32_t _reserved_0 : 24;
   } bits;
@@ -2331,9 +2626,12 @@ union STAT_M4DEBUG {
   
   // Bit field definition.
   struct {
+    /// read-only - This is a Read Only bit. It indicate if the reset is in process.
     eUNDER_RST UNDER_RST : 1;
     uint32_t _reserved_0 : 1;
+    /// read-write - This bit indicate if the reset is caused by the power mode transfer.
     eRST_BY_HW RST_BY_HW : 1;
+    /// read-write - This bit indicate if the reset is caused by setting SW_RESET bit.
     eRST_BY_SW RST_BY_SW : 1;
     uint32_t _reserved_1 : 28;
   } bits;
@@ -2362,19 +2660,29 @@ union AUTHEN_M7DEBUG {
   
   // Bit field definition.
   struct {
+    /// read-write - Control whether reset slice is in domain mode
     eDOMAIN_MODE DOMAIN_MODE : 1;
+    /// read-write - Control whether reset slice is in Setpoint mode
     eSETPOINT_MODE SETPOINT_MODE : 1;
     uint32_t _reserved_0 : 5;
+    /// read-write - Domain/Setpoint mode lock
     uint32_t LOCK_MODE : 1;
+    /// read-write - when this bitfield set to 1, reset of slice would be subject to corresponding core status transition
     uint32_t ASSIGN_LIST : 4;
     uint32_t _reserved_1 : 3;
+    /// read-write - Assign list lock
     uint32_t LOCK_ASSIGN : 1;
+    /// read-write - Domain ID white list
     uint32_t WHITE_LIST : 4;
     uint32_t _reserved_2 : 3;
+    /// read-write - White list lock
     uint32_t LOCK_LIST : 1;
+    /// read-write - Allow user mode access
     uint32_t USER : 1;
+    /// read-write - Allow non-secure mode access
     uint32_t NONSECURE : 1;
     uint32_t _reserved_3 : 5;
+    /// read-write - Lock NONSECURE and USER
     uint32_t LOCK_SETTING : 1;
   } bits;
   
@@ -2397,6 +2705,7 @@ union CTRL_M7DEBUG {
   
   // Bit field definition.
   struct {
+    /// read-write - This is a self clearing bit
     eSW_RESET SW_RESET : 1;
     uint32_t _reserved_0 : 31;
   } bits;
@@ -2495,21 +2804,37 @@ union SETPOINT_M7DEBUG {
   
   // Bit field definition.
   struct {
+    /// read-write - SETPOINT0
     eSETPOINT0 SETPOINT0 : 1;
+    /// read-write - SETPOINT1
     eSETPOINT1 SETPOINT1 : 1;
+    /// read-write - SETPOINT2
     eSETPOINT2 SETPOINT2 : 1;
+    /// read-write - SETPOINT3
     eSETPOINT3 SETPOINT3 : 1;
+    /// read-write - SETPOINT4
     eSETPOINT4 SETPOINT4 : 1;
+    /// read-write - SETPOINT5
     eSETPOINT5 SETPOINT5 : 1;
+    /// read-write - SETPOINT6
     eSETPOINT6 SETPOINT6 : 1;
+    /// read-write - SETPOINT7
     eSETPOINT7 SETPOINT7 : 1;
+    /// read-write - SETPOINT8
     eSETPOINT8 SETPOINT8 : 1;
+    /// read-write - SETPOINT9
     eSETPOINT9 SETPOINT9 : 1;
+    /// read-write - SETPOINT10
     eSETPOINT10 SETPOINT10 : 1;
+    /// read-write - SETPOINT11
     eSETPOINT11 SETPOINT11 : 1;
+    /// read-write - SETPOINT12
     eSETPOINT12 SETPOINT12 : 1;
+    /// read-write - SETPOINT13
     eSETPOINT13 SETPOINT13 : 1;
+    /// read-write - SETPOINT14
     eSETPOINT14 SETPOINT14 : 1;
+    /// read-write - SETPOINT15
     eSETPOINT15 SETPOINT15 : 1;
     uint32_t _reserved_0 : 16;
   } bits;
@@ -2568,13 +2893,21 @@ union DOMAIN_M7DEBUG {
   
   // Bit field definition.
   struct {
+    /// read-write - CPU mode setting for RUN
     eCPU0_RUN CPU0_RUN : 1;
+    /// read-write - CPU mode setting for WAIT
     eCPU0_WAIT CPU0_WAIT : 1;
+    /// read-write - CPU mode setting for STOP
     eCPU0_STOP CPU0_STOP : 1;
+    /// read-write - CPU mode setting for SUSPEND
     eCPU0_SUSP CPU0_SUSP : 1;
+    /// read-write - CPU mode setting for RUN
     eCPU1_RUN CPU1_RUN : 1;
+    /// read-write - CPU mode setting for WAIT
     eCPU1_WAIT CPU1_WAIT : 1;
+    /// read-write - CPU mode setting for STOP
     eCPU1_STOP CPU1_STOP : 1;
+    /// read-write - CPU mode setting for SUSPEND
     eCPU1_SUSP CPU1_SUSP : 1;
     uint32_t _reserved_0 : 24;
   } bits;
@@ -2608,9 +2941,12 @@ union STAT_M7DEBUG {
   
   // Bit field definition.
   struct {
+    /// read-only - This is a Read Only bit. It indicate if the reset is in process.
     eUNDER_RST UNDER_RST : 1;
     uint32_t _reserved_0 : 1;
+    /// read-write - This bit indicate if the reset is caused by the power mode transfer.
     eRST_BY_HW RST_BY_HW : 1;
+    /// read-write - This bit indicate if the reset is caused by setting SW_RESET bit.
     eRST_BY_SW RST_BY_SW : 1;
     uint32_t _reserved_1 : 28;
   } bits;
@@ -2639,19 +2975,29 @@ union AUTHEN_USBPHY1 {
   
   // Bit field definition.
   struct {
+    /// read-write - Control whether reset slice is in domain mode
     eDOMAIN_MODE DOMAIN_MODE : 1;
+    /// read-write - Control whether reset slice is in Setpoint mode
     eSETPOINT_MODE SETPOINT_MODE : 1;
     uint32_t _reserved_0 : 5;
+    /// read-write - Domain/Setpoint mode lock
     uint32_t LOCK_MODE : 1;
+    /// read-write - when this bitfield set to 1, reset of slice would be subject to corresponding core status transition
     uint32_t ASSIGN_LIST : 4;
     uint32_t _reserved_1 : 3;
+    /// read-write - Assign list lock
     uint32_t LOCK_ASSIGN : 1;
+    /// read-write - Domain ID white list
     uint32_t WHITE_LIST : 4;
     uint32_t _reserved_2 : 3;
+    /// read-write - White list lock
     uint32_t LOCK_LIST : 1;
+    /// read-write - Allow user mode access
     uint32_t USER : 1;
+    /// read-write - Allow non-secure mode access
     uint32_t NONSECURE : 1;
     uint32_t _reserved_3 : 5;
+    /// read-write - Lock NONSECURE and USER
     uint32_t LOCK_SETTING : 1;
   } bits;
   
@@ -2674,6 +3020,7 @@ union CTRL_USBPHY1 {
   
   // Bit field definition.
   struct {
+    /// read-write - This is a self clearing bit
     eSW_RESET SW_RESET : 1;
     uint32_t _reserved_0 : 31;
   } bits;
@@ -2772,21 +3119,37 @@ union SETPOINT_USBPHY1 {
   
   // Bit field definition.
   struct {
+    /// read-write - SETPOINT0
     eSETPOINT0 SETPOINT0 : 1;
+    /// read-write - SETPOINT1
     eSETPOINT1 SETPOINT1 : 1;
+    /// read-write - SETPOINT2
     eSETPOINT2 SETPOINT2 : 1;
+    /// read-write - SETPOINT3
     eSETPOINT3 SETPOINT3 : 1;
+    /// read-write - SETPOINT4
     eSETPOINT4 SETPOINT4 : 1;
+    /// read-write - SETPOINT5
     eSETPOINT5 SETPOINT5 : 1;
+    /// read-write - SETPOINT6
     eSETPOINT6 SETPOINT6 : 1;
+    /// read-write - SETPOINT7
     eSETPOINT7 SETPOINT7 : 1;
+    /// read-write - SETPOINT8
     eSETPOINT8 SETPOINT8 : 1;
+    /// read-write - SETPOINT9
     eSETPOINT9 SETPOINT9 : 1;
+    /// read-write - SETPOINT10
     eSETPOINT10 SETPOINT10 : 1;
+    /// read-write - SETPOINT11
     eSETPOINT11 SETPOINT11 : 1;
+    /// read-write - SETPOINT12
     eSETPOINT12 SETPOINT12 : 1;
+    /// read-write - SETPOINT13
     eSETPOINT13 SETPOINT13 : 1;
+    /// read-write - SETPOINT14
     eSETPOINT14 SETPOINT14 : 1;
+    /// read-write - SETPOINT15
     eSETPOINT15 SETPOINT15 : 1;
     uint32_t _reserved_0 : 16;
   } bits;
@@ -2845,13 +3208,21 @@ union DOMAIN_USBPHY1 {
   
   // Bit field definition.
   struct {
+    /// read-write - CPU mode setting for RUN
     eCPU0_RUN CPU0_RUN : 1;
+    /// read-write - CPU mode setting for WAIT
     eCPU0_WAIT CPU0_WAIT : 1;
+    /// read-write - CPU mode setting for STOP
     eCPU0_STOP CPU0_STOP : 1;
+    /// read-write - CPU mode setting for SUSPEND
     eCPU0_SUSP CPU0_SUSP : 1;
+    /// read-write - CPU mode setting for RUN
     eCPU1_RUN CPU1_RUN : 1;
+    /// read-write - CPU mode setting for WAIT
     eCPU1_WAIT CPU1_WAIT : 1;
+    /// read-write - CPU mode setting for STOP
     eCPU1_STOP CPU1_STOP : 1;
+    /// read-write - CPU mode setting for SUSPEND
     eCPU1_SUSP CPU1_SUSP : 1;
     uint32_t _reserved_0 : 24;
   } bits;
@@ -2885,9 +3256,12 @@ union STAT_USBPHY1 {
   
   // Bit field definition.
   struct {
+    /// read-only - This is a Read Only bit. It indicate if the reset is in process.
     eUNDER_RST UNDER_RST : 1;
     uint32_t _reserved_0 : 1;
+    /// read-write - This bit indicate if the reset is caused by the power mode transfer.
     eRST_BY_HW RST_BY_HW : 1;
+    /// read-write - This bit indicate if the reset is caused by setting SW_RESET bit.
     eRST_BY_SW RST_BY_SW : 1;
     uint32_t _reserved_1 : 28;
   } bits;
@@ -2916,19 +3290,29 @@ union AUTHEN_USBPHY2 {
   
   // Bit field definition.
   struct {
+    /// read-write - Control whether reset slice is in domain mode
     eDOMAIN_MODE DOMAIN_MODE : 1;
+    /// read-write - Control whether reset slice is in Setpoint mode
     eSETPOINT_MODE SETPOINT_MODE : 1;
     uint32_t _reserved_0 : 5;
+    /// read-write - Domain/Setpoint mode lock
     uint32_t LOCK_MODE : 1;
+    /// read-write - when this bitfield set to 1, reset of slice would be subject to corresponding core status transition
     uint32_t ASSIGN_LIST : 4;
     uint32_t _reserved_1 : 3;
+    /// read-write - Assign list lock
     uint32_t LOCK_ASSIGN : 1;
+    /// read-write - Domain ID white list
     uint32_t WHITE_LIST : 4;
     uint32_t _reserved_2 : 3;
+    /// read-write - White list lock
     uint32_t LOCK_LIST : 1;
+    /// read-write - Allow user mode access
     uint32_t USER : 1;
+    /// read-write - Allow non-secure mode access
     uint32_t NONSECURE : 1;
     uint32_t _reserved_3 : 5;
+    /// read-write - Lock NONSECURE and USER
     uint32_t LOCK_SETTING : 1;
   } bits;
   
@@ -2951,6 +3335,7 @@ union CTRL_USBPHY2 {
   
   // Bit field definition.
   struct {
+    /// read-write - This is a self clearing bit
     eSW_RESET SW_RESET : 1;
     uint32_t _reserved_0 : 31;
   } bits;
@@ -3049,21 +3434,37 @@ union SETPOINT_USBPHY2 {
   
   // Bit field definition.
   struct {
+    /// read-write - SETPOINT0
     eSETPOINT0 SETPOINT0 : 1;
+    /// read-write - SETPOINT1
     eSETPOINT1 SETPOINT1 : 1;
+    /// read-write - SETPOINT2
     eSETPOINT2 SETPOINT2 : 1;
+    /// read-write - SETPOINT3
     eSETPOINT3 SETPOINT3 : 1;
+    /// read-write - SETPOINT4
     eSETPOINT4 SETPOINT4 : 1;
+    /// read-write - SETPOINT5
     eSETPOINT5 SETPOINT5 : 1;
+    /// read-write - SETPOINT6
     eSETPOINT6 SETPOINT6 : 1;
+    /// read-write - SETPOINT7
     eSETPOINT7 SETPOINT7 : 1;
+    /// read-write - SETPOINT8
     eSETPOINT8 SETPOINT8 : 1;
+    /// read-write - SETPOINT9
     eSETPOINT9 SETPOINT9 : 1;
+    /// read-write - SETPOINT10
     eSETPOINT10 SETPOINT10 : 1;
+    /// read-write - SETPOINT11
     eSETPOINT11 SETPOINT11 : 1;
+    /// read-write - SETPOINT12
     eSETPOINT12 SETPOINT12 : 1;
+    /// read-write - SETPOINT13
     eSETPOINT13 SETPOINT13 : 1;
+    /// read-write - SETPOINT14
     eSETPOINT14 SETPOINT14 : 1;
+    /// read-write - SETPOINT15
     eSETPOINT15 SETPOINT15 : 1;
     uint32_t _reserved_0 : 16;
   } bits;
@@ -3122,13 +3523,21 @@ union DOMAIN_USBPHY2 {
   
   // Bit field definition.
   struct {
+    /// read-write - CPU mode setting for RUN
     eCPU0_RUN CPU0_RUN : 1;
+    /// read-write - CPU mode setting for WAIT
     eCPU0_WAIT CPU0_WAIT : 1;
+    /// read-write - CPU mode setting for STOP
     eCPU0_STOP CPU0_STOP : 1;
+    /// read-write - CPU mode setting for SUSPEND
     eCPU0_SUSP CPU0_SUSP : 1;
+    /// read-write - CPU mode setting for RUN
     eCPU1_RUN CPU1_RUN : 1;
+    /// read-write - CPU mode setting for WAIT
     eCPU1_WAIT CPU1_WAIT : 1;
+    /// read-write - CPU mode setting for STOP
     eCPU1_STOP CPU1_STOP : 1;
+    /// read-write - CPU mode setting for SUSPEND
     eCPU1_SUSP CPU1_SUSP : 1;
     uint32_t _reserved_0 : 24;
   } bits;
@@ -3162,9 +3571,12 @@ union STAT_USBPHY2 {
   
   // Bit field definition.
   struct {
+    /// read-only - This is a Read Only bit. It indicate if the reset is in process.
     eUNDER_RST UNDER_RST : 1;
     uint32_t _reserved_0 : 1;
+    /// read-write - This bit indicate if the reset is caused by the power mode transfer.
     eRST_BY_HW RST_BY_HW : 1;
+    /// read-write - This bit indicate if the reset is caused by setting SW_RESET bit.
     eRST_BY_SW RST_BY_SW : 1;
     uint32_t _reserved_1 : 28;
   } bits;

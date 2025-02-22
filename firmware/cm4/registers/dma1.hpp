@@ -68,21 +68,34 @@ union CR {
   // Bit field definition.
   struct {
     uint32_t _reserved_0 : 1;
+    /// read-write - Enable Debug
     eEDBG EDBG : 1;
+    /// read-write - Enable Round Robin Channel Arbitration
     eERCA ERCA : 1;
+    /// read-write - Enable Round Robin Group Arbitration
     eERGA ERGA : 1;
+    /// read-write - Halt On Error
     eHOE HOE : 1;
+    /// read-write - Halt eDMA Operations
     eHALT HALT : 1;
+    /// read-write - Continuous Link Mode
     eCLM CLM : 1;
+    /// read-write - Enable Minor Loop Mapping
     eEMLM EMLM : 1;
+    /// read-write - Channel Group 0 Priority
     uint32_t GRP0PRI : 1;
     uint32_t _reserved_1 : 1;
+    /// read-write - Channel Group 1 Priority
     uint32_t GRP1PRI : 1;
     uint32_t _reserved_2 : 5;
+    /// read-write - Error Cancel Transfer
     eECX ECX : 1;
+    /// read-write - Cancel Transfer
     eCX CX : 1;
     uint32_t _reserved_3 : 6;
+    /// read-only - eDMA version number
     uint32_t VERSION : 7;
+    /// read-only - eDMA Active Status
     eACTIVE ACTIVE : 1;
   } bits;
   
@@ -160,20 +173,33 @@ union ES {
   
   // Bit field definition.
   struct {
+    /// read-only - Destination Bus Error
     eDBE DBE : 1;
+    /// read-only - Source Bus Error
     eSBE SBE : 1;
+    /// read-only - Scatter/Gather Configuration Error
     eSGE SGE : 1;
+    /// read-only - NBYTES/CITER Configuration Error
     eNCE NCE : 1;
+    /// read-only - Destination Offset Error
     eDOE DOE : 1;
+    /// read-only - Destination Address Error
     eDAE DAE : 1;
+    /// read-only - Source Offset Error
     eSOE SOE : 1;
+    /// read-only - Source Address Error
     eSAE SAE : 1;
+    /// read-only - Error Channel Number or Canceled Channel Number
     uint32_t ERRCHN : 5;
     uint32_t _reserved_0 : 1;
+    /// read-only - Channel Priority Error
     eCPE CPE : 1;
+    /// read-only - Group Priority Error
     eGPE GPE : 1;
+    /// read-only - Transfer Canceled
     eECX ECX : 1;
     uint32_t _reserved_1 : 14;
+    /// read-only - Logical OR of all ERR status fields
     eVLD VLD : 1;
   } bits;
   
@@ -351,37 +377,69 @@ union ERQ {
   
   // Bit field definition.
   struct {
+    /// read-write - Enable DMA Request 0
     eERQ0 ERQ0 : 1;
+    /// read-write - Enable DMA Request 1
     eERQ1 ERQ1 : 1;
+    /// read-write - Enable DMA Request 2
     eERQ2 ERQ2 : 1;
+    /// read-write - Enable DMA Request 3
     eERQ3 ERQ3 : 1;
+    /// read-write - Enable DMA Request 4
     eERQ4 ERQ4 : 1;
+    /// read-write - Enable DMA Request 5
     eERQ5 ERQ5 : 1;
+    /// read-write - Enable DMA Request 6
     eERQ6 ERQ6 : 1;
+    /// read-write - Enable DMA Request 7
     eERQ7 ERQ7 : 1;
+    /// read-write - Enable DMA Request 8
     eERQ8 ERQ8 : 1;
+    /// read-write - Enable DMA Request 9
     eERQ9 ERQ9 : 1;
+    /// read-write - Enable DMA Request 10
     eERQ10 ERQ10 : 1;
+    /// read-write - Enable DMA Request 11
     eERQ11 ERQ11 : 1;
+    /// read-write - Enable DMA Request 12
     eERQ12 ERQ12 : 1;
+    /// read-write - Enable DMA Request 13
     eERQ13 ERQ13 : 1;
+    /// read-write - Enable DMA Request 14
     eERQ14 ERQ14 : 1;
+    /// read-write - Enable DMA Request 15
     eERQ15 ERQ15 : 1;
+    /// read-write - Enable DMA Request 16
     eERQ16 ERQ16 : 1;
+    /// read-write - Enable DMA Request 17
     eERQ17 ERQ17 : 1;
+    /// read-write - Enable DMA Request 18
     eERQ18 ERQ18 : 1;
+    /// read-write - Enable DMA Request 19
     eERQ19 ERQ19 : 1;
+    /// read-write - Enable DMA Request 20
     eERQ20 ERQ20 : 1;
+    /// read-write - Enable DMA Request 21
     eERQ21 ERQ21 : 1;
+    /// read-write - Enable DMA Request 22
     eERQ22 ERQ22 : 1;
+    /// read-write - Enable DMA Request 23
     eERQ23 ERQ23 : 1;
+    /// read-write - Enable DMA Request 24
     eERQ24 ERQ24 : 1;
+    /// read-write - Enable DMA Request 25
     eERQ25 ERQ25 : 1;
+    /// read-write - Enable DMA Request 26
     eERQ26 ERQ26 : 1;
+    /// read-write - Enable DMA Request 27
     eERQ27 ERQ27 : 1;
+    /// read-write - Enable DMA Request 28
     eERQ28 ERQ28 : 1;
+    /// read-write - Enable DMA Request 29
     eERQ29 ERQ29 : 1;
+    /// read-write - Enable DMA Request 30
     eERQ30 ERQ30 : 1;
+    /// read-write - Enable DMA Request 31
     eERQ31 ERQ31 : 1;
   } bits;
   
@@ -559,37 +617,69 @@ union EEI {
   
   // Bit field definition.
   struct {
+    /// read-write - Enable Error Interrupt 0
     eEEI0 EEI0 : 1;
+    /// read-write - Enable Error Interrupt 1
     eEEI1 EEI1 : 1;
+    /// read-write - Enable Error Interrupt 2
     eEEI2 EEI2 : 1;
+    /// read-write - Enable Error Interrupt 3
     eEEI3 EEI3 : 1;
+    /// read-write - Enable Error Interrupt 4
     eEEI4 EEI4 : 1;
+    /// read-write - Enable Error Interrupt 5
     eEEI5 EEI5 : 1;
+    /// read-write - Enable Error Interrupt 6
     eEEI6 EEI6 : 1;
+    /// read-write - Enable Error Interrupt 7
     eEEI7 EEI7 : 1;
+    /// read-write - Enable Error Interrupt 8
     eEEI8 EEI8 : 1;
+    /// read-write - Enable Error Interrupt 9
     eEEI9 EEI9 : 1;
+    /// read-write - Enable Error Interrupt 10
     eEEI10 EEI10 : 1;
+    /// read-write - Enable Error Interrupt 11
     eEEI11 EEI11 : 1;
+    /// read-write - Enable Error Interrupt 12
     eEEI12 EEI12 : 1;
+    /// read-write - Enable Error Interrupt 13
     eEEI13 EEI13 : 1;
+    /// read-write - Enable Error Interrupt 14
     eEEI14 EEI14 : 1;
+    /// read-write - Enable Error Interrupt 15
     eEEI15 EEI15 : 1;
+    /// read-write - Enable Error Interrupt 16
     eEEI16 EEI16 : 1;
+    /// read-write - Enable Error Interrupt 17
     eEEI17 EEI17 : 1;
+    /// read-write - Enable Error Interrupt 18
     eEEI18 EEI18 : 1;
+    /// read-write - Enable Error Interrupt 19
     eEEI19 EEI19 : 1;
+    /// read-write - Enable Error Interrupt 20
     eEEI20 EEI20 : 1;
+    /// read-write - Enable Error Interrupt 21
     eEEI21 EEI21 : 1;
+    /// read-write - Enable Error Interrupt 22
     eEEI22 EEI22 : 1;
+    /// read-write - Enable Error Interrupt 23
     eEEI23 EEI23 : 1;
+    /// read-write - Enable Error Interrupt 24
     eEEI24 EEI24 : 1;
+    /// read-write - Enable Error Interrupt 25
     eEEI25 EEI25 : 1;
+    /// read-write - Enable Error Interrupt 26
     eEEI26 EEI26 : 1;
+    /// read-write - Enable Error Interrupt 27
     eEEI27 EEI27 : 1;
+    /// read-write - Enable Error Interrupt 28
     eEEI28 EEI28 : 1;
+    /// read-write - Enable Error Interrupt 29
     eEEI29 EEI29 : 1;
+    /// read-write - Enable Error Interrupt 30
     eEEI30 EEI30 : 1;
+    /// read-write - Enable Error Interrupt 31
     eEEI31 EEI31 : 1;
   } bits;
   
@@ -617,9 +707,12 @@ union CEEI {
   
   // Bit field definition.
   struct {
+    /// read-write - Clear Enable Error Interrupt
     uint32_t CEEI : 5;
     uint32_t _reserved_0 : 1;
+    /// read-write - Clear All Enable Error Interrupts
     eCAEE CAEE : 1;
+    /// read-write - No Op Enable
     eNOP NOP : 1;
     uint32_t _reserved_1 : 24;
   } bits;
@@ -648,9 +741,12 @@ union SEEI {
   
   // Bit field definition.
   struct {
+    /// read-write - Set Enable Error Interrupt
     uint32_t SEEI : 5;
     uint32_t _reserved_0 : 1;
+    /// read-write - Set All Enable Error Interrupts
     eSAEE SAEE : 1;
+    /// read-write - No Op Enable
     eNOP NOP : 1;
     uint32_t _reserved_1 : 24;
   } bits;
@@ -679,9 +775,12 @@ union CERQ {
   
   // Bit field definition.
   struct {
+    /// read-write - Clear Enable Request
     uint32_t CERQ : 5;
     uint32_t _reserved_0 : 1;
+    /// read-write - Clear All Enable Requests
     eCAER CAER : 1;
+    /// read-write - No Op Enable
     eNOP NOP : 1;
     uint32_t _reserved_1 : 24;
   } bits;
@@ -710,9 +809,12 @@ union SERQ {
   
   // Bit field definition.
   struct {
+    /// read-write - Set Enable Request
     uint32_t SERQ : 5;
     uint32_t _reserved_0 : 1;
+    /// read-write - Set All Enable Requests
     eSAER SAER : 1;
+    /// read-write - No Op Enable
     eNOP NOP : 1;
     uint32_t _reserved_1 : 24;
   } bits;
@@ -741,9 +843,12 @@ union CDNE {
   
   // Bit field definition.
   struct {
+    /// read-write - Clear DONE field
     uint32_t CDNE : 5;
     uint32_t _reserved_0 : 1;
+    /// read-write - Clears All DONE fields
     eCADN CADN : 1;
+    /// read-write - No Op Enable
     eNOP NOP : 1;
     uint32_t _reserved_1 : 24;
   } bits;
@@ -772,9 +877,12 @@ union SSRT {
   
   // Bit field definition.
   struct {
+    /// read-write - Set START field
     uint32_t SSRT : 5;
     uint32_t _reserved_0 : 1;
+    /// read-write - Set All START fields (activates all channels)
     eSAST SAST : 1;
+    /// read-write - No Op Enable
     eNOP NOP : 1;
     uint32_t _reserved_1 : 24;
   } bits;
@@ -803,9 +911,12 @@ union CERR {
   
   // Bit field definition.
   struct {
+    /// read-write - Clear Error Indicator
     uint32_t CERR : 5;
     uint32_t _reserved_0 : 1;
+    /// read-write - Clear All Error Indicators
     eCAEI CAEI : 1;
+    /// read-write - No Op Enable
     eNOP NOP : 1;
     uint32_t _reserved_1 : 24;
   } bits;
@@ -834,9 +945,12 @@ union CINT {
   
   // Bit field definition.
   struct {
+    /// read-write - Clear Interrupt Request
     uint32_t CINT : 5;
     uint32_t _reserved_0 : 1;
+    /// read-write - Clear All Interrupt Requests
     eCAIR CAIR : 1;
+    /// read-write - No Op Enable
     eNOP NOP : 1;
     uint32_t _reserved_1 : 24;
   } bits;
@@ -1015,37 +1129,69 @@ union INT {
   
   // Bit field definition.
   struct {
+    /// read-write - Interrupt Request 0
     eINT0 INT0 : 1;
+    /// read-write - Interrupt Request 1
     eINT1 INT1 : 1;
+    /// read-write - Interrupt Request 2
     eINT2 INT2 : 1;
+    /// read-write - Interrupt Request 3
     eINT3 INT3 : 1;
+    /// read-write - Interrupt Request 4
     eINT4 INT4 : 1;
+    /// read-write - Interrupt Request 5
     eINT5 INT5 : 1;
+    /// read-write - Interrupt Request 6
     eINT6 INT6 : 1;
+    /// read-write - Interrupt Request 7
     eINT7 INT7 : 1;
+    /// read-write - Interrupt Request 8
     eINT8 INT8 : 1;
+    /// read-write - Interrupt Request 9
     eINT9 INT9 : 1;
+    /// read-write - Interrupt Request 10
     eINT10 INT10 : 1;
+    /// read-write - Interrupt Request 11
     eINT11 INT11 : 1;
+    /// read-write - Interrupt Request 12
     eINT12 INT12 : 1;
+    /// read-write - Interrupt Request 13
     eINT13 INT13 : 1;
+    /// read-write - Interrupt Request 14
     eINT14 INT14 : 1;
+    /// read-write - Interrupt Request 15
     eINT15 INT15 : 1;
+    /// read-write - Interrupt Request 16
     eINT16 INT16 : 1;
+    /// read-write - Interrupt Request 17
     eINT17 INT17 : 1;
+    /// read-write - Interrupt Request 18
     eINT18 INT18 : 1;
+    /// read-write - Interrupt Request 19
     eINT19 INT19 : 1;
+    /// read-write - Interrupt Request 20
     eINT20 INT20 : 1;
+    /// read-write - Interrupt Request 21
     eINT21 INT21 : 1;
+    /// read-write - Interrupt Request 22
     eINT22 INT22 : 1;
+    /// read-write - Interrupt Request 23
     eINT23 INT23 : 1;
+    /// read-write - Interrupt Request 24
     eINT24 INT24 : 1;
+    /// read-write - Interrupt Request 25
     eINT25 INT25 : 1;
+    /// read-write - Interrupt Request 26
     eINT26 INT26 : 1;
+    /// read-write - Interrupt Request 27
     eINT27 INT27 : 1;
+    /// read-write - Interrupt Request 28
     eINT28 INT28 : 1;
+    /// read-write - Interrupt Request 29
     eINT29 INT29 : 1;
+    /// read-write - Interrupt Request 30
     eINT30 INT30 : 1;
+    /// read-write - Interrupt Request 31
     eINT31 INT31 : 1;
   } bits;
   
@@ -1223,37 +1369,69 @@ union ERR {
   
   // Bit field definition.
   struct {
+    /// read-write - Error In Channel 0
     eERR0 ERR0 : 1;
+    /// read-write - Error In Channel 1
     eERR1 ERR1 : 1;
+    /// read-write - Error In Channel 2
     eERR2 ERR2 : 1;
+    /// read-write - Error In Channel 3
     eERR3 ERR3 : 1;
+    /// read-write - Error In Channel 4
     eERR4 ERR4 : 1;
+    /// read-write - Error In Channel 5
     eERR5 ERR5 : 1;
+    /// read-write - Error In Channel 6
     eERR6 ERR6 : 1;
+    /// read-write - Error In Channel 7
     eERR7 ERR7 : 1;
+    /// read-write - Error In Channel 8
     eERR8 ERR8 : 1;
+    /// read-write - Error In Channel 9
     eERR9 ERR9 : 1;
+    /// read-write - Error In Channel 10
     eERR10 ERR10 : 1;
+    /// read-write - Error In Channel 11
     eERR11 ERR11 : 1;
+    /// read-write - Error In Channel 12
     eERR12 ERR12 : 1;
+    /// read-write - Error In Channel 13
     eERR13 ERR13 : 1;
+    /// read-write - Error In Channel 14
     eERR14 ERR14 : 1;
+    /// read-write - Error In Channel 15
     eERR15 ERR15 : 1;
+    /// read-write - Error In Channel 16
     eERR16 ERR16 : 1;
+    /// read-write - Error In Channel 17
     eERR17 ERR17 : 1;
+    /// read-write - Error In Channel 18
     eERR18 ERR18 : 1;
+    /// read-write - Error In Channel 19
     eERR19 ERR19 : 1;
+    /// read-write - Error In Channel 20
     eERR20 ERR20 : 1;
+    /// read-write - Error In Channel 21
     eERR21 ERR21 : 1;
+    /// read-write - Error In Channel 22
     eERR22 ERR22 : 1;
+    /// read-write - Error In Channel 23
     eERR23 ERR23 : 1;
+    /// read-write - Error In Channel 24
     eERR24 ERR24 : 1;
+    /// read-write - Error In Channel 25
     eERR25 ERR25 : 1;
+    /// read-write - Error In Channel 26
     eERR26 ERR26 : 1;
+    /// read-write - Error In Channel 27
     eERR27 ERR27 : 1;
+    /// read-write - Error In Channel 28
     eERR28 ERR28 : 1;
+    /// read-write - Error In Channel 29
     eERR29 ERR29 : 1;
+    /// read-write - Error In Channel 30
     eERR30 ERR30 : 1;
+    /// read-write - Error In Channel 31
     eERR31 ERR31 : 1;
   } bits;
   
@@ -1431,37 +1609,69 @@ union HRS {
   
   // Bit field definition.
   struct {
+    /// read-only - Hardware Request Status Channel 0
     eHRS0 HRS0 : 1;
+    /// read-only - Hardware Request Status Channel 1
     eHRS1 HRS1 : 1;
+    /// read-only - Hardware Request Status Channel 2
     eHRS2 HRS2 : 1;
+    /// read-only - Hardware Request Status Channel 3
     eHRS3 HRS3 : 1;
+    /// read-only - Hardware Request Status Channel 4
     eHRS4 HRS4 : 1;
+    /// read-only - Hardware Request Status Channel 5
     eHRS5 HRS5 : 1;
+    /// read-only - Hardware Request Status Channel 6
     eHRS6 HRS6 : 1;
+    /// read-only - Hardware Request Status Channel 7
     eHRS7 HRS7 : 1;
+    /// read-only - Hardware Request Status Channel 8
     eHRS8 HRS8 : 1;
+    /// read-only - Hardware Request Status Channel 9
     eHRS9 HRS9 : 1;
+    /// read-only - Hardware Request Status Channel 10
     eHRS10 HRS10 : 1;
+    /// read-only - Hardware Request Status Channel 11
     eHRS11 HRS11 : 1;
+    /// read-only - Hardware Request Status Channel 12
     eHRS12 HRS12 : 1;
+    /// read-only - Hardware Request Status Channel 13
     eHRS13 HRS13 : 1;
+    /// read-only - Hardware Request Status Channel 14
     eHRS14 HRS14 : 1;
+    /// read-only - Hardware Request Status Channel 15
     eHRS15 HRS15 : 1;
+    /// read-only - Hardware Request Status Channel 16
     eHRS16 HRS16 : 1;
+    /// read-only - Hardware Request Status Channel 17
     eHRS17 HRS17 : 1;
+    /// read-only - Hardware Request Status Channel 18
     eHRS18 HRS18 : 1;
+    /// read-only - Hardware Request Status Channel 19
     eHRS19 HRS19 : 1;
+    /// read-only - Hardware Request Status Channel 20
     eHRS20 HRS20 : 1;
+    /// read-only - Hardware Request Status Channel 21
     eHRS21 HRS21 : 1;
+    /// read-only - Hardware Request Status Channel 22
     eHRS22 HRS22 : 1;
+    /// read-only - Hardware Request Status Channel 23
     eHRS23 HRS23 : 1;
+    /// read-only - Hardware Request Status Channel 24
     eHRS24 HRS24 : 1;
+    /// read-only - Hardware Request Status Channel 25
     eHRS25 HRS25 : 1;
+    /// read-only - Hardware Request Status Channel 26
     eHRS26 HRS26 : 1;
+    /// read-only - Hardware Request Status Channel 27
     eHRS27 HRS27 : 1;
+    /// read-only - Hardware Request Status Channel 28
     eHRS28 HRS28 : 1;
+    /// read-only - Hardware Request Status Channel 29
     eHRS29 HRS29 : 1;
+    /// read-only - Hardware Request Status Channel 30
     eHRS30 HRS30 : 1;
+    /// read-only - Hardware Request Status Channel 31
     eHRS31 HRS31 : 1;
   } bits;
   
@@ -1639,37 +1849,69 @@ union EARS {
   
   // Bit field definition.
   struct {
+    /// read-write - Enable asynchronous DMA request in stop mode for channel 0.
     eEDREQ_0 EDREQ_0 : 1;
+    /// read-write - Enable asynchronous DMA request in stop mode for channel 1.
     eEDREQ_1 EDREQ_1 : 1;
+    /// read-write - Enable asynchronous DMA request in stop mode for channel 2.
     eEDREQ_2 EDREQ_2 : 1;
+    /// read-write - Enable asynchronous DMA request in stop mode for channel 3.
     eEDREQ_3 EDREQ_3 : 1;
+    /// read-write - Enable asynchronous DMA request in stop mode for channel 4.
     eEDREQ_4 EDREQ_4 : 1;
+    /// read-write - Enable asynchronous DMA request in stop mode for channel 5.
     eEDREQ_5 EDREQ_5 : 1;
+    /// read-write - Enable asynchronous DMA request in stop mode for channel 6.
     eEDREQ_6 EDREQ_6 : 1;
+    /// read-write - Enable asynchronous DMA request in stop mode for channel 7.
     eEDREQ_7 EDREQ_7 : 1;
+    /// read-write - Enable asynchronous DMA request in stop mode for channel 8.
     eEDREQ_8 EDREQ_8 : 1;
+    /// read-write - Enable asynchronous DMA request in stop mode for channel 9.
     eEDREQ_9 EDREQ_9 : 1;
+    /// read-write - Enable asynchronous DMA request in stop mode for channel 10.
     eEDREQ_10 EDREQ_10 : 1;
+    /// read-write - Enable asynchronous DMA request in stop mode for channel 11.
     eEDREQ_11 EDREQ_11 : 1;
+    /// read-write - Enable asynchronous DMA request in stop mode for channel 12.
     eEDREQ_12 EDREQ_12 : 1;
+    /// read-write - Enable asynchronous DMA request in stop mode for channel 13.
     eEDREQ_13 EDREQ_13 : 1;
+    /// read-write - Enable asynchronous DMA request in stop mode for channel 14.
     eEDREQ_14 EDREQ_14 : 1;
+    /// read-write - Enable asynchronous DMA request in stop mode for channel 15.
     eEDREQ_15 EDREQ_15 : 1;
+    /// read-write - Enable asynchronous DMA request in stop mode for channel 16.
     eEDREQ_16 EDREQ_16 : 1;
+    /// read-write - Enable asynchronous DMA request in stop mode for channel 17.
     eEDREQ_17 EDREQ_17 : 1;
+    /// read-write - Enable asynchronous DMA request in stop mode for channel 18.
     eEDREQ_18 EDREQ_18 : 1;
+    /// read-write - Enable asynchronous DMA request in stop mode for channel 19.
     eEDREQ_19 EDREQ_19 : 1;
+    /// read-write - Enable asynchronous DMA request in stop mode for channel 20.
     eEDREQ_20 EDREQ_20 : 1;
+    /// read-write - Enable asynchronous DMA request in stop mode for channel 21.
     eEDREQ_21 EDREQ_21 : 1;
+    /// read-write - Enable asynchronous DMA request in stop mode for channel 22.
     eEDREQ_22 EDREQ_22 : 1;
+    /// read-write - Enable asynchronous DMA request in stop mode for channel 23.
     eEDREQ_23 EDREQ_23 : 1;
+    /// read-write - Enable asynchronous DMA request in stop mode for channel 24.
     eEDREQ_24 EDREQ_24 : 1;
+    /// read-write - Enable asynchronous DMA request in stop mode for channel 25.
     eEDREQ_25 EDREQ_25 : 1;
+    /// read-write - Enable asynchronous DMA request in stop mode for channel 26.
     eEDREQ_26 EDREQ_26 : 1;
+    /// read-write - Enable asynchronous DMA request in stop mode for channel 27.
     eEDREQ_27 EDREQ_27 : 1;
+    /// read-write - Enable asynchronous DMA request in stop mode for channel 28.
     eEDREQ_28 EDREQ_28 : 1;
+    /// read-write - Enable asynchronous DMA request in stop mode for channel 29.
     eEDREQ_29 EDREQ_29 : 1;
+    /// read-write - Enable asynchronous DMA request in stop mode for channel 30.
     eEDREQ_30 EDREQ_30 : 1;
+    /// read-write - Enable asynchronous DMA request in stop mode for channel 31.
     eEDREQ_31 EDREQ_31 : 1;
   } bits;
   
@@ -1697,9 +1939,13 @@ union DCHPRI3 {
   
   // Bit field definition.
   struct {
+    /// read-write - Channel n Arbitration Priority
     uint32_t CHPRI : 4;
+    /// read-only - Channel n Current Group Priority
     uint32_t GRPPRI : 2;
+    /// read-write - Disable Preempt Ability. This field resets to 0.
     eDPA DPA : 1;
+    /// read-write - Enable Channel Preemption. This field resets to 0.
     eECP ECP : 1;
     uint32_t _reserved_0 : 24;
   } bits;
@@ -1728,9 +1974,13 @@ union DCHPRI2 {
   
   // Bit field definition.
   struct {
+    /// read-write - Channel n Arbitration Priority
     uint32_t CHPRI : 4;
+    /// read-only - Channel n Current Group Priority
     uint32_t GRPPRI : 2;
+    /// read-write - Disable Preempt Ability. This field resets to 0.
     eDPA DPA : 1;
+    /// read-write - Enable Channel Preemption. This field resets to 0.
     eECP ECP : 1;
     uint32_t _reserved_0 : 24;
   } bits;
@@ -1759,9 +2009,13 @@ union DCHPRI1 {
   
   // Bit field definition.
   struct {
+    /// read-write - Channel n Arbitration Priority
     uint32_t CHPRI : 4;
+    /// read-only - Channel n Current Group Priority
     uint32_t GRPPRI : 2;
+    /// read-write - Disable Preempt Ability. This field resets to 0.
     eDPA DPA : 1;
+    /// read-write - Enable Channel Preemption. This field resets to 0.
     eECP ECP : 1;
     uint32_t _reserved_0 : 24;
   } bits;
@@ -1790,9 +2044,13 @@ union DCHPRI0 {
   
   // Bit field definition.
   struct {
+    /// read-write - Channel n Arbitration Priority
     uint32_t CHPRI : 4;
+    /// read-only - Channel n Current Group Priority
     uint32_t GRPPRI : 2;
+    /// read-write - Disable Preempt Ability. This field resets to 0.
     eDPA DPA : 1;
+    /// read-write - Enable Channel Preemption. This field resets to 0.
     eECP ECP : 1;
     uint32_t _reserved_0 : 24;
   } bits;
@@ -1821,9 +2079,13 @@ union DCHPRI7 {
   
   // Bit field definition.
   struct {
+    /// read-write - Channel n Arbitration Priority
     uint32_t CHPRI : 4;
+    /// read-only - Channel n Current Group Priority
     uint32_t GRPPRI : 2;
+    /// read-write - Disable Preempt Ability. This field resets to 0.
     eDPA DPA : 1;
+    /// read-write - Enable Channel Preemption. This field resets to 0.
     eECP ECP : 1;
     uint32_t _reserved_0 : 24;
   } bits;
@@ -1852,9 +2114,13 @@ union DCHPRI6 {
   
   // Bit field definition.
   struct {
+    /// read-write - Channel n Arbitration Priority
     uint32_t CHPRI : 4;
+    /// read-only - Channel n Current Group Priority
     uint32_t GRPPRI : 2;
+    /// read-write - Disable Preempt Ability. This field resets to 0.
     eDPA DPA : 1;
+    /// read-write - Enable Channel Preemption. This field resets to 0.
     eECP ECP : 1;
     uint32_t _reserved_0 : 24;
   } bits;
@@ -1883,9 +2149,13 @@ union DCHPRI5 {
   
   // Bit field definition.
   struct {
+    /// read-write - Channel n Arbitration Priority
     uint32_t CHPRI : 4;
+    /// read-only - Channel n Current Group Priority
     uint32_t GRPPRI : 2;
+    /// read-write - Disable Preempt Ability. This field resets to 0.
     eDPA DPA : 1;
+    /// read-write - Enable Channel Preemption. This field resets to 0.
     eECP ECP : 1;
     uint32_t _reserved_0 : 24;
   } bits;
@@ -1914,9 +2184,13 @@ union DCHPRI4 {
   
   // Bit field definition.
   struct {
+    /// read-write - Channel n Arbitration Priority
     uint32_t CHPRI : 4;
+    /// read-only - Channel n Current Group Priority
     uint32_t GRPPRI : 2;
+    /// read-write - Disable Preempt Ability. This field resets to 0.
     eDPA DPA : 1;
+    /// read-write - Enable Channel Preemption. This field resets to 0.
     eECP ECP : 1;
     uint32_t _reserved_0 : 24;
   } bits;
@@ -1945,9 +2219,13 @@ union DCHPRI11 {
   
   // Bit field definition.
   struct {
+    /// read-write - Channel n Arbitration Priority
     uint32_t CHPRI : 4;
+    /// read-only - Channel n Current Group Priority
     uint32_t GRPPRI : 2;
+    /// read-write - Disable Preempt Ability. This field resets to 0.
     eDPA DPA : 1;
+    /// read-write - Enable Channel Preemption. This field resets to 0.
     eECP ECP : 1;
     uint32_t _reserved_0 : 24;
   } bits;
@@ -1976,9 +2254,13 @@ union DCHPRI10 {
   
   // Bit field definition.
   struct {
+    /// read-write - Channel n Arbitration Priority
     uint32_t CHPRI : 4;
+    /// read-only - Channel n Current Group Priority
     uint32_t GRPPRI : 2;
+    /// read-write - Disable Preempt Ability. This field resets to 0.
     eDPA DPA : 1;
+    /// read-write - Enable Channel Preemption. This field resets to 0.
     eECP ECP : 1;
     uint32_t _reserved_0 : 24;
   } bits;
@@ -2007,9 +2289,13 @@ union DCHPRI9 {
   
   // Bit field definition.
   struct {
+    /// read-write - Channel n Arbitration Priority
     uint32_t CHPRI : 4;
+    /// read-only - Channel n Current Group Priority
     uint32_t GRPPRI : 2;
+    /// read-write - Disable Preempt Ability. This field resets to 0.
     eDPA DPA : 1;
+    /// read-write - Enable Channel Preemption. This field resets to 0.
     eECP ECP : 1;
     uint32_t _reserved_0 : 24;
   } bits;
@@ -2038,9 +2324,13 @@ union DCHPRI8 {
   
   // Bit field definition.
   struct {
+    /// read-write - Channel n Arbitration Priority
     uint32_t CHPRI : 4;
+    /// read-only - Channel n Current Group Priority
     uint32_t GRPPRI : 2;
+    /// read-write - Disable Preempt Ability. This field resets to 0.
     eDPA DPA : 1;
+    /// read-write - Enable Channel Preemption. This field resets to 0.
     eECP ECP : 1;
     uint32_t _reserved_0 : 24;
   } bits;
@@ -2069,9 +2359,13 @@ union DCHPRI15 {
   
   // Bit field definition.
   struct {
+    /// read-write - Channel n Arbitration Priority
     uint32_t CHPRI : 4;
+    /// read-only - Channel n Current Group Priority
     uint32_t GRPPRI : 2;
+    /// read-write - Disable Preempt Ability. This field resets to 0.
     eDPA DPA : 1;
+    /// read-write - Enable Channel Preemption. This field resets to 0.
     eECP ECP : 1;
     uint32_t _reserved_0 : 24;
   } bits;
@@ -2100,9 +2394,13 @@ union DCHPRI14 {
   
   // Bit field definition.
   struct {
+    /// read-write - Channel n Arbitration Priority
     uint32_t CHPRI : 4;
+    /// read-only - Channel n Current Group Priority
     uint32_t GRPPRI : 2;
+    /// read-write - Disable Preempt Ability. This field resets to 0.
     eDPA DPA : 1;
+    /// read-write - Enable Channel Preemption. This field resets to 0.
     eECP ECP : 1;
     uint32_t _reserved_0 : 24;
   } bits;
@@ -2131,9 +2429,13 @@ union DCHPRI13 {
   
   // Bit field definition.
   struct {
+    /// read-write - Channel n Arbitration Priority
     uint32_t CHPRI : 4;
+    /// read-only - Channel n Current Group Priority
     uint32_t GRPPRI : 2;
+    /// read-write - Disable Preempt Ability. This field resets to 0.
     eDPA DPA : 1;
+    /// read-write - Enable Channel Preemption. This field resets to 0.
     eECP ECP : 1;
     uint32_t _reserved_0 : 24;
   } bits;
@@ -2162,9 +2464,13 @@ union DCHPRI12 {
   
   // Bit field definition.
   struct {
+    /// read-write - Channel n Arbitration Priority
     uint32_t CHPRI : 4;
+    /// read-only - Channel n Current Group Priority
     uint32_t GRPPRI : 2;
+    /// read-write - Disable Preempt Ability. This field resets to 0.
     eDPA DPA : 1;
+    /// read-write - Enable Channel Preemption. This field resets to 0.
     eECP ECP : 1;
     uint32_t _reserved_0 : 24;
   } bits;
@@ -2193,9 +2499,13 @@ union DCHPRI19 {
   
   // Bit field definition.
   struct {
+    /// read-write - Channel n Arbitration Priority
     uint32_t CHPRI : 4;
+    /// read-only - Channel n Current Group Priority
     uint32_t GRPPRI : 2;
+    /// read-write - Disable Preempt Ability. This field resets to 0.
     eDPA DPA : 1;
+    /// read-write - Enable Channel Preemption. This field resets to 0.
     eECP ECP : 1;
     uint32_t _reserved_0 : 24;
   } bits;
@@ -2224,9 +2534,13 @@ union DCHPRI18 {
   
   // Bit field definition.
   struct {
+    /// read-write - Channel n Arbitration Priority
     uint32_t CHPRI : 4;
+    /// read-only - Channel n Current Group Priority
     uint32_t GRPPRI : 2;
+    /// read-write - Disable Preempt Ability. This field resets to 0.
     eDPA DPA : 1;
+    /// read-write - Enable Channel Preemption. This field resets to 0.
     eECP ECP : 1;
     uint32_t _reserved_0 : 24;
   } bits;
@@ -2255,9 +2569,13 @@ union DCHPRI17 {
   
   // Bit field definition.
   struct {
+    /// read-write - Channel n Arbitration Priority
     uint32_t CHPRI : 4;
+    /// read-only - Channel n Current Group Priority
     uint32_t GRPPRI : 2;
+    /// read-write - Disable Preempt Ability. This field resets to 0.
     eDPA DPA : 1;
+    /// read-write - Enable Channel Preemption. This field resets to 0.
     eECP ECP : 1;
     uint32_t _reserved_0 : 24;
   } bits;
@@ -2286,9 +2604,13 @@ union DCHPRI16 {
   
   // Bit field definition.
   struct {
+    /// read-write - Channel n Arbitration Priority
     uint32_t CHPRI : 4;
+    /// read-only - Channel n Current Group Priority
     uint32_t GRPPRI : 2;
+    /// read-write - Disable Preempt Ability. This field resets to 0.
     eDPA DPA : 1;
+    /// read-write - Enable Channel Preemption. This field resets to 0.
     eECP ECP : 1;
     uint32_t _reserved_0 : 24;
   } bits;
@@ -2317,9 +2639,13 @@ union DCHPRI23 {
   
   // Bit field definition.
   struct {
+    /// read-write - Channel n Arbitration Priority
     uint32_t CHPRI : 4;
+    /// read-only - Channel n Current Group Priority
     uint32_t GRPPRI : 2;
+    /// read-write - Disable Preempt Ability. This field resets to 0.
     eDPA DPA : 1;
+    /// read-write - Enable Channel Preemption. This field resets to 0.
     eECP ECP : 1;
     uint32_t _reserved_0 : 24;
   } bits;
@@ -2348,9 +2674,13 @@ union DCHPRI22 {
   
   // Bit field definition.
   struct {
+    /// read-write - Channel n Arbitration Priority
     uint32_t CHPRI : 4;
+    /// read-only - Channel n Current Group Priority
     uint32_t GRPPRI : 2;
+    /// read-write - Disable Preempt Ability. This field resets to 0.
     eDPA DPA : 1;
+    /// read-write - Enable Channel Preemption. This field resets to 0.
     eECP ECP : 1;
     uint32_t _reserved_0 : 24;
   } bits;
@@ -2379,9 +2709,13 @@ union DCHPRI21 {
   
   // Bit field definition.
   struct {
+    /// read-write - Channel n Arbitration Priority
     uint32_t CHPRI : 4;
+    /// read-only - Channel n Current Group Priority
     uint32_t GRPPRI : 2;
+    /// read-write - Disable Preempt Ability. This field resets to 0.
     eDPA DPA : 1;
+    /// read-write - Enable Channel Preemption. This field resets to 0.
     eECP ECP : 1;
     uint32_t _reserved_0 : 24;
   } bits;
@@ -2410,9 +2744,13 @@ union DCHPRI20 {
   
   // Bit field definition.
   struct {
+    /// read-write - Channel n Arbitration Priority
     uint32_t CHPRI : 4;
+    /// read-only - Channel n Current Group Priority
     uint32_t GRPPRI : 2;
+    /// read-write - Disable Preempt Ability. This field resets to 0.
     eDPA DPA : 1;
+    /// read-write - Enable Channel Preemption. This field resets to 0.
     eECP ECP : 1;
     uint32_t _reserved_0 : 24;
   } bits;
@@ -2441,9 +2779,13 @@ union DCHPRI27 {
   
   // Bit field definition.
   struct {
+    /// read-write - Channel n Arbitration Priority
     uint32_t CHPRI : 4;
+    /// read-only - Channel n Current Group Priority
     uint32_t GRPPRI : 2;
+    /// read-write - Disable Preempt Ability. This field resets to 0.
     eDPA DPA : 1;
+    /// read-write - Enable Channel Preemption. This field resets to 0.
     eECP ECP : 1;
     uint32_t _reserved_0 : 24;
   } bits;
@@ -2472,9 +2814,13 @@ union DCHPRI26 {
   
   // Bit field definition.
   struct {
+    /// read-write - Channel n Arbitration Priority
     uint32_t CHPRI : 4;
+    /// read-only - Channel n Current Group Priority
     uint32_t GRPPRI : 2;
+    /// read-write - Disable Preempt Ability. This field resets to 0.
     eDPA DPA : 1;
+    /// read-write - Enable Channel Preemption. This field resets to 0.
     eECP ECP : 1;
     uint32_t _reserved_0 : 24;
   } bits;
@@ -2503,9 +2849,13 @@ union DCHPRI25 {
   
   // Bit field definition.
   struct {
+    /// read-write - Channel n Arbitration Priority
     uint32_t CHPRI : 4;
+    /// read-only - Channel n Current Group Priority
     uint32_t GRPPRI : 2;
+    /// read-write - Disable Preempt Ability. This field resets to 0.
     eDPA DPA : 1;
+    /// read-write - Enable Channel Preemption. This field resets to 0.
     eECP ECP : 1;
     uint32_t _reserved_0 : 24;
   } bits;
@@ -2534,9 +2884,13 @@ union DCHPRI24 {
   
   // Bit field definition.
   struct {
+    /// read-write - Channel n Arbitration Priority
     uint32_t CHPRI : 4;
+    /// read-only - Channel n Current Group Priority
     uint32_t GRPPRI : 2;
+    /// read-write - Disable Preempt Ability. This field resets to 0.
     eDPA DPA : 1;
+    /// read-write - Enable Channel Preemption. This field resets to 0.
     eECP ECP : 1;
     uint32_t _reserved_0 : 24;
   } bits;
@@ -2565,9 +2919,13 @@ union DCHPRI31 {
   
   // Bit field definition.
   struct {
+    /// read-write - Channel n Arbitration Priority
     uint32_t CHPRI : 4;
+    /// read-only - Channel n Current Group Priority
     uint32_t GRPPRI : 2;
+    /// read-write - Disable Preempt Ability. This field resets to 0.
     eDPA DPA : 1;
+    /// read-write - Enable Channel Preemption. This field resets to 0.
     eECP ECP : 1;
     uint32_t _reserved_0 : 24;
   } bits;
@@ -2596,9 +2954,13 @@ union DCHPRI30 {
   
   // Bit field definition.
   struct {
+    /// read-write - Channel n Arbitration Priority
     uint32_t CHPRI : 4;
+    /// read-only - Channel n Current Group Priority
     uint32_t GRPPRI : 2;
+    /// read-write - Disable Preempt Ability. This field resets to 0.
     eDPA DPA : 1;
+    /// read-write - Enable Channel Preemption. This field resets to 0.
     eECP ECP : 1;
     uint32_t _reserved_0 : 24;
   } bits;
@@ -2627,9 +2989,13 @@ union DCHPRI29 {
   
   // Bit field definition.
   struct {
+    /// read-write - Channel n Arbitration Priority
     uint32_t CHPRI : 4;
+    /// read-only - Channel n Current Group Priority
     uint32_t GRPPRI : 2;
+    /// read-write - Disable Preempt Ability. This field resets to 0.
     eDPA DPA : 1;
+    /// read-write - Enable Channel Preemption. This field resets to 0.
     eECP ECP : 1;
     uint32_t _reserved_0 : 24;
   } bits;
@@ -2658,9 +3024,13 @@ union DCHPRI28 {
   
   // Bit field definition.
   struct {
+    /// read-write - Channel n Arbitration Priority
     uint32_t CHPRI : 4;
+    /// read-only - Channel n Current Group Priority
     uint32_t GRPPRI : 2;
+    /// read-write - Disable Preempt Ability. This field resets to 0.
     eDPA DPA : 1;
+    /// read-write - Enable Channel Preemption. This field resets to 0.
     eECP ECP : 1;
     uint32_t _reserved_0 : 24;
   } bits;

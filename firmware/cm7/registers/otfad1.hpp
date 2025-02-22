@@ -53,15 +53,22 @@ union CR {
   // Bit field definition.
   struct {
     uint32_t _reserved_0 : 1;
+    /// read-write - Force Error
     eFERR FERR : 1;
     uint32_t _reserved_1 : 1;
+    /// read-write - Force Logically Disabled Mode
     eFLDM FLDM : 1;
+    /// read-write - Key Blob Scramble Enable
     eKBSE KBSE : 1;
+    /// read-write - Key Blob Processing Enable
     eKBPE KBPE : 1;
     uint32_t _reserved_2 : 1;
+    /// read-write - Restricted Register Access Enable
     eRRAE RRAE : 1;
     uint32_t _reserved_3 : 22;
+    /// read-write - Start key blob processing
     eSKBP SKBP : 1;
+    /// read-write - Global OTFAD Enable
     eGE GE : 1;
   } bits;
   
@@ -151,24 +158,41 @@ union SR {
   
   // Bit field definition.
   struct {
+    /// read-write - Key Blob Error
     eKBERR KBERR : 1;
+    /// read-only - MDPC Present
     uint32_t MDPCP : 1;
+    /// read-only - Operating Mode
     eMODE MODE : 2;
+    /// read-only - Number of Contexts
     uint32_t NCTX : 4;
+    /// read-only - Context Error
     eCTXER0 CTXER0 : 1;
+    /// read-only - Context Error
     eCTXER1 CTXER1 : 1;
+    /// read-only - Context Error
     eCTXER2 CTXER2 : 1;
+    /// read-only - Context Error
     eCTXER3 CTXER3 : 1;
     uint32_t _reserved_0 : 4;
+    /// read-only - Context Integrity Error
     eCTXIE0 CTXIE0 : 1;
+    /// read-only - Context Integrity Error
     eCTXIE1 CTXIE1 : 1;
+    /// read-only - Context Integrity Error
     eCTXIE2 CTXIE2 : 1;
+    /// read-only - Context Integrity Error
     eCTXIE3 CTXIE3 : 1;
     uint32_t _reserved_1 : 4;
+    /// read-only - Hardware Revision Level
     uint32_t HRL : 4;
+    /// read-only - Restricted Register Access Mode
     eRRAM RRAM : 1;
+    /// read-only - Global Enable Mode
     eGEM GEM : 1;
+    /// read-only - Key Blob Processing Enable
     eKBPE KBPE : 1;
+    /// read-only - Key Blob Processing Done
     eKBD KBD : 1;
   } bits;
   

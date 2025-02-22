@@ -53,22 +53,38 @@ union CTRL_1 {
   
   // Bit field definition.
   struct {
+    /// read-write - Channel 0 Enable
     uint32_t CH0EN : 1;
+    /// read-write - Channel 1 Enable
     uint32_t CH1EN : 1;
+    /// read-write - Channel 2 Enable
     uint32_t CH2EN : 1;
+    /// read-write - Channel 3 Enable
     uint32_t CH3EN : 1;
+    /// read-write - Channel 4 Enable
     uint32_t CH4EN : 1;
+    /// read-write - Channel 5 Enable
     uint32_t CH5EN : 1;
+    /// read-write - Channel 6 Enable
     uint32_t CH6EN : 1;
+    /// read-write - Channel 7 Enable
     uint32_t CH7EN : 1;
     uint32_t _reserved_0 : 15;
+    /// read-write - Error Interruption Enable
     eERREN ERREN : 1;
+    /// read-write - DMA Interrupt Selection
     eDISEL DISEL : 2;
+    /// read-write - Module Enable in Debug
     eDBGE DBGE : 1;
+    /// read-write - Software-reset bit
     eSRES SRES : 1;
+    /// read-write - Debug Mode
     eDBG DBG : 1;
+    /// read-write - PDM Enable
     ePDMIEN PDMIEN : 1;
+    /// read-write - DOZE enable
     uint32_t DOZEN : 1;
+    /// read-write - Module Disable
     eMDIS MDIS : 1;
   } bits;
   
@@ -95,10 +111,13 @@ union CTRL_2 {
   
   // Bit field definition.
   struct {
+    /// read-write - Clock Divider
     uint32_t CLKDIV : 8;
     uint32_t _reserved_0 : 8;
+    /// read-write - CIC Decimation Rate
     uint32_t CICOSR : 4;
     uint32_t _reserved_1 : 5;
+    /// read-write - Quality Mode
     eQSEL QSEL : 3;
     uint32_t _reserved_2 : 4;
   } bits;
@@ -172,17 +191,28 @@ union STAT {
   
   // Bit field definition.
   struct {
+    /// read-write - Channel 0 Output Data Flag
     eCH0F CH0F : 1;
+    /// read-write - Channel 1 Output Data Flag
     eCH1F CH1F : 1;
+    /// read-write - Channel 2 Output Data Flag
     eCH2F CH2F : 1;
+    /// read-write - Channel 3 Output Data Flag
     eCH3F CH3F : 1;
+    /// read-write - Channel 4 Output Data Flag
     eCH4F CH4F : 1;
+    /// read-write - Channel 5 Output Data Flag
     eCH5F CH5F : 1;
+    /// read-write - Channel 6 Output Data Flag
     eCH6F CH6F : 1;
+    /// read-write - Channel 7 Output Data Flag
     eCH7F CH7F : 1;
     uint32_t _reserved_0 : 21;
+    /// read-write - Low Frequency Flag
     eLOWFREQF LOWFREQF : 1;
+    /// read-only - Filter Data Ready
     eFIR_RDY FIR_RDY : 1;
+    /// read-only - Busy Flag
     eBSY_FIL BSY_FIL : 1;
   } bits;
   
@@ -200,6 +230,7 @@ union FIFO_CTRL {
   
   // Bit field definition.
   struct {
+    /// read-write - FIFO Watermark Control
     uint32_t FIFOWMK : 3;
     uint32_t _reserved_0 : 29;
   } bits;
@@ -298,21 +329,37 @@ union FIFO_STAT {
   
   // Bit field definition.
   struct {
+    /// read-write - FIFO Overflow Exception flag for Channel 0
     eFIFOOVF0 FIFOOVF0 : 1;
+    /// read-write - FIFO Overflow Exception flag for Channel 1
     eFIFOOVF1 FIFOOVF1 : 1;
+    /// read-write - FIFO Overflow Exception flag for Channel 2
     eFIFOOVF2 FIFOOVF2 : 1;
+    /// read-write - FIFO Overflow Exception flag for Channel 3
     eFIFOOVF3 FIFOOVF3 : 1;
+    /// read-write - FIFO Overflow Exception flag for Channel 4
     eFIFOOVF4 FIFOOVF4 : 1;
+    /// read-write - FIFO Overflow Exception flag for Channel 5
     eFIFOOVF5 FIFOOVF5 : 1;
+    /// read-write - FIFO Overflow Exception flag for Channel 6
     eFIFOOVF6 FIFOOVF6 : 1;
+    /// read-write - FIFO Overflow Exception flag for Channel 7
     eFIFOOVF7 FIFOOVF7 : 1;
+    /// read-write - FIFO Underflow Exception flag for Channel 0
     eFIFOUND0 FIFOUND0 : 1;
+    /// read-write - FIFO Underflow Exception flag for Channel 1
     eFIFOUND1 FIFOUND1 : 1;
+    /// read-write - FIFO Underflow Exception flag for Channel 2
     eFIFOUND2 FIFOUND2 : 1;
+    /// read-write - FIFO Underflow Exception flag for Channel 3
     eFIFOUND3 FIFOUND3 : 1;
+    /// read-write - FIFO Underflow Exception flag for Channel 4
     eFIFOUND4 FIFOUND4 : 1;
+    /// read-write - FIFO Underflow Exception flag for Channel 5
     eFIFOUND5 FIFOUND5 : 1;
+    /// read-write - FIFO Underflow Exception flag for Channel 6
     eFIFOUND6 FIFOUND6 : 1;
+    /// read-write - FIFO Underflow Exception flag for Channel 7
     eFIFOUND7 FIFOUND7 : 1;
     uint32_t _reserved_0 : 16;
   } bits;
@@ -331,6 +378,7 @@ union DATACH[0] {
   
   // Bit field definition.
   struct {
+    /// read-only - Channel n Data
     uint32_t DATA : 32;
   } bits;
   
@@ -347,6 +395,7 @@ union DATACH[1] {
   
   // Bit field definition.
   struct {
+    /// read-only - Channel n Data
     uint32_t DATA : 32;
   } bits;
   
@@ -363,6 +412,7 @@ union DATACH[2] {
   
   // Bit field definition.
   struct {
+    /// read-only - Channel n Data
     uint32_t DATA : 32;
   } bits;
   
@@ -379,6 +429,7 @@ union DATACH[3] {
   
   // Bit field definition.
   struct {
+    /// read-only - Channel n Data
     uint32_t DATA : 32;
   } bits;
   
@@ -395,6 +446,7 @@ union DATACH[4] {
   
   // Bit field definition.
   struct {
+    /// read-only - Channel n Data
     uint32_t DATA : 32;
   } bits;
   
@@ -411,6 +463,7 @@ union DATACH[5] {
   
   // Bit field definition.
   struct {
+    /// read-only - Channel n Data
     uint32_t DATA : 32;
   } bits;
   
@@ -427,6 +480,7 @@ union DATACH[6] {
   
   // Bit field definition.
   struct {
+    /// read-only - Channel n Data
     uint32_t DATA : 32;
   } bits;
   
@@ -443,6 +497,7 @@ union DATACH[7] {
   
   // Bit field definition.
   struct {
+    /// read-only - Channel n Data
     uint32_t DATA : 32;
   } bits;
   
@@ -516,13 +571,21 @@ union DC_CTRL {
   
   // Bit field definition.
   struct {
+    /// read-write - Channel 0 DC Remover Configuration
     eDCCONFIG0 DCCONFIG0 : 2;
+    /// read-write - Channel 1 DC Remover Configuration
     eDCCONFIG1 DCCONFIG1 : 2;
+    /// read-write - Channel 2 DC Remover Configuration
     eDCCONFIG2 DCCONFIG2 : 2;
+    /// read-write - Channel 3 DC Remover Configuration
     eDCCONFIG3 DCCONFIG3 : 2;
+    /// read-write - Channel 4 DC Remover Configuration
     eDCCONFIG4 DCCONFIG4 : 2;
+    /// read-write - Channel 5 DC Remover Configuration
     eDCCONFIG5 DCCONFIG5 : 2;
+    /// read-write - Channel 6 DC Remover Configuration
     eDCCONFIG6 DCCONFIG6 : 2;
+    /// read-write - Channel 7 DC Remover Configuration
     eDCCONFIG7 DCCONFIG7 : 2;
     uint32_t _reserved_0 : 16;
   } bits;
@@ -541,13 +604,21 @@ union RANGE_CTRL {
   
   // Bit field definition.
   struct {
+    /// read-write - Channel 0 Range Adjustment
     uint32_t RANGEADJ0 : 4;
+    /// read-write - Channel 1 Range Adjustment
     uint32_t RANGEADJ1 : 4;
+    /// read-write - Channel 2 Range Adjustment
     uint32_t RANGEADJ2 : 4;
+    /// read-write - Channel 3 Range Adjustment
     uint32_t RANGEADJ3 : 4;
+    /// read-write - Channel 4 Range Adjustment
     uint32_t RANGEADJ4 : 4;
+    /// read-write - Channel 5 Range Adjustment
     uint32_t RANGEADJ5 : 4;
+    /// read-write - Channel 6 Range Adjustment
     uint32_t RANGEADJ6 : 4;
+    /// read-write - Channel 7 Range Adjustment
     uint32_t RANGEADJ7 : 4;
   } bits;
   
@@ -645,22 +716,38 @@ union RANGE_STAT {
   
   // Bit field definition.
   struct {
+    /// read-write - Channel 0 Range Overflow Error Flag
     eRANGEOVF0 RANGEOVF0 : 1;
+    /// read-write - Channel 1 Range Overflow Error Flag
     eRANGEOVF1 RANGEOVF1 : 1;
+    /// read-write - Channel 2 Range Overflow Error Flag
     eRANGEOVF2 RANGEOVF2 : 1;
+    /// read-write - Channel 3 Range Overflow Error Flag
     eRANGEOVF3 RANGEOVF3 : 1;
+    /// read-write - Channel 4 Range Overflow Error Flag
     eRANGEOVF4 RANGEOVF4 : 1;
+    /// read-write - Channel 5 Range Overflow Error Flag
     eRANGEOVF5 RANGEOVF5 : 1;
+    /// read-write - Channel 6 Range Overflow Error Flag
     eRANGEOVF6 RANGEOVF6 : 1;
+    /// read-write - Channel 7 Range Overflow Error Flag
     eRANGEOVF7 RANGEOVF7 : 1;
     uint32_t _reserved_0 : 8;
+    /// read-write - Channel 0 Range Underflow Error Flag
     eRANGEUNF0 RANGEUNF0 : 1;
+    /// read-write - Channel 1 Range Underflow Error Flag
     eRANGEUNF1 RANGEUNF1 : 1;
+    /// read-write - Channel 2 Range Underflow Error Flag
     eRANGEUNF2 RANGEUNF2 : 1;
+    /// read-write - Channel 3 Range Underflow Error Flag
     eRANGEUNF3 RANGEUNF3 : 1;
+    /// read-write - Channel 4 Range Underflow Error Flag
     eRANGEUNF4 RANGEUNF4 : 1;
+    /// read-write - Channel 5 Range Underflow Error Flag
     eRANGEUNF5 RANGEUNF5 : 1;
+    /// read-write - Channel 6 Range Underflow Error Flag
     eRANGEUNF6 RANGEUNF6 : 1;
+    /// read-write - Channel 7 Range Underflow Error Flag
     eRANGEUNF7 RANGEUNF7 : 1;
     uint32_t _reserved_1 : 8;
   } bits;
@@ -699,16 +786,24 @@ union VAD0_CTRL_1 {
   
   // Bit field definition.
   struct {
+    /// read-write - Voice Activity Detector Enable
     eVADEN VADEN : 1;
+    /// read-write - Voice Activity Detector Reset
     uint32_t VADRST : 1;
+    /// read-write - Voice Activity Detector Interruption Enable
     eVADIE VADIE : 1;
+    /// read-write - Voice Activity Detector Error Interruption Enable
     eVADERIE VADERIE : 1;
+    /// read-write - Voice Activity Detector Internal Filters Initialization
     eVADST10 VADST10 : 1;
     uint32_t _reserved_0 : 3;
+    /// read-write - Voice Activity Detector Initialization Time
     uint32_t VADINITT : 5;
     uint32_t _reserved_1 : 3;
+    /// read-write - Voice Activity Detector CIC Oversampling Rate
     uint32_t VADCICOSR : 4;
     uint32_t _reserved_2 : 4;
+    /// read-write - Voice Activity Detector Channel Selector
     uint32_t VADCHSEL : 3;
     uint32_t _reserved_3 : 5;
   } bits;
@@ -749,15 +844,21 @@ union VAD0_CTRL_2 {
   
   // Bit field definition.
   struct {
+    /// read-write - Voice Activity Detector High-Pass Filter
     eVADHPF VADHPF : 2;
     uint32_t _reserved_0 : 6;
+    /// read-write - Voice Activity Detector Input Gain
     uint32_t VADINPGAIN : 4;
     uint32_t _reserved_1 : 4;
+    /// read-write - Voice Activity Detector Frame Time
     uint32_t VADFRAMET : 6;
     uint32_t _reserved_2 : 6;
+    /// read-write - Voice Activity Detector Force Output Disable
     eVADFOUTDIS VADFOUTDIS : 1;
     uint32_t _reserved_3 : 1;
+    /// read-write - Voice Activity Detector Pre Filter Enable
     eVADPREFEN VADPREFEN : 1;
+    /// read-write - Voice Activity Detector Frame Energy Disable
     eVADFRENDIS VADFRENDIS : 1;
   } bits;
   
@@ -795,11 +896,15 @@ union VAD0_STAT {
   
   // Bit field definition.
   struct {
+    /// read-write - Voice Activity Detector Interrupt Flag
     eVADIF VADIF : 1;
     uint32_t _reserved_0 : 14;
+    /// read-only - Voice Activity Detector Event Flag
     eVADEF VADEF : 1;
+    /// read-write - Voice Activity Detector Input Saturation Flag
     eVADINSATF VADINSATF : 1;
     uint32_t _reserved_1 : 14;
+    /// read-only - Voice Activity Detector Initialization Flag
     eVADINITF VADINITF : 1;
   } bits;
   
@@ -827,9 +932,12 @@ union VAD0_SCONFIG {
   
   // Bit field definition.
   struct {
+    /// read-write - Voice Activity Detector Signal Gain
     uint32_t VADSGAIN : 4;
     uint32_t _reserved_0 : 26;
+    /// read-write - Voice Activity Detector Signal Maximum Enable
     eVADSMAXEN VADSMAXEN : 1;
+    /// read-write - Voice Activity Detector Signal Filter Enable
     eVADSFILEN VADSFILEN : 1;
   } bits;
   
@@ -867,13 +975,19 @@ union VAD0_NCONFIG {
   
   // Bit field definition.
   struct {
+    /// read-write - Voice Activity Detector Noise Gain
     uint32_t VADNGAIN : 4;
     uint32_t _reserved_0 : 4;
+    /// read-write - Voice Activity Detector Noise Filter Adjustment
     uint32_t VADNFILADJ : 5;
     uint32_t _reserved_1 : 15;
+    /// read-write - Voice Activity Detector Noise OR Enable
     eVADNOREN VADNOREN : 1;
+    /// read-write - Voice Activity Detector Noise Decimation Enable
     eVADNDECEN VADNDECEN : 1;
+    /// read-write - Voice Activity Detector Noise Minimum Enable
     eVADNMINEN VADNMINEN : 1;
+    /// read-write - Voice Activity Detector Noise Filter Auto
     eVADNFILAUTO VADNFILAUTO : 1;
   } bits;
   
@@ -891,6 +1005,7 @@ union VAD0_NDATA {
   
   // Bit field definition.
   struct {
+    /// read-only - Voice Activity Detector Noise Data
     uint32_t VADNDATA : 16;
     uint32_t _reserved_0 : 16;
   } bits;
@@ -924,14 +1039,19 @@ union VAD0_ZCD {
   
   // Bit field definition.
   struct {
+    /// read-write - Zero-Crossing Detector Enable
     eVADZCDEN VADZCDEN : 1;
     uint32_t _reserved_0 : 1;
+    /// read-write - Zero-Crossing Detector Automatic Threshold
     eVADZCDAUTO VADZCDAUTO : 1;
     uint32_t _reserved_1 : 1;
+    /// read-write - Zero-Crossing Detector AND Behavior
     eVADZCDAND VADZCDAND : 1;
     uint32_t _reserved_2 : 3;
+    /// read-write - Zero-Crossing Detector Adjustment
     uint32_t VADZCDADJ : 4;
     uint32_t _reserved_3 : 4;
+    /// read-write - Zero-Crossing Detector Threshold
     uint32_t VADZCDTH : 10;
     uint32_t _reserved_4 : 6;
   } bits;

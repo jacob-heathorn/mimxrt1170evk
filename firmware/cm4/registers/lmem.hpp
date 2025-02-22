@@ -62,16 +62,25 @@ union PCCCR {
   
   // Bit field definition.
   struct {
+    /// read-write - Cache enable
     eENCACHE ENCACHE : 1;
+    /// read-write - Enable Write Buffer
     eENWRBUF ENWRBUF : 1;
+    /// read-write - Forces all cacheable spaces to write through
     ePCCR2 PCCR2 : 1;
+    /// read-write - Forces no allocation on cache misses
     ePCCR3 PCCR3 : 1;
     uint32_t _reserved_0 : 20;
+    /// read-write - Invalidate Way 0
     eINVW0 INVW0 : 1;
+    /// read-write - Push Way 0
     ePUSHW0 PUSHW0 : 1;
+    /// read-write - Invalidate Way 1
     eINVW1 INVW1 : 1;
+    /// read-write - Push Way 1
     ePUSHW1 PUSHW1 : 1;
     uint32_t _reserved_1 : 3;
+    /// read-write - Initiate Cache Command
     eGO GO : 1;
   } bits;
   
@@ -121,19 +130,29 @@ union PCCLCR {
   
   // Bit field definition.
   struct {
+    /// read-write - Initiate Cache Line Command
     eLGO LGO : 1;
     uint32_t _reserved_0 : 1;
+    /// read-write - Cache address
     uint32_t CACHEADDR : 12;
+    /// read-write - Way select
     eWSEL WSEL : 1;
     uint32_t _reserved_1 : 1;
+    /// read-write - Tag/Data Select
     eTDSEL TDSEL : 1;
     uint32_t _reserved_2 : 3;
+    /// read-write - Line Command Initial Valid Bit
     uint32_t LCIVB : 1;
+    /// read-write - Line Command Initial Modified Bit
     uint32_t LCIMB : 1;
+    /// read-write - Line Command Way
     uint32_t LCWAY : 1;
     uint32_t _reserved_3 : 1;
+    /// read-write - Line Command
     eLCMD LCMD : 2;
+    /// read-write - Line Address Select
     eLADSEL LADSEL : 1;
+    /// read-write - Line access type
     eLACC LACC : 1;
     uint32_t _reserved_4 : 4;
   } bits;
@@ -157,7 +176,9 @@ union PCCSAR {
   
   // Bit field definition.
   struct {
+    /// read-write - Initiate Cache Line Command
     eLGO LGO : 1;
+    /// read-write - Physical Address
     uint32_t PHYADDR : 31;
   } bits;
   
@@ -175,6 +196,7 @@ union PCCCVR {
   
   // Bit field definition.
   struct {
+    /// read-write - Cache read/write Data
     uint32_t DATA : 32;
   } bits;
   
@@ -237,16 +259,25 @@ union PSCCR {
   
   // Bit field definition.
   struct {
+    /// read-write - Cache enable
     eENCACHE ENCACHE : 1;
+    /// read-write - Enable Write Buffer
     eENWRBUF ENWRBUF : 1;
+    /// read-write - Forces all cacheable spaces to write through
     ePSCR2 PSCR2 : 1;
+    /// read-write - Forces no allocation on cache misses
     ePSCR3 PSCR3 : 1;
     uint32_t _reserved_0 : 20;
+    /// read-write - Invalidate Way 0
     eINVW0 INVW0 : 1;
+    /// read-write - Push Way 0
     ePUSHW0 PUSHW0 : 1;
+    /// read-write - Invalidate Way 1
     eINVW1 INVW1 : 1;
+    /// read-write - Push Way 1
     ePUSHW1 PUSHW1 : 1;
     uint32_t _reserved_1 : 3;
+    /// read-write - Initiate Cache Command
     eGO GO : 1;
   } bits;
   
@@ -296,19 +327,29 @@ union PSCLCR {
   
   // Bit field definition.
   struct {
+    /// read-write - Initiate Cache Line Command
     eLGO LGO : 1;
     uint32_t _reserved_0 : 1;
+    /// read-write - Cache address
     uint32_t CACHEADDR : 12;
+    /// read-write - Way select
     eWSEL WSEL : 1;
     uint32_t _reserved_1 : 1;
+    /// read-write - Tag/Data Select
     eTDSEL TDSEL : 1;
     uint32_t _reserved_2 : 3;
+    /// read-write - Line Command Initial Valid Bit
     uint32_t LCIVB : 1;
+    /// read-write - Line Command Initial Modified Bit
     uint32_t LCIMB : 1;
+    /// read-write - Line Command Way
     uint32_t LCWAY : 1;
     uint32_t _reserved_3 : 1;
+    /// read-write - Line Command
     eLCMD LCMD : 2;
+    /// read-write - Line Address Select
     eLADSEL LADSEL : 1;
+    /// read-write - Line access type
     eLACC LACC : 1;
     uint32_t _reserved_4 : 4;
   } bits;
@@ -332,7 +373,9 @@ union PSCSAR {
   
   // Bit field definition.
   struct {
+    /// read-write - Initiate Cache Line Command
     eLGO LGO : 1;
+    /// read-write - Physical Address
     uint32_t PHYADDR : 31;
   } bits;
   
@@ -350,6 +393,7 @@ union PSCCVR {
   
   // Bit field definition.
   struct {
+    /// read-write - Cache read/write Data
     uint32_t DATA : 32;
   } bits;
   

@@ -38,11 +38,15 @@ union OSC_48M_CTRL {
   // Bit field definition.
   struct {
     uint32_t _reserved_0 : 1;
+    /// read-write - 48MHz RCOSC Enable
     eTEN TEN : 1;
     uint32_t _reserved_1 : 22;
+    /// read-write - RCOSC_48M_DIV2 Enable
     eRC_48M_DIV2_EN RC_48M_DIV2_EN : 1;
     uint32_t _reserved_2 : 5;
+    /// read-write - RCOSC_48M_DIV2 Control Mode
     eRC_48M_DIV2_CONTROL_MODE RC_48M_DIV2_CONTROL_MODE : 1;
+    /// read-write - 48MHz RCOSC Control Mode
     eRC_48M_CONTROL_MODE RC_48M_CONTROL_MODE : 1;
   } bits;
   
@@ -95,15 +99,23 @@ union OSC_24M_CTRL {
   
   // Bit field definition.
   struct {
+    /// read-write - 24MHz OSC Bypass Clock
     uint32_t BYPASS_CLK : 1;
+    /// read-write - 24MHz OSC Bypass Enable
     eBYPASS_EN BYPASS_EN : 1;
+    /// read-write - 24MHz OSC Low-Power Mode Enable
     eLP_EN LP_EN : 1;
+    /// read-write - 24MHz OSC Comparator Mode
     eOSC_COMP_MODE OSC_COMP_MODE : 1;
+    /// read-write - 24MHz OSC Enable
     eOSC_EN OSC_EN : 1;
     uint32_t _reserved_0 : 2;
+    /// read-write - 24MHz OSC Gate Control
     eOSC_24M_GATE OSC_24M_GATE : 1;
     uint32_t _reserved_1 : 22;
+    /// read-only - 24MHz OSC Stable
     eOSC_24M_STABLE OSC_24M_STABLE : 1;
+    /// read-write - 24MHz OSC Control Mode
     eOSC_24M_CONTROL_MODE OSC_24M_CONTROL_MODE : 1;
   } bits;
   
@@ -122,6 +134,7 @@ union OSC_400M_CTRL0 {
   // Bit field definition.
   struct {
     uint32_t _reserved_0 : 31;
+    /// read-only - 400MHz OSC AI BUSY
     uint32_t OSC400M_AI_BUSY : 1;
   } bits;
   
@@ -154,9 +167,12 @@ union OSC_400M_CTRL1 {
   
   // Bit field definition.
   struct {
+    /// read-write - Power down control for 400MHz RCOSC
     ePWD PWD : 1;
+    /// read-write - Clock gate control for 400MHz RCOSC
     eCLKGATE_400MEG CLKGATE_400MEG : 1;
     uint32_t _reserved_0 : 29;
+    /// read-write - 400MHz RCOSC Control mode
     eRC_400M_CONTROL_MODE RC_400M_CONTROL_MODE : 1;
   } bits;
   
@@ -184,10 +200,13 @@ union OSC_400M_CTRL2 {
   
   // Bit field definition.
   struct {
+    /// read-write - Clock enable
     eENABLE_CLK ENABLE_CLK : 1;
     uint32_t _reserved_0 : 9;
+    /// read-write - Bypass tuning logic
     eTUNE_BYP TUNE_BYP : 1;
     uint32_t _reserved_1 : 13;
+    /// read-write - Oscillator Tune Value
     uint32_t OSC_TUNE_VAL : 8;
   } bits;
   
@@ -226,12 +245,16 @@ union OSC_16M_CTRL {
   // Bit field definition.
   struct {
     uint32_t _reserved_0 : 1;
+    /// read-write - Enable Clock Output
     eEN_IRC4M16M EN_IRC4M16M : 1;
     uint32_t _reserved_1 : 1;
+    /// read-write - Power Save Enable
     eEN_POWER_SAVE EN_POWER_SAVE : 1;
     uint32_t _reserved_2 : 4;
+    /// read-write - Source select
     eSOURCE_SEL_16M SOURCE_SEL_16M : 1;
     uint32_t _reserved_3 : 22;
+    /// read-write - Control Mode for 16MHz Oscillator
     eRC_16M_CONTROL_MODE RC_16M_CONTROL_MODE : 1;
   } bits;
   

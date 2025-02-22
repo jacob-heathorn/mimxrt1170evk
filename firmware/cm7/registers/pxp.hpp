@@ -69,22 +69,34 @@ union PXP_CTRL {
   
   // Bit field definition.
   struct {
+    /// read-write - Enables PXP operation with specified parameters
     eENABLE ENABLE : 1;
+    /// read-write - Interrupt enable When using the PXP_NEXT functionality to reprogram the PXP, the new value of this bit will be used and may therefore enable or disable an interrupt unintentionally
     eIRQ_ENABLE IRQ_ENABLE : 1;
+    /// read-write - Next command interrupt enable
     eNEXT_IRQ_ENABLE NEXT_IRQ_ENABLE : 1;
     uint32_t _reserved_0 : 1;
+    /// read-write - Enable handshake with LCD controller
     uint32_t ENABLE_LCD_HANDSHAKE : 1;
     uint32_t _reserved_1 : 3;
+    /// read-write - Indicates the clockwise rotation to be applied at the output buffer
     eROTATE ROTATE : 2;
+    /// read-write - Indicates that the output buffer should be flipped horizontally (effect applied before rotation).
     eHFLIP HFLIP : 1;
+    /// read-write - Indicates that the output buffer should be flipped vertically (effect applied before rotation).
     eVFLIP VFLIP : 1;
     uint32_t _reserved_2 : 10;
+    /// read-write - This bit controls where rotation will occur in the PXP datapath
     uint32_t ROT_POS : 1;
+    /// read-write - Select the block size to process.
     eBLOCK_SIZE BLOCK_SIZE : 1;
     uint32_t _reserved_3 : 4;
+    /// read-write - Enable the PXP to run continuously
     eEN_REPEAT EN_REPEAT : 1;
     uint32_t _reserved_4 : 1;
+    /// read-write - This bit must be set to zero for normal operation
     eCLKGATE CLKGATE : 1;
+    /// read-write - This bit can be turned on and then off to reset the PXP block to its default state.
     eSFTRST SFTRST : 1;
   } bits;
   
@@ -154,22 +166,34 @@ union PXP_CTRL_SET {
   
   // Bit field definition.
   struct {
+    /// read-write - Enables PXP operation with specified parameters
     eENABLE ENABLE : 1;
+    /// read-write - Interrupt enable When using the PXP_NEXT functionality to reprogram the PXP, the new value of this bit will be used and may therefore enable or disable an interrupt unintentionally
     eIRQ_ENABLE IRQ_ENABLE : 1;
+    /// read-write - Next command interrupt enable
     eNEXT_IRQ_ENABLE NEXT_IRQ_ENABLE : 1;
     uint32_t _reserved_0 : 1;
+    /// read-write - Enable handshake with LCD controller
     uint32_t ENABLE_LCD_HANDSHAKE : 1;
     uint32_t _reserved_1 : 3;
+    /// read-write - Indicates the clockwise rotation to be applied at the output buffer
     eROTATE ROTATE : 2;
+    /// read-write - Indicates that the output buffer should be flipped horizontally (effect applied before rotation).
     eHFLIP HFLIP : 1;
+    /// read-write - Indicates that the output buffer should be flipped vertically (effect applied before rotation).
     eVFLIP VFLIP : 1;
     uint32_t _reserved_2 : 10;
+    /// read-write - This bit controls where rotation will occur in the PXP datapath
     uint32_t ROT_POS : 1;
+    /// read-write - Select the block size to process.
     eBLOCK_SIZE BLOCK_SIZE : 1;
     uint32_t _reserved_3 : 4;
+    /// read-write - Enable the PXP to run continuously
     eEN_REPEAT EN_REPEAT : 1;
     uint32_t _reserved_4 : 1;
+    /// read-write - This bit must be set to zero for normal operation
     eCLKGATE CLKGATE : 1;
+    /// read-write - This bit can be turned on and then off to reset the PXP block to its default state.
     eSFTRST SFTRST : 1;
   } bits;
   
@@ -239,22 +263,34 @@ union PXP_CTRL_CLR {
   
   // Bit field definition.
   struct {
+    /// read-write - Enables PXP operation with specified parameters
     eENABLE ENABLE : 1;
+    /// read-write - Interrupt enable When using the PXP_NEXT functionality to reprogram the PXP, the new value of this bit will be used and may therefore enable or disable an interrupt unintentionally
     eIRQ_ENABLE IRQ_ENABLE : 1;
+    /// read-write - Next command interrupt enable
     eNEXT_IRQ_ENABLE NEXT_IRQ_ENABLE : 1;
     uint32_t _reserved_0 : 1;
+    /// read-write - Enable handshake with LCD controller
     uint32_t ENABLE_LCD_HANDSHAKE : 1;
     uint32_t _reserved_1 : 3;
+    /// read-write - Indicates the clockwise rotation to be applied at the output buffer
     eROTATE ROTATE : 2;
+    /// read-write - Indicates that the output buffer should be flipped horizontally (effect applied before rotation).
     eHFLIP HFLIP : 1;
+    /// read-write - Indicates that the output buffer should be flipped vertically (effect applied before rotation).
     eVFLIP VFLIP : 1;
     uint32_t _reserved_2 : 10;
+    /// read-write - This bit controls where rotation will occur in the PXP datapath
     uint32_t ROT_POS : 1;
+    /// read-write - Select the block size to process.
     eBLOCK_SIZE BLOCK_SIZE : 1;
     uint32_t _reserved_3 : 4;
+    /// read-write - Enable the PXP to run continuously
     eEN_REPEAT EN_REPEAT : 1;
     uint32_t _reserved_4 : 1;
+    /// read-write - This bit must be set to zero for normal operation
     eCLKGATE CLKGATE : 1;
+    /// read-write - This bit can be turned on and then off to reset the PXP block to its default state.
     eSFTRST SFTRST : 1;
   } bits;
   
@@ -324,22 +360,34 @@ union PXP_CTRL_TOG {
   
   // Bit field definition.
   struct {
+    /// read-write - Enables PXP operation with specified parameters
     eENABLE ENABLE : 1;
+    /// read-write - Interrupt enable When using the PXP_NEXT functionality to reprogram the PXP, the new value of this bit will be used and may therefore enable or disable an interrupt unintentionally
     eIRQ_ENABLE IRQ_ENABLE : 1;
+    /// read-write - Next command interrupt enable
     eNEXT_IRQ_ENABLE NEXT_IRQ_ENABLE : 1;
     uint32_t _reserved_0 : 1;
+    /// read-write - Enable handshake with LCD controller
     uint32_t ENABLE_LCD_HANDSHAKE : 1;
     uint32_t _reserved_1 : 3;
+    /// read-write - Indicates the clockwise rotation to be applied at the output buffer
     eROTATE ROTATE : 2;
+    /// read-write - Indicates that the output buffer should be flipped horizontally (effect applied before rotation).
     eHFLIP HFLIP : 1;
+    /// read-write - Indicates that the output buffer should be flipped vertically (effect applied before rotation).
     eVFLIP VFLIP : 1;
     uint32_t _reserved_2 : 10;
+    /// read-write - This bit controls where rotation will occur in the PXP datapath
     uint32_t ROT_POS : 1;
+    /// read-write - Select the block size to process.
     eBLOCK_SIZE BLOCK_SIZE : 1;
     uint32_t _reserved_3 : 4;
+    /// read-write - Enable the PXP to run continuously
     eEN_REPEAT EN_REPEAT : 1;
     uint32_t _reserved_4 : 1;
+    /// read-write - This bit must be set to zero for normal operation
     eCLKGATE CLKGATE : 1;
+    /// read-write - This bit can be turned on and then off to reset the PXP block to its default state.
     eSFTRST SFTRST : 1;
   } bits;
   
@@ -377,14 +425,22 @@ union PXP_STAT {
   
   // Bit field definition.
   struct {
+    /// read-write - Indicates current PXP interrupt status
     eIRQ IRQ : 1;
+    /// read-write - Indicates PXP encountered an AXI write error and processing has been terminated.
     eAXI_WRITE_ERROR AXI_WRITE_ERROR : 1;
+    /// read-write - Indicates PXP encountered an AXI read error and processing has been terminated.
     eAXI_READ_ERROR AXI_READ_ERROR : 1;
+    /// read-write - Indicates that a command issued with the "Next Command" functionality has been issued and that a new command may be initiated with a write to the PXP_NEXT register
     uint32_t NEXT_IRQ : 1;
+    /// read-only - Indicates the AXI ID of the failing bus operation.
     uint32_t AXI_ERROR_ID : 4;
+    /// read-write - Indicates that the LUT DMA transfer has completed.
     eLUT_DMA_LOAD_DONE_IRQ LUT_DMA_LOAD_DONE_IRQ : 1;
     uint32_t _reserved_0 : 7;
+    /// read-only - Indicates the X coordinate of the block currently being rendered.
     uint32_t BLOCKY : 8;
+    /// read-only - Indicates the X coordinate of the block currently being rendered.
     uint32_t BLOCKX : 8;
   } bits;
   
@@ -422,14 +478,22 @@ union PXP_STAT_SET {
   
   // Bit field definition.
   struct {
+    /// read-write - Indicates current PXP interrupt status
     eIRQ IRQ : 1;
+    /// read-write - Indicates PXP encountered an AXI write error and processing has been terminated.
     eAXI_WRITE_ERROR AXI_WRITE_ERROR : 1;
+    /// read-write - Indicates PXP encountered an AXI read error and processing has been terminated.
     eAXI_READ_ERROR AXI_READ_ERROR : 1;
+    /// read-write - Indicates that a command issued with the "Next Command" functionality has been issued and that a new command may be initiated with a write to the PXP_NEXT register
     uint32_t NEXT_IRQ : 1;
+    /// read-only - Indicates the AXI ID of the failing bus operation.
     uint32_t AXI_ERROR_ID : 4;
+    /// read-write - Indicates that the LUT DMA transfer has completed.
     eLUT_DMA_LOAD_DONE_IRQ LUT_DMA_LOAD_DONE_IRQ : 1;
     uint32_t _reserved_0 : 7;
+    /// read-only - Indicates the X coordinate of the block currently being rendered.
     uint32_t BLOCKY : 8;
+    /// read-only - Indicates the X coordinate of the block currently being rendered.
     uint32_t BLOCKX : 8;
   } bits;
   
@@ -467,14 +531,22 @@ union PXP_STAT_CLR {
   
   // Bit field definition.
   struct {
+    /// read-write - Indicates current PXP interrupt status
     eIRQ IRQ : 1;
+    /// read-write - Indicates PXP encountered an AXI write error and processing has been terminated.
     eAXI_WRITE_ERROR AXI_WRITE_ERROR : 1;
+    /// read-write - Indicates PXP encountered an AXI read error and processing has been terminated.
     eAXI_READ_ERROR AXI_READ_ERROR : 1;
+    /// read-write - Indicates that a command issued with the "Next Command" functionality has been issued and that a new command may be initiated with a write to the PXP_NEXT register
     uint32_t NEXT_IRQ : 1;
+    /// read-only - Indicates the AXI ID of the failing bus operation.
     uint32_t AXI_ERROR_ID : 4;
+    /// read-write - Indicates that the LUT DMA transfer has completed.
     eLUT_DMA_LOAD_DONE_IRQ LUT_DMA_LOAD_DONE_IRQ : 1;
     uint32_t _reserved_0 : 7;
+    /// read-only - Indicates the X coordinate of the block currently being rendered.
     uint32_t BLOCKY : 8;
+    /// read-only - Indicates the X coordinate of the block currently being rendered.
     uint32_t BLOCKX : 8;
   } bits;
   
@@ -512,14 +584,22 @@ union PXP_STAT_TOG {
   
   // Bit field definition.
   struct {
+    /// read-write - Indicates current PXP interrupt status
     eIRQ IRQ : 1;
+    /// read-write - Indicates PXP encountered an AXI write error and processing has been terminated.
     eAXI_WRITE_ERROR AXI_WRITE_ERROR : 1;
+    /// read-write - Indicates PXP encountered an AXI read error and processing has been terminated.
     eAXI_READ_ERROR AXI_READ_ERROR : 1;
+    /// read-write - Indicates that a command issued with the "Next Command" functionality has been issued and that a new command may be initiated with a write to the PXP_NEXT register
     uint32_t NEXT_IRQ : 1;
+    /// read-only - Indicates the AXI ID of the failing bus operation.
     uint32_t AXI_ERROR_ID : 4;
+    /// read-write - Indicates that the LUT DMA transfer has completed.
     eLUT_DMA_LOAD_DONE_IRQ LUT_DMA_LOAD_DONE_IRQ : 1;
     uint32_t _reserved_0 : 7;
+    /// read-only - Indicates the X coordinate of the block currently being rendered.
     uint32_t BLOCKY : 8;
+    /// read-only - Indicates the X coordinate of the block currently being rendered.
     uint32_t BLOCKX : 8;
   } bits;
   
@@ -569,11 +649,15 @@ union PXP_OUT_CTRL {
   
   // Bit field definition.
   struct {
+    /// read-write - Output framebuffer format
     eFORMAT FORMAT : 5;
     uint32_t _reserved_0 : 3;
+    /// read-write - Determines how the PXP writes it's output data
     eINTERLACED_OUTPUT INTERLACED_OUTPUT : 2;
     uint32_t _reserved_1 : 13;
+    /// read-write - Indicates that alpha component in output buffer pixels should be overwritten by PXP_OUT_CTRL[ALPHA]
     eALPHA_OUTPUT ALPHA_OUTPUT : 1;
+    /// read-write - When generating an output buffer with an alpha component, the value in this field will be used when enabled to override the alpha passed through the pixel data pipeline
     uint32_t ALPHA : 8;
   } bits;
   
@@ -623,11 +707,15 @@ union PXP_OUT_CTRL_SET {
   
   // Bit field definition.
   struct {
+    /// read-write - Output framebuffer format
     eFORMAT FORMAT : 5;
     uint32_t _reserved_0 : 3;
+    /// read-write - Determines how the PXP writes it's output data
     eINTERLACED_OUTPUT INTERLACED_OUTPUT : 2;
     uint32_t _reserved_1 : 13;
+    /// read-write - Indicates that alpha component in output buffer pixels should be overwritten by PXP_OUT_CTRL[ALPHA]
     eALPHA_OUTPUT ALPHA_OUTPUT : 1;
+    /// read-write - When generating an output buffer with an alpha component, the value in this field will be used when enabled to override the alpha passed through the pixel data pipeline
     uint32_t ALPHA : 8;
   } bits;
   
@@ -677,11 +765,15 @@ union PXP_OUT_CTRL_CLR {
   
   // Bit field definition.
   struct {
+    /// read-write - Output framebuffer format
     eFORMAT FORMAT : 5;
     uint32_t _reserved_0 : 3;
+    /// read-write - Determines how the PXP writes it's output data
     eINTERLACED_OUTPUT INTERLACED_OUTPUT : 2;
     uint32_t _reserved_1 : 13;
+    /// read-write - Indicates that alpha component in output buffer pixels should be overwritten by PXP_OUT_CTRL[ALPHA]
     eALPHA_OUTPUT ALPHA_OUTPUT : 1;
+    /// read-write - When generating an output buffer with an alpha component, the value in this field will be used when enabled to override the alpha passed through the pixel data pipeline
     uint32_t ALPHA : 8;
   } bits;
   
@@ -731,11 +823,15 @@ union PXP_OUT_CTRL_TOG {
   
   // Bit field definition.
   struct {
+    /// read-write - Output framebuffer format
     eFORMAT FORMAT : 5;
     uint32_t _reserved_0 : 3;
+    /// read-write - Determines how the PXP writes it's output data
     eINTERLACED_OUTPUT INTERLACED_OUTPUT : 2;
     uint32_t _reserved_1 : 13;
+    /// read-write - Indicates that alpha component in output buffer pixels should be overwritten by PXP_OUT_CTRL[ALPHA]
     eALPHA_OUTPUT ALPHA_OUTPUT : 1;
+    /// read-write - When generating an output buffer with an alpha component, the value in this field will be used when enabled to override the alpha passed through the pixel data pipeline
     uint32_t ALPHA : 8;
   } bits;
   
@@ -753,6 +849,7 @@ union PXP_OUT_BUF {
   
   // Bit field definition.
   struct {
+    /// read-write - Current address pointer for the output frame buffer
     uint32_t ADDR : 32;
   } bits;
   
@@ -770,6 +867,7 @@ union PXP_OUT_BUF2 {
   
   // Bit field definition.
   struct {
+    /// read-write - Current address pointer for the output frame buffer
     uint32_t ADDR : 32;
   } bits;
   
@@ -787,6 +885,7 @@ union PXP_OUT_PITCH {
   
   // Bit field definition.
   struct {
+    /// read-write - Indicates the number of bytes in memory between two vertically adjacent pixels.
     uint32_t PITCH : 16;
     uint32_t _reserved_0 : 16;
   } bits;
@@ -805,8 +904,10 @@ union PXP_OUT_LRC {
   
   // Bit field definition.
   struct {
+    /// read-write - Indicates the number of vertical PIXELS in the output surface (non-rotated)
     uint32_t Y : 14;
     uint32_t _reserved_0 : 2;
+    /// read-write - Indicates number of horizontal PIXELS in the output surface (non-rotated)
     uint32_t X : 14;
     uint32_t _reserved_1 : 2;
   } bits;
@@ -825,8 +926,10 @@ union PXP_OUT_PS_ULC {
   
   // Bit field definition.
   struct {
+    /// read-write - This field indicates the upper left Y-coordinate (in pixels) of the processed surface in the output buffer
     uint32_t Y : 14;
     uint32_t _reserved_0 : 2;
+    /// read-write - This field indicates the upper left X-coordinate (in pixels) of the processed surface (PS) in the output buffer
     uint32_t X : 14;
     uint32_t _reserved_1 : 2;
   } bits;
@@ -845,8 +948,10 @@ union PXP_OUT_PS_LRC {
   
   // Bit field definition.
   struct {
+    /// read-write - This field indicates the lower right Y-coordinate (in pixels) of the processed surface in the output frame buffer
     uint32_t Y : 14;
     uint32_t _reserved_0 : 2;
+    /// read-write - This field indicates the lower right X-coordinate (in pixels) of the processed surface (PS) in the output frame buffer
     uint32_t X : 14;
     uint32_t _reserved_1 : 2;
   } bits;
@@ -865,8 +970,10 @@ union PXP_OUT_AS_ULC {
   
   // Bit field definition.
   struct {
+    /// read-write - This field indicates the upper left Y-coordinate (in pixels) of the alpha surface in the output frame buffer
     uint32_t Y : 14;
     uint32_t _reserved_0 : 2;
+    /// read-write - This field indicates the upper left X-coordinate (in pixels) of the alpha surface (AS) in the output frame buffer
     uint32_t X : 14;
     uint32_t _reserved_1 : 2;
   } bits;
@@ -885,8 +992,10 @@ union PXP_OUT_AS_LRC {
   
   // Bit field definition.
   struct {
+    /// read-write - This field indicates the lower right Y-coordinate (in pixels) of the alpha surface in the output frame buffer
     uint32_t Y : 14;
     uint32_t _reserved_0 : 2;
+    /// read-write - This field indicates the lower right X-coordinate (in pixels) of the alpha surface (AS) in the output frame buffer
     uint32_t X : 14;
     uint32_t _reserved_1 : 2;
   } bits;
@@ -945,10 +1054,14 @@ union PXP_PS_CTRL {
   
   // Bit field definition.
   struct {
+    /// read-write - PS buffer format. To select between YUV and YCbCr formats, see bit 31 of the CSC1_COEF0 register.
     eFORMAT FORMAT : 6;
+    /// read-write - Swap bytes in words. For each 16 bit word, the two bytes will be swapped.
     eWB_SWAP WB_SWAP : 1;
     uint32_t _reserved_0 : 1;
+    /// read-write - Verticle pre decimation filter control.
     eDECY DECY : 2;
+    /// read-write - Horizontal pre decimation filter control.
     eDECX DECX : 2;
     uint32_t _reserved_1 : 20;
   } bits;
@@ -1007,10 +1120,14 @@ union PXP_PS_CTRL_SET {
   
   // Bit field definition.
   struct {
+    /// read-write - PS buffer format. To select between YUV and YCbCr formats, see bit 31 of the CSC1_COEF0 register.
     eFORMAT FORMAT : 6;
+    /// read-write - Swap bytes in words. For each 16 bit word, the two bytes will be swapped.
     eWB_SWAP WB_SWAP : 1;
     uint32_t _reserved_0 : 1;
+    /// read-write - Verticle pre decimation filter control.
     eDECY DECY : 2;
+    /// read-write - Horizontal pre decimation filter control.
     eDECX DECX : 2;
     uint32_t _reserved_1 : 20;
   } bits;
@@ -1069,10 +1186,14 @@ union PXP_PS_CTRL_CLR {
   
   // Bit field definition.
   struct {
+    /// read-write - PS buffer format. To select between YUV and YCbCr formats, see bit 31 of the CSC1_COEF0 register.
     eFORMAT FORMAT : 6;
+    /// read-write - Swap bytes in words. For each 16 bit word, the two bytes will be swapped.
     eWB_SWAP WB_SWAP : 1;
     uint32_t _reserved_0 : 1;
+    /// read-write - Verticle pre decimation filter control.
     eDECY DECY : 2;
+    /// read-write - Horizontal pre decimation filter control.
     eDECX DECX : 2;
     uint32_t _reserved_1 : 20;
   } bits;
@@ -1131,10 +1252,14 @@ union PXP_PS_CTRL_TOG {
   
   // Bit field definition.
   struct {
+    /// read-write - PS buffer format. To select between YUV and YCbCr formats, see bit 31 of the CSC1_COEF0 register.
     eFORMAT FORMAT : 6;
+    /// read-write - Swap bytes in words. For each 16 bit word, the two bytes will be swapped.
     eWB_SWAP WB_SWAP : 1;
     uint32_t _reserved_0 : 1;
+    /// read-write - Verticle pre decimation filter control.
     eDECY DECY : 2;
+    /// read-write - Horizontal pre decimation filter control.
     eDECX DECX : 2;
     uint32_t _reserved_1 : 20;
   } bits;
@@ -1153,6 +1278,7 @@ union PXP_PS_BUF {
   
   // Bit field definition.
   struct {
+    /// read-write - Address pointer for the PS RGB or Y (luma) input buffer.
     uint32_t ADDR : 32;
   } bits;
   
@@ -1170,6 +1296,7 @@ union PXP_PS_UBUF {
   
   // Bit field definition.
   struct {
+    /// read-write - Address pointer for the PS U/Cb or 2 plane UV Chroma input buffer.
     uint32_t ADDR : 32;
   } bits;
   
@@ -1187,6 +1314,7 @@ union PXP_PS_VBUF {
   
   // Bit field definition.
   struct {
+    /// read-write - Address pointer for the PS V/Cr Chroma input buffer.
     uint32_t ADDR : 32;
   } bits;
   
@@ -1204,6 +1332,7 @@ union PXP_PS_PITCH {
   
   // Bit field definition.
   struct {
+    /// read-write - Indicates the number of bytes in memory between two vertically adjacent pixels.
     uint32_t PITCH : 16;
     uint32_t _reserved_0 : 16;
   } bits;
@@ -1222,6 +1351,7 @@ union PXP_PS_BACKGROUND {
   
   // Bit field definition.
   struct {
+    /// read-write - Background color (in 24bpp format) for any pixels not within the buffer range specified by the PS ULC/LRC
     uint32_t COLOR : 24;
     uint32_t _reserved_0 : 8;
   } bits;
@@ -1240,8 +1370,10 @@ union PXP_PS_SCALE {
   
   // Bit field definition.
   struct {
+    /// read-write - This is a two bit integer and 12 bit fractional representation (##
     uint32_t XSCALE : 15;
     uint32_t _reserved_0 : 1;
+    /// read-write - This is a two bit integer and 12 bit fractional representation (##
     uint32_t YSCALE : 15;
     uint32_t _reserved_1 : 1;
   } bits;
@@ -1260,8 +1392,10 @@ union PXP_PS_OFFSET {
   
   // Bit field definition.
   struct {
+    /// read-write - This is a 12 bit fractional representation (0
     uint32_t XOFFSET : 12;
     uint32_t _reserved_0 : 4;
+    /// read-write - This is a 12 bit fractional representation (0
     uint32_t YOFFSET : 12;
     uint32_t _reserved_1 : 4;
   } bits;
@@ -1280,6 +1414,7 @@ union PXP_PS_CLRKEYLOW {
   
   // Bit field definition.
   struct {
+    /// read-write - Low range of color key applied to PS buffer
     uint32_t PIXEL : 24;
     uint32_t _reserved_0 : 8;
   } bits;
@@ -1298,6 +1433,7 @@ union PXP_PS_CLRKEYHIGH {
   
   // Bit field definition.
   struct {
+    /// read-write - High range of color key applied to PS buffer
     uint32_t PIXEL : 24;
     uint32_t _reserved_0 : 8;
   } bits;
@@ -1362,11 +1498,17 @@ union PXP_AS_CTRL {
   // Bit field definition.
   struct {
     uint32_t _reserved_0 : 1;
+    /// read-write - Determines how the alpha value is constructed for this alpha surface
     eALPHA_CTRL ALPHA_CTRL : 2;
+    /// read-write - Indicates that colorkey functionality is enabled for this alpha surface
     eENABLE_COLORKEY ENABLE_COLORKEY : 1;
+    /// read-write - Indicates the input buffer format for AS.
     eFORMAT FORMAT : 4;
+    /// read-write - Alpha modifier used when the ALPHA_MULTIPLY or ALPHA_OVERRIDE values are programmed in PXP_AS_CTRL[ALPHA_CTRL]
     uint32_t ALPHA : 8;
+    /// read-write - Indicates a raster operation to perform when enabled
     eROP ROP : 4;
+    /// read-write - Setting this bit to logic 0 will not alter the alpha value
     eALPHA_INVERT ALPHA_INVERT : 1;
     uint32_t _reserved_1 : 11;
   } bits;
@@ -1385,6 +1527,7 @@ union PXP_AS_BUF {
   
   // Bit field definition.
   struct {
+    /// read-write - Address pointer for the alpha surface 0 buffer.
     uint32_t ADDR : 32;
   } bits;
   
@@ -1402,6 +1545,7 @@ union PXP_AS_PITCH {
   
   // Bit field definition.
   struct {
+    /// read-write - Indicates the number of bytes in memory between two vertically adjacent pixels.
     uint32_t PITCH : 16;
     uint32_t _reserved_0 : 16;
   } bits;
@@ -1420,6 +1564,7 @@ union PXP_AS_CLRKEYLOW {
   
   // Bit field definition.
   struct {
+    /// read-write - Low range of RGB color key applied to AS buffer. Each overlay has an independent colorkey enable.
     uint32_t PIXEL : 24;
     uint32_t _reserved_0 : 8;
   } bits;
@@ -1438,6 +1583,7 @@ union PXP_AS_CLRKEYHIGH {
   
   // Bit field definition.
   struct {
+    /// read-write - High range of RGB color key applied to AS buffer. Each overlay has an independent colorkey enable.
     uint32_t PIXEL : 24;
     uint32_t _reserved_0 : 8;
   } bits;
@@ -1461,11 +1607,16 @@ union PXP_CSC1_COEF0 {
   
   // Bit field definition.
   struct {
+    /// read-write - Two's compliment amplitude offset implicit in the Y data
     uint32_t Y_OFFSET : 9;
+    /// read-write - Two's compliment phase offset implicit for CbCr data
     uint32_t UV_OFFSET : 9;
+    /// read-write - Two's compliment Y multiplier coefficient. YUV=0x100 (1.000) YCbCr=0x12A (1.164)
     uint32_t C0 : 11;
     uint32_t _reserved_0 : 1;
+    /// read-write - Bypass the CSC unit in the scaling engine
     uint32_t BYPASS : 1;
+    /// read-write - Set to 1 when performing YCbCr conversion to RGB
     eYCBCR_MODE YCBCR_MODE : 1;
   } bits;
   
@@ -1483,8 +1634,10 @@ union PXP_CSC1_COEF1 {
   
   // Bit field definition.
   struct {
+    /// read-write - Two's compliment Blue U/Cb multiplier coefficient. YUV=0x208 (2.032) YCbCr=0x204 (2.017)
     uint32_t C4 : 11;
     uint32_t _reserved_0 : 5;
+    /// read-write - Two's compliment Red V/Cr multiplier coefficient. YUV=0x123 (1.140) YCbCr=0x198 (1.596)
     uint32_t C1 : 11;
     uint32_t _reserved_1 : 5;
   } bits;
@@ -1503,8 +1656,10 @@ union PXP_CSC1_COEF2 {
   
   // Bit field definition.
   struct {
+    /// read-write - Two's complement Green U/Cb multiplier coefficient. YUV=0x79C (-0.394) YCbCr=0x79C (-0.392)
     uint32_t C3 : 11;
     uint32_t _reserved_0 : 5;
+    /// read-write - Two's complement Green V/Cr multiplier coefficient. YUV=0x76B (-0.581) YCbCr=0x730 (-0.813)
     uint32_t C2 : 11;
     uint32_t _reserved_1 : 5;
   } bits;
@@ -1531,6 +1686,7 @@ union PXP_POWER {
   // Bit field definition.
   struct {
     uint32_t _reserved_0 : 9;
+    /// read-write - Select the low power state of the Rotation (ROT) memory.
     eROT_MEM_LP_STATE ROT_MEM_LP_STATE : 3;
     uint32_t _reserved_1 : 20;
   } bits;
@@ -1549,8 +1705,10 @@ union PXP_NEXT {
   
   // Bit field definition.
   struct {
+    /// read-only - Indicates that the "next frame" functionality has been enabled
     uint32_t ENABLED : 1;
     uint32_t _reserved_0 : 1;
+    /// read-write - A pointer to a data structure containing register values to be used when processing the next frame
     uint32_t POINTER : 30;
   } bits;
   
@@ -1621,18 +1779,29 @@ union PXP_PORTER_DUFF_CTRL {
   
   // Bit field definition.
   struct {
+    /// read-write - Porter-Duff Enable
     ePORTER_DUFF_ENABLE PORTER_DUFF_ENABLE : 1;
+    /// read-write - s0 to s1 factor mode
     eS0_S1_FACTOR_MODE S0_S1_FACTOR_MODE : 2;
+    /// read-write - s0 global alpha mode
     eS0_GLOBAL_ALPHA_MODE S0_GLOBAL_ALPHA_MODE : 2;
+    /// read-write - s0 alpha mode (Porter-Duff alpha mode)
     eS0_ALPHA_MODE S0_ALPHA_MODE : 1;
+    /// read-write - s0 color mode (Porter-Duff color mode)
     eS0_COLOR_MODE S0_COLOR_MODE : 1;
     uint32_t _reserved_0 : 1;
+    /// read-write - s1 to s0 factor mode (Porter-Duff factor mode)
     eS1_S0_FACTOR_MODE S1_S0_FACTOR_MODE : 2;
+    /// read-write - s1 global alpha mode (Porter-Duff Global Alpha mode)
     eS1_GLOBAL_ALPHA_MODE S1_GLOBAL_ALPHA_MODE : 2;
+    /// read-write - s1 alpha mode (Porter-Duff Alpha mode)
     eS1_ALPHA_MODE S1_ALPHA_MODE : 1;
+    /// read-write - s1 color mode
     eS1_COLOR_MODE S1_COLOR_MODE : 1;
     uint32_t _reserved_1 : 2;
+    /// read-write - s0 global alpha
     uint32_t S0_GLOBAL_ALPHA : 8;
+    /// read-write - s1 global alpha
     uint32_t S1_GLOBAL_ALPHA : 8;
   } bits;
   

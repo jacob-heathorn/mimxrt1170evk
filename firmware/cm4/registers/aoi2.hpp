@@ -73,13 +73,21 @@ union BFCRT010 {
   
   // Bit field definition.
   struct {
+    /// read-write - Product term 1, D input configuration
     ePT1_DC PT1_DC : 2;
+    /// read-write - Product term 1, C input configuration
     ePT1_CC PT1_CC : 2;
+    /// read-write - Product term 1, B input configuration
     ePT1_BC PT1_BC : 2;
+    /// read-write - Product term 1, A input configuration
     ePT1_AC PT1_AC : 2;
+    /// read-write - Product term 0, D input configuration
     ePT0_DC PT0_DC : 2;
+    /// read-write - Product term 0, C input configuration
     ePT0_CC PT0_CC : 2;
+    /// read-write - Product term 0, B input configuration
     ePT0_BC PT0_BC : 2;
+    /// read-write - Product term 0, A input configuration
     ePT0_AC PT0_AC : 2;
     uint32_t _reserved_0 : 16;
   } bits;
@@ -154,13 +162,21 @@ union BFCRT230 {
   
   // Bit field definition.
   struct {
+    /// read-write - Product term 3, D input configuration
     ePT3_DC PT3_DC : 2;
+    /// read-write - Product term 3, C input configuration
     ePT3_CC PT3_CC : 2;
+    /// read-write - Product term 3, B input configuration
     ePT3_BC PT3_BC : 2;
+    /// read-write - Product term 3, A input configuration
     ePT3_AC PT3_AC : 2;
+    /// read-write - Product term 2, D input configuration
     ePT2_DC PT2_DC : 2;
+    /// read-write - Product term 2, C input configuration
     ePT2_CC PT2_CC : 2;
+    /// read-write - Product term 2, B input configuration
     ePT2_BC PT2_BC : 2;
+    /// read-write - Product term 2, A input configuration
     ePT2_AC PT2_AC : 2;
     uint32_t _reserved_0 : 16;
   } bits;
@@ -235,13 +251,21 @@ union BFCRT011 {
   
   // Bit field definition.
   struct {
+    /// read-write - Product term 1, D input configuration
     ePT1_DC PT1_DC : 2;
+    /// read-write - Product term 1, C input configuration
     ePT1_CC PT1_CC : 2;
+    /// read-write - Product term 1, B input configuration
     ePT1_BC PT1_BC : 2;
+    /// read-write - Product term 1, A input configuration
     ePT1_AC PT1_AC : 2;
+    /// read-write - Product term 0, D input configuration
     ePT0_DC PT0_DC : 2;
+    /// read-write - Product term 0, C input configuration
     ePT0_CC PT0_CC : 2;
+    /// read-write - Product term 0, B input configuration
     ePT0_BC PT0_BC : 2;
+    /// read-write - Product term 0, A input configuration
     ePT0_AC PT0_AC : 2;
     uint32_t _reserved_0 : 16;
   } bits;
@@ -316,13 +340,21 @@ union BFCRT231 {
   
   // Bit field definition.
   struct {
+    /// read-write - Product term 3, D input configuration
     ePT3_DC PT3_DC : 2;
+    /// read-write - Product term 3, C input configuration
     ePT3_CC PT3_CC : 2;
+    /// read-write - Product term 3, B input configuration
     ePT3_BC PT3_BC : 2;
+    /// read-write - Product term 3, A input configuration
     ePT3_AC PT3_AC : 2;
+    /// read-write - Product term 2, D input configuration
     ePT2_DC PT2_DC : 2;
+    /// read-write - Product term 2, C input configuration
     ePT2_CC PT2_CC : 2;
+    /// read-write - Product term 2, B input configuration
     ePT2_BC PT2_BC : 2;
+    /// read-write - Product term 2, A input configuration
     ePT2_AC PT2_AC : 2;
     uint32_t _reserved_0 : 16;
   } bits;
@@ -397,13 +429,21 @@ union BFCRT012 {
   
   // Bit field definition.
   struct {
+    /// read-write - Product term 1, D input configuration
     ePT1_DC PT1_DC : 2;
+    /// read-write - Product term 1, C input configuration
     ePT1_CC PT1_CC : 2;
+    /// read-write - Product term 1, B input configuration
     ePT1_BC PT1_BC : 2;
+    /// read-write - Product term 1, A input configuration
     ePT1_AC PT1_AC : 2;
+    /// read-write - Product term 0, D input configuration
     ePT0_DC PT0_DC : 2;
+    /// read-write - Product term 0, C input configuration
     ePT0_CC PT0_CC : 2;
+    /// read-write - Product term 0, B input configuration
     ePT0_BC PT0_BC : 2;
+    /// read-write - Product term 0, A input configuration
     ePT0_AC PT0_AC : 2;
     uint32_t _reserved_0 : 16;
   } bits;
@@ -478,13 +518,21 @@ union BFCRT232 {
   
   // Bit field definition.
   struct {
+    /// read-write - Product term 3, D input configuration
     ePT3_DC PT3_DC : 2;
+    /// read-write - Product term 3, C input configuration
     ePT3_CC PT3_CC : 2;
+    /// read-write - Product term 3, B input configuration
     ePT3_BC PT3_BC : 2;
+    /// read-write - Product term 3, A input configuration
     ePT3_AC PT3_AC : 2;
+    /// read-write - Product term 2, D input configuration
     ePT2_DC PT2_DC : 2;
+    /// read-write - Product term 2, C input configuration
     ePT2_CC PT2_CC : 2;
+    /// read-write - Product term 2, B input configuration
     ePT2_BC PT2_BC : 2;
+    /// read-write - Product term 2, A input configuration
     ePT2_AC PT2_AC : 2;
     uint32_t _reserved_0 : 16;
   } bits;
@@ -559,13 +607,21 @@ union BFCRT013 {
   
   // Bit field definition.
   struct {
+    /// read-write - Product term 1, D input configuration
     ePT1_DC PT1_DC : 2;
+    /// read-write - Product term 1, C input configuration
     ePT1_CC PT1_CC : 2;
+    /// read-write - Product term 1, B input configuration
     ePT1_BC PT1_BC : 2;
+    /// read-write - Product term 1, A input configuration
     ePT1_AC PT1_AC : 2;
+    /// read-write - Product term 0, D input configuration
     ePT0_DC PT0_DC : 2;
+    /// read-write - Product term 0, C input configuration
     ePT0_CC PT0_CC : 2;
+    /// read-write - Product term 0, B input configuration
     ePT0_BC PT0_BC : 2;
+    /// read-write - Product term 0, A input configuration
     ePT0_AC PT0_AC : 2;
     uint32_t _reserved_0 : 16;
   } bits;
@@ -640,13 +696,21 @@ union BFCRT233 {
   
   // Bit field definition.
   struct {
+    /// read-write - Product term 3, D input configuration
     ePT3_DC PT3_DC : 2;
+    /// read-write - Product term 3, C input configuration
     ePT3_CC PT3_CC : 2;
+    /// read-write - Product term 3, B input configuration
     ePT3_BC PT3_BC : 2;
+    /// read-write - Product term 3, A input configuration
     ePT3_AC PT3_AC : 2;
+    /// read-write - Product term 2, D input configuration
     ePT2_DC PT2_DC : 2;
+    /// read-write - Product term 2, C input configuration
     ePT2_CC PT2_CC : 2;
+    /// read-write - Product term 2, B input configuration
     ePT2_BC PT2_BC : 2;
+    /// read-write - Product term 2, A input configuration
     ePT2_AC PT2_AC : 2;
     uint32_t _reserved_0 : 16;
   } bits;

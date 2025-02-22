@@ -37,9 +37,13 @@ union VID_MUX_CTRL {
   
   // Bit field definition.
   struct {
+    /// read-write - CSI sensor data input mux selector
     eCSI_SEL CSI_SEL : 1;
+    /// read-write - LCDIF2 sensor data input mux selector
     eLCDIF2_SEL LCDIF2_SEL : 1;
+    /// read-write - MIPI DSI video data input mux selector
     eMIPI_DSI_SEL MIPI_DSI_SEL : 1;
+    /// read-write - Parallel LCDIF video data input mux selector
     ePARA_LCD_SEL PARA_LCD_SEL : 1;
     uint32_t _reserved_0 : 28;
   } bits;
@@ -58,9 +62,13 @@ union VID_MUX_CTRL_SET {
   
   // Bit field definition.
   struct {
+    /// read-write - CSI sensor data input mux selector
     uint32_t CSI_SEL : 1;
+    /// read-write - LCDIF2 sensor data input mux selector
     uint32_t LCDIF2_SEL : 1;
+    /// read-write - MIPI DSI video data input mux selector
     uint32_t MIPI_DSI_SEL : 1;
+    /// read-write - Parallel LCDIF video data input mux selector
     uint32_t PARA_LCD_SEL : 1;
     uint32_t _reserved_0 : 28;
   } bits;
@@ -79,9 +87,13 @@ union VID_MUX_CTRL_CLR {
   
   // Bit field definition.
   struct {
+    /// read-write - CSI sensor data input mux selector
     uint32_t CSI_SEL : 1;
+    /// read-write - LCDIF2 sensor data input mux selector
     uint32_t LCDIF2_SEL : 1;
+    /// read-write - MIPI DSI video data input mux selector
     uint32_t MIPI_DSI_SEL : 1;
+    /// read-write - Parallel LCDIF video data input mux selector
     uint32_t PARA_LCD_SEL : 1;
     uint32_t _reserved_0 : 28;
   } bits;
@@ -100,9 +112,13 @@ union VID_MUX_CTRL_TOG {
   
   // Bit field definition.
   struct {
+    /// read-write - CSI sensor data input mux selector
     uint32_t CSI_SEL : 1;
+    /// read-write - LCDIF2 sensor data input mux selector
     uint32_t LCDIF2_SEL : 1;
+    /// read-write - MIPI DSI video data input mux selector
     uint32_t MIPI_DSI_SEL : 1;
+    /// read-write - Parallel LCDIF video data input mux selector
     uint32_t PARA_LCD_SEL : 1;
     uint32_t _reserved_0 : 28;
   } bits;
@@ -146,10 +162,15 @@ union PLM_CTRL {
   
   // Bit field definition.
   struct {
+    /// read-write - Enable the output of HYSNC and VSYNC
     eENABLE ENABLE : 1;
+    /// read-write - VSYNC override
     eVSYNC_OVERRIDE VSYNC_OVERRIDE : 1;
+    /// read-write - HSYNC override
     eHSYNC_OVERRIDE HSYNC_OVERRIDE : 1;
+    /// read-write - Valid override
     eVALID_OVERRIDE VALID_OVERRIDE : 1;
+    /// read-write - Polarity of HYSNC/VSYNC
     ePOLARITY POLARITY : 1;
     uint32_t _reserved_0 : 27;
   } bits;
@@ -168,10 +189,15 @@ union PLM_CTRL_SET {
   
   // Bit field definition.
   struct {
+    /// read-write - Enable the output of HYSNC and VSYNC
     uint32_t ENABLE : 1;
+    /// read-write - VSYNC override
     uint32_t VSYNC_OVERRIDE : 1;
+    /// read-write - HSYNC override
     uint32_t HSYNC_OVERRIDE : 1;
+    /// read-write - Valid override
     uint32_t VALID_OVERRIDE : 1;
+    /// read-write - Polarity of HYSNC/VSYNC
     uint32_t POLARITY : 1;
     uint32_t _reserved_0 : 27;
   } bits;
@@ -190,10 +216,15 @@ union PLM_CTRL_CLR {
   
   // Bit field definition.
   struct {
+    /// read-write - Enable the output of HYSNC and VSYNC
     uint32_t ENABLE : 1;
+    /// read-write - VSYNC override
     uint32_t VSYNC_OVERRIDE : 1;
+    /// read-write - HSYNC override
     uint32_t HSYNC_OVERRIDE : 1;
+    /// read-write - Valid override
     uint32_t VALID_OVERRIDE : 1;
+    /// read-write - Polarity of HYSNC/VSYNC
     uint32_t POLARITY : 1;
     uint32_t _reserved_0 : 27;
   } bits;
@@ -212,10 +243,15 @@ union PLM_CTRL_TOG {
   
   // Bit field definition.
   struct {
+    /// read-write - Enable the output of HYSNC and VSYNC
     uint32_t ENABLE : 1;
+    /// read-write - VSYNC override
     uint32_t VSYNC_OVERRIDE : 1;
+    /// read-write - HSYNC override
     uint32_t HSYNC_OVERRIDE : 1;
+    /// read-write - Valid override
     uint32_t VALID_OVERRIDE : 1;
+    /// read-write - Polarity of HYSNC/VSYNC
     uint32_t POLARITY : 1;
     uint32_t _reserved_0 : 27;
   } bits;
@@ -239,6 +275,7 @@ union YUV420_CTRL {
   
   // Bit field definition.
   struct {
+    /// read-write - Data type of First Line
     eFST_LN_DATA_TYPE FST_LN_DATA_TYPE : 1;
     uint32_t _reserved_0 : 31;
   } bits;
@@ -257,6 +294,7 @@ union YUV420_CTRL_SET {
   
   // Bit field definition.
   struct {
+    /// read-write - Data type of First Line
     uint32_t FST_LN_DATA_TYPE : 1;
     uint32_t _reserved_0 : 31;
   } bits;
@@ -275,6 +313,7 @@ union YUV420_CTRL_CLR {
   
   // Bit field definition.
   struct {
+    /// read-write - Data type of First Line
     uint32_t FST_LN_DATA_TYPE : 1;
     uint32_t _reserved_0 : 31;
   } bits;
@@ -293,6 +332,7 @@ union YUV420_CTRL_TOG {
   
   // Bit field definition.
   struct {
+    /// read-write - Data type of First Line
     uint32_t FST_LN_DATA_TYPE : 1;
     uint32_t _reserved_0 : 31;
   } bits;
@@ -311,6 +351,7 @@ union CFG_DT_DISABLE {
   
   // Bit field definition.
   struct {
+    /// read-write - Data Type Disable
     uint32_t CFG_DT_DISABLE : 24;
     uint32_t _reserved_0 : 8;
   } bits;
@@ -329,6 +370,7 @@ union CFG_DT_DISABLE_SET {
   
   // Bit field definition.
   struct {
+    /// read-write - Data Type Disable
     uint32_t CFG_DT_DISABLE : 24;
     uint32_t _reserved_0 : 8;
   } bits;
@@ -347,6 +389,7 @@ union CFG_DT_DISABLE_CLR {
   
   // Bit field definition.
   struct {
+    /// read-write - Data Type Disable
     uint32_t CFG_DT_DISABLE : 24;
     uint32_t _reserved_0 : 8;
   } bits;
@@ -365,6 +408,7 @@ union CFG_DT_DISABLE_TOG {
   
   // Bit field definition.
   struct {
+    /// read-write - Data Type Disable
     uint32_t CFG_DT_DISABLE : 24;
     uint32_t _reserved_0 : 8;
   } bits;
@@ -393,7 +437,9 @@ union MIPI_DSI_CTRL {
   
   // Bit field definition.
   struct {
+    /// read-write - Shut Down - Control to shutdown display (type 4 only)
     eDPI_SD DPI_SD : 1;
+    /// read-write - Color Mode control
     eDPI_CM DPI_CM : 1;
     uint32_t _reserved_0 : 30;
   } bits;
@@ -412,7 +458,9 @@ union MIPI_DSI_CTRL_SET {
   
   // Bit field definition.
   struct {
+    /// read-write - Shut Down - Control to shutdown display (type 4 only)
     uint32_t DPI_SD : 1;
+    /// read-write - Color Mode control
     uint32_t DPI_CM : 1;
     uint32_t _reserved_0 : 30;
   } bits;
@@ -431,7 +479,9 @@ union MIPI_DSI_CTRL_CLR {
   
   // Bit field definition.
   struct {
+    /// read-write - Shut Down - Control to shutdown display (type 4 only)
     uint32_t DPI_SD : 1;
+    /// read-write - Color Mode control
     uint32_t DPI_CM : 1;
     uint32_t _reserved_0 : 30;
   } bits;
@@ -450,7 +500,9 @@ union MIPI_DSI_CTRL_TOG {
   
   // Bit field definition.
   struct {
+    /// read-write - Shut Down - Control to shutdown display (type 4 only)
     uint32_t DPI_SD : 1;
+    /// read-write - Color Mode control
     uint32_t DPI_CM : 1;
     uint32_t _reserved_0 : 30;
   } bits;

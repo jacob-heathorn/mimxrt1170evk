@@ -54,15 +54,24 @@ union CTRL0 {
   
   // Bit field definition.
   struct {
+    /// read-write - DCDC Enable
     eENABLE ENABLE : 1;
+    /// read-write - Enable the DCDC_DIG switching converter output
     eDIG_EN DIG_EN : 1;
+    /// read-write - DCDC standby mode enable
     eSTBY_EN STBY_EN : 1;
+    /// read-write - DCDC low-power (LP) mode enable DCDC can't start up directly into LP mode
     eLP_MODE_EN LP_MODE_EN : 1;
+    /// read-write - DCDC low-power mode enable by GPC standby request
     eSTBY_LP_MODE_EN STBY_LP_MODE_EN : 1;
+    /// read-write - Enable internal count for DCDC_OK timeout
     eENABLE_DCDC_CNT ENABLE_DCDC_CNT : 1;
+    /// read-write - Hold trim input
     eTRIM_HOLD TRIM_HOLD : 1;
     uint32_t _reserved_0 : 12;
+    /// read-write - DEBUG_BITS[11:0]
     uint32_t DEBUG_BITS : 12;
+    /// read-write - Control mode
     eCONTROL_MODE CONTROL_MODE : 1;
   } bits;
   
@@ -104,12 +113,16 @@ union CTRL1 {
   
   // Bit field definition.
   struct {
+    /// read-write - Target value of VDD1P8 in buck mode, 25mV each step from 0x00 to 0x1F:
     eVDD1P8CTRL_TRG VDD1P8CTRL_TRG : 5;
     uint32_t _reserved_0 : 3;
+    /// read-write - Target value of VDD1P0 in buck mode, 25mV each step from 0x00 to 0x1F:
     eVDD1P0CTRL_TRG VDD1P0CTRL_TRG : 5;
     uint32_t _reserved_1 : 3;
+    /// read-write - Target value of VDD1P8 in standby mode, 25mV each step from 0x00 to 0x1F:
     eVDD1P8CTRL_STBY_TRG VDD1P8CTRL_STBY_TRG : 5;
     uint32_t _reserved_2 : 3;
+    /// read-write - Target value of VDD1P0 in standby mode, 25mV each step from 0x00 to 0x1F:
     eVDD1P0CTRL_STBY_TRG VDD1P0CTRL_STBY_TRG : 5;
     uint32_t _reserved_3 : 3;
   } bits;
@@ -198,26 +211,41 @@ union REG0 {
   
   // Bit field definition.
   struct {
+    /// read-write - Power Down Zero Cross Detection
     ePWD_ZCD PWD_ZCD : 1;
+    /// read-write - Disable Auto Clock Switch
     eDISABLE_AUTO_CLK_SWITCH DISABLE_AUTO_CLK_SWITCH : 1;
+    /// read-write - Select Clock
     eSEL_CLK SEL_CLK : 1;
+    /// read-write - Power down internal ring oscillator
     ePWD_OSC_INT PWD_OSC_INT : 1;
+    /// read-write - Power down signal of the current detector
     ePWD_CUR_SNS_CMP PWD_CUR_SNS_CMP : 1;
+    /// read-write - Current Sense (detector) Threshold
     uint32_t CUR_SNS_THRSH : 3;
+    /// read-write - Power down overcurrent detection comparator
     ePWD_OVERCUR_DET PWD_OVERCUR_DET : 1;
     uint32_t _reserved_0 : 2;
+    /// read-write - Set to "1" to power down the low voltage detection comparator
     ePWD_CMP_DCDC_IN_DET PWD_CMP_DCDC_IN_DET : 1;
     uint32_t _reserved_1 : 4;
+    /// read-write - Power Down High Voltage Detection for VDD1P8
     ePWD_HIGH_VDD1P8_DET PWD_HIGH_VDD1P8_DET : 1;
+    /// read-write - Power Down High Voltage Detection for VDD1P0
     ePWD_HIGH_VDD1P0_DET PWD_HIGH_VDD1P0_DET : 1;
     uint32_t _reserved_2 : 3;
+    /// read-write - Low Power High Hysteric Value
     eLP_HIGH_HYS LP_HIGH_HYS : 1;
     uint32_t _reserved_3 : 4;
+    /// read-write - power down the out-of-range detection comparator
     ePWD_CMP_OFFSET PWD_CMP_OFFSET : 1;
+    /// read-write - Disable xtalok detection circuit
     eXTALOK_DISABLE XTALOK_DISABLE : 1;
     uint32_t _reserved_4 : 1;
+    /// read-write - 24M XTAL OK
     eXTAL_24M_OK XTAL_24M_OK : 1;
     uint32_t _reserved_5 : 1;
+    /// read-only - DCDC Output OK
     eSTS_DC_OK STS_DC_OK : 1;
   } bits;
   
@@ -269,15 +297,23 @@ union REG1 {
   // Bit field definition.
   struct {
     uint32_t _reserved_0 : 3;
+    /// read-write - DM Control
     eDM_CTRL DM_CTRL : 1;
+    /// read-write - Load Resistor Enable
     eRLOAD_REG_EN_LPSR RLOAD_REG_EN_LPSR : 1;
     uint32_t _reserved_1 : 1;
+    /// read-write - Trim Bandgap Voltage
     eVBG_TRIM VBG_TRIM : 5;
+    /// read-write - Low Power Comparator Current Bias
     eLP_CMP_ISRC_SEL LP_CMP_ISRC_SEL : 2;
     uint32_t _reserved_2 : 14;
+    /// read-write - Increase Threshold Detection
     uint32_t LOOPCTRL_CM_HST_THRESH : 1;
+    /// read-write - Increase Threshold Detection
     uint32_t LOOPCTRL_DF_HST_THRESH : 1;
+    /// read-write - Enable hysteresis in switching converter common mode analog comparators
     eLOOPCTRL_EN_CM_HYST LOOPCTRL_EN_CM_HYST : 1;
+    /// read-write - Enable hysteresis in switching converter differential mode analog comparators
     eLOOPCTRL_EN_DF_HYST LOOPCTRL_EN_DF_HYST : 1;
     uint32_t _reserved_3 : 1;
   } bits;
@@ -296,18 +332,28 @@ union REG2 {
   
   // Bit field definition.
   struct {
+    /// read-write - Ratio of integral control parameter to proportional control parameter in the switching DCDC converter, and can be used to optimize efficiency and loop response
     uint32_t LOOPCTRL_DC_C : 2;
+    /// read-write - Magnitude of proportional control parameter in the switching DCDC converter control loop.
     uint32_t LOOPCTRL_DC_R : 4;
+    /// read-write - Two's complement feed forward step in duty cycle in the switching DCDC converter
     uint32_t LOOPCTRL_DC_FF : 3;
+    /// read-write - Enable RC Scale
     uint32_t LOOPCTRL_EN_RCSCALE : 3;
+    /// read-write - Increase the threshold detection for RC scale circuit.
     uint32_t LOOPCTRL_RCSCALE_THRSH : 1;
+    /// read-write - Invert the sign of the hysteresis in DCDC analog comparators.
     uint32_t LOOPCTRL_HYST_SIGN : 1;
     uint32_t _reserved_0 : 1;
+    /// read-write - This bit enables the DCDC to improve efficiency and minimize ripple using the information from the BATT_VAL field
     uint32_t BATTMONITOR_EN_BATADJ : 1;
+    /// read-write - Software should be configured to place the battery voltage in this register measured with an 8-mV LSB resolution through the ADC
     uint32_t BATTMONITOR_BATT_VAL : 10;
     uint32_t _reserved_1 : 2;
+    /// read-write - DCM Set Control
     uint32_t DCM_SET_CTRL : 1;
     uint32_t _reserved_2 : 1;
+    /// read-write - Set high to enable supply stepping to change only after the differential control loop has toggled as well
     uint32_t LOOPCTRL_TOGGLE_DIF : 1;
     uint32_t _reserved_3 : 1;
   } bits;
@@ -374,21 +420,35 @@ union REG3 {
   // Bit field definition.
   struct {
     uint32_t _reserved_0 : 14;
+    /// read-only - signal "1" when the voltage on DCDC_IN is lower than 2.6V
     eIN_BROWNOUT IN_BROWNOUT : 1;
+    /// read-only - signal "1" when overvoltage on the VDD1P8 output happens
     eOVERVOLT_VDD1P8_DET_OUT OVERVOLT_VDD1P8_DET_OUT : 1;
+    /// read-only - signal "1" when overvoltage on the VDD1P0 output happens
     eOVERVOLT_VDD1P0_DET_OUT OVERVOLT_VDD1P0_DET_OUT : 1;
+    /// read-only - signal "1" when overcurrent happens.
     eOVERCUR_DETECT_OUT OVERCUR_DETECT_OUT : 1;
+    /// read-write - no description available
     eENABLE_FF ENABLE_FF : 1;
+    /// read-write - Disable Pulse Skip
     eDISABLE_PULSE_SKIP DISABLE_PULSE_SKIP : 1;
+    /// read-write - no description available
     eDISABLE_IDLE_SKIP DISABLE_IDLE_SKIP : 1;
+    /// read-write - no description available
     eDOUBLE_IBIAS_CMP_LP_LPSR DOUBLE_IBIAS_CMP_LP_LPSR : 1;
+    /// read-write - Select the feedback point of the internal regulator
     uint32_t REG_FBK_SEL : 2;
+    /// read-write - Set DCDC clock to half freqeuncy for continuous mode.
     eMINPWR_DC_HALFCLK MINPWR_DC_HALFCLK : 1;
     uint32_t _reserved_1 : 1;
+    /// read-write - Use half switch FET
     uint32_t MINPWR_HALF_FETS : 1;
+    /// read-write - Miscellaneous Delay Timing
     uint32_t MISC_DELAY_TIMING : 1;
     uint32_t _reserved_2 : 1;
+    /// read-write - Disable Step for VDD1P0
     eVDD1P0CTRL_DISABLE_STEP VDD1P0CTRL_DISABLE_STEP : 1;
+    /// read-write - Disable Step for VDD1P8
     eVDD1P8CTRL_DISABLE_STEP VDD1P8CTRL_DISABLE_STEP : 1;
     uint32_t _reserved_3 : 1;
   } bits;
@@ -407,6 +467,7 @@ union REG4 {
   
   // Bit field definition.
   struct {
+    /// read-write - Configures CTRL0[ENABLE] (DCDC Enable) for Setpoints 0-15
     uint32_t ENABLE_SP : 16;
     uint32_t _reserved_0 : 16;
   } bits;
@@ -425,6 +486,7 @@ union REG5 {
   
   // Bit field definition.
   struct {
+    /// read-write - Configures CTRL0[DIG_EN] (DCDC_DIG Enable) for Setpoints 0-15. Always set these bits to 1.
     uint32_t DIG_EN_SP : 16;
     uint32_t _reserved_0 : 16;
   } bits;
@@ -443,6 +505,7 @@ union REG6 {
   
   // Bit field definition.
   struct {
+    /// read-write - Configures CTRL0[LP_MODE_EN] (LP Mode Enable) for Setpoints 0-15
     uint32_t LP_MODE_SP : 16;
     uint32_t _reserved_0 : 16;
   } bits;
@@ -461,6 +524,7 @@ union REG7 {
   
   // Bit field definition.
   struct {
+    /// read-write - Configures CTRL0[STBY_EN] (Standby Enable) for Setpoints 0-15
     uint32_t STBY_EN_SP : 16;
     uint32_t _reserved_0 : 16;
   } bits;
@@ -479,6 +543,7 @@ union REG7P {
   
   // Bit field definition.
   struct {
+    /// read-write - Configures CTRL0[STBY_LP_MODE_EN] (LP Mode via GPC Enable) for Setpoints 0-15
     uint32_t STBY_LP_MODE_SP : 16;
     uint32_t _reserved_0 : 16;
   } bits;
@@ -497,6 +562,7 @@ union REG8 {
   
   // Bit field definition.
   struct {
+    /// read-write - Configures CTRL1[VDD1P8CTRL_TRG] FOR Setpoints 0-3
     uint32_t ANA_TRG_SP0 : 32;
   } bits;
   
@@ -514,6 +580,7 @@ union REG9 {
   
   // Bit field definition.
   struct {
+    /// read-write - Configures CTRL1[VDD1P8CTRL_TRG] FOR Setpoints 4-7
     uint32_t ANA_TRG_SP1 : 32;
   } bits;
   
@@ -531,6 +598,7 @@ union REG10 {
   
   // Bit field definition.
   struct {
+    /// read-write - Configures CTRL1[VDD1P8CTRL_TRG] FOR Setpoints 8-11
     uint32_t ANA_TRG_SP2 : 32;
   } bits;
   
@@ -548,6 +616,7 @@ union REG11 {
   
   // Bit field definition.
   struct {
+    /// read-write - Configures CTRL1[VDD1P8CTRL_TRG] FOR Setpoints 12-15
     uint32_t ANA_TRG_SP3 : 32;
   } bits;
   
@@ -565,6 +634,7 @@ union REG12 {
   
   // Bit field definition.
   struct {
+    /// read-write - Configures CTRL1[VDD1P0CTRL_TRG] FOR Setpoints 0-3
     uint32_t DIG_TRG_SP0 : 32;
   } bits;
   
@@ -582,6 +652,7 @@ union REG13 {
   
   // Bit field definition.
   struct {
+    /// read-write - Configures CTRL1[VDD1P0CTRL_TRG] FOR Setpoints 4-7
     uint32_t DIG_TRG_SP1 : 32;
   } bits;
   
@@ -599,6 +670,7 @@ union REG14 {
   
   // Bit field definition.
   struct {
+    /// read-write - Configures CTRL1[VDD1P0CTRL_TRG] FOR Setpoints 8-11
     uint32_t DIG_TRG_SP2 : 32;
   } bits;
   
@@ -616,6 +688,7 @@ union REG15 {
   
   // Bit field definition.
   struct {
+    /// read-write - Configures CTRL1[VDD1P0CTRL_TRG] FOR Setpoints 12-15
     uint32_t DIG_TRG_SP3 : 32;
   } bits;
   
@@ -633,6 +706,7 @@ union REG16 {
   
   // Bit field definition.
   struct {
+    /// read-write - Configures CTRL1[VDD1P8CTRL_STBY_TRG] FOR Setpoints 0-3
     uint32_t ANA_STBY_TRG_SP0 : 32;
   } bits;
   
@@ -650,6 +724,7 @@ union REG17 {
   
   // Bit field definition.
   struct {
+    /// read-write - Configures CTRL1[VDD1P8CTRL_STBY_TRG] FOR Setpoints 4-7
     uint32_t ANA_STBY_TRG_SP1 : 32;
   } bits;
   
@@ -667,6 +742,7 @@ union REG18 {
   
   // Bit field definition.
   struct {
+    /// read-write - Configures CTRL1[VDD1P8CTRL_STBY_TRG] FOR Setpoints 8-11
     uint32_t ANA_STBY_TRG_SP2 : 32;
   } bits;
   
@@ -684,6 +760,7 @@ union REG19 {
   
   // Bit field definition.
   struct {
+    /// read-write - Configures CTRL1[VDD1P8CTRL_STBY_TRG] FOR Setpoints 12-15
     uint32_t ANA_STBY_TRG_SP3 : 32;
   } bits;
   
@@ -701,6 +778,7 @@ union REG20 {
   
   // Bit field definition.
   struct {
+    /// read-write - Configures CTRL1[VDD1P0CTRL_STBY_TRG] FOR Setpoints 0-3
     uint32_t DIG_STBY_TRG_SP0 : 32;
   } bits;
   
@@ -718,6 +796,7 @@ union REG21 {
   
   // Bit field definition.
   struct {
+    /// read-write - Configures CTRL1[VDD1P0CTRL_STBY_TRG] FOR Setpoints 4-7
     uint32_t DIG_STBY_TRG_SP1 : 32;
   } bits;
   
@@ -735,6 +814,7 @@ union REG22 {
   
   // Bit field definition.
   struct {
+    /// read-write - Configures CTRL1[VDD1P0CTRL_STBY_TRG] FOR Setpoints 8-11
     uint32_t DIG_STBY_TRG_SP2 : 32;
   } bits;
   
@@ -752,6 +832,7 @@ union REG23 {
   
   // Bit field definition.
   struct {
+    /// read-write - Configures CTRL1[VDD1P0CTRL_STBY_TRG] FOR Setpoints 12-15
     uint32_t DIG_STBY_TRG_SP3 : 32;
   } bits;
   
@@ -769,6 +850,7 @@ union REG24 {
   
   // Bit field definition.
   struct {
+    /// read-write - Internal count for dcdc_ok timeout
     uint32_t OK_COUNT : 32;
   } bits;
   

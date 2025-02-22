@@ -67,15 +67,24 @@ union CONTROL {
   
   // Bit field definition.
   struct {
+    /// read-write - Lock control
     eLOCK_CTRL LOCK_CTRL : 2;
+    /// read-write - TIMEOUT fault control
     eTIMEOUT_CTRL TIMEOUT_CTRL : 3;
+    /// read-write - MISCOMPARE fault control
     eMISCOMPARE_CTRL MISCOMPARE_CTRL : 3;
+    /// read-write - SEQUENCE fault control
     eSEQUENCE_CTRL SEQUENCE_CTRL : 3;
+    /// read-write - CONTROL fault control
     eCONTROL_CTRL CONTROL_CTRL : 3;
+    /// read-write - STATE fault control
     eSTATE_CTRL STATE_CTRL : 3;
+    /// read-write - ADDRESS fault control
     eADDRESS_CTRL ADDRESS_CTRL : 3;
     uint32_t _reserved_0 : 8;
+    /// read-write - IRQ pause control
     eIRQ_PAUSE IRQ_PAUSE : 2;
+    /// read-write - DEBUG_HALT control
     eDEBUG_HALT_CTRL DEBUG_HALT_CTRL : 2;
   } bits;
   
@@ -93,6 +102,7 @@ union RELOAD {
   
   // Bit field definition.
   struct {
+    /// read-write - Instruction Timer reload value
     uint32_t RLOAD : 32;
   } bits;
   
@@ -110,6 +120,7 @@ union INSTRUCTION_TIMER {
   
   // Bit field definition.
   struct {
+    /// read-write - Current value of the Instruction Timer
     uint32_t INSTIM : 32;
   } bits;
   
@@ -127,6 +138,7 @@ union SECURE_COUNTER {
   
   // Bit field definition.
   struct {
+    /// write-only - Secure Counter
     uint32_t SECCNT : 32;
   } bits;
   
@@ -144,10 +156,14 @@ union STATUS {
   
   // Bit field definition.
   struct {
+    /// read-only - Number of TIMEOUT faults since the last POR
     uint32_t NUMTOF : 8;
+    /// read-only - Number of MISCOMPARE faults since the last POR
     uint32_t NUMMISCOMPF : 8;
+    /// read-only - Number of SEQUENCE faults since the last POR
     uint32_t NUMILSEQF : 8;
     uint32_t _reserved_0 : 4;
+    /// read-only - Current State
     uint32_t CURST : 4;
   } bits;
   
@@ -165,8 +181,11 @@ union STATUS2 {
   
   // Bit field definition.
   struct {
+    /// read-only - Number of CONTROL faults since the last POR
     uint32_t NUMCNTF : 8;
+    /// read-only - Number of STATE faults since the last POR
     uint32_t NUMILLSTF : 8;
+    /// read-only - Number of ADDRESS faults since the last POR
     uint32_t NUMILLA : 8;
     uint32_t _reserved_0 : 8;
   } bits;
@@ -220,13 +239,20 @@ union FLAGS {
   
   // Bit field definition.
   struct {
+    /// read-write - TIMEOUT fault flag
     eTO_FLAG TO_FLAG : 1;
+    /// read-write - MISCOMPARE fault flag
     eMISCOM_FLAG MISCOM_FLAG : 1;
+    /// read-write - SEQUENCE fault flag
     eSEQ_FLAG SEQ_FLAG : 1;
+    /// read-write - CONTROL fault flag
     eCNT_FLAG CNT_FLAG : 1;
+    /// read-write - STATE fault flag
     eSTATE_FLAG STATE_FLAG : 1;
+    /// read-write - ADDRESS fault flag
     eADDR_FLAG ADDR_FLAG : 1;
     uint32_t _reserved_0 : 10;
+    /// read-write - Power-on reset flag
     ePOR_FLAG POR_FLAG : 1;
     uint32_t _reserved_1 : 15;
   } bits;
@@ -245,6 +271,7 @@ union PERSISTENT {
   
   // Bit field definition.
   struct {
+    /// read-write - Persistent Storage
     uint32_t PERSIS : 32;
   } bits;
   
@@ -262,6 +289,7 @@ union START {
   
   // Bit field definition.
   struct {
+    /// write-only - Start command
     uint32_t STRT : 32;
   } bits;
   
@@ -279,6 +307,7 @@ union STOP {
   
   // Bit field definition.
   struct {
+    /// write-only - Stop command
     uint32_t STP : 32;
   } bits;
   
@@ -296,6 +325,7 @@ union RESTART {
   
   // Bit field definition.
   struct {
+    /// write-only - Restart command
     uint32_t RSTRT : 32;
   } bits;
   
@@ -313,6 +343,7 @@ union ADD {
   
   // Bit field definition.
   struct {
+    /// write-only - ADD Write Value
     uint32_t AD : 32;
   } bits;
   
@@ -330,6 +361,7 @@ union ADD1 {
   
   // Bit field definition.
   struct {
+    /// write-only - ADD 1
     uint32_t AD1 : 32;
   } bits;
   
@@ -347,6 +379,7 @@ union ADD16 {
   
   // Bit field definition.
   struct {
+    /// write-only - ADD 16
     uint32_t AD16 : 32;
   } bits;
   
@@ -364,6 +397,7 @@ union ADD256 {
   
   // Bit field definition.
   struct {
+    /// write-only - ADD 256
     uint32_t AD256 : 32;
   } bits;
   
@@ -381,6 +415,7 @@ union SUB {
   
   // Bit field definition.
   struct {
+    /// write-only - Subtract Write Value
     uint32_t S0B : 32;
   } bits;
   
@@ -398,6 +433,7 @@ union SUB1 {
   
   // Bit field definition.
   struct {
+    /// write-only - Subtract 1
     uint32_t S1B : 32;
   } bits;
   
@@ -415,6 +451,7 @@ union SUB16 {
   
   // Bit field definition.
   struct {
+    /// write-only - Subtract 16
     uint32_t SB16 : 32;
   } bits;
   
@@ -432,6 +469,7 @@ union SUB256 {
   
   // Bit field definition.
   struct {
+    /// write-only - Subtract 256
     uint32_t SB256 : 32;
   } bits;
   

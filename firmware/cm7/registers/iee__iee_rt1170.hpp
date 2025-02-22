@@ -87,23 +87,37 @@ union GCFG {
   
   // Bit field definition.
   struct {
+    /// read-write - Region lock 0 bit
     eRL0 RL0 : 1;
+    /// read-write - Region lock 1 bit
     eRL1 RL1 : 1;
+    /// read-write - Region lock 2 bit
     eRL2 RL2 : 1;
+    /// read-write - Region lock 3 bit
     eRL3 RL3 : 1;
+    /// read-write - Region lock 4 bit
     eRL4 RL4 : 1;
+    /// read-write - Region lock 5 bit
     eRL5 RL5 : 1;
+    /// read-write - Region lock 6 bit
     eRL6 RL6 : 1;
+    /// read-write - Region lock 7 bit
     eRL7 RL7 : 1;
     uint32_t _reserved_0 : 8;
+    /// read-write - Test mode enable bit
     eTME TME : 1;
+    /// read-write - Test mode disable bit
     eTMD TMD : 1;
     uint32_t _reserved_1 : 7;
+    /// read-write - Key read disable bit
     eKEY_RD_DIS KEY_RD_DIS : 1;
     uint32_t _reserved_2 : 2;
+    /// read-write - Monitor enable bit
     eMON_EN MON_EN : 1;
+    /// write-only - Clear monitor bit
     eCLR_MON CLR_MON : 1;
     uint32_t _reserved_3 : 1;
+    /// write-only - Reset bit
     eRST RST : 1;
   } bits;
   
@@ -131,8 +145,10 @@ union STA {
   
   // Bit field definition.
   struct {
+    /// read-only - DPA seed request bit
     eDSR DSR : 1;
     uint32_t _reserved_0 : 3;
+    /// read-only - AES fault detected bit
     eAFD AFD : 1;
     uint32_t _reserved_1 : 27;
   } bits;
@@ -176,12 +192,18 @@ union TSTMD {
   
   // Bit field definition.
   struct {
+    /// read-only - Test mode ready bit. All AXI transactions have stopped and test can begin.
     eTMRDY TMRDY : 1;
+    /// read-write - Test mode run bit
     eTMR TMR : 1;
+    /// read-write - Test mode encrypt/decrypt bit.
     eTMENCR TMENCR : 1;
+    /// read-write - Test mode continue bit. Set to indicate that operation will be followed by more data.
     eTMCONT TMCONT : 1;
+    /// read-only - Test mode done bit
     eTMDONE TMDONE : 1;
     uint32_t _reserved_0 : 3;
+    /// read-write - Test mode length field
     uint32_t TMLEN : 4;
     uint32_t _reserved_1 : 20;
   } bits;
@@ -200,6 +222,7 @@ union DPAMS {
   
   // Bit field definition.
   struct {
+    /// write-only - DPA mask seed
     uint32_t DPAMS : 32;
   } bits;
   
@@ -217,7 +240,9 @@ union PC_S_LT {
   
   // Bit field definition.
   struct {
+    /// read-write - Slave write latency threshold in AXI clock cycles.
     uint32_t SW_LT : 16;
+    /// read-write - Slave read latency threshold in AXI clock cycles.
     uint32_t SR_LT : 16;
   } bits;
   
@@ -235,8 +260,10 @@ union PC_M_LT {
   
   // Bit field definition.
   struct {
+    /// read-write - Master write latency threshold in AXI clock cycles.
     uint32_t MW_LT : 12;
     uint32_t _reserved_0 : 4;
+    /// read-write - Master read latency threshold in AXI clock cycles.
     uint32_t MR_LT : 12;
     uint32_t _reserved_1 : 4;
   } bits;
@@ -255,6 +282,7 @@ union PC_BLK_ENC {
   
   // Bit field definition.
   struct {
+    /// read-write - Number of AES block encryptions. Does not roll over if value maxes out.
     uint32_t BLK_ENC : 32;
   } bits;
   
@@ -272,6 +300,7 @@ union PC_BLK_DEC {
   
   // Bit field definition.
   struct {
+    /// read-write - Number of AES block decryptions. Does not roll over if value maxes out.
     uint32_t BLK_DEC : 32;
   } bits;
   
@@ -289,6 +318,7 @@ union PC_SR_TRANS {
   
   // Bit field definition.
   struct {
+    /// read-write - Number of slave read transactions.
     uint32_t SR_TRANS : 32;
   } bits;
   
@@ -306,6 +336,7 @@ union PC_SW_TRANS {
   
   // Bit field definition.
   struct {
+    /// read-write - Number of slave write transactions.
     uint32_t SW_TRANS : 32;
   } bits;
   
@@ -323,6 +354,7 @@ union PC_MR_TRANS {
   
   // Bit field definition.
   struct {
+    /// read-write - Number of master read transactions.
     uint32_t MR_TRANS : 32;
   } bits;
   
@@ -340,6 +372,7 @@ union PC_MW_TRANS {
   
   // Bit field definition.
   struct {
+    /// read-write - Number of master write transactions.
     uint32_t MW_TRANS : 32;
   } bits;
   
@@ -357,6 +390,7 @@ union PC_M_MBR {
   
   // Bit field definition.
   struct {
+    /// read-write - Number of master merge buffer read transactions.
     uint32_t M_MBR : 32;
   } bits;
   
@@ -374,6 +408,7 @@ union PC_SR_TBC_U {
   
   // Bit field definition.
   struct {
+    /// read-write - Number of bytes in slave read transactions. Upper 16 bits of SR_TBC[47:0].
     uint32_t SR_TBC : 16;
     uint32_t _reserved_0 : 16;
   } bits;
@@ -392,6 +427,7 @@ union PC_SR_TBC_L {
   
   // Bit field definition.
   struct {
+    /// read-write - Number of bytes in slave read transactions. Lower 32 bits of SR_TBC[47:0].
     uint32_t SR_TBC : 32;
   } bits;
   
@@ -409,6 +445,7 @@ union PC_SW_TBC_U {
   
   // Bit field definition.
   struct {
+    /// read-write - Number of bytes in slave write transactions. Upper 16 bits of SW_TBC[47:0].
     uint32_t SW_TBC : 16;
     uint32_t _reserved_0 : 16;
   } bits;
@@ -427,6 +464,7 @@ union PC_SW_TBC_L {
   
   // Bit field definition.
   struct {
+    /// read-write - Number of bytes in slave write transactions. Lower 32 bits of SW_TBC[47:0].
     uint32_t SW_TBC : 32;
   } bits;
   
@@ -444,6 +482,7 @@ union PC_MR_TBC_U {
   
   // Bit field definition.
   struct {
+    /// read-write - Number of bytes in master read transactions. 44 MSBs. Upper 16 bits of MR_TBC[43:0].
     uint32_t MR_TBC : 16;
     uint32_t _reserved_0 : 16;
   } bits;
@@ -462,7 +501,9 @@ union PC_MR_TBC_L {
   
   // Bit field definition.
   struct {
+    /// read-only - Number of bytes in master read transactions. 4 LSBs, always 0.
     uint32_t MR_TBC_LSB : 4;
+    /// read-write - Number of bytes in master read transactions. 44 MSBs. Lower 28 bits of MR_TBC[43:0].
     uint32_t MR_TBC : 28;
   } bits;
   
@@ -480,6 +521,7 @@ union PC_MW_TBC_U {
   
   // Bit field definition.
   struct {
+    /// read-write - Number of bytes in master write transactions. 44 MSBs. Upper 16 bits of MW_TBC[43:0].
     uint32_t MW_TBC : 16;
     uint32_t _reserved_0 : 16;
   } bits;
@@ -498,7 +540,9 @@ union PC_MW_TBC_L {
   
   // Bit field definition.
   struct {
+    /// read-only - Number of bytes in master write transactions. 4 LSBs, always 0.
     uint32_t MW_TBC_LSB : 4;
+    /// read-write - Number of bytes in master write transactions. 44 MSBs. Lower 28 bits of MR_TBC[43:0].
     uint32_t MW_TBC : 28;
   } bits;
   
@@ -517,6 +561,7 @@ union PC_SR_TLGTT {
   
   // Bit field definition.
   struct {
+    /// read-write - Number of slave read transactions with latency greater than the threshold.
     uint32_t SR_TLGTT : 32;
   } bits;
   
@@ -535,6 +580,7 @@ union PC_SW_TLGTT {
   
   // Bit field definition.
   struct {
+    /// read-write - Number of slave write transactions with latency greater than the threshold.
     uint32_t SW_TLGTT : 32;
   } bits;
   
@@ -553,6 +599,7 @@ union PC_MR_TLGTT {
   
   // Bit field definition.
   struct {
+    /// read-write - Number of master read transactions with latency greater than the threshold.
     uint32_t MR_TLGTT : 32;
   } bits;
   
@@ -571,6 +618,7 @@ union PC_MW_TLGTT {
   
   // Bit field definition.
   struct {
+    /// read-write - Number of master write transactions with latency greater than the threshold.
     uint32_t MW_TGTT : 32;
   } bits;
   
@@ -588,6 +636,7 @@ union PC_SR_TLAT_U {
   
   // Bit field definition.
   struct {
+    /// read-write - Total slave read latency in AXI clock cycles. Upper 16 bits of SR_TLAT[47:0].
     uint32_t SR_TLAT : 16;
     uint32_t _reserved_0 : 16;
   } bits;
@@ -606,6 +655,7 @@ union PC_SR_TLAT_L {
   
   // Bit field definition.
   struct {
+    /// read-write - Total slave read latency in AXI clock cycles. Lower 32 bits of SR_TLAT[47:0].
     uint32_t SR_TLAT : 32;
   } bits;
   
@@ -623,6 +673,7 @@ union PC_SW_TLAT_U {
   
   // Bit field definition.
   struct {
+    /// read-write - Total slave write latency in AXI clock cycles. Upper 16 bits of SW_TLAT[47:0].
     uint32_t SW_TLAT : 16;
     uint32_t _reserved_0 : 16;
   } bits;
@@ -641,6 +692,7 @@ union PC_SW_TLAT_L {
   
   // Bit field definition.
   struct {
+    /// read-write - Total slave write latency in AXI clock cycles. Lower 32 bits of SW_TLAT[47:0].
     uint32_t SW_TLAT : 32;
   } bits;
   
@@ -658,6 +710,7 @@ union PC_MR_TLAT_U {
   
   // Bit field definition.
   struct {
+    /// read-write - Total master read latency in AXI clock cycles. Upper 16 bits of MR_TLAT[47:0].
     uint32_t MR_TLAT : 16;
     uint32_t _reserved_0 : 16;
   } bits;
@@ -676,6 +729,7 @@ union PC_MR_TLAT_L {
   
   // Bit field definition.
   struct {
+    /// read-write - Total master read latency in AXI clock cycles. Lower 32 bits of MR_TLAT[47:0].
     uint32_t MR_TLAT : 32;
   } bits;
   
@@ -693,6 +747,7 @@ union PC_MW_TLAT_U {
   
   // Bit field definition.
   struct {
+    /// read-write - Total master write latency in AXI clock cycles. Upper 16 bits of MW_TLAT[47:0].
     uint32_t MW_TLAT : 16;
     uint32_t _reserved_0 : 16;
   } bits;
@@ -711,6 +766,7 @@ union PC_MW_TLAT_L {
   
   // Bit field definition.
   struct {
+    /// read-write - Total master write latency in AXI clock cycles. Lower 32 bits of MW_TLAT[47:0].
     uint32_t MW_TLAT : 32;
   } bits;
   
@@ -728,6 +784,7 @@ union PC_SR_TNRT_U {
   
   // Bit field definition.
   struct {
+    /// read-write - Total slave read non-responding time in AXI clock cycles. Upper 16 bits of SR_TNRT[47:0].
     uint32_t SR_TNRT : 16;
     uint32_t _reserved_0 : 16;
   } bits;
@@ -746,6 +803,7 @@ union PC_SR_TNRT_L {
   
   // Bit field definition.
   struct {
+    /// read-write - Total slave read non-responding time in AXI clock cycles. Lower 32 bits of SR_TNRT[47:0].
     uint32_t SR_TNRT : 32;
   } bits;
   
@@ -763,6 +821,7 @@ union PC_SW_TNRT_U {
   
   // Bit field definition.
   struct {
+    /// read-write - Total slave write non-responding time in AXI clock cycles. Upper 16 bits of SW_TNRT[47:0].
     uint32_t SW_TNRT : 16;
     uint32_t _reserved_0 : 16;
   } bits;
@@ -781,6 +840,7 @@ union PC_SW_TNRT_L {
   
   // Bit field definition.
   struct {
+    /// read-write - Total slave write non-responding time in AXI clock cycles. Lower 32 bits of SW_TNRT[47:0].
     uint32_t SW_TNRT : 32;
   } bits;
   
@@ -798,8 +858,11 @@ union VIDR1 {
   
   // Bit field definition.
   struct {
+    /// read-only - Minor revision number for IEE.
     uint32_t MIN_REV : 8;
+    /// read-only - Major revision number for IEE.
     uint32_t MAJ_REV : 8;
+    /// read-only - ID for IEE.
     uint32_t IP_ID : 16;
   } bits;
   
@@ -817,7 +880,9 @@ union AESVID {
   
   // Bit field definition.
   struct {
+    /// read-only - AES revision number.
     uint32_t AESRN : 4;
+    /// read-only - AES version ID.
     uint32_t AESVID : 4;
     uint32_t _reserved_0 : 24;
   } bits;
@@ -836,6 +901,7 @@ union AES_TST_DB[0] {
   
   // Bit field definition.
   struct {
+    /// read-write - AES test mode data buffer.
     uint32_t AES_TST_DB0 : 32;
   } bits;
   
@@ -852,6 +918,7 @@ union AES_TST_DB[1] {
   
   // Bit field definition.
   struct {
+    /// read-write - AES test mode data buffer.
     uint32_t AES_TST_DB0 : 32;
   } bits;
   
@@ -868,6 +935,7 @@ union AES_TST_DB[2] {
   
   // Bit field definition.
   struct {
+    /// read-write - AES test mode data buffer.
     uint32_t AES_TST_DB0 : 32;
   } bits;
   
@@ -884,6 +952,7 @@ union AES_TST_DB[3] {
   
   // Bit field definition.
   struct {
+    /// read-write - AES test mode data buffer.
     uint32_t AES_TST_DB0 : 32;
   } bits;
   
@@ -900,6 +969,7 @@ union AES_TST_DB[4] {
   
   // Bit field definition.
   struct {
+    /// read-write - AES test mode data buffer.
     uint32_t AES_TST_DB0 : 32;
   } bits;
   
@@ -916,6 +986,7 @@ union AES_TST_DB[5] {
   
   // Bit field definition.
   struct {
+    /// read-write - AES test mode data buffer.
     uint32_t AES_TST_DB0 : 32;
   } bits;
   
@@ -932,6 +1003,7 @@ union AES_TST_DB[6] {
   
   // Bit field definition.
   struct {
+    /// read-write - AES test mode data buffer.
     uint32_t AES_TST_DB0 : 32;
   } bits;
   
@@ -948,6 +1020,7 @@ union AES_TST_DB[7] {
   
   // Bit field definition.
   struct {
+    /// read-write - AES test mode data buffer.
     uint32_t AES_TST_DB0 : 32;
   } bits;
   
@@ -964,6 +1037,7 @@ union AES_TST_DB[8] {
   
   // Bit field definition.
   struct {
+    /// read-write - AES test mode data buffer.
     uint32_t AES_TST_DB0 : 32;
   } bits;
   
@@ -980,6 +1054,7 @@ union AES_TST_DB[9] {
   
   // Bit field definition.
   struct {
+    /// read-write - AES test mode data buffer.
     uint32_t AES_TST_DB0 : 32;
   } bits;
   
@@ -996,6 +1071,7 @@ union AES_TST_DB[10] {
   
   // Bit field definition.
   struct {
+    /// read-write - AES test mode data buffer.
     uint32_t AES_TST_DB0 : 32;
   } bits;
   
@@ -1012,6 +1088,7 @@ union AES_TST_DB[11] {
   
   // Bit field definition.
   struct {
+    /// read-write - AES test mode data buffer.
     uint32_t AES_TST_DB0 : 32;
   } bits;
   
@@ -1028,6 +1105,7 @@ union AES_TST_DB[12] {
   
   // Bit field definition.
   struct {
+    /// read-write - AES test mode data buffer.
     uint32_t AES_TST_DB0 : 32;
   } bits;
   
@@ -1044,6 +1122,7 @@ union AES_TST_DB[13] {
   
   // Bit field definition.
   struct {
+    /// read-write - AES test mode data buffer.
     uint32_t AES_TST_DB0 : 32;
   } bits;
   
@@ -1060,6 +1139,7 @@ union AES_TST_DB[14] {
   
   // Bit field definition.
   struct {
+    /// read-write - AES test mode data buffer.
     uint32_t AES_TST_DB0 : 32;
   } bits;
   
@@ -1076,6 +1156,7 @@ union AES_TST_DB[15] {
   
   // Bit field definition.
   struct {
+    /// read-write - AES test mode data buffer.
     uint32_t AES_TST_DB0 : 32;
   } bits;
   
@@ -1092,6 +1173,7 @@ union AES_TST_DB[16] {
   
   // Bit field definition.
   struct {
+    /// read-write - AES test mode data buffer.
     uint32_t AES_TST_DB0 : 32;
   } bits;
   
@@ -1108,6 +1190,7 @@ union AES_TST_DB[17] {
   
   // Bit field definition.
   struct {
+    /// read-write - AES test mode data buffer.
     uint32_t AES_TST_DB0 : 32;
   } bits;
   
@@ -1124,6 +1207,7 @@ union AES_TST_DB[18] {
   
   // Bit field definition.
   struct {
+    /// read-write - AES test mode data buffer.
     uint32_t AES_TST_DB0 : 32;
   } bits;
   
@@ -1140,6 +1224,7 @@ union AES_TST_DB[19] {
   
   // Bit field definition.
   struct {
+    /// read-write - AES test mode data buffer.
     uint32_t AES_TST_DB0 : 32;
   } bits;
   
@@ -1156,6 +1241,7 @@ union AES_TST_DB[20] {
   
   // Bit field definition.
   struct {
+    /// read-write - AES test mode data buffer.
     uint32_t AES_TST_DB0 : 32;
   } bits;
   
@@ -1172,6 +1258,7 @@ union AES_TST_DB[21] {
   
   // Bit field definition.
   struct {
+    /// read-write - AES test mode data buffer.
     uint32_t AES_TST_DB0 : 32;
   } bits;
   
@@ -1188,6 +1275,7 @@ union AES_TST_DB[22] {
   
   // Bit field definition.
   struct {
+    /// read-write - AES test mode data buffer.
     uint32_t AES_TST_DB0 : 32;
   } bits;
   
@@ -1204,6 +1292,7 @@ union AES_TST_DB[23] {
   
   // Bit field definition.
   struct {
+    /// read-write - AES test mode data buffer.
     uint32_t AES_TST_DB0 : 32;
   } bits;
   
@@ -1220,6 +1309,7 @@ union AES_TST_DB[24] {
   
   // Bit field definition.
   struct {
+    /// read-write - AES test mode data buffer.
     uint32_t AES_TST_DB0 : 32;
   } bits;
   
@@ -1236,6 +1326,7 @@ union AES_TST_DB[25] {
   
   // Bit field definition.
   struct {
+    /// read-write - AES test mode data buffer.
     uint32_t AES_TST_DB0 : 32;
   } bits;
   
@@ -1252,6 +1343,7 @@ union AES_TST_DB[26] {
   
   // Bit field definition.
   struct {
+    /// read-write - AES test mode data buffer.
     uint32_t AES_TST_DB0 : 32;
   } bits;
   
@@ -1268,6 +1360,7 @@ union AES_TST_DB[27] {
   
   // Bit field definition.
   struct {
+    /// read-write - AES test mode data buffer.
     uint32_t AES_TST_DB0 : 32;
   } bits;
   
@@ -1284,6 +1377,7 @@ union AES_TST_DB[28] {
   
   // Bit field definition.
   struct {
+    /// read-write - AES test mode data buffer.
     uint32_t AES_TST_DB0 : 32;
   } bits;
   
@@ -1300,6 +1394,7 @@ union AES_TST_DB[29] {
   
   // Bit field definition.
   struct {
+    /// read-write - AES test mode data buffer.
     uint32_t AES_TST_DB0 : 32;
   } bits;
   
@@ -1316,6 +1411,7 @@ union AES_TST_DB[30] {
   
   // Bit field definition.
   struct {
+    /// read-write - AES test mode data buffer.
     uint32_t AES_TST_DB0 : 32;
   } bits;
   
@@ -1332,6 +1428,7 @@ union AES_TST_DB[31] {
   
   // Bit field definition.
   struct {
+    /// read-write - AES test mode data buffer.
     uint32_t AES_TST_DB0 : 32;
   } bits;
   

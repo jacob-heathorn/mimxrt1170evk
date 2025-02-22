@@ -84,19 +84,33 @@ union CS {
   
   // Bit field definition.
   struct {
+    /// read-write - Stop Enable
     eSTOP STOP : 1;
+    /// read-write - Wait Enable
     eWAIT WAIT : 1;
+    /// read-write - Debug Enable
     eDBG DBG : 1;
+    /// read-write - Watchdog Test
     eTST TST : 2;
+    /// read-write - Allow updates
     eUPDATE UPDATE : 1;
+    /// read-write - Watchdog Interrupt
     eINT INT : 1;
+    /// read-write - Watchdog Enable
     eEN EN : 1;
+    /// read-write - Watchdog Clock
     uint32_t CLK : 2;
+    /// read-only - Reconfiguration Success
     eRCS RCS : 1;
+    /// read-only - Unlock status
     eULK ULK : 1;
+    /// read-write - Watchdog prescaler
     ePRES PRES : 1;
+    /// read-write - Enables or disables WDOG support for 32-bit (otherwise 16-bit or 8-bit) refresh/unlock command write words
     eCMD32EN CMD32EN : 1;
+    /// read-write - Watchdog Interrupt Flag
     eFLG FLG : 1;
+    /// read-write - Watchdog Window
     eWIN WIN : 1;
     uint32_t _reserved_0 : 16;
   } bits;
@@ -115,7 +129,9 @@ union CNT {
   
   // Bit field definition.
   struct {
+    /// read-write - Low byte of the Watchdog Counter
     uint32_t CNTLOW : 8;
+    /// read-write - High byte of the Watchdog Counter
     uint32_t CNTHIGH : 8;
     uint32_t _reserved_0 : 16;
   } bits;
@@ -134,7 +150,9 @@ union TOVAL {
   
   // Bit field definition.
   struct {
+    /// read-write - Low byte of the timeout value
     uint32_t TOVALLOW : 8;
+    /// read-write - High byte of the timeout value
     uint32_t TOVALHIGH : 8;
     uint32_t _reserved_0 : 16;
   } bits;
@@ -153,7 +171,9 @@ union WIN {
   
   // Bit field definition.
   struct {
+    /// read-write - Low byte of Watchdog Window
     uint32_t WINLOW : 8;
+    /// read-write - High byte of Watchdog Window
     uint32_t WINHIGH : 8;
     uint32_t _reserved_0 : 16;
   } bits;

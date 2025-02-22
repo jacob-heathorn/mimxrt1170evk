@@ -17,6 +17,7 @@ union MISC_DIFPROG {
   
   // Bit field definition.
   struct {
+    /// read-only - Chip ID
     uint32_t CHIPID : 32;
   } bits;
   
@@ -34,8 +35,10 @@ union VDDSOC_AI_CTRL {
   
   // Bit field definition.
   struct {
+    /// read-write - VDDSOC_AI_ADDR
     uint32_t VDDSOC_AI_ADDR : 8;
     uint32_t _reserved_0 : 8;
+    /// read-write - VDDSOC_AIRWB
     uint32_t VDDSOC_AIRWB : 1;
     uint32_t _reserved_1 : 15;
   } bits;
@@ -54,6 +57,7 @@ union VDDSOC_AI_WDATA {
   
   // Bit field definition.
   struct {
+    /// read-write - VDDSOC_AI_WDATA
     uint32_t VDDSOC_AI_WDATA : 32;
   } bits;
   
@@ -71,6 +75,7 @@ union VDDSOC_AI_RDATA {
   
   // Bit field definition.
   struct {
+    /// read-only - VDDSOC_AI_RDATA
     uint32_t VDDSOC_AI_RDATA : 32;
   } bits;
   
@@ -88,10 +93,14 @@ union VDDSOC2PLL_AI_CTRL_1G {
   
   // Bit field definition.
   struct {
+    /// read-write - VDDSOC2PLL_AIADDR_1G
     uint32_t VDDSOC2PLL_AIADDR_1G : 8;
+    /// read-write - VDDSOC2PLL_AITOGGLE_1G
     uint32_t VDDSOC2PLL_AITOGGLE_1G : 1;
+    /// read-only - VDDSOC2PLL_AITOGGLE_DONE_1G
     uint32_t VDDSOC2PLL_AITOGGLE_DONE_1G : 1;
     uint32_t _reserved_0 : 6;
+    /// read-write - VDDSOC2PLL_AIRWB_1G
     uint32_t VDDSOC2PLL_AIRWB_1G : 1;
     uint32_t _reserved_1 : 15;
   } bits;
@@ -110,6 +119,7 @@ union VDDSOC2PLL_AI_WDATA_1G {
   
   // Bit field definition.
   struct {
+    /// read-write - VDDSOC2PLL_AI_WDATA_1G
     uint32_t VDDSOC2PLL_AI_WDATA_1G : 32;
   } bits;
   
@@ -127,6 +137,7 @@ union VDDSOC2PLL_AI_RDATA_1G {
   
   // Bit field definition.
   struct {
+    /// read-only - VDDSOC2PLL_AI_RDATA_1G
     uint32_t VDDSOC2PLL_AI_RDATA_1G : 32;
   } bits;
   
@@ -144,10 +155,14 @@ union VDDSOC2PLL_AI_CTRL_AUDIO {
   
   // Bit field definition.
   struct {
+    /// read-write - VDDSOC2PLL_AI_ADDR_AUDIO
     uint32_t VDDSOC2PLL_AI_ADDR_AUDIO : 8;
+    /// read-write - VDDSOC2PLL_AITOGGLE_AUDIO
     uint32_t VDDSOC2PLL_AITOGGLE_AUDIO : 1;
+    /// read-only - VDDSOC2PLL_AITOGGLE_DONE_AUDIO
     uint32_t VDDSOC2PLL_AITOGGLE_DONE_AUDIO : 1;
     uint32_t _reserved_0 : 6;
+    /// read-write - VDDSOC_AIRWB
     uint32_t VDDSOC2PLL_AIRWB_AUDIO : 1;
     uint32_t _reserved_1 : 15;
   } bits;
@@ -166,6 +181,7 @@ union VDDSOC2PLL_AI_WDATA_AUDIO {
   
   // Bit field definition.
   struct {
+    /// read-write - VDDSOC2PLL_AI_WDATA_AUDIO
     uint32_t VDDSOC2PLL_AI_WDATA_AUDIO : 32;
   } bits;
   
@@ -183,6 +199,7 @@ union VDDSOC2PLL_AI_RDATA_AUDIO {
   
   // Bit field definition.
   struct {
+    /// read-only - VDDSOC2PLL_AI_RDATA_AUDIO
     uint32_t VDDSOC2PLL_AI_RDATA_AUDIO : 32;
   } bits;
   
@@ -200,10 +217,14 @@ union VDDSOC2PLL_AI_CTRL_VIDEO {
   
   // Bit field definition.
   struct {
+    /// read-write - VDDSOC2PLL_AIADDR_VIDEO
     uint32_t VDDSOC2PLL_AIADDR_VIDEO : 8;
+    /// read-write - VDDSOC2PLL_AITOGGLE_VIDEO
     uint32_t VDDSOC2PLL_AITOGGLE_VIDEO : 1;
+    /// read-only - VDDSOC2PLL_AITOGGLE_DONE_VIDEO
     uint32_t VDDSOC2PLL_AITOGGLE_DONE_VIDEO : 1;
     uint32_t _reserved_0 : 6;
+    /// read-write - VDDSOC2PLL_AIRWB_VIDEO
     uint32_t VDDSOC2PLL_AIRWB_VIDEO : 1;
     uint32_t _reserved_1 : 15;
   } bits;
@@ -222,6 +243,7 @@ union VDDSOC2PLL_AI_WDATA_VIDEO {
   
   // Bit field definition.
   struct {
+    /// read-write - VDDSOC2PLL_AI_WDATA_VIDEO
     uint32_t VDDSOC2PLL_AI_WDATA_VIDEO : 32;
   } bits;
   
@@ -239,6 +261,7 @@ union VDDSOC2PLL_AI_RDATA_VIDEO {
   
   // Bit field definition.
   struct {
+    /// read-only - VDDSOC2PLL_AI_RDATA_VIDEO
     uint32_t VDDSOC2PLL_AI_RDATA_VIDEO : 32;
   } bits;
   
@@ -256,8 +279,10 @@ union VDDLPSR_AI_CTRL {
   
   // Bit field definition.
   struct {
+    /// read-write - VDDLPSR_AI_ADDR
     uint32_t VDDLPSR_AI_ADDR : 8;
     uint32_t _reserved_0 : 8;
+    /// read-write - VDDLPSR_AIRWB
     uint32_t VDDLPSR_AIRWB : 1;
     uint32_t _reserved_1 : 15;
   } bits;
@@ -276,6 +301,7 @@ union VDDLPSR_AI_WDATA {
   
   // Bit field definition.
   struct {
+    /// read-write - VDD_LPSR_AI_WDATA
     uint32_t VDDLPSR_AI_WDATA : 32;
   } bits;
   
@@ -293,6 +319,7 @@ union VDDLPSR_AI_RDATA_REFTOP {
   
   // Bit field definition.
   struct {
+    /// read-only - VDDLPSR_AI_RDATA_REFTOP
     uint32_t VDDLPSR_AI_RDATA_REFTOP : 32;
   } bits;
   
@@ -310,6 +337,7 @@ union VDDLPSR_AI_RDATA_TMPSNS {
   
   // Bit field definition.
   struct {
+    /// read-only - VDDLPSR_AI_RDATA_TMPSNS
     uint32_t VDDLPSR_AI_RDATA_TMPSNS : 32;
   } bits;
   
@@ -327,10 +355,14 @@ union VDDLPSR_AI400M_CTRL {
   
   // Bit field definition.
   struct {
+    /// read-write - VDDLPSR_AI400M_ADDR
     uint32_t VDDLPSR_AI400M_ADDR : 8;
+    /// read-write - VDDLPSR_AITOGGLE_400M
     uint32_t VDDLPSR_AITOGGLE_400M : 1;
+    /// read-only - VDDLPSR_AITOGGLE_DONE_400M
     uint32_t VDDLPSR_AITOGGLE_DONE_400M : 1;
     uint32_t _reserved_0 : 6;
+    /// read-write - VDDLPSR_AI400M_RWB
     uint32_t VDDLPSR_AI400M_RWB : 1;
     uint32_t _reserved_1 : 15;
   } bits;
@@ -349,6 +381,7 @@ union VDDLPSR_AI400M_WDATA {
   
   // Bit field definition.
   struct {
+    /// read-write - VDDLPSR_AI400M_WDATA
     uint32_t VDDLPSR_AI400M_WDATA : 32;
   } bits;
   
@@ -366,6 +399,7 @@ union VDDLPSR_AI400M_RDATA {
   
   // Bit field definition.
   struct {
+    /// read-only - VDDLPSR_AI400M_RDATA
     uint32_t VDDLPSR_AI400M_RDATA : 32;
   } bits;
   

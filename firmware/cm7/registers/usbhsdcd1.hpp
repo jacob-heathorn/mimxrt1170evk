@@ -47,14 +47,20 @@ union CONTROL {
   
   // Bit field definition.
   struct {
+    /// read-write - Interrupt Acknowledge
     eIACK IACK : 1;
     uint32_t _reserved_0 : 7;
+    /// read-only - Interrupt Flag
     eIF IF : 1;
     uint32_t _reserved_1 : 7;
+    /// read-write - Interrupt Enable
     eIE IE : 1;
+    /// read-write - BC12
     eBC12 BC12 : 1;
     uint32_t _reserved_2 : 6;
+    /// read-write - Start Change Detection Sequence
     eSTART START : 1;
+    /// read-write - Software Reset
     eSR SR : 1;
     uint32_t _reserved_3 : 6;
   } bits;
@@ -78,8 +84,10 @@ union CLOCK {
   
   // Bit field definition.
   struct {
+    /// read-write - Unit of Measurement Encoding for Clock Speed
     eCLOCK_UNIT CLOCK_UNIT : 1;
     uint32_t _reserved_0 : 1;
+    /// read-write - Numerical Value of Clock Speed in Binary
     uint32_t CLOCK_SPEED : 10;
     uint32_t _reserved_1 : 20;
   } bits;
@@ -128,10 +136,15 @@ union STATUS {
   // Bit field definition.
   struct {
     uint32_t _reserved_0 : 16;
+    /// read-only - Charger Detection Sequence Results
     eSEQ_RES SEQ_RES : 2;
+    /// read-only - Charger Detection Sequence Status
     eSEQ_STAT SEQ_STAT : 2;
+    /// read-only - Error Flag
     eERR ERR : 1;
+    /// read-only - Timeout Flag
     eTO TO : 1;
+    /// read-only - Active Status Indicator
     eACTIVE ACTIVE : 1;
     uint32_t _reserved_1 : 9;
   } bits;
@@ -155,6 +168,7 @@ union SIGNAL_OVERRIDE {
   
   // Bit field definition.
   struct {
+    /// read-write - Phase Selection
     ePS PS : 2;
     uint32_t _reserved_0 : 30;
   } bits;
@@ -186,8 +200,10 @@ union TIMER0 {
   
   // Bit field definition.
   struct {
+    /// read-only - Unit Connection Timer Elapse (in ms)
     uint32_t TUNITCON : 12;
     uint32_t _reserved_0 : 4;
+    /// read-write - Sequence Initiation Time
     eTSEQ_INIT TSEQ_INIT : 10;
     uint32_t _reserved_1 : 6;
   } bits;
@@ -232,8 +248,10 @@ union TIMER1 {
   
   // Bit field definition.
   struct {
+    /// read-write - Time Period Comparator Enabled
     eTVDPSRC_ON TVDPSRC_ON : 10;
     uint32_t _reserved_0 : 6;
+    /// read-write - Time Period to Debounce D+ Signal
     eTDCD_DBNC TDCD_DBNC : 10;
     uint32_t _reserved_1 : 6;
   } bits;
@@ -278,8 +296,10 @@ union TIMER2_BC11 {
   
   // Bit field definition.
   struct {
+    /// read-write - Time Before Check of D- Line
     eCHECK_DM CHECK_DM : 4;
     uint32_t _reserved_0 : 12;
+    /// read-write - Time Period Before Enabling D+ Pullup
     eTVDPSRC_CON TVDPSRC_CON : 10;
     uint32_t _reserved_1 : 6;
   } bits;
@@ -324,8 +344,10 @@ union TIMER2_BC12 {
   
   // Bit field definition.
   struct {
+    /// read-write - TVDMSRC_ON
     eTVDMSRC_ON TVDMSRC_ON : 10;
     uint32_t _reserved_0 : 6;
+    /// read-write - TWAIT_AFTER_PRD
     eTWAIT_AFTER_PRD TWAIT_AFTER_PRD : 10;
     uint32_t _reserved_1 : 6;
   } bits;

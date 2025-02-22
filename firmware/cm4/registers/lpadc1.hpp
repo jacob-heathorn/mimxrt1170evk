@@ -53,17 +53,26 @@ union VERID {
   
   // Bit field definition.
   struct {
+    /// read-only - Resolution
     eRES RES : 1;
+    /// read-only - Differential Supported
     eDIFFEN DIFFEN : 1;
     uint32_t _reserved_0 : 1;
+    /// read-only - Multi Vref Implemented
     eMVI MVI : 1;
+    /// read-only - Channel Scale Width
     eCSW CSW : 3;
     uint32_t _reserved_1 : 1;
+    /// read-only - Voltage Reference 1 Range Control Bit Implemented
     eVR1RNGI VR1RNGI : 1;
+    /// read-only - Internal LPADC Clock implemented
     eIADCKI IADCKI : 1;
+    /// read-only - Calibration Offset Function Implemented
     eCALOFSI CALOFSI : 1;
     uint32_t _reserved_2 : 5;
+    /// read-only - Minor Version Number
     uint32_t MINOR : 8;
+    /// read-only - Major Version Number
     uint32_t MAJOR : 8;
   } bits;
   
@@ -97,9 +106,13 @@ union PARAM {
   
   // Bit field definition.
   struct {
+    /// read-only - Trigger Number
     eTRIG_NUM TRIG_NUM : 8;
+    /// read-only - Result FIFO Depth
     eFIFOSIZE FIFOSIZE : 8;
+    /// read-only - Compare Value Number
     eCV_NUM CV_NUM : 8;
+    /// read-only - Command Buffer Number
     eCMD_NUM CMD_NUM : 8;
   } bits;
   
@@ -143,11 +156,16 @@ union CTRL {
   
   // Bit field definition.
   struct {
+    /// read-write - LPADC Enable
     eADCEN ADCEN : 1;
+    /// read-write - Software Reset
     eRST RST : 1;
+    /// read-write - Doze Enable
     eDOZEN DOZEN : 1;
+    /// read-write - Hardware trigger source selection
     eTRIG_SRC TRIG_SRC : 2;
     uint32_t _reserved_0 : 3;
+    /// read-write - Reset FIFO
     eRSTFIFO RSTFIFO : 1;
     uint32_t _reserved_1 : 23;
   } bits;
@@ -205,13 +223,18 @@ union STAT {
   
   // Bit field definition.
   struct {
+    /// read-only - Result FIFO Ready Flag
     eRDY RDY : 1;
+    /// read-write - Result FIFO Overflow Flag
     eFOF FOF : 1;
     uint32_t _reserved_0 : 6;
+    /// read-only - ADC Active
     eADC_ACTIVE ADC_ACTIVE : 1;
     uint32_t _reserved_1 : 7;
+    /// read-only - Trigger Active
     eTRGACT TRGACT : 3;
     uint32_t _reserved_2 : 5;
+    /// read-only - Command Active
     eCMDACT CMDACT : 4;
     uint32_t _reserved_3 : 4;
   } bits;
@@ -240,7 +263,9 @@ union IE {
   
   // Bit field definition.
   struct {
+    /// read-write - FIFO Watermark Interrupt Enable
     eFWMIE FWMIE : 1;
+    /// read-write - Result FIFO Overflow Interrupt Enable
     eFOFIE FOFIE : 1;
     uint32_t _reserved_0 : 30;
   } bits;
@@ -264,6 +289,7 @@ union DE {
   
   // Bit field definition.
   struct {
+    /// read-write - FIFO Watermark DMA Enable
     eFWMDE FWMDE : 1;
     uint32_t _reserved_0 : 31;
   } bits;
@@ -305,13 +331,18 @@ union CFG {
   
   // Bit field definition.
   struct {
+    /// read-write - LPADC trigger priority control
     eTPRICTRL TPRICTRL : 1;
     uint32_t _reserved_0 : 3;
+    /// read-write - Power Configuration Select
     ePWRSEL PWRSEL : 2;
+    /// read-write - Voltage Reference Selection
     eREFSEL REFSEL : 2;
     uint32_t _reserved_1 : 8;
+    /// read-write - Power Up Delay
     uint32_t PUDLY : 8;
     uint32_t _reserved_2 : 4;
+    /// read-write - LPADC Analog Pre-Enable
     ePWREN PWREN : 1;
     uint32_t _reserved_3 : 3;
   } bits;
@@ -335,8 +366,10 @@ union PAUSE {
   
   // Bit field definition.
   struct {
+    /// read-write - Pause Delay
     uint32_t PAUSEDLY : 9;
     uint32_t _reserved_0 : 22;
+    /// read-write - PAUSE Option Enable
     ePAUSEEN PAUSEEN : 1;
   } bits;
   
@@ -382,8 +415,10 @@ union FCTRL {
   
   // Bit field definition.
   struct {
+    /// read-only - Result FIFO counter
     eFCOUNT FCOUNT : 5;
     uint32_t _reserved_0 : 11;
+    /// read-write - Watermark level selection
     eFWMARK FWMARK : 4;
     uint32_t _reserved_1 : 12;
   } bits;
@@ -442,13 +477,21 @@ union SWTRIG {
   
   // Bit field definition.
   struct {
+    /// read-write - Software trigger 0 event
     eSWT0 SWT0 : 1;
+    /// read-write - Software trigger 1 event
     eSWT1 SWT1 : 1;
+    /// read-write - Software trigger 2 event
     eSWT2 SWT2 : 1;
+    /// read-write - Software trigger 3 event
     eSWT3 SWT3 : 1;
+    /// read-write - Software trigger 4 event
     eSWT4 SWT4 : 1;
+    /// read-write - Software trigger 5 event
     eSWT5 SWT5 : 1;
+    /// read-write - Software trigger 6 event
     eSWT6 SWT6 : 1;
+    /// read-write - Software trigger 7 event
     eSWT7 SWT7 : 1;
     uint32_t _reserved_0 : 24;
   } bits;
@@ -502,13 +545,18 @@ union TCTRL[0] {
   
   // Bit field definition.
   struct {
+    /// read-write - Trigger enable
     eHTEN HTEN : 1;
+    /// read-write - The command number is selected by software TCMD or hardware tcmd signal
     eCMD_SEL CMD_SEL : 1;
     uint32_t _reserved_0 : 6;
+    /// read-write - Trigger priority setting
     eTPRI TPRI : 3;
     uint32_t _reserved_1 : 5;
+    /// read-write - Trigger delay select
     uint32_t TDLY : 4;
     uint32_t _reserved_2 : 4;
+    /// read-write - Trigger command select
     eTCMD TCMD : 4;
     uint32_t _reserved_3 : 4;
   } bits;
@@ -561,13 +609,18 @@ union TCTRL[1] {
   
   // Bit field definition.
   struct {
+    /// read-write - Trigger enable
     eHTEN HTEN : 1;
+    /// read-write - The command number is selected by software TCMD or hardware tcmd signal
     eCMD_SEL CMD_SEL : 1;
     uint32_t _reserved_0 : 6;
+    /// read-write - Trigger priority setting
     eTPRI TPRI : 3;
     uint32_t _reserved_1 : 5;
+    /// read-write - Trigger delay select
     uint32_t TDLY : 4;
     uint32_t _reserved_2 : 4;
+    /// read-write - Trigger command select
     eTCMD TCMD : 4;
     uint32_t _reserved_3 : 4;
   } bits;
@@ -620,13 +673,18 @@ union TCTRL[2] {
   
   // Bit field definition.
   struct {
+    /// read-write - Trigger enable
     eHTEN HTEN : 1;
+    /// read-write - The command number is selected by software TCMD or hardware tcmd signal
     eCMD_SEL CMD_SEL : 1;
     uint32_t _reserved_0 : 6;
+    /// read-write - Trigger priority setting
     eTPRI TPRI : 3;
     uint32_t _reserved_1 : 5;
+    /// read-write - Trigger delay select
     uint32_t TDLY : 4;
     uint32_t _reserved_2 : 4;
+    /// read-write - Trigger command select
     eTCMD TCMD : 4;
     uint32_t _reserved_3 : 4;
   } bits;
@@ -679,13 +737,18 @@ union TCTRL[3] {
   
   // Bit field definition.
   struct {
+    /// read-write - Trigger enable
     eHTEN HTEN : 1;
+    /// read-write - The command number is selected by software TCMD or hardware tcmd signal
     eCMD_SEL CMD_SEL : 1;
     uint32_t _reserved_0 : 6;
+    /// read-write - Trigger priority setting
     eTPRI TPRI : 3;
     uint32_t _reserved_1 : 5;
+    /// read-write - Trigger delay select
     uint32_t TDLY : 4;
     uint32_t _reserved_2 : 4;
+    /// read-write - Trigger command select
     eTCMD TCMD : 4;
     uint32_t _reserved_3 : 4;
   } bits;
@@ -738,13 +801,18 @@ union TCTRL[4] {
   
   // Bit field definition.
   struct {
+    /// read-write - Trigger enable
     eHTEN HTEN : 1;
+    /// read-write - The command number is selected by software TCMD or hardware tcmd signal
     eCMD_SEL CMD_SEL : 1;
     uint32_t _reserved_0 : 6;
+    /// read-write - Trigger priority setting
     eTPRI TPRI : 3;
     uint32_t _reserved_1 : 5;
+    /// read-write - Trigger delay select
     uint32_t TDLY : 4;
     uint32_t _reserved_2 : 4;
+    /// read-write - Trigger command select
     eTCMD TCMD : 4;
     uint32_t _reserved_3 : 4;
   } bits;
@@ -797,13 +865,18 @@ union TCTRL[5] {
   
   // Bit field definition.
   struct {
+    /// read-write - Trigger enable
     eHTEN HTEN : 1;
+    /// read-write - The command number is selected by software TCMD or hardware tcmd signal
     eCMD_SEL CMD_SEL : 1;
     uint32_t _reserved_0 : 6;
+    /// read-write - Trigger priority setting
     eTPRI TPRI : 3;
     uint32_t _reserved_1 : 5;
+    /// read-write - Trigger delay select
     uint32_t TDLY : 4;
     uint32_t _reserved_2 : 4;
+    /// read-write - Trigger command select
     eTCMD TCMD : 4;
     uint32_t _reserved_3 : 4;
   } bits;
@@ -856,13 +929,18 @@ union TCTRL[6] {
   
   // Bit field definition.
   struct {
+    /// read-write - Trigger enable
     eHTEN HTEN : 1;
+    /// read-write - The command number is selected by software TCMD or hardware tcmd signal
     eCMD_SEL CMD_SEL : 1;
     uint32_t _reserved_0 : 6;
+    /// read-write - Trigger priority setting
     eTPRI TPRI : 3;
     uint32_t _reserved_1 : 5;
+    /// read-write - Trigger delay select
     uint32_t TDLY : 4;
     uint32_t _reserved_2 : 4;
+    /// read-write - Trigger command select
     eTCMD TCMD : 4;
     uint32_t _reserved_3 : 4;
   } bits;
@@ -915,13 +993,18 @@ union TCTRL[7] {
   
   // Bit field definition.
   struct {
+    /// read-write - Trigger enable
     eHTEN HTEN : 1;
+    /// read-write - The command number is selected by software TCMD or hardware tcmd signal
     eCMD_SEL CMD_SEL : 1;
     uint32_t _reserved_0 : 6;
+    /// read-write - Trigger priority setting
     eTPRI TPRI : 3;
     uint32_t _reserved_1 : 5;
+    /// read-write - Trigger delay select
     uint32_t TDLY : 4;
     uint32_t _reserved_2 : 4;
+    /// read-write - Trigger command select
     eTCMD TCMD : 4;
     uint32_t _reserved_3 : 4;
   } bits;
@@ -970,10 +1053,14 @@ union CMDL1 {
   
   // Bit field definition.
   struct {
+    /// read-write - Input channel select
     eADCH ADCH : 5;
+    /// read-write - A-side vs. B-side Select
     eABSEL ABSEL : 1;
+    /// read-write - Differential Mode Enable
     eDIFF DIFF : 1;
     uint32_t _reserved_0 : 6;
+    /// read-write - Channel Scale
     eCSCALE CSCALE : 1;
     uint32_t _reserved_1 : 18;
   } bits;
@@ -1053,15 +1140,21 @@ union CMDH1 {
   
   // Bit field definition.
   struct {
+    /// read-write - Compare Function Enable
     eCMPEN CMPEN : 2;
     uint32_t _reserved_0 : 5;
+    /// read-write - Loop with Increment
     eLWI LWI : 1;
+    /// read-write - Sample Time Select
     eSTS STS : 3;
     uint32_t _reserved_1 : 1;
+    /// read-write - Hardware Average Select
     eAVGS AVGS : 3;
     uint32_t _reserved_2 : 1;
+    /// read-write - Loop Count Select
     eLOOP LOOP : 4;
     uint32_t _reserved_3 : 4;
+    /// read-write - Next Command Select
     eNEXT NEXT : 4;
     uint32_t _reserved_4 : 4;
   } bits;
@@ -1110,10 +1203,14 @@ union CMDL2 {
   
   // Bit field definition.
   struct {
+    /// read-write - Input channel select
     eADCH ADCH : 5;
+    /// read-write - A-side vs. B-side Select
     eABSEL ABSEL : 1;
+    /// read-write - Differential Mode Enable
     eDIFF DIFF : 1;
     uint32_t _reserved_0 : 6;
+    /// read-write - Channel Scale
     eCSCALE CSCALE : 1;
     uint32_t _reserved_1 : 18;
   } bits;
@@ -1193,15 +1290,21 @@ union CMDH2 {
   
   // Bit field definition.
   struct {
+    /// read-write - Compare Function Enable
     eCMPEN CMPEN : 2;
     uint32_t _reserved_0 : 5;
+    /// read-write - Loop with Increment
     eLWI LWI : 1;
+    /// read-write - Sample Time Select
     eSTS STS : 3;
     uint32_t _reserved_1 : 1;
+    /// read-write - Hardware Average Select
     eAVGS AVGS : 3;
     uint32_t _reserved_2 : 1;
+    /// read-write - Loop Count Select
     eLOOP LOOP : 4;
     uint32_t _reserved_3 : 4;
+    /// read-write - Next Command Select
     eNEXT NEXT : 4;
     uint32_t _reserved_4 : 4;
   } bits;
@@ -1250,10 +1353,14 @@ union CMDL3 {
   
   // Bit field definition.
   struct {
+    /// read-write - Input channel select
     eADCH ADCH : 5;
+    /// read-write - A-side vs. B-side Select
     eABSEL ABSEL : 1;
+    /// read-write - Differential Mode Enable
     eDIFF DIFF : 1;
     uint32_t _reserved_0 : 6;
+    /// read-write - Channel Scale
     eCSCALE CSCALE : 1;
     uint32_t _reserved_1 : 18;
   } bits;
@@ -1333,15 +1440,21 @@ union CMDH3 {
   
   // Bit field definition.
   struct {
+    /// read-write - Compare Function Enable
     eCMPEN CMPEN : 2;
     uint32_t _reserved_0 : 5;
+    /// read-write - Loop with Increment
     eLWI LWI : 1;
+    /// read-write - Sample Time Select
     eSTS STS : 3;
     uint32_t _reserved_1 : 1;
+    /// read-write - Hardware Average Select
     eAVGS AVGS : 3;
     uint32_t _reserved_2 : 1;
+    /// read-write - Loop Count Select
     eLOOP LOOP : 4;
     uint32_t _reserved_3 : 4;
+    /// read-write - Next Command Select
     eNEXT NEXT : 4;
     uint32_t _reserved_4 : 4;
   } bits;
@@ -1390,10 +1503,14 @@ union CMDL4 {
   
   // Bit field definition.
   struct {
+    /// read-write - Input channel select
     eADCH ADCH : 5;
+    /// read-write - A-side vs. B-side Select
     eABSEL ABSEL : 1;
+    /// read-write - Differential Mode Enable
     eDIFF DIFF : 1;
     uint32_t _reserved_0 : 6;
+    /// read-write - Channel Scale
     eCSCALE CSCALE : 1;
     uint32_t _reserved_1 : 18;
   } bits;
@@ -1473,15 +1590,21 @@ union CMDH4 {
   
   // Bit field definition.
   struct {
+    /// read-write - Compare Function Enable
     eCMPEN CMPEN : 2;
     uint32_t _reserved_0 : 5;
+    /// read-write - Loop with Increment
     eLWI LWI : 1;
+    /// read-write - Sample Time Select
     eSTS STS : 3;
     uint32_t _reserved_1 : 1;
+    /// read-write - Hardware Average Select
     eAVGS AVGS : 3;
     uint32_t _reserved_2 : 1;
+    /// read-write - Loop Count Select
     eLOOP LOOP : 4;
     uint32_t _reserved_3 : 4;
+    /// read-write - Next Command Select
     eNEXT NEXT : 4;
     uint32_t _reserved_4 : 4;
   } bits;
@@ -1530,10 +1653,14 @@ union CMDL5 {
   
   // Bit field definition.
   struct {
+    /// read-write - Input channel select
     eADCH ADCH : 5;
+    /// read-write - A-side vs. B-side Select
     eABSEL ABSEL : 1;
+    /// read-write - Differential Mode Enable
     eDIFF DIFF : 1;
     uint32_t _reserved_0 : 6;
+    /// read-write - Channel Scale
     eCSCALE CSCALE : 1;
     uint32_t _reserved_1 : 18;
   } bits;
@@ -1608,13 +1735,18 @@ union CMDH5 {
   // Bit field definition.
   struct {
     uint32_t _reserved_0 : 7;
+    /// read-write - Loop with Increment
     eLWI LWI : 1;
+    /// read-write - Sample Time Select
     eSTS STS : 3;
     uint32_t _reserved_1 : 1;
+    /// read-write - Hardware Average Select
     eAVGS AVGS : 3;
     uint32_t _reserved_2 : 1;
+    /// read-write - Loop Count Select
     eLOOP LOOP : 4;
     uint32_t _reserved_3 : 4;
+    /// read-write - Next Command Select
     eNEXT NEXT : 4;
     uint32_t _reserved_4 : 4;
   } bits;
@@ -1663,10 +1795,14 @@ union CMDL6 {
   
   // Bit field definition.
   struct {
+    /// read-write - Input channel select
     eADCH ADCH : 5;
+    /// read-write - A-side vs. B-side Select
     eABSEL ABSEL : 1;
+    /// read-write - Differential Mode Enable
     eDIFF DIFF : 1;
     uint32_t _reserved_0 : 6;
+    /// read-write - Channel Scale
     eCSCALE CSCALE : 1;
     uint32_t _reserved_1 : 18;
   } bits;
@@ -1741,13 +1877,18 @@ union CMDH6 {
   // Bit field definition.
   struct {
     uint32_t _reserved_0 : 7;
+    /// read-write - Loop with Increment
     eLWI LWI : 1;
+    /// read-write - Sample Time Select
     eSTS STS : 3;
     uint32_t _reserved_1 : 1;
+    /// read-write - Hardware Average Select
     eAVGS AVGS : 3;
     uint32_t _reserved_2 : 1;
+    /// read-write - Loop Count Select
     eLOOP LOOP : 4;
     uint32_t _reserved_3 : 4;
+    /// read-write - Next Command Select
     eNEXT NEXT : 4;
     uint32_t _reserved_4 : 4;
   } bits;
@@ -1796,10 +1937,14 @@ union CMDL7 {
   
   // Bit field definition.
   struct {
+    /// read-write - Input channel select
     eADCH ADCH : 5;
+    /// read-write - A-side vs. B-side Select
     eABSEL ABSEL : 1;
+    /// read-write - Differential Mode Enable
     eDIFF DIFF : 1;
     uint32_t _reserved_0 : 6;
+    /// read-write - Channel Scale
     eCSCALE CSCALE : 1;
     uint32_t _reserved_1 : 18;
   } bits;
@@ -1874,13 +2019,18 @@ union CMDH7 {
   // Bit field definition.
   struct {
     uint32_t _reserved_0 : 7;
+    /// read-write - Loop with Increment
     eLWI LWI : 1;
+    /// read-write - Sample Time Select
     eSTS STS : 3;
     uint32_t _reserved_1 : 1;
+    /// read-write - Hardware Average Select
     eAVGS AVGS : 3;
     uint32_t _reserved_2 : 1;
+    /// read-write - Loop Count Select
     eLOOP LOOP : 4;
     uint32_t _reserved_3 : 4;
+    /// read-write - Next Command Select
     eNEXT NEXT : 4;
     uint32_t _reserved_4 : 4;
   } bits;
@@ -1929,10 +2079,14 @@ union CMDL8 {
   
   // Bit field definition.
   struct {
+    /// read-write - Input channel select
     eADCH ADCH : 5;
+    /// read-write - A-side vs. B-side Select
     eABSEL ABSEL : 1;
+    /// read-write - Differential Mode Enable
     eDIFF DIFF : 1;
     uint32_t _reserved_0 : 6;
+    /// read-write - Channel Scale
     eCSCALE CSCALE : 1;
     uint32_t _reserved_1 : 18;
   } bits;
@@ -2007,13 +2161,18 @@ union CMDH8 {
   // Bit field definition.
   struct {
     uint32_t _reserved_0 : 7;
+    /// read-write - Loop with Increment
     eLWI LWI : 1;
+    /// read-write - Sample Time Select
     eSTS STS : 3;
     uint32_t _reserved_1 : 1;
+    /// read-write - Hardware Average Select
     eAVGS AVGS : 3;
     uint32_t _reserved_2 : 1;
+    /// read-write - Loop Count Select
     eLOOP LOOP : 4;
     uint32_t _reserved_3 : 4;
+    /// read-write - Next Command Select
     eNEXT NEXT : 4;
     uint32_t _reserved_4 : 4;
   } bits;
@@ -2062,10 +2221,14 @@ union CMDL9 {
   
   // Bit field definition.
   struct {
+    /// read-write - Input channel select
     eADCH ADCH : 5;
+    /// read-write - A-side vs. B-side Select
     eABSEL ABSEL : 1;
+    /// read-write - Differential Mode Enable
     eDIFF DIFF : 1;
     uint32_t _reserved_0 : 6;
+    /// read-write - Channel Scale
     eCSCALE CSCALE : 1;
     uint32_t _reserved_1 : 18;
   } bits;
@@ -2140,13 +2303,18 @@ union CMDH9 {
   // Bit field definition.
   struct {
     uint32_t _reserved_0 : 7;
+    /// read-write - Loop with Increment
     eLWI LWI : 1;
+    /// read-write - Sample Time Select
     eSTS STS : 3;
     uint32_t _reserved_1 : 1;
+    /// read-write - Hardware Average Select
     eAVGS AVGS : 3;
     uint32_t _reserved_2 : 1;
+    /// read-write - Loop Count Select
     eLOOP LOOP : 4;
     uint32_t _reserved_3 : 4;
+    /// read-write - Next Command Select
     eNEXT NEXT : 4;
     uint32_t _reserved_4 : 4;
   } bits;
@@ -2195,10 +2363,14 @@ union CMDL10 {
   
   // Bit field definition.
   struct {
+    /// read-write - Input channel select
     eADCH ADCH : 5;
+    /// read-write - A-side vs. B-side Select
     eABSEL ABSEL : 1;
+    /// read-write - Differential Mode Enable
     eDIFF DIFF : 1;
     uint32_t _reserved_0 : 6;
+    /// read-write - Channel Scale
     eCSCALE CSCALE : 1;
     uint32_t _reserved_1 : 18;
   } bits;
@@ -2273,13 +2445,18 @@ union CMDH10 {
   // Bit field definition.
   struct {
     uint32_t _reserved_0 : 7;
+    /// read-write - Loop with Increment
     eLWI LWI : 1;
+    /// read-write - Sample Time Select
     eSTS STS : 3;
     uint32_t _reserved_1 : 1;
+    /// read-write - Hardware Average Select
     eAVGS AVGS : 3;
     uint32_t _reserved_2 : 1;
+    /// read-write - Loop Count Select
     eLOOP LOOP : 4;
     uint32_t _reserved_3 : 4;
+    /// read-write - Next Command Select
     eNEXT NEXT : 4;
     uint32_t _reserved_4 : 4;
   } bits;
@@ -2328,10 +2505,14 @@ union CMDL11 {
   
   // Bit field definition.
   struct {
+    /// read-write - Input channel select
     eADCH ADCH : 5;
+    /// read-write - A-side vs. B-side Select
     eABSEL ABSEL : 1;
+    /// read-write - Differential Mode Enable
     eDIFF DIFF : 1;
     uint32_t _reserved_0 : 6;
+    /// read-write - Channel Scale
     eCSCALE CSCALE : 1;
     uint32_t _reserved_1 : 18;
   } bits;
@@ -2406,13 +2587,18 @@ union CMDH11 {
   // Bit field definition.
   struct {
     uint32_t _reserved_0 : 7;
+    /// read-write - Loop with Increment
     eLWI LWI : 1;
+    /// read-write - Sample Time Select
     eSTS STS : 3;
     uint32_t _reserved_1 : 1;
+    /// read-write - Hardware Average Select
     eAVGS AVGS : 3;
     uint32_t _reserved_2 : 1;
+    /// read-write - Loop Count Select
     eLOOP LOOP : 4;
     uint32_t _reserved_3 : 4;
+    /// read-write - Next Command Select
     eNEXT NEXT : 4;
     uint32_t _reserved_4 : 4;
   } bits;
@@ -2461,10 +2647,14 @@ union CMDL12 {
   
   // Bit field definition.
   struct {
+    /// read-write - Input channel select
     eADCH ADCH : 5;
+    /// read-write - A-side vs. B-side Select
     eABSEL ABSEL : 1;
+    /// read-write - Differential Mode Enable
     eDIFF DIFF : 1;
     uint32_t _reserved_0 : 6;
+    /// read-write - Channel Scale
     eCSCALE CSCALE : 1;
     uint32_t _reserved_1 : 18;
   } bits;
@@ -2539,13 +2729,18 @@ union CMDH12 {
   // Bit field definition.
   struct {
     uint32_t _reserved_0 : 7;
+    /// read-write - Loop with Increment
     eLWI LWI : 1;
+    /// read-write - Sample Time Select
     eSTS STS : 3;
     uint32_t _reserved_1 : 1;
+    /// read-write - Hardware Average Select
     eAVGS AVGS : 3;
     uint32_t _reserved_2 : 1;
+    /// read-write - Loop Count Select
     eLOOP LOOP : 4;
     uint32_t _reserved_3 : 4;
+    /// read-write - Next Command Select
     eNEXT NEXT : 4;
     uint32_t _reserved_4 : 4;
   } bits;
@@ -2594,10 +2789,14 @@ union CMDL13 {
   
   // Bit field definition.
   struct {
+    /// read-write - Input channel select
     eADCH ADCH : 5;
+    /// read-write - A-side vs. B-side Select
     eABSEL ABSEL : 1;
+    /// read-write - Differential Mode Enable
     eDIFF DIFF : 1;
     uint32_t _reserved_0 : 6;
+    /// read-write - Channel Scale
     eCSCALE CSCALE : 1;
     uint32_t _reserved_1 : 18;
   } bits;
@@ -2672,13 +2871,18 @@ union CMDH13 {
   // Bit field definition.
   struct {
     uint32_t _reserved_0 : 7;
+    /// read-write - Loop with Increment
     eLWI LWI : 1;
+    /// read-write - Sample Time Select
     eSTS STS : 3;
     uint32_t _reserved_1 : 1;
+    /// read-write - Hardware Average Select
     eAVGS AVGS : 3;
     uint32_t _reserved_2 : 1;
+    /// read-write - Loop Count Select
     eLOOP LOOP : 4;
     uint32_t _reserved_3 : 4;
+    /// read-write - Next Command Select
     eNEXT NEXT : 4;
     uint32_t _reserved_4 : 4;
   } bits;
@@ -2727,10 +2931,14 @@ union CMDL14 {
   
   // Bit field definition.
   struct {
+    /// read-write - Input channel select
     eADCH ADCH : 5;
+    /// read-write - A-side vs. B-side Select
     eABSEL ABSEL : 1;
+    /// read-write - Differential Mode Enable
     eDIFF DIFF : 1;
     uint32_t _reserved_0 : 6;
+    /// read-write - Channel Scale
     eCSCALE CSCALE : 1;
     uint32_t _reserved_1 : 18;
   } bits;
@@ -2805,13 +3013,18 @@ union CMDH14 {
   // Bit field definition.
   struct {
     uint32_t _reserved_0 : 7;
+    /// read-write - Loop with Increment
     eLWI LWI : 1;
+    /// read-write - Sample Time Select
     eSTS STS : 3;
     uint32_t _reserved_1 : 1;
+    /// read-write - Hardware Average Select
     eAVGS AVGS : 3;
     uint32_t _reserved_2 : 1;
+    /// read-write - Loop Count Select
     eLOOP LOOP : 4;
     uint32_t _reserved_3 : 4;
+    /// read-write - Next Command Select
     eNEXT NEXT : 4;
     uint32_t _reserved_4 : 4;
   } bits;
@@ -2860,10 +3073,14 @@ union CMDL15 {
   
   // Bit field definition.
   struct {
+    /// read-write - Input channel select
     eADCH ADCH : 5;
+    /// read-write - A-side vs. B-side Select
     eABSEL ABSEL : 1;
+    /// read-write - Differential Mode Enable
     eDIFF DIFF : 1;
     uint32_t _reserved_0 : 6;
+    /// read-write - Channel Scale
     eCSCALE CSCALE : 1;
     uint32_t _reserved_1 : 18;
   } bits;
@@ -2938,13 +3155,18 @@ union CMDH15 {
   // Bit field definition.
   struct {
     uint32_t _reserved_0 : 7;
+    /// read-write - Loop with Increment
     eLWI LWI : 1;
+    /// read-write - Sample Time Select
     eSTS STS : 3;
     uint32_t _reserved_1 : 1;
+    /// read-write - Hardware Average Select
     eAVGS AVGS : 3;
     uint32_t _reserved_2 : 1;
+    /// read-write - Loop Count Select
     eLOOP LOOP : 4;
     uint32_t _reserved_3 : 4;
+    /// read-write - Next Command Select
     eNEXT NEXT : 4;
     uint32_t _reserved_4 : 4;
   } bits;
@@ -2963,7 +3185,9 @@ union CV1 {
   
   // Bit field definition.
   struct {
+    /// read-write - Compare Value Low
     uint32_t CVL : 16;
+    /// read-write - Compare Value High.
     uint32_t CVH : 16;
   } bits;
   
@@ -2980,7 +3204,9 @@ union CV2 {
   
   // Bit field definition.
   struct {
+    /// read-write - Compare Value Low
     uint32_t CVL : 16;
+    /// read-write - Compare Value High.
     uint32_t CVH : 16;
   } bits;
   
@@ -2997,7 +3223,9 @@ union CV3 {
   
   // Bit field definition.
   struct {
+    /// read-write - Compare Value Low
     uint32_t CVL : 16;
+    /// read-write - Compare Value High.
     uint32_t CVH : 16;
   } bits;
   
@@ -3014,7 +3242,9 @@ union CV4 {
   
   // Bit field definition.
   struct {
+    /// read-write - Compare Value Low
     uint32_t CVL : 16;
+    /// read-write - Compare Value High.
     uint32_t CVH : 16;
   } bits;
   
@@ -3076,12 +3306,17 @@ union RESFIFO {
   
   // Bit field definition.
   struct {
+    /// read-only - Data result
     uint32_t D : 16;
+    /// read-only - Trigger Source
     eTSRC TSRC : 3;
     uint32_t _reserved_0 : 1;
+    /// read-only - Loop count value
     eLOOPCNT LOOPCNT : 4;
+    /// read-only - Command Buffer Source
     eCMDSRC CMDSRC : 4;
     uint32_t _reserved_1 : 3;
+    /// read-only - FIFO entry is valid
     eVALID VALID : 1;
   } bits;
   

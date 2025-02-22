@@ -24,8 +24,11 @@ union VERID {
   
   // Bit field definition.
   struct {
+    /// read-only - Feature Identification Number
     eFEATURE FEATURE : 16;
+    /// read-only - Minor version number
     uint32_t MINOR : 8;
+    /// read-only - Major version number
     uint32_t MAJOR : 8;
   } bits;
   
@@ -54,6 +57,7 @@ union PARAM {
   
   // Bit field definition.
   struct {
+    /// read-only - FIFO size
     eFIFOSZ FIFOSZ : 3;
     uint32_t _reserved_0 : 29;
   } bits;
@@ -72,6 +76,7 @@ union DATA {
   
   // Bit field definition.
   struct {
+    /// write-only - FIFO DATA0
     uint32_t DATA0 : 12;
     uint32_t _reserved_0 : 20;
   } bits;
@@ -175,27 +180,46 @@ union CR {
   
   // Bit field definition.
   struct {
+    /// read-write - Full Flag
     eFULLF FULLF : 1;
+    /// read-write - Nearly Empty Flag
     eNEMPTF NEMPTF : 1;
+    /// read-write - FIFO Watermark Status Flag
     eWMF WMF : 1;
+    /// read-write - Underflow Flag
     eUDFF UDFF : 1;
+    /// read-write - Overflow Flag
     eOVFF OVFF : 1;
     uint32_t _reserved_0 : 3;
+    /// read-write - Full Interrupt Enable
     eFULLIE FULLIE : 1;
+    /// read-write - Nearly Empty Interrupt Enable
     eEMPTIE EMPTIE : 1;
+    /// read-write - Watermark Interrupt Enable
     eWTMIE WTMIE : 1;
     uint32_t _reserved_1 : 1;
+    /// read-write - DAC Software Trigger
     eSWTRG SWTRG : 1;
+    /// read-write - DAC Trigger Select
     eTRGSEL TRGSEL : 1;
+    /// read-write - DAC Reference Select
     eDACRFS DACRFS : 1;
+    /// read-write - DAC Enable
     eDACEN DACEN : 1;
+    /// read-write - FIFO Enable
     eFIFOEN FIFOEN : 1;
+    /// read-write - DAC FIFO Mode Select
     eSWMD SWMD : 1;
+    /// read-write - Underflow and overflow interrupt enable
     eUVIE UVIE : 1;
     uint32_t _reserved_2 : 2;
+    /// read-write - FIFO Reset
     eFIFORST FIFORST : 1;
+    /// read-write - Software reset
     uint32_t SWRST : 1;
+    /// read-write - DMA Enable Select
     eDMAEN DMAEN : 1;
+    /// read-write - Watermark Level Select
     uint32_t WML : 8;
   } bits;
   
@@ -213,8 +237,10 @@ union PTR {
   
   // Bit field definition.
   struct {
+    /// read-only - DACWFP
     uint32_t DACWFP : 8;
     uint32_t _reserved_0 : 8;
+    /// read-only - DACRFP
     uint32_t DACRFP : 8;
     uint32_t _reserved_1 : 8;
   } bits;
@@ -268,12 +294,19 @@ union CR2 {
   
   // Bit field definition.
   struct {
+    /// read-write - Buffer Enable
     eBFEN BFEN : 1;
+    /// read-write - Optional Enable
     eOEN OEN : 1;
+    /// read-write - Buffer Middle Speed Select
     eBFMS BFMS : 1;
+    /// read-write - Buffer High Speed Select
     eBFHS BFHS : 1;
+    /// read-write - Internal PTAT (Proportional To Absolute Temperature) Current Reference Select
     eIREF2 IREF2 : 1;
+    /// read-write - Internal ZTC (Zero Temperature Coefficient) Current Reference Select
     eIREF1 IREF1 : 1;
+    /// read-write - Internal Current Reference Select
     eIREF IREF : 1;
     uint32_t _reserved_0 : 25;
   } bits;

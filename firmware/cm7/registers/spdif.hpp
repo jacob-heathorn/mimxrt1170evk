@@ -86,22 +86,38 @@ union SCR {
   
   // Bit field definition.
   struct {
+    /// read-write - USrc_Sel
     eUSrc_Sel USrc_Sel : 2;
+    /// read-write - TxSel
     eTxSel TxSel : 3;
+    /// read-write - ValCtrl
     eValCtrl ValCtrl : 1;
+    /// read-write - InputSrcSel
     eInputSrcSel InputSrcSel : 2;
+    /// read-write - DMA_TX_En
     uint32_t DMA_TX_En : 1;
+    /// read-write - DMA_Rx_En
     uint32_t DMA_Rx_En : 1;
+    /// read-write - TxFIFO_Ctrl
     eTxFIFO_Ctrl TxFIFO_Ctrl : 2;
+    /// read-write - soft_reset
     uint32_t soft_reset : 1;
+    /// read-write - LOW_POWER
     uint32_t LOW_POWER : 1;
     uint32_t _reserved_0 : 1;
+    /// read-write - TxFIFOEmpty_Sel
     eTxFIFOEmpty_Sel TxFIFOEmpty_Sel : 2;
+    /// read-write - TxAutoSync
     eTxAutoSync TxAutoSync : 1;
+    /// read-write - RxAutoSync
     eRxAutoSync RxAutoSync : 1;
+    /// read-write - RxFIFOFull_Sel
     eRxFIFOFull_Sel RxFIFOFull_Sel : 2;
+    /// read-write - RxFIFO_Rst
     eRxFIFO_Rst RxFIFO_Rst : 1;
+    /// read-write - RxFIFO_Off_On
     eRxFIFO_Off_On RxFIFO_Off_On : 1;
+    /// read-write - RxFIFO_Ctrl
     eRxFIFO_Ctrl RxFIFO_Ctrl : 1;
     uint32_t _reserved_1 : 8;
   } bits;
@@ -126,6 +142,7 @@ union SRCD {
   // Bit field definition.
   struct {
     uint32_t _reserved_0 : 1;
+    /// read-write - USyncMode
     eUSyncMode USyncMode : 1;
     uint32_t _reserved_1 : 30;
   } bits;
@@ -164,8 +181,11 @@ union SRPC {
   // Bit field definition.
   struct {
     uint32_t _reserved_0 : 3;
+    /// read-write - GainSel
     eGainSel GainSel : 3;
+    /// read-only - LOCK
     uint32_t LOCK : 1;
+    /// read-write - ClkSrc_Sel
     eClkSrc_Sel ClkSrc_Sel : 4;
     uint32_t _reserved_1 : 21;
   } bits;
@@ -184,24 +204,42 @@ union SIE {
   
   // Bit field definition.
   struct {
+    /// read-write - RxFIFOFul
     uint32_t RxFIFOFul : 1;
+    /// read-write - TxEm
     uint32_t TxEm : 1;
+    /// read-write - LockLoss
     uint32_t LockLoss : 1;
+    /// read-write - RxFIFOResyn
     uint32_t RxFIFOResyn : 1;
+    /// read-write - RxFIFOUnOv
     uint32_t RxFIFOUnOv : 1;
+    /// read-write - UQErr
     uint32_t UQErr : 1;
+    /// read-write - UQSync
     uint32_t UQSync : 1;
+    /// read-write - QRxOv
     uint32_t QRxOv : 1;
+    /// read-write - QRxFul
     uint32_t QRxFul : 1;
+    /// read-write - URxOv
     uint32_t URxOv : 1;
+    /// read-write - URxFul
     uint32_t URxFul : 1;
     uint32_t _reserved_0 : 3;
+    /// read-write - BitErr
     uint32_t BitErr : 1;
+    /// read-write - SymErr
     uint32_t SymErr : 1;
+    /// read-write - ValNoGood
     uint32_t ValNoGood : 1;
+    /// read-write - CNew
     uint32_t CNew : 1;
+    /// read-write - TxResyn
     uint32_t TxResyn : 1;
+    /// read-write - TxUnOv
     uint32_t TxUnOv : 1;
+    /// read-write - Lock
     uint32_t Lock : 1;
     uint32_t _reserved_1 : 11;
   } bits;
@@ -221,21 +259,35 @@ union SIC {
   // Bit field definition.
   struct {
     uint32_t _reserved_0 : 2;
+    /// write-only - LockLoss
     uint32_t LockLoss : 1;
+    /// write-only - RxFIFOResyn
     uint32_t RxFIFOResyn : 1;
+    /// write-only - RxFIFOUnOv
     uint32_t RxFIFOUnOv : 1;
+    /// write-only - UQErr
     uint32_t UQErr : 1;
+    /// write-only - UQSync
     uint32_t UQSync : 1;
+    /// write-only - QRxOv
     uint32_t QRxOv : 1;
     uint32_t _reserved_1 : 1;
+    /// write-only - URxOv
     uint32_t URxOv : 1;
     uint32_t _reserved_2 : 4;
+    /// write-only - BitErr
     uint32_t BitErr : 1;
+    /// write-only - SymErr
     uint32_t SymErr : 1;
+    /// write-only - ValNoGood
     uint32_t ValNoGood : 1;
+    /// write-only - CNew
     uint32_t CNew : 1;
+    /// write-only - TxResyn
     uint32_t TxResyn : 1;
+    /// write-only - TxUnOv
     uint32_t TxUnOv : 1;
+    /// write-only - Lock
     uint32_t Lock : 1;
     uint32_t _reserved_3 : 11;
   } bits;
@@ -254,24 +306,42 @@ union SIS {
   
   // Bit field definition.
   struct {
+    /// read-only - RxFIFOFul
     uint32_t RxFIFOFul : 1;
+    /// read-only - TxEm
     uint32_t TxEm : 1;
+    /// read-only - LockLoss
     uint32_t LockLoss : 1;
+    /// read-only - RxFIFOResyn
     uint32_t RxFIFOResyn : 1;
+    /// read-only - RxFIFOUnOv
     uint32_t RxFIFOUnOv : 1;
+    /// read-only - UQErr
     uint32_t UQErr : 1;
+    /// read-only - UQSync
     uint32_t UQSync : 1;
+    /// read-only - QRxOv
     uint32_t QRxOv : 1;
+    /// read-only - QRxFul
     uint32_t QRxFul : 1;
+    /// read-only - URxOv
     uint32_t URxOv : 1;
+    /// read-only - URxFul
     uint32_t URxFul : 1;
     uint32_t _reserved_0 : 3;
+    /// read-only - BitErr
     uint32_t BitErr : 1;
+    /// read-only - SymErr
     uint32_t SymErr : 1;
+    /// read-only - ValNoGood
     uint32_t ValNoGood : 1;
+    /// read-only - CNew
     uint32_t CNew : 1;
+    /// read-only - TxResyn
     uint32_t TxResyn : 1;
+    /// read-only - TxUnOv
     uint32_t TxUnOv : 1;
+    /// read-only - Lock
     uint32_t Lock : 1;
     uint32_t _reserved_1 : 11;
   } bits;
@@ -290,6 +360,7 @@ union SRL {
   
   // Bit field definition.
   struct {
+    /// read-only - RxDataLeft
     uint32_t RxDataLeft : 24;
     uint32_t _reserved_0 : 8;
   } bits;
@@ -308,6 +379,7 @@ union SRR {
   
   // Bit field definition.
   struct {
+    /// read-only - RxDataRight
     uint32_t RxDataRight : 24;
     uint32_t _reserved_0 : 8;
   } bits;
@@ -326,6 +398,7 @@ union SRCSH {
   
   // Bit field definition.
   struct {
+    /// read-only - RxCChannel_h
     uint32_t RxCChannel_h : 24;
     uint32_t _reserved_0 : 8;
   } bits;
@@ -344,6 +417,7 @@ union SRCSL {
   
   // Bit field definition.
   struct {
+    /// read-only - RxCChannel_l
     uint32_t RxCChannel_l : 24;
     uint32_t _reserved_0 : 8;
   } bits;
@@ -362,6 +436,7 @@ union SRU {
   
   // Bit field definition.
   struct {
+    /// read-only - RxUChannel
     uint32_t RxUChannel : 24;
     uint32_t _reserved_0 : 8;
   } bits;
@@ -380,6 +455,7 @@ union SRQ {
   
   // Bit field definition.
   struct {
+    /// read-only - RxQChannel
     uint32_t RxQChannel : 24;
     uint32_t _reserved_0 : 8;
   } bits;
@@ -398,6 +474,7 @@ union STL {
   
   // Bit field definition.
   struct {
+    /// write-only - TxDataLeft
     uint32_t TxDataLeft : 24;
     uint32_t _reserved_0 : 8;
   } bits;
@@ -416,6 +493,7 @@ union STR {
   
   // Bit field definition.
   struct {
+    /// write-only - TxDataRight
     uint32_t TxDataRight : 24;
     uint32_t _reserved_0 : 8;
   } bits;
@@ -434,6 +512,7 @@ union STCSCH {
   
   // Bit field definition.
   struct {
+    /// read-write - TxCChannelCons_h
     uint32_t TxCChannelCons_h : 24;
     uint32_t _reserved_0 : 8;
   } bits;
@@ -452,6 +531,7 @@ union STCSCL {
   
   // Bit field definition.
   struct {
+    /// read-write - TxCChannelCons_l
     uint32_t TxCChannelCons_l : 24;
     uint32_t _reserved_0 : 8;
   } bits;
@@ -470,6 +550,7 @@ union SRFM {
   
   // Bit field definition.
   struct {
+    /// read-only - FreqMeas
     uint32_t FreqMeas : 24;
     uint32_t _reserved_0 : 8;
   } bits;
@@ -512,9 +593,13 @@ union STC {
   
   // Bit field definition.
   struct {
+    /// read-write - TxClk_DF
     eTxClk_DF TxClk_DF : 7;
+    /// read-write - tx_all_clk_en
     etx_all_clk_en tx_all_clk_en : 1;
+    /// read-write - TxClk_Source
     eTxClk_Source TxClk_Source : 3;
+    /// read-write - SYSCLK_DF
     eSYSCLK_DF SYSCLK_DF : 9;
     uint32_t _reserved_0 : 12;
   } bits;

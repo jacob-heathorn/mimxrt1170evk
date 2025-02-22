@@ -37,9 +37,13 @@ union CTRL {
   
   // Bit field definition.
   struct {
+    /// read-writeOnce - EWM enable.
     eEWMEN EWMEN : 1;
+    /// read-writeOnce - EWM_in's Assertion State Select.
     eASSIN ASSIN : 1;
+    /// read-writeOnce - Input Enable.
     eINEN INEN : 1;
+    /// read-write - Interrupt Enable.
     eINTEN INTEN : 1;
     uint32_t _reserved_0 : 28;
   } bits;
@@ -58,6 +62,7 @@ union SERV {
   
   // Bit field definition.
   struct {
+    /// read-write - SERVICE
     uint32_t SERVICE : 8;
     uint32_t _reserved_0 : 24;
   } bits;
@@ -76,6 +81,7 @@ union CMPL {
   
   // Bit field definition.
   struct {
+    /// read-writeOnce - COMPAREL
     uint32_t COMPAREL : 8;
     uint32_t _reserved_0 : 24;
   } bits;
@@ -94,6 +100,7 @@ union CMPH {
   
   // Bit field definition.
   struct {
+    /// read-writeOnce - COMPAREH
     uint32_t COMPAREH : 8;
     uint32_t _reserved_0 : 24;
   } bits;
@@ -112,6 +119,7 @@ union CLKCTRL {
   
   // Bit field definition.
   struct {
+    /// read-writeOnce - CLKSEL
     uint32_t CLKSEL : 2;
     uint32_t _reserved_0 : 30;
   } bits;
@@ -130,6 +138,7 @@ union CLKPRESCALER {
   
   // Bit field definition.
   struct {
+    /// read-writeOnce - CLK_DIV
     uint32_t CLK_DIV : 8;
     uint32_t _reserved_0 : 24;
   } bits;

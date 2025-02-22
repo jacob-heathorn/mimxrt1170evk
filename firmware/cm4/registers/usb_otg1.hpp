@@ -17,10 +17,13 @@ union ID {
   
   // Bit field definition.
   struct {
+    /// read-only - ID
     uint32_t ID : 6;
     uint32_t _reserved_0 : 2;
+    /// read-only - NID
     uint32_t NID : 6;
     uint32_t _reserved_1 : 2;
+    /// read-only - REVISION
     uint32_t REVISION : 8;
     uint32_t _reserved_2 : 8;
   } bits;
@@ -65,8 +68,11 @@ union HWGENERAL {
   // Bit field definition.
   struct {
     uint32_t _reserved_0 : 4;
+    /// read-only - PHYW
     ePHYW PHYW : 2;
+    /// read-only - PHYM
     ePHYM PHYM : 3;
+    /// read-only - SM
     eSM SM : 2;
     uint32_t _reserved_1 : 21;
   } bits;
@@ -90,7 +96,9 @@ union HWHOST {
   
   // Bit field definition.
   struct {
+    /// read-only - HC
     eHC HC : 1;
+    /// read-only - NPORT
     uint32_t NPORT : 3;
     uint32_t _reserved_0 : 28;
   } bits;
@@ -114,7 +122,9 @@ union HWDEVICE {
   
   // Bit field definition.
   struct {
+    /// read-only - DC
     eDC DC : 1;
+    /// read-only - DEVEP
     uint32_t DEVEP : 5;
     uint32_t _reserved_0 : 26;
   } bits;
@@ -133,8 +143,10 @@ union HWTXBUF {
   
   // Bit field definition.
   struct {
+    /// read-only - TXBURST
     uint32_t TXBURST : 8;
     uint32_t _reserved_0 : 8;
+    /// read-only - TXCHANADD
     uint32_t TXCHANADD : 8;
     uint32_t _reserved_1 : 8;
   } bits;
@@ -153,7 +165,9 @@ union HWRXBUF {
   
   // Bit field definition.
   struct {
+    /// read-only - RXBURST
     uint32_t RXBURST : 8;
+    /// read-only - RXADD
     uint32_t RXADD : 8;
     uint32_t _reserved_0 : 16;
   } bits;
@@ -172,6 +186,7 @@ union GPTIMER0LD {
   
   // Bit field definition.
   struct {
+    /// read-write - GPTLD
     uint32_t GPTLD : 24;
     uint32_t _reserved_0 : 8;
   } bits;
@@ -205,10 +220,14 @@ union GPTIMER0CTRL {
   
   // Bit field definition.
   struct {
+    /// read-write - GPTCNT
     uint32_t GPTCNT : 24;
+    /// read-write - GPTMODE
     eGPTMODE GPTMODE : 1;
     uint32_t _reserved_0 : 5;
+    /// read-write - GPTRST
     eGPTRST GPTRST : 1;
+    /// read-write - GPTRUN
     eGPTRUN GPTRUN : 1;
   } bits;
   
@@ -226,6 +245,7 @@ union GPTIMER1LD {
   
   // Bit field definition.
   struct {
+    /// read-write - GPTLD
     uint32_t GPTLD : 24;
     uint32_t _reserved_0 : 8;
   } bits;
@@ -259,10 +279,14 @@ union GPTIMER1CTRL {
   
   // Bit field definition.
   struct {
+    /// read-write - GPTCNT
     uint32_t GPTCNT : 24;
+    /// read-write - GPTMODE
     eGPTMODE GPTMODE : 1;
     uint32_t _reserved_0 : 5;
+    /// read-write - GPTRST
     eGPTRST GPTRST : 1;
+    /// read-write - GPTRUN
     eGPTRUN GPTRUN : 1;
   } bits;
   
@@ -290,6 +314,7 @@ union SBUSCFG {
   
   // Bit field definition.
   struct {
+    /// read-write - AHBBRST
     eAHBBRST AHBBRST : 3;
     uint32_t _reserved_0 : 29;
   } bits;
@@ -308,6 +333,7 @@ union CAPLENGTH {
   
   // Bit field definition.
   struct {
+    /// read-only - CAPLENGTH
     uint32_t CAPLENGTH : 8;
     uint32_t _reserved_0 : 24;
   } bits;
@@ -326,6 +352,7 @@ union HCIVERSION {
   
   // Bit field definition.
   struct {
+    /// read-only - HCIVERSION
     uint32_t HCIVERSION : 16;
     uint32_t _reserved_0 : 16;
   } bits;
@@ -349,14 +376,21 @@ union HCSPARAMS {
   
   // Bit field definition.
   struct {
+    /// read-only - N_PORTS
     uint32_t N_PORTS : 4;
+    /// read-only - PPC
     uint32_t PPC : 1;
     uint32_t _reserved_0 : 3;
+    /// read-only - N_PCC
     uint32_t N_PCC : 4;
+    /// read-only - N_CC
     eN_CC N_CC : 4;
+    /// read-only - PI
     uint32_t PI : 1;
     uint32_t _reserved_1 : 3;
+    /// read-only - N_PTT
     uint32_t N_PTT : 4;
+    /// read-only - N_TT
     uint32_t N_TT : 4;
     uint32_t _reserved_2 : 4;
   } bits;
@@ -375,11 +409,16 @@ union HCCPARAMS {
   
   // Bit field definition.
   struct {
+    /// read-only - ADC
     uint32_t ADC : 1;
+    /// read-only - PFL
     uint32_t PFL : 1;
+    /// read-only - ASP
     uint32_t ASP : 1;
     uint32_t _reserved_0 : 1;
+    /// read-only - IST
     uint32_t IST : 4;
+    /// read-only - EECP
     uint32_t EECP : 8;
     uint32_t _reserved_1 : 16;
   } bits;
@@ -398,6 +437,7 @@ union DCIVERSION {
   
   // Bit field definition.
   struct {
+    /// read-only - DCIVERSION
     uint32_t DCIVERSION : 16;
     uint32_t _reserved_0 : 16;
   } bits;
@@ -416,9 +456,12 @@ union DCCPARAMS {
   
   // Bit field definition.
   struct {
+    /// read-only - DEN
     uint32_t DEN : 5;
     uint32_t _reserved_0 : 2;
+    /// read-only - DC
     uint32_t DC : 1;
+    /// read-only - HC
     uint32_t HC : 1;
     uint32_t _reserved_1 : 23;
   } bits;
@@ -458,20 +501,32 @@ union USBCMD {
   
   // Bit field definition.
   struct {
+    /// read-write - RS
     uint32_t RS : 1;
+    /// read-write - RST
     uint32_t RST : 1;
+    /// read-write - FS_1
     uint32_t FS_1 : 2;
+    /// read-write - PSE
     ePSE PSE : 1;
+    /// read-write - ASE
     eASE ASE : 1;
+    /// read-write - IAA
     uint32_t IAA : 1;
     uint32_t _reserved_0 : 1;
+    /// read-write - ASP
     uint32_t ASP : 2;
     uint32_t _reserved_1 : 1;
+    /// read-write - ASPE
     uint32_t ASPE : 1;
     uint32_t _reserved_2 : 1;
+    /// read-write - SUTW
     uint32_t SUTW : 1;
+    /// read-write - ATDTW
     uint32_t ATDTW : 1;
+    /// read-write - FS_2
     uint32_t FS_2 : 1;
+    /// read-write - ITC
     eITC ITC : 8;
     uint32_t _reserved_3 : 8;
   } bits;
@@ -490,25 +545,42 @@ union USBSTS {
   
   // Bit field definition.
   struct {
+    /// read-write - UI
     uint32_t UI : 1;
+    /// read-write - UEI
     uint32_t UEI : 1;
+    /// read-write - PCI
     uint32_t PCI : 1;
+    /// read-write - FRI
     uint32_t FRI : 1;
+    /// read-write - SEI
     uint32_t SEI : 1;
+    /// read-write - AAI
     uint32_t AAI : 1;
+    /// read-write - URI
     uint32_t URI : 1;
+    /// read-write - SRI
     uint32_t SRI : 1;
+    /// read-write - SLI
     uint32_t SLI : 1;
     uint32_t _reserved_0 : 1;
+    /// read-write - ULPII
     uint32_t ULPII : 1;
     uint32_t _reserved_1 : 1;
+    /// read-write - HCH
     uint32_t HCH : 1;
+    /// read-write - RCL
     uint32_t RCL : 1;
+    /// read-write - PS
     uint32_t PS : 1;
+    /// read-write - AS
     uint32_t AS : 1;
+    /// read-only - NAKI
     uint32_t NAKI : 1;
     uint32_t _reserved_2 : 7;
+    /// read-write - TI0
     uint32_t TI0 : 1;
+    /// read-write - TI1
     uint32_t TI1 : 1;
     uint32_t _reserved_3 : 6;
   } bits;
@@ -527,24 +599,39 @@ union USBINTR {
   
   // Bit field definition.
   struct {
+    /// read-write - UE
     uint32_t UE : 1;
+    /// read-write - UEE
     uint32_t UEE : 1;
+    /// read-write - PCE
     uint32_t PCE : 1;
+    /// read-write - FRE
     uint32_t FRE : 1;
+    /// read-write - SEE
     uint32_t SEE : 1;
+    /// read-write - AAE
     uint32_t AAE : 1;
+    /// read-write - URE
     uint32_t URE : 1;
+    /// read-write - SRE
     uint32_t SRE : 1;
+    /// read-write - SLE
     uint32_t SLE : 1;
     uint32_t _reserved_0 : 1;
+    /// read-write - ULPIE
     uint32_t ULPIE : 1;
     uint32_t _reserved_1 : 5;
+    /// read-write - NAKE
     uint32_t NAKE : 1;
     uint32_t _reserved_2 : 1;
+    /// read-write - UAIE
     uint32_t UAIE : 1;
+    /// read-write - UPIE
     uint32_t UPIE : 1;
     uint32_t _reserved_3 : 4;
+    /// read-write - TIE0
     uint32_t TIE0 : 1;
+    /// read-write - TIE1
     uint32_t TIE1 : 1;
     uint32_t _reserved_4 : 6;
   } bits;
@@ -574,6 +661,7 @@ union FRINDEX {
   
   // Bit field definition.
   struct {
+    /// read-write - FRINDEX
     eFRINDEX FRINDEX : 14;
     uint32_t _reserved_0 : 18;
   } bits;
@@ -593,7 +681,9 @@ union DEVICEADDR {
   // Bit field definition.
   struct {
     uint32_t _reserved_0 : 24;
+    /// read-write - USBADRA
     uint32_t USBADRA : 1;
+    /// read-write - USBADR
     uint32_t USBADR : 7;
   } bits;
   
@@ -612,6 +702,7 @@ union PERIODICLISTBASE {
   // Bit field definition.
   struct {
     uint32_t _reserved_0 : 12;
+    /// read-write - BASEADR
     uint32_t BASEADR : 20;
   } bits;
   
@@ -630,6 +721,7 @@ union ASYNCLISTADDR {
   // Bit field definition.
   struct {
     uint32_t _reserved_0 : 5;
+    /// read-write - ASYBASE
     uint32_t ASYBASE : 27;
   } bits;
   
@@ -648,6 +740,7 @@ union ENDPTLISTADDR {
   // Bit field definition.
   struct {
     uint32_t _reserved_0 : 11;
+    /// read-write - EPBASE
     uint32_t EPBASE : 21;
   } bits;
   
@@ -665,7 +758,9 @@ union BURSTSIZE {
   
   // Bit field definition.
   struct {
+    /// read-write - RXPBURST
     uint32_t RXPBURST : 8;
+    /// read-write - TXPBURST
     uint32_t TXPBURST : 9;
     uint32_t _reserved_0 : 15;
   } bits;
@@ -684,9 +779,12 @@ union TXFILLTUNING {
   
   // Bit field definition.
   struct {
+    /// read-write - TXSCHOH
     uint32_t TXSCHOH : 8;
+    /// read-write - TXSCHHEALTH
     uint32_t TXSCHHEALTH : 5;
     uint32_t _reserved_0 : 3;
+    /// read-write - TXFIFOTHRES
     uint32_t TXFIFOTHRES : 6;
     uint32_t _reserved_1 : 10;
   } bits;
@@ -705,8 +803,10 @@ union ENDPTNAK {
   
   // Bit field definition.
   struct {
+    /// read-write - EPRN
     uint32_t EPRN : 8;
     uint32_t _reserved_0 : 8;
+    /// read-write - EPTN
     uint32_t EPTN : 8;
     uint32_t _reserved_1 : 8;
   } bits;
@@ -725,8 +825,10 @@ union ENDPTNAKEN {
   
   // Bit field definition.
   struct {
+    /// read-write - EPRNE
     uint32_t EPRNE : 8;
     uint32_t _reserved_0 : 8;
+    /// read-write - EPTNE
     uint32_t EPTNE : 8;
     uint32_t _reserved_1 : 8;
   } bits;
@@ -750,6 +852,7 @@ union CONFIGFLAG {
   
   // Bit field definition.
   struct {
+    /// read-only - CF
     eCF CF : 1;
     uint32_t _reserved_0 : 31;
   } bits;
@@ -820,30 +923,55 @@ union PORTSC1 {
   
   // Bit field definition.
   struct {
+    /// read-only - CCS
     uint32_t CCS : 1;
+    /// read-write - CSC
     uint32_t CSC : 1;
+    /// read-write - PE
     uint32_t PE : 1;
+    /// read-write - PEC
     uint32_t PEC : 1;
+    /// read-only - OCA
     eOCA OCA : 1;
+    /// read-write - OCC
     uint32_t OCC : 1;
+    /// read-write - FPR
     uint32_t FPR : 1;
+    /// read-write - SUSP
     uint32_t SUSP : 1;
+    /// read-write - PR
     uint32_t PR : 1;
+    /// read-only - HSP
     uint32_t HSP : 1;
+    /// read-write - LS
     eLS LS : 2;
+    /// read-write - PP
     uint32_t PP : 1;
+    /// read-write - PO
     uint32_t PO : 1;
+    /// read-write - PIC
     ePIC PIC : 2;
+    /// read-write - PTC
     ePTC PTC : 4;
+    /// read-write - WKCN
     uint32_t WKCN : 1;
+    /// read-write - WKDC
     uint32_t WKDC : 1;
+    /// read-write - WKOC
     uint32_t WKOC : 1;
+    /// read-write - PHCD
     ePHCD PHCD : 1;
+    /// read-write - PFSC
     ePFSC PFSC : 1;
+    /// read-write - PTS_2
     uint32_t PTS_2 : 1;
+    /// read-write - PSPD
     ePSPD PSPD : 2;
+    /// read-write - PTW
     ePTW PTW : 1;
+    /// read-write - STS
     uint32_t STS : 1;
+    /// read-write - PTS_1
     uint32_t PTS_1 : 2;
   } bits;
   
@@ -861,35 +989,61 @@ union OTGSC {
   
   // Bit field definition.
   struct {
+    /// read-write - VD
     uint32_t VD : 1;
+    /// read-write - VC
     uint32_t VC : 1;
     uint32_t _reserved_0 : 1;
+    /// read-write - OT
     uint32_t OT : 1;
+    /// read-write - DP
     uint32_t DP : 1;
+    /// read-write - IDPU
     uint32_t IDPU : 1;
     uint32_t _reserved_1 : 2;
+    /// read-only - ID
     uint32_t ID : 1;
+    /// read-only - AVV
     uint32_t AVV : 1;
+    /// read-only - ASV
     uint32_t ASV : 1;
+    /// read-only - BSV
     uint32_t BSV : 1;
+    /// read-only - BSE
     uint32_t BSE : 1;
+    /// read-only - TOG_1MS
     uint32_t TOG_1MS : 1;
+    /// read-only - DPS
     uint32_t DPS : 1;
     uint32_t _reserved_2 : 1;
+    /// read-write - IDIS
     uint32_t IDIS : 1;
+    /// read-write - AVVIS
     uint32_t AVVIS : 1;
+    /// read-write - ASVIS
     uint32_t ASVIS : 1;
+    /// read-write - BSVIS
     uint32_t BSVIS : 1;
+    /// read-write - BSEIS
     uint32_t BSEIS : 1;
+    /// read-write - STATUS_1MS
     uint32_t STATUS_1MS : 1;
+    /// read-write - DPIS
     uint32_t DPIS : 1;
     uint32_t _reserved_3 : 1;
+    /// read-write - IDIE
     uint32_t IDIE : 1;
+    /// read-write - AVVIE
     uint32_t AVVIE : 1;
+    /// read-write - ASVIE
     uint32_t ASVIE : 1;
+    /// read-write - BSVIE
     uint32_t BSVIE : 1;
+    /// read-write - BSEIE
     uint32_t BSEIE : 1;
+    /// read-write - EN_1MS
     uint32_t EN_1MS : 1;
+    /// read-write - DPIE
     uint32_t DPIE : 1;
     uint32_t _reserved_4 : 1;
   } bits;
@@ -924,9 +1078,13 @@ union USBMODE {
   
   // Bit field definition.
   struct {
+    /// read-write - CM
     eCM CM : 2;
+    /// read-write - ES
     eES ES : 1;
+    /// read-write - SLOM
     eSLOM SLOM : 1;
+    /// read-write - SDIS
     uint32_t SDIS : 1;
     uint32_t _reserved_0 : 27;
   } bits;
@@ -945,6 +1103,7 @@ union ENDPTSETUPSTAT {
   
   // Bit field definition.
   struct {
+    /// read-write - ENDPTSETUPSTAT
     uint32_t ENDPTSETUPSTAT : 16;
     uint32_t _reserved_0 : 16;
   } bits;
@@ -963,8 +1122,10 @@ union ENDPTPRIME {
   
   // Bit field definition.
   struct {
+    /// read-write - PERB
     uint32_t PERB : 8;
     uint32_t _reserved_0 : 8;
+    /// read-write - PETB
     uint32_t PETB : 8;
     uint32_t _reserved_1 : 8;
   } bits;
@@ -983,8 +1144,10 @@ union ENDPTFLUSH {
   
   // Bit field definition.
   struct {
+    /// read-write - FERB
     uint32_t FERB : 8;
     uint32_t _reserved_0 : 8;
+    /// read-write - FETB
     uint32_t FETB : 8;
     uint32_t _reserved_1 : 8;
   } bits;
@@ -1003,8 +1166,10 @@ union ENDPTSTAT {
   
   // Bit field definition.
   struct {
+    /// read-only - ERBR
     uint32_t ERBR : 8;
     uint32_t _reserved_0 : 8;
+    /// read-only - ETBR
     uint32_t ETBR : 8;
     uint32_t _reserved_1 : 8;
   } bits;
@@ -1023,8 +1188,10 @@ union ENDPTCOMPLETE {
   
   // Bit field definition.
   struct {
+    /// read-write - ERCE
     uint32_t ERCE : 8;
     uint32_t _reserved_0 : 8;
+    /// read-write - ETCE
     uint32_t ETCE : 8;
     uint32_t _reserved_1 : 8;
   } bits;
@@ -1043,16 +1210,22 @@ union ENDPTCTRL0 {
   
   // Bit field definition.
   struct {
+    /// read-write - RXS
     uint32_t RXS : 1;
     uint32_t _reserved_0 : 1;
+    /// read-write - RXT
     uint32_t RXT : 2;
     uint32_t _reserved_1 : 3;
+    /// read-write - RXE
     uint32_t RXE : 1;
     uint32_t _reserved_2 : 8;
+    /// read-write - TXS
     uint32_t TXS : 1;
     uint32_t _reserved_3 : 1;
+    /// read-write - TXT
     uint32_t TXT : 2;
     uint32_t _reserved_4 : 3;
+    /// read-write - TXE
     uint32_t TXE : 1;
     uint32_t _reserved_5 : 8;
   } bits;
@@ -1071,20 +1244,32 @@ union ENDPTCTRL1 {
   
   // Bit field definition.
   struct {
+    /// read-write - RXS
     uint32_t RXS : 1;
+    /// read-write - RXD
     uint32_t RXD : 1;
+    /// read-write - RXT
     uint32_t RXT : 2;
     uint32_t _reserved_0 : 1;
+    /// read-write - RXI
     uint32_t RXI : 1;
+    /// read-write - RXR
     uint32_t RXR : 1;
+    /// read-write - RXE
     uint32_t RXE : 1;
     uint32_t _reserved_1 : 8;
+    /// read-write - TXS
     uint32_t TXS : 1;
+    /// read-write - TXD
     uint32_t TXD : 1;
+    /// read-write - TXT
     uint32_t TXT : 2;
     uint32_t _reserved_2 : 1;
+    /// read-write - TXI
     uint32_t TXI : 1;
+    /// read-write - TXR
     uint32_t TXR : 1;
+    /// read-write - TXE
     uint32_t TXE : 1;
     uint32_t _reserved_3 : 8;
   } bits;
@@ -1103,20 +1288,32 @@ union ENDPTCTRL2 {
   
   // Bit field definition.
   struct {
+    /// read-write - RXS
     uint32_t RXS : 1;
+    /// read-write - RXD
     uint32_t RXD : 1;
+    /// read-write - RXT
     uint32_t RXT : 2;
     uint32_t _reserved_0 : 1;
+    /// read-write - RXI
     uint32_t RXI : 1;
+    /// read-write - RXR
     uint32_t RXR : 1;
+    /// read-write - RXE
     uint32_t RXE : 1;
     uint32_t _reserved_1 : 8;
+    /// read-write - TXS
     uint32_t TXS : 1;
+    /// read-write - TXD
     uint32_t TXD : 1;
+    /// read-write - TXT
     uint32_t TXT : 2;
     uint32_t _reserved_2 : 1;
+    /// read-write - TXI
     uint32_t TXI : 1;
+    /// read-write - TXR
     uint32_t TXR : 1;
+    /// read-write - TXE
     uint32_t TXE : 1;
     uint32_t _reserved_3 : 8;
   } bits;
@@ -1135,20 +1332,32 @@ union ENDPTCTRL3 {
   
   // Bit field definition.
   struct {
+    /// read-write - RXS
     uint32_t RXS : 1;
+    /// read-write - RXD
     uint32_t RXD : 1;
+    /// read-write - RXT
     uint32_t RXT : 2;
     uint32_t _reserved_0 : 1;
+    /// read-write - RXI
     uint32_t RXI : 1;
+    /// read-write - RXR
     uint32_t RXR : 1;
+    /// read-write - RXE
     uint32_t RXE : 1;
     uint32_t _reserved_1 : 8;
+    /// read-write - TXS
     uint32_t TXS : 1;
+    /// read-write - TXD
     uint32_t TXD : 1;
+    /// read-write - TXT
     uint32_t TXT : 2;
     uint32_t _reserved_2 : 1;
+    /// read-write - TXI
     uint32_t TXI : 1;
+    /// read-write - TXR
     uint32_t TXR : 1;
+    /// read-write - TXE
     uint32_t TXE : 1;
     uint32_t _reserved_3 : 8;
   } bits;
@@ -1167,20 +1376,32 @@ union ENDPTCTRL4 {
   
   // Bit field definition.
   struct {
+    /// read-write - RXS
     uint32_t RXS : 1;
+    /// read-write - RXD
     uint32_t RXD : 1;
+    /// read-write - RXT
     uint32_t RXT : 2;
     uint32_t _reserved_0 : 1;
+    /// read-write - RXI
     uint32_t RXI : 1;
+    /// read-write - RXR
     uint32_t RXR : 1;
+    /// read-write - RXE
     uint32_t RXE : 1;
     uint32_t _reserved_1 : 8;
+    /// read-write - TXS
     uint32_t TXS : 1;
+    /// read-write - TXD
     uint32_t TXD : 1;
+    /// read-write - TXT
     uint32_t TXT : 2;
     uint32_t _reserved_2 : 1;
+    /// read-write - TXI
     uint32_t TXI : 1;
+    /// read-write - TXR
     uint32_t TXR : 1;
+    /// read-write - TXE
     uint32_t TXE : 1;
     uint32_t _reserved_3 : 8;
   } bits;
@@ -1199,20 +1420,32 @@ union ENDPTCTRL5 {
   
   // Bit field definition.
   struct {
+    /// read-write - RXS
     uint32_t RXS : 1;
+    /// read-write - RXD
     uint32_t RXD : 1;
+    /// read-write - RXT
     uint32_t RXT : 2;
     uint32_t _reserved_0 : 1;
+    /// read-write - RXI
     uint32_t RXI : 1;
+    /// read-write - RXR
     uint32_t RXR : 1;
+    /// read-write - RXE
     uint32_t RXE : 1;
     uint32_t _reserved_1 : 8;
+    /// read-write - TXS
     uint32_t TXS : 1;
+    /// read-write - TXD
     uint32_t TXD : 1;
+    /// read-write - TXT
     uint32_t TXT : 2;
     uint32_t _reserved_2 : 1;
+    /// read-write - TXI
     uint32_t TXI : 1;
+    /// read-write - TXR
     uint32_t TXR : 1;
+    /// read-write - TXE
     uint32_t TXE : 1;
     uint32_t _reserved_3 : 8;
   } bits;
@@ -1231,20 +1464,32 @@ union ENDPTCTRL6 {
   
   // Bit field definition.
   struct {
+    /// read-write - RXS
     uint32_t RXS : 1;
+    /// read-write - RXD
     uint32_t RXD : 1;
+    /// read-write - RXT
     uint32_t RXT : 2;
     uint32_t _reserved_0 : 1;
+    /// read-write - RXI
     uint32_t RXI : 1;
+    /// read-write - RXR
     uint32_t RXR : 1;
+    /// read-write - RXE
     uint32_t RXE : 1;
     uint32_t _reserved_1 : 8;
+    /// read-write - TXS
     uint32_t TXS : 1;
+    /// read-write - TXD
     uint32_t TXD : 1;
+    /// read-write - TXT
     uint32_t TXT : 2;
     uint32_t _reserved_2 : 1;
+    /// read-write - TXI
     uint32_t TXI : 1;
+    /// read-write - TXR
     uint32_t TXR : 1;
+    /// read-write - TXE
     uint32_t TXE : 1;
     uint32_t _reserved_3 : 8;
   } bits;
@@ -1263,20 +1508,32 @@ union ENDPTCTRL7 {
   
   // Bit field definition.
   struct {
+    /// read-write - RXS
     uint32_t RXS : 1;
+    /// read-write - RXD
     uint32_t RXD : 1;
+    /// read-write - RXT
     uint32_t RXT : 2;
     uint32_t _reserved_0 : 1;
+    /// read-write - RXI
     uint32_t RXI : 1;
+    /// read-write - RXR
     uint32_t RXR : 1;
+    /// read-write - RXE
     uint32_t RXE : 1;
     uint32_t _reserved_1 : 8;
+    /// read-write - TXS
     uint32_t TXS : 1;
+    /// read-write - TXD
     uint32_t TXD : 1;
+    /// read-write - TXT
     uint32_t TXT : 2;
     uint32_t _reserved_2 : 1;
+    /// read-write - TXI
     uint32_t TXI : 1;
+    /// read-write - TXR
     uint32_t TXR : 1;
+    /// read-write - TXE
     uint32_t TXE : 1;
     uint32_t _reserved_3 : 8;
   } bits;

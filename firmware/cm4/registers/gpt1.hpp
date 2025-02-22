@@ -124,24 +124,42 @@ union CR {
   
   // Bit field definition.
   struct {
+    /// read-write - GPT Enable
     eEN EN : 1;
+    /// read-write - GPT Enable Mode
     eENMOD ENMOD : 1;
+    /// read-write - GPT Debug Mode Enable
     eDBGEN DBGEN : 1;
+    /// read-write - GPT Wait Mode Enable
     eWAITEN WAITEN : 1;
+    /// read-write - GPT Doze Mode Enable
     eDOZEEN DOZEEN : 1;
+    /// read-write - GPT Stop Mode Enable
     eSTOPEN STOPEN : 1;
+    /// read-write - Clock Source Select
     eCLKSRC CLKSRC : 3;
+    /// read-write - Free-Run or Restart Mode
     eFRR FRR : 1;
+    /// read-write - Enable Oscillator Clock Input
     eEN_24M EN_24M : 1;
     uint32_t _reserved_0 : 4;
+    /// read-write - Software Reset
     eSWR SWR : 1;
+    /// read-write - Input Capture Operating Mode for Channel 1
     eIM1 IM1 : 2;
+    /// read-write - Input Capture Operating Mode for Channel 2
     eIM2 IM2 : 2;
+    /// read-write - Output Compare Operating Mode for Channel 1
     eOM1 OM1 : 3;
+    /// read-write - Output Compare Operating Mode for Channel 2
     eOM2 OM2 : 3;
+    /// read-write - Output Compare Operating Mode for Channel 3
     eOM3 OM3 : 3;
+    /// read-write - Force Output Compare for Channel 1
     eFO1 FO1 : 1;
+    /// read-write - Force Output Compare for Channel 2
     eFO2 FO2 : 1;
+    /// read-write - Force Output Compare for Channel 3
     eFO3 FO3 : 1;
   } bits;
   
@@ -171,7 +189,9 @@ union PR {
   
   // Bit field definition.
   struct {
+    /// read-write - Prescaler divide value
     ePRESCALER PRESCALER : 12;
+    /// read-write - Prescaler divide value for the oscillator clock
     ePRESCALER24M PRESCALER24M : 4;
     uint32_t _reserved_0 : 16;
   } bits;
@@ -220,11 +240,17 @@ union SR {
   
   // Bit field definition.
   struct {
+    /// read-write - Output Compare Flag for Channel 1
     eOF1 OF1 : 1;
+    /// read-write - Output Compare Flag for Channel 2
     eOF2 OF2 : 1;
+    /// read-write - Output Compare Flag for Channel 3
     eOF3 OF3 : 1;
+    /// read-write - Input Capture Flag for Channel 1
     eIF1 IF1 : 1;
+    /// read-write - Input Capture Flag for Channel 2
     eIF2 IF2 : 1;
+    /// read-write - Rollover Flag
     eROV ROV : 1;
     uint32_t _reserved_0 : 26;
   } bits;
@@ -273,11 +299,17 @@ union IR {
   
   // Bit field definition.
   struct {
+    /// read-write - Output Compare Flag for Channel 1 Interrupt Enable
     eOF1IE OF1IE : 1;
+    /// read-write - Output Compare Flag for Channel 2 Interrupt Enable
     eOF2IE OF2IE : 1;
+    /// read-write - Output Compare Flag for Channel 3 Interrupt Enable
     eOF3IE OF3IE : 1;
+    /// read-write - Input Capture Flag for Channel 1 Interrupt Enable
     eIF1IE IF1IE : 1;
+    /// read-write - Input Capture Flag for Channel 2 Interrupt Enable
     eIF2IE IF2IE : 1;
+    /// read-write - Rollover Interrupt Enable
     eROVIE ROVIE : 1;
     uint32_t _reserved_0 : 26;
   } bits;
@@ -296,6 +328,7 @@ union OCR1 {
   
   // Bit field definition.
   struct {
+    /// read-write - Compare Value
     uint32_t COMP : 32;
   } bits;
   
@@ -312,6 +345,7 @@ union OCR2 {
   
   // Bit field definition.
   struct {
+    /// read-write - Compare Value
     uint32_t COMP : 32;
   } bits;
   
@@ -328,6 +362,7 @@ union OCR3 {
   
   // Bit field definition.
   struct {
+    /// read-write - Compare Value
     uint32_t COMP : 32;
   } bits;
   
@@ -345,6 +380,7 @@ union ICR1 {
   
   // Bit field definition.
   struct {
+    /// read-only - Capture Value
     uint32_t CAPT : 32;
   } bits;
   
@@ -361,6 +397,7 @@ union ICR2 {
   
   // Bit field definition.
   struct {
+    /// read-only - Capture Value
     uint32_t CAPT : 32;
   } bits;
   
@@ -378,6 +415,7 @@ union CNT {
   
   // Bit field definition.
   struct {
+    /// read-only - Counter Value
     uint32_t COUNT : 32;
   } bits;
   

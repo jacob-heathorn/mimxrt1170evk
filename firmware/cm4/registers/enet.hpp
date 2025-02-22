@@ -18,21 +18,37 @@ union EIR {
   // Bit field definition.
   struct {
     uint32_t _reserved_0 : 15;
+    /// read-write - Timestamp Timer
     uint32_t TS_TIMER : 1;
+    /// read-write - Transmit Timestamp Available
     uint32_t TS_AVAIL : 1;
+    /// read-write - Node Wakeup Request Indication
     uint32_t WAKEUP : 1;
+    /// read-write - Payload Receive Error
     uint32_t PLR : 1;
+    /// read-write - Transmit FIFO Underrun
     uint32_t UN : 1;
+    /// read-write - Collision Retry Limit
     uint32_t RL : 1;
+    /// read-write - Late Collision
     uint32_t LC : 1;
+    /// read-write - Ethernet Bus Error
     uint32_t EBERR : 1;
+    /// read-write - MII Interrupt.
     uint32_t MII : 1;
+    /// read-write - Receive Buffer Interrupt
     uint32_t RXB : 1;
+    /// read-write - Receive Frame Interrupt
     uint32_t RXF : 1;
+    /// read-write - Transmit Buffer Interrupt
     uint32_t TXB : 1;
+    /// read-write - Transmit Frame Interrupt
     uint32_t TXF : 1;
+    /// read-write - Graceful Stop Complete
     uint32_t GRA : 1;
+    /// read-write - Babbling Transmit Error
     uint32_t BABT : 1;
+    /// read-write - Babbling Receive Error
     uint32_t BABR : 1;
     uint32_t _reserved_1 : 1;
   } bits;
@@ -132,21 +148,37 @@ union EIMR {
   // Bit field definition.
   struct {
     uint32_t _reserved_0 : 15;
+    /// read-write - TS_TIMER Interrupt Mask
     eTS_TIMER TS_TIMER : 1;
+    /// read-write - TS_AVAIL Interrupt Mask
     eTS_AVAIL TS_AVAIL : 1;
+    /// read-write - WAKEUP Interrupt Mask
     eWAKEUP WAKEUP : 1;
+    /// read-write - PLR Interrupt Mask
     ePLR PLR : 1;
+    /// read-write - UN Interrupt Mask
     eUN UN : 1;
+    /// read-write - RL Interrupt Mask
     eRL RL : 1;
+    /// read-write - LC Interrupt Mask
     eLC LC : 1;
+    /// read-write - EBERR Interrupt Mask
     eEBERR EBERR : 1;
+    /// read-write - MII Interrupt Mask
     eMII MII : 1;
+    /// read-write - RXB Interrupt Mask
     eRXB RXB : 1;
+    /// read-write - RXF Interrupt Mask
     eRXF RXF : 1;
+    /// read-write - TXB Interrupt Mask
     eTXB TXB : 1;
+    /// read-write - TXF Interrupt Mask
     eTXF TXF : 1;
+    /// read-write - GRA Interrupt Mask
     eGRA GRA : 1;
+    /// read-write - BABT Interrupt Mask
     eBABT BABT : 1;
+    /// read-write - BABR Interrupt Mask
     eBABR BABR : 1;
     uint32_t _reserved_1 : 1;
   } bits;
@@ -166,6 +198,7 @@ union RDAR {
   // Bit field definition.
   struct {
     uint32_t _reserved_0 : 24;
+    /// read-write - Receive Descriptor Active
     uint32_t RDAR : 1;
     uint32_t _reserved_1 : 7;
   } bits;
@@ -185,6 +218,7 @@ union TDAR {
   // Bit field definition.
   struct {
     uint32_t _reserved_0 : 24;
+    /// read-write - Transmit Descriptor Active
     uint32_t TDAR : 1;
     uint32_t _reserved_1 : 7;
   } bits;
@@ -233,14 +267,21 @@ union ECR {
   
   // Bit field definition.
   struct {
+    /// read-write - Ethernet MAC Reset
     uint32_t RESET : 1;
+    /// read-write - Ethernet Enable
     eETHEREN ETHEREN : 1;
+    /// read-write - Magic Packet Detection Enable
     eMAGICEN MAGICEN : 1;
+    /// read-write - Sleep Mode Enable
     eSLEEP SLEEP : 1;
+    /// read-write - EN1588 Enable
     eEN1588 EN1588 : 1;
     uint32_t _reserved_0 : 1;
+    /// read-write - Debug Enable
     eDBGEN DBGEN : 1;
     uint32_t _reserved_1 : 1;
+    /// read-write - Descriptor Byte Swapping Enable
     eDBSWP DBSWP : 1;
     uint32_t _reserved_2 : 23;
   } bits;
@@ -259,11 +300,17 @@ union MMFR {
   
   // Bit field definition.
   struct {
+    /// read-write - Management Frame Data
     uint32_t DATA : 16;
+    /// read-write - Turn Around
     uint32_t TA : 2;
+    /// read-write - Register Address
     uint32_t RA : 5;
+    /// read-write - PHY Address
     uint32_t PA : 5;
+    /// read-write - Operation Code
     uint32_t OP : 2;
+    /// read-write - Start Of Frame Delimiter
     uint32_t ST : 2;
   } bits;
   
@@ -294,8 +341,11 @@ union MSCR {
   // Bit field definition.
   struct {
     uint32_t _reserved_0 : 1;
+    /// read-write - MII Speed
     uint32_t MII_SPEED : 6;
+    /// read-write - Disable Preamble
     eDIS_PRE DIS_PRE : 1;
+    /// read-write - Hold time On MDIO Output
     eHOLDTIME HOLDTIME : 3;
     uint32_t _reserved_1 : 21;
   } bits;
@@ -330,8 +380,11 @@ union MIBC {
   // Bit field definition.
   struct {
     uint32_t _reserved_0 : 29;
+    /// read-write - MIB Clear
     eMIB_CLEAR MIB_CLEAR : 1;
+    /// read-only - MIB Idle
     eMIB_IDLE MIB_IDLE : 1;
+    /// read-write - Disable MIB Logic
     eMIB_DIS MIB_DIS : 1;
   } bits;
   
@@ -418,22 +471,37 @@ union RCR {
   
   // Bit field definition.
   struct {
+    /// read-write - Internal Loopback
     eLOOP LOOP : 1;
+    /// read-write - Disable Receive On Transmit
     eDRT DRT : 1;
+    /// read-write - Media Independent Interface Mode
     eMII_MODE MII_MODE : 1;
+    /// read-write - Promiscuous Mode
     ePROM PROM : 1;
+    /// read-write - Broadcast Frame Reject
     eBC_REJ BC_REJ : 1;
+    /// read-write - Flow Control Enable
     eFCE FCE : 1;
     uint32_t _reserved_0 : 2;
+    /// read-write - RMII Mode Enable
     eRMII_MODE RMII_MODE : 1;
+    /// read-write - Enables 10-Mbit/s mode of the RMII .
     eRMII_10T RMII_10T : 1;
     uint32_t _reserved_1 : 2;
+    /// read-write - Enable Frame Padding Remove On Receive
     ePADEN PADEN : 1;
+    /// read-write - Terminate/Forward Pause Frames
     ePAUFWD PAUFWD : 1;
+    /// read-write - Terminate/Forward Received CRC
     eCRCFWD CRCFWD : 1;
+    /// read-write - MAC Control Frame Enable
     eCFEN CFEN : 1;
+    /// read-write - Maximum Frame Length
     uint32_t MAX_FL : 14;
+    /// read-write - Payload Length Check Disable
     eNLC NLC : 1;
+    /// read-only - Graceful Receive Stopped
     eGRS GRS : 1;
   } bits;
   
@@ -480,13 +548,20 @@ union TCR {
   
   // Bit field definition.
   struct {
+    /// read-write - Graceful Transmit Stop
     eGTS GTS : 1;
     uint32_t _reserved_0 : 1;
+    /// read-write - Full-Duplex Enable
     eFDEN FDEN : 1;
+    /// read-write - Transmit Frame Control Pause
     eTFC_PAUSE TFC_PAUSE : 1;
+    /// read-only - Receive Frame Control Pause
     uint32_t RFC_PAUSE : 1;
+    /// read-write - Source MAC Address Select On Transmit
     eADDSEL ADDSEL : 3;
+    /// read-write - Set MAC Address On Transmit
     eADDINS ADDINS : 1;
+    /// read-write - Forward Frame From Application With CRC
     eCRCFWD CRCFWD : 1;
     uint32_t _reserved_1 : 22;
   } bits;
@@ -505,6 +580,7 @@ union PALR {
   
   // Bit field definition.
   struct {
+    /// read-write - Pause Address
     uint32_t PADDR1 : 32;
   } bits;
   
@@ -522,7 +598,9 @@ union PAUR {
   
   // Bit field definition.
   struct {
+    /// read-only - Type Field In PAUSE Frames
     uint32_t TYPE : 16;
+    /// read-write - Bytes 4 (bits 31:24) and 5 (bits 23:16) of the 6-byte individual address used for exact match, and the source address field in PAUSE frames
     uint32_t PADDR2 : 16;
   } bits;
   
@@ -540,7 +618,9 @@ union OPD {
   
   // Bit field definition.
   struct {
+    /// read-write - Pause Duration
     uint32_t PAUSE_DUR : 16;
+    /// read-only - Opcode Field In PAUSE Frames
     uint32_t OPCODE : 16;
   } bits;
   
@@ -568,11 +648,15 @@ union TXIC[0] {
   
   // Bit field definition.
   struct {
+    /// read-write - Interrupt coalescing timer threshold
     uint32_t ICTT : 16;
     uint32_t _reserved_0 : 4;
+    /// read-write - Interrupt coalescing frame count threshold
     uint32_t ICFT : 8;
     uint32_t _reserved_1 : 2;
+    /// read-write - Interrupt Coalescing Timer Clock Source Select
     eICCS ICCS : 1;
+    /// read-write - Interrupt Coalescing Enable
     eICEN ICEN : 1;
   } bits;
   
@@ -599,11 +683,15 @@ union TXIC[1] {
   
   // Bit field definition.
   struct {
+    /// read-write - Interrupt coalescing timer threshold
     uint32_t ICTT : 16;
     uint32_t _reserved_0 : 4;
+    /// read-write - Interrupt coalescing frame count threshold
     uint32_t ICFT : 8;
     uint32_t _reserved_1 : 2;
+    /// read-write - Interrupt Coalescing Timer Clock Source Select
     eICCS ICCS : 1;
+    /// read-write - Interrupt Coalescing Enable
     eICEN ICEN : 1;
   } bits;
   
@@ -630,11 +718,15 @@ union TXIC[2] {
   
   // Bit field definition.
   struct {
+    /// read-write - Interrupt coalescing timer threshold
     uint32_t ICTT : 16;
     uint32_t _reserved_0 : 4;
+    /// read-write - Interrupt coalescing frame count threshold
     uint32_t ICFT : 8;
     uint32_t _reserved_1 : 2;
+    /// read-write - Interrupt Coalescing Timer Clock Source Select
     eICCS ICCS : 1;
+    /// read-write - Interrupt Coalescing Enable
     eICEN ICEN : 1;
   } bits;
   
@@ -662,11 +754,15 @@ union RXIC[0] {
   
   // Bit field definition.
   struct {
+    /// read-write - Interrupt coalescing timer threshold
     uint32_t ICTT : 16;
     uint32_t _reserved_0 : 4;
+    /// read-write - Interrupt coalescing frame count threshold
     uint32_t ICFT : 8;
     uint32_t _reserved_1 : 2;
+    /// read-write - Interrupt Coalescing Timer Clock Source Select
     eICCS ICCS : 1;
+    /// read-write - Interrupt Coalescing Enable
     eICEN ICEN : 1;
   } bits;
   
@@ -693,11 +789,15 @@ union RXIC[1] {
   
   // Bit field definition.
   struct {
+    /// read-write - Interrupt coalescing timer threshold
     uint32_t ICTT : 16;
     uint32_t _reserved_0 : 4;
+    /// read-write - Interrupt coalescing frame count threshold
     uint32_t ICFT : 8;
     uint32_t _reserved_1 : 2;
+    /// read-write - Interrupt Coalescing Timer Clock Source Select
     eICCS ICCS : 1;
+    /// read-write - Interrupt Coalescing Enable
     eICEN ICEN : 1;
   } bits;
   
@@ -724,11 +824,15 @@ union RXIC[2] {
   
   // Bit field definition.
   struct {
+    /// read-write - Interrupt coalescing timer threshold
     uint32_t ICTT : 16;
     uint32_t _reserved_0 : 4;
+    /// read-write - Interrupt coalescing frame count threshold
     uint32_t ICFT : 8;
     uint32_t _reserved_1 : 2;
+    /// read-write - Interrupt Coalescing Timer Clock Source Select
     eICCS ICCS : 1;
+    /// read-write - Interrupt Coalescing Enable
     eICEN ICEN : 1;
   } bits;
   
@@ -746,6 +850,7 @@ union IAUR {
   
   // Bit field definition.
   struct {
+    /// read-write - Contains the upper 32 bits of the 64-bit hash table used in the address recognition process for receive frames with a unicast address
     uint32_t IADDR1 : 32;
   } bits;
   
@@ -763,6 +868,7 @@ union IALR {
   
   // Bit field definition.
   struct {
+    /// read-write - Contains the lower 32 bits of the 64-bit hash table used in the address recognition process for receive frames with a unicast address
     uint32_t IADDR2 : 32;
   } bits;
   
@@ -780,6 +886,7 @@ union GAUR {
   
   // Bit field definition.
   struct {
+    /// read-write - Contains the upper 32 bits of the 64-bit hash table used in the address recognition process for receive frames with a multicast address
     uint32_t GADDR1 : 32;
   } bits;
   
@@ -797,6 +904,7 @@ union GALR {
   
   // Bit field definition.
   struct {
+    /// read-write - Contains the lower 32 bits of the 64-bit hash table used in the address recognition process for receive frames with a multicast address
     uint32_t GADDR2 : 32;
   } bits;
   
@@ -827,8 +935,10 @@ union TFWR {
   
   // Bit field definition.
   struct {
+    /// read-write - Transmit FIFO Write
     eTFWR TFWR : 6;
     uint32_t _reserved_0 : 2;
+    /// read-write - Store And Forward Enable
     eSTRFWD STRFWD : 1;
     uint32_t _reserved_1 : 23;
   } bits;
@@ -848,6 +958,7 @@ union RDSR {
   // Bit field definition.
   struct {
     uint32_t _reserved_0 : 3;
+    /// read-write - Pointer to the beginning of the receive buffer descriptor queue.
     uint32_t R_DES_START : 29;
   } bits;
   
@@ -866,6 +977,7 @@ union TDSR {
   // Bit field definition.
   struct {
     uint32_t _reserved_0 : 3;
+    /// read-write - Pointer to the beginning of the transmit buffer descriptor queue.
     uint32_t X_DES_START : 29;
   } bits;
   
@@ -884,6 +996,7 @@ union MRBR {
   // Bit field definition.
   struct {
     uint32_t _reserved_0 : 4;
+    /// read-write - Receive buffer size in bytes
     uint32_t R_BUF_SIZE : 10;
     uint32_t _reserved_1 : 18;
   } bits;
@@ -902,6 +1015,7 @@ union RSFL {
   
   // Bit field definition.
   struct {
+    /// read-write - Value Of Receive FIFO Section Full Threshold
     uint32_t RX_SECTION_FULL : 8;
     uint32_t _reserved_0 : 24;
   } bits;
@@ -920,8 +1034,10 @@ union RSEM {
   
   // Bit field definition.
   struct {
+    /// read-write - Value Of The Receive FIFO Section Empty Threshold
     uint32_t RX_SECTION_EMPTY : 8;
     uint32_t _reserved_0 : 8;
+    /// read-write - RX Status FIFO Section Empty Threshold
     uint32_t STAT_SECTION_EMPTY : 5;
     uint32_t _reserved_1 : 11;
   } bits;
@@ -940,6 +1056,7 @@ union RAEM {
   
   // Bit field definition.
   struct {
+    /// read-write - Value Of The Receive FIFO Almost Empty Threshold
     uint32_t RX_ALMOST_EMPTY : 8;
     uint32_t _reserved_0 : 24;
   } bits;
@@ -958,6 +1075,7 @@ union RAFL {
   
   // Bit field definition.
   struct {
+    /// read-write - Value Of The Receive FIFO Almost Full Threshold
     uint32_t RX_ALMOST_FULL : 8;
     uint32_t _reserved_0 : 24;
   } bits;
@@ -976,6 +1094,7 @@ union TSEM {
   
   // Bit field definition.
   struct {
+    /// read-write - Value Of The Transmit FIFO Section Empty Threshold
     uint32_t TX_SECTION_EMPTY : 8;
     uint32_t _reserved_0 : 24;
   } bits;
@@ -994,6 +1113,7 @@ union TAEM {
   
   // Bit field definition.
   struct {
+    /// read-write - Value of Transmit FIFO Almost Empty Threshold
     uint32_t TX_ALMOST_EMPTY : 8;
     uint32_t _reserved_0 : 24;
   } bits;
@@ -1012,6 +1132,7 @@ union TAFL {
   
   // Bit field definition.
   struct {
+    /// read-write - Value Of The Transmit FIFO Almost Full Threshold
     uint32_t TX_ALMOST_FULL : 8;
     uint32_t _reserved_0 : 24;
   } bits;
@@ -1030,6 +1151,7 @@ union TIPG {
   
   // Bit field definition.
   struct {
+    /// read-write - Transmit Inter-Packet Gap
     uint32_t IPG : 5;
     uint32_t _reserved_0 : 27;
   } bits;
@@ -1048,6 +1170,7 @@ union FTRL {
   
   // Bit field definition.
   struct {
+    /// read-write - Frame Truncation Length
     uint32_t TRUNC_FL : 14;
     uint32_t _reserved_0 : 18;
   } bits;
@@ -1081,9 +1204,12 @@ union TACC {
   
   // Bit field definition.
   struct {
+    /// read-write - TX FIFO Shift-16
     eSHIFT16 SHIFT16 : 1;
     uint32_t _reserved_0 : 2;
+    /// read-write - Enables insertion of IP header checksum.
     eIPCHK IPCHK : 1;
+    /// read-write - Enables insertion of protocol checksum.
     ePROCHK PROCHK : 1;
     uint32_t _reserved_1 : 27;
   } bits;
@@ -1127,11 +1253,16 @@ union RACC {
   
   // Bit field definition.
   struct {
+    /// read-write - Enable Padding Removal For Short IP Frames
     ePADREM PADREM : 1;
+    /// read-write - Enable Discard Of Frames With Wrong IPv4 Header Checksum
     eIPDIS IPDIS : 1;
+    /// read-write - Enable Discard Of Frames With Wrong Protocol Checksum
     ePRODIS PRODIS : 1;
     uint32_t _reserved_0 : 3;
+    /// read-write - Enable Discard Of Frames With MAC Layer Errors
     eLINEDIS LINEDIS : 1;
+    /// read-write - RX FIFO Shift-16
     eSHIFT16 SHIFT16 : 1;
     uint32_t _reserved_1 : 24;
   } bits;
@@ -1150,6 +1281,7 @@ union RMON_T_PACKETS {
   
   // Bit field definition.
   struct {
+    /// read-only - Packet count
     uint32_t TXPKTS : 16;
     uint32_t _reserved_0 : 16;
   } bits;
@@ -1168,6 +1300,7 @@ union RMON_T_BC_PKT {
   
   // Bit field definition.
   struct {
+    /// read-only - Number of broadcast packets
     uint32_t TXPKTS : 16;
     uint32_t _reserved_0 : 16;
   } bits;
@@ -1186,6 +1319,7 @@ union RMON_T_MC_PKT {
   
   // Bit field definition.
   struct {
+    /// read-only - Number of multicast packets
     uint32_t TXPKTS : 16;
     uint32_t _reserved_0 : 16;
   } bits;
@@ -1204,6 +1338,7 @@ union RMON_T_CRC_ALIGN {
   
   // Bit field definition.
   struct {
+    /// read-only - Number of packets with CRC/align error
     uint32_t TXPKTS : 16;
     uint32_t _reserved_0 : 16;
   } bits;
@@ -1222,6 +1357,7 @@ union RMON_T_UNDERSIZE {
   
   // Bit field definition.
   struct {
+    /// read-only - Number of transmit packets less than 64 bytes with good CRC
     uint32_t TXPKTS : 16;
     uint32_t _reserved_0 : 16;
   } bits;
@@ -1240,6 +1376,7 @@ union RMON_T_OVERSIZE {
   
   // Bit field definition.
   struct {
+    /// read-only - Number of transmit packets greater than MAX_FL bytes with good CRC
     uint32_t TXPKTS : 16;
     uint32_t _reserved_0 : 16;
   } bits;
@@ -1258,6 +1395,7 @@ union RMON_T_FRAG {
   
   // Bit field definition.
   struct {
+    /// read-only - Number of packets less than 64 bytes with bad CRC
     uint32_t TXPKTS : 16;
     uint32_t _reserved_0 : 16;
   } bits;
@@ -1276,6 +1414,7 @@ union RMON_T_JAB {
   
   // Bit field definition.
   struct {
+    /// read-only - Number of transmit packets greater than MAX_FL bytes and bad CRC
     uint32_t TXPKTS : 16;
     uint32_t _reserved_0 : 16;
   } bits;
@@ -1294,6 +1433,7 @@ union RMON_T_COL {
   
   // Bit field definition.
   struct {
+    /// read-only - Number of transmit collisions
     uint32_t TXPKTS : 16;
     uint32_t _reserved_0 : 16;
   } bits;
@@ -1312,6 +1452,7 @@ union RMON_T_P64 {
   
   // Bit field definition.
   struct {
+    /// read-only - Number of 64-byte transmit packets
     uint32_t TXPKTS : 16;
     uint32_t _reserved_0 : 16;
   } bits;
@@ -1330,6 +1471,7 @@ union RMON_T_P65TO127 {
   
   // Bit field definition.
   struct {
+    /// read-only - Number of 65- to 127-byte transmit packets
     uint32_t TXPKTS : 16;
     uint32_t _reserved_0 : 16;
   } bits;
@@ -1348,6 +1490,7 @@ union RMON_T_P128TO255 {
   
   // Bit field definition.
   struct {
+    /// read-only - Number of 128- to 255-byte transmit packets
     uint32_t TXPKTS : 16;
     uint32_t _reserved_0 : 16;
   } bits;
@@ -1366,6 +1509,7 @@ union RMON_T_P256TO511 {
   
   // Bit field definition.
   struct {
+    /// read-only - Number of 256- to 511-byte transmit packets
     uint32_t TXPKTS : 16;
     uint32_t _reserved_0 : 16;
   } bits;
@@ -1384,6 +1528,7 @@ union RMON_T_P512TO1023 {
   
   // Bit field definition.
   struct {
+    /// read-only - Number of 512- to 1023-byte transmit packets
     uint32_t TXPKTS : 16;
     uint32_t _reserved_0 : 16;
   } bits;
@@ -1402,6 +1547,7 @@ union RMON_T_P1024TO2047 {
   
   // Bit field definition.
   struct {
+    /// read-only - Number of 1024- to 2047-byte transmit packets
     uint32_t TXPKTS : 16;
     uint32_t _reserved_0 : 16;
   } bits;
@@ -1420,6 +1566,7 @@ union RMON_T_P_GTE2048 {
   
   // Bit field definition.
   struct {
+    /// read-only - Number of transmit packets greater than 2048 bytes
     uint32_t TXPKTS : 16;
     uint32_t _reserved_0 : 16;
   } bits;
@@ -1438,6 +1585,7 @@ union RMON_T_OCTETS {
   
   // Bit field definition.
   struct {
+    /// read-only - Number of transmit octets
     uint32_t TXOCTS : 32;
   } bits;
   
@@ -1455,6 +1603,7 @@ union IEEE_T_FRAME_OK {
   
   // Bit field definition.
   struct {
+    /// read-only - Number of frames transmitted OK
     uint32_t COUNT : 16;
     uint32_t _reserved_0 : 16;
   } bits;
@@ -1473,6 +1622,7 @@ union IEEE_T_1COL {
   
   // Bit field definition.
   struct {
+    /// read-only - Number of frames transmitted with one collision
     uint32_t COUNT : 16;
     uint32_t _reserved_0 : 16;
   } bits;
@@ -1491,6 +1641,7 @@ union IEEE_T_MCOL {
   
   // Bit field definition.
   struct {
+    /// read-only - Number of frames transmitted with multiple collisions
     uint32_t COUNT : 16;
     uint32_t _reserved_0 : 16;
   } bits;
@@ -1509,6 +1660,7 @@ union IEEE_T_DEF {
   
   // Bit field definition.
   struct {
+    /// read-only - Number of frames transmitted with deferral delay
     uint32_t COUNT : 16;
     uint32_t _reserved_0 : 16;
   } bits;
@@ -1527,6 +1679,7 @@ union IEEE_T_LCOL {
   
   // Bit field definition.
   struct {
+    /// read-only - Number of frames transmitted with late collision
     uint32_t COUNT : 16;
     uint32_t _reserved_0 : 16;
   } bits;
@@ -1545,6 +1698,7 @@ union IEEE_T_EXCOL {
   
   // Bit field definition.
   struct {
+    /// read-only - Number of frames transmitted with excessive collisions
     uint32_t COUNT : 16;
     uint32_t _reserved_0 : 16;
   } bits;
@@ -1563,6 +1717,7 @@ union IEEE_T_MACERR {
   
   // Bit field definition.
   struct {
+    /// read-only - Number of frames transmitted with transmit FIFO underrun
     uint32_t COUNT : 16;
     uint32_t _reserved_0 : 16;
   } bits;
@@ -1581,6 +1736,7 @@ union IEEE_T_CSERR {
   
   // Bit field definition.
   struct {
+    /// read-only - Number of frames transmitted with carrier sense error
     uint32_t COUNT : 16;
     uint32_t _reserved_0 : 16;
   } bits;
@@ -1599,6 +1755,7 @@ union IEEE_T_SQE {
   
   // Bit field definition.
   struct {
+    /// read-only - This read-only field is reserved and always has the value 0
     uint32_t COUNT : 16;
     uint32_t _reserved_0 : 16;
   } bits;
@@ -1617,6 +1774,7 @@ union IEEE_T_FDXFC {
   
   // Bit field definition.
   struct {
+    /// read-only - Number of flow-control pause frames transmitted
     uint32_t COUNT : 16;
     uint32_t _reserved_0 : 16;
   } bits;
@@ -1635,6 +1793,7 @@ union IEEE_T_OCTETS_OK {
   
   // Bit field definition.
   struct {
+    /// read-only - Octet count for frames transmitted without error Counts total octets (includes header and FCS fields).
     uint32_t COUNT : 32;
   } bits;
   
@@ -1652,6 +1811,7 @@ union RMON_R_PACKETS {
   
   // Bit field definition.
   struct {
+    /// read-only - Number of packets received
     uint32_t COUNT : 16;
     uint32_t _reserved_0 : 16;
   } bits;
@@ -1670,6 +1830,7 @@ union RMON_R_BC_PKT {
   
   // Bit field definition.
   struct {
+    /// read-only - Number of receive broadcast packets
     uint32_t COUNT : 16;
     uint32_t _reserved_0 : 16;
   } bits;
@@ -1688,6 +1849,7 @@ union RMON_R_MC_PKT {
   
   // Bit field definition.
   struct {
+    /// read-only - Number of receive multicast packets
     uint32_t COUNT : 16;
     uint32_t _reserved_0 : 16;
   } bits;
@@ -1706,6 +1868,7 @@ union RMON_R_CRC_ALIGN {
   
   // Bit field definition.
   struct {
+    /// read-only - Number of receive packets with CRC or align error
     uint32_t COUNT : 16;
     uint32_t _reserved_0 : 16;
   } bits;
@@ -1724,6 +1887,7 @@ union RMON_R_UNDERSIZE {
   
   // Bit field definition.
   struct {
+    /// read-only - Number of receive packets with less than 64 bytes and good CRC
     uint32_t COUNT : 16;
     uint32_t _reserved_0 : 16;
   } bits;
@@ -1742,6 +1906,7 @@ union RMON_R_OVERSIZE {
   
   // Bit field definition.
   struct {
+    /// read-only - Number of receive packets greater than MAX_FL and good CRC
     uint32_t COUNT : 16;
     uint32_t _reserved_0 : 16;
   } bits;
@@ -1760,6 +1925,7 @@ union RMON_R_FRAG {
   
   // Bit field definition.
   struct {
+    /// read-only - Number of receive packets with less than 64 bytes and bad CRC
     uint32_t COUNT : 16;
     uint32_t _reserved_0 : 16;
   } bits;
@@ -1778,6 +1944,7 @@ union RMON_R_JAB {
   
   // Bit field definition.
   struct {
+    /// read-only - Number of receive packets greater than MAX_FL and bad CRC
     uint32_t COUNT : 16;
     uint32_t _reserved_0 : 16;
   } bits;
@@ -1796,6 +1963,7 @@ union RMON_R_P64 {
   
   // Bit field definition.
   struct {
+    /// read-only - Number of 64-byte receive packets
     uint32_t COUNT : 16;
     uint32_t _reserved_0 : 16;
   } bits;
@@ -1814,6 +1982,7 @@ union RMON_R_P65TO127 {
   
   // Bit field definition.
   struct {
+    /// read-only - Number of 65- to 127-byte receive packets
     uint32_t COUNT : 16;
     uint32_t _reserved_0 : 16;
   } bits;
@@ -1832,6 +2001,7 @@ union RMON_R_P128TO255 {
   
   // Bit field definition.
   struct {
+    /// read-only - Number of 128- to 255-byte receive packets
     uint32_t COUNT : 16;
     uint32_t _reserved_0 : 16;
   } bits;
@@ -1850,6 +2020,7 @@ union RMON_R_P256TO511 {
   
   // Bit field definition.
   struct {
+    /// read-only - Number of 256- to 511-byte receive packets
     uint32_t COUNT : 16;
     uint32_t _reserved_0 : 16;
   } bits;
@@ -1868,6 +2039,7 @@ union RMON_R_P512TO1023 {
   
   // Bit field definition.
   struct {
+    /// read-only - Number of 512- to 1023-byte receive packets
     uint32_t COUNT : 16;
     uint32_t _reserved_0 : 16;
   } bits;
@@ -1886,6 +2058,7 @@ union RMON_R_P1024TO2047 {
   
   // Bit field definition.
   struct {
+    /// read-only - Number of 1024- to 2047-byte receive packets
     uint32_t COUNT : 16;
     uint32_t _reserved_0 : 16;
   } bits;
@@ -1904,6 +2077,7 @@ union RMON_R_P_GTE2048 {
   
   // Bit field definition.
   struct {
+    /// read-only - Number of greater-than-2048-byte receive packets
     uint32_t COUNT : 16;
     uint32_t _reserved_0 : 16;
   } bits;
@@ -1922,6 +2096,7 @@ union RMON_R_OCTETS {
   
   // Bit field definition.
   struct {
+    /// read-only - Number of receive octets
     uint32_t COUNT : 32;
   } bits;
   
@@ -1939,6 +2114,7 @@ union IEEE_R_DROP {
   
   // Bit field definition.
   struct {
+    /// read-only - Frame count
     uint32_t COUNT : 16;
     uint32_t _reserved_0 : 16;
   } bits;
@@ -1957,6 +2133,7 @@ union IEEE_R_FRAME_OK {
   
   // Bit field definition.
   struct {
+    /// read-only - Number of frames received OK
     uint32_t COUNT : 16;
     uint32_t _reserved_0 : 16;
   } bits;
@@ -1975,6 +2152,7 @@ union IEEE_R_CRC {
   
   // Bit field definition.
   struct {
+    /// read-only - Number of frames received with CRC error
     uint32_t COUNT : 16;
     uint32_t _reserved_0 : 16;
   } bits;
@@ -1993,6 +2171,7 @@ union IEEE_R_ALIGN {
   
   // Bit field definition.
   struct {
+    /// read-only - Number of frames received with alignment error
     uint32_t COUNT : 16;
     uint32_t _reserved_0 : 16;
   } bits;
@@ -2011,6 +2190,7 @@ union IEEE_R_MACERR {
   
   // Bit field definition.
   struct {
+    /// read-only - Receive FIFO overflow count
     uint32_t COUNT : 16;
     uint32_t _reserved_0 : 16;
   } bits;
@@ -2029,6 +2209,7 @@ union IEEE_R_FDXFC {
   
   // Bit field definition.
   struct {
+    /// read-only - Number of flow-control pause frames received
     uint32_t COUNT : 16;
     uint32_t _reserved_0 : 16;
   } bits;
@@ -2047,6 +2228,7 @@ union IEEE_R_OCTETS_OK {
   
   // Bit field definition.
   struct {
+    /// read-only - Number of octets for frames received without error
     uint32_t COUNT : 32;
   } bits;
   
@@ -2099,18 +2281,26 @@ union ATCR {
   
   // Bit field definition.
   struct {
+    /// read-write - Enable Timer
     eEN EN : 1;
     uint32_t _reserved_0 : 1;
+    /// read-write - Enable One-Shot Offset Event
     eOFFEN OFFEN : 1;
+    /// read-write - Reset Timer On Offset Event
     eOFFRST OFFRST : 1;
+    /// read-write - Enable Periodical Event
     ePEREN PEREN : 1;
     uint32_t _reserved_1 : 2;
+    /// read-write - Enables event signal output external pin frc_evt_period assertion on period event
     ePINPER PINPER : 1;
     uint32_t _reserved_2 : 1;
+    /// read-write - Reset Timer
     uint32_t RESTART : 1;
     uint32_t _reserved_3 : 1;
+    /// read-write - Capture Timer Value
     eCAPTURE CAPTURE : 1;
     uint32_t _reserved_4 : 1;
+    /// read-write - Enable Timer Slave Mode
     eSLAVE SLAVE : 1;
     uint32_t _reserved_5 : 18;
   } bits;
@@ -2129,6 +2319,7 @@ union ATVR {
   
   // Bit field definition.
   struct {
+    /// read-write - A write sets the timer
     uint32_t ATIME : 32;
   } bits;
   
@@ -2146,6 +2337,7 @@ union ATOFF {
   
   // Bit field definition.
   struct {
+    /// read-write - Offset value for one-shot event generation
     uint32_t OFFSET : 32;
   } bits;
   
@@ -2163,6 +2355,7 @@ union ATPER {
   
   // Bit field definition.
   struct {
+    /// read-write - Value for generating periodic events
     uint32_t PERIOD : 32;
   } bits;
   
@@ -2180,6 +2373,7 @@ union ATCOR {
   
   // Bit field definition.
   struct {
+    /// read-write - Correction Counter Wrap-Around Value
     uint32_t COR : 31;
     uint32_t _reserved_0 : 1;
   } bits;
@@ -2198,8 +2392,10 @@ union ATINC {
   
   // Bit field definition.
   struct {
+    /// read-write - Clock Period Of The Timestamping Clock (ts_clk) In Nanoseconds
     uint32_t INC : 7;
     uint32_t _reserved_0 : 1;
+    /// read-write - Correction Increment Value
     uint32_t INC_CORR : 7;
     uint32_t _reserved_1 : 17;
   } bits;
@@ -2218,6 +2414,7 @@ union ATSTMP {
   
   // Bit field definition.
   struct {
+    /// read-only - Timestamp of the last frame transmitted by the core that had TxBD[TS] set the ff_tx_ts_frm signal asserted from the user application
     uint32_t TIMESTAMP : 32;
   } bits;
   
@@ -2255,9 +2452,13 @@ union TGSR {
   
   // Bit field definition.
   struct {
+    /// read-write - Copy Of Timer Flag For Channel 0
     eTF0 TF0 : 1;
+    /// read-write - Copy Of Timer Flag For Channel 1
     eTF1 TF1 : 1;
+    /// read-write - Copy Of Timer Flag For Channel 2
     eTF2 TF2 : 1;
+    /// read-write - Copy Of Timer Flag For Channel 3
     eTF3 TF3 : 1;
     uint32_t _reserved_0 : 28;
   } bits;
@@ -2314,12 +2515,17 @@ union TCSR0 {
   
   // Bit field definition.
   struct {
+    /// read-write - Timer DMA Request Enable
     eTDRE TDRE : 1;
     uint32_t _reserved_0 : 1;
+    /// read-write - Timer Mode
     eTMODE TMODE : 4;
+    /// read-write - Timer Interrupt Enable
     eTIE TIE : 1;
+    /// read-write - Timer Flag
     eTF TF : 1;
     uint32_t _reserved_1 : 3;
+    /// read-write - Timer Pulse Width Control
     eTPWC TPWC : 5;
     uint32_t _reserved_2 : 16;
   } bits;
@@ -2338,6 +2544,7 @@ union TCCR0 {
   
   // Bit field definition.
   struct {
+    /// read-write - Timer Capture Compare
     uint32_t TCC : 32;
   } bits;
   
@@ -2393,12 +2600,17 @@ union TCSR1 {
   
   // Bit field definition.
   struct {
+    /// read-write - Timer DMA Request Enable
     eTDRE TDRE : 1;
     uint32_t _reserved_0 : 1;
+    /// read-write - Timer Mode
     eTMODE TMODE : 4;
+    /// read-write - Timer Interrupt Enable
     eTIE TIE : 1;
+    /// read-write - Timer Flag
     eTF TF : 1;
     uint32_t _reserved_1 : 3;
+    /// read-write - Timer Pulse Width Control
     eTPWC TPWC : 5;
     uint32_t _reserved_2 : 16;
   } bits;
@@ -2417,6 +2629,7 @@ union TCCR1 {
   
   // Bit field definition.
   struct {
+    /// read-write - Timer Capture Compare
     uint32_t TCC : 32;
   } bits;
   
@@ -2472,12 +2685,17 @@ union TCSR2 {
   
   // Bit field definition.
   struct {
+    /// read-write - Timer DMA Request Enable
     eTDRE TDRE : 1;
     uint32_t _reserved_0 : 1;
+    /// read-write - Timer Mode
     eTMODE TMODE : 4;
+    /// read-write - Timer Interrupt Enable
     eTIE TIE : 1;
+    /// read-write - Timer Flag
     eTF TF : 1;
     uint32_t _reserved_1 : 3;
+    /// read-write - Timer Pulse Width Control
     eTPWC TPWC : 5;
     uint32_t _reserved_2 : 16;
   } bits;
@@ -2496,6 +2714,7 @@ union TCCR2 {
   
   // Bit field definition.
   struct {
+    /// read-write - Timer Capture Compare
     uint32_t TCC : 32;
   } bits;
   
@@ -2551,12 +2770,17 @@ union TCSR3 {
   
   // Bit field definition.
   struct {
+    /// read-write - Timer DMA Request Enable
     eTDRE TDRE : 1;
     uint32_t _reserved_0 : 1;
+    /// read-write - Timer Mode
     eTMODE TMODE : 4;
+    /// read-write - Timer Interrupt Enable
     eTIE TIE : 1;
+    /// read-write - Timer Flag
     eTF TF : 1;
     uint32_t _reserved_1 : 3;
+    /// read-write - Timer Pulse Width Control
     eTPWC TPWC : 5;
     uint32_t _reserved_2 : 16;
   } bits;
@@ -2575,6 +2799,7 @@ union TCCR3 {
   
   // Bit field definition.
   struct {
+    /// read-write - Timer Capture Compare
     uint32_t TCC : 32;
   } bits;
   

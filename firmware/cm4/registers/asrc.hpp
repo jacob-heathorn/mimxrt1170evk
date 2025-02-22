@@ -87,21 +87,35 @@ union ASRCTR {
   
   // Bit field definition.
   struct {
+    /// read-write - ASRCEN
     eASRCEN ASRCEN : 1;
+    /// read-write - ASREA
     eASREA ASREA : 1;
+    /// read-write - ASREB
     eASREB ASREB : 1;
+    /// read-write - ASREC
     eASREC ASREC : 1;
+    /// write-only - SRST
     eSRST SRST : 1;
     uint32_t _reserved_0 : 8;
+    /// read-write - IDRA
     eIDRA IDRA : 1;
+    /// read-write - USRA
     eUSRA USRA : 1;
+    /// read-write - IDRB
     eIDRB IDRB : 1;
+    /// read-write - USRB
     eUSRB USRB : 1;
+    /// read-write - IDRC
     eIDRC IDRC : 1;
+    /// read-write - USRC
     eUSRC USRC : 1;
     uint32_t _reserved_1 : 1;
+    /// read-write - ATSA
     eATSA ATSA : 1;
+    /// read-write - ATSB
     eATSB ATSB : 1;
+    /// read-write - ATSC
     eATSC ATSC : 1;
     uint32_t _reserved_2 : 9;
   } bits;
@@ -160,13 +174,21 @@ union ASRIER {
   
   // Bit field definition.
   struct {
+    /// read-write - ADIEA
     eADIEA ADIEA : 1;
+    /// read-write - ADIEB
     eADIEB ADIEB : 1;
+    /// read-write - ADIEC
     eADIEC ADIEC : 1;
+    /// read-write - ADOEA
     eADOEA ADOEA : 1;
+    /// read-write - ADOEB
     eADOEB ADOEB : 1;
+    /// read-write - ADOEC
     eADOEC ADOEC : 1;
+    /// read-write - AOLIE
     eAOLIE AOLIE : 1;
+    /// read-write - AFPWE
     eAFPWE AFPWE : 1;
     uint32_t _reserved_0 : 24;
   } bits;
@@ -242,8 +264,11 @@ union ASRCNCR {
   
   // Bit field definition.
   struct {
+    /// read-write - ANCA
     eANCA ANCA : 4;
+    /// read-write - ANCB
     eANCB ANCB : 4;
+    /// read-write - ANCC
     eANCC ANCC : 4;
     uint32_t _reserved_0 : 20;
   } bits;
@@ -332,17 +357,29 @@ union ASRCFG {
   // Bit field definition.
   struct {
     uint32_t _reserved_0 : 6;
+    /// read-write - PREMODA
     ePREMODA PREMODA : 2;
+    /// read-write - POSTMODA
     ePOSTMODA POSTMODA : 2;
+    /// read-write - PREMODB
     ePREMODB PREMODB : 2;
+    /// read-write - POSTMODB
     ePOSTMODB POSTMODB : 2;
+    /// read-write - PREMODC
     ePREMODC PREMODC : 2;
+    /// read-write - POSTMODC
     ePOSTMODC POSTMODC : 2;
+    /// read-write - NDPRA
     eNDPRA NDPRA : 1;
+    /// read-write - NDPRB
     eNDPRB NDPRB : 1;
+    /// read-write - NDPRC
     eNDPRC NDPRC : 1;
+    /// read-only - INIRQA
     eINIRQA INIRQA : 1;
+    /// read-only - INIRQB
     eINIRQB INIRQB : 1;
+    /// read-only - INIRQC
     eINIRQC INIRQC : 1;
     uint32_t _reserved_1 : 8;
   } bits;
@@ -475,11 +512,17 @@ union ASRCSR {
   
   // Bit field definition.
   struct {
+    /// read-write - AICSA
     eAICSA AICSA : 4;
+    /// read-write - AICSB
     eAICSB AICSB : 4;
+    /// read-write - AICSC
     eAICSC AICSC : 4;
+    /// read-write - AOCSA
     eAOCSA AOCSA : 4;
+    /// read-write - AOCSB
     eAOCSB AOCSB : 4;
+    /// read-write - AOCSC
     eAOCSC AOCSC : 4;
     uint32_t _reserved_0 : 8;
   } bits;
@@ -498,13 +541,21 @@ union ASRCDR1 {
   
   // Bit field definition.
   struct {
+    /// read-write - AICPA
     uint32_t AICPA : 3;
+    /// read-write - AICDA
     uint32_t AICDA : 3;
+    /// read-write - AICPB
     uint32_t AICPB : 3;
+    /// read-write - AICDB
     uint32_t AICDB : 3;
+    /// read-write - AOCPA
     uint32_t AOCPA : 3;
+    /// read-write - AOCDA
     uint32_t AOCDA : 3;
+    /// read-write - AOCPB
     uint32_t AOCPB : 3;
+    /// read-write - AOCDB
     uint32_t AOCDB : 3;
     uint32_t _reserved_0 : 8;
   } bits;
@@ -523,9 +574,13 @@ union ASRCDR2 {
   
   // Bit field definition.
   struct {
+    /// read-write - AICPC
     uint32_t AICPC : 3;
+    /// read-write - AICDC
     uint32_t AICDC : 3;
+    /// read-write - AOCPC
     uint32_t AOCPC : 3;
+    /// read-write - AOCDC
     uint32_t AOCDC : 3;
     uint32_t _reserved_0 : 20;
   } bits;
@@ -654,27 +709,49 @@ union ASRSTR {
   
   // Bit field definition.
   struct {
+    /// read-only - AIDEA
     eAIDEA AIDEA : 1;
+    /// read-only - AIDEB
     eAIDEB AIDEB : 1;
+    /// read-only - AIDEC
     eAIDEC AIDEC : 1;
+    /// read-only - AODFA
     eAODFA AODFA : 1;
+    /// read-only - AODFB
     eAODFB AODFB : 1;
+    /// read-only - AODFC
     eAODFC AODFC : 1;
+    /// read-only - AOLE
     eAOLE AOLE : 1;
+    /// read-only - FPWT
     eFPWT FPWT : 1;
+    /// read-only - AIDUA
     eAIDUA AIDUA : 1;
+    /// read-only - AIDUB
     eAIDUB AIDUB : 1;
+    /// read-only - AIDUC
     eAIDUC AIDUC : 1;
+    /// read-only - AODOA
     eAODOA AODOA : 1;
+    /// read-only - AODOB
     eAODOB AODOB : 1;
+    /// read-only - AODOC
     eAODOC AODOC : 1;
+    /// read-only - AIOLA
     eAIOLA AIOLA : 1;
+    /// read-only - AIOLB
     eAIOLB AIOLB : 1;
+    /// read-only - AIOLC
     eAIOLC AIOLC : 1;
+    /// read-only - AOOLA
     eAOOLA AOOLA : 1;
+    /// read-only - AOOLB
     eAOOLB AOOLB : 1;
+    /// read-only - AOOLC
     eAOOLC AOOLC : 1;
+    /// read-only - ATQOL
     eATQOL ATQOL : 1;
+    /// read-only - DSLCNT
     eDSLCNT DSLCNT : 1;
     uint32_t _reserved_0 : 10;
   } bits;
@@ -693,6 +770,7 @@ union ASRPM1 {
   
   // Bit field definition.
   struct {
+    /// read-write - PARAMETER_VALUE
     uint32_t PARAMETER_VALUE : 24;
     uint32_t _reserved_0 : 8;
   } bits;
@@ -710,6 +788,7 @@ union ASRPM2 {
   
   // Bit field definition.
   struct {
+    /// read-write - PARAMETER_VALUE
     uint32_t PARAMETER_VALUE : 24;
     uint32_t _reserved_0 : 8;
   } bits;
@@ -727,6 +806,7 @@ union ASRPM3 {
   
   // Bit field definition.
   struct {
+    /// read-write - PARAMETER_VALUE
     uint32_t PARAMETER_VALUE : 24;
     uint32_t _reserved_0 : 8;
   } bits;
@@ -744,6 +824,7 @@ union ASRPM4 {
   
   // Bit field definition.
   struct {
+    /// read-write - PARAMETER_VALUE
     uint32_t PARAMETER_VALUE : 24;
     uint32_t _reserved_0 : 8;
   } bits;
@@ -761,6 +842,7 @@ union ASRPM5 {
   
   // Bit field definition.
   struct {
+    /// read-write - PARAMETER_VALUE
     uint32_t PARAMETER_VALUE : 24;
     uint32_t _reserved_0 : 8;
   } bits;
@@ -780,7 +862,9 @@ union ASRTFR1 {
   // Bit field definition.
   struct {
     uint32_t _reserved_0 : 6;
+    /// read-write - TF_BASE
     uint32_t TF_BASE : 7;
+    /// read-only - TF_FILL
     uint32_t TF_FILL : 7;
     uint32_t _reserved_1 : 12;
   } bits;
@@ -799,11 +883,17 @@ union ASRCCR {
   
   // Bit field definition.
   struct {
+    /// read-write - ACIA
     uint32_t ACIA : 4;
+    /// read-write - ACIB
     uint32_t ACIB : 4;
+    /// read-write - ACIC
     uint32_t ACIC : 4;
+    /// read-write - ACOA
     uint32_t ACOA : 4;
+    /// read-write - ACOB
     uint32_t ACOB : 4;
+    /// read-write - ACOC
     uint32_t ACOC : 4;
     uint32_t _reserved_0 : 8;
   } bits;
@@ -822,6 +912,7 @@ union ASRDIA {
   
   // Bit field definition.
   struct {
+    /// write-only - DATA
     uint32_t DATA : 24;
     uint32_t _reserved_0 : 8;
   } bits;
@@ -840,6 +931,7 @@ union ASRDOA {
   
   // Bit field definition.
   struct {
+    /// read-only - DATA
     uint32_t DATA : 24;
     uint32_t _reserved_0 : 8;
   } bits;
@@ -858,6 +950,7 @@ union ASRDIB {
   
   // Bit field definition.
   struct {
+    /// write-only - DATA
     uint32_t DATA : 24;
     uint32_t _reserved_0 : 8;
   } bits;
@@ -876,6 +969,7 @@ union ASRDOB {
   
   // Bit field definition.
   struct {
+    /// read-only - DATA
     uint32_t DATA : 24;
     uint32_t _reserved_0 : 8;
   } bits;
@@ -894,6 +988,7 @@ union ASRDIC {
   
   // Bit field definition.
   struct {
+    /// write-only - DATA
     uint32_t DATA : 24;
     uint32_t _reserved_0 : 8;
   } bits;
@@ -912,6 +1007,7 @@ union ASRDOC {
   
   // Bit field definition.
   struct {
+    /// read-only - DATA
     uint32_t DATA : 24;
     uint32_t _reserved_0 : 8;
   } bits;
@@ -930,6 +1026,7 @@ union ASRIDRHA {
   
   // Bit field definition.
   struct {
+    /// read-write - IDRATIOA_H
     uint32_t IDRATIOA_H : 8;
     uint32_t _reserved_0 : 24;
   } bits;
@@ -948,6 +1045,7 @@ union ASRIDRLA {
   
   // Bit field definition.
   struct {
+    /// read-write - IDRATIOA_L
     uint32_t IDRATIOA_L : 24;
     uint32_t _reserved_0 : 8;
   } bits;
@@ -966,6 +1064,7 @@ union ASRIDRHB {
   
   // Bit field definition.
   struct {
+    /// read-write - IDRATIOB_H
     uint32_t IDRATIOB_H : 8;
     uint32_t _reserved_0 : 24;
   } bits;
@@ -984,6 +1083,7 @@ union ASRIDRLB {
   
   // Bit field definition.
   struct {
+    /// read-write - IDRATIOB_L
     uint32_t IDRATIOB_L : 24;
     uint32_t _reserved_0 : 8;
   } bits;
@@ -1002,6 +1102,7 @@ union ASRIDRHC {
   
   // Bit field definition.
   struct {
+    /// read-write - IDRATIOC_H
     uint32_t IDRATIOC_H : 8;
     uint32_t _reserved_0 : 24;
   } bits;
@@ -1020,6 +1121,7 @@ union ASRIDRLC {
   
   // Bit field definition.
   struct {
+    /// read-write - IDRATIOC_L
     uint32_t IDRATIOC_L : 24;
     uint32_t _reserved_0 : 8;
   } bits;
@@ -1038,6 +1140,7 @@ union ASR76K {
   
   // Bit field definition.
   struct {
+    /// read-write - ASR76K
     uint32_t ASR76K : 17;
     uint32_t _reserved_0 : 15;
   } bits;
@@ -1056,6 +1159,7 @@ union ASR56K {
   
   // Bit field definition.
   struct {
+    /// read-write - ASR56K
     uint32_t ASR56K : 17;
     uint32_t _reserved_0 : 15;
   } bits;
@@ -1104,15 +1208,23 @@ union ASRMCRA {
   
   // Bit field definition.
   struct {
+    /// read-write - INFIFO_THRESHOLDA
     uint32_t INFIFO_THRESHOLDA : 6;
     uint32_t _reserved_0 : 4;
+    /// read-write - RSYNOFA
     eRSYNOFA RSYNOFA : 1;
+    /// read-write - RSYNIFA
     eRSYNIFA RSYNIFA : 1;
+    /// read-write - OUTFIFO_THRESHOLDA
     uint32_t OUTFIFO_THRESHOLDA : 6;
     uint32_t _reserved_1 : 2;
+    /// read-write - BYPASSPOLYA
     eBYPASSPOLYA BYPASSPOLYA : 1;
+    /// read-write - BUFSTALLA
     eBUFSTALLA BUFSTALLA : 1;
+    /// read-write - EXTTHRSHA
     eEXTTHRSHA EXTTHRSHA : 1;
+    /// read-write - ZEROBUFA
     eZEROBUFA ZEROBUFA : 1;
     uint32_t _reserved_2 : 8;
   } bits;
@@ -1141,11 +1253,15 @@ union ASRFSTA {
   
   // Bit field definition.
   struct {
+    /// read-only - INFIFO_FILLA
     uint32_t INFIFO_FILLA : 7;
     uint32_t _reserved_0 : 4;
+    /// read-only - IAEA
     eIAEA IAEA : 1;
+    /// read-only - OUTFIFO_FILLA
     uint32_t OUTFIFO_FILLA : 7;
     uint32_t _reserved_1 : 4;
+    /// read-only - OAFA
     eOAFA OAFA : 1;
     uint32_t _reserved_2 : 8;
   } bits;
@@ -1194,15 +1310,23 @@ union ASRMCRB {
   
   // Bit field definition.
   struct {
+    /// read-write - INFIFO_THRESHOLDB
     uint32_t INFIFO_THRESHOLDB : 6;
     uint32_t _reserved_0 : 4;
+    /// read-write - RSYNOFB
     eRSYNOFB RSYNOFB : 1;
+    /// read-write - RSYNIFB
     eRSYNIFB RSYNIFB : 1;
+    /// read-write - OUTFIFO_THRESHOLDB
     uint32_t OUTFIFO_THRESHOLDB : 6;
     uint32_t _reserved_1 : 2;
+    /// read-write - BYPASSPOLYB
     eBYPASSPOLYB BYPASSPOLYB : 1;
+    /// read-write - BUFSTALLB
     eBUFSTALLB BUFSTALLB : 1;
+    /// read-write - EXTTHRSHB
     eEXTTHRSHB EXTTHRSHB : 1;
+    /// read-write - ZEROBUFB
     eZEROBUFB ZEROBUFB : 1;
     uint32_t _reserved_2 : 8;
   } bits;
@@ -1231,11 +1355,15 @@ union ASRFSTB {
   
   // Bit field definition.
   struct {
+    /// read-only - INFIFO_FILLB
     uint32_t INFIFO_FILLB : 7;
     uint32_t _reserved_0 : 4;
+    /// read-only - IAEB
     eIAEB IAEB : 1;
+    /// read-only - OUTFIFO_FILLB
     uint32_t OUTFIFO_FILLB : 7;
     uint32_t _reserved_1 : 4;
+    /// read-only - OAFB
     eOAFB OAFB : 1;
     uint32_t _reserved_2 : 8;
   } bits;
@@ -1284,15 +1412,23 @@ union ASRMCRC {
   
   // Bit field definition.
   struct {
+    /// read-write - INFIFO_THRESHOLDC
     uint32_t INFIFO_THRESHOLDC : 6;
     uint32_t _reserved_0 : 4;
+    /// read-write - RSYNOFC
     eRSYNOFC RSYNOFC : 1;
+    /// read-write - RSYNIFC
     eRSYNIFC RSYNIFC : 1;
+    /// read-write - OUTFIFO_THRESHOLDC
     uint32_t OUTFIFO_THRESHOLDC : 6;
     uint32_t _reserved_1 : 2;
+    /// read-write - BYPASSPOLYC
     eBYPASSPOLYC BYPASSPOLYC : 1;
+    /// read-write - BUFSTALLC
     eBUFSTALLC BUFSTALLC : 1;
+    /// read-write - EXTTHRSHC
     eEXTTHRSHC EXTTHRSHC : 1;
+    /// read-write - ZEROBUFC
     eZEROBUFC ZEROBUFC : 1;
     uint32_t _reserved_2 : 8;
   } bits;
@@ -1321,11 +1457,15 @@ union ASRFSTC {
   
   // Bit field definition.
   struct {
+    /// read-only - INFIFO_FILLC
     uint32_t INFIFO_FILLC : 7;
     uint32_t _reserved_0 : 4;
+    /// read-only - IAEC
     eIAEC IAEC : 1;
+    /// read-only - OUTFIFO_FILLC
     uint32_t OUTFIFO_FILLC : 7;
     uint32_t _reserved_1 : 4;
+    /// read-only - OAFC
     eOAFC OAFC : 1;
     uint32_t _reserved_2 : 8;
   } bits;
@@ -1370,11 +1510,16 @@ union ASRMCR1A {
   
   // Bit field definition.
   struct {
+    /// read-write - OW16
     eOW16 OW16 : 1;
+    /// read-write - OSGN
     eOSGN OSGN : 1;
+    /// read-write - OMSB
     eOMSB OMSB : 1;
     uint32_t _reserved_0 : 5;
+    /// read-write - IMSB
     eIMSB IMSB : 1;
+    /// read-write - IWD
     eIWD IWD : 2;
     uint32_t _reserved_1 : 21;
   } bits;
@@ -1418,11 +1563,16 @@ union ASRMCR1B {
   
   // Bit field definition.
   struct {
+    /// read-write - OW16
     eOW16 OW16 : 1;
+    /// read-write - OSGN
     eOSGN OSGN : 1;
+    /// read-write - OMSB
     eOMSB OMSB : 1;
     uint32_t _reserved_0 : 5;
+    /// read-write - IMSB
     eIMSB IMSB : 1;
+    /// read-write - IWD
     eIWD IWD : 2;
     uint32_t _reserved_1 : 21;
   } bits;
@@ -1466,11 +1616,16 @@ union ASRMCR1C {
   
   // Bit field definition.
   struct {
+    /// read-write - OW16
     eOW16 OW16 : 1;
+    /// read-write - OSGN
     eOSGN OSGN : 1;
+    /// read-write - OMSB
     eOMSB OMSB : 1;
     uint32_t _reserved_0 : 5;
+    /// read-write - IMSB
     eIMSB IMSB : 1;
+    /// read-write - IWD
     eIWD IWD : 2;
     uint32_t _reserved_1 : 21;
   } bits;

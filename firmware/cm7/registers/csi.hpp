@@ -137,35 +137,61 @@ union CSI_CR1 {
   
   // Bit field definition.
   struct {
+    /// read-write - Pixel Bit
     ePIXEL_BIT PIXEL_BIT : 1;
+    /// read-write - Valid Pixel Clock Edge Select
     eREDGE REDGE : 1;
+    /// read-write - Invert Pixel Clock Input
     eINV_PCLK INV_PCLK : 1;
+    /// read-write - Invert Data Input. This bit enables or disables internal inverters on the data lines.
     eINV_DATA INV_DATA : 1;
+    /// read-write - Gated Clock Mode Enable
     eGCLK_MODE GCLK_MODE : 1;
+    /// read-write - Asynchronous RXFIFO Clear
     uint32_t CLR_RXFIFO : 1;
+    /// read-write - Asynchronous STATFIFO Clear
     uint32_t CLR_STATFIFO : 1;
+    /// read-write - Data Packing Direction
     ePACK_DIR PACK_DIR : 1;
+    /// read-write - FIFO Clear Control
     eFCC FCC : 1;
     uint32_t _reserved_0 : 1;
+    /// read-write - BT.656 Interface Enable. This bit selects the type of interface used.
     eCCIR_EN CCIR_EN : 1;
+    /// read-write - HSYNC Polarity Select
     eHSYNC_POL HSYNC_POL : 1;
+    /// read-write - Histogram Interrupt Enable
     eHISTOGRAM_CALC_DONE_IE HISTOGRAM_CALC_DONE_IE : 1;
     uint32_t _reserved_1 : 3;
+    /// read-write - Start Of Frame (SOF) Interrupt Enable. This bit enables the SOF interrupt.
     eSOF_INTEN SOF_INTEN : 1;
+    /// read-write - SOF Interrupt Polarity. This bit controls the condition that generates an SOF interrupt.
     eSOF_POL SOF_POL : 1;
+    /// read-write - RxFIFO Full Interrupt Enable. This bit enables the RxFIFO full interrupt.
     eRXFF_INTEN RXFF_INTEN : 1;
+    /// read-write - Frame Buffer1 DMA Transfer Done Interrupt Enable
     eFB1_DMA_DONE_INTEN FB1_DMA_DONE_INTEN : 1;
+    /// read-write - Frame Buffer2 DMA Transfer Done Interrupt Enable
     eFB2_DMA_DONE_INTEN FB2_DMA_DONE_INTEN : 1;
+    /// read-write - STATFIFO Full Interrupt Enable. This bit enables the STAT FIFO interrupt.
     eSTATFF_INTEN STATFF_INTEN : 1;
+    /// read-write - STATFIFO DMA Transfer Done Interrupt Enable
     eSFF_DMA_DONE_INTEN SFF_DMA_DONE_INTEN : 1;
     uint32_t _reserved_2 : 1;
+    /// read-write - RxFIFO Overrun Interrupt Enable. This bit enables the RX FIFO overrun interrupt.
     eRF_OR_INTEN RF_OR_INTEN : 1;
+    /// read-write - STAT FIFO Overrun Interrupt Enable. This bit enables the STATFIFO overrun interrupt.
     eSF_OR_INTEN SF_OR_INTEN : 1;
+    /// read-write - Change Of Image Field (COF) Interrupt Enable
     eCOF_INT_EN COF_INT_EN : 1;
+    /// read-write - Video mode select. This bit controls the video mode in BT.656 mode and TV decoder input.
     eVIDEO_MODE VIDEO_MODE : 1;
     uint32_t _reserved_3 : 1;
+    /// read-write - End-of-Frame Interrupt Enable. This bit enables and disables the EOF interrupt.
     eEOF_INT_EN EOF_INT_EN : 1;
+    /// read-write - External VSYNC Enable
     eEXT_VSYNC EXT_VSYNC : 1;
+    /// read-write - SWAP 16-Bit Enable
     eSWAP16_EN SWAP16_EN : 1;
   } bits;
   
@@ -254,16 +280,25 @@ union CSI_CR2 {
   
   // Bit field definition.
   struct {
+    /// read-write - Horizontal Skip Count
     eHSC HSC : 8;
+    /// read-write - Vertical Skip Count. Contains the number of rows to skip. SCE must be 1, otherwise VSC is ignored.
     eVSC VSC : 8;
+    /// read-write - Live View Resolution Mode. Selects the grid size used for live view resolution.
     eLVRM LVRM : 3;
+    /// read-write - Bayer Tile Start. Controls the Bayer pattern starting point.
     eBTS BTS : 2;
     uint32_t _reserved_0 : 2;
+    /// read-write - Skip Count Enable
     eSCE SCE : 1;
+    /// read-write - Auto Focus Spread. Selects which green pixels are used for auto-focus.
     eAFS AFS : 2;
+    /// read-write - Double Resolution Mode. Controls size of statistics grid.
     eDRM DRM : 1;
     uint32_t _reserved_1 : 1;
+    /// read-write - Burst Type of DMA Transfer from STATFIFO. Selects the burst type of DMA transfer from STATFIFO.
     eDMA_BURST_TYPE_SFF DMA_BURST_TYPE_SFF : 2;
+    /// read-write - Burst Type of DMA Transfer from RxFIFO. Selects the burst type of DMA transfer from RxFIFO.
     eDMA_BURST_TYPE_RFF DMA_BURST_TYPE_RFF : 2;
   } bits;
   
@@ -353,18 +388,31 @@ union CSI_CR3 {
   
   // Bit field definition.
   struct {
+    /// read-write - Automatic Error Correction Enable
     eECC_AUTO_EN ECC_AUTO_EN : 1;
+    /// read-write - Error Detection Interrupt Enable
     eECC_INT_EN ECC_INT_EN : 1;
+    /// read-write - Dummy Zero Packing Enable
     eZERO_PACK_EN ZERO_PACK_EN : 1;
+    /// read-write - 16-bit Sensor Mode
     eSENSOR_16BITS SENSOR_16BITS : 1;
+    /// read-write - RxFIFO Full Level
     eRxFF_LEVEL RxFF_LEVEL : 3;
+    /// read-write - Hresponse Error Enable. This bit enables the hresponse (AHB protocol standard) error interrupt.
     eHRESP_ERR_EN HRESP_ERR_EN : 1;
+    /// read-write - STATFIFO Full Level
     eSTATFF_LEVEL STATFF_LEVEL : 3;
+    /// read-write - DMA Request Enable for STATFIFO
     eDMA_REQ_EN_SFF DMA_REQ_EN_SFF : 1;
+    /// read-write - DMA Request Enable for RxFIFO
     eDMA_REQ_EN_RFF DMA_REQ_EN_RFF : 1;
+    /// read-write - Reflash DMA Controller for STATFIFO
     eDMA_REFLASH_SFF DMA_REFLASH_SFF : 1;
+    /// read-write - Reflash DMA Controller for RxFIFO
     eDMA_REFLASH_RFF DMA_REFLASH_RFF : 1;
+    /// read-write - Frame Count Reset. Resets the Frame Counter. (Cleared automatically after reset is done)
     eFRMCNT_RST FRMCNT_RST : 1;
+    /// read-write - Frame Counter
     uint32_t FRMCNT : 16;
   } bits;
   
@@ -382,6 +430,7 @@ union CSI_STATFIFO {
   
   // Bit field definition.
   struct {
+    /// read-only - Static data from sensor
     uint32_t STAT : 32;
   } bits;
   
@@ -399,6 +448,7 @@ union CSI_RFIFO {
   
   // Bit field definition.
   struct {
+    /// read-only - Received image data
     uint32_t IMAGE : 32;
   } bits;
   
@@ -416,6 +466,7 @@ union CSI_RXCNT {
   
   // Bit field definition.
   struct {
+    /// read-write - RxFIFO Count
     uint32_t RXCNT : 22;
     uint32_t _reserved_0 : 10;
   } bits;
@@ -514,27 +565,46 @@ union CSI_SR {
   
   // Bit field definition.
   struct {
+    /// read-write - RXFIFO Data Ready
     eDRDY DRDY : 1;
+    /// read-write - BT
     eECC_INT ECC_INT : 1;
+    /// read-write - no description available
     eHISTOGRAM_CALC_DONE_INT HISTOGRAM_CALC_DONE_INT : 1;
     uint32_t _reserved_0 : 4;
+    /// read-write - Hresponse Error Interrupt Status
     eHRESP_ERR_INT HRESP_ERR_INT : 1;
     uint32_t _reserved_1 : 5;
+    /// read-write - Change Of Field Interrupt Status
     eCOF_INT COF_INT : 1;
+    /// read-write - BT
     eF1_INT F1_INT : 1;
+    /// read-write - BT
     eF2_INT F2_INT : 1;
+    /// read-write - Start of Frame Interrupt Status. Indicates when SOF is detected. (Cleared by writing 1)
     eSOF_INT SOF_INT : 1;
+    /// read-write - End of Frame (EOF) Interrupt Status. Indicates when EOF is detected. (Cleared by writing 1)
     eEOF_INT EOF_INT : 1;
+    /// read-write - RXFIFO Full Interrupt Status
     eRxFF_INT RxFF_INT : 1;
+    /// read-write - DMA Transfer Done in Frame Buffer1
     eDMA_TSF_DONE_FB1 DMA_TSF_DONE_FB1 : 1;
+    /// read-write - DMA Transfer Done in Frame Buffer2
     eDMA_TSF_DONE_FB2 DMA_TSF_DONE_FB2 : 1;
+    /// read-write - STATFIFO Full Interrupt Status
     eSTATFF_INT STATFF_INT : 1;
+    /// read-write - DMA Transfer Done from StatFIFO
     eDMA_TSF_DONE_SFF DMA_TSF_DONE_SFF : 1;
     uint32_t _reserved_2 : 1;
+    /// read-write - RxFIFO Overrun Interrupt Status
     eRF_OR_INT RF_OR_INT : 1;
+    /// read-write - STATFIFO Overrun Interrupt Status
     eSF_OR_INT SF_OR_INT : 1;
+    /// read-write - When DMA field 1 is complete, this bit will be set to 1(clear by writing 1).
     uint32_t DMA_FIELD1_DONE : 1;
+    /// read-write - When DMA field 0 is complete, this bit will be set to 1(clear by writing 1).
     uint32_t DMA_FIELD0_DONE : 1;
+    /// read-write - When using base address switching enable, this bit will be 1 when switching occur before DMA complete
     uint32_t BASEADDR_CHHANGE_ERROR : 1;
     uint32_t _reserved_3 : 3;
   } bits;
@@ -554,6 +624,7 @@ union CSI_DMASA_STATFIFO {
   // Bit field definition.
   struct {
     uint32_t _reserved_0 : 2;
+    /// read-write - DMA Start Address for STATFIFO
     uint32_t DMA_START_ADDR_SFF : 30;
   } bits;
   
@@ -571,6 +642,7 @@ union CSI_DMATS_STATFIFO {
   
   // Bit field definition.
   struct {
+    /// read-write - DMA Transfer Size for STATFIFO
     uint32_t DMA_TSF_SIZE_SFF : 32;
   } bits;
   
@@ -589,6 +661,7 @@ union CSI_DMASA_FB1 {
   // Bit field definition.
   struct {
     uint32_t _reserved_0 : 2;
+    /// read-write - DMA Start Address in Frame Buffer1
     uint32_t DMA_START_ADDR_FB1 : 30;
   } bits;
   
@@ -607,6 +680,7 @@ union CSI_DMASA_FB2 {
   // Bit field definition.
   struct {
     uint32_t _reserved_0 : 2;
+    /// read-write - DMA Start Address in Frame Buffer2
     uint32_t DMA_START_ADDR_FB2 : 30;
   } bits;
   
@@ -624,7 +698,9 @@ union CSI_FBUF_PARA {
   
   // Bit field definition.
   struct {
+    /// read-write - Frame Buffer Parameter
     uint32_t FBUF_STRIDE : 16;
+    /// read-write - DEINTERLACE_STRIDE is only used in the deinterlace mode
     uint32_t DEINTERLACE_STRIDE : 16;
   } bits;
   
@@ -642,7 +718,9 @@ union CSI_IMAG_PARA {
   
   // Bit field definition.
   struct {
+    /// read-write - Image Height. Indicates how many pixels in a column of the image from the sensor.
     uint32_t IMAGE_HEIGHT : 16;
+    /// read-write - This field indicates the number of active pixel cycles per line
     uint32_t IMAGE_WIDTH : 16;
   } bits;
   
@@ -722,27 +800,46 @@ union CSI_CR18 {
   
   // Bit field definition.
   struct {
+    /// read-write - This bit is used to select NTSC/PAL mode When input is TVDECODER or standard BT.656 video.
     eNTSC_EN NTSC_EN : 1;
+    /// read-write - When input is from TV decoder, this bit is enabled.
     uint32_t TVDECODER_IN_EN : 1;
+    /// read-write - This bit is used to select the output method When input is TVDECODER or standard BT.656 video.
     eDEINTERLACE_EN DEINTERLACE_EN : 1;
+    /// read-write - Enable bit for Parallel RGB888/YUV444 24bit input
     ePARALLEL24_EN PARALLEL24_EN : 1;
+    /// read-write - When this bit is enabled, CSI DMA will switch the base address according to BASEADDR_SWITCH_SEL rather than automatically by DMA completed
     uint32_t BASEADDR_SWITCH_EN : 1;
+    /// read-write - CSI 2 base addresses switching method. When using this bit, BASEADDR_SWITCH_EN is 1.
     eBASEADDR_SWITCH_SEL BASEADDR_SWITCH_SEL : 1;
+    /// read-write - In interlace mode, field 0 means interrupt enabled.
     eFIELD0_DONE_IE FIELD0_DONE_IE : 1;
+    /// read-write - When in interlace mode, field 1 done interrupt enable.
     eDMA_FIELD1_DONE_IE DMA_FIELD1_DONE_IE : 1;
+    /// read-write - Choosing the last DMA request condition
     eLAST_DMA_REQ_SEL LAST_DMA_REQ_SEL : 1;
+    /// read-write - Base address change error interrupt enable signal.
     eBASEADDR_CHANGE_ERROR_IE BASEADDR_CHANGE_ERROR_IE : 1;
+    /// read-write - Output is 32-bit format.
     eRGB888A_FORMAT_SEL RGB888A_FORMAT_SEL : 1;
     uint32_t _reserved_0 : 1;
+    /// read-write - Hprot value in AHB bus protocol.
     uint32_t AHB_HPROT : 4;
     uint32_t _reserved_1 : 2;
+    /// read-write - These bits used to choose the method to mask the CSI input.
     eMASK_OPTION MASK_OPTION : 2;
+    /// read-write - Double component per clock cycle in YUV422 formats.
     eMIPI_DOUBLE_CMPNT MIPI_DOUBLE_CMPNT : 1;
+    /// read-write - It only works in MIPI CSI YUV422 double component mode.
     uint32_t MIPI_YU_SWAP : 1;
+    /// read-write - no description available
     eDATA_FROM_MIPI DATA_FROM_MIPI : 1;
     uint32_t _reserved_2 : 1;
+    /// read-write - When the line width are not the multiple of the burst length, assert this bit.
     uint32_t LINE_STRIDE_EN : 1;
+    /// read-only - Image Data Format
     uint32_t MIPI_DATA_FORMAT : 6;
+    /// read-write - CSI global enable signal
     uint32_t CSI_ENABLE : 1;
   } bits;
   
@@ -760,6 +857,7 @@ union CSI_CR19 {
   
   // Bit field definition.
   struct {
+    /// read-write - This byte stores the highest FIFO level achieved by CSI FIFO timely and will be clear by writing 8'ff to it
     uint32_t DMA_RFIFO_HIGHEST_FIFO_LEVEL : 8;
     uint32_t _reserved_0 : 24;
   } bits;
@@ -812,13 +910,20 @@ union CSI_CR20 {
   
   // Bit field definition.
   struct {
+    /// read-write - THRESHOLD used for binary function. When data value > THRESHOLD, output will be 1 Else will be 0.
     uint32_t THRESHOLD : 8;
+    /// read-write - no description available
     eBINARY_EN BINARY_EN : 1;
+    /// read-write - no description available
     eQR_DATA_FORMAT QR_DATA_FORMAT : 3;
+    /// read-write - no description available
     eBIG_END BIG_END : 1;
     uint32_t _reserved_0 : 16;
+    /// read-write - no description available
     e_10BIT_NEW_EN _10BIT_NEW_EN : 1;
+    /// read-write - Histogram enable
     eHISTOGRAM_EN HISTOGRAM_EN : 1;
+    /// read-write - Gray scale mode enable
     eQRCODE_EN QRCODE_EN : 1;
   } bits;
   
@@ -836,6 +941,7 @@ union CSI_CR21 {
   
   // Bit field definition.
   struct {
+    /// read-write - Number of pixels (Y component of the input pixel) equals: 0 (CSICR21) 1 (CSICR22)
     uint32_t PIXEL_COUNTERS : 24;
     uint32_t _reserved_0 : 8;
   } bits;
@@ -853,6 +959,7 @@ union CSI_CR22 {
   
   // Bit field definition.
   struct {
+    /// read-write - Number of pixels (Y component of the input pixel) equals: 0 (CSICR21) 1 (CSICR22)
     uint32_t PIXEL_COUNTERS : 24;
     uint32_t _reserved_0 : 8;
   } bits;
@@ -870,6 +977,7 @@ union CSI_CR23 {
   
   // Bit field definition.
   struct {
+    /// read-write - Number of pixels (Y component of the input pixel) equals: 0 (CSICR21) 1 (CSICR22)
     uint32_t PIXEL_COUNTERS : 24;
     uint32_t _reserved_0 : 8;
   } bits;
@@ -887,6 +995,7 @@ union CSI_CR24 {
   
   // Bit field definition.
   struct {
+    /// read-write - Number of pixels (Y component of the input pixel) equals: 0 (CSICR21) 1 (CSICR22)
     uint32_t PIXEL_COUNTERS : 24;
     uint32_t _reserved_0 : 8;
   } bits;
@@ -904,6 +1013,7 @@ union CSI_CR25 {
   
   // Bit field definition.
   struct {
+    /// read-write - Number of pixels (Y component of the input pixel) equals: 0 (CSICR21) 1 (CSICR22)
     uint32_t PIXEL_COUNTERS : 24;
     uint32_t _reserved_0 : 8;
   } bits;
@@ -921,6 +1031,7 @@ union CSI_CR26 {
   
   // Bit field definition.
   struct {
+    /// read-write - Number of pixels (Y component of the input pixel) equals: 0 (CSICR21) 1 (CSICR22)
     uint32_t PIXEL_COUNTERS : 24;
     uint32_t _reserved_0 : 8;
   } bits;
@@ -938,6 +1049,7 @@ union CSI_CR27 {
   
   // Bit field definition.
   struct {
+    /// read-write - Number of pixels (Y component of the input pixel) equals: 0 (CSICR21) 1 (CSICR22)
     uint32_t PIXEL_COUNTERS : 24;
     uint32_t _reserved_0 : 8;
   } bits;
@@ -955,6 +1067,7 @@ union CSI_CR28 {
   
   // Bit field definition.
   struct {
+    /// read-write - Number of pixels (Y component of the input pixel) equals: 0 (CSICR21) 1 (CSICR22)
     uint32_t PIXEL_COUNTERS : 24;
     uint32_t _reserved_0 : 8;
   } bits;
@@ -972,6 +1085,7 @@ union CSI_CR29 {
   
   // Bit field definition.
   struct {
+    /// read-write - Number of pixels (Y component of the input pixel) equals: 0 (CSICR21) 1 (CSICR22)
     uint32_t PIXEL_COUNTERS : 24;
     uint32_t _reserved_0 : 8;
   } bits;
@@ -989,6 +1103,7 @@ union CSI_CR30 {
   
   // Bit field definition.
   struct {
+    /// read-write - Number of pixels (Y component of the input pixel) equals: 0 (CSICR21) 1 (CSICR22)
     uint32_t PIXEL_COUNTERS : 24;
     uint32_t _reserved_0 : 8;
   } bits;
@@ -1006,6 +1121,7 @@ union CSI_CR31 {
   
   // Bit field definition.
   struct {
+    /// read-write - Number of pixels (Y component of the input pixel) equals: 0 (CSICR21) 1 (CSICR22)
     uint32_t PIXEL_COUNTERS : 24;
     uint32_t _reserved_0 : 8;
   } bits;
@@ -1023,6 +1139,7 @@ union CSI_CR32 {
   
   // Bit field definition.
   struct {
+    /// read-write - Number of pixels (Y component of the input pixel) equals: 0 (CSICR21) 1 (CSICR22)
     uint32_t PIXEL_COUNTERS : 24;
     uint32_t _reserved_0 : 8;
   } bits;
@@ -1040,6 +1157,7 @@ union CSI_CR33 {
   
   // Bit field definition.
   struct {
+    /// read-write - Number of pixels (Y component of the input pixel) equals: 0 (CSICR21) 1 (CSICR22)
     uint32_t PIXEL_COUNTERS : 24;
     uint32_t _reserved_0 : 8;
   } bits;
@@ -1057,6 +1175,7 @@ union CSI_CR34 {
   
   // Bit field definition.
   struct {
+    /// read-write - Number of pixels (Y component of the input pixel) equals: 0 (CSICR21) 1 (CSICR22)
     uint32_t PIXEL_COUNTERS : 24;
     uint32_t _reserved_0 : 8;
   } bits;
@@ -1074,6 +1193,7 @@ union CSI_CR35 {
   
   // Bit field definition.
   struct {
+    /// read-write - Number of pixels (Y component of the input pixel) equals: 0 (CSICR21) 1 (CSICR22)
     uint32_t PIXEL_COUNTERS : 24;
     uint32_t _reserved_0 : 8;
   } bits;
@@ -1091,6 +1211,7 @@ union CSI_CR36 {
   
   // Bit field definition.
   struct {
+    /// read-write - Number of pixels (Y component of the input pixel) equals: 0 (CSICR21) 1 (CSICR22)
     uint32_t PIXEL_COUNTERS : 24;
     uint32_t _reserved_0 : 8;
   } bits;
@@ -1108,6 +1229,7 @@ union CSI_CR37 {
   
   // Bit field definition.
   struct {
+    /// read-write - Number of pixels (Y component of the input pixel) equals: 0 (CSICR21) 1 (CSICR22)
     uint32_t PIXEL_COUNTERS : 24;
     uint32_t _reserved_0 : 8;
   } bits;
@@ -1125,6 +1247,7 @@ union CSI_CR38 {
   
   // Bit field definition.
   struct {
+    /// read-write - Number of pixels (Y component of the input pixel) equals: 0 (CSICR21) 1 (CSICR22)
     uint32_t PIXEL_COUNTERS : 24;
     uint32_t _reserved_0 : 8;
   } bits;
@@ -1142,6 +1265,7 @@ union CSI_CR39 {
   
   // Bit field definition.
   struct {
+    /// read-write - Number of pixels (Y component of the input pixel) equals: 0 (CSICR21) 1 (CSICR22)
     uint32_t PIXEL_COUNTERS : 24;
     uint32_t _reserved_0 : 8;
   } bits;
@@ -1159,6 +1283,7 @@ union CSI_CR40 {
   
   // Bit field definition.
   struct {
+    /// read-write - Number of pixels (Y component of the input pixel) equals: 0 (CSICR21) 1 (CSICR22)
     uint32_t PIXEL_COUNTERS : 24;
     uint32_t _reserved_0 : 8;
   } bits;
@@ -1176,6 +1301,7 @@ union CSI_CR41 {
   
   // Bit field definition.
   struct {
+    /// read-write - Number of pixels (Y component of the input pixel) equals: 0 (CSICR21) 1 (CSICR22)
     uint32_t PIXEL_COUNTERS : 24;
     uint32_t _reserved_0 : 8;
   } bits;
@@ -1193,6 +1319,7 @@ union CSI_CR42 {
   
   // Bit field definition.
   struct {
+    /// read-write - Number of pixels (Y component of the input pixel) equals: 0 (CSICR21) 1 (CSICR22)
     uint32_t PIXEL_COUNTERS : 24;
     uint32_t _reserved_0 : 8;
   } bits;
@@ -1210,6 +1337,7 @@ union CSI_CR43 {
   
   // Bit field definition.
   struct {
+    /// read-write - Number of pixels (Y component of the input pixel) equals: 0 (CSICR21) 1 (CSICR22)
     uint32_t PIXEL_COUNTERS : 24;
     uint32_t _reserved_0 : 8;
   } bits;
@@ -1227,6 +1355,7 @@ union CSI_CR44 {
   
   // Bit field definition.
   struct {
+    /// read-write - Number of pixels (Y component of the input pixel) equals: 0 (CSICR21) 1 (CSICR22)
     uint32_t PIXEL_COUNTERS : 24;
     uint32_t _reserved_0 : 8;
   } bits;
@@ -1244,6 +1373,7 @@ union CSI_CR45 {
   
   // Bit field definition.
   struct {
+    /// read-write - Number of pixels (Y component of the input pixel) equals: 0 (CSICR21) 1 (CSICR22)
     uint32_t PIXEL_COUNTERS : 24;
     uint32_t _reserved_0 : 8;
   } bits;
@@ -1261,6 +1391,7 @@ union CSI_CR46 {
   
   // Bit field definition.
   struct {
+    /// read-write - Number of pixels (Y component of the input pixel) equals: 0 (CSICR21) 1 (CSICR22)
     uint32_t PIXEL_COUNTERS : 24;
     uint32_t _reserved_0 : 8;
   } bits;
@@ -1278,6 +1409,7 @@ union CSI_CR47 {
   
   // Bit field definition.
   struct {
+    /// read-write - Number of pixels (Y component of the input pixel) equals: 0 (CSICR21) 1 (CSICR22)
     uint32_t PIXEL_COUNTERS : 24;
     uint32_t _reserved_0 : 8;
   } bits;
@@ -1295,6 +1427,7 @@ union CSI_CR48 {
   
   // Bit field definition.
   struct {
+    /// read-write - Number of pixels (Y component of the input pixel) equals: 0 (CSICR21) 1 (CSICR22)
     uint32_t PIXEL_COUNTERS : 24;
     uint32_t _reserved_0 : 8;
   } bits;
@@ -1312,6 +1445,7 @@ union CSI_CR49 {
   
   // Bit field definition.
   struct {
+    /// read-write - Number of pixels (Y component of the input pixel) equals: 0 (CSICR21) 1 (CSICR22)
     uint32_t PIXEL_COUNTERS : 24;
     uint32_t _reserved_0 : 8;
   } bits;
@@ -1329,6 +1463,7 @@ union CSI_CR50 {
   
   // Bit field definition.
   struct {
+    /// read-write - Number of pixels (Y component of the input pixel) equals: 0 (CSICR21) 1 (CSICR22)
     uint32_t PIXEL_COUNTERS : 24;
     uint32_t _reserved_0 : 8;
   } bits;
@@ -1346,6 +1481,7 @@ union CSI_CR51 {
   
   // Bit field definition.
   struct {
+    /// read-write - Number of pixels (Y component of the input pixel) equals: 0 (CSICR21) 1 (CSICR22)
     uint32_t PIXEL_COUNTERS : 24;
     uint32_t _reserved_0 : 8;
   } bits;
@@ -1363,6 +1499,7 @@ union CSI_CR52 {
   
   // Bit field definition.
   struct {
+    /// read-write - Number of pixels (Y component of the input pixel) equals: 0 (CSICR21) 1 (CSICR22)
     uint32_t PIXEL_COUNTERS : 24;
     uint32_t _reserved_0 : 8;
   } bits;
@@ -1380,6 +1517,7 @@ union CSI_CR53 {
   
   // Bit field definition.
   struct {
+    /// read-write - Number of pixels (Y component of the input pixel) equals: 0 (CSICR21) 1 (CSICR22)
     uint32_t PIXEL_COUNTERS : 24;
     uint32_t _reserved_0 : 8;
   } bits;
@@ -1397,6 +1535,7 @@ union CSI_CR54 {
   
   // Bit field definition.
   struct {
+    /// read-write - Number of pixels (Y component of the input pixel) equals: 0 (CSICR21) 1 (CSICR22)
     uint32_t PIXEL_COUNTERS : 24;
     uint32_t _reserved_0 : 8;
   } bits;
@@ -1414,6 +1553,7 @@ union CSI_CR55 {
   
   // Bit field definition.
   struct {
+    /// read-write - Number of pixels (Y component of the input pixel) equals: 0 (CSICR21) 1 (CSICR22)
     uint32_t PIXEL_COUNTERS : 24;
     uint32_t _reserved_0 : 8;
   } bits;
@@ -1431,6 +1571,7 @@ union CSI_CR56 {
   
   // Bit field definition.
   struct {
+    /// read-write - Number of pixels (Y component of the input pixel) equals: 0 (CSICR21) 1 (CSICR22)
     uint32_t PIXEL_COUNTERS : 24;
     uint32_t _reserved_0 : 8;
   } bits;
@@ -1448,6 +1589,7 @@ union CSI_CR57 {
   
   // Bit field definition.
   struct {
+    /// read-write - Number of pixels (Y component of the input pixel) equals: 0 (CSICR21) 1 (CSICR22)
     uint32_t PIXEL_COUNTERS : 24;
     uint32_t _reserved_0 : 8;
   } bits;
@@ -1465,6 +1607,7 @@ union CSI_CR58 {
   
   // Bit field definition.
   struct {
+    /// read-write - Number of pixels (Y component of the input pixel) equals: 0 (CSICR21) 1 (CSICR22)
     uint32_t PIXEL_COUNTERS : 24;
     uint32_t _reserved_0 : 8;
   } bits;
@@ -1482,6 +1625,7 @@ union CSI_CR59 {
   
   // Bit field definition.
   struct {
+    /// read-write - Number of pixels (Y component of the input pixel) equals: 0 (CSICR21) 1 (CSICR22)
     uint32_t PIXEL_COUNTERS : 24;
     uint32_t _reserved_0 : 8;
   } bits;
@@ -1499,6 +1643,7 @@ union CSI_CR60 {
   
   // Bit field definition.
   struct {
+    /// read-write - Number of pixels (Y component of the input pixel) equals: 0 (CSICR21) 1 (CSICR22)
     uint32_t PIXEL_COUNTERS : 24;
     uint32_t _reserved_0 : 8;
   } bits;
@@ -1516,6 +1661,7 @@ union CSI_CR61 {
   
   // Bit field definition.
   struct {
+    /// read-write - Number of pixels (Y component of the input pixel) equals: 0 (CSICR21) 1 (CSICR22)
     uint32_t PIXEL_COUNTERS : 24;
     uint32_t _reserved_0 : 8;
   } bits;
@@ -1533,6 +1679,7 @@ union CSI_CR62 {
   
   // Bit field definition.
   struct {
+    /// read-write - Number of pixels (Y component of the input pixel) equals: 0 (CSICR21) 1 (CSICR22)
     uint32_t PIXEL_COUNTERS : 24;
     uint32_t _reserved_0 : 8;
   } bits;
@@ -1550,6 +1697,7 @@ union CSI_CR63 {
   
   // Bit field definition.
   struct {
+    /// read-write - Number of pixels (Y component of the input pixel) equals: 0 (CSICR21) 1 (CSICR22)
     uint32_t PIXEL_COUNTERS : 24;
     uint32_t _reserved_0 : 8;
   } bits;
@@ -1567,6 +1715,7 @@ union CSI_CR64 {
   
   // Bit field definition.
   struct {
+    /// read-write - Number of pixels (Y component of the input pixel) equals: 0 (CSICR21) 1 (CSICR22)
     uint32_t PIXEL_COUNTERS : 24;
     uint32_t _reserved_0 : 8;
   } bits;
@@ -1584,6 +1733,7 @@ union CSI_CR65 {
   
   // Bit field definition.
   struct {
+    /// read-write - Number of pixels (Y component of the input pixel) equals: 0 (CSICR21) 1 (CSICR22)
     uint32_t PIXEL_COUNTERS : 24;
     uint32_t _reserved_0 : 8;
   } bits;
@@ -1601,6 +1751,7 @@ union CSI_CR66 {
   
   // Bit field definition.
   struct {
+    /// read-write - Number of pixels (Y component of the input pixel) equals: 0 (CSICR21) 1 (CSICR22)
     uint32_t PIXEL_COUNTERS : 24;
     uint32_t _reserved_0 : 8;
   } bits;
@@ -1618,6 +1769,7 @@ union CSI_CR67 {
   
   // Bit field definition.
   struct {
+    /// read-write - Number of pixels (Y component of the input pixel) equals: 0 (CSICR21) 1 (CSICR22)
     uint32_t PIXEL_COUNTERS : 24;
     uint32_t _reserved_0 : 8;
   } bits;
@@ -1635,6 +1787,7 @@ union CSI_CR68 {
   
   // Bit field definition.
   struct {
+    /// read-write - Number of pixels (Y component of the input pixel) equals: 0 (CSICR21) 1 (CSICR22)
     uint32_t PIXEL_COUNTERS : 24;
     uint32_t _reserved_0 : 8;
   } bits;
@@ -1652,6 +1805,7 @@ union CSI_CR69 {
   
   // Bit field definition.
   struct {
+    /// read-write - Number of pixels (Y component of the input pixel) equals: 0 (CSICR21) 1 (CSICR22)
     uint32_t PIXEL_COUNTERS : 24;
     uint32_t _reserved_0 : 8;
   } bits;
@@ -1669,6 +1823,7 @@ union CSI_CR70 {
   
   // Bit field definition.
   struct {
+    /// read-write - Number of pixels (Y component of the input pixel) equals: 0 (CSICR21) 1 (CSICR22)
     uint32_t PIXEL_COUNTERS : 24;
     uint32_t _reserved_0 : 8;
   } bits;
@@ -1686,6 +1841,7 @@ union CSI_CR71 {
   
   // Bit field definition.
   struct {
+    /// read-write - Number of pixels (Y component of the input pixel) equals: 0 (CSICR21) 1 (CSICR22)
     uint32_t PIXEL_COUNTERS : 24;
     uint32_t _reserved_0 : 8;
   } bits;
@@ -1703,6 +1859,7 @@ union CSI_CR72 {
   
   // Bit field definition.
   struct {
+    /// read-write - Number of pixels (Y component of the input pixel) equals: 0 (CSICR21) 1 (CSICR22)
     uint32_t PIXEL_COUNTERS : 24;
     uint32_t _reserved_0 : 8;
   } bits;
@@ -1720,6 +1877,7 @@ union CSI_CR73 {
   
   // Bit field definition.
   struct {
+    /// read-write - Number of pixels (Y component of the input pixel) equals: 0 (CSICR21) 1 (CSICR22)
     uint32_t PIXEL_COUNTERS : 24;
     uint32_t _reserved_0 : 8;
   } bits;
@@ -1737,6 +1895,7 @@ union CSI_CR74 {
   
   // Bit field definition.
   struct {
+    /// read-write - Number of pixels (Y component of the input pixel) equals: 0 (CSICR21) 1 (CSICR22)
     uint32_t PIXEL_COUNTERS : 24;
     uint32_t _reserved_0 : 8;
   } bits;
@@ -1754,6 +1913,7 @@ union CSI_CR75 {
   
   // Bit field definition.
   struct {
+    /// read-write - Number of pixels (Y component of the input pixel) equals: 0 (CSICR21) 1 (CSICR22)
     uint32_t PIXEL_COUNTERS : 24;
     uint32_t _reserved_0 : 8;
   } bits;
@@ -1771,6 +1931,7 @@ union CSI_CR76 {
   
   // Bit field definition.
   struct {
+    /// read-write - Number of pixels (Y component of the input pixel) equals: 0 (CSICR21) 1 (CSICR22)
     uint32_t PIXEL_COUNTERS : 24;
     uint32_t _reserved_0 : 8;
   } bits;
@@ -1788,6 +1949,7 @@ union CSI_CR77 {
   
   // Bit field definition.
   struct {
+    /// read-write - Number of pixels (Y component of the input pixel) equals: 0 (CSICR21) 1 (CSICR22)
     uint32_t PIXEL_COUNTERS : 24;
     uint32_t _reserved_0 : 8;
   } bits;
@@ -1805,6 +1967,7 @@ union CSI_CR78 {
   
   // Bit field definition.
   struct {
+    /// read-write - Number of pixels (Y component of the input pixel) equals: 0 (CSICR21) 1 (CSICR22)
     uint32_t PIXEL_COUNTERS : 24;
     uint32_t _reserved_0 : 8;
   } bits;
@@ -1822,6 +1985,7 @@ union CSI_CR79 {
   
   // Bit field definition.
   struct {
+    /// read-write - Number of pixels (Y component of the input pixel) equals: 0 (CSICR21) 1 (CSICR22)
     uint32_t PIXEL_COUNTERS : 24;
     uint32_t _reserved_0 : 8;
   } bits;
@@ -1839,6 +2003,7 @@ union CSI_CR80 {
   
   // Bit field definition.
   struct {
+    /// read-write - Number of pixels (Y component of the input pixel) equals: 0 (CSICR21) 1 (CSICR22)
     uint32_t PIXEL_COUNTERS : 24;
     uint32_t _reserved_0 : 8;
   } bits;
@@ -1856,6 +2021,7 @@ union CSI_CR81 {
   
   // Bit field definition.
   struct {
+    /// read-write - Number of pixels (Y component of the input pixel) equals: 0 (CSICR21) 1 (CSICR22)
     uint32_t PIXEL_COUNTERS : 24;
     uint32_t _reserved_0 : 8;
   } bits;
@@ -1873,6 +2039,7 @@ union CSI_CR82 {
   
   // Bit field definition.
   struct {
+    /// read-write - Number of pixels (Y component of the input pixel) equals: 0 (CSICR21) 1 (CSICR22)
     uint32_t PIXEL_COUNTERS : 24;
     uint32_t _reserved_0 : 8;
   } bits;
@@ -1890,6 +2057,7 @@ union CSI_CR83 {
   
   // Bit field definition.
   struct {
+    /// read-write - Number of pixels (Y component of the input pixel) equals: 0 (CSICR21) 1 (CSICR22)
     uint32_t PIXEL_COUNTERS : 24;
     uint32_t _reserved_0 : 8;
   } bits;
@@ -1907,6 +2075,7 @@ union CSI_CR84 {
   
   // Bit field definition.
   struct {
+    /// read-write - Number of pixels (Y component of the input pixel) equals: 0 (CSICR21) 1 (CSICR22)
     uint32_t PIXEL_COUNTERS : 24;
     uint32_t _reserved_0 : 8;
   } bits;
@@ -1924,6 +2093,7 @@ union CSI_CR85 {
   
   // Bit field definition.
   struct {
+    /// read-write - Number of pixels (Y component of the input pixel) equals: 0 (CSICR21) 1 (CSICR22)
     uint32_t PIXEL_COUNTERS : 24;
     uint32_t _reserved_0 : 8;
   } bits;
@@ -1941,6 +2111,7 @@ union CSI_CR86 {
   
   // Bit field definition.
   struct {
+    /// read-write - Number of pixels (Y component of the input pixel) equals: 0 (CSICR21) 1 (CSICR22)
     uint32_t PIXEL_COUNTERS : 24;
     uint32_t _reserved_0 : 8;
   } bits;
@@ -1958,6 +2129,7 @@ union CSI_CR87 {
   
   // Bit field definition.
   struct {
+    /// read-write - Number of pixels (Y component of the input pixel) equals: 0 (CSICR21) 1 (CSICR22)
     uint32_t PIXEL_COUNTERS : 24;
     uint32_t _reserved_0 : 8;
   } bits;
@@ -1975,6 +2147,7 @@ union CSI_CR88 {
   
   // Bit field definition.
   struct {
+    /// read-write - Number of pixels (Y component of the input pixel) equals: 0 (CSICR21) 1 (CSICR22)
     uint32_t PIXEL_COUNTERS : 24;
     uint32_t _reserved_0 : 8;
   } bits;
@@ -1992,6 +2165,7 @@ union CSI_CR89 {
   
   // Bit field definition.
   struct {
+    /// read-write - Number of pixels (Y component of the input pixel) equals: 0 (CSICR21) 1 (CSICR22)
     uint32_t PIXEL_COUNTERS : 24;
     uint32_t _reserved_0 : 8;
   } bits;
@@ -2009,6 +2183,7 @@ union CSI_CR90 {
   
   // Bit field definition.
   struct {
+    /// read-write - Number of pixels (Y component of the input pixel) equals: 0 (CSICR21) 1 (CSICR22)
     uint32_t PIXEL_COUNTERS : 24;
     uint32_t _reserved_0 : 8;
   } bits;
@@ -2026,6 +2201,7 @@ union CSI_CR91 {
   
   // Bit field definition.
   struct {
+    /// read-write - Number of pixels (Y component of the input pixel) equals: 0 (CSICR21) 1 (CSICR22)
     uint32_t PIXEL_COUNTERS : 24;
     uint32_t _reserved_0 : 8;
   } bits;
@@ -2043,6 +2219,7 @@ union CSI_CR92 {
   
   // Bit field definition.
   struct {
+    /// read-write - Number of pixels (Y component of the input pixel) equals: 0 (CSICR21) 1 (CSICR22)
     uint32_t PIXEL_COUNTERS : 24;
     uint32_t _reserved_0 : 8;
   } bits;
@@ -2060,6 +2237,7 @@ union CSI_CR93 {
   
   // Bit field definition.
   struct {
+    /// read-write - Number of pixels (Y component of the input pixel) equals: 0 (CSICR21) 1 (CSICR22)
     uint32_t PIXEL_COUNTERS : 24;
     uint32_t _reserved_0 : 8;
   } bits;
@@ -2077,6 +2255,7 @@ union CSI_CR94 {
   
   // Bit field definition.
   struct {
+    /// read-write - Number of pixels (Y component of the input pixel) equals: 0 (CSICR21) 1 (CSICR22)
     uint32_t PIXEL_COUNTERS : 24;
     uint32_t _reserved_0 : 8;
   } bits;
@@ -2094,6 +2273,7 @@ union CSI_CR95 {
   
   // Bit field definition.
   struct {
+    /// read-write - Number of pixels (Y component of the input pixel) equals: 0 (CSICR21) 1 (CSICR22)
     uint32_t PIXEL_COUNTERS : 24;
     uint32_t _reserved_0 : 8;
   } bits;
@@ -2111,6 +2291,7 @@ union CSI_CR96 {
   
   // Bit field definition.
   struct {
+    /// read-write - Number of pixels (Y component of the input pixel) equals: 0 (CSICR21) 1 (CSICR22)
     uint32_t PIXEL_COUNTERS : 24;
     uint32_t _reserved_0 : 8;
   } bits;
@@ -2128,6 +2309,7 @@ union CSI_CR97 {
   
   // Bit field definition.
   struct {
+    /// read-write - Number of pixels (Y component of the input pixel) equals: 0 (CSICR21) 1 (CSICR22)
     uint32_t PIXEL_COUNTERS : 24;
     uint32_t _reserved_0 : 8;
   } bits;
@@ -2145,6 +2327,7 @@ union CSI_CR98 {
   
   // Bit field definition.
   struct {
+    /// read-write - Number of pixels (Y component of the input pixel) equals: 0 (CSICR21) 1 (CSICR22)
     uint32_t PIXEL_COUNTERS : 24;
     uint32_t _reserved_0 : 8;
   } bits;
@@ -2162,6 +2345,7 @@ union CSI_CR99 {
   
   // Bit field definition.
   struct {
+    /// read-write - Number of pixels (Y component of the input pixel) equals: 0 (CSICR21) 1 (CSICR22)
     uint32_t PIXEL_COUNTERS : 24;
     uint32_t _reserved_0 : 8;
   } bits;
@@ -2179,6 +2363,7 @@ union CSI_CR100 {
   
   // Bit field definition.
   struct {
+    /// read-write - Number of pixels (Y component of the input pixel) equals: 0 (CSICR21) 1 (CSICR22)
     uint32_t PIXEL_COUNTERS : 24;
     uint32_t _reserved_0 : 8;
   } bits;
@@ -2196,6 +2381,7 @@ union CSI_CR101 {
   
   // Bit field definition.
   struct {
+    /// read-write - Number of pixels (Y component of the input pixel) equals: 0 (CSICR21) 1 (CSICR22)
     uint32_t PIXEL_COUNTERS : 24;
     uint32_t _reserved_0 : 8;
   } bits;
@@ -2213,6 +2399,7 @@ union CSI_CR102 {
   
   // Bit field definition.
   struct {
+    /// read-write - Number of pixels (Y component of the input pixel) equals: 0 (CSICR21) 1 (CSICR22)
     uint32_t PIXEL_COUNTERS : 24;
     uint32_t _reserved_0 : 8;
   } bits;
@@ -2230,6 +2417,7 @@ union CSI_CR103 {
   
   // Bit field definition.
   struct {
+    /// read-write - Number of pixels (Y component of the input pixel) equals: 0 (CSICR21) 1 (CSICR22)
     uint32_t PIXEL_COUNTERS : 24;
     uint32_t _reserved_0 : 8;
   } bits;
@@ -2247,6 +2435,7 @@ union CSI_CR104 {
   
   // Bit field definition.
   struct {
+    /// read-write - Number of pixels (Y component of the input pixel) equals: 0 (CSICR21) 1 (CSICR22)
     uint32_t PIXEL_COUNTERS : 24;
     uint32_t _reserved_0 : 8;
   } bits;
@@ -2264,6 +2453,7 @@ union CSI_CR105 {
   
   // Bit field definition.
   struct {
+    /// read-write - Number of pixels (Y component of the input pixel) equals: 0 (CSICR21) 1 (CSICR22)
     uint32_t PIXEL_COUNTERS : 24;
     uint32_t _reserved_0 : 8;
   } bits;
@@ -2281,6 +2471,7 @@ union CSI_CR106 {
   
   // Bit field definition.
   struct {
+    /// read-write - Number of pixels (Y component of the input pixel) equals: 0 (CSICR21) 1 (CSICR22)
     uint32_t PIXEL_COUNTERS : 24;
     uint32_t _reserved_0 : 8;
   } bits;
@@ -2298,6 +2489,7 @@ union CSI_CR107 {
   
   // Bit field definition.
   struct {
+    /// read-write - Number of pixels (Y component of the input pixel) equals: 0 (CSICR21) 1 (CSICR22)
     uint32_t PIXEL_COUNTERS : 24;
     uint32_t _reserved_0 : 8;
   } bits;
@@ -2315,6 +2507,7 @@ union CSI_CR108 {
   
   // Bit field definition.
   struct {
+    /// read-write - Number of pixels (Y component of the input pixel) equals: 0 (CSICR21) 1 (CSICR22)
     uint32_t PIXEL_COUNTERS : 24;
     uint32_t _reserved_0 : 8;
   } bits;
@@ -2332,6 +2525,7 @@ union CSI_CR109 {
   
   // Bit field definition.
   struct {
+    /// read-write - Number of pixels (Y component of the input pixel) equals: 0 (CSICR21) 1 (CSICR22)
     uint32_t PIXEL_COUNTERS : 24;
     uint32_t _reserved_0 : 8;
   } bits;
@@ -2349,6 +2543,7 @@ union CSI_CR110 {
   
   // Bit field definition.
   struct {
+    /// read-write - Number of pixels (Y component of the input pixel) equals: 0 (CSICR21) 1 (CSICR22)
     uint32_t PIXEL_COUNTERS : 24;
     uint32_t _reserved_0 : 8;
   } bits;
@@ -2366,6 +2561,7 @@ union CSI_CR111 {
   
   // Bit field definition.
   struct {
+    /// read-write - Number of pixels (Y component of the input pixel) equals: 0 (CSICR21) 1 (CSICR22)
     uint32_t PIXEL_COUNTERS : 24;
     uint32_t _reserved_0 : 8;
   } bits;
@@ -2383,6 +2579,7 @@ union CSI_CR112 {
   
   // Bit field definition.
   struct {
+    /// read-write - Number of pixels (Y component of the input pixel) equals: 0 (CSICR21) 1 (CSICR22)
     uint32_t PIXEL_COUNTERS : 24;
     uint32_t _reserved_0 : 8;
   } bits;
@@ -2400,6 +2597,7 @@ union CSI_CR113 {
   
   // Bit field definition.
   struct {
+    /// read-write - Number of pixels (Y component of the input pixel) equals: 0 (CSICR21) 1 (CSICR22)
     uint32_t PIXEL_COUNTERS : 24;
     uint32_t _reserved_0 : 8;
   } bits;
@@ -2417,6 +2615,7 @@ union CSI_CR114 {
   
   // Bit field definition.
   struct {
+    /// read-write - Number of pixels (Y component of the input pixel) equals: 0 (CSICR21) 1 (CSICR22)
     uint32_t PIXEL_COUNTERS : 24;
     uint32_t _reserved_0 : 8;
   } bits;
@@ -2434,6 +2633,7 @@ union CSI_CR115 {
   
   // Bit field definition.
   struct {
+    /// read-write - Number of pixels (Y component of the input pixel) equals: 0 (CSICR21) 1 (CSICR22)
     uint32_t PIXEL_COUNTERS : 24;
     uint32_t _reserved_0 : 8;
   } bits;
@@ -2451,6 +2651,7 @@ union CSI_CR116 {
   
   // Bit field definition.
   struct {
+    /// read-write - Number of pixels (Y component of the input pixel) equals: 0 (CSICR21) 1 (CSICR22)
     uint32_t PIXEL_COUNTERS : 24;
     uint32_t _reserved_0 : 8;
   } bits;
@@ -2468,6 +2669,7 @@ union CSI_CR117 {
   
   // Bit field definition.
   struct {
+    /// read-write - Number of pixels (Y component of the input pixel) equals: 0 (CSICR21) 1 (CSICR22)
     uint32_t PIXEL_COUNTERS : 24;
     uint32_t _reserved_0 : 8;
   } bits;
@@ -2485,6 +2687,7 @@ union CSI_CR118 {
   
   // Bit field definition.
   struct {
+    /// read-write - Number of pixels (Y component of the input pixel) equals: 0 (CSICR21) 1 (CSICR22)
     uint32_t PIXEL_COUNTERS : 24;
     uint32_t _reserved_0 : 8;
   } bits;
@@ -2502,6 +2705,7 @@ union CSI_CR119 {
   
   // Bit field definition.
   struct {
+    /// read-write - Number of pixels (Y component of the input pixel) equals: 0 (CSICR21) 1 (CSICR22)
     uint32_t PIXEL_COUNTERS : 24;
     uint32_t _reserved_0 : 8;
   } bits;
@@ -2519,6 +2723,7 @@ union CSI_CR120 {
   
   // Bit field definition.
   struct {
+    /// read-write - Number of pixels (Y component of the input pixel) equals: 0 (CSICR21) 1 (CSICR22)
     uint32_t PIXEL_COUNTERS : 24;
     uint32_t _reserved_0 : 8;
   } bits;
@@ -2536,6 +2741,7 @@ union CSI_CR121 {
   
   // Bit field definition.
   struct {
+    /// read-write - Number of pixels (Y component of the input pixel) equals: 0 (CSICR21) 1 (CSICR22)
     uint32_t PIXEL_COUNTERS : 24;
     uint32_t _reserved_0 : 8;
   } bits;
@@ -2553,6 +2759,7 @@ union CSI_CR122 {
   
   // Bit field definition.
   struct {
+    /// read-write - Number of pixels (Y component of the input pixel) equals: 0 (CSICR21) 1 (CSICR22)
     uint32_t PIXEL_COUNTERS : 24;
     uint32_t _reserved_0 : 8;
   } bits;
@@ -2570,6 +2777,7 @@ union CSI_CR123 {
   
   // Bit field definition.
   struct {
+    /// read-write - Number of pixels (Y component of the input pixel) equals: 0 (CSICR21) 1 (CSICR22)
     uint32_t PIXEL_COUNTERS : 24;
     uint32_t _reserved_0 : 8;
   } bits;
@@ -2587,6 +2795,7 @@ union CSI_CR124 {
   
   // Bit field definition.
   struct {
+    /// read-write - Number of pixels (Y component of the input pixel) equals: 0 (CSICR21) 1 (CSICR22)
     uint32_t PIXEL_COUNTERS : 24;
     uint32_t _reserved_0 : 8;
   } bits;
@@ -2604,6 +2813,7 @@ union CSI_CR125 {
   
   // Bit field definition.
   struct {
+    /// read-write - Number of pixels (Y component of the input pixel) equals: 0 (CSICR21) 1 (CSICR22)
     uint32_t PIXEL_COUNTERS : 24;
     uint32_t _reserved_0 : 8;
   } bits;
@@ -2621,6 +2831,7 @@ union CSI_CR126 {
   
   // Bit field definition.
   struct {
+    /// read-write - Number of pixels (Y component of the input pixel) equals: 0 (CSICR21) 1 (CSICR22)
     uint32_t PIXEL_COUNTERS : 24;
     uint32_t _reserved_0 : 8;
   } bits;
@@ -2638,6 +2849,7 @@ union CSI_CR127 {
   
   // Bit field definition.
   struct {
+    /// read-write - Number of pixels (Y component of the input pixel) equals: 0 (CSICR21) 1 (CSICR22)
     uint32_t PIXEL_COUNTERS : 24;
     uint32_t _reserved_0 : 8;
   } bits;
@@ -2655,6 +2867,7 @@ union CSI_CR128 {
   
   // Bit field definition.
   struct {
+    /// read-write - Number of pixels (Y component of the input pixel) equals: 0 (CSICR21) 1 (CSICR22)
     uint32_t PIXEL_COUNTERS : 24;
     uint32_t _reserved_0 : 8;
   } bits;
@@ -2672,6 +2885,7 @@ union CSI_CR129 {
   
   // Bit field definition.
   struct {
+    /// read-write - Number of pixels (Y component of the input pixel) equals: 0 (CSICR21) 1 (CSICR22)
     uint32_t PIXEL_COUNTERS : 24;
     uint32_t _reserved_0 : 8;
   } bits;
@@ -2689,6 +2903,7 @@ union CSI_CR130 {
   
   // Bit field definition.
   struct {
+    /// read-write - Number of pixels (Y component of the input pixel) equals: 0 (CSICR21) 1 (CSICR22)
     uint32_t PIXEL_COUNTERS : 24;
     uint32_t _reserved_0 : 8;
   } bits;
@@ -2706,6 +2921,7 @@ union CSI_CR131 {
   
   // Bit field definition.
   struct {
+    /// read-write - Number of pixels (Y component of the input pixel) equals: 0 (CSICR21) 1 (CSICR22)
     uint32_t PIXEL_COUNTERS : 24;
     uint32_t _reserved_0 : 8;
   } bits;
@@ -2723,6 +2939,7 @@ union CSI_CR132 {
   
   // Bit field definition.
   struct {
+    /// read-write - Number of pixels (Y component of the input pixel) equals: 0 (CSICR21) 1 (CSICR22)
     uint32_t PIXEL_COUNTERS : 24;
     uint32_t _reserved_0 : 8;
   } bits;
@@ -2740,6 +2957,7 @@ union CSI_CR133 {
   
   // Bit field definition.
   struct {
+    /// read-write - Number of pixels (Y component of the input pixel) equals: 0 (CSICR21) 1 (CSICR22)
     uint32_t PIXEL_COUNTERS : 24;
     uint32_t _reserved_0 : 8;
   } bits;
@@ -2757,6 +2975,7 @@ union CSI_CR134 {
   
   // Bit field definition.
   struct {
+    /// read-write - Number of pixels (Y component of the input pixel) equals: 0 (CSICR21) 1 (CSICR22)
     uint32_t PIXEL_COUNTERS : 24;
     uint32_t _reserved_0 : 8;
   } bits;
@@ -2774,6 +2993,7 @@ union CSI_CR135 {
   
   // Bit field definition.
   struct {
+    /// read-write - Number of pixels (Y component of the input pixel) equals: 0 (CSICR21) 1 (CSICR22)
     uint32_t PIXEL_COUNTERS : 24;
     uint32_t _reserved_0 : 8;
   } bits;
@@ -2791,6 +3011,7 @@ union CSI_CR136 {
   
   // Bit field definition.
   struct {
+    /// read-write - Number of pixels (Y component of the input pixel) equals: 0 (CSICR21) 1 (CSICR22)
     uint32_t PIXEL_COUNTERS : 24;
     uint32_t _reserved_0 : 8;
   } bits;
@@ -2808,6 +3029,7 @@ union CSI_CR137 {
   
   // Bit field definition.
   struct {
+    /// read-write - Number of pixels (Y component of the input pixel) equals: 0 (CSICR21) 1 (CSICR22)
     uint32_t PIXEL_COUNTERS : 24;
     uint32_t _reserved_0 : 8;
   } bits;
@@ -2825,6 +3047,7 @@ union CSI_CR138 {
   
   // Bit field definition.
   struct {
+    /// read-write - Number of pixels (Y component of the input pixel) equals: 0 (CSICR21) 1 (CSICR22)
     uint32_t PIXEL_COUNTERS : 24;
     uint32_t _reserved_0 : 8;
   } bits;
@@ -2842,6 +3065,7 @@ union CSI_CR139 {
   
   // Bit field definition.
   struct {
+    /// read-write - Number of pixels (Y component of the input pixel) equals: 0 (CSICR21) 1 (CSICR22)
     uint32_t PIXEL_COUNTERS : 24;
     uint32_t _reserved_0 : 8;
   } bits;
@@ -2859,6 +3083,7 @@ union CSI_CR140 {
   
   // Bit field definition.
   struct {
+    /// read-write - Number of pixels (Y component of the input pixel) equals: 0 (CSICR21) 1 (CSICR22)
     uint32_t PIXEL_COUNTERS : 24;
     uint32_t _reserved_0 : 8;
   } bits;
@@ -2876,6 +3101,7 @@ union CSI_CR141 {
   
   // Bit field definition.
   struct {
+    /// read-write - Number of pixels (Y component of the input pixel) equals: 0 (CSICR21) 1 (CSICR22)
     uint32_t PIXEL_COUNTERS : 24;
     uint32_t _reserved_0 : 8;
   } bits;
@@ -2893,6 +3119,7 @@ union CSI_CR142 {
   
   // Bit field definition.
   struct {
+    /// read-write - Number of pixels (Y component of the input pixel) equals: 0 (CSICR21) 1 (CSICR22)
     uint32_t PIXEL_COUNTERS : 24;
     uint32_t _reserved_0 : 8;
   } bits;
@@ -2910,6 +3137,7 @@ union CSI_CR143 {
   
   // Bit field definition.
   struct {
+    /// read-write - Number of pixels (Y component of the input pixel) equals: 0 (CSICR21) 1 (CSICR22)
     uint32_t PIXEL_COUNTERS : 24;
     uint32_t _reserved_0 : 8;
   } bits;
@@ -2927,6 +3155,7 @@ union CSI_CR144 {
   
   // Bit field definition.
   struct {
+    /// read-write - Number of pixels (Y component of the input pixel) equals: 0 (CSICR21) 1 (CSICR22)
     uint32_t PIXEL_COUNTERS : 24;
     uint32_t _reserved_0 : 8;
   } bits;
@@ -2944,6 +3173,7 @@ union CSI_CR145 {
   
   // Bit field definition.
   struct {
+    /// read-write - Number of pixels (Y component of the input pixel) equals: 0 (CSICR21) 1 (CSICR22)
     uint32_t PIXEL_COUNTERS : 24;
     uint32_t _reserved_0 : 8;
   } bits;
@@ -2961,6 +3191,7 @@ union CSI_CR146 {
   
   // Bit field definition.
   struct {
+    /// read-write - Number of pixels (Y component of the input pixel) equals: 0 (CSICR21) 1 (CSICR22)
     uint32_t PIXEL_COUNTERS : 24;
     uint32_t _reserved_0 : 8;
   } bits;
@@ -2978,6 +3209,7 @@ union CSI_CR147 {
   
   // Bit field definition.
   struct {
+    /// read-write - Number of pixels (Y component of the input pixel) equals: 0 (CSICR21) 1 (CSICR22)
     uint32_t PIXEL_COUNTERS : 24;
     uint32_t _reserved_0 : 8;
   } bits;
@@ -2995,6 +3227,7 @@ union CSI_CR148 {
   
   // Bit field definition.
   struct {
+    /// read-write - Number of pixels (Y component of the input pixel) equals: 0 (CSICR21) 1 (CSICR22)
     uint32_t PIXEL_COUNTERS : 24;
     uint32_t _reserved_0 : 8;
   } bits;
@@ -3012,6 +3245,7 @@ union CSI_CR149 {
   
   // Bit field definition.
   struct {
+    /// read-write - Number of pixels (Y component of the input pixel) equals: 0 (CSICR21) 1 (CSICR22)
     uint32_t PIXEL_COUNTERS : 24;
     uint32_t _reserved_0 : 8;
   } bits;
@@ -3029,6 +3263,7 @@ union CSI_CR150 {
   
   // Bit field definition.
   struct {
+    /// read-write - Number of pixels (Y component of the input pixel) equals: 0 (CSICR21) 1 (CSICR22)
     uint32_t PIXEL_COUNTERS : 24;
     uint32_t _reserved_0 : 8;
   } bits;
@@ -3046,6 +3281,7 @@ union CSI_CR151 {
   
   // Bit field definition.
   struct {
+    /// read-write - Number of pixels (Y component of the input pixel) equals: 0 (CSICR21) 1 (CSICR22)
     uint32_t PIXEL_COUNTERS : 24;
     uint32_t _reserved_0 : 8;
   } bits;
@@ -3063,6 +3299,7 @@ union CSI_CR152 {
   
   // Bit field definition.
   struct {
+    /// read-write - Number of pixels (Y component of the input pixel) equals: 0 (CSICR21) 1 (CSICR22)
     uint32_t PIXEL_COUNTERS : 24;
     uint32_t _reserved_0 : 8;
   } bits;
@@ -3080,6 +3317,7 @@ union CSI_CR153 {
   
   // Bit field definition.
   struct {
+    /// read-write - Number of pixels (Y component of the input pixel) equals: 0 (CSICR21) 1 (CSICR22)
     uint32_t PIXEL_COUNTERS : 24;
     uint32_t _reserved_0 : 8;
   } bits;
@@ -3097,6 +3335,7 @@ union CSI_CR154 {
   
   // Bit field definition.
   struct {
+    /// read-write - Number of pixels (Y component of the input pixel) equals: 0 (CSICR21) 1 (CSICR22)
     uint32_t PIXEL_COUNTERS : 24;
     uint32_t _reserved_0 : 8;
   } bits;
@@ -3114,6 +3353,7 @@ union CSI_CR155 {
   
   // Bit field definition.
   struct {
+    /// read-write - Number of pixels (Y component of the input pixel) equals: 0 (CSICR21) 1 (CSICR22)
     uint32_t PIXEL_COUNTERS : 24;
     uint32_t _reserved_0 : 8;
   } bits;
@@ -3131,6 +3371,7 @@ union CSI_CR156 {
   
   // Bit field definition.
   struct {
+    /// read-write - Number of pixels (Y component of the input pixel) equals: 0 (CSICR21) 1 (CSICR22)
     uint32_t PIXEL_COUNTERS : 24;
     uint32_t _reserved_0 : 8;
   } bits;
@@ -3148,6 +3389,7 @@ union CSI_CR157 {
   
   // Bit field definition.
   struct {
+    /// read-write - Number of pixels (Y component of the input pixel) equals: 0 (CSICR21) 1 (CSICR22)
     uint32_t PIXEL_COUNTERS : 24;
     uint32_t _reserved_0 : 8;
   } bits;
@@ -3165,6 +3407,7 @@ union CSI_CR158 {
   
   // Bit field definition.
   struct {
+    /// read-write - Number of pixels (Y component of the input pixel) equals: 0 (CSICR21) 1 (CSICR22)
     uint32_t PIXEL_COUNTERS : 24;
     uint32_t _reserved_0 : 8;
   } bits;
@@ -3182,6 +3425,7 @@ union CSI_CR159 {
   
   // Bit field definition.
   struct {
+    /// read-write - Number of pixels (Y component of the input pixel) equals: 0 (CSICR21) 1 (CSICR22)
     uint32_t PIXEL_COUNTERS : 24;
     uint32_t _reserved_0 : 8;
   } bits;
@@ -3199,6 +3443,7 @@ union CSI_CR160 {
   
   // Bit field definition.
   struct {
+    /// read-write - Number of pixels (Y component of the input pixel) equals: 0 (CSICR21) 1 (CSICR22)
     uint32_t PIXEL_COUNTERS : 24;
     uint32_t _reserved_0 : 8;
   } bits;
@@ -3216,6 +3461,7 @@ union CSI_CR161 {
   
   // Bit field definition.
   struct {
+    /// read-write - Number of pixels (Y component of the input pixel) equals: 0 (CSICR21) 1 (CSICR22)
     uint32_t PIXEL_COUNTERS : 24;
     uint32_t _reserved_0 : 8;
   } bits;
@@ -3233,6 +3479,7 @@ union CSI_CR162 {
   
   // Bit field definition.
   struct {
+    /// read-write - Number of pixels (Y component of the input pixel) equals: 0 (CSICR21) 1 (CSICR22)
     uint32_t PIXEL_COUNTERS : 24;
     uint32_t _reserved_0 : 8;
   } bits;
@@ -3250,6 +3497,7 @@ union CSI_CR163 {
   
   // Bit field definition.
   struct {
+    /// read-write - Number of pixels (Y component of the input pixel) equals: 0 (CSICR21) 1 (CSICR22)
     uint32_t PIXEL_COUNTERS : 24;
     uint32_t _reserved_0 : 8;
   } bits;
@@ -3267,6 +3515,7 @@ union CSI_CR164 {
   
   // Bit field definition.
   struct {
+    /// read-write - Number of pixels (Y component of the input pixel) equals: 0 (CSICR21) 1 (CSICR22)
     uint32_t PIXEL_COUNTERS : 24;
     uint32_t _reserved_0 : 8;
   } bits;
@@ -3284,6 +3533,7 @@ union CSI_CR165 {
   
   // Bit field definition.
   struct {
+    /// read-write - Number of pixels (Y component of the input pixel) equals: 0 (CSICR21) 1 (CSICR22)
     uint32_t PIXEL_COUNTERS : 24;
     uint32_t _reserved_0 : 8;
   } bits;
@@ -3301,6 +3551,7 @@ union CSI_CR166 {
   
   // Bit field definition.
   struct {
+    /// read-write - Number of pixels (Y component of the input pixel) equals: 0 (CSICR21) 1 (CSICR22)
     uint32_t PIXEL_COUNTERS : 24;
     uint32_t _reserved_0 : 8;
   } bits;
@@ -3318,6 +3569,7 @@ union CSI_CR167 {
   
   // Bit field definition.
   struct {
+    /// read-write - Number of pixels (Y component of the input pixel) equals: 0 (CSICR21) 1 (CSICR22)
     uint32_t PIXEL_COUNTERS : 24;
     uint32_t _reserved_0 : 8;
   } bits;
@@ -3335,6 +3587,7 @@ union CSI_CR168 {
   
   // Bit field definition.
   struct {
+    /// read-write - Number of pixels (Y component of the input pixel) equals: 0 (CSICR21) 1 (CSICR22)
     uint32_t PIXEL_COUNTERS : 24;
     uint32_t _reserved_0 : 8;
   } bits;
@@ -3352,6 +3605,7 @@ union CSI_CR169 {
   
   // Bit field definition.
   struct {
+    /// read-write - Number of pixels (Y component of the input pixel) equals: 0 (CSICR21) 1 (CSICR22)
     uint32_t PIXEL_COUNTERS : 24;
     uint32_t _reserved_0 : 8;
   } bits;
@@ -3369,6 +3623,7 @@ union CSI_CR170 {
   
   // Bit field definition.
   struct {
+    /// read-write - Number of pixels (Y component of the input pixel) equals: 0 (CSICR21) 1 (CSICR22)
     uint32_t PIXEL_COUNTERS : 24;
     uint32_t _reserved_0 : 8;
   } bits;
@@ -3386,6 +3641,7 @@ union CSI_CR171 {
   
   // Bit field definition.
   struct {
+    /// read-write - Number of pixels (Y component of the input pixel) equals: 0 (CSICR21) 1 (CSICR22)
     uint32_t PIXEL_COUNTERS : 24;
     uint32_t _reserved_0 : 8;
   } bits;
@@ -3403,6 +3659,7 @@ union CSI_CR172 {
   
   // Bit field definition.
   struct {
+    /// read-write - Number of pixels (Y component of the input pixel) equals: 0 (CSICR21) 1 (CSICR22)
     uint32_t PIXEL_COUNTERS : 24;
     uint32_t _reserved_0 : 8;
   } bits;
@@ -3420,6 +3677,7 @@ union CSI_CR173 {
   
   // Bit field definition.
   struct {
+    /// read-write - Number of pixels (Y component of the input pixel) equals: 0 (CSICR21) 1 (CSICR22)
     uint32_t PIXEL_COUNTERS : 24;
     uint32_t _reserved_0 : 8;
   } bits;
@@ -3437,6 +3695,7 @@ union CSI_CR174 {
   
   // Bit field definition.
   struct {
+    /// read-write - Number of pixels (Y component of the input pixel) equals: 0 (CSICR21) 1 (CSICR22)
     uint32_t PIXEL_COUNTERS : 24;
     uint32_t _reserved_0 : 8;
   } bits;
@@ -3454,6 +3713,7 @@ union CSI_CR175 {
   
   // Bit field definition.
   struct {
+    /// read-write - Number of pixels (Y component of the input pixel) equals: 0 (CSICR21) 1 (CSICR22)
     uint32_t PIXEL_COUNTERS : 24;
     uint32_t _reserved_0 : 8;
   } bits;
@@ -3471,6 +3731,7 @@ union CSI_CR176 {
   
   // Bit field definition.
   struct {
+    /// read-write - Number of pixels (Y component of the input pixel) equals: 0 (CSICR21) 1 (CSICR22)
     uint32_t PIXEL_COUNTERS : 24;
     uint32_t _reserved_0 : 8;
   } bits;
@@ -3488,6 +3749,7 @@ union CSI_CR177 {
   
   // Bit field definition.
   struct {
+    /// read-write - Number of pixels (Y component of the input pixel) equals: 0 (CSICR21) 1 (CSICR22)
     uint32_t PIXEL_COUNTERS : 24;
     uint32_t _reserved_0 : 8;
   } bits;
@@ -3505,6 +3767,7 @@ union CSI_CR178 {
   
   // Bit field definition.
   struct {
+    /// read-write - Number of pixels (Y component of the input pixel) equals: 0 (CSICR21) 1 (CSICR22)
     uint32_t PIXEL_COUNTERS : 24;
     uint32_t _reserved_0 : 8;
   } bits;
@@ -3522,6 +3785,7 @@ union CSI_CR179 {
   
   // Bit field definition.
   struct {
+    /// read-write - Number of pixels (Y component of the input pixel) equals: 0 (CSICR21) 1 (CSICR22)
     uint32_t PIXEL_COUNTERS : 24;
     uint32_t _reserved_0 : 8;
   } bits;
@@ -3539,6 +3803,7 @@ union CSI_CR180 {
   
   // Bit field definition.
   struct {
+    /// read-write - Number of pixels (Y component of the input pixel) equals: 0 (CSICR21) 1 (CSICR22)
     uint32_t PIXEL_COUNTERS : 24;
     uint32_t _reserved_0 : 8;
   } bits;
@@ -3556,6 +3821,7 @@ union CSI_CR181 {
   
   // Bit field definition.
   struct {
+    /// read-write - Number of pixels (Y component of the input pixel) equals: 0 (CSICR21) 1 (CSICR22)
     uint32_t PIXEL_COUNTERS : 24;
     uint32_t _reserved_0 : 8;
   } bits;
@@ -3573,6 +3839,7 @@ union CSI_CR182 {
   
   // Bit field definition.
   struct {
+    /// read-write - Number of pixels (Y component of the input pixel) equals: 0 (CSICR21) 1 (CSICR22)
     uint32_t PIXEL_COUNTERS : 24;
     uint32_t _reserved_0 : 8;
   } bits;
@@ -3590,6 +3857,7 @@ union CSI_CR183 {
   
   // Bit field definition.
   struct {
+    /// read-write - Number of pixels (Y component of the input pixel) equals: 0 (CSICR21) 1 (CSICR22)
     uint32_t PIXEL_COUNTERS : 24;
     uint32_t _reserved_0 : 8;
   } bits;
@@ -3607,6 +3875,7 @@ union CSI_CR184 {
   
   // Bit field definition.
   struct {
+    /// read-write - Number of pixels (Y component of the input pixel) equals: 0 (CSICR21) 1 (CSICR22)
     uint32_t PIXEL_COUNTERS : 24;
     uint32_t _reserved_0 : 8;
   } bits;
@@ -3624,6 +3893,7 @@ union CSI_CR185 {
   
   // Bit field definition.
   struct {
+    /// read-write - Number of pixels (Y component of the input pixel) equals: 0 (CSICR21) 1 (CSICR22)
     uint32_t PIXEL_COUNTERS : 24;
     uint32_t _reserved_0 : 8;
   } bits;
@@ -3641,6 +3911,7 @@ union CSI_CR186 {
   
   // Bit field definition.
   struct {
+    /// read-write - Number of pixels (Y component of the input pixel) equals: 0 (CSICR21) 1 (CSICR22)
     uint32_t PIXEL_COUNTERS : 24;
     uint32_t _reserved_0 : 8;
   } bits;
@@ -3658,6 +3929,7 @@ union CSI_CR187 {
   
   // Bit field definition.
   struct {
+    /// read-write - Number of pixels (Y component of the input pixel) equals: 0 (CSICR21) 1 (CSICR22)
     uint32_t PIXEL_COUNTERS : 24;
     uint32_t _reserved_0 : 8;
   } bits;
@@ -3675,6 +3947,7 @@ union CSI_CR188 {
   
   // Bit field definition.
   struct {
+    /// read-write - Number of pixels (Y component of the input pixel) equals: 0 (CSICR21) 1 (CSICR22)
     uint32_t PIXEL_COUNTERS : 24;
     uint32_t _reserved_0 : 8;
   } bits;
@@ -3692,6 +3965,7 @@ union CSI_CR189 {
   
   // Bit field definition.
   struct {
+    /// read-write - Number of pixels (Y component of the input pixel) equals: 0 (CSICR21) 1 (CSICR22)
     uint32_t PIXEL_COUNTERS : 24;
     uint32_t _reserved_0 : 8;
   } bits;
@@ -3709,6 +3983,7 @@ union CSI_CR190 {
   
   // Bit field definition.
   struct {
+    /// read-write - Number of pixels (Y component of the input pixel) equals: 0 (CSICR21) 1 (CSICR22)
     uint32_t PIXEL_COUNTERS : 24;
     uint32_t _reserved_0 : 8;
   } bits;
@@ -3726,6 +4001,7 @@ union CSI_CR191 {
   
   // Bit field definition.
   struct {
+    /// read-write - Number of pixels (Y component of the input pixel) equals: 0 (CSICR21) 1 (CSICR22)
     uint32_t PIXEL_COUNTERS : 24;
     uint32_t _reserved_0 : 8;
   } bits;
@@ -3743,6 +4019,7 @@ union CSI_CR192 {
   
   // Bit field definition.
   struct {
+    /// read-write - Number of pixels (Y component of the input pixel) equals: 0 (CSICR21) 1 (CSICR22)
     uint32_t PIXEL_COUNTERS : 24;
     uint32_t _reserved_0 : 8;
   } bits;
@@ -3760,6 +4037,7 @@ union CSI_CR193 {
   
   // Bit field definition.
   struct {
+    /// read-write - Number of pixels (Y component of the input pixel) equals: 0 (CSICR21) 1 (CSICR22)
     uint32_t PIXEL_COUNTERS : 24;
     uint32_t _reserved_0 : 8;
   } bits;
@@ -3777,6 +4055,7 @@ union CSI_CR194 {
   
   // Bit field definition.
   struct {
+    /// read-write - Number of pixels (Y component of the input pixel) equals: 0 (CSICR21) 1 (CSICR22)
     uint32_t PIXEL_COUNTERS : 24;
     uint32_t _reserved_0 : 8;
   } bits;
@@ -3794,6 +4073,7 @@ union CSI_CR195 {
   
   // Bit field definition.
   struct {
+    /// read-write - Number of pixels (Y component of the input pixel) equals: 0 (CSICR21) 1 (CSICR22)
     uint32_t PIXEL_COUNTERS : 24;
     uint32_t _reserved_0 : 8;
   } bits;
@@ -3811,6 +4091,7 @@ union CSI_CR196 {
   
   // Bit field definition.
   struct {
+    /// read-write - Number of pixels (Y component of the input pixel) equals: 0 (CSICR21) 1 (CSICR22)
     uint32_t PIXEL_COUNTERS : 24;
     uint32_t _reserved_0 : 8;
   } bits;
@@ -3828,6 +4109,7 @@ union CSI_CR197 {
   
   // Bit field definition.
   struct {
+    /// read-write - Number of pixels (Y component of the input pixel) equals: 0 (CSICR21) 1 (CSICR22)
     uint32_t PIXEL_COUNTERS : 24;
     uint32_t _reserved_0 : 8;
   } bits;
@@ -3845,6 +4127,7 @@ union CSI_CR198 {
   
   // Bit field definition.
   struct {
+    /// read-write - Number of pixels (Y component of the input pixel) equals: 0 (CSICR21) 1 (CSICR22)
     uint32_t PIXEL_COUNTERS : 24;
     uint32_t _reserved_0 : 8;
   } bits;
@@ -3862,6 +4145,7 @@ union CSI_CR199 {
   
   // Bit field definition.
   struct {
+    /// read-write - Number of pixels (Y component of the input pixel) equals: 0 (CSICR21) 1 (CSICR22)
     uint32_t PIXEL_COUNTERS : 24;
     uint32_t _reserved_0 : 8;
   } bits;
@@ -3879,6 +4163,7 @@ union CSI_CR200 {
   
   // Bit field definition.
   struct {
+    /// read-write - Number of pixels (Y component of the input pixel) equals: 0 (CSICR21) 1 (CSICR22)
     uint32_t PIXEL_COUNTERS : 24;
     uint32_t _reserved_0 : 8;
   } bits;
@@ -3896,6 +4181,7 @@ union CSI_CR201 {
   
   // Bit field definition.
   struct {
+    /// read-write - Number of pixels (Y component of the input pixel) equals: 0 (CSICR21) 1 (CSICR22)
     uint32_t PIXEL_COUNTERS : 24;
     uint32_t _reserved_0 : 8;
   } bits;
@@ -3913,6 +4199,7 @@ union CSI_CR202 {
   
   // Bit field definition.
   struct {
+    /// read-write - Number of pixels (Y component of the input pixel) equals: 0 (CSICR21) 1 (CSICR22)
     uint32_t PIXEL_COUNTERS : 24;
     uint32_t _reserved_0 : 8;
   } bits;
@@ -3930,6 +4217,7 @@ union CSI_CR203 {
   
   // Bit field definition.
   struct {
+    /// read-write - Number of pixels (Y component of the input pixel) equals: 0 (CSICR21) 1 (CSICR22)
     uint32_t PIXEL_COUNTERS : 24;
     uint32_t _reserved_0 : 8;
   } bits;
@@ -3947,6 +4235,7 @@ union CSI_CR204 {
   
   // Bit field definition.
   struct {
+    /// read-write - Number of pixels (Y component of the input pixel) equals: 0 (CSICR21) 1 (CSICR22)
     uint32_t PIXEL_COUNTERS : 24;
     uint32_t _reserved_0 : 8;
   } bits;
@@ -3964,6 +4253,7 @@ union CSI_CR205 {
   
   // Bit field definition.
   struct {
+    /// read-write - Number of pixels (Y component of the input pixel) equals: 0 (CSICR21) 1 (CSICR22)
     uint32_t PIXEL_COUNTERS : 24;
     uint32_t _reserved_0 : 8;
   } bits;
@@ -3981,6 +4271,7 @@ union CSI_CR206 {
   
   // Bit field definition.
   struct {
+    /// read-write - Number of pixels (Y component of the input pixel) equals: 0 (CSICR21) 1 (CSICR22)
     uint32_t PIXEL_COUNTERS : 24;
     uint32_t _reserved_0 : 8;
   } bits;
@@ -3998,6 +4289,7 @@ union CSI_CR207 {
   
   // Bit field definition.
   struct {
+    /// read-write - Number of pixels (Y component of the input pixel) equals: 0 (CSICR21) 1 (CSICR22)
     uint32_t PIXEL_COUNTERS : 24;
     uint32_t _reserved_0 : 8;
   } bits;
@@ -4015,6 +4307,7 @@ union CSI_CR208 {
   
   // Bit field definition.
   struct {
+    /// read-write - Number of pixels (Y component of the input pixel) equals: 0 (CSICR21) 1 (CSICR22)
     uint32_t PIXEL_COUNTERS : 24;
     uint32_t _reserved_0 : 8;
   } bits;
@@ -4032,6 +4325,7 @@ union CSI_CR209 {
   
   // Bit field definition.
   struct {
+    /// read-write - Number of pixels (Y component of the input pixel) equals: 0 (CSICR21) 1 (CSICR22)
     uint32_t PIXEL_COUNTERS : 24;
     uint32_t _reserved_0 : 8;
   } bits;
@@ -4049,6 +4343,7 @@ union CSI_CR210 {
   
   // Bit field definition.
   struct {
+    /// read-write - Number of pixels (Y component of the input pixel) equals: 0 (CSICR21) 1 (CSICR22)
     uint32_t PIXEL_COUNTERS : 24;
     uint32_t _reserved_0 : 8;
   } bits;
@@ -4066,6 +4361,7 @@ union CSI_CR211 {
   
   // Bit field definition.
   struct {
+    /// read-write - Number of pixels (Y component of the input pixel) equals: 0 (CSICR21) 1 (CSICR22)
     uint32_t PIXEL_COUNTERS : 24;
     uint32_t _reserved_0 : 8;
   } bits;
@@ -4083,6 +4379,7 @@ union CSI_CR212 {
   
   // Bit field definition.
   struct {
+    /// read-write - Number of pixels (Y component of the input pixel) equals: 0 (CSICR21) 1 (CSICR22)
     uint32_t PIXEL_COUNTERS : 24;
     uint32_t _reserved_0 : 8;
   } bits;
@@ -4100,6 +4397,7 @@ union CSI_CR213 {
   
   // Bit field definition.
   struct {
+    /// read-write - Number of pixels (Y component of the input pixel) equals: 0 (CSICR21) 1 (CSICR22)
     uint32_t PIXEL_COUNTERS : 24;
     uint32_t _reserved_0 : 8;
   } bits;
@@ -4117,6 +4415,7 @@ union CSI_CR214 {
   
   // Bit field definition.
   struct {
+    /// read-write - Number of pixels (Y component of the input pixel) equals: 0 (CSICR21) 1 (CSICR22)
     uint32_t PIXEL_COUNTERS : 24;
     uint32_t _reserved_0 : 8;
   } bits;
@@ -4134,6 +4433,7 @@ union CSI_CR215 {
   
   // Bit field definition.
   struct {
+    /// read-write - Number of pixels (Y component of the input pixel) equals: 0 (CSICR21) 1 (CSICR22)
     uint32_t PIXEL_COUNTERS : 24;
     uint32_t _reserved_0 : 8;
   } bits;
@@ -4151,6 +4451,7 @@ union CSI_CR216 {
   
   // Bit field definition.
   struct {
+    /// read-write - Number of pixels (Y component of the input pixel) equals: 0 (CSICR21) 1 (CSICR22)
     uint32_t PIXEL_COUNTERS : 24;
     uint32_t _reserved_0 : 8;
   } bits;
@@ -4168,6 +4469,7 @@ union CSI_CR217 {
   
   // Bit field definition.
   struct {
+    /// read-write - Number of pixels (Y component of the input pixel) equals: 0 (CSICR21) 1 (CSICR22)
     uint32_t PIXEL_COUNTERS : 24;
     uint32_t _reserved_0 : 8;
   } bits;
@@ -4185,6 +4487,7 @@ union CSI_CR218 {
   
   // Bit field definition.
   struct {
+    /// read-write - Number of pixels (Y component of the input pixel) equals: 0 (CSICR21) 1 (CSICR22)
     uint32_t PIXEL_COUNTERS : 24;
     uint32_t _reserved_0 : 8;
   } bits;
@@ -4202,6 +4505,7 @@ union CSI_CR219 {
   
   // Bit field definition.
   struct {
+    /// read-write - Number of pixels (Y component of the input pixel) equals: 0 (CSICR21) 1 (CSICR22)
     uint32_t PIXEL_COUNTERS : 24;
     uint32_t _reserved_0 : 8;
   } bits;
@@ -4219,6 +4523,7 @@ union CSI_CR220 {
   
   // Bit field definition.
   struct {
+    /// read-write - Number of pixels (Y component of the input pixel) equals: 0 (CSICR21) 1 (CSICR22)
     uint32_t PIXEL_COUNTERS : 24;
     uint32_t _reserved_0 : 8;
   } bits;
@@ -4236,6 +4541,7 @@ union CSI_CR221 {
   
   // Bit field definition.
   struct {
+    /// read-write - Number of pixels (Y component of the input pixel) equals: 0 (CSICR21) 1 (CSICR22)
     uint32_t PIXEL_COUNTERS : 24;
     uint32_t _reserved_0 : 8;
   } bits;
@@ -4253,6 +4559,7 @@ union CSI_CR222 {
   
   // Bit field definition.
   struct {
+    /// read-write - Number of pixels (Y component of the input pixel) equals: 0 (CSICR21) 1 (CSICR22)
     uint32_t PIXEL_COUNTERS : 24;
     uint32_t _reserved_0 : 8;
   } bits;
@@ -4270,6 +4577,7 @@ union CSI_CR223 {
   
   // Bit field definition.
   struct {
+    /// read-write - Number of pixels (Y component of the input pixel) equals: 0 (CSICR21) 1 (CSICR22)
     uint32_t PIXEL_COUNTERS : 24;
     uint32_t _reserved_0 : 8;
   } bits;
@@ -4287,6 +4595,7 @@ union CSI_CR224 {
   
   // Bit field definition.
   struct {
+    /// read-write - Number of pixels (Y component of the input pixel) equals: 0 (CSICR21) 1 (CSICR22)
     uint32_t PIXEL_COUNTERS : 24;
     uint32_t _reserved_0 : 8;
   } bits;
@@ -4304,6 +4613,7 @@ union CSI_CR225 {
   
   // Bit field definition.
   struct {
+    /// read-write - Number of pixels (Y component of the input pixel) equals: 0 (CSICR21) 1 (CSICR22)
     uint32_t PIXEL_COUNTERS : 24;
     uint32_t _reserved_0 : 8;
   } bits;
@@ -4321,6 +4631,7 @@ union CSI_CR226 {
   
   // Bit field definition.
   struct {
+    /// read-write - Number of pixels (Y component of the input pixel) equals: 0 (CSICR21) 1 (CSICR22)
     uint32_t PIXEL_COUNTERS : 24;
     uint32_t _reserved_0 : 8;
   } bits;
@@ -4338,6 +4649,7 @@ union CSI_CR227 {
   
   // Bit field definition.
   struct {
+    /// read-write - Number of pixels (Y component of the input pixel) equals: 0 (CSICR21) 1 (CSICR22)
     uint32_t PIXEL_COUNTERS : 24;
     uint32_t _reserved_0 : 8;
   } bits;
@@ -4355,6 +4667,7 @@ union CSI_CR228 {
   
   // Bit field definition.
   struct {
+    /// read-write - Number of pixels (Y component of the input pixel) equals: 0 (CSICR21) 1 (CSICR22)
     uint32_t PIXEL_COUNTERS : 24;
     uint32_t _reserved_0 : 8;
   } bits;
@@ -4372,6 +4685,7 @@ union CSI_CR229 {
   
   // Bit field definition.
   struct {
+    /// read-write - Number of pixels (Y component of the input pixel) equals: 0 (CSICR21) 1 (CSICR22)
     uint32_t PIXEL_COUNTERS : 24;
     uint32_t _reserved_0 : 8;
   } bits;
@@ -4389,6 +4703,7 @@ union CSI_CR230 {
   
   // Bit field definition.
   struct {
+    /// read-write - Number of pixels (Y component of the input pixel) equals: 0 (CSICR21) 1 (CSICR22)
     uint32_t PIXEL_COUNTERS : 24;
     uint32_t _reserved_0 : 8;
   } bits;
@@ -4406,6 +4721,7 @@ union CSI_CR231 {
   
   // Bit field definition.
   struct {
+    /// read-write - Number of pixels (Y component of the input pixel) equals: 0 (CSICR21) 1 (CSICR22)
     uint32_t PIXEL_COUNTERS : 24;
     uint32_t _reserved_0 : 8;
   } bits;
@@ -4423,6 +4739,7 @@ union CSI_CR232 {
   
   // Bit field definition.
   struct {
+    /// read-write - Number of pixels (Y component of the input pixel) equals: 0 (CSICR21) 1 (CSICR22)
     uint32_t PIXEL_COUNTERS : 24;
     uint32_t _reserved_0 : 8;
   } bits;
@@ -4440,6 +4757,7 @@ union CSI_CR233 {
   
   // Bit field definition.
   struct {
+    /// read-write - Number of pixels (Y component of the input pixel) equals: 0 (CSICR21) 1 (CSICR22)
     uint32_t PIXEL_COUNTERS : 24;
     uint32_t _reserved_0 : 8;
   } bits;
@@ -4457,6 +4775,7 @@ union CSI_CR234 {
   
   // Bit field definition.
   struct {
+    /// read-write - Number of pixels (Y component of the input pixel) equals: 0 (CSICR21) 1 (CSICR22)
     uint32_t PIXEL_COUNTERS : 24;
     uint32_t _reserved_0 : 8;
   } bits;
@@ -4474,6 +4793,7 @@ union CSI_CR235 {
   
   // Bit field definition.
   struct {
+    /// read-write - Number of pixels (Y component of the input pixel) equals: 0 (CSICR21) 1 (CSICR22)
     uint32_t PIXEL_COUNTERS : 24;
     uint32_t _reserved_0 : 8;
   } bits;
@@ -4491,6 +4811,7 @@ union CSI_CR236 {
   
   // Bit field definition.
   struct {
+    /// read-write - Number of pixels (Y component of the input pixel) equals: 0 (CSICR21) 1 (CSICR22)
     uint32_t PIXEL_COUNTERS : 24;
     uint32_t _reserved_0 : 8;
   } bits;
@@ -4508,6 +4829,7 @@ union CSI_CR237 {
   
   // Bit field definition.
   struct {
+    /// read-write - Number of pixels (Y component of the input pixel) equals: 0 (CSICR21) 1 (CSICR22)
     uint32_t PIXEL_COUNTERS : 24;
     uint32_t _reserved_0 : 8;
   } bits;
@@ -4525,6 +4847,7 @@ union CSI_CR238 {
   
   // Bit field definition.
   struct {
+    /// read-write - Number of pixels (Y component of the input pixel) equals: 0 (CSICR21) 1 (CSICR22)
     uint32_t PIXEL_COUNTERS : 24;
     uint32_t _reserved_0 : 8;
   } bits;
@@ -4542,6 +4865,7 @@ union CSI_CR239 {
   
   // Bit field definition.
   struct {
+    /// read-write - Number of pixels (Y component of the input pixel) equals: 0 (CSICR21) 1 (CSICR22)
     uint32_t PIXEL_COUNTERS : 24;
     uint32_t _reserved_0 : 8;
   } bits;
@@ -4559,6 +4883,7 @@ union CSI_CR240 {
   
   // Bit field definition.
   struct {
+    /// read-write - Number of pixels (Y component of the input pixel) equals: 0 (CSICR21) 1 (CSICR22)
     uint32_t PIXEL_COUNTERS : 24;
     uint32_t _reserved_0 : 8;
   } bits;
@@ -4576,6 +4901,7 @@ union CSI_CR241 {
   
   // Bit field definition.
   struct {
+    /// read-write - Number of pixels (Y component of the input pixel) equals: 0 (CSICR21) 1 (CSICR22)
     uint32_t PIXEL_COUNTERS : 24;
     uint32_t _reserved_0 : 8;
   } bits;
@@ -4593,6 +4919,7 @@ union CSI_CR242 {
   
   // Bit field definition.
   struct {
+    /// read-write - Number of pixels (Y component of the input pixel) equals: 0 (CSICR21) 1 (CSICR22)
     uint32_t PIXEL_COUNTERS : 24;
     uint32_t _reserved_0 : 8;
   } bits;
@@ -4610,6 +4937,7 @@ union CSI_CR243 {
   
   // Bit field definition.
   struct {
+    /// read-write - Number of pixels (Y component of the input pixel) equals: 0 (CSICR21) 1 (CSICR22)
     uint32_t PIXEL_COUNTERS : 24;
     uint32_t _reserved_0 : 8;
   } bits;
@@ -4627,6 +4955,7 @@ union CSI_CR244 {
   
   // Bit field definition.
   struct {
+    /// read-write - Number of pixels (Y component of the input pixel) equals: 0 (CSICR21) 1 (CSICR22)
     uint32_t PIXEL_COUNTERS : 24;
     uint32_t _reserved_0 : 8;
   } bits;
@@ -4644,6 +4973,7 @@ union CSI_CR245 {
   
   // Bit field definition.
   struct {
+    /// read-write - Number of pixels (Y component of the input pixel) equals: 0 (CSICR21) 1 (CSICR22)
     uint32_t PIXEL_COUNTERS : 24;
     uint32_t _reserved_0 : 8;
   } bits;
@@ -4661,6 +4991,7 @@ union CSI_CR246 {
   
   // Bit field definition.
   struct {
+    /// read-write - Number of pixels (Y component of the input pixel) equals: 0 (CSICR21) 1 (CSICR22)
     uint32_t PIXEL_COUNTERS : 24;
     uint32_t _reserved_0 : 8;
   } bits;
@@ -4678,6 +5009,7 @@ union CSI_CR247 {
   
   // Bit field definition.
   struct {
+    /// read-write - Number of pixels (Y component of the input pixel) equals: 0 (CSICR21) 1 (CSICR22)
     uint32_t PIXEL_COUNTERS : 24;
     uint32_t _reserved_0 : 8;
   } bits;
@@ -4695,6 +5027,7 @@ union CSI_CR248 {
   
   // Bit field definition.
   struct {
+    /// read-write - Number of pixels (Y component of the input pixel) equals: 0 (CSICR21) 1 (CSICR22)
     uint32_t PIXEL_COUNTERS : 24;
     uint32_t _reserved_0 : 8;
   } bits;
@@ -4712,6 +5045,7 @@ union CSI_CR249 {
   
   // Bit field definition.
   struct {
+    /// read-write - Number of pixels (Y component of the input pixel) equals: 0 (CSICR21) 1 (CSICR22)
     uint32_t PIXEL_COUNTERS : 24;
     uint32_t _reserved_0 : 8;
   } bits;
@@ -4729,6 +5063,7 @@ union CSI_CR250 {
   
   // Bit field definition.
   struct {
+    /// read-write - Number of pixels (Y component of the input pixel) equals: 0 (CSICR21) 1 (CSICR22)
     uint32_t PIXEL_COUNTERS : 24;
     uint32_t _reserved_0 : 8;
   } bits;
@@ -4746,6 +5081,7 @@ union CSI_CR251 {
   
   // Bit field definition.
   struct {
+    /// read-write - Number of pixels (Y component of the input pixel) equals: 0 (CSICR21) 1 (CSICR22)
     uint32_t PIXEL_COUNTERS : 24;
     uint32_t _reserved_0 : 8;
   } bits;
@@ -4763,6 +5099,7 @@ union CSI_CR252 {
   
   // Bit field definition.
   struct {
+    /// read-write - Number of pixels (Y component of the input pixel) equals: 0 (CSICR21) 1 (CSICR22)
     uint32_t PIXEL_COUNTERS : 24;
     uint32_t _reserved_0 : 8;
   } bits;
@@ -4780,6 +5117,7 @@ union CSI_CR253 {
   
   // Bit field definition.
   struct {
+    /// read-write - Number of pixels (Y component of the input pixel) equals: 0 (CSICR21) 1 (CSICR22)
     uint32_t PIXEL_COUNTERS : 24;
     uint32_t _reserved_0 : 8;
   } bits;
@@ -4797,6 +5135,7 @@ union CSI_CR254 {
   
   // Bit field definition.
   struct {
+    /// read-write - Number of pixels (Y component of the input pixel) equals: 0 (CSICR21) 1 (CSICR22)
     uint32_t PIXEL_COUNTERS : 24;
     uint32_t _reserved_0 : 8;
   } bits;
@@ -4814,6 +5153,7 @@ union CSI_CR255 {
   
   // Bit field definition.
   struct {
+    /// read-write - Number of pixels (Y component of the input pixel) equals: 0 (CSICR21) 1 (CSICR22)
     uint32_t PIXEL_COUNTERS : 24;
     uint32_t _reserved_0 : 8;
   } bits;
@@ -4831,6 +5171,7 @@ union CSI_CR256 {
   
   // Bit field definition.
   struct {
+    /// read-write - Number of pixels (Y component of the input pixel) equals: 0 (CSICR21) 1 (CSICR22)
     uint32_t PIXEL_COUNTERS : 24;
     uint32_t _reserved_0 : 8;
   } bits;
@@ -4848,6 +5189,7 @@ union CSI_CR257 {
   
   // Bit field definition.
   struct {
+    /// read-write - Number of pixels (Y component of the input pixel) equals: 0 (CSICR21) 1 (CSICR22)
     uint32_t PIXEL_COUNTERS : 24;
     uint32_t _reserved_0 : 8;
   } bits;
@@ -4865,6 +5207,7 @@ union CSI_CR258 {
   
   // Bit field definition.
   struct {
+    /// read-write - Number of pixels (Y component of the input pixel) equals: 0 (CSICR21) 1 (CSICR22)
     uint32_t PIXEL_COUNTERS : 24;
     uint32_t _reserved_0 : 8;
   } bits;
@@ -4882,6 +5225,7 @@ union CSI_CR259 {
   
   // Bit field definition.
   struct {
+    /// read-write - Number of pixels (Y component of the input pixel) equals: 0 (CSICR21) 1 (CSICR22)
     uint32_t PIXEL_COUNTERS : 24;
     uint32_t _reserved_0 : 8;
   } bits;
@@ -4899,6 +5243,7 @@ union CSI_CR260 {
   
   // Bit field definition.
   struct {
+    /// read-write - Number of pixels (Y component of the input pixel) equals: 0 (CSICR21) 1 (CSICR22)
     uint32_t PIXEL_COUNTERS : 24;
     uint32_t _reserved_0 : 8;
   } bits;
@@ -4916,6 +5261,7 @@ union CSI_CR261 {
   
   // Bit field definition.
   struct {
+    /// read-write - Number of pixels (Y component of the input pixel) equals: 0 (CSICR21) 1 (CSICR22)
     uint32_t PIXEL_COUNTERS : 24;
     uint32_t _reserved_0 : 8;
   } bits;
@@ -4933,6 +5279,7 @@ union CSI_CR262 {
   
   // Bit field definition.
   struct {
+    /// read-write - Number of pixels (Y component of the input pixel) equals: 0 (CSICR21) 1 (CSICR22)
     uint32_t PIXEL_COUNTERS : 24;
     uint32_t _reserved_0 : 8;
   } bits;
@@ -4950,6 +5297,7 @@ union CSI_CR263 {
   
   // Bit field definition.
   struct {
+    /// read-write - Number of pixels (Y component of the input pixel) equals: 0 (CSICR21) 1 (CSICR22)
     uint32_t PIXEL_COUNTERS : 24;
     uint32_t _reserved_0 : 8;
   } bits;
@@ -4967,6 +5315,7 @@ union CSI_CR264 {
   
   // Bit field definition.
   struct {
+    /// read-write - Number of pixels (Y component of the input pixel) equals: 0 (CSICR21) 1 (CSICR22)
     uint32_t PIXEL_COUNTERS : 24;
     uint32_t _reserved_0 : 8;
   } bits;
@@ -4984,6 +5333,7 @@ union CSI_CR265 {
   
   // Bit field definition.
   struct {
+    /// read-write - Number of pixels (Y component of the input pixel) equals: 0 (CSICR21) 1 (CSICR22)
     uint32_t PIXEL_COUNTERS : 24;
     uint32_t _reserved_0 : 8;
   } bits;
@@ -5001,6 +5351,7 @@ union CSI_CR266 {
   
   // Bit field definition.
   struct {
+    /// read-write - Number of pixels (Y component of the input pixel) equals: 0 (CSICR21) 1 (CSICR22)
     uint32_t PIXEL_COUNTERS : 24;
     uint32_t _reserved_0 : 8;
   } bits;
@@ -5018,6 +5369,7 @@ union CSI_CR267 {
   
   // Bit field definition.
   struct {
+    /// read-write - Number of pixels (Y component of the input pixel) equals: 0 (CSICR21) 1 (CSICR22)
     uint32_t PIXEL_COUNTERS : 24;
     uint32_t _reserved_0 : 8;
   } bits;
@@ -5035,6 +5387,7 @@ union CSI_CR268 {
   
   // Bit field definition.
   struct {
+    /// read-write - Number of pixels (Y component of the input pixel) equals: 0 (CSICR21) 1 (CSICR22)
     uint32_t PIXEL_COUNTERS : 24;
     uint32_t _reserved_0 : 8;
   } bits;
@@ -5052,6 +5405,7 @@ union CSI_CR269 {
   
   // Bit field definition.
   struct {
+    /// read-write - Number of pixels (Y component of the input pixel) equals: 0 (CSICR21) 1 (CSICR22)
     uint32_t PIXEL_COUNTERS : 24;
     uint32_t _reserved_0 : 8;
   } bits;
@@ -5069,6 +5423,7 @@ union CSI_CR270 {
   
   // Bit field definition.
   struct {
+    /// read-write - Number of pixels (Y component of the input pixel) equals: 0 (CSICR21) 1 (CSICR22)
     uint32_t PIXEL_COUNTERS : 24;
     uint32_t _reserved_0 : 8;
   } bits;
@@ -5086,6 +5441,7 @@ union CSI_CR271 {
   
   // Bit field definition.
   struct {
+    /// read-write - Number of pixels (Y component of the input pixel) equals: 0 (CSICR21) 1 (CSICR22)
     uint32_t PIXEL_COUNTERS : 24;
     uint32_t _reserved_0 : 8;
   } bits;
@@ -5103,6 +5459,7 @@ union CSI_CR272 {
   
   // Bit field definition.
   struct {
+    /// read-write - Number of pixels (Y component of the input pixel) equals: 0 (CSICR21) 1 (CSICR22)
     uint32_t PIXEL_COUNTERS : 24;
     uint32_t _reserved_0 : 8;
   } bits;
@@ -5120,6 +5477,7 @@ union CSI_CR273 {
   
   // Bit field definition.
   struct {
+    /// read-write - Number of pixels (Y component of the input pixel) equals: 0 (CSICR21) 1 (CSICR22)
     uint32_t PIXEL_COUNTERS : 24;
     uint32_t _reserved_0 : 8;
   } bits;
@@ -5137,6 +5495,7 @@ union CSI_CR274 {
   
   // Bit field definition.
   struct {
+    /// read-write - Number of pixels (Y component of the input pixel) equals: 0 (CSICR21) 1 (CSICR22)
     uint32_t PIXEL_COUNTERS : 24;
     uint32_t _reserved_0 : 8;
   } bits;
@@ -5154,6 +5513,7 @@ union CSI_CR275 {
   
   // Bit field definition.
   struct {
+    /// read-write - Number of pixels (Y component of the input pixel) equals: 0 (CSICR21) 1 (CSICR22)
     uint32_t PIXEL_COUNTERS : 24;
     uint32_t _reserved_0 : 8;
   } bits;
@@ -5171,6 +5531,7 @@ union CSI_CR276 {
   
   // Bit field definition.
   struct {
+    /// read-write - Number of pixels (Y component of the input pixel) equals: 0 (CSICR21) 1 (CSICR22)
     uint32_t PIXEL_COUNTERS : 24;
     uint32_t _reserved_0 : 8;
   } bits;

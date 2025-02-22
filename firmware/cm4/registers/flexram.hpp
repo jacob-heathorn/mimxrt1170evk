@@ -27,9 +27,13 @@ union TCM_CTRL {
   
   // Bit field definition.
   struct {
+    /// read-write - TCM Write Wait Mode Enable
     eTCM_WWAIT_EN TCM_WWAIT_EN : 1;
+    /// read-write - TCM Read Wait Mode Enable
     eTCM_RWAIT_EN TCM_RWAIT_EN : 1;
+    /// read-write - Force RAM Clock Always On
     uint32_t FORCE_CLK_ON : 1;
+    /// read-only - Reserved
     uint32_t Reserved : 29;
   } bits;
   
@@ -52,8 +56,11 @@ union OCRAM_MAGIC_ADDR {
   
   // Bit field definition.
   struct {
+    /// read-write - OCRAM Write Read Select
     eOCRAM_WR_RD_SEL OCRAM_WR_RD_SEL : 1;
+    /// read-write - OCRAM Magic Address
     uint32_t OCRAM_MAGIC_ADDR : 17;
+    /// read-only - Reserved
     uint32_t Reserved : 14;
   } bits;
   
@@ -76,8 +83,11 @@ union DTCM_MAGIC_ADDR {
   
   // Bit field definition.
   struct {
+    /// read-write - DTCM Write Read Select
     eDTCM_WR_RD_SEL DTCM_WR_RD_SEL : 1;
+    /// read-write - DTCM Magic Address
     uint32_t DTCM_MAGIC_ADDR : 16;
+    /// read-only - Reserved
     uint32_t Reserved : 15;
   } bits;
   
@@ -100,8 +110,11 @@ union ITCM_MAGIC_ADDR {
   
   // Bit field definition.
   struct {
+    /// read-write - ITCM Write Read Select
     eITCM_WR_RD_SEL ITCM_WR_RD_SEL : 1;
+    /// read-write - ITCM Magic Address
     uint32_t ITCM_MAGIC_ADDR : 16;
+    /// read-only - Reserved
     uint32_t Reserved : 15;
   } bits;
   
@@ -209,24 +222,43 @@ union INT_STATUS {
   
   // Bit field definition.
   struct {
+    /// read-write - ITCM Magic Address Match Status
     eITCM_MAM_STATUS ITCM_MAM_STATUS : 1;
+    /// read-write - DTCM Magic Address Match Status
     eDTCM_MAM_STATUS DTCM_MAM_STATUS : 1;
+    /// read-write - OCRAM Magic Address Match Status
     eOCRAM_MAM_STATUS OCRAM_MAM_STATUS : 1;
+    /// read-write - ITCM Access Error Status
     eITCM_ERR_STATUS ITCM_ERR_STATUS : 1;
+    /// read-write - DTCM Access Error Status
     eDTCM_ERR_STATUS DTCM_ERR_STATUS : 1;
+    /// read-write - OCRAM Access Error Status
     eOCRAM_ERR_STATUS OCRAM_ERR_STATUS : 1;
+    /// read-write - OCRAM access multi-bit ECC Error Interrupt Status
     eOCRAM_ECC_ERRM_INT OCRAM_ECC_ERRM_INT : 1;
+    /// read-write - OCRAM access single-bit ECC Error Interrupt Status
     eOCRAM_ECC_ERRS_INT OCRAM_ECC_ERRS_INT : 1;
+    /// read-write - ITCM Access multi-bit ECC Error Interrupt Status
     eITCM_ECC_ERRM_INT ITCM_ECC_ERRM_INT : 1;
+    /// read-write - ITCM access single-bit ECC Error Interrupt Status
     eITCM_ECC_ERRS_INT ITCM_ECC_ERRS_INT : 1;
+    /// read-write - D0TCM access multi-bit ECC Error Interrupt Status
     eD0TCM_ECC_ERRM_INT D0TCM_ECC_ERRM_INT : 1;
+    /// read-write - D0TCM access single-bit ECC Error Interrupt Status
     eD0TCM_ECC_ERRS_INT D0TCM_ECC_ERRS_INT : 1;
+    /// read-write - D1TCM access multi-bit ECC Error Interrupt Status
     eD1TCM_ECC_ERRM_INT D1TCM_ECC_ERRM_INT : 1;
+    /// read-write - D1TCM access single-bit ECC Error Interrupt Status
     eD1TCM_ECC_ERRS_INT D1TCM_ECC_ERRS_INT : 1;
+    /// read-write - ITCM Partial Write Interrupt Status
     eITCM_PARTIAL_WR_INT_S ITCM_PARTIAL_WR_INT_S : 1;
+    /// read-write - D0TCM Partial Write Interrupt Status
     eD0TCM_PARTIAL_WR_INT_S D0TCM_PARTIAL_WR_INT_S : 1;
+    /// read-write - D1TCM Partial Write Interrupt Status
     eD1TCM_PARTIAL_WR_INT_S D1TCM_PARTIAL_WR_INT_S : 1;
+    /// read-write - OCRAM Partial Write Interrupt Status
     eOCRAM_PARTIAL_WR_INT_S OCRAM_PARTIAL_WR_INT_S : 1;
+    /// read-only - Reserved
     uint32_t Reserved : 14;
   } bits;
   
@@ -334,24 +366,43 @@ union INT_STAT_EN {
   
   // Bit field definition.
   struct {
+    /// read-write - ITCM Magic Address Match Status Enable
     eITCM_MAM_STAT_EN ITCM_MAM_STAT_EN : 1;
+    /// read-write - DTCM Magic Address Match Status Enable
     eDTCM_MAM_STAT_EN DTCM_MAM_STAT_EN : 1;
+    /// read-write - OCRAM Magic Address Match Status Enable
     eOCRAM_MAM_STAT_EN OCRAM_MAM_STAT_EN : 1;
+    /// read-write - ITCM Access Error Status Enable
     eITCM_ERR_STAT_EN ITCM_ERR_STAT_EN : 1;
+    /// read-write - DTCM Access Error Status Enable
     eDTCM_ERR_STAT_EN DTCM_ERR_STAT_EN : 1;
+    /// read-write - OCRAM Access Error Status Enable
     eOCRAM_ERR_STAT_EN OCRAM_ERR_STAT_EN : 1;
+    /// read-write - OCRAM Access multi-bit ECC Error Interrupt Status Enable
     eOCRAM_ERRM_INT_EN OCRAM_ERRM_INT_EN : 1;
+    /// read-write - OCRAM Access single-bit ECC Error Interrupt Status Enable
     eOCRAM_ERRS_INT_EN OCRAM_ERRS_INT_EN : 1;
+    /// read-write - ITCM Access multi-bit ECC Error Interrupt Status Enable
     eITCM_ERRM_INT_EN ITCM_ERRM_INT_EN : 1;
+    /// read-write - ITCM Access single-bit ECC Error Interrupt Status Enable
     eITCM_ERRS_INT_EN ITCM_ERRS_INT_EN : 1;
+    /// read-write - D0TCM Access multi-bit ECC Error Interrupt Status Enable
     eD0TCM_ERRM_INT_EN D0TCM_ERRM_INT_EN : 1;
+    /// read-write - D0TCM Access single-bit ECC Error Interrupt Status Enable
     eD0TCM_ERRS_INT_EN D0TCM_ERRS_INT_EN : 1;
+    /// read-write - D1TCM Access multi-bit ECC Error Interrupt Status Enable
     eD1TCM_ERRM_INT_EN D1TCM_ERRM_INT_EN : 1;
+    /// read-write - D1TCM Access single-bit ECC Error Interrupt Status Enable
     eD1TCM_ERRS_INT_EN D1TCM_ERRS_INT_EN : 1;
+    /// read-write - ITCM Partial Write Interrupt Status Enable
     eITCM_PARTIAL_WR_INT_S_EN ITCM_PARTIAL_WR_INT_S_EN : 1;
+    /// read-write - D0TCM Partial Write Interrupt Status Enable
     eD0TCM_PARTIAL_WR_INT_S_EN D0TCM_PARTIAL_WR_INT_S_EN : 1;
+    /// read-write - D1TCM Partial Write Interrupt Status EN
     eD1TCM_PARTIAL_WR_INT_S_EN D1TCM_PARTIAL_WR_INT_S_EN : 1;
+    /// read-write - OCRAM Partial Write Interrupt Status
     eOCRAM_PARTIAL_WR_INT_S_EN OCRAM_PARTIAL_WR_INT_S_EN : 1;
+    /// read-only - Reserved
     uint32_t Reserved : 14;
   } bits;
   
@@ -459,24 +510,43 @@ union INT_SIG_EN {
   
   // Bit field definition.
   struct {
+    /// read-write - ITCM Magic Address Match Interrupt Enable
     eITCM_MAM_SIG_EN ITCM_MAM_SIG_EN : 1;
+    /// read-write - DTCM Magic Address Match Interrupt Enable
     eDTCM_MAM_SIG_EN DTCM_MAM_SIG_EN : 1;
+    /// read-write - OCRAM Magic Address Match Interrupt Enable
     eOCRAM_MAM_SIG_EN OCRAM_MAM_SIG_EN : 1;
+    /// read-write - ITCM Access Error Interrupt Enable
     eITCM_ERR_SIG_EN ITCM_ERR_SIG_EN : 1;
+    /// read-write - DTCM Access Error Interrupt Enable
     eDTCM_ERR_SIG_EN DTCM_ERR_SIG_EN : 1;
+    /// read-write - OCRAM Access Error Interrupt Enable
     eOCRAM_ERR_SIG_EN OCRAM_ERR_SIG_EN : 1;
+    /// read-write - OCRAM Access multi-bit ECC Error Interrupt Signal Enable
     eOCRAM_ERRM_INT_SIG_EN OCRAM_ERRM_INT_SIG_EN : 1;
+    /// read-write - OCRAM Access single-bit ECC Error Interrupt Signal Enable
     eOCRAM_ERRS_INT_SIG_EN OCRAM_ERRS_INT_SIG_EN : 1;
+    /// read-write - ITCM Access multi-bit ECC Error Interrupt Signal Enable
     eITCM_ERRM_INT_SIG_EN ITCM_ERRM_INT_SIG_EN : 1;
+    /// read-write - ITCM Access single-bit ECC Error Interrupt Signal Enable
     eITCM_ERRS_INT_SIG_EN ITCM_ERRS_INT_SIG_EN : 1;
+    /// read-write - D0TCM Access multi-bit ECC Error Interrupt Signal Enable
     eD0TCM_ERRM_INT_SIG_EN D0TCM_ERRM_INT_SIG_EN : 1;
+    /// read-write - D0TCM Access single-bit ECC Error Interrupt Signal Enable
     eD0TCM_ERRS_INT_SIG_EN D0TCM_ERRS_INT_SIG_EN : 1;
+    /// read-write - D1TCM Access multi-bit ECC Error Interrupt Signal Enable
     eD1TCM_ERRM_INT_SIG_EN D1TCM_ERRM_INT_SIG_EN : 1;
+    /// read-write - D1TCM Access single-bit ECC Error Interrupt Signal Enable
     eD1TCM_ERRS_INT_SIG_EN D1TCM_ERRS_INT_SIG_EN : 1;
+    /// read-write - ITCM Partial Write Interrupt Signal Enable Enable
     eITCM_PARTIAL_WR_INT_SIG_EN ITCM_PARTIAL_WR_INT_SIG_EN : 1;
+    /// read-write - D0TCM Partial Write Interrupt Signal Enable Enable
     eD0TCM_PARTIAL_WR_INT_SIG_EN D0TCM_PARTIAL_WR_INT_SIG_EN : 1;
+    /// read-write - D1TCM Partial Write Interrupt Signal Enable EN
     eD1TCM_PARTIAL_WR_INT_SIG_EN D1TCM_PARTIAL_WR_INT_SIG_EN : 1;
+    /// read-write - OCRAM Partial Write Interrupt Signal Enable
     eOCRAM_PARTIAL_WR_INT_SIG_EN OCRAM_PARTIAL_WR_INT_SIG_EN : 1;
+    /// read-only - Reserved
     uint32_t Reserved : 14;
   } bits;
   
@@ -494,8 +564,11 @@ union OCRAM_ECC_SINGLE_ERROR_INFO {
   
   // Bit field definition.
   struct {
+    /// read-only - corresponding ECC cipher of OCRAM single-bit ECC error
     uint32_t OCRAM_ECCS_ERRED_ECC : 8;
+    /// read-only - corresponding ECC syndrome of OCRAM single-bit ECC error
     uint32_t OCRAM_ECCS_ERRED_SYN : 8;
+    /// read-only - Reserved
     uint32_t Reserved : 16;
   } bits;
   
@@ -513,6 +586,7 @@ union OCRAM_ECC_SINGLE_ERROR_ADDR {
   
   // Bit field definition.
   struct {
+    /// read-only - OCRAM single-bit ECC error address
     uint32_t OCRAM_ECCS_ERRED_ADDR : 32;
   } bits;
   
@@ -530,6 +604,7 @@ union OCRAM_ECC_SINGLE_ERROR_DATA_LSB {
   
   // Bit field definition.
   struct {
+    /// read-only - OCRAM single-bit ECC error data [31:0]
     uint32_t OCRAM_ECCS_ERRED_DATA_LSB : 32;
   } bits;
   
@@ -547,6 +622,7 @@ union OCRAM_ECC_SINGLE_ERROR_DATA_MSB {
   
   // Bit field definition.
   struct {
+    /// read-only - OCRAM single-bit ECC error data [63:32]
     uint32_t OCRAM_ECCS_ERRED_DATA_MSB : 32;
   } bits;
   
@@ -564,7 +640,9 @@ union OCRAM_ECC_MULTI_ERROR_INFO {
   
   // Bit field definition.
   struct {
+    /// read-only - OCRAM multi-bit ECC error corresponding ECC value
     uint32_t OCRAM_ECCM_ERRED_ECC : 8;
+    /// read-only - Reserved
     uint32_t Reserved : 24;
   } bits;
   
@@ -582,6 +660,7 @@ union OCRAM_ECC_MULTI_ERROR_ADDR {
   
   // Bit field definition.
   struct {
+    /// read-only - OCRAM multi-bit ECC error address
     uint32_t OCRAM_ECCM_ERRED_ADDR : 32;
   } bits;
   
@@ -599,6 +678,7 @@ union OCRAM_ECC_MULTI_ERROR_DATA_LSB {
   
   // Bit field definition.
   struct {
+    /// read-only - OCRAM multi-bit ECC error data [31:0]
     uint32_t OCRAM_ECCM_ERRED_DATA_LSB : 32;
   } bits;
   
@@ -616,6 +696,7 @@ union OCRAM_ECC_MULTI_ERROR_DATA_MSB {
   
   // Bit field definition.
   struct {
+    /// read-only - OCRAM multi-bit ECC error data [63:32]
     uint32_t OCRAM_ECCM_ERRED_DATA_MSB : 32;
   } bits;
   
@@ -633,11 +714,17 @@ union ITCM_ECC_SINGLE_ERROR_INFO {
   
   // Bit field definition.
   struct {
+    /// read-only - ITCM single-bit ECC error corresponding TCM_WR value.
     uint32_t ITCM_ECCS_EFW : 1;
+    /// read-only - ITCM single-bit ECC error corresponding TCM size
     uint32_t ITCM_ECCS_EFSIZ : 3;
+    /// read-only - ITCM single-bit ECC error corresponding TCM_MASTER.
     uint32_t ITCM_ECCS_EFMST : 4;
+    /// read-only - ITCM single-bit ECC error corresponding TCM_PRIV.
     uint32_t ITCM_ECCS_EFPRT : 4;
+    /// read-only - ITCM single-bit ECC error corresponding syndrome
     uint32_t ITCM_ECCS_EFSYN : 8;
+    /// read-only - Reserved
     uint32_t Reserved : 12;
   } bits;
   
@@ -655,6 +742,7 @@ union ITCM_ECC_SINGLE_ERROR_ADDR {
   
   // Bit field definition.
   struct {
+    /// read-only - ITCM single-bit ECC error address
     uint32_t ITCM_ECCS_ERRED_ADDR : 32;
   } bits;
   
@@ -672,6 +760,7 @@ union ITCM_ECC_SINGLE_ERROR_DATA_LSB {
   
   // Bit field definition.
   struct {
+    /// read-only - ITCM single-bit ECC error data [31:0]
     uint32_t ITCM_ECCS_ERRED_DATA_LSB : 32;
   } bits;
   
@@ -689,6 +778,7 @@ union ITCM_ECC_SINGLE_ERROR_DATA_MSB {
   
   // Bit field definition.
   struct {
+    /// read-only - ITCM single-bit ECC error data [63:32]
     uint32_t ITCM_ECCS_ERRED_DATA_MSB : 32;
   } bits;
   
@@ -706,11 +796,17 @@ union ITCM_ECC_MULTI_ERROR_INFO {
   
   // Bit field definition.
   struct {
+    /// read-only - ITCM multi-bit ECC error corresponding TCM_WR value
     uint32_t ITCM_ECCM_EFW : 1;
+    /// read-only - ITCM multi-bit ECC error corresponding tcm access size
     uint32_t ITCM_ECCM_EFSIZ : 3;
+    /// read-only - ITCM multi-bit ECC error corresponding TCM_MASTER
     uint32_t ITCM_ECCM_EFMST : 4;
+    /// read-only - ITCM multi-bit ECC error corresponding TCM_PRIV
     uint32_t ITCM_ECCM_EFPRT : 4;
+    /// read-only - ITCM multi-bit ECC error corresponding syndrome
     uint32_t ITCM_ECCM_EFSYN : 8;
+    /// read-only - Reserved
     uint32_t Reserved : 12;
   } bits;
   
@@ -728,6 +824,7 @@ union ITCM_ECC_MULTI_ERROR_ADDR {
   
   // Bit field definition.
   struct {
+    /// read-only - ITCM multi-bit ECC error address
     uint32_t ITCM_ECCM_ERRED_ADDR : 32;
   } bits;
   
@@ -745,6 +842,7 @@ union ITCM_ECC_MULTI_ERROR_DATA_LSB {
   
   // Bit field definition.
   struct {
+    /// read-only - ITCM multi-bit ECC error data [31:0]
     uint32_t ITCM_ECCM_ERRED_DATA_LSB : 32;
   } bits;
   
@@ -762,6 +860,7 @@ union ITCM_ECC_MULTI_ERROR_DATA_MSB {
   
   // Bit field definition.
   struct {
+    /// read-only - ITCM multi-bit ECC error data [63:32]
     uint32_t ITCM_ECCM_ERRED_DATA_MSB : 32;
   } bits;
   
@@ -779,11 +878,17 @@ union D0TCM_ECC_SINGLE_ERROR_INFO {
   
   // Bit field definition.
   struct {
+    /// read-only - D0TCM single-bit ECC error corresponding TCM_WR value
     uint32_t D0TCM_ECCS_EFW : 1;
+    /// read-only - D0TCM single-bit ECC error corresponding tcm access size
     uint32_t D0TCM_ECCS_EFSIZ : 3;
+    /// read-only - D0TCM single-bit ECC error corresponding TCM_MASTER
     uint32_t D0TCM_ECCS_EFMST : 4;
+    /// read-only - D0TCM single-bit ECC error corresponding TCM_PRIV
     uint32_t D0TCM_ECCS_EFPRT : 4;
+    /// read-only - D0TCM single-bit ECC error corresponding syndrome
     uint32_t D0TCM_ECCS_EFSYN : 7;
+    /// read-only - Reserved
     uint32_t Reserved : 13;
   } bits;
   
@@ -801,6 +906,7 @@ union D0TCM_ECC_SINGLE_ERROR_ADDR {
   
   // Bit field definition.
   struct {
+    /// read-only - D0TCM single-bit ECC error address
     uint32_t D0TCM_ECCS_ERRED_ADDR : 32;
   } bits;
   
@@ -818,6 +924,7 @@ union D0TCM_ECC_SINGLE_ERROR_DATA {
   
   // Bit field definition.
   struct {
+    /// read-only - D0TCM single-bit ECC error data
     uint32_t D0TCM_ECCS_ERRED_DATA : 32;
   } bits;
   
@@ -835,11 +942,17 @@ union D0TCM_ECC_MULTI_ERROR_INFO {
   
   // Bit field definition.
   struct {
+    /// read-only - D0TCM multi-bit ECC error corresponding TCM_WR value
     uint32_t D0TCM_ECCM_EFW : 1;
+    /// read-only - D0TCM multi-bit ECC error corresponding tcm access size
     uint32_t D0TCM_ECCM_EFSIZ : 3;
+    /// read-only - D0TCM multi-bit ECC error corresponding TCM_MASTER
     uint32_t D0TCM_ECCM_EFMST : 4;
+    /// read-only - D0TCM multi-bit ECC error corresponding TCM_PRIV
     uint32_t D0TCM_ECCM_EFPRT : 4;
+    /// read-only - D0TCM multi-bit ECC error corresponding syndrome
     uint32_t D0TCM_ECCM_EFSYN : 7;
+    /// read-only - Reserved
     uint32_t Reserved : 13;
   } bits;
   
@@ -857,6 +970,7 @@ union D0TCM_ECC_MULTI_ERROR_ADDR {
   
   // Bit field definition.
   struct {
+    /// read-only - D0TCM multi-bit ECC error address
     uint32_t D0TCM_ECCM_ERRED_ADDR : 32;
   } bits;
   
@@ -874,6 +988,7 @@ union D0TCM_ECC_MULTI_ERROR_DATA {
   
   // Bit field definition.
   struct {
+    /// read-only - D0TCM multi-bit ECC error data
     uint32_t D0TCM_ECCM_ERRED_DATA : 32;
   } bits;
   
@@ -891,11 +1006,17 @@ union D1TCM_ECC_SINGLE_ERROR_INFO {
   
   // Bit field definition.
   struct {
+    /// read-only - D1TCM single-bit ECC error corresponding TCM_WR value
     uint32_t D1TCM_ECCS_EFW : 1;
+    /// read-only - D1TCM single-bit ECC error corresponding tcm access size
     uint32_t D1TCM_ECCS_EFSIZ : 3;
+    /// read-only - D1TCM single-bit ECC error corresponding TCM_MASTER
     uint32_t D1TCM_ECCS_EFMST : 4;
+    /// read-only - D1TCM single-bit ECC error corresponding TCM_PRIV
     uint32_t D1TCM_ECCS_EFPRT : 4;
+    /// read-only - D1TCM single-bit ECC error corresponding syndrome
     uint32_t D1TCM_ECCS_EFSYN : 7;
+    /// read-only - Reserved
     uint32_t Reserved : 13;
   } bits;
   
@@ -913,6 +1034,7 @@ union D1TCM_ECC_SINGLE_ERROR_ADDR {
   
   // Bit field definition.
   struct {
+    /// read-only - D1TCM single-bit ECC error address
     uint32_t D1TCM_ECCS_ERRED_ADDR : 32;
   } bits;
   
@@ -930,6 +1052,7 @@ union D1TCM_ECC_SINGLE_ERROR_DATA {
   
   // Bit field definition.
   struct {
+    /// read-only - D1TCM single-bit ECC error data
     uint32_t D1TCM_ECCS_ERRED_DATA : 32;
   } bits;
   
@@ -947,11 +1070,17 @@ union D1TCM_ECC_MULTI_ERROR_INFO {
   
   // Bit field definition.
   struct {
+    /// read-only - D1TCM multi-bit ECC error corresponding TCM_WR value
     uint32_t D1TCM_ECCM_EFW : 1;
+    /// read-only - D1TCM multi-bit ECC error corresponding tcm access size
     uint32_t D1TCM_ECCM_EFSIZ : 3;
+    /// read-only - D1TCM multi-bit ECC error corresponding TCM_MASTER
     uint32_t D1TCM_ECCM_EFMST : 4;
+    /// read-only - D1TCM multi-bit ECC error corresponding TCM_PRIV
     uint32_t D1TCM_ECCM_EFPRT : 4;
+    /// read-only - D1TCM multi-bit ECC error corresponding syndrome
     uint32_t D1TCM_ECCM_EFSYN : 7;
+    /// read-only - Reserved
     uint32_t Reserved : 13;
   } bits;
   
@@ -969,6 +1098,7 @@ union D1TCM_ECC_MULTI_ERROR_ADDR {
   
   // Bit field definition.
   struct {
+    /// read-only - D1TCM multi-bit ECC error address
     uint32_t D1TCM_ECCM_ERRED_ADDR : 32;
   } bits;
   
@@ -986,6 +1116,7 @@ union D1TCM_ECC_MULTI_ERROR_DATA {
   
   // Bit field definition.
   struct {
+    /// read-only - D1TCM multi-bit ECC error data
     uint32_t D1TCM_ECCM_ERRED_DATA : 32;
   } bits;
   
@@ -1003,12 +1134,19 @@ union FLEXRAM_CTRL {
   
   // Bit field definition.
   struct {
+    /// read-write - Read Data Wait Enable
     uint32_t OCRAM_RDATA_WAIT_EN : 1;
+    /// read-write - Read Address Pipeline Enable
     uint32_t OCRAM_RADDR_PIPELINE_EN : 1;
+    /// read-write - Write Data Pipeline Enable
     uint32_t OCRAM_WRDATA_PIPELINE_EN : 1;
+    /// read-write - Write Address Pipeline Enable
     uint32_t OCRAM_WRADDR_PIPELINE_EN : 1;
+    /// read-write - OCRAM ECC enable
     uint32_t OCRAM_ECC_EN : 1;
+    /// read-write - TCM ECC enable
     uint32_t TCM_ECC_EN : 1;
+    /// read-only - Reserved
     uint32_t Reserved : 26;
   } bits;
   
@@ -1026,10 +1164,15 @@ union OCRAM_PIPELINE_STATUS {
   
   // Bit field definition.
   struct {
+    /// read-only - Read Data Wait Enable Pending
     uint32_t OCRAM_RDATA_WAIT_EN_UPDATA_PENDING : 1;
+    /// read-only - Read Address Pipeline Enable Pending
     uint32_t OCRAM_RADDR_PIPELINE_EN_UPDATA_PENDING : 1;
+    /// read-only - Write Data Pipeline Enable Pending
     uint32_t OCRAM_WRDATA_PIPELINE_EN_UPDATA_PENDING : 1;
+    /// read-only - Write Address Pipeline Enable Pending
     uint32_t OCRAM_WRADDR_PIPELINE_EN_UPDATA_PENDING : 1;
+    /// read-only - Reserved
     uint32_t Reserved : 28;
   } bits;
   

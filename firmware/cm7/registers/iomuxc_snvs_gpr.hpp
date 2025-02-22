@@ -17,6 +17,7 @@ union GPR[0] {
   
   // Bit field definition.
   struct {
+    /// read-write - General purpose bits
     uint32_t GPR : 32;
   } bits;
   
@@ -33,6 +34,7 @@ union GPR[1] {
   
   // Bit field definition.
   struct {
+    /// read-write - General purpose bits
     uint32_t GPR : 32;
   } bits;
   
@@ -49,6 +51,7 @@ union GPR[2] {
   
   // Bit field definition.
   struct {
+    /// read-write - General purpose bits
     uint32_t GPR : 32;
   } bits;
   
@@ -65,6 +68,7 @@ union GPR[3] {
   
   // Bit field definition.
   struct {
+    /// read-write - General purpose bits
     uint32_t GPR : 32;
   } bits;
   
@@ -81,6 +85,7 @@ union GPR[4] {
   
   // Bit field definition.
   struct {
+    /// read-write - General purpose bits
     uint32_t GPR : 32;
   } bits;
   
@@ -97,6 +102,7 @@ union GPR[5] {
   
   // Bit field definition.
   struct {
+    /// read-write - General purpose bits
     uint32_t GPR : 32;
   } bits;
   
@@ -113,6 +119,7 @@ union GPR[6] {
   
   // Bit field definition.
   struct {
+    /// read-write - General purpose bits
     uint32_t GPR : 32;
   } bits;
   
@@ -129,6 +136,7 @@ union GPR[7] {
   
   // Bit field definition.
   struct {
+    /// read-write - General purpose bits
     uint32_t GPR : 32;
   } bits;
   
@@ -145,6 +153,7 @@ union GPR[8] {
   
   // Bit field definition.
   struct {
+    /// read-write - General purpose bits
     uint32_t GPR : 32;
   } bits;
   
@@ -161,6 +170,7 @@ union GPR[9] {
   
   // Bit field definition.
   struct {
+    /// read-write - General purpose bits
     uint32_t GPR : 32;
   } bits;
   
@@ -177,6 +187,7 @@ union GPR[10] {
   
   // Bit field definition.
   struct {
+    /// read-write - General purpose bits
     uint32_t GPR : 32;
   } bits;
   
@@ -193,6 +204,7 @@ union GPR[11] {
   
   // Bit field definition.
   struct {
+    /// read-write - General purpose bits
     uint32_t GPR : 32;
   } bits;
   
@@ -209,6 +221,7 @@ union GPR[12] {
   
   // Bit field definition.
   struct {
+    /// read-write - General purpose bits
     uint32_t GPR : 32;
   } bits;
   
@@ -225,6 +238,7 @@ union GPR[13] {
   
   // Bit field definition.
   struct {
+    /// read-write - General purpose bits
     uint32_t GPR : 32;
   } bits;
   
@@ -241,6 +255,7 @@ union GPR[14] {
   
   // Bit field definition.
   struct {
+    /// read-write - General purpose bits
     uint32_t GPR : 32;
   } bits;
   
@@ -257,6 +272,7 @@ union GPR[15] {
   
   // Bit field definition.
   struct {
+    /// read-write - General purpose bits
     uint32_t GPR : 32;
   } bits;
   
@@ -273,6 +289,7 @@ union GPR[16] {
   
   // Bit field definition.
   struct {
+    /// read-write - General purpose bits
     uint32_t GPR : 32;
   } bits;
   
@@ -289,6 +306,7 @@ union GPR[17] {
   
   // Bit field definition.
   struct {
+    /// read-write - General purpose bits
     uint32_t GPR : 32;
   } bits;
   
@@ -305,6 +323,7 @@ union GPR[18] {
   
   // Bit field definition.
   struct {
+    /// read-write - General purpose bits
     uint32_t GPR : 32;
   } bits;
   
@@ -321,6 +340,7 @@ union GPR[19] {
   
   // Bit field definition.
   struct {
+    /// read-write - General purpose bits
     uint32_t GPR : 32;
   } bits;
   
@@ -337,6 +357,7 @@ union GPR[20] {
   
   // Bit field definition.
   struct {
+    /// read-write - General purpose bits
     uint32_t GPR : 32;
   } bits;
   
@@ -353,6 +374,7 @@ union GPR[21] {
   
   // Bit field definition.
   struct {
+    /// read-write - General purpose bits
     uint32_t GPR : 32;
   } bits;
   
@@ -369,6 +391,7 @@ union GPR[22] {
   
   // Bit field definition.
   struct {
+    /// read-write - General purpose bits
     uint32_t GPR : 32;
   } bits;
   
@@ -385,6 +408,7 @@ union GPR[23] {
   
   // Bit field definition.
   struct {
+    /// read-write - General purpose bits
     uint32_t GPR : 32;
   } bits;
   
@@ -401,6 +425,7 @@ union GPR[24] {
   
   // Bit field definition.
   struct {
+    /// read-write - General purpose bits
     uint32_t GPR : 32;
   } bits;
   
@@ -417,6 +442,7 @@ union GPR[25] {
   
   // Bit field definition.
   struct {
+    /// read-write - General purpose bits
     uint32_t GPR : 32;
   } bits;
   
@@ -433,6 +459,7 @@ union GPR[26] {
   
   // Bit field definition.
   struct {
+    /// read-write - General purpose bits
     uint32_t GPR : 32;
   } bits;
   
@@ -449,6 +476,7 @@ union GPR[27] {
   
   // Bit field definition.
   struct {
+    /// read-write - General purpose bits
     uint32_t GPR : 32;
   } bits;
   
@@ -465,6 +493,7 @@ union GPR[28] {
   
   // Bit field definition.
   struct {
+    /// read-write - General purpose bits
     uint32_t GPR : 32;
   } bits;
   
@@ -481,6 +510,7 @@ union GPR[29] {
   
   // Bit field definition.
   struct {
+    /// read-write - General purpose bits
     uint32_t GPR : 32;
   } bits;
   
@@ -497,6 +527,7 @@ union GPR[30] {
   
   // Bit field definition.
   struct {
+    /// read-write - General purpose bits
     uint32_t GPR : 32;
   } bits;
   
@@ -513,6 +544,7 @@ union GPR[31] {
   
   // Bit field definition.
   struct {
+    /// read-write - General purpose bits
     uint32_t GPR : 32;
   } bits;
   
@@ -531,7 +563,9 @@ union GPR32 {
   // Bit field definition.
   struct {
     uint32_t _reserved_0 : 1;
+    /// read-write - General purpose bits
     uint32_t GPR : 15;
+    /// read-writeOnce - Lock the write to bit 15:0
     uint32_t LOCK : 16;
   } bits;
   
@@ -585,13 +619,20 @@ union GPR33 {
   // Bit field definition.
   struct {
     uint32_t _reserved_0 : 1;
+    /// read-write - DCDC captured status clear
     eDCDC_STATUS_CAPT_CLR DCDC_STATUS_CAPT_CLR : 1;
+    /// read-write - SNVS LDO_SNVS_ANA bypass enable
     eSNVS_BYPASS_EN SNVS_BYPASS_EN : 1;
     uint32_t _reserved_1 : 13;
+    /// read-only - DCDC_IN low voltage detect
     eDCDC_IN_LOW_VOL DCDC_IN_LOW_VOL : 1;
+    /// read-only - DCDC output over current alert
     eDCDC_OVER_CUR DCDC_OVER_CUR : 1;
+    /// read-only - DCDC output over voltage alert
     eDCDC_OVER_VOL DCDC_OVER_VOL : 1;
+    /// read-only - DCDC status OK
     eDCDC_STS_DC_OK DCDC_STS_DC_OK : 1;
+    /// read-only - 32K OSC ok flag
     eSNVS_XTAL_CLK_OK SNVS_XTAL_CLK_OK : 1;
     uint32_t _reserved_2 : 11;
   } bits;
@@ -644,16 +685,25 @@ union GPR34 {
   
   // Bit field definition.
   struct {
+    /// read-writeOnce - Lock the write to bit 31:1
     eLOCK LOCK : 1;
+    /// read-write - SNVS core voltage detect trim select
     eSNVS_CORE_VOLT_DET_TRIM_SEL SNVS_CORE_VOLT_DET_TRIM_SEL : 1;
+    /// read-write - SNVS core voltage detect trim
     uint32_t SNVS_CORE_VOLT_DET_TRIM : 2;
     uint32_t _reserved_0 : 3;
+    /// read-write - SNVS clock detect trim select
     eSNVS_CLK_DET_TRIM_SEL SNVS_CLK_DET_TRIM_SEL : 1;
+    /// read-write - SNVS clock detect trim bits
     uint32_t SNVS_CLK_DET_TRIM : 8;
+    /// read-write - SNVS clock detect offset of high boundary frequency
     eSNVS_CLK_DET_OFFSET_HIGH SNVS_CLK_DET_OFFSET_HIGH : 2;
+    /// read-write - SNVS clock detect offset of low boundary frequency
     eSNVS_CLK_DET_OFFSET_LOW SNVS_CLK_DET_OFFSET_LOW : 2;
     uint32_t _reserved_1 : 3;
+    /// read-write - SNVS OSC load capacitor trim select
     eSNVS_CAP_TRIM_SEL SNVS_CAP_TRIM_SEL : 1;
+    /// read-write - SNVS OSC load capacitor trim
     uint32_t SNVS_OSC_CAP_TRIM : 4;
     uint32_t _reserved_2 : 4;
   } bits;
@@ -701,14 +751,21 @@ union GPR35 {
   
   // Bit field definition.
   struct {
+    /// read-writeOnce - Lock the write to bit 31:1
     eLOCK LOCK : 1;
     uint32_t _reserved_0 : 2;
+    /// read-write - SNVS voltage detect trim select
     eSNVS_VOLT_DET_TRIM_SEL SNVS_VOLT_DET_TRIM_SEL : 1;
+    /// read-write - SNVS voltage detect trim
     uint32_t SNVS_VOLT_DET_TRIM : 8;
     uint32_t _reserved_1 : 3;
+    /// read-write - SNVS temperature detect trim select
     eSNVS_TEMP_DET_TRIM_SEL SNVS_TEMP_DET_TRIM_SEL : 1;
+    /// read-write - SNVS temperature detect trim
     uint32_t SNVS_TEMP_DET_TRIM : 12;
+    /// read-write - SNVS temperature detect offset of high temperature boundary
     eSNVS_TEMP_DET_OFFSET_HIGH SNVS_TEMP_DET_OFFSET_HIGH : 2;
+    /// read-write - SNVS temperature detect offset of low temperature boundary
     eSNVS_TEMP_DET_OFFSET_LOW SNVS_TEMP_DET_OFFSET_LOW : 2;
   } bits;
   
@@ -762,13 +819,20 @@ union GPR36 {
   // Bit field definition.
   struct {
     uint32_t _reserved_0 : 23;
+    /// read-write - SNVS RAM isolation enable bit
     eSNVSDIG_SNVS1P8_ISO_EN SNVSDIG_SNVS1P8_ISO_EN : 1;
     uint32_t _reserved_1 : 2;
+    /// read-write - SNVS SRAM power-down enable bit
     eSNVS_SRAM_SLEEP SNVS_SRAM_SLEEP : 1;
+    /// read-write - SNVS SRAM standby enable bit
     eSNVS_SRAM_STDBY SNVS_SRAM_STDBY : 1;
+    /// read-write - SNVS SRAM large switch control bit for peripheral
     eSNVS_SRAM_PSWLARGEMP_FORCE SNVS_SRAM_PSWLARGEMP_FORCE : 1;
+    /// read-write - SNVS SRAM large switch control bit
     eSNVS_SRAM_PSWLARGE SNVS_SRAM_PSWLARGE : 1;
+    /// read-write - SNVS SRAM small switch control bit for peripheral
     eSNVS_SRAM_PSWSMALLMP_FORCE SNVS_SRAM_PSWSMALLMP_FORCE : 1;
+    /// read-write - SNVS SRAM small switch control bit
     eSNVS_SRAM_PSWSMALL SNVS_SRAM_PSWSMALL : 1;
   } bits;
   
@@ -791,8 +855,11 @@ union GPR37 {
   
   // Bit field definition.
   struct {
+    /// read-writeOnce - Lock the write to bit 31:1
     eLOCK LOCK : 1;
+    /// read-write - SNVS tamper detect pin pull enable bit
     uint32_t SNVS_TAMPER_PUE : 10;
+    /// read-write - SNVS tamper detect pin pull selection bit
     uint32_t SNVS_TAMPER_PUS : 10;
     uint32_t _reserved_0 : 11;
   } bits;

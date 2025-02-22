@@ -31,12 +31,18 @@ union GPR0 {
   
   // Bit field definition.
   struct {
+    /// read-write - SAI1 MCLK1 source select
     uint32_t SAI1_MCLK1_SEL : 3;
+    /// read-write - SAI1 MCLK2 source select
     uint32_t SAI1_MCLK2_SEL : 3;
+    /// read-write - SAI1 MCLK3 source select
     uint32_t SAI1_MCLK3_SEL : 2;
+    /// read-write - SAI1_MCLK signal direction control
     uint32_t SAI1_MCLK_DIR : 1;
     uint32_t _reserved_0 : 19;
+    /// read-write - Domain write protection
     eDWP DWP : 2;
+    /// read-writeOnce - Domain write protection lock
     eDWP_LOCK DWP_LOCK : 2;
   } bits;
   
@@ -68,11 +74,15 @@ union GPR1 {
   
   // Bit field definition.
   struct {
+    /// read-write - SAI2 MCLK3 source select
     uint32_t SAI2_MCLK3_SEL : 2;
     uint32_t _reserved_0 : 6;
+    /// read-write - SAI2_MCLK signal direction control
     uint32_t SAI2_MCLK_DIR : 1;
     uint32_t _reserved_1 : 19;
+    /// read-write - Domain write protection
     eDWP DWP : 2;
+    /// read-writeOnce - Domain write protection lock
     eDWP_LOCK DWP_LOCK : 2;
   } bits;
   
@@ -104,12 +114,17 @@ union GPR2 {
   
   // Bit field definition.
   struct {
+    /// read-write - SAI3 MCLK3 source select
     uint32_t SAI3_MCLK3_SEL : 2;
     uint32_t _reserved_0 : 6;
+    /// read-write - SAI3_MCLK signal direction control
     uint32_t SAI3_MCLK_DIR : 1;
+    /// read-write - SAI4_MCLK signal direction control
     uint32_t SAI4_MCLK_DIR : 1;
     uint32_t _reserved_1 : 18;
+    /// read-write - Domain write protection
     eDWP DWP : 2;
+    /// read-writeOnce - Domain write protection lock
     eDWP_LOCK DWP_LOCK : 2;
   } bits;
   
@@ -141,12 +156,18 @@ union GPR3 {
   
   // Bit field definition.
   struct {
+    /// read-write - Divider ratio control for mclk from hmclk.
     uint32_t MQS_CLK_DIV : 8;
+    /// read-write - MQS software reset
     uint32_t MQS_SW_RST : 1;
+    /// read-write - MQS enable
     uint32_t MQS_EN : 1;
+    /// read-write - Medium Quality Sound (MQS) Oversample
     uint32_t MQS_OVERSAMPLE : 1;
     uint32_t _reserved_0 : 17;
+    /// read-write - Domain write protection
     eDWP DWP : 2;
+    /// read-writeOnce - Domain write protection lock
     eDWP_LOCK DWP_LOCK : 2;
   } bits;
   
@@ -178,12 +199,18 @@ union GPR4 {
   
   // Bit field definition.
   struct {
+    /// read-write - ENET TX_CLK select
     uint32_t ENET_TX_CLK_SEL : 1;
+    /// read-write - ENET_REF_CLK direction control
     uint32_t ENET_REF_CLK_DIR : 1;
+    /// read-write - ENET master timer source select
     uint32_t ENET_TIME_SEL : 1;
+    /// read-write - ENET ENET_1588_EVENT0_IN source select
     uint32_t ENET_EVENT0IN_SEL : 1;
     uint32_t _reserved_0 : 24;
+    /// read-write - Domain write protection
     eDWP DWP : 2;
+    /// read-writeOnce - Domain write protection lock
     eDWP_LOCK DWP_LOCK : 2;
   } bits;
   
@@ -215,13 +242,20 @@ union GPR5 {
   
   // Bit field definition.
   struct {
+    /// read-write - ENET1G TX_CLK select
     uint32_t ENET1G_TX_CLK_SEL : 1;
+    /// read-write - ENET1G_REF_CLK direction control
     uint32_t ENET1G_REF_CLK_DIR : 1;
+    /// read-write - ENET1G RGMII TX clock output enable
     uint32_t ENET1G_RGMII_EN : 1;
+    /// read-write - ENET1G master timer source select
     uint32_t ENET1G_TIME_SEL : 1;
+    /// read-write - ENET1G ENET_1588_EVENT0_IN source select
     uint32_t ENET1G_EVENT0IN_SEL : 1;
     uint32_t _reserved_0 : 23;
+    /// read-write - Domain write protection
     eDWP DWP : 2;
+    /// read-writeOnce - Domain write protection lock
     eDWP_LOCK DWP_LOCK : 2;
   } bits;
   
@@ -253,14 +287,22 @@ union GPR6 {
   
   // Bit field definition.
   struct {
+    /// read-write - ENET_QOS_REF_CLK direction control
     uint32_t ENET_QOS_REF_CLK_DIR : 1;
+    /// read-write - ENET_QOS RGMII TX clock output enable
     uint32_t ENET_QOS_RGMII_EN : 1;
+    /// read-write - ENET_QOS master timer source select
     uint32_t ENET_QOS_TIME_SEL : 1;
+    /// read-write - ENET_QOS PHY Interface Select
     uint32_t ENET_QOS_INTF_SEL : 3;
+    /// read-write - ENET_QOS clock generator enable
     uint32_t ENET_QOS_CLKGEN_EN : 1;
+    /// read-write - ENET_QOS ENET_1588_EVENT0_IN source select
     uint32_t ENET_QOS_EVENT0IN_SEL : 1;
     uint32_t _reserved_0 : 20;
+    /// read-write - Domain write protection
     eDWP DWP : 2;
+    /// read-writeOnce - Domain write protection lock
     eDWP_LOCK DWP_LOCK : 2;
   } bits;
   
@@ -292,9 +334,12 @@ union GPR7 {
   
   // Bit field definition.
   struct {
+    /// read-write - Global interrupt
     uint32_t GINT : 1;
     uint32_t _reserved_0 : 27;
+    /// read-write - Domain write protection
     eDWP DWP : 2;
+    /// read-writeOnce - Domain write protection lock
     eDWP_LOCK DWP_LOCK : 2;
   } bits;
   
@@ -326,9 +371,12 @@ union GPR8 {
   
   // Bit field definition.
   struct {
+    /// read-write - WDOG1 timeout mask for WDOG_ANY
     uint32_t WDOG1_MASK : 1;
     uint32_t _reserved_0 : 27;
+    /// read-write - Domain write protection
     eDWP DWP : 2;
+    /// read-writeOnce - Domain write protection lock
     eDWP_LOCK DWP_LOCK : 2;
   } bits;
   
@@ -360,9 +408,12 @@ union GPR9 {
   
   // Bit field definition.
   struct {
+    /// read-write - WDOG2 timeout mask for WDOG_ANY
     uint32_t WDOG2_MASK : 1;
     uint32_t _reserved_0 : 27;
+    /// read-write - Domain write protection
     eDWP DWP : 2;
+    /// read-writeOnce - Domain write protection lock
     eDWP_LOCK DWP_LOCK : 2;
   } bits;
   
@@ -395,7 +446,9 @@ union GPR10 {
   // Bit field definition.
   struct {
     uint32_t _reserved_0 : 28;
+    /// read-write - Domain write protection
     eDWP DWP : 2;
+    /// read-writeOnce - Domain write protection lock
     eDWP_LOCK DWP_LOCK : 2;
   } bits;
   
@@ -428,7 +481,9 @@ union GPR11 {
   // Bit field definition.
   struct {
     uint32_t _reserved_0 : 28;
+    /// read-write - Domain write protection
     eDWP DWP : 2;
+    /// read-writeOnce - Domain write protection lock
     eDWP_LOCK DWP_LOCK : 2;
   } bits;
   
@@ -460,14 +515,21 @@ union GPR12 {
   
   // Bit field definition.
   struct {
+    /// read-write - QTIMER1 timer counter freeze
     uint32_t QTIMER1_TMR_CNTS_FREEZE : 1;
     uint32_t _reserved_0 : 7;
+    /// read-write - QTIMER1 TMR0 input select
     uint32_t QTIMER1_TRM0_INPUT_SEL : 1;
+    /// read-write - QTIMER1 TMR1 input select
     uint32_t QTIMER1_TRM1_INPUT_SEL : 1;
+    /// read-write - QTIMER1 TMR2 input select
     uint32_t QTIMER1_TRM2_INPUT_SEL : 1;
+    /// read-write - QTIMER1 TMR3 input select
     uint32_t QTIMER1_TRM3_INPUT_SEL : 1;
     uint32_t _reserved_1 : 16;
+    /// read-write - Domain write protection
     eDWP DWP : 2;
+    /// read-writeOnce - Domain write protection lock
     eDWP_LOCK DWP_LOCK : 2;
   } bits;
   
@@ -499,14 +561,21 @@ union GPR13 {
   
   // Bit field definition.
   struct {
+    /// read-write - QTIMER2 timer counter freeze
     uint32_t QTIMER2_TMR_CNTS_FREEZE : 1;
     uint32_t _reserved_0 : 7;
+    /// read-write - QTIMER2 TMR0 input select
     uint32_t QTIMER2_TRM0_INPUT_SEL : 1;
+    /// read-write - QTIMER2 TMR1 input select
     uint32_t QTIMER2_TRM1_INPUT_SEL : 1;
+    /// read-write - QTIMER2 TMR2 input select
     uint32_t QTIMER2_TRM2_INPUT_SEL : 1;
+    /// read-write - QTIMER2 TMR3 input select
     uint32_t QTIMER2_TRM3_INPUT_SEL : 1;
     uint32_t _reserved_1 : 16;
+    /// read-write - Domain write protection
     eDWP DWP : 2;
+    /// read-writeOnce - Domain write protection lock
     eDWP_LOCK DWP_LOCK : 2;
   } bits;
   
@@ -538,14 +607,21 @@ union GPR14 {
   
   // Bit field definition.
   struct {
+    /// read-write - QTIMER3 timer counter freeze
     uint32_t QTIMER3_TMR_CNTS_FREEZE : 1;
     uint32_t _reserved_0 : 7;
+    /// read-write - QTIMER3 TMR0 input select
     uint32_t QTIMER3_TRM0_INPUT_SEL : 1;
+    /// read-write - QTIMER3 TMR1 input select
     uint32_t QTIMER3_TRM1_INPUT_SEL : 1;
+    /// read-write - QTIMER3 TMR2 input select
     uint32_t QTIMER3_TRM2_INPUT_SEL : 1;
+    /// read-write - QTIMER3 TMR3 input select
     uint32_t QTIMER3_TRM3_INPUT_SEL : 1;
     uint32_t _reserved_1 : 16;
+    /// read-write - Domain write protection
     eDWP DWP : 2;
+    /// read-writeOnce - Domain write protection lock
     eDWP_LOCK DWP_LOCK : 2;
   } bits;
   
@@ -577,14 +653,21 @@ union GPR15 {
   
   // Bit field definition.
   struct {
+    /// read-write - QTIMER4 timer counter freeze
     uint32_t QTIMER4_TMR_CNTS_FREEZE : 1;
     uint32_t _reserved_0 : 7;
+    /// read-write - QTIMER4 TMR0 input select
     uint32_t QTIMER4_TRM0_INPUT_SEL : 1;
+    /// read-write - QTIMER4 TMR1 input select
     uint32_t QTIMER4_TRM1_INPUT_SEL : 1;
+    /// read-write - QTIMER4 TMR2 input select
     uint32_t QTIMER4_TRM2_INPUT_SEL : 1;
+    /// read-write - QTIMER4 TMR3 input select
     uint32_t QTIMER4_TRM3_INPUT_SEL : 1;
     uint32_t _reserved_1 : 16;
+    /// read-write - Domain write protection
     eDWP DWP : 2;
+    /// read-writeOnce - Domain write protection lock
     eDWP_LOCK DWP_LOCK : 2;
   } bits;
   
@@ -617,12 +700,17 @@ union GPR16 {
   // Bit field definition.
   struct {
     uint32_t _reserved_0 : 2;
+    /// read-write - FlexRAM bank config source select
     uint32_t FLEXRAM_BANK_CFG_SEL : 1;
+    /// read-write - CM7 platform AHB clock enable
     uint32_t CM7_FORCE_HCLK_EN : 1;
     uint32_t _reserved_1 : 1;
+    /// read-write - CM7 sleep request selection
     uint32_t M7_GPC_SLEEP_SEL : 1;
     uint32_t _reserved_2 : 22;
+    /// read-write - Domain write protection
     eDWP DWP : 2;
+    /// read-writeOnce - Domain write protection lock
     eDWP_LOCK DWP_LOCK : 2;
   } bits;
   
@@ -654,9 +742,12 @@ union GPR17 {
   
   // Bit field definition.
   struct {
+    /// read-write - FlexRAM bank config value
     uint32_t FLEXRAM_BANK_CFG_LOW : 16;
     uint32_t _reserved_0 : 12;
+    /// read-write - Domain write protection
     eDWP DWP : 2;
+    /// read-writeOnce - Domain write protection lock
     eDWP_LOCK DWP_LOCK : 2;
   } bits;
   
@@ -688,9 +779,12 @@ union GPR18 {
   
   // Bit field definition.
   struct {
+    /// read-write - FlexRAM bank config value
     uint32_t FLEXRAM_BANK_CFG_HIGH : 16;
     uint32_t _reserved_0 : 12;
+    /// read-write - Domain write protection
     eDWP DWP : 2;
+    /// read-writeOnce - Domain write protection lock
     eDWP_LOCK DWP_LOCK : 2;
   } bits;
   
@@ -722,35 +816,65 @@ union GPR20 {
   
   // Bit field definition.
   struct {
+    /// read-write - IOMUXC XBAR_INOUT4 function direction select
     uint32_t IOMUXC_XBAR_DIR_SEL_4 : 1;
+    /// read-write - IOMUXC XBAR_INOUT5 function direction select
     uint32_t IOMUXC_XBAR_DIR_SEL_5 : 1;
+    /// read-write - IOMUXC XBAR_INOUT6 function direction select
     uint32_t IOMUXC_XBAR_DIR_SEL_6 : 1;
+    /// read-write - IOMUXC XBAR_INOUT7 function direction select
     uint32_t IOMUXC_XBAR_DIR_SEL_7 : 1;
+    /// read-write - IOMUXC XBAR_INOUT8 function direction select
     uint32_t IOMUXC_XBAR_DIR_SEL_8 : 1;
+    /// read-write - IOMUXC XBAR_INOUT9 function direction select
     uint32_t IOMUXC_XBAR_DIR_SEL_9 : 1;
+    /// read-write - IOMUXC XBAR_INOUT10 function direction select
     uint32_t IOMUXC_XBAR_DIR_SEL_10 : 1;
+    /// read-write - IOMUXC XBAR_INOUT11 function direction select
     uint32_t IOMUXC_XBAR_DIR_SEL_11 : 1;
+    /// read-write - IOMUXC XBAR_INOUT12 function direction select
     uint32_t IOMUXC_XBAR_DIR_SEL_12 : 1;
+    /// read-write - IOMUXC XBAR_INOUT13 function direction select
     uint32_t IOMUXC_XBAR_DIR_SEL_13 : 1;
+    /// read-write - IOMUXC XBAR_INOUT14 function direction select
     uint32_t IOMUXC_XBAR_DIR_SEL_14 : 1;
+    /// read-write - IOMUXC XBAR_INOUT15 function direction select
     uint32_t IOMUXC_XBAR_DIR_SEL_15 : 1;
+    /// read-write - IOMUXC XBAR_INOUT16 function direction select
     uint32_t IOMUXC_XBAR_DIR_SEL_16 : 1;
+    /// read-write - IOMUXC XBAR_INOUT17 function direction select
     uint32_t IOMUXC_XBAR_DIR_SEL_17 : 1;
+    /// read-write - IOMUXC XBAR_INOUT18 function direction select
     uint32_t IOMUXC_XBAR_DIR_SEL_18 : 1;
+    /// read-write - IOMUXC XBAR_INOUT19 function direction select
     uint32_t IOMUXC_XBAR_DIR_SEL_19 : 1;
+    /// read-write - IOMUXC XBAR_INOUT20 function direction select
     uint32_t IOMUXC_XBAR_DIR_SEL_20 : 1;
+    /// read-write - IOMUXC XBAR_INOUT21 function direction select
     uint32_t IOMUXC_XBAR_DIR_SEL_21 : 1;
+    /// read-write - IOMUXC XBAR_INOUT22 function direction select
     uint32_t IOMUXC_XBAR_DIR_SEL_22 : 1;
+    /// read-write - IOMUXC XBAR_INOUT23 function direction select
     uint32_t IOMUXC_XBAR_DIR_SEL_23 : 1;
+    /// read-write - IOMUXC XBAR_INOUT24 function direction select
     uint32_t IOMUXC_XBAR_DIR_SEL_24 : 1;
+    /// read-write - IOMUXC XBAR_INOUT25 function direction select
     uint32_t IOMUXC_XBAR_DIR_SEL_25 : 1;
+    /// read-write - IOMUXC XBAR_INOUT26 function direction select
     uint32_t IOMUXC_XBAR_DIR_SEL_26 : 1;
+    /// read-write - IOMUXC XBAR_INOUT27 function direction select
     uint32_t IOMUXC_XBAR_DIR_SEL_27 : 1;
+    /// read-write - IOMUXC XBAR_INOUT28 function direction select
     uint32_t IOMUXC_XBAR_DIR_SEL_28 : 1;
+    /// read-write - IOMUXC XBAR_INOUT29 function direction select
     uint32_t IOMUXC_XBAR_DIR_SEL_29 : 1;
+    /// read-write - IOMUXC XBAR_INOUT30 function direction select
     uint32_t IOMUXC_XBAR_DIR_SEL_30 : 1;
+    /// read-write - IOMUXC XBAR_INOUT31 function direction select
     uint32_t IOMUXC_XBAR_DIR_SEL_31 : 1;
+    /// read-write - Domain write protection
     eDWP DWP : 2;
+    /// read-writeOnce - Domain write protection lock
     eDWP_LOCK DWP_LOCK : 2;
   } bits;
   
@@ -782,19 +906,32 @@ union GPR21 {
   
   // Bit field definition.
   struct {
+    /// read-write - IOMUXC XBAR_INOUT32 function direction select
     uint32_t IOMUXC_XBAR_DIR_SEL_32 : 1;
+    /// read-write - IOMUXC XBAR_INOUT33 function direction select
     uint32_t IOMUXC_XBAR_DIR_SEL_33 : 1;
+    /// read-write - IOMUXC XBAR_INOUT34 function direction select
     uint32_t IOMUXC_XBAR_DIR_SEL_34 : 1;
+    /// read-write - IOMUXC XBAR_INOUT35 function direction select
     uint32_t IOMUXC_XBAR_DIR_SEL_35 : 1;
+    /// read-write - IOMUXC XBAR_INOUT36 function direction select
     uint32_t IOMUXC_XBAR_DIR_SEL_36 : 1;
+    /// read-write - IOMUXC XBAR_INOUT37 function direction select
     uint32_t IOMUXC_XBAR_DIR_SEL_37 : 1;
+    /// read-write - IOMUXC XBAR_INOUT38 function direction select
     uint32_t IOMUXC_XBAR_DIR_SEL_38 : 1;
+    /// read-write - IOMUXC XBAR_INOUT39 function direction select
     uint32_t IOMUXC_XBAR_DIR_SEL_39 : 1;
+    /// read-write - IOMUXC XBAR_INOUT40 function direction select
     uint32_t IOMUXC_XBAR_DIR_SEL_40 : 1;
+    /// read-write - IOMUXC XBAR_INOUT41 function direction select
     uint32_t IOMUXC_XBAR_DIR_SEL_41 : 1;
+    /// read-write - IOMUXC XBAR_INOUT42 function direction select
     uint32_t IOMUXC_XBAR_DIR_SEL_42 : 1;
     uint32_t _reserved_0 : 17;
+    /// read-write - Domain write protection
     eDWP DWP : 2;
+    /// read-writeOnce - Domain write protection lock
     eDWP_LOCK DWP_LOCK : 2;
   } bits;
   
@@ -826,9 +963,12 @@ union GPR22 {
   
   // Bit field definition.
   struct {
+    /// read-write - GPT1 1 MHz clock source select
     uint32_t REF_1M_CLK_GPT1 : 1;
     uint32_t _reserved_0 : 27;
+    /// read-write - Domain write protection
     eDWP DWP : 2;
+    /// read-writeOnce - Domain write protection lock
     eDWP_LOCK DWP_LOCK : 2;
   } bits;
   
@@ -860,11 +1000,16 @@ union GPR23 {
   
   // Bit field definition.
   struct {
+    /// read-write - GPT2 1 MHz clock source select
     uint32_t REF_1M_CLK_GPT2 : 1;
+    /// read-write - GPT2 input capture channel 1 source select
     uint32_t GPT2_CAPIN1_SEL : 1;
+    /// read-write - GPT2 input capture channel 2 source select
     uint32_t GPT2_CAPIN2_SEL : 1;
     uint32_t _reserved_0 : 25;
+    /// read-write - Domain write protection
     eDWP DWP : 2;
+    /// read-writeOnce - Domain write protection lock
     eDWP_LOCK DWP_LOCK : 2;
   } bits;
   
@@ -896,10 +1041,14 @@ union GPR24 {
   
   // Bit field definition.
   struct {
+    /// read-write - GPT3 1 MHz clock source select
     uint32_t REF_1M_CLK_GPT3 : 1;
+    /// read-write - GPT3 input capture channel 1 source select
     uint32_t GPT3_CAPIN1_SEL : 1;
     uint32_t _reserved_0 : 26;
+    /// read-write - Domain write protection
     eDWP DWP : 2;
+    /// read-writeOnce - Domain write protection lock
     eDWP_LOCK DWP_LOCK : 2;
   } bits;
   
@@ -931,9 +1080,12 @@ union GPR25 {
   
   // Bit field definition.
   struct {
+    /// read-write - GPT4 1 MHz clock source select
     uint32_t REF_1M_CLK_GPT4 : 1;
     uint32_t _reserved_0 : 27;
+    /// read-write - Domain write protection
     eDWP DWP : 2;
+    /// read-writeOnce - Domain write protection lock
     eDWP_LOCK DWP_LOCK : 2;
   } bits;
   
@@ -965,9 +1117,12 @@ union GPR26 {
   
   // Bit field definition.
   struct {
+    /// read-write - GPT5 1 MHz clock source select
     uint32_t REF_1M_CLK_GPT5 : 1;
     uint32_t _reserved_0 : 27;
+    /// read-write - Domain write protection
     eDWP DWP : 2;
+    /// read-writeOnce - Domain write protection lock
     eDWP_LOCK DWP_LOCK : 2;
   } bits;
   
@@ -999,9 +1154,12 @@ union GPR27 {
   
   // Bit field definition.
   struct {
+    /// read-write - GPT6 1 MHz clock source select
     uint32_t REF_1M_CLK_GPT6 : 1;
     uint32_t _reserved_0 : 27;
+    /// read-write - Domain write protection
     eDWP DWP : 2;
+    /// read-writeOnce - Domain write protection lock
     eDWP_LOCK DWP_LOCK : 2;
   } bits;
   
@@ -1033,16 +1191,23 @@ union GPR28 {
   
   // Bit field definition.
   struct {
+    /// read-write - uSDHC block cacheable attribute value of AXI read transactions
     uint32_t ARCACHE_USDHC : 1;
+    /// read-write - uSDHC block cacheable attribute value of AXI write transactions
     uint32_t AWCACHE_USDHC : 1;
     uint32_t _reserved_0 : 3;
+    /// read-write - no description available
     uint32_t CACHE_ENET1G : 1;
     uint32_t _reserved_1 : 1;
+    /// read-write - ENET block cacheable attribute value of AXI transactions
     uint32_t CACHE_ENET : 1;
     uint32_t _reserved_2 : 5;
+    /// read-write - USB block cacheable attribute value of AXI transactions
     uint32_t CACHE_USB : 1;
     uint32_t _reserved_3 : 14;
+    /// read-write - Domain write protection
     eDWP DWP : 2;
+    /// read-writeOnce - Domain write protection lock
     eDWP_LOCK DWP_LOCK : 2;
   } bits;
   
@@ -1074,9 +1239,12 @@ union GPR29 {
   
   // Bit field definition.
   struct {
+    /// read-write - USBPHY1 register access clock enable
     uint32_t USBPHY1_IPG_CLK_ACTIVE : 1;
     uint32_t _reserved_0 : 27;
+    /// read-write - Domain write protection
     eDWP DWP : 2;
+    /// read-writeOnce - Domain write protection lock
     eDWP_LOCK DWP_LOCK : 2;
   } bits;
   
@@ -1108,9 +1276,12 @@ union GPR30 {
   
   // Bit field definition.
   struct {
+    /// read-write - USBPHY2 register access clock enable
     uint32_t USBPHY2_IPG_CLK_ACTIVE : 1;
     uint32_t _reserved_0 : 27;
+    /// read-write - Domain write protection
     eDWP DWP : 2;
+    /// read-writeOnce - Domain write protection lock
     eDWP_LOCK DWP_LOCK : 2;
   } bits;
   
@@ -1142,11 +1313,15 @@ union GPR31 {
   
   // Bit field definition.
   struct {
+    /// read-write - OCRAM M7 RMW wait enable
     uint32_t RMW2_WAIT_BVALID_CPL : 1;
     uint32_t _reserved_0 : 1;
+    /// read-write - OCRAM M7 clock gating enable
     uint32_t OCRAM_M7_CLK_GATING : 1;
     uint32_t _reserved_1 : 25;
+    /// read-write - Domain write protection
     eDWP DWP : 2;
+    /// read-writeOnce - Domain write protection lock
     eDWP_LOCK DWP_LOCK : 2;
   } bits;
   
@@ -1178,9 +1353,12 @@ union GPR32 {
   
   // Bit field definition.
   struct {
+    /// read-write - OCRAM1 RMW wait enable
     uint32_t RMW1_WAIT_BVALID_CPL : 1;
     uint32_t _reserved_0 : 27;
+    /// read-write - Domain write protection
     eDWP DWP : 2;
+    /// read-writeOnce - Domain write protection lock
     eDWP_LOCK DWP_LOCK : 2;
   } bits;
   
@@ -1212,9 +1390,12 @@ union GPR33 {
   
   // Bit field definition.
   struct {
+    /// read-write - OCRAM2 RMW wait enable
     uint32_t RMW2_WAIT_BVALID_CPL : 1;
     uint32_t _reserved_0 : 27;
+    /// read-write - Domain write protection
     eDWP DWP : 2;
+    /// read-writeOnce - Domain write protection lock
     eDWP_LOCK DWP_LOCK : 2;
   } bits;
   
@@ -1246,10 +1427,14 @@ union GPR34 {
   
   // Bit field definition.
   struct {
+    /// read-write - XECC_FLEXSPI1 RMW wait enable
     uint32_t XECC_FLEXSPI1_WAIT_BVALID_CPL : 1;
+    /// read-write - FlexSPI1 OTFAD enable
     uint32_t FLEXSPI1_OTFAD_EN : 1;
     uint32_t _reserved_0 : 26;
+    /// read-write - Domain write protection
     eDWP DWP : 2;
+    /// read-writeOnce - Domain write protection lock
     eDWP_LOCK DWP_LOCK : 2;
   } bits;
   
@@ -1281,10 +1466,14 @@ union GPR35 {
   
   // Bit field definition.
   struct {
+    /// read-write - XECC_FLEXSPI2 RMW wait enable
     uint32_t XECC_FLEXSPI2_WAIT_BVALID_CPL : 1;
+    /// read-write - FlexSPI2 OTFAD enable
     uint32_t FLEXSPI2_OTFAD_EN : 1;
     uint32_t _reserved_0 : 26;
+    /// read-write - Domain write protection
     eDWP DWP : 2;
+    /// read-writeOnce - Domain write protection lock
     eDWP_LOCK DWP_LOCK : 2;
   } bits;
   
@@ -1316,9 +1505,12 @@ union GPR36 {
   
   // Bit field definition.
   struct {
+    /// read-write - XECC_SEMC RMW wait enable
     uint32_t XECC_SEMC_WAIT_BVALID_CPL : 1;
     uint32_t _reserved_0 : 27;
+    /// read-write - Domain write protection
     eDWP DWP : 2;
+    /// read-writeOnce - Domain write protection lock
     eDWP_LOCK DWP_LOCK : 2;
   } bits;
   
@@ -1350,15 +1542,22 @@ union GPR37 {
   
   // Bit field definition.
   struct {
+    /// read-write - ARM non-secure (non-invasive) debug enable
     uint32_t NIDEN : 1;
+    /// read-write - ARM invasive debug enable
     uint32_t DBG_EN : 1;
     uint32_t _reserved_0 : 1;
+    /// read-write - Exclusive monitor response select of illegal command
     uint32_t EXC_MON : 1;
     uint32_t _reserved_1 : 1;
+    /// read-write - CM7 debug halt mask
     uint32_t M7_DBG_ACK_MASK : 1;
+    /// read-write - CM4 debug halt mask
     uint32_t M4_DBG_ACK_MASK : 1;
     uint32_t _reserved_2 : 21;
+    /// read-write - Domain write protection
     eDWP DWP : 2;
+    /// read-writeOnce - Domain write protection lock
     eDWP_LOCK DWP_LOCK : 2;
   } bits;
   
@@ -1391,7 +1590,9 @@ union GPR38 {
   // Bit field definition.
   struct {
     uint32_t _reserved_0 : 28;
+    /// read-write - Domain write protection
     eDWP DWP : 2;
+    /// read-writeOnce - Domain write protection lock
     eDWP_LOCK DWP_LOCK : 2;
   } bits;
   
@@ -1424,7 +1625,9 @@ union GPR39 {
   // Bit field definition.
   struct {
     uint32_t _reserved_0 : 28;
+    /// read-write - Domain write protection
     eDWP DWP : 2;
+    /// read-writeOnce - Domain write protection lock
     eDWP_LOCK DWP_LOCK : 2;
   } bits;
   
@@ -1456,9 +1659,12 @@ union GPR40 {
   
   // Bit field definition.
   struct {
+    /// read-write - GPIO2 and CM7_GPIO2 share same IO MUX function, GPIO_MUX2 selects one GPIO function.
     uint32_t GPIO_MUX2_GPIO_SEL_LOW : 16;
     uint32_t _reserved_0 : 12;
+    /// read-write - Domain write protection
     eDWP DWP : 2;
+    /// read-writeOnce - Domain write protection lock
     eDWP_LOCK DWP_LOCK : 2;
   } bits;
   
@@ -1490,9 +1696,12 @@ union GPR41 {
   
   // Bit field definition.
   struct {
+    /// read-write - GPIO2 and CM7_GPIO2 share same IO MUX function, GPIO_MUX2 selects one GPIO function.
     uint32_t GPIO_MUX2_GPIO_SEL_HIGH : 16;
     uint32_t _reserved_0 : 12;
+    /// read-write - Domain write protection
     eDWP DWP : 2;
+    /// read-writeOnce - Domain write protection lock
     eDWP_LOCK DWP_LOCK : 2;
   } bits;
   
@@ -1524,9 +1733,12 @@ union GPR42 {
   
   // Bit field definition.
   struct {
+    /// read-write - GPIO3 and CM7_GPIO3 share same IO MUX function, GPIO_MUX3 selects one GPIO function.
     uint32_t GPIO_MUX3_GPIO_SEL_LOW : 16;
     uint32_t _reserved_0 : 12;
+    /// read-write - Domain write protection
     eDWP DWP : 2;
+    /// read-writeOnce - Domain write protection lock
     eDWP_LOCK DWP_LOCK : 2;
   } bits;
   
@@ -1558,9 +1770,12 @@ union GPR43 {
   
   // Bit field definition.
   struct {
+    /// read-write - GPIO3 and CM7_GPIO3 share same IO MUX function, GPIO_MUX3 selects one GPIO function.
     uint32_t GPIO_MUX3_GPIO_SEL_HIGH : 16;
     uint32_t _reserved_0 : 12;
+    /// read-write - Domain write protection
     eDWP DWP : 2;
+    /// read-writeOnce - Domain write protection lock
     eDWP_LOCK DWP_LOCK : 2;
   } bits;
   
@@ -1593,7 +1808,9 @@ union GPR44 {
   // Bit field definition.
   struct {
     uint32_t _reserved_0 : 28;
+    /// read-write - Domain write protection
     eDWP DWP : 2;
+    /// read-writeOnce - Domain write protection lock
     eDWP_LOCK DWP_LOCK : 2;
   } bits;
   
@@ -1626,7 +1843,9 @@ union GPR45 {
   // Bit field definition.
   struct {
     uint32_t _reserved_0 : 28;
+    /// read-write - Domain write protection
     eDWP DWP : 2;
+    /// read-writeOnce - Domain write protection lock
     eDWP_LOCK DWP_LOCK : 2;
   } bits;
   
@@ -1659,7 +1878,9 @@ union GPR46 {
   // Bit field definition.
   struct {
     uint32_t _reserved_0 : 28;
+    /// read-write - Domain write protection
     eDWP DWP : 2;
+    /// read-writeOnce - Domain write protection lock
     eDWP_LOCK DWP_LOCK : 2;
   } bits;
   
@@ -1692,7 +1913,9 @@ union GPR47 {
   // Bit field definition.
   struct {
     uint32_t _reserved_0 : 28;
+    /// read-write - Domain write protection
     eDWP DWP : 2;
+    /// read-writeOnce - Domain write protection lock
     eDWP_LOCK DWP_LOCK : 2;
   } bits;
   
@@ -1725,7 +1948,9 @@ union GPR48 {
   // Bit field definition.
   struct {
     uint32_t _reserved_0 : 28;
+    /// read-write - Domain write protection
     eDWP DWP : 2;
+    /// read-writeOnce - Domain write protection lock
     eDWP_LOCK DWP_LOCK : 2;
   } bits;
   
@@ -1758,7 +1983,9 @@ union GPR49 {
   // Bit field definition.
   struct {
     uint32_t _reserved_0 : 28;
+    /// read-write - Domain write protection
     eDWP DWP : 2;
+    /// read-writeOnce - Domain write protection lock
     eDWP_LOCK DWP_LOCK : 2;
   } bits;
   
@@ -1790,9 +2017,12 @@ union GPR50 {
   
   // Bit field definition.
   struct {
+    /// read-write - CAAM manager processor identifier
     uint32_t CAAM_IPS_MGR : 5;
     uint32_t _reserved_0 : 23;
+    /// read-write - Domain write protection
     eDWP DWP : 2;
+    /// read-writeOnce - Domain write protection lock
     eDWP_LOCK DWP_LOCK : 2;
   } bits;
   
@@ -1824,9 +2054,12 @@ union GPR51 {
   
   // Bit field definition.
   struct {
+    /// read-write - Clear CM7 NMI holding register
     uint32_t M7_NMI_CLEAR : 1;
     uint32_t _reserved_0 : 27;
+    /// read-write - Domain write protection
     eDWP DWP : 2;
+    /// read-writeOnce - Domain write protection lock
     eDWP_LOCK DWP_LOCK : 2;
   } bits;
   
@@ -1859,7 +2092,9 @@ union GPR52 {
   // Bit field definition.
   struct {
     uint32_t _reserved_0 : 28;
+    /// read-write - Domain write protection
     eDWP DWP : 2;
+    /// read-writeOnce - Domain write protection lock
     eDWP_LOCK DWP_LOCK : 2;
   } bits;
   
@@ -1892,7 +2127,9 @@ union GPR53 {
   // Bit field definition.
   struct {
     uint32_t _reserved_0 : 28;
+    /// read-write - Domain write protection
     eDWP DWP : 2;
+    /// read-writeOnce - Domain write protection lock
     eDWP_LOCK DWP_LOCK : 2;
   } bits;
   
@@ -1925,7 +2162,9 @@ union GPR54 {
   // Bit field definition.
   struct {
     uint32_t _reserved_0 : 28;
+    /// read-write - Domain write protection
     eDWP DWP : 2;
+    /// read-writeOnce - Domain write protection lock
     eDWP_LOCK DWP_LOCK : 2;
   } bits;
   
@@ -1958,7 +2197,9 @@ union GPR55 {
   // Bit field definition.
   struct {
     uint32_t _reserved_0 : 28;
+    /// read-write - Domain write protection
     eDWP DWP : 2;
+    /// read-writeOnce - Domain write protection lock
     eDWP_LOCK DWP_LOCK : 2;
   } bits;
   
@@ -2002,18 +2243,30 @@ union GPR59 {
   
   // Bit field definition.
   struct {
+    /// read-write - Powers down inactive lanes reported by CSI2X_CFG_NUM_LANES.
     uint32_t MIPI_CSI_AUTO_PD_EN : 1;
+    /// read-write - MIPI CSI APB clock domain and User interface clock domain software reset bit
     eMIPI_CSI_SOFT_RST_N MIPI_CSI_SOFT_RST_N : 1;
+    /// read-write - Enables the slave clock lane feature to maintain HS reception state during continuous clock mode operation, despite line glitches.
     uint32_t MIPI_CSI_CONT_CLK_MODE : 1;
+    /// read-write - When high, enables received DDR clock on CLK_DRXHS
     uint32_t MIPI_CSI_DDRCLK_EN : 1;
+    /// read-write - Power Down input for MIPI CSI PHY.
     uint32_t MIPI_CSI_PD_RX : 1;
+    /// read-write - Assert to enable MIPI CSI Receive Enable
     uint32_t MIPI_CSI_RX_ENABLE : 1;
+    /// read-write - MIPI CSI PHY on-chip termination control bits
     uint32_t MIPI_CSI_RX_RCAL : 2;
+    /// read-write - Programming bits that adjust the threshold voltage of LP-CD, default setting 2'b01
     eMIPI_CSI_RXCDRP MIPI_CSI_RXCDRP : 2;
+    /// read-write - Programming bits that adjust the threshold voltage of LP-RX, default setting 2'b01
     uint32_t MIPI_CSI_RXLPRP : 2;
+    /// read-write - Bits used to program T_HS_SETTLE.
     uint32_t MIPI_CSI_S_PRG_RXHS_SETTLE : 6;
     uint32_t _reserved_0 : 10;
+    /// read-write - Domain write protection
     eDWP DWP : 2;
+    /// read-writeOnce - Domain write protection lock
     eDWP_LOCK DWP_LOCK : 2;
   } bits;
   
@@ -2065,18 +2318,29 @@ union GPR62 {
   
   // Bit field definition.
   struct {
+    /// read-write - MIPI DSI Clock Lane triming bits
     uint32_t MIPI_DSI_CLK_TM : 3;
+    /// read-write - MIPI DSI Data Lane 0 triming bits
     uint32_t MIPI_DSI_D0_TM : 3;
+    /// read-write - MIPI DSI Data Lane 1 triming bits
     uint32_t MIPI_DSI_D1_TM : 3;
+    /// read-write - MIPI DSI PHY on-chip termination control bits
     uint32_t MIPI_DSI_TX_RCAL : 2;
+    /// read-write - DSI transmit ULPS mode enable
     uint32_t MIPI_DSI_TX_ULPS_ENABLE : 3;
     uint32_t _reserved_0 : 2;
+    /// read-write - MIPI DSI APB clock domain software reset bit
     eMIPI_DSI_PCLK_SOFT_RESET_N MIPI_DSI_PCLK_SOFT_RESET_N : 1;
+    /// read-write - MIPI DSI Byte clock domain software reset bit
     eMIPI_DSI_BYTE_SOFT_RESET_N MIPI_DSI_BYTE_SOFT_RESET_N : 1;
+    /// read-write - MIPI DSI Pixel clock domain software reset bit
     eMIPI_DSI_DPI_SOFT_RESET_N MIPI_DSI_DPI_SOFT_RESET_N : 1;
+    /// read-write - MIPI DSI Escape clock domain software reset bit
     eMIPI_DSI_ESC_SOFT_RESET_N MIPI_DSI_ESC_SOFT_RESET_N : 1;
     uint32_t _reserved_1 : 8;
+    /// read-write - Domain write protection
     eDWP DWP : 2;
+    /// read-writeOnce - Domain write protection lock
     eDWP_LOCK DWP_LOCK : 2;
   } bits;
   
@@ -2094,6 +2358,7 @@ union GPR63 {
   
   // Bit field definition.
   struct {
+    /// read-only - DSI transmit ULPS mode active flag
     uint32_t MIPI_DSI_TX_ULPS_ACTIVE : 3;
     uint32_t _reserved_0 : 29;
   } bits;
@@ -2126,20 +2391,33 @@ union GPR64 {
   
   // Bit field definition.
   struct {
+    /// read-write - Compensation code freeze
     uint32_t GPIO_DISP1_FREEZE : 1;
+    /// read-write - COMPEN and COMPTQ control the operating modes of the compensation cell
     uint32_t GPIO_DISP1_COMPTQ : 1;
+    /// read-write - COMPEN and COMPTQ control the operating modes of the compensation cell
     uint32_t GPIO_DISP1_COMPEN : 1;
+    /// read-write - Compensation code fast freeze
     uint32_t GPIO_DISP1_FASTFRZ_EN : 1;
+    /// read-write - GPIO_DISP_B1 IO bank's 4-bit PMOS compensation codes from core
     uint32_t GPIO_DISP1_RASRCP : 4;
+    /// read-write - GPIO_DISP_B1 IO bank's 4-bit NMOS compensation codes from core
     uint32_t GPIO_DISP1_RASRCN : 4;
+    /// read-write - GPIO_DISP1_NASRC selection
     uint32_t GPIO_DISP1_SELECT_NASRC : 1;
+    /// read-write - GPIO_DISP_B1 IO bank reference voltage generator cell sleep enable
     uint32_t GPIO_DISP1_REFGEN_SLEEP : 1;
+    /// read-write - GPIO_DISP_B1 IO bank power supply mode latch enable
     uint32_t GPIO_DISP1_SUPLYDET_LATCH : 1;
     uint32_t _reserved_0 : 5;
+    /// read-only - GPIO_DISP_B1 IO bank compensation OK flag
     uint32_t GPIO_DISP1_COMPOK : 1;
+    /// read-only - GPIO_DISP_B1 IO bank compensation codes
     uint32_t GPIO_DISP1_NASRC : 4;
     uint32_t _reserved_1 : 3;
+    /// read-write - Domain write protection
     eDWP DWP : 2;
+    /// read-writeOnce - Domain write protection lock
     eDWP_LOCK DWP_LOCK : 2;
   } bits;
   
@@ -2171,20 +2449,33 @@ union GPR65 {
   
   // Bit field definition.
   struct {
+    /// read-write - Compensation code freeze
     uint32_t GPIO_EMC1_FREEZE : 1;
+    /// read-write - COMPEN and COMPTQ control the operating modes of the compensation cell
     uint32_t GPIO_EMC1_COMPTQ : 1;
+    /// read-write - COMPEN and COMPTQ control the operating modes of the compensation cell
     uint32_t GPIO_EMC1_COMPEN : 1;
+    /// read-write - Compensation code fast freeze
     uint32_t GPIO_EMC1_FASTFRZ_EN : 1;
+    /// read-write - GPIO_EMC_B1 IO bank's 4-bit PMOS compensation codes from core
     uint32_t GPIO_EMC1_RASRCP : 4;
+    /// read-write - GPIO_EMC_B1 IO bank's 4-bit NMOS compensation codes from core
     uint32_t GPIO_EMC1_RASRCN : 4;
+    /// read-write - GPIO_EMC1_NASRC selection
     uint32_t GPIO_EMC1_SELECT_NASRC : 1;
+    /// read-write - GPIO_EMC_B1 IO bank reference voltage generator cell sleep enable
     uint32_t GPIO_EMC1_REFGEN_SLEEP : 1;
+    /// read-write - GPIO_EMC_B1 IO bank power supply mode latch enable
     uint32_t GPIO_EMC1_SUPLYDET_LATCH : 1;
     uint32_t _reserved_0 : 5;
+    /// read-only - GPIO_EMC_B1 IO bank compensation OK flag
     uint32_t GPIO_EMC1_COMPOK : 1;
+    /// read-only - GPIO_EMC_B1 IO bank compensation codes
     uint32_t GPIO_EMC1_NASRC : 4;
     uint32_t _reserved_1 : 3;
+    /// read-write - Domain write protection
     eDWP DWP : 2;
+    /// read-writeOnce - Domain write protection lock
     eDWP_LOCK DWP_LOCK : 2;
   } bits;
   
@@ -2216,20 +2507,33 @@ union GPR66 {
   
   // Bit field definition.
   struct {
+    /// read-write - Compensation code freeze
     uint32_t GPIO_EMC2_FREEZE : 1;
+    /// read-write - COMPEN and COMPTQ control the operating modes of the compensation cell
     uint32_t GPIO_EMC2_COMPTQ : 1;
+    /// read-write - COMPEN and COMPTQ control the operating modes of the compensation cell
     uint32_t GPIO_EMC2_COMPEN : 1;
+    /// read-write - Compensation code fast freeze
     uint32_t GPIO_EMC2_FASTFRZ_EN : 1;
+    /// read-write - GPIO_EMC_B2 IO bank's 4-bit PMOS compensation codes from core
     uint32_t GPIO_EMC2_RASRCP : 4;
+    /// read-write - GPIO_EMC_B2 IO bank's 4-bit NMOS compensation codes from core
     uint32_t GPIO_EMC2_RASRCN : 4;
+    /// read-write - GPIO_EMC2_NASRC selection
     uint32_t GPIO_EMC2_SELECT_NASRC : 1;
+    /// read-write - GPIO_EMC_B2 IO bank reference voltage generator cell sleep enable
     uint32_t GPIO_EMC2_REFGEN_SLEEP : 1;
+    /// read-write - GPIO_EMC_B2 IO bank power supply mode latch enable
     uint32_t GPIO_EMC2_SUPLYDET_LATCH : 1;
     uint32_t _reserved_0 : 5;
+    /// read-only - GPIO_EMC_B2 IO bank compensation OK flag
     uint32_t GPIO_EMC2_COMPOK : 1;
+    /// read-only - GPIO_EMC_B2 IO bank compensation codes
     uint32_t GPIO_EMC2_NASRC : 4;
     uint32_t _reserved_1 : 3;
+    /// read-write - Domain write protection
     eDWP DWP : 2;
+    /// read-writeOnce - Domain write protection lock
     eDWP_LOCK DWP_LOCK : 2;
   } bits;
   
@@ -2261,20 +2565,33 @@ union GPR67 {
   
   // Bit field definition.
   struct {
+    /// read-write - Compensation code freeze
     uint32_t GPIO_SD1_FREEZE : 1;
+    /// read-write - COMPEN and COMPTQ control the operating modes of the compensation cell
     uint32_t GPIO_SD1_COMPTQ : 1;
+    /// read-write - COMPEN and COMPTQ control the operating modes of the compensation cell
     uint32_t GPIO_SD1_COMPEN : 1;
+    /// read-write - Compensation code fast freeze
     uint32_t GPIO_SD1_FASTFRZ_EN : 1;
+    /// read-write - GPIO_SD_B1 IO bank's 4-bit PMOS compensation codes from core
     uint32_t GPIO_SD1_RASRCP : 4;
+    /// read-write - GPIO_SD_B1 IO bank's 4-bit NMOS compensation codes from core
     uint32_t GPIO_SD1_RASRCN : 4;
+    /// read-write - GPIO_SD1_NASRC selection
     uint32_t GPIO_SD1_SELECT_NASRC : 1;
+    /// read-write - GPIO_SD_B1 IO bank reference voltage generator cell sleep enable
     uint32_t GPIO_SD1_REFGEN_SLEEP : 1;
+    /// read-write - GPIO_SD_B1 IO bank power supply mode latch enable
     uint32_t GPIO_SD1_SUPLYDET_LATCH : 1;
     uint32_t _reserved_0 : 5;
+    /// read-only - GPIO_SD_B1 IO bank compensation OK flag
     uint32_t GPIO_SD1_COMPOK : 1;
+    /// read-only - GPIO_SD_B1 IO bank compensation codes
     uint32_t GPIO_SD1_NASRC : 4;
     uint32_t _reserved_1 : 3;
+    /// read-write - Domain write protection
     eDWP DWP : 2;
+    /// read-writeOnce - Domain write protection lock
     eDWP_LOCK DWP_LOCK : 2;
   } bits;
   
@@ -2306,20 +2623,33 @@ union GPR68 {
   
   // Bit field definition.
   struct {
+    /// read-write - Compensation code freeze
     uint32_t GPIO_SD2_FREEZE : 1;
+    /// read-write - COMPEN and COMPTQ control the operating modes of the compensation cell
     uint32_t GPIO_SD2_COMPTQ : 1;
+    /// read-write - COMPEN and COMPTQ control the operating modes of the compensation cell
     uint32_t GPIO_SD2_COMPEN : 1;
+    /// read-write - Compensation code fast freeze
     uint32_t GPIO_SD2_FASTFRZ_EN : 1;
+    /// read-write - GPIO_SD_B2 IO bank's 4-bit PMOS compensation codes from core
     uint32_t GPIO_SD2_RASRCP : 4;
+    /// read-write - GPIO_SD_B2 IO bank's 4-bit NMOS compensation codes from core
     uint32_t GPIO_SD2_RASRCN : 4;
+    /// read-write - GPIO_SD2_NASRC selection
     uint32_t GPIO_SD2_SELECT_NASRC : 1;
+    /// read-write - GPIO_SD_B2 IO bank reference voltage generator cell sleep enable
     uint32_t GPIO_SD2_REFGEN_SLEEP : 1;
+    /// read-write - GPIO_SD_B2 IO bank power supply mode latch enable
     uint32_t GPIO_SD2_SUPLYDET_LATCH : 1;
     uint32_t _reserved_0 : 5;
+    /// read-only - GPIO_SD_B2 IO bank compensation OK flag
     uint32_t GPIO_SD2_COMPOK : 1;
+    /// read-only - GPIO_SD_B2 IO bank compensation codes
     uint32_t GPIO_SD2_NASRC : 4;
     uint32_t _reserved_1 : 3;
+    /// read-write - Domain write protection
     eDWP DWP : 2;
+    /// read-writeOnce - Domain write protection lock
     eDWP_LOCK DWP_LOCK : 2;
   } bits;
   
@@ -2352,21 +2682,34 @@ union GPR69 {
   // Bit field definition.
   struct {
     uint32_t _reserved_0 : 1;
+    /// read-write - GPIO_DISP_B2 IO bank supply voltage range selection
     uint32_t GPIO_DISP2_HIGH_RANGE : 1;
+    /// read-write - GPIO_DISP_B2 IO bank supply voltage range selection
     uint32_t GPIO_DISP2_LOW_RANGE : 1;
     uint32_t _reserved_1 : 1;
+    /// read-write - GPIO_AD IO bank supply voltage range selection for GPIO_AD_00 to GPIO_AD_17
     uint32_t GPIO_AD0_HIGH_RANGE : 1;
+    /// read-write - GPIO_AD IO bank supply voltage range selection for GPIO_AD_00 to GPIO_AD_17
     uint32_t GPIO_AD0_LOW_RANGE : 1;
     uint32_t _reserved_2 : 1;
+    /// read-write - GPIO_LPSR IO bank supply voltage range selection for GPIO_AD_18 to GPIO_AD_35
     uint32_t GPIO_AD1_HIGH_RANGE : 1;
+    /// read-write - GPIO_LPSR IO bank supply voltage range selection for GPIO_AD_18 to GPIO_AD_35
     uint32_t GPIO_AD1_LOW_RANGE : 1;
+    /// read-write - GPIO_DISP_B1 IO bank supply voltage detector sleep mode enable
     uint32_t SUPLYDET_DISP1_SLEEP : 1;
+    /// read-write - GPIO_EMC_B1 IO bank supply voltage detector sleep mode enable
     uint32_t SUPLYDET_EMC1_SLEEP : 1;
+    /// read-write - GPIO_EMC_B2 IO bank supply voltage detector sleep mode enable
     uint32_t SUPLYDET_EMC2_SLEEP : 1;
+    /// read-write - GPIO_SD_B1 IO bank supply voltage detector sleep mode enable
     uint32_t SUPLYDET_SD1_SLEEP : 1;
+    /// read-write - GPIO_SD_B2 IO bank supply voltage detector sleep mode enable
     uint32_t SUPLYDET_SD2_SLEEP : 1;
     uint32_t _reserved_3 : 14;
+    /// read-write - Domain write protection
     eDWP DWP : 2;
+    /// read-writeOnce - Domain write protection lock
     eDWP_LOCK DWP_LOCK : 2;
   } bits;
   
@@ -2408,35 +2751,63 @@ union GPR70 {
   
   // Bit field definition.
   struct {
+    /// read-write - ADC1 doze mode
     uint32_t ADC1_IPG_DOZE : 1;
+    /// read-write - ADC1 stop request
     uint32_t ADC1_STOP_REQ : 1;
+    /// read-write - ADC1 stop mode selection, cannot change when ADC1_STOP_REQ is asserted.
     eADC1_IPG_STOP_MODE ADC1_IPG_STOP_MODE : 1;
+    /// read-write - ADC2 doze mode
     uint32_t ADC2_IPG_DOZE : 1;
+    /// read-write - ADC2 stop request
     uint32_t ADC2_STOP_REQ : 1;
+    /// read-write - ADC2 stop mode selection, cannot change when ADC2_STOP_REQ is asserted.
     eADC2_IPG_STOP_MODE ADC2_IPG_STOP_MODE : 1;
+    /// read-write - CAN3 doze mode
     uint32_t CAAM_IPG_DOZE : 1;
+    /// read-write - CAAM stop request
     uint32_t CAAM_STOP_REQ : 1;
+    /// read-write - CAN1 doze mode
     uint32_t CAN1_IPG_DOZE : 1;
+    /// read-write - CAN1 stop request
     uint32_t CAN1_STOP_REQ : 1;
+    /// read-write - CAN2 doze mode
     uint32_t CAN2_IPG_DOZE : 1;
+    /// read-write - CAN2 stop request
     uint32_t CAN2_STOP_REQ : 1;
+    /// read-write - CAN3 doze mode
     uint32_t CAN3_IPG_DOZE : 1;
+    /// read-write - CAN3 stop request
     uint32_t CAN3_STOP_REQ : 1;
     uint32_t _reserved_0 : 1;
+    /// read-write - EDMA stop request
     uint32_t EDMA_STOP_REQ : 1;
+    /// read-write - EDMA_LPSR stop request
     uint32_t EDMA_LPSR_STOP_REQ : 1;
+    /// read-write - ENET doze mode
     uint32_t ENET_IPG_DOZE : 1;
+    /// read-write - ENET stop request
     uint32_t ENET_STOP_REQ : 1;
+    /// read-write - ENET1G doze mode
     uint32_t ENET1G_IPG_DOZE : 1;
+    /// read-write - ENET1G stop request
     uint32_t ENET1G_STOP_REQ : 1;
+    /// read-write - FLEXIO2 doze mode
     uint32_t FLEXIO1_IPG_DOZE : 1;
+    /// read-write - FLEXIO2 doze mode
     uint32_t FLEXIO2_IPG_DOZE : 1;
+    /// read-write - FLEXSPI1 doze mode
     uint32_t FLEXSPI1_IPG_DOZE : 1;
+    /// read-write - FLEXSPI1 stop request
     uint32_t FLEXSPI1_STOP_REQ : 1;
+    /// read-write - FLEXSPI2 doze mode
     uint32_t FLEXSPI2_IPG_DOZE : 1;
+    /// read-write - FLEXSPI2 stop request
     uint32_t FLEXSPI2_STOP_REQ : 1;
     uint32_t _reserved_1 : 1;
+    /// read-write - Domain write protection
     eDWP DWP : 2;
+    /// read-writeOnce - Domain write protection lock
     eDWP_LOCK DWP_LOCK : 2;
   } bits;
   
@@ -2503,35 +2874,64 @@ union GPR71 {
   
   // Bit field definition.
   struct {
+    /// read-write - GPT1 doze mode
     uint32_t GPT1_IPG_DOZE : 1;
+    /// read-write - GPT2 doze mode
     uint32_t GPT2_IPG_DOZE : 1;
+    /// read-write - GPT3 doze mode
     uint32_t GPT3_IPG_DOZE : 1;
+    /// read-write - GPT4 doze mode
     uint32_t GPT4_IPG_DOZE : 1;
+    /// read-write - GPT5 doze mode
     uint32_t GPT5_IPG_DOZE : 1;
+    /// read-write - GPT6 doze mode
     uint32_t GPT6_IPG_DOZE : 1;
+    /// read-write - LPI2C1 doze mode
     uint32_t LPI2C1_IPG_DOZE : 1;
+    /// read-write - LPI2C1 stop request
     uint32_t LPI2C1_STOP_REQ : 1;
+    /// read-write - LPI2C1 stop mode selection, cannot change when LPI2C1_STOP_REQ is asserted.
     eLPI2C1_IPG_STOP_MODE LPI2C1_IPG_STOP_MODE : 1;
+    /// read-write - LPI2C2 doze mode
     uint32_t LPI2C2_IPG_DOZE : 1;
+    /// read-write - LPI2C2 stop request
     uint32_t LPI2C2_STOP_REQ : 1;
+    /// read-write - LPI2C2 stop mode selection, cannot change when LPI2C2_STOP_REQ is asserted.
     eLPI2C2_IPG_STOP_MODE LPI2C2_IPG_STOP_MODE : 1;
+    /// read-write - LPI2C3 doze mode
     uint32_t LPI2C3_IPG_DOZE : 1;
+    /// read-write - LPI2C3 stop request
     uint32_t LPI2C3_STOP_REQ : 1;
+    /// read-write - LPI2C3 stop mode selection, cannot change when LPI2C3_STOP_REQ is asserted.
     eLPI2C3_IPG_STOP_MODE LPI2C3_IPG_STOP_MODE : 1;
+    /// read-write - LPI2C4 doze mode
     uint32_t LPI2C4_IPG_DOZE : 1;
+    /// read-write - LPI2C4 stop request
     uint32_t LPI2C4_STOP_REQ : 1;
+    /// read-write - LPI2C4 stop mode selection, cannot change when LPI2C4_STOP_REQ is asserted.
     eLPI2C4_IPG_STOP_MODE LPI2C4_IPG_STOP_MODE : 1;
+    /// read-write - LPI2C5 doze mode
     uint32_t LPI2C5_IPG_DOZE : 1;
+    /// read-write - LPI2C5 stop request
     uint32_t LPI2C5_STOP_REQ : 1;
+    /// read-write - LPI2C5 stop mode selection, cannot change when LPI2C5_STOP_REQ is asserted.
     eLPI2C5_IPG_STOP_MODE LPI2C5_IPG_STOP_MODE : 1;
+    /// read-write - LPI2C6 doze mode
     uint32_t LPI2C6_IPG_DOZE : 1;
+    /// read-write - LPI2C6 stop request
     uint32_t LPI2C6_STOP_REQ : 1;
+    /// read-write - LPI2C6 stop mode selection, cannot change when LPI2C6_STOP_REQ is asserted.
     eLPI2C6_IPG_STOP_MODE LPI2C6_IPG_STOP_MODE : 1;
+    /// read-write - LPSPI1 doze mode
     uint32_t LPSPI1_IPG_DOZE : 1;
+    /// read-write - LPSPI1 stop request
     uint32_t LPSPI1_STOP_REQ : 1;
+    /// read-write - LPSPI1 stop mode selection, cannot change when LPSPI1_STOP_REQ is asserted.
     eLPSPI1_IPG_STOP_MODE LPSPI1_IPG_STOP_MODE : 1;
     uint32_t _reserved_0 : 1;
+    /// read-write - Domain write protection
     eDWP DWP : 2;
+    /// read-writeOnce - Domain write protection lock
     eDWP_LOCK DWP_LOCK : 2;
   } bits;
   
@@ -2608,35 +3008,64 @@ union GPR72 {
   
   // Bit field definition.
   struct {
+    /// read-write - LPSPI2 doze mode
     uint32_t LPSPI2_IPG_DOZE : 1;
+    /// read-write - LPSPI2 stop request
     uint32_t LPSPI2_STOP_REQ : 1;
+    /// read-write - LPSPI2 stop mode selection, cannot change when LPSPI2_STOP_REQ is asserted.
     eLPSPI2_IPG_STOP_MODE LPSPI2_IPG_STOP_MODE : 1;
+    /// read-write - LPSPI3 doze mode
     uint32_t LPSPI3_IPG_DOZE : 1;
+    /// read-write - LPSPI3 stop request
     uint32_t LPSPI3_STOP_REQ : 1;
+    /// read-write - LPSPI3 stop mode selection, cannot change when LPSPI3_STOP_REQ is asserted.
     eLPSPI3_IPG_STOP_MODE LPSPI3_IPG_STOP_MODE : 1;
+    /// read-write - LPSPI4 doze mode
     uint32_t LPSPI4_IPG_DOZE : 1;
+    /// read-write - LPSPI4 stop request
     uint32_t LPSPI4_STOP_REQ : 1;
+    /// read-write - LPSPI4 stop mode selection, cannot change when LPSPI4_STOP_REQ is asserted.
     eLPSPI4_IPG_STOP_MODE LPSPI4_IPG_STOP_MODE : 1;
+    /// read-write - LPSPI5 doze mode
     uint32_t LPSPI5_IPG_DOZE : 1;
+    /// read-write - LPSPI5 stop request
     uint32_t LPSPI5_STOP_REQ : 1;
+    /// read-write - LPSPI5 stop mode selection, cannot change when LPSPI5_STOP_REQ is asserted.
     eLPSPI5_IPG_STOP_MODE LPSPI5_IPG_STOP_MODE : 1;
+    /// read-write - LPSPI6 doze mode
     uint32_t LPSPI6_IPG_DOZE : 1;
+    /// read-write - LPSPI6 stop request
     uint32_t LPSPI6_STOP_REQ : 1;
+    /// read-write - LPSPI6 stop mode selection, cannot change when LPSPI6_STOP_REQ is asserted.
     eLPSPI6_IPG_STOP_MODE LPSPI6_IPG_STOP_MODE : 1;
+    /// read-write - LPUART1 doze mode
     uint32_t LPUART1_IPG_DOZE : 1;
+    /// read-write - LPUART1 stop request
     uint32_t LPUART1_STOP_REQ : 1;
+    /// read-write - LPUART1 stop mode selection, cannot change when LPUART1_STOP_REQ is asserted.
     eLPUART1_IPG_STOP_MODE LPUART1_IPG_STOP_MODE : 1;
+    /// read-write - LPUART2 doze mode
     uint32_t LPUART2_IPG_DOZE : 1;
+    /// read-write - LPUART2 stop request
     uint32_t LPUART2_STOP_REQ : 1;
+    /// read-write - LPUART2 stop mode selection, cannot change when LPUART2_STOP_REQ is asserted.
     eLPUART2_IPG_STOP_MODE LPUART2_IPG_STOP_MODE : 1;
+    /// read-write - LPUART3 doze mode
     uint32_t LPUART3_IPG_DOZE : 1;
+    /// read-write - LPUART3 stop request
     uint32_t LPUART3_STOP_REQ : 1;
+    /// read-write - LPUART3 stop mode selection, cannot change when LPUART3_STOP_REQ is asserted.
     eLPUART3_IPG_STOP_MODE LPUART3_IPG_STOP_MODE : 1;
+    /// read-write - LPUART4 doze mode
     uint32_t LPUART4_IPG_DOZE : 1;
+    /// read-write - LPUART4 stop request
     uint32_t LPUART4_STOP_REQ : 1;
+    /// read-write - LPUART4 stop mode selection, cannot change when LPUART4_STOP_REQ is asserted.
     eLPUART4_IPG_STOP_MODE LPUART4_IPG_STOP_MODE : 1;
     uint32_t _reserved_0 : 1;
+    /// read-write - Domain write protection
     eDWP DWP : 2;
+    /// read-writeOnce - Domain write protection lock
     eDWP_LOCK DWP_LOCK : 2;
   } bits;
   
@@ -2713,35 +3142,64 @@ union GPR73 {
   
   // Bit field definition.
   struct {
+    /// read-write - LPUART5 doze mode
     uint32_t LPUART5_IPG_DOZE : 1;
+    /// read-write - LPUART5 stop request
     uint32_t LPUART5_STOP_REQ : 1;
+    /// read-write - LPUART5 stop mode selection, cannot change when LPUART5_STOP_REQ is asserted.
     eLPUART5_IPG_STOP_MODE LPUART5_IPG_STOP_MODE : 1;
+    /// read-write - LPUART6 doze mode
     uint32_t LPUART6_IPG_DOZE : 1;
+    /// read-write - LPUART6 stop request
     uint32_t LPUART6_STOP_REQ : 1;
+    /// read-write - LPUART6 stop mode selection, cannot change when LPUART6_STOP_REQ is asserted.
     eLPUART6_IPG_STOP_MODE LPUART6_IPG_STOP_MODE : 1;
+    /// read-write - LPUART7 doze mode
     uint32_t LPUART7_IPG_DOZE : 1;
+    /// read-write - LPUART7 stop request
     uint32_t LPUART7_STOP_REQ : 1;
+    /// read-write - LPUART7 stop mode selection, cannot change when LPUART7_STOP_REQ is asserted.
     eLPUART7_IPG_STOP_MODE LPUART7_IPG_STOP_MODE : 1;
+    /// read-write - LPUART8 doze mode
     uint32_t LPUART8_IPG_DOZE : 1;
+    /// read-write - LPUART8 stop request
     uint32_t LPUART8_STOP_REQ : 1;
+    /// read-write - LPUART8 stop mode selection, cannot change when LPUART8_STOP_REQ is asserted.
     eLPUART8_IPG_STOP_MODE LPUART8_IPG_STOP_MODE : 1;
+    /// read-write - LPUART9 doze mode
     uint32_t LPUART9_IPG_DOZE : 1;
+    /// read-write - LPUART9 stop request
     uint32_t LPUART9_STOP_REQ : 1;
+    /// read-write - LPUART9 stop mode selection, cannot change when LPUART9_STOP_REQ is asserted.
     eLPUART9_IPG_STOP_MODE LPUART9_IPG_STOP_MODE : 1;
+    /// read-write - LPUART10 doze mode
     uint32_t LPUART10_IPG_DOZE : 1;
+    /// read-write - LPUART10 stop request
     uint32_t LPUART10_STOP_REQ : 1;
+    /// read-write - LPUART10 stop mode selection, cannot change when LPUART10_STOP_REQ is asserted.
     eLPUART10_IPG_STOP_MODE LPUART10_IPG_STOP_MODE : 1;
+    /// read-write - LPUART11 doze mode
     uint32_t LPUART11_IPG_DOZE : 1;
+    /// read-write - LPUART11 stop request
     uint32_t LPUART11_STOP_REQ : 1;
+    /// read-write - LPUART11 stop mode selection, cannot change when LPUART11_STOP_REQ is asserted.
     eLPUART11_IPG_STOP_MODE LPUART11_IPG_STOP_MODE : 1;
+    /// read-write - LPUART12 doze mode
     uint32_t LPUART12_IPG_DOZE : 1;
+    /// read-write - LPUART12 stop request
     uint32_t LPUART12_STOP_REQ : 1;
+    /// read-write - LPUART12 stop mode selection, cannot change when LPUART12_STOP_REQ is asserted.
     eLPUART12_IPG_STOP_MODE LPUART12_IPG_STOP_MODE : 1;
+    /// read-write - MIC doze mode
     uint32_t MIC_IPG_DOZE : 1;
+    /// read-write - MIC stop request
     uint32_t MIC_STOP_REQ : 1;
+    /// read-write - MIC stop mode selection, cannot change when MIC_STOP_REQ is asserted.
     eMIC_IPG_STOP_MODE MIC_IPG_STOP_MODE : 1;
     uint32_t _reserved_0 : 1;
+    /// read-write - Domain write protection
     eDWP DWP : 2;
+    /// read-writeOnce - Domain write protection lock
     eDWP_LOCK DWP_LOCK : 2;
   } bits;
   
@@ -2774,25 +3232,44 @@ union GPR74 {
   // Bit field definition.
   struct {
     uint32_t _reserved_0 : 1;
+    /// read-write - PIT1 stop request
     uint32_t PIT1_STOP_REQ : 1;
+    /// read-write - PIT2 stop request
     uint32_t PIT2_STOP_REQ : 1;
+    /// read-write - SEMC stop request
     uint32_t SEMC_STOP_REQ : 1;
+    /// read-write - SIM1 doze mode
     uint32_t SIM1_IPG_DOZE : 1;
+    /// read-write - SIM2 doze mode
     uint32_t SIM2_IPG_DOZE : 1;
+    /// read-write - SNVS_HP doze mode
     uint32_t SNVS_HP_IPG_DOZE : 1;
+    /// read-write - SNVS_HP stop request
     uint32_t SNVS_HP_STOP_REQ : 1;
+    /// read-write - WDOG1 doze mode
     uint32_t WDOG1_IPG_DOZE : 1;
+    /// read-write - WDOG2 doze mode
     uint32_t WDOG2_IPG_DOZE : 1;
+    /// read-write - SAI1 stop request
     uint32_t SAI1_STOP_REQ : 1;
+    /// read-write - SAI2 stop request
     uint32_t SAI2_STOP_REQ : 1;
+    /// read-write - SAI3 stop request
     uint32_t SAI3_STOP_REQ : 1;
+    /// read-write - SAI4 stop request
     uint32_t SAI4_STOP_REQ : 1;
+    /// read-write - FLEXIO1 bus clock domain stop request
     uint32_t FLEXIO1_STOP_REQ_BUS : 1;
+    /// read-write - FLEXIO1 peripheral clock domain stop request
     uint32_t FLEXIO1_STOP_REQ_PER : 1;
+    /// read-write - FLEXIO2 bus clock domain stop request
     uint32_t FLEXIO2_STOP_REQ_BUS : 1;
+    /// read-write - FLEXIO2 peripheral clock domain stop request
     uint32_t FLEXIO2_STOP_REQ_PER : 1;
     uint32_t _reserved_1 : 10;
+    /// read-write - Domain write protection
     eDWP DWP : 2;
+    /// read-writeOnce - Domain write protection lock
     eDWP_LOCK DWP_LOCK : 2;
   } bits;
   
@@ -2810,37 +3287,69 @@ union GPR75 {
   
   // Bit field definition.
   struct {
+    /// read-only - ADC1 stop acknowledge
     uint32_t ADC1_STOP_ACK : 1;
+    /// read-only - ADC2 stop acknowledge
     uint32_t ADC2_STOP_ACK : 1;
+    /// read-only - CAAM stop acknowledge
     uint32_t CAAM_STOP_ACK : 1;
+    /// read-only - CAN1 stop acknowledge
     uint32_t CAN1_STOP_ACK : 1;
+    /// read-only - CAN2 stop acknowledge
     uint32_t CAN2_STOP_ACK : 1;
+    /// read-only - CAN3 stop acknowledge
     uint32_t CAN3_STOP_ACK : 1;
+    /// read-only - EDMA stop acknowledge
     uint32_t EDMA_STOP_ACK : 1;
+    /// read-only - EDMA_LPSR stop acknowledge
     uint32_t EDMA_LPSR_STOP_ACK : 1;
+    /// read-only - ENET stop acknowledge
     uint32_t ENET_STOP_ACK : 1;
+    /// read-only - ENET1G stop acknowledge
     uint32_t ENET1G_STOP_ACK : 1;
+    /// read-only - FLEXSPI1 stop acknowledge
     uint32_t FLEXSPI1_STOP_ACK : 1;
+    /// read-only - FLEXSPI2 stop acknowledge
     uint32_t FLEXSPI2_STOP_ACK : 1;
+    /// read-only - LPI2C1 stop acknowledge
     uint32_t LPI2C1_STOP_ACK : 1;
+    /// read-only - LPI2C2 stop acknowledge
     uint32_t LPI2C2_STOP_ACK : 1;
+    /// read-only - LPI2C3 stop acknowledge
     uint32_t LPI2C3_STOP_ACK : 1;
+    /// read-only - LPI2C4 stop acknowledge
     uint32_t LPI2C4_STOP_ACK : 1;
+    /// read-only - LPI2C5 stop acknowledge
     uint32_t LPI2C5_STOP_ACK : 1;
+    /// read-only - LPI2C6 stop acknowledge
     uint32_t LPI2C6_STOP_ACK : 1;
+    /// read-only - LPSPI1 stop acknowledge
     uint32_t LPSPI1_STOP_ACK : 1;
+    /// read-only - LPSPI2 stop acknowledge
     uint32_t LPSPI2_STOP_ACK : 1;
+    /// read-only - LPSPI3 stop acknowledge
     uint32_t LPSPI3_STOP_ACK : 1;
+    /// read-only - LPSPI4 stop acknowledge
     uint32_t LPSPI4_STOP_ACK : 1;
+    /// read-only - LPSPI5 stop acknowledge
     uint32_t LPSPI5_STOP_ACK : 1;
+    /// read-only - LPSPI6 stop acknowledge
     uint32_t LPSPI6_STOP_ACK : 1;
+    /// read-only - LPUART1 stop acknowledge
     uint32_t LPUART1_STOP_ACK : 1;
+    /// read-only - LPUART2 stop acknowledge
     uint32_t LPUART2_STOP_ACK : 1;
+    /// read-only - LPUART3 stop acknowledge
     uint32_t LPUART3_STOP_ACK : 1;
+    /// read-only - LPUART4 stop acknowledge
     uint32_t LPUART4_STOP_ACK : 1;
+    /// read-only - LPUART5 stop acknowledge
     uint32_t LPUART5_STOP_ACK : 1;
+    /// read-only - LPUART6 stop acknowledge
     uint32_t LPUART6_STOP_ACK : 1;
+    /// read-only - LPUART7 stop acknowledge
     uint32_t LPUART7_STOP_ACK : 1;
+    /// read-only - LPUART8 stop acknowledge
     uint32_t LPUART8_STOP_ACK : 1;
   } bits;
   
@@ -2858,22 +3367,39 @@ union GPR76 {
   
   // Bit field definition.
   struct {
+    /// read-only - LPUART9 stop acknowledge
     uint32_t LPUART9_STOP_ACK : 1;
+    /// read-only - LPUART10 stop acknowledge
     uint32_t LPUART10_STOP_ACK : 1;
+    /// read-only - LPUART11 stop acknowledge
     uint32_t LPUART11_STOP_ACK : 1;
+    /// read-only - LPUART12 stop acknowledge
     uint32_t LPUART12_STOP_ACK : 1;
+    /// read-only - MIC stop acknowledge
     uint32_t MIC_STOP_ACK : 1;
+    /// read-only - PIT1 stop acknowledge
     uint32_t PIT1_STOP_ACK : 1;
+    /// read-only - PIT2 stop acknowledge
     uint32_t PIT2_STOP_ACK : 1;
+    /// read-only - SEMC stop acknowledge
     uint32_t SEMC_STOP_ACK : 1;
+    /// read-only - SNVS_HP stop acknowledge
     uint32_t SNVS_HP_STOP_ACK : 1;
+    /// read-only - SAI1 stop acknowledge
     uint32_t SAI1_STOP_ACK : 1;
+    /// read-only - SAI2 stop acknowledge
     uint32_t SAI2_STOP_ACK : 1;
+    /// read-only - SAI3 stop acknowledge
     uint32_t SAI3_STOP_ACK : 1;
+    /// read-only - SAI4 stop acknowledge
     uint32_t SAI4_STOP_ACK : 1;
+    /// read-only - FLEXIO1 stop acknowledge of bus clock domain
     uint32_t FLEXIO1_STOP_ACK_BUS : 1;
+    /// read-only - FLEXIO1 stop acknowledge of peripheral clock domain
     uint32_t FLEXIO1_STOP_ACK_PER : 1;
+    /// read-only - FLEXIO2 stop acknowledge of bus clock domain
     uint32_t FLEXIO2_STOP_ACK_BUS : 1;
+    /// read-only - FLEXIO2 stop acknowledge of peripheral clock domain
     uint32_t FLEXIO2_STOP_ACK_PER : 1;
     uint32_t _reserved_0 : 15;
   } bits;

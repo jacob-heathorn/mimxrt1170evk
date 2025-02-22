@@ -27,17 +27,26 @@ union PMU_LDO_LPSR_ANA {
   
   // Bit field definition.
   struct {
+    /// read-write - reg_lp_en
     uint32_t REG_LP_EN : 1;
     uint32_t _reserved_0 : 1;
+    /// read-write - reg_disable
     uint32_t REG_DISABLE : 1;
+    /// read-write - pull_down_2ma_en
     uint32_t PULL_DOWN_2MA_EN : 1;
+    /// read-write - LPSR_ANA_CONTROL_MODE
     eLPSR_ANA_CONTROL_MODE LPSR_ANA_CONTROL_MODE : 1;
+    /// read-write - bypass_mode_en
     uint32_t BYPASS_MODE_EN : 1;
+    /// read-write - standby_en
     uint32_t STANDBY_EN : 1;
     uint32_t _reserved_1 : 1;
+    /// read-write - always_4ma_pulldown_en
     uint32_t ALWAYS_4MA_PULLDOWN_EN : 1;
     uint32_t _reserved_2 : 10;
+    /// read-write - Track Mode Enable
     eTRACK_MODE_EN TRACK_MODE_EN : 1;
+    /// read-write - pull_down_20ua_en
     uint32_t PULL_DOWN_20UA_EN : 1;
     uint32_t _reserved_3 : 11;
   } bits;
@@ -56,6 +65,7 @@ union PMU_LDO_LPSR_DIG_2 {
   
   // Bit field definition.
   struct {
+    /// read-write - voltage_step_inc
     uint32_t VOLTAGE_STEP_INC : 2;
     uint32_t _reserved_0 : 30;
   } bits;
@@ -115,14 +125,20 @@ union PMU_LDO_LPSR_DIG {
   // Bit field definition.
   struct {
     uint32_t _reserved_0 : 2;
+    /// read-write - ENABLE_ILIMIT
     uint32_t REG_EN : 1;
     uint32_t _reserved_1 : 2;
+    /// read-write - LPSR_DIG_CONTROL_MODE
     eLPSR_DIG_CONTROL_MODE LPSR_DIG_CONTROL_MODE : 1;
+    /// read-write - standby_en
     uint32_t STANDBY_EN : 1;
     uint32_t _reserved_2 : 10;
+    /// read-write - tracking_mode
     uint32_t TRACKING_MODE : 1;
+    /// read-write - bypass_mode
     uint32_t BYPASS_MODE : 1;
     uint32_t _reserved_3 : 1;
+    /// read-write - VOLTAGE_SELECT
     eVOLTAGE_SELECT VOLTAGE_SELECT : 5;
     uint32_t _reserved_4 : 7;
   } bits;

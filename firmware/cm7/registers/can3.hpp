@@ -124,30 +124,52 @@ union MCR {
   
   // Bit field definition.
   struct {
+    /// read-write - Number Of The Last Message Buffer
     uint32_t MAXMB : 7;
     uint32_t _reserved_0 : 1;
+    /// read-write - ID Acceptance Mode
     eIDAM IDAM : 2;
     uint32_t _reserved_1 : 1;
+    /// read-write - CAN FD operation enable
     eFDEN FDEN : 1;
+    /// read-write - Abort Enable
     eAEN AEN : 1;
+    /// read-write - Local Priority Enable
     eLPRIOEN LPRIOEN : 1;
     uint32_t _reserved_2 : 1;
+    /// read-write - DMA Enable
     eDMA DMA : 1;
+    /// read-write - Individual Rx Masking And Queue Enable
     eIRMQ IRMQ : 1;
+    /// read-write - Self Reception Disable
     eSRXDIS SRXDIS : 1;
+    /// read-write - Doze Mode Enable
     eDOZE DOZE : 1;
+    /// read-write - Wake Up Source
     eWAKSRC WAKSRC : 1;
+    /// read-only - Low-Power Mode Acknowledge
     eLPMACK LPMACK : 1;
+    /// read-write - Warning Interrupt Enable
     eWRNEN WRNEN : 1;
+    /// read-write - Self Wake Up
     eSLFWAK SLFWAK : 1;
+    /// read-write - Supervisor Mode
     eSUPV SUPV : 1;
+    /// read-only - Freeze Mode Acknowledge
     eFRZACK FRZACK : 1;
+    /// read-write - Soft Reset
     eSOFTRST SOFTRST : 1;
+    /// read-write - Wake Up Interrupt Mask
     eWAKMSK WAKMSK : 1;
+    /// read-only - FlexCAN Not Ready
     eNOTRDY NOTRDY : 1;
+    /// read-write - Halt FlexCAN
     eHALT HALT : 1;
+    /// read-write - Rx FIFO Enable
     eRFEN RFEN : 1;
+    /// read-write - Freeze Enable
     eFRZ FRZ : 1;
+    /// read-write - Module Disable
     eMDIS MDIS : 1;
   } bits;
   
@@ -220,22 +242,38 @@ union CTRL1 {
   
   // Bit field definition.
   struct {
+    /// read-write - Propagation Segment
     uint32_t PROPSEG : 3;
+    /// read-write - Listen-Only Mode
     eLOM LOM : 1;
+    /// read-write - Lowest Buffer Transmitted First
     eLBUF LBUF : 1;
+    /// read-write - Timer Sync
     eTSYN TSYN : 1;
+    /// read-write - Bus Off Recovery
     eBOFFREC BOFFREC : 1;
+    /// read-write - CAN Bit Sampling
     eSMP SMP : 1;
     uint32_t _reserved_0 : 2;
+    /// read-write - Rx Warning Interrupt Mask
     eRWRNMSK RWRNMSK : 1;
+    /// read-write - Tx Warning Interrupt Mask
     eTWRNMSK TWRNMSK : 1;
+    /// read-write - Loop Back Mode
     eLPB LPB : 1;
+    /// read-write - CAN Engine Clock Source
     eCLKSRC CLKSRC : 1;
+    /// read-write - Error Interrupt Mask
     eERRMSK ERRMSK : 1;
+    /// read-write - Bus Off Interrupt Mask
     eBOFFMSK BOFFMSK : 1;
+    /// read-write - Phase Segment 2
     uint32_t PSEG2 : 3;
+    /// read-write - Phase Segment 1
     uint32_t PSEG1 : 3;
+    /// read-write - Resync Jump Width
     uint32_t RJW : 2;
+    /// read-write - Prescaler Division Factor
     uint32_t PRESDIV : 8;
   } bits;
   
@@ -253,6 +291,7 @@ union TIMER {
   
   // Bit field definition.
   struct {
+    /// read-write - Timer Value
     uint32_t TIMER : 16;
     uint32_t _reserved_0 : 16;
   } bits;
@@ -271,6 +310,7 @@ union RXMGMASK {
   
   // Bit field definition.
   struct {
+    /// read-write - Rx Mailboxes Global Mask Bits
     uint32_t MG : 32;
   } bits;
   
@@ -288,6 +328,7 @@ union RX14MASK {
   
   // Bit field definition.
   struct {
+    /// read-write - Rx Buffer 14 Mask Bits
     uint32_t RX14M : 32;
   } bits;
   
@@ -305,6 +346,7 @@ union RX15MASK {
   
   // Bit field definition.
   struct {
+    /// read-write - Rx Buffer 15 Mask Bits
     uint32_t RX15M : 32;
   } bits;
   
@@ -322,9 +364,13 @@ union ECR {
   
   // Bit field definition.
   struct {
+    /// read-write - Transmit Error Counter
     uint32_t TXERRCNT : 8;
+    /// read-write - Receive Error Counter
     uint32_t RXERRCNT : 8;
+    /// read-write - Transmit Error Counter for fast bits
     uint32_t TXERRCNT_FAST : 8;
+    /// read-write - Receive Error Counter for fast bits
     uint32_t RXERRCNT_FAST : 8;
   } bits;
   
@@ -473,33 +519,59 @@ union ESR1 {
   
   // Bit field definition.
   struct {
+    /// read-write - Wake-Up Interrupt
     eWAKINT WAKINT : 1;
+    /// read-write - Error Interrupt
     eERRINT ERRINT : 1;
+    /// read-write - Bus Off Interrupt
     eBOFFINT BOFFINT : 1;
+    /// read-only - FlexCAN In Reception
     eRX RX : 1;
+    /// read-only - Fault Confinement State
     eFLTCONF FLTCONF : 2;
+    /// read-only - FlexCAN In Transmission
     eTX TX : 1;
+    /// read-only - IDLE
     eIDLE IDLE : 1;
+    /// read-only - Rx Error Warning
     eRXWRN RXWRN : 1;
+    /// read-only - TX Error Warning
     eTXWRN TXWRN : 1;
+    /// read-only - Stuffing Error
     eSTFERR STFERR : 1;
+    /// read-only - Form Error
     eFRMERR FRMERR : 1;
+    /// read-only - Cyclic Redundancy Check Error
     eCRCERR CRCERR : 1;
+    /// read-only - Acknowledge Error
     eACKERR ACKERR : 1;
+    /// read-only - Bit0 Error
     eBIT0ERR BIT0ERR : 1;
+    /// read-only - Bit1 Error
     eBIT1ERR BIT1ERR : 1;
+    /// read-write - Rx Warning Interrupt Flag
     eRWRNINT RWRNINT : 1;
+    /// read-write - Tx Warning Interrupt Flag
     eTWRNINT TWRNINT : 1;
+    /// read-only - CAN Synchronization Status
     eSYNCH SYNCH : 1;
+    /// read-write - Bus Off Done Interrupt
     eBOFFDONEINT BOFFDONEINT : 1;
+    /// read-write - Error interrupt for errors detected in Data Phase of CAN FD frames with BRS bit set
     eERRINT_FAST ERRINT_FAST : 1;
+    /// read-write - Error Overrun
     eERROVR ERROVR : 1;
     uint32_t _reserved_0 : 4;
+    /// read-only - Stuffing Error in the Data Phase of CAN FD frames with the BRS bit set
     eSTFERR_FAST STFERR_FAST : 1;
+    /// read-only - Form Error in the Data Phase of CAN FD frames with the BRS bit set
     eFRMERR_FAST FRMERR_FAST : 1;
+    /// read-only - Cyclic Redundancy Check Error in the CRC field of CAN FD frames with the BRS bit set
     eCRCERR_FAST CRCERR_FAST : 1;
     uint32_t _reserved_1 : 1;
+    /// read-only - Bit0 Error in the Data Phase of CAN FD frames with the BRS bit set
     eBIT0ERR_FAST BIT0ERR_FAST : 1;
+    /// read-only - Bit1 Error in the Data Phase of CAN FD frames with the BRS bit set
     eBIT1ERR_FAST BIT1ERR_FAST : 1;
   } bits;
   
@@ -517,6 +589,7 @@ union IMASK2 {
   
   // Bit field definition.
   struct {
+    /// read-write - Buffer MBi Mask
     uint32_t BUF63TO32M : 32;
   } bits;
   
@@ -534,6 +607,7 @@ union IMASK1 {
   
   // Bit field definition.
   struct {
+    /// read-write - Buffer MBi Mask
     uint32_t BUF31TO0M : 32;
   } bits;
   
@@ -551,6 +625,7 @@ union IFLAG2 {
   
   // Bit field definition.
   struct {
+    /// read-write - Buffer MBi Interrupt
     uint32_t BUF63TO32I : 32;
   } bits;
   
@@ -588,11 +663,17 @@ union IFLAG1 {
   
   // Bit field definition.
   struct {
+    /// read-write - Buffer MB0 Interrupt Or Clear FIFO bit
     eBUF0I BUF0I : 1;
+    /// read-write - Buffer MBi Interrupt Or Reserved
     uint32_t BUF4TO1I : 4;
+    /// read-write - Buffer MB5 Interrupt Or Frames available in Rx FIFO
     eBUF5I BUF5I : 1;
+    /// read-write - Buffer MB6 Interrupt Or Rx FIFO Warning
     eBUF6I BUF6I : 1;
+    /// read-write - Buffer MB7 Interrupt Or Rx FIFO Overflow
     eBUF7I BUF7I : 1;
+    /// read-write - Buffer MBi Interrupt
     uint32_t BUF31TO8I : 24;
   } bits;
   
@@ -666,19 +747,32 @@ union CTRL2 {
   // Bit field definition.
   struct {
     uint32_t _reserved_0 : 11;
+    /// read-write - Edge Filter Disable
     eEDFLTDIS EDFLTDIS : 1;
+    /// read-write - ISO CAN FD Enable
     eISOCANFDEN ISOCANFDEN : 1;
     uint32_t _reserved_1 : 1;
+    /// read-write - Protocol Exception Enable
     ePREXCEN PREXCEN : 1;
+    /// read-write - Timer Source
     eTIMER_SRC TIMER_SRC : 1;
+    /// read-write - Entire Frame Arbitration Field Comparison Enable For Rx Mailboxes
     eEACEN EACEN : 1;
+    /// read-write - Remote Request Storing
     eRRS RRS : 1;
+    /// read-write - Mailboxes Reception Priority
     eMRP MRP : 1;
+    /// read-write - Tx Arbitration Start Delay
     uint32_t TASD : 5;
+    /// read-write - Number Of Rx FIFO Filters
     uint32_t RFFN : 4;
+    /// read-write - Write-Access To Memory In Freeze Mode
     eWRMFRZ WRMFRZ : 1;
+    /// read-write - Error-correction Configuration Register Write Enable
     eECRWRE ECRWRE : 1;
+    /// read-write - Bus Off Done Interrupt Mask
     eBOFFDONEMSK BOFFDONEMSK : 1;
+    /// read-write - Error Interrupt Mask for errors detected in the data phase of fast CAN FD frames
     eERRMSK_FAST ERRMSK_FAST : 1;
   } bits;
   
@@ -707,9 +801,12 @@ union ESR2 {
   // Bit field definition.
   struct {
     uint32_t _reserved_0 : 13;
+    /// read-only - Inactive Mailbox
     eIMB IMB : 1;
+    /// read-only - Valid Priority Status
     eVPS VPS : 1;
     uint32_t _reserved_1 : 1;
+    /// read-only - Lowest Priority Tx Mailbox
     uint32_t LPTM : 7;
     uint32_t _reserved_2 : 9;
   } bits;
@@ -728,8 +825,10 @@ union CRCR {
   
   // Bit field definition.
   struct {
+    /// read-only - Transmitted CRC value
     uint32_t TXCRC : 15;
     uint32_t _reserved_0 : 1;
+    /// read-only - CRC Mailbox
     uint32_t MBCRC : 7;
     uint32_t _reserved_1 : 9;
   } bits;
@@ -748,6 +847,7 @@ union RXFGMASK {
   
   // Bit field definition.
   struct {
+    /// read-write - Rx FIFO Global Mask Bits
     uint32_t FGM : 32;
   } bits;
   
@@ -765,6 +865,7 @@ union RXFIR {
   
   // Bit field definition.
   struct {
+    /// read-only - Identifier Acceptance Filter Hit Indicator
     uint32_t IDHIT : 9;
     uint32_t _reserved_0 : 23;
   } bits;
@@ -788,11 +889,17 @@ union CBT {
   
   // Bit field definition.
   struct {
+    /// read-write - Extended Phase Segment 2
     uint32_t EPSEG2 : 5;
+    /// read-write - Extended Phase Segment 1
     uint32_t EPSEG1 : 5;
+    /// read-write - Extended Propagation Segment
     uint32_t EPROPSEG : 6;
+    /// read-write - Extended Resync Jump Width
     uint32_t ERJW : 5;
+    /// read-write - Extended Prescaler Division Factor
     uint32_t EPRESDIV : 10;
+    /// read-write - Bit Timing Format Enable
     eBTF BTF : 1;
   } bits;
   
@@ -810,16 +917,25 @@ union CS0 {
   
   // Bit field definition.
   struct {
+    /// read-write - Free-Running Counter Time stamp. This 16-bit field is a copy of the Free-Running Timer, captured for Tx and Rx frames at the time when the beginning of the Identifier field appears on the CAN bus.
     uint32_t TIME_STAMP : 16;
+    /// read-write - Length of the data to be stored/transmitted.
     uint32_t DLC : 4;
+    /// read-write - Remote Transmission Request. One/zero for remote/data frame.
     uint32_t RTR : 1;
+    /// read-write - ID Extended. One/zero for extended/standard format frame.
     uint32_t IDE : 1;
+    /// read-write - Substitute Remote Request. Contains a fixed recessive bit.
     uint32_t SRR : 1;
     uint32_t _reserved_0 : 1;
+    /// read-write - Message Buffer Code. This 4-bit field can be accessed (read or write) by the CPU and by the FlexCAN module itself, as part of the message buffer matching and arbitration process.
     uint32_t CODE : 4;
     uint32_t _reserved_1 : 1;
+    /// read-write - Error State Indicator. This bit indicates if the transmitting node is error active or error passive.
     uint32_t ESI : 1;
+    /// read-write - Bit Rate Switch. This bit defines whether the bit rate is switched inside a CAN FD format frame.
     uint32_t BRS : 1;
+    /// read-write - Extended Data Length. This bit distinguishes between CAN format and CAN FD format frames. The EDL bit must not be set for Message Buffers configured to RANSWER with code field 0b1010.
     uint32_t EDL : 1;
   } bits;
   
@@ -837,16 +953,25 @@ union MB0_16B_CS_L {
   
   // Bit field definition.
   struct {
+    /// read-write - Free-Running Counter Time stamp. This 16-bit field is a copy of the Free-Running Timer, captured for Tx and Rx frames at the time when the beginning of the Identifier field appears on the CAN bus.
     uint32_t TIME_STAMP : 16;
+    /// read-write - Length of the data to be stored/transmitted.
     uint32_t DLC : 4;
+    /// read-write - Remote Transmission Request. One/zero for remote/data frame.
     uint32_t RTR : 1;
+    /// read-write - ID Extended. One/zero for extended/standard format frame.
     uint32_t IDE : 1;
+    /// read-write - Substitute Remote Request. Contains a fixed recessive bit.
     uint32_t SRR : 1;
     uint32_t _reserved_0 : 1;
+    /// read-write - Message Buffer Code. This 4-bit field can be accessed (read or write) by the CPU and by the FlexCAN module itself, as part of the message buffer matching and arbitration process.
     uint32_t CODE : 4;
     uint32_t _reserved_1 : 1;
+    /// read-write - Error State Indicator. This bit indicates if the transmitting node is error active or error passive.
     uint32_t ESI : 1;
+    /// read-write - Bit Rate Switch. This bit defines whether the bit rate is switched inside a CAN FD format frame.
     uint32_t BRS : 1;
+    /// read-write - Extended Data Length. This bit distinguishes between CAN format and CAN FD format frames. The EDL bit must not be set for Message Buffers configured to RANSWER with code field 0b1010.
     uint32_t EDL : 1;
   } bits;
   
@@ -864,16 +989,25 @@ union MB0_32B_CS_L {
   
   // Bit field definition.
   struct {
+    /// read-write - Free-Running Counter Time stamp. This 16-bit field is a copy of the Free-Running Timer, captured for Tx and Rx frames at the time when the beginning of the Identifier field appears on the CAN bus.
     uint32_t TIME_STAMP : 16;
+    /// read-write - Length of the data to be stored/transmitted.
     uint32_t DLC : 4;
+    /// read-write - Remote Transmission Request. One/zero for remote/data frame.
     uint32_t RTR : 1;
+    /// read-write - ID Extended. One/zero for extended/standard format frame.
     uint32_t IDE : 1;
+    /// read-write - Substitute Remote Request. Contains a fixed recessive bit.
     uint32_t SRR : 1;
     uint32_t _reserved_0 : 1;
+    /// read-write - Message Buffer Code. This 4-bit field can be accessed (read or write) by the CPU and by the FlexCAN module itself, as part of the message buffer matching and arbitration process.
     uint32_t CODE : 4;
     uint32_t _reserved_1 : 1;
+    /// read-write - Error State Indicator. This bit indicates if the transmitting node is error active or error passive.
     uint32_t ESI : 1;
+    /// read-write - Bit Rate Switch. This bit defines whether the bit rate is switched inside a CAN FD format frame.
     uint32_t BRS : 1;
+    /// read-write - Extended Data Length. This bit distinguishes between CAN format and CAN FD format frames. The EDL bit must not be set for Message Buffers configured to RANSWER with code field 0b1010.
     uint32_t EDL : 1;
   } bits;
   
@@ -891,16 +1025,25 @@ union MB0_64B_CS_L {
   
   // Bit field definition.
   struct {
+    /// read-write - Free-Running Counter Time stamp. This 16-bit field is a copy of the Free-Running Timer, captured for Tx and Rx frames at the time when the beginning of the Identifier field appears on the CAN bus.
     uint32_t TIME_STAMP : 16;
+    /// read-write - Length of the data to be stored/transmitted.
     uint32_t DLC : 4;
+    /// read-write - Remote Transmission Request. One/zero for remote/data frame.
     uint32_t RTR : 1;
+    /// read-write - ID Extended. One/zero for extended/standard format frame.
     uint32_t IDE : 1;
+    /// read-write - Substitute Remote Request. Contains a fixed recessive bit.
     uint32_t SRR : 1;
     uint32_t _reserved_0 : 1;
+    /// read-write - Message Buffer Code. This 4-bit field can be accessed (read or write) by the CPU and by the FlexCAN module itself, as part of the message buffer matching and arbitration process.
     uint32_t CODE : 4;
     uint32_t _reserved_1 : 1;
+    /// read-write - Error State Indicator. This bit indicates if the transmitting node is error active or error passive.
     uint32_t ESI : 1;
+    /// read-write - Bit Rate Switch. This bit defines whether the bit rate is switched inside a CAN FD format frame.
     uint32_t BRS : 1;
+    /// read-write - Extended Data Length. This bit distinguishes between CAN format and CAN FD format frames. The EDL bit must not be set for Message Buffers configured to RANSWER with code field 0b1010.
     uint32_t EDL : 1;
   } bits;
   
@@ -918,16 +1061,25 @@ union MB0_8B_CS {
   
   // Bit field definition.
   struct {
+    /// read-write - Free-Running Counter Time stamp. This 16-bit field is a copy of the Free-Running Timer, captured for Tx and Rx frames at the time when the beginning of the Identifier field appears on the CAN bus.
     uint32_t TIME_STAMP : 16;
+    /// read-write - Length of the data to be stored/transmitted.
     uint32_t DLC : 4;
+    /// read-write - Remote Transmission Request. One/zero for remote/data frame.
     uint32_t RTR : 1;
+    /// read-write - ID Extended. One/zero for extended/standard format frame.
     uint32_t IDE : 1;
+    /// read-write - Substitute Remote Request. Contains a fixed recessive bit.
     uint32_t SRR : 1;
     uint32_t _reserved_0 : 1;
+    /// read-write - Message Buffer Code. This 4-bit field can be accessed (read or write) by the CPU and by the FlexCAN module itself, as part of the message buffer matching and arbitration process.
     uint32_t CODE : 4;
     uint32_t _reserved_1 : 1;
+    /// read-write - Error State Indicator. This bit indicates if the transmitting node is error active or error passive.
     uint32_t ESI : 1;
+    /// read-write - Bit Rate Switch. This bit defines whether the bit rate is switched inside a CAN FD format frame.
     uint32_t BRS : 1;
+    /// read-write - Extended Data Length. This bit distinguishes between CAN format and CAN FD format frames. The EDL bit must not be set for Message Buffers configured to RANSWER with code field 0b1010.
     uint32_t EDL : 1;
   } bits;
   
@@ -945,8 +1097,11 @@ union ID0 {
   
   // Bit field definition.
   struct {
+    /// read-write - Contains extended (LOW word) identifier of message buffer.
     uint32_t EXT : 18;
+    /// read-write - Contains standard/extended (HIGH word) identifier of message buffer.
     uint32_t STD : 11;
+    /// read-write - Local priority. This 3-bit fieldis only used when LPRIO_EN bit is set in MCR and it only makes sense for Tx buffers. These bits are not transmitted. They are appended to the regular ID to define the transmission priority.
     uint32_t PRIO : 3;
   } bits;
   
@@ -964,8 +1119,11 @@ union MB0_16B_ID_L {
   
   // Bit field definition.
   struct {
+    /// read-write - Contains extended (LOW word) identifier of message buffer.
     uint32_t EXT : 18;
+    /// read-write - Contains standard/extended (HIGH word) identifier of message buffer.
     uint32_t STD : 11;
+    /// read-write - Local priority. This 3-bit fieldis only used when LPRIO_EN bit is set in MCR and it only makes sense for Tx buffers. These bits are not transmitted. They are appended to the regular ID to define the transmission priority.
     uint32_t PRIO : 3;
   } bits;
   
@@ -983,8 +1141,11 @@ union MB0_32B_ID_L {
   
   // Bit field definition.
   struct {
+    /// read-write - Contains extended (LOW word) identifier of message buffer.
     uint32_t EXT : 18;
+    /// read-write - Contains standard/extended (HIGH word) identifier of message buffer.
     uint32_t STD : 11;
+    /// read-write - Local priority. This 3-bit fieldis only used when LPRIO_EN bit is set in MCR and it only makes sense for Tx buffers. These bits are not transmitted. They are appended to the regular ID to define the transmission priority.
     uint32_t PRIO : 3;
   } bits;
   
@@ -1002,8 +1163,11 @@ union MB0_64B_ID_L {
   
   // Bit field definition.
   struct {
+    /// read-write - Contains extended (LOW word) identifier of message buffer.
     uint32_t EXT : 18;
+    /// read-write - Contains standard/extended (HIGH word) identifier of message buffer.
     uint32_t STD : 11;
+    /// read-write - Local priority. This 3-bit fieldis only used when LPRIO_EN bit is set in MCR and it only makes sense for Tx buffers. These bits are not transmitted. They are appended to the regular ID to define the transmission priority.
     uint32_t PRIO : 3;
   } bits;
   
@@ -1021,8 +1185,11 @@ union MB0_8B_ID {
   
   // Bit field definition.
   struct {
+    /// read-write - Contains extended (LOW word) identifier of message buffer.
     uint32_t EXT : 18;
+    /// read-write - Contains standard/extended (HIGH word) identifier of message buffer.
     uint32_t STD : 11;
+    /// read-write - Local priority. This 3-bit fieldis only used when LPRIO_EN bit is set in MCR and it only makes sense for Tx buffers. These bits are not transmitted. They are appended to the regular ID to define the transmission priority.
     uint32_t PRIO : 3;
   } bits;
   
@@ -1040,9 +1207,13 @@ union MB0_16B_WORD0_L {
   
   // Bit field definition.
   struct {
+    /// read-write - Data byte 0 of Rx/Tx frame.
     uint32_t DATA_BYTE_3 : 8;
+    /// read-write - Data byte 1 of Rx/Tx frame.
     uint32_t DATA_BYTE_2 : 8;
+    /// read-write - Data byte 2 of Rx/Tx frame.
     uint32_t DATA_BYTE_1 : 8;
+    /// read-write - Data byte 3 of Rx/Tx frame.
     uint32_t DATA_BYTE_0 : 8;
   } bits;
   
@@ -1060,9 +1231,13 @@ union MB0_32B_WORD0_L {
   
   // Bit field definition.
   struct {
+    /// read-write - Data byte 0 of Rx/Tx frame.
     uint32_t DATA_BYTE_3 : 8;
+    /// read-write - Data byte 1 of Rx/Tx frame.
     uint32_t DATA_BYTE_2 : 8;
+    /// read-write - Data byte 2 of Rx/Tx frame.
     uint32_t DATA_BYTE_1 : 8;
+    /// read-write - Data byte 3 of Rx/Tx frame.
     uint32_t DATA_BYTE_0 : 8;
   } bits;
   
@@ -1080,9 +1255,13 @@ union MB0_64B_WORD0_L {
   
   // Bit field definition.
   struct {
+    /// read-write - Data byte 0 of Rx/Tx frame.
     uint32_t DATA_BYTE_3 : 8;
+    /// read-write - Data byte 1 of Rx/Tx frame.
     uint32_t DATA_BYTE_2 : 8;
+    /// read-write - Data byte 2 of Rx/Tx frame.
     uint32_t DATA_BYTE_1 : 8;
+    /// read-write - Data byte 3 of Rx/Tx frame.
     uint32_t DATA_BYTE_0 : 8;
   } bits;
   
@@ -1100,9 +1279,13 @@ union MB0_8B_WORD0 {
   
   // Bit field definition.
   struct {
+    /// read-write - Data byte 0 of Rx/Tx frame.
     uint32_t DATA_BYTE_3 : 8;
+    /// read-write - Data byte 1 of Rx/Tx frame.
     uint32_t DATA_BYTE_2 : 8;
+    /// read-write - Data byte 2 of Rx/Tx frame.
     uint32_t DATA_BYTE_1 : 8;
+    /// read-write - Data byte 3 of Rx/Tx frame.
     uint32_t DATA_BYTE_0 : 8;
   } bits;
   
@@ -1120,9 +1303,13 @@ union WORD00 {
   
   // Bit field definition.
   struct {
+    /// read-write - Data byte 0 of Rx/Tx frame.
     uint32_t DATA_BYTE_3 : 8;
+    /// read-write - Data byte 1 of Rx/Tx frame.
     uint32_t DATA_BYTE_2 : 8;
+    /// read-write - Data byte 2 of Rx/Tx frame.
     uint32_t DATA_BYTE_1 : 8;
+    /// read-write - Data byte 3 of Rx/Tx frame.
     uint32_t DATA_BYTE_0 : 8;
   } bits;
   
@@ -1140,9 +1327,13 @@ union MB0_16B_WORD1_L {
   
   // Bit field definition.
   struct {
+    /// read-write - Data byte 0 of Rx/Tx frame.
     uint32_t DATA_BYTE_7 : 8;
+    /// read-write - Data byte 1 of Rx/Tx frame.
     uint32_t DATA_BYTE_6 : 8;
+    /// read-write - Data byte 2 of Rx/Tx frame.
     uint32_t DATA_BYTE_5 : 8;
+    /// read-write - Data byte 3 of Rx/Tx frame.
     uint32_t DATA_BYTE_4 : 8;
   } bits;
   
@@ -1160,9 +1351,13 @@ union MB0_32B_WORD1_L {
   
   // Bit field definition.
   struct {
+    /// read-write - Data byte 0 of Rx/Tx frame.
     uint32_t DATA_BYTE_7 : 8;
+    /// read-write - Data byte 1 of Rx/Tx frame.
     uint32_t DATA_BYTE_6 : 8;
+    /// read-write - Data byte 2 of Rx/Tx frame.
     uint32_t DATA_BYTE_5 : 8;
+    /// read-write - Data byte 3 of Rx/Tx frame.
     uint32_t DATA_BYTE_4 : 8;
   } bits;
   
@@ -1180,9 +1375,13 @@ union MB0_64B_WORD1_L {
   
   // Bit field definition.
   struct {
+    /// read-write - Data byte 0 of Rx/Tx frame.
     uint32_t DATA_BYTE_7 : 8;
+    /// read-write - Data byte 1 of Rx/Tx frame.
     uint32_t DATA_BYTE_6 : 8;
+    /// read-write - Data byte 2 of Rx/Tx frame.
     uint32_t DATA_BYTE_5 : 8;
+    /// read-write - Data byte 3 of Rx/Tx frame.
     uint32_t DATA_BYTE_4 : 8;
   } bits;
   
@@ -1200,9 +1399,13 @@ union MB0_8B_WORD1 {
   
   // Bit field definition.
   struct {
+    /// read-write - Data byte 0 of Rx/Tx frame.
     uint32_t DATA_BYTE_7 : 8;
+    /// read-write - Data byte 1 of Rx/Tx frame.
     uint32_t DATA_BYTE_6 : 8;
+    /// read-write - Data byte 2 of Rx/Tx frame.
     uint32_t DATA_BYTE_5 : 8;
+    /// read-write - Data byte 3 of Rx/Tx frame.
     uint32_t DATA_BYTE_4 : 8;
   } bits;
   
@@ -1220,9 +1423,13 @@ union WORD10 {
   
   // Bit field definition.
   struct {
+    /// read-write - Data byte 0 of Rx/Tx frame.
     uint32_t DATA_BYTE_7 : 8;
+    /// read-write - Data byte 1 of Rx/Tx frame.
     uint32_t DATA_BYTE_6 : 8;
+    /// read-write - Data byte 2 of Rx/Tx frame.
     uint32_t DATA_BYTE_5 : 8;
+    /// read-write - Data byte 3 of Rx/Tx frame.
     uint32_t DATA_BYTE_4 : 8;
   } bits;
   
@@ -1240,16 +1447,25 @@ union CS1 {
   
   // Bit field definition.
   struct {
+    /// read-write - Free-Running Counter Time stamp. This 16-bit field is a copy of the Free-Running Timer, captured for Tx and Rx frames at the time when the beginning of the Identifier field appears on the CAN bus.
     uint32_t TIME_STAMP : 16;
+    /// read-write - Length of the data to be stored/transmitted.
     uint32_t DLC : 4;
+    /// read-write - Remote Transmission Request. One/zero for remote/data frame.
     uint32_t RTR : 1;
+    /// read-write - ID Extended. One/zero for extended/standard format frame.
     uint32_t IDE : 1;
+    /// read-write - Substitute Remote Request. Contains a fixed recessive bit.
     uint32_t SRR : 1;
     uint32_t _reserved_0 : 1;
+    /// read-write - Message Buffer Code. This 4-bit field can be accessed (read or write) by the CPU and by the FlexCAN module itself, as part of the message buffer matching and arbitration process.
     uint32_t CODE : 4;
     uint32_t _reserved_1 : 1;
+    /// read-write - Error State Indicator. This bit indicates if the transmitting node is error active or error passive.
     uint32_t ESI : 1;
+    /// read-write - Bit Rate Switch. This bit defines whether the bit rate is switched inside a CAN FD format frame.
     uint32_t BRS : 1;
+    /// read-write - Extended Data Length. This bit distinguishes between CAN format and CAN FD format frames. The EDL bit must not be set for Message Buffers configured to RANSWER with code field 0b1010.
     uint32_t EDL : 1;
   } bits;
   
@@ -1267,9 +1483,13 @@ union MB0_16B_WORD2_L {
   
   // Bit field definition.
   struct {
+    /// read-write - Data byte 0 of Rx/Tx frame.
     uint32_t DATA_BYTE_11 : 8;
+    /// read-write - Data byte 1 of Rx/Tx frame.
     uint32_t DATA_BYTE_10 : 8;
+    /// read-write - Data byte 2 of Rx/Tx frame.
     uint32_t DATA_BYTE_9 : 8;
+    /// read-write - Data byte 3 of Rx/Tx frame.
     uint32_t DATA_BYTE_8 : 8;
   } bits;
   
@@ -1287,9 +1507,13 @@ union MB0_32B_WORD2_L {
   
   // Bit field definition.
   struct {
+    /// read-write - Data byte 0 of Rx/Tx frame.
     uint32_t DATA_BYTE_11 : 8;
+    /// read-write - Data byte 1 of Rx/Tx frame.
     uint32_t DATA_BYTE_10 : 8;
+    /// read-write - Data byte 2 of Rx/Tx frame.
     uint32_t DATA_BYTE_9 : 8;
+    /// read-write - Data byte 3 of Rx/Tx frame.
     uint32_t DATA_BYTE_8 : 8;
   } bits;
   
@@ -1307,9 +1531,13 @@ union MB0_64B_WORD2_L {
   
   // Bit field definition.
   struct {
+    /// read-write - Data byte 0 of Rx/Tx frame.
     uint32_t DATA_BYTE_11 : 8;
+    /// read-write - Data byte 1 of Rx/Tx frame.
     uint32_t DATA_BYTE_10 : 8;
+    /// read-write - Data byte 2 of Rx/Tx frame.
     uint32_t DATA_BYTE_9 : 8;
+    /// read-write - Data byte 3 of Rx/Tx frame.
     uint32_t DATA_BYTE_8 : 8;
   } bits;
   
@@ -1327,16 +1555,25 @@ union MB1_8B_CS {
   
   // Bit field definition.
   struct {
+    /// read-write - Free-Running Counter Time stamp. This 16-bit field is a copy of the Free-Running Timer, captured for Tx and Rx frames at the time when the beginning of the Identifier field appears on the CAN bus.
     uint32_t TIME_STAMP : 16;
+    /// read-write - Length of the data to be stored/transmitted.
     uint32_t DLC : 4;
+    /// read-write - Remote Transmission Request. One/zero for remote/data frame.
     uint32_t RTR : 1;
+    /// read-write - ID Extended. One/zero for extended/standard format frame.
     uint32_t IDE : 1;
+    /// read-write - Substitute Remote Request. Contains a fixed recessive bit.
     uint32_t SRR : 1;
     uint32_t _reserved_0 : 1;
+    /// read-write - Message Buffer Code. This 4-bit field can be accessed (read or write) by the CPU and by the FlexCAN module itself, as part of the message buffer matching and arbitration process.
     uint32_t CODE : 4;
     uint32_t _reserved_1 : 1;
+    /// read-write - Error State Indicator. This bit indicates if the transmitting node is error active or error passive.
     uint32_t ESI : 1;
+    /// read-write - Bit Rate Switch. This bit defines whether the bit rate is switched inside a CAN FD format frame.
     uint32_t BRS : 1;
+    /// read-write - Extended Data Length. This bit distinguishes between CAN format and CAN FD format frames. The EDL bit must not be set for Message Buffers configured to RANSWER with code field 0b1010.
     uint32_t EDL : 1;
   } bits;
   
@@ -1354,8 +1591,11 @@ union ID1 {
   
   // Bit field definition.
   struct {
+    /// read-write - Contains extended (LOW word) identifier of message buffer.
     uint32_t EXT : 18;
+    /// read-write - Contains standard/extended (HIGH word) identifier of message buffer.
     uint32_t STD : 11;
+    /// read-write - Local priority. This 3-bit fieldis only used when LPRIO_EN bit is set in MCR and it only makes sense for Tx buffers. These bits are not transmitted. They are appended to the regular ID to define the transmission priority.
     uint32_t PRIO : 3;
   } bits;
   
@@ -1373,9 +1613,13 @@ union MB0_16B_WORD3_L {
   
   // Bit field definition.
   struct {
+    /// read-write - Data byte 0 of Rx/Tx frame.
     uint32_t DATA_BYTE_15 : 8;
+    /// read-write - Data byte 1 of Rx/Tx frame.
     uint32_t DATA_BYTE_14 : 8;
+    /// read-write - Data byte 2 of Rx/Tx frame.
     uint32_t DATA_BYTE_13 : 8;
+    /// read-write - Data byte 3 of Rx/Tx frame.
     uint32_t DATA_BYTE_12 : 8;
   } bits;
   
@@ -1393,9 +1637,13 @@ union MB0_32B_WORD3_L {
   
   // Bit field definition.
   struct {
+    /// read-write - Data byte 0 of Rx/Tx frame.
     uint32_t DATA_BYTE_15 : 8;
+    /// read-write - Data byte 1 of Rx/Tx frame.
     uint32_t DATA_BYTE_14 : 8;
+    /// read-write - Data byte 2 of Rx/Tx frame.
     uint32_t DATA_BYTE_13 : 8;
+    /// read-write - Data byte 3 of Rx/Tx frame.
     uint32_t DATA_BYTE_12 : 8;
   } bits;
   
@@ -1413,9 +1661,13 @@ union MB0_64B_WORD3_L {
   
   // Bit field definition.
   struct {
+    /// read-write - Data byte 0 of Rx/Tx frame.
     uint32_t DATA_BYTE_15 : 8;
+    /// read-write - Data byte 1 of Rx/Tx frame.
     uint32_t DATA_BYTE_14 : 8;
+    /// read-write - Data byte 2 of Rx/Tx frame.
     uint32_t DATA_BYTE_13 : 8;
+    /// read-write - Data byte 3 of Rx/Tx frame.
     uint32_t DATA_BYTE_12 : 8;
   } bits;
   
@@ -1433,8 +1685,11 @@ union MB1_8B_ID {
   
   // Bit field definition.
   struct {
+    /// read-write - Contains extended (LOW word) identifier of message buffer.
     uint32_t EXT : 18;
+    /// read-write - Contains standard/extended (HIGH word) identifier of message buffer.
     uint32_t STD : 11;
+    /// read-write - Local priority. This 3-bit fieldis only used when LPRIO_EN bit is set in MCR and it only makes sense for Tx buffers. These bits are not transmitted. They are appended to the regular ID to define the transmission priority.
     uint32_t PRIO : 3;
   } bits;
   
@@ -1452,9 +1707,13 @@ union MB0_32B_WORD4_L {
   
   // Bit field definition.
   struct {
+    /// read-write - Data byte 0 of Rx/Tx frame.
     uint32_t DATA_BYTE_19 : 8;
+    /// read-write - Data byte 1 of Rx/Tx frame.
     uint32_t DATA_BYTE_18 : 8;
+    /// read-write - Data byte 2 of Rx/Tx frame.
     uint32_t DATA_BYTE_17 : 8;
+    /// read-write - Data byte 3 of Rx/Tx frame.
     uint32_t DATA_BYTE_16 : 8;
   } bits;
   
@@ -1472,9 +1731,13 @@ union MB0_64B_WORD4_L {
   
   // Bit field definition.
   struct {
+    /// read-write - Data byte 0 of Rx/Tx frame.
     uint32_t DATA_BYTE_19 : 8;
+    /// read-write - Data byte 1 of Rx/Tx frame.
     uint32_t DATA_BYTE_18 : 8;
+    /// read-write - Data byte 2 of Rx/Tx frame.
     uint32_t DATA_BYTE_17 : 8;
+    /// read-write - Data byte 3 of Rx/Tx frame.
     uint32_t DATA_BYTE_16 : 8;
   } bits;
   
@@ -1492,16 +1755,25 @@ union MB1_16B_CS_L {
   
   // Bit field definition.
   struct {
+    /// read-write - Free-Running Counter Time stamp. This 16-bit field is a copy of the Free-Running Timer, captured for Tx and Rx frames at the time when the beginning of the Identifier field appears on the CAN bus.
     uint32_t TIME_STAMP : 16;
+    /// read-write - Length of the data to be stored/transmitted.
     uint32_t DLC : 4;
+    /// read-write - Remote Transmission Request. One/zero for remote/data frame.
     uint32_t RTR : 1;
+    /// read-write - ID Extended. One/zero for extended/standard format frame.
     uint32_t IDE : 1;
+    /// read-write - Substitute Remote Request. Contains a fixed recessive bit.
     uint32_t SRR : 1;
     uint32_t _reserved_0 : 1;
+    /// read-write - Message Buffer Code. This 4-bit field can be accessed (read or write) by the CPU and by the FlexCAN module itself, as part of the message buffer matching and arbitration process.
     uint32_t CODE : 4;
     uint32_t _reserved_1 : 1;
+    /// read-write - Error State Indicator. This bit indicates if the transmitting node is error active or error passive.
     uint32_t ESI : 1;
+    /// read-write - Bit Rate Switch. This bit defines whether the bit rate is switched inside a CAN FD format frame.
     uint32_t BRS : 1;
+    /// read-write - Extended Data Length. This bit distinguishes between CAN format and CAN FD format frames. The EDL bit must not be set for Message Buffers configured to RANSWER with code field 0b1010.
     uint32_t EDL : 1;
   } bits;
   
@@ -1519,9 +1791,13 @@ union MB1_8B_WORD0 {
   
   // Bit field definition.
   struct {
+    /// read-write - Data byte 0 of Rx/Tx frame.
     uint32_t DATA_BYTE_3 : 8;
+    /// read-write - Data byte 1 of Rx/Tx frame.
     uint32_t DATA_BYTE_2 : 8;
+    /// read-write - Data byte 2 of Rx/Tx frame.
     uint32_t DATA_BYTE_1 : 8;
+    /// read-write - Data byte 3 of Rx/Tx frame.
     uint32_t DATA_BYTE_0 : 8;
   } bits;
   
@@ -1539,9 +1815,13 @@ union WORD01 {
   
   // Bit field definition.
   struct {
+    /// read-write - Data byte 0 of Rx/Tx frame.
     uint32_t DATA_BYTE_3 : 8;
+    /// read-write - Data byte 1 of Rx/Tx frame.
     uint32_t DATA_BYTE_2 : 8;
+    /// read-write - Data byte 2 of Rx/Tx frame.
     uint32_t DATA_BYTE_1 : 8;
+    /// read-write - Data byte 3 of Rx/Tx frame.
     uint32_t DATA_BYTE_0 : 8;
   } bits;
   
@@ -1559,9 +1839,13 @@ union MB0_32B_WORD5_L {
   
   // Bit field definition.
   struct {
+    /// read-write - Data byte 0 of Rx/Tx frame.
     uint32_t DATA_BYTE_23 : 8;
+    /// read-write - Data byte 1 of Rx/Tx frame.
     uint32_t DATA_BYTE_22 : 8;
+    /// read-write - Data byte 2 of Rx/Tx frame.
     uint32_t DATA_BYTE_21 : 8;
+    /// read-write - Data byte 3 of Rx/Tx frame.
     uint32_t DATA_BYTE_20 : 8;
   } bits;
   
@@ -1579,9 +1863,13 @@ union MB0_64B_WORD5_L {
   
   // Bit field definition.
   struct {
+    /// read-write - Data byte 0 of Rx/Tx frame.
     uint32_t DATA_BYTE_23 : 8;
+    /// read-write - Data byte 1 of Rx/Tx frame.
     uint32_t DATA_BYTE_22 : 8;
+    /// read-write - Data byte 2 of Rx/Tx frame.
     uint32_t DATA_BYTE_21 : 8;
+    /// read-write - Data byte 3 of Rx/Tx frame.
     uint32_t DATA_BYTE_20 : 8;
   } bits;
   
@@ -1599,8 +1887,11 @@ union MB1_16B_ID_L {
   
   // Bit field definition.
   struct {
+    /// read-write - Contains extended (LOW word) identifier of message buffer.
     uint32_t EXT : 18;
+    /// read-write - Contains standard/extended (HIGH word) identifier of message buffer.
     uint32_t STD : 11;
+    /// read-write - Local priority. This 3-bit fieldis only used when LPRIO_EN bit is set in MCR and it only makes sense for Tx buffers. These bits are not transmitted. They are appended to the regular ID to define the transmission priority.
     uint32_t PRIO : 3;
   } bits;
   
@@ -1618,9 +1909,13 @@ union MB1_8B_WORD1 {
   
   // Bit field definition.
   struct {
+    /// read-write - Data byte 0 of Rx/Tx frame.
     uint32_t DATA_BYTE_7 : 8;
+    /// read-write - Data byte 1 of Rx/Tx frame.
     uint32_t DATA_BYTE_6 : 8;
+    /// read-write - Data byte 2 of Rx/Tx frame.
     uint32_t DATA_BYTE_5 : 8;
+    /// read-write - Data byte 3 of Rx/Tx frame.
     uint32_t DATA_BYTE_4 : 8;
   } bits;
   
@@ -1638,9 +1933,13 @@ union WORD11 {
   
   // Bit field definition.
   struct {
+    /// read-write - Data byte 0 of Rx/Tx frame.
     uint32_t DATA_BYTE_7 : 8;
+    /// read-write - Data byte 1 of Rx/Tx frame.
     uint32_t DATA_BYTE_6 : 8;
+    /// read-write - Data byte 2 of Rx/Tx frame.
     uint32_t DATA_BYTE_5 : 8;
+    /// read-write - Data byte 3 of Rx/Tx frame.
     uint32_t DATA_BYTE_4 : 8;
   } bits;
   
@@ -1658,16 +1957,25 @@ union CS2 {
   
   // Bit field definition.
   struct {
+    /// read-write - Free-Running Counter Time stamp. This 16-bit field is a copy of the Free-Running Timer, captured for Tx and Rx frames at the time when the beginning of the Identifier field appears on the CAN bus.
     uint32_t TIME_STAMP : 16;
+    /// read-write - Length of the data to be stored/transmitted.
     uint32_t DLC : 4;
+    /// read-write - Remote Transmission Request. One/zero for remote/data frame.
     uint32_t RTR : 1;
+    /// read-write - ID Extended. One/zero for extended/standard format frame.
     uint32_t IDE : 1;
+    /// read-write - Substitute Remote Request. Contains a fixed recessive bit.
     uint32_t SRR : 1;
     uint32_t _reserved_0 : 1;
+    /// read-write - Message Buffer Code. This 4-bit field can be accessed (read or write) by the CPU and by the FlexCAN module itself, as part of the message buffer matching and arbitration process.
     uint32_t CODE : 4;
     uint32_t _reserved_1 : 1;
+    /// read-write - Error State Indicator. This bit indicates if the transmitting node is error active or error passive.
     uint32_t ESI : 1;
+    /// read-write - Bit Rate Switch. This bit defines whether the bit rate is switched inside a CAN FD format frame.
     uint32_t BRS : 1;
+    /// read-write - Extended Data Length. This bit distinguishes between CAN format and CAN FD format frames. The EDL bit must not be set for Message Buffers configured to RANSWER with code field 0b1010.
     uint32_t EDL : 1;
   } bits;
   
@@ -1685,9 +1993,13 @@ union MB0_32B_WORD6_L {
   
   // Bit field definition.
   struct {
+    /// read-write - Data byte 0 of Rx/Tx frame.
     uint32_t DATA_BYTE_27 : 8;
+    /// read-write - Data byte 1 of Rx/Tx frame.
     uint32_t DATA_BYTE_26 : 8;
+    /// read-write - Data byte 2 of Rx/Tx frame.
     uint32_t DATA_BYTE_25 : 8;
+    /// read-write - Data byte 3 of Rx/Tx frame.
     uint32_t DATA_BYTE_24 : 8;
   } bits;
   
@@ -1705,9 +2017,13 @@ union MB0_64B_WORD6_L {
   
   // Bit field definition.
   struct {
+    /// read-write - Data byte 0 of Rx/Tx frame.
     uint32_t DATA_BYTE_27 : 8;
+    /// read-write - Data byte 1 of Rx/Tx frame.
     uint32_t DATA_BYTE_26 : 8;
+    /// read-write - Data byte 2 of Rx/Tx frame.
     uint32_t DATA_BYTE_25 : 8;
+    /// read-write - Data byte 3 of Rx/Tx frame.
     uint32_t DATA_BYTE_24 : 8;
   } bits;
   
@@ -1725,9 +2041,13 @@ union MB1_16B_WORD0_L {
   
   // Bit field definition.
   struct {
+    /// read-write - Data byte 0 of Rx/Tx frame.
     uint32_t DATA_BYTE_3 : 8;
+    /// read-write - Data byte 1 of Rx/Tx frame.
     uint32_t DATA_BYTE_2 : 8;
+    /// read-write - Data byte 2 of Rx/Tx frame.
     uint32_t DATA_BYTE_1 : 8;
+    /// read-write - Data byte 3 of Rx/Tx frame.
     uint32_t DATA_BYTE_0 : 8;
   } bits;
   
@@ -1745,16 +2065,25 @@ union MB2_8B_CS {
   
   // Bit field definition.
   struct {
+    /// read-write - Free-Running Counter Time stamp. This 16-bit field is a copy of the Free-Running Timer, captured for Tx and Rx frames at the time when the beginning of the Identifier field appears on the CAN bus.
     uint32_t TIME_STAMP : 16;
+    /// read-write - Length of the data to be stored/transmitted.
     uint32_t DLC : 4;
+    /// read-write - Remote Transmission Request. One/zero for remote/data frame.
     uint32_t RTR : 1;
+    /// read-write - ID Extended. One/zero for extended/standard format frame.
     uint32_t IDE : 1;
+    /// read-write - Substitute Remote Request. Contains a fixed recessive bit.
     uint32_t SRR : 1;
     uint32_t _reserved_0 : 1;
+    /// read-write - Message Buffer Code. This 4-bit field can be accessed (read or write) by the CPU and by the FlexCAN module itself, as part of the message buffer matching and arbitration process.
     uint32_t CODE : 4;
     uint32_t _reserved_1 : 1;
+    /// read-write - Error State Indicator. This bit indicates if the transmitting node is error active or error passive.
     uint32_t ESI : 1;
+    /// read-write - Bit Rate Switch. This bit defines whether the bit rate is switched inside a CAN FD format frame.
     uint32_t BRS : 1;
+    /// read-write - Extended Data Length. This bit distinguishes between CAN format and CAN FD format frames. The EDL bit must not be set for Message Buffers configured to RANSWER with code field 0b1010.
     uint32_t EDL : 1;
   } bits;
   
@@ -1772,8 +2101,11 @@ union ID2 {
   
   // Bit field definition.
   struct {
+    /// read-write - Contains extended (LOW word) identifier of message buffer.
     uint32_t EXT : 18;
+    /// read-write - Contains standard/extended (HIGH word) identifier of message buffer.
     uint32_t STD : 11;
+    /// read-write - Local priority. This 3-bit fieldis only used when LPRIO_EN bit is set in MCR and it only makes sense for Tx buffers. These bits are not transmitted. They are appended to the regular ID to define the transmission priority.
     uint32_t PRIO : 3;
   } bits;
   
@@ -1791,9 +2123,13 @@ union MB0_32B_WORD7_L {
   
   // Bit field definition.
   struct {
+    /// read-write - Data byte 0 of Rx/Tx frame.
     uint32_t DATA_BYTE_31 : 8;
+    /// read-write - Data byte 1 of Rx/Tx frame.
     uint32_t DATA_BYTE_30 : 8;
+    /// read-write - Data byte 2 of Rx/Tx frame.
     uint32_t DATA_BYTE_29 : 8;
+    /// read-write - Data byte 3 of Rx/Tx frame.
     uint32_t DATA_BYTE_28 : 8;
   } bits;
   
@@ -1811,9 +2147,13 @@ union MB0_64B_WORD7_L {
   
   // Bit field definition.
   struct {
+    /// read-write - Data byte 0 of Rx/Tx frame.
     uint32_t DATA_BYTE_31 : 8;
+    /// read-write - Data byte 1 of Rx/Tx frame.
     uint32_t DATA_BYTE_30 : 8;
+    /// read-write - Data byte 2 of Rx/Tx frame.
     uint32_t DATA_BYTE_29 : 8;
+    /// read-write - Data byte 3 of Rx/Tx frame.
     uint32_t DATA_BYTE_28 : 8;
   } bits;
   
@@ -1831,9 +2171,13 @@ union MB1_16B_WORD1_L {
   
   // Bit field definition.
   struct {
+    /// read-write - Data byte 0 of Rx/Tx frame.
     uint32_t DATA_BYTE_7 : 8;
+    /// read-write - Data byte 1 of Rx/Tx frame.
     uint32_t DATA_BYTE_6 : 8;
+    /// read-write - Data byte 2 of Rx/Tx frame.
     uint32_t DATA_BYTE_5 : 8;
+    /// read-write - Data byte 3 of Rx/Tx frame.
     uint32_t DATA_BYTE_4 : 8;
   } bits;
   
@@ -1851,8 +2195,11 @@ union MB2_8B_ID {
   
   // Bit field definition.
   struct {
+    /// read-write - Contains extended (LOW word) identifier of message buffer.
     uint32_t EXT : 18;
+    /// read-write - Contains standard/extended (HIGH word) identifier of message buffer.
     uint32_t STD : 11;
+    /// read-write - Local priority. This 3-bit fieldis only used when LPRIO_EN bit is set in MCR and it only makes sense for Tx buffers. These bits are not transmitted. They are appended to the regular ID to define the transmission priority.
     uint32_t PRIO : 3;
   } bits;
   
@@ -1870,9 +2217,13 @@ union MB0_64B_WORD8_L {
   
   // Bit field definition.
   struct {
+    /// read-write - Data byte 0 of Rx/Tx frame.
     uint32_t DATA_BYTE_35 : 8;
+    /// read-write - Data byte 1 of Rx/Tx frame.
     uint32_t DATA_BYTE_34 : 8;
+    /// read-write - Data byte 2 of Rx/Tx frame.
     uint32_t DATA_BYTE_33 : 8;
+    /// read-write - Data byte 3 of Rx/Tx frame.
     uint32_t DATA_BYTE_32 : 8;
   } bits;
   
@@ -1890,9 +2241,13 @@ union MB1_16B_WORD2_L {
   
   // Bit field definition.
   struct {
+    /// read-write - Data byte 0 of Rx/Tx frame.
     uint32_t DATA_BYTE_11 : 8;
+    /// read-write - Data byte 1 of Rx/Tx frame.
     uint32_t DATA_BYTE_10 : 8;
+    /// read-write - Data byte 2 of Rx/Tx frame.
     uint32_t DATA_BYTE_9 : 8;
+    /// read-write - Data byte 3 of Rx/Tx frame.
     uint32_t DATA_BYTE_8 : 8;
   } bits;
   
@@ -1910,16 +2265,25 @@ union MB1_32B_CS_L {
   
   // Bit field definition.
   struct {
+    /// read-write - Free-Running Counter Time stamp. This 16-bit field is a copy of the Free-Running Timer, captured for Tx and Rx frames at the time when the beginning of the Identifier field appears on the CAN bus.
     uint32_t TIME_STAMP : 16;
+    /// read-write - Length of the data to be stored/transmitted.
     uint32_t DLC : 4;
+    /// read-write - Remote Transmission Request. One/zero for remote/data frame.
     uint32_t RTR : 1;
+    /// read-write - ID Extended. One/zero for extended/standard format frame.
     uint32_t IDE : 1;
+    /// read-write - Substitute Remote Request. Contains a fixed recessive bit.
     uint32_t SRR : 1;
     uint32_t _reserved_0 : 1;
+    /// read-write - Message Buffer Code. This 4-bit field can be accessed (read or write) by the CPU and by the FlexCAN module itself, as part of the message buffer matching and arbitration process.
     uint32_t CODE : 4;
     uint32_t _reserved_1 : 1;
+    /// read-write - Error State Indicator. This bit indicates if the transmitting node is error active or error passive.
     uint32_t ESI : 1;
+    /// read-write - Bit Rate Switch. This bit defines whether the bit rate is switched inside a CAN FD format frame.
     uint32_t BRS : 1;
+    /// read-write - Extended Data Length. This bit distinguishes between CAN format and CAN FD format frames. The EDL bit must not be set for Message Buffers configured to RANSWER with code field 0b1010.
     uint32_t EDL : 1;
   } bits;
   
@@ -1937,9 +2301,13 @@ union MB2_8B_WORD0 {
   
   // Bit field definition.
   struct {
+    /// read-write - Data byte 0 of Rx/Tx frame.
     uint32_t DATA_BYTE_3 : 8;
+    /// read-write - Data byte 1 of Rx/Tx frame.
     uint32_t DATA_BYTE_2 : 8;
+    /// read-write - Data byte 2 of Rx/Tx frame.
     uint32_t DATA_BYTE_1 : 8;
+    /// read-write - Data byte 3 of Rx/Tx frame.
     uint32_t DATA_BYTE_0 : 8;
   } bits;
   
@@ -1957,9 +2325,13 @@ union WORD02 {
   
   // Bit field definition.
   struct {
+    /// read-write - Data byte 0 of Rx/Tx frame.
     uint32_t DATA_BYTE_3 : 8;
+    /// read-write - Data byte 1 of Rx/Tx frame.
     uint32_t DATA_BYTE_2 : 8;
+    /// read-write - Data byte 2 of Rx/Tx frame.
     uint32_t DATA_BYTE_1 : 8;
+    /// read-write - Data byte 3 of Rx/Tx frame.
     uint32_t DATA_BYTE_0 : 8;
   } bits;
   
@@ -1977,9 +2349,13 @@ union MB0_64B_WORD9_L {
   
   // Bit field definition.
   struct {
+    /// read-write - Data byte 0 of Rx/Tx frame.
     uint32_t DATA_BYTE_39 : 8;
+    /// read-write - Data byte 1 of Rx/Tx frame.
     uint32_t DATA_BYTE_38 : 8;
+    /// read-write - Data byte 2 of Rx/Tx frame.
     uint32_t DATA_BYTE_37 : 8;
+    /// read-write - Data byte 3 of Rx/Tx frame.
     uint32_t DATA_BYTE_36 : 8;
   } bits;
   
@@ -1997,9 +2373,13 @@ union MB1_16B_WORD3_L {
   
   // Bit field definition.
   struct {
+    /// read-write - Data byte 0 of Rx/Tx frame.
     uint32_t DATA_BYTE_15 : 8;
+    /// read-write - Data byte 1 of Rx/Tx frame.
     uint32_t DATA_BYTE_14 : 8;
+    /// read-write - Data byte 2 of Rx/Tx frame.
     uint32_t DATA_BYTE_13 : 8;
+    /// read-write - Data byte 3 of Rx/Tx frame.
     uint32_t DATA_BYTE_12 : 8;
   } bits;
   
@@ -2017,8 +2397,11 @@ union MB1_32B_ID_L {
   
   // Bit field definition.
   struct {
+    /// read-write - Contains extended (LOW word) identifier of message buffer.
     uint32_t EXT : 18;
+    /// read-write - Contains standard/extended (HIGH word) identifier of message buffer.
     uint32_t STD : 11;
+    /// read-write - Local priority. This 3-bit fieldis only used when LPRIO_EN bit is set in MCR and it only makes sense for Tx buffers. These bits are not transmitted. They are appended to the regular ID to define the transmission priority.
     uint32_t PRIO : 3;
   } bits;
   
@@ -2036,9 +2419,13 @@ union MB2_8B_WORD1 {
   
   // Bit field definition.
   struct {
+    /// read-write - Data byte 0 of Rx/Tx frame.
     uint32_t DATA_BYTE_7 : 8;
+    /// read-write - Data byte 1 of Rx/Tx frame.
     uint32_t DATA_BYTE_6 : 8;
+    /// read-write - Data byte 2 of Rx/Tx frame.
     uint32_t DATA_BYTE_5 : 8;
+    /// read-write - Data byte 3 of Rx/Tx frame.
     uint32_t DATA_BYTE_4 : 8;
   } bits;
   
@@ -2056,9 +2443,13 @@ union WORD12 {
   
   // Bit field definition.
   struct {
+    /// read-write - Data byte 0 of Rx/Tx frame.
     uint32_t DATA_BYTE_7 : 8;
+    /// read-write - Data byte 1 of Rx/Tx frame.
     uint32_t DATA_BYTE_6 : 8;
+    /// read-write - Data byte 2 of Rx/Tx frame.
     uint32_t DATA_BYTE_5 : 8;
+    /// read-write - Data byte 3 of Rx/Tx frame.
     uint32_t DATA_BYTE_4 : 8;
   } bits;
   
@@ -2076,16 +2467,25 @@ union CS3 {
   
   // Bit field definition.
   struct {
+    /// read-write - Free-Running Counter Time stamp. This 16-bit field is a copy of the Free-Running Timer, captured for Tx and Rx frames at the time when the beginning of the Identifier field appears on the CAN bus.
     uint32_t TIME_STAMP : 16;
+    /// read-write - Length of the data to be stored/transmitted.
     uint32_t DLC : 4;
+    /// read-write - Remote Transmission Request. One/zero for remote/data frame.
     uint32_t RTR : 1;
+    /// read-write - ID Extended. One/zero for extended/standard format frame.
     uint32_t IDE : 1;
+    /// read-write - Substitute Remote Request. Contains a fixed recessive bit.
     uint32_t SRR : 1;
     uint32_t _reserved_0 : 1;
+    /// read-write - Message Buffer Code. This 4-bit field can be accessed (read or write) by the CPU and by the FlexCAN module itself, as part of the message buffer matching and arbitration process.
     uint32_t CODE : 4;
     uint32_t _reserved_1 : 1;
+    /// read-write - Error State Indicator. This bit indicates if the transmitting node is error active or error passive.
     uint32_t ESI : 1;
+    /// read-write - Bit Rate Switch. This bit defines whether the bit rate is switched inside a CAN FD format frame.
     uint32_t BRS : 1;
+    /// read-write - Extended Data Length. This bit distinguishes between CAN format and CAN FD format frames. The EDL bit must not be set for Message Buffers configured to RANSWER with code field 0b1010.
     uint32_t EDL : 1;
   } bits;
   
@@ -2103,9 +2503,13 @@ union MB0_64B_WORD10_L {
   
   // Bit field definition.
   struct {
+    /// read-write - Data byte 0 of Rx/Tx frame.
     uint32_t DATA_BYTE_43 : 8;
+    /// read-write - Data byte 1 of Rx/Tx frame.
     uint32_t DATA_BYTE_42 : 8;
+    /// read-write - Data byte 2 of Rx/Tx frame.
     uint32_t DATA_BYTE_41 : 8;
+    /// read-write - Data byte 3 of Rx/Tx frame.
     uint32_t DATA_BYTE_40 : 8;
   } bits;
   
@@ -2123,9 +2527,13 @@ union MB1_32B_WORD0_L {
   
   // Bit field definition.
   struct {
+    /// read-write - Data byte 0 of Rx/Tx frame.
     uint32_t DATA_BYTE_3 : 8;
+    /// read-write - Data byte 1 of Rx/Tx frame.
     uint32_t DATA_BYTE_2 : 8;
+    /// read-write - Data byte 2 of Rx/Tx frame.
     uint32_t DATA_BYTE_1 : 8;
+    /// read-write - Data byte 3 of Rx/Tx frame.
     uint32_t DATA_BYTE_0 : 8;
   } bits;
   
@@ -2143,16 +2551,25 @@ union MB2_16B_CS_L {
   
   // Bit field definition.
   struct {
+    /// read-write - Free-Running Counter Time stamp. This 16-bit field is a copy of the Free-Running Timer, captured for Tx and Rx frames at the time when the beginning of the Identifier field appears on the CAN bus.
     uint32_t TIME_STAMP : 16;
+    /// read-write - Length of the data to be stored/transmitted.
     uint32_t DLC : 4;
+    /// read-write - Remote Transmission Request. One/zero for remote/data frame.
     uint32_t RTR : 1;
+    /// read-write - ID Extended. One/zero for extended/standard format frame.
     uint32_t IDE : 1;
+    /// read-write - Substitute Remote Request. Contains a fixed recessive bit.
     uint32_t SRR : 1;
     uint32_t _reserved_0 : 1;
+    /// read-write - Message Buffer Code. This 4-bit field can be accessed (read or write) by the CPU and by the FlexCAN module itself, as part of the message buffer matching and arbitration process.
     uint32_t CODE : 4;
     uint32_t _reserved_1 : 1;
+    /// read-write - Error State Indicator. This bit indicates if the transmitting node is error active or error passive.
     uint32_t ESI : 1;
+    /// read-write - Bit Rate Switch. This bit defines whether the bit rate is switched inside a CAN FD format frame.
     uint32_t BRS : 1;
+    /// read-write - Extended Data Length. This bit distinguishes between CAN format and CAN FD format frames. The EDL bit must not be set for Message Buffers configured to RANSWER with code field 0b1010.
     uint32_t EDL : 1;
   } bits;
   
@@ -2170,16 +2587,25 @@ union MB3_8B_CS {
   
   // Bit field definition.
   struct {
+    /// read-write - Free-Running Counter Time stamp. This 16-bit field is a copy of the Free-Running Timer, captured for Tx and Rx frames at the time when the beginning of the Identifier field appears on the CAN bus.
     uint32_t TIME_STAMP : 16;
+    /// read-write - Length of the data to be stored/transmitted.
     uint32_t DLC : 4;
+    /// read-write - Remote Transmission Request. One/zero for remote/data frame.
     uint32_t RTR : 1;
+    /// read-write - ID Extended. One/zero for extended/standard format frame.
     uint32_t IDE : 1;
+    /// read-write - Substitute Remote Request. Contains a fixed recessive bit.
     uint32_t SRR : 1;
     uint32_t _reserved_0 : 1;
+    /// read-write - Message Buffer Code. This 4-bit field can be accessed (read or write) by the CPU and by the FlexCAN module itself, as part of the message buffer matching and arbitration process.
     uint32_t CODE : 4;
     uint32_t _reserved_1 : 1;
+    /// read-write - Error State Indicator. This bit indicates if the transmitting node is error active or error passive.
     uint32_t ESI : 1;
+    /// read-write - Bit Rate Switch. This bit defines whether the bit rate is switched inside a CAN FD format frame.
     uint32_t BRS : 1;
+    /// read-write - Extended Data Length. This bit distinguishes between CAN format and CAN FD format frames. The EDL bit must not be set for Message Buffers configured to RANSWER with code field 0b1010.
     uint32_t EDL : 1;
   } bits;
   
@@ -2197,8 +2623,11 @@ union ID3 {
   
   // Bit field definition.
   struct {
+    /// read-write - Contains extended (LOW word) identifier of message buffer.
     uint32_t EXT : 18;
+    /// read-write - Contains standard/extended (HIGH word) identifier of message buffer.
     uint32_t STD : 11;
+    /// read-write - Local priority. This 3-bit fieldis only used when LPRIO_EN bit is set in MCR and it only makes sense for Tx buffers. These bits are not transmitted. They are appended to the regular ID to define the transmission priority.
     uint32_t PRIO : 3;
   } bits;
   
@@ -2216,9 +2645,13 @@ union MB0_64B_WORD11_L {
   
   // Bit field definition.
   struct {
+    /// read-write - Data byte 0 of Rx/Tx frame.
     uint32_t DATA_BYTE_47 : 8;
+    /// read-write - Data byte 1 of Rx/Tx frame.
     uint32_t DATA_BYTE_46 : 8;
+    /// read-write - Data byte 2 of Rx/Tx frame.
     uint32_t DATA_BYTE_45 : 8;
+    /// read-write - Data byte 3 of Rx/Tx frame.
     uint32_t DATA_BYTE_44 : 8;
   } bits;
   
@@ -2236,9 +2669,13 @@ union MB1_32B_WORD1_L {
   
   // Bit field definition.
   struct {
+    /// read-write - Data byte 0 of Rx/Tx frame.
     uint32_t DATA_BYTE_7 : 8;
+    /// read-write - Data byte 1 of Rx/Tx frame.
     uint32_t DATA_BYTE_6 : 8;
+    /// read-write - Data byte 2 of Rx/Tx frame.
     uint32_t DATA_BYTE_5 : 8;
+    /// read-write - Data byte 3 of Rx/Tx frame.
     uint32_t DATA_BYTE_4 : 8;
   } bits;
   
@@ -2256,8 +2693,11 @@ union MB2_16B_ID_L {
   
   // Bit field definition.
   struct {
+    /// read-write - Contains extended (LOW word) identifier of message buffer.
     uint32_t EXT : 18;
+    /// read-write - Contains standard/extended (HIGH word) identifier of message buffer.
     uint32_t STD : 11;
+    /// read-write - Local priority. This 3-bit fieldis only used when LPRIO_EN bit is set in MCR and it only makes sense for Tx buffers. These bits are not transmitted. They are appended to the regular ID to define the transmission priority.
     uint32_t PRIO : 3;
   } bits;
   
@@ -2275,8 +2715,11 @@ union MB3_8B_ID {
   
   // Bit field definition.
   struct {
+    /// read-write - Contains extended (LOW word) identifier of message buffer.
     uint32_t EXT : 18;
+    /// read-write - Contains standard/extended (HIGH word) identifier of message buffer.
     uint32_t STD : 11;
+    /// read-write - Local priority. This 3-bit fieldis only used when LPRIO_EN bit is set in MCR and it only makes sense for Tx buffers. These bits are not transmitted. They are appended to the regular ID to define the transmission priority.
     uint32_t PRIO : 3;
   } bits;
   
@@ -2294,9 +2737,13 @@ union MB0_64B_WORD12_L {
   
   // Bit field definition.
   struct {
+    /// read-write - Data byte 0 of Rx/Tx frame.
     uint32_t DATA_BYTE_51 : 8;
+    /// read-write - Data byte 1 of Rx/Tx frame.
     uint32_t DATA_BYTE_50 : 8;
+    /// read-write - Data byte 2 of Rx/Tx frame.
     uint32_t DATA_BYTE_49 : 8;
+    /// read-write - Data byte 3 of Rx/Tx frame.
     uint32_t DATA_BYTE_48 : 8;
   } bits;
   
@@ -2314,9 +2761,13 @@ union MB1_32B_WORD2_L {
   
   // Bit field definition.
   struct {
+    /// read-write - Data byte 0 of Rx/Tx frame.
     uint32_t DATA_BYTE_11 : 8;
+    /// read-write - Data byte 1 of Rx/Tx frame.
     uint32_t DATA_BYTE_10 : 8;
+    /// read-write - Data byte 2 of Rx/Tx frame.
     uint32_t DATA_BYTE_9 : 8;
+    /// read-write - Data byte 3 of Rx/Tx frame.
     uint32_t DATA_BYTE_8 : 8;
   } bits;
   
@@ -2334,9 +2785,13 @@ union MB2_16B_WORD0_L {
   
   // Bit field definition.
   struct {
+    /// read-write - Data byte 0 of Rx/Tx frame.
     uint32_t DATA_BYTE_3 : 8;
+    /// read-write - Data byte 1 of Rx/Tx frame.
     uint32_t DATA_BYTE_2 : 8;
+    /// read-write - Data byte 2 of Rx/Tx frame.
     uint32_t DATA_BYTE_1 : 8;
+    /// read-write - Data byte 3 of Rx/Tx frame.
     uint32_t DATA_BYTE_0 : 8;
   } bits;
   
@@ -2354,9 +2809,13 @@ union MB3_8B_WORD0 {
   
   // Bit field definition.
   struct {
+    /// read-write - Data byte 0 of Rx/Tx frame.
     uint32_t DATA_BYTE_3 : 8;
+    /// read-write - Data byte 1 of Rx/Tx frame.
     uint32_t DATA_BYTE_2 : 8;
+    /// read-write - Data byte 2 of Rx/Tx frame.
     uint32_t DATA_BYTE_1 : 8;
+    /// read-write - Data byte 3 of Rx/Tx frame.
     uint32_t DATA_BYTE_0 : 8;
   } bits;
   
@@ -2374,9 +2833,13 @@ union WORD03 {
   
   // Bit field definition.
   struct {
+    /// read-write - Data byte 0 of Rx/Tx frame.
     uint32_t DATA_BYTE_3 : 8;
+    /// read-write - Data byte 1 of Rx/Tx frame.
     uint32_t DATA_BYTE_2 : 8;
+    /// read-write - Data byte 2 of Rx/Tx frame.
     uint32_t DATA_BYTE_1 : 8;
+    /// read-write - Data byte 3 of Rx/Tx frame.
     uint32_t DATA_BYTE_0 : 8;
   } bits;
   
@@ -2394,9 +2857,13 @@ union MB0_64B_WORD13_L {
   
   // Bit field definition.
   struct {
+    /// read-write - Data byte 0 of Rx/Tx frame.
     uint32_t DATA_BYTE_55 : 8;
+    /// read-write - Data byte 1 of Rx/Tx frame.
     uint32_t DATA_BYTE_54 : 8;
+    /// read-write - Data byte 2 of Rx/Tx frame.
     uint32_t DATA_BYTE_53 : 8;
+    /// read-write - Data byte 3 of Rx/Tx frame.
     uint32_t DATA_BYTE_52 : 8;
   } bits;
   
@@ -2414,9 +2881,13 @@ union MB1_32B_WORD3_L {
   
   // Bit field definition.
   struct {
+    /// read-write - Data byte 0 of Rx/Tx frame.
     uint32_t DATA_BYTE_15 : 8;
+    /// read-write - Data byte 1 of Rx/Tx frame.
     uint32_t DATA_BYTE_14 : 8;
+    /// read-write - Data byte 2 of Rx/Tx frame.
     uint32_t DATA_BYTE_13 : 8;
+    /// read-write - Data byte 3 of Rx/Tx frame.
     uint32_t DATA_BYTE_12 : 8;
   } bits;
   
@@ -2434,9 +2905,13 @@ union MB2_16B_WORD1_L {
   
   // Bit field definition.
   struct {
+    /// read-write - Data byte 0 of Rx/Tx frame.
     uint32_t DATA_BYTE_7 : 8;
+    /// read-write - Data byte 1 of Rx/Tx frame.
     uint32_t DATA_BYTE_6 : 8;
+    /// read-write - Data byte 2 of Rx/Tx frame.
     uint32_t DATA_BYTE_5 : 8;
+    /// read-write - Data byte 3 of Rx/Tx frame.
     uint32_t DATA_BYTE_4 : 8;
   } bits;
   
@@ -2454,9 +2929,13 @@ union MB3_8B_WORD1 {
   
   // Bit field definition.
   struct {
+    /// read-write - Data byte 0 of Rx/Tx frame.
     uint32_t DATA_BYTE_7 : 8;
+    /// read-write - Data byte 1 of Rx/Tx frame.
     uint32_t DATA_BYTE_6 : 8;
+    /// read-write - Data byte 2 of Rx/Tx frame.
     uint32_t DATA_BYTE_5 : 8;
+    /// read-write - Data byte 3 of Rx/Tx frame.
     uint32_t DATA_BYTE_4 : 8;
   } bits;
   
@@ -2474,9 +2953,13 @@ union WORD13 {
   
   // Bit field definition.
   struct {
+    /// read-write - Data byte 0 of Rx/Tx frame.
     uint32_t DATA_BYTE_7 : 8;
+    /// read-write - Data byte 1 of Rx/Tx frame.
     uint32_t DATA_BYTE_6 : 8;
+    /// read-write - Data byte 2 of Rx/Tx frame.
     uint32_t DATA_BYTE_5 : 8;
+    /// read-write - Data byte 3 of Rx/Tx frame.
     uint32_t DATA_BYTE_4 : 8;
   } bits;
   
@@ -2494,16 +2977,25 @@ union CS4 {
   
   // Bit field definition.
   struct {
+    /// read-write - Free-Running Counter Time stamp. This 16-bit field is a copy of the Free-Running Timer, captured for Tx and Rx frames at the time when the beginning of the Identifier field appears on the CAN bus.
     uint32_t TIME_STAMP : 16;
+    /// read-write - Length of the data to be stored/transmitted.
     uint32_t DLC : 4;
+    /// read-write - Remote Transmission Request. One/zero for remote/data frame.
     uint32_t RTR : 1;
+    /// read-write - ID Extended. One/zero for extended/standard format frame.
     uint32_t IDE : 1;
+    /// read-write - Substitute Remote Request. Contains a fixed recessive bit.
     uint32_t SRR : 1;
     uint32_t _reserved_0 : 1;
+    /// read-write - Message Buffer Code. This 4-bit field can be accessed (read or write) by the CPU and by the FlexCAN module itself, as part of the message buffer matching and arbitration process.
     uint32_t CODE : 4;
     uint32_t _reserved_1 : 1;
+    /// read-write - Error State Indicator. This bit indicates if the transmitting node is error active or error passive.
     uint32_t ESI : 1;
+    /// read-write - Bit Rate Switch. This bit defines whether the bit rate is switched inside a CAN FD format frame.
     uint32_t BRS : 1;
+    /// read-write - Extended Data Length. This bit distinguishes between CAN format and CAN FD format frames. The EDL bit must not be set for Message Buffers configured to RANSWER with code field 0b1010.
     uint32_t EDL : 1;
   } bits;
   
@@ -2521,9 +3013,13 @@ union MB0_64B_WORD14_L {
   
   // Bit field definition.
   struct {
+    /// read-write - Data byte 0 of Rx/Tx frame.
     uint32_t DATA_BYTE_59 : 8;
+    /// read-write - Data byte 1 of Rx/Tx frame.
     uint32_t DATA_BYTE_58 : 8;
+    /// read-write - Data byte 2 of Rx/Tx frame.
     uint32_t DATA_BYTE_57 : 8;
+    /// read-write - Data byte 3 of Rx/Tx frame.
     uint32_t DATA_BYTE_56 : 8;
   } bits;
   
@@ -2541,9 +3037,13 @@ union MB1_32B_WORD4_L {
   
   // Bit field definition.
   struct {
+    /// read-write - Data byte 0 of Rx/Tx frame.
     uint32_t DATA_BYTE_19 : 8;
+    /// read-write - Data byte 1 of Rx/Tx frame.
     uint32_t DATA_BYTE_18 : 8;
+    /// read-write - Data byte 2 of Rx/Tx frame.
     uint32_t DATA_BYTE_17 : 8;
+    /// read-write - Data byte 3 of Rx/Tx frame.
     uint32_t DATA_BYTE_16 : 8;
   } bits;
   
@@ -2561,9 +3061,13 @@ union MB2_16B_WORD2_L {
   
   // Bit field definition.
   struct {
+    /// read-write - Data byte 0 of Rx/Tx frame.
     uint32_t DATA_BYTE_11 : 8;
+    /// read-write - Data byte 1 of Rx/Tx frame.
     uint32_t DATA_BYTE_10 : 8;
+    /// read-write - Data byte 2 of Rx/Tx frame.
     uint32_t DATA_BYTE_9 : 8;
+    /// read-write - Data byte 3 of Rx/Tx frame.
     uint32_t DATA_BYTE_8 : 8;
   } bits;
   
@@ -2581,16 +3085,25 @@ union MB4_8B_CS {
   
   // Bit field definition.
   struct {
+    /// read-write - Free-Running Counter Time stamp. This 16-bit field is a copy of the Free-Running Timer, captured for Tx and Rx frames at the time when the beginning of the Identifier field appears on the CAN bus.
     uint32_t TIME_STAMP : 16;
+    /// read-write - Length of the data to be stored/transmitted.
     uint32_t DLC : 4;
+    /// read-write - Remote Transmission Request. One/zero for remote/data frame.
     uint32_t RTR : 1;
+    /// read-write - ID Extended. One/zero for extended/standard format frame.
     uint32_t IDE : 1;
+    /// read-write - Substitute Remote Request. Contains a fixed recessive bit.
     uint32_t SRR : 1;
     uint32_t _reserved_0 : 1;
+    /// read-write - Message Buffer Code. This 4-bit field can be accessed (read or write) by the CPU and by the FlexCAN module itself, as part of the message buffer matching and arbitration process.
     uint32_t CODE : 4;
     uint32_t _reserved_1 : 1;
+    /// read-write - Error State Indicator. This bit indicates if the transmitting node is error active or error passive.
     uint32_t ESI : 1;
+    /// read-write - Bit Rate Switch. This bit defines whether the bit rate is switched inside a CAN FD format frame.
     uint32_t BRS : 1;
+    /// read-write - Extended Data Length. This bit distinguishes between CAN format and CAN FD format frames. The EDL bit must not be set for Message Buffers configured to RANSWER with code field 0b1010.
     uint32_t EDL : 1;
   } bits;
   
@@ -2608,8 +3121,11 @@ union ID4 {
   
   // Bit field definition.
   struct {
+    /// read-write - Contains extended (LOW word) identifier of message buffer.
     uint32_t EXT : 18;
+    /// read-write - Contains standard/extended (HIGH word) identifier of message buffer.
     uint32_t STD : 11;
+    /// read-write - Local priority. This 3-bit fieldis only used when LPRIO_EN bit is set in MCR and it only makes sense for Tx buffers. These bits are not transmitted. They are appended to the regular ID to define the transmission priority.
     uint32_t PRIO : 3;
   } bits;
   
@@ -2627,9 +3143,13 @@ union MB0_64B_WORD15_L {
   
   // Bit field definition.
   struct {
+    /// read-write - Data byte 0 of Rx/Tx frame.
     uint32_t DATA_BYTE_63 : 8;
+    /// read-write - Data byte 1 of Rx/Tx frame.
     uint32_t DATA_BYTE_62 : 8;
+    /// read-write - Data byte 2 of Rx/Tx frame.
     uint32_t DATA_BYTE_61 : 8;
+    /// read-write - Data byte 3 of Rx/Tx frame.
     uint32_t DATA_BYTE_60 : 8;
   } bits;
   
@@ -2647,9 +3167,13 @@ union MB1_32B_WORD5_L {
   
   // Bit field definition.
   struct {
+    /// read-write - Data byte 0 of Rx/Tx frame.
     uint32_t DATA_BYTE_23 : 8;
+    /// read-write - Data byte 1 of Rx/Tx frame.
     uint32_t DATA_BYTE_22 : 8;
+    /// read-write - Data byte 2 of Rx/Tx frame.
     uint32_t DATA_BYTE_21 : 8;
+    /// read-write - Data byte 3 of Rx/Tx frame.
     uint32_t DATA_BYTE_20 : 8;
   } bits;
   
@@ -2667,9 +3191,13 @@ union MB2_16B_WORD3_L {
   
   // Bit field definition.
   struct {
+    /// read-write - Data byte 0 of Rx/Tx frame.
     uint32_t DATA_BYTE_15 : 8;
+    /// read-write - Data byte 1 of Rx/Tx frame.
     uint32_t DATA_BYTE_14 : 8;
+    /// read-write - Data byte 2 of Rx/Tx frame.
     uint32_t DATA_BYTE_13 : 8;
+    /// read-write - Data byte 3 of Rx/Tx frame.
     uint32_t DATA_BYTE_12 : 8;
   } bits;
   
@@ -2687,8 +3215,11 @@ union MB4_8B_ID {
   
   // Bit field definition.
   struct {
+    /// read-write - Contains extended (LOW word) identifier of message buffer.
     uint32_t EXT : 18;
+    /// read-write - Contains standard/extended (HIGH word) identifier of message buffer.
     uint32_t STD : 11;
+    /// read-write - Local priority. This 3-bit fieldis only used when LPRIO_EN bit is set in MCR and it only makes sense for Tx buffers. These bits are not transmitted. They are appended to the regular ID to define the transmission priority.
     uint32_t PRIO : 3;
   } bits;
   
@@ -2706,9 +3237,13 @@ union MB1_32B_WORD6_L {
   
   // Bit field definition.
   struct {
+    /// read-write - Data byte 0 of Rx/Tx frame.
     uint32_t DATA_BYTE_27 : 8;
+    /// read-write - Data byte 1 of Rx/Tx frame.
     uint32_t DATA_BYTE_26 : 8;
+    /// read-write - Data byte 2 of Rx/Tx frame.
     uint32_t DATA_BYTE_25 : 8;
+    /// read-write - Data byte 3 of Rx/Tx frame.
     uint32_t DATA_BYTE_24 : 8;
   } bits;
   
@@ -2726,16 +3261,25 @@ union MB1_64B_CS_L {
   
   // Bit field definition.
   struct {
+    /// read-write - Free-Running Counter Time stamp. This 16-bit field is a copy of the Free-Running Timer, captured for Tx and Rx frames at the time when the beginning of the Identifier field appears on the CAN bus.
     uint32_t TIME_STAMP : 16;
+    /// read-write - Length of the data to be stored/transmitted.
     uint32_t DLC : 4;
+    /// read-write - Remote Transmission Request. One/zero for remote/data frame.
     uint32_t RTR : 1;
+    /// read-write - ID Extended. One/zero for extended/standard format frame.
     uint32_t IDE : 1;
+    /// read-write - Substitute Remote Request. Contains a fixed recessive bit.
     uint32_t SRR : 1;
     uint32_t _reserved_0 : 1;
+    /// read-write - Message Buffer Code. This 4-bit field can be accessed (read or write) by the CPU and by the FlexCAN module itself, as part of the message buffer matching and arbitration process.
     uint32_t CODE : 4;
     uint32_t _reserved_1 : 1;
+    /// read-write - Error State Indicator. This bit indicates if the transmitting node is error active or error passive.
     uint32_t ESI : 1;
+    /// read-write - Bit Rate Switch. This bit defines whether the bit rate is switched inside a CAN FD format frame.
     uint32_t BRS : 1;
+    /// read-write - Extended Data Length. This bit distinguishes between CAN format and CAN FD format frames. The EDL bit must not be set for Message Buffers configured to RANSWER with code field 0b1010.
     uint32_t EDL : 1;
   } bits;
   
@@ -2753,16 +3297,25 @@ union MB3_16B_CS_L {
   
   // Bit field definition.
   struct {
+    /// read-write - Free-Running Counter Time stamp. This 16-bit field is a copy of the Free-Running Timer, captured for Tx and Rx frames at the time when the beginning of the Identifier field appears on the CAN bus.
     uint32_t TIME_STAMP : 16;
+    /// read-write - Length of the data to be stored/transmitted.
     uint32_t DLC : 4;
+    /// read-write - Remote Transmission Request. One/zero for remote/data frame.
     uint32_t RTR : 1;
+    /// read-write - ID Extended. One/zero for extended/standard format frame.
     uint32_t IDE : 1;
+    /// read-write - Substitute Remote Request. Contains a fixed recessive bit.
     uint32_t SRR : 1;
     uint32_t _reserved_0 : 1;
+    /// read-write - Message Buffer Code. This 4-bit field can be accessed (read or write) by the CPU and by the FlexCAN module itself, as part of the message buffer matching and arbitration process.
     uint32_t CODE : 4;
     uint32_t _reserved_1 : 1;
+    /// read-write - Error State Indicator. This bit indicates if the transmitting node is error active or error passive.
     uint32_t ESI : 1;
+    /// read-write - Bit Rate Switch. This bit defines whether the bit rate is switched inside a CAN FD format frame.
     uint32_t BRS : 1;
+    /// read-write - Extended Data Length. This bit distinguishes between CAN format and CAN FD format frames. The EDL bit must not be set for Message Buffers configured to RANSWER with code field 0b1010.
     uint32_t EDL : 1;
   } bits;
   
@@ -2780,9 +3333,13 @@ union MB4_8B_WORD0 {
   
   // Bit field definition.
   struct {
+    /// read-write - Data byte 0 of Rx/Tx frame.
     uint32_t DATA_BYTE_3 : 8;
+    /// read-write - Data byte 1 of Rx/Tx frame.
     uint32_t DATA_BYTE_2 : 8;
+    /// read-write - Data byte 2 of Rx/Tx frame.
     uint32_t DATA_BYTE_1 : 8;
+    /// read-write - Data byte 3 of Rx/Tx frame.
     uint32_t DATA_BYTE_0 : 8;
   } bits;
   
@@ -2800,9 +3357,13 @@ union WORD04 {
   
   // Bit field definition.
   struct {
+    /// read-write - Data byte 0 of Rx/Tx frame.
     uint32_t DATA_BYTE_3 : 8;
+    /// read-write - Data byte 1 of Rx/Tx frame.
     uint32_t DATA_BYTE_2 : 8;
+    /// read-write - Data byte 2 of Rx/Tx frame.
     uint32_t DATA_BYTE_1 : 8;
+    /// read-write - Data byte 3 of Rx/Tx frame.
     uint32_t DATA_BYTE_0 : 8;
   } bits;
   
@@ -2820,9 +3381,13 @@ union MB1_32B_WORD7_L {
   
   // Bit field definition.
   struct {
+    /// read-write - Data byte 0 of Rx/Tx frame.
     uint32_t DATA_BYTE_31 : 8;
+    /// read-write - Data byte 1 of Rx/Tx frame.
     uint32_t DATA_BYTE_30 : 8;
+    /// read-write - Data byte 2 of Rx/Tx frame.
     uint32_t DATA_BYTE_29 : 8;
+    /// read-write - Data byte 3 of Rx/Tx frame.
     uint32_t DATA_BYTE_28 : 8;
   } bits;
   
@@ -2840,8 +3405,11 @@ union MB1_64B_ID_L {
   
   // Bit field definition.
   struct {
+    /// read-write - Contains extended (LOW word) identifier of message buffer.
     uint32_t EXT : 18;
+    /// read-write - Contains standard/extended (HIGH word) identifier of message buffer.
     uint32_t STD : 11;
+    /// read-write - Local priority. This 3-bit fieldis only used when LPRIO_EN bit is set in MCR and it only makes sense for Tx buffers. These bits are not transmitted. They are appended to the regular ID to define the transmission priority.
     uint32_t PRIO : 3;
   } bits;
   
@@ -2859,8 +3427,11 @@ union MB3_16B_ID_L {
   
   // Bit field definition.
   struct {
+    /// read-write - Contains extended (LOW word) identifier of message buffer.
     uint32_t EXT : 18;
+    /// read-write - Contains standard/extended (HIGH word) identifier of message buffer.
     uint32_t STD : 11;
+    /// read-write - Local priority. This 3-bit fieldis only used when LPRIO_EN bit is set in MCR and it only makes sense for Tx buffers. These bits are not transmitted. They are appended to the regular ID to define the transmission priority.
     uint32_t PRIO : 3;
   } bits;
   
@@ -2878,9 +3449,13 @@ union MB4_8B_WORD1 {
   
   // Bit field definition.
   struct {
+    /// read-write - Data byte 0 of Rx/Tx frame.
     uint32_t DATA_BYTE_7 : 8;
+    /// read-write - Data byte 1 of Rx/Tx frame.
     uint32_t DATA_BYTE_6 : 8;
+    /// read-write - Data byte 2 of Rx/Tx frame.
     uint32_t DATA_BYTE_5 : 8;
+    /// read-write - Data byte 3 of Rx/Tx frame.
     uint32_t DATA_BYTE_4 : 8;
   } bits;
   
@@ -2898,9 +3473,13 @@ union WORD14 {
   
   // Bit field definition.
   struct {
+    /// read-write - Data byte 0 of Rx/Tx frame.
     uint32_t DATA_BYTE_7 : 8;
+    /// read-write - Data byte 1 of Rx/Tx frame.
     uint32_t DATA_BYTE_6 : 8;
+    /// read-write - Data byte 2 of Rx/Tx frame.
     uint32_t DATA_BYTE_5 : 8;
+    /// read-write - Data byte 3 of Rx/Tx frame.
     uint32_t DATA_BYTE_4 : 8;
   } bits;
   
@@ -2918,16 +3497,25 @@ union CS5 {
   
   // Bit field definition.
   struct {
+    /// read-write - Free-Running Counter Time stamp. This 16-bit field is a copy of the Free-Running Timer, captured for Tx and Rx frames at the time when the beginning of the Identifier field appears on the CAN bus.
     uint32_t TIME_STAMP : 16;
+    /// read-write - Length of the data to be stored/transmitted.
     uint32_t DLC : 4;
+    /// read-write - Remote Transmission Request. One/zero for remote/data frame.
     uint32_t RTR : 1;
+    /// read-write - ID Extended. One/zero for extended/standard format frame.
     uint32_t IDE : 1;
+    /// read-write - Substitute Remote Request. Contains a fixed recessive bit.
     uint32_t SRR : 1;
     uint32_t _reserved_0 : 1;
+    /// read-write - Message Buffer Code. This 4-bit field can be accessed (read or write) by the CPU and by the FlexCAN module itself, as part of the message buffer matching and arbitration process.
     uint32_t CODE : 4;
     uint32_t _reserved_1 : 1;
+    /// read-write - Error State Indicator. This bit indicates if the transmitting node is error active or error passive.
     uint32_t ESI : 1;
+    /// read-write - Bit Rate Switch. This bit defines whether the bit rate is switched inside a CAN FD format frame.
     uint32_t BRS : 1;
+    /// read-write - Extended Data Length. This bit distinguishes between CAN format and CAN FD format frames. The EDL bit must not be set for Message Buffers configured to RANSWER with code field 0b1010.
     uint32_t EDL : 1;
   } bits;
   
@@ -2945,9 +3533,13 @@ union MB1_64B_WORD0_L {
   
   // Bit field definition.
   struct {
+    /// read-write - Data byte 0 of Rx/Tx frame.
     uint32_t DATA_BYTE_3 : 8;
+    /// read-write - Data byte 1 of Rx/Tx frame.
     uint32_t DATA_BYTE_2 : 8;
+    /// read-write - Data byte 2 of Rx/Tx frame.
     uint32_t DATA_BYTE_1 : 8;
+    /// read-write - Data byte 3 of Rx/Tx frame.
     uint32_t DATA_BYTE_0 : 8;
   } bits;
   
@@ -2965,16 +3557,25 @@ union MB2_32B_CS_L {
   
   // Bit field definition.
   struct {
+    /// read-write - Free-Running Counter Time stamp. This 16-bit field is a copy of the Free-Running Timer, captured for Tx and Rx frames at the time when the beginning of the Identifier field appears on the CAN bus.
     uint32_t TIME_STAMP : 16;
+    /// read-write - Length of the data to be stored/transmitted.
     uint32_t DLC : 4;
+    /// read-write - Remote Transmission Request. One/zero for remote/data frame.
     uint32_t RTR : 1;
+    /// read-write - ID Extended. One/zero for extended/standard format frame.
     uint32_t IDE : 1;
+    /// read-write - Substitute Remote Request. Contains a fixed recessive bit.
     uint32_t SRR : 1;
     uint32_t _reserved_0 : 1;
+    /// read-write - Message Buffer Code. This 4-bit field can be accessed (read or write) by the CPU and by the FlexCAN module itself, as part of the message buffer matching and arbitration process.
     uint32_t CODE : 4;
     uint32_t _reserved_1 : 1;
+    /// read-write - Error State Indicator. This bit indicates if the transmitting node is error active or error passive.
     uint32_t ESI : 1;
+    /// read-write - Bit Rate Switch. This bit defines whether the bit rate is switched inside a CAN FD format frame.
     uint32_t BRS : 1;
+    /// read-write - Extended Data Length. This bit distinguishes between CAN format and CAN FD format frames. The EDL bit must not be set for Message Buffers configured to RANSWER with code field 0b1010.
     uint32_t EDL : 1;
   } bits;
   
@@ -2992,9 +3593,13 @@ union MB3_16B_WORD0_L {
   
   // Bit field definition.
   struct {
+    /// read-write - Data byte 0 of Rx/Tx frame.
     uint32_t DATA_BYTE_3 : 8;
+    /// read-write - Data byte 1 of Rx/Tx frame.
     uint32_t DATA_BYTE_2 : 8;
+    /// read-write - Data byte 2 of Rx/Tx frame.
     uint32_t DATA_BYTE_1 : 8;
+    /// read-write - Data byte 3 of Rx/Tx frame.
     uint32_t DATA_BYTE_0 : 8;
   } bits;
   
@@ -3012,16 +3617,25 @@ union MB5_8B_CS {
   
   // Bit field definition.
   struct {
+    /// read-write - Free-Running Counter Time stamp. This 16-bit field is a copy of the Free-Running Timer, captured for Tx and Rx frames at the time when the beginning of the Identifier field appears on the CAN bus.
     uint32_t TIME_STAMP : 16;
+    /// read-write - Length of the data to be stored/transmitted.
     uint32_t DLC : 4;
+    /// read-write - Remote Transmission Request. One/zero for remote/data frame.
     uint32_t RTR : 1;
+    /// read-write - ID Extended. One/zero for extended/standard format frame.
     uint32_t IDE : 1;
+    /// read-write - Substitute Remote Request. Contains a fixed recessive bit.
     uint32_t SRR : 1;
     uint32_t _reserved_0 : 1;
+    /// read-write - Message Buffer Code. This 4-bit field can be accessed (read or write) by the CPU and by the FlexCAN module itself, as part of the message buffer matching and arbitration process.
     uint32_t CODE : 4;
     uint32_t _reserved_1 : 1;
+    /// read-write - Error State Indicator. This bit indicates if the transmitting node is error active or error passive.
     uint32_t ESI : 1;
+    /// read-write - Bit Rate Switch. This bit defines whether the bit rate is switched inside a CAN FD format frame.
     uint32_t BRS : 1;
+    /// read-write - Extended Data Length. This bit distinguishes between CAN format and CAN FD format frames. The EDL bit must not be set for Message Buffers configured to RANSWER with code field 0b1010.
     uint32_t EDL : 1;
   } bits;
   
@@ -3039,8 +3653,11 @@ union ID5 {
   
   // Bit field definition.
   struct {
+    /// read-write - Contains extended (LOW word) identifier of message buffer.
     uint32_t EXT : 18;
+    /// read-write - Contains standard/extended (HIGH word) identifier of message buffer.
     uint32_t STD : 11;
+    /// read-write - Local priority. This 3-bit fieldis only used when LPRIO_EN bit is set in MCR and it only makes sense for Tx buffers. These bits are not transmitted. They are appended to the regular ID to define the transmission priority.
     uint32_t PRIO : 3;
   } bits;
   
@@ -3058,9 +3675,13 @@ union MB1_64B_WORD1_L {
   
   // Bit field definition.
   struct {
+    /// read-write - Data byte 0 of Rx/Tx frame.
     uint32_t DATA_BYTE_7 : 8;
+    /// read-write - Data byte 1 of Rx/Tx frame.
     uint32_t DATA_BYTE_6 : 8;
+    /// read-write - Data byte 2 of Rx/Tx frame.
     uint32_t DATA_BYTE_5 : 8;
+    /// read-write - Data byte 3 of Rx/Tx frame.
     uint32_t DATA_BYTE_4 : 8;
   } bits;
   
@@ -3078,8 +3699,11 @@ union MB2_32B_ID_L {
   
   // Bit field definition.
   struct {
+    /// read-write - Contains extended (LOW word) identifier of message buffer.
     uint32_t EXT : 18;
+    /// read-write - Contains standard/extended (HIGH word) identifier of message buffer.
     uint32_t STD : 11;
+    /// read-write - Local priority. This 3-bit fieldis only used when LPRIO_EN bit is set in MCR and it only makes sense for Tx buffers. These bits are not transmitted. They are appended to the regular ID to define the transmission priority.
     uint32_t PRIO : 3;
   } bits;
   
@@ -3097,9 +3721,13 @@ union MB3_16B_WORD1_L {
   
   // Bit field definition.
   struct {
+    /// read-write - Data byte 0 of Rx/Tx frame.
     uint32_t DATA_BYTE_7 : 8;
+    /// read-write - Data byte 1 of Rx/Tx frame.
     uint32_t DATA_BYTE_6 : 8;
+    /// read-write - Data byte 2 of Rx/Tx frame.
     uint32_t DATA_BYTE_5 : 8;
+    /// read-write - Data byte 3 of Rx/Tx frame.
     uint32_t DATA_BYTE_4 : 8;
   } bits;
   
@@ -3117,8 +3745,11 @@ union MB5_8B_ID {
   
   // Bit field definition.
   struct {
+    /// read-write - Contains extended (LOW word) identifier of message buffer.
     uint32_t EXT : 18;
+    /// read-write - Contains standard/extended (HIGH word) identifier of message buffer.
     uint32_t STD : 11;
+    /// read-write - Local priority. This 3-bit fieldis only used when LPRIO_EN bit is set in MCR and it only makes sense for Tx buffers. These bits are not transmitted. They are appended to the regular ID to define the transmission priority.
     uint32_t PRIO : 3;
   } bits;
   
@@ -3136,9 +3767,13 @@ union MB1_64B_WORD2_L {
   
   // Bit field definition.
   struct {
+    /// read-write - Data byte 0 of Rx/Tx frame.
     uint32_t DATA_BYTE_11 : 8;
+    /// read-write - Data byte 1 of Rx/Tx frame.
     uint32_t DATA_BYTE_10 : 8;
+    /// read-write - Data byte 2 of Rx/Tx frame.
     uint32_t DATA_BYTE_9 : 8;
+    /// read-write - Data byte 3 of Rx/Tx frame.
     uint32_t DATA_BYTE_8 : 8;
   } bits;
   
@@ -3156,9 +3791,13 @@ union MB2_32B_WORD0_L {
   
   // Bit field definition.
   struct {
+    /// read-write - Data byte 0 of Rx/Tx frame.
     uint32_t DATA_BYTE_3 : 8;
+    /// read-write - Data byte 1 of Rx/Tx frame.
     uint32_t DATA_BYTE_2 : 8;
+    /// read-write - Data byte 2 of Rx/Tx frame.
     uint32_t DATA_BYTE_1 : 8;
+    /// read-write - Data byte 3 of Rx/Tx frame.
     uint32_t DATA_BYTE_0 : 8;
   } bits;
   
@@ -3176,9 +3815,13 @@ union MB3_16B_WORD2_L {
   
   // Bit field definition.
   struct {
+    /// read-write - Data byte 0 of Rx/Tx frame.
     uint32_t DATA_BYTE_11 : 8;
+    /// read-write - Data byte 1 of Rx/Tx frame.
     uint32_t DATA_BYTE_10 : 8;
+    /// read-write - Data byte 2 of Rx/Tx frame.
     uint32_t DATA_BYTE_9 : 8;
+    /// read-write - Data byte 3 of Rx/Tx frame.
     uint32_t DATA_BYTE_8 : 8;
   } bits;
   
@@ -3196,9 +3839,13 @@ union MB5_8B_WORD0 {
   
   // Bit field definition.
   struct {
+    /// read-write - Data byte 0 of Rx/Tx frame.
     uint32_t DATA_BYTE_3 : 8;
+    /// read-write - Data byte 1 of Rx/Tx frame.
     uint32_t DATA_BYTE_2 : 8;
+    /// read-write - Data byte 2 of Rx/Tx frame.
     uint32_t DATA_BYTE_1 : 8;
+    /// read-write - Data byte 3 of Rx/Tx frame.
     uint32_t DATA_BYTE_0 : 8;
   } bits;
   
@@ -3216,9 +3863,13 @@ union WORD05 {
   
   // Bit field definition.
   struct {
+    /// read-write - Data byte 0 of Rx/Tx frame.
     uint32_t DATA_BYTE_3 : 8;
+    /// read-write - Data byte 1 of Rx/Tx frame.
     uint32_t DATA_BYTE_2 : 8;
+    /// read-write - Data byte 2 of Rx/Tx frame.
     uint32_t DATA_BYTE_1 : 8;
+    /// read-write - Data byte 3 of Rx/Tx frame.
     uint32_t DATA_BYTE_0 : 8;
   } bits;
   
@@ -3236,9 +3887,13 @@ union MB1_64B_WORD3_L {
   
   // Bit field definition.
   struct {
+    /// read-write - Data byte 0 of Rx/Tx frame.
     uint32_t DATA_BYTE_15 : 8;
+    /// read-write - Data byte 1 of Rx/Tx frame.
     uint32_t DATA_BYTE_14 : 8;
+    /// read-write - Data byte 2 of Rx/Tx frame.
     uint32_t DATA_BYTE_13 : 8;
+    /// read-write - Data byte 3 of Rx/Tx frame.
     uint32_t DATA_BYTE_12 : 8;
   } bits;
   
@@ -3256,9 +3911,13 @@ union MB2_32B_WORD1_L {
   
   // Bit field definition.
   struct {
+    /// read-write - Data byte 0 of Rx/Tx frame.
     uint32_t DATA_BYTE_7 : 8;
+    /// read-write - Data byte 1 of Rx/Tx frame.
     uint32_t DATA_BYTE_6 : 8;
+    /// read-write - Data byte 2 of Rx/Tx frame.
     uint32_t DATA_BYTE_5 : 8;
+    /// read-write - Data byte 3 of Rx/Tx frame.
     uint32_t DATA_BYTE_4 : 8;
   } bits;
   
@@ -3276,9 +3935,13 @@ union MB3_16B_WORD3_L {
   
   // Bit field definition.
   struct {
+    /// read-write - Data byte 0 of Rx/Tx frame.
     uint32_t DATA_BYTE_15 : 8;
+    /// read-write - Data byte 1 of Rx/Tx frame.
     uint32_t DATA_BYTE_14 : 8;
+    /// read-write - Data byte 2 of Rx/Tx frame.
     uint32_t DATA_BYTE_13 : 8;
+    /// read-write - Data byte 3 of Rx/Tx frame.
     uint32_t DATA_BYTE_12 : 8;
   } bits;
   
@@ -3296,9 +3959,13 @@ union MB5_8B_WORD1 {
   
   // Bit field definition.
   struct {
+    /// read-write - Data byte 0 of Rx/Tx frame.
     uint32_t DATA_BYTE_7 : 8;
+    /// read-write - Data byte 1 of Rx/Tx frame.
     uint32_t DATA_BYTE_6 : 8;
+    /// read-write - Data byte 2 of Rx/Tx frame.
     uint32_t DATA_BYTE_5 : 8;
+    /// read-write - Data byte 3 of Rx/Tx frame.
     uint32_t DATA_BYTE_4 : 8;
   } bits;
   
@@ -3316,9 +3983,13 @@ union WORD15 {
   
   // Bit field definition.
   struct {
+    /// read-write - Data byte 0 of Rx/Tx frame.
     uint32_t DATA_BYTE_7 : 8;
+    /// read-write - Data byte 1 of Rx/Tx frame.
     uint32_t DATA_BYTE_6 : 8;
+    /// read-write - Data byte 2 of Rx/Tx frame.
     uint32_t DATA_BYTE_5 : 8;
+    /// read-write - Data byte 3 of Rx/Tx frame.
     uint32_t DATA_BYTE_4 : 8;
   } bits;
   
@@ -3336,16 +4007,25 @@ union CS6 {
   
   // Bit field definition.
   struct {
+    /// read-write - Free-Running Counter Time stamp. This 16-bit field is a copy of the Free-Running Timer, captured for Tx and Rx frames at the time when the beginning of the Identifier field appears on the CAN bus.
     uint32_t TIME_STAMP : 16;
+    /// read-write - Length of the data to be stored/transmitted.
     uint32_t DLC : 4;
+    /// read-write - Remote Transmission Request. One/zero for remote/data frame.
     uint32_t RTR : 1;
+    /// read-write - ID Extended. One/zero for extended/standard format frame.
     uint32_t IDE : 1;
+    /// read-write - Substitute Remote Request. Contains a fixed recessive bit.
     uint32_t SRR : 1;
     uint32_t _reserved_0 : 1;
+    /// read-write - Message Buffer Code. This 4-bit field can be accessed (read or write) by the CPU and by the FlexCAN module itself, as part of the message buffer matching and arbitration process.
     uint32_t CODE : 4;
     uint32_t _reserved_1 : 1;
+    /// read-write - Error State Indicator. This bit indicates if the transmitting node is error active or error passive.
     uint32_t ESI : 1;
+    /// read-write - Bit Rate Switch. This bit defines whether the bit rate is switched inside a CAN FD format frame.
     uint32_t BRS : 1;
+    /// read-write - Extended Data Length. This bit distinguishes between CAN format and CAN FD format frames. The EDL bit must not be set for Message Buffers configured to RANSWER with code field 0b1010.
     uint32_t EDL : 1;
   } bits;
   
@@ -3363,9 +4043,13 @@ union MB1_64B_WORD4_L {
   
   // Bit field definition.
   struct {
+    /// read-write - Data byte 0 of Rx/Tx frame.
     uint32_t DATA_BYTE_19 : 8;
+    /// read-write - Data byte 1 of Rx/Tx frame.
     uint32_t DATA_BYTE_18 : 8;
+    /// read-write - Data byte 2 of Rx/Tx frame.
     uint32_t DATA_BYTE_17 : 8;
+    /// read-write - Data byte 3 of Rx/Tx frame.
     uint32_t DATA_BYTE_16 : 8;
   } bits;
   
@@ -3383,9 +4067,13 @@ union MB2_32B_WORD2_L {
   
   // Bit field definition.
   struct {
+    /// read-write - Data byte 0 of Rx/Tx frame.
     uint32_t DATA_BYTE_11 : 8;
+    /// read-write - Data byte 1 of Rx/Tx frame.
     uint32_t DATA_BYTE_10 : 8;
+    /// read-write - Data byte 2 of Rx/Tx frame.
     uint32_t DATA_BYTE_9 : 8;
+    /// read-write - Data byte 3 of Rx/Tx frame.
     uint32_t DATA_BYTE_8 : 8;
   } bits;
   
@@ -3403,16 +4091,25 @@ union MB4_16B_CS_L {
   
   // Bit field definition.
   struct {
+    /// read-write - Free-Running Counter Time stamp. This 16-bit field is a copy of the Free-Running Timer, captured for Tx and Rx frames at the time when the beginning of the Identifier field appears on the CAN bus.
     uint32_t TIME_STAMP : 16;
+    /// read-write - Length of the data to be stored/transmitted.
     uint32_t DLC : 4;
+    /// read-write - Remote Transmission Request. One/zero for remote/data frame.
     uint32_t RTR : 1;
+    /// read-write - ID Extended. One/zero for extended/standard format frame.
     uint32_t IDE : 1;
+    /// read-write - Substitute Remote Request. Contains a fixed recessive bit.
     uint32_t SRR : 1;
     uint32_t _reserved_0 : 1;
+    /// read-write - Message Buffer Code. This 4-bit field can be accessed (read or write) by the CPU and by the FlexCAN module itself, as part of the message buffer matching and arbitration process.
     uint32_t CODE : 4;
     uint32_t _reserved_1 : 1;
+    /// read-write - Error State Indicator. This bit indicates if the transmitting node is error active or error passive.
     uint32_t ESI : 1;
+    /// read-write - Bit Rate Switch. This bit defines whether the bit rate is switched inside a CAN FD format frame.
     uint32_t BRS : 1;
+    /// read-write - Extended Data Length. This bit distinguishes between CAN format and CAN FD format frames. The EDL bit must not be set for Message Buffers configured to RANSWER with code field 0b1010.
     uint32_t EDL : 1;
   } bits;
   
@@ -3430,16 +4127,25 @@ union MB6_8B_CS {
   
   // Bit field definition.
   struct {
+    /// read-write - Free-Running Counter Time stamp. This 16-bit field is a copy of the Free-Running Timer, captured for Tx and Rx frames at the time when the beginning of the Identifier field appears on the CAN bus.
     uint32_t TIME_STAMP : 16;
+    /// read-write - Length of the data to be stored/transmitted.
     uint32_t DLC : 4;
+    /// read-write - Remote Transmission Request. One/zero for remote/data frame.
     uint32_t RTR : 1;
+    /// read-write - ID Extended. One/zero for extended/standard format frame.
     uint32_t IDE : 1;
+    /// read-write - Substitute Remote Request. Contains a fixed recessive bit.
     uint32_t SRR : 1;
     uint32_t _reserved_0 : 1;
+    /// read-write - Message Buffer Code. This 4-bit field can be accessed (read or write) by the CPU and by the FlexCAN module itself, as part of the message buffer matching and arbitration process.
     uint32_t CODE : 4;
     uint32_t _reserved_1 : 1;
+    /// read-write - Error State Indicator. This bit indicates if the transmitting node is error active or error passive.
     uint32_t ESI : 1;
+    /// read-write - Bit Rate Switch. This bit defines whether the bit rate is switched inside a CAN FD format frame.
     uint32_t BRS : 1;
+    /// read-write - Extended Data Length. This bit distinguishes between CAN format and CAN FD format frames. The EDL bit must not be set for Message Buffers configured to RANSWER with code field 0b1010.
     uint32_t EDL : 1;
   } bits;
   
@@ -3457,8 +4163,11 @@ union ID6 {
   
   // Bit field definition.
   struct {
+    /// read-write - Contains extended (LOW word) identifier of message buffer.
     uint32_t EXT : 18;
+    /// read-write - Contains standard/extended (HIGH word) identifier of message buffer.
     uint32_t STD : 11;
+    /// read-write - Local priority. This 3-bit fieldis only used when LPRIO_EN bit is set in MCR and it only makes sense for Tx buffers. These bits are not transmitted. They are appended to the regular ID to define the transmission priority.
     uint32_t PRIO : 3;
   } bits;
   
@@ -3476,9 +4185,13 @@ union MB1_64B_WORD5_L {
   
   // Bit field definition.
   struct {
+    /// read-write - Data byte 0 of Rx/Tx frame.
     uint32_t DATA_BYTE_23 : 8;
+    /// read-write - Data byte 1 of Rx/Tx frame.
     uint32_t DATA_BYTE_22 : 8;
+    /// read-write - Data byte 2 of Rx/Tx frame.
     uint32_t DATA_BYTE_21 : 8;
+    /// read-write - Data byte 3 of Rx/Tx frame.
     uint32_t DATA_BYTE_20 : 8;
   } bits;
   
@@ -3496,9 +4209,13 @@ union MB2_32B_WORD3_L {
   
   // Bit field definition.
   struct {
+    /// read-write - Data byte 0 of Rx/Tx frame.
     uint32_t DATA_BYTE_15 : 8;
+    /// read-write - Data byte 1 of Rx/Tx frame.
     uint32_t DATA_BYTE_14 : 8;
+    /// read-write - Data byte 2 of Rx/Tx frame.
     uint32_t DATA_BYTE_13 : 8;
+    /// read-write - Data byte 3 of Rx/Tx frame.
     uint32_t DATA_BYTE_12 : 8;
   } bits;
   
@@ -3516,8 +4233,11 @@ union MB4_16B_ID_L {
   
   // Bit field definition.
   struct {
+    /// read-write - Contains extended (LOW word) identifier of message buffer.
     uint32_t EXT : 18;
+    /// read-write - Contains standard/extended (HIGH word) identifier of message buffer.
     uint32_t STD : 11;
+    /// read-write - Local priority. This 3-bit fieldis only used when LPRIO_EN bit is set in MCR and it only makes sense for Tx buffers. These bits are not transmitted. They are appended to the regular ID to define the transmission priority.
     uint32_t PRIO : 3;
   } bits;
   
@@ -3535,8 +4255,11 @@ union MB6_8B_ID {
   
   // Bit field definition.
   struct {
+    /// read-write - Contains extended (LOW word) identifier of message buffer.
     uint32_t EXT : 18;
+    /// read-write - Contains standard/extended (HIGH word) identifier of message buffer.
     uint32_t STD : 11;
+    /// read-write - Local priority. This 3-bit fieldis only used when LPRIO_EN bit is set in MCR and it only makes sense for Tx buffers. These bits are not transmitted. They are appended to the regular ID to define the transmission priority.
     uint32_t PRIO : 3;
   } bits;
   
@@ -3554,9 +4277,13 @@ union MB1_64B_WORD6_L {
   
   // Bit field definition.
   struct {
+    /// read-write - Data byte 0 of Rx/Tx frame.
     uint32_t DATA_BYTE_27 : 8;
+    /// read-write - Data byte 1 of Rx/Tx frame.
     uint32_t DATA_BYTE_26 : 8;
+    /// read-write - Data byte 2 of Rx/Tx frame.
     uint32_t DATA_BYTE_25 : 8;
+    /// read-write - Data byte 3 of Rx/Tx frame.
     uint32_t DATA_BYTE_24 : 8;
   } bits;
   
@@ -3574,9 +4301,13 @@ union MB2_32B_WORD4_L {
   
   // Bit field definition.
   struct {
+    /// read-write - Data byte 0 of Rx/Tx frame.
     uint32_t DATA_BYTE_19 : 8;
+    /// read-write - Data byte 1 of Rx/Tx frame.
     uint32_t DATA_BYTE_18 : 8;
+    /// read-write - Data byte 2 of Rx/Tx frame.
     uint32_t DATA_BYTE_17 : 8;
+    /// read-write - Data byte 3 of Rx/Tx frame.
     uint32_t DATA_BYTE_16 : 8;
   } bits;
   
@@ -3594,9 +4325,13 @@ union MB4_16B_WORD0_L {
   
   // Bit field definition.
   struct {
+    /// read-write - Data byte 0 of Rx/Tx frame.
     uint32_t DATA_BYTE_3 : 8;
+    /// read-write - Data byte 1 of Rx/Tx frame.
     uint32_t DATA_BYTE_2 : 8;
+    /// read-write - Data byte 2 of Rx/Tx frame.
     uint32_t DATA_BYTE_1 : 8;
+    /// read-write - Data byte 3 of Rx/Tx frame.
     uint32_t DATA_BYTE_0 : 8;
   } bits;
   
@@ -3614,9 +4349,13 @@ union MB6_8B_WORD0 {
   
   // Bit field definition.
   struct {
+    /// read-write - Data byte 0 of Rx/Tx frame.
     uint32_t DATA_BYTE_3 : 8;
+    /// read-write - Data byte 1 of Rx/Tx frame.
     uint32_t DATA_BYTE_2 : 8;
+    /// read-write - Data byte 2 of Rx/Tx frame.
     uint32_t DATA_BYTE_1 : 8;
+    /// read-write - Data byte 3 of Rx/Tx frame.
     uint32_t DATA_BYTE_0 : 8;
   } bits;
   
@@ -3634,9 +4373,13 @@ union WORD06 {
   
   // Bit field definition.
   struct {
+    /// read-write - Data byte 0 of Rx/Tx frame.
     uint32_t DATA_BYTE_3 : 8;
+    /// read-write - Data byte 1 of Rx/Tx frame.
     uint32_t DATA_BYTE_2 : 8;
+    /// read-write - Data byte 2 of Rx/Tx frame.
     uint32_t DATA_BYTE_1 : 8;
+    /// read-write - Data byte 3 of Rx/Tx frame.
     uint32_t DATA_BYTE_0 : 8;
   } bits;
   
@@ -3654,9 +4397,13 @@ union MB1_64B_WORD7_L {
   
   // Bit field definition.
   struct {
+    /// read-write - Data byte 0 of Rx/Tx frame.
     uint32_t DATA_BYTE_31 : 8;
+    /// read-write - Data byte 1 of Rx/Tx frame.
     uint32_t DATA_BYTE_30 : 8;
+    /// read-write - Data byte 2 of Rx/Tx frame.
     uint32_t DATA_BYTE_29 : 8;
+    /// read-write - Data byte 3 of Rx/Tx frame.
     uint32_t DATA_BYTE_28 : 8;
   } bits;
   
@@ -3674,9 +4421,13 @@ union MB2_32B_WORD5_L {
   
   // Bit field definition.
   struct {
+    /// read-write - Data byte 0 of Rx/Tx frame.
     uint32_t DATA_BYTE_23 : 8;
+    /// read-write - Data byte 1 of Rx/Tx frame.
     uint32_t DATA_BYTE_22 : 8;
+    /// read-write - Data byte 2 of Rx/Tx frame.
     uint32_t DATA_BYTE_21 : 8;
+    /// read-write - Data byte 3 of Rx/Tx frame.
     uint32_t DATA_BYTE_20 : 8;
   } bits;
   
@@ -3694,9 +4445,13 @@ union MB4_16B_WORD1_L {
   
   // Bit field definition.
   struct {
+    /// read-write - Data byte 0 of Rx/Tx frame.
     uint32_t DATA_BYTE_7 : 8;
+    /// read-write - Data byte 1 of Rx/Tx frame.
     uint32_t DATA_BYTE_6 : 8;
+    /// read-write - Data byte 2 of Rx/Tx frame.
     uint32_t DATA_BYTE_5 : 8;
+    /// read-write - Data byte 3 of Rx/Tx frame.
     uint32_t DATA_BYTE_4 : 8;
   } bits;
   
@@ -3714,9 +4469,13 @@ union MB6_8B_WORD1 {
   
   // Bit field definition.
   struct {
+    /// read-write - Data byte 0 of Rx/Tx frame.
     uint32_t DATA_BYTE_7 : 8;
+    /// read-write - Data byte 1 of Rx/Tx frame.
     uint32_t DATA_BYTE_6 : 8;
+    /// read-write - Data byte 2 of Rx/Tx frame.
     uint32_t DATA_BYTE_5 : 8;
+    /// read-write - Data byte 3 of Rx/Tx frame.
     uint32_t DATA_BYTE_4 : 8;
   } bits;
   
@@ -3734,9 +4493,13 @@ union WORD16 {
   
   // Bit field definition.
   struct {
+    /// read-write - Data byte 0 of Rx/Tx frame.
     uint32_t DATA_BYTE_7 : 8;
+    /// read-write - Data byte 1 of Rx/Tx frame.
     uint32_t DATA_BYTE_6 : 8;
+    /// read-write - Data byte 2 of Rx/Tx frame.
     uint32_t DATA_BYTE_5 : 8;
+    /// read-write - Data byte 3 of Rx/Tx frame.
     uint32_t DATA_BYTE_4 : 8;
   } bits;
   
@@ -3754,16 +4517,25 @@ union CS7 {
   
   // Bit field definition.
   struct {
+    /// read-write - Free-Running Counter Time stamp. This 16-bit field is a copy of the Free-Running Timer, captured for Tx and Rx frames at the time when the beginning of the Identifier field appears on the CAN bus.
     uint32_t TIME_STAMP : 16;
+    /// read-write - Length of the data to be stored/transmitted.
     uint32_t DLC : 4;
+    /// read-write - Remote Transmission Request. One/zero for remote/data frame.
     uint32_t RTR : 1;
+    /// read-write - ID Extended. One/zero for extended/standard format frame.
     uint32_t IDE : 1;
+    /// read-write - Substitute Remote Request. Contains a fixed recessive bit.
     uint32_t SRR : 1;
     uint32_t _reserved_0 : 1;
+    /// read-write - Message Buffer Code. This 4-bit field can be accessed (read or write) by the CPU and by the FlexCAN module itself, as part of the message buffer matching and arbitration process.
     uint32_t CODE : 4;
     uint32_t _reserved_1 : 1;
+    /// read-write - Error State Indicator. This bit indicates if the transmitting node is error active or error passive.
     uint32_t ESI : 1;
+    /// read-write - Bit Rate Switch. This bit defines whether the bit rate is switched inside a CAN FD format frame.
     uint32_t BRS : 1;
+    /// read-write - Extended Data Length. This bit distinguishes between CAN format and CAN FD format frames. The EDL bit must not be set for Message Buffers configured to RANSWER with code field 0b1010.
     uint32_t EDL : 1;
   } bits;
   
@@ -3781,9 +4553,13 @@ union MB1_64B_WORD8_L {
   
   // Bit field definition.
   struct {
+    /// read-write - Data byte 0 of Rx/Tx frame.
     uint32_t DATA_BYTE_35 : 8;
+    /// read-write - Data byte 1 of Rx/Tx frame.
     uint32_t DATA_BYTE_34 : 8;
+    /// read-write - Data byte 2 of Rx/Tx frame.
     uint32_t DATA_BYTE_33 : 8;
+    /// read-write - Data byte 3 of Rx/Tx frame.
     uint32_t DATA_BYTE_32 : 8;
   } bits;
   
@@ -3801,9 +4577,13 @@ union MB2_32B_WORD6_L {
   
   // Bit field definition.
   struct {
+    /// read-write - Data byte 0 of Rx/Tx frame.
     uint32_t DATA_BYTE_27 : 8;
+    /// read-write - Data byte 1 of Rx/Tx frame.
     uint32_t DATA_BYTE_26 : 8;
+    /// read-write - Data byte 2 of Rx/Tx frame.
     uint32_t DATA_BYTE_25 : 8;
+    /// read-write - Data byte 3 of Rx/Tx frame.
     uint32_t DATA_BYTE_24 : 8;
   } bits;
   
@@ -3821,9 +4601,13 @@ union MB4_16B_WORD2_L {
   
   // Bit field definition.
   struct {
+    /// read-write - Data byte 0 of Rx/Tx frame.
     uint32_t DATA_BYTE_11 : 8;
+    /// read-write - Data byte 1 of Rx/Tx frame.
     uint32_t DATA_BYTE_10 : 8;
+    /// read-write - Data byte 2 of Rx/Tx frame.
     uint32_t DATA_BYTE_9 : 8;
+    /// read-write - Data byte 3 of Rx/Tx frame.
     uint32_t DATA_BYTE_8 : 8;
   } bits;
   
@@ -3841,16 +4625,25 @@ union MB7_8B_CS {
   
   // Bit field definition.
   struct {
+    /// read-write - Free-Running Counter Time stamp. This 16-bit field is a copy of the Free-Running Timer, captured for Tx and Rx frames at the time when the beginning of the Identifier field appears on the CAN bus.
     uint32_t TIME_STAMP : 16;
+    /// read-write - Length of the data to be stored/transmitted.
     uint32_t DLC : 4;
+    /// read-write - Remote Transmission Request. One/zero for remote/data frame.
     uint32_t RTR : 1;
+    /// read-write - ID Extended. One/zero for extended/standard format frame.
     uint32_t IDE : 1;
+    /// read-write - Substitute Remote Request. Contains a fixed recessive bit.
     uint32_t SRR : 1;
     uint32_t _reserved_0 : 1;
+    /// read-write - Message Buffer Code. This 4-bit field can be accessed (read or write) by the CPU and by the FlexCAN module itself, as part of the message buffer matching and arbitration process.
     uint32_t CODE : 4;
     uint32_t _reserved_1 : 1;
+    /// read-write - Error State Indicator. This bit indicates if the transmitting node is error active or error passive.
     uint32_t ESI : 1;
+    /// read-write - Bit Rate Switch. This bit defines whether the bit rate is switched inside a CAN FD format frame.
     uint32_t BRS : 1;
+    /// read-write - Extended Data Length. This bit distinguishes between CAN format and CAN FD format frames. The EDL bit must not be set for Message Buffers configured to RANSWER with code field 0b1010.
     uint32_t EDL : 1;
   } bits;
   
@@ -3868,8 +4661,11 @@ union ID7 {
   
   // Bit field definition.
   struct {
+    /// read-write - Contains extended (LOW word) identifier of message buffer.
     uint32_t EXT : 18;
+    /// read-write - Contains standard/extended (HIGH word) identifier of message buffer.
     uint32_t STD : 11;
+    /// read-write - Local priority. This 3-bit fieldis only used when LPRIO_EN bit is set in MCR and it only makes sense for Tx buffers. These bits are not transmitted. They are appended to the regular ID to define the transmission priority.
     uint32_t PRIO : 3;
   } bits;
   
@@ -3887,9 +4683,13 @@ union MB1_64B_WORD9_L {
   
   // Bit field definition.
   struct {
+    /// read-write - Data byte 0 of Rx/Tx frame.
     uint32_t DATA_BYTE_39 : 8;
+    /// read-write - Data byte 1 of Rx/Tx frame.
     uint32_t DATA_BYTE_38 : 8;
+    /// read-write - Data byte 2 of Rx/Tx frame.
     uint32_t DATA_BYTE_37 : 8;
+    /// read-write - Data byte 3 of Rx/Tx frame.
     uint32_t DATA_BYTE_36 : 8;
   } bits;
   
@@ -3907,9 +4707,13 @@ union MB2_32B_WORD7_L {
   
   // Bit field definition.
   struct {
+    /// read-write - Data byte 0 of Rx/Tx frame.
     uint32_t DATA_BYTE_31 : 8;
+    /// read-write - Data byte 1 of Rx/Tx frame.
     uint32_t DATA_BYTE_30 : 8;
+    /// read-write - Data byte 2 of Rx/Tx frame.
     uint32_t DATA_BYTE_29 : 8;
+    /// read-write - Data byte 3 of Rx/Tx frame.
     uint32_t DATA_BYTE_28 : 8;
   } bits;
   
@@ -3927,9 +4731,13 @@ union MB4_16B_WORD3_L {
   
   // Bit field definition.
   struct {
+    /// read-write - Data byte 0 of Rx/Tx frame.
     uint32_t DATA_BYTE_15 : 8;
+    /// read-write - Data byte 1 of Rx/Tx frame.
     uint32_t DATA_BYTE_14 : 8;
+    /// read-write - Data byte 2 of Rx/Tx frame.
     uint32_t DATA_BYTE_13 : 8;
+    /// read-write - Data byte 3 of Rx/Tx frame.
     uint32_t DATA_BYTE_12 : 8;
   } bits;
   
@@ -3947,8 +4755,11 @@ union MB7_8B_ID {
   
   // Bit field definition.
   struct {
+    /// read-write - Contains extended (LOW word) identifier of message buffer.
     uint32_t EXT : 18;
+    /// read-write - Contains standard/extended (HIGH word) identifier of message buffer.
     uint32_t STD : 11;
+    /// read-write - Local priority. This 3-bit fieldis only used when LPRIO_EN bit is set in MCR and it only makes sense for Tx buffers. These bits are not transmitted. They are appended to the regular ID to define the transmission priority.
     uint32_t PRIO : 3;
   } bits;
   
@@ -3966,9 +4777,13 @@ union MB1_64B_WORD10_L {
   
   // Bit field definition.
   struct {
+    /// read-write - Data byte 0 of Rx/Tx frame.
     uint32_t DATA_BYTE_43 : 8;
+    /// read-write - Data byte 1 of Rx/Tx frame.
     uint32_t DATA_BYTE_42 : 8;
+    /// read-write - Data byte 2 of Rx/Tx frame.
     uint32_t DATA_BYTE_41 : 8;
+    /// read-write - Data byte 3 of Rx/Tx frame.
     uint32_t DATA_BYTE_40 : 8;
   } bits;
   
@@ -3986,16 +4801,25 @@ union MB3_32B_CS_L {
   
   // Bit field definition.
   struct {
+    /// read-write - Free-Running Counter Time stamp. This 16-bit field is a copy of the Free-Running Timer, captured for Tx and Rx frames at the time when the beginning of the Identifier field appears on the CAN bus.
     uint32_t TIME_STAMP : 16;
+    /// read-write - Length of the data to be stored/transmitted.
     uint32_t DLC : 4;
+    /// read-write - Remote Transmission Request. One/zero for remote/data frame.
     uint32_t RTR : 1;
+    /// read-write - ID Extended. One/zero for extended/standard format frame.
     uint32_t IDE : 1;
+    /// read-write - Substitute Remote Request. Contains a fixed recessive bit.
     uint32_t SRR : 1;
     uint32_t _reserved_0 : 1;
+    /// read-write - Message Buffer Code. This 4-bit field can be accessed (read or write) by the CPU and by the FlexCAN module itself, as part of the message buffer matching and arbitration process.
     uint32_t CODE : 4;
     uint32_t _reserved_1 : 1;
+    /// read-write - Error State Indicator. This bit indicates if the transmitting node is error active or error passive.
     uint32_t ESI : 1;
+    /// read-write - Bit Rate Switch. This bit defines whether the bit rate is switched inside a CAN FD format frame.
     uint32_t BRS : 1;
+    /// read-write - Extended Data Length. This bit distinguishes between CAN format and CAN FD format frames. The EDL bit must not be set for Message Buffers configured to RANSWER with code field 0b1010.
     uint32_t EDL : 1;
   } bits;
   
@@ -4013,16 +4837,25 @@ union MB5_16B_CS_L {
   
   // Bit field definition.
   struct {
+    /// read-write - Free-Running Counter Time stamp. This 16-bit field is a copy of the Free-Running Timer, captured for Tx and Rx frames at the time when the beginning of the Identifier field appears on the CAN bus.
     uint32_t TIME_STAMP : 16;
+    /// read-write - Length of the data to be stored/transmitted.
     uint32_t DLC : 4;
+    /// read-write - Remote Transmission Request. One/zero for remote/data frame.
     uint32_t RTR : 1;
+    /// read-write - ID Extended. One/zero for extended/standard format frame.
     uint32_t IDE : 1;
+    /// read-write - Substitute Remote Request. Contains a fixed recessive bit.
     uint32_t SRR : 1;
     uint32_t _reserved_0 : 1;
+    /// read-write - Message Buffer Code. This 4-bit field can be accessed (read or write) by the CPU and by the FlexCAN module itself, as part of the message buffer matching and arbitration process.
     uint32_t CODE : 4;
     uint32_t _reserved_1 : 1;
+    /// read-write - Error State Indicator. This bit indicates if the transmitting node is error active or error passive.
     uint32_t ESI : 1;
+    /// read-write - Bit Rate Switch. This bit defines whether the bit rate is switched inside a CAN FD format frame.
     uint32_t BRS : 1;
+    /// read-write - Extended Data Length. This bit distinguishes between CAN format and CAN FD format frames. The EDL bit must not be set for Message Buffers configured to RANSWER with code field 0b1010.
     uint32_t EDL : 1;
   } bits;
   
@@ -4040,9 +4873,13 @@ union MB7_8B_WORD0 {
   
   // Bit field definition.
   struct {
+    /// read-write - Data byte 0 of Rx/Tx frame.
     uint32_t DATA_BYTE_3 : 8;
+    /// read-write - Data byte 1 of Rx/Tx frame.
     uint32_t DATA_BYTE_2 : 8;
+    /// read-write - Data byte 2 of Rx/Tx frame.
     uint32_t DATA_BYTE_1 : 8;
+    /// read-write - Data byte 3 of Rx/Tx frame.
     uint32_t DATA_BYTE_0 : 8;
   } bits;
   
@@ -4060,9 +4897,13 @@ union WORD07 {
   
   // Bit field definition.
   struct {
+    /// read-write - Data byte 0 of Rx/Tx frame.
     uint32_t DATA_BYTE_3 : 8;
+    /// read-write - Data byte 1 of Rx/Tx frame.
     uint32_t DATA_BYTE_2 : 8;
+    /// read-write - Data byte 2 of Rx/Tx frame.
     uint32_t DATA_BYTE_1 : 8;
+    /// read-write - Data byte 3 of Rx/Tx frame.
     uint32_t DATA_BYTE_0 : 8;
   } bits;
   
@@ -4080,9 +4921,13 @@ union MB1_64B_WORD11_L {
   
   // Bit field definition.
   struct {
+    /// read-write - Data byte 0 of Rx/Tx frame.
     uint32_t DATA_BYTE_47 : 8;
+    /// read-write - Data byte 1 of Rx/Tx frame.
     uint32_t DATA_BYTE_46 : 8;
+    /// read-write - Data byte 2 of Rx/Tx frame.
     uint32_t DATA_BYTE_45 : 8;
+    /// read-write - Data byte 3 of Rx/Tx frame.
     uint32_t DATA_BYTE_44 : 8;
   } bits;
   
@@ -4100,8 +4945,11 @@ union MB3_32B_ID_L {
   
   // Bit field definition.
   struct {
+    /// read-write - Contains extended (LOW word) identifier of message buffer.
     uint32_t EXT : 18;
+    /// read-write - Contains standard/extended (HIGH word) identifier of message buffer.
     uint32_t STD : 11;
+    /// read-write - Local priority. This 3-bit fieldis only used when LPRIO_EN bit is set in MCR and it only makes sense for Tx buffers. These bits are not transmitted. They are appended to the regular ID to define the transmission priority.
     uint32_t PRIO : 3;
   } bits;
   
@@ -4119,8 +4967,11 @@ union MB5_16B_ID_L {
   
   // Bit field definition.
   struct {
+    /// read-write - Contains extended (LOW word) identifier of message buffer.
     uint32_t EXT : 18;
+    /// read-write - Contains standard/extended (HIGH word) identifier of message buffer.
     uint32_t STD : 11;
+    /// read-write - Local priority. This 3-bit fieldis only used when LPRIO_EN bit is set in MCR and it only makes sense for Tx buffers. These bits are not transmitted. They are appended to the regular ID to define the transmission priority.
     uint32_t PRIO : 3;
   } bits;
   
@@ -4138,9 +4989,13 @@ union MB7_8B_WORD1 {
   
   // Bit field definition.
   struct {
+    /// read-write - Data byte 0 of Rx/Tx frame.
     uint32_t DATA_BYTE_7 : 8;
+    /// read-write - Data byte 1 of Rx/Tx frame.
     uint32_t DATA_BYTE_6 : 8;
+    /// read-write - Data byte 2 of Rx/Tx frame.
     uint32_t DATA_BYTE_5 : 8;
+    /// read-write - Data byte 3 of Rx/Tx frame.
     uint32_t DATA_BYTE_4 : 8;
   } bits;
   
@@ -4158,9 +5013,13 @@ union WORD17 {
   
   // Bit field definition.
   struct {
+    /// read-write - Data byte 0 of Rx/Tx frame.
     uint32_t DATA_BYTE_7 : 8;
+    /// read-write - Data byte 1 of Rx/Tx frame.
     uint32_t DATA_BYTE_6 : 8;
+    /// read-write - Data byte 2 of Rx/Tx frame.
     uint32_t DATA_BYTE_5 : 8;
+    /// read-write - Data byte 3 of Rx/Tx frame.
     uint32_t DATA_BYTE_4 : 8;
   } bits;
   
@@ -4178,16 +5037,25 @@ union CS8 {
   
   // Bit field definition.
   struct {
+    /// read-write - Free-Running Counter Time stamp. This 16-bit field is a copy of the Free-Running Timer, captured for Tx and Rx frames at the time when the beginning of the Identifier field appears on the CAN bus.
     uint32_t TIME_STAMP : 16;
+    /// read-write - Length of the data to be stored/transmitted.
     uint32_t DLC : 4;
+    /// read-write - Remote Transmission Request. One/zero for remote/data frame.
     uint32_t RTR : 1;
+    /// read-write - ID Extended. One/zero for extended/standard format frame.
     uint32_t IDE : 1;
+    /// read-write - Substitute Remote Request. Contains a fixed recessive bit.
     uint32_t SRR : 1;
     uint32_t _reserved_0 : 1;
+    /// read-write - Message Buffer Code. This 4-bit field can be accessed (read or write) by the CPU and by the FlexCAN module itself, as part of the message buffer matching and arbitration process.
     uint32_t CODE : 4;
     uint32_t _reserved_1 : 1;
+    /// read-write - Error State Indicator. This bit indicates if the transmitting node is error active or error passive.
     uint32_t ESI : 1;
+    /// read-write - Bit Rate Switch. This bit defines whether the bit rate is switched inside a CAN FD format frame.
     uint32_t BRS : 1;
+    /// read-write - Extended Data Length. This bit distinguishes between CAN format and CAN FD format frames. The EDL bit must not be set for Message Buffers configured to RANSWER with code field 0b1010.
     uint32_t EDL : 1;
   } bits;
   
@@ -4205,9 +5073,13 @@ union MB1_64B_WORD12_L {
   
   // Bit field definition.
   struct {
+    /// read-write - Data byte 0 of Rx/Tx frame.
     uint32_t DATA_BYTE_51 : 8;
+    /// read-write - Data byte 1 of Rx/Tx frame.
     uint32_t DATA_BYTE_50 : 8;
+    /// read-write - Data byte 2 of Rx/Tx frame.
     uint32_t DATA_BYTE_49 : 8;
+    /// read-write - Data byte 3 of Rx/Tx frame.
     uint32_t DATA_BYTE_48 : 8;
   } bits;
   
@@ -4225,9 +5097,13 @@ union MB3_32B_WORD0_L {
   
   // Bit field definition.
   struct {
+    /// read-write - Data byte 0 of Rx/Tx frame.
     uint32_t DATA_BYTE_3 : 8;
+    /// read-write - Data byte 1 of Rx/Tx frame.
     uint32_t DATA_BYTE_2 : 8;
+    /// read-write - Data byte 2 of Rx/Tx frame.
     uint32_t DATA_BYTE_1 : 8;
+    /// read-write - Data byte 3 of Rx/Tx frame.
     uint32_t DATA_BYTE_0 : 8;
   } bits;
   
@@ -4245,9 +5121,13 @@ union MB5_16B_WORD0_L {
   
   // Bit field definition.
   struct {
+    /// read-write - Data byte 0 of Rx/Tx frame.
     uint32_t DATA_BYTE_3 : 8;
+    /// read-write - Data byte 1 of Rx/Tx frame.
     uint32_t DATA_BYTE_2 : 8;
+    /// read-write - Data byte 2 of Rx/Tx frame.
     uint32_t DATA_BYTE_1 : 8;
+    /// read-write - Data byte 3 of Rx/Tx frame.
     uint32_t DATA_BYTE_0 : 8;
   } bits;
   
@@ -4265,16 +5145,25 @@ union MB8_8B_CS {
   
   // Bit field definition.
   struct {
+    /// read-write - Free-Running Counter Time stamp. This 16-bit field is a copy of the Free-Running Timer, captured for Tx and Rx frames at the time when the beginning of the Identifier field appears on the CAN bus.
     uint32_t TIME_STAMP : 16;
+    /// read-write - Length of the data to be stored/transmitted.
     uint32_t DLC : 4;
+    /// read-write - Remote Transmission Request. One/zero for remote/data frame.
     uint32_t RTR : 1;
+    /// read-write - ID Extended. One/zero for extended/standard format frame.
     uint32_t IDE : 1;
+    /// read-write - Substitute Remote Request. Contains a fixed recessive bit.
     uint32_t SRR : 1;
     uint32_t _reserved_0 : 1;
+    /// read-write - Message Buffer Code. This 4-bit field can be accessed (read or write) by the CPU and by the FlexCAN module itself, as part of the message buffer matching and arbitration process.
     uint32_t CODE : 4;
     uint32_t _reserved_1 : 1;
+    /// read-write - Error State Indicator. This bit indicates if the transmitting node is error active or error passive.
     uint32_t ESI : 1;
+    /// read-write - Bit Rate Switch. This bit defines whether the bit rate is switched inside a CAN FD format frame.
     uint32_t BRS : 1;
+    /// read-write - Extended Data Length. This bit distinguishes between CAN format and CAN FD format frames. The EDL bit must not be set for Message Buffers configured to RANSWER with code field 0b1010.
     uint32_t EDL : 1;
   } bits;
   
@@ -4292,8 +5181,11 @@ union ID8 {
   
   // Bit field definition.
   struct {
+    /// read-write - Contains extended (LOW word) identifier of message buffer.
     uint32_t EXT : 18;
+    /// read-write - Contains standard/extended (HIGH word) identifier of message buffer.
     uint32_t STD : 11;
+    /// read-write - Local priority. This 3-bit fieldis only used when LPRIO_EN bit is set in MCR and it only makes sense for Tx buffers. These bits are not transmitted. They are appended to the regular ID to define the transmission priority.
     uint32_t PRIO : 3;
   } bits;
   
@@ -4311,9 +5203,13 @@ union MB1_64B_WORD13_L {
   
   // Bit field definition.
   struct {
+    /// read-write - Data byte 0 of Rx/Tx frame.
     uint32_t DATA_BYTE_55 : 8;
+    /// read-write - Data byte 1 of Rx/Tx frame.
     uint32_t DATA_BYTE_54 : 8;
+    /// read-write - Data byte 2 of Rx/Tx frame.
     uint32_t DATA_BYTE_53 : 8;
+    /// read-write - Data byte 3 of Rx/Tx frame.
     uint32_t DATA_BYTE_52 : 8;
   } bits;
   
@@ -4331,9 +5227,13 @@ union MB3_32B_WORD1_L {
   
   // Bit field definition.
   struct {
+    /// read-write - Data byte 0 of Rx/Tx frame.
     uint32_t DATA_BYTE_7 : 8;
+    /// read-write - Data byte 1 of Rx/Tx frame.
     uint32_t DATA_BYTE_6 : 8;
+    /// read-write - Data byte 2 of Rx/Tx frame.
     uint32_t DATA_BYTE_5 : 8;
+    /// read-write - Data byte 3 of Rx/Tx frame.
     uint32_t DATA_BYTE_4 : 8;
   } bits;
   
@@ -4351,9 +5251,13 @@ union MB5_16B_WORD1_L {
   
   // Bit field definition.
   struct {
+    /// read-write - Data byte 0 of Rx/Tx frame.
     uint32_t DATA_BYTE_7 : 8;
+    /// read-write - Data byte 1 of Rx/Tx frame.
     uint32_t DATA_BYTE_6 : 8;
+    /// read-write - Data byte 2 of Rx/Tx frame.
     uint32_t DATA_BYTE_5 : 8;
+    /// read-write - Data byte 3 of Rx/Tx frame.
     uint32_t DATA_BYTE_4 : 8;
   } bits;
   
@@ -4371,8 +5275,11 @@ union MB8_8B_ID {
   
   // Bit field definition.
   struct {
+    /// read-write - Contains extended (LOW word) identifier of message buffer.
     uint32_t EXT : 18;
+    /// read-write - Contains standard/extended (HIGH word) identifier of message buffer.
     uint32_t STD : 11;
+    /// read-write - Local priority. This 3-bit fieldis only used when LPRIO_EN bit is set in MCR and it only makes sense for Tx buffers. These bits are not transmitted. They are appended to the regular ID to define the transmission priority.
     uint32_t PRIO : 3;
   } bits;
   
@@ -4390,9 +5297,13 @@ union MB1_64B_WORD14_L {
   
   // Bit field definition.
   struct {
+    /// read-write - Data byte 0 of Rx/Tx frame.
     uint32_t DATA_BYTE_59 : 8;
+    /// read-write - Data byte 1 of Rx/Tx frame.
     uint32_t DATA_BYTE_58 : 8;
+    /// read-write - Data byte 2 of Rx/Tx frame.
     uint32_t DATA_BYTE_57 : 8;
+    /// read-write - Data byte 3 of Rx/Tx frame.
     uint32_t DATA_BYTE_56 : 8;
   } bits;
   
@@ -4410,9 +5321,13 @@ union MB3_32B_WORD2_L {
   
   // Bit field definition.
   struct {
+    /// read-write - Data byte 0 of Rx/Tx frame.
     uint32_t DATA_BYTE_11 : 8;
+    /// read-write - Data byte 1 of Rx/Tx frame.
     uint32_t DATA_BYTE_10 : 8;
+    /// read-write - Data byte 2 of Rx/Tx frame.
     uint32_t DATA_BYTE_9 : 8;
+    /// read-write - Data byte 3 of Rx/Tx frame.
     uint32_t DATA_BYTE_8 : 8;
   } bits;
   
@@ -4430,9 +5345,13 @@ union MB5_16B_WORD2_L {
   
   // Bit field definition.
   struct {
+    /// read-write - Data byte 0 of Rx/Tx frame.
     uint32_t DATA_BYTE_11 : 8;
+    /// read-write - Data byte 1 of Rx/Tx frame.
     uint32_t DATA_BYTE_10 : 8;
+    /// read-write - Data byte 2 of Rx/Tx frame.
     uint32_t DATA_BYTE_9 : 8;
+    /// read-write - Data byte 3 of Rx/Tx frame.
     uint32_t DATA_BYTE_8 : 8;
   } bits;
   
@@ -4450,9 +5369,13 @@ union MB8_8B_WORD0 {
   
   // Bit field definition.
   struct {
+    /// read-write - Data byte 0 of Rx/Tx frame.
     uint32_t DATA_BYTE_3 : 8;
+    /// read-write - Data byte 1 of Rx/Tx frame.
     uint32_t DATA_BYTE_2 : 8;
+    /// read-write - Data byte 2 of Rx/Tx frame.
     uint32_t DATA_BYTE_1 : 8;
+    /// read-write - Data byte 3 of Rx/Tx frame.
     uint32_t DATA_BYTE_0 : 8;
   } bits;
   
@@ -4470,9 +5393,13 @@ union WORD08 {
   
   // Bit field definition.
   struct {
+    /// read-write - Data byte 0 of Rx/Tx frame.
     uint32_t DATA_BYTE_3 : 8;
+    /// read-write - Data byte 1 of Rx/Tx frame.
     uint32_t DATA_BYTE_2 : 8;
+    /// read-write - Data byte 2 of Rx/Tx frame.
     uint32_t DATA_BYTE_1 : 8;
+    /// read-write - Data byte 3 of Rx/Tx frame.
     uint32_t DATA_BYTE_0 : 8;
   } bits;
   
@@ -4490,9 +5417,13 @@ union MB1_64B_WORD15_L {
   
   // Bit field definition.
   struct {
+    /// read-write - Data byte 0 of Rx/Tx frame.
     uint32_t DATA_BYTE_63 : 8;
+    /// read-write - Data byte 1 of Rx/Tx frame.
     uint32_t DATA_BYTE_62 : 8;
+    /// read-write - Data byte 2 of Rx/Tx frame.
     uint32_t DATA_BYTE_61 : 8;
+    /// read-write - Data byte 3 of Rx/Tx frame.
     uint32_t DATA_BYTE_60 : 8;
   } bits;
   
@@ -4510,9 +5441,13 @@ union MB3_32B_WORD3_L {
   
   // Bit field definition.
   struct {
+    /// read-write - Data byte 0 of Rx/Tx frame.
     uint32_t DATA_BYTE_15 : 8;
+    /// read-write - Data byte 1 of Rx/Tx frame.
     uint32_t DATA_BYTE_14 : 8;
+    /// read-write - Data byte 2 of Rx/Tx frame.
     uint32_t DATA_BYTE_13 : 8;
+    /// read-write - Data byte 3 of Rx/Tx frame.
     uint32_t DATA_BYTE_12 : 8;
   } bits;
   
@@ -4530,9 +5465,13 @@ union MB5_16B_WORD3_L {
   
   // Bit field definition.
   struct {
+    /// read-write - Data byte 0 of Rx/Tx frame.
     uint32_t DATA_BYTE_15 : 8;
+    /// read-write - Data byte 1 of Rx/Tx frame.
     uint32_t DATA_BYTE_14 : 8;
+    /// read-write - Data byte 2 of Rx/Tx frame.
     uint32_t DATA_BYTE_13 : 8;
+    /// read-write - Data byte 3 of Rx/Tx frame.
     uint32_t DATA_BYTE_12 : 8;
   } bits;
   
@@ -4550,9 +5489,13 @@ union MB8_8B_WORD1 {
   
   // Bit field definition.
   struct {
+    /// read-write - Data byte 0 of Rx/Tx frame.
     uint32_t DATA_BYTE_7 : 8;
+    /// read-write - Data byte 1 of Rx/Tx frame.
     uint32_t DATA_BYTE_6 : 8;
+    /// read-write - Data byte 2 of Rx/Tx frame.
     uint32_t DATA_BYTE_5 : 8;
+    /// read-write - Data byte 3 of Rx/Tx frame.
     uint32_t DATA_BYTE_4 : 8;
   } bits;
   
@@ -4570,9 +5513,13 @@ union WORD18 {
   
   // Bit field definition.
   struct {
+    /// read-write - Data byte 0 of Rx/Tx frame.
     uint32_t DATA_BYTE_7 : 8;
+    /// read-write - Data byte 1 of Rx/Tx frame.
     uint32_t DATA_BYTE_6 : 8;
+    /// read-write - Data byte 2 of Rx/Tx frame.
     uint32_t DATA_BYTE_5 : 8;
+    /// read-write - Data byte 3 of Rx/Tx frame.
     uint32_t DATA_BYTE_4 : 8;
   } bits;
   
@@ -4590,16 +5537,25 @@ union CS9 {
   
   // Bit field definition.
   struct {
+    /// read-write - Free-Running Counter Time stamp. This 16-bit field is a copy of the Free-Running Timer, captured for Tx and Rx frames at the time when the beginning of the Identifier field appears on the CAN bus.
     uint32_t TIME_STAMP : 16;
+    /// read-write - Length of the data to be stored/transmitted.
     uint32_t DLC : 4;
+    /// read-write - Remote Transmission Request. One/zero for remote/data frame.
     uint32_t RTR : 1;
+    /// read-write - ID Extended. One/zero for extended/standard format frame.
     uint32_t IDE : 1;
+    /// read-write - Substitute Remote Request. Contains a fixed recessive bit.
     uint32_t SRR : 1;
     uint32_t _reserved_0 : 1;
+    /// read-write - Message Buffer Code. This 4-bit field can be accessed (read or write) by the CPU and by the FlexCAN module itself, as part of the message buffer matching and arbitration process.
     uint32_t CODE : 4;
     uint32_t _reserved_1 : 1;
+    /// read-write - Error State Indicator. This bit indicates if the transmitting node is error active or error passive.
     uint32_t ESI : 1;
+    /// read-write - Bit Rate Switch. This bit defines whether the bit rate is switched inside a CAN FD format frame.
     uint32_t BRS : 1;
+    /// read-write - Extended Data Length. This bit distinguishes between CAN format and CAN FD format frames. The EDL bit must not be set for Message Buffers configured to RANSWER with code field 0b1010.
     uint32_t EDL : 1;
   } bits;
   
@@ -4617,16 +5573,25 @@ union MB2_64B_CS_L {
   
   // Bit field definition.
   struct {
+    /// read-write - Free-Running Counter Time stamp. This 16-bit field is a copy of the Free-Running Timer, captured for Tx and Rx frames at the time when the beginning of the Identifier field appears on the CAN bus.
     uint32_t TIME_STAMP : 16;
+    /// read-write - Length of the data to be stored/transmitted.
     uint32_t DLC : 4;
+    /// read-write - Remote Transmission Request. One/zero for remote/data frame.
     uint32_t RTR : 1;
+    /// read-write - ID Extended. One/zero for extended/standard format frame.
     uint32_t IDE : 1;
+    /// read-write - Substitute Remote Request. Contains a fixed recessive bit.
     uint32_t SRR : 1;
     uint32_t _reserved_0 : 1;
+    /// read-write - Message Buffer Code. This 4-bit field can be accessed (read or write) by the CPU and by the FlexCAN module itself, as part of the message buffer matching and arbitration process.
     uint32_t CODE : 4;
     uint32_t _reserved_1 : 1;
+    /// read-write - Error State Indicator. This bit indicates if the transmitting node is error active or error passive.
     uint32_t ESI : 1;
+    /// read-write - Bit Rate Switch. This bit defines whether the bit rate is switched inside a CAN FD format frame.
     uint32_t BRS : 1;
+    /// read-write - Extended Data Length. This bit distinguishes between CAN format and CAN FD format frames. The EDL bit must not be set for Message Buffers configured to RANSWER with code field 0b1010.
     uint32_t EDL : 1;
   } bits;
   
@@ -4644,9 +5609,13 @@ union MB3_32B_WORD4_L {
   
   // Bit field definition.
   struct {
+    /// read-write - Data byte 0 of Rx/Tx frame.
     uint32_t DATA_BYTE_19 : 8;
+    /// read-write - Data byte 1 of Rx/Tx frame.
     uint32_t DATA_BYTE_18 : 8;
+    /// read-write - Data byte 2 of Rx/Tx frame.
     uint32_t DATA_BYTE_17 : 8;
+    /// read-write - Data byte 3 of Rx/Tx frame.
     uint32_t DATA_BYTE_16 : 8;
   } bits;
   
@@ -4664,16 +5633,25 @@ union MB6_16B_CS_L {
   
   // Bit field definition.
   struct {
+    /// read-write - Free-Running Counter Time stamp. This 16-bit field is a copy of the Free-Running Timer, captured for Tx and Rx frames at the time when the beginning of the Identifier field appears on the CAN bus.
     uint32_t TIME_STAMP : 16;
+    /// read-write - Length of the data to be stored/transmitted.
     uint32_t DLC : 4;
+    /// read-write - Remote Transmission Request. One/zero for remote/data frame.
     uint32_t RTR : 1;
+    /// read-write - ID Extended. One/zero for extended/standard format frame.
     uint32_t IDE : 1;
+    /// read-write - Substitute Remote Request. Contains a fixed recessive bit.
     uint32_t SRR : 1;
     uint32_t _reserved_0 : 1;
+    /// read-write - Message Buffer Code. This 4-bit field can be accessed (read or write) by the CPU and by the FlexCAN module itself, as part of the message buffer matching and arbitration process.
     uint32_t CODE : 4;
     uint32_t _reserved_1 : 1;
+    /// read-write - Error State Indicator. This bit indicates if the transmitting node is error active or error passive.
     uint32_t ESI : 1;
+    /// read-write - Bit Rate Switch. This bit defines whether the bit rate is switched inside a CAN FD format frame.
     uint32_t BRS : 1;
+    /// read-write - Extended Data Length. This bit distinguishes between CAN format and CAN FD format frames. The EDL bit must not be set for Message Buffers configured to RANSWER with code field 0b1010.
     uint32_t EDL : 1;
   } bits;
   
@@ -4691,16 +5669,25 @@ union MB9_8B_CS {
   
   // Bit field definition.
   struct {
+    /// read-write - Free-Running Counter Time stamp. This 16-bit field is a copy of the Free-Running Timer, captured for Tx and Rx frames at the time when the beginning of the Identifier field appears on the CAN bus.
     uint32_t TIME_STAMP : 16;
+    /// read-write - Length of the data to be stored/transmitted.
     uint32_t DLC : 4;
+    /// read-write - Remote Transmission Request. One/zero for remote/data frame.
     uint32_t RTR : 1;
+    /// read-write - ID Extended. One/zero for extended/standard format frame.
     uint32_t IDE : 1;
+    /// read-write - Substitute Remote Request. Contains a fixed recessive bit.
     uint32_t SRR : 1;
     uint32_t _reserved_0 : 1;
+    /// read-write - Message Buffer Code. This 4-bit field can be accessed (read or write) by the CPU and by the FlexCAN module itself, as part of the message buffer matching and arbitration process.
     uint32_t CODE : 4;
     uint32_t _reserved_1 : 1;
+    /// read-write - Error State Indicator. This bit indicates if the transmitting node is error active or error passive.
     uint32_t ESI : 1;
+    /// read-write - Bit Rate Switch. This bit defines whether the bit rate is switched inside a CAN FD format frame.
     uint32_t BRS : 1;
+    /// read-write - Extended Data Length. This bit distinguishes between CAN format and CAN FD format frames. The EDL bit must not be set for Message Buffers configured to RANSWER with code field 0b1010.
     uint32_t EDL : 1;
   } bits;
   
@@ -4718,8 +5705,11 @@ union ID9 {
   
   // Bit field definition.
   struct {
+    /// read-write - Contains extended (LOW word) identifier of message buffer.
     uint32_t EXT : 18;
+    /// read-write - Contains standard/extended (HIGH word) identifier of message buffer.
     uint32_t STD : 11;
+    /// read-write - Local priority. This 3-bit fieldis only used when LPRIO_EN bit is set in MCR and it only makes sense for Tx buffers. These bits are not transmitted. They are appended to the regular ID to define the transmission priority.
     uint32_t PRIO : 3;
   } bits;
   
@@ -4737,8 +5727,11 @@ union MB2_64B_ID_L {
   
   // Bit field definition.
   struct {
+    /// read-write - Contains extended (LOW word) identifier of message buffer.
     uint32_t EXT : 18;
+    /// read-write - Contains standard/extended (HIGH word) identifier of message buffer.
     uint32_t STD : 11;
+    /// read-write - Local priority. This 3-bit fieldis only used when LPRIO_EN bit is set in MCR and it only makes sense for Tx buffers. These bits are not transmitted. They are appended to the regular ID to define the transmission priority.
     uint32_t PRIO : 3;
   } bits;
   
@@ -4756,9 +5749,13 @@ union MB3_32B_WORD5_L {
   
   // Bit field definition.
   struct {
+    /// read-write - Data byte 0 of Rx/Tx frame.
     uint32_t DATA_BYTE_23 : 8;
+    /// read-write - Data byte 1 of Rx/Tx frame.
     uint32_t DATA_BYTE_22 : 8;
+    /// read-write - Data byte 2 of Rx/Tx frame.
     uint32_t DATA_BYTE_21 : 8;
+    /// read-write - Data byte 3 of Rx/Tx frame.
     uint32_t DATA_BYTE_20 : 8;
   } bits;
   
@@ -4776,8 +5773,11 @@ union MB6_16B_ID_L {
   
   // Bit field definition.
   struct {
+    /// read-write - Contains extended (LOW word) identifier of message buffer.
     uint32_t EXT : 18;
+    /// read-write - Contains standard/extended (HIGH word) identifier of message buffer.
     uint32_t STD : 11;
+    /// read-write - Local priority. This 3-bit fieldis only used when LPRIO_EN bit is set in MCR and it only makes sense for Tx buffers. These bits are not transmitted. They are appended to the regular ID to define the transmission priority.
     uint32_t PRIO : 3;
   } bits;
   
@@ -4795,8 +5795,11 @@ union MB9_8B_ID {
   
   // Bit field definition.
   struct {
+    /// read-write - Contains extended (LOW word) identifier of message buffer.
     uint32_t EXT : 18;
+    /// read-write - Contains standard/extended (HIGH word) identifier of message buffer.
     uint32_t STD : 11;
+    /// read-write - Local priority. This 3-bit fieldis only used when LPRIO_EN bit is set in MCR and it only makes sense for Tx buffers. These bits are not transmitted. They are appended to the regular ID to define the transmission priority.
     uint32_t PRIO : 3;
   } bits;
   
@@ -4814,9 +5817,13 @@ union MB2_64B_WORD0_L {
   
   // Bit field definition.
   struct {
+    /// read-write - Data byte 0 of Rx/Tx frame.
     uint32_t DATA_BYTE_3 : 8;
+    /// read-write - Data byte 1 of Rx/Tx frame.
     uint32_t DATA_BYTE_2 : 8;
+    /// read-write - Data byte 2 of Rx/Tx frame.
     uint32_t DATA_BYTE_1 : 8;
+    /// read-write - Data byte 3 of Rx/Tx frame.
     uint32_t DATA_BYTE_0 : 8;
   } bits;
   
@@ -4834,9 +5841,13 @@ union MB3_32B_WORD6_L {
   
   // Bit field definition.
   struct {
+    /// read-write - Data byte 0 of Rx/Tx frame.
     uint32_t DATA_BYTE_27 : 8;
+    /// read-write - Data byte 1 of Rx/Tx frame.
     uint32_t DATA_BYTE_26 : 8;
+    /// read-write - Data byte 2 of Rx/Tx frame.
     uint32_t DATA_BYTE_25 : 8;
+    /// read-write - Data byte 3 of Rx/Tx frame.
     uint32_t DATA_BYTE_24 : 8;
   } bits;
   
@@ -4854,9 +5865,13 @@ union MB6_16B_WORD0_L {
   
   // Bit field definition.
   struct {
+    /// read-write - Data byte 0 of Rx/Tx frame.
     uint32_t DATA_BYTE_3 : 8;
+    /// read-write - Data byte 1 of Rx/Tx frame.
     uint32_t DATA_BYTE_2 : 8;
+    /// read-write - Data byte 2 of Rx/Tx frame.
     uint32_t DATA_BYTE_1 : 8;
+    /// read-write - Data byte 3 of Rx/Tx frame.
     uint32_t DATA_BYTE_0 : 8;
   } bits;
   
@@ -4874,9 +5889,13 @@ union MB9_8B_WORD0 {
   
   // Bit field definition.
   struct {
+    /// read-write - Data byte 0 of Rx/Tx frame.
     uint32_t DATA_BYTE_3 : 8;
+    /// read-write - Data byte 1 of Rx/Tx frame.
     uint32_t DATA_BYTE_2 : 8;
+    /// read-write - Data byte 2 of Rx/Tx frame.
     uint32_t DATA_BYTE_1 : 8;
+    /// read-write - Data byte 3 of Rx/Tx frame.
     uint32_t DATA_BYTE_0 : 8;
   } bits;
   
@@ -4894,9 +5913,13 @@ union WORD09 {
   
   // Bit field definition.
   struct {
+    /// read-write - Data byte 0 of Rx/Tx frame.
     uint32_t DATA_BYTE_3 : 8;
+    /// read-write - Data byte 1 of Rx/Tx frame.
     uint32_t DATA_BYTE_2 : 8;
+    /// read-write - Data byte 2 of Rx/Tx frame.
     uint32_t DATA_BYTE_1 : 8;
+    /// read-write - Data byte 3 of Rx/Tx frame.
     uint32_t DATA_BYTE_0 : 8;
   } bits;
   
@@ -4914,9 +5937,13 @@ union MB2_64B_WORD1_L {
   
   // Bit field definition.
   struct {
+    /// read-write - Data byte 0 of Rx/Tx frame.
     uint32_t DATA_BYTE_7 : 8;
+    /// read-write - Data byte 1 of Rx/Tx frame.
     uint32_t DATA_BYTE_6 : 8;
+    /// read-write - Data byte 2 of Rx/Tx frame.
     uint32_t DATA_BYTE_5 : 8;
+    /// read-write - Data byte 3 of Rx/Tx frame.
     uint32_t DATA_BYTE_4 : 8;
   } bits;
   
@@ -4934,9 +5961,13 @@ union MB3_32B_WORD7_L {
   
   // Bit field definition.
   struct {
+    /// read-write - Data byte 0 of Rx/Tx frame.
     uint32_t DATA_BYTE_31 : 8;
+    /// read-write - Data byte 1 of Rx/Tx frame.
     uint32_t DATA_BYTE_30 : 8;
+    /// read-write - Data byte 2 of Rx/Tx frame.
     uint32_t DATA_BYTE_29 : 8;
+    /// read-write - Data byte 3 of Rx/Tx frame.
     uint32_t DATA_BYTE_28 : 8;
   } bits;
   
@@ -4954,9 +5985,13 @@ union MB6_16B_WORD1_L {
   
   // Bit field definition.
   struct {
+    /// read-write - Data byte 0 of Rx/Tx frame.
     uint32_t DATA_BYTE_7 : 8;
+    /// read-write - Data byte 1 of Rx/Tx frame.
     uint32_t DATA_BYTE_6 : 8;
+    /// read-write - Data byte 2 of Rx/Tx frame.
     uint32_t DATA_BYTE_5 : 8;
+    /// read-write - Data byte 3 of Rx/Tx frame.
     uint32_t DATA_BYTE_4 : 8;
   } bits;
   
@@ -4974,9 +6009,13 @@ union MB9_8B_WORD1 {
   
   // Bit field definition.
   struct {
+    /// read-write - Data byte 0 of Rx/Tx frame.
     uint32_t DATA_BYTE_7 : 8;
+    /// read-write - Data byte 1 of Rx/Tx frame.
     uint32_t DATA_BYTE_6 : 8;
+    /// read-write - Data byte 2 of Rx/Tx frame.
     uint32_t DATA_BYTE_5 : 8;
+    /// read-write - Data byte 3 of Rx/Tx frame.
     uint32_t DATA_BYTE_4 : 8;
   } bits;
   
@@ -4994,9 +6033,13 @@ union WORD19 {
   
   // Bit field definition.
   struct {
+    /// read-write - Data byte 0 of Rx/Tx frame.
     uint32_t DATA_BYTE_7 : 8;
+    /// read-write - Data byte 1 of Rx/Tx frame.
     uint32_t DATA_BYTE_6 : 8;
+    /// read-write - Data byte 2 of Rx/Tx frame.
     uint32_t DATA_BYTE_5 : 8;
+    /// read-write - Data byte 3 of Rx/Tx frame.
     uint32_t DATA_BYTE_4 : 8;
   } bits;
   
@@ -5014,16 +6057,25 @@ union CS10 {
   
   // Bit field definition.
   struct {
+    /// read-write - Free-Running Counter Time stamp. This 16-bit field is a copy of the Free-Running Timer, captured for Tx and Rx frames at the time when the beginning of the Identifier field appears on the CAN bus.
     uint32_t TIME_STAMP : 16;
+    /// read-write - Length of the data to be stored/transmitted.
     uint32_t DLC : 4;
+    /// read-write - Remote Transmission Request. One/zero for remote/data frame.
     uint32_t RTR : 1;
+    /// read-write - ID Extended. One/zero for extended/standard format frame.
     uint32_t IDE : 1;
+    /// read-write - Substitute Remote Request. Contains a fixed recessive bit.
     uint32_t SRR : 1;
     uint32_t _reserved_0 : 1;
+    /// read-write - Message Buffer Code. This 4-bit field can be accessed (read or write) by the CPU and by the FlexCAN module itself, as part of the message buffer matching and arbitration process.
     uint32_t CODE : 4;
     uint32_t _reserved_1 : 1;
+    /// read-write - Error State Indicator. This bit indicates if the transmitting node is error active or error passive.
     uint32_t ESI : 1;
+    /// read-write - Bit Rate Switch. This bit defines whether the bit rate is switched inside a CAN FD format frame.
     uint32_t BRS : 1;
+    /// read-write - Extended Data Length. This bit distinguishes between CAN format and CAN FD format frames. The EDL bit must not be set for Message Buffers configured to RANSWER with code field 0b1010.
     uint32_t EDL : 1;
   } bits;
   
@@ -5041,16 +6093,25 @@ union MB10_8B_CS {
   
   // Bit field definition.
   struct {
+    /// read-write - Free-Running Counter Time stamp. This 16-bit field is a copy of the Free-Running Timer, captured for Tx and Rx frames at the time when the beginning of the Identifier field appears on the CAN bus.
     uint32_t TIME_STAMP : 16;
+    /// read-write - Length of the data to be stored/transmitted.
     uint32_t DLC : 4;
+    /// read-write - Remote Transmission Request. One/zero for remote/data frame.
     uint32_t RTR : 1;
+    /// read-write - ID Extended. One/zero for extended/standard format frame.
     uint32_t IDE : 1;
+    /// read-write - Substitute Remote Request. Contains a fixed recessive bit.
     uint32_t SRR : 1;
     uint32_t _reserved_0 : 1;
+    /// read-write - Message Buffer Code. This 4-bit field can be accessed (read or write) by the CPU and by the FlexCAN module itself, as part of the message buffer matching and arbitration process.
     uint32_t CODE : 4;
     uint32_t _reserved_1 : 1;
+    /// read-write - Error State Indicator. This bit indicates if the transmitting node is error active or error passive.
     uint32_t ESI : 1;
+    /// read-write - Bit Rate Switch. This bit defines whether the bit rate is switched inside a CAN FD format frame.
     uint32_t BRS : 1;
+    /// read-write - Extended Data Length. This bit distinguishes between CAN format and CAN FD format frames. The EDL bit must not be set for Message Buffers configured to RANSWER with code field 0b1010.
     uint32_t EDL : 1;
   } bits;
   
@@ -5068,9 +6129,13 @@ union MB2_64B_WORD2_L {
   
   // Bit field definition.
   struct {
+    /// read-write - Data byte 0 of Rx/Tx frame.
     uint32_t DATA_BYTE_11 : 8;
+    /// read-write - Data byte 1 of Rx/Tx frame.
     uint32_t DATA_BYTE_10 : 8;
+    /// read-write - Data byte 2 of Rx/Tx frame.
     uint32_t DATA_BYTE_9 : 8;
+    /// read-write - Data byte 3 of Rx/Tx frame.
     uint32_t DATA_BYTE_8 : 8;
   } bits;
   
@@ -5088,16 +6153,25 @@ union MB4_32B_CS_L {
   
   // Bit field definition.
   struct {
+    /// read-write - Free-Running Counter Time stamp. This 16-bit field is a copy of the Free-Running Timer, captured for Tx and Rx frames at the time when the beginning of the Identifier field appears on the CAN bus.
     uint32_t TIME_STAMP : 16;
+    /// read-write - Length of the data to be stored/transmitted.
     uint32_t DLC : 4;
+    /// read-write - Remote Transmission Request. One/zero for remote/data frame.
     uint32_t RTR : 1;
+    /// read-write - ID Extended. One/zero for extended/standard format frame.
     uint32_t IDE : 1;
+    /// read-write - Substitute Remote Request. Contains a fixed recessive bit.
     uint32_t SRR : 1;
     uint32_t _reserved_0 : 1;
+    /// read-write - Message Buffer Code. This 4-bit field can be accessed (read or write) by the CPU and by the FlexCAN module itself, as part of the message buffer matching and arbitration process.
     uint32_t CODE : 4;
     uint32_t _reserved_1 : 1;
+    /// read-write - Error State Indicator. This bit indicates if the transmitting node is error active or error passive.
     uint32_t ESI : 1;
+    /// read-write - Bit Rate Switch. This bit defines whether the bit rate is switched inside a CAN FD format frame.
     uint32_t BRS : 1;
+    /// read-write - Extended Data Length. This bit distinguishes between CAN format and CAN FD format frames. The EDL bit must not be set for Message Buffers configured to RANSWER with code field 0b1010.
     uint32_t EDL : 1;
   } bits;
   
@@ -5115,9 +6189,13 @@ union MB6_16B_WORD2_L {
   
   // Bit field definition.
   struct {
+    /// read-write - Data byte 0 of Rx/Tx frame.
     uint32_t DATA_BYTE_11 : 8;
+    /// read-write - Data byte 1 of Rx/Tx frame.
     uint32_t DATA_BYTE_10 : 8;
+    /// read-write - Data byte 2 of Rx/Tx frame.
     uint32_t DATA_BYTE_9 : 8;
+    /// read-write - Data byte 3 of Rx/Tx frame.
     uint32_t DATA_BYTE_8 : 8;
   } bits;
   
@@ -5135,8 +6213,11 @@ union ID10 {
   
   // Bit field definition.
   struct {
+    /// read-write - Contains extended (LOW word) identifier of message buffer.
     uint32_t EXT : 18;
+    /// read-write - Contains standard/extended (HIGH word) identifier of message buffer.
     uint32_t STD : 11;
+    /// read-write - Local priority. This 3-bit fieldis only used when LPRIO_EN bit is set in MCR and it only makes sense for Tx buffers. These bits are not transmitted. They are appended to the regular ID to define the transmission priority.
     uint32_t PRIO : 3;
   } bits;
   
@@ -5154,8 +6235,11 @@ union MB10_8B_ID {
   
   // Bit field definition.
   struct {
+    /// read-write - Contains extended (LOW word) identifier of message buffer.
     uint32_t EXT : 18;
+    /// read-write - Contains standard/extended (HIGH word) identifier of message buffer.
     uint32_t STD : 11;
+    /// read-write - Local priority. This 3-bit fieldis only used when LPRIO_EN bit is set in MCR and it only makes sense for Tx buffers. These bits are not transmitted. They are appended to the regular ID to define the transmission priority.
     uint32_t PRIO : 3;
   } bits;
   
@@ -5173,9 +6257,13 @@ union MB2_64B_WORD3_L {
   
   // Bit field definition.
   struct {
+    /// read-write - Data byte 0 of Rx/Tx frame.
     uint32_t DATA_BYTE_15 : 8;
+    /// read-write - Data byte 1 of Rx/Tx frame.
     uint32_t DATA_BYTE_14 : 8;
+    /// read-write - Data byte 2 of Rx/Tx frame.
     uint32_t DATA_BYTE_13 : 8;
+    /// read-write - Data byte 3 of Rx/Tx frame.
     uint32_t DATA_BYTE_12 : 8;
   } bits;
   
@@ -5193,8 +6281,11 @@ union MB4_32B_ID_L {
   
   // Bit field definition.
   struct {
+    /// read-write - Contains extended (LOW word) identifier of message buffer.
     uint32_t EXT : 18;
+    /// read-write - Contains standard/extended (HIGH word) identifier of message buffer.
     uint32_t STD : 11;
+    /// read-write - Local priority. This 3-bit fieldis only used when LPRIO_EN bit is set in MCR and it only makes sense for Tx buffers. These bits are not transmitted. They are appended to the regular ID to define the transmission priority.
     uint32_t PRIO : 3;
   } bits;
   
@@ -5212,9 +6303,13 @@ union MB6_16B_WORD3_L {
   
   // Bit field definition.
   struct {
+    /// read-write - Data byte 0 of Rx/Tx frame.
     uint32_t DATA_BYTE_15 : 8;
+    /// read-write - Data byte 1 of Rx/Tx frame.
     uint32_t DATA_BYTE_14 : 8;
+    /// read-write - Data byte 2 of Rx/Tx frame.
     uint32_t DATA_BYTE_13 : 8;
+    /// read-write - Data byte 3 of Rx/Tx frame.
     uint32_t DATA_BYTE_12 : 8;
   } bits;
   
@@ -5232,9 +6327,13 @@ union MB10_8B_WORD0 {
   
   // Bit field definition.
   struct {
+    /// read-write - Data byte 0 of Rx/Tx frame.
     uint32_t DATA_BYTE_3 : 8;
+    /// read-write - Data byte 1 of Rx/Tx frame.
     uint32_t DATA_BYTE_2 : 8;
+    /// read-write - Data byte 2 of Rx/Tx frame.
     uint32_t DATA_BYTE_1 : 8;
+    /// read-write - Data byte 3 of Rx/Tx frame.
     uint32_t DATA_BYTE_0 : 8;
   } bits;
   
@@ -5252,9 +6351,13 @@ union MB2_64B_WORD4_L {
   
   // Bit field definition.
   struct {
+    /// read-write - Data byte 0 of Rx/Tx frame.
     uint32_t DATA_BYTE_19 : 8;
+    /// read-write - Data byte 1 of Rx/Tx frame.
     uint32_t DATA_BYTE_18 : 8;
+    /// read-write - Data byte 2 of Rx/Tx frame.
     uint32_t DATA_BYTE_17 : 8;
+    /// read-write - Data byte 3 of Rx/Tx frame.
     uint32_t DATA_BYTE_16 : 8;
   } bits;
   
@@ -5272,9 +6375,13 @@ union MB4_32B_WORD0_L {
   
   // Bit field definition.
   struct {
+    /// read-write - Data byte 0 of Rx/Tx frame.
     uint32_t DATA_BYTE_3 : 8;
+    /// read-write - Data byte 1 of Rx/Tx frame.
     uint32_t DATA_BYTE_2 : 8;
+    /// read-write - Data byte 2 of Rx/Tx frame.
     uint32_t DATA_BYTE_1 : 8;
+    /// read-write - Data byte 3 of Rx/Tx frame.
     uint32_t DATA_BYTE_0 : 8;
   } bits;
   
@@ -5292,16 +6399,25 @@ union MB7_16B_CS_L {
   
   // Bit field definition.
   struct {
+    /// read-write - Free-Running Counter Time stamp. This 16-bit field is a copy of the Free-Running Timer, captured for Tx and Rx frames at the time when the beginning of the Identifier field appears on the CAN bus.
     uint32_t TIME_STAMP : 16;
+    /// read-write - Length of the data to be stored/transmitted.
     uint32_t DLC : 4;
+    /// read-write - Remote Transmission Request. One/zero for remote/data frame.
     uint32_t RTR : 1;
+    /// read-write - ID Extended. One/zero for extended/standard format frame.
     uint32_t IDE : 1;
+    /// read-write - Substitute Remote Request. Contains a fixed recessive bit.
     uint32_t SRR : 1;
     uint32_t _reserved_0 : 1;
+    /// read-write - Message Buffer Code. This 4-bit field can be accessed (read or write) by the CPU and by the FlexCAN module itself, as part of the message buffer matching and arbitration process.
     uint32_t CODE : 4;
     uint32_t _reserved_1 : 1;
+    /// read-write - Error State Indicator. This bit indicates if the transmitting node is error active or error passive.
     uint32_t ESI : 1;
+    /// read-write - Bit Rate Switch. This bit defines whether the bit rate is switched inside a CAN FD format frame.
     uint32_t BRS : 1;
+    /// read-write - Extended Data Length. This bit distinguishes between CAN format and CAN FD format frames. The EDL bit must not be set for Message Buffers configured to RANSWER with code field 0b1010.
     uint32_t EDL : 1;
   } bits;
   
@@ -5319,9 +6435,13 @@ union WORD010 {
   
   // Bit field definition.
   struct {
+    /// read-write - Data byte 0 of Rx/Tx frame.
     uint32_t DATA_BYTE_3 : 8;
+    /// read-write - Data byte 1 of Rx/Tx frame.
     uint32_t DATA_BYTE_2 : 8;
+    /// read-write - Data byte 2 of Rx/Tx frame.
     uint32_t DATA_BYTE_1 : 8;
+    /// read-write - Data byte 3 of Rx/Tx frame.
     uint32_t DATA_BYTE_0 : 8;
   } bits;
   
@@ -5339,9 +6459,13 @@ union MB10_8B_WORD1 {
   
   // Bit field definition.
   struct {
+    /// read-write - Data byte 0 of Rx/Tx frame.
     uint32_t DATA_BYTE_7 : 8;
+    /// read-write - Data byte 1 of Rx/Tx frame.
     uint32_t DATA_BYTE_6 : 8;
+    /// read-write - Data byte 2 of Rx/Tx frame.
     uint32_t DATA_BYTE_5 : 8;
+    /// read-write - Data byte 3 of Rx/Tx frame.
     uint32_t DATA_BYTE_4 : 8;
   } bits;
   
@@ -5359,9 +6483,13 @@ union MB2_64B_WORD5_L {
   
   // Bit field definition.
   struct {
+    /// read-write - Data byte 0 of Rx/Tx frame.
     uint32_t DATA_BYTE_23 : 8;
+    /// read-write - Data byte 1 of Rx/Tx frame.
     uint32_t DATA_BYTE_22 : 8;
+    /// read-write - Data byte 2 of Rx/Tx frame.
     uint32_t DATA_BYTE_21 : 8;
+    /// read-write - Data byte 3 of Rx/Tx frame.
     uint32_t DATA_BYTE_20 : 8;
   } bits;
   
@@ -5379,9 +6507,13 @@ union MB4_32B_WORD1_L {
   
   // Bit field definition.
   struct {
+    /// read-write - Data byte 0 of Rx/Tx frame.
     uint32_t DATA_BYTE_7 : 8;
+    /// read-write - Data byte 1 of Rx/Tx frame.
     uint32_t DATA_BYTE_6 : 8;
+    /// read-write - Data byte 2 of Rx/Tx frame.
     uint32_t DATA_BYTE_5 : 8;
+    /// read-write - Data byte 3 of Rx/Tx frame.
     uint32_t DATA_BYTE_4 : 8;
   } bits;
   
@@ -5399,8 +6531,11 @@ union MB7_16B_ID_L {
   
   // Bit field definition.
   struct {
+    /// read-write - Contains extended (LOW word) identifier of message buffer.
     uint32_t EXT : 18;
+    /// read-write - Contains standard/extended (HIGH word) identifier of message buffer.
     uint32_t STD : 11;
+    /// read-write - Local priority. This 3-bit fieldis only used when LPRIO_EN bit is set in MCR and it only makes sense for Tx buffers. These bits are not transmitted. They are appended to the regular ID to define the transmission priority.
     uint32_t PRIO : 3;
   } bits;
   
@@ -5418,9 +6553,13 @@ union WORD110 {
   
   // Bit field definition.
   struct {
+    /// read-write - Data byte 0 of Rx/Tx frame.
     uint32_t DATA_BYTE_7 : 8;
+    /// read-write - Data byte 1 of Rx/Tx frame.
     uint32_t DATA_BYTE_6 : 8;
+    /// read-write - Data byte 2 of Rx/Tx frame.
     uint32_t DATA_BYTE_5 : 8;
+    /// read-write - Data byte 3 of Rx/Tx frame.
     uint32_t DATA_BYTE_4 : 8;
   } bits;
   
@@ -5438,16 +6577,25 @@ union CS11 {
   
   // Bit field definition.
   struct {
+    /// read-write - Free-Running Counter Time stamp. This 16-bit field is a copy of the Free-Running Timer, captured for Tx and Rx frames at the time when the beginning of the Identifier field appears on the CAN bus.
     uint32_t TIME_STAMP : 16;
+    /// read-write - Length of the data to be stored/transmitted.
     uint32_t DLC : 4;
+    /// read-write - Remote Transmission Request. One/zero for remote/data frame.
     uint32_t RTR : 1;
+    /// read-write - ID Extended. One/zero for extended/standard format frame.
     uint32_t IDE : 1;
+    /// read-write - Substitute Remote Request. Contains a fixed recessive bit.
     uint32_t SRR : 1;
     uint32_t _reserved_0 : 1;
+    /// read-write - Message Buffer Code. This 4-bit field can be accessed (read or write) by the CPU and by the FlexCAN module itself, as part of the message buffer matching and arbitration process.
     uint32_t CODE : 4;
     uint32_t _reserved_1 : 1;
+    /// read-write - Error State Indicator. This bit indicates if the transmitting node is error active or error passive.
     uint32_t ESI : 1;
+    /// read-write - Bit Rate Switch. This bit defines whether the bit rate is switched inside a CAN FD format frame.
     uint32_t BRS : 1;
+    /// read-write - Extended Data Length. This bit distinguishes between CAN format and CAN FD format frames. The EDL bit must not be set for Message Buffers configured to RANSWER with code field 0b1010.
     uint32_t EDL : 1;
   } bits;
   
@@ -5465,16 +6613,25 @@ union MB11_8B_CS {
   
   // Bit field definition.
   struct {
+    /// read-write - Free-Running Counter Time stamp. This 16-bit field is a copy of the Free-Running Timer, captured for Tx and Rx frames at the time when the beginning of the Identifier field appears on the CAN bus.
     uint32_t TIME_STAMP : 16;
+    /// read-write - Length of the data to be stored/transmitted.
     uint32_t DLC : 4;
+    /// read-write - Remote Transmission Request. One/zero for remote/data frame.
     uint32_t RTR : 1;
+    /// read-write - ID Extended. One/zero for extended/standard format frame.
     uint32_t IDE : 1;
+    /// read-write - Substitute Remote Request. Contains a fixed recessive bit.
     uint32_t SRR : 1;
     uint32_t _reserved_0 : 1;
+    /// read-write - Message Buffer Code. This 4-bit field can be accessed (read or write) by the CPU and by the FlexCAN module itself, as part of the message buffer matching and arbitration process.
     uint32_t CODE : 4;
     uint32_t _reserved_1 : 1;
+    /// read-write - Error State Indicator. This bit indicates if the transmitting node is error active or error passive.
     uint32_t ESI : 1;
+    /// read-write - Bit Rate Switch. This bit defines whether the bit rate is switched inside a CAN FD format frame.
     uint32_t BRS : 1;
+    /// read-write - Extended Data Length. This bit distinguishes between CAN format and CAN FD format frames. The EDL bit must not be set for Message Buffers configured to RANSWER with code field 0b1010.
     uint32_t EDL : 1;
   } bits;
   
@@ -5492,9 +6649,13 @@ union MB2_64B_WORD6_L {
   
   // Bit field definition.
   struct {
+    /// read-write - Data byte 0 of Rx/Tx frame.
     uint32_t DATA_BYTE_27 : 8;
+    /// read-write - Data byte 1 of Rx/Tx frame.
     uint32_t DATA_BYTE_26 : 8;
+    /// read-write - Data byte 2 of Rx/Tx frame.
     uint32_t DATA_BYTE_25 : 8;
+    /// read-write - Data byte 3 of Rx/Tx frame.
     uint32_t DATA_BYTE_24 : 8;
   } bits;
   
@@ -5512,9 +6673,13 @@ union MB4_32B_WORD2_L {
   
   // Bit field definition.
   struct {
+    /// read-write - Data byte 0 of Rx/Tx frame.
     uint32_t DATA_BYTE_11 : 8;
+    /// read-write - Data byte 1 of Rx/Tx frame.
     uint32_t DATA_BYTE_10 : 8;
+    /// read-write - Data byte 2 of Rx/Tx frame.
     uint32_t DATA_BYTE_9 : 8;
+    /// read-write - Data byte 3 of Rx/Tx frame.
     uint32_t DATA_BYTE_8 : 8;
   } bits;
   
@@ -5532,9 +6697,13 @@ union MB7_16B_WORD0_L {
   
   // Bit field definition.
   struct {
+    /// read-write - Data byte 0 of Rx/Tx frame.
     uint32_t DATA_BYTE_3 : 8;
+    /// read-write - Data byte 1 of Rx/Tx frame.
     uint32_t DATA_BYTE_2 : 8;
+    /// read-write - Data byte 2 of Rx/Tx frame.
     uint32_t DATA_BYTE_1 : 8;
+    /// read-write - Data byte 3 of Rx/Tx frame.
     uint32_t DATA_BYTE_0 : 8;
   } bits;
   
@@ -5552,8 +6721,11 @@ union ID11 {
   
   // Bit field definition.
   struct {
+    /// read-write - Contains extended (LOW word) identifier of message buffer.
     uint32_t EXT : 18;
+    /// read-write - Contains standard/extended (HIGH word) identifier of message buffer.
     uint32_t STD : 11;
+    /// read-write - Local priority. This 3-bit fieldis only used when LPRIO_EN bit is set in MCR and it only makes sense for Tx buffers. These bits are not transmitted. They are appended to the regular ID to define the transmission priority.
     uint32_t PRIO : 3;
   } bits;
   
@@ -5571,8 +6743,11 @@ union MB11_8B_ID {
   
   // Bit field definition.
   struct {
+    /// read-write - Contains extended (LOW word) identifier of message buffer.
     uint32_t EXT : 18;
+    /// read-write - Contains standard/extended (HIGH word) identifier of message buffer.
     uint32_t STD : 11;
+    /// read-write - Local priority. This 3-bit fieldis only used when LPRIO_EN bit is set in MCR and it only makes sense for Tx buffers. These bits are not transmitted. They are appended to the regular ID to define the transmission priority.
     uint32_t PRIO : 3;
   } bits;
   
@@ -5590,9 +6765,13 @@ union MB2_64B_WORD7_L {
   
   // Bit field definition.
   struct {
+    /// read-write - Data byte 0 of Rx/Tx frame.
     uint32_t DATA_BYTE_31 : 8;
+    /// read-write - Data byte 1 of Rx/Tx frame.
     uint32_t DATA_BYTE_30 : 8;
+    /// read-write - Data byte 2 of Rx/Tx frame.
     uint32_t DATA_BYTE_29 : 8;
+    /// read-write - Data byte 3 of Rx/Tx frame.
     uint32_t DATA_BYTE_28 : 8;
   } bits;
   
@@ -5610,9 +6789,13 @@ union MB4_32B_WORD3_L {
   
   // Bit field definition.
   struct {
+    /// read-write - Data byte 0 of Rx/Tx frame.
     uint32_t DATA_BYTE_15 : 8;
+    /// read-write - Data byte 1 of Rx/Tx frame.
     uint32_t DATA_BYTE_14 : 8;
+    /// read-write - Data byte 2 of Rx/Tx frame.
     uint32_t DATA_BYTE_13 : 8;
+    /// read-write - Data byte 3 of Rx/Tx frame.
     uint32_t DATA_BYTE_12 : 8;
   } bits;
   
@@ -5630,9 +6813,13 @@ union MB7_16B_WORD1_L {
   
   // Bit field definition.
   struct {
+    /// read-write - Data byte 0 of Rx/Tx frame.
     uint32_t DATA_BYTE_7 : 8;
+    /// read-write - Data byte 1 of Rx/Tx frame.
     uint32_t DATA_BYTE_6 : 8;
+    /// read-write - Data byte 2 of Rx/Tx frame.
     uint32_t DATA_BYTE_5 : 8;
+    /// read-write - Data byte 3 of Rx/Tx frame.
     uint32_t DATA_BYTE_4 : 8;
   } bits;
   
@@ -5650,9 +6837,13 @@ union MB11_8B_WORD0 {
   
   // Bit field definition.
   struct {
+    /// read-write - Data byte 0 of Rx/Tx frame.
     uint32_t DATA_BYTE_3 : 8;
+    /// read-write - Data byte 1 of Rx/Tx frame.
     uint32_t DATA_BYTE_2 : 8;
+    /// read-write - Data byte 2 of Rx/Tx frame.
     uint32_t DATA_BYTE_1 : 8;
+    /// read-write - Data byte 3 of Rx/Tx frame.
     uint32_t DATA_BYTE_0 : 8;
   } bits;
   
@@ -5670,9 +6861,13 @@ union MB2_64B_WORD8_L {
   
   // Bit field definition.
   struct {
+    /// read-write - Data byte 0 of Rx/Tx frame.
     uint32_t DATA_BYTE_35 : 8;
+    /// read-write - Data byte 1 of Rx/Tx frame.
     uint32_t DATA_BYTE_34 : 8;
+    /// read-write - Data byte 2 of Rx/Tx frame.
     uint32_t DATA_BYTE_33 : 8;
+    /// read-write - Data byte 3 of Rx/Tx frame.
     uint32_t DATA_BYTE_32 : 8;
   } bits;
   
@@ -5690,9 +6885,13 @@ union MB4_32B_WORD4_L {
   
   // Bit field definition.
   struct {
+    /// read-write - Data byte 0 of Rx/Tx frame.
     uint32_t DATA_BYTE_19 : 8;
+    /// read-write - Data byte 1 of Rx/Tx frame.
     uint32_t DATA_BYTE_18 : 8;
+    /// read-write - Data byte 2 of Rx/Tx frame.
     uint32_t DATA_BYTE_17 : 8;
+    /// read-write - Data byte 3 of Rx/Tx frame.
     uint32_t DATA_BYTE_16 : 8;
   } bits;
   
@@ -5710,9 +6909,13 @@ union MB7_16B_WORD2_L {
   
   // Bit field definition.
   struct {
+    /// read-write - Data byte 0 of Rx/Tx frame.
     uint32_t DATA_BYTE_11 : 8;
+    /// read-write - Data byte 1 of Rx/Tx frame.
     uint32_t DATA_BYTE_10 : 8;
+    /// read-write - Data byte 2 of Rx/Tx frame.
     uint32_t DATA_BYTE_9 : 8;
+    /// read-write - Data byte 3 of Rx/Tx frame.
     uint32_t DATA_BYTE_8 : 8;
   } bits;
   
@@ -5730,9 +6933,13 @@ union WORD011 {
   
   // Bit field definition.
   struct {
+    /// read-write - Data byte 0 of Rx/Tx frame.
     uint32_t DATA_BYTE_3 : 8;
+    /// read-write - Data byte 1 of Rx/Tx frame.
     uint32_t DATA_BYTE_2 : 8;
+    /// read-write - Data byte 2 of Rx/Tx frame.
     uint32_t DATA_BYTE_1 : 8;
+    /// read-write - Data byte 3 of Rx/Tx frame.
     uint32_t DATA_BYTE_0 : 8;
   } bits;
   
@@ -5750,9 +6957,13 @@ union MB11_8B_WORD1 {
   
   // Bit field definition.
   struct {
+    /// read-write - Data byte 0 of Rx/Tx frame.
     uint32_t DATA_BYTE_7 : 8;
+    /// read-write - Data byte 1 of Rx/Tx frame.
     uint32_t DATA_BYTE_6 : 8;
+    /// read-write - Data byte 2 of Rx/Tx frame.
     uint32_t DATA_BYTE_5 : 8;
+    /// read-write - Data byte 3 of Rx/Tx frame.
     uint32_t DATA_BYTE_4 : 8;
   } bits;
   
@@ -5770,9 +6981,13 @@ union MB2_64B_WORD9_L {
   
   // Bit field definition.
   struct {
+    /// read-write - Data byte 0 of Rx/Tx frame.
     uint32_t DATA_BYTE_39 : 8;
+    /// read-write - Data byte 1 of Rx/Tx frame.
     uint32_t DATA_BYTE_38 : 8;
+    /// read-write - Data byte 2 of Rx/Tx frame.
     uint32_t DATA_BYTE_37 : 8;
+    /// read-write - Data byte 3 of Rx/Tx frame.
     uint32_t DATA_BYTE_36 : 8;
   } bits;
   
@@ -5790,9 +7005,13 @@ union MB4_32B_WORD5_L {
   
   // Bit field definition.
   struct {
+    /// read-write - Data byte 0 of Rx/Tx frame.
     uint32_t DATA_BYTE_23 : 8;
+    /// read-write - Data byte 1 of Rx/Tx frame.
     uint32_t DATA_BYTE_22 : 8;
+    /// read-write - Data byte 2 of Rx/Tx frame.
     uint32_t DATA_BYTE_21 : 8;
+    /// read-write - Data byte 3 of Rx/Tx frame.
     uint32_t DATA_BYTE_20 : 8;
   } bits;
   
@@ -5810,9 +7029,13 @@ union MB7_16B_WORD3_L {
   
   // Bit field definition.
   struct {
+    /// read-write - Data byte 0 of Rx/Tx frame.
     uint32_t DATA_BYTE_15 : 8;
+    /// read-write - Data byte 1 of Rx/Tx frame.
     uint32_t DATA_BYTE_14 : 8;
+    /// read-write - Data byte 2 of Rx/Tx frame.
     uint32_t DATA_BYTE_13 : 8;
+    /// read-write - Data byte 3 of Rx/Tx frame.
     uint32_t DATA_BYTE_12 : 8;
   } bits;
   
@@ -5830,9 +7053,13 @@ union WORD111 {
   
   // Bit field definition.
   struct {
+    /// read-write - Data byte 0 of Rx/Tx frame.
     uint32_t DATA_BYTE_7 : 8;
+    /// read-write - Data byte 1 of Rx/Tx frame.
     uint32_t DATA_BYTE_6 : 8;
+    /// read-write - Data byte 2 of Rx/Tx frame.
     uint32_t DATA_BYTE_5 : 8;
+    /// read-write - Data byte 3 of Rx/Tx frame.
     uint32_t DATA_BYTE_4 : 8;
   } bits;
   
@@ -5850,16 +7077,25 @@ union CS12 {
   
   // Bit field definition.
   struct {
+    /// read-write - Free-Running Counter Time stamp. This 16-bit field is a copy of the Free-Running Timer, captured for Tx and Rx frames at the time when the beginning of the Identifier field appears on the CAN bus.
     uint32_t TIME_STAMP : 16;
+    /// read-write - Length of the data to be stored/transmitted.
     uint32_t DLC : 4;
+    /// read-write - Remote Transmission Request. One/zero for remote/data frame.
     uint32_t RTR : 1;
+    /// read-write - ID Extended. One/zero for extended/standard format frame.
     uint32_t IDE : 1;
+    /// read-write - Substitute Remote Request. Contains a fixed recessive bit.
     uint32_t SRR : 1;
     uint32_t _reserved_0 : 1;
+    /// read-write - Message Buffer Code. This 4-bit field can be accessed (read or write) by the CPU and by the FlexCAN module itself, as part of the message buffer matching and arbitration process.
     uint32_t CODE : 4;
     uint32_t _reserved_1 : 1;
+    /// read-write - Error State Indicator. This bit indicates if the transmitting node is error active or error passive.
     uint32_t ESI : 1;
+    /// read-write - Bit Rate Switch. This bit defines whether the bit rate is switched inside a CAN FD format frame.
     uint32_t BRS : 1;
+    /// read-write - Extended Data Length. This bit distinguishes between CAN format and CAN FD format frames. The EDL bit must not be set for Message Buffers configured to RANSWER with code field 0b1010.
     uint32_t EDL : 1;
   } bits;
   
@@ -5877,16 +7113,25 @@ union MB12_8B_CS {
   
   // Bit field definition.
   struct {
+    /// read-write - Free-Running Counter Time stamp. This 16-bit field is a copy of the Free-Running Timer, captured for Tx and Rx frames at the time when the beginning of the Identifier field appears on the CAN bus.
     uint32_t TIME_STAMP : 16;
+    /// read-write - Length of the data to be stored/transmitted.
     uint32_t DLC : 4;
+    /// read-write - Remote Transmission Request. One/zero for remote/data frame.
     uint32_t RTR : 1;
+    /// read-write - ID Extended. One/zero for extended/standard format frame.
     uint32_t IDE : 1;
+    /// read-write - Substitute Remote Request. Contains a fixed recessive bit.
     uint32_t SRR : 1;
     uint32_t _reserved_0 : 1;
+    /// read-write - Message Buffer Code. This 4-bit field can be accessed (read or write) by the CPU and by the FlexCAN module itself, as part of the message buffer matching and arbitration process.
     uint32_t CODE : 4;
     uint32_t _reserved_1 : 1;
+    /// read-write - Error State Indicator. This bit indicates if the transmitting node is error active or error passive.
     uint32_t ESI : 1;
+    /// read-write - Bit Rate Switch. This bit defines whether the bit rate is switched inside a CAN FD format frame.
     uint32_t BRS : 1;
+    /// read-write - Extended Data Length. This bit distinguishes between CAN format and CAN FD format frames. The EDL bit must not be set for Message Buffers configured to RANSWER with code field 0b1010.
     uint32_t EDL : 1;
   } bits;
   
@@ -5904,9 +7149,13 @@ union MB2_64B_WORD10_L {
   
   // Bit field definition.
   struct {
+    /// read-write - Data byte 0 of Rx/Tx frame.
     uint32_t DATA_BYTE_43 : 8;
+    /// read-write - Data byte 1 of Rx/Tx frame.
     uint32_t DATA_BYTE_42 : 8;
+    /// read-write - Data byte 2 of Rx/Tx frame.
     uint32_t DATA_BYTE_41 : 8;
+    /// read-write - Data byte 3 of Rx/Tx frame.
     uint32_t DATA_BYTE_40 : 8;
   } bits;
   
@@ -5924,9 +7173,13 @@ union MB4_32B_WORD6_L {
   
   // Bit field definition.
   struct {
+    /// read-write - Data byte 0 of Rx/Tx frame.
     uint32_t DATA_BYTE_27 : 8;
+    /// read-write - Data byte 1 of Rx/Tx frame.
     uint32_t DATA_BYTE_26 : 8;
+    /// read-write - Data byte 2 of Rx/Tx frame.
     uint32_t DATA_BYTE_25 : 8;
+    /// read-write - Data byte 3 of Rx/Tx frame.
     uint32_t DATA_BYTE_24 : 8;
   } bits;
   
@@ -5944,16 +7197,25 @@ union MB8_16B_CS_L {
   
   // Bit field definition.
   struct {
+    /// read-write - Free-Running Counter Time stamp. This 16-bit field is a copy of the Free-Running Timer, captured for Tx and Rx frames at the time when the beginning of the Identifier field appears on the CAN bus.
     uint32_t TIME_STAMP : 16;
+    /// read-write - Length of the data to be stored/transmitted.
     uint32_t DLC : 4;
+    /// read-write - Remote Transmission Request. One/zero for remote/data frame.
     uint32_t RTR : 1;
+    /// read-write - ID Extended. One/zero for extended/standard format frame.
     uint32_t IDE : 1;
+    /// read-write - Substitute Remote Request. Contains a fixed recessive bit.
     uint32_t SRR : 1;
     uint32_t _reserved_0 : 1;
+    /// read-write - Message Buffer Code. This 4-bit field can be accessed (read or write) by the CPU and by the FlexCAN module itself, as part of the message buffer matching and arbitration process.
     uint32_t CODE : 4;
     uint32_t _reserved_1 : 1;
+    /// read-write - Error State Indicator. This bit indicates if the transmitting node is error active or error passive.
     uint32_t ESI : 1;
+    /// read-write - Bit Rate Switch. This bit defines whether the bit rate is switched inside a CAN FD format frame.
     uint32_t BRS : 1;
+    /// read-write - Extended Data Length. This bit distinguishes between CAN format and CAN FD format frames. The EDL bit must not be set for Message Buffers configured to RANSWER with code field 0b1010.
     uint32_t EDL : 1;
   } bits;
   
@@ -5971,8 +7233,11 @@ union ID12 {
   
   // Bit field definition.
   struct {
+    /// read-write - Contains extended (LOW word) identifier of message buffer.
     uint32_t EXT : 18;
+    /// read-write - Contains standard/extended (HIGH word) identifier of message buffer.
     uint32_t STD : 11;
+    /// read-write - Local priority. This 3-bit fieldis only used when LPRIO_EN bit is set in MCR and it only makes sense for Tx buffers. These bits are not transmitted. They are appended to the regular ID to define the transmission priority.
     uint32_t PRIO : 3;
   } bits;
   
@@ -5990,8 +7255,11 @@ union MB12_8B_ID {
   
   // Bit field definition.
   struct {
+    /// read-write - Contains extended (LOW word) identifier of message buffer.
     uint32_t EXT : 18;
+    /// read-write - Contains standard/extended (HIGH word) identifier of message buffer.
     uint32_t STD : 11;
+    /// read-write - Local priority. This 3-bit fieldis only used when LPRIO_EN bit is set in MCR and it only makes sense for Tx buffers. These bits are not transmitted. They are appended to the regular ID to define the transmission priority.
     uint32_t PRIO : 3;
   } bits;
   
@@ -6009,9 +7277,13 @@ union MB2_64B_WORD11_L {
   
   // Bit field definition.
   struct {
+    /// read-write - Data byte 0 of Rx/Tx frame.
     uint32_t DATA_BYTE_47 : 8;
+    /// read-write - Data byte 1 of Rx/Tx frame.
     uint32_t DATA_BYTE_46 : 8;
+    /// read-write - Data byte 2 of Rx/Tx frame.
     uint32_t DATA_BYTE_45 : 8;
+    /// read-write - Data byte 3 of Rx/Tx frame.
     uint32_t DATA_BYTE_44 : 8;
   } bits;
   
@@ -6029,9 +7301,13 @@ union MB4_32B_WORD7_L {
   
   // Bit field definition.
   struct {
+    /// read-write - Data byte 0 of Rx/Tx frame.
     uint32_t DATA_BYTE_31 : 8;
+    /// read-write - Data byte 1 of Rx/Tx frame.
     uint32_t DATA_BYTE_30 : 8;
+    /// read-write - Data byte 2 of Rx/Tx frame.
     uint32_t DATA_BYTE_29 : 8;
+    /// read-write - Data byte 3 of Rx/Tx frame.
     uint32_t DATA_BYTE_28 : 8;
   } bits;
   
@@ -6049,8 +7325,11 @@ union MB8_16B_ID_L {
   
   // Bit field definition.
   struct {
+    /// read-write - Contains extended (LOW word) identifier of message buffer.
     uint32_t EXT : 18;
+    /// read-write - Contains standard/extended (HIGH word) identifier of message buffer.
     uint32_t STD : 11;
+    /// read-write - Local priority. This 3-bit fieldis only used when LPRIO_EN bit is set in MCR and it only makes sense for Tx buffers. These bits are not transmitted. They are appended to the regular ID to define the transmission priority.
     uint32_t PRIO : 3;
   } bits;
   
@@ -6068,9 +7347,13 @@ union MB12_8B_WORD0 {
   
   // Bit field definition.
   struct {
+    /// read-write - Data byte 0 of Rx/Tx frame.
     uint32_t DATA_BYTE_3 : 8;
+    /// read-write - Data byte 1 of Rx/Tx frame.
     uint32_t DATA_BYTE_2 : 8;
+    /// read-write - Data byte 2 of Rx/Tx frame.
     uint32_t DATA_BYTE_1 : 8;
+    /// read-write - Data byte 3 of Rx/Tx frame.
     uint32_t DATA_BYTE_0 : 8;
   } bits;
   
@@ -6088,9 +7371,13 @@ union MB2_64B_WORD12_L {
   
   // Bit field definition.
   struct {
+    /// read-write - Data byte 0 of Rx/Tx frame.
     uint32_t DATA_BYTE_51 : 8;
+    /// read-write - Data byte 1 of Rx/Tx frame.
     uint32_t DATA_BYTE_50 : 8;
+    /// read-write - Data byte 2 of Rx/Tx frame.
     uint32_t DATA_BYTE_49 : 8;
+    /// read-write - Data byte 3 of Rx/Tx frame.
     uint32_t DATA_BYTE_48 : 8;
   } bits;
   
@@ -6108,16 +7395,25 @@ union MB5_32B_CS_L {
   
   // Bit field definition.
   struct {
+    /// read-write - Free-Running Counter Time stamp. This 16-bit field is a copy of the Free-Running Timer, captured for Tx and Rx frames at the time when the beginning of the Identifier field appears on the CAN bus.
     uint32_t TIME_STAMP : 16;
+    /// read-write - Length of the data to be stored/transmitted.
     uint32_t DLC : 4;
+    /// read-write - Remote Transmission Request. One/zero for remote/data frame.
     uint32_t RTR : 1;
+    /// read-write - ID Extended. One/zero for extended/standard format frame.
     uint32_t IDE : 1;
+    /// read-write - Substitute Remote Request. Contains a fixed recessive bit.
     uint32_t SRR : 1;
     uint32_t _reserved_0 : 1;
+    /// read-write - Message Buffer Code. This 4-bit field can be accessed (read or write) by the CPU and by the FlexCAN module itself, as part of the message buffer matching and arbitration process.
     uint32_t CODE : 4;
     uint32_t _reserved_1 : 1;
+    /// read-write - Error State Indicator. This bit indicates if the transmitting node is error active or error passive.
     uint32_t ESI : 1;
+    /// read-write - Bit Rate Switch. This bit defines whether the bit rate is switched inside a CAN FD format frame.
     uint32_t BRS : 1;
+    /// read-write - Extended Data Length. This bit distinguishes between CAN format and CAN FD format frames. The EDL bit must not be set for Message Buffers configured to RANSWER with code field 0b1010.
     uint32_t EDL : 1;
   } bits;
   
@@ -6135,9 +7431,13 @@ union MB8_16B_WORD0_L {
   
   // Bit field definition.
   struct {
+    /// read-write - Data byte 0 of Rx/Tx frame.
     uint32_t DATA_BYTE_3 : 8;
+    /// read-write - Data byte 1 of Rx/Tx frame.
     uint32_t DATA_BYTE_2 : 8;
+    /// read-write - Data byte 2 of Rx/Tx frame.
     uint32_t DATA_BYTE_1 : 8;
+    /// read-write - Data byte 3 of Rx/Tx frame.
     uint32_t DATA_BYTE_0 : 8;
   } bits;
   
@@ -6155,9 +7455,13 @@ union WORD012 {
   
   // Bit field definition.
   struct {
+    /// read-write - Data byte 0 of Rx/Tx frame.
     uint32_t DATA_BYTE_3 : 8;
+    /// read-write - Data byte 1 of Rx/Tx frame.
     uint32_t DATA_BYTE_2 : 8;
+    /// read-write - Data byte 2 of Rx/Tx frame.
     uint32_t DATA_BYTE_1 : 8;
+    /// read-write - Data byte 3 of Rx/Tx frame.
     uint32_t DATA_BYTE_0 : 8;
   } bits;
   
@@ -6175,9 +7479,13 @@ union MB12_8B_WORD1 {
   
   // Bit field definition.
   struct {
+    /// read-write - Data byte 0 of Rx/Tx frame.
     uint32_t DATA_BYTE_7 : 8;
+    /// read-write - Data byte 1 of Rx/Tx frame.
     uint32_t DATA_BYTE_6 : 8;
+    /// read-write - Data byte 2 of Rx/Tx frame.
     uint32_t DATA_BYTE_5 : 8;
+    /// read-write - Data byte 3 of Rx/Tx frame.
     uint32_t DATA_BYTE_4 : 8;
   } bits;
   
@@ -6195,9 +7503,13 @@ union MB2_64B_WORD13_L {
   
   // Bit field definition.
   struct {
+    /// read-write - Data byte 0 of Rx/Tx frame.
     uint32_t DATA_BYTE_55 : 8;
+    /// read-write - Data byte 1 of Rx/Tx frame.
     uint32_t DATA_BYTE_54 : 8;
+    /// read-write - Data byte 2 of Rx/Tx frame.
     uint32_t DATA_BYTE_53 : 8;
+    /// read-write - Data byte 3 of Rx/Tx frame.
     uint32_t DATA_BYTE_52 : 8;
   } bits;
   
@@ -6215,8 +7527,11 @@ union MB5_32B_ID_L {
   
   // Bit field definition.
   struct {
+    /// read-write - Contains extended (LOW word) identifier of message buffer.
     uint32_t EXT : 18;
+    /// read-write - Contains standard/extended (HIGH word) identifier of message buffer.
     uint32_t STD : 11;
+    /// read-write - Local priority. This 3-bit fieldis only used when LPRIO_EN bit is set in MCR and it only makes sense for Tx buffers. These bits are not transmitted. They are appended to the regular ID to define the transmission priority.
     uint32_t PRIO : 3;
   } bits;
   
@@ -6234,9 +7549,13 @@ union MB8_16B_WORD1_L {
   
   // Bit field definition.
   struct {
+    /// read-write - Data byte 0 of Rx/Tx frame.
     uint32_t DATA_BYTE_7 : 8;
+    /// read-write - Data byte 1 of Rx/Tx frame.
     uint32_t DATA_BYTE_6 : 8;
+    /// read-write - Data byte 2 of Rx/Tx frame.
     uint32_t DATA_BYTE_5 : 8;
+    /// read-write - Data byte 3 of Rx/Tx frame.
     uint32_t DATA_BYTE_4 : 8;
   } bits;
   
@@ -6254,9 +7573,13 @@ union WORD112 {
   
   // Bit field definition.
   struct {
+    /// read-write - Data byte 0 of Rx/Tx frame.
     uint32_t DATA_BYTE_7 : 8;
+    /// read-write - Data byte 1 of Rx/Tx frame.
     uint32_t DATA_BYTE_6 : 8;
+    /// read-write - Data byte 2 of Rx/Tx frame.
     uint32_t DATA_BYTE_5 : 8;
+    /// read-write - Data byte 3 of Rx/Tx frame.
     uint32_t DATA_BYTE_4 : 8;
   } bits;
   
@@ -6274,16 +7597,25 @@ union CS13 {
   
   // Bit field definition.
   struct {
+    /// read-write - Free-Running Counter Time stamp. This 16-bit field is a copy of the Free-Running Timer, captured for Tx and Rx frames at the time when the beginning of the Identifier field appears on the CAN bus.
     uint32_t TIME_STAMP : 16;
+    /// read-write - Length of the data to be stored/transmitted.
     uint32_t DLC : 4;
+    /// read-write - Remote Transmission Request. One/zero for remote/data frame.
     uint32_t RTR : 1;
+    /// read-write - ID Extended. One/zero for extended/standard format frame.
     uint32_t IDE : 1;
+    /// read-write - Substitute Remote Request. Contains a fixed recessive bit.
     uint32_t SRR : 1;
     uint32_t _reserved_0 : 1;
+    /// read-write - Message Buffer Code. This 4-bit field can be accessed (read or write) by the CPU and by the FlexCAN module itself, as part of the message buffer matching and arbitration process.
     uint32_t CODE : 4;
     uint32_t _reserved_1 : 1;
+    /// read-write - Error State Indicator. This bit indicates if the transmitting node is error active or error passive.
     uint32_t ESI : 1;
+    /// read-write - Bit Rate Switch. This bit defines whether the bit rate is switched inside a CAN FD format frame.
     uint32_t BRS : 1;
+    /// read-write - Extended Data Length. This bit distinguishes between CAN format and CAN FD format frames. The EDL bit must not be set for Message Buffers configured to RANSWER with code field 0b1010.
     uint32_t EDL : 1;
   } bits;
   
@@ -6301,16 +7633,25 @@ union MB13_8B_CS {
   
   // Bit field definition.
   struct {
+    /// read-write - Free-Running Counter Time stamp. This 16-bit field is a copy of the Free-Running Timer, captured for Tx and Rx frames at the time when the beginning of the Identifier field appears on the CAN bus.
     uint32_t TIME_STAMP : 16;
+    /// read-write - Length of the data to be stored/transmitted.
     uint32_t DLC : 4;
+    /// read-write - Remote Transmission Request. One/zero for remote/data frame.
     uint32_t RTR : 1;
+    /// read-write - ID Extended. One/zero for extended/standard format frame.
     uint32_t IDE : 1;
+    /// read-write - Substitute Remote Request. Contains a fixed recessive bit.
     uint32_t SRR : 1;
     uint32_t _reserved_0 : 1;
+    /// read-write - Message Buffer Code. This 4-bit field can be accessed (read or write) by the CPU and by the FlexCAN module itself, as part of the message buffer matching and arbitration process.
     uint32_t CODE : 4;
     uint32_t _reserved_1 : 1;
+    /// read-write - Error State Indicator. This bit indicates if the transmitting node is error active or error passive.
     uint32_t ESI : 1;
+    /// read-write - Bit Rate Switch. This bit defines whether the bit rate is switched inside a CAN FD format frame.
     uint32_t BRS : 1;
+    /// read-write - Extended Data Length. This bit distinguishes between CAN format and CAN FD format frames. The EDL bit must not be set for Message Buffers configured to RANSWER with code field 0b1010.
     uint32_t EDL : 1;
   } bits;
   
@@ -6328,9 +7669,13 @@ union MB2_64B_WORD14_L {
   
   // Bit field definition.
   struct {
+    /// read-write - Data byte 0 of Rx/Tx frame.
     uint32_t DATA_BYTE_59 : 8;
+    /// read-write - Data byte 1 of Rx/Tx frame.
     uint32_t DATA_BYTE_58 : 8;
+    /// read-write - Data byte 2 of Rx/Tx frame.
     uint32_t DATA_BYTE_57 : 8;
+    /// read-write - Data byte 3 of Rx/Tx frame.
     uint32_t DATA_BYTE_56 : 8;
   } bits;
   
@@ -6348,9 +7693,13 @@ union MB5_32B_WORD0_L {
   
   // Bit field definition.
   struct {
+    /// read-write - Data byte 0 of Rx/Tx frame.
     uint32_t DATA_BYTE_3 : 8;
+    /// read-write - Data byte 1 of Rx/Tx frame.
     uint32_t DATA_BYTE_2 : 8;
+    /// read-write - Data byte 2 of Rx/Tx frame.
     uint32_t DATA_BYTE_1 : 8;
+    /// read-write - Data byte 3 of Rx/Tx frame.
     uint32_t DATA_BYTE_0 : 8;
   } bits;
   
@@ -6368,9 +7717,13 @@ union MB8_16B_WORD2_L {
   
   // Bit field definition.
   struct {
+    /// read-write - Data byte 0 of Rx/Tx frame.
     uint32_t DATA_BYTE_11 : 8;
+    /// read-write - Data byte 1 of Rx/Tx frame.
     uint32_t DATA_BYTE_10 : 8;
+    /// read-write - Data byte 2 of Rx/Tx frame.
     uint32_t DATA_BYTE_9 : 8;
+    /// read-write - Data byte 3 of Rx/Tx frame.
     uint32_t DATA_BYTE_8 : 8;
   } bits;
   
@@ -6388,8 +7741,11 @@ union ID13 {
   
   // Bit field definition.
   struct {
+    /// read-write - Contains extended (LOW word) identifier of message buffer.
     uint32_t EXT : 18;
+    /// read-write - Contains standard/extended (HIGH word) identifier of message buffer.
     uint32_t STD : 11;
+    /// read-write - Local priority. This 3-bit fieldis only used when LPRIO_EN bit is set in MCR and it only makes sense for Tx buffers. These bits are not transmitted. They are appended to the regular ID to define the transmission priority.
     uint32_t PRIO : 3;
   } bits;
   
@@ -6407,8 +7763,11 @@ union MB13_8B_ID {
   
   // Bit field definition.
   struct {
+    /// read-write - Contains extended (LOW word) identifier of message buffer.
     uint32_t EXT : 18;
+    /// read-write - Contains standard/extended (HIGH word) identifier of message buffer.
     uint32_t STD : 11;
+    /// read-write - Local priority. This 3-bit fieldis only used when LPRIO_EN bit is set in MCR and it only makes sense for Tx buffers. These bits are not transmitted. They are appended to the regular ID to define the transmission priority.
     uint32_t PRIO : 3;
   } bits;
   
@@ -6426,9 +7785,13 @@ union MB2_64B_WORD15_L {
   
   // Bit field definition.
   struct {
+    /// read-write - Data byte 0 of Rx/Tx frame.
     uint32_t DATA_BYTE_63 : 8;
+    /// read-write - Data byte 1 of Rx/Tx frame.
     uint32_t DATA_BYTE_62 : 8;
+    /// read-write - Data byte 2 of Rx/Tx frame.
     uint32_t DATA_BYTE_61 : 8;
+    /// read-write - Data byte 3 of Rx/Tx frame.
     uint32_t DATA_BYTE_60 : 8;
   } bits;
   
@@ -6446,9 +7809,13 @@ union MB5_32B_WORD1_L {
   
   // Bit field definition.
   struct {
+    /// read-write - Data byte 0 of Rx/Tx frame.
     uint32_t DATA_BYTE_7 : 8;
+    /// read-write - Data byte 1 of Rx/Tx frame.
     uint32_t DATA_BYTE_6 : 8;
+    /// read-write - Data byte 2 of Rx/Tx frame.
     uint32_t DATA_BYTE_5 : 8;
+    /// read-write - Data byte 3 of Rx/Tx frame.
     uint32_t DATA_BYTE_4 : 8;
   } bits;
   
@@ -6466,9 +7833,13 @@ union MB8_16B_WORD3_L {
   
   // Bit field definition.
   struct {
+    /// read-write - Data byte 0 of Rx/Tx frame.
     uint32_t DATA_BYTE_15 : 8;
+    /// read-write - Data byte 1 of Rx/Tx frame.
     uint32_t DATA_BYTE_14 : 8;
+    /// read-write - Data byte 2 of Rx/Tx frame.
     uint32_t DATA_BYTE_13 : 8;
+    /// read-write - Data byte 3 of Rx/Tx frame.
     uint32_t DATA_BYTE_12 : 8;
   } bits;
   
@@ -6486,9 +7857,13 @@ union MB13_8B_WORD0 {
   
   // Bit field definition.
   struct {
+    /// read-write - Data byte 0 of Rx/Tx frame.
     uint32_t DATA_BYTE_3 : 8;
+    /// read-write - Data byte 1 of Rx/Tx frame.
     uint32_t DATA_BYTE_2 : 8;
+    /// read-write - Data byte 2 of Rx/Tx frame.
     uint32_t DATA_BYTE_1 : 8;
+    /// read-write - Data byte 3 of Rx/Tx frame.
     uint32_t DATA_BYTE_0 : 8;
   } bits;
   
@@ -6506,16 +7881,25 @@ union MB3_64B_CS_L {
   
   // Bit field definition.
   struct {
+    /// read-write - Free-Running Counter Time stamp. This 16-bit field is a copy of the Free-Running Timer, captured for Tx and Rx frames at the time when the beginning of the Identifier field appears on the CAN bus.
     uint32_t TIME_STAMP : 16;
+    /// read-write - Length of the data to be stored/transmitted.
     uint32_t DLC : 4;
+    /// read-write - Remote Transmission Request. One/zero for remote/data frame.
     uint32_t RTR : 1;
+    /// read-write - ID Extended. One/zero for extended/standard format frame.
     uint32_t IDE : 1;
+    /// read-write - Substitute Remote Request. Contains a fixed recessive bit.
     uint32_t SRR : 1;
     uint32_t _reserved_0 : 1;
+    /// read-write - Message Buffer Code. This 4-bit field can be accessed (read or write) by the CPU and by the FlexCAN module itself, as part of the message buffer matching and arbitration process.
     uint32_t CODE : 4;
     uint32_t _reserved_1 : 1;
+    /// read-write - Error State Indicator. This bit indicates if the transmitting node is error active or error passive.
     uint32_t ESI : 1;
+    /// read-write - Bit Rate Switch. This bit defines whether the bit rate is switched inside a CAN FD format frame.
     uint32_t BRS : 1;
+    /// read-write - Extended Data Length. This bit distinguishes between CAN format and CAN FD format frames. The EDL bit must not be set for Message Buffers configured to RANSWER with code field 0b1010.
     uint32_t EDL : 1;
   } bits;
   
@@ -6533,9 +7917,13 @@ union MB5_32B_WORD2_L {
   
   // Bit field definition.
   struct {
+    /// read-write - Data byte 0 of Rx/Tx frame.
     uint32_t DATA_BYTE_11 : 8;
+    /// read-write - Data byte 1 of Rx/Tx frame.
     uint32_t DATA_BYTE_10 : 8;
+    /// read-write - Data byte 2 of Rx/Tx frame.
     uint32_t DATA_BYTE_9 : 8;
+    /// read-write - Data byte 3 of Rx/Tx frame.
     uint32_t DATA_BYTE_8 : 8;
   } bits;
   
@@ -6553,16 +7941,25 @@ union MB9_16B_CS_L {
   
   // Bit field definition.
   struct {
+    /// read-write - Free-Running Counter Time stamp. This 16-bit field is a copy of the Free-Running Timer, captured for Tx and Rx frames at the time when the beginning of the Identifier field appears on the CAN bus.
     uint32_t TIME_STAMP : 16;
+    /// read-write - Length of the data to be stored/transmitted.
     uint32_t DLC : 4;
+    /// read-write - Remote Transmission Request. One/zero for remote/data frame.
     uint32_t RTR : 1;
+    /// read-write - ID Extended. One/zero for extended/standard format frame.
     uint32_t IDE : 1;
+    /// read-write - Substitute Remote Request. Contains a fixed recessive bit.
     uint32_t SRR : 1;
     uint32_t _reserved_0 : 1;
+    /// read-write - Message Buffer Code. This 4-bit field can be accessed (read or write) by the CPU and by the FlexCAN module itself, as part of the message buffer matching and arbitration process.
     uint32_t CODE : 4;
     uint32_t _reserved_1 : 1;
+    /// read-write - Error State Indicator. This bit indicates if the transmitting node is error active or error passive.
     uint32_t ESI : 1;
+    /// read-write - Bit Rate Switch. This bit defines whether the bit rate is switched inside a CAN FD format frame.
     uint32_t BRS : 1;
+    /// read-write - Extended Data Length. This bit distinguishes between CAN format and CAN FD format frames. The EDL bit must not be set for Message Buffers configured to RANSWER with code field 0b1010.
     uint32_t EDL : 1;
   } bits;
   
@@ -6580,9 +7977,13 @@ union WORD013 {
   
   // Bit field definition.
   struct {
+    /// read-write - Data byte 0 of Rx/Tx frame.
     uint32_t DATA_BYTE_3 : 8;
+    /// read-write - Data byte 1 of Rx/Tx frame.
     uint32_t DATA_BYTE_2 : 8;
+    /// read-write - Data byte 2 of Rx/Tx frame.
     uint32_t DATA_BYTE_1 : 8;
+    /// read-write - Data byte 3 of Rx/Tx frame.
     uint32_t DATA_BYTE_0 : 8;
   } bits;
   
@@ -6600,9 +8001,13 @@ union MB13_8B_WORD1 {
   
   // Bit field definition.
   struct {
+    /// read-write - Data byte 0 of Rx/Tx frame.
     uint32_t DATA_BYTE_7 : 8;
+    /// read-write - Data byte 1 of Rx/Tx frame.
     uint32_t DATA_BYTE_6 : 8;
+    /// read-write - Data byte 2 of Rx/Tx frame.
     uint32_t DATA_BYTE_5 : 8;
+    /// read-write - Data byte 3 of Rx/Tx frame.
     uint32_t DATA_BYTE_4 : 8;
   } bits;
   
@@ -6620,8 +8025,11 @@ union MB3_64B_ID_L {
   
   // Bit field definition.
   struct {
+    /// read-write - Contains extended (LOW word) identifier of message buffer.
     uint32_t EXT : 18;
+    /// read-write - Contains standard/extended (HIGH word) identifier of message buffer.
     uint32_t STD : 11;
+    /// read-write - Local priority. This 3-bit fieldis only used when LPRIO_EN bit is set in MCR and it only makes sense for Tx buffers. These bits are not transmitted. They are appended to the regular ID to define the transmission priority.
     uint32_t PRIO : 3;
   } bits;
   
@@ -6639,9 +8047,13 @@ union MB5_32B_WORD3_L {
   
   // Bit field definition.
   struct {
+    /// read-write - Data byte 0 of Rx/Tx frame.
     uint32_t DATA_BYTE_15 : 8;
+    /// read-write - Data byte 1 of Rx/Tx frame.
     uint32_t DATA_BYTE_14 : 8;
+    /// read-write - Data byte 2 of Rx/Tx frame.
     uint32_t DATA_BYTE_13 : 8;
+    /// read-write - Data byte 3 of Rx/Tx frame.
     uint32_t DATA_BYTE_12 : 8;
   } bits;
   
@@ -6659,8 +8071,11 @@ union MB9_16B_ID_L {
   
   // Bit field definition.
   struct {
+    /// read-write - Contains extended (LOW word) identifier of message buffer.
     uint32_t EXT : 18;
+    /// read-write - Contains standard/extended (HIGH word) identifier of message buffer.
     uint32_t STD : 11;
+    /// read-write - Local priority. This 3-bit fieldis only used when LPRIO_EN bit is set in MCR and it only makes sense for Tx buffers. These bits are not transmitted. They are appended to the regular ID to define the transmission priority.
     uint32_t PRIO : 3;
   } bits;
   
@@ -6678,9 +8093,13 @@ union WORD113 {
   
   // Bit field definition.
   struct {
+    /// read-write - Data byte 0 of Rx/Tx frame.
     uint32_t DATA_BYTE_7 : 8;
+    /// read-write - Data byte 1 of Rx/Tx frame.
     uint32_t DATA_BYTE_6 : 8;
+    /// read-write - Data byte 2 of Rx/Tx frame.
     uint32_t DATA_BYTE_5 : 8;
+    /// read-write - Data byte 3 of Rx/Tx frame.
     uint32_t DATA_BYTE_4 : 8;
   } bits;
   
@@ -6698,16 +8117,25 @@ union CS14 {
   
   // Bit field definition.
   struct {
+    /// read-write - Free-Running Counter Time stamp. This 16-bit field is a copy of the Free-Running Timer, captured for Tx and Rx frames at the time when the beginning of the Identifier field appears on the CAN bus.
     uint32_t TIME_STAMP : 16;
+    /// read-write - Length of the data to be stored/transmitted.
     uint32_t DLC : 4;
+    /// read-write - Remote Transmission Request. One/zero for remote/data frame.
     uint32_t RTR : 1;
+    /// read-write - ID Extended. One/zero for extended/standard format frame.
     uint32_t IDE : 1;
+    /// read-write - Substitute Remote Request. Contains a fixed recessive bit.
     uint32_t SRR : 1;
     uint32_t _reserved_0 : 1;
+    /// read-write - Message Buffer Code. This 4-bit field can be accessed (read or write) by the CPU and by the FlexCAN module itself, as part of the message buffer matching and arbitration process.
     uint32_t CODE : 4;
     uint32_t _reserved_1 : 1;
+    /// read-write - Error State Indicator. This bit indicates if the transmitting node is error active or error passive.
     uint32_t ESI : 1;
+    /// read-write - Bit Rate Switch. This bit defines whether the bit rate is switched inside a CAN FD format frame.
     uint32_t BRS : 1;
+    /// read-write - Extended Data Length. This bit distinguishes between CAN format and CAN FD format frames. The EDL bit must not be set for Message Buffers configured to RANSWER with code field 0b1010.
     uint32_t EDL : 1;
   } bits;
   
@@ -6725,16 +8153,25 @@ union MB14_8B_CS {
   
   // Bit field definition.
   struct {
+    /// read-write - Free-Running Counter Time stamp. This 16-bit field is a copy of the Free-Running Timer, captured for Tx and Rx frames at the time when the beginning of the Identifier field appears on the CAN bus.
     uint32_t TIME_STAMP : 16;
+    /// read-write - Length of the data to be stored/transmitted.
     uint32_t DLC : 4;
+    /// read-write - Remote Transmission Request. One/zero for remote/data frame.
     uint32_t RTR : 1;
+    /// read-write - ID Extended. One/zero for extended/standard format frame.
     uint32_t IDE : 1;
+    /// read-write - Substitute Remote Request. Contains a fixed recessive bit.
     uint32_t SRR : 1;
     uint32_t _reserved_0 : 1;
+    /// read-write - Message Buffer Code. This 4-bit field can be accessed (read or write) by the CPU and by the FlexCAN module itself, as part of the message buffer matching and arbitration process.
     uint32_t CODE : 4;
     uint32_t _reserved_1 : 1;
+    /// read-write - Error State Indicator. This bit indicates if the transmitting node is error active or error passive.
     uint32_t ESI : 1;
+    /// read-write - Bit Rate Switch. This bit defines whether the bit rate is switched inside a CAN FD format frame.
     uint32_t BRS : 1;
+    /// read-write - Extended Data Length. This bit distinguishes between CAN format and CAN FD format frames. The EDL bit must not be set for Message Buffers configured to RANSWER with code field 0b1010.
     uint32_t EDL : 1;
   } bits;
   
@@ -6752,9 +8189,13 @@ union MB3_64B_WORD0_L {
   
   // Bit field definition.
   struct {
+    /// read-write - Data byte 0 of Rx/Tx frame.
     uint32_t DATA_BYTE_3 : 8;
+    /// read-write - Data byte 1 of Rx/Tx frame.
     uint32_t DATA_BYTE_2 : 8;
+    /// read-write - Data byte 2 of Rx/Tx frame.
     uint32_t DATA_BYTE_1 : 8;
+    /// read-write - Data byte 3 of Rx/Tx frame.
     uint32_t DATA_BYTE_0 : 8;
   } bits;
   
@@ -6772,9 +8213,13 @@ union MB5_32B_WORD4_L {
   
   // Bit field definition.
   struct {
+    /// read-write - Data byte 0 of Rx/Tx frame.
     uint32_t DATA_BYTE_19 : 8;
+    /// read-write - Data byte 1 of Rx/Tx frame.
     uint32_t DATA_BYTE_18 : 8;
+    /// read-write - Data byte 2 of Rx/Tx frame.
     uint32_t DATA_BYTE_17 : 8;
+    /// read-write - Data byte 3 of Rx/Tx frame.
     uint32_t DATA_BYTE_16 : 8;
   } bits;
   
@@ -6792,9 +8237,13 @@ union MB9_16B_WORD0_L {
   
   // Bit field definition.
   struct {
+    /// read-write - Data byte 0 of Rx/Tx frame.
     uint32_t DATA_BYTE_3 : 8;
+    /// read-write - Data byte 1 of Rx/Tx frame.
     uint32_t DATA_BYTE_2 : 8;
+    /// read-write - Data byte 2 of Rx/Tx frame.
     uint32_t DATA_BYTE_1 : 8;
+    /// read-write - Data byte 3 of Rx/Tx frame.
     uint32_t DATA_BYTE_0 : 8;
   } bits;
   
@@ -6812,8 +8261,11 @@ union ID14 {
   
   // Bit field definition.
   struct {
+    /// read-write - Contains extended (LOW word) identifier of message buffer.
     uint32_t EXT : 18;
+    /// read-write - Contains standard/extended (HIGH word) identifier of message buffer.
     uint32_t STD : 11;
+    /// read-write - Local priority. This 3-bit fieldis only used when LPRIO_EN bit is set in MCR and it only makes sense for Tx buffers. These bits are not transmitted. They are appended to the regular ID to define the transmission priority.
     uint32_t PRIO : 3;
   } bits;
   
@@ -6831,8 +8283,11 @@ union MB14_8B_ID {
   
   // Bit field definition.
   struct {
+    /// read-write - Contains extended (LOW word) identifier of message buffer.
     uint32_t EXT : 18;
+    /// read-write - Contains standard/extended (HIGH word) identifier of message buffer.
     uint32_t STD : 11;
+    /// read-write - Local priority. This 3-bit fieldis only used when LPRIO_EN bit is set in MCR and it only makes sense for Tx buffers. These bits are not transmitted. They are appended to the regular ID to define the transmission priority.
     uint32_t PRIO : 3;
   } bits;
   
@@ -6850,9 +8305,13 @@ union MB3_64B_WORD1_L {
   
   // Bit field definition.
   struct {
+    /// read-write - Data byte 0 of Rx/Tx frame.
     uint32_t DATA_BYTE_7 : 8;
+    /// read-write - Data byte 1 of Rx/Tx frame.
     uint32_t DATA_BYTE_6 : 8;
+    /// read-write - Data byte 2 of Rx/Tx frame.
     uint32_t DATA_BYTE_5 : 8;
+    /// read-write - Data byte 3 of Rx/Tx frame.
     uint32_t DATA_BYTE_4 : 8;
   } bits;
   
@@ -6870,9 +8329,13 @@ union MB5_32B_WORD5_L {
   
   // Bit field definition.
   struct {
+    /// read-write - Data byte 0 of Rx/Tx frame.
     uint32_t DATA_BYTE_23 : 8;
+    /// read-write - Data byte 1 of Rx/Tx frame.
     uint32_t DATA_BYTE_22 : 8;
+    /// read-write - Data byte 2 of Rx/Tx frame.
     uint32_t DATA_BYTE_21 : 8;
+    /// read-write - Data byte 3 of Rx/Tx frame.
     uint32_t DATA_BYTE_20 : 8;
   } bits;
   
@@ -6890,9 +8353,13 @@ union MB9_16B_WORD1_L {
   
   // Bit field definition.
   struct {
+    /// read-write - Data byte 0 of Rx/Tx frame.
     uint32_t DATA_BYTE_7 : 8;
+    /// read-write - Data byte 1 of Rx/Tx frame.
     uint32_t DATA_BYTE_6 : 8;
+    /// read-write - Data byte 2 of Rx/Tx frame.
     uint32_t DATA_BYTE_5 : 8;
+    /// read-write - Data byte 3 of Rx/Tx frame.
     uint32_t DATA_BYTE_4 : 8;
   } bits;
   
@@ -6910,9 +8377,13 @@ union MB14_8B_WORD0 {
   
   // Bit field definition.
   struct {
+    /// read-write - Data byte 0 of Rx/Tx frame.
     uint32_t DATA_BYTE_3 : 8;
+    /// read-write - Data byte 1 of Rx/Tx frame.
     uint32_t DATA_BYTE_2 : 8;
+    /// read-write - Data byte 2 of Rx/Tx frame.
     uint32_t DATA_BYTE_1 : 8;
+    /// read-write - Data byte 3 of Rx/Tx frame.
     uint32_t DATA_BYTE_0 : 8;
   } bits;
   
@@ -6930,9 +8401,13 @@ union MB3_64B_WORD2_L {
   
   // Bit field definition.
   struct {
+    /// read-write - Data byte 0 of Rx/Tx frame.
     uint32_t DATA_BYTE_11 : 8;
+    /// read-write - Data byte 1 of Rx/Tx frame.
     uint32_t DATA_BYTE_10 : 8;
+    /// read-write - Data byte 2 of Rx/Tx frame.
     uint32_t DATA_BYTE_9 : 8;
+    /// read-write - Data byte 3 of Rx/Tx frame.
     uint32_t DATA_BYTE_8 : 8;
   } bits;
   
@@ -6950,9 +8425,13 @@ union MB5_32B_WORD6_L {
   
   // Bit field definition.
   struct {
+    /// read-write - Data byte 0 of Rx/Tx frame.
     uint32_t DATA_BYTE_27 : 8;
+    /// read-write - Data byte 1 of Rx/Tx frame.
     uint32_t DATA_BYTE_26 : 8;
+    /// read-write - Data byte 2 of Rx/Tx frame.
     uint32_t DATA_BYTE_25 : 8;
+    /// read-write - Data byte 3 of Rx/Tx frame.
     uint32_t DATA_BYTE_24 : 8;
   } bits;
   
@@ -6970,9 +8449,13 @@ union MB9_16B_WORD2_L {
   
   // Bit field definition.
   struct {
+    /// read-write - Data byte 0 of Rx/Tx frame.
     uint32_t DATA_BYTE_11 : 8;
+    /// read-write - Data byte 1 of Rx/Tx frame.
     uint32_t DATA_BYTE_10 : 8;
+    /// read-write - Data byte 2 of Rx/Tx frame.
     uint32_t DATA_BYTE_9 : 8;
+    /// read-write - Data byte 3 of Rx/Tx frame.
     uint32_t DATA_BYTE_8 : 8;
   } bits;
   
@@ -6990,9 +8473,13 @@ union WORD014 {
   
   // Bit field definition.
   struct {
+    /// read-write - Data byte 0 of Rx/Tx frame.
     uint32_t DATA_BYTE_3 : 8;
+    /// read-write - Data byte 1 of Rx/Tx frame.
     uint32_t DATA_BYTE_2 : 8;
+    /// read-write - Data byte 2 of Rx/Tx frame.
     uint32_t DATA_BYTE_1 : 8;
+    /// read-write - Data byte 3 of Rx/Tx frame.
     uint32_t DATA_BYTE_0 : 8;
   } bits;
   
@@ -7010,9 +8497,13 @@ union MB14_8B_WORD1 {
   
   // Bit field definition.
   struct {
+    /// read-write - Data byte 0 of Rx/Tx frame.
     uint32_t DATA_BYTE_7 : 8;
+    /// read-write - Data byte 1 of Rx/Tx frame.
     uint32_t DATA_BYTE_6 : 8;
+    /// read-write - Data byte 2 of Rx/Tx frame.
     uint32_t DATA_BYTE_5 : 8;
+    /// read-write - Data byte 3 of Rx/Tx frame.
     uint32_t DATA_BYTE_4 : 8;
   } bits;
   
@@ -7030,9 +8521,13 @@ union MB3_64B_WORD3_L {
   
   // Bit field definition.
   struct {
+    /// read-write - Data byte 0 of Rx/Tx frame.
     uint32_t DATA_BYTE_15 : 8;
+    /// read-write - Data byte 1 of Rx/Tx frame.
     uint32_t DATA_BYTE_14 : 8;
+    /// read-write - Data byte 2 of Rx/Tx frame.
     uint32_t DATA_BYTE_13 : 8;
+    /// read-write - Data byte 3 of Rx/Tx frame.
     uint32_t DATA_BYTE_12 : 8;
   } bits;
   
@@ -7050,9 +8545,13 @@ union MB5_32B_WORD7_L {
   
   // Bit field definition.
   struct {
+    /// read-write - Data byte 0 of Rx/Tx frame.
     uint32_t DATA_BYTE_31 : 8;
+    /// read-write - Data byte 1 of Rx/Tx frame.
     uint32_t DATA_BYTE_30 : 8;
+    /// read-write - Data byte 2 of Rx/Tx frame.
     uint32_t DATA_BYTE_29 : 8;
+    /// read-write - Data byte 3 of Rx/Tx frame.
     uint32_t DATA_BYTE_28 : 8;
   } bits;
   
@@ -7070,9 +8569,13 @@ union MB9_16B_WORD3_L {
   
   // Bit field definition.
   struct {
+    /// read-write - Data byte 0 of Rx/Tx frame.
     uint32_t DATA_BYTE_15 : 8;
+    /// read-write - Data byte 1 of Rx/Tx frame.
     uint32_t DATA_BYTE_14 : 8;
+    /// read-write - Data byte 2 of Rx/Tx frame.
     uint32_t DATA_BYTE_13 : 8;
+    /// read-write - Data byte 3 of Rx/Tx frame.
     uint32_t DATA_BYTE_12 : 8;
   } bits;
   
@@ -7090,9 +8593,13 @@ union WORD114 {
   
   // Bit field definition.
   struct {
+    /// read-write - Data byte 0 of Rx/Tx frame.
     uint32_t DATA_BYTE_7 : 8;
+    /// read-write - Data byte 1 of Rx/Tx frame.
     uint32_t DATA_BYTE_6 : 8;
+    /// read-write - Data byte 2 of Rx/Tx frame.
     uint32_t DATA_BYTE_5 : 8;
+    /// read-write - Data byte 3 of Rx/Tx frame.
     uint32_t DATA_BYTE_4 : 8;
   } bits;
   
@@ -7110,16 +8617,25 @@ union CS15 {
   
   // Bit field definition.
   struct {
+    /// read-write - Free-Running Counter Time stamp. This 16-bit field is a copy of the Free-Running Timer, captured for Tx and Rx frames at the time when the beginning of the Identifier field appears on the CAN bus.
     uint32_t TIME_STAMP : 16;
+    /// read-write - Length of the data to be stored/transmitted.
     uint32_t DLC : 4;
+    /// read-write - Remote Transmission Request. One/zero for remote/data frame.
     uint32_t RTR : 1;
+    /// read-write - ID Extended. One/zero for extended/standard format frame.
     uint32_t IDE : 1;
+    /// read-write - Substitute Remote Request. Contains a fixed recessive bit.
     uint32_t SRR : 1;
     uint32_t _reserved_0 : 1;
+    /// read-write - Message Buffer Code. This 4-bit field can be accessed (read or write) by the CPU and by the FlexCAN module itself, as part of the message buffer matching and arbitration process.
     uint32_t CODE : 4;
     uint32_t _reserved_1 : 1;
+    /// read-write - Error State Indicator. This bit indicates if the transmitting node is error active or error passive.
     uint32_t ESI : 1;
+    /// read-write - Bit Rate Switch. This bit defines whether the bit rate is switched inside a CAN FD format frame.
     uint32_t BRS : 1;
+    /// read-write - Extended Data Length. This bit distinguishes between CAN format and CAN FD format frames. The EDL bit must not be set for Message Buffers configured to RANSWER with code field 0b1010.
     uint32_t EDL : 1;
   } bits;
   
@@ -7137,16 +8653,25 @@ union MB10_16B_CS_L {
   
   // Bit field definition.
   struct {
+    /// read-write - Free-Running Counter Time stamp. This 16-bit field is a copy of the Free-Running Timer, captured for Tx and Rx frames at the time when the beginning of the Identifier field appears on the CAN bus.
     uint32_t TIME_STAMP : 16;
+    /// read-write - Length of the data to be stored/transmitted.
     uint32_t DLC : 4;
+    /// read-write - Remote Transmission Request. One/zero for remote/data frame.
     uint32_t RTR : 1;
+    /// read-write - ID Extended. One/zero for extended/standard format frame.
     uint32_t IDE : 1;
+    /// read-write - Substitute Remote Request. Contains a fixed recessive bit.
     uint32_t SRR : 1;
     uint32_t _reserved_0 : 1;
+    /// read-write - Message Buffer Code. This 4-bit field can be accessed (read or write) by the CPU and by the FlexCAN module itself, as part of the message buffer matching and arbitration process.
     uint32_t CODE : 4;
     uint32_t _reserved_1 : 1;
+    /// read-write - Error State Indicator. This bit indicates if the transmitting node is error active or error passive.
     uint32_t ESI : 1;
+    /// read-write - Bit Rate Switch. This bit defines whether the bit rate is switched inside a CAN FD format frame.
     uint32_t BRS : 1;
+    /// read-write - Extended Data Length. This bit distinguishes between CAN format and CAN FD format frames. The EDL bit must not be set for Message Buffers configured to RANSWER with code field 0b1010.
     uint32_t EDL : 1;
   } bits;
   
@@ -7164,16 +8689,25 @@ union MB15_8B_CS {
   
   // Bit field definition.
   struct {
+    /// read-write - Free-Running Counter Time stamp. This 16-bit field is a copy of the Free-Running Timer, captured for Tx and Rx frames at the time when the beginning of the Identifier field appears on the CAN bus.
     uint32_t TIME_STAMP : 16;
+    /// read-write - Length of the data to be stored/transmitted.
     uint32_t DLC : 4;
+    /// read-write - Remote Transmission Request. One/zero for remote/data frame.
     uint32_t RTR : 1;
+    /// read-write - ID Extended. One/zero for extended/standard format frame.
     uint32_t IDE : 1;
+    /// read-write - Substitute Remote Request. Contains a fixed recessive bit.
     uint32_t SRR : 1;
     uint32_t _reserved_0 : 1;
+    /// read-write - Message Buffer Code. This 4-bit field can be accessed (read or write) by the CPU and by the FlexCAN module itself, as part of the message buffer matching and arbitration process.
     uint32_t CODE : 4;
     uint32_t _reserved_1 : 1;
+    /// read-write - Error State Indicator. This bit indicates if the transmitting node is error active or error passive.
     uint32_t ESI : 1;
+    /// read-write - Bit Rate Switch. This bit defines whether the bit rate is switched inside a CAN FD format frame.
     uint32_t BRS : 1;
+    /// read-write - Extended Data Length. This bit distinguishes between CAN format and CAN FD format frames. The EDL bit must not be set for Message Buffers configured to RANSWER with code field 0b1010.
     uint32_t EDL : 1;
   } bits;
   
@@ -7191,9 +8725,13 @@ union MB3_64B_WORD4_L {
   
   // Bit field definition.
   struct {
+    /// read-write - Data byte 0 of Rx/Tx frame.
     uint32_t DATA_BYTE_19 : 8;
+    /// read-write - Data byte 1 of Rx/Tx frame.
     uint32_t DATA_BYTE_18 : 8;
+    /// read-write - Data byte 2 of Rx/Tx frame.
     uint32_t DATA_BYTE_17 : 8;
+    /// read-write - Data byte 3 of Rx/Tx frame.
     uint32_t DATA_BYTE_16 : 8;
   } bits;
   
@@ -7211,16 +8749,25 @@ union MB6_32B_CS_L {
   
   // Bit field definition.
   struct {
+    /// read-write - Free-Running Counter Time stamp. This 16-bit field is a copy of the Free-Running Timer, captured for Tx and Rx frames at the time when the beginning of the Identifier field appears on the CAN bus.
     uint32_t TIME_STAMP : 16;
+    /// read-write - Length of the data to be stored/transmitted.
     uint32_t DLC : 4;
+    /// read-write - Remote Transmission Request. One/zero for remote/data frame.
     uint32_t RTR : 1;
+    /// read-write - ID Extended. One/zero for extended/standard format frame.
     uint32_t IDE : 1;
+    /// read-write - Substitute Remote Request. Contains a fixed recessive bit.
     uint32_t SRR : 1;
     uint32_t _reserved_0 : 1;
+    /// read-write - Message Buffer Code. This 4-bit field can be accessed (read or write) by the CPU and by the FlexCAN module itself, as part of the message buffer matching and arbitration process.
     uint32_t CODE : 4;
     uint32_t _reserved_1 : 1;
+    /// read-write - Error State Indicator. This bit indicates if the transmitting node is error active or error passive.
     uint32_t ESI : 1;
+    /// read-write - Bit Rate Switch. This bit defines whether the bit rate is switched inside a CAN FD format frame.
     uint32_t BRS : 1;
+    /// read-write - Extended Data Length. This bit distinguishes between CAN format and CAN FD format frames. The EDL bit must not be set for Message Buffers configured to RANSWER with code field 0b1010.
     uint32_t EDL : 1;
   } bits;
   
@@ -7238,8 +8785,11 @@ union ID15 {
   
   // Bit field definition.
   struct {
+    /// read-write - Contains extended (LOW word) identifier of message buffer.
     uint32_t EXT : 18;
+    /// read-write - Contains standard/extended (HIGH word) identifier of message buffer.
     uint32_t STD : 11;
+    /// read-write - Local priority. This 3-bit fieldis only used when LPRIO_EN bit is set in MCR and it only makes sense for Tx buffers. These bits are not transmitted. They are appended to the regular ID to define the transmission priority.
     uint32_t PRIO : 3;
   } bits;
   
@@ -7257,8 +8807,11 @@ union MB10_16B_ID_L {
   
   // Bit field definition.
   struct {
+    /// read-write - Contains extended (LOW word) identifier of message buffer.
     uint32_t EXT : 18;
+    /// read-write - Contains standard/extended (HIGH word) identifier of message buffer.
     uint32_t STD : 11;
+    /// read-write - Local priority. This 3-bit fieldis only used when LPRIO_EN bit is set in MCR and it only makes sense for Tx buffers. These bits are not transmitted. They are appended to the regular ID to define the transmission priority.
     uint32_t PRIO : 3;
   } bits;
   
@@ -7276,8 +8829,11 @@ union MB15_8B_ID {
   
   // Bit field definition.
   struct {
+    /// read-write - Contains extended (LOW word) identifier of message buffer.
     uint32_t EXT : 18;
+    /// read-write - Contains standard/extended (HIGH word) identifier of message buffer.
     uint32_t STD : 11;
+    /// read-write - Local priority. This 3-bit fieldis only used when LPRIO_EN bit is set in MCR and it only makes sense for Tx buffers. These bits are not transmitted. They are appended to the regular ID to define the transmission priority.
     uint32_t PRIO : 3;
   } bits;
   
@@ -7295,9 +8851,13 @@ union MB3_64B_WORD5_L {
   
   // Bit field definition.
   struct {
+    /// read-write - Data byte 0 of Rx/Tx frame.
     uint32_t DATA_BYTE_23 : 8;
+    /// read-write - Data byte 1 of Rx/Tx frame.
     uint32_t DATA_BYTE_22 : 8;
+    /// read-write - Data byte 2 of Rx/Tx frame.
     uint32_t DATA_BYTE_21 : 8;
+    /// read-write - Data byte 3 of Rx/Tx frame.
     uint32_t DATA_BYTE_20 : 8;
   } bits;
   
@@ -7315,8 +8875,11 @@ union MB6_32B_ID_L {
   
   // Bit field definition.
   struct {
+    /// read-write - Contains extended (LOW word) identifier of message buffer.
     uint32_t EXT : 18;
+    /// read-write - Contains standard/extended (HIGH word) identifier of message buffer.
     uint32_t STD : 11;
+    /// read-write - Local priority. This 3-bit fieldis only used when LPRIO_EN bit is set in MCR and it only makes sense for Tx buffers. These bits are not transmitted. They are appended to the regular ID to define the transmission priority.
     uint32_t PRIO : 3;
   } bits;
   
@@ -7334,9 +8897,13 @@ union MB10_16B_WORD0_L {
   
   // Bit field definition.
   struct {
+    /// read-write - Data byte 0 of Rx/Tx frame.
     uint32_t DATA_BYTE_3 : 8;
+    /// read-write - Data byte 1 of Rx/Tx frame.
     uint32_t DATA_BYTE_2 : 8;
+    /// read-write - Data byte 2 of Rx/Tx frame.
     uint32_t DATA_BYTE_1 : 8;
+    /// read-write - Data byte 3 of Rx/Tx frame.
     uint32_t DATA_BYTE_0 : 8;
   } bits;
   
@@ -7354,9 +8921,13 @@ union MB15_8B_WORD0 {
   
   // Bit field definition.
   struct {
+    /// read-write - Data byte 0 of Rx/Tx frame.
     uint32_t DATA_BYTE_3 : 8;
+    /// read-write - Data byte 1 of Rx/Tx frame.
     uint32_t DATA_BYTE_2 : 8;
+    /// read-write - Data byte 2 of Rx/Tx frame.
     uint32_t DATA_BYTE_1 : 8;
+    /// read-write - Data byte 3 of Rx/Tx frame.
     uint32_t DATA_BYTE_0 : 8;
   } bits;
   
@@ -7374,9 +8945,13 @@ union MB3_64B_WORD6_L {
   
   // Bit field definition.
   struct {
+    /// read-write - Data byte 0 of Rx/Tx frame.
     uint32_t DATA_BYTE_27 : 8;
+    /// read-write - Data byte 1 of Rx/Tx frame.
     uint32_t DATA_BYTE_26 : 8;
+    /// read-write - Data byte 2 of Rx/Tx frame.
     uint32_t DATA_BYTE_25 : 8;
+    /// read-write - Data byte 3 of Rx/Tx frame.
     uint32_t DATA_BYTE_24 : 8;
   } bits;
   
@@ -7394,9 +8969,13 @@ union MB6_32B_WORD0_L {
   
   // Bit field definition.
   struct {
+    /// read-write - Data byte 0 of Rx/Tx frame.
     uint32_t DATA_BYTE_3 : 8;
+    /// read-write - Data byte 1 of Rx/Tx frame.
     uint32_t DATA_BYTE_2 : 8;
+    /// read-write - Data byte 2 of Rx/Tx frame.
     uint32_t DATA_BYTE_1 : 8;
+    /// read-write - Data byte 3 of Rx/Tx frame.
     uint32_t DATA_BYTE_0 : 8;
   } bits;
   
@@ -7414,9 +8993,13 @@ union WORD015 {
   
   // Bit field definition.
   struct {
+    /// read-write - Data byte 0 of Rx/Tx frame.
     uint32_t DATA_BYTE_3 : 8;
+    /// read-write - Data byte 1 of Rx/Tx frame.
     uint32_t DATA_BYTE_2 : 8;
+    /// read-write - Data byte 2 of Rx/Tx frame.
     uint32_t DATA_BYTE_1 : 8;
+    /// read-write - Data byte 3 of Rx/Tx frame.
     uint32_t DATA_BYTE_0 : 8;
   } bits;
   
@@ -7434,9 +9017,13 @@ union MB10_16B_WORD1_L {
   
   // Bit field definition.
   struct {
+    /// read-write - Data byte 0 of Rx/Tx frame.
     uint32_t DATA_BYTE_7 : 8;
+    /// read-write - Data byte 1 of Rx/Tx frame.
     uint32_t DATA_BYTE_6 : 8;
+    /// read-write - Data byte 2 of Rx/Tx frame.
     uint32_t DATA_BYTE_5 : 8;
+    /// read-write - Data byte 3 of Rx/Tx frame.
     uint32_t DATA_BYTE_4 : 8;
   } bits;
   
@@ -7454,9 +9041,13 @@ union MB15_8B_WORD1 {
   
   // Bit field definition.
   struct {
+    /// read-write - Data byte 0 of Rx/Tx frame.
     uint32_t DATA_BYTE_7 : 8;
+    /// read-write - Data byte 1 of Rx/Tx frame.
     uint32_t DATA_BYTE_6 : 8;
+    /// read-write - Data byte 2 of Rx/Tx frame.
     uint32_t DATA_BYTE_5 : 8;
+    /// read-write - Data byte 3 of Rx/Tx frame.
     uint32_t DATA_BYTE_4 : 8;
   } bits;
   
@@ -7474,9 +9065,13 @@ union MB3_64B_WORD7_L {
   
   // Bit field definition.
   struct {
+    /// read-write - Data byte 0 of Rx/Tx frame.
     uint32_t DATA_BYTE_31 : 8;
+    /// read-write - Data byte 1 of Rx/Tx frame.
     uint32_t DATA_BYTE_30 : 8;
+    /// read-write - Data byte 2 of Rx/Tx frame.
     uint32_t DATA_BYTE_29 : 8;
+    /// read-write - Data byte 3 of Rx/Tx frame.
     uint32_t DATA_BYTE_28 : 8;
   } bits;
   
@@ -7494,9 +9089,13 @@ union MB6_32B_WORD1_L {
   
   // Bit field definition.
   struct {
+    /// read-write - Data byte 0 of Rx/Tx frame.
     uint32_t DATA_BYTE_7 : 8;
+    /// read-write - Data byte 1 of Rx/Tx frame.
     uint32_t DATA_BYTE_6 : 8;
+    /// read-write - Data byte 2 of Rx/Tx frame.
     uint32_t DATA_BYTE_5 : 8;
+    /// read-write - Data byte 3 of Rx/Tx frame.
     uint32_t DATA_BYTE_4 : 8;
   } bits;
   
@@ -7514,9 +9113,13 @@ union WORD115 {
   
   // Bit field definition.
   struct {
+    /// read-write - Data byte 0 of Rx/Tx frame.
     uint32_t DATA_BYTE_7 : 8;
+    /// read-write - Data byte 1 of Rx/Tx frame.
     uint32_t DATA_BYTE_6 : 8;
+    /// read-write - Data byte 2 of Rx/Tx frame.
     uint32_t DATA_BYTE_5 : 8;
+    /// read-write - Data byte 3 of Rx/Tx frame.
     uint32_t DATA_BYTE_4 : 8;
   } bits;
   
@@ -7534,16 +9137,25 @@ union CS16 {
   
   // Bit field definition.
   struct {
+    /// read-write - Free-Running Counter Time stamp. This 16-bit field is a copy of the Free-Running Timer, captured for Tx and Rx frames at the time when the beginning of the Identifier field appears on the CAN bus.
     uint32_t TIME_STAMP : 16;
+    /// read-write - Length of the data to be stored/transmitted.
     uint32_t DLC : 4;
+    /// read-write - Remote Transmission Request. One/zero for remote/data frame.
     uint32_t RTR : 1;
+    /// read-write - ID Extended. One/zero for extended/standard format frame.
     uint32_t IDE : 1;
+    /// read-write - Substitute Remote Request. Contains a fixed recessive bit.
     uint32_t SRR : 1;
     uint32_t _reserved_0 : 1;
+    /// read-write - Message Buffer Code. This 4-bit field can be accessed (read or write) by the CPU and by the FlexCAN module itself, as part of the message buffer matching and arbitration process.
     uint32_t CODE : 4;
     uint32_t _reserved_1 : 1;
+    /// read-write - Error State Indicator. This bit indicates if the transmitting node is error active or error passive.
     uint32_t ESI : 1;
+    /// read-write - Bit Rate Switch. This bit defines whether the bit rate is switched inside a CAN FD format frame.
     uint32_t BRS : 1;
+    /// read-write - Extended Data Length. This bit distinguishes between CAN format and CAN FD format frames. The EDL bit must not be set for Message Buffers configured to RANSWER with code field 0b1010.
     uint32_t EDL : 1;
   } bits;
   
@@ -7561,9 +9173,13 @@ union MB10_16B_WORD2_L {
   
   // Bit field definition.
   struct {
+    /// read-write - Data byte 0 of Rx/Tx frame.
     uint32_t DATA_BYTE_11 : 8;
+    /// read-write - Data byte 1 of Rx/Tx frame.
     uint32_t DATA_BYTE_10 : 8;
+    /// read-write - Data byte 2 of Rx/Tx frame.
     uint32_t DATA_BYTE_9 : 8;
+    /// read-write - Data byte 3 of Rx/Tx frame.
     uint32_t DATA_BYTE_8 : 8;
   } bits;
   
@@ -7581,16 +9197,25 @@ union MB16_8B_CS {
   
   // Bit field definition.
   struct {
+    /// read-write - Free-Running Counter Time stamp. This 16-bit field is a copy of the Free-Running Timer, captured for Tx and Rx frames at the time when the beginning of the Identifier field appears on the CAN bus.
     uint32_t TIME_STAMP : 16;
+    /// read-write - Length of the data to be stored/transmitted.
     uint32_t DLC : 4;
+    /// read-write - Remote Transmission Request. One/zero for remote/data frame.
     uint32_t RTR : 1;
+    /// read-write - ID Extended. One/zero for extended/standard format frame.
     uint32_t IDE : 1;
+    /// read-write - Substitute Remote Request. Contains a fixed recessive bit.
     uint32_t SRR : 1;
     uint32_t _reserved_0 : 1;
+    /// read-write - Message Buffer Code. This 4-bit field can be accessed (read or write) by the CPU and by the FlexCAN module itself, as part of the message buffer matching and arbitration process.
     uint32_t CODE : 4;
     uint32_t _reserved_1 : 1;
+    /// read-write - Error State Indicator. This bit indicates if the transmitting node is error active or error passive.
     uint32_t ESI : 1;
+    /// read-write - Bit Rate Switch. This bit defines whether the bit rate is switched inside a CAN FD format frame.
     uint32_t BRS : 1;
+    /// read-write - Extended Data Length. This bit distinguishes between CAN format and CAN FD format frames. The EDL bit must not be set for Message Buffers configured to RANSWER with code field 0b1010.
     uint32_t EDL : 1;
   } bits;
   
@@ -7608,9 +9233,13 @@ union MB3_64B_WORD8_L {
   
   // Bit field definition.
   struct {
+    /// read-write - Data byte 0 of Rx/Tx frame.
     uint32_t DATA_BYTE_35 : 8;
+    /// read-write - Data byte 1 of Rx/Tx frame.
     uint32_t DATA_BYTE_34 : 8;
+    /// read-write - Data byte 2 of Rx/Tx frame.
     uint32_t DATA_BYTE_33 : 8;
+    /// read-write - Data byte 3 of Rx/Tx frame.
     uint32_t DATA_BYTE_32 : 8;
   } bits;
   
@@ -7628,9 +9257,13 @@ union MB6_32B_WORD2_L {
   
   // Bit field definition.
   struct {
+    /// read-write - Data byte 0 of Rx/Tx frame.
     uint32_t DATA_BYTE_11 : 8;
+    /// read-write - Data byte 1 of Rx/Tx frame.
     uint32_t DATA_BYTE_10 : 8;
+    /// read-write - Data byte 2 of Rx/Tx frame.
     uint32_t DATA_BYTE_9 : 8;
+    /// read-write - Data byte 3 of Rx/Tx frame.
     uint32_t DATA_BYTE_8 : 8;
   } bits;
   
@@ -7648,8 +9281,11 @@ union ID16 {
   
   // Bit field definition.
   struct {
+    /// read-write - Contains extended (LOW word) identifier of message buffer.
     uint32_t EXT : 18;
+    /// read-write - Contains standard/extended (HIGH word) identifier of message buffer.
     uint32_t STD : 11;
+    /// read-write - Local priority. This 3-bit fieldis only used when LPRIO_EN bit is set in MCR and it only makes sense for Tx buffers. These bits are not transmitted. They are appended to the regular ID to define the transmission priority.
     uint32_t PRIO : 3;
   } bits;
   
@@ -7667,9 +9303,13 @@ union MB10_16B_WORD3_L {
   
   // Bit field definition.
   struct {
+    /// read-write - Data byte 0 of Rx/Tx frame.
     uint32_t DATA_BYTE_15 : 8;
+    /// read-write - Data byte 1 of Rx/Tx frame.
     uint32_t DATA_BYTE_14 : 8;
+    /// read-write - Data byte 2 of Rx/Tx frame.
     uint32_t DATA_BYTE_13 : 8;
+    /// read-write - Data byte 3 of Rx/Tx frame.
     uint32_t DATA_BYTE_12 : 8;
   } bits;
   
@@ -7687,8 +9327,11 @@ union MB16_8B_ID {
   
   // Bit field definition.
   struct {
+    /// read-write - Contains extended (LOW word) identifier of message buffer.
     uint32_t EXT : 18;
+    /// read-write - Contains standard/extended (HIGH word) identifier of message buffer.
     uint32_t STD : 11;
+    /// read-write - Local priority. This 3-bit fieldis only used when LPRIO_EN bit is set in MCR and it only makes sense for Tx buffers. These bits are not transmitted. They are appended to the regular ID to define the transmission priority.
     uint32_t PRIO : 3;
   } bits;
   
@@ -7706,9 +9349,13 @@ union MB3_64B_WORD9_L {
   
   // Bit field definition.
   struct {
+    /// read-write - Data byte 0 of Rx/Tx frame.
     uint32_t DATA_BYTE_39 : 8;
+    /// read-write - Data byte 1 of Rx/Tx frame.
     uint32_t DATA_BYTE_38 : 8;
+    /// read-write - Data byte 2 of Rx/Tx frame.
     uint32_t DATA_BYTE_37 : 8;
+    /// read-write - Data byte 3 of Rx/Tx frame.
     uint32_t DATA_BYTE_36 : 8;
   } bits;
   
@@ -7726,9 +9373,13 @@ union MB6_32B_WORD3_L {
   
   // Bit field definition.
   struct {
+    /// read-write - Data byte 0 of Rx/Tx frame.
     uint32_t DATA_BYTE_15 : 8;
+    /// read-write - Data byte 1 of Rx/Tx frame.
     uint32_t DATA_BYTE_14 : 8;
+    /// read-write - Data byte 2 of Rx/Tx frame.
     uint32_t DATA_BYTE_13 : 8;
+    /// read-write - Data byte 3 of Rx/Tx frame.
     uint32_t DATA_BYTE_12 : 8;
   } bits;
   
@@ -7746,16 +9397,25 @@ union MB11_16B_CS_L {
   
   // Bit field definition.
   struct {
+    /// read-write - Free-Running Counter Time stamp. This 16-bit field is a copy of the Free-Running Timer, captured for Tx and Rx frames at the time when the beginning of the Identifier field appears on the CAN bus.
     uint32_t TIME_STAMP : 16;
+    /// read-write - Length of the data to be stored/transmitted.
     uint32_t DLC : 4;
+    /// read-write - Remote Transmission Request. One/zero for remote/data frame.
     uint32_t RTR : 1;
+    /// read-write - ID Extended. One/zero for extended/standard format frame.
     uint32_t IDE : 1;
+    /// read-write - Substitute Remote Request. Contains a fixed recessive bit.
     uint32_t SRR : 1;
     uint32_t _reserved_0 : 1;
+    /// read-write - Message Buffer Code. This 4-bit field can be accessed (read or write) by the CPU and by the FlexCAN module itself, as part of the message buffer matching and arbitration process.
     uint32_t CODE : 4;
     uint32_t _reserved_1 : 1;
+    /// read-write - Error State Indicator. This bit indicates if the transmitting node is error active or error passive.
     uint32_t ESI : 1;
+    /// read-write - Bit Rate Switch. This bit defines whether the bit rate is switched inside a CAN FD format frame.
     uint32_t BRS : 1;
+    /// read-write - Extended Data Length. This bit distinguishes between CAN format and CAN FD format frames. The EDL bit must not be set for Message Buffers configured to RANSWER with code field 0b1010.
     uint32_t EDL : 1;
   } bits;
   
@@ -7773,9 +9433,13 @@ union MB16_8B_WORD0 {
   
   // Bit field definition.
   struct {
+    /// read-write - Data byte 0 of Rx/Tx frame.
     uint32_t DATA_BYTE_3 : 8;
+    /// read-write - Data byte 1 of Rx/Tx frame.
     uint32_t DATA_BYTE_2 : 8;
+    /// read-write - Data byte 2 of Rx/Tx frame.
     uint32_t DATA_BYTE_1 : 8;
+    /// read-write - Data byte 3 of Rx/Tx frame.
     uint32_t DATA_BYTE_0 : 8;
   } bits;
   
@@ -7793,9 +9457,13 @@ union MB3_64B_WORD10_L {
   
   // Bit field definition.
   struct {
+    /// read-write - Data byte 0 of Rx/Tx frame.
     uint32_t DATA_BYTE_43 : 8;
+    /// read-write - Data byte 1 of Rx/Tx frame.
     uint32_t DATA_BYTE_42 : 8;
+    /// read-write - Data byte 2 of Rx/Tx frame.
     uint32_t DATA_BYTE_41 : 8;
+    /// read-write - Data byte 3 of Rx/Tx frame.
     uint32_t DATA_BYTE_40 : 8;
   } bits;
   
@@ -7813,9 +9481,13 @@ union MB6_32B_WORD4_L {
   
   // Bit field definition.
   struct {
+    /// read-write - Data byte 0 of Rx/Tx frame.
     uint32_t DATA_BYTE_19 : 8;
+    /// read-write - Data byte 1 of Rx/Tx frame.
     uint32_t DATA_BYTE_18 : 8;
+    /// read-write - Data byte 2 of Rx/Tx frame.
     uint32_t DATA_BYTE_17 : 8;
+    /// read-write - Data byte 3 of Rx/Tx frame.
     uint32_t DATA_BYTE_16 : 8;
   } bits;
   
@@ -7833,9 +9505,13 @@ union WORD016 {
   
   // Bit field definition.
   struct {
+    /// read-write - Data byte 0 of Rx/Tx frame.
     uint32_t DATA_BYTE_3 : 8;
+    /// read-write - Data byte 1 of Rx/Tx frame.
     uint32_t DATA_BYTE_2 : 8;
+    /// read-write - Data byte 2 of Rx/Tx frame.
     uint32_t DATA_BYTE_1 : 8;
+    /// read-write - Data byte 3 of Rx/Tx frame.
     uint32_t DATA_BYTE_0 : 8;
   } bits;
   
@@ -7853,8 +9529,11 @@ union MB11_16B_ID_L {
   
   // Bit field definition.
   struct {
+    /// read-write - Contains extended (LOW word) identifier of message buffer.
     uint32_t EXT : 18;
+    /// read-write - Contains standard/extended (HIGH word) identifier of message buffer.
     uint32_t STD : 11;
+    /// read-write - Local priority. This 3-bit fieldis only used when LPRIO_EN bit is set in MCR and it only makes sense for Tx buffers. These bits are not transmitted. They are appended to the regular ID to define the transmission priority.
     uint32_t PRIO : 3;
   } bits;
   
@@ -7872,9 +9551,13 @@ union MB16_8B_WORD1 {
   
   // Bit field definition.
   struct {
+    /// read-write - Data byte 0 of Rx/Tx frame.
     uint32_t DATA_BYTE_7 : 8;
+    /// read-write - Data byte 1 of Rx/Tx frame.
     uint32_t DATA_BYTE_6 : 8;
+    /// read-write - Data byte 2 of Rx/Tx frame.
     uint32_t DATA_BYTE_5 : 8;
+    /// read-write - Data byte 3 of Rx/Tx frame.
     uint32_t DATA_BYTE_4 : 8;
   } bits;
   
@@ -7892,9 +9575,13 @@ union MB3_64B_WORD11_L {
   
   // Bit field definition.
   struct {
+    /// read-write - Data byte 0 of Rx/Tx frame.
     uint32_t DATA_BYTE_47 : 8;
+    /// read-write - Data byte 1 of Rx/Tx frame.
     uint32_t DATA_BYTE_46 : 8;
+    /// read-write - Data byte 2 of Rx/Tx frame.
     uint32_t DATA_BYTE_45 : 8;
+    /// read-write - Data byte 3 of Rx/Tx frame.
     uint32_t DATA_BYTE_44 : 8;
   } bits;
   
@@ -7912,9 +9599,13 @@ union MB6_32B_WORD5_L {
   
   // Bit field definition.
   struct {
+    /// read-write - Data byte 0 of Rx/Tx frame.
     uint32_t DATA_BYTE_23 : 8;
+    /// read-write - Data byte 1 of Rx/Tx frame.
     uint32_t DATA_BYTE_22 : 8;
+    /// read-write - Data byte 2 of Rx/Tx frame.
     uint32_t DATA_BYTE_21 : 8;
+    /// read-write - Data byte 3 of Rx/Tx frame.
     uint32_t DATA_BYTE_20 : 8;
   } bits;
   
@@ -7932,9 +9623,13 @@ union WORD116 {
   
   // Bit field definition.
   struct {
+    /// read-write - Data byte 0 of Rx/Tx frame.
     uint32_t DATA_BYTE_7 : 8;
+    /// read-write - Data byte 1 of Rx/Tx frame.
     uint32_t DATA_BYTE_6 : 8;
+    /// read-write - Data byte 2 of Rx/Tx frame.
     uint32_t DATA_BYTE_5 : 8;
+    /// read-write - Data byte 3 of Rx/Tx frame.
     uint32_t DATA_BYTE_4 : 8;
   } bits;
   
@@ -7952,16 +9647,25 @@ union CS17 {
   
   // Bit field definition.
   struct {
+    /// read-write - Free-Running Counter Time stamp. This 16-bit field is a copy of the Free-Running Timer, captured for Tx and Rx frames at the time when the beginning of the Identifier field appears on the CAN bus.
     uint32_t TIME_STAMP : 16;
+    /// read-write - Length of the data to be stored/transmitted.
     uint32_t DLC : 4;
+    /// read-write - Remote Transmission Request. One/zero for remote/data frame.
     uint32_t RTR : 1;
+    /// read-write - ID Extended. One/zero for extended/standard format frame.
     uint32_t IDE : 1;
+    /// read-write - Substitute Remote Request. Contains a fixed recessive bit.
     uint32_t SRR : 1;
     uint32_t _reserved_0 : 1;
+    /// read-write - Message Buffer Code. This 4-bit field can be accessed (read or write) by the CPU and by the FlexCAN module itself, as part of the message buffer matching and arbitration process.
     uint32_t CODE : 4;
     uint32_t _reserved_1 : 1;
+    /// read-write - Error State Indicator. This bit indicates if the transmitting node is error active or error passive.
     uint32_t ESI : 1;
+    /// read-write - Bit Rate Switch. This bit defines whether the bit rate is switched inside a CAN FD format frame.
     uint32_t BRS : 1;
+    /// read-write - Extended Data Length. This bit distinguishes between CAN format and CAN FD format frames. The EDL bit must not be set for Message Buffers configured to RANSWER with code field 0b1010.
     uint32_t EDL : 1;
   } bits;
   
@@ -7979,9 +9683,13 @@ union MB11_16B_WORD0_L {
   
   // Bit field definition.
   struct {
+    /// read-write - Data byte 0 of Rx/Tx frame.
     uint32_t DATA_BYTE_3 : 8;
+    /// read-write - Data byte 1 of Rx/Tx frame.
     uint32_t DATA_BYTE_2 : 8;
+    /// read-write - Data byte 2 of Rx/Tx frame.
     uint32_t DATA_BYTE_1 : 8;
+    /// read-write - Data byte 3 of Rx/Tx frame.
     uint32_t DATA_BYTE_0 : 8;
   } bits;
   
@@ -7999,16 +9707,25 @@ union MB17_8B_CS {
   
   // Bit field definition.
   struct {
+    /// read-write - Free-Running Counter Time stamp. This 16-bit field is a copy of the Free-Running Timer, captured for Tx and Rx frames at the time when the beginning of the Identifier field appears on the CAN bus.
     uint32_t TIME_STAMP : 16;
+    /// read-write - Length of the data to be stored/transmitted.
     uint32_t DLC : 4;
+    /// read-write - Remote Transmission Request. One/zero for remote/data frame.
     uint32_t RTR : 1;
+    /// read-write - ID Extended. One/zero for extended/standard format frame.
     uint32_t IDE : 1;
+    /// read-write - Substitute Remote Request. Contains a fixed recessive bit.
     uint32_t SRR : 1;
     uint32_t _reserved_0 : 1;
+    /// read-write - Message Buffer Code. This 4-bit field can be accessed (read or write) by the CPU and by the FlexCAN module itself, as part of the message buffer matching and arbitration process.
     uint32_t CODE : 4;
     uint32_t _reserved_1 : 1;
+    /// read-write - Error State Indicator. This bit indicates if the transmitting node is error active or error passive.
     uint32_t ESI : 1;
+    /// read-write - Bit Rate Switch. This bit defines whether the bit rate is switched inside a CAN FD format frame.
     uint32_t BRS : 1;
+    /// read-write - Extended Data Length. This bit distinguishes between CAN format and CAN FD format frames. The EDL bit must not be set for Message Buffers configured to RANSWER with code field 0b1010.
     uint32_t EDL : 1;
   } bits;
   
@@ -8026,9 +9743,13 @@ union MB3_64B_WORD12_L {
   
   // Bit field definition.
   struct {
+    /// read-write - Data byte 0 of Rx/Tx frame.
     uint32_t DATA_BYTE_51 : 8;
+    /// read-write - Data byte 1 of Rx/Tx frame.
     uint32_t DATA_BYTE_50 : 8;
+    /// read-write - Data byte 2 of Rx/Tx frame.
     uint32_t DATA_BYTE_49 : 8;
+    /// read-write - Data byte 3 of Rx/Tx frame.
     uint32_t DATA_BYTE_48 : 8;
   } bits;
   
@@ -8046,9 +9767,13 @@ union MB6_32B_WORD6_L {
   
   // Bit field definition.
   struct {
+    /// read-write - Data byte 0 of Rx/Tx frame.
     uint32_t DATA_BYTE_27 : 8;
+    /// read-write - Data byte 1 of Rx/Tx frame.
     uint32_t DATA_BYTE_26 : 8;
+    /// read-write - Data byte 2 of Rx/Tx frame.
     uint32_t DATA_BYTE_25 : 8;
+    /// read-write - Data byte 3 of Rx/Tx frame.
     uint32_t DATA_BYTE_24 : 8;
   } bits;
   
@@ -8066,8 +9791,11 @@ union ID17 {
   
   // Bit field definition.
   struct {
+    /// read-write - Contains extended (LOW word) identifier of message buffer.
     uint32_t EXT : 18;
+    /// read-write - Contains standard/extended (HIGH word) identifier of message buffer.
     uint32_t STD : 11;
+    /// read-write - Local priority. This 3-bit fieldis only used when LPRIO_EN bit is set in MCR and it only makes sense for Tx buffers. These bits are not transmitted. They are appended to the regular ID to define the transmission priority.
     uint32_t PRIO : 3;
   } bits;
   
@@ -8085,9 +9813,13 @@ union MB11_16B_WORD1_L {
   
   // Bit field definition.
   struct {
+    /// read-write - Data byte 0 of Rx/Tx frame.
     uint32_t DATA_BYTE_7 : 8;
+    /// read-write - Data byte 1 of Rx/Tx frame.
     uint32_t DATA_BYTE_6 : 8;
+    /// read-write - Data byte 2 of Rx/Tx frame.
     uint32_t DATA_BYTE_5 : 8;
+    /// read-write - Data byte 3 of Rx/Tx frame.
     uint32_t DATA_BYTE_4 : 8;
   } bits;
   
@@ -8105,8 +9837,11 @@ union MB17_8B_ID {
   
   // Bit field definition.
   struct {
+    /// read-write - Contains extended (LOW word) identifier of message buffer.
     uint32_t EXT : 18;
+    /// read-write - Contains standard/extended (HIGH word) identifier of message buffer.
     uint32_t STD : 11;
+    /// read-write - Local priority. This 3-bit fieldis only used when LPRIO_EN bit is set in MCR and it only makes sense for Tx buffers. These bits are not transmitted. They are appended to the regular ID to define the transmission priority.
     uint32_t PRIO : 3;
   } bits;
   
@@ -8124,9 +9859,13 @@ union MB3_64B_WORD13_L {
   
   // Bit field definition.
   struct {
+    /// read-write - Data byte 0 of Rx/Tx frame.
     uint32_t DATA_BYTE_55 : 8;
+    /// read-write - Data byte 1 of Rx/Tx frame.
     uint32_t DATA_BYTE_54 : 8;
+    /// read-write - Data byte 2 of Rx/Tx frame.
     uint32_t DATA_BYTE_53 : 8;
+    /// read-write - Data byte 3 of Rx/Tx frame.
     uint32_t DATA_BYTE_52 : 8;
   } bits;
   
@@ -8144,9 +9883,13 @@ union MB6_32B_WORD7_L {
   
   // Bit field definition.
   struct {
+    /// read-write - Data byte 0 of Rx/Tx frame.
     uint32_t DATA_BYTE_31 : 8;
+    /// read-write - Data byte 1 of Rx/Tx frame.
     uint32_t DATA_BYTE_30 : 8;
+    /// read-write - Data byte 2 of Rx/Tx frame.
     uint32_t DATA_BYTE_29 : 8;
+    /// read-write - Data byte 3 of Rx/Tx frame.
     uint32_t DATA_BYTE_28 : 8;
   } bits;
   
@@ -8164,9 +9907,13 @@ union MB11_16B_WORD2_L {
   
   // Bit field definition.
   struct {
+    /// read-write - Data byte 0 of Rx/Tx frame.
     uint32_t DATA_BYTE_11 : 8;
+    /// read-write - Data byte 1 of Rx/Tx frame.
     uint32_t DATA_BYTE_10 : 8;
+    /// read-write - Data byte 2 of Rx/Tx frame.
     uint32_t DATA_BYTE_9 : 8;
+    /// read-write - Data byte 3 of Rx/Tx frame.
     uint32_t DATA_BYTE_8 : 8;
   } bits;
   
@@ -8184,9 +9931,13 @@ union MB17_8B_WORD0 {
   
   // Bit field definition.
   struct {
+    /// read-write - Data byte 0 of Rx/Tx frame.
     uint32_t DATA_BYTE_3 : 8;
+    /// read-write - Data byte 1 of Rx/Tx frame.
     uint32_t DATA_BYTE_2 : 8;
+    /// read-write - Data byte 2 of Rx/Tx frame.
     uint32_t DATA_BYTE_1 : 8;
+    /// read-write - Data byte 3 of Rx/Tx frame.
     uint32_t DATA_BYTE_0 : 8;
   } bits;
   
@@ -8204,9 +9955,13 @@ union MB3_64B_WORD14_L {
   
   // Bit field definition.
   struct {
+    /// read-write - Data byte 0 of Rx/Tx frame.
     uint32_t DATA_BYTE_59 : 8;
+    /// read-write - Data byte 1 of Rx/Tx frame.
     uint32_t DATA_BYTE_58 : 8;
+    /// read-write - Data byte 2 of Rx/Tx frame.
     uint32_t DATA_BYTE_57 : 8;
+    /// read-write - Data byte 3 of Rx/Tx frame.
     uint32_t DATA_BYTE_56 : 8;
   } bits;
   
@@ -8224,16 +9979,25 @@ union MB7_32B_CS_L {
   
   // Bit field definition.
   struct {
+    /// read-write - Free-Running Counter Time stamp. This 16-bit field is a copy of the Free-Running Timer, captured for Tx and Rx frames at the time when the beginning of the Identifier field appears on the CAN bus.
     uint32_t TIME_STAMP : 16;
+    /// read-write - Length of the data to be stored/transmitted.
     uint32_t DLC : 4;
+    /// read-write - Remote Transmission Request. One/zero for remote/data frame.
     uint32_t RTR : 1;
+    /// read-write - ID Extended. One/zero for extended/standard format frame.
     uint32_t IDE : 1;
+    /// read-write - Substitute Remote Request. Contains a fixed recessive bit.
     uint32_t SRR : 1;
     uint32_t _reserved_0 : 1;
+    /// read-write - Message Buffer Code. This 4-bit field can be accessed (read or write) by the CPU and by the FlexCAN module itself, as part of the message buffer matching and arbitration process.
     uint32_t CODE : 4;
     uint32_t _reserved_1 : 1;
+    /// read-write - Error State Indicator. This bit indicates if the transmitting node is error active or error passive.
     uint32_t ESI : 1;
+    /// read-write - Bit Rate Switch. This bit defines whether the bit rate is switched inside a CAN FD format frame.
     uint32_t BRS : 1;
+    /// read-write - Extended Data Length. This bit distinguishes between CAN format and CAN FD format frames. The EDL bit must not be set for Message Buffers configured to RANSWER with code field 0b1010.
     uint32_t EDL : 1;
   } bits;
   
@@ -8251,9 +10015,13 @@ union WORD017 {
   
   // Bit field definition.
   struct {
+    /// read-write - Data byte 0 of Rx/Tx frame.
     uint32_t DATA_BYTE_3 : 8;
+    /// read-write - Data byte 1 of Rx/Tx frame.
     uint32_t DATA_BYTE_2 : 8;
+    /// read-write - Data byte 2 of Rx/Tx frame.
     uint32_t DATA_BYTE_1 : 8;
+    /// read-write - Data byte 3 of Rx/Tx frame.
     uint32_t DATA_BYTE_0 : 8;
   } bits;
   
@@ -8271,9 +10039,13 @@ union MB11_16B_WORD3_L {
   
   // Bit field definition.
   struct {
+    /// read-write - Data byte 0 of Rx/Tx frame.
     uint32_t DATA_BYTE_15 : 8;
+    /// read-write - Data byte 1 of Rx/Tx frame.
     uint32_t DATA_BYTE_14 : 8;
+    /// read-write - Data byte 2 of Rx/Tx frame.
     uint32_t DATA_BYTE_13 : 8;
+    /// read-write - Data byte 3 of Rx/Tx frame.
     uint32_t DATA_BYTE_12 : 8;
   } bits;
   
@@ -8291,9 +10063,13 @@ union MB17_8B_WORD1 {
   
   // Bit field definition.
   struct {
+    /// read-write - Data byte 0 of Rx/Tx frame.
     uint32_t DATA_BYTE_7 : 8;
+    /// read-write - Data byte 1 of Rx/Tx frame.
     uint32_t DATA_BYTE_6 : 8;
+    /// read-write - Data byte 2 of Rx/Tx frame.
     uint32_t DATA_BYTE_5 : 8;
+    /// read-write - Data byte 3 of Rx/Tx frame.
     uint32_t DATA_BYTE_4 : 8;
   } bits;
   
@@ -8311,9 +10087,13 @@ union MB3_64B_WORD15_L {
   
   // Bit field definition.
   struct {
+    /// read-write - Data byte 0 of Rx/Tx frame.
     uint32_t DATA_BYTE_63 : 8;
+    /// read-write - Data byte 1 of Rx/Tx frame.
     uint32_t DATA_BYTE_62 : 8;
+    /// read-write - Data byte 2 of Rx/Tx frame.
     uint32_t DATA_BYTE_61 : 8;
+    /// read-write - Data byte 3 of Rx/Tx frame.
     uint32_t DATA_BYTE_60 : 8;
   } bits;
   
@@ -8331,8 +10111,11 @@ union MB7_32B_ID_L {
   
   // Bit field definition.
   struct {
+    /// read-write - Contains extended (LOW word) identifier of message buffer.
     uint32_t EXT : 18;
+    /// read-write - Contains standard/extended (HIGH word) identifier of message buffer.
     uint32_t STD : 11;
+    /// read-write - Local priority. This 3-bit fieldis only used when LPRIO_EN bit is set in MCR and it only makes sense for Tx buffers. These bits are not transmitted. They are appended to the regular ID to define the transmission priority.
     uint32_t PRIO : 3;
   } bits;
   
@@ -8350,9 +10133,13 @@ union WORD117 {
   
   // Bit field definition.
   struct {
+    /// read-write - Data byte 0 of Rx/Tx frame.
     uint32_t DATA_BYTE_7 : 8;
+    /// read-write - Data byte 1 of Rx/Tx frame.
     uint32_t DATA_BYTE_6 : 8;
+    /// read-write - Data byte 2 of Rx/Tx frame.
     uint32_t DATA_BYTE_5 : 8;
+    /// read-write - Data byte 3 of Rx/Tx frame.
     uint32_t DATA_BYTE_4 : 8;
   } bits;
   
@@ -8370,16 +10157,25 @@ union CS18 {
   
   // Bit field definition.
   struct {
+    /// read-write - Free-Running Counter Time stamp. This 16-bit field is a copy of the Free-Running Timer, captured for Tx and Rx frames at the time when the beginning of the Identifier field appears on the CAN bus.
     uint32_t TIME_STAMP : 16;
+    /// read-write - Length of the data to be stored/transmitted.
     uint32_t DLC : 4;
+    /// read-write - Remote Transmission Request. One/zero for remote/data frame.
     uint32_t RTR : 1;
+    /// read-write - ID Extended. One/zero for extended/standard format frame.
     uint32_t IDE : 1;
+    /// read-write - Substitute Remote Request. Contains a fixed recessive bit.
     uint32_t SRR : 1;
     uint32_t _reserved_0 : 1;
+    /// read-write - Message Buffer Code. This 4-bit field can be accessed (read or write) by the CPU and by the FlexCAN module itself, as part of the message buffer matching and arbitration process.
     uint32_t CODE : 4;
     uint32_t _reserved_1 : 1;
+    /// read-write - Error State Indicator. This bit indicates if the transmitting node is error active or error passive.
     uint32_t ESI : 1;
+    /// read-write - Bit Rate Switch. This bit defines whether the bit rate is switched inside a CAN FD format frame.
     uint32_t BRS : 1;
+    /// read-write - Extended Data Length. This bit distinguishes between CAN format and CAN FD format frames. The EDL bit must not be set for Message Buffers configured to RANSWER with code field 0b1010.
     uint32_t EDL : 1;
   } bits;
   
@@ -8397,16 +10193,25 @@ union MB12_16B_CS_L {
   
   // Bit field definition.
   struct {
+    /// read-write - Free-Running Counter Time stamp. This 16-bit field is a copy of the Free-Running Timer, captured for Tx and Rx frames at the time when the beginning of the Identifier field appears on the CAN bus.
     uint32_t TIME_STAMP : 16;
+    /// read-write - Length of the data to be stored/transmitted.
     uint32_t DLC : 4;
+    /// read-write - Remote Transmission Request. One/zero for remote/data frame.
     uint32_t RTR : 1;
+    /// read-write - ID Extended. One/zero for extended/standard format frame.
     uint32_t IDE : 1;
+    /// read-write - Substitute Remote Request. Contains a fixed recessive bit.
     uint32_t SRR : 1;
     uint32_t _reserved_0 : 1;
+    /// read-write - Message Buffer Code. This 4-bit field can be accessed (read or write) by the CPU and by the FlexCAN module itself, as part of the message buffer matching and arbitration process.
     uint32_t CODE : 4;
     uint32_t _reserved_1 : 1;
+    /// read-write - Error State Indicator. This bit indicates if the transmitting node is error active or error passive.
     uint32_t ESI : 1;
+    /// read-write - Bit Rate Switch. This bit defines whether the bit rate is switched inside a CAN FD format frame.
     uint32_t BRS : 1;
+    /// read-write - Extended Data Length. This bit distinguishes between CAN format and CAN FD format frames. The EDL bit must not be set for Message Buffers configured to RANSWER with code field 0b1010.
     uint32_t EDL : 1;
   } bits;
   
@@ -8424,16 +10229,25 @@ union MB18_8B_CS {
   
   // Bit field definition.
   struct {
+    /// read-write - Free-Running Counter Time stamp. This 16-bit field is a copy of the Free-Running Timer, captured for Tx and Rx frames at the time when the beginning of the Identifier field appears on the CAN bus.
     uint32_t TIME_STAMP : 16;
+    /// read-write - Length of the data to be stored/transmitted.
     uint32_t DLC : 4;
+    /// read-write - Remote Transmission Request. One/zero for remote/data frame.
     uint32_t RTR : 1;
+    /// read-write - ID Extended. One/zero for extended/standard format frame.
     uint32_t IDE : 1;
+    /// read-write - Substitute Remote Request. Contains a fixed recessive bit.
     uint32_t SRR : 1;
     uint32_t _reserved_0 : 1;
+    /// read-write - Message Buffer Code. This 4-bit field can be accessed (read or write) by the CPU and by the FlexCAN module itself, as part of the message buffer matching and arbitration process.
     uint32_t CODE : 4;
     uint32_t _reserved_1 : 1;
+    /// read-write - Error State Indicator. This bit indicates if the transmitting node is error active or error passive.
     uint32_t ESI : 1;
+    /// read-write - Bit Rate Switch. This bit defines whether the bit rate is switched inside a CAN FD format frame.
     uint32_t BRS : 1;
+    /// read-write - Extended Data Length. This bit distinguishes between CAN format and CAN FD format frames. The EDL bit must not be set for Message Buffers configured to RANSWER with code field 0b1010.
     uint32_t EDL : 1;
   } bits;
   
@@ -8451,16 +10265,25 @@ union MB4_64B_CS_L {
   
   // Bit field definition.
   struct {
+    /// read-write - Free-Running Counter Time stamp. This 16-bit field is a copy of the Free-Running Timer, captured for Tx and Rx frames at the time when the beginning of the Identifier field appears on the CAN bus.
     uint32_t TIME_STAMP : 16;
+    /// read-write - Length of the data to be stored/transmitted.
     uint32_t DLC : 4;
+    /// read-write - Remote Transmission Request. One/zero for remote/data frame.
     uint32_t RTR : 1;
+    /// read-write - ID Extended. One/zero for extended/standard format frame.
     uint32_t IDE : 1;
+    /// read-write - Substitute Remote Request. Contains a fixed recessive bit.
     uint32_t SRR : 1;
     uint32_t _reserved_0 : 1;
+    /// read-write - Message Buffer Code. This 4-bit field can be accessed (read or write) by the CPU and by the FlexCAN module itself, as part of the message buffer matching and arbitration process.
     uint32_t CODE : 4;
     uint32_t _reserved_1 : 1;
+    /// read-write - Error State Indicator. This bit indicates if the transmitting node is error active or error passive.
     uint32_t ESI : 1;
+    /// read-write - Bit Rate Switch. This bit defines whether the bit rate is switched inside a CAN FD format frame.
     uint32_t BRS : 1;
+    /// read-write - Extended Data Length. This bit distinguishes between CAN format and CAN FD format frames. The EDL bit must not be set for Message Buffers configured to RANSWER with code field 0b1010.
     uint32_t EDL : 1;
   } bits;
   
@@ -8478,9 +10301,13 @@ union MB7_32B_WORD0_L {
   
   // Bit field definition.
   struct {
+    /// read-write - Data byte 0 of Rx/Tx frame.
     uint32_t DATA_BYTE_3 : 8;
+    /// read-write - Data byte 1 of Rx/Tx frame.
     uint32_t DATA_BYTE_2 : 8;
+    /// read-write - Data byte 2 of Rx/Tx frame.
     uint32_t DATA_BYTE_1 : 8;
+    /// read-write - Data byte 3 of Rx/Tx frame.
     uint32_t DATA_BYTE_0 : 8;
   } bits;
   
@@ -8498,8 +10325,11 @@ union ID18 {
   
   // Bit field definition.
   struct {
+    /// read-write - Contains extended (LOW word) identifier of message buffer.
     uint32_t EXT : 18;
+    /// read-write - Contains standard/extended (HIGH word) identifier of message buffer.
     uint32_t STD : 11;
+    /// read-write - Local priority. This 3-bit fieldis only used when LPRIO_EN bit is set in MCR and it only makes sense for Tx buffers. These bits are not transmitted. They are appended to the regular ID to define the transmission priority.
     uint32_t PRIO : 3;
   } bits;
   
@@ -8517,8 +10347,11 @@ union MB12_16B_ID_L {
   
   // Bit field definition.
   struct {
+    /// read-write - Contains extended (LOW word) identifier of message buffer.
     uint32_t EXT : 18;
+    /// read-write - Contains standard/extended (HIGH word) identifier of message buffer.
     uint32_t STD : 11;
+    /// read-write - Local priority. This 3-bit fieldis only used when LPRIO_EN bit is set in MCR and it only makes sense for Tx buffers. These bits are not transmitted. They are appended to the regular ID to define the transmission priority.
     uint32_t PRIO : 3;
   } bits;
   
@@ -8536,8 +10369,11 @@ union MB18_8B_ID {
   
   // Bit field definition.
   struct {
+    /// read-write - Contains extended (LOW word) identifier of message buffer.
     uint32_t EXT : 18;
+    /// read-write - Contains standard/extended (HIGH word) identifier of message buffer.
     uint32_t STD : 11;
+    /// read-write - Local priority. This 3-bit fieldis only used when LPRIO_EN bit is set in MCR and it only makes sense for Tx buffers. These bits are not transmitted. They are appended to the regular ID to define the transmission priority.
     uint32_t PRIO : 3;
   } bits;
   
@@ -8555,8 +10391,11 @@ union MB4_64B_ID_L {
   
   // Bit field definition.
   struct {
+    /// read-write - Contains extended (LOW word) identifier of message buffer.
     uint32_t EXT : 18;
+    /// read-write - Contains standard/extended (HIGH word) identifier of message buffer.
     uint32_t STD : 11;
+    /// read-write - Local priority. This 3-bit fieldis only used when LPRIO_EN bit is set in MCR and it only makes sense for Tx buffers. These bits are not transmitted. They are appended to the regular ID to define the transmission priority.
     uint32_t PRIO : 3;
   } bits;
   
@@ -8574,9 +10413,13 @@ union MB7_32B_WORD1_L {
   
   // Bit field definition.
   struct {
+    /// read-write - Data byte 0 of Rx/Tx frame.
     uint32_t DATA_BYTE_7 : 8;
+    /// read-write - Data byte 1 of Rx/Tx frame.
     uint32_t DATA_BYTE_6 : 8;
+    /// read-write - Data byte 2 of Rx/Tx frame.
     uint32_t DATA_BYTE_5 : 8;
+    /// read-write - Data byte 3 of Rx/Tx frame.
     uint32_t DATA_BYTE_4 : 8;
   } bits;
   
@@ -8594,9 +10437,13 @@ union MB12_16B_WORD0_L {
   
   // Bit field definition.
   struct {
+    /// read-write - Data byte 0 of Rx/Tx frame.
     uint32_t DATA_BYTE_3 : 8;
+    /// read-write - Data byte 1 of Rx/Tx frame.
     uint32_t DATA_BYTE_2 : 8;
+    /// read-write - Data byte 2 of Rx/Tx frame.
     uint32_t DATA_BYTE_1 : 8;
+    /// read-write - Data byte 3 of Rx/Tx frame.
     uint32_t DATA_BYTE_0 : 8;
   } bits;
   
@@ -8614,9 +10461,13 @@ union MB18_8B_WORD0 {
   
   // Bit field definition.
   struct {
+    /// read-write - Data byte 0 of Rx/Tx frame.
     uint32_t DATA_BYTE_3 : 8;
+    /// read-write - Data byte 1 of Rx/Tx frame.
     uint32_t DATA_BYTE_2 : 8;
+    /// read-write - Data byte 2 of Rx/Tx frame.
     uint32_t DATA_BYTE_1 : 8;
+    /// read-write - Data byte 3 of Rx/Tx frame.
     uint32_t DATA_BYTE_0 : 8;
   } bits;
   
@@ -8634,9 +10485,13 @@ union MB4_64B_WORD0_L {
   
   // Bit field definition.
   struct {
+    /// read-write - Data byte 0 of Rx/Tx frame.
     uint32_t DATA_BYTE_3 : 8;
+    /// read-write - Data byte 1 of Rx/Tx frame.
     uint32_t DATA_BYTE_2 : 8;
+    /// read-write - Data byte 2 of Rx/Tx frame.
     uint32_t DATA_BYTE_1 : 8;
+    /// read-write - Data byte 3 of Rx/Tx frame.
     uint32_t DATA_BYTE_0 : 8;
   } bits;
   
@@ -8654,9 +10509,13 @@ union MB7_32B_WORD2_L {
   
   // Bit field definition.
   struct {
+    /// read-write - Data byte 0 of Rx/Tx frame.
     uint32_t DATA_BYTE_11 : 8;
+    /// read-write - Data byte 1 of Rx/Tx frame.
     uint32_t DATA_BYTE_10 : 8;
+    /// read-write - Data byte 2 of Rx/Tx frame.
     uint32_t DATA_BYTE_9 : 8;
+    /// read-write - Data byte 3 of Rx/Tx frame.
     uint32_t DATA_BYTE_8 : 8;
   } bits;
   
@@ -8674,9 +10533,13 @@ union WORD018 {
   
   // Bit field definition.
   struct {
+    /// read-write - Data byte 0 of Rx/Tx frame.
     uint32_t DATA_BYTE_3 : 8;
+    /// read-write - Data byte 1 of Rx/Tx frame.
     uint32_t DATA_BYTE_2 : 8;
+    /// read-write - Data byte 2 of Rx/Tx frame.
     uint32_t DATA_BYTE_1 : 8;
+    /// read-write - Data byte 3 of Rx/Tx frame.
     uint32_t DATA_BYTE_0 : 8;
   } bits;
   
@@ -8694,9 +10557,13 @@ union MB12_16B_WORD1_L {
   
   // Bit field definition.
   struct {
+    /// read-write - Data byte 0 of Rx/Tx frame.
     uint32_t DATA_BYTE_7 : 8;
+    /// read-write - Data byte 1 of Rx/Tx frame.
     uint32_t DATA_BYTE_6 : 8;
+    /// read-write - Data byte 2 of Rx/Tx frame.
     uint32_t DATA_BYTE_5 : 8;
+    /// read-write - Data byte 3 of Rx/Tx frame.
     uint32_t DATA_BYTE_4 : 8;
   } bits;
   
@@ -8714,9 +10581,13 @@ union MB18_8B_WORD1 {
   
   // Bit field definition.
   struct {
+    /// read-write - Data byte 0 of Rx/Tx frame.
     uint32_t DATA_BYTE_7 : 8;
+    /// read-write - Data byte 1 of Rx/Tx frame.
     uint32_t DATA_BYTE_6 : 8;
+    /// read-write - Data byte 2 of Rx/Tx frame.
     uint32_t DATA_BYTE_5 : 8;
+    /// read-write - Data byte 3 of Rx/Tx frame.
     uint32_t DATA_BYTE_4 : 8;
   } bits;
   
@@ -8734,9 +10605,13 @@ union MB4_64B_WORD1_L {
   
   // Bit field definition.
   struct {
+    /// read-write - Data byte 0 of Rx/Tx frame.
     uint32_t DATA_BYTE_7 : 8;
+    /// read-write - Data byte 1 of Rx/Tx frame.
     uint32_t DATA_BYTE_6 : 8;
+    /// read-write - Data byte 2 of Rx/Tx frame.
     uint32_t DATA_BYTE_5 : 8;
+    /// read-write - Data byte 3 of Rx/Tx frame.
     uint32_t DATA_BYTE_4 : 8;
   } bits;
   
@@ -8754,9 +10629,13 @@ union MB7_32B_WORD3_L {
   
   // Bit field definition.
   struct {
+    /// read-write - Data byte 0 of Rx/Tx frame.
     uint32_t DATA_BYTE_15 : 8;
+    /// read-write - Data byte 1 of Rx/Tx frame.
     uint32_t DATA_BYTE_14 : 8;
+    /// read-write - Data byte 2 of Rx/Tx frame.
     uint32_t DATA_BYTE_13 : 8;
+    /// read-write - Data byte 3 of Rx/Tx frame.
     uint32_t DATA_BYTE_12 : 8;
   } bits;
   
@@ -8774,9 +10653,13 @@ union WORD118 {
   
   // Bit field definition.
   struct {
+    /// read-write - Data byte 0 of Rx/Tx frame.
     uint32_t DATA_BYTE_7 : 8;
+    /// read-write - Data byte 1 of Rx/Tx frame.
     uint32_t DATA_BYTE_6 : 8;
+    /// read-write - Data byte 2 of Rx/Tx frame.
     uint32_t DATA_BYTE_5 : 8;
+    /// read-write - Data byte 3 of Rx/Tx frame.
     uint32_t DATA_BYTE_4 : 8;
   } bits;
   
@@ -8794,16 +10677,25 @@ union CS19 {
   
   // Bit field definition.
   struct {
+    /// read-write - Free-Running Counter Time stamp. This 16-bit field is a copy of the Free-Running Timer, captured for Tx and Rx frames at the time when the beginning of the Identifier field appears on the CAN bus.
     uint32_t TIME_STAMP : 16;
+    /// read-write - Length of the data to be stored/transmitted.
     uint32_t DLC : 4;
+    /// read-write - Remote Transmission Request. One/zero for remote/data frame.
     uint32_t RTR : 1;
+    /// read-write - ID Extended. One/zero for extended/standard format frame.
     uint32_t IDE : 1;
+    /// read-write - Substitute Remote Request. Contains a fixed recessive bit.
     uint32_t SRR : 1;
     uint32_t _reserved_0 : 1;
+    /// read-write - Message Buffer Code. This 4-bit field can be accessed (read or write) by the CPU and by the FlexCAN module itself, as part of the message buffer matching and arbitration process.
     uint32_t CODE : 4;
     uint32_t _reserved_1 : 1;
+    /// read-write - Error State Indicator. This bit indicates if the transmitting node is error active or error passive.
     uint32_t ESI : 1;
+    /// read-write - Bit Rate Switch. This bit defines whether the bit rate is switched inside a CAN FD format frame.
     uint32_t BRS : 1;
+    /// read-write - Extended Data Length. This bit distinguishes between CAN format and CAN FD format frames. The EDL bit must not be set for Message Buffers configured to RANSWER with code field 0b1010.
     uint32_t EDL : 1;
   } bits;
   
@@ -8821,9 +10713,13 @@ union MB12_16B_WORD2_L {
   
   // Bit field definition.
   struct {
+    /// read-write - Data byte 0 of Rx/Tx frame.
     uint32_t DATA_BYTE_11 : 8;
+    /// read-write - Data byte 1 of Rx/Tx frame.
     uint32_t DATA_BYTE_10 : 8;
+    /// read-write - Data byte 2 of Rx/Tx frame.
     uint32_t DATA_BYTE_9 : 8;
+    /// read-write - Data byte 3 of Rx/Tx frame.
     uint32_t DATA_BYTE_8 : 8;
   } bits;
   
@@ -8841,16 +10737,25 @@ union MB19_8B_CS {
   
   // Bit field definition.
   struct {
+    /// read-write - Free-Running Counter Time stamp. This 16-bit field is a copy of the Free-Running Timer, captured for Tx and Rx frames at the time when the beginning of the Identifier field appears on the CAN bus.
     uint32_t TIME_STAMP : 16;
+    /// read-write - Length of the data to be stored/transmitted.
     uint32_t DLC : 4;
+    /// read-write - Remote Transmission Request. One/zero for remote/data frame.
     uint32_t RTR : 1;
+    /// read-write - ID Extended. One/zero for extended/standard format frame.
     uint32_t IDE : 1;
+    /// read-write - Substitute Remote Request. Contains a fixed recessive bit.
     uint32_t SRR : 1;
     uint32_t _reserved_0 : 1;
+    /// read-write - Message Buffer Code. This 4-bit field can be accessed (read or write) by the CPU and by the FlexCAN module itself, as part of the message buffer matching and arbitration process.
     uint32_t CODE : 4;
     uint32_t _reserved_1 : 1;
+    /// read-write - Error State Indicator. This bit indicates if the transmitting node is error active or error passive.
     uint32_t ESI : 1;
+    /// read-write - Bit Rate Switch. This bit defines whether the bit rate is switched inside a CAN FD format frame.
     uint32_t BRS : 1;
+    /// read-write - Extended Data Length. This bit distinguishes between CAN format and CAN FD format frames. The EDL bit must not be set for Message Buffers configured to RANSWER with code field 0b1010.
     uint32_t EDL : 1;
   } bits;
   
@@ -8868,9 +10773,13 @@ union MB4_64B_WORD2_L {
   
   // Bit field definition.
   struct {
+    /// read-write - Data byte 0 of Rx/Tx frame.
     uint32_t DATA_BYTE_11 : 8;
+    /// read-write - Data byte 1 of Rx/Tx frame.
     uint32_t DATA_BYTE_10 : 8;
+    /// read-write - Data byte 2 of Rx/Tx frame.
     uint32_t DATA_BYTE_9 : 8;
+    /// read-write - Data byte 3 of Rx/Tx frame.
     uint32_t DATA_BYTE_8 : 8;
   } bits;
   
@@ -8888,9 +10797,13 @@ union MB7_32B_WORD4_L {
   
   // Bit field definition.
   struct {
+    /// read-write - Data byte 0 of Rx/Tx frame.
     uint32_t DATA_BYTE_19 : 8;
+    /// read-write - Data byte 1 of Rx/Tx frame.
     uint32_t DATA_BYTE_18 : 8;
+    /// read-write - Data byte 2 of Rx/Tx frame.
     uint32_t DATA_BYTE_17 : 8;
+    /// read-write - Data byte 3 of Rx/Tx frame.
     uint32_t DATA_BYTE_16 : 8;
   } bits;
   
@@ -8908,8 +10821,11 @@ union ID19 {
   
   // Bit field definition.
   struct {
+    /// read-write - Contains extended (LOW word) identifier of message buffer.
     uint32_t EXT : 18;
+    /// read-write - Contains standard/extended (HIGH word) identifier of message buffer.
     uint32_t STD : 11;
+    /// read-write - Local priority. This 3-bit fieldis only used when LPRIO_EN bit is set in MCR and it only makes sense for Tx buffers. These bits are not transmitted. They are appended to the regular ID to define the transmission priority.
     uint32_t PRIO : 3;
   } bits;
   
@@ -8927,9 +10843,13 @@ union MB12_16B_WORD3_L {
   
   // Bit field definition.
   struct {
+    /// read-write - Data byte 0 of Rx/Tx frame.
     uint32_t DATA_BYTE_15 : 8;
+    /// read-write - Data byte 1 of Rx/Tx frame.
     uint32_t DATA_BYTE_14 : 8;
+    /// read-write - Data byte 2 of Rx/Tx frame.
     uint32_t DATA_BYTE_13 : 8;
+    /// read-write - Data byte 3 of Rx/Tx frame.
     uint32_t DATA_BYTE_12 : 8;
   } bits;
   
@@ -8947,8 +10867,11 @@ union MB19_8B_ID {
   
   // Bit field definition.
   struct {
+    /// read-write - Contains extended (LOW word) identifier of message buffer.
     uint32_t EXT : 18;
+    /// read-write - Contains standard/extended (HIGH word) identifier of message buffer.
     uint32_t STD : 11;
+    /// read-write - Local priority. This 3-bit fieldis only used when LPRIO_EN bit is set in MCR and it only makes sense for Tx buffers. These bits are not transmitted. They are appended to the regular ID to define the transmission priority.
     uint32_t PRIO : 3;
   } bits;
   
@@ -8966,9 +10889,13 @@ union MB4_64B_WORD3_L {
   
   // Bit field definition.
   struct {
+    /// read-write - Data byte 0 of Rx/Tx frame.
     uint32_t DATA_BYTE_15 : 8;
+    /// read-write - Data byte 1 of Rx/Tx frame.
     uint32_t DATA_BYTE_14 : 8;
+    /// read-write - Data byte 2 of Rx/Tx frame.
     uint32_t DATA_BYTE_13 : 8;
+    /// read-write - Data byte 3 of Rx/Tx frame.
     uint32_t DATA_BYTE_12 : 8;
   } bits;
   
@@ -8986,9 +10913,13 @@ union MB7_32B_WORD5_L {
   
   // Bit field definition.
   struct {
+    /// read-write - Data byte 0 of Rx/Tx frame.
     uint32_t DATA_BYTE_23 : 8;
+    /// read-write - Data byte 1 of Rx/Tx frame.
     uint32_t DATA_BYTE_22 : 8;
+    /// read-write - Data byte 2 of Rx/Tx frame.
     uint32_t DATA_BYTE_21 : 8;
+    /// read-write - Data byte 3 of Rx/Tx frame.
     uint32_t DATA_BYTE_20 : 8;
   } bits;
   
@@ -9006,16 +10937,25 @@ union MB13_16B_CS_L {
   
   // Bit field definition.
   struct {
+    /// read-write - Free-Running Counter Time stamp. This 16-bit field is a copy of the Free-Running Timer, captured for Tx and Rx frames at the time when the beginning of the Identifier field appears on the CAN bus.
     uint32_t TIME_STAMP : 16;
+    /// read-write - Length of the data to be stored/transmitted.
     uint32_t DLC : 4;
+    /// read-write - Remote Transmission Request. One/zero for remote/data frame.
     uint32_t RTR : 1;
+    /// read-write - ID Extended. One/zero for extended/standard format frame.
     uint32_t IDE : 1;
+    /// read-write - Substitute Remote Request. Contains a fixed recessive bit.
     uint32_t SRR : 1;
     uint32_t _reserved_0 : 1;
+    /// read-write - Message Buffer Code. This 4-bit field can be accessed (read or write) by the CPU and by the FlexCAN module itself, as part of the message buffer matching and arbitration process.
     uint32_t CODE : 4;
     uint32_t _reserved_1 : 1;
+    /// read-write - Error State Indicator. This bit indicates if the transmitting node is error active or error passive.
     uint32_t ESI : 1;
+    /// read-write - Bit Rate Switch. This bit defines whether the bit rate is switched inside a CAN FD format frame.
     uint32_t BRS : 1;
+    /// read-write - Extended Data Length. This bit distinguishes between CAN format and CAN FD format frames. The EDL bit must not be set for Message Buffers configured to RANSWER with code field 0b1010.
     uint32_t EDL : 1;
   } bits;
   
@@ -9033,9 +10973,13 @@ union MB19_8B_WORD0 {
   
   // Bit field definition.
   struct {
+    /// read-write - Data byte 0 of Rx/Tx frame.
     uint32_t DATA_BYTE_3 : 8;
+    /// read-write - Data byte 1 of Rx/Tx frame.
     uint32_t DATA_BYTE_2 : 8;
+    /// read-write - Data byte 2 of Rx/Tx frame.
     uint32_t DATA_BYTE_1 : 8;
+    /// read-write - Data byte 3 of Rx/Tx frame.
     uint32_t DATA_BYTE_0 : 8;
   } bits;
   
@@ -9053,9 +10997,13 @@ union MB4_64B_WORD4_L {
   
   // Bit field definition.
   struct {
+    /// read-write - Data byte 0 of Rx/Tx frame.
     uint32_t DATA_BYTE_19 : 8;
+    /// read-write - Data byte 1 of Rx/Tx frame.
     uint32_t DATA_BYTE_18 : 8;
+    /// read-write - Data byte 2 of Rx/Tx frame.
     uint32_t DATA_BYTE_17 : 8;
+    /// read-write - Data byte 3 of Rx/Tx frame.
     uint32_t DATA_BYTE_16 : 8;
   } bits;
   
@@ -9073,9 +11021,13 @@ union MB7_32B_WORD6_L {
   
   // Bit field definition.
   struct {
+    /// read-write - Data byte 0 of Rx/Tx frame.
     uint32_t DATA_BYTE_27 : 8;
+    /// read-write - Data byte 1 of Rx/Tx frame.
     uint32_t DATA_BYTE_26 : 8;
+    /// read-write - Data byte 2 of Rx/Tx frame.
     uint32_t DATA_BYTE_25 : 8;
+    /// read-write - Data byte 3 of Rx/Tx frame.
     uint32_t DATA_BYTE_24 : 8;
   } bits;
   
@@ -9093,9 +11045,13 @@ union WORD019 {
   
   // Bit field definition.
   struct {
+    /// read-write - Data byte 0 of Rx/Tx frame.
     uint32_t DATA_BYTE_3 : 8;
+    /// read-write - Data byte 1 of Rx/Tx frame.
     uint32_t DATA_BYTE_2 : 8;
+    /// read-write - Data byte 2 of Rx/Tx frame.
     uint32_t DATA_BYTE_1 : 8;
+    /// read-write - Data byte 3 of Rx/Tx frame.
     uint32_t DATA_BYTE_0 : 8;
   } bits;
   
@@ -9113,8 +11069,11 @@ union MB13_16B_ID_L {
   
   // Bit field definition.
   struct {
+    /// read-write - Contains extended (LOW word) identifier of message buffer.
     uint32_t EXT : 18;
+    /// read-write - Contains standard/extended (HIGH word) identifier of message buffer.
     uint32_t STD : 11;
+    /// read-write - Local priority. This 3-bit fieldis only used when LPRIO_EN bit is set in MCR and it only makes sense for Tx buffers. These bits are not transmitted. They are appended to the regular ID to define the transmission priority.
     uint32_t PRIO : 3;
   } bits;
   
@@ -9132,9 +11091,13 @@ union MB19_8B_WORD1 {
   
   // Bit field definition.
   struct {
+    /// read-write - Data byte 0 of Rx/Tx frame.
     uint32_t DATA_BYTE_7 : 8;
+    /// read-write - Data byte 1 of Rx/Tx frame.
     uint32_t DATA_BYTE_6 : 8;
+    /// read-write - Data byte 2 of Rx/Tx frame.
     uint32_t DATA_BYTE_5 : 8;
+    /// read-write - Data byte 3 of Rx/Tx frame.
     uint32_t DATA_BYTE_4 : 8;
   } bits;
   
@@ -9152,9 +11115,13 @@ union MB4_64B_WORD5_L {
   
   // Bit field definition.
   struct {
+    /// read-write - Data byte 0 of Rx/Tx frame.
     uint32_t DATA_BYTE_23 : 8;
+    /// read-write - Data byte 1 of Rx/Tx frame.
     uint32_t DATA_BYTE_22 : 8;
+    /// read-write - Data byte 2 of Rx/Tx frame.
     uint32_t DATA_BYTE_21 : 8;
+    /// read-write - Data byte 3 of Rx/Tx frame.
     uint32_t DATA_BYTE_20 : 8;
   } bits;
   
@@ -9172,9 +11139,13 @@ union MB7_32B_WORD7_L {
   
   // Bit field definition.
   struct {
+    /// read-write - Data byte 0 of Rx/Tx frame.
     uint32_t DATA_BYTE_31 : 8;
+    /// read-write - Data byte 1 of Rx/Tx frame.
     uint32_t DATA_BYTE_30 : 8;
+    /// read-write - Data byte 2 of Rx/Tx frame.
     uint32_t DATA_BYTE_29 : 8;
+    /// read-write - Data byte 3 of Rx/Tx frame.
     uint32_t DATA_BYTE_28 : 8;
   } bits;
   
@@ -9192,9 +11163,13 @@ union WORD119 {
   
   // Bit field definition.
   struct {
+    /// read-write - Data byte 0 of Rx/Tx frame.
     uint32_t DATA_BYTE_7 : 8;
+    /// read-write - Data byte 1 of Rx/Tx frame.
     uint32_t DATA_BYTE_6 : 8;
+    /// read-write - Data byte 2 of Rx/Tx frame.
     uint32_t DATA_BYTE_5 : 8;
+    /// read-write - Data byte 3 of Rx/Tx frame.
     uint32_t DATA_BYTE_4 : 8;
   } bits;
   
@@ -9212,16 +11187,25 @@ union CS20 {
   
   // Bit field definition.
   struct {
+    /// read-write - Free-Running Counter Time stamp. This 16-bit field is a copy of the Free-Running Timer, captured for Tx and Rx frames at the time when the beginning of the Identifier field appears on the CAN bus.
     uint32_t TIME_STAMP : 16;
+    /// read-write - Length of the data to be stored/transmitted.
     uint32_t DLC : 4;
+    /// read-write - Remote Transmission Request. One/zero for remote/data frame.
     uint32_t RTR : 1;
+    /// read-write - ID Extended. One/zero for extended/standard format frame.
     uint32_t IDE : 1;
+    /// read-write - Substitute Remote Request. Contains a fixed recessive bit.
     uint32_t SRR : 1;
     uint32_t _reserved_0 : 1;
+    /// read-write - Message Buffer Code. This 4-bit field can be accessed (read or write) by the CPU and by the FlexCAN module itself, as part of the message buffer matching and arbitration process.
     uint32_t CODE : 4;
     uint32_t _reserved_1 : 1;
+    /// read-write - Error State Indicator. This bit indicates if the transmitting node is error active or error passive.
     uint32_t ESI : 1;
+    /// read-write - Bit Rate Switch. This bit defines whether the bit rate is switched inside a CAN FD format frame.
     uint32_t BRS : 1;
+    /// read-write - Extended Data Length. This bit distinguishes between CAN format and CAN FD format frames. The EDL bit must not be set for Message Buffers configured to RANSWER with code field 0b1010.
     uint32_t EDL : 1;
   } bits;
   
@@ -9239,9 +11223,13 @@ union MB13_16B_WORD0_L {
   
   // Bit field definition.
   struct {
+    /// read-write - Data byte 0 of Rx/Tx frame.
     uint32_t DATA_BYTE_3 : 8;
+    /// read-write - Data byte 1 of Rx/Tx frame.
     uint32_t DATA_BYTE_2 : 8;
+    /// read-write - Data byte 2 of Rx/Tx frame.
     uint32_t DATA_BYTE_1 : 8;
+    /// read-write - Data byte 3 of Rx/Tx frame.
     uint32_t DATA_BYTE_0 : 8;
   } bits;
   
@@ -9259,16 +11247,25 @@ union MB20_8B_CS {
   
   // Bit field definition.
   struct {
+    /// read-write - Free-Running Counter Time stamp. This 16-bit field is a copy of the Free-Running Timer, captured for Tx and Rx frames at the time when the beginning of the Identifier field appears on the CAN bus.
     uint32_t TIME_STAMP : 16;
+    /// read-write - Length of the data to be stored/transmitted.
     uint32_t DLC : 4;
+    /// read-write - Remote Transmission Request. One/zero for remote/data frame.
     uint32_t RTR : 1;
+    /// read-write - ID Extended. One/zero for extended/standard format frame.
     uint32_t IDE : 1;
+    /// read-write - Substitute Remote Request. Contains a fixed recessive bit.
     uint32_t SRR : 1;
     uint32_t _reserved_0 : 1;
+    /// read-write - Message Buffer Code. This 4-bit field can be accessed (read or write) by the CPU and by the FlexCAN module itself, as part of the message buffer matching and arbitration process.
     uint32_t CODE : 4;
     uint32_t _reserved_1 : 1;
+    /// read-write - Error State Indicator. This bit indicates if the transmitting node is error active or error passive.
     uint32_t ESI : 1;
+    /// read-write - Bit Rate Switch. This bit defines whether the bit rate is switched inside a CAN FD format frame.
     uint32_t BRS : 1;
+    /// read-write - Extended Data Length. This bit distinguishes between CAN format and CAN FD format frames. The EDL bit must not be set for Message Buffers configured to RANSWER with code field 0b1010.
     uint32_t EDL : 1;
   } bits;
   
@@ -9286,9 +11283,13 @@ union MB4_64B_WORD6_L {
   
   // Bit field definition.
   struct {
+    /// read-write - Data byte 0 of Rx/Tx frame.
     uint32_t DATA_BYTE_27 : 8;
+    /// read-write - Data byte 1 of Rx/Tx frame.
     uint32_t DATA_BYTE_26 : 8;
+    /// read-write - Data byte 2 of Rx/Tx frame.
     uint32_t DATA_BYTE_25 : 8;
+    /// read-write - Data byte 3 of Rx/Tx frame.
     uint32_t DATA_BYTE_24 : 8;
   } bits;
   
@@ -9306,16 +11307,25 @@ union MB8_32B_CS_L {
   
   // Bit field definition.
   struct {
+    /// read-write - Free-Running Counter Time stamp. This 16-bit field is a copy of the Free-Running Timer, captured for Tx and Rx frames at the time when the beginning of the Identifier field appears on the CAN bus.
     uint32_t TIME_STAMP : 16;
+    /// read-write - Length of the data to be stored/transmitted.
     uint32_t DLC : 4;
+    /// read-write - Remote Transmission Request. One/zero for remote/data frame.
     uint32_t RTR : 1;
+    /// read-write - ID Extended. One/zero for extended/standard format frame.
     uint32_t IDE : 1;
+    /// read-write - Substitute Remote Request. Contains a fixed recessive bit.
     uint32_t SRR : 1;
     uint32_t _reserved_0 : 1;
+    /// read-write - Message Buffer Code. This 4-bit field can be accessed (read or write) by the CPU and by the FlexCAN module itself, as part of the message buffer matching and arbitration process.
     uint32_t CODE : 4;
     uint32_t _reserved_1 : 1;
+    /// read-write - Error State Indicator. This bit indicates if the transmitting node is error active or error passive.
     uint32_t ESI : 1;
+    /// read-write - Bit Rate Switch. This bit defines whether the bit rate is switched inside a CAN FD format frame.
     uint32_t BRS : 1;
+    /// read-write - Extended Data Length. This bit distinguishes between CAN format and CAN FD format frames. The EDL bit must not be set for Message Buffers configured to RANSWER with code field 0b1010.
     uint32_t EDL : 1;
   } bits;
   
@@ -9333,8 +11343,11 @@ union ID20 {
   
   // Bit field definition.
   struct {
+    /// read-write - Contains extended (LOW word) identifier of message buffer.
     uint32_t EXT : 18;
+    /// read-write - Contains standard/extended (HIGH word) identifier of message buffer.
     uint32_t STD : 11;
+    /// read-write - Local priority. This 3-bit fieldis only used when LPRIO_EN bit is set in MCR and it only makes sense for Tx buffers. These bits are not transmitted. They are appended to the regular ID to define the transmission priority.
     uint32_t PRIO : 3;
   } bits;
   
@@ -9352,9 +11365,13 @@ union MB13_16B_WORD1_L {
   
   // Bit field definition.
   struct {
+    /// read-write - Data byte 0 of Rx/Tx frame.
     uint32_t DATA_BYTE_7 : 8;
+    /// read-write - Data byte 1 of Rx/Tx frame.
     uint32_t DATA_BYTE_6 : 8;
+    /// read-write - Data byte 2 of Rx/Tx frame.
     uint32_t DATA_BYTE_5 : 8;
+    /// read-write - Data byte 3 of Rx/Tx frame.
     uint32_t DATA_BYTE_4 : 8;
   } bits;
   
@@ -9372,8 +11389,11 @@ union MB20_8B_ID {
   
   // Bit field definition.
   struct {
+    /// read-write - Contains extended (LOW word) identifier of message buffer.
     uint32_t EXT : 18;
+    /// read-write - Contains standard/extended (HIGH word) identifier of message buffer.
     uint32_t STD : 11;
+    /// read-write - Local priority. This 3-bit fieldis only used when LPRIO_EN bit is set in MCR and it only makes sense for Tx buffers. These bits are not transmitted. They are appended to the regular ID to define the transmission priority.
     uint32_t PRIO : 3;
   } bits;
   
@@ -9391,9 +11411,13 @@ union MB4_64B_WORD7_L {
   
   // Bit field definition.
   struct {
+    /// read-write - Data byte 0 of Rx/Tx frame.
     uint32_t DATA_BYTE_31 : 8;
+    /// read-write - Data byte 1 of Rx/Tx frame.
     uint32_t DATA_BYTE_30 : 8;
+    /// read-write - Data byte 2 of Rx/Tx frame.
     uint32_t DATA_BYTE_29 : 8;
+    /// read-write - Data byte 3 of Rx/Tx frame.
     uint32_t DATA_BYTE_28 : 8;
   } bits;
   
@@ -9411,8 +11435,11 @@ union MB8_32B_ID_L {
   
   // Bit field definition.
   struct {
+    /// read-write - Contains extended (LOW word) identifier of message buffer.
     uint32_t EXT : 18;
+    /// read-write - Contains standard/extended (HIGH word) identifier of message buffer.
     uint32_t STD : 11;
+    /// read-write - Local priority. This 3-bit fieldis only used when LPRIO_EN bit is set in MCR and it only makes sense for Tx buffers. These bits are not transmitted. They are appended to the regular ID to define the transmission priority.
     uint32_t PRIO : 3;
   } bits;
   
@@ -9430,9 +11457,13 @@ union MB13_16B_WORD2_L {
   
   // Bit field definition.
   struct {
+    /// read-write - Data byte 0 of Rx/Tx frame.
     uint32_t DATA_BYTE_11 : 8;
+    /// read-write - Data byte 1 of Rx/Tx frame.
     uint32_t DATA_BYTE_10 : 8;
+    /// read-write - Data byte 2 of Rx/Tx frame.
     uint32_t DATA_BYTE_9 : 8;
+    /// read-write - Data byte 3 of Rx/Tx frame.
     uint32_t DATA_BYTE_8 : 8;
   } bits;
   
@@ -9450,9 +11481,13 @@ union MB20_8B_WORD0 {
   
   // Bit field definition.
   struct {
+    /// read-write - Data byte 0 of Rx/Tx frame.
     uint32_t DATA_BYTE_3 : 8;
+    /// read-write - Data byte 1 of Rx/Tx frame.
     uint32_t DATA_BYTE_2 : 8;
+    /// read-write - Data byte 2 of Rx/Tx frame.
     uint32_t DATA_BYTE_1 : 8;
+    /// read-write - Data byte 3 of Rx/Tx frame.
     uint32_t DATA_BYTE_0 : 8;
   } bits;
   
@@ -9470,9 +11505,13 @@ union MB4_64B_WORD8_L {
   
   // Bit field definition.
   struct {
+    /// read-write - Data byte 0 of Rx/Tx frame.
     uint32_t DATA_BYTE_35 : 8;
+    /// read-write - Data byte 1 of Rx/Tx frame.
     uint32_t DATA_BYTE_34 : 8;
+    /// read-write - Data byte 2 of Rx/Tx frame.
     uint32_t DATA_BYTE_33 : 8;
+    /// read-write - Data byte 3 of Rx/Tx frame.
     uint32_t DATA_BYTE_32 : 8;
   } bits;
   
@@ -9490,9 +11529,13 @@ union MB8_32B_WORD0_L {
   
   // Bit field definition.
   struct {
+    /// read-write - Data byte 0 of Rx/Tx frame.
     uint32_t DATA_BYTE_3 : 8;
+    /// read-write - Data byte 1 of Rx/Tx frame.
     uint32_t DATA_BYTE_2 : 8;
+    /// read-write - Data byte 2 of Rx/Tx frame.
     uint32_t DATA_BYTE_1 : 8;
+    /// read-write - Data byte 3 of Rx/Tx frame.
     uint32_t DATA_BYTE_0 : 8;
   } bits;
   
@@ -9510,9 +11553,13 @@ union WORD020 {
   
   // Bit field definition.
   struct {
+    /// read-write - Data byte 0 of Rx/Tx frame.
     uint32_t DATA_BYTE_3 : 8;
+    /// read-write - Data byte 1 of Rx/Tx frame.
     uint32_t DATA_BYTE_2 : 8;
+    /// read-write - Data byte 2 of Rx/Tx frame.
     uint32_t DATA_BYTE_1 : 8;
+    /// read-write - Data byte 3 of Rx/Tx frame.
     uint32_t DATA_BYTE_0 : 8;
   } bits;
   
@@ -9530,9 +11577,13 @@ union MB13_16B_WORD3_L {
   
   // Bit field definition.
   struct {
+    /// read-write - Data byte 0 of Rx/Tx frame.
     uint32_t DATA_BYTE_15 : 8;
+    /// read-write - Data byte 1 of Rx/Tx frame.
     uint32_t DATA_BYTE_14 : 8;
+    /// read-write - Data byte 2 of Rx/Tx frame.
     uint32_t DATA_BYTE_13 : 8;
+    /// read-write - Data byte 3 of Rx/Tx frame.
     uint32_t DATA_BYTE_12 : 8;
   } bits;
   
@@ -9550,9 +11601,13 @@ union MB20_8B_WORD1 {
   
   // Bit field definition.
   struct {
+    /// read-write - Data byte 0 of Rx/Tx frame.
     uint32_t DATA_BYTE_7 : 8;
+    /// read-write - Data byte 1 of Rx/Tx frame.
     uint32_t DATA_BYTE_6 : 8;
+    /// read-write - Data byte 2 of Rx/Tx frame.
     uint32_t DATA_BYTE_5 : 8;
+    /// read-write - Data byte 3 of Rx/Tx frame.
     uint32_t DATA_BYTE_4 : 8;
   } bits;
   
@@ -9570,9 +11625,13 @@ union MB4_64B_WORD9_L {
   
   // Bit field definition.
   struct {
+    /// read-write - Data byte 0 of Rx/Tx frame.
     uint32_t DATA_BYTE_39 : 8;
+    /// read-write - Data byte 1 of Rx/Tx frame.
     uint32_t DATA_BYTE_38 : 8;
+    /// read-write - Data byte 2 of Rx/Tx frame.
     uint32_t DATA_BYTE_37 : 8;
+    /// read-write - Data byte 3 of Rx/Tx frame.
     uint32_t DATA_BYTE_36 : 8;
   } bits;
   
@@ -9590,9 +11649,13 @@ union MB8_32B_WORD1_L {
   
   // Bit field definition.
   struct {
+    /// read-write - Data byte 0 of Rx/Tx frame.
     uint32_t DATA_BYTE_7 : 8;
+    /// read-write - Data byte 1 of Rx/Tx frame.
     uint32_t DATA_BYTE_6 : 8;
+    /// read-write - Data byte 2 of Rx/Tx frame.
     uint32_t DATA_BYTE_5 : 8;
+    /// read-write - Data byte 3 of Rx/Tx frame.
     uint32_t DATA_BYTE_4 : 8;
   } bits;
   
@@ -9610,9 +11673,13 @@ union WORD120 {
   
   // Bit field definition.
   struct {
+    /// read-write - Data byte 0 of Rx/Tx frame.
     uint32_t DATA_BYTE_7 : 8;
+    /// read-write - Data byte 1 of Rx/Tx frame.
     uint32_t DATA_BYTE_6 : 8;
+    /// read-write - Data byte 2 of Rx/Tx frame.
     uint32_t DATA_BYTE_5 : 8;
+    /// read-write - Data byte 3 of Rx/Tx frame.
     uint32_t DATA_BYTE_4 : 8;
   } bits;
   
@@ -9630,16 +11697,25 @@ union CS21 {
   
   // Bit field definition.
   struct {
+    /// read-write - Free-Running Counter Time stamp. This 16-bit field is a copy of the Free-Running Timer, captured for Tx and Rx frames at the time when the beginning of the Identifier field appears on the CAN bus.
     uint32_t TIME_STAMP : 16;
+    /// read-write - Length of the data to be stored/transmitted.
     uint32_t DLC : 4;
+    /// read-write - Remote Transmission Request. One/zero for remote/data frame.
     uint32_t RTR : 1;
+    /// read-write - ID Extended. One/zero for extended/standard format frame.
     uint32_t IDE : 1;
+    /// read-write - Substitute Remote Request. Contains a fixed recessive bit.
     uint32_t SRR : 1;
     uint32_t _reserved_0 : 1;
+    /// read-write - Message Buffer Code. This 4-bit field can be accessed (read or write) by the CPU and by the FlexCAN module itself, as part of the message buffer matching and arbitration process.
     uint32_t CODE : 4;
     uint32_t _reserved_1 : 1;
+    /// read-write - Error State Indicator. This bit indicates if the transmitting node is error active or error passive.
     uint32_t ESI : 1;
+    /// read-write - Bit Rate Switch. This bit defines whether the bit rate is switched inside a CAN FD format frame.
     uint32_t BRS : 1;
+    /// read-write - Extended Data Length. This bit distinguishes between CAN format and CAN FD format frames. The EDL bit must not be set for Message Buffers configured to RANSWER with code field 0b1010.
     uint32_t EDL : 1;
   } bits;
   
@@ -9657,16 +11733,25 @@ union MB14_16B_CS_L {
   
   // Bit field definition.
   struct {
+    /// read-write - Free-Running Counter Time stamp. This 16-bit field is a copy of the Free-Running Timer, captured for Tx and Rx frames at the time when the beginning of the Identifier field appears on the CAN bus.
     uint32_t TIME_STAMP : 16;
+    /// read-write - Length of the data to be stored/transmitted.
     uint32_t DLC : 4;
+    /// read-write - Remote Transmission Request. One/zero for remote/data frame.
     uint32_t RTR : 1;
+    /// read-write - ID Extended. One/zero for extended/standard format frame.
     uint32_t IDE : 1;
+    /// read-write - Substitute Remote Request. Contains a fixed recessive bit.
     uint32_t SRR : 1;
     uint32_t _reserved_0 : 1;
+    /// read-write - Message Buffer Code. This 4-bit field can be accessed (read or write) by the CPU and by the FlexCAN module itself, as part of the message buffer matching and arbitration process.
     uint32_t CODE : 4;
     uint32_t _reserved_1 : 1;
+    /// read-write - Error State Indicator. This bit indicates if the transmitting node is error active or error passive.
     uint32_t ESI : 1;
+    /// read-write - Bit Rate Switch. This bit defines whether the bit rate is switched inside a CAN FD format frame.
     uint32_t BRS : 1;
+    /// read-write - Extended Data Length. This bit distinguishes between CAN format and CAN FD format frames. The EDL bit must not be set for Message Buffers configured to RANSWER with code field 0b1010.
     uint32_t EDL : 1;
   } bits;
   
@@ -9684,16 +11769,25 @@ union MB21_8B_CS {
   
   // Bit field definition.
   struct {
+    /// read-write - Free-Running Counter Time stamp. This 16-bit field is a copy of the Free-Running Timer, captured for Tx and Rx frames at the time when the beginning of the Identifier field appears on the CAN bus.
     uint32_t TIME_STAMP : 16;
+    /// read-write - Length of the data to be stored/transmitted.
     uint32_t DLC : 4;
+    /// read-write - Remote Transmission Request. One/zero for remote/data frame.
     uint32_t RTR : 1;
+    /// read-write - ID Extended. One/zero for extended/standard format frame.
     uint32_t IDE : 1;
+    /// read-write - Substitute Remote Request. Contains a fixed recessive bit.
     uint32_t SRR : 1;
     uint32_t _reserved_0 : 1;
+    /// read-write - Message Buffer Code. This 4-bit field can be accessed (read or write) by the CPU and by the FlexCAN module itself, as part of the message buffer matching and arbitration process.
     uint32_t CODE : 4;
     uint32_t _reserved_1 : 1;
+    /// read-write - Error State Indicator. This bit indicates if the transmitting node is error active or error passive.
     uint32_t ESI : 1;
+    /// read-write - Bit Rate Switch. This bit defines whether the bit rate is switched inside a CAN FD format frame.
     uint32_t BRS : 1;
+    /// read-write - Extended Data Length. This bit distinguishes between CAN format and CAN FD format frames. The EDL bit must not be set for Message Buffers configured to RANSWER with code field 0b1010.
     uint32_t EDL : 1;
   } bits;
   
@@ -9711,9 +11805,13 @@ union MB4_64B_WORD10_L {
   
   // Bit field definition.
   struct {
+    /// read-write - Data byte 0 of Rx/Tx frame.
     uint32_t DATA_BYTE_43 : 8;
+    /// read-write - Data byte 1 of Rx/Tx frame.
     uint32_t DATA_BYTE_42 : 8;
+    /// read-write - Data byte 2 of Rx/Tx frame.
     uint32_t DATA_BYTE_41 : 8;
+    /// read-write - Data byte 3 of Rx/Tx frame.
     uint32_t DATA_BYTE_40 : 8;
   } bits;
   
@@ -9731,9 +11829,13 @@ union MB8_32B_WORD2_L {
   
   // Bit field definition.
   struct {
+    /// read-write - Data byte 0 of Rx/Tx frame.
     uint32_t DATA_BYTE_11 : 8;
+    /// read-write - Data byte 1 of Rx/Tx frame.
     uint32_t DATA_BYTE_10 : 8;
+    /// read-write - Data byte 2 of Rx/Tx frame.
     uint32_t DATA_BYTE_9 : 8;
+    /// read-write - Data byte 3 of Rx/Tx frame.
     uint32_t DATA_BYTE_8 : 8;
   } bits;
   
@@ -9751,8 +11853,11 @@ union ID21 {
   
   // Bit field definition.
   struct {
+    /// read-write - Contains extended (LOW word) identifier of message buffer.
     uint32_t EXT : 18;
+    /// read-write - Contains standard/extended (HIGH word) identifier of message buffer.
     uint32_t STD : 11;
+    /// read-write - Local priority. This 3-bit fieldis only used when LPRIO_EN bit is set in MCR and it only makes sense for Tx buffers. These bits are not transmitted. They are appended to the regular ID to define the transmission priority.
     uint32_t PRIO : 3;
   } bits;
   
@@ -9770,8 +11875,11 @@ union MB14_16B_ID_L {
   
   // Bit field definition.
   struct {
+    /// read-write - Contains extended (LOW word) identifier of message buffer.
     uint32_t EXT : 18;
+    /// read-write - Contains standard/extended (HIGH word) identifier of message buffer.
     uint32_t STD : 11;
+    /// read-write - Local priority. This 3-bit fieldis only used when LPRIO_EN bit is set in MCR and it only makes sense for Tx buffers. These bits are not transmitted. They are appended to the regular ID to define the transmission priority.
     uint32_t PRIO : 3;
   } bits;
   
@@ -9789,8 +11897,11 @@ union MB21_8B_ID {
   
   // Bit field definition.
   struct {
+    /// read-write - Contains extended (LOW word) identifier of message buffer.
     uint32_t EXT : 18;
+    /// read-write - Contains standard/extended (HIGH word) identifier of message buffer.
     uint32_t STD : 11;
+    /// read-write - Local priority. This 3-bit fieldis only used when LPRIO_EN bit is set in MCR and it only makes sense for Tx buffers. These bits are not transmitted. They are appended to the regular ID to define the transmission priority.
     uint32_t PRIO : 3;
   } bits;
   
@@ -9808,9 +11919,13 @@ union MB4_64B_WORD11_L {
   
   // Bit field definition.
   struct {
+    /// read-write - Data byte 0 of Rx/Tx frame.
     uint32_t DATA_BYTE_47 : 8;
+    /// read-write - Data byte 1 of Rx/Tx frame.
     uint32_t DATA_BYTE_46 : 8;
+    /// read-write - Data byte 2 of Rx/Tx frame.
     uint32_t DATA_BYTE_45 : 8;
+    /// read-write - Data byte 3 of Rx/Tx frame.
     uint32_t DATA_BYTE_44 : 8;
   } bits;
   
@@ -9828,9 +11943,13 @@ union MB8_32B_WORD3_L {
   
   // Bit field definition.
   struct {
+    /// read-write - Data byte 0 of Rx/Tx frame.
     uint32_t DATA_BYTE_15 : 8;
+    /// read-write - Data byte 1 of Rx/Tx frame.
     uint32_t DATA_BYTE_14 : 8;
+    /// read-write - Data byte 2 of Rx/Tx frame.
     uint32_t DATA_BYTE_13 : 8;
+    /// read-write - Data byte 3 of Rx/Tx frame.
     uint32_t DATA_BYTE_12 : 8;
   } bits;
   
@@ -9848,9 +11967,13 @@ union MB14_16B_WORD0_L {
   
   // Bit field definition.
   struct {
+    /// read-write - Data byte 0 of Rx/Tx frame.
     uint32_t DATA_BYTE_3 : 8;
+    /// read-write - Data byte 1 of Rx/Tx frame.
     uint32_t DATA_BYTE_2 : 8;
+    /// read-write - Data byte 2 of Rx/Tx frame.
     uint32_t DATA_BYTE_1 : 8;
+    /// read-write - Data byte 3 of Rx/Tx frame.
     uint32_t DATA_BYTE_0 : 8;
   } bits;
   
@@ -9868,9 +11991,13 @@ union MB21_8B_WORD0 {
   
   // Bit field definition.
   struct {
+    /// read-write - Data byte 0 of Rx/Tx frame.
     uint32_t DATA_BYTE_3 : 8;
+    /// read-write - Data byte 1 of Rx/Tx frame.
     uint32_t DATA_BYTE_2 : 8;
+    /// read-write - Data byte 2 of Rx/Tx frame.
     uint32_t DATA_BYTE_1 : 8;
+    /// read-write - Data byte 3 of Rx/Tx frame.
     uint32_t DATA_BYTE_0 : 8;
   } bits;
   
@@ -9888,9 +12015,13 @@ union MB4_64B_WORD12_L {
   
   // Bit field definition.
   struct {
+    /// read-write - Data byte 0 of Rx/Tx frame.
     uint32_t DATA_BYTE_51 : 8;
+    /// read-write - Data byte 1 of Rx/Tx frame.
     uint32_t DATA_BYTE_50 : 8;
+    /// read-write - Data byte 2 of Rx/Tx frame.
     uint32_t DATA_BYTE_49 : 8;
+    /// read-write - Data byte 3 of Rx/Tx frame.
     uint32_t DATA_BYTE_48 : 8;
   } bits;
   
@@ -9908,9 +12039,13 @@ union MB8_32B_WORD4_L {
   
   // Bit field definition.
   struct {
+    /// read-write - Data byte 0 of Rx/Tx frame.
     uint32_t DATA_BYTE_19 : 8;
+    /// read-write - Data byte 1 of Rx/Tx frame.
     uint32_t DATA_BYTE_18 : 8;
+    /// read-write - Data byte 2 of Rx/Tx frame.
     uint32_t DATA_BYTE_17 : 8;
+    /// read-write - Data byte 3 of Rx/Tx frame.
     uint32_t DATA_BYTE_16 : 8;
   } bits;
   
@@ -9928,9 +12063,13 @@ union WORD021 {
   
   // Bit field definition.
   struct {
+    /// read-write - Data byte 0 of Rx/Tx frame.
     uint32_t DATA_BYTE_3 : 8;
+    /// read-write - Data byte 1 of Rx/Tx frame.
     uint32_t DATA_BYTE_2 : 8;
+    /// read-write - Data byte 2 of Rx/Tx frame.
     uint32_t DATA_BYTE_1 : 8;
+    /// read-write - Data byte 3 of Rx/Tx frame.
     uint32_t DATA_BYTE_0 : 8;
   } bits;
   
@@ -9948,9 +12087,13 @@ union MB14_16B_WORD1_L {
   
   // Bit field definition.
   struct {
+    /// read-write - Data byte 0 of Rx/Tx frame.
     uint32_t DATA_BYTE_7 : 8;
+    /// read-write - Data byte 1 of Rx/Tx frame.
     uint32_t DATA_BYTE_6 : 8;
+    /// read-write - Data byte 2 of Rx/Tx frame.
     uint32_t DATA_BYTE_5 : 8;
+    /// read-write - Data byte 3 of Rx/Tx frame.
     uint32_t DATA_BYTE_4 : 8;
   } bits;
   
@@ -9968,9 +12111,13 @@ union MB21_8B_WORD1 {
   
   // Bit field definition.
   struct {
+    /// read-write - Data byte 0 of Rx/Tx frame.
     uint32_t DATA_BYTE_7 : 8;
+    /// read-write - Data byte 1 of Rx/Tx frame.
     uint32_t DATA_BYTE_6 : 8;
+    /// read-write - Data byte 2 of Rx/Tx frame.
     uint32_t DATA_BYTE_5 : 8;
+    /// read-write - Data byte 3 of Rx/Tx frame.
     uint32_t DATA_BYTE_4 : 8;
   } bits;
   
@@ -9988,9 +12135,13 @@ union MB4_64B_WORD13_L {
   
   // Bit field definition.
   struct {
+    /// read-write - Data byte 0 of Rx/Tx frame.
     uint32_t DATA_BYTE_55 : 8;
+    /// read-write - Data byte 1 of Rx/Tx frame.
     uint32_t DATA_BYTE_54 : 8;
+    /// read-write - Data byte 2 of Rx/Tx frame.
     uint32_t DATA_BYTE_53 : 8;
+    /// read-write - Data byte 3 of Rx/Tx frame.
     uint32_t DATA_BYTE_52 : 8;
   } bits;
   
@@ -10008,9 +12159,13 @@ union MB8_32B_WORD5_L {
   
   // Bit field definition.
   struct {
+    /// read-write - Data byte 0 of Rx/Tx frame.
     uint32_t DATA_BYTE_23 : 8;
+    /// read-write - Data byte 1 of Rx/Tx frame.
     uint32_t DATA_BYTE_22 : 8;
+    /// read-write - Data byte 2 of Rx/Tx frame.
     uint32_t DATA_BYTE_21 : 8;
+    /// read-write - Data byte 3 of Rx/Tx frame.
     uint32_t DATA_BYTE_20 : 8;
   } bits;
   
@@ -10028,9 +12183,13 @@ union WORD121 {
   
   // Bit field definition.
   struct {
+    /// read-write - Data byte 0 of Rx/Tx frame.
     uint32_t DATA_BYTE_7 : 8;
+    /// read-write - Data byte 1 of Rx/Tx frame.
     uint32_t DATA_BYTE_6 : 8;
+    /// read-write - Data byte 2 of Rx/Tx frame.
     uint32_t DATA_BYTE_5 : 8;
+    /// read-write - Data byte 3 of Rx/Tx frame.
     uint32_t DATA_BYTE_4 : 8;
   } bits;
   
@@ -10048,16 +12207,25 @@ union CS22 {
   
   // Bit field definition.
   struct {
+    /// read-write - Free-Running Counter Time stamp. This 16-bit field is a copy of the Free-Running Timer, captured for Tx and Rx frames at the time when the beginning of the Identifier field appears on the CAN bus.
     uint32_t TIME_STAMP : 16;
+    /// read-write - Length of the data to be stored/transmitted.
     uint32_t DLC : 4;
+    /// read-write - Remote Transmission Request. One/zero for remote/data frame.
     uint32_t RTR : 1;
+    /// read-write - ID Extended. One/zero for extended/standard format frame.
     uint32_t IDE : 1;
+    /// read-write - Substitute Remote Request. Contains a fixed recessive bit.
     uint32_t SRR : 1;
     uint32_t _reserved_0 : 1;
+    /// read-write - Message Buffer Code. This 4-bit field can be accessed (read or write) by the CPU and by the FlexCAN module itself, as part of the message buffer matching and arbitration process.
     uint32_t CODE : 4;
     uint32_t _reserved_1 : 1;
+    /// read-write - Error State Indicator. This bit indicates if the transmitting node is error active or error passive.
     uint32_t ESI : 1;
+    /// read-write - Bit Rate Switch. This bit defines whether the bit rate is switched inside a CAN FD format frame.
     uint32_t BRS : 1;
+    /// read-write - Extended Data Length. This bit distinguishes between CAN format and CAN FD format frames. The EDL bit must not be set for Message Buffers configured to RANSWER with code field 0b1010.
     uint32_t EDL : 1;
   } bits;
   
@@ -10075,9 +12243,13 @@ union MB14_16B_WORD2_L {
   
   // Bit field definition.
   struct {
+    /// read-write - Data byte 0 of Rx/Tx frame.
     uint32_t DATA_BYTE_11 : 8;
+    /// read-write - Data byte 1 of Rx/Tx frame.
     uint32_t DATA_BYTE_10 : 8;
+    /// read-write - Data byte 2 of Rx/Tx frame.
     uint32_t DATA_BYTE_9 : 8;
+    /// read-write - Data byte 3 of Rx/Tx frame.
     uint32_t DATA_BYTE_8 : 8;
   } bits;
   
@@ -10095,16 +12267,25 @@ union MB22_8B_CS {
   
   // Bit field definition.
   struct {
+    /// read-write - Free-Running Counter Time stamp. This 16-bit field is a copy of the Free-Running Timer, captured for Tx and Rx frames at the time when the beginning of the Identifier field appears on the CAN bus.
     uint32_t TIME_STAMP : 16;
+    /// read-write - Length of the data to be stored/transmitted.
     uint32_t DLC : 4;
+    /// read-write - Remote Transmission Request. One/zero for remote/data frame.
     uint32_t RTR : 1;
+    /// read-write - ID Extended. One/zero for extended/standard format frame.
     uint32_t IDE : 1;
+    /// read-write - Substitute Remote Request. Contains a fixed recessive bit.
     uint32_t SRR : 1;
     uint32_t _reserved_0 : 1;
+    /// read-write - Message Buffer Code. This 4-bit field can be accessed (read or write) by the CPU and by the FlexCAN module itself, as part of the message buffer matching and arbitration process.
     uint32_t CODE : 4;
     uint32_t _reserved_1 : 1;
+    /// read-write - Error State Indicator. This bit indicates if the transmitting node is error active or error passive.
     uint32_t ESI : 1;
+    /// read-write - Bit Rate Switch. This bit defines whether the bit rate is switched inside a CAN FD format frame.
     uint32_t BRS : 1;
+    /// read-write - Extended Data Length. This bit distinguishes between CAN format and CAN FD format frames. The EDL bit must not be set for Message Buffers configured to RANSWER with code field 0b1010.
     uint32_t EDL : 1;
   } bits;
   
@@ -10122,9 +12303,13 @@ union MB4_64B_WORD14_L {
   
   // Bit field definition.
   struct {
+    /// read-write - Data byte 0 of Rx/Tx frame.
     uint32_t DATA_BYTE_59 : 8;
+    /// read-write - Data byte 1 of Rx/Tx frame.
     uint32_t DATA_BYTE_58 : 8;
+    /// read-write - Data byte 2 of Rx/Tx frame.
     uint32_t DATA_BYTE_57 : 8;
+    /// read-write - Data byte 3 of Rx/Tx frame.
     uint32_t DATA_BYTE_56 : 8;
   } bits;
   
@@ -10142,9 +12327,13 @@ union MB8_32B_WORD6_L {
   
   // Bit field definition.
   struct {
+    /// read-write - Data byte 0 of Rx/Tx frame.
     uint32_t DATA_BYTE_27 : 8;
+    /// read-write - Data byte 1 of Rx/Tx frame.
     uint32_t DATA_BYTE_26 : 8;
+    /// read-write - Data byte 2 of Rx/Tx frame.
     uint32_t DATA_BYTE_25 : 8;
+    /// read-write - Data byte 3 of Rx/Tx frame.
     uint32_t DATA_BYTE_24 : 8;
   } bits;
   
@@ -10162,8 +12351,11 @@ union ID22 {
   
   // Bit field definition.
   struct {
+    /// read-write - Contains extended (LOW word) identifier of message buffer.
     uint32_t EXT : 18;
+    /// read-write - Contains standard/extended (HIGH word) identifier of message buffer.
     uint32_t STD : 11;
+    /// read-write - Local priority. This 3-bit fieldis only used when LPRIO_EN bit is set in MCR and it only makes sense for Tx buffers. These bits are not transmitted. They are appended to the regular ID to define the transmission priority.
     uint32_t PRIO : 3;
   } bits;
   
@@ -10181,9 +12373,13 @@ union MB14_16B_WORD3_L {
   
   // Bit field definition.
   struct {
+    /// read-write - Data byte 0 of Rx/Tx frame.
     uint32_t DATA_BYTE_15 : 8;
+    /// read-write - Data byte 1 of Rx/Tx frame.
     uint32_t DATA_BYTE_14 : 8;
+    /// read-write - Data byte 2 of Rx/Tx frame.
     uint32_t DATA_BYTE_13 : 8;
+    /// read-write - Data byte 3 of Rx/Tx frame.
     uint32_t DATA_BYTE_12 : 8;
   } bits;
   
@@ -10201,8 +12397,11 @@ union MB22_8B_ID {
   
   // Bit field definition.
   struct {
+    /// read-write - Contains extended (LOW word) identifier of message buffer.
     uint32_t EXT : 18;
+    /// read-write - Contains standard/extended (HIGH word) identifier of message buffer.
     uint32_t STD : 11;
+    /// read-write - Local priority. This 3-bit fieldis only used when LPRIO_EN bit is set in MCR and it only makes sense for Tx buffers. These bits are not transmitted. They are appended to the regular ID to define the transmission priority.
     uint32_t PRIO : 3;
   } bits;
   
@@ -10220,9 +12419,13 @@ union MB4_64B_WORD15_L {
   
   // Bit field definition.
   struct {
+    /// read-write - Data byte 0 of Rx/Tx frame.
     uint32_t DATA_BYTE_63 : 8;
+    /// read-write - Data byte 1 of Rx/Tx frame.
     uint32_t DATA_BYTE_62 : 8;
+    /// read-write - Data byte 2 of Rx/Tx frame.
     uint32_t DATA_BYTE_61 : 8;
+    /// read-write - Data byte 3 of Rx/Tx frame.
     uint32_t DATA_BYTE_60 : 8;
   } bits;
   
@@ -10240,9 +12443,13 @@ union MB8_32B_WORD7_L {
   
   // Bit field definition.
   struct {
+    /// read-write - Data byte 0 of Rx/Tx frame.
     uint32_t DATA_BYTE_31 : 8;
+    /// read-write - Data byte 1 of Rx/Tx frame.
     uint32_t DATA_BYTE_30 : 8;
+    /// read-write - Data byte 2 of Rx/Tx frame.
     uint32_t DATA_BYTE_29 : 8;
+    /// read-write - Data byte 3 of Rx/Tx frame.
     uint32_t DATA_BYTE_28 : 8;
   } bits;
   
@@ -10260,16 +12467,25 @@ union MB15_16B_CS_L {
   
   // Bit field definition.
   struct {
+    /// read-write - Free-Running Counter Time stamp. This 16-bit field is a copy of the Free-Running Timer, captured for Tx and Rx frames at the time when the beginning of the Identifier field appears on the CAN bus.
     uint32_t TIME_STAMP : 16;
+    /// read-write - Length of the data to be stored/transmitted.
     uint32_t DLC : 4;
+    /// read-write - Remote Transmission Request. One/zero for remote/data frame.
     uint32_t RTR : 1;
+    /// read-write - ID Extended. One/zero for extended/standard format frame.
     uint32_t IDE : 1;
+    /// read-write - Substitute Remote Request. Contains a fixed recessive bit.
     uint32_t SRR : 1;
     uint32_t _reserved_0 : 1;
+    /// read-write - Message Buffer Code. This 4-bit field can be accessed (read or write) by the CPU and by the FlexCAN module itself, as part of the message buffer matching and arbitration process.
     uint32_t CODE : 4;
     uint32_t _reserved_1 : 1;
+    /// read-write - Error State Indicator. This bit indicates if the transmitting node is error active or error passive.
     uint32_t ESI : 1;
+    /// read-write - Bit Rate Switch. This bit defines whether the bit rate is switched inside a CAN FD format frame.
     uint32_t BRS : 1;
+    /// read-write - Extended Data Length. This bit distinguishes between CAN format and CAN FD format frames. The EDL bit must not be set for Message Buffers configured to RANSWER with code field 0b1010.
     uint32_t EDL : 1;
   } bits;
   
@@ -10287,9 +12503,13 @@ union MB22_8B_WORD0 {
   
   // Bit field definition.
   struct {
+    /// read-write - Data byte 0 of Rx/Tx frame.
     uint32_t DATA_BYTE_3 : 8;
+    /// read-write - Data byte 1 of Rx/Tx frame.
     uint32_t DATA_BYTE_2 : 8;
+    /// read-write - Data byte 2 of Rx/Tx frame.
     uint32_t DATA_BYTE_1 : 8;
+    /// read-write - Data byte 3 of Rx/Tx frame.
     uint32_t DATA_BYTE_0 : 8;
   } bits;
   
@@ -10307,16 +12527,25 @@ union MB5_64B_CS_L {
   
   // Bit field definition.
   struct {
+    /// read-write - Free-Running Counter Time stamp. This 16-bit field is a copy of the Free-Running Timer, captured for Tx and Rx frames at the time when the beginning of the Identifier field appears on the CAN bus.
     uint32_t TIME_STAMP : 16;
+    /// read-write - Length of the data to be stored/transmitted.
     uint32_t DLC : 4;
+    /// read-write - Remote Transmission Request. One/zero for remote/data frame.
     uint32_t RTR : 1;
+    /// read-write - ID Extended. One/zero for extended/standard format frame.
     uint32_t IDE : 1;
+    /// read-write - Substitute Remote Request. Contains a fixed recessive bit.
     uint32_t SRR : 1;
     uint32_t _reserved_0 : 1;
+    /// read-write - Message Buffer Code. This 4-bit field can be accessed (read or write) by the CPU and by the FlexCAN module itself, as part of the message buffer matching and arbitration process.
     uint32_t CODE : 4;
     uint32_t _reserved_1 : 1;
+    /// read-write - Error State Indicator. This bit indicates if the transmitting node is error active or error passive.
     uint32_t ESI : 1;
+    /// read-write - Bit Rate Switch. This bit defines whether the bit rate is switched inside a CAN FD format frame.
     uint32_t BRS : 1;
+    /// read-write - Extended Data Length. This bit distinguishes between CAN format and CAN FD format frames. The EDL bit must not be set for Message Buffers configured to RANSWER with code field 0b1010.
     uint32_t EDL : 1;
   } bits;
   
@@ -10334,16 +12563,25 @@ union MB9_32B_CS_L {
   
   // Bit field definition.
   struct {
+    /// read-write - Free-Running Counter Time stamp. This 16-bit field is a copy of the Free-Running Timer, captured for Tx and Rx frames at the time when the beginning of the Identifier field appears on the CAN bus.
     uint32_t TIME_STAMP : 16;
+    /// read-write - Length of the data to be stored/transmitted.
     uint32_t DLC : 4;
+    /// read-write - Remote Transmission Request. One/zero for remote/data frame.
     uint32_t RTR : 1;
+    /// read-write - ID Extended. One/zero for extended/standard format frame.
     uint32_t IDE : 1;
+    /// read-write - Substitute Remote Request. Contains a fixed recessive bit.
     uint32_t SRR : 1;
     uint32_t _reserved_0 : 1;
+    /// read-write - Message Buffer Code. This 4-bit field can be accessed (read or write) by the CPU and by the FlexCAN module itself, as part of the message buffer matching and arbitration process.
     uint32_t CODE : 4;
     uint32_t _reserved_1 : 1;
+    /// read-write - Error State Indicator. This bit indicates if the transmitting node is error active or error passive.
     uint32_t ESI : 1;
+    /// read-write - Bit Rate Switch. This bit defines whether the bit rate is switched inside a CAN FD format frame.
     uint32_t BRS : 1;
+    /// read-write - Extended Data Length. This bit distinguishes between CAN format and CAN FD format frames. The EDL bit must not be set for Message Buffers configured to RANSWER with code field 0b1010.
     uint32_t EDL : 1;
   } bits;
   
@@ -10361,9 +12599,13 @@ union WORD022 {
   
   // Bit field definition.
   struct {
+    /// read-write - Data byte 0 of Rx/Tx frame.
     uint32_t DATA_BYTE_3 : 8;
+    /// read-write - Data byte 1 of Rx/Tx frame.
     uint32_t DATA_BYTE_2 : 8;
+    /// read-write - Data byte 2 of Rx/Tx frame.
     uint32_t DATA_BYTE_1 : 8;
+    /// read-write - Data byte 3 of Rx/Tx frame.
     uint32_t DATA_BYTE_0 : 8;
   } bits;
   
@@ -10381,8 +12623,11 @@ union MB15_16B_ID_L {
   
   // Bit field definition.
   struct {
+    /// read-write - Contains extended (LOW word) identifier of message buffer.
     uint32_t EXT : 18;
+    /// read-write - Contains standard/extended (HIGH word) identifier of message buffer.
     uint32_t STD : 11;
+    /// read-write - Local priority. This 3-bit fieldis only used when LPRIO_EN bit is set in MCR and it only makes sense for Tx buffers. These bits are not transmitted. They are appended to the regular ID to define the transmission priority.
     uint32_t PRIO : 3;
   } bits;
   
@@ -10400,9 +12645,13 @@ union MB22_8B_WORD1 {
   
   // Bit field definition.
   struct {
+    /// read-write - Data byte 0 of Rx/Tx frame.
     uint32_t DATA_BYTE_7 : 8;
+    /// read-write - Data byte 1 of Rx/Tx frame.
     uint32_t DATA_BYTE_6 : 8;
+    /// read-write - Data byte 2 of Rx/Tx frame.
     uint32_t DATA_BYTE_5 : 8;
+    /// read-write - Data byte 3 of Rx/Tx frame.
     uint32_t DATA_BYTE_4 : 8;
   } bits;
   
@@ -10420,8 +12669,11 @@ union MB5_64B_ID_L {
   
   // Bit field definition.
   struct {
+    /// read-write - Contains extended (LOW word) identifier of message buffer.
     uint32_t EXT : 18;
+    /// read-write - Contains standard/extended (HIGH word) identifier of message buffer.
     uint32_t STD : 11;
+    /// read-write - Local priority. This 3-bit fieldis only used when LPRIO_EN bit is set in MCR and it only makes sense for Tx buffers. These bits are not transmitted. They are appended to the regular ID to define the transmission priority.
     uint32_t PRIO : 3;
   } bits;
   
@@ -10439,8 +12691,11 @@ union MB9_32B_ID_L {
   
   // Bit field definition.
   struct {
+    /// read-write - Contains extended (LOW word) identifier of message buffer.
     uint32_t EXT : 18;
+    /// read-write - Contains standard/extended (HIGH word) identifier of message buffer.
     uint32_t STD : 11;
+    /// read-write - Local priority. This 3-bit fieldis only used when LPRIO_EN bit is set in MCR and it only makes sense for Tx buffers. These bits are not transmitted. They are appended to the regular ID to define the transmission priority.
     uint32_t PRIO : 3;
   } bits;
   
@@ -10458,9 +12713,13 @@ union WORD122 {
   
   // Bit field definition.
   struct {
+    /// read-write - Data byte 0 of Rx/Tx frame.
     uint32_t DATA_BYTE_7 : 8;
+    /// read-write - Data byte 1 of Rx/Tx frame.
     uint32_t DATA_BYTE_6 : 8;
+    /// read-write - Data byte 2 of Rx/Tx frame.
     uint32_t DATA_BYTE_5 : 8;
+    /// read-write - Data byte 3 of Rx/Tx frame.
     uint32_t DATA_BYTE_4 : 8;
   } bits;
   
@@ -10478,16 +12737,25 @@ union CS23 {
   
   // Bit field definition.
   struct {
+    /// read-write - Free-Running Counter Time stamp. This 16-bit field is a copy of the Free-Running Timer, captured for Tx and Rx frames at the time when the beginning of the Identifier field appears on the CAN bus.
     uint32_t TIME_STAMP : 16;
+    /// read-write - Length of the data to be stored/transmitted.
     uint32_t DLC : 4;
+    /// read-write - Remote Transmission Request. One/zero for remote/data frame.
     uint32_t RTR : 1;
+    /// read-write - ID Extended. One/zero for extended/standard format frame.
     uint32_t IDE : 1;
+    /// read-write - Substitute Remote Request. Contains a fixed recessive bit.
     uint32_t SRR : 1;
     uint32_t _reserved_0 : 1;
+    /// read-write - Message Buffer Code. This 4-bit field can be accessed (read or write) by the CPU and by the FlexCAN module itself, as part of the message buffer matching and arbitration process.
     uint32_t CODE : 4;
     uint32_t _reserved_1 : 1;
+    /// read-write - Error State Indicator. This bit indicates if the transmitting node is error active or error passive.
     uint32_t ESI : 1;
+    /// read-write - Bit Rate Switch. This bit defines whether the bit rate is switched inside a CAN FD format frame.
     uint32_t BRS : 1;
+    /// read-write - Extended Data Length. This bit distinguishes between CAN format and CAN FD format frames. The EDL bit must not be set for Message Buffers configured to RANSWER with code field 0b1010.
     uint32_t EDL : 1;
   } bits;
   
@@ -10505,9 +12773,13 @@ union MB15_16B_WORD0_L {
   
   // Bit field definition.
   struct {
+    /// read-write - Data byte 0 of Rx/Tx frame.
     uint32_t DATA_BYTE_3 : 8;
+    /// read-write - Data byte 1 of Rx/Tx frame.
     uint32_t DATA_BYTE_2 : 8;
+    /// read-write - Data byte 2 of Rx/Tx frame.
     uint32_t DATA_BYTE_1 : 8;
+    /// read-write - Data byte 3 of Rx/Tx frame.
     uint32_t DATA_BYTE_0 : 8;
   } bits;
   
@@ -10525,16 +12797,25 @@ union MB23_8B_CS {
   
   // Bit field definition.
   struct {
+    /// read-write - Free-Running Counter Time stamp. This 16-bit field is a copy of the Free-Running Timer, captured for Tx and Rx frames at the time when the beginning of the Identifier field appears on the CAN bus.
     uint32_t TIME_STAMP : 16;
+    /// read-write - Length of the data to be stored/transmitted.
     uint32_t DLC : 4;
+    /// read-write - Remote Transmission Request. One/zero for remote/data frame.
     uint32_t RTR : 1;
+    /// read-write - ID Extended. One/zero for extended/standard format frame.
     uint32_t IDE : 1;
+    /// read-write - Substitute Remote Request. Contains a fixed recessive bit.
     uint32_t SRR : 1;
     uint32_t _reserved_0 : 1;
+    /// read-write - Message Buffer Code. This 4-bit field can be accessed (read or write) by the CPU and by the FlexCAN module itself, as part of the message buffer matching and arbitration process.
     uint32_t CODE : 4;
     uint32_t _reserved_1 : 1;
+    /// read-write - Error State Indicator. This bit indicates if the transmitting node is error active or error passive.
     uint32_t ESI : 1;
+    /// read-write - Bit Rate Switch. This bit defines whether the bit rate is switched inside a CAN FD format frame.
     uint32_t BRS : 1;
+    /// read-write - Extended Data Length. This bit distinguishes between CAN format and CAN FD format frames. The EDL bit must not be set for Message Buffers configured to RANSWER with code field 0b1010.
     uint32_t EDL : 1;
   } bits;
   
@@ -10552,9 +12833,13 @@ union MB5_64B_WORD0_L {
   
   // Bit field definition.
   struct {
+    /// read-write - Data byte 0 of Rx/Tx frame.
     uint32_t DATA_BYTE_3 : 8;
+    /// read-write - Data byte 1 of Rx/Tx frame.
     uint32_t DATA_BYTE_2 : 8;
+    /// read-write - Data byte 2 of Rx/Tx frame.
     uint32_t DATA_BYTE_1 : 8;
+    /// read-write - Data byte 3 of Rx/Tx frame.
     uint32_t DATA_BYTE_0 : 8;
   } bits;
   
@@ -10572,9 +12857,13 @@ union MB9_32B_WORD0_L {
   
   // Bit field definition.
   struct {
+    /// read-write - Data byte 0 of Rx/Tx frame.
     uint32_t DATA_BYTE_3 : 8;
+    /// read-write - Data byte 1 of Rx/Tx frame.
     uint32_t DATA_BYTE_2 : 8;
+    /// read-write - Data byte 2 of Rx/Tx frame.
     uint32_t DATA_BYTE_1 : 8;
+    /// read-write - Data byte 3 of Rx/Tx frame.
     uint32_t DATA_BYTE_0 : 8;
   } bits;
   
@@ -10592,8 +12881,11 @@ union ID23 {
   
   // Bit field definition.
   struct {
+    /// read-write - Contains extended (LOW word) identifier of message buffer.
     uint32_t EXT : 18;
+    /// read-write - Contains standard/extended (HIGH word) identifier of message buffer.
     uint32_t STD : 11;
+    /// read-write - Local priority. This 3-bit fieldis only used when LPRIO_EN bit is set in MCR and it only makes sense for Tx buffers. These bits are not transmitted. They are appended to the regular ID to define the transmission priority.
     uint32_t PRIO : 3;
   } bits;
   
@@ -10611,9 +12903,13 @@ union MB15_16B_WORD1_L {
   
   // Bit field definition.
   struct {
+    /// read-write - Data byte 0 of Rx/Tx frame.
     uint32_t DATA_BYTE_7 : 8;
+    /// read-write - Data byte 1 of Rx/Tx frame.
     uint32_t DATA_BYTE_6 : 8;
+    /// read-write - Data byte 2 of Rx/Tx frame.
     uint32_t DATA_BYTE_5 : 8;
+    /// read-write - Data byte 3 of Rx/Tx frame.
     uint32_t DATA_BYTE_4 : 8;
   } bits;
   
@@ -10631,8 +12927,11 @@ union MB23_8B_ID {
   
   // Bit field definition.
   struct {
+    /// read-write - Contains extended (LOW word) identifier of message buffer.
     uint32_t EXT : 18;
+    /// read-write - Contains standard/extended (HIGH word) identifier of message buffer.
     uint32_t STD : 11;
+    /// read-write - Local priority. This 3-bit fieldis only used when LPRIO_EN bit is set in MCR and it only makes sense for Tx buffers. These bits are not transmitted. They are appended to the regular ID to define the transmission priority.
     uint32_t PRIO : 3;
   } bits;
   
@@ -10650,9 +12949,13 @@ union MB5_64B_WORD1_L {
   
   // Bit field definition.
   struct {
+    /// read-write - Data byte 0 of Rx/Tx frame.
     uint32_t DATA_BYTE_7 : 8;
+    /// read-write - Data byte 1 of Rx/Tx frame.
     uint32_t DATA_BYTE_6 : 8;
+    /// read-write - Data byte 2 of Rx/Tx frame.
     uint32_t DATA_BYTE_5 : 8;
+    /// read-write - Data byte 3 of Rx/Tx frame.
     uint32_t DATA_BYTE_4 : 8;
   } bits;
   
@@ -10670,9 +12973,13 @@ union MB9_32B_WORD1_L {
   
   // Bit field definition.
   struct {
+    /// read-write - Data byte 0 of Rx/Tx frame.
     uint32_t DATA_BYTE_7 : 8;
+    /// read-write - Data byte 1 of Rx/Tx frame.
     uint32_t DATA_BYTE_6 : 8;
+    /// read-write - Data byte 2 of Rx/Tx frame.
     uint32_t DATA_BYTE_5 : 8;
+    /// read-write - Data byte 3 of Rx/Tx frame.
     uint32_t DATA_BYTE_4 : 8;
   } bits;
   
@@ -10690,9 +12997,13 @@ union MB15_16B_WORD2_L {
   
   // Bit field definition.
   struct {
+    /// read-write - Data byte 0 of Rx/Tx frame.
     uint32_t DATA_BYTE_11 : 8;
+    /// read-write - Data byte 1 of Rx/Tx frame.
     uint32_t DATA_BYTE_10 : 8;
+    /// read-write - Data byte 2 of Rx/Tx frame.
     uint32_t DATA_BYTE_9 : 8;
+    /// read-write - Data byte 3 of Rx/Tx frame.
     uint32_t DATA_BYTE_8 : 8;
   } bits;
   
@@ -10710,9 +13021,13 @@ union MB23_8B_WORD0 {
   
   // Bit field definition.
   struct {
+    /// read-write - Data byte 0 of Rx/Tx frame.
     uint32_t DATA_BYTE_3 : 8;
+    /// read-write - Data byte 1 of Rx/Tx frame.
     uint32_t DATA_BYTE_2 : 8;
+    /// read-write - Data byte 2 of Rx/Tx frame.
     uint32_t DATA_BYTE_1 : 8;
+    /// read-write - Data byte 3 of Rx/Tx frame.
     uint32_t DATA_BYTE_0 : 8;
   } bits;
   
@@ -10730,9 +13045,13 @@ union MB5_64B_WORD2_L {
   
   // Bit field definition.
   struct {
+    /// read-write - Data byte 0 of Rx/Tx frame.
     uint32_t DATA_BYTE_11 : 8;
+    /// read-write - Data byte 1 of Rx/Tx frame.
     uint32_t DATA_BYTE_10 : 8;
+    /// read-write - Data byte 2 of Rx/Tx frame.
     uint32_t DATA_BYTE_9 : 8;
+    /// read-write - Data byte 3 of Rx/Tx frame.
     uint32_t DATA_BYTE_8 : 8;
   } bits;
   
@@ -10750,9 +13069,13 @@ union MB9_32B_WORD2_L {
   
   // Bit field definition.
   struct {
+    /// read-write - Data byte 0 of Rx/Tx frame.
     uint32_t DATA_BYTE_11 : 8;
+    /// read-write - Data byte 1 of Rx/Tx frame.
     uint32_t DATA_BYTE_10 : 8;
+    /// read-write - Data byte 2 of Rx/Tx frame.
     uint32_t DATA_BYTE_9 : 8;
+    /// read-write - Data byte 3 of Rx/Tx frame.
     uint32_t DATA_BYTE_8 : 8;
   } bits;
   
@@ -10770,9 +13093,13 @@ union WORD023 {
   
   // Bit field definition.
   struct {
+    /// read-write - Data byte 0 of Rx/Tx frame.
     uint32_t DATA_BYTE_3 : 8;
+    /// read-write - Data byte 1 of Rx/Tx frame.
     uint32_t DATA_BYTE_2 : 8;
+    /// read-write - Data byte 2 of Rx/Tx frame.
     uint32_t DATA_BYTE_1 : 8;
+    /// read-write - Data byte 3 of Rx/Tx frame.
     uint32_t DATA_BYTE_0 : 8;
   } bits;
   
@@ -10790,9 +13117,13 @@ union MB15_16B_WORD3_L {
   
   // Bit field definition.
   struct {
+    /// read-write - Data byte 0 of Rx/Tx frame.
     uint32_t DATA_BYTE_15 : 8;
+    /// read-write - Data byte 1 of Rx/Tx frame.
     uint32_t DATA_BYTE_14 : 8;
+    /// read-write - Data byte 2 of Rx/Tx frame.
     uint32_t DATA_BYTE_13 : 8;
+    /// read-write - Data byte 3 of Rx/Tx frame.
     uint32_t DATA_BYTE_12 : 8;
   } bits;
   
@@ -10810,9 +13141,13 @@ union MB23_8B_WORD1 {
   
   // Bit field definition.
   struct {
+    /// read-write - Data byte 0 of Rx/Tx frame.
     uint32_t DATA_BYTE_7 : 8;
+    /// read-write - Data byte 1 of Rx/Tx frame.
     uint32_t DATA_BYTE_6 : 8;
+    /// read-write - Data byte 2 of Rx/Tx frame.
     uint32_t DATA_BYTE_5 : 8;
+    /// read-write - Data byte 3 of Rx/Tx frame.
     uint32_t DATA_BYTE_4 : 8;
   } bits;
   
@@ -10830,9 +13165,13 @@ union MB5_64B_WORD3_L {
   
   // Bit field definition.
   struct {
+    /// read-write - Data byte 0 of Rx/Tx frame.
     uint32_t DATA_BYTE_15 : 8;
+    /// read-write - Data byte 1 of Rx/Tx frame.
     uint32_t DATA_BYTE_14 : 8;
+    /// read-write - Data byte 2 of Rx/Tx frame.
     uint32_t DATA_BYTE_13 : 8;
+    /// read-write - Data byte 3 of Rx/Tx frame.
     uint32_t DATA_BYTE_12 : 8;
   } bits;
   
@@ -10850,9 +13189,13 @@ union MB9_32B_WORD3_L {
   
   // Bit field definition.
   struct {
+    /// read-write - Data byte 0 of Rx/Tx frame.
     uint32_t DATA_BYTE_15 : 8;
+    /// read-write - Data byte 1 of Rx/Tx frame.
     uint32_t DATA_BYTE_14 : 8;
+    /// read-write - Data byte 2 of Rx/Tx frame.
     uint32_t DATA_BYTE_13 : 8;
+    /// read-write - Data byte 3 of Rx/Tx frame.
     uint32_t DATA_BYTE_12 : 8;
   } bits;
   
@@ -10870,9 +13213,13 @@ union WORD123 {
   
   // Bit field definition.
   struct {
+    /// read-write - Data byte 0 of Rx/Tx frame.
     uint32_t DATA_BYTE_7 : 8;
+    /// read-write - Data byte 1 of Rx/Tx frame.
     uint32_t DATA_BYTE_6 : 8;
+    /// read-write - Data byte 2 of Rx/Tx frame.
     uint32_t DATA_BYTE_5 : 8;
+    /// read-write - Data byte 3 of Rx/Tx frame.
     uint32_t DATA_BYTE_4 : 8;
   } bits;
   
@@ -10890,16 +13237,25 @@ union CS24 {
   
   // Bit field definition.
   struct {
+    /// read-write - Free-Running Counter Time stamp. This 16-bit field is a copy of the Free-Running Timer, captured for Tx and Rx frames at the time when the beginning of the Identifier field appears on the CAN bus.
     uint32_t TIME_STAMP : 16;
+    /// read-write - Length of the data to be stored/transmitted.
     uint32_t DLC : 4;
+    /// read-write - Remote Transmission Request. One/zero for remote/data frame.
     uint32_t RTR : 1;
+    /// read-write - ID Extended. One/zero for extended/standard format frame.
     uint32_t IDE : 1;
+    /// read-write - Substitute Remote Request. Contains a fixed recessive bit.
     uint32_t SRR : 1;
     uint32_t _reserved_0 : 1;
+    /// read-write - Message Buffer Code. This 4-bit field can be accessed (read or write) by the CPU and by the FlexCAN module itself, as part of the message buffer matching and arbitration process.
     uint32_t CODE : 4;
     uint32_t _reserved_1 : 1;
+    /// read-write - Error State Indicator. This bit indicates if the transmitting node is error active or error passive.
     uint32_t ESI : 1;
+    /// read-write - Bit Rate Switch. This bit defines whether the bit rate is switched inside a CAN FD format frame.
     uint32_t BRS : 1;
+    /// read-write - Extended Data Length. This bit distinguishes between CAN format and CAN FD format frames. The EDL bit must not be set for Message Buffers configured to RANSWER with code field 0b1010.
     uint32_t EDL : 1;
   } bits;
   
@@ -10917,16 +13273,25 @@ union MB16_16B_CS_L {
   
   // Bit field definition.
   struct {
+    /// read-write - Free-Running Counter Time stamp. This 16-bit field is a copy of the Free-Running Timer, captured for Tx and Rx frames at the time when the beginning of the Identifier field appears on the CAN bus.
     uint32_t TIME_STAMP : 16;
+    /// read-write - Length of the data to be stored/transmitted.
     uint32_t DLC : 4;
+    /// read-write - Remote Transmission Request. One/zero for remote/data frame.
     uint32_t RTR : 1;
+    /// read-write - ID Extended. One/zero for extended/standard format frame.
     uint32_t IDE : 1;
+    /// read-write - Substitute Remote Request. Contains a fixed recessive bit.
     uint32_t SRR : 1;
     uint32_t _reserved_0 : 1;
+    /// read-write - Message Buffer Code. This 4-bit field can be accessed (read or write) by the CPU and by the FlexCAN module itself, as part of the message buffer matching and arbitration process.
     uint32_t CODE : 4;
     uint32_t _reserved_1 : 1;
+    /// read-write - Error State Indicator. This bit indicates if the transmitting node is error active or error passive.
     uint32_t ESI : 1;
+    /// read-write - Bit Rate Switch. This bit defines whether the bit rate is switched inside a CAN FD format frame.
     uint32_t BRS : 1;
+    /// read-write - Extended Data Length. This bit distinguishes between CAN format and CAN FD format frames. The EDL bit must not be set for Message Buffers configured to RANSWER with code field 0b1010.
     uint32_t EDL : 1;
   } bits;
   
@@ -10944,16 +13309,25 @@ union MB24_8B_CS {
   
   // Bit field definition.
   struct {
+    /// read-write - Free-Running Counter Time stamp. This 16-bit field is a copy of the Free-Running Timer, captured for Tx and Rx frames at the time when the beginning of the Identifier field appears on the CAN bus.
     uint32_t TIME_STAMP : 16;
+    /// read-write - Length of the data to be stored/transmitted.
     uint32_t DLC : 4;
+    /// read-write - Remote Transmission Request. One/zero for remote/data frame.
     uint32_t RTR : 1;
+    /// read-write - ID Extended. One/zero for extended/standard format frame.
     uint32_t IDE : 1;
+    /// read-write - Substitute Remote Request. Contains a fixed recessive bit.
     uint32_t SRR : 1;
     uint32_t _reserved_0 : 1;
+    /// read-write - Message Buffer Code. This 4-bit field can be accessed (read or write) by the CPU and by the FlexCAN module itself, as part of the message buffer matching and arbitration process.
     uint32_t CODE : 4;
     uint32_t _reserved_1 : 1;
+    /// read-write - Error State Indicator. This bit indicates if the transmitting node is error active or error passive.
     uint32_t ESI : 1;
+    /// read-write - Bit Rate Switch. This bit defines whether the bit rate is switched inside a CAN FD format frame.
     uint32_t BRS : 1;
+    /// read-write - Extended Data Length. This bit distinguishes between CAN format and CAN FD format frames. The EDL bit must not be set for Message Buffers configured to RANSWER with code field 0b1010.
     uint32_t EDL : 1;
   } bits;
   
@@ -10971,9 +13345,13 @@ union MB5_64B_WORD4_L {
   
   // Bit field definition.
   struct {
+    /// read-write - Data byte 0 of Rx/Tx frame.
     uint32_t DATA_BYTE_19 : 8;
+    /// read-write - Data byte 1 of Rx/Tx frame.
     uint32_t DATA_BYTE_18 : 8;
+    /// read-write - Data byte 2 of Rx/Tx frame.
     uint32_t DATA_BYTE_17 : 8;
+    /// read-write - Data byte 3 of Rx/Tx frame.
     uint32_t DATA_BYTE_16 : 8;
   } bits;
   
@@ -10991,9 +13369,13 @@ union MB9_32B_WORD4_L {
   
   // Bit field definition.
   struct {
+    /// read-write - Data byte 0 of Rx/Tx frame.
     uint32_t DATA_BYTE_19 : 8;
+    /// read-write - Data byte 1 of Rx/Tx frame.
     uint32_t DATA_BYTE_18 : 8;
+    /// read-write - Data byte 2 of Rx/Tx frame.
     uint32_t DATA_BYTE_17 : 8;
+    /// read-write - Data byte 3 of Rx/Tx frame.
     uint32_t DATA_BYTE_16 : 8;
   } bits;
   
@@ -11011,8 +13393,11 @@ union ID24 {
   
   // Bit field definition.
   struct {
+    /// read-write - Contains extended (LOW word) identifier of message buffer.
     uint32_t EXT : 18;
+    /// read-write - Contains standard/extended (HIGH word) identifier of message buffer.
     uint32_t STD : 11;
+    /// read-write - Local priority. This 3-bit fieldis only used when LPRIO_EN bit is set in MCR and it only makes sense for Tx buffers. These bits are not transmitted. They are appended to the regular ID to define the transmission priority.
     uint32_t PRIO : 3;
   } bits;
   
@@ -11030,8 +13415,11 @@ union MB16_16B_ID_L {
   
   // Bit field definition.
   struct {
+    /// read-write - Contains extended (LOW word) identifier of message buffer.
     uint32_t EXT : 18;
+    /// read-write - Contains standard/extended (HIGH word) identifier of message buffer.
     uint32_t STD : 11;
+    /// read-write - Local priority. This 3-bit fieldis only used when LPRIO_EN bit is set in MCR and it only makes sense for Tx buffers. These bits are not transmitted. They are appended to the regular ID to define the transmission priority.
     uint32_t PRIO : 3;
   } bits;
   
@@ -11049,8 +13437,11 @@ union MB24_8B_ID {
   
   // Bit field definition.
   struct {
+    /// read-write - Contains extended (LOW word) identifier of message buffer.
     uint32_t EXT : 18;
+    /// read-write - Contains standard/extended (HIGH word) identifier of message buffer.
     uint32_t STD : 11;
+    /// read-write - Local priority. This 3-bit fieldis only used when LPRIO_EN bit is set in MCR and it only makes sense for Tx buffers. These bits are not transmitted. They are appended to the regular ID to define the transmission priority.
     uint32_t PRIO : 3;
   } bits;
   
@@ -11068,9 +13459,13 @@ union MB5_64B_WORD5_L {
   
   // Bit field definition.
   struct {
+    /// read-write - Data byte 0 of Rx/Tx frame.
     uint32_t DATA_BYTE_23 : 8;
+    /// read-write - Data byte 1 of Rx/Tx frame.
     uint32_t DATA_BYTE_22 : 8;
+    /// read-write - Data byte 2 of Rx/Tx frame.
     uint32_t DATA_BYTE_21 : 8;
+    /// read-write - Data byte 3 of Rx/Tx frame.
     uint32_t DATA_BYTE_20 : 8;
   } bits;
   
@@ -11088,9 +13483,13 @@ union MB9_32B_WORD5_L {
   
   // Bit field definition.
   struct {
+    /// read-write - Data byte 0 of Rx/Tx frame.
     uint32_t DATA_BYTE_23 : 8;
+    /// read-write - Data byte 1 of Rx/Tx frame.
     uint32_t DATA_BYTE_22 : 8;
+    /// read-write - Data byte 2 of Rx/Tx frame.
     uint32_t DATA_BYTE_21 : 8;
+    /// read-write - Data byte 3 of Rx/Tx frame.
     uint32_t DATA_BYTE_20 : 8;
   } bits;
   
@@ -11108,9 +13507,13 @@ union MB16_16B_WORD0_L {
   
   // Bit field definition.
   struct {
+    /// read-write - Data byte 0 of Rx/Tx frame.
     uint32_t DATA_BYTE_3 : 8;
+    /// read-write - Data byte 1 of Rx/Tx frame.
     uint32_t DATA_BYTE_2 : 8;
+    /// read-write - Data byte 2 of Rx/Tx frame.
     uint32_t DATA_BYTE_1 : 8;
+    /// read-write - Data byte 3 of Rx/Tx frame.
     uint32_t DATA_BYTE_0 : 8;
   } bits;
   
@@ -11128,9 +13531,13 @@ union MB24_8B_WORD0 {
   
   // Bit field definition.
   struct {
+    /// read-write - Data byte 0 of Rx/Tx frame.
     uint32_t DATA_BYTE_3 : 8;
+    /// read-write - Data byte 1 of Rx/Tx frame.
     uint32_t DATA_BYTE_2 : 8;
+    /// read-write - Data byte 2 of Rx/Tx frame.
     uint32_t DATA_BYTE_1 : 8;
+    /// read-write - Data byte 3 of Rx/Tx frame.
     uint32_t DATA_BYTE_0 : 8;
   } bits;
   
@@ -11148,9 +13555,13 @@ union MB5_64B_WORD6_L {
   
   // Bit field definition.
   struct {
+    /// read-write - Data byte 0 of Rx/Tx frame.
     uint32_t DATA_BYTE_27 : 8;
+    /// read-write - Data byte 1 of Rx/Tx frame.
     uint32_t DATA_BYTE_26 : 8;
+    /// read-write - Data byte 2 of Rx/Tx frame.
     uint32_t DATA_BYTE_25 : 8;
+    /// read-write - Data byte 3 of Rx/Tx frame.
     uint32_t DATA_BYTE_24 : 8;
   } bits;
   
@@ -11168,9 +13579,13 @@ union MB9_32B_WORD6_L {
   
   // Bit field definition.
   struct {
+    /// read-write - Data byte 0 of Rx/Tx frame.
     uint32_t DATA_BYTE_27 : 8;
+    /// read-write - Data byte 1 of Rx/Tx frame.
     uint32_t DATA_BYTE_26 : 8;
+    /// read-write - Data byte 2 of Rx/Tx frame.
     uint32_t DATA_BYTE_25 : 8;
+    /// read-write - Data byte 3 of Rx/Tx frame.
     uint32_t DATA_BYTE_24 : 8;
   } bits;
   
@@ -11188,9 +13603,13 @@ union WORD024 {
   
   // Bit field definition.
   struct {
+    /// read-write - Data byte 0 of Rx/Tx frame.
     uint32_t DATA_BYTE_3 : 8;
+    /// read-write - Data byte 1 of Rx/Tx frame.
     uint32_t DATA_BYTE_2 : 8;
+    /// read-write - Data byte 2 of Rx/Tx frame.
     uint32_t DATA_BYTE_1 : 8;
+    /// read-write - Data byte 3 of Rx/Tx frame.
     uint32_t DATA_BYTE_0 : 8;
   } bits;
   
@@ -11208,9 +13627,13 @@ union MB16_16B_WORD1_L {
   
   // Bit field definition.
   struct {
+    /// read-write - Data byte 0 of Rx/Tx frame.
     uint32_t DATA_BYTE_7 : 8;
+    /// read-write - Data byte 1 of Rx/Tx frame.
     uint32_t DATA_BYTE_6 : 8;
+    /// read-write - Data byte 2 of Rx/Tx frame.
     uint32_t DATA_BYTE_5 : 8;
+    /// read-write - Data byte 3 of Rx/Tx frame.
     uint32_t DATA_BYTE_4 : 8;
   } bits;
   
@@ -11228,9 +13651,13 @@ union MB24_8B_WORD1 {
   
   // Bit field definition.
   struct {
+    /// read-write - Data byte 0 of Rx/Tx frame.
     uint32_t DATA_BYTE_7 : 8;
+    /// read-write - Data byte 1 of Rx/Tx frame.
     uint32_t DATA_BYTE_6 : 8;
+    /// read-write - Data byte 2 of Rx/Tx frame.
     uint32_t DATA_BYTE_5 : 8;
+    /// read-write - Data byte 3 of Rx/Tx frame.
     uint32_t DATA_BYTE_4 : 8;
   } bits;
   
@@ -11248,9 +13675,13 @@ union MB5_64B_WORD7_L {
   
   // Bit field definition.
   struct {
+    /// read-write - Data byte 0 of Rx/Tx frame.
     uint32_t DATA_BYTE_31 : 8;
+    /// read-write - Data byte 1 of Rx/Tx frame.
     uint32_t DATA_BYTE_30 : 8;
+    /// read-write - Data byte 2 of Rx/Tx frame.
     uint32_t DATA_BYTE_29 : 8;
+    /// read-write - Data byte 3 of Rx/Tx frame.
     uint32_t DATA_BYTE_28 : 8;
   } bits;
   
@@ -11268,9 +13699,13 @@ union MB9_32B_WORD7_L {
   
   // Bit field definition.
   struct {
+    /// read-write - Data byte 0 of Rx/Tx frame.
     uint32_t DATA_BYTE_31 : 8;
+    /// read-write - Data byte 1 of Rx/Tx frame.
     uint32_t DATA_BYTE_30 : 8;
+    /// read-write - Data byte 2 of Rx/Tx frame.
     uint32_t DATA_BYTE_29 : 8;
+    /// read-write - Data byte 3 of Rx/Tx frame.
     uint32_t DATA_BYTE_28 : 8;
   } bits;
   
@@ -11288,9 +13723,13 @@ union WORD124 {
   
   // Bit field definition.
   struct {
+    /// read-write - Data byte 0 of Rx/Tx frame.
     uint32_t DATA_BYTE_7 : 8;
+    /// read-write - Data byte 1 of Rx/Tx frame.
     uint32_t DATA_BYTE_6 : 8;
+    /// read-write - Data byte 2 of Rx/Tx frame.
     uint32_t DATA_BYTE_5 : 8;
+    /// read-write - Data byte 3 of Rx/Tx frame.
     uint32_t DATA_BYTE_4 : 8;
   } bits;
   
@@ -11308,16 +13747,25 @@ union CS25 {
   
   // Bit field definition.
   struct {
+    /// read-write - Free-Running Counter Time stamp. This 16-bit field is a copy of the Free-Running Timer, captured for Tx and Rx frames at the time when the beginning of the Identifier field appears on the CAN bus.
     uint32_t TIME_STAMP : 16;
+    /// read-write - Length of the data to be stored/transmitted.
     uint32_t DLC : 4;
+    /// read-write - Remote Transmission Request. One/zero for remote/data frame.
     uint32_t RTR : 1;
+    /// read-write - ID Extended. One/zero for extended/standard format frame.
     uint32_t IDE : 1;
+    /// read-write - Substitute Remote Request. Contains a fixed recessive bit.
     uint32_t SRR : 1;
     uint32_t _reserved_0 : 1;
+    /// read-write - Message Buffer Code. This 4-bit field can be accessed (read or write) by the CPU and by the FlexCAN module itself, as part of the message buffer matching and arbitration process.
     uint32_t CODE : 4;
     uint32_t _reserved_1 : 1;
+    /// read-write - Error State Indicator. This bit indicates if the transmitting node is error active or error passive.
     uint32_t ESI : 1;
+    /// read-write - Bit Rate Switch. This bit defines whether the bit rate is switched inside a CAN FD format frame.
     uint32_t BRS : 1;
+    /// read-write - Extended Data Length. This bit distinguishes between CAN format and CAN FD format frames. The EDL bit must not be set for Message Buffers configured to RANSWER with code field 0b1010.
     uint32_t EDL : 1;
   } bits;
   
@@ -11335,16 +13783,25 @@ union MB10_32B_CS_L {
   
   // Bit field definition.
   struct {
+    /// read-write - Free-Running Counter Time stamp. This 16-bit field is a copy of the Free-Running Timer, captured for Tx and Rx frames at the time when the beginning of the Identifier field appears on the CAN bus.
     uint32_t TIME_STAMP : 16;
+    /// read-write - Length of the data to be stored/transmitted.
     uint32_t DLC : 4;
+    /// read-write - Remote Transmission Request. One/zero for remote/data frame.
     uint32_t RTR : 1;
+    /// read-write - ID Extended. One/zero for extended/standard format frame.
     uint32_t IDE : 1;
+    /// read-write - Substitute Remote Request. Contains a fixed recessive bit.
     uint32_t SRR : 1;
     uint32_t _reserved_0 : 1;
+    /// read-write - Message Buffer Code. This 4-bit field can be accessed (read or write) by the CPU and by the FlexCAN module itself, as part of the message buffer matching and arbitration process.
     uint32_t CODE : 4;
     uint32_t _reserved_1 : 1;
+    /// read-write - Error State Indicator. This bit indicates if the transmitting node is error active or error passive.
     uint32_t ESI : 1;
+    /// read-write - Bit Rate Switch. This bit defines whether the bit rate is switched inside a CAN FD format frame.
     uint32_t BRS : 1;
+    /// read-write - Extended Data Length. This bit distinguishes between CAN format and CAN FD format frames. The EDL bit must not be set for Message Buffers configured to RANSWER with code field 0b1010.
     uint32_t EDL : 1;
   } bits;
   
@@ -11362,9 +13819,13 @@ union MB16_16B_WORD2_L {
   
   // Bit field definition.
   struct {
+    /// read-write - Data byte 0 of Rx/Tx frame.
     uint32_t DATA_BYTE_11 : 8;
+    /// read-write - Data byte 1 of Rx/Tx frame.
     uint32_t DATA_BYTE_10 : 8;
+    /// read-write - Data byte 2 of Rx/Tx frame.
     uint32_t DATA_BYTE_9 : 8;
+    /// read-write - Data byte 3 of Rx/Tx frame.
     uint32_t DATA_BYTE_8 : 8;
   } bits;
   
@@ -11382,16 +13843,25 @@ union MB25_8B_CS {
   
   // Bit field definition.
   struct {
+    /// read-write - Free-Running Counter Time stamp. This 16-bit field is a copy of the Free-Running Timer, captured for Tx and Rx frames at the time when the beginning of the Identifier field appears on the CAN bus.
     uint32_t TIME_STAMP : 16;
+    /// read-write - Length of the data to be stored/transmitted.
     uint32_t DLC : 4;
+    /// read-write - Remote Transmission Request. One/zero for remote/data frame.
     uint32_t RTR : 1;
+    /// read-write - ID Extended. One/zero for extended/standard format frame.
     uint32_t IDE : 1;
+    /// read-write - Substitute Remote Request. Contains a fixed recessive bit.
     uint32_t SRR : 1;
     uint32_t _reserved_0 : 1;
+    /// read-write - Message Buffer Code. This 4-bit field can be accessed (read or write) by the CPU and by the FlexCAN module itself, as part of the message buffer matching and arbitration process.
     uint32_t CODE : 4;
     uint32_t _reserved_1 : 1;
+    /// read-write - Error State Indicator. This bit indicates if the transmitting node is error active or error passive.
     uint32_t ESI : 1;
+    /// read-write - Bit Rate Switch. This bit defines whether the bit rate is switched inside a CAN FD format frame.
     uint32_t BRS : 1;
+    /// read-write - Extended Data Length. This bit distinguishes between CAN format and CAN FD format frames. The EDL bit must not be set for Message Buffers configured to RANSWER with code field 0b1010.
     uint32_t EDL : 1;
   } bits;
   
@@ -11409,9 +13879,13 @@ union MB5_64B_WORD8_L {
   
   // Bit field definition.
   struct {
+    /// read-write - Data byte 0 of Rx/Tx frame.
     uint32_t DATA_BYTE_35 : 8;
+    /// read-write - Data byte 1 of Rx/Tx frame.
     uint32_t DATA_BYTE_34 : 8;
+    /// read-write - Data byte 2 of Rx/Tx frame.
     uint32_t DATA_BYTE_33 : 8;
+    /// read-write - Data byte 3 of Rx/Tx frame.
     uint32_t DATA_BYTE_32 : 8;
   } bits;
   
@@ -11429,8 +13903,11 @@ union ID25 {
   
   // Bit field definition.
   struct {
+    /// read-write - Contains extended (LOW word) identifier of message buffer.
     uint32_t EXT : 18;
+    /// read-write - Contains standard/extended (HIGH word) identifier of message buffer.
     uint32_t STD : 11;
+    /// read-write - Local priority. This 3-bit fieldis only used when LPRIO_EN bit is set in MCR and it only makes sense for Tx buffers. These bits are not transmitted. They are appended to the regular ID to define the transmission priority.
     uint32_t PRIO : 3;
   } bits;
   
@@ -11448,8 +13925,11 @@ union MB10_32B_ID_L {
   
   // Bit field definition.
   struct {
+    /// read-write - Contains extended (LOW word) identifier of message buffer.
     uint32_t EXT : 18;
+    /// read-write - Contains standard/extended (HIGH word) identifier of message buffer.
     uint32_t STD : 11;
+    /// read-write - Local priority. This 3-bit fieldis only used when LPRIO_EN bit is set in MCR and it only makes sense for Tx buffers. These bits are not transmitted. They are appended to the regular ID to define the transmission priority.
     uint32_t PRIO : 3;
   } bits;
   
@@ -11467,9 +13947,13 @@ union MB16_16B_WORD3_L {
   
   // Bit field definition.
   struct {
+    /// read-write - Data byte 0 of Rx/Tx frame.
     uint32_t DATA_BYTE_15 : 8;
+    /// read-write - Data byte 1 of Rx/Tx frame.
     uint32_t DATA_BYTE_14 : 8;
+    /// read-write - Data byte 2 of Rx/Tx frame.
     uint32_t DATA_BYTE_13 : 8;
+    /// read-write - Data byte 3 of Rx/Tx frame.
     uint32_t DATA_BYTE_12 : 8;
   } bits;
   
@@ -11487,8 +13971,11 @@ union MB25_8B_ID {
   
   // Bit field definition.
   struct {
+    /// read-write - Contains extended (LOW word) identifier of message buffer.
     uint32_t EXT : 18;
+    /// read-write - Contains standard/extended (HIGH word) identifier of message buffer.
     uint32_t STD : 11;
+    /// read-write - Local priority. This 3-bit fieldis only used when LPRIO_EN bit is set in MCR and it only makes sense for Tx buffers. These bits are not transmitted. They are appended to the regular ID to define the transmission priority.
     uint32_t PRIO : 3;
   } bits;
   
@@ -11506,9 +13993,13 @@ union MB5_64B_WORD9_L {
   
   // Bit field definition.
   struct {
+    /// read-write - Data byte 0 of Rx/Tx frame.
     uint32_t DATA_BYTE_39 : 8;
+    /// read-write - Data byte 1 of Rx/Tx frame.
     uint32_t DATA_BYTE_38 : 8;
+    /// read-write - Data byte 2 of Rx/Tx frame.
     uint32_t DATA_BYTE_37 : 8;
+    /// read-write - Data byte 3 of Rx/Tx frame.
     uint32_t DATA_BYTE_36 : 8;
   } bits;
   
@@ -11526,9 +14017,13 @@ union MB10_32B_WORD0_L {
   
   // Bit field definition.
   struct {
+    /// read-write - Data byte 0 of Rx/Tx frame.
     uint32_t DATA_BYTE_3 : 8;
+    /// read-write - Data byte 1 of Rx/Tx frame.
     uint32_t DATA_BYTE_2 : 8;
+    /// read-write - Data byte 2 of Rx/Tx frame.
     uint32_t DATA_BYTE_1 : 8;
+    /// read-write - Data byte 3 of Rx/Tx frame.
     uint32_t DATA_BYTE_0 : 8;
   } bits;
   
@@ -11546,16 +14041,25 @@ union MB17_16B_CS_L {
   
   // Bit field definition.
   struct {
+    /// read-write - Free-Running Counter Time stamp. This 16-bit field is a copy of the Free-Running Timer, captured for Tx and Rx frames at the time when the beginning of the Identifier field appears on the CAN bus.
     uint32_t TIME_STAMP : 16;
+    /// read-write - Length of the data to be stored/transmitted.
     uint32_t DLC : 4;
+    /// read-write - Remote Transmission Request. One/zero for remote/data frame.
     uint32_t RTR : 1;
+    /// read-write - ID Extended. One/zero for extended/standard format frame.
     uint32_t IDE : 1;
+    /// read-write - Substitute Remote Request. Contains a fixed recessive bit.
     uint32_t SRR : 1;
     uint32_t _reserved_0 : 1;
+    /// read-write - Message Buffer Code. This 4-bit field can be accessed (read or write) by the CPU and by the FlexCAN module itself, as part of the message buffer matching and arbitration process.
     uint32_t CODE : 4;
     uint32_t _reserved_1 : 1;
+    /// read-write - Error State Indicator. This bit indicates if the transmitting node is error active or error passive.
     uint32_t ESI : 1;
+    /// read-write - Bit Rate Switch. This bit defines whether the bit rate is switched inside a CAN FD format frame.
     uint32_t BRS : 1;
+    /// read-write - Extended Data Length. This bit distinguishes between CAN format and CAN FD format frames. The EDL bit must not be set for Message Buffers configured to RANSWER with code field 0b1010.
     uint32_t EDL : 1;
   } bits;
   
@@ -11573,9 +14077,13 @@ union MB25_8B_WORD0 {
   
   // Bit field definition.
   struct {
+    /// read-write - Data byte 0 of Rx/Tx frame.
     uint32_t DATA_BYTE_3 : 8;
+    /// read-write - Data byte 1 of Rx/Tx frame.
     uint32_t DATA_BYTE_2 : 8;
+    /// read-write - Data byte 2 of Rx/Tx frame.
     uint32_t DATA_BYTE_1 : 8;
+    /// read-write - Data byte 3 of Rx/Tx frame.
     uint32_t DATA_BYTE_0 : 8;
   } bits;
   
@@ -11593,9 +14101,13 @@ union MB5_64B_WORD10_L {
   
   // Bit field definition.
   struct {
+    /// read-write - Data byte 0 of Rx/Tx frame.
     uint32_t DATA_BYTE_43 : 8;
+    /// read-write - Data byte 1 of Rx/Tx frame.
     uint32_t DATA_BYTE_42 : 8;
+    /// read-write - Data byte 2 of Rx/Tx frame.
     uint32_t DATA_BYTE_41 : 8;
+    /// read-write - Data byte 3 of Rx/Tx frame.
     uint32_t DATA_BYTE_40 : 8;
   } bits;
   
@@ -11613,9 +14125,13 @@ union WORD025 {
   
   // Bit field definition.
   struct {
+    /// read-write - Data byte 0 of Rx/Tx frame.
     uint32_t DATA_BYTE_3 : 8;
+    /// read-write - Data byte 1 of Rx/Tx frame.
     uint32_t DATA_BYTE_2 : 8;
+    /// read-write - Data byte 2 of Rx/Tx frame.
     uint32_t DATA_BYTE_1 : 8;
+    /// read-write - Data byte 3 of Rx/Tx frame.
     uint32_t DATA_BYTE_0 : 8;
   } bits;
   
@@ -11633,9 +14149,13 @@ union MB10_32B_WORD1_L {
   
   // Bit field definition.
   struct {
+    /// read-write - Data byte 0 of Rx/Tx frame.
     uint32_t DATA_BYTE_7 : 8;
+    /// read-write - Data byte 1 of Rx/Tx frame.
     uint32_t DATA_BYTE_6 : 8;
+    /// read-write - Data byte 2 of Rx/Tx frame.
     uint32_t DATA_BYTE_5 : 8;
+    /// read-write - Data byte 3 of Rx/Tx frame.
     uint32_t DATA_BYTE_4 : 8;
   } bits;
   
@@ -11653,8 +14173,11 @@ union MB17_16B_ID_L {
   
   // Bit field definition.
   struct {
+    /// read-write - Contains extended (LOW word) identifier of message buffer.
     uint32_t EXT : 18;
+    /// read-write - Contains standard/extended (HIGH word) identifier of message buffer.
     uint32_t STD : 11;
+    /// read-write - Local priority. This 3-bit fieldis only used when LPRIO_EN bit is set in MCR and it only makes sense for Tx buffers. These bits are not transmitted. They are appended to the regular ID to define the transmission priority.
     uint32_t PRIO : 3;
   } bits;
   
@@ -11672,9 +14195,13 @@ union MB25_8B_WORD1 {
   
   // Bit field definition.
   struct {
+    /// read-write - Data byte 0 of Rx/Tx frame.
     uint32_t DATA_BYTE_7 : 8;
+    /// read-write - Data byte 1 of Rx/Tx frame.
     uint32_t DATA_BYTE_6 : 8;
+    /// read-write - Data byte 2 of Rx/Tx frame.
     uint32_t DATA_BYTE_5 : 8;
+    /// read-write - Data byte 3 of Rx/Tx frame.
     uint32_t DATA_BYTE_4 : 8;
   } bits;
   
@@ -11692,9 +14219,13 @@ union MB5_64B_WORD11_L {
   
   // Bit field definition.
   struct {
+    /// read-write - Data byte 0 of Rx/Tx frame.
     uint32_t DATA_BYTE_47 : 8;
+    /// read-write - Data byte 1 of Rx/Tx frame.
     uint32_t DATA_BYTE_46 : 8;
+    /// read-write - Data byte 2 of Rx/Tx frame.
     uint32_t DATA_BYTE_45 : 8;
+    /// read-write - Data byte 3 of Rx/Tx frame.
     uint32_t DATA_BYTE_44 : 8;
   } bits;
   
@@ -11712,9 +14243,13 @@ union WORD125 {
   
   // Bit field definition.
   struct {
+    /// read-write - Data byte 0 of Rx/Tx frame.
     uint32_t DATA_BYTE_7 : 8;
+    /// read-write - Data byte 1 of Rx/Tx frame.
     uint32_t DATA_BYTE_6 : 8;
+    /// read-write - Data byte 2 of Rx/Tx frame.
     uint32_t DATA_BYTE_5 : 8;
+    /// read-write - Data byte 3 of Rx/Tx frame.
     uint32_t DATA_BYTE_4 : 8;
   } bits;
   
@@ -11732,16 +14267,25 @@ union CS26 {
   
   // Bit field definition.
   struct {
+    /// read-write - Free-Running Counter Time stamp. This 16-bit field is a copy of the Free-Running Timer, captured for Tx and Rx frames at the time when the beginning of the Identifier field appears on the CAN bus.
     uint32_t TIME_STAMP : 16;
+    /// read-write - Length of the data to be stored/transmitted.
     uint32_t DLC : 4;
+    /// read-write - Remote Transmission Request. One/zero for remote/data frame.
     uint32_t RTR : 1;
+    /// read-write - ID Extended. One/zero for extended/standard format frame.
     uint32_t IDE : 1;
+    /// read-write - Substitute Remote Request. Contains a fixed recessive bit.
     uint32_t SRR : 1;
     uint32_t _reserved_0 : 1;
+    /// read-write - Message Buffer Code. This 4-bit field can be accessed (read or write) by the CPU and by the FlexCAN module itself, as part of the message buffer matching and arbitration process.
     uint32_t CODE : 4;
     uint32_t _reserved_1 : 1;
+    /// read-write - Error State Indicator. This bit indicates if the transmitting node is error active or error passive.
     uint32_t ESI : 1;
+    /// read-write - Bit Rate Switch. This bit defines whether the bit rate is switched inside a CAN FD format frame.
     uint32_t BRS : 1;
+    /// read-write - Extended Data Length. This bit distinguishes between CAN format and CAN FD format frames. The EDL bit must not be set for Message Buffers configured to RANSWER with code field 0b1010.
     uint32_t EDL : 1;
   } bits;
   
@@ -11759,9 +14303,13 @@ union MB10_32B_WORD2_L {
   
   // Bit field definition.
   struct {
+    /// read-write - Data byte 0 of Rx/Tx frame.
     uint32_t DATA_BYTE_11 : 8;
+    /// read-write - Data byte 1 of Rx/Tx frame.
     uint32_t DATA_BYTE_10 : 8;
+    /// read-write - Data byte 2 of Rx/Tx frame.
     uint32_t DATA_BYTE_9 : 8;
+    /// read-write - Data byte 3 of Rx/Tx frame.
     uint32_t DATA_BYTE_8 : 8;
   } bits;
   
@@ -11779,9 +14327,13 @@ union MB17_16B_WORD0_L {
   
   // Bit field definition.
   struct {
+    /// read-write - Data byte 0 of Rx/Tx frame.
     uint32_t DATA_BYTE_3 : 8;
+    /// read-write - Data byte 1 of Rx/Tx frame.
     uint32_t DATA_BYTE_2 : 8;
+    /// read-write - Data byte 2 of Rx/Tx frame.
     uint32_t DATA_BYTE_1 : 8;
+    /// read-write - Data byte 3 of Rx/Tx frame.
     uint32_t DATA_BYTE_0 : 8;
   } bits;
   
@@ -11799,16 +14351,25 @@ union MB26_8B_CS {
   
   // Bit field definition.
   struct {
+    /// read-write - Free-Running Counter Time stamp. This 16-bit field is a copy of the Free-Running Timer, captured for Tx and Rx frames at the time when the beginning of the Identifier field appears on the CAN bus.
     uint32_t TIME_STAMP : 16;
+    /// read-write - Length of the data to be stored/transmitted.
     uint32_t DLC : 4;
+    /// read-write - Remote Transmission Request. One/zero for remote/data frame.
     uint32_t RTR : 1;
+    /// read-write - ID Extended. One/zero for extended/standard format frame.
     uint32_t IDE : 1;
+    /// read-write - Substitute Remote Request. Contains a fixed recessive bit.
     uint32_t SRR : 1;
     uint32_t _reserved_0 : 1;
+    /// read-write - Message Buffer Code. This 4-bit field can be accessed (read or write) by the CPU and by the FlexCAN module itself, as part of the message buffer matching and arbitration process.
     uint32_t CODE : 4;
     uint32_t _reserved_1 : 1;
+    /// read-write - Error State Indicator. This bit indicates if the transmitting node is error active or error passive.
     uint32_t ESI : 1;
+    /// read-write - Bit Rate Switch. This bit defines whether the bit rate is switched inside a CAN FD format frame.
     uint32_t BRS : 1;
+    /// read-write - Extended Data Length. This bit distinguishes between CAN format and CAN FD format frames. The EDL bit must not be set for Message Buffers configured to RANSWER with code field 0b1010.
     uint32_t EDL : 1;
   } bits;
   
@@ -11826,9 +14387,13 @@ union MB5_64B_WORD12_L {
   
   // Bit field definition.
   struct {
+    /// read-write - Data byte 0 of Rx/Tx frame.
     uint32_t DATA_BYTE_51 : 8;
+    /// read-write - Data byte 1 of Rx/Tx frame.
     uint32_t DATA_BYTE_50 : 8;
+    /// read-write - Data byte 2 of Rx/Tx frame.
     uint32_t DATA_BYTE_49 : 8;
+    /// read-write - Data byte 3 of Rx/Tx frame.
     uint32_t DATA_BYTE_48 : 8;
   } bits;
   
@@ -11846,8 +14411,11 @@ union ID26 {
   
   // Bit field definition.
   struct {
+    /// read-write - Contains extended (LOW word) identifier of message buffer.
     uint32_t EXT : 18;
+    /// read-write - Contains standard/extended (HIGH word) identifier of message buffer.
     uint32_t STD : 11;
+    /// read-write - Local priority. This 3-bit fieldis only used when LPRIO_EN bit is set in MCR and it only makes sense for Tx buffers. These bits are not transmitted. They are appended to the regular ID to define the transmission priority.
     uint32_t PRIO : 3;
   } bits;
   
@@ -11865,9 +14433,13 @@ union MB10_32B_WORD3_L {
   
   // Bit field definition.
   struct {
+    /// read-write - Data byte 0 of Rx/Tx frame.
     uint32_t DATA_BYTE_15 : 8;
+    /// read-write - Data byte 1 of Rx/Tx frame.
     uint32_t DATA_BYTE_14 : 8;
+    /// read-write - Data byte 2 of Rx/Tx frame.
     uint32_t DATA_BYTE_13 : 8;
+    /// read-write - Data byte 3 of Rx/Tx frame.
     uint32_t DATA_BYTE_12 : 8;
   } bits;
   
@@ -11885,9 +14457,13 @@ union MB17_16B_WORD1_L {
   
   // Bit field definition.
   struct {
+    /// read-write - Data byte 0 of Rx/Tx frame.
     uint32_t DATA_BYTE_7 : 8;
+    /// read-write - Data byte 1 of Rx/Tx frame.
     uint32_t DATA_BYTE_6 : 8;
+    /// read-write - Data byte 2 of Rx/Tx frame.
     uint32_t DATA_BYTE_5 : 8;
+    /// read-write - Data byte 3 of Rx/Tx frame.
     uint32_t DATA_BYTE_4 : 8;
   } bits;
   
@@ -11905,8 +14481,11 @@ union MB26_8B_ID {
   
   // Bit field definition.
   struct {
+    /// read-write - Contains extended (LOW word) identifier of message buffer.
     uint32_t EXT : 18;
+    /// read-write - Contains standard/extended (HIGH word) identifier of message buffer.
     uint32_t STD : 11;
+    /// read-write - Local priority. This 3-bit fieldis only used when LPRIO_EN bit is set in MCR and it only makes sense for Tx buffers. These bits are not transmitted. They are appended to the regular ID to define the transmission priority.
     uint32_t PRIO : 3;
   } bits;
   
@@ -11924,9 +14503,13 @@ union MB5_64B_WORD13_L {
   
   // Bit field definition.
   struct {
+    /// read-write - Data byte 0 of Rx/Tx frame.
     uint32_t DATA_BYTE_55 : 8;
+    /// read-write - Data byte 1 of Rx/Tx frame.
     uint32_t DATA_BYTE_54 : 8;
+    /// read-write - Data byte 2 of Rx/Tx frame.
     uint32_t DATA_BYTE_53 : 8;
+    /// read-write - Data byte 3 of Rx/Tx frame.
     uint32_t DATA_BYTE_52 : 8;
   } bits;
   
@@ -11944,9 +14527,13 @@ union MB10_32B_WORD4_L {
   
   // Bit field definition.
   struct {
+    /// read-write - Data byte 0 of Rx/Tx frame.
     uint32_t DATA_BYTE_19 : 8;
+    /// read-write - Data byte 1 of Rx/Tx frame.
     uint32_t DATA_BYTE_18 : 8;
+    /// read-write - Data byte 2 of Rx/Tx frame.
     uint32_t DATA_BYTE_17 : 8;
+    /// read-write - Data byte 3 of Rx/Tx frame.
     uint32_t DATA_BYTE_16 : 8;
   } bits;
   
@@ -11964,9 +14551,13 @@ union MB17_16B_WORD2_L {
   
   // Bit field definition.
   struct {
+    /// read-write - Data byte 0 of Rx/Tx frame.
     uint32_t DATA_BYTE_11 : 8;
+    /// read-write - Data byte 1 of Rx/Tx frame.
     uint32_t DATA_BYTE_10 : 8;
+    /// read-write - Data byte 2 of Rx/Tx frame.
     uint32_t DATA_BYTE_9 : 8;
+    /// read-write - Data byte 3 of Rx/Tx frame.
     uint32_t DATA_BYTE_8 : 8;
   } bits;
   
@@ -11984,9 +14575,13 @@ union MB26_8B_WORD0 {
   
   // Bit field definition.
   struct {
+    /// read-write - Data byte 0 of Rx/Tx frame.
     uint32_t DATA_BYTE_3 : 8;
+    /// read-write - Data byte 1 of Rx/Tx frame.
     uint32_t DATA_BYTE_2 : 8;
+    /// read-write - Data byte 2 of Rx/Tx frame.
     uint32_t DATA_BYTE_1 : 8;
+    /// read-write - Data byte 3 of Rx/Tx frame.
     uint32_t DATA_BYTE_0 : 8;
   } bits;
   
@@ -12004,9 +14599,13 @@ union MB5_64B_WORD14_L {
   
   // Bit field definition.
   struct {
+    /// read-write - Data byte 0 of Rx/Tx frame.
     uint32_t DATA_BYTE_59 : 8;
+    /// read-write - Data byte 1 of Rx/Tx frame.
     uint32_t DATA_BYTE_58 : 8;
+    /// read-write - Data byte 2 of Rx/Tx frame.
     uint32_t DATA_BYTE_57 : 8;
+    /// read-write - Data byte 3 of Rx/Tx frame.
     uint32_t DATA_BYTE_56 : 8;
   } bits;
   
@@ -12024,9 +14623,13 @@ union WORD026 {
   
   // Bit field definition.
   struct {
+    /// read-write - Data byte 0 of Rx/Tx frame.
     uint32_t DATA_BYTE_3 : 8;
+    /// read-write - Data byte 1 of Rx/Tx frame.
     uint32_t DATA_BYTE_2 : 8;
+    /// read-write - Data byte 2 of Rx/Tx frame.
     uint32_t DATA_BYTE_1 : 8;
+    /// read-write - Data byte 3 of Rx/Tx frame.
     uint32_t DATA_BYTE_0 : 8;
   } bits;
   
@@ -12044,9 +14647,13 @@ union MB10_32B_WORD5_L {
   
   // Bit field definition.
   struct {
+    /// read-write - Data byte 0 of Rx/Tx frame.
     uint32_t DATA_BYTE_23 : 8;
+    /// read-write - Data byte 1 of Rx/Tx frame.
     uint32_t DATA_BYTE_22 : 8;
+    /// read-write - Data byte 2 of Rx/Tx frame.
     uint32_t DATA_BYTE_21 : 8;
+    /// read-write - Data byte 3 of Rx/Tx frame.
     uint32_t DATA_BYTE_20 : 8;
   } bits;
   
@@ -12064,9 +14671,13 @@ union MB17_16B_WORD3_L {
   
   // Bit field definition.
   struct {
+    /// read-write - Data byte 0 of Rx/Tx frame.
     uint32_t DATA_BYTE_15 : 8;
+    /// read-write - Data byte 1 of Rx/Tx frame.
     uint32_t DATA_BYTE_14 : 8;
+    /// read-write - Data byte 2 of Rx/Tx frame.
     uint32_t DATA_BYTE_13 : 8;
+    /// read-write - Data byte 3 of Rx/Tx frame.
     uint32_t DATA_BYTE_12 : 8;
   } bits;
   
@@ -12084,9 +14695,13 @@ union MB26_8B_WORD1 {
   
   // Bit field definition.
   struct {
+    /// read-write - Data byte 0 of Rx/Tx frame.
     uint32_t DATA_BYTE_7 : 8;
+    /// read-write - Data byte 1 of Rx/Tx frame.
     uint32_t DATA_BYTE_6 : 8;
+    /// read-write - Data byte 2 of Rx/Tx frame.
     uint32_t DATA_BYTE_5 : 8;
+    /// read-write - Data byte 3 of Rx/Tx frame.
     uint32_t DATA_BYTE_4 : 8;
   } bits;
   
@@ -12104,9 +14719,13 @@ union MB5_64B_WORD15_L {
   
   // Bit field definition.
   struct {
+    /// read-write - Data byte 0 of Rx/Tx frame.
     uint32_t DATA_BYTE_63 : 8;
+    /// read-write - Data byte 1 of Rx/Tx frame.
     uint32_t DATA_BYTE_62 : 8;
+    /// read-write - Data byte 2 of Rx/Tx frame.
     uint32_t DATA_BYTE_61 : 8;
+    /// read-write - Data byte 3 of Rx/Tx frame.
     uint32_t DATA_BYTE_60 : 8;
   } bits;
   
@@ -12124,9 +14743,13 @@ union WORD126 {
   
   // Bit field definition.
   struct {
+    /// read-write - Data byte 0 of Rx/Tx frame.
     uint32_t DATA_BYTE_7 : 8;
+    /// read-write - Data byte 1 of Rx/Tx frame.
     uint32_t DATA_BYTE_6 : 8;
+    /// read-write - Data byte 2 of Rx/Tx frame.
     uint32_t DATA_BYTE_5 : 8;
+    /// read-write - Data byte 3 of Rx/Tx frame.
     uint32_t DATA_BYTE_4 : 8;
   } bits;
   
@@ -12144,16 +14767,25 @@ union CS27 {
   
   // Bit field definition.
   struct {
+    /// read-write - Free-Running Counter Time stamp. This 16-bit field is a copy of the Free-Running Timer, captured for Tx and Rx frames at the time when the beginning of the Identifier field appears on the CAN bus.
     uint32_t TIME_STAMP : 16;
+    /// read-write - Length of the data to be stored/transmitted.
     uint32_t DLC : 4;
+    /// read-write - Remote Transmission Request. One/zero for remote/data frame.
     uint32_t RTR : 1;
+    /// read-write - ID Extended. One/zero for extended/standard format frame.
     uint32_t IDE : 1;
+    /// read-write - Substitute Remote Request. Contains a fixed recessive bit.
     uint32_t SRR : 1;
     uint32_t _reserved_0 : 1;
+    /// read-write - Message Buffer Code. This 4-bit field can be accessed (read or write) by the CPU and by the FlexCAN module itself, as part of the message buffer matching and arbitration process.
     uint32_t CODE : 4;
     uint32_t _reserved_1 : 1;
+    /// read-write - Error State Indicator. This bit indicates if the transmitting node is error active or error passive.
     uint32_t ESI : 1;
+    /// read-write - Bit Rate Switch. This bit defines whether the bit rate is switched inside a CAN FD format frame.
     uint32_t BRS : 1;
+    /// read-write - Extended Data Length. This bit distinguishes between CAN format and CAN FD format frames. The EDL bit must not be set for Message Buffers configured to RANSWER with code field 0b1010.
     uint32_t EDL : 1;
   } bits;
   
@@ -12171,9 +14803,13 @@ union MB10_32B_WORD6_L {
   
   // Bit field definition.
   struct {
+    /// read-write - Data byte 0 of Rx/Tx frame.
     uint32_t DATA_BYTE_27 : 8;
+    /// read-write - Data byte 1 of Rx/Tx frame.
     uint32_t DATA_BYTE_26 : 8;
+    /// read-write - Data byte 2 of Rx/Tx frame.
     uint32_t DATA_BYTE_25 : 8;
+    /// read-write - Data byte 3 of Rx/Tx frame.
     uint32_t DATA_BYTE_24 : 8;
   } bits;
   
@@ -12191,16 +14827,25 @@ union MB18_16B_CS_L {
   
   // Bit field definition.
   struct {
+    /// read-write - Free-Running Counter Time stamp. This 16-bit field is a copy of the Free-Running Timer, captured for Tx and Rx frames at the time when the beginning of the Identifier field appears on the CAN bus.
     uint32_t TIME_STAMP : 16;
+    /// read-write - Length of the data to be stored/transmitted.
     uint32_t DLC : 4;
+    /// read-write - Remote Transmission Request. One/zero for remote/data frame.
     uint32_t RTR : 1;
+    /// read-write - ID Extended. One/zero for extended/standard format frame.
     uint32_t IDE : 1;
+    /// read-write - Substitute Remote Request. Contains a fixed recessive bit.
     uint32_t SRR : 1;
     uint32_t _reserved_0 : 1;
+    /// read-write - Message Buffer Code. This 4-bit field can be accessed (read or write) by the CPU and by the FlexCAN module itself, as part of the message buffer matching and arbitration process.
     uint32_t CODE : 4;
     uint32_t _reserved_1 : 1;
+    /// read-write - Error State Indicator. This bit indicates if the transmitting node is error active or error passive.
     uint32_t ESI : 1;
+    /// read-write - Bit Rate Switch. This bit defines whether the bit rate is switched inside a CAN FD format frame.
     uint32_t BRS : 1;
+    /// read-write - Extended Data Length. This bit distinguishes between CAN format and CAN FD format frames. The EDL bit must not be set for Message Buffers configured to RANSWER with code field 0b1010.
     uint32_t EDL : 1;
   } bits;
   
@@ -12218,16 +14863,25 @@ union MB27_8B_CS {
   
   // Bit field definition.
   struct {
+    /// read-write - Free-Running Counter Time stamp. This 16-bit field is a copy of the Free-Running Timer, captured for Tx and Rx frames at the time when the beginning of the Identifier field appears on the CAN bus.
     uint32_t TIME_STAMP : 16;
+    /// read-write - Length of the data to be stored/transmitted.
     uint32_t DLC : 4;
+    /// read-write - Remote Transmission Request. One/zero for remote/data frame.
     uint32_t RTR : 1;
+    /// read-write - ID Extended. One/zero for extended/standard format frame.
     uint32_t IDE : 1;
+    /// read-write - Substitute Remote Request. Contains a fixed recessive bit.
     uint32_t SRR : 1;
     uint32_t _reserved_0 : 1;
+    /// read-write - Message Buffer Code. This 4-bit field can be accessed (read or write) by the CPU and by the FlexCAN module itself, as part of the message buffer matching and arbitration process.
     uint32_t CODE : 4;
     uint32_t _reserved_1 : 1;
+    /// read-write - Error State Indicator. This bit indicates if the transmitting node is error active or error passive.
     uint32_t ESI : 1;
+    /// read-write - Bit Rate Switch. This bit defines whether the bit rate is switched inside a CAN FD format frame.
     uint32_t BRS : 1;
+    /// read-write - Extended Data Length. This bit distinguishes between CAN format and CAN FD format frames. The EDL bit must not be set for Message Buffers configured to RANSWER with code field 0b1010.
     uint32_t EDL : 1;
   } bits;
   
@@ -12245,16 +14899,25 @@ union MB6_64B_CS_L {
   
   // Bit field definition.
   struct {
+    /// read-write - Free-Running Counter Time stamp. This 16-bit field is a copy of the Free-Running Timer, captured for Tx and Rx frames at the time when the beginning of the Identifier field appears on the CAN bus.
     uint32_t TIME_STAMP : 16;
+    /// read-write - Length of the data to be stored/transmitted.
     uint32_t DLC : 4;
+    /// read-write - Remote Transmission Request. One/zero for remote/data frame.
     uint32_t RTR : 1;
+    /// read-write - ID Extended. One/zero for extended/standard format frame.
     uint32_t IDE : 1;
+    /// read-write - Substitute Remote Request. Contains a fixed recessive bit.
     uint32_t SRR : 1;
     uint32_t _reserved_0 : 1;
+    /// read-write - Message Buffer Code. This 4-bit field can be accessed (read or write) by the CPU and by the FlexCAN module itself, as part of the message buffer matching and arbitration process.
     uint32_t CODE : 4;
     uint32_t _reserved_1 : 1;
+    /// read-write - Error State Indicator. This bit indicates if the transmitting node is error active or error passive.
     uint32_t ESI : 1;
+    /// read-write - Bit Rate Switch. This bit defines whether the bit rate is switched inside a CAN FD format frame.
     uint32_t BRS : 1;
+    /// read-write - Extended Data Length. This bit distinguishes between CAN format and CAN FD format frames. The EDL bit must not be set for Message Buffers configured to RANSWER with code field 0b1010.
     uint32_t EDL : 1;
   } bits;
   
@@ -12272,8 +14935,11 @@ union ID27 {
   
   // Bit field definition.
   struct {
+    /// read-write - Contains extended (LOW word) identifier of message buffer.
     uint32_t EXT : 18;
+    /// read-write - Contains standard/extended (HIGH word) identifier of message buffer.
     uint32_t STD : 11;
+    /// read-write - Local priority. This 3-bit fieldis only used when LPRIO_EN bit is set in MCR and it only makes sense for Tx buffers. These bits are not transmitted. They are appended to the regular ID to define the transmission priority.
     uint32_t PRIO : 3;
   } bits;
   
@@ -12291,9 +14957,13 @@ union MB10_32B_WORD7_L {
   
   // Bit field definition.
   struct {
+    /// read-write - Data byte 0 of Rx/Tx frame.
     uint32_t DATA_BYTE_31 : 8;
+    /// read-write - Data byte 1 of Rx/Tx frame.
     uint32_t DATA_BYTE_30 : 8;
+    /// read-write - Data byte 2 of Rx/Tx frame.
     uint32_t DATA_BYTE_29 : 8;
+    /// read-write - Data byte 3 of Rx/Tx frame.
     uint32_t DATA_BYTE_28 : 8;
   } bits;
   
@@ -12311,8 +14981,11 @@ union MB18_16B_ID_L {
   
   // Bit field definition.
   struct {
+    /// read-write - Contains extended (LOW word) identifier of message buffer.
     uint32_t EXT : 18;
+    /// read-write - Contains standard/extended (HIGH word) identifier of message buffer.
     uint32_t STD : 11;
+    /// read-write - Local priority. This 3-bit fieldis only used when LPRIO_EN bit is set in MCR and it only makes sense for Tx buffers. These bits are not transmitted. They are appended to the regular ID to define the transmission priority.
     uint32_t PRIO : 3;
   } bits;
   
@@ -12330,8 +15003,11 @@ union MB27_8B_ID {
   
   // Bit field definition.
   struct {
+    /// read-write - Contains extended (LOW word) identifier of message buffer.
     uint32_t EXT : 18;
+    /// read-write - Contains standard/extended (HIGH word) identifier of message buffer.
     uint32_t STD : 11;
+    /// read-write - Local priority. This 3-bit fieldis only used when LPRIO_EN bit is set in MCR and it only makes sense for Tx buffers. These bits are not transmitted. They are appended to the regular ID to define the transmission priority.
     uint32_t PRIO : 3;
   } bits;
   
@@ -12349,8 +15025,11 @@ union MB6_64B_ID_L {
   
   // Bit field definition.
   struct {
+    /// read-write - Contains extended (LOW word) identifier of message buffer.
     uint32_t EXT : 18;
+    /// read-write - Contains standard/extended (HIGH word) identifier of message buffer.
     uint32_t STD : 11;
+    /// read-write - Local priority. This 3-bit fieldis only used when LPRIO_EN bit is set in MCR and it only makes sense for Tx buffers. These bits are not transmitted. They are appended to the regular ID to define the transmission priority.
     uint32_t PRIO : 3;
   } bits;
   
@@ -12368,16 +15047,25 @@ union MB11_32B_CS_L {
   
   // Bit field definition.
   struct {
+    /// read-write - Free-Running Counter Time stamp. This 16-bit field is a copy of the Free-Running Timer, captured for Tx and Rx frames at the time when the beginning of the Identifier field appears on the CAN bus.
     uint32_t TIME_STAMP : 16;
+    /// read-write - Length of the data to be stored/transmitted.
     uint32_t DLC : 4;
+    /// read-write - Remote Transmission Request. One/zero for remote/data frame.
     uint32_t RTR : 1;
+    /// read-write - ID Extended. One/zero for extended/standard format frame.
     uint32_t IDE : 1;
+    /// read-write - Substitute Remote Request. Contains a fixed recessive bit.
     uint32_t SRR : 1;
     uint32_t _reserved_0 : 1;
+    /// read-write - Message Buffer Code. This 4-bit field can be accessed (read or write) by the CPU and by the FlexCAN module itself, as part of the message buffer matching and arbitration process.
     uint32_t CODE : 4;
     uint32_t _reserved_1 : 1;
+    /// read-write - Error State Indicator. This bit indicates if the transmitting node is error active or error passive.
     uint32_t ESI : 1;
+    /// read-write - Bit Rate Switch. This bit defines whether the bit rate is switched inside a CAN FD format frame.
     uint32_t BRS : 1;
+    /// read-write - Extended Data Length. This bit distinguishes between CAN format and CAN FD format frames. The EDL bit must not be set for Message Buffers configured to RANSWER with code field 0b1010.
     uint32_t EDL : 1;
   } bits;
   
@@ -12395,9 +15083,13 @@ union MB18_16B_WORD0_L {
   
   // Bit field definition.
   struct {
+    /// read-write - Data byte 0 of Rx/Tx frame.
     uint32_t DATA_BYTE_3 : 8;
+    /// read-write - Data byte 1 of Rx/Tx frame.
     uint32_t DATA_BYTE_2 : 8;
+    /// read-write - Data byte 2 of Rx/Tx frame.
     uint32_t DATA_BYTE_1 : 8;
+    /// read-write - Data byte 3 of Rx/Tx frame.
     uint32_t DATA_BYTE_0 : 8;
   } bits;
   
@@ -12415,9 +15107,13 @@ union MB27_8B_WORD0 {
   
   // Bit field definition.
   struct {
+    /// read-write - Data byte 0 of Rx/Tx frame.
     uint32_t DATA_BYTE_3 : 8;
+    /// read-write - Data byte 1 of Rx/Tx frame.
     uint32_t DATA_BYTE_2 : 8;
+    /// read-write - Data byte 2 of Rx/Tx frame.
     uint32_t DATA_BYTE_1 : 8;
+    /// read-write - Data byte 3 of Rx/Tx frame.
     uint32_t DATA_BYTE_0 : 8;
   } bits;
   
@@ -12435,9 +15131,13 @@ union MB6_64B_WORD0_L {
   
   // Bit field definition.
   struct {
+    /// read-write - Data byte 0 of Rx/Tx frame.
     uint32_t DATA_BYTE_3 : 8;
+    /// read-write - Data byte 1 of Rx/Tx frame.
     uint32_t DATA_BYTE_2 : 8;
+    /// read-write - Data byte 2 of Rx/Tx frame.
     uint32_t DATA_BYTE_1 : 8;
+    /// read-write - Data byte 3 of Rx/Tx frame.
     uint32_t DATA_BYTE_0 : 8;
   } bits;
   
@@ -12455,9 +15155,13 @@ union WORD027 {
   
   // Bit field definition.
   struct {
+    /// read-write - Data byte 0 of Rx/Tx frame.
     uint32_t DATA_BYTE_3 : 8;
+    /// read-write - Data byte 1 of Rx/Tx frame.
     uint32_t DATA_BYTE_2 : 8;
+    /// read-write - Data byte 2 of Rx/Tx frame.
     uint32_t DATA_BYTE_1 : 8;
+    /// read-write - Data byte 3 of Rx/Tx frame.
     uint32_t DATA_BYTE_0 : 8;
   } bits;
   
@@ -12475,8 +15179,11 @@ union MB11_32B_ID_L {
   
   // Bit field definition.
   struct {
+    /// read-write - Contains extended (LOW word) identifier of message buffer.
     uint32_t EXT : 18;
+    /// read-write - Contains standard/extended (HIGH word) identifier of message buffer.
     uint32_t STD : 11;
+    /// read-write - Local priority. This 3-bit fieldis only used when LPRIO_EN bit is set in MCR and it only makes sense for Tx buffers. These bits are not transmitted. They are appended to the regular ID to define the transmission priority.
     uint32_t PRIO : 3;
   } bits;
   
@@ -12494,9 +15201,13 @@ union MB18_16B_WORD1_L {
   
   // Bit field definition.
   struct {
+    /// read-write - Data byte 0 of Rx/Tx frame.
     uint32_t DATA_BYTE_7 : 8;
+    /// read-write - Data byte 1 of Rx/Tx frame.
     uint32_t DATA_BYTE_6 : 8;
+    /// read-write - Data byte 2 of Rx/Tx frame.
     uint32_t DATA_BYTE_5 : 8;
+    /// read-write - Data byte 3 of Rx/Tx frame.
     uint32_t DATA_BYTE_4 : 8;
   } bits;
   
@@ -12514,9 +15225,13 @@ union MB27_8B_WORD1 {
   
   // Bit field definition.
   struct {
+    /// read-write - Data byte 0 of Rx/Tx frame.
     uint32_t DATA_BYTE_7 : 8;
+    /// read-write - Data byte 1 of Rx/Tx frame.
     uint32_t DATA_BYTE_6 : 8;
+    /// read-write - Data byte 2 of Rx/Tx frame.
     uint32_t DATA_BYTE_5 : 8;
+    /// read-write - Data byte 3 of Rx/Tx frame.
     uint32_t DATA_BYTE_4 : 8;
   } bits;
   
@@ -12534,9 +15249,13 @@ union MB6_64B_WORD1_L {
   
   // Bit field definition.
   struct {
+    /// read-write - Data byte 0 of Rx/Tx frame.
     uint32_t DATA_BYTE_7 : 8;
+    /// read-write - Data byte 1 of Rx/Tx frame.
     uint32_t DATA_BYTE_6 : 8;
+    /// read-write - Data byte 2 of Rx/Tx frame.
     uint32_t DATA_BYTE_5 : 8;
+    /// read-write - Data byte 3 of Rx/Tx frame.
     uint32_t DATA_BYTE_4 : 8;
   } bits;
   
@@ -12554,9 +15273,13 @@ union WORD127 {
   
   // Bit field definition.
   struct {
+    /// read-write - Data byte 0 of Rx/Tx frame.
     uint32_t DATA_BYTE_7 : 8;
+    /// read-write - Data byte 1 of Rx/Tx frame.
     uint32_t DATA_BYTE_6 : 8;
+    /// read-write - Data byte 2 of Rx/Tx frame.
     uint32_t DATA_BYTE_5 : 8;
+    /// read-write - Data byte 3 of Rx/Tx frame.
     uint32_t DATA_BYTE_4 : 8;
   } bits;
   
@@ -12574,16 +15297,25 @@ union CS28 {
   
   // Bit field definition.
   struct {
+    /// read-write - Free-Running Counter Time stamp. This 16-bit field is a copy of the Free-Running Timer, captured for Tx and Rx frames at the time when the beginning of the Identifier field appears on the CAN bus.
     uint32_t TIME_STAMP : 16;
+    /// read-write - Length of the data to be stored/transmitted.
     uint32_t DLC : 4;
+    /// read-write - Remote Transmission Request. One/zero for remote/data frame.
     uint32_t RTR : 1;
+    /// read-write - ID Extended. One/zero for extended/standard format frame.
     uint32_t IDE : 1;
+    /// read-write - Substitute Remote Request. Contains a fixed recessive bit.
     uint32_t SRR : 1;
     uint32_t _reserved_0 : 1;
+    /// read-write - Message Buffer Code. This 4-bit field can be accessed (read or write) by the CPU and by the FlexCAN module itself, as part of the message buffer matching and arbitration process.
     uint32_t CODE : 4;
     uint32_t _reserved_1 : 1;
+    /// read-write - Error State Indicator. This bit indicates if the transmitting node is error active or error passive.
     uint32_t ESI : 1;
+    /// read-write - Bit Rate Switch. This bit defines whether the bit rate is switched inside a CAN FD format frame.
     uint32_t BRS : 1;
+    /// read-write - Extended Data Length. This bit distinguishes between CAN format and CAN FD format frames. The EDL bit must not be set for Message Buffers configured to RANSWER with code field 0b1010.
     uint32_t EDL : 1;
   } bits;
   
@@ -12601,9 +15333,13 @@ union MB11_32B_WORD0_L {
   
   // Bit field definition.
   struct {
+    /// read-write - Data byte 0 of Rx/Tx frame.
     uint32_t DATA_BYTE_3 : 8;
+    /// read-write - Data byte 1 of Rx/Tx frame.
     uint32_t DATA_BYTE_2 : 8;
+    /// read-write - Data byte 2 of Rx/Tx frame.
     uint32_t DATA_BYTE_1 : 8;
+    /// read-write - Data byte 3 of Rx/Tx frame.
     uint32_t DATA_BYTE_0 : 8;
   } bits;
   
@@ -12621,9 +15357,13 @@ union MB18_16B_WORD2_L {
   
   // Bit field definition.
   struct {
+    /// read-write - Data byte 0 of Rx/Tx frame.
     uint32_t DATA_BYTE_11 : 8;
+    /// read-write - Data byte 1 of Rx/Tx frame.
     uint32_t DATA_BYTE_10 : 8;
+    /// read-write - Data byte 2 of Rx/Tx frame.
     uint32_t DATA_BYTE_9 : 8;
+    /// read-write - Data byte 3 of Rx/Tx frame.
     uint32_t DATA_BYTE_8 : 8;
   } bits;
   
@@ -12641,16 +15381,25 @@ union MB28_8B_CS {
   
   // Bit field definition.
   struct {
+    /// read-write - Free-Running Counter Time stamp. This 16-bit field is a copy of the Free-Running Timer, captured for Tx and Rx frames at the time when the beginning of the Identifier field appears on the CAN bus.
     uint32_t TIME_STAMP : 16;
+    /// read-write - Length of the data to be stored/transmitted.
     uint32_t DLC : 4;
+    /// read-write - Remote Transmission Request. One/zero for remote/data frame.
     uint32_t RTR : 1;
+    /// read-write - ID Extended. One/zero for extended/standard format frame.
     uint32_t IDE : 1;
+    /// read-write - Substitute Remote Request. Contains a fixed recessive bit.
     uint32_t SRR : 1;
     uint32_t _reserved_0 : 1;
+    /// read-write - Message Buffer Code. This 4-bit field can be accessed (read or write) by the CPU and by the FlexCAN module itself, as part of the message buffer matching and arbitration process.
     uint32_t CODE : 4;
     uint32_t _reserved_1 : 1;
+    /// read-write - Error State Indicator. This bit indicates if the transmitting node is error active or error passive.
     uint32_t ESI : 1;
+    /// read-write - Bit Rate Switch. This bit defines whether the bit rate is switched inside a CAN FD format frame.
     uint32_t BRS : 1;
+    /// read-write - Extended Data Length. This bit distinguishes between CAN format and CAN FD format frames. The EDL bit must not be set for Message Buffers configured to RANSWER with code field 0b1010.
     uint32_t EDL : 1;
   } bits;
   
@@ -12668,9 +15417,13 @@ union MB6_64B_WORD2_L {
   
   // Bit field definition.
   struct {
+    /// read-write - Data byte 0 of Rx/Tx frame.
     uint32_t DATA_BYTE_11 : 8;
+    /// read-write - Data byte 1 of Rx/Tx frame.
     uint32_t DATA_BYTE_10 : 8;
+    /// read-write - Data byte 2 of Rx/Tx frame.
     uint32_t DATA_BYTE_9 : 8;
+    /// read-write - Data byte 3 of Rx/Tx frame.
     uint32_t DATA_BYTE_8 : 8;
   } bits;
   
@@ -12688,8 +15441,11 @@ union ID28 {
   
   // Bit field definition.
   struct {
+    /// read-write - Contains extended (LOW word) identifier of message buffer.
     uint32_t EXT : 18;
+    /// read-write - Contains standard/extended (HIGH word) identifier of message buffer.
     uint32_t STD : 11;
+    /// read-write - Local priority. This 3-bit fieldis only used when LPRIO_EN bit is set in MCR and it only makes sense for Tx buffers. These bits are not transmitted. They are appended to the regular ID to define the transmission priority.
     uint32_t PRIO : 3;
   } bits;
   
@@ -12707,9 +15463,13 @@ union MB11_32B_WORD1_L {
   
   // Bit field definition.
   struct {
+    /// read-write - Data byte 0 of Rx/Tx frame.
     uint32_t DATA_BYTE_7 : 8;
+    /// read-write - Data byte 1 of Rx/Tx frame.
     uint32_t DATA_BYTE_6 : 8;
+    /// read-write - Data byte 2 of Rx/Tx frame.
     uint32_t DATA_BYTE_5 : 8;
+    /// read-write - Data byte 3 of Rx/Tx frame.
     uint32_t DATA_BYTE_4 : 8;
   } bits;
   
@@ -12727,9 +15487,13 @@ union MB18_16B_WORD3_L {
   
   // Bit field definition.
   struct {
+    /// read-write - Data byte 0 of Rx/Tx frame.
     uint32_t DATA_BYTE_15 : 8;
+    /// read-write - Data byte 1 of Rx/Tx frame.
     uint32_t DATA_BYTE_14 : 8;
+    /// read-write - Data byte 2 of Rx/Tx frame.
     uint32_t DATA_BYTE_13 : 8;
+    /// read-write - Data byte 3 of Rx/Tx frame.
     uint32_t DATA_BYTE_12 : 8;
   } bits;
   
@@ -12747,8 +15511,11 @@ union MB28_8B_ID {
   
   // Bit field definition.
   struct {
+    /// read-write - Contains extended (LOW word) identifier of message buffer.
     uint32_t EXT : 18;
+    /// read-write - Contains standard/extended (HIGH word) identifier of message buffer.
     uint32_t STD : 11;
+    /// read-write - Local priority. This 3-bit fieldis only used when LPRIO_EN bit is set in MCR and it only makes sense for Tx buffers. These bits are not transmitted. They are appended to the regular ID to define the transmission priority.
     uint32_t PRIO : 3;
   } bits;
   
@@ -12766,9 +15533,13 @@ union MB6_64B_WORD3_L {
   
   // Bit field definition.
   struct {
+    /// read-write - Data byte 0 of Rx/Tx frame.
     uint32_t DATA_BYTE_15 : 8;
+    /// read-write - Data byte 1 of Rx/Tx frame.
     uint32_t DATA_BYTE_14 : 8;
+    /// read-write - Data byte 2 of Rx/Tx frame.
     uint32_t DATA_BYTE_13 : 8;
+    /// read-write - Data byte 3 of Rx/Tx frame.
     uint32_t DATA_BYTE_12 : 8;
   } bits;
   
@@ -12786,9 +15557,13 @@ union MB11_32B_WORD2_L {
   
   // Bit field definition.
   struct {
+    /// read-write - Data byte 0 of Rx/Tx frame.
     uint32_t DATA_BYTE_11 : 8;
+    /// read-write - Data byte 1 of Rx/Tx frame.
     uint32_t DATA_BYTE_10 : 8;
+    /// read-write - Data byte 2 of Rx/Tx frame.
     uint32_t DATA_BYTE_9 : 8;
+    /// read-write - Data byte 3 of Rx/Tx frame.
     uint32_t DATA_BYTE_8 : 8;
   } bits;
   
@@ -12806,16 +15581,25 @@ union MB19_16B_CS_L {
   
   // Bit field definition.
   struct {
+    /// read-write - Free-Running Counter Time stamp. This 16-bit field is a copy of the Free-Running Timer, captured for Tx and Rx frames at the time when the beginning of the Identifier field appears on the CAN bus.
     uint32_t TIME_STAMP : 16;
+    /// read-write - Length of the data to be stored/transmitted.
     uint32_t DLC : 4;
+    /// read-write - Remote Transmission Request. One/zero for remote/data frame.
     uint32_t RTR : 1;
+    /// read-write - ID Extended. One/zero for extended/standard format frame.
     uint32_t IDE : 1;
+    /// read-write - Substitute Remote Request. Contains a fixed recessive bit.
     uint32_t SRR : 1;
     uint32_t _reserved_0 : 1;
+    /// read-write - Message Buffer Code. This 4-bit field can be accessed (read or write) by the CPU and by the FlexCAN module itself, as part of the message buffer matching and arbitration process.
     uint32_t CODE : 4;
     uint32_t _reserved_1 : 1;
+    /// read-write - Error State Indicator. This bit indicates if the transmitting node is error active or error passive.
     uint32_t ESI : 1;
+    /// read-write - Bit Rate Switch. This bit defines whether the bit rate is switched inside a CAN FD format frame.
     uint32_t BRS : 1;
+    /// read-write - Extended Data Length. This bit distinguishes between CAN format and CAN FD format frames. The EDL bit must not be set for Message Buffers configured to RANSWER with code field 0b1010.
     uint32_t EDL : 1;
   } bits;
   
@@ -12833,9 +15617,13 @@ union MB28_8B_WORD0 {
   
   // Bit field definition.
   struct {
+    /// read-write - Data byte 0 of Rx/Tx frame.
     uint32_t DATA_BYTE_3 : 8;
+    /// read-write - Data byte 1 of Rx/Tx frame.
     uint32_t DATA_BYTE_2 : 8;
+    /// read-write - Data byte 2 of Rx/Tx frame.
     uint32_t DATA_BYTE_1 : 8;
+    /// read-write - Data byte 3 of Rx/Tx frame.
     uint32_t DATA_BYTE_0 : 8;
   } bits;
   
@@ -12853,9 +15641,13 @@ union MB6_64B_WORD4_L {
   
   // Bit field definition.
   struct {
+    /// read-write - Data byte 0 of Rx/Tx frame.
     uint32_t DATA_BYTE_19 : 8;
+    /// read-write - Data byte 1 of Rx/Tx frame.
     uint32_t DATA_BYTE_18 : 8;
+    /// read-write - Data byte 2 of Rx/Tx frame.
     uint32_t DATA_BYTE_17 : 8;
+    /// read-write - Data byte 3 of Rx/Tx frame.
     uint32_t DATA_BYTE_16 : 8;
   } bits;
   
@@ -12873,9 +15665,13 @@ union WORD028 {
   
   // Bit field definition.
   struct {
+    /// read-write - Data byte 0 of Rx/Tx frame.
     uint32_t DATA_BYTE_3 : 8;
+    /// read-write - Data byte 1 of Rx/Tx frame.
     uint32_t DATA_BYTE_2 : 8;
+    /// read-write - Data byte 2 of Rx/Tx frame.
     uint32_t DATA_BYTE_1 : 8;
+    /// read-write - Data byte 3 of Rx/Tx frame.
     uint32_t DATA_BYTE_0 : 8;
   } bits;
   
@@ -12893,9 +15689,13 @@ union MB11_32B_WORD3_L {
   
   // Bit field definition.
   struct {
+    /// read-write - Data byte 0 of Rx/Tx frame.
     uint32_t DATA_BYTE_15 : 8;
+    /// read-write - Data byte 1 of Rx/Tx frame.
     uint32_t DATA_BYTE_14 : 8;
+    /// read-write - Data byte 2 of Rx/Tx frame.
     uint32_t DATA_BYTE_13 : 8;
+    /// read-write - Data byte 3 of Rx/Tx frame.
     uint32_t DATA_BYTE_12 : 8;
   } bits;
   
@@ -12913,8 +15713,11 @@ union MB19_16B_ID_L {
   
   // Bit field definition.
   struct {
+    /// read-write - Contains extended (LOW word) identifier of message buffer.
     uint32_t EXT : 18;
+    /// read-write - Contains standard/extended (HIGH word) identifier of message buffer.
     uint32_t STD : 11;
+    /// read-write - Local priority. This 3-bit fieldis only used when LPRIO_EN bit is set in MCR and it only makes sense for Tx buffers. These bits are not transmitted. They are appended to the regular ID to define the transmission priority.
     uint32_t PRIO : 3;
   } bits;
   
@@ -12932,9 +15735,13 @@ union MB28_8B_WORD1 {
   
   // Bit field definition.
   struct {
+    /// read-write - Data byte 0 of Rx/Tx frame.
     uint32_t DATA_BYTE_7 : 8;
+    /// read-write - Data byte 1 of Rx/Tx frame.
     uint32_t DATA_BYTE_6 : 8;
+    /// read-write - Data byte 2 of Rx/Tx frame.
     uint32_t DATA_BYTE_5 : 8;
+    /// read-write - Data byte 3 of Rx/Tx frame.
     uint32_t DATA_BYTE_4 : 8;
   } bits;
   
@@ -12952,9 +15759,13 @@ union MB6_64B_WORD5_L {
   
   // Bit field definition.
   struct {
+    /// read-write - Data byte 0 of Rx/Tx frame.
     uint32_t DATA_BYTE_23 : 8;
+    /// read-write - Data byte 1 of Rx/Tx frame.
     uint32_t DATA_BYTE_22 : 8;
+    /// read-write - Data byte 2 of Rx/Tx frame.
     uint32_t DATA_BYTE_21 : 8;
+    /// read-write - Data byte 3 of Rx/Tx frame.
     uint32_t DATA_BYTE_20 : 8;
   } bits;
   
@@ -12972,9 +15783,13 @@ union WORD128 {
   
   // Bit field definition.
   struct {
+    /// read-write - Data byte 0 of Rx/Tx frame.
     uint32_t DATA_BYTE_7 : 8;
+    /// read-write - Data byte 1 of Rx/Tx frame.
     uint32_t DATA_BYTE_6 : 8;
+    /// read-write - Data byte 2 of Rx/Tx frame.
     uint32_t DATA_BYTE_5 : 8;
+    /// read-write - Data byte 3 of Rx/Tx frame.
     uint32_t DATA_BYTE_4 : 8;
   } bits;
   
@@ -12992,16 +15807,25 @@ union CS29 {
   
   // Bit field definition.
   struct {
+    /// read-write - Free-Running Counter Time stamp. This 16-bit field is a copy of the Free-Running Timer, captured for Tx and Rx frames at the time when the beginning of the Identifier field appears on the CAN bus.
     uint32_t TIME_STAMP : 16;
+    /// read-write - Length of the data to be stored/transmitted.
     uint32_t DLC : 4;
+    /// read-write - Remote Transmission Request. One/zero for remote/data frame.
     uint32_t RTR : 1;
+    /// read-write - ID Extended. One/zero for extended/standard format frame.
     uint32_t IDE : 1;
+    /// read-write - Substitute Remote Request. Contains a fixed recessive bit.
     uint32_t SRR : 1;
     uint32_t _reserved_0 : 1;
+    /// read-write - Message Buffer Code. This 4-bit field can be accessed (read or write) by the CPU and by the FlexCAN module itself, as part of the message buffer matching and arbitration process.
     uint32_t CODE : 4;
     uint32_t _reserved_1 : 1;
+    /// read-write - Error State Indicator. This bit indicates if the transmitting node is error active or error passive.
     uint32_t ESI : 1;
+    /// read-write - Bit Rate Switch. This bit defines whether the bit rate is switched inside a CAN FD format frame.
     uint32_t BRS : 1;
+    /// read-write - Extended Data Length. This bit distinguishes between CAN format and CAN FD format frames. The EDL bit must not be set for Message Buffers configured to RANSWER with code field 0b1010.
     uint32_t EDL : 1;
   } bits;
   
@@ -13019,9 +15843,13 @@ union MB11_32B_WORD4_L {
   
   // Bit field definition.
   struct {
+    /// read-write - Data byte 0 of Rx/Tx frame.
     uint32_t DATA_BYTE_19 : 8;
+    /// read-write - Data byte 1 of Rx/Tx frame.
     uint32_t DATA_BYTE_18 : 8;
+    /// read-write - Data byte 2 of Rx/Tx frame.
     uint32_t DATA_BYTE_17 : 8;
+    /// read-write - Data byte 3 of Rx/Tx frame.
     uint32_t DATA_BYTE_16 : 8;
   } bits;
   
@@ -13039,9 +15867,13 @@ union MB19_16B_WORD0_L {
   
   // Bit field definition.
   struct {
+    /// read-write - Data byte 0 of Rx/Tx frame.
     uint32_t DATA_BYTE_3 : 8;
+    /// read-write - Data byte 1 of Rx/Tx frame.
     uint32_t DATA_BYTE_2 : 8;
+    /// read-write - Data byte 2 of Rx/Tx frame.
     uint32_t DATA_BYTE_1 : 8;
+    /// read-write - Data byte 3 of Rx/Tx frame.
     uint32_t DATA_BYTE_0 : 8;
   } bits;
   
@@ -13059,16 +15891,25 @@ union MB29_8B_CS {
   
   // Bit field definition.
   struct {
+    /// read-write - Free-Running Counter Time stamp. This 16-bit field is a copy of the Free-Running Timer, captured for Tx and Rx frames at the time when the beginning of the Identifier field appears on the CAN bus.
     uint32_t TIME_STAMP : 16;
+    /// read-write - Length of the data to be stored/transmitted.
     uint32_t DLC : 4;
+    /// read-write - Remote Transmission Request. One/zero for remote/data frame.
     uint32_t RTR : 1;
+    /// read-write - ID Extended. One/zero for extended/standard format frame.
     uint32_t IDE : 1;
+    /// read-write - Substitute Remote Request. Contains a fixed recessive bit.
     uint32_t SRR : 1;
     uint32_t _reserved_0 : 1;
+    /// read-write - Message Buffer Code. This 4-bit field can be accessed (read or write) by the CPU and by the FlexCAN module itself, as part of the message buffer matching and arbitration process.
     uint32_t CODE : 4;
     uint32_t _reserved_1 : 1;
+    /// read-write - Error State Indicator. This bit indicates if the transmitting node is error active or error passive.
     uint32_t ESI : 1;
+    /// read-write - Bit Rate Switch. This bit defines whether the bit rate is switched inside a CAN FD format frame.
     uint32_t BRS : 1;
+    /// read-write - Extended Data Length. This bit distinguishes between CAN format and CAN FD format frames. The EDL bit must not be set for Message Buffers configured to RANSWER with code field 0b1010.
     uint32_t EDL : 1;
   } bits;
   
@@ -13086,9 +15927,13 @@ union MB6_64B_WORD6_L {
   
   // Bit field definition.
   struct {
+    /// read-write - Data byte 0 of Rx/Tx frame.
     uint32_t DATA_BYTE_27 : 8;
+    /// read-write - Data byte 1 of Rx/Tx frame.
     uint32_t DATA_BYTE_26 : 8;
+    /// read-write - Data byte 2 of Rx/Tx frame.
     uint32_t DATA_BYTE_25 : 8;
+    /// read-write - Data byte 3 of Rx/Tx frame.
     uint32_t DATA_BYTE_24 : 8;
   } bits;
   
@@ -13106,8 +15951,11 @@ union ID29 {
   
   // Bit field definition.
   struct {
+    /// read-write - Contains extended (LOW word) identifier of message buffer.
     uint32_t EXT : 18;
+    /// read-write - Contains standard/extended (HIGH word) identifier of message buffer.
     uint32_t STD : 11;
+    /// read-write - Local priority. This 3-bit fieldis only used when LPRIO_EN bit is set in MCR and it only makes sense for Tx buffers. These bits are not transmitted. They are appended to the regular ID to define the transmission priority.
     uint32_t PRIO : 3;
   } bits;
   
@@ -13125,9 +15973,13 @@ union MB11_32B_WORD5_L {
   
   // Bit field definition.
   struct {
+    /// read-write - Data byte 0 of Rx/Tx frame.
     uint32_t DATA_BYTE_23 : 8;
+    /// read-write - Data byte 1 of Rx/Tx frame.
     uint32_t DATA_BYTE_22 : 8;
+    /// read-write - Data byte 2 of Rx/Tx frame.
     uint32_t DATA_BYTE_21 : 8;
+    /// read-write - Data byte 3 of Rx/Tx frame.
     uint32_t DATA_BYTE_20 : 8;
   } bits;
   
@@ -13145,9 +15997,13 @@ union MB19_16B_WORD1_L {
   
   // Bit field definition.
   struct {
+    /// read-write - Data byte 0 of Rx/Tx frame.
     uint32_t DATA_BYTE_7 : 8;
+    /// read-write - Data byte 1 of Rx/Tx frame.
     uint32_t DATA_BYTE_6 : 8;
+    /// read-write - Data byte 2 of Rx/Tx frame.
     uint32_t DATA_BYTE_5 : 8;
+    /// read-write - Data byte 3 of Rx/Tx frame.
     uint32_t DATA_BYTE_4 : 8;
   } bits;
   
@@ -13165,8 +16021,11 @@ union MB29_8B_ID {
   
   // Bit field definition.
   struct {
+    /// read-write - Contains extended (LOW word) identifier of message buffer.
     uint32_t EXT : 18;
+    /// read-write - Contains standard/extended (HIGH word) identifier of message buffer.
     uint32_t STD : 11;
+    /// read-write - Local priority. This 3-bit fieldis only used when LPRIO_EN bit is set in MCR and it only makes sense for Tx buffers. These bits are not transmitted. They are appended to the regular ID to define the transmission priority.
     uint32_t PRIO : 3;
   } bits;
   
@@ -13184,9 +16043,13 @@ union MB6_64B_WORD7_L {
   
   // Bit field definition.
   struct {
+    /// read-write - Data byte 0 of Rx/Tx frame.
     uint32_t DATA_BYTE_31 : 8;
+    /// read-write - Data byte 1 of Rx/Tx frame.
     uint32_t DATA_BYTE_30 : 8;
+    /// read-write - Data byte 2 of Rx/Tx frame.
     uint32_t DATA_BYTE_29 : 8;
+    /// read-write - Data byte 3 of Rx/Tx frame.
     uint32_t DATA_BYTE_28 : 8;
   } bits;
   
@@ -13204,9 +16067,13 @@ union MB11_32B_WORD6_L {
   
   // Bit field definition.
   struct {
+    /// read-write - Data byte 0 of Rx/Tx frame.
     uint32_t DATA_BYTE_27 : 8;
+    /// read-write - Data byte 1 of Rx/Tx frame.
     uint32_t DATA_BYTE_26 : 8;
+    /// read-write - Data byte 2 of Rx/Tx frame.
     uint32_t DATA_BYTE_25 : 8;
+    /// read-write - Data byte 3 of Rx/Tx frame.
     uint32_t DATA_BYTE_24 : 8;
   } bits;
   
@@ -13224,9 +16091,13 @@ union MB19_16B_WORD2_L {
   
   // Bit field definition.
   struct {
+    /// read-write - Data byte 0 of Rx/Tx frame.
     uint32_t DATA_BYTE_11 : 8;
+    /// read-write - Data byte 1 of Rx/Tx frame.
     uint32_t DATA_BYTE_10 : 8;
+    /// read-write - Data byte 2 of Rx/Tx frame.
     uint32_t DATA_BYTE_9 : 8;
+    /// read-write - Data byte 3 of Rx/Tx frame.
     uint32_t DATA_BYTE_8 : 8;
   } bits;
   
@@ -13244,9 +16115,13 @@ union MB29_8B_WORD0 {
   
   // Bit field definition.
   struct {
+    /// read-write - Data byte 0 of Rx/Tx frame.
     uint32_t DATA_BYTE_3 : 8;
+    /// read-write - Data byte 1 of Rx/Tx frame.
     uint32_t DATA_BYTE_2 : 8;
+    /// read-write - Data byte 2 of Rx/Tx frame.
     uint32_t DATA_BYTE_1 : 8;
+    /// read-write - Data byte 3 of Rx/Tx frame.
     uint32_t DATA_BYTE_0 : 8;
   } bits;
   
@@ -13264,9 +16139,13 @@ union MB6_64B_WORD8_L {
   
   // Bit field definition.
   struct {
+    /// read-write - Data byte 0 of Rx/Tx frame.
     uint32_t DATA_BYTE_35 : 8;
+    /// read-write - Data byte 1 of Rx/Tx frame.
     uint32_t DATA_BYTE_34 : 8;
+    /// read-write - Data byte 2 of Rx/Tx frame.
     uint32_t DATA_BYTE_33 : 8;
+    /// read-write - Data byte 3 of Rx/Tx frame.
     uint32_t DATA_BYTE_32 : 8;
   } bits;
   
@@ -13284,9 +16163,13 @@ union WORD029 {
   
   // Bit field definition.
   struct {
+    /// read-write - Data byte 0 of Rx/Tx frame.
     uint32_t DATA_BYTE_3 : 8;
+    /// read-write - Data byte 1 of Rx/Tx frame.
     uint32_t DATA_BYTE_2 : 8;
+    /// read-write - Data byte 2 of Rx/Tx frame.
     uint32_t DATA_BYTE_1 : 8;
+    /// read-write - Data byte 3 of Rx/Tx frame.
     uint32_t DATA_BYTE_0 : 8;
   } bits;
   
@@ -13304,9 +16187,13 @@ union MB11_32B_WORD7_L {
   
   // Bit field definition.
   struct {
+    /// read-write - Data byte 0 of Rx/Tx frame.
     uint32_t DATA_BYTE_31 : 8;
+    /// read-write - Data byte 1 of Rx/Tx frame.
     uint32_t DATA_BYTE_30 : 8;
+    /// read-write - Data byte 2 of Rx/Tx frame.
     uint32_t DATA_BYTE_29 : 8;
+    /// read-write - Data byte 3 of Rx/Tx frame.
     uint32_t DATA_BYTE_28 : 8;
   } bits;
   
@@ -13324,9 +16211,13 @@ union MB19_16B_WORD3_L {
   
   // Bit field definition.
   struct {
+    /// read-write - Data byte 0 of Rx/Tx frame.
     uint32_t DATA_BYTE_15 : 8;
+    /// read-write - Data byte 1 of Rx/Tx frame.
     uint32_t DATA_BYTE_14 : 8;
+    /// read-write - Data byte 2 of Rx/Tx frame.
     uint32_t DATA_BYTE_13 : 8;
+    /// read-write - Data byte 3 of Rx/Tx frame.
     uint32_t DATA_BYTE_12 : 8;
   } bits;
   
@@ -13344,9 +16235,13 @@ union MB29_8B_WORD1 {
   
   // Bit field definition.
   struct {
+    /// read-write - Data byte 0 of Rx/Tx frame.
     uint32_t DATA_BYTE_7 : 8;
+    /// read-write - Data byte 1 of Rx/Tx frame.
     uint32_t DATA_BYTE_6 : 8;
+    /// read-write - Data byte 2 of Rx/Tx frame.
     uint32_t DATA_BYTE_5 : 8;
+    /// read-write - Data byte 3 of Rx/Tx frame.
     uint32_t DATA_BYTE_4 : 8;
   } bits;
   
@@ -13364,9 +16259,13 @@ union MB6_64B_WORD9_L {
   
   // Bit field definition.
   struct {
+    /// read-write - Data byte 0 of Rx/Tx frame.
     uint32_t DATA_BYTE_39 : 8;
+    /// read-write - Data byte 1 of Rx/Tx frame.
     uint32_t DATA_BYTE_38 : 8;
+    /// read-write - Data byte 2 of Rx/Tx frame.
     uint32_t DATA_BYTE_37 : 8;
+    /// read-write - Data byte 3 of Rx/Tx frame.
     uint32_t DATA_BYTE_36 : 8;
   } bits;
   
@@ -13384,9 +16283,13 @@ union WORD129 {
   
   // Bit field definition.
   struct {
+    /// read-write - Data byte 0 of Rx/Tx frame.
     uint32_t DATA_BYTE_7 : 8;
+    /// read-write - Data byte 1 of Rx/Tx frame.
     uint32_t DATA_BYTE_6 : 8;
+    /// read-write - Data byte 2 of Rx/Tx frame.
     uint32_t DATA_BYTE_5 : 8;
+    /// read-write - Data byte 3 of Rx/Tx frame.
     uint32_t DATA_BYTE_4 : 8;
   } bits;
   
@@ -13404,16 +16307,25 @@ union CS30 {
   
   // Bit field definition.
   struct {
+    /// read-write - Free-Running Counter Time stamp. This 16-bit field is a copy of the Free-Running Timer, captured for Tx and Rx frames at the time when the beginning of the Identifier field appears on the CAN bus.
     uint32_t TIME_STAMP : 16;
+    /// read-write - Length of the data to be stored/transmitted.
     uint32_t DLC : 4;
+    /// read-write - Remote Transmission Request. One/zero for remote/data frame.
     uint32_t RTR : 1;
+    /// read-write - ID Extended. One/zero for extended/standard format frame.
     uint32_t IDE : 1;
+    /// read-write - Substitute Remote Request. Contains a fixed recessive bit.
     uint32_t SRR : 1;
     uint32_t _reserved_0 : 1;
+    /// read-write - Message Buffer Code. This 4-bit field can be accessed (read or write) by the CPU and by the FlexCAN module itself, as part of the message buffer matching and arbitration process.
     uint32_t CODE : 4;
     uint32_t _reserved_1 : 1;
+    /// read-write - Error State Indicator. This bit indicates if the transmitting node is error active or error passive.
     uint32_t ESI : 1;
+    /// read-write - Bit Rate Switch. This bit defines whether the bit rate is switched inside a CAN FD format frame.
     uint32_t BRS : 1;
+    /// read-write - Extended Data Length. This bit distinguishes between CAN format and CAN FD format frames. The EDL bit must not be set for Message Buffers configured to RANSWER with code field 0b1010.
     uint32_t EDL : 1;
   } bits;
   
@@ -13431,16 +16343,25 @@ union MB20_16B_CS_L {
   
   // Bit field definition.
   struct {
+    /// read-write - Free-Running Counter Time stamp. This 16-bit field is a copy of the Free-Running Timer, captured for Tx and Rx frames at the time when the beginning of the Identifier field appears on the CAN bus.
     uint32_t TIME_STAMP : 16;
+    /// read-write - Length of the data to be stored/transmitted.
     uint32_t DLC : 4;
+    /// read-write - Remote Transmission Request. One/zero for remote/data frame.
     uint32_t RTR : 1;
+    /// read-write - ID Extended. One/zero for extended/standard format frame.
     uint32_t IDE : 1;
+    /// read-write - Substitute Remote Request. Contains a fixed recessive bit.
     uint32_t SRR : 1;
     uint32_t _reserved_0 : 1;
+    /// read-write - Message Buffer Code. This 4-bit field can be accessed (read or write) by the CPU and by the FlexCAN module itself, as part of the message buffer matching and arbitration process.
     uint32_t CODE : 4;
     uint32_t _reserved_1 : 1;
+    /// read-write - Error State Indicator. This bit indicates if the transmitting node is error active or error passive.
     uint32_t ESI : 1;
+    /// read-write - Bit Rate Switch. This bit defines whether the bit rate is switched inside a CAN FD format frame.
     uint32_t BRS : 1;
+    /// read-write - Extended Data Length. This bit distinguishes between CAN format and CAN FD format frames. The EDL bit must not be set for Message Buffers configured to RANSWER with code field 0b1010.
     uint32_t EDL : 1;
   } bits;
   
@@ -13458,16 +16379,25 @@ union MB30_8B_CS {
   
   // Bit field definition.
   struct {
+    /// read-write - Free-Running Counter Time stamp. This 16-bit field is a copy of the Free-Running Timer, captured for Tx and Rx frames at the time when the beginning of the Identifier field appears on the CAN bus.
     uint32_t TIME_STAMP : 16;
+    /// read-write - Length of the data to be stored/transmitted.
     uint32_t DLC : 4;
+    /// read-write - Remote Transmission Request. One/zero for remote/data frame.
     uint32_t RTR : 1;
+    /// read-write - ID Extended. One/zero for extended/standard format frame.
     uint32_t IDE : 1;
+    /// read-write - Substitute Remote Request. Contains a fixed recessive bit.
     uint32_t SRR : 1;
     uint32_t _reserved_0 : 1;
+    /// read-write - Message Buffer Code. This 4-bit field can be accessed (read or write) by the CPU and by the FlexCAN module itself, as part of the message buffer matching and arbitration process.
     uint32_t CODE : 4;
     uint32_t _reserved_1 : 1;
+    /// read-write - Error State Indicator. This bit indicates if the transmitting node is error active or error passive.
     uint32_t ESI : 1;
+    /// read-write - Bit Rate Switch. This bit defines whether the bit rate is switched inside a CAN FD format frame.
     uint32_t BRS : 1;
+    /// read-write - Extended Data Length. This bit distinguishes between CAN format and CAN FD format frames. The EDL bit must not be set for Message Buffers configured to RANSWER with code field 0b1010.
     uint32_t EDL : 1;
   } bits;
   
@@ -13485,9 +16415,13 @@ union MB6_64B_WORD10_L {
   
   // Bit field definition.
   struct {
+    /// read-write - Data byte 0 of Rx/Tx frame.
     uint32_t DATA_BYTE_43 : 8;
+    /// read-write - Data byte 1 of Rx/Tx frame.
     uint32_t DATA_BYTE_42 : 8;
+    /// read-write - Data byte 2 of Rx/Tx frame.
     uint32_t DATA_BYTE_41 : 8;
+    /// read-write - Data byte 3 of Rx/Tx frame.
     uint32_t DATA_BYTE_40 : 8;
   } bits;
   
@@ -13505,8 +16439,11 @@ union ID30 {
   
   // Bit field definition.
   struct {
+    /// read-write - Contains extended (LOW word) identifier of message buffer.
     uint32_t EXT : 18;
+    /// read-write - Contains standard/extended (HIGH word) identifier of message buffer.
     uint32_t STD : 11;
+    /// read-write - Local priority. This 3-bit fieldis only used when LPRIO_EN bit is set in MCR and it only makes sense for Tx buffers. These bits are not transmitted. They are appended to the regular ID to define the transmission priority.
     uint32_t PRIO : 3;
   } bits;
   
@@ -13524,8 +16461,11 @@ union MB20_16B_ID_L {
   
   // Bit field definition.
   struct {
+    /// read-write - Contains extended (LOW word) identifier of message buffer.
     uint32_t EXT : 18;
+    /// read-write - Contains standard/extended (HIGH word) identifier of message buffer.
     uint32_t STD : 11;
+    /// read-write - Local priority. This 3-bit fieldis only used when LPRIO_EN bit is set in MCR and it only makes sense for Tx buffers. These bits are not transmitted. They are appended to the regular ID to define the transmission priority.
     uint32_t PRIO : 3;
   } bits;
   
@@ -13543,8 +16483,11 @@ union MB30_8B_ID {
   
   // Bit field definition.
   struct {
+    /// read-write - Contains extended (LOW word) identifier of message buffer.
     uint32_t EXT : 18;
+    /// read-write - Contains standard/extended (HIGH word) identifier of message buffer.
     uint32_t STD : 11;
+    /// read-write - Local priority. This 3-bit fieldis only used when LPRIO_EN bit is set in MCR and it only makes sense for Tx buffers. These bits are not transmitted. They are appended to the regular ID to define the transmission priority.
     uint32_t PRIO : 3;
   } bits;
   
@@ -13562,9 +16505,13 @@ union MB6_64B_WORD11_L {
   
   // Bit field definition.
   struct {
+    /// read-write - Data byte 0 of Rx/Tx frame.
     uint32_t DATA_BYTE_47 : 8;
+    /// read-write - Data byte 1 of Rx/Tx frame.
     uint32_t DATA_BYTE_46 : 8;
+    /// read-write - Data byte 2 of Rx/Tx frame.
     uint32_t DATA_BYTE_45 : 8;
+    /// read-write - Data byte 3 of Rx/Tx frame.
     uint32_t DATA_BYTE_44 : 8;
   } bits;
   
@@ -13582,9 +16529,13 @@ union MB20_16B_WORD0_L {
   
   // Bit field definition.
   struct {
+    /// read-write - Data byte 0 of Rx/Tx frame.
     uint32_t DATA_BYTE_3 : 8;
+    /// read-write - Data byte 1 of Rx/Tx frame.
     uint32_t DATA_BYTE_2 : 8;
+    /// read-write - Data byte 2 of Rx/Tx frame.
     uint32_t DATA_BYTE_1 : 8;
+    /// read-write - Data byte 3 of Rx/Tx frame.
     uint32_t DATA_BYTE_0 : 8;
   } bits;
   
@@ -13602,9 +16553,13 @@ union MB30_8B_WORD0 {
   
   // Bit field definition.
   struct {
+    /// read-write - Data byte 0 of Rx/Tx frame.
     uint32_t DATA_BYTE_3 : 8;
+    /// read-write - Data byte 1 of Rx/Tx frame.
     uint32_t DATA_BYTE_2 : 8;
+    /// read-write - Data byte 2 of Rx/Tx frame.
     uint32_t DATA_BYTE_1 : 8;
+    /// read-write - Data byte 3 of Rx/Tx frame.
     uint32_t DATA_BYTE_0 : 8;
   } bits;
   
@@ -13622,9 +16577,13 @@ union MB6_64B_WORD12_L {
   
   // Bit field definition.
   struct {
+    /// read-write - Data byte 0 of Rx/Tx frame.
     uint32_t DATA_BYTE_51 : 8;
+    /// read-write - Data byte 1 of Rx/Tx frame.
     uint32_t DATA_BYTE_50 : 8;
+    /// read-write - Data byte 2 of Rx/Tx frame.
     uint32_t DATA_BYTE_49 : 8;
+    /// read-write - Data byte 3 of Rx/Tx frame.
     uint32_t DATA_BYTE_48 : 8;
   } bits;
   
@@ -13642,9 +16601,13 @@ union WORD030 {
   
   // Bit field definition.
   struct {
+    /// read-write - Data byte 0 of Rx/Tx frame.
     uint32_t DATA_BYTE_3 : 8;
+    /// read-write - Data byte 1 of Rx/Tx frame.
     uint32_t DATA_BYTE_2 : 8;
+    /// read-write - Data byte 2 of Rx/Tx frame.
     uint32_t DATA_BYTE_1 : 8;
+    /// read-write - Data byte 3 of Rx/Tx frame.
     uint32_t DATA_BYTE_0 : 8;
   } bits;
   
@@ -13662,9 +16625,13 @@ union MB20_16B_WORD1_L {
   
   // Bit field definition.
   struct {
+    /// read-write - Data byte 0 of Rx/Tx frame.
     uint32_t DATA_BYTE_7 : 8;
+    /// read-write - Data byte 1 of Rx/Tx frame.
     uint32_t DATA_BYTE_6 : 8;
+    /// read-write - Data byte 2 of Rx/Tx frame.
     uint32_t DATA_BYTE_5 : 8;
+    /// read-write - Data byte 3 of Rx/Tx frame.
     uint32_t DATA_BYTE_4 : 8;
   } bits;
   
@@ -13682,9 +16649,13 @@ union MB30_8B_WORD1 {
   
   // Bit field definition.
   struct {
+    /// read-write - Data byte 0 of Rx/Tx frame.
     uint32_t DATA_BYTE_7 : 8;
+    /// read-write - Data byte 1 of Rx/Tx frame.
     uint32_t DATA_BYTE_6 : 8;
+    /// read-write - Data byte 2 of Rx/Tx frame.
     uint32_t DATA_BYTE_5 : 8;
+    /// read-write - Data byte 3 of Rx/Tx frame.
     uint32_t DATA_BYTE_4 : 8;
   } bits;
   
@@ -13702,9 +16673,13 @@ union MB6_64B_WORD13_L {
   
   // Bit field definition.
   struct {
+    /// read-write - Data byte 0 of Rx/Tx frame.
     uint32_t DATA_BYTE_55 : 8;
+    /// read-write - Data byte 1 of Rx/Tx frame.
     uint32_t DATA_BYTE_54 : 8;
+    /// read-write - Data byte 2 of Rx/Tx frame.
     uint32_t DATA_BYTE_53 : 8;
+    /// read-write - Data byte 3 of Rx/Tx frame.
     uint32_t DATA_BYTE_52 : 8;
   } bits;
   
@@ -13722,9 +16697,13 @@ union WORD130 {
   
   // Bit field definition.
   struct {
+    /// read-write - Data byte 0 of Rx/Tx frame.
     uint32_t DATA_BYTE_7 : 8;
+    /// read-write - Data byte 1 of Rx/Tx frame.
     uint32_t DATA_BYTE_6 : 8;
+    /// read-write - Data byte 2 of Rx/Tx frame.
     uint32_t DATA_BYTE_5 : 8;
+    /// read-write - Data byte 3 of Rx/Tx frame.
     uint32_t DATA_BYTE_4 : 8;
   } bits;
   
@@ -13742,16 +16721,25 @@ union CS31 {
   
   // Bit field definition.
   struct {
+    /// read-write - Free-Running Counter Time stamp. This 16-bit field is a copy of the Free-Running Timer, captured for Tx and Rx frames at the time when the beginning of the Identifier field appears on the CAN bus.
     uint32_t TIME_STAMP : 16;
+    /// read-write - Length of the data to be stored/transmitted.
     uint32_t DLC : 4;
+    /// read-write - Remote Transmission Request. One/zero for remote/data frame.
     uint32_t RTR : 1;
+    /// read-write - ID Extended. One/zero for extended/standard format frame.
     uint32_t IDE : 1;
+    /// read-write - Substitute Remote Request. Contains a fixed recessive bit.
     uint32_t SRR : 1;
     uint32_t _reserved_0 : 1;
+    /// read-write - Message Buffer Code. This 4-bit field can be accessed (read or write) by the CPU and by the FlexCAN module itself, as part of the message buffer matching and arbitration process.
     uint32_t CODE : 4;
     uint32_t _reserved_1 : 1;
+    /// read-write - Error State Indicator. This bit indicates if the transmitting node is error active or error passive.
     uint32_t ESI : 1;
+    /// read-write - Bit Rate Switch. This bit defines whether the bit rate is switched inside a CAN FD format frame.
     uint32_t BRS : 1;
+    /// read-write - Extended Data Length. This bit distinguishes between CAN format and CAN FD format frames. The EDL bit must not be set for Message Buffers configured to RANSWER with code field 0b1010.
     uint32_t EDL : 1;
   } bits;
   
@@ -13769,9 +16757,13 @@ union MB20_16B_WORD2_L {
   
   // Bit field definition.
   struct {
+    /// read-write - Data byte 0 of Rx/Tx frame.
     uint32_t DATA_BYTE_11 : 8;
+    /// read-write - Data byte 1 of Rx/Tx frame.
     uint32_t DATA_BYTE_10 : 8;
+    /// read-write - Data byte 2 of Rx/Tx frame.
     uint32_t DATA_BYTE_9 : 8;
+    /// read-write - Data byte 3 of Rx/Tx frame.
     uint32_t DATA_BYTE_8 : 8;
   } bits;
   
@@ -13789,16 +16781,25 @@ union MB31_8B_CS {
   
   // Bit field definition.
   struct {
+    /// read-write - Free-Running Counter Time stamp. This 16-bit field is a copy of the Free-Running Timer, captured for Tx and Rx frames at the time when the beginning of the Identifier field appears on the CAN bus.
     uint32_t TIME_STAMP : 16;
+    /// read-write - Length of the data to be stored/transmitted.
     uint32_t DLC : 4;
+    /// read-write - Remote Transmission Request. One/zero for remote/data frame.
     uint32_t RTR : 1;
+    /// read-write - ID Extended. One/zero for extended/standard format frame.
     uint32_t IDE : 1;
+    /// read-write - Substitute Remote Request. Contains a fixed recessive bit.
     uint32_t SRR : 1;
     uint32_t _reserved_0 : 1;
+    /// read-write - Message Buffer Code. This 4-bit field can be accessed (read or write) by the CPU and by the FlexCAN module itself, as part of the message buffer matching and arbitration process.
     uint32_t CODE : 4;
     uint32_t _reserved_1 : 1;
+    /// read-write - Error State Indicator. This bit indicates if the transmitting node is error active or error passive.
     uint32_t ESI : 1;
+    /// read-write - Bit Rate Switch. This bit defines whether the bit rate is switched inside a CAN FD format frame.
     uint32_t BRS : 1;
+    /// read-write - Extended Data Length. This bit distinguishes between CAN format and CAN FD format frames. The EDL bit must not be set for Message Buffers configured to RANSWER with code field 0b1010.
     uint32_t EDL : 1;
   } bits;
   
@@ -13816,9 +16817,13 @@ union MB6_64B_WORD14_L {
   
   // Bit field definition.
   struct {
+    /// read-write - Data byte 0 of Rx/Tx frame.
     uint32_t DATA_BYTE_59 : 8;
+    /// read-write - Data byte 1 of Rx/Tx frame.
     uint32_t DATA_BYTE_58 : 8;
+    /// read-write - Data byte 2 of Rx/Tx frame.
     uint32_t DATA_BYTE_57 : 8;
+    /// read-write - Data byte 3 of Rx/Tx frame.
     uint32_t DATA_BYTE_56 : 8;
   } bits;
   
@@ -13836,8 +16841,11 @@ union ID31 {
   
   // Bit field definition.
   struct {
+    /// read-write - Contains extended (LOW word) identifier of message buffer.
     uint32_t EXT : 18;
+    /// read-write - Contains standard/extended (HIGH word) identifier of message buffer.
     uint32_t STD : 11;
+    /// read-write - Local priority. This 3-bit fieldis only used when LPRIO_EN bit is set in MCR and it only makes sense for Tx buffers. These bits are not transmitted. They are appended to the regular ID to define the transmission priority.
     uint32_t PRIO : 3;
   } bits;
   
@@ -13855,9 +16863,13 @@ union MB20_16B_WORD3_L {
   
   // Bit field definition.
   struct {
+    /// read-write - Data byte 0 of Rx/Tx frame.
     uint32_t DATA_BYTE_15 : 8;
+    /// read-write - Data byte 1 of Rx/Tx frame.
     uint32_t DATA_BYTE_14 : 8;
+    /// read-write - Data byte 2 of Rx/Tx frame.
     uint32_t DATA_BYTE_13 : 8;
+    /// read-write - Data byte 3 of Rx/Tx frame.
     uint32_t DATA_BYTE_12 : 8;
   } bits;
   
@@ -13875,8 +16887,11 @@ union MB31_8B_ID {
   
   // Bit field definition.
   struct {
+    /// read-write - Contains extended (LOW word) identifier of message buffer.
     uint32_t EXT : 18;
+    /// read-write - Contains standard/extended (HIGH word) identifier of message buffer.
     uint32_t STD : 11;
+    /// read-write - Local priority. This 3-bit fieldis only used when LPRIO_EN bit is set in MCR and it only makes sense for Tx buffers. These bits are not transmitted. They are appended to the regular ID to define the transmission priority.
     uint32_t PRIO : 3;
   } bits;
   
@@ -13894,9 +16909,13 @@ union MB6_64B_WORD15_L {
   
   // Bit field definition.
   struct {
+    /// read-write - Data byte 0 of Rx/Tx frame.
     uint32_t DATA_BYTE_63 : 8;
+    /// read-write - Data byte 1 of Rx/Tx frame.
     uint32_t DATA_BYTE_62 : 8;
+    /// read-write - Data byte 2 of Rx/Tx frame.
     uint32_t DATA_BYTE_61 : 8;
+    /// read-write - Data byte 3 of Rx/Tx frame.
     uint32_t DATA_BYTE_60 : 8;
   } bits;
   
@@ -13914,9 +16933,13 @@ union MB31_8B_WORD0 {
   
   // Bit field definition.
   struct {
+    /// read-write - Data byte 0 of Rx/Tx frame.
     uint32_t DATA_BYTE_3 : 8;
+    /// read-write - Data byte 1 of Rx/Tx frame.
     uint32_t DATA_BYTE_2 : 8;
+    /// read-write - Data byte 2 of Rx/Tx frame.
     uint32_t DATA_BYTE_1 : 8;
+    /// read-write - Data byte 3 of Rx/Tx frame.
     uint32_t DATA_BYTE_0 : 8;
   } bits;
   
@@ -13934,9 +16957,13 @@ union WORD031 {
   
   // Bit field definition.
   struct {
+    /// read-write - Data byte 0 of Rx/Tx frame.
     uint32_t DATA_BYTE_3 : 8;
+    /// read-write - Data byte 1 of Rx/Tx frame.
     uint32_t DATA_BYTE_2 : 8;
+    /// read-write - Data byte 2 of Rx/Tx frame.
     uint32_t DATA_BYTE_1 : 8;
+    /// read-write - Data byte 3 of Rx/Tx frame.
     uint32_t DATA_BYTE_0 : 8;
   } bits;
   
@@ -13954,9 +16981,13 @@ union MB31_8B_WORD1 {
   
   // Bit field definition.
   struct {
+    /// read-write - Data byte 0 of Rx/Tx frame.
     uint32_t DATA_BYTE_7 : 8;
+    /// read-write - Data byte 1 of Rx/Tx frame.
     uint32_t DATA_BYTE_6 : 8;
+    /// read-write - Data byte 2 of Rx/Tx frame.
     uint32_t DATA_BYTE_5 : 8;
+    /// read-write - Data byte 3 of Rx/Tx frame.
     uint32_t DATA_BYTE_4 : 8;
   } bits;
   
@@ -13974,9 +17005,13 @@ union WORD131 {
   
   // Bit field definition.
   struct {
+    /// read-write - Data byte 0 of Rx/Tx frame.
     uint32_t DATA_BYTE_7 : 8;
+    /// read-write - Data byte 1 of Rx/Tx frame.
     uint32_t DATA_BYTE_6 : 8;
+    /// read-write - Data byte 2 of Rx/Tx frame.
     uint32_t DATA_BYTE_5 : 8;
+    /// read-write - Data byte 3 of Rx/Tx frame.
     uint32_t DATA_BYTE_4 : 8;
   } bits;
   
@@ -13994,16 +17029,25 @@ union CS32 {
   
   // Bit field definition.
   struct {
+    /// read-write - Free-Running Counter Time stamp. This 16-bit field is a copy of the Free-Running Timer, captured for Tx and Rx frames at the time when the beginning of the Identifier field appears on the CAN bus.
     uint32_t TIME_STAMP : 16;
+    /// read-write - Length of the data to be stored/transmitted.
     uint32_t DLC : 4;
+    /// read-write - Remote Transmission Request. One/zero for remote/data frame.
     uint32_t RTR : 1;
+    /// read-write - ID Extended. One/zero for extended/standard format frame.
     uint32_t IDE : 1;
+    /// read-write - Substitute Remote Request. Contains a fixed recessive bit.
     uint32_t SRR : 1;
     uint32_t _reserved_0 : 1;
+    /// read-write - Message Buffer Code. This 4-bit field can be accessed (read or write) by the CPU and by the FlexCAN module itself, as part of the message buffer matching and arbitration process.
     uint32_t CODE : 4;
     uint32_t _reserved_1 : 1;
+    /// read-write - Error State Indicator. This bit indicates if the transmitting node is error active or error passive.
     uint32_t ESI : 1;
+    /// read-write - Bit Rate Switch. This bit defines whether the bit rate is switched inside a CAN FD format frame.
     uint32_t BRS : 1;
+    /// read-write - Extended Data Length. This bit distinguishes between CAN format and CAN FD format frames. The EDL bit must not be set for Message Buffers configured to RANSWER with code field 0b1010.
     uint32_t EDL : 1;
   } bits;
   
@@ -14021,16 +17065,25 @@ union MB0_16B_CS_H {
   
   // Bit field definition.
   struct {
+    /// read-write - Free-Running Counter Time stamp. This 16-bit field is a copy of the Free-Running Timer, captured for Tx and Rx frames at the time when the beginning of the Identifier field appears on the CAN bus.
     uint32_t TIME_STAMP : 16;
+    /// read-write - Length of the data to be stored/transmitted.
     uint32_t DLC : 4;
+    /// read-write - Remote Transmission Request. One/zero for remote/data frame.
     uint32_t RTR : 1;
+    /// read-write - ID Extended. One/zero for extended/standard format frame.
     uint32_t IDE : 1;
+    /// read-write - Substitute Remote Request. Contains a fixed recessive bit.
     uint32_t SRR : 1;
     uint32_t _reserved_0 : 1;
+    /// read-write - Message Buffer Code. This 4-bit field can be accessed (read or write) by the CPU and by the FlexCAN module itself, as part of the message buffer matching and arbitration process.
     uint32_t CODE : 4;
     uint32_t _reserved_1 : 1;
+    /// read-write - Error State Indicator. This bit indicates if the transmitting node is error active or error passive.
     uint32_t ESI : 1;
+    /// read-write - Bit Rate Switch. This bit defines whether the bit rate is switched inside a CAN FD format frame.
     uint32_t BRS : 1;
+    /// read-write - Extended Data Length. This bit distinguishes between CAN format and CAN FD format frames. The EDL bit must not be set for Message Buffers configured to RANSWER with code field 0b1010.
     uint32_t EDL : 1;
   } bits;
   
@@ -14048,16 +17101,25 @@ union MB0_32B_CS_H {
   
   // Bit field definition.
   struct {
+    /// read-write - Free-Running Counter Time stamp. This 16-bit field is a copy of the Free-Running Timer, captured for Tx and Rx frames at the time when the beginning of the Identifier field appears on the CAN bus.
     uint32_t TIME_STAMP : 16;
+    /// read-write - Length of the data to be stored/transmitted.
     uint32_t DLC : 4;
+    /// read-write - Remote Transmission Request. One/zero for remote/data frame.
     uint32_t RTR : 1;
+    /// read-write - ID Extended. One/zero for extended/standard format frame.
     uint32_t IDE : 1;
+    /// read-write - Substitute Remote Request. Contains a fixed recessive bit.
     uint32_t SRR : 1;
     uint32_t _reserved_0 : 1;
+    /// read-write - Message Buffer Code. This 4-bit field can be accessed (read or write) by the CPU and by the FlexCAN module itself, as part of the message buffer matching and arbitration process.
     uint32_t CODE : 4;
     uint32_t _reserved_1 : 1;
+    /// read-write - Error State Indicator. This bit indicates if the transmitting node is error active or error passive.
     uint32_t ESI : 1;
+    /// read-write - Bit Rate Switch. This bit defines whether the bit rate is switched inside a CAN FD format frame.
     uint32_t BRS : 1;
+    /// read-write - Extended Data Length. This bit distinguishes between CAN format and CAN FD format frames. The EDL bit must not be set for Message Buffers configured to RANSWER with code field 0b1010.
     uint32_t EDL : 1;
   } bits;
   
@@ -14075,16 +17137,25 @@ union MB0_64B_CS_H {
   
   // Bit field definition.
   struct {
+    /// read-write - Free-Running Counter Time stamp. This 16-bit field is a copy of the Free-Running Timer, captured for Tx and Rx frames at the time when the beginning of the Identifier field appears on the CAN bus.
     uint32_t TIME_STAMP : 16;
+    /// read-write - Length of the data to be stored/transmitted.
     uint32_t DLC : 4;
+    /// read-write - Remote Transmission Request. One/zero for remote/data frame.
     uint32_t RTR : 1;
+    /// read-write - ID Extended. One/zero for extended/standard format frame.
     uint32_t IDE : 1;
+    /// read-write - Substitute Remote Request. Contains a fixed recessive bit.
     uint32_t SRR : 1;
     uint32_t _reserved_0 : 1;
+    /// read-write - Message Buffer Code. This 4-bit field can be accessed (read or write) by the CPU and by the FlexCAN module itself, as part of the message buffer matching and arbitration process.
     uint32_t CODE : 4;
     uint32_t _reserved_1 : 1;
+    /// read-write - Error State Indicator. This bit indicates if the transmitting node is error active or error passive.
     uint32_t ESI : 1;
+    /// read-write - Bit Rate Switch. This bit defines whether the bit rate is switched inside a CAN FD format frame.
     uint32_t BRS : 1;
+    /// read-write - Extended Data Length. This bit distinguishes between CAN format and CAN FD format frames. The EDL bit must not be set for Message Buffers configured to RANSWER with code field 0b1010.
     uint32_t EDL : 1;
   } bits;
   
@@ -14102,16 +17173,25 @@ union MB32_8B_CS {
   
   // Bit field definition.
   struct {
+    /// read-write - Free-Running Counter Time stamp. This 16-bit field is a copy of the Free-Running Timer, captured for Tx and Rx frames at the time when the beginning of the Identifier field appears on the CAN bus.
     uint32_t TIME_STAMP : 16;
+    /// read-write - Length of the data to be stored/transmitted.
     uint32_t DLC : 4;
+    /// read-write - Remote Transmission Request. One/zero for remote/data frame.
     uint32_t RTR : 1;
+    /// read-write - ID Extended. One/zero for extended/standard format frame.
     uint32_t IDE : 1;
+    /// read-write - Substitute Remote Request. Contains a fixed recessive bit.
     uint32_t SRR : 1;
     uint32_t _reserved_0 : 1;
+    /// read-write - Message Buffer Code. This 4-bit field can be accessed (read or write) by the CPU and by the FlexCAN module itself, as part of the message buffer matching and arbitration process.
     uint32_t CODE : 4;
     uint32_t _reserved_1 : 1;
+    /// read-write - Error State Indicator. This bit indicates if the transmitting node is error active or error passive.
     uint32_t ESI : 1;
+    /// read-write - Bit Rate Switch. This bit defines whether the bit rate is switched inside a CAN FD format frame.
     uint32_t BRS : 1;
+    /// read-write - Extended Data Length. This bit distinguishes between CAN format and CAN FD format frames. The EDL bit must not be set for Message Buffers configured to RANSWER with code field 0b1010.
     uint32_t EDL : 1;
   } bits;
   
@@ -14129,8 +17209,11 @@ union ID32 {
   
   // Bit field definition.
   struct {
+    /// read-write - Contains extended (LOW word) identifier of message buffer.
     uint32_t EXT : 18;
+    /// read-write - Contains standard/extended (HIGH word) identifier of message buffer.
     uint32_t STD : 11;
+    /// read-write - Local priority. This 3-bit fieldis only used when LPRIO_EN bit is set in MCR and it only makes sense for Tx buffers. These bits are not transmitted. They are appended to the regular ID to define the transmission priority.
     uint32_t PRIO : 3;
   } bits;
   
@@ -14148,8 +17231,11 @@ union MB0_16B_ID_H {
   
   // Bit field definition.
   struct {
+    /// read-write - Contains extended (LOW word) identifier of message buffer.
     uint32_t EXT : 18;
+    /// read-write - Contains standard/extended (HIGH word) identifier of message buffer.
     uint32_t STD : 11;
+    /// read-write - Local priority. This 3-bit fieldis only used when LPRIO_EN bit is set in MCR and it only makes sense for Tx buffers. These bits are not transmitted. They are appended to the regular ID to define the transmission priority.
     uint32_t PRIO : 3;
   } bits;
   
@@ -14167,8 +17253,11 @@ union MB0_32B_ID_H {
   
   // Bit field definition.
   struct {
+    /// read-write - Contains extended (LOW word) identifier of message buffer.
     uint32_t EXT : 18;
+    /// read-write - Contains standard/extended (HIGH word) identifier of message buffer.
     uint32_t STD : 11;
+    /// read-write - Local priority. This 3-bit fieldis only used when LPRIO_EN bit is set in MCR and it only makes sense for Tx buffers. These bits are not transmitted. They are appended to the regular ID to define the transmission priority.
     uint32_t PRIO : 3;
   } bits;
   
@@ -14186,8 +17275,11 @@ union MB0_64B_ID_H {
   
   // Bit field definition.
   struct {
+    /// read-write - Contains extended (LOW word) identifier of message buffer.
     uint32_t EXT : 18;
+    /// read-write - Contains standard/extended (HIGH word) identifier of message buffer.
     uint32_t STD : 11;
+    /// read-write - Local priority. This 3-bit fieldis only used when LPRIO_EN bit is set in MCR and it only makes sense for Tx buffers. These bits are not transmitted. They are appended to the regular ID to define the transmission priority.
     uint32_t PRIO : 3;
   } bits;
   
@@ -14205,8 +17297,11 @@ union MB32_8B_ID {
   
   // Bit field definition.
   struct {
+    /// read-write - Contains extended (LOW word) identifier of message buffer.
     uint32_t EXT : 18;
+    /// read-write - Contains standard/extended (HIGH word) identifier of message buffer.
     uint32_t STD : 11;
+    /// read-write - Local priority. This 3-bit fieldis only used when LPRIO_EN bit is set in MCR and it only makes sense for Tx buffers. These bits are not transmitted. They are appended to the regular ID to define the transmission priority.
     uint32_t PRIO : 3;
   } bits;
   
@@ -14224,9 +17319,13 @@ union MB0_16B_WORD0_H {
   
   // Bit field definition.
   struct {
+    /// read-write - Data byte 0 of Rx/Tx frame.
     uint32_t DATA_BYTE_3 : 8;
+    /// read-write - Data byte 1 of Rx/Tx frame.
     uint32_t DATA_BYTE_2 : 8;
+    /// read-write - Data byte 2 of Rx/Tx frame.
     uint32_t DATA_BYTE_1 : 8;
+    /// read-write - Data byte 3 of Rx/Tx frame.
     uint32_t DATA_BYTE_0 : 8;
   } bits;
   
@@ -14244,9 +17343,13 @@ union MB0_32B_WORD0_H {
   
   // Bit field definition.
   struct {
+    /// read-write - Data byte 0 of Rx/Tx frame.
     uint32_t DATA_BYTE_3 : 8;
+    /// read-write - Data byte 1 of Rx/Tx frame.
     uint32_t DATA_BYTE_2 : 8;
+    /// read-write - Data byte 2 of Rx/Tx frame.
     uint32_t DATA_BYTE_1 : 8;
+    /// read-write - Data byte 3 of Rx/Tx frame.
     uint32_t DATA_BYTE_0 : 8;
   } bits;
   
@@ -14264,9 +17367,13 @@ union MB0_64B_WORD0_H {
   
   // Bit field definition.
   struct {
+    /// read-write - Data byte 0 of Rx/Tx frame.
     uint32_t DATA_BYTE_3 : 8;
+    /// read-write - Data byte 1 of Rx/Tx frame.
     uint32_t DATA_BYTE_2 : 8;
+    /// read-write - Data byte 2 of Rx/Tx frame.
     uint32_t DATA_BYTE_1 : 8;
+    /// read-write - Data byte 3 of Rx/Tx frame.
     uint32_t DATA_BYTE_0 : 8;
   } bits;
   
@@ -14284,9 +17391,13 @@ union MB32_8B_WORD0 {
   
   // Bit field definition.
   struct {
+    /// read-write - Data byte 0 of Rx/Tx frame.
     uint32_t DATA_BYTE_3 : 8;
+    /// read-write - Data byte 1 of Rx/Tx frame.
     uint32_t DATA_BYTE_2 : 8;
+    /// read-write - Data byte 2 of Rx/Tx frame.
     uint32_t DATA_BYTE_1 : 8;
+    /// read-write - Data byte 3 of Rx/Tx frame.
     uint32_t DATA_BYTE_0 : 8;
   } bits;
   
@@ -14304,9 +17415,13 @@ union WORD032 {
   
   // Bit field definition.
   struct {
+    /// read-write - Data byte 0 of Rx/Tx frame.
     uint32_t DATA_BYTE_3 : 8;
+    /// read-write - Data byte 1 of Rx/Tx frame.
     uint32_t DATA_BYTE_2 : 8;
+    /// read-write - Data byte 2 of Rx/Tx frame.
     uint32_t DATA_BYTE_1 : 8;
+    /// read-write - Data byte 3 of Rx/Tx frame.
     uint32_t DATA_BYTE_0 : 8;
   } bits;
   
@@ -14324,9 +17439,13 @@ union MB0_16B_WORD1_H {
   
   // Bit field definition.
   struct {
+    /// read-write - Data byte 0 of Rx/Tx frame.
     uint32_t DATA_BYTE_7 : 8;
+    /// read-write - Data byte 1 of Rx/Tx frame.
     uint32_t DATA_BYTE_6 : 8;
+    /// read-write - Data byte 2 of Rx/Tx frame.
     uint32_t DATA_BYTE_5 : 8;
+    /// read-write - Data byte 3 of Rx/Tx frame.
     uint32_t DATA_BYTE_4 : 8;
   } bits;
   
@@ -14344,9 +17463,13 @@ union MB0_32B_WORD1_H {
   
   // Bit field definition.
   struct {
+    /// read-write - Data byte 0 of Rx/Tx frame.
     uint32_t DATA_BYTE_7 : 8;
+    /// read-write - Data byte 1 of Rx/Tx frame.
     uint32_t DATA_BYTE_6 : 8;
+    /// read-write - Data byte 2 of Rx/Tx frame.
     uint32_t DATA_BYTE_5 : 8;
+    /// read-write - Data byte 3 of Rx/Tx frame.
     uint32_t DATA_BYTE_4 : 8;
   } bits;
   
@@ -14364,9 +17487,13 @@ union MB0_64B_WORD1_H {
   
   // Bit field definition.
   struct {
+    /// read-write - Data byte 0 of Rx/Tx frame.
     uint32_t DATA_BYTE_7 : 8;
+    /// read-write - Data byte 1 of Rx/Tx frame.
     uint32_t DATA_BYTE_6 : 8;
+    /// read-write - Data byte 2 of Rx/Tx frame.
     uint32_t DATA_BYTE_5 : 8;
+    /// read-write - Data byte 3 of Rx/Tx frame.
     uint32_t DATA_BYTE_4 : 8;
   } bits;
   
@@ -14384,9 +17511,13 @@ union MB32_8B_WORD1 {
   
   // Bit field definition.
   struct {
+    /// read-write - Data byte 0 of Rx/Tx frame.
     uint32_t DATA_BYTE_7 : 8;
+    /// read-write - Data byte 1 of Rx/Tx frame.
     uint32_t DATA_BYTE_6 : 8;
+    /// read-write - Data byte 2 of Rx/Tx frame.
     uint32_t DATA_BYTE_5 : 8;
+    /// read-write - Data byte 3 of Rx/Tx frame.
     uint32_t DATA_BYTE_4 : 8;
   } bits;
   
@@ -14404,9 +17535,13 @@ union WORD132 {
   
   // Bit field definition.
   struct {
+    /// read-write - Data byte 0 of Rx/Tx frame.
     uint32_t DATA_BYTE_7 : 8;
+    /// read-write - Data byte 1 of Rx/Tx frame.
     uint32_t DATA_BYTE_6 : 8;
+    /// read-write - Data byte 2 of Rx/Tx frame.
     uint32_t DATA_BYTE_5 : 8;
+    /// read-write - Data byte 3 of Rx/Tx frame.
     uint32_t DATA_BYTE_4 : 8;
   } bits;
   
@@ -14424,16 +17559,25 @@ union CS33 {
   
   // Bit field definition.
   struct {
+    /// read-write - Free-Running Counter Time stamp. This 16-bit field is a copy of the Free-Running Timer, captured for Tx and Rx frames at the time when the beginning of the Identifier field appears on the CAN bus.
     uint32_t TIME_STAMP : 16;
+    /// read-write - Length of the data to be stored/transmitted.
     uint32_t DLC : 4;
+    /// read-write - Remote Transmission Request. One/zero for remote/data frame.
     uint32_t RTR : 1;
+    /// read-write - ID Extended. One/zero for extended/standard format frame.
     uint32_t IDE : 1;
+    /// read-write - Substitute Remote Request. Contains a fixed recessive bit.
     uint32_t SRR : 1;
     uint32_t _reserved_0 : 1;
+    /// read-write - Message Buffer Code. This 4-bit field can be accessed (read or write) by the CPU and by the FlexCAN module itself, as part of the message buffer matching and arbitration process.
     uint32_t CODE : 4;
     uint32_t _reserved_1 : 1;
+    /// read-write - Error State Indicator. This bit indicates if the transmitting node is error active or error passive.
     uint32_t ESI : 1;
+    /// read-write - Bit Rate Switch. This bit defines whether the bit rate is switched inside a CAN FD format frame.
     uint32_t BRS : 1;
+    /// read-write - Extended Data Length. This bit distinguishes between CAN format and CAN FD format frames. The EDL bit must not be set for Message Buffers configured to RANSWER with code field 0b1010.
     uint32_t EDL : 1;
   } bits;
   
@@ -14451,9 +17595,13 @@ union MB0_16B_WORD2_H {
   
   // Bit field definition.
   struct {
+    /// read-write - Data byte 0 of Rx/Tx frame.
     uint32_t DATA_BYTE_11 : 8;
+    /// read-write - Data byte 1 of Rx/Tx frame.
     uint32_t DATA_BYTE_10 : 8;
+    /// read-write - Data byte 2 of Rx/Tx frame.
     uint32_t DATA_BYTE_9 : 8;
+    /// read-write - Data byte 3 of Rx/Tx frame.
     uint32_t DATA_BYTE_8 : 8;
   } bits;
   
@@ -14471,9 +17619,13 @@ union MB0_32B_WORD2_H {
   
   // Bit field definition.
   struct {
+    /// read-write - Data byte 0 of Rx/Tx frame.
     uint32_t DATA_BYTE_11 : 8;
+    /// read-write - Data byte 1 of Rx/Tx frame.
     uint32_t DATA_BYTE_10 : 8;
+    /// read-write - Data byte 2 of Rx/Tx frame.
     uint32_t DATA_BYTE_9 : 8;
+    /// read-write - Data byte 3 of Rx/Tx frame.
     uint32_t DATA_BYTE_8 : 8;
   } bits;
   
@@ -14491,9 +17643,13 @@ union MB0_64B_WORD2_H {
   
   // Bit field definition.
   struct {
+    /// read-write - Data byte 0 of Rx/Tx frame.
     uint32_t DATA_BYTE_11 : 8;
+    /// read-write - Data byte 1 of Rx/Tx frame.
     uint32_t DATA_BYTE_10 : 8;
+    /// read-write - Data byte 2 of Rx/Tx frame.
     uint32_t DATA_BYTE_9 : 8;
+    /// read-write - Data byte 3 of Rx/Tx frame.
     uint32_t DATA_BYTE_8 : 8;
   } bits;
   
@@ -14511,16 +17667,25 @@ union MB33_8B_CS {
   
   // Bit field definition.
   struct {
+    /// read-write - Free-Running Counter Time stamp. This 16-bit field is a copy of the Free-Running Timer, captured for Tx and Rx frames at the time when the beginning of the Identifier field appears on the CAN bus.
     uint32_t TIME_STAMP : 16;
+    /// read-write - Length of the data to be stored/transmitted.
     uint32_t DLC : 4;
+    /// read-write - Remote Transmission Request. One/zero for remote/data frame.
     uint32_t RTR : 1;
+    /// read-write - ID Extended. One/zero for extended/standard format frame.
     uint32_t IDE : 1;
+    /// read-write - Substitute Remote Request. Contains a fixed recessive bit.
     uint32_t SRR : 1;
     uint32_t _reserved_0 : 1;
+    /// read-write - Message Buffer Code. This 4-bit field can be accessed (read or write) by the CPU and by the FlexCAN module itself, as part of the message buffer matching and arbitration process.
     uint32_t CODE : 4;
     uint32_t _reserved_1 : 1;
+    /// read-write - Error State Indicator. This bit indicates if the transmitting node is error active or error passive.
     uint32_t ESI : 1;
+    /// read-write - Bit Rate Switch. This bit defines whether the bit rate is switched inside a CAN FD format frame.
     uint32_t BRS : 1;
+    /// read-write - Extended Data Length. This bit distinguishes between CAN format and CAN FD format frames. The EDL bit must not be set for Message Buffers configured to RANSWER with code field 0b1010.
     uint32_t EDL : 1;
   } bits;
   
@@ -14538,8 +17703,11 @@ union ID33 {
   
   // Bit field definition.
   struct {
+    /// read-write - Contains extended (LOW word) identifier of message buffer.
     uint32_t EXT : 18;
+    /// read-write - Contains standard/extended (HIGH word) identifier of message buffer.
     uint32_t STD : 11;
+    /// read-write - Local priority. This 3-bit fieldis only used when LPRIO_EN bit is set in MCR and it only makes sense for Tx buffers. These bits are not transmitted. They are appended to the regular ID to define the transmission priority.
     uint32_t PRIO : 3;
   } bits;
   
@@ -14557,9 +17725,13 @@ union MB0_16B_WORD3_H {
   
   // Bit field definition.
   struct {
+    /// read-write - Data byte 0 of Rx/Tx frame.
     uint32_t DATA_BYTE_15 : 8;
+    /// read-write - Data byte 1 of Rx/Tx frame.
     uint32_t DATA_BYTE_14 : 8;
+    /// read-write - Data byte 2 of Rx/Tx frame.
     uint32_t DATA_BYTE_13 : 8;
+    /// read-write - Data byte 3 of Rx/Tx frame.
     uint32_t DATA_BYTE_12 : 8;
   } bits;
   
@@ -14577,9 +17749,13 @@ union MB0_32B_WORD3_H {
   
   // Bit field definition.
   struct {
+    /// read-write - Data byte 0 of Rx/Tx frame.
     uint32_t DATA_BYTE_15 : 8;
+    /// read-write - Data byte 1 of Rx/Tx frame.
     uint32_t DATA_BYTE_14 : 8;
+    /// read-write - Data byte 2 of Rx/Tx frame.
     uint32_t DATA_BYTE_13 : 8;
+    /// read-write - Data byte 3 of Rx/Tx frame.
     uint32_t DATA_BYTE_12 : 8;
   } bits;
   
@@ -14597,9 +17773,13 @@ union MB0_64B_WORD3_H {
   
   // Bit field definition.
   struct {
+    /// read-write - Data byte 0 of Rx/Tx frame.
     uint32_t DATA_BYTE_15 : 8;
+    /// read-write - Data byte 1 of Rx/Tx frame.
     uint32_t DATA_BYTE_14 : 8;
+    /// read-write - Data byte 2 of Rx/Tx frame.
     uint32_t DATA_BYTE_13 : 8;
+    /// read-write - Data byte 3 of Rx/Tx frame.
     uint32_t DATA_BYTE_12 : 8;
   } bits;
   
@@ -14617,8 +17797,11 @@ union MB33_8B_ID {
   
   // Bit field definition.
   struct {
+    /// read-write - Contains extended (LOW word) identifier of message buffer.
     uint32_t EXT : 18;
+    /// read-write - Contains standard/extended (HIGH word) identifier of message buffer.
     uint32_t STD : 11;
+    /// read-write - Local priority. This 3-bit fieldis only used when LPRIO_EN bit is set in MCR and it only makes sense for Tx buffers. These bits are not transmitted. They are appended to the regular ID to define the transmission priority.
     uint32_t PRIO : 3;
   } bits;
   
@@ -14636,9 +17819,13 @@ union MB0_32B_WORD4_H {
   
   // Bit field definition.
   struct {
+    /// read-write - Data byte 0 of Rx/Tx frame.
     uint32_t DATA_BYTE_19 : 8;
+    /// read-write - Data byte 1 of Rx/Tx frame.
     uint32_t DATA_BYTE_18 : 8;
+    /// read-write - Data byte 2 of Rx/Tx frame.
     uint32_t DATA_BYTE_17 : 8;
+    /// read-write - Data byte 3 of Rx/Tx frame.
     uint32_t DATA_BYTE_16 : 8;
   } bits;
   
@@ -14656,9 +17843,13 @@ union MB0_64B_WORD4_H {
   
   // Bit field definition.
   struct {
+    /// read-write - Data byte 0 of Rx/Tx frame.
     uint32_t DATA_BYTE_19 : 8;
+    /// read-write - Data byte 1 of Rx/Tx frame.
     uint32_t DATA_BYTE_18 : 8;
+    /// read-write - Data byte 2 of Rx/Tx frame.
     uint32_t DATA_BYTE_17 : 8;
+    /// read-write - Data byte 3 of Rx/Tx frame.
     uint32_t DATA_BYTE_16 : 8;
   } bits;
   
@@ -14676,16 +17867,25 @@ union MB1_16B_CS_H {
   
   // Bit field definition.
   struct {
+    /// read-write - Free-Running Counter Time stamp. This 16-bit field is a copy of the Free-Running Timer, captured for Tx and Rx frames at the time when the beginning of the Identifier field appears on the CAN bus.
     uint32_t TIME_STAMP : 16;
+    /// read-write - Length of the data to be stored/transmitted.
     uint32_t DLC : 4;
+    /// read-write - Remote Transmission Request. One/zero for remote/data frame.
     uint32_t RTR : 1;
+    /// read-write - ID Extended. One/zero for extended/standard format frame.
     uint32_t IDE : 1;
+    /// read-write - Substitute Remote Request. Contains a fixed recessive bit.
     uint32_t SRR : 1;
     uint32_t _reserved_0 : 1;
+    /// read-write - Message Buffer Code. This 4-bit field can be accessed (read or write) by the CPU and by the FlexCAN module itself, as part of the message buffer matching and arbitration process.
     uint32_t CODE : 4;
     uint32_t _reserved_1 : 1;
+    /// read-write - Error State Indicator. This bit indicates if the transmitting node is error active or error passive.
     uint32_t ESI : 1;
+    /// read-write - Bit Rate Switch. This bit defines whether the bit rate is switched inside a CAN FD format frame.
     uint32_t BRS : 1;
+    /// read-write - Extended Data Length. This bit distinguishes between CAN format and CAN FD format frames. The EDL bit must not be set for Message Buffers configured to RANSWER with code field 0b1010.
     uint32_t EDL : 1;
   } bits;
   
@@ -14703,9 +17903,13 @@ union MB33_8B_WORD0 {
   
   // Bit field definition.
   struct {
+    /// read-write - Data byte 0 of Rx/Tx frame.
     uint32_t DATA_BYTE_3 : 8;
+    /// read-write - Data byte 1 of Rx/Tx frame.
     uint32_t DATA_BYTE_2 : 8;
+    /// read-write - Data byte 2 of Rx/Tx frame.
     uint32_t DATA_BYTE_1 : 8;
+    /// read-write - Data byte 3 of Rx/Tx frame.
     uint32_t DATA_BYTE_0 : 8;
   } bits;
   
@@ -14723,9 +17927,13 @@ union WORD033 {
   
   // Bit field definition.
   struct {
+    /// read-write - Data byte 0 of Rx/Tx frame.
     uint32_t DATA_BYTE_3 : 8;
+    /// read-write - Data byte 1 of Rx/Tx frame.
     uint32_t DATA_BYTE_2 : 8;
+    /// read-write - Data byte 2 of Rx/Tx frame.
     uint32_t DATA_BYTE_1 : 8;
+    /// read-write - Data byte 3 of Rx/Tx frame.
     uint32_t DATA_BYTE_0 : 8;
   } bits;
   
@@ -14743,9 +17951,13 @@ union MB0_32B_WORD5_H {
   
   // Bit field definition.
   struct {
+    /// read-write - Data byte 0 of Rx/Tx frame.
     uint32_t DATA_BYTE_23 : 8;
+    /// read-write - Data byte 1 of Rx/Tx frame.
     uint32_t DATA_BYTE_22 : 8;
+    /// read-write - Data byte 2 of Rx/Tx frame.
     uint32_t DATA_BYTE_21 : 8;
+    /// read-write - Data byte 3 of Rx/Tx frame.
     uint32_t DATA_BYTE_20 : 8;
   } bits;
   
@@ -14763,9 +17975,13 @@ union MB0_64B_WORD5_H {
   
   // Bit field definition.
   struct {
+    /// read-write - Data byte 0 of Rx/Tx frame.
     uint32_t DATA_BYTE_23 : 8;
+    /// read-write - Data byte 1 of Rx/Tx frame.
     uint32_t DATA_BYTE_22 : 8;
+    /// read-write - Data byte 2 of Rx/Tx frame.
     uint32_t DATA_BYTE_21 : 8;
+    /// read-write - Data byte 3 of Rx/Tx frame.
     uint32_t DATA_BYTE_20 : 8;
   } bits;
   
@@ -14783,8 +17999,11 @@ union MB1_16B_ID_H {
   
   // Bit field definition.
   struct {
+    /// read-write - Contains extended (LOW word) identifier of message buffer.
     uint32_t EXT : 18;
+    /// read-write - Contains standard/extended (HIGH word) identifier of message buffer.
     uint32_t STD : 11;
+    /// read-write - Local priority. This 3-bit fieldis only used when LPRIO_EN bit is set in MCR and it only makes sense for Tx buffers. These bits are not transmitted. They are appended to the regular ID to define the transmission priority.
     uint32_t PRIO : 3;
   } bits;
   
@@ -14802,9 +18021,13 @@ union MB33_8B_WORD1 {
   
   // Bit field definition.
   struct {
+    /// read-write - Data byte 0 of Rx/Tx frame.
     uint32_t DATA_BYTE_7 : 8;
+    /// read-write - Data byte 1 of Rx/Tx frame.
     uint32_t DATA_BYTE_6 : 8;
+    /// read-write - Data byte 2 of Rx/Tx frame.
     uint32_t DATA_BYTE_5 : 8;
+    /// read-write - Data byte 3 of Rx/Tx frame.
     uint32_t DATA_BYTE_4 : 8;
   } bits;
   
@@ -14822,9 +18045,13 @@ union WORD133 {
   
   // Bit field definition.
   struct {
+    /// read-write - Data byte 0 of Rx/Tx frame.
     uint32_t DATA_BYTE_7 : 8;
+    /// read-write - Data byte 1 of Rx/Tx frame.
     uint32_t DATA_BYTE_6 : 8;
+    /// read-write - Data byte 2 of Rx/Tx frame.
     uint32_t DATA_BYTE_5 : 8;
+    /// read-write - Data byte 3 of Rx/Tx frame.
     uint32_t DATA_BYTE_4 : 8;
   } bits;
   
@@ -14842,16 +18069,25 @@ union CS34 {
   
   // Bit field definition.
   struct {
+    /// read-write - Free-Running Counter Time stamp. This 16-bit field is a copy of the Free-Running Timer, captured for Tx and Rx frames at the time when the beginning of the Identifier field appears on the CAN bus.
     uint32_t TIME_STAMP : 16;
+    /// read-write - Length of the data to be stored/transmitted.
     uint32_t DLC : 4;
+    /// read-write - Remote Transmission Request. One/zero for remote/data frame.
     uint32_t RTR : 1;
+    /// read-write - ID Extended. One/zero for extended/standard format frame.
     uint32_t IDE : 1;
+    /// read-write - Substitute Remote Request. Contains a fixed recessive bit.
     uint32_t SRR : 1;
     uint32_t _reserved_0 : 1;
+    /// read-write - Message Buffer Code. This 4-bit field can be accessed (read or write) by the CPU and by the FlexCAN module itself, as part of the message buffer matching and arbitration process.
     uint32_t CODE : 4;
     uint32_t _reserved_1 : 1;
+    /// read-write - Error State Indicator. This bit indicates if the transmitting node is error active or error passive.
     uint32_t ESI : 1;
+    /// read-write - Bit Rate Switch. This bit defines whether the bit rate is switched inside a CAN FD format frame.
     uint32_t BRS : 1;
+    /// read-write - Extended Data Length. This bit distinguishes between CAN format and CAN FD format frames. The EDL bit must not be set for Message Buffers configured to RANSWER with code field 0b1010.
     uint32_t EDL : 1;
   } bits;
   
@@ -14869,9 +18105,13 @@ union MB0_32B_WORD6_H {
   
   // Bit field definition.
   struct {
+    /// read-write - Data byte 0 of Rx/Tx frame.
     uint32_t DATA_BYTE_27 : 8;
+    /// read-write - Data byte 1 of Rx/Tx frame.
     uint32_t DATA_BYTE_26 : 8;
+    /// read-write - Data byte 2 of Rx/Tx frame.
     uint32_t DATA_BYTE_25 : 8;
+    /// read-write - Data byte 3 of Rx/Tx frame.
     uint32_t DATA_BYTE_24 : 8;
   } bits;
   
@@ -14889,9 +18129,13 @@ union MB0_64B_WORD6_H {
   
   // Bit field definition.
   struct {
+    /// read-write - Data byte 0 of Rx/Tx frame.
     uint32_t DATA_BYTE_27 : 8;
+    /// read-write - Data byte 1 of Rx/Tx frame.
     uint32_t DATA_BYTE_26 : 8;
+    /// read-write - Data byte 2 of Rx/Tx frame.
     uint32_t DATA_BYTE_25 : 8;
+    /// read-write - Data byte 3 of Rx/Tx frame.
     uint32_t DATA_BYTE_24 : 8;
   } bits;
   
@@ -14909,9 +18153,13 @@ union MB1_16B_WORD0_H {
   
   // Bit field definition.
   struct {
+    /// read-write - Data byte 0 of Rx/Tx frame.
     uint32_t DATA_BYTE_3 : 8;
+    /// read-write - Data byte 1 of Rx/Tx frame.
     uint32_t DATA_BYTE_2 : 8;
+    /// read-write - Data byte 2 of Rx/Tx frame.
     uint32_t DATA_BYTE_1 : 8;
+    /// read-write - Data byte 3 of Rx/Tx frame.
     uint32_t DATA_BYTE_0 : 8;
   } bits;
   
@@ -14929,16 +18177,25 @@ union MB34_8B_CS {
   
   // Bit field definition.
   struct {
+    /// read-write - Free-Running Counter Time stamp. This 16-bit field is a copy of the Free-Running Timer, captured for Tx and Rx frames at the time when the beginning of the Identifier field appears on the CAN bus.
     uint32_t TIME_STAMP : 16;
+    /// read-write - Length of the data to be stored/transmitted.
     uint32_t DLC : 4;
+    /// read-write - Remote Transmission Request. One/zero for remote/data frame.
     uint32_t RTR : 1;
+    /// read-write - ID Extended. One/zero for extended/standard format frame.
     uint32_t IDE : 1;
+    /// read-write - Substitute Remote Request. Contains a fixed recessive bit.
     uint32_t SRR : 1;
     uint32_t _reserved_0 : 1;
+    /// read-write - Message Buffer Code. This 4-bit field can be accessed (read or write) by the CPU and by the FlexCAN module itself, as part of the message buffer matching and arbitration process.
     uint32_t CODE : 4;
     uint32_t _reserved_1 : 1;
+    /// read-write - Error State Indicator. This bit indicates if the transmitting node is error active or error passive.
     uint32_t ESI : 1;
+    /// read-write - Bit Rate Switch. This bit defines whether the bit rate is switched inside a CAN FD format frame.
     uint32_t BRS : 1;
+    /// read-write - Extended Data Length. This bit distinguishes between CAN format and CAN FD format frames. The EDL bit must not be set for Message Buffers configured to RANSWER with code field 0b1010.
     uint32_t EDL : 1;
   } bits;
   
@@ -14956,8 +18213,11 @@ union ID34 {
   
   // Bit field definition.
   struct {
+    /// read-write - Contains extended (LOW word) identifier of message buffer.
     uint32_t EXT : 18;
+    /// read-write - Contains standard/extended (HIGH word) identifier of message buffer.
     uint32_t STD : 11;
+    /// read-write - Local priority. This 3-bit fieldis only used when LPRIO_EN bit is set in MCR and it only makes sense for Tx buffers. These bits are not transmitted. They are appended to the regular ID to define the transmission priority.
     uint32_t PRIO : 3;
   } bits;
   
@@ -14975,9 +18235,13 @@ union MB0_32B_WORD7_H {
   
   // Bit field definition.
   struct {
+    /// read-write - Data byte 0 of Rx/Tx frame.
     uint32_t DATA_BYTE_31 : 8;
+    /// read-write - Data byte 1 of Rx/Tx frame.
     uint32_t DATA_BYTE_30 : 8;
+    /// read-write - Data byte 2 of Rx/Tx frame.
     uint32_t DATA_BYTE_29 : 8;
+    /// read-write - Data byte 3 of Rx/Tx frame.
     uint32_t DATA_BYTE_28 : 8;
   } bits;
   
@@ -14995,9 +18259,13 @@ union MB0_64B_WORD7_H {
   
   // Bit field definition.
   struct {
+    /// read-write - Data byte 0 of Rx/Tx frame.
     uint32_t DATA_BYTE_31 : 8;
+    /// read-write - Data byte 1 of Rx/Tx frame.
     uint32_t DATA_BYTE_30 : 8;
+    /// read-write - Data byte 2 of Rx/Tx frame.
     uint32_t DATA_BYTE_29 : 8;
+    /// read-write - Data byte 3 of Rx/Tx frame.
     uint32_t DATA_BYTE_28 : 8;
   } bits;
   
@@ -15015,9 +18283,13 @@ union MB1_16B_WORD1_H {
   
   // Bit field definition.
   struct {
+    /// read-write - Data byte 0 of Rx/Tx frame.
     uint32_t DATA_BYTE_7 : 8;
+    /// read-write - Data byte 1 of Rx/Tx frame.
     uint32_t DATA_BYTE_6 : 8;
+    /// read-write - Data byte 2 of Rx/Tx frame.
     uint32_t DATA_BYTE_5 : 8;
+    /// read-write - Data byte 3 of Rx/Tx frame.
     uint32_t DATA_BYTE_4 : 8;
   } bits;
   
@@ -15035,8 +18307,11 @@ union MB34_8B_ID {
   
   // Bit field definition.
   struct {
+    /// read-write - Contains extended (LOW word) identifier of message buffer.
     uint32_t EXT : 18;
+    /// read-write - Contains standard/extended (HIGH word) identifier of message buffer.
     uint32_t STD : 11;
+    /// read-write - Local priority. This 3-bit fieldis only used when LPRIO_EN bit is set in MCR and it only makes sense for Tx buffers. These bits are not transmitted. They are appended to the regular ID to define the transmission priority.
     uint32_t PRIO : 3;
   } bits;
   
@@ -15054,9 +18329,13 @@ union MB0_64B_WORD8_H {
   
   // Bit field definition.
   struct {
+    /// read-write - Data byte 0 of Rx/Tx frame.
     uint32_t DATA_BYTE_35 : 8;
+    /// read-write - Data byte 1 of Rx/Tx frame.
     uint32_t DATA_BYTE_34 : 8;
+    /// read-write - Data byte 2 of Rx/Tx frame.
     uint32_t DATA_BYTE_33 : 8;
+    /// read-write - Data byte 3 of Rx/Tx frame.
     uint32_t DATA_BYTE_32 : 8;
   } bits;
   
@@ -15074,9 +18353,13 @@ union MB1_16B_WORD2_H {
   
   // Bit field definition.
   struct {
+    /// read-write - Data byte 0 of Rx/Tx frame.
     uint32_t DATA_BYTE_11 : 8;
+    /// read-write - Data byte 1 of Rx/Tx frame.
     uint32_t DATA_BYTE_10 : 8;
+    /// read-write - Data byte 2 of Rx/Tx frame.
     uint32_t DATA_BYTE_9 : 8;
+    /// read-write - Data byte 3 of Rx/Tx frame.
     uint32_t DATA_BYTE_8 : 8;
   } bits;
   
@@ -15094,16 +18377,25 @@ union MB1_32B_CS_H {
   
   // Bit field definition.
   struct {
+    /// read-write - Free-Running Counter Time stamp. This 16-bit field is a copy of the Free-Running Timer, captured for Tx and Rx frames at the time when the beginning of the Identifier field appears on the CAN bus.
     uint32_t TIME_STAMP : 16;
+    /// read-write - Length of the data to be stored/transmitted.
     uint32_t DLC : 4;
+    /// read-write - Remote Transmission Request. One/zero for remote/data frame.
     uint32_t RTR : 1;
+    /// read-write - ID Extended. One/zero for extended/standard format frame.
     uint32_t IDE : 1;
+    /// read-write - Substitute Remote Request. Contains a fixed recessive bit.
     uint32_t SRR : 1;
     uint32_t _reserved_0 : 1;
+    /// read-write - Message Buffer Code. This 4-bit field can be accessed (read or write) by the CPU and by the FlexCAN module itself, as part of the message buffer matching and arbitration process.
     uint32_t CODE : 4;
     uint32_t _reserved_1 : 1;
+    /// read-write - Error State Indicator. This bit indicates if the transmitting node is error active or error passive.
     uint32_t ESI : 1;
+    /// read-write - Bit Rate Switch. This bit defines whether the bit rate is switched inside a CAN FD format frame.
     uint32_t BRS : 1;
+    /// read-write - Extended Data Length. This bit distinguishes between CAN format and CAN FD format frames. The EDL bit must not be set for Message Buffers configured to RANSWER with code field 0b1010.
     uint32_t EDL : 1;
   } bits;
   
@@ -15121,9 +18413,13 @@ union MB34_8B_WORD0 {
   
   // Bit field definition.
   struct {
+    /// read-write - Data byte 0 of Rx/Tx frame.
     uint32_t DATA_BYTE_3 : 8;
+    /// read-write - Data byte 1 of Rx/Tx frame.
     uint32_t DATA_BYTE_2 : 8;
+    /// read-write - Data byte 2 of Rx/Tx frame.
     uint32_t DATA_BYTE_1 : 8;
+    /// read-write - Data byte 3 of Rx/Tx frame.
     uint32_t DATA_BYTE_0 : 8;
   } bits;
   
@@ -15141,9 +18437,13 @@ union WORD034 {
   
   // Bit field definition.
   struct {
+    /// read-write - Data byte 0 of Rx/Tx frame.
     uint32_t DATA_BYTE_3 : 8;
+    /// read-write - Data byte 1 of Rx/Tx frame.
     uint32_t DATA_BYTE_2 : 8;
+    /// read-write - Data byte 2 of Rx/Tx frame.
     uint32_t DATA_BYTE_1 : 8;
+    /// read-write - Data byte 3 of Rx/Tx frame.
     uint32_t DATA_BYTE_0 : 8;
   } bits;
   
@@ -15161,9 +18461,13 @@ union MB0_64B_WORD9_H {
   
   // Bit field definition.
   struct {
+    /// read-write - Data byte 0 of Rx/Tx frame.
     uint32_t DATA_BYTE_39 : 8;
+    /// read-write - Data byte 1 of Rx/Tx frame.
     uint32_t DATA_BYTE_38 : 8;
+    /// read-write - Data byte 2 of Rx/Tx frame.
     uint32_t DATA_BYTE_37 : 8;
+    /// read-write - Data byte 3 of Rx/Tx frame.
     uint32_t DATA_BYTE_36 : 8;
   } bits;
   
@@ -15181,9 +18485,13 @@ union MB1_16B_WORD3_H {
   
   // Bit field definition.
   struct {
+    /// read-write - Data byte 0 of Rx/Tx frame.
     uint32_t DATA_BYTE_15 : 8;
+    /// read-write - Data byte 1 of Rx/Tx frame.
     uint32_t DATA_BYTE_14 : 8;
+    /// read-write - Data byte 2 of Rx/Tx frame.
     uint32_t DATA_BYTE_13 : 8;
+    /// read-write - Data byte 3 of Rx/Tx frame.
     uint32_t DATA_BYTE_12 : 8;
   } bits;
   
@@ -15201,8 +18509,11 @@ union MB1_32B_ID_H {
   
   // Bit field definition.
   struct {
+    /// read-write - Contains extended (LOW word) identifier of message buffer.
     uint32_t EXT : 18;
+    /// read-write - Contains standard/extended (HIGH word) identifier of message buffer.
     uint32_t STD : 11;
+    /// read-write - Local priority. This 3-bit fieldis only used when LPRIO_EN bit is set in MCR and it only makes sense for Tx buffers. These bits are not transmitted. They are appended to the regular ID to define the transmission priority.
     uint32_t PRIO : 3;
   } bits;
   
@@ -15220,9 +18531,13 @@ union MB34_8B_WORD1 {
   
   // Bit field definition.
   struct {
+    /// read-write - Data byte 0 of Rx/Tx frame.
     uint32_t DATA_BYTE_7 : 8;
+    /// read-write - Data byte 1 of Rx/Tx frame.
     uint32_t DATA_BYTE_6 : 8;
+    /// read-write - Data byte 2 of Rx/Tx frame.
     uint32_t DATA_BYTE_5 : 8;
+    /// read-write - Data byte 3 of Rx/Tx frame.
     uint32_t DATA_BYTE_4 : 8;
   } bits;
   
@@ -15240,9 +18555,13 @@ union WORD134 {
   
   // Bit field definition.
   struct {
+    /// read-write - Data byte 0 of Rx/Tx frame.
     uint32_t DATA_BYTE_7 : 8;
+    /// read-write - Data byte 1 of Rx/Tx frame.
     uint32_t DATA_BYTE_6 : 8;
+    /// read-write - Data byte 2 of Rx/Tx frame.
     uint32_t DATA_BYTE_5 : 8;
+    /// read-write - Data byte 3 of Rx/Tx frame.
     uint32_t DATA_BYTE_4 : 8;
   } bits;
   
@@ -15260,16 +18579,25 @@ union CS35 {
   
   // Bit field definition.
   struct {
+    /// read-write - Free-Running Counter Time stamp. This 16-bit field is a copy of the Free-Running Timer, captured for Tx and Rx frames at the time when the beginning of the Identifier field appears on the CAN bus.
     uint32_t TIME_STAMP : 16;
+    /// read-write - Length of the data to be stored/transmitted.
     uint32_t DLC : 4;
+    /// read-write - Remote Transmission Request. One/zero for remote/data frame.
     uint32_t RTR : 1;
+    /// read-write - ID Extended. One/zero for extended/standard format frame.
     uint32_t IDE : 1;
+    /// read-write - Substitute Remote Request. Contains a fixed recessive bit.
     uint32_t SRR : 1;
     uint32_t _reserved_0 : 1;
+    /// read-write - Message Buffer Code. This 4-bit field can be accessed (read or write) by the CPU and by the FlexCAN module itself, as part of the message buffer matching and arbitration process.
     uint32_t CODE : 4;
     uint32_t _reserved_1 : 1;
+    /// read-write - Error State Indicator. This bit indicates if the transmitting node is error active or error passive.
     uint32_t ESI : 1;
+    /// read-write - Bit Rate Switch. This bit defines whether the bit rate is switched inside a CAN FD format frame.
     uint32_t BRS : 1;
+    /// read-write - Extended Data Length. This bit distinguishes between CAN format and CAN FD format frames. The EDL bit must not be set for Message Buffers configured to RANSWER with code field 0b1010.
     uint32_t EDL : 1;
   } bits;
   
@@ -15287,9 +18615,13 @@ union MB0_64B_WORD10_H {
   
   // Bit field definition.
   struct {
+    /// read-write - Data byte 0 of Rx/Tx frame.
     uint32_t DATA_BYTE_43 : 8;
+    /// read-write - Data byte 1 of Rx/Tx frame.
     uint32_t DATA_BYTE_42 : 8;
+    /// read-write - Data byte 2 of Rx/Tx frame.
     uint32_t DATA_BYTE_41 : 8;
+    /// read-write - Data byte 3 of Rx/Tx frame.
     uint32_t DATA_BYTE_40 : 8;
   } bits;
   
@@ -15307,9 +18639,13 @@ union MB1_32B_WORD0_H {
   
   // Bit field definition.
   struct {
+    /// read-write - Data byte 0 of Rx/Tx frame.
     uint32_t DATA_BYTE_3 : 8;
+    /// read-write - Data byte 1 of Rx/Tx frame.
     uint32_t DATA_BYTE_2 : 8;
+    /// read-write - Data byte 2 of Rx/Tx frame.
     uint32_t DATA_BYTE_1 : 8;
+    /// read-write - Data byte 3 of Rx/Tx frame.
     uint32_t DATA_BYTE_0 : 8;
   } bits;
   
@@ -15327,16 +18663,25 @@ union MB2_16B_CS_H {
   
   // Bit field definition.
   struct {
+    /// read-write - Free-Running Counter Time stamp. This 16-bit field is a copy of the Free-Running Timer, captured for Tx and Rx frames at the time when the beginning of the Identifier field appears on the CAN bus.
     uint32_t TIME_STAMP : 16;
+    /// read-write - Length of the data to be stored/transmitted.
     uint32_t DLC : 4;
+    /// read-write - Remote Transmission Request. One/zero for remote/data frame.
     uint32_t RTR : 1;
+    /// read-write - ID Extended. One/zero for extended/standard format frame.
     uint32_t IDE : 1;
+    /// read-write - Substitute Remote Request. Contains a fixed recessive bit.
     uint32_t SRR : 1;
     uint32_t _reserved_0 : 1;
+    /// read-write - Message Buffer Code. This 4-bit field can be accessed (read or write) by the CPU and by the FlexCAN module itself, as part of the message buffer matching and arbitration process.
     uint32_t CODE : 4;
     uint32_t _reserved_1 : 1;
+    /// read-write - Error State Indicator. This bit indicates if the transmitting node is error active or error passive.
     uint32_t ESI : 1;
+    /// read-write - Bit Rate Switch. This bit defines whether the bit rate is switched inside a CAN FD format frame.
     uint32_t BRS : 1;
+    /// read-write - Extended Data Length. This bit distinguishes between CAN format and CAN FD format frames. The EDL bit must not be set for Message Buffers configured to RANSWER with code field 0b1010.
     uint32_t EDL : 1;
   } bits;
   
@@ -15354,16 +18699,25 @@ union MB35_8B_CS {
   
   // Bit field definition.
   struct {
+    /// read-write - Free-Running Counter Time stamp. This 16-bit field is a copy of the Free-Running Timer, captured for Tx and Rx frames at the time when the beginning of the Identifier field appears on the CAN bus.
     uint32_t TIME_STAMP : 16;
+    /// read-write - Length of the data to be stored/transmitted.
     uint32_t DLC : 4;
+    /// read-write - Remote Transmission Request. One/zero for remote/data frame.
     uint32_t RTR : 1;
+    /// read-write - ID Extended. One/zero for extended/standard format frame.
     uint32_t IDE : 1;
+    /// read-write - Substitute Remote Request. Contains a fixed recessive bit.
     uint32_t SRR : 1;
     uint32_t _reserved_0 : 1;
+    /// read-write - Message Buffer Code. This 4-bit field can be accessed (read or write) by the CPU and by the FlexCAN module itself, as part of the message buffer matching and arbitration process.
     uint32_t CODE : 4;
     uint32_t _reserved_1 : 1;
+    /// read-write - Error State Indicator. This bit indicates if the transmitting node is error active or error passive.
     uint32_t ESI : 1;
+    /// read-write - Bit Rate Switch. This bit defines whether the bit rate is switched inside a CAN FD format frame.
     uint32_t BRS : 1;
+    /// read-write - Extended Data Length. This bit distinguishes between CAN format and CAN FD format frames. The EDL bit must not be set for Message Buffers configured to RANSWER with code field 0b1010.
     uint32_t EDL : 1;
   } bits;
   
@@ -15381,8 +18735,11 @@ union ID35 {
   
   // Bit field definition.
   struct {
+    /// read-write - Contains extended (LOW word) identifier of message buffer.
     uint32_t EXT : 18;
+    /// read-write - Contains standard/extended (HIGH word) identifier of message buffer.
     uint32_t STD : 11;
+    /// read-write - Local priority. This 3-bit fieldis only used when LPRIO_EN bit is set in MCR and it only makes sense for Tx buffers. These bits are not transmitted. They are appended to the regular ID to define the transmission priority.
     uint32_t PRIO : 3;
   } bits;
   
@@ -15400,9 +18757,13 @@ union MB0_64B_WORD11_H {
   
   // Bit field definition.
   struct {
+    /// read-write - Data byte 0 of Rx/Tx frame.
     uint32_t DATA_BYTE_47 : 8;
+    /// read-write - Data byte 1 of Rx/Tx frame.
     uint32_t DATA_BYTE_46 : 8;
+    /// read-write - Data byte 2 of Rx/Tx frame.
     uint32_t DATA_BYTE_45 : 8;
+    /// read-write - Data byte 3 of Rx/Tx frame.
     uint32_t DATA_BYTE_44 : 8;
   } bits;
   
@@ -15420,9 +18781,13 @@ union MB1_32B_WORD1_H {
   
   // Bit field definition.
   struct {
+    /// read-write - Data byte 0 of Rx/Tx frame.
     uint32_t DATA_BYTE_7 : 8;
+    /// read-write - Data byte 1 of Rx/Tx frame.
     uint32_t DATA_BYTE_6 : 8;
+    /// read-write - Data byte 2 of Rx/Tx frame.
     uint32_t DATA_BYTE_5 : 8;
+    /// read-write - Data byte 3 of Rx/Tx frame.
     uint32_t DATA_BYTE_4 : 8;
   } bits;
   
@@ -15440,8 +18805,11 @@ union MB2_16B_ID_H {
   
   // Bit field definition.
   struct {
+    /// read-write - Contains extended (LOW word) identifier of message buffer.
     uint32_t EXT : 18;
+    /// read-write - Contains standard/extended (HIGH word) identifier of message buffer.
     uint32_t STD : 11;
+    /// read-write - Local priority. This 3-bit fieldis only used when LPRIO_EN bit is set in MCR and it only makes sense for Tx buffers. These bits are not transmitted. They are appended to the regular ID to define the transmission priority.
     uint32_t PRIO : 3;
   } bits;
   
@@ -15459,8 +18827,11 @@ union MB35_8B_ID {
   
   // Bit field definition.
   struct {
+    /// read-write - Contains extended (LOW word) identifier of message buffer.
     uint32_t EXT : 18;
+    /// read-write - Contains standard/extended (HIGH word) identifier of message buffer.
     uint32_t STD : 11;
+    /// read-write - Local priority. This 3-bit fieldis only used when LPRIO_EN bit is set in MCR and it only makes sense for Tx buffers. These bits are not transmitted. They are appended to the regular ID to define the transmission priority.
     uint32_t PRIO : 3;
   } bits;
   
@@ -15478,9 +18849,13 @@ union MB0_64B_WORD12_H {
   
   // Bit field definition.
   struct {
+    /// read-write - Data byte 0 of Rx/Tx frame.
     uint32_t DATA_BYTE_51 : 8;
+    /// read-write - Data byte 1 of Rx/Tx frame.
     uint32_t DATA_BYTE_50 : 8;
+    /// read-write - Data byte 2 of Rx/Tx frame.
     uint32_t DATA_BYTE_49 : 8;
+    /// read-write - Data byte 3 of Rx/Tx frame.
     uint32_t DATA_BYTE_48 : 8;
   } bits;
   
@@ -15498,9 +18873,13 @@ union MB1_32B_WORD2_H {
   
   // Bit field definition.
   struct {
+    /// read-write - Data byte 0 of Rx/Tx frame.
     uint32_t DATA_BYTE_11 : 8;
+    /// read-write - Data byte 1 of Rx/Tx frame.
     uint32_t DATA_BYTE_10 : 8;
+    /// read-write - Data byte 2 of Rx/Tx frame.
     uint32_t DATA_BYTE_9 : 8;
+    /// read-write - Data byte 3 of Rx/Tx frame.
     uint32_t DATA_BYTE_8 : 8;
   } bits;
   
@@ -15518,9 +18897,13 @@ union MB2_16B_WORD0_H {
   
   // Bit field definition.
   struct {
+    /// read-write - Data byte 0 of Rx/Tx frame.
     uint32_t DATA_BYTE_3 : 8;
+    /// read-write - Data byte 1 of Rx/Tx frame.
     uint32_t DATA_BYTE_2 : 8;
+    /// read-write - Data byte 2 of Rx/Tx frame.
     uint32_t DATA_BYTE_1 : 8;
+    /// read-write - Data byte 3 of Rx/Tx frame.
     uint32_t DATA_BYTE_0 : 8;
   } bits;
   
@@ -15538,9 +18921,13 @@ union MB35_8B_WORD0 {
   
   // Bit field definition.
   struct {
+    /// read-write - Data byte 0 of Rx/Tx frame.
     uint32_t DATA_BYTE_3 : 8;
+    /// read-write - Data byte 1 of Rx/Tx frame.
     uint32_t DATA_BYTE_2 : 8;
+    /// read-write - Data byte 2 of Rx/Tx frame.
     uint32_t DATA_BYTE_1 : 8;
+    /// read-write - Data byte 3 of Rx/Tx frame.
     uint32_t DATA_BYTE_0 : 8;
   } bits;
   
@@ -15558,9 +18945,13 @@ union WORD035 {
   
   // Bit field definition.
   struct {
+    /// read-write - Data byte 0 of Rx/Tx frame.
     uint32_t DATA_BYTE_3 : 8;
+    /// read-write - Data byte 1 of Rx/Tx frame.
     uint32_t DATA_BYTE_2 : 8;
+    /// read-write - Data byte 2 of Rx/Tx frame.
     uint32_t DATA_BYTE_1 : 8;
+    /// read-write - Data byte 3 of Rx/Tx frame.
     uint32_t DATA_BYTE_0 : 8;
   } bits;
   
@@ -15578,9 +18969,13 @@ union MB0_64B_WORD13_H {
   
   // Bit field definition.
   struct {
+    /// read-write - Data byte 0 of Rx/Tx frame.
     uint32_t DATA_BYTE_55 : 8;
+    /// read-write - Data byte 1 of Rx/Tx frame.
     uint32_t DATA_BYTE_54 : 8;
+    /// read-write - Data byte 2 of Rx/Tx frame.
     uint32_t DATA_BYTE_53 : 8;
+    /// read-write - Data byte 3 of Rx/Tx frame.
     uint32_t DATA_BYTE_52 : 8;
   } bits;
   
@@ -15598,9 +18993,13 @@ union MB1_32B_WORD3_H {
   
   // Bit field definition.
   struct {
+    /// read-write - Data byte 0 of Rx/Tx frame.
     uint32_t DATA_BYTE_15 : 8;
+    /// read-write - Data byte 1 of Rx/Tx frame.
     uint32_t DATA_BYTE_14 : 8;
+    /// read-write - Data byte 2 of Rx/Tx frame.
     uint32_t DATA_BYTE_13 : 8;
+    /// read-write - Data byte 3 of Rx/Tx frame.
     uint32_t DATA_BYTE_12 : 8;
   } bits;
   
@@ -15618,9 +19017,13 @@ union MB2_16B_WORD1_H {
   
   // Bit field definition.
   struct {
+    /// read-write - Data byte 0 of Rx/Tx frame.
     uint32_t DATA_BYTE_7 : 8;
+    /// read-write - Data byte 1 of Rx/Tx frame.
     uint32_t DATA_BYTE_6 : 8;
+    /// read-write - Data byte 2 of Rx/Tx frame.
     uint32_t DATA_BYTE_5 : 8;
+    /// read-write - Data byte 3 of Rx/Tx frame.
     uint32_t DATA_BYTE_4 : 8;
   } bits;
   
@@ -15638,9 +19041,13 @@ union MB35_8B_WORD1 {
   
   // Bit field definition.
   struct {
+    /// read-write - Data byte 0 of Rx/Tx frame.
     uint32_t DATA_BYTE_7 : 8;
+    /// read-write - Data byte 1 of Rx/Tx frame.
     uint32_t DATA_BYTE_6 : 8;
+    /// read-write - Data byte 2 of Rx/Tx frame.
     uint32_t DATA_BYTE_5 : 8;
+    /// read-write - Data byte 3 of Rx/Tx frame.
     uint32_t DATA_BYTE_4 : 8;
   } bits;
   
@@ -15658,9 +19065,13 @@ union WORD135 {
   
   // Bit field definition.
   struct {
+    /// read-write - Data byte 0 of Rx/Tx frame.
     uint32_t DATA_BYTE_7 : 8;
+    /// read-write - Data byte 1 of Rx/Tx frame.
     uint32_t DATA_BYTE_6 : 8;
+    /// read-write - Data byte 2 of Rx/Tx frame.
     uint32_t DATA_BYTE_5 : 8;
+    /// read-write - Data byte 3 of Rx/Tx frame.
     uint32_t DATA_BYTE_4 : 8;
   } bits;
   
@@ -15678,16 +19089,25 @@ union CS36 {
   
   // Bit field definition.
   struct {
+    /// read-write - Free-Running Counter Time stamp. This 16-bit field is a copy of the Free-Running Timer, captured for Tx and Rx frames at the time when the beginning of the Identifier field appears on the CAN bus.
     uint32_t TIME_STAMP : 16;
+    /// read-write - Length of the data to be stored/transmitted.
     uint32_t DLC : 4;
+    /// read-write - Remote Transmission Request. One/zero for remote/data frame.
     uint32_t RTR : 1;
+    /// read-write - ID Extended. One/zero for extended/standard format frame.
     uint32_t IDE : 1;
+    /// read-write - Substitute Remote Request. Contains a fixed recessive bit.
     uint32_t SRR : 1;
     uint32_t _reserved_0 : 1;
+    /// read-write - Message Buffer Code. This 4-bit field can be accessed (read or write) by the CPU and by the FlexCAN module itself, as part of the message buffer matching and arbitration process.
     uint32_t CODE : 4;
     uint32_t _reserved_1 : 1;
+    /// read-write - Error State Indicator. This bit indicates if the transmitting node is error active or error passive.
     uint32_t ESI : 1;
+    /// read-write - Bit Rate Switch. This bit defines whether the bit rate is switched inside a CAN FD format frame.
     uint32_t BRS : 1;
+    /// read-write - Extended Data Length. This bit distinguishes between CAN format and CAN FD format frames. The EDL bit must not be set for Message Buffers configured to RANSWER with code field 0b1010.
     uint32_t EDL : 1;
   } bits;
   
@@ -15705,9 +19125,13 @@ union MB0_64B_WORD14_H {
   
   // Bit field definition.
   struct {
+    /// read-write - Data byte 0 of Rx/Tx frame.
     uint32_t DATA_BYTE_59 : 8;
+    /// read-write - Data byte 1 of Rx/Tx frame.
     uint32_t DATA_BYTE_58 : 8;
+    /// read-write - Data byte 2 of Rx/Tx frame.
     uint32_t DATA_BYTE_57 : 8;
+    /// read-write - Data byte 3 of Rx/Tx frame.
     uint32_t DATA_BYTE_56 : 8;
   } bits;
   
@@ -15725,9 +19149,13 @@ union MB1_32B_WORD4_H {
   
   // Bit field definition.
   struct {
+    /// read-write - Data byte 0 of Rx/Tx frame.
     uint32_t DATA_BYTE_19 : 8;
+    /// read-write - Data byte 1 of Rx/Tx frame.
     uint32_t DATA_BYTE_18 : 8;
+    /// read-write - Data byte 2 of Rx/Tx frame.
     uint32_t DATA_BYTE_17 : 8;
+    /// read-write - Data byte 3 of Rx/Tx frame.
     uint32_t DATA_BYTE_16 : 8;
   } bits;
   
@@ -15745,9 +19173,13 @@ union MB2_16B_WORD2_H {
   
   // Bit field definition.
   struct {
+    /// read-write - Data byte 0 of Rx/Tx frame.
     uint32_t DATA_BYTE_11 : 8;
+    /// read-write - Data byte 1 of Rx/Tx frame.
     uint32_t DATA_BYTE_10 : 8;
+    /// read-write - Data byte 2 of Rx/Tx frame.
     uint32_t DATA_BYTE_9 : 8;
+    /// read-write - Data byte 3 of Rx/Tx frame.
     uint32_t DATA_BYTE_8 : 8;
   } bits;
   
@@ -15765,16 +19197,25 @@ union MB36_8B_CS {
   
   // Bit field definition.
   struct {
+    /// read-write - Free-Running Counter Time stamp. This 16-bit field is a copy of the Free-Running Timer, captured for Tx and Rx frames at the time when the beginning of the Identifier field appears on the CAN bus.
     uint32_t TIME_STAMP : 16;
+    /// read-write - Length of the data to be stored/transmitted.
     uint32_t DLC : 4;
+    /// read-write - Remote Transmission Request. One/zero for remote/data frame.
     uint32_t RTR : 1;
+    /// read-write - ID Extended. One/zero for extended/standard format frame.
     uint32_t IDE : 1;
+    /// read-write - Substitute Remote Request. Contains a fixed recessive bit.
     uint32_t SRR : 1;
     uint32_t _reserved_0 : 1;
+    /// read-write - Message Buffer Code. This 4-bit field can be accessed (read or write) by the CPU and by the FlexCAN module itself, as part of the message buffer matching and arbitration process.
     uint32_t CODE : 4;
     uint32_t _reserved_1 : 1;
+    /// read-write - Error State Indicator. This bit indicates if the transmitting node is error active or error passive.
     uint32_t ESI : 1;
+    /// read-write - Bit Rate Switch. This bit defines whether the bit rate is switched inside a CAN FD format frame.
     uint32_t BRS : 1;
+    /// read-write - Extended Data Length. This bit distinguishes between CAN format and CAN FD format frames. The EDL bit must not be set for Message Buffers configured to RANSWER with code field 0b1010.
     uint32_t EDL : 1;
   } bits;
   
@@ -15792,8 +19233,11 @@ union ID36 {
   
   // Bit field definition.
   struct {
+    /// read-write - Contains extended (LOW word) identifier of message buffer.
     uint32_t EXT : 18;
+    /// read-write - Contains standard/extended (HIGH word) identifier of message buffer.
     uint32_t STD : 11;
+    /// read-write - Local priority. This 3-bit fieldis only used when LPRIO_EN bit is set in MCR and it only makes sense for Tx buffers. These bits are not transmitted. They are appended to the regular ID to define the transmission priority.
     uint32_t PRIO : 3;
   } bits;
   
@@ -15811,9 +19255,13 @@ union MB0_64B_WORD15_H {
   
   // Bit field definition.
   struct {
+    /// read-write - Data byte 0 of Rx/Tx frame.
     uint32_t DATA_BYTE_63 : 8;
+    /// read-write - Data byte 1 of Rx/Tx frame.
     uint32_t DATA_BYTE_62 : 8;
+    /// read-write - Data byte 2 of Rx/Tx frame.
     uint32_t DATA_BYTE_61 : 8;
+    /// read-write - Data byte 3 of Rx/Tx frame.
     uint32_t DATA_BYTE_60 : 8;
   } bits;
   
@@ -15831,9 +19279,13 @@ union MB1_32B_WORD5_H {
   
   // Bit field definition.
   struct {
+    /// read-write - Data byte 0 of Rx/Tx frame.
     uint32_t DATA_BYTE_23 : 8;
+    /// read-write - Data byte 1 of Rx/Tx frame.
     uint32_t DATA_BYTE_22 : 8;
+    /// read-write - Data byte 2 of Rx/Tx frame.
     uint32_t DATA_BYTE_21 : 8;
+    /// read-write - Data byte 3 of Rx/Tx frame.
     uint32_t DATA_BYTE_20 : 8;
   } bits;
   
@@ -15851,9 +19303,13 @@ union MB2_16B_WORD3_H {
   
   // Bit field definition.
   struct {
+    /// read-write - Data byte 0 of Rx/Tx frame.
     uint32_t DATA_BYTE_15 : 8;
+    /// read-write - Data byte 1 of Rx/Tx frame.
     uint32_t DATA_BYTE_14 : 8;
+    /// read-write - Data byte 2 of Rx/Tx frame.
     uint32_t DATA_BYTE_13 : 8;
+    /// read-write - Data byte 3 of Rx/Tx frame.
     uint32_t DATA_BYTE_12 : 8;
   } bits;
   
@@ -15871,8 +19327,11 @@ union MB36_8B_ID {
   
   // Bit field definition.
   struct {
+    /// read-write - Contains extended (LOW word) identifier of message buffer.
     uint32_t EXT : 18;
+    /// read-write - Contains standard/extended (HIGH word) identifier of message buffer.
     uint32_t STD : 11;
+    /// read-write - Local priority. This 3-bit fieldis only used when LPRIO_EN bit is set in MCR and it only makes sense for Tx buffers. These bits are not transmitted. They are appended to the regular ID to define the transmission priority.
     uint32_t PRIO : 3;
   } bits;
   
@@ -15890,9 +19349,13 @@ union MB1_32B_WORD6_H {
   
   // Bit field definition.
   struct {
+    /// read-write - Data byte 0 of Rx/Tx frame.
     uint32_t DATA_BYTE_27 : 8;
+    /// read-write - Data byte 1 of Rx/Tx frame.
     uint32_t DATA_BYTE_26 : 8;
+    /// read-write - Data byte 2 of Rx/Tx frame.
     uint32_t DATA_BYTE_25 : 8;
+    /// read-write - Data byte 3 of Rx/Tx frame.
     uint32_t DATA_BYTE_24 : 8;
   } bits;
   
@@ -15910,16 +19373,25 @@ union MB1_64B_CS_H {
   
   // Bit field definition.
   struct {
+    /// read-write - Free-Running Counter Time stamp. This 16-bit field is a copy of the Free-Running Timer, captured for Tx and Rx frames at the time when the beginning of the Identifier field appears on the CAN bus.
     uint32_t TIME_STAMP : 16;
+    /// read-write - Length of the data to be stored/transmitted.
     uint32_t DLC : 4;
+    /// read-write - Remote Transmission Request. One/zero for remote/data frame.
     uint32_t RTR : 1;
+    /// read-write - ID Extended. One/zero for extended/standard format frame.
     uint32_t IDE : 1;
+    /// read-write - Substitute Remote Request. Contains a fixed recessive bit.
     uint32_t SRR : 1;
     uint32_t _reserved_0 : 1;
+    /// read-write - Message Buffer Code. This 4-bit field can be accessed (read or write) by the CPU and by the FlexCAN module itself, as part of the message buffer matching and arbitration process.
     uint32_t CODE : 4;
     uint32_t _reserved_1 : 1;
+    /// read-write - Error State Indicator. This bit indicates if the transmitting node is error active or error passive.
     uint32_t ESI : 1;
+    /// read-write - Bit Rate Switch. This bit defines whether the bit rate is switched inside a CAN FD format frame.
     uint32_t BRS : 1;
+    /// read-write - Extended Data Length. This bit distinguishes between CAN format and CAN FD format frames. The EDL bit must not be set for Message Buffers configured to RANSWER with code field 0b1010.
     uint32_t EDL : 1;
   } bits;
   
@@ -15937,9 +19409,13 @@ union MB36_8B_WORD0 {
   
   // Bit field definition.
   struct {
+    /// read-write - Data byte 0 of Rx/Tx frame.
     uint32_t DATA_BYTE_3 : 8;
+    /// read-write - Data byte 1 of Rx/Tx frame.
     uint32_t DATA_BYTE_2 : 8;
+    /// read-write - Data byte 2 of Rx/Tx frame.
     uint32_t DATA_BYTE_1 : 8;
+    /// read-write - Data byte 3 of Rx/Tx frame.
     uint32_t DATA_BYTE_0 : 8;
   } bits;
   
@@ -15957,16 +19433,25 @@ union MB3_16B_CS_H {
   
   // Bit field definition.
   struct {
+    /// read-write - Free-Running Counter Time stamp. This 16-bit field is a copy of the Free-Running Timer, captured for Tx and Rx frames at the time when the beginning of the Identifier field appears on the CAN bus.
     uint32_t TIME_STAMP : 16;
+    /// read-write - Length of the data to be stored/transmitted.
     uint32_t DLC : 4;
+    /// read-write - Remote Transmission Request. One/zero for remote/data frame.
     uint32_t RTR : 1;
+    /// read-write - ID Extended. One/zero for extended/standard format frame.
     uint32_t IDE : 1;
+    /// read-write - Substitute Remote Request. Contains a fixed recessive bit.
     uint32_t SRR : 1;
     uint32_t _reserved_0 : 1;
+    /// read-write - Message Buffer Code. This 4-bit field can be accessed (read or write) by the CPU and by the FlexCAN module itself, as part of the message buffer matching and arbitration process.
     uint32_t CODE : 4;
     uint32_t _reserved_1 : 1;
+    /// read-write - Error State Indicator. This bit indicates if the transmitting node is error active or error passive.
     uint32_t ESI : 1;
+    /// read-write - Bit Rate Switch. This bit defines whether the bit rate is switched inside a CAN FD format frame.
     uint32_t BRS : 1;
+    /// read-write - Extended Data Length. This bit distinguishes between CAN format and CAN FD format frames. The EDL bit must not be set for Message Buffers configured to RANSWER with code field 0b1010.
     uint32_t EDL : 1;
   } bits;
   
@@ -15984,9 +19469,13 @@ union WORD036 {
   
   // Bit field definition.
   struct {
+    /// read-write - Data byte 0 of Rx/Tx frame.
     uint32_t DATA_BYTE_3 : 8;
+    /// read-write - Data byte 1 of Rx/Tx frame.
     uint32_t DATA_BYTE_2 : 8;
+    /// read-write - Data byte 2 of Rx/Tx frame.
     uint32_t DATA_BYTE_1 : 8;
+    /// read-write - Data byte 3 of Rx/Tx frame.
     uint32_t DATA_BYTE_0 : 8;
   } bits;
   
@@ -16004,9 +19493,13 @@ union MB1_32B_WORD7_H {
   
   // Bit field definition.
   struct {
+    /// read-write - Data byte 0 of Rx/Tx frame.
     uint32_t DATA_BYTE_31 : 8;
+    /// read-write - Data byte 1 of Rx/Tx frame.
     uint32_t DATA_BYTE_30 : 8;
+    /// read-write - Data byte 2 of Rx/Tx frame.
     uint32_t DATA_BYTE_29 : 8;
+    /// read-write - Data byte 3 of Rx/Tx frame.
     uint32_t DATA_BYTE_28 : 8;
   } bits;
   
@@ -16024,8 +19517,11 @@ union MB1_64B_ID_H {
   
   // Bit field definition.
   struct {
+    /// read-write - Contains extended (LOW word) identifier of message buffer.
     uint32_t EXT : 18;
+    /// read-write - Contains standard/extended (HIGH word) identifier of message buffer.
     uint32_t STD : 11;
+    /// read-write - Local priority. This 3-bit fieldis only used when LPRIO_EN bit is set in MCR and it only makes sense for Tx buffers. These bits are not transmitted. They are appended to the regular ID to define the transmission priority.
     uint32_t PRIO : 3;
   } bits;
   
@@ -16043,9 +19539,13 @@ union MB36_8B_WORD1 {
   
   // Bit field definition.
   struct {
+    /// read-write - Data byte 0 of Rx/Tx frame.
     uint32_t DATA_BYTE_7 : 8;
+    /// read-write - Data byte 1 of Rx/Tx frame.
     uint32_t DATA_BYTE_6 : 8;
+    /// read-write - Data byte 2 of Rx/Tx frame.
     uint32_t DATA_BYTE_5 : 8;
+    /// read-write - Data byte 3 of Rx/Tx frame.
     uint32_t DATA_BYTE_4 : 8;
   } bits;
   
@@ -16063,8 +19563,11 @@ union MB3_16B_ID_H {
   
   // Bit field definition.
   struct {
+    /// read-write - Contains extended (LOW word) identifier of message buffer.
     uint32_t EXT : 18;
+    /// read-write - Contains standard/extended (HIGH word) identifier of message buffer.
     uint32_t STD : 11;
+    /// read-write - Local priority. This 3-bit fieldis only used when LPRIO_EN bit is set in MCR and it only makes sense for Tx buffers. These bits are not transmitted. They are appended to the regular ID to define the transmission priority.
     uint32_t PRIO : 3;
   } bits;
   
@@ -16082,9 +19585,13 @@ union WORD136 {
   
   // Bit field definition.
   struct {
+    /// read-write - Data byte 0 of Rx/Tx frame.
     uint32_t DATA_BYTE_7 : 8;
+    /// read-write - Data byte 1 of Rx/Tx frame.
     uint32_t DATA_BYTE_6 : 8;
+    /// read-write - Data byte 2 of Rx/Tx frame.
     uint32_t DATA_BYTE_5 : 8;
+    /// read-write - Data byte 3 of Rx/Tx frame.
     uint32_t DATA_BYTE_4 : 8;
   } bits;
   
@@ -16102,16 +19609,25 @@ union CS37 {
   
   // Bit field definition.
   struct {
+    /// read-write - Free-Running Counter Time stamp. This 16-bit field is a copy of the Free-Running Timer, captured for Tx and Rx frames at the time when the beginning of the Identifier field appears on the CAN bus.
     uint32_t TIME_STAMP : 16;
+    /// read-write - Length of the data to be stored/transmitted.
     uint32_t DLC : 4;
+    /// read-write - Remote Transmission Request. One/zero for remote/data frame.
     uint32_t RTR : 1;
+    /// read-write - ID Extended. One/zero for extended/standard format frame.
     uint32_t IDE : 1;
+    /// read-write - Substitute Remote Request. Contains a fixed recessive bit.
     uint32_t SRR : 1;
     uint32_t _reserved_0 : 1;
+    /// read-write - Message Buffer Code. This 4-bit field can be accessed (read or write) by the CPU and by the FlexCAN module itself, as part of the message buffer matching and arbitration process.
     uint32_t CODE : 4;
     uint32_t _reserved_1 : 1;
+    /// read-write - Error State Indicator. This bit indicates if the transmitting node is error active or error passive.
     uint32_t ESI : 1;
+    /// read-write - Bit Rate Switch. This bit defines whether the bit rate is switched inside a CAN FD format frame.
     uint32_t BRS : 1;
+    /// read-write - Extended Data Length. This bit distinguishes between CAN format and CAN FD format frames. The EDL bit must not be set for Message Buffers configured to RANSWER with code field 0b1010.
     uint32_t EDL : 1;
   } bits;
   
@@ -16129,9 +19645,13 @@ union MB1_64B_WORD0_H {
   
   // Bit field definition.
   struct {
+    /// read-write - Data byte 0 of Rx/Tx frame.
     uint32_t DATA_BYTE_3 : 8;
+    /// read-write - Data byte 1 of Rx/Tx frame.
     uint32_t DATA_BYTE_2 : 8;
+    /// read-write - Data byte 2 of Rx/Tx frame.
     uint32_t DATA_BYTE_1 : 8;
+    /// read-write - Data byte 3 of Rx/Tx frame.
     uint32_t DATA_BYTE_0 : 8;
   } bits;
   
@@ -16149,16 +19669,25 @@ union MB2_32B_CS_H {
   
   // Bit field definition.
   struct {
+    /// read-write - Free-Running Counter Time stamp. This 16-bit field is a copy of the Free-Running Timer, captured for Tx and Rx frames at the time when the beginning of the Identifier field appears on the CAN bus.
     uint32_t TIME_STAMP : 16;
+    /// read-write - Length of the data to be stored/transmitted.
     uint32_t DLC : 4;
+    /// read-write - Remote Transmission Request. One/zero for remote/data frame.
     uint32_t RTR : 1;
+    /// read-write - ID Extended. One/zero for extended/standard format frame.
     uint32_t IDE : 1;
+    /// read-write - Substitute Remote Request. Contains a fixed recessive bit.
     uint32_t SRR : 1;
     uint32_t _reserved_0 : 1;
+    /// read-write - Message Buffer Code. This 4-bit field can be accessed (read or write) by the CPU and by the FlexCAN module itself, as part of the message buffer matching and arbitration process.
     uint32_t CODE : 4;
     uint32_t _reserved_1 : 1;
+    /// read-write - Error State Indicator. This bit indicates if the transmitting node is error active or error passive.
     uint32_t ESI : 1;
+    /// read-write - Bit Rate Switch. This bit defines whether the bit rate is switched inside a CAN FD format frame.
     uint32_t BRS : 1;
+    /// read-write - Extended Data Length. This bit distinguishes between CAN format and CAN FD format frames. The EDL bit must not be set for Message Buffers configured to RANSWER with code field 0b1010.
     uint32_t EDL : 1;
   } bits;
   
@@ -16176,16 +19705,25 @@ union MB37_8B_CS {
   
   // Bit field definition.
   struct {
+    /// read-write - Free-Running Counter Time stamp. This 16-bit field is a copy of the Free-Running Timer, captured for Tx and Rx frames at the time when the beginning of the Identifier field appears on the CAN bus.
     uint32_t TIME_STAMP : 16;
+    /// read-write - Length of the data to be stored/transmitted.
     uint32_t DLC : 4;
+    /// read-write - Remote Transmission Request. One/zero for remote/data frame.
     uint32_t RTR : 1;
+    /// read-write - ID Extended. One/zero for extended/standard format frame.
     uint32_t IDE : 1;
+    /// read-write - Substitute Remote Request. Contains a fixed recessive bit.
     uint32_t SRR : 1;
     uint32_t _reserved_0 : 1;
+    /// read-write - Message Buffer Code. This 4-bit field can be accessed (read or write) by the CPU and by the FlexCAN module itself, as part of the message buffer matching and arbitration process.
     uint32_t CODE : 4;
     uint32_t _reserved_1 : 1;
+    /// read-write - Error State Indicator. This bit indicates if the transmitting node is error active or error passive.
     uint32_t ESI : 1;
+    /// read-write - Bit Rate Switch. This bit defines whether the bit rate is switched inside a CAN FD format frame.
     uint32_t BRS : 1;
+    /// read-write - Extended Data Length. This bit distinguishes between CAN format and CAN FD format frames. The EDL bit must not be set for Message Buffers configured to RANSWER with code field 0b1010.
     uint32_t EDL : 1;
   } bits;
   
@@ -16203,9 +19741,13 @@ union MB3_16B_WORD0_H {
   
   // Bit field definition.
   struct {
+    /// read-write - Data byte 0 of Rx/Tx frame.
     uint32_t DATA_BYTE_3 : 8;
+    /// read-write - Data byte 1 of Rx/Tx frame.
     uint32_t DATA_BYTE_2 : 8;
+    /// read-write - Data byte 2 of Rx/Tx frame.
     uint32_t DATA_BYTE_1 : 8;
+    /// read-write - Data byte 3 of Rx/Tx frame.
     uint32_t DATA_BYTE_0 : 8;
   } bits;
   
@@ -16223,8 +19765,11 @@ union ID37 {
   
   // Bit field definition.
   struct {
+    /// read-write - Contains extended (LOW word) identifier of message buffer.
     uint32_t EXT : 18;
+    /// read-write - Contains standard/extended (HIGH word) identifier of message buffer.
     uint32_t STD : 11;
+    /// read-write - Local priority. This 3-bit fieldis only used when LPRIO_EN bit is set in MCR and it only makes sense for Tx buffers. These bits are not transmitted. They are appended to the regular ID to define the transmission priority.
     uint32_t PRIO : 3;
   } bits;
   
@@ -16242,9 +19787,13 @@ union MB1_64B_WORD1_H {
   
   // Bit field definition.
   struct {
+    /// read-write - Data byte 0 of Rx/Tx frame.
     uint32_t DATA_BYTE_7 : 8;
+    /// read-write - Data byte 1 of Rx/Tx frame.
     uint32_t DATA_BYTE_6 : 8;
+    /// read-write - Data byte 2 of Rx/Tx frame.
     uint32_t DATA_BYTE_5 : 8;
+    /// read-write - Data byte 3 of Rx/Tx frame.
     uint32_t DATA_BYTE_4 : 8;
   } bits;
   
@@ -16262,8 +19811,11 @@ union MB2_32B_ID_H {
   
   // Bit field definition.
   struct {
+    /// read-write - Contains extended (LOW word) identifier of message buffer.
     uint32_t EXT : 18;
+    /// read-write - Contains standard/extended (HIGH word) identifier of message buffer.
     uint32_t STD : 11;
+    /// read-write - Local priority. This 3-bit fieldis only used when LPRIO_EN bit is set in MCR and it only makes sense for Tx buffers. These bits are not transmitted. They are appended to the regular ID to define the transmission priority.
     uint32_t PRIO : 3;
   } bits;
   
@@ -16281,8 +19833,11 @@ union MB37_8B_ID {
   
   // Bit field definition.
   struct {
+    /// read-write - Contains extended (LOW word) identifier of message buffer.
     uint32_t EXT : 18;
+    /// read-write - Contains standard/extended (HIGH word) identifier of message buffer.
     uint32_t STD : 11;
+    /// read-write - Local priority. This 3-bit fieldis only used when LPRIO_EN bit is set in MCR and it only makes sense for Tx buffers. These bits are not transmitted. They are appended to the regular ID to define the transmission priority.
     uint32_t PRIO : 3;
   } bits;
   
@@ -16300,9 +19855,13 @@ union MB3_16B_WORD1_H {
   
   // Bit field definition.
   struct {
+    /// read-write - Data byte 0 of Rx/Tx frame.
     uint32_t DATA_BYTE_7 : 8;
+    /// read-write - Data byte 1 of Rx/Tx frame.
     uint32_t DATA_BYTE_6 : 8;
+    /// read-write - Data byte 2 of Rx/Tx frame.
     uint32_t DATA_BYTE_5 : 8;
+    /// read-write - Data byte 3 of Rx/Tx frame.
     uint32_t DATA_BYTE_4 : 8;
   } bits;
   
@@ -16320,9 +19879,13 @@ union MB1_64B_WORD2_H {
   
   // Bit field definition.
   struct {
+    /// read-write - Data byte 0 of Rx/Tx frame.
     uint32_t DATA_BYTE_11 : 8;
+    /// read-write - Data byte 1 of Rx/Tx frame.
     uint32_t DATA_BYTE_10 : 8;
+    /// read-write - Data byte 2 of Rx/Tx frame.
     uint32_t DATA_BYTE_9 : 8;
+    /// read-write - Data byte 3 of Rx/Tx frame.
     uint32_t DATA_BYTE_8 : 8;
   } bits;
   
@@ -16340,9 +19903,13 @@ union MB2_32B_WORD0_H {
   
   // Bit field definition.
   struct {
+    /// read-write - Data byte 0 of Rx/Tx frame.
     uint32_t DATA_BYTE_3 : 8;
+    /// read-write - Data byte 1 of Rx/Tx frame.
     uint32_t DATA_BYTE_2 : 8;
+    /// read-write - Data byte 2 of Rx/Tx frame.
     uint32_t DATA_BYTE_1 : 8;
+    /// read-write - Data byte 3 of Rx/Tx frame.
     uint32_t DATA_BYTE_0 : 8;
   } bits;
   
@@ -16360,9 +19927,13 @@ union MB37_8B_WORD0 {
   
   // Bit field definition.
   struct {
+    /// read-write - Data byte 0 of Rx/Tx frame.
     uint32_t DATA_BYTE_3 : 8;
+    /// read-write - Data byte 1 of Rx/Tx frame.
     uint32_t DATA_BYTE_2 : 8;
+    /// read-write - Data byte 2 of Rx/Tx frame.
     uint32_t DATA_BYTE_1 : 8;
+    /// read-write - Data byte 3 of Rx/Tx frame.
     uint32_t DATA_BYTE_0 : 8;
   } bits;
   
@@ -16380,9 +19951,13 @@ union MB3_16B_WORD2_H {
   
   // Bit field definition.
   struct {
+    /// read-write - Data byte 0 of Rx/Tx frame.
     uint32_t DATA_BYTE_11 : 8;
+    /// read-write - Data byte 1 of Rx/Tx frame.
     uint32_t DATA_BYTE_10 : 8;
+    /// read-write - Data byte 2 of Rx/Tx frame.
     uint32_t DATA_BYTE_9 : 8;
+    /// read-write - Data byte 3 of Rx/Tx frame.
     uint32_t DATA_BYTE_8 : 8;
   } bits;
   
@@ -16400,9 +19975,13 @@ union WORD037 {
   
   // Bit field definition.
   struct {
+    /// read-write - Data byte 0 of Rx/Tx frame.
     uint32_t DATA_BYTE_3 : 8;
+    /// read-write - Data byte 1 of Rx/Tx frame.
     uint32_t DATA_BYTE_2 : 8;
+    /// read-write - Data byte 2 of Rx/Tx frame.
     uint32_t DATA_BYTE_1 : 8;
+    /// read-write - Data byte 3 of Rx/Tx frame.
     uint32_t DATA_BYTE_0 : 8;
   } bits;
   
@@ -16420,9 +19999,13 @@ union MB1_64B_WORD3_H {
   
   // Bit field definition.
   struct {
+    /// read-write - Data byte 0 of Rx/Tx frame.
     uint32_t DATA_BYTE_15 : 8;
+    /// read-write - Data byte 1 of Rx/Tx frame.
     uint32_t DATA_BYTE_14 : 8;
+    /// read-write - Data byte 2 of Rx/Tx frame.
     uint32_t DATA_BYTE_13 : 8;
+    /// read-write - Data byte 3 of Rx/Tx frame.
     uint32_t DATA_BYTE_12 : 8;
   } bits;
   
@@ -16440,9 +20023,13 @@ union MB2_32B_WORD1_H {
   
   // Bit field definition.
   struct {
+    /// read-write - Data byte 0 of Rx/Tx frame.
     uint32_t DATA_BYTE_7 : 8;
+    /// read-write - Data byte 1 of Rx/Tx frame.
     uint32_t DATA_BYTE_6 : 8;
+    /// read-write - Data byte 2 of Rx/Tx frame.
     uint32_t DATA_BYTE_5 : 8;
+    /// read-write - Data byte 3 of Rx/Tx frame.
     uint32_t DATA_BYTE_4 : 8;
   } bits;
   
@@ -16460,9 +20047,13 @@ union MB37_8B_WORD1 {
   
   // Bit field definition.
   struct {
+    /// read-write - Data byte 0 of Rx/Tx frame.
     uint32_t DATA_BYTE_7 : 8;
+    /// read-write - Data byte 1 of Rx/Tx frame.
     uint32_t DATA_BYTE_6 : 8;
+    /// read-write - Data byte 2 of Rx/Tx frame.
     uint32_t DATA_BYTE_5 : 8;
+    /// read-write - Data byte 3 of Rx/Tx frame.
     uint32_t DATA_BYTE_4 : 8;
   } bits;
   
@@ -16480,9 +20071,13 @@ union MB3_16B_WORD3_H {
   
   // Bit field definition.
   struct {
+    /// read-write - Data byte 0 of Rx/Tx frame.
     uint32_t DATA_BYTE_15 : 8;
+    /// read-write - Data byte 1 of Rx/Tx frame.
     uint32_t DATA_BYTE_14 : 8;
+    /// read-write - Data byte 2 of Rx/Tx frame.
     uint32_t DATA_BYTE_13 : 8;
+    /// read-write - Data byte 3 of Rx/Tx frame.
     uint32_t DATA_BYTE_12 : 8;
   } bits;
   
@@ -16500,9 +20095,13 @@ union WORD137 {
   
   // Bit field definition.
   struct {
+    /// read-write - Data byte 0 of Rx/Tx frame.
     uint32_t DATA_BYTE_7 : 8;
+    /// read-write - Data byte 1 of Rx/Tx frame.
     uint32_t DATA_BYTE_6 : 8;
+    /// read-write - Data byte 2 of Rx/Tx frame.
     uint32_t DATA_BYTE_5 : 8;
+    /// read-write - Data byte 3 of Rx/Tx frame.
     uint32_t DATA_BYTE_4 : 8;
   } bits;
   
@@ -16520,16 +20119,25 @@ union CS38 {
   
   // Bit field definition.
   struct {
+    /// read-write - Free-Running Counter Time stamp. This 16-bit field is a copy of the Free-Running Timer, captured for Tx and Rx frames at the time when the beginning of the Identifier field appears on the CAN bus.
     uint32_t TIME_STAMP : 16;
+    /// read-write - Length of the data to be stored/transmitted.
     uint32_t DLC : 4;
+    /// read-write - Remote Transmission Request. One/zero for remote/data frame.
     uint32_t RTR : 1;
+    /// read-write - ID Extended. One/zero for extended/standard format frame.
     uint32_t IDE : 1;
+    /// read-write - Substitute Remote Request. Contains a fixed recessive bit.
     uint32_t SRR : 1;
     uint32_t _reserved_0 : 1;
+    /// read-write - Message Buffer Code. This 4-bit field can be accessed (read or write) by the CPU and by the FlexCAN module itself, as part of the message buffer matching and arbitration process.
     uint32_t CODE : 4;
     uint32_t _reserved_1 : 1;
+    /// read-write - Error State Indicator. This bit indicates if the transmitting node is error active or error passive.
     uint32_t ESI : 1;
+    /// read-write - Bit Rate Switch. This bit defines whether the bit rate is switched inside a CAN FD format frame.
     uint32_t BRS : 1;
+    /// read-write - Extended Data Length. This bit distinguishes between CAN format and CAN FD format frames. The EDL bit must not be set for Message Buffers configured to RANSWER with code field 0b1010.
     uint32_t EDL : 1;
   } bits;
   
@@ -16547,9 +20155,13 @@ union MB1_64B_WORD4_H {
   
   // Bit field definition.
   struct {
+    /// read-write - Data byte 0 of Rx/Tx frame.
     uint32_t DATA_BYTE_19 : 8;
+    /// read-write - Data byte 1 of Rx/Tx frame.
     uint32_t DATA_BYTE_18 : 8;
+    /// read-write - Data byte 2 of Rx/Tx frame.
     uint32_t DATA_BYTE_17 : 8;
+    /// read-write - Data byte 3 of Rx/Tx frame.
     uint32_t DATA_BYTE_16 : 8;
   } bits;
   
@@ -16567,9 +20179,13 @@ union MB2_32B_WORD2_H {
   
   // Bit field definition.
   struct {
+    /// read-write - Data byte 0 of Rx/Tx frame.
     uint32_t DATA_BYTE_11 : 8;
+    /// read-write - Data byte 1 of Rx/Tx frame.
     uint32_t DATA_BYTE_10 : 8;
+    /// read-write - Data byte 2 of Rx/Tx frame.
     uint32_t DATA_BYTE_9 : 8;
+    /// read-write - Data byte 3 of Rx/Tx frame.
     uint32_t DATA_BYTE_8 : 8;
   } bits;
   
@@ -16587,16 +20203,25 @@ union MB38_8B_CS {
   
   // Bit field definition.
   struct {
+    /// read-write - Free-Running Counter Time stamp. This 16-bit field is a copy of the Free-Running Timer, captured for Tx and Rx frames at the time when the beginning of the Identifier field appears on the CAN bus.
     uint32_t TIME_STAMP : 16;
+    /// read-write - Length of the data to be stored/transmitted.
     uint32_t DLC : 4;
+    /// read-write - Remote Transmission Request. One/zero for remote/data frame.
     uint32_t RTR : 1;
+    /// read-write - ID Extended. One/zero for extended/standard format frame.
     uint32_t IDE : 1;
+    /// read-write - Substitute Remote Request. Contains a fixed recessive bit.
     uint32_t SRR : 1;
     uint32_t _reserved_0 : 1;
+    /// read-write - Message Buffer Code. This 4-bit field can be accessed (read or write) by the CPU and by the FlexCAN module itself, as part of the message buffer matching and arbitration process.
     uint32_t CODE : 4;
     uint32_t _reserved_1 : 1;
+    /// read-write - Error State Indicator. This bit indicates if the transmitting node is error active or error passive.
     uint32_t ESI : 1;
+    /// read-write - Bit Rate Switch. This bit defines whether the bit rate is switched inside a CAN FD format frame.
     uint32_t BRS : 1;
+    /// read-write - Extended Data Length. This bit distinguishes between CAN format and CAN FD format frames. The EDL bit must not be set for Message Buffers configured to RANSWER with code field 0b1010.
     uint32_t EDL : 1;
   } bits;
   
@@ -16614,16 +20239,25 @@ union MB4_16B_CS_H {
   
   // Bit field definition.
   struct {
+    /// read-write - Free-Running Counter Time stamp. This 16-bit field is a copy of the Free-Running Timer, captured for Tx and Rx frames at the time when the beginning of the Identifier field appears on the CAN bus.
     uint32_t TIME_STAMP : 16;
+    /// read-write - Length of the data to be stored/transmitted.
     uint32_t DLC : 4;
+    /// read-write - Remote Transmission Request. One/zero for remote/data frame.
     uint32_t RTR : 1;
+    /// read-write - ID Extended. One/zero for extended/standard format frame.
     uint32_t IDE : 1;
+    /// read-write - Substitute Remote Request. Contains a fixed recessive bit.
     uint32_t SRR : 1;
     uint32_t _reserved_0 : 1;
+    /// read-write - Message Buffer Code. This 4-bit field can be accessed (read or write) by the CPU and by the FlexCAN module itself, as part of the message buffer matching and arbitration process.
     uint32_t CODE : 4;
     uint32_t _reserved_1 : 1;
+    /// read-write - Error State Indicator. This bit indicates if the transmitting node is error active or error passive.
     uint32_t ESI : 1;
+    /// read-write - Bit Rate Switch. This bit defines whether the bit rate is switched inside a CAN FD format frame.
     uint32_t BRS : 1;
+    /// read-write - Extended Data Length. This bit distinguishes between CAN format and CAN FD format frames. The EDL bit must not be set for Message Buffers configured to RANSWER with code field 0b1010.
     uint32_t EDL : 1;
   } bits;
   
@@ -16641,8 +20275,11 @@ union ID38 {
   
   // Bit field definition.
   struct {
+    /// read-write - Contains extended (LOW word) identifier of message buffer.
     uint32_t EXT : 18;
+    /// read-write - Contains standard/extended (HIGH word) identifier of message buffer.
     uint32_t STD : 11;
+    /// read-write - Local priority. This 3-bit fieldis only used when LPRIO_EN bit is set in MCR and it only makes sense for Tx buffers. These bits are not transmitted. They are appended to the regular ID to define the transmission priority.
     uint32_t PRIO : 3;
   } bits;
   
@@ -16660,9 +20297,13 @@ union MB1_64B_WORD5_H {
   
   // Bit field definition.
   struct {
+    /// read-write - Data byte 0 of Rx/Tx frame.
     uint32_t DATA_BYTE_23 : 8;
+    /// read-write - Data byte 1 of Rx/Tx frame.
     uint32_t DATA_BYTE_22 : 8;
+    /// read-write - Data byte 2 of Rx/Tx frame.
     uint32_t DATA_BYTE_21 : 8;
+    /// read-write - Data byte 3 of Rx/Tx frame.
     uint32_t DATA_BYTE_20 : 8;
   } bits;
   
@@ -16680,9 +20321,13 @@ union MB2_32B_WORD3_H {
   
   // Bit field definition.
   struct {
+    /// read-write - Data byte 0 of Rx/Tx frame.
     uint32_t DATA_BYTE_15 : 8;
+    /// read-write - Data byte 1 of Rx/Tx frame.
     uint32_t DATA_BYTE_14 : 8;
+    /// read-write - Data byte 2 of Rx/Tx frame.
     uint32_t DATA_BYTE_13 : 8;
+    /// read-write - Data byte 3 of Rx/Tx frame.
     uint32_t DATA_BYTE_12 : 8;
   } bits;
   
@@ -16700,8 +20345,11 @@ union MB38_8B_ID {
   
   // Bit field definition.
   struct {
+    /// read-write - Contains extended (LOW word) identifier of message buffer.
     uint32_t EXT : 18;
+    /// read-write - Contains standard/extended (HIGH word) identifier of message buffer.
     uint32_t STD : 11;
+    /// read-write - Local priority. This 3-bit fieldis only used when LPRIO_EN bit is set in MCR and it only makes sense for Tx buffers. These bits are not transmitted. They are appended to the regular ID to define the transmission priority.
     uint32_t PRIO : 3;
   } bits;
   
@@ -16719,8 +20367,11 @@ union MB4_16B_ID_H {
   
   // Bit field definition.
   struct {
+    /// read-write - Contains extended (LOW word) identifier of message buffer.
     uint32_t EXT : 18;
+    /// read-write - Contains standard/extended (HIGH word) identifier of message buffer.
     uint32_t STD : 11;
+    /// read-write - Local priority. This 3-bit fieldis only used when LPRIO_EN bit is set in MCR and it only makes sense for Tx buffers. These bits are not transmitted. They are appended to the regular ID to define the transmission priority.
     uint32_t PRIO : 3;
   } bits;
   
@@ -16738,9 +20389,13 @@ union MB1_64B_WORD6_H {
   
   // Bit field definition.
   struct {
+    /// read-write - Data byte 0 of Rx/Tx frame.
     uint32_t DATA_BYTE_27 : 8;
+    /// read-write - Data byte 1 of Rx/Tx frame.
     uint32_t DATA_BYTE_26 : 8;
+    /// read-write - Data byte 2 of Rx/Tx frame.
     uint32_t DATA_BYTE_25 : 8;
+    /// read-write - Data byte 3 of Rx/Tx frame.
     uint32_t DATA_BYTE_24 : 8;
   } bits;
   
@@ -16758,9 +20413,13 @@ union MB2_32B_WORD4_H {
   
   // Bit field definition.
   struct {
+    /// read-write - Data byte 0 of Rx/Tx frame.
     uint32_t DATA_BYTE_19 : 8;
+    /// read-write - Data byte 1 of Rx/Tx frame.
     uint32_t DATA_BYTE_18 : 8;
+    /// read-write - Data byte 2 of Rx/Tx frame.
     uint32_t DATA_BYTE_17 : 8;
+    /// read-write - Data byte 3 of Rx/Tx frame.
     uint32_t DATA_BYTE_16 : 8;
   } bits;
   
@@ -16778,9 +20437,13 @@ union MB38_8B_WORD0 {
   
   // Bit field definition.
   struct {
+    /// read-write - Data byte 0 of Rx/Tx frame.
     uint32_t DATA_BYTE_3 : 8;
+    /// read-write - Data byte 1 of Rx/Tx frame.
     uint32_t DATA_BYTE_2 : 8;
+    /// read-write - Data byte 2 of Rx/Tx frame.
     uint32_t DATA_BYTE_1 : 8;
+    /// read-write - Data byte 3 of Rx/Tx frame.
     uint32_t DATA_BYTE_0 : 8;
   } bits;
   
@@ -16798,9 +20461,13 @@ union MB4_16B_WORD0_H {
   
   // Bit field definition.
   struct {
+    /// read-write - Data byte 0 of Rx/Tx frame.
     uint32_t DATA_BYTE_3 : 8;
+    /// read-write - Data byte 1 of Rx/Tx frame.
     uint32_t DATA_BYTE_2 : 8;
+    /// read-write - Data byte 2 of Rx/Tx frame.
     uint32_t DATA_BYTE_1 : 8;
+    /// read-write - Data byte 3 of Rx/Tx frame.
     uint32_t DATA_BYTE_0 : 8;
   } bits;
   
@@ -16818,9 +20485,13 @@ union WORD038 {
   
   // Bit field definition.
   struct {
+    /// read-write - Data byte 0 of Rx/Tx frame.
     uint32_t DATA_BYTE_3 : 8;
+    /// read-write - Data byte 1 of Rx/Tx frame.
     uint32_t DATA_BYTE_2 : 8;
+    /// read-write - Data byte 2 of Rx/Tx frame.
     uint32_t DATA_BYTE_1 : 8;
+    /// read-write - Data byte 3 of Rx/Tx frame.
     uint32_t DATA_BYTE_0 : 8;
   } bits;
   
@@ -16838,9 +20509,13 @@ union MB1_64B_WORD7_H {
   
   // Bit field definition.
   struct {
+    /// read-write - Data byte 0 of Rx/Tx frame.
     uint32_t DATA_BYTE_31 : 8;
+    /// read-write - Data byte 1 of Rx/Tx frame.
     uint32_t DATA_BYTE_30 : 8;
+    /// read-write - Data byte 2 of Rx/Tx frame.
     uint32_t DATA_BYTE_29 : 8;
+    /// read-write - Data byte 3 of Rx/Tx frame.
     uint32_t DATA_BYTE_28 : 8;
   } bits;
   
@@ -16858,9 +20533,13 @@ union MB2_32B_WORD5_H {
   
   // Bit field definition.
   struct {
+    /// read-write - Data byte 0 of Rx/Tx frame.
     uint32_t DATA_BYTE_23 : 8;
+    /// read-write - Data byte 1 of Rx/Tx frame.
     uint32_t DATA_BYTE_22 : 8;
+    /// read-write - Data byte 2 of Rx/Tx frame.
     uint32_t DATA_BYTE_21 : 8;
+    /// read-write - Data byte 3 of Rx/Tx frame.
     uint32_t DATA_BYTE_20 : 8;
   } bits;
   
@@ -16878,9 +20557,13 @@ union MB38_8B_WORD1 {
   
   // Bit field definition.
   struct {
+    /// read-write - Data byte 0 of Rx/Tx frame.
     uint32_t DATA_BYTE_7 : 8;
+    /// read-write - Data byte 1 of Rx/Tx frame.
     uint32_t DATA_BYTE_6 : 8;
+    /// read-write - Data byte 2 of Rx/Tx frame.
     uint32_t DATA_BYTE_5 : 8;
+    /// read-write - Data byte 3 of Rx/Tx frame.
     uint32_t DATA_BYTE_4 : 8;
   } bits;
   
@@ -16898,9 +20581,13 @@ union MB4_16B_WORD1_H {
   
   // Bit field definition.
   struct {
+    /// read-write - Data byte 0 of Rx/Tx frame.
     uint32_t DATA_BYTE_7 : 8;
+    /// read-write - Data byte 1 of Rx/Tx frame.
     uint32_t DATA_BYTE_6 : 8;
+    /// read-write - Data byte 2 of Rx/Tx frame.
     uint32_t DATA_BYTE_5 : 8;
+    /// read-write - Data byte 3 of Rx/Tx frame.
     uint32_t DATA_BYTE_4 : 8;
   } bits;
   
@@ -16918,9 +20605,13 @@ union WORD138 {
   
   // Bit field definition.
   struct {
+    /// read-write - Data byte 0 of Rx/Tx frame.
     uint32_t DATA_BYTE_7 : 8;
+    /// read-write - Data byte 1 of Rx/Tx frame.
     uint32_t DATA_BYTE_6 : 8;
+    /// read-write - Data byte 2 of Rx/Tx frame.
     uint32_t DATA_BYTE_5 : 8;
+    /// read-write - Data byte 3 of Rx/Tx frame.
     uint32_t DATA_BYTE_4 : 8;
   } bits;
   
@@ -16938,16 +20629,25 @@ union CS39 {
   
   // Bit field definition.
   struct {
+    /// read-write - Free-Running Counter Time stamp. This 16-bit field is a copy of the Free-Running Timer, captured for Tx and Rx frames at the time when the beginning of the Identifier field appears on the CAN bus.
     uint32_t TIME_STAMP : 16;
+    /// read-write - Length of the data to be stored/transmitted.
     uint32_t DLC : 4;
+    /// read-write - Remote Transmission Request. One/zero for remote/data frame.
     uint32_t RTR : 1;
+    /// read-write - ID Extended. One/zero for extended/standard format frame.
     uint32_t IDE : 1;
+    /// read-write - Substitute Remote Request. Contains a fixed recessive bit.
     uint32_t SRR : 1;
     uint32_t _reserved_0 : 1;
+    /// read-write - Message Buffer Code. This 4-bit field can be accessed (read or write) by the CPU and by the FlexCAN module itself, as part of the message buffer matching and arbitration process.
     uint32_t CODE : 4;
     uint32_t _reserved_1 : 1;
+    /// read-write - Error State Indicator. This bit indicates if the transmitting node is error active or error passive.
     uint32_t ESI : 1;
+    /// read-write - Bit Rate Switch. This bit defines whether the bit rate is switched inside a CAN FD format frame.
     uint32_t BRS : 1;
+    /// read-write - Extended Data Length. This bit distinguishes between CAN format and CAN FD format frames. The EDL bit must not be set for Message Buffers configured to RANSWER with code field 0b1010.
     uint32_t EDL : 1;
   } bits;
   
@@ -16965,9 +20665,13 @@ union MB1_64B_WORD8_H {
   
   // Bit field definition.
   struct {
+    /// read-write - Data byte 0 of Rx/Tx frame.
     uint32_t DATA_BYTE_35 : 8;
+    /// read-write - Data byte 1 of Rx/Tx frame.
     uint32_t DATA_BYTE_34 : 8;
+    /// read-write - Data byte 2 of Rx/Tx frame.
     uint32_t DATA_BYTE_33 : 8;
+    /// read-write - Data byte 3 of Rx/Tx frame.
     uint32_t DATA_BYTE_32 : 8;
   } bits;
   
@@ -16985,9 +20689,13 @@ union MB2_32B_WORD6_H {
   
   // Bit field definition.
   struct {
+    /// read-write - Data byte 0 of Rx/Tx frame.
     uint32_t DATA_BYTE_27 : 8;
+    /// read-write - Data byte 1 of Rx/Tx frame.
     uint32_t DATA_BYTE_26 : 8;
+    /// read-write - Data byte 2 of Rx/Tx frame.
     uint32_t DATA_BYTE_25 : 8;
+    /// read-write - Data byte 3 of Rx/Tx frame.
     uint32_t DATA_BYTE_24 : 8;
   } bits;
   
@@ -17005,16 +20713,25 @@ union MB39_8B_CS {
   
   // Bit field definition.
   struct {
+    /// read-write - Free-Running Counter Time stamp. This 16-bit field is a copy of the Free-Running Timer, captured for Tx and Rx frames at the time when the beginning of the Identifier field appears on the CAN bus.
     uint32_t TIME_STAMP : 16;
+    /// read-write - Length of the data to be stored/transmitted.
     uint32_t DLC : 4;
+    /// read-write - Remote Transmission Request. One/zero for remote/data frame.
     uint32_t RTR : 1;
+    /// read-write - ID Extended. One/zero for extended/standard format frame.
     uint32_t IDE : 1;
+    /// read-write - Substitute Remote Request. Contains a fixed recessive bit.
     uint32_t SRR : 1;
     uint32_t _reserved_0 : 1;
+    /// read-write - Message Buffer Code. This 4-bit field can be accessed (read or write) by the CPU and by the FlexCAN module itself, as part of the message buffer matching and arbitration process.
     uint32_t CODE : 4;
     uint32_t _reserved_1 : 1;
+    /// read-write - Error State Indicator. This bit indicates if the transmitting node is error active or error passive.
     uint32_t ESI : 1;
+    /// read-write - Bit Rate Switch. This bit defines whether the bit rate is switched inside a CAN FD format frame.
     uint32_t BRS : 1;
+    /// read-write - Extended Data Length. This bit distinguishes between CAN format and CAN FD format frames. The EDL bit must not be set for Message Buffers configured to RANSWER with code field 0b1010.
     uint32_t EDL : 1;
   } bits;
   
@@ -17032,9 +20749,13 @@ union MB4_16B_WORD2_H {
   
   // Bit field definition.
   struct {
+    /// read-write - Data byte 0 of Rx/Tx frame.
     uint32_t DATA_BYTE_11 : 8;
+    /// read-write - Data byte 1 of Rx/Tx frame.
     uint32_t DATA_BYTE_10 : 8;
+    /// read-write - Data byte 2 of Rx/Tx frame.
     uint32_t DATA_BYTE_9 : 8;
+    /// read-write - Data byte 3 of Rx/Tx frame.
     uint32_t DATA_BYTE_8 : 8;
   } bits;
   
@@ -17052,8 +20773,11 @@ union ID39 {
   
   // Bit field definition.
   struct {
+    /// read-write - Contains extended (LOW word) identifier of message buffer.
     uint32_t EXT : 18;
+    /// read-write - Contains standard/extended (HIGH word) identifier of message buffer.
     uint32_t STD : 11;
+    /// read-write - Local priority. This 3-bit fieldis only used when LPRIO_EN bit is set in MCR and it only makes sense for Tx buffers. These bits are not transmitted. They are appended to the regular ID to define the transmission priority.
     uint32_t PRIO : 3;
   } bits;
   
@@ -17071,9 +20795,13 @@ union MB1_64B_WORD9_H {
   
   // Bit field definition.
   struct {
+    /// read-write - Data byte 0 of Rx/Tx frame.
     uint32_t DATA_BYTE_39 : 8;
+    /// read-write - Data byte 1 of Rx/Tx frame.
     uint32_t DATA_BYTE_38 : 8;
+    /// read-write - Data byte 2 of Rx/Tx frame.
     uint32_t DATA_BYTE_37 : 8;
+    /// read-write - Data byte 3 of Rx/Tx frame.
     uint32_t DATA_BYTE_36 : 8;
   } bits;
   
@@ -17091,9 +20819,13 @@ union MB2_32B_WORD7_H {
   
   // Bit field definition.
   struct {
+    /// read-write - Data byte 0 of Rx/Tx frame.
     uint32_t DATA_BYTE_31 : 8;
+    /// read-write - Data byte 1 of Rx/Tx frame.
     uint32_t DATA_BYTE_30 : 8;
+    /// read-write - Data byte 2 of Rx/Tx frame.
     uint32_t DATA_BYTE_29 : 8;
+    /// read-write - Data byte 3 of Rx/Tx frame.
     uint32_t DATA_BYTE_28 : 8;
   } bits;
   
@@ -17111,8 +20843,11 @@ union MB39_8B_ID {
   
   // Bit field definition.
   struct {
+    /// read-write - Contains extended (LOW word) identifier of message buffer.
     uint32_t EXT : 18;
+    /// read-write - Contains standard/extended (HIGH word) identifier of message buffer.
     uint32_t STD : 11;
+    /// read-write - Local priority. This 3-bit fieldis only used when LPRIO_EN bit is set in MCR and it only makes sense for Tx buffers. These bits are not transmitted. They are appended to the regular ID to define the transmission priority.
     uint32_t PRIO : 3;
   } bits;
   
@@ -17130,9 +20865,13 @@ union MB4_16B_WORD3_H {
   
   // Bit field definition.
   struct {
+    /// read-write - Data byte 0 of Rx/Tx frame.
     uint32_t DATA_BYTE_15 : 8;
+    /// read-write - Data byte 1 of Rx/Tx frame.
     uint32_t DATA_BYTE_14 : 8;
+    /// read-write - Data byte 2 of Rx/Tx frame.
     uint32_t DATA_BYTE_13 : 8;
+    /// read-write - Data byte 3 of Rx/Tx frame.
     uint32_t DATA_BYTE_12 : 8;
   } bits;
   
@@ -17150,9 +20889,13 @@ union MB1_64B_WORD10_H {
   
   // Bit field definition.
   struct {
+    /// read-write - Data byte 0 of Rx/Tx frame.
     uint32_t DATA_BYTE_43 : 8;
+    /// read-write - Data byte 1 of Rx/Tx frame.
     uint32_t DATA_BYTE_42 : 8;
+    /// read-write - Data byte 2 of Rx/Tx frame.
     uint32_t DATA_BYTE_41 : 8;
+    /// read-write - Data byte 3 of Rx/Tx frame.
     uint32_t DATA_BYTE_40 : 8;
   } bits;
   
@@ -17170,9 +20913,13 @@ union MB39_8B_WORD0 {
   
   // Bit field definition.
   struct {
+    /// read-write - Data byte 0 of Rx/Tx frame.
     uint32_t DATA_BYTE_3 : 8;
+    /// read-write - Data byte 1 of Rx/Tx frame.
     uint32_t DATA_BYTE_2 : 8;
+    /// read-write - Data byte 2 of Rx/Tx frame.
     uint32_t DATA_BYTE_1 : 8;
+    /// read-write - Data byte 3 of Rx/Tx frame.
     uint32_t DATA_BYTE_0 : 8;
   } bits;
   
@@ -17190,16 +20937,25 @@ union MB3_32B_CS_H {
   
   // Bit field definition.
   struct {
+    /// read-write - Free-Running Counter Time stamp. This 16-bit field is a copy of the Free-Running Timer, captured for Tx and Rx frames at the time when the beginning of the Identifier field appears on the CAN bus.
     uint32_t TIME_STAMP : 16;
+    /// read-write - Length of the data to be stored/transmitted.
     uint32_t DLC : 4;
+    /// read-write - Remote Transmission Request. One/zero for remote/data frame.
     uint32_t RTR : 1;
+    /// read-write - ID Extended. One/zero for extended/standard format frame.
     uint32_t IDE : 1;
+    /// read-write - Substitute Remote Request. Contains a fixed recessive bit.
     uint32_t SRR : 1;
     uint32_t _reserved_0 : 1;
+    /// read-write - Message Buffer Code. This 4-bit field can be accessed (read or write) by the CPU and by the FlexCAN module itself, as part of the message buffer matching and arbitration process.
     uint32_t CODE : 4;
     uint32_t _reserved_1 : 1;
+    /// read-write - Error State Indicator. This bit indicates if the transmitting node is error active or error passive.
     uint32_t ESI : 1;
+    /// read-write - Bit Rate Switch. This bit defines whether the bit rate is switched inside a CAN FD format frame.
     uint32_t BRS : 1;
+    /// read-write - Extended Data Length. This bit distinguishes between CAN format and CAN FD format frames. The EDL bit must not be set for Message Buffers configured to RANSWER with code field 0b1010.
     uint32_t EDL : 1;
   } bits;
   
@@ -17217,16 +20973,25 @@ union MB5_16B_CS_H {
   
   // Bit field definition.
   struct {
+    /// read-write - Free-Running Counter Time stamp. This 16-bit field is a copy of the Free-Running Timer, captured for Tx and Rx frames at the time when the beginning of the Identifier field appears on the CAN bus.
     uint32_t TIME_STAMP : 16;
+    /// read-write - Length of the data to be stored/transmitted.
     uint32_t DLC : 4;
+    /// read-write - Remote Transmission Request. One/zero for remote/data frame.
     uint32_t RTR : 1;
+    /// read-write - ID Extended. One/zero for extended/standard format frame.
     uint32_t IDE : 1;
+    /// read-write - Substitute Remote Request. Contains a fixed recessive bit.
     uint32_t SRR : 1;
     uint32_t _reserved_0 : 1;
+    /// read-write - Message Buffer Code. This 4-bit field can be accessed (read or write) by the CPU and by the FlexCAN module itself, as part of the message buffer matching and arbitration process.
     uint32_t CODE : 4;
     uint32_t _reserved_1 : 1;
+    /// read-write - Error State Indicator. This bit indicates if the transmitting node is error active or error passive.
     uint32_t ESI : 1;
+    /// read-write - Bit Rate Switch. This bit defines whether the bit rate is switched inside a CAN FD format frame.
     uint32_t BRS : 1;
+    /// read-write - Extended Data Length. This bit distinguishes between CAN format and CAN FD format frames. The EDL bit must not be set for Message Buffers configured to RANSWER with code field 0b1010.
     uint32_t EDL : 1;
   } bits;
   
@@ -17244,9 +21009,13 @@ union WORD039 {
   
   // Bit field definition.
   struct {
+    /// read-write - Data byte 0 of Rx/Tx frame.
     uint32_t DATA_BYTE_3 : 8;
+    /// read-write - Data byte 1 of Rx/Tx frame.
     uint32_t DATA_BYTE_2 : 8;
+    /// read-write - Data byte 2 of Rx/Tx frame.
     uint32_t DATA_BYTE_1 : 8;
+    /// read-write - Data byte 3 of Rx/Tx frame.
     uint32_t DATA_BYTE_0 : 8;
   } bits;
   
@@ -17264,9 +21033,13 @@ union MB1_64B_WORD11_H {
   
   // Bit field definition.
   struct {
+    /// read-write - Data byte 0 of Rx/Tx frame.
     uint32_t DATA_BYTE_47 : 8;
+    /// read-write - Data byte 1 of Rx/Tx frame.
     uint32_t DATA_BYTE_46 : 8;
+    /// read-write - Data byte 2 of Rx/Tx frame.
     uint32_t DATA_BYTE_45 : 8;
+    /// read-write - Data byte 3 of Rx/Tx frame.
     uint32_t DATA_BYTE_44 : 8;
   } bits;
   
@@ -17284,9 +21057,13 @@ union MB39_8B_WORD1 {
   
   // Bit field definition.
   struct {
+    /// read-write - Data byte 0 of Rx/Tx frame.
     uint32_t DATA_BYTE_7 : 8;
+    /// read-write - Data byte 1 of Rx/Tx frame.
     uint32_t DATA_BYTE_6 : 8;
+    /// read-write - Data byte 2 of Rx/Tx frame.
     uint32_t DATA_BYTE_5 : 8;
+    /// read-write - Data byte 3 of Rx/Tx frame.
     uint32_t DATA_BYTE_4 : 8;
   } bits;
   
@@ -17304,8 +21081,11 @@ union MB3_32B_ID_H {
   
   // Bit field definition.
   struct {
+    /// read-write - Contains extended (LOW word) identifier of message buffer.
     uint32_t EXT : 18;
+    /// read-write - Contains standard/extended (HIGH word) identifier of message buffer.
     uint32_t STD : 11;
+    /// read-write - Local priority. This 3-bit fieldis only used when LPRIO_EN bit is set in MCR and it only makes sense for Tx buffers. These bits are not transmitted. They are appended to the regular ID to define the transmission priority.
     uint32_t PRIO : 3;
   } bits;
   
@@ -17323,8 +21103,11 @@ union MB5_16B_ID_H {
   
   // Bit field definition.
   struct {
+    /// read-write - Contains extended (LOW word) identifier of message buffer.
     uint32_t EXT : 18;
+    /// read-write - Contains standard/extended (HIGH word) identifier of message buffer.
     uint32_t STD : 11;
+    /// read-write - Local priority. This 3-bit fieldis only used when LPRIO_EN bit is set in MCR and it only makes sense for Tx buffers. These bits are not transmitted. They are appended to the regular ID to define the transmission priority.
     uint32_t PRIO : 3;
   } bits;
   
@@ -17342,9 +21125,13 @@ union WORD139 {
   
   // Bit field definition.
   struct {
+    /// read-write - Data byte 0 of Rx/Tx frame.
     uint32_t DATA_BYTE_7 : 8;
+    /// read-write - Data byte 1 of Rx/Tx frame.
     uint32_t DATA_BYTE_6 : 8;
+    /// read-write - Data byte 2 of Rx/Tx frame.
     uint32_t DATA_BYTE_5 : 8;
+    /// read-write - Data byte 3 of Rx/Tx frame.
     uint32_t DATA_BYTE_4 : 8;
   } bits;
   
@@ -17362,16 +21149,25 @@ union CS40 {
   
   // Bit field definition.
   struct {
+    /// read-write - Free-Running Counter Time stamp. This 16-bit field is a copy of the Free-Running Timer, captured for Tx and Rx frames at the time when the beginning of the Identifier field appears on the CAN bus.
     uint32_t TIME_STAMP : 16;
+    /// read-write - Length of the data to be stored/transmitted.
     uint32_t DLC : 4;
+    /// read-write - Remote Transmission Request. One/zero for remote/data frame.
     uint32_t RTR : 1;
+    /// read-write - ID Extended. One/zero for extended/standard format frame.
     uint32_t IDE : 1;
+    /// read-write - Substitute Remote Request. Contains a fixed recessive bit.
     uint32_t SRR : 1;
     uint32_t _reserved_0 : 1;
+    /// read-write - Message Buffer Code. This 4-bit field can be accessed (read or write) by the CPU and by the FlexCAN module itself, as part of the message buffer matching and arbitration process.
     uint32_t CODE : 4;
     uint32_t _reserved_1 : 1;
+    /// read-write - Error State Indicator. This bit indicates if the transmitting node is error active or error passive.
     uint32_t ESI : 1;
+    /// read-write - Bit Rate Switch. This bit defines whether the bit rate is switched inside a CAN FD format frame.
     uint32_t BRS : 1;
+    /// read-write - Extended Data Length. This bit distinguishes between CAN format and CAN FD format frames. The EDL bit must not be set for Message Buffers configured to RANSWER with code field 0b1010.
     uint32_t EDL : 1;
   } bits;
   
@@ -17389,9 +21185,13 @@ union MB1_64B_WORD12_H {
   
   // Bit field definition.
   struct {
+    /// read-write - Data byte 0 of Rx/Tx frame.
     uint32_t DATA_BYTE_51 : 8;
+    /// read-write - Data byte 1 of Rx/Tx frame.
     uint32_t DATA_BYTE_50 : 8;
+    /// read-write - Data byte 2 of Rx/Tx frame.
     uint32_t DATA_BYTE_49 : 8;
+    /// read-write - Data byte 3 of Rx/Tx frame.
     uint32_t DATA_BYTE_48 : 8;
   } bits;
   
@@ -17409,9 +21209,13 @@ union MB3_32B_WORD0_H {
   
   // Bit field definition.
   struct {
+    /// read-write - Data byte 0 of Rx/Tx frame.
     uint32_t DATA_BYTE_3 : 8;
+    /// read-write - Data byte 1 of Rx/Tx frame.
     uint32_t DATA_BYTE_2 : 8;
+    /// read-write - Data byte 2 of Rx/Tx frame.
     uint32_t DATA_BYTE_1 : 8;
+    /// read-write - Data byte 3 of Rx/Tx frame.
     uint32_t DATA_BYTE_0 : 8;
   } bits;
   
@@ -17429,16 +21233,25 @@ union MB40_8B_CS {
   
   // Bit field definition.
   struct {
+    /// read-write - Free-Running Counter Time stamp. This 16-bit field is a copy of the Free-Running Timer, captured for Tx and Rx frames at the time when the beginning of the Identifier field appears on the CAN bus.
     uint32_t TIME_STAMP : 16;
+    /// read-write - Length of the data to be stored/transmitted.
     uint32_t DLC : 4;
+    /// read-write - Remote Transmission Request. One/zero for remote/data frame.
     uint32_t RTR : 1;
+    /// read-write - ID Extended. One/zero for extended/standard format frame.
     uint32_t IDE : 1;
+    /// read-write - Substitute Remote Request. Contains a fixed recessive bit.
     uint32_t SRR : 1;
     uint32_t _reserved_0 : 1;
+    /// read-write - Message Buffer Code. This 4-bit field can be accessed (read or write) by the CPU and by the FlexCAN module itself, as part of the message buffer matching and arbitration process.
     uint32_t CODE : 4;
     uint32_t _reserved_1 : 1;
+    /// read-write - Error State Indicator. This bit indicates if the transmitting node is error active or error passive.
     uint32_t ESI : 1;
+    /// read-write - Bit Rate Switch. This bit defines whether the bit rate is switched inside a CAN FD format frame.
     uint32_t BRS : 1;
+    /// read-write - Extended Data Length. This bit distinguishes between CAN format and CAN FD format frames. The EDL bit must not be set for Message Buffers configured to RANSWER with code field 0b1010.
     uint32_t EDL : 1;
   } bits;
   
@@ -17456,9 +21269,13 @@ union MB5_16B_WORD0_H {
   
   // Bit field definition.
   struct {
+    /// read-write - Data byte 0 of Rx/Tx frame.
     uint32_t DATA_BYTE_3 : 8;
+    /// read-write - Data byte 1 of Rx/Tx frame.
     uint32_t DATA_BYTE_2 : 8;
+    /// read-write - Data byte 2 of Rx/Tx frame.
     uint32_t DATA_BYTE_1 : 8;
+    /// read-write - Data byte 3 of Rx/Tx frame.
     uint32_t DATA_BYTE_0 : 8;
   } bits;
   
@@ -17476,8 +21293,11 @@ union ID40 {
   
   // Bit field definition.
   struct {
+    /// read-write - Contains extended (LOW word) identifier of message buffer.
     uint32_t EXT : 18;
+    /// read-write - Contains standard/extended (HIGH word) identifier of message buffer.
     uint32_t STD : 11;
+    /// read-write - Local priority. This 3-bit fieldis only used when LPRIO_EN bit is set in MCR and it only makes sense for Tx buffers. These bits are not transmitted. They are appended to the regular ID to define the transmission priority.
     uint32_t PRIO : 3;
   } bits;
   
@@ -17495,9 +21315,13 @@ union MB1_64B_WORD13_H {
   
   // Bit field definition.
   struct {
+    /// read-write - Data byte 0 of Rx/Tx frame.
     uint32_t DATA_BYTE_55 : 8;
+    /// read-write - Data byte 1 of Rx/Tx frame.
     uint32_t DATA_BYTE_54 : 8;
+    /// read-write - Data byte 2 of Rx/Tx frame.
     uint32_t DATA_BYTE_53 : 8;
+    /// read-write - Data byte 3 of Rx/Tx frame.
     uint32_t DATA_BYTE_52 : 8;
   } bits;
   
@@ -17515,9 +21339,13 @@ union MB3_32B_WORD1_H {
   
   // Bit field definition.
   struct {
+    /// read-write - Data byte 0 of Rx/Tx frame.
     uint32_t DATA_BYTE_7 : 8;
+    /// read-write - Data byte 1 of Rx/Tx frame.
     uint32_t DATA_BYTE_6 : 8;
+    /// read-write - Data byte 2 of Rx/Tx frame.
     uint32_t DATA_BYTE_5 : 8;
+    /// read-write - Data byte 3 of Rx/Tx frame.
     uint32_t DATA_BYTE_4 : 8;
   } bits;
   
@@ -17535,8 +21363,11 @@ union MB40_8B_ID {
   
   // Bit field definition.
   struct {
+    /// read-write - Contains extended (LOW word) identifier of message buffer.
     uint32_t EXT : 18;
+    /// read-write - Contains standard/extended (HIGH word) identifier of message buffer.
     uint32_t STD : 11;
+    /// read-write - Local priority. This 3-bit fieldis only used when LPRIO_EN bit is set in MCR and it only makes sense for Tx buffers. These bits are not transmitted. They are appended to the regular ID to define the transmission priority.
     uint32_t PRIO : 3;
   } bits;
   
@@ -17554,9 +21385,13 @@ union MB5_16B_WORD1_H {
   
   // Bit field definition.
   struct {
+    /// read-write - Data byte 0 of Rx/Tx frame.
     uint32_t DATA_BYTE_7 : 8;
+    /// read-write - Data byte 1 of Rx/Tx frame.
     uint32_t DATA_BYTE_6 : 8;
+    /// read-write - Data byte 2 of Rx/Tx frame.
     uint32_t DATA_BYTE_5 : 8;
+    /// read-write - Data byte 3 of Rx/Tx frame.
     uint32_t DATA_BYTE_4 : 8;
   } bits;
   
@@ -17574,9 +21409,13 @@ union MB1_64B_WORD14_H {
   
   // Bit field definition.
   struct {
+    /// read-write - Data byte 0 of Rx/Tx frame.
     uint32_t DATA_BYTE_59 : 8;
+    /// read-write - Data byte 1 of Rx/Tx frame.
     uint32_t DATA_BYTE_58 : 8;
+    /// read-write - Data byte 2 of Rx/Tx frame.
     uint32_t DATA_BYTE_57 : 8;
+    /// read-write - Data byte 3 of Rx/Tx frame.
     uint32_t DATA_BYTE_56 : 8;
   } bits;
   
@@ -17594,9 +21433,13 @@ union MB3_32B_WORD2_H {
   
   // Bit field definition.
   struct {
+    /// read-write - Data byte 0 of Rx/Tx frame.
     uint32_t DATA_BYTE_11 : 8;
+    /// read-write - Data byte 1 of Rx/Tx frame.
     uint32_t DATA_BYTE_10 : 8;
+    /// read-write - Data byte 2 of Rx/Tx frame.
     uint32_t DATA_BYTE_9 : 8;
+    /// read-write - Data byte 3 of Rx/Tx frame.
     uint32_t DATA_BYTE_8 : 8;
   } bits;
   
@@ -17614,9 +21457,13 @@ union MB40_8B_WORD0 {
   
   // Bit field definition.
   struct {
+    /// read-write - Data byte 0 of Rx/Tx frame.
     uint32_t DATA_BYTE_3 : 8;
+    /// read-write - Data byte 1 of Rx/Tx frame.
     uint32_t DATA_BYTE_2 : 8;
+    /// read-write - Data byte 2 of Rx/Tx frame.
     uint32_t DATA_BYTE_1 : 8;
+    /// read-write - Data byte 3 of Rx/Tx frame.
     uint32_t DATA_BYTE_0 : 8;
   } bits;
   
@@ -17634,9 +21481,13 @@ union MB5_16B_WORD2_H {
   
   // Bit field definition.
   struct {
+    /// read-write - Data byte 0 of Rx/Tx frame.
     uint32_t DATA_BYTE_11 : 8;
+    /// read-write - Data byte 1 of Rx/Tx frame.
     uint32_t DATA_BYTE_10 : 8;
+    /// read-write - Data byte 2 of Rx/Tx frame.
     uint32_t DATA_BYTE_9 : 8;
+    /// read-write - Data byte 3 of Rx/Tx frame.
     uint32_t DATA_BYTE_8 : 8;
   } bits;
   
@@ -17654,9 +21505,13 @@ union WORD040 {
   
   // Bit field definition.
   struct {
+    /// read-write - Data byte 0 of Rx/Tx frame.
     uint32_t DATA_BYTE_3 : 8;
+    /// read-write - Data byte 1 of Rx/Tx frame.
     uint32_t DATA_BYTE_2 : 8;
+    /// read-write - Data byte 2 of Rx/Tx frame.
     uint32_t DATA_BYTE_1 : 8;
+    /// read-write - Data byte 3 of Rx/Tx frame.
     uint32_t DATA_BYTE_0 : 8;
   } bits;
   
@@ -17674,9 +21529,13 @@ union MB1_64B_WORD15_H {
   
   // Bit field definition.
   struct {
+    /// read-write - Data byte 0 of Rx/Tx frame.
     uint32_t DATA_BYTE_63 : 8;
+    /// read-write - Data byte 1 of Rx/Tx frame.
     uint32_t DATA_BYTE_62 : 8;
+    /// read-write - Data byte 2 of Rx/Tx frame.
     uint32_t DATA_BYTE_61 : 8;
+    /// read-write - Data byte 3 of Rx/Tx frame.
     uint32_t DATA_BYTE_60 : 8;
   } bits;
   
@@ -17694,9 +21553,13 @@ union MB3_32B_WORD3_H {
   
   // Bit field definition.
   struct {
+    /// read-write - Data byte 0 of Rx/Tx frame.
     uint32_t DATA_BYTE_15 : 8;
+    /// read-write - Data byte 1 of Rx/Tx frame.
     uint32_t DATA_BYTE_14 : 8;
+    /// read-write - Data byte 2 of Rx/Tx frame.
     uint32_t DATA_BYTE_13 : 8;
+    /// read-write - Data byte 3 of Rx/Tx frame.
     uint32_t DATA_BYTE_12 : 8;
   } bits;
   
@@ -17714,9 +21577,13 @@ union MB40_8B_WORD1 {
   
   // Bit field definition.
   struct {
+    /// read-write - Data byte 0 of Rx/Tx frame.
     uint32_t DATA_BYTE_7 : 8;
+    /// read-write - Data byte 1 of Rx/Tx frame.
     uint32_t DATA_BYTE_6 : 8;
+    /// read-write - Data byte 2 of Rx/Tx frame.
     uint32_t DATA_BYTE_5 : 8;
+    /// read-write - Data byte 3 of Rx/Tx frame.
     uint32_t DATA_BYTE_4 : 8;
   } bits;
   
@@ -17734,9 +21601,13 @@ union MB5_16B_WORD3_H {
   
   // Bit field definition.
   struct {
+    /// read-write - Data byte 0 of Rx/Tx frame.
     uint32_t DATA_BYTE_15 : 8;
+    /// read-write - Data byte 1 of Rx/Tx frame.
     uint32_t DATA_BYTE_14 : 8;
+    /// read-write - Data byte 2 of Rx/Tx frame.
     uint32_t DATA_BYTE_13 : 8;
+    /// read-write - Data byte 3 of Rx/Tx frame.
     uint32_t DATA_BYTE_12 : 8;
   } bits;
   
@@ -17754,9 +21625,13 @@ union WORD140 {
   
   // Bit field definition.
   struct {
+    /// read-write - Data byte 0 of Rx/Tx frame.
     uint32_t DATA_BYTE_7 : 8;
+    /// read-write - Data byte 1 of Rx/Tx frame.
     uint32_t DATA_BYTE_6 : 8;
+    /// read-write - Data byte 2 of Rx/Tx frame.
     uint32_t DATA_BYTE_5 : 8;
+    /// read-write - Data byte 3 of Rx/Tx frame.
     uint32_t DATA_BYTE_4 : 8;
   } bits;
   
@@ -17774,16 +21649,25 @@ union CS41 {
   
   // Bit field definition.
   struct {
+    /// read-write - Free-Running Counter Time stamp. This 16-bit field is a copy of the Free-Running Timer, captured for Tx and Rx frames at the time when the beginning of the Identifier field appears on the CAN bus.
     uint32_t TIME_STAMP : 16;
+    /// read-write - Length of the data to be stored/transmitted.
     uint32_t DLC : 4;
+    /// read-write - Remote Transmission Request. One/zero for remote/data frame.
     uint32_t RTR : 1;
+    /// read-write - ID Extended. One/zero for extended/standard format frame.
     uint32_t IDE : 1;
+    /// read-write - Substitute Remote Request. Contains a fixed recessive bit.
     uint32_t SRR : 1;
     uint32_t _reserved_0 : 1;
+    /// read-write - Message Buffer Code. This 4-bit field can be accessed (read or write) by the CPU and by the FlexCAN module itself, as part of the message buffer matching and arbitration process.
     uint32_t CODE : 4;
     uint32_t _reserved_1 : 1;
+    /// read-write - Error State Indicator. This bit indicates if the transmitting node is error active or error passive.
     uint32_t ESI : 1;
+    /// read-write - Bit Rate Switch. This bit defines whether the bit rate is switched inside a CAN FD format frame.
     uint32_t BRS : 1;
+    /// read-write - Extended Data Length. This bit distinguishes between CAN format and CAN FD format frames. The EDL bit must not be set for Message Buffers configured to RANSWER with code field 0b1010.
     uint32_t EDL : 1;
   } bits;
   
@@ -17801,16 +21685,25 @@ union MB2_64B_CS_H {
   
   // Bit field definition.
   struct {
+    /// read-write - Free-Running Counter Time stamp. This 16-bit field is a copy of the Free-Running Timer, captured for Tx and Rx frames at the time when the beginning of the Identifier field appears on the CAN bus.
     uint32_t TIME_STAMP : 16;
+    /// read-write - Length of the data to be stored/transmitted.
     uint32_t DLC : 4;
+    /// read-write - Remote Transmission Request. One/zero for remote/data frame.
     uint32_t RTR : 1;
+    /// read-write - ID Extended. One/zero for extended/standard format frame.
     uint32_t IDE : 1;
+    /// read-write - Substitute Remote Request. Contains a fixed recessive bit.
     uint32_t SRR : 1;
     uint32_t _reserved_0 : 1;
+    /// read-write - Message Buffer Code. This 4-bit field can be accessed (read or write) by the CPU and by the FlexCAN module itself, as part of the message buffer matching and arbitration process.
     uint32_t CODE : 4;
     uint32_t _reserved_1 : 1;
+    /// read-write - Error State Indicator. This bit indicates if the transmitting node is error active or error passive.
     uint32_t ESI : 1;
+    /// read-write - Bit Rate Switch. This bit defines whether the bit rate is switched inside a CAN FD format frame.
     uint32_t BRS : 1;
+    /// read-write - Extended Data Length. This bit distinguishes between CAN format and CAN FD format frames. The EDL bit must not be set for Message Buffers configured to RANSWER with code field 0b1010.
     uint32_t EDL : 1;
   } bits;
   
@@ -17828,9 +21721,13 @@ union MB3_32B_WORD4_H {
   
   // Bit field definition.
   struct {
+    /// read-write - Data byte 0 of Rx/Tx frame.
     uint32_t DATA_BYTE_19 : 8;
+    /// read-write - Data byte 1 of Rx/Tx frame.
     uint32_t DATA_BYTE_18 : 8;
+    /// read-write - Data byte 2 of Rx/Tx frame.
     uint32_t DATA_BYTE_17 : 8;
+    /// read-write - Data byte 3 of Rx/Tx frame.
     uint32_t DATA_BYTE_16 : 8;
   } bits;
   
@@ -17848,16 +21745,25 @@ union MB41_8B_CS {
   
   // Bit field definition.
   struct {
+    /// read-write - Free-Running Counter Time stamp. This 16-bit field is a copy of the Free-Running Timer, captured for Tx and Rx frames at the time when the beginning of the Identifier field appears on the CAN bus.
     uint32_t TIME_STAMP : 16;
+    /// read-write - Length of the data to be stored/transmitted.
     uint32_t DLC : 4;
+    /// read-write - Remote Transmission Request. One/zero for remote/data frame.
     uint32_t RTR : 1;
+    /// read-write - ID Extended. One/zero for extended/standard format frame.
     uint32_t IDE : 1;
+    /// read-write - Substitute Remote Request. Contains a fixed recessive bit.
     uint32_t SRR : 1;
     uint32_t _reserved_0 : 1;
+    /// read-write - Message Buffer Code. This 4-bit field can be accessed (read or write) by the CPU and by the FlexCAN module itself, as part of the message buffer matching and arbitration process.
     uint32_t CODE : 4;
     uint32_t _reserved_1 : 1;
+    /// read-write - Error State Indicator. This bit indicates if the transmitting node is error active or error passive.
     uint32_t ESI : 1;
+    /// read-write - Bit Rate Switch. This bit defines whether the bit rate is switched inside a CAN FD format frame.
     uint32_t BRS : 1;
+    /// read-write - Extended Data Length. This bit distinguishes between CAN format and CAN FD format frames. The EDL bit must not be set for Message Buffers configured to RANSWER with code field 0b1010.
     uint32_t EDL : 1;
   } bits;
   
@@ -17875,16 +21781,25 @@ union MB6_16B_CS_H {
   
   // Bit field definition.
   struct {
+    /// read-write - Free-Running Counter Time stamp. This 16-bit field is a copy of the Free-Running Timer, captured for Tx and Rx frames at the time when the beginning of the Identifier field appears on the CAN bus.
     uint32_t TIME_STAMP : 16;
+    /// read-write - Length of the data to be stored/transmitted.
     uint32_t DLC : 4;
+    /// read-write - Remote Transmission Request. One/zero for remote/data frame.
     uint32_t RTR : 1;
+    /// read-write - ID Extended. One/zero for extended/standard format frame.
     uint32_t IDE : 1;
+    /// read-write - Substitute Remote Request. Contains a fixed recessive bit.
     uint32_t SRR : 1;
     uint32_t _reserved_0 : 1;
+    /// read-write - Message Buffer Code. This 4-bit field can be accessed (read or write) by the CPU and by the FlexCAN module itself, as part of the message buffer matching and arbitration process.
     uint32_t CODE : 4;
     uint32_t _reserved_1 : 1;
+    /// read-write - Error State Indicator. This bit indicates if the transmitting node is error active or error passive.
     uint32_t ESI : 1;
+    /// read-write - Bit Rate Switch. This bit defines whether the bit rate is switched inside a CAN FD format frame.
     uint32_t BRS : 1;
+    /// read-write - Extended Data Length. This bit distinguishes between CAN format and CAN FD format frames. The EDL bit must not be set for Message Buffers configured to RANSWER with code field 0b1010.
     uint32_t EDL : 1;
   } bits;
   
@@ -17902,8 +21817,11 @@ union ID41 {
   
   // Bit field definition.
   struct {
+    /// read-write - Contains extended (LOW word) identifier of message buffer.
     uint32_t EXT : 18;
+    /// read-write - Contains standard/extended (HIGH word) identifier of message buffer.
     uint32_t STD : 11;
+    /// read-write - Local priority. This 3-bit fieldis only used when LPRIO_EN bit is set in MCR and it only makes sense for Tx buffers. These bits are not transmitted. They are appended to the regular ID to define the transmission priority.
     uint32_t PRIO : 3;
   } bits;
   
@@ -17921,8 +21839,11 @@ union MB2_64B_ID_H {
   
   // Bit field definition.
   struct {
+    /// read-write - Contains extended (LOW word) identifier of message buffer.
     uint32_t EXT : 18;
+    /// read-write - Contains standard/extended (HIGH word) identifier of message buffer.
     uint32_t STD : 11;
+    /// read-write - Local priority. This 3-bit fieldis only used when LPRIO_EN bit is set in MCR and it only makes sense for Tx buffers. These bits are not transmitted. They are appended to the regular ID to define the transmission priority.
     uint32_t PRIO : 3;
   } bits;
   
@@ -17940,9 +21861,13 @@ union MB3_32B_WORD5_H {
   
   // Bit field definition.
   struct {
+    /// read-write - Data byte 0 of Rx/Tx frame.
     uint32_t DATA_BYTE_23 : 8;
+    /// read-write - Data byte 1 of Rx/Tx frame.
     uint32_t DATA_BYTE_22 : 8;
+    /// read-write - Data byte 2 of Rx/Tx frame.
     uint32_t DATA_BYTE_21 : 8;
+    /// read-write - Data byte 3 of Rx/Tx frame.
     uint32_t DATA_BYTE_20 : 8;
   } bits;
   
@@ -17960,8 +21885,11 @@ union MB41_8B_ID {
   
   // Bit field definition.
   struct {
+    /// read-write - Contains extended (LOW word) identifier of message buffer.
     uint32_t EXT : 18;
+    /// read-write - Contains standard/extended (HIGH word) identifier of message buffer.
     uint32_t STD : 11;
+    /// read-write - Local priority. This 3-bit fieldis only used when LPRIO_EN bit is set in MCR and it only makes sense for Tx buffers. These bits are not transmitted. They are appended to the regular ID to define the transmission priority.
     uint32_t PRIO : 3;
   } bits;
   
@@ -17979,8 +21907,11 @@ union MB6_16B_ID_H {
   
   // Bit field definition.
   struct {
+    /// read-write - Contains extended (LOW word) identifier of message buffer.
     uint32_t EXT : 18;
+    /// read-write - Contains standard/extended (HIGH word) identifier of message buffer.
     uint32_t STD : 11;
+    /// read-write - Local priority. This 3-bit fieldis only used when LPRIO_EN bit is set in MCR and it only makes sense for Tx buffers. These bits are not transmitted. They are appended to the regular ID to define the transmission priority.
     uint32_t PRIO : 3;
   } bits;
   
@@ -17998,9 +21929,13 @@ union MB2_64B_WORD0_H {
   
   // Bit field definition.
   struct {
+    /// read-write - Data byte 0 of Rx/Tx frame.
     uint32_t DATA_BYTE_3 : 8;
+    /// read-write - Data byte 1 of Rx/Tx frame.
     uint32_t DATA_BYTE_2 : 8;
+    /// read-write - Data byte 2 of Rx/Tx frame.
     uint32_t DATA_BYTE_1 : 8;
+    /// read-write - Data byte 3 of Rx/Tx frame.
     uint32_t DATA_BYTE_0 : 8;
   } bits;
   
@@ -18018,9 +21953,13 @@ union MB3_32B_WORD6_H {
   
   // Bit field definition.
   struct {
+    /// read-write - Data byte 0 of Rx/Tx frame.
     uint32_t DATA_BYTE_27 : 8;
+    /// read-write - Data byte 1 of Rx/Tx frame.
     uint32_t DATA_BYTE_26 : 8;
+    /// read-write - Data byte 2 of Rx/Tx frame.
     uint32_t DATA_BYTE_25 : 8;
+    /// read-write - Data byte 3 of Rx/Tx frame.
     uint32_t DATA_BYTE_24 : 8;
   } bits;
   
@@ -18038,9 +21977,13 @@ union MB41_8B_WORD0 {
   
   // Bit field definition.
   struct {
+    /// read-write - Data byte 0 of Rx/Tx frame.
     uint32_t DATA_BYTE_3 : 8;
+    /// read-write - Data byte 1 of Rx/Tx frame.
     uint32_t DATA_BYTE_2 : 8;
+    /// read-write - Data byte 2 of Rx/Tx frame.
     uint32_t DATA_BYTE_1 : 8;
+    /// read-write - Data byte 3 of Rx/Tx frame.
     uint32_t DATA_BYTE_0 : 8;
   } bits;
   
@@ -18058,9 +22001,13 @@ union MB6_16B_WORD0_H {
   
   // Bit field definition.
   struct {
+    /// read-write - Data byte 0 of Rx/Tx frame.
     uint32_t DATA_BYTE_3 : 8;
+    /// read-write - Data byte 1 of Rx/Tx frame.
     uint32_t DATA_BYTE_2 : 8;
+    /// read-write - Data byte 2 of Rx/Tx frame.
     uint32_t DATA_BYTE_1 : 8;
+    /// read-write - Data byte 3 of Rx/Tx frame.
     uint32_t DATA_BYTE_0 : 8;
   } bits;
   
@@ -18078,9 +22025,13 @@ union WORD041 {
   
   // Bit field definition.
   struct {
+    /// read-write - Data byte 0 of Rx/Tx frame.
     uint32_t DATA_BYTE_3 : 8;
+    /// read-write - Data byte 1 of Rx/Tx frame.
     uint32_t DATA_BYTE_2 : 8;
+    /// read-write - Data byte 2 of Rx/Tx frame.
     uint32_t DATA_BYTE_1 : 8;
+    /// read-write - Data byte 3 of Rx/Tx frame.
     uint32_t DATA_BYTE_0 : 8;
   } bits;
   
@@ -18098,9 +22049,13 @@ union MB2_64B_WORD1_H {
   
   // Bit field definition.
   struct {
+    /// read-write - Data byte 0 of Rx/Tx frame.
     uint32_t DATA_BYTE_7 : 8;
+    /// read-write - Data byte 1 of Rx/Tx frame.
     uint32_t DATA_BYTE_6 : 8;
+    /// read-write - Data byte 2 of Rx/Tx frame.
     uint32_t DATA_BYTE_5 : 8;
+    /// read-write - Data byte 3 of Rx/Tx frame.
     uint32_t DATA_BYTE_4 : 8;
   } bits;
   
@@ -18118,9 +22073,13 @@ union MB3_32B_WORD7_H {
   
   // Bit field definition.
   struct {
+    /// read-write - Data byte 0 of Rx/Tx frame.
     uint32_t DATA_BYTE_31 : 8;
+    /// read-write - Data byte 1 of Rx/Tx frame.
     uint32_t DATA_BYTE_30 : 8;
+    /// read-write - Data byte 2 of Rx/Tx frame.
     uint32_t DATA_BYTE_29 : 8;
+    /// read-write - Data byte 3 of Rx/Tx frame.
     uint32_t DATA_BYTE_28 : 8;
   } bits;
   
@@ -18138,9 +22097,13 @@ union MB41_8B_WORD1 {
   
   // Bit field definition.
   struct {
+    /// read-write - Data byte 0 of Rx/Tx frame.
     uint32_t DATA_BYTE_7 : 8;
+    /// read-write - Data byte 1 of Rx/Tx frame.
     uint32_t DATA_BYTE_6 : 8;
+    /// read-write - Data byte 2 of Rx/Tx frame.
     uint32_t DATA_BYTE_5 : 8;
+    /// read-write - Data byte 3 of Rx/Tx frame.
     uint32_t DATA_BYTE_4 : 8;
   } bits;
   
@@ -18158,9 +22121,13 @@ union MB6_16B_WORD1_H {
   
   // Bit field definition.
   struct {
+    /// read-write - Data byte 0 of Rx/Tx frame.
     uint32_t DATA_BYTE_7 : 8;
+    /// read-write - Data byte 1 of Rx/Tx frame.
     uint32_t DATA_BYTE_6 : 8;
+    /// read-write - Data byte 2 of Rx/Tx frame.
     uint32_t DATA_BYTE_5 : 8;
+    /// read-write - Data byte 3 of Rx/Tx frame.
     uint32_t DATA_BYTE_4 : 8;
   } bits;
   
@@ -18178,9 +22145,13 @@ union WORD141 {
   
   // Bit field definition.
   struct {
+    /// read-write - Data byte 0 of Rx/Tx frame.
     uint32_t DATA_BYTE_7 : 8;
+    /// read-write - Data byte 1 of Rx/Tx frame.
     uint32_t DATA_BYTE_6 : 8;
+    /// read-write - Data byte 2 of Rx/Tx frame.
     uint32_t DATA_BYTE_5 : 8;
+    /// read-write - Data byte 3 of Rx/Tx frame.
     uint32_t DATA_BYTE_4 : 8;
   } bits;
   
@@ -18198,16 +22169,25 @@ union CS42 {
   
   // Bit field definition.
   struct {
+    /// read-write - Free-Running Counter Time stamp. This 16-bit field is a copy of the Free-Running Timer, captured for Tx and Rx frames at the time when the beginning of the Identifier field appears on the CAN bus.
     uint32_t TIME_STAMP : 16;
+    /// read-write - Length of the data to be stored/transmitted.
     uint32_t DLC : 4;
+    /// read-write - Remote Transmission Request. One/zero for remote/data frame.
     uint32_t RTR : 1;
+    /// read-write - ID Extended. One/zero for extended/standard format frame.
     uint32_t IDE : 1;
+    /// read-write - Substitute Remote Request. Contains a fixed recessive bit.
     uint32_t SRR : 1;
     uint32_t _reserved_0 : 1;
+    /// read-write - Message Buffer Code. This 4-bit field can be accessed (read or write) by the CPU and by the FlexCAN module itself, as part of the message buffer matching and arbitration process.
     uint32_t CODE : 4;
     uint32_t _reserved_1 : 1;
+    /// read-write - Error State Indicator. This bit indicates if the transmitting node is error active or error passive.
     uint32_t ESI : 1;
+    /// read-write - Bit Rate Switch. This bit defines whether the bit rate is switched inside a CAN FD format frame.
     uint32_t BRS : 1;
+    /// read-write - Extended Data Length. This bit distinguishes between CAN format and CAN FD format frames. The EDL bit must not be set for Message Buffers configured to RANSWER with code field 0b1010.
     uint32_t EDL : 1;
   } bits;
   
@@ -18225,9 +22205,13 @@ union MB2_64B_WORD2_H {
   
   // Bit field definition.
   struct {
+    /// read-write - Data byte 0 of Rx/Tx frame.
     uint32_t DATA_BYTE_11 : 8;
+    /// read-write - Data byte 1 of Rx/Tx frame.
     uint32_t DATA_BYTE_10 : 8;
+    /// read-write - Data byte 2 of Rx/Tx frame.
     uint32_t DATA_BYTE_9 : 8;
+    /// read-write - Data byte 3 of Rx/Tx frame.
     uint32_t DATA_BYTE_8 : 8;
   } bits;
   
@@ -18245,16 +22229,25 @@ union MB42_8B_CS {
   
   // Bit field definition.
   struct {
+    /// read-write - Free-Running Counter Time stamp. This 16-bit field is a copy of the Free-Running Timer, captured for Tx and Rx frames at the time when the beginning of the Identifier field appears on the CAN bus.
     uint32_t TIME_STAMP : 16;
+    /// read-write - Length of the data to be stored/transmitted.
     uint32_t DLC : 4;
+    /// read-write - Remote Transmission Request. One/zero for remote/data frame.
     uint32_t RTR : 1;
+    /// read-write - ID Extended. One/zero for extended/standard format frame.
     uint32_t IDE : 1;
+    /// read-write - Substitute Remote Request. Contains a fixed recessive bit.
     uint32_t SRR : 1;
     uint32_t _reserved_0 : 1;
+    /// read-write - Message Buffer Code. This 4-bit field can be accessed (read or write) by the CPU and by the FlexCAN module itself, as part of the message buffer matching and arbitration process.
     uint32_t CODE : 4;
     uint32_t _reserved_1 : 1;
+    /// read-write - Error State Indicator. This bit indicates if the transmitting node is error active or error passive.
     uint32_t ESI : 1;
+    /// read-write - Bit Rate Switch. This bit defines whether the bit rate is switched inside a CAN FD format frame.
     uint32_t BRS : 1;
+    /// read-write - Extended Data Length. This bit distinguishes between CAN format and CAN FD format frames. The EDL bit must not be set for Message Buffers configured to RANSWER with code field 0b1010.
     uint32_t EDL : 1;
   } bits;
   
@@ -18272,16 +22265,25 @@ union MB4_32B_CS_H {
   
   // Bit field definition.
   struct {
+    /// read-write - Free-Running Counter Time stamp. This 16-bit field is a copy of the Free-Running Timer, captured for Tx and Rx frames at the time when the beginning of the Identifier field appears on the CAN bus.
     uint32_t TIME_STAMP : 16;
+    /// read-write - Length of the data to be stored/transmitted.
     uint32_t DLC : 4;
+    /// read-write - Remote Transmission Request. One/zero for remote/data frame.
     uint32_t RTR : 1;
+    /// read-write - ID Extended. One/zero for extended/standard format frame.
     uint32_t IDE : 1;
+    /// read-write - Substitute Remote Request. Contains a fixed recessive bit.
     uint32_t SRR : 1;
     uint32_t _reserved_0 : 1;
+    /// read-write - Message Buffer Code. This 4-bit field can be accessed (read or write) by the CPU and by the FlexCAN module itself, as part of the message buffer matching and arbitration process.
     uint32_t CODE : 4;
     uint32_t _reserved_1 : 1;
+    /// read-write - Error State Indicator. This bit indicates if the transmitting node is error active or error passive.
     uint32_t ESI : 1;
+    /// read-write - Bit Rate Switch. This bit defines whether the bit rate is switched inside a CAN FD format frame.
     uint32_t BRS : 1;
+    /// read-write - Extended Data Length. This bit distinguishes between CAN format and CAN FD format frames. The EDL bit must not be set for Message Buffers configured to RANSWER with code field 0b1010.
     uint32_t EDL : 1;
   } bits;
   
@@ -18299,9 +22301,13 @@ union MB6_16B_WORD2_H {
   
   // Bit field definition.
   struct {
+    /// read-write - Data byte 0 of Rx/Tx frame.
     uint32_t DATA_BYTE_11 : 8;
+    /// read-write - Data byte 1 of Rx/Tx frame.
     uint32_t DATA_BYTE_10 : 8;
+    /// read-write - Data byte 2 of Rx/Tx frame.
     uint32_t DATA_BYTE_9 : 8;
+    /// read-write - Data byte 3 of Rx/Tx frame.
     uint32_t DATA_BYTE_8 : 8;
   } bits;
   
@@ -18319,8 +22325,11 @@ union ID42 {
   
   // Bit field definition.
   struct {
+    /// read-write - Contains extended (LOW word) identifier of message buffer.
     uint32_t EXT : 18;
+    /// read-write - Contains standard/extended (HIGH word) identifier of message buffer.
     uint32_t STD : 11;
+    /// read-write - Local priority. This 3-bit fieldis only used when LPRIO_EN bit is set in MCR and it only makes sense for Tx buffers. These bits are not transmitted. They are appended to the regular ID to define the transmission priority.
     uint32_t PRIO : 3;
   } bits;
   
@@ -18338,9 +22347,13 @@ union MB2_64B_WORD3_H {
   
   // Bit field definition.
   struct {
+    /// read-write - Data byte 0 of Rx/Tx frame.
     uint32_t DATA_BYTE_15 : 8;
+    /// read-write - Data byte 1 of Rx/Tx frame.
     uint32_t DATA_BYTE_14 : 8;
+    /// read-write - Data byte 2 of Rx/Tx frame.
     uint32_t DATA_BYTE_13 : 8;
+    /// read-write - Data byte 3 of Rx/Tx frame.
     uint32_t DATA_BYTE_12 : 8;
   } bits;
   
@@ -18358,8 +22371,11 @@ union MB42_8B_ID {
   
   // Bit field definition.
   struct {
+    /// read-write - Contains extended (LOW word) identifier of message buffer.
     uint32_t EXT : 18;
+    /// read-write - Contains standard/extended (HIGH word) identifier of message buffer.
     uint32_t STD : 11;
+    /// read-write - Local priority. This 3-bit fieldis only used when LPRIO_EN bit is set in MCR and it only makes sense for Tx buffers. These bits are not transmitted. They are appended to the regular ID to define the transmission priority.
     uint32_t PRIO : 3;
   } bits;
   
@@ -18377,8 +22393,11 @@ union MB4_32B_ID_H {
   
   // Bit field definition.
   struct {
+    /// read-write - Contains extended (LOW word) identifier of message buffer.
     uint32_t EXT : 18;
+    /// read-write - Contains standard/extended (HIGH word) identifier of message buffer.
     uint32_t STD : 11;
+    /// read-write - Local priority. This 3-bit fieldis only used when LPRIO_EN bit is set in MCR and it only makes sense for Tx buffers. These bits are not transmitted. They are appended to the regular ID to define the transmission priority.
     uint32_t PRIO : 3;
   } bits;
   
@@ -18396,9 +22415,13 @@ union MB6_16B_WORD3_H {
   
   // Bit field definition.
   struct {
+    /// read-write - Data byte 0 of Rx/Tx frame.
     uint32_t DATA_BYTE_15 : 8;
+    /// read-write - Data byte 1 of Rx/Tx frame.
     uint32_t DATA_BYTE_14 : 8;
+    /// read-write - Data byte 2 of Rx/Tx frame.
     uint32_t DATA_BYTE_13 : 8;
+    /// read-write - Data byte 3 of Rx/Tx frame.
     uint32_t DATA_BYTE_12 : 8;
   } bits;
   
@@ -18416,9 +22439,13 @@ union MB2_64B_WORD4_H {
   
   // Bit field definition.
   struct {
+    /// read-write - Data byte 0 of Rx/Tx frame.
     uint32_t DATA_BYTE_19 : 8;
+    /// read-write - Data byte 1 of Rx/Tx frame.
     uint32_t DATA_BYTE_18 : 8;
+    /// read-write - Data byte 2 of Rx/Tx frame.
     uint32_t DATA_BYTE_17 : 8;
+    /// read-write - Data byte 3 of Rx/Tx frame.
     uint32_t DATA_BYTE_16 : 8;
   } bits;
   
@@ -18436,9 +22463,13 @@ union MB42_8B_WORD0 {
   
   // Bit field definition.
   struct {
+    /// read-write - Data byte 0 of Rx/Tx frame.
     uint32_t DATA_BYTE_3 : 8;
+    /// read-write - Data byte 1 of Rx/Tx frame.
     uint32_t DATA_BYTE_2 : 8;
+    /// read-write - Data byte 2 of Rx/Tx frame.
     uint32_t DATA_BYTE_1 : 8;
+    /// read-write - Data byte 3 of Rx/Tx frame.
     uint32_t DATA_BYTE_0 : 8;
   } bits;
   
@@ -18456,9 +22487,13 @@ union MB4_32B_WORD0_H {
   
   // Bit field definition.
   struct {
+    /// read-write - Data byte 0 of Rx/Tx frame.
     uint32_t DATA_BYTE_3 : 8;
+    /// read-write - Data byte 1 of Rx/Tx frame.
     uint32_t DATA_BYTE_2 : 8;
+    /// read-write - Data byte 2 of Rx/Tx frame.
     uint32_t DATA_BYTE_1 : 8;
+    /// read-write - Data byte 3 of Rx/Tx frame.
     uint32_t DATA_BYTE_0 : 8;
   } bits;
   
@@ -18476,16 +22511,25 @@ union MB7_16B_CS_H {
   
   // Bit field definition.
   struct {
+    /// read-write - Free-Running Counter Time stamp. This 16-bit field is a copy of the Free-Running Timer, captured for Tx and Rx frames at the time when the beginning of the Identifier field appears on the CAN bus.
     uint32_t TIME_STAMP : 16;
+    /// read-write - Length of the data to be stored/transmitted.
     uint32_t DLC : 4;
+    /// read-write - Remote Transmission Request. One/zero for remote/data frame.
     uint32_t RTR : 1;
+    /// read-write - ID Extended. One/zero for extended/standard format frame.
     uint32_t IDE : 1;
+    /// read-write - Substitute Remote Request. Contains a fixed recessive bit.
     uint32_t SRR : 1;
     uint32_t _reserved_0 : 1;
+    /// read-write - Message Buffer Code. This 4-bit field can be accessed (read or write) by the CPU and by the FlexCAN module itself, as part of the message buffer matching and arbitration process.
     uint32_t CODE : 4;
     uint32_t _reserved_1 : 1;
+    /// read-write - Error State Indicator. This bit indicates if the transmitting node is error active or error passive.
     uint32_t ESI : 1;
+    /// read-write - Bit Rate Switch. This bit defines whether the bit rate is switched inside a CAN FD format frame.
     uint32_t BRS : 1;
+    /// read-write - Extended Data Length. This bit distinguishes between CAN format and CAN FD format frames. The EDL bit must not be set for Message Buffers configured to RANSWER with code field 0b1010.
     uint32_t EDL : 1;
   } bits;
   
@@ -18503,9 +22547,13 @@ union WORD042 {
   
   // Bit field definition.
   struct {
+    /// read-write - Data byte 0 of Rx/Tx frame.
     uint32_t DATA_BYTE_3 : 8;
+    /// read-write - Data byte 1 of Rx/Tx frame.
     uint32_t DATA_BYTE_2 : 8;
+    /// read-write - Data byte 2 of Rx/Tx frame.
     uint32_t DATA_BYTE_1 : 8;
+    /// read-write - Data byte 3 of Rx/Tx frame.
     uint32_t DATA_BYTE_0 : 8;
   } bits;
   
@@ -18523,9 +22571,13 @@ union MB2_64B_WORD5_H {
   
   // Bit field definition.
   struct {
+    /// read-write - Data byte 0 of Rx/Tx frame.
     uint32_t DATA_BYTE_23 : 8;
+    /// read-write - Data byte 1 of Rx/Tx frame.
     uint32_t DATA_BYTE_22 : 8;
+    /// read-write - Data byte 2 of Rx/Tx frame.
     uint32_t DATA_BYTE_21 : 8;
+    /// read-write - Data byte 3 of Rx/Tx frame.
     uint32_t DATA_BYTE_20 : 8;
   } bits;
   
@@ -18543,9 +22595,13 @@ union MB42_8B_WORD1 {
   
   // Bit field definition.
   struct {
+    /// read-write - Data byte 0 of Rx/Tx frame.
     uint32_t DATA_BYTE_7 : 8;
+    /// read-write - Data byte 1 of Rx/Tx frame.
     uint32_t DATA_BYTE_6 : 8;
+    /// read-write - Data byte 2 of Rx/Tx frame.
     uint32_t DATA_BYTE_5 : 8;
+    /// read-write - Data byte 3 of Rx/Tx frame.
     uint32_t DATA_BYTE_4 : 8;
   } bits;
   
@@ -18563,9 +22619,13 @@ union MB4_32B_WORD1_H {
   
   // Bit field definition.
   struct {
+    /// read-write - Data byte 0 of Rx/Tx frame.
     uint32_t DATA_BYTE_7 : 8;
+    /// read-write - Data byte 1 of Rx/Tx frame.
     uint32_t DATA_BYTE_6 : 8;
+    /// read-write - Data byte 2 of Rx/Tx frame.
     uint32_t DATA_BYTE_5 : 8;
+    /// read-write - Data byte 3 of Rx/Tx frame.
     uint32_t DATA_BYTE_4 : 8;
   } bits;
   
@@ -18583,8 +22643,11 @@ union MB7_16B_ID_H {
   
   // Bit field definition.
   struct {
+    /// read-write - Contains extended (LOW word) identifier of message buffer.
     uint32_t EXT : 18;
+    /// read-write - Contains standard/extended (HIGH word) identifier of message buffer.
     uint32_t STD : 11;
+    /// read-write - Local priority. This 3-bit fieldis only used when LPRIO_EN bit is set in MCR and it only makes sense for Tx buffers. These bits are not transmitted. They are appended to the regular ID to define the transmission priority.
     uint32_t PRIO : 3;
   } bits;
   
@@ -18602,9 +22665,13 @@ union WORD142 {
   
   // Bit field definition.
   struct {
+    /// read-write - Data byte 0 of Rx/Tx frame.
     uint32_t DATA_BYTE_7 : 8;
+    /// read-write - Data byte 1 of Rx/Tx frame.
     uint32_t DATA_BYTE_6 : 8;
+    /// read-write - Data byte 2 of Rx/Tx frame.
     uint32_t DATA_BYTE_5 : 8;
+    /// read-write - Data byte 3 of Rx/Tx frame.
     uint32_t DATA_BYTE_4 : 8;
   } bits;
   
@@ -18622,16 +22689,25 @@ union CS43 {
   
   // Bit field definition.
   struct {
+    /// read-write - Free-Running Counter Time stamp. This 16-bit field is a copy of the Free-Running Timer, captured for Tx and Rx frames at the time when the beginning of the Identifier field appears on the CAN bus.
     uint32_t TIME_STAMP : 16;
+    /// read-write - Length of the data to be stored/transmitted.
     uint32_t DLC : 4;
+    /// read-write - Remote Transmission Request. One/zero for remote/data frame.
     uint32_t RTR : 1;
+    /// read-write - ID Extended. One/zero for extended/standard format frame.
     uint32_t IDE : 1;
+    /// read-write - Substitute Remote Request. Contains a fixed recessive bit.
     uint32_t SRR : 1;
     uint32_t _reserved_0 : 1;
+    /// read-write - Message Buffer Code. This 4-bit field can be accessed (read or write) by the CPU and by the FlexCAN module itself, as part of the message buffer matching and arbitration process.
     uint32_t CODE : 4;
     uint32_t _reserved_1 : 1;
+    /// read-write - Error State Indicator. This bit indicates if the transmitting node is error active or error passive.
     uint32_t ESI : 1;
+    /// read-write - Bit Rate Switch. This bit defines whether the bit rate is switched inside a CAN FD format frame.
     uint32_t BRS : 1;
+    /// read-write - Extended Data Length. This bit distinguishes between CAN format and CAN FD format frames. The EDL bit must not be set for Message Buffers configured to RANSWER with code field 0b1010.
     uint32_t EDL : 1;
   } bits;
   
@@ -18649,9 +22725,13 @@ union MB2_64B_WORD6_H {
   
   // Bit field definition.
   struct {
+    /// read-write - Data byte 0 of Rx/Tx frame.
     uint32_t DATA_BYTE_27 : 8;
+    /// read-write - Data byte 1 of Rx/Tx frame.
     uint32_t DATA_BYTE_26 : 8;
+    /// read-write - Data byte 2 of Rx/Tx frame.
     uint32_t DATA_BYTE_25 : 8;
+    /// read-write - Data byte 3 of Rx/Tx frame.
     uint32_t DATA_BYTE_24 : 8;
   } bits;
   
@@ -18669,16 +22749,25 @@ union MB43_8B_CS {
   
   // Bit field definition.
   struct {
+    /// read-write - Free-Running Counter Time stamp. This 16-bit field is a copy of the Free-Running Timer, captured for Tx and Rx frames at the time when the beginning of the Identifier field appears on the CAN bus.
     uint32_t TIME_STAMP : 16;
+    /// read-write - Length of the data to be stored/transmitted.
     uint32_t DLC : 4;
+    /// read-write - Remote Transmission Request. One/zero for remote/data frame.
     uint32_t RTR : 1;
+    /// read-write - ID Extended. One/zero for extended/standard format frame.
     uint32_t IDE : 1;
+    /// read-write - Substitute Remote Request. Contains a fixed recessive bit.
     uint32_t SRR : 1;
     uint32_t _reserved_0 : 1;
+    /// read-write - Message Buffer Code. This 4-bit field can be accessed (read or write) by the CPU and by the FlexCAN module itself, as part of the message buffer matching and arbitration process.
     uint32_t CODE : 4;
     uint32_t _reserved_1 : 1;
+    /// read-write - Error State Indicator. This bit indicates if the transmitting node is error active or error passive.
     uint32_t ESI : 1;
+    /// read-write - Bit Rate Switch. This bit defines whether the bit rate is switched inside a CAN FD format frame.
     uint32_t BRS : 1;
+    /// read-write - Extended Data Length. This bit distinguishes between CAN format and CAN FD format frames. The EDL bit must not be set for Message Buffers configured to RANSWER with code field 0b1010.
     uint32_t EDL : 1;
   } bits;
   
@@ -18696,9 +22785,13 @@ union MB4_32B_WORD2_H {
   
   // Bit field definition.
   struct {
+    /// read-write - Data byte 0 of Rx/Tx frame.
     uint32_t DATA_BYTE_11 : 8;
+    /// read-write - Data byte 1 of Rx/Tx frame.
     uint32_t DATA_BYTE_10 : 8;
+    /// read-write - Data byte 2 of Rx/Tx frame.
     uint32_t DATA_BYTE_9 : 8;
+    /// read-write - Data byte 3 of Rx/Tx frame.
     uint32_t DATA_BYTE_8 : 8;
   } bits;
   
@@ -18716,9 +22809,13 @@ union MB7_16B_WORD0_H {
   
   // Bit field definition.
   struct {
+    /// read-write - Data byte 0 of Rx/Tx frame.
     uint32_t DATA_BYTE_3 : 8;
+    /// read-write - Data byte 1 of Rx/Tx frame.
     uint32_t DATA_BYTE_2 : 8;
+    /// read-write - Data byte 2 of Rx/Tx frame.
     uint32_t DATA_BYTE_1 : 8;
+    /// read-write - Data byte 3 of Rx/Tx frame.
     uint32_t DATA_BYTE_0 : 8;
   } bits;
   
@@ -18736,8 +22833,11 @@ union ID43 {
   
   // Bit field definition.
   struct {
+    /// read-write - Contains extended (LOW word) identifier of message buffer.
     uint32_t EXT : 18;
+    /// read-write - Contains standard/extended (HIGH word) identifier of message buffer.
     uint32_t STD : 11;
+    /// read-write - Local priority. This 3-bit fieldis only used when LPRIO_EN bit is set in MCR and it only makes sense for Tx buffers. These bits are not transmitted. They are appended to the regular ID to define the transmission priority.
     uint32_t PRIO : 3;
   } bits;
   
@@ -18755,9 +22855,13 @@ union MB2_64B_WORD7_H {
   
   // Bit field definition.
   struct {
+    /// read-write - Data byte 0 of Rx/Tx frame.
     uint32_t DATA_BYTE_31 : 8;
+    /// read-write - Data byte 1 of Rx/Tx frame.
     uint32_t DATA_BYTE_30 : 8;
+    /// read-write - Data byte 2 of Rx/Tx frame.
     uint32_t DATA_BYTE_29 : 8;
+    /// read-write - Data byte 3 of Rx/Tx frame.
     uint32_t DATA_BYTE_28 : 8;
   } bits;
   
@@ -18775,8 +22879,11 @@ union MB43_8B_ID {
   
   // Bit field definition.
   struct {
+    /// read-write - Contains extended (LOW word) identifier of message buffer.
     uint32_t EXT : 18;
+    /// read-write - Contains standard/extended (HIGH word) identifier of message buffer.
     uint32_t STD : 11;
+    /// read-write - Local priority. This 3-bit fieldis only used when LPRIO_EN bit is set in MCR and it only makes sense for Tx buffers. These bits are not transmitted. They are appended to the regular ID to define the transmission priority.
     uint32_t PRIO : 3;
   } bits;
   
@@ -18794,9 +22901,13 @@ union MB4_32B_WORD3_H {
   
   // Bit field definition.
   struct {
+    /// read-write - Data byte 0 of Rx/Tx frame.
     uint32_t DATA_BYTE_15 : 8;
+    /// read-write - Data byte 1 of Rx/Tx frame.
     uint32_t DATA_BYTE_14 : 8;
+    /// read-write - Data byte 2 of Rx/Tx frame.
     uint32_t DATA_BYTE_13 : 8;
+    /// read-write - Data byte 3 of Rx/Tx frame.
     uint32_t DATA_BYTE_12 : 8;
   } bits;
   
@@ -18814,9 +22925,13 @@ union MB7_16B_WORD1_H {
   
   // Bit field definition.
   struct {
+    /// read-write - Data byte 0 of Rx/Tx frame.
     uint32_t DATA_BYTE_7 : 8;
+    /// read-write - Data byte 1 of Rx/Tx frame.
     uint32_t DATA_BYTE_6 : 8;
+    /// read-write - Data byte 2 of Rx/Tx frame.
     uint32_t DATA_BYTE_5 : 8;
+    /// read-write - Data byte 3 of Rx/Tx frame.
     uint32_t DATA_BYTE_4 : 8;
   } bits;
   
@@ -18834,9 +22949,13 @@ union MB2_64B_WORD8_H {
   
   // Bit field definition.
   struct {
+    /// read-write - Data byte 0 of Rx/Tx frame.
     uint32_t DATA_BYTE_35 : 8;
+    /// read-write - Data byte 1 of Rx/Tx frame.
     uint32_t DATA_BYTE_34 : 8;
+    /// read-write - Data byte 2 of Rx/Tx frame.
     uint32_t DATA_BYTE_33 : 8;
+    /// read-write - Data byte 3 of Rx/Tx frame.
     uint32_t DATA_BYTE_32 : 8;
   } bits;
   
@@ -18854,9 +22973,13 @@ union MB43_8B_WORD0 {
   
   // Bit field definition.
   struct {
+    /// read-write - Data byte 0 of Rx/Tx frame.
     uint32_t DATA_BYTE_3 : 8;
+    /// read-write - Data byte 1 of Rx/Tx frame.
     uint32_t DATA_BYTE_2 : 8;
+    /// read-write - Data byte 2 of Rx/Tx frame.
     uint32_t DATA_BYTE_1 : 8;
+    /// read-write - Data byte 3 of Rx/Tx frame.
     uint32_t DATA_BYTE_0 : 8;
   } bits;
   
@@ -18874,9 +22997,13 @@ union MB4_32B_WORD4_H {
   
   // Bit field definition.
   struct {
+    /// read-write - Data byte 0 of Rx/Tx frame.
     uint32_t DATA_BYTE_19 : 8;
+    /// read-write - Data byte 1 of Rx/Tx frame.
     uint32_t DATA_BYTE_18 : 8;
+    /// read-write - Data byte 2 of Rx/Tx frame.
     uint32_t DATA_BYTE_17 : 8;
+    /// read-write - Data byte 3 of Rx/Tx frame.
     uint32_t DATA_BYTE_16 : 8;
   } bits;
   
@@ -18894,9 +23021,13 @@ union MB7_16B_WORD2_H {
   
   // Bit field definition.
   struct {
+    /// read-write - Data byte 0 of Rx/Tx frame.
     uint32_t DATA_BYTE_11 : 8;
+    /// read-write - Data byte 1 of Rx/Tx frame.
     uint32_t DATA_BYTE_10 : 8;
+    /// read-write - Data byte 2 of Rx/Tx frame.
     uint32_t DATA_BYTE_9 : 8;
+    /// read-write - Data byte 3 of Rx/Tx frame.
     uint32_t DATA_BYTE_8 : 8;
   } bits;
   
@@ -18914,9 +23045,13 @@ union WORD043 {
   
   // Bit field definition.
   struct {
+    /// read-write - Data byte 0 of Rx/Tx frame.
     uint32_t DATA_BYTE_3 : 8;
+    /// read-write - Data byte 1 of Rx/Tx frame.
     uint32_t DATA_BYTE_2 : 8;
+    /// read-write - Data byte 2 of Rx/Tx frame.
     uint32_t DATA_BYTE_1 : 8;
+    /// read-write - Data byte 3 of Rx/Tx frame.
     uint32_t DATA_BYTE_0 : 8;
   } bits;
   
@@ -18934,9 +23069,13 @@ union MB2_64B_WORD9_H {
   
   // Bit field definition.
   struct {
+    /// read-write - Data byte 0 of Rx/Tx frame.
     uint32_t DATA_BYTE_39 : 8;
+    /// read-write - Data byte 1 of Rx/Tx frame.
     uint32_t DATA_BYTE_38 : 8;
+    /// read-write - Data byte 2 of Rx/Tx frame.
     uint32_t DATA_BYTE_37 : 8;
+    /// read-write - Data byte 3 of Rx/Tx frame.
     uint32_t DATA_BYTE_36 : 8;
   } bits;
   
@@ -18954,9 +23093,13 @@ union MB43_8B_WORD1 {
   
   // Bit field definition.
   struct {
+    /// read-write - Data byte 0 of Rx/Tx frame.
     uint32_t DATA_BYTE_7 : 8;
+    /// read-write - Data byte 1 of Rx/Tx frame.
     uint32_t DATA_BYTE_6 : 8;
+    /// read-write - Data byte 2 of Rx/Tx frame.
     uint32_t DATA_BYTE_5 : 8;
+    /// read-write - Data byte 3 of Rx/Tx frame.
     uint32_t DATA_BYTE_4 : 8;
   } bits;
   
@@ -18974,9 +23117,13 @@ union MB4_32B_WORD5_H {
   
   // Bit field definition.
   struct {
+    /// read-write - Data byte 0 of Rx/Tx frame.
     uint32_t DATA_BYTE_23 : 8;
+    /// read-write - Data byte 1 of Rx/Tx frame.
     uint32_t DATA_BYTE_22 : 8;
+    /// read-write - Data byte 2 of Rx/Tx frame.
     uint32_t DATA_BYTE_21 : 8;
+    /// read-write - Data byte 3 of Rx/Tx frame.
     uint32_t DATA_BYTE_20 : 8;
   } bits;
   
@@ -18994,9 +23141,13 @@ union MB7_16B_WORD3_H {
   
   // Bit field definition.
   struct {
+    /// read-write - Data byte 0 of Rx/Tx frame.
     uint32_t DATA_BYTE_15 : 8;
+    /// read-write - Data byte 1 of Rx/Tx frame.
     uint32_t DATA_BYTE_14 : 8;
+    /// read-write - Data byte 2 of Rx/Tx frame.
     uint32_t DATA_BYTE_13 : 8;
+    /// read-write - Data byte 3 of Rx/Tx frame.
     uint32_t DATA_BYTE_12 : 8;
   } bits;
   
@@ -19014,9 +23165,13 @@ union WORD143 {
   
   // Bit field definition.
   struct {
+    /// read-write - Data byte 0 of Rx/Tx frame.
     uint32_t DATA_BYTE_7 : 8;
+    /// read-write - Data byte 1 of Rx/Tx frame.
     uint32_t DATA_BYTE_6 : 8;
+    /// read-write - Data byte 2 of Rx/Tx frame.
     uint32_t DATA_BYTE_5 : 8;
+    /// read-write - Data byte 3 of Rx/Tx frame.
     uint32_t DATA_BYTE_4 : 8;
   } bits;
   
@@ -19034,16 +23189,25 @@ union CS44 {
   
   // Bit field definition.
   struct {
+    /// read-write - Free-Running Counter Time stamp. This 16-bit field is a copy of the Free-Running Timer, captured for Tx and Rx frames at the time when the beginning of the Identifier field appears on the CAN bus.
     uint32_t TIME_STAMP : 16;
+    /// read-write - Length of the data to be stored/transmitted.
     uint32_t DLC : 4;
+    /// read-write - Remote Transmission Request. One/zero for remote/data frame.
     uint32_t RTR : 1;
+    /// read-write - ID Extended. One/zero for extended/standard format frame.
     uint32_t IDE : 1;
+    /// read-write - Substitute Remote Request. Contains a fixed recessive bit.
     uint32_t SRR : 1;
     uint32_t _reserved_0 : 1;
+    /// read-write - Message Buffer Code. This 4-bit field can be accessed (read or write) by the CPU and by the FlexCAN module itself, as part of the message buffer matching and arbitration process.
     uint32_t CODE : 4;
     uint32_t _reserved_1 : 1;
+    /// read-write - Error State Indicator. This bit indicates if the transmitting node is error active or error passive.
     uint32_t ESI : 1;
+    /// read-write - Bit Rate Switch. This bit defines whether the bit rate is switched inside a CAN FD format frame.
     uint32_t BRS : 1;
+    /// read-write - Extended Data Length. This bit distinguishes between CAN format and CAN FD format frames. The EDL bit must not be set for Message Buffers configured to RANSWER with code field 0b1010.
     uint32_t EDL : 1;
   } bits;
   
@@ -19061,9 +23225,13 @@ union MB2_64B_WORD10_H {
   
   // Bit field definition.
   struct {
+    /// read-write - Data byte 0 of Rx/Tx frame.
     uint32_t DATA_BYTE_43 : 8;
+    /// read-write - Data byte 1 of Rx/Tx frame.
     uint32_t DATA_BYTE_42 : 8;
+    /// read-write - Data byte 2 of Rx/Tx frame.
     uint32_t DATA_BYTE_41 : 8;
+    /// read-write - Data byte 3 of Rx/Tx frame.
     uint32_t DATA_BYTE_40 : 8;
   } bits;
   
@@ -19081,16 +23249,25 @@ union MB44_8B_CS {
   
   // Bit field definition.
   struct {
+    /// read-write - Free-Running Counter Time stamp. This 16-bit field is a copy of the Free-Running Timer, captured for Tx and Rx frames at the time when the beginning of the Identifier field appears on the CAN bus.
     uint32_t TIME_STAMP : 16;
+    /// read-write - Length of the data to be stored/transmitted.
     uint32_t DLC : 4;
+    /// read-write - Remote Transmission Request. One/zero for remote/data frame.
     uint32_t RTR : 1;
+    /// read-write - ID Extended. One/zero for extended/standard format frame.
     uint32_t IDE : 1;
+    /// read-write - Substitute Remote Request. Contains a fixed recessive bit.
     uint32_t SRR : 1;
     uint32_t _reserved_0 : 1;
+    /// read-write - Message Buffer Code. This 4-bit field can be accessed (read or write) by the CPU and by the FlexCAN module itself, as part of the message buffer matching and arbitration process.
     uint32_t CODE : 4;
     uint32_t _reserved_1 : 1;
+    /// read-write - Error State Indicator. This bit indicates if the transmitting node is error active or error passive.
     uint32_t ESI : 1;
+    /// read-write - Bit Rate Switch. This bit defines whether the bit rate is switched inside a CAN FD format frame.
     uint32_t BRS : 1;
+    /// read-write - Extended Data Length. This bit distinguishes between CAN format and CAN FD format frames. The EDL bit must not be set for Message Buffers configured to RANSWER with code field 0b1010.
     uint32_t EDL : 1;
   } bits;
   
@@ -19108,9 +23285,13 @@ union MB4_32B_WORD6_H {
   
   // Bit field definition.
   struct {
+    /// read-write - Data byte 0 of Rx/Tx frame.
     uint32_t DATA_BYTE_27 : 8;
+    /// read-write - Data byte 1 of Rx/Tx frame.
     uint32_t DATA_BYTE_26 : 8;
+    /// read-write - Data byte 2 of Rx/Tx frame.
     uint32_t DATA_BYTE_25 : 8;
+    /// read-write - Data byte 3 of Rx/Tx frame.
     uint32_t DATA_BYTE_24 : 8;
   } bits;
   
@@ -19128,16 +23309,25 @@ union MB8_16B_CS_H {
   
   // Bit field definition.
   struct {
+    /// read-write - Free-Running Counter Time stamp. This 16-bit field is a copy of the Free-Running Timer, captured for Tx and Rx frames at the time when the beginning of the Identifier field appears on the CAN bus.
     uint32_t TIME_STAMP : 16;
+    /// read-write - Length of the data to be stored/transmitted.
     uint32_t DLC : 4;
+    /// read-write - Remote Transmission Request. One/zero for remote/data frame.
     uint32_t RTR : 1;
+    /// read-write - ID Extended. One/zero for extended/standard format frame.
     uint32_t IDE : 1;
+    /// read-write - Substitute Remote Request. Contains a fixed recessive bit.
     uint32_t SRR : 1;
     uint32_t _reserved_0 : 1;
+    /// read-write - Message Buffer Code. This 4-bit field can be accessed (read or write) by the CPU and by the FlexCAN module itself, as part of the message buffer matching and arbitration process.
     uint32_t CODE : 4;
     uint32_t _reserved_1 : 1;
+    /// read-write - Error State Indicator. This bit indicates if the transmitting node is error active or error passive.
     uint32_t ESI : 1;
+    /// read-write - Bit Rate Switch. This bit defines whether the bit rate is switched inside a CAN FD format frame.
     uint32_t BRS : 1;
+    /// read-write - Extended Data Length. This bit distinguishes between CAN format and CAN FD format frames. The EDL bit must not be set for Message Buffers configured to RANSWER with code field 0b1010.
     uint32_t EDL : 1;
   } bits;
   
@@ -19155,8 +23345,11 @@ union ID44 {
   
   // Bit field definition.
   struct {
+    /// read-write - Contains extended (LOW word) identifier of message buffer.
     uint32_t EXT : 18;
+    /// read-write - Contains standard/extended (HIGH word) identifier of message buffer.
     uint32_t STD : 11;
+    /// read-write - Local priority. This 3-bit fieldis only used when LPRIO_EN bit is set in MCR and it only makes sense for Tx buffers. These bits are not transmitted. They are appended to the regular ID to define the transmission priority.
     uint32_t PRIO : 3;
   } bits;
   
@@ -19174,9 +23367,13 @@ union MB2_64B_WORD11_H {
   
   // Bit field definition.
   struct {
+    /// read-write - Data byte 0 of Rx/Tx frame.
     uint32_t DATA_BYTE_47 : 8;
+    /// read-write - Data byte 1 of Rx/Tx frame.
     uint32_t DATA_BYTE_46 : 8;
+    /// read-write - Data byte 2 of Rx/Tx frame.
     uint32_t DATA_BYTE_45 : 8;
+    /// read-write - Data byte 3 of Rx/Tx frame.
     uint32_t DATA_BYTE_44 : 8;
   } bits;
   
@@ -19194,8 +23391,11 @@ union MB44_8B_ID {
   
   // Bit field definition.
   struct {
+    /// read-write - Contains extended (LOW word) identifier of message buffer.
     uint32_t EXT : 18;
+    /// read-write - Contains standard/extended (HIGH word) identifier of message buffer.
     uint32_t STD : 11;
+    /// read-write - Local priority. This 3-bit fieldis only used when LPRIO_EN bit is set in MCR and it only makes sense for Tx buffers. These bits are not transmitted. They are appended to the regular ID to define the transmission priority.
     uint32_t PRIO : 3;
   } bits;
   
@@ -19213,9 +23413,13 @@ union MB4_32B_WORD7_H {
   
   // Bit field definition.
   struct {
+    /// read-write - Data byte 0 of Rx/Tx frame.
     uint32_t DATA_BYTE_31 : 8;
+    /// read-write - Data byte 1 of Rx/Tx frame.
     uint32_t DATA_BYTE_30 : 8;
+    /// read-write - Data byte 2 of Rx/Tx frame.
     uint32_t DATA_BYTE_29 : 8;
+    /// read-write - Data byte 3 of Rx/Tx frame.
     uint32_t DATA_BYTE_28 : 8;
   } bits;
   
@@ -19233,8 +23437,11 @@ union MB8_16B_ID_H {
   
   // Bit field definition.
   struct {
+    /// read-write - Contains extended (LOW word) identifier of message buffer.
     uint32_t EXT : 18;
+    /// read-write - Contains standard/extended (HIGH word) identifier of message buffer.
     uint32_t STD : 11;
+    /// read-write - Local priority. This 3-bit fieldis only used when LPRIO_EN bit is set in MCR and it only makes sense for Tx buffers. These bits are not transmitted. They are appended to the regular ID to define the transmission priority.
     uint32_t PRIO : 3;
   } bits;
   
@@ -19252,9 +23459,13 @@ union MB2_64B_WORD12_H {
   
   // Bit field definition.
   struct {
+    /// read-write - Data byte 0 of Rx/Tx frame.
     uint32_t DATA_BYTE_51 : 8;
+    /// read-write - Data byte 1 of Rx/Tx frame.
     uint32_t DATA_BYTE_50 : 8;
+    /// read-write - Data byte 2 of Rx/Tx frame.
     uint32_t DATA_BYTE_49 : 8;
+    /// read-write - Data byte 3 of Rx/Tx frame.
     uint32_t DATA_BYTE_48 : 8;
   } bits;
   
@@ -19272,9 +23483,13 @@ union MB44_8B_WORD0 {
   
   // Bit field definition.
   struct {
+    /// read-write - Data byte 0 of Rx/Tx frame.
     uint32_t DATA_BYTE_3 : 8;
+    /// read-write - Data byte 1 of Rx/Tx frame.
     uint32_t DATA_BYTE_2 : 8;
+    /// read-write - Data byte 2 of Rx/Tx frame.
     uint32_t DATA_BYTE_1 : 8;
+    /// read-write - Data byte 3 of Rx/Tx frame.
     uint32_t DATA_BYTE_0 : 8;
   } bits;
   
@@ -19292,16 +23507,25 @@ union MB5_32B_CS_H {
   
   // Bit field definition.
   struct {
+    /// read-write - Free-Running Counter Time stamp. This 16-bit field is a copy of the Free-Running Timer, captured for Tx and Rx frames at the time when the beginning of the Identifier field appears on the CAN bus.
     uint32_t TIME_STAMP : 16;
+    /// read-write - Length of the data to be stored/transmitted.
     uint32_t DLC : 4;
+    /// read-write - Remote Transmission Request. One/zero for remote/data frame.
     uint32_t RTR : 1;
+    /// read-write - ID Extended. One/zero for extended/standard format frame.
     uint32_t IDE : 1;
+    /// read-write - Substitute Remote Request. Contains a fixed recessive bit.
     uint32_t SRR : 1;
     uint32_t _reserved_0 : 1;
+    /// read-write - Message Buffer Code. This 4-bit field can be accessed (read or write) by the CPU and by the FlexCAN module itself, as part of the message buffer matching and arbitration process.
     uint32_t CODE : 4;
     uint32_t _reserved_1 : 1;
+    /// read-write - Error State Indicator. This bit indicates if the transmitting node is error active or error passive.
     uint32_t ESI : 1;
+    /// read-write - Bit Rate Switch. This bit defines whether the bit rate is switched inside a CAN FD format frame.
     uint32_t BRS : 1;
+    /// read-write - Extended Data Length. This bit distinguishes between CAN format and CAN FD format frames. The EDL bit must not be set for Message Buffers configured to RANSWER with code field 0b1010.
     uint32_t EDL : 1;
   } bits;
   
@@ -19319,9 +23543,13 @@ union MB8_16B_WORD0_H {
   
   // Bit field definition.
   struct {
+    /// read-write - Data byte 0 of Rx/Tx frame.
     uint32_t DATA_BYTE_3 : 8;
+    /// read-write - Data byte 1 of Rx/Tx frame.
     uint32_t DATA_BYTE_2 : 8;
+    /// read-write - Data byte 2 of Rx/Tx frame.
     uint32_t DATA_BYTE_1 : 8;
+    /// read-write - Data byte 3 of Rx/Tx frame.
     uint32_t DATA_BYTE_0 : 8;
   } bits;
   
@@ -19339,9 +23567,13 @@ union WORD044 {
   
   // Bit field definition.
   struct {
+    /// read-write - Data byte 0 of Rx/Tx frame.
     uint32_t DATA_BYTE_3 : 8;
+    /// read-write - Data byte 1 of Rx/Tx frame.
     uint32_t DATA_BYTE_2 : 8;
+    /// read-write - Data byte 2 of Rx/Tx frame.
     uint32_t DATA_BYTE_1 : 8;
+    /// read-write - Data byte 3 of Rx/Tx frame.
     uint32_t DATA_BYTE_0 : 8;
   } bits;
   
@@ -19359,9 +23591,13 @@ union MB2_64B_WORD13_H {
   
   // Bit field definition.
   struct {
+    /// read-write - Data byte 0 of Rx/Tx frame.
     uint32_t DATA_BYTE_55 : 8;
+    /// read-write - Data byte 1 of Rx/Tx frame.
     uint32_t DATA_BYTE_54 : 8;
+    /// read-write - Data byte 2 of Rx/Tx frame.
     uint32_t DATA_BYTE_53 : 8;
+    /// read-write - Data byte 3 of Rx/Tx frame.
     uint32_t DATA_BYTE_52 : 8;
   } bits;
   
@@ -19379,9 +23615,13 @@ union MB44_8B_WORD1 {
   
   // Bit field definition.
   struct {
+    /// read-write - Data byte 0 of Rx/Tx frame.
     uint32_t DATA_BYTE_7 : 8;
+    /// read-write - Data byte 1 of Rx/Tx frame.
     uint32_t DATA_BYTE_6 : 8;
+    /// read-write - Data byte 2 of Rx/Tx frame.
     uint32_t DATA_BYTE_5 : 8;
+    /// read-write - Data byte 3 of Rx/Tx frame.
     uint32_t DATA_BYTE_4 : 8;
   } bits;
   
@@ -19399,8 +23639,11 @@ union MB5_32B_ID_H {
   
   // Bit field definition.
   struct {
+    /// read-write - Contains extended (LOW word) identifier of message buffer.
     uint32_t EXT : 18;
+    /// read-write - Contains standard/extended (HIGH word) identifier of message buffer.
     uint32_t STD : 11;
+    /// read-write - Local priority. This 3-bit fieldis only used when LPRIO_EN bit is set in MCR and it only makes sense for Tx buffers. These bits are not transmitted. They are appended to the regular ID to define the transmission priority.
     uint32_t PRIO : 3;
   } bits;
   
@@ -19418,9 +23661,13 @@ union MB8_16B_WORD1_H {
   
   // Bit field definition.
   struct {
+    /// read-write - Data byte 0 of Rx/Tx frame.
     uint32_t DATA_BYTE_7 : 8;
+    /// read-write - Data byte 1 of Rx/Tx frame.
     uint32_t DATA_BYTE_6 : 8;
+    /// read-write - Data byte 2 of Rx/Tx frame.
     uint32_t DATA_BYTE_5 : 8;
+    /// read-write - Data byte 3 of Rx/Tx frame.
     uint32_t DATA_BYTE_4 : 8;
   } bits;
   
@@ -19438,9 +23685,13 @@ union WORD144 {
   
   // Bit field definition.
   struct {
+    /// read-write - Data byte 0 of Rx/Tx frame.
     uint32_t DATA_BYTE_7 : 8;
+    /// read-write - Data byte 1 of Rx/Tx frame.
     uint32_t DATA_BYTE_6 : 8;
+    /// read-write - Data byte 2 of Rx/Tx frame.
     uint32_t DATA_BYTE_5 : 8;
+    /// read-write - Data byte 3 of Rx/Tx frame.
     uint32_t DATA_BYTE_4 : 8;
   } bits;
   
@@ -19458,16 +23709,25 @@ union CS45 {
   
   // Bit field definition.
   struct {
+    /// read-write - Free-Running Counter Time stamp. This 16-bit field is a copy of the Free-Running Timer, captured for Tx and Rx frames at the time when the beginning of the Identifier field appears on the CAN bus.
     uint32_t TIME_STAMP : 16;
+    /// read-write - Length of the data to be stored/transmitted.
     uint32_t DLC : 4;
+    /// read-write - Remote Transmission Request. One/zero for remote/data frame.
     uint32_t RTR : 1;
+    /// read-write - ID Extended. One/zero for extended/standard format frame.
     uint32_t IDE : 1;
+    /// read-write - Substitute Remote Request. Contains a fixed recessive bit.
     uint32_t SRR : 1;
     uint32_t _reserved_0 : 1;
+    /// read-write - Message Buffer Code. This 4-bit field can be accessed (read or write) by the CPU and by the FlexCAN module itself, as part of the message buffer matching and arbitration process.
     uint32_t CODE : 4;
     uint32_t _reserved_1 : 1;
+    /// read-write - Error State Indicator. This bit indicates if the transmitting node is error active or error passive.
     uint32_t ESI : 1;
+    /// read-write - Bit Rate Switch. This bit defines whether the bit rate is switched inside a CAN FD format frame.
     uint32_t BRS : 1;
+    /// read-write - Extended Data Length. This bit distinguishes between CAN format and CAN FD format frames. The EDL bit must not be set for Message Buffers configured to RANSWER with code field 0b1010.
     uint32_t EDL : 1;
   } bits;
   
@@ -19485,9 +23745,13 @@ union MB2_64B_WORD14_H {
   
   // Bit field definition.
   struct {
+    /// read-write - Data byte 0 of Rx/Tx frame.
     uint32_t DATA_BYTE_59 : 8;
+    /// read-write - Data byte 1 of Rx/Tx frame.
     uint32_t DATA_BYTE_58 : 8;
+    /// read-write - Data byte 2 of Rx/Tx frame.
     uint32_t DATA_BYTE_57 : 8;
+    /// read-write - Data byte 3 of Rx/Tx frame.
     uint32_t DATA_BYTE_56 : 8;
   } bits;
   
@@ -19505,16 +23769,25 @@ union MB45_8B_CS {
   
   // Bit field definition.
   struct {
+    /// read-write - Free-Running Counter Time stamp. This 16-bit field is a copy of the Free-Running Timer, captured for Tx and Rx frames at the time when the beginning of the Identifier field appears on the CAN bus.
     uint32_t TIME_STAMP : 16;
+    /// read-write - Length of the data to be stored/transmitted.
     uint32_t DLC : 4;
+    /// read-write - Remote Transmission Request. One/zero for remote/data frame.
     uint32_t RTR : 1;
+    /// read-write - ID Extended. One/zero for extended/standard format frame.
     uint32_t IDE : 1;
+    /// read-write - Substitute Remote Request. Contains a fixed recessive bit.
     uint32_t SRR : 1;
     uint32_t _reserved_0 : 1;
+    /// read-write - Message Buffer Code. This 4-bit field can be accessed (read or write) by the CPU and by the FlexCAN module itself, as part of the message buffer matching and arbitration process.
     uint32_t CODE : 4;
     uint32_t _reserved_1 : 1;
+    /// read-write - Error State Indicator. This bit indicates if the transmitting node is error active or error passive.
     uint32_t ESI : 1;
+    /// read-write - Bit Rate Switch. This bit defines whether the bit rate is switched inside a CAN FD format frame.
     uint32_t BRS : 1;
+    /// read-write - Extended Data Length. This bit distinguishes between CAN format and CAN FD format frames. The EDL bit must not be set for Message Buffers configured to RANSWER with code field 0b1010.
     uint32_t EDL : 1;
   } bits;
   
@@ -19532,9 +23805,13 @@ union MB5_32B_WORD0_H {
   
   // Bit field definition.
   struct {
+    /// read-write - Data byte 0 of Rx/Tx frame.
     uint32_t DATA_BYTE_3 : 8;
+    /// read-write - Data byte 1 of Rx/Tx frame.
     uint32_t DATA_BYTE_2 : 8;
+    /// read-write - Data byte 2 of Rx/Tx frame.
     uint32_t DATA_BYTE_1 : 8;
+    /// read-write - Data byte 3 of Rx/Tx frame.
     uint32_t DATA_BYTE_0 : 8;
   } bits;
   
@@ -19552,9 +23829,13 @@ union MB8_16B_WORD2_H {
   
   // Bit field definition.
   struct {
+    /// read-write - Data byte 0 of Rx/Tx frame.
     uint32_t DATA_BYTE_11 : 8;
+    /// read-write - Data byte 1 of Rx/Tx frame.
     uint32_t DATA_BYTE_10 : 8;
+    /// read-write - Data byte 2 of Rx/Tx frame.
     uint32_t DATA_BYTE_9 : 8;
+    /// read-write - Data byte 3 of Rx/Tx frame.
     uint32_t DATA_BYTE_8 : 8;
   } bits;
   
@@ -19572,8 +23853,11 @@ union ID45 {
   
   // Bit field definition.
   struct {
+    /// read-write - Contains extended (LOW word) identifier of message buffer.
     uint32_t EXT : 18;
+    /// read-write - Contains standard/extended (HIGH word) identifier of message buffer.
     uint32_t STD : 11;
+    /// read-write - Local priority. This 3-bit fieldis only used when LPRIO_EN bit is set in MCR and it only makes sense for Tx buffers. These bits are not transmitted. They are appended to the regular ID to define the transmission priority.
     uint32_t PRIO : 3;
   } bits;
   
@@ -19591,9 +23875,13 @@ union MB2_64B_WORD15_H {
   
   // Bit field definition.
   struct {
+    /// read-write - Data byte 0 of Rx/Tx frame.
     uint32_t DATA_BYTE_63 : 8;
+    /// read-write - Data byte 1 of Rx/Tx frame.
     uint32_t DATA_BYTE_62 : 8;
+    /// read-write - Data byte 2 of Rx/Tx frame.
     uint32_t DATA_BYTE_61 : 8;
+    /// read-write - Data byte 3 of Rx/Tx frame.
     uint32_t DATA_BYTE_60 : 8;
   } bits;
   
@@ -19611,8 +23899,11 @@ union MB45_8B_ID {
   
   // Bit field definition.
   struct {
+    /// read-write - Contains extended (LOW word) identifier of message buffer.
     uint32_t EXT : 18;
+    /// read-write - Contains standard/extended (HIGH word) identifier of message buffer.
     uint32_t STD : 11;
+    /// read-write - Local priority. This 3-bit fieldis only used when LPRIO_EN bit is set in MCR and it only makes sense for Tx buffers. These bits are not transmitted. They are appended to the regular ID to define the transmission priority.
     uint32_t PRIO : 3;
   } bits;
   
@@ -19630,9 +23921,13 @@ union MB5_32B_WORD1_H {
   
   // Bit field definition.
   struct {
+    /// read-write - Data byte 0 of Rx/Tx frame.
     uint32_t DATA_BYTE_7 : 8;
+    /// read-write - Data byte 1 of Rx/Tx frame.
     uint32_t DATA_BYTE_6 : 8;
+    /// read-write - Data byte 2 of Rx/Tx frame.
     uint32_t DATA_BYTE_5 : 8;
+    /// read-write - Data byte 3 of Rx/Tx frame.
     uint32_t DATA_BYTE_4 : 8;
   } bits;
   
@@ -19650,9 +23945,13 @@ union MB8_16B_WORD3_H {
   
   // Bit field definition.
   struct {
+    /// read-write - Data byte 0 of Rx/Tx frame.
     uint32_t DATA_BYTE_15 : 8;
+    /// read-write - Data byte 1 of Rx/Tx frame.
     uint32_t DATA_BYTE_14 : 8;
+    /// read-write - Data byte 2 of Rx/Tx frame.
     uint32_t DATA_BYTE_13 : 8;
+    /// read-write - Data byte 3 of Rx/Tx frame.
     uint32_t DATA_BYTE_12 : 8;
   } bits;
   
@@ -19670,16 +23969,25 @@ union MB3_64B_CS_H {
   
   // Bit field definition.
   struct {
+    /// read-write - Free-Running Counter Time stamp. This 16-bit field is a copy of the Free-Running Timer, captured for Tx and Rx frames at the time when the beginning of the Identifier field appears on the CAN bus.
     uint32_t TIME_STAMP : 16;
+    /// read-write - Length of the data to be stored/transmitted.
     uint32_t DLC : 4;
+    /// read-write - Remote Transmission Request. One/zero for remote/data frame.
     uint32_t RTR : 1;
+    /// read-write - ID Extended. One/zero for extended/standard format frame.
     uint32_t IDE : 1;
+    /// read-write - Substitute Remote Request. Contains a fixed recessive bit.
     uint32_t SRR : 1;
     uint32_t _reserved_0 : 1;
+    /// read-write - Message Buffer Code. This 4-bit field can be accessed (read or write) by the CPU and by the FlexCAN module itself, as part of the message buffer matching and arbitration process.
     uint32_t CODE : 4;
     uint32_t _reserved_1 : 1;
+    /// read-write - Error State Indicator. This bit indicates if the transmitting node is error active or error passive.
     uint32_t ESI : 1;
+    /// read-write - Bit Rate Switch. This bit defines whether the bit rate is switched inside a CAN FD format frame.
     uint32_t BRS : 1;
+    /// read-write - Extended Data Length. This bit distinguishes between CAN format and CAN FD format frames. The EDL bit must not be set for Message Buffers configured to RANSWER with code field 0b1010.
     uint32_t EDL : 1;
   } bits;
   
@@ -19697,9 +24005,13 @@ union MB45_8B_WORD0 {
   
   // Bit field definition.
   struct {
+    /// read-write - Data byte 0 of Rx/Tx frame.
     uint32_t DATA_BYTE_3 : 8;
+    /// read-write - Data byte 1 of Rx/Tx frame.
     uint32_t DATA_BYTE_2 : 8;
+    /// read-write - Data byte 2 of Rx/Tx frame.
     uint32_t DATA_BYTE_1 : 8;
+    /// read-write - Data byte 3 of Rx/Tx frame.
     uint32_t DATA_BYTE_0 : 8;
   } bits;
   
@@ -19717,9 +24029,13 @@ union MB5_32B_WORD2_H {
   
   // Bit field definition.
   struct {
+    /// read-write - Data byte 0 of Rx/Tx frame.
     uint32_t DATA_BYTE_11 : 8;
+    /// read-write - Data byte 1 of Rx/Tx frame.
     uint32_t DATA_BYTE_10 : 8;
+    /// read-write - Data byte 2 of Rx/Tx frame.
     uint32_t DATA_BYTE_9 : 8;
+    /// read-write - Data byte 3 of Rx/Tx frame.
     uint32_t DATA_BYTE_8 : 8;
   } bits;
   
@@ -19737,16 +24053,25 @@ union MB9_16B_CS_H {
   
   // Bit field definition.
   struct {
+    /// read-write - Free-Running Counter Time stamp. This 16-bit field is a copy of the Free-Running Timer, captured for Tx and Rx frames at the time when the beginning of the Identifier field appears on the CAN bus.
     uint32_t TIME_STAMP : 16;
+    /// read-write - Length of the data to be stored/transmitted.
     uint32_t DLC : 4;
+    /// read-write - Remote Transmission Request. One/zero for remote/data frame.
     uint32_t RTR : 1;
+    /// read-write - ID Extended. One/zero for extended/standard format frame.
     uint32_t IDE : 1;
+    /// read-write - Substitute Remote Request. Contains a fixed recessive bit.
     uint32_t SRR : 1;
     uint32_t _reserved_0 : 1;
+    /// read-write - Message Buffer Code. This 4-bit field can be accessed (read or write) by the CPU and by the FlexCAN module itself, as part of the message buffer matching and arbitration process.
     uint32_t CODE : 4;
     uint32_t _reserved_1 : 1;
+    /// read-write - Error State Indicator. This bit indicates if the transmitting node is error active or error passive.
     uint32_t ESI : 1;
+    /// read-write - Bit Rate Switch. This bit defines whether the bit rate is switched inside a CAN FD format frame.
     uint32_t BRS : 1;
+    /// read-write - Extended Data Length. This bit distinguishes between CAN format and CAN FD format frames. The EDL bit must not be set for Message Buffers configured to RANSWER with code field 0b1010.
     uint32_t EDL : 1;
   } bits;
   
@@ -19764,9 +24089,13 @@ union WORD045 {
   
   // Bit field definition.
   struct {
+    /// read-write - Data byte 0 of Rx/Tx frame.
     uint32_t DATA_BYTE_3 : 8;
+    /// read-write - Data byte 1 of Rx/Tx frame.
     uint32_t DATA_BYTE_2 : 8;
+    /// read-write - Data byte 2 of Rx/Tx frame.
     uint32_t DATA_BYTE_1 : 8;
+    /// read-write - Data byte 3 of Rx/Tx frame.
     uint32_t DATA_BYTE_0 : 8;
   } bits;
   
@@ -19784,8 +24113,11 @@ union MB3_64B_ID_H {
   
   // Bit field definition.
   struct {
+    /// read-write - Contains extended (LOW word) identifier of message buffer.
     uint32_t EXT : 18;
+    /// read-write - Contains standard/extended (HIGH word) identifier of message buffer.
     uint32_t STD : 11;
+    /// read-write - Local priority. This 3-bit fieldis only used when LPRIO_EN bit is set in MCR and it only makes sense for Tx buffers. These bits are not transmitted. They are appended to the regular ID to define the transmission priority.
     uint32_t PRIO : 3;
   } bits;
   
@@ -19803,9 +24135,13 @@ union MB45_8B_WORD1 {
   
   // Bit field definition.
   struct {
+    /// read-write - Data byte 0 of Rx/Tx frame.
     uint32_t DATA_BYTE_7 : 8;
+    /// read-write - Data byte 1 of Rx/Tx frame.
     uint32_t DATA_BYTE_6 : 8;
+    /// read-write - Data byte 2 of Rx/Tx frame.
     uint32_t DATA_BYTE_5 : 8;
+    /// read-write - Data byte 3 of Rx/Tx frame.
     uint32_t DATA_BYTE_4 : 8;
   } bits;
   
@@ -19823,9 +24159,13 @@ union MB5_32B_WORD3_H {
   
   // Bit field definition.
   struct {
+    /// read-write - Data byte 0 of Rx/Tx frame.
     uint32_t DATA_BYTE_15 : 8;
+    /// read-write - Data byte 1 of Rx/Tx frame.
     uint32_t DATA_BYTE_14 : 8;
+    /// read-write - Data byte 2 of Rx/Tx frame.
     uint32_t DATA_BYTE_13 : 8;
+    /// read-write - Data byte 3 of Rx/Tx frame.
     uint32_t DATA_BYTE_12 : 8;
   } bits;
   
@@ -19843,8 +24183,11 @@ union MB9_16B_ID_H {
   
   // Bit field definition.
   struct {
+    /// read-write - Contains extended (LOW word) identifier of message buffer.
     uint32_t EXT : 18;
+    /// read-write - Contains standard/extended (HIGH word) identifier of message buffer.
     uint32_t STD : 11;
+    /// read-write - Local priority. This 3-bit fieldis only used when LPRIO_EN bit is set in MCR and it only makes sense for Tx buffers. These bits are not transmitted. They are appended to the regular ID to define the transmission priority.
     uint32_t PRIO : 3;
   } bits;
   
@@ -19862,9 +24205,13 @@ union WORD145 {
   
   // Bit field definition.
   struct {
+    /// read-write - Data byte 0 of Rx/Tx frame.
     uint32_t DATA_BYTE_7 : 8;
+    /// read-write - Data byte 1 of Rx/Tx frame.
     uint32_t DATA_BYTE_6 : 8;
+    /// read-write - Data byte 2 of Rx/Tx frame.
     uint32_t DATA_BYTE_5 : 8;
+    /// read-write - Data byte 3 of Rx/Tx frame.
     uint32_t DATA_BYTE_4 : 8;
   } bits;
   
@@ -19882,16 +24229,25 @@ union CS46 {
   
   // Bit field definition.
   struct {
+    /// read-write - Free-Running Counter Time stamp. This 16-bit field is a copy of the Free-Running Timer, captured for Tx and Rx frames at the time when the beginning of the Identifier field appears on the CAN bus.
     uint32_t TIME_STAMP : 16;
+    /// read-write - Length of the data to be stored/transmitted.
     uint32_t DLC : 4;
+    /// read-write - Remote Transmission Request. One/zero for remote/data frame.
     uint32_t RTR : 1;
+    /// read-write - ID Extended. One/zero for extended/standard format frame.
     uint32_t IDE : 1;
+    /// read-write - Substitute Remote Request. Contains a fixed recessive bit.
     uint32_t SRR : 1;
     uint32_t _reserved_0 : 1;
+    /// read-write - Message Buffer Code. This 4-bit field can be accessed (read or write) by the CPU and by the FlexCAN module itself, as part of the message buffer matching and arbitration process.
     uint32_t CODE : 4;
     uint32_t _reserved_1 : 1;
+    /// read-write - Error State Indicator. This bit indicates if the transmitting node is error active or error passive.
     uint32_t ESI : 1;
+    /// read-write - Bit Rate Switch. This bit defines whether the bit rate is switched inside a CAN FD format frame.
     uint32_t BRS : 1;
+    /// read-write - Extended Data Length. This bit distinguishes between CAN format and CAN FD format frames. The EDL bit must not be set for Message Buffers configured to RANSWER with code field 0b1010.
     uint32_t EDL : 1;
   } bits;
   
@@ -19909,9 +24265,13 @@ union MB3_64B_WORD0_H {
   
   // Bit field definition.
   struct {
+    /// read-write - Data byte 0 of Rx/Tx frame.
     uint32_t DATA_BYTE_3 : 8;
+    /// read-write - Data byte 1 of Rx/Tx frame.
     uint32_t DATA_BYTE_2 : 8;
+    /// read-write - Data byte 2 of Rx/Tx frame.
     uint32_t DATA_BYTE_1 : 8;
+    /// read-write - Data byte 3 of Rx/Tx frame.
     uint32_t DATA_BYTE_0 : 8;
   } bits;
   
@@ -19929,16 +24289,25 @@ union MB46_8B_CS {
   
   // Bit field definition.
   struct {
+    /// read-write - Free-Running Counter Time stamp. This 16-bit field is a copy of the Free-Running Timer, captured for Tx and Rx frames at the time when the beginning of the Identifier field appears on the CAN bus.
     uint32_t TIME_STAMP : 16;
+    /// read-write - Length of the data to be stored/transmitted.
     uint32_t DLC : 4;
+    /// read-write - Remote Transmission Request. One/zero for remote/data frame.
     uint32_t RTR : 1;
+    /// read-write - ID Extended. One/zero for extended/standard format frame.
     uint32_t IDE : 1;
+    /// read-write - Substitute Remote Request. Contains a fixed recessive bit.
     uint32_t SRR : 1;
     uint32_t _reserved_0 : 1;
+    /// read-write - Message Buffer Code. This 4-bit field can be accessed (read or write) by the CPU and by the FlexCAN module itself, as part of the message buffer matching and arbitration process.
     uint32_t CODE : 4;
     uint32_t _reserved_1 : 1;
+    /// read-write - Error State Indicator. This bit indicates if the transmitting node is error active or error passive.
     uint32_t ESI : 1;
+    /// read-write - Bit Rate Switch. This bit defines whether the bit rate is switched inside a CAN FD format frame.
     uint32_t BRS : 1;
+    /// read-write - Extended Data Length. This bit distinguishes between CAN format and CAN FD format frames. The EDL bit must not be set for Message Buffers configured to RANSWER with code field 0b1010.
     uint32_t EDL : 1;
   } bits;
   
@@ -19956,9 +24325,13 @@ union MB5_32B_WORD4_H {
   
   // Bit field definition.
   struct {
+    /// read-write - Data byte 0 of Rx/Tx frame.
     uint32_t DATA_BYTE_19 : 8;
+    /// read-write - Data byte 1 of Rx/Tx frame.
     uint32_t DATA_BYTE_18 : 8;
+    /// read-write - Data byte 2 of Rx/Tx frame.
     uint32_t DATA_BYTE_17 : 8;
+    /// read-write - Data byte 3 of Rx/Tx frame.
     uint32_t DATA_BYTE_16 : 8;
   } bits;
   
@@ -19976,9 +24349,13 @@ union MB9_16B_WORD0_H {
   
   // Bit field definition.
   struct {
+    /// read-write - Data byte 0 of Rx/Tx frame.
     uint32_t DATA_BYTE_3 : 8;
+    /// read-write - Data byte 1 of Rx/Tx frame.
     uint32_t DATA_BYTE_2 : 8;
+    /// read-write - Data byte 2 of Rx/Tx frame.
     uint32_t DATA_BYTE_1 : 8;
+    /// read-write - Data byte 3 of Rx/Tx frame.
     uint32_t DATA_BYTE_0 : 8;
   } bits;
   
@@ -19996,8 +24373,11 @@ union ID46 {
   
   // Bit field definition.
   struct {
+    /// read-write - Contains extended (LOW word) identifier of message buffer.
     uint32_t EXT : 18;
+    /// read-write - Contains standard/extended (HIGH word) identifier of message buffer.
     uint32_t STD : 11;
+    /// read-write - Local priority. This 3-bit fieldis only used when LPRIO_EN bit is set in MCR and it only makes sense for Tx buffers. These bits are not transmitted. They are appended to the regular ID to define the transmission priority.
     uint32_t PRIO : 3;
   } bits;
   
@@ -20015,9 +24395,13 @@ union MB3_64B_WORD1_H {
   
   // Bit field definition.
   struct {
+    /// read-write - Data byte 0 of Rx/Tx frame.
     uint32_t DATA_BYTE_7 : 8;
+    /// read-write - Data byte 1 of Rx/Tx frame.
     uint32_t DATA_BYTE_6 : 8;
+    /// read-write - Data byte 2 of Rx/Tx frame.
     uint32_t DATA_BYTE_5 : 8;
+    /// read-write - Data byte 3 of Rx/Tx frame.
     uint32_t DATA_BYTE_4 : 8;
   } bits;
   
@@ -20035,8 +24419,11 @@ union MB46_8B_ID {
   
   // Bit field definition.
   struct {
+    /// read-write - Contains extended (LOW word) identifier of message buffer.
     uint32_t EXT : 18;
+    /// read-write - Contains standard/extended (HIGH word) identifier of message buffer.
     uint32_t STD : 11;
+    /// read-write - Local priority. This 3-bit fieldis only used when LPRIO_EN bit is set in MCR and it only makes sense for Tx buffers. These bits are not transmitted. They are appended to the regular ID to define the transmission priority.
     uint32_t PRIO : 3;
   } bits;
   
@@ -20054,9 +24441,13 @@ union MB5_32B_WORD5_H {
   
   // Bit field definition.
   struct {
+    /// read-write - Data byte 0 of Rx/Tx frame.
     uint32_t DATA_BYTE_23 : 8;
+    /// read-write - Data byte 1 of Rx/Tx frame.
     uint32_t DATA_BYTE_22 : 8;
+    /// read-write - Data byte 2 of Rx/Tx frame.
     uint32_t DATA_BYTE_21 : 8;
+    /// read-write - Data byte 3 of Rx/Tx frame.
     uint32_t DATA_BYTE_20 : 8;
   } bits;
   
@@ -20074,9 +24465,13 @@ union MB9_16B_WORD1_H {
   
   // Bit field definition.
   struct {
+    /// read-write - Data byte 0 of Rx/Tx frame.
     uint32_t DATA_BYTE_7 : 8;
+    /// read-write - Data byte 1 of Rx/Tx frame.
     uint32_t DATA_BYTE_6 : 8;
+    /// read-write - Data byte 2 of Rx/Tx frame.
     uint32_t DATA_BYTE_5 : 8;
+    /// read-write - Data byte 3 of Rx/Tx frame.
     uint32_t DATA_BYTE_4 : 8;
   } bits;
   
@@ -20094,9 +24489,13 @@ union MB3_64B_WORD2_H {
   
   // Bit field definition.
   struct {
+    /// read-write - Data byte 0 of Rx/Tx frame.
     uint32_t DATA_BYTE_11 : 8;
+    /// read-write - Data byte 1 of Rx/Tx frame.
     uint32_t DATA_BYTE_10 : 8;
+    /// read-write - Data byte 2 of Rx/Tx frame.
     uint32_t DATA_BYTE_9 : 8;
+    /// read-write - Data byte 3 of Rx/Tx frame.
     uint32_t DATA_BYTE_8 : 8;
   } bits;
   
@@ -20114,9 +24513,13 @@ union MB46_8B_WORD0 {
   
   // Bit field definition.
   struct {
+    /// read-write - Data byte 0 of Rx/Tx frame.
     uint32_t DATA_BYTE_3 : 8;
+    /// read-write - Data byte 1 of Rx/Tx frame.
     uint32_t DATA_BYTE_2 : 8;
+    /// read-write - Data byte 2 of Rx/Tx frame.
     uint32_t DATA_BYTE_1 : 8;
+    /// read-write - Data byte 3 of Rx/Tx frame.
     uint32_t DATA_BYTE_0 : 8;
   } bits;
   
@@ -20134,9 +24537,13 @@ union MB5_32B_WORD6_H {
   
   // Bit field definition.
   struct {
+    /// read-write - Data byte 0 of Rx/Tx frame.
     uint32_t DATA_BYTE_27 : 8;
+    /// read-write - Data byte 1 of Rx/Tx frame.
     uint32_t DATA_BYTE_26 : 8;
+    /// read-write - Data byte 2 of Rx/Tx frame.
     uint32_t DATA_BYTE_25 : 8;
+    /// read-write - Data byte 3 of Rx/Tx frame.
     uint32_t DATA_BYTE_24 : 8;
   } bits;
   
@@ -20154,9 +24561,13 @@ union MB9_16B_WORD2_H {
   
   // Bit field definition.
   struct {
+    /// read-write - Data byte 0 of Rx/Tx frame.
     uint32_t DATA_BYTE_11 : 8;
+    /// read-write - Data byte 1 of Rx/Tx frame.
     uint32_t DATA_BYTE_10 : 8;
+    /// read-write - Data byte 2 of Rx/Tx frame.
     uint32_t DATA_BYTE_9 : 8;
+    /// read-write - Data byte 3 of Rx/Tx frame.
     uint32_t DATA_BYTE_8 : 8;
   } bits;
   
@@ -20174,9 +24585,13 @@ union WORD046 {
   
   // Bit field definition.
   struct {
+    /// read-write - Data byte 0 of Rx/Tx frame.
     uint32_t DATA_BYTE_3 : 8;
+    /// read-write - Data byte 1 of Rx/Tx frame.
     uint32_t DATA_BYTE_2 : 8;
+    /// read-write - Data byte 2 of Rx/Tx frame.
     uint32_t DATA_BYTE_1 : 8;
+    /// read-write - Data byte 3 of Rx/Tx frame.
     uint32_t DATA_BYTE_0 : 8;
   } bits;
   
@@ -20194,9 +24609,13 @@ union MB3_64B_WORD3_H {
   
   // Bit field definition.
   struct {
+    /// read-write - Data byte 0 of Rx/Tx frame.
     uint32_t DATA_BYTE_15 : 8;
+    /// read-write - Data byte 1 of Rx/Tx frame.
     uint32_t DATA_BYTE_14 : 8;
+    /// read-write - Data byte 2 of Rx/Tx frame.
     uint32_t DATA_BYTE_13 : 8;
+    /// read-write - Data byte 3 of Rx/Tx frame.
     uint32_t DATA_BYTE_12 : 8;
   } bits;
   
@@ -20214,9 +24633,13 @@ union MB46_8B_WORD1 {
   
   // Bit field definition.
   struct {
+    /// read-write - Data byte 0 of Rx/Tx frame.
     uint32_t DATA_BYTE_7 : 8;
+    /// read-write - Data byte 1 of Rx/Tx frame.
     uint32_t DATA_BYTE_6 : 8;
+    /// read-write - Data byte 2 of Rx/Tx frame.
     uint32_t DATA_BYTE_5 : 8;
+    /// read-write - Data byte 3 of Rx/Tx frame.
     uint32_t DATA_BYTE_4 : 8;
   } bits;
   
@@ -20234,9 +24657,13 @@ union MB5_32B_WORD7_H {
   
   // Bit field definition.
   struct {
+    /// read-write - Data byte 0 of Rx/Tx frame.
     uint32_t DATA_BYTE_31 : 8;
+    /// read-write - Data byte 1 of Rx/Tx frame.
     uint32_t DATA_BYTE_30 : 8;
+    /// read-write - Data byte 2 of Rx/Tx frame.
     uint32_t DATA_BYTE_29 : 8;
+    /// read-write - Data byte 3 of Rx/Tx frame.
     uint32_t DATA_BYTE_28 : 8;
   } bits;
   
@@ -20254,9 +24681,13 @@ union MB9_16B_WORD3_H {
   
   // Bit field definition.
   struct {
+    /// read-write - Data byte 0 of Rx/Tx frame.
     uint32_t DATA_BYTE_15 : 8;
+    /// read-write - Data byte 1 of Rx/Tx frame.
     uint32_t DATA_BYTE_14 : 8;
+    /// read-write - Data byte 2 of Rx/Tx frame.
     uint32_t DATA_BYTE_13 : 8;
+    /// read-write - Data byte 3 of Rx/Tx frame.
     uint32_t DATA_BYTE_12 : 8;
   } bits;
   
@@ -20274,9 +24705,13 @@ union WORD146 {
   
   // Bit field definition.
   struct {
+    /// read-write - Data byte 0 of Rx/Tx frame.
     uint32_t DATA_BYTE_7 : 8;
+    /// read-write - Data byte 1 of Rx/Tx frame.
     uint32_t DATA_BYTE_6 : 8;
+    /// read-write - Data byte 2 of Rx/Tx frame.
     uint32_t DATA_BYTE_5 : 8;
+    /// read-write - Data byte 3 of Rx/Tx frame.
     uint32_t DATA_BYTE_4 : 8;
   } bits;
   
@@ -20294,16 +24729,25 @@ union CS47 {
   
   // Bit field definition.
   struct {
+    /// read-write - Free-Running Counter Time stamp. This 16-bit field is a copy of the Free-Running Timer, captured for Tx and Rx frames at the time when the beginning of the Identifier field appears on the CAN bus.
     uint32_t TIME_STAMP : 16;
+    /// read-write - Length of the data to be stored/transmitted.
     uint32_t DLC : 4;
+    /// read-write - Remote Transmission Request. One/zero for remote/data frame.
     uint32_t RTR : 1;
+    /// read-write - ID Extended. One/zero for extended/standard format frame.
     uint32_t IDE : 1;
+    /// read-write - Substitute Remote Request. Contains a fixed recessive bit.
     uint32_t SRR : 1;
     uint32_t _reserved_0 : 1;
+    /// read-write - Message Buffer Code. This 4-bit field can be accessed (read or write) by the CPU and by the FlexCAN module itself, as part of the message buffer matching and arbitration process.
     uint32_t CODE : 4;
     uint32_t _reserved_1 : 1;
+    /// read-write - Error State Indicator. This bit indicates if the transmitting node is error active or error passive.
     uint32_t ESI : 1;
+    /// read-write - Bit Rate Switch. This bit defines whether the bit rate is switched inside a CAN FD format frame.
     uint32_t BRS : 1;
+    /// read-write - Extended Data Length. This bit distinguishes between CAN format and CAN FD format frames. The EDL bit must not be set for Message Buffers configured to RANSWER with code field 0b1010.
     uint32_t EDL : 1;
   } bits;
   
@@ -20321,16 +24765,25 @@ union MB10_16B_CS_H {
   
   // Bit field definition.
   struct {
+    /// read-write - Free-Running Counter Time stamp. This 16-bit field is a copy of the Free-Running Timer, captured for Tx and Rx frames at the time when the beginning of the Identifier field appears on the CAN bus.
     uint32_t TIME_STAMP : 16;
+    /// read-write - Length of the data to be stored/transmitted.
     uint32_t DLC : 4;
+    /// read-write - Remote Transmission Request. One/zero for remote/data frame.
     uint32_t RTR : 1;
+    /// read-write - ID Extended. One/zero for extended/standard format frame.
     uint32_t IDE : 1;
+    /// read-write - Substitute Remote Request. Contains a fixed recessive bit.
     uint32_t SRR : 1;
     uint32_t _reserved_0 : 1;
+    /// read-write - Message Buffer Code. This 4-bit field can be accessed (read or write) by the CPU and by the FlexCAN module itself, as part of the message buffer matching and arbitration process.
     uint32_t CODE : 4;
     uint32_t _reserved_1 : 1;
+    /// read-write - Error State Indicator. This bit indicates if the transmitting node is error active or error passive.
     uint32_t ESI : 1;
+    /// read-write - Bit Rate Switch. This bit defines whether the bit rate is switched inside a CAN FD format frame.
     uint32_t BRS : 1;
+    /// read-write - Extended Data Length. This bit distinguishes between CAN format and CAN FD format frames. The EDL bit must not be set for Message Buffers configured to RANSWER with code field 0b1010.
     uint32_t EDL : 1;
   } bits;
   
@@ -20348,9 +24801,13 @@ union MB3_64B_WORD4_H {
   
   // Bit field definition.
   struct {
+    /// read-write - Data byte 0 of Rx/Tx frame.
     uint32_t DATA_BYTE_19 : 8;
+    /// read-write - Data byte 1 of Rx/Tx frame.
     uint32_t DATA_BYTE_18 : 8;
+    /// read-write - Data byte 2 of Rx/Tx frame.
     uint32_t DATA_BYTE_17 : 8;
+    /// read-write - Data byte 3 of Rx/Tx frame.
     uint32_t DATA_BYTE_16 : 8;
   } bits;
   
@@ -20368,16 +24825,25 @@ union MB47_8B_CS {
   
   // Bit field definition.
   struct {
+    /// read-write - Free-Running Counter Time stamp. This 16-bit field is a copy of the Free-Running Timer, captured for Tx and Rx frames at the time when the beginning of the Identifier field appears on the CAN bus.
     uint32_t TIME_STAMP : 16;
+    /// read-write - Length of the data to be stored/transmitted.
     uint32_t DLC : 4;
+    /// read-write - Remote Transmission Request. One/zero for remote/data frame.
     uint32_t RTR : 1;
+    /// read-write - ID Extended. One/zero for extended/standard format frame.
     uint32_t IDE : 1;
+    /// read-write - Substitute Remote Request. Contains a fixed recessive bit.
     uint32_t SRR : 1;
     uint32_t _reserved_0 : 1;
+    /// read-write - Message Buffer Code. This 4-bit field can be accessed (read or write) by the CPU and by the FlexCAN module itself, as part of the message buffer matching and arbitration process.
     uint32_t CODE : 4;
     uint32_t _reserved_1 : 1;
+    /// read-write - Error State Indicator. This bit indicates if the transmitting node is error active or error passive.
     uint32_t ESI : 1;
+    /// read-write - Bit Rate Switch. This bit defines whether the bit rate is switched inside a CAN FD format frame.
     uint32_t BRS : 1;
+    /// read-write - Extended Data Length. This bit distinguishes between CAN format and CAN FD format frames. The EDL bit must not be set for Message Buffers configured to RANSWER with code field 0b1010.
     uint32_t EDL : 1;
   } bits;
   
@@ -20395,16 +24861,25 @@ union MB6_32B_CS_H {
   
   // Bit field definition.
   struct {
+    /// read-write - Free-Running Counter Time stamp. This 16-bit field is a copy of the Free-Running Timer, captured for Tx and Rx frames at the time when the beginning of the Identifier field appears on the CAN bus.
     uint32_t TIME_STAMP : 16;
+    /// read-write - Length of the data to be stored/transmitted.
     uint32_t DLC : 4;
+    /// read-write - Remote Transmission Request. One/zero for remote/data frame.
     uint32_t RTR : 1;
+    /// read-write - ID Extended. One/zero for extended/standard format frame.
     uint32_t IDE : 1;
+    /// read-write - Substitute Remote Request. Contains a fixed recessive bit.
     uint32_t SRR : 1;
     uint32_t _reserved_0 : 1;
+    /// read-write - Message Buffer Code. This 4-bit field can be accessed (read or write) by the CPU and by the FlexCAN module itself, as part of the message buffer matching and arbitration process.
     uint32_t CODE : 4;
     uint32_t _reserved_1 : 1;
+    /// read-write - Error State Indicator. This bit indicates if the transmitting node is error active or error passive.
     uint32_t ESI : 1;
+    /// read-write - Bit Rate Switch. This bit defines whether the bit rate is switched inside a CAN FD format frame.
     uint32_t BRS : 1;
+    /// read-write - Extended Data Length. This bit distinguishes between CAN format and CAN FD format frames. The EDL bit must not be set for Message Buffers configured to RANSWER with code field 0b1010.
     uint32_t EDL : 1;
   } bits;
   
@@ -20422,8 +24897,11 @@ union ID47 {
   
   // Bit field definition.
   struct {
+    /// read-write - Contains extended (LOW word) identifier of message buffer.
     uint32_t EXT : 18;
+    /// read-write - Contains standard/extended (HIGH word) identifier of message buffer.
     uint32_t STD : 11;
+    /// read-write - Local priority. This 3-bit fieldis only used when LPRIO_EN bit is set in MCR and it only makes sense for Tx buffers. These bits are not transmitted. They are appended to the regular ID to define the transmission priority.
     uint32_t PRIO : 3;
   } bits;
   
@@ -20441,8 +24919,11 @@ union MB10_16B_ID_H {
   
   // Bit field definition.
   struct {
+    /// read-write - Contains extended (LOW word) identifier of message buffer.
     uint32_t EXT : 18;
+    /// read-write - Contains standard/extended (HIGH word) identifier of message buffer.
     uint32_t STD : 11;
+    /// read-write - Local priority. This 3-bit fieldis only used when LPRIO_EN bit is set in MCR and it only makes sense for Tx buffers. These bits are not transmitted. They are appended to the regular ID to define the transmission priority.
     uint32_t PRIO : 3;
   } bits;
   
@@ -20460,9 +24941,13 @@ union MB3_64B_WORD5_H {
   
   // Bit field definition.
   struct {
+    /// read-write - Data byte 0 of Rx/Tx frame.
     uint32_t DATA_BYTE_23 : 8;
+    /// read-write - Data byte 1 of Rx/Tx frame.
     uint32_t DATA_BYTE_22 : 8;
+    /// read-write - Data byte 2 of Rx/Tx frame.
     uint32_t DATA_BYTE_21 : 8;
+    /// read-write - Data byte 3 of Rx/Tx frame.
     uint32_t DATA_BYTE_20 : 8;
   } bits;
   
@@ -20480,8 +24965,11 @@ union MB47_8B_ID {
   
   // Bit field definition.
   struct {
+    /// read-write - Contains extended (LOW word) identifier of message buffer.
     uint32_t EXT : 18;
+    /// read-write - Contains standard/extended (HIGH word) identifier of message buffer.
     uint32_t STD : 11;
+    /// read-write - Local priority. This 3-bit fieldis only used when LPRIO_EN bit is set in MCR and it only makes sense for Tx buffers. These bits are not transmitted. They are appended to the regular ID to define the transmission priority.
     uint32_t PRIO : 3;
   } bits;
   
@@ -20499,8 +24987,11 @@ union MB6_32B_ID_H {
   
   // Bit field definition.
   struct {
+    /// read-write - Contains extended (LOW word) identifier of message buffer.
     uint32_t EXT : 18;
+    /// read-write - Contains standard/extended (HIGH word) identifier of message buffer.
     uint32_t STD : 11;
+    /// read-write - Local priority. This 3-bit fieldis only used when LPRIO_EN bit is set in MCR and it only makes sense for Tx buffers. These bits are not transmitted. They are appended to the regular ID to define the transmission priority.
     uint32_t PRIO : 3;
   } bits;
   
@@ -20518,9 +25009,13 @@ union MB10_16B_WORD0_H {
   
   // Bit field definition.
   struct {
+    /// read-write - Data byte 0 of Rx/Tx frame.
     uint32_t DATA_BYTE_3 : 8;
+    /// read-write - Data byte 1 of Rx/Tx frame.
     uint32_t DATA_BYTE_2 : 8;
+    /// read-write - Data byte 2 of Rx/Tx frame.
     uint32_t DATA_BYTE_1 : 8;
+    /// read-write - Data byte 3 of Rx/Tx frame.
     uint32_t DATA_BYTE_0 : 8;
   } bits;
   
@@ -20538,9 +25033,13 @@ union MB3_64B_WORD6_H {
   
   // Bit field definition.
   struct {
+    /// read-write - Data byte 0 of Rx/Tx frame.
     uint32_t DATA_BYTE_27 : 8;
+    /// read-write - Data byte 1 of Rx/Tx frame.
     uint32_t DATA_BYTE_26 : 8;
+    /// read-write - Data byte 2 of Rx/Tx frame.
     uint32_t DATA_BYTE_25 : 8;
+    /// read-write - Data byte 3 of Rx/Tx frame.
     uint32_t DATA_BYTE_24 : 8;
   } bits;
   
@@ -20558,9 +25057,13 @@ union MB47_8B_WORD0 {
   
   // Bit field definition.
   struct {
+    /// read-write - Data byte 0 of Rx/Tx frame.
     uint32_t DATA_BYTE_3 : 8;
+    /// read-write - Data byte 1 of Rx/Tx frame.
     uint32_t DATA_BYTE_2 : 8;
+    /// read-write - Data byte 2 of Rx/Tx frame.
     uint32_t DATA_BYTE_1 : 8;
+    /// read-write - Data byte 3 of Rx/Tx frame.
     uint32_t DATA_BYTE_0 : 8;
   } bits;
   
@@ -20578,9 +25081,13 @@ union MB6_32B_WORD0_H {
   
   // Bit field definition.
   struct {
+    /// read-write - Data byte 0 of Rx/Tx frame.
     uint32_t DATA_BYTE_3 : 8;
+    /// read-write - Data byte 1 of Rx/Tx frame.
     uint32_t DATA_BYTE_2 : 8;
+    /// read-write - Data byte 2 of Rx/Tx frame.
     uint32_t DATA_BYTE_1 : 8;
+    /// read-write - Data byte 3 of Rx/Tx frame.
     uint32_t DATA_BYTE_0 : 8;
   } bits;
   
@@ -20598,9 +25105,13 @@ union WORD047 {
   
   // Bit field definition.
   struct {
+    /// read-write - Data byte 0 of Rx/Tx frame.
     uint32_t DATA_BYTE_3 : 8;
+    /// read-write - Data byte 1 of Rx/Tx frame.
     uint32_t DATA_BYTE_2 : 8;
+    /// read-write - Data byte 2 of Rx/Tx frame.
     uint32_t DATA_BYTE_1 : 8;
+    /// read-write - Data byte 3 of Rx/Tx frame.
     uint32_t DATA_BYTE_0 : 8;
   } bits;
   
@@ -20618,9 +25129,13 @@ union MB10_16B_WORD1_H {
   
   // Bit field definition.
   struct {
+    /// read-write - Data byte 0 of Rx/Tx frame.
     uint32_t DATA_BYTE_7 : 8;
+    /// read-write - Data byte 1 of Rx/Tx frame.
     uint32_t DATA_BYTE_6 : 8;
+    /// read-write - Data byte 2 of Rx/Tx frame.
     uint32_t DATA_BYTE_5 : 8;
+    /// read-write - Data byte 3 of Rx/Tx frame.
     uint32_t DATA_BYTE_4 : 8;
   } bits;
   
@@ -20638,9 +25153,13 @@ union MB3_64B_WORD7_H {
   
   // Bit field definition.
   struct {
+    /// read-write - Data byte 0 of Rx/Tx frame.
     uint32_t DATA_BYTE_31 : 8;
+    /// read-write - Data byte 1 of Rx/Tx frame.
     uint32_t DATA_BYTE_30 : 8;
+    /// read-write - Data byte 2 of Rx/Tx frame.
     uint32_t DATA_BYTE_29 : 8;
+    /// read-write - Data byte 3 of Rx/Tx frame.
     uint32_t DATA_BYTE_28 : 8;
   } bits;
   
@@ -20658,9 +25177,13 @@ union MB47_8B_WORD1 {
   
   // Bit field definition.
   struct {
+    /// read-write - Data byte 0 of Rx/Tx frame.
     uint32_t DATA_BYTE_7 : 8;
+    /// read-write - Data byte 1 of Rx/Tx frame.
     uint32_t DATA_BYTE_6 : 8;
+    /// read-write - Data byte 2 of Rx/Tx frame.
     uint32_t DATA_BYTE_5 : 8;
+    /// read-write - Data byte 3 of Rx/Tx frame.
     uint32_t DATA_BYTE_4 : 8;
   } bits;
   
@@ -20678,9 +25201,13 @@ union MB6_32B_WORD1_H {
   
   // Bit field definition.
   struct {
+    /// read-write - Data byte 0 of Rx/Tx frame.
     uint32_t DATA_BYTE_7 : 8;
+    /// read-write - Data byte 1 of Rx/Tx frame.
     uint32_t DATA_BYTE_6 : 8;
+    /// read-write - Data byte 2 of Rx/Tx frame.
     uint32_t DATA_BYTE_5 : 8;
+    /// read-write - Data byte 3 of Rx/Tx frame.
     uint32_t DATA_BYTE_4 : 8;
   } bits;
   
@@ -20698,9 +25225,13 @@ union WORD147 {
   
   // Bit field definition.
   struct {
+    /// read-write - Data byte 0 of Rx/Tx frame.
     uint32_t DATA_BYTE_7 : 8;
+    /// read-write - Data byte 1 of Rx/Tx frame.
     uint32_t DATA_BYTE_6 : 8;
+    /// read-write - Data byte 2 of Rx/Tx frame.
     uint32_t DATA_BYTE_5 : 8;
+    /// read-write - Data byte 3 of Rx/Tx frame.
     uint32_t DATA_BYTE_4 : 8;
   } bits;
   
@@ -20718,16 +25249,25 @@ union CS48 {
   
   // Bit field definition.
   struct {
+    /// read-write - Free-Running Counter Time stamp. This 16-bit field is a copy of the Free-Running Timer, captured for Tx and Rx frames at the time when the beginning of the Identifier field appears on the CAN bus.
     uint32_t TIME_STAMP : 16;
+    /// read-write - Length of the data to be stored/transmitted.
     uint32_t DLC : 4;
+    /// read-write - Remote Transmission Request. One/zero for remote/data frame.
     uint32_t RTR : 1;
+    /// read-write - ID Extended. One/zero for extended/standard format frame.
     uint32_t IDE : 1;
+    /// read-write - Substitute Remote Request. Contains a fixed recessive bit.
     uint32_t SRR : 1;
     uint32_t _reserved_0 : 1;
+    /// read-write - Message Buffer Code. This 4-bit field can be accessed (read or write) by the CPU and by the FlexCAN module itself, as part of the message buffer matching and arbitration process.
     uint32_t CODE : 4;
     uint32_t _reserved_1 : 1;
+    /// read-write - Error State Indicator. This bit indicates if the transmitting node is error active or error passive.
     uint32_t ESI : 1;
+    /// read-write - Bit Rate Switch. This bit defines whether the bit rate is switched inside a CAN FD format frame.
     uint32_t BRS : 1;
+    /// read-write - Extended Data Length. This bit distinguishes between CAN format and CAN FD format frames. The EDL bit must not be set for Message Buffers configured to RANSWER with code field 0b1010.
     uint32_t EDL : 1;
   } bits;
   
@@ -20745,9 +25285,13 @@ union MB10_16B_WORD2_H {
   
   // Bit field definition.
   struct {
+    /// read-write - Data byte 0 of Rx/Tx frame.
     uint32_t DATA_BYTE_11 : 8;
+    /// read-write - Data byte 1 of Rx/Tx frame.
     uint32_t DATA_BYTE_10 : 8;
+    /// read-write - Data byte 2 of Rx/Tx frame.
     uint32_t DATA_BYTE_9 : 8;
+    /// read-write - Data byte 3 of Rx/Tx frame.
     uint32_t DATA_BYTE_8 : 8;
   } bits;
   
@@ -20765,9 +25309,13 @@ union MB3_64B_WORD8_H {
   
   // Bit field definition.
   struct {
+    /// read-write - Data byte 0 of Rx/Tx frame.
     uint32_t DATA_BYTE_35 : 8;
+    /// read-write - Data byte 1 of Rx/Tx frame.
     uint32_t DATA_BYTE_34 : 8;
+    /// read-write - Data byte 2 of Rx/Tx frame.
     uint32_t DATA_BYTE_33 : 8;
+    /// read-write - Data byte 3 of Rx/Tx frame.
     uint32_t DATA_BYTE_32 : 8;
   } bits;
   
@@ -20785,16 +25333,25 @@ union MB48_8B_CS {
   
   // Bit field definition.
   struct {
+    /// read-write - Free-Running Counter Time stamp. This 16-bit field is a copy of the Free-Running Timer, captured for Tx and Rx frames at the time when the beginning of the Identifier field appears on the CAN bus.
     uint32_t TIME_STAMP : 16;
+    /// read-write - Length of the data to be stored/transmitted.
     uint32_t DLC : 4;
+    /// read-write - Remote Transmission Request. One/zero for remote/data frame.
     uint32_t RTR : 1;
+    /// read-write - ID Extended. One/zero for extended/standard format frame.
     uint32_t IDE : 1;
+    /// read-write - Substitute Remote Request. Contains a fixed recessive bit.
     uint32_t SRR : 1;
     uint32_t _reserved_0 : 1;
+    /// read-write - Message Buffer Code. This 4-bit field can be accessed (read or write) by the CPU and by the FlexCAN module itself, as part of the message buffer matching and arbitration process.
     uint32_t CODE : 4;
     uint32_t _reserved_1 : 1;
+    /// read-write - Error State Indicator. This bit indicates if the transmitting node is error active or error passive.
     uint32_t ESI : 1;
+    /// read-write - Bit Rate Switch. This bit defines whether the bit rate is switched inside a CAN FD format frame.
     uint32_t BRS : 1;
+    /// read-write - Extended Data Length. This bit distinguishes between CAN format and CAN FD format frames. The EDL bit must not be set for Message Buffers configured to RANSWER with code field 0b1010.
     uint32_t EDL : 1;
   } bits;
   
@@ -20812,9 +25369,13 @@ union MB6_32B_WORD2_H {
   
   // Bit field definition.
   struct {
+    /// read-write - Data byte 0 of Rx/Tx frame.
     uint32_t DATA_BYTE_11 : 8;
+    /// read-write - Data byte 1 of Rx/Tx frame.
     uint32_t DATA_BYTE_10 : 8;
+    /// read-write - Data byte 2 of Rx/Tx frame.
     uint32_t DATA_BYTE_9 : 8;
+    /// read-write - Data byte 3 of Rx/Tx frame.
     uint32_t DATA_BYTE_8 : 8;
   } bits;
   
@@ -20832,8 +25393,11 @@ union ID48 {
   
   // Bit field definition.
   struct {
+    /// read-write - Contains extended (LOW word) identifier of message buffer.
     uint32_t EXT : 18;
+    /// read-write - Contains standard/extended (HIGH word) identifier of message buffer.
     uint32_t STD : 11;
+    /// read-write - Local priority. This 3-bit fieldis only used when LPRIO_EN bit is set in MCR and it only makes sense for Tx buffers. These bits are not transmitted. They are appended to the regular ID to define the transmission priority.
     uint32_t PRIO : 3;
   } bits;
   
@@ -20851,9 +25415,13 @@ union MB10_16B_WORD3_H {
   
   // Bit field definition.
   struct {
+    /// read-write - Data byte 0 of Rx/Tx frame.
     uint32_t DATA_BYTE_15 : 8;
+    /// read-write - Data byte 1 of Rx/Tx frame.
     uint32_t DATA_BYTE_14 : 8;
+    /// read-write - Data byte 2 of Rx/Tx frame.
     uint32_t DATA_BYTE_13 : 8;
+    /// read-write - Data byte 3 of Rx/Tx frame.
     uint32_t DATA_BYTE_12 : 8;
   } bits;
   
@@ -20871,9 +25439,13 @@ union MB3_64B_WORD9_H {
   
   // Bit field definition.
   struct {
+    /// read-write - Data byte 0 of Rx/Tx frame.
     uint32_t DATA_BYTE_39 : 8;
+    /// read-write - Data byte 1 of Rx/Tx frame.
     uint32_t DATA_BYTE_38 : 8;
+    /// read-write - Data byte 2 of Rx/Tx frame.
     uint32_t DATA_BYTE_37 : 8;
+    /// read-write - Data byte 3 of Rx/Tx frame.
     uint32_t DATA_BYTE_36 : 8;
   } bits;
   
@@ -20891,8 +25463,11 @@ union MB48_8B_ID {
   
   // Bit field definition.
   struct {
+    /// read-write - Contains extended (LOW word) identifier of message buffer.
     uint32_t EXT : 18;
+    /// read-write - Contains standard/extended (HIGH word) identifier of message buffer.
     uint32_t STD : 11;
+    /// read-write - Local priority. This 3-bit fieldis only used when LPRIO_EN bit is set in MCR and it only makes sense for Tx buffers. These bits are not transmitted. They are appended to the regular ID to define the transmission priority.
     uint32_t PRIO : 3;
   } bits;
   
@@ -20910,9 +25485,13 @@ union MB6_32B_WORD3_H {
   
   // Bit field definition.
   struct {
+    /// read-write - Data byte 0 of Rx/Tx frame.
     uint32_t DATA_BYTE_15 : 8;
+    /// read-write - Data byte 1 of Rx/Tx frame.
     uint32_t DATA_BYTE_14 : 8;
+    /// read-write - Data byte 2 of Rx/Tx frame.
     uint32_t DATA_BYTE_13 : 8;
+    /// read-write - Data byte 3 of Rx/Tx frame.
     uint32_t DATA_BYTE_12 : 8;
   } bits;
   
@@ -20930,16 +25509,25 @@ union MB11_16B_CS_H {
   
   // Bit field definition.
   struct {
+    /// read-write - Free-Running Counter Time stamp. This 16-bit field is a copy of the Free-Running Timer, captured for Tx and Rx frames at the time when the beginning of the Identifier field appears on the CAN bus.
     uint32_t TIME_STAMP : 16;
+    /// read-write - Length of the data to be stored/transmitted.
     uint32_t DLC : 4;
+    /// read-write - Remote Transmission Request. One/zero for remote/data frame.
     uint32_t RTR : 1;
+    /// read-write - ID Extended. One/zero for extended/standard format frame.
     uint32_t IDE : 1;
+    /// read-write - Substitute Remote Request. Contains a fixed recessive bit.
     uint32_t SRR : 1;
     uint32_t _reserved_0 : 1;
+    /// read-write - Message Buffer Code. This 4-bit field can be accessed (read or write) by the CPU and by the FlexCAN module itself, as part of the message buffer matching and arbitration process.
     uint32_t CODE : 4;
     uint32_t _reserved_1 : 1;
+    /// read-write - Error State Indicator. This bit indicates if the transmitting node is error active or error passive.
     uint32_t ESI : 1;
+    /// read-write - Bit Rate Switch. This bit defines whether the bit rate is switched inside a CAN FD format frame.
     uint32_t BRS : 1;
+    /// read-write - Extended Data Length. This bit distinguishes between CAN format and CAN FD format frames. The EDL bit must not be set for Message Buffers configured to RANSWER with code field 0b1010.
     uint32_t EDL : 1;
   } bits;
   
@@ -20957,9 +25545,13 @@ union MB3_64B_WORD10_H {
   
   // Bit field definition.
   struct {
+    /// read-write - Data byte 0 of Rx/Tx frame.
     uint32_t DATA_BYTE_43 : 8;
+    /// read-write - Data byte 1 of Rx/Tx frame.
     uint32_t DATA_BYTE_42 : 8;
+    /// read-write - Data byte 2 of Rx/Tx frame.
     uint32_t DATA_BYTE_41 : 8;
+    /// read-write - Data byte 3 of Rx/Tx frame.
     uint32_t DATA_BYTE_40 : 8;
   } bits;
   
@@ -20977,9 +25569,13 @@ union MB48_8B_WORD0 {
   
   // Bit field definition.
   struct {
+    /// read-write - Data byte 0 of Rx/Tx frame.
     uint32_t DATA_BYTE_3 : 8;
+    /// read-write - Data byte 1 of Rx/Tx frame.
     uint32_t DATA_BYTE_2 : 8;
+    /// read-write - Data byte 2 of Rx/Tx frame.
     uint32_t DATA_BYTE_1 : 8;
+    /// read-write - Data byte 3 of Rx/Tx frame.
     uint32_t DATA_BYTE_0 : 8;
   } bits;
   
@@ -20997,9 +25593,13 @@ union MB6_32B_WORD4_H {
   
   // Bit field definition.
   struct {
+    /// read-write - Data byte 0 of Rx/Tx frame.
     uint32_t DATA_BYTE_19 : 8;
+    /// read-write - Data byte 1 of Rx/Tx frame.
     uint32_t DATA_BYTE_18 : 8;
+    /// read-write - Data byte 2 of Rx/Tx frame.
     uint32_t DATA_BYTE_17 : 8;
+    /// read-write - Data byte 3 of Rx/Tx frame.
     uint32_t DATA_BYTE_16 : 8;
   } bits;
   
@@ -21017,9 +25617,13 @@ union WORD048 {
   
   // Bit field definition.
   struct {
+    /// read-write - Data byte 0 of Rx/Tx frame.
     uint32_t DATA_BYTE_3 : 8;
+    /// read-write - Data byte 1 of Rx/Tx frame.
     uint32_t DATA_BYTE_2 : 8;
+    /// read-write - Data byte 2 of Rx/Tx frame.
     uint32_t DATA_BYTE_1 : 8;
+    /// read-write - Data byte 3 of Rx/Tx frame.
     uint32_t DATA_BYTE_0 : 8;
   } bits;
   
@@ -21037,8 +25641,11 @@ union MB11_16B_ID_H {
   
   // Bit field definition.
   struct {
+    /// read-write - Contains extended (LOW word) identifier of message buffer.
     uint32_t EXT : 18;
+    /// read-write - Contains standard/extended (HIGH word) identifier of message buffer.
     uint32_t STD : 11;
+    /// read-write - Local priority. This 3-bit fieldis only used when LPRIO_EN bit is set in MCR and it only makes sense for Tx buffers. These bits are not transmitted. They are appended to the regular ID to define the transmission priority.
     uint32_t PRIO : 3;
   } bits;
   
@@ -21056,9 +25663,13 @@ union MB3_64B_WORD11_H {
   
   // Bit field definition.
   struct {
+    /// read-write - Data byte 0 of Rx/Tx frame.
     uint32_t DATA_BYTE_47 : 8;
+    /// read-write - Data byte 1 of Rx/Tx frame.
     uint32_t DATA_BYTE_46 : 8;
+    /// read-write - Data byte 2 of Rx/Tx frame.
     uint32_t DATA_BYTE_45 : 8;
+    /// read-write - Data byte 3 of Rx/Tx frame.
     uint32_t DATA_BYTE_44 : 8;
   } bits;
   
@@ -21076,9 +25687,13 @@ union MB48_8B_WORD1 {
   
   // Bit field definition.
   struct {
+    /// read-write - Data byte 0 of Rx/Tx frame.
     uint32_t DATA_BYTE_7 : 8;
+    /// read-write - Data byte 1 of Rx/Tx frame.
     uint32_t DATA_BYTE_6 : 8;
+    /// read-write - Data byte 2 of Rx/Tx frame.
     uint32_t DATA_BYTE_5 : 8;
+    /// read-write - Data byte 3 of Rx/Tx frame.
     uint32_t DATA_BYTE_4 : 8;
   } bits;
   
@@ -21096,9 +25711,13 @@ union MB6_32B_WORD5_H {
   
   // Bit field definition.
   struct {
+    /// read-write - Data byte 0 of Rx/Tx frame.
     uint32_t DATA_BYTE_23 : 8;
+    /// read-write - Data byte 1 of Rx/Tx frame.
     uint32_t DATA_BYTE_22 : 8;
+    /// read-write - Data byte 2 of Rx/Tx frame.
     uint32_t DATA_BYTE_21 : 8;
+    /// read-write - Data byte 3 of Rx/Tx frame.
     uint32_t DATA_BYTE_20 : 8;
   } bits;
   
@@ -21116,9 +25735,13 @@ union WORD148 {
   
   // Bit field definition.
   struct {
+    /// read-write - Data byte 0 of Rx/Tx frame.
     uint32_t DATA_BYTE_7 : 8;
+    /// read-write - Data byte 1 of Rx/Tx frame.
     uint32_t DATA_BYTE_6 : 8;
+    /// read-write - Data byte 2 of Rx/Tx frame.
     uint32_t DATA_BYTE_5 : 8;
+    /// read-write - Data byte 3 of Rx/Tx frame.
     uint32_t DATA_BYTE_4 : 8;
   } bits;
   
@@ -21136,16 +25759,25 @@ union CS49 {
   
   // Bit field definition.
   struct {
+    /// read-write - Free-Running Counter Time stamp. This 16-bit field is a copy of the Free-Running Timer, captured for Tx and Rx frames at the time when the beginning of the Identifier field appears on the CAN bus.
     uint32_t TIME_STAMP : 16;
+    /// read-write - Length of the data to be stored/transmitted.
     uint32_t DLC : 4;
+    /// read-write - Remote Transmission Request. One/zero for remote/data frame.
     uint32_t RTR : 1;
+    /// read-write - ID Extended. One/zero for extended/standard format frame.
     uint32_t IDE : 1;
+    /// read-write - Substitute Remote Request. Contains a fixed recessive bit.
     uint32_t SRR : 1;
     uint32_t _reserved_0 : 1;
+    /// read-write - Message Buffer Code. This 4-bit field can be accessed (read or write) by the CPU and by the FlexCAN module itself, as part of the message buffer matching and arbitration process.
     uint32_t CODE : 4;
     uint32_t _reserved_1 : 1;
+    /// read-write - Error State Indicator. This bit indicates if the transmitting node is error active or error passive.
     uint32_t ESI : 1;
+    /// read-write - Bit Rate Switch. This bit defines whether the bit rate is switched inside a CAN FD format frame.
     uint32_t BRS : 1;
+    /// read-write - Extended Data Length. This bit distinguishes between CAN format and CAN FD format frames. The EDL bit must not be set for Message Buffers configured to RANSWER with code field 0b1010.
     uint32_t EDL : 1;
   } bits;
   
@@ -21163,9 +25795,13 @@ union MB11_16B_WORD0_H {
   
   // Bit field definition.
   struct {
+    /// read-write - Data byte 0 of Rx/Tx frame.
     uint32_t DATA_BYTE_3 : 8;
+    /// read-write - Data byte 1 of Rx/Tx frame.
     uint32_t DATA_BYTE_2 : 8;
+    /// read-write - Data byte 2 of Rx/Tx frame.
     uint32_t DATA_BYTE_1 : 8;
+    /// read-write - Data byte 3 of Rx/Tx frame.
     uint32_t DATA_BYTE_0 : 8;
   } bits;
   
@@ -21183,9 +25819,13 @@ union MB3_64B_WORD12_H {
   
   // Bit field definition.
   struct {
+    /// read-write - Data byte 0 of Rx/Tx frame.
     uint32_t DATA_BYTE_51 : 8;
+    /// read-write - Data byte 1 of Rx/Tx frame.
     uint32_t DATA_BYTE_50 : 8;
+    /// read-write - Data byte 2 of Rx/Tx frame.
     uint32_t DATA_BYTE_49 : 8;
+    /// read-write - Data byte 3 of Rx/Tx frame.
     uint32_t DATA_BYTE_48 : 8;
   } bits;
   
@@ -21203,16 +25843,25 @@ union MB49_8B_CS {
   
   // Bit field definition.
   struct {
+    /// read-write - Free-Running Counter Time stamp. This 16-bit field is a copy of the Free-Running Timer, captured for Tx and Rx frames at the time when the beginning of the Identifier field appears on the CAN bus.
     uint32_t TIME_STAMP : 16;
+    /// read-write - Length of the data to be stored/transmitted.
     uint32_t DLC : 4;
+    /// read-write - Remote Transmission Request. One/zero for remote/data frame.
     uint32_t RTR : 1;
+    /// read-write - ID Extended. One/zero for extended/standard format frame.
     uint32_t IDE : 1;
+    /// read-write - Substitute Remote Request. Contains a fixed recessive bit.
     uint32_t SRR : 1;
     uint32_t _reserved_0 : 1;
+    /// read-write - Message Buffer Code. This 4-bit field can be accessed (read or write) by the CPU and by the FlexCAN module itself, as part of the message buffer matching and arbitration process.
     uint32_t CODE : 4;
     uint32_t _reserved_1 : 1;
+    /// read-write - Error State Indicator. This bit indicates if the transmitting node is error active or error passive.
     uint32_t ESI : 1;
+    /// read-write - Bit Rate Switch. This bit defines whether the bit rate is switched inside a CAN FD format frame.
     uint32_t BRS : 1;
+    /// read-write - Extended Data Length. This bit distinguishes between CAN format and CAN FD format frames. The EDL bit must not be set for Message Buffers configured to RANSWER with code field 0b1010.
     uint32_t EDL : 1;
   } bits;
   
@@ -21230,9 +25879,13 @@ union MB6_32B_WORD6_H {
   
   // Bit field definition.
   struct {
+    /// read-write - Data byte 0 of Rx/Tx frame.
     uint32_t DATA_BYTE_27 : 8;
+    /// read-write - Data byte 1 of Rx/Tx frame.
     uint32_t DATA_BYTE_26 : 8;
+    /// read-write - Data byte 2 of Rx/Tx frame.
     uint32_t DATA_BYTE_25 : 8;
+    /// read-write - Data byte 3 of Rx/Tx frame.
     uint32_t DATA_BYTE_24 : 8;
   } bits;
   
@@ -21250,8 +25903,11 @@ union ID49 {
   
   // Bit field definition.
   struct {
+    /// read-write - Contains extended (LOW word) identifier of message buffer.
     uint32_t EXT : 18;
+    /// read-write - Contains standard/extended (HIGH word) identifier of message buffer.
     uint32_t STD : 11;
+    /// read-write - Local priority. This 3-bit fieldis only used when LPRIO_EN bit is set in MCR and it only makes sense for Tx buffers. These bits are not transmitted. They are appended to the regular ID to define the transmission priority.
     uint32_t PRIO : 3;
   } bits;
   
@@ -21269,9 +25925,13 @@ union MB11_16B_WORD1_H {
   
   // Bit field definition.
   struct {
+    /// read-write - Data byte 0 of Rx/Tx frame.
     uint32_t DATA_BYTE_7 : 8;
+    /// read-write - Data byte 1 of Rx/Tx frame.
     uint32_t DATA_BYTE_6 : 8;
+    /// read-write - Data byte 2 of Rx/Tx frame.
     uint32_t DATA_BYTE_5 : 8;
+    /// read-write - Data byte 3 of Rx/Tx frame.
     uint32_t DATA_BYTE_4 : 8;
   } bits;
   
@@ -21289,9 +25949,13 @@ union MB3_64B_WORD13_H {
   
   // Bit field definition.
   struct {
+    /// read-write - Data byte 0 of Rx/Tx frame.
     uint32_t DATA_BYTE_55 : 8;
+    /// read-write - Data byte 1 of Rx/Tx frame.
     uint32_t DATA_BYTE_54 : 8;
+    /// read-write - Data byte 2 of Rx/Tx frame.
     uint32_t DATA_BYTE_53 : 8;
+    /// read-write - Data byte 3 of Rx/Tx frame.
     uint32_t DATA_BYTE_52 : 8;
   } bits;
   
@@ -21309,8 +25973,11 @@ union MB49_8B_ID {
   
   // Bit field definition.
   struct {
+    /// read-write - Contains extended (LOW word) identifier of message buffer.
     uint32_t EXT : 18;
+    /// read-write - Contains standard/extended (HIGH word) identifier of message buffer.
     uint32_t STD : 11;
+    /// read-write - Local priority. This 3-bit fieldis only used when LPRIO_EN bit is set in MCR and it only makes sense for Tx buffers. These bits are not transmitted. They are appended to the regular ID to define the transmission priority.
     uint32_t PRIO : 3;
   } bits;
   
@@ -21328,9 +25995,13 @@ union MB6_32B_WORD7_H {
   
   // Bit field definition.
   struct {
+    /// read-write - Data byte 0 of Rx/Tx frame.
     uint32_t DATA_BYTE_31 : 8;
+    /// read-write - Data byte 1 of Rx/Tx frame.
     uint32_t DATA_BYTE_30 : 8;
+    /// read-write - Data byte 2 of Rx/Tx frame.
     uint32_t DATA_BYTE_29 : 8;
+    /// read-write - Data byte 3 of Rx/Tx frame.
     uint32_t DATA_BYTE_28 : 8;
   } bits;
   
@@ -21348,9 +26019,13 @@ union MB11_16B_WORD2_H {
   
   // Bit field definition.
   struct {
+    /// read-write - Data byte 0 of Rx/Tx frame.
     uint32_t DATA_BYTE_11 : 8;
+    /// read-write - Data byte 1 of Rx/Tx frame.
     uint32_t DATA_BYTE_10 : 8;
+    /// read-write - Data byte 2 of Rx/Tx frame.
     uint32_t DATA_BYTE_9 : 8;
+    /// read-write - Data byte 3 of Rx/Tx frame.
     uint32_t DATA_BYTE_8 : 8;
   } bits;
   
@@ -21368,9 +26043,13 @@ union MB3_64B_WORD14_H {
   
   // Bit field definition.
   struct {
+    /// read-write - Data byte 0 of Rx/Tx frame.
     uint32_t DATA_BYTE_59 : 8;
+    /// read-write - Data byte 1 of Rx/Tx frame.
     uint32_t DATA_BYTE_58 : 8;
+    /// read-write - Data byte 2 of Rx/Tx frame.
     uint32_t DATA_BYTE_57 : 8;
+    /// read-write - Data byte 3 of Rx/Tx frame.
     uint32_t DATA_BYTE_56 : 8;
   } bits;
   
@@ -21388,9 +26067,13 @@ union MB49_8B_WORD0 {
   
   // Bit field definition.
   struct {
+    /// read-write - Data byte 0 of Rx/Tx frame.
     uint32_t DATA_BYTE_3 : 8;
+    /// read-write - Data byte 1 of Rx/Tx frame.
     uint32_t DATA_BYTE_2 : 8;
+    /// read-write - Data byte 2 of Rx/Tx frame.
     uint32_t DATA_BYTE_1 : 8;
+    /// read-write - Data byte 3 of Rx/Tx frame.
     uint32_t DATA_BYTE_0 : 8;
   } bits;
   
@@ -21408,16 +26091,25 @@ union MB7_32B_CS_H {
   
   // Bit field definition.
   struct {
+    /// read-write - Free-Running Counter Time stamp. This 16-bit field is a copy of the Free-Running Timer, captured for Tx and Rx frames at the time when the beginning of the Identifier field appears on the CAN bus.
     uint32_t TIME_STAMP : 16;
+    /// read-write - Length of the data to be stored/transmitted.
     uint32_t DLC : 4;
+    /// read-write - Remote Transmission Request. One/zero for remote/data frame.
     uint32_t RTR : 1;
+    /// read-write - ID Extended. One/zero for extended/standard format frame.
     uint32_t IDE : 1;
+    /// read-write - Substitute Remote Request. Contains a fixed recessive bit.
     uint32_t SRR : 1;
     uint32_t _reserved_0 : 1;
+    /// read-write - Message Buffer Code. This 4-bit field can be accessed (read or write) by the CPU and by the FlexCAN module itself, as part of the message buffer matching and arbitration process.
     uint32_t CODE : 4;
     uint32_t _reserved_1 : 1;
+    /// read-write - Error State Indicator. This bit indicates if the transmitting node is error active or error passive.
     uint32_t ESI : 1;
+    /// read-write - Bit Rate Switch. This bit defines whether the bit rate is switched inside a CAN FD format frame.
     uint32_t BRS : 1;
+    /// read-write - Extended Data Length. This bit distinguishes between CAN format and CAN FD format frames. The EDL bit must not be set for Message Buffers configured to RANSWER with code field 0b1010.
     uint32_t EDL : 1;
   } bits;
   
@@ -21435,9 +26127,13 @@ union WORD049 {
   
   // Bit field definition.
   struct {
+    /// read-write - Data byte 0 of Rx/Tx frame.
     uint32_t DATA_BYTE_3 : 8;
+    /// read-write - Data byte 1 of Rx/Tx frame.
     uint32_t DATA_BYTE_2 : 8;
+    /// read-write - Data byte 2 of Rx/Tx frame.
     uint32_t DATA_BYTE_1 : 8;
+    /// read-write - Data byte 3 of Rx/Tx frame.
     uint32_t DATA_BYTE_0 : 8;
   } bits;
   
@@ -21455,9 +26151,13 @@ union MB11_16B_WORD3_H {
   
   // Bit field definition.
   struct {
+    /// read-write - Data byte 0 of Rx/Tx frame.
     uint32_t DATA_BYTE_15 : 8;
+    /// read-write - Data byte 1 of Rx/Tx frame.
     uint32_t DATA_BYTE_14 : 8;
+    /// read-write - Data byte 2 of Rx/Tx frame.
     uint32_t DATA_BYTE_13 : 8;
+    /// read-write - Data byte 3 of Rx/Tx frame.
     uint32_t DATA_BYTE_12 : 8;
   } bits;
   
@@ -21475,9 +26175,13 @@ union MB3_64B_WORD15_H {
   
   // Bit field definition.
   struct {
+    /// read-write - Data byte 0 of Rx/Tx frame.
     uint32_t DATA_BYTE_63 : 8;
+    /// read-write - Data byte 1 of Rx/Tx frame.
     uint32_t DATA_BYTE_62 : 8;
+    /// read-write - Data byte 2 of Rx/Tx frame.
     uint32_t DATA_BYTE_61 : 8;
+    /// read-write - Data byte 3 of Rx/Tx frame.
     uint32_t DATA_BYTE_60 : 8;
   } bits;
   
@@ -21495,9 +26199,13 @@ union MB49_8B_WORD1 {
   
   // Bit field definition.
   struct {
+    /// read-write - Data byte 0 of Rx/Tx frame.
     uint32_t DATA_BYTE_7 : 8;
+    /// read-write - Data byte 1 of Rx/Tx frame.
     uint32_t DATA_BYTE_6 : 8;
+    /// read-write - Data byte 2 of Rx/Tx frame.
     uint32_t DATA_BYTE_5 : 8;
+    /// read-write - Data byte 3 of Rx/Tx frame.
     uint32_t DATA_BYTE_4 : 8;
   } bits;
   
@@ -21515,8 +26223,11 @@ union MB7_32B_ID_H {
   
   // Bit field definition.
   struct {
+    /// read-write - Contains extended (LOW word) identifier of message buffer.
     uint32_t EXT : 18;
+    /// read-write - Contains standard/extended (HIGH word) identifier of message buffer.
     uint32_t STD : 11;
+    /// read-write - Local priority. This 3-bit fieldis only used when LPRIO_EN bit is set in MCR and it only makes sense for Tx buffers. These bits are not transmitted. They are appended to the regular ID to define the transmission priority.
     uint32_t PRIO : 3;
   } bits;
   
@@ -21534,9 +26245,13 @@ union WORD149 {
   
   // Bit field definition.
   struct {
+    /// read-write - Data byte 0 of Rx/Tx frame.
     uint32_t DATA_BYTE_7 : 8;
+    /// read-write - Data byte 1 of Rx/Tx frame.
     uint32_t DATA_BYTE_6 : 8;
+    /// read-write - Data byte 2 of Rx/Tx frame.
     uint32_t DATA_BYTE_5 : 8;
+    /// read-write - Data byte 3 of Rx/Tx frame.
     uint32_t DATA_BYTE_4 : 8;
   } bits;
   
@@ -21554,16 +26269,25 @@ union CS50 {
   
   // Bit field definition.
   struct {
+    /// read-write - Free-Running Counter Time stamp. This 16-bit field is a copy of the Free-Running Timer, captured for Tx and Rx frames at the time when the beginning of the Identifier field appears on the CAN bus.
     uint32_t TIME_STAMP : 16;
+    /// read-write - Length of the data to be stored/transmitted.
     uint32_t DLC : 4;
+    /// read-write - Remote Transmission Request. One/zero for remote/data frame.
     uint32_t RTR : 1;
+    /// read-write - ID Extended. One/zero for extended/standard format frame.
     uint32_t IDE : 1;
+    /// read-write - Substitute Remote Request. Contains a fixed recessive bit.
     uint32_t SRR : 1;
     uint32_t _reserved_0 : 1;
+    /// read-write - Message Buffer Code. This 4-bit field can be accessed (read or write) by the CPU and by the FlexCAN module itself, as part of the message buffer matching and arbitration process.
     uint32_t CODE : 4;
     uint32_t _reserved_1 : 1;
+    /// read-write - Error State Indicator. This bit indicates if the transmitting node is error active or error passive.
     uint32_t ESI : 1;
+    /// read-write - Bit Rate Switch. This bit defines whether the bit rate is switched inside a CAN FD format frame.
     uint32_t BRS : 1;
+    /// read-write - Extended Data Length. This bit distinguishes between CAN format and CAN FD format frames. The EDL bit must not be set for Message Buffers configured to RANSWER with code field 0b1010.
     uint32_t EDL : 1;
   } bits;
   
@@ -21581,16 +26305,25 @@ union MB12_16B_CS_H {
   
   // Bit field definition.
   struct {
+    /// read-write - Free-Running Counter Time stamp. This 16-bit field is a copy of the Free-Running Timer, captured for Tx and Rx frames at the time when the beginning of the Identifier field appears on the CAN bus.
     uint32_t TIME_STAMP : 16;
+    /// read-write - Length of the data to be stored/transmitted.
     uint32_t DLC : 4;
+    /// read-write - Remote Transmission Request. One/zero for remote/data frame.
     uint32_t RTR : 1;
+    /// read-write - ID Extended. One/zero for extended/standard format frame.
     uint32_t IDE : 1;
+    /// read-write - Substitute Remote Request. Contains a fixed recessive bit.
     uint32_t SRR : 1;
     uint32_t _reserved_0 : 1;
+    /// read-write - Message Buffer Code. This 4-bit field can be accessed (read or write) by the CPU and by the FlexCAN module itself, as part of the message buffer matching and arbitration process.
     uint32_t CODE : 4;
     uint32_t _reserved_1 : 1;
+    /// read-write - Error State Indicator. This bit indicates if the transmitting node is error active or error passive.
     uint32_t ESI : 1;
+    /// read-write - Bit Rate Switch. This bit defines whether the bit rate is switched inside a CAN FD format frame.
     uint32_t BRS : 1;
+    /// read-write - Extended Data Length. This bit distinguishes between CAN format and CAN FD format frames. The EDL bit must not be set for Message Buffers configured to RANSWER with code field 0b1010.
     uint32_t EDL : 1;
   } bits;
   
@@ -21608,16 +26341,25 @@ union MB4_64B_CS_H {
   
   // Bit field definition.
   struct {
+    /// read-write - Free-Running Counter Time stamp. This 16-bit field is a copy of the Free-Running Timer, captured for Tx and Rx frames at the time when the beginning of the Identifier field appears on the CAN bus.
     uint32_t TIME_STAMP : 16;
+    /// read-write - Length of the data to be stored/transmitted.
     uint32_t DLC : 4;
+    /// read-write - Remote Transmission Request. One/zero for remote/data frame.
     uint32_t RTR : 1;
+    /// read-write - ID Extended. One/zero for extended/standard format frame.
     uint32_t IDE : 1;
+    /// read-write - Substitute Remote Request. Contains a fixed recessive bit.
     uint32_t SRR : 1;
     uint32_t _reserved_0 : 1;
+    /// read-write - Message Buffer Code. This 4-bit field can be accessed (read or write) by the CPU and by the FlexCAN module itself, as part of the message buffer matching and arbitration process.
     uint32_t CODE : 4;
     uint32_t _reserved_1 : 1;
+    /// read-write - Error State Indicator. This bit indicates if the transmitting node is error active or error passive.
     uint32_t ESI : 1;
+    /// read-write - Bit Rate Switch. This bit defines whether the bit rate is switched inside a CAN FD format frame.
     uint32_t BRS : 1;
+    /// read-write - Extended Data Length. This bit distinguishes between CAN format and CAN FD format frames. The EDL bit must not be set for Message Buffers configured to RANSWER with code field 0b1010.
     uint32_t EDL : 1;
   } bits;
   
@@ -21635,16 +26377,25 @@ union MB50_8B_CS {
   
   // Bit field definition.
   struct {
+    /// read-write - Free-Running Counter Time stamp. This 16-bit field is a copy of the Free-Running Timer, captured for Tx and Rx frames at the time when the beginning of the Identifier field appears on the CAN bus.
     uint32_t TIME_STAMP : 16;
+    /// read-write - Length of the data to be stored/transmitted.
     uint32_t DLC : 4;
+    /// read-write - Remote Transmission Request. One/zero for remote/data frame.
     uint32_t RTR : 1;
+    /// read-write - ID Extended. One/zero for extended/standard format frame.
     uint32_t IDE : 1;
+    /// read-write - Substitute Remote Request. Contains a fixed recessive bit.
     uint32_t SRR : 1;
     uint32_t _reserved_0 : 1;
+    /// read-write - Message Buffer Code. This 4-bit field can be accessed (read or write) by the CPU and by the FlexCAN module itself, as part of the message buffer matching and arbitration process.
     uint32_t CODE : 4;
     uint32_t _reserved_1 : 1;
+    /// read-write - Error State Indicator. This bit indicates if the transmitting node is error active or error passive.
     uint32_t ESI : 1;
+    /// read-write - Bit Rate Switch. This bit defines whether the bit rate is switched inside a CAN FD format frame.
     uint32_t BRS : 1;
+    /// read-write - Extended Data Length. This bit distinguishes between CAN format and CAN FD format frames. The EDL bit must not be set for Message Buffers configured to RANSWER with code field 0b1010.
     uint32_t EDL : 1;
   } bits;
   
@@ -21662,9 +26413,13 @@ union MB7_32B_WORD0_H {
   
   // Bit field definition.
   struct {
+    /// read-write - Data byte 0 of Rx/Tx frame.
     uint32_t DATA_BYTE_3 : 8;
+    /// read-write - Data byte 1 of Rx/Tx frame.
     uint32_t DATA_BYTE_2 : 8;
+    /// read-write - Data byte 2 of Rx/Tx frame.
     uint32_t DATA_BYTE_1 : 8;
+    /// read-write - Data byte 3 of Rx/Tx frame.
     uint32_t DATA_BYTE_0 : 8;
   } bits;
   
@@ -21682,8 +26437,11 @@ union ID50 {
   
   // Bit field definition.
   struct {
+    /// read-write - Contains extended (LOW word) identifier of message buffer.
     uint32_t EXT : 18;
+    /// read-write - Contains standard/extended (HIGH word) identifier of message buffer.
     uint32_t STD : 11;
+    /// read-write - Local priority. This 3-bit fieldis only used when LPRIO_EN bit is set in MCR and it only makes sense for Tx buffers. These bits are not transmitted. They are appended to the regular ID to define the transmission priority.
     uint32_t PRIO : 3;
   } bits;
   
@@ -21701,8 +26459,11 @@ union MB12_16B_ID_H {
   
   // Bit field definition.
   struct {
+    /// read-write - Contains extended (LOW word) identifier of message buffer.
     uint32_t EXT : 18;
+    /// read-write - Contains standard/extended (HIGH word) identifier of message buffer.
     uint32_t STD : 11;
+    /// read-write - Local priority. This 3-bit fieldis only used when LPRIO_EN bit is set in MCR and it only makes sense for Tx buffers. These bits are not transmitted. They are appended to the regular ID to define the transmission priority.
     uint32_t PRIO : 3;
   } bits;
   
@@ -21720,8 +26481,11 @@ union MB4_64B_ID_H {
   
   // Bit field definition.
   struct {
+    /// read-write - Contains extended (LOW word) identifier of message buffer.
     uint32_t EXT : 18;
+    /// read-write - Contains standard/extended (HIGH word) identifier of message buffer.
     uint32_t STD : 11;
+    /// read-write - Local priority. This 3-bit fieldis only used when LPRIO_EN bit is set in MCR and it only makes sense for Tx buffers. These bits are not transmitted. They are appended to the regular ID to define the transmission priority.
     uint32_t PRIO : 3;
   } bits;
   
@@ -21739,8 +26503,11 @@ union MB50_8B_ID {
   
   // Bit field definition.
   struct {
+    /// read-write - Contains extended (LOW word) identifier of message buffer.
     uint32_t EXT : 18;
+    /// read-write - Contains standard/extended (HIGH word) identifier of message buffer.
     uint32_t STD : 11;
+    /// read-write - Local priority. This 3-bit fieldis only used when LPRIO_EN bit is set in MCR and it only makes sense for Tx buffers. These bits are not transmitted. They are appended to the regular ID to define the transmission priority.
     uint32_t PRIO : 3;
   } bits;
   
@@ -21758,9 +26525,13 @@ union MB7_32B_WORD1_H {
   
   // Bit field definition.
   struct {
+    /// read-write - Data byte 0 of Rx/Tx frame.
     uint32_t DATA_BYTE_7 : 8;
+    /// read-write - Data byte 1 of Rx/Tx frame.
     uint32_t DATA_BYTE_6 : 8;
+    /// read-write - Data byte 2 of Rx/Tx frame.
     uint32_t DATA_BYTE_5 : 8;
+    /// read-write - Data byte 3 of Rx/Tx frame.
     uint32_t DATA_BYTE_4 : 8;
   } bits;
   
@@ -21778,9 +26549,13 @@ union MB12_16B_WORD0_H {
   
   // Bit field definition.
   struct {
+    /// read-write - Data byte 0 of Rx/Tx frame.
     uint32_t DATA_BYTE_3 : 8;
+    /// read-write - Data byte 1 of Rx/Tx frame.
     uint32_t DATA_BYTE_2 : 8;
+    /// read-write - Data byte 2 of Rx/Tx frame.
     uint32_t DATA_BYTE_1 : 8;
+    /// read-write - Data byte 3 of Rx/Tx frame.
     uint32_t DATA_BYTE_0 : 8;
   } bits;
   
@@ -21798,9 +26573,13 @@ union MB4_64B_WORD0_H {
   
   // Bit field definition.
   struct {
+    /// read-write - Data byte 0 of Rx/Tx frame.
     uint32_t DATA_BYTE_3 : 8;
+    /// read-write - Data byte 1 of Rx/Tx frame.
     uint32_t DATA_BYTE_2 : 8;
+    /// read-write - Data byte 2 of Rx/Tx frame.
     uint32_t DATA_BYTE_1 : 8;
+    /// read-write - Data byte 3 of Rx/Tx frame.
     uint32_t DATA_BYTE_0 : 8;
   } bits;
   
@@ -21818,9 +26597,13 @@ union MB50_8B_WORD0 {
   
   // Bit field definition.
   struct {
+    /// read-write - Data byte 0 of Rx/Tx frame.
     uint32_t DATA_BYTE_3 : 8;
+    /// read-write - Data byte 1 of Rx/Tx frame.
     uint32_t DATA_BYTE_2 : 8;
+    /// read-write - Data byte 2 of Rx/Tx frame.
     uint32_t DATA_BYTE_1 : 8;
+    /// read-write - Data byte 3 of Rx/Tx frame.
     uint32_t DATA_BYTE_0 : 8;
   } bits;
   
@@ -21838,9 +26621,13 @@ union MB7_32B_WORD2_H {
   
   // Bit field definition.
   struct {
+    /// read-write - Data byte 0 of Rx/Tx frame.
     uint32_t DATA_BYTE_11 : 8;
+    /// read-write - Data byte 1 of Rx/Tx frame.
     uint32_t DATA_BYTE_10 : 8;
+    /// read-write - Data byte 2 of Rx/Tx frame.
     uint32_t DATA_BYTE_9 : 8;
+    /// read-write - Data byte 3 of Rx/Tx frame.
     uint32_t DATA_BYTE_8 : 8;
   } bits;
   
@@ -21858,9 +26645,13 @@ union WORD050 {
   
   // Bit field definition.
   struct {
+    /// read-write - Data byte 0 of Rx/Tx frame.
     uint32_t DATA_BYTE_3 : 8;
+    /// read-write - Data byte 1 of Rx/Tx frame.
     uint32_t DATA_BYTE_2 : 8;
+    /// read-write - Data byte 2 of Rx/Tx frame.
     uint32_t DATA_BYTE_1 : 8;
+    /// read-write - Data byte 3 of Rx/Tx frame.
     uint32_t DATA_BYTE_0 : 8;
   } bits;
   
@@ -21878,9 +26669,13 @@ union MB12_16B_WORD1_H {
   
   // Bit field definition.
   struct {
+    /// read-write - Data byte 0 of Rx/Tx frame.
     uint32_t DATA_BYTE_7 : 8;
+    /// read-write - Data byte 1 of Rx/Tx frame.
     uint32_t DATA_BYTE_6 : 8;
+    /// read-write - Data byte 2 of Rx/Tx frame.
     uint32_t DATA_BYTE_5 : 8;
+    /// read-write - Data byte 3 of Rx/Tx frame.
     uint32_t DATA_BYTE_4 : 8;
   } bits;
   
@@ -21898,9 +26693,13 @@ union MB4_64B_WORD1_H {
   
   // Bit field definition.
   struct {
+    /// read-write - Data byte 0 of Rx/Tx frame.
     uint32_t DATA_BYTE_7 : 8;
+    /// read-write - Data byte 1 of Rx/Tx frame.
     uint32_t DATA_BYTE_6 : 8;
+    /// read-write - Data byte 2 of Rx/Tx frame.
     uint32_t DATA_BYTE_5 : 8;
+    /// read-write - Data byte 3 of Rx/Tx frame.
     uint32_t DATA_BYTE_4 : 8;
   } bits;
   
@@ -21918,9 +26717,13 @@ union MB50_8B_WORD1 {
   
   // Bit field definition.
   struct {
+    /// read-write - Data byte 0 of Rx/Tx frame.
     uint32_t DATA_BYTE_7 : 8;
+    /// read-write - Data byte 1 of Rx/Tx frame.
     uint32_t DATA_BYTE_6 : 8;
+    /// read-write - Data byte 2 of Rx/Tx frame.
     uint32_t DATA_BYTE_5 : 8;
+    /// read-write - Data byte 3 of Rx/Tx frame.
     uint32_t DATA_BYTE_4 : 8;
   } bits;
   
@@ -21938,9 +26741,13 @@ union MB7_32B_WORD3_H {
   
   // Bit field definition.
   struct {
+    /// read-write - Data byte 0 of Rx/Tx frame.
     uint32_t DATA_BYTE_15 : 8;
+    /// read-write - Data byte 1 of Rx/Tx frame.
     uint32_t DATA_BYTE_14 : 8;
+    /// read-write - Data byte 2 of Rx/Tx frame.
     uint32_t DATA_BYTE_13 : 8;
+    /// read-write - Data byte 3 of Rx/Tx frame.
     uint32_t DATA_BYTE_12 : 8;
   } bits;
   
@@ -21958,9 +26765,13 @@ union WORD150 {
   
   // Bit field definition.
   struct {
+    /// read-write - Data byte 0 of Rx/Tx frame.
     uint32_t DATA_BYTE_7 : 8;
+    /// read-write - Data byte 1 of Rx/Tx frame.
     uint32_t DATA_BYTE_6 : 8;
+    /// read-write - Data byte 2 of Rx/Tx frame.
     uint32_t DATA_BYTE_5 : 8;
+    /// read-write - Data byte 3 of Rx/Tx frame.
     uint32_t DATA_BYTE_4 : 8;
   } bits;
   
@@ -21978,16 +26789,25 @@ union CS51 {
   
   // Bit field definition.
   struct {
+    /// read-write - Free-Running Counter Time stamp. This 16-bit field is a copy of the Free-Running Timer, captured for Tx and Rx frames at the time when the beginning of the Identifier field appears on the CAN bus.
     uint32_t TIME_STAMP : 16;
+    /// read-write - Length of the data to be stored/transmitted.
     uint32_t DLC : 4;
+    /// read-write - Remote Transmission Request. One/zero for remote/data frame.
     uint32_t RTR : 1;
+    /// read-write - ID Extended. One/zero for extended/standard format frame.
     uint32_t IDE : 1;
+    /// read-write - Substitute Remote Request. Contains a fixed recessive bit.
     uint32_t SRR : 1;
     uint32_t _reserved_0 : 1;
+    /// read-write - Message Buffer Code. This 4-bit field can be accessed (read or write) by the CPU and by the FlexCAN module itself, as part of the message buffer matching and arbitration process.
     uint32_t CODE : 4;
     uint32_t _reserved_1 : 1;
+    /// read-write - Error State Indicator. This bit indicates if the transmitting node is error active or error passive.
     uint32_t ESI : 1;
+    /// read-write - Bit Rate Switch. This bit defines whether the bit rate is switched inside a CAN FD format frame.
     uint32_t BRS : 1;
+    /// read-write - Extended Data Length. This bit distinguishes between CAN format and CAN FD format frames. The EDL bit must not be set for Message Buffers configured to RANSWER with code field 0b1010.
     uint32_t EDL : 1;
   } bits;
   
@@ -22005,9 +26825,13 @@ union MB12_16B_WORD2_H {
   
   // Bit field definition.
   struct {
+    /// read-write - Data byte 0 of Rx/Tx frame.
     uint32_t DATA_BYTE_11 : 8;
+    /// read-write - Data byte 1 of Rx/Tx frame.
     uint32_t DATA_BYTE_10 : 8;
+    /// read-write - Data byte 2 of Rx/Tx frame.
     uint32_t DATA_BYTE_9 : 8;
+    /// read-write - Data byte 3 of Rx/Tx frame.
     uint32_t DATA_BYTE_8 : 8;
   } bits;
   
@@ -22025,9 +26849,13 @@ union MB4_64B_WORD2_H {
   
   // Bit field definition.
   struct {
+    /// read-write - Data byte 0 of Rx/Tx frame.
     uint32_t DATA_BYTE_11 : 8;
+    /// read-write - Data byte 1 of Rx/Tx frame.
     uint32_t DATA_BYTE_10 : 8;
+    /// read-write - Data byte 2 of Rx/Tx frame.
     uint32_t DATA_BYTE_9 : 8;
+    /// read-write - Data byte 3 of Rx/Tx frame.
     uint32_t DATA_BYTE_8 : 8;
   } bits;
   
@@ -22045,16 +26873,25 @@ union MB51_8B_CS {
   
   // Bit field definition.
   struct {
+    /// read-write - Free-Running Counter Time stamp. This 16-bit field is a copy of the Free-Running Timer, captured for Tx and Rx frames at the time when the beginning of the Identifier field appears on the CAN bus.
     uint32_t TIME_STAMP : 16;
+    /// read-write - Length of the data to be stored/transmitted.
     uint32_t DLC : 4;
+    /// read-write - Remote Transmission Request. One/zero for remote/data frame.
     uint32_t RTR : 1;
+    /// read-write - ID Extended. One/zero for extended/standard format frame.
     uint32_t IDE : 1;
+    /// read-write - Substitute Remote Request. Contains a fixed recessive bit.
     uint32_t SRR : 1;
     uint32_t _reserved_0 : 1;
+    /// read-write - Message Buffer Code. This 4-bit field can be accessed (read or write) by the CPU and by the FlexCAN module itself, as part of the message buffer matching and arbitration process.
     uint32_t CODE : 4;
     uint32_t _reserved_1 : 1;
+    /// read-write - Error State Indicator. This bit indicates if the transmitting node is error active or error passive.
     uint32_t ESI : 1;
+    /// read-write - Bit Rate Switch. This bit defines whether the bit rate is switched inside a CAN FD format frame.
     uint32_t BRS : 1;
+    /// read-write - Extended Data Length. This bit distinguishes between CAN format and CAN FD format frames. The EDL bit must not be set for Message Buffers configured to RANSWER with code field 0b1010.
     uint32_t EDL : 1;
   } bits;
   
@@ -22072,9 +26909,13 @@ union MB7_32B_WORD4_H {
   
   // Bit field definition.
   struct {
+    /// read-write - Data byte 0 of Rx/Tx frame.
     uint32_t DATA_BYTE_19 : 8;
+    /// read-write - Data byte 1 of Rx/Tx frame.
     uint32_t DATA_BYTE_18 : 8;
+    /// read-write - Data byte 2 of Rx/Tx frame.
     uint32_t DATA_BYTE_17 : 8;
+    /// read-write - Data byte 3 of Rx/Tx frame.
     uint32_t DATA_BYTE_16 : 8;
   } bits;
   
@@ -22092,8 +26933,11 @@ union ID51 {
   
   // Bit field definition.
   struct {
+    /// read-write - Contains extended (LOW word) identifier of message buffer.
     uint32_t EXT : 18;
+    /// read-write - Contains standard/extended (HIGH word) identifier of message buffer.
     uint32_t STD : 11;
+    /// read-write - Local priority. This 3-bit fieldis only used when LPRIO_EN bit is set in MCR and it only makes sense for Tx buffers. These bits are not transmitted. They are appended to the regular ID to define the transmission priority.
     uint32_t PRIO : 3;
   } bits;
   
@@ -22111,9 +26955,13 @@ union MB12_16B_WORD3_H {
   
   // Bit field definition.
   struct {
+    /// read-write - Data byte 0 of Rx/Tx frame.
     uint32_t DATA_BYTE_15 : 8;
+    /// read-write - Data byte 1 of Rx/Tx frame.
     uint32_t DATA_BYTE_14 : 8;
+    /// read-write - Data byte 2 of Rx/Tx frame.
     uint32_t DATA_BYTE_13 : 8;
+    /// read-write - Data byte 3 of Rx/Tx frame.
     uint32_t DATA_BYTE_12 : 8;
   } bits;
   
@@ -22131,9 +26979,13 @@ union MB4_64B_WORD3_H {
   
   // Bit field definition.
   struct {
+    /// read-write - Data byte 0 of Rx/Tx frame.
     uint32_t DATA_BYTE_15 : 8;
+    /// read-write - Data byte 1 of Rx/Tx frame.
     uint32_t DATA_BYTE_14 : 8;
+    /// read-write - Data byte 2 of Rx/Tx frame.
     uint32_t DATA_BYTE_13 : 8;
+    /// read-write - Data byte 3 of Rx/Tx frame.
     uint32_t DATA_BYTE_12 : 8;
   } bits;
   
@@ -22151,8 +27003,11 @@ union MB51_8B_ID {
   
   // Bit field definition.
   struct {
+    /// read-write - Contains extended (LOW word) identifier of message buffer.
     uint32_t EXT : 18;
+    /// read-write - Contains standard/extended (HIGH word) identifier of message buffer.
     uint32_t STD : 11;
+    /// read-write - Local priority. This 3-bit fieldis only used when LPRIO_EN bit is set in MCR and it only makes sense for Tx buffers. These bits are not transmitted. They are appended to the regular ID to define the transmission priority.
     uint32_t PRIO : 3;
   } bits;
   
@@ -22170,9 +27025,13 @@ union MB7_32B_WORD5_H {
   
   // Bit field definition.
   struct {
+    /// read-write - Data byte 0 of Rx/Tx frame.
     uint32_t DATA_BYTE_23 : 8;
+    /// read-write - Data byte 1 of Rx/Tx frame.
     uint32_t DATA_BYTE_22 : 8;
+    /// read-write - Data byte 2 of Rx/Tx frame.
     uint32_t DATA_BYTE_21 : 8;
+    /// read-write - Data byte 3 of Rx/Tx frame.
     uint32_t DATA_BYTE_20 : 8;
   } bits;
   
@@ -22190,16 +27049,25 @@ union MB13_16B_CS_H {
   
   // Bit field definition.
   struct {
+    /// read-write - Free-Running Counter Time stamp. This 16-bit field is a copy of the Free-Running Timer, captured for Tx and Rx frames at the time when the beginning of the Identifier field appears on the CAN bus.
     uint32_t TIME_STAMP : 16;
+    /// read-write - Length of the data to be stored/transmitted.
     uint32_t DLC : 4;
+    /// read-write - Remote Transmission Request. One/zero for remote/data frame.
     uint32_t RTR : 1;
+    /// read-write - ID Extended. One/zero for extended/standard format frame.
     uint32_t IDE : 1;
+    /// read-write - Substitute Remote Request. Contains a fixed recessive bit.
     uint32_t SRR : 1;
     uint32_t _reserved_0 : 1;
+    /// read-write - Message Buffer Code. This 4-bit field can be accessed (read or write) by the CPU and by the FlexCAN module itself, as part of the message buffer matching and arbitration process.
     uint32_t CODE : 4;
     uint32_t _reserved_1 : 1;
+    /// read-write - Error State Indicator. This bit indicates if the transmitting node is error active or error passive.
     uint32_t ESI : 1;
+    /// read-write - Bit Rate Switch. This bit defines whether the bit rate is switched inside a CAN FD format frame.
     uint32_t BRS : 1;
+    /// read-write - Extended Data Length. This bit distinguishes between CAN format and CAN FD format frames. The EDL bit must not be set for Message Buffers configured to RANSWER with code field 0b1010.
     uint32_t EDL : 1;
   } bits;
   
@@ -22217,9 +27085,13 @@ union MB4_64B_WORD4_H {
   
   // Bit field definition.
   struct {
+    /// read-write - Data byte 0 of Rx/Tx frame.
     uint32_t DATA_BYTE_19 : 8;
+    /// read-write - Data byte 1 of Rx/Tx frame.
     uint32_t DATA_BYTE_18 : 8;
+    /// read-write - Data byte 2 of Rx/Tx frame.
     uint32_t DATA_BYTE_17 : 8;
+    /// read-write - Data byte 3 of Rx/Tx frame.
     uint32_t DATA_BYTE_16 : 8;
   } bits;
   
@@ -22237,9 +27109,13 @@ union MB51_8B_WORD0 {
   
   // Bit field definition.
   struct {
+    /// read-write - Data byte 0 of Rx/Tx frame.
     uint32_t DATA_BYTE_3 : 8;
+    /// read-write - Data byte 1 of Rx/Tx frame.
     uint32_t DATA_BYTE_2 : 8;
+    /// read-write - Data byte 2 of Rx/Tx frame.
     uint32_t DATA_BYTE_1 : 8;
+    /// read-write - Data byte 3 of Rx/Tx frame.
     uint32_t DATA_BYTE_0 : 8;
   } bits;
   
@@ -22257,9 +27133,13 @@ union MB7_32B_WORD6_H {
   
   // Bit field definition.
   struct {
+    /// read-write - Data byte 0 of Rx/Tx frame.
     uint32_t DATA_BYTE_27 : 8;
+    /// read-write - Data byte 1 of Rx/Tx frame.
     uint32_t DATA_BYTE_26 : 8;
+    /// read-write - Data byte 2 of Rx/Tx frame.
     uint32_t DATA_BYTE_25 : 8;
+    /// read-write - Data byte 3 of Rx/Tx frame.
     uint32_t DATA_BYTE_24 : 8;
   } bits;
   
@@ -22277,9 +27157,13 @@ union WORD051 {
   
   // Bit field definition.
   struct {
+    /// read-write - Data byte 0 of Rx/Tx frame.
     uint32_t DATA_BYTE_3 : 8;
+    /// read-write - Data byte 1 of Rx/Tx frame.
     uint32_t DATA_BYTE_2 : 8;
+    /// read-write - Data byte 2 of Rx/Tx frame.
     uint32_t DATA_BYTE_1 : 8;
+    /// read-write - Data byte 3 of Rx/Tx frame.
     uint32_t DATA_BYTE_0 : 8;
   } bits;
   
@@ -22297,8 +27181,11 @@ union MB13_16B_ID_H {
   
   // Bit field definition.
   struct {
+    /// read-write - Contains extended (LOW word) identifier of message buffer.
     uint32_t EXT : 18;
+    /// read-write - Contains standard/extended (HIGH word) identifier of message buffer.
     uint32_t STD : 11;
+    /// read-write - Local priority. This 3-bit fieldis only used when LPRIO_EN bit is set in MCR and it only makes sense for Tx buffers. These bits are not transmitted. They are appended to the regular ID to define the transmission priority.
     uint32_t PRIO : 3;
   } bits;
   
@@ -22316,9 +27203,13 @@ union MB4_64B_WORD5_H {
   
   // Bit field definition.
   struct {
+    /// read-write - Data byte 0 of Rx/Tx frame.
     uint32_t DATA_BYTE_23 : 8;
+    /// read-write - Data byte 1 of Rx/Tx frame.
     uint32_t DATA_BYTE_22 : 8;
+    /// read-write - Data byte 2 of Rx/Tx frame.
     uint32_t DATA_BYTE_21 : 8;
+    /// read-write - Data byte 3 of Rx/Tx frame.
     uint32_t DATA_BYTE_20 : 8;
   } bits;
   
@@ -22336,9 +27227,13 @@ union MB51_8B_WORD1 {
   
   // Bit field definition.
   struct {
+    /// read-write - Data byte 0 of Rx/Tx frame.
     uint32_t DATA_BYTE_7 : 8;
+    /// read-write - Data byte 1 of Rx/Tx frame.
     uint32_t DATA_BYTE_6 : 8;
+    /// read-write - Data byte 2 of Rx/Tx frame.
     uint32_t DATA_BYTE_5 : 8;
+    /// read-write - Data byte 3 of Rx/Tx frame.
     uint32_t DATA_BYTE_4 : 8;
   } bits;
   
@@ -22356,9 +27251,13 @@ union MB7_32B_WORD7_H {
   
   // Bit field definition.
   struct {
+    /// read-write - Data byte 0 of Rx/Tx frame.
     uint32_t DATA_BYTE_31 : 8;
+    /// read-write - Data byte 1 of Rx/Tx frame.
     uint32_t DATA_BYTE_30 : 8;
+    /// read-write - Data byte 2 of Rx/Tx frame.
     uint32_t DATA_BYTE_29 : 8;
+    /// read-write - Data byte 3 of Rx/Tx frame.
     uint32_t DATA_BYTE_28 : 8;
   } bits;
   
@@ -22376,9 +27275,13 @@ union WORD151 {
   
   // Bit field definition.
   struct {
+    /// read-write - Data byte 0 of Rx/Tx frame.
     uint32_t DATA_BYTE_7 : 8;
+    /// read-write - Data byte 1 of Rx/Tx frame.
     uint32_t DATA_BYTE_6 : 8;
+    /// read-write - Data byte 2 of Rx/Tx frame.
     uint32_t DATA_BYTE_5 : 8;
+    /// read-write - Data byte 3 of Rx/Tx frame.
     uint32_t DATA_BYTE_4 : 8;
   } bits;
   
@@ -22396,16 +27299,25 @@ union CS52 {
   
   // Bit field definition.
   struct {
+    /// read-write - Free-Running Counter Time stamp. This 16-bit field is a copy of the Free-Running Timer, captured for Tx and Rx frames at the time when the beginning of the Identifier field appears on the CAN bus.
     uint32_t TIME_STAMP : 16;
+    /// read-write - Length of the data to be stored/transmitted.
     uint32_t DLC : 4;
+    /// read-write - Remote Transmission Request. One/zero for remote/data frame.
     uint32_t RTR : 1;
+    /// read-write - ID Extended. One/zero for extended/standard format frame.
     uint32_t IDE : 1;
+    /// read-write - Substitute Remote Request. Contains a fixed recessive bit.
     uint32_t SRR : 1;
     uint32_t _reserved_0 : 1;
+    /// read-write - Message Buffer Code. This 4-bit field can be accessed (read or write) by the CPU and by the FlexCAN module itself, as part of the message buffer matching and arbitration process.
     uint32_t CODE : 4;
     uint32_t _reserved_1 : 1;
+    /// read-write - Error State Indicator. This bit indicates if the transmitting node is error active or error passive.
     uint32_t ESI : 1;
+    /// read-write - Bit Rate Switch. This bit defines whether the bit rate is switched inside a CAN FD format frame.
     uint32_t BRS : 1;
+    /// read-write - Extended Data Length. This bit distinguishes between CAN format and CAN FD format frames. The EDL bit must not be set for Message Buffers configured to RANSWER with code field 0b1010.
     uint32_t EDL : 1;
   } bits;
   
@@ -22423,9 +27335,13 @@ union MB13_16B_WORD0_H {
   
   // Bit field definition.
   struct {
+    /// read-write - Data byte 0 of Rx/Tx frame.
     uint32_t DATA_BYTE_3 : 8;
+    /// read-write - Data byte 1 of Rx/Tx frame.
     uint32_t DATA_BYTE_2 : 8;
+    /// read-write - Data byte 2 of Rx/Tx frame.
     uint32_t DATA_BYTE_1 : 8;
+    /// read-write - Data byte 3 of Rx/Tx frame.
     uint32_t DATA_BYTE_0 : 8;
   } bits;
   
@@ -22443,9 +27359,13 @@ union MB4_64B_WORD6_H {
   
   // Bit field definition.
   struct {
+    /// read-write - Data byte 0 of Rx/Tx frame.
     uint32_t DATA_BYTE_27 : 8;
+    /// read-write - Data byte 1 of Rx/Tx frame.
     uint32_t DATA_BYTE_26 : 8;
+    /// read-write - Data byte 2 of Rx/Tx frame.
     uint32_t DATA_BYTE_25 : 8;
+    /// read-write - Data byte 3 of Rx/Tx frame.
     uint32_t DATA_BYTE_24 : 8;
   } bits;
   
@@ -22463,16 +27383,25 @@ union MB52_8B_CS {
   
   // Bit field definition.
   struct {
+    /// read-write - Free-Running Counter Time stamp. This 16-bit field is a copy of the Free-Running Timer, captured for Tx and Rx frames at the time when the beginning of the Identifier field appears on the CAN bus.
     uint32_t TIME_STAMP : 16;
+    /// read-write - Length of the data to be stored/transmitted.
     uint32_t DLC : 4;
+    /// read-write - Remote Transmission Request. One/zero for remote/data frame.
     uint32_t RTR : 1;
+    /// read-write - ID Extended. One/zero for extended/standard format frame.
     uint32_t IDE : 1;
+    /// read-write - Substitute Remote Request. Contains a fixed recessive bit.
     uint32_t SRR : 1;
     uint32_t _reserved_0 : 1;
+    /// read-write - Message Buffer Code. This 4-bit field can be accessed (read or write) by the CPU and by the FlexCAN module itself, as part of the message buffer matching and arbitration process.
     uint32_t CODE : 4;
     uint32_t _reserved_1 : 1;
+    /// read-write - Error State Indicator. This bit indicates if the transmitting node is error active or error passive.
     uint32_t ESI : 1;
+    /// read-write - Bit Rate Switch. This bit defines whether the bit rate is switched inside a CAN FD format frame.
     uint32_t BRS : 1;
+    /// read-write - Extended Data Length. This bit distinguishes between CAN format and CAN FD format frames. The EDL bit must not be set for Message Buffers configured to RANSWER with code field 0b1010.
     uint32_t EDL : 1;
   } bits;
   
@@ -22490,16 +27419,25 @@ union MB8_32B_CS_H {
   
   // Bit field definition.
   struct {
+    /// read-write - Free-Running Counter Time stamp. This 16-bit field is a copy of the Free-Running Timer, captured for Tx and Rx frames at the time when the beginning of the Identifier field appears on the CAN bus.
     uint32_t TIME_STAMP : 16;
+    /// read-write - Length of the data to be stored/transmitted.
     uint32_t DLC : 4;
+    /// read-write - Remote Transmission Request. One/zero for remote/data frame.
     uint32_t RTR : 1;
+    /// read-write - ID Extended. One/zero for extended/standard format frame.
     uint32_t IDE : 1;
+    /// read-write - Substitute Remote Request. Contains a fixed recessive bit.
     uint32_t SRR : 1;
     uint32_t _reserved_0 : 1;
+    /// read-write - Message Buffer Code. This 4-bit field can be accessed (read or write) by the CPU and by the FlexCAN module itself, as part of the message buffer matching and arbitration process.
     uint32_t CODE : 4;
     uint32_t _reserved_1 : 1;
+    /// read-write - Error State Indicator. This bit indicates if the transmitting node is error active or error passive.
     uint32_t ESI : 1;
+    /// read-write - Bit Rate Switch. This bit defines whether the bit rate is switched inside a CAN FD format frame.
     uint32_t BRS : 1;
+    /// read-write - Extended Data Length. This bit distinguishes between CAN format and CAN FD format frames. The EDL bit must not be set for Message Buffers configured to RANSWER with code field 0b1010.
     uint32_t EDL : 1;
   } bits;
   
@@ -22517,8 +27455,11 @@ union ID52 {
   
   // Bit field definition.
   struct {
+    /// read-write - Contains extended (LOW word) identifier of message buffer.
     uint32_t EXT : 18;
+    /// read-write - Contains standard/extended (HIGH word) identifier of message buffer.
     uint32_t STD : 11;
+    /// read-write - Local priority. This 3-bit fieldis only used when LPRIO_EN bit is set in MCR and it only makes sense for Tx buffers. These bits are not transmitted. They are appended to the regular ID to define the transmission priority.
     uint32_t PRIO : 3;
   } bits;
   
@@ -22536,9 +27477,13 @@ union MB13_16B_WORD1_H {
   
   // Bit field definition.
   struct {
+    /// read-write - Data byte 0 of Rx/Tx frame.
     uint32_t DATA_BYTE_7 : 8;
+    /// read-write - Data byte 1 of Rx/Tx frame.
     uint32_t DATA_BYTE_6 : 8;
+    /// read-write - Data byte 2 of Rx/Tx frame.
     uint32_t DATA_BYTE_5 : 8;
+    /// read-write - Data byte 3 of Rx/Tx frame.
     uint32_t DATA_BYTE_4 : 8;
   } bits;
   
@@ -22556,9 +27501,13 @@ union MB4_64B_WORD7_H {
   
   // Bit field definition.
   struct {
+    /// read-write - Data byte 0 of Rx/Tx frame.
     uint32_t DATA_BYTE_31 : 8;
+    /// read-write - Data byte 1 of Rx/Tx frame.
     uint32_t DATA_BYTE_30 : 8;
+    /// read-write - Data byte 2 of Rx/Tx frame.
     uint32_t DATA_BYTE_29 : 8;
+    /// read-write - Data byte 3 of Rx/Tx frame.
     uint32_t DATA_BYTE_28 : 8;
   } bits;
   
@@ -22576,8 +27525,11 @@ union MB52_8B_ID {
   
   // Bit field definition.
   struct {
+    /// read-write - Contains extended (LOW word) identifier of message buffer.
     uint32_t EXT : 18;
+    /// read-write - Contains standard/extended (HIGH word) identifier of message buffer.
     uint32_t STD : 11;
+    /// read-write - Local priority. This 3-bit fieldis only used when LPRIO_EN bit is set in MCR and it only makes sense for Tx buffers. These bits are not transmitted. They are appended to the regular ID to define the transmission priority.
     uint32_t PRIO : 3;
   } bits;
   
@@ -22595,8 +27547,11 @@ union MB8_32B_ID_H {
   
   // Bit field definition.
   struct {
+    /// read-write - Contains extended (LOW word) identifier of message buffer.
     uint32_t EXT : 18;
+    /// read-write - Contains standard/extended (HIGH word) identifier of message buffer.
     uint32_t STD : 11;
+    /// read-write - Local priority. This 3-bit fieldis only used when LPRIO_EN bit is set in MCR and it only makes sense for Tx buffers. These bits are not transmitted. They are appended to the regular ID to define the transmission priority.
     uint32_t PRIO : 3;
   } bits;
   
@@ -22614,9 +27569,13 @@ union MB13_16B_WORD2_H {
   
   // Bit field definition.
   struct {
+    /// read-write - Data byte 0 of Rx/Tx frame.
     uint32_t DATA_BYTE_11 : 8;
+    /// read-write - Data byte 1 of Rx/Tx frame.
     uint32_t DATA_BYTE_10 : 8;
+    /// read-write - Data byte 2 of Rx/Tx frame.
     uint32_t DATA_BYTE_9 : 8;
+    /// read-write - Data byte 3 of Rx/Tx frame.
     uint32_t DATA_BYTE_8 : 8;
   } bits;
   
@@ -22634,9 +27593,13 @@ union MB4_64B_WORD8_H {
   
   // Bit field definition.
   struct {
+    /// read-write - Data byte 0 of Rx/Tx frame.
     uint32_t DATA_BYTE_35 : 8;
+    /// read-write - Data byte 1 of Rx/Tx frame.
     uint32_t DATA_BYTE_34 : 8;
+    /// read-write - Data byte 2 of Rx/Tx frame.
     uint32_t DATA_BYTE_33 : 8;
+    /// read-write - Data byte 3 of Rx/Tx frame.
     uint32_t DATA_BYTE_32 : 8;
   } bits;
   
@@ -22654,9 +27617,13 @@ union MB52_8B_WORD0 {
   
   // Bit field definition.
   struct {
+    /// read-write - Data byte 0 of Rx/Tx frame.
     uint32_t DATA_BYTE_3 : 8;
+    /// read-write - Data byte 1 of Rx/Tx frame.
     uint32_t DATA_BYTE_2 : 8;
+    /// read-write - Data byte 2 of Rx/Tx frame.
     uint32_t DATA_BYTE_1 : 8;
+    /// read-write - Data byte 3 of Rx/Tx frame.
     uint32_t DATA_BYTE_0 : 8;
   } bits;
   
@@ -22674,9 +27641,13 @@ union MB8_32B_WORD0_H {
   
   // Bit field definition.
   struct {
+    /// read-write - Data byte 0 of Rx/Tx frame.
     uint32_t DATA_BYTE_3 : 8;
+    /// read-write - Data byte 1 of Rx/Tx frame.
     uint32_t DATA_BYTE_2 : 8;
+    /// read-write - Data byte 2 of Rx/Tx frame.
     uint32_t DATA_BYTE_1 : 8;
+    /// read-write - Data byte 3 of Rx/Tx frame.
     uint32_t DATA_BYTE_0 : 8;
   } bits;
   
@@ -22694,9 +27665,13 @@ union WORD052 {
   
   // Bit field definition.
   struct {
+    /// read-write - Data byte 0 of Rx/Tx frame.
     uint32_t DATA_BYTE_3 : 8;
+    /// read-write - Data byte 1 of Rx/Tx frame.
     uint32_t DATA_BYTE_2 : 8;
+    /// read-write - Data byte 2 of Rx/Tx frame.
     uint32_t DATA_BYTE_1 : 8;
+    /// read-write - Data byte 3 of Rx/Tx frame.
     uint32_t DATA_BYTE_0 : 8;
   } bits;
   
@@ -22714,9 +27689,13 @@ union MB13_16B_WORD3_H {
   
   // Bit field definition.
   struct {
+    /// read-write - Data byte 0 of Rx/Tx frame.
     uint32_t DATA_BYTE_15 : 8;
+    /// read-write - Data byte 1 of Rx/Tx frame.
     uint32_t DATA_BYTE_14 : 8;
+    /// read-write - Data byte 2 of Rx/Tx frame.
     uint32_t DATA_BYTE_13 : 8;
+    /// read-write - Data byte 3 of Rx/Tx frame.
     uint32_t DATA_BYTE_12 : 8;
   } bits;
   
@@ -22734,9 +27713,13 @@ union MB4_64B_WORD9_H {
   
   // Bit field definition.
   struct {
+    /// read-write - Data byte 0 of Rx/Tx frame.
     uint32_t DATA_BYTE_39 : 8;
+    /// read-write - Data byte 1 of Rx/Tx frame.
     uint32_t DATA_BYTE_38 : 8;
+    /// read-write - Data byte 2 of Rx/Tx frame.
     uint32_t DATA_BYTE_37 : 8;
+    /// read-write - Data byte 3 of Rx/Tx frame.
     uint32_t DATA_BYTE_36 : 8;
   } bits;
   
@@ -22754,9 +27737,13 @@ union MB52_8B_WORD1 {
   
   // Bit field definition.
   struct {
+    /// read-write - Data byte 0 of Rx/Tx frame.
     uint32_t DATA_BYTE_7 : 8;
+    /// read-write - Data byte 1 of Rx/Tx frame.
     uint32_t DATA_BYTE_6 : 8;
+    /// read-write - Data byte 2 of Rx/Tx frame.
     uint32_t DATA_BYTE_5 : 8;
+    /// read-write - Data byte 3 of Rx/Tx frame.
     uint32_t DATA_BYTE_4 : 8;
   } bits;
   
@@ -22774,9 +27761,13 @@ union MB8_32B_WORD1_H {
   
   // Bit field definition.
   struct {
+    /// read-write - Data byte 0 of Rx/Tx frame.
     uint32_t DATA_BYTE_7 : 8;
+    /// read-write - Data byte 1 of Rx/Tx frame.
     uint32_t DATA_BYTE_6 : 8;
+    /// read-write - Data byte 2 of Rx/Tx frame.
     uint32_t DATA_BYTE_5 : 8;
+    /// read-write - Data byte 3 of Rx/Tx frame.
     uint32_t DATA_BYTE_4 : 8;
   } bits;
   
@@ -22794,9 +27785,13 @@ union WORD152 {
   
   // Bit field definition.
   struct {
+    /// read-write - Data byte 0 of Rx/Tx frame.
     uint32_t DATA_BYTE_7 : 8;
+    /// read-write - Data byte 1 of Rx/Tx frame.
     uint32_t DATA_BYTE_6 : 8;
+    /// read-write - Data byte 2 of Rx/Tx frame.
     uint32_t DATA_BYTE_5 : 8;
+    /// read-write - Data byte 3 of Rx/Tx frame.
     uint32_t DATA_BYTE_4 : 8;
   } bits;
   
@@ -22814,16 +27809,25 @@ union CS53 {
   
   // Bit field definition.
   struct {
+    /// read-write - Free-Running Counter Time stamp. This 16-bit field is a copy of the Free-Running Timer, captured for Tx and Rx frames at the time when the beginning of the Identifier field appears on the CAN bus.
     uint32_t TIME_STAMP : 16;
+    /// read-write - Length of the data to be stored/transmitted.
     uint32_t DLC : 4;
+    /// read-write - Remote Transmission Request. One/zero for remote/data frame.
     uint32_t RTR : 1;
+    /// read-write - ID Extended. One/zero for extended/standard format frame.
     uint32_t IDE : 1;
+    /// read-write - Substitute Remote Request. Contains a fixed recessive bit.
     uint32_t SRR : 1;
     uint32_t _reserved_0 : 1;
+    /// read-write - Message Buffer Code. This 4-bit field can be accessed (read or write) by the CPU and by the FlexCAN module itself, as part of the message buffer matching and arbitration process.
     uint32_t CODE : 4;
     uint32_t _reserved_1 : 1;
+    /// read-write - Error State Indicator. This bit indicates if the transmitting node is error active or error passive.
     uint32_t ESI : 1;
+    /// read-write - Bit Rate Switch. This bit defines whether the bit rate is switched inside a CAN FD format frame.
     uint32_t BRS : 1;
+    /// read-write - Extended Data Length. This bit distinguishes between CAN format and CAN FD format frames. The EDL bit must not be set for Message Buffers configured to RANSWER with code field 0b1010.
     uint32_t EDL : 1;
   } bits;
   
@@ -22841,16 +27845,25 @@ union MB14_16B_CS_H {
   
   // Bit field definition.
   struct {
+    /// read-write - Free-Running Counter Time stamp. This 16-bit field is a copy of the Free-Running Timer, captured for Tx and Rx frames at the time when the beginning of the Identifier field appears on the CAN bus.
     uint32_t TIME_STAMP : 16;
+    /// read-write - Length of the data to be stored/transmitted.
     uint32_t DLC : 4;
+    /// read-write - Remote Transmission Request. One/zero for remote/data frame.
     uint32_t RTR : 1;
+    /// read-write - ID Extended. One/zero for extended/standard format frame.
     uint32_t IDE : 1;
+    /// read-write - Substitute Remote Request. Contains a fixed recessive bit.
     uint32_t SRR : 1;
     uint32_t _reserved_0 : 1;
+    /// read-write - Message Buffer Code. This 4-bit field can be accessed (read or write) by the CPU and by the FlexCAN module itself, as part of the message buffer matching and arbitration process.
     uint32_t CODE : 4;
     uint32_t _reserved_1 : 1;
+    /// read-write - Error State Indicator. This bit indicates if the transmitting node is error active or error passive.
     uint32_t ESI : 1;
+    /// read-write - Bit Rate Switch. This bit defines whether the bit rate is switched inside a CAN FD format frame.
     uint32_t BRS : 1;
+    /// read-write - Extended Data Length. This bit distinguishes between CAN format and CAN FD format frames. The EDL bit must not be set for Message Buffers configured to RANSWER with code field 0b1010.
     uint32_t EDL : 1;
   } bits;
   
@@ -22868,9 +27881,13 @@ union MB4_64B_WORD10_H {
   
   // Bit field definition.
   struct {
+    /// read-write - Data byte 0 of Rx/Tx frame.
     uint32_t DATA_BYTE_43 : 8;
+    /// read-write - Data byte 1 of Rx/Tx frame.
     uint32_t DATA_BYTE_42 : 8;
+    /// read-write - Data byte 2 of Rx/Tx frame.
     uint32_t DATA_BYTE_41 : 8;
+    /// read-write - Data byte 3 of Rx/Tx frame.
     uint32_t DATA_BYTE_40 : 8;
   } bits;
   
@@ -22888,16 +27905,25 @@ union MB53_8B_CS {
   
   // Bit field definition.
   struct {
+    /// read-write - Free-Running Counter Time stamp. This 16-bit field is a copy of the Free-Running Timer, captured for Tx and Rx frames at the time when the beginning of the Identifier field appears on the CAN bus.
     uint32_t TIME_STAMP : 16;
+    /// read-write - Length of the data to be stored/transmitted.
     uint32_t DLC : 4;
+    /// read-write - Remote Transmission Request. One/zero for remote/data frame.
     uint32_t RTR : 1;
+    /// read-write - ID Extended. One/zero for extended/standard format frame.
     uint32_t IDE : 1;
+    /// read-write - Substitute Remote Request. Contains a fixed recessive bit.
     uint32_t SRR : 1;
     uint32_t _reserved_0 : 1;
+    /// read-write - Message Buffer Code. This 4-bit field can be accessed (read or write) by the CPU and by the FlexCAN module itself, as part of the message buffer matching and arbitration process.
     uint32_t CODE : 4;
     uint32_t _reserved_1 : 1;
+    /// read-write - Error State Indicator. This bit indicates if the transmitting node is error active or error passive.
     uint32_t ESI : 1;
+    /// read-write - Bit Rate Switch. This bit defines whether the bit rate is switched inside a CAN FD format frame.
     uint32_t BRS : 1;
+    /// read-write - Extended Data Length. This bit distinguishes between CAN format and CAN FD format frames. The EDL bit must not be set for Message Buffers configured to RANSWER with code field 0b1010.
     uint32_t EDL : 1;
   } bits;
   
@@ -22915,9 +27941,13 @@ union MB8_32B_WORD2_H {
   
   // Bit field definition.
   struct {
+    /// read-write - Data byte 0 of Rx/Tx frame.
     uint32_t DATA_BYTE_11 : 8;
+    /// read-write - Data byte 1 of Rx/Tx frame.
     uint32_t DATA_BYTE_10 : 8;
+    /// read-write - Data byte 2 of Rx/Tx frame.
     uint32_t DATA_BYTE_9 : 8;
+    /// read-write - Data byte 3 of Rx/Tx frame.
     uint32_t DATA_BYTE_8 : 8;
   } bits;
   
@@ -22935,8 +27965,11 @@ union ID53 {
   
   // Bit field definition.
   struct {
+    /// read-write - Contains extended (LOW word) identifier of message buffer.
     uint32_t EXT : 18;
+    /// read-write - Contains standard/extended (HIGH word) identifier of message buffer.
     uint32_t STD : 11;
+    /// read-write - Local priority. This 3-bit fieldis only used when LPRIO_EN bit is set in MCR and it only makes sense for Tx buffers. These bits are not transmitted. They are appended to the regular ID to define the transmission priority.
     uint32_t PRIO : 3;
   } bits;
   
@@ -22954,8 +27987,11 @@ union MB14_16B_ID_H {
   
   // Bit field definition.
   struct {
+    /// read-write - Contains extended (LOW word) identifier of message buffer.
     uint32_t EXT : 18;
+    /// read-write - Contains standard/extended (HIGH word) identifier of message buffer.
     uint32_t STD : 11;
+    /// read-write - Local priority. This 3-bit fieldis only used when LPRIO_EN bit is set in MCR and it only makes sense for Tx buffers. These bits are not transmitted. They are appended to the regular ID to define the transmission priority.
     uint32_t PRIO : 3;
   } bits;
   
@@ -22973,9 +28009,13 @@ union MB4_64B_WORD11_H {
   
   // Bit field definition.
   struct {
+    /// read-write - Data byte 0 of Rx/Tx frame.
     uint32_t DATA_BYTE_47 : 8;
+    /// read-write - Data byte 1 of Rx/Tx frame.
     uint32_t DATA_BYTE_46 : 8;
+    /// read-write - Data byte 2 of Rx/Tx frame.
     uint32_t DATA_BYTE_45 : 8;
+    /// read-write - Data byte 3 of Rx/Tx frame.
     uint32_t DATA_BYTE_44 : 8;
   } bits;
   
@@ -22993,8 +28033,11 @@ union MB53_8B_ID {
   
   // Bit field definition.
   struct {
+    /// read-write - Contains extended (LOW word) identifier of message buffer.
     uint32_t EXT : 18;
+    /// read-write - Contains standard/extended (HIGH word) identifier of message buffer.
     uint32_t STD : 11;
+    /// read-write - Local priority. This 3-bit fieldis only used when LPRIO_EN bit is set in MCR and it only makes sense for Tx buffers. These bits are not transmitted. They are appended to the regular ID to define the transmission priority.
     uint32_t PRIO : 3;
   } bits;
   
@@ -23012,9 +28055,13 @@ union MB8_32B_WORD3_H {
   
   // Bit field definition.
   struct {
+    /// read-write - Data byte 0 of Rx/Tx frame.
     uint32_t DATA_BYTE_15 : 8;
+    /// read-write - Data byte 1 of Rx/Tx frame.
     uint32_t DATA_BYTE_14 : 8;
+    /// read-write - Data byte 2 of Rx/Tx frame.
     uint32_t DATA_BYTE_13 : 8;
+    /// read-write - Data byte 3 of Rx/Tx frame.
     uint32_t DATA_BYTE_12 : 8;
   } bits;
   
@@ -23032,9 +28079,13 @@ union MB14_16B_WORD0_H {
   
   // Bit field definition.
   struct {
+    /// read-write - Data byte 0 of Rx/Tx frame.
     uint32_t DATA_BYTE_3 : 8;
+    /// read-write - Data byte 1 of Rx/Tx frame.
     uint32_t DATA_BYTE_2 : 8;
+    /// read-write - Data byte 2 of Rx/Tx frame.
     uint32_t DATA_BYTE_1 : 8;
+    /// read-write - Data byte 3 of Rx/Tx frame.
     uint32_t DATA_BYTE_0 : 8;
   } bits;
   
@@ -23052,9 +28103,13 @@ union MB4_64B_WORD12_H {
   
   // Bit field definition.
   struct {
+    /// read-write - Data byte 0 of Rx/Tx frame.
     uint32_t DATA_BYTE_51 : 8;
+    /// read-write - Data byte 1 of Rx/Tx frame.
     uint32_t DATA_BYTE_50 : 8;
+    /// read-write - Data byte 2 of Rx/Tx frame.
     uint32_t DATA_BYTE_49 : 8;
+    /// read-write - Data byte 3 of Rx/Tx frame.
     uint32_t DATA_BYTE_48 : 8;
   } bits;
   
@@ -23072,9 +28127,13 @@ union MB53_8B_WORD0 {
   
   // Bit field definition.
   struct {
+    /// read-write - Data byte 0 of Rx/Tx frame.
     uint32_t DATA_BYTE_3 : 8;
+    /// read-write - Data byte 1 of Rx/Tx frame.
     uint32_t DATA_BYTE_2 : 8;
+    /// read-write - Data byte 2 of Rx/Tx frame.
     uint32_t DATA_BYTE_1 : 8;
+    /// read-write - Data byte 3 of Rx/Tx frame.
     uint32_t DATA_BYTE_0 : 8;
   } bits;
   
@@ -23092,9 +28151,13 @@ union MB8_32B_WORD4_H {
   
   // Bit field definition.
   struct {
+    /// read-write - Data byte 0 of Rx/Tx frame.
     uint32_t DATA_BYTE_19 : 8;
+    /// read-write - Data byte 1 of Rx/Tx frame.
     uint32_t DATA_BYTE_18 : 8;
+    /// read-write - Data byte 2 of Rx/Tx frame.
     uint32_t DATA_BYTE_17 : 8;
+    /// read-write - Data byte 3 of Rx/Tx frame.
     uint32_t DATA_BYTE_16 : 8;
   } bits;
   
@@ -23112,9 +28175,13 @@ union WORD053 {
   
   // Bit field definition.
   struct {
+    /// read-write - Data byte 0 of Rx/Tx frame.
     uint32_t DATA_BYTE_3 : 8;
+    /// read-write - Data byte 1 of Rx/Tx frame.
     uint32_t DATA_BYTE_2 : 8;
+    /// read-write - Data byte 2 of Rx/Tx frame.
     uint32_t DATA_BYTE_1 : 8;
+    /// read-write - Data byte 3 of Rx/Tx frame.
     uint32_t DATA_BYTE_0 : 8;
   } bits;
   
@@ -23132,9 +28199,13 @@ union MB14_16B_WORD1_H {
   
   // Bit field definition.
   struct {
+    /// read-write - Data byte 0 of Rx/Tx frame.
     uint32_t DATA_BYTE_7 : 8;
+    /// read-write - Data byte 1 of Rx/Tx frame.
     uint32_t DATA_BYTE_6 : 8;
+    /// read-write - Data byte 2 of Rx/Tx frame.
     uint32_t DATA_BYTE_5 : 8;
+    /// read-write - Data byte 3 of Rx/Tx frame.
     uint32_t DATA_BYTE_4 : 8;
   } bits;
   
@@ -23152,9 +28223,13 @@ union MB4_64B_WORD13_H {
   
   // Bit field definition.
   struct {
+    /// read-write - Data byte 0 of Rx/Tx frame.
     uint32_t DATA_BYTE_55 : 8;
+    /// read-write - Data byte 1 of Rx/Tx frame.
     uint32_t DATA_BYTE_54 : 8;
+    /// read-write - Data byte 2 of Rx/Tx frame.
     uint32_t DATA_BYTE_53 : 8;
+    /// read-write - Data byte 3 of Rx/Tx frame.
     uint32_t DATA_BYTE_52 : 8;
   } bits;
   
@@ -23172,9 +28247,13 @@ union MB53_8B_WORD1 {
   
   // Bit field definition.
   struct {
+    /// read-write - Data byte 0 of Rx/Tx frame.
     uint32_t DATA_BYTE_7 : 8;
+    /// read-write - Data byte 1 of Rx/Tx frame.
     uint32_t DATA_BYTE_6 : 8;
+    /// read-write - Data byte 2 of Rx/Tx frame.
     uint32_t DATA_BYTE_5 : 8;
+    /// read-write - Data byte 3 of Rx/Tx frame.
     uint32_t DATA_BYTE_4 : 8;
   } bits;
   
@@ -23192,9 +28271,13 @@ union MB8_32B_WORD5_H {
   
   // Bit field definition.
   struct {
+    /// read-write - Data byte 0 of Rx/Tx frame.
     uint32_t DATA_BYTE_23 : 8;
+    /// read-write - Data byte 1 of Rx/Tx frame.
     uint32_t DATA_BYTE_22 : 8;
+    /// read-write - Data byte 2 of Rx/Tx frame.
     uint32_t DATA_BYTE_21 : 8;
+    /// read-write - Data byte 3 of Rx/Tx frame.
     uint32_t DATA_BYTE_20 : 8;
   } bits;
   
@@ -23212,9 +28295,13 @@ union WORD153 {
   
   // Bit field definition.
   struct {
+    /// read-write - Data byte 0 of Rx/Tx frame.
     uint32_t DATA_BYTE_7 : 8;
+    /// read-write - Data byte 1 of Rx/Tx frame.
     uint32_t DATA_BYTE_6 : 8;
+    /// read-write - Data byte 2 of Rx/Tx frame.
     uint32_t DATA_BYTE_5 : 8;
+    /// read-write - Data byte 3 of Rx/Tx frame.
     uint32_t DATA_BYTE_4 : 8;
   } bits;
   
@@ -23232,16 +28319,25 @@ union CS54 {
   
   // Bit field definition.
   struct {
+    /// read-write - Free-Running Counter Time stamp. This 16-bit field is a copy of the Free-Running Timer, captured for Tx and Rx frames at the time when the beginning of the Identifier field appears on the CAN bus.
     uint32_t TIME_STAMP : 16;
+    /// read-write - Length of the data to be stored/transmitted.
     uint32_t DLC : 4;
+    /// read-write - Remote Transmission Request. One/zero for remote/data frame.
     uint32_t RTR : 1;
+    /// read-write - ID Extended. One/zero for extended/standard format frame.
     uint32_t IDE : 1;
+    /// read-write - Substitute Remote Request. Contains a fixed recessive bit.
     uint32_t SRR : 1;
     uint32_t _reserved_0 : 1;
+    /// read-write - Message Buffer Code. This 4-bit field can be accessed (read or write) by the CPU and by the FlexCAN module itself, as part of the message buffer matching and arbitration process.
     uint32_t CODE : 4;
     uint32_t _reserved_1 : 1;
+    /// read-write - Error State Indicator. This bit indicates if the transmitting node is error active or error passive.
     uint32_t ESI : 1;
+    /// read-write - Bit Rate Switch. This bit defines whether the bit rate is switched inside a CAN FD format frame.
     uint32_t BRS : 1;
+    /// read-write - Extended Data Length. This bit distinguishes between CAN format and CAN FD format frames. The EDL bit must not be set for Message Buffers configured to RANSWER with code field 0b1010.
     uint32_t EDL : 1;
   } bits;
   
@@ -23259,9 +28355,13 @@ union MB14_16B_WORD2_H {
   
   // Bit field definition.
   struct {
+    /// read-write - Data byte 0 of Rx/Tx frame.
     uint32_t DATA_BYTE_11 : 8;
+    /// read-write - Data byte 1 of Rx/Tx frame.
     uint32_t DATA_BYTE_10 : 8;
+    /// read-write - Data byte 2 of Rx/Tx frame.
     uint32_t DATA_BYTE_9 : 8;
+    /// read-write - Data byte 3 of Rx/Tx frame.
     uint32_t DATA_BYTE_8 : 8;
   } bits;
   
@@ -23279,9 +28379,13 @@ union MB4_64B_WORD14_H {
   
   // Bit field definition.
   struct {
+    /// read-write - Data byte 0 of Rx/Tx frame.
     uint32_t DATA_BYTE_59 : 8;
+    /// read-write - Data byte 1 of Rx/Tx frame.
     uint32_t DATA_BYTE_58 : 8;
+    /// read-write - Data byte 2 of Rx/Tx frame.
     uint32_t DATA_BYTE_57 : 8;
+    /// read-write - Data byte 3 of Rx/Tx frame.
     uint32_t DATA_BYTE_56 : 8;
   } bits;
   
@@ -23299,16 +28403,25 @@ union MB54_8B_CS {
   
   // Bit field definition.
   struct {
+    /// read-write - Free-Running Counter Time stamp. This 16-bit field is a copy of the Free-Running Timer, captured for Tx and Rx frames at the time when the beginning of the Identifier field appears on the CAN bus.
     uint32_t TIME_STAMP : 16;
+    /// read-write - Length of the data to be stored/transmitted.
     uint32_t DLC : 4;
+    /// read-write - Remote Transmission Request. One/zero for remote/data frame.
     uint32_t RTR : 1;
+    /// read-write - ID Extended. One/zero for extended/standard format frame.
     uint32_t IDE : 1;
+    /// read-write - Substitute Remote Request. Contains a fixed recessive bit.
     uint32_t SRR : 1;
     uint32_t _reserved_0 : 1;
+    /// read-write - Message Buffer Code. This 4-bit field can be accessed (read or write) by the CPU and by the FlexCAN module itself, as part of the message buffer matching and arbitration process.
     uint32_t CODE : 4;
     uint32_t _reserved_1 : 1;
+    /// read-write - Error State Indicator. This bit indicates if the transmitting node is error active or error passive.
     uint32_t ESI : 1;
+    /// read-write - Bit Rate Switch. This bit defines whether the bit rate is switched inside a CAN FD format frame.
     uint32_t BRS : 1;
+    /// read-write - Extended Data Length. This bit distinguishes between CAN format and CAN FD format frames. The EDL bit must not be set for Message Buffers configured to RANSWER with code field 0b1010.
     uint32_t EDL : 1;
   } bits;
   
@@ -23326,9 +28439,13 @@ union MB8_32B_WORD6_H {
   
   // Bit field definition.
   struct {
+    /// read-write - Data byte 0 of Rx/Tx frame.
     uint32_t DATA_BYTE_27 : 8;
+    /// read-write - Data byte 1 of Rx/Tx frame.
     uint32_t DATA_BYTE_26 : 8;
+    /// read-write - Data byte 2 of Rx/Tx frame.
     uint32_t DATA_BYTE_25 : 8;
+    /// read-write - Data byte 3 of Rx/Tx frame.
     uint32_t DATA_BYTE_24 : 8;
   } bits;
   
@@ -23346,8 +28463,11 @@ union ID54 {
   
   // Bit field definition.
   struct {
+    /// read-write - Contains extended (LOW word) identifier of message buffer.
     uint32_t EXT : 18;
+    /// read-write - Contains standard/extended (HIGH word) identifier of message buffer.
     uint32_t STD : 11;
+    /// read-write - Local priority. This 3-bit fieldis only used when LPRIO_EN bit is set in MCR and it only makes sense for Tx buffers. These bits are not transmitted. They are appended to the regular ID to define the transmission priority.
     uint32_t PRIO : 3;
   } bits;
   
@@ -23365,9 +28485,13 @@ union MB14_16B_WORD3_H {
   
   // Bit field definition.
   struct {
+    /// read-write - Data byte 0 of Rx/Tx frame.
     uint32_t DATA_BYTE_15 : 8;
+    /// read-write - Data byte 1 of Rx/Tx frame.
     uint32_t DATA_BYTE_14 : 8;
+    /// read-write - Data byte 2 of Rx/Tx frame.
     uint32_t DATA_BYTE_13 : 8;
+    /// read-write - Data byte 3 of Rx/Tx frame.
     uint32_t DATA_BYTE_12 : 8;
   } bits;
   
@@ -23385,9 +28509,13 @@ union MB4_64B_WORD15_H {
   
   // Bit field definition.
   struct {
+    /// read-write - Data byte 0 of Rx/Tx frame.
     uint32_t DATA_BYTE_63 : 8;
+    /// read-write - Data byte 1 of Rx/Tx frame.
     uint32_t DATA_BYTE_62 : 8;
+    /// read-write - Data byte 2 of Rx/Tx frame.
     uint32_t DATA_BYTE_61 : 8;
+    /// read-write - Data byte 3 of Rx/Tx frame.
     uint32_t DATA_BYTE_60 : 8;
   } bits;
   
@@ -23405,8 +28533,11 @@ union MB54_8B_ID {
   
   // Bit field definition.
   struct {
+    /// read-write - Contains extended (LOW word) identifier of message buffer.
     uint32_t EXT : 18;
+    /// read-write - Contains standard/extended (HIGH word) identifier of message buffer.
     uint32_t STD : 11;
+    /// read-write - Local priority. This 3-bit fieldis only used when LPRIO_EN bit is set in MCR and it only makes sense for Tx buffers. These bits are not transmitted. They are appended to the regular ID to define the transmission priority.
     uint32_t PRIO : 3;
   } bits;
   
@@ -23424,9 +28555,13 @@ union MB8_32B_WORD7_H {
   
   // Bit field definition.
   struct {
+    /// read-write - Data byte 0 of Rx/Tx frame.
     uint32_t DATA_BYTE_31 : 8;
+    /// read-write - Data byte 1 of Rx/Tx frame.
     uint32_t DATA_BYTE_30 : 8;
+    /// read-write - Data byte 2 of Rx/Tx frame.
     uint32_t DATA_BYTE_29 : 8;
+    /// read-write - Data byte 3 of Rx/Tx frame.
     uint32_t DATA_BYTE_28 : 8;
   } bits;
   
@@ -23444,16 +28579,25 @@ union MB15_16B_CS_H {
   
   // Bit field definition.
   struct {
+    /// read-write - Free-Running Counter Time stamp. This 16-bit field is a copy of the Free-Running Timer, captured for Tx and Rx frames at the time when the beginning of the Identifier field appears on the CAN bus.
     uint32_t TIME_STAMP : 16;
+    /// read-write - Length of the data to be stored/transmitted.
     uint32_t DLC : 4;
+    /// read-write - Remote Transmission Request. One/zero for remote/data frame.
     uint32_t RTR : 1;
+    /// read-write - ID Extended. One/zero for extended/standard format frame.
     uint32_t IDE : 1;
+    /// read-write - Substitute Remote Request. Contains a fixed recessive bit.
     uint32_t SRR : 1;
     uint32_t _reserved_0 : 1;
+    /// read-write - Message Buffer Code. This 4-bit field can be accessed (read or write) by the CPU and by the FlexCAN module itself, as part of the message buffer matching and arbitration process.
     uint32_t CODE : 4;
     uint32_t _reserved_1 : 1;
+    /// read-write - Error State Indicator. This bit indicates if the transmitting node is error active or error passive.
     uint32_t ESI : 1;
+    /// read-write - Bit Rate Switch. This bit defines whether the bit rate is switched inside a CAN FD format frame.
     uint32_t BRS : 1;
+    /// read-write - Extended Data Length. This bit distinguishes between CAN format and CAN FD format frames. The EDL bit must not be set for Message Buffers configured to RANSWER with code field 0b1010.
     uint32_t EDL : 1;
   } bits;
   
@@ -23471,9 +28615,13 @@ union MB54_8B_WORD0 {
   
   // Bit field definition.
   struct {
+    /// read-write - Data byte 0 of Rx/Tx frame.
     uint32_t DATA_BYTE_3 : 8;
+    /// read-write - Data byte 1 of Rx/Tx frame.
     uint32_t DATA_BYTE_2 : 8;
+    /// read-write - Data byte 2 of Rx/Tx frame.
     uint32_t DATA_BYTE_1 : 8;
+    /// read-write - Data byte 3 of Rx/Tx frame.
     uint32_t DATA_BYTE_0 : 8;
   } bits;
   
@@ -23491,16 +28639,25 @@ union MB5_64B_CS_H {
   
   // Bit field definition.
   struct {
+    /// read-write - Free-Running Counter Time stamp. This 16-bit field is a copy of the Free-Running Timer, captured for Tx and Rx frames at the time when the beginning of the Identifier field appears on the CAN bus.
     uint32_t TIME_STAMP : 16;
+    /// read-write - Length of the data to be stored/transmitted.
     uint32_t DLC : 4;
+    /// read-write - Remote Transmission Request. One/zero for remote/data frame.
     uint32_t RTR : 1;
+    /// read-write - ID Extended. One/zero for extended/standard format frame.
     uint32_t IDE : 1;
+    /// read-write - Substitute Remote Request. Contains a fixed recessive bit.
     uint32_t SRR : 1;
     uint32_t _reserved_0 : 1;
+    /// read-write - Message Buffer Code. This 4-bit field can be accessed (read or write) by the CPU and by the FlexCAN module itself, as part of the message buffer matching and arbitration process.
     uint32_t CODE : 4;
     uint32_t _reserved_1 : 1;
+    /// read-write - Error State Indicator. This bit indicates if the transmitting node is error active or error passive.
     uint32_t ESI : 1;
+    /// read-write - Bit Rate Switch. This bit defines whether the bit rate is switched inside a CAN FD format frame.
     uint32_t BRS : 1;
+    /// read-write - Extended Data Length. This bit distinguishes between CAN format and CAN FD format frames. The EDL bit must not be set for Message Buffers configured to RANSWER with code field 0b1010.
     uint32_t EDL : 1;
   } bits;
   
@@ -23518,16 +28675,25 @@ union MB9_32B_CS_H {
   
   // Bit field definition.
   struct {
+    /// read-write - Free-Running Counter Time stamp. This 16-bit field is a copy of the Free-Running Timer, captured for Tx and Rx frames at the time when the beginning of the Identifier field appears on the CAN bus.
     uint32_t TIME_STAMP : 16;
+    /// read-write - Length of the data to be stored/transmitted.
     uint32_t DLC : 4;
+    /// read-write - Remote Transmission Request. One/zero for remote/data frame.
     uint32_t RTR : 1;
+    /// read-write - ID Extended. One/zero for extended/standard format frame.
     uint32_t IDE : 1;
+    /// read-write - Substitute Remote Request. Contains a fixed recessive bit.
     uint32_t SRR : 1;
     uint32_t _reserved_0 : 1;
+    /// read-write - Message Buffer Code. This 4-bit field can be accessed (read or write) by the CPU and by the FlexCAN module itself, as part of the message buffer matching and arbitration process.
     uint32_t CODE : 4;
     uint32_t _reserved_1 : 1;
+    /// read-write - Error State Indicator. This bit indicates if the transmitting node is error active or error passive.
     uint32_t ESI : 1;
+    /// read-write - Bit Rate Switch. This bit defines whether the bit rate is switched inside a CAN FD format frame.
     uint32_t BRS : 1;
+    /// read-write - Extended Data Length. This bit distinguishes between CAN format and CAN FD format frames. The EDL bit must not be set for Message Buffers configured to RANSWER with code field 0b1010.
     uint32_t EDL : 1;
   } bits;
   
@@ -23545,9 +28711,13 @@ union WORD054 {
   
   // Bit field definition.
   struct {
+    /// read-write - Data byte 0 of Rx/Tx frame.
     uint32_t DATA_BYTE_3 : 8;
+    /// read-write - Data byte 1 of Rx/Tx frame.
     uint32_t DATA_BYTE_2 : 8;
+    /// read-write - Data byte 2 of Rx/Tx frame.
     uint32_t DATA_BYTE_1 : 8;
+    /// read-write - Data byte 3 of Rx/Tx frame.
     uint32_t DATA_BYTE_0 : 8;
   } bits;
   
@@ -23565,8 +28735,11 @@ union MB15_16B_ID_H {
   
   // Bit field definition.
   struct {
+    /// read-write - Contains extended (LOW word) identifier of message buffer.
     uint32_t EXT : 18;
+    /// read-write - Contains standard/extended (HIGH word) identifier of message buffer.
     uint32_t STD : 11;
+    /// read-write - Local priority. This 3-bit fieldis only used when LPRIO_EN bit is set in MCR and it only makes sense for Tx buffers. These bits are not transmitted. They are appended to the regular ID to define the transmission priority.
     uint32_t PRIO : 3;
   } bits;
   
@@ -23584,9 +28757,13 @@ union MB54_8B_WORD1 {
   
   // Bit field definition.
   struct {
+    /// read-write - Data byte 0 of Rx/Tx frame.
     uint32_t DATA_BYTE_7 : 8;
+    /// read-write - Data byte 1 of Rx/Tx frame.
     uint32_t DATA_BYTE_6 : 8;
+    /// read-write - Data byte 2 of Rx/Tx frame.
     uint32_t DATA_BYTE_5 : 8;
+    /// read-write - Data byte 3 of Rx/Tx frame.
     uint32_t DATA_BYTE_4 : 8;
   } bits;
   
@@ -23604,8 +28781,11 @@ union MB5_64B_ID_H {
   
   // Bit field definition.
   struct {
+    /// read-write - Contains extended (LOW word) identifier of message buffer.
     uint32_t EXT : 18;
+    /// read-write - Contains standard/extended (HIGH word) identifier of message buffer.
     uint32_t STD : 11;
+    /// read-write - Local priority. This 3-bit fieldis only used when LPRIO_EN bit is set in MCR and it only makes sense for Tx buffers. These bits are not transmitted. They are appended to the regular ID to define the transmission priority.
     uint32_t PRIO : 3;
   } bits;
   
@@ -23623,8 +28803,11 @@ union MB9_32B_ID_H {
   
   // Bit field definition.
   struct {
+    /// read-write - Contains extended (LOW word) identifier of message buffer.
     uint32_t EXT : 18;
+    /// read-write - Contains standard/extended (HIGH word) identifier of message buffer.
     uint32_t STD : 11;
+    /// read-write - Local priority. This 3-bit fieldis only used when LPRIO_EN bit is set in MCR and it only makes sense for Tx buffers. These bits are not transmitted. They are appended to the regular ID to define the transmission priority.
     uint32_t PRIO : 3;
   } bits;
   
@@ -23642,9 +28825,13 @@ union WORD154 {
   
   // Bit field definition.
   struct {
+    /// read-write - Data byte 0 of Rx/Tx frame.
     uint32_t DATA_BYTE_7 : 8;
+    /// read-write - Data byte 1 of Rx/Tx frame.
     uint32_t DATA_BYTE_6 : 8;
+    /// read-write - Data byte 2 of Rx/Tx frame.
     uint32_t DATA_BYTE_5 : 8;
+    /// read-write - Data byte 3 of Rx/Tx frame.
     uint32_t DATA_BYTE_4 : 8;
   } bits;
   
@@ -23662,16 +28849,25 @@ union CS55 {
   
   // Bit field definition.
   struct {
+    /// read-write - Free-Running Counter Time stamp. This 16-bit field is a copy of the Free-Running Timer, captured for Tx and Rx frames at the time when the beginning of the Identifier field appears on the CAN bus.
     uint32_t TIME_STAMP : 16;
+    /// read-write - Length of the data to be stored/transmitted.
     uint32_t DLC : 4;
+    /// read-write - Remote Transmission Request. One/zero for remote/data frame.
     uint32_t RTR : 1;
+    /// read-write - ID Extended. One/zero for extended/standard format frame.
     uint32_t IDE : 1;
+    /// read-write - Substitute Remote Request. Contains a fixed recessive bit.
     uint32_t SRR : 1;
     uint32_t _reserved_0 : 1;
+    /// read-write - Message Buffer Code. This 4-bit field can be accessed (read or write) by the CPU and by the FlexCAN module itself, as part of the message buffer matching and arbitration process.
     uint32_t CODE : 4;
     uint32_t _reserved_1 : 1;
+    /// read-write - Error State Indicator. This bit indicates if the transmitting node is error active or error passive.
     uint32_t ESI : 1;
+    /// read-write - Bit Rate Switch. This bit defines whether the bit rate is switched inside a CAN FD format frame.
     uint32_t BRS : 1;
+    /// read-write - Extended Data Length. This bit distinguishes between CAN format and CAN FD format frames. The EDL bit must not be set for Message Buffers configured to RANSWER with code field 0b1010.
     uint32_t EDL : 1;
   } bits;
   
@@ -23689,9 +28885,13 @@ union MB15_16B_WORD0_H {
   
   // Bit field definition.
   struct {
+    /// read-write - Data byte 0 of Rx/Tx frame.
     uint32_t DATA_BYTE_3 : 8;
+    /// read-write - Data byte 1 of Rx/Tx frame.
     uint32_t DATA_BYTE_2 : 8;
+    /// read-write - Data byte 2 of Rx/Tx frame.
     uint32_t DATA_BYTE_1 : 8;
+    /// read-write - Data byte 3 of Rx/Tx frame.
     uint32_t DATA_BYTE_0 : 8;
   } bits;
   
@@ -23709,16 +28909,25 @@ union MB55_8B_CS {
   
   // Bit field definition.
   struct {
+    /// read-write - Free-Running Counter Time stamp. This 16-bit field is a copy of the Free-Running Timer, captured for Tx and Rx frames at the time when the beginning of the Identifier field appears on the CAN bus.
     uint32_t TIME_STAMP : 16;
+    /// read-write - Length of the data to be stored/transmitted.
     uint32_t DLC : 4;
+    /// read-write - Remote Transmission Request. One/zero for remote/data frame.
     uint32_t RTR : 1;
+    /// read-write - ID Extended. One/zero for extended/standard format frame.
     uint32_t IDE : 1;
+    /// read-write - Substitute Remote Request. Contains a fixed recessive bit.
     uint32_t SRR : 1;
     uint32_t _reserved_0 : 1;
+    /// read-write - Message Buffer Code. This 4-bit field can be accessed (read or write) by the CPU and by the FlexCAN module itself, as part of the message buffer matching and arbitration process.
     uint32_t CODE : 4;
     uint32_t _reserved_1 : 1;
+    /// read-write - Error State Indicator. This bit indicates if the transmitting node is error active or error passive.
     uint32_t ESI : 1;
+    /// read-write - Bit Rate Switch. This bit defines whether the bit rate is switched inside a CAN FD format frame.
     uint32_t BRS : 1;
+    /// read-write - Extended Data Length. This bit distinguishes between CAN format and CAN FD format frames. The EDL bit must not be set for Message Buffers configured to RANSWER with code field 0b1010.
     uint32_t EDL : 1;
   } bits;
   
@@ -23736,9 +28945,13 @@ union MB5_64B_WORD0_H {
   
   // Bit field definition.
   struct {
+    /// read-write - Data byte 0 of Rx/Tx frame.
     uint32_t DATA_BYTE_3 : 8;
+    /// read-write - Data byte 1 of Rx/Tx frame.
     uint32_t DATA_BYTE_2 : 8;
+    /// read-write - Data byte 2 of Rx/Tx frame.
     uint32_t DATA_BYTE_1 : 8;
+    /// read-write - Data byte 3 of Rx/Tx frame.
     uint32_t DATA_BYTE_0 : 8;
   } bits;
   
@@ -23756,9 +28969,13 @@ union MB9_32B_WORD0_H {
   
   // Bit field definition.
   struct {
+    /// read-write - Data byte 0 of Rx/Tx frame.
     uint32_t DATA_BYTE_3 : 8;
+    /// read-write - Data byte 1 of Rx/Tx frame.
     uint32_t DATA_BYTE_2 : 8;
+    /// read-write - Data byte 2 of Rx/Tx frame.
     uint32_t DATA_BYTE_1 : 8;
+    /// read-write - Data byte 3 of Rx/Tx frame.
     uint32_t DATA_BYTE_0 : 8;
   } bits;
   
@@ -23776,8 +28993,11 @@ union ID55 {
   
   // Bit field definition.
   struct {
+    /// read-write - Contains extended (LOW word) identifier of message buffer.
     uint32_t EXT : 18;
+    /// read-write - Contains standard/extended (HIGH word) identifier of message buffer.
     uint32_t STD : 11;
+    /// read-write - Local priority. This 3-bit fieldis only used when LPRIO_EN bit is set in MCR and it only makes sense for Tx buffers. These bits are not transmitted. They are appended to the regular ID to define the transmission priority.
     uint32_t PRIO : 3;
   } bits;
   
@@ -23795,9 +29015,13 @@ union MB15_16B_WORD1_H {
   
   // Bit field definition.
   struct {
+    /// read-write - Data byte 0 of Rx/Tx frame.
     uint32_t DATA_BYTE_7 : 8;
+    /// read-write - Data byte 1 of Rx/Tx frame.
     uint32_t DATA_BYTE_6 : 8;
+    /// read-write - Data byte 2 of Rx/Tx frame.
     uint32_t DATA_BYTE_5 : 8;
+    /// read-write - Data byte 3 of Rx/Tx frame.
     uint32_t DATA_BYTE_4 : 8;
   } bits;
   
@@ -23815,8 +29039,11 @@ union MB55_8B_ID {
   
   // Bit field definition.
   struct {
+    /// read-write - Contains extended (LOW word) identifier of message buffer.
     uint32_t EXT : 18;
+    /// read-write - Contains standard/extended (HIGH word) identifier of message buffer.
     uint32_t STD : 11;
+    /// read-write - Local priority. This 3-bit fieldis only used when LPRIO_EN bit is set in MCR and it only makes sense for Tx buffers. These bits are not transmitted. They are appended to the regular ID to define the transmission priority.
     uint32_t PRIO : 3;
   } bits;
   
@@ -23834,9 +29061,13 @@ union MB5_64B_WORD1_H {
   
   // Bit field definition.
   struct {
+    /// read-write - Data byte 0 of Rx/Tx frame.
     uint32_t DATA_BYTE_7 : 8;
+    /// read-write - Data byte 1 of Rx/Tx frame.
     uint32_t DATA_BYTE_6 : 8;
+    /// read-write - Data byte 2 of Rx/Tx frame.
     uint32_t DATA_BYTE_5 : 8;
+    /// read-write - Data byte 3 of Rx/Tx frame.
     uint32_t DATA_BYTE_4 : 8;
   } bits;
   
@@ -23854,9 +29085,13 @@ union MB9_32B_WORD1_H {
   
   // Bit field definition.
   struct {
+    /// read-write - Data byte 0 of Rx/Tx frame.
     uint32_t DATA_BYTE_7 : 8;
+    /// read-write - Data byte 1 of Rx/Tx frame.
     uint32_t DATA_BYTE_6 : 8;
+    /// read-write - Data byte 2 of Rx/Tx frame.
     uint32_t DATA_BYTE_5 : 8;
+    /// read-write - Data byte 3 of Rx/Tx frame.
     uint32_t DATA_BYTE_4 : 8;
   } bits;
   
@@ -23874,9 +29109,13 @@ union MB15_16B_WORD2_H {
   
   // Bit field definition.
   struct {
+    /// read-write - Data byte 0 of Rx/Tx frame.
     uint32_t DATA_BYTE_11 : 8;
+    /// read-write - Data byte 1 of Rx/Tx frame.
     uint32_t DATA_BYTE_10 : 8;
+    /// read-write - Data byte 2 of Rx/Tx frame.
     uint32_t DATA_BYTE_9 : 8;
+    /// read-write - Data byte 3 of Rx/Tx frame.
     uint32_t DATA_BYTE_8 : 8;
   } bits;
   
@@ -23894,9 +29133,13 @@ union MB55_8B_WORD0 {
   
   // Bit field definition.
   struct {
+    /// read-write - Data byte 0 of Rx/Tx frame.
     uint32_t DATA_BYTE_3 : 8;
+    /// read-write - Data byte 1 of Rx/Tx frame.
     uint32_t DATA_BYTE_2 : 8;
+    /// read-write - Data byte 2 of Rx/Tx frame.
     uint32_t DATA_BYTE_1 : 8;
+    /// read-write - Data byte 3 of Rx/Tx frame.
     uint32_t DATA_BYTE_0 : 8;
   } bits;
   
@@ -23914,9 +29157,13 @@ union MB5_64B_WORD2_H {
   
   // Bit field definition.
   struct {
+    /// read-write - Data byte 0 of Rx/Tx frame.
     uint32_t DATA_BYTE_11 : 8;
+    /// read-write - Data byte 1 of Rx/Tx frame.
     uint32_t DATA_BYTE_10 : 8;
+    /// read-write - Data byte 2 of Rx/Tx frame.
     uint32_t DATA_BYTE_9 : 8;
+    /// read-write - Data byte 3 of Rx/Tx frame.
     uint32_t DATA_BYTE_8 : 8;
   } bits;
   
@@ -23934,9 +29181,13 @@ union MB9_32B_WORD2_H {
   
   // Bit field definition.
   struct {
+    /// read-write - Data byte 0 of Rx/Tx frame.
     uint32_t DATA_BYTE_11 : 8;
+    /// read-write - Data byte 1 of Rx/Tx frame.
     uint32_t DATA_BYTE_10 : 8;
+    /// read-write - Data byte 2 of Rx/Tx frame.
     uint32_t DATA_BYTE_9 : 8;
+    /// read-write - Data byte 3 of Rx/Tx frame.
     uint32_t DATA_BYTE_8 : 8;
   } bits;
   
@@ -23954,9 +29205,13 @@ union WORD055 {
   
   // Bit field definition.
   struct {
+    /// read-write - Data byte 0 of Rx/Tx frame.
     uint32_t DATA_BYTE_3 : 8;
+    /// read-write - Data byte 1 of Rx/Tx frame.
     uint32_t DATA_BYTE_2 : 8;
+    /// read-write - Data byte 2 of Rx/Tx frame.
     uint32_t DATA_BYTE_1 : 8;
+    /// read-write - Data byte 3 of Rx/Tx frame.
     uint32_t DATA_BYTE_0 : 8;
   } bits;
   
@@ -23974,9 +29229,13 @@ union MB15_16B_WORD3_H {
   
   // Bit field definition.
   struct {
+    /// read-write - Data byte 0 of Rx/Tx frame.
     uint32_t DATA_BYTE_15 : 8;
+    /// read-write - Data byte 1 of Rx/Tx frame.
     uint32_t DATA_BYTE_14 : 8;
+    /// read-write - Data byte 2 of Rx/Tx frame.
     uint32_t DATA_BYTE_13 : 8;
+    /// read-write - Data byte 3 of Rx/Tx frame.
     uint32_t DATA_BYTE_12 : 8;
   } bits;
   
@@ -23994,9 +29253,13 @@ union MB55_8B_WORD1 {
   
   // Bit field definition.
   struct {
+    /// read-write - Data byte 0 of Rx/Tx frame.
     uint32_t DATA_BYTE_7 : 8;
+    /// read-write - Data byte 1 of Rx/Tx frame.
     uint32_t DATA_BYTE_6 : 8;
+    /// read-write - Data byte 2 of Rx/Tx frame.
     uint32_t DATA_BYTE_5 : 8;
+    /// read-write - Data byte 3 of Rx/Tx frame.
     uint32_t DATA_BYTE_4 : 8;
   } bits;
   
@@ -24014,9 +29277,13 @@ union MB5_64B_WORD3_H {
   
   // Bit field definition.
   struct {
+    /// read-write - Data byte 0 of Rx/Tx frame.
     uint32_t DATA_BYTE_15 : 8;
+    /// read-write - Data byte 1 of Rx/Tx frame.
     uint32_t DATA_BYTE_14 : 8;
+    /// read-write - Data byte 2 of Rx/Tx frame.
     uint32_t DATA_BYTE_13 : 8;
+    /// read-write - Data byte 3 of Rx/Tx frame.
     uint32_t DATA_BYTE_12 : 8;
   } bits;
   
@@ -24034,9 +29301,13 @@ union MB9_32B_WORD3_H {
   
   // Bit field definition.
   struct {
+    /// read-write - Data byte 0 of Rx/Tx frame.
     uint32_t DATA_BYTE_15 : 8;
+    /// read-write - Data byte 1 of Rx/Tx frame.
     uint32_t DATA_BYTE_14 : 8;
+    /// read-write - Data byte 2 of Rx/Tx frame.
     uint32_t DATA_BYTE_13 : 8;
+    /// read-write - Data byte 3 of Rx/Tx frame.
     uint32_t DATA_BYTE_12 : 8;
   } bits;
   
@@ -24054,9 +29325,13 @@ union WORD155 {
   
   // Bit field definition.
   struct {
+    /// read-write - Data byte 0 of Rx/Tx frame.
     uint32_t DATA_BYTE_7 : 8;
+    /// read-write - Data byte 1 of Rx/Tx frame.
     uint32_t DATA_BYTE_6 : 8;
+    /// read-write - Data byte 2 of Rx/Tx frame.
     uint32_t DATA_BYTE_5 : 8;
+    /// read-write - Data byte 3 of Rx/Tx frame.
     uint32_t DATA_BYTE_4 : 8;
   } bits;
   
@@ -24074,16 +29349,25 @@ union CS56 {
   
   // Bit field definition.
   struct {
+    /// read-write - Free-Running Counter Time stamp. This 16-bit field is a copy of the Free-Running Timer, captured for Tx and Rx frames at the time when the beginning of the Identifier field appears on the CAN bus.
     uint32_t TIME_STAMP : 16;
+    /// read-write - Length of the data to be stored/transmitted.
     uint32_t DLC : 4;
+    /// read-write - Remote Transmission Request. One/zero for remote/data frame.
     uint32_t RTR : 1;
+    /// read-write - ID Extended. One/zero for extended/standard format frame.
     uint32_t IDE : 1;
+    /// read-write - Substitute Remote Request. Contains a fixed recessive bit.
     uint32_t SRR : 1;
     uint32_t _reserved_0 : 1;
+    /// read-write - Message Buffer Code. This 4-bit field can be accessed (read or write) by the CPU and by the FlexCAN module itself, as part of the message buffer matching and arbitration process.
     uint32_t CODE : 4;
     uint32_t _reserved_1 : 1;
+    /// read-write - Error State Indicator. This bit indicates if the transmitting node is error active or error passive.
     uint32_t ESI : 1;
+    /// read-write - Bit Rate Switch. This bit defines whether the bit rate is switched inside a CAN FD format frame.
     uint32_t BRS : 1;
+    /// read-write - Extended Data Length. This bit distinguishes between CAN format and CAN FD format frames. The EDL bit must not be set for Message Buffers configured to RANSWER with code field 0b1010.
     uint32_t EDL : 1;
   } bits;
   
@@ -24101,16 +29385,25 @@ union MB16_16B_CS_H {
   
   // Bit field definition.
   struct {
+    /// read-write - Free-Running Counter Time stamp. This 16-bit field is a copy of the Free-Running Timer, captured for Tx and Rx frames at the time when the beginning of the Identifier field appears on the CAN bus.
     uint32_t TIME_STAMP : 16;
+    /// read-write - Length of the data to be stored/transmitted.
     uint32_t DLC : 4;
+    /// read-write - Remote Transmission Request. One/zero for remote/data frame.
     uint32_t RTR : 1;
+    /// read-write - ID Extended. One/zero for extended/standard format frame.
     uint32_t IDE : 1;
+    /// read-write - Substitute Remote Request. Contains a fixed recessive bit.
     uint32_t SRR : 1;
     uint32_t _reserved_0 : 1;
+    /// read-write - Message Buffer Code. This 4-bit field can be accessed (read or write) by the CPU and by the FlexCAN module itself, as part of the message buffer matching and arbitration process.
     uint32_t CODE : 4;
     uint32_t _reserved_1 : 1;
+    /// read-write - Error State Indicator. This bit indicates if the transmitting node is error active or error passive.
     uint32_t ESI : 1;
+    /// read-write - Bit Rate Switch. This bit defines whether the bit rate is switched inside a CAN FD format frame.
     uint32_t BRS : 1;
+    /// read-write - Extended Data Length. This bit distinguishes between CAN format and CAN FD format frames. The EDL bit must not be set for Message Buffers configured to RANSWER with code field 0b1010.
     uint32_t EDL : 1;
   } bits;
   
@@ -24128,16 +29421,25 @@ union MB56_8B_CS {
   
   // Bit field definition.
   struct {
+    /// read-write - Free-Running Counter Time stamp. This 16-bit field is a copy of the Free-Running Timer, captured for Tx and Rx frames at the time when the beginning of the Identifier field appears on the CAN bus.
     uint32_t TIME_STAMP : 16;
+    /// read-write - Length of the data to be stored/transmitted.
     uint32_t DLC : 4;
+    /// read-write - Remote Transmission Request. One/zero for remote/data frame.
     uint32_t RTR : 1;
+    /// read-write - ID Extended. One/zero for extended/standard format frame.
     uint32_t IDE : 1;
+    /// read-write - Substitute Remote Request. Contains a fixed recessive bit.
     uint32_t SRR : 1;
     uint32_t _reserved_0 : 1;
+    /// read-write - Message Buffer Code. This 4-bit field can be accessed (read or write) by the CPU and by the FlexCAN module itself, as part of the message buffer matching and arbitration process.
     uint32_t CODE : 4;
     uint32_t _reserved_1 : 1;
+    /// read-write - Error State Indicator. This bit indicates if the transmitting node is error active or error passive.
     uint32_t ESI : 1;
+    /// read-write - Bit Rate Switch. This bit defines whether the bit rate is switched inside a CAN FD format frame.
     uint32_t BRS : 1;
+    /// read-write - Extended Data Length. This bit distinguishes between CAN format and CAN FD format frames. The EDL bit must not be set for Message Buffers configured to RANSWER with code field 0b1010.
     uint32_t EDL : 1;
   } bits;
   
@@ -24155,9 +29457,13 @@ union MB5_64B_WORD4_H {
   
   // Bit field definition.
   struct {
+    /// read-write - Data byte 0 of Rx/Tx frame.
     uint32_t DATA_BYTE_19 : 8;
+    /// read-write - Data byte 1 of Rx/Tx frame.
     uint32_t DATA_BYTE_18 : 8;
+    /// read-write - Data byte 2 of Rx/Tx frame.
     uint32_t DATA_BYTE_17 : 8;
+    /// read-write - Data byte 3 of Rx/Tx frame.
     uint32_t DATA_BYTE_16 : 8;
   } bits;
   
@@ -24175,9 +29481,13 @@ union MB9_32B_WORD4_H {
   
   // Bit field definition.
   struct {
+    /// read-write - Data byte 0 of Rx/Tx frame.
     uint32_t DATA_BYTE_19 : 8;
+    /// read-write - Data byte 1 of Rx/Tx frame.
     uint32_t DATA_BYTE_18 : 8;
+    /// read-write - Data byte 2 of Rx/Tx frame.
     uint32_t DATA_BYTE_17 : 8;
+    /// read-write - Data byte 3 of Rx/Tx frame.
     uint32_t DATA_BYTE_16 : 8;
   } bits;
   
@@ -24195,8 +29505,11 @@ union ID56 {
   
   // Bit field definition.
   struct {
+    /// read-write - Contains extended (LOW word) identifier of message buffer.
     uint32_t EXT : 18;
+    /// read-write - Contains standard/extended (HIGH word) identifier of message buffer.
     uint32_t STD : 11;
+    /// read-write - Local priority. This 3-bit fieldis only used when LPRIO_EN bit is set in MCR and it only makes sense for Tx buffers. These bits are not transmitted. They are appended to the regular ID to define the transmission priority.
     uint32_t PRIO : 3;
   } bits;
   
@@ -24214,8 +29527,11 @@ union MB16_16B_ID_H {
   
   // Bit field definition.
   struct {
+    /// read-write - Contains extended (LOW word) identifier of message buffer.
     uint32_t EXT : 18;
+    /// read-write - Contains standard/extended (HIGH word) identifier of message buffer.
     uint32_t STD : 11;
+    /// read-write - Local priority. This 3-bit fieldis only used when LPRIO_EN bit is set in MCR and it only makes sense for Tx buffers. These bits are not transmitted. They are appended to the regular ID to define the transmission priority.
     uint32_t PRIO : 3;
   } bits;
   
@@ -24233,8 +29549,11 @@ union MB56_8B_ID {
   
   // Bit field definition.
   struct {
+    /// read-write - Contains extended (LOW word) identifier of message buffer.
     uint32_t EXT : 18;
+    /// read-write - Contains standard/extended (HIGH word) identifier of message buffer.
     uint32_t STD : 11;
+    /// read-write - Local priority. This 3-bit fieldis only used when LPRIO_EN bit is set in MCR and it only makes sense for Tx buffers. These bits are not transmitted. They are appended to the regular ID to define the transmission priority.
     uint32_t PRIO : 3;
   } bits;
   
@@ -24252,9 +29571,13 @@ union MB5_64B_WORD5_H {
   
   // Bit field definition.
   struct {
+    /// read-write - Data byte 0 of Rx/Tx frame.
     uint32_t DATA_BYTE_23 : 8;
+    /// read-write - Data byte 1 of Rx/Tx frame.
     uint32_t DATA_BYTE_22 : 8;
+    /// read-write - Data byte 2 of Rx/Tx frame.
     uint32_t DATA_BYTE_21 : 8;
+    /// read-write - Data byte 3 of Rx/Tx frame.
     uint32_t DATA_BYTE_20 : 8;
   } bits;
   
@@ -24272,9 +29595,13 @@ union MB9_32B_WORD5_H {
   
   // Bit field definition.
   struct {
+    /// read-write - Data byte 0 of Rx/Tx frame.
     uint32_t DATA_BYTE_23 : 8;
+    /// read-write - Data byte 1 of Rx/Tx frame.
     uint32_t DATA_BYTE_22 : 8;
+    /// read-write - Data byte 2 of Rx/Tx frame.
     uint32_t DATA_BYTE_21 : 8;
+    /// read-write - Data byte 3 of Rx/Tx frame.
     uint32_t DATA_BYTE_20 : 8;
   } bits;
   
@@ -24292,9 +29619,13 @@ union MB16_16B_WORD0_H {
   
   // Bit field definition.
   struct {
+    /// read-write - Data byte 0 of Rx/Tx frame.
     uint32_t DATA_BYTE_3 : 8;
+    /// read-write - Data byte 1 of Rx/Tx frame.
     uint32_t DATA_BYTE_2 : 8;
+    /// read-write - Data byte 2 of Rx/Tx frame.
     uint32_t DATA_BYTE_1 : 8;
+    /// read-write - Data byte 3 of Rx/Tx frame.
     uint32_t DATA_BYTE_0 : 8;
   } bits;
   
@@ -24312,9 +29643,13 @@ union MB56_8B_WORD0 {
   
   // Bit field definition.
   struct {
+    /// read-write - Data byte 0 of Rx/Tx frame.
     uint32_t DATA_BYTE_3 : 8;
+    /// read-write - Data byte 1 of Rx/Tx frame.
     uint32_t DATA_BYTE_2 : 8;
+    /// read-write - Data byte 2 of Rx/Tx frame.
     uint32_t DATA_BYTE_1 : 8;
+    /// read-write - Data byte 3 of Rx/Tx frame.
     uint32_t DATA_BYTE_0 : 8;
   } bits;
   
@@ -24332,9 +29667,13 @@ union MB5_64B_WORD6_H {
   
   // Bit field definition.
   struct {
+    /// read-write - Data byte 0 of Rx/Tx frame.
     uint32_t DATA_BYTE_27 : 8;
+    /// read-write - Data byte 1 of Rx/Tx frame.
     uint32_t DATA_BYTE_26 : 8;
+    /// read-write - Data byte 2 of Rx/Tx frame.
     uint32_t DATA_BYTE_25 : 8;
+    /// read-write - Data byte 3 of Rx/Tx frame.
     uint32_t DATA_BYTE_24 : 8;
   } bits;
   
@@ -24352,9 +29691,13 @@ union MB9_32B_WORD6_H {
   
   // Bit field definition.
   struct {
+    /// read-write - Data byte 0 of Rx/Tx frame.
     uint32_t DATA_BYTE_27 : 8;
+    /// read-write - Data byte 1 of Rx/Tx frame.
     uint32_t DATA_BYTE_26 : 8;
+    /// read-write - Data byte 2 of Rx/Tx frame.
     uint32_t DATA_BYTE_25 : 8;
+    /// read-write - Data byte 3 of Rx/Tx frame.
     uint32_t DATA_BYTE_24 : 8;
   } bits;
   
@@ -24372,9 +29715,13 @@ union WORD056 {
   
   // Bit field definition.
   struct {
+    /// read-write - Data byte 0 of Rx/Tx frame.
     uint32_t DATA_BYTE_3 : 8;
+    /// read-write - Data byte 1 of Rx/Tx frame.
     uint32_t DATA_BYTE_2 : 8;
+    /// read-write - Data byte 2 of Rx/Tx frame.
     uint32_t DATA_BYTE_1 : 8;
+    /// read-write - Data byte 3 of Rx/Tx frame.
     uint32_t DATA_BYTE_0 : 8;
   } bits;
   
@@ -24392,9 +29739,13 @@ union MB16_16B_WORD1_H {
   
   // Bit field definition.
   struct {
+    /// read-write - Data byte 0 of Rx/Tx frame.
     uint32_t DATA_BYTE_7 : 8;
+    /// read-write - Data byte 1 of Rx/Tx frame.
     uint32_t DATA_BYTE_6 : 8;
+    /// read-write - Data byte 2 of Rx/Tx frame.
     uint32_t DATA_BYTE_5 : 8;
+    /// read-write - Data byte 3 of Rx/Tx frame.
     uint32_t DATA_BYTE_4 : 8;
   } bits;
   
@@ -24412,9 +29763,13 @@ union MB56_8B_WORD1 {
   
   // Bit field definition.
   struct {
+    /// read-write - Data byte 0 of Rx/Tx frame.
     uint32_t DATA_BYTE_7 : 8;
+    /// read-write - Data byte 1 of Rx/Tx frame.
     uint32_t DATA_BYTE_6 : 8;
+    /// read-write - Data byte 2 of Rx/Tx frame.
     uint32_t DATA_BYTE_5 : 8;
+    /// read-write - Data byte 3 of Rx/Tx frame.
     uint32_t DATA_BYTE_4 : 8;
   } bits;
   
@@ -24432,9 +29787,13 @@ union MB5_64B_WORD7_H {
   
   // Bit field definition.
   struct {
+    /// read-write - Data byte 0 of Rx/Tx frame.
     uint32_t DATA_BYTE_31 : 8;
+    /// read-write - Data byte 1 of Rx/Tx frame.
     uint32_t DATA_BYTE_30 : 8;
+    /// read-write - Data byte 2 of Rx/Tx frame.
     uint32_t DATA_BYTE_29 : 8;
+    /// read-write - Data byte 3 of Rx/Tx frame.
     uint32_t DATA_BYTE_28 : 8;
   } bits;
   
@@ -24452,9 +29811,13 @@ union MB9_32B_WORD7_H {
   
   // Bit field definition.
   struct {
+    /// read-write - Data byte 0 of Rx/Tx frame.
     uint32_t DATA_BYTE_31 : 8;
+    /// read-write - Data byte 1 of Rx/Tx frame.
     uint32_t DATA_BYTE_30 : 8;
+    /// read-write - Data byte 2 of Rx/Tx frame.
     uint32_t DATA_BYTE_29 : 8;
+    /// read-write - Data byte 3 of Rx/Tx frame.
     uint32_t DATA_BYTE_28 : 8;
   } bits;
   
@@ -24472,9 +29835,13 @@ union WORD156 {
   
   // Bit field definition.
   struct {
+    /// read-write - Data byte 0 of Rx/Tx frame.
     uint32_t DATA_BYTE_7 : 8;
+    /// read-write - Data byte 1 of Rx/Tx frame.
     uint32_t DATA_BYTE_6 : 8;
+    /// read-write - Data byte 2 of Rx/Tx frame.
     uint32_t DATA_BYTE_5 : 8;
+    /// read-write - Data byte 3 of Rx/Tx frame.
     uint32_t DATA_BYTE_4 : 8;
   } bits;
   
@@ -24492,16 +29859,25 @@ union CS57 {
   
   // Bit field definition.
   struct {
+    /// read-write - Free-Running Counter Time stamp. This 16-bit field is a copy of the Free-Running Timer, captured for Tx and Rx frames at the time when the beginning of the Identifier field appears on the CAN bus.
     uint32_t TIME_STAMP : 16;
+    /// read-write - Length of the data to be stored/transmitted.
     uint32_t DLC : 4;
+    /// read-write - Remote Transmission Request. One/zero for remote/data frame.
     uint32_t RTR : 1;
+    /// read-write - ID Extended. One/zero for extended/standard format frame.
     uint32_t IDE : 1;
+    /// read-write - Substitute Remote Request. Contains a fixed recessive bit.
     uint32_t SRR : 1;
     uint32_t _reserved_0 : 1;
+    /// read-write - Message Buffer Code. This 4-bit field can be accessed (read or write) by the CPU and by the FlexCAN module itself, as part of the message buffer matching and arbitration process.
     uint32_t CODE : 4;
     uint32_t _reserved_1 : 1;
+    /// read-write - Error State Indicator. This bit indicates if the transmitting node is error active or error passive.
     uint32_t ESI : 1;
+    /// read-write - Bit Rate Switch. This bit defines whether the bit rate is switched inside a CAN FD format frame.
     uint32_t BRS : 1;
+    /// read-write - Extended Data Length. This bit distinguishes between CAN format and CAN FD format frames. The EDL bit must not be set for Message Buffers configured to RANSWER with code field 0b1010.
     uint32_t EDL : 1;
   } bits;
   
@@ -24519,16 +29895,25 @@ union MB10_32B_CS_H {
   
   // Bit field definition.
   struct {
+    /// read-write - Free-Running Counter Time stamp. This 16-bit field is a copy of the Free-Running Timer, captured for Tx and Rx frames at the time when the beginning of the Identifier field appears on the CAN bus.
     uint32_t TIME_STAMP : 16;
+    /// read-write - Length of the data to be stored/transmitted.
     uint32_t DLC : 4;
+    /// read-write - Remote Transmission Request. One/zero for remote/data frame.
     uint32_t RTR : 1;
+    /// read-write - ID Extended. One/zero for extended/standard format frame.
     uint32_t IDE : 1;
+    /// read-write - Substitute Remote Request. Contains a fixed recessive bit.
     uint32_t SRR : 1;
     uint32_t _reserved_0 : 1;
+    /// read-write - Message Buffer Code. This 4-bit field can be accessed (read or write) by the CPU and by the FlexCAN module itself, as part of the message buffer matching and arbitration process.
     uint32_t CODE : 4;
     uint32_t _reserved_1 : 1;
+    /// read-write - Error State Indicator. This bit indicates if the transmitting node is error active or error passive.
     uint32_t ESI : 1;
+    /// read-write - Bit Rate Switch. This bit defines whether the bit rate is switched inside a CAN FD format frame.
     uint32_t BRS : 1;
+    /// read-write - Extended Data Length. This bit distinguishes between CAN format and CAN FD format frames. The EDL bit must not be set for Message Buffers configured to RANSWER with code field 0b1010.
     uint32_t EDL : 1;
   } bits;
   
@@ -24546,9 +29931,13 @@ union MB16_16B_WORD2_H {
   
   // Bit field definition.
   struct {
+    /// read-write - Data byte 0 of Rx/Tx frame.
     uint32_t DATA_BYTE_11 : 8;
+    /// read-write - Data byte 1 of Rx/Tx frame.
     uint32_t DATA_BYTE_10 : 8;
+    /// read-write - Data byte 2 of Rx/Tx frame.
     uint32_t DATA_BYTE_9 : 8;
+    /// read-write - Data byte 3 of Rx/Tx frame.
     uint32_t DATA_BYTE_8 : 8;
   } bits;
   
@@ -24566,16 +29955,25 @@ union MB57_8B_CS {
   
   // Bit field definition.
   struct {
+    /// read-write - Free-Running Counter Time stamp. This 16-bit field is a copy of the Free-Running Timer, captured for Tx and Rx frames at the time when the beginning of the Identifier field appears on the CAN bus.
     uint32_t TIME_STAMP : 16;
+    /// read-write - Length of the data to be stored/transmitted.
     uint32_t DLC : 4;
+    /// read-write - Remote Transmission Request. One/zero for remote/data frame.
     uint32_t RTR : 1;
+    /// read-write - ID Extended. One/zero for extended/standard format frame.
     uint32_t IDE : 1;
+    /// read-write - Substitute Remote Request. Contains a fixed recessive bit.
     uint32_t SRR : 1;
     uint32_t _reserved_0 : 1;
+    /// read-write - Message Buffer Code. This 4-bit field can be accessed (read or write) by the CPU and by the FlexCAN module itself, as part of the message buffer matching and arbitration process.
     uint32_t CODE : 4;
     uint32_t _reserved_1 : 1;
+    /// read-write - Error State Indicator. This bit indicates if the transmitting node is error active or error passive.
     uint32_t ESI : 1;
+    /// read-write - Bit Rate Switch. This bit defines whether the bit rate is switched inside a CAN FD format frame.
     uint32_t BRS : 1;
+    /// read-write - Extended Data Length. This bit distinguishes between CAN format and CAN FD format frames. The EDL bit must not be set for Message Buffers configured to RANSWER with code field 0b1010.
     uint32_t EDL : 1;
   } bits;
   
@@ -24593,9 +29991,13 @@ union MB5_64B_WORD8_H {
   
   // Bit field definition.
   struct {
+    /// read-write - Data byte 0 of Rx/Tx frame.
     uint32_t DATA_BYTE_35 : 8;
+    /// read-write - Data byte 1 of Rx/Tx frame.
     uint32_t DATA_BYTE_34 : 8;
+    /// read-write - Data byte 2 of Rx/Tx frame.
     uint32_t DATA_BYTE_33 : 8;
+    /// read-write - Data byte 3 of Rx/Tx frame.
     uint32_t DATA_BYTE_32 : 8;
   } bits;
   
@@ -24613,8 +30015,11 @@ union ID57 {
   
   // Bit field definition.
   struct {
+    /// read-write - Contains extended (LOW word) identifier of message buffer.
     uint32_t EXT : 18;
+    /// read-write - Contains standard/extended (HIGH word) identifier of message buffer.
     uint32_t STD : 11;
+    /// read-write - Local priority. This 3-bit fieldis only used when LPRIO_EN bit is set in MCR and it only makes sense for Tx buffers. These bits are not transmitted. They are appended to the regular ID to define the transmission priority.
     uint32_t PRIO : 3;
   } bits;
   
@@ -24632,8 +30037,11 @@ union MB10_32B_ID_H {
   
   // Bit field definition.
   struct {
+    /// read-write - Contains extended (LOW word) identifier of message buffer.
     uint32_t EXT : 18;
+    /// read-write - Contains standard/extended (HIGH word) identifier of message buffer.
     uint32_t STD : 11;
+    /// read-write - Local priority. This 3-bit fieldis only used when LPRIO_EN bit is set in MCR and it only makes sense for Tx buffers. These bits are not transmitted. They are appended to the regular ID to define the transmission priority.
     uint32_t PRIO : 3;
   } bits;
   
@@ -24651,9 +30059,13 @@ union MB16_16B_WORD3_H {
   
   // Bit field definition.
   struct {
+    /// read-write - Data byte 0 of Rx/Tx frame.
     uint32_t DATA_BYTE_15 : 8;
+    /// read-write - Data byte 1 of Rx/Tx frame.
     uint32_t DATA_BYTE_14 : 8;
+    /// read-write - Data byte 2 of Rx/Tx frame.
     uint32_t DATA_BYTE_13 : 8;
+    /// read-write - Data byte 3 of Rx/Tx frame.
     uint32_t DATA_BYTE_12 : 8;
   } bits;
   
@@ -24671,8 +30083,11 @@ union MB57_8B_ID {
   
   // Bit field definition.
   struct {
+    /// read-write - Contains extended (LOW word) identifier of message buffer.
     uint32_t EXT : 18;
+    /// read-write - Contains standard/extended (HIGH word) identifier of message buffer.
     uint32_t STD : 11;
+    /// read-write - Local priority. This 3-bit fieldis only used when LPRIO_EN bit is set in MCR and it only makes sense for Tx buffers. These bits are not transmitted. They are appended to the regular ID to define the transmission priority.
     uint32_t PRIO : 3;
   } bits;
   
@@ -24690,9 +30105,13 @@ union MB5_64B_WORD9_H {
   
   // Bit field definition.
   struct {
+    /// read-write - Data byte 0 of Rx/Tx frame.
     uint32_t DATA_BYTE_39 : 8;
+    /// read-write - Data byte 1 of Rx/Tx frame.
     uint32_t DATA_BYTE_38 : 8;
+    /// read-write - Data byte 2 of Rx/Tx frame.
     uint32_t DATA_BYTE_37 : 8;
+    /// read-write - Data byte 3 of Rx/Tx frame.
     uint32_t DATA_BYTE_36 : 8;
   } bits;
   
@@ -24710,9 +30129,13 @@ union MB10_32B_WORD0_H {
   
   // Bit field definition.
   struct {
+    /// read-write - Data byte 0 of Rx/Tx frame.
     uint32_t DATA_BYTE_3 : 8;
+    /// read-write - Data byte 1 of Rx/Tx frame.
     uint32_t DATA_BYTE_2 : 8;
+    /// read-write - Data byte 2 of Rx/Tx frame.
     uint32_t DATA_BYTE_1 : 8;
+    /// read-write - Data byte 3 of Rx/Tx frame.
     uint32_t DATA_BYTE_0 : 8;
   } bits;
   
@@ -24730,16 +30153,25 @@ union MB17_16B_CS_H {
   
   // Bit field definition.
   struct {
+    /// read-write - Free-Running Counter Time stamp. This 16-bit field is a copy of the Free-Running Timer, captured for Tx and Rx frames at the time when the beginning of the Identifier field appears on the CAN bus.
     uint32_t TIME_STAMP : 16;
+    /// read-write - Length of the data to be stored/transmitted.
     uint32_t DLC : 4;
+    /// read-write - Remote Transmission Request. One/zero for remote/data frame.
     uint32_t RTR : 1;
+    /// read-write - ID Extended. One/zero for extended/standard format frame.
     uint32_t IDE : 1;
+    /// read-write - Substitute Remote Request. Contains a fixed recessive bit.
     uint32_t SRR : 1;
     uint32_t _reserved_0 : 1;
+    /// read-write - Message Buffer Code. This 4-bit field can be accessed (read or write) by the CPU and by the FlexCAN module itself, as part of the message buffer matching and arbitration process.
     uint32_t CODE : 4;
     uint32_t _reserved_1 : 1;
+    /// read-write - Error State Indicator. This bit indicates if the transmitting node is error active or error passive.
     uint32_t ESI : 1;
+    /// read-write - Bit Rate Switch. This bit defines whether the bit rate is switched inside a CAN FD format frame.
     uint32_t BRS : 1;
+    /// read-write - Extended Data Length. This bit distinguishes between CAN format and CAN FD format frames. The EDL bit must not be set for Message Buffers configured to RANSWER with code field 0b1010.
     uint32_t EDL : 1;
   } bits;
   
@@ -24757,9 +30189,13 @@ union MB57_8B_WORD0 {
   
   // Bit field definition.
   struct {
+    /// read-write - Data byte 0 of Rx/Tx frame.
     uint32_t DATA_BYTE_3 : 8;
+    /// read-write - Data byte 1 of Rx/Tx frame.
     uint32_t DATA_BYTE_2 : 8;
+    /// read-write - Data byte 2 of Rx/Tx frame.
     uint32_t DATA_BYTE_1 : 8;
+    /// read-write - Data byte 3 of Rx/Tx frame.
     uint32_t DATA_BYTE_0 : 8;
   } bits;
   
@@ -24777,9 +30213,13 @@ union MB5_64B_WORD10_H {
   
   // Bit field definition.
   struct {
+    /// read-write - Data byte 0 of Rx/Tx frame.
     uint32_t DATA_BYTE_43 : 8;
+    /// read-write - Data byte 1 of Rx/Tx frame.
     uint32_t DATA_BYTE_42 : 8;
+    /// read-write - Data byte 2 of Rx/Tx frame.
     uint32_t DATA_BYTE_41 : 8;
+    /// read-write - Data byte 3 of Rx/Tx frame.
     uint32_t DATA_BYTE_40 : 8;
   } bits;
   
@@ -24797,9 +30237,13 @@ union WORD057 {
   
   // Bit field definition.
   struct {
+    /// read-write - Data byte 0 of Rx/Tx frame.
     uint32_t DATA_BYTE_3 : 8;
+    /// read-write - Data byte 1 of Rx/Tx frame.
     uint32_t DATA_BYTE_2 : 8;
+    /// read-write - Data byte 2 of Rx/Tx frame.
     uint32_t DATA_BYTE_1 : 8;
+    /// read-write - Data byte 3 of Rx/Tx frame.
     uint32_t DATA_BYTE_0 : 8;
   } bits;
   
@@ -24817,9 +30261,13 @@ union MB10_32B_WORD1_H {
   
   // Bit field definition.
   struct {
+    /// read-write - Data byte 0 of Rx/Tx frame.
     uint32_t DATA_BYTE_7 : 8;
+    /// read-write - Data byte 1 of Rx/Tx frame.
     uint32_t DATA_BYTE_6 : 8;
+    /// read-write - Data byte 2 of Rx/Tx frame.
     uint32_t DATA_BYTE_5 : 8;
+    /// read-write - Data byte 3 of Rx/Tx frame.
     uint32_t DATA_BYTE_4 : 8;
   } bits;
   
@@ -24837,8 +30285,11 @@ union MB17_16B_ID_H {
   
   // Bit field definition.
   struct {
+    /// read-write - Contains extended (LOW word) identifier of message buffer.
     uint32_t EXT : 18;
+    /// read-write - Contains standard/extended (HIGH word) identifier of message buffer.
     uint32_t STD : 11;
+    /// read-write - Local priority. This 3-bit fieldis only used when LPRIO_EN bit is set in MCR and it only makes sense for Tx buffers. These bits are not transmitted. They are appended to the regular ID to define the transmission priority.
     uint32_t PRIO : 3;
   } bits;
   
@@ -24856,9 +30307,13 @@ union MB57_8B_WORD1 {
   
   // Bit field definition.
   struct {
+    /// read-write - Data byte 0 of Rx/Tx frame.
     uint32_t DATA_BYTE_7 : 8;
+    /// read-write - Data byte 1 of Rx/Tx frame.
     uint32_t DATA_BYTE_6 : 8;
+    /// read-write - Data byte 2 of Rx/Tx frame.
     uint32_t DATA_BYTE_5 : 8;
+    /// read-write - Data byte 3 of Rx/Tx frame.
     uint32_t DATA_BYTE_4 : 8;
   } bits;
   
@@ -24876,9 +30331,13 @@ union MB5_64B_WORD11_H {
   
   // Bit field definition.
   struct {
+    /// read-write - Data byte 0 of Rx/Tx frame.
     uint32_t DATA_BYTE_47 : 8;
+    /// read-write - Data byte 1 of Rx/Tx frame.
     uint32_t DATA_BYTE_46 : 8;
+    /// read-write - Data byte 2 of Rx/Tx frame.
     uint32_t DATA_BYTE_45 : 8;
+    /// read-write - Data byte 3 of Rx/Tx frame.
     uint32_t DATA_BYTE_44 : 8;
   } bits;
   
@@ -24896,9 +30355,13 @@ union WORD157 {
   
   // Bit field definition.
   struct {
+    /// read-write - Data byte 0 of Rx/Tx frame.
     uint32_t DATA_BYTE_7 : 8;
+    /// read-write - Data byte 1 of Rx/Tx frame.
     uint32_t DATA_BYTE_6 : 8;
+    /// read-write - Data byte 2 of Rx/Tx frame.
     uint32_t DATA_BYTE_5 : 8;
+    /// read-write - Data byte 3 of Rx/Tx frame.
     uint32_t DATA_BYTE_4 : 8;
   } bits;
   
@@ -24916,16 +30379,25 @@ union CS58 {
   
   // Bit field definition.
   struct {
+    /// read-write - Free-Running Counter Time stamp. This 16-bit field is a copy of the Free-Running Timer, captured for Tx and Rx frames at the time when the beginning of the Identifier field appears on the CAN bus.
     uint32_t TIME_STAMP : 16;
+    /// read-write - Length of the data to be stored/transmitted.
     uint32_t DLC : 4;
+    /// read-write - Remote Transmission Request. One/zero for remote/data frame.
     uint32_t RTR : 1;
+    /// read-write - ID Extended. One/zero for extended/standard format frame.
     uint32_t IDE : 1;
+    /// read-write - Substitute Remote Request. Contains a fixed recessive bit.
     uint32_t SRR : 1;
     uint32_t _reserved_0 : 1;
+    /// read-write - Message Buffer Code. This 4-bit field can be accessed (read or write) by the CPU and by the FlexCAN module itself, as part of the message buffer matching and arbitration process.
     uint32_t CODE : 4;
     uint32_t _reserved_1 : 1;
+    /// read-write - Error State Indicator. This bit indicates if the transmitting node is error active or error passive.
     uint32_t ESI : 1;
+    /// read-write - Bit Rate Switch. This bit defines whether the bit rate is switched inside a CAN FD format frame.
     uint32_t BRS : 1;
+    /// read-write - Extended Data Length. This bit distinguishes between CAN format and CAN FD format frames. The EDL bit must not be set for Message Buffers configured to RANSWER with code field 0b1010.
     uint32_t EDL : 1;
   } bits;
   
@@ -24943,9 +30415,13 @@ union MB10_32B_WORD2_H {
   
   // Bit field definition.
   struct {
+    /// read-write - Data byte 0 of Rx/Tx frame.
     uint32_t DATA_BYTE_11 : 8;
+    /// read-write - Data byte 1 of Rx/Tx frame.
     uint32_t DATA_BYTE_10 : 8;
+    /// read-write - Data byte 2 of Rx/Tx frame.
     uint32_t DATA_BYTE_9 : 8;
+    /// read-write - Data byte 3 of Rx/Tx frame.
     uint32_t DATA_BYTE_8 : 8;
   } bits;
   
@@ -24963,9 +30439,13 @@ union MB17_16B_WORD0_H {
   
   // Bit field definition.
   struct {
+    /// read-write - Data byte 0 of Rx/Tx frame.
     uint32_t DATA_BYTE_3 : 8;
+    /// read-write - Data byte 1 of Rx/Tx frame.
     uint32_t DATA_BYTE_2 : 8;
+    /// read-write - Data byte 2 of Rx/Tx frame.
     uint32_t DATA_BYTE_1 : 8;
+    /// read-write - Data byte 3 of Rx/Tx frame.
     uint32_t DATA_BYTE_0 : 8;
   } bits;
   
@@ -24983,16 +30463,25 @@ union MB58_8B_CS {
   
   // Bit field definition.
   struct {
+    /// read-write - Free-Running Counter Time stamp. This 16-bit field is a copy of the Free-Running Timer, captured for Tx and Rx frames at the time when the beginning of the Identifier field appears on the CAN bus.
     uint32_t TIME_STAMP : 16;
+    /// read-write - Length of the data to be stored/transmitted.
     uint32_t DLC : 4;
+    /// read-write - Remote Transmission Request. One/zero for remote/data frame.
     uint32_t RTR : 1;
+    /// read-write - ID Extended. One/zero for extended/standard format frame.
     uint32_t IDE : 1;
+    /// read-write - Substitute Remote Request. Contains a fixed recessive bit.
     uint32_t SRR : 1;
     uint32_t _reserved_0 : 1;
+    /// read-write - Message Buffer Code. This 4-bit field can be accessed (read or write) by the CPU and by the FlexCAN module itself, as part of the message buffer matching and arbitration process.
     uint32_t CODE : 4;
     uint32_t _reserved_1 : 1;
+    /// read-write - Error State Indicator. This bit indicates if the transmitting node is error active or error passive.
     uint32_t ESI : 1;
+    /// read-write - Bit Rate Switch. This bit defines whether the bit rate is switched inside a CAN FD format frame.
     uint32_t BRS : 1;
+    /// read-write - Extended Data Length. This bit distinguishes between CAN format and CAN FD format frames. The EDL bit must not be set for Message Buffers configured to RANSWER with code field 0b1010.
     uint32_t EDL : 1;
   } bits;
   
@@ -25010,9 +30499,13 @@ union MB5_64B_WORD12_H {
   
   // Bit field definition.
   struct {
+    /// read-write - Data byte 0 of Rx/Tx frame.
     uint32_t DATA_BYTE_51 : 8;
+    /// read-write - Data byte 1 of Rx/Tx frame.
     uint32_t DATA_BYTE_50 : 8;
+    /// read-write - Data byte 2 of Rx/Tx frame.
     uint32_t DATA_BYTE_49 : 8;
+    /// read-write - Data byte 3 of Rx/Tx frame.
     uint32_t DATA_BYTE_48 : 8;
   } bits;
   
@@ -25030,8 +30523,11 @@ union ID58 {
   
   // Bit field definition.
   struct {
+    /// read-write - Contains extended (LOW word) identifier of message buffer.
     uint32_t EXT : 18;
+    /// read-write - Contains standard/extended (HIGH word) identifier of message buffer.
     uint32_t STD : 11;
+    /// read-write - Local priority. This 3-bit fieldis only used when LPRIO_EN bit is set in MCR and it only makes sense for Tx buffers. These bits are not transmitted. They are appended to the regular ID to define the transmission priority.
     uint32_t PRIO : 3;
   } bits;
   
@@ -25049,9 +30545,13 @@ union MB10_32B_WORD3_H {
   
   // Bit field definition.
   struct {
+    /// read-write - Data byte 0 of Rx/Tx frame.
     uint32_t DATA_BYTE_15 : 8;
+    /// read-write - Data byte 1 of Rx/Tx frame.
     uint32_t DATA_BYTE_14 : 8;
+    /// read-write - Data byte 2 of Rx/Tx frame.
     uint32_t DATA_BYTE_13 : 8;
+    /// read-write - Data byte 3 of Rx/Tx frame.
     uint32_t DATA_BYTE_12 : 8;
   } bits;
   
@@ -25069,9 +30569,13 @@ union MB17_16B_WORD1_H {
   
   // Bit field definition.
   struct {
+    /// read-write - Data byte 0 of Rx/Tx frame.
     uint32_t DATA_BYTE_7 : 8;
+    /// read-write - Data byte 1 of Rx/Tx frame.
     uint32_t DATA_BYTE_6 : 8;
+    /// read-write - Data byte 2 of Rx/Tx frame.
     uint32_t DATA_BYTE_5 : 8;
+    /// read-write - Data byte 3 of Rx/Tx frame.
     uint32_t DATA_BYTE_4 : 8;
   } bits;
   
@@ -25089,8 +30593,11 @@ union MB58_8B_ID {
   
   // Bit field definition.
   struct {
+    /// read-write - Contains extended (LOW word) identifier of message buffer.
     uint32_t EXT : 18;
+    /// read-write - Contains standard/extended (HIGH word) identifier of message buffer.
     uint32_t STD : 11;
+    /// read-write - Local priority. This 3-bit fieldis only used when LPRIO_EN bit is set in MCR and it only makes sense for Tx buffers. These bits are not transmitted. They are appended to the regular ID to define the transmission priority.
     uint32_t PRIO : 3;
   } bits;
   
@@ -25108,9 +30615,13 @@ union MB5_64B_WORD13_H {
   
   // Bit field definition.
   struct {
+    /// read-write - Data byte 0 of Rx/Tx frame.
     uint32_t DATA_BYTE_55 : 8;
+    /// read-write - Data byte 1 of Rx/Tx frame.
     uint32_t DATA_BYTE_54 : 8;
+    /// read-write - Data byte 2 of Rx/Tx frame.
     uint32_t DATA_BYTE_53 : 8;
+    /// read-write - Data byte 3 of Rx/Tx frame.
     uint32_t DATA_BYTE_52 : 8;
   } bits;
   
@@ -25128,9 +30639,13 @@ union MB10_32B_WORD4_H {
   
   // Bit field definition.
   struct {
+    /// read-write - Data byte 0 of Rx/Tx frame.
     uint32_t DATA_BYTE_19 : 8;
+    /// read-write - Data byte 1 of Rx/Tx frame.
     uint32_t DATA_BYTE_18 : 8;
+    /// read-write - Data byte 2 of Rx/Tx frame.
     uint32_t DATA_BYTE_17 : 8;
+    /// read-write - Data byte 3 of Rx/Tx frame.
     uint32_t DATA_BYTE_16 : 8;
   } bits;
   
@@ -25148,9 +30663,13 @@ union MB17_16B_WORD2_H {
   
   // Bit field definition.
   struct {
+    /// read-write - Data byte 0 of Rx/Tx frame.
     uint32_t DATA_BYTE_11 : 8;
+    /// read-write - Data byte 1 of Rx/Tx frame.
     uint32_t DATA_BYTE_10 : 8;
+    /// read-write - Data byte 2 of Rx/Tx frame.
     uint32_t DATA_BYTE_9 : 8;
+    /// read-write - Data byte 3 of Rx/Tx frame.
     uint32_t DATA_BYTE_8 : 8;
   } bits;
   
@@ -25168,9 +30687,13 @@ union MB58_8B_WORD0 {
   
   // Bit field definition.
   struct {
+    /// read-write - Data byte 0 of Rx/Tx frame.
     uint32_t DATA_BYTE_3 : 8;
+    /// read-write - Data byte 1 of Rx/Tx frame.
     uint32_t DATA_BYTE_2 : 8;
+    /// read-write - Data byte 2 of Rx/Tx frame.
     uint32_t DATA_BYTE_1 : 8;
+    /// read-write - Data byte 3 of Rx/Tx frame.
     uint32_t DATA_BYTE_0 : 8;
   } bits;
   
@@ -25188,9 +30711,13 @@ union MB5_64B_WORD14_H {
   
   // Bit field definition.
   struct {
+    /// read-write - Data byte 0 of Rx/Tx frame.
     uint32_t DATA_BYTE_59 : 8;
+    /// read-write - Data byte 1 of Rx/Tx frame.
     uint32_t DATA_BYTE_58 : 8;
+    /// read-write - Data byte 2 of Rx/Tx frame.
     uint32_t DATA_BYTE_57 : 8;
+    /// read-write - Data byte 3 of Rx/Tx frame.
     uint32_t DATA_BYTE_56 : 8;
   } bits;
   
@@ -25208,9 +30735,13 @@ union WORD058 {
   
   // Bit field definition.
   struct {
+    /// read-write - Data byte 0 of Rx/Tx frame.
     uint32_t DATA_BYTE_3 : 8;
+    /// read-write - Data byte 1 of Rx/Tx frame.
     uint32_t DATA_BYTE_2 : 8;
+    /// read-write - Data byte 2 of Rx/Tx frame.
     uint32_t DATA_BYTE_1 : 8;
+    /// read-write - Data byte 3 of Rx/Tx frame.
     uint32_t DATA_BYTE_0 : 8;
   } bits;
   
@@ -25228,9 +30759,13 @@ union MB10_32B_WORD5_H {
   
   // Bit field definition.
   struct {
+    /// read-write - Data byte 0 of Rx/Tx frame.
     uint32_t DATA_BYTE_23 : 8;
+    /// read-write - Data byte 1 of Rx/Tx frame.
     uint32_t DATA_BYTE_22 : 8;
+    /// read-write - Data byte 2 of Rx/Tx frame.
     uint32_t DATA_BYTE_21 : 8;
+    /// read-write - Data byte 3 of Rx/Tx frame.
     uint32_t DATA_BYTE_20 : 8;
   } bits;
   
@@ -25248,9 +30783,13 @@ union MB17_16B_WORD3_H {
   
   // Bit field definition.
   struct {
+    /// read-write - Data byte 0 of Rx/Tx frame.
     uint32_t DATA_BYTE_15 : 8;
+    /// read-write - Data byte 1 of Rx/Tx frame.
     uint32_t DATA_BYTE_14 : 8;
+    /// read-write - Data byte 2 of Rx/Tx frame.
     uint32_t DATA_BYTE_13 : 8;
+    /// read-write - Data byte 3 of Rx/Tx frame.
     uint32_t DATA_BYTE_12 : 8;
   } bits;
   
@@ -25268,9 +30807,13 @@ union MB58_8B_WORD1 {
   
   // Bit field definition.
   struct {
+    /// read-write - Data byte 0 of Rx/Tx frame.
     uint32_t DATA_BYTE_7 : 8;
+    /// read-write - Data byte 1 of Rx/Tx frame.
     uint32_t DATA_BYTE_6 : 8;
+    /// read-write - Data byte 2 of Rx/Tx frame.
     uint32_t DATA_BYTE_5 : 8;
+    /// read-write - Data byte 3 of Rx/Tx frame.
     uint32_t DATA_BYTE_4 : 8;
   } bits;
   
@@ -25288,9 +30831,13 @@ union MB5_64B_WORD15_H {
   
   // Bit field definition.
   struct {
+    /// read-write - Data byte 0 of Rx/Tx frame.
     uint32_t DATA_BYTE_63 : 8;
+    /// read-write - Data byte 1 of Rx/Tx frame.
     uint32_t DATA_BYTE_62 : 8;
+    /// read-write - Data byte 2 of Rx/Tx frame.
     uint32_t DATA_BYTE_61 : 8;
+    /// read-write - Data byte 3 of Rx/Tx frame.
     uint32_t DATA_BYTE_60 : 8;
   } bits;
   
@@ -25308,9 +30855,13 @@ union WORD158 {
   
   // Bit field definition.
   struct {
+    /// read-write - Data byte 0 of Rx/Tx frame.
     uint32_t DATA_BYTE_7 : 8;
+    /// read-write - Data byte 1 of Rx/Tx frame.
     uint32_t DATA_BYTE_6 : 8;
+    /// read-write - Data byte 2 of Rx/Tx frame.
     uint32_t DATA_BYTE_5 : 8;
+    /// read-write - Data byte 3 of Rx/Tx frame.
     uint32_t DATA_BYTE_4 : 8;
   } bits;
   
@@ -25328,16 +30879,25 @@ union CS59 {
   
   // Bit field definition.
   struct {
+    /// read-write - Free-Running Counter Time stamp. This 16-bit field is a copy of the Free-Running Timer, captured for Tx and Rx frames at the time when the beginning of the Identifier field appears on the CAN bus.
     uint32_t TIME_STAMP : 16;
+    /// read-write - Length of the data to be stored/transmitted.
     uint32_t DLC : 4;
+    /// read-write - Remote Transmission Request. One/zero for remote/data frame.
     uint32_t RTR : 1;
+    /// read-write - ID Extended. One/zero for extended/standard format frame.
     uint32_t IDE : 1;
+    /// read-write - Substitute Remote Request. Contains a fixed recessive bit.
     uint32_t SRR : 1;
     uint32_t _reserved_0 : 1;
+    /// read-write - Message Buffer Code. This 4-bit field can be accessed (read or write) by the CPU and by the FlexCAN module itself, as part of the message buffer matching and arbitration process.
     uint32_t CODE : 4;
     uint32_t _reserved_1 : 1;
+    /// read-write - Error State Indicator. This bit indicates if the transmitting node is error active or error passive.
     uint32_t ESI : 1;
+    /// read-write - Bit Rate Switch. This bit defines whether the bit rate is switched inside a CAN FD format frame.
     uint32_t BRS : 1;
+    /// read-write - Extended Data Length. This bit distinguishes between CAN format and CAN FD format frames. The EDL bit must not be set for Message Buffers configured to RANSWER with code field 0b1010.
     uint32_t EDL : 1;
   } bits;
   
@@ -25355,9 +30915,13 @@ union MB10_32B_WORD6_H {
   
   // Bit field definition.
   struct {
+    /// read-write - Data byte 0 of Rx/Tx frame.
     uint32_t DATA_BYTE_27 : 8;
+    /// read-write - Data byte 1 of Rx/Tx frame.
     uint32_t DATA_BYTE_26 : 8;
+    /// read-write - Data byte 2 of Rx/Tx frame.
     uint32_t DATA_BYTE_25 : 8;
+    /// read-write - Data byte 3 of Rx/Tx frame.
     uint32_t DATA_BYTE_24 : 8;
   } bits;
   
@@ -25375,16 +30939,25 @@ union MB18_16B_CS_H {
   
   // Bit field definition.
   struct {
+    /// read-write - Free-Running Counter Time stamp. This 16-bit field is a copy of the Free-Running Timer, captured for Tx and Rx frames at the time when the beginning of the Identifier field appears on the CAN bus.
     uint32_t TIME_STAMP : 16;
+    /// read-write - Length of the data to be stored/transmitted.
     uint32_t DLC : 4;
+    /// read-write - Remote Transmission Request. One/zero for remote/data frame.
     uint32_t RTR : 1;
+    /// read-write - ID Extended. One/zero for extended/standard format frame.
     uint32_t IDE : 1;
+    /// read-write - Substitute Remote Request. Contains a fixed recessive bit.
     uint32_t SRR : 1;
     uint32_t _reserved_0 : 1;
+    /// read-write - Message Buffer Code. This 4-bit field can be accessed (read or write) by the CPU and by the FlexCAN module itself, as part of the message buffer matching and arbitration process.
     uint32_t CODE : 4;
     uint32_t _reserved_1 : 1;
+    /// read-write - Error State Indicator. This bit indicates if the transmitting node is error active or error passive.
     uint32_t ESI : 1;
+    /// read-write - Bit Rate Switch. This bit defines whether the bit rate is switched inside a CAN FD format frame.
     uint32_t BRS : 1;
+    /// read-write - Extended Data Length. This bit distinguishes between CAN format and CAN FD format frames. The EDL bit must not be set for Message Buffers configured to RANSWER with code field 0b1010.
     uint32_t EDL : 1;
   } bits;
   
@@ -25402,16 +30975,25 @@ union MB59_8B_CS {
   
   // Bit field definition.
   struct {
+    /// read-write - Free-Running Counter Time stamp. This 16-bit field is a copy of the Free-Running Timer, captured for Tx and Rx frames at the time when the beginning of the Identifier field appears on the CAN bus.
     uint32_t TIME_STAMP : 16;
+    /// read-write - Length of the data to be stored/transmitted.
     uint32_t DLC : 4;
+    /// read-write - Remote Transmission Request. One/zero for remote/data frame.
     uint32_t RTR : 1;
+    /// read-write - ID Extended. One/zero for extended/standard format frame.
     uint32_t IDE : 1;
+    /// read-write - Substitute Remote Request. Contains a fixed recessive bit.
     uint32_t SRR : 1;
     uint32_t _reserved_0 : 1;
+    /// read-write - Message Buffer Code. This 4-bit field can be accessed (read or write) by the CPU and by the FlexCAN module itself, as part of the message buffer matching and arbitration process.
     uint32_t CODE : 4;
     uint32_t _reserved_1 : 1;
+    /// read-write - Error State Indicator. This bit indicates if the transmitting node is error active or error passive.
     uint32_t ESI : 1;
+    /// read-write - Bit Rate Switch. This bit defines whether the bit rate is switched inside a CAN FD format frame.
     uint32_t BRS : 1;
+    /// read-write - Extended Data Length. This bit distinguishes between CAN format and CAN FD format frames. The EDL bit must not be set for Message Buffers configured to RANSWER with code field 0b1010.
     uint32_t EDL : 1;
   } bits;
   
@@ -25429,16 +31011,25 @@ union MB6_64B_CS_H {
   
   // Bit field definition.
   struct {
+    /// read-write - Free-Running Counter Time stamp. This 16-bit field is a copy of the Free-Running Timer, captured for Tx and Rx frames at the time when the beginning of the Identifier field appears on the CAN bus.
     uint32_t TIME_STAMP : 16;
+    /// read-write - Length of the data to be stored/transmitted.
     uint32_t DLC : 4;
+    /// read-write - Remote Transmission Request. One/zero for remote/data frame.
     uint32_t RTR : 1;
+    /// read-write - ID Extended. One/zero for extended/standard format frame.
     uint32_t IDE : 1;
+    /// read-write - Substitute Remote Request. Contains a fixed recessive bit.
     uint32_t SRR : 1;
     uint32_t _reserved_0 : 1;
+    /// read-write - Message Buffer Code. This 4-bit field can be accessed (read or write) by the CPU and by the FlexCAN module itself, as part of the message buffer matching and arbitration process.
     uint32_t CODE : 4;
     uint32_t _reserved_1 : 1;
+    /// read-write - Error State Indicator. This bit indicates if the transmitting node is error active or error passive.
     uint32_t ESI : 1;
+    /// read-write - Bit Rate Switch. This bit defines whether the bit rate is switched inside a CAN FD format frame.
     uint32_t BRS : 1;
+    /// read-write - Extended Data Length. This bit distinguishes between CAN format and CAN FD format frames. The EDL bit must not be set for Message Buffers configured to RANSWER with code field 0b1010.
     uint32_t EDL : 1;
   } bits;
   
@@ -25456,8 +31047,11 @@ union ID59 {
   
   // Bit field definition.
   struct {
+    /// read-write - Contains extended (LOW word) identifier of message buffer.
     uint32_t EXT : 18;
+    /// read-write - Contains standard/extended (HIGH word) identifier of message buffer.
     uint32_t STD : 11;
+    /// read-write - Local priority. This 3-bit fieldis only used when LPRIO_EN bit is set in MCR and it only makes sense for Tx buffers. These bits are not transmitted. They are appended to the regular ID to define the transmission priority.
     uint32_t PRIO : 3;
   } bits;
   
@@ -25475,9 +31069,13 @@ union MB10_32B_WORD7_H {
   
   // Bit field definition.
   struct {
+    /// read-write - Data byte 0 of Rx/Tx frame.
     uint32_t DATA_BYTE_31 : 8;
+    /// read-write - Data byte 1 of Rx/Tx frame.
     uint32_t DATA_BYTE_30 : 8;
+    /// read-write - Data byte 2 of Rx/Tx frame.
     uint32_t DATA_BYTE_29 : 8;
+    /// read-write - Data byte 3 of Rx/Tx frame.
     uint32_t DATA_BYTE_28 : 8;
   } bits;
   
@@ -25495,8 +31093,11 @@ union MB18_16B_ID_H {
   
   // Bit field definition.
   struct {
+    /// read-write - Contains extended (LOW word) identifier of message buffer.
     uint32_t EXT : 18;
+    /// read-write - Contains standard/extended (HIGH word) identifier of message buffer.
     uint32_t STD : 11;
+    /// read-write - Local priority. This 3-bit fieldis only used when LPRIO_EN bit is set in MCR and it only makes sense for Tx buffers. These bits are not transmitted. They are appended to the regular ID to define the transmission priority.
     uint32_t PRIO : 3;
   } bits;
   
@@ -25514,8 +31115,11 @@ union MB59_8B_ID {
   
   // Bit field definition.
   struct {
+    /// read-write - Contains extended (LOW word) identifier of message buffer.
     uint32_t EXT : 18;
+    /// read-write - Contains standard/extended (HIGH word) identifier of message buffer.
     uint32_t STD : 11;
+    /// read-write - Local priority. This 3-bit fieldis only used when LPRIO_EN bit is set in MCR and it only makes sense for Tx buffers. These bits are not transmitted. They are appended to the regular ID to define the transmission priority.
     uint32_t PRIO : 3;
   } bits;
   
@@ -25533,8 +31137,11 @@ union MB6_64B_ID_H {
   
   // Bit field definition.
   struct {
+    /// read-write - Contains extended (LOW word) identifier of message buffer.
     uint32_t EXT : 18;
+    /// read-write - Contains standard/extended (HIGH word) identifier of message buffer.
     uint32_t STD : 11;
+    /// read-write - Local priority. This 3-bit fieldis only used when LPRIO_EN bit is set in MCR and it only makes sense for Tx buffers. These bits are not transmitted. They are appended to the regular ID to define the transmission priority.
     uint32_t PRIO : 3;
   } bits;
   
@@ -25552,16 +31159,25 @@ union MB11_32B_CS_H {
   
   // Bit field definition.
   struct {
+    /// read-write - Free-Running Counter Time stamp. This 16-bit field is a copy of the Free-Running Timer, captured for Tx and Rx frames at the time when the beginning of the Identifier field appears on the CAN bus.
     uint32_t TIME_STAMP : 16;
+    /// read-write - Length of the data to be stored/transmitted.
     uint32_t DLC : 4;
+    /// read-write - Remote Transmission Request. One/zero for remote/data frame.
     uint32_t RTR : 1;
+    /// read-write - ID Extended. One/zero for extended/standard format frame.
     uint32_t IDE : 1;
+    /// read-write - Substitute Remote Request. Contains a fixed recessive bit.
     uint32_t SRR : 1;
     uint32_t _reserved_0 : 1;
+    /// read-write - Message Buffer Code. This 4-bit field can be accessed (read or write) by the CPU and by the FlexCAN module itself, as part of the message buffer matching and arbitration process.
     uint32_t CODE : 4;
     uint32_t _reserved_1 : 1;
+    /// read-write - Error State Indicator. This bit indicates if the transmitting node is error active or error passive.
     uint32_t ESI : 1;
+    /// read-write - Bit Rate Switch. This bit defines whether the bit rate is switched inside a CAN FD format frame.
     uint32_t BRS : 1;
+    /// read-write - Extended Data Length. This bit distinguishes between CAN format and CAN FD format frames. The EDL bit must not be set for Message Buffers configured to RANSWER with code field 0b1010.
     uint32_t EDL : 1;
   } bits;
   
@@ -25579,9 +31195,13 @@ union MB18_16B_WORD0_H {
   
   // Bit field definition.
   struct {
+    /// read-write - Data byte 0 of Rx/Tx frame.
     uint32_t DATA_BYTE_3 : 8;
+    /// read-write - Data byte 1 of Rx/Tx frame.
     uint32_t DATA_BYTE_2 : 8;
+    /// read-write - Data byte 2 of Rx/Tx frame.
     uint32_t DATA_BYTE_1 : 8;
+    /// read-write - Data byte 3 of Rx/Tx frame.
     uint32_t DATA_BYTE_0 : 8;
   } bits;
   
@@ -25599,9 +31219,13 @@ union MB59_8B_WORD0 {
   
   // Bit field definition.
   struct {
+    /// read-write - Data byte 0 of Rx/Tx frame.
     uint32_t DATA_BYTE_3 : 8;
+    /// read-write - Data byte 1 of Rx/Tx frame.
     uint32_t DATA_BYTE_2 : 8;
+    /// read-write - Data byte 2 of Rx/Tx frame.
     uint32_t DATA_BYTE_1 : 8;
+    /// read-write - Data byte 3 of Rx/Tx frame.
     uint32_t DATA_BYTE_0 : 8;
   } bits;
   
@@ -25619,9 +31243,13 @@ union MB6_64B_WORD0_H {
   
   // Bit field definition.
   struct {
+    /// read-write - Data byte 0 of Rx/Tx frame.
     uint32_t DATA_BYTE_3 : 8;
+    /// read-write - Data byte 1 of Rx/Tx frame.
     uint32_t DATA_BYTE_2 : 8;
+    /// read-write - Data byte 2 of Rx/Tx frame.
     uint32_t DATA_BYTE_1 : 8;
+    /// read-write - Data byte 3 of Rx/Tx frame.
     uint32_t DATA_BYTE_0 : 8;
   } bits;
   
@@ -25639,9 +31267,13 @@ union WORD059 {
   
   // Bit field definition.
   struct {
+    /// read-write - Data byte 0 of Rx/Tx frame.
     uint32_t DATA_BYTE_3 : 8;
+    /// read-write - Data byte 1 of Rx/Tx frame.
     uint32_t DATA_BYTE_2 : 8;
+    /// read-write - Data byte 2 of Rx/Tx frame.
     uint32_t DATA_BYTE_1 : 8;
+    /// read-write - Data byte 3 of Rx/Tx frame.
     uint32_t DATA_BYTE_0 : 8;
   } bits;
   
@@ -25659,8 +31291,11 @@ union MB11_32B_ID_H {
   
   // Bit field definition.
   struct {
+    /// read-write - Contains extended (LOW word) identifier of message buffer.
     uint32_t EXT : 18;
+    /// read-write - Contains standard/extended (HIGH word) identifier of message buffer.
     uint32_t STD : 11;
+    /// read-write - Local priority. This 3-bit fieldis only used when LPRIO_EN bit is set in MCR and it only makes sense for Tx buffers. These bits are not transmitted. They are appended to the regular ID to define the transmission priority.
     uint32_t PRIO : 3;
   } bits;
   
@@ -25678,9 +31313,13 @@ union MB18_16B_WORD1_H {
   
   // Bit field definition.
   struct {
+    /// read-write - Data byte 0 of Rx/Tx frame.
     uint32_t DATA_BYTE_7 : 8;
+    /// read-write - Data byte 1 of Rx/Tx frame.
     uint32_t DATA_BYTE_6 : 8;
+    /// read-write - Data byte 2 of Rx/Tx frame.
     uint32_t DATA_BYTE_5 : 8;
+    /// read-write - Data byte 3 of Rx/Tx frame.
     uint32_t DATA_BYTE_4 : 8;
   } bits;
   
@@ -25698,9 +31337,13 @@ union MB59_8B_WORD1 {
   
   // Bit field definition.
   struct {
+    /// read-write - Data byte 0 of Rx/Tx frame.
     uint32_t DATA_BYTE_7 : 8;
+    /// read-write - Data byte 1 of Rx/Tx frame.
     uint32_t DATA_BYTE_6 : 8;
+    /// read-write - Data byte 2 of Rx/Tx frame.
     uint32_t DATA_BYTE_5 : 8;
+    /// read-write - Data byte 3 of Rx/Tx frame.
     uint32_t DATA_BYTE_4 : 8;
   } bits;
   
@@ -25718,9 +31361,13 @@ union MB6_64B_WORD1_H {
   
   // Bit field definition.
   struct {
+    /// read-write - Data byte 0 of Rx/Tx frame.
     uint32_t DATA_BYTE_7 : 8;
+    /// read-write - Data byte 1 of Rx/Tx frame.
     uint32_t DATA_BYTE_6 : 8;
+    /// read-write - Data byte 2 of Rx/Tx frame.
     uint32_t DATA_BYTE_5 : 8;
+    /// read-write - Data byte 3 of Rx/Tx frame.
     uint32_t DATA_BYTE_4 : 8;
   } bits;
   
@@ -25738,9 +31385,13 @@ union WORD159 {
   
   // Bit field definition.
   struct {
+    /// read-write - Data byte 0 of Rx/Tx frame.
     uint32_t DATA_BYTE_7 : 8;
+    /// read-write - Data byte 1 of Rx/Tx frame.
     uint32_t DATA_BYTE_6 : 8;
+    /// read-write - Data byte 2 of Rx/Tx frame.
     uint32_t DATA_BYTE_5 : 8;
+    /// read-write - Data byte 3 of Rx/Tx frame.
     uint32_t DATA_BYTE_4 : 8;
   } bits;
   
@@ -25758,16 +31409,25 @@ union CS60 {
   
   // Bit field definition.
   struct {
+    /// read-write - Free-Running Counter Time stamp. This 16-bit field is a copy of the Free-Running Timer, captured for Tx and Rx frames at the time when the beginning of the Identifier field appears on the CAN bus.
     uint32_t TIME_STAMP : 16;
+    /// read-write - Length of the data to be stored/transmitted.
     uint32_t DLC : 4;
+    /// read-write - Remote Transmission Request. One/zero for remote/data frame.
     uint32_t RTR : 1;
+    /// read-write - ID Extended. One/zero for extended/standard format frame.
     uint32_t IDE : 1;
+    /// read-write - Substitute Remote Request. Contains a fixed recessive bit.
     uint32_t SRR : 1;
     uint32_t _reserved_0 : 1;
+    /// read-write - Message Buffer Code. This 4-bit field can be accessed (read or write) by the CPU and by the FlexCAN module itself, as part of the message buffer matching and arbitration process.
     uint32_t CODE : 4;
     uint32_t _reserved_1 : 1;
+    /// read-write - Error State Indicator. This bit indicates if the transmitting node is error active or error passive.
     uint32_t ESI : 1;
+    /// read-write - Bit Rate Switch. This bit defines whether the bit rate is switched inside a CAN FD format frame.
     uint32_t BRS : 1;
+    /// read-write - Extended Data Length. This bit distinguishes between CAN format and CAN FD format frames. The EDL bit must not be set for Message Buffers configured to RANSWER with code field 0b1010.
     uint32_t EDL : 1;
   } bits;
   
@@ -25785,9 +31445,13 @@ union MB11_32B_WORD0_H {
   
   // Bit field definition.
   struct {
+    /// read-write - Data byte 0 of Rx/Tx frame.
     uint32_t DATA_BYTE_3 : 8;
+    /// read-write - Data byte 1 of Rx/Tx frame.
     uint32_t DATA_BYTE_2 : 8;
+    /// read-write - Data byte 2 of Rx/Tx frame.
     uint32_t DATA_BYTE_1 : 8;
+    /// read-write - Data byte 3 of Rx/Tx frame.
     uint32_t DATA_BYTE_0 : 8;
   } bits;
   
@@ -25805,9 +31469,13 @@ union MB18_16B_WORD2_H {
   
   // Bit field definition.
   struct {
+    /// read-write - Data byte 0 of Rx/Tx frame.
     uint32_t DATA_BYTE_11 : 8;
+    /// read-write - Data byte 1 of Rx/Tx frame.
     uint32_t DATA_BYTE_10 : 8;
+    /// read-write - Data byte 2 of Rx/Tx frame.
     uint32_t DATA_BYTE_9 : 8;
+    /// read-write - Data byte 3 of Rx/Tx frame.
     uint32_t DATA_BYTE_8 : 8;
   } bits;
   
@@ -25825,16 +31493,25 @@ union MB60_8B_CS {
   
   // Bit field definition.
   struct {
+    /// read-write - Free-Running Counter Time stamp. This 16-bit field is a copy of the Free-Running Timer, captured for Tx and Rx frames at the time when the beginning of the Identifier field appears on the CAN bus.
     uint32_t TIME_STAMP : 16;
+    /// read-write - Length of the data to be stored/transmitted.
     uint32_t DLC : 4;
+    /// read-write - Remote Transmission Request. One/zero for remote/data frame.
     uint32_t RTR : 1;
+    /// read-write - ID Extended. One/zero for extended/standard format frame.
     uint32_t IDE : 1;
+    /// read-write - Substitute Remote Request. Contains a fixed recessive bit.
     uint32_t SRR : 1;
     uint32_t _reserved_0 : 1;
+    /// read-write - Message Buffer Code. This 4-bit field can be accessed (read or write) by the CPU and by the FlexCAN module itself, as part of the message buffer matching and arbitration process.
     uint32_t CODE : 4;
     uint32_t _reserved_1 : 1;
+    /// read-write - Error State Indicator. This bit indicates if the transmitting node is error active or error passive.
     uint32_t ESI : 1;
+    /// read-write - Bit Rate Switch. This bit defines whether the bit rate is switched inside a CAN FD format frame.
     uint32_t BRS : 1;
+    /// read-write - Extended Data Length. This bit distinguishes between CAN format and CAN FD format frames. The EDL bit must not be set for Message Buffers configured to RANSWER with code field 0b1010.
     uint32_t EDL : 1;
   } bits;
   
@@ -25852,9 +31529,13 @@ union MB6_64B_WORD2_H {
   
   // Bit field definition.
   struct {
+    /// read-write - Data byte 0 of Rx/Tx frame.
     uint32_t DATA_BYTE_11 : 8;
+    /// read-write - Data byte 1 of Rx/Tx frame.
     uint32_t DATA_BYTE_10 : 8;
+    /// read-write - Data byte 2 of Rx/Tx frame.
     uint32_t DATA_BYTE_9 : 8;
+    /// read-write - Data byte 3 of Rx/Tx frame.
     uint32_t DATA_BYTE_8 : 8;
   } bits;
   
@@ -25872,8 +31553,11 @@ union ID60 {
   
   // Bit field definition.
   struct {
+    /// read-write - Contains extended (LOW word) identifier of message buffer.
     uint32_t EXT : 18;
+    /// read-write - Contains standard/extended (HIGH word) identifier of message buffer.
     uint32_t STD : 11;
+    /// read-write - Local priority. This 3-bit fieldis only used when LPRIO_EN bit is set in MCR and it only makes sense for Tx buffers. These bits are not transmitted. They are appended to the regular ID to define the transmission priority.
     uint32_t PRIO : 3;
   } bits;
   
@@ -25891,9 +31575,13 @@ union MB11_32B_WORD1_H {
   
   // Bit field definition.
   struct {
+    /// read-write - Data byte 0 of Rx/Tx frame.
     uint32_t DATA_BYTE_7 : 8;
+    /// read-write - Data byte 1 of Rx/Tx frame.
     uint32_t DATA_BYTE_6 : 8;
+    /// read-write - Data byte 2 of Rx/Tx frame.
     uint32_t DATA_BYTE_5 : 8;
+    /// read-write - Data byte 3 of Rx/Tx frame.
     uint32_t DATA_BYTE_4 : 8;
   } bits;
   
@@ -25911,9 +31599,13 @@ union MB18_16B_WORD3_H {
   
   // Bit field definition.
   struct {
+    /// read-write - Data byte 0 of Rx/Tx frame.
     uint32_t DATA_BYTE_15 : 8;
+    /// read-write - Data byte 1 of Rx/Tx frame.
     uint32_t DATA_BYTE_14 : 8;
+    /// read-write - Data byte 2 of Rx/Tx frame.
     uint32_t DATA_BYTE_13 : 8;
+    /// read-write - Data byte 3 of Rx/Tx frame.
     uint32_t DATA_BYTE_12 : 8;
   } bits;
   
@@ -25931,8 +31623,11 @@ union MB60_8B_ID {
   
   // Bit field definition.
   struct {
+    /// read-write - Contains extended (LOW word) identifier of message buffer.
     uint32_t EXT : 18;
+    /// read-write - Contains standard/extended (HIGH word) identifier of message buffer.
     uint32_t STD : 11;
+    /// read-write - Local priority. This 3-bit fieldis only used when LPRIO_EN bit is set in MCR and it only makes sense for Tx buffers. These bits are not transmitted. They are appended to the regular ID to define the transmission priority.
     uint32_t PRIO : 3;
   } bits;
   
@@ -25950,9 +31645,13 @@ union MB6_64B_WORD3_H {
   
   // Bit field definition.
   struct {
+    /// read-write - Data byte 0 of Rx/Tx frame.
     uint32_t DATA_BYTE_15 : 8;
+    /// read-write - Data byte 1 of Rx/Tx frame.
     uint32_t DATA_BYTE_14 : 8;
+    /// read-write - Data byte 2 of Rx/Tx frame.
     uint32_t DATA_BYTE_13 : 8;
+    /// read-write - Data byte 3 of Rx/Tx frame.
     uint32_t DATA_BYTE_12 : 8;
   } bits;
   
@@ -25970,9 +31669,13 @@ union MB11_32B_WORD2_H {
   
   // Bit field definition.
   struct {
+    /// read-write - Data byte 0 of Rx/Tx frame.
     uint32_t DATA_BYTE_11 : 8;
+    /// read-write - Data byte 1 of Rx/Tx frame.
     uint32_t DATA_BYTE_10 : 8;
+    /// read-write - Data byte 2 of Rx/Tx frame.
     uint32_t DATA_BYTE_9 : 8;
+    /// read-write - Data byte 3 of Rx/Tx frame.
     uint32_t DATA_BYTE_8 : 8;
   } bits;
   
@@ -25990,16 +31693,25 @@ union MB19_16B_CS_H {
   
   // Bit field definition.
   struct {
+    /// read-write - Free-Running Counter Time stamp. This 16-bit field is a copy of the Free-Running Timer, captured for Tx and Rx frames at the time when the beginning of the Identifier field appears on the CAN bus.
     uint32_t TIME_STAMP : 16;
+    /// read-write - Length of the data to be stored/transmitted.
     uint32_t DLC : 4;
+    /// read-write - Remote Transmission Request. One/zero for remote/data frame.
     uint32_t RTR : 1;
+    /// read-write - ID Extended. One/zero for extended/standard format frame.
     uint32_t IDE : 1;
+    /// read-write - Substitute Remote Request. Contains a fixed recessive bit.
     uint32_t SRR : 1;
     uint32_t _reserved_0 : 1;
+    /// read-write - Message Buffer Code. This 4-bit field can be accessed (read or write) by the CPU and by the FlexCAN module itself, as part of the message buffer matching and arbitration process.
     uint32_t CODE : 4;
     uint32_t _reserved_1 : 1;
+    /// read-write - Error State Indicator. This bit indicates if the transmitting node is error active or error passive.
     uint32_t ESI : 1;
+    /// read-write - Bit Rate Switch. This bit defines whether the bit rate is switched inside a CAN FD format frame.
     uint32_t BRS : 1;
+    /// read-write - Extended Data Length. This bit distinguishes between CAN format and CAN FD format frames. The EDL bit must not be set for Message Buffers configured to RANSWER with code field 0b1010.
     uint32_t EDL : 1;
   } bits;
   
@@ -26017,9 +31729,13 @@ union MB60_8B_WORD0 {
   
   // Bit field definition.
   struct {
+    /// read-write - Data byte 0 of Rx/Tx frame.
     uint32_t DATA_BYTE_3 : 8;
+    /// read-write - Data byte 1 of Rx/Tx frame.
     uint32_t DATA_BYTE_2 : 8;
+    /// read-write - Data byte 2 of Rx/Tx frame.
     uint32_t DATA_BYTE_1 : 8;
+    /// read-write - Data byte 3 of Rx/Tx frame.
     uint32_t DATA_BYTE_0 : 8;
   } bits;
   
@@ -26037,9 +31753,13 @@ union MB6_64B_WORD4_H {
   
   // Bit field definition.
   struct {
+    /// read-write - Data byte 0 of Rx/Tx frame.
     uint32_t DATA_BYTE_19 : 8;
+    /// read-write - Data byte 1 of Rx/Tx frame.
     uint32_t DATA_BYTE_18 : 8;
+    /// read-write - Data byte 2 of Rx/Tx frame.
     uint32_t DATA_BYTE_17 : 8;
+    /// read-write - Data byte 3 of Rx/Tx frame.
     uint32_t DATA_BYTE_16 : 8;
   } bits;
   
@@ -26057,9 +31777,13 @@ union WORD060 {
   
   // Bit field definition.
   struct {
+    /// read-write - Data byte 0 of Rx/Tx frame.
     uint32_t DATA_BYTE_3 : 8;
+    /// read-write - Data byte 1 of Rx/Tx frame.
     uint32_t DATA_BYTE_2 : 8;
+    /// read-write - Data byte 2 of Rx/Tx frame.
     uint32_t DATA_BYTE_1 : 8;
+    /// read-write - Data byte 3 of Rx/Tx frame.
     uint32_t DATA_BYTE_0 : 8;
   } bits;
   
@@ -26077,9 +31801,13 @@ union MB11_32B_WORD3_H {
   
   // Bit field definition.
   struct {
+    /// read-write - Data byte 0 of Rx/Tx frame.
     uint32_t DATA_BYTE_15 : 8;
+    /// read-write - Data byte 1 of Rx/Tx frame.
     uint32_t DATA_BYTE_14 : 8;
+    /// read-write - Data byte 2 of Rx/Tx frame.
     uint32_t DATA_BYTE_13 : 8;
+    /// read-write - Data byte 3 of Rx/Tx frame.
     uint32_t DATA_BYTE_12 : 8;
   } bits;
   
@@ -26097,8 +31825,11 @@ union MB19_16B_ID_H {
   
   // Bit field definition.
   struct {
+    /// read-write - Contains extended (LOW word) identifier of message buffer.
     uint32_t EXT : 18;
+    /// read-write - Contains standard/extended (HIGH word) identifier of message buffer.
     uint32_t STD : 11;
+    /// read-write - Local priority. This 3-bit fieldis only used when LPRIO_EN bit is set in MCR and it only makes sense for Tx buffers. These bits are not transmitted. They are appended to the regular ID to define the transmission priority.
     uint32_t PRIO : 3;
   } bits;
   
@@ -26116,9 +31847,13 @@ union MB60_8B_WORD1 {
   
   // Bit field definition.
   struct {
+    /// read-write - Data byte 0 of Rx/Tx frame.
     uint32_t DATA_BYTE_7 : 8;
+    /// read-write - Data byte 1 of Rx/Tx frame.
     uint32_t DATA_BYTE_6 : 8;
+    /// read-write - Data byte 2 of Rx/Tx frame.
     uint32_t DATA_BYTE_5 : 8;
+    /// read-write - Data byte 3 of Rx/Tx frame.
     uint32_t DATA_BYTE_4 : 8;
   } bits;
   
@@ -26136,9 +31871,13 @@ union MB6_64B_WORD5_H {
   
   // Bit field definition.
   struct {
+    /// read-write - Data byte 0 of Rx/Tx frame.
     uint32_t DATA_BYTE_23 : 8;
+    /// read-write - Data byte 1 of Rx/Tx frame.
     uint32_t DATA_BYTE_22 : 8;
+    /// read-write - Data byte 2 of Rx/Tx frame.
     uint32_t DATA_BYTE_21 : 8;
+    /// read-write - Data byte 3 of Rx/Tx frame.
     uint32_t DATA_BYTE_20 : 8;
   } bits;
   
@@ -26156,9 +31895,13 @@ union WORD160 {
   
   // Bit field definition.
   struct {
+    /// read-write - Data byte 0 of Rx/Tx frame.
     uint32_t DATA_BYTE_7 : 8;
+    /// read-write - Data byte 1 of Rx/Tx frame.
     uint32_t DATA_BYTE_6 : 8;
+    /// read-write - Data byte 2 of Rx/Tx frame.
     uint32_t DATA_BYTE_5 : 8;
+    /// read-write - Data byte 3 of Rx/Tx frame.
     uint32_t DATA_BYTE_4 : 8;
   } bits;
   
@@ -26176,16 +31919,25 @@ union CS61 {
   
   // Bit field definition.
   struct {
+    /// read-write - Free-Running Counter Time stamp. This 16-bit field is a copy of the Free-Running Timer, captured for Tx and Rx frames at the time when the beginning of the Identifier field appears on the CAN bus.
     uint32_t TIME_STAMP : 16;
+    /// read-write - Length of the data to be stored/transmitted.
     uint32_t DLC : 4;
+    /// read-write - Remote Transmission Request. One/zero for remote/data frame.
     uint32_t RTR : 1;
+    /// read-write - ID Extended. One/zero for extended/standard format frame.
     uint32_t IDE : 1;
+    /// read-write - Substitute Remote Request. Contains a fixed recessive bit.
     uint32_t SRR : 1;
     uint32_t _reserved_0 : 1;
+    /// read-write - Message Buffer Code. This 4-bit field can be accessed (read or write) by the CPU and by the FlexCAN module itself, as part of the message buffer matching and arbitration process.
     uint32_t CODE : 4;
     uint32_t _reserved_1 : 1;
+    /// read-write - Error State Indicator. This bit indicates if the transmitting node is error active or error passive.
     uint32_t ESI : 1;
+    /// read-write - Bit Rate Switch. This bit defines whether the bit rate is switched inside a CAN FD format frame.
     uint32_t BRS : 1;
+    /// read-write - Extended Data Length. This bit distinguishes between CAN format and CAN FD format frames. The EDL bit must not be set for Message Buffers configured to RANSWER with code field 0b1010.
     uint32_t EDL : 1;
   } bits;
   
@@ -26203,9 +31955,13 @@ union MB11_32B_WORD4_H {
   
   // Bit field definition.
   struct {
+    /// read-write - Data byte 0 of Rx/Tx frame.
     uint32_t DATA_BYTE_19 : 8;
+    /// read-write - Data byte 1 of Rx/Tx frame.
     uint32_t DATA_BYTE_18 : 8;
+    /// read-write - Data byte 2 of Rx/Tx frame.
     uint32_t DATA_BYTE_17 : 8;
+    /// read-write - Data byte 3 of Rx/Tx frame.
     uint32_t DATA_BYTE_16 : 8;
   } bits;
   
@@ -26223,9 +31979,13 @@ union MB19_16B_WORD0_H {
   
   // Bit field definition.
   struct {
+    /// read-write - Data byte 0 of Rx/Tx frame.
     uint32_t DATA_BYTE_3 : 8;
+    /// read-write - Data byte 1 of Rx/Tx frame.
     uint32_t DATA_BYTE_2 : 8;
+    /// read-write - Data byte 2 of Rx/Tx frame.
     uint32_t DATA_BYTE_1 : 8;
+    /// read-write - Data byte 3 of Rx/Tx frame.
     uint32_t DATA_BYTE_0 : 8;
   } bits;
   
@@ -26243,16 +32003,25 @@ union MB61_8B_CS {
   
   // Bit field definition.
   struct {
+    /// read-write - Free-Running Counter Time stamp. This 16-bit field is a copy of the Free-Running Timer, captured for Tx and Rx frames at the time when the beginning of the Identifier field appears on the CAN bus.
     uint32_t TIME_STAMP : 16;
+    /// read-write - Length of the data to be stored/transmitted.
     uint32_t DLC : 4;
+    /// read-write - Remote Transmission Request. One/zero for remote/data frame.
     uint32_t RTR : 1;
+    /// read-write - ID Extended. One/zero for extended/standard format frame.
     uint32_t IDE : 1;
+    /// read-write - Substitute Remote Request. Contains a fixed recessive bit.
     uint32_t SRR : 1;
     uint32_t _reserved_0 : 1;
+    /// read-write - Message Buffer Code. This 4-bit field can be accessed (read or write) by the CPU and by the FlexCAN module itself, as part of the message buffer matching and arbitration process.
     uint32_t CODE : 4;
     uint32_t _reserved_1 : 1;
+    /// read-write - Error State Indicator. This bit indicates if the transmitting node is error active or error passive.
     uint32_t ESI : 1;
+    /// read-write - Bit Rate Switch. This bit defines whether the bit rate is switched inside a CAN FD format frame.
     uint32_t BRS : 1;
+    /// read-write - Extended Data Length. This bit distinguishes between CAN format and CAN FD format frames. The EDL bit must not be set for Message Buffers configured to RANSWER with code field 0b1010.
     uint32_t EDL : 1;
   } bits;
   
@@ -26270,9 +32039,13 @@ union MB6_64B_WORD6_H {
   
   // Bit field definition.
   struct {
+    /// read-write - Data byte 0 of Rx/Tx frame.
     uint32_t DATA_BYTE_27 : 8;
+    /// read-write - Data byte 1 of Rx/Tx frame.
     uint32_t DATA_BYTE_26 : 8;
+    /// read-write - Data byte 2 of Rx/Tx frame.
     uint32_t DATA_BYTE_25 : 8;
+    /// read-write - Data byte 3 of Rx/Tx frame.
     uint32_t DATA_BYTE_24 : 8;
   } bits;
   
@@ -26290,8 +32063,11 @@ union ID61 {
   
   // Bit field definition.
   struct {
+    /// read-write - Contains extended (LOW word) identifier of message buffer.
     uint32_t EXT : 18;
+    /// read-write - Contains standard/extended (HIGH word) identifier of message buffer.
     uint32_t STD : 11;
+    /// read-write - Local priority. This 3-bit fieldis only used when LPRIO_EN bit is set in MCR and it only makes sense for Tx buffers. These bits are not transmitted. They are appended to the regular ID to define the transmission priority.
     uint32_t PRIO : 3;
   } bits;
   
@@ -26309,9 +32085,13 @@ union MB11_32B_WORD5_H {
   
   // Bit field definition.
   struct {
+    /// read-write - Data byte 0 of Rx/Tx frame.
     uint32_t DATA_BYTE_23 : 8;
+    /// read-write - Data byte 1 of Rx/Tx frame.
     uint32_t DATA_BYTE_22 : 8;
+    /// read-write - Data byte 2 of Rx/Tx frame.
     uint32_t DATA_BYTE_21 : 8;
+    /// read-write - Data byte 3 of Rx/Tx frame.
     uint32_t DATA_BYTE_20 : 8;
   } bits;
   
@@ -26329,9 +32109,13 @@ union MB19_16B_WORD1_H {
   
   // Bit field definition.
   struct {
+    /// read-write - Data byte 0 of Rx/Tx frame.
     uint32_t DATA_BYTE_7 : 8;
+    /// read-write - Data byte 1 of Rx/Tx frame.
     uint32_t DATA_BYTE_6 : 8;
+    /// read-write - Data byte 2 of Rx/Tx frame.
     uint32_t DATA_BYTE_5 : 8;
+    /// read-write - Data byte 3 of Rx/Tx frame.
     uint32_t DATA_BYTE_4 : 8;
   } bits;
   
@@ -26349,8 +32133,11 @@ union MB61_8B_ID {
   
   // Bit field definition.
   struct {
+    /// read-write - Contains extended (LOW word) identifier of message buffer.
     uint32_t EXT : 18;
+    /// read-write - Contains standard/extended (HIGH word) identifier of message buffer.
     uint32_t STD : 11;
+    /// read-write - Local priority. This 3-bit fieldis only used when LPRIO_EN bit is set in MCR and it only makes sense for Tx buffers. These bits are not transmitted. They are appended to the regular ID to define the transmission priority.
     uint32_t PRIO : 3;
   } bits;
   
@@ -26368,9 +32155,13 @@ union MB6_64B_WORD7_H {
   
   // Bit field definition.
   struct {
+    /// read-write - Data byte 0 of Rx/Tx frame.
     uint32_t DATA_BYTE_31 : 8;
+    /// read-write - Data byte 1 of Rx/Tx frame.
     uint32_t DATA_BYTE_30 : 8;
+    /// read-write - Data byte 2 of Rx/Tx frame.
     uint32_t DATA_BYTE_29 : 8;
+    /// read-write - Data byte 3 of Rx/Tx frame.
     uint32_t DATA_BYTE_28 : 8;
   } bits;
   
@@ -26388,9 +32179,13 @@ union MB11_32B_WORD6_H {
   
   // Bit field definition.
   struct {
+    /// read-write - Data byte 0 of Rx/Tx frame.
     uint32_t DATA_BYTE_27 : 8;
+    /// read-write - Data byte 1 of Rx/Tx frame.
     uint32_t DATA_BYTE_26 : 8;
+    /// read-write - Data byte 2 of Rx/Tx frame.
     uint32_t DATA_BYTE_25 : 8;
+    /// read-write - Data byte 3 of Rx/Tx frame.
     uint32_t DATA_BYTE_24 : 8;
   } bits;
   
@@ -26408,9 +32203,13 @@ union MB19_16B_WORD2_H {
   
   // Bit field definition.
   struct {
+    /// read-write - Data byte 0 of Rx/Tx frame.
     uint32_t DATA_BYTE_11 : 8;
+    /// read-write - Data byte 1 of Rx/Tx frame.
     uint32_t DATA_BYTE_10 : 8;
+    /// read-write - Data byte 2 of Rx/Tx frame.
     uint32_t DATA_BYTE_9 : 8;
+    /// read-write - Data byte 3 of Rx/Tx frame.
     uint32_t DATA_BYTE_8 : 8;
   } bits;
   
@@ -26428,9 +32227,13 @@ union MB61_8B_WORD0 {
   
   // Bit field definition.
   struct {
+    /// read-write - Data byte 0 of Rx/Tx frame.
     uint32_t DATA_BYTE_3 : 8;
+    /// read-write - Data byte 1 of Rx/Tx frame.
     uint32_t DATA_BYTE_2 : 8;
+    /// read-write - Data byte 2 of Rx/Tx frame.
     uint32_t DATA_BYTE_1 : 8;
+    /// read-write - Data byte 3 of Rx/Tx frame.
     uint32_t DATA_BYTE_0 : 8;
   } bits;
   
@@ -26448,9 +32251,13 @@ union MB6_64B_WORD8_H {
   
   // Bit field definition.
   struct {
+    /// read-write - Data byte 0 of Rx/Tx frame.
     uint32_t DATA_BYTE_35 : 8;
+    /// read-write - Data byte 1 of Rx/Tx frame.
     uint32_t DATA_BYTE_34 : 8;
+    /// read-write - Data byte 2 of Rx/Tx frame.
     uint32_t DATA_BYTE_33 : 8;
+    /// read-write - Data byte 3 of Rx/Tx frame.
     uint32_t DATA_BYTE_32 : 8;
   } bits;
   
@@ -26468,9 +32275,13 @@ union WORD061 {
   
   // Bit field definition.
   struct {
+    /// read-write - Data byte 0 of Rx/Tx frame.
     uint32_t DATA_BYTE_3 : 8;
+    /// read-write - Data byte 1 of Rx/Tx frame.
     uint32_t DATA_BYTE_2 : 8;
+    /// read-write - Data byte 2 of Rx/Tx frame.
     uint32_t DATA_BYTE_1 : 8;
+    /// read-write - Data byte 3 of Rx/Tx frame.
     uint32_t DATA_BYTE_0 : 8;
   } bits;
   
@@ -26488,9 +32299,13 @@ union MB11_32B_WORD7_H {
   
   // Bit field definition.
   struct {
+    /// read-write - Data byte 0 of Rx/Tx frame.
     uint32_t DATA_BYTE_31 : 8;
+    /// read-write - Data byte 1 of Rx/Tx frame.
     uint32_t DATA_BYTE_30 : 8;
+    /// read-write - Data byte 2 of Rx/Tx frame.
     uint32_t DATA_BYTE_29 : 8;
+    /// read-write - Data byte 3 of Rx/Tx frame.
     uint32_t DATA_BYTE_28 : 8;
   } bits;
   
@@ -26508,9 +32323,13 @@ union MB19_16B_WORD3_H {
   
   // Bit field definition.
   struct {
+    /// read-write - Data byte 0 of Rx/Tx frame.
     uint32_t DATA_BYTE_15 : 8;
+    /// read-write - Data byte 1 of Rx/Tx frame.
     uint32_t DATA_BYTE_14 : 8;
+    /// read-write - Data byte 2 of Rx/Tx frame.
     uint32_t DATA_BYTE_13 : 8;
+    /// read-write - Data byte 3 of Rx/Tx frame.
     uint32_t DATA_BYTE_12 : 8;
   } bits;
   
@@ -26528,9 +32347,13 @@ union MB61_8B_WORD1 {
   
   // Bit field definition.
   struct {
+    /// read-write - Data byte 0 of Rx/Tx frame.
     uint32_t DATA_BYTE_7 : 8;
+    /// read-write - Data byte 1 of Rx/Tx frame.
     uint32_t DATA_BYTE_6 : 8;
+    /// read-write - Data byte 2 of Rx/Tx frame.
     uint32_t DATA_BYTE_5 : 8;
+    /// read-write - Data byte 3 of Rx/Tx frame.
     uint32_t DATA_BYTE_4 : 8;
   } bits;
   
@@ -26548,9 +32371,13 @@ union MB6_64B_WORD9_H {
   
   // Bit field definition.
   struct {
+    /// read-write - Data byte 0 of Rx/Tx frame.
     uint32_t DATA_BYTE_39 : 8;
+    /// read-write - Data byte 1 of Rx/Tx frame.
     uint32_t DATA_BYTE_38 : 8;
+    /// read-write - Data byte 2 of Rx/Tx frame.
     uint32_t DATA_BYTE_37 : 8;
+    /// read-write - Data byte 3 of Rx/Tx frame.
     uint32_t DATA_BYTE_36 : 8;
   } bits;
   
@@ -26568,9 +32395,13 @@ union WORD161 {
   
   // Bit field definition.
   struct {
+    /// read-write - Data byte 0 of Rx/Tx frame.
     uint32_t DATA_BYTE_7 : 8;
+    /// read-write - Data byte 1 of Rx/Tx frame.
     uint32_t DATA_BYTE_6 : 8;
+    /// read-write - Data byte 2 of Rx/Tx frame.
     uint32_t DATA_BYTE_5 : 8;
+    /// read-write - Data byte 3 of Rx/Tx frame.
     uint32_t DATA_BYTE_4 : 8;
   } bits;
   
@@ -26588,16 +32419,25 @@ union CS62 {
   
   // Bit field definition.
   struct {
+    /// read-write - Free-Running Counter Time stamp. This 16-bit field is a copy of the Free-Running Timer, captured for Tx and Rx frames at the time when the beginning of the Identifier field appears on the CAN bus.
     uint32_t TIME_STAMP : 16;
+    /// read-write - Length of the data to be stored/transmitted.
     uint32_t DLC : 4;
+    /// read-write - Remote Transmission Request. One/zero for remote/data frame.
     uint32_t RTR : 1;
+    /// read-write - ID Extended. One/zero for extended/standard format frame.
     uint32_t IDE : 1;
+    /// read-write - Substitute Remote Request. Contains a fixed recessive bit.
     uint32_t SRR : 1;
     uint32_t _reserved_0 : 1;
+    /// read-write - Message Buffer Code. This 4-bit field can be accessed (read or write) by the CPU and by the FlexCAN module itself, as part of the message buffer matching and arbitration process.
     uint32_t CODE : 4;
     uint32_t _reserved_1 : 1;
+    /// read-write - Error State Indicator. This bit indicates if the transmitting node is error active or error passive.
     uint32_t ESI : 1;
+    /// read-write - Bit Rate Switch. This bit defines whether the bit rate is switched inside a CAN FD format frame.
     uint32_t BRS : 1;
+    /// read-write - Extended Data Length. This bit distinguishes between CAN format and CAN FD format frames. The EDL bit must not be set for Message Buffers configured to RANSWER with code field 0b1010.
     uint32_t EDL : 1;
   } bits;
   
@@ -26615,16 +32455,25 @@ union MB20_16B_CS_H {
   
   // Bit field definition.
   struct {
+    /// read-write - Free-Running Counter Time stamp. This 16-bit field is a copy of the Free-Running Timer, captured for Tx and Rx frames at the time when the beginning of the Identifier field appears on the CAN bus.
     uint32_t TIME_STAMP : 16;
+    /// read-write - Length of the data to be stored/transmitted.
     uint32_t DLC : 4;
+    /// read-write - Remote Transmission Request. One/zero for remote/data frame.
     uint32_t RTR : 1;
+    /// read-write - ID Extended. One/zero for extended/standard format frame.
     uint32_t IDE : 1;
+    /// read-write - Substitute Remote Request. Contains a fixed recessive bit.
     uint32_t SRR : 1;
     uint32_t _reserved_0 : 1;
+    /// read-write - Message Buffer Code. This 4-bit field can be accessed (read or write) by the CPU and by the FlexCAN module itself, as part of the message buffer matching and arbitration process.
     uint32_t CODE : 4;
     uint32_t _reserved_1 : 1;
+    /// read-write - Error State Indicator. This bit indicates if the transmitting node is error active or error passive.
     uint32_t ESI : 1;
+    /// read-write - Bit Rate Switch. This bit defines whether the bit rate is switched inside a CAN FD format frame.
     uint32_t BRS : 1;
+    /// read-write - Extended Data Length. This bit distinguishes between CAN format and CAN FD format frames. The EDL bit must not be set for Message Buffers configured to RANSWER with code field 0b1010.
     uint32_t EDL : 1;
   } bits;
   
@@ -26642,16 +32491,25 @@ union MB62_8B_CS {
   
   // Bit field definition.
   struct {
+    /// read-write - Free-Running Counter Time stamp. This 16-bit field is a copy of the Free-Running Timer, captured for Tx and Rx frames at the time when the beginning of the Identifier field appears on the CAN bus.
     uint32_t TIME_STAMP : 16;
+    /// read-write - Length of the data to be stored/transmitted.
     uint32_t DLC : 4;
+    /// read-write - Remote Transmission Request. One/zero for remote/data frame.
     uint32_t RTR : 1;
+    /// read-write - ID Extended. One/zero for extended/standard format frame.
     uint32_t IDE : 1;
+    /// read-write - Substitute Remote Request. Contains a fixed recessive bit.
     uint32_t SRR : 1;
     uint32_t _reserved_0 : 1;
+    /// read-write - Message Buffer Code. This 4-bit field can be accessed (read or write) by the CPU and by the FlexCAN module itself, as part of the message buffer matching and arbitration process.
     uint32_t CODE : 4;
     uint32_t _reserved_1 : 1;
+    /// read-write - Error State Indicator. This bit indicates if the transmitting node is error active or error passive.
     uint32_t ESI : 1;
+    /// read-write - Bit Rate Switch. This bit defines whether the bit rate is switched inside a CAN FD format frame.
     uint32_t BRS : 1;
+    /// read-write - Extended Data Length. This bit distinguishes between CAN format and CAN FD format frames. The EDL bit must not be set for Message Buffers configured to RANSWER with code field 0b1010.
     uint32_t EDL : 1;
   } bits;
   
@@ -26669,9 +32527,13 @@ union MB6_64B_WORD10_H {
   
   // Bit field definition.
   struct {
+    /// read-write - Data byte 0 of Rx/Tx frame.
     uint32_t DATA_BYTE_43 : 8;
+    /// read-write - Data byte 1 of Rx/Tx frame.
     uint32_t DATA_BYTE_42 : 8;
+    /// read-write - Data byte 2 of Rx/Tx frame.
     uint32_t DATA_BYTE_41 : 8;
+    /// read-write - Data byte 3 of Rx/Tx frame.
     uint32_t DATA_BYTE_40 : 8;
   } bits;
   
@@ -26689,8 +32551,11 @@ union ID62 {
   
   // Bit field definition.
   struct {
+    /// read-write - Contains extended (LOW word) identifier of message buffer.
     uint32_t EXT : 18;
+    /// read-write - Contains standard/extended (HIGH word) identifier of message buffer.
     uint32_t STD : 11;
+    /// read-write - Local priority. This 3-bit fieldis only used when LPRIO_EN bit is set in MCR and it only makes sense for Tx buffers. These bits are not transmitted. They are appended to the regular ID to define the transmission priority.
     uint32_t PRIO : 3;
   } bits;
   
@@ -26708,8 +32573,11 @@ union MB20_16B_ID_H {
   
   // Bit field definition.
   struct {
+    /// read-write - Contains extended (LOW word) identifier of message buffer.
     uint32_t EXT : 18;
+    /// read-write - Contains standard/extended (HIGH word) identifier of message buffer.
     uint32_t STD : 11;
+    /// read-write - Local priority. This 3-bit fieldis only used when LPRIO_EN bit is set in MCR and it only makes sense for Tx buffers. These bits are not transmitted. They are appended to the regular ID to define the transmission priority.
     uint32_t PRIO : 3;
   } bits;
   
@@ -26727,8 +32595,11 @@ union MB62_8B_ID {
   
   // Bit field definition.
   struct {
+    /// read-write - Contains extended (LOW word) identifier of message buffer.
     uint32_t EXT : 18;
+    /// read-write - Contains standard/extended (HIGH word) identifier of message buffer.
     uint32_t STD : 11;
+    /// read-write - Local priority. This 3-bit fieldis only used when LPRIO_EN bit is set in MCR and it only makes sense for Tx buffers. These bits are not transmitted. They are appended to the regular ID to define the transmission priority.
     uint32_t PRIO : 3;
   } bits;
   
@@ -26746,9 +32617,13 @@ union MB6_64B_WORD11_H {
   
   // Bit field definition.
   struct {
+    /// read-write - Data byte 0 of Rx/Tx frame.
     uint32_t DATA_BYTE_47 : 8;
+    /// read-write - Data byte 1 of Rx/Tx frame.
     uint32_t DATA_BYTE_46 : 8;
+    /// read-write - Data byte 2 of Rx/Tx frame.
     uint32_t DATA_BYTE_45 : 8;
+    /// read-write - Data byte 3 of Rx/Tx frame.
     uint32_t DATA_BYTE_44 : 8;
   } bits;
   
@@ -26766,9 +32641,13 @@ union MB20_16B_WORD0_H {
   
   // Bit field definition.
   struct {
+    /// read-write - Data byte 0 of Rx/Tx frame.
     uint32_t DATA_BYTE_3 : 8;
+    /// read-write - Data byte 1 of Rx/Tx frame.
     uint32_t DATA_BYTE_2 : 8;
+    /// read-write - Data byte 2 of Rx/Tx frame.
     uint32_t DATA_BYTE_1 : 8;
+    /// read-write - Data byte 3 of Rx/Tx frame.
     uint32_t DATA_BYTE_0 : 8;
   } bits;
   
@@ -26786,9 +32665,13 @@ union MB62_8B_WORD0 {
   
   // Bit field definition.
   struct {
+    /// read-write - Data byte 0 of Rx/Tx frame.
     uint32_t DATA_BYTE_3 : 8;
+    /// read-write - Data byte 1 of Rx/Tx frame.
     uint32_t DATA_BYTE_2 : 8;
+    /// read-write - Data byte 2 of Rx/Tx frame.
     uint32_t DATA_BYTE_1 : 8;
+    /// read-write - Data byte 3 of Rx/Tx frame.
     uint32_t DATA_BYTE_0 : 8;
   } bits;
   
@@ -26806,9 +32689,13 @@ union MB6_64B_WORD12_H {
   
   // Bit field definition.
   struct {
+    /// read-write - Data byte 0 of Rx/Tx frame.
     uint32_t DATA_BYTE_51 : 8;
+    /// read-write - Data byte 1 of Rx/Tx frame.
     uint32_t DATA_BYTE_50 : 8;
+    /// read-write - Data byte 2 of Rx/Tx frame.
     uint32_t DATA_BYTE_49 : 8;
+    /// read-write - Data byte 3 of Rx/Tx frame.
     uint32_t DATA_BYTE_48 : 8;
   } bits;
   
@@ -26826,9 +32713,13 @@ union WORD062 {
   
   // Bit field definition.
   struct {
+    /// read-write - Data byte 0 of Rx/Tx frame.
     uint32_t DATA_BYTE_3 : 8;
+    /// read-write - Data byte 1 of Rx/Tx frame.
     uint32_t DATA_BYTE_2 : 8;
+    /// read-write - Data byte 2 of Rx/Tx frame.
     uint32_t DATA_BYTE_1 : 8;
+    /// read-write - Data byte 3 of Rx/Tx frame.
     uint32_t DATA_BYTE_0 : 8;
   } bits;
   
@@ -26846,9 +32737,13 @@ union MB20_16B_WORD1_H {
   
   // Bit field definition.
   struct {
+    /// read-write - Data byte 0 of Rx/Tx frame.
     uint32_t DATA_BYTE_7 : 8;
+    /// read-write - Data byte 1 of Rx/Tx frame.
     uint32_t DATA_BYTE_6 : 8;
+    /// read-write - Data byte 2 of Rx/Tx frame.
     uint32_t DATA_BYTE_5 : 8;
+    /// read-write - Data byte 3 of Rx/Tx frame.
     uint32_t DATA_BYTE_4 : 8;
   } bits;
   
@@ -26866,9 +32761,13 @@ union MB62_8B_WORD1 {
   
   // Bit field definition.
   struct {
+    /// read-write - Data byte 0 of Rx/Tx frame.
     uint32_t DATA_BYTE_7 : 8;
+    /// read-write - Data byte 1 of Rx/Tx frame.
     uint32_t DATA_BYTE_6 : 8;
+    /// read-write - Data byte 2 of Rx/Tx frame.
     uint32_t DATA_BYTE_5 : 8;
+    /// read-write - Data byte 3 of Rx/Tx frame.
     uint32_t DATA_BYTE_4 : 8;
   } bits;
   
@@ -26886,9 +32785,13 @@ union MB6_64B_WORD13_H {
   
   // Bit field definition.
   struct {
+    /// read-write - Data byte 0 of Rx/Tx frame.
     uint32_t DATA_BYTE_55 : 8;
+    /// read-write - Data byte 1 of Rx/Tx frame.
     uint32_t DATA_BYTE_54 : 8;
+    /// read-write - Data byte 2 of Rx/Tx frame.
     uint32_t DATA_BYTE_53 : 8;
+    /// read-write - Data byte 3 of Rx/Tx frame.
     uint32_t DATA_BYTE_52 : 8;
   } bits;
   
@@ -26906,9 +32809,13 @@ union WORD162 {
   
   // Bit field definition.
   struct {
+    /// read-write - Data byte 0 of Rx/Tx frame.
     uint32_t DATA_BYTE_7 : 8;
+    /// read-write - Data byte 1 of Rx/Tx frame.
     uint32_t DATA_BYTE_6 : 8;
+    /// read-write - Data byte 2 of Rx/Tx frame.
     uint32_t DATA_BYTE_5 : 8;
+    /// read-write - Data byte 3 of Rx/Tx frame.
     uint32_t DATA_BYTE_4 : 8;
   } bits;
   
@@ -26926,16 +32833,25 @@ union CS63 {
   
   // Bit field definition.
   struct {
+    /// read-write - Free-Running Counter Time stamp. This 16-bit field is a copy of the Free-Running Timer, captured for Tx and Rx frames at the time when the beginning of the Identifier field appears on the CAN bus.
     uint32_t TIME_STAMP : 16;
+    /// read-write - Length of the data to be stored/transmitted.
     uint32_t DLC : 4;
+    /// read-write - Remote Transmission Request. One/zero for remote/data frame.
     uint32_t RTR : 1;
+    /// read-write - ID Extended. One/zero for extended/standard format frame.
     uint32_t IDE : 1;
+    /// read-write - Substitute Remote Request. Contains a fixed recessive bit.
     uint32_t SRR : 1;
     uint32_t _reserved_0 : 1;
+    /// read-write - Message Buffer Code. This 4-bit field can be accessed (read or write) by the CPU and by the FlexCAN module itself, as part of the message buffer matching and arbitration process.
     uint32_t CODE : 4;
     uint32_t _reserved_1 : 1;
+    /// read-write - Error State Indicator. This bit indicates if the transmitting node is error active or error passive.
     uint32_t ESI : 1;
+    /// read-write - Bit Rate Switch. This bit defines whether the bit rate is switched inside a CAN FD format frame.
     uint32_t BRS : 1;
+    /// read-write - Extended Data Length. This bit distinguishes between CAN format and CAN FD format frames. The EDL bit must not be set for Message Buffers configured to RANSWER with code field 0b1010.
     uint32_t EDL : 1;
   } bits;
   
@@ -26953,9 +32869,13 @@ union MB20_16B_WORD2_H {
   
   // Bit field definition.
   struct {
+    /// read-write - Data byte 0 of Rx/Tx frame.
     uint32_t DATA_BYTE_11 : 8;
+    /// read-write - Data byte 1 of Rx/Tx frame.
     uint32_t DATA_BYTE_10 : 8;
+    /// read-write - Data byte 2 of Rx/Tx frame.
     uint32_t DATA_BYTE_9 : 8;
+    /// read-write - Data byte 3 of Rx/Tx frame.
     uint32_t DATA_BYTE_8 : 8;
   } bits;
   
@@ -26973,16 +32893,25 @@ union MB63_8B_CS {
   
   // Bit field definition.
   struct {
+    /// read-write - Free-Running Counter Time stamp. This 16-bit field is a copy of the Free-Running Timer, captured for Tx and Rx frames at the time when the beginning of the Identifier field appears on the CAN bus.
     uint32_t TIME_STAMP : 16;
+    /// read-write - Length of the data to be stored/transmitted.
     uint32_t DLC : 4;
+    /// read-write - Remote Transmission Request. One/zero for remote/data frame.
     uint32_t RTR : 1;
+    /// read-write - ID Extended. One/zero for extended/standard format frame.
     uint32_t IDE : 1;
+    /// read-write - Substitute Remote Request. Contains a fixed recessive bit.
     uint32_t SRR : 1;
     uint32_t _reserved_0 : 1;
+    /// read-write - Message Buffer Code. This 4-bit field can be accessed (read or write) by the CPU and by the FlexCAN module itself, as part of the message buffer matching and arbitration process.
     uint32_t CODE : 4;
     uint32_t _reserved_1 : 1;
+    /// read-write - Error State Indicator. This bit indicates if the transmitting node is error active or error passive.
     uint32_t ESI : 1;
+    /// read-write - Bit Rate Switch. This bit defines whether the bit rate is switched inside a CAN FD format frame.
     uint32_t BRS : 1;
+    /// read-write - Extended Data Length. This bit distinguishes between CAN format and CAN FD format frames. The EDL bit must not be set for Message Buffers configured to RANSWER with code field 0b1010.
     uint32_t EDL : 1;
   } bits;
   
@@ -27000,9 +32929,13 @@ union MB6_64B_WORD14_H {
   
   // Bit field definition.
   struct {
+    /// read-write - Data byte 0 of Rx/Tx frame.
     uint32_t DATA_BYTE_59 : 8;
+    /// read-write - Data byte 1 of Rx/Tx frame.
     uint32_t DATA_BYTE_58 : 8;
+    /// read-write - Data byte 2 of Rx/Tx frame.
     uint32_t DATA_BYTE_57 : 8;
+    /// read-write - Data byte 3 of Rx/Tx frame.
     uint32_t DATA_BYTE_56 : 8;
   } bits;
   
@@ -27020,8 +32953,11 @@ union ID63 {
   
   // Bit field definition.
   struct {
+    /// read-write - Contains extended (LOW word) identifier of message buffer.
     uint32_t EXT : 18;
+    /// read-write - Contains standard/extended (HIGH word) identifier of message buffer.
     uint32_t STD : 11;
+    /// read-write - Local priority. This 3-bit fieldis only used when LPRIO_EN bit is set in MCR and it only makes sense for Tx buffers. These bits are not transmitted. They are appended to the regular ID to define the transmission priority.
     uint32_t PRIO : 3;
   } bits;
   
@@ -27039,9 +32975,13 @@ union MB20_16B_WORD3_H {
   
   // Bit field definition.
   struct {
+    /// read-write - Data byte 0 of Rx/Tx frame.
     uint32_t DATA_BYTE_15 : 8;
+    /// read-write - Data byte 1 of Rx/Tx frame.
     uint32_t DATA_BYTE_14 : 8;
+    /// read-write - Data byte 2 of Rx/Tx frame.
     uint32_t DATA_BYTE_13 : 8;
+    /// read-write - Data byte 3 of Rx/Tx frame.
     uint32_t DATA_BYTE_12 : 8;
   } bits;
   
@@ -27059,8 +32999,11 @@ union MB63_8B_ID {
   
   // Bit field definition.
   struct {
+    /// read-write - Contains extended (LOW word) identifier of message buffer.
     uint32_t EXT : 18;
+    /// read-write - Contains standard/extended (HIGH word) identifier of message buffer.
     uint32_t STD : 11;
+    /// read-write - Local priority. This 3-bit fieldis only used when LPRIO_EN bit is set in MCR and it only makes sense for Tx buffers. These bits are not transmitted. They are appended to the regular ID to define the transmission priority.
     uint32_t PRIO : 3;
   } bits;
   
@@ -27078,9 +33021,13 @@ union MB6_64B_WORD15_H {
   
   // Bit field definition.
   struct {
+    /// read-write - Data byte 0 of Rx/Tx frame.
     uint32_t DATA_BYTE_63 : 8;
+    /// read-write - Data byte 1 of Rx/Tx frame.
     uint32_t DATA_BYTE_62 : 8;
+    /// read-write - Data byte 2 of Rx/Tx frame.
     uint32_t DATA_BYTE_61 : 8;
+    /// read-write - Data byte 3 of Rx/Tx frame.
     uint32_t DATA_BYTE_60 : 8;
   } bits;
   
@@ -27098,9 +33045,13 @@ union MB63_8B_WORD0 {
   
   // Bit field definition.
   struct {
+    /// read-write - Data byte 0 of Rx/Tx frame.
     uint32_t DATA_BYTE_3 : 8;
+    /// read-write - Data byte 1 of Rx/Tx frame.
     uint32_t DATA_BYTE_2 : 8;
+    /// read-write - Data byte 2 of Rx/Tx frame.
     uint32_t DATA_BYTE_1 : 8;
+    /// read-write - Data byte 3 of Rx/Tx frame.
     uint32_t DATA_BYTE_0 : 8;
   } bits;
   
@@ -27118,9 +33069,13 @@ union WORD063 {
   
   // Bit field definition.
   struct {
+    /// read-write - Data byte 0 of Rx/Tx frame.
     uint32_t DATA_BYTE_3 : 8;
+    /// read-write - Data byte 1 of Rx/Tx frame.
     uint32_t DATA_BYTE_2 : 8;
+    /// read-write - Data byte 2 of Rx/Tx frame.
     uint32_t DATA_BYTE_1 : 8;
+    /// read-write - Data byte 3 of Rx/Tx frame.
     uint32_t DATA_BYTE_0 : 8;
   } bits;
   
@@ -27138,9 +33093,13 @@ union MB63_8B_WORD1 {
   
   // Bit field definition.
   struct {
+    /// read-write - Data byte 0 of Rx/Tx frame.
     uint32_t DATA_BYTE_7 : 8;
+    /// read-write - Data byte 1 of Rx/Tx frame.
     uint32_t DATA_BYTE_6 : 8;
+    /// read-write - Data byte 2 of Rx/Tx frame.
     uint32_t DATA_BYTE_5 : 8;
+    /// read-write - Data byte 3 of Rx/Tx frame.
     uint32_t DATA_BYTE_4 : 8;
   } bits;
   
@@ -27158,9 +33117,13 @@ union WORD163 {
   
   // Bit field definition.
   struct {
+    /// read-write - Data byte 0 of Rx/Tx frame.
     uint32_t DATA_BYTE_7 : 8;
+    /// read-write - Data byte 1 of Rx/Tx frame.
     uint32_t DATA_BYTE_6 : 8;
+    /// read-write - Data byte 2 of Rx/Tx frame.
     uint32_t DATA_BYTE_5 : 8;
+    /// read-write - Data byte 3 of Rx/Tx frame.
     uint32_t DATA_BYTE_4 : 8;
   } bits;
   
@@ -27178,6 +33141,7 @@ union RXIMR[0] {
   
   // Bit field definition.
   struct {
+    /// read-write - Individual Mask Bits
     uint32_t MI : 32;
   } bits;
   
@@ -27194,6 +33158,7 @@ union RXIMR[1] {
   
   // Bit field definition.
   struct {
+    /// read-write - Individual Mask Bits
     uint32_t MI : 32;
   } bits;
   
@@ -27210,6 +33175,7 @@ union RXIMR[2] {
   
   // Bit field definition.
   struct {
+    /// read-write - Individual Mask Bits
     uint32_t MI : 32;
   } bits;
   
@@ -27226,6 +33192,7 @@ union RXIMR[3] {
   
   // Bit field definition.
   struct {
+    /// read-write - Individual Mask Bits
     uint32_t MI : 32;
   } bits;
   
@@ -27242,6 +33209,7 @@ union RXIMR[4] {
   
   // Bit field definition.
   struct {
+    /// read-write - Individual Mask Bits
     uint32_t MI : 32;
   } bits;
   
@@ -27258,6 +33226,7 @@ union RXIMR[5] {
   
   // Bit field definition.
   struct {
+    /// read-write - Individual Mask Bits
     uint32_t MI : 32;
   } bits;
   
@@ -27274,6 +33243,7 @@ union RXIMR[6] {
   
   // Bit field definition.
   struct {
+    /// read-write - Individual Mask Bits
     uint32_t MI : 32;
   } bits;
   
@@ -27290,6 +33260,7 @@ union RXIMR[7] {
   
   // Bit field definition.
   struct {
+    /// read-write - Individual Mask Bits
     uint32_t MI : 32;
   } bits;
   
@@ -27306,6 +33277,7 @@ union RXIMR[8] {
   
   // Bit field definition.
   struct {
+    /// read-write - Individual Mask Bits
     uint32_t MI : 32;
   } bits;
   
@@ -27322,6 +33294,7 @@ union RXIMR[9] {
   
   // Bit field definition.
   struct {
+    /// read-write - Individual Mask Bits
     uint32_t MI : 32;
   } bits;
   
@@ -27338,6 +33311,7 @@ union RXIMR[10] {
   
   // Bit field definition.
   struct {
+    /// read-write - Individual Mask Bits
     uint32_t MI : 32;
   } bits;
   
@@ -27354,6 +33328,7 @@ union RXIMR[11] {
   
   // Bit field definition.
   struct {
+    /// read-write - Individual Mask Bits
     uint32_t MI : 32;
   } bits;
   
@@ -27370,6 +33345,7 @@ union RXIMR[12] {
   
   // Bit field definition.
   struct {
+    /// read-write - Individual Mask Bits
     uint32_t MI : 32;
   } bits;
   
@@ -27386,6 +33362,7 @@ union RXIMR[13] {
   
   // Bit field definition.
   struct {
+    /// read-write - Individual Mask Bits
     uint32_t MI : 32;
   } bits;
   
@@ -27402,6 +33379,7 @@ union RXIMR[14] {
   
   // Bit field definition.
   struct {
+    /// read-write - Individual Mask Bits
     uint32_t MI : 32;
   } bits;
   
@@ -27418,6 +33396,7 @@ union RXIMR[15] {
   
   // Bit field definition.
   struct {
+    /// read-write - Individual Mask Bits
     uint32_t MI : 32;
   } bits;
   
@@ -27434,6 +33413,7 @@ union RXIMR[16] {
   
   // Bit field definition.
   struct {
+    /// read-write - Individual Mask Bits
     uint32_t MI : 32;
   } bits;
   
@@ -27450,6 +33430,7 @@ union RXIMR[17] {
   
   // Bit field definition.
   struct {
+    /// read-write - Individual Mask Bits
     uint32_t MI : 32;
   } bits;
   
@@ -27466,6 +33447,7 @@ union RXIMR[18] {
   
   // Bit field definition.
   struct {
+    /// read-write - Individual Mask Bits
     uint32_t MI : 32;
   } bits;
   
@@ -27482,6 +33464,7 @@ union RXIMR[19] {
   
   // Bit field definition.
   struct {
+    /// read-write - Individual Mask Bits
     uint32_t MI : 32;
   } bits;
   
@@ -27498,6 +33481,7 @@ union RXIMR[20] {
   
   // Bit field definition.
   struct {
+    /// read-write - Individual Mask Bits
     uint32_t MI : 32;
   } bits;
   
@@ -27514,6 +33498,7 @@ union RXIMR[21] {
   
   // Bit field definition.
   struct {
+    /// read-write - Individual Mask Bits
     uint32_t MI : 32;
   } bits;
   
@@ -27530,6 +33515,7 @@ union RXIMR[22] {
   
   // Bit field definition.
   struct {
+    /// read-write - Individual Mask Bits
     uint32_t MI : 32;
   } bits;
   
@@ -27546,6 +33532,7 @@ union RXIMR[23] {
   
   // Bit field definition.
   struct {
+    /// read-write - Individual Mask Bits
     uint32_t MI : 32;
   } bits;
   
@@ -27562,6 +33549,7 @@ union RXIMR[24] {
   
   // Bit field definition.
   struct {
+    /// read-write - Individual Mask Bits
     uint32_t MI : 32;
   } bits;
   
@@ -27578,6 +33566,7 @@ union RXIMR[25] {
   
   // Bit field definition.
   struct {
+    /// read-write - Individual Mask Bits
     uint32_t MI : 32;
   } bits;
   
@@ -27594,6 +33583,7 @@ union RXIMR[26] {
   
   // Bit field definition.
   struct {
+    /// read-write - Individual Mask Bits
     uint32_t MI : 32;
   } bits;
   
@@ -27610,6 +33600,7 @@ union RXIMR[27] {
   
   // Bit field definition.
   struct {
+    /// read-write - Individual Mask Bits
     uint32_t MI : 32;
   } bits;
   
@@ -27626,6 +33617,7 @@ union RXIMR[28] {
   
   // Bit field definition.
   struct {
+    /// read-write - Individual Mask Bits
     uint32_t MI : 32;
   } bits;
   
@@ -27642,6 +33634,7 @@ union RXIMR[29] {
   
   // Bit field definition.
   struct {
+    /// read-write - Individual Mask Bits
     uint32_t MI : 32;
   } bits;
   
@@ -27658,6 +33651,7 @@ union RXIMR[30] {
   
   // Bit field definition.
   struct {
+    /// read-write - Individual Mask Bits
     uint32_t MI : 32;
   } bits;
   
@@ -27674,6 +33668,7 @@ union RXIMR[31] {
   
   // Bit field definition.
   struct {
+    /// read-write - Individual Mask Bits
     uint32_t MI : 32;
   } bits;
   
@@ -27690,6 +33685,7 @@ union RXIMR[32] {
   
   // Bit field definition.
   struct {
+    /// read-write - Individual Mask Bits
     uint32_t MI : 32;
   } bits;
   
@@ -27706,6 +33702,7 @@ union RXIMR[33] {
   
   // Bit field definition.
   struct {
+    /// read-write - Individual Mask Bits
     uint32_t MI : 32;
   } bits;
   
@@ -27722,6 +33719,7 @@ union RXIMR[34] {
   
   // Bit field definition.
   struct {
+    /// read-write - Individual Mask Bits
     uint32_t MI : 32;
   } bits;
   
@@ -27738,6 +33736,7 @@ union RXIMR[35] {
   
   // Bit field definition.
   struct {
+    /// read-write - Individual Mask Bits
     uint32_t MI : 32;
   } bits;
   
@@ -27754,6 +33753,7 @@ union RXIMR[36] {
   
   // Bit field definition.
   struct {
+    /// read-write - Individual Mask Bits
     uint32_t MI : 32;
   } bits;
   
@@ -27770,6 +33770,7 @@ union RXIMR[37] {
   
   // Bit field definition.
   struct {
+    /// read-write - Individual Mask Bits
     uint32_t MI : 32;
   } bits;
   
@@ -27786,6 +33787,7 @@ union RXIMR[38] {
   
   // Bit field definition.
   struct {
+    /// read-write - Individual Mask Bits
     uint32_t MI : 32;
   } bits;
   
@@ -27802,6 +33804,7 @@ union RXIMR[39] {
   
   // Bit field definition.
   struct {
+    /// read-write - Individual Mask Bits
     uint32_t MI : 32;
   } bits;
   
@@ -27818,6 +33821,7 @@ union RXIMR[40] {
   
   // Bit field definition.
   struct {
+    /// read-write - Individual Mask Bits
     uint32_t MI : 32;
   } bits;
   
@@ -27834,6 +33838,7 @@ union RXIMR[41] {
   
   // Bit field definition.
   struct {
+    /// read-write - Individual Mask Bits
     uint32_t MI : 32;
   } bits;
   
@@ -27850,6 +33855,7 @@ union RXIMR[42] {
   
   // Bit field definition.
   struct {
+    /// read-write - Individual Mask Bits
     uint32_t MI : 32;
   } bits;
   
@@ -27866,6 +33872,7 @@ union RXIMR[43] {
   
   // Bit field definition.
   struct {
+    /// read-write - Individual Mask Bits
     uint32_t MI : 32;
   } bits;
   
@@ -27882,6 +33889,7 @@ union RXIMR[44] {
   
   // Bit field definition.
   struct {
+    /// read-write - Individual Mask Bits
     uint32_t MI : 32;
   } bits;
   
@@ -27898,6 +33906,7 @@ union RXIMR[45] {
   
   // Bit field definition.
   struct {
+    /// read-write - Individual Mask Bits
     uint32_t MI : 32;
   } bits;
   
@@ -27914,6 +33923,7 @@ union RXIMR[46] {
   
   // Bit field definition.
   struct {
+    /// read-write - Individual Mask Bits
     uint32_t MI : 32;
   } bits;
   
@@ -27930,6 +33940,7 @@ union RXIMR[47] {
   
   // Bit field definition.
   struct {
+    /// read-write - Individual Mask Bits
     uint32_t MI : 32;
   } bits;
   
@@ -27946,6 +33957,7 @@ union RXIMR[48] {
   
   // Bit field definition.
   struct {
+    /// read-write - Individual Mask Bits
     uint32_t MI : 32;
   } bits;
   
@@ -27962,6 +33974,7 @@ union RXIMR[49] {
   
   // Bit field definition.
   struct {
+    /// read-write - Individual Mask Bits
     uint32_t MI : 32;
   } bits;
   
@@ -27978,6 +33991,7 @@ union RXIMR[50] {
   
   // Bit field definition.
   struct {
+    /// read-write - Individual Mask Bits
     uint32_t MI : 32;
   } bits;
   
@@ -27994,6 +34008,7 @@ union RXIMR[51] {
   
   // Bit field definition.
   struct {
+    /// read-write - Individual Mask Bits
     uint32_t MI : 32;
   } bits;
   
@@ -28010,6 +34025,7 @@ union RXIMR[52] {
   
   // Bit field definition.
   struct {
+    /// read-write - Individual Mask Bits
     uint32_t MI : 32;
   } bits;
   
@@ -28026,6 +34042,7 @@ union RXIMR[53] {
   
   // Bit field definition.
   struct {
+    /// read-write - Individual Mask Bits
     uint32_t MI : 32;
   } bits;
   
@@ -28042,6 +34059,7 @@ union RXIMR[54] {
   
   // Bit field definition.
   struct {
+    /// read-write - Individual Mask Bits
     uint32_t MI : 32;
   } bits;
   
@@ -28058,6 +34076,7 @@ union RXIMR[55] {
   
   // Bit field definition.
   struct {
+    /// read-write - Individual Mask Bits
     uint32_t MI : 32;
   } bits;
   
@@ -28074,6 +34093,7 @@ union RXIMR[56] {
   
   // Bit field definition.
   struct {
+    /// read-write - Individual Mask Bits
     uint32_t MI : 32;
   } bits;
   
@@ -28090,6 +34110,7 @@ union RXIMR[57] {
   
   // Bit field definition.
   struct {
+    /// read-write - Individual Mask Bits
     uint32_t MI : 32;
   } bits;
   
@@ -28106,6 +34127,7 @@ union RXIMR[58] {
   
   // Bit field definition.
   struct {
+    /// read-write - Individual Mask Bits
     uint32_t MI : 32;
   } bits;
   
@@ -28122,6 +34144,7 @@ union RXIMR[59] {
   
   // Bit field definition.
   struct {
+    /// read-write - Individual Mask Bits
     uint32_t MI : 32;
   } bits;
   
@@ -28138,6 +34161,7 @@ union RXIMR[60] {
   
   // Bit field definition.
   struct {
+    /// read-write - Individual Mask Bits
     uint32_t MI : 32;
   } bits;
   
@@ -28154,6 +34178,7 @@ union RXIMR[61] {
   
   // Bit field definition.
   struct {
+    /// read-write - Individual Mask Bits
     uint32_t MI : 32;
   } bits;
   
@@ -28170,6 +34195,7 @@ union RXIMR[62] {
   
   // Bit field definition.
   struct {
+    /// read-write - Individual Mask Bits
     uint32_t MI : 32;
   } bits;
   
@@ -28186,6 +34212,7 @@ union RXIMR[63] {
   
   // Bit field definition.
   struct {
+    /// read-write - Individual Mask Bits
     uint32_t MI : 32;
   } bits;
   
@@ -28254,18 +34281,28 @@ union MECR {
   // Bit field definition.
   struct {
     uint32_t _reserved_0 : 7;
+    /// read-write - Non-Correctable Errors In FlexCAN Access Put Device In Freeze Mode
     eNCEFAFRZ NCEFAFRZ : 1;
+    /// read-write - Error Correction Disable
     eECCDIS ECCDIS : 1;
+    /// read-write - Error Report Disable
     eRERRDIS RERRDIS : 1;
     uint32_t _reserved_1 : 3;
+    /// read-write - Extended Error Injection Enable
     eEXTERRIE EXTERRIE : 1;
+    /// read-write - FlexCAN Access Error Injection Enable
     eFAERRIE FAERRIE : 1;
+    /// read-write - Host Access Error Injection Enable
     eHAERRIE HAERRIE : 1;
+    /// read-write - Correctable Errors Interrupt Mask
     eCEI_MSK CEI_MSK : 1;
     uint32_t _reserved_2 : 1;
+    /// read-write - FlexCAN Access With Non-Correctable Errors Interrupt Mask
     eFANCEI_MSK FANCEI_MSK : 1;
+    /// read-write - Host Access With Non-Correctable Errors Interrupt Mask
     eHANCEI_MSK HANCEI_MSK : 1;
     uint32_t _reserved_3 : 11;
+    /// read-write - Error Configuration Register Write Disable
     eECRWRDIS ECRWRDIS : 1;
   } bits;
   
@@ -28283,7 +34320,9 @@ union ERRIAR {
   
   // Bit field definition.
   struct {
+    /// read-only - Error Injection Address Low
     uint32_t INJADDR_L : 2;
+    /// read-write - Error Injection Address High
     uint32_t INJADDR_H : 12;
     uint32_t _reserved_0 : 18;
   } bits;
@@ -28302,6 +34341,7 @@ union ERRIDPR {
   
   // Bit field definition.
   struct {
+    /// read-write - Data flip pattern
     uint32_t DFLIP : 32;
   } bits;
   
@@ -28319,12 +34359,16 @@ union ERRIPPR {
   
   // Bit field definition.
   struct {
+    /// read-write - Parity Flip Pattern For Byte 0 (Least Significant)
     uint32_t PFLIP0 : 5;
     uint32_t _reserved_0 : 3;
+    /// read-write - Parity Flip Pattern For Byte 1
     uint32_t PFLIP1 : 5;
     uint32_t _reserved_1 : 3;
+    /// read-write - Parity Flip Pattern For Byte 2
     uint32_t PFLIP2 : 5;
     uint32_t _reserved_2 : 3;
+    /// read-write - Parity Flip Pattern For Byte 3 (most significant)
     uint32_t PFLIP3 : 5;
     uint32_t _reserved_3 : 3;
   } bits;
@@ -28348,10 +34392,13 @@ union RERRAR {
   
   // Bit field definition.
   struct {
+    /// read-only - Address Where Error Detected
     uint32_t ERRADDR : 14;
     uint32_t _reserved_0 : 2;
+    /// read-only - SAID
     uint32_t SAID : 3;
     uint32_t _reserved_1 : 5;
+    /// read-only - Non-Correctable Error
     eNCE NCE : 1;
     uint32_t _reserved_2 : 7;
   } bits;
@@ -28370,6 +34417,7 @@ union RERRDR {
   
   // Bit field definition.
   struct {
+    /// read-only - Raw data word read from memory with error
     uint32_t RDATA : 32;
   } bits;
   
@@ -28407,17 +34455,25 @@ union RERRSYNR {
   
   // Bit field definition.
   struct {
+    /// read-only - Error Syndrome For Byte 0 (least significant)
     uint32_t SYND0 : 5;
     uint32_t _reserved_0 : 2;
+    /// read-only - Byte Enabled For Byte 0 (least significant)
     eBE0 BE0 : 1;
+    /// read-only - Error Syndrome for Byte 1
     uint32_t SYND1 : 5;
     uint32_t _reserved_1 : 2;
+    /// read-only - Byte Enabled For Byte 1
     eBE1 BE1 : 1;
+    /// read-only - Error Syndrome For Byte 2
     uint32_t SYND2 : 5;
     uint32_t _reserved_2 : 2;
+    /// read-only - Byte Enabled For Byte 2
     eBE2 BE2 : 1;
+    /// read-only - Error Syndrome For Byte 3 (most significant)
     uint32_t SYND3 : 5;
     uint32_t _reserved_3 : 2;
+    /// read-only - Byte Enabled For Byte 3 (most significant)
     eBE3 BE3 : 1;
   } bits;
   
@@ -28465,14 +34521,20 @@ union ERRSR {
   
   // Bit field definition.
   struct {
+    /// read-write - Correctable Error Interrupt Overrun Flag
     eCEIOF CEIOF : 1;
     uint32_t _reserved_0 : 1;
+    /// read-write - FlexCAN Access With Non-Correctable Error Interrupt Overrun Flag
     eFANCEIOF FANCEIOF : 1;
+    /// read-write - Host Access With Non-Correctable Error Interrupt Overrun Flag
     eHANCEIOF HANCEIOF : 1;
     uint32_t _reserved_1 : 12;
+    /// read-write - Correctable Error Interrupt Flag
     eCEIF CEIF : 1;
     uint32_t _reserved_2 : 1;
+    /// read-write - FlexCAN Access With Non-Correctable Error Interrupt Flag
     eFANCEIF FANCEIF : 1;
+    /// read-write - Host Access With Non-Correctable Error Interrupt Flag
     eHANCEIF HANCEIF : 1;
     uint32_t _reserved_3 : 12;
   } bits;
@@ -28520,16 +34582,23 @@ union FDCTRL {
   
   // Bit field definition.
   struct {
+    /// read-only - Transceiver Delay Compensation Value
     uint32_t TDCVAL : 6;
     uint32_t _reserved_0 : 2;
+    /// read-write - Transceiver Delay Compensation Offset
     uint32_t TDCOFF : 5;
     uint32_t _reserved_1 : 1;
+    /// read-write - Transceiver Delay Compensation Fail
     eTDCFAIL TDCFAIL : 1;
+    /// read-write - Transceiver Delay Compensation Enable
     eTDCEN TDCEN : 1;
+    /// read-write - Message Buffer Data Size for Region 0
     eMBDSR0 MBDSR0 : 2;
     uint32_t _reserved_2 : 1;
+    /// read-write - Message Buffer Data Size for Region 1
     eMBDSR1 MBDSR1 : 2;
     uint32_t _reserved_3 : 10;
+    /// read-write - Bit Rate Switch Enable
     eFDRATE FDRATE : 1;
   } bits;
   
@@ -28547,14 +34616,19 @@ union FDCBT {
   
   // Bit field definition.
   struct {
+    /// read-write - Fast Phase Segment 2
     uint32_t FPSEG2 : 3;
     uint32_t _reserved_0 : 2;
+    /// read-write - Fast Phase Segment 1
     uint32_t FPSEG1 : 3;
     uint32_t _reserved_1 : 2;
+    /// read-write - Fast Propagation Segment
     uint32_t FPROPSEG : 5;
     uint32_t _reserved_2 : 1;
+    /// read-write - Fast Resync Jump Width
     uint32_t FRJW : 3;
     uint32_t _reserved_3 : 1;
+    /// read-write - Fast Prescaler Division Factor
     uint32_t FPRESDIV : 10;
     uint32_t _reserved_4 : 2;
   } bits;
@@ -28573,8 +34647,10 @@ union FDCRC {
   
   // Bit field definition.
   struct {
+    /// read-only - Extended Transmitted CRC value
     uint32_t FD_TXCRC : 21;
     uint32_t _reserved_0 : 3;
+    /// read-only - CRC Mailbox Number for FD_TXCRC
     uint32_t FD_MBCRC : 7;
     uint32_t _reserved_1 : 1;
   } bits;

@@ -24,6 +24,7 @@ union SEMA4_Gate0 {
   
   // Bit field definition.
   struct {
+    /// read-write - Gate Finite State Machine.
     eGTFSM GTFSM : 2;
     uint32_t _reserved_0 : 30;
   } bits;
@@ -48,6 +49,7 @@ union SEMA4_Gate1 {
   
   // Bit field definition.
   struct {
+    /// read-write - Gate Finite State Machine.
     eGTFSM GTFSM : 2;
     uint32_t _reserved_0 : 30;
   } bits;
@@ -72,6 +74,7 @@ union SEMA4_Gate2 {
   
   // Bit field definition.
   struct {
+    /// read-write - Gate Finite State Machine.
     eGTFSM GTFSM : 2;
     uint32_t _reserved_0 : 30;
   } bits;
@@ -96,6 +99,7 @@ union SEMA4_Gate3 {
   
   // Bit field definition.
   struct {
+    /// read-write - Gate Finite State Machine.
     eGTFSM GTFSM : 2;
     uint32_t _reserved_0 : 30;
   } bits;
@@ -120,6 +124,7 @@ union SEMA4_Gate4 {
   
   // Bit field definition.
   struct {
+    /// read-write - Gate Finite State Machine.
     eGTFSM GTFSM : 2;
     uint32_t _reserved_0 : 30;
   } bits;
@@ -144,6 +149,7 @@ union SEMA4_Gate5 {
   
   // Bit field definition.
   struct {
+    /// read-write - Gate Finite State Machine.
     eGTFSM GTFSM : 2;
     uint32_t _reserved_0 : 30;
   } bits;
@@ -168,6 +174,7 @@ union SEMA4_Gate6 {
   
   // Bit field definition.
   struct {
+    /// read-write - Gate Finite State Machine.
     eGTFSM GTFSM : 2;
     uint32_t _reserved_0 : 30;
   } bits;
@@ -192,6 +199,7 @@ union SEMA4_Gate7 {
   
   // Bit field definition.
   struct {
+    /// read-write - Gate Finite State Machine.
     eGTFSM GTFSM : 2;
     uint32_t _reserved_0 : 30;
   } bits;
@@ -216,6 +224,7 @@ union SEMA4_Gate8 {
   
   // Bit field definition.
   struct {
+    /// read-write - Gate Finite State Machine.
     eGTFSM GTFSM : 2;
     uint32_t _reserved_0 : 30;
   } bits;
@@ -240,6 +249,7 @@ union SEMA4_Gate9 {
   
   // Bit field definition.
   struct {
+    /// read-write - Gate Finite State Machine.
     eGTFSM GTFSM : 2;
     uint32_t _reserved_0 : 30;
   } bits;
@@ -264,6 +274,7 @@ union SEMA4_Gate10 {
   
   // Bit field definition.
   struct {
+    /// read-write - Gate Finite State Machine.
     eGTFSM GTFSM : 2;
     uint32_t _reserved_0 : 30;
   } bits;
@@ -288,6 +299,7 @@ union SEMA4_Gate11 {
   
   // Bit field definition.
   struct {
+    /// read-write - Gate Finite State Machine.
     eGTFSM GTFSM : 2;
     uint32_t _reserved_0 : 30;
   } bits;
@@ -312,6 +324,7 @@ union SEMA4_Gate12 {
   
   // Bit field definition.
   struct {
+    /// read-write - Gate Finite State Machine.
     eGTFSM GTFSM : 2;
     uint32_t _reserved_0 : 30;
   } bits;
@@ -336,6 +349,7 @@ union SEMA4_Gate13 {
   
   // Bit field definition.
   struct {
+    /// read-write - Gate Finite State Machine.
     eGTFSM GTFSM : 2;
     uint32_t _reserved_0 : 30;
   } bits;
@@ -360,6 +374,7 @@ union SEMA4_Gate14 {
   
   // Bit field definition.
   struct {
+    /// read-write - Gate Finite State Machine.
     eGTFSM GTFSM : 2;
     uint32_t _reserved_0 : 30;
   } bits;
@@ -384,6 +399,7 @@ union SEMA4_Gate15 {
   
   // Bit field definition.
   struct {
+    /// read-write - Gate Finite State Machine.
     eGTFSM GTFSM : 2;
     uint32_t _reserved_0 : 30;
   } bits;
@@ -482,21 +498,37 @@ union SEMA4_CP0INE {
   
   // Bit field definition.
   struct {
+    /// read-write - Interrupt Request Notification Enable 7. This field is a bitmap to enable the generation of an interrupt notification from a failed attempt to lock gate 7.
     eINE7 INE7 : 1;
+    /// read-write - Interrupt Request Notification Enable 6. This field is a bitmap to enable the generation of an interrupt notification from a failed attempt to lock gate 6.
     eINE6 INE6 : 1;
+    /// read-write - Interrupt Request Notification Enable 5. This field is a bitmap to enable the generation of an interrupt notification from a failed attempt to lock gate 5.
     eINE5 INE5 : 1;
+    /// read-write - Interrupt Request Notification Enable 4. This field is a bitmap to enable the generation of an interrupt notification from a failed attempt to lock gate 4.
     eINE4 INE4 : 1;
+    /// read-write - Interrupt Request Notification Enable 3
     eINE3 INE3 : 1;
+    /// read-write - Interrupt Request Notification Enable 2
     eINE2 INE2 : 1;
+    /// read-write - Interrupt Request Notification Enable 1
     eINE1 INE1 : 1;
+    /// read-write - Interrupt Request Notification Enable 0
     eINE0 INE0 : 1;
+    /// read-write - Interrupt Request Notification Enable 15. This field is a bitmap to enable the generation of an interrupt notification from a failed attempt to lock gate 15.
     eINE15 INE15 : 1;
+    /// read-write - Interrupt Request Notification Enable 14. This field is a bitmap to enable the generation of an interrupt notification from a failed attempt to lock gate 14.
     eINE14 INE14 : 1;
+    /// read-write - Interrupt Request Notification Enable 13. This field is a bitmap to enable the generation of an interrupt notification from a failed attempt to lock gate 13.
     eINE13 INE13 : 1;
+    /// read-write - Interrupt Request Notification Enable 12. This field is a bitmap to enable the generation of an interrupt notification from a failed attempt to lock gate 12.
     eINE12 INE12 : 1;
+    /// read-write - Interrupt Request Notification Enable 11. This field is a bitmap to enable the generation of an interrupt notification from a failed attempt to lock gate 11.
     eINE11 INE11 : 1;
+    /// read-write - Interrupt Request Notification Enable 10. This field is a bitmap to enable the generation of an interrupt notification from a failed attempt to lock gate 10.
     eINE10 INE10 : 1;
+    /// read-write - Interrupt Request Notification Enable 9. This field is a bitmap to enable the generation of an interrupt notification from a failed attempt to lock gate 9.
     eINE9 INE9 : 1;
+    /// read-write - Interrupt Request Notification Enable 8. This field is a bitmap to enable the generation of an interrupt notification from a failed attempt to lock gate 8.
     eINE8 INE8 : 1;
     uint32_t _reserved_0 : 16;
   } bits;
@@ -594,21 +626,37 @@ union SEMA4_CP1INE {
   
   // Bit field definition.
   struct {
+    /// read-write - Interrupt Request Notification Enable 7. This field is a bitmap to enable the generation of an interrupt notification from a failed attempt to lock gate 7.
     eINE7 INE7 : 1;
+    /// read-write - Interrupt Request Notification Enable 6. This field is a bitmap to enable the generation of an interrupt notification from a failed attempt to lock gate 6.
     eINE6 INE6 : 1;
+    /// read-write - Interrupt Request Notification Enable 5. This field is a bitmap to enable the generation of an interrupt notification from a failed attempt to lock gate 5.
     eINE5 INE5 : 1;
+    /// read-write - Interrupt Request Notification Enable 4. This field is a bitmap to enable the generation of an interrupt notification from a failed attempt to lock gate 4.
     eINE4 INE4 : 1;
+    /// read-write - Interrupt Request Notification Enable 3
     eINE3 INE3 : 1;
+    /// read-write - Interrupt Request Notification Enable 2
     eINE2 INE2 : 1;
+    /// read-write - Interrupt Request Notification Enable 1
     eINE1 INE1 : 1;
+    /// read-write - Interrupt Request Notification Enable 0
     eINE0 INE0 : 1;
+    /// read-write - Interrupt Request Notification Enable 15. This field is a bitmap to enable the generation of an interrupt notification from a failed attempt to lock gate 15.
     eINE15 INE15 : 1;
+    /// read-write - Interrupt Request Notification Enable 14. This field is a bitmap to enable the generation of an interrupt notification from a failed attempt to lock gate 14.
     eINE14 INE14 : 1;
+    /// read-write - Interrupt Request Notification Enable 13. This field is a bitmap to enable the generation of an interrupt notification from a failed attempt to lock gate 13.
     eINE13 INE13 : 1;
+    /// read-write - Interrupt Request Notification Enable 12. This field is a bitmap to enable the generation of an interrupt notification from a failed attempt to lock gate 12.
     eINE12 INE12 : 1;
+    /// read-write - Interrupt Request Notification Enable 11. This field is a bitmap to enable the generation of an interrupt notification from a failed attempt to lock gate 11.
     eINE11 INE11 : 1;
+    /// read-write - Interrupt Request Notification Enable 10. This field is a bitmap to enable the generation of an interrupt notification from a failed attempt to lock gate 10.
     eINE10 INE10 : 1;
+    /// read-write - Interrupt Request Notification Enable 9. This field is a bitmap to enable the generation of an interrupt notification from a failed attempt to lock gate 9.
     eINE9 INE9 : 1;
+    /// read-write - Interrupt Request Notification Enable 8. This field is a bitmap to enable the generation of an interrupt notification from a failed attempt to lock gate 8.
     eINE8 INE8 : 1;
     uint32_t _reserved_0 : 16;
   } bits;
@@ -627,21 +675,37 @@ union SEMA4_CP0NTF {
   
   // Bit field definition.
   struct {
+    /// read-only - Gate 7 Notification
     uint32_t GN7 : 1;
+    /// read-only - Gate 6 Notification
     uint32_t GN6 : 1;
+    /// read-only - Gate 5 Notification
     uint32_t GN5 : 1;
+    /// read-only - Gate 4 Notification
     uint32_t GN4 : 1;
+    /// read-only - Gate 3 Notification
     uint32_t GN3 : 1;
+    /// read-only - Gate 2 Notification
     uint32_t GN2 : 1;
+    /// read-only - Gate 1 Notification
     uint32_t GN1 : 1;
+    /// read-only - Gate 0 Notification
     uint32_t GN0 : 1;
+    /// read-only - Gate 15 Notification
     uint32_t GN15 : 1;
+    /// read-only - Gate 14 Notification
     uint32_t GN14 : 1;
+    /// read-only - Gate 13 Notification
     uint32_t GN13 : 1;
+    /// read-only - Gate 12 Notification
     uint32_t GN12 : 1;
+    /// read-only - Gate 11 Notification
     uint32_t GN11 : 1;
+    /// read-only - Gate 10 Notification
     uint32_t GN10 : 1;
+    /// read-only - Gate 9 Notification
     uint32_t GN9 : 1;
+    /// read-only - Gate 8 Notification
     uint32_t GN8 : 1;
     uint32_t _reserved_0 : 16;
   } bits;
@@ -659,21 +723,37 @@ union SEMA4_CP1NTF {
   
   // Bit field definition.
   struct {
+    /// read-only - Gate 7 Notification
     uint32_t GN7 : 1;
+    /// read-only - Gate 6 Notification
     uint32_t GN6 : 1;
+    /// read-only - Gate 5 Notification
     uint32_t GN5 : 1;
+    /// read-only - Gate 4 Notification
     uint32_t GN4 : 1;
+    /// read-only - Gate 3 Notification
     uint32_t GN3 : 1;
+    /// read-only - Gate 2 Notification
     uint32_t GN2 : 1;
+    /// read-only - Gate 1 Notification
     uint32_t GN1 : 1;
+    /// read-only - Gate 0 Notification
     uint32_t GN0 : 1;
+    /// read-only - Gate 15 Notification
     uint32_t GN15 : 1;
+    /// read-only - Gate 14 Notification
     uint32_t GN14 : 1;
+    /// read-only - Gate 13 Notification
     uint32_t GN13 : 1;
+    /// read-only - Gate 12 Notification
     uint32_t GN12 : 1;
+    /// read-only - Gate 11 Notification
     uint32_t GN11 : 1;
+    /// read-only - Gate 10 Notification
     uint32_t GN10 : 1;
+    /// read-only - Gate 9 Notification
     uint32_t GN9 : 1;
+    /// read-only - Gate 8 Notification
     uint32_t GN8 : 1;
     uint32_t _reserved_0 : 16;
   } bits;
@@ -692,7 +772,9 @@ union SEMA4_RSTGT {
   
   // Bit field definition.
   struct {
+    /// read-write - This field contains sub-fields that vary depending on whether it is being read or written
     uint32_t RSTGSM_RSTGMS_RSTGDP : 8;
+    /// read-write - Reset Gate Number
     uint32_t RSTGTN : 8;
     uint32_t _reserved_0 : 16;
   } bits;
@@ -711,7 +793,9 @@ union SEMA4_RSTNTF {
   
   // Bit field definition.
   struct {
+    /// read-write - This field contains sub-fields that vary depending on whether it is being read or written
     uint32_t RSTNSM_RSTNMS_RSTNDP : 8;
+    /// read-write - Reset Notification Number
     uint32_t RSTNTN : 8;
     uint32_t _reserved_0 : 16;
   } bits;

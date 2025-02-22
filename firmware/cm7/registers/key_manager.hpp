@@ -27,8 +27,10 @@ union MASTER_KEY_CTRL {
   
   // Bit field definition.
   struct {
+    /// read-write - Key select for SNVS OTPMK. Default value comes from FUSE_MASTER_KEY_SEL.
     eSELECT SELECT : 1;
     uint32_t _reserved_0 : 15;
+    /// read-write - lock this register, prevent from writing. Default value comes from FUSE_MASTER_KEY_SEL_LOCK.
     eLOCK LOCK : 1;
     uint32_t _reserved_1 : 15;
   } bits;
@@ -57,8 +59,10 @@ union OTFAD1_KEY_CTRL {
   
   // Bit field definition.
   struct {
+    /// read-write - key select for OTFAD-1. Default value comes from FUSE_OTFAD1_KEY_SEL.
     eSELECT SELECT : 1;
     uint32_t _reserved_0 : 15;
+    /// read-write - lock this register, prevent from writing. Default value comes from FUSE_OTFAD1_KEY_SEL_LOCK.
     eLOCK LOCK : 1;
     uint32_t _reserved_1 : 15;
   } bits;
@@ -87,8 +91,10 @@ union OTFAD2_KEY_CTRL {
   
   // Bit field definition.
   struct {
+    /// read-write - key select for OTFAD-2. Default value comes from FUSE_OTFAD1_KEY_SEL.
     eSELECT SELECT : 1;
     uint32_t _reserved_0 : 15;
+    /// read-write - lock this register, prevent from writing. Default value comes from FUSE_OTFAD2_KEY_SEL_LOCK.
     eLOCK LOCK : 1;
     uint32_t _reserved_1 : 15;
   } bits;
@@ -112,6 +118,7 @@ union IEE_KEY_CTRL {
   
   // Bit field definition.
   struct {
+    /// read-write - Restart load key signal for IEE
     eRELOAD RELOAD : 1;
     uint32_t _reserved_0 : 31;
   } bits;
@@ -135,6 +142,7 @@ union PUF_KEY_CTRL {
   
   // Bit field definition.
   struct {
+    /// read-write - Lock signal for key select
     eLOCK LOCK : 1;
     uint32_t _reserved_0 : 31;
   } bits;
@@ -173,12 +181,17 @@ union SLOT0_CTRL {
   
   // Bit field definition.
   struct {
+    /// read-write - Whitelist
     uint32_t WHITE_LIST : 4;
     uint32_t _reserved_0 : 11;
+    /// read-write - Lock whitelist
     eLOCK_LIST LOCK_LIST : 1;
+    /// read-write - Allow non-secure write access to this register and the slot it controls
     eTZ_NS TZ_NS : 1;
+    /// read-write - Allow user write access to this register and the slot it controls
     eTZ_USER TZ_USER : 1;
     uint32_t _reserved_1 : 13;
+    /// read-write - Lock control of this slot
     eLOCK_CONTROL LOCK_CONTROL : 1;
   } bits;
   
@@ -216,12 +229,17 @@ union SLOT1_CTRL {
   
   // Bit field definition.
   struct {
+    /// read-write - Whitelist
     uint32_t WHITE_LIST : 4;
     uint32_t _reserved_0 : 11;
+    /// read-write - Lock whitelist
     eLOCK_LIST LOCK_LIST : 1;
+    /// read-write - Allow non-secure write access to this register and the slot it controls
     eTZ_NS TZ_NS : 1;
+    /// read-write - Allow user write access to this register and the slot it controls
     eTZ_USER TZ_USER : 1;
     uint32_t _reserved_1 : 13;
+    /// read-write - Lock control of this slot
     eLOCK_CONTROL LOCK_CONTROL : 1;
   } bits;
   
@@ -259,12 +277,17 @@ union SLOT2_CTRL {
   
   // Bit field definition.
   struct {
+    /// read-write - Whitelist
     uint32_t WHITE_LIST : 4;
     uint32_t _reserved_0 : 11;
+    /// read-write - Lock whitelist
     eLOCK_LIST LOCK_LIST : 1;
+    /// read-write - Allow non-secure write access to this register and the slot it controls
     eTZ_NS TZ_NS : 1;
+    /// read-write - Allow user write access to this register and the slot it controls
     eTZ_USER TZ_USER : 1;
     uint32_t _reserved_1 : 13;
+    /// read-write - Lock control of this slot
     eLOCK_CONTROL LOCK_CONTROL : 1;
   } bits;
   
@@ -302,12 +325,17 @@ union SLOT3_CTRL {
   
   // Bit field definition.
   struct {
+    /// read-write - Whitelist
     uint32_t WHITE_LIST : 4;
     uint32_t _reserved_0 : 11;
+    /// read-write - Lock whitelist
     eLOCK_LIST LOCK_LIST : 1;
+    /// read-write - Allow non-secure write access to this register and the slot it controls
     eTZ_NS TZ_NS : 1;
+    /// read-write - Allow user write access to this register and the slot it controls
     eTZ_USER TZ_USER : 1;
     uint32_t _reserved_1 : 13;
+    /// read-write - Lock control of this slot
     eLOCK_CONTROL LOCK_CONTROL : 1;
   } bits;
   
@@ -345,12 +373,17 @@ union SLOT4_CTRL {
   
   // Bit field definition.
   struct {
+    /// read-write - Whitelist
     uint32_t WHITE_LIST : 4;
     uint32_t _reserved_0 : 11;
+    /// read-write - Lock whitelist
     eLOCK_LIST LOCK_LIST : 1;
+    /// read-write - Allow non-secure write access to this register and the slot it controls
     eTZ_NS TZ_NS : 1;
+    /// read-write - Allow user write access to this register and the slot it controls
     eTZ_USER TZ_USER : 1;
     uint32_t _reserved_1 : 13;
+    /// read-write - Lock control of this slot
     eLOCK_CONTROL LOCK_CONTROL : 1;
   } bits;
   

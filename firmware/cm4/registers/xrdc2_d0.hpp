@@ -34,9 +34,12 @@ union MCR {
   
   // Bit field definition.
   struct {
+    /// read-write - Global Valid MDAC
     eGVLDM GVLDM : 1;
+    /// read-write - Global Valid Access Control
     eGVLDC GVLDC : 1;
     uint32_t _reserved_0 : 2;
+    /// read-write - Global Configuration Lock
     eGCL GCL : 2;
     uint32_t _reserved_1 : 26;
   } bits;
@@ -55,8 +58,11 @@ union SR {
   
   // Bit field definition.
   struct {
+    /// read-only - Domain Identifier Number
     uint32_t DIN : 4;
+    /// read-only - Hardware Revision Level
     uint32_t HRL : 4;
+    /// read-only - Global Configuration Lock Owner
     uint32_t GCLO : 4;
     uint32_t _reserved_0 : 20;
   } bits;

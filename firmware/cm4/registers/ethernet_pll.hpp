@@ -61,21 +61,32 @@ union CTRL0 {
   
   // Bit field definition.
   struct {
+    /// read-write - DIV_SELECT
     uint32_t DIV_SELECT : 7;
     uint32_t _reserved_0 : 1;
+    /// read-write - ENABLE_ALT
     eENABLE_ALT ENABLE_ALT : 1;
     uint32_t _reserved_1 : 4;
+    /// read-write - PLL Start up initialization
     eHOLD_RING_OFF HOLD_RING_OFF : 1;
+    /// read-write - POWERUP
     ePOWERUP POWERUP : 1;
+    /// read-write - ENABLE
     eENABLE ENABLE : 1;
+    /// read-write - BYPASS
     eBYPASS BYPASS : 1;
+    /// read-write - DITHER_EN
     eDITHER_EN DITHER_EN : 1;
     uint32_t _reserved_2 : 1;
+    /// read-write - BIAS_TRIM
     uint32_t BIAS_TRIM : 3;
+    /// read-write - PLL_REG_EN
     uint32_t PLL_REG_EN : 1;
     uint32_t _reserved_3 : 2;
+    /// read-write - Post Divide Select
     ePOST_DIV_SEL POST_DIV_SEL : 3;
     uint32_t _reserved_4 : 1;
+    /// read-write - BIAS_SELECT
     eBIAS_SELECT BIAS_SELECT : 1;
     uint32_t _reserved_5 : 2;
   } bits;
@@ -94,21 +105,32 @@ union CTRL0_SET {
   
   // Bit field definition.
   struct {
+    /// read-write - DIV_SELECT
     uint32_t DIV_SELECT : 7;
     uint32_t _reserved_0 : 1;
+    /// read-write - ENABLE_ALT
     uint32_t ENABLE_ALT : 1;
     uint32_t _reserved_1 : 4;
+    /// read-write - PLL Start up initialization
     uint32_t HOLD_RING_OFF : 1;
+    /// read-write - POWERUP
     uint32_t POWERUP : 1;
+    /// read-write - ENABLE
     uint32_t ENABLE : 1;
+    /// read-write - BYPASS
     uint32_t BYPASS : 1;
+    /// read-write - DITHER_EN
     uint32_t DITHER_EN : 1;
     uint32_t _reserved_2 : 1;
+    /// read-write - BIAS_TRIM
     uint32_t BIAS_TRIM : 3;
+    /// read-write - PLL_REG_EN
     uint32_t PLL_REG_EN : 1;
     uint32_t _reserved_3 : 2;
+    /// read-write - Post Divide Select
     uint32_t POST_DIV_SEL : 3;
     uint32_t _reserved_4 : 1;
+    /// read-write - BIAS_SELECT
     uint32_t BIAS_SELECT : 1;
     uint32_t _reserved_5 : 2;
   } bits;
@@ -127,21 +149,32 @@ union CTRL0_CLR {
   
   // Bit field definition.
   struct {
+    /// read-write - DIV_SELECT
     uint32_t DIV_SELECT : 7;
     uint32_t _reserved_0 : 1;
+    /// read-write - ENABLE_ALT
     uint32_t ENABLE_ALT : 1;
     uint32_t _reserved_1 : 4;
+    /// read-write - PLL Start up initialization
     uint32_t HOLD_RING_OFF : 1;
+    /// read-write - POWERUP
     uint32_t POWERUP : 1;
+    /// read-write - ENABLE
     uint32_t ENABLE : 1;
+    /// read-write - BYPASS
     uint32_t BYPASS : 1;
+    /// read-write - DITHER_EN
     uint32_t DITHER_EN : 1;
     uint32_t _reserved_2 : 1;
+    /// read-write - BIAS_TRIM
     uint32_t BIAS_TRIM : 3;
+    /// read-write - PLL_REG_EN
     uint32_t PLL_REG_EN : 1;
     uint32_t _reserved_3 : 2;
+    /// read-write - Post Divide Select
     uint32_t POST_DIV_SEL : 3;
     uint32_t _reserved_4 : 1;
+    /// read-write - BIAS_SELECT
     uint32_t BIAS_SELECT : 1;
     uint32_t _reserved_5 : 2;
   } bits;
@@ -160,21 +193,32 @@ union CTRL0_TOG {
   
   // Bit field definition.
   struct {
+    /// read-write - DIV_SELECT
     uint32_t DIV_SELECT : 7;
     uint32_t _reserved_0 : 1;
+    /// read-write - ENABLE_ALT
     uint32_t ENABLE_ALT : 1;
     uint32_t _reserved_1 : 4;
+    /// read-write - PLL Start up initialization
     uint32_t HOLD_RING_OFF : 1;
+    /// read-write - POWERUP
     uint32_t POWERUP : 1;
+    /// read-write - ENABLE
     uint32_t ENABLE : 1;
+    /// read-write - BYPASS
     uint32_t BYPASS : 1;
+    /// read-write - DITHER_EN
     uint32_t DITHER_EN : 1;
     uint32_t _reserved_2 : 1;
+    /// read-write - BIAS_TRIM
     uint32_t BIAS_TRIM : 3;
+    /// read-write - PLL_REG_EN
     uint32_t PLL_REG_EN : 1;
     uint32_t _reserved_3 : 2;
+    /// read-write - Post Divide Select
     uint32_t POST_DIV_SEL : 3;
     uint32_t _reserved_4 : 1;
+    /// read-write - BIAS_SELECT
     uint32_t BIAS_SELECT : 1;
     uint32_t _reserved_5 : 2;
   } bits;
@@ -193,8 +237,11 @@ union SPREAD_SPECTRUM {
   
   // Bit field definition.
   struct {
+    /// read-write - Step
     uint32_t STEP : 15;
+    /// read-write - Enable
     uint32_t ENABLE : 1;
+    /// read-write - Stop
     uint32_t STOP : 16;
   } bits;
   
@@ -212,8 +259,11 @@ union SPREAD_SPECTRUM_SET {
   
   // Bit field definition.
   struct {
+    /// read-write - Step
     uint32_t STEP : 15;
+    /// read-write - Enable
     uint32_t ENABLE : 1;
+    /// read-write - Stop
     uint32_t STOP : 16;
   } bits;
   
@@ -231,8 +281,11 @@ union SPREAD_SPECTRUM_CLR {
   
   // Bit field definition.
   struct {
+    /// read-write - Step
     uint32_t STEP : 15;
+    /// read-write - Enable
     uint32_t ENABLE : 1;
+    /// read-write - Stop
     uint32_t STOP : 16;
   } bits;
   
@@ -250,8 +303,11 @@ union SPREAD_SPECTRUM_TOG {
   
   // Bit field definition.
   struct {
+    /// read-write - Step
     uint32_t STEP : 15;
+    /// read-write - Enable
     uint32_t ENABLE : 1;
+    /// read-write - Stop
     uint32_t STOP : 16;
   } bits;
   
@@ -269,6 +325,7 @@ union NUMERATOR {
   
   // Bit field definition.
   struct {
+    /// read-write - Numerator
     uint32_t NUM : 30;
     uint32_t _reserved_0 : 2;
   } bits;
@@ -287,6 +344,7 @@ union NUMERATOR_SET {
   
   // Bit field definition.
   struct {
+    /// read-write - Numerator
     uint32_t NUM : 30;
     uint32_t _reserved_0 : 2;
   } bits;
@@ -305,6 +363,7 @@ union NUMERATOR_CLR {
   
   // Bit field definition.
   struct {
+    /// read-write - Numerator
     uint32_t NUM : 30;
     uint32_t _reserved_0 : 2;
   } bits;
@@ -323,6 +382,7 @@ union NUMERATOR_TOG {
   
   // Bit field definition.
   struct {
+    /// read-write - Numerator
     uint32_t NUM : 30;
     uint32_t _reserved_0 : 2;
   } bits;
@@ -341,6 +401,7 @@ union DENOMINATOR {
   
   // Bit field definition.
   struct {
+    /// read-write - Denominator
     uint32_t DENOM : 30;
     uint32_t _reserved_0 : 2;
   } bits;
@@ -359,6 +420,7 @@ union DENOMINATOR_SET {
   
   // Bit field definition.
   struct {
+    /// read-write - Denominator
     uint32_t DENOM : 30;
     uint32_t _reserved_0 : 2;
   } bits;
@@ -377,6 +439,7 @@ union DENOMINATOR_CLR {
   
   // Bit field definition.
   struct {
+    /// read-write - Denominator
     uint32_t DENOM : 30;
     uint32_t _reserved_0 : 2;
   } bits;
@@ -395,6 +458,7 @@ union DENOMINATOR_TOG {
   
   // Bit field definition.
   struct {
+    /// read-write - Denominator
     uint32_t DENOM : 30;
     uint32_t _reserved_0 : 2;
   } bits;

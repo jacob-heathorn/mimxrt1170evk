@@ -27,14 +27,20 @@ union CM_AUTHEN_CTRL {
   
   // Bit field definition.
   struct {
+    /// read-write - Allow user mode access
     eUSER USER : 1;
+    /// read-write - Allow non-secure mode access
     eNONSECURE NONSECURE : 1;
     uint32_t _reserved_0 : 2;
+    /// read-write - Lock NONSECURE and USER
     uint32_t LOCK_SETTING : 1;
     uint32_t _reserved_1 : 3;
+    /// read-write - Domain ID white list
     uint32_t WHITE_LIST : 4;
+    /// read-write - White list lock
     uint32_t LOCK_LIST : 1;
     uint32_t _reserved_2 : 7;
+    /// read-write - Configuration lock
     uint32_t LOCK_CFG : 1;
     uint32_t _reserved_3 : 11;
   } bits;
@@ -68,12 +74,18 @@ union CM_INT_CTRL {
   
   // Bit field definition.
   struct {
+    /// read-write - sp_req_not_allowed_for_sleep interrupt enable
     eSP_REQ_NOT_ALLOWED_SLEEP_INT_EN SP_REQ_NOT_ALLOWED_SLEEP_INT_EN : 1;
+    /// read-write - sp_req_not_allowed_for_wakeup interrupt enable
     eSP_REQ_NOT_ALLOWED_WAKEUP_INT_EN SP_REQ_NOT_ALLOWED_WAKEUP_INT_EN : 1;
+    /// read-write - sp_req_not_allowed_for_soft interrupt enable
     eSP_REQ_NOT_ALLOWED_SOFT_INT_EN SP_REQ_NOT_ALLOWED_SOFT_INT_EN : 1;
     uint32_t _reserved_0 : 13;
+    /// read-write - sp_req_not_allowed_for_sleep interrupt status and clear register
     uint32_t SP_REQ_NOT_ALLOWED_SLEEP_INT : 1;
+    /// read-write - sp_req_not_allowed_for_wakeup interrupt status and clear register
     uint32_t SP_REQ_NOT_ALLOWED_WAKEUP_INT : 1;
+    /// read-write - sp_req_not_allowed_for_soft interrupt status and clear register
     uint32_t SP_REQ_NOT_ALLOWED_SOFT_INT : 1;
     uint32_t _reserved_1 : 13;
   } bits;
@@ -102,10 +114,14 @@ union CM_MISC {
   
   // Bit field definition.
   struct {
+    /// read-only - Non-masked interrupt status
     eNMI_STAT NMI_STAT : 1;
+    /// read-write - Allow cpu_sleep_hold_req assert during CPU low power status
     eSLEEP_HOLD_EN SLEEP_HOLD_EN : 1;
+    /// read-only - Status of cpu_sleep_hold_ack_b
     uint32_t SLEEP_HOLD_STAT : 1;
     uint32_t _reserved_0 : 1;
+    /// read-write - Master CPU
     uint32_t MASTER_CPU : 1;
     uint32_t _reserved_1 : 27;
   } bits;
@@ -136,8 +152,10 @@ union CM_MODE_CTRL {
   
   // Bit field definition.
   struct {
+    /// read-write - The CPU mode the CPU platform should transit to on next sleep event
     eCPU_MODE_TARGET CPU_MODE_TARGET : 2;
     uint32_t _reserved_0 : 2;
+    /// read-write - WFE assertion can be sleep event
     eWFE_EN WFE_EN : 1;
     uint32_t _reserved_1 : 27;
   } bits;
@@ -170,7 +188,9 @@ union CM_MODE_STAT {
   
   // Bit field definition.
   struct {
+    /// read-only - Current CPU mode
     eCPU_MODE_CURRENT CPU_MODE_CURRENT : 2;
+    /// read-only - Previous CPU mode
     eCPU_MODE_PREVIOUS CPU_MODE_PREVIOUS : 2;
     uint32_t _reserved_0 : 28;
   } bits;
@@ -189,6 +209,7 @@ union CM_IRQ_WAKEUP_MASK_0 {
   
   // Bit field definition.
   struct {
+    /// read-write - "1" means the IRQ cannot wakeup CPU platform
     uint32_t IRQ_WAKEUP_MASK_0_31 : 32;
   } bits;
   
@@ -206,6 +227,7 @@ union CM_IRQ_WAKEUP_MASK_1 {
   
   // Bit field definition.
   struct {
+    /// read-write - "1" means the IRQ cannot wakeup CPU platform
     uint32_t IRQ_WAKEUP_MASK_32_63 : 32;
   } bits;
   
@@ -223,6 +245,7 @@ union CM_IRQ_WAKEUP_MASK_2 {
   
   // Bit field definition.
   struct {
+    /// read-write - "1" means the IRQ cannot wakeup CPU platform
     uint32_t IRQ_WAKEUP_MASK_64_95 : 32;
   } bits;
   
@@ -240,6 +263,7 @@ union CM_IRQ_WAKEUP_MASK_3 {
   
   // Bit field definition.
   struct {
+    /// read-write - "1" means the IRQ cannot wakeup CPU platform
     uint32_t IRQ_WAKEUP_MASK_96_127 : 32;
   } bits;
   
@@ -257,6 +281,7 @@ union CM_IRQ_WAKEUP_MASK_4 {
   
   // Bit field definition.
   struct {
+    /// read-write - "1" means the IRQ cannot wakeup CPU platform
     uint32_t IRQ_WAKEUP_MASK_128_159 : 32;
   } bits;
   
@@ -274,6 +299,7 @@ union CM_IRQ_WAKEUP_MASK_5 {
   
   // Bit field definition.
   struct {
+    /// read-write - "1" means the IRQ cannot wakeup CPU platform
     uint32_t IRQ_WAKEUP_MASK_160_191 : 32;
   } bits;
   
@@ -291,6 +317,7 @@ union CM_IRQ_WAKEUP_MASK_6 {
   
   // Bit field definition.
   struct {
+    /// read-write - "1" means the IRQ cannot wakeup CPU platform
     uint32_t IRQ_WAKEUP_MASK_192_223 : 32;
   } bits;
   
@@ -308,6 +335,7 @@ union CM_IRQ_WAKEUP_MASK_7 {
   
   // Bit field definition.
   struct {
+    /// read-write - "1" means the IRQ cannot wakeup CPU platform
     uint32_t IRQ_WAKEUP_MASK_224_255 : 32;
   } bits;
   
@@ -329,7 +357,9 @@ union CM_NON_IRQ_WAKEUP_MASK {
   
   // Bit field definition.
   struct {
+    /// read-write - There are 256 interrupts and 1 event as a wakeup source for GPC. This field masks the 1 event wakeup source.
     eEVENT_WAKEUP_MASK EVENT_WAKEUP_MASK : 1;
+    /// read-write - "1" means the debug_wakeup_request cannot wakeup CPU platform
     uint32_t DEBUG_WAKEUP_MASK : 1;
     uint32_t _reserved_0 : 30;
   } bits;
@@ -353,6 +383,7 @@ union CM_IRQ_WAKEUP_STAT_0 {
   
   // Bit field definition.
   struct {
+    /// read-only - IRQ status
     eIRQ_WAKEUP_STAT_0_31 IRQ_WAKEUP_STAT_0_31 : 32;
   } bits;
   
@@ -375,6 +406,7 @@ union CM_IRQ_WAKEUP_STAT_1 {
   
   // Bit field definition.
   struct {
+    /// read-only - IRQ status
     eIRQ_WAKEUP_STAT_32_63 IRQ_WAKEUP_STAT_32_63 : 32;
   } bits;
   
@@ -397,6 +429,7 @@ union CM_IRQ_WAKEUP_STAT_2 {
   
   // Bit field definition.
   struct {
+    /// read-only - IRQ status
     eIRQ_WAKEUP_STAT_64_95 IRQ_WAKEUP_STAT_64_95 : 32;
   } bits;
   
@@ -419,6 +452,7 @@ union CM_IRQ_WAKEUP_STAT_3 {
   
   // Bit field definition.
   struct {
+    /// read-only - IRQ status
     eIRQ_WAKEUP_STAT_96_127 IRQ_WAKEUP_STAT_96_127 : 32;
   } bits;
   
@@ -441,6 +475,7 @@ union CM_IRQ_WAKEUP_STAT_4 {
   
   // Bit field definition.
   struct {
+    /// read-only - IRQ status
     eIRQ_WAKEUP_STAT_128_159 IRQ_WAKEUP_STAT_128_159 : 32;
   } bits;
   
@@ -463,6 +498,7 @@ union CM_IRQ_WAKEUP_STAT_5 {
   
   // Bit field definition.
   struct {
+    /// read-only - IRQ status
     eIRQ_WAKEUP_STAT_160_191 IRQ_WAKEUP_STAT_160_191 : 32;
   } bits;
   
@@ -485,6 +521,7 @@ union CM_IRQ_WAKEUP_STAT_6 {
   
   // Bit field definition.
   struct {
+    /// read-only - IRQ status
     eIRQ_WAKEUP_STAT_192_223 IRQ_WAKEUP_STAT_192_223 : 32;
   } bits;
   
@@ -507,6 +544,7 @@ union CM_IRQ_WAKEUP_STAT_7 {
   
   // Bit field definition.
   struct {
+    /// read-only - IRQ status
     eIRQ_WAKEUP_MASK_224_255 IRQ_WAKEUP_MASK_224_255 : 32;
   } bits;
   
@@ -528,7 +566,9 @@ union CM_NON_IRQ_WAKEUP_STAT {
   
   // Bit field definition.
   struct {
+    /// read-only - Event wakeup status
     eEVENT_WAKEUP_STAT EVENT_WAKEUP_STAT : 1;
+    /// read-only - Debug wakeup status
     uint32_t DEBUG_WAKEUP_STAT : 1;
     uint32_t _reserved_0 : 30;
   } bits;
@@ -554,10 +594,13 @@ union CM_SLEEP_SSAR_CTRL {
   
   // Bit field definition.
   struct {
+    /// read-write - Step count, useage is depending on CNT_MODE.
     uint32_t STEP_CNT : 16;
     uint32_t _reserved_0 : 12;
+    /// read-write - Count mode
     eCNT_MODE CNT_MODE : 2;
     uint32_t _reserved_1 : 1;
+    /// read-write - Disable this step
     uint32_t DISABLE : 1;
   } bits;
   
@@ -582,10 +625,13 @@ union CM_SLEEP_LPCG_CTRL {
   
   // Bit field definition.
   struct {
+    /// read-write - Step count, useage is depending on CNT_MODE
     uint32_t STEP_CNT : 16;
     uint32_t _reserved_0 : 12;
+    /// read-write - Count mode
     eCNT_MODE CNT_MODE : 2;
     uint32_t _reserved_1 : 1;
+    /// read-write - Disable this step
     uint32_t DISABLE : 1;
   } bits;
   
@@ -610,10 +656,13 @@ union CM_SLEEP_PLL_CTRL {
   
   // Bit field definition.
   struct {
+    /// read-write - Step count, useage is depending on CNT_MODE
     uint32_t STEP_CNT : 16;
     uint32_t _reserved_0 : 12;
+    /// read-write - Count mode
     eCNT_MODE CNT_MODE : 2;
     uint32_t _reserved_1 : 1;
+    /// read-write - Disable this step
     uint32_t DISABLE : 1;
   } bits;
   
@@ -638,10 +687,13 @@ union CM_SLEEP_ISO_CTRL {
   
   // Bit field definition.
   struct {
+    /// read-write - Step count, useage is depending on CNT_MODE
     uint32_t STEP_CNT : 16;
     uint32_t _reserved_0 : 12;
+    /// read-write - Count mode
     eCNT_MODE CNT_MODE : 2;
     uint32_t _reserved_1 : 1;
+    /// read-write - Disable this step
     uint32_t DISABLE : 1;
   } bits;
   
@@ -666,10 +718,13 @@ union CM_SLEEP_RESET_CTRL {
   
   // Bit field definition.
   struct {
+    /// read-write - Step count, useage is depending on CNT_MODE
     uint32_t STEP_CNT : 16;
     uint32_t _reserved_0 : 12;
+    /// read-write - Count mode
     eCNT_MODE CNT_MODE : 2;
     uint32_t _reserved_1 : 1;
+    /// read-write - Disable this step
     uint32_t DISABLE : 1;
   } bits;
   
@@ -694,10 +749,13 @@ union CM_SLEEP_POWER_CTRL {
   
   // Bit field definition.
   struct {
+    /// read-write - Step count, useage is depending on CNT_MODE
     uint32_t STEP_CNT : 16;
     uint32_t _reserved_0 : 12;
+    /// read-write - Count mode
     eCNT_MODE CNT_MODE : 2;
     uint32_t _reserved_1 : 1;
+    /// read-write - Disable this step
     uint32_t DISABLE : 1;
   } bits;
   
@@ -722,10 +780,13 @@ union CM_WAKEUP_POWER_CTRL {
   
   // Bit field definition.
   struct {
+    /// read-write - Step count, useage is depending on CNT_MODE
     uint32_t STEP_CNT : 16;
     uint32_t _reserved_0 : 12;
+    /// read-write - Count mode
     eCNT_MODE CNT_MODE : 2;
     uint32_t _reserved_1 : 1;
+    /// read-write - Disable this step
     uint32_t DISABLE : 1;
   } bits;
   
@@ -750,10 +811,13 @@ union CM_WAKEUP_RESET_CTRL {
   
   // Bit field definition.
   struct {
+    /// read-write - Step count, useage is depending on CNT_MODE
     uint32_t STEP_CNT : 16;
     uint32_t _reserved_0 : 12;
+    /// read-write - Count mode
     eCNT_MODE CNT_MODE : 2;
     uint32_t _reserved_1 : 1;
+    /// read-write - Disable this step
     uint32_t DISABLE : 1;
   } bits;
   
@@ -778,10 +842,13 @@ union CM_WAKEUP_ISO_CTRL {
   
   // Bit field definition.
   struct {
+    /// read-write - Step count, useage is depending on CNT_MODE
     uint32_t STEP_CNT : 16;
     uint32_t _reserved_0 : 12;
+    /// read-write - Count mode
     eCNT_MODE CNT_MODE : 2;
     uint32_t _reserved_1 : 1;
+    /// read-write - Disable this step
     uint32_t DISABLE : 1;
   } bits;
   
@@ -806,10 +873,13 @@ union CM_WAKEUP_PLL_CTRL {
   
   // Bit field definition.
   struct {
+    /// read-write - Step count, useage is depending on CNT_MODE
     uint32_t STEP_CNT : 16;
     uint32_t _reserved_0 : 12;
+    /// read-write - Count mode
     eCNT_MODE CNT_MODE : 2;
     uint32_t _reserved_1 : 1;
+    /// read-write - Disable this step
     uint32_t DISABLE : 1;
   } bits;
   
@@ -834,10 +904,13 @@ union CM_WAKEUP_LPCG_CTRL {
   
   // Bit field definition.
   struct {
+    /// read-write - Step count, useage is depending on CNT_MODE
     uint32_t STEP_CNT : 16;
     uint32_t _reserved_0 : 12;
+    /// read-write - Count mode
     eCNT_MODE CNT_MODE : 2;
     uint32_t _reserved_1 : 1;
+    /// read-write - Disable this step
     uint32_t DISABLE : 1;
   } bits;
   
@@ -862,10 +935,13 @@ union CM_WAKEUP_SSAR_CTRL {
   
   // Bit field definition.
   struct {
+    /// read-write - Step count, useage is depending on CNT_MODE
     uint32_t STEP_CNT : 16;
     uint32_t _reserved_0 : 12;
+    /// read-write - Count mode
     eCNT_MODE CNT_MODE : 2;
     uint32_t _reserved_1 : 1;
+    /// read-write - Disable this step
     uint32_t DISABLE : 1;
   } bits;
   
@@ -888,12 +964,19 @@ union CM_SP_CTRL {
   
   // Bit field definition.
   struct {
+    /// read-write - Request a Setpoint transition when this bit is set
     uint32_t CPU_SP_RUN_EN : 1;
+    /// read-write - The Setpoint that CPU want the system to transit to when CPU_SP_RUN_EN is set
     uint32_t CPU_SP_RUN : 4;
+    /// read-write - 1 means enable Setpoint transition on next CPU platform sleep sequence
     uint32_t CPU_SP_SLEEP_EN : 1;
+    /// read-write - The Setpoint that CPU want the system to transit to on next CPU platform sleep sequence
     uint32_t CPU_SP_SLEEP : 4;
+    /// read-write - 1 means enable Setpoint transition on next CPU platform wakeup sequence
     uint32_t CPU_SP_WAKEUP_EN : 1;
+    /// read-write - The Setpoint that CPU want the system to transit to on next CPU platform wakeup sequence
     uint32_t CPU_SP_WAKEUP : 4;
+    /// read-write - Select the Setpoint transiton on the next CPU platform wakeup sequence
     eCPU_SP_WAKEUP_SEL CPU_SP_WAKEUP_SEL : 1;
     uint32_t _reserved_0 : 16;
   } bits;
@@ -912,8 +995,11 @@ union CM_SP_STAT {
   
   // Bit field definition.
   struct {
+    /// read-only - The current Setpoint of the system
     uint32_t CPU_SP_CURRENT : 4;
+    /// read-only - The previous Setpoint of the system
     uint32_t CPU_SP_PREVIOUS : 4;
+    /// read-only - The requested Setpoint from the CPU platform
     uint32_t CPU_SP_TARGET : 4;
     uint32_t _reserved_0 : 20;
   } bits;
@@ -932,6 +1018,7 @@ union CM_RUN_MODE_MAPPING {
   
   // Bit field definition.
   struct {
+    /// read-write - Defines which Setpoint is allowed when CPU enters RUN mode. Each bit stands for 1 Setpoint, locked by LOCK_CFG field
     uint32_t CPU_RUN_MODE_MAPPING : 16;
     uint32_t _reserved_0 : 16;
   } bits;
@@ -950,6 +1037,7 @@ union CM_WAIT_MODE_MAPPING {
   
   // Bit field definition.
   struct {
+    /// read-write - Defines which Setpoint is allowed when CPU enters WAIT mode. Each bit stands for 1 Setpoint, locked by LOCK_CFG
     uint32_t CPU_WAIT_MODE_MAPPING : 16;
     uint32_t _reserved_0 : 16;
   } bits;
@@ -968,6 +1056,7 @@ union CM_STOP_MODE_MAPPING {
   
   // Bit field definition.
   struct {
+    /// read-write - Defines which Setpoint is allowed when CPU enters STOP mode. Each bit stands for 1 Setpoint, locked by LOCK_CFG
     uint32_t CPU_STOP_MODE_MAPPING : 16;
     uint32_t _reserved_0 : 16;
   } bits;
@@ -986,6 +1075,7 @@ union CM_SUSPEND_MODE_MAPPING {
   
   // Bit field definition.
   struct {
+    /// read-write - Defines which Setpoint is allowed when CPU enters SUSPEND mode. Each bit stands for 1 Setpoint, locked by LOCK_CFG
     uint32_t CPU_SUSPEND_MODE_MAPPING : 16;
     uint32_t _reserved_0 : 16;
   } bits;
@@ -1004,6 +1094,7 @@ union CM_SP0_MAPPING {
   
   // Bit field definition.
   struct {
+    /// read-write - Defines when SP0 is set as the CPU_SP_TARGET, which SP is allowed, locked by LOCK_CFG field
     uint32_t CPU_SP0_MAPPING : 16;
     uint32_t _reserved_0 : 16;
   } bits;
@@ -1022,6 +1113,7 @@ union CM_SP1_MAPPING {
   
   // Bit field definition.
   struct {
+    /// read-write - Defines when SP1 is set as the CPU_SP_TARGET, which SP is allowed, locked by LOCK_CFG field
     uint32_t CPU_SP1_MAPPING : 16;
     uint32_t _reserved_0 : 16;
   } bits;
@@ -1040,6 +1132,7 @@ union CM_SP2_MAPPING {
   
   // Bit field definition.
   struct {
+    /// read-write - Defines when SP2 is set as the CPU_SP_TARGET, which SP is allowed, locked by LOCK_CFG field
     uint32_t CPU_SP2_MAPPING : 16;
     uint32_t _reserved_0 : 16;
   } bits;
@@ -1058,6 +1151,7 @@ union CM_SP3_MAPPING {
   
   // Bit field definition.
   struct {
+    /// read-write - Defines when SP3 is set as the CPU_SP_TARGET, which SP is allowed, locked by LOCK_CFG field
     uint32_t CPU_SP3_MAPPING : 16;
     uint32_t _reserved_0 : 16;
   } bits;
@@ -1076,6 +1170,7 @@ union CM_SP4_MAPPING {
   
   // Bit field definition.
   struct {
+    /// read-write - Defines when SP4 is set as the CPU_SP_TARGET, which SP is allowed, locked by LOCK_CFG field
     uint32_t CPU_SP4_MAPPING : 16;
     uint32_t _reserved_0 : 16;
   } bits;
@@ -1094,6 +1189,7 @@ union CM_SP5_MAPPING {
   
   // Bit field definition.
   struct {
+    /// read-write - Defines when SP5 is set as the CPU_SP_TARGET, which SP is allowed, locked by LOCK_CFG field
     uint32_t CPU_SP5_MAPPING : 16;
     uint32_t _reserved_0 : 16;
   } bits;
@@ -1112,6 +1208,7 @@ union CM_SP6_MAPPING {
   
   // Bit field definition.
   struct {
+    /// read-write - Defines when SP6 is set as the CPU_SP_TARGET, which SP is allowed, locked by LOCK_CFG field
     uint32_t CPU_SP6_MAPPING : 16;
     uint32_t _reserved_0 : 16;
   } bits;
@@ -1130,6 +1227,7 @@ union CM_SP7_MAPPING {
   
   // Bit field definition.
   struct {
+    /// read-write - Defines when SP7 is set as the CPU_SP_TARGET, which SP is allowed, locked by LOCK_CFG field
     uint32_t CPU_SP7_MAPPING : 16;
     uint32_t _reserved_0 : 16;
   } bits;
@@ -1148,6 +1246,7 @@ union CM_SP8_MAPPING {
   
   // Bit field definition.
   struct {
+    /// read-write - Defines when SP8 is set as the CPU_SP_TARGET, which SP is allowed, locked by LOCK_CFG field
     uint32_t CPU_SP8_MAPPING : 16;
     uint32_t _reserved_0 : 16;
   } bits;
@@ -1166,6 +1265,7 @@ union CM_SP9_MAPPING {
   
   // Bit field definition.
   struct {
+    /// read-write - Defines when SP9 is set as the CPU_SP_TARGET, which SP is allowed, locked by LOCK_CFG field
     uint32_t CPU_SP9_MAPPING : 16;
     uint32_t _reserved_0 : 16;
   } bits;
@@ -1184,6 +1284,7 @@ union CM_SP10_MAPPING {
   
   // Bit field definition.
   struct {
+    /// read-write - Defines when SP10 is set as the CPU_SP_TARGET, which SP is allowed, locked by LOCK_CFG field
     uint32_t CPU_SP10_MAPPING : 16;
     uint32_t _reserved_0 : 16;
   } bits;
@@ -1202,6 +1303,7 @@ union CM_SP11_MAPPING {
   
   // Bit field definition.
   struct {
+    /// read-write - Defines when SP11 is set as the CPU_SP_TARGET, which SP is allowed, locked by LOCK_CFG field
     uint32_t CPU_SP11_MAPPING : 16;
     uint32_t _reserved_0 : 16;
   } bits;
@@ -1220,6 +1322,7 @@ union CM_SP12_MAPPING {
   
   // Bit field definition.
   struct {
+    /// read-write - Defines when SP12 is set as the CPU_SP_TARGET, which SP is allowed, locked by LOCK_CFG field
     uint32_t CPU_SP12_MAPPING : 16;
     uint32_t _reserved_0 : 16;
   } bits;
@@ -1238,6 +1341,7 @@ union CM_SP13_MAPPING {
   
   // Bit field definition.
   struct {
+    /// read-write - Defines when SP13 is set as the CPU_SP_TARGET, which SP is allowed, locked by LOCK_CFG field
     uint32_t CPU_SP13_MAPPING : 16;
     uint32_t _reserved_0 : 16;
   } bits;
@@ -1256,6 +1360,7 @@ union CM_SP14_MAPPING {
   
   // Bit field definition.
   struct {
+    /// read-write - Defines when SP14 is set as the CPU_SP_TARGET, which SP is allowed, locked by LOCK_CFG field
     uint32_t CPU_SP14_MAPPING : 16;
     uint32_t _reserved_0 : 16;
   } bits;
@@ -1274,6 +1379,7 @@ union CM_SP15_MAPPING {
   
   // Bit field definition.
   struct {
+    /// read-write - Defines when SP15 is set as the CPU_SP_TARGET, which SP is allowed, locked by LOCK_CFG field
     uint32_t CPU_SP15_MAPPING : 16;
     uint32_t _reserved_0 : 16;
   } bits;
@@ -1292,11 +1398,16 @@ union CM_STBY_CTRL {
   
   // Bit field definition.
   struct {
+    /// read-write - 0x1: Request the chip into standby mode when CPU entering WAIT mode, locked by LOCK_CFG field.
     uint32_t STBY_WAIT : 1;
+    /// read-write - 0x1: Request the chip into standby mode when CPU entering STOP mode, locked by LOCK_CFG field.
     uint32_t STBY_STOP : 1;
+    /// read-write - 0x1: Request the chip into standby mode when CPU entering SUSPEND mode, locked by LOCK_CFG field.
     uint32_t STBY_SUSPEND : 1;
     uint32_t _reserved_0 : 13;
+    /// read-only - Indicate the CPU is busy entering standby mode.
     uint32_t STBY_SLEEP_BUSY : 1;
+    /// read-only - Indicate the CPU is busy exiting standby mode.
     uint32_t STBY_WAKEUP_BUSY : 1;
     uint32_t _reserved_1 : 14;
   } bits;

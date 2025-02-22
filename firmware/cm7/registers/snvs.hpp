@@ -107,25 +107,43 @@ union HPLR {
   
   // Bit field definition.
   struct {
+    /// read-write - Zeroizable Master Key Write Soft Lock When set, prevents any writes (software and hardware) to the ZMK registers and the ZMK_HWP, ZMK_VAL, and ZMK_ECC_EN fields of the LPMKCR
     eZMK_WSL ZMK_WSL : 1;
+    /// read-write - Zeroizable Master Key Read Soft Lock When set, prevents any software reads to the ZMK Registers and ZMK_ECC_VALUE field of the LPMKCR
     eZMK_RSL ZMK_RSL : 1;
+    /// read-write - Secure Real Time Counter Soft Lock When set, prevents any writes to the SRTC Registers, SRTC_ENV, and SRTC_INV_EN bits
     eSRTC_SL SRTC_SL : 1;
+    /// read-write - LP Calibration Soft Lock When set, prevents any writes to the LP Calibration Value (LPCALB_VAL) and LP Calibration Enable (LPCALB_EN)
     eLPCALB_SL LPCALB_SL : 1;
+    /// read-write - Monotonic Counter Soft Lock When set, prevents any writes (increments) to the MC Registers and MC_ENV bit
     eMC_SL MC_SL : 1;
+    /// read-write - General Purpose Register Soft Lock When set, prevents any writes to the GPR
     eGPR_SL GPR_SL : 1;
+    /// read-write - LP Security Violation Control Register Soft Lock When set, prevents any writes to the LPSVCR
     eLPSVCR_SL LPSVCR_SL : 1;
+    /// read-write - LP Tamper Glitch Filter Configuration Register Soft Lock When set, prevents any writes to the LPTGFCR
     eLPTGFCR_SL LPTGFCR_SL : 1;
+    /// read-write - LP Security Events Configuration Register Soft Lock When set, prevents any writes to the LPSECR
     eLPSECR_SL LPSECR_SL : 1;
+    /// read-write - Master Key Select Soft Lock When set, prevents any writes to the MASTER_KEY_SEL field of the LPMKCR
     eMKS_SL MKS_SL : 1;
     uint32_t _reserved_0 : 6;
+    /// read-write - HP Security Violation Control Register Lock When set, prevents any writes to the HPSVCR
     eHPSVCR_L HPSVCR_L : 1;
+    /// read-write - HP Security Interrupt Control Register Lock When set, prevents any writes to the HPSICR
     eHPSICR_L HPSICR_L : 1;
+    /// read-write - High Assurance Counter Lock When set, prevents any writes to HPHACIVR, HPHACR, and HAC_EN bit of HPCOMR
     eHAC_L HAC_L : 1;
     uint32_t _reserved_1 : 5;
+    /// read-write - Active Tamper 1 Soft Lock When set, prevents any writes to the Active Tamper 1 registers
     eAT1_SL AT1_SL : 1;
+    /// read-write - Active Tamper 2 Soft Lock When set, prevents any writes to the Active Tamper 2 registers
     eAT2_SL AT2_SL : 1;
+    /// read-write - Active Tamper 3 Soft Lock When set, prevents any writes to the Active Tamper 3 registers
     eAT3_SL AT3_SL : 1;
+    /// read-write - Active Tamper 4 Soft Lock When set, prevents any writes to the Active Tamper 4 registers
     eAT4_SL AT4_SL : 1;
+    /// read-write - Active Tamper 5 Soft Lock When set, prevents any writes to the Active Tamper 5 registers
     eAT5_SL AT5_SL : 1;
     uint32_t _reserved_2 : 3;
   } bits;
@@ -189,25 +207,40 @@ union HPCOMR {
   
   // Bit field definition.
   struct {
+    /// write-only - SSM State Transition Transition state of the system security monitor
     uint32_t SSM_ST : 1;
+    /// read-write - SSM Secure to Trusted State Transition Disable When set, disables the SSM transition from secure to trusted state
     eSSM_ST_DIS SSM_ST_DIS : 1;
+    /// read-write - SSM Soft Fail to Non-Secure State Transition Disable When set, it disables the SSM transition from soft fail to non-secure state
     eSSM_SFNS_DIS SSM_SFNS_DIS : 1;
     uint32_t _reserved_0 : 1;
+    /// write-only - LP Software Reset When set to 1, most registers in the SNVS_LP section are reset, but the following registers are not reset by an LP software reset: Monotonic Counter Secure Real Time Counter Time Alarm Register This bit cannot be set when the LP_SWR_DIS bit is set
     eLP_SWR LP_SWR : 1;
+    /// read-write - LP Software Reset Disable When set, disables the LP software reset
     eLP_SWR_DIS LP_SWR_DIS : 1;
     uint32_t _reserved_1 : 2;
+    /// read-write - Software Security Violation When set, the system security monitor treats this bit as a non-fatal security violation
     uint32_t SW_SV : 1;
+    /// read-write - Software Fatal Security Violation When set, the system security monitor treats this bit as a fatal security violation
     uint32_t SW_FSV : 1;
+    /// read-write - LP Software Security Violation When set, SNVS_LP treats this bit as a security violation
     uint32_t SW_LPSV : 1;
     uint32_t _reserved_2 : 1;
+    /// write-only - Program Zeroizable Master Key This bit activates ZMK hardware programming mechanism
     ePROG_ZMK PROG_ZMK : 1;
+    /// read-write - Master Key Select Enable When not set, the one time programmable (OTP) master key is selected by default
     eMKS_EN MKS_EN : 1;
     uint32_t _reserved_3 : 2;
+    /// read-write - High Assurance Counter Enable This bit controls the SSM transition from the soft fail to the hard fail state
     eHAC_EN HAC_EN : 1;
+    /// write-only - High Assurance Counter Load When set, it loads the High Assurance Counter Register with the value of the High Assurance Counter Load Register
     eHAC_LOAD HAC_LOAD : 1;
+    /// write-only - High Assurance Counter Clear When set, it clears the High Assurance Counter Register
     eHAC_CLEAR HAC_CLEAR : 1;
+    /// read-write - High Assurance Counter Stop This bit can be set only when SSM is in soft fail state
     uint32_t HAC_STOP : 1;
     uint32_t _reserved_4 : 11;
+    /// read-write - Non-Privileged Software Access Enable When set, allows non-privileged software to access all SNVS registers, including those that are privileged software read/write access only
     uint32_t NPSWA_EN : 1;
   } bits;
   
@@ -285,18 +318,28 @@ union HPCR {
   
   // Bit field definition.
   struct {
+    /// read-write - HP Real Time Counter Enable
     eRTC_EN RTC_EN : 1;
+    /// read-write - HP Time Alarm Enable When set, the time alarm interrupt is generated if the value in the HP Time Alarm Registers is equal to the value of the HP Real Time Counter
     eHPTA_EN HPTA_EN : 1;
+    /// read-write - Disable periodic interrupt in the functional interrupt
     eDIS_PI DIS_PI : 1;
+    /// read-write - HP Periodic Interrupt Enable The periodic interrupt can be generated only if the HP Real Time Counter is enabled
     ePI_EN PI_EN : 1;
+    /// read-write - Periodic Interrupt Frequency Defines frequency of the periodic interrupt
     ePI_FREQ PI_FREQ : 4;
+    /// read-write - HP Real Time Counter Calibration Enabled Indicates that the time calibration mechanism is enabled.
     eHPCALB_EN HPCALB_EN : 1;
     uint32_t _reserved_0 : 1;
+    /// read-write - HP Calibration Value Defines signed calibration value for the HP Real Time Counter
     eHPCALB_VAL HPCALB_VAL : 5;
     uint32_t _reserved_1 : 1;
+    /// read-write - HP Time Synchronize
     eHP_TS HP_TS : 1;
     uint32_t _reserved_2 : 7;
+    /// read-write - Button Configuration
     uint32_t BTN_CONFIG : 3;
+    /// read-write - Button interrupt mask
     uint32_t BTN_MASK : 1;
     uint32_t _reserved_3 : 4;
   } bits;
@@ -345,13 +388,19 @@ union HPSICR {
   
   // Bit field definition.
   struct {
+    /// read-write - CAAM Security Violation Interrupt Enable Setting this bit to 1 enables generation of the security interrupt to the host processor upon detection of the CAAM Security Violation security violation
     eCAAM_EN CAAM_EN : 1;
+    /// read-write - JTAG Active Interrupt Enable Setting this bit to 1 enables generation of the security interrupt to the host processor upon detection of the JTAG Active security violation
     eJTAGC_EN JTAGC_EN : 1;
+    /// read-write - Watchdog 2 Reset Interrupt Enable Setting this bit to 1 enables generation of the security interrupt to the host processor upon detection of the Watchdog 2 Reset security violation
     eWDOG2_EN WDOG2_EN : 1;
     uint32_t _reserved_0 : 1;
+    /// read-write - Internal Boot Interrupt Enable Setting this bit to 1 enables generation of the security interrupt to the host processor upon detection of the Internal Boot security violation
     eSRC_EN SRC_EN : 1;
+    /// read-write - OCOTP attack error Interrupt Enable Setting this bit to 1 enables generation of the security interrupt to the host processor upon detection of the OCOTP attack error security violation
     eOCOTP_EN OCOTP_EN : 1;
     uint32_t _reserved_1 : 25;
+    /// read-write - LP Security Violation Interrupt Enable This bit enables generating of the security interrupt to the host processor upon security violation signal from the LP section
     eLPSVI_EN LPSVI_EN : 1;
   } bits;
   
@@ -401,13 +450,19 @@ union HPSVCR {
   
   // Bit field definition.
   struct {
+    /// read-write - CAAM Security Violation Security Violation Configuration This field configures the CAAM Security Violation Security Violation Input
     eCAAM_CFG CAAM_CFG : 1;
+    /// read-write - JTAG Active Security Violation Configuration This field configures the JTAG Active Security Violation Input
     eJTAGC_CFG JTAGC_CFG : 1;
+    /// read-write - Watchdog 2 Reset Security Violation Configuration This field configures the Watchdog 2 Reset Security Violation Input
     eWDOG2_CFG WDOG2_CFG : 1;
     uint32_t _reserved_0 : 1;
+    /// read-write - Internal Boot Security Violation Configuration This field configures the Internal Boot Security Violation Input
     eSRC_CFG SRC_CFG : 1;
+    /// read-write - OCOTP attack error Security Violation Configuration This field configures the OCOTP attack error Security Violation Input
     eOCOTP_CFG OCOTP_CFG : 2;
     uint32_t _reserved_1 : 23;
+    /// read-write - LP Security Violation Configuration This field configures the LP security violation source.
     eLPSV_CFG LPSV_CFG : 2;
   } bits;
   
@@ -463,19 +518,29 @@ union HPSR {
   
   // Bit field definition.
   struct {
+    /// read-write - HP Time Alarm Indicates that the HP Time Alarm has occurred since this bit was last cleared.
     eHPTA HPTA : 1;
+    /// read-write - Periodic Interrupt Indicates that periodic interrupt has occurred since this bit was last cleared.
     ePI PI : 1;
     uint32_t _reserved_0 : 2;
+    /// read-only - Low Power Disable If 1, the low power section has been disabled by means of an input signal to SNVS
     uint32_t LPDIS : 1;
     uint32_t _reserved_1 : 1;
+    /// read-only - Button Value of the BTN input
     uint32_t BTN : 1;
+    /// read-write - Button Interrupt Signal ipi_snvs_btn_int_b was asserted.
     uint32_t BI : 1;
+    /// read-only - System Security Monitor State This field contains the encoded state of the SSM's state machine
     eSSM_STATE SSM_STATE : 4;
+    /// read-only - System Security Configuration This field reflects the three security configuration inputs to SNVS
     eSYS_SECURITY_CFG SYS_SECURITY_CFG : 3;
+    /// read-only - System Secure Boot If SYS_SECURE_BOOT is 1, the chip boots from internal ROM
     uint32_t SYS_SECURE_BOOT : 1;
     uint32_t _reserved_2 : 11;
+    /// read-only - One Time Programmable Master Key is Equal to Zero
     eOTPMK_ZERO OTPMK_ZERO : 1;
     uint32_t _reserved_3 : 3;
+    /// read-only - Zeroizable Master Key is Equal to Zero
     eZMK_ZERO ZMK_ZERO : 1;
   } bits;
   
@@ -523,20 +588,31 @@ union HPSVSR {
   
   // Bit field definition.
   struct {
+    /// read-write - CAAM Security Violation security violation was detected.
     eCAAM CAAM : 1;
+    /// read-write - JTAG Active security violation was detected.
     eJTAGC JTAGC : 1;
+    /// read-write - Watchdog 2 Reset security violation was detected.
     eWDOG2 WDOG2 : 1;
     uint32_t _reserved_0 : 1;
+    /// read-write - Internal Boot security violation was detected.
     eSRC SRC : 1;
+    /// read-write - OCOTP attack error security violation was detected.
     eOCOTP OCOTP : 1;
     uint32_t _reserved_1 : 7;
+    /// read-only - Software Security Violation This bit is a read-only copy of the SW_SV bit in the HP Command Register
     uint32_t SW_SV : 1;
+    /// read-only - Software Fatal Security Violation This bit is a read-only copy of the SW_FSV bit in the HP Command Register
     uint32_t SW_FSV : 1;
+    /// read-only - LP Software Security Violation This bit is a read-only copy of the SW_LPSV bit in the HP Command Register
     uint32_t SW_LPSV : 1;
+    /// read-only - Zeroizable Master Key Syndrome The ZMK syndrome indicates the single-bit error location and parity for the ZMK register
     uint32_t ZMK_SYNDROME : 9;
     uint32_t _reserved_2 : 2;
+    /// read-write - Zeroizable Master Key Error Correcting Code Check Failure When set, this bit triggers a bad key violation to the SSM and a security violation to the SNVS_LP section, which clears security sensitive data
     eZMK_ECC_FAIL ZMK_ECC_FAIL : 1;
     uint32_t _reserved_3 : 3;
+    /// read-only - LP Security Violation A security volation was detected in the SNVS low power section
     uint32_t LP_SEC_VIO : 1;
   } bits;
   
@@ -554,6 +630,7 @@ union HPHACIVR {
   
   // Bit field definition.
   struct {
+    /// read-write - High Assurance Counter Initial Value This register is used to set the starting count value to the high assurance counter
     uint32_t HAC_COUNTER_IV : 32;
   } bits;
   
@@ -571,6 +648,7 @@ union HPHACR {
   
   // Bit field definition.
   struct {
+    /// read-only - High Assurance Counter When the HAC_EN bit is set and the SSM is in the soft fail state, this counter starts to count down with the system clock
     uint32_t HAC_COUNTER : 32;
   } bits;
   
@@ -588,6 +666,7 @@ union HPRTCMR {
   
   // Bit field definition.
   struct {
+    /// read-write - HP Real Time Counter The most-significant 15 bits of the RTC
     uint32_t RTC : 15;
     uint32_t _reserved_0 : 17;
   } bits;
@@ -606,6 +685,7 @@ union HPRTCLR {
   
   // Bit field definition.
   struct {
+    /// read-write - HP Real Time Counter least-significant 32 bits
     uint32_t RTC : 32;
   } bits;
   
@@ -623,6 +703,7 @@ union HPTAMR {
   
   // Bit field definition.
   struct {
+    /// read-write - HP Time Alarm, most-significant 15 bits
     uint32_t HPTA_MS : 15;
     uint32_t _reserved_0 : 17;
   } bits;
@@ -641,6 +722,7 @@ union HPTALR {
   
   // Bit field definition.
   struct {
+    /// read-write - HP Time Alarm, 32 least-significant bits
     uint32_t HPTA_LS : 32;
   } bits;
   
@@ -733,21 +815,36 @@ union LPLR {
   
   // Bit field definition.
   struct {
+    /// read-write - Zeroizable Master Key Write Hard Lock When set, prevents any writes (software and hardware) to the ZMK registers and ZMK_HWP, ZMK_VAL, and ZMK_ECC_EN fields of the LPMKCR
     eZMK_WHL ZMK_WHL : 1;
+    /// read-write - Zeroizable Master Key Read Hard Lock When set, prevents any software reads to the ZMK registers and ZMK_ECC_VALUE field of the LPMKCR
     eZMK_RHL ZMK_RHL : 1;
+    /// read-write - Secure Real Time Counter Hard Lock When set, prevents any writes to the SRTC registers, SRTC_ENV, and SRTC_INV_EN bits
     eSRTC_HL SRTC_HL : 1;
+    /// read-write - LP Calibration Hard Lock When set, prevents any writes to the LP Calibration Value (LPCALB_VAL) and LP Calibration Enable (LPCALB_EN)
     eLPCALB_HL LPCALB_HL : 1;
+    /// read-write - Monotonic Counter Hard Lock When set, prevents any writes (increments) to the MC Registers and MC_ENV bit
     eMC_HL MC_HL : 1;
+    /// read-write - General Purpose Register Hard Lock When set, prevents any writes to the GPR
     eGPR_HL GPR_HL : 1;
+    /// read-write - LP Security Violation Control Register Hard Lock When set, prevents any writes to the LPSVCR
     eLPSVCR_HL LPSVCR_HL : 1;
+    /// read-write - LP Tamper Glitch Filter Configuration Register Hard Lock When set, prevents any writes to the LPTGFCR
     eLPTGFCR_HL LPTGFCR_HL : 1;
+    /// read-write - LP Security Events Configuration Register Hard Lock When set, prevents any writes to the LPSECR
     eLPSECR_HL LPSECR_HL : 1;
+    /// read-write - Master Key Select Hard Lock When set, prevents any writes to the MASTER_KEY_SEL field of the LP Master Key Control Register
     eMKS_HL MKS_HL : 1;
     uint32_t _reserved_0 : 14;
+    /// read-write - Active Tamper 1 Hard Lock When set, prevents any writes to the Active Tamper 1 registers
     eAT1_HL AT1_HL : 1;
+    /// read-write - Active Tamper 2 Hard Lock When set, prevents any writes to the Active Tamper 2 registers
     eAT2_HL AT2_HL : 1;
+    /// read-write - Active Tamper 3 Hard Lock When set, prevents any writes to the Active Tamper 3 registers
     eAT3_HL AT3_HL : 1;
+    /// read-write - Active Tamper 4 Hard Lock When set, prevents any writes to the Active Tamper 4 registers
     eAT4_HL AT4_HL : 1;
+    /// read-write - Active Tamper 5 Hard Lock When set, prevents any writes to the Active Tamper 5 registers
     eAT5_HL AT5_HL : 1;
     uint32_t _reserved_1 : 3;
   } bits;
@@ -812,23 +909,39 @@ union LPCR {
   
   // Bit field definition.
   struct {
+    /// read-write - Secure Real Time Counter Enabled and Valid When set, the SRTC becomes operational
     eSRTC_ENV SRTC_ENV : 1;
+    /// read-write - LP Time Alarm Enable When set, the SNVS functional interrupt is asserted if the LP Time Alarm Register is equal to the 32 MSBs of the secure real time counter
     eLPTA_EN LPTA_EN : 1;
+    /// read-write - Monotonic Counter Enabled and Valid When set, the MC can be incremented (by write transaction to the LPSMCMR or LPSMCLR)
     eMC_ENV MC_ENV : 1;
+    /// read-write - LP Wake-Up Interrupt Enable This interrupt line should be connected to the external pin and is intended to inform the external chip about an SNVS_LP event (tamper event, MC rollover, SRTC rollover, or time alarm )
     uint32_t LPWUI_EN : 1;
+    /// read-write - If this bit is 1, in the case of a security violation the SRTC stops counting and the SRTC is invalidated (SRTC_ENV bit is cleared)
     eSRTC_INV_EN SRTC_INV_EN : 1;
+    /// read-write - Dumb PMIC Enabled When set, software can control the system power
     eDP_EN DP_EN : 1;
+    /// read-write - Turn off System Power Asserting this bit causes a signal to be sent to the Power Management IC to turn off the system power
     eTOP TOP : 1;
+    /// read-write - Digital Low-Voltage Event Enable By default the detection of a low-voltage event does not cause the pmic_en_b signal to be asserted
     uint32_t LVD_EN : 1;
+    /// read-write - LP Calibration Enable When set, enables the SRTC calibration mechanism
     eLPCALB_EN LPCALB_EN : 1;
     uint32_t _reserved_0 : 1;
+    /// read-write - LP Calibration Value Defines signed calibration value for SRTC
     eLPCALB_VAL LPCALB_VAL : 5;
     uint32_t _reserved_1 : 1;
+    /// read-write - This field configures the button press time out values for the PMIC Logic
     uint32_t BTN_PRESS_TIME : 2;
+    /// read-write - This field configures the amount of debounce time for the BTN input signal
     uint32_t DEBOUNCE : 2;
+    /// read-write - The ON_TIME field is used to configure the period of time after BTN is asserted before pmic_en_b is asserted to turn on the SoC power
     uint32_t ON_TIME : 2;
+    /// read-write - PMIC On Request Enable The value written to PK_EN will be asserted on output signal snvs_lp_pk_en
     uint32_t PK_EN : 1;
+    /// read-write - PMIC On Request Override The value written to PK_OVERRIDE will be asserted on output signal snvs_lp_pk_override
     uint32_t PK_OVERRIDE : 1;
+    /// read-write - General Purpose Registers Zeroization Disable
     uint32_t GPR_Z_DIS : 1;
     uint32_t _reserved_2 : 7;
   } bits;
@@ -868,11 +981,16 @@ union LPMKCR {
   
   // Bit field definition.
   struct {
+    /// read-write - Master Key Select These bits select the SNVS Master Key output when Master Key Select bits are enabled by MKS_EN bit in the HPCOMR
     eMASTER_KEY_SEL MASTER_KEY_SEL : 2;
+    /// read-write - Zeroizable Master Key hardware Programming mode When set, only the hardware key programming mechanism can set the ZMK and software cannot read it
     eZMK_HWP ZMK_HWP : 1;
+    /// read-write - Zeroizable Master Key Valid When set, the ZMK value can be selected by the master key control block for use by cryptographic modules
     eZMK_VAL ZMK_VAL : 1;
+    /// read-write - Zeroizable Master Key Error Correcting Code Check Enable Writing one to this field automatically calculates and sets the ZMK ECC value in the ZMK_ECC_VALUE field of this register
     eZMK_ECC_EN ZMK_ECC_EN : 1;
     uint32_t _reserved_0 : 2;
+    /// read-only - Zeroizable Master Key Error Correcting Code Value This field is automatically calculated and set when one is written into ZMK_ECC_EN bit of this register
     uint32_t ZMK_ECC_VALUE : 9;
     uint32_t _reserved_1 : 16;
   } bits;
@@ -916,11 +1034,16 @@ union LPSVCR {
   
   // Bit field definition.
   struct {
+    /// read-write - CAAM Security Violation Enable This bit enables CAAM Security Violation Input
     eCAAM_EN CAAM_EN : 1;
+    /// read-write - JTAG Active Enable This bit enables JTAG Active Input
     eJTAGC_EN JTAGC_EN : 1;
+    /// read-write - Watchdog 2 Reset Enable This bit enables Watchdog 2 Reset Input
     eWDOG2_EN WDOG2_EN : 1;
     uint32_t _reserved_0 : 1;
+    /// read-write - Internal Boot Enable This bit enables Internal Boot Input
     eSRC_EN SRC_EN : 1;
+    /// read-write - OCOTP attack error Enable This bit enables OCOTP attack error Input
     eOCOTP_EN OCOTP_EN : 1;
     uint32_t _reserved_1 : 26;
   } bits;
@@ -954,13 +1077,19 @@ union LPTGFCR {
   
   // Bit field definition.
   struct {
+    /// read-write - Wire-Mesh Tamper Glitch Filter Configures the length of the digital glitch filter for the wire-mesh tamper 1 and 2 pins between 1 and 63 SRTC clock cycles
     uint32_t WMTGF : 5;
     uint32_t _reserved_0 : 2;
+    /// read-write - Wire-Mesh Tamper Glitch Filter Enable When set, enables the wire-mesh tamper glitch filter
     eWMTGF_EN WMTGF_EN : 1;
     uint32_t _reserved_1 : 8;
+    /// read-write - External Tamper Glitch Filter 1 Configures the length of the digital glitch filter for the external tamper 1 pin between 128 and 32640 SRTC clock cycles
     uint32_t ETGF1 : 7;
+    /// read-write - External Tamper Glitch Filter 1 Enable When set, enables the external tamper glitch filter 1.
     eETGF1_EN ETGF1_EN : 1;
+    /// read-write - External Tamper Glitch Filter 2 Configures the length of the digital glitch filter for the external tamper 2 pin between 128 and 32640 SRTC clock cycles
     uint32_t ETGF2 : 7;
+    /// read-write - External Tamper Glitch Filter 2 Enable When set, enables the external tamper glitch filter 2.
     eETGF2_EN ETGF2_EN : 1;
   } bits;
   
@@ -1039,27 +1168,44 @@ union LPTDCR {
   // Bit field definition.
   struct {
     uint32_t _reserved_0 : 1;
+    /// read-write - SRTC Rollover Enable When set, an SRTC rollover event generates an LP security violation.
     eSRTCR_EN SRTCR_EN : 1;
+    /// read-write - MC Rollover Enable When set, an MC Rollover event generates an LP security violation.
     eMCR_EN MCR_EN : 1;
     uint32_t _reserved_1 : 1;
+    /// read-write - Clock Tamper Enable When set, a clock monitor tamper generates an LP security violation.
     eCT_EN CT_EN : 1;
+    /// read-write - Temperature Tamper Enable When set, a temperature monitor tamper generates an LP security violation
     eTT_EN TT_EN : 1;
+    /// read-write - Voltage Tamper Enable Voltage Tamper Enable should be enabled 500 us after setting SCSC_SOSC_CTR [VOLT_TEMP_TAMPER_EN]
     eVT_EN VT_EN : 1;
+    /// read-write - Wire-Mesh Tampering 1 Enable When set, wire-mesh tampering 1 detection generates an LP security violation
     eWMT1_EN WMT1_EN : 1;
+    /// read-write - Wire-Mesh Tampering 2 Enable When set, wire-mesh tampering 2 detection generates an LP security violation
     eWMT2_EN WMT2_EN : 1;
+    /// read-write - External Tampering 1 Enable When set, external tampering 1 detection generates an LP security violation
     eET1_EN ET1_EN : 1;
+    /// read-write - External Tampering 2 Enable When set, external tampering 2 detection generates an LP security violation
     eET2_EN ET2_EN : 1;
+    /// read-write - External Tampering 1 Polarity This bit is used to determine the polarity of external tamper 1.
     eET1P ET1P : 1;
+    /// read-write - External Tampering 2 Polarity This bit is used to determine the polarity of external tamper 2.
     eET2P ET2P : 1;
     uint32_t _reserved_2 : 1;
+    /// read-write - System Power Fail Detector (PFD) Observability Flop The asynchronous reset input of this flop is connected directly to the inverted output of the PFD analog circuitry (external to the SNVS block)
     uint32_t PFD_OBSERV : 1;
+    /// read-write - Power On Reset (POR) Observability Flop The asynchronous reset input of this flop is connected directly to the output of the POR analog circuitry (external to the SNVS
     uint32_t POR_OBSERV : 1;
+    /// read-write - Low Temp Detect Configuration These configuration bits are wired as an output of the module.
     uint32_t LTDC : 3;
     uint32_t _reserved_3 : 1;
+    /// read-write - High Temperature Detect Configuration These configuration bits are wired as an output of the module
     uint32_t HTDC : 3;
     uint32_t _reserved_4 : 1;
+    /// read-write - Voltage Reference Configuration These configuration bits are wired as an output of the module.
     uint32_t VRC : 3;
     uint32_t _reserved_5 : 1;
+    /// read-write - Oscillator Bypass When OSCB=1 the osc_bypass signal is asserted
     eOSCB OSCB : 1;
     uint32_t _reserved_6 : 3;
   } bits;
@@ -1158,23 +1304,39 @@ union LPSR {
   
   // Bit field definition.
   struct {
+    /// read-write - LP Time Alarm
     eLPTA LPTA : 1;
+    /// read-write - Secure Real Time Counter Rollover
     eSRTCR SRTCR : 1;
+    /// read-write - Monotonic Counter Rollover
     eMCR MCR : 1;
+    /// read-write - Digital Low Voltage Event Detected
     eLVD LVD : 1;
+    /// read-write - Clock Tampering Detected
     eCTD CTD : 1;
+    /// read-write - Temperature Tamper Detected
     eTTD TTD : 1;
+    /// read-write - Voltage Tampering Detected
     eVTD VTD : 1;
+    /// read-write - Wire-Mesh Tampering 1 Detected
     eWMT1D WMT1D : 1;
+    /// read-write - Wire-Mesh Tampering 2 Detected
     eWMT2D WMT2D : 1;
+    /// read-write - External Tampering 1 Detected
     eET1D ET1D : 1;
+    /// read-write - External Tampering 2 Detected
     eET2D ET2D : 1;
     uint32_t _reserved_0 : 5;
+    /// read-write - External Security Violation Detected Indicates that a security violation is detected on one of the HP security violation ports
     eESVD ESVD : 1;
+    /// read-write - Emergency Off This bit is set when a power off is requested.
     eEO EO : 1;
+    /// read-write - Set Power Off The SPO bit is set when the power button is pressed longer than the configured debounce time
     eSPOF SPOF : 1;
     uint32_t _reserved_1 : 11;
+    /// read-only - LP Section is Non-Secured Indicates that LP section was provisioned/programmed in the non-secure state
     eLPNS LPNS : 1;
+    /// read-only - LP Section is Secured Indicates that the LP section is provisioned/programmed in the secure or trusted state
     eLPS LPS : 1;
   } bits;
   
@@ -1192,6 +1354,7 @@ union LPSRTCMR {
   
   // Bit field definition.
   struct {
+    /// read-write - LP Secure Real Time Counter The most-significant 15 bits of the SRTC
     uint32_t SRTC : 15;
     uint32_t _reserved_0 : 17;
   } bits;
@@ -1210,6 +1373,7 @@ union LPSRTCLR {
   
   // Bit field definition.
   struct {
+    /// read-write - LP Secure Real Time Counter least-significant 32 bits This register can be programmed only when SRTC is not active and not locked, meaning the SRTC_ENV, SRTC_SL, and SRTC_HL bits are not set
     uint32_t SRTC : 32;
   } bits;
   
@@ -1227,6 +1391,7 @@ union LPTAR {
   
   // Bit field definition.
   struct {
+    /// read-write - LP Time Alarm This register can be programmed only when the LP time alarm is disabled (LPTA_EN bit is not set)
     uint32_t LPTA : 32;
   } bits;
   
@@ -1244,7 +1409,9 @@ union LPSMCMR {
   
   // Bit field definition.
   struct {
+    /// read-write - Monotonic Counter most-significant 16 Bits Note that writing to this register does not change the value of this field to the value that was written
     uint32_t MON_COUNTER : 16;
+    /// read-only - Monotonic Counter Era Bits These bits are inputs to the module and typically connect to fuses
     uint32_t MC_ERA_BITS : 16;
   } bits;
   
@@ -1262,6 +1429,7 @@ union LPSMCLR {
   
   // Bit field definition.
   struct {
+    /// read-write - Monotonic Counter bits Note that writing to this register does not change the value of this field to the value that was written
     uint32_t MON_COUNTER : 32;
   } bits;
   
@@ -1279,6 +1447,7 @@ union LPLVDR {
   
   // Bit field definition.
   struct {
+    /// read-write - Low-Voltage Detector Value
     uint32_t LVD : 32;
   } bits;
   
@@ -1296,6 +1465,7 @@ union LPGPR0_legacy_alias {
   
   // Bit field definition.
   struct {
+    /// read-write - General Purpose Register When GPR_SL or GPR_HL bit is set, the register cannot be programmed.
     uint32_t GPR : 32;
   } bits;
   
@@ -1313,6 +1483,7 @@ union LPZMKR[0] {
   
   // Bit field definition.
   struct {
+    /// read-write - Zeroizable Master Key Each of these registers contains 32 bits of the 256-bit ZMK value
     uint32_t ZMK : 32;
   } bits;
   
@@ -1329,6 +1500,7 @@ union LPZMKR[1] {
   
   // Bit field definition.
   struct {
+    /// read-write - Zeroizable Master Key Each of these registers contains 32 bits of the 256-bit ZMK value
     uint32_t ZMK : 32;
   } bits;
   
@@ -1345,6 +1517,7 @@ union LPZMKR[2] {
   
   // Bit field definition.
   struct {
+    /// read-write - Zeroizable Master Key Each of these registers contains 32 bits of the 256-bit ZMK value
     uint32_t ZMK : 32;
   } bits;
   
@@ -1361,6 +1534,7 @@ union LPZMKR[3] {
   
   // Bit field definition.
   struct {
+    /// read-write - Zeroizable Master Key Each of these registers contains 32 bits of the 256-bit ZMK value
     uint32_t ZMK : 32;
   } bits;
   
@@ -1377,6 +1551,7 @@ union LPZMKR[4] {
   
   // Bit field definition.
   struct {
+    /// read-write - Zeroizable Master Key Each of these registers contains 32 bits of the 256-bit ZMK value
     uint32_t ZMK : 32;
   } bits;
   
@@ -1393,6 +1568,7 @@ union LPZMKR[5] {
   
   // Bit field definition.
   struct {
+    /// read-write - Zeroizable Master Key Each of these registers contains 32 bits of the 256-bit ZMK value
     uint32_t ZMK : 32;
   } bits;
   
@@ -1409,6 +1585,7 @@ union LPZMKR[6] {
   
   // Bit field definition.
   struct {
+    /// read-write - Zeroizable Master Key Each of these registers contains 32 bits of the 256-bit ZMK value
     uint32_t ZMK : 32;
   } bits;
   
@@ -1425,6 +1602,7 @@ union LPZMKR[7] {
   
   // Bit field definition.
   struct {
+    /// read-write - Zeroizable Master Key Each of these registers contains 32 bits of the 256-bit ZMK value
     uint32_t ZMK : 32;
   } bits;
   
@@ -1442,6 +1620,7 @@ union LPGPR_alias[0] {
   
   // Bit field definition.
   struct {
+    /// read-write - General Purpose Register When GPR_SL or GPR_HL bit is set, the register cannot be programmed.
     uint32_t GPR : 32;
   } bits;
   
@@ -1458,6 +1637,7 @@ union LPGPR_alias[1] {
   
   // Bit field definition.
   struct {
+    /// read-write - General Purpose Register When GPR_SL or GPR_HL bit is set, the register cannot be programmed.
     uint32_t GPR : 32;
   } bits;
   
@@ -1474,6 +1654,7 @@ union LPGPR_alias[2] {
   
   // Bit field definition.
   struct {
+    /// read-write - General Purpose Register When GPR_SL or GPR_HL bit is set, the register cannot be programmed.
     uint32_t GPR : 32;
   } bits;
   
@@ -1490,6 +1671,7 @@ union LPGPR_alias[3] {
   
   // Bit field definition.
   struct {
+    /// read-write - General Purpose Register When GPR_SL or GPR_HL bit is set, the register cannot be programmed.
     uint32_t GPR : 32;
   } bits;
   
@@ -1587,22 +1769,38 @@ union LPTDC2R {
   
   // Bit field definition.
   struct {
+    /// read-write - External Tampering 3 Enable When set, external tampering 3 detection generates an LP security violation
     eET3_EN ET3_EN : 1;
+    /// read-write - External Tampering 4 Enable When set, external tampering 4 detection generates an LP security violation
     eET4_EN ET4_EN : 1;
+    /// read-write - External Tampering 5 Enable When set, external tampering 5 detection generates an LP security violation
     eET5_EN ET5_EN : 1;
+    /// read-write - External Tampering 6 Enable When set, external tampering 6 detection generates an LP security violation
     eET6_EN ET6_EN : 1;
+    /// read-write - External Tampering 7 Enable When set, external tampering 7 detection generates an LP security violation
     eET7_EN ET7_EN : 1;
+    /// read-write - External Tampering 8 Enable When set, external tampering 8 detection generates an LP security violation
     eET8_EN ET8_EN : 1;
+    /// read-write - External Tampering 9 Enable When set, external tampering 9 detection generates an LP security violation
     eET9_EN ET9_EN : 1;
+    /// read-write - External Tampering 10 Enable When set, external tampering 10 detection generates an LP security violation
     eET10_EN ET10_EN : 1;
     uint32_t _reserved_0 : 8;
+    /// read-write - External Tampering 3 Polarity This bit is used to determine the polarity of external tamper 3.
     eET3P ET3P : 1;
+    /// read-write - External Tampering 4 Polarity This bit is used to determine the polarity of external tamper 4.
     eET4P ET4P : 1;
+    /// read-write - External Tampering 5 Polarity This bit is used to determine the polarity of external tamper 5.
     eET5P ET5P : 1;
+    /// read-write - External Tampering 6 Polarity This bit is used to determine the polarity of external tamper 6.
     eET6P ET6P : 1;
+    /// read-write - External Tampering 7 Polarity This bit is used to determine the polarity of external tamper 7.
     eET7P ET7P : 1;
+    /// read-write - External Tampering 8 Polarity This bit is used to determine the polarity of external tamper 8.
     eET8P ET8P : 1;
+    /// read-write - External Tampering 9 Polarity This bit is used to determine the polarity of external tamper 9.
     eET9P ET9P : 1;
+    /// read-write - External Tampering 10 Polarity This bit is used to determine the polarity of external tamper 10.
     eET10P ET10P : 1;
     uint32_t _reserved_1 : 8;
   } bits;
@@ -1661,13 +1859,21 @@ union LPTDSR {
   
   // Bit field definition.
   struct {
+    /// read-write - External Tampering 3 Detected
     eET3D ET3D : 1;
+    /// read-write - External Tampering 4 Detected
     eET4D ET4D : 1;
+    /// read-write - External Tampering 5 Detected
     eET5D ET5D : 1;
+    /// read-write - External Tampering 6 Detected
     eET6D ET6D : 1;
+    /// read-write - External Tampering 7 Detected
     eET7D ET7D : 1;
+    /// read-write - External Tampering 8 Detected
     eET8D ET8D : 1;
+    /// read-write - External Tampering 9 Enable When set, external tampering 9 detection generates an LP security violation
     eET9D ET9D : 1;
+    /// read-write - External Tampering 10 Detected
     eET10D ET10D : 1;
     uint32_t _reserved_0 : 24;
   } bits;
@@ -1706,13 +1912,21 @@ union LPTGF1CR {
   
   // Bit field definition.
   struct {
+    /// read-write - External Tamper Glitch Filter 3 Configures the length of the digital glitch filter for the external tamper 3 pin between 128 and 32640 SRTC clock cycles
     uint32_t ETGF3 : 7;
+    /// read-write - External Tamper Glitch Filter 3 Enable When set, enables the external tamper glitch filter 3.
     eETGF3_EN ETGF3_EN : 1;
+    /// read-write - External Tamper Glitch Filter 4 Configures the length of the digital glitch filter for the external tamper 4 pin between 128 and 32640 SRTC clock cycles
     uint32_t ETGF4 : 7;
+    /// read-write - External Tamper Glitch Filter 4 Enable When set, enables the external tamper glitch filter 4.
     eETGF4_EN ETGF4_EN : 1;
+    /// read-write - External Tamper Glitch Filter 5 Configures the length of the digital glitch filter for the external tamper 5 pin between 128 and 32640 SRTC clock cycles
     uint32_t ETGF5 : 7;
+    /// read-write - External Tamper Glitch Filter 5 Enable When set, enables the external tamper glitch filter 5.
     eETGF5_EN ETGF5_EN : 1;
+    /// read-write - External Tamper Glitch Filter 6 Configures the length of the digital glitch filter for the external tamper 6 pin between 128 and 32640 SRTC clock cycles
     uint32_t ETGF6 : 7;
+    /// read-write - External Tamper Glitch Filter 6 Enable When set, enables the external tamper glitch filter 6.
     eETGF6_EN ETGF6_EN : 1;
   } bits;
   
@@ -1750,13 +1964,21 @@ union LPTGF2CR {
   
   // Bit field definition.
   struct {
+    /// read-write - External Tamper Glitch Filter 7 Configures the length of the digital glitch filter for the external tamper 7 pin between 128 and 32640 SRTC clock cycles
     uint32_t ETGF7 : 7;
+    /// read-write - External Tamper Glitch Filter 7 Enable When set, enables the external tamper glitch filter 7.
     eETGF7_EN ETGF7_EN : 1;
+    /// read-write - External Tamper Glitch Filter 8 Configures the length of the digital glitch filter for the external tamper 8 pin between 128 and 32640 SRTC clock cycles
     uint32_t ETGF8 : 7;
+    /// read-write - External Tamper Glitch Filter 8 Enable When set, enables the external tamper glitch filter 8.
     eETGF8_EN ETGF8_EN : 1;
+    /// read-write - External Tamper Glitch Filter 9 Configures the length of the digital glitch filter for the external tamper 9 pin between 128 and 32640 SRTC clock cycles
     uint32_t ETGF9 : 7;
+    /// read-write - External Tamper Glitch Filter 9 Enable When set, enables the external tamper glitch filter 9.
     eETGF9_EN ETGF9_EN : 1;
+    /// read-write - External Tamper Glitch Filter 10 Configures the length of the digital glitch filter for the external tamper 10 pin between 128 and 32640 SRTC clock cycles
     uint32_t ETGF10 : 7;
+    /// read-write - External Tamper Glitch Filter 10 Enable When set, enables the external tamper glitch filter 10.
     eETGF10_EN ETGF10_EN : 1;
   } bits;
   
@@ -1774,7 +1996,9 @@ union LPAT1CR {
   
   // Bit field definition.
   struct {
+    /// write-only - Active Tamper 1 Initial Seed Default Seed is 1111h.
     uint32_t Seed : 16;
+    /// write-only - Active Tamper 1 Polynomial Default Polynomial is 8400h.
     uint32_t Polynomial : 16;
   } bits;
   
@@ -1792,7 +2016,9 @@ union LPAT2CR {
   
   // Bit field definition.
   struct {
+    /// write-only - Active Tamper 2 Initial Seed Default Seed is 2222h.
     uint32_t Seed : 16;
+    /// write-only - Active Tamper 2 Polynomial Default Polynomial is 9C00h.
     uint32_t Polynomial : 16;
   } bits;
   
@@ -1810,7 +2036,9 @@ union LPAT3CR {
   
   // Bit field definition.
   struct {
+    /// write-only - Active Tamper 3 Initial Seed Default Seed is 3333h.
     uint32_t Seed : 16;
+    /// write-only - Active Tamper 3 Polynomial Default Polynomial is CA00h.
     uint32_t Polynomial : 16;
   } bits;
   
@@ -1828,7 +2056,9 @@ union LPAT4CR {
   
   // Bit field definition.
   struct {
+    /// write-only - Active Tamper 4 Initial Seed Default Seed is 4444h.
     uint32_t Seed : 16;
+    /// write-only - Active Tamper 4 Polynomial Default Polynomial is 8580h.
     uint32_t Polynomial : 16;
   } bits;
   
@@ -1846,7 +2076,9 @@ union LPAT5CR {
   
   // Bit field definition.
   struct {
+    /// write-only - Active Tamper 5 Initial Seed Default Seed is 5555h.
     uint32_t Seed : 16;
+    /// write-only - Active Tamper 5 Polynomial Default Polynomial is A840h.
     uint32_t Polynomial : 16;
   } bits;
   
@@ -1914,16 +2146,26 @@ union LPATCTLR {
   
   // Bit field definition.
   struct {
+    /// read-write - Active Tamper 1 Enable When set, enables the Active Tamper 1 LFSR.
     eAT1_EN AT1_EN : 1;
+    /// read-write - Active Tamper 2 Enable When set, enables the Active Tamper 2 LFSR.
     eAT2_EN AT2_EN : 1;
+    /// read-write - Active Tamper 3 Enable When set, enables the Active Tamper 3 LFSR.
     eAT3_EN AT3_EN : 1;
+    /// read-write - Active Tamper 4 Enable When set, enables the Active Tamper 4 LFSR.
     eAT4_EN AT4_EN : 1;
+    /// read-write - Active Tamper 5 Enable When set, enables the Active Tamper 5 LFSR.
     eAT5_EN AT5_EN : 1;
     uint32_t _reserved_0 : 11;
+    /// read-write - Active Tamper 1 Pad Out Enable When set, enables the Active Tamper 1 external pad.
     eAT1_PAD_EN AT1_PAD_EN : 1;
+    /// read-write - Active Tamper 2 Pad Out Enable When set, enables the Active Tamper 2 external pad.
     eAT2_PAD_EN AT2_PAD_EN : 1;
+    /// read-write - Active Tamper 3 Pad Out Enable When set, enables the Active Tamper 3 external pad.
     eAT3_PAD_EN AT3_PAD_EN : 1;
+    /// read-write - Active Tamper 4 Pad Out Enable When set, enables the Active Tamper 4 external pad.
     eAT4_PAD_EN AT4_PAD_EN : 1;
+    /// read-write - Active Tamper 5 Pad Out Enable When set, enables the Active Tamper 5 external pad.
     eAT5_PAD_EN AT5_PAD_EN : 1;
     uint32_t _reserved_1 : 11;
   } bits;
@@ -1942,14 +2184,19 @@ union LPATCLKR {
   
   // Bit field definition.
   struct {
+    /// read-write - Active Tamper 1 Clock Control 00: 16hz 01: 8hz 10: 4hz 11: 2hz
     uint32_t AT1_CLK_CTL : 2;
     uint32_t _reserved_0 : 2;
+    /// read-write - Active Tamper 2 Clock Control 00: 16hz 01: 8hz 10: 4hz 11: 2hz
     uint32_t AT2_CLK_CTL : 2;
     uint32_t _reserved_1 : 2;
+    /// read-write - Active Tamper 3 Clock Control 00: 16hz 01: 8hz 10: 4hz 11: 2hz
     uint32_t AT3_CLK_CTL : 2;
     uint32_t _reserved_2 : 2;
+    /// read-write - Active Tamper 4 Clock Control 00: 16hz 01: 8hz 10: 4hz 11: 2hz
     uint32_t AT4_CLK_CTL : 2;
     uint32_t _reserved_3 : 2;
+    /// read-write - Active Tamper 5 Clock Control 00: 16hz 01: 8hz 10: 4hz 11: 2hz
     uint32_t AT5_CLK_CTL : 2;
     uint32_t _reserved_4 : 14;
   } bits;
@@ -1968,20 +2215,28 @@ union LPATRC1R {
   
   // Bit field definition.
   struct {
+    /// read-write - External Tamper 1 Routing Control Any undefined selection will be routed to passive
     uint32_t ET1RCTL : 3;
     uint32_t _reserved_0 : 1;
+    /// read-write - External Tamper 2 Routing Control Any undefined selection will be routed to passive
     uint32_t ET2RCTL : 3;
     uint32_t _reserved_1 : 1;
+    /// read-write - External Tamper 3 Routing Control Any undefined selection will be routed to passive
     uint32_t ET3RCTL : 3;
     uint32_t _reserved_2 : 1;
+    /// read-write - External Tamper 4 Routing Control Any undefined selection will be routed to passive
     uint32_t ET4RCTL : 3;
     uint32_t _reserved_3 : 1;
+    /// read-write - External Tamper 5 Routing Control Any undefined selection will be routed to passive
     uint32_t ET5RCTL : 3;
     uint32_t _reserved_4 : 1;
+    /// read-write - External Tamper 6 Routing Control Any undefined selection will be routed to passive
     uint32_t ET6RCTL : 3;
     uint32_t _reserved_5 : 1;
+    /// read-write - External Tamper 7 Routing Control Any undefined selection will be routed to passive
     uint32_t ET7RCTL : 3;
     uint32_t _reserved_6 : 1;
+    /// read-write - External Tamper 8 Routing Control Any undefined selection will be routed to passive
     uint32_t ET8RCTL : 3;
     uint32_t _reserved_7 : 1;
   } bits;
@@ -2000,8 +2255,10 @@ union LPATRC2R {
   
   // Bit field definition.
   struct {
+    /// read-write - External Tamper 9 Routing Control Any undefined selection will be routed to passive
     uint32_t ET9RCTL : 3;
     uint32_t _reserved_0 : 1;
+    /// read-write - External Tamper 10 Routing Control Any undefined selection will be routed to passive
     uint32_t ET10RCTL : 3;
     uint32_t _reserved_1 : 25;
   } bits;
@@ -2020,6 +2277,7 @@ union LPGPR[0] {
   
   // Bit field definition.
   struct {
+    /// read-write - General Purpose Register When GPR_SL or GPR_HL bit is set, the register cannot be programmed.
     uint32_t GPR : 32;
   } bits;
   
@@ -2036,6 +2294,7 @@ union LPGPR[1] {
   
   // Bit field definition.
   struct {
+    /// read-write - General Purpose Register When GPR_SL or GPR_HL bit is set, the register cannot be programmed.
     uint32_t GPR : 32;
   } bits;
   
@@ -2052,6 +2311,7 @@ union LPGPR[2] {
   
   // Bit field definition.
   struct {
+    /// read-write - General Purpose Register When GPR_SL or GPR_HL bit is set, the register cannot be programmed.
     uint32_t GPR : 32;
   } bits;
   
@@ -2068,6 +2328,7 @@ union LPGPR[3] {
   
   // Bit field definition.
   struct {
+    /// read-write - General Purpose Register When GPR_SL or GPR_HL bit is set, the register cannot be programmed.
     uint32_t GPR : 32;
   } bits;
   
@@ -2085,8 +2346,11 @@ union HPVIDR1 {
   
   // Bit field definition.
   struct {
+    /// read-only - SNVS block minor version number
     uint32_t MINOR_REV : 8;
+    /// read-only - SNVS block major version number
     uint32_t MAJOR_REV : 8;
+    /// read-only - SNVS block ID
     uint32_t IP_ID : 16;
   } bits;
   
@@ -2105,8 +2369,10 @@ union HPVIDR2 {
   // Bit field definition.
   struct {
     uint32_t _reserved_0 : 8;
+    /// read-only - SNVS ECO Revision The engineering change order revision number for this release of SNVS.
     uint32_t ECO_REV : 8;
     uint32_t _reserved_1 : 8;
+    /// read-only - IP Era 00h - Era 1 or 2 03h - Era 3 04h - Era 4 05h - Era 5 06h - Era 6
     uint32_t IP_ERA : 8;
   } bits;
   

@@ -22,11 +22,15 @@ union PMU_LDO_PLL {
   
   // Bit field definition.
   struct {
+    /// read-write - LDO_PLL_ENABLE
     uint32_t LDO_PLL_ENABLE : 1;
+    /// read-write - LDO_PLL_CONTROL_MODE
     eLDO_PLL_CONTROL_MODE LDO_PLL_CONTROL_MODE : 1;
     uint32_t _reserved_0 : 14;
+    /// read-write - ldo_pll_ai_toggle
     uint32_t LDO_PLL_AI_TOGGLE : 1;
     uint32_t _reserved_1 : 13;
+    /// read-only - ldo_pll_busy
     uint32_t LDO_PLL_AI_BUSY : 1;
     uint32_t _reserved_2 : 1;
   } bits;
@@ -50,8 +54,10 @@ union PMU_BIAS_CTRL {
   
   // Bit field definition.
   struct {
+    /// read-write - wb_cfg_1p8
     uint32_t WB_CFG_1P8 : 13;
     uint32_t _reserved_0 : 1;
+    /// read-write - wb_vdd_sel_1p8
     eWB_VDD_SEL_1P8 WB_VDD_SEL_1P8 : 1;
     uint32_t _reserved_1 : 17;
   } bits;
@@ -111,14 +117,23 @@ union PMU_BIAS_CTRL2 {
   // Bit field definition.
   struct {
     uint32_t _reserved_0 : 1;
+    /// read-write - TMOD_wb_tst_md_1p8
     uint32_t WB_TST_MD : 9;
+    /// read-write - MODSEL_wb_tst_md_1p8
     eWB_PWR_SW_EN_1P8 WB_PWR_SW_EN_1P8 : 3;
+    /// read-write - wb_adj_1p8
     eWB_ADJ_1P8 WB_ADJ_1P8 : 8;
+    /// read-write - FBB_M7_CONTROL_MODE
     eFBB_M7_CONTROL_MODE FBB_M7_CONTROL_MODE : 1;
+    /// read-write - RBB_SOC_CONTROL_MODE
     eRBB_SOC_CONTROL_MODE RBB_SOC_CONTROL_MODE : 1;
+    /// read-write - RBB_LPSR_CONTROL_MODE
     eRBB_LPSR_CONTROL_MODE RBB_LPSR_CONTROL_MODE : 1;
+    /// read-write - wb_en
     uint32_t WB_EN : 1;
+    /// read-only - Digital output
     uint32_t WB_TST_DIG_OUT : 1;
+    /// read-only - Digital Output pin.
     uint32_t WB_OK : 1;
     uint32_t _reserved_1 : 5;
   } bits;
@@ -142,10 +157,15 @@ union PMU_REF_CTRL {
   
   // Bit field definition.
   struct {
+    /// read-write - ref_ai_toggle
     uint32_t REF_AI_TOGGLE : 1;
+    /// read-only - ref_ai_busy
     uint32_t REF_AI_BUSY : 1;
+    /// read-write - REF_ENABLE
     uint32_t REF_ENABLE : 1;
+    /// read-write - REF_CONTROL_MODE
     eREF_CONTROL_MODE REF_CONTROL_MODE : 1;
+    /// read-write - en_pll_vol_ref_buffer
     uint32_t EN_PLL_VOL_REF_BUFFER : 1;
     uint32_t _reserved_0 : 27;
   } bits;
@@ -165,6 +185,7 @@ union PMU_POWER_DETECT_CTRL {
   // Bit field definition.
   struct {
     uint32_t _reserved_0 : 8;
+    /// read-write - ckgb_lpsr1p0
     uint32_t CKGB_LPSR1P0 : 1;
     uint32_t _reserved_1 : 23;
   } bits;
@@ -263,21 +284,37 @@ union LDO_PLL_ENABLE_SP {
   
   // Bit field definition.
   struct {
+    /// read-write - ON_OFF_SETPOINT0
     eON_OFF_SETPOINT0 ON_OFF_SETPOINT0 : 1;
+    /// read-write - ON_OFF_SETPOINT1
     eON_OFF_SETPOINT1 ON_OFF_SETPOINT1 : 1;
+    /// read-write - ON_OFF_SETPOINT2
     eON_OFF_SETPOINT2 ON_OFF_SETPOINT2 : 1;
+    /// read-write - ON_OFF_SETPOINT3
     eON_OFF_SETPOINT3 ON_OFF_SETPOINT3 : 1;
+    /// read-write - ON_OFF_SETPOINT4
     eON_OFF_SETPOINT4 ON_OFF_SETPOINT4 : 1;
+    /// read-write - ON_OFF_SETPOINT5
     eON_OFF_SETPOINT5 ON_OFF_SETPOINT5 : 1;
+    /// read-write - ON_OFF_SETPOINT6
     eON_OFF_SETPOINT6 ON_OFF_SETPOINT6 : 1;
+    /// read-write - ON_OFF_SETPOINT7
     eON_OFF_SETPOINT7 ON_OFF_SETPOINT7 : 1;
+    /// read-write - ON_OFF_SETPOINT8
     eON_OFF_SETPOINT8 ON_OFF_SETPOINT8 : 1;
+    /// read-write - ON_OFF_SETPOINT9
     eON_OFF_SETPOINT9 ON_OFF_SETPOINT9 : 1;
+    /// read-write - ON_OFF_SETPOINT10
     eON_OFF_SETPOINT10 ON_OFF_SETPOINT10 : 1;
+    /// read-write - ON_OFF_SETPOINT11
     eON_OFF_SETPOINT11 ON_OFF_SETPOINT11 : 1;
+    /// read-write - ON_OFF_SETPOINT12
     eON_OFF_SETPOINT12 ON_OFF_SETPOINT12 : 1;
+    /// read-write - ON_OFF_SETPOINT13
     eON_OFF_SETPOINT13 ON_OFF_SETPOINT13 : 1;
+    /// read-write - ON_OFF_SETPOINT14
     eON_OFF_SETPOINT14 ON_OFF_SETPOINT14 : 1;
+    /// read-write - ON_OFF_SETPOINT15
     eON_OFF_SETPOINT15 ON_OFF_SETPOINT15 : 1;
     uint32_t _reserved_0 : 16;
   } bits;
@@ -376,21 +413,37 @@ union LDO_LPSR_ANA_ENABLE_SP {
   
   // Bit field definition.
   struct {
+    /// read-write - ON_OFF_SETPOINT0
     eON_OFF_SETPOINT0 ON_OFF_SETPOINT0 : 1;
+    /// read-write - ON_OFF_SETPOINT1
     eON_OFF_SETPOINT1 ON_OFF_SETPOINT1 : 1;
+    /// read-write - ON_OFF_SETPOINT2
     eON_OFF_SETPOINT2 ON_OFF_SETPOINT2 : 1;
+    /// read-write - ON_OFF_SETPOINT3
     eON_OFF_SETPOINT3 ON_OFF_SETPOINT3 : 1;
+    /// read-write - ON_OFF_SETPOINT4
     eON_OFF_SETPOINT4 ON_OFF_SETPOINT4 : 1;
+    /// read-write - ON_OFF_SETPOINT5
     eON_OFF_SETPOINT5 ON_OFF_SETPOINT5 : 1;
+    /// read-write - ON_OFF_SETPOINT6
     eON_OFF_SETPOINT6 ON_OFF_SETPOINT6 : 1;
+    /// read-write - ON_OFF_SETPOINT7
     eON_OFF_SETPOINT7 ON_OFF_SETPOINT7 : 1;
+    /// read-write - ON_OFF_SETPOINT8
     eON_OFF_SETPOINT8 ON_OFF_SETPOINT8 : 1;
+    /// read-write - ON_OFF_SETPOINT9
     eON_OFF_SETPOINT9 ON_OFF_SETPOINT9 : 1;
+    /// read-write - ON_OFF_SETPOINT10
     eON_OFF_SETPOINT10 ON_OFF_SETPOINT10 : 1;
+    /// read-write - ON_OFF_SETPOINT11
     eON_OFF_SETPOINT11 ON_OFF_SETPOINT11 : 1;
+    /// read-write - ON_OFF_SETPOINT12
     eON_OFF_SETPOINT12 ON_OFF_SETPOINT12 : 1;
+    /// read-write - ON_OFF_SETPOINT13
     eON_OFF_SETPOINT13 ON_OFF_SETPOINT13 : 1;
+    /// read-write - ON_OFF_SETPOINT14
     eON_OFF_SETPOINT14 ON_OFF_SETPOINT14 : 1;
+    /// read-write - ON_OFF_SETPOINT15
     eON_OFF_SETPOINT15 ON_OFF_SETPOINT15 : 1;
     uint32_t _reserved_0 : 16;
   } bits;
@@ -489,21 +542,37 @@ union LDO_LPSR_ANA_LP_MODE_SP {
   
   // Bit field definition.
   struct {
+    /// read-write - LP_MODE_SETPOINT0
     eLP_MODE_SETPOINT0 LP_MODE_SETPOINT0 : 1;
+    /// read-write - LP_MODE_SETPOINT1
     eLP_MODE_SETPOINT1 LP_MODE_SETPOINT1 : 1;
+    /// read-write - LP_MODE_SETPOINT2
     eLP_MODE_SETPONIT2 LP_MODE_SETPONIT2 : 1;
+    /// read-write - LP_MODE_SETPOINT3
     eLP_MODE_SETPONIT3 LP_MODE_SETPONIT3 : 1;
+    /// read-write - LP_MODE_SETPOINT4
     eLP_MODE_SETPONIT4 LP_MODE_SETPONIT4 : 1;
+    /// read-write - LP_MODE_SETPOINT5
     eLP_MODE_SETPONIT5 LP_MODE_SETPONIT5 : 1;
+    /// read-write - LP_MODE_SETPOINT6
     eLP_MODE_SETPONIT6 LP_MODE_SETPONIT6 : 1;
+    /// read-write - LP_MODE_SETPOINT7
     eLP_MODE_SETPONIT7 LP_MODE_SETPONIT7 : 1;
+    /// read-write - LP_MODE_SETPOINT8
     eLP_MODE_SETPONIT8 LP_MODE_SETPONIT8 : 1;
+    /// read-write - LP_MODE_SETPOINT9
     eLP_MODE_SETPONIT9 LP_MODE_SETPONIT9 : 1;
+    /// read-write - LP_MODE_SETPOINT10
     eLP_MODE_SETPONIT10 LP_MODE_SETPONIT10 : 1;
+    /// read-write - LP_MODE_SETPOINT11
     eLP_MODE_SETPONIT11 LP_MODE_SETPONIT11 : 1;
+    /// read-write - LP_MODE_SETPOINT12
     eLP_MODE_SETPONIT12 LP_MODE_SETPONIT12 : 1;
+    /// read-write - LP_MODE_SETPOINT13
     eLP_MODE_SETPONIT13 LP_MODE_SETPONIT13 : 1;
+    /// read-write - LP_MODE_SETPOINT14
     eLP_MODE_SETPONIT14 LP_MODE_SETPONIT14 : 1;
+    /// read-write - LP_MODE_SETPOINT15
     eLP_MODE_SETPONIT15 LP_MODE_SETPONIT15 : 1;
     uint32_t _reserved_0 : 16;
   } bits;
@@ -602,21 +671,37 @@ union LDO_LPSR_ANA_TRACKING_EN_SP {
   
   // Bit field definition.
   struct {
+    /// read-write - TRACKING_EN_SETPOINT0
     eTRACKING_EN_SETPOINT0 TRACKING_EN_SETPOINT0 : 1;
+    /// read-write - TRACKING_EN_SETPOINT1
     eTRACKING_EN_SETPOINT1 TRACKING_EN_SETPOINT1 : 1;
+    /// read-write - TRACKING_EN_SETPOINT2
     eTRACKING_EN_SETPOINT2 TRACKING_EN_SETPOINT2 : 1;
+    /// read-write - TRACKING_EN_SETPOINT3
     eTRACKING_EN_SETPOINT3 TRACKING_EN_SETPOINT3 : 1;
+    /// read-write - TRACKING_EN_SETPOINT4
     eTRACKING_EN_SETPOINT4 TRACKING_EN_SETPOINT4 : 1;
+    /// read-write - TRACKING_EN_SETPOINT5
     eTRACKING_EN_SETPOINT5 TRACKING_EN_SETPOINT5 : 1;
+    /// read-write - TRACKING_EN_SETPOINT6
     eTRACKING_EN_SETPOINT6 TRACKING_EN_SETPOINT6 : 1;
+    /// read-write - TRACKING_EN_SETPOINT7
     eTRACKING_EN_SETPOINT7 TRACKING_EN_SETPOINT7 : 1;
+    /// read-write - TRACKING_EN_SETPOINT8
     eTRACKING_EN_SETPOINT8 TRACKING_EN_SETPOINT8 : 1;
+    /// read-write - TRACKING_EN_SETPOINT9
     eTRACKING_EN_SETPOINT9 TRACKING_EN_SETPOINT9 : 1;
+    /// read-write - TRACKING_EN_SETPOINT10
     eTRACKING_EN_SETPOINT10 TRACKING_EN_SETPOINT10 : 1;
+    /// read-write - TRACKING_EN_SETPOINT11
     eTRACKING_EN_SETPOINT11 TRACKING_EN_SETPOINT11 : 1;
+    /// read-write - TRACKING_EN_SETPOINT12
     eTRACKING_EN_SETPOINT12 TRACKING_EN_SETPOINT12 : 1;
+    /// read-write - TRACKING_EN_SETPOINT13
     eTRACKING_EN_SETPOINT13 TRACKING_EN_SETPOINT13 : 1;
+    /// read-write - TRACKING_EN_SETPOINT14
     eTRACKING_EN_SETPOINT14 TRACKING_EN_SETPOINT14 : 1;
+    /// read-write - TRACKING_EN_SETPOINT15
     eTRACKING_EN_SETPOINT15 TRACKING_EN_SETPOINT15 : 1;
     uint32_t _reserved_0 : 16;
   } bits;
@@ -715,21 +800,37 @@ union LDO_LPSR_ANA_BYPASS_EN_SP {
   
   // Bit field definition.
   struct {
+    /// read-write - BYPASS_EN_SETPOINT0
     eBYPASS_EN_SETPOINT0 BYPASS_EN_SETPOINT0 : 1;
+    /// read-write - BYPASS_EN_SETPOINT1
     eBYPASS_EN_SETPOINT1 BYPASS_EN_SETPOINT1 : 1;
+    /// read-write - BYPASS_EN_SETPOINT2
     eBYPASS_EN_SETPOINT2 BYPASS_EN_SETPOINT2 : 1;
+    /// read-write - BYPASS_EN_SETPOINT3
     eBYPASS_EN_SETPOINT3 BYPASS_EN_SETPOINT3 : 1;
+    /// read-write - BYPASS_EN_SETPOINT4
     eBYPASS_EN_SETPOINT4 BYPASS_EN_SETPOINT4 : 1;
+    /// read-write - BYPASS_EN_SETPOINT5
     eBYPASS_EN_SETPOINT5 BYPASS_EN_SETPOINT5 : 1;
+    /// read-write - BYPASS_EN_SETPOINT6
     eBYPASS_EN_SETPOINT6 BYPASS_EN_SETPOINT6 : 1;
+    /// read-write - BYPASS_EN_SETPOINT7
     eBYPASS_EN_SETPOINT7 BYPASS_EN_SETPOINT7 : 1;
+    /// read-write - BYPASS_EN_SETPOINT
     eBYPASS_EN_SETPOINT8 BYPASS_EN_SETPOINT8 : 1;
+    /// read-write - BYPASS_EN_SETPOINT9
     eBYPASS_EN_SETPOINT9 BYPASS_EN_SETPOINT9 : 1;
+    /// read-write - BYPASS_EN_SETPOINT10
     eBYPASS_EN_SETPOINT10 BYPASS_EN_SETPOINT10 : 1;
+    /// read-write - BYPASS_EN_SETPOINT11
     eBYPASS_EN_SETPOINT11 BYPASS_EN_SETPOINT11 : 1;
+    /// read-write - BYPASS_EN_SETPOINT12
     eBYPASS_EN_SETPOINT12 BYPASS_EN_SETPOINT12 : 1;
+    /// read-write - BYPASS_EN_SETPOINT13
     eBYPASS_EN_SETPOINT13 BYPASS_EN_SETPOINT13 : 1;
+    /// read-write - BYPASS_EN_SETPOINT14
     eBYPASS_EN_SETPOINT14 BYPASS_EN_SETPOINT14 : 1;
+    /// read-write - BYPASS_EN_SETPOINT15
     eBYPASS_EN_SETPOINT15 BYPASS_EN_SETPOINT15 : 1;
     uint32_t _reserved_0 : 16;
   } bits;
@@ -828,21 +929,37 @@ union LDO_LPSR_ANA_STBY_EN_SP {
   
   // Bit field definition.
   struct {
+    /// read-write - STBY_EN_SETPOINT0
     eSTBY_EN_SETPOINT0 STBY_EN_SETPOINT0 : 1;
+    /// read-write - STBY_EN_SETPOINT1
     eSTBY_EN_SETPOINT1 STBY_EN_SETPOINT1 : 1;
+    /// read-write - STBY_EN_SETPOINT2
     eSTBY_EN_SETPOINT2 STBY_EN_SETPOINT2 : 1;
+    /// read-write - STBY_EN_SETPOINT3
     eSTBY_EN_SETPOINT3 STBY_EN_SETPOINT3 : 1;
+    /// read-write - STBY_EN_SETPOINT4
     eSTBY_EN_SETPOINT4 STBY_EN_SETPOINT4 : 1;
+    /// read-write - STBY_EN_SETPOINT5
     eSTBY_EN_SETPOINT5 STBY_EN_SETPOINT5 : 1;
+    /// read-write - STBY_EN_SETPOINT6
     eSTBY_EN_SETPOINT6 STBY_EN_SETPOINT6 : 1;
+    /// read-write - STBY_EN_SETPOINT7
     eSTBY_EN_SETPOINT7 STBY_EN_SETPOINT7 : 1;
+    /// read-write - STBY_EN_SETPOINT8
     eSTBY_EN_SETPOINT8 STBY_EN_SETPOINT8 : 1;
+    /// read-write - STBY_EN_SETPOINT9
     eSTBY_EN_SETPOINT9 STBY_EN_SETPOINT9 : 1;
+    /// read-write - STBY_EN_SETPOINT10
     eSTBY_EN_SETPOINT10 STBY_EN_SETPOINT10 : 1;
+    /// read-write - STBY_EN_SETPOINT11
     eSTBY_EN_SETPOINT11 STBY_EN_SETPOINT11 : 1;
+    /// read-write - STBY_EN_SETPOINT12
     eSTBY_EN_SETPOINT12 STBY_EN_SETPOINT12 : 1;
+    /// read-write - STBY_EN_SETPOINT13
     eSTBY_EN_SETPOINT13 STBY_EN_SETPOINT13 : 1;
+    /// read-write - STBY_EN_SETPOINT14
     eSTBY_EN_SETPOINT14 STBY_EN_SETPOINT14 : 1;
+    /// read-write - STBY_EN_SETPOINT15
     eSTBY_EN_SETPOINT15 STBY_EN_SETPOINT15 : 1;
     uint32_t _reserved_0 : 16;
   } bits;
@@ -941,21 +1058,37 @@ union LDO_LPSR_DIG_ENABLE_SP {
   
   // Bit field definition.
   struct {
+    /// read-write - ON_OFF_SETPOINT0
     eON_OFF_SETPOINT0 ON_OFF_SETPOINT0 : 1;
+    /// read-write - ON_OFF_SETPOINT1
     eON_OFF_SETPOINT1 ON_OFF_SETPOINT1 : 1;
+    /// read-write - ON_OFF_SETPOINT2
     eON_OFF_SETPOINT2 ON_OFF_SETPOINT2 : 1;
+    /// read-write - ON_OFF_SETPOINT3
     eON_OFF_SETPOINT3 ON_OFF_SETPOINT3 : 1;
+    /// read-write - ON_OFF_SETPOINT4
     eON_OFF_SETPOINT4 ON_OFF_SETPOINT4 : 1;
+    /// read-write - ON_OFF_SETPOINT5
     eON_OFF_SETPOINT5 ON_OFF_SETPOINT5 : 1;
+    /// read-write - ON_OFF_SETPOINT6
     eON_OFF_SETPOINT6 ON_OFF_SETPOINT6 : 1;
+    /// read-write - ON_OFF_SETPOINT7
     eON_OFF_SETPOINT7 ON_OFF_SETPOINT7 : 1;
+    /// read-write - ON_OFF_SETPOINT8
     eON_OFF_SETPOINT8 ON_OFF_SETPOINT8 : 1;
+    /// read-write - ON_OFF_SETPOINT9
     eON_OFF_SETPOINT9 ON_OFF_SETPOINT9 : 1;
+    /// read-write - ON_OFF_SETPOINT10
     eON_OFF_SETPOINT10 ON_OFF_SETPOINT10 : 1;
+    /// read-write - ON_OFF_SETPOINT11
     eON_OFF_SETPOINT11 ON_OFF_SETPOINT11 : 1;
+    /// read-write - ON_OFF_SETPOINT12
     eON_OFF_SETPOINT12 ON_OFF_SETPOINT12 : 1;
+    /// read-write - ON_OFF_SETPOINT13
     eON_OFF_SETPOINT13 ON_OFF_SETPOINT13 : 1;
+    /// read-write - ON_OFF_SETPOINT14
     eON_OFF_SETPOINT14 ON_OFF_SETPOINT14 : 1;
+    /// read-write - ON_OFF_SETPOINT15
     eON_OFF_SETPOINT15 ON_OFF_SETPOINT15 : 1;
     uint32_t _reserved_0 : 16;
   } bits;
@@ -974,9 +1107,13 @@ union LDO_LPSR_DIG_TRG_SP0 {
   
   // Bit field definition.
   struct {
+    /// read-write - VOLTAGE_SETPOINT0
     uint32_t VOLTAGE_SETPOINT0 : 8;
+    /// read-write - VOLTAGE_SETPOINT1
     uint32_t VOLTAGE_SETPOINT1 : 8;
+    /// read-write - VOLTAGE_SETPOINT2
     uint32_t VOLTAGE_SETPOINT2 : 8;
+    /// read-write - VOLTAGE_SETPOINT3
     uint32_t VOLTAGE_SETPOINT3 : 8;
   } bits;
   
@@ -994,9 +1131,13 @@ union LDO_LPSR_DIG_TRG_SP1 {
   
   // Bit field definition.
   struct {
+    /// read-write - VOLTAGE_SETPOINT4
     uint32_t VOLTAGE_SETPOINT4 : 8;
+    /// read-write - VOLTAGE_SETPOINT5
     uint32_t VOLTAGE_SETPOINT5 : 8;
+    /// read-write - VOLTAGE_SETPOINT6
     uint32_t VOLTAGE_SETPOINT6 : 8;
+    /// read-write - VOLTAGE_SETPOINT7
     uint32_t VOLTAGE_SETPOINT7 : 8;
   } bits;
   
@@ -1014,9 +1155,13 @@ union LDO_LPSR_DIG_TRG_SP2 {
   
   // Bit field definition.
   struct {
+    /// read-write - VOLTAGE_SETPOINT8
     uint32_t VOLTAGE_SETPOINT8 : 8;
+    /// read-write - VOLTAGE_SETPOINT9
     uint32_t VOLTAGE_SETPOINT9 : 8;
+    /// read-write - VOLTAGE_SETPOINT10
     uint32_t VOLTAGE_SETPOINT10 : 8;
+    /// read-write - VOLTAGE_SETPOINT11
     uint32_t VOLTAGE_SETPOINT11 : 8;
   } bits;
   
@@ -1034,9 +1179,13 @@ union LDO_LPSR_DIG_TRG_SP3 {
   
   // Bit field definition.
   struct {
+    /// read-write - VOLTAGE_SETPOINT12
     uint32_t VOLTAGE_SETPOINT12 : 8;
+    /// read-write - VOLTAGE_SETPOINT13
     uint32_t VOLTAGE_SETPOINT13 : 8;
+    /// read-write - VOLTAGE_SETPOINT14
     uint32_t VOLTAGE_SETPOINT14 : 8;
+    /// read-write - VOLTAGE_SETPOINT15
     uint32_t VOLTAGE_SETPOINT15 : 8;
   } bits;
   
@@ -1134,21 +1283,37 @@ union LDO_LPSR_DIG_LP_MODE_SP {
   
   // Bit field definition.
   struct {
+    /// read-write - LP_MODE_SETPOINT0
     eLP_MODE_SETPOINT0 LP_MODE_SETPOINT0 : 1;
+    /// read-write - LP_MODE_SETPOINT1
     eLP_MODE_SETPOINT1 LP_MODE_SETPOINT1 : 1;
+    /// read-write - LP_MODE_SETPOINT2
     eLP_MODE_SETPOINT2 LP_MODE_SETPOINT2 : 1;
+    /// read-write - LP_MODE_SETPOINT3
     eLP_MODE_SETPOINT3 LP_MODE_SETPOINT3 : 1;
+    /// read-write - LP_MODE_SETPOINT4
     eLP_MODE_SETPOINT4 LP_MODE_SETPOINT4 : 1;
+    /// read-write - LP_MODE_SETPOINT5
     eLP_MODE_SETPOINT5 LP_MODE_SETPOINT5 : 1;
+    /// read-write - LP_MODE_SETPOINT6
     eLP_MODE_SETPOINT6 LP_MODE_SETPOINT6 : 1;
+    /// read-write - LP_MODE_SETPOINT7
     eLP_MODE_SETPOINT7 LP_MODE_SETPOINT7 : 1;
+    /// read-write - LP_MODE_SETPOINT8
     eLP_MODE_SETPOINT8 LP_MODE_SETPOINT8 : 1;
+    /// read-write - LP_MODE_SETPOINT9
     eLP_MODE_SETPOINT9 LP_MODE_SETPOINT9 : 1;
+    /// read-write - LP_MODE_SETPOINT10
     eLP_MODE_SETPOINT10 LP_MODE_SETPOINT10 : 1;
+    /// read-write - LP_MODE_SETPOINT11
     eLP_MODE_SETPOINT11 LP_MODE_SETPOINT11 : 1;
+    /// read-write - LP_MODE_SETPOINT12
     eLP_MODE_SETPOINT12 LP_MODE_SETPOINT12 : 1;
+    /// read-write - LP_MODE_SETPOINT13
     eLP_MODE_SETPOINT13 LP_MODE_SETPOINT13 : 1;
+    /// read-write - LP_MODE_SETPOINT14
     eLP_MODE_SETPOINT14 LP_MODE_SETPOINT14 : 1;
+    /// read-write - LP_MODE_SETPOINT15
     eLP_MODE_SETPOINT15 LP_MODE_SETPOINT15 : 1;
     uint32_t _reserved_0 : 16;
   } bits;
@@ -1247,21 +1412,37 @@ union LDO_LPSR_DIG_TRACKING_EN_SP {
   
   // Bit field definition.
   struct {
+    /// read-write - TRACKING_EN_SETPOINT0
     eTRACKING_EN_SETPOINT0 TRACKING_EN_SETPOINT0 : 1;
+    /// read-write - TRACKING_EN_SETPOINT1
     eTRACKING_EN_SETPOINT1 TRACKING_EN_SETPOINT1 : 1;
+    /// read-write - TRACKING_EN_SETPOINT2
     eTRACKING_EN_SETPOINT2 TRACKING_EN_SETPOINT2 : 1;
+    /// read-write - TRACKING_EN_SETPOINT3
     eTRACKING_EN_SETPOINT3 TRACKING_EN_SETPOINT3 : 1;
+    /// read-write - TRACKING_EN_SETPOINT4
     eTRACKING_EN_SETPOINT4 TRACKING_EN_SETPOINT4 : 1;
+    /// read-write - TRACKING_EN_SETPOINT5
     eTRACKING_EN_SETPOINT5 TRACKING_EN_SETPOINT5 : 1;
+    /// read-write - TRACKING_EN_SETPOINT6
     eTRACKING_EN_SETPOINT6 TRACKING_EN_SETPOINT6 : 1;
+    /// read-write - TRACKING_EN_SETPOINT7
     eTRACKING_EN_SETPOINT7 TRACKING_EN_SETPOINT7 : 1;
+    /// read-write - TRACKING_EN_SETPOINT8
     eTRACKING_EN_SETPOINT8 TRACKING_EN_SETPOINT8 : 1;
+    /// read-write - TRACKING_EN_SETPOINT9
     eTRACKING_EN_SETPOINT9 TRACKING_EN_SETPOINT9 : 1;
+    /// read-write - TRACKING_EN_SETPOINT10
     eTRACKING_EN_SETPOINT10 TRACKING_EN_SETPOINT10 : 1;
+    /// read-write - TRACKING_EN_SETPOINT11
     eTRACKING_EN_SETPOINT11 TRACKING_EN_SETPOINT11 : 1;
+    /// read-write - TRACKING_EN_SETPOINT12
     eTRACKING_EN_SETPOINT12 TRACKING_EN_SETPOINT12 : 1;
+    /// read-write - TRACKING_EN_SETPOINT13
     eTRACKING_EN_SETPOINT13 TRACKING_EN_SETPOINT13 : 1;
+    /// read-write - TRACKING_EN_SETPOINT14
     eTRACKING_EN_SETPOINT14 TRACKING_EN_SETPOINT14 : 1;
+    /// read-write - TRACKING_EN_SETPOINT15
     eTRACKING_EN_SETPOINT15 TRACKING_EN_SETPOINT15 : 1;
     uint32_t _reserved_0 : 16;
   } bits;
@@ -1360,21 +1541,37 @@ union LDO_LPSR_DIG_BYPASS_EN_SP {
   
   // Bit field definition.
   struct {
+    /// read-write - BYPASS_EN_SETPOINT0
     eBYPASS_EN_SETPOINT0 BYPASS_EN_SETPOINT0 : 1;
+    /// read-write - BYPASS_EN_SETPOINT1
     eBYPASS_EN_SETPOINT1 BYPASS_EN_SETPOINT1 : 1;
+    /// read-write - BYPASS_EN_SETPOINT2
     eBYPASS_EN_SETPOINT2 BYPASS_EN_SETPOINT2 : 1;
+    /// read-write - BYPASS_EN_SETPOINT3
     eBYPASS_EN_SETPOINT3 BYPASS_EN_SETPOINT3 : 1;
+    /// read-write - BYPASS_EN_SETPOINT4
     eBYPASS_EN_SETPOINT4 BYPASS_EN_SETPOINT4 : 1;
+    /// read-write - BYPASS_EN_SETPOINT5
     eBYPASS_EN_SETPOINT5 BYPASS_EN_SETPOINT5 : 1;
+    /// read-write - BYPASS_EN_SETPOINT6
     eBYPASS_EN_SETPOINT6 BYPASS_EN_SETPOINT6 : 1;
+    /// read-write - BYPASS_EN_SETPOINT7
     eBYPASS_EN_SETPOINT7 BYPASS_EN_SETPOINT7 : 1;
+    /// read-write - BYPASS_EN_SETPOINT8
     eBYPASS_EN_SETPOINT8 BYPASS_EN_SETPOINT8 : 1;
+    /// read-write - BYPASS_EN_SETPOINT9
     eBYPASS_EN_SETPOINT9 BYPASS_EN_SETPOINT9 : 1;
+    /// read-write - BYPASS_EN_SETPOINT10
     eBYPASS_EN_SETPOINT10 BYPASS_EN_SETPOINT10 : 1;
+    /// read-write - BYPASS_EN_SETPOINT11
     eBYPASS_EN_SETPOINT11 BYPASS_EN_SETPOINT11 : 1;
+    /// read-write - BYPASS_EN_SETPOINT12
     eBYPASS_EN_SETPOINT12 BYPASS_EN_SETPOINT12 : 1;
+    /// read-write - BYPASS_EN_SETPOINT13
     eBYPASS_EN_SETPOINT13 BYPASS_EN_SETPOINT13 : 1;
+    /// read-write - BYPASS_EN_SETPOINT14
     eBYPASS_EN_SETPOINT14 BYPASS_EN_SETPOINT14 : 1;
+    /// read-write - BYPASS_EN_SETPOINT15
     eBYPASS_EN_SETPOINT15 BYPASS_EN_SETPOINT15 : 1;
     uint32_t _reserved_0 : 16;
   } bits;
@@ -1473,21 +1670,37 @@ union LDO_LPSR_DIG_STBY_EN_SP {
   
   // Bit field definition.
   struct {
+    /// read-write - STBY_EN_SETPOINT0
     eSTBY_EN_SETPOINT0 STBY_EN_SETPOINT0 : 1;
+    /// read-write - STBY_EN_SETPOINT1
     eSTBY_EN_SETPOINT1 STBY_EN_SETPOINT1 : 1;
+    /// read-write - STBY_EN_SETPOINT2
     eSTBY_EN_SETPOINT2 STBY_EN_SETPOINT2 : 1;
+    /// read-write - STBY_EN_SETPOINT3
     eSTBY_EN_SETPOINT3 STBY_EN_SETPOINT3 : 1;
+    /// read-write - STBY_EN_SETPOINT4
     eSTBY_EN_SETPOINT4 STBY_EN_SETPOINT4 : 1;
+    /// read-write - STBY_EN_SETPOINT5
     eSTBY_EN_SETPOINT5 STBY_EN_SETPOINT5 : 1;
+    /// read-write - STBY_EN_SETPOINT6
     eSTBY_EN_SETPOINT6 STBY_EN_SETPOINT6 : 1;
+    /// read-write - STBY_EN_SETPOINT7
     eSTBY_EN_SETPOINT7 STBY_EN_SETPOINT7 : 1;
+    /// read-write - STBY_EN_SETPOINT8
     eSTBY_EN_SETPOINT8 STBY_EN_SETPOINT8 : 1;
+    /// read-write - STBY_EN_SETPOINT9
     eSTBY_EN_SETPOINT9 STBY_EN_SETPOINT9 : 1;
+    /// read-write - STBY_EN_SETPOINT10
     eSTBY_EN_SETPOINT10 STBY_EN_SETPOINT10 : 1;
+    /// read-write - STBY_EN_SETPOINT11
     eSTBY_EN_SETPOINT11 STBY_EN_SETPOINT11 : 1;
+    /// read-write - STBY_EN_SETPOINT12
     eSTBY_EN_SETPOINT12 STBY_EN_SETPOINT12 : 1;
+    /// read-write - STBY_EN_SETPOINT13
     eSTBY_EN_SETPOINT13 STBY_EN_SETPOINT13 : 1;
+    /// read-write - STBY_EN_SETPOINT14
     eSTBY_EN_SETPOINT14 STBY_EN_SETPOINT14 : 1;
+    /// read-write - STBY_EN_SETPOINT15
     eSTBY_EN_SETPOINT15 STBY_EN_SETPOINT15 : 1;
     uint32_t _reserved_0 : 16;
   } bits;
@@ -1586,21 +1799,37 @@ union BANDGAP_ENABLE_SP {
   
   // Bit field definition.
   struct {
+    /// read-write - ON_OFF_SETPOINT0
     eON_OFF_SETPOINT0 ON_OFF_SETPOINT0 : 1;
+    /// read-write - ON_OFF_SETPOINT1
     eON_OFF_SETPOINT1 ON_OFF_SETPOINT1 : 1;
+    /// read-write - ON_OFF_SETPOINT2
     eON_OFF_SETPOINT2 ON_OFF_SETPOINT2 : 1;
+    /// read-write - ON_OFF_SETPOINT3
     eON_OFF_SETPOINT3 ON_OFF_SETPOINT3 : 1;
+    /// read-write - ON_OFF_SETPOINT4
     eON_OFF_SETPOINT4 ON_OFF_SETPOINT4 : 1;
+    /// read-write - ON_OFF_SETPOINT5
     eON_OFF_SETPOINT5 ON_OFF_SETPOINT5 : 1;
+    /// read-write - ON_OFF_SETPOINT5
     eON_OFF_SETPOINT6 ON_OFF_SETPOINT6 : 1;
+    /// read-write - ON_OFF_SETPOINT7
     eON_OFF_SETPOINT7 ON_OFF_SETPOINT7 : 1;
+    /// read-write - ON_OFF_SETPOINT8
     eON_OFF_SETPOINT8 ON_OFF_SETPOINT8 : 1;
+    /// read-write - ON_OFF_SETPOINT9
     eON_OFF_SETPOINT9 ON_OFF_SETPOINT9 : 1;
+    /// read-write - ON_OFF_SETPOINT10
     eON_OFF_SETPOINT10 ON_OFF_SETPOINT10 : 1;
+    /// read-write - ON_OFF_SETPOINT11
     eON_OFF_SETPOINT11 ON_OFF_SETPOINT11 : 1;
+    /// read-write - ON_OFF_SETPOINT12
     eON_OFF_SETPOINT12 ON_OFF_SETPOINT12 : 1;
+    /// read-write - ON_OFF_SETPOINT13
     eON_OFF_SETPOINT13 ON_OFF_SETPOINT13 : 1;
+    /// read-write - ON_OFF_SETPOINT14
     eON_OFF_SETPOINT14 ON_OFF_SETPOINT14 : 1;
+    /// read-write - ON_OFF_SETPOINT15
     eON_OFF_SETPOINT15 ON_OFF_SETPOINT15 : 1;
     uint32_t _reserved_0 : 16;
   } bits;
@@ -1699,21 +1928,37 @@ union FBB_M7_ENABLE_SP {
   
   // Bit field definition.
   struct {
+    /// read-write - ON_OFF_SETPOINT0
     eON_OFF_SETPOINT0 ON_OFF_SETPOINT0 : 1;
+    /// read-write - ON_OFF_SETPOINT1
     eON_OFF_SETPOINT1 ON_OFF_SETPOINT1 : 1;
+    /// read-write - ON_OFF_SETPOINT2
     eON_OFF_SETPOINT2 ON_OFF_SETPOINT2 : 1;
+    /// read-write - ON_OFF_SETPOINT3
     eON_OFF_SETPOINT3 ON_OFF_SETPOINT3 : 1;
+    /// read-write - ON_OFF_SETPOINT4
     eON_OFF_SETPOINT4 ON_OFF_SETPOINT4 : 1;
+    /// read-write - ON_OFF_SETPOINT5
     eON_OFF_SETPOINT5 ON_OFF_SETPOINT5 : 1;
+    /// read-write - ON_OFF_SETPOINT6
     eON_OFF_SETPOINT6 ON_OFF_SETPOINT6 : 1;
+    /// read-write - ON_OFF_SETPOINT7
     eON_OFF_SETPOINT7 ON_OFF_SETPOINT7 : 1;
+    /// read-write - ON_OFF_SETPOINT8
     eON_OFF_SETPOINT8 ON_OFF_SETPOINT8 : 1;
+    /// read-write - ON_OFF_SETPOINT9
     eON_OFF_SETPOINT9 ON_OFF_SETPOINT9 : 1;
+    /// read-write - ON_OFF_SETPOINT10
     eON_OFF_SETPOINT10 ON_OFF_SETPOINT10 : 1;
+    /// read-write - ON_OFF_SETPOINT11
     eON_OFF_SETPOINT11 ON_OFF_SETPOINT11 : 1;
+    /// read-write - ON_OFF_SETPOINT12
     eON_OFF_SETPOINT12 ON_OFF_SETPOINT12 : 1;
+    /// read-write - ON_OFF_SETPOINT13
     eON_OFF_SETPOINT13 ON_OFF_SETPOINT13 : 1;
+    /// read-write - ON_OFF_SETPOINT14
     eON_OFF_SETPOINT14 ON_OFF_SETPOINT14 : 1;
+    /// read-write - ON_OFF_SETPOINT15
     eON_OFF_SETPOINT15 ON_OFF_SETPOINT15 : 1;
     uint32_t _reserved_0 : 16;
   } bits;
@@ -1812,21 +2057,37 @@ union RBB_SOC_ENABLE_SP {
   
   // Bit field definition.
   struct {
+    /// read-write - ON_OFF_SETPOINT0
     eON_OFF_SETPOINT0 ON_OFF_SETPOINT0 : 1;
+    /// read-write - ON_OFF_SETPOINT1
     eON_OFF_SETPOINT1 ON_OFF_SETPOINT1 : 1;
+    /// read-write - ON_OFF_SETPOINT2
     eON_OFF_SETPOINT2 ON_OFF_SETPOINT2 : 1;
+    /// read-write - ON_OFF_SETPOINT3
     eON_OFF_SETPOINT3 ON_OFF_SETPOINT3 : 1;
+    /// read-write - ON_OFF_SETPOINT4
     eON_OFF_SETPOINT4 ON_OFF_SETPOINT4 : 1;
+    /// read-write - ON_OFF_SETPOINT5
     eON_OFF_SETPOINT5 ON_OFF_SETPOINT5 : 1;
+    /// read-write - ON_OFF_SETPOINT6
     eON_OFF_SETPOINT6 ON_OFF_SETPOINT6 : 1;
+    /// read-write - ON_OFF_SETPOINT7
     eON_OFF_SETPOINT7 ON_OFF_SETPOINT7 : 1;
+    /// read-write - ON_OFF_SETPOINT8
     eON_OFF_SETPOINT8 ON_OFF_SETPOINT8 : 1;
+    /// read-write - ON_OFF_SETPOINT9
     eON_OFF_SETPOINT9 ON_OFF_SETPOINT9 : 1;
+    /// read-write - ON_OFF_SETPOINT10
     eON_OFF_SETPOINT10 ON_OFF_SETPOINT10 : 1;
+    /// read-write - ON_OFF_SETPOINT11
     eON_OFF_SETPOINT11 ON_OFF_SETPOINT11 : 1;
+    /// read-write - ON_OFF_SETPOINT12
     eON_OFF_SETPOINT12 ON_OFF_SETPOINT12 : 1;
+    /// read-write - ON_OFF_SETPOINT13
     eON_OFF_SETPOINT13 ON_OFF_SETPOINT13 : 1;
+    /// read-write - ON_OFF_SETPOINT14
     eON_OFF_SETPOINT14 ON_OFF_SETPOINT14 : 1;
+    /// read-write - ON_OFF_SETPOINT15
     eON_OFF_SETPOINT15 ON_OFF_SETPOINT15 : 1;
     uint32_t _reserved_0 : 16;
   } bits;
@@ -1925,21 +2186,37 @@ union RBB_LPSR_ENABLE_SP {
   
   // Bit field definition.
   struct {
+    /// read-write - ON_OFF_SETPOINT0
     eON_OFF_SETPOINT0 ON_OFF_SETPOINT0 : 1;
+    /// read-write - ON_OFF_SETPOINT1
     eON_OFF_SETPOINT1 ON_OFF_SETPOINT1 : 1;
+    /// read-write - ON_OFF_SETPOINT2
     eON_OFF_SETPOINT2 ON_OFF_SETPOINT2 : 1;
+    /// read-write - ON_OFF_SETPOINT3
     eON_OFF_SETPOINT3 ON_OFF_SETPOINT3 : 1;
+    /// read-write - ON_OFF_SETPOINT4
     eON_OFF_SETPOINT4 ON_OFF_SETPOINT4 : 1;
+    /// read-write - ON_OFF_SETPOINT5
     eON_OFF_SETPOINT5 ON_OFF_SETPOINT5 : 1;
+    /// read-write - ON_OFF_SETPOINT6
     eON_OFF_SETPOINT6 ON_OFF_SETPOINT6 : 1;
+    /// read-write - ON_OFF_SETPOINT7
     eON_OFF_SETPOINT7 ON_OFF_SETPOINT7 : 1;
+    /// read-write - ON_OFF_SETPOINT8
     eON_OFF_SETPOINT8 ON_OFF_SETPOINT8 : 1;
+    /// read-write - ON_OFF_SETPOINT9
     eON_OFF_SETPOINT9 ON_OFF_SETPOINT9 : 1;
+    /// read-write - ON_OFF_SETPOINT10
     eON_OFF_SETPOINT10 ON_OFF_SETPOINT10 : 1;
+    /// read-write - ON_OFF_SETPOINT11
     eON_OFF_SETPOINT11 ON_OFF_SETPOINT11 : 1;
+    /// read-write - ON_OFF_SETPOINT12
     eON_OFF_SETPOINT12 ON_OFF_SETPOINT12 : 1;
+    /// read-write - ON_OFF_SETPOINT13
     eON_OFF_SETPOINT13 ON_OFF_SETPOINT13 : 1;
+    /// read-write - ON_OFF_SETPOINT14
     eON_OFF_SETPOINT14 ON_OFF_SETPOINT14 : 1;
+    /// read-write - ON_OFF_SETPOINT15
     eON_OFF_SETPOINT15 ON_OFF_SETPOINT15 : 1;
     uint32_t _reserved_0 : 16;
   } bits;
@@ -2038,21 +2315,37 @@ union BANDGAP_STBY_EN_SP {
   
   // Bit field definition.
   struct {
+    /// read-write - STBY_EN_SETPOINT
     eSTBY_EN_SETPOINT0 STBY_EN_SETPOINT0 : 1;
+    /// read-write - STBY_EN_SETPOINT
     eSTBY_EN_SETPOINT1 STBY_EN_SETPOINT1 : 1;
+    /// read-write - STBY_EN_SETPOINT
     eSTBY_EN_SETPOINT2 STBY_EN_SETPOINT2 : 1;
+    /// read-write - STBY_EN_SETPOINT
     eSTBY_EN_SETPOINT3 STBY_EN_SETPOINT3 : 1;
+    /// read-write - STBY_EN_SETPOINT
     eSTBY_EN_SETPOINT4 STBY_EN_SETPOINT4 : 1;
+    /// read-write - STBY_EN_SETPOINT
     eSTBY_EN_SETPOINT5 STBY_EN_SETPOINT5 : 1;
+    /// read-write - STBY_EN_SETPOINT
     eSTBY_EN_SETPOINT6 STBY_EN_SETPOINT6 : 1;
+    /// read-write - STBY_EN_SETPOINT
     eSTBY_EN_SETPOINT7 STBY_EN_SETPOINT7 : 1;
+    /// read-write - STBY_EN_SETPOINT
     eSTBY_EN_SETPOINT8 STBY_EN_SETPOINT8 : 1;
+    /// read-write - STBY_EN_SETPOINT
     eSTBY_EN_SETPOINT9 STBY_EN_SETPOINT9 : 1;
+    /// read-write - STBY_EN_SETPOINT
     eSTBY_EN_SETPOINT10 STBY_EN_SETPOINT10 : 1;
+    /// read-write - STBY_EN_SETPOINT
     eSTBY_EN_SETPOINT11 STBY_EN_SETPOINT11 : 1;
+    /// read-write - STBY_EN_SETPOINT
     eSTBY_EN_SETPOINT12 STBY_EN_SETPOINT12 : 1;
+    /// read-write - STBY_EN_SETPOINT
     eSTBY_EN_SETPOINT13 STBY_EN_SETPOINT13 : 1;
+    /// read-write - STBY_EN_SETPOINT
     eSTBY_EN_SETPOINT14 STBY_EN_SETPOINT14 : 1;
+    /// read-write - STBY_EN_SETPOINT
     eSTBY_EN_SETPOINT15 STBY_EN_SETPOINT15 : 1;
     uint32_t _reserved_0 : 16;
   } bits;
@@ -2151,21 +2444,37 @@ union PLL_LDO_STBY_EN_SP {
   
   // Bit field definition.
   struct {
+    /// read-write - Standby mode
     eSTBY_EN_SETPOINT0 STBY_EN_SETPOINT0 : 1;
+    /// read-write - Standby mode
     eSTBY_EN_SETPOINT1 STBY_EN_SETPOINT1 : 1;
+    /// read-write - Standby mode
     eSTBY_EN_SETPOINT2 STBY_EN_SETPOINT2 : 1;
+    /// read-write - Standby mode
     eSTBY_EN_SETPOINT3 STBY_EN_SETPOINT3 : 1;
+    /// read-write - Standby mode
     eSTBY_EN_SETPOINT4 STBY_EN_SETPOINT4 : 1;
+    /// read-write - Standby mode
     eSTBY_EN_SETPOINT5 STBY_EN_SETPOINT5 : 1;
+    /// read-write - Standby mode
     eSTBY_EN_SETPOINT6 STBY_EN_SETPOINT6 : 1;
+    /// read-write - Standby mode
     eSTBY_EN_SETPOINT7 STBY_EN_SETPOINT7 : 1;
+    /// read-write - Standby mode
     eSTBY_EN_SETPOINT8 STBY_EN_SETPOINT8 : 1;
+    /// read-write - Standby mode
     eSTBY_EN_SETPOINT9 STBY_EN_SETPOINT9 : 1;
+    /// read-write - Standby mode
     eSTBY_EN_SETPOINT10 STBY_EN_SETPOINT10 : 1;
+    /// read-write - Standby mode
     eSTBY_EN_SETPOINT11 STBY_EN_SETPOINT11 : 1;
+    /// read-write - Standby mode
     eSTBY_EN_SETPOINT12 STBY_EN_SETPOINT12 : 1;
+    /// read-write - Standby mode
     eSTBY_EN_SETPOINT13 STBY_EN_SETPOINT13 : 1;
+    /// read-write - Standby mode
     eSTBY_EN_SETPOINT14 STBY_EN_SETPOINT14 : 1;
+    /// read-write - Standby mode
     eSTBY_EN_SETPOINT15 STBY_EN_SETPOINT15 : 1;
     uint32_t _reserved_0 : 16;
   } bits;
@@ -2264,21 +2573,37 @@ union FBB_M7_STBY_EN_SP {
   
   // Bit field definition.
   struct {
+    /// read-write - Standby mode
     eSTBY_EN_SETPOINT0 STBY_EN_SETPOINT0 : 1;
+    /// read-write - Standby mode
     eSTBY_EN_SETPOINT1 STBY_EN_SETPOINT1 : 1;
+    /// read-write - Standby mode
     eSTBY_EN_SETPOINT2 STBY_EN_SETPOINT2 : 1;
+    /// read-write - Standby mode
     eSTBY_EN_SETPOINT3 STBY_EN_SETPOINT3 : 1;
+    /// read-write - Standby mode
     eSTBY_EN_SETPOINT4 STBY_EN_SETPOINT4 : 1;
+    /// read-write - Standby mode
     eSTBY_EN_SETPOINT5 STBY_EN_SETPOINT5 : 1;
+    /// read-write - Standby mode
     eSTBY_EN_SETPOINT6 STBY_EN_SETPOINT6 : 1;
+    /// read-write - Standby mode
     eSTBY_EN_SETPOINT7 STBY_EN_SETPOINT7 : 1;
+    /// read-write - Standby mode
     eSTBY_EN_SETPOINT8 STBY_EN_SETPOINT8 : 1;
+    /// read-write - Standby mode
     eSTBY_EN_SETPOINT9 STBY_EN_SETPOINT9 : 1;
+    /// read-write - Standby mode
     eSTBY_EN_SETPOINT10 STBY_EN_SETPOINT10 : 1;
+    /// read-write - Standby mode
     eSTBY_EN_SETPOINT11 STBY_EN_SETPOINT11 : 1;
+    /// read-write - Standby mode
     eSTBY_EN_SETPOINT12 STBY_EN_SETPOINT12 : 1;
+    /// read-write - Standby mode
     eSTBY_EN_SETPOINT13 STBY_EN_SETPOINT13 : 1;
+    /// read-write - Standby mode
     eSTBY_EN_SETPOINT14 STBY_EN_SETPOINT14 : 1;
+    /// read-write - Standby mode
     eSTBY_EN_SETPOINT15 STBY_EN_SETPOINT15 : 1;
     uint32_t _reserved_0 : 16;
   } bits;
@@ -2377,21 +2702,37 @@ union RBB_SOC_STBY_EN_SP {
   
   // Bit field definition.
   struct {
+    /// read-write - Standby mode
     eSTBY_EN_SETPOINT0 STBY_EN_SETPOINT0 : 1;
+    /// read-write - Standby mode
     eSTBY_EN_SETPOINT1 STBY_EN_SETPOINT1 : 1;
+    /// read-write - Standby mode
     eSTBY_EN_SETPOINT2 STBY_EN_SETPOINT2 : 1;
+    /// read-write - Standby mode
     eSTBY_EN_SETPOINT3 STBY_EN_SETPOINT3 : 1;
+    /// read-write - Standby mode
     eSTBY_EN_SETPOINT4 STBY_EN_SETPOINT4 : 1;
+    /// read-write - Standby mode
     eSTBY_EN_SETPOINT5 STBY_EN_SETPOINT5 : 1;
+    /// read-write - Standby mode
     eSTBY_EN_SETPOINT6 STBY_EN_SETPOINT6 : 1;
+    /// read-write - Standby mode
     eSTBY_EN_SETPOINT7 STBY_EN_SETPOINT7 : 1;
+    /// read-write - Standby mode
     eSTBY_EN_SETPOINT8 STBY_EN_SETPOINT8 : 1;
+    /// read-write - Standby mode
     eSTBY_EN_SETPOINT9 STBY_EN_SETPOINT9 : 1;
+    /// read-write - Standby mode
     eSTBY_EN_SETPOINT10 STBY_EN_SETPOINT10 : 1;
+    /// read-write - Standby mode
     eSTBY_EN_SETPOINT11 STBY_EN_SETPOINT11 : 1;
+    /// read-write - Standby mode
     eSTBY_EN_SETPOINT12 STBY_EN_SETPOINT12 : 1;
+    /// read-write - Standby mode
     eSTBY_EN_SETPOINT13 STBY_EN_SETPOINT13 : 1;
+    /// read-write - Standby mode
     eSTBY_EN_SETPOINT14 STBY_EN_SETPOINT14 : 1;
+    /// read-write - Standby mode
     eSTBY_EN_SETPOINT15 STBY_EN_SETPOINT15 : 1;
     uint32_t _reserved_0 : 16;
   } bits;
@@ -2490,21 +2831,37 @@ union RBB_LPSR_STBY_EN_SP {
   
   // Bit field definition.
   struct {
+    /// read-write - Standby mode
     eSTBY_EN_SETPOINT0 STBY_EN_SETPOINT0 : 1;
+    /// read-write - Standby mode
     eSTBY_EN_SETPOINT1 STBY_EN_SETPOINT1 : 1;
+    /// read-write - Standby mode
     eSTBY_EN_SETPOINT2 STBY_EN_SETPOINT2 : 1;
+    /// read-write - Standby mode
     eSTBY_EN_SETPOINT3 STBY_EN_SETPOINT3 : 1;
+    /// read-write - Standby mode
     eSTBY_EN_SETPOINT4 STBY_EN_SETPOINT4 : 1;
+    /// read-write - Standby mode
     eSTBY_EN_SETPOINT5 STBY_EN_SETPOINT5 : 1;
+    /// read-write - Standby mode
     eSTBY_EN_SETPOINT6 STBY_EN_SETPOINT6 : 1;
+    /// read-write - Standby mode
     eSTBY_EN_SETPOINT7 STBY_EN_SETPOINT7 : 1;
+    /// read-write - Standby mode
     eSTBY_EN_SETPOINT8 STBY_EN_SETPOINT8 : 1;
+    /// read-write - Standby mode
     eSTBY_EN_SETPOINT9 STBY_EN_SETPOINT9 : 1;
+    /// read-write - Standby mode
     eSTBY_EN_SETPOINT10 STBY_EN_SETPOINT10 : 1;
+    /// read-write - Standby mode
     eSTBY_EN_SETPOINT11 STBY_EN_SETPOINT11 : 1;
+    /// read-write - Standby mode
     eSTBY_EN_SETPOINT12 STBY_EN_SETPOINT12 : 1;
+    /// read-write - Standby mode
     eSTBY_EN_SETPOINT13 STBY_EN_SETPOINT13 : 1;
+    /// read-write - Standby mode
     eSTBY_EN_SETPOINT14 STBY_EN_SETPOINT14 : 1;
+    /// read-write - Standby mode
     eSTBY_EN_SETPOINT15 STBY_EN_SETPOINT15 : 1;
     uint32_t _reserved_0 : 16;
   } bits;
@@ -2523,9 +2880,13 @@ union FBB_M7_CONFIGURE {
   
   // Bit field definition.
   struct {
+    /// read-write - wb_cfg_pw
     uint32_t WB_CFG_PW : 4;
+    /// read-write - wb_cfg_nw
     uint32_t WB_CFG_NW : 4;
+    /// read-write - oscillator_bits
     uint32_t OSCILLATOR_BITS : 3;
+    /// read-write - regulator_strength
     uint32_t REGULATOR_STRENGTH : 3;
     uint32_t _reserved_0 : 18;
   } bits;
@@ -2544,9 +2905,13 @@ union RBB_LPSR_CONFIGURE {
   
   // Bit field definition.
   struct {
+    /// read-write - wb_cfg_pw
     uint32_t WB_CFG_PW : 4;
+    /// read-write - wb_cfg_nw
     uint32_t WB_CFG_NW : 4;
+    /// read-write - oscillator_bits
     uint32_t OSCILLATOR_BITS : 3;
+    /// read-write - regulator_strength
     uint32_t REGULATOR_STRENGTH : 3;
     uint32_t _reserved_0 : 18;
   } bits;
@@ -2565,9 +2930,13 @@ union RBB_SOC_CONFIGURE {
   
   // Bit field definition.
   struct {
+    /// read-write - wb_cfg_pw
     uint32_t WB_CFG_PW : 4;
+    /// read-write - wb_cfg_nw
     uint32_t WB_CFG_NW : 4;
+    /// read-write - oscillator_bits
     uint32_t OSCILLATOR_BITS : 3;
+    /// read-write - regulator_strength
     uint32_t REGULATOR_STRENGTH : 3;
     uint32_t _reserved_0 : 18;
   } bits;
@@ -2586,8 +2955,11 @@ union REFTOP_OTP_TRIM_VALUE {
   
   // Bit field definition.
   struct {
+    /// read-only - REFTOP_IBZTCADJ
     uint32_t REFTOP_IBZTCADJ : 3;
+    /// read-only - REFTOP_VBGADJ
     uint32_t REFTOP_VBGADJ : 3;
+    /// read-only - REFTOP_TRIM_EN
     uint32_t REFTOP_TRIM_EN : 1;
     uint32_t _reserved_0 : 25;
   } bits;
@@ -2606,7 +2978,9 @@ union LPSR_1P8_LDO_OTP_TRIM_VALUE {
   
   // Bit field definition.
   struct {
+    /// read-only - LPSR_LDO_1P8_TRIM
     uint32_t LPSR_LDO_1P8_TRIM : 2;
+    /// read-only - LPSR_LDO_1P8_TRIM_EN
     uint32_t LPSR_LDO_1P8_TRIM_EN : 1;
     uint32_t _reserved_0 : 29;
   } bits;
