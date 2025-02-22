@@ -28,7 +28,7 @@ typedef struct _mcmgr_event
 typedef struct _mcmgr_core_info
 {
     mcmgr_core_type_t coreType;
-    char *coreName;
+    const char *coreName;
 } mcmgr_core_info_t;
 
 /*! @brief Type definition of possible core states. */

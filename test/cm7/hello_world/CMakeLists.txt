@@ -1,7 +1,7 @@
-FIND_CM4(CORE0 "hello-world-cm4.bin.c")
+FIND_CM4(CORE0 "hello-world-cm4.bin.cpp")
 
 add_executable(hello-world-cm7
-  hello_world_cm7.c
+  hello_world_cm7.cpp
   ${CORE0}
 )
 platformify(hello-world-cm7)
