@@ -10,6 +10,7 @@
 #include "clock_config.h"
 #include "board.h"
 #include "mcmgr.h"
+#include "registers/iomuxc.hpp"
 
 /*******************************************************************************
  * Definitions
@@ -75,6 +76,13 @@ void SystemInitHook(void)
     (void)MCMGR_EarlyInit();
 }
 
+void BoardInitPins()
+{
+    using namespace nIOMUXC;
+    SW_MUX_CTL_PAD_GPIO_AD_24::Instance().bits.MUX_MODE = SW_MUX_CTL_PAD_GPIO_AD_24::eMUX_MODE::eALT0_lpuart1_TX;
+    SW_MUX_CTL_PAD_GPIO_AD_25::Instance().bits.MUX_MODE = SW_MUX_CTL_PAD_GPIO_AD_25::eMUX_MODE::eALT0_lpuart1_RX;
+}
+
 /*!
  * @brief Main function
  */
@@ -89,7 +97,8 @@ int main(void)
 
     /* Init board hardware.*/
     BOARD_ConfigMPU();
-    BOARD_InitPins();
+    BOARD_InitPins(); // TODO remove
+    BoardInitPins();
     BOARD_BootClockRUN();
     BOARD_InitDebugConsole();
 
@@ -121,7 +130,7 @@ int main(void)
     /* Boot Secondary core application */
     (void)PRINTF("Starting Secondary core.\r\n");
     (void)MCMGR_StartCore(kMCMGR_Core1, (void *)(char *)CORE1_BOOT_ADDRESS, 2, kMCMGR_Start_Synchronous);
-    (void)PRINTF("The secondary core application has been started 3.\r\n");
+    (void)PRINTF("The secondary core application has been started.\r\n");
 
     for (;;)
     {
