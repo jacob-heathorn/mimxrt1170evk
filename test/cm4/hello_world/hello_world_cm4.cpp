@@ -61,14 +61,20 @@ void SystemInitHook(void)
 
 void BoardInitPins()
 {
+    using namespace nIOMUXC;
     // IOMUXC_SetPinMux(
     //   IOMUXC_GPIO_AD_04_GPIO9_IO03,           /* GPIO_AD_04 is configured as GPIO9_IO03 */
     //   0U);
+    // IOMUXC_SetPinMux(
+    //   IOMUXC_GPIO_AD_24_LPUART1_TXD,          /* GPIO_AD_24 is configured as LPUART1_TXD */
+    //   0U);
 
     // Set GPIO9, pin3 mux.
-    auto &reg = nIOMUXC::SW_MUX_CTL_PAD_GPIO_AD_04::Instance();
+    auto &reg = SW_MUX_CTL_PAD_GPIO_AD_04::Instance();
     reg.Reset();
-    reg.bits.MUX_MODE = nIOMUXC::SW_MUX_CTL_PAD_GPIO_AD_04::eMUX_MODE::eALT10_gpio9_IO3;
+    reg.bits.MUX_MODE = SW_MUX_CTL_PAD_GPIO_AD_04::eMUX_MODE::eALT10_gpio9_IO3;
+
+    // SW_MUX_CTL_PAD_GPIO_AD_24::Instance().bits.MUX_MODE = SW_MUX_CTL_PAD_GPIO_AD_24::eMUX_MODE::eALT0_lpuart1_TX;
 }
 
 
