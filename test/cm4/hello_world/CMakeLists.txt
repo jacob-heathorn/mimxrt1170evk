@@ -4,6 +4,7 @@ target_link_libraries(hello-world-cm4 PRIVATE board drivers device utilities mcm
 target_compile_options(hello-world-cm4 PRIVATE 
   -Wno-missing-field-initializers
   -Wno-shadow
+  -Wno-error=unused-variable # TODO remove
 )
 
 # TODO make a function to do this stuff.

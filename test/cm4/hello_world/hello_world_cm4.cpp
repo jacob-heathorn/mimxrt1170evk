@@ -11,6 +11,7 @@
 #include "mcmgr.h"
 #include "registers/gpio9.hpp"
 #include "registers/iomuxc.hpp"
+#include "registers/ccm.hpp"
 
 #include "fsl_gpio.h"
 volatile bool g_pinSet = false;
@@ -60,9 +61,13 @@ void SystemInitHook(void)
 
 void BoardInitPins()
 {
-    using namespace nIOMUXC;
+    // Enable the IOMUXC clock and wait for it.
+    nCCM::LPCG49_DIRECT::Instance().bits.ON = nCCM::LPCG49_DIRECT::eON::eON_1;
+    while (nCCM::LPCG49_STATUS0::Instance().bits.ON != nCCM::LPCG49_STATUS0::eON::eON_1){}
+    
     // Set GPIO9, pin3 mux, for LED.
-    SW_MUX_CTL_PAD_GPIO_AD_04::Instance().bits.MUX_MODE = SW_MUX_CTL_PAD_GPIO_AD_04::eMUX_MODE::eALT10_gpio9_IO3;
+    nIOMUXC::SW_MUX_CTL_PAD_GPIO_AD_04::Instance().bits.MUX_MODE = 
+        nIOMUXC::SW_MUX_CTL_PAD_GPIO_AD_04::eMUX_MODE::eALT10_gpio9_IO3;
 }
 
 
@@ -98,8 +103,7 @@ int main(void)
 
     /* Configure LED */
     LED_INIT();
-    // nGPIO9::DR_t gpio9_dr;
-    // auto dr = gpio9_dr.GetDR();
+    auto &lpcg49_direct = nCCM::LPCG49_DIRECT::Instance();
 
     for (int j = 0; j < 20; ++j)
     {
