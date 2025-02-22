@@ -86,16 +86,16 @@ union CLKCFG {
 union DIVISOR {
   
   enum class eDIVISOR_VALUE : uint32_t {
-    einvalid = 0, // Invalid. As per ISO 7816 specification, minimum value of F/D is 5
-    einvalid = 1, // Invalid. As per ISO 7816 specification, minimum value of F/D is 5
-    einvalid = 2, // Invalid. As per ISO 7816 specification, minimum value of F/D is 5
-    einvalid = 3, // Invalid. As per ISO 7816 specification, minimum value of F/D is 5
-    einvalid = 4, // Invalid. As per ISO 7816 specification, minimum value of F/D is 5
-    evalid = 5, // Divisor value F/D
-    evalid = 6, // Divisor value F/D
-    evalid = 7, // Divisor value F/D
-    evalid = 8, // Divisor value F/D
-    evalid = 9, // Divisor value F/D
+    einvalid_0 = 0, // Invalid. As per ISO 7816 specification, minimum value of F/D is 5
+    einvalid_1 = 1, // Invalid. As per ISO 7816 specification, minimum value of F/D is 5
+    einvalid_2 = 2, // Invalid. As per ISO 7816 specification, minimum value of F/D is 5
+    einvalid_3 = 3, // Invalid. As per ISO 7816 specification, minimum value of F/D is 5
+    einvalid_4 = 4, // Invalid. As per ISO 7816 specification, minimum value of F/D is 5
+    evalid_5 = 5, // Divisor value F/D
+    evalid_6 = 6, // Divisor value F/D
+    evalid_7 = 7, // Divisor value F/D
+    evalid_8 = 8, // Divisor value F/D
+    evalid_9 = 9, // Divisor value F/D
   };
   
   // Bit field definition.

@@ -16,34 +16,34 @@ namespace nSEMC {
 union MCR {
   
   enum class eSWRST : uint32_t {
-    eSWRST_0 = 0, // No reset
-    eSWRST_1 = 1, // Reset
+    eno_reset = 0, // No reset
+    ereset = 1, // Reset
   };
   
   enum class eMDIS : uint32_t {
-    eMDIS_0 = 0, // Module enabled
-    eMDIS_1 = 1, // Module disabled
+    eenable = 0, // Module enabled
+    edisable = 1, // Module disabled
   };
   
   enum class eDQSMD : uint32_t {
-    eDQSMD_0 = 0, // Dummy read strobe loopbacked internally
-    eDQSMD_1 = 1, // Dummy read strobe loopbacked from DQS pad
+    einternal = 0, // Dummy read strobe loopbacked internally
+    edqs_pad = 1, // Dummy read strobe loopbacked from DQS pad
   };
   
   enum class eWPOL0 : uint32_t {
-    eWPOL0_0 = 0, // WAIT/RDY polarity is not changed.
-    eWPOL0_1 = 1, // WAIT/RDY polarity is inverted.
+    eunchanged = 0, // WAIT/RDY polarity is not changed.
+    einverted = 1, // WAIT/RDY polarity is inverted.
   };
   
   enum class eWPOL1 : uint32_t {
-    eWPOL1_0 = 0, // R/B# polarity is not changed.
-    eWPOL1_1 = 1, // R/B# polarity is inverted.
+    eunchanged = 0, // R/B# polarity is not changed.
+    einverted = 1, // R/B# polarity is inverted.
   };
   
   enum class eBTO : uint32_t {
-    eBTO_0 = 0, // 255*1
-    eBTO_1 = 1, // 255*2
-    eBTO_31 = 31, // 255*231
+    ebto_0 = 0, // 255*1
+    ebto_1 = 1, // 255*2
+    ebto_1f = 31, // 255*2^31
   };
   
   // Bit field definition.
@@ -73,141 +73,141 @@ union MCR {
 union IOCR {
   
   enum class eMUX_A8 : uint32_t {
-    eMUX_A8_0 = 0, // SDRAM Address bit 8 (A8) or NOR/SRAM Address bit 24 (A24) in ADMUX 16bit mode
-    eMUX_A8_1 = 1, // SDRAM Address bit 8 (A8) or NOR/SRAM Address bit 24 (A24) in ADMUX 16bit mode
-    eMUX_A8_2 = 2, // SDRAM Address bit 8 (A8) or NOR/SRAM Address bit 24 (A24) in ADMUX 16bit mode
-    eMUX_A8_3 = 3, // SDRAM Address bit 8 (A8) or NOR/SRAM Address bit 24 (A24) in ADMUX 16bit mode
-    eMUX_A8_4 = 4, // NAND CE#
-    eMUX_A8_5 = 5, // NOR CE#
-    eMUX_A8_6 = 6, // SRAM CE# 0
-    eMUX_A8_7 = 7, // DBI CSX
-    eMUX_A8_8 = 8, // SRAM CE# 1
-    eMUX_A8_9 = 9, // SRAM CE# 2
-    eMUX_A8_10 = 10, // SRAM CE# 3
-    eMUX_A8_11 = 11, // SDRAM Address bit 8 (A8) or NOR/SRAM Address bit 24 (A24) in ADMUX 16bit mode
-    eMUX_A8_12 = 12, // SDRAM Address bit 8 (A8) or NOR/SRAM Address bit 24 (A24) in ADMUX 16bit mode
-    eMUX_A8_13 = 13, // SDRAM Address bit 8 (A8) or NOR/SRAM Address bit 24 (A24) in ADMUX 16bit mode
-    eMUX_A8_14 = 14, // SDRAM Address bit 8 (A8) or NOR/SRAM Address bit 24 (A24) in ADMUX 16bit mode
-    eMUX_A8_15 = 15, // SDRAM Address bit 8 (A8) or NOR/SRAM Address bit 24 (A24) in ADMUX 16bit mode
+    esdram8_norsram24_03_0 = 0, // SDRAM Address bit 8 (A8) or NOR/SRAM Address bit 24 (A24) in ADMUX 16bit mode
+    esdram8_norsram24_03_1 = 1, // SDRAM Address bit 8 (A8) or NOR/SRAM Address bit 24 (A24) in ADMUX 16bit mode
+    esdram8_norsram24_03_2 = 2, // SDRAM Address bit 8 (A8) or NOR/SRAM Address bit 24 (A24) in ADMUX 16bit mode
+    esdram8_norsram24_03_3 = 3, // SDRAM Address bit 8 (A8) or NOR/SRAM Address bit 24 (A24) in ADMUX 16bit mode
+    enand_ceb = 4, // NAND CE#
+    enor_ceb = 5, // NOR CE#
+    esram_ceb0 = 6, // SRAM CE# 0
+    edbi_csx = 7, // DBI CSX
+    esram_ceb1 = 8, // SRAM CE# 1
+    esram_ceb2 = 9, // SRAM CE# 2
+    esram_ceb3 = 10, // SRAM CE# 3
+    esdram8_norsram24_bf_11 = 11, // SDRAM Address bit 8 (A8) or NOR/SRAM Address bit 24 (A24) in ADMUX 16bit mode
+    esdram8_norsram24_bf_12 = 12, // SDRAM Address bit 8 (A8) or NOR/SRAM Address bit 24 (A24) in ADMUX 16bit mode
+    esdram8_norsram24_bf_13 = 13, // SDRAM Address bit 8 (A8) or NOR/SRAM Address bit 24 (A24) in ADMUX 16bit mode
+    esdram8_norsram24_bf_14 = 14, // SDRAM Address bit 8 (A8) or NOR/SRAM Address bit 24 (A24) in ADMUX 16bit mode
+    esdram8_norsram24_bf_15 = 15, // SDRAM Address bit 8 (A8) or NOR/SRAM Address bit 24 (A24) in ADMUX 16bit mode
   };
   
   enum class eMUX_CSX0 : uint32_t {
-    eMUX_CSX0_0 = 0, // NOR/SRAM Address bit 24 (A24) in Non-ADMUX mode
-    eMUX_CSX0_1 = 1, // SDRAM CS1
-    eMUX_CSX0_2 = 2, // SDRAM CS2
-    eMUX_CSX0_3 = 3, // SDRAM CS3
-    eMUX_CSX0_4 = 4, // NAND CE#
-    eMUX_CSX0_5 = 5, // NOR CE#
-    eMUX_CSX0_6 = 6, // SRAM CE# 0
-    eMUX_CSX0_7 = 7, // DBI CSX
-    eMUX_CSX0_8 = 8, // SRAM CE# 1
-    eMUX_CSX0_9 = 9, // SRAM CE# 2
-    eMUX_CSX0_10 = 10, // SRAM CE# 3
-    eMUX_CSX0_11 = 11, // NOR/SRAM Address bit 24 (A24)
-    eMUX_CSX0_12 = 12, // NOR/SRAM Address bit 24 (A24)
-    eMUX_CSX0_13 = 13, // NOR/SRAM Address bit 24 (A24)
-    eMUX_CSX0_14 = 14, // NOR/SRAM Address bit 24 (A24)
-    eMUX_CSX0_15 = 15, // NOR/SRAM Address bit 24 (A24)
+    enorsram24_03 = 0, // NOR/SRAM Address bit 24 (A24) in Non-ADMUX mode
+    esdram_cs1 = 1, // SDRAM CS1
+    esdram_cs2 = 2, // SDRAM CS2
+    esdram_cs3 = 3, // SDRAM CS3
+    enand_ceb = 4, // NAND CE#
+    enor_ceb = 5, // NOR CE#
+    esram_ceb0 = 6, // SRAM CE# 0
+    edbi_csx = 7, // DBI CSX
+    esram_ceb1 = 8, // SRAM CE# 1
+    esram_ceb2 = 9, // SRAM CE# 2
+    esram_ceb3 = 10, // SRAM CE# 3
+    enorsram24_bf_11 = 11, // NOR/SRAM Address bit 24 (A24) in Non-ADMUX mode
+    enorsram24_bf_12 = 12, // NOR/SRAM Address bit 24 (A24) in Non-ADMUX mode
+    enorsram24_bf_13 = 13, // NOR/SRAM Address bit 24 (A24) in Non-ADMUX mode
+    enorsram24_bf_14 = 14, // NOR/SRAM Address bit 24 (A24) in Non-ADMUX mode
+    enorsram24_bf_15 = 15, // NOR/SRAM Address bit 24 (A24) in Non-ADMUX mode
   };
   
   enum class eMUX_CSX1 : uint32_t {
-    eMUX_CSX1_0 = 0, // NOR/SRAM Address bit 25 (A25) in Non-ADMUX mode
-    eMUX_CSX1_1 = 1, // SDRAM CS1
-    eMUX_CSX1_2 = 2, // SDRAM CS2
-    eMUX_CSX1_3 = 3, // SDRAM CS3
-    eMUX_CSX1_4 = 4, // NAND CE#
-    eMUX_CSX1_5 = 5, // NOR CE#
-    eMUX_CSX1_6 = 6, // SRAM CE# 0
-    eMUX_CSX1_7 = 7, // DBI CSX
-    eMUX_CSX1_8 = 8, // SRAM CE# 1
-    eMUX_CSX1_9 = 9, // SRAM CE# 2
-    eMUX_CSX1_10 = 10, // SRAM CE# 3
-    eMUX_CSX1_11 = 11, // NOR/SRAM Address bit 25 (A25)
-    eMUX_CSX1_12 = 12, // NOR/SRAM Address bit 25 (A25)
-    eMUX_CSX1_13 = 13, // NOR/SRAM Address bit 25 (A25)
-    eMUX_CSX1_14 = 14, // NOR/SRAM Address bit 25 (A25)
-    eMUX_CSX1_15 = 15, // NOR/SRAM Address bit 25 (A25)
+    enorsram25_0 = 0, // NOR/SRAM Address bit 25 (A25) in Non-ADMUX mode
+    esdram_cs1 = 1, // SDRAM CS1
+    esdram_cs2 = 2, // SDRAM CS2
+    esdram_cs3 = 3, // SDRAM CS3
+    enand_ceb = 4, // NAND CE#
+    enor_ceb = 5, // NOR CE#
+    esram_ceb0 = 6, // SRAM CE# 0
+    edbi_csx = 7, // DBI CSX
+    esram_ceb1 = 8, // SRAM CE# 1
+    esram_ceb2 = 9, // SRAM CE# 2
+    esram_ceb3 = 10, // SRAM CE# 3
+    enorsram25_bf_11 = 11, // NOR/SRAM Address bit 25 (A25) in Non-ADMUX mode
+    enorsram25_bf_12 = 12, // NOR/SRAM Address bit 25 (A25) in Non-ADMUX mode
+    enorsram25_bf_13 = 13, // NOR/SRAM Address bit 25 (A25) in Non-ADMUX mode
+    enorsram25_bf_14 = 14, // NOR/SRAM Address bit 25 (A25) in Non-ADMUX mode
+    enorsram25_bf_15 = 15, // NOR/SRAM Address bit 25 (A25) in Non-ADMUX mode
   };
   
   enum class eMUX_CSX2 : uint32_t {
-    eMUX_CSX2_0 = 0, // NOR/SRAM Address bit 26 (A26) in Non-ADMUX mode
-    eMUX_CSX2_1 = 1, // SDRAM CS1
-    eMUX_CSX2_2 = 2, // SDRAM CS2
-    eMUX_CSX2_3 = 3, // SDRAM CS3
-    eMUX_CSX2_4 = 4, // NAND CE#
-    eMUX_CSX2_5 = 5, // NOR CE#
-    eMUX_CSX2_6 = 6, // SRAM CE# 0
-    eMUX_CSX2_7 = 7, // DBI CSX
-    eMUX_CSX2_8 = 8, // SRAM CE# 1
-    eMUX_CSX2_9 = 9, // SRAM CE# 2
-    eMUX_CSX2_10 = 10, // SRAM CE# 3
-    eMUX_CSX2_11 = 11, // NOR/SRAM Address bit 26 (A26)
-    eMUX_CSX2_12 = 12, // NOR/SRAM Address bit 26 (A26)
-    eMUX_CSX2_13 = 13, // NOR/SRAM Address bit 26 (A26)
-    eMUX_CSX2_14 = 14, // NOR/SRAM Address bit 26 (A26)
-    eMUX_CSX2_15 = 15, // NOR/SRAM Address bit 26 (A26)
+    enorsram26_0 = 0, // NOR/SRAM Address bit 26 (A26) in Non-ADMUX mode
+    esdram_cs1 = 1, // SDRAM CS1
+    esdram_cs2 = 2, // SDRAM CS2
+    esdram_cs3 = 3, // SDRAM CS3
+    enand_ceb = 4, // NAND CE#
+    enor_ceb = 5, // NOR CE#
+    esram_ceb0 = 6, // SRAM CE# 0
+    edbi_csx = 7, // DBI CSX
+    esram_ceb1 = 8, // SRAM CE# 1
+    esram_ceb2 = 9, // SRAM CE# 2
+    esram_ceb3 = 10, // SRAM CE# 3
+    enorsram26_bf_11 = 11, // NOR/SRAM Address bit 26 (A26) in Non-ADMUX mode
+    enorsram26_bf_12 = 12, // NOR/SRAM Address bit 26 (A26) in Non-ADMUX mode
+    enorsram26_bf_13 = 13, // NOR/SRAM Address bit 26 (A26) in Non-ADMUX mode
+    enorsram26_bf_14 = 14, // NOR/SRAM Address bit 26 (A26) in Non-ADMUX mode
+    enorsram26_bf_15 = 15, // NOR/SRAM Address bit 26 (A26) in Non-ADMUX mode
   };
   
   enum class eMUX_CSX3 : uint32_t {
-    eMUX_CSX3_0 = 0, // NOR/SRAM Address bit 27 (A27) in Non-ADMUX mode
-    eMUX_CSX3_1 = 1, // SDRAM CS1
-    eMUX_CSX3_2 = 2, // SDRAM CS2
-    eMUX_CSX3_3 = 3, // SDRAM CS3
-    eMUX_CSX3_4 = 4, // NAND CE#
-    eMUX_CSX3_5 = 5, // NOR CE#
-    eMUX_CSX3_6 = 6, // SRAM CE# 0
-    eMUX_CSX3_7 = 7, // DBI CSX
-    eMUX_CSX3_8 = 8, // SRAM CE# 1
-    eMUX_CSX3_9 = 9, // SRAM CE# 2
-    eMUX_CSX3_10 = 10, // SRAM CE# 3
-    eMUX_CSX3_11 = 11, // NOR/SRAM Address bit 27 (A27)
-    eMUX_CSX3_12 = 12, // NOR/SRAM Address bit 27 (A27)
-    eMUX_CSX3_13 = 13, // NOR/SRAM Address bit 27 (A27)
-    eMUX_CSX3_14 = 14, // NOR/SRAM Address bit 27 (A27)
-    eMUX_CSX3_15 = 15, // NOR/SRAM Address bit 27 (A27)
+    enorsram27_0 = 0, // NOR/SRAM Address bit 27 (A27) in Non-ADMUX mode
+    esdram_cs1 = 1, // SDRAM CS1
+    esdram_cs2 = 2, // SDRAM CS2
+    esdram_cs3 = 3, // SDRAM CS3
+    enand_ceb = 4, // NAND CE#
+    enor_ceb = 5, // NOR CE#
+    esram_ceb0 = 6, // SRAM CE# 0
+    edbi_csx = 7, // DBI CSX
+    esram_ceb1 = 8, // SRAM CE# 1
+    esram_ceb2 = 9, // SRAM CE# 2
+    esram_ceb3 = 10, // SRAM CE# 3
+    enorsram27_bf_11 = 11, // NOR/SRAM Address bit 27 (A27) in Non-ADMUX mode
+    enorsram27_bf_12 = 12, // NOR/SRAM Address bit 27 (A27) in Non-ADMUX mode
+    enorsram27_bf_13 = 13, // NOR/SRAM Address bit 27 (A27) in Non-ADMUX mode
+    enorsram27_bf_14 = 14, // NOR/SRAM Address bit 27 (A27) in Non-ADMUX mode
+    enorsram27_bf_15 = 15, // NOR/SRAM Address bit 27 (A27) in Non-ADMUX mode
   };
   
   enum class eMUX_RDY : uint32_t {
-    eMUX_RDY_0 = 0, // NAND R/B# input
-    eMUX_RDY_1 = 1, // SDRAM CS1
-    eMUX_RDY_2 = 2, // SDRAM CS2
-    eMUX_RDY_3 = 3, // SDRAM CS3
-    eMUX_RDY_4 = 4, // NOR/SRAM Address bit 27 (A27) in Non-ADMUX mode
-    eMUX_RDY_5 = 5, // NOR CE#
-    eMUX_RDY_6 = 6, // SRAM CE# 0
-    eMUX_RDY_7 = 7, // DBI CSX
-    eMUX_RDY_8 = 8, // SRAM CE# 1
-    eMUX_RDY_9 = 9, // SRAM CE# 2
-    eMUX_RDY_10 = 10, // SRAM CE# 3
-    eMUX_RDY_11 = 11, // NOR/SRAM Address bit 27
-    eMUX_RDY_12 = 12, // NOR/SRAM Address bit 27
-    eMUX_RDY_13 = 13, // NOR/SRAM Address bit 27
-    eMUX_RDY_14 = 14, // NOR/SRAM Address bit 27
-    eMUX_RDY_15 = 15, // NOR/SRAM Address bit 27
+    enand_rbb = 0, // NAND R/B# input
+    esdram_cs1 = 1, // SDRAM CS1
+    esdram_cs2 = 2, // SDRAM CS2
+    esdram_cs3 = 3, // SDRAM CS3
+    enorsram27_4 = 4, // NOR/SRAM Address bit 27 (A27) in Non-ADMUX mode
+    enor_ceb = 5, // NOR CE#
+    esram_ceb0 = 6, // SRAM CE# 0
+    edbi_csx = 7, // DBI CSX
+    esram_ceb1 = 8, // SRAM CE# 1
+    esram_ceb2 = 9, // SRAM CE# 2
+    esram_ceb3 = 10, // SRAM CE# 3
+    enorsram27_bf_11 = 11, // NOR/SRAM Address bit 27 in Non-ADMUX mode
+    enorsram27_bf_12 = 12, // NOR/SRAM Address bit 27 in Non-ADMUX mode
+    enorsram27_bf_13 = 13, // NOR/SRAM Address bit 27 in Non-ADMUX mode
+    enorsram27_bf_14 = 14, // NOR/SRAM Address bit 27 in Non-ADMUX mode
+    enorsram27_bf_15 = 15, // NOR/SRAM Address bit 27 in Non-ADMUX mode
   };
   
   enum class eMUX_CLKX0 : uint32_t {
-    eMUX_CLKX0_0 = 0, // Keep low
-    eMUX_CLKX0_1 = 1, // NOR clock
-    eMUX_CLKX0_2 = 2, // SRAM clock
-    eMUX_CLKX0_3 = 3, // NOR and SRAM clock, suitable for Multi-Chip Product package
+    ekeeplow = 0, // Keep low
+    enor_clk = 1, // NOR clock
+    esram_clk = 2, // SRAM clock
+    enorsram_clk = 3, // NOR and SRAM clock, suitable for Multi-Chip Product package
   };
   
   enum class eMUX_CLKX1 : uint32_t {
-    eMUX_CLKX1_0 = 0, // Keep low
-    eMUX_CLKX1_1 = 1, // NOR clock
-    eMUX_CLKX1_2 = 2, // SRAM clock
-    eMUX_CLKX1_3 = 3, // NOR and SRAM clock, suitable for Multi-Chip Product package
+    ekeeplow = 0, // Keep low
+    enor_clk = 1, // NOR clock
+    esram_clk = 2, // SRAM clock
+    enor_sram_clk = 3, // NOR and SRAM clock, suitable for Multi-Chip Product package
   };
   
   enum class eCLKX0_AO : uint32_t {
-    eCLKX0_AO_0 = 0, // SEMC_CLKX0 is controlled by MUX_CLKX0
-    eCLKX0_AO_1 = 1, // SEMC_CLKX0 is always on
+    emux_clkx0_ctl = 0, // SEMC_CLKX0 is controlled by MUX_CLKX0
+    ealways_on = 1, // SEMC_CLKX0 is always on
   };
   
   enum class eCLKX1_AO : uint32_t {
-    eCLKX1_AO_0 = 0, // SEMC_CLKX1 is controlled by MUX_CLKX1
-    eCLKX1_AO_1 = 1, // SEMC_CLKX1 is always on
+    emux_clkx1_ctl = 0, // SEMC_CLKX1 is controlled by MUX_CLKX1
+    ealways_on = 1, // SEMC_CLKX1 is always on
   };
   
   // Bit field definition.
@@ -280,43 +280,43 @@ union BMCR1 {
 union BR[0] {
   
   enum class eVLD : uint32_t {
-    eVLD_0 = 0, // The memory is invalid, can not be accessed.
-    eVLD_1 = 1, // The memory is valid, can be accessed.
+    einvalid = 0, // The memory is invalid, can not be accessed.
+    evalid = 1, // The memory is valid, can be accessed.
   };
   
   enum class eMS : uint32_t {
-    eMS_0 = 0, // 4KB
-    eMS_1 = 1, // 8KB
-    eMS_2 = 2, // 16KB
-    eMS_3 = 3, // 32KB
-    eMS_4 = 4, // 64KB
-    eMS_5 = 5, // 128KB
-    eMS_6 = 6, // 256KB
-    eMS_7 = 7, // 512KB
-    eMS_8 = 8, // 1MB
-    eMS_9 = 9, // 2MB
-    eMS_10 = 10, // 4MB
-    eMS_11 = 11, // 8MB
-    eMS_12 = 12, // 16MB
-    eMS_13 = 13, // 32MB
-    eMS_14 = 14, // 64MB
-    eMS_15 = 15, // 128MB
-    eMS_16 = 16, // 256MB
-    eMS_17 = 17, // 512MB
-    eMS_18 = 18, // 1GB
-    eMS_19 = 19, // 2GB
-    eMS_20 = 20, // 4GB
-    eMS_21 = 21, // 4GB
-    eMS_22 = 22, // 4GB
-    eMS_23 = 23, // 4GB
-    eMS_24 = 24, // 4GB
-    eMS_25 = 25, // 4GB
-    eMS_26 = 26, // 4GB
-    eMS_27 = 27, // 4GB
-    eMS_28 = 28, // 4GB
-    eMS_29 = 29, // 4GB
-    eMS_30 = 30, // 4GB
-    eMS_31 = 31, // 4GB
+    esize_4kb = 0, // 4KB
+    esize_8kb = 1, // 8KB
+    esize_16kb = 2, // 16KB
+    esize_32kb = 3, // 32KB
+    esize_64kb = 4, // 64KB
+    esize_128kb = 5, // 128KB
+    esize_256kb = 6, // 256KB
+    esize_512kb = 7, // 512KB
+    esize_1mb = 8, // 1MB
+    esize_2mb = 9, // 2MB
+    esize_4mb = 10, // 4MB
+    esize_8mb = 11, // 8MB
+    esize_16mb = 12, // 16MB
+    esize_32mb = 13, // 32MB
+    esize_64mb = 14, // 64MB
+    esize_128mb = 15, // 128MB
+    esize_256mb = 16, // 256MB
+    esize_512mb = 17, // 512MB
+    esize_1gb = 18, // 1GB
+    esize_2gb = 19, // 2GB
+    esize_4gb_20 = 20, // 4GB
+    esize_4gb_21 = 21, // 4GB
+    esize_4gb_22 = 22, // 4GB
+    esize_4gb_23 = 23, // 4GB
+    esize_4gb_24 = 24, // 4GB
+    esize_4gb_25 = 25, // 4GB
+    esize_4gb_26 = 26, // 4GB
+    esize_4gb_27 = 27, // 4GB
+    esize_4gb_28 = 28, // 4GB
+    esize_4gb_29 = 29, // 4GB
+    esize_4gb_30 = 30, // 4GB
+    esize_4gb_31 = 31, // 4GB
   };
   
   // Bit field definition.
@@ -339,43 +339,43 @@ union BR[0] {
 union BR[1] {
   
   enum class eVLD : uint32_t {
-    eVLD_0 = 0, // The memory is invalid, can not be accessed.
-    eVLD_1 = 1, // The memory is valid, can be accessed.
+    einvalid = 0, // The memory is invalid, can not be accessed.
+    evalid = 1, // The memory is valid, can be accessed.
   };
   
   enum class eMS : uint32_t {
-    eMS_0 = 0, // 4KB
-    eMS_1 = 1, // 8KB
-    eMS_2 = 2, // 16KB
-    eMS_3 = 3, // 32KB
-    eMS_4 = 4, // 64KB
-    eMS_5 = 5, // 128KB
-    eMS_6 = 6, // 256KB
-    eMS_7 = 7, // 512KB
-    eMS_8 = 8, // 1MB
-    eMS_9 = 9, // 2MB
-    eMS_10 = 10, // 4MB
-    eMS_11 = 11, // 8MB
-    eMS_12 = 12, // 16MB
-    eMS_13 = 13, // 32MB
-    eMS_14 = 14, // 64MB
-    eMS_15 = 15, // 128MB
-    eMS_16 = 16, // 256MB
-    eMS_17 = 17, // 512MB
-    eMS_18 = 18, // 1GB
-    eMS_19 = 19, // 2GB
-    eMS_20 = 20, // 4GB
-    eMS_21 = 21, // 4GB
-    eMS_22 = 22, // 4GB
-    eMS_23 = 23, // 4GB
-    eMS_24 = 24, // 4GB
-    eMS_25 = 25, // 4GB
-    eMS_26 = 26, // 4GB
-    eMS_27 = 27, // 4GB
-    eMS_28 = 28, // 4GB
-    eMS_29 = 29, // 4GB
-    eMS_30 = 30, // 4GB
-    eMS_31 = 31, // 4GB
+    esize_4kb = 0, // 4KB
+    esize_8kb = 1, // 8KB
+    esize_16kb = 2, // 16KB
+    esize_32kb = 3, // 32KB
+    esize_64kb = 4, // 64KB
+    esize_128kb = 5, // 128KB
+    esize_256kb = 6, // 256KB
+    esize_512kb = 7, // 512KB
+    esize_1mb = 8, // 1MB
+    esize_2mb = 9, // 2MB
+    esize_4mb = 10, // 4MB
+    esize_8mb = 11, // 8MB
+    esize_16mb = 12, // 16MB
+    esize_32mb = 13, // 32MB
+    esize_64mb = 14, // 64MB
+    esize_128mb = 15, // 128MB
+    esize_256mb = 16, // 256MB
+    esize_512mb = 17, // 512MB
+    esize_1gb = 18, // 1GB
+    esize_2gb = 19, // 2GB
+    esize_4gb_20 = 20, // 4GB
+    esize_4gb_21 = 21, // 4GB
+    esize_4gb_22 = 22, // 4GB
+    esize_4gb_23 = 23, // 4GB
+    esize_4gb_24 = 24, // 4GB
+    esize_4gb_25 = 25, // 4GB
+    esize_4gb_26 = 26, // 4GB
+    esize_4gb_27 = 27, // 4GB
+    esize_4gb_28 = 28, // 4GB
+    esize_4gb_29 = 29, // 4GB
+    esize_4gb_30 = 30, // 4GB
+    esize_4gb_31 = 31, // 4GB
   };
   
   // Bit field definition.
@@ -398,43 +398,43 @@ union BR[1] {
 union BR[2] {
   
   enum class eVLD : uint32_t {
-    eVLD_0 = 0, // The memory is invalid, can not be accessed.
-    eVLD_1 = 1, // The memory is valid, can be accessed.
+    einvalid = 0, // The memory is invalid, can not be accessed.
+    evalid = 1, // The memory is valid, can be accessed.
   };
   
   enum class eMS : uint32_t {
-    eMS_0 = 0, // 4KB
-    eMS_1 = 1, // 8KB
-    eMS_2 = 2, // 16KB
-    eMS_3 = 3, // 32KB
-    eMS_4 = 4, // 64KB
-    eMS_5 = 5, // 128KB
-    eMS_6 = 6, // 256KB
-    eMS_7 = 7, // 512KB
-    eMS_8 = 8, // 1MB
-    eMS_9 = 9, // 2MB
-    eMS_10 = 10, // 4MB
-    eMS_11 = 11, // 8MB
-    eMS_12 = 12, // 16MB
-    eMS_13 = 13, // 32MB
-    eMS_14 = 14, // 64MB
-    eMS_15 = 15, // 128MB
-    eMS_16 = 16, // 256MB
-    eMS_17 = 17, // 512MB
-    eMS_18 = 18, // 1GB
-    eMS_19 = 19, // 2GB
-    eMS_20 = 20, // 4GB
-    eMS_21 = 21, // 4GB
-    eMS_22 = 22, // 4GB
-    eMS_23 = 23, // 4GB
-    eMS_24 = 24, // 4GB
-    eMS_25 = 25, // 4GB
-    eMS_26 = 26, // 4GB
-    eMS_27 = 27, // 4GB
-    eMS_28 = 28, // 4GB
-    eMS_29 = 29, // 4GB
-    eMS_30 = 30, // 4GB
-    eMS_31 = 31, // 4GB
+    esize_4kb = 0, // 4KB
+    esize_8kb = 1, // 8KB
+    esize_16kb = 2, // 16KB
+    esize_32kb = 3, // 32KB
+    esize_64kb = 4, // 64KB
+    esize_128kb = 5, // 128KB
+    esize_256kb = 6, // 256KB
+    esize_512kb = 7, // 512KB
+    esize_1mb = 8, // 1MB
+    esize_2mb = 9, // 2MB
+    esize_4mb = 10, // 4MB
+    esize_8mb = 11, // 8MB
+    esize_16mb = 12, // 16MB
+    esize_32mb = 13, // 32MB
+    esize_64mb = 14, // 64MB
+    esize_128mb = 15, // 128MB
+    esize_256mb = 16, // 256MB
+    esize_512mb = 17, // 512MB
+    esize_1gb = 18, // 1GB
+    esize_2gb = 19, // 2GB
+    esize_4gb_20 = 20, // 4GB
+    esize_4gb_21 = 21, // 4GB
+    esize_4gb_22 = 22, // 4GB
+    esize_4gb_23 = 23, // 4GB
+    esize_4gb_24 = 24, // 4GB
+    esize_4gb_25 = 25, // 4GB
+    esize_4gb_26 = 26, // 4GB
+    esize_4gb_27 = 27, // 4GB
+    esize_4gb_28 = 28, // 4GB
+    esize_4gb_29 = 29, // 4GB
+    esize_4gb_30 = 30, // 4GB
+    esize_4gb_31 = 31, // 4GB
   };
   
   // Bit field definition.
@@ -457,43 +457,43 @@ union BR[2] {
 union BR[3] {
   
   enum class eVLD : uint32_t {
-    eVLD_0 = 0, // The memory is invalid, can not be accessed.
-    eVLD_1 = 1, // The memory is valid, can be accessed.
+    einvalid = 0, // The memory is invalid, can not be accessed.
+    evalid = 1, // The memory is valid, can be accessed.
   };
   
   enum class eMS : uint32_t {
-    eMS_0 = 0, // 4KB
-    eMS_1 = 1, // 8KB
-    eMS_2 = 2, // 16KB
-    eMS_3 = 3, // 32KB
-    eMS_4 = 4, // 64KB
-    eMS_5 = 5, // 128KB
-    eMS_6 = 6, // 256KB
-    eMS_7 = 7, // 512KB
-    eMS_8 = 8, // 1MB
-    eMS_9 = 9, // 2MB
-    eMS_10 = 10, // 4MB
-    eMS_11 = 11, // 8MB
-    eMS_12 = 12, // 16MB
-    eMS_13 = 13, // 32MB
-    eMS_14 = 14, // 64MB
-    eMS_15 = 15, // 128MB
-    eMS_16 = 16, // 256MB
-    eMS_17 = 17, // 512MB
-    eMS_18 = 18, // 1GB
-    eMS_19 = 19, // 2GB
-    eMS_20 = 20, // 4GB
-    eMS_21 = 21, // 4GB
-    eMS_22 = 22, // 4GB
-    eMS_23 = 23, // 4GB
-    eMS_24 = 24, // 4GB
-    eMS_25 = 25, // 4GB
-    eMS_26 = 26, // 4GB
-    eMS_27 = 27, // 4GB
-    eMS_28 = 28, // 4GB
-    eMS_29 = 29, // 4GB
-    eMS_30 = 30, // 4GB
-    eMS_31 = 31, // 4GB
+    esize_4kb = 0, // 4KB
+    esize_8kb = 1, // 8KB
+    esize_16kb = 2, // 16KB
+    esize_32kb = 3, // 32KB
+    esize_64kb = 4, // 64KB
+    esize_128kb = 5, // 128KB
+    esize_256kb = 6, // 256KB
+    esize_512kb = 7, // 512KB
+    esize_1mb = 8, // 1MB
+    esize_2mb = 9, // 2MB
+    esize_4mb = 10, // 4MB
+    esize_8mb = 11, // 8MB
+    esize_16mb = 12, // 16MB
+    esize_32mb = 13, // 32MB
+    esize_64mb = 14, // 64MB
+    esize_128mb = 15, // 128MB
+    esize_256mb = 16, // 256MB
+    esize_512mb = 17, // 512MB
+    esize_1gb = 18, // 1GB
+    esize_2gb = 19, // 2GB
+    esize_4gb_20 = 20, // 4GB
+    esize_4gb_21 = 21, // 4GB
+    esize_4gb_22 = 22, // 4GB
+    esize_4gb_23 = 23, // 4GB
+    esize_4gb_24 = 24, // 4GB
+    esize_4gb_25 = 25, // 4GB
+    esize_4gb_26 = 26, // 4GB
+    esize_4gb_27 = 27, // 4GB
+    esize_4gb_28 = 28, // 4GB
+    esize_4gb_29 = 29, // 4GB
+    esize_4gb_30 = 30, // 4GB
+    esize_4gb_31 = 31, // 4GB
   };
   
   // Bit field definition.
@@ -516,43 +516,43 @@ union BR[3] {
 union BR[4] {
   
   enum class eVLD : uint32_t {
-    eVLD_0 = 0, // The memory is invalid, can not be accessed.
-    eVLD_1 = 1, // The memory is valid, can be accessed.
+    einvalid = 0, // The memory is invalid, can not be accessed.
+    evalid = 1, // The memory is valid, can be accessed.
   };
   
   enum class eMS : uint32_t {
-    eMS_0 = 0, // 4KB
-    eMS_1 = 1, // 8KB
-    eMS_2 = 2, // 16KB
-    eMS_3 = 3, // 32KB
-    eMS_4 = 4, // 64KB
-    eMS_5 = 5, // 128KB
-    eMS_6 = 6, // 256KB
-    eMS_7 = 7, // 512KB
-    eMS_8 = 8, // 1MB
-    eMS_9 = 9, // 2MB
-    eMS_10 = 10, // 4MB
-    eMS_11 = 11, // 8MB
-    eMS_12 = 12, // 16MB
-    eMS_13 = 13, // 32MB
-    eMS_14 = 14, // 64MB
-    eMS_15 = 15, // 128MB
-    eMS_16 = 16, // 256MB
-    eMS_17 = 17, // 512MB
-    eMS_18 = 18, // 1GB
-    eMS_19 = 19, // 2GB
-    eMS_20 = 20, // 4GB
-    eMS_21 = 21, // 4GB
-    eMS_22 = 22, // 4GB
-    eMS_23 = 23, // 4GB
-    eMS_24 = 24, // 4GB
-    eMS_25 = 25, // 4GB
-    eMS_26 = 26, // 4GB
-    eMS_27 = 27, // 4GB
-    eMS_28 = 28, // 4GB
-    eMS_29 = 29, // 4GB
-    eMS_30 = 30, // 4GB
-    eMS_31 = 31, // 4GB
+    esize_4kb = 0, // 4KB
+    esize_8kb = 1, // 8KB
+    esize_16kb = 2, // 16KB
+    esize_32kb = 3, // 32KB
+    esize_64kb = 4, // 64KB
+    esize_128kb = 5, // 128KB
+    esize_256kb = 6, // 256KB
+    esize_512kb = 7, // 512KB
+    esize_1mb = 8, // 1MB
+    esize_2mb = 9, // 2MB
+    esize_4mb = 10, // 4MB
+    esize_8mb = 11, // 8MB
+    esize_16mb = 12, // 16MB
+    esize_32mb = 13, // 32MB
+    esize_64mb = 14, // 64MB
+    esize_128mb = 15, // 128MB
+    esize_256mb = 16, // 256MB
+    esize_512mb = 17, // 512MB
+    esize_1gb = 18, // 1GB
+    esize_2gb = 19, // 2GB
+    esize_4gb_20 = 20, // 4GB
+    esize_4gb_21 = 21, // 4GB
+    esize_4gb_22 = 22, // 4GB
+    esize_4gb_23 = 23, // 4GB
+    esize_4gb_24 = 24, // 4GB
+    esize_4gb_25 = 25, // 4GB
+    esize_4gb_26 = 26, // 4GB
+    esize_4gb_27 = 27, // 4GB
+    esize_4gb_28 = 28, // 4GB
+    esize_4gb_29 = 29, // 4GB
+    esize_4gb_30 = 30, // 4GB
+    esize_4gb_31 = 31, // 4GB
   };
   
   // Bit field definition.
@@ -575,43 +575,43 @@ union BR[4] {
 union BR[5] {
   
   enum class eVLD : uint32_t {
-    eVLD_0 = 0, // The memory is invalid, can not be accessed.
-    eVLD_1 = 1, // The memory is valid, can be accessed.
+    einvalid = 0, // The memory is invalid, can not be accessed.
+    evalid = 1, // The memory is valid, can be accessed.
   };
   
   enum class eMS : uint32_t {
-    eMS_0 = 0, // 4KB
-    eMS_1 = 1, // 8KB
-    eMS_2 = 2, // 16KB
-    eMS_3 = 3, // 32KB
-    eMS_4 = 4, // 64KB
-    eMS_5 = 5, // 128KB
-    eMS_6 = 6, // 256KB
-    eMS_7 = 7, // 512KB
-    eMS_8 = 8, // 1MB
-    eMS_9 = 9, // 2MB
-    eMS_10 = 10, // 4MB
-    eMS_11 = 11, // 8MB
-    eMS_12 = 12, // 16MB
-    eMS_13 = 13, // 32MB
-    eMS_14 = 14, // 64MB
-    eMS_15 = 15, // 128MB
-    eMS_16 = 16, // 256MB
-    eMS_17 = 17, // 512MB
-    eMS_18 = 18, // 1GB
-    eMS_19 = 19, // 2GB
-    eMS_20 = 20, // 4GB
-    eMS_21 = 21, // 4GB
-    eMS_22 = 22, // 4GB
-    eMS_23 = 23, // 4GB
-    eMS_24 = 24, // 4GB
-    eMS_25 = 25, // 4GB
-    eMS_26 = 26, // 4GB
-    eMS_27 = 27, // 4GB
-    eMS_28 = 28, // 4GB
-    eMS_29 = 29, // 4GB
-    eMS_30 = 30, // 4GB
-    eMS_31 = 31, // 4GB
+    esize_4kb = 0, // 4KB
+    esize_8kb = 1, // 8KB
+    esize_16kb = 2, // 16KB
+    esize_32kb = 3, // 32KB
+    esize_64kb = 4, // 64KB
+    esize_128kb = 5, // 128KB
+    esize_256kb = 6, // 256KB
+    esize_512kb = 7, // 512KB
+    esize_1mb = 8, // 1MB
+    esize_2mb = 9, // 2MB
+    esize_4mb = 10, // 4MB
+    esize_8mb = 11, // 8MB
+    esize_16mb = 12, // 16MB
+    esize_32mb = 13, // 32MB
+    esize_64mb = 14, // 64MB
+    esize_128mb = 15, // 128MB
+    esize_256mb = 16, // 256MB
+    esize_512mb = 17, // 512MB
+    esize_1gb = 18, // 1GB
+    esize_2gb = 19, // 2GB
+    esize_4gb_20 = 20, // 4GB
+    esize_4gb_21 = 21, // 4GB
+    esize_4gb_22 = 22, // 4GB
+    esize_4gb_23 = 23, // 4GB
+    esize_4gb_24 = 24, // 4GB
+    esize_4gb_25 = 25, // 4GB
+    esize_4gb_26 = 26, // 4GB
+    esize_4gb_27 = 27, // 4GB
+    esize_4gb_28 = 28, // 4GB
+    esize_4gb_29 = 29, // 4GB
+    esize_4gb_30 = 30, // 4GB
+    esize_4gb_31 = 31, // 4GB
   };
   
   // Bit field definition.
@@ -634,43 +634,43 @@ union BR[5] {
 union BR[6] {
   
   enum class eVLD : uint32_t {
-    eVLD_0 = 0, // The memory is invalid, can not be accessed.
-    eVLD_1 = 1, // The memory is valid, can be accessed.
+    einvalid = 0, // The memory is invalid, can not be accessed.
+    evalid = 1, // The memory is valid, can be accessed.
   };
   
   enum class eMS : uint32_t {
-    eMS_0 = 0, // 4KB
-    eMS_1 = 1, // 8KB
-    eMS_2 = 2, // 16KB
-    eMS_3 = 3, // 32KB
-    eMS_4 = 4, // 64KB
-    eMS_5 = 5, // 128KB
-    eMS_6 = 6, // 256KB
-    eMS_7 = 7, // 512KB
-    eMS_8 = 8, // 1MB
-    eMS_9 = 9, // 2MB
-    eMS_10 = 10, // 4MB
-    eMS_11 = 11, // 8MB
-    eMS_12 = 12, // 16MB
-    eMS_13 = 13, // 32MB
-    eMS_14 = 14, // 64MB
-    eMS_15 = 15, // 128MB
-    eMS_16 = 16, // 256MB
-    eMS_17 = 17, // 512MB
-    eMS_18 = 18, // 1GB
-    eMS_19 = 19, // 2GB
-    eMS_20 = 20, // 4GB
-    eMS_21 = 21, // 4GB
-    eMS_22 = 22, // 4GB
-    eMS_23 = 23, // 4GB
-    eMS_24 = 24, // 4GB
-    eMS_25 = 25, // 4GB
-    eMS_26 = 26, // 4GB
-    eMS_27 = 27, // 4GB
-    eMS_28 = 28, // 4GB
-    eMS_29 = 29, // 4GB
-    eMS_30 = 30, // 4GB
-    eMS_31 = 31, // 4GB
+    esize_4kb = 0, // 4KB
+    esize_8kb = 1, // 8KB
+    esize_16kb = 2, // 16KB
+    esize_32kb = 3, // 32KB
+    esize_64kb = 4, // 64KB
+    esize_128kb = 5, // 128KB
+    esize_256kb = 6, // 256KB
+    esize_512kb = 7, // 512KB
+    esize_1mb = 8, // 1MB
+    esize_2mb = 9, // 2MB
+    esize_4mb = 10, // 4MB
+    esize_8mb = 11, // 8MB
+    esize_16mb = 12, // 16MB
+    esize_32mb = 13, // 32MB
+    esize_64mb = 14, // 64MB
+    esize_128mb = 15, // 128MB
+    esize_256mb = 16, // 256MB
+    esize_512mb = 17, // 512MB
+    esize_1gb = 18, // 1GB
+    esize_2gb = 19, // 2GB
+    esize_4gb_20 = 20, // 4GB
+    esize_4gb_21 = 21, // 4GB
+    esize_4gb_22 = 22, // 4GB
+    esize_4gb_23 = 23, // 4GB
+    esize_4gb_24 = 24, // 4GB
+    esize_4gb_25 = 25, // 4GB
+    esize_4gb_26 = 26, // 4GB
+    esize_4gb_27 = 27, // 4GB
+    esize_4gb_28 = 28, // 4GB
+    esize_4gb_29 = 29, // 4GB
+    esize_4gb_30 = 30, // 4GB
+    esize_4gb_31 = 31, // 4GB
   };
   
   // Bit field definition.
@@ -693,43 +693,43 @@ union BR[6] {
 union BR[7] {
   
   enum class eVLD : uint32_t {
-    eVLD_0 = 0, // The memory is invalid, can not be accessed.
-    eVLD_1 = 1, // The memory is valid, can be accessed.
+    einvalid = 0, // The memory is invalid, can not be accessed.
+    evalid = 1, // The memory is valid, can be accessed.
   };
   
   enum class eMS : uint32_t {
-    eMS_0 = 0, // 4KB
-    eMS_1 = 1, // 8KB
-    eMS_2 = 2, // 16KB
-    eMS_3 = 3, // 32KB
-    eMS_4 = 4, // 64KB
-    eMS_5 = 5, // 128KB
-    eMS_6 = 6, // 256KB
-    eMS_7 = 7, // 512KB
-    eMS_8 = 8, // 1MB
-    eMS_9 = 9, // 2MB
-    eMS_10 = 10, // 4MB
-    eMS_11 = 11, // 8MB
-    eMS_12 = 12, // 16MB
-    eMS_13 = 13, // 32MB
-    eMS_14 = 14, // 64MB
-    eMS_15 = 15, // 128MB
-    eMS_16 = 16, // 256MB
-    eMS_17 = 17, // 512MB
-    eMS_18 = 18, // 1GB
-    eMS_19 = 19, // 2GB
-    eMS_20 = 20, // 4GB
-    eMS_21 = 21, // 4GB
-    eMS_22 = 22, // 4GB
-    eMS_23 = 23, // 4GB
-    eMS_24 = 24, // 4GB
-    eMS_25 = 25, // 4GB
-    eMS_26 = 26, // 4GB
-    eMS_27 = 27, // 4GB
-    eMS_28 = 28, // 4GB
-    eMS_29 = 29, // 4GB
-    eMS_30 = 30, // 4GB
-    eMS_31 = 31, // 4GB
+    esize_4kb = 0, // 4KB
+    esize_8kb = 1, // 8KB
+    esize_16kb = 2, // 16KB
+    esize_32kb = 3, // 32KB
+    esize_64kb = 4, // 64KB
+    esize_128kb = 5, // 128KB
+    esize_256kb = 6, // 256KB
+    esize_512kb = 7, // 512KB
+    esize_1mb = 8, // 1MB
+    esize_2mb = 9, // 2MB
+    esize_4mb = 10, // 4MB
+    esize_8mb = 11, // 8MB
+    esize_16mb = 12, // 16MB
+    esize_32mb = 13, // 32MB
+    esize_64mb = 14, // 64MB
+    esize_128mb = 15, // 128MB
+    esize_256mb = 16, // 256MB
+    esize_512mb = 17, // 512MB
+    esize_1gb = 18, // 1GB
+    esize_2gb = 19, // 2GB
+    esize_4gb_20 = 20, // 4GB
+    esize_4gb_21 = 21, // 4GB
+    esize_4gb_22 = 22, // 4GB
+    esize_4gb_23 = 23, // 4GB
+    esize_4gb_24 = 24, // 4GB
+    esize_4gb_25 = 25, // 4GB
+    esize_4gb_26 = 26, // 4GB
+    esize_4gb_27 = 27, // 4GB
+    esize_4gb_28 = 28, // 4GB
+    esize_4gb_29 = 29, // 4GB
+    esize_4gb_30 = 30, // 4GB
+    esize_4gb_31 = 31, // 4GB
   };
   
   // Bit field definition.
@@ -752,43 +752,43 @@ union BR[7] {
 union BR[8] {
   
   enum class eVLD : uint32_t {
-    eVLD_0 = 0, // The memory is invalid, can not be accessed.
-    eVLD_1 = 1, // The memory is valid, can be accessed.
+    einvalid = 0, // The memory is invalid, can not be accessed.
+    evalid = 1, // The memory is valid, can be accessed.
   };
   
   enum class eMS : uint32_t {
-    eMS_0 = 0, // 4KB
-    eMS_1 = 1, // 8KB
-    eMS_2 = 2, // 16KB
-    eMS_3 = 3, // 32KB
-    eMS_4 = 4, // 64KB
-    eMS_5 = 5, // 128KB
-    eMS_6 = 6, // 256KB
-    eMS_7 = 7, // 512KB
-    eMS_8 = 8, // 1MB
-    eMS_9 = 9, // 2MB
-    eMS_10 = 10, // 4MB
-    eMS_11 = 11, // 8MB
-    eMS_12 = 12, // 16MB
-    eMS_13 = 13, // 32MB
-    eMS_14 = 14, // 64MB
-    eMS_15 = 15, // 128MB
-    eMS_16 = 16, // 256MB
-    eMS_17 = 17, // 512MB
-    eMS_18 = 18, // 1GB
-    eMS_19 = 19, // 2GB
-    eMS_20 = 20, // 4GB
-    eMS_21 = 21, // 4GB
-    eMS_22 = 22, // 4GB
-    eMS_23 = 23, // 4GB
-    eMS_24 = 24, // 4GB
-    eMS_25 = 25, // 4GB
-    eMS_26 = 26, // 4GB
-    eMS_27 = 27, // 4GB
-    eMS_28 = 28, // 4GB
-    eMS_29 = 29, // 4GB
-    eMS_30 = 30, // 4GB
-    eMS_31 = 31, // 4GB
+    esize_4kb = 0, // 4KB
+    esize_8kb = 1, // 8KB
+    esize_16kb = 2, // 16KB
+    esize_32kb = 3, // 32KB
+    esize_64kb = 4, // 64KB
+    esize_128kb = 5, // 128KB
+    esize_256kb = 6, // 256KB
+    esize_512kb = 7, // 512KB
+    esize_1mb = 8, // 1MB
+    esize_2mb = 9, // 2MB
+    esize_4mb = 10, // 4MB
+    esize_8mb = 11, // 8MB
+    esize_16mb = 12, // 16MB
+    esize_32mb = 13, // 32MB
+    esize_64mb = 14, // 64MB
+    esize_128mb = 15, // 128MB
+    esize_256mb = 16, // 256MB
+    esize_512mb = 17, // 512MB
+    esize_1gb = 18, // 1GB
+    esize_2gb = 19, // 2GB
+    esize_4gb_20 = 20, // 4GB
+    esize_4gb_21 = 21, // 4GB
+    esize_4gb_22 = 22, // 4GB
+    esize_4gb_23 = 23, // 4GB
+    esize_4gb_24 = 24, // 4GB
+    esize_4gb_25 = 25, // 4GB
+    esize_4gb_26 = 26, // 4GB
+    esize_4gb_27 = 27, // 4GB
+    esize_4gb_28 = 28, // 4GB
+    esize_4gb_29 = 29, // 4GB
+    esize_4gb_30 = 30, // 4GB
+    esize_4gb_31 = 31, // 4GB
   };
   
   // Bit field definition.
@@ -812,18 +812,18 @@ union BR[8] {
 union DLLCR {
   
   enum class eDLLEN : uint32_t {
-    eDLLEN_0 = 0, // DLL calibration is disabled.
-    eDLLEN_1 = 1, // DLL calibration is enabled.
+    ecal_disable = 0, // DLL calibration is disabled.
+    ecal_enable = 1, // DLL calibration is enabled.
   };
   
   enum class eDLLRESET : uint32_t {
-    eDLLRESET_0 = 0, // DLL is not reset.
-    eDLLRESET_1 = 1, // DLL is reset.
+    eno_reset = 0, // DLL is not reset.
+    ereset = 1, // DLL is reset.
   };
   
   enum class eOVRDEN : uint32_t {
-    eOVRDEN_0 = 0, // The delay cell number is not overridden.
-    eOVRDEN_1 = 1, // The delay cell number is overridden.
+    eno_override = 0, // The delay cell number is not overridden.
+    eoverride = 1, // The delay cell number is overridden.
   };
   
   // Bit field definition.
@@ -851,33 +851,33 @@ union DLLCR {
 union INTEN {
   
   enum class eIPCMDDONEEN : uint32_t {
-    eIPCMDDONEEN_0 = 0, // Interrupt is disabled
-    eIPCMDDONEEN_1 = 1, // Interrupt is enabled
+    einterrupt_disable = 0, // Interrupt is disabled
+    einterrupt_enable = 1, // Interrupt is enabled
   };
   
   enum class eIPCMDERREN : uint32_t {
-    eIPCMDERREN_0 = 0, // Interrupt is disabled
-    eIPCMDERREN_1 = 1, // Interrupt is enabled
+    einterrupt_disable = 0, // Interrupt is disabled
+    einterrupt_enable = 1, // Interrupt is enabled
   };
   
   enum class eAXICMDERREN : uint32_t {
-    eAXICMDERREN_0 = 0, // Interrupt is disabled
-    eAXICMDERREN_1 = 1, // Interrupt is enabled
+    einterrupt_disable = 0, // Interrupt is disabled
+    einterrupt_enable = 1, // Interrupt is enabled
   };
   
   enum class eAXIBUSERREN : uint32_t {
-    eAXIBUSERREN_0 = 0, // Interrupt is disabled
-    eAXIBUSERREN_1 = 1, // Interrupt is enabled
+    einterrupt_disable = 0, // Interrupt is disabled
+    einterrupt_enable = 1, // Interrupt is enabled
   };
   
   enum class eNDPAGEENDEN : uint32_t {
-    eNDPAGEENDEN_0 = 0, // Interrupt is disabled
-    eNDPAGEENDEN_1 = 1, // Interrupt is enabled
+    einterrupt_disable = 0, // Interrupt is disabled
+    einterrupt_enable = 1, // Interrupt is enabled
   };
   
   enum class eNDNOPENDEN : uint32_t {
-    eNDNOPENDEN_0 = 0, // Interrupt is disabled
-    eNDNOPENDEN_1 = 1, // Interrupt is enabled
+    einterrupt_disable = 0, // Interrupt is disabled
+    einterrupt_enable = 1, // Interrupt is enabled
   };
   
   // Bit field definition.
@@ -904,33 +904,33 @@ union INTEN {
 union INTR {
   
   enum class eIPCMDDONE : uint32_t {
-    eIPCMDDONE_0 = 0, // IP command is not done.
-    eIPCMDDONE_1 = 1, // IP command is done.
+    enot_done = 0, // IP command is not done.
+    edone = 1, // IP command is done.
   };
   
   enum class eIPCMDERR : uint32_t {
-    eIPCMDERR_0 = 0, // No IP command error.
-    eIPCMDERR_1 = 1, // IP command error occurs.
+    eno_error = 0, // No IP command error.
+    eerror = 1, // IP command error occurs.
   };
   
   enum class eAXICMDERR : uint32_t {
-    eAXICMDERR_0 = 0, // No AXI command error.
-    eAXICMDERR_1 = 1, // AXI command error occurs.
+    eno_error = 0, // No AXI command error.
+    eerror = 1, // AXI command error occurs.
   };
   
   enum class eAXIBUSERR : uint32_t {
-    eAXIBUSERR_0 = 0, // No AXI bus error.
-    eAXIBUSERR_1 = 1, // AXI bus error occurs.
+    eno_error = 0, // No AXI bus error.
+    eerror = 1, // AXI bus error occurs.
   };
   
   enum class eNDPAGEEND : uint32_t {
-    eNDPAGEEND_0 = 0, // The last address of main space in the NAND is not written by AXI command.
-    eNDPAGEEND_1 = 1, // The last address of main space in the NAND is written by AXI command.
+    eno_write = 0, // The last address of main space in the NAND is not written by AXI command.
+    ewrite = 1, // The last address of main space in the NAND is written by AXI command.
   };
   
   enum class eNDNOPEND : uint32_t {
-    eNDNOPEND_0 = 0, // At least one NAND AXI write transaction is pending or no NAND write transaction is sent to the queue.
-    eNDNOPEND_1 = 1, // All NAND AXI write pending transactions are finished.
+    eno_write = 0, // At least one NAND AXI write transaction is pending or no NAND write transaction is sent to the queue.
+    ewrite = 1, // All NAND AXI write pending transactions are finished.
   };
   
   // Bit field definition.
@@ -957,44 +957,44 @@ union INTR {
 union SDRAMCR0 {
   
   enum class ePS : uint32_t {
-    ePS_0 = 0, // 8bit
-    ePS_1 = 1, // 16bit
-    ePS_2 = 2, // 32bit
+    eps_8bit = 0, // 8bit
+    eps_16bit = 1, // 16bit
+    eps_32bit = 2, // 32bit
   };
   
   enum class eBL : uint32_t {
-    eBL_0 = 0, // 1
-    eBL_1 = 1, // 2
-    eBL_2 = 2, // 4
-    eBL_3 = 3, // 8
-    eBL_4 = 4, // 8
-    eBL_5 = 5, // 8
-    eBL_6 = 6, // 8
-    eBL_7 = 7, // 8
+    eburst1 = 0, // 1
+    eburst2 = 1, // 2
+    eburst4 = 2, // 4
+    eburst8_3 = 3, // 8
+    eburst8_4 = 4, // 8
+    eburst8_5 = 5, // 8
+    eburst8_6 = 6, // 8
+    eburst8_7 = 7, // 8
   };
   
   enum class eCOL8 : uint32_t {
-    eCOL8_0 = 0, // Column address bit number is decided by COL field.
-    eCOL8_1 = 1, // Column address bit number is 8. COL field is ignored.
+    ecolfield = 0, // Column address bit number is decided by COL field.
+    ebit8 = 1, // Column address bit number is 8. COL field is ignored.
   };
   
   enum class eCOL : uint32_t {
-    eCOL_0 = 0, // 12
-    eCOL_1 = 1, // 11
-    eCOL_2 = 2, // 10
-    eCOL_3 = 3, // 9
+    ebit12 = 0, // 12
+    ebit11 = 1, // 11
+    ebit10 = 2, // 10
+    ebit9 = 3, // 9
   };
   
   enum class eCL : uint32_t {
-    eCL_0 = 0, // 1
-    eCL_1 = 1, // 1
-    eCL_2 = 2, // 2
-    eCL_3 = 3, // 3
+    ecl1_0 = 0, // 1
+    ecl1_1 = 1, // 1
+    ecl2 = 2, // 2
+    ecl3 = 3, // 3
   };
   
   enum class eBANK2 : uint32_t {
-    eBANK2_0 = 0, // SDRAM device has 4 banks.
-    eBANK2_1 = 1, // SDRAM device has 2 banks.
+    ebank4 = 0, // SDRAM device has 4 banks.
+    ebank2 = 1, // SDRAM device has 2 banks.
   };
   
   // Bit field definition.
@@ -1046,16 +1046,16 @@ union SDRAMCR1 {
 union SDRAMCR2 {
   
   enum class eITO : uint32_t {
-    eITO_0 = 0, // IDLE timeout period is 256*Prescale period.
-    eITO_1 = 1, // IDLE timeout period is ITO*Prescale period.
-    eITO_2 = 2, // IDLE timeout period is ITO*Prescale period.
-    eITO_3 = 3, // IDLE timeout period is ITO*Prescale period.
-    eITO_4 = 4, // IDLE timeout period is ITO*Prescale period.
-    eITO_5 = 5, // IDLE timeout period is ITO*Prescale period.
-    eITO_6 = 6, // IDLE timeout period is ITO*Prescale period.
-    eITO_7 = 7, // IDLE timeout period is ITO*Prescale period.
-    eITO_8 = 8, // IDLE timeout period is ITO*Prescale period.
-    eITO_9 = 9, // IDLE timeout period is ITO*Prescale period.
+    eprescalex256 = 0, // IDLE timeout period is 256*Prescale period.
+    eprescalexito_1 = 1, // IDLE timeout period is ITO*Prescale period.
+    eprescalexito_2 = 2, // IDLE timeout period is ITO*Prescale period.
+    eprescalexito_3 = 3, // IDLE timeout period is ITO*Prescale period.
+    eprescalexito_4 = 4, // IDLE timeout period is ITO*Prescale period.
+    eprescalexito_5 = 5, // IDLE timeout period is ITO*Prescale period.
+    eprescalexito_6 = 6, // IDLE timeout period is ITO*Prescale period.
+    eprescalexito_7 = 7, // IDLE timeout period is ITO*Prescale period.
+    eprescalexito_8 = 8, // IDLE timeout period is ITO*Prescale period.
+    eprescalexito_9 = 9, // IDLE timeout period is ITO*Prescale period.
   };
   
   // Bit field definition.
@@ -1079,58 +1079,58 @@ union SDRAMCR2 {
 union SDRAMCR3 {
   
   enum class eREN : uint32_t {
-    eREN_0 = 0, // The SEMC does not send AUTO REFRESH command automatically
-    eREN_1 = 1, // The SEMC sends AUTO REFRESH command automatically
+    eno_auto_refresh = 0, // The SEMC does not send AUTO REFRESH command automatically
+    eauto_refresh = 1, // The SEMC sends AUTO REFRESH command automatically
   };
   
   enum class eREBL : uint32_t {
-    eREBL_0 = 0, // 1
-    eREBL_1 = 1, // 2
-    eREBL_2 = 2, // 3
-    eREBL_3 = 3, // 4
-    eREBL_4 = 4, // 5
-    eREBL_5 = 5, // 6
-    eREBL_6 = 6, // 7
-    eREBL_7 = 7, // 8
+    erefresh_burst1 = 0, // 1
+    erefresh_burst2 = 1, // 2
+    erefresh_burst3 = 2, // 3
+    erefresh_burst4 = 3, // 4
+    erefresh_burst5 = 4, // 5
+    erefresh_burst6 = 5, // 6
+    erefresh_burst7 = 6, // 7
+    erefresh_burst8 = 7, // 8
   };
   
   enum class ePRESCALE : uint32_t {
-    ePRESCALE_0 = 0, // (256*16+1) clock cycles
-    ePRESCALE_1 = 1, // (PRESCALE*16+1) clock cycles
-    ePRESCALE_2 = 2, // (PRESCALE*16+1) clock cycles
-    ePRESCALE_3 = 3, // (PRESCALE*16+1) clock cycles
-    ePRESCALE_4 = 4, // (PRESCALE*16+1) clock cycles
-    ePRESCALE_5 = 5, // (PRESCALE*16+1) clock cycles
-    ePRESCALE_6 = 6, // (PRESCALE*16+1) clock cycles
-    ePRESCALE_7 = 7, // (PRESCALE*16+1) clock cycles
-    ePRESCALE_8 = 8, // (PRESCALE*16+1) clock cycles
-    ePRESCALE_9 = 9, // (PRESCALE*16+1) clock cycles
+    eprescale_256x16plus1 = 0, // (256*16+1) clock cycles
+    eprescale_16plus1_1 = 1, // (PRESCALE*16+1) clock cycles
+    eprescale_16plus1_2 = 2, // (PRESCALE*16+1) clock cycles
+    eprescale_16plus1_3 = 3, // (PRESCALE*16+1) clock cycles
+    eprescale_16plus1_4 = 4, // (PRESCALE*16+1) clock cycles
+    eprescale_16plus1_5 = 5, // (PRESCALE*16+1) clock cycles
+    eprescale_16plus1_6 = 6, // (PRESCALE*16+1) clock cycles
+    eprescale_16plus1_7 = 7, // (PRESCALE*16+1) clock cycles
+    eprescale_16plus1_8 = 8, // (PRESCALE*16+1) clock cycles
+    eprescale_16plus1_9 = 9, // (PRESCALE*16+1) clock cycles
   };
   
   enum class eRT : uint32_t {
-    eRT_0 = 0, // (256+1)*(Prescaler period)
-    eRT_1 = 1, // (RT+1)*(Prescaler period)
-    eRT_2 = 2, // (RT+1)*(Prescaler period)
-    eRT_3 = 3, // (RT+1)*(Prescaler period)
-    eRT_4 = 4, // (RT+1)*(Prescaler period)
-    eRT_5 = 5, // (RT+1)*(Prescaler period)
-    eRT_6 = 6, // (RT+1)*(Prescaler period)
-    eRT_7 = 7, // (RT+1)*(Prescaler period)
-    eRT_8 = 8, // (RT+1)*(Prescaler period)
-    eRT_9 = 9, // (RT+1)*(Prescaler period)
+    ert_256plus1xprescale = 0, // (256+1)*(Prescaler period)
+    ert_rtplus1xprescale_1 = 1, // (RT+1)*(Prescaler period)
+    ert_rtplus1xprescale_2 = 2, // (RT+1)*(Prescaler period)
+    ert_rtplus1xprescale_3 = 3, // (RT+1)*(Prescaler period)
+    ert_rtplus1xprescale_4 = 4, // (RT+1)*(Prescaler period)
+    ert_rtplus1xprescale_5 = 5, // (RT+1)*(Prescaler period)
+    ert_rtplus1xprescale_6 = 6, // (RT+1)*(Prescaler period)
+    ert_rtplus1xprescale_7 = 7, // (RT+1)*(Prescaler period)
+    ert_rtplus1xprescale_8 = 8, // (RT+1)*(Prescaler period)
+    ert_rtplus1xprescale_9 = 9, // (RT+1)*(Prescaler period)
   };
   
   enum class eUT : uint32_t {
-    eUT_0 = 0, // 256*(Prescaler period)
-    eUT_1 = 1, // UT*(Prescaler period)
-    eUT_2 = 2, // UT*(Prescaler period)
-    eUT_3 = 3, // UT*(Prescaler period)
-    eUT_4 = 4, // UT*(Prescaler period)
-    eUT_5 = 5, // UT*(Prescaler period)
-    eUT_6 = 6, // UT*(Prescaler period)
-    eUT_7 = 7, // UT*(Prescaler period)
-    eUT_8 = 8, // UT*(Prescaler period)
-    eUT_9 = 9, // UT*(Prescaler period)
+    eprescalex256 = 0, // 256*(Prescaler period)
+    eprescalexut_1 = 1, // UT*(Prescaler period)
+    eprescalexut_2 = 2, // UT*(Prescaler period)
+    eprescalexut_3 = 3, // UT*(Prescaler period)
+    eprescalexut_4 = 4, // UT*(Prescaler period)
+    eprescalexut_5 = 5, // UT*(Prescaler period)
+    eprescalexut_6 = 6, // UT*(Prescaler period)
+    eprescalexut_7 = 7, // UT*(Prescaler period)
+    eprescalexut_8 = 8, // UT*(Prescaler period)
+    eprescalexut_9 = 9, // UT*(Prescaler period)
   };
   
   // Bit field definition.
@@ -1156,40 +1156,40 @@ union SDRAMCR3 {
 union NANDCR0 {
   
   enum class ePS : uint32_t {
-    ePS_0 = 0, // 8bit
-    ePS_1 = 1, // 16bit
+    eps_8bit = 0, // 8bit
+    eps_16bit = 1, // 16bit
   };
   
   enum class eSYNCEN : uint32_t {
-    eSYNCEN_0 = 0, // Asynchronous mode is enabled.
-    eSYNCEN_1 = 1, // Synchronous mode is enabled.
+    easync = 0, // Asynchronous mode is enabled.
+    esync = 1, // Synchronous mode is enabled.
   };
   
   enum class eBL : uint32_t {
-    eBL_0 = 0, // 1
-    eBL_1 = 1, // 2
-    eBL_2 = 2, // 4
-    eBL_3 = 3, // 8
-    eBL_4 = 4, // 16
-    eBL_5 = 5, // 32
-    eBL_6 = 6, // 64
-    eBL_7 = 7, // 64
+    eburst1 = 0, // 1
+    eburst2 = 1, // 2
+    eburst4 = 2, // 4
+    eburst8 = 3, // 8
+    eburst16 = 4, // 16
+    eburst32 = 5, // 32
+    eburst64_6 = 6, // 64
+    eburst64_7 = 7, // 64
   };
   
   enum class eEDO : uint32_t {
-    eEDO_0 = 0, // EDO mode disabled
-    eEDO_1 = 1, // EDO mode enabled
+    eedo_disable = 0, // EDO mode disabled
+    eedo_enable = 1, // EDO mode enabled
   };
   
   enum class eCOL : uint32_t {
-    eCOL_0 = 0, // 16
-    eCOL_1 = 1, // 15
-    eCOL_2 = 2, // 14
-    eCOL_3 = 3, // 13
-    eCOL_4 = 4, // 12
-    eCOL_5 = 5, // 11
-    eCOL_6 = 6, // 10
-    eCOL_7 = 7, // 9
+    ebit16 = 0, // 16
+    ebit15 = 1, // 15
+    ebit14 = 2, // 14
+    ebit13 = 3, // 13
+    ebit12 = 4, // 12
+    ebit11 = 5, // 11
+    ebit10 = 6, // 10
+    ebit9 = 7, // 9
   };
   
   // Bit field definition.
@@ -1287,60 +1287,60 @@ union NANDCR3 {
 union NORCR0 {
   
   enum class ePS : uint32_t {
-    ePS_0 = 0, // 8bit
-    ePS_1 = 1, // 16bit
+    eps_8bit = 0, // 8bit
+    eps_16bit = 1, // 16bit
   };
   
   enum class eSYNCEN : uint32_t {
-    eSYNCEN_0 = 0, // Asynchronous mode is enabled.
-    eSYNCEN_1 = 1, // Synchronous mode is enabled. Only fixed latency mode is supported.
+    easync = 0, // Asynchronous mode is enabled.
+    esync = 1, // Synchronous mode is enabled. Only fixed latency mode is supported.
   };
   
   enum class eBL : uint32_t {
-    eBL_0 = 0, // 1
-    eBL_1 = 1, // 2
-    eBL_2 = 2, // 4
-    eBL_3 = 3, // 8
-    eBL_4 = 4, // 16
-    eBL_5 = 5, // 32
-    eBL_6 = 6, // 64
-    eBL_7 = 7, // 64
+    eburst1 = 0, // 1
+    eburst2 = 1, // 2
+    eburst4 = 2, // 4
+    eburst8 = 3, // 8
+    eburst16 = 4, // 16
+    eburst32 = 5, // 32
+    eburst64_6 = 6, // 64
+    eburst64_7 = 7, // 64
   };
   
   enum class eAM : uint32_t {
-    eAM_0 = 0, // Address/Data MUX mode (ADMUX)
-    eAM_1 = 1, // Advanced Address/Data MUX mode (AADM)
-    eAM_2 = 2, // Address/Data non-MUX mode (Non-ADMUX)
-    eAM_3 = 3, // Address/Data non-MUX mode (Non-ADMUX)
+    eadmux = 0, // Address/Data MUX mode (ADMUX)
+    eaadm = 1, // Advanced Address/Data MUX mode (AADM)
+    enon_admux_2 = 2, // Address/Data non-MUX mode (Non-ADMUX)
+    enon_admux_3 = 3, // Address/Data non-MUX mode (Non-ADMUX)
   };
   
   enum class eADVP : uint32_t {
-    eADVP_0 = 0, // ADV# is active low.
-    eADVP_1 = 1, // ADV# is active high.
+    eactive_low = 0, // ADV# is active low.
+    eactive_high = 1, // ADV# is active high.
   };
   
   enum class eADVH : uint32_t {
-    eADVH_0 = 0, // ADV# is high during address hold state.
-    eADVH_1 = 1, // ADV# is low during address hold state.
+    ehigh = 0, // ADV# is high during address hold state.
+    elow = 1, // ADV# is low during address hold state.
   };
   
   enum class eCOL : uint32_t {
-    eCOL_0 = 0, // 12 Bits
-    eCOL_1 = 1, // 11 Bits
-    eCOL_2 = 2, // 10 Bits
-    eCOL_3 = 3, // 9 Bits
-    eCOL_4 = 4, // 8 Bits
-    eCOL_5 = 5, // 7 Bits
-    eCOL_6 = 6, // 6 Bits
-    eCOL_7 = 7, // 5 Bits
-    eCOL_8 = 8, // 4 Bits
-    eCOL_9 = 9, // 3 Bits
-    eCOL_10 = 10, // 2 Bits
-    eCOL_11 = 11, // 12 Bits
-    eCOL_12 = 12, // 12 Bits
-    eCOL_13 = 13, // 12 Bits
-    eCOL_14 = 14, // 12 Bits
-    eCOL_15 = 15, // 12 Bits
+    ebitwidth12_0 = 0, // 12 Bits
+    ebitwidth11 = 1, // 11 Bits
+    ebitwidth10 = 2, // 10 Bits
+    ebitwidth9 = 3, // 9 Bits
+    ebitwidth8 = 4, // 8 Bits
+    ebitwidth7 = 5, // 7 Bits
+    ebitwidth6 = 6, // 6 Bits
+    ebitwidth5 = 7, // 5 Bits
+    ebitwidth4 = 8, // 4 Bits
+    ebitwidth3 = 9, // 3 Bits
+    ebitwidth2 = 10, // 2 Bits
+    ebitwidth12_b = 11, // 12 Bits
+    ebitwidth12_c = 12, // 12 Bits
+    ebitwidth12_d = 13, // 12 Bits
+    ebitwidth12_e = 14, // 12 Bits
+    ebitwidth12_f = 15, // 12 Bits
   };
   
   // Bit field definition.
@@ -1436,70 +1436,70 @@ union NORCR3 {
 union SRAMCR0 {
   
   enum class ePS : uint32_t {
-    ePS_0 = 0, // 8bit
-    ePS_1 = 1, // 16bit
+    eps_8bit = 0, // 8bit
+    eps_16bit = 1, // 16bit
   };
   
   enum class eSYNCEN : uint32_t {
-    eSYNCEN_0 = 0, // Asynchronous mode is enabled.
-    eSYNCEN_1 = 1, // Synchronous mode is enabled. Only fixed latency mode is supported.
+    easync = 0, // Asynchronous mode is enabled.
+    esync = 1, // Synchronous mode is enabled. Only fixed latency mode is supported.
   };
   
   enum class eWAITEN : uint32_t {
-    eWAITEN_0 = 0, // The SEMC does not monitor wait pin.
-    eWAITEN_1 = 1, // The SEMC monitors wait pin. The SEMC does not transfer/receive data when wait pin is asserted.
+    eno_monitor_wait = 0, // The SEMC does not monitor wait pin.
+    emonitor_wait = 1, // The SEMC monitors wait pin. The SEMC does not transfer/receive data when wait pin is asserted.
   };
   
   enum class eWAITSP : uint32_t {
-    eWAITSP_0 = 0, // Wait pin is directly used by the SEMC.
-    eWAITSP_1 = 1, // Wait pin is sampled by internal clock before it is used.
+    ewait_direct = 0, // Wait pin is directly used by the SEMC.
+    ewait_sampled = 1, // Wait pin is sampled by internal clock before it is used.
   };
   
   enum class eBL : uint32_t {
-    eBL_0 = 0, // 1
-    eBL_1 = 1, // 2
-    eBL_2 = 2, // 4
-    eBL_3 = 3, // 8
-    eBL_4 = 4, // 16
-    eBL_5 = 5, // 32
-    eBL_6 = 6, // 64
-    eBL_7 = 7, // 64
+    eburst1 = 0, // 1
+    eburst2 = 1, // 2
+    eburst4 = 2, // 4
+    eburst8 = 3, // 8
+    eburst16 = 4, // 16
+    eburst32 = 5, // 32
+    eburst64_6 = 6, // 64
+    eburst64_7 = 7, // 64
   };
   
   enum class eAM : uint32_t {
-    eAM_0 = 0, // Address/Data MUX mode (ADMUX)
-    eAM_1 = 1, // Advanced Address/Data MUX mode (AADM)
-    eAM_2 = 2, // Address/Data non-MUX mode (Non-ADMUX)
-    eAM_3 = 3, // Address/Data non-MUX mode (Non-ADMUX)
+    eadmux = 0, // Address/Data MUX mode (ADMUX)
+    eaadm = 1, // Advanced Address/Data MUX mode (AADM)
+    enon_admux_2 = 2, // Address/Data non-MUX mode (Non-ADMUX)
+    enon_admux_3 = 3, // Address/Data non-MUX mode (Non-ADMUX)
   };
   
   enum class eADVP : uint32_t {
-    eADVP_0 = 0, // ADV# is active low.
-    eADVP_1 = 1, // ADV# is active high.
+    eactive_low = 0, // ADV# is active low.
+    eactive_high = 1, // ADV# is active high.
   };
   
   enum class eADVH : uint32_t {
-    eADVH_0 = 0, // ADV# is high during address hold state.
-    eADVH_1 = 1, // ADV# is low during address hold state.
+    ehigh_hold = 0, // ADV# is high during address hold state.
+    elow_hold = 1, // ADV# is low during address hold state.
   };
   
   enum class eCOL : uint32_t {
-    eCOL_0 = 0, // 12 Bits
-    eCOL_1 = 1, // 11 Bits
-    eCOL_2 = 2, // 10 Bits
-    eCOL_3 = 3, // 9 Bits
-    eCOL_4 = 4, // 8 Bits
-    eCOL_5 = 5, // 7 Bits
-    eCOL_6 = 6, // 6 Bits
-    eCOL_7 = 7, // 5 Bits
-    eCOL_8 = 8, // 4 Bits
-    eCOL_9 = 9, // 3 Bits
-    eCOL_10 = 10, // 2 Bits
-    eCOL_11 = 11, // 12 Bits
-    eCOL_12 = 12, // 12 Bits
-    eCOL_13 = 13, // 12 Bits
-    eCOL_14 = 14, // 12 Bits
-    eCOL_15 = 15, // 12 Bits
+    ebitwidth12_0 = 0, // 12 Bits
+    ebitwidth11 = 1, // 11 Bits
+    ebitwidth10 = 2, // 10 Bits
+    ebitwidth9 = 3, // 9 Bits
+    ebitwidth8 = 4, // 8 Bits
+    ebitwidth7 = 5, // 7 Bits
+    ebitwidth6 = 6, // 6 Bits
+    ebitwidth5 = 7, // 5 Bits
+    ebitwidth4 = 8, // 4 Bits
+    ebitwidth3 = 9, // 3 Bits
+    ebitwidth2 = 10, // 2 Bits
+    ebitwidth12_b = 11, // 12 Bits
+    ebitwidth12_c = 12, // 12 Bits
+    ebitwidth12_d = 13, // 12 Bits
+    ebitwidth12_e = 14, // 12 Bits
+    ebitwidth12_f = 15, // 12 Bits
   };
   
   // Bit field definition.
@@ -1595,38 +1595,38 @@ union SRAMCR3 {
 union DBICR0 {
   
   enum class ePS : uint32_t {
-    ePS_0 = 0, // 8bit
-    ePS_1 = 1, // 16bit
+    eps_8bit = 0, // 8bit
+    eps_16bit = 1, // 16bit
   };
   
   enum class eBL : uint32_t {
-    eBL_0 = 0, // 1
-    eBL_1 = 1, // 2
-    eBL_2 = 2, // 4
-    eBL_3 = 3, // 8
-    eBL_4 = 4, // 16
-    eBL_5 = 5, // 32
-    eBL_6 = 6, // 64
-    eBL_7 = 7, // 64
+    eburst1 = 0, // 1
+    eburst2 = 1, // 2
+    eburst4 = 2, // 4
+    eburst8 = 3, // 8
+    eburst16 = 4, // 16
+    eburst32 = 5, // 32
+    eburst64_6 = 6, // 64
+    eburst64_7 = 7, // 64
   };
   
   enum class eCOL : uint32_t {
-    eCOL_0 = 0, // 12 Bits
-    eCOL_1 = 1, // 11 Bits
-    eCOL_2 = 2, // 10 Bits
-    eCOL_3 = 3, // 9 Bits
-    eCOL_4 = 4, // 8 Bits
-    eCOL_5 = 5, // 7 Bits
-    eCOL_6 = 6, // 6 Bits
-    eCOL_7 = 7, // 5 Bits
-    eCOL_8 = 8, // 4 Bits
-    eCOL_9 = 9, // 3 Bits
-    eCOL_10 = 10, // 2 Bits
-    eCOL_11 = 11, // 12 Bits
-    eCOL_12 = 12, // 12 Bits
-    eCOL_13 = 13, // 12 Bits
-    eCOL_14 = 14, // 12 Bits
-    eCOL_15 = 15, // 12 Bits
+    ebitwidth12_0 = 0, // 12 Bits
+    ebitwidth11 = 1, // 11 Bits
+    ebitwidth10 = 2, // 10 Bits
+    ebitwidth9 = 3, // 9 Bits
+    ebitwidth8 = 4, // 8 Bits
+    ebitwidth7 = 5, // 7 Bits
+    ebitwidth6 = 6, // 6 Bits
+    ebitwidth5 = 7, // 5 Bits
+    ebitwidth4 = 8, // 4 Bits
+    ebitwidth3 = 9, // 3 Bits
+    ebitwidth2 = 10, // 2 Bits
+    ebitwidth12_b = 11, // 12 Bits
+    ebitwidth12_c = 12, // 12 Bits
+    ebitwidth12_d = 13, // 12 Bits
+    ebitwidth12_e = 14, // 12 Bits
+    ebitwidth12_f = 15, // 12 Bits
   };
   
   // Bit field definition.
@@ -1711,14 +1711,14 @@ union IPCR0 {
 union IPCR1 {
   
   enum class eDATSZ : uint32_t {
-    eDATSZ_0 = 0, // 4
-    eDATSZ_1 = 1, // 1
-    eDATSZ_2 = 2, // 2
-    eDATSZ_3 = 3, // 3
-    eDATSZ_4 = 4, // 4
-    eDATSZ_5 = 5, // 4
-    eDATSZ_6 = 6, // 4
-    eDATSZ_7 = 7, // 4
+    edatasz_4byte = 0, // 4
+    edatasz_1byte = 1, // 1
+    edatasz_2byte = 2, // 2
+    edatasz_3byte = 3, // 3
+    edatasz_4byte_4 = 4, // 4
+    edatasz_4byte_5 = 5, // 4
+    edatasz_4byte_6 = 6, // 4
+    edatasz_4byte_7 = 7, // 4
   };
   
   // Bit field definition.
@@ -1742,23 +1742,23 @@ union IPCR1 {
 union IPCR2 {
   
   enum class eBM0 : uint32_t {
-    eBM0_0 = 0, // Byte is unmasked
-    eBM0_1 = 1, // Byte is masked
+    eunmasked = 0, // Byte is unmasked
+    emasked = 1, // Byte is masked
   };
   
   enum class eBM1 : uint32_t {
-    eBM1_0 = 0, // Byte is unmasked
-    eBM1_1 = 1, // Byte is masked
+    eunmasked = 0, // Byte is unmasked
+    emasked = 1, // Byte is masked
   };
   
   enum class eBM2 : uint32_t {
-    eBM2_0 = 0, // Byte is unmasked
-    eBM2_1 = 1, // Byte is masked
+    eunmasked = 0, // Byte is unmasked
+    emasked = 1, // Byte is masked
   };
   
   enum class eBM3 : uint32_t {
-    eBM3_0 = 0, // Byte is unmasked
-    eBM3_1 = 1, // Byte is masked
+    eunmasked = 0, // Byte is unmasked
+    emasked = 1, // Byte is masked
   };
   
   // Bit field definition.
@@ -1835,8 +1835,8 @@ union IPRXDAT {
 union STS0 {
   
   enum class eNARDY : uint32_t {
-    eNARDY_0 = 0, // NAND device is not ready
-    eNARDY_1 = 1, // NAND device is ready
+    enotready = 0, // NAND device is not ready
+    eready = 1, // NAND device is ready
   };
   
   // Bit field definition.
@@ -1876,8 +1876,8 @@ union STS1 {
 union STS2 {
   
   enum class eNDWRPEND : uint32_t {
-    eNDWRPEND_0 = 0, // No pending
-    eNDWRPEND_1 = 1, // Pending
+    eno_pending = 0, // No pending
+    epending = 1, // Pending
   };
   
   // Bit field definition.
@@ -2070,13 +2070,13 @@ union STS12 {
 union STS13 {
   
   enum class eSLVLOCK : uint32_t {
-    eSLVLOCK_0 = 0, // Slave delay line is not locked.
-    eSLVLOCK_1 = 1, // Slave delay line is locked.
+    enot_locked = 0, // Slave delay line is not locked.
+    elocked = 1, // Slave delay line is locked.
   };
   
   enum class eREFLOCK : uint32_t {
-    eREFLOCK_0 = 0, // Reference delay line is not locked.
-    eREFLOCK_1 = 1, // Reference delay line is locked.
+    enot_locked = 0, // Reference delay line is not locked.
+    elocked = 1, // Reference delay line is locked.
   };
   
   // Bit field definition.
@@ -2135,43 +2135,43 @@ union STS15 {
 union BR9 {
   
   enum class eVLD : uint32_t {
-    eVLD_0 = 0, // The memory is invalid, can not be accessed.
-    eVLD_1 = 1, // The memory is valid, can be accessed.
+    einvalid = 0, // The memory is invalid, can not be accessed.
+    evalid = 1, // The memory is valid, can be accessed.
   };
   
   enum class eMS : uint32_t {
-    eMS_0 = 0, // 4KB
-    eMS_1 = 1, // 8KB
-    eMS_2 = 2, // 16KB
-    eMS_3 = 3, // 32KB
-    eMS_4 = 4, // 64KB
-    eMS_5 = 5, // 128KB
-    eMS_6 = 6, // 256KB
-    eMS_7 = 7, // 512KB
-    eMS_8 = 8, // 1MB
-    eMS_9 = 9, // 2MB
-    eMS_10 = 10, // 4MB
-    eMS_11 = 11, // 8MB
-    eMS_12 = 12, // 16MB
-    eMS_13 = 13, // 32MB
-    eMS_14 = 14, // 64MB
-    eMS_15 = 15, // 128MB
-    eMS_16 = 16, // 256MB
-    eMS_17 = 17, // 512MB
-    eMS_18 = 18, // 1GB
-    eMS_19 = 19, // 2GB
-    eMS_20 = 20, // 4GB
-    eMS_21 = 21, // 4GB
-    eMS_22 = 22, // 4GB
-    eMS_23 = 23, // 4GB
-    eMS_24 = 24, // 4GB
-    eMS_25 = 25, // 4GB
-    eMS_26 = 26, // 4GB
-    eMS_27 = 27, // 4GB
-    eMS_28 = 28, // 4GB
-    eMS_29 = 29, // 4GB
-    eMS_30 = 30, // 4GB
-    eMS_31 = 31, // 4GB
+    esize_4kb = 0, // 4KB
+    esize_8kb = 1, // 8KB
+    esize_16kb = 2, // 16KB
+    esize_32kb = 3, // 32KB
+    esize_64kb = 4, // 64KB
+    esize_128kb = 5, // 128KB
+    esize_256kb = 6, // 256KB
+    esize_512kb = 7, // 512KB
+    esize_1mb = 8, // 1MB
+    esize_2mb = 9, // 2MB
+    esize_4mb = 10, // 4MB
+    esize_8mb = 11, // 8MB
+    esize_16mb = 12, // 16MB
+    esize_32mb = 13, // 32MB
+    esize_64mb = 14, // 64MB
+    esize_128mb = 15, // 128MB
+    esize_256mb = 16, // 256MB
+    esize_512mb = 17, // 512MB
+    esize_1gb = 18, // 1GB
+    esize_2gb = 19, // 2GB
+    esize_4gb_20 = 20, // 4GB
+    esize_4gb_21 = 21, // 4GB
+    esize_4gb_22 = 22, // 4GB
+    esize_4gb_23 = 23, // 4GB
+    esize_4gb_24 = 24, // 4GB
+    esize_4gb_25 = 25, // 4GB
+    esize_4gb_26 = 26, // 4GB
+    esize_4gb_27 = 27, // 4GB
+    esize_4gb_28 = 28, // 4GB
+    esize_4gb_29 = 29, // 4GB
+    esize_4gb_30 = 30, // 4GB
+    esize_4gb_31 = 31, // 4GB
   };
   
   // Bit field definition.
@@ -2195,43 +2195,43 @@ union BR9 {
 union BR10 {
   
   enum class eVLD : uint32_t {
-    eVLD_0 = 0, // The memory is invalid, can not be accessed.
-    eVLD_1 = 1, // The memory is valid, can be accessed.
+    einvalid = 0, // The memory is invalid, can not be accessed.
+    evalid = 1, // The memory is valid, can be accessed.
   };
   
   enum class eMS : uint32_t {
-    eMS_0 = 0, // 4KB
-    eMS_1 = 1, // 8KB
-    eMS_2 = 2, // 16KB
-    eMS_3 = 3, // 32KB
-    eMS_4 = 4, // 64KB
-    eMS_5 = 5, // 128KB
-    eMS_6 = 6, // 256KB
-    eMS_7 = 7, // 512KB
-    eMS_8 = 8, // 1MB
-    eMS_9 = 9, // 2MB
-    eMS_10 = 10, // 4MB
-    eMS_11 = 11, // 8MB
-    eMS_12 = 12, // 16MB
-    eMS_13 = 13, // 32MB
-    eMS_14 = 14, // 64MB
-    eMS_15 = 15, // 128MB
-    eMS_16 = 16, // 256MB
-    eMS_17 = 17, // 512MB
-    eMS_18 = 18, // 1GB
-    eMS_19 = 19, // 2GB
-    eMS_20 = 20, // 4GB
-    eMS_21 = 21, // 4GB
-    eMS_22 = 22, // 4GB
-    eMS_23 = 23, // 4GB
-    eMS_24 = 24, // 4GB
-    eMS_25 = 25, // 4GB
-    eMS_26 = 26, // 4GB
-    eMS_27 = 27, // 4GB
-    eMS_28 = 28, // 4GB
-    eMS_29 = 29, // 4GB
-    eMS_30 = 30, // 4GB
-    eMS_31 = 31, // 4GB
+    esize_4kb = 0, // 4KB
+    esize_8kb = 1, // 8KB
+    esize_16kb = 2, // 16KB
+    esize_32kb = 3, // 32KB
+    esize_64kb = 4, // 64KB
+    esize_128kb = 5, // 128KB
+    esize_256kb = 6, // 256KB
+    esize_512kb = 7, // 512KB
+    esize_1mb = 8, // 1MB
+    esize_2mb = 9, // 2MB
+    esize_4mb = 10, // 4MB
+    esize_8mb = 11, // 8MB
+    esize_16mb = 12, // 16MB
+    esize_32mb = 13, // 32MB
+    esize_64mb = 14, // 64MB
+    esize_128mb = 15, // 128MB
+    esize_256mb = 16, // 256MB
+    esize_512mb = 17, // 512MB
+    esize_1gb = 18, // 1GB
+    esize_2gb = 19, // 2GB
+    esize_4gb_20 = 20, // 4GB
+    esize_4gb_21 = 21, // 4GB
+    esize_4gb_22 = 22, // 4GB
+    esize_4gb_23 = 23, // 4GB
+    esize_4gb_24 = 24, // 4GB
+    esize_4gb_25 = 25, // 4GB
+    esize_4gb_26 = 26, // 4GB
+    esize_4gb_27 = 27, // 4GB
+    esize_4gb_28 = 28, // 4GB
+    esize_4gb_29 = 29, // 4GB
+    esize_4gb_30 = 30, // 4GB
+    esize_4gb_31 = 31, // 4GB
   };
   
   // Bit field definition.
@@ -2255,43 +2255,43 @@ union BR10 {
 union BR11 {
   
   enum class eVLD : uint32_t {
-    eVLD_0 = 0, // The memory is invalid, can not be accessed.
-    eVLD_1 = 1, // The memory is valid, can be accessed.
+    einvalid = 0, // The memory is invalid, can not be accessed.
+    evalid = 1, // The memory is valid, can be accessed.
   };
   
   enum class eMS : uint32_t {
-    eMS_0 = 0, // 4KB
-    eMS_1 = 1, // 8KB
-    eMS_2 = 2, // 16KB
-    eMS_3 = 3, // 32KB
-    eMS_4 = 4, // 64KB
-    eMS_5 = 5, // 128KB
-    eMS_6 = 6, // 256KB
-    eMS_7 = 7, // 512KB
-    eMS_8 = 8, // 1MB
-    eMS_9 = 9, // 2MB
-    eMS_10 = 10, // 4MB
-    eMS_11 = 11, // 8MB
-    eMS_12 = 12, // 16MB
-    eMS_13 = 13, // 32MB
-    eMS_14 = 14, // 64MB
-    eMS_15 = 15, // 128MB
-    eMS_16 = 16, // 256MB
-    eMS_17 = 17, // 512MB
-    eMS_18 = 18, // 1GB
-    eMS_19 = 19, // 2GB
-    eMS_20 = 20, // 4GB
-    eMS_21 = 21, // 4GB
-    eMS_22 = 22, // 4GB
-    eMS_23 = 23, // 4GB
-    eMS_24 = 24, // 4GB
-    eMS_25 = 25, // 4GB
-    eMS_26 = 26, // 4GB
-    eMS_27 = 27, // 4GB
-    eMS_28 = 28, // 4GB
-    eMS_29 = 29, // 4GB
-    eMS_30 = 30, // 4GB
-    eMS_31 = 31, // 4GB
+    esize_4kb = 0, // 4KB
+    esize_8kb = 1, // 8KB
+    esize_16kb = 2, // 16KB
+    esize_32kb = 3, // 32KB
+    esize_64kb = 4, // 64KB
+    esize_128kb = 5, // 128KB
+    esize_256kb = 6, // 256KB
+    esize_512kb = 7, // 512KB
+    esize_1mb = 8, // 1MB
+    esize_2mb = 9, // 2MB
+    esize_4mb = 10, // 4MB
+    esize_8mb = 11, // 8MB
+    esize_16mb = 12, // 16MB
+    esize_32mb = 13, // 32MB
+    esize_64mb = 14, // 64MB
+    esize_128mb = 15, // 128MB
+    esize_256mb = 16, // 256MB
+    esize_512mb = 17, // 512MB
+    esize_1gb = 18, // 1GB
+    esize_2gb = 19, // 2GB
+    esize_4gb_20 = 20, // 4GB
+    esize_4gb_21 = 21, // 4GB
+    esize_4gb_22 = 22, // 4GB
+    esize_4gb_23 = 23, // 4GB
+    esize_4gb_24 = 24, // 4GB
+    esize_4gb_25 = 25, // 4GB
+    esize_4gb_26 = 26, // 4GB
+    esize_4gb_27 = 27, // 4GB
+    esize_4gb_28 = 28, // 4GB
+    esize_4gb_29 = 29, // 4GB
+    esize_4gb_30 = 30, // 4GB
+    esize_4gb_31 = 31, // 4GB
   };
   
   // Bit field definition.
@@ -2315,70 +2315,70 @@ union BR11 {
 union SRAMCR4 {
   
   enum class ePS : uint32_t {
-    ePS_0 = 0, // 8bit
-    ePS_1 = 1, // 16bit
+    eps_8bit = 0, // 8bit
+    eps_16bit = 1, // 16bit
   };
   
   enum class eSYNCEN : uint32_t {
-    eSYNCEN_0 = 0, // Asynchronous mode is enabled.
-    eSYNCEN_1 = 1, // Synchronous mode is enabled. Only fixed latency mode is supported.
+    easync = 0, // Asynchronous mode is enabled.
+    esync = 1, // Synchronous mode is enabled. Only fixed latency mode is supported.
   };
   
   enum class eWAITEN : uint32_t {
-    eWAITEN_0 = 0, // The SEMC does not monitor wait pin.
-    eWAITEN_1 = 1, // The SEMC monitors wait pin. The SEMC does not transfer/receive data when wait pin is asserted.
+    eno_monitor_wait = 0, // The SEMC does not monitor wait pin.
+    emonitor_wait = 1, // The SEMC monitors wait pin. The SEMC does not transfer/receive data when wait pin is asserted.
   };
   
   enum class eWAITSP : uint32_t {
-    eWAITSP_0 = 0, // Wait pin is directly used by the SEMC.
-    eWAITSP_1 = 1, // Wait pin is sampled by internal clock before it is used.
+    ewait_direct = 0, // Wait pin is directly used by the SEMC.
+    ewait_sampled = 1, // Wait pin is sampled by internal clock before it is used.
   };
   
   enum class eBL : uint32_t {
-    eBL_0 = 0, // 1
-    eBL_1 = 1, // 2
-    eBL_2 = 2, // 4
-    eBL_3 = 3, // 8
-    eBL_4 = 4, // 16
-    eBL_5 = 5, // 32
-    eBL_6 = 6, // 64
-    eBL_7 = 7, // 64
+    eburst1 = 0, // 1
+    eburst2 = 1, // 2
+    eburst4 = 2, // 4
+    eburst8 = 3, // 8
+    eburst16 = 4, // 16
+    eburst32 = 5, // 32
+    eburst64_6 = 6, // 64
+    eburst64_7 = 7, // 64
   };
   
   enum class eAM : uint32_t {
-    eAM_0 = 0, // Address/Data MUX mode (ADMUX)
-    eAM_1 = 1, // Advanced Address/Data MUX mode (AADM)
-    eAM_2 = 2, // Address/Data non-MUX mode (Non-ADMUX)
-    eAM_3 = 3, // Address/Data non-MUX mode (Non-ADMUX)
+    eadmux = 0, // Address/Data MUX mode (ADMUX)
+    eaadm = 1, // Advanced Address/Data MUX mode (AADM)
+    enon_admux_2 = 2, // Address/Data non-MUX mode (Non-ADMUX)
+    enon_admux_3 = 3, // Address/Data non-MUX mode (Non-ADMUX)
   };
   
   enum class eADVP : uint32_t {
-    eADVP_0 = 0, // ADV# is active low.
-    eADVP_1 = 1, // ADV# is active high.
+    eactive_low = 0, // ADV# is active low.
+    eactive_high = 1, // ADV# is active high.
   };
   
   enum class eADVH : uint32_t {
-    eADVH_0 = 0, // ADV# is high during address hold state.
-    eADVH_1 = 1, // ADV# is low during address hold state.
+    ehigh_hold = 0, // ADV# is high during address hold state.
+    elow_hold = 1, // ADV# is low during address hold state.
   };
   
   enum class eCOL : uint32_t {
-    eCOL_0 = 0, // 12 Bits
-    eCOL_1 = 1, // 11 Bits
-    eCOL_2 = 2, // 10 Bits
-    eCOL_3 = 3, // 9 Bits
-    eCOL_4 = 4, // 8 Bits
-    eCOL_5 = 5, // 7 Bits
-    eCOL_6 = 6, // 6 Bits
-    eCOL_7 = 7, // 5 Bits
-    eCOL_8 = 8, // 4 Bits
-    eCOL_9 = 9, // 3 Bits
-    eCOL_10 = 10, // 2 Bits
-    eCOL_11 = 11, // 12 Bits
-    eCOL_12 = 12, // 12 Bits
-    eCOL_13 = 13, // 12 Bits
-    eCOL_14 = 14, // 12 Bits
-    eCOL_15 = 15, // 12 Bits
+    ebitwidth12_0 = 0, // 12 Bits
+    ebitwidth11 = 1, // 11 Bits
+    ebitwidth10 = 2, // 10 Bits
+    ebitwidth9 = 3, // 9 Bits
+    ebitwidth8 = 4, // 8 Bits
+    ebitwidth7 = 5, // 7 Bits
+    ebitwidth6 = 6, // 6 Bits
+    ebitwidth5 = 7, // 5 Bits
+    ebitwidth4 = 8, // 4 Bits
+    ebitwidth3 = 9, // 3 Bits
+    ebitwidth2 = 10, // 2 Bits
+    ebitwidth12_b = 11, // 12 Bits
+    ebitwidth12_c = 12, // 12 Bits
+    ebitwidth12_d = 13, // 12 Bits
+    ebitwidth12_e = 14, // 12 Bits
+    ebitwidth12_f = 15, // 12 Bits
   };
   
   // Bit field definition.
@@ -2457,23 +2457,23 @@ union SRAMCR6 {
 union DCCR {
   
   enum class eSDRAMEN : uint32_t {
-    eSDRAMEN_0 = 0, // Delay chain is not inserted.
-    eSDRAMEN_1 = 1, // Delay chain is inserted.
+    eno_dly_chain = 0, // Delay chain is not inserted.
+    edly_chain = 1, // Delay chain is inserted.
   };
   
   enum class eNOREN : uint32_t {
-    eNOREN_0 = 0, // Delay chain is not inserted.
-    eNOREN_1 = 1, // Delay chain is inserted.
+    eno_dly_chain = 0, // Delay chain is not inserted.
+    edly_chain = 1, // Delay chain is inserted.
   };
   
   enum class eSRAM0EN : uint32_t {
-    eSRAM0EN_0 = 0, // Delay chain is not inserted.
-    eSRAM0EN_1 = 1, // Delay chain is inserted.
+    eno_dly_chain = 0, // Delay chain is not inserted.
+    edly_chain = 1, // Delay chain is inserted.
   };
   
   enum class eSRAMXEN : uint32_t {
-    eSRAMXEN_0 = 0, // Delay chain is not inserted.
-    eSRAMXEN_1 = 1, // Delay chain is inserted.
+    eno_dly_chain = 0, // Delay chain is not inserted.
+    edly_chain = 1, // Delay chain is inserted.
   };
   
   // Bit field definition.

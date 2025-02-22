@@ -1909,23 +1909,6 @@ union RMON_T_OCTETS {
   static inline volatile RMON_T_OCTETS &Instance() { return *reinterpret_cast<volatile RMON_T_OCTETS*>(0x40420244); }
 };
 
-// Reserved Statistic Register
-//
-union IEEE_T_DROP {
-  
-  // Bit field definition.
-  struct {
-    uint32_t _reserved_0 : 32;
-  } bits;
-  
-  // Full 32-bit register value.
-  uint32_t value;
-
-  IEEE_T_DROP() = delete;
-  inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile IEEE_T_DROP &Instance() { return *reinterpret_cast<volatile IEEE_T_DROP*>(0x40420248); }
-};
-
 // Frames Transmitted OK Statistic Register
 //
 union IEEE_T_FRAME_OK {

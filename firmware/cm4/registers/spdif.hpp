@@ -34,9 +34,9 @@ union SCR {
   
   enum class eInputSrcSel : uint32_t {
     espdif_in = 0, // SPDIF_IN
-    enone_sel = 1, // None
-    enone_sel = 2, // None
-    enone_sel = 3, // None
+    enone_sel_1 = 1, // None
+    enone_sel_2 = 2, // None
+    enone_sel_3 = 3, // None
   };
   
   enum class eTxFIFO_Ctrl : uint32_t {

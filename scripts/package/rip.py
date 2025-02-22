@@ -9,7 +9,8 @@ import mimxrt1170evk
 import forge
 
 
-PROJECT_ROOT = os.environ.get("PROJECT_ROOT")
+PROJECT_ROOT = os.environ.get("PROJECT_ROOT", "")
+MCUX_SOC_SVD_ROOT = os.environ.get("MCUX_SOC_SVD_ROOT", "")
 
 
 def main():
@@ -50,14 +51,14 @@ def main():
   #
   # Do generate core 0 (cm4) registers.
   if args.generate_core_0:
-    file = '/home/jacob/evtol/nxp/repos/mcux-sdk/svd/MIMXRT1176/MIMXRT1176_cm4.xml'
+    file = os.path.join(MCUX_SOC_SVD_ROOT, 'MIMXRT1176', 'MIMXRT1176_cm4.xml')
     output_dir = os.path.join(PROJECT_ROOT, 'firmware', 'cm4', 'registers')
     svd_parser_wrapper = forge.SVDParserWrapper(file, output_dir)
     svd_parser_wrapper.generate()
 
   # Do generate core 1 (cm7) registers.
   if args.generate_core_1:
-    file = '/home/jacob/evtol/nxp/repos/mcux-sdk/svd/MIMXRT1176/MIMXRT1176_cm7.xml'
+    file = os.path.join(MCUX_SOC_SVD_ROOT, 'MIMXRT1176', 'MIMXRT1176_cm7.xml')
     output_dir = os.path.join(PROJECT_ROOT, 'firmware', 'cm7', 'registers')
     svd_parser_wrapper = forge.SVDParserWrapper(file, output_dir)
     svd_parser_wrapper.generate()

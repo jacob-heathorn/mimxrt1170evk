@@ -1002,14 +1002,14 @@ union CMDH1 {
   };
   
   enum class eSTS : uint32_t {
-    eSTS_0 = 0, // Minimum sample time of 3 ADCK cycles.
-    eSTS_1 = 1, // 3 + 21 ADCK cycles; 5 ADCK cycles total sample time.
-    eSTS_2 = 2, // 3 + 22 ADCK cycles; 7 ADCK cycles total sample time.
-    eSTS_3 = 3, // 3 + 23 ADCK cycles; 11 ADCK cycles total sample time.
-    eSTS_4 = 4, // 3 + 24 ADCK cycles; 19 ADCK cycles total sample time.
-    eSTS_5 = 5, // 3 + 25 ADCK cycles; 35 ADCK cycles total sample time.
-    eSTS_6 = 6, // 3 + 26 ADCK cycles; 67 ADCK cycles total sample time.
-    eSTS_7 = 7, // 3 + 27 ADCK cycles; 131 ADCK cycles total sample time.
+    eSTS_0 = 0, // Minimum sample time of 3.5 ADCK cycles.
+    eSTS_1 = 1, // 3.5 + 21 ADCK cycles; 5.5 ADCK cycles total sample time.
+    eSTS_2 = 2, // 3.5 + 22 ADCK cycles; 7.5 ADCK cycles total sample time.
+    eSTS_3 = 3, // 3.5 + 23 ADCK cycles; 11.5 ADCK cycles total sample time.
+    eSTS_4 = 4, // 3.5 + 24 ADCK cycles; 19.5 ADCK cycles total sample time.
+    eSTS_5 = 5, // 3.5 + 25 ADCK cycles; 35.5 ADCK cycles total sample time.
+    eSTS_6 = 6, // 3.5 + 26 ADCK cycles; 67.5 ADCK cycles total sample time.
+    eSTS_7 = 7, // 3.5 + 27 ADCK cycles; 131.5 ADCK cycles total sample time.
   };
   
   enum class eAVGS : uint32_t {
@@ -1142,14 +1142,14 @@ union CMDH2 {
   };
   
   enum class eSTS : uint32_t {
-    eSTS_0 = 0, // Minimum sample time of 3 ADCK cycles.
-    eSTS_1 = 1, // 3 + 21 ADCK cycles; 5 ADCK cycles total sample time.
-    eSTS_2 = 2, // 3 + 22 ADCK cycles; 7 ADCK cycles total sample time.
-    eSTS_3 = 3, // 3 + 23 ADCK cycles; 11 ADCK cycles total sample time.
-    eSTS_4 = 4, // 3 + 24 ADCK cycles; 19 ADCK cycles total sample time.
-    eSTS_5 = 5, // 3 + 25 ADCK cycles; 35 ADCK cycles total sample time.
-    eSTS_6 = 6, // 3 + 26 ADCK cycles; 67 ADCK cycles total sample time.
-    eSTS_7 = 7, // 3 + 27 ADCK cycles; 131 ADCK cycles total sample time.
+    eSTS_0 = 0, // Minimum sample time of 3.5 ADCK cycles.
+    eSTS_1 = 1, // 3.5 + 21 ADCK cycles; 5.5 ADCK cycles total sample time.
+    eSTS_2 = 2, // 3.5 + 22 ADCK cycles; 7.5 ADCK cycles total sample time.
+    eSTS_3 = 3, // 3.5 + 23 ADCK cycles; 11.5 ADCK cycles total sample time.
+    eSTS_4 = 4, // 3.5 + 24 ADCK cycles; 19.5 ADCK cycles total sample time.
+    eSTS_5 = 5, // 3.5 + 25 ADCK cycles; 35.5 ADCK cycles total sample time.
+    eSTS_6 = 6, // 3.5 + 26 ADCK cycles; 67.5 ADCK cycles total sample time.
+    eSTS_7 = 7, // 3.5 + 27 ADCK cycles; 131.5 ADCK cycles total sample time.
   };
   
   enum class eAVGS : uint32_t {
@@ -1282,14 +1282,14 @@ union CMDH3 {
   };
   
   enum class eSTS : uint32_t {
-    eSTS_0 = 0, // Minimum sample time of 3 ADCK cycles.
-    eSTS_1 = 1, // 3 + 21 ADCK cycles; 5 ADCK cycles total sample time.
-    eSTS_2 = 2, // 3 + 22 ADCK cycles; 7 ADCK cycles total sample time.
-    eSTS_3 = 3, // 3 + 23 ADCK cycles; 11 ADCK cycles total sample time.
-    eSTS_4 = 4, // 3 + 24 ADCK cycles; 19 ADCK cycles total sample time.
-    eSTS_5 = 5, // 3 + 25 ADCK cycles; 35 ADCK cycles total sample time.
-    eSTS_6 = 6, // 3 + 26 ADCK cycles; 67 ADCK cycles total sample time.
-    eSTS_7 = 7, // 3 + 27 ADCK cycles; 131 ADCK cycles total sample time.
+    eSTS_0 = 0, // Minimum sample time of 3.5 ADCK cycles.
+    eSTS_1 = 1, // 3.5 + 21 ADCK cycles; 5.5 ADCK cycles total sample time.
+    eSTS_2 = 2, // 3.5 + 22 ADCK cycles; 7.5 ADCK cycles total sample time.
+    eSTS_3 = 3, // 3.5 + 23 ADCK cycles; 11.5 ADCK cycles total sample time.
+    eSTS_4 = 4, // 3.5 + 24 ADCK cycles; 19.5 ADCK cycles total sample time.
+    eSTS_5 = 5, // 3.5 + 25 ADCK cycles; 35.5 ADCK cycles total sample time.
+    eSTS_6 = 6, // 3.5 + 26 ADCK cycles; 67.5 ADCK cycles total sample time.
+    eSTS_7 = 7, // 3.5 + 27 ADCK cycles; 131.5 ADCK cycles total sample time.
   };
   
   enum class eAVGS : uint32_t {
@@ -1422,14 +1422,14 @@ union CMDH4 {
   };
   
   enum class eSTS : uint32_t {
-    eSTS_0 = 0, // Minimum sample time of 3 ADCK cycles.
-    eSTS_1 = 1, // 3 + 21 ADCK cycles; 5 ADCK cycles total sample time.
-    eSTS_2 = 2, // 3 + 22 ADCK cycles; 7 ADCK cycles total sample time.
-    eSTS_3 = 3, // 3 + 23 ADCK cycles; 11 ADCK cycles total sample time.
-    eSTS_4 = 4, // 3 + 24 ADCK cycles; 19 ADCK cycles total sample time.
-    eSTS_5 = 5, // 3 + 25 ADCK cycles; 35 ADCK cycles total sample time.
-    eSTS_6 = 6, // 3 + 26 ADCK cycles; 67 ADCK cycles total sample time.
-    eSTS_7 = 7, // 3 + 27 ADCK cycles; 131 ADCK cycles total sample time.
+    eSTS_0 = 0, // Minimum sample time of 3.5 ADCK cycles.
+    eSTS_1 = 1, // 3.5 + 21 ADCK cycles; 5.5 ADCK cycles total sample time.
+    eSTS_2 = 2, // 3.5 + 22 ADCK cycles; 7.5 ADCK cycles total sample time.
+    eSTS_3 = 3, // 3.5 + 23 ADCK cycles; 11.5 ADCK cycles total sample time.
+    eSTS_4 = 4, // 3.5 + 24 ADCK cycles; 19.5 ADCK cycles total sample time.
+    eSTS_5 = 5, // 3.5 + 25 ADCK cycles; 35.5 ADCK cycles total sample time.
+    eSTS_6 = 6, // 3.5 + 26 ADCK cycles; 67.5 ADCK cycles total sample time.
+    eSTS_7 = 7, // 3.5 + 27 ADCK cycles; 131.5 ADCK cycles total sample time.
   };
   
   enum class eAVGS : uint32_t {
@@ -1556,14 +1556,14 @@ union CMDH5 {
   };
   
   enum class eSTS : uint32_t {
-    eSTS_0 = 0, // Minimum sample time of 3 ADCK cycles.
-    eSTS_1 = 1, // 3 + 21 ADCK cycles; 5 ADCK cycles total sample time.
-    eSTS_2 = 2, // 3 + 22 ADCK cycles; 7 ADCK cycles total sample time.
-    eSTS_3 = 3, // 3 + 23 ADCK cycles; 11 ADCK cycles total sample time.
-    eSTS_4 = 4, // 3 + 24 ADCK cycles; 19 ADCK cycles total sample time.
-    eSTS_5 = 5, // 3 + 25 ADCK cycles; 35 ADCK cycles total sample time.
-    eSTS_6 = 6, // 3 + 26 ADCK cycles; 67 ADCK cycles total sample time.
-    eSTS_7 = 7, // 3 + 27 ADCK cycles; 131 ADCK cycles total sample time.
+    eSTS_0 = 0, // Minimum sample time of 3.5 ADCK cycles.
+    eSTS_1 = 1, // 3.5 + 21 ADCK cycles; 5.5 ADCK cycles total sample time.
+    eSTS_2 = 2, // 3.5 + 22 ADCK cycles; 7.5 ADCK cycles total sample time.
+    eSTS_3 = 3, // 3.5 + 23 ADCK cycles; 11.5 ADCK cycles total sample time.
+    eSTS_4 = 4, // 3.5 + 24 ADCK cycles; 19.5 ADCK cycles total sample time.
+    eSTS_5 = 5, // 3.5 + 25 ADCK cycles; 35.5 ADCK cycles total sample time.
+    eSTS_6 = 6, // 3.5 + 26 ADCK cycles; 67.5 ADCK cycles total sample time.
+    eSTS_7 = 7, // 3.5 + 27 ADCK cycles; 131.5 ADCK cycles total sample time.
   };
   
   enum class eAVGS : uint32_t {
@@ -1689,14 +1689,14 @@ union CMDH6 {
   };
   
   enum class eSTS : uint32_t {
-    eSTS_0 = 0, // Minimum sample time of 3 ADCK cycles.
-    eSTS_1 = 1, // 3 + 21 ADCK cycles; 5 ADCK cycles total sample time.
-    eSTS_2 = 2, // 3 + 22 ADCK cycles; 7 ADCK cycles total sample time.
-    eSTS_3 = 3, // 3 + 23 ADCK cycles; 11 ADCK cycles total sample time.
-    eSTS_4 = 4, // 3 + 24 ADCK cycles; 19 ADCK cycles total sample time.
-    eSTS_5 = 5, // 3 + 25 ADCK cycles; 35 ADCK cycles total sample time.
-    eSTS_6 = 6, // 3 + 26 ADCK cycles; 67 ADCK cycles total sample time.
-    eSTS_7 = 7, // 3 + 27 ADCK cycles; 131 ADCK cycles total sample time.
+    eSTS_0 = 0, // Minimum sample time of 3.5 ADCK cycles.
+    eSTS_1 = 1, // 3.5 + 21 ADCK cycles; 5.5 ADCK cycles total sample time.
+    eSTS_2 = 2, // 3.5 + 22 ADCK cycles; 7.5 ADCK cycles total sample time.
+    eSTS_3 = 3, // 3.5 + 23 ADCK cycles; 11.5 ADCK cycles total sample time.
+    eSTS_4 = 4, // 3.5 + 24 ADCK cycles; 19.5 ADCK cycles total sample time.
+    eSTS_5 = 5, // 3.5 + 25 ADCK cycles; 35.5 ADCK cycles total sample time.
+    eSTS_6 = 6, // 3.5 + 26 ADCK cycles; 67.5 ADCK cycles total sample time.
+    eSTS_7 = 7, // 3.5 + 27 ADCK cycles; 131.5 ADCK cycles total sample time.
   };
   
   enum class eAVGS : uint32_t {
@@ -1822,14 +1822,14 @@ union CMDH7 {
   };
   
   enum class eSTS : uint32_t {
-    eSTS_0 = 0, // Minimum sample time of 3 ADCK cycles.
-    eSTS_1 = 1, // 3 + 21 ADCK cycles; 5 ADCK cycles total sample time.
-    eSTS_2 = 2, // 3 + 22 ADCK cycles; 7 ADCK cycles total sample time.
-    eSTS_3 = 3, // 3 + 23 ADCK cycles; 11 ADCK cycles total sample time.
-    eSTS_4 = 4, // 3 + 24 ADCK cycles; 19 ADCK cycles total sample time.
-    eSTS_5 = 5, // 3 + 25 ADCK cycles; 35 ADCK cycles total sample time.
-    eSTS_6 = 6, // 3 + 26 ADCK cycles; 67 ADCK cycles total sample time.
-    eSTS_7 = 7, // 3 + 27 ADCK cycles; 131 ADCK cycles total sample time.
+    eSTS_0 = 0, // Minimum sample time of 3.5 ADCK cycles.
+    eSTS_1 = 1, // 3.5 + 21 ADCK cycles; 5.5 ADCK cycles total sample time.
+    eSTS_2 = 2, // 3.5 + 22 ADCK cycles; 7.5 ADCK cycles total sample time.
+    eSTS_3 = 3, // 3.5 + 23 ADCK cycles; 11.5 ADCK cycles total sample time.
+    eSTS_4 = 4, // 3.5 + 24 ADCK cycles; 19.5 ADCK cycles total sample time.
+    eSTS_5 = 5, // 3.5 + 25 ADCK cycles; 35.5 ADCK cycles total sample time.
+    eSTS_6 = 6, // 3.5 + 26 ADCK cycles; 67.5 ADCK cycles total sample time.
+    eSTS_7 = 7, // 3.5 + 27 ADCK cycles; 131.5 ADCK cycles total sample time.
   };
   
   enum class eAVGS : uint32_t {
@@ -1955,14 +1955,14 @@ union CMDH8 {
   };
   
   enum class eSTS : uint32_t {
-    eSTS_0 = 0, // Minimum sample time of 3 ADCK cycles.
-    eSTS_1 = 1, // 3 + 21 ADCK cycles; 5 ADCK cycles total sample time.
-    eSTS_2 = 2, // 3 + 22 ADCK cycles; 7 ADCK cycles total sample time.
-    eSTS_3 = 3, // 3 + 23 ADCK cycles; 11 ADCK cycles total sample time.
-    eSTS_4 = 4, // 3 + 24 ADCK cycles; 19 ADCK cycles total sample time.
-    eSTS_5 = 5, // 3 + 25 ADCK cycles; 35 ADCK cycles total sample time.
-    eSTS_6 = 6, // 3 + 26 ADCK cycles; 67 ADCK cycles total sample time.
-    eSTS_7 = 7, // 3 + 27 ADCK cycles; 131 ADCK cycles total sample time.
+    eSTS_0 = 0, // Minimum sample time of 3.5 ADCK cycles.
+    eSTS_1 = 1, // 3.5 + 21 ADCK cycles; 5.5 ADCK cycles total sample time.
+    eSTS_2 = 2, // 3.5 + 22 ADCK cycles; 7.5 ADCK cycles total sample time.
+    eSTS_3 = 3, // 3.5 + 23 ADCK cycles; 11.5 ADCK cycles total sample time.
+    eSTS_4 = 4, // 3.5 + 24 ADCK cycles; 19.5 ADCK cycles total sample time.
+    eSTS_5 = 5, // 3.5 + 25 ADCK cycles; 35.5 ADCK cycles total sample time.
+    eSTS_6 = 6, // 3.5 + 26 ADCK cycles; 67.5 ADCK cycles total sample time.
+    eSTS_7 = 7, // 3.5 + 27 ADCK cycles; 131.5 ADCK cycles total sample time.
   };
   
   enum class eAVGS : uint32_t {
@@ -2088,14 +2088,14 @@ union CMDH9 {
   };
   
   enum class eSTS : uint32_t {
-    eSTS_0 = 0, // Minimum sample time of 3 ADCK cycles.
-    eSTS_1 = 1, // 3 + 21 ADCK cycles; 5 ADCK cycles total sample time.
-    eSTS_2 = 2, // 3 + 22 ADCK cycles; 7 ADCK cycles total sample time.
-    eSTS_3 = 3, // 3 + 23 ADCK cycles; 11 ADCK cycles total sample time.
-    eSTS_4 = 4, // 3 + 24 ADCK cycles; 19 ADCK cycles total sample time.
-    eSTS_5 = 5, // 3 + 25 ADCK cycles; 35 ADCK cycles total sample time.
-    eSTS_6 = 6, // 3 + 26 ADCK cycles; 67 ADCK cycles total sample time.
-    eSTS_7 = 7, // 3 + 27 ADCK cycles; 131 ADCK cycles total sample time.
+    eSTS_0 = 0, // Minimum sample time of 3.5 ADCK cycles.
+    eSTS_1 = 1, // 3.5 + 21 ADCK cycles; 5.5 ADCK cycles total sample time.
+    eSTS_2 = 2, // 3.5 + 22 ADCK cycles; 7.5 ADCK cycles total sample time.
+    eSTS_3 = 3, // 3.5 + 23 ADCK cycles; 11.5 ADCK cycles total sample time.
+    eSTS_4 = 4, // 3.5 + 24 ADCK cycles; 19.5 ADCK cycles total sample time.
+    eSTS_5 = 5, // 3.5 + 25 ADCK cycles; 35.5 ADCK cycles total sample time.
+    eSTS_6 = 6, // 3.5 + 26 ADCK cycles; 67.5 ADCK cycles total sample time.
+    eSTS_7 = 7, // 3.5 + 27 ADCK cycles; 131.5 ADCK cycles total sample time.
   };
   
   enum class eAVGS : uint32_t {
@@ -2221,14 +2221,14 @@ union CMDH10 {
   };
   
   enum class eSTS : uint32_t {
-    eSTS_0 = 0, // Minimum sample time of 3 ADCK cycles.
-    eSTS_1 = 1, // 3 + 21 ADCK cycles; 5 ADCK cycles total sample time.
-    eSTS_2 = 2, // 3 + 22 ADCK cycles; 7 ADCK cycles total sample time.
-    eSTS_3 = 3, // 3 + 23 ADCK cycles; 11 ADCK cycles total sample time.
-    eSTS_4 = 4, // 3 + 24 ADCK cycles; 19 ADCK cycles total sample time.
-    eSTS_5 = 5, // 3 + 25 ADCK cycles; 35 ADCK cycles total sample time.
-    eSTS_6 = 6, // 3 + 26 ADCK cycles; 67 ADCK cycles total sample time.
-    eSTS_7 = 7, // 3 + 27 ADCK cycles; 131 ADCK cycles total sample time.
+    eSTS_0 = 0, // Minimum sample time of 3.5 ADCK cycles.
+    eSTS_1 = 1, // 3.5 + 21 ADCK cycles; 5.5 ADCK cycles total sample time.
+    eSTS_2 = 2, // 3.5 + 22 ADCK cycles; 7.5 ADCK cycles total sample time.
+    eSTS_3 = 3, // 3.5 + 23 ADCK cycles; 11.5 ADCK cycles total sample time.
+    eSTS_4 = 4, // 3.5 + 24 ADCK cycles; 19.5 ADCK cycles total sample time.
+    eSTS_5 = 5, // 3.5 + 25 ADCK cycles; 35.5 ADCK cycles total sample time.
+    eSTS_6 = 6, // 3.5 + 26 ADCK cycles; 67.5 ADCK cycles total sample time.
+    eSTS_7 = 7, // 3.5 + 27 ADCK cycles; 131.5 ADCK cycles total sample time.
   };
   
   enum class eAVGS : uint32_t {
@@ -2354,14 +2354,14 @@ union CMDH11 {
   };
   
   enum class eSTS : uint32_t {
-    eSTS_0 = 0, // Minimum sample time of 3 ADCK cycles.
-    eSTS_1 = 1, // 3 + 21 ADCK cycles; 5 ADCK cycles total sample time.
-    eSTS_2 = 2, // 3 + 22 ADCK cycles; 7 ADCK cycles total sample time.
-    eSTS_3 = 3, // 3 + 23 ADCK cycles; 11 ADCK cycles total sample time.
-    eSTS_4 = 4, // 3 + 24 ADCK cycles; 19 ADCK cycles total sample time.
-    eSTS_5 = 5, // 3 + 25 ADCK cycles; 35 ADCK cycles total sample time.
-    eSTS_6 = 6, // 3 + 26 ADCK cycles; 67 ADCK cycles total sample time.
-    eSTS_7 = 7, // 3 + 27 ADCK cycles; 131 ADCK cycles total sample time.
+    eSTS_0 = 0, // Minimum sample time of 3.5 ADCK cycles.
+    eSTS_1 = 1, // 3.5 + 21 ADCK cycles; 5.5 ADCK cycles total sample time.
+    eSTS_2 = 2, // 3.5 + 22 ADCK cycles; 7.5 ADCK cycles total sample time.
+    eSTS_3 = 3, // 3.5 + 23 ADCK cycles; 11.5 ADCK cycles total sample time.
+    eSTS_4 = 4, // 3.5 + 24 ADCK cycles; 19.5 ADCK cycles total sample time.
+    eSTS_5 = 5, // 3.5 + 25 ADCK cycles; 35.5 ADCK cycles total sample time.
+    eSTS_6 = 6, // 3.5 + 26 ADCK cycles; 67.5 ADCK cycles total sample time.
+    eSTS_7 = 7, // 3.5 + 27 ADCK cycles; 131.5 ADCK cycles total sample time.
   };
   
   enum class eAVGS : uint32_t {
@@ -2487,14 +2487,14 @@ union CMDH12 {
   };
   
   enum class eSTS : uint32_t {
-    eSTS_0 = 0, // Minimum sample time of 3 ADCK cycles.
-    eSTS_1 = 1, // 3 + 21 ADCK cycles; 5 ADCK cycles total sample time.
-    eSTS_2 = 2, // 3 + 22 ADCK cycles; 7 ADCK cycles total sample time.
-    eSTS_3 = 3, // 3 + 23 ADCK cycles; 11 ADCK cycles total sample time.
-    eSTS_4 = 4, // 3 + 24 ADCK cycles; 19 ADCK cycles total sample time.
-    eSTS_5 = 5, // 3 + 25 ADCK cycles; 35 ADCK cycles total sample time.
-    eSTS_6 = 6, // 3 + 26 ADCK cycles; 67 ADCK cycles total sample time.
-    eSTS_7 = 7, // 3 + 27 ADCK cycles; 131 ADCK cycles total sample time.
+    eSTS_0 = 0, // Minimum sample time of 3.5 ADCK cycles.
+    eSTS_1 = 1, // 3.5 + 21 ADCK cycles; 5.5 ADCK cycles total sample time.
+    eSTS_2 = 2, // 3.5 + 22 ADCK cycles; 7.5 ADCK cycles total sample time.
+    eSTS_3 = 3, // 3.5 + 23 ADCK cycles; 11.5 ADCK cycles total sample time.
+    eSTS_4 = 4, // 3.5 + 24 ADCK cycles; 19.5 ADCK cycles total sample time.
+    eSTS_5 = 5, // 3.5 + 25 ADCK cycles; 35.5 ADCK cycles total sample time.
+    eSTS_6 = 6, // 3.5 + 26 ADCK cycles; 67.5 ADCK cycles total sample time.
+    eSTS_7 = 7, // 3.5 + 27 ADCK cycles; 131.5 ADCK cycles total sample time.
   };
   
   enum class eAVGS : uint32_t {
@@ -2620,14 +2620,14 @@ union CMDH13 {
   };
   
   enum class eSTS : uint32_t {
-    eSTS_0 = 0, // Minimum sample time of 3 ADCK cycles.
-    eSTS_1 = 1, // 3 + 21 ADCK cycles; 5 ADCK cycles total sample time.
-    eSTS_2 = 2, // 3 + 22 ADCK cycles; 7 ADCK cycles total sample time.
-    eSTS_3 = 3, // 3 + 23 ADCK cycles; 11 ADCK cycles total sample time.
-    eSTS_4 = 4, // 3 + 24 ADCK cycles; 19 ADCK cycles total sample time.
-    eSTS_5 = 5, // 3 + 25 ADCK cycles; 35 ADCK cycles total sample time.
-    eSTS_6 = 6, // 3 + 26 ADCK cycles; 67 ADCK cycles total sample time.
-    eSTS_7 = 7, // 3 + 27 ADCK cycles; 131 ADCK cycles total sample time.
+    eSTS_0 = 0, // Minimum sample time of 3.5 ADCK cycles.
+    eSTS_1 = 1, // 3.5 + 21 ADCK cycles; 5.5 ADCK cycles total sample time.
+    eSTS_2 = 2, // 3.5 + 22 ADCK cycles; 7.5 ADCK cycles total sample time.
+    eSTS_3 = 3, // 3.5 + 23 ADCK cycles; 11.5 ADCK cycles total sample time.
+    eSTS_4 = 4, // 3.5 + 24 ADCK cycles; 19.5 ADCK cycles total sample time.
+    eSTS_5 = 5, // 3.5 + 25 ADCK cycles; 35.5 ADCK cycles total sample time.
+    eSTS_6 = 6, // 3.5 + 26 ADCK cycles; 67.5 ADCK cycles total sample time.
+    eSTS_7 = 7, // 3.5 + 27 ADCK cycles; 131.5 ADCK cycles total sample time.
   };
   
   enum class eAVGS : uint32_t {
@@ -2753,14 +2753,14 @@ union CMDH14 {
   };
   
   enum class eSTS : uint32_t {
-    eSTS_0 = 0, // Minimum sample time of 3 ADCK cycles.
-    eSTS_1 = 1, // 3 + 21 ADCK cycles; 5 ADCK cycles total sample time.
-    eSTS_2 = 2, // 3 + 22 ADCK cycles; 7 ADCK cycles total sample time.
-    eSTS_3 = 3, // 3 + 23 ADCK cycles; 11 ADCK cycles total sample time.
-    eSTS_4 = 4, // 3 + 24 ADCK cycles; 19 ADCK cycles total sample time.
-    eSTS_5 = 5, // 3 + 25 ADCK cycles; 35 ADCK cycles total sample time.
-    eSTS_6 = 6, // 3 + 26 ADCK cycles; 67 ADCK cycles total sample time.
-    eSTS_7 = 7, // 3 + 27 ADCK cycles; 131 ADCK cycles total sample time.
+    eSTS_0 = 0, // Minimum sample time of 3.5 ADCK cycles.
+    eSTS_1 = 1, // 3.5 + 21 ADCK cycles; 5.5 ADCK cycles total sample time.
+    eSTS_2 = 2, // 3.5 + 22 ADCK cycles; 7.5 ADCK cycles total sample time.
+    eSTS_3 = 3, // 3.5 + 23 ADCK cycles; 11.5 ADCK cycles total sample time.
+    eSTS_4 = 4, // 3.5 + 24 ADCK cycles; 19.5 ADCK cycles total sample time.
+    eSTS_5 = 5, // 3.5 + 25 ADCK cycles; 35.5 ADCK cycles total sample time.
+    eSTS_6 = 6, // 3.5 + 26 ADCK cycles; 67.5 ADCK cycles total sample time.
+    eSTS_7 = 7, // 3.5 + 27 ADCK cycles; 131.5 ADCK cycles total sample time.
   };
   
   enum class eAVGS : uint32_t {
@@ -2886,14 +2886,14 @@ union CMDH15 {
   };
   
   enum class eSTS : uint32_t {
-    eSTS_0 = 0, // Minimum sample time of 3 ADCK cycles.
-    eSTS_1 = 1, // 3 + 21 ADCK cycles; 5 ADCK cycles total sample time.
-    eSTS_2 = 2, // 3 + 22 ADCK cycles; 7 ADCK cycles total sample time.
-    eSTS_3 = 3, // 3 + 23 ADCK cycles; 11 ADCK cycles total sample time.
-    eSTS_4 = 4, // 3 + 24 ADCK cycles; 19 ADCK cycles total sample time.
-    eSTS_5 = 5, // 3 + 25 ADCK cycles; 35 ADCK cycles total sample time.
-    eSTS_6 = 6, // 3 + 26 ADCK cycles; 67 ADCK cycles total sample time.
-    eSTS_7 = 7, // 3 + 27 ADCK cycles; 131 ADCK cycles total sample time.
+    eSTS_0 = 0, // Minimum sample time of 3.5 ADCK cycles.
+    eSTS_1 = 1, // 3.5 + 21 ADCK cycles; 5.5 ADCK cycles total sample time.
+    eSTS_2 = 2, // 3.5 + 22 ADCK cycles; 7.5 ADCK cycles total sample time.
+    eSTS_3 = 3, // 3.5 + 23 ADCK cycles; 11.5 ADCK cycles total sample time.
+    eSTS_4 = 4, // 3.5 + 24 ADCK cycles; 19.5 ADCK cycles total sample time.
+    eSTS_5 = 5, // 3.5 + 25 ADCK cycles; 35.5 ADCK cycles total sample time.
+    eSTS_6 = 6, // 3.5 + 26 ADCK cycles; 67.5 ADCK cycles total sample time.
+    eSTS_7 = 7, // 3.5 + 27 ADCK cycles; 131.5 ADCK cycles total sample time.
   };
   
   enum class eAVGS : uint32_t {

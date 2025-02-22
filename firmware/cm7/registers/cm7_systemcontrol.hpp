@@ -8,7 +8,7 @@
 //
 // NOTE: This file was generated from the forge CMSIS-svd wrapper tool.
 
-namespace nSystemControl {
+namespace nCM7_SystemControl {
 
 
 // Auxiliary Control Register,
@@ -1989,4 +1989,4 @@ union SCB_CM7_ABFSR {
 };
 
 
-} // namespace nSystemControl
+} // namespace nCM7_SystemControl

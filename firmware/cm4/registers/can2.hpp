@@ -11,7 +11,7 @@
 namespace nCAN2 {
 
 
-// Module Configuration register
+// Module Configuration Register
 //
 union MCR {
   
@@ -159,7 +159,7 @@ union MCR {
   static inline volatile MCR &Instance() { return *reinterpret_cast<volatile MCR*>(0x400C8000); }
 };
 
-// Control 1 register
+// Control 1 Register
 //
 union CTRL1 {
   
@@ -265,7 +265,7 @@ union TIMER {
   static inline volatile TIMER &Instance() { return *reinterpret_cast<volatile TIMER*>(0x400C8008); }
 };
 
-// Rx Mailboxes Global Mask register
+// Rx Mailboxes Global Mask Register
 //
 union RXMGMASK {
   
@@ -282,7 +282,7 @@ union RXMGMASK {
   static inline volatile RXMGMASK &Instance() { return *reinterpret_cast<volatile RXMGMASK*>(0x400C8010); }
 };
 
-// Rx 14 Mask register
+// Rx 14 Mask Register
 //
 union RX14MASK {
   
@@ -299,7 +299,7 @@ union RX14MASK {
   static inline volatile RX14MASK &Instance() { return *reinterpret_cast<volatile RX14MASK*>(0x400C8014); }
 };
 
-// Rx 15 Mask register
+// Rx 15 Mask Register
 //
 union RX15MASK {
   
@@ -336,7 +336,7 @@ union ECR {
   static inline volatile ECR &Instance() { return *reinterpret_cast<volatile ECR*>(0x400C801C); }
 };
 
-// Error and Status 1 register
+// Error and Status 1 Register
 //
 union ESR1 {
   
@@ -511,7 +511,7 @@ union ESR1 {
   static inline volatile ESR1 &Instance() { return *reinterpret_cast<volatile ESR1*>(0x400C8020); }
 };
 
-// Interrupt Masks 2 register
+// Interrupt Masks 2 Register
 //
 union IMASK2 {
   
@@ -528,7 +528,7 @@ union IMASK2 {
   static inline volatile IMASK2 &Instance() { return *reinterpret_cast<volatile IMASK2*>(0x400C8024); }
 };
 
-// Interrupt Masks 1 register
+// Interrupt Masks 1 Register
 //
 union IMASK1 {
   
@@ -545,7 +545,7 @@ union IMASK1 {
   static inline volatile IMASK1 &Instance() { return *reinterpret_cast<volatile IMASK1*>(0x400C8028); }
 };
 
-// Interrupt Flags 2 register
+// Interrupt Flags 2 Register
 //
 union IFLAG2 {
   
@@ -562,7 +562,7 @@ union IFLAG2 {
   static inline volatile IFLAG2 &Instance() { return *reinterpret_cast<volatile IFLAG2*>(0x400C802C); }
 };
 
-// Interrupt Flags 1 register
+// Interrupt Flags 1 Register
 //
 union IFLAG1 {
   
@@ -604,7 +604,7 @@ union IFLAG1 {
   static inline volatile IFLAG1 &Instance() { return *reinterpret_cast<volatile IFLAG1*>(0x400C8030); }
 };
 
-// Control 2 register
+// Control 2 Register
 //
 union CTRL2 {
   
@@ -690,7 +690,7 @@ union CTRL2 {
   static inline volatile CTRL2 &Instance() { return *reinterpret_cast<volatile CTRL2*>(0x400C8034); }
 };
 
-// Error and Status 2 register
+// Error and Status 2 Register
 //
 union ESR2 {
   
@@ -722,7 +722,7 @@ union ESR2 {
   static inline volatile ESR2 &Instance() { return *reinterpret_cast<volatile ESR2*>(0x400C8038); }
 };
 
-// CRC register
+// CRC Register
 //
 union CRCR {
   
@@ -742,7 +742,7 @@ union CRCR {
   static inline volatile CRCR &Instance() { return *reinterpret_cast<volatile CRCR*>(0x400C8044); }
 };
 
-// Rx FIFO Global Mask register
+// Rx FIFO Global Mask Register
 //
 union RXFGMASK {
   
@@ -759,7 +759,7 @@ union RXFGMASK {
   static inline volatile RXFGMASK &Instance() { return *reinterpret_cast<volatile RXFGMASK*>(0x400C8048); }
 };
 
-// Rx FIFO Information register
+// Rx FIFO Information Register
 //
 union RXFIR {
   
@@ -777,7 +777,7 @@ union RXFIR {
   static inline volatile RXFIR &Instance() { return *reinterpret_cast<volatile RXFIR*>(0x400C804C); }
 };
 
-// CAN Bit Timing register
+// CAN Bit Timing Register
 //
 union CBT {
   
@@ -27172,7 +27172,7 @@ union WORD163 {
   static inline volatile WORD163 &Instance() { return *reinterpret_cast<volatile WORD163*>(0x400C847C); }
 };
 
-// Rx Individual Mask registers
+// Rx Individual Mask Registers
 //
 union RXIMR[0] {
   
@@ -27188,7 +27188,7 @@ union RXIMR[0] {
   inline void Reset() volatile { this->value = 0x00000000; }
   static inline volatile RXIMR[0] &Instance() { return *reinterpret_cast<volatile RXIMR[0]*>(0x400C8880); }
 };
-// Rx Individual Mask registers
+// Rx Individual Mask Registers
 //
 union RXIMR[1] {
   
@@ -27204,7 +27204,7 @@ union RXIMR[1] {
   inline void Reset() volatile { this->value = 0x00000000; }
   static inline volatile RXIMR[1] &Instance() { return *reinterpret_cast<volatile RXIMR[1]*>(0x400C8884); }
 };
-// Rx Individual Mask registers
+// Rx Individual Mask Registers
 //
 union RXIMR[2] {
   
@@ -27220,7 +27220,7 @@ union RXIMR[2] {
   inline void Reset() volatile { this->value = 0x00000000; }
   static inline volatile RXIMR[2] &Instance() { return *reinterpret_cast<volatile RXIMR[2]*>(0x400C8888); }
 };
-// Rx Individual Mask registers
+// Rx Individual Mask Registers
 //
 union RXIMR[3] {
   
@@ -27236,7 +27236,7 @@ union RXIMR[3] {
   inline void Reset() volatile { this->value = 0x00000000; }
   static inline volatile RXIMR[3] &Instance() { return *reinterpret_cast<volatile RXIMR[3]*>(0x400C888C); }
 };
-// Rx Individual Mask registers
+// Rx Individual Mask Registers
 //
 union RXIMR[4] {
   
@@ -27252,7 +27252,7 @@ union RXIMR[4] {
   inline void Reset() volatile { this->value = 0x00000000; }
   static inline volatile RXIMR[4] &Instance() { return *reinterpret_cast<volatile RXIMR[4]*>(0x400C8890); }
 };
-// Rx Individual Mask registers
+// Rx Individual Mask Registers
 //
 union RXIMR[5] {
   
@@ -27268,7 +27268,7 @@ union RXIMR[5] {
   inline void Reset() volatile { this->value = 0x00000000; }
   static inline volatile RXIMR[5] &Instance() { return *reinterpret_cast<volatile RXIMR[5]*>(0x400C8894); }
 };
-// Rx Individual Mask registers
+// Rx Individual Mask Registers
 //
 union RXIMR[6] {
   
@@ -27284,7 +27284,7 @@ union RXIMR[6] {
   inline void Reset() volatile { this->value = 0x00000000; }
   static inline volatile RXIMR[6] &Instance() { return *reinterpret_cast<volatile RXIMR[6]*>(0x400C8898); }
 };
-// Rx Individual Mask registers
+// Rx Individual Mask Registers
 //
 union RXIMR[7] {
   
@@ -27300,7 +27300,7 @@ union RXIMR[7] {
   inline void Reset() volatile { this->value = 0x00000000; }
   static inline volatile RXIMR[7] &Instance() { return *reinterpret_cast<volatile RXIMR[7]*>(0x400C889C); }
 };
-// Rx Individual Mask registers
+// Rx Individual Mask Registers
 //
 union RXIMR[8] {
   
@@ -27316,7 +27316,7 @@ union RXIMR[8] {
   inline void Reset() volatile { this->value = 0x00000000; }
   static inline volatile RXIMR[8] &Instance() { return *reinterpret_cast<volatile RXIMR[8]*>(0x400C88A0); }
 };
-// Rx Individual Mask registers
+// Rx Individual Mask Registers
 //
 union RXIMR[9] {
   
@@ -27332,7 +27332,7 @@ union RXIMR[9] {
   inline void Reset() volatile { this->value = 0x00000000; }
   static inline volatile RXIMR[9] &Instance() { return *reinterpret_cast<volatile RXIMR[9]*>(0x400C88A4); }
 };
-// Rx Individual Mask registers
+// Rx Individual Mask Registers
 //
 union RXIMR[10] {
   
@@ -27348,7 +27348,7 @@ union RXIMR[10] {
   inline void Reset() volatile { this->value = 0x00000000; }
   static inline volatile RXIMR[10] &Instance() { return *reinterpret_cast<volatile RXIMR[10]*>(0x400C88A8); }
 };
-// Rx Individual Mask registers
+// Rx Individual Mask Registers
 //
 union RXIMR[11] {
   
@@ -27364,7 +27364,7 @@ union RXIMR[11] {
   inline void Reset() volatile { this->value = 0x00000000; }
   static inline volatile RXIMR[11] &Instance() { return *reinterpret_cast<volatile RXIMR[11]*>(0x400C88AC); }
 };
-// Rx Individual Mask registers
+// Rx Individual Mask Registers
 //
 union RXIMR[12] {
   
@@ -27380,7 +27380,7 @@ union RXIMR[12] {
   inline void Reset() volatile { this->value = 0x00000000; }
   static inline volatile RXIMR[12] &Instance() { return *reinterpret_cast<volatile RXIMR[12]*>(0x400C88B0); }
 };
-// Rx Individual Mask registers
+// Rx Individual Mask Registers
 //
 union RXIMR[13] {
   
@@ -27396,7 +27396,7 @@ union RXIMR[13] {
   inline void Reset() volatile { this->value = 0x00000000; }
   static inline volatile RXIMR[13] &Instance() { return *reinterpret_cast<volatile RXIMR[13]*>(0x400C88B4); }
 };
-// Rx Individual Mask registers
+// Rx Individual Mask Registers
 //
 union RXIMR[14] {
   
@@ -27412,7 +27412,7 @@ union RXIMR[14] {
   inline void Reset() volatile { this->value = 0x00000000; }
   static inline volatile RXIMR[14] &Instance() { return *reinterpret_cast<volatile RXIMR[14]*>(0x400C88B8); }
 };
-// Rx Individual Mask registers
+// Rx Individual Mask Registers
 //
 union RXIMR[15] {
   
@@ -27428,7 +27428,7 @@ union RXIMR[15] {
   inline void Reset() volatile { this->value = 0x00000000; }
   static inline volatile RXIMR[15] &Instance() { return *reinterpret_cast<volatile RXIMR[15]*>(0x400C88BC); }
 };
-// Rx Individual Mask registers
+// Rx Individual Mask Registers
 //
 union RXIMR[16] {
   
@@ -27444,7 +27444,7 @@ union RXIMR[16] {
   inline void Reset() volatile { this->value = 0x00000000; }
   static inline volatile RXIMR[16] &Instance() { return *reinterpret_cast<volatile RXIMR[16]*>(0x400C88C0); }
 };
-// Rx Individual Mask registers
+// Rx Individual Mask Registers
 //
 union RXIMR[17] {
   
@@ -27460,7 +27460,7 @@ union RXIMR[17] {
   inline void Reset() volatile { this->value = 0x00000000; }
   static inline volatile RXIMR[17] &Instance() { return *reinterpret_cast<volatile RXIMR[17]*>(0x400C88C4); }
 };
-// Rx Individual Mask registers
+// Rx Individual Mask Registers
 //
 union RXIMR[18] {
   
@@ -27476,7 +27476,7 @@ union RXIMR[18] {
   inline void Reset() volatile { this->value = 0x00000000; }
   static inline volatile RXIMR[18] &Instance() { return *reinterpret_cast<volatile RXIMR[18]*>(0x400C88C8); }
 };
-// Rx Individual Mask registers
+// Rx Individual Mask Registers
 //
 union RXIMR[19] {
   
@@ -27492,7 +27492,7 @@ union RXIMR[19] {
   inline void Reset() volatile { this->value = 0x00000000; }
   static inline volatile RXIMR[19] &Instance() { return *reinterpret_cast<volatile RXIMR[19]*>(0x400C88CC); }
 };
-// Rx Individual Mask registers
+// Rx Individual Mask Registers
 //
 union RXIMR[20] {
   
@@ -27508,7 +27508,7 @@ union RXIMR[20] {
   inline void Reset() volatile { this->value = 0x00000000; }
   static inline volatile RXIMR[20] &Instance() { return *reinterpret_cast<volatile RXIMR[20]*>(0x400C88D0); }
 };
-// Rx Individual Mask registers
+// Rx Individual Mask Registers
 //
 union RXIMR[21] {
   
@@ -27524,7 +27524,7 @@ union RXIMR[21] {
   inline void Reset() volatile { this->value = 0x00000000; }
   static inline volatile RXIMR[21] &Instance() { return *reinterpret_cast<volatile RXIMR[21]*>(0x400C88D4); }
 };
-// Rx Individual Mask registers
+// Rx Individual Mask Registers
 //
 union RXIMR[22] {
   
@@ -27540,7 +27540,7 @@ union RXIMR[22] {
   inline void Reset() volatile { this->value = 0x00000000; }
   static inline volatile RXIMR[22] &Instance() { return *reinterpret_cast<volatile RXIMR[22]*>(0x400C88D8); }
 };
-// Rx Individual Mask registers
+// Rx Individual Mask Registers
 //
 union RXIMR[23] {
   
@@ -27556,7 +27556,7 @@ union RXIMR[23] {
   inline void Reset() volatile { this->value = 0x00000000; }
   static inline volatile RXIMR[23] &Instance() { return *reinterpret_cast<volatile RXIMR[23]*>(0x400C88DC); }
 };
-// Rx Individual Mask registers
+// Rx Individual Mask Registers
 //
 union RXIMR[24] {
   
@@ -27572,7 +27572,7 @@ union RXIMR[24] {
   inline void Reset() volatile { this->value = 0x00000000; }
   static inline volatile RXIMR[24] &Instance() { return *reinterpret_cast<volatile RXIMR[24]*>(0x400C88E0); }
 };
-// Rx Individual Mask registers
+// Rx Individual Mask Registers
 //
 union RXIMR[25] {
   
@@ -27588,7 +27588,7 @@ union RXIMR[25] {
   inline void Reset() volatile { this->value = 0x00000000; }
   static inline volatile RXIMR[25] &Instance() { return *reinterpret_cast<volatile RXIMR[25]*>(0x400C88E4); }
 };
-// Rx Individual Mask registers
+// Rx Individual Mask Registers
 //
 union RXIMR[26] {
   
@@ -27604,7 +27604,7 @@ union RXIMR[26] {
   inline void Reset() volatile { this->value = 0x00000000; }
   static inline volatile RXIMR[26] &Instance() { return *reinterpret_cast<volatile RXIMR[26]*>(0x400C88E8); }
 };
-// Rx Individual Mask registers
+// Rx Individual Mask Registers
 //
 union RXIMR[27] {
   
@@ -27620,7 +27620,7 @@ union RXIMR[27] {
   inline void Reset() volatile { this->value = 0x00000000; }
   static inline volatile RXIMR[27] &Instance() { return *reinterpret_cast<volatile RXIMR[27]*>(0x400C88EC); }
 };
-// Rx Individual Mask registers
+// Rx Individual Mask Registers
 //
 union RXIMR[28] {
   
@@ -27636,7 +27636,7 @@ union RXIMR[28] {
   inline void Reset() volatile { this->value = 0x00000000; }
   static inline volatile RXIMR[28] &Instance() { return *reinterpret_cast<volatile RXIMR[28]*>(0x400C88F0); }
 };
-// Rx Individual Mask registers
+// Rx Individual Mask Registers
 //
 union RXIMR[29] {
   
@@ -27652,7 +27652,7 @@ union RXIMR[29] {
   inline void Reset() volatile { this->value = 0x00000000; }
   static inline volatile RXIMR[29] &Instance() { return *reinterpret_cast<volatile RXIMR[29]*>(0x400C88F4); }
 };
-// Rx Individual Mask registers
+// Rx Individual Mask Registers
 //
 union RXIMR[30] {
   
@@ -27668,7 +27668,7 @@ union RXIMR[30] {
   inline void Reset() volatile { this->value = 0x00000000; }
   static inline volatile RXIMR[30] &Instance() { return *reinterpret_cast<volatile RXIMR[30]*>(0x400C88F8); }
 };
-// Rx Individual Mask registers
+// Rx Individual Mask Registers
 //
 union RXIMR[31] {
   
@@ -27684,7 +27684,7 @@ union RXIMR[31] {
   inline void Reset() volatile { this->value = 0x00000000; }
   static inline volatile RXIMR[31] &Instance() { return *reinterpret_cast<volatile RXIMR[31]*>(0x400C88FC); }
 };
-// Rx Individual Mask registers
+// Rx Individual Mask Registers
 //
 union RXIMR[32] {
   
@@ -27700,7 +27700,7 @@ union RXIMR[32] {
   inline void Reset() volatile { this->value = 0x00000000; }
   static inline volatile RXIMR[32] &Instance() { return *reinterpret_cast<volatile RXIMR[32]*>(0x400C8900); }
 };
-// Rx Individual Mask registers
+// Rx Individual Mask Registers
 //
 union RXIMR[33] {
   
@@ -27716,7 +27716,7 @@ union RXIMR[33] {
   inline void Reset() volatile { this->value = 0x00000000; }
   static inline volatile RXIMR[33] &Instance() { return *reinterpret_cast<volatile RXIMR[33]*>(0x400C8904); }
 };
-// Rx Individual Mask registers
+// Rx Individual Mask Registers
 //
 union RXIMR[34] {
   
@@ -27732,7 +27732,7 @@ union RXIMR[34] {
   inline void Reset() volatile { this->value = 0x00000000; }
   static inline volatile RXIMR[34] &Instance() { return *reinterpret_cast<volatile RXIMR[34]*>(0x400C8908); }
 };
-// Rx Individual Mask registers
+// Rx Individual Mask Registers
 //
 union RXIMR[35] {
   
@@ -27748,7 +27748,7 @@ union RXIMR[35] {
   inline void Reset() volatile { this->value = 0x00000000; }
   static inline volatile RXIMR[35] &Instance() { return *reinterpret_cast<volatile RXIMR[35]*>(0x400C890C); }
 };
-// Rx Individual Mask registers
+// Rx Individual Mask Registers
 //
 union RXIMR[36] {
   
@@ -27764,7 +27764,7 @@ union RXIMR[36] {
   inline void Reset() volatile { this->value = 0x00000000; }
   static inline volatile RXIMR[36] &Instance() { return *reinterpret_cast<volatile RXIMR[36]*>(0x400C8910); }
 };
-// Rx Individual Mask registers
+// Rx Individual Mask Registers
 //
 union RXIMR[37] {
   
@@ -27780,7 +27780,7 @@ union RXIMR[37] {
   inline void Reset() volatile { this->value = 0x00000000; }
   static inline volatile RXIMR[37] &Instance() { return *reinterpret_cast<volatile RXIMR[37]*>(0x400C8914); }
 };
-// Rx Individual Mask registers
+// Rx Individual Mask Registers
 //
 union RXIMR[38] {
   
@@ -27796,7 +27796,7 @@ union RXIMR[38] {
   inline void Reset() volatile { this->value = 0x00000000; }
   static inline volatile RXIMR[38] &Instance() { return *reinterpret_cast<volatile RXIMR[38]*>(0x400C8918); }
 };
-// Rx Individual Mask registers
+// Rx Individual Mask Registers
 //
 union RXIMR[39] {
   
@@ -27812,7 +27812,7 @@ union RXIMR[39] {
   inline void Reset() volatile { this->value = 0x00000000; }
   static inline volatile RXIMR[39] &Instance() { return *reinterpret_cast<volatile RXIMR[39]*>(0x400C891C); }
 };
-// Rx Individual Mask registers
+// Rx Individual Mask Registers
 //
 union RXIMR[40] {
   
@@ -27828,7 +27828,7 @@ union RXIMR[40] {
   inline void Reset() volatile { this->value = 0x00000000; }
   static inline volatile RXIMR[40] &Instance() { return *reinterpret_cast<volatile RXIMR[40]*>(0x400C8920); }
 };
-// Rx Individual Mask registers
+// Rx Individual Mask Registers
 //
 union RXIMR[41] {
   
@@ -27844,7 +27844,7 @@ union RXIMR[41] {
   inline void Reset() volatile { this->value = 0x00000000; }
   static inline volatile RXIMR[41] &Instance() { return *reinterpret_cast<volatile RXIMR[41]*>(0x400C8924); }
 };
-// Rx Individual Mask registers
+// Rx Individual Mask Registers
 //
 union RXIMR[42] {
   
@@ -27860,7 +27860,7 @@ union RXIMR[42] {
   inline void Reset() volatile { this->value = 0x00000000; }
   static inline volatile RXIMR[42] &Instance() { return *reinterpret_cast<volatile RXIMR[42]*>(0x400C8928); }
 };
-// Rx Individual Mask registers
+// Rx Individual Mask Registers
 //
 union RXIMR[43] {
   
@@ -27876,7 +27876,7 @@ union RXIMR[43] {
   inline void Reset() volatile { this->value = 0x00000000; }
   static inline volatile RXIMR[43] &Instance() { return *reinterpret_cast<volatile RXIMR[43]*>(0x400C892C); }
 };
-// Rx Individual Mask registers
+// Rx Individual Mask Registers
 //
 union RXIMR[44] {
   
@@ -27892,7 +27892,7 @@ union RXIMR[44] {
   inline void Reset() volatile { this->value = 0x00000000; }
   static inline volatile RXIMR[44] &Instance() { return *reinterpret_cast<volatile RXIMR[44]*>(0x400C8930); }
 };
-// Rx Individual Mask registers
+// Rx Individual Mask Registers
 //
 union RXIMR[45] {
   
@@ -27908,7 +27908,7 @@ union RXIMR[45] {
   inline void Reset() volatile { this->value = 0x00000000; }
   static inline volatile RXIMR[45] &Instance() { return *reinterpret_cast<volatile RXIMR[45]*>(0x400C8934); }
 };
-// Rx Individual Mask registers
+// Rx Individual Mask Registers
 //
 union RXIMR[46] {
   
@@ -27924,7 +27924,7 @@ union RXIMR[46] {
   inline void Reset() volatile { this->value = 0x00000000; }
   static inline volatile RXIMR[46] &Instance() { return *reinterpret_cast<volatile RXIMR[46]*>(0x400C8938); }
 };
-// Rx Individual Mask registers
+// Rx Individual Mask Registers
 //
 union RXIMR[47] {
   
@@ -27940,7 +27940,7 @@ union RXIMR[47] {
   inline void Reset() volatile { this->value = 0x00000000; }
   static inline volatile RXIMR[47] &Instance() { return *reinterpret_cast<volatile RXIMR[47]*>(0x400C893C); }
 };
-// Rx Individual Mask registers
+// Rx Individual Mask Registers
 //
 union RXIMR[48] {
   
@@ -27956,7 +27956,7 @@ union RXIMR[48] {
   inline void Reset() volatile { this->value = 0x00000000; }
   static inline volatile RXIMR[48] &Instance() { return *reinterpret_cast<volatile RXIMR[48]*>(0x400C8940); }
 };
-// Rx Individual Mask registers
+// Rx Individual Mask Registers
 //
 union RXIMR[49] {
   
@@ -27972,7 +27972,7 @@ union RXIMR[49] {
   inline void Reset() volatile { this->value = 0x00000000; }
   static inline volatile RXIMR[49] &Instance() { return *reinterpret_cast<volatile RXIMR[49]*>(0x400C8944); }
 };
-// Rx Individual Mask registers
+// Rx Individual Mask Registers
 //
 union RXIMR[50] {
   
@@ -27988,7 +27988,7 @@ union RXIMR[50] {
   inline void Reset() volatile { this->value = 0x00000000; }
   static inline volatile RXIMR[50] &Instance() { return *reinterpret_cast<volatile RXIMR[50]*>(0x400C8948); }
 };
-// Rx Individual Mask registers
+// Rx Individual Mask Registers
 //
 union RXIMR[51] {
   
@@ -28004,7 +28004,7 @@ union RXIMR[51] {
   inline void Reset() volatile { this->value = 0x00000000; }
   static inline volatile RXIMR[51] &Instance() { return *reinterpret_cast<volatile RXIMR[51]*>(0x400C894C); }
 };
-// Rx Individual Mask registers
+// Rx Individual Mask Registers
 //
 union RXIMR[52] {
   
@@ -28020,7 +28020,7 @@ union RXIMR[52] {
   inline void Reset() volatile { this->value = 0x00000000; }
   static inline volatile RXIMR[52] &Instance() { return *reinterpret_cast<volatile RXIMR[52]*>(0x400C8950); }
 };
-// Rx Individual Mask registers
+// Rx Individual Mask Registers
 //
 union RXIMR[53] {
   
@@ -28036,7 +28036,7 @@ union RXIMR[53] {
   inline void Reset() volatile { this->value = 0x00000000; }
   static inline volatile RXIMR[53] &Instance() { return *reinterpret_cast<volatile RXIMR[53]*>(0x400C8954); }
 };
-// Rx Individual Mask registers
+// Rx Individual Mask Registers
 //
 union RXIMR[54] {
   
@@ -28052,7 +28052,7 @@ union RXIMR[54] {
   inline void Reset() volatile { this->value = 0x00000000; }
   static inline volatile RXIMR[54] &Instance() { return *reinterpret_cast<volatile RXIMR[54]*>(0x400C8958); }
 };
-// Rx Individual Mask registers
+// Rx Individual Mask Registers
 //
 union RXIMR[55] {
   
@@ -28068,7 +28068,7 @@ union RXIMR[55] {
   inline void Reset() volatile { this->value = 0x00000000; }
   static inline volatile RXIMR[55] &Instance() { return *reinterpret_cast<volatile RXIMR[55]*>(0x400C895C); }
 };
-// Rx Individual Mask registers
+// Rx Individual Mask Registers
 //
 union RXIMR[56] {
   
@@ -28084,7 +28084,7 @@ union RXIMR[56] {
   inline void Reset() volatile { this->value = 0x00000000; }
   static inline volatile RXIMR[56] &Instance() { return *reinterpret_cast<volatile RXIMR[56]*>(0x400C8960); }
 };
-// Rx Individual Mask registers
+// Rx Individual Mask Registers
 //
 union RXIMR[57] {
   
@@ -28100,7 +28100,7 @@ union RXIMR[57] {
   inline void Reset() volatile { this->value = 0x00000000; }
   static inline volatile RXIMR[57] &Instance() { return *reinterpret_cast<volatile RXIMR[57]*>(0x400C8964); }
 };
-// Rx Individual Mask registers
+// Rx Individual Mask Registers
 //
 union RXIMR[58] {
   
@@ -28116,7 +28116,7 @@ union RXIMR[58] {
   inline void Reset() volatile { this->value = 0x00000000; }
   static inline volatile RXIMR[58] &Instance() { return *reinterpret_cast<volatile RXIMR[58]*>(0x400C8968); }
 };
-// Rx Individual Mask registers
+// Rx Individual Mask Registers
 //
 union RXIMR[59] {
   
@@ -28132,7 +28132,7 @@ union RXIMR[59] {
   inline void Reset() volatile { this->value = 0x00000000; }
   static inline volatile RXIMR[59] &Instance() { return *reinterpret_cast<volatile RXIMR[59]*>(0x400C896C); }
 };
-// Rx Individual Mask registers
+// Rx Individual Mask Registers
 //
 union RXIMR[60] {
   
@@ -28148,7 +28148,7 @@ union RXIMR[60] {
   inline void Reset() volatile { this->value = 0x00000000; }
   static inline volatile RXIMR[60] &Instance() { return *reinterpret_cast<volatile RXIMR[60]*>(0x400C8970); }
 };
-// Rx Individual Mask registers
+// Rx Individual Mask Registers
 //
 union RXIMR[61] {
   
@@ -28164,7 +28164,7 @@ union RXIMR[61] {
   inline void Reset() volatile { this->value = 0x00000000; }
   static inline volatile RXIMR[61] &Instance() { return *reinterpret_cast<volatile RXIMR[61]*>(0x400C8974); }
 };
-// Rx Individual Mask registers
+// Rx Individual Mask Registers
 //
 union RXIMR[62] {
   
@@ -28180,7 +28180,7 @@ union RXIMR[62] {
   inline void Reset() volatile { this->value = 0x00000000; }
   static inline volatile RXIMR[62] &Instance() { return *reinterpret_cast<volatile RXIMR[62]*>(0x400C8978); }
 };
-// Rx Individual Mask registers
+// Rx Individual Mask Registers
 //
 union RXIMR[63] {
   
@@ -28197,7 +28197,7 @@ union RXIMR[63] {
   static inline volatile RXIMR[63] &Instance() { return *reinterpret_cast<volatile RXIMR[63]*>(0x400C897C); }
 };
 
-// Memory Error Control register
+// Memory Error Control Register
 //
 union MECR {
   
@@ -28277,7 +28277,7 @@ union MECR {
   static inline volatile MECR &Instance() { return *reinterpret_cast<volatile MECR*>(0x400C8AE0); }
 };
 
-// Error Injection Address register
+// Error Injection Address Register
 //
 union ERRIAR {
   
@@ -28296,7 +28296,7 @@ union ERRIAR {
   static inline volatile ERRIAR &Instance() { return *reinterpret_cast<volatile ERRIAR*>(0x400C8AE4); }
 };
 
-// Error Injection Data Pattern register
+// Error Injection Data Pattern Register
 //
 union ERRIDPR {
   
@@ -28313,7 +28313,7 @@ union ERRIDPR {
   static inline volatile ERRIDPR &Instance() { return *reinterpret_cast<volatile ERRIDPR*>(0x400C8AE8); }
 };
 
-// Error Injection Parity Pattern register
+// Error Injection Parity Pattern Register
 //
 union ERRIPPR {
   
@@ -28337,7 +28337,7 @@ union ERRIPPR {
   static inline volatile ERRIPPR &Instance() { return *reinterpret_cast<volatile ERRIPPR*>(0x400C8AEC); }
 };
 
-// Error Report Address register
+// Error Report Address Register
 //
 union RERRAR {
   
@@ -28364,7 +28364,7 @@ union RERRAR {
   static inline volatile RERRAR &Instance() { return *reinterpret_cast<volatile RERRAR*>(0x400C8AF0); }
 };
 
-// Error Report Data register
+// Error Report Data Register
 //
 union RERRDR {
   
@@ -28381,7 +28381,7 @@ union RERRDR {
   static inline volatile RERRDR &Instance() { return *reinterpret_cast<volatile RERRDR*>(0x400C8AF4); }
 };
 
-// Error Report Syndrome register
+// Error Report Syndrome Register
 //
 union RERRSYNR {
   
@@ -28429,7 +28429,7 @@ union RERRSYNR {
   static inline volatile RERRSYNR &Instance() { return *reinterpret_cast<volatile RERRSYNR*>(0x400C8AF8); }
 };
 
-// Error Status register
+// Error Status Register
 //
 union ERRSR {
   
@@ -28485,7 +28485,7 @@ union ERRSR {
   static inline volatile ERRSR &Instance() { return *reinterpret_cast<volatile ERRSR*>(0x400C8AFC); }
 };
 
-// CAN FD Control register
+// CAN FD Control Register
 //
 union FDCTRL {
   
@@ -28541,7 +28541,7 @@ union FDCTRL {
   static inline volatile FDCTRL &Instance() { return *reinterpret_cast<volatile FDCTRL*>(0x400C8C00); }
 };
 
-// CAN FD Bit Timing register
+// CAN FD Bit Timing Register
 //
 union FDCBT {
   
@@ -28567,7 +28567,7 @@ union FDCBT {
   static inline volatile FDCBT &Instance() { return *reinterpret_cast<volatile FDCBT*>(0x400C8C04); }
 };
 
-// CAN FD CRC register
+// CAN FD CRC Register
 //
 union FDCRC {
   

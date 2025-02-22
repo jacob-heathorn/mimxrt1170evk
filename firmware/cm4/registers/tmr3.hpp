@@ -319,13 +319,13 @@ union CSCTRL0 {
   };
   
   enum class eTCI : uint32_t {
-    eSTOP = 0, // Stop counter upon receiving a second trigger event while still counting from the first trigger event.
+    eSTOP = 0, // Stop the counter upon receiving a second trigger event while still counting from the first trigger event.
     eRELOAD = 1, // Reload the counter upon receiving a second trigger event while still counting from the first trigger event.
   };
   
   enum class eROC : uint32_t {
-    eDISABLE = 0, // Do not reload the counter on a capture event.
-    eENABLE = 1, // Reload the counter on a capture event.
+    eDISABLE = 0, // Disables
+    eENABLE = 1, // Enables
   };
   
   enum class eALT_LOAD : uint32_t {
@@ -334,8 +334,8 @@ union CSCTRL0 {
   };
   
   enum class eFAULT : uint32_t {
-    eDISABLE = 0, // Fault function disabled.
-    eENABLE = 1, // Fault function enabled.
+    eDISABLE = 0, // Disables
+    eENABLE = 1, // Enables
   };
   
   enum class eDBG_EN : uint32_t {
@@ -353,14 +353,14 @@ union CSCTRL0 {
     uint32_t TCF2 : 1;
     uint32_t TCF1EN : 1;
     uint32_t TCF2EN : 1;
-    uint32_t _reserved_0 : 1;
+    uint32_t OFLAG : 1;
     eUP UP : 1;
     eTCI TCI : 1;
     eROC ROC : 1;
     eALT_LOAD ALT_LOAD : 1;
     eFAULT FAULT : 1;
     eDBG_EN DBG_EN : 2;
-    uint32_t _reserved_1 : 16;
+    uint32_t _reserved_0 : 16;
   } bits;
   
   // Full 32-bit register value.
@@ -415,8 +415,8 @@ union DMA0 {
 union ENBL {
   
   enum class eENBL : uint32_t {
-    eDISABLE = 0, // Timer channel is disabled.
-    eENABLE = 1, // Timer channel is enabled. (default)
+    eDISABLE = 0, // Disables the timer channel.
+    eENABLE = 1, // Enables the timer channel. (default)
   };
   
   // Bit field definition.
@@ -741,13 +741,13 @@ union CSCTRL1 {
   };
   
   enum class eTCI : uint32_t {
-    eSTOP = 0, // Stop counter upon receiving a second trigger event while still counting from the first trigger event.
+    eSTOP = 0, // Stop the counter upon receiving a second trigger event while still counting from the first trigger event.
     eRELOAD = 1, // Reload the counter upon receiving a second trigger event while still counting from the first trigger event.
   };
   
   enum class eROC : uint32_t {
-    eDISABLE = 0, // Do not reload the counter on a capture event.
-    eENABLE = 1, // Reload the counter on a capture event.
+    eDISABLE = 0, // Disables
+    eENABLE = 1, // Enables
   };
   
   enum class eALT_LOAD : uint32_t {
@@ -756,8 +756,8 @@ union CSCTRL1 {
   };
   
   enum class eFAULT : uint32_t {
-    eDISABLE = 0, // Fault function disabled.
-    eENABLE = 1, // Fault function enabled.
+    eDISABLE = 0, // Disables
+    eENABLE = 1, // Enables
   };
   
   enum class eDBG_EN : uint32_t {
@@ -775,14 +775,14 @@ union CSCTRL1 {
     uint32_t TCF2 : 1;
     uint32_t TCF1EN : 1;
     uint32_t TCF2EN : 1;
-    uint32_t _reserved_0 : 1;
+    uint32_t OFLAG : 1;
     eUP UP : 1;
     eTCI TCI : 1;
     eROC ROC : 1;
     eALT_LOAD ALT_LOAD : 1;
     eFAULT FAULT : 1;
     eDBG_EN DBG_EN : 2;
-    uint32_t _reserved_1 : 16;
+    uint32_t _reserved_0 : 16;
   } bits;
   
   // Full 32-bit register value.
@@ -1140,13 +1140,13 @@ union CSCTRL2 {
   };
   
   enum class eTCI : uint32_t {
-    eSTOP = 0, // Stop counter upon receiving a second trigger event while still counting from the first trigger event.
+    eSTOP = 0, // Stop the counter upon receiving a second trigger event while still counting from the first trigger event.
     eRELOAD = 1, // Reload the counter upon receiving a second trigger event while still counting from the first trigger event.
   };
   
   enum class eROC : uint32_t {
-    eDISABLE = 0, // Do not reload the counter on a capture event.
-    eENABLE = 1, // Reload the counter on a capture event.
+    eDISABLE = 0, // Disables
+    eENABLE = 1, // Enables
   };
   
   enum class eALT_LOAD : uint32_t {
@@ -1155,8 +1155,8 @@ union CSCTRL2 {
   };
   
   enum class eFAULT : uint32_t {
-    eDISABLE = 0, // Fault function disabled.
-    eENABLE = 1, // Fault function enabled.
+    eDISABLE = 0, // Disables
+    eENABLE = 1, // Enables
   };
   
   enum class eDBG_EN : uint32_t {
@@ -1174,14 +1174,14 @@ union CSCTRL2 {
     uint32_t TCF2 : 1;
     uint32_t TCF1EN : 1;
     uint32_t TCF2EN : 1;
-    uint32_t _reserved_0 : 1;
+    uint32_t OFLAG : 1;
     eUP UP : 1;
     eTCI TCI : 1;
     eROC ROC : 1;
     eALT_LOAD ALT_LOAD : 1;
     eFAULT FAULT : 1;
     eDBG_EN DBG_EN : 2;
-    uint32_t _reserved_1 : 16;
+    uint32_t _reserved_0 : 16;
   } bits;
   
   // Full 32-bit register value.
@@ -1539,13 +1539,13 @@ union CSCTRL3 {
   };
   
   enum class eTCI : uint32_t {
-    eSTOP = 0, // Stop counter upon receiving a second trigger event while still counting from the first trigger event.
+    eSTOP = 0, // Stop the counter upon receiving a second trigger event while still counting from the first trigger event.
     eRELOAD = 1, // Reload the counter upon receiving a second trigger event while still counting from the first trigger event.
   };
   
   enum class eROC : uint32_t {
-    eDISABLE = 0, // Do not reload the counter on a capture event.
-    eENABLE = 1, // Reload the counter on a capture event.
+    eDISABLE = 0, // Disables
+    eENABLE = 1, // Enables
   };
   
   enum class eALT_LOAD : uint32_t {
@@ -1554,8 +1554,8 @@ union CSCTRL3 {
   };
   
   enum class eFAULT : uint32_t {
-    eDISABLE = 0, // Fault function disabled.
-    eENABLE = 1, // Fault function enabled.
+    eDISABLE = 0, // Disables
+    eENABLE = 1, // Enables
   };
   
   enum class eDBG_EN : uint32_t {
@@ -1573,14 +1573,14 @@ union CSCTRL3 {
     uint32_t TCF2 : 1;
     uint32_t TCF1EN : 1;
     uint32_t TCF2EN : 1;
-    uint32_t _reserved_0 : 1;
+    uint32_t OFLAG : 1;
     eUP UP : 1;
     eTCI TCI : 1;
     eROC ROC : 1;
     eALT_LOAD ALT_LOAD : 1;
     eFAULT FAULT : 1;
     eDBG_EN DBG_EN : 2;
-    uint32_t _reserved_1 : 16;
+    uint32_t _reserved_0 : 16;
   } bits;
   
   // Full 32-bit register value.

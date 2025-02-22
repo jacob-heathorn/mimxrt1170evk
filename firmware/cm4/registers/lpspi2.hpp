@@ -59,33 +59,33 @@ union PARAM {
 union CR {
   
   enum class eMEN : uint32_t {
-    eDISABLED = 0, // Module is disabled
-    eENABLED = 1, // Module is enabled
+    eDISABLED = 0, // Disable
+    eENABLED = 1, // Enable
   };
   
   enum class eRST : uint32_t {
-    eNOT_RESET = 0, // Module is not reset
-    eRESET = 1, // Module is reset
+    eNOT_RESET = 0, // Not reset
+    eRESET = 1, // Reset
   };
   
   enum class eDOZEN : uint32_t {
-    eENABLED = 0, // LPSPI module is enabled in Doze mode
-    eDISABLED = 1, // LPSPI module is disabled in Doze mode
+    eENABLED = 0, // Enable
+    eDISABLED = 1, // Disable
   };
   
   enum class eDBGEN : uint32_t {
-    eDISABLED = 0, // LPSPI module is disabled in debug mode
-    eENABLED = 1, // LPSPI module is enabled in debug mode
+    eDISABLED = 0, // Disable
+    eENABLED = 1, // Enable
   };
   
   enum class eRTF : uint32_t {
     eNO_EFFECT = 0, // No effect
-    eTXFIFO_RST = 1, // Reset the Transmit FIFO. The register bit always reads zero.
+    eTXFIFO_RST = 1, // Reset
   };
   
   enum class eRRF : uint32_t {
     eNO_EFFECT = 0, // No effect
-    eRXFIFO_RST = 1, // Reset the Receive FIFO. The register bit always reads zero.
+    eRXFIFO_RST = 1, // Reset
   };
   
   // Bit field definition.
@@ -118,38 +118,38 @@ union SR {
   };
   
   enum class eRDF : uint32_t {
-    eNOTREADY = 0, // Receive Data is not ready
+    eNOTREADY = 0, // Receive data not ready
     eREADY = 1, // Receive data is ready
   };
   
   enum class eWCF : uint32_t {
-    eNOT_COMPLETED = 0, // Transfer of a received word has not yet completed
-    eCOMPLETED = 1, // Transfer of a received word has completed
+    eNOT_COMPLETED = 0, // Not complete
+    eCOMPLETED = 1, // Complete
   };
   
   enum class eFCF : uint32_t {
-    eNOT_COMPLETED = 0, // Frame transfer has not completed
-    eCOMPLETED = 1, // Frame transfer has completed
+    eNOT_COMPLETED = 0, // Not complete
+    eCOMPLETED = 1, // Complete
   };
   
   enum class eTCF : uint32_t {
-    eNOT_COMPLETED = 0, // All transfers have not completed
-    eCOMPLETED = 1, // All transfers have completed
+    eNOT_COMPLETED = 0, // Not complete
+    eCOMPLETED = 1, // Complete
   };
   
   enum class eTEF : uint32_t {
-    eNO_UNDERRUN = 0, // Transmit FIFO underrun has not occurred
-    eUNDERRUN = 1, // Transmit FIFO underrun has occurred
+    eNO_UNDERRUN = 0, // No underrun
+    eUNDERRUN = 1, // Underrun
   };
   
   enum class eREF : uint32_t {
-    eNOT_OVERFLOWED = 0, // Receive FIFO has not overflowed
-    eOVERFLOWED = 1, // Receive FIFO has overflowed
+    eNOT_OVERFLOWED = 0, // No overflow
+    eOVERFLOWED = 1, // Overflow
   };
   
   enum class eDMF : uint32_t {
-    eNO_MATCH = 0, // Have not received matching data
-    eMATCH = 1, // Have received matching data
+    eNO_MATCH = 0, // No match
+    eMATCH = 1, // Match
   };
   
   enum class eMBF : uint32_t {
@@ -186,43 +186,43 @@ union SR {
 union IER {
   
   enum class eTDIE : uint32_t {
-    eDISABLED = 0, // Disabled
-    eENABLED = 1, // Enabled
+    eDISABLE = 0, // Disable
+    eENABLE = 1, // Enable
   };
   
   enum class eRDIE : uint32_t {
-    eDISABLED = 0, // Disabled
-    eENABLED = 1, // Enabled
+    eDISABLE = 0, // Disable
+    eENABLE = 1, // Enable
   };
   
   enum class eWCIE : uint32_t {
-    eDISABLED = 0, // Disabled
-    eENABLED = 1, // Enabled
+    eDISABLE = 0, // Disable
+    eENABLE = 1, // Enable
   };
   
   enum class eFCIE : uint32_t {
-    eDISABLED = 0, // Disabled
-    eENABLED = 1, // Enabled
+    eDISABLE = 0, // Disable
+    eENABLE = 1, // Enable
   };
   
   enum class eTCIE : uint32_t {
-    eDISABLED = 0, // Disabled
-    eENABLED = 1, // Enabled
+    eDISABLE = 0, // Disable
+    eENABLE = 1, // Enable
   };
   
   enum class eTEIE : uint32_t {
-    eDISABLED = 0, // Disabled
-    eENABLED = 1, // Enabled
+    eDISABLE = 0, // Disable
+    eENABLE = 1, // Enable
   };
   
   enum class eREIE : uint32_t {
-    eDISABLED = 0, // Disabled
-    eENABLED = 1, // Enabled
+    eDISABLE = 0, // Disable
+    eENABLE = 1, // Enable
   };
   
   enum class eDMIE : uint32_t {
-    eDISABLED = 0, // Disabled
-    eENABLED = 1, // Enabled
+    eDISABLE = 0, // Disable
+    eENABLE = 1, // Enable
   };
   
   // Bit field definition.
@@ -252,13 +252,13 @@ union IER {
 union DER {
   
   enum class eTDDE : uint32_t {
-    eDISABLED = 0, // DMA request is disabled
-    eENABLED = 1, // DMA request is enabled
+    eDISABLE = 0, // Disable
+    eENABLE = 1, // Enable
   };
   
   enum class eRDDE : uint32_t {
-    eDISABLED = 0, // DMA request is disabled
-    eENABLED = 1, // DMA request is enabled
+    eDISABLE = 0, // Disable
+    eENABLE = 1, // Enable
   };
   
   // Bit field definition.
@@ -281,13 +281,13 @@ union DER {
 union CFGR0 {
   
   enum class eCIRFIFO : uint32_t {
-    eDISABLED = 0, // Circular FIFO is disabled
-    eENABLED = 1, // Circular FIFO is enabled
+    eDISABLE = 0, // Disable
+    eENABLE = 1, // Enable
   };
   
   enum class eRDMO : uint32_t {
-    eSTORED = 0, // Received data is stored in the receive FIFO as in normal operations
-    eDISCARDED = 1, // Received data is discarded unless the SR[DMF] = 1
+    eSTORED = 0, // Disable
+    eDISCARDED = 1, // Enable
   };
   
   // Bit field definition.
@@ -316,40 +316,40 @@ union CFGR1 {
   };
   
   enum class eSAMPLE : uint32_t {
-    eON_SCK_EDGE = 0, // Input data is sampled on SCK edge
-    eON_DELAYED_SCK_EDGE = 1, // Input data is sampled on delayed SCK edge
+    eON_SCK_EDGE = 0, // SCK edge
+    eON_DELAYED_SCK_EDGE = 1, // Delayed SCK edge
   };
   
   enum class eAUTOPCS : uint32_t {
-    eDISABLED = 0, // Automatic PCS generation is disabled
-    eENABLED = 1, // Automatic PCS generation is enabled
+    eDISABLED = 0, // Disable
+    eENABLED = 1, // Enable
   };
   
   enum class eNOSTALL : uint32_t {
-    eDISABLED = 0, // Transfers stall when the transmit FIFO is empty
-    eENABLED = 1, // Transfers do not stall, allowing transmit FIFO underruns to occur
+    eDISABLE = 0, // Disable
+    eENABLE = 1, // Enable
   };
   
   enum class eMATCFG : uint32_t {
     eDISABLED = 0, // Match is disabled
-    eENABLED_FIRSTDATAMATCH = 2, // Match is enabled is 1st data word is MATCH0 or MATCH1
-    eENABLED_ANYDATAMATCH = 3, // Match is enabled on any data word equal MATCH0 or MATCH1
-    eENABLED_DATAMATCH_100 = 4, // Match is enabled on data match sequence
-    eENABLED_DATAMATCH_101 = 5, // Match is enabled on data match sequence
-    eENABLED_DATAMATCH_110 = 6, // Match is enabled
-    eENABLED_DATAMATCH_111 = 7, // Match is enabled
+    eENABLED_FIRSTDATAMATCH = 2, // Match first data word with compare word
+    eENABLED_ANYDATAMATCH = 3, // Match any data word with compare word
+    eENABLED_DATAMATCH_100 = 4, // Sequential match, first data word
+    eENABLED_DATAMATCH_101 = 5, // Sequential match, any data word
+    eENABLED_DATAMATCH_110 = 6, // Match first data word (masked) with compare word (masked)
+    eENABLED_DATAMATCH_111 = 7, // Match any data word (masked) with compare word (masked)
   };
   
   enum class ePINCFG : uint32_t {
-    eSIN_IN_SOUT_OUT = 0, // SIN is used for input data and SOUT is used for output data
-    eSIN_BOTH_IN_OUT = 1, // SIN is used for both input and output data, only half-duplex serial transfers are supported
-    eSOUT_BOTH_IN_OUT = 2, // SOUT is used for both input and output data, only half-duplex serial transfers are supported
-    eSOUT_IN_SIN_OUT = 3, // SOUT is used for input data and SIN is used for output data
+    eSIN_IN_SOUT_OUT = 0, // SIN is used for input data; SOUT is used for output data.
+    eSIN_BOTH_IN_OUT = 1, // SIN is used for both input and output data. Only half-duplex serial transfers are supported.
+    eSOUT_BOTH_IN_OUT = 2, // SOUT is used for both input and output data. Only half-duplex serial transfers are supported.
+    eSOUT_IN_SIN_OUT = 3, // SOUT is used for input data; SIN is used for output data.
   };
   
   enum class eOUTCFG : uint32_t {
-    eRETAIN_LASTVALUE = 0, // Output data retains last value when chip select is negated
-    eTRISTATED = 1, // Output data is tristated when chip select is negated
+    eRETAIN_LASTVALUE = 0, // Output data retains last value.
+    eTRISTATED = 1, // Output data is 3-stated.
   };
   
   enum class ePCSCFG : uint32_t {
@@ -481,9 +481,9 @@ union FSR {
 union TCR {
   
   enum class eWIDTH : uint32_t {
-    eONEBIT = 0, // 1 bit transfer
-    eTWOBIT = 1, // 2 bit transfer
-    eFOURBIT = 2, // 4 bit transfer
+    eONEBIT = 0, // 1-bit transfer
+    eTWOBIT = 1, // 2-bit transfer
+    eFOURBIT = 2, // 4-bit transfer
   };
   
   enum class eTXMSK : uint32_t {
@@ -507,8 +507,8 @@ union TCR {
   };
   
   enum class eBYSW : uint32_t {
-    eDISABLED = 0, // Byte swap is disabled
-    eENABLED = 1, // Byte swap is enabled
+    eDISABLED = 0, // Disabled
+    eENABLED = 1, // Enabled
   };
   
   enum class eLSBF : uint32_t {
@@ -540,8 +540,8 @@ union TCR {
   };
   
   enum class eCPOL : uint32_t {
-    eINACTIVE_LOW = 0, // The inactive state value of SCK is low
-    eINACTIVE_HIGH = 1, // The inactive state value of SCK is high
+    eINACTIVE_LOW = 0, // Inactive low
+    eINACTIVE_HIGH = 1, // Inactive high
   };
   
   // Bit field definition.
@@ -592,13 +592,13 @@ union TDR {
 union RSR {
   
   enum class eSOF : uint32_t {
-    eNEXT_DATAWORD = 0, // Subsequent data word received after PCS assertion
-    eFIRST_DATAWORD = 1, // First data word received after PCS assertion
+    eNEXT_DATAWORD = 0, // Subsequent data word
+    eFIRST_DATAWORD = 1, // First data word
   };
   
   enum class eRXEMPTY : uint32_t {
-    eNOT_EMPTY = 0, // RX FIFO is not empty
-    eEMPTY = 1, // RX FIFO is empty
+    eNOT_EMPTY = 0, // Not empty
+    eEMPTY = 1, // Empty
   };
   
   // Bit field definition.

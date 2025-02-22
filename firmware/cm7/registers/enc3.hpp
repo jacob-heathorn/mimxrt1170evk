@@ -132,9 +132,7 @@ union FILT {
   struct {
     uint32_t FILT_PER : 8;
     uint32_t FILT_CNT : 3;
-    uint32_t _reserved_0 : 2;
-    uint32_t FILT_PRSC : 3;
-    uint32_t _reserved_1 : 16;
+    uint32_t _reserved_0 : 21;
   } bits;
   
   // Full 32-bit register value.

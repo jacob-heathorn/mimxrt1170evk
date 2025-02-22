@@ -195,11 +195,11 @@ union ASRCNCR {
     eeight_chan = 8, // 8 channels in A
     enine_chan = 9, // 9 channels in A
     eten_chan = 10, // 10 channels in A
-    enot_used = 11, // Should not be used.
-    enot_used = 12, // Should not be used.
-    enot_used = 13, // Should not be used.
-    enot_used = 14, // Should not be used.
-    enot_used = 15, // Should not be used.
+    enot_used_11 = 11, // Should not be used.
+    enot_used_12 = 12, // Should not be used.
+    enot_used_13 = 13, // Should not be used.
+    enot_used_14 = 14, // Should not be used.
+    enot_used_15 = 15, // Should not be used.
   };
   
   enum class eANCB : uint32_t {
@@ -214,11 +214,11 @@ union ASRCNCR {
     eeight_chan = 8, // 8 channels in B
     enine_chan = 9, // 9 channels in B
     eten_chan = 10, // 10 channels in B
-    enot_used = 11, // Should not be used.
-    enot_used = 12, // Should not be used.
-    enot_used = 13, // Should not be used.
-    enot_used = 14, // Should not be used.
-    enot_used = 15, // Should not be used.
+    enot_used_11 = 11, // Should not be used.
+    enot_used_12 = 12, // Should not be used.
+    enot_used_13 = 13, // Should not be used.
+    enot_used_14 = 14, // Should not be used.
+    enot_used_15 = 15, // Should not be used.
   };
   
   enum class eANCC : uint32_t {
@@ -233,11 +233,11 @@ union ASRCNCR {
     eeight_chan = 8, // 8 channels in C
     enine_chan = 9, // 9 channels in C
     eten_chan = 10, // 10 channels in C
-    enot_used = 11, // Should not be used.
-    enot_used = 12, // Should not be used.
-    enot_used = 13, // Should not be used.
-    enot_used = 14, // Should not be used.
-    enot_used = 15, // Should not be used.
+    enot_used_11 = 11, // Should not be used.
+    enot_used_12 = 12, // Should not be used.
+    enot_used_13 = 13, // Should not be used.
+    enot_used_14 = 14, // Should not be used.
+    enot_used_15 = 15, // Should not be used.
   };
   
   // Bit field definition.

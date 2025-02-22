@@ -16,8 +16,8 @@ namespace nMIPI_CSI2RX {
 union CFG_NUM_LANES {
   
   enum class eCFG_NUM_LANES : uint32_t {
-    eCFG_NUM_LANES_0 = 0, // 1 Lane
-    eCFG_NUM_LANES_1 = 1, // 2 Lane
+    eONE_LANE = 0, // 1 Lane
+    eTWO_LANE = 1, // 2 Lane
   };
   
   // Bit field definition.
@@ -124,7 +124,7 @@ union ULPS_STATUS {
   static inline volatile ULPS_STATUS &Instance() { return *reinterpret_cast<volatile ULPS_STATUS*>(0x40810114); }
 };
 
-// ERRSot HS Status Register
+// ERRSotHS Status Register
 //
 union PPI_ERRSOT_HS {
   
@@ -269,132 +269,6 @@ union CFG_DISABLE_PAYLOAD_1 {
   CFG_DISABLE_PAYLOAD_1() = delete;
   inline void Reset() volatile { this->value = 0x00000000; }
   static inline volatile CFG_DISABLE_PAYLOAD_1 &Instance() { return *reinterpret_cast<volatile CFG_DISABLE_PAYLOAD_1*>(0x40810130); }
-};
-
-// Ignore Virtual Channel Register
-//
-union CFG_IGNORE_VC {
-  
-  // Bit field definition.
-  struct {
-    uint32_t IGNORE_VC : 1;
-    uint32_t _reserved_0 : 31;
-  } bits;
-  
-  // Full 32-bit register value.
-  uint32_t value;
-
-  CFG_IGNORE_VC() = delete;
-  inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile CFG_IGNORE_VC &Instance() { return *reinterpret_cast<volatile CFG_IGNORE_VC*>(0x40810180); }
-};
-
-// Virtual Channel value Register
-//
-union CFG_VID_VC {
-  
-  // Bit field definition.
-  struct {
-    uint32_t VID_VC : 2;
-    uint32_t _reserved_0 : 30;
-  } bits;
-  
-  // Full 32-bit register value.
-  uint32_t value;
-
-  CFG_VID_VC() = delete;
-  inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile CFG_VID_VC &Instance() { return *reinterpret_cast<volatile CFG_VID_VC*>(0x40810184); }
-};
-
-// FIFO Send Level Configuration Register
-//
-union CFG_VID_P_FIFO_SEND_LEVEL {
-  
-  // Bit field definition.
-  struct {
-    uint32_t SEND_LEVEL : 16;
-    uint32_t _reserved_0 : 16;
-  } bits;
-  
-  // Full 32-bit register value.
-  uint32_t value;
-
-  CFG_VID_P_FIFO_SEND_LEVEL() = delete;
-  inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile CFG_VID_P_FIFO_SEND_LEVEL &Instance() { return *reinterpret_cast<volatile CFG_VID_P_FIFO_SEND_LEVEL*>(0x40810188); }
-};
-
-// VSYNC Configuration Register
-//
-union CFG_VID_VSYNC {
-  
-  // Bit field definition.
-  struct {
-    uint32_t WIDTH : 8;
-    uint32_t _reserved_0 : 24;
-  } bits;
-  
-  // Full 32-bit register value.
-  uint32_t value;
-
-  CFG_VID_VSYNC() = delete;
-  inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile CFG_VID_VSYNC &Instance() { return *reinterpret_cast<volatile CFG_VID_VSYNC*>(0x4081018C); }
-};
-
-// Start of HSYNC Delay control Register
-//
-union CFG_VID_HSYNC_FP {
-  
-  // Bit field definition.
-  struct {
-    uint32_t DELAY_CTL : 8;
-    uint32_t _reserved_0 : 24;
-  } bits;
-  
-  // Full 32-bit register value.
-  uint32_t value;
-
-  CFG_VID_HSYNC_FP() = delete;
-  inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile CFG_VID_HSYNC_FP &Instance() { return *reinterpret_cast<volatile CFG_VID_HSYNC_FP*>(0x40810190); }
-};
-
-// HSYNC Configuration Register
-//
-union CFG_VID_HSYNC {
-  
-  // Bit field definition.
-  struct {
-    uint32_t WIDTH : 8;
-    uint32_t _reserved_0 : 24;
-  } bits;
-  
-  // Full 32-bit register value.
-  uint32_t value;
-
-  CFG_VID_HSYNC() = delete;
-  inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile CFG_VID_HSYNC &Instance() { return *reinterpret_cast<volatile CFG_VID_HSYNC*>(0x40810194); }
-};
-
-// End of HSYNC Delay Control Register
-//
-union CFG_VID_HSYNC_BP {
-  
-  // Bit field definition.
-  struct {
-    uint32_t DELAY_CTL : 8;
-    uint32_t _reserved_0 : 24;
-  } bits;
-  
-  // Full 32-bit register value.
-  uint32_t value;
-
-  CFG_VID_HSYNC_BP() = delete;
-  inline void Reset() volatile { this->value = 0x00000000; }
-  static inline volatile CFG_VID_HSYNC_BP &Instance() { return *reinterpret_cast<volatile CFG_VID_HSYNC_BP*>(0x40810198); }
 };
 
 

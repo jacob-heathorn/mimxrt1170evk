@@ -111,7 +111,7 @@ union CFG_TX_GAP {
   static inline volatile CFG_TX_GAP &Instance() { return *reinterpret_cast<volatile CFG_TX_GAP*>(0x4080C010); }
 };
 
-// CFG_AUTOINSERT_ETOP
+// CFG_AUTOINSERT_EOTP
 //
 union CFG_AUTOINSERT_EOTP {
   
@@ -134,7 +134,7 @@ union CFG_AUTOINSERT_EOTP {
   static inline volatile CFG_AUTOINSERT_EOTP &Instance() { return *reinterpret_cast<volatile CFG_AUTOINSERT_EOTP*>(0x4080C014); }
 };
 
-// CFG_EXTRA_CMDS_AFTER_ETOP
+// CFG_EXTRA_CMDS_AFTER_EOTP
 //
 union CFG_EXTRA_CMDS_AFTER_EOTP {
   

@@ -4563,7 +4563,7 @@ union SW_MUX_CTL_PAD_GPIO_DISP_B2_00 {
     eALT1_WDOG1_B = 1, // Select mux mode: ALT1 mux port: WDOG1_B of instance: WDOG1
     eALT2_mqs_RIGHT = 2, // Select mux mode: ALT2 mux port: MQS_RIGHT of instance: MQS
     eALT3_enet_1g_TX_ER = 3, // Select mux mode: ALT3 mux port: ENET_1G_TX_ER of instance: ENET_1G
-    eALT4_sai1_TX_DATA3 = 4, // Select mux mode: ALT4 mux port: SAI1_TX_DATA03 of instance: SAI1
+    eALT4_sai1_TX_DATA3 = 4, // Select mux mode: ALT4 mux port: SAI1_TX_DATA03 of instance SAI1 as input, and SAI1_RX_DATA01 of instance SAI1 as output
     eALT5_gpio_mux5_IO1 = 5, // Select mux mode: ALT5 mux port: GPIO_MUX5_IO01 of instance: GPIO_MUX5
     eALT6_src_BT_CFG6 = 6, // Select mux mode: ALT6 mux port: SRC_BT_CFG06 of instance: SRC
     eALT8_enet_qos_TX_ER = 8, // Select mux mode: ALT8 mux port: ENET_QOS_TX_ER of instance: ENET_QOS
@@ -4599,7 +4599,7 @@ union SW_MUX_CTL_PAD_GPIO_DISP_B2_01 {
     eALT1_usdhc1_VSELECT = 1, // Select mux mode: ALT1 mux port: USDHC1_VSELECT of instance: USDHC1
     eALT2_mqs_LEFT = 2, // Select mux mode: ALT2 mux port: MQS_LEFT of instance: MQS
     eALT3_WDOG2_B = 3, // Select mux mode: ALT3 mux port: WDOG2_B of instance: WDOG2
-    eALT4_sai1_TX_DATA2 = 4, // Select mux mode: ALT4 mux port: SAI1_TX_DATA02 of instance: SAI1
+    eALT4_sai1_TX_DATA2 = 4, // Select mux mode: ALT4 mux port: SAI1_TX_DATA02 of instance SAI1 as input, and SAI1_RX_DATA2 of instance SAI1 as output
     eALT5_gpio_mux5_IO2 = 5, // Select mux mode: ALT5 mux port: GPIO_MUX5_IO02 of instance: GPIO_MUX5
     eALT6_src_BT_CFG7 = 6, // Select mux mode: ALT6 mux port: SRC_BT_CFG07 of instance: SRC
     eALT8_EWM_OUT_B = 8, // Select mux mode: ALT8 mux port: EWM_OUT_B of instance: EWM
@@ -4636,7 +4636,7 @@ union SW_MUX_CTL_PAD_GPIO_DISP_B2_02 {
     eALT1_ENET_TX_DATA0 = 1, // Select mux mode: ALT1 mux port: ENET_TX_DATA00 of instance: ENET
     eALT2_pit1_TRIGGER3 = 2, // Select mux mode: ALT2 mux port: PIT1_TRIGGER3 of instance: PIT1
     eALT3_ARM_TRACE0 = 3, // Select mux mode: ALT3 mux port: ARM_TRACE00 of instance: ARM
-    eALT4_sai1_TX_DATA1 = 4, // Select mux mode: ALT4 mux port: SAI1_TX_DATA01 of instance: SAI1
+    eALT4_sai1_TX_DATA1 = 4, // Select mux mode: ALT4 mux port: SAI1_TX_DATA01 of instance SAI1 as input or SAI1_RX_DATA3 of instance SAI as output
     eALT5_gpio_mux5_IO3 = 5, // Select mux mode: ALT5 mux port: GPIO_MUX5_IO03 of instance: GPIO_MUX5
     eALT6_src_BT_CFG8 = 6, // Select mux mode: ALT6 mux port: SRC_BT_CFG08 of instance: SRC
     eALT8_ENET_QOS_TX_DATA0 = 8, // Select mux mode: ALT8 mux port: ENET_QOS_TX_DATA00 of instance: ENET_QOS
@@ -8552,7 +8552,7 @@ union SW_PAD_CTL_PAD_GPIO_AD_00 {
   };
   
   enum class ePUE : uint32_t {
-    ePUE_0_Pull_Disable__Highz = 0, // Pull Disable, Highz
+    ePUE_0_Pull_Disable__Highz = 0, // Pull Disable
     ePUE_1_Pull_Enable = 1, // Pull Enable
   };
   
@@ -8615,7 +8615,7 @@ union SW_PAD_CTL_PAD_GPIO_AD_01 {
   };
   
   enum class ePUE : uint32_t {
-    ePUE_0_Pull_Disable__Highz = 0, // Pull Disable, Highz
+    ePUE_0_Pull_Disable__Highz = 0, // Pull Disable
     ePUE_1_Pull_Enable = 1, // Pull Enable
   };
   
@@ -8678,7 +8678,7 @@ union SW_PAD_CTL_PAD_GPIO_AD_02 {
   };
   
   enum class ePUE : uint32_t {
-    ePUE_0_Pull_Disable__Highz = 0, // Pull Disable, Highz
+    ePUE_0_Pull_Disable__Highz = 0, // Pull Disable
     ePUE_1_Pull_Enable = 1, // Pull Enable
   };
   
@@ -8741,7 +8741,7 @@ union SW_PAD_CTL_PAD_GPIO_AD_03 {
   };
   
   enum class ePUE : uint32_t {
-    ePUE_0_Pull_Disable__Highz = 0, // Pull Disable, Highz
+    ePUE_0_Pull_Disable__Highz = 0, // Pull Disable
     ePUE_1_Pull_Enable = 1, // Pull Enable
   };
   
@@ -8804,7 +8804,7 @@ union SW_PAD_CTL_PAD_GPIO_AD_04 {
   };
   
   enum class ePUE : uint32_t {
-    ePUE_0_Pull_Disable__Highz = 0, // Pull Disable, Highz
+    ePUE_0_Pull_Disable__Highz = 0, // Pull Disable
     ePUE_1_Pull_Enable = 1, // Pull Enable
   };
   
@@ -8867,7 +8867,7 @@ union SW_PAD_CTL_PAD_GPIO_AD_05 {
   };
   
   enum class ePUE : uint32_t {
-    ePUE_0_Pull_Disable__Highz = 0, // Pull Disable, Highz
+    ePUE_0_Pull_Disable__Highz = 0, // Pull Disable
     ePUE_1_Pull_Enable = 1, // Pull Enable
   };
   
@@ -8930,7 +8930,7 @@ union SW_PAD_CTL_PAD_GPIO_AD_06 {
   };
   
   enum class ePUE : uint32_t {
-    ePUE_0_Pull_Disable__Highz = 0, // Pull Disable, Highz
+    ePUE_0_Pull_Disable__Highz = 0, // Pull Disable
     ePUE_1_Pull_Enable = 1, // Pull Enable
   };
   
@@ -8993,7 +8993,7 @@ union SW_PAD_CTL_PAD_GPIO_AD_07 {
   };
   
   enum class ePUE : uint32_t {
-    ePUE_0_Pull_Disable__Highz = 0, // Pull Disable, Highz
+    ePUE_0_Pull_Disable__Highz = 0, // Pull Disable
     ePUE_1_Pull_Enable = 1, // Pull Enable
   };
   
@@ -9056,7 +9056,7 @@ union SW_PAD_CTL_PAD_GPIO_AD_08 {
   };
   
   enum class ePUE : uint32_t {
-    ePUE_0_Pull_Disable__Highz = 0, // Pull Disable, Highz
+    ePUE_0_Pull_Disable__Highz = 0, // Pull Disable
     ePUE_1_Pull_Enable = 1, // Pull Enable
   };
   
@@ -9119,7 +9119,7 @@ union SW_PAD_CTL_PAD_GPIO_AD_09 {
   };
   
   enum class ePUE : uint32_t {
-    ePUE_0_Pull_Disable__Highz = 0, // Pull Disable, Highz
+    ePUE_0_Pull_Disable__Highz = 0, // Pull Disable
     ePUE_1_Pull_Enable = 1, // Pull Enable
   };
   
@@ -9182,7 +9182,7 @@ union SW_PAD_CTL_PAD_GPIO_AD_10 {
   };
   
   enum class ePUE : uint32_t {
-    ePUE_0_Pull_Disable__Highz = 0, // Pull Disable, Highz
+    ePUE_0_Pull_Disable__Highz = 0, // Pull Disable
     ePUE_1_Pull_Enable = 1, // Pull Enable
   };
   
@@ -9245,7 +9245,7 @@ union SW_PAD_CTL_PAD_GPIO_AD_11 {
   };
   
   enum class ePUE : uint32_t {
-    ePUE_0_Pull_Disable__Highz = 0, // Pull Disable, Highz
+    ePUE_0_Pull_Disable__Highz = 0, // Pull Disable
     ePUE_1_Pull_Enable = 1, // Pull Enable
   };
   
@@ -9308,7 +9308,7 @@ union SW_PAD_CTL_PAD_GPIO_AD_12 {
   };
   
   enum class ePUE : uint32_t {
-    ePUE_0_Pull_Disable__Highz = 0, // Pull Disable, Highz
+    ePUE_0_Pull_Disable__Highz = 0, // Pull Disable
     ePUE_1_Pull_Enable = 1, // Pull Enable
   };
   
@@ -9371,7 +9371,7 @@ union SW_PAD_CTL_PAD_GPIO_AD_13 {
   };
   
   enum class ePUE : uint32_t {
-    ePUE_0_Pull_Disable__Highz = 0, // Pull Disable, Highz
+    ePUE_0_Pull_Disable__Highz = 0, // Pull Disable
     ePUE_1_Pull_Enable = 1, // Pull Enable
   };
   
@@ -9434,7 +9434,7 @@ union SW_PAD_CTL_PAD_GPIO_AD_14 {
   };
   
   enum class ePUE : uint32_t {
-    ePUE_0_Pull_Disable__Highz = 0, // Pull Disable, Highz
+    ePUE_0_Pull_Disable__Highz = 0, // Pull Disable
     ePUE_1_Pull_Enable = 1, // Pull Enable
   };
   
@@ -9497,7 +9497,7 @@ union SW_PAD_CTL_PAD_GPIO_AD_15 {
   };
   
   enum class ePUE : uint32_t {
-    ePUE_0_Pull_Disable__Highz = 0, // Pull Disable, Highz
+    ePUE_0_Pull_Disable__Highz = 0, // Pull Disable
     ePUE_1_Pull_Enable = 1, // Pull Enable
   };
   
@@ -9560,7 +9560,7 @@ union SW_PAD_CTL_PAD_GPIO_AD_16 {
   };
   
   enum class ePUE : uint32_t {
-    ePUE_0_Pull_Disable__Highz = 0, // Pull Disable, Highz
+    ePUE_0_Pull_Disable__Highz = 0, // Pull Disable
     ePUE_1_Pull_Enable = 1, // Pull Enable
   };
   
@@ -9623,7 +9623,7 @@ union SW_PAD_CTL_PAD_GPIO_AD_17 {
   };
   
   enum class ePUE : uint32_t {
-    ePUE_0_Pull_Disable__Highz = 0, // Pull Disable, Highz
+    ePUE_0_Pull_Disable__Highz = 0, // Pull Disable
     ePUE_1_Pull_Enable = 1, // Pull Enable
   };
   
@@ -9686,7 +9686,7 @@ union SW_PAD_CTL_PAD_GPIO_AD_18 {
   };
   
   enum class ePUE : uint32_t {
-    ePUE_0_Pull_Disable__Highz = 0, // Pull Disable, Highz
+    ePUE_0_Pull_Disable__Highz = 0, // Pull Disable
     ePUE_1_Pull_Enable = 1, // Pull Enable
   };
   
@@ -9749,7 +9749,7 @@ union SW_PAD_CTL_PAD_GPIO_AD_19 {
   };
   
   enum class ePUE : uint32_t {
-    ePUE_0_Pull_Disable__Highz = 0, // Pull Disable, Highz
+    ePUE_0_Pull_Disable__Highz = 0, // Pull Disable
     ePUE_1_Pull_Enable = 1, // Pull Enable
   };
   
@@ -9812,7 +9812,7 @@ union SW_PAD_CTL_PAD_GPIO_AD_20 {
   };
   
   enum class ePUE : uint32_t {
-    ePUE_0_Pull_Disable__Highz = 0, // Pull Disable, Highz
+    ePUE_0_Pull_Disable__Highz = 0, // Pull Disable
     ePUE_1_Pull_Enable = 1, // Pull Enable
   };
   
@@ -9875,7 +9875,7 @@ union SW_PAD_CTL_PAD_GPIO_AD_21 {
   };
   
   enum class ePUE : uint32_t {
-    ePUE_0_Pull_Disable__Highz = 0, // Pull Disable, Highz
+    ePUE_0_Pull_Disable__Highz = 0, // Pull Disable
     ePUE_1_Pull_Enable = 1, // Pull Enable
   };
   
@@ -9938,7 +9938,7 @@ union SW_PAD_CTL_PAD_GPIO_AD_22 {
   };
   
   enum class ePUE : uint32_t {
-    ePUE_0_Pull_Disable__Highz = 0, // Pull Disable, Highz
+    ePUE_0_Pull_Disable__Highz = 0, // Pull Disable
     ePUE_1_Pull_Enable = 1, // Pull Enable
   };
   
@@ -10001,7 +10001,7 @@ union SW_PAD_CTL_PAD_GPIO_AD_23 {
   };
   
   enum class ePUE : uint32_t {
-    ePUE_0_Pull_Disable__Highz = 0, // Pull Disable, Highz
+    ePUE_0_Pull_Disable__Highz = 0, // Pull Disable
     ePUE_1_Pull_Enable = 1, // Pull Enable
   };
   
@@ -10064,7 +10064,7 @@ union SW_PAD_CTL_PAD_GPIO_AD_24 {
   };
   
   enum class ePUE : uint32_t {
-    ePUE_0_Pull_Disable__Highz = 0, // Pull Disable, Highz
+    ePUE_0_Pull_Disable__Highz = 0, // Pull Disable
     ePUE_1_Pull_Enable = 1, // Pull Enable
   };
   
@@ -10127,7 +10127,7 @@ union SW_PAD_CTL_PAD_GPIO_AD_25 {
   };
   
   enum class ePUE : uint32_t {
-    ePUE_0_Pull_Disable__Highz = 0, // Pull Disable, Highz
+    ePUE_0_Pull_Disable__Highz = 0, // Pull Disable
     ePUE_1_Pull_Enable = 1, // Pull Enable
   };
   
@@ -10190,7 +10190,7 @@ union SW_PAD_CTL_PAD_GPIO_AD_26 {
   };
   
   enum class ePUE : uint32_t {
-    ePUE_0_Pull_Disable__Highz = 0, // Pull Disable, Highz
+    ePUE_0_Pull_Disable__Highz = 0, // Pull Disable
     ePUE_1_Pull_Enable = 1, // Pull Enable
   };
   
@@ -10253,7 +10253,7 @@ union SW_PAD_CTL_PAD_GPIO_AD_27 {
   };
   
   enum class ePUE : uint32_t {
-    ePUE_0_Pull_Disable__Highz = 0, // Pull Disable, Highz
+    ePUE_0_Pull_Disable__Highz = 0, // Pull Disable
     ePUE_1_Pull_Enable = 1, // Pull Enable
   };
   
@@ -10316,7 +10316,7 @@ union SW_PAD_CTL_PAD_GPIO_AD_28 {
   };
   
   enum class ePUE : uint32_t {
-    ePUE_0_Pull_Disable__Highz = 0, // Pull Disable, Highz
+    ePUE_0_Pull_Disable__Highz = 0, // Pull Disable
     ePUE_1_Pull_Enable = 1, // Pull Enable
   };
   
@@ -10379,7 +10379,7 @@ union SW_PAD_CTL_PAD_GPIO_AD_29 {
   };
   
   enum class ePUE : uint32_t {
-    ePUE_0_Pull_Disable__Highz = 0, // Pull Disable, Highz
+    ePUE_0_Pull_Disable__Highz = 0, // Pull Disable
     ePUE_1_Pull_Enable = 1, // Pull Enable
   };
   
@@ -10442,7 +10442,7 @@ union SW_PAD_CTL_PAD_GPIO_AD_30 {
   };
   
   enum class ePUE : uint32_t {
-    ePUE_0_Pull_Disable__Highz = 0, // Pull Disable, Highz
+    ePUE_0_Pull_Disable__Highz = 0, // Pull Disable
     ePUE_1_Pull_Enable = 1, // Pull Enable
   };
   
@@ -10505,7 +10505,7 @@ union SW_PAD_CTL_PAD_GPIO_AD_31 {
   };
   
   enum class ePUE : uint32_t {
-    ePUE_0_Pull_Disable__Highz = 0, // Pull Disable, Highz
+    ePUE_0_Pull_Disable__Highz = 0, // Pull Disable
     ePUE_1_Pull_Enable = 1, // Pull Enable
   };
   
@@ -10568,7 +10568,7 @@ union SW_PAD_CTL_PAD_GPIO_AD_32 {
   };
   
   enum class ePUE : uint32_t {
-    ePUE_0_Pull_Disable__Highz = 0, // Pull Disable, Highz
+    ePUE_0_Pull_Disable__Highz = 0, // Pull Disable
     ePUE_1_Pull_Enable = 1, // Pull Enable
   };
   
@@ -10631,7 +10631,7 @@ union SW_PAD_CTL_PAD_GPIO_AD_33 {
   };
   
   enum class ePUE : uint32_t {
-    ePUE_0_Pull_Disable__Highz = 0, // Pull Disable, Highz
+    ePUE_0_Pull_Disable__Highz = 0, // Pull Disable
     ePUE_1_Pull_Enable = 1, // Pull Enable
   };
   
@@ -10694,7 +10694,7 @@ union SW_PAD_CTL_PAD_GPIO_AD_34 {
   };
   
   enum class ePUE : uint32_t {
-    ePUE_0_Pull_Disable__Highz = 0, // Pull Disable, Highz
+    ePUE_0_Pull_Disable__Highz = 0, // Pull Disable
     ePUE_1_Pull_Enable = 1, // Pull Enable
   };
   
@@ -10757,7 +10757,7 @@ union SW_PAD_CTL_PAD_GPIO_AD_35 {
   };
   
   enum class ePUE : uint32_t {
-    ePUE_0_Pull_Disable__Highz = 0, // Pull Disable, Highz
+    ePUE_0_Pull_Disable__Highz = 0, // Pull Disable
     ePUE_1_Pull_Enable = 1, // Pull Enable
   };
   
@@ -12440,7 +12440,7 @@ union SW_PAD_CTL_PAD_GPIO_DISP_B2_00 {
   };
   
   enum class ePUE : uint32_t {
-    ePUE_0_Pull_Disable__Highz = 0, // Pull Disable, Highz
+    ePUE_0_Pull_Disable__Highz = 0, // Pull Disable
     ePUE_1_Pull_Enable = 1, // Pull Enable
   };
   
@@ -12503,7 +12503,7 @@ union SW_PAD_CTL_PAD_GPIO_DISP_B2_01 {
   };
   
   enum class ePUE : uint32_t {
-    ePUE_0_Pull_Disable__Highz = 0, // Pull Disable, Highz
+    ePUE_0_Pull_Disable__Highz = 0, // Pull Disable
     ePUE_1_Pull_Enable = 1, // Pull Enable
   };
   
@@ -12566,7 +12566,7 @@ union SW_PAD_CTL_PAD_GPIO_DISP_B2_02 {
   };
   
   enum class ePUE : uint32_t {
-    ePUE_0_Pull_Disable__Highz = 0, // Pull Disable, Highz
+    ePUE_0_Pull_Disable__Highz = 0, // Pull Disable
     ePUE_1_Pull_Enable = 1, // Pull Enable
   };
   
@@ -12629,7 +12629,7 @@ union SW_PAD_CTL_PAD_GPIO_DISP_B2_03 {
   };
   
   enum class ePUE : uint32_t {
-    ePUE_0_Pull_Disable__Highz = 0, // Pull Disable, Highz
+    ePUE_0_Pull_Disable__Highz = 0, // Pull Disable
     ePUE_1_Pull_Enable = 1, // Pull Enable
   };
   
@@ -12692,7 +12692,7 @@ union SW_PAD_CTL_PAD_GPIO_DISP_B2_04 {
   };
   
   enum class ePUE : uint32_t {
-    ePUE_0_Pull_Disable__Highz = 0, // Pull Disable, Highz
+    ePUE_0_Pull_Disable__Highz = 0, // Pull Disable
     ePUE_1_Pull_Enable = 1, // Pull Enable
   };
   
@@ -12755,7 +12755,7 @@ union SW_PAD_CTL_PAD_GPIO_DISP_B2_05 {
   };
   
   enum class ePUE : uint32_t {
-    ePUE_0_Pull_Disable__Highz = 0, // Pull Disable, Highz
+    ePUE_0_Pull_Disable__Highz = 0, // Pull Disable
     ePUE_1_Pull_Enable = 1, // Pull Enable
   };
   
@@ -12818,7 +12818,7 @@ union SW_PAD_CTL_PAD_GPIO_DISP_B2_06 {
   };
   
   enum class ePUE : uint32_t {
-    ePUE_0_Pull_Disable__Highz = 0, // Pull Disable, Highz
+    ePUE_0_Pull_Disable__Highz = 0, // Pull Disable
     ePUE_1_Pull_Enable = 1, // Pull Enable
   };
   
@@ -12881,7 +12881,7 @@ union SW_PAD_CTL_PAD_GPIO_DISP_B2_07 {
   };
   
   enum class ePUE : uint32_t {
-    ePUE_0_Pull_Disable__Highz = 0, // Pull Disable, Highz
+    ePUE_0_Pull_Disable__Highz = 0, // Pull Disable
     ePUE_1_Pull_Enable = 1, // Pull Enable
   };
   
@@ -12944,7 +12944,7 @@ union SW_PAD_CTL_PAD_GPIO_DISP_B2_08 {
   };
   
   enum class ePUE : uint32_t {
-    ePUE_0_Pull_Disable__Highz = 0, // Pull Disable, Highz
+    ePUE_0_Pull_Disable__Highz = 0, // Pull Disable
     ePUE_1_Pull_Enable = 1, // Pull Enable
   };
   
@@ -13007,7 +13007,7 @@ union SW_PAD_CTL_PAD_GPIO_DISP_B2_09 {
   };
   
   enum class ePUE : uint32_t {
-    ePUE_0_Pull_Disable__Highz = 0, // Pull Disable, Highz
+    ePUE_0_Pull_Disable__Highz = 0, // Pull Disable
     ePUE_1_Pull_Enable = 1, // Pull Enable
   };
   
@@ -13070,7 +13070,7 @@ union SW_PAD_CTL_PAD_GPIO_DISP_B2_10 {
   };
   
   enum class ePUE : uint32_t {
-    ePUE_0_Pull_Disable__Highz = 0, // Pull Disable, Highz
+    ePUE_0_Pull_Disable__Highz = 0, // Pull Disable
     ePUE_1_Pull_Enable = 1, // Pull Enable
   };
   
@@ -13133,7 +13133,7 @@ union SW_PAD_CTL_PAD_GPIO_DISP_B2_11 {
   };
   
   enum class ePUE : uint32_t {
-    ePUE_0_Pull_Disable__Highz = 0, // Pull Disable, Highz
+    ePUE_0_Pull_Disable__Highz = 0, // Pull Disable
     ePUE_1_Pull_Enable = 1, // Pull Enable
   };
   
@@ -13196,7 +13196,7 @@ union SW_PAD_CTL_PAD_GPIO_DISP_B2_12 {
   };
   
   enum class ePUE : uint32_t {
-    ePUE_0_Pull_Disable__Highz = 0, // Pull Disable, Highz
+    ePUE_0_Pull_Disable__Highz = 0, // Pull Disable
     ePUE_1_Pull_Enable = 1, // Pull Enable
   };
   
@@ -13259,7 +13259,7 @@ union SW_PAD_CTL_PAD_GPIO_DISP_B2_13 {
   };
   
   enum class ePUE : uint32_t {
-    ePUE_0_Pull_Disable__Highz = 0, // Pull Disable, Highz
+    ePUE_0_Pull_Disable__Highz = 0, // Pull Disable
     ePUE_1_Pull_Enable = 1, // Pull Enable
   };
   
@@ -13322,7 +13322,7 @@ union SW_PAD_CTL_PAD_GPIO_DISP_B2_14 {
   };
   
   enum class ePUE : uint32_t {
-    ePUE_0_Pull_Disable__Highz = 0, // Pull Disable, Highz
+    ePUE_0_Pull_Disable__Highz = 0, // Pull Disable
     ePUE_1_Pull_Enable = 1, // Pull Enable
   };
   
@@ -13385,7 +13385,7 @@ union SW_PAD_CTL_PAD_GPIO_DISP_B2_15 {
   };
   
   enum class ePUE : uint32_t {
-    ePUE_0_Pull_Disable__Highz = 0, // Pull Disable, Highz
+    ePUE_0_Pull_Disable__Highz = 0, // Pull Disable
     ePUE_1_Pull_Enable = 1, // Pull Enable
   };
   

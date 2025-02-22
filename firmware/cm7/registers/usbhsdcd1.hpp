@@ -172,16 +172,16 @@ union SIGNAL_OVERRIDE {
 union TIMER0 {
   
   enum class eTSEQ_INIT : uint32_t {
-    eMS = 0, // 0ms - 1023ms
-    eMS = 1, // 0ms - 1023ms
-    eMS = 2, // 0ms - 1023ms
-    eMS = 3, // 0ms - 1023ms
-    eMS = 4, // 0ms - 1023ms
-    eMS = 5, // 0ms - 1023ms
-    eMS = 6, // 0ms - 1023ms
-    eMS = 7, // 0ms - 1023ms
-    eMS = 8, // 0ms - 1023ms
-    eMS = 9, // 0ms - 1023ms
+    eMS_0 = 0, // 0ms - 1023ms
+    eMS_1 = 1, // 0ms - 1023ms
+    eMS_2 = 2, // 0ms - 1023ms
+    eMS_3 = 3, // 0ms - 1023ms
+    eMS_4 = 4, // 0ms - 1023ms
+    eMS_5 = 5, // 0ms - 1023ms
+    eMS_6 = 6, // 0ms - 1023ms
+    eMS_7 = 7, // 0ms - 1023ms
+    eMS_8 = 8, // 0ms - 1023ms
+    eMS_9 = 9, // 0ms - 1023ms
   };
   
   // Bit field definition.
@@ -205,29 +205,29 @@ union TIMER0 {
 union TIMER1 {
   
   enum class eTVDPSRC_ON : uint32_t {
-    eMS = 1, // 1ms - 1023ms
-    eMS = 2, // 1ms - 1023ms
-    eMS = 3, // 1ms - 1023ms
-    eMS = 4, // 1ms - 1023ms
-    eMS = 5, // 1ms - 1023ms
-    eMS = 6, // 1ms - 1023ms
-    eMS = 7, // 1ms - 1023ms
-    eMS = 8, // 1ms - 1023ms
-    eMS = 9, // 1ms - 1023ms
-    eMS = 10, // 1ms - 1023ms
+    eMS_1 = 1, // 1ms - 1023ms
+    eMS_2 = 2, // 1ms - 1023ms
+    eMS_3 = 3, // 1ms - 1023ms
+    eMS_4 = 4, // 1ms - 1023ms
+    eMS_5 = 5, // 1ms - 1023ms
+    eMS_6 = 6, // 1ms - 1023ms
+    eMS_7 = 7, // 1ms - 1023ms
+    eMS_8 = 8, // 1ms - 1023ms
+    eMS_9 = 9, // 1ms - 1023ms
+    eMS_10 = 10, // 1ms - 1023ms
   };
   
   enum class eTDCD_DBNC : uint32_t {
-    eMS = 1, // 1ms - 1023ms
-    eMS = 2, // 1ms - 1023ms
-    eMS = 3, // 1ms - 1023ms
-    eMS = 4, // 1ms - 1023ms
-    eMS = 5, // 1ms - 1023ms
-    eMS = 6, // 1ms - 1023ms
-    eMS = 7, // 1ms - 1023ms
-    eMS = 8, // 1ms - 1023ms
-    eMS = 9, // 1ms - 1023ms
-    eMS = 10, // 1ms - 1023ms
+    eMS_1 = 1, // 1ms - 1023ms
+    eMS_2 = 2, // 1ms - 1023ms
+    eMS_3 = 3, // 1ms - 1023ms
+    eMS_4 = 4, // 1ms - 1023ms
+    eMS_5 = 5, // 1ms - 1023ms
+    eMS_6 = 6, // 1ms - 1023ms
+    eMS_7 = 7, // 1ms - 1023ms
+    eMS_8 = 8, // 1ms - 1023ms
+    eMS_9 = 9, // 1ms - 1023ms
+    eMS_10 = 10, // 1ms - 1023ms
   };
   
   // Bit field definition.
@@ -251,29 +251,29 @@ union TIMER1 {
 union TIMER2_BC11 {
   
   enum class eCHECK_DM : uint32_t {
-    eMS = 1, // 1ms - 15ms
-    eMS = 2, // 1ms - 15ms
-    eMS = 3, // 1ms - 15ms
-    eMS = 4, // 1ms - 15ms
-    eMS = 5, // 1ms - 15ms
-    eMS = 6, // 1ms - 15ms
-    eMS = 7, // 1ms - 15ms
-    eMS = 8, // 1ms - 15ms
-    eMS = 9, // 1ms - 15ms
-    eMS = 10, // 1ms - 15ms
+    eMS_1 = 1, // 1ms - 15ms
+    eMS_2 = 2, // 1ms - 15ms
+    eMS_3 = 3, // 1ms - 15ms
+    eMS_4 = 4, // 1ms - 15ms
+    eMS_5 = 5, // 1ms - 15ms
+    eMS_6 = 6, // 1ms - 15ms
+    eMS_7 = 7, // 1ms - 15ms
+    eMS_8 = 8, // 1ms - 15ms
+    eMS_9 = 9, // 1ms - 15ms
+    eMS_10 = 10, // 1ms - 15ms
   };
   
   enum class eTVDPSRC_CON : uint32_t {
-    eMS = 1, // 1ms - 1023ms
-    eMS = 2, // 1ms - 1023ms
-    eMS = 3, // 1ms - 1023ms
-    eMS = 4, // 1ms - 1023ms
-    eMS = 5, // 1ms - 1023ms
-    eMS = 6, // 1ms - 1023ms
-    eMS = 7, // 1ms - 1023ms
-    eMS = 8, // 1ms - 1023ms
-    eMS = 9, // 1ms - 1023ms
-    eMS = 10, // 1ms - 1023ms
+    eMS_1 = 1, // 1ms - 1023ms
+    eMS_2 = 2, // 1ms - 1023ms
+    eMS_3 = 3, // 1ms - 1023ms
+    eMS_4 = 4, // 1ms - 1023ms
+    eMS_5 = 5, // 1ms - 1023ms
+    eMS_6 = 6, // 1ms - 1023ms
+    eMS_7 = 7, // 1ms - 1023ms
+    eMS_8 = 8, // 1ms - 1023ms
+    eMS_9 = 9, // 1ms - 1023ms
+    eMS_10 = 10, // 1ms - 1023ms
   };
   
   // Bit field definition.
@@ -297,29 +297,29 @@ union TIMER2_BC11 {
 union TIMER2_BC12 {
   
   enum class eTVDMSRC_ON : uint32_t {
-    eMS = 0, // 0ms - 40ms
-    eMS = 1, // 0ms - 40ms
-    eMS = 2, // 0ms - 40ms
-    eMS = 3, // 0ms - 40ms
-    eMS = 4, // 0ms - 40ms
-    eMS = 5, // 0ms - 40ms
-    eMS = 6, // 0ms - 40ms
-    eMS = 7, // 0ms - 40ms
-    eMS = 8, // 0ms - 40ms
-    eMS = 9, // 0ms - 40ms
+    eMS_0 = 0, // 0ms - 40ms
+    eMS_1 = 1, // 0ms - 40ms
+    eMS_2 = 2, // 0ms - 40ms
+    eMS_3 = 3, // 0ms - 40ms
+    eMS_4 = 4, // 0ms - 40ms
+    eMS_5 = 5, // 0ms - 40ms
+    eMS_6 = 6, // 0ms - 40ms
+    eMS_7 = 7, // 0ms - 40ms
+    eMS_8 = 8, // 0ms - 40ms
+    eMS_9 = 9, // 0ms - 40ms
   };
   
   enum class eTWAIT_AFTER_PRD : uint32_t {
-    eMS = 1, // 1ms - 1023ms
-    eMS = 2, // 1ms - 1023ms
-    eMS = 3, // 1ms - 1023ms
-    eMS = 4, // 1ms - 1023ms
-    eMS = 5, // 1ms - 1023ms
-    eMS = 6, // 1ms - 1023ms
-    eMS = 7, // 1ms - 1023ms
-    eMS = 8, // 1ms - 1023ms
-    eMS = 9, // 1ms - 1023ms
-    eMS = 10, // 1ms - 1023ms
+    eMS_1 = 1, // 1ms - 1023ms
+    eMS_2 = 2, // 1ms - 1023ms
+    eMS_3 = 3, // 1ms - 1023ms
+    eMS_4 = 4, // 1ms - 1023ms
+    eMS_5 = 5, // 1ms - 1023ms
+    eMS_6 = 6, // 1ms - 1023ms
+    eMS_7 = 7, // 1ms - 1023ms
+    eMS_8 = 8, // 1ms - 1023ms
+    eMS_9 = 9, // 1ms - 1023ms
+    eMS_10 = 10, // 1ms - 1023ms
   };
   
   // Bit field definition.

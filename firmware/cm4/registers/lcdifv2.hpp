@@ -16,33 +16,33 @@ namespace nLCDIFV2 {
 union CTRL {
   
   enum class eINV_HS : uint32_t {
-    eINV_HS_0 = 0, // HSYNC signal not inverted (active HIGH)
-    eINV_HS_1 = 1, // Invert HSYNC signal (active LOW)
+    ebf_val0 = 0, // HSYNC signal not inverted (active HIGH)
+    ebf_val1 = 1, // Invert HSYNC signal (active LOW)
   };
   
   enum class eINV_VS : uint32_t {
-    eINV_VS_0 = 0, // VSYNC signal not inverted (active HIGH)
-    eINV_VS_1 = 1, // Invert VSYNC signal (active LOW)
+    ebf_val0 = 0, // VSYNC signal not inverted (active HIGH)
+    ebf_val1 = 1, // Invert VSYNC signal (active LOW)
   };
   
   enum class eINV_DE : uint32_t {
-    eINV_DE_0 = 0, // Data enable is active high
-    eINV_DE_1 = 1, // Data enable is active low
+    ebf_val0 = 0, // Data enable is active high
+    ebf_val1 = 1, // Data enable is active low
   };
   
   enum class eINV_PXCK : uint32_t {
-    eINV_PXCK_0 = 0, // Display samples data on the falling edge
-    eINV_PXCK_1 = 1, // Display samples data on the rising edge
+    ebf_val0 = 0, // Display samples data on the falling edge
+    ebf_val1 = 1, // Display samples data on the rising edge
   };
   
   enum class eNEG : uint32_t {
-    eNEG_0 = 0, // Output is to remain same
-    eNEG_1 = 1, // Output to be negated
+    ebf_val0 = 0, // Output is to remain same
+    ebf_val1 = 1, // Output to be negated
   };
   
   enum class eSW_RESET : uint32_t {
-    eSW_RESET_0 = 0, // No action
-    eSW_RESET_1 = 1, // All LCDIFv2 internal registers are forced into their reset state. User registers are not affected
+    ebf_val0 = 0, // No action
+    ebf_val1 = 1, // All LCDIFv2 internal registers are forced into their reset state. User registers are not affected
   };
   
   // Bit field definition.
@@ -138,24 +138,24 @@ union CTRL_TOG {
 union DISP_PARA {
   
   enum class eDISP_MODE : uint32_t {
-    eDISP_MODE_0 = 0, // Normal mode. Panel content controlled by layer configuration
-    eDISP_MODE_1 = 1, // Test Mode1(BGND Color Display)
-    eDISP_MODE_2 = 2, // Test Mode2(Column Color Bar)
-    eDISP_MODE_3 = 3, // Test Mode3(Row Color Bar)
+    ebf_val0 = 0, // Normal mode. Panel content controlled by layer configuration
+    ebf_val1 = 1, // Test Mode1(BGND Color Display)
+    ebf_val2 = 2, // Test Mode2(Column Color Bar)
+    ebf_val3 = 3, // Test Mode3(Row Color Bar)
   };
   
   enum class eLINE_PATTERN : uint32_t {
-    eLINE_PATTERN_0 = 0, // RGB
-    eLINE_PATTERN_1 = 1, // RBG
-    eLINE_PATTERN_2 = 2, // GBR
-    eLINE_PATTERN_3 = 3, // GRB
-    eLINE_PATTERN_4 = 4, // BRG
-    eLINE_PATTERN_5 = 5, // BGR
+    ebf_val0 = 0, // RGB
+    ebf_val1 = 1, // RBG
+    ebf_val2 = 2, // GBR
+    ebf_val3 = 3, // GRB
+    ebf_val4 = 4, // BRG
+    ebf_val5 = 5, // BGR
   };
   
   enum class eDISP_ON : uint32_t {
-    eDISP_ON_0 = 0, // Display Off
-    eDISP_ON_1 = 1, // Display On
+    ebf_val0 = 0, // Display Off
+    ebf_val1 = 1, // Display On
   };
   
   // Bit field definition.
@@ -246,18 +246,18 @@ union VSYN_PARA {
 union INT_STATUS_D0 {
   
   enum class eVSYNC : uint32_t {
-    eVSYNC_0 = 0, // VSYNC has not started
-    eVSYNC_1 = 1, // VSYNC has started
+    ebf_val0 = 0, // VSYNC has not started
+    ebf_val1 = 1, // VSYNC has started
   };
   
   enum class eUNDERRUN : uint32_t {
-    eUNDERRUN_0 = 0, // Output buffer not underrun
-    eUNDERRUN_1 = 1, // Output buffer underrun
+    ebf_val0 = 0, // Output buffer not underrun
+    ebf_val1 = 1, // Output buffer underrun
   };
   
   enum class eVS_BLANK : uint32_t {
-    eVS_BLANK_0 = 0, // Vertical blanking period has not started
-    eVS_BLANK_1 = 1, // Vertical blanking period has started
+    ebf_val0 = 0, // Vertical blanking period has not started
+    ebf_val1 = 1, // Vertical blanking period has started
   };
   
   // Bit field definition.
@@ -284,18 +284,18 @@ union INT_STATUS_D0 {
 union INT_ENABLE_D0 {
   
   enum class eVSYNC_EN : uint32_t {
-    eVSYNC_EN_0 = 0, // VSYNC interrupt disable
-    eVSYNC_EN_1 = 1, // VSYNC interrupt enable
+    ebf_val0 = 0, // VSYNC interrupt disable
+    ebf_val1 = 1, // VSYNC interrupt enable
   };
   
   enum class eUNDERRUN_EN : uint32_t {
-    eUNDERRUN_EN_0 = 0, // Output buffer underrun disable
-    eUNDERRUN_EN_1 = 1, // Output buffer underrun enable
+    ebf_val0 = 0, // Output buffer underrun disable
+    ebf_val1 = 1, // Output buffer underrun enable
   };
   
   enum class eVS_BLANK_EN : uint32_t {
-    eVS_BLANK_EN_0 = 0, // Vertical blanking start interrupt disable
-    eVS_BLANK_EN_1 = 1, // Vertical blanking start interrupt enable
+    ebf_val0 = 0, // Vertical blanking start interrupt disable
+    ebf_val1 = 1, // Vertical blanking start interrupt enable
   };
   
   // Bit field definition.
@@ -363,67 +363,20 @@ union INT_ENABLE_D1 {
   static inline volatile INT_ENABLE_D1 &Instance() { return *reinterpret_cast<volatile INT_ENABLE_D1*>(0x40808034); }
 };
 
-// Parallel Data Interface Parameter Register
+// Reserved
 //
 union PDI_PARA {
   
-  enum class eINV_PDI_HS : uint32_t {
-    eINV_PDI_HS_0 = 0, // HSYNC is active HIGH
-    eINV_PDI_HS_1 = 1, // HSYNC is active LOW
-  };
-  
-  enum class eINV_PDI_VS : uint32_t {
-    eINV_PDI_VS_0 = 0, // VSYNC is active HIGH
-    eINV_PDI_VS_1 = 1, // VSYNC is active LOW
-  };
-  
-  enum class eINV_PDI_DE : uint32_t {
-    eINV_PDI_DE_0 = 0, // Data enable is active HIGH
-    eINV_PDI_DE_1 = 1, // Data enable is active LOW
-  };
-  
-  enum class eINV_PDI_PXCK : uint32_t {
-    eINV_PDI_PXCK_0 = 0, // Samples data on the falling edge
-    eINV_PDI_PXCK_1 = 1, // Samples data on the rising edge
-  };
-  
-  enum class eMODE : uint32_t {
-    eMODE_0 = 0, // 32 bpp (ARGB8888)
-    eMODE_1 = 1, // 24 bpp (RGB888)
-    eMODE_2 = 2, // 24 bpp (RGB666)
-    eMODE_3 = 3, // 16 bpp (RGB565)
-    eMODE_4 = 4, // 16 bpp (RGB444)
-    eMODE_5 = 5, // 16 bpp (RGB555)
-    eMODE_6 = 6, // 16 bpp (YCbCr422)
-  };
-  
-  enum class ePDI_SEL : uint32_t {
-    ePDI_SEL_0 = 0, // PDI selected on LCDIFv2 plane 0
-    ePDI_SEL_1 = 1, // PDI selected on LCDIFv2 plane 1
-  };
-  
-  enum class ePDI_EN : uint32_t {
-    ePDI_EN_0 = 0, // Disable PDI input data
-    ePDI_EN_1 = 1, // Enable PDI input data
-  };
-  
   // Bit field definition.
   struct {
-    eINV_PDI_HS INV_PDI_HS : 1;
-    eINV_PDI_VS INV_PDI_VS : 1;
-    eINV_PDI_DE INV_PDI_DE : 1;
-    eINV_PDI_PXCK INV_PDI_PXCK : 1;
-    eMODE MODE : 4;
-    uint32_t _reserved_0 : 22;
-    ePDI_SEL PDI_SEL : 1;
-    ePDI_EN PDI_EN : 1;
+    uint32_t _reserved_0 : 32;
   } bits;
   
   // Full 32-bit register value.
   uint32_t value;
 
   PDI_PARA() = delete;
-  inline void Reset() volatile { this->value = 0x00000000; }
+  inline void Reset() volatile { this->value = 0x00001000; }
   static inline volatile PDI_PARA &Instance() { return *reinterpret_cast<volatile PDI_PARA*>(0x40808040); }
 };
 
@@ -507,65 +460,65 @@ union CTRLDESCL0_4 {
 union CTRLDESCL0_5 {
   
   enum class eAB_MODE : uint32_t {
-    eAB_MODE_0 = 0, // No alpha Blending (The SAFETY_EN bit need set to 1)
-    eAB_MODE_1 = 1, // Blend with global ALPHA
-    eAB_MODE_2 = 2, // Blend with embedded ALPHA
-    eAB_MODE_3 = 3, // Blend with PoterDuff enable
+    ebf_val0 = 0, // No alpha Blending (The SAFETY_EN bit need set to 1)
+    ebf_val1 = 1, // Blend with global ALPHA
+    ebf_val2 = 2, // Blend with embedded ALPHA
+    ebf_val3 = 3, // Blend with Porter Duff enable
   };
   
   enum class ePD_FACTOR_MODE : uint32_t {
-    ePD_FACTOR_MODE_0 = 0, // Using 1
-    ePD_FACTOR_MODE_1 = 1, // Using 0
-    ePD_FACTOR_MODE_2 = 2, // Using straight alpha
-    ePD_FACTOR_MODE_3 = 3, // Using inverse alpha
+    ebf_val0 = 0, // Using 1
+    ebf_val1 = 1, // Using 0
+    ebf_val2 = 2, // Using straight alpha
+    ebf_val3 = 3, // Using inverse alpha
   };
   
   enum class ePD_GLOBAL_ALPHA_MODE : uint32_t {
-    ePD_GLOBAL_ALPHA_MODE_0 = 0, // Using global alpha
-    ePD_GLOBAL_ALPHA_MODE_1 = 1, // Using local alpha
-    ePD_GLOBAL_ALPHA_MODE_2 = 2, // Using scaled alpha
-    ePD_GLOBAL_ALPHA_MODE_3 = 3, // Using scaled alpha
+    ebf_val0 = 0, // Using global alpha
+    ebf_val1 = 1, // Using local alpha
+    ebf_val2 = 2, // Using scaled alpha
+    ebf_val3 = 3, // Using scaled alpha
   };
   
   enum class ePD_ALPHA_MODE : uint32_t {
-    ePD_ALPHA_MODE_0 = 0, // Straight mode for Porter Duff alpha
-    ePD_ALPHA_MODE_1 = 1, // Inversed mode for Porter Duff alpha
+    ebf_val0 = 0, // Straight mode for Porter Duff alpha
+    ebf_val1 = 1, // Inversed mode for Porter Duff alpha
   };
   
   enum class ePD_COLOR_MODE : uint32_t {
-    ePD_COLOR_MODE_0 = 0, // Straight mode for Porter Duff color
-    ePD_COLOR_MODE_1 = 1, // Inversed mode for Porter Duff color
+    ebf_val0 = 0, // Straight mode for Porter Duff color
+    ebf_val1 = 1, // Inversed mode for Porter Duff color
   };
   
   enum class eYUV_FORMAT : uint32_t {
-    eYUV_FORMAT_0 = 0, // The YVYU422 8bit sequence is U1,Y1,V1,Y2
-    eYUV_FORMAT_1 = 1, // The YVYU422 8bit sequence is V1,Y1,U1,Y2
-    eYUV_FORMAT_2 = 2, // The YVYU422 8bit sequence is Y1,U1,Y2,V1
-    eYUV_FORMAT_3 = 3, // The YVYU422 8bit sequence is Y1,V1,Y2,U1
+    ebf_val0 = 0, // The YVYU422 8bit sequence is U1,Y1,V1,Y2
+    ebf_val1 = 1, // The YVYU422 8bit sequence is V1,Y1,U1,Y2
+    ebf_val2 = 2, // The YVYU422 8bit sequence is Y1,U1,Y2,V1
+    ebf_val3 = 3, // The YVYU422 8bit sequence is Y1,V1,Y2,U1
   };
   
   enum class eBPP : uint32_t {
-    eBPP_0 = 0, // 1 bpp
-    eBPP_1 = 1, // 2 bpp
-    eBPP_2 = 2, // 4 bpp
-    eBPP_3 = 3, // 8 bpp
-    eBPP_4 = 4, // 16 bpp (RGB565)
-    eBPP_5 = 5, // 16 bpp (ARGB1555)
-    eBPP_6 = 6, // 16 bpp (ARGB4444)
-    eBPP_7 = 7, // YCbCr422 (Only layer 0/1 can support this format)
-    eBPP_8 = 8, // 24 bpp (RGB888)
-    eBPP_9 = 9, // 32 bpp (ARGB8888)
-    eBPP_10 = 10, // 32 bpp (ABGR8888)
+    ebf_val0 = 0, // 1 bpp
+    ebf_val1 = 1, // 2 bpp
+    ebf_val2 = 2, // 4 bpp
+    ebf_val3 = 3, // 8 bpp
+    ebf_val4 = 4, // 16 bpp (RGB565)
+    ebf_val5 = 5, // 16 bpp (ARGB1555)
+    ebf_val6 = 6, // 16 bpp (ARGB4444)
+    ebf_val7 = 7, // YCbCr422 (Only layer 0/1 can support this format)
+    ebf_val8 = 8, // 24 bpp (RGB888)
+    ebf_val9 = 9, // 32 bpp (ARGB8888)
+    ebf_val10 = 10, // 32 bpp (ABGR8888)
   };
   
   enum class eSAFETY_EN : uint32_t {
-    eSAFETY_EN_0 = 0, // Safety Mode is disabled
-    eSAFETY_EN_1 = 1, // Safety Mode is enabled for this layer
+    ebf_val0 = 0, // Safety Mode is disabled
+    ebf_val1 = 1, // Safety Mode is enabled for this layer
   };
   
   enum class eEN : uint32_t {
-    eEN_0 = 0, // OFF
-    eEN_1 = 1, // ON
+    ebf_val0 = 0, // OFF
+    ebf_val1 = 1, // ON
   };
   
   // Bit field definition.
@@ -619,13 +572,13 @@ union CTRLDESCL0_6 {
 union CSC0_COEF0 {
   
   enum class eENABLE : uint32_t {
-    eENABLE_0 = 0, // The CSC is bypassed and the input pixels are RGB data already
-    eENABLE_1 = 1, // The CSC is enabled and the pixels will be converted to RGB data
+    ebf_val0 = 0, // The CSC is bypassed and the input pixels are RGB data already
+    ebf_val1 = 1, // The CSC is enabled and the pixels will be converted to RGB data
   };
   
   enum class eYCBCR_MODE : uint32_t {
-    eYCBCR_MODE_0 = 0, // Converting YUV to RGB data
-    eYCBCR_MODE_1 = 1, // Converting YCbCr to RGB data
+    ebf_val0 = 0, // Converting YUV to RGB data
+    ebf_val1 = 1, // Converting YCbCr to RGB data
   };
   
   // Bit field definition.
@@ -766,65 +719,65 @@ union CTRLDESCL1_4 {
 union CTRLDESCL1_5 {
   
   enum class eAB_MODE : uint32_t {
-    eAB_MODE_0 = 0, // No alpha Blending (The SAFETY_EN bit need set to 1)
-    eAB_MODE_1 = 1, // Blend with global ALPHA
-    eAB_MODE_2 = 2, // Blend with embedded ALPHA
-    eAB_MODE_3 = 3, // Blend with PoterDuff enable
+    ebf_val0 = 0, // No alpha Blending (The SAFETY_EN bit need set to 1)
+    ebf_val1 = 1, // Blend with global ALPHA
+    ebf_val2 = 2, // Blend with embedded ALPHA
+    ebf_val3 = 3, // Blend with Porter Duff enable
   };
   
   enum class ePD_FACTOR_MODE : uint32_t {
-    ePD_FACTOR_MODE_0 = 0, // Using 1
-    ePD_FACTOR_MODE_1 = 1, // Using 0
-    ePD_FACTOR_MODE_2 = 2, // Using straight alpha
-    ePD_FACTOR_MODE_3 = 3, // Using inverse alpha
+    ebf_val0 = 0, // Using 1
+    ebf_val1 = 1, // Using 0
+    ebf_val2 = 2, // Using straight alpha
+    ebf_val3 = 3, // Using inverse alpha
   };
   
   enum class ePD_GLOBAL_ALPHA_MODE : uint32_t {
-    ePD_GLOBAL_ALPHA_MODE_0 = 0, // Using global alpha
-    ePD_GLOBAL_ALPHA_MODE_1 = 1, // Using local alpha
-    ePD_GLOBAL_ALPHA_MODE_2 = 2, // Using scaled alpha
-    ePD_GLOBAL_ALPHA_MODE_3 = 3, // Using scaled alpha
+    ebf_val0 = 0, // Using global alpha
+    ebf_val1 = 1, // Using local alpha
+    ebf_val2 = 2, // Using scaled alpha
+    ebf_val3 = 3, // Using scaled alpha
   };
   
   enum class ePD_ALPHA_MODE : uint32_t {
-    ePD_ALPHA_MODE_0 = 0, // Straight mode for Porter Duff alpha
-    ePD_ALPHA_MODE_1 = 1, // Inversed mode for Porter Duff alpha
+    ebf_val0 = 0, // Straight mode for Porter Duff alpha
+    ebf_val1 = 1, // Inversed mode for Porter Duff alpha
   };
   
   enum class ePD_COLOR_MODE : uint32_t {
-    ePD_COLOR_MODE_0 = 0, // Straight mode for Porter Duff color
-    ePD_COLOR_MODE_1 = 1, // Inversed mode for Porter Duff color
+    ebf_val0 = 0, // Straight mode for Porter Duff color
+    ebf_val1 = 1, // Inversed mode for Porter Duff color
   };
   
   enum class eYUV_FORMAT : uint32_t {
-    eYUV_FORMAT_0 = 0, // The YVYU422 8bit sequence is U1,Y1,V1,Y2
-    eYUV_FORMAT_1 = 1, // The YVYU422 8bit sequence is V1,Y1,U1,Y2
-    eYUV_FORMAT_2 = 2, // The YVYU422 8bit sequence is Y1,U1,Y2,V1
-    eYUV_FORMAT_3 = 3, // The YVYU422 8bit sequence is Y1,V1,Y2,U1
+    ebf_val0 = 0, // The YVYU422 8bit sequence is U1,Y1,V1,Y2
+    ebf_val1 = 1, // The YVYU422 8bit sequence is V1,Y1,U1,Y2
+    ebf_val2 = 2, // The YVYU422 8bit sequence is Y1,U1,Y2,V1
+    ebf_val3 = 3, // The YVYU422 8bit sequence is Y1,V1,Y2,U1
   };
   
   enum class eBPP : uint32_t {
-    eBPP_0 = 0, // 1 bpp
-    eBPP_1 = 1, // 2 bpp
-    eBPP_2 = 2, // 4 bpp
-    eBPP_3 = 3, // 8 bpp
-    eBPP_4 = 4, // 16 bpp (RGB565)
-    eBPP_5 = 5, // 16 bpp (ARGB1555)
-    eBPP_6 = 6, // 16 bpp (ARGB4444)
-    eBPP_7 = 7, // YCbCr422 (Only layer 0/1 can support this format)
-    eBPP_8 = 8, // 24 bpp (RGB888)
-    eBPP_9 = 9, // 32 bpp (ARGB8888)
-    eBPP_10 = 10, // 32 bpp (ABGR8888)
+    ebf_val0 = 0, // 1 bpp
+    ebf_val1 = 1, // 2 bpp
+    ebf_val2 = 2, // 4 bpp
+    ebf_val3 = 3, // 8 bpp
+    ebf_val4 = 4, // 16 bpp (RGB565)
+    ebf_val5 = 5, // 16 bpp (ARGB1555)
+    ebf_val6 = 6, // 16 bpp (ARGB4444)
+    ebf_val7 = 7, // YCbCr422 (Only layer 0/1 can support this format)
+    ebf_val8 = 8, // 24 bpp (RGB888)
+    ebf_val9 = 9, // 32 bpp (ARGB8888)
+    ebf_val10 = 10, // 32 bpp (ABGR8888)
   };
   
   enum class eSAFETY_EN : uint32_t {
-    eSAFETY_EN_0 = 0, // Safety Mode is disabled
-    eSAFETY_EN_1 = 1, // Safety Mode is enabled for this layer
+    ebf_val0 = 0, // Safety Mode is disabled
+    ebf_val1 = 1, // Safety Mode is enabled for this layer
   };
   
   enum class eEN : uint32_t {
-    eEN_0 = 0, // OFF
-    eEN_1 = 1, // ON
+    ebf_val0 = 0, // OFF
+    ebf_val1 = 1, // ON
   };
   
   // Bit field definition.
@@ -878,13 +831,13 @@ union CTRLDESCL1_6 {
 union CSC1_COEF0 {
   
   enum class eENABLE : uint32_t {
-    eENABLE_0 = 0, // The CSC is bypassed and the input pixels are RGB data already
-    eENABLE_1 = 1, // The CSC is enabled and the pixels will be converted to RGB data
+    ebf_val0 = 0, // The CSC is bypassed and the input pixels are RGB data already
+    ebf_val1 = 1, // The CSC is enabled and the pixels will be converted to RGB data
   };
   
   enum class eYCBCR_MODE : uint32_t {
-    eYCBCR_MODE_0 = 0, // Converting YUV to RGB data
-    eYCBCR_MODE_1 = 1, // Converting YCbCr to RGB data
+    ebf_val0 = 0, // Converting YUV to RGB data
+    ebf_val1 = 1, // Converting YCbCr to RGB data
   };
   
   // Bit field definition.
@@ -1025,65 +978,65 @@ union CTRLDESCL2_4 {
 union CTRLDESCL2_5 {
   
   enum class eAB_MODE : uint32_t {
-    eAB_MODE_0 = 0, // No alpha Blending (The SAFETY_EN bit need set to 1)
-    eAB_MODE_1 = 1, // Blend with global ALPHA
-    eAB_MODE_2 = 2, // Blend with embedded ALPHA
-    eAB_MODE_3 = 3, // Blend with PoterDuff enable
+    ebf_val0 = 0, // No alpha Blending (The SAFETY_EN bit need set to 1)
+    ebf_val1 = 1, // Blend with global ALPHA
+    ebf_val2 = 2, // Blend with embedded ALPHA
+    ebf_val3 = 3, // Blend with Porter Duff enable
   };
   
   enum class ePD_FACTOR_MODE : uint32_t {
-    ePD_FACTOR_MODE_0 = 0, // Using 1
-    ePD_FACTOR_MODE_1 = 1, // Using 0
-    ePD_FACTOR_MODE_2 = 2, // Using straight alpha
-    ePD_FACTOR_MODE_3 = 3, // Using inverse alpha
+    ebf_val0 = 0, // Using 1
+    ebf_val1 = 1, // Using 0
+    ebf_val2 = 2, // Using straight alpha
+    ebf_val3 = 3, // Using inverse alpha
   };
   
   enum class ePD_GLOBAL_ALPHA_MODE : uint32_t {
-    ePD_GLOBAL_ALPHA_MODE_0 = 0, // Using global alpha
-    ePD_GLOBAL_ALPHA_MODE_1 = 1, // Using local alpha
-    ePD_GLOBAL_ALPHA_MODE_2 = 2, // Using scaled alpha
-    ePD_GLOBAL_ALPHA_MODE_3 = 3, // Using scaled alpha
+    ebf_val0 = 0, // Using global alpha
+    ebf_val1 = 1, // Using local alpha
+    ebf_val2 = 2, // Using scaled alpha
+    ebf_val3 = 3, // Using scaled alpha
   };
   
   enum class ePD_ALPHA_MODE : uint32_t {
-    ePD_ALPHA_MODE_0 = 0, // Straight mode for Porter Duff alpha
-    ePD_ALPHA_MODE_1 = 1, // Inversed mode for Porter Duff alpha
+    ebf_val0 = 0, // Straight mode for Porter Duff alpha
+    ebf_val1 = 1, // Inversed mode for Porter Duff alpha
   };
   
   enum class ePD_COLOR_MODE : uint32_t {
-    ePD_COLOR_MODE_0 = 0, // Straight mode for Porter Duff color
-    ePD_COLOR_MODE_1 = 1, // Inversed mode for Porter Duff color
+    ebf_val0 = 0, // Straight mode for Porter Duff color
+    ebf_val1 = 1, // Inversed mode for Porter Duff color
   };
   
   enum class eYUV_FORMAT : uint32_t {
-    eYUV_FORMAT_0 = 0, // The YVYU422 8bit sequence is U1,Y1,V1,Y2
-    eYUV_FORMAT_1 = 1, // The YVYU422 8bit sequence is V1,Y1,U1,Y2
-    eYUV_FORMAT_2 = 2, // The YVYU422 8bit sequence is Y1,U1,Y2,V1
-    eYUV_FORMAT_3 = 3, // The YVYU422 8bit sequence is Y1,V1,Y2,U1
+    ebf_val0 = 0, // The YVYU422 8bit sequence is U1,Y1,V1,Y2
+    ebf_val1 = 1, // The YVYU422 8bit sequence is V1,Y1,U1,Y2
+    ebf_val2 = 2, // The YVYU422 8bit sequence is Y1,U1,Y2,V1
+    ebf_val3 = 3, // The YVYU422 8bit sequence is Y1,V1,Y2,U1
   };
   
   enum class eBPP : uint32_t {
-    eBPP_0 = 0, // 1 bpp
-    eBPP_1 = 1, // 2 bpp
-    eBPP_2 = 2, // 4 bpp
-    eBPP_3 = 3, // 8 bpp
-    eBPP_4 = 4, // 16 bpp (RGB565)
-    eBPP_5 = 5, // 16 bpp (ARGB1555)
-    eBPP_6 = 6, // 16 bpp (ARGB4444)
-    eBPP_7 = 7, // YCbCr422 (Only layer 0/1 can support this format)
-    eBPP_8 = 8, // 24 bpp (RGB888)
-    eBPP_9 = 9, // 32 bpp (ARGB8888)
-    eBPP_10 = 10, // 32 bpp (ABGR8888)
+    ebf_val0 = 0, // 1 bpp
+    ebf_val1 = 1, // 2 bpp
+    ebf_val2 = 2, // 4 bpp
+    ebf_val3 = 3, // 8 bpp
+    ebf_val4 = 4, // 16 bpp (RGB565)
+    ebf_val5 = 5, // 16 bpp (ARGB1555)
+    ebf_val6 = 6, // 16 bpp (ARGB4444)
+    ebf_val7 = 7, // YCbCr422 (Only layer 0/1 can support this format)
+    ebf_val8 = 8, // 24 bpp (RGB888)
+    ebf_val9 = 9, // 32 bpp (ARGB8888)
+    ebf_val10 = 10, // 32 bpp (ABGR8888)
   };
   
   enum class eSAFETY_EN : uint32_t {
-    eSAFETY_EN_0 = 0, // Safety Mode is disabled
-    eSAFETY_EN_1 = 1, // Safety Mode is enabled for this layer
+    ebf_val0 = 0, // Safety Mode is disabled
+    ebf_val1 = 1, // Safety Mode is enabled for this layer
   };
   
   enum class eEN : uint32_t {
-    eEN_0 = 0, // OFF
-    eEN_1 = 1, // ON
+    ebf_val0 = 0, // OFF
+    ebf_val1 = 1, // ON
   };
   
   // Bit field definition.
@@ -1212,65 +1165,65 @@ union CTRLDESCL3_4 {
 union CTRLDESCL3_5 {
   
   enum class eAB_MODE : uint32_t {
-    eAB_MODE_0 = 0, // No alpha Blending (The SAFETY_EN bit need set to 1)
-    eAB_MODE_1 = 1, // Blend with global ALPHA
-    eAB_MODE_2 = 2, // Blend with embedded ALPHA
-    eAB_MODE_3 = 3, // Blend with PoterDuff enable
+    ebf_val0 = 0, // No alpha Blending (The SAFETY_EN bit need set to 1)
+    ebf_val1 = 1, // Blend with global ALPHA
+    ebf_val2 = 2, // Blend with embedded ALPHA
+    ebf_val3 = 3, // Blend with Porter Duff enable
   };
   
   enum class ePD_FACTOR_MODE : uint32_t {
-    ePD_FACTOR_MODE_0 = 0, // Using 1
-    ePD_FACTOR_MODE_1 = 1, // Using 0
-    ePD_FACTOR_MODE_2 = 2, // Using straight alpha
-    ePD_FACTOR_MODE_3 = 3, // Using inverse alpha
+    ebf_val0 = 0, // Using 1
+    ebf_val1 = 1, // Using 0
+    ebf_val2 = 2, // Using straight alpha
+    ebf_val3 = 3, // Using inverse alpha
   };
   
   enum class ePD_GLOBAL_ALPHA_MODE : uint32_t {
-    ePD_GLOBAL_ALPHA_MODE_0 = 0, // Using global alpha
-    ePD_GLOBAL_ALPHA_MODE_1 = 1, // Using local alpha
-    ePD_GLOBAL_ALPHA_MODE_2 = 2, // Using scaled alpha
-    ePD_GLOBAL_ALPHA_MODE_3 = 3, // Using scaled alpha
+    ebf_val0 = 0, // Using global alpha
+    ebf_val1 = 1, // Using local alpha
+    ebf_val2 = 2, // Using scaled alpha
+    ebf_val3 = 3, // Using scaled alpha
   };
   
   enum class ePD_ALPHA_MODE : uint32_t {
-    ePD_ALPHA_MODE_0 = 0, // Straight mode for Porter Duff alpha
-    ePD_ALPHA_MODE_1 = 1, // Inversed mode for Porter Duff alpha
+    ebf_val0 = 0, // Straight mode for Porter Duff alpha
+    ebf_val1 = 1, // Inversed mode for Porter Duff alpha
   };
   
   enum class ePD_COLOR_MODE : uint32_t {
-    ePD_COLOR_MODE_0 = 0, // Straight mode for Porter Duff color
-    ePD_COLOR_MODE_1 = 1, // Inversed mode for Porter Duff color
+    ebf_val0 = 0, // Straight mode for Porter Duff color
+    ebf_val1 = 1, // Inversed mode for Porter Duff color
   };
   
   enum class eYUV_FORMAT : uint32_t {
-    eYUV_FORMAT_0 = 0, // The YVYU422 8bit sequence is U1,Y1,V1,Y2
-    eYUV_FORMAT_1 = 1, // The YVYU422 8bit sequence is V1,Y1,U1,Y2
-    eYUV_FORMAT_2 = 2, // The YVYU422 8bit sequence is Y1,U1,Y2,V1
-    eYUV_FORMAT_3 = 3, // The YVYU422 8bit sequence is Y1,V1,Y2,U1
+    ebf_val0 = 0, // The YVYU422 8bit sequence is U1,Y1,V1,Y2
+    ebf_val1 = 1, // The YVYU422 8bit sequence is V1,Y1,U1,Y2
+    ebf_val2 = 2, // The YVYU422 8bit sequence is Y1,U1,Y2,V1
+    ebf_val3 = 3, // The YVYU422 8bit sequence is Y1,V1,Y2,U1
   };
   
   enum class eBPP : uint32_t {
-    eBPP_0 = 0, // 1 bpp
-    eBPP_1 = 1, // 2 bpp
-    eBPP_2 = 2, // 4 bpp
-    eBPP_3 = 3, // 8 bpp
-    eBPP_4 = 4, // 16 bpp (RGB565)
-    eBPP_5 = 5, // 16 bpp (ARGB1555)
-    eBPP_6 = 6, // 16 bpp (ARGB4444)
-    eBPP_7 = 7, // YCbCr422 (Only layer 0/1 can support this format)
-    eBPP_8 = 8, // 24 bpp (RGB888)
-    eBPP_9 = 9, // 32 bpp (ARGB8888)
-    eBPP_10 = 10, // 32 bpp (ABGR8888)
+    ebf_val0 = 0, // 1 bpp
+    ebf_val1 = 1, // 2 bpp
+    ebf_val2 = 2, // 4 bpp
+    ebf_val3 = 3, // 8 bpp
+    ebf_val4 = 4, // 16 bpp (RGB565)
+    ebf_val5 = 5, // 16 bpp (ARGB1555)
+    ebf_val6 = 6, // 16 bpp (ARGB4444)
+    ebf_val7 = 7, // YCbCr422 (Only layer 0/1 can support this format)
+    ebf_val8 = 8, // 24 bpp (RGB888)
+    ebf_val9 = 9, // 32 bpp (ARGB8888)
+    ebf_val10 = 10, // 32 bpp (ABGR8888)
   };
   
   enum class eSAFETY_EN : uint32_t {
-    eSAFETY_EN_0 = 0, // Safety Mode is disabled
-    eSAFETY_EN_1 = 1, // Safety Mode is enabled for this layer
+    ebf_val0 = 0, // Safety Mode is disabled
+    ebf_val1 = 1, // Safety Mode is enabled for this layer
   };
   
   enum class eEN : uint32_t {
-    eEN_0 = 0, // OFF
-    eEN_1 = 1, // ON
+    ebf_val0 = 0, // OFF
+    ebf_val1 = 1, // ON
   };
   
   // Bit field definition.
@@ -1399,65 +1352,65 @@ union CTRLDESCL4_4 {
 union CTRLDESCL4_5 {
   
   enum class eAB_MODE : uint32_t {
-    eAB_MODE_0 = 0, // No alpha Blending (The SAFETY_EN bit need set to 1)
-    eAB_MODE_1 = 1, // Blend with global ALPHA
-    eAB_MODE_2 = 2, // Blend with embedded ALPHA
-    eAB_MODE_3 = 3, // Blend with PoterDuff enable
+    ebf_val0 = 0, // No alpha Blending (The SAFETY_EN bit need set to 1)
+    ebf_val1 = 1, // Blend with global ALPHA
+    ebf_val2 = 2, // Blend with embedded ALPHA
+    ebf_val3 = 3, // Blend with Porter Duff enable
   };
   
   enum class ePD_FACTOR_MODE : uint32_t {
-    ePD_FACTOR_MODE_0 = 0, // Using 1
-    ePD_FACTOR_MODE_1 = 1, // Using 0
-    ePD_FACTOR_MODE_2 = 2, // Using straight alpha
-    ePD_FACTOR_MODE_3 = 3, // Using inverse alpha
+    ebf_val0 = 0, // Using 1
+    ebf_val1 = 1, // Using 0
+    ebf_val2 = 2, // Using straight alpha
+    ebf_val3 = 3, // Using inverse alpha
   };
   
   enum class ePD_GLOBAL_ALPHA_MODE : uint32_t {
-    ePD_GLOBAL_ALPHA_MODE_0 = 0, // Using global alpha
-    ePD_GLOBAL_ALPHA_MODE_1 = 1, // Using local alpha
-    ePD_GLOBAL_ALPHA_MODE_2 = 2, // Using scaled alpha
-    ePD_GLOBAL_ALPHA_MODE_3 = 3, // Using scaled alpha
+    ebf_val0 = 0, // Using global alpha
+    ebf_val1 = 1, // Using local alpha
+    ebf_val2 = 2, // Using scaled alpha
+    ebf_val3 = 3, // Using scaled alpha
   };
   
   enum class ePD_ALPHA_MODE : uint32_t {
-    ePD_ALPHA_MODE_0 = 0, // Straight mode for Porter Duff alpha
-    ePD_ALPHA_MODE_1 = 1, // Inversed mode for Porter Duff alpha
+    ebf_val0 = 0, // Straight mode for Porter Duff alpha
+    ebf_val1 = 1, // Inversed mode for Porter Duff alpha
   };
   
   enum class ePD_COLOR_MODE : uint32_t {
-    ePD_COLOR_MODE_0 = 0, // Straight mode for Porter Duff color
-    ePD_COLOR_MODE_1 = 1, // Inversed mode for Porter Duff color
+    ebf_val0 = 0, // Straight mode for Porter Duff color
+    ebf_val1 = 1, // Inversed mode for Porter Duff color
   };
   
   enum class eYUV_FORMAT : uint32_t {
-    eYUV_FORMAT_0 = 0, // The YVYU422 8bit sequence is U1,Y1,V1,Y2
-    eYUV_FORMAT_1 = 1, // The YVYU422 8bit sequence is V1,Y1,U1,Y2
-    eYUV_FORMAT_2 = 2, // The YVYU422 8bit sequence is Y1,U1,Y2,V1
-    eYUV_FORMAT_3 = 3, // The YVYU422 8bit sequence is Y1,V1,Y2,U1
+    ebf_val0 = 0, // The YVYU422 8bit sequence is U1,Y1,V1,Y2
+    ebf_val1 = 1, // The YVYU422 8bit sequence is V1,Y1,U1,Y2
+    ebf_val2 = 2, // The YVYU422 8bit sequence is Y1,U1,Y2,V1
+    ebf_val3 = 3, // The YVYU422 8bit sequence is Y1,V1,Y2,U1
   };
   
   enum class eBPP : uint32_t {
-    eBPP_0 = 0, // 1 bpp
-    eBPP_1 = 1, // 2 bpp
-    eBPP_2 = 2, // 4 bpp
-    eBPP_3 = 3, // 8 bpp
-    eBPP_4 = 4, // 16 bpp (RGB565)
-    eBPP_5 = 5, // 16 bpp (ARGB1555)
-    eBPP_6 = 6, // 16 bpp (ARGB4444)
-    eBPP_7 = 7, // YCbCr422 (Only layer 0/1 can support this format)
-    eBPP_8 = 8, // 24 bpp (RGB888)
-    eBPP_9 = 9, // 32 bpp (ARGB8888)
-    eBPP_10 = 10, // 32 bpp (ABGR8888)
+    ebf_val0 = 0, // 1 bpp
+    ebf_val1 = 1, // 2 bpp
+    ebf_val2 = 2, // 4 bpp
+    ebf_val3 = 3, // 8 bpp
+    ebf_val4 = 4, // 16 bpp (RGB565)
+    ebf_val5 = 5, // 16 bpp (ARGB1555)
+    ebf_val6 = 6, // 16 bpp (ARGB4444)
+    ebf_val7 = 7, // YCbCr422 (Only layer 0/1 can support this format)
+    ebf_val8 = 8, // 24 bpp (RGB888)
+    ebf_val9 = 9, // 32 bpp (ARGB8888)
+    ebf_val10 = 10, // 32 bpp (ABGR8888)
   };
   
   enum class eSAFETY_EN : uint32_t {
-    eSAFETY_EN_0 = 0, // Safety Mode is disabled
-    eSAFETY_EN_1 = 1, // Safety Mode is enabled for this layer
+    ebf_val0 = 0, // Safety Mode is disabled
+    ebf_val1 = 1, // Safety Mode is enabled for this layer
   };
   
   enum class eEN : uint32_t {
-    eEN_0 = 0, // OFF
-    eEN_1 = 1, // ON
+    ebf_val0 = 0, // OFF
+    ebf_val1 = 1, // ON
   };
   
   // Bit field definition.
@@ -1586,65 +1539,65 @@ union CTRLDESCL5_4 {
 union CTRLDESCL5_5 {
   
   enum class eAB_MODE : uint32_t {
-    eAB_MODE_0 = 0, // No alpha Blending (The SAFETY_EN bit need set to 1)
-    eAB_MODE_1 = 1, // Blend with global ALPHA
-    eAB_MODE_2 = 2, // Blend with embedded ALPHA
-    eAB_MODE_3 = 3, // Blend with PoterDuff enable
+    ebf_val0 = 0, // No alpha Blending (The SAFETY_EN bit need set to 1)
+    ebf_val1 = 1, // Blend with global ALPHA
+    ebf_val2 = 2, // Blend with embedded ALPHA
+    ebf_val3 = 3, // Blend with Porter Duff enable
   };
   
   enum class ePD_FACTOR_MODE : uint32_t {
-    ePD_FACTOR_MODE_0 = 0, // Using 1
-    ePD_FACTOR_MODE_1 = 1, // Using 0
-    ePD_FACTOR_MODE_2 = 2, // Using straight alpha
-    ePD_FACTOR_MODE_3 = 3, // Using inverse alpha
+    ebf_val0 = 0, // Using 1
+    ebf_val1 = 1, // Using 0
+    ebf_val2 = 2, // Using straight alpha
+    ebf_val3 = 3, // Using inverse alpha
   };
   
   enum class ePD_GLOBAL_ALPHA_MODE : uint32_t {
-    ePD_GLOBAL_ALPHA_MODE_0 = 0, // Using global alpha
-    ePD_GLOBAL_ALPHA_MODE_1 = 1, // Using local alpha
-    ePD_GLOBAL_ALPHA_MODE_2 = 2, // Using scaled alpha
-    ePD_GLOBAL_ALPHA_MODE_3 = 3, // Using scaled alpha
+    ebf_val0 = 0, // Using global alpha
+    ebf_val1 = 1, // Using local alpha
+    ebf_val2 = 2, // Using scaled alpha
+    ebf_val3 = 3, // Using scaled alpha
   };
   
   enum class ePD_ALPHA_MODE : uint32_t {
-    ePD_ALPHA_MODE_0 = 0, // Straight mode for Porter Duff alpha
-    ePD_ALPHA_MODE_1 = 1, // Inversed mode for Porter Duff alpha
+    ebf_val0 = 0, // Straight mode for Porter Duff alpha
+    ebf_val1 = 1, // Inversed mode for Porter Duff alpha
   };
   
   enum class ePD_COLOR_MODE : uint32_t {
-    ePD_COLOR_MODE_0 = 0, // Straight mode for Porter Duff color
-    ePD_COLOR_MODE_1 = 1, // Inversed mode for Porter Duff color
+    ebf_val0 = 0, // Straight mode for Porter Duff color
+    ebf_val1 = 1, // Inversed mode for Porter Duff color
   };
   
   enum class eYUV_FORMAT : uint32_t {
-    eYUV_FORMAT_0 = 0, // The YVYU422 8bit sequence is U1,Y1,V1,Y2
-    eYUV_FORMAT_1 = 1, // The YVYU422 8bit sequence is V1,Y1,U1,Y2
-    eYUV_FORMAT_2 = 2, // The YVYU422 8bit sequence is Y1,U1,Y2,V1
-    eYUV_FORMAT_3 = 3, // The YVYU422 8bit sequence is Y1,V1,Y2,U1
+    ebf_val0 = 0, // The YVYU422 8bit sequence is U1,Y1,V1,Y2
+    ebf_val1 = 1, // The YVYU422 8bit sequence is V1,Y1,U1,Y2
+    ebf_val2 = 2, // The YVYU422 8bit sequence is Y1,U1,Y2,V1
+    ebf_val3 = 3, // The YVYU422 8bit sequence is Y1,V1,Y2,U1
   };
   
   enum class eBPP : uint32_t {
-    eBPP_0 = 0, // 1 bpp
-    eBPP_1 = 1, // 2 bpp
-    eBPP_2 = 2, // 4 bpp
-    eBPP_3 = 3, // 8 bpp
-    eBPP_4 = 4, // 16 bpp (RGB565)
-    eBPP_5 = 5, // 16 bpp (ARGB1555)
-    eBPP_6 = 6, // 16 bpp (ARGB4444)
-    eBPP_7 = 7, // YCbCr422 (Only layer 0/1 can support this format)
-    eBPP_8 = 8, // 24 bpp (RGB888)
-    eBPP_9 = 9, // 32 bpp (ARGB8888)
-    eBPP_10 = 10, // 32 bpp (ABGR8888)
+    ebf_val0 = 0, // 1 bpp
+    ebf_val1 = 1, // 2 bpp
+    ebf_val2 = 2, // 4 bpp
+    ebf_val3 = 3, // 8 bpp
+    ebf_val4 = 4, // 16 bpp (RGB565)
+    ebf_val5 = 5, // 16 bpp (ARGB1555)
+    ebf_val6 = 6, // 16 bpp (ARGB4444)
+    ebf_val7 = 7, // YCbCr422 (Only layer 0/1 can support this format)
+    ebf_val8 = 8, // 24 bpp (RGB888)
+    ebf_val9 = 9, // 32 bpp (ARGB8888)
+    ebf_val10 = 10, // 32 bpp (ABGR8888)
   };
   
   enum class eSAFETY_EN : uint32_t {
-    eSAFETY_EN_0 = 0, // Safety Mode is disabled
-    eSAFETY_EN_1 = 1, // Safety Mode is enabled for this layer
+    ebf_val0 = 0, // Safety Mode is disabled
+    ebf_val1 = 1, // Safety Mode is enabled for this layer
   };
   
   enum class eEN : uint32_t {
-    eEN_0 = 0, // OFF
-    eEN_1 = 1, // ON
+    ebf_val0 = 0, // OFF
+    ebf_val1 = 1, // ON
   };
   
   // Bit field definition.
@@ -1773,65 +1726,65 @@ union CTRLDESCL6_4 {
 union CTRLDESCL6_5 {
   
   enum class eAB_MODE : uint32_t {
-    eAB_MODE_0 = 0, // No alpha Blending (The SAFETY_EN bit need set to 1)
-    eAB_MODE_1 = 1, // Blend with global ALPHA
-    eAB_MODE_2 = 2, // Blend with embedded ALPHA
-    eAB_MODE_3 = 3, // Blend with PoterDuff enable
+    ebf_val0 = 0, // No alpha Blending (The SAFETY_EN bit need set to 1)
+    ebf_val1 = 1, // Blend with global ALPHA
+    ebf_val2 = 2, // Blend with embedded ALPHA
+    ebf_val3 = 3, // Blend with Porter Duff enable
   };
   
   enum class ePD_FACTOR_MODE : uint32_t {
-    ePD_FACTOR_MODE_0 = 0, // Using 1
-    ePD_FACTOR_MODE_1 = 1, // Using 0
-    ePD_FACTOR_MODE_2 = 2, // Using straight alpha
-    ePD_FACTOR_MODE_3 = 3, // Using inverse alpha
+    ebf_val0 = 0, // Using 1
+    ebf_val1 = 1, // Using 0
+    ebf_val2 = 2, // Using straight alpha
+    ebf_val3 = 3, // Using inverse alpha
   };
   
   enum class ePD_GLOBAL_ALPHA_MODE : uint32_t {
-    ePD_GLOBAL_ALPHA_MODE_0 = 0, // Using global alpha
-    ePD_GLOBAL_ALPHA_MODE_1 = 1, // Using local alpha
-    ePD_GLOBAL_ALPHA_MODE_2 = 2, // Using scaled alpha
-    ePD_GLOBAL_ALPHA_MODE_3 = 3, // Using scaled alpha
+    ebf_val0 = 0, // Using global alpha
+    ebf_val1 = 1, // Using local alpha
+    ebf_val2 = 2, // Using scaled alpha
+    ebf_val3 = 3, // Using scaled alpha
   };
   
   enum class ePD_ALPHA_MODE : uint32_t {
-    ePD_ALPHA_MODE_0 = 0, // Straight mode for Porter Duff alpha
-    ePD_ALPHA_MODE_1 = 1, // Inversed mode for Porter Duff alpha
+    ebf_val0 = 0, // Straight mode for Porter Duff alpha
+    ebf_val1 = 1, // Inversed mode for Porter Duff alpha
   };
   
   enum class ePD_COLOR_MODE : uint32_t {
-    ePD_COLOR_MODE_0 = 0, // Straight mode for Porter Duff color
-    ePD_COLOR_MODE_1 = 1, // Inversed mode for Porter Duff color
+    ebf_val0 = 0, // Straight mode for Porter Duff color
+    ebf_val1 = 1, // Inversed mode for Porter Duff color
   };
   
   enum class eYUV_FORMAT : uint32_t {
-    eYUV_FORMAT_0 = 0, // The YVYU422 8bit sequence is U1,Y1,V1,Y2
-    eYUV_FORMAT_1 = 1, // The YVYU422 8bit sequence is V1,Y1,U1,Y2
-    eYUV_FORMAT_2 = 2, // The YVYU422 8bit sequence is Y1,U1,Y2,V1
-    eYUV_FORMAT_3 = 3, // The YVYU422 8bit sequence is Y1,V1,Y2,U1
+    ebf_val0 = 0, // The YVYU422 8bit sequence is U1,Y1,V1,Y2
+    ebf_val1 = 1, // The YVYU422 8bit sequence is V1,Y1,U1,Y2
+    ebf_val2 = 2, // The YVYU422 8bit sequence is Y1,U1,Y2,V1
+    ebf_val3 = 3, // The YVYU422 8bit sequence is Y1,V1,Y2,U1
   };
   
   enum class eBPP : uint32_t {
-    eBPP_0 = 0, // 1 bpp
-    eBPP_1 = 1, // 2 bpp
-    eBPP_2 = 2, // 4 bpp
-    eBPP_3 = 3, // 8 bpp
-    eBPP_4 = 4, // 16 bpp (RGB565)
-    eBPP_5 = 5, // 16 bpp (ARGB1555)
-    eBPP_6 = 6, // 16 bpp (ARGB4444)
-    eBPP_7 = 7, // YCbCr422 (Only layer 0/1 can support this format)
-    eBPP_8 = 8, // 24 bpp (RGB888)
-    eBPP_9 = 9, // 32 bpp (ARGB8888)
-    eBPP_10 = 10, // 32 bpp (ABGR8888)
+    ebf_val0 = 0, // 1 bpp
+    ebf_val1 = 1, // 2 bpp
+    ebf_val2 = 2, // 4 bpp
+    ebf_val3 = 3, // 8 bpp
+    ebf_val4 = 4, // 16 bpp (RGB565)
+    ebf_val5 = 5, // 16 bpp (ARGB1555)
+    ebf_val6 = 6, // 16 bpp (ARGB4444)
+    ebf_val7 = 7, // YCbCr422 (Only layer 0/1 can support this format)
+    ebf_val8 = 8, // 24 bpp (RGB888)
+    ebf_val9 = 9, // 32 bpp (ARGB8888)
+    ebf_val10 = 10, // 32 bpp (ABGR8888)
   };
   
   enum class eSAFETY_EN : uint32_t {
-    eSAFETY_EN_0 = 0, // Safety Mode is disabled
-    eSAFETY_EN_1 = 1, // Safety Mode is enabled for this layer
+    ebf_val0 = 0, // Safety Mode is disabled
+    ebf_val1 = 1, // Safety Mode is enabled for this layer
   };
   
   enum class eEN : uint32_t {
-    eEN_0 = 0, // OFF
-    eEN_1 = 1, // ON
+    ebf_val0 = 0, // OFF
+    ebf_val1 = 1, // ON
   };
   
   // Bit field definition.
@@ -1960,65 +1913,65 @@ union CTRLDESCL7_4 {
 union CTRLDESCL7_5 {
   
   enum class eAB_MODE : uint32_t {
-    eAB_MODE_0 = 0, // No alpha Blending (The SAFETY_EN bit need set to 1)
-    eAB_MODE_1 = 1, // Blend with global ALPHA
-    eAB_MODE_2 = 2, // Blend with embedded ALPHA
-    eAB_MODE_3 = 3, // Blend with PoterDuff enable
+    ebf_val0 = 0, // No alpha Blending (The SAFETY_EN bit need set to 1)
+    ebf_val1 = 1, // Blend with global ALPHA
+    ebf_val2 = 2, // Blend with embedded ALPHA
+    ebf_val3 = 3, // Blend with Porter Duff enable
   };
   
   enum class ePD_FACTOR_MODE : uint32_t {
-    ePD_FACTOR_MODE_0 = 0, // Using 1
-    ePD_FACTOR_MODE_1 = 1, // Using 0
-    ePD_FACTOR_MODE_2 = 2, // Using straight alpha
-    ePD_FACTOR_MODE_3 = 3, // Using inverse alpha
+    ebf_val0 = 0, // Using 1
+    ebf_val1 = 1, // Using 0
+    ebf_val2 = 2, // Using straight alpha
+    ebf_val3 = 3, // Using inverse alpha
   };
   
   enum class ePD_GLOBAL_ALPHA_MODE : uint32_t {
-    ePD_GLOBAL_ALPHA_MODE_0 = 0, // Using global alpha
-    ePD_GLOBAL_ALPHA_MODE_1 = 1, // Using local alpha
-    ePD_GLOBAL_ALPHA_MODE_2 = 2, // Using scaled alpha
-    ePD_GLOBAL_ALPHA_MODE_3 = 3, // Using scaled alpha
+    ebf_val0 = 0, // Using global alpha
+    ebf_val1 = 1, // Using local alpha
+    ebf_val2 = 2, // Using scaled alpha
+    ebf_val3 = 3, // Using scaled alpha
   };
   
   enum class ePD_ALPHA_MODE : uint32_t {
-    ePD_ALPHA_MODE_0 = 0, // Straight mode for Porter Duff alpha
-    ePD_ALPHA_MODE_1 = 1, // Inversed mode for Porter Duff alpha
+    ebf_val0 = 0, // Straight mode for Porter Duff alpha
+    ebf_val1 = 1, // Inversed mode for Porter Duff alpha
   };
   
   enum class ePD_COLOR_MODE : uint32_t {
-    ePD_COLOR_MODE_0 = 0, // Straight mode for Porter Duff color
-    ePD_COLOR_MODE_1 = 1, // Inversed mode for Porter Duff color
+    ebf_val0 = 0, // Straight mode for Porter Duff color
+    ebf_val1 = 1, // Inversed mode for Porter Duff color
   };
   
   enum class eYUV_FORMAT : uint32_t {
-    eYUV_FORMAT_0 = 0, // The YVYU422 8bit sequence is U1,Y1,V1,Y2
-    eYUV_FORMAT_1 = 1, // The YVYU422 8bit sequence is V1,Y1,U1,Y2
-    eYUV_FORMAT_2 = 2, // The YVYU422 8bit sequence is Y1,U1,Y2,V1
-    eYUV_FORMAT_3 = 3, // The YVYU422 8bit sequence is Y1,V1,Y2,U1
+    ebf_val0 = 0, // The YVYU422 8bit sequence is U1,Y1,V1,Y2
+    ebf_val1 = 1, // The YVYU422 8bit sequence is V1,Y1,U1,Y2
+    ebf_val2 = 2, // The YVYU422 8bit sequence is Y1,U1,Y2,V1
+    ebf_val3 = 3, // The YVYU422 8bit sequence is Y1,V1,Y2,U1
   };
   
   enum class eBPP : uint32_t {
-    eBPP_0 = 0, // 1 bpp
-    eBPP_1 = 1, // 2 bpp
-    eBPP_2 = 2, // 4 bpp
-    eBPP_3 = 3, // 8 bpp
-    eBPP_4 = 4, // 16 bpp (RGB565)
-    eBPP_5 = 5, // 16 bpp (ARGB1555)
-    eBPP_6 = 6, // 16 bpp (ARGB4444)
-    eBPP_7 = 7, // YCbCr422 (Only layer 0/1 can support this format)
-    eBPP_8 = 8, // 24 bpp (RGB888)
-    eBPP_9 = 9, // 32 bpp (ARGB8888)
-    eBPP_10 = 10, // 32 bpp (ABGR8888)
+    ebf_val0 = 0, // 1 bpp
+    ebf_val1 = 1, // 2 bpp
+    ebf_val2 = 2, // 4 bpp
+    ebf_val3 = 3, // 8 bpp
+    ebf_val4 = 4, // 16 bpp (RGB565)
+    ebf_val5 = 5, // 16 bpp (ARGB1555)
+    ebf_val6 = 6, // 16 bpp (ARGB4444)
+    ebf_val7 = 7, // YCbCr422 (Only layer 0/1 can support this format)
+    ebf_val8 = 8, // 24 bpp (RGB888)
+    ebf_val9 = 9, // 32 bpp (ARGB8888)
+    ebf_val10 = 10, // 32 bpp (ABGR8888)
   };
   
   enum class eSAFETY_EN : uint32_t {
-    eSAFETY_EN_0 = 0, // Safety Mode is disabled
-    eSAFETY_EN_1 = 1, // Safety Mode is enabled for this layer
+    ebf_val0 = 0, // Safety Mode is disabled
+    ebf_val1 = 1, // Safety Mode is enabled for this layer
   };
   
   enum class eEN : uint32_t {
-    eEN_0 = 0, // OFF
-    eEN_1 = 1, // ON
+    ebf_val0 = 0, // OFF
+    ebf_val1 = 1, // ON
   };
   
   // Bit field definition.

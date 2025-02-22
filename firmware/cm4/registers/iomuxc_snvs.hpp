@@ -405,16 +405,6 @@ union SW_MUX_CTL_PAD_GPIO_SNVS_09_DIG {
 //
 union SW_PAD_CTL_PAD_TEST_MODE_DIG {
   
-  enum class eSRE : uint32_t {
-    eSRE_0_Slow_Slew_Rate = 0, // Slow Slew Rate
-    eSRE_1_Fast_Slew_Rate = 1, // Fast Slew Rate
-  };
-  
-  enum class eDSE : uint32_t {
-    eDSE_0_normal_driver = 0, // normal driver
-    eDSE_1_high_driver = 1, // high driver
-  };
-  
   enum class ePUE : uint32_t {
     ePUE_0_Disable = 0, // Pull Disable
     ePUE_1_Pull = 1, // Pull Enable
@@ -441,11 +431,10 @@ union SW_PAD_CTL_PAD_TEST_MODE_DIG {
   
   // Bit field definition.
   struct {
-    eSRE SRE : 1;
-    eDSE DSE : 1;
+    uint32_t _reserved_0 : 2;
     ePUE PUE : 1;
     ePUS PUS : 1;
-    uint32_t _reserved_0 : 24;
+    uint32_t _reserved_1 : 24;
     eDWP DWP : 2;
     eDWP_LOCK DWP_LOCK : 2;
   } bits;
@@ -462,16 +451,6 @@ union SW_PAD_CTL_PAD_TEST_MODE_DIG {
 //
 union SW_PAD_CTL_PAD_POR_B_DIG {
   
-  enum class eSRE : uint32_t {
-    eSRE_0_Slow_Slew_Rate = 0, // Slow Slew Rate
-    eSRE_1_Fast_Slew_Rate = 1, // Fast Slew Rate
-  };
-  
-  enum class eDSE : uint32_t {
-    eDSE_0_normal_driver = 0, // normal driver
-    eDSE_1_high_driver = 1, // high driver
-  };
-  
   enum class ePUE : uint32_t {
     ePUE_0_Disable = 0, // Pull Disable
     ePUE_1_Pull = 1, // Pull Enable
@@ -498,11 +477,10 @@ union SW_PAD_CTL_PAD_POR_B_DIG {
   
   // Bit field definition.
   struct {
-    eSRE SRE : 1;
-    eDSE DSE : 1;
+    uint32_t _reserved_0 : 2;
     ePUE PUE : 1;
     ePUS PUS : 1;
-    uint32_t _reserved_0 : 24;
+    uint32_t _reserved_1 : 24;
     eDWP DWP : 2;
     eDWP_LOCK DWP_LOCK : 2;
   } bits;
@@ -519,16 +497,6 @@ union SW_PAD_CTL_PAD_POR_B_DIG {
 //
 union SW_PAD_CTL_PAD_ONOFF_DIG {
   
-  enum class eSRE : uint32_t {
-    eSRE_0_Slow_Slew_Rate = 0, // Slow Slew Rate
-    eSRE_1_Fast_Slew_Rate = 1, // Fast Slew Rate
-  };
-  
-  enum class eDSE : uint32_t {
-    eDSE_0_normal_driver = 0, // normal driver
-    eDSE_1_high_driver = 1, // high driver
-  };
-  
   enum class ePUE : uint32_t {
     ePUE_0_Disable = 0, // Pull Disable
     ePUE_1_Pull = 1, // Pull Enable
@@ -555,11 +523,10 @@ union SW_PAD_CTL_PAD_ONOFF_DIG {
   
   // Bit field definition.
   struct {
-    eSRE SRE : 1;
-    eDSE DSE : 1;
+    uint32_t _reserved_0 : 2;
     ePUE PUE : 1;
     ePUS PUS : 1;
-    uint32_t _reserved_0 : 24;
+    uint32_t _reserved_1 : 24;
     eDWP DWP : 2;
     eDWP_LOCK DWP_LOCK : 2;
   } bits;
@@ -576,16 +543,6 @@ union SW_PAD_CTL_PAD_ONOFF_DIG {
 //
 union SW_PAD_CTL_PAD_WAKEUP_DIG {
   
-  enum class eSRE : uint32_t {
-    eSRE_0_Slow_Slew_Rate = 0, // Slow Slew Rate
-    eSRE_1_Fast_Slew_Rate = 1, // Fast Slew Rate
-  };
-  
-  enum class eDSE : uint32_t {
-    eDSE_0_normal_driver = 0, // normal driver
-    eDSE_1_high_driver = 1, // high driver
-  };
-  
   enum class ePUE : uint32_t {
     ePUE_0_Disable = 0, // Pull Disable
     ePUE_1_Pull = 1, // Pull Enable
@@ -617,13 +574,12 @@ union SW_PAD_CTL_PAD_WAKEUP_DIG {
   
   // Bit field definition.
   struct {
-    eSRE SRE : 1;
-    eDSE DSE : 1;
+    uint32_t _reserved_0 : 2;
     ePUE PUE : 1;
     ePUS PUS : 1;
-    uint32_t _reserved_0 : 2;
+    uint32_t _reserved_1 : 2;
     eODE_SNVS ODE_SNVS : 1;
-    uint32_t _reserved_1 : 21;
+    uint32_t _reserved_2 : 21;
     eDWP DWP : 2;
     eDWP_LOCK DWP_LOCK : 2;
   } bits;
@@ -640,16 +596,6 @@ union SW_PAD_CTL_PAD_WAKEUP_DIG {
 //
 union SW_PAD_CTL_PAD_PMIC_ON_REQ_DIG {
   
-  enum class eSRE : uint32_t {
-    eSRE_0_Slow_Slew_Rate = 0, // Slow Slew Rate
-    eSRE_1_Fast_Slew_Rate = 1, // Fast Slew Rate
-  };
-  
-  enum class eDSE : uint32_t {
-    eDSE_0_normal_driver = 0, // normal driver
-    eDSE_1_high_driver = 1, // high driver
-  };
-  
   enum class ePUE : uint32_t {
     ePUE_0_Disable = 0, // Pull Disable
     ePUE_1_Pull = 1, // Pull Enable
@@ -681,13 +627,12 @@ union SW_PAD_CTL_PAD_PMIC_ON_REQ_DIG {
   
   // Bit field definition.
   struct {
-    eSRE SRE : 1;
-    eDSE DSE : 1;
+    uint32_t _reserved_0 : 2;
     ePUE PUE : 1;
     ePUS PUS : 1;
-    uint32_t _reserved_0 : 2;
+    uint32_t _reserved_1 : 2;
     eODE_SNVS ODE_SNVS : 1;
-    uint32_t _reserved_1 : 21;
+    uint32_t _reserved_2 : 21;
     eDWP DWP : 2;
     eDWP_LOCK DWP_LOCK : 2;
   } bits;
@@ -704,16 +649,6 @@ union SW_PAD_CTL_PAD_PMIC_ON_REQ_DIG {
 //
 union SW_PAD_CTL_PAD_PMIC_STBY_REQ_DIG {
   
-  enum class eSRE : uint32_t {
-    eSRE_0_Slow_Slew_Rate = 0, // Slow Slew Rate
-    eSRE_1_Fast_Slew_Rate = 1, // Fast Slew Rate
-  };
-  
-  enum class eDSE : uint32_t {
-    eDSE_0_normal_driver = 0, // normal driver
-    eDSE_1_high_driver = 1, // high driver
-  };
-  
   enum class ePUE : uint32_t {
     ePUE_0_Disable = 0, // Pull Disable
     ePUE_1_Pull = 1, // Pull Enable
@@ -745,13 +680,12 @@ union SW_PAD_CTL_PAD_PMIC_STBY_REQ_DIG {
   
   // Bit field definition.
   struct {
-    eSRE SRE : 1;
-    eDSE DSE : 1;
+    uint32_t _reserved_0 : 2;
     ePUE PUE : 1;
     ePUS PUS : 1;
-    uint32_t _reserved_0 : 2;
+    uint32_t _reserved_1 : 2;
     eODE_SNVS ODE_SNVS : 1;
-    uint32_t _reserved_1 : 21;
+    uint32_t _reserved_2 : 21;
     eDWP DWP : 2;
     eDWP_LOCK DWP_LOCK : 2;
   } bits;
@@ -768,16 +702,6 @@ union SW_PAD_CTL_PAD_PMIC_STBY_REQ_DIG {
 //
 union SW_PAD_CTL_PAD_GPIO_SNVS_00_DIG {
   
-  enum class eSRE : uint32_t {
-    eSRE_0_Slow_Slew_Rate = 0, // Slow Slew Rate
-    eSRE_1_Fast_Slew_Rate = 1, // Fast Slew Rate
-  };
-  
-  enum class eDSE : uint32_t {
-    eDSE_0_normal_driver = 0, // normal driver
-    eDSE_1_high_driver = 1, // high driver
-  };
-  
   enum class ePUE : uint32_t {
     ePUE_0_Disable = 0, // Pull Disable
     ePUE_1_Pull = 1, // Pull Enable
@@ -809,13 +733,12 @@ union SW_PAD_CTL_PAD_GPIO_SNVS_00_DIG {
   
   // Bit field definition.
   struct {
-    eSRE SRE : 1;
-    eDSE DSE : 1;
+    uint32_t _reserved_0 : 2;
     ePUE PUE : 1;
     ePUS PUS : 1;
-    uint32_t _reserved_0 : 2;
+    uint32_t _reserved_1 : 2;
     eODE_SNVS ODE_SNVS : 1;
-    uint32_t _reserved_1 : 21;
+    uint32_t _reserved_2 : 21;
     eDWP DWP : 2;
     eDWP_LOCK DWP_LOCK : 2;
   } bits;
@@ -832,16 +755,6 @@ union SW_PAD_CTL_PAD_GPIO_SNVS_00_DIG {
 //
 union SW_PAD_CTL_PAD_GPIO_SNVS_01_DIG {
   
-  enum class eSRE : uint32_t {
-    eSRE_0_Slow_Slew_Rate = 0, // Slow Slew Rate
-    eSRE_1_Fast_Slew_Rate = 1, // Fast Slew Rate
-  };
-  
-  enum class eDSE : uint32_t {
-    eDSE_0_normal_driver = 0, // normal driver
-    eDSE_1_high_driver = 1, // high driver
-  };
-  
   enum class ePUE : uint32_t {
     ePUE_0_Disable = 0, // Pull Disable
     ePUE_1_Pull = 1, // Pull Enable
@@ -873,13 +786,12 @@ union SW_PAD_CTL_PAD_GPIO_SNVS_01_DIG {
   
   // Bit field definition.
   struct {
-    eSRE SRE : 1;
-    eDSE DSE : 1;
+    uint32_t _reserved_0 : 2;
     ePUE PUE : 1;
     ePUS PUS : 1;
-    uint32_t _reserved_0 : 2;
+    uint32_t _reserved_1 : 2;
     eODE_SNVS ODE_SNVS : 1;
-    uint32_t _reserved_1 : 21;
+    uint32_t _reserved_2 : 21;
     eDWP DWP : 2;
     eDWP_LOCK DWP_LOCK : 2;
   } bits;
@@ -896,16 +808,6 @@ union SW_PAD_CTL_PAD_GPIO_SNVS_01_DIG {
 //
 union SW_PAD_CTL_PAD_GPIO_SNVS_02_DIG {
   
-  enum class eSRE : uint32_t {
-    eSRE_0_Slow_Slew_Rate = 0, // Slow Slew Rate
-    eSRE_1_Fast_Slew_Rate = 1, // Fast Slew Rate
-  };
-  
-  enum class eDSE : uint32_t {
-    eDSE_0_normal_driver = 0, // normal driver
-    eDSE_1_high_driver = 1, // high driver
-  };
-  
   enum class ePUE : uint32_t {
     ePUE_0_Disable = 0, // Pull Disable
     ePUE_1_Pull = 1, // Pull Enable
@@ -937,13 +839,12 @@ union SW_PAD_CTL_PAD_GPIO_SNVS_02_DIG {
   
   // Bit field definition.
   struct {
-    eSRE SRE : 1;
-    eDSE DSE : 1;
+    uint32_t _reserved_0 : 2;
     ePUE PUE : 1;
     ePUS PUS : 1;
-    uint32_t _reserved_0 : 2;
+    uint32_t _reserved_1 : 2;
     eODE_SNVS ODE_SNVS : 1;
-    uint32_t _reserved_1 : 21;
+    uint32_t _reserved_2 : 21;
     eDWP DWP : 2;
     eDWP_LOCK DWP_LOCK : 2;
   } bits;
@@ -960,16 +861,6 @@ union SW_PAD_CTL_PAD_GPIO_SNVS_02_DIG {
 //
 union SW_PAD_CTL_PAD_GPIO_SNVS_03_DIG {
   
-  enum class eSRE : uint32_t {
-    eSRE_0_Slow_Slew_Rate = 0, // Slow Slew Rate
-    eSRE_1_Fast_Slew_Rate = 1, // Fast Slew Rate
-  };
-  
-  enum class eDSE : uint32_t {
-    eDSE_0_normal_driver = 0, // normal driver
-    eDSE_1_high_driver = 1, // high driver
-  };
-  
   enum class ePUE : uint32_t {
     ePUE_0_Disable = 0, // Pull Disable
     ePUE_1_Pull = 1, // Pull Enable
@@ -1001,13 +892,12 @@ union SW_PAD_CTL_PAD_GPIO_SNVS_03_DIG {
   
   // Bit field definition.
   struct {
-    eSRE SRE : 1;
-    eDSE DSE : 1;
+    uint32_t _reserved_0 : 2;
     ePUE PUE : 1;
     ePUS PUS : 1;
-    uint32_t _reserved_0 : 2;
+    uint32_t _reserved_1 : 2;
     eODE_SNVS ODE_SNVS : 1;
-    uint32_t _reserved_1 : 21;
+    uint32_t _reserved_2 : 21;
     eDWP DWP : 2;
     eDWP_LOCK DWP_LOCK : 2;
   } bits;
@@ -1024,16 +914,6 @@ union SW_PAD_CTL_PAD_GPIO_SNVS_03_DIG {
 //
 union SW_PAD_CTL_PAD_GPIO_SNVS_04_DIG {
   
-  enum class eSRE : uint32_t {
-    eSRE_0_Slow_Slew_Rate = 0, // Slow Slew Rate
-    eSRE_1_Fast_Slew_Rate = 1, // Fast Slew Rate
-  };
-  
-  enum class eDSE : uint32_t {
-    eDSE_0_normal_driver = 0, // normal driver
-    eDSE_1_high_driver = 1, // high driver
-  };
-  
   enum class ePUE : uint32_t {
     ePUE_0_Disable = 0, // Pull Disable
     ePUE_1_Pull = 1, // Pull Enable
@@ -1065,13 +945,12 @@ union SW_PAD_CTL_PAD_GPIO_SNVS_04_DIG {
   
   // Bit field definition.
   struct {
-    eSRE SRE : 1;
-    eDSE DSE : 1;
+    uint32_t _reserved_0 : 2;
     ePUE PUE : 1;
     ePUS PUS : 1;
-    uint32_t _reserved_0 : 2;
+    uint32_t _reserved_1 : 2;
     eODE_SNVS ODE_SNVS : 1;
-    uint32_t _reserved_1 : 21;
+    uint32_t _reserved_2 : 21;
     eDWP DWP : 2;
     eDWP_LOCK DWP_LOCK : 2;
   } bits;
@@ -1088,16 +967,6 @@ union SW_PAD_CTL_PAD_GPIO_SNVS_04_DIG {
 //
 union SW_PAD_CTL_PAD_GPIO_SNVS_05_DIG {
   
-  enum class eSRE : uint32_t {
-    eSRE_0_Slow_Slew_Rate = 0, // Slow Slew Rate
-    eSRE_1_Fast_Slew_Rate = 1, // Fast Slew Rate
-  };
-  
-  enum class eDSE : uint32_t {
-    eDSE_0_normal_driver = 0, // normal driver
-    eDSE_1_high_driver = 1, // high driver
-  };
-  
   enum class ePUE : uint32_t {
     ePUE_0_Disable = 0, // Pull Disable
     ePUE_1_Pull = 1, // Pull Enable
@@ -1129,13 +998,12 @@ union SW_PAD_CTL_PAD_GPIO_SNVS_05_DIG {
   
   // Bit field definition.
   struct {
-    eSRE SRE : 1;
-    eDSE DSE : 1;
+    uint32_t _reserved_0 : 2;
     ePUE PUE : 1;
     ePUS PUS : 1;
-    uint32_t _reserved_0 : 2;
+    uint32_t _reserved_1 : 2;
     eODE_SNVS ODE_SNVS : 1;
-    uint32_t _reserved_1 : 21;
+    uint32_t _reserved_2 : 21;
     eDWP DWP : 2;
     eDWP_LOCK DWP_LOCK : 2;
   } bits;
@@ -1152,16 +1020,6 @@ union SW_PAD_CTL_PAD_GPIO_SNVS_05_DIG {
 //
 union SW_PAD_CTL_PAD_GPIO_SNVS_06_DIG {
   
-  enum class eSRE : uint32_t {
-    eSRE_0_Slow_Slew_Rate = 0, // Slow Slew Rate
-    eSRE_1_Fast_Slew_Rate = 1, // Fast Slew Rate
-  };
-  
-  enum class eDSE : uint32_t {
-    eDSE_0_normal_driver = 0, // normal driver
-    eDSE_1_high_driver = 1, // high driver
-  };
-  
   enum class ePUE : uint32_t {
     ePUE_0_Disable = 0, // Pull Disable
     ePUE_1_Pull = 1, // Pull Enable
@@ -1193,13 +1051,12 @@ union SW_PAD_CTL_PAD_GPIO_SNVS_06_DIG {
   
   // Bit field definition.
   struct {
-    eSRE SRE : 1;
-    eDSE DSE : 1;
+    uint32_t _reserved_0 : 2;
     ePUE PUE : 1;
     ePUS PUS : 1;
-    uint32_t _reserved_0 : 2;
+    uint32_t _reserved_1 : 2;
     eODE_SNVS ODE_SNVS : 1;
-    uint32_t _reserved_1 : 21;
+    uint32_t _reserved_2 : 21;
     eDWP DWP : 2;
     eDWP_LOCK DWP_LOCK : 2;
   } bits;
@@ -1216,16 +1073,6 @@ union SW_PAD_CTL_PAD_GPIO_SNVS_06_DIG {
 //
 union SW_PAD_CTL_PAD_GPIO_SNVS_07_DIG {
   
-  enum class eSRE : uint32_t {
-    eSRE_0_Slow_Slew_Rate = 0, // Slow Slew Rate
-    eSRE_1_Fast_Slew_Rate = 1, // Fast Slew Rate
-  };
-  
-  enum class eDSE : uint32_t {
-    eDSE_0_normal_driver = 0, // normal driver
-    eDSE_1_high_driver = 1, // high driver
-  };
-  
   enum class ePUE : uint32_t {
     ePUE_0_Disable = 0, // Pull Disable
     ePUE_1_Pull = 1, // Pull Enable
@@ -1257,13 +1104,12 @@ union SW_PAD_CTL_PAD_GPIO_SNVS_07_DIG {
   
   // Bit field definition.
   struct {
-    eSRE SRE : 1;
-    eDSE DSE : 1;
+    uint32_t _reserved_0 : 2;
     ePUE PUE : 1;
     ePUS PUS : 1;
-    uint32_t _reserved_0 : 2;
+    uint32_t _reserved_1 : 2;
     eODE_SNVS ODE_SNVS : 1;
-    uint32_t _reserved_1 : 21;
+    uint32_t _reserved_2 : 21;
     eDWP DWP : 2;
     eDWP_LOCK DWP_LOCK : 2;
   } bits;
@@ -1280,16 +1126,6 @@ union SW_PAD_CTL_PAD_GPIO_SNVS_07_DIG {
 //
 union SW_PAD_CTL_PAD_GPIO_SNVS_08_DIG {
   
-  enum class eSRE : uint32_t {
-    eSRE_0_Slow_Slew_Rate = 0, // Slow Slew Rate
-    eSRE_1_Fast_Slew_Rate = 1, // Fast Slew Rate
-  };
-  
-  enum class eDSE : uint32_t {
-    eDSE_0_normal_driver = 0, // normal driver
-    eDSE_1_high_driver = 1, // high driver
-  };
-  
   enum class ePUE : uint32_t {
     ePUE_0_Disable = 0, // Pull Disable
     ePUE_1_Pull = 1, // Pull Enable
@@ -1321,13 +1157,12 @@ union SW_PAD_CTL_PAD_GPIO_SNVS_08_DIG {
   
   // Bit field definition.
   struct {
-    eSRE SRE : 1;
-    eDSE DSE : 1;
+    uint32_t _reserved_0 : 2;
     ePUE PUE : 1;
     ePUS PUS : 1;
-    uint32_t _reserved_0 : 2;
+    uint32_t _reserved_1 : 2;
     eODE_SNVS ODE_SNVS : 1;
-    uint32_t _reserved_1 : 21;
+    uint32_t _reserved_2 : 21;
     eDWP DWP : 2;
     eDWP_LOCK DWP_LOCK : 2;
   } bits;
@@ -1344,16 +1179,6 @@ union SW_PAD_CTL_PAD_GPIO_SNVS_08_DIG {
 //
 union SW_PAD_CTL_PAD_GPIO_SNVS_09_DIG {
   
-  enum class eSRE : uint32_t {
-    eSRE_0_Slow_Slew_Rate = 0, // Slow Slew Rate
-    eSRE_1_Fast_Slew_Rate = 1, // Fast Slew Rate
-  };
-  
-  enum class eDSE : uint32_t {
-    eDSE_0_normal_driver = 0, // normal driver
-    eDSE_1_high_driver = 1, // high driver
-  };
-  
   enum class ePUE : uint32_t {
     ePUE_0_Disable = 0, // Pull Disable
     ePUE_1_Pull = 1, // Pull Enable
@@ -1385,13 +1210,12 @@ union SW_PAD_CTL_PAD_GPIO_SNVS_09_DIG {
   
   // Bit field definition.
   struct {
-    eSRE SRE : 1;
-    eDSE DSE : 1;
+    uint32_t _reserved_0 : 2;
     ePUE PUE : 1;
     ePUS PUS : 1;
-    uint32_t _reserved_0 : 2;
+    uint32_t _reserved_1 : 2;
     eODE_SNVS ODE_SNVS : 1;
-    uint32_t _reserved_1 : 21;
+    uint32_t _reserved_2 : 21;
     eDWP DWP : 2;
     eDWP_LOCK DWP_LOCK : 2;
   } bits;

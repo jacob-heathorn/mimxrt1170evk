@@ -2713,15 +2713,15 @@ union MPECC {
   
   enum class eMP_SYNDROME : uint32_t {
     eKEYOK = 0, // The MP Key in the SFP passes the ECC check.
-    eKEYBAD = 1, // The MP Key in the SFP fails the ECC check, and this is the ECC failure syndrome.
-    eKEYBAD = 2, // The MP Key in the SFP fails the ECC check, and this is the ECC failure syndrome.
-    eKEYBAD = 3, // The MP Key in the SFP fails the ECC check, and this is the ECC failure syndrome.
-    eKEYBAD = 4, // The MP Key in the SFP fails the ECC check, and this is the ECC failure syndrome.
-    eKEYBAD = 5, // The MP Key in the SFP fails the ECC check, and this is the ECC failure syndrome.
-    eKEYBAD = 6, // The MP Key in the SFP fails the ECC check, and this is the ECC failure syndrome.
-    eKEYBAD = 7, // The MP Key in the SFP fails the ECC check, and this is the ECC failure syndrome.
-    eKEYBAD = 8, // The MP Key in the SFP fails the ECC check, and this is the ECC failure syndrome.
-    eKEYBAD = 9, // The MP Key in the SFP fails the ECC check, and this is the ECC failure syndrome.
+    eKEYBAD_1 = 1, // The MP Key in the SFP fails the ECC check, and this is the ECC failure syndrome.
+    eKEYBAD_2 = 2, // The MP Key in the SFP fails the ECC check, and this is the ECC failure syndrome.
+    eKEYBAD_3 = 3, // The MP Key in the SFP fails the ECC check, and this is the ECC failure syndrome.
+    eKEYBAD_4 = 4, // The MP Key in the SFP fails the ECC check, and this is the ECC failure syndrome.
+    eKEYBAD_5 = 5, // The MP Key in the SFP fails the ECC check, and this is the ECC failure syndrome.
+    eKEYBAD_6 = 6, // The MP Key in the SFP fails the ECC check, and this is the ECC failure syndrome.
+    eKEYBAD_7 = 7, // The MP Key in the SFP fails the ECC check, and this is the ECC failure syndrome.
+    eKEYBAD_8 = 8, // The MP Key in the SFP fails the ECC check, and this is the ECC failure syndrome.
+    eKEYBAD_9 = 9, // The MP Key in the SFP fails the ECC check, and this is the ECC failure syndrome.
   };
   
   enum class eMP_ZERO : uint32_t {
