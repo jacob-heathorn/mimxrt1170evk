@@ -106,9 +106,9 @@ void BoardInitPins()
     // iomuxc_sw_pad.SetMUX_MODE(nIOMUXC::SW_MUX_CTL_PAD_GPIO_AD_04_t::eMUX_MODE::eALT10_gpio9_IO3);
 
     // Set GPIO9, pin3 mux.
-    auto &reg = n_IOMUXC::SW_MUX_CTL_PAD_GPIO_AD_04::Instance();
+    auto &reg = nIOMUXC::SW_MUX_CTL_PAD_GPIO_AD_04::Instance();
     reg.Reset();
-    reg.bits.MUX_MODE = n_IOMUXC::SW_MUX_CTL_PAD_GPIO_AD_04::eMUX_MODE::eALT10_gpio9_IO3;
+    reg.bits.MUX_MODE = nIOMUXC::SW_MUX_CTL_PAD_GPIO_AD_04::eMUX_MODE::eALT10_gpio9_IO3;
 }
 
 
@@ -144,7 +144,6 @@ int main(void)
 
     /* Configure LED */
     LED_INIT();
-    nGPIO9::Registers gpio9{};
     // nGPIO9::DR_t gpio9_dr;
     // auto dr = gpio9_dr.GetDR();
 
@@ -169,12 +168,6 @@ int main(void)
             int y = i * 3 / 2;
             (void)y;
         }
-        // gpio9_dr->DR_TOGGLE.SetDR_TOGGLE(1);
-        // dr = gpio9_dr.GetDR();
-        //LED_TOGGLE();
-        // dr = gpio9_dr.GetDR();
-        // auto x = dr;
-        // (void)x;
-        gpio9.DR_TOGGLE.SetDR_TOGGLE(8);
+        LED_TOGGLE();
     }
 }
