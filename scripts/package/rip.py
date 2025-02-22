@@ -18,7 +18,16 @@ def main():
   parser.add_argument('-d0', '--debug_core_0', type=str, help='Debug core 0 <preset:application>')
   parser.add_argument('-d1', '--debug_core_1', type=str, help='Debug core 1 <preset:application>')
   parser.add_argument('-c', '--clean', action='store_true', help='Clean bin/ directories')
-  parser.add_argument('-g', '--generate', action='store_true', help='Generate svd register')
+  parser.add_argument(
+      '-g0',
+      '--generate_core_0',
+      action='store_true',
+      help='Generate core0 (cm4) svd registers')
+  parser.add_argument(
+      '-g1',
+      '--generate_core_1',
+      action='store_true',
+      help='Generate core 1 (cm7) svd register')
   args = parser.parse_args()
 
   # Do clean
@@ -37,11 +46,19 @@ def main():
   if args.debug_core_1:
     mimxrt1170evk.Core1Application(args.debug_core_1).debug()
 
-  # Do generate registers
-  if args.generate:
-    # TODO: get mcux-sdk in nix.
+  # TODO: get mcux-sdk in nix.
+  #
+  # Do generate core 0 (cm4) registers.
+  if args.generate_core_0:
     file = '/home/jacob/evtol/nxp/repos/mcux-sdk/svd/MIMXRT1176/MIMXRT1176_cm4.xml'
     output_dir = os.path.join(PROJECT_ROOT, 'firmware', 'cm4', 'registers')
+    svd_parser_wrapper = forge.SVDParserWrapper(file, output_dir)
+    svd_parser_wrapper.generate()
+
+  # Do generate core 1 (cm7) registers.
+  if args.generate_core_1:
+    file = '/home/jacob/evtol/nxp/repos/mcux-sdk/svd/MIMXRT1176/MIMXRT1176_cm7.xml'
+    output_dir = os.path.join(PROJECT_ROOT, 'firmware', 'cm7', 'registers')
     svd_parser_wrapper = forge.SVDParserWrapper(file, output_dir)
     svd_parser_wrapper.generate()
 
