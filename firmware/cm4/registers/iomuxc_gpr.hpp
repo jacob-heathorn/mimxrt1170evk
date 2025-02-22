@@ -17,16 +17,16 @@ union GPR0 {
   
   // Enum definitions.
   enum class eDWP : uint32_t {
-      eforbid_none = 0, // Both cores are allowed
-      eforbid_CM7 = 1, // CM7 is forbidden
-      eforbid_CM4 = 2, // CM4 is forbidden
-      eforbid_both = 3, // Both cores are forbidden
+    eforbid_none = 0, // Both cores are allowed
+    eforbid_CM7 = 1, // CM7 is forbidden
+    eforbid_CM4 = 2, // CM4 is forbidden
+    eforbid_both = 3, // Both cores are forbidden
   };
   enum class eDWP_LOCK : uint32_t {
-      elock_none = 0, // Neither of DWP bits is locked
-      elock_low = 1, // The lower DWP bit is locked
-      elock_high = 2, // The higher DWP bit is locked
-      elock_both = 3, // Both DWP bits are locked
+    elock_none = 0, // Neither of DWP bits is locked
+    elock_low = 1, // The lower DWP bit is locked
+    elock_high = 2, // The higher DWP bit is locked
+    elock_both = 3, // Both DWP bits are locked
   };
   
   // Bit field definition.
@@ -54,16 +54,16 @@ union GPR1 {
   
   // Enum definitions.
   enum class eDWP : uint32_t {
-      eforbid_none = 0, // Both cores are allowed
-      eforbid_CM7 = 1, // CM7 is forbidden
-      eforbid_CM4 = 2, // CM4 is forbidden
-      eforbid_both = 3, // Both cores are forbidden
+    eforbid_none = 0, // Both cores are allowed
+    eforbid_CM7 = 1, // CM7 is forbidden
+    eforbid_CM4 = 2, // CM4 is forbidden
+    eforbid_both = 3, // Both cores are forbidden
   };
   enum class eDWP_LOCK : uint32_t {
-      elock_none = 0, // Neither of DWP bits is locked
-      elock_low = 1, // The lower DWP bit is locked
-      elock_high = 2, // The higher DWP bit is locked
-      elock_both = 3, // Both DWP bits are locked
+    elock_none = 0, // Neither of DWP bits is locked
+    elock_low = 1, // The lower DWP bit is locked
+    elock_high = 2, // The higher DWP bit is locked
+    elock_both = 3, // Both DWP bits are locked
   };
   
   // Bit field definition.
@@ -90,16 +90,16 @@ union GPR2 {
   
   // Enum definitions.
   enum class eDWP : uint32_t {
-      eforbid_none = 0, // Both cores are allowed
-      eforbid_CM7 = 1, // CM7 is forbidden
-      eforbid_CM4 = 2, // CM4 is forbidden
-      eforbid_both = 3, // Both cores are forbidden
+    eforbid_none = 0, // Both cores are allowed
+    eforbid_CM7 = 1, // CM7 is forbidden
+    eforbid_CM4 = 2, // CM4 is forbidden
+    eforbid_both = 3, // Both cores are forbidden
   };
   enum class eDWP_LOCK : uint32_t {
-      elock_none = 0, // Neither of DWP bits is locked
-      elock_low = 1, // The lower DWP bit is locked
-      elock_high = 2, // The higher DWP bit is locked
-      elock_both = 3, // Both DWP bits are locked
+    elock_none = 0, // Neither of DWP bits is locked
+    elock_low = 1, // The lower DWP bit is locked
+    elock_high = 2, // The higher DWP bit is locked
+    elock_both = 3, // Both DWP bits are locked
   };
   
   // Bit field definition.
@@ -127,16 +127,16 @@ union GPR3 {
   
   // Enum definitions.
   enum class eDWP : uint32_t {
-      eforbid_none = 0, // Both cores are allowed
-      eforbid_CM7 = 1, // CM7 is forbidden
-      eforbid_CM4 = 2, // CM4 is forbidden
-      eforbid_both = 3, // Both cores are forbidden
+    eforbid_none = 0, // Both cores are allowed
+    eforbid_CM7 = 1, // CM7 is forbidden
+    eforbid_CM4 = 2, // CM4 is forbidden
+    eforbid_both = 3, // Both cores are forbidden
   };
   enum class eDWP_LOCK : uint32_t {
-      elock_none = 0, // Neither of DWP bits is locked
-      elock_low = 1, // The lower DWP bit is locked
-      elock_high = 2, // The higher DWP bit is locked
-      elock_both = 3, // Both DWP bits are locked
+    elock_none = 0, // Neither of DWP bits is locked
+    elock_low = 1, // The lower DWP bit is locked
+    elock_high = 2, // The higher DWP bit is locked
+    elock_both = 3, // Both DWP bits are locked
   };
   
   // Bit field definition.
@@ -164,16 +164,16 @@ union GPR4 {
   
   // Enum definitions.
   enum class eDWP : uint32_t {
-      eforbid_none = 0, // Both cores are allowed
-      eforbid_CM7 = 1, // CM7 is forbidden
-      eforbid_CM4 = 2, // CM4 is forbidden
-      eforbid_both = 3, // Both cores are forbidden
+    eforbid_none = 0, // Both cores are allowed
+    eforbid_CM7 = 1, // CM7 is forbidden
+    eforbid_CM4 = 2, // CM4 is forbidden
+    eforbid_both = 3, // Both cores are forbidden
   };
   enum class eDWP_LOCK : uint32_t {
-      elock_none = 0, // Neither of DWP bits is locked
-      elock_low = 1, // The lower DWP bit is locked
-      elock_high = 2, // The higher DWP bit is locked
-      elock_both = 3, // Both DWP bits are locked
+    elock_none = 0, // Neither of DWP bits is locked
+    elock_low = 1, // The lower DWP bit is locked
+    elock_high = 2, // The higher DWP bit is locked
+    elock_both = 3, // Both DWP bits are locked
   };
   
   // Bit field definition.
@@ -201,16 +201,16 @@ union GPR5 {
   
   // Enum definitions.
   enum class eDWP : uint32_t {
-      eforbid_none = 0, // Both cores are allowed
-      eforbid_CM7 = 1, // CM7 is forbidden
-      eforbid_CM4 = 2, // CM4 is forbidden
-      eforbid_both = 3, // Both cores are forbidden
+    eforbid_none = 0, // Both cores are allowed
+    eforbid_CM7 = 1, // CM7 is forbidden
+    eforbid_CM4 = 2, // CM4 is forbidden
+    eforbid_both = 3, // Both cores are forbidden
   };
   enum class eDWP_LOCK : uint32_t {
-      elock_none = 0, // Neither of DWP bits is locked
-      elock_low = 1, // The lower DWP bit is locked
-      elock_high = 2, // The higher DWP bit is locked
-      elock_both = 3, // Both DWP bits are locked
+    elock_none = 0, // Neither of DWP bits is locked
+    elock_low = 1, // The lower DWP bit is locked
+    elock_high = 2, // The higher DWP bit is locked
+    elock_both = 3, // Both DWP bits are locked
   };
   
   // Bit field definition.
@@ -239,16 +239,16 @@ union GPR6 {
   
   // Enum definitions.
   enum class eDWP : uint32_t {
-      eforbid_none = 0, // Both cores are allowed
-      eforbid_CM7 = 1, // CM7 is forbidden
-      eforbid_CM4 = 2, // CM4 is forbidden
-      eforbid_both = 3, // Both cores are forbidden
+    eforbid_none = 0, // Both cores are allowed
+    eforbid_CM7 = 1, // CM7 is forbidden
+    eforbid_CM4 = 2, // CM4 is forbidden
+    eforbid_both = 3, // Both cores are forbidden
   };
   enum class eDWP_LOCK : uint32_t {
-      elock_none = 0, // Neither of DWP bits is locked
-      elock_low = 1, // The lower DWP bit is locked
-      elock_high = 2, // The higher DWP bit is locked
-      elock_both = 3, // Both DWP bits are locked
+    elock_none = 0, // Neither of DWP bits is locked
+    elock_low = 1, // The lower DWP bit is locked
+    elock_high = 2, // The higher DWP bit is locked
+    elock_both = 3, // Both DWP bits are locked
   };
   
   // Bit field definition.
@@ -278,16 +278,16 @@ union GPR7 {
   
   // Enum definitions.
   enum class eDWP : uint32_t {
-      eforbid_none = 0, // Both cores are allowed
-      eforbid_CM7 = 1, // CM7 is forbidden
-      eforbid_CM4 = 2, // CM4 is forbidden
-      eforbid_both = 3, // Both cores are forbidden
+    eforbid_none = 0, // Both cores are allowed
+    eforbid_CM7 = 1, // CM7 is forbidden
+    eforbid_CM4 = 2, // CM4 is forbidden
+    eforbid_both = 3, // Both cores are forbidden
   };
   enum class eDWP_LOCK : uint32_t {
-      elock_none = 0, // Neither of DWP bits is locked
-      elock_low = 1, // The lower DWP bit is locked
-      elock_high = 2, // The higher DWP bit is locked
-      elock_both = 3, // Both DWP bits are locked
+    elock_none = 0, // Neither of DWP bits is locked
+    elock_low = 1, // The lower DWP bit is locked
+    elock_high = 2, // The higher DWP bit is locked
+    elock_both = 3, // Both DWP bits are locked
   };
   
   // Bit field definition.
@@ -312,16 +312,16 @@ union GPR8 {
   
   // Enum definitions.
   enum class eDWP : uint32_t {
-      eforbid_none = 0, // Both cores are allowed
-      eforbid_CM7 = 1, // CM7 is forbidden
-      eforbid_CM4 = 2, // CM4 is forbidden
-      eforbid_both = 3, // Both cores are forbidden
+    eforbid_none = 0, // Both cores are allowed
+    eforbid_CM7 = 1, // CM7 is forbidden
+    eforbid_CM4 = 2, // CM4 is forbidden
+    eforbid_both = 3, // Both cores are forbidden
   };
   enum class eDWP_LOCK : uint32_t {
-      elock_none = 0, // Neither of DWP bits is locked
-      elock_low = 1, // The lower DWP bit is locked
-      elock_high = 2, // The higher DWP bit is locked
-      elock_both = 3, // Both DWP bits are locked
+    elock_none = 0, // Neither of DWP bits is locked
+    elock_low = 1, // The lower DWP bit is locked
+    elock_high = 2, // The higher DWP bit is locked
+    elock_both = 3, // Both DWP bits are locked
   };
   
   // Bit field definition.
@@ -346,16 +346,16 @@ union GPR9 {
   
   // Enum definitions.
   enum class eDWP : uint32_t {
-      eforbid_none = 0, // Both cores are allowed
-      eforbid_CM7 = 1, // CM7 is forbidden
-      eforbid_CM4 = 2, // CM4 is forbidden
-      eforbid_both = 3, // Both cores are forbidden
+    eforbid_none = 0, // Both cores are allowed
+    eforbid_CM7 = 1, // CM7 is forbidden
+    eforbid_CM4 = 2, // CM4 is forbidden
+    eforbid_both = 3, // Both cores are forbidden
   };
   enum class eDWP_LOCK : uint32_t {
-      elock_none = 0, // Neither of DWP bits is locked
-      elock_low = 1, // The lower DWP bit is locked
-      elock_high = 2, // The higher DWP bit is locked
-      elock_both = 3, // Both DWP bits are locked
+    elock_none = 0, // Neither of DWP bits is locked
+    elock_low = 1, // The lower DWP bit is locked
+    elock_high = 2, // The higher DWP bit is locked
+    elock_both = 3, // Both DWP bits are locked
   };
   
   // Bit field definition.
@@ -380,16 +380,16 @@ union GPR10 {
   
   // Enum definitions.
   enum class eDWP : uint32_t {
-      eforbid_none = 0, // Both cores are allowed
-      eforbid_CM7 = 1, // CM7 is forbidden
-      eforbid_CM4 = 2, // CM4 is forbidden
-      eforbid_both = 3, // Both cores are forbidden
+    eforbid_none = 0, // Both cores are allowed
+    eforbid_CM7 = 1, // CM7 is forbidden
+    eforbid_CM4 = 2, // CM4 is forbidden
+    eforbid_both = 3, // Both cores are forbidden
   };
   enum class eDWP_LOCK : uint32_t {
-      elock_none = 0, // Neither of DWP bits is locked
-      elock_low = 1, // The lower DWP bit is locked
-      elock_high = 2, // The higher DWP bit is locked
-      elock_both = 3, // Both DWP bits are locked
+    elock_none = 0, // Neither of DWP bits is locked
+    elock_low = 1, // The lower DWP bit is locked
+    elock_high = 2, // The higher DWP bit is locked
+    elock_both = 3, // Both DWP bits are locked
   };
   
   // Bit field definition.
@@ -413,16 +413,16 @@ union GPR11 {
   
   // Enum definitions.
   enum class eDWP : uint32_t {
-      eforbid_none = 0, // Both cores are allowed
-      eforbid_CM7 = 1, // CM7 is forbidden
-      eforbid_CM4 = 2, // CM4 is forbidden
-      eforbid_both = 3, // Both cores are forbidden
+    eforbid_none = 0, // Both cores are allowed
+    eforbid_CM7 = 1, // CM7 is forbidden
+    eforbid_CM4 = 2, // CM4 is forbidden
+    eforbid_both = 3, // Both cores are forbidden
   };
   enum class eDWP_LOCK : uint32_t {
-      elock_none = 0, // Neither of DWP bits is locked
-      elock_low = 1, // The lower DWP bit is locked
-      elock_high = 2, // The higher DWP bit is locked
-      elock_both = 3, // Both DWP bits are locked
+    elock_none = 0, // Neither of DWP bits is locked
+    elock_low = 1, // The lower DWP bit is locked
+    elock_high = 2, // The higher DWP bit is locked
+    elock_both = 3, // Both DWP bits are locked
   };
   
   // Bit field definition.
@@ -446,16 +446,16 @@ union GPR12 {
   
   // Enum definitions.
   enum class eDWP : uint32_t {
-      eforbid_none = 0, // Both cores are allowed
-      eforbid_CM7 = 1, // CM7 is forbidden
-      eforbid_CM4 = 2, // CM4 is forbidden
-      eforbid_both = 3, // Both cores are forbidden
+    eforbid_none = 0, // Both cores are allowed
+    eforbid_CM7 = 1, // CM7 is forbidden
+    eforbid_CM4 = 2, // CM4 is forbidden
+    eforbid_both = 3, // Both cores are forbidden
   };
   enum class eDWP_LOCK : uint32_t {
-      elock_none = 0, // Neither of DWP bits is locked
-      elock_low = 1, // The lower DWP bit is locked
-      elock_high = 2, // The higher DWP bit is locked
-      elock_both = 3, // Both DWP bits are locked
+    elock_none = 0, // Neither of DWP bits is locked
+    elock_low = 1, // The lower DWP bit is locked
+    elock_high = 2, // The higher DWP bit is locked
+    elock_both = 3, // Both DWP bits are locked
   };
   
   // Bit field definition.
@@ -485,16 +485,16 @@ union GPR13 {
   
   // Enum definitions.
   enum class eDWP : uint32_t {
-      eforbid_none = 0, // Both cores are allowed
-      eforbid_CM7 = 1, // CM7 is forbidden
-      eforbid_CM4 = 2, // CM4 is forbidden
-      eforbid_both = 3, // Both cores are forbidden
+    eforbid_none = 0, // Both cores are allowed
+    eforbid_CM7 = 1, // CM7 is forbidden
+    eforbid_CM4 = 2, // CM4 is forbidden
+    eforbid_both = 3, // Both cores are forbidden
   };
   enum class eDWP_LOCK : uint32_t {
-      elock_none = 0, // Neither of DWP bits is locked
-      elock_low = 1, // The lower DWP bit is locked
-      elock_high = 2, // The higher DWP bit is locked
-      elock_both = 3, // Both DWP bits are locked
+    elock_none = 0, // Neither of DWP bits is locked
+    elock_low = 1, // The lower DWP bit is locked
+    elock_high = 2, // The higher DWP bit is locked
+    elock_both = 3, // Both DWP bits are locked
   };
   
   // Bit field definition.
@@ -524,16 +524,16 @@ union GPR14 {
   
   // Enum definitions.
   enum class eDWP : uint32_t {
-      eforbid_none = 0, // Both cores are allowed
-      eforbid_CM7 = 1, // CM7 is forbidden
-      eforbid_CM4 = 2, // CM4 is forbidden
-      eforbid_both = 3, // Both cores are forbidden
+    eforbid_none = 0, // Both cores are allowed
+    eforbid_CM7 = 1, // CM7 is forbidden
+    eforbid_CM4 = 2, // CM4 is forbidden
+    eforbid_both = 3, // Both cores are forbidden
   };
   enum class eDWP_LOCK : uint32_t {
-      elock_none = 0, // Neither of DWP bits is locked
-      elock_low = 1, // The lower DWP bit is locked
-      elock_high = 2, // The higher DWP bit is locked
-      elock_both = 3, // Both DWP bits are locked
+    elock_none = 0, // Neither of DWP bits is locked
+    elock_low = 1, // The lower DWP bit is locked
+    elock_high = 2, // The higher DWP bit is locked
+    elock_both = 3, // Both DWP bits are locked
   };
   
   // Bit field definition.
@@ -563,16 +563,16 @@ union GPR15 {
   
   // Enum definitions.
   enum class eDWP : uint32_t {
-      eforbid_none = 0, // Both cores are allowed
-      eforbid_CM7 = 1, // CM7 is forbidden
-      eforbid_CM4 = 2, // CM4 is forbidden
-      eforbid_both = 3, // Both cores are forbidden
+    eforbid_none = 0, // Both cores are allowed
+    eforbid_CM7 = 1, // CM7 is forbidden
+    eforbid_CM4 = 2, // CM4 is forbidden
+    eforbid_both = 3, // Both cores are forbidden
   };
   enum class eDWP_LOCK : uint32_t {
-      elock_none = 0, // Neither of DWP bits is locked
-      elock_low = 1, // The lower DWP bit is locked
-      elock_high = 2, // The higher DWP bit is locked
-      elock_both = 3, // Both DWP bits are locked
+    elock_none = 0, // Neither of DWP bits is locked
+    elock_low = 1, // The lower DWP bit is locked
+    elock_high = 2, // The higher DWP bit is locked
+    elock_both = 3, // Both DWP bits are locked
   };
   
   // Bit field definition.
@@ -602,16 +602,16 @@ union GPR16 {
   
   // Enum definitions.
   enum class eDWP : uint32_t {
-      eforbid_none = 0, // Both cores are allowed
-      eforbid_CM7 = 1, // CM7 is forbidden
-      eforbid_CM4 = 2, // CM4 is forbidden
-      eforbid_both = 3, // Both cores are forbidden
+    eforbid_none = 0, // Both cores are allowed
+    eforbid_CM7 = 1, // CM7 is forbidden
+    eforbid_CM4 = 2, // CM4 is forbidden
+    eforbid_both = 3, // Both cores are forbidden
   };
   enum class eDWP_LOCK : uint32_t {
-      elock_none = 0, // Neither of DWP bits is locked
-      elock_low = 1, // The lower DWP bit is locked
-      elock_high = 2, // The higher DWP bit is locked
-      elock_both = 3, // Both DWP bits are locked
+    elock_none = 0, // Neither of DWP bits is locked
+    elock_low = 1, // The lower DWP bit is locked
+    elock_high = 2, // The higher DWP bit is locked
+    elock_both = 3, // Both DWP bits are locked
   };
   
   // Bit field definition.
@@ -640,16 +640,16 @@ union GPR17 {
   
   // Enum definitions.
   enum class eDWP : uint32_t {
-      eforbid_none = 0, // Both cores are allowed
-      eforbid_CM7 = 1, // CM7 is forbidden
-      eforbid_CM4 = 2, // CM4 is forbidden
-      eforbid_both = 3, // Both cores are forbidden
+    eforbid_none = 0, // Both cores are allowed
+    eforbid_CM7 = 1, // CM7 is forbidden
+    eforbid_CM4 = 2, // CM4 is forbidden
+    eforbid_both = 3, // Both cores are forbidden
   };
   enum class eDWP_LOCK : uint32_t {
-      elock_none = 0, // Neither of DWP bits is locked
-      elock_low = 1, // The lower DWP bit is locked
-      elock_high = 2, // The higher DWP bit is locked
-      elock_both = 3, // Both DWP bits are locked
+    elock_none = 0, // Neither of DWP bits is locked
+    elock_low = 1, // The lower DWP bit is locked
+    elock_high = 2, // The higher DWP bit is locked
+    elock_both = 3, // Both DWP bits are locked
   };
   
   // Bit field definition.
@@ -674,16 +674,16 @@ union GPR18 {
   
   // Enum definitions.
   enum class eDWP : uint32_t {
-      eforbid_none = 0, // Both cores are allowed
-      eforbid_CM7 = 1, // CM7 is forbidden
-      eforbid_CM4 = 2, // CM4 is forbidden
-      eforbid_both = 3, // Both cores are forbidden
+    eforbid_none = 0, // Both cores are allowed
+    eforbid_CM7 = 1, // CM7 is forbidden
+    eforbid_CM4 = 2, // CM4 is forbidden
+    eforbid_both = 3, // Both cores are forbidden
   };
   enum class eDWP_LOCK : uint32_t {
-      elock_none = 0, // Neither of DWP bits is locked
-      elock_low = 1, // The lower DWP bit is locked
-      elock_high = 2, // The higher DWP bit is locked
-      elock_both = 3, // Both DWP bits are locked
+    elock_none = 0, // Neither of DWP bits is locked
+    elock_low = 1, // The lower DWP bit is locked
+    elock_high = 2, // The higher DWP bit is locked
+    elock_both = 3, // Both DWP bits are locked
   };
   
   // Bit field definition.
@@ -708,16 +708,16 @@ union GPR20 {
   
   // Enum definitions.
   enum class eDWP : uint32_t {
-      eforbid_none = 0, // Both cores are allowed
-      eforbid_CM7 = 1, // CM7 is forbidden
-      eforbid_CM4 = 2, // CM4 is forbidden
-      eforbid_both = 3, // Both cores are forbidden
+    eforbid_none = 0, // Both cores are allowed
+    eforbid_CM7 = 1, // CM7 is forbidden
+    eforbid_CM4 = 2, // CM4 is forbidden
+    eforbid_both = 3, // Both cores are forbidden
   };
   enum class eDWP_LOCK : uint32_t {
-      elock_none = 0, // Neither of DWP bits is locked
-      elock_low = 1, // The lower DWP bit is locked
-      elock_high = 2, // The higher DWP bit is locked
-      elock_both = 3, // Both DWP bits are locked
+    elock_none = 0, // Neither of DWP bits is locked
+    elock_low = 1, // The lower DWP bit is locked
+    elock_high = 2, // The higher DWP bit is locked
+    elock_both = 3, // Both DWP bits are locked
   };
   
   // Bit field definition.
@@ -768,16 +768,16 @@ union GPR21 {
   
   // Enum definitions.
   enum class eDWP : uint32_t {
-      eforbid_none = 0, // Both cores are allowed
-      eforbid_CM7 = 1, // CM7 is forbidden
-      eforbid_CM4 = 2, // CM4 is forbidden
-      eforbid_both = 3, // Both cores are forbidden
+    eforbid_none = 0, // Both cores are allowed
+    eforbid_CM7 = 1, // CM7 is forbidden
+    eforbid_CM4 = 2, // CM4 is forbidden
+    eforbid_both = 3, // Both cores are forbidden
   };
   enum class eDWP_LOCK : uint32_t {
-      elock_none = 0, // Neither of DWP bits is locked
-      elock_low = 1, // The lower DWP bit is locked
-      elock_high = 2, // The higher DWP bit is locked
-      elock_both = 3, // Both DWP bits are locked
+    elock_none = 0, // Neither of DWP bits is locked
+    elock_low = 1, // The lower DWP bit is locked
+    elock_high = 2, // The higher DWP bit is locked
+    elock_both = 3, // Both DWP bits are locked
   };
   
   // Bit field definition.
@@ -812,16 +812,16 @@ union GPR22 {
   
   // Enum definitions.
   enum class eDWP : uint32_t {
-      eforbid_none = 0, // Both cores are allowed
-      eforbid_CM7 = 1, // CM7 is forbidden
-      eforbid_CM4 = 2, // CM4 is forbidden
-      eforbid_both = 3, // Both cores are forbidden
+    eforbid_none = 0, // Both cores are allowed
+    eforbid_CM7 = 1, // CM7 is forbidden
+    eforbid_CM4 = 2, // CM4 is forbidden
+    eforbid_both = 3, // Both cores are forbidden
   };
   enum class eDWP_LOCK : uint32_t {
-      elock_none = 0, // Neither of DWP bits is locked
-      elock_low = 1, // The lower DWP bit is locked
-      elock_high = 2, // The higher DWP bit is locked
-      elock_both = 3, // Both DWP bits are locked
+    elock_none = 0, // Neither of DWP bits is locked
+    elock_low = 1, // The lower DWP bit is locked
+    elock_high = 2, // The higher DWP bit is locked
+    elock_both = 3, // Both DWP bits are locked
   };
   
   // Bit field definition.
@@ -846,16 +846,16 @@ union GPR23 {
   
   // Enum definitions.
   enum class eDWP : uint32_t {
-      eforbid_none = 0, // Both cores are allowed
-      eforbid_CM7 = 1, // CM7 is forbidden
-      eforbid_CM4 = 2, // CM4 is forbidden
-      eforbid_both = 3, // Both cores are forbidden
+    eforbid_none = 0, // Both cores are allowed
+    eforbid_CM7 = 1, // CM7 is forbidden
+    eforbid_CM4 = 2, // CM4 is forbidden
+    eforbid_both = 3, // Both cores are forbidden
   };
   enum class eDWP_LOCK : uint32_t {
-      elock_none = 0, // Neither of DWP bits is locked
-      elock_low = 1, // The lower DWP bit is locked
-      elock_high = 2, // The higher DWP bit is locked
-      elock_both = 3, // Both DWP bits are locked
+    elock_none = 0, // Neither of DWP bits is locked
+    elock_low = 1, // The lower DWP bit is locked
+    elock_high = 2, // The higher DWP bit is locked
+    elock_both = 3, // Both DWP bits are locked
   };
   
   // Bit field definition.
@@ -882,16 +882,16 @@ union GPR24 {
   
   // Enum definitions.
   enum class eDWP : uint32_t {
-      eforbid_none = 0, // Both cores are allowed
-      eforbid_CM7 = 1, // CM7 is forbidden
-      eforbid_CM4 = 2, // CM4 is forbidden
-      eforbid_both = 3, // Both cores are forbidden
+    eforbid_none = 0, // Both cores are allowed
+    eforbid_CM7 = 1, // CM7 is forbidden
+    eforbid_CM4 = 2, // CM4 is forbidden
+    eforbid_both = 3, // Both cores are forbidden
   };
   enum class eDWP_LOCK : uint32_t {
-      elock_none = 0, // Neither of DWP bits is locked
-      elock_low = 1, // The lower DWP bit is locked
-      elock_high = 2, // The higher DWP bit is locked
-      elock_both = 3, // Both DWP bits are locked
+    elock_none = 0, // Neither of DWP bits is locked
+    elock_low = 1, // The lower DWP bit is locked
+    elock_high = 2, // The higher DWP bit is locked
+    elock_both = 3, // Both DWP bits are locked
   };
   
   // Bit field definition.
@@ -917,16 +917,16 @@ union GPR25 {
   
   // Enum definitions.
   enum class eDWP : uint32_t {
-      eforbid_none = 0, // Both cores are allowed
-      eforbid_CM7 = 1, // CM7 is forbidden
-      eforbid_CM4 = 2, // CM4 is forbidden
-      eforbid_both = 3, // Both cores are forbidden
+    eforbid_none = 0, // Both cores are allowed
+    eforbid_CM7 = 1, // CM7 is forbidden
+    eforbid_CM4 = 2, // CM4 is forbidden
+    eforbid_both = 3, // Both cores are forbidden
   };
   enum class eDWP_LOCK : uint32_t {
-      elock_none = 0, // Neither of DWP bits is locked
-      elock_low = 1, // The lower DWP bit is locked
-      elock_high = 2, // The higher DWP bit is locked
-      elock_both = 3, // Both DWP bits are locked
+    elock_none = 0, // Neither of DWP bits is locked
+    elock_low = 1, // The lower DWP bit is locked
+    elock_high = 2, // The higher DWP bit is locked
+    elock_both = 3, // Both DWP bits are locked
   };
   
   // Bit field definition.
@@ -951,16 +951,16 @@ union GPR26 {
   
   // Enum definitions.
   enum class eDWP : uint32_t {
-      eforbid_none = 0, // Both cores are allowed
-      eforbid_CM7 = 1, // CM7 is forbidden
-      eforbid_CM4 = 2, // CM4 is forbidden
-      eforbid_both = 3, // Both cores are forbidden
+    eforbid_none = 0, // Both cores are allowed
+    eforbid_CM7 = 1, // CM7 is forbidden
+    eforbid_CM4 = 2, // CM4 is forbidden
+    eforbid_both = 3, // Both cores are forbidden
   };
   enum class eDWP_LOCK : uint32_t {
-      elock_none = 0, // Neither of DWP bits is locked
-      elock_low = 1, // The lower DWP bit is locked
-      elock_high = 2, // The higher DWP bit is locked
-      elock_both = 3, // Both DWP bits are locked
+    elock_none = 0, // Neither of DWP bits is locked
+    elock_low = 1, // The lower DWP bit is locked
+    elock_high = 2, // The higher DWP bit is locked
+    elock_both = 3, // Both DWP bits are locked
   };
   
   // Bit field definition.
@@ -985,16 +985,16 @@ union GPR27 {
   
   // Enum definitions.
   enum class eDWP : uint32_t {
-      eforbid_none = 0, // Both cores are allowed
-      eforbid_CM7 = 1, // CM7 is forbidden
-      eforbid_CM4 = 2, // CM4 is forbidden
-      eforbid_both = 3, // Both cores are forbidden
+    eforbid_none = 0, // Both cores are allowed
+    eforbid_CM7 = 1, // CM7 is forbidden
+    eforbid_CM4 = 2, // CM4 is forbidden
+    eforbid_both = 3, // Both cores are forbidden
   };
   enum class eDWP_LOCK : uint32_t {
-      elock_none = 0, // Neither of DWP bits is locked
-      elock_low = 1, // The lower DWP bit is locked
-      elock_high = 2, // The higher DWP bit is locked
-      elock_both = 3, // Both DWP bits are locked
+    elock_none = 0, // Neither of DWP bits is locked
+    elock_low = 1, // The lower DWP bit is locked
+    elock_high = 2, // The higher DWP bit is locked
+    elock_both = 3, // Both DWP bits are locked
   };
   
   // Bit field definition.
@@ -1019,16 +1019,16 @@ union GPR28 {
   
   // Enum definitions.
   enum class eDWP : uint32_t {
-      eforbid_none = 0, // Both cores are allowed
-      eforbid_CM7 = 1, // CM7 is forbidden
-      eforbid_CM4 = 2, // CM4 is forbidden
-      eforbid_both = 3, // Both cores are forbidden
+    eforbid_none = 0, // Both cores are allowed
+    eforbid_CM7 = 1, // CM7 is forbidden
+    eforbid_CM4 = 2, // CM4 is forbidden
+    eforbid_both = 3, // Both cores are forbidden
   };
   enum class eDWP_LOCK : uint32_t {
-      elock_none = 0, // Neither of DWP bits is locked
-      elock_low = 1, // The lower DWP bit is locked
-      elock_high = 2, // The higher DWP bit is locked
-      elock_both = 3, // Both DWP bits are locked
+    elock_none = 0, // Neither of DWP bits is locked
+    elock_low = 1, // The lower DWP bit is locked
+    elock_high = 2, // The higher DWP bit is locked
+    elock_both = 3, // Both DWP bits are locked
   };
   
   // Bit field definition.
@@ -1060,16 +1060,16 @@ union GPR29 {
   
   // Enum definitions.
   enum class eDWP : uint32_t {
-      eforbid_none = 0, // Both cores are allowed
-      eforbid_CM7 = 1, // CM7 is forbidden
-      eforbid_CM4 = 2, // CM4 is forbidden
-      eforbid_both = 3, // Both cores are forbidden
+    eforbid_none = 0, // Both cores are allowed
+    eforbid_CM7 = 1, // CM7 is forbidden
+    eforbid_CM4 = 2, // CM4 is forbidden
+    eforbid_both = 3, // Both cores are forbidden
   };
   enum class eDWP_LOCK : uint32_t {
-      elock_none = 0, // Neither of DWP bits is locked
-      elock_low = 1, // The lower DWP bit is locked
-      elock_high = 2, // The higher DWP bit is locked
-      elock_both = 3, // Both DWP bits are locked
+    elock_none = 0, // Neither of DWP bits is locked
+    elock_low = 1, // The lower DWP bit is locked
+    elock_high = 2, // The higher DWP bit is locked
+    elock_both = 3, // Both DWP bits are locked
   };
   
   // Bit field definition.
@@ -1094,16 +1094,16 @@ union GPR30 {
   
   // Enum definitions.
   enum class eDWP : uint32_t {
-      eforbid_none = 0, // Both cores are allowed
-      eforbid_CM7 = 1, // CM7 is forbidden
-      eforbid_CM4 = 2, // CM4 is forbidden
-      eforbid_both = 3, // Both cores are forbidden
+    eforbid_none = 0, // Both cores are allowed
+    eforbid_CM7 = 1, // CM7 is forbidden
+    eforbid_CM4 = 2, // CM4 is forbidden
+    eforbid_both = 3, // Both cores are forbidden
   };
   enum class eDWP_LOCK : uint32_t {
-      elock_none = 0, // Neither of DWP bits is locked
-      elock_low = 1, // The lower DWP bit is locked
-      elock_high = 2, // The higher DWP bit is locked
-      elock_both = 3, // Both DWP bits are locked
+    elock_none = 0, // Neither of DWP bits is locked
+    elock_low = 1, // The lower DWP bit is locked
+    elock_high = 2, // The higher DWP bit is locked
+    elock_both = 3, // Both DWP bits are locked
   };
   
   // Bit field definition.
@@ -1128,16 +1128,16 @@ union GPR31 {
   
   // Enum definitions.
   enum class eDWP : uint32_t {
-      eforbid_none = 0, // Both cores are allowed
-      eforbid_CM7 = 1, // CM7 is forbidden
-      eforbid_CM4 = 2, // CM4 is forbidden
-      eforbid_both = 3, // Both cores are forbidden
+    eforbid_none = 0, // Both cores are allowed
+    eforbid_CM7 = 1, // CM7 is forbidden
+    eforbid_CM4 = 2, // CM4 is forbidden
+    eforbid_both = 3, // Both cores are forbidden
   };
   enum class eDWP_LOCK : uint32_t {
-      elock_none = 0, // Neither of DWP bits is locked
-      elock_low = 1, // The lower DWP bit is locked
-      elock_high = 2, // The higher DWP bit is locked
-      elock_both = 3, // Both DWP bits are locked
+    elock_none = 0, // Neither of DWP bits is locked
+    elock_low = 1, // The lower DWP bit is locked
+    elock_high = 2, // The higher DWP bit is locked
+    elock_both = 3, // Both DWP bits are locked
   };
   
   // Bit field definition.
@@ -1164,16 +1164,16 @@ union GPR32 {
   
   // Enum definitions.
   enum class eDWP : uint32_t {
-      eforbid_none = 0, // Both cores are allowed
-      eforbid_CM7 = 1, // CM7 is forbidden
-      eforbid_CM4 = 2, // CM4 is forbidden
-      eforbid_both = 3, // Both cores are forbidden
+    eforbid_none = 0, // Both cores are allowed
+    eforbid_CM7 = 1, // CM7 is forbidden
+    eforbid_CM4 = 2, // CM4 is forbidden
+    eforbid_both = 3, // Both cores are forbidden
   };
   enum class eDWP_LOCK : uint32_t {
-      elock_none = 0, // Neither of DWP bits is locked
-      elock_low = 1, // The lower DWP bit is locked
-      elock_high = 2, // The higher DWP bit is locked
-      elock_both = 3, // Both DWP bits are locked
+    elock_none = 0, // Neither of DWP bits is locked
+    elock_low = 1, // The lower DWP bit is locked
+    elock_high = 2, // The higher DWP bit is locked
+    elock_both = 3, // Both DWP bits are locked
   };
   
   // Bit field definition.
@@ -1198,16 +1198,16 @@ union GPR33 {
   
   // Enum definitions.
   enum class eDWP : uint32_t {
-      eforbid_none = 0, // Both cores are allowed
-      eforbid_CM7 = 1, // CM7 is forbidden
-      eforbid_CM4 = 2, // CM4 is forbidden
-      eforbid_both = 3, // Both cores are forbidden
+    eforbid_none = 0, // Both cores are allowed
+    eforbid_CM7 = 1, // CM7 is forbidden
+    eforbid_CM4 = 2, // CM4 is forbidden
+    eforbid_both = 3, // Both cores are forbidden
   };
   enum class eDWP_LOCK : uint32_t {
-      elock_none = 0, // Neither of DWP bits is locked
-      elock_low = 1, // The lower DWP bit is locked
-      elock_high = 2, // The higher DWP bit is locked
-      elock_both = 3, // Both DWP bits are locked
+    elock_none = 0, // Neither of DWP bits is locked
+    elock_low = 1, // The lower DWP bit is locked
+    elock_high = 2, // The higher DWP bit is locked
+    elock_both = 3, // Both DWP bits are locked
   };
   
   // Bit field definition.
@@ -1232,16 +1232,16 @@ union GPR34 {
   
   // Enum definitions.
   enum class eDWP : uint32_t {
-      eforbid_none = 0, // Both cores are allowed
-      eforbid_CM7 = 1, // CM7 is forbidden
-      eforbid_CM4 = 2, // CM4 is forbidden
-      eforbid_both = 3, // Both cores are forbidden
+    eforbid_none = 0, // Both cores are allowed
+    eforbid_CM7 = 1, // CM7 is forbidden
+    eforbid_CM4 = 2, // CM4 is forbidden
+    eforbid_both = 3, // Both cores are forbidden
   };
   enum class eDWP_LOCK : uint32_t {
-      elock_none = 0, // Neither of DWP bits is locked
-      elock_low = 1, // The lower DWP bit is locked
-      elock_high = 2, // The higher DWP bit is locked
-      elock_both = 3, // Both DWP bits are locked
+    elock_none = 0, // Neither of DWP bits is locked
+    elock_low = 1, // The lower DWP bit is locked
+    elock_high = 2, // The higher DWP bit is locked
+    elock_both = 3, // Both DWP bits are locked
   };
   
   // Bit field definition.
@@ -1267,16 +1267,16 @@ union GPR35 {
   
   // Enum definitions.
   enum class eDWP : uint32_t {
-      eforbid_none = 0, // Both cores are allowed
-      eforbid_CM7 = 1, // CM7 is forbidden
-      eforbid_CM4 = 2, // CM4 is forbidden
-      eforbid_both = 3, // Both cores are forbidden
+    eforbid_none = 0, // Both cores are allowed
+    eforbid_CM7 = 1, // CM7 is forbidden
+    eforbid_CM4 = 2, // CM4 is forbidden
+    eforbid_both = 3, // Both cores are forbidden
   };
   enum class eDWP_LOCK : uint32_t {
-      elock_none = 0, // Neither of DWP bits is locked
-      elock_low = 1, // The lower DWP bit is locked
-      elock_high = 2, // The higher DWP bit is locked
-      elock_both = 3, // Both DWP bits are locked
+    elock_none = 0, // Neither of DWP bits is locked
+    elock_low = 1, // The lower DWP bit is locked
+    elock_high = 2, // The higher DWP bit is locked
+    elock_both = 3, // Both DWP bits are locked
   };
   
   // Bit field definition.
@@ -1302,16 +1302,16 @@ union GPR36 {
   
   // Enum definitions.
   enum class eDWP : uint32_t {
-      eforbid_none = 0, // Both cores are allowed
-      eforbid_CM7 = 1, // CM7 is forbidden
-      eforbid_CM4 = 2, // CM4 is forbidden
-      eforbid_both = 3, // Both cores are forbidden
+    eforbid_none = 0, // Both cores are allowed
+    eforbid_CM7 = 1, // CM7 is forbidden
+    eforbid_CM4 = 2, // CM4 is forbidden
+    eforbid_both = 3, // Both cores are forbidden
   };
   enum class eDWP_LOCK : uint32_t {
-      elock_none = 0, // Neither of DWP bits is locked
-      elock_low = 1, // The lower DWP bit is locked
-      elock_high = 2, // The higher DWP bit is locked
-      elock_both = 3, // Both DWP bits are locked
+    elock_none = 0, // Neither of DWP bits is locked
+    elock_low = 1, // The lower DWP bit is locked
+    elock_high = 2, // The higher DWP bit is locked
+    elock_both = 3, // Both DWP bits are locked
   };
   
   // Bit field definition.
@@ -1336,16 +1336,16 @@ union GPR37 {
   
   // Enum definitions.
   enum class eDWP : uint32_t {
-      eforbid_none = 0, // Both cores are allowed
-      eforbid_CM7 = 1, // CM7 is forbidden
-      eforbid_CM4 = 2, // CM4 is forbidden
-      eforbid_both = 3, // Both cores are forbidden
+    eforbid_none = 0, // Both cores are allowed
+    eforbid_CM7 = 1, // CM7 is forbidden
+    eforbid_CM4 = 2, // CM4 is forbidden
+    eforbid_both = 3, // Both cores are forbidden
   };
   enum class eDWP_LOCK : uint32_t {
-      elock_none = 0, // Neither of DWP bits is locked
-      elock_low = 1, // The lower DWP bit is locked
-      elock_high = 2, // The higher DWP bit is locked
-      elock_both = 3, // Both DWP bits are locked
+    elock_none = 0, // Neither of DWP bits is locked
+    elock_low = 1, // The lower DWP bit is locked
+    elock_high = 2, // The higher DWP bit is locked
+    elock_both = 3, // Both DWP bits are locked
   };
   
   // Bit field definition.
@@ -1376,16 +1376,16 @@ union GPR38 {
   
   // Enum definitions.
   enum class eDWP : uint32_t {
-      eforbid_none = 0, // Both cores are allowed
-      eforbid_CM7 = 1, // CM7 is forbidden
-      eforbid_CM4 = 2, // CM4 is forbidden
-      eforbid_both = 3, // Both cores are forbidden
+    eforbid_none = 0, // Both cores are allowed
+    eforbid_CM7 = 1, // CM7 is forbidden
+    eforbid_CM4 = 2, // CM4 is forbidden
+    eforbid_both = 3, // Both cores are forbidden
   };
   enum class eDWP_LOCK : uint32_t {
-      elock_none = 0, // Neither of DWP bits is locked
-      elock_low = 1, // The lower DWP bit is locked
-      elock_high = 2, // The higher DWP bit is locked
-      elock_both = 3, // Both DWP bits are locked
+    elock_none = 0, // Neither of DWP bits is locked
+    elock_low = 1, // The lower DWP bit is locked
+    elock_high = 2, // The higher DWP bit is locked
+    elock_both = 3, // Both DWP bits are locked
   };
   
   // Bit field definition.
@@ -1409,16 +1409,16 @@ union GPR39 {
   
   // Enum definitions.
   enum class eDWP : uint32_t {
-      eforbid_none = 0, // Both cores are allowed
-      eforbid_CM7 = 1, // CM7 is forbidden
-      eforbid_CM4 = 2, // CM4 is forbidden
-      eforbid_both = 3, // Both cores are forbidden
+    eforbid_none = 0, // Both cores are allowed
+    eforbid_CM7 = 1, // CM7 is forbidden
+    eforbid_CM4 = 2, // CM4 is forbidden
+    eforbid_both = 3, // Both cores are forbidden
   };
   enum class eDWP_LOCK : uint32_t {
-      elock_none = 0, // Neither of DWP bits is locked
-      elock_low = 1, // The lower DWP bit is locked
-      elock_high = 2, // The higher DWP bit is locked
-      elock_both = 3, // Both DWP bits are locked
+    elock_none = 0, // Neither of DWP bits is locked
+    elock_low = 1, // The lower DWP bit is locked
+    elock_high = 2, // The higher DWP bit is locked
+    elock_both = 3, // Both DWP bits are locked
   };
   
   // Bit field definition.
@@ -1442,16 +1442,16 @@ union GPR40 {
   
   // Enum definitions.
   enum class eDWP : uint32_t {
-      eforbid_none = 0, // Both cores are allowed
-      eforbid_CM7 = 1, // CM7 is forbidden
-      eforbid_CM4 = 2, // CM4 is forbidden
-      eforbid_both = 3, // Both cores are forbidden
+    eforbid_none = 0, // Both cores are allowed
+    eforbid_CM7 = 1, // CM7 is forbidden
+    eforbid_CM4 = 2, // CM4 is forbidden
+    eforbid_both = 3, // Both cores are forbidden
   };
   enum class eDWP_LOCK : uint32_t {
-      elock_none = 0, // Neither of DWP bits is locked
-      elock_low = 1, // The lower DWP bit is locked
-      elock_high = 2, // The higher DWP bit is locked
-      elock_both = 3, // Both DWP bits are locked
+    elock_none = 0, // Neither of DWP bits is locked
+    elock_low = 1, // The lower DWP bit is locked
+    elock_high = 2, // The higher DWP bit is locked
+    elock_both = 3, // Both DWP bits are locked
   };
   
   // Bit field definition.
@@ -1476,16 +1476,16 @@ union GPR41 {
   
   // Enum definitions.
   enum class eDWP : uint32_t {
-      eforbid_none = 0, // Both cores are allowed
-      eforbid_CM7 = 1, // CM7 is forbidden
-      eforbid_CM4 = 2, // CM4 is forbidden
-      eforbid_both = 3, // Both cores are forbidden
+    eforbid_none = 0, // Both cores are allowed
+    eforbid_CM7 = 1, // CM7 is forbidden
+    eforbid_CM4 = 2, // CM4 is forbidden
+    eforbid_both = 3, // Both cores are forbidden
   };
   enum class eDWP_LOCK : uint32_t {
-      elock_none = 0, // Neither of DWP bits is locked
-      elock_low = 1, // The lower DWP bit is locked
-      elock_high = 2, // The higher DWP bit is locked
-      elock_both = 3, // Both DWP bits are locked
+    elock_none = 0, // Neither of DWP bits is locked
+    elock_low = 1, // The lower DWP bit is locked
+    elock_high = 2, // The higher DWP bit is locked
+    elock_both = 3, // Both DWP bits are locked
   };
   
   // Bit field definition.
@@ -1510,16 +1510,16 @@ union GPR42 {
   
   // Enum definitions.
   enum class eDWP : uint32_t {
-      eforbid_none = 0, // Both cores are allowed
-      eforbid_CM7 = 1, // CM7 is forbidden
-      eforbid_CM4 = 2, // CM4 is forbidden
-      eforbid_both = 3, // Both cores are forbidden
+    eforbid_none = 0, // Both cores are allowed
+    eforbid_CM7 = 1, // CM7 is forbidden
+    eforbid_CM4 = 2, // CM4 is forbidden
+    eforbid_both = 3, // Both cores are forbidden
   };
   enum class eDWP_LOCK : uint32_t {
-      elock_none = 0, // Neither of DWP bits is locked
-      elock_low = 1, // The lower DWP bit is locked
-      elock_high = 2, // The higher DWP bit is locked
-      elock_both = 3, // Both DWP bits are locked
+    elock_none = 0, // Neither of DWP bits is locked
+    elock_low = 1, // The lower DWP bit is locked
+    elock_high = 2, // The higher DWP bit is locked
+    elock_both = 3, // Both DWP bits are locked
   };
   
   // Bit field definition.
@@ -1544,16 +1544,16 @@ union GPR43 {
   
   // Enum definitions.
   enum class eDWP : uint32_t {
-      eforbid_none = 0, // Both cores are allowed
-      eforbid_CM7 = 1, // CM7 is forbidden
-      eforbid_CM4 = 2, // CM4 is forbidden
-      eforbid_both = 3, // Both cores are forbidden
+    eforbid_none = 0, // Both cores are allowed
+    eforbid_CM7 = 1, // CM7 is forbidden
+    eforbid_CM4 = 2, // CM4 is forbidden
+    eforbid_both = 3, // Both cores are forbidden
   };
   enum class eDWP_LOCK : uint32_t {
-      elock_none = 0, // Neither of DWP bits is locked
-      elock_low = 1, // The lower DWP bit is locked
-      elock_high = 2, // The higher DWP bit is locked
-      elock_both = 3, // Both DWP bits are locked
+    elock_none = 0, // Neither of DWP bits is locked
+    elock_low = 1, // The lower DWP bit is locked
+    elock_high = 2, // The higher DWP bit is locked
+    elock_both = 3, // Both DWP bits are locked
   };
   
   // Bit field definition.
@@ -1578,16 +1578,16 @@ union GPR44 {
   
   // Enum definitions.
   enum class eDWP : uint32_t {
-      eforbid_none = 0, // Both cores are allowed
-      eforbid_CM7 = 1, // CM7 is forbidden
-      eforbid_CM4 = 2, // CM4 is forbidden
-      eforbid_both = 3, // Both cores are forbidden
+    eforbid_none = 0, // Both cores are allowed
+    eforbid_CM7 = 1, // CM7 is forbidden
+    eforbid_CM4 = 2, // CM4 is forbidden
+    eforbid_both = 3, // Both cores are forbidden
   };
   enum class eDWP_LOCK : uint32_t {
-      elock_none = 0, // Neither of DWP bits is locked
-      elock_low = 1, // The lower DWP bit is locked
-      elock_high = 2, // The higher DWP bit is locked
-      elock_both = 3, // Both DWP bits are locked
+    elock_none = 0, // Neither of DWP bits is locked
+    elock_low = 1, // The lower DWP bit is locked
+    elock_high = 2, // The higher DWP bit is locked
+    elock_both = 3, // Both DWP bits are locked
   };
   
   // Bit field definition.
@@ -1611,16 +1611,16 @@ union GPR45 {
   
   // Enum definitions.
   enum class eDWP : uint32_t {
-      eforbid_none = 0, // Both cores are allowed
-      eforbid_CM7 = 1, // CM7 is forbidden
-      eforbid_CM4 = 2, // CM4 is forbidden
-      eforbid_both = 3, // Both cores are forbidden
+    eforbid_none = 0, // Both cores are allowed
+    eforbid_CM7 = 1, // CM7 is forbidden
+    eforbid_CM4 = 2, // CM4 is forbidden
+    eforbid_both = 3, // Both cores are forbidden
   };
   enum class eDWP_LOCK : uint32_t {
-      elock_none = 0, // Neither of DWP bits is locked
-      elock_low = 1, // The lower DWP bit is locked
-      elock_high = 2, // The higher DWP bit is locked
-      elock_both = 3, // Both DWP bits are locked
+    elock_none = 0, // Neither of DWP bits is locked
+    elock_low = 1, // The lower DWP bit is locked
+    elock_high = 2, // The higher DWP bit is locked
+    elock_both = 3, // Both DWP bits are locked
   };
   
   // Bit field definition.
@@ -1644,16 +1644,16 @@ union GPR46 {
   
   // Enum definitions.
   enum class eDWP : uint32_t {
-      eforbid_none = 0, // Both cores are allowed
-      eforbid_CM7 = 1, // CM7 is forbidden
-      eforbid_CM4 = 2, // CM4 is forbidden
-      eforbid_both = 3, // Both cores are forbidden
+    eforbid_none = 0, // Both cores are allowed
+    eforbid_CM7 = 1, // CM7 is forbidden
+    eforbid_CM4 = 2, // CM4 is forbidden
+    eforbid_both = 3, // Both cores are forbidden
   };
   enum class eDWP_LOCK : uint32_t {
-      elock_none = 0, // Neither of DWP bits is locked
-      elock_low = 1, // The lower DWP bit is locked
-      elock_high = 2, // The higher DWP bit is locked
-      elock_both = 3, // Both DWP bits are locked
+    elock_none = 0, // Neither of DWP bits is locked
+    elock_low = 1, // The lower DWP bit is locked
+    elock_high = 2, // The higher DWP bit is locked
+    elock_both = 3, // Both DWP bits are locked
   };
   
   // Bit field definition.
@@ -1677,16 +1677,16 @@ union GPR47 {
   
   // Enum definitions.
   enum class eDWP : uint32_t {
-      eforbid_none = 0, // Both cores are allowed
-      eforbid_CM7 = 1, // CM7 is forbidden
-      eforbid_CM4 = 2, // CM4 is forbidden
-      eforbid_both = 3, // Both cores are forbidden
+    eforbid_none = 0, // Both cores are allowed
+    eforbid_CM7 = 1, // CM7 is forbidden
+    eforbid_CM4 = 2, // CM4 is forbidden
+    eforbid_both = 3, // Both cores are forbidden
   };
   enum class eDWP_LOCK : uint32_t {
-      elock_none = 0, // Neither of DWP bits is locked
-      elock_low = 1, // The lower DWP bit is locked
-      elock_high = 2, // The higher DWP bit is locked
-      elock_both = 3, // Both DWP bits are locked
+    elock_none = 0, // Neither of DWP bits is locked
+    elock_low = 1, // The lower DWP bit is locked
+    elock_high = 2, // The higher DWP bit is locked
+    elock_both = 3, // Both DWP bits are locked
   };
   
   // Bit field definition.
@@ -1710,16 +1710,16 @@ union GPR48 {
   
   // Enum definitions.
   enum class eDWP : uint32_t {
-      eforbid_none = 0, // Both cores are allowed
-      eforbid_CM7 = 1, // CM7 is forbidden
-      eforbid_CM4 = 2, // CM4 is forbidden
-      eforbid_both = 3, // Both cores are forbidden
+    eforbid_none = 0, // Both cores are allowed
+    eforbid_CM7 = 1, // CM7 is forbidden
+    eforbid_CM4 = 2, // CM4 is forbidden
+    eforbid_both = 3, // Both cores are forbidden
   };
   enum class eDWP_LOCK : uint32_t {
-      elock_none = 0, // Neither of DWP bits is locked
-      elock_low = 1, // The lower DWP bit is locked
-      elock_high = 2, // The higher DWP bit is locked
-      elock_both = 3, // Both DWP bits are locked
+    elock_none = 0, // Neither of DWP bits is locked
+    elock_low = 1, // The lower DWP bit is locked
+    elock_high = 2, // The higher DWP bit is locked
+    elock_both = 3, // Both DWP bits are locked
   };
   
   // Bit field definition.
@@ -1743,16 +1743,16 @@ union GPR49 {
   
   // Enum definitions.
   enum class eDWP : uint32_t {
-      eforbid_none = 0, // Both cores are allowed
-      eforbid_CM7 = 1, // CM7 is forbidden
-      eforbid_CM4 = 2, // CM4 is forbidden
-      eforbid_both = 3, // Both cores are forbidden
+    eforbid_none = 0, // Both cores are allowed
+    eforbid_CM7 = 1, // CM7 is forbidden
+    eforbid_CM4 = 2, // CM4 is forbidden
+    eforbid_both = 3, // Both cores are forbidden
   };
   enum class eDWP_LOCK : uint32_t {
-      elock_none = 0, // Neither of DWP bits is locked
-      elock_low = 1, // The lower DWP bit is locked
-      elock_high = 2, // The higher DWP bit is locked
-      elock_both = 3, // Both DWP bits are locked
+    elock_none = 0, // Neither of DWP bits is locked
+    elock_low = 1, // The lower DWP bit is locked
+    elock_high = 2, // The higher DWP bit is locked
+    elock_both = 3, // Both DWP bits are locked
   };
   
   // Bit field definition.
@@ -1776,16 +1776,16 @@ union GPR50 {
   
   // Enum definitions.
   enum class eDWP : uint32_t {
-      eforbid_none = 0, // Both cores are allowed
-      eforbid_CM7 = 1, // CM7 is forbidden
-      eforbid_CM4 = 2, // CM4 is forbidden
-      eforbid_both = 3, // Both cores are forbidden
+    eforbid_none = 0, // Both cores are allowed
+    eforbid_CM7 = 1, // CM7 is forbidden
+    eforbid_CM4 = 2, // CM4 is forbidden
+    eforbid_both = 3, // Both cores are forbidden
   };
   enum class eDWP_LOCK : uint32_t {
-      elock_none = 0, // Neither of DWP bits is locked
-      elock_low = 1, // The lower DWP bit is locked
-      elock_high = 2, // The higher DWP bit is locked
-      elock_both = 3, // Both DWP bits are locked
+    elock_none = 0, // Neither of DWP bits is locked
+    elock_low = 1, // The lower DWP bit is locked
+    elock_high = 2, // The higher DWP bit is locked
+    elock_both = 3, // Both DWP bits are locked
   };
   
   // Bit field definition.
@@ -1810,16 +1810,16 @@ union GPR51 {
   
   // Enum definitions.
   enum class eDWP : uint32_t {
-      eforbid_none = 0, // Both cores are allowed
-      eforbid_CM7 = 1, // CM7 is forbidden
-      eforbid_CM4 = 2, // CM4 is forbidden
-      eforbid_both = 3, // Both cores are forbidden
+    eforbid_none = 0, // Both cores are allowed
+    eforbid_CM7 = 1, // CM7 is forbidden
+    eforbid_CM4 = 2, // CM4 is forbidden
+    eforbid_both = 3, // Both cores are forbidden
   };
   enum class eDWP_LOCK : uint32_t {
-      elock_none = 0, // Neither of DWP bits is locked
-      elock_low = 1, // The lower DWP bit is locked
-      elock_high = 2, // The higher DWP bit is locked
-      elock_both = 3, // Both DWP bits are locked
+    elock_none = 0, // Neither of DWP bits is locked
+    elock_low = 1, // The lower DWP bit is locked
+    elock_high = 2, // The higher DWP bit is locked
+    elock_both = 3, // Both DWP bits are locked
   };
   
   // Bit field definition.
@@ -1844,16 +1844,16 @@ union GPR52 {
   
   // Enum definitions.
   enum class eDWP : uint32_t {
-      eforbid_none = 0, // Both cores are allowed
-      eforbid_CM7 = 1, // CM7 is forbidden
-      eforbid_CM4 = 2, // CM4 is forbidden
-      eforbid_both = 3, // Both cores are forbidden
+    eforbid_none = 0, // Both cores are allowed
+    eforbid_CM7 = 1, // CM7 is forbidden
+    eforbid_CM4 = 2, // CM4 is forbidden
+    eforbid_both = 3, // Both cores are forbidden
   };
   enum class eDWP_LOCK : uint32_t {
-      elock_none = 0, // Neither of DWP bits is locked
-      elock_low = 1, // The lower DWP bit is locked
-      elock_high = 2, // The higher DWP bit is locked
-      elock_both = 3, // Both DWP bits are locked
+    elock_none = 0, // Neither of DWP bits is locked
+    elock_low = 1, // The lower DWP bit is locked
+    elock_high = 2, // The higher DWP bit is locked
+    elock_both = 3, // Both DWP bits are locked
   };
   
   // Bit field definition.
@@ -1877,16 +1877,16 @@ union GPR53 {
   
   // Enum definitions.
   enum class eDWP : uint32_t {
-      eforbid_none = 0, // Both cores are allowed
-      eforbid_CM7 = 1, // CM7 is forbidden
-      eforbid_CM4 = 2, // CM4 is forbidden
-      eforbid_both = 3, // Both cores are forbidden
+    eforbid_none = 0, // Both cores are allowed
+    eforbid_CM7 = 1, // CM7 is forbidden
+    eforbid_CM4 = 2, // CM4 is forbidden
+    eforbid_both = 3, // Both cores are forbidden
   };
   enum class eDWP_LOCK : uint32_t {
-      elock_none = 0, // Neither of DWP bits is locked
-      elock_low = 1, // The lower DWP bit is locked
-      elock_high = 2, // The higher DWP bit is locked
-      elock_both = 3, // Both DWP bits are locked
+    elock_none = 0, // Neither of DWP bits is locked
+    elock_low = 1, // The lower DWP bit is locked
+    elock_high = 2, // The higher DWP bit is locked
+    elock_both = 3, // Both DWP bits are locked
   };
   
   // Bit field definition.
@@ -1910,16 +1910,16 @@ union GPR54 {
   
   // Enum definitions.
   enum class eDWP : uint32_t {
-      eforbid_none = 0, // Both cores are allowed
-      eforbid_CM7 = 1, // CM7 is forbidden
-      eforbid_CM4 = 2, // CM4 is forbidden
-      eforbid_both = 3, // Both cores are forbidden
+    eforbid_none = 0, // Both cores are allowed
+    eforbid_CM7 = 1, // CM7 is forbidden
+    eforbid_CM4 = 2, // CM4 is forbidden
+    eforbid_both = 3, // Both cores are forbidden
   };
   enum class eDWP_LOCK : uint32_t {
-      elock_none = 0, // Neither of DWP bits is locked
-      elock_low = 1, // The lower DWP bit is locked
-      elock_high = 2, // The higher DWP bit is locked
-      elock_both = 3, // Both DWP bits are locked
+    elock_none = 0, // Neither of DWP bits is locked
+    elock_low = 1, // The lower DWP bit is locked
+    elock_high = 2, // The higher DWP bit is locked
+    elock_both = 3, // Both DWP bits are locked
   };
   
   // Bit field definition.
@@ -1943,16 +1943,16 @@ union GPR55 {
   
   // Enum definitions.
   enum class eDWP : uint32_t {
-      eforbid_none = 0, // Both cores are allowed
-      eforbid_CM7 = 1, // CM7 is forbidden
-      eforbid_CM4 = 2, // CM4 is forbidden
-      eforbid_both = 3, // Both cores are forbidden
+    eforbid_none = 0, // Both cores are allowed
+    eforbid_CM7 = 1, // CM7 is forbidden
+    eforbid_CM4 = 2, // CM4 is forbidden
+    eforbid_both = 3, // Both cores are forbidden
   };
   enum class eDWP_LOCK : uint32_t {
-      elock_none = 0, // Neither of DWP bits is locked
-      elock_low = 1, // The lower DWP bit is locked
-      elock_high = 2, // The higher DWP bit is locked
-      elock_both = 3, // Both DWP bits are locked
+    elock_none = 0, // Neither of DWP bits is locked
+    elock_low = 1, // The lower DWP bit is locked
+    elock_high = 2, // The higher DWP bit is locked
+    elock_both = 3, // Both DWP bits are locked
   };
   
   // Bit field definition.
@@ -1976,26 +1976,26 @@ union GPR59 {
   
   // Enum definitions.
   enum class eMIPI_CSI_SOFT_RST_N : uint32_t {
-      eASSERT = 0, // Assert reset
-      eDEAST = 1, // De-assert reset
+    eASSERT = 0, // Assert reset
+    eDEAST = 1, // De-assert reset
   };
   enum class eMIPI_CSI_RXCDRP : uint32_t {
-      eVAL0 = 0, // 344mV
-      eVAL01 = 1, // 325mV (Default)
-      eVAL10 = 2, // 307mV
-      eVAL11 = 3, // Invalid
+    eVAL0 = 0, // 344mV
+    eVAL01 = 1, // 325mV (Default)
+    eVAL10 = 2, // 307mV
+    eVAL11 = 3, // Invalid
   };
   enum class eDWP : uint32_t {
-      eforbid_none = 0, // Both cores are allowed
-      eforbid_CM7 = 1, // CM7 is forbidden
-      eforbid_CM4 = 2, // CM4 is forbidden
-      eforbid_both = 3, // Both cores are forbidden
+    eforbid_none = 0, // Both cores are allowed
+    eforbid_CM7 = 1, // CM7 is forbidden
+    eforbid_CM4 = 2, // CM4 is forbidden
+    eforbid_both = 3, // Both cores are forbidden
   };
   enum class eDWP_LOCK : uint32_t {
-      elock_none = 0, // Neither of DWP bits is locked
-      elock_low = 1, // The lower DWP bit is locked
-      elock_high = 2, // The higher DWP bit is locked
-      elock_both = 3, // Both DWP bits are locked
+    elock_none = 0, // Neither of DWP bits is locked
+    elock_low = 1, // The lower DWP bit is locked
+    elock_high = 2, // The higher DWP bit is locked
+    elock_both = 3, // Both DWP bits are locked
   };
   
   // Bit field definition.
@@ -2029,32 +2029,32 @@ union GPR62 {
   
   // Enum definitions.
   enum class eMIPI_DSI_PCLK_SOFT_RESET_N : uint32_t {
-      eASSERT = 0, // Assert reset
-      eDEASSERT = 1, // De-assert reset
+    eASSERT = 0, // Assert reset
+    eDEASSERT = 1, // De-assert reset
   };
   enum class eMIPI_DSI_BYTE_SOFT_RESET_N : uint32_t {
-      eASSERT = 0, // Assert reset
-      eDEASSERT = 1, // De-assert reset
+    eASSERT = 0, // Assert reset
+    eDEASSERT = 1, // De-assert reset
   };
   enum class eMIPI_DSI_DPI_SOFT_RESET_N : uint32_t {
-      eASSERT = 0, // Assert reset
-      eDEASSERT = 1, // De-assert reset
+    eASSERT = 0, // Assert reset
+    eDEASSERT = 1, // De-assert reset
   };
   enum class eMIPI_DSI_ESC_SOFT_RESET_N : uint32_t {
-      eASSERT = 0, // Assert reset
-      eDEASSERT = 1, // De-assert reset
+    eASSERT = 0, // Assert reset
+    eDEASSERT = 1, // De-assert reset
   };
   enum class eDWP : uint32_t {
-      eforbid_none = 0, // Both cores are allowed
-      eforbid_CM7 = 1, // CM7 is forbidden
-      eforbid_CM4 = 2, // CM4 is forbidden
-      eforbid_both = 3, // Both cores are forbidden
+    eforbid_none = 0, // Both cores are allowed
+    eforbid_CM7 = 1, // CM7 is forbidden
+    eforbid_CM4 = 2, // CM4 is forbidden
+    eforbid_both = 3, // Both cores are forbidden
   };
   enum class eDWP_LOCK : uint32_t {
-      elock_none = 0, // Neither of DWP bits is locked
-      elock_low = 1, // The lower DWP bit is locked
-      elock_high = 2, // The higher DWP bit is locked
-      elock_both = 3, // Both DWP bits are locked
+    elock_none = 0, // Neither of DWP bits is locked
+    elock_low = 1, // The lower DWP bit is locked
+    elock_high = 2, // The higher DWP bit is locked
+    elock_both = 3, // Both DWP bits are locked
   };
   
   // Bit field definition.
@@ -2108,16 +2108,16 @@ union GPR64 {
   
   // Enum definitions.
   enum class eDWP : uint32_t {
-      eforbid_none = 0, // Both cores are allowed
-      eforbid_CM7 = 1, // CM7 is forbidden
-      eforbid_CM4 = 2, // CM4 is forbidden
-      eforbid_both = 3, // Both cores are forbidden
+    eforbid_none = 0, // Both cores are allowed
+    eforbid_CM7 = 1, // CM7 is forbidden
+    eforbid_CM4 = 2, // CM4 is forbidden
+    eforbid_both = 3, // Both cores are forbidden
   };
   enum class eDWP_LOCK : uint32_t {
-      elock_none = 0, // Neither of DWP bits is locked
-      elock_low = 1, // The lower DWP bit is locked
-      elock_high = 2, // The higher DWP bit is locked
-      elock_both = 3, // Both DWP bits are locked
+    elock_none = 0, // Neither of DWP bits is locked
+    elock_low = 1, // The lower DWP bit is locked
+    elock_high = 2, // The higher DWP bit is locked
+    elock_both = 3, // Both DWP bits are locked
   };
   
   // Bit field definition.
@@ -2153,16 +2153,16 @@ union GPR65 {
   
   // Enum definitions.
   enum class eDWP : uint32_t {
-      eforbid_none = 0, // Both cores are allowed
-      eforbid_CM7 = 1, // CM7 is forbidden
-      eforbid_CM4 = 2, // CM4 is forbidden
-      eforbid_both = 3, // Both cores are forbidden
+    eforbid_none = 0, // Both cores are allowed
+    eforbid_CM7 = 1, // CM7 is forbidden
+    eforbid_CM4 = 2, // CM4 is forbidden
+    eforbid_both = 3, // Both cores are forbidden
   };
   enum class eDWP_LOCK : uint32_t {
-      elock_none = 0, // Neither of DWP bits is locked
-      elock_low = 1, // The lower DWP bit is locked
-      elock_high = 2, // The higher DWP bit is locked
-      elock_both = 3, // Both DWP bits are locked
+    elock_none = 0, // Neither of DWP bits is locked
+    elock_low = 1, // The lower DWP bit is locked
+    elock_high = 2, // The higher DWP bit is locked
+    elock_both = 3, // Both DWP bits are locked
   };
   
   // Bit field definition.
@@ -2198,16 +2198,16 @@ union GPR66 {
   
   // Enum definitions.
   enum class eDWP : uint32_t {
-      eforbid_none = 0, // Both cores are allowed
-      eforbid_CM7 = 1, // CM7 is forbidden
-      eforbid_CM4 = 2, // CM4 is forbidden
-      eforbid_both = 3, // Both cores are forbidden
+    eforbid_none = 0, // Both cores are allowed
+    eforbid_CM7 = 1, // CM7 is forbidden
+    eforbid_CM4 = 2, // CM4 is forbidden
+    eforbid_both = 3, // Both cores are forbidden
   };
   enum class eDWP_LOCK : uint32_t {
-      elock_none = 0, // Neither of DWP bits is locked
-      elock_low = 1, // The lower DWP bit is locked
-      elock_high = 2, // The higher DWP bit is locked
-      elock_both = 3, // Both DWP bits are locked
+    elock_none = 0, // Neither of DWP bits is locked
+    elock_low = 1, // The lower DWP bit is locked
+    elock_high = 2, // The higher DWP bit is locked
+    elock_both = 3, // Both DWP bits are locked
   };
   
   // Bit field definition.
@@ -2243,16 +2243,16 @@ union GPR67 {
   
   // Enum definitions.
   enum class eDWP : uint32_t {
-      eforbid_none = 0, // Both cores are allowed
-      eforbid_CM7 = 1, // CM7 is forbidden
-      eforbid_CM4 = 2, // CM4 is forbidden
-      eforbid_both = 3, // Both cores are forbidden
+    eforbid_none = 0, // Both cores are allowed
+    eforbid_CM7 = 1, // CM7 is forbidden
+    eforbid_CM4 = 2, // CM4 is forbidden
+    eforbid_both = 3, // Both cores are forbidden
   };
   enum class eDWP_LOCK : uint32_t {
-      elock_none = 0, // Neither of DWP bits is locked
-      elock_low = 1, // The lower DWP bit is locked
-      elock_high = 2, // The higher DWP bit is locked
-      elock_both = 3, // Both DWP bits are locked
+    elock_none = 0, // Neither of DWP bits is locked
+    elock_low = 1, // The lower DWP bit is locked
+    elock_high = 2, // The higher DWP bit is locked
+    elock_both = 3, // Both DWP bits are locked
   };
   
   // Bit field definition.
@@ -2288,16 +2288,16 @@ union GPR68 {
   
   // Enum definitions.
   enum class eDWP : uint32_t {
-      eforbid_none = 0, // Both cores are allowed
-      eforbid_CM7 = 1, // CM7 is forbidden
-      eforbid_CM4 = 2, // CM4 is forbidden
-      eforbid_both = 3, // Both cores are forbidden
+    eforbid_none = 0, // Both cores are allowed
+    eforbid_CM7 = 1, // CM7 is forbidden
+    eforbid_CM4 = 2, // CM4 is forbidden
+    eforbid_both = 3, // Both cores are forbidden
   };
   enum class eDWP_LOCK : uint32_t {
-      elock_none = 0, // Neither of DWP bits is locked
-      elock_low = 1, // The lower DWP bit is locked
-      elock_high = 2, // The higher DWP bit is locked
-      elock_both = 3, // Both DWP bits are locked
+    elock_none = 0, // Neither of DWP bits is locked
+    elock_low = 1, // The lower DWP bit is locked
+    elock_high = 2, // The higher DWP bit is locked
+    elock_both = 3, // Both DWP bits are locked
   };
   
   // Bit field definition.
@@ -2333,16 +2333,16 @@ union GPR69 {
   
   // Enum definitions.
   enum class eDWP : uint32_t {
-      eforbid_none = 0, // Both cores are allowed
-      eforbid_CM7 = 1, // CM7 is forbidden
-      eforbid_CM4 = 2, // CM4 is forbidden
-      eforbid_both = 3, // Both cores are forbidden
+    eforbid_none = 0, // Both cores are allowed
+    eforbid_CM7 = 1, // CM7 is forbidden
+    eforbid_CM4 = 2, // CM4 is forbidden
+    eforbid_both = 3, // Both cores are forbidden
   };
   enum class eDWP_LOCK : uint32_t {
-      elock_none = 0, // Neither of DWP bits is locked
-      elock_low = 1, // The lower DWP bit is locked
-      elock_high = 2, // The higher DWP bit is locked
-      elock_both = 3, // Both DWP bits are locked
+    elock_none = 0, // Neither of DWP bits is locked
+    elock_low = 1, // The lower DWP bit is locked
+    elock_high = 2, // The higher DWP bit is locked
+    elock_both = 3, // Both DWP bits are locked
   };
   
   // Bit field definition.
@@ -2380,24 +2380,24 @@ union GPR70 {
   
   // Enum definitions.
   enum class eADC1_IPG_STOP_MODE : uint32_t {
-      eFUNC = 0, // This module is functional in Stop Mode
-      eNONFUNC = 1, // This module is not functional in Stop Mode and the corresponding x_STOP_REQ field is set to '1'.
+    eFUNC = 0, // This module is functional in Stop Mode
+    eNONFUNC = 1, // This module is not functional in Stop Mode and the corresponding x_STOP_REQ field is set to '1'.
   };
   enum class eADC2_IPG_STOP_MODE : uint32_t {
-      eFUNC = 0, // This module is functional in Stop Mode
-      eNONFUNC = 1, // This module is not functional in Stop Mode and the corresponding x_STOP_REQ field is set to '1'.
+    eFUNC = 0, // This module is functional in Stop Mode
+    eNONFUNC = 1, // This module is not functional in Stop Mode and the corresponding x_STOP_REQ field is set to '1'.
   };
   enum class eDWP : uint32_t {
-      eforbid_none = 0, // Both cores are allowed
-      eforbid_CM7 = 1, // CM7 is forbidden
-      eforbid_CM4 = 2, // CM4 is forbidden
-      eforbid_both = 3, // Both cores are forbidden
+    eforbid_none = 0, // Both cores are allowed
+    eforbid_CM7 = 1, // CM7 is forbidden
+    eforbid_CM4 = 2, // CM4 is forbidden
+    eforbid_both = 3, // Both cores are forbidden
   };
   enum class eDWP_LOCK : uint32_t {
-      elock_none = 0, // Neither of DWP bits is locked
-      elock_low = 1, // The lower DWP bit is locked
-      elock_high = 2, // The higher DWP bit is locked
-      elock_both = 3, // Both DWP bits are locked
+    elock_none = 0, // Neither of DWP bits is locked
+    elock_low = 1, // The lower DWP bit is locked
+    elock_high = 2, // The higher DWP bit is locked
+    elock_both = 3, // Both DWP bits are locked
   };
   
   // Bit field definition.
@@ -2448,44 +2448,44 @@ union GPR71 {
   
   // Enum definitions.
   enum class eLPI2C1_IPG_STOP_MODE : uint32_t {
-      eFUNC = 0, // This module is functional in Stop Mode
-      eNONFUNC = 1, // This module is not functional in Stop Mode and the corresponding x_STOP_REQ field is set to '1'.
+    eFUNC = 0, // This module is functional in Stop Mode
+    eNONFUNC = 1, // This module is not functional in Stop Mode and the corresponding x_STOP_REQ field is set to '1'.
   };
   enum class eLPI2C2_IPG_STOP_MODE : uint32_t {
-      eFUNC = 0, // This module is functional in Stop Mode
-      eNONFUNC = 1, // This module is not functional in Stop Mode and the corresponding x_STOP_REQ field is set to '1'.
+    eFUNC = 0, // This module is functional in Stop Mode
+    eNONFUNC = 1, // This module is not functional in Stop Mode and the corresponding x_STOP_REQ field is set to '1'.
   };
   enum class eLPI2C3_IPG_STOP_MODE : uint32_t {
-      eFUNC = 0, // This module is functional in Stop Mode
-      eNONFUNC = 1, // This module is not functional in Stop Mode and the corresponding x_STOP_REQ field is set to '1'.
+    eFUNC = 0, // This module is functional in Stop Mode
+    eNONFUNC = 1, // This module is not functional in Stop Mode and the corresponding x_STOP_REQ field is set to '1'.
   };
   enum class eLPI2C4_IPG_STOP_MODE : uint32_t {
-      eFUNC = 0, // This module is functional in Stop Mode
-      eNONFUNC = 1, // This module is not functional in Stop Mode and the corresponding x_STOP_REQ field is set to '1'.
+    eFUNC = 0, // This module is functional in Stop Mode
+    eNONFUNC = 1, // This module is not functional in Stop Mode and the corresponding x_STOP_REQ field is set to '1'.
   };
   enum class eLPI2C5_IPG_STOP_MODE : uint32_t {
-      eFUNC = 0, // This module is functional in Stop Mode
-      eNONFUNC = 1, // This module is not functional in Stop Mode and the corresponding x_STOP_REQ field is set to '1'.
+    eFUNC = 0, // This module is functional in Stop Mode
+    eNONFUNC = 1, // This module is not functional in Stop Mode and the corresponding x_STOP_REQ field is set to '1'.
   };
   enum class eLPI2C6_IPG_STOP_MODE : uint32_t {
-      eFUNC = 0, // This module is functional in Stop Mode
-      eNONFUNC = 1, // This module is not functional in Stop Mode and the corresponding x_STOP_REQ field is set to '1'.
+    eFUNC = 0, // This module is functional in Stop Mode
+    eNONFUNC = 1, // This module is not functional in Stop Mode and the corresponding x_STOP_REQ field is set to '1'.
   };
   enum class eLPSPI1_IPG_STOP_MODE : uint32_t {
-      eFUNC = 0, // This module is functional in Stop Mode
-      eNONFUNC = 1, // This module is not functional in Stop Mode and the corresponding x_STOP_REQ field is set to '1'.
+    eFUNC = 0, // This module is functional in Stop Mode
+    eNONFUNC = 1, // This module is not functional in Stop Mode and the corresponding x_STOP_REQ field is set to '1'.
   };
   enum class eDWP : uint32_t {
-      eforbid_none = 0, // Both cores are allowed
-      eforbid_CM7 = 1, // CM7 is forbidden
-      eforbid_CM4 = 2, // CM4 is forbidden
-      eforbid_both = 3, // Both cores are forbidden
+    eforbid_none = 0, // Both cores are allowed
+    eforbid_CM7 = 1, // CM7 is forbidden
+    eforbid_CM4 = 2, // CM4 is forbidden
+    eforbid_both = 3, // Both cores are forbidden
   };
   enum class eDWP_LOCK : uint32_t {
-      elock_none = 0, // Neither of DWP bits is locked
-      elock_low = 1, // The lower DWP bit is locked
-      elock_high = 2, // The higher DWP bit is locked
-      elock_both = 3, // Both DWP bits are locked
+    elock_none = 0, // Neither of DWP bits is locked
+    elock_low = 1, // The lower DWP bit is locked
+    elock_high = 2, // The higher DWP bit is locked
+    elock_both = 3, // Both DWP bits are locked
   };
   
   // Bit field definition.
@@ -2536,52 +2536,52 @@ union GPR72 {
   
   // Enum definitions.
   enum class eLPSPI2_IPG_STOP_MODE : uint32_t {
-      eFUNC = 0, // This module is functional in Stop Mode
-      eNONFUNC = 1, // This module is not functional in Stop Mode and the corresponding x_STOP_REQ field is set to '1'.
+    eFUNC = 0, // This module is functional in Stop Mode
+    eNONFUNC = 1, // This module is not functional in Stop Mode and the corresponding x_STOP_REQ field is set to '1'.
   };
   enum class eLPSPI3_IPG_STOP_MODE : uint32_t {
-      eFUNC = 0, // This module is functional in Stop Mode
-      eNONFUNC = 1, // This module is not functional in Stop Mode and the corresponding x_STOP_REQ field is set to '1'.
+    eFUNC = 0, // This module is functional in Stop Mode
+    eNONFUNC = 1, // This module is not functional in Stop Mode and the corresponding x_STOP_REQ field is set to '1'.
   };
   enum class eLPSPI4_IPG_STOP_MODE : uint32_t {
-      eFUNC = 0, // This module is functional in Stop Mode
-      eNONFUNC = 1, // This module is not functional in Stop Mode and the corresponding x_STOP_REQ field is set to '1'.
+    eFUNC = 0, // This module is functional in Stop Mode
+    eNONFUNC = 1, // This module is not functional in Stop Mode and the corresponding x_STOP_REQ field is set to '1'.
   };
   enum class eLPSPI5_IPG_STOP_MODE : uint32_t {
-      eFUNC = 0, // This module is functional in Stop Mode
-      eNONFUNC = 1, // This module is not functional in Stop Mode and the corresponding x_STOP_REQ field is set to '1'.
+    eFUNC = 0, // This module is functional in Stop Mode
+    eNONFUNC = 1, // This module is not functional in Stop Mode and the corresponding x_STOP_REQ field is set to '1'.
   };
   enum class eLPSPI6_IPG_STOP_MODE : uint32_t {
-      eFUNC = 0, // This module is functional in Stop Mode
-      eNONFUNC = 1, // This module is not functional in Stop Mode and the corresponding x_STOP_REQ field is set to '1'.
+    eFUNC = 0, // This module is functional in Stop Mode
+    eNONFUNC = 1, // This module is not functional in Stop Mode and the corresponding x_STOP_REQ field is set to '1'.
   };
   enum class eLPUART1_IPG_STOP_MODE : uint32_t {
-      eFUNC = 0, // This module is functional in Stop Mode
-      eNONFUNC = 1, // This module is not functional in Stop Mode and the corresponding x_STOP_REQ field is set to '1'.
+    eFUNC = 0, // This module is functional in Stop Mode
+    eNONFUNC = 1, // This module is not functional in Stop Mode and the corresponding x_STOP_REQ field is set to '1'.
   };
   enum class eLPUART2_IPG_STOP_MODE : uint32_t {
-      eFUNC = 0, // This module is functional in Stop Mode
-      eNONFUNC = 1, // This module is not functional in Stop Mode and the corresponding x_STOP_REQ field is set to '1'.
+    eFUNC = 0, // This module is functional in Stop Mode
+    eNONFUNC = 1, // This module is not functional in Stop Mode and the corresponding x_STOP_REQ field is set to '1'.
   };
   enum class eLPUART3_IPG_STOP_MODE : uint32_t {
-      eFUNC = 0, // This module is functional in Stop Mode
-      eNONFUNC = 1, // This module is not functional in Stop Mode and the corresponding x_STOP_REQ field is set to '1'.
+    eFUNC = 0, // This module is functional in Stop Mode
+    eNONFUNC = 1, // This module is not functional in Stop Mode and the corresponding x_STOP_REQ field is set to '1'.
   };
   enum class eLPUART4_IPG_STOP_MODE : uint32_t {
-      eFUNC = 0, // This module is functional in Stop Mode
-      eNONFUNC = 1, // This module is not functional in Stop Mode and the corresponding x_STOP_REQ field is set to '1'.
+    eFUNC = 0, // This module is functional in Stop Mode
+    eNONFUNC = 1, // This module is not functional in Stop Mode and the corresponding x_STOP_REQ field is set to '1'.
   };
   enum class eDWP : uint32_t {
-      eforbid_none = 0, // Both cores are allowed
-      eforbid_CM7 = 1, // CM7 is forbidden
-      eforbid_CM4 = 2, // CM4 is forbidden
-      eforbid_both = 3, // Both cores are forbidden
+    eforbid_none = 0, // Both cores are allowed
+    eforbid_CM7 = 1, // CM7 is forbidden
+    eforbid_CM4 = 2, // CM4 is forbidden
+    eforbid_both = 3, // Both cores are forbidden
   };
   enum class eDWP_LOCK : uint32_t {
-      elock_none = 0, // Neither of DWP bits is locked
-      elock_low = 1, // The lower DWP bit is locked
-      elock_high = 2, // The higher DWP bit is locked
-      elock_both = 3, // Both DWP bits are locked
+    elock_none = 0, // Neither of DWP bits is locked
+    elock_low = 1, // The lower DWP bit is locked
+    elock_high = 2, // The higher DWP bit is locked
+    elock_both = 3, // Both DWP bits are locked
   };
   
   // Bit field definition.
@@ -2632,52 +2632,52 @@ union GPR73 {
   
   // Enum definitions.
   enum class eLPUART5_IPG_STOP_MODE : uint32_t {
-      eFUNC = 0, // This module is functional in Stop Mode
-      eNONFUNC = 1, // This module is not functional in Stop Mode and the corresponding x_STOP_REQ field is set to '1'.
+    eFUNC = 0, // This module is functional in Stop Mode
+    eNONFUNC = 1, // This module is not functional in Stop Mode and the corresponding x_STOP_REQ field is set to '1'.
   };
   enum class eLPUART6_IPG_STOP_MODE : uint32_t {
-      eFUNC = 0, // This module is functional in Stop Mode
-      eNONFUNC = 1, // This module is not functional in Stop Mode and the corresponding x_STOP_REQ field is set to '1'.
+    eFUNC = 0, // This module is functional in Stop Mode
+    eNONFUNC = 1, // This module is not functional in Stop Mode and the corresponding x_STOP_REQ field is set to '1'.
   };
   enum class eLPUART7_IPG_STOP_MODE : uint32_t {
-      eFUNC = 0, // This module is functional in Stop Mode
-      eNONFUNC = 1, // This module is not functional in Stop Mode and the corresponding x_STOP_REQ field is set to '1'.
+    eFUNC = 0, // This module is functional in Stop Mode
+    eNONFUNC = 1, // This module is not functional in Stop Mode and the corresponding x_STOP_REQ field is set to '1'.
   };
   enum class eLPUART8_IPG_STOP_MODE : uint32_t {
-      eFUNC = 0, // This module is functional in Stop Mode
-      eNONFUNC = 1, // This module is not functional in Stop Mode and the corresponding x_STOP_REQ field is set to '1'.
+    eFUNC = 0, // This module is functional in Stop Mode
+    eNONFUNC = 1, // This module is not functional in Stop Mode and the corresponding x_STOP_REQ field is set to '1'.
   };
   enum class eLPUART9_IPG_STOP_MODE : uint32_t {
-      eFUNC = 0, // This module is functional in Stop Mode
-      eNONFUNC = 1, // This module is not functional in Stop Mode and the corresponding x_STOP_REQ field is set to '1'.
+    eFUNC = 0, // This module is functional in Stop Mode
+    eNONFUNC = 1, // This module is not functional in Stop Mode and the corresponding x_STOP_REQ field is set to '1'.
   };
   enum class eLPUART10_IPG_STOP_MODE : uint32_t {
-      eFUNC = 0, // This module is functional in Stop Mode
-      eNONFUNC = 1, // This module is not functional in Stop Mode and the corresponding x_STOP_REQ field is set to '1'.
+    eFUNC = 0, // This module is functional in Stop Mode
+    eNONFUNC = 1, // This module is not functional in Stop Mode and the corresponding x_STOP_REQ field is set to '1'.
   };
   enum class eLPUART11_IPG_STOP_MODE : uint32_t {
-      eFUNC = 0, // This module is functional in Stop Mode
-      eNONFUNC = 1, // This module is not functional in Stop Mode and the corresponding x_STOP_REQ field is set to '1'.
+    eFUNC = 0, // This module is functional in Stop Mode
+    eNONFUNC = 1, // This module is not functional in Stop Mode and the corresponding x_STOP_REQ field is set to '1'.
   };
   enum class eLPUART12_IPG_STOP_MODE : uint32_t {
-      eFUNC = 0, // This module is functional in Stop Mode
-      eNONFUNC = 1, // This module is not functional in Stop Mode and the corresponding x_STOP_REQ field is set to '1'.
+    eFUNC = 0, // This module is functional in Stop Mode
+    eNONFUNC = 1, // This module is not functional in Stop Mode and the corresponding x_STOP_REQ field is set to '1'.
   };
   enum class eMIC_IPG_STOP_MODE : uint32_t {
-      eFUNC = 0, // This module is functional in Stop Mode
-      eNONFUNC = 1, // This module is not functional in Stop Mode and the corresponding x_STOP_REQ field is set to '1'.
+    eFUNC = 0, // This module is functional in Stop Mode
+    eNONFUNC = 1, // This module is not functional in Stop Mode and the corresponding x_STOP_REQ field is set to '1'.
   };
   enum class eDWP : uint32_t {
-      eforbid_none = 0, // Both cores are allowed
-      eforbid_CM7 = 1, // CM7 is forbidden
-      eforbid_CM4 = 2, // CM4 is forbidden
-      eforbid_both = 3, // Both cores are forbidden
+    eforbid_none = 0, // Both cores are allowed
+    eforbid_CM7 = 1, // CM7 is forbidden
+    eforbid_CM4 = 2, // CM4 is forbidden
+    eforbid_both = 3, // Both cores are forbidden
   };
   enum class eDWP_LOCK : uint32_t {
-      elock_none = 0, // Neither of DWP bits is locked
-      elock_low = 1, // The lower DWP bit is locked
-      elock_high = 2, // The higher DWP bit is locked
-      elock_both = 3, // Both DWP bits are locked
+    elock_none = 0, // Neither of DWP bits is locked
+    elock_low = 1, // The lower DWP bit is locked
+    elock_high = 2, // The higher DWP bit is locked
+    elock_both = 3, // Both DWP bits are locked
   };
   
   // Bit field definition.
@@ -2728,16 +2728,16 @@ union GPR74 {
   
   // Enum definitions.
   enum class eDWP : uint32_t {
-      eforbid_none = 0, // Both cores are allowed
-      eforbid_CM7 = 1, // CM7 is forbidden
-      eforbid_CM4 = 2, // CM4 is forbidden
-      eforbid_both = 3, // Both cores are forbidden
+    eforbid_none = 0, // Both cores are allowed
+    eforbid_CM7 = 1, // CM7 is forbidden
+    eforbid_CM4 = 2, // CM4 is forbidden
+    eforbid_both = 3, // Both cores are forbidden
   };
   enum class eDWP_LOCK : uint32_t {
-      elock_none = 0, // Neither of DWP bits is locked
-      elock_low = 1, // The lower DWP bit is locked
-      elock_high = 2, // The higher DWP bit is locked
-      elock_both = 3, // Both DWP bits are locked
+    elock_none = 0, // Neither of DWP bits is locked
+    elock_low = 1, // The lower DWP bit is locked
+    elock_high = 2, // The higher DWP bit is locked
+    elock_both = 3, // Both DWP bits are locked
   };
   
   // Bit field definition.
