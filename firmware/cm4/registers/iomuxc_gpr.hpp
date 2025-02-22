@@ -17,6 +17,7 @@ namespace nIOMUXC_GPR {
 // GPR0 General Purpose Register
 
 union GPR0 {
+    
     enum class eDWP : uint32_t {
         eforbid_none = 0, // Both cores are allowed
         eforbid_CM7 = 1, // CM7 is forbidden
@@ -31,24 +32,20 @@ union GPR0 {
         elock_both = 3, // Both DWP bits are locked
     };
     
-
-    struct {  
-            
+    struct {
         uint32_t SAI1_MCLK1_SEL : 3;
-           
+        
         uint32_t SAI1_MCLK2_SEL : 3;
-           
+        
         uint32_t SAI1_MCLK3_SEL : 2;
-           
+        
         uint32_t SAI1_MCLK_DIR : 1;
-           
+        
         uint32_t _reserved_4 : 19;
         
         eDWP DWP : 2;
-           
+        
         eDWP_LOCK DWP_LOCK : 2;
-         
-
         
     } bits;          // Bit-field struct (auto-filling reserved gaps)
     uint32_t value;  // Full 32-bit register access
@@ -67,6 +64,7 @@ union GPR0 {
 // GPR1 General Purpose Register
 
 union GPR1 {
+    
     enum class eDWP : uint32_t {
         eforbid_none = 0, // Both cores are allowed
         eforbid_CM7 = 1, // CM7 is forbidden
@@ -81,22 +79,18 @@ union GPR1 {
         elock_both = 3, // Both DWP bits are locked
     };
     
-
-    struct {  
-            
+    struct {
         uint32_t SAI2_MCLK3_SEL : 2;
-           
+        
         uint32_t _reserved_1 : 6;
         
         uint32_t SAI2_MCLK_DIR : 1;
-           
+        
         uint32_t _reserved_2 : 19;
         
         eDWP DWP : 2;
-           
+        
         eDWP_LOCK DWP_LOCK : 2;
-         
-
         
     } bits;          // Bit-field struct (auto-filling reserved gaps)
     uint32_t value;  // Full 32-bit register access
@@ -115,6 +109,7 @@ union GPR1 {
 // GPR2 General Purpose Register
 
 union GPR2 {
+    
     enum class eDWP : uint32_t {
         eforbid_none = 0, // Both cores are allowed
         eforbid_CM7 = 1, // CM7 is forbidden
@@ -129,24 +124,20 @@ union GPR2 {
         elock_both = 3, // Both DWP bits are locked
     };
     
-
-    struct {  
-            
+    struct {
         uint32_t SAI3_MCLK3_SEL : 2;
-           
+        
         uint32_t _reserved_1 : 6;
         
         uint32_t SAI3_MCLK_DIR : 1;
-           
+        
         uint32_t SAI4_MCLK_DIR : 1;
-           
+        
         uint32_t _reserved_3 : 18;
         
         eDWP DWP : 2;
-           
+        
         eDWP_LOCK DWP_LOCK : 2;
-         
-
         
     } bits;          // Bit-field struct (auto-filling reserved gaps)
     uint32_t value;  // Full 32-bit register access
@@ -165,6 +156,7 @@ union GPR2 {
 // GPR3 General Purpose Register
 
 union GPR3 {
+    
     enum class eDWP : uint32_t {
         eforbid_none = 0, // Both cores are allowed
         eforbid_CM7 = 1, // CM7 is forbidden
@@ -179,24 +171,20 @@ union GPR3 {
         elock_both = 3, // Both DWP bits are locked
     };
     
-
-    struct {  
-            
+    struct {
         uint32_t MQS_CLK_DIV : 8;
-           
+        
         uint32_t MQS_SW_RST : 1;
-           
+        
         uint32_t MQS_EN : 1;
-           
+        
         uint32_t MQS_OVERSAMPLE : 1;
-           
+        
         uint32_t _reserved_4 : 17;
         
         eDWP DWP : 2;
-           
+        
         eDWP_LOCK DWP_LOCK : 2;
-         
-
         
     } bits;          // Bit-field struct (auto-filling reserved gaps)
     uint32_t value;  // Full 32-bit register access
@@ -215,6 +203,7 @@ union GPR3 {
 // GPR4 General Purpose Register
 
 union GPR4 {
+    
     enum class eDWP : uint32_t {
         eforbid_none = 0, // Both cores are allowed
         eforbid_CM7 = 1, // CM7 is forbidden
@@ -229,24 +218,20 @@ union GPR4 {
         elock_both = 3, // Both DWP bits are locked
     };
     
-
-    struct {  
-            
+    struct {
         uint32_t ENET_TX_CLK_SEL : 1;
-           
+        
         uint32_t ENET_REF_CLK_DIR : 1;
-           
+        
         uint32_t ENET_TIME_SEL : 1;
-           
+        
         uint32_t ENET_EVENT0IN_SEL : 1;
-           
+        
         uint32_t _reserved_4 : 24;
         
         eDWP DWP : 2;
-           
+        
         eDWP_LOCK DWP_LOCK : 2;
-         
-
         
     } bits;          // Bit-field struct (auto-filling reserved gaps)
     uint32_t value;  // Full 32-bit register access
@@ -265,6 +250,7 @@ union GPR4 {
 // GPR5 General Purpose Register
 
 union GPR5 {
+    
     enum class eDWP : uint32_t {
         eforbid_none = 0, // Both cores are allowed
         eforbid_CM7 = 1, // CM7 is forbidden
@@ -279,26 +265,22 @@ union GPR5 {
         elock_both = 3, // Both DWP bits are locked
     };
     
-
-    struct {  
-            
+    struct {
         uint32_t ENET1G_TX_CLK_SEL : 1;
-           
+        
         uint32_t ENET1G_REF_CLK_DIR : 1;
-           
+        
         uint32_t ENET1G_RGMII_EN : 1;
-           
+        
         uint32_t ENET1G_TIME_SEL : 1;
-           
+        
         uint32_t ENET1G_EVENT0IN_SEL : 1;
-           
+        
         uint32_t _reserved_5 : 23;
         
         eDWP DWP : 2;
-           
+        
         eDWP_LOCK DWP_LOCK : 2;
-         
-
         
     } bits;          // Bit-field struct (auto-filling reserved gaps)
     uint32_t value;  // Full 32-bit register access
@@ -317,6 +299,7 @@ union GPR5 {
 // GPR6 General Purpose Register
 
 union GPR6 {
+    
     enum class eDWP : uint32_t {
         eforbid_none = 0, // Both cores are allowed
         eforbid_CM7 = 1, // CM7 is forbidden
@@ -331,28 +314,24 @@ union GPR6 {
         elock_both = 3, // Both DWP bits are locked
     };
     
-
-    struct {  
-            
+    struct {
         uint32_t ENET_QOS_REF_CLK_DIR : 1;
-           
+        
         uint32_t ENET_QOS_RGMII_EN : 1;
-           
+        
         uint32_t ENET_QOS_TIME_SEL : 1;
-           
+        
         uint32_t ENET_QOS_INTF_SEL : 3;
-           
+        
         uint32_t ENET_QOS_CLKGEN_EN : 1;
-           
+        
         uint32_t ENET_QOS_EVENT0IN_SEL : 1;
-           
+        
         uint32_t _reserved_6 : 20;
         
         eDWP DWP : 2;
-           
+        
         eDWP_LOCK DWP_LOCK : 2;
-         
-
         
     } bits;          // Bit-field struct (auto-filling reserved gaps)
     uint32_t value;  // Full 32-bit register access
@@ -371,6 +350,7 @@ union GPR6 {
 // GPR7 General Purpose Register
 
 union GPR7 {
+    
     enum class eDWP : uint32_t {
         eforbid_none = 0, // Both cores are allowed
         eforbid_CM7 = 1, // CM7 is forbidden
@@ -385,18 +365,14 @@ union GPR7 {
         elock_both = 3, // Both DWP bits are locked
     };
     
-
-    struct {  
-            
+    struct {
         uint32_t GINT : 1;
-           
+        
         uint32_t _reserved_1 : 27;
         
         eDWP DWP : 2;
-           
+        
         eDWP_LOCK DWP_LOCK : 2;
-         
-
         
     } bits;          // Bit-field struct (auto-filling reserved gaps)
     uint32_t value;  // Full 32-bit register access
@@ -415,6 +391,7 @@ union GPR7 {
 // GPR8 General Purpose Register
 
 union GPR8 {
+    
     enum class eDWP : uint32_t {
         eforbid_none = 0, // Both cores are allowed
         eforbid_CM7 = 1, // CM7 is forbidden
@@ -429,18 +406,14 @@ union GPR8 {
         elock_both = 3, // Both DWP bits are locked
     };
     
-
-    struct {  
-            
+    struct {
         uint32_t WDOG1_MASK : 1;
-           
+        
         uint32_t _reserved_1 : 27;
         
         eDWP DWP : 2;
-           
+        
         eDWP_LOCK DWP_LOCK : 2;
-         
-
         
     } bits;          // Bit-field struct (auto-filling reserved gaps)
     uint32_t value;  // Full 32-bit register access
@@ -459,6 +432,7 @@ union GPR8 {
 // GPR9 General Purpose Register
 
 union GPR9 {
+    
     enum class eDWP : uint32_t {
         eforbid_none = 0, // Both cores are allowed
         eforbid_CM7 = 1, // CM7 is forbidden
@@ -473,18 +447,14 @@ union GPR9 {
         elock_both = 3, // Both DWP bits are locked
     };
     
-
-    struct {  
-            
+    struct {
         uint32_t WDOG2_MASK : 1;
-           
+        
         uint32_t _reserved_1 : 27;
         
         eDWP DWP : 2;
-           
+        
         eDWP_LOCK DWP_LOCK : 2;
-         
-
         
     } bits;          // Bit-field struct (auto-filling reserved gaps)
     uint32_t value;  // Full 32-bit register access
@@ -503,6 +473,7 @@ union GPR9 {
 // GPR10 General Purpose Register
 
 union GPR10 {
+    
     enum class eDWP : uint32_t {
         eforbid_none = 0, // Both cores are allowed
         eforbid_CM7 = 1, // CM7 is forbidden
@@ -517,16 +488,12 @@ union GPR10 {
         elock_both = 3, // Both DWP bits are locked
     };
     
-
-    struct {  
-            
+    struct {
         uint32_t _reserved_0 : 28;
         
         eDWP DWP : 2;
-           
+        
         eDWP_LOCK DWP_LOCK : 2;
-         
-
         
     } bits;          // Bit-field struct (auto-filling reserved gaps)
     uint32_t value;  // Full 32-bit register access
@@ -545,6 +512,7 @@ union GPR10 {
 // GPR11 General Purpose Register
 
 union GPR11 {
+    
     enum class eDWP : uint32_t {
         eforbid_none = 0, // Both cores are allowed
         eforbid_CM7 = 1, // CM7 is forbidden
@@ -559,16 +527,12 @@ union GPR11 {
         elock_both = 3, // Both DWP bits are locked
     };
     
-
-    struct {  
-            
+    struct {
         uint32_t _reserved_0 : 28;
         
         eDWP DWP : 2;
-           
+        
         eDWP_LOCK DWP_LOCK : 2;
-         
-
         
     } bits;          // Bit-field struct (auto-filling reserved gaps)
     uint32_t value;  // Full 32-bit register access
@@ -587,6 +551,7 @@ union GPR11 {
 // GPR12 General Purpose Register
 
 union GPR12 {
+    
     enum class eDWP : uint32_t {
         eforbid_none = 0, // Both cores are allowed
         eforbid_CM7 = 1, // CM7 is forbidden
@@ -601,28 +566,24 @@ union GPR12 {
         elock_both = 3, // Both DWP bits are locked
     };
     
-
-    struct {  
-            
+    struct {
         uint32_t QTIMER1_TMR_CNTS_FREEZE : 1;
-           
+        
         uint32_t _reserved_1 : 7;
         
         uint32_t QTIMER1_TRM0_INPUT_SEL : 1;
-           
+        
         uint32_t QTIMER1_TRM1_INPUT_SEL : 1;
-           
+        
         uint32_t QTIMER1_TRM2_INPUT_SEL : 1;
-           
+        
         uint32_t QTIMER1_TRM3_INPUT_SEL : 1;
-           
+        
         uint32_t _reserved_5 : 16;
         
         eDWP DWP : 2;
-           
+        
         eDWP_LOCK DWP_LOCK : 2;
-         
-
         
     } bits;          // Bit-field struct (auto-filling reserved gaps)
     uint32_t value;  // Full 32-bit register access
@@ -641,6 +602,7 @@ union GPR12 {
 // GPR13 General Purpose Register
 
 union GPR13 {
+    
     enum class eDWP : uint32_t {
         eforbid_none = 0, // Both cores are allowed
         eforbid_CM7 = 1, // CM7 is forbidden
@@ -655,28 +617,24 @@ union GPR13 {
         elock_both = 3, // Both DWP bits are locked
     };
     
-
-    struct {  
-            
+    struct {
         uint32_t QTIMER2_TMR_CNTS_FREEZE : 1;
-           
+        
         uint32_t _reserved_1 : 7;
         
         uint32_t QTIMER2_TRM0_INPUT_SEL : 1;
-           
+        
         uint32_t QTIMER2_TRM1_INPUT_SEL : 1;
-           
+        
         uint32_t QTIMER2_TRM2_INPUT_SEL : 1;
-           
+        
         uint32_t QTIMER2_TRM3_INPUT_SEL : 1;
-           
+        
         uint32_t _reserved_5 : 16;
         
         eDWP DWP : 2;
-           
+        
         eDWP_LOCK DWP_LOCK : 2;
-         
-
         
     } bits;          // Bit-field struct (auto-filling reserved gaps)
     uint32_t value;  // Full 32-bit register access
@@ -695,6 +653,7 @@ union GPR13 {
 // GPR14 General Purpose Register
 
 union GPR14 {
+    
     enum class eDWP : uint32_t {
         eforbid_none = 0, // Both cores are allowed
         eforbid_CM7 = 1, // CM7 is forbidden
@@ -709,28 +668,24 @@ union GPR14 {
         elock_both = 3, // Both DWP bits are locked
     };
     
-
-    struct {  
-            
+    struct {
         uint32_t QTIMER3_TMR_CNTS_FREEZE : 1;
-           
+        
         uint32_t _reserved_1 : 7;
         
         uint32_t QTIMER3_TRM0_INPUT_SEL : 1;
-           
+        
         uint32_t QTIMER3_TRM1_INPUT_SEL : 1;
-           
+        
         uint32_t QTIMER3_TRM2_INPUT_SEL : 1;
-           
+        
         uint32_t QTIMER3_TRM3_INPUT_SEL : 1;
-           
+        
         uint32_t _reserved_5 : 16;
         
         eDWP DWP : 2;
-           
+        
         eDWP_LOCK DWP_LOCK : 2;
-         
-
         
     } bits;          // Bit-field struct (auto-filling reserved gaps)
     uint32_t value;  // Full 32-bit register access
@@ -749,6 +704,7 @@ union GPR14 {
 // GPR15 General Purpose Register
 
 union GPR15 {
+    
     enum class eDWP : uint32_t {
         eforbid_none = 0, // Both cores are allowed
         eforbid_CM7 = 1, // CM7 is forbidden
@@ -763,28 +719,24 @@ union GPR15 {
         elock_both = 3, // Both DWP bits are locked
     };
     
-
-    struct {  
-            
+    struct {
         uint32_t QTIMER4_TMR_CNTS_FREEZE : 1;
-           
+        
         uint32_t _reserved_1 : 7;
         
         uint32_t QTIMER4_TRM0_INPUT_SEL : 1;
-           
+        
         uint32_t QTIMER4_TRM1_INPUT_SEL : 1;
-           
+        
         uint32_t QTIMER4_TRM2_INPUT_SEL : 1;
-           
+        
         uint32_t QTIMER4_TRM3_INPUT_SEL : 1;
-           
+        
         uint32_t _reserved_5 : 16;
         
         eDWP DWP : 2;
-           
+        
         eDWP_LOCK DWP_LOCK : 2;
-         
-
         
     } bits;          // Bit-field struct (auto-filling reserved gaps)
     uint32_t value;  // Full 32-bit register access
@@ -803,6 +755,7 @@ union GPR15 {
 // GPR16 General Purpose Register
 
 union GPR16 {
+    
     enum class eDWP : uint32_t {
         eforbid_none = 0, // Both cores are allowed
         eforbid_CM7 = 1, // CM7 is forbidden
@@ -817,26 +770,22 @@ union GPR16 {
         elock_both = 3, // Both DWP bits are locked
     };
     
-
-    struct {  
-            
+    struct {
         uint32_t _reserved_0 : 2;
         
         uint32_t FLEXRAM_BANK_CFG_SEL : 1;
-           
+        
         uint32_t CM7_FORCE_HCLK_EN : 1;
-           
+        
         uint32_t _reserved_2 : 1;
         
         uint32_t M7_GPC_SLEEP_SEL : 1;
-           
+        
         uint32_t _reserved_3 : 22;
         
         eDWP DWP : 2;
-           
+        
         eDWP_LOCK DWP_LOCK : 2;
-         
-
         
     } bits;          // Bit-field struct (auto-filling reserved gaps)
     uint32_t value;  // Full 32-bit register access
@@ -855,6 +804,7 @@ union GPR16 {
 // GPR17 General Purpose Register
 
 union GPR17 {
+    
     enum class eDWP : uint32_t {
         eforbid_none = 0, // Both cores are allowed
         eforbid_CM7 = 1, // CM7 is forbidden
@@ -869,18 +819,14 @@ union GPR17 {
         elock_both = 3, // Both DWP bits are locked
     };
     
-
-    struct {  
-            
+    struct {
         uint32_t FLEXRAM_BANK_CFG_LOW : 16;
-           
+        
         uint32_t _reserved_1 : 12;
         
         eDWP DWP : 2;
-           
+        
         eDWP_LOCK DWP_LOCK : 2;
-         
-
         
     } bits;          // Bit-field struct (auto-filling reserved gaps)
     uint32_t value;  // Full 32-bit register access
@@ -899,6 +845,7 @@ union GPR17 {
 // GPR18 General Purpose Register
 
 union GPR18 {
+    
     enum class eDWP : uint32_t {
         eforbid_none = 0, // Both cores are allowed
         eforbid_CM7 = 1, // CM7 is forbidden
@@ -913,18 +860,14 @@ union GPR18 {
         elock_both = 3, // Both DWP bits are locked
     };
     
-
-    struct {  
-            
+    struct {
         uint32_t FLEXRAM_BANK_CFG_HIGH : 16;
-           
+        
         uint32_t _reserved_1 : 12;
         
         eDWP DWP : 2;
-           
+        
         eDWP_LOCK DWP_LOCK : 2;
-         
-
         
     } bits;          // Bit-field struct (auto-filling reserved gaps)
     uint32_t value;  // Full 32-bit register access
@@ -943,6 +886,7 @@ union GPR18 {
 // GPR20 General Purpose Register
 
 union GPR20 {
+    
     enum class eDWP : uint32_t {
         eforbid_none = 0, // Both cores are allowed
         eforbid_CM7 = 1, // CM7 is forbidden
@@ -957,70 +901,66 @@ union GPR20 {
         elock_both = 3, // Both DWP bits are locked
     };
     
-
-    struct {  
-            
+    struct {
         uint32_t IOMUXC_XBAR_DIR_SEL_4 : 1;
-           
+        
         uint32_t IOMUXC_XBAR_DIR_SEL_5 : 1;
-           
+        
         uint32_t IOMUXC_XBAR_DIR_SEL_6 : 1;
-           
+        
         uint32_t IOMUXC_XBAR_DIR_SEL_7 : 1;
-           
+        
         uint32_t IOMUXC_XBAR_DIR_SEL_8 : 1;
-           
+        
         uint32_t IOMUXC_XBAR_DIR_SEL_9 : 1;
-           
+        
         uint32_t IOMUXC_XBAR_DIR_SEL_10 : 1;
-           
+        
         uint32_t IOMUXC_XBAR_DIR_SEL_11 : 1;
-           
+        
         uint32_t IOMUXC_XBAR_DIR_SEL_12 : 1;
-           
+        
         uint32_t IOMUXC_XBAR_DIR_SEL_13 : 1;
-           
+        
         uint32_t IOMUXC_XBAR_DIR_SEL_14 : 1;
-           
+        
         uint32_t IOMUXC_XBAR_DIR_SEL_15 : 1;
-           
+        
         uint32_t IOMUXC_XBAR_DIR_SEL_16 : 1;
-           
+        
         uint32_t IOMUXC_XBAR_DIR_SEL_17 : 1;
-           
+        
         uint32_t IOMUXC_XBAR_DIR_SEL_18 : 1;
-           
+        
         uint32_t IOMUXC_XBAR_DIR_SEL_19 : 1;
-           
+        
         uint32_t IOMUXC_XBAR_DIR_SEL_20 : 1;
-           
+        
         uint32_t IOMUXC_XBAR_DIR_SEL_21 : 1;
-           
+        
         uint32_t IOMUXC_XBAR_DIR_SEL_22 : 1;
-           
+        
         uint32_t IOMUXC_XBAR_DIR_SEL_23 : 1;
-           
+        
         uint32_t IOMUXC_XBAR_DIR_SEL_24 : 1;
-           
+        
         uint32_t IOMUXC_XBAR_DIR_SEL_25 : 1;
-           
+        
         uint32_t IOMUXC_XBAR_DIR_SEL_26 : 1;
-           
+        
         uint32_t IOMUXC_XBAR_DIR_SEL_27 : 1;
-           
+        
         uint32_t IOMUXC_XBAR_DIR_SEL_28 : 1;
-           
+        
         uint32_t IOMUXC_XBAR_DIR_SEL_29 : 1;
-           
+        
         uint32_t IOMUXC_XBAR_DIR_SEL_30 : 1;
-           
+        
         uint32_t IOMUXC_XBAR_DIR_SEL_31 : 1;
-           
+        
         eDWP DWP : 2;
-           
+        
         eDWP_LOCK DWP_LOCK : 2;
-         
-
         
     } bits;          // Bit-field struct (auto-filling reserved gaps)
     uint32_t value;  // Full 32-bit register access
@@ -1039,6 +979,7 @@ union GPR20 {
 // GPR21 General Purpose Register
 
 union GPR21 {
+    
     enum class eDWP : uint32_t {
         eforbid_none = 0, // Both cores are allowed
         eforbid_CM7 = 1, // CM7 is forbidden
@@ -1053,38 +994,34 @@ union GPR21 {
         elock_both = 3, // Both DWP bits are locked
     };
     
-
-    struct {  
-            
+    struct {
         uint32_t IOMUXC_XBAR_DIR_SEL_32 : 1;
-           
+        
         uint32_t IOMUXC_XBAR_DIR_SEL_33 : 1;
-           
+        
         uint32_t IOMUXC_XBAR_DIR_SEL_34 : 1;
-           
+        
         uint32_t IOMUXC_XBAR_DIR_SEL_35 : 1;
-           
+        
         uint32_t IOMUXC_XBAR_DIR_SEL_36 : 1;
-           
+        
         uint32_t IOMUXC_XBAR_DIR_SEL_37 : 1;
-           
+        
         uint32_t IOMUXC_XBAR_DIR_SEL_38 : 1;
-           
+        
         uint32_t IOMUXC_XBAR_DIR_SEL_39 : 1;
-           
+        
         uint32_t IOMUXC_XBAR_DIR_SEL_40 : 1;
-           
+        
         uint32_t IOMUXC_XBAR_DIR_SEL_41 : 1;
-           
+        
         uint32_t IOMUXC_XBAR_DIR_SEL_42 : 1;
-           
+        
         uint32_t _reserved_11 : 17;
         
         eDWP DWP : 2;
-           
+        
         eDWP_LOCK DWP_LOCK : 2;
-         
-
         
     } bits;          // Bit-field struct (auto-filling reserved gaps)
     uint32_t value;  // Full 32-bit register access
@@ -1103,6 +1040,7 @@ union GPR21 {
 // GPR22 General Purpose Register
 
 union GPR22 {
+    
     enum class eDWP : uint32_t {
         eforbid_none = 0, // Both cores are allowed
         eforbid_CM7 = 1, // CM7 is forbidden
@@ -1117,18 +1055,14 @@ union GPR22 {
         elock_both = 3, // Both DWP bits are locked
     };
     
-
-    struct {  
-            
+    struct {
         uint32_t REF_1M_CLK_GPT1 : 1;
-           
+        
         uint32_t _reserved_1 : 27;
         
         eDWP DWP : 2;
-           
+        
         eDWP_LOCK DWP_LOCK : 2;
-         
-
         
     } bits;          // Bit-field struct (auto-filling reserved gaps)
     uint32_t value;  // Full 32-bit register access
@@ -1147,6 +1081,7 @@ union GPR22 {
 // GPR23 General Purpose Register
 
 union GPR23 {
+    
     enum class eDWP : uint32_t {
         eforbid_none = 0, // Both cores are allowed
         eforbid_CM7 = 1, // CM7 is forbidden
@@ -1161,22 +1096,18 @@ union GPR23 {
         elock_both = 3, // Both DWP bits are locked
     };
     
-
-    struct {  
-            
+    struct {
         uint32_t REF_1M_CLK_GPT2 : 1;
-           
+        
         uint32_t GPT2_CAPIN1_SEL : 1;
-           
+        
         uint32_t GPT2_CAPIN2_SEL : 1;
-           
+        
         uint32_t _reserved_3 : 25;
         
         eDWP DWP : 2;
-           
+        
         eDWP_LOCK DWP_LOCK : 2;
-         
-
         
     } bits;          // Bit-field struct (auto-filling reserved gaps)
     uint32_t value;  // Full 32-bit register access
@@ -1195,6 +1126,7 @@ union GPR23 {
 // GPR24 General Purpose Register
 
 union GPR24 {
+    
     enum class eDWP : uint32_t {
         eforbid_none = 0, // Both cores are allowed
         eforbid_CM7 = 1, // CM7 is forbidden
@@ -1209,20 +1141,16 @@ union GPR24 {
         elock_both = 3, // Both DWP bits are locked
     };
     
-
-    struct {  
-            
+    struct {
         uint32_t REF_1M_CLK_GPT3 : 1;
-           
+        
         uint32_t GPT3_CAPIN1_SEL : 1;
-           
+        
         uint32_t _reserved_2 : 26;
         
         eDWP DWP : 2;
-           
+        
         eDWP_LOCK DWP_LOCK : 2;
-         
-
         
     } bits;          // Bit-field struct (auto-filling reserved gaps)
     uint32_t value;  // Full 32-bit register access
@@ -1241,6 +1169,7 @@ union GPR24 {
 // GPR25 General Purpose Register
 
 union GPR25 {
+    
     enum class eDWP : uint32_t {
         eforbid_none = 0, // Both cores are allowed
         eforbid_CM7 = 1, // CM7 is forbidden
@@ -1255,18 +1184,14 @@ union GPR25 {
         elock_both = 3, // Both DWP bits are locked
     };
     
-
-    struct {  
-            
+    struct {
         uint32_t REF_1M_CLK_GPT4 : 1;
-           
+        
         uint32_t _reserved_1 : 27;
         
         eDWP DWP : 2;
-           
+        
         eDWP_LOCK DWP_LOCK : 2;
-         
-
         
     } bits;          // Bit-field struct (auto-filling reserved gaps)
     uint32_t value;  // Full 32-bit register access
@@ -1285,6 +1210,7 @@ union GPR25 {
 // GPR26 General Purpose Register
 
 union GPR26 {
+    
     enum class eDWP : uint32_t {
         eforbid_none = 0, // Both cores are allowed
         eforbid_CM7 = 1, // CM7 is forbidden
@@ -1299,18 +1225,14 @@ union GPR26 {
         elock_both = 3, // Both DWP bits are locked
     };
     
-
-    struct {  
-            
+    struct {
         uint32_t REF_1M_CLK_GPT5 : 1;
-           
+        
         uint32_t _reserved_1 : 27;
         
         eDWP DWP : 2;
-           
+        
         eDWP_LOCK DWP_LOCK : 2;
-         
-
         
     } bits;          // Bit-field struct (auto-filling reserved gaps)
     uint32_t value;  // Full 32-bit register access
@@ -1329,6 +1251,7 @@ union GPR26 {
 // GPR27 General Purpose Register
 
 union GPR27 {
+    
     enum class eDWP : uint32_t {
         eforbid_none = 0, // Both cores are allowed
         eforbid_CM7 = 1, // CM7 is forbidden
@@ -1343,18 +1266,14 @@ union GPR27 {
         elock_both = 3, // Both DWP bits are locked
     };
     
-
-    struct {  
-            
+    struct {
         uint32_t REF_1M_CLK_GPT6 : 1;
-           
+        
         uint32_t _reserved_1 : 27;
         
         eDWP DWP : 2;
-           
+        
         eDWP_LOCK DWP_LOCK : 2;
-         
-
         
     } bits;          // Bit-field struct (auto-filling reserved gaps)
     uint32_t value;  // Full 32-bit register access
@@ -1373,6 +1292,7 @@ union GPR27 {
 // GPR28 General Purpose Register
 
 union GPR28 {
+    
     enum class eDWP : uint32_t {
         eforbid_none = 0, // Both cores are allowed
         eforbid_CM7 = 1, // CM7 is forbidden
@@ -1387,32 +1307,28 @@ union GPR28 {
         elock_both = 3, // Both DWP bits are locked
     };
     
-
-    struct {  
-            
+    struct {
         uint32_t ARCACHE_USDHC : 1;
-           
+        
         uint32_t AWCACHE_USDHC : 1;
-           
+        
         uint32_t _reserved_2 : 3;
         
         uint32_t CACHE_ENET1G : 1;
-           
+        
         uint32_t _reserved_3 : 1;
         
         uint32_t CACHE_ENET : 1;
-           
+        
         uint32_t _reserved_4 : 5;
         
         uint32_t CACHE_USB : 1;
-           
+        
         uint32_t _reserved_5 : 14;
         
         eDWP DWP : 2;
-           
+        
         eDWP_LOCK DWP_LOCK : 2;
-         
-
         
     } bits;          // Bit-field struct (auto-filling reserved gaps)
     uint32_t value;  // Full 32-bit register access
@@ -1431,6 +1347,7 @@ union GPR28 {
 // GPR29 General Purpose Register
 
 union GPR29 {
+    
     enum class eDWP : uint32_t {
         eforbid_none = 0, // Both cores are allowed
         eforbid_CM7 = 1, // CM7 is forbidden
@@ -1445,18 +1362,14 @@ union GPR29 {
         elock_both = 3, // Both DWP bits are locked
     };
     
-
-    struct {  
-            
+    struct {
         uint32_t USBPHY1_IPG_CLK_ACTIVE : 1;
-           
+        
         uint32_t _reserved_1 : 27;
         
         eDWP DWP : 2;
-           
+        
         eDWP_LOCK DWP_LOCK : 2;
-         
-
         
     } bits;          // Bit-field struct (auto-filling reserved gaps)
     uint32_t value;  // Full 32-bit register access
@@ -1475,6 +1388,7 @@ union GPR29 {
 // GPR30 General Purpose Register
 
 union GPR30 {
+    
     enum class eDWP : uint32_t {
         eforbid_none = 0, // Both cores are allowed
         eforbid_CM7 = 1, // CM7 is forbidden
@@ -1489,18 +1403,14 @@ union GPR30 {
         elock_both = 3, // Both DWP bits are locked
     };
     
-
-    struct {  
-            
+    struct {
         uint32_t USBPHY2_IPG_CLK_ACTIVE : 1;
-           
+        
         uint32_t _reserved_1 : 27;
         
         eDWP DWP : 2;
-           
+        
         eDWP_LOCK DWP_LOCK : 2;
-         
-
         
     } bits;          // Bit-field struct (auto-filling reserved gaps)
     uint32_t value;  // Full 32-bit register access
@@ -1519,6 +1429,7 @@ union GPR30 {
 // GPR31 General Purpose Register
 
 union GPR31 {
+    
     enum class eDWP : uint32_t {
         eforbid_none = 0, // Both cores are allowed
         eforbid_CM7 = 1, // CM7 is forbidden
@@ -1533,22 +1444,18 @@ union GPR31 {
         elock_both = 3, // Both DWP bits are locked
     };
     
-
-    struct {  
-            
+    struct {
         uint32_t RMW2_WAIT_BVALID_CPL : 1;
-           
+        
         uint32_t _reserved_1 : 1;
         
         uint32_t OCRAM_M7_CLK_GATING : 1;
-           
+        
         uint32_t _reserved_2 : 25;
         
         eDWP DWP : 2;
-           
+        
         eDWP_LOCK DWP_LOCK : 2;
-         
-
         
     } bits;          // Bit-field struct (auto-filling reserved gaps)
     uint32_t value;  // Full 32-bit register access
@@ -1567,6 +1474,7 @@ union GPR31 {
 // GPR32 General Purpose Register
 
 union GPR32 {
+    
     enum class eDWP : uint32_t {
         eforbid_none = 0, // Both cores are allowed
         eforbid_CM7 = 1, // CM7 is forbidden
@@ -1581,18 +1489,14 @@ union GPR32 {
         elock_both = 3, // Both DWP bits are locked
     };
     
-
-    struct {  
-            
+    struct {
         uint32_t RMW1_WAIT_BVALID_CPL : 1;
-           
+        
         uint32_t _reserved_1 : 27;
         
         eDWP DWP : 2;
-           
+        
         eDWP_LOCK DWP_LOCK : 2;
-         
-
         
     } bits;          // Bit-field struct (auto-filling reserved gaps)
     uint32_t value;  // Full 32-bit register access
@@ -1611,6 +1515,7 @@ union GPR32 {
 // GPR33 General Purpose Register
 
 union GPR33 {
+    
     enum class eDWP : uint32_t {
         eforbid_none = 0, // Both cores are allowed
         eforbid_CM7 = 1, // CM7 is forbidden
@@ -1625,18 +1530,14 @@ union GPR33 {
         elock_both = 3, // Both DWP bits are locked
     };
     
-
-    struct {  
-            
+    struct {
         uint32_t RMW2_WAIT_BVALID_CPL : 1;
-           
+        
         uint32_t _reserved_1 : 27;
         
         eDWP DWP : 2;
-           
+        
         eDWP_LOCK DWP_LOCK : 2;
-         
-
         
     } bits;          // Bit-field struct (auto-filling reserved gaps)
     uint32_t value;  // Full 32-bit register access
@@ -1655,6 +1556,7 @@ union GPR33 {
 // GPR34 General Purpose Register
 
 union GPR34 {
+    
     enum class eDWP : uint32_t {
         eforbid_none = 0, // Both cores are allowed
         eforbid_CM7 = 1, // CM7 is forbidden
@@ -1669,20 +1571,16 @@ union GPR34 {
         elock_both = 3, // Both DWP bits are locked
     };
     
-
-    struct {  
-            
+    struct {
         uint32_t XECC_FLEXSPI1_WAIT_BVALID_CPL : 1;
-           
+        
         uint32_t FLEXSPI1_OTFAD_EN : 1;
-           
+        
         uint32_t _reserved_2 : 26;
         
         eDWP DWP : 2;
-           
+        
         eDWP_LOCK DWP_LOCK : 2;
-         
-
         
     } bits;          // Bit-field struct (auto-filling reserved gaps)
     uint32_t value;  // Full 32-bit register access
@@ -1701,6 +1599,7 @@ union GPR34 {
 // GPR35 General Purpose Register
 
 union GPR35 {
+    
     enum class eDWP : uint32_t {
         eforbid_none = 0, // Both cores are allowed
         eforbid_CM7 = 1, // CM7 is forbidden
@@ -1715,20 +1614,16 @@ union GPR35 {
         elock_both = 3, // Both DWP bits are locked
     };
     
-
-    struct {  
-            
+    struct {
         uint32_t XECC_FLEXSPI2_WAIT_BVALID_CPL : 1;
-           
+        
         uint32_t FLEXSPI2_OTFAD_EN : 1;
-           
+        
         uint32_t _reserved_2 : 26;
         
         eDWP DWP : 2;
-           
+        
         eDWP_LOCK DWP_LOCK : 2;
-         
-
         
     } bits;          // Bit-field struct (auto-filling reserved gaps)
     uint32_t value;  // Full 32-bit register access
@@ -1747,6 +1642,7 @@ union GPR35 {
 // GPR36 General Purpose Register
 
 union GPR36 {
+    
     enum class eDWP : uint32_t {
         eforbid_none = 0, // Both cores are allowed
         eforbid_CM7 = 1, // CM7 is forbidden
@@ -1761,18 +1657,14 @@ union GPR36 {
         elock_both = 3, // Both DWP bits are locked
     };
     
-
-    struct {  
-            
+    struct {
         uint32_t XECC_SEMC_WAIT_BVALID_CPL : 1;
-           
+        
         uint32_t _reserved_1 : 27;
         
         eDWP DWP : 2;
-           
+        
         eDWP_LOCK DWP_LOCK : 2;
-         
-
         
     } bits;          // Bit-field struct (auto-filling reserved gaps)
     uint32_t value;  // Full 32-bit register access
@@ -1791,6 +1683,7 @@ union GPR36 {
 // GPR37 General Purpose Register
 
 union GPR37 {
+    
     enum class eDWP : uint32_t {
         eforbid_none = 0, // Both cores are allowed
         eforbid_CM7 = 1, // CM7 is forbidden
@@ -1805,30 +1698,26 @@ union GPR37 {
         elock_both = 3, // Both DWP bits are locked
     };
     
-
-    struct {  
-            
+    struct {
         uint32_t NIDEN : 1;
-           
+        
         uint32_t DBG_EN : 1;
-           
+        
         uint32_t _reserved_2 : 1;
         
         uint32_t EXC_MON : 1;
-           
+        
         uint32_t _reserved_3 : 1;
         
         uint32_t M7_DBG_ACK_MASK : 1;
-           
+        
         uint32_t M4_DBG_ACK_MASK : 1;
-           
+        
         uint32_t _reserved_5 : 21;
         
         eDWP DWP : 2;
-           
+        
         eDWP_LOCK DWP_LOCK : 2;
-         
-
         
     } bits;          // Bit-field struct (auto-filling reserved gaps)
     uint32_t value;  // Full 32-bit register access
@@ -1847,6 +1736,7 @@ union GPR37 {
 // GPR38 General Purpose Register
 
 union GPR38 {
+    
     enum class eDWP : uint32_t {
         eforbid_none = 0, // Both cores are allowed
         eforbid_CM7 = 1, // CM7 is forbidden
@@ -1861,16 +1751,12 @@ union GPR38 {
         elock_both = 3, // Both DWP bits are locked
     };
     
-
-    struct {  
-            
+    struct {
         uint32_t _reserved_0 : 28;
         
         eDWP DWP : 2;
-           
+        
         eDWP_LOCK DWP_LOCK : 2;
-         
-
         
     } bits;          // Bit-field struct (auto-filling reserved gaps)
     uint32_t value;  // Full 32-bit register access
@@ -1889,6 +1775,7 @@ union GPR38 {
 // GPR39 General Purpose Register
 
 union GPR39 {
+    
     enum class eDWP : uint32_t {
         eforbid_none = 0, // Both cores are allowed
         eforbid_CM7 = 1, // CM7 is forbidden
@@ -1903,16 +1790,12 @@ union GPR39 {
         elock_both = 3, // Both DWP bits are locked
     };
     
-
-    struct {  
-            
+    struct {
         uint32_t _reserved_0 : 28;
         
         eDWP DWP : 2;
-           
+        
         eDWP_LOCK DWP_LOCK : 2;
-         
-
         
     } bits;          // Bit-field struct (auto-filling reserved gaps)
     uint32_t value;  // Full 32-bit register access
@@ -1931,6 +1814,7 @@ union GPR39 {
 // GPR40 General Purpose Register
 
 union GPR40 {
+    
     enum class eDWP : uint32_t {
         eforbid_none = 0, // Both cores are allowed
         eforbid_CM7 = 1, // CM7 is forbidden
@@ -1945,18 +1829,14 @@ union GPR40 {
         elock_both = 3, // Both DWP bits are locked
     };
     
-
-    struct {  
-            
+    struct {
         uint32_t GPIO_MUX2_GPIO_SEL_LOW : 16;
-           
+        
         uint32_t _reserved_1 : 12;
         
         eDWP DWP : 2;
-           
+        
         eDWP_LOCK DWP_LOCK : 2;
-         
-
         
     } bits;          // Bit-field struct (auto-filling reserved gaps)
     uint32_t value;  // Full 32-bit register access
@@ -1975,6 +1855,7 @@ union GPR40 {
 // GPR41 General Purpose Register
 
 union GPR41 {
+    
     enum class eDWP : uint32_t {
         eforbid_none = 0, // Both cores are allowed
         eforbid_CM7 = 1, // CM7 is forbidden
@@ -1989,18 +1870,14 @@ union GPR41 {
         elock_both = 3, // Both DWP bits are locked
     };
     
-
-    struct {  
-            
+    struct {
         uint32_t GPIO_MUX2_GPIO_SEL_HIGH : 16;
-           
+        
         uint32_t _reserved_1 : 12;
         
         eDWP DWP : 2;
-           
+        
         eDWP_LOCK DWP_LOCK : 2;
-         
-
         
     } bits;          // Bit-field struct (auto-filling reserved gaps)
     uint32_t value;  // Full 32-bit register access
@@ -2019,6 +1896,7 @@ union GPR41 {
 // GPR42 General Purpose Register
 
 union GPR42 {
+    
     enum class eDWP : uint32_t {
         eforbid_none = 0, // Both cores are allowed
         eforbid_CM7 = 1, // CM7 is forbidden
@@ -2033,18 +1911,14 @@ union GPR42 {
         elock_both = 3, // Both DWP bits are locked
     };
     
-
-    struct {  
-            
+    struct {
         uint32_t GPIO_MUX3_GPIO_SEL_LOW : 16;
-           
+        
         uint32_t _reserved_1 : 12;
         
         eDWP DWP : 2;
-           
+        
         eDWP_LOCK DWP_LOCK : 2;
-         
-
         
     } bits;          // Bit-field struct (auto-filling reserved gaps)
     uint32_t value;  // Full 32-bit register access
@@ -2063,6 +1937,7 @@ union GPR42 {
 // GPR43 General Purpose Register
 
 union GPR43 {
+    
     enum class eDWP : uint32_t {
         eforbid_none = 0, // Both cores are allowed
         eforbid_CM7 = 1, // CM7 is forbidden
@@ -2077,18 +1952,14 @@ union GPR43 {
         elock_both = 3, // Both DWP bits are locked
     };
     
-
-    struct {  
-            
+    struct {
         uint32_t GPIO_MUX3_GPIO_SEL_HIGH : 16;
-           
+        
         uint32_t _reserved_1 : 12;
         
         eDWP DWP : 2;
-           
+        
         eDWP_LOCK DWP_LOCK : 2;
-         
-
         
     } bits;          // Bit-field struct (auto-filling reserved gaps)
     uint32_t value;  // Full 32-bit register access
@@ -2107,6 +1978,7 @@ union GPR43 {
 // GPR44 General Purpose Register
 
 union GPR44 {
+    
     enum class eDWP : uint32_t {
         eforbid_none = 0, // Both cores are allowed
         eforbid_CM7 = 1, // CM7 is forbidden
@@ -2121,16 +1993,12 @@ union GPR44 {
         elock_both = 3, // Both DWP bits are locked
     };
     
-
-    struct {  
-            
+    struct {
         uint32_t _reserved_0 : 28;
         
         eDWP DWP : 2;
-           
+        
         eDWP_LOCK DWP_LOCK : 2;
-         
-
         
     } bits;          // Bit-field struct (auto-filling reserved gaps)
     uint32_t value;  // Full 32-bit register access
@@ -2149,6 +2017,7 @@ union GPR44 {
 // GPR45 General Purpose Register
 
 union GPR45 {
+    
     enum class eDWP : uint32_t {
         eforbid_none = 0, // Both cores are allowed
         eforbid_CM7 = 1, // CM7 is forbidden
@@ -2163,16 +2032,12 @@ union GPR45 {
         elock_both = 3, // Both DWP bits are locked
     };
     
-
-    struct {  
-            
+    struct {
         uint32_t _reserved_0 : 28;
         
         eDWP DWP : 2;
-           
+        
         eDWP_LOCK DWP_LOCK : 2;
-         
-
         
     } bits;          // Bit-field struct (auto-filling reserved gaps)
     uint32_t value;  // Full 32-bit register access
@@ -2191,6 +2056,7 @@ union GPR45 {
 // GPR46 General Purpose Register
 
 union GPR46 {
+    
     enum class eDWP : uint32_t {
         eforbid_none = 0, // Both cores are allowed
         eforbid_CM7 = 1, // CM7 is forbidden
@@ -2205,16 +2071,12 @@ union GPR46 {
         elock_both = 3, // Both DWP bits are locked
     };
     
-
-    struct {  
-            
+    struct {
         uint32_t _reserved_0 : 28;
         
         eDWP DWP : 2;
-           
+        
         eDWP_LOCK DWP_LOCK : 2;
-         
-
         
     } bits;          // Bit-field struct (auto-filling reserved gaps)
     uint32_t value;  // Full 32-bit register access
@@ -2233,6 +2095,7 @@ union GPR46 {
 // GPR47 General Purpose Register
 
 union GPR47 {
+    
     enum class eDWP : uint32_t {
         eforbid_none = 0, // Both cores are allowed
         eforbid_CM7 = 1, // CM7 is forbidden
@@ -2247,16 +2110,12 @@ union GPR47 {
         elock_both = 3, // Both DWP bits are locked
     };
     
-
-    struct {  
-            
+    struct {
         uint32_t _reserved_0 : 28;
         
         eDWP DWP : 2;
-           
+        
         eDWP_LOCK DWP_LOCK : 2;
-         
-
         
     } bits;          // Bit-field struct (auto-filling reserved gaps)
     uint32_t value;  // Full 32-bit register access
@@ -2275,6 +2134,7 @@ union GPR47 {
 // GPR48 General Purpose Register
 
 union GPR48 {
+    
     enum class eDWP : uint32_t {
         eforbid_none = 0, // Both cores are allowed
         eforbid_CM7 = 1, // CM7 is forbidden
@@ -2289,16 +2149,12 @@ union GPR48 {
         elock_both = 3, // Both DWP bits are locked
     };
     
-
-    struct {  
-            
+    struct {
         uint32_t _reserved_0 : 28;
         
         eDWP DWP : 2;
-           
+        
         eDWP_LOCK DWP_LOCK : 2;
-         
-
         
     } bits;          // Bit-field struct (auto-filling reserved gaps)
     uint32_t value;  // Full 32-bit register access
@@ -2317,6 +2173,7 @@ union GPR48 {
 // GPR49 General Purpose Register
 
 union GPR49 {
+    
     enum class eDWP : uint32_t {
         eforbid_none = 0, // Both cores are allowed
         eforbid_CM7 = 1, // CM7 is forbidden
@@ -2331,16 +2188,12 @@ union GPR49 {
         elock_both = 3, // Both DWP bits are locked
     };
     
-
-    struct {  
-            
+    struct {
         uint32_t _reserved_0 : 28;
         
         eDWP DWP : 2;
-           
+        
         eDWP_LOCK DWP_LOCK : 2;
-         
-
         
     } bits;          // Bit-field struct (auto-filling reserved gaps)
     uint32_t value;  // Full 32-bit register access
@@ -2359,6 +2212,7 @@ union GPR49 {
 // GPR50 General Purpose Register
 
 union GPR50 {
+    
     enum class eDWP : uint32_t {
         eforbid_none = 0, // Both cores are allowed
         eforbid_CM7 = 1, // CM7 is forbidden
@@ -2373,18 +2227,14 @@ union GPR50 {
         elock_both = 3, // Both DWP bits are locked
     };
     
-
-    struct {  
-            
+    struct {
         uint32_t CAAM_IPS_MGR : 5;
-           
+        
         uint32_t _reserved_1 : 23;
         
         eDWP DWP : 2;
-           
+        
         eDWP_LOCK DWP_LOCK : 2;
-         
-
         
     } bits;          // Bit-field struct (auto-filling reserved gaps)
     uint32_t value;  // Full 32-bit register access
@@ -2403,6 +2253,7 @@ union GPR50 {
 // GPR51 General Purpose Register
 
 union GPR51 {
+    
     enum class eDWP : uint32_t {
         eforbid_none = 0, // Both cores are allowed
         eforbid_CM7 = 1, // CM7 is forbidden
@@ -2417,18 +2268,14 @@ union GPR51 {
         elock_both = 3, // Both DWP bits are locked
     };
     
-
-    struct {  
-            
+    struct {
         uint32_t M7_NMI_CLEAR : 1;
-           
+        
         uint32_t _reserved_1 : 27;
         
         eDWP DWP : 2;
-           
+        
         eDWP_LOCK DWP_LOCK : 2;
-         
-
         
     } bits;          // Bit-field struct (auto-filling reserved gaps)
     uint32_t value;  // Full 32-bit register access
@@ -2447,6 +2294,7 @@ union GPR51 {
 // GPR52 General Purpose Register
 
 union GPR52 {
+    
     enum class eDWP : uint32_t {
         eforbid_none = 0, // Both cores are allowed
         eforbid_CM7 = 1, // CM7 is forbidden
@@ -2461,16 +2309,12 @@ union GPR52 {
         elock_both = 3, // Both DWP bits are locked
     };
     
-
-    struct {  
-            
+    struct {
         uint32_t _reserved_0 : 28;
         
         eDWP DWP : 2;
-           
+        
         eDWP_LOCK DWP_LOCK : 2;
-         
-
         
     } bits;          // Bit-field struct (auto-filling reserved gaps)
     uint32_t value;  // Full 32-bit register access
@@ -2489,6 +2333,7 @@ union GPR52 {
 // GPR53 General Purpose Register
 
 union GPR53 {
+    
     enum class eDWP : uint32_t {
         eforbid_none = 0, // Both cores are allowed
         eforbid_CM7 = 1, // CM7 is forbidden
@@ -2503,16 +2348,12 @@ union GPR53 {
         elock_both = 3, // Both DWP bits are locked
     };
     
-
-    struct {  
-            
+    struct {
         uint32_t _reserved_0 : 28;
         
         eDWP DWP : 2;
-           
+        
         eDWP_LOCK DWP_LOCK : 2;
-         
-
         
     } bits;          // Bit-field struct (auto-filling reserved gaps)
     uint32_t value;  // Full 32-bit register access
@@ -2531,6 +2372,7 @@ union GPR53 {
 // GPR54 General Purpose Register
 
 union GPR54 {
+    
     enum class eDWP : uint32_t {
         eforbid_none = 0, // Both cores are allowed
         eforbid_CM7 = 1, // CM7 is forbidden
@@ -2545,16 +2387,12 @@ union GPR54 {
         elock_both = 3, // Both DWP bits are locked
     };
     
-
-    struct {  
-            
+    struct {
         uint32_t _reserved_0 : 28;
         
         eDWP DWP : 2;
-           
+        
         eDWP_LOCK DWP_LOCK : 2;
-         
-
         
     } bits;          // Bit-field struct (auto-filling reserved gaps)
     uint32_t value;  // Full 32-bit register access
@@ -2573,6 +2411,7 @@ union GPR54 {
 // GPR55 General Purpose Register
 
 union GPR55 {
+    
     enum class eDWP : uint32_t {
         eforbid_none = 0, // Both cores are allowed
         eforbid_CM7 = 1, // CM7 is forbidden
@@ -2587,16 +2426,12 @@ union GPR55 {
         elock_both = 3, // Both DWP bits are locked
     };
     
-
-    struct {  
-            
+    struct {
         uint32_t _reserved_0 : 28;
         
         eDWP DWP : 2;
-           
+        
         eDWP_LOCK DWP_LOCK : 2;
-         
-
         
     } bits;          // Bit-field struct (auto-filling reserved gaps)
     uint32_t value;  // Full 32-bit register access
@@ -2615,6 +2450,7 @@ union GPR55 {
 // GPR59 General Purpose Register
 
 union GPR59 {
+    
     enum class eMIPI_CSI_SOFT_RST_N : uint32_t {
         eASSERT = 0, // Assert reset
         eDEAST = 1, // De-assert reset
@@ -2641,36 +2477,32 @@ union GPR59 {
         elock_both = 3, // Both DWP bits are locked
     };
     
-
-    struct {  
-            
+    struct {
         uint32_t MIPI_CSI_AUTO_PD_EN : 1;
-           
+        
         eMIPI_CSI_SOFT_RST_N MIPI_CSI_SOFT_RST_N : 1;
-           
+        
         uint32_t MIPI_CSI_CONT_CLK_MODE : 1;
-           
+        
         uint32_t MIPI_CSI_DDRCLK_EN : 1;
-           
+        
         uint32_t MIPI_CSI_PD_RX : 1;
-           
+        
         uint32_t MIPI_CSI_RX_ENABLE : 1;
-           
+        
         uint32_t MIPI_CSI_RX_RCAL : 2;
-           
+        
         eMIPI_CSI_RXCDRP MIPI_CSI_RXCDRP : 2;
-           
+        
         uint32_t MIPI_CSI_RXLPRP : 2;
-           
+        
         uint32_t MIPI_CSI_S_PRG_RXHS_SETTLE : 6;
-           
+        
         uint32_t _reserved_10 : 10;
         
         eDWP DWP : 2;
-           
+        
         eDWP_LOCK DWP_LOCK : 2;
-         
-
         
     } bits;          // Bit-field struct (auto-filling reserved gaps)
     uint32_t value;  // Full 32-bit register access
@@ -2689,6 +2521,7 @@ union GPR59 {
 // GPR62 General Purpose Register
 
 union GPR62 {
+    
     enum class eMIPI_DSI_PCLK_SOFT_RESET_N : uint32_t {
         eASSERT = 0, // Assert reset
         eDEASSERT = 1, // De-assert reset
@@ -2723,36 +2556,32 @@ union GPR62 {
         elock_both = 3, // Both DWP bits are locked
     };
     
-
-    struct {  
-            
+    struct {
         uint32_t MIPI_DSI_CLK_TM : 3;
-           
+        
         uint32_t MIPI_DSI_D0_TM : 3;
-           
+        
         uint32_t MIPI_DSI_D1_TM : 3;
-           
+        
         uint32_t MIPI_DSI_TX_RCAL : 2;
-           
+        
         uint32_t MIPI_DSI_TX_ULPS_ENABLE : 3;
-           
+        
         uint32_t _reserved_5 : 2;
         
         eMIPI_DSI_PCLK_SOFT_RESET_N MIPI_DSI_PCLK_SOFT_RESET_N : 1;
-           
+        
         eMIPI_DSI_BYTE_SOFT_RESET_N MIPI_DSI_BYTE_SOFT_RESET_N : 1;
-           
+        
         eMIPI_DSI_DPI_SOFT_RESET_N MIPI_DSI_DPI_SOFT_RESET_N : 1;
-           
+        
         eMIPI_DSI_ESC_SOFT_RESET_N MIPI_DSI_ESC_SOFT_RESET_N : 1;
-           
+        
         uint32_t _reserved_9 : 8;
         
         eDWP DWP : 2;
-           
+        
         eDWP_LOCK DWP_LOCK : 2;
-         
-
         
     } bits;          // Bit-field struct (auto-filling reserved gaps)
     uint32_t value;  // Full 32-bit register access
@@ -2771,12 +2600,9 @@ union GPR62 {
 // GPR63 General Purpose Register
 
 union GPR63 {
-
-    struct {  
-            
+    
+    struct {
         uint32_t MIPI_DSI_TX_ULPS_ACTIVE : 3;
-         
-
         
         uint32_t _reserved_end : 29;
     } bits;          // Bit-field struct (auto-filling reserved gaps)
@@ -2796,6 +2622,7 @@ union GPR63 {
 // GPR64 General Purpose Register
 
 union GPR64 {
+    
     enum class eDWP : uint32_t {
         eforbid_none = 0, // Both cores are allowed
         eforbid_CM7 = 1, // CM7 is forbidden
@@ -2810,40 +2637,36 @@ union GPR64 {
         elock_both = 3, // Both DWP bits are locked
     };
     
-
-    struct {  
-            
+    struct {
         uint32_t GPIO_DISP1_FREEZE : 1;
-           
+        
         uint32_t GPIO_DISP1_COMPTQ : 1;
-           
+        
         uint32_t GPIO_DISP1_COMPEN : 1;
-           
+        
         uint32_t GPIO_DISP1_FASTFRZ_EN : 1;
-           
+        
         uint32_t GPIO_DISP1_RASRCP : 4;
-           
+        
         uint32_t GPIO_DISP1_RASRCN : 4;
-           
+        
         uint32_t GPIO_DISP1_SELECT_NASRC : 1;
-           
+        
         uint32_t GPIO_DISP1_REFGEN_SLEEP : 1;
-           
+        
         uint32_t GPIO_DISP1_SUPLYDET_LATCH : 1;
-           
+        
         uint32_t _reserved_9 : 5;
         
         uint32_t GPIO_DISP1_COMPOK : 1;
-           
+        
         uint32_t GPIO_DISP1_NASRC : 4;
-           
+        
         uint32_t _reserved_11 : 3;
         
         eDWP DWP : 2;
-           
+        
         eDWP_LOCK DWP_LOCK : 2;
-         
-
         
     } bits;          // Bit-field struct (auto-filling reserved gaps)
     uint32_t value;  // Full 32-bit register access
@@ -2862,6 +2685,7 @@ union GPR64 {
 // GPR65 General Purpose Register
 
 union GPR65 {
+    
     enum class eDWP : uint32_t {
         eforbid_none = 0, // Both cores are allowed
         eforbid_CM7 = 1, // CM7 is forbidden
@@ -2876,40 +2700,36 @@ union GPR65 {
         elock_both = 3, // Both DWP bits are locked
     };
     
-
-    struct {  
-            
+    struct {
         uint32_t GPIO_EMC1_FREEZE : 1;
-           
+        
         uint32_t GPIO_EMC1_COMPTQ : 1;
-           
+        
         uint32_t GPIO_EMC1_COMPEN : 1;
-           
+        
         uint32_t GPIO_EMC1_FASTFRZ_EN : 1;
-           
+        
         uint32_t GPIO_EMC1_RASRCP : 4;
-           
+        
         uint32_t GPIO_EMC1_RASRCN : 4;
-           
+        
         uint32_t GPIO_EMC1_SELECT_NASRC : 1;
-           
+        
         uint32_t GPIO_EMC1_REFGEN_SLEEP : 1;
-           
+        
         uint32_t GPIO_EMC1_SUPLYDET_LATCH : 1;
-           
+        
         uint32_t _reserved_9 : 5;
         
         uint32_t GPIO_EMC1_COMPOK : 1;
-           
+        
         uint32_t GPIO_EMC1_NASRC : 4;
-           
+        
         uint32_t _reserved_11 : 3;
         
         eDWP DWP : 2;
-           
+        
         eDWP_LOCK DWP_LOCK : 2;
-         
-
         
     } bits;          // Bit-field struct (auto-filling reserved gaps)
     uint32_t value;  // Full 32-bit register access
@@ -2928,6 +2748,7 @@ union GPR65 {
 // GPR66 General Purpose Register
 
 union GPR66 {
+    
     enum class eDWP : uint32_t {
         eforbid_none = 0, // Both cores are allowed
         eforbid_CM7 = 1, // CM7 is forbidden
@@ -2942,40 +2763,36 @@ union GPR66 {
         elock_both = 3, // Both DWP bits are locked
     };
     
-
-    struct {  
-            
+    struct {
         uint32_t GPIO_EMC2_FREEZE : 1;
-           
+        
         uint32_t GPIO_EMC2_COMPTQ : 1;
-           
+        
         uint32_t GPIO_EMC2_COMPEN : 1;
-           
+        
         uint32_t GPIO_EMC2_FASTFRZ_EN : 1;
-           
+        
         uint32_t GPIO_EMC2_RASRCP : 4;
-           
+        
         uint32_t GPIO_EMC2_RASRCN : 4;
-           
+        
         uint32_t GPIO_EMC2_SELECT_NASRC : 1;
-           
+        
         uint32_t GPIO_EMC2_REFGEN_SLEEP : 1;
-           
+        
         uint32_t GPIO_EMC2_SUPLYDET_LATCH : 1;
-           
+        
         uint32_t _reserved_9 : 5;
         
         uint32_t GPIO_EMC2_COMPOK : 1;
-           
+        
         uint32_t GPIO_EMC2_NASRC : 4;
-           
+        
         uint32_t _reserved_11 : 3;
         
         eDWP DWP : 2;
-           
+        
         eDWP_LOCK DWP_LOCK : 2;
-         
-
         
     } bits;          // Bit-field struct (auto-filling reserved gaps)
     uint32_t value;  // Full 32-bit register access
@@ -2994,6 +2811,7 @@ union GPR66 {
 // GPR67 General Purpose Register
 
 union GPR67 {
+    
     enum class eDWP : uint32_t {
         eforbid_none = 0, // Both cores are allowed
         eforbid_CM7 = 1, // CM7 is forbidden
@@ -3008,40 +2826,36 @@ union GPR67 {
         elock_both = 3, // Both DWP bits are locked
     };
     
-
-    struct {  
-            
+    struct {
         uint32_t GPIO_SD1_FREEZE : 1;
-           
+        
         uint32_t GPIO_SD1_COMPTQ : 1;
-           
+        
         uint32_t GPIO_SD1_COMPEN : 1;
-           
+        
         uint32_t GPIO_SD1_FASTFRZ_EN : 1;
-           
+        
         uint32_t GPIO_SD1_RASRCP : 4;
-           
+        
         uint32_t GPIO_SD1_RASRCN : 4;
-           
+        
         uint32_t GPIO_SD1_SELECT_NASRC : 1;
-           
+        
         uint32_t GPIO_SD1_REFGEN_SLEEP : 1;
-           
+        
         uint32_t GPIO_SD1_SUPLYDET_LATCH : 1;
-           
+        
         uint32_t _reserved_9 : 5;
         
         uint32_t GPIO_SD1_COMPOK : 1;
-           
+        
         uint32_t GPIO_SD1_NASRC : 4;
-           
+        
         uint32_t _reserved_11 : 3;
         
         eDWP DWP : 2;
-           
+        
         eDWP_LOCK DWP_LOCK : 2;
-         
-
         
     } bits;          // Bit-field struct (auto-filling reserved gaps)
     uint32_t value;  // Full 32-bit register access
@@ -3060,6 +2874,7 @@ union GPR67 {
 // GPR68 General Purpose Register
 
 union GPR68 {
+    
     enum class eDWP : uint32_t {
         eforbid_none = 0, // Both cores are allowed
         eforbid_CM7 = 1, // CM7 is forbidden
@@ -3074,40 +2889,36 @@ union GPR68 {
         elock_both = 3, // Both DWP bits are locked
     };
     
-
-    struct {  
-            
+    struct {
         uint32_t GPIO_SD2_FREEZE : 1;
-           
+        
         uint32_t GPIO_SD2_COMPTQ : 1;
-           
+        
         uint32_t GPIO_SD2_COMPEN : 1;
-           
+        
         uint32_t GPIO_SD2_FASTFRZ_EN : 1;
-           
+        
         uint32_t GPIO_SD2_RASRCP : 4;
-           
+        
         uint32_t GPIO_SD2_RASRCN : 4;
-           
+        
         uint32_t GPIO_SD2_SELECT_NASRC : 1;
-           
+        
         uint32_t GPIO_SD2_REFGEN_SLEEP : 1;
-           
+        
         uint32_t GPIO_SD2_SUPLYDET_LATCH : 1;
-           
+        
         uint32_t _reserved_9 : 5;
         
         uint32_t GPIO_SD2_COMPOK : 1;
-           
+        
         uint32_t GPIO_SD2_NASRC : 4;
-           
+        
         uint32_t _reserved_11 : 3;
         
         eDWP DWP : 2;
-           
+        
         eDWP_LOCK DWP_LOCK : 2;
-         
-
         
     } bits;          // Bit-field struct (auto-filling reserved gaps)
     uint32_t value;  // Full 32-bit register access
@@ -3126,6 +2937,7 @@ union GPR68 {
 // GPR69 General Purpose Register
 
 union GPR69 {
+    
     enum class eDWP : uint32_t {
         eforbid_none = 0, // Both cores are allowed
         eforbid_CM7 = 1, // CM7 is forbidden
@@ -3140,44 +2952,40 @@ union GPR69 {
         elock_both = 3, // Both DWP bits are locked
     };
     
-
-    struct {  
-            
+    struct {
         uint32_t _reserved_0 : 1;
         
         uint32_t GPIO_DISP2_HIGH_RANGE : 1;
-           
+        
         uint32_t GPIO_DISP2_LOW_RANGE : 1;
-           
+        
         uint32_t _reserved_2 : 1;
         
         uint32_t GPIO_AD0_HIGH_RANGE : 1;
-           
+        
         uint32_t GPIO_AD0_LOW_RANGE : 1;
-           
+        
         uint32_t _reserved_4 : 1;
         
         uint32_t GPIO_AD1_HIGH_RANGE : 1;
-           
+        
         uint32_t GPIO_AD1_LOW_RANGE : 1;
-           
+        
         uint32_t SUPLYDET_DISP1_SLEEP : 1;
-           
+        
         uint32_t SUPLYDET_EMC1_SLEEP : 1;
-           
+        
         uint32_t SUPLYDET_EMC2_SLEEP : 1;
-           
+        
         uint32_t SUPLYDET_SD1_SLEEP : 1;
-           
+        
         uint32_t SUPLYDET_SD2_SLEEP : 1;
-           
+        
         uint32_t _reserved_11 : 14;
         
         eDWP DWP : 2;
-           
+        
         eDWP_LOCK DWP_LOCK : 2;
-         
-
         
     } bits;          // Bit-field struct (auto-filling reserved gaps)
     uint32_t value;  // Full 32-bit register access
@@ -3196,6 +3004,7 @@ union GPR69 {
 // GPR70 General Purpose Register
 
 union GPR70 {
+    
     enum class eADC1_IPG_STOP_MODE : uint32_t {
         eFUNC = 0, // This module is functional in Stop Mode
         eNONFUNC = 1, // This module is not functional in Stop Mode and the corresponding x_STOP_REQ field is set to '1'.
@@ -3220,70 +3029,66 @@ union GPR70 {
         elock_both = 3, // Both DWP bits are locked
     };
     
-
-    struct {  
-            
+    struct {
         uint32_t ADC1_IPG_DOZE : 1;
-           
+        
         uint32_t ADC1_STOP_REQ : 1;
-           
+        
         eADC1_IPG_STOP_MODE ADC1_IPG_STOP_MODE : 1;
-           
+        
         uint32_t ADC2_IPG_DOZE : 1;
-           
+        
         uint32_t ADC2_STOP_REQ : 1;
-           
+        
         eADC2_IPG_STOP_MODE ADC2_IPG_STOP_MODE : 1;
-           
+        
         uint32_t CAAM_IPG_DOZE : 1;
-           
+        
         uint32_t CAAM_STOP_REQ : 1;
-           
+        
         uint32_t CAN1_IPG_DOZE : 1;
-           
+        
         uint32_t CAN1_STOP_REQ : 1;
-           
+        
         uint32_t CAN2_IPG_DOZE : 1;
-           
+        
         uint32_t CAN2_STOP_REQ : 1;
-           
+        
         uint32_t CAN3_IPG_DOZE : 1;
-           
+        
         uint32_t CAN3_STOP_REQ : 1;
-           
+        
         uint32_t _reserved_14 : 1;
         
         uint32_t EDMA_STOP_REQ : 1;
-           
+        
         uint32_t EDMA_LPSR_STOP_REQ : 1;
-           
+        
         uint32_t ENET_IPG_DOZE : 1;
-           
+        
         uint32_t ENET_STOP_REQ : 1;
-           
+        
         uint32_t ENET1G_IPG_DOZE : 1;
-           
+        
         uint32_t ENET1G_STOP_REQ : 1;
-           
+        
         uint32_t FLEXIO1_IPG_DOZE : 1;
-           
+        
         uint32_t FLEXIO2_IPG_DOZE : 1;
-           
+        
         uint32_t FLEXSPI1_IPG_DOZE : 1;
-           
+        
         uint32_t FLEXSPI1_STOP_REQ : 1;
-           
+        
         uint32_t FLEXSPI2_IPG_DOZE : 1;
-           
+        
         uint32_t FLEXSPI2_STOP_REQ : 1;
-           
+        
         uint32_t _reserved_26 : 1;
         
         eDWP DWP : 2;
-           
+        
         eDWP_LOCK DWP_LOCK : 2;
-         
-
         
     } bits;          // Bit-field struct (auto-filling reserved gaps)
     uint32_t value;  // Full 32-bit register access
@@ -3302,6 +3107,7 @@ union GPR70 {
 // GPR71 General Purpose Register
 
 union GPR71 {
+    
     enum class eLPI2C1_IPG_STOP_MODE : uint32_t {
         eFUNC = 0, // This module is functional in Stop Mode
         eNONFUNC = 1, // This module is not functional in Stop Mode and the corresponding x_STOP_REQ field is set to '1'.
@@ -3351,70 +3157,66 @@ union GPR71 {
         elock_both = 3, // Both DWP bits are locked
     };
     
-
-    struct {  
-            
+    struct {
         uint32_t GPT1_IPG_DOZE : 1;
-           
+        
         uint32_t GPT2_IPG_DOZE : 1;
-           
+        
         uint32_t GPT3_IPG_DOZE : 1;
-           
+        
         uint32_t GPT4_IPG_DOZE : 1;
-           
+        
         uint32_t GPT5_IPG_DOZE : 1;
-           
+        
         uint32_t GPT6_IPG_DOZE : 1;
-           
+        
         uint32_t LPI2C1_IPG_DOZE : 1;
-           
+        
         uint32_t LPI2C1_STOP_REQ : 1;
-           
+        
         eLPI2C1_IPG_STOP_MODE LPI2C1_IPG_STOP_MODE : 1;
-           
+        
         uint32_t LPI2C2_IPG_DOZE : 1;
-           
+        
         uint32_t LPI2C2_STOP_REQ : 1;
-           
+        
         eLPI2C2_IPG_STOP_MODE LPI2C2_IPG_STOP_MODE : 1;
-           
+        
         uint32_t LPI2C3_IPG_DOZE : 1;
-           
+        
         uint32_t LPI2C3_STOP_REQ : 1;
-           
+        
         eLPI2C3_IPG_STOP_MODE LPI2C3_IPG_STOP_MODE : 1;
-           
+        
         uint32_t LPI2C4_IPG_DOZE : 1;
-           
+        
         uint32_t LPI2C4_STOP_REQ : 1;
-           
+        
         eLPI2C4_IPG_STOP_MODE LPI2C4_IPG_STOP_MODE : 1;
-           
+        
         uint32_t LPI2C5_IPG_DOZE : 1;
-           
+        
         uint32_t LPI2C5_STOP_REQ : 1;
-           
+        
         eLPI2C5_IPG_STOP_MODE LPI2C5_IPG_STOP_MODE : 1;
-           
+        
         uint32_t LPI2C6_IPG_DOZE : 1;
-           
+        
         uint32_t LPI2C6_STOP_REQ : 1;
-           
+        
         eLPI2C6_IPG_STOP_MODE LPI2C6_IPG_STOP_MODE : 1;
-           
+        
         uint32_t LPSPI1_IPG_DOZE : 1;
-           
+        
         uint32_t LPSPI1_STOP_REQ : 1;
-           
+        
         eLPSPI1_IPG_STOP_MODE LPSPI1_IPG_STOP_MODE : 1;
-           
+        
         uint32_t _reserved_27 : 1;
         
         eDWP DWP : 2;
-           
+        
         eDWP_LOCK DWP_LOCK : 2;
-         
-
         
     } bits;          // Bit-field struct (auto-filling reserved gaps)
     uint32_t value;  // Full 32-bit register access
@@ -3433,6 +3235,7 @@ union GPR71 {
 // GPR72 General Purpose Register
 
 union GPR72 {
+    
     enum class eLPSPI2_IPG_STOP_MODE : uint32_t {
         eFUNC = 0, // This module is functional in Stop Mode
         eNONFUNC = 1, // This module is not functional in Stop Mode and the corresponding x_STOP_REQ field is set to '1'.
@@ -3492,70 +3295,66 @@ union GPR72 {
         elock_both = 3, // Both DWP bits are locked
     };
     
-
-    struct {  
-            
+    struct {
         uint32_t LPSPI2_IPG_DOZE : 1;
-           
+        
         uint32_t LPSPI2_STOP_REQ : 1;
-           
+        
         eLPSPI2_IPG_STOP_MODE LPSPI2_IPG_STOP_MODE : 1;
-           
+        
         uint32_t LPSPI3_IPG_DOZE : 1;
-           
+        
         uint32_t LPSPI3_STOP_REQ : 1;
-           
+        
         eLPSPI3_IPG_STOP_MODE LPSPI3_IPG_STOP_MODE : 1;
-           
+        
         uint32_t LPSPI4_IPG_DOZE : 1;
-           
+        
         uint32_t LPSPI4_STOP_REQ : 1;
-           
+        
         eLPSPI4_IPG_STOP_MODE LPSPI4_IPG_STOP_MODE : 1;
-           
+        
         uint32_t LPSPI5_IPG_DOZE : 1;
-           
+        
         uint32_t LPSPI5_STOP_REQ : 1;
-           
+        
         eLPSPI5_IPG_STOP_MODE LPSPI5_IPG_STOP_MODE : 1;
-           
+        
         uint32_t LPSPI6_IPG_DOZE : 1;
-           
+        
         uint32_t LPSPI6_STOP_REQ : 1;
-           
+        
         eLPSPI6_IPG_STOP_MODE LPSPI6_IPG_STOP_MODE : 1;
-           
+        
         uint32_t LPUART1_IPG_DOZE : 1;
-           
+        
         uint32_t LPUART1_STOP_REQ : 1;
-           
+        
         eLPUART1_IPG_STOP_MODE LPUART1_IPG_STOP_MODE : 1;
-           
+        
         uint32_t LPUART2_IPG_DOZE : 1;
-           
+        
         uint32_t LPUART2_STOP_REQ : 1;
-           
+        
         eLPUART2_IPG_STOP_MODE LPUART2_IPG_STOP_MODE : 1;
-           
+        
         uint32_t LPUART3_IPG_DOZE : 1;
-           
+        
         uint32_t LPUART3_STOP_REQ : 1;
-           
+        
         eLPUART3_IPG_STOP_MODE LPUART3_IPG_STOP_MODE : 1;
-           
+        
         uint32_t LPUART4_IPG_DOZE : 1;
-           
+        
         uint32_t LPUART4_STOP_REQ : 1;
-           
+        
         eLPUART4_IPG_STOP_MODE LPUART4_IPG_STOP_MODE : 1;
-           
+        
         uint32_t _reserved_27 : 1;
         
         eDWP DWP : 2;
-           
+        
         eDWP_LOCK DWP_LOCK : 2;
-         
-
         
     } bits;          // Bit-field struct (auto-filling reserved gaps)
     uint32_t value;  // Full 32-bit register access
@@ -3574,6 +3373,7 @@ union GPR72 {
 // GPR73 General Purpose Register
 
 union GPR73 {
+    
     enum class eLPUART5_IPG_STOP_MODE : uint32_t {
         eFUNC = 0, // This module is functional in Stop Mode
         eNONFUNC = 1, // This module is not functional in Stop Mode and the corresponding x_STOP_REQ field is set to '1'.
@@ -3633,70 +3433,66 @@ union GPR73 {
         elock_both = 3, // Both DWP bits are locked
     };
     
-
-    struct {  
-            
+    struct {
         uint32_t LPUART5_IPG_DOZE : 1;
-           
+        
         uint32_t LPUART5_STOP_REQ : 1;
-           
+        
         eLPUART5_IPG_STOP_MODE LPUART5_IPG_STOP_MODE : 1;
-           
+        
         uint32_t LPUART6_IPG_DOZE : 1;
-           
+        
         uint32_t LPUART6_STOP_REQ : 1;
-           
+        
         eLPUART6_IPG_STOP_MODE LPUART6_IPG_STOP_MODE : 1;
-           
+        
         uint32_t LPUART7_IPG_DOZE : 1;
-           
+        
         uint32_t LPUART7_STOP_REQ : 1;
-           
+        
         eLPUART7_IPG_STOP_MODE LPUART7_IPG_STOP_MODE : 1;
-           
+        
         uint32_t LPUART8_IPG_DOZE : 1;
-           
+        
         uint32_t LPUART8_STOP_REQ : 1;
-           
+        
         eLPUART8_IPG_STOP_MODE LPUART8_IPG_STOP_MODE : 1;
-           
+        
         uint32_t LPUART9_IPG_DOZE : 1;
-           
+        
         uint32_t LPUART9_STOP_REQ : 1;
-           
+        
         eLPUART9_IPG_STOP_MODE LPUART9_IPG_STOP_MODE : 1;
-           
+        
         uint32_t LPUART10_IPG_DOZE : 1;
-           
+        
         uint32_t LPUART10_STOP_REQ : 1;
-           
+        
         eLPUART10_IPG_STOP_MODE LPUART10_IPG_STOP_MODE : 1;
-           
+        
         uint32_t LPUART11_IPG_DOZE : 1;
-           
+        
         uint32_t LPUART11_STOP_REQ : 1;
-           
+        
         eLPUART11_IPG_STOP_MODE LPUART11_IPG_STOP_MODE : 1;
-           
+        
         uint32_t LPUART12_IPG_DOZE : 1;
-           
+        
         uint32_t LPUART12_STOP_REQ : 1;
-           
+        
         eLPUART12_IPG_STOP_MODE LPUART12_IPG_STOP_MODE : 1;
-           
+        
         uint32_t MIC_IPG_DOZE : 1;
-           
+        
         uint32_t MIC_STOP_REQ : 1;
-           
+        
         eMIC_IPG_STOP_MODE MIC_IPG_STOP_MODE : 1;
-           
+        
         uint32_t _reserved_27 : 1;
         
         eDWP DWP : 2;
-           
+        
         eDWP_LOCK DWP_LOCK : 2;
-         
-
         
     } bits;          // Bit-field struct (auto-filling reserved gaps)
     uint32_t value;  // Full 32-bit register access
@@ -3715,6 +3511,7 @@ union GPR73 {
 // GPR74 General Purpose Register
 
 union GPR74 {
+    
     enum class eDWP : uint32_t {
         eforbid_none = 0, // Both cores are allowed
         eforbid_CM7 = 1, // CM7 is forbidden
@@ -3729,52 +3526,48 @@ union GPR74 {
         elock_both = 3, // Both DWP bits are locked
     };
     
-
-    struct {  
-            
+    struct {
         uint32_t _reserved_0 : 1;
         
         uint32_t PIT1_STOP_REQ : 1;
-           
+        
         uint32_t PIT2_STOP_REQ : 1;
-           
+        
         uint32_t SEMC_STOP_REQ : 1;
-           
+        
         uint32_t SIM1_IPG_DOZE : 1;
-           
+        
         uint32_t SIM2_IPG_DOZE : 1;
-           
+        
         uint32_t SNVS_HP_IPG_DOZE : 1;
-           
+        
         uint32_t SNVS_HP_STOP_REQ : 1;
-           
+        
         uint32_t WDOG1_IPG_DOZE : 1;
-           
+        
         uint32_t WDOG2_IPG_DOZE : 1;
-           
+        
         uint32_t SAI1_STOP_REQ : 1;
-           
+        
         uint32_t SAI2_STOP_REQ : 1;
-           
+        
         uint32_t SAI3_STOP_REQ : 1;
-           
+        
         uint32_t SAI4_STOP_REQ : 1;
-           
+        
         uint32_t FLEXIO1_STOP_REQ_BUS : 1;
-           
+        
         uint32_t FLEXIO1_STOP_REQ_PER : 1;
-           
+        
         uint32_t FLEXIO2_STOP_REQ_BUS : 1;
-           
+        
         uint32_t FLEXIO2_STOP_REQ_PER : 1;
-           
+        
         uint32_t _reserved_17 : 10;
         
         eDWP DWP : 2;
-           
+        
         eDWP_LOCK DWP_LOCK : 2;
-         
-
         
     } bits;          // Bit-field struct (auto-filling reserved gaps)
     uint32_t value;  // Full 32-bit register access
@@ -3793,74 +3586,71 @@ union GPR74 {
 // GPR75 General Purpose Register
 
 union GPR75 {
-
-    struct {  
-            
+    
+    struct {
         uint32_t ADC1_STOP_ACK : 1;
-           
+        
         uint32_t ADC2_STOP_ACK : 1;
-           
+        
         uint32_t CAAM_STOP_ACK : 1;
-           
+        
         uint32_t CAN1_STOP_ACK : 1;
-           
+        
         uint32_t CAN2_STOP_ACK : 1;
-           
+        
         uint32_t CAN3_STOP_ACK : 1;
-           
+        
         uint32_t EDMA_STOP_ACK : 1;
-           
+        
         uint32_t EDMA_LPSR_STOP_ACK : 1;
-           
+        
         uint32_t ENET_STOP_ACK : 1;
-           
+        
         uint32_t ENET1G_STOP_ACK : 1;
-           
+        
         uint32_t FLEXSPI1_STOP_ACK : 1;
-           
+        
         uint32_t FLEXSPI2_STOP_ACK : 1;
-           
+        
         uint32_t LPI2C1_STOP_ACK : 1;
-           
+        
         uint32_t LPI2C2_STOP_ACK : 1;
-           
+        
         uint32_t LPI2C3_STOP_ACK : 1;
-           
+        
         uint32_t LPI2C4_STOP_ACK : 1;
-           
+        
         uint32_t LPI2C5_STOP_ACK : 1;
-           
+        
         uint32_t LPI2C6_STOP_ACK : 1;
-           
+        
         uint32_t LPSPI1_STOP_ACK : 1;
-           
+        
         uint32_t LPSPI2_STOP_ACK : 1;
-           
+        
         uint32_t LPSPI3_STOP_ACK : 1;
-           
+        
         uint32_t LPSPI4_STOP_ACK : 1;
-           
+        
         uint32_t LPSPI5_STOP_ACK : 1;
-           
+        
         uint32_t LPSPI6_STOP_ACK : 1;
-           
+        
         uint32_t LPUART1_STOP_ACK : 1;
-           
+        
         uint32_t LPUART2_STOP_ACK : 1;
-           
+        
         uint32_t LPUART3_STOP_ACK : 1;
-           
+        
         uint32_t LPUART4_STOP_ACK : 1;
-           
+        
         uint32_t LPUART5_STOP_ACK : 1;
-           
+        
         uint32_t LPUART6_STOP_ACK : 1;
-           
+        
         uint32_t LPUART7_STOP_ACK : 1;
-           
+        
         uint32_t LPUART8_STOP_ACK : 1;
-         
-
         
     } bits;          // Bit-field struct (auto-filling reserved gaps)
     uint32_t value;  // Full 32-bit register access
@@ -3879,44 +3669,41 @@ union GPR75 {
 // GPR76 General Purpose Register
 
 union GPR76 {
-
-    struct {  
-            
+    
+    struct {
         uint32_t LPUART9_STOP_ACK : 1;
-           
+        
         uint32_t LPUART10_STOP_ACK : 1;
-           
+        
         uint32_t LPUART11_STOP_ACK : 1;
-           
+        
         uint32_t LPUART12_STOP_ACK : 1;
-           
+        
         uint32_t MIC_STOP_ACK : 1;
-           
+        
         uint32_t PIT1_STOP_ACK : 1;
-           
+        
         uint32_t PIT2_STOP_ACK : 1;
-           
+        
         uint32_t SEMC_STOP_ACK : 1;
-           
+        
         uint32_t SNVS_HP_STOP_ACK : 1;
-           
+        
         uint32_t SAI1_STOP_ACK : 1;
-           
+        
         uint32_t SAI2_STOP_ACK : 1;
-           
+        
         uint32_t SAI3_STOP_ACK : 1;
-           
+        
         uint32_t SAI4_STOP_ACK : 1;
-           
+        
         uint32_t FLEXIO1_STOP_ACK_BUS : 1;
-           
+        
         uint32_t FLEXIO1_STOP_ACK_PER : 1;
-           
+        
         uint32_t FLEXIO2_STOP_ACK_BUS : 1;
-           
+        
         uint32_t FLEXIO2_STOP_ACK_PER : 1;
-         
-
         
         uint32_t _reserved_end : 15;
     } bits;          // Bit-field struct (auto-filling reserved gaps)

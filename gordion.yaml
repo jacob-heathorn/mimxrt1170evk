@@ -1,4 +1,4 @@
 repositories:
   forge:
-    tag: b7bfa32488c29c3241c1139503e40df7a06e01f1
+    tag: 8b75f64fb7fa8d0ab91f587a60e833ee84b9d66a
     url: https://github.com/jacob-heathorn/forge.git

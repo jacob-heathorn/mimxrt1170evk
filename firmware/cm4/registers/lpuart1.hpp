@@ -17,21 +17,18 @@ namespace nLPUART1 {
 // Version ID Register
 
 union VERID {
+    
     enum class eFEATURE : uint32_t {
         eSTANDARD = 1, // Standard feature set.
         eMODEM = 3, // Standard feature set with MODEM/IrDA support.
     };
     
-
-    struct {  
-            
+    struct {
         eFEATURE FEATURE : 16;
-           
+        
         uint32_t MINOR : 8;
-           
+        
         uint32_t MAJOR : 8;
-         
-
         
     } bits;          // Bit-field struct (auto-filling reserved gaps)
     uint32_t value;  // Full 32-bit register access
@@ -50,14 +47,11 @@ union VERID {
 // Parameter Register
 
 union PARAM {
-
-    struct {  
-            
+    
+    struct {
         uint32_t TXFIFO : 8;
-           
+        
         uint32_t RXFIFO : 8;
-         
-
         
         uint32_t _reserved_end : 16;
     } bits;          // Bit-field struct (auto-filling reserved gaps)
@@ -77,19 +71,16 @@ union PARAM {
 // LPUART Global Register
 
 union GLOBAL {
+    
     enum class eRST : uint32_t {
         eNO_EFFECT = 0, // Module is not reset.
         eRESET = 1, // Module is reset.
     };
     
-
-    struct {  
-            
+    struct {
         uint32_t _reserved_0 : 1;
         
         eRST RST : 1;
-         
-
         
         uint32_t _reserved_end : 30;
     } bits;          // Bit-field struct (auto-filling reserved gaps)
@@ -109,6 +100,7 @@ union GLOBAL {
 // LPUART Pin Configuration Register
 
 union PINCFG {
+    
     enum class eTRGSEL : uint32_t {
         eDISABLED = 0, // Input trigger is disabled.
         eTRG_RXD = 1, // Input trigger is used instead of RXD pin input.
@@ -116,12 +108,8 @@ union PINCFG {
         eTRG_TXD = 3, // Input trigger is used to modulate the TXD pin output. The TXD pin output (after TXINV configuration) is internally ANDed with the input trigger.
     };
     
-
-    struct {  
-            
+    struct {
         eTRGSEL TRGSEL : 2;
-         
-
         
         uint32_t _reserved_end : 30;
     } bits;          // Bit-field struct (auto-filling reserved gaps)
@@ -141,6 +129,7 @@ union PINCFG {
 // LPUART Baud Rate Register
 
 union BAUD {
+    
     enum class eSBNS : uint32_t {
         eONE = 0, // One stop bit.
         eTWO = 1, // Two stop bits.
@@ -231,40 +220,36 @@ union BAUD {
         eENABLED = 1, // Enables automatic address matching or data matching mode for MATCH[MA1].
     };
     
-
-    struct {  
-            
+    struct {
         uint32_t SBR : 13;
-           
+        
         eSBNS SBNS : 1;
-           
+        
         eRXEDGIE RXEDGIE : 1;
-           
+        
         eLBKDIE LBKDIE : 1;
-           
+        
         eRESYNCDIS RESYNCDIS : 1;
-           
+        
         eBOTHEDGE BOTHEDGE : 1;
-           
+        
         eMATCFG MATCFG : 2;
-           
+        
         uint32_t _reserved_7 : 1;
         
         eRDMAE RDMAE : 1;
-           
+        
         uint32_t _reserved_8 : 1;
         
         eTDMAE TDMAE : 1;
-           
+        
         eOSR OSR : 5;
-           
+        
         eM10 M10 : 1;
-           
+        
         eMAEN2 MAEN2 : 1;
-           
+        
         eMAEN1 MAEN1 : 1;
-         
-
         
     } bits;          // Bit-field struct (auto-filling reserved gaps)
     uint32_t value;  // Full 32-bit register access
@@ -283,6 +268,7 @@ union BAUD {
 // LPUART Status Register
 
 union STAT {
+    
     enum class eMA2F : uint32_t {
         eNOMATCH = 0, // Received data is not equal to MA2
         eMATCH = 1, // Received data is equal to MA2
@@ -373,48 +359,44 @@ union STAT {
         eDETECTED = 1, // LIN break character has been detected.
     };
     
-
-    struct {  
-            
+    struct {
         uint32_t _reserved_0 : 14;
         
         eMA2F MA2F : 1;
-           
+        
         eMA1F MA1F : 1;
-           
+        
         ePF PF : 1;
-           
+        
         eFE FE : 1;
-           
+        
         eNF NF : 1;
-           
+        
         eOR OR : 1;
-           
+        
         eIDLE IDLE : 1;
-           
+        
         eRDRF RDRF : 1;
-           
+        
         eTC TC : 1;
-           
+        
         eTDRE TDRE : 1;
-           
+        
         eRAF RAF : 1;
-           
+        
         eLBKDE LBKDE : 1;
-           
+        
         eBRK13 BRK13 : 1;
-           
+        
         eRWUID RWUID : 1;
-           
+        
         eRXINV RXINV : 1;
-           
+        
         eMSBF MSBF : 1;
-           
+        
         eRXEDGIF RXEDGIF : 1;
-           
+        
         eLBKDIF LBKDIF : 1;
-         
-
         
     } bits;          // Bit-field struct (auto-filling reserved gaps)
     uint32_t value;  // Full 32-bit register access
@@ -433,6 +415,7 @@ union STAT {
 // LPUART Control Register
 
 union CTRL {
+    
     enum class ePT : uint32_t {
         eEVEN = 0, // Even parity.
         eODD = 1, // Odd parity.
@@ -569,68 +552,64 @@ union CTRL {
         eTX_OUTPUT = 1, // TXD pin is an output in single-wire mode.
     };
     
-
-    struct {  
-            
+    struct {
         ePT PT : 1;
-           
+        
         ePE PE : 1;
-           
+        
         eILT ILT : 1;
-           
+        
         eWAKE WAKE : 1;
-           
+        
         eM M : 1;
-           
+        
         eRSRC RSRC : 1;
-           
+        
         eDOZEEN DOZEEN : 1;
-           
+        
         eLOOPS LOOPS : 1;
-           
+        
         eIDLECFG IDLECFG : 3;
-           
+        
         eM7 M7 : 1;
-           
+        
         uint32_t _reserved_10 : 2;
         
         eMA2IE MA2IE : 1;
-           
+        
         eMA1IE MA1IE : 1;
-           
+        
         eSBK SBK : 1;
-           
+        
         eRWU RWU : 1;
-           
+        
         eRE RE : 1;
-           
+        
         eTE TE : 1;
-           
+        
         eILIE ILIE : 1;
-           
+        
         eRIE RIE : 1;
-           
+        
         eTCIE TCIE : 1;
-           
+        
         eTIE TIE : 1;
-           
+        
         ePEIE PEIE : 1;
-           
+        
         eFEIE FEIE : 1;
-           
+        
         eNEIE NEIE : 1;
-           
+        
         eORIE ORIE : 1;
-           
+        
         eTXINV TXINV : 1;
-           
+        
         eTXDIR TXDIR : 1;
-           
+        
         uint32_t R9T8 : 1;
-           
+        
         uint32_t R8T9 : 1;
-         
-
         
     } bits;          // Bit-field struct (auto-filling reserved gaps)
     uint32_t value;  // Full 32-bit register access
@@ -649,6 +628,7 @@ union CTRL {
 // LPUART Data Register
 
 union DATA {
+    
     enum class eIDLINE : uint32_t {
         eNO_IDLE = 0, // Receiver was not idle before receiving this character.
         eIDLE = 1, // Receiver was idle before receiving this character.
@@ -674,42 +654,38 @@ union DATA {
         eNOISE = 1, // The data is received with noise.
     };
     
-
-    struct {  
-            
+    struct {
         uint32_t R0T0 : 1;
-           
+        
         uint32_t R1T1 : 1;
-           
+        
         uint32_t R2T2 : 1;
-           
+        
         uint32_t R3T3 : 1;
-           
+        
         uint32_t R4T4 : 1;
-           
+        
         uint32_t R5T5 : 1;
-           
+        
         uint32_t R6T6 : 1;
-           
+        
         uint32_t R7T7 : 1;
-           
+        
         uint32_t R8T8 : 1;
-           
+        
         uint32_t R9T9 : 1;
-           
+        
         uint32_t _reserved_10 : 1;
         
         eIDLINE IDLINE : 1;
-           
+        
         eRXEMPT RXEMPT : 1;
-           
+        
         eFRETSC FRETSC : 1;
-           
+        
         ePARITYE PARITYE : 1;
-           
+        
         eNOISY NOISY : 1;
-         
-
         
         uint32_t _reserved_end : 16;
     } bits;          // Bit-field struct (auto-filling reserved gaps)
@@ -729,16 +705,13 @@ union DATA {
 // LPUART Match Address Register
 
 union MATCH {
-
-    struct {  
-            
+    
+    struct {
         uint32_t MA1 : 10;
-           
+        
         uint32_t _reserved_1 : 6;
         
         uint32_t MA2 : 10;
-         
-
         
         uint32_t _reserved_end : 6;
     } bits;          // Bit-field struct (auto-filling reserved gaps)
@@ -758,6 +731,7 @@ union MATCH {
 // LPUART Modem IrDA Register
 
 union MODIR {
+    
     enum class eTXCTSE : uint32_t {
         eDISABLED = 0, // CTS has no effect on the transmitter.
         eENABLED = 1, // Enables clear-to-send operation. The transmitter checks the state of CTS each time it is ready to send a character. If CTS is asserted, the character is sent. If CTS is deasserted, the signal TXD remains in the mark state and transmission is delayed until CTS is asserted. Changes in CTS as a character is being sent do not affect its transmission.
@@ -800,32 +774,28 @@ union MODIR {
         eENABLED = 1, // IR enabled.
     };
     
-
-    struct {  
-            
+    struct {
         eTXCTSE TXCTSE : 1;
-           
+        
         eTXRTSE TXRTSE : 1;
-           
+        
         eTXRTSPOL TXRTSPOL : 1;
-           
+        
         eRXRTSE RXRTSE : 1;
-           
+        
         eTXCTSC TXCTSC : 1;
-           
+        
         eTXCTSSRC TXCTSSRC : 1;
-           
+        
         uint32_t _reserved_6 : 2;
         
         uint32_t RTSWATER : 2;
-           
+        
         uint32_t _reserved_7 : 6;
         
         eTNP TNP : 2;
-           
+        
         eIREN IREN : 1;
-         
-
         
         uint32_t _reserved_end : 13;
     } bits;          // Bit-field struct (auto-filling reserved gaps)
@@ -845,6 +815,7 @@ union MODIR {
 // LPUART FIFO Register
 
 union FIFO {
+    
     enum class eRXFIFOSIZE : uint32_t {
         eFIFO_1 = 0, // Receive FIFO/Buffer depth = 1 dataword.
         eFIFO_4 = 1, // Receive FIFO/Buffer depth = 4 datawords.
@@ -928,40 +899,36 @@ union FIFO {
         eEMPTY = 1, // Transmit buffer is empty.
     };
     
-
-    struct {  
-            
+    struct {
         eRXFIFOSIZE RXFIFOSIZE : 3;
-           
+        
         eRXFE RXFE : 1;
-           
+        
         eTXFIFOSIZE TXFIFOSIZE : 3;
-           
+        
         eTXFE TXFE : 1;
-           
+        
         eRXUFE RXUFE : 1;
-           
+        
         eTXOFE TXOFE : 1;
-           
+        
         eRXIDEN RXIDEN : 3;
-           
+        
         uint32_t _reserved_7 : 1;
         
         eRXFLUSH RXFLUSH : 1;
-           
+        
         eTXFLUSH TXFLUSH : 1;
-           
+        
         eRXUF RXUF : 1;
-           
+        
         eTXOF TXOF : 1;
-           
+        
         uint32_t _reserved_11 : 4;
         
         eRXEMPT RXEMPT : 1;
-           
+        
         eTXEMPT TXEMPT : 1;
-         
-
         
         uint32_t _reserved_end : 8;
     } bits;          // Bit-field struct (auto-filling reserved gaps)
@@ -981,24 +948,21 @@ union FIFO {
 // LPUART Watermark Register
 
 union WATER {
-
-    struct {  
-            
+    
+    struct {
         uint32_t TXWATER : 2;
-           
+        
         uint32_t _reserved_1 : 6;
         
         uint32_t TXCOUNT : 3;
-           
+        
         uint32_t _reserved_2 : 5;
         
         uint32_t RXWATER : 2;
-           
+        
         uint32_t _reserved_3 : 6;
         
         uint32_t RXCOUNT : 3;
-         
-
         
         uint32_t _reserved_end : 5;
     } bits;          // Bit-field struct (auto-filling reserved gaps)

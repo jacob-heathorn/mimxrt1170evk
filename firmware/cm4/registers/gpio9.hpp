@@ -17,12 +17,9 @@ namespace nGPIO9 {
 // GPIO data register
 
 union DR {
-
-    struct {  
-            
+    
+    struct {
         uint32_t DR : 32;
-         
-
         
     } bits;          // Bit-field struct (auto-filling reserved gaps)
     uint32_t value;  // Full 32-bit register access
@@ -41,12 +38,9 @@ union DR {
 // GPIO direction register
 
 union GDIR {
-
-    struct {  
-            
+    
+    struct {
         uint32_t GDIR : 32;
-         
-
         
     } bits;          // Bit-field struct (auto-filling reserved gaps)
     uint32_t value;  // Full 32-bit register access
@@ -65,12 +59,9 @@ union GDIR {
 // GPIO pad status register
 
 union PSR {
-
-    struct {  
-            
+    
+    struct {
         uint32_t PSR : 32;
-         
-
         
     } bits;          // Bit-field struct (auto-filling reserved gaps)
     uint32_t value;  // Full 32-bit register access
@@ -89,6 +80,7 @@ union PSR {
 // GPIO interrupt configuration register1
 
 union ICR1 {
+    
     enum class eICR0 : uint32_t {
         eLOW_LEVEL = 0, // Interrupt 0 is low-level sensitive.
         eHIGH_LEVEL = 1, // Interrupt 0 is high-level sensitive.
@@ -201,42 +193,38 @@ union ICR1 {
         eFALLING_EDGE = 3, // Interrupt 15 is falling-edge sensitive.
     };
     
-
-    struct {  
-            
+    struct {
         eICR0 ICR0 : 2;
-           
+        
         eICR1 ICR1 : 2;
-           
+        
         eICR2 ICR2 : 2;
-           
+        
         eICR3 ICR3 : 2;
-           
+        
         eICR4 ICR4 : 2;
-           
+        
         eICR5 ICR5 : 2;
-           
+        
         eICR6 ICR6 : 2;
-           
+        
         eICR7 ICR7 : 2;
-           
+        
         eICR8 ICR8 : 2;
-           
+        
         eICR9 ICR9 : 2;
-           
+        
         eICR10 ICR10 : 2;
-           
+        
         eICR11 ICR11 : 2;
-           
+        
         eICR12 ICR12 : 2;
-           
+        
         eICR13 ICR13 : 2;
-           
+        
         eICR14 ICR14 : 2;
-           
+        
         eICR15 ICR15 : 2;
-         
-
         
     } bits;          // Bit-field struct (auto-filling reserved gaps)
     uint32_t value;  // Full 32-bit register access
@@ -255,6 +243,7 @@ union ICR1 {
 // GPIO interrupt configuration register2
 
 union ICR2 {
+    
     enum class eICR16 : uint32_t {
         eLOW_LEVEL = 0, // Interrupt 16 is low-level sensitive.
         eHIGH_LEVEL = 1, // Interrupt 16 is high-level sensitive.
@@ -367,42 +356,38 @@ union ICR2 {
         eFALLING_EDGE = 3, // Interrupt 31 is falling-edge sensitive.
     };
     
-
-    struct {  
-            
+    struct {
         eICR16 ICR16 : 2;
-           
+        
         eICR17 ICR17 : 2;
-           
+        
         eICR18 ICR18 : 2;
-           
+        
         eICR19 ICR19 : 2;
-           
+        
         eICR20 ICR20 : 2;
-           
+        
         eICR21 ICR21 : 2;
-           
+        
         eICR22 ICR22 : 2;
-           
+        
         eICR23 ICR23 : 2;
-           
+        
         eICR24 ICR24 : 2;
-           
+        
         eICR25 ICR25 : 2;
-           
+        
         eICR26 ICR26 : 2;
-           
+        
         eICR27 ICR27 : 2;
-           
+        
         eICR28 ICR28 : 2;
-           
+        
         eICR29 ICR29 : 2;
-           
+        
         eICR30 ICR30 : 2;
-           
+        
         eICR31 ICR31 : 2;
-         
-
         
     } bits;          // Bit-field struct (auto-filling reserved gaps)
     uint32_t value;  // Full 32-bit register access
@@ -421,12 +406,9 @@ union ICR2 {
 // GPIO interrupt mask register
 
 union IMR {
-
-    struct {  
-            
+    
+    struct {
         uint32_t IMR : 32;
-         
-
         
     } bits;          // Bit-field struct (auto-filling reserved gaps)
     uint32_t value;  // Full 32-bit register access
@@ -445,12 +427,9 @@ union IMR {
 // GPIO interrupt status register
 
 union ISR {
-
-    struct {  
-            
+    
+    struct {
         uint32_t ISR : 32;
-         
-
         
     } bits;          // Bit-field struct (auto-filling reserved gaps)
     uint32_t value;  // Full 32-bit register access
@@ -469,12 +448,9 @@ union ISR {
 // GPIO edge select register
 
 union EDGE_SEL {
-
-    struct {  
-            
+    
+    struct {
         uint32_t GPIO_EDGE_SEL : 32;
-         
-
         
     } bits;          // Bit-field struct (auto-filling reserved gaps)
     uint32_t value;  // Full 32-bit register access
@@ -493,12 +469,9 @@ union EDGE_SEL {
 // GPIO data register SET
 
 union DR_SET {
-
-    struct {  
-            
+    
+    struct {
         uint32_t DR_SET : 32;
-         
-
         
     } bits;          // Bit-field struct (auto-filling reserved gaps)
     uint32_t value;  // Full 32-bit register access
@@ -517,12 +490,9 @@ union DR_SET {
 // GPIO data register CLEAR
 
 union DR_CLEAR {
-
-    struct {  
-            
+    
+    struct {
         uint32_t DR_CLEAR : 32;
-         
-
         
     } bits;          // Bit-field struct (auto-filling reserved gaps)
     uint32_t value;  // Full 32-bit register access
@@ -541,12 +511,9 @@ union DR_CLEAR {
 // GPIO data register TOGGLE
 
 union DR_TOGGLE {
-
-    struct {  
-            
+    
+    struct {
         uint32_t DR_TOGGLE : 32;
-         
-
         
     } bits;          // Bit-field struct (auto-filling reserved gaps)
     uint32_t value;  // Full 32-bit register access
