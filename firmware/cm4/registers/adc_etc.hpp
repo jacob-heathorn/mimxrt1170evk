@@ -5342,4 +5342,5 @@ union TRIG7_RESULT_7_6 {
   static inline volatile TRIG7_RESULT_7_6 &Instance() { return *reinterpret_cast<volatile TRIG7_RESULT_7_6*>(0x4004814C); }
 };
 
+
 } // namespace nADC_ETC

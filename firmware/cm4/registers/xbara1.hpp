@@ -1987,4 +1987,5 @@ union XBARA1_CTRL1 {
   static inline volatile XBARA1_CTRL1 &Instance() { return *reinterpret_cast<volatile XBARA1_CTRL1*>(0x4003C0B2); }
 };
 
+
 } // namespace nXBARA1

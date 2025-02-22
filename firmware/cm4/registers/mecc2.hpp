@@ -1247,4 +1247,5 @@ union PENDING_STAT {
   static inline volatile PENDING_STAT &Instance() { return *reinterpret_cast<volatile PENDING_STAT*>(0x40018104); }
 };
 
+
 } // namespace nMECC2

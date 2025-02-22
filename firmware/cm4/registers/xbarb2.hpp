@@ -187,4 +187,5 @@ union XBARB2_SEL7 {
   static inline volatile XBARB2_SEL7 &Instance() { return *reinterpret_cast<volatile XBARB2_SEL7*>(0x4004000E); }
 };
 
+
 } // namespace nXBARB2

@@ -1,0 +1,440 @@
+#pragma once
+
+#include <stddef.h>
+#include <stdint.h>
+#include <cstring>
+
+// // no description available
+//
+// NOTE: This file was generated from the forge CMSIS-svd wrapper tool.
+
+namespace nMIPI_CSI2RX {
+
+
+// Lane Configuration Register
+//
+union CFG_NUM_LANES {
+  
+  // Enum definitions.
+  enum class eCFG_NUM_LANES : uint32_t {
+    eCFG_NUM_LANES_0 = 0, // 1 Lane
+    eCFG_NUM_LANES_1 = 1, // 2 Lane
+  };
+  
+  // Bit field definition.
+  struct {
+    eCFG_NUM_LANES CFG_NUM_LANES : 2;
+    uint32_t _reserved_end : 30;
+  } bits;          // Bit-field struct (auto-filling reserved gaps)
+  
+  // Full 32-bit register value.
+  uint32_t value;
+
+  CFG_NUM_LANES() = delete;
+  inline void Reset() volatile { this->value = 0x00000000; }
+  static inline volatile CFG_NUM_LANES &Instance() { return *reinterpret_cast<volatile CFG_NUM_LANES*>(0x40810100); }
+};
+
+// Disable Data Lane Register
+//
+union CFG_DISABLE_DATA_LANES {
+  
+  // Enum definitions.
+  
+  // Bit field definition.
+  struct {
+    uint32_t CFG_DISABLE_DATA_LANES : 4;
+    uint32_t _reserved_end : 28;
+  } bits;          // Bit-field struct (auto-filling reserved gaps)
+  
+  // Full 32-bit register value.
+  uint32_t value;
+
+  CFG_DISABLE_DATA_LANES() = delete;
+  inline void Reset() volatile { this->value = 0x0000000F; }
+  static inline volatile CFG_DISABLE_DATA_LANES &Instance() { return *reinterpret_cast<volatile CFG_DISABLE_DATA_LANES*>(0x40810104); }
+};
+
+// ECC and CRC Error Status Register
+//
+union BIT_ERR {
+  
+  // Enum definitions.
+  
+  // Bit field definition.
+  struct {
+    uint32_t BIT_ERR : 10;
+    uint32_t _reserved_end : 22;
+  } bits;          // Bit-field struct (auto-filling reserved gaps)
+  
+  // Full 32-bit register value.
+  uint32_t value;
+
+  BIT_ERR() = delete;
+  inline void Reset() volatile { this->value = 0x00000000; }
+  static inline volatile BIT_ERR &Instance() { return *reinterpret_cast<volatile BIT_ERR*>(0x40810108); }
+};
+
+// IRQ Status Register
+//
+union IRQ_STATUS {
+  
+  // Enum definitions.
+  
+  // Bit field definition.
+  struct {
+    uint32_t IRQ_STATUS : 9;
+    uint32_t _reserved_end : 23;
+  } bits;          // Bit-field struct (auto-filling reserved gaps)
+  
+  // Full 32-bit register value.
+  uint32_t value;
+
+  IRQ_STATUS() = delete;
+  inline void Reset() volatile { this->value = 0x00000000; }
+  static inline volatile IRQ_STATUS &Instance() { return *reinterpret_cast<volatile IRQ_STATUS*>(0x4081010C); }
+};
+
+// IRQ Mask Setting Register
+//
+union IRQ_MASK {
+  
+  // Enum definitions.
+  
+  // Bit field definition.
+  struct {
+    uint32_t IRQ_MASK : 9;
+    uint32_t _reserved_end : 23;
+  } bits;          // Bit-field struct (auto-filling reserved gaps)
+  
+  // Full 32-bit register value.
+  uint32_t value;
+
+  IRQ_MASK() = delete;
+  inline void Reset() volatile { this->value = 0x00000000; }
+  static inline volatile IRQ_MASK &Instance() { return *reinterpret_cast<volatile IRQ_MASK*>(0x40810110); }
+};
+
+// Ultra Low Power State (ULPS) Status Register
+//
+union ULPS_STATUS {
+  
+  // Enum definitions.
+  
+  // Bit field definition.
+  struct {
+    uint32_t STATUS : 10;
+    uint32_t _reserved_end : 22;
+  } bits;          // Bit-field struct (auto-filling reserved gaps)
+  
+  // Full 32-bit register value.
+  uint32_t value;
+
+  ULPS_STATUS() = delete;
+  inline void Reset() volatile { this->value = 0x00000000; }
+  static inline volatile ULPS_STATUS &Instance() { return *reinterpret_cast<volatile ULPS_STATUS*>(0x40810114); }
+};
+
+// ERRSot HS Status Register
+//
+union PPI_ERRSOT_HS {
+  
+  // Enum definitions.
+  
+  // Bit field definition.
+  struct {
+    uint32_t STATUS : 4;
+    uint32_t _reserved_end : 28;
+  } bits;          // Bit-field struct (auto-filling reserved gaps)
+  
+  // Full 32-bit register value.
+  uint32_t value;
+
+  PPI_ERRSOT_HS() = delete;
+  inline void Reset() volatile { this->value = 0x00000000; }
+  static inline volatile PPI_ERRSOT_HS &Instance() { return *reinterpret_cast<volatile PPI_ERRSOT_HS*>(0x40810118); }
+};
+
+// ErrSotSync HS Status Register
+//
+union PPI_ERRSOTSYNC_HS {
+  
+  // Enum definitions.
+  
+  // Bit field definition.
+  struct {
+    uint32_t STATUS : 4;
+    uint32_t _reserved_end : 28;
+  } bits;          // Bit-field struct (auto-filling reserved gaps)
+  
+  // Full 32-bit register value.
+  uint32_t value;
+
+  PPI_ERRSOTSYNC_HS() = delete;
+  inline void Reset() volatile { this->value = 0x00000000; }
+  static inline volatile PPI_ERRSOTSYNC_HS &Instance() { return *reinterpret_cast<volatile PPI_ERRSOTSYNC_HS*>(0x4081011C); }
+};
+
+// ErrEsc Status Register
+//
+union PPI_ERRESC {
+  
+  // Enum definitions.
+  
+  // Bit field definition.
+  struct {
+    uint32_t STATUS : 4;
+    uint32_t _reserved_end : 28;
+  } bits;          // Bit-field struct (auto-filling reserved gaps)
+  
+  // Full 32-bit register value.
+  uint32_t value;
+
+  PPI_ERRESC() = delete;
+  inline void Reset() volatile { this->value = 0x00000000; }
+  static inline volatile PPI_ERRESC &Instance() { return *reinterpret_cast<volatile PPI_ERRESC*>(0x40810120); }
+};
+
+// ErrSyncEsc Status Register
+//
+union PPI_ERRSYNCESC {
+  
+  // Enum definitions.
+  
+  // Bit field definition.
+  struct {
+    uint32_t STATUS : 4;
+    uint32_t _reserved_end : 28;
+  } bits;          // Bit-field struct (auto-filling reserved gaps)
+  
+  // Full 32-bit register value.
+  uint32_t value;
+
+  PPI_ERRSYNCESC() = delete;
+  inline void Reset() volatile { this->value = 0x00000000; }
+  static inline volatile PPI_ERRSYNCESC &Instance() { return *reinterpret_cast<volatile PPI_ERRSYNCESC*>(0x40810124); }
+};
+
+// ErrControl Status Register
+//
+union PPI_ERRCONTROL {
+  
+  // Enum definitions.
+  
+  // Bit field definition.
+  struct {
+    uint32_t STATUS : 4;
+    uint32_t _reserved_end : 28;
+  } bits;          // Bit-field struct (auto-filling reserved gaps)
+  
+  // Full 32-bit register value.
+  uint32_t value;
+
+  PPI_ERRCONTROL() = delete;
+  inline void Reset() volatile { this->value = 0x00000000; }
+  static inline volatile PPI_ERRCONTROL &Instance() { return *reinterpret_cast<volatile PPI_ERRCONTROL*>(0x40810128); }
+};
+
+// Disable Payload 0 Register
+//
+union CFG_DISABLE_PAYLOAD_0 {
+  
+  // Enum definitions.
+  
+  // Bit field definition.
+  struct {
+    uint32_t DIS_PAYLOAD_NULL : 1;
+    uint32_t DIS_PAYLOAD_BLANK : 1;
+    uint32_t DIS_PAYLOAD_EMBEDDED : 1;
+    uint32_t _reserved_3 : 7;
+    uint32_t DIS_PAYLOAD_YUV420 : 1;
+    uint32_t _reserved_4 : 3;
+    uint32_t DIS_PAYLOAD_YUV422_8BIT : 1;
+    uint32_t _reserved_5 : 1;
+    uint32_t DIS_PAYLOAD_RGB444 : 1;
+    uint32_t DIS_PAYLOAD_RGB555 : 1;
+    uint32_t DIS_PAYLOAD_RGB565 : 1;
+    uint32_t DIS_PAYLOAD_RGB666 : 1;
+    uint32_t DIS_PAYLOAD_RGB888 : 1;
+    uint32_t _reserved_end : 11;
+  } bits;          // Bit-field struct (auto-filling reserved gaps)
+  
+  // Full 32-bit register value.
+  uint32_t value;
+
+  CFG_DISABLE_PAYLOAD_0() = delete;
+  inline void Reset() volatile { this->value = 0x00000000; }
+  static inline volatile CFG_DISABLE_PAYLOAD_0 &Instance() { return *reinterpret_cast<volatile CFG_DISABLE_PAYLOAD_0*>(0x4081012C); }
+};
+
+// Disable Payload 1 Register
+//
+union CFG_DISABLE_PAYLOAD_1 {
+  
+  // Enum definitions.
+  
+  // Bit field definition.
+  struct {
+    uint32_t DIS_PAYLOAD_UDEF_30 : 1;
+    uint32_t DIS_PAYLOAD_UDEF_31 : 1;
+    uint32_t DIS_PAYLOAD_UDEF_32 : 1;
+    uint32_t DIS_PAYLOAD_UDEF_33 : 1;
+    uint32_t DIS_PAYLOAD_UDEF_34 : 1;
+    uint32_t DIS_PAYLOAD_UDEF_35 : 1;
+    uint32_t DIS_PAYLOAD_UDEF_36 : 1;
+    uint32_t DIS_PAYLOAD_UDEF_37 : 1;
+    uint32_t _reserved_8 : 8;
+    uint32_t DIS_PAYLOAD_UNSUPPORTED : 1;
+    uint32_t _reserved_end : 15;
+  } bits;          // Bit-field struct (auto-filling reserved gaps)
+  
+  // Full 32-bit register value.
+  uint32_t value;
+
+  CFG_DISABLE_PAYLOAD_1() = delete;
+  inline void Reset() volatile { this->value = 0x00000000; }
+  static inline volatile CFG_DISABLE_PAYLOAD_1 &Instance() { return *reinterpret_cast<volatile CFG_DISABLE_PAYLOAD_1*>(0x40810130); }
+};
+
+// Ignore Virtual Channel Register
+//
+union CFG_IGNORE_VC {
+  
+  // Enum definitions.
+  
+  // Bit field definition.
+  struct {
+    uint32_t IGNORE_VC : 1;
+    uint32_t _reserved_end : 31;
+  } bits;          // Bit-field struct (auto-filling reserved gaps)
+  
+  // Full 32-bit register value.
+  uint32_t value;
+
+  CFG_IGNORE_VC() = delete;
+  inline void Reset() volatile { this->value = 0x00000000; }
+  static inline volatile CFG_IGNORE_VC &Instance() { return *reinterpret_cast<volatile CFG_IGNORE_VC*>(0x40810180); }
+};
+
+// Virtual Channel value Register
+//
+union CFG_VID_VC {
+  
+  // Enum definitions.
+  
+  // Bit field definition.
+  struct {
+    uint32_t VID_VC : 2;
+    uint32_t _reserved_end : 30;
+  } bits;          // Bit-field struct (auto-filling reserved gaps)
+  
+  // Full 32-bit register value.
+  uint32_t value;
+
+  CFG_VID_VC() = delete;
+  inline void Reset() volatile { this->value = 0x00000000; }
+  static inline volatile CFG_VID_VC &Instance() { return *reinterpret_cast<volatile CFG_VID_VC*>(0x40810184); }
+};
+
+// FIFO Send Level Configuration Register
+//
+union CFG_VID_P_FIFO_SEND_LEVEL {
+  
+  // Enum definitions.
+  
+  // Bit field definition.
+  struct {
+    uint32_t SEND_LEVEL : 16;
+    uint32_t _reserved_end : 16;
+  } bits;          // Bit-field struct (auto-filling reserved gaps)
+  
+  // Full 32-bit register value.
+  uint32_t value;
+
+  CFG_VID_P_FIFO_SEND_LEVEL() = delete;
+  inline void Reset() volatile { this->value = 0x00000000; }
+  static inline volatile CFG_VID_P_FIFO_SEND_LEVEL &Instance() { return *reinterpret_cast<volatile CFG_VID_P_FIFO_SEND_LEVEL*>(0x40810188); }
+};
+
+// VSYNC Configuration Register
+//
+union CFG_VID_VSYNC {
+  
+  // Enum definitions.
+  
+  // Bit field definition.
+  struct {
+    uint32_t WIDTH : 8;
+    uint32_t _reserved_end : 24;
+  } bits;          // Bit-field struct (auto-filling reserved gaps)
+  
+  // Full 32-bit register value.
+  uint32_t value;
+
+  CFG_VID_VSYNC() = delete;
+  inline void Reset() volatile { this->value = 0x00000000; }
+  static inline volatile CFG_VID_VSYNC &Instance() { return *reinterpret_cast<volatile CFG_VID_VSYNC*>(0x4081018C); }
+};
+
+// Start of HSYNC Delay control Register
+//
+union CFG_VID_HSYNC_FP {
+  
+  // Enum definitions.
+  
+  // Bit field definition.
+  struct {
+    uint32_t DELAY_CTL : 8;
+    uint32_t _reserved_end : 24;
+  } bits;          // Bit-field struct (auto-filling reserved gaps)
+  
+  // Full 32-bit register value.
+  uint32_t value;
+
+  CFG_VID_HSYNC_FP() = delete;
+  inline void Reset() volatile { this->value = 0x00000000; }
+  static inline volatile CFG_VID_HSYNC_FP &Instance() { return *reinterpret_cast<volatile CFG_VID_HSYNC_FP*>(0x40810190); }
+};
+
+// HSYNC Configuration Register
+//
+union CFG_VID_HSYNC {
+  
+  // Enum definitions.
+  
+  // Bit field definition.
+  struct {
+    uint32_t WIDTH : 8;
+    uint32_t _reserved_end : 24;
+  } bits;          // Bit-field struct (auto-filling reserved gaps)
+  
+  // Full 32-bit register value.
+  uint32_t value;
+
+  CFG_VID_HSYNC() = delete;
+  inline void Reset() volatile { this->value = 0x00000000; }
+  static inline volatile CFG_VID_HSYNC &Instance() { return *reinterpret_cast<volatile CFG_VID_HSYNC*>(0x40810194); }
+};
+
+// End of HSYNC Delay Control Register
+//
+union CFG_VID_HSYNC_BP {
+  
+  // Enum definitions.
+  
+  // Bit field definition.
+  struct {
+    uint32_t DELAY_CTL : 8;
+    uint32_t _reserved_end : 24;
+  } bits;          // Bit-field struct (auto-filling reserved gaps)
+  
+  // Full 32-bit register value.
+  uint32_t value;
+
+  CFG_VID_HSYNC_BP() = delete;
+  inline void Reset() volatile { this->value = 0x00000000; }
+  static inline volatile CFG_VID_HSYNC_BP &Instance() { return *reinterpret_cast<volatile CFG_VID_HSYNC_BP*>(0x40810198); }
+};
+
+
+} // namespace nMIPI_CSI2RX

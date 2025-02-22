@@ -1,0 +1,58 @@
+#pragma once
+
+#include <stddef.h>
+#include <stdint.h>
+#include <cstring>
+
+// // MX6RT_ANADIG_REGISTER
+//
+// NOTE: This file was generated from the forge CMSIS-svd wrapper tool.
+
+namespace nANADIG_TEMPSENSOR {
+
+
+// Tempsensor Register
+//
+union TEMPSENSOR {
+  
+  // Enum definitions.
+  
+  // Bit field definition.
+  struct {
+    uint32_t _reserved_0 : 15;
+    uint32_t TEMPSNS_AI_TOGGLE : 1;
+    uint32_t TEMPSNS_AI_BUSY : 1;
+    uint32_t _reserved_end : 15;
+  } bits;          // Bit-field struct (auto-filling reserved gaps)
+  
+  // Full 32-bit register value.
+  uint32_t value;
+
+  TEMPSENSOR() = delete;
+  inline void Reset() volatile { this->value = 0x00000000; }
+  static inline volatile TEMPSENSOR &Instance() { return *reinterpret_cast<volatile TEMPSENSOR*>(0x40C84400); }
+};
+
+// TEMPSNS_OTP_TRIM_VALUE_REGISTER
+//
+union TEMPSNS_OTP_TRIM_VALUE {
+  
+  // Enum definitions.
+  
+  // Bit field definition.
+  struct {
+    uint32_t _reserved_0 : 10;
+    uint32_t TEMPSNS_TEMP_VAL : 12;
+    uint32_t _reserved_end : 10;
+  } bits;          // Bit-field struct (auto-filling reserved gaps)
+  
+  // Full 32-bit register value.
+  uint32_t value;
+
+  TEMPSNS_OTP_TRIM_VALUE() = delete;
+  inline void Reset() volatile { this->value = 0x00000000; }
+  static inline volatile TEMPSNS_OTP_TRIM_VALUE &Instance() { return *reinterpret_cast<volatile TEMPSNS_OTP_TRIM_VALUE*>(0x40C84430); }
+};
+
+
+} // namespace nANADIG_TEMPSENSOR

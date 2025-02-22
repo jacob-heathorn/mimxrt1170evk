@@ -431,4 +431,5 @@ union DENOMINATOR_TOG {
   static inline volatile DENOMINATOR_TOG &Instance() { return *reinterpret_cast<volatile DENOMINATOR_TOG*>(0x0000003C); }
 };
 
+
 } // namespace nVIDEO_PLL

@@ -150,4 +150,5 @@ union CLKPRESCALER {
   static inline volatile CLKPRESCALER &Instance() { return *reinterpret_cast<volatile CLKPRESCALER*>(0x4002C005); }
 };
 
+
 } // namespace nEWM

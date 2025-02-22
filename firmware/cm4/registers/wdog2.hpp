@@ -198,4 +198,5 @@ union WMCR {
   static inline volatile WMCR &Instance() { return *reinterpret_cast<volatile WMCR*>(0x40034008); }
 };
 
+
 } // namespace nWDOG2

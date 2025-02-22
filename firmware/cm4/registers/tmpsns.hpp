@@ -471,4 +471,5 @@ union STATUS0 {
   static inline volatile STATUS0 &Instance() { return *reinterpret_cast<volatile STATUS0*>(0x00000050); }
 };
 
+
 } // namespace nTMPSNS

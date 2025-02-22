@@ -199,4 +199,5 @@ union STAT0_TOG {
   static inline volatile STAT0_TOG &Instance() { return *reinterpret_cast<volatile STAT0_TOG*>(0x0000005C); }
 };
 
+
 } // namespace nVMBANDGAP

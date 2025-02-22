@@ -1056,4 +1056,5 @@ union OCRAM_PIPELINE_STATUS {
   static inline volatile OCRAM_PIPELINE_STATUS &Instance() { return *reinterpret_cast<volatile OCRAM_PIPELINE_STATUS*>(0x4002810C); }
 };
 
+
 } // namespace nFLEXRAM

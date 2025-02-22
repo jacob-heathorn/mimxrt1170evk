@@ -659,4 +659,5 @@ union STAT2_TOG {
   static inline volatile STAT2_TOG &Instance() { return *reinterpret_cast<volatile STAT2_TOG*>(0x0000007C); }
 };
 
+
 } // namespace nOSC_RC_400M

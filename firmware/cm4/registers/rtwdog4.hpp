@@ -161,4 +161,5 @@ union WIN {
   static inline volatile WIN &Instance() { return *reinterpret_cast<volatile WIN*>(0x40C1000C); }
 };
 
+
 } // namespace nRTWDOG4
