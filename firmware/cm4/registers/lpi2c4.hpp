@@ -15,7 +15,6 @@ namespace nLPI2C4 {
 //
 union VERID {
   
-  // Enum definitions.
   enum class eFEATURE : uint32_t {
     eMASTER_ONLY = 2, // Master only, with standard feature set
     eMASTER_AND_SLAVE = 3, // Master and slave, with standard feature set
@@ -26,7 +25,7 @@ union VERID {
     eFEATURE FEATURE : 16;
     uint32_t MINOR : 8;
     uint32_t MAJOR : 8;
-  } bits;          // Bit-field struct (auto-filling reserved gaps)
+  } bits;
   
   // Full 32-bit register value.
   uint32_t value;
@@ -40,15 +39,13 @@ union VERID {
 //
 union PARAM {
   
-  // Enum definitions.
-  
   // Bit field definition.
   struct {
     uint32_t MTXFIFO : 4;
     uint32_t _reserved_1 : 4;
     uint32_t MRXFIFO : 4;
     uint32_t _reserved_end : 20;
-  } bits;          // Bit-field struct (auto-filling reserved gaps)
+  } bits;
   
   // Full 32-bit register value.
   uint32_t value;
@@ -62,27 +59,31 @@ union PARAM {
 //
 union MCR {
   
-  // Enum definitions.
   enum class eMEN : uint32_t {
     eDISABLED = 0, // Master logic is disabled
     eENABLED = 1, // Master logic is enabled
   };
+  
   enum class eRST : uint32_t {
     eNOT_RESET = 0, // Master logic is not reset
     eRESET = 1, // Master logic is reset
   };
+  
   enum class eDOZEN : uint32_t {
     eENABLED = 0, // Master is enabled in Doze mode
     eDISABLED = 1, // Master is disabled in Doze mode
   };
+  
   enum class eDBGEN : uint32_t {
     eDISABLED = 0, // Master is disabled in debug mode
     eENABLED = 1, // Master is enabled in debug mode
   };
+  
   enum class eRTF : uint32_t {
     eNO_EFFECT = 0, // No effect
     eRESET = 1, // Transmit FIFO is reset
   };
+  
   enum class eRRF : uint32_t {
     eNO_EFFECT = 0, // No effect
     eRESET = 1, // Receive FIFO is reset
@@ -98,7 +99,7 @@ union MCR {
     eRTF RTF : 1;
     eRRF RRF : 1;
     uint32_t _reserved_end : 22;
-  } bits;          // Bit-field struct (auto-filling reserved gaps)
+  } bits;
   
   // Full 32-bit register value.
   uint32_t value;
@@ -112,47 +113,56 @@ union MCR {
 //
 union MSR {
   
-  // Enum definitions.
   enum class eTDF : uint32_t {
     eDISABLED = 0, // Transmit data is not requested
     eENABLED = 1, // Transmit data is requested
   };
+  
   enum class eRDF : uint32_t {
     eDISABLED = 0, // Receive Data is not ready
     eENABLED = 1, // Receive data is ready
   };
+  
   enum class eEPF : uint32_t {
     eNO_FLAG = 0, // Master has not generated a STOP or Repeated START condition
     eFLAG = 1, // Master has generated a STOP or Repeated START condition
   };
+  
   enum class eSDF : uint32_t {
     eNO_FLAG = 0, // Master has not generated a STOP condition
     eFLAG = 1, // Master has generated a STOP condition
   };
+  
   enum class eNDF : uint32_t {
     eNO_FLAG = 0, // Unexpected NACK was not detected
     eFLAG = 1, // Unexpected NACK was detected
   };
+  
   enum class eALF : uint32_t {
     eNO_FLAG = 0, // Master has not lost arbitration
     eFLAG = 1, // Master has lost arbitration
   };
+  
   enum class eFEF : uint32_t {
     eNO_FLAG = 0, // No error
     eFLAG = 1, // Master sending or receiving data without a START condition
   };
+  
   enum class ePLTF : uint32_t {
     eNO_FLAG = 0, // Pin low timeout has not occurred or is disabled
     eFLAG = 1, // Pin low timeout has occurred
   };
+  
   enum class eDMF : uint32_t {
     eNO_FLAG = 0, // Have not received matching data
     eFLAG = 1, // Have received matching data
   };
+  
   enum class eMBF : uint32_t {
     eIDLE = 0, // I2C Master is idle
     eBUSY = 1, // I2C Master is busy
   };
+  
   enum class eBBF : uint32_t {
     eIDLE = 0, // I2C Bus is idle
     eBUSY = 1, // I2C Bus is busy
@@ -174,7 +184,7 @@ union MSR {
     eMBF MBF : 1;
     eBBF BBF : 1;
     uint32_t _reserved_end : 6;
-  } bits;          // Bit-field struct (auto-filling reserved gaps)
+  } bits;
   
   // Full 32-bit register value.
   uint32_t value;
@@ -188,39 +198,46 @@ union MSR {
 //
 union MIER {
   
-  // Enum definitions.
   enum class eTDIE : uint32_t {
     eDISABLED = 0, // Disabled
     eENABLED = 1, // Enabled
   };
+  
   enum class eRDIE : uint32_t {
     eDISABLED = 0, // Disabled
     eENABLED = 1, // Enabled
   };
+  
   enum class eEPIE : uint32_t {
     eDISABLED = 0, // Disabled
     eENABLED = 1, // Enabled
   };
+  
   enum class eSDIE : uint32_t {
     eDISABLED = 0, // Disabled
     eENABLED = 1, // Enabled
   };
+  
   enum class eNDIE : uint32_t {
     eDISABLED = 0, // Disabled
     eENABLED = 1, // Enabled
   };
+  
   enum class eALIE : uint32_t {
     eDISABLED = 0, // Disabled
     eENABLED = 1, // Enabled
   };
+  
   enum class eFEIE : uint32_t {
     eENABLED = 0, // Enabled
     eDISABLED = 1, // Disabled
   };
+  
   enum class ePLTIE : uint32_t {
     eDISABLED = 0, // Disabled
     eENABLED = 1, // Enabled
   };
+  
   enum class eDMIE : uint32_t {
     eDISABLED = 0, // Disabled
     eENABLED = 1, // Enabled
@@ -239,7 +256,7 @@ union MIER {
     ePLTIE PLTIE : 1;
     eDMIE DMIE : 1;
     uint32_t _reserved_end : 17;
-  } bits;          // Bit-field struct (auto-filling reserved gaps)
+  } bits;
   
   // Full 32-bit register value.
   uint32_t value;
@@ -253,11 +270,11 @@ union MIER {
 //
 union MDER {
   
-  // Enum definitions.
   enum class eTDDE : uint32_t {
     eDISABLED = 0, // DMA request is disabled
     eENABLED = 1, // DMA request is enabled
   };
+  
   enum class eRDDE : uint32_t {
     eDISABLED = 0, // DMA request is disabled
     eENABLED = 1, // DMA request is enabled
@@ -268,7 +285,7 @@ union MDER {
     eTDDE TDDE : 1;
     eRDDE RDDE : 1;
     uint32_t _reserved_end : 30;
-  } bits;          // Bit-field struct (auto-filling reserved gaps)
+  } bits;
   
   // Full 32-bit register value.
   uint32_t value;
@@ -282,23 +299,26 @@ union MDER {
 //
 union MCFGR0 {
   
-  // Enum definitions.
   enum class eHREN : uint32_t {
     eDISABLED = 0, // Host request input is disabled
     eENABLED = 1, // Host request input is enabled
   };
+  
   enum class eHRPOL : uint32_t {
     eACTIVE_LOW = 0, // Active low
     eACTIVE_HIGH = 1, // Active high
   };
+  
   enum class eHRSEL : uint32_t {
     eDISABLED = 0, // Host request input is pin HREQ
     eENABLED = 1, // Host request input is input trigger
   };
+  
   enum class eCIRFIFO : uint32_t {
     eDISABLED = 0, // Circular FIFO is disabled
     eENABLED = 1, // Circular FIFO is enabled
   };
+  
   enum class eRDMO : uint32_t {
     eDISABLED = 0, // Received data is stored in the receive FIFO
     eENABLED = 1, // Received data is discarded unless the the Data Match Flag (MSR[DMF]) is set
@@ -313,7 +333,7 @@ union MCFGR0 {
     eCIRFIFO CIRFIFO : 1;
     eRDMO RDMO : 1;
     uint32_t _reserved_end : 22;
-  } bits;          // Bit-field struct (auto-filling reserved gaps)
+  } bits;
   
   // Full 32-bit register value.
   uint32_t value;
@@ -327,7 +347,6 @@ union MCFGR0 {
 //
 union MCFGR1 {
   
-  // Enum definitions.
   enum class ePRESCALE : uint32_t {
     eDIVIDE_BY_1 = 0, // Divide by 1
     eDIVIDE_BY_2 = 1, // Divide by 2
@@ -338,18 +357,22 @@ union MCFGR1 {
     eDIVIDE_BY_64 = 6, // Divide by 64
     eDIVIDE_BY_128 = 7, // Divide by 128
   };
+  
   enum class eAUTOSTOP : uint32_t {
     eDISABLED = 0, // No effect
     eENABLED = 1, // STOP condition is automatically generated whenever the transmit FIFO is empty and the LPI2C master is busy
   };
+  
   enum class eIGNACK : uint32_t {
     eDISABLED = 0, // LPI2C Master receives ACK and NACK normally
     eENABLED = 1, // LPI2C Master treats a received NACK as if it (NACK) was an ACK
   };
+  
   enum class eTIMECFG : uint32_t {
     eIF_SCL_LOW = 0, // MSR[PLTF] sets if SCL is low for longer than the configured timeout
     eIF_SCL_OR_SDA_LOW = 1, // MSR[PLTF] sets if either SCL or SDA is low for longer than the configured timeout
   };
+  
   enum class eMATCFG : uint32_t {
     eDISABLED = 0, // Match is disabled
     eFIRST_DATA_WORD_EQUALS_MATCH0_OR_MATCH1 = 2, // Match is enabled (1st data word equals MDMR[MATCH0] OR MDMR[MATCH1])
@@ -359,6 +382,7 @@ union MCFGR1 {
     eFIRST_DATA_WORD_AND_MATCH1_EQUALS_MATCH0_AND_MATCH1 = 6, // Match is enabled (1st data word AND MDMR[MATCH1] equals MDMR[MATCH0] AND MDMR[MATCH1])
     eANY_DATA_WORD_AND_MATCH1_EQUALS_MATCH0_AND_MATCH1 = 7, // Match is enabled (any data word AND MDMR[MATCH1] equals MDMR[MATCH0] AND MDMR[MATCH1])
   };
+  
   enum class ePINCFG : uint32_t {
     eOPEN_DRAIN_2_PIN = 0, // 2-pin open drain mode
     eOUTPUT_2_PIN_ONLY = 1, // 2-pin output only mode (ultra-fast mode)
@@ -382,7 +406,7 @@ union MCFGR1 {
     uint32_t _reserved_5 : 5;
     ePINCFG PINCFG : 3;
     uint32_t _reserved_end : 5;
-  } bits;          // Bit-field struct (auto-filling reserved gaps)
+  } bits;
   
   // Full 32-bit register value.
   uint32_t value;
@@ -396,8 +420,6 @@ union MCFGR1 {
 //
 union MCFGR2 {
   
-  // Enum definitions.
-  
   // Bit field definition.
   struct {
     uint32_t BUSIDLE : 12;
@@ -406,7 +428,7 @@ union MCFGR2 {
     uint32_t _reserved_2 : 4;
     uint32_t FILTSDA : 4;
     uint32_t _reserved_end : 4;
-  } bits;          // Bit-field struct (auto-filling reserved gaps)
+  } bits;
   
   // Full 32-bit register value.
   uint32_t value;
@@ -420,14 +442,12 @@ union MCFGR2 {
 //
 union MCFGR3 {
   
-  // Enum definitions.
-  
   // Bit field definition.
   struct {
     uint32_t _reserved_0 : 8;
     uint32_t PINLOW : 12;
     uint32_t _reserved_end : 12;
-  } bits;          // Bit-field struct (auto-filling reserved gaps)
+  } bits;
   
   // Full 32-bit register value.
   uint32_t value;
@@ -441,15 +461,13 @@ union MCFGR3 {
 //
 union MDMR {
   
-  // Enum definitions.
-  
   // Bit field definition.
   struct {
     uint32_t MATCH0 : 8;
     uint32_t _reserved_1 : 8;
     uint32_t MATCH1 : 8;
     uint32_t _reserved_end : 8;
-  } bits;          // Bit-field struct (auto-filling reserved gaps)
+  } bits;
   
   // Full 32-bit register value.
   uint32_t value;
@@ -463,8 +481,6 @@ union MDMR {
 //
 union MCCR0 {
   
-  // Enum definitions.
-  
   // Bit field definition.
   struct {
     uint32_t CLKLO : 6;
@@ -475,7 +491,7 @@ union MCCR0 {
     uint32_t _reserved_3 : 2;
     uint32_t DATAVD : 6;
     uint32_t _reserved_end : 2;
-  } bits;          // Bit-field struct (auto-filling reserved gaps)
+  } bits;
   
   // Full 32-bit register value.
   uint32_t value;
@@ -489,8 +505,6 @@ union MCCR0 {
 //
 union MCCR1 {
   
-  // Enum definitions.
-  
   // Bit field definition.
   struct {
     uint32_t CLKLO : 6;
@@ -501,7 +515,7 @@ union MCCR1 {
     uint32_t _reserved_3 : 2;
     uint32_t DATAVD : 6;
     uint32_t _reserved_end : 2;
-  } bits;          // Bit-field struct (auto-filling reserved gaps)
+  } bits;
   
   // Full 32-bit register value.
   uint32_t value;
@@ -515,15 +529,13 @@ union MCCR1 {
 //
 union MFCR {
   
-  // Enum definitions.
-  
   // Bit field definition.
   struct {
     uint32_t TXWATER : 2;
     uint32_t _reserved_1 : 14;
     uint32_t RXWATER : 2;
     uint32_t _reserved_end : 14;
-  } bits;          // Bit-field struct (auto-filling reserved gaps)
+  } bits;
   
   // Full 32-bit register value.
   uint32_t value;
@@ -537,15 +549,13 @@ union MFCR {
 //
 union MFSR {
   
-  // Enum definitions.
-  
   // Bit field definition.
   struct {
     uint32_t TXCOUNT : 3;
     uint32_t _reserved_1 : 13;
     uint32_t RXCOUNT : 3;
     uint32_t _reserved_end : 13;
-  } bits;          // Bit-field struct (auto-filling reserved gaps)
+  } bits;
   
   // Full 32-bit register value.
   uint32_t value;
@@ -559,7 +569,6 @@ union MFSR {
 //
 union MTDR {
   
-  // Enum definitions.
   enum class eCMD : uint32_t {
     eTRANSMIT_DATA_7_THROUGH_0 = 0, // Transmit DATA[7:0]
     eRECEIVE_DATA_7_THROUGH_0_PLUS_ONE = 1, // Receive (DATA[7:0] + 1) bytes
@@ -576,7 +585,7 @@ union MTDR {
     uint32_t DATA : 8;
     eCMD CMD : 3;
     uint32_t _reserved_end : 21;
-  } bits;          // Bit-field struct (auto-filling reserved gaps)
+  } bits;
   
   // Full 32-bit register value.
   uint32_t value;
@@ -590,7 +599,6 @@ union MTDR {
 //
 union MRDR {
   
-  // Enum definitions.
   enum class eRXEMPTY : uint32_t {
     eNOT_EMPTY = 0, // Receive FIFO is not empty
     eEMPTY = 1, // Receive FIFO is empty
@@ -602,7 +610,7 @@ union MRDR {
     uint32_t _reserved_1 : 6;
     eRXEMPTY RXEMPTY : 1;
     uint32_t _reserved_end : 17;
-  } bits;          // Bit-field struct (auto-filling reserved gaps)
+  } bits;
   
   // Full 32-bit register value.
   uint32_t value;
@@ -616,27 +624,31 @@ union MRDR {
 //
 union SCR {
   
-  // Enum definitions.
   enum class eSEN : uint32_t {
     eDISABLED = 0, // I2C Slave mode is disabled
     eENABLED = 1, // I2C Slave mode is enabled
   };
+  
   enum class eRST : uint32_t {
     eNOT_RESET = 0, // Slave mode logic is not reset
     eRESET = 1, // Slave mode logic is reset
   };
+  
   enum class eFILTEN : uint32_t {
     eDISABLE = 0, // Disable digital filter and output delay counter for slave mode
     eENABLE = 1, // Enable digital filter and output delay counter for slave mode
   };
+  
   enum class eFILTDZ : uint32_t {
     eFILTER_ENABLED = 0, // Filter remains enabled in Doze mode
     eFILTER_DISABLED = 1, // Filter is disabled in Doze mode
   };
+  
   enum class eRTF : uint32_t {
     eNO_EFFECT = 0, // No effect
     eNOW_EMPTY = 1, // Transmit Data Register is now empty
   };
+  
   enum class eRRF : uint32_t {
     eNO_EFFECT = 0, // No effect
     eNOW_EMPTY = 1, // Receive Data Register is now empty
@@ -653,7 +665,7 @@ union SCR {
     eRTF RTF : 1;
     eRRF RRF : 1;
     uint32_t _reserved_end : 22;
-  } bits;          // Bit-field struct (auto-filling reserved gaps)
+  } bits;
   
   // Full 32-bit register value.
   uint32_t value;
@@ -667,59 +679,71 @@ union SCR {
 //
 union SSR {
   
-  // Enum definitions.
   enum class eTDF : uint32_t {
     eNO_FLAG = 0, // Transmit data not requested
     eFLAG = 1, // Transmit data is requested
   };
+  
   enum class eRDF : uint32_t {
     eNOT_READY = 0, // Receive data is not ready
     eREADY = 1, // Receive data is ready
   };
+  
   enum class eAVF : uint32_t {
     eNOT_VALID = 0, // Address Status Register is not valid
     eVALID = 1, // Address Status Register is valid
   };
+  
   enum class eTAF : uint32_t {
     eNOT_REQUIRED = 0, // Transmit ACK/NACK is not required
     eREQUIRED = 1, // Transmit ACK/NACK is required
   };
+  
   enum class eRSF : uint32_t {
     eNO_FLAG = 0, // Slave has not detected a Repeated START condition
     eFLAG = 1, // Slave has detected a Repeated START condition
   };
+  
   enum class eSDF : uint32_t {
     eNO_FLAG = 0, // Slave has not detected a STOP condition
     eFLAG = 1, // Slave has detected a STOP condition
   };
+  
   enum class eBEF : uint32_t {
     eNO_FLAG = 0, // Slave has not detected a bit error
     eFLAG = 1, // Slave has detected a bit error
   };
+  
   enum class eFEF : uint32_t {
     eNO_FLAG = 0, // FIFO underflow or overflow was not detected
     eFLAG = 1, // FIFO underflow or overflow was detected
   };
+  
   enum class eAM0F : uint32_t {
     eNO_FLAG = 0, // Have not received an ADDR0 matching address
     eFLAG = 1, // Have received an ADDR0 matching address
   };
+  
   enum class eAM1F : uint32_t {
     eNO_FLAG = 0, // Have not received an ADDR1 or ADDR0/ADDR1 range matching address
     eFLAG = 1, // Have received an ADDR1 or ADDR0/ADDR1 range matching address
   };
+  
   enum class eGCF : uint32_t {
     eNO_FLAG = 0, // Slave has not detected the General Call Address or the General Call Address is disabled
     eFLAG = 1, // Slave has detected the General Call Address
   };
+  
   enum class eSARF : uint32_t {
     eNO_FLAG = 0, // SMBus Alert Response is disabled or not detected
     eFLAG = 1, // SMBus Alert Response is enabled and detected
   };
+  
   enum class eSBF : uint32_t {
     eIDLE = 0, // I2C Slave is idle
     eBUSY = 1, // I2C Slave is busy
   };
+  
   enum class eBBF : uint32_t {
     eIDLE = 0, // I2C Bus is idle
     eBUSY = 1, // I2C Bus is busy
@@ -744,7 +768,7 @@ union SSR {
     eSBF SBF : 1;
     eBBF BBF : 1;
     uint32_t _reserved_end : 6;
-  } bits;          // Bit-field struct (auto-filling reserved gaps)
+  } bits;
   
   // Full 32-bit register value.
   uint32_t value;
@@ -758,51 +782,61 @@ union SSR {
 //
 union SIER {
   
-  // Enum definitions.
   enum class eTDIE : uint32_t {
     eDISABLED = 0, // Disabled
     eENABLED = 1, // Enabled
   };
+  
   enum class eRDIE : uint32_t {
     eDISABLED = 0, // Disabled
     eENABLED = 1, // Enabled
   };
+  
   enum class eAVIE : uint32_t {
     eDISABLED = 0, // Disabled
     eENABLED = 1, // Enabled
   };
+  
   enum class eTAIE : uint32_t {
     eDISABLED = 0, // Disabled
     eENABLED = 1, // Enabled
   };
+  
   enum class eRSIE : uint32_t {
     eDISABLED = 0, // Disabled
     eENABLED = 1, // Enabled
   };
+  
   enum class eSDIE : uint32_t {
     eDISABLED = 0, // Disabled
     eENABLED = 1, // Enabled
   };
+  
   enum class eBEIE : uint32_t {
     eDISABLED = 0, // Disabled
     eENABLED = 1, // Enabled
   };
+  
   enum class eFEIE : uint32_t {
     eDISABLED = 0, // Disabled
     eENABLED = 1, // Enabled
   };
+  
   enum class eAM0IE : uint32_t {
     eDISABLED = 0, // Disabled
     eENABLED = 1, // Enabled
   };
+  
   enum class eAM1IE : uint32_t {
     eDISABLED = 0, // Disabled
     eENABLED = 1, // Enabled
   };
+  
   enum class eGCIE : uint32_t {
     eDISABLED = 0, // Disabled
     eENABLED = 1, // Enabled
   };
+  
   enum class eSARIE : uint32_t {
     eDISABLED = 0, // Disabled
     eENABLED = 1, // Enabled
@@ -824,7 +858,7 @@ union SIER {
     eGCIE GCIE : 1;
     eSARIE SARIE : 1;
     uint32_t _reserved_end : 16;
-  } bits;          // Bit-field struct (auto-filling reserved gaps)
+  } bits;
   
   // Full 32-bit register value.
   uint32_t value;
@@ -838,15 +872,16 @@ union SIER {
 //
 union SDER {
   
-  // Enum definitions.
   enum class eTDDE : uint32_t {
     eDISABLED = 0, // DMA request is disabled
     eENABLED = 1, // DMA request is enabled
   };
+  
   enum class eRDDE : uint32_t {
     eDISABLED = 0, // DMA request is disabled
     eENABLED = 1, // DMA request is enabled
   };
+  
   enum class eAVDE : uint32_t {
     eDISABLED = 0, // DMA request is disabled
     eENABLED = 1, // DMA request is enabled
@@ -858,7 +893,7 @@ union SDER {
     eRDDE RDDE : 1;
     eAVDE AVDE : 1;
     uint32_t _reserved_end : 29;
-  } bits;          // Bit-field struct (auto-filling reserved gaps)
+  } bits;
   
   // Full 32-bit register value.
   uint32_t value;
@@ -872,47 +907,56 @@ union SDER {
 //
 union SCFGR1 {
   
-  // Enum definitions.
   enum class eADRSTALL : uint32_t {
     eDISABLED = 0, // Clock stretching is disabled
     eENABLED = 1, // Clock stretching is enabled
   };
+  
   enum class eRXSTALL : uint32_t {
     eDISABLED = 0, // Clock stretching is disabled
     eENABLED = 1, // Clock stretching is enabled
   };
+  
   enum class eTXDSTALL : uint32_t {
     eDISABLED = 0, // Clock stretching is disabled
     eENABLED = 1, // Clock stretching is enabled
   };
+  
   enum class eACKSTALL : uint32_t {
     eDISABLED = 0, // Clock stretching is disabled
     eENABLED = 1, // Clock stretching is enabled
   };
+  
   enum class eGCEN : uint32_t {
     eDISABLED = 0, // General Call address is disabled
     eENABLED = 1, // General Call address is enabled
   };
+  
   enum class eSAEN : uint32_t {
     eDISABLE = 0, // Disables match on SMBus Alert
     eENABLE = 1, // Enables match on SMBus Alert
   };
+  
   enum class eTXCFG : uint32_t {
     eASSERTS_DURING_SLAVE_TRANSMIT_TRANSFER_WHEN_TX_DATA_EMPTY = 0, // Transmit Data Flag only asserts during a slave-transmit transfer when the Transmit Data register is empty
     eASSERTS_WHEN_TX_DATA_EMPTY = 1, // Transmit Data Flag asserts whenever the Transmit Data register is empty
   };
+  
   enum class eRXCFG : uint32_t {
     eRETURNS_RECEIVED_DATA_AND_CLEARS_RX_DATA_FLAG = 0, // Reading the Receive Data register returns received data and clears the Receive Data flag (MSR[RDF]).
     eWHEN_ADDRESS_VALID_FLAG_SET_RETURNS_ADDRESS_STATUS_AND_CLEARS_ADDRESS_VALID_FLAG = 1, // Reading the Receive Data register when the Address Valid flag (SSR[AVF])is set, returns the Address Status register and clear the Address Valid flag. Reading the Receive Data register when the Address Valid flag is clear, returns received data and clears the Receive Data flag (MSR[RDF]).
   };
+  
   enum class eIGNACK : uint32_t {
     eENDS_TRANSFER_ON_NACK = 0, // Slave ends transfer when NACK is detected
     eDOES_NOT_END_TRANSFER_ON_NACK = 1, // Slave does not end transfer when NACK detected
   };
+  
   enum class eHSMEN : uint32_t {
     eDISABLED = 0, // Disables detection of HS-mode master code
     eENABLED = 1, // Enables detection of HS-mode master code
   };
+  
   enum class eADDRCFG : uint32_t {
     eADDRESS_MATCH0_7_BIT = 0, // Address match 0 (7-bit)
     eADDRESS_MATCH0_10_BIT = 1, // Address match 0 (10-bit)
@@ -940,7 +984,7 @@ union SCFGR1 {
     uint32_t _reserved_10 : 2;
     eADDRCFG ADDRCFG : 3;
     uint32_t _reserved_end : 13;
-  } bits;          // Bit-field struct (auto-filling reserved gaps)
+  } bits;
   
   // Full 32-bit register value.
   uint32_t value;
@@ -954,8 +998,6 @@ union SCFGR1 {
 //
 union SCFGR2 {
   
-  // Enum definitions.
-  
   // Bit field definition.
   struct {
     uint32_t CLKHOLD : 4;
@@ -966,7 +1008,7 @@ union SCFGR2 {
     uint32_t _reserved_3 : 4;
     uint32_t FILTSDA : 4;
     uint32_t _reserved_end : 4;
-  } bits;          // Bit-field struct (auto-filling reserved gaps)
+  } bits;
   
   // Full 32-bit register value.
   uint32_t value;
@@ -980,8 +1022,6 @@ union SCFGR2 {
 //
 union SAMR {
   
-  // Enum definitions.
-  
   // Bit field definition.
   struct {
     uint32_t _reserved_0 : 1;
@@ -989,7 +1029,7 @@ union SAMR {
     uint32_t _reserved_1 : 6;
     uint32_t ADDR1 : 10;
     uint32_t _reserved_end : 5;
-  } bits;          // Bit-field struct (auto-filling reserved gaps)
+  } bits;
   
   // Full 32-bit register value.
   uint32_t value;
@@ -1003,7 +1043,6 @@ union SAMR {
 //
 union SASR {
   
-  // Enum definitions.
   enum class eANV : uint32_t {
     eVALID = 0, // Received Address (RADDR) is valid
     eNOT_VALID = 1, // Received Address (RADDR) is not valid
@@ -1015,7 +1054,7 @@ union SASR {
     uint32_t _reserved_1 : 3;
     eANV ANV : 1;
     uint32_t _reserved_end : 17;
-  } bits;          // Bit-field struct (auto-filling reserved gaps)
+  } bits;
   
   // Full 32-bit register value.
   uint32_t value;
@@ -1029,7 +1068,6 @@ union SASR {
 //
 union STAR {
   
-  // Enum definitions.
   enum class eTXNACK : uint32_t {
     eTRANSMIT_ACK = 0, // Write a Transmit ACK for each received word
     eTRANSMIT_NACK = 1, // Write a Transmit NACK for each received word
@@ -1039,7 +1077,7 @@ union STAR {
   struct {
     eTXNACK TXNACK : 1;
     uint32_t _reserved_end : 31;
-  } bits;          // Bit-field struct (auto-filling reserved gaps)
+  } bits;
   
   // Full 32-bit register value.
   uint32_t value;
@@ -1053,13 +1091,11 @@ union STAR {
 //
 union STDR {
   
-  // Enum definitions.
-  
   // Bit field definition.
   struct {
     uint32_t DATA : 8;
     uint32_t _reserved_end : 24;
-  } bits;          // Bit-field struct (auto-filling reserved gaps)
+  } bits;
   
   // Full 32-bit register value.
   uint32_t value;
@@ -1073,11 +1109,11 @@ union STDR {
 //
 union SRDR {
   
-  // Enum definitions.
   enum class eRXEMPTY : uint32_t {
     eNOT_EMPTY = 0, // The Receive Data Register is not empty
     eEMPTY = 1, // The Receive Data Register is empty
   };
+  
   enum class eSOF : uint32_t {
     eNOT_FIRST_DATA_WORD = 0, // Indicates this is not the first data word since a (repeated) START or STOP condition
     eFIRST_DATA_WORD = 1, // Indicates this is the first data word since a (repeated) START or STOP condition
@@ -1090,7 +1126,7 @@ union SRDR {
     eRXEMPTY RXEMPTY : 1;
     eSOF SOF : 1;
     uint32_t _reserved_end : 16;
-  } bits;          // Bit-field struct (auto-filling reserved gaps)
+  } bits;
   
   // Full 32-bit register value.
   uint32_t value;

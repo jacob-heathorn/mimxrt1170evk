@@ -15,99 +15,121 @@ namespace nCSI {
 //
 union CSI_CR1 {
   
-  // Enum definitions.
   enum class ePIXEL_BIT : uint32_t {
     ePIXEL_BIT_0 = 0, // 8-bit data for each pixel
     ePIXEL_BIT_1 = 1, // 10-bit data for each pixel
   };
+  
   enum class eREDGE : uint32_t {
     eREDGE_0 = 0, // Pixel data is latched at the falling edge of CSI_PIXCLK
     eREDGE_1 = 1, // Pixel data is latched at the rising edge of CSI_PIXCLK
   };
+  
   enum class eINV_PCLK : uint32_t {
     eINV_PCLK_0 = 0, // CSI_PIXCLK is directly applied to internal circuitry
     eINV_PCLK_1 = 1, // CSI_PIXCLK is inverted before applied to internal circuitry
   };
+  
   enum class eINV_DATA : uint32_t {
     eINV_DATA_0 = 0, // CSI_D[7:0] data lines are directly applied to internal circuitry
     eINV_DATA_1 = 1, // CSI_D[7:0] data lines are inverted before applied to internal circuitry
   };
+  
   enum class eGCLK_MODE : uint32_t {
     eGCLK_MODE_0 = 0, // Non-gated clock mode. All incoming pixel clocks are valid. HSYNC is ignored.
     eGCLK_MODE_1 = 1, // Gated clock mode. Pixel clock signal is valid only when HSYNC is active.
   };
+  
   enum class ePACK_DIR : uint32_t {
     ePACK_DIR_0 = 0, // Pack from LSB first. For image data, 0x11, 0x22, 0x33, 0x44, it will appear as 0x44332211 in RX FIFO. For stat data, 0xAAAA, 0xBBBB, it will appear as 0xBBBBAAAA in STAT FIFO.
     ePACK_DIR_1 = 1, // Pack from MSB first. For image data, 0x11, 0x22, 0x33, 0x44, it will appear as 0x11223344 in RX FIFO. For stat data, 0xAAAA, 0xBBBB, it will appear as 0xAAAABBBB in STAT FIFO.
   };
+  
   enum class eFCC : uint32_t {
     eFCC_0 = 0, // Asynchronous FIFO clear is selected.
     eFCC_1 = 1, // Synchronous FIFO clear is selected.
   };
+  
   enum class eCCIR_EN : uint32_t {
     eCCIR_EN_0 = 0, // Traditional interface is selected.
     eCCIR_EN_1 = 1, // BT.656 interface is selected.
   };
+  
   enum class eHSYNC_POL : uint32_t {
     eHSYNC_POL_0 = 0, // HSYNC is active low
     eHSYNC_POL_1 = 1, // HSYNC is active high
   };
+  
   enum class eHISTOGRAM_CALC_DONE_IE : uint32_t {
     eHISTOGRAM_CALC_DONE_IE_0 = 0, // Histogram done interrupt disable
     eHISTOGRAM_CALC_DONE_IE_1 = 1, // Histogram done interrupt enable
   };
+  
   enum class eSOF_INTEN : uint32_t {
     eSOF_INTEN_0 = 0, // SOF interrupt disable
     eSOF_INTEN_1 = 1, // SOF interrupt enable
   };
+  
   enum class eSOF_POL : uint32_t {
     eSOF_POL_0 = 0, // SOF interrupt is generated on SOF falling edge
     eSOF_POL_1 = 1, // SOF interrupt is generated on SOF rising edge
   };
+  
   enum class eRXFF_INTEN : uint32_t {
     eRXFF_INTEN_0 = 0, // RxFIFO full interrupt disable
     eRXFF_INTEN_1 = 1, // RxFIFO full interrupt enable
   };
+  
   enum class eFB1_DMA_DONE_INTEN : uint32_t {
     eFB1_DMA_DONE_INTEN_0 = 0, // Frame Buffer1 DMA Transfer Done interrupt disable
     eFB1_DMA_DONE_INTEN_1 = 1, // Frame Buffer1 DMA Transfer Done interrupt enable
   };
+  
   enum class eFB2_DMA_DONE_INTEN : uint32_t {
     eFB2_DMA_DONE_INTEN_0 = 0, // Frame Buffer2 DMA Transfer Done interrupt disable
     eFB2_DMA_DONE_INTEN_1 = 1, // Frame Buffer2 DMA Transfer Done interrupt enable
   };
+  
   enum class eSTATFF_INTEN : uint32_t {
     eSTATFF_INTEN_0 = 0, // STATFIFO full interrupt disable
     eSTATFF_INTEN_1 = 1, // STATFIFO full interrupt enable
   };
+  
   enum class eSFF_DMA_DONE_INTEN : uint32_t {
     eSFF_DMA_DONE_INTEN_0 = 0, // STATFIFO DMA Transfer Done interrupt disable
     eSFF_DMA_DONE_INTEN_1 = 1, // STATFIFO DMA Transfer Done interrupt enable
   };
+  
   enum class eRF_OR_INTEN : uint32_t {
     eRF_OR_INTEN_0 = 0, // RxFIFO overrun interrupt is disabled
     eRF_OR_INTEN_1 = 1, // RxFIFO overrun interrupt is enabled
   };
+  
   enum class eSF_OR_INTEN : uint32_t {
     eSF_OR_INTEN_0 = 0, // STATFIFO overrun interrupt is disabled
     eSF_OR_INTEN_1 = 1, // STATFIFO overrun interrupt is enabled
   };
+  
   enum class eCOF_INT_EN : uint32_t {
     eCOF_INT_EN_0 = 0, // COF interrupt is disabled
     eCOF_INT_EN_1 = 1, // COF interrupt is enabled
   };
+  
   enum class eVIDEO_MODE : uint32_t {
     eVIDEO_MODE_0 = 0, // Progressive mode is selected
     eVIDEO_MODE_1 = 1, // Interlace mode is selected
   };
+  
   enum class eEOF_INT_EN : uint32_t {
     eEOF_INT_EN_0 = 0, // EOF interrupt is disabled.
     eEOF_INT_EN_1 = 1, // EOF interrupt is generated when RX count value is reached.
   };
+  
   enum class eEXT_VSYNC : uint32_t {
     eEXT_VSYNC_0 = 0, // Internal VSYNC mode
     eEXT_VSYNC_1 = 1, // External VSYNC mode
   };
+  
   enum class eSWAP16_EN : uint32_t {
     eSWAP16_EN_0 = 0, // Disable swapping
     eSWAP16_EN_1 = 1, // Enable swapping
@@ -145,7 +167,7 @@ union CSI_CR1 {
     eEOF_INT_EN EOF_INT_EN : 1;
     eEXT_VSYNC EXT_VSYNC : 1;
     eSWAP16_EN SWAP16_EN : 1;
-  } bits;          // Bit-field struct (auto-filling reserved gaps)
+  } bits;
   
   // Full 32-bit register value.
   uint32_t value;
@@ -159,7 +181,6 @@ union CSI_CR1 {
 //
 union CSI_CR2 {
   
-  // Enum definitions.
   enum class eHSC : uint32_t {
     eHSC_0 = 0, // Number of pixels to skip minus 1
     eHSC_1 = 1, // Number of pixels to skip minus 1
@@ -172,6 +193,7 @@ union CSI_CR2 {
     eHSC_8 = 8, // Number of pixels to skip minus 1
     eHSC_9 = 9, // Number of pixels to skip minus 1
   };
+  
   enum class eVSC : uint32_t {
     eVSC_0 = 0, // Number of rows to skip minus 1
     eVSC_1 = 1, // Number of rows to skip minus 1
@@ -184,6 +206,7 @@ union CSI_CR2 {
     eVSC_8 = 8, // Number of rows to skip minus 1
     eVSC_9 = 9, // Number of rows to skip minus 1
   };
+  
   enum class eLVRM : uint32_t {
     eLVRM_0 = 0, // 512 x 384
     eLVRM_1 = 1, // 448 x 336
@@ -193,30 +216,36 @@ union CSI_CR2 {
     eLVRM_5 = 5, // 288 x 216
     eLVRM_6 = 6, // 400 x 300
   };
+  
   enum class eBTS : uint32_t {
     eBTS_0 = 0, // GR
     eBTS_1 = 1, // RG
     eBTS_2 = 2, // BG
     eBTS_3 = 3, // GB
   };
+  
   enum class eSCE : uint32_t {
     eSCE_0 = 0, // Skip count disable
     eSCE_1 = 1, // Skip count enable
   };
+  
   enum class eAFS : uint32_t {
     eAFS_0 = 0, // Abs Diff on consecutive green pixels
     eAFS_1 = 1, // Abs Diff on every third green pixels
     eAFS_2 = 2, // Abs Diff on every four green pixels
   };
+  
   enum class eDRM : uint32_t {
     eDRM_0 = 0, // Stats grid of 8 x 6
     eDRM_1 = 1, // Stats grid of 8 x 12
   };
+  
   enum class eDMA_BURST_TYPE_SFF : uint32_t {
     eDMA_BURST_TYPE_SFF_0 = 0, // INCR8
     eDMA_BURST_TYPE_SFF_1 = 1, // INCR4
     eDMA_BURST_TYPE_SFF_3 = 3, // INCR16
   };
+  
   enum class eDMA_BURST_TYPE_RFF : uint32_t {
     eDMA_BURST_TYPE_RFF_0 = 0, // INCR8
     eDMA_BURST_TYPE_RFF_1 = 1, // INCR4
@@ -236,7 +265,7 @@ union CSI_CR2 {
     uint32_t _reserved_7 : 1;
     eDMA_BURST_TYPE_SFF DMA_BURST_TYPE_SFF : 2;
     eDMA_BURST_TYPE_RFF DMA_BURST_TYPE_RFF : 2;
-  } bits;          // Bit-field struct (auto-filling reserved gaps)
+  } bits;
   
   // Full 32-bit register value.
   uint32_t value;
@@ -250,23 +279,26 @@ union CSI_CR2 {
 //
 union CSI_CR3 {
   
-  // Enum definitions.
   enum class eECC_AUTO_EN : uint32_t {
     eECC_AUTO_EN_0 = 0, // Auto Error correction is disabled.
     eECC_AUTO_EN_1 = 1, // Auto Error correction is enabled.
   };
+  
   enum class eECC_INT_EN : uint32_t {
     eECC_INT_EN_0 = 0, // No interrupt is generated when error is detected. Only the status bit ECC_INT is set.
     eECC_INT_EN_1 = 1, // Interrupt is generated when error is detected.
   };
+  
   enum class eZERO_PACK_EN : uint32_t {
     eZERO_PACK_EN_0 = 0, // Zero packing disabled
     eZERO_PACK_EN_1 = 1, // Zero packing enabled
   };
+  
   enum class eSENSOR_16BITS : uint32_t {
     eSENSOR_16BITS_0 = 0, // Only one 8-bit sensor is connected.
     eSENSOR_16BITS_1 = 1, // One 16-bit sensor is connected.
   };
+  
   enum class eRxFF_LEVEL : uint32_t {
     eRxFF_LEVEL_0 = 0, // 4 Double words
     eRxFF_LEVEL_1 = 1, // 8 Double words
@@ -277,10 +309,12 @@ union CSI_CR3 {
     eRxFF_LEVEL_6 = 6, // 64 Double words
     eRxFF_LEVEL_7 = 7, // 96 Double words
   };
+  
   enum class eHRESP_ERR_EN : uint32_t {
     eHRESP_ERR_EN_0 = 0, // Disable hresponse error interrupt
     eHRESP_ERR_EN_1 = 1, // Enable hresponse error interrupt
   };
+  
   enum class eSTATFF_LEVEL : uint32_t {
     eSTATFF_LEVEL_0 = 0, // 4 Double words
     eSTATFF_LEVEL_1 = 1, // 8 Double words
@@ -291,22 +325,27 @@ union CSI_CR3 {
     eSTATFF_LEVEL_6 = 6, // 48 Double words
     eSTATFF_LEVEL_7 = 7, // 64 Double words
   };
+  
   enum class eDMA_REQ_EN_SFF : uint32_t {
     eDMA_REQ_EN_SFF_0 = 0, // Disable the dma request
     eDMA_REQ_EN_SFF_1 = 1, // Enable the dma request
   };
+  
   enum class eDMA_REQ_EN_RFF : uint32_t {
     eDMA_REQ_EN_RFF_0 = 0, // Disable the dma request
     eDMA_REQ_EN_RFF_1 = 1, // Enable the dma request
   };
+  
   enum class eDMA_REFLASH_SFF : uint32_t {
     eDMA_REFLASH_SFF_0 = 0, // No reflashing
     eDMA_REFLASH_SFF_1 = 1, // Reflash the embedded DMA controller
   };
+  
   enum class eDMA_REFLASH_RFF : uint32_t {
     eDMA_REFLASH_RFF_0 = 0, // No reflashing
     eDMA_REFLASH_RFF_1 = 1, // Reflash the embedded DMA controller
   };
+  
   enum class eFRMCNT_RST : uint32_t {
     eFRMCNT_RST_0 = 0, // Do not reset
     eFRMCNT_RST_1 = 1, // Reset frame counter immediately
@@ -327,7 +366,7 @@ union CSI_CR3 {
     eDMA_REFLASH_RFF DMA_REFLASH_RFF : 1;
     eFRMCNT_RST FRMCNT_RST : 1;
     uint32_t FRMCNT : 16;
-  } bits;          // Bit-field struct (auto-filling reserved gaps)
+  } bits;
   
   // Full 32-bit register value.
   uint32_t value;
@@ -341,12 +380,10 @@ union CSI_CR3 {
 //
 union CSI_STATFIFO {
   
-  // Enum definitions.
-  
   // Bit field definition.
   struct {
     uint32_t STAT : 32;
-  } bits;          // Bit-field struct (auto-filling reserved gaps)
+  } bits;
   
   // Full 32-bit register value.
   uint32_t value;
@@ -360,12 +397,10 @@ union CSI_STATFIFO {
 //
 union CSI_RFIFO {
   
-  // Enum definitions.
-  
   // Bit field definition.
   struct {
     uint32_t IMAGE : 32;
-  } bits;          // Bit-field struct (auto-filling reserved gaps)
+  } bits;
   
   // Full 32-bit register value.
   uint32_t value;
@@ -379,13 +414,11 @@ union CSI_RFIFO {
 //
 union CSI_RXCNT {
   
-  // Enum definitions.
-  
   // Bit field definition.
   struct {
     uint32_t RXCNT : 22;
     uint32_t _reserved_end : 10;
-  } bits;          // Bit-field struct (auto-filling reserved gaps)
+  } bits;
   
   // Full 32-bit register value.
   uint32_t value;
@@ -399,67 +432,81 @@ union CSI_RXCNT {
 //
 union CSI_SR {
   
-  // Enum definitions.
   enum class eDRDY : uint32_t {
     eDRDY_0 = 0, // No data (word) is ready
     eDRDY_1 = 1, // At least 1 datum (word) is ready in RXFIFO.
   };
+  
   enum class eECC_INT : uint32_t {
     eECC_INT_0 = 0, // No error detected
     eECC_INT_1 = 1, // Error is detected in BT.656 coding
   };
+  
   enum class eHISTOGRAM_CALC_DONE_INT : uint32_t {
     eHISTOGRAM_CALC_DONE_INT_0 = 0, // Histogram calculation is not finished
     eHISTOGRAM_CALC_DONE_INT_1 = 1, // Histogram calculation is done and driver can access the PIXEL_COUNTERS(CSI_CSICR21~CSI_CSICR276) to get the gray level
   };
+  
   enum class eHRESP_ERR_INT : uint32_t {
     eHRESP_ERR_INT_0 = 0, // No hresponse error.
     eHRESP_ERR_INT_1 = 1, // Hresponse error is detected.
   };
+  
   enum class eCOF_INT : uint32_t {
     eCOF_INT_0 = 0, // Video field has no change.
     eCOF_INT_1 = 1, // Change of video field is detected.
   };
+  
   enum class eF1_INT : uint32_t {
     eF1_INT_0 = 0, // Field 1 of video is not detected.
     eF1_INT_1 = 1, // Field 1 of video is about to start.
   };
+  
   enum class eF2_INT : uint32_t {
     eF2_INT_0 = 0, // Field 2 of video is not detected
     eF2_INT_1 = 1, // Field 2 of video is about to start
   };
+  
   enum class eSOF_INT : uint32_t {
     eSOF_INT_0 = 0, // SOF is not detected.
     eSOF_INT_1 = 1, // SOF is detected.
   };
+  
   enum class eEOF_INT : uint32_t {
     eEOF_INT_0 = 0, // EOF is not detected.
     eEOF_INT_1 = 1, // EOF is detected.
   };
+  
   enum class eRxFF_INT : uint32_t {
     eRxFF_INT_0 = 0, // RxFIFO is not full.
     eRxFF_INT_1 = 1, // RxFIFO is full.
   };
+  
   enum class eDMA_TSF_DONE_FB1 : uint32_t {
     eDMA_TSF_DONE_FB1_0 = 0, // DMA transfer is not completed.
     eDMA_TSF_DONE_FB1_1 = 1, // DMA transfer is completed.
   };
+  
   enum class eDMA_TSF_DONE_FB2 : uint32_t {
     eDMA_TSF_DONE_FB2_0 = 0, // DMA transfer is not completed.
     eDMA_TSF_DONE_FB2_1 = 1, // DMA transfer is completed.
   };
+  
   enum class eSTATFF_INT : uint32_t {
     eSTATFF_INT_0 = 0, // STATFIFO is not full.
     eSTATFF_INT_1 = 1, // STATFIFO is full.
   };
+  
   enum class eDMA_TSF_DONE_SFF : uint32_t {
     eDMA_TSF_DONE_SFF_0 = 0, // DMA transfer is not completed.
     eDMA_TSF_DONE_SFF_1 = 1, // DMA transfer is completed.
   };
+  
   enum class eRF_OR_INT : uint32_t {
     eRF_OR_INT_0 = 0, // RXFIFO has not overflowed.
     eRF_OR_INT_1 = 1, // RXFIFO has overflowed.
   };
+  
   enum class eSF_OR_INT : uint32_t {
     eSF_OR_INT_0 = 0, // STATFIFO has not overflowed.
     eSF_OR_INT_1 = 1, // STATFIFO has overflowed.
@@ -490,7 +537,7 @@ union CSI_SR {
     uint32_t DMA_FIELD0_DONE : 1;
     uint32_t BASEADDR_CHHANGE_ERROR : 1;
     uint32_t _reserved_end : 3;
-  } bits;          // Bit-field struct (auto-filling reserved gaps)
+  } bits;
   
   // Full 32-bit register value.
   uint32_t value;
@@ -504,13 +551,11 @@ union CSI_SR {
 //
 union CSI_DMASA_STATFIFO {
   
-  // Enum definitions.
-  
   // Bit field definition.
   struct {
     uint32_t _reserved_0 : 2;
     uint32_t DMA_START_ADDR_SFF : 30;
-  } bits;          // Bit-field struct (auto-filling reserved gaps)
+  } bits;
   
   // Full 32-bit register value.
   uint32_t value;
@@ -524,12 +569,10 @@ union CSI_DMASA_STATFIFO {
 //
 union CSI_DMATS_STATFIFO {
   
-  // Enum definitions.
-  
   // Bit field definition.
   struct {
     uint32_t DMA_TSF_SIZE_SFF : 32;
-  } bits;          // Bit-field struct (auto-filling reserved gaps)
+  } bits;
   
   // Full 32-bit register value.
   uint32_t value;
@@ -543,13 +586,11 @@ union CSI_DMATS_STATFIFO {
 //
 union CSI_DMASA_FB1 {
   
-  // Enum definitions.
-  
   // Bit field definition.
   struct {
     uint32_t _reserved_0 : 2;
     uint32_t DMA_START_ADDR_FB1 : 30;
-  } bits;          // Bit-field struct (auto-filling reserved gaps)
+  } bits;
   
   // Full 32-bit register value.
   uint32_t value;
@@ -563,13 +604,11 @@ union CSI_DMASA_FB1 {
 //
 union CSI_DMASA_FB2 {
   
-  // Enum definitions.
-  
   // Bit field definition.
   struct {
     uint32_t _reserved_0 : 2;
     uint32_t DMA_START_ADDR_FB2 : 30;
-  } bits;          // Bit-field struct (auto-filling reserved gaps)
+  } bits;
   
   // Full 32-bit register value.
   uint32_t value;
@@ -583,13 +622,11 @@ union CSI_DMASA_FB2 {
 //
 union CSI_FBUF_PARA {
   
-  // Enum definitions.
-  
   // Bit field definition.
   struct {
     uint32_t FBUF_STRIDE : 16;
     uint32_t DEINTERLACE_STRIDE : 16;
-  } bits;          // Bit-field struct (auto-filling reserved gaps)
+  } bits;
   
   // Full 32-bit register value.
   uint32_t value;
@@ -603,13 +640,11 @@ union CSI_FBUF_PARA {
 //
 union CSI_IMAG_PARA {
   
-  // Enum definitions.
-  
   // Bit field definition.
   struct {
     uint32_t IMAGE_HEIGHT : 16;
     uint32_t IMAGE_WIDTH : 16;
-  } bits;          // Bit-field struct (auto-filling reserved gaps)
+  } bits;
   
   // Full 32-bit register value.
   uint32_t value;
@@ -623,53 +658,63 @@ union CSI_IMAG_PARA {
 //
 union CSI_CR18 {
   
-  // Enum definitions.
   enum class eNTSC_EN : uint32_t {
     eNTSC_EN_0 = 0, // PAL
     eNTSC_EN_1 = 1, // NTSC
   };
+  
   enum class eDEINTERLACE_EN : uint32_t {
     eDEINTERLACE_EN_0 = 0, // Deinterlace disabled
     eDEINTERLACE_EN_1 = 1, // Deinterlace enabled
   };
+  
   enum class ePARALLEL24_EN : uint32_t {
     ePARALLEL24_EN_0 = 0, // Input is disabled
     ePARALLEL24_EN_1 = 1, // Input is enabled
   };
+  
   enum class eBASEADDR_SWITCH_SEL : uint32_t {
     eBASEADDR_SWITCH_SEL_0 = 0, // Switching base address at the edge of the vsync
     eBASEADDR_SWITCH_SEL_1 = 1, // Switching base address at the edge of the first data of each frame
   };
+  
   enum class eFIELD0_DONE_IE : uint32_t {
     eFIELD0_DONE_IE_0 = 0, // Interrupt disabled
     eFIELD0_DONE_IE_1 = 1, // Interrupt enabled
   };
+  
   enum class eDMA_FIELD1_DONE_IE : uint32_t {
     eDMA_FIELD1_DONE_IE_0 = 0, // Interrupt disabled
     eDMA_FIELD1_DONE_IE_1 = 1, // Interrupt enabled
   };
+  
   enum class eLAST_DMA_REQ_SEL : uint32_t {
     eLAST_DMA_REQ_SEL_0 = 0, // fifo_full_level
     eLAST_DMA_REQ_SEL_1 = 1, // hburst_length
   };
+  
   enum class eBASEADDR_CHANGE_ERROR_IE : uint32_t {
     eBASEADDR_CHANGE_ERROR_IE_0 = 0, // Interrupt disabled
     eBASEADDR_CHANGE_ERROR_IE_1 = 1, // Interrupt enabled
   };
+  
   enum class eRGB888A_FORMAT_SEL : uint32_t {
     eRGB888A_FORMAT_SEL_0 = 0, // {8'h0, data[23:0]}
     eRGB888A_FORMAT_SEL_1 = 1, // {data[23:0], 8'h0}
   };
+  
   enum class eMASK_OPTION : uint32_t {
     eMASK_OPTION_0 = 0, // Writing to memory (OCRAM or external DDR) from first completely frame, when using this option, the CSI_ENABLE should be 1.
     eMASK_OPTION_1 = 1, // Writing to memory when CSI_ENABLE is 1.
     eMASK_OPTION_2 = 2, // Writing to memory from second completely frame, when using this option, the CSI_ENABLE should be 1.
     eMASK_OPTION_3 = 3, // Writing to memory when data comes in, not matter the CSI_ENABLE is 1 or 0.
   };
+  
   enum class eMIPI_DOUBLE_CMPNT : uint32_t {
     eMIPI_DOUBLE_CMPNT_0 = 0, // Single component per clock cycle (half pixel per clock cycle)
     eMIPI_DOUBLE_CMPNT_1 = 1, // Double component per clock cycle (a pixel per clock cycle)
   };
+  
   enum class eDATA_FROM_MIPI : uint32_t {
     eDATA_FROM_MIPI_0 = 0, // Data from parallel sensor
     eDATA_FROM_MIPI_1 = 1, // Data from MIPI
@@ -699,7 +744,7 @@ union CSI_CR18 {
     uint32_t LINE_STRIDE_EN : 1;
     uint32_t MIPI_DATA_FORMAT : 6;
     uint32_t CSI_ENABLE : 1;
-  } bits;          // Bit-field struct (auto-filling reserved gaps)
+  } bits;
   
   // Full 32-bit register value.
   uint32_t value;
@@ -713,13 +758,11 @@ union CSI_CR18 {
 //
 union CSI_CR19 {
   
-  // Enum definitions.
-  
   // Bit field definition.
   struct {
     uint32_t DMA_RFIFO_HIGHEST_FIFO_LEVEL : 8;
     uint32_t _reserved_end : 24;
-  } bits;          // Bit-field struct (auto-filling reserved gaps)
+  } bits;
   
   // Full 32-bit register value.
   uint32_t value;
@@ -733,11 +776,11 @@ union CSI_CR19 {
 //
 union CSI_CR20 {
   
-  // Enum definitions.
   enum class eBINARY_EN : uint32_t {
     eBINARY_EN_0 = 0, // Output is Y8 format(8 bits each pixel)
     eBINARY_EN_1 = 1, // Output is Y1 format(1 bit each pixel)
   };
+  
   enum class eQR_DATA_FORMAT : uint32_t {
     eQR_DATA_FORMAT_0 = 0, // YU YV one cycle per 1 pixel input
     eQR_DATA_FORMAT_1 = 1, // UY VY one cycle per1 pixel input
@@ -746,18 +789,22 @@ union CSI_CR20 {
     eQR_DATA_FORMAT_4 = 4, // YUV one cycle per 1 pixel input
     eQR_DATA_FORMAT_5 = 5, // Y U V three cycles per 1 pixel input
   };
+  
   enum class eBIG_END : uint32_t {
     eBIG_END_0 = 0, // The newest (most recent) data will be assigned the lowest position when store to memory.
     eBIG_END_1 = 1, // The newest (most recent) data will be assigned the highest position when store to memory.
   };
+  
   enum class e_10BIT_NEW_EN : uint32_t {
     e10BIT_NEW_EN_0 = 0, // When input 8bits data, it will use the data[9:2]
     e10BIT_NEW_EN_1 = 1, // If input is 10bits data, it will use the data[7:0] (optional)
   };
+  
   enum class eHISTOGRAM_EN : uint32_t {
     eHISTOGRAM_EN_0 = 0, // Histogram disable
     eHISTOGRAM_EN_1 = 1, // Histogram enable
   };
+  
   enum class eQRCODE_EN : uint32_t {
     eQRCODE_EN_0 = 0, // Normal mode
     eQRCODE_EN_1 = 1, // Gray scale mode
@@ -773,7 +820,7 @@ union CSI_CR20 {
     e_10BIT_NEW_EN _10BIT_NEW_EN : 1;
     eHISTOGRAM_EN HISTOGRAM_EN : 1;
     eQRCODE_EN QRCODE_EN : 1;
-  } bits;          // Bit-field struct (auto-filling reserved gaps)
+  } bits;
   
   // Full 32-bit register value.
   uint32_t value;
@@ -787,13 +834,11 @@ union CSI_CR20 {
 //
 union CSI_CR21 {
   
-  // Enum definitions.
-  
   // Bit field definition.
   struct {
     uint32_t PIXEL_COUNTERS : 24;
     uint32_t _reserved_end : 8;
-  } bits;          // Bit-field struct (auto-filling reserved gaps)
+  } bits;
   
   // Full 32-bit register value.
   uint32_t value;
@@ -806,13 +851,11 @@ union CSI_CR21 {
 //
 union CSI_CR22 {
   
-  // Enum definitions.
-  
   // Bit field definition.
   struct {
     uint32_t PIXEL_COUNTERS : 24;
     uint32_t _reserved_end : 8;
-  } bits;          // Bit-field struct (auto-filling reserved gaps)
+  } bits;
   
   // Full 32-bit register value.
   uint32_t value;
@@ -825,13 +868,11 @@ union CSI_CR22 {
 //
 union CSI_CR23 {
   
-  // Enum definitions.
-  
   // Bit field definition.
   struct {
     uint32_t PIXEL_COUNTERS : 24;
     uint32_t _reserved_end : 8;
-  } bits;          // Bit-field struct (auto-filling reserved gaps)
+  } bits;
   
   // Full 32-bit register value.
   uint32_t value;
@@ -844,13 +885,11 @@ union CSI_CR23 {
 //
 union CSI_CR24 {
   
-  // Enum definitions.
-  
   // Bit field definition.
   struct {
     uint32_t PIXEL_COUNTERS : 24;
     uint32_t _reserved_end : 8;
-  } bits;          // Bit-field struct (auto-filling reserved gaps)
+  } bits;
   
   // Full 32-bit register value.
   uint32_t value;
@@ -863,13 +902,11 @@ union CSI_CR24 {
 //
 union CSI_CR25 {
   
-  // Enum definitions.
-  
   // Bit field definition.
   struct {
     uint32_t PIXEL_COUNTERS : 24;
     uint32_t _reserved_end : 8;
-  } bits;          // Bit-field struct (auto-filling reserved gaps)
+  } bits;
   
   // Full 32-bit register value.
   uint32_t value;
@@ -882,13 +919,11 @@ union CSI_CR25 {
 //
 union CSI_CR26 {
   
-  // Enum definitions.
-  
   // Bit field definition.
   struct {
     uint32_t PIXEL_COUNTERS : 24;
     uint32_t _reserved_end : 8;
-  } bits;          // Bit-field struct (auto-filling reserved gaps)
+  } bits;
   
   // Full 32-bit register value.
   uint32_t value;
@@ -901,13 +936,11 @@ union CSI_CR26 {
 //
 union CSI_CR27 {
   
-  // Enum definitions.
-  
   // Bit field definition.
   struct {
     uint32_t PIXEL_COUNTERS : 24;
     uint32_t _reserved_end : 8;
-  } bits;          // Bit-field struct (auto-filling reserved gaps)
+  } bits;
   
   // Full 32-bit register value.
   uint32_t value;
@@ -920,13 +953,11 @@ union CSI_CR27 {
 //
 union CSI_CR28 {
   
-  // Enum definitions.
-  
   // Bit field definition.
   struct {
     uint32_t PIXEL_COUNTERS : 24;
     uint32_t _reserved_end : 8;
-  } bits;          // Bit-field struct (auto-filling reserved gaps)
+  } bits;
   
   // Full 32-bit register value.
   uint32_t value;
@@ -939,13 +970,11 @@ union CSI_CR28 {
 //
 union CSI_CR29 {
   
-  // Enum definitions.
-  
   // Bit field definition.
   struct {
     uint32_t PIXEL_COUNTERS : 24;
     uint32_t _reserved_end : 8;
-  } bits;          // Bit-field struct (auto-filling reserved gaps)
+  } bits;
   
   // Full 32-bit register value.
   uint32_t value;
@@ -958,13 +987,11 @@ union CSI_CR29 {
 //
 union CSI_CR30 {
   
-  // Enum definitions.
-  
   // Bit field definition.
   struct {
     uint32_t PIXEL_COUNTERS : 24;
     uint32_t _reserved_end : 8;
-  } bits;          // Bit-field struct (auto-filling reserved gaps)
+  } bits;
   
   // Full 32-bit register value.
   uint32_t value;
@@ -977,13 +1004,11 @@ union CSI_CR30 {
 //
 union CSI_CR31 {
   
-  // Enum definitions.
-  
   // Bit field definition.
   struct {
     uint32_t PIXEL_COUNTERS : 24;
     uint32_t _reserved_end : 8;
-  } bits;          // Bit-field struct (auto-filling reserved gaps)
+  } bits;
   
   // Full 32-bit register value.
   uint32_t value;
@@ -996,13 +1021,11 @@ union CSI_CR31 {
 //
 union CSI_CR32 {
   
-  // Enum definitions.
-  
   // Bit field definition.
   struct {
     uint32_t PIXEL_COUNTERS : 24;
     uint32_t _reserved_end : 8;
-  } bits;          // Bit-field struct (auto-filling reserved gaps)
+  } bits;
   
   // Full 32-bit register value.
   uint32_t value;
@@ -1015,13 +1038,11 @@ union CSI_CR32 {
 //
 union CSI_CR33 {
   
-  // Enum definitions.
-  
   // Bit field definition.
   struct {
     uint32_t PIXEL_COUNTERS : 24;
     uint32_t _reserved_end : 8;
-  } bits;          // Bit-field struct (auto-filling reserved gaps)
+  } bits;
   
   // Full 32-bit register value.
   uint32_t value;
@@ -1034,13 +1055,11 @@ union CSI_CR33 {
 //
 union CSI_CR34 {
   
-  // Enum definitions.
-  
   // Bit field definition.
   struct {
     uint32_t PIXEL_COUNTERS : 24;
     uint32_t _reserved_end : 8;
-  } bits;          // Bit-field struct (auto-filling reserved gaps)
+  } bits;
   
   // Full 32-bit register value.
   uint32_t value;
@@ -1053,13 +1072,11 @@ union CSI_CR34 {
 //
 union CSI_CR35 {
   
-  // Enum definitions.
-  
   // Bit field definition.
   struct {
     uint32_t PIXEL_COUNTERS : 24;
     uint32_t _reserved_end : 8;
-  } bits;          // Bit-field struct (auto-filling reserved gaps)
+  } bits;
   
   // Full 32-bit register value.
   uint32_t value;
@@ -1072,13 +1089,11 @@ union CSI_CR35 {
 //
 union CSI_CR36 {
   
-  // Enum definitions.
-  
   // Bit field definition.
   struct {
     uint32_t PIXEL_COUNTERS : 24;
     uint32_t _reserved_end : 8;
-  } bits;          // Bit-field struct (auto-filling reserved gaps)
+  } bits;
   
   // Full 32-bit register value.
   uint32_t value;
@@ -1091,13 +1106,11 @@ union CSI_CR36 {
 //
 union CSI_CR37 {
   
-  // Enum definitions.
-  
   // Bit field definition.
   struct {
     uint32_t PIXEL_COUNTERS : 24;
     uint32_t _reserved_end : 8;
-  } bits;          // Bit-field struct (auto-filling reserved gaps)
+  } bits;
   
   // Full 32-bit register value.
   uint32_t value;
@@ -1110,13 +1123,11 @@ union CSI_CR37 {
 //
 union CSI_CR38 {
   
-  // Enum definitions.
-  
   // Bit field definition.
   struct {
     uint32_t PIXEL_COUNTERS : 24;
     uint32_t _reserved_end : 8;
-  } bits;          // Bit-field struct (auto-filling reserved gaps)
+  } bits;
   
   // Full 32-bit register value.
   uint32_t value;
@@ -1129,13 +1140,11 @@ union CSI_CR38 {
 //
 union CSI_CR39 {
   
-  // Enum definitions.
-  
   // Bit field definition.
   struct {
     uint32_t PIXEL_COUNTERS : 24;
     uint32_t _reserved_end : 8;
-  } bits;          // Bit-field struct (auto-filling reserved gaps)
+  } bits;
   
   // Full 32-bit register value.
   uint32_t value;
@@ -1148,13 +1157,11 @@ union CSI_CR39 {
 //
 union CSI_CR40 {
   
-  // Enum definitions.
-  
   // Bit field definition.
   struct {
     uint32_t PIXEL_COUNTERS : 24;
     uint32_t _reserved_end : 8;
-  } bits;          // Bit-field struct (auto-filling reserved gaps)
+  } bits;
   
   // Full 32-bit register value.
   uint32_t value;
@@ -1167,13 +1174,11 @@ union CSI_CR40 {
 //
 union CSI_CR41 {
   
-  // Enum definitions.
-  
   // Bit field definition.
   struct {
     uint32_t PIXEL_COUNTERS : 24;
     uint32_t _reserved_end : 8;
-  } bits;          // Bit-field struct (auto-filling reserved gaps)
+  } bits;
   
   // Full 32-bit register value.
   uint32_t value;
@@ -1186,13 +1191,11 @@ union CSI_CR41 {
 //
 union CSI_CR42 {
   
-  // Enum definitions.
-  
   // Bit field definition.
   struct {
     uint32_t PIXEL_COUNTERS : 24;
     uint32_t _reserved_end : 8;
-  } bits;          // Bit-field struct (auto-filling reserved gaps)
+  } bits;
   
   // Full 32-bit register value.
   uint32_t value;
@@ -1205,13 +1208,11 @@ union CSI_CR42 {
 //
 union CSI_CR43 {
   
-  // Enum definitions.
-  
   // Bit field definition.
   struct {
     uint32_t PIXEL_COUNTERS : 24;
     uint32_t _reserved_end : 8;
-  } bits;          // Bit-field struct (auto-filling reserved gaps)
+  } bits;
   
   // Full 32-bit register value.
   uint32_t value;
@@ -1224,13 +1225,11 @@ union CSI_CR43 {
 //
 union CSI_CR44 {
   
-  // Enum definitions.
-  
   // Bit field definition.
   struct {
     uint32_t PIXEL_COUNTERS : 24;
     uint32_t _reserved_end : 8;
-  } bits;          // Bit-field struct (auto-filling reserved gaps)
+  } bits;
   
   // Full 32-bit register value.
   uint32_t value;
@@ -1243,13 +1242,11 @@ union CSI_CR44 {
 //
 union CSI_CR45 {
   
-  // Enum definitions.
-  
   // Bit field definition.
   struct {
     uint32_t PIXEL_COUNTERS : 24;
     uint32_t _reserved_end : 8;
-  } bits;          // Bit-field struct (auto-filling reserved gaps)
+  } bits;
   
   // Full 32-bit register value.
   uint32_t value;
@@ -1262,13 +1259,11 @@ union CSI_CR45 {
 //
 union CSI_CR46 {
   
-  // Enum definitions.
-  
   // Bit field definition.
   struct {
     uint32_t PIXEL_COUNTERS : 24;
     uint32_t _reserved_end : 8;
-  } bits;          // Bit-field struct (auto-filling reserved gaps)
+  } bits;
   
   // Full 32-bit register value.
   uint32_t value;
@@ -1281,13 +1276,11 @@ union CSI_CR46 {
 //
 union CSI_CR47 {
   
-  // Enum definitions.
-  
   // Bit field definition.
   struct {
     uint32_t PIXEL_COUNTERS : 24;
     uint32_t _reserved_end : 8;
-  } bits;          // Bit-field struct (auto-filling reserved gaps)
+  } bits;
   
   // Full 32-bit register value.
   uint32_t value;
@@ -1300,13 +1293,11 @@ union CSI_CR47 {
 //
 union CSI_CR48 {
   
-  // Enum definitions.
-  
   // Bit field definition.
   struct {
     uint32_t PIXEL_COUNTERS : 24;
     uint32_t _reserved_end : 8;
-  } bits;          // Bit-field struct (auto-filling reserved gaps)
+  } bits;
   
   // Full 32-bit register value.
   uint32_t value;
@@ -1319,13 +1310,11 @@ union CSI_CR48 {
 //
 union CSI_CR49 {
   
-  // Enum definitions.
-  
   // Bit field definition.
   struct {
     uint32_t PIXEL_COUNTERS : 24;
     uint32_t _reserved_end : 8;
-  } bits;          // Bit-field struct (auto-filling reserved gaps)
+  } bits;
   
   // Full 32-bit register value.
   uint32_t value;
@@ -1338,13 +1327,11 @@ union CSI_CR49 {
 //
 union CSI_CR50 {
   
-  // Enum definitions.
-  
   // Bit field definition.
   struct {
     uint32_t PIXEL_COUNTERS : 24;
     uint32_t _reserved_end : 8;
-  } bits;          // Bit-field struct (auto-filling reserved gaps)
+  } bits;
   
   // Full 32-bit register value.
   uint32_t value;
@@ -1357,13 +1344,11 @@ union CSI_CR50 {
 //
 union CSI_CR51 {
   
-  // Enum definitions.
-  
   // Bit field definition.
   struct {
     uint32_t PIXEL_COUNTERS : 24;
     uint32_t _reserved_end : 8;
-  } bits;          // Bit-field struct (auto-filling reserved gaps)
+  } bits;
   
   // Full 32-bit register value.
   uint32_t value;
@@ -1376,13 +1361,11 @@ union CSI_CR51 {
 //
 union CSI_CR52 {
   
-  // Enum definitions.
-  
   // Bit field definition.
   struct {
     uint32_t PIXEL_COUNTERS : 24;
     uint32_t _reserved_end : 8;
-  } bits;          // Bit-field struct (auto-filling reserved gaps)
+  } bits;
   
   // Full 32-bit register value.
   uint32_t value;
@@ -1395,13 +1378,11 @@ union CSI_CR52 {
 //
 union CSI_CR53 {
   
-  // Enum definitions.
-  
   // Bit field definition.
   struct {
     uint32_t PIXEL_COUNTERS : 24;
     uint32_t _reserved_end : 8;
-  } bits;          // Bit-field struct (auto-filling reserved gaps)
+  } bits;
   
   // Full 32-bit register value.
   uint32_t value;
@@ -1414,13 +1395,11 @@ union CSI_CR53 {
 //
 union CSI_CR54 {
   
-  // Enum definitions.
-  
   // Bit field definition.
   struct {
     uint32_t PIXEL_COUNTERS : 24;
     uint32_t _reserved_end : 8;
-  } bits;          // Bit-field struct (auto-filling reserved gaps)
+  } bits;
   
   // Full 32-bit register value.
   uint32_t value;
@@ -1433,13 +1412,11 @@ union CSI_CR54 {
 //
 union CSI_CR55 {
   
-  // Enum definitions.
-  
   // Bit field definition.
   struct {
     uint32_t PIXEL_COUNTERS : 24;
     uint32_t _reserved_end : 8;
-  } bits;          // Bit-field struct (auto-filling reserved gaps)
+  } bits;
   
   // Full 32-bit register value.
   uint32_t value;
@@ -1452,13 +1429,11 @@ union CSI_CR55 {
 //
 union CSI_CR56 {
   
-  // Enum definitions.
-  
   // Bit field definition.
   struct {
     uint32_t PIXEL_COUNTERS : 24;
     uint32_t _reserved_end : 8;
-  } bits;          // Bit-field struct (auto-filling reserved gaps)
+  } bits;
   
   // Full 32-bit register value.
   uint32_t value;
@@ -1471,13 +1446,11 @@ union CSI_CR56 {
 //
 union CSI_CR57 {
   
-  // Enum definitions.
-  
   // Bit field definition.
   struct {
     uint32_t PIXEL_COUNTERS : 24;
     uint32_t _reserved_end : 8;
-  } bits;          // Bit-field struct (auto-filling reserved gaps)
+  } bits;
   
   // Full 32-bit register value.
   uint32_t value;
@@ -1490,13 +1463,11 @@ union CSI_CR57 {
 //
 union CSI_CR58 {
   
-  // Enum definitions.
-  
   // Bit field definition.
   struct {
     uint32_t PIXEL_COUNTERS : 24;
     uint32_t _reserved_end : 8;
-  } bits;          // Bit-field struct (auto-filling reserved gaps)
+  } bits;
   
   // Full 32-bit register value.
   uint32_t value;
@@ -1509,13 +1480,11 @@ union CSI_CR58 {
 //
 union CSI_CR59 {
   
-  // Enum definitions.
-  
   // Bit field definition.
   struct {
     uint32_t PIXEL_COUNTERS : 24;
     uint32_t _reserved_end : 8;
-  } bits;          // Bit-field struct (auto-filling reserved gaps)
+  } bits;
   
   // Full 32-bit register value.
   uint32_t value;
@@ -1528,13 +1497,11 @@ union CSI_CR59 {
 //
 union CSI_CR60 {
   
-  // Enum definitions.
-  
   // Bit field definition.
   struct {
     uint32_t PIXEL_COUNTERS : 24;
     uint32_t _reserved_end : 8;
-  } bits;          // Bit-field struct (auto-filling reserved gaps)
+  } bits;
   
   // Full 32-bit register value.
   uint32_t value;
@@ -1547,13 +1514,11 @@ union CSI_CR60 {
 //
 union CSI_CR61 {
   
-  // Enum definitions.
-  
   // Bit field definition.
   struct {
     uint32_t PIXEL_COUNTERS : 24;
     uint32_t _reserved_end : 8;
-  } bits;          // Bit-field struct (auto-filling reserved gaps)
+  } bits;
   
   // Full 32-bit register value.
   uint32_t value;
@@ -1566,13 +1531,11 @@ union CSI_CR61 {
 //
 union CSI_CR62 {
   
-  // Enum definitions.
-  
   // Bit field definition.
   struct {
     uint32_t PIXEL_COUNTERS : 24;
     uint32_t _reserved_end : 8;
-  } bits;          // Bit-field struct (auto-filling reserved gaps)
+  } bits;
   
   // Full 32-bit register value.
   uint32_t value;
@@ -1585,13 +1548,11 @@ union CSI_CR62 {
 //
 union CSI_CR63 {
   
-  // Enum definitions.
-  
   // Bit field definition.
   struct {
     uint32_t PIXEL_COUNTERS : 24;
     uint32_t _reserved_end : 8;
-  } bits;          // Bit-field struct (auto-filling reserved gaps)
+  } bits;
   
   // Full 32-bit register value.
   uint32_t value;
@@ -1604,13 +1565,11 @@ union CSI_CR63 {
 //
 union CSI_CR64 {
   
-  // Enum definitions.
-  
   // Bit field definition.
   struct {
     uint32_t PIXEL_COUNTERS : 24;
     uint32_t _reserved_end : 8;
-  } bits;          // Bit-field struct (auto-filling reserved gaps)
+  } bits;
   
   // Full 32-bit register value.
   uint32_t value;
@@ -1623,13 +1582,11 @@ union CSI_CR64 {
 //
 union CSI_CR65 {
   
-  // Enum definitions.
-  
   // Bit field definition.
   struct {
     uint32_t PIXEL_COUNTERS : 24;
     uint32_t _reserved_end : 8;
-  } bits;          // Bit-field struct (auto-filling reserved gaps)
+  } bits;
   
   // Full 32-bit register value.
   uint32_t value;
@@ -1642,13 +1599,11 @@ union CSI_CR65 {
 //
 union CSI_CR66 {
   
-  // Enum definitions.
-  
   // Bit field definition.
   struct {
     uint32_t PIXEL_COUNTERS : 24;
     uint32_t _reserved_end : 8;
-  } bits;          // Bit-field struct (auto-filling reserved gaps)
+  } bits;
   
   // Full 32-bit register value.
   uint32_t value;
@@ -1661,13 +1616,11 @@ union CSI_CR66 {
 //
 union CSI_CR67 {
   
-  // Enum definitions.
-  
   // Bit field definition.
   struct {
     uint32_t PIXEL_COUNTERS : 24;
     uint32_t _reserved_end : 8;
-  } bits;          // Bit-field struct (auto-filling reserved gaps)
+  } bits;
   
   // Full 32-bit register value.
   uint32_t value;
@@ -1680,13 +1633,11 @@ union CSI_CR67 {
 //
 union CSI_CR68 {
   
-  // Enum definitions.
-  
   // Bit field definition.
   struct {
     uint32_t PIXEL_COUNTERS : 24;
     uint32_t _reserved_end : 8;
-  } bits;          // Bit-field struct (auto-filling reserved gaps)
+  } bits;
   
   // Full 32-bit register value.
   uint32_t value;
@@ -1699,13 +1650,11 @@ union CSI_CR68 {
 //
 union CSI_CR69 {
   
-  // Enum definitions.
-  
   // Bit field definition.
   struct {
     uint32_t PIXEL_COUNTERS : 24;
     uint32_t _reserved_end : 8;
-  } bits;          // Bit-field struct (auto-filling reserved gaps)
+  } bits;
   
   // Full 32-bit register value.
   uint32_t value;
@@ -1718,13 +1667,11 @@ union CSI_CR69 {
 //
 union CSI_CR70 {
   
-  // Enum definitions.
-  
   // Bit field definition.
   struct {
     uint32_t PIXEL_COUNTERS : 24;
     uint32_t _reserved_end : 8;
-  } bits;          // Bit-field struct (auto-filling reserved gaps)
+  } bits;
   
   // Full 32-bit register value.
   uint32_t value;
@@ -1737,13 +1684,11 @@ union CSI_CR70 {
 //
 union CSI_CR71 {
   
-  // Enum definitions.
-  
   // Bit field definition.
   struct {
     uint32_t PIXEL_COUNTERS : 24;
     uint32_t _reserved_end : 8;
-  } bits;          // Bit-field struct (auto-filling reserved gaps)
+  } bits;
   
   // Full 32-bit register value.
   uint32_t value;
@@ -1756,13 +1701,11 @@ union CSI_CR71 {
 //
 union CSI_CR72 {
   
-  // Enum definitions.
-  
   // Bit field definition.
   struct {
     uint32_t PIXEL_COUNTERS : 24;
     uint32_t _reserved_end : 8;
-  } bits;          // Bit-field struct (auto-filling reserved gaps)
+  } bits;
   
   // Full 32-bit register value.
   uint32_t value;
@@ -1775,13 +1718,11 @@ union CSI_CR72 {
 //
 union CSI_CR73 {
   
-  // Enum definitions.
-  
   // Bit field definition.
   struct {
     uint32_t PIXEL_COUNTERS : 24;
     uint32_t _reserved_end : 8;
-  } bits;          // Bit-field struct (auto-filling reserved gaps)
+  } bits;
   
   // Full 32-bit register value.
   uint32_t value;
@@ -1794,13 +1735,11 @@ union CSI_CR73 {
 //
 union CSI_CR74 {
   
-  // Enum definitions.
-  
   // Bit field definition.
   struct {
     uint32_t PIXEL_COUNTERS : 24;
     uint32_t _reserved_end : 8;
-  } bits;          // Bit-field struct (auto-filling reserved gaps)
+  } bits;
   
   // Full 32-bit register value.
   uint32_t value;
@@ -1813,13 +1752,11 @@ union CSI_CR74 {
 //
 union CSI_CR75 {
   
-  // Enum definitions.
-  
   // Bit field definition.
   struct {
     uint32_t PIXEL_COUNTERS : 24;
     uint32_t _reserved_end : 8;
-  } bits;          // Bit-field struct (auto-filling reserved gaps)
+  } bits;
   
   // Full 32-bit register value.
   uint32_t value;
@@ -1832,13 +1769,11 @@ union CSI_CR75 {
 //
 union CSI_CR76 {
   
-  // Enum definitions.
-  
   // Bit field definition.
   struct {
     uint32_t PIXEL_COUNTERS : 24;
     uint32_t _reserved_end : 8;
-  } bits;          // Bit-field struct (auto-filling reserved gaps)
+  } bits;
   
   // Full 32-bit register value.
   uint32_t value;
@@ -1851,13 +1786,11 @@ union CSI_CR76 {
 //
 union CSI_CR77 {
   
-  // Enum definitions.
-  
   // Bit field definition.
   struct {
     uint32_t PIXEL_COUNTERS : 24;
     uint32_t _reserved_end : 8;
-  } bits;          // Bit-field struct (auto-filling reserved gaps)
+  } bits;
   
   // Full 32-bit register value.
   uint32_t value;
@@ -1870,13 +1803,11 @@ union CSI_CR77 {
 //
 union CSI_CR78 {
   
-  // Enum definitions.
-  
   // Bit field definition.
   struct {
     uint32_t PIXEL_COUNTERS : 24;
     uint32_t _reserved_end : 8;
-  } bits;          // Bit-field struct (auto-filling reserved gaps)
+  } bits;
   
   // Full 32-bit register value.
   uint32_t value;
@@ -1889,13 +1820,11 @@ union CSI_CR78 {
 //
 union CSI_CR79 {
   
-  // Enum definitions.
-  
   // Bit field definition.
   struct {
     uint32_t PIXEL_COUNTERS : 24;
     uint32_t _reserved_end : 8;
-  } bits;          // Bit-field struct (auto-filling reserved gaps)
+  } bits;
   
   // Full 32-bit register value.
   uint32_t value;
@@ -1908,13 +1837,11 @@ union CSI_CR79 {
 //
 union CSI_CR80 {
   
-  // Enum definitions.
-  
   // Bit field definition.
   struct {
     uint32_t PIXEL_COUNTERS : 24;
     uint32_t _reserved_end : 8;
-  } bits;          // Bit-field struct (auto-filling reserved gaps)
+  } bits;
   
   // Full 32-bit register value.
   uint32_t value;
@@ -1927,13 +1854,11 @@ union CSI_CR80 {
 //
 union CSI_CR81 {
   
-  // Enum definitions.
-  
   // Bit field definition.
   struct {
     uint32_t PIXEL_COUNTERS : 24;
     uint32_t _reserved_end : 8;
-  } bits;          // Bit-field struct (auto-filling reserved gaps)
+  } bits;
   
   // Full 32-bit register value.
   uint32_t value;
@@ -1946,13 +1871,11 @@ union CSI_CR81 {
 //
 union CSI_CR82 {
   
-  // Enum definitions.
-  
   // Bit field definition.
   struct {
     uint32_t PIXEL_COUNTERS : 24;
     uint32_t _reserved_end : 8;
-  } bits;          // Bit-field struct (auto-filling reserved gaps)
+  } bits;
   
   // Full 32-bit register value.
   uint32_t value;
@@ -1965,13 +1888,11 @@ union CSI_CR82 {
 //
 union CSI_CR83 {
   
-  // Enum definitions.
-  
   // Bit field definition.
   struct {
     uint32_t PIXEL_COUNTERS : 24;
     uint32_t _reserved_end : 8;
-  } bits;          // Bit-field struct (auto-filling reserved gaps)
+  } bits;
   
   // Full 32-bit register value.
   uint32_t value;
@@ -1984,13 +1905,11 @@ union CSI_CR83 {
 //
 union CSI_CR84 {
   
-  // Enum definitions.
-  
   // Bit field definition.
   struct {
     uint32_t PIXEL_COUNTERS : 24;
     uint32_t _reserved_end : 8;
-  } bits;          // Bit-field struct (auto-filling reserved gaps)
+  } bits;
   
   // Full 32-bit register value.
   uint32_t value;
@@ -2003,13 +1922,11 @@ union CSI_CR84 {
 //
 union CSI_CR85 {
   
-  // Enum definitions.
-  
   // Bit field definition.
   struct {
     uint32_t PIXEL_COUNTERS : 24;
     uint32_t _reserved_end : 8;
-  } bits;          // Bit-field struct (auto-filling reserved gaps)
+  } bits;
   
   // Full 32-bit register value.
   uint32_t value;
@@ -2022,13 +1939,11 @@ union CSI_CR85 {
 //
 union CSI_CR86 {
   
-  // Enum definitions.
-  
   // Bit field definition.
   struct {
     uint32_t PIXEL_COUNTERS : 24;
     uint32_t _reserved_end : 8;
-  } bits;          // Bit-field struct (auto-filling reserved gaps)
+  } bits;
   
   // Full 32-bit register value.
   uint32_t value;
@@ -2041,13 +1956,11 @@ union CSI_CR86 {
 //
 union CSI_CR87 {
   
-  // Enum definitions.
-  
   // Bit field definition.
   struct {
     uint32_t PIXEL_COUNTERS : 24;
     uint32_t _reserved_end : 8;
-  } bits;          // Bit-field struct (auto-filling reserved gaps)
+  } bits;
   
   // Full 32-bit register value.
   uint32_t value;
@@ -2060,13 +1973,11 @@ union CSI_CR87 {
 //
 union CSI_CR88 {
   
-  // Enum definitions.
-  
   // Bit field definition.
   struct {
     uint32_t PIXEL_COUNTERS : 24;
     uint32_t _reserved_end : 8;
-  } bits;          // Bit-field struct (auto-filling reserved gaps)
+  } bits;
   
   // Full 32-bit register value.
   uint32_t value;
@@ -2079,13 +1990,11 @@ union CSI_CR88 {
 //
 union CSI_CR89 {
   
-  // Enum definitions.
-  
   // Bit field definition.
   struct {
     uint32_t PIXEL_COUNTERS : 24;
     uint32_t _reserved_end : 8;
-  } bits;          // Bit-field struct (auto-filling reserved gaps)
+  } bits;
   
   // Full 32-bit register value.
   uint32_t value;
@@ -2098,13 +2007,11 @@ union CSI_CR89 {
 //
 union CSI_CR90 {
   
-  // Enum definitions.
-  
   // Bit field definition.
   struct {
     uint32_t PIXEL_COUNTERS : 24;
     uint32_t _reserved_end : 8;
-  } bits;          // Bit-field struct (auto-filling reserved gaps)
+  } bits;
   
   // Full 32-bit register value.
   uint32_t value;
@@ -2117,13 +2024,11 @@ union CSI_CR90 {
 //
 union CSI_CR91 {
   
-  // Enum definitions.
-  
   // Bit field definition.
   struct {
     uint32_t PIXEL_COUNTERS : 24;
     uint32_t _reserved_end : 8;
-  } bits;          // Bit-field struct (auto-filling reserved gaps)
+  } bits;
   
   // Full 32-bit register value.
   uint32_t value;
@@ -2136,13 +2041,11 @@ union CSI_CR91 {
 //
 union CSI_CR92 {
   
-  // Enum definitions.
-  
   // Bit field definition.
   struct {
     uint32_t PIXEL_COUNTERS : 24;
     uint32_t _reserved_end : 8;
-  } bits;          // Bit-field struct (auto-filling reserved gaps)
+  } bits;
   
   // Full 32-bit register value.
   uint32_t value;
@@ -2155,13 +2058,11 @@ union CSI_CR92 {
 //
 union CSI_CR93 {
   
-  // Enum definitions.
-  
   // Bit field definition.
   struct {
     uint32_t PIXEL_COUNTERS : 24;
     uint32_t _reserved_end : 8;
-  } bits;          // Bit-field struct (auto-filling reserved gaps)
+  } bits;
   
   // Full 32-bit register value.
   uint32_t value;
@@ -2174,13 +2075,11 @@ union CSI_CR93 {
 //
 union CSI_CR94 {
   
-  // Enum definitions.
-  
   // Bit field definition.
   struct {
     uint32_t PIXEL_COUNTERS : 24;
     uint32_t _reserved_end : 8;
-  } bits;          // Bit-field struct (auto-filling reserved gaps)
+  } bits;
   
   // Full 32-bit register value.
   uint32_t value;
@@ -2193,13 +2092,11 @@ union CSI_CR94 {
 //
 union CSI_CR95 {
   
-  // Enum definitions.
-  
   // Bit field definition.
   struct {
     uint32_t PIXEL_COUNTERS : 24;
     uint32_t _reserved_end : 8;
-  } bits;          // Bit-field struct (auto-filling reserved gaps)
+  } bits;
   
   // Full 32-bit register value.
   uint32_t value;
@@ -2212,13 +2109,11 @@ union CSI_CR95 {
 //
 union CSI_CR96 {
   
-  // Enum definitions.
-  
   // Bit field definition.
   struct {
     uint32_t PIXEL_COUNTERS : 24;
     uint32_t _reserved_end : 8;
-  } bits;          // Bit-field struct (auto-filling reserved gaps)
+  } bits;
   
   // Full 32-bit register value.
   uint32_t value;
@@ -2231,13 +2126,11 @@ union CSI_CR96 {
 //
 union CSI_CR97 {
   
-  // Enum definitions.
-  
   // Bit field definition.
   struct {
     uint32_t PIXEL_COUNTERS : 24;
     uint32_t _reserved_end : 8;
-  } bits;          // Bit-field struct (auto-filling reserved gaps)
+  } bits;
   
   // Full 32-bit register value.
   uint32_t value;
@@ -2250,13 +2143,11 @@ union CSI_CR97 {
 //
 union CSI_CR98 {
   
-  // Enum definitions.
-  
   // Bit field definition.
   struct {
     uint32_t PIXEL_COUNTERS : 24;
     uint32_t _reserved_end : 8;
-  } bits;          // Bit-field struct (auto-filling reserved gaps)
+  } bits;
   
   // Full 32-bit register value.
   uint32_t value;
@@ -2269,13 +2160,11 @@ union CSI_CR98 {
 //
 union CSI_CR99 {
   
-  // Enum definitions.
-  
   // Bit field definition.
   struct {
     uint32_t PIXEL_COUNTERS : 24;
     uint32_t _reserved_end : 8;
-  } bits;          // Bit-field struct (auto-filling reserved gaps)
+  } bits;
   
   // Full 32-bit register value.
   uint32_t value;
@@ -2288,13 +2177,11 @@ union CSI_CR99 {
 //
 union CSI_CR100 {
   
-  // Enum definitions.
-  
   // Bit field definition.
   struct {
     uint32_t PIXEL_COUNTERS : 24;
     uint32_t _reserved_end : 8;
-  } bits;          // Bit-field struct (auto-filling reserved gaps)
+  } bits;
   
   // Full 32-bit register value.
   uint32_t value;
@@ -2307,13 +2194,11 @@ union CSI_CR100 {
 //
 union CSI_CR101 {
   
-  // Enum definitions.
-  
   // Bit field definition.
   struct {
     uint32_t PIXEL_COUNTERS : 24;
     uint32_t _reserved_end : 8;
-  } bits;          // Bit-field struct (auto-filling reserved gaps)
+  } bits;
   
   // Full 32-bit register value.
   uint32_t value;
@@ -2326,13 +2211,11 @@ union CSI_CR101 {
 //
 union CSI_CR102 {
   
-  // Enum definitions.
-  
   // Bit field definition.
   struct {
     uint32_t PIXEL_COUNTERS : 24;
     uint32_t _reserved_end : 8;
-  } bits;          // Bit-field struct (auto-filling reserved gaps)
+  } bits;
   
   // Full 32-bit register value.
   uint32_t value;
@@ -2345,13 +2228,11 @@ union CSI_CR102 {
 //
 union CSI_CR103 {
   
-  // Enum definitions.
-  
   // Bit field definition.
   struct {
     uint32_t PIXEL_COUNTERS : 24;
     uint32_t _reserved_end : 8;
-  } bits;          // Bit-field struct (auto-filling reserved gaps)
+  } bits;
   
   // Full 32-bit register value.
   uint32_t value;
@@ -2364,13 +2245,11 @@ union CSI_CR103 {
 //
 union CSI_CR104 {
   
-  // Enum definitions.
-  
   // Bit field definition.
   struct {
     uint32_t PIXEL_COUNTERS : 24;
     uint32_t _reserved_end : 8;
-  } bits;          // Bit-field struct (auto-filling reserved gaps)
+  } bits;
   
   // Full 32-bit register value.
   uint32_t value;
@@ -2383,13 +2262,11 @@ union CSI_CR104 {
 //
 union CSI_CR105 {
   
-  // Enum definitions.
-  
   // Bit field definition.
   struct {
     uint32_t PIXEL_COUNTERS : 24;
     uint32_t _reserved_end : 8;
-  } bits;          // Bit-field struct (auto-filling reserved gaps)
+  } bits;
   
   // Full 32-bit register value.
   uint32_t value;
@@ -2402,13 +2279,11 @@ union CSI_CR105 {
 //
 union CSI_CR106 {
   
-  // Enum definitions.
-  
   // Bit field definition.
   struct {
     uint32_t PIXEL_COUNTERS : 24;
     uint32_t _reserved_end : 8;
-  } bits;          // Bit-field struct (auto-filling reserved gaps)
+  } bits;
   
   // Full 32-bit register value.
   uint32_t value;
@@ -2421,13 +2296,11 @@ union CSI_CR106 {
 //
 union CSI_CR107 {
   
-  // Enum definitions.
-  
   // Bit field definition.
   struct {
     uint32_t PIXEL_COUNTERS : 24;
     uint32_t _reserved_end : 8;
-  } bits;          // Bit-field struct (auto-filling reserved gaps)
+  } bits;
   
   // Full 32-bit register value.
   uint32_t value;
@@ -2440,13 +2313,11 @@ union CSI_CR107 {
 //
 union CSI_CR108 {
   
-  // Enum definitions.
-  
   // Bit field definition.
   struct {
     uint32_t PIXEL_COUNTERS : 24;
     uint32_t _reserved_end : 8;
-  } bits;          // Bit-field struct (auto-filling reserved gaps)
+  } bits;
   
   // Full 32-bit register value.
   uint32_t value;
@@ -2459,13 +2330,11 @@ union CSI_CR108 {
 //
 union CSI_CR109 {
   
-  // Enum definitions.
-  
   // Bit field definition.
   struct {
     uint32_t PIXEL_COUNTERS : 24;
     uint32_t _reserved_end : 8;
-  } bits;          // Bit-field struct (auto-filling reserved gaps)
+  } bits;
   
   // Full 32-bit register value.
   uint32_t value;
@@ -2478,13 +2347,11 @@ union CSI_CR109 {
 //
 union CSI_CR110 {
   
-  // Enum definitions.
-  
   // Bit field definition.
   struct {
     uint32_t PIXEL_COUNTERS : 24;
     uint32_t _reserved_end : 8;
-  } bits;          // Bit-field struct (auto-filling reserved gaps)
+  } bits;
   
   // Full 32-bit register value.
   uint32_t value;
@@ -2497,13 +2364,11 @@ union CSI_CR110 {
 //
 union CSI_CR111 {
   
-  // Enum definitions.
-  
   // Bit field definition.
   struct {
     uint32_t PIXEL_COUNTERS : 24;
     uint32_t _reserved_end : 8;
-  } bits;          // Bit-field struct (auto-filling reserved gaps)
+  } bits;
   
   // Full 32-bit register value.
   uint32_t value;
@@ -2516,13 +2381,11 @@ union CSI_CR111 {
 //
 union CSI_CR112 {
   
-  // Enum definitions.
-  
   // Bit field definition.
   struct {
     uint32_t PIXEL_COUNTERS : 24;
     uint32_t _reserved_end : 8;
-  } bits;          // Bit-field struct (auto-filling reserved gaps)
+  } bits;
   
   // Full 32-bit register value.
   uint32_t value;
@@ -2535,13 +2398,11 @@ union CSI_CR112 {
 //
 union CSI_CR113 {
   
-  // Enum definitions.
-  
   // Bit field definition.
   struct {
     uint32_t PIXEL_COUNTERS : 24;
     uint32_t _reserved_end : 8;
-  } bits;          // Bit-field struct (auto-filling reserved gaps)
+  } bits;
   
   // Full 32-bit register value.
   uint32_t value;
@@ -2554,13 +2415,11 @@ union CSI_CR113 {
 //
 union CSI_CR114 {
   
-  // Enum definitions.
-  
   // Bit field definition.
   struct {
     uint32_t PIXEL_COUNTERS : 24;
     uint32_t _reserved_end : 8;
-  } bits;          // Bit-field struct (auto-filling reserved gaps)
+  } bits;
   
   // Full 32-bit register value.
   uint32_t value;
@@ -2573,13 +2432,11 @@ union CSI_CR114 {
 //
 union CSI_CR115 {
   
-  // Enum definitions.
-  
   // Bit field definition.
   struct {
     uint32_t PIXEL_COUNTERS : 24;
     uint32_t _reserved_end : 8;
-  } bits;          // Bit-field struct (auto-filling reserved gaps)
+  } bits;
   
   // Full 32-bit register value.
   uint32_t value;
@@ -2592,13 +2449,11 @@ union CSI_CR115 {
 //
 union CSI_CR116 {
   
-  // Enum definitions.
-  
   // Bit field definition.
   struct {
     uint32_t PIXEL_COUNTERS : 24;
     uint32_t _reserved_end : 8;
-  } bits;          // Bit-field struct (auto-filling reserved gaps)
+  } bits;
   
   // Full 32-bit register value.
   uint32_t value;
@@ -2611,13 +2466,11 @@ union CSI_CR116 {
 //
 union CSI_CR117 {
   
-  // Enum definitions.
-  
   // Bit field definition.
   struct {
     uint32_t PIXEL_COUNTERS : 24;
     uint32_t _reserved_end : 8;
-  } bits;          // Bit-field struct (auto-filling reserved gaps)
+  } bits;
   
   // Full 32-bit register value.
   uint32_t value;
@@ -2630,13 +2483,11 @@ union CSI_CR117 {
 //
 union CSI_CR118 {
   
-  // Enum definitions.
-  
   // Bit field definition.
   struct {
     uint32_t PIXEL_COUNTERS : 24;
     uint32_t _reserved_end : 8;
-  } bits;          // Bit-field struct (auto-filling reserved gaps)
+  } bits;
   
   // Full 32-bit register value.
   uint32_t value;
@@ -2649,13 +2500,11 @@ union CSI_CR118 {
 //
 union CSI_CR119 {
   
-  // Enum definitions.
-  
   // Bit field definition.
   struct {
     uint32_t PIXEL_COUNTERS : 24;
     uint32_t _reserved_end : 8;
-  } bits;          // Bit-field struct (auto-filling reserved gaps)
+  } bits;
   
   // Full 32-bit register value.
   uint32_t value;
@@ -2668,13 +2517,11 @@ union CSI_CR119 {
 //
 union CSI_CR120 {
   
-  // Enum definitions.
-  
   // Bit field definition.
   struct {
     uint32_t PIXEL_COUNTERS : 24;
     uint32_t _reserved_end : 8;
-  } bits;          // Bit-field struct (auto-filling reserved gaps)
+  } bits;
   
   // Full 32-bit register value.
   uint32_t value;
@@ -2687,13 +2534,11 @@ union CSI_CR120 {
 //
 union CSI_CR121 {
   
-  // Enum definitions.
-  
   // Bit field definition.
   struct {
     uint32_t PIXEL_COUNTERS : 24;
     uint32_t _reserved_end : 8;
-  } bits;          // Bit-field struct (auto-filling reserved gaps)
+  } bits;
   
   // Full 32-bit register value.
   uint32_t value;
@@ -2706,13 +2551,11 @@ union CSI_CR121 {
 //
 union CSI_CR122 {
   
-  // Enum definitions.
-  
   // Bit field definition.
   struct {
     uint32_t PIXEL_COUNTERS : 24;
     uint32_t _reserved_end : 8;
-  } bits;          // Bit-field struct (auto-filling reserved gaps)
+  } bits;
   
   // Full 32-bit register value.
   uint32_t value;
@@ -2725,13 +2568,11 @@ union CSI_CR122 {
 //
 union CSI_CR123 {
   
-  // Enum definitions.
-  
   // Bit field definition.
   struct {
     uint32_t PIXEL_COUNTERS : 24;
     uint32_t _reserved_end : 8;
-  } bits;          // Bit-field struct (auto-filling reserved gaps)
+  } bits;
   
   // Full 32-bit register value.
   uint32_t value;
@@ -2744,13 +2585,11 @@ union CSI_CR123 {
 //
 union CSI_CR124 {
   
-  // Enum definitions.
-  
   // Bit field definition.
   struct {
     uint32_t PIXEL_COUNTERS : 24;
     uint32_t _reserved_end : 8;
-  } bits;          // Bit-field struct (auto-filling reserved gaps)
+  } bits;
   
   // Full 32-bit register value.
   uint32_t value;
@@ -2763,13 +2602,11 @@ union CSI_CR124 {
 //
 union CSI_CR125 {
   
-  // Enum definitions.
-  
   // Bit field definition.
   struct {
     uint32_t PIXEL_COUNTERS : 24;
     uint32_t _reserved_end : 8;
-  } bits;          // Bit-field struct (auto-filling reserved gaps)
+  } bits;
   
   // Full 32-bit register value.
   uint32_t value;
@@ -2782,13 +2619,11 @@ union CSI_CR125 {
 //
 union CSI_CR126 {
   
-  // Enum definitions.
-  
   // Bit field definition.
   struct {
     uint32_t PIXEL_COUNTERS : 24;
     uint32_t _reserved_end : 8;
-  } bits;          // Bit-field struct (auto-filling reserved gaps)
+  } bits;
   
   // Full 32-bit register value.
   uint32_t value;
@@ -2801,13 +2636,11 @@ union CSI_CR126 {
 //
 union CSI_CR127 {
   
-  // Enum definitions.
-  
   // Bit field definition.
   struct {
     uint32_t PIXEL_COUNTERS : 24;
     uint32_t _reserved_end : 8;
-  } bits;          // Bit-field struct (auto-filling reserved gaps)
+  } bits;
   
   // Full 32-bit register value.
   uint32_t value;
@@ -2820,13 +2653,11 @@ union CSI_CR127 {
 //
 union CSI_CR128 {
   
-  // Enum definitions.
-  
   // Bit field definition.
   struct {
     uint32_t PIXEL_COUNTERS : 24;
     uint32_t _reserved_end : 8;
-  } bits;          // Bit-field struct (auto-filling reserved gaps)
+  } bits;
   
   // Full 32-bit register value.
   uint32_t value;
@@ -2839,13 +2670,11 @@ union CSI_CR128 {
 //
 union CSI_CR129 {
   
-  // Enum definitions.
-  
   // Bit field definition.
   struct {
     uint32_t PIXEL_COUNTERS : 24;
     uint32_t _reserved_end : 8;
-  } bits;          // Bit-field struct (auto-filling reserved gaps)
+  } bits;
   
   // Full 32-bit register value.
   uint32_t value;
@@ -2858,13 +2687,11 @@ union CSI_CR129 {
 //
 union CSI_CR130 {
   
-  // Enum definitions.
-  
   // Bit field definition.
   struct {
     uint32_t PIXEL_COUNTERS : 24;
     uint32_t _reserved_end : 8;
-  } bits;          // Bit-field struct (auto-filling reserved gaps)
+  } bits;
   
   // Full 32-bit register value.
   uint32_t value;
@@ -2877,13 +2704,11 @@ union CSI_CR130 {
 //
 union CSI_CR131 {
   
-  // Enum definitions.
-  
   // Bit field definition.
   struct {
     uint32_t PIXEL_COUNTERS : 24;
     uint32_t _reserved_end : 8;
-  } bits;          // Bit-field struct (auto-filling reserved gaps)
+  } bits;
   
   // Full 32-bit register value.
   uint32_t value;
@@ -2896,13 +2721,11 @@ union CSI_CR131 {
 //
 union CSI_CR132 {
   
-  // Enum definitions.
-  
   // Bit field definition.
   struct {
     uint32_t PIXEL_COUNTERS : 24;
     uint32_t _reserved_end : 8;
-  } bits;          // Bit-field struct (auto-filling reserved gaps)
+  } bits;
   
   // Full 32-bit register value.
   uint32_t value;
@@ -2915,13 +2738,11 @@ union CSI_CR132 {
 //
 union CSI_CR133 {
   
-  // Enum definitions.
-  
   // Bit field definition.
   struct {
     uint32_t PIXEL_COUNTERS : 24;
     uint32_t _reserved_end : 8;
-  } bits;          // Bit-field struct (auto-filling reserved gaps)
+  } bits;
   
   // Full 32-bit register value.
   uint32_t value;
@@ -2934,13 +2755,11 @@ union CSI_CR133 {
 //
 union CSI_CR134 {
   
-  // Enum definitions.
-  
   // Bit field definition.
   struct {
     uint32_t PIXEL_COUNTERS : 24;
     uint32_t _reserved_end : 8;
-  } bits;          // Bit-field struct (auto-filling reserved gaps)
+  } bits;
   
   // Full 32-bit register value.
   uint32_t value;
@@ -2953,13 +2772,11 @@ union CSI_CR134 {
 //
 union CSI_CR135 {
   
-  // Enum definitions.
-  
   // Bit field definition.
   struct {
     uint32_t PIXEL_COUNTERS : 24;
     uint32_t _reserved_end : 8;
-  } bits;          // Bit-field struct (auto-filling reserved gaps)
+  } bits;
   
   // Full 32-bit register value.
   uint32_t value;
@@ -2972,13 +2789,11 @@ union CSI_CR135 {
 //
 union CSI_CR136 {
   
-  // Enum definitions.
-  
   // Bit field definition.
   struct {
     uint32_t PIXEL_COUNTERS : 24;
     uint32_t _reserved_end : 8;
-  } bits;          // Bit-field struct (auto-filling reserved gaps)
+  } bits;
   
   // Full 32-bit register value.
   uint32_t value;
@@ -2991,13 +2806,11 @@ union CSI_CR136 {
 //
 union CSI_CR137 {
   
-  // Enum definitions.
-  
   // Bit field definition.
   struct {
     uint32_t PIXEL_COUNTERS : 24;
     uint32_t _reserved_end : 8;
-  } bits;          // Bit-field struct (auto-filling reserved gaps)
+  } bits;
   
   // Full 32-bit register value.
   uint32_t value;
@@ -3010,13 +2823,11 @@ union CSI_CR137 {
 //
 union CSI_CR138 {
   
-  // Enum definitions.
-  
   // Bit field definition.
   struct {
     uint32_t PIXEL_COUNTERS : 24;
     uint32_t _reserved_end : 8;
-  } bits;          // Bit-field struct (auto-filling reserved gaps)
+  } bits;
   
   // Full 32-bit register value.
   uint32_t value;
@@ -3029,13 +2840,11 @@ union CSI_CR138 {
 //
 union CSI_CR139 {
   
-  // Enum definitions.
-  
   // Bit field definition.
   struct {
     uint32_t PIXEL_COUNTERS : 24;
     uint32_t _reserved_end : 8;
-  } bits;          // Bit-field struct (auto-filling reserved gaps)
+  } bits;
   
   // Full 32-bit register value.
   uint32_t value;
@@ -3048,13 +2857,11 @@ union CSI_CR139 {
 //
 union CSI_CR140 {
   
-  // Enum definitions.
-  
   // Bit field definition.
   struct {
     uint32_t PIXEL_COUNTERS : 24;
     uint32_t _reserved_end : 8;
-  } bits;          // Bit-field struct (auto-filling reserved gaps)
+  } bits;
   
   // Full 32-bit register value.
   uint32_t value;
@@ -3067,13 +2874,11 @@ union CSI_CR140 {
 //
 union CSI_CR141 {
   
-  // Enum definitions.
-  
   // Bit field definition.
   struct {
     uint32_t PIXEL_COUNTERS : 24;
     uint32_t _reserved_end : 8;
-  } bits;          // Bit-field struct (auto-filling reserved gaps)
+  } bits;
   
   // Full 32-bit register value.
   uint32_t value;
@@ -3086,13 +2891,11 @@ union CSI_CR141 {
 //
 union CSI_CR142 {
   
-  // Enum definitions.
-  
   // Bit field definition.
   struct {
     uint32_t PIXEL_COUNTERS : 24;
     uint32_t _reserved_end : 8;
-  } bits;          // Bit-field struct (auto-filling reserved gaps)
+  } bits;
   
   // Full 32-bit register value.
   uint32_t value;
@@ -3105,13 +2908,11 @@ union CSI_CR142 {
 //
 union CSI_CR143 {
   
-  // Enum definitions.
-  
   // Bit field definition.
   struct {
     uint32_t PIXEL_COUNTERS : 24;
     uint32_t _reserved_end : 8;
-  } bits;          // Bit-field struct (auto-filling reserved gaps)
+  } bits;
   
   // Full 32-bit register value.
   uint32_t value;
@@ -3124,13 +2925,11 @@ union CSI_CR143 {
 //
 union CSI_CR144 {
   
-  // Enum definitions.
-  
   // Bit field definition.
   struct {
     uint32_t PIXEL_COUNTERS : 24;
     uint32_t _reserved_end : 8;
-  } bits;          // Bit-field struct (auto-filling reserved gaps)
+  } bits;
   
   // Full 32-bit register value.
   uint32_t value;
@@ -3143,13 +2942,11 @@ union CSI_CR144 {
 //
 union CSI_CR145 {
   
-  // Enum definitions.
-  
   // Bit field definition.
   struct {
     uint32_t PIXEL_COUNTERS : 24;
     uint32_t _reserved_end : 8;
-  } bits;          // Bit-field struct (auto-filling reserved gaps)
+  } bits;
   
   // Full 32-bit register value.
   uint32_t value;
@@ -3162,13 +2959,11 @@ union CSI_CR145 {
 //
 union CSI_CR146 {
   
-  // Enum definitions.
-  
   // Bit field definition.
   struct {
     uint32_t PIXEL_COUNTERS : 24;
     uint32_t _reserved_end : 8;
-  } bits;          // Bit-field struct (auto-filling reserved gaps)
+  } bits;
   
   // Full 32-bit register value.
   uint32_t value;
@@ -3181,13 +2976,11 @@ union CSI_CR146 {
 //
 union CSI_CR147 {
   
-  // Enum definitions.
-  
   // Bit field definition.
   struct {
     uint32_t PIXEL_COUNTERS : 24;
     uint32_t _reserved_end : 8;
-  } bits;          // Bit-field struct (auto-filling reserved gaps)
+  } bits;
   
   // Full 32-bit register value.
   uint32_t value;
@@ -3200,13 +2993,11 @@ union CSI_CR147 {
 //
 union CSI_CR148 {
   
-  // Enum definitions.
-  
   // Bit field definition.
   struct {
     uint32_t PIXEL_COUNTERS : 24;
     uint32_t _reserved_end : 8;
-  } bits;          // Bit-field struct (auto-filling reserved gaps)
+  } bits;
   
   // Full 32-bit register value.
   uint32_t value;
@@ -3219,13 +3010,11 @@ union CSI_CR148 {
 //
 union CSI_CR149 {
   
-  // Enum definitions.
-  
   // Bit field definition.
   struct {
     uint32_t PIXEL_COUNTERS : 24;
     uint32_t _reserved_end : 8;
-  } bits;          // Bit-field struct (auto-filling reserved gaps)
+  } bits;
   
   // Full 32-bit register value.
   uint32_t value;
@@ -3238,13 +3027,11 @@ union CSI_CR149 {
 //
 union CSI_CR150 {
   
-  // Enum definitions.
-  
   // Bit field definition.
   struct {
     uint32_t PIXEL_COUNTERS : 24;
     uint32_t _reserved_end : 8;
-  } bits;          // Bit-field struct (auto-filling reserved gaps)
+  } bits;
   
   // Full 32-bit register value.
   uint32_t value;
@@ -3257,13 +3044,11 @@ union CSI_CR150 {
 //
 union CSI_CR151 {
   
-  // Enum definitions.
-  
   // Bit field definition.
   struct {
     uint32_t PIXEL_COUNTERS : 24;
     uint32_t _reserved_end : 8;
-  } bits;          // Bit-field struct (auto-filling reserved gaps)
+  } bits;
   
   // Full 32-bit register value.
   uint32_t value;
@@ -3276,13 +3061,11 @@ union CSI_CR151 {
 //
 union CSI_CR152 {
   
-  // Enum definitions.
-  
   // Bit field definition.
   struct {
     uint32_t PIXEL_COUNTERS : 24;
     uint32_t _reserved_end : 8;
-  } bits;          // Bit-field struct (auto-filling reserved gaps)
+  } bits;
   
   // Full 32-bit register value.
   uint32_t value;
@@ -3295,13 +3078,11 @@ union CSI_CR152 {
 //
 union CSI_CR153 {
   
-  // Enum definitions.
-  
   // Bit field definition.
   struct {
     uint32_t PIXEL_COUNTERS : 24;
     uint32_t _reserved_end : 8;
-  } bits;          // Bit-field struct (auto-filling reserved gaps)
+  } bits;
   
   // Full 32-bit register value.
   uint32_t value;
@@ -3314,13 +3095,11 @@ union CSI_CR153 {
 //
 union CSI_CR154 {
   
-  // Enum definitions.
-  
   // Bit field definition.
   struct {
     uint32_t PIXEL_COUNTERS : 24;
     uint32_t _reserved_end : 8;
-  } bits;          // Bit-field struct (auto-filling reserved gaps)
+  } bits;
   
   // Full 32-bit register value.
   uint32_t value;
@@ -3333,13 +3112,11 @@ union CSI_CR154 {
 //
 union CSI_CR155 {
   
-  // Enum definitions.
-  
   // Bit field definition.
   struct {
     uint32_t PIXEL_COUNTERS : 24;
     uint32_t _reserved_end : 8;
-  } bits;          // Bit-field struct (auto-filling reserved gaps)
+  } bits;
   
   // Full 32-bit register value.
   uint32_t value;
@@ -3352,13 +3129,11 @@ union CSI_CR155 {
 //
 union CSI_CR156 {
   
-  // Enum definitions.
-  
   // Bit field definition.
   struct {
     uint32_t PIXEL_COUNTERS : 24;
     uint32_t _reserved_end : 8;
-  } bits;          // Bit-field struct (auto-filling reserved gaps)
+  } bits;
   
   // Full 32-bit register value.
   uint32_t value;
@@ -3371,13 +3146,11 @@ union CSI_CR156 {
 //
 union CSI_CR157 {
   
-  // Enum definitions.
-  
   // Bit field definition.
   struct {
     uint32_t PIXEL_COUNTERS : 24;
     uint32_t _reserved_end : 8;
-  } bits;          // Bit-field struct (auto-filling reserved gaps)
+  } bits;
   
   // Full 32-bit register value.
   uint32_t value;
@@ -3390,13 +3163,11 @@ union CSI_CR157 {
 //
 union CSI_CR158 {
   
-  // Enum definitions.
-  
   // Bit field definition.
   struct {
     uint32_t PIXEL_COUNTERS : 24;
     uint32_t _reserved_end : 8;
-  } bits;          // Bit-field struct (auto-filling reserved gaps)
+  } bits;
   
   // Full 32-bit register value.
   uint32_t value;
@@ -3409,13 +3180,11 @@ union CSI_CR158 {
 //
 union CSI_CR159 {
   
-  // Enum definitions.
-  
   // Bit field definition.
   struct {
     uint32_t PIXEL_COUNTERS : 24;
     uint32_t _reserved_end : 8;
-  } bits;          // Bit-field struct (auto-filling reserved gaps)
+  } bits;
   
   // Full 32-bit register value.
   uint32_t value;
@@ -3428,13 +3197,11 @@ union CSI_CR159 {
 //
 union CSI_CR160 {
   
-  // Enum definitions.
-  
   // Bit field definition.
   struct {
     uint32_t PIXEL_COUNTERS : 24;
     uint32_t _reserved_end : 8;
-  } bits;          // Bit-field struct (auto-filling reserved gaps)
+  } bits;
   
   // Full 32-bit register value.
   uint32_t value;
@@ -3447,13 +3214,11 @@ union CSI_CR160 {
 //
 union CSI_CR161 {
   
-  // Enum definitions.
-  
   // Bit field definition.
   struct {
     uint32_t PIXEL_COUNTERS : 24;
     uint32_t _reserved_end : 8;
-  } bits;          // Bit-field struct (auto-filling reserved gaps)
+  } bits;
   
   // Full 32-bit register value.
   uint32_t value;
@@ -3466,13 +3231,11 @@ union CSI_CR161 {
 //
 union CSI_CR162 {
   
-  // Enum definitions.
-  
   // Bit field definition.
   struct {
     uint32_t PIXEL_COUNTERS : 24;
     uint32_t _reserved_end : 8;
-  } bits;          // Bit-field struct (auto-filling reserved gaps)
+  } bits;
   
   // Full 32-bit register value.
   uint32_t value;
@@ -3485,13 +3248,11 @@ union CSI_CR162 {
 //
 union CSI_CR163 {
   
-  // Enum definitions.
-  
   // Bit field definition.
   struct {
     uint32_t PIXEL_COUNTERS : 24;
     uint32_t _reserved_end : 8;
-  } bits;          // Bit-field struct (auto-filling reserved gaps)
+  } bits;
   
   // Full 32-bit register value.
   uint32_t value;
@@ -3504,13 +3265,11 @@ union CSI_CR163 {
 //
 union CSI_CR164 {
   
-  // Enum definitions.
-  
   // Bit field definition.
   struct {
     uint32_t PIXEL_COUNTERS : 24;
     uint32_t _reserved_end : 8;
-  } bits;          // Bit-field struct (auto-filling reserved gaps)
+  } bits;
   
   // Full 32-bit register value.
   uint32_t value;
@@ -3523,13 +3282,11 @@ union CSI_CR164 {
 //
 union CSI_CR165 {
   
-  // Enum definitions.
-  
   // Bit field definition.
   struct {
     uint32_t PIXEL_COUNTERS : 24;
     uint32_t _reserved_end : 8;
-  } bits;          // Bit-field struct (auto-filling reserved gaps)
+  } bits;
   
   // Full 32-bit register value.
   uint32_t value;
@@ -3542,13 +3299,11 @@ union CSI_CR165 {
 //
 union CSI_CR166 {
   
-  // Enum definitions.
-  
   // Bit field definition.
   struct {
     uint32_t PIXEL_COUNTERS : 24;
     uint32_t _reserved_end : 8;
-  } bits;          // Bit-field struct (auto-filling reserved gaps)
+  } bits;
   
   // Full 32-bit register value.
   uint32_t value;
@@ -3561,13 +3316,11 @@ union CSI_CR166 {
 //
 union CSI_CR167 {
   
-  // Enum definitions.
-  
   // Bit field definition.
   struct {
     uint32_t PIXEL_COUNTERS : 24;
     uint32_t _reserved_end : 8;
-  } bits;          // Bit-field struct (auto-filling reserved gaps)
+  } bits;
   
   // Full 32-bit register value.
   uint32_t value;
@@ -3580,13 +3333,11 @@ union CSI_CR167 {
 //
 union CSI_CR168 {
   
-  // Enum definitions.
-  
   // Bit field definition.
   struct {
     uint32_t PIXEL_COUNTERS : 24;
     uint32_t _reserved_end : 8;
-  } bits;          // Bit-field struct (auto-filling reserved gaps)
+  } bits;
   
   // Full 32-bit register value.
   uint32_t value;
@@ -3599,13 +3350,11 @@ union CSI_CR168 {
 //
 union CSI_CR169 {
   
-  // Enum definitions.
-  
   // Bit field definition.
   struct {
     uint32_t PIXEL_COUNTERS : 24;
     uint32_t _reserved_end : 8;
-  } bits;          // Bit-field struct (auto-filling reserved gaps)
+  } bits;
   
   // Full 32-bit register value.
   uint32_t value;
@@ -3618,13 +3367,11 @@ union CSI_CR169 {
 //
 union CSI_CR170 {
   
-  // Enum definitions.
-  
   // Bit field definition.
   struct {
     uint32_t PIXEL_COUNTERS : 24;
     uint32_t _reserved_end : 8;
-  } bits;          // Bit-field struct (auto-filling reserved gaps)
+  } bits;
   
   // Full 32-bit register value.
   uint32_t value;
@@ -3637,13 +3384,11 @@ union CSI_CR170 {
 //
 union CSI_CR171 {
   
-  // Enum definitions.
-  
   // Bit field definition.
   struct {
     uint32_t PIXEL_COUNTERS : 24;
     uint32_t _reserved_end : 8;
-  } bits;          // Bit-field struct (auto-filling reserved gaps)
+  } bits;
   
   // Full 32-bit register value.
   uint32_t value;
@@ -3656,13 +3401,11 @@ union CSI_CR171 {
 //
 union CSI_CR172 {
   
-  // Enum definitions.
-  
   // Bit field definition.
   struct {
     uint32_t PIXEL_COUNTERS : 24;
     uint32_t _reserved_end : 8;
-  } bits;          // Bit-field struct (auto-filling reserved gaps)
+  } bits;
   
   // Full 32-bit register value.
   uint32_t value;
@@ -3675,13 +3418,11 @@ union CSI_CR172 {
 //
 union CSI_CR173 {
   
-  // Enum definitions.
-  
   // Bit field definition.
   struct {
     uint32_t PIXEL_COUNTERS : 24;
     uint32_t _reserved_end : 8;
-  } bits;          // Bit-field struct (auto-filling reserved gaps)
+  } bits;
   
   // Full 32-bit register value.
   uint32_t value;
@@ -3694,13 +3435,11 @@ union CSI_CR173 {
 //
 union CSI_CR174 {
   
-  // Enum definitions.
-  
   // Bit field definition.
   struct {
     uint32_t PIXEL_COUNTERS : 24;
     uint32_t _reserved_end : 8;
-  } bits;          // Bit-field struct (auto-filling reserved gaps)
+  } bits;
   
   // Full 32-bit register value.
   uint32_t value;
@@ -3713,13 +3452,11 @@ union CSI_CR174 {
 //
 union CSI_CR175 {
   
-  // Enum definitions.
-  
   // Bit field definition.
   struct {
     uint32_t PIXEL_COUNTERS : 24;
     uint32_t _reserved_end : 8;
-  } bits;          // Bit-field struct (auto-filling reserved gaps)
+  } bits;
   
   // Full 32-bit register value.
   uint32_t value;
@@ -3732,13 +3469,11 @@ union CSI_CR175 {
 //
 union CSI_CR176 {
   
-  // Enum definitions.
-  
   // Bit field definition.
   struct {
     uint32_t PIXEL_COUNTERS : 24;
     uint32_t _reserved_end : 8;
-  } bits;          // Bit-field struct (auto-filling reserved gaps)
+  } bits;
   
   // Full 32-bit register value.
   uint32_t value;
@@ -3751,13 +3486,11 @@ union CSI_CR176 {
 //
 union CSI_CR177 {
   
-  // Enum definitions.
-  
   // Bit field definition.
   struct {
     uint32_t PIXEL_COUNTERS : 24;
     uint32_t _reserved_end : 8;
-  } bits;          // Bit-field struct (auto-filling reserved gaps)
+  } bits;
   
   // Full 32-bit register value.
   uint32_t value;
@@ -3770,13 +3503,11 @@ union CSI_CR177 {
 //
 union CSI_CR178 {
   
-  // Enum definitions.
-  
   // Bit field definition.
   struct {
     uint32_t PIXEL_COUNTERS : 24;
     uint32_t _reserved_end : 8;
-  } bits;          // Bit-field struct (auto-filling reserved gaps)
+  } bits;
   
   // Full 32-bit register value.
   uint32_t value;
@@ -3789,13 +3520,11 @@ union CSI_CR178 {
 //
 union CSI_CR179 {
   
-  // Enum definitions.
-  
   // Bit field definition.
   struct {
     uint32_t PIXEL_COUNTERS : 24;
     uint32_t _reserved_end : 8;
-  } bits;          // Bit-field struct (auto-filling reserved gaps)
+  } bits;
   
   // Full 32-bit register value.
   uint32_t value;
@@ -3808,13 +3537,11 @@ union CSI_CR179 {
 //
 union CSI_CR180 {
   
-  // Enum definitions.
-  
   // Bit field definition.
   struct {
     uint32_t PIXEL_COUNTERS : 24;
     uint32_t _reserved_end : 8;
-  } bits;          // Bit-field struct (auto-filling reserved gaps)
+  } bits;
   
   // Full 32-bit register value.
   uint32_t value;
@@ -3827,13 +3554,11 @@ union CSI_CR180 {
 //
 union CSI_CR181 {
   
-  // Enum definitions.
-  
   // Bit field definition.
   struct {
     uint32_t PIXEL_COUNTERS : 24;
     uint32_t _reserved_end : 8;
-  } bits;          // Bit-field struct (auto-filling reserved gaps)
+  } bits;
   
   // Full 32-bit register value.
   uint32_t value;
@@ -3846,13 +3571,11 @@ union CSI_CR181 {
 //
 union CSI_CR182 {
   
-  // Enum definitions.
-  
   // Bit field definition.
   struct {
     uint32_t PIXEL_COUNTERS : 24;
     uint32_t _reserved_end : 8;
-  } bits;          // Bit-field struct (auto-filling reserved gaps)
+  } bits;
   
   // Full 32-bit register value.
   uint32_t value;
@@ -3865,13 +3588,11 @@ union CSI_CR182 {
 //
 union CSI_CR183 {
   
-  // Enum definitions.
-  
   // Bit field definition.
   struct {
     uint32_t PIXEL_COUNTERS : 24;
     uint32_t _reserved_end : 8;
-  } bits;          // Bit-field struct (auto-filling reserved gaps)
+  } bits;
   
   // Full 32-bit register value.
   uint32_t value;
@@ -3884,13 +3605,11 @@ union CSI_CR183 {
 //
 union CSI_CR184 {
   
-  // Enum definitions.
-  
   // Bit field definition.
   struct {
     uint32_t PIXEL_COUNTERS : 24;
     uint32_t _reserved_end : 8;
-  } bits;          // Bit-field struct (auto-filling reserved gaps)
+  } bits;
   
   // Full 32-bit register value.
   uint32_t value;
@@ -3903,13 +3622,11 @@ union CSI_CR184 {
 //
 union CSI_CR185 {
   
-  // Enum definitions.
-  
   // Bit field definition.
   struct {
     uint32_t PIXEL_COUNTERS : 24;
     uint32_t _reserved_end : 8;
-  } bits;          // Bit-field struct (auto-filling reserved gaps)
+  } bits;
   
   // Full 32-bit register value.
   uint32_t value;
@@ -3922,13 +3639,11 @@ union CSI_CR185 {
 //
 union CSI_CR186 {
   
-  // Enum definitions.
-  
   // Bit field definition.
   struct {
     uint32_t PIXEL_COUNTERS : 24;
     uint32_t _reserved_end : 8;
-  } bits;          // Bit-field struct (auto-filling reserved gaps)
+  } bits;
   
   // Full 32-bit register value.
   uint32_t value;
@@ -3941,13 +3656,11 @@ union CSI_CR186 {
 //
 union CSI_CR187 {
   
-  // Enum definitions.
-  
   // Bit field definition.
   struct {
     uint32_t PIXEL_COUNTERS : 24;
     uint32_t _reserved_end : 8;
-  } bits;          // Bit-field struct (auto-filling reserved gaps)
+  } bits;
   
   // Full 32-bit register value.
   uint32_t value;
@@ -3960,13 +3673,11 @@ union CSI_CR187 {
 //
 union CSI_CR188 {
   
-  // Enum definitions.
-  
   // Bit field definition.
   struct {
     uint32_t PIXEL_COUNTERS : 24;
     uint32_t _reserved_end : 8;
-  } bits;          // Bit-field struct (auto-filling reserved gaps)
+  } bits;
   
   // Full 32-bit register value.
   uint32_t value;
@@ -3979,13 +3690,11 @@ union CSI_CR188 {
 //
 union CSI_CR189 {
   
-  // Enum definitions.
-  
   // Bit field definition.
   struct {
     uint32_t PIXEL_COUNTERS : 24;
     uint32_t _reserved_end : 8;
-  } bits;          // Bit-field struct (auto-filling reserved gaps)
+  } bits;
   
   // Full 32-bit register value.
   uint32_t value;
@@ -3998,13 +3707,11 @@ union CSI_CR189 {
 //
 union CSI_CR190 {
   
-  // Enum definitions.
-  
   // Bit field definition.
   struct {
     uint32_t PIXEL_COUNTERS : 24;
     uint32_t _reserved_end : 8;
-  } bits;          // Bit-field struct (auto-filling reserved gaps)
+  } bits;
   
   // Full 32-bit register value.
   uint32_t value;
@@ -4017,13 +3724,11 @@ union CSI_CR190 {
 //
 union CSI_CR191 {
   
-  // Enum definitions.
-  
   // Bit field definition.
   struct {
     uint32_t PIXEL_COUNTERS : 24;
     uint32_t _reserved_end : 8;
-  } bits;          // Bit-field struct (auto-filling reserved gaps)
+  } bits;
   
   // Full 32-bit register value.
   uint32_t value;
@@ -4036,13 +3741,11 @@ union CSI_CR191 {
 //
 union CSI_CR192 {
   
-  // Enum definitions.
-  
   // Bit field definition.
   struct {
     uint32_t PIXEL_COUNTERS : 24;
     uint32_t _reserved_end : 8;
-  } bits;          // Bit-field struct (auto-filling reserved gaps)
+  } bits;
   
   // Full 32-bit register value.
   uint32_t value;
@@ -4055,13 +3758,11 @@ union CSI_CR192 {
 //
 union CSI_CR193 {
   
-  // Enum definitions.
-  
   // Bit field definition.
   struct {
     uint32_t PIXEL_COUNTERS : 24;
     uint32_t _reserved_end : 8;
-  } bits;          // Bit-field struct (auto-filling reserved gaps)
+  } bits;
   
   // Full 32-bit register value.
   uint32_t value;
@@ -4074,13 +3775,11 @@ union CSI_CR193 {
 //
 union CSI_CR194 {
   
-  // Enum definitions.
-  
   // Bit field definition.
   struct {
     uint32_t PIXEL_COUNTERS : 24;
     uint32_t _reserved_end : 8;
-  } bits;          // Bit-field struct (auto-filling reserved gaps)
+  } bits;
   
   // Full 32-bit register value.
   uint32_t value;
@@ -4093,13 +3792,11 @@ union CSI_CR194 {
 //
 union CSI_CR195 {
   
-  // Enum definitions.
-  
   // Bit field definition.
   struct {
     uint32_t PIXEL_COUNTERS : 24;
     uint32_t _reserved_end : 8;
-  } bits;          // Bit-field struct (auto-filling reserved gaps)
+  } bits;
   
   // Full 32-bit register value.
   uint32_t value;
@@ -4112,13 +3809,11 @@ union CSI_CR195 {
 //
 union CSI_CR196 {
   
-  // Enum definitions.
-  
   // Bit field definition.
   struct {
     uint32_t PIXEL_COUNTERS : 24;
     uint32_t _reserved_end : 8;
-  } bits;          // Bit-field struct (auto-filling reserved gaps)
+  } bits;
   
   // Full 32-bit register value.
   uint32_t value;
@@ -4131,13 +3826,11 @@ union CSI_CR196 {
 //
 union CSI_CR197 {
   
-  // Enum definitions.
-  
   // Bit field definition.
   struct {
     uint32_t PIXEL_COUNTERS : 24;
     uint32_t _reserved_end : 8;
-  } bits;          // Bit-field struct (auto-filling reserved gaps)
+  } bits;
   
   // Full 32-bit register value.
   uint32_t value;
@@ -4150,13 +3843,11 @@ union CSI_CR197 {
 //
 union CSI_CR198 {
   
-  // Enum definitions.
-  
   // Bit field definition.
   struct {
     uint32_t PIXEL_COUNTERS : 24;
     uint32_t _reserved_end : 8;
-  } bits;          // Bit-field struct (auto-filling reserved gaps)
+  } bits;
   
   // Full 32-bit register value.
   uint32_t value;
@@ -4169,13 +3860,11 @@ union CSI_CR198 {
 //
 union CSI_CR199 {
   
-  // Enum definitions.
-  
   // Bit field definition.
   struct {
     uint32_t PIXEL_COUNTERS : 24;
     uint32_t _reserved_end : 8;
-  } bits;          // Bit-field struct (auto-filling reserved gaps)
+  } bits;
   
   // Full 32-bit register value.
   uint32_t value;
@@ -4188,13 +3877,11 @@ union CSI_CR199 {
 //
 union CSI_CR200 {
   
-  // Enum definitions.
-  
   // Bit field definition.
   struct {
     uint32_t PIXEL_COUNTERS : 24;
     uint32_t _reserved_end : 8;
-  } bits;          // Bit-field struct (auto-filling reserved gaps)
+  } bits;
   
   // Full 32-bit register value.
   uint32_t value;
@@ -4207,13 +3894,11 @@ union CSI_CR200 {
 //
 union CSI_CR201 {
   
-  // Enum definitions.
-  
   // Bit field definition.
   struct {
     uint32_t PIXEL_COUNTERS : 24;
     uint32_t _reserved_end : 8;
-  } bits;          // Bit-field struct (auto-filling reserved gaps)
+  } bits;
   
   // Full 32-bit register value.
   uint32_t value;
@@ -4226,13 +3911,11 @@ union CSI_CR201 {
 //
 union CSI_CR202 {
   
-  // Enum definitions.
-  
   // Bit field definition.
   struct {
     uint32_t PIXEL_COUNTERS : 24;
     uint32_t _reserved_end : 8;
-  } bits;          // Bit-field struct (auto-filling reserved gaps)
+  } bits;
   
   // Full 32-bit register value.
   uint32_t value;
@@ -4245,13 +3928,11 @@ union CSI_CR202 {
 //
 union CSI_CR203 {
   
-  // Enum definitions.
-  
   // Bit field definition.
   struct {
     uint32_t PIXEL_COUNTERS : 24;
     uint32_t _reserved_end : 8;
-  } bits;          // Bit-field struct (auto-filling reserved gaps)
+  } bits;
   
   // Full 32-bit register value.
   uint32_t value;
@@ -4264,13 +3945,11 @@ union CSI_CR203 {
 //
 union CSI_CR204 {
   
-  // Enum definitions.
-  
   // Bit field definition.
   struct {
     uint32_t PIXEL_COUNTERS : 24;
     uint32_t _reserved_end : 8;
-  } bits;          // Bit-field struct (auto-filling reserved gaps)
+  } bits;
   
   // Full 32-bit register value.
   uint32_t value;
@@ -4283,13 +3962,11 @@ union CSI_CR204 {
 //
 union CSI_CR205 {
   
-  // Enum definitions.
-  
   // Bit field definition.
   struct {
     uint32_t PIXEL_COUNTERS : 24;
     uint32_t _reserved_end : 8;
-  } bits;          // Bit-field struct (auto-filling reserved gaps)
+  } bits;
   
   // Full 32-bit register value.
   uint32_t value;
@@ -4302,13 +3979,11 @@ union CSI_CR205 {
 //
 union CSI_CR206 {
   
-  // Enum definitions.
-  
   // Bit field definition.
   struct {
     uint32_t PIXEL_COUNTERS : 24;
     uint32_t _reserved_end : 8;
-  } bits;          // Bit-field struct (auto-filling reserved gaps)
+  } bits;
   
   // Full 32-bit register value.
   uint32_t value;
@@ -4321,13 +3996,11 @@ union CSI_CR206 {
 //
 union CSI_CR207 {
   
-  // Enum definitions.
-  
   // Bit field definition.
   struct {
     uint32_t PIXEL_COUNTERS : 24;
     uint32_t _reserved_end : 8;
-  } bits;          // Bit-field struct (auto-filling reserved gaps)
+  } bits;
   
   // Full 32-bit register value.
   uint32_t value;
@@ -4340,13 +4013,11 @@ union CSI_CR207 {
 //
 union CSI_CR208 {
   
-  // Enum definitions.
-  
   // Bit field definition.
   struct {
     uint32_t PIXEL_COUNTERS : 24;
     uint32_t _reserved_end : 8;
-  } bits;          // Bit-field struct (auto-filling reserved gaps)
+  } bits;
   
   // Full 32-bit register value.
   uint32_t value;
@@ -4359,13 +4030,11 @@ union CSI_CR208 {
 //
 union CSI_CR209 {
   
-  // Enum definitions.
-  
   // Bit field definition.
   struct {
     uint32_t PIXEL_COUNTERS : 24;
     uint32_t _reserved_end : 8;
-  } bits;          // Bit-field struct (auto-filling reserved gaps)
+  } bits;
   
   // Full 32-bit register value.
   uint32_t value;
@@ -4378,13 +4047,11 @@ union CSI_CR209 {
 //
 union CSI_CR210 {
   
-  // Enum definitions.
-  
   // Bit field definition.
   struct {
     uint32_t PIXEL_COUNTERS : 24;
     uint32_t _reserved_end : 8;
-  } bits;          // Bit-field struct (auto-filling reserved gaps)
+  } bits;
   
   // Full 32-bit register value.
   uint32_t value;
@@ -4397,13 +4064,11 @@ union CSI_CR210 {
 //
 union CSI_CR211 {
   
-  // Enum definitions.
-  
   // Bit field definition.
   struct {
     uint32_t PIXEL_COUNTERS : 24;
     uint32_t _reserved_end : 8;
-  } bits;          // Bit-field struct (auto-filling reserved gaps)
+  } bits;
   
   // Full 32-bit register value.
   uint32_t value;
@@ -4416,13 +4081,11 @@ union CSI_CR211 {
 //
 union CSI_CR212 {
   
-  // Enum definitions.
-  
   // Bit field definition.
   struct {
     uint32_t PIXEL_COUNTERS : 24;
     uint32_t _reserved_end : 8;
-  } bits;          // Bit-field struct (auto-filling reserved gaps)
+  } bits;
   
   // Full 32-bit register value.
   uint32_t value;
@@ -4435,13 +4098,11 @@ union CSI_CR212 {
 //
 union CSI_CR213 {
   
-  // Enum definitions.
-  
   // Bit field definition.
   struct {
     uint32_t PIXEL_COUNTERS : 24;
     uint32_t _reserved_end : 8;
-  } bits;          // Bit-field struct (auto-filling reserved gaps)
+  } bits;
   
   // Full 32-bit register value.
   uint32_t value;
@@ -4454,13 +4115,11 @@ union CSI_CR213 {
 //
 union CSI_CR214 {
   
-  // Enum definitions.
-  
   // Bit field definition.
   struct {
     uint32_t PIXEL_COUNTERS : 24;
     uint32_t _reserved_end : 8;
-  } bits;          // Bit-field struct (auto-filling reserved gaps)
+  } bits;
   
   // Full 32-bit register value.
   uint32_t value;
@@ -4473,13 +4132,11 @@ union CSI_CR214 {
 //
 union CSI_CR215 {
   
-  // Enum definitions.
-  
   // Bit field definition.
   struct {
     uint32_t PIXEL_COUNTERS : 24;
     uint32_t _reserved_end : 8;
-  } bits;          // Bit-field struct (auto-filling reserved gaps)
+  } bits;
   
   // Full 32-bit register value.
   uint32_t value;
@@ -4492,13 +4149,11 @@ union CSI_CR215 {
 //
 union CSI_CR216 {
   
-  // Enum definitions.
-  
   // Bit field definition.
   struct {
     uint32_t PIXEL_COUNTERS : 24;
     uint32_t _reserved_end : 8;
-  } bits;          // Bit-field struct (auto-filling reserved gaps)
+  } bits;
   
   // Full 32-bit register value.
   uint32_t value;
@@ -4511,13 +4166,11 @@ union CSI_CR216 {
 //
 union CSI_CR217 {
   
-  // Enum definitions.
-  
   // Bit field definition.
   struct {
     uint32_t PIXEL_COUNTERS : 24;
     uint32_t _reserved_end : 8;
-  } bits;          // Bit-field struct (auto-filling reserved gaps)
+  } bits;
   
   // Full 32-bit register value.
   uint32_t value;
@@ -4530,13 +4183,11 @@ union CSI_CR217 {
 //
 union CSI_CR218 {
   
-  // Enum definitions.
-  
   // Bit field definition.
   struct {
     uint32_t PIXEL_COUNTERS : 24;
     uint32_t _reserved_end : 8;
-  } bits;          // Bit-field struct (auto-filling reserved gaps)
+  } bits;
   
   // Full 32-bit register value.
   uint32_t value;
@@ -4549,13 +4200,11 @@ union CSI_CR218 {
 //
 union CSI_CR219 {
   
-  // Enum definitions.
-  
   // Bit field definition.
   struct {
     uint32_t PIXEL_COUNTERS : 24;
     uint32_t _reserved_end : 8;
-  } bits;          // Bit-field struct (auto-filling reserved gaps)
+  } bits;
   
   // Full 32-bit register value.
   uint32_t value;
@@ -4568,13 +4217,11 @@ union CSI_CR219 {
 //
 union CSI_CR220 {
   
-  // Enum definitions.
-  
   // Bit field definition.
   struct {
     uint32_t PIXEL_COUNTERS : 24;
     uint32_t _reserved_end : 8;
-  } bits;          // Bit-field struct (auto-filling reserved gaps)
+  } bits;
   
   // Full 32-bit register value.
   uint32_t value;
@@ -4587,13 +4234,11 @@ union CSI_CR220 {
 //
 union CSI_CR221 {
   
-  // Enum definitions.
-  
   // Bit field definition.
   struct {
     uint32_t PIXEL_COUNTERS : 24;
     uint32_t _reserved_end : 8;
-  } bits;          // Bit-field struct (auto-filling reserved gaps)
+  } bits;
   
   // Full 32-bit register value.
   uint32_t value;
@@ -4606,13 +4251,11 @@ union CSI_CR221 {
 //
 union CSI_CR222 {
   
-  // Enum definitions.
-  
   // Bit field definition.
   struct {
     uint32_t PIXEL_COUNTERS : 24;
     uint32_t _reserved_end : 8;
-  } bits;          // Bit-field struct (auto-filling reserved gaps)
+  } bits;
   
   // Full 32-bit register value.
   uint32_t value;
@@ -4625,13 +4268,11 @@ union CSI_CR222 {
 //
 union CSI_CR223 {
   
-  // Enum definitions.
-  
   // Bit field definition.
   struct {
     uint32_t PIXEL_COUNTERS : 24;
     uint32_t _reserved_end : 8;
-  } bits;          // Bit-field struct (auto-filling reserved gaps)
+  } bits;
   
   // Full 32-bit register value.
   uint32_t value;
@@ -4644,13 +4285,11 @@ union CSI_CR223 {
 //
 union CSI_CR224 {
   
-  // Enum definitions.
-  
   // Bit field definition.
   struct {
     uint32_t PIXEL_COUNTERS : 24;
     uint32_t _reserved_end : 8;
-  } bits;          // Bit-field struct (auto-filling reserved gaps)
+  } bits;
   
   // Full 32-bit register value.
   uint32_t value;
@@ -4663,13 +4302,11 @@ union CSI_CR224 {
 //
 union CSI_CR225 {
   
-  // Enum definitions.
-  
   // Bit field definition.
   struct {
     uint32_t PIXEL_COUNTERS : 24;
     uint32_t _reserved_end : 8;
-  } bits;          // Bit-field struct (auto-filling reserved gaps)
+  } bits;
   
   // Full 32-bit register value.
   uint32_t value;
@@ -4682,13 +4319,11 @@ union CSI_CR225 {
 //
 union CSI_CR226 {
   
-  // Enum definitions.
-  
   // Bit field definition.
   struct {
     uint32_t PIXEL_COUNTERS : 24;
     uint32_t _reserved_end : 8;
-  } bits;          // Bit-field struct (auto-filling reserved gaps)
+  } bits;
   
   // Full 32-bit register value.
   uint32_t value;
@@ -4701,13 +4336,11 @@ union CSI_CR226 {
 //
 union CSI_CR227 {
   
-  // Enum definitions.
-  
   // Bit field definition.
   struct {
     uint32_t PIXEL_COUNTERS : 24;
     uint32_t _reserved_end : 8;
-  } bits;          // Bit-field struct (auto-filling reserved gaps)
+  } bits;
   
   // Full 32-bit register value.
   uint32_t value;
@@ -4720,13 +4353,11 @@ union CSI_CR227 {
 //
 union CSI_CR228 {
   
-  // Enum definitions.
-  
   // Bit field definition.
   struct {
     uint32_t PIXEL_COUNTERS : 24;
     uint32_t _reserved_end : 8;
-  } bits;          // Bit-field struct (auto-filling reserved gaps)
+  } bits;
   
   // Full 32-bit register value.
   uint32_t value;
@@ -4739,13 +4370,11 @@ union CSI_CR228 {
 //
 union CSI_CR229 {
   
-  // Enum definitions.
-  
   // Bit field definition.
   struct {
     uint32_t PIXEL_COUNTERS : 24;
     uint32_t _reserved_end : 8;
-  } bits;          // Bit-field struct (auto-filling reserved gaps)
+  } bits;
   
   // Full 32-bit register value.
   uint32_t value;
@@ -4758,13 +4387,11 @@ union CSI_CR229 {
 //
 union CSI_CR230 {
   
-  // Enum definitions.
-  
   // Bit field definition.
   struct {
     uint32_t PIXEL_COUNTERS : 24;
     uint32_t _reserved_end : 8;
-  } bits;          // Bit-field struct (auto-filling reserved gaps)
+  } bits;
   
   // Full 32-bit register value.
   uint32_t value;
@@ -4777,13 +4404,11 @@ union CSI_CR230 {
 //
 union CSI_CR231 {
   
-  // Enum definitions.
-  
   // Bit field definition.
   struct {
     uint32_t PIXEL_COUNTERS : 24;
     uint32_t _reserved_end : 8;
-  } bits;          // Bit-field struct (auto-filling reserved gaps)
+  } bits;
   
   // Full 32-bit register value.
   uint32_t value;
@@ -4796,13 +4421,11 @@ union CSI_CR231 {
 //
 union CSI_CR232 {
   
-  // Enum definitions.
-  
   // Bit field definition.
   struct {
     uint32_t PIXEL_COUNTERS : 24;
     uint32_t _reserved_end : 8;
-  } bits;          // Bit-field struct (auto-filling reserved gaps)
+  } bits;
   
   // Full 32-bit register value.
   uint32_t value;
@@ -4815,13 +4438,11 @@ union CSI_CR232 {
 //
 union CSI_CR233 {
   
-  // Enum definitions.
-  
   // Bit field definition.
   struct {
     uint32_t PIXEL_COUNTERS : 24;
     uint32_t _reserved_end : 8;
-  } bits;          // Bit-field struct (auto-filling reserved gaps)
+  } bits;
   
   // Full 32-bit register value.
   uint32_t value;
@@ -4834,13 +4455,11 @@ union CSI_CR233 {
 //
 union CSI_CR234 {
   
-  // Enum definitions.
-  
   // Bit field definition.
   struct {
     uint32_t PIXEL_COUNTERS : 24;
     uint32_t _reserved_end : 8;
-  } bits;          // Bit-field struct (auto-filling reserved gaps)
+  } bits;
   
   // Full 32-bit register value.
   uint32_t value;
@@ -4853,13 +4472,11 @@ union CSI_CR234 {
 //
 union CSI_CR235 {
   
-  // Enum definitions.
-  
   // Bit field definition.
   struct {
     uint32_t PIXEL_COUNTERS : 24;
     uint32_t _reserved_end : 8;
-  } bits;          // Bit-field struct (auto-filling reserved gaps)
+  } bits;
   
   // Full 32-bit register value.
   uint32_t value;
@@ -4872,13 +4489,11 @@ union CSI_CR235 {
 //
 union CSI_CR236 {
   
-  // Enum definitions.
-  
   // Bit field definition.
   struct {
     uint32_t PIXEL_COUNTERS : 24;
     uint32_t _reserved_end : 8;
-  } bits;          // Bit-field struct (auto-filling reserved gaps)
+  } bits;
   
   // Full 32-bit register value.
   uint32_t value;
@@ -4891,13 +4506,11 @@ union CSI_CR236 {
 //
 union CSI_CR237 {
   
-  // Enum definitions.
-  
   // Bit field definition.
   struct {
     uint32_t PIXEL_COUNTERS : 24;
     uint32_t _reserved_end : 8;
-  } bits;          // Bit-field struct (auto-filling reserved gaps)
+  } bits;
   
   // Full 32-bit register value.
   uint32_t value;
@@ -4910,13 +4523,11 @@ union CSI_CR237 {
 //
 union CSI_CR238 {
   
-  // Enum definitions.
-  
   // Bit field definition.
   struct {
     uint32_t PIXEL_COUNTERS : 24;
     uint32_t _reserved_end : 8;
-  } bits;          // Bit-field struct (auto-filling reserved gaps)
+  } bits;
   
   // Full 32-bit register value.
   uint32_t value;
@@ -4929,13 +4540,11 @@ union CSI_CR238 {
 //
 union CSI_CR239 {
   
-  // Enum definitions.
-  
   // Bit field definition.
   struct {
     uint32_t PIXEL_COUNTERS : 24;
     uint32_t _reserved_end : 8;
-  } bits;          // Bit-field struct (auto-filling reserved gaps)
+  } bits;
   
   // Full 32-bit register value.
   uint32_t value;
@@ -4948,13 +4557,11 @@ union CSI_CR239 {
 //
 union CSI_CR240 {
   
-  // Enum definitions.
-  
   // Bit field definition.
   struct {
     uint32_t PIXEL_COUNTERS : 24;
     uint32_t _reserved_end : 8;
-  } bits;          // Bit-field struct (auto-filling reserved gaps)
+  } bits;
   
   // Full 32-bit register value.
   uint32_t value;
@@ -4967,13 +4574,11 @@ union CSI_CR240 {
 //
 union CSI_CR241 {
   
-  // Enum definitions.
-  
   // Bit field definition.
   struct {
     uint32_t PIXEL_COUNTERS : 24;
     uint32_t _reserved_end : 8;
-  } bits;          // Bit-field struct (auto-filling reserved gaps)
+  } bits;
   
   // Full 32-bit register value.
   uint32_t value;
@@ -4986,13 +4591,11 @@ union CSI_CR241 {
 //
 union CSI_CR242 {
   
-  // Enum definitions.
-  
   // Bit field definition.
   struct {
     uint32_t PIXEL_COUNTERS : 24;
     uint32_t _reserved_end : 8;
-  } bits;          // Bit-field struct (auto-filling reserved gaps)
+  } bits;
   
   // Full 32-bit register value.
   uint32_t value;
@@ -5005,13 +4608,11 @@ union CSI_CR242 {
 //
 union CSI_CR243 {
   
-  // Enum definitions.
-  
   // Bit field definition.
   struct {
     uint32_t PIXEL_COUNTERS : 24;
     uint32_t _reserved_end : 8;
-  } bits;          // Bit-field struct (auto-filling reserved gaps)
+  } bits;
   
   // Full 32-bit register value.
   uint32_t value;
@@ -5024,13 +4625,11 @@ union CSI_CR243 {
 //
 union CSI_CR244 {
   
-  // Enum definitions.
-  
   // Bit field definition.
   struct {
     uint32_t PIXEL_COUNTERS : 24;
     uint32_t _reserved_end : 8;
-  } bits;          // Bit-field struct (auto-filling reserved gaps)
+  } bits;
   
   // Full 32-bit register value.
   uint32_t value;
@@ -5043,13 +4642,11 @@ union CSI_CR244 {
 //
 union CSI_CR245 {
   
-  // Enum definitions.
-  
   // Bit field definition.
   struct {
     uint32_t PIXEL_COUNTERS : 24;
     uint32_t _reserved_end : 8;
-  } bits;          // Bit-field struct (auto-filling reserved gaps)
+  } bits;
   
   // Full 32-bit register value.
   uint32_t value;
@@ -5062,13 +4659,11 @@ union CSI_CR245 {
 //
 union CSI_CR246 {
   
-  // Enum definitions.
-  
   // Bit field definition.
   struct {
     uint32_t PIXEL_COUNTERS : 24;
     uint32_t _reserved_end : 8;
-  } bits;          // Bit-field struct (auto-filling reserved gaps)
+  } bits;
   
   // Full 32-bit register value.
   uint32_t value;
@@ -5081,13 +4676,11 @@ union CSI_CR246 {
 //
 union CSI_CR247 {
   
-  // Enum definitions.
-  
   // Bit field definition.
   struct {
     uint32_t PIXEL_COUNTERS : 24;
     uint32_t _reserved_end : 8;
-  } bits;          // Bit-field struct (auto-filling reserved gaps)
+  } bits;
   
   // Full 32-bit register value.
   uint32_t value;
@@ -5100,13 +4693,11 @@ union CSI_CR247 {
 //
 union CSI_CR248 {
   
-  // Enum definitions.
-  
   // Bit field definition.
   struct {
     uint32_t PIXEL_COUNTERS : 24;
     uint32_t _reserved_end : 8;
-  } bits;          // Bit-field struct (auto-filling reserved gaps)
+  } bits;
   
   // Full 32-bit register value.
   uint32_t value;
@@ -5119,13 +4710,11 @@ union CSI_CR248 {
 //
 union CSI_CR249 {
   
-  // Enum definitions.
-  
   // Bit field definition.
   struct {
     uint32_t PIXEL_COUNTERS : 24;
     uint32_t _reserved_end : 8;
-  } bits;          // Bit-field struct (auto-filling reserved gaps)
+  } bits;
   
   // Full 32-bit register value.
   uint32_t value;
@@ -5138,13 +4727,11 @@ union CSI_CR249 {
 //
 union CSI_CR250 {
   
-  // Enum definitions.
-  
   // Bit field definition.
   struct {
     uint32_t PIXEL_COUNTERS : 24;
     uint32_t _reserved_end : 8;
-  } bits;          // Bit-field struct (auto-filling reserved gaps)
+  } bits;
   
   // Full 32-bit register value.
   uint32_t value;
@@ -5157,13 +4744,11 @@ union CSI_CR250 {
 //
 union CSI_CR251 {
   
-  // Enum definitions.
-  
   // Bit field definition.
   struct {
     uint32_t PIXEL_COUNTERS : 24;
     uint32_t _reserved_end : 8;
-  } bits;          // Bit-field struct (auto-filling reserved gaps)
+  } bits;
   
   // Full 32-bit register value.
   uint32_t value;
@@ -5176,13 +4761,11 @@ union CSI_CR251 {
 //
 union CSI_CR252 {
   
-  // Enum definitions.
-  
   // Bit field definition.
   struct {
     uint32_t PIXEL_COUNTERS : 24;
     uint32_t _reserved_end : 8;
-  } bits;          // Bit-field struct (auto-filling reserved gaps)
+  } bits;
   
   // Full 32-bit register value.
   uint32_t value;
@@ -5195,13 +4778,11 @@ union CSI_CR252 {
 //
 union CSI_CR253 {
   
-  // Enum definitions.
-  
   // Bit field definition.
   struct {
     uint32_t PIXEL_COUNTERS : 24;
     uint32_t _reserved_end : 8;
-  } bits;          // Bit-field struct (auto-filling reserved gaps)
+  } bits;
   
   // Full 32-bit register value.
   uint32_t value;
@@ -5214,13 +4795,11 @@ union CSI_CR253 {
 //
 union CSI_CR254 {
   
-  // Enum definitions.
-  
   // Bit field definition.
   struct {
     uint32_t PIXEL_COUNTERS : 24;
     uint32_t _reserved_end : 8;
-  } bits;          // Bit-field struct (auto-filling reserved gaps)
+  } bits;
   
   // Full 32-bit register value.
   uint32_t value;
@@ -5233,13 +4812,11 @@ union CSI_CR254 {
 //
 union CSI_CR255 {
   
-  // Enum definitions.
-  
   // Bit field definition.
   struct {
     uint32_t PIXEL_COUNTERS : 24;
     uint32_t _reserved_end : 8;
-  } bits;          // Bit-field struct (auto-filling reserved gaps)
+  } bits;
   
   // Full 32-bit register value.
   uint32_t value;
@@ -5252,13 +4829,11 @@ union CSI_CR255 {
 //
 union CSI_CR256 {
   
-  // Enum definitions.
-  
   // Bit field definition.
   struct {
     uint32_t PIXEL_COUNTERS : 24;
     uint32_t _reserved_end : 8;
-  } bits;          // Bit-field struct (auto-filling reserved gaps)
+  } bits;
   
   // Full 32-bit register value.
   uint32_t value;
@@ -5271,13 +4846,11 @@ union CSI_CR256 {
 //
 union CSI_CR257 {
   
-  // Enum definitions.
-  
   // Bit field definition.
   struct {
     uint32_t PIXEL_COUNTERS : 24;
     uint32_t _reserved_end : 8;
-  } bits;          // Bit-field struct (auto-filling reserved gaps)
+  } bits;
   
   // Full 32-bit register value.
   uint32_t value;
@@ -5290,13 +4863,11 @@ union CSI_CR257 {
 //
 union CSI_CR258 {
   
-  // Enum definitions.
-  
   // Bit field definition.
   struct {
     uint32_t PIXEL_COUNTERS : 24;
     uint32_t _reserved_end : 8;
-  } bits;          // Bit-field struct (auto-filling reserved gaps)
+  } bits;
   
   // Full 32-bit register value.
   uint32_t value;
@@ -5309,13 +4880,11 @@ union CSI_CR258 {
 //
 union CSI_CR259 {
   
-  // Enum definitions.
-  
   // Bit field definition.
   struct {
     uint32_t PIXEL_COUNTERS : 24;
     uint32_t _reserved_end : 8;
-  } bits;          // Bit-field struct (auto-filling reserved gaps)
+  } bits;
   
   // Full 32-bit register value.
   uint32_t value;
@@ -5328,13 +4897,11 @@ union CSI_CR259 {
 //
 union CSI_CR260 {
   
-  // Enum definitions.
-  
   // Bit field definition.
   struct {
     uint32_t PIXEL_COUNTERS : 24;
     uint32_t _reserved_end : 8;
-  } bits;          // Bit-field struct (auto-filling reserved gaps)
+  } bits;
   
   // Full 32-bit register value.
   uint32_t value;
@@ -5347,13 +4914,11 @@ union CSI_CR260 {
 //
 union CSI_CR261 {
   
-  // Enum definitions.
-  
   // Bit field definition.
   struct {
     uint32_t PIXEL_COUNTERS : 24;
     uint32_t _reserved_end : 8;
-  } bits;          // Bit-field struct (auto-filling reserved gaps)
+  } bits;
   
   // Full 32-bit register value.
   uint32_t value;
@@ -5366,13 +4931,11 @@ union CSI_CR261 {
 //
 union CSI_CR262 {
   
-  // Enum definitions.
-  
   // Bit field definition.
   struct {
     uint32_t PIXEL_COUNTERS : 24;
     uint32_t _reserved_end : 8;
-  } bits;          // Bit-field struct (auto-filling reserved gaps)
+  } bits;
   
   // Full 32-bit register value.
   uint32_t value;
@@ -5385,13 +4948,11 @@ union CSI_CR262 {
 //
 union CSI_CR263 {
   
-  // Enum definitions.
-  
   // Bit field definition.
   struct {
     uint32_t PIXEL_COUNTERS : 24;
     uint32_t _reserved_end : 8;
-  } bits;          // Bit-field struct (auto-filling reserved gaps)
+  } bits;
   
   // Full 32-bit register value.
   uint32_t value;
@@ -5404,13 +4965,11 @@ union CSI_CR263 {
 //
 union CSI_CR264 {
   
-  // Enum definitions.
-  
   // Bit field definition.
   struct {
     uint32_t PIXEL_COUNTERS : 24;
     uint32_t _reserved_end : 8;
-  } bits;          // Bit-field struct (auto-filling reserved gaps)
+  } bits;
   
   // Full 32-bit register value.
   uint32_t value;
@@ -5423,13 +4982,11 @@ union CSI_CR264 {
 //
 union CSI_CR265 {
   
-  // Enum definitions.
-  
   // Bit field definition.
   struct {
     uint32_t PIXEL_COUNTERS : 24;
     uint32_t _reserved_end : 8;
-  } bits;          // Bit-field struct (auto-filling reserved gaps)
+  } bits;
   
   // Full 32-bit register value.
   uint32_t value;
@@ -5442,13 +4999,11 @@ union CSI_CR265 {
 //
 union CSI_CR266 {
   
-  // Enum definitions.
-  
   // Bit field definition.
   struct {
     uint32_t PIXEL_COUNTERS : 24;
     uint32_t _reserved_end : 8;
-  } bits;          // Bit-field struct (auto-filling reserved gaps)
+  } bits;
   
   // Full 32-bit register value.
   uint32_t value;
@@ -5461,13 +5016,11 @@ union CSI_CR266 {
 //
 union CSI_CR267 {
   
-  // Enum definitions.
-  
   // Bit field definition.
   struct {
     uint32_t PIXEL_COUNTERS : 24;
     uint32_t _reserved_end : 8;
-  } bits;          // Bit-field struct (auto-filling reserved gaps)
+  } bits;
   
   // Full 32-bit register value.
   uint32_t value;
@@ -5480,13 +5033,11 @@ union CSI_CR267 {
 //
 union CSI_CR268 {
   
-  // Enum definitions.
-  
   // Bit field definition.
   struct {
     uint32_t PIXEL_COUNTERS : 24;
     uint32_t _reserved_end : 8;
-  } bits;          // Bit-field struct (auto-filling reserved gaps)
+  } bits;
   
   // Full 32-bit register value.
   uint32_t value;
@@ -5499,13 +5050,11 @@ union CSI_CR268 {
 //
 union CSI_CR269 {
   
-  // Enum definitions.
-  
   // Bit field definition.
   struct {
     uint32_t PIXEL_COUNTERS : 24;
     uint32_t _reserved_end : 8;
-  } bits;          // Bit-field struct (auto-filling reserved gaps)
+  } bits;
   
   // Full 32-bit register value.
   uint32_t value;
@@ -5518,13 +5067,11 @@ union CSI_CR269 {
 //
 union CSI_CR270 {
   
-  // Enum definitions.
-  
   // Bit field definition.
   struct {
     uint32_t PIXEL_COUNTERS : 24;
     uint32_t _reserved_end : 8;
-  } bits;          // Bit-field struct (auto-filling reserved gaps)
+  } bits;
   
   // Full 32-bit register value.
   uint32_t value;
@@ -5537,13 +5084,11 @@ union CSI_CR270 {
 //
 union CSI_CR271 {
   
-  // Enum definitions.
-  
   // Bit field definition.
   struct {
     uint32_t PIXEL_COUNTERS : 24;
     uint32_t _reserved_end : 8;
-  } bits;          // Bit-field struct (auto-filling reserved gaps)
+  } bits;
   
   // Full 32-bit register value.
   uint32_t value;
@@ -5556,13 +5101,11 @@ union CSI_CR271 {
 //
 union CSI_CR272 {
   
-  // Enum definitions.
-  
   // Bit field definition.
   struct {
     uint32_t PIXEL_COUNTERS : 24;
     uint32_t _reserved_end : 8;
-  } bits;          // Bit-field struct (auto-filling reserved gaps)
+  } bits;
   
   // Full 32-bit register value.
   uint32_t value;
@@ -5575,13 +5118,11 @@ union CSI_CR272 {
 //
 union CSI_CR273 {
   
-  // Enum definitions.
-  
   // Bit field definition.
   struct {
     uint32_t PIXEL_COUNTERS : 24;
     uint32_t _reserved_end : 8;
-  } bits;          // Bit-field struct (auto-filling reserved gaps)
+  } bits;
   
   // Full 32-bit register value.
   uint32_t value;
@@ -5594,13 +5135,11 @@ union CSI_CR273 {
 //
 union CSI_CR274 {
   
-  // Enum definitions.
-  
   // Bit field definition.
   struct {
     uint32_t PIXEL_COUNTERS : 24;
     uint32_t _reserved_end : 8;
-  } bits;          // Bit-field struct (auto-filling reserved gaps)
+  } bits;
   
   // Full 32-bit register value.
   uint32_t value;
@@ -5613,13 +5152,11 @@ union CSI_CR274 {
 //
 union CSI_CR275 {
   
-  // Enum definitions.
-  
   // Bit field definition.
   struct {
     uint32_t PIXEL_COUNTERS : 24;
     uint32_t _reserved_end : 8;
-  } bits;          // Bit-field struct (auto-filling reserved gaps)
+  } bits;
   
   // Full 32-bit register value.
   uint32_t value;
@@ -5632,13 +5169,11 @@ union CSI_CR275 {
 //
 union CSI_CR276 {
   
-  // Enum definitions.
-  
   // Bit field definition.
   struct {
     uint32_t PIXEL_COUNTERS : 24;
     uint32_t _reserved_end : 8;
-  } bits;          // Bit-field struct (auto-filling reserved gaps)
+  } bits;
   
   // Full 32-bit register value.
   uint32_t value;

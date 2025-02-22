@@ -15,8 +15,6 @@ namespace nPGMC_CPC1 {
 //
 union CPC_AUTHEN_CTRL {
   
-  // Enum definitions.
-  
   // Bit field definition.
   struct {
     uint32_t USER : 1;
@@ -29,7 +27,7 @@ union CPC_AUTHEN_CTRL {
     uint32_t _reserved_5 : 7;
     uint32_t LOCK_CFG : 1;
     uint32_t _reserved_end : 11;
-  } bits;          // Bit-field struct (auto-filling reserved gaps)
+  } bits;
   
   // Full 32-bit register value.
   uint32_t value;
@@ -43,7 +41,6 @@ union CPC_AUTHEN_CTRL {
 //
 union CPC_CORE_MODE {
   
-  // Enum definitions.
   enum class eCTRL_MODE : uint32_t {
     eCTRL_MODE_0 = 0, // Not affected by any low power mode
     eCTRL_MODE_1 = 1, // Controlled by CPU power mode of the domain
@@ -53,7 +50,7 @@ union CPC_CORE_MODE {
   struct {
     eCTRL_MODE CTRL_MODE : 2;
     uint32_t _reserved_end : 30;
-  } bits;          // Bit-field struct (auto-filling reserved gaps)
+  } bits;
   
   // Full 32-bit register value.
   uint32_t value;
@@ -67,8 +64,6 @@ union CPC_CORE_MODE {
 //
 union CPC_CORE_POWER_CTRL {
   
-  // Enum definitions.
-  
   // Bit field definition.
   struct {
     uint32_t _reserved_0 : 1;
@@ -81,7 +76,7 @@ union CPC_CORE_POWER_CTRL {
     uint32_t PSW_ON_SOFT : 1;
     uint32_t ISO_OFF_SOFT : 1;
     uint32_t _reserved_end : 20;
-  } bits;          // Bit-field struct (auto-filling reserved gaps)
+  } bits;
   
   // Full 32-bit register value.
   uint32_t value;
@@ -95,13 +90,11 @@ union CPC_CORE_POWER_CTRL {
 //
 union CPC_FLAG {
   
-  // Enum definitions.
-  
   // Bit field definition.
   struct {
     uint32_t CORE_PDN_FLAG : 1;
     uint32_t _reserved_end : 31;
-  } bits;          // Bit-field struct (auto-filling reserved gaps)
+  } bits;
   
   // Full 32-bit register value.
   uint32_t value;
@@ -115,7 +108,6 @@ union CPC_FLAG {
 //
 union CPC_CACHE_MODE {
   
-  // Enum definitions.
   enum class eCTRL_MODE : uint32_t {
     eCTRL_MODE_0 = 0, // Not affected by any low power mode
     eCTRL_MODE_1 = 1, // Controlled by CPU power mode of the domain
@@ -126,7 +118,7 @@ union CPC_CACHE_MODE {
   struct {
     eCTRL_MODE CTRL_MODE : 2;
     uint32_t _reserved_end : 30;
-  } bits;          // Bit-field struct (auto-filling reserved gaps)
+  } bits;
   
   // Full 32-bit register value.
   uint32_t value;
@@ -140,8 +132,6 @@ union CPC_CACHE_MODE {
 //
 union CPC_CACHE_CM_CTRL {
   
-  // Enum definitions.
-  
   // Bit field definition.
   struct {
     uint32_t MLPL_AT_RUN : 4;
@@ -150,7 +140,7 @@ union CPC_CACHE_CM_CTRL {
     uint32_t MLPL_AT_SUSPEND : 4;
     uint32_t MLPL_SOFT : 1;
     uint32_t _reserved_end : 15;
-  } bits;          // Bit-field struct (auto-filling reserved gaps)
+  } bits;
   
   // Full 32-bit register value.
   uint32_t value;
@@ -164,8 +154,6 @@ union CPC_CACHE_CM_CTRL {
 //
 union CPC_CACHE_SP_CTRL_0 {
   
-  // Enum definitions.
-  
   // Bit field definition.
   struct {
     uint32_t MLPL_AT_SP0 : 4;
@@ -176,7 +164,7 @@ union CPC_CACHE_SP_CTRL_0 {
     uint32_t MLPL_AT_SP5 : 4;
     uint32_t MLPL_AT_SP6 : 4;
     uint32_t MLPL_AT_SP7 : 4;
-  } bits;          // Bit-field struct (auto-filling reserved gaps)
+  } bits;
   
   // Full 32-bit register value.
   uint32_t value;
@@ -190,8 +178,6 @@ union CPC_CACHE_SP_CTRL_0 {
 //
 union CPC_CACHE_SP_CTRL_1 {
   
-  // Enum definitions.
-  
   // Bit field definition.
   struct {
     uint32_t MLPL_AT_SP8 : 4;
@@ -202,7 +188,7 @@ union CPC_CACHE_SP_CTRL_1 {
     uint32_t MLPL_AT_SP13 : 4;
     uint32_t MLPL_AT_SP14 : 4;
     uint32_t MLPL_AT_SP15 : 4;
-  } bits;          // Bit-field struct (auto-filling reserved gaps)
+  } bits;
   
   // Full 32-bit register value.
   uint32_t value;
@@ -216,7 +202,6 @@ union CPC_CACHE_SP_CTRL_1 {
 //
 union CPC_LMEM_MODE {
   
-  // Enum definitions.
   enum class eCTRL_MODE : uint32_t {
     eCTRL_MODE_0 = 0, // Not affected by any low power mode
     eCTRL_MODE_1 = 1, // Controlled by CPU power mode of the domain
@@ -227,7 +212,7 @@ union CPC_LMEM_MODE {
   struct {
     eCTRL_MODE CTRL_MODE : 2;
     uint32_t _reserved_end : 30;
-  } bits;          // Bit-field struct (auto-filling reserved gaps)
+  } bits;
   
   // Full 32-bit register value.
   uint32_t value;
@@ -241,8 +226,6 @@ union CPC_LMEM_MODE {
 //
 union CPC_LMEM_CM_CTRL {
   
-  // Enum definitions.
-  
   // Bit field definition.
   struct {
     uint32_t MLPL_AT_RUN : 4;
@@ -251,7 +234,7 @@ union CPC_LMEM_CM_CTRL {
     uint32_t MLPL_AT_SUSPEND : 4;
     uint32_t MLPL_SOFT : 1;
     uint32_t _reserved_end : 15;
-  } bits;          // Bit-field struct (auto-filling reserved gaps)
+  } bits;
   
   // Full 32-bit register value.
   uint32_t value;
@@ -265,8 +248,6 @@ union CPC_LMEM_CM_CTRL {
 //
 union CPC_LMEM_SP_CTRL_0 {
   
-  // Enum definitions.
-  
   // Bit field definition.
   struct {
     uint32_t MLPL_AT_SP0 : 4;
@@ -277,7 +258,7 @@ union CPC_LMEM_SP_CTRL_0 {
     uint32_t MLPL_AT_SP5 : 4;
     uint32_t MLPL_AT_SP6 : 4;
     uint32_t MLPL_AT_SP7 : 4;
-  } bits;          // Bit-field struct (auto-filling reserved gaps)
+  } bits;
   
   // Full 32-bit register value.
   uint32_t value;
@@ -291,8 +272,6 @@ union CPC_LMEM_SP_CTRL_0 {
 //
 union CPC_LMEM_SP_CTRL_1 {
   
-  // Enum definitions.
-  
   // Bit field definition.
   struct {
     uint32_t MLPL_AT_SP8 : 4;
@@ -303,7 +282,7 @@ union CPC_LMEM_SP_CTRL_1 {
     uint32_t MLPL_AT_SP13 : 4;
     uint32_t MLPL_AT_SP14 : 4;
     uint32_t MLPL_AT_SP15 : 4;
-  } bits;          // Bit-field struct (auto-filling reserved gaps)
+  } bits;
   
   // Full 32-bit register value.
   uint32_t value;

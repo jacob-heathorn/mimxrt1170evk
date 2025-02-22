@@ -15,13 +15,11 @@ namespace nMCM {
 //
 union MCM_PLREV {
   
-  // Enum definitions.
-  
   // Bit field definition.
   struct {
     uint32_t PLREV : 16;
     uint32_t _reserved_end : 16;
-  } bits;          // Bit-field struct (auto-filling reserved gaps)
+  } bits;
   
   // Full 32-bit register value.
   uint32_t value;
@@ -35,7 +33,6 @@ union MCM_PLREV {
 //
 union MCM_PCT {
   
-  // Enum definitions.
   enum class ePCT : uint32_t {
     ePCT_44096 = 44096, // ARM Cortex M4
   };
@@ -44,7 +41,7 @@ union MCM_PCT {
   struct {
     ePCT PCT : 16;
     uint32_t _reserved_end : 16;
-  } bits;          // Bit-field struct (auto-filling reserved gaps)
+  } bits;
   
   // Full 32-bit register value.
   uint32_t value;
@@ -58,8 +55,6 @@ union MCM_PCT {
 //
 union MCM_MEMCFG {
   
-  // Enum definitions.
-  
   // Bit field definition.
   struct {
     uint32_t _reserved_0 : 2;
@@ -67,7 +62,7 @@ union MCM_MEMCFG {
     uint32_t _reserved_1 : 2;
     uint32_t TCRAMLSZ : 4;
     uint32_t _reserved_end : 20;
-  } bits;          // Bit-field struct (auto-filling reserved gaps)
+  } bits;
   
   // Full 32-bit register value.
   uint32_t value;
@@ -81,7 +76,6 @@ union MCM_MEMCFG {
 //
 union MCM_PLASC {
   
-  // Enum definitions.
   enum class eASC : uint32_t {
     eASC_0 = 0, // A bus slave connection to AXBS input port n is absent
     eASC_1 = 1, // A bus slave connection to AXBS input port n is present
@@ -91,7 +85,7 @@ union MCM_PLASC {
   struct {
     eASC ASC : 8;
     uint32_t _reserved_end : 24;
-  } bits;          // Bit-field struct (auto-filling reserved gaps)
+  } bits;
   
   // Full 32-bit register value.
   uint32_t value;
@@ -105,7 +99,6 @@ union MCM_PLASC {
 //
 union MCM_PLAMC {
   
-  // Enum definitions.
   enum class eAMC : uint32_t {
     eAMC_0 = 0, // A bus master connection to AXBS input port n is absent
     eAMC_1 = 1, // A bus master connection to AXBS input port n is present
@@ -115,7 +108,7 @@ union MCM_PLAMC {
   struct {
     eAMC AMC : 8;
     uint32_t _reserved_end : 24;
-  } bits;          // Bit-field struct (auto-filling reserved gaps)
+  } bits;
   
   // Full 32-bit register value.
   uint32_t value;
@@ -129,17 +122,18 @@ union MCM_PLAMC {
 //
 union MCM_CR {
   
-  // Enum definitions.
   enum class eCBRR : uint32_t {
     eCBRR_0 = 0, // Fixed-priority arbitration
     eCBRR_1 = 1, // Round-robin arbitration
   };
+  
   enum class eSTCMAP : uint32_t {
     eSTCMAP_0 = 0, // Round robin
     eSTCMAP_1 = 1, // Special round robin (favors TCM backoor accesses over the processor)
     eSTCMAP_2 = 2, // Fixed priority. Processor has highest, backdoor has lowest
     eSTCMAP_3 = 3, // Fixed priority. Backdoor has highest, processor has lowest
   };
+  
   enum class eCTCMAP : uint32_t {
     eCTCMAP_0 = 0, // Round robin
     eCTCMAP_1 = 1, // Special round robin (favors TCM backoor accesses over the processor)
@@ -158,7 +152,7 @@ union MCM_CR {
     eCTCMAP CTCMAP : 2;
     uint32_t CTCMWP : 1;
     uint32_t _reserved_end : 1;
-  } bits;          // Bit-field struct (auto-filling reserved gaps)
+  } bits;
   
   // Full 32-bit register value.
   uint32_t value;
@@ -172,59 +166,71 @@ union MCM_CR {
 //
 union MCM_ISCR {
   
-  // Enum definitions.
   enum class eCWBER : uint32_t {
     eCWBER_0 = 0, // No error
     eCWBER_1 = 1, // Error occurred
   };
+  
   enum class eFIOC : uint32_t {
     eFIOC_0 = 0, // No interrupt
     eFIOC_1 = 1, // Interrupt occurred
   };
+  
   enum class eFDZC : uint32_t {
     eFDZC_0 = 0, // No interrupt
     eFDZC_1 = 1, // Interrupt occurred
   };
+  
   enum class eFOFC : uint32_t {
     eFOFC_0 = 0, // No interrupt
     eFOFC_1 = 1, // Interrupt occurred
   };
+  
   enum class eFUFC : uint32_t {
     eFUFC_0 = 0, // No interrupt
     eFUFC_1 = 1, // Interrupt occurred
   };
+  
   enum class eFIXC : uint32_t {
     eFIXC_0 = 0, // No interrupt
     eFIXC_1 = 1, // Interrupt occurred
   };
+  
   enum class eFIDC : uint32_t {
     eFIDC_0 = 0, // No interrupt
     eFIDC_1 = 1, // Interrupt occurred
   };
+  
   enum class eCWBEE : uint32_t {
     eCWBEE_0 = 0, // Disable error interrupt
     eCWBEE_1 = 1, // Enable error interrupt
   };
+  
   enum class eFIOCE : uint32_t {
     eFIOCE_0 = 0, // Disable interrupt
     eFIOCE_1 = 1, // Enable interrupt
   };
+  
   enum class eFDZCE : uint32_t {
     eFDZCE_0 = 0, // Disable interrupt
     eFDZCE_1 = 1, // Enable interrupt
   };
+  
   enum class eFOFCE : uint32_t {
     eFOFCE_0 = 0, // Disable interrupt
     eFOFCE_1 = 1, // Enable interrupt
   };
+  
   enum class eFUFCE : uint32_t {
     eFUFCE_0 = 0, // Disable interrupt
     eFUFCE_1 = 1, // Enable interrupt
   };
+  
   enum class eFIXCE : uint32_t {
     eFIXCE_0 = 0, // Disable interrupt
     eFIXCE_1 = 1, // Enable interrupt
   };
+  
   enum class eFIDCE : uint32_t {
     eFIDCE_0 = 0, // Disable interrupt
     eFIDCE_1 = 1, // Enable interrupt
@@ -252,7 +258,7 @@ union MCM_ISCR {
     eFIXCE FIXCE : 1;
     uint32_t _reserved_13 : 2;
     eFIDCE FIDCE : 1;
-  } bits;          // Bit-field struct (auto-filling reserved gaps)
+  } bits;
   
   // Full 32-bit register value.
   uint32_t value;
@@ -266,12 +272,10 @@ union MCM_ISCR {
 //
 union MCM_FADR {
   
-  // Enum definitions.
-  
   // Bit field definition.
   struct {
     uint32_t ADDRESS : 32;
-  } bits;          // Bit-field struct (auto-filling reserved gaps)
+  } bits;
   
   // Full 32-bit register value.
   uint32_t value;
@@ -285,24 +289,27 @@ union MCM_FADR {
 //
 union MCM_FATR {
   
-  // Enum definitions.
   enum class eBEDA : uint32_t {
     eBEDA_0 = 0, // Instruction
     eBEDA_1 = 1, // Data
   };
+  
   enum class eBEMD : uint32_t {
     eBEMD_0 = 0, // User mode
     eBEMD_1 = 1, // Supervisor/privileged mode
   };
+  
   enum class eBESZ : uint32_t {
     eBESZ_0 = 0, // 8-bit access
     eBESZ_1 = 1, // 16-bit access
     eBESZ_2 = 2, // 32-bit access
   };
+  
   enum class eBEWT : uint32_t {
     eBEWT_0 = 0, // Read access
     eBEWT_1 = 1, // Write access
   };
+  
   enum class eBEOVR : uint32_t {
     eBEOVR_0 = 0, // No bus error overrun
     eBEOVR_1 = 1, // Bus error overrun occurred. The FADR and FDR registers and the other FATR bits are not updated to reflect this new bus error.
@@ -319,7 +326,7 @@ union MCM_FATR {
     uint32_t BEMN : 4;
     uint32_t _reserved_5 : 19;
     eBEOVR BEOVR : 1;
-  } bits;          // Bit-field struct (auto-filling reserved gaps)
+  } bits;
   
   // Full 32-bit register value.
   uint32_t value;
@@ -333,12 +340,10 @@ union MCM_FATR {
 //
 union MCM_FDR {
   
-  // Enum definitions.
-  
   // Bit field definition.
   struct {
     uint32_t DATA : 32;
-  } bits;          // Bit-field struct (auto-filling reserved gaps)
+  } bits;
   
   // Full 32-bit register value.
   uint32_t value;
@@ -352,26 +357,29 @@ union MCM_FDR {
 //
 union MCM_LMDR0 {
   
-  // Enum definitions.
   enum class eMT : uint32_t {
     eMT_0 = 0, // code TCM
     eMT_1 = 1, // system TCM
     eMT_2 = 2, // PC Cache
     eMT_3 = 3, // PS Cache
   };
+  
   enum class eRO : uint32_t {
     eRO_0 = 0, // Writes to the LMDRn[7:0] are allowed.
     eRO_1 = 1, // Writes to the LMDRn[7:0] are ignored.
   };
+  
   enum class eDPW : uint32_t {
     eDPW_2 = 2, // LMEMn 32-bits wide
     eDPW_3 = 3, // LMEMn 64-bits wide
   };
+  
   enum class eWY : uint32_t {
     eWY_0 = 0, // No Cache
     eWY_2 = 2, // 2-Way Set Associative
     eWY_4 = 4, // 4-Way Set Associative
   };
+  
   enum class eLMSZ : uint32_t {
     eLMSZ_0 = 0, // no LMEMn (0 KB)
     eLMSZ_1 = 1, // 1 KB LMEMn
@@ -390,10 +398,12 @@ union MCM_LMDR0 {
     eLMSZ_14 = 14, // 8192 KB LMEMn
     eLMSZ_15 = 15, // 16384 KB LMEMn
   };
+  
   enum class eLMSZH : uint32_t {
     eLMSZH_0 = 0, // LMEMn is a power-of-2 capacity.
     eLMSZH_1 = 1, // LMEMn is not a power-of-2, with a capacity is 0.75 * LMSZ.
   };
+  
   enum class eV : uint32_t {
     eV_0 = 0, // LMEMn is not present.
     eV_1 = 1, // LMEMn is present.
@@ -412,7 +422,7 @@ union MCM_LMDR0 {
     eLMSZH LMSZH : 1;
     uint32_t _reserved_8 : 2;
     eV V : 1;
-  } bits;          // Bit-field struct (auto-filling reserved gaps)
+  } bits;
   
   // Full 32-bit register value.
   uint32_t value;
@@ -425,26 +435,29 @@ union MCM_LMDR0 {
 //
 union MCM_LMDR1 {
   
-  // Enum definitions.
   enum class eMT : uint32_t {
     eMT_0 = 0, // code TCM
     eMT_1 = 1, // system TCM
     eMT_2 = 2, // PC Cache
     eMT_3 = 3, // PS Cache
   };
+  
   enum class eRO : uint32_t {
     eRO_0 = 0, // Writes to the LMDRn[7:0] are allowed.
     eRO_1 = 1, // Writes to the LMDRn[7:0] are ignored.
   };
+  
   enum class eDPW : uint32_t {
     eDPW_2 = 2, // LMEMn 32-bits wide
     eDPW_3 = 3, // LMEMn 64-bits wide
   };
+  
   enum class eWY : uint32_t {
     eWY_0 = 0, // No Cache
     eWY_2 = 2, // 2-Way Set Associative
     eWY_4 = 4, // 4-Way Set Associative
   };
+  
   enum class eLMSZ : uint32_t {
     eLMSZ_0 = 0, // no LMEMn (0 KB)
     eLMSZ_1 = 1, // 1 KB LMEMn
@@ -463,10 +476,12 @@ union MCM_LMDR1 {
     eLMSZ_14 = 14, // 8192 KB LMEMn
     eLMSZ_15 = 15, // 16384 KB LMEMn
   };
+  
   enum class eLMSZH : uint32_t {
     eLMSZH_0 = 0, // LMEMn is a power-of-2 capacity.
     eLMSZH_1 = 1, // LMEMn is not a power-of-2, with a capacity is 0.75 * LMSZ.
   };
+  
   enum class eV : uint32_t {
     eV_0 = 0, // LMEMn is not present.
     eV_1 = 1, // LMEMn is present.
@@ -485,7 +500,7 @@ union MCM_LMDR1 {
     eLMSZH LMSZH : 1;
     uint32_t _reserved_8 : 2;
     eV V : 1;
-  } bits;          // Bit-field struct (auto-filling reserved gaps)
+  } bits;
   
   // Full 32-bit register value.
   uint32_t value;
@@ -498,26 +513,29 @@ union MCM_LMDR1 {
 //
 union MCM_LMDR2 {
   
-  // Enum definitions.
   enum class eMT : uint32_t {
     eMT_0 = 0, // code TCM
     eMT_1 = 1, // system TCM
     eMT_2 = 2, // PC Cache
     eMT_3 = 3, // PS Cache
   };
+  
   enum class eRO : uint32_t {
     eRO_0 = 0, // Writes to the LMDRn[7:0] are allowed.
     eRO_1 = 1, // Writes to the LMDRn[7:0] are ignored.
   };
+  
   enum class eDPW : uint32_t {
     eDPW_2 = 2, // LMEMn 32-bits wide
     eDPW_3 = 3, // LMEMn 64-bits wide
   };
+  
   enum class eWY : uint32_t {
     eWY_0 = 0, // No Cache
     eWY_2 = 2, // 2-Way Set Associative
     eWY_4 = 4, // 4-Way Set Associative
   };
+  
   enum class eLMSZ : uint32_t {
     eLMSZ_0 = 0, // no LMEMn (0 KB)
     eLMSZ_1 = 1, // 1 KB LMEMn
@@ -536,10 +554,12 @@ union MCM_LMDR2 {
     eLMSZ_14 = 14, // 8192 KB LMEMn
     eLMSZ_15 = 15, // 16384 KB LMEMn
   };
+  
   enum class eLMSZH : uint32_t {
     eLMSZH_0 = 0, // LMEMn is a power-of-2 capacity.
     eLMSZH_1 = 1, // LMEMn is not a power-of-2, with a capacity is 0.75 * LMSZ.
   };
+  
   enum class eV : uint32_t {
     eV_0 = 0, // LMEMn is not present.
     eV_1 = 1, // LMEMn is present.
@@ -558,7 +578,7 @@ union MCM_LMDR2 {
     eLMSZH LMSZH : 1;
     uint32_t _reserved_8 : 2;
     eV V : 1;
-  } bits;          // Bit-field struct (auto-filling reserved gaps)
+  } bits;
   
   // Full 32-bit register value.
   uint32_t value;
@@ -571,26 +591,29 @@ union MCM_LMDR2 {
 //
 union MCM_LMDR3 {
   
-  // Enum definitions.
   enum class eMT : uint32_t {
     eMT_0 = 0, // code TCM
     eMT_1 = 1, // system TCM
     eMT_2 = 2, // PC Cache
     eMT_3 = 3, // PS Cache
   };
+  
   enum class eRO : uint32_t {
     eRO_0 = 0, // Writes to the LMDRn[7:0] are allowed.
     eRO_1 = 1, // Writes to the LMDRn[7:0] are ignored.
   };
+  
   enum class eDPW : uint32_t {
     eDPW_2 = 2, // LMEMn 32-bits wide
     eDPW_3 = 3, // LMEMn 64-bits wide
   };
+  
   enum class eWY : uint32_t {
     eWY_0 = 0, // No Cache
     eWY_2 = 2, // 2-Way Set Associative
     eWY_4 = 4, // 4-Way Set Associative
   };
+  
   enum class eLMSZ : uint32_t {
     eLMSZ_0 = 0, // no LMEMn (0 KB)
     eLMSZ_1 = 1, // 1 KB LMEMn
@@ -609,10 +632,12 @@ union MCM_LMDR3 {
     eLMSZ_14 = 14, // 8192 KB LMEMn
     eLMSZ_15 = 15, // 16384 KB LMEMn
   };
+  
   enum class eLMSZH : uint32_t {
     eLMSZH_0 = 0, // LMEMn is a power-of-2 capacity.
     eLMSZH_1 = 1, // LMEMn is not a power-of-2, with a capacity is 0.75 * LMSZ.
   };
+  
   enum class eV : uint32_t {
     eV_0 = 0, // LMEMn is not present.
     eV_1 = 1, // LMEMn is present.
@@ -631,7 +656,7 @@ union MCM_LMDR3 {
     eLMSZH LMSZH : 1;
     uint32_t _reserved_8 : 2;
     eV V : 1;
-  } bits;          // Bit-field struct (auto-filling reserved gaps)
+  } bits;
   
   // Full 32-bit register value.
   uint32_t value;
@@ -645,27 +670,31 @@ union MCM_LMDR3 {
 //
 union MCM_LMPECR {
   
-  // Enum definitions.
   enum class eERNCR : uint32_t {
     eERNCR_0 = 0, // reporting enabled
     eERNCR_1 = 1, // reporting disabled
   };
+  
   enum class eERNCI : uint32_t {
     eERNCI_0 = 0, // Interrupt is disabled
     eERNCI_1 = 1, // Interrupt is enabled
   };
+  
   enum class eER1BR : uint32_t {
     eER1BR_0 = 0, // reporting enabled
     eER1BR_1 = 1, // reporting disabled
   };
+  
   enum class eER1BI : uint32_t {
     eER1BI_0 = 0, // Interrupt is disabled
     eER1BI_1 = 1, // Interrupt is enabled
   };
+  
   enum class eECPR : uint32_t {
     eECPR_0 = 0, // reporting enabled
     eECPR_1 = 1, // reporting disabled
   };
+  
   enum class eECPI : uint32_t {
     eECPI_0 = 0, // enabled
     eECPI_1 = 1, // disabled
@@ -682,7 +711,7 @@ union MCM_LMPECR {
     eECPR ECPR : 1;
     eECPI ECPI : 1;
     uint32_t _reserved_end : 10;
-  } bits;          // Bit-field struct (auto-filling reserved gaps)
+  } bits;
   
   // Full 32-bit register value.
   uint32_t value;
@@ -696,8 +725,6 @@ union MCM_LMPECR {
 //
 union MCM_LMPEIR {
   
-  // Enum definitions.
-  
   // Bit field definition.
   struct {
     uint32_t ENC : 8;
@@ -706,7 +733,7 @@ union MCM_LMPEIR {
     uint32_t PEELOC : 5;
     uint32_t _reserved_4 : 2;
     uint32_t V : 1;
-  } bits;          // Bit-field struct (auto-filling reserved gaps)
+  } bits;
   
   // Full 32-bit register value.
   uint32_t value;
@@ -720,12 +747,10 @@ union MCM_LMPEIR {
 //
 union MCM_LMFAR {
   
-  // Enum definitions.
-  
   // Bit field definition.
   struct {
     uint32_t EFADD : 32;
-  } bits;          // Bit-field struct (auto-filling reserved gaps)
+  } bits;
   
   // Full 32-bit register value.
   uint32_t value;
@@ -739,8 +764,6 @@ union MCM_LMFAR {
 //
 union MCM_LMFATR {
   
-  // Enum definitions.
-  
   // Bit field definition.
   struct {
     uint32_t PEFPRT : 4;
@@ -751,7 +774,7 @@ union MCM_LMFATR {
     uint32_t WORDID : 1;
     uint32_t _reserved_5 : 6;
     uint32_t OVR : 1;
-  } bits;          // Bit-field struct (auto-filling reserved gaps)
+  } bits;
   
   // Full 32-bit register value.
   uint32_t value;
@@ -765,12 +788,10 @@ union MCM_LMFATR {
 //
 union MCM_LMFDHR {
   
-  // Enum definitions.
-  
   // Bit field definition.
   struct {
     uint32_t PEFDH : 32;
-  } bits;          // Bit-field struct (auto-filling reserved gaps)
+  } bits;
   
   // Full 32-bit register value.
   uint32_t value;
@@ -784,12 +805,10 @@ union MCM_LMFDHR {
 //
 union MCM_LMFDLR {
   
-  // Enum definitions.
-  
   // Bit field definition.
   struct {
     uint32_t PEFDL : 32;
-  } bits;          // Bit-field struct (auto-filling reserved gaps)
+  } bits;
   
   // Full 32-bit register value.
   uint32_t value;

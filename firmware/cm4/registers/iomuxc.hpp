@@ -15,7 +15,6 @@ namespace nIOMUXC {
 //
 union SW_MUX_CTL_PAD_GPIO_EMC_B1_00 {
   
-  // Enum definitions.
   enum class eMUX_MODE : uint32_t {
     eALT0_semc_DATA0 = 0, // Select mux mode: ALT0 mux port: SEMC_DATA00 of instance: SEMC
     eALT1_flexpwm4_PWMA0 = 1, // Select mux mode: ALT1 mux port: FLEXPWM4_PWM0_A of instance: FLEXPWM4
@@ -23,6 +22,7 @@ union SW_MUX_CTL_PAD_GPIO_EMC_B1_00 {
     eALT8_flexio1_FLEXIO0 = 8, // Select mux mode: ALT8 mux port: FLEXIO1_D00 of instance: FLEXIO1
     eALT10_gpio7_IO0 = 10, // Select mux mode: ALT10 mux port: GPIO7_IO00 of instance: GPIO7
   };
+  
   enum class eSION : uint32_t {
     eDISABLED = 0, // Input Path is determined by functionality
     eENABLED = 1, // Force input path of pad GPIO_EMC_B1_00
@@ -33,7 +33,7 @@ union SW_MUX_CTL_PAD_GPIO_EMC_B1_00 {
     eMUX_MODE MUX_MODE : 4;
     eSION SION : 1;
     uint32_t _reserved_end : 27;
-  } bits;          // Bit-field struct (auto-filling reserved gaps)
+  } bits;
   
   // Full 32-bit register value.
   uint32_t value;
@@ -47,7 +47,6 @@ union SW_MUX_CTL_PAD_GPIO_EMC_B1_00 {
 //
 union SW_MUX_CTL_PAD_GPIO_EMC_B1_01 {
   
-  // Enum definitions.
   enum class eMUX_MODE : uint32_t {
     eALT0_semc_DATA1 = 0, // Select mux mode: ALT0 mux port: SEMC_DATA01 of instance: SEMC
     eALT1_flexpwm4_PWMB0 = 1, // Select mux mode: ALT1 mux port: FLEXPWM4_PWM0_B of instance: FLEXPWM4
@@ -55,6 +54,7 @@ union SW_MUX_CTL_PAD_GPIO_EMC_B1_01 {
     eALT8_flexio1_FLEXIO1 = 8, // Select mux mode: ALT8 mux port: FLEXIO1_D01 of instance: FLEXIO1
     eALT10_gpio7_IO1 = 10, // Select mux mode: ALT10 mux port: GPIO7_IO01 of instance: GPIO7
   };
+  
   enum class eSION : uint32_t {
     eDISABLED = 0, // Input Path is determined by functionality
     eENABLED = 1, // Force input path of pad GPIO_EMC_B1_01
@@ -65,7 +65,7 @@ union SW_MUX_CTL_PAD_GPIO_EMC_B1_01 {
     eMUX_MODE MUX_MODE : 4;
     eSION SION : 1;
     uint32_t _reserved_end : 27;
-  } bits;          // Bit-field struct (auto-filling reserved gaps)
+  } bits;
   
   // Full 32-bit register value.
   uint32_t value;
@@ -79,7 +79,6 @@ union SW_MUX_CTL_PAD_GPIO_EMC_B1_01 {
 //
 union SW_MUX_CTL_PAD_GPIO_EMC_B1_02 {
   
-  // Enum definitions.
   enum class eMUX_MODE : uint32_t {
     eALT0_semc_DATA2 = 0, // Select mux mode: ALT0 mux port: SEMC_DATA02 of instance: SEMC
     eALT1_flexpwm4_PWMA1 = 1, // Select mux mode: ALT1 mux port: FLEXPWM4_PWM1_A of instance: FLEXPWM4
@@ -87,6 +86,7 @@ union SW_MUX_CTL_PAD_GPIO_EMC_B1_02 {
     eALT8_flexio1_FLEXIO2 = 8, // Select mux mode: ALT8 mux port: FLEXIO1_D02 of instance: FLEXIO1
     eALT10_gpio7_IO2 = 10, // Select mux mode: ALT10 mux port: GPIO7_IO02 of instance: GPIO7
   };
+  
   enum class eSION : uint32_t {
     eDISABLED = 0, // Input Path is determined by functionality
     eENABLED = 1, // Force input path of pad GPIO_EMC_B1_02
@@ -97,7 +97,7 @@ union SW_MUX_CTL_PAD_GPIO_EMC_B1_02 {
     eMUX_MODE MUX_MODE : 4;
     eSION SION : 1;
     uint32_t _reserved_end : 27;
-  } bits;          // Bit-field struct (auto-filling reserved gaps)
+  } bits;
   
   // Full 32-bit register value.
   uint32_t value;
@@ -111,7 +111,6 @@ union SW_MUX_CTL_PAD_GPIO_EMC_B1_02 {
 //
 union SW_MUX_CTL_PAD_GPIO_EMC_B1_03 {
   
-  // Enum definitions.
   enum class eMUX_MODE : uint32_t {
     eALT0_semc_DATA3 = 0, // Select mux mode: ALT0 mux port: SEMC_DATA03 of instance: SEMC
     eALT1_flexpwm4_PWMB1 = 1, // Select mux mode: ALT1 mux port: FLEXPWM4_PWM1_B of instance: FLEXPWM4
@@ -119,6 +118,7 @@ union SW_MUX_CTL_PAD_GPIO_EMC_B1_03 {
     eALT8_flexio1_FLEXIO3 = 8, // Select mux mode: ALT8 mux port: FLEXIO1_D03 of instance: FLEXIO1
     eALT10_gpio7_IO3 = 10, // Select mux mode: ALT10 mux port: GPIO7_IO03 of instance: GPIO7
   };
+  
   enum class eSION : uint32_t {
     eDISABLED = 0, // Input Path is determined by functionality
     eENABLED = 1, // Force input path of pad GPIO_EMC_B1_03
@@ -129,7 +129,7 @@ union SW_MUX_CTL_PAD_GPIO_EMC_B1_03 {
     eMUX_MODE MUX_MODE : 4;
     eSION SION : 1;
     uint32_t _reserved_end : 27;
-  } bits;          // Bit-field struct (auto-filling reserved gaps)
+  } bits;
   
   // Full 32-bit register value.
   uint32_t value;
@@ -143,7 +143,6 @@ union SW_MUX_CTL_PAD_GPIO_EMC_B1_03 {
 //
 union SW_MUX_CTL_PAD_GPIO_EMC_B1_04 {
   
-  // Enum definitions.
   enum class eMUX_MODE : uint32_t {
     eALT0_semc_DATA4 = 0, // Select mux mode: ALT0 mux port: SEMC_DATA04 of instance: SEMC
     eALT1_flexpwm4_PWMA2 = 1, // Select mux mode: ALT1 mux port: FLEXPWM4_PWM2_A of instance: FLEXPWM4
@@ -151,6 +150,7 @@ union SW_MUX_CTL_PAD_GPIO_EMC_B1_04 {
     eALT8_flexio1_FLEXIO4 = 8, // Select mux mode: ALT8 mux port: FLEXIO1_D04 of instance: FLEXIO1
     eALT10_gpio7_IO4 = 10, // Select mux mode: ALT10 mux port: GPIO7_IO04 of instance: GPIO7
   };
+  
   enum class eSION : uint32_t {
     eDISABLED = 0, // Input Path is determined by functionality
     eENABLED = 1, // Force input path of pad GPIO_EMC_B1_04
@@ -161,7 +161,7 @@ union SW_MUX_CTL_PAD_GPIO_EMC_B1_04 {
     eMUX_MODE MUX_MODE : 4;
     eSION SION : 1;
     uint32_t _reserved_end : 27;
-  } bits;          // Bit-field struct (auto-filling reserved gaps)
+  } bits;
   
   // Full 32-bit register value.
   uint32_t value;
@@ -175,7 +175,6 @@ union SW_MUX_CTL_PAD_GPIO_EMC_B1_04 {
 //
 union SW_MUX_CTL_PAD_GPIO_EMC_B1_05 {
   
-  // Enum definitions.
   enum class eMUX_MODE : uint32_t {
     eALT0_semc_DATA5 = 0, // Select mux mode: ALT0 mux port: SEMC_DATA05 of instance: SEMC
     eALT1_flexpwm4_PWMB2 = 1, // Select mux mode: ALT1 mux port: FLEXPWM4_PWM2_B of instance: FLEXPWM4
@@ -183,6 +182,7 @@ union SW_MUX_CTL_PAD_GPIO_EMC_B1_05 {
     eALT8_flexio1_FLEXIO5 = 8, // Select mux mode: ALT8 mux port: FLEXIO1_D05 of instance: FLEXIO1
     eALT10_gpio7_IO5 = 10, // Select mux mode: ALT10 mux port: GPIO7_IO05 of instance: GPIO7
   };
+  
   enum class eSION : uint32_t {
     eDISABLED = 0, // Input Path is determined by functionality
     eENABLED = 1, // Force input path of pad GPIO_EMC_B1_05
@@ -193,7 +193,7 @@ union SW_MUX_CTL_PAD_GPIO_EMC_B1_05 {
     eMUX_MODE MUX_MODE : 4;
     eSION SION : 1;
     uint32_t _reserved_end : 27;
-  } bits;          // Bit-field struct (auto-filling reserved gaps)
+  } bits;
   
   // Full 32-bit register value.
   uint32_t value;
@@ -207,7 +207,6 @@ union SW_MUX_CTL_PAD_GPIO_EMC_B1_05 {
 //
 union SW_MUX_CTL_PAD_GPIO_EMC_B1_06 {
   
-  // Enum definitions.
   enum class eMUX_MODE : uint32_t {
     eALT0_semc_DATA6 = 0, // Select mux mode: ALT0 mux port: SEMC_DATA06 of instance: SEMC
     eALT1_flexpwm2_PWMA0 = 1, // Select mux mode: ALT1 mux port: FLEXPWM2_PWM0_A of instance: FLEXPWM2
@@ -215,6 +214,7 @@ union SW_MUX_CTL_PAD_GPIO_EMC_B1_06 {
     eALT8_flexio1_FLEXIO6 = 8, // Select mux mode: ALT8 mux port: FLEXIO1_D06 of instance: FLEXIO1
     eALT10_gpio7_IO6 = 10, // Select mux mode: ALT10 mux port: GPIO7_IO06 of instance: GPIO7
   };
+  
   enum class eSION : uint32_t {
     eDISABLED = 0, // Input Path is determined by functionality
     eENABLED = 1, // Force input path of pad GPIO_EMC_B1_06
@@ -225,7 +225,7 @@ union SW_MUX_CTL_PAD_GPIO_EMC_B1_06 {
     eMUX_MODE MUX_MODE : 4;
     eSION SION : 1;
     uint32_t _reserved_end : 27;
-  } bits;          // Bit-field struct (auto-filling reserved gaps)
+  } bits;
   
   // Full 32-bit register value.
   uint32_t value;
@@ -239,7 +239,6 @@ union SW_MUX_CTL_PAD_GPIO_EMC_B1_06 {
 //
 union SW_MUX_CTL_PAD_GPIO_EMC_B1_07 {
   
-  // Enum definitions.
   enum class eMUX_MODE : uint32_t {
     eALT0_semc_DATA7 = 0, // Select mux mode: ALT0 mux port: SEMC_DATA07 of instance: SEMC
     eALT1_flexpwm2_PWMB0 = 1, // Select mux mode: ALT1 mux port: FLEXPWM2_PWM0_B of instance: FLEXPWM2
@@ -247,6 +246,7 @@ union SW_MUX_CTL_PAD_GPIO_EMC_B1_07 {
     eALT8_flexio1_FLEXIO7 = 8, // Select mux mode: ALT8 mux port: FLEXIO1_D07 of instance: FLEXIO1
     eALT10_gpio7_IO7 = 10, // Select mux mode: ALT10 mux port: GPIO7_IO07 of instance: GPIO7
   };
+  
   enum class eSION : uint32_t {
     eDISABLED = 0, // Input Path is determined by functionality
     eENABLED = 1, // Force input path of pad GPIO_EMC_B1_07
@@ -257,7 +257,7 @@ union SW_MUX_CTL_PAD_GPIO_EMC_B1_07 {
     eMUX_MODE MUX_MODE : 4;
     eSION SION : 1;
     uint32_t _reserved_end : 27;
-  } bits;          // Bit-field struct (auto-filling reserved gaps)
+  } bits;
   
   // Full 32-bit register value.
   uint32_t value;
@@ -271,7 +271,6 @@ union SW_MUX_CTL_PAD_GPIO_EMC_B1_07 {
 //
 union SW_MUX_CTL_PAD_GPIO_EMC_B1_08 {
   
-  // Enum definitions.
   enum class eMUX_MODE : uint32_t {
     eALT0_semc_DM0 = 0, // Select mux mode: ALT0 mux port: SEMC_DM00 of instance: SEMC
     eALT1_flexpwm2_PWMA1 = 1, // Select mux mode: ALT1 mux port: FLEXPWM2_PWM1_A of instance: FLEXPWM2
@@ -279,6 +278,7 @@ union SW_MUX_CTL_PAD_GPIO_EMC_B1_08 {
     eALT8_flexio1_FLEXIO8 = 8, // Select mux mode: ALT8 mux port: FLEXIO1_D08 of instance: FLEXIO1
     eALT10_gpio7_IO8 = 10, // Select mux mode: ALT10 mux port: GPIO7_IO08 of instance: GPIO7
   };
+  
   enum class eSION : uint32_t {
     eDISABLED = 0, // Input Path is determined by functionality
     eENABLED = 1, // Force input path of pad GPIO_EMC_B1_08
@@ -289,7 +289,7 @@ union SW_MUX_CTL_PAD_GPIO_EMC_B1_08 {
     eMUX_MODE MUX_MODE : 4;
     eSION SION : 1;
     uint32_t _reserved_end : 27;
-  } bits;          // Bit-field struct (auto-filling reserved gaps)
+  } bits;
   
   // Full 32-bit register value.
   uint32_t value;
@@ -303,7 +303,6 @@ union SW_MUX_CTL_PAD_GPIO_EMC_B1_08 {
 //
 union SW_MUX_CTL_PAD_GPIO_EMC_B1_09 {
   
-  // Enum definitions.
   enum class eMUX_MODE : uint32_t {
     eALT0_semc_ADDR0 = 0, // Select mux mode: ALT0 mux port: SEMC_ADDR00 of instance: SEMC
     eALT1_flexpwm2_PWMB1 = 1, // Select mux mode: ALT1 mux port: FLEXPWM2_PWM1_B of instance: FLEXPWM2
@@ -312,6 +311,7 @@ union SW_MUX_CTL_PAD_GPIO_EMC_B1_09 {
     eALT8_flexio1_FLEXIO9 = 8, // Select mux mode: ALT8 mux port: FLEXIO1_D09 of instance: FLEXIO1
     eALT10_gpio7_IO9 = 10, // Select mux mode: ALT10 mux port: GPIO7_IO09 of instance: GPIO7
   };
+  
   enum class eSION : uint32_t {
     eDISABLED = 0, // Input Path is determined by functionality
     eENABLED = 1, // Force input path of pad GPIO_EMC_B1_09
@@ -322,7 +322,7 @@ union SW_MUX_CTL_PAD_GPIO_EMC_B1_09 {
     eMUX_MODE MUX_MODE : 4;
     eSION SION : 1;
     uint32_t _reserved_end : 27;
-  } bits;          // Bit-field struct (auto-filling reserved gaps)
+  } bits;
   
   // Full 32-bit register value.
   uint32_t value;
@@ -336,7 +336,6 @@ union SW_MUX_CTL_PAD_GPIO_EMC_B1_09 {
 //
 union SW_MUX_CTL_PAD_GPIO_EMC_B1_10 {
   
-  // Enum definitions.
   enum class eMUX_MODE : uint32_t {
     eALT0_semc_ADDR1 = 0, // Select mux mode: ALT0 mux port: SEMC_ADDR01 of instance: SEMC
     eALT1_flexpwm2_PWMA2 = 1, // Select mux mode: ALT1 mux port: FLEXPWM2_PWM2_A of instance: FLEXPWM2
@@ -345,6 +344,7 @@ union SW_MUX_CTL_PAD_GPIO_EMC_B1_10 {
     eALT8_flexio1_FLEXIO10 = 8, // Select mux mode: ALT8 mux port: FLEXIO1_D10 of instance: FLEXIO1
     eALT10_gpio7_IO10 = 10, // Select mux mode: ALT10 mux port: GPIO7_IO10 of instance: GPIO7
   };
+  
   enum class eSION : uint32_t {
     eDISABLED = 0, // Input Path is determined by functionality
     eENABLED = 1, // Force input path of pad GPIO_EMC_B1_10
@@ -355,7 +355,7 @@ union SW_MUX_CTL_PAD_GPIO_EMC_B1_10 {
     eMUX_MODE MUX_MODE : 4;
     eSION SION : 1;
     uint32_t _reserved_end : 27;
-  } bits;          // Bit-field struct (auto-filling reserved gaps)
+  } bits;
   
   // Full 32-bit register value.
   uint32_t value;
@@ -369,7 +369,6 @@ union SW_MUX_CTL_PAD_GPIO_EMC_B1_10 {
 //
 union SW_MUX_CTL_PAD_GPIO_EMC_B1_11 {
   
-  // Enum definitions.
   enum class eMUX_MODE : uint32_t {
     eALT0_semc_ADDR2 = 0, // Select mux mode: ALT0 mux port: SEMC_ADDR02 of instance: SEMC
     eALT1_flexpwm2_PWMB2 = 1, // Select mux mode: ALT1 mux port: FLEXPWM2_PWM2_B of instance: FLEXPWM2
@@ -378,6 +377,7 @@ union SW_MUX_CTL_PAD_GPIO_EMC_B1_11 {
     eALT8_flexio1_FLEXIO11 = 8, // Select mux mode: ALT8 mux port: FLEXIO1_D11 of instance: FLEXIO1
     eALT10_gpio7_IO11 = 10, // Select mux mode: ALT10 mux port: GPIO7_IO11 of instance: GPIO7
   };
+  
   enum class eSION : uint32_t {
     eDISABLED = 0, // Input Path is determined by functionality
     eENABLED = 1, // Force input path of pad GPIO_EMC_B1_11
@@ -388,7 +388,7 @@ union SW_MUX_CTL_PAD_GPIO_EMC_B1_11 {
     eMUX_MODE MUX_MODE : 4;
     eSION SION : 1;
     uint32_t _reserved_end : 27;
-  } bits;          // Bit-field struct (auto-filling reserved gaps)
+  } bits;
   
   // Full 32-bit register value.
   uint32_t value;
@@ -402,7 +402,6 @@ union SW_MUX_CTL_PAD_GPIO_EMC_B1_11 {
 //
 union SW_MUX_CTL_PAD_GPIO_EMC_B1_12 {
   
-  // Enum definitions.
   enum class eMUX_MODE : uint32_t {
     eALT0_semc_ADDR3 = 0, // Select mux mode: ALT0 mux port: SEMC_ADDR03 of instance: SEMC
     eALT1_XBAR1_INOUT4 = 1, // Select mux mode: ALT1 mux port: XBAR1_INOUT04 of instance: XBAR1
@@ -411,6 +410,7 @@ union SW_MUX_CTL_PAD_GPIO_EMC_B1_12 {
     eALT8_flexio1_FLEXIO12 = 8, // Select mux mode: ALT8 mux port: FLEXIO1_D12 of instance: FLEXIO1
     eALT10_gpio7_IO12 = 10, // Select mux mode: ALT10 mux port: GPIO7_IO12 of instance: GPIO7
   };
+  
   enum class eSION : uint32_t {
     eDISABLED = 0, // Input Path is determined by functionality
     eENABLED = 1, // Force input path of pad GPIO_EMC_B1_12
@@ -421,7 +421,7 @@ union SW_MUX_CTL_PAD_GPIO_EMC_B1_12 {
     eMUX_MODE MUX_MODE : 4;
     eSION SION : 1;
     uint32_t _reserved_end : 27;
-  } bits;          // Bit-field struct (auto-filling reserved gaps)
+  } bits;
   
   // Full 32-bit register value.
   uint32_t value;
@@ -435,7 +435,6 @@ union SW_MUX_CTL_PAD_GPIO_EMC_B1_12 {
 //
 union SW_MUX_CTL_PAD_GPIO_EMC_B1_13 {
   
-  // Enum definitions.
   enum class eMUX_MODE : uint32_t {
     eALT0_semc_ADDR4 = 0, // Select mux mode: ALT0 mux port: SEMC_ADDR04 of instance: SEMC
     eALT1_XBAR1_INOUT5 = 1, // Select mux mode: ALT1 mux port: XBAR1_INOUT05 of instance: XBAR1
@@ -444,6 +443,7 @@ union SW_MUX_CTL_PAD_GPIO_EMC_B1_13 {
     eALT8_flexio1_FLEXIO13 = 8, // Select mux mode: ALT8 mux port: FLEXIO1_D13 of instance: FLEXIO1
     eALT10_gpio7_IO13 = 10, // Select mux mode: ALT10 mux port: GPIO7_IO13 of instance: GPIO7
   };
+  
   enum class eSION : uint32_t {
     eDISABLED = 0, // Input Path is determined by functionality
     eENABLED = 1, // Force input path of pad GPIO_EMC_B1_13
@@ -454,7 +454,7 @@ union SW_MUX_CTL_PAD_GPIO_EMC_B1_13 {
     eMUX_MODE MUX_MODE : 4;
     eSION SION : 1;
     uint32_t _reserved_end : 27;
-  } bits;          // Bit-field struct (auto-filling reserved gaps)
+  } bits;
   
   // Full 32-bit register value.
   uint32_t value;
@@ -468,7 +468,6 @@ union SW_MUX_CTL_PAD_GPIO_EMC_B1_13 {
 //
 union SW_MUX_CTL_PAD_GPIO_EMC_B1_14 {
   
-  // Enum definitions.
   enum class eMUX_MODE : uint32_t {
     eALT0_semc_ADDR5 = 0, // Select mux mode: ALT0 mux port: SEMC_ADDR05 of instance: SEMC
     eALT1_XBAR1_INOUT6 = 1, // Select mux mode: ALT1 mux port: XBAR1_INOUT06 of instance: XBAR1
@@ -477,6 +476,7 @@ union SW_MUX_CTL_PAD_GPIO_EMC_B1_14 {
     eALT8_flexio1_FLEXIO14 = 8, // Select mux mode: ALT8 mux port: FLEXIO1_D14 of instance: FLEXIO1
     eALT10_gpio7_IO14 = 10, // Select mux mode: ALT10 mux port: GPIO7_IO14 of instance: GPIO7
   };
+  
   enum class eSION : uint32_t {
     eDISABLED = 0, // Input Path is determined by functionality
     eENABLED = 1, // Force input path of pad GPIO_EMC_B1_14
@@ -487,7 +487,7 @@ union SW_MUX_CTL_PAD_GPIO_EMC_B1_14 {
     eMUX_MODE MUX_MODE : 4;
     eSION SION : 1;
     uint32_t _reserved_end : 27;
-  } bits;          // Bit-field struct (auto-filling reserved gaps)
+  } bits;
   
   // Full 32-bit register value.
   uint32_t value;
@@ -501,7 +501,6 @@ union SW_MUX_CTL_PAD_GPIO_EMC_B1_14 {
 //
 union SW_MUX_CTL_PAD_GPIO_EMC_B1_15 {
   
-  // Enum definitions.
   enum class eMUX_MODE : uint32_t {
     eALT0_semc_ADDR6 = 0, // Select mux mode: ALT0 mux port: SEMC_ADDR06 of instance: SEMC
     eALT1_XBAR1_INOUT7 = 1, // Select mux mode: ALT1 mux port: XBAR1_INOUT07 of instance: XBAR1
@@ -509,6 +508,7 @@ union SW_MUX_CTL_PAD_GPIO_EMC_B1_15 {
     eALT8_flexio1_FLEXIO15 = 8, // Select mux mode: ALT8 mux port: FLEXIO1_D15 of instance: FLEXIO1
     eALT10_gpio7_IO15 = 10, // Select mux mode: ALT10 mux port: GPIO7_IO15 of instance: GPIO7
   };
+  
   enum class eSION : uint32_t {
     eDISABLED = 0, // Input Path is determined by functionality
     eENABLED = 1, // Force input path of pad GPIO_EMC_B1_15
@@ -519,7 +519,7 @@ union SW_MUX_CTL_PAD_GPIO_EMC_B1_15 {
     eMUX_MODE MUX_MODE : 4;
     eSION SION : 1;
     uint32_t _reserved_end : 27;
-  } bits;          // Bit-field struct (auto-filling reserved gaps)
+  } bits;
   
   // Full 32-bit register value.
   uint32_t value;
@@ -533,7 +533,6 @@ union SW_MUX_CTL_PAD_GPIO_EMC_B1_15 {
 //
 union SW_MUX_CTL_PAD_GPIO_EMC_B1_16 {
   
-  // Enum definitions.
   enum class eMUX_MODE : uint32_t {
     eALT0_semc_ADDR7 = 0, // Select mux mode: ALT0 mux port: SEMC_ADDR07 of instance: SEMC
     eALT1_XBAR1_INOUT8 = 1, // Select mux mode: ALT1 mux port: XBAR1_INOUT08 of instance: XBAR1
@@ -541,6 +540,7 @@ union SW_MUX_CTL_PAD_GPIO_EMC_B1_16 {
     eALT8_flexio1_FLEXIO16 = 8, // Select mux mode: ALT8 mux port: FLEXIO1_D16 of instance: FLEXIO1
     eALT10_gpio7_IO16 = 10, // Select mux mode: ALT10 mux port: GPIO7_IO16 of instance: GPIO7
   };
+  
   enum class eSION : uint32_t {
     eDISABLED = 0, // Input Path is determined by functionality
     eENABLED = 1, // Force input path of pad GPIO_EMC_B1_16
@@ -551,7 +551,7 @@ union SW_MUX_CTL_PAD_GPIO_EMC_B1_16 {
     eMUX_MODE MUX_MODE : 4;
     eSION SION : 1;
     uint32_t _reserved_end : 27;
-  } bits;          // Bit-field struct (auto-filling reserved gaps)
+  } bits;
   
   // Full 32-bit register value.
   uint32_t value;
@@ -565,7 +565,6 @@ union SW_MUX_CTL_PAD_GPIO_EMC_B1_16 {
 //
 union SW_MUX_CTL_PAD_GPIO_EMC_B1_17 {
   
-  // Enum definitions.
   enum class eMUX_MODE : uint32_t {
     eALT0_semc_ADDR8 = 0, // Select mux mode: ALT0 mux port: SEMC_ADDR08 of instance: SEMC
     eALT1_flexpwm4_PWMA3 = 1, // Select mux mode: ALT1 mux port: FLEXPWM4_PWM3_A of instance: FLEXPWM4
@@ -574,6 +573,7 @@ union SW_MUX_CTL_PAD_GPIO_EMC_B1_17 {
     eALT8_flexio1_FLEXIO17 = 8, // Select mux mode: ALT8 mux port: FLEXIO1_D17 of instance: FLEXIO1
     eALT10_gpio7_IO17 = 10, // Select mux mode: ALT10 mux port: GPIO7_IO17 of instance: GPIO7
   };
+  
   enum class eSION : uint32_t {
     eDISABLED = 0, // Input Path is determined by functionality
     eENABLED = 1, // Force input path of pad GPIO_EMC_B1_17
@@ -584,7 +584,7 @@ union SW_MUX_CTL_PAD_GPIO_EMC_B1_17 {
     eMUX_MODE MUX_MODE : 4;
     eSION SION : 1;
     uint32_t _reserved_end : 27;
-  } bits;          // Bit-field struct (auto-filling reserved gaps)
+  } bits;
   
   // Full 32-bit register value.
   uint32_t value;
@@ -598,7 +598,6 @@ union SW_MUX_CTL_PAD_GPIO_EMC_B1_17 {
 //
 union SW_MUX_CTL_PAD_GPIO_EMC_B1_18 {
   
-  // Enum definitions.
   enum class eMUX_MODE : uint32_t {
     eALT0_semc_ADDR9 = 0, // Select mux mode: ALT0 mux port: SEMC_ADDR09 of instance: SEMC
     eALT1_flexpwm4_PWMB3 = 1, // Select mux mode: ALT1 mux port: FLEXPWM4_PWM3_B of instance: FLEXPWM4
@@ -607,6 +606,7 @@ union SW_MUX_CTL_PAD_GPIO_EMC_B1_18 {
     eALT8_flexio1_FLEXIO18 = 8, // Select mux mode: ALT8 mux port: FLEXIO1_D18 of instance: FLEXIO1
     eALT10_gpio7_IO18 = 10, // Select mux mode: ALT10 mux port: GPIO7_IO18 of instance: GPIO7
   };
+  
   enum class eSION : uint32_t {
     eDISABLED = 0, // Input Path is determined by functionality
     eENABLED = 1, // Force input path of pad GPIO_EMC_B1_18
@@ -617,7 +617,7 @@ union SW_MUX_CTL_PAD_GPIO_EMC_B1_18 {
     eMUX_MODE MUX_MODE : 4;
     eSION SION : 1;
     uint32_t _reserved_end : 27;
-  } bits;          // Bit-field struct (auto-filling reserved gaps)
+  } bits;
   
   // Full 32-bit register value.
   uint32_t value;
@@ -631,7 +631,6 @@ union SW_MUX_CTL_PAD_GPIO_EMC_B1_18 {
 //
 union SW_MUX_CTL_PAD_GPIO_EMC_B1_19 {
   
-  // Enum definitions.
   enum class eMUX_MODE : uint32_t {
     eALT0_semc_ADDR11 = 0, // Select mux mode: ALT0 mux port: SEMC_ADDR11 of instance: SEMC
     eALT1_flexpwm2_PWMA3 = 1, // Select mux mode: ALT1 mux port: FLEXPWM2_PWM3_A of instance: FLEXPWM2
@@ -640,6 +639,7 @@ union SW_MUX_CTL_PAD_GPIO_EMC_B1_19 {
     eALT8_flexio1_FLEXIO19 = 8, // Select mux mode: ALT8 mux port: FLEXIO1_D19 of instance: FLEXIO1
     eALT10_gpio7_IO19 = 10, // Select mux mode: ALT10 mux port: GPIO7_IO19 of instance: GPIO7
   };
+  
   enum class eSION : uint32_t {
     eDISABLED = 0, // Input Path is determined by functionality
     eENABLED = 1, // Force input path of pad GPIO_EMC_B1_19
@@ -650,7 +650,7 @@ union SW_MUX_CTL_PAD_GPIO_EMC_B1_19 {
     eMUX_MODE MUX_MODE : 4;
     eSION SION : 1;
     uint32_t _reserved_end : 27;
-  } bits;          // Bit-field struct (auto-filling reserved gaps)
+  } bits;
   
   // Full 32-bit register value.
   uint32_t value;
@@ -664,7 +664,6 @@ union SW_MUX_CTL_PAD_GPIO_EMC_B1_19 {
 //
 union SW_MUX_CTL_PAD_GPIO_EMC_B1_20 {
   
-  // Enum definitions.
   enum class eMUX_MODE : uint32_t {
     eALT0_semc_ADDR12 = 0, // Select mux mode: ALT0 mux port: SEMC_ADDR12 of instance: SEMC
     eALT1_flexpwm2_PWMB3 = 1, // Select mux mode: ALT1 mux port: FLEXPWM2_PWM3_B of instance: FLEXPWM2
@@ -673,6 +672,7 @@ union SW_MUX_CTL_PAD_GPIO_EMC_B1_20 {
     eALT8_flexio1_FLEXIO20 = 8, // Select mux mode: ALT8 mux port: FLEXIO1_D20 of instance: FLEXIO1
     eALT10_gpio7_IO20 = 10, // Select mux mode: ALT10 mux port: GPIO7_IO20 of instance: GPIO7
   };
+  
   enum class eSION : uint32_t {
     eDISABLED = 0, // Input Path is determined by functionality
     eENABLED = 1, // Force input path of pad GPIO_EMC_B1_20
@@ -683,7 +683,7 @@ union SW_MUX_CTL_PAD_GPIO_EMC_B1_20 {
     eMUX_MODE MUX_MODE : 4;
     eSION SION : 1;
     uint32_t _reserved_end : 27;
-  } bits;          // Bit-field struct (auto-filling reserved gaps)
+  } bits;
   
   // Full 32-bit register value.
   uint32_t value;
@@ -697,7 +697,6 @@ union SW_MUX_CTL_PAD_GPIO_EMC_B1_20 {
 //
 union SW_MUX_CTL_PAD_GPIO_EMC_B1_21 {
   
-  // Enum definitions.
   enum class eMUX_MODE : uint32_t {
     eALT0_semc_BA0 = 0, // Select mux mode: ALT0 mux port: SEMC_BA0 of instance: SEMC
     eALT1_flexpwm3_PWMA3 = 1, // Select mux mode: ALT1 mux port: FLEXPWM3_PWM3_A of instance: FLEXPWM3
@@ -705,6 +704,7 @@ union SW_MUX_CTL_PAD_GPIO_EMC_B1_21 {
     eALT8_flexio1_FLEXIO21 = 8, // Select mux mode: ALT8 mux port: FLEXIO1_D21 of instance: FLEXIO1
     eALT10_gpio7_IO21 = 10, // Select mux mode: ALT10 mux port: GPIO7_IO21 of instance: GPIO7
   };
+  
   enum class eSION : uint32_t {
     eDISABLED = 0, // Input Path is determined by functionality
     eENABLED = 1, // Force input path of pad GPIO_EMC_B1_21
@@ -715,7 +715,7 @@ union SW_MUX_CTL_PAD_GPIO_EMC_B1_21 {
     eMUX_MODE MUX_MODE : 4;
     eSION SION : 1;
     uint32_t _reserved_end : 27;
-  } bits;          // Bit-field struct (auto-filling reserved gaps)
+  } bits;
   
   // Full 32-bit register value.
   uint32_t value;
@@ -729,7 +729,6 @@ union SW_MUX_CTL_PAD_GPIO_EMC_B1_21 {
 //
 union SW_MUX_CTL_PAD_GPIO_EMC_B1_22 {
   
-  // Enum definitions.
   enum class eMUX_MODE : uint32_t {
     eALT0_semc_BA1 = 0, // Select mux mode: ALT0 mux port: SEMC_BA1 of instance: SEMC
     eALT1_flexpwm3_PWMB3 = 1, // Select mux mode: ALT1 mux port: FLEXPWM3_PWM3_B of instance: FLEXPWM3
@@ -737,6 +736,7 @@ union SW_MUX_CTL_PAD_GPIO_EMC_B1_22 {
     eALT8_flexio1_FLEXIO22 = 8, // Select mux mode: ALT8 mux port: FLEXIO1_D22 of instance: FLEXIO1
     eALT10_gpio7_IO22 = 10, // Select mux mode: ALT10 mux port: GPIO7_IO22 of instance: GPIO7
   };
+  
   enum class eSION : uint32_t {
     eDISABLED = 0, // Input Path is determined by functionality
     eENABLED = 1, // Force input path of pad GPIO_EMC_B1_22
@@ -747,7 +747,7 @@ union SW_MUX_CTL_PAD_GPIO_EMC_B1_22 {
     eMUX_MODE MUX_MODE : 4;
     eSION SION : 1;
     uint32_t _reserved_end : 27;
-  } bits;          // Bit-field struct (auto-filling reserved gaps)
+  } bits;
   
   // Full 32-bit register value.
   uint32_t value;
@@ -761,7 +761,6 @@ union SW_MUX_CTL_PAD_GPIO_EMC_B1_22 {
 //
 union SW_MUX_CTL_PAD_GPIO_EMC_B1_23 {
   
-  // Enum definitions.
   enum class eMUX_MODE : uint32_t {
     eALT0_semc_ADDR10 = 0, // Select mux mode: ALT0 mux port: SEMC_ADDR10 of instance: SEMC
     eALT1_flexpwm1_PWMA0 = 1, // Select mux mode: ALT1 mux port: FLEXPWM1_PWM0_A of instance: FLEXPWM1
@@ -769,6 +768,7 @@ union SW_MUX_CTL_PAD_GPIO_EMC_B1_23 {
     eALT8_flexio1_FLEXIO23 = 8, // Select mux mode: ALT8 mux port: FLEXIO1_D23 of instance: FLEXIO1
     eALT10_gpio7_IO23 = 10, // Select mux mode: ALT10 mux port: GPIO7_IO23 of instance: GPIO7
   };
+  
   enum class eSION : uint32_t {
     eDISABLED = 0, // Input Path is determined by functionality
     eENABLED = 1, // Force input path of pad GPIO_EMC_B1_23
@@ -779,7 +779,7 @@ union SW_MUX_CTL_PAD_GPIO_EMC_B1_23 {
     eMUX_MODE MUX_MODE : 4;
     eSION SION : 1;
     uint32_t _reserved_end : 27;
-  } bits;          // Bit-field struct (auto-filling reserved gaps)
+  } bits;
   
   // Full 32-bit register value.
   uint32_t value;
@@ -793,7 +793,6 @@ union SW_MUX_CTL_PAD_GPIO_EMC_B1_23 {
 //
 union SW_MUX_CTL_PAD_GPIO_EMC_B1_24 {
   
-  // Enum definitions.
   enum class eMUX_MODE : uint32_t {
     eALT0_semc_CAS = 0, // Select mux mode: ALT0 mux port: SEMC_CAS of instance: SEMC
     eALT1_flexpwm1_PWMB0 = 1, // Select mux mode: ALT1 mux port: FLEXPWM1_PWM0_B of instance: FLEXPWM1
@@ -801,6 +800,7 @@ union SW_MUX_CTL_PAD_GPIO_EMC_B1_24 {
     eALT8_flexio1_FLEXIO24 = 8, // Select mux mode: ALT8 mux port: FLEXIO1_D24 of instance: FLEXIO1
     eALT10_gpio7_IO24 = 10, // Select mux mode: ALT10 mux port: GPIO7_IO24 of instance: GPIO7
   };
+  
   enum class eSION : uint32_t {
     eDISABLED = 0, // Input Path is determined by functionality
     eENABLED = 1, // Force input path of pad GPIO_EMC_B1_24
@@ -811,7 +811,7 @@ union SW_MUX_CTL_PAD_GPIO_EMC_B1_24 {
     eMUX_MODE MUX_MODE : 4;
     eSION SION : 1;
     uint32_t _reserved_end : 27;
-  } bits;          // Bit-field struct (auto-filling reserved gaps)
+  } bits;
   
   // Full 32-bit register value.
   uint32_t value;
@@ -825,7 +825,6 @@ union SW_MUX_CTL_PAD_GPIO_EMC_B1_24 {
 //
 union SW_MUX_CTL_PAD_GPIO_EMC_B1_25 {
   
-  // Enum definitions.
   enum class eMUX_MODE : uint32_t {
     eALT0_semc_RAS = 0, // Select mux mode: ALT0 mux port: SEMC_RAS of instance: SEMC
     eALT1_flexpwm1_PWMA1 = 1, // Select mux mode: ALT1 mux port: FLEXPWM1_PWM1_A of instance: FLEXPWM1
@@ -833,6 +832,7 @@ union SW_MUX_CTL_PAD_GPIO_EMC_B1_25 {
     eALT8_flexio1_FLEXIO25 = 8, // Select mux mode: ALT8 mux port: FLEXIO1_D25 of instance: FLEXIO1
     eALT10_gpio7_IO25 = 10, // Select mux mode: ALT10 mux port: GPIO7_IO25 of instance: GPIO7
   };
+  
   enum class eSION : uint32_t {
     eDISABLED = 0, // Input Path is determined by functionality
     eENABLED = 1, // Force input path of pad GPIO_EMC_B1_25
@@ -843,7 +843,7 @@ union SW_MUX_CTL_PAD_GPIO_EMC_B1_25 {
     eMUX_MODE MUX_MODE : 4;
     eSION SION : 1;
     uint32_t _reserved_end : 27;
-  } bits;          // Bit-field struct (auto-filling reserved gaps)
+  } bits;
   
   // Full 32-bit register value.
   uint32_t value;
@@ -857,7 +857,6 @@ union SW_MUX_CTL_PAD_GPIO_EMC_B1_25 {
 //
 union SW_MUX_CTL_PAD_GPIO_EMC_B1_26 {
   
-  // Enum definitions.
   enum class eMUX_MODE : uint32_t {
     eALT0_semc_CLK = 0, // Select mux mode: ALT0 mux port: SEMC_CLK of instance: SEMC
     eALT1_flexpwm1_PWMB1 = 1, // Select mux mode: ALT1 mux port: FLEXPWM1_PWM1_B of instance: FLEXPWM1
@@ -865,6 +864,7 @@ union SW_MUX_CTL_PAD_GPIO_EMC_B1_26 {
     eALT8_flexio1_FLEXIO26 = 8, // Select mux mode: ALT8 mux port: FLEXIO1_D26 of instance: FLEXIO1
     eALT10_gpio7_IO26 = 10, // Select mux mode: ALT10 mux port: GPIO7_IO26 of instance: GPIO7
   };
+  
   enum class eSION : uint32_t {
     eDISABLED = 0, // Input Path is determined by functionality
     eENABLED = 1, // Force input path of pad GPIO_EMC_B1_26
@@ -875,7 +875,7 @@ union SW_MUX_CTL_PAD_GPIO_EMC_B1_26 {
     eMUX_MODE MUX_MODE : 4;
     eSION SION : 1;
     uint32_t _reserved_end : 27;
-  } bits;          // Bit-field struct (auto-filling reserved gaps)
+  } bits;
   
   // Full 32-bit register value.
   uint32_t value;
@@ -889,7 +889,6 @@ union SW_MUX_CTL_PAD_GPIO_EMC_B1_26 {
 //
 union SW_MUX_CTL_PAD_GPIO_EMC_B1_27 {
   
-  // Enum definitions.
   enum class eMUX_MODE : uint32_t {
     eALT0_semc_CKE = 0, // Select mux mode: ALT0 mux port: SEMC_CKE of instance: SEMC
     eALT1_flexpwm1_PWMA2 = 1, // Select mux mode: ALT1 mux port: FLEXPWM1_PWM2_A of instance: FLEXPWM1
@@ -897,6 +896,7 @@ union SW_MUX_CTL_PAD_GPIO_EMC_B1_27 {
     eALT8_flexio1_FLEXIO27 = 8, // Select mux mode: ALT8 mux port: FLEXIO1_D27 of instance: FLEXIO1
     eALT10_gpio7_IO27 = 10, // Select mux mode: ALT10 mux port: GPIO7_IO27 of instance: GPIO7
   };
+  
   enum class eSION : uint32_t {
     eDISABLED = 0, // Input Path is determined by functionality
     eENABLED = 1, // Force input path of pad GPIO_EMC_B1_27
@@ -907,7 +907,7 @@ union SW_MUX_CTL_PAD_GPIO_EMC_B1_27 {
     eMUX_MODE MUX_MODE : 4;
     eSION SION : 1;
     uint32_t _reserved_end : 27;
-  } bits;          // Bit-field struct (auto-filling reserved gaps)
+  } bits;
   
   // Full 32-bit register value.
   uint32_t value;
@@ -921,7 +921,6 @@ union SW_MUX_CTL_PAD_GPIO_EMC_B1_27 {
 //
 union SW_MUX_CTL_PAD_GPIO_EMC_B1_28 {
   
-  // Enum definitions.
   enum class eMUX_MODE : uint32_t {
     eALT0_semc_WE = 0, // Select mux mode: ALT0 mux port: SEMC_WE of instance: SEMC
     eALT1_flexpwm1_PWMB2 = 1, // Select mux mode: ALT1 mux port: FLEXPWM1_PWM2_B of instance: FLEXPWM1
@@ -929,6 +928,7 @@ union SW_MUX_CTL_PAD_GPIO_EMC_B1_28 {
     eALT8_flexio1_FLEXIO28 = 8, // Select mux mode: ALT8 mux port: FLEXIO1_D28 of instance: FLEXIO1
     eALT10_gpio7_IO28 = 10, // Select mux mode: ALT10 mux port: GPIO7_IO28 of instance: GPIO7
   };
+  
   enum class eSION : uint32_t {
     eDISABLED = 0, // Input Path is determined by functionality
     eENABLED = 1, // Force input path of pad GPIO_EMC_B1_28
@@ -939,7 +939,7 @@ union SW_MUX_CTL_PAD_GPIO_EMC_B1_28 {
     eMUX_MODE MUX_MODE : 4;
     eSION SION : 1;
     uint32_t _reserved_end : 27;
-  } bits;          // Bit-field struct (auto-filling reserved gaps)
+  } bits;
   
   // Full 32-bit register value.
   uint32_t value;
@@ -953,7 +953,6 @@ union SW_MUX_CTL_PAD_GPIO_EMC_B1_28 {
 //
 union SW_MUX_CTL_PAD_GPIO_EMC_B1_29 {
   
-  // Enum definitions.
   enum class eMUX_MODE : uint32_t {
     eALT0_semc_CS0 = 0, // Select mux mode: ALT0 mux port: SEMC_CS0 of instance: SEMC
     eALT1_flexpwm3_PWMA0 = 1, // Select mux mode: ALT1 mux port: FLEXPWM3_PWM0_A of instance: FLEXPWM3
@@ -961,6 +960,7 @@ union SW_MUX_CTL_PAD_GPIO_EMC_B1_29 {
     eALT8_flexio1_FLEXIO29 = 8, // Select mux mode: ALT8 mux port: FLEXIO1_D29 of instance: FLEXIO1
     eALT10_gpio7_IO29 = 10, // Select mux mode: ALT10 mux port: GPIO7_IO29 of instance: GPIO7
   };
+  
   enum class eSION : uint32_t {
     eDISABLED = 0, // Input Path is determined by functionality
     eENABLED = 1, // Force input path of pad GPIO_EMC_B1_29
@@ -971,7 +971,7 @@ union SW_MUX_CTL_PAD_GPIO_EMC_B1_29 {
     eMUX_MODE MUX_MODE : 4;
     eSION SION : 1;
     uint32_t _reserved_end : 27;
-  } bits;          // Bit-field struct (auto-filling reserved gaps)
+  } bits;
   
   // Full 32-bit register value.
   uint32_t value;
@@ -985,7 +985,6 @@ union SW_MUX_CTL_PAD_GPIO_EMC_B1_29 {
 //
 union SW_MUX_CTL_PAD_GPIO_EMC_B1_30 {
   
-  // Enum definitions.
   enum class eMUX_MODE : uint32_t {
     eALT0_semc_DATA8 = 0, // Select mux mode: ALT0 mux port: SEMC_DATA08 of instance: SEMC
     eALT1_flexpwm3_PWMB0 = 1, // Select mux mode: ALT1 mux port: FLEXPWM3_PWM0_B of instance: FLEXPWM3
@@ -993,6 +992,7 @@ union SW_MUX_CTL_PAD_GPIO_EMC_B1_30 {
     eALT8_flexio1_FLEXIO30 = 8, // Select mux mode: ALT8 mux port: FLEXIO1_D30 of instance: FLEXIO1
     eALT10_gpio7_IO30 = 10, // Select mux mode: ALT10 mux port: GPIO7_IO30 of instance: GPIO7
   };
+  
   enum class eSION : uint32_t {
     eDISABLED = 0, // Input Path is determined by functionality
     eENABLED = 1, // Force input path of pad GPIO_EMC_B1_30
@@ -1003,7 +1003,7 @@ union SW_MUX_CTL_PAD_GPIO_EMC_B1_30 {
     eMUX_MODE MUX_MODE : 4;
     eSION SION : 1;
     uint32_t _reserved_end : 27;
-  } bits;          // Bit-field struct (auto-filling reserved gaps)
+  } bits;
   
   // Full 32-bit register value.
   uint32_t value;
@@ -1017,7 +1017,6 @@ union SW_MUX_CTL_PAD_GPIO_EMC_B1_30 {
 //
 union SW_MUX_CTL_PAD_GPIO_EMC_B1_31 {
   
-  // Enum definitions.
   enum class eMUX_MODE : uint32_t {
     eALT0_semc_DATA9 = 0, // Select mux mode: ALT0 mux port: SEMC_DATA09 of instance: SEMC
     eALT1_flexpwm3_PWMA1 = 1, // Select mux mode: ALT1 mux port: FLEXPWM3_PWM1_A of instance: FLEXPWM3
@@ -1025,6 +1024,7 @@ union SW_MUX_CTL_PAD_GPIO_EMC_B1_31 {
     eALT8_flexio1_FLEXIO31 = 8, // Select mux mode: ALT8 mux port: FLEXIO1_D31 of instance: FLEXIO1
     eALT10_gpio7_IO31 = 10, // Select mux mode: ALT10 mux port: GPIO7_IO31 of instance: GPIO7
   };
+  
   enum class eSION : uint32_t {
     eDISABLED = 0, // Input Path is determined by functionality
     eENABLED = 1, // Force input path of pad GPIO_EMC_B1_31
@@ -1035,7 +1035,7 @@ union SW_MUX_CTL_PAD_GPIO_EMC_B1_31 {
     eMUX_MODE MUX_MODE : 4;
     eSION SION : 1;
     uint32_t _reserved_end : 27;
-  } bits;          // Bit-field struct (auto-filling reserved gaps)
+  } bits;
   
   // Full 32-bit register value.
   uint32_t value;
@@ -1049,13 +1049,13 @@ union SW_MUX_CTL_PAD_GPIO_EMC_B1_31 {
 //
 union SW_MUX_CTL_PAD_GPIO_EMC_B1_32 {
   
-  // Enum definitions.
   enum class eMUX_MODE : uint32_t {
     eALT0_semc_DATA10 = 0, // Select mux mode: ALT0 mux port: SEMC_DATA10 of instance: SEMC
     eALT1_flexpwm3_PWMB1 = 1, // Select mux mode: ALT1 mux port: FLEXPWM3_PWM1_B of instance: FLEXPWM3
     eALT5_gpio_mux2_IO0 = 5, // Select mux mode: ALT5 mux port: GPIO_MUX2_IO00 of instance: GPIO_MUX2
     eALT10_gpio8_IO0 = 10, // Select mux mode: ALT10 mux port: GPIO8_IO00 of instance: GPIO8
   };
+  
   enum class eSION : uint32_t {
     eDISABLED = 0, // Input Path is determined by functionality
     eENABLED = 1, // Force input path of pad GPIO_EMC_B1_32
@@ -1066,7 +1066,7 @@ union SW_MUX_CTL_PAD_GPIO_EMC_B1_32 {
     eMUX_MODE MUX_MODE : 4;
     eSION SION : 1;
     uint32_t _reserved_end : 27;
-  } bits;          // Bit-field struct (auto-filling reserved gaps)
+  } bits;
   
   // Full 32-bit register value.
   uint32_t value;
@@ -1080,13 +1080,13 @@ union SW_MUX_CTL_PAD_GPIO_EMC_B1_32 {
 //
 union SW_MUX_CTL_PAD_GPIO_EMC_B1_33 {
   
-  // Enum definitions.
   enum class eMUX_MODE : uint32_t {
     eALT0_semc_DATA11 = 0, // Select mux mode: ALT0 mux port: SEMC_DATA11 of instance: SEMC
     eALT1_flexpwm3_PWMA2 = 1, // Select mux mode: ALT1 mux port: FLEXPWM3_PWM2_A of instance: FLEXPWM3
     eALT5_gpio_mux2_IO1 = 5, // Select mux mode: ALT5 mux port: GPIO_MUX2_IO01 of instance: GPIO_MUX2
     eALT10_gpio8_IO1 = 10, // Select mux mode: ALT10 mux port: GPIO8_IO01 of instance: GPIO8
   };
+  
   enum class eSION : uint32_t {
     eDISABLED = 0, // Input Path is determined by functionality
     eENABLED = 1, // Force input path of pad GPIO_EMC_B1_33
@@ -1097,7 +1097,7 @@ union SW_MUX_CTL_PAD_GPIO_EMC_B1_33 {
     eMUX_MODE MUX_MODE : 4;
     eSION SION : 1;
     uint32_t _reserved_end : 27;
-  } bits;          // Bit-field struct (auto-filling reserved gaps)
+  } bits;
   
   // Full 32-bit register value.
   uint32_t value;
@@ -1111,13 +1111,13 @@ union SW_MUX_CTL_PAD_GPIO_EMC_B1_33 {
 //
 union SW_MUX_CTL_PAD_GPIO_EMC_B1_34 {
   
-  // Enum definitions.
   enum class eMUX_MODE : uint32_t {
     eALT0_semc_DATA12 = 0, // Select mux mode: ALT0 mux port: SEMC_DATA12 of instance: SEMC
     eALT1_flexpwm3_PWMB2 = 1, // Select mux mode: ALT1 mux port: FLEXPWM3_PWM2_B of instance: FLEXPWM3
     eALT5_gpio_mux2_IO2 = 5, // Select mux mode: ALT5 mux port: GPIO_MUX2_IO02 of instance: GPIO_MUX2
     eALT10_gpio8_IO2 = 10, // Select mux mode: ALT10 mux port: GPIO8_IO02 of instance: GPIO8
   };
+  
   enum class eSION : uint32_t {
     eDISABLED = 0, // Input Path is determined by functionality
     eENABLED = 1, // Force input path of pad GPIO_EMC_B1_34
@@ -1128,7 +1128,7 @@ union SW_MUX_CTL_PAD_GPIO_EMC_B1_34 {
     eMUX_MODE MUX_MODE : 4;
     eSION SION : 1;
     uint32_t _reserved_end : 27;
-  } bits;          // Bit-field struct (auto-filling reserved gaps)
+  } bits;
   
   // Full 32-bit register value.
   uint32_t value;
@@ -1142,13 +1142,13 @@ union SW_MUX_CTL_PAD_GPIO_EMC_B1_34 {
 //
 union SW_MUX_CTL_PAD_GPIO_EMC_B1_35 {
   
-  // Enum definitions.
   enum class eMUX_MODE : uint32_t {
     eALT0_semc_DATA13 = 0, // Select mux mode: ALT0 mux port: SEMC_DATA13 of instance: SEMC
     eALT1_XBAR1_INOUT9 = 1, // Select mux mode: ALT1 mux port: XBAR1_INOUT09 of instance: XBAR1
     eALT5_gpio_mux2_IO3 = 5, // Select mux mode: ALT5 mux port: GPIO_MUX2_IO03 of instance: GPIO_MUX2
     eALT10_gpio8_IO3 = 10, // Select mux mode: ALT10 mux port: GPIO8_IO03 of instance: GPIO8
   };
+  
   enum class eSION : uint32_t {
     eDISABLED = 0, // Input Path is determined by functionality
     eENABLED = 1, // Force input path of pad GPIO_EMC_B1_35
@@ -1159,7 +1159,7 @@ union SW_MUX_CTL_PAD_GPIO_EMC_B1_35 {
     eMUX_MODE MUX_MODE : 4;
     eSION SION : 1;
     uint32_t _reserved_end : 27;
-  } bits;          // Bit-field struct (auto-filling reserved gaps)
+  } bits;
   
   // Full 32-bit register value.
   uint32_t value;
@@ -1173,13 +1173,13 @@ union SW_MUX_CTL_PAD_GPIO_EMC_B1_35 {
 //
 union SW_MUX_CTL_PAD_GPIO_EMC_B1_36 {
   
-  // Enum definitions.
   enum class eMUX_MODE : uint32_t {
     eALT0_semc_DATA14 = 0, // Select mux mode: ALT0 mux port: SEMC_DATA14 of instance: SEMC
     eALT1_XBAR1_INOUT10 = 1, // Select mux mode: ALT1 mux port: XBAR1_INOUT10 of instance: XBAR1
     eALT5_gpio_mux2_IO4 = 5, // Select mux mode: ALT5 mux port: GPIO_MUX2_IO04 of instance: GPIO_MUX2
     eALT10_gpio8_IO4 = 10, // Select mux mode: ALT10 mux port: GPIO8_IO04 of instance: GPIO8
   };
+  
   enum class eSION : uint32_t {
     eDISABLED = 0, // Input Path is determined by functionality
     eENABLED = 1, // Force input path of pad GPIO_EMC_B1_36
@@ -1190,7 +1190,7 @@ union SW_MUX_CTL_PAD_GPIO_EMC_B1_36 {
     eMUX_MODE MUX_MODE : 4;
     eSION SION : 1;
     uint32_t _reserved_end : 27;
-  } bits;          // Bit-field struct (auto-filling reserved gaps)
+  } bits;
   
   // Full 32-bit register value.
   uint32_t value;
@@ -1204,13 +1204,13 @@ union SW_MUX_CTL_PAD_GPIO_EMC_B1_36 {
 //
 union SW_MUX_CTL_PAD_GPIO_EMC_B1_37 {
   
-  // Enum definitions.
   enum class eMUX_MODE : uint32_t {
     eALT0_semc_DATA15 = 0, // Select mux mode: ALT0 mux port: SEMC_DATA15 of instance: SEMC
     eALT1_XBAR1_INOUT11 = 1, // Select mux mode: ALT1 mux port: XBAR1_INOUT11 of instance: XBAR1
     eALT5_gpio_mux2_IO5 = 5, // Select mux mode: ALT5 mux port: GPIO_MUX2_IO05 of instance: GPIO_MUX2
     eALT10_gpio8_IO5 = 10, // Select mux mode: ALT10 mux port: GPIO8_IO05 of instance: GPIO8
   };
+  
   enum class eSION : uint32_t {
     eDISABLED = 0, // Input Path is determined by functionality
     eENABLED = 1, // Force input path of pad GPIO_EMC_B1_37
@@ -1221,7 +1221,7 @@ union SW_MUX_CTL_PAD_GPIO_EMC_B1_37 {
     eMUX_MODE MUX_MODE : 4;
     eSION SION : 1;
     uint32_t _reserved_end : 27;
-  } bits;          // Bit-field struct (auto-filling reserved gaps)
+  } bits;
   
   // Full 32-bit register value.
   uint32_t value;
@@ -1235,7 +1235,6 @@ union SW_MUX_CTL_PAD_GPIO_EMC_B1_37 {
 //
 union SW_MUX_CTL_PAD_GPIO_EMC_B1_38 {
   
-  // Enum definitions.
   enum class eMUX_MODE : uint32_t {
     eALT0_semc_DM1 = 0, // Select mux mode: ALT0 mux port: SEMC_DM01 of instance: SEMC
     eALT1_flexpwm1_PWMA3 = 1, // Select mux mode: ALT1 mux port: FLEXPWM1_PWM3_A of instance: FLEXPWM1
@@ -1243,6 +1242,7 @@ union SW_MUX_CTL_PAD_GPIO_EMC_B1_38 {
     eALT5_gpio_mux2_IO6 = 5, // Select mux mode: ALT5 mux port: GPIO_MUX2_IO06 of instance: GPIO_MUX2
     eALT10_gpio8_IO6 = 10, // Select mux mode: ALT10 mux port: GPIO8_IO06 of instance: GPIO8
   };
+  
   enum class eSION : uint32_t {
     eDISABLED = 0, // Input Path is determined by functionality
     eENABLED = 1, // Force input path of pad GPIO_EMC_B1_38
@@ -1253,7 +1253,7 @@ union SW_MUX_CTL_PAD_GPIO_EMC_B1_38 {
     eMUX_MODE MUX_MODE : 4;
     eSION SION : 1;
     uint32_t _reserved_end : 27;
-  } bits;          // Bit-field struct (auto-filling reserved gaps)
+  } bits;
   
   // Full 32-bit register value.
   uint32_t value;
@@ -1267,7 +1267,6 @@ union SW_MUX_CTL_PAD_GPIO_EMC_B1_38 {
 //
 union SW_MUX_CTL_PAD_GPIO_EMC_B1_39 {
   
-  // Enum definitions.
   enum class eMUX_MODE : uint32_t {
     eALT0_semc_DQS = 0, // Select mux mode: ALT0 mux port: SEMC_DQS of instance: SEMC
     eALT1_flexpwm1_PWMB3 = 1, // Select mux mode: ALT1 mux port: FLEXPWM1_PWM3_B of instance: FLEXPWM1
@@ -1275,6 +1274,7 @@ union SW_MUX_CTL_PAD_GPIO_EMC_B1_39 {
     eALT5_gpio_mux2_IO7 = 5, // Select mux mode: ALT5 mux port: GPIO_MUX2_IO07 of instance: GPIO_MUX2
     eALT10_gpio8_IO7 = 10, // Select mux mode: ALT10 mux port: GPIO8_IO07 of instance: GPIO8
   };
+  
   enum class eSION : uint32_t {
     eDISABLED = 0, // Input Path is determined by functionality
     eENABLED = 1, // Force input path of pad GPIO_EMC_B1_39
@@ -1285,7 +1285,7 @@ union SW_MUX_CTL_PAD_GPIO_EMC_B1_39 {
     eMUX_MODE MUX_MODE : 4;
     eSION SION : 1;
     uint32_t _reserved_end : 27;
-  } bits;          // Bit-field struct (auto-filling reserved gaps)
+  } bits;
   
   // Full 32-bit register value.
   uint32_t value;
@@ -1299,7 +1299,6 @@ union SW_MUX_CTL_PAD_GPIO_EMC_B1_39 {
 //
 union SW_MUX_CTL_PAD_GPIO_EMC_B1_40 {
   
-  // Enum definitions.
   enum class eMUX_MODE : uint32_t {
     eALT0_semc_RDY = 0, // Select mux mode: ALT0 mux port: SEMC_RDY of instance: SEMC
     eALT1_XBAR1_INOUT12 = 1, // Select mux mode: ALT1 mux port: XBAR1_INOUT12 of instance: XBAR1
@@ -1310,6 +1309,7 @@ union SW_MUX_CTL_PAD_GPIO_EMC_B1_40 {
     eALT9_CCM_CLKO1 = 9, // Select mux mode: ALT9 mux port: CCM_CLKO1 of instance: CCM
     eALT10_gpio8_IO8 = 10, // Select mux mode: ALT10 mux port: GPIO8_IO08 of instance: GPIO8
   };
+  
   enum class eSION : uint32_t {
     eDISABLED = 0, // Input Path is determined by functionality
     eENABLED = 1, // Force input path of pad GPIO_EMC_B1_40
@@ -1320,7 +1320,7 @@ union SW_MUX_CTL_PAD_GPIO_EMC_B1_40 {
     eMUX_MODE MUX_MODE : 4;
     eSION SION : 1;
     uint32_t _reserved_end : 27;
-  } bits;          // Bit-field struct (auto-filling reserved gaps)
+  } bits;
   
   // Full 32-bit register value.
   uint32_t value;
@@ -1334,7 +1334,6 @@ union SW_MUX_CTL_PAD_GPIO_EMC_B1_40 {
 //
 union SW_MUX_CTL_PAD_GPIO_EMC_B1_41 {
   
-  // Enum definitions.
   enum class eMUX_MODE : uint32_t {
     eALT0_semc_CSX0 = 0, // Select mux mode: ALT0 mux port: SEMC_CSX00 of instance: SEMC
     eALT1_XBAR1_INOUT13 = 1, // Select mux mode: ALT1 mux port: XBAR1_INOUT13 of instance: XBAR1
@@ -1346,6 +1345,7 @@ union SW_MUX_CTL_PAD_GPIO_EMC_B1_41 {
     eALT9_CCM_CLKO2 = 9, // Select mux mode: ALT9 mux port: CCM_CLKO2 of instance: CCM
     eALT10_gpio8_IO9 = 10, // Select mux mode: ALT10 mux port: GPIO8_IO09 of instance: GPIO8
   };
+  
   enum class eSION : uint32_t {
     eDISABLED = 0, // Input Path is determined by functionality
     eENABLED = 1, // Force input path of pad GPIO_EMC_B1_41
@@ -1356,7 +1356,7 @@ union SW_MUX_CTL_PAD_GPIO_EMC_B1_41 {
     eMUX_MODE MUX_MODE : 4;
     eSION SION : 1;
     uint32_t _reserved_end : 27;
-  } bits;          // Bit-field struct (auto-filling reserved gaps)
+  } bits;
   
   // Full 32-bit register value.
   uint32_t value;
@@ -1370,7 +1370,6 @@ union SW_MUX_CTL_PAD_GPIO_EMC_B1_41 {
 //
 union SW_MUX_CTL_PAD_GPIO_EMC_B2_00 {
   
-  // Enum definitions.
   enum class eMUX_MODE : uint32_t {
     eALT0_semc_DATA16 = 0, // Select mux mode: ALT0 mux port: SEMC_DATA16 of instance: SEMC
     eALT1_CCM_ENET_REF_CLK_25M = 1, // Select mux mode: ALT1 mux port: CCM_ENET_REF_CLK_25M of instance: CCM
@@ -1385,6 +1384,7 @@ union SW_MUX_CTL_PAD_GPIO_EMC_B2_00 {
     eALT10_gpio8_IO10 = 10, // Select mux mode: ALT10 mux port: GPIO8_IO10 of instance: GPIO8
     eALT11_flexpwm3_PWMA0 = 11, // Select mux mode: ALT11 mux port: FLEXPWM3_PWM0_A of instance: FLEXPWM3
   };
+  
   enum class eSION : uint32_t {
     eDISABLED = 0, // Input Path is determined by functionality
     eENABLED = 1, // Force input path of pad GPIO_EMC_B2_00
@@ -1395,7 +1395,7 @@ union SW_MUX_CTL_PAD_GPIO_EMC_B2_00 {
     eMUX_MODE MUX_MODE : 4;
     eSION SION : 1;
     uint32_t _reserved_end : 27;
-  } bits;          // Bit-field struct (auto-filling reserved gaps)
+  } bits;
   
   // Full 32-bit register value.
   uint32_t value;
@@ -1409,7 +1409,6 @@ union SW_MUX_CTL_PAD_GPIO_EMC_B2_00 {
 //
 union SW_MUX_CTL_PAD_GPIO_EMC_B2_01 {
   
-  // Enum definitions.
   enum class eMUX_MODE : uint32_t {
     eALT0_semc_DATA17 = 0, // Select mux mode: ALT0 mux port: SEMC_DATA17 of instance: SEMC
     eALT1_usdhc2_CD_B = 1, // Select mux mode: ALT1 mux port: USDHC2_CD_B of instance: USDHC2
@@ -1424,6 +1423,7 @@ union SW_MUX_CTL_PAD_GPIO_EMC_B2_01 {
     eALT10_gpio8_IO11 = 10, // Select mux mode: ALT10 mux port: GPIO8_IO11 of instance: GPIO8
     eALT11_flexpwm3_PWMB0 = 11, // Select mux mode: ALT11 mux port: FLEXPWM3_PWM0_B of instance: FLEXPWM3
   };
+  
   enum class eSION : uint32_t {
     eDISABLED = 0, // Input Path is determined by functionality
     eENABLED = 1, // Force input path of pad GPIO_EMC_B2_01
@@ -1434,7 +1434,7 @@ union SW_MUX_CTL_PAD_GPIO_EMC_B2_01 {
     eMUX_MODE MUX_MODE : 4;
     eSION SION : 1;
     uint32_t _reserved_end : 27;
-  } bits;          // Bit-field struct (auto-filling reserved gaps)
+  } bits;
   
   // Full 32-bit register value.
   uint32_t value;
@@ -1448,7 +1448,6 @@ union SW_MUX_CTL_PAD_GPIO_EMC_B2_01 {
 //
 union SW_MUX_CTL_PAD_GPIO_EMC_B2_02 {
   
-  // Enum definitions.
   enum class eMUX_MODE : uint32_t {
     eALT0_semc_DATA18 = 0, // Select mux mode: ALT0 mux port: SEMC_DATA18 of instance: SEMC
     eALT1_usdhc2_WP = 1, // Select mux mode: ALT1 mux port: USDHC2_WP of instance: USDHC2
@@ -1461,6 +1460,7 @@ union SW_MUX_CTL_PAD_GPIO_EMC_B2_02 {
     eALT10_gpio8_IO12 = 10, // Select mux mode: ALT10 mux port: GPIO8_IO12 of instance: GPIO8
     eALT11_flexpwm3_PWMA1 = 11, // Select mux mode: ALT11 mux port: FLEXPWM3_PWM1_A of instance: FLEXPWM3
   };
+  
   enum class eSION : uint32_t {
     eDISABLED = 0, // Input Path is determined by functionality
     eENABLED = 1, // Force input path of pad GPIO_EMC_B2_02
@@ -1471,7 +1471,7 @@ union SW_MUX_CTL_PAD_GPIO_EMC_B2_02 {
     eMUX_MODE MUX_MODE : 4;
     eSION SION : 1;
     uint32_t _reserved_end : 27;
-  } bits;          // Bit-field struct (auto-filling reserved gaps)
+  } bits;
   
   // Full 32-bit register value.
   uint32_t value;
@@ -1485,7 +1485,6 @@ union SW_MUX_CTL_PAD_GPIO_EMC_B2_02 {
 //
 union SW_MUX_CTL_PAD_GPIO_EMC_B2_03 {
   
-  // Enum definitions.
   enum class eMUX_MODE : uint32_t {
     eALT0_semc_DATA19 = 0, // Select mux mode: ALT0 mux port: SEMC_DATA19 of instance: SEMC
     eALT1_usdhc2_VSELECT = 1, // Select mux mode: ALT1 mux port: USDHC2_VSELECT of instance: USDHC2
@@ -1498,6 +1497,7 @@ union SW_MUX_CTL_PAD_GPIO_EMC_B2_03 {
     eALT10_gpio8_IO13 = 10, // Select mux mode: ALT10 mux port: GPIO8_IO13 of instance: GPIO8
     eALT11_flexpwm3_PWMB1 = 11, // Select mux mode: ALT11 mux port: FLEXPWM3_PWM1_B of instance: FLEXPWM3
   };
+  
   enum class eSION : uint32_t {
     eDISABLED = 0, // Input Path is determined by functionality
     eENABLED = 1, // Force input path of pad GPIO_EMC_B2_03
@@ -1508,7 +1508,7 @@ union SW_MUX_CTL_PAD_GPIO_EMC_B2_03 {
     eMUX_MODE MUX_MODE : 4;
     eSION SION : 1;
     uint32_t _reserved_end : 27;
-  } bits;          // Bit-field struct (auto-filling reserved gaps)
+  } bits;
   
   // Full 32-bit register value.
   uint32_t value;
@@ -1522,7 +1522,6 @@ union SW_MUX_CTL_PAD_GPIO_EMC_B2_03 {
 //
 union SW_MUX_CTL_PAD_GPIO_EMC_B2_04 {
   
-  // Enum definitions.
   enum class eMUX_MODE : uint32_t {
     eALT0_semc_DATA20 = 0, // Select mux mode: ALT0 mux port: SEMC_DATA20 of instance: SEMC
     eALT1_usdhc2_RESET_B = 1, // Select mux mode: ALT1 mux port: USDHC2_RESET_B of instance: USDHC2
@@ -1536,6 +1535,7 @@ union SW_MUX_CTL_PAD_GPIO_EMC_B2_04 {
     eALT10_gpio8_IO14 = 10, // Select mux mode: ALT10 mux port: GPIO8_IO14 of instance: GPIO8
     eALT11_flexpwm3_PWMA2 = 11, // Select mux mode: ALT11 mux port: FLEXPWM3_PWM2_A of instance: FLEXPWM3
   };
+  
   enum class eSION : uint32_t {
     eDISABLED = 0, // Input Path is determined by functionality
     eENABLED = 1, // Force input path of pad GPIO_EMC_B2_04
@@ -1546,7 +1546,7 @@ union SW_MUX_CTL_PAD_GPIO_EMC_B2_04 {
     eMUX_MODE MUX_MODE : 4;
     eSION SION : 1;
     uint32_t _reserved_end : 27;
-  } bits;          // Bit-field struct (auto-filling reserved gaps)
+  } bits;
   
   // Full 32-bit register value.
   uint32_t value;
@@ -1560,7 +1560,6 @@ union SW_MUX_CTL_PAD_GPIO_EMC_B2_04 {
 //
 union SW_MUX_CTL_PAD_GPIO_EMC_B2_05 {
   
-  // Enum definitions.
   enum class eMUX_MODE : uint32_t {
     eALT0_semc_DATA21 = 0, // Select mux mode: ALT0 mux port: SEMC_DATA21 of instance: SEMC
     eALT1_gpt3_CLK = 1, // Select mux mode: ALT1 mux port: GPT3_CLK of instance: GPT3
@@ -1575,6 +1574,7 @@ union SW_MUX_CTL_PAD_GPIO_EMC_B2_05 {
     eALT10_gpio8_IO15 = 10, // Select mux mode: ALT10 mux port: GPIO8_IO15 of instance: GPIO8
     eALT11_flexpwm3_PWMB2 = 11, // Select mux mode: ALT11 mux port: FLEXPWM3_PWM2_B of instance: FLEXPWM3
   };
+  
   enum class eSION : uint32_t {
     eDISABLED = 0, // Input Path is determined by functionality
     eENABLED = 1, // Force input path of pad GPIO_EMC_B2_05
@@ -1585,7 +1585,7 @@ union SW_MUX_CTL_PAD_GPIO_EMC_B2_05 {
     eMUX_MODE MUX_MODE : 4;
     eSION SION : 1;
     uint32_t _reserved_end : 27;
-  } bits;          // Bit-field struct (auto-filling reserved gaps)
+  } bits;
   
   // Full 32-bit register value.
   uint32_t value;
@@ -1599,7 +1599,6 @@ union SW_MUX_CTL_PAD_GPIO_EMC_B2_05 {
 //
 union SW_MUX_CTL_PAD_GPIO_EMC_B2_06 {
   
-  // Enum definitions.
   enum class eMUX_MODE : uint32_t {
     eALT0_semc_DATA22 = 0, // Select mux mode: ALT0 mux port: SEMC_DATA22 of instance: SEMC
     eALT1_gpt3_CAPTURE1 = 1, // Select mux mode: ALT1 mux port: GPT3_CAPTURE1 of instance: GPT3
@@ -1614,6 +1613,7 @@ union SW_MUX_CTL_PAD_GPIO_EMC_B2_06 {
     eALT10_gpio8_IO16 = 10, // Select mux mode: ALT10 mux port: GPIO8_IO16 of instance: GPIO8
     eALT11_flexpwm3_PWMA3 = 11, // Select mux mode: ALT11 mux port: FLEXPWM3_PWM3_A of instance: FLEXPWM3
   };
+  
   enum class eSION : uint32_t {
     eDISABLED = 0, // Input Path is determined by functionality
     eENABLED = 1, // Force input path of pad GPIO_EMC_B2_06
@@ -1624,7 +1624,7 @@ union SW_MUX_CTL_PAD_GPIO_EMC_B2_06 {
     eMUX_MODE MUX_MODE : 4;
     eSION SION : 1;
     uint32_t _reserved_end : 27;
-  } bits;          // Bit-field struct (auto-filling reserved gaps)
+  } bits;
   
   // Full 32-bit register value.
   uint32_t value;
@@ -1638,7 +1638,6 @@ union SW_MUX_CTL_PAD_GPIO_EMC_B2_06 {
 //
 union SW_MUX_CTL_PAD_GPIO_EMC_B2_07 {
   
-  // Enum definitions.
   enum class eMUX_MODE : uint32_t {
     eALT0_semc_DATA23 = 0, // Select mux mode: ALT0 mux port: SEMC_DATA23 of instance: SEMC
     eALT1_gpt3_CAPTURE2 = 1, // Select mux mode: ALT1 mux port: GPT3_CAPTURE2 of instance: GPT3
@@ -1653,6 +1652,7 @@ union SW_MUX_CTL_PAD_GPIO_EMC_B2_07 {
     eALT10_gpio8_IO17 = 10, // Select mux mode: ALT10 mux port: GPIO8_IO17 of instance: GPIO8
     eALT11_flexpwm3_PWMB3 = 11, // Select mux mode: ALT11 mux port: FLEXPWM3_PWM3_B of instance: FLEXPWM3
   };
+  
   enum class eSION : uint32_t {
     eDISABLED = 0, // Input Path is determined by functionality
     eENABLED = 1, // Force input path of pad GPIO_EMC_B2_07
@@ -1663,7 +1663,7 @@ union SW_MUX_CTL_PAD_GPIO_EMC_B2_07 {
     eMUX_MODE MUX_MODE : 4;
     eSION SION : 1;
     uint32_t _reserved_end : 27;
-  } bits;          // Bit-field struct (auto-filling reserved gaps)
+  } bits;
   
   // Full 32-bit register value.
   uint32_t value;
@@ -1677,7 +1677,6 @@ union SW_MUX_CTL_PAD_GPIO_EMC_B2_07 {
 //
 union SW_MUX_CTL_PAD_GPIO_EMC_B2_08 {
   
-  // Enum definitions.
   enum class eMUX_MODE : uint32_t {
     eALT0_semc_DM2 = 0, // Select mux mode: ALT0 mux port: SEMC_DM02 of instance: SEMC
     eALT1_gpt3_COMPARE1 = 1, // Select mux mode: ALT1 mux port: GPT3_COMPARE1 of instance: GPT3
@@ -1691,6 +1690,7 @@ union SW_MUX_CTL_PAD_GPIO_EMC_B2_08 {
     eALT9_pit1_TRIGGER3 = 9, // Select mux mode: ALT9 mux port: PIT1_TRIGGER3 of instance: PIT1
     eALT10_gpio8_IO18 = 10, // Select mux mode: ALT10 mux port: GPIO8_IO18 of instance: GPIO8
   };
+  
   enum class eSION : uint32_t {
     eDISABLED = 0, // Input Path is determined by functionality
     eENABLED = 1, // Force input path of pad GPIO_EMC_B2_08
@@ -1701,7 +1701,7 @@ union SW_MUX_CTL_PAD_GPIO_EMC_B2_08 {
     eMUX_MODE MUX_MODE : 4;
     eSION SION : 1;
     uint32_t _reserved_end : 27;
-  } bits;          // Bit-field struct (auto-filling reserved gaps)
+  } bits;
   
   // Full 32-bit register value.
   uint32_t value;
@@ -1715,7 +1715,6 @@ union SW_MUX_CTL_PAD_GPIO_EMC_B2_08 {
 //
 union SW_MUX_CTL_PAD_GPIO_EMC_B2_09 {
   
-  // Enum definitions.
   enum class eMUX_MODE : uint32_t {
     eALT0_semc_DATA24 = 0, // Select mux mode: ALT0 mux port: SEMC_DATA24 of instance: SEMC
     eALT1_gpt3_COMPARE2 = 1, // Select mux mode: ALT1 mux port: GPT3_COMPARE2 of instance: GPT3
@@ -1729,6 +1728,7 @@ union SW_MUX_CTL_PAD_GPIO_EMC_B2_09 {
     eALT9_qtimer1_TIMER0 = 9, // Select mux mode: ALT9 mux port: TMR1_TIMER0 of instance: TMR1
     eALT10_gpio8_IO19 = 10, // Select mux mode: ALT10 mux port: GPIO8_IO19 of instance: GPIO8
   };
+  
   enum class eSION : uint32_t {
     eDISABLED = 0, // Input Path is determined by functionality
     eENABLED = 1, // Force input path of pad GPIO_EMC_B2_09
@@ -1739,7 +1739,7 @@ union SW_MUX_CTL_PAD_GPIO_EMC_B2_09 {
     eMUX_MODE MUX_MODE : 4;
     eSION SION : 1;
     uint32_t _reserved_end : 27;
-  } bits;          // Bit-field struct (auto-filling reserved gaps)
+  } bits;
   
   // Full 32-bit register value.
   uint32_t value;
@@ -1753,7 +1753,6 @@ union SW_MUX_CTL_PAD_GPIO_EMC_B2_09 {
 //
 union SW_MUX_CTL_PAD_GPIO_EMC_B2_10 {
   
-  // Enum definitions.
   enum class eMUX_MODE : uint32_t {
     eALT0_semc_DATA25 = 0, // Select mux mode: ALT0 mux port: SEMC_DATA25 of instance: SEMC
     eALT1_gpt3_COMPARE3 = 1, // Select mux mode: ALT1 mux port: GPT3_COMPARE3 of instance: GPT3
@@ -1767,6 +1766,7 @@ union SW_MUX_CTL_PAD_GPIO_EMC_B2_10 {
     eALT9_qtimer1_TIMER1 = 9, // Select mux mode: ALT9 mux port: TMR1_TIMER1 of instance: TMR1
     eALT10_gpio8_IO20 = 10, // Select mux mode: ALT10 mux port: GPIO8_IO20 of instance: GPIO8
   };
+  
   enum class eSION : uint32_t {
     eDISABLED = 0, // Input Path is determined by functionality
     eENABLED = 1, // Force input path of pad GPIO_EMC_B2_10
@@ -1777,7 +1777,7 @@ union SW_MUX_CTL_PAD_GPIO_EMC_B2_10 {
     eMUX_MODE MUX_MODE : 4;
     eSION SION : 1;
     uint32_t _reserved_end : 27;
-  } bits;          // Bit-field struct (auto-filling reserved gaps)
+  } bits;
   
   // Full 32-bit register value.
   uint32_t value;
@@ -1791,7 +1791,6 @@ union SW_MUX_CTL_PAD_GPIO_EMC_B2_10 {
 //
 union SW_MUX_CTL_PAD_GPIO_EMC_B2_11 {
   
-  // Enum definitions.
   enum class eMUX_MODE : uint32_t {
     eALT0_semc_DATA26 = 0, // Select mux mode: ALT0 mux port: SEMC_DATA26 of instance: SEMC
     eALT1_spdif_IN = 1, // Select mux mode: ALT1 mux port: SPDIF_IN of instance: SPDIF
@@ -1804,6 +1803,7 @@ union SW_MUX_CTL_PAD_GPIO_EMC_B2_11 {
     eALT9_qtimer1_TIMER2 = 9, // Select mux mode: ALT9 mux port: TMR1_TIMER2 of instance: TMR1
     eALT10_gpio8_IO21 = 10, // Select mux mode: ALT10 mux port: GPIO8_IO21 of instance: GPIO8
   };
+  
   enum class eSION : uint32_t {
     eDISABLED = 0, // Input Path is determined by functionality
     eENABLED = 1, // Force input path of pad GPIO_EMC_B2_11
@@ -1814,7 +1814,7 @@ union SW_MUX_CTL_PAD_GPIO_EMC_B2_11 {
     eMUX_MODE MUX_MODE : 4;
     eSION SION : 1;
     uint32_t _reserved_end : 27;
-  } bits;          // Bit-field struct (auto-filling reserved gaps)
+  } bits;
   
   // Full 32-bit register value.
   uint32_t value;
@@ -1828,7 +1828,6 @@ union SW_MUX_CTL_PAD_GPIO_EMC_B2_11 {
 //
 union SW_MUX_CTL_PAD_GPIO_EMC_B2_12 {
   
-  // Enum definitions.
   enum class eMUX_MODE : uint32_t {
     eALT0_semc_DATA27 = 0, // Select mux mode: ALT0 mux port: SEMC_DATA27 of instance: SEMC
     eALT1_spdif_OUT = 1, // Select mux mode: ALT1 mux port: SPDIF_OUT of instance: SPDIF
@@ -1841,6 +1840,7 @@ union SW_MUX_CTL_PAD_GPIO_EMC_B2_12 {
     eALT9_qtimer1_TIMER3 = 9, // Select mux mode: ALT9 mux port: TMR1_TIMER3 of instance: TMR1
     eALT10_gpio8_IO22 = 10, // Select mux mode: ALT10 mux port: GPIO8_IO22 of instance: GPIO8
   };
+  
   enum class eSION : uint32_t {
     eDISABLED = 0, // Input Path is determined by functionality
     eENABLED = 1, // Force input path of pad GPIO_EMC_B2_12
@@ -1851,7 +1851,7 @@ union SW_MUX_CTL_PAD_GPIO_EMC_B2_12 {
     eMUX_MODE MUX_MODE : 4;
     eSION SION : 1;
     uint32_t _reserved_end : 27;
-  } bits;          // Bit-field struct (auto-filling reserved gaps)
+  } bits;
   
   // Full 32-bit register value.
   uint32_t value;
@@ -1865,7 +1865,6 @@ union SW_MUX_CTL_PAD_GPIO_EMC_B2_12 {
 //
 union SW_MUX_CTL_PAD_GPIO_EMC_B2_13 {
   
-  // Enum definitions.
   enum class eMUX_MODE : uint32_t {
     eALT0_semc_DATA28 = 0, // Select mux mode: ALT0 mux port: SEMC_DATA28 of instance: SEMC
     eALT2_enet_1g_TX_EN = 2, // Select mux mode: ALT2 mux port: ENET_1G_TX_EN of instance: ENET_1G
@@ -1877,6 +1876,7 @@ union SW_MUX_CTL_PAD_GPIO_EMC_B2_13 {
     eALT9_qtimer2_TIMER0 = 9, // Select mux mode: ALT9 mux port: TMR2_TIMER0 of instance: TMR2
     eALT10_gpio8_IO23 = 10, // Select mux mode: ALT10 mux port: GPIO8_IO23 of instance: GPIO8
   };
+  
   enum class eSION : uint32_t {
     eDISABLED = 0, // Input Path is determined by functionality
     eENABLED = 1, // Force input path of pad GPIO_EMC_B2_13
@@ -1887,7 +1887,7 @@ union SW_MUX_CTL_PAD_GPIO_EMC_B2_13 {
     eMUX_MODE MUX_MODE : 4;
     eSION SION : 1;
     uint32_t _reserved_end : 27;
-  } bits;          // Bit-field struct (auto-filling reserved gaps)
+  } bits;
   
   // Full 32-bit register value.
   uint32_t value;
@@ -1901,7 +1901,6 @@ union SW_MUX_CTL_PAD_GPIO_EMC_B2_13 {
 //
 union SW_MUX_CTL_PAD_GPIO_EMC_B2_14 {
   
-  // Enum definitions.
   enum class eMUX_MODE : uint32_t {
     eALT0_semc_DATA29 = 0, // Select mux mode: ALT0 mux port: SEMC_DATA29 of instance: SEMC
     eALT2_enet_1g_TX_CLK_IO = 2, // Select mux mode: ALT2 mux port: ENET_1G_TX_CLK_IO of instance: ENET_1G
@@ -1914,6 +1913,7 @@ union SW_MUX_CTL_PAD_GPIO_EMC_B2_14 {
     eALT9_qtimer2_TIMER1 = 9, // Select mux mode: ALT9 mux port: TMR2_TIMER1 of instance: TMR2
     eALT10_gpio8_IO24 = 10, // Select mux mode: ALT10 mux port: GPIO8_IO24 of instance: GPIO8
   };
+  
   enum class eSION : uint32_t {
     eDISABLED = 0, // Input Path is determined by functionality
     eENABLED = 1, // Force input path of pad GPIO_EMC_B2_14
@@ -1924,7 +1924,7 @@ union SW_MUX_CTL_PAD_GPIO_EMC_B2_14 {
     eMUX_MODE MUX_MODE : 4;
     eSION SION : 1;
     uint32_t _reserved_end : 27;
-  } bits;          // Bit-field struct (auto-filling reserved gaps)
+  } bits;
   
   // Full 32-bit register value.
   uint32_t value;
@@ -1938,7 +1938,6 @@ union SW_MUX_CTL_PAD_GPIO_EMC_B2_14 {
 //
 union SW_MUX_CTL_PAD_GPIO_EMC_B2_15 {
   
-  // Enum definitions.
   enum class eMUX_MODE : uint32_t {
     eALT0_semc_DATA30 = 0, // Select mux mode: ALT0 mux port: SEMC_DATA30 of instance: SEMC
     eALT2_ENET_1G_RX_DATA0 = 2, // Select mux mode: ALT2 mux port: ENET_1G_RX_DATA00 of instance: ENET_1G
@@ -1950,6 +1949,7 @@ union SW_MUX_CTL_PAD_GPIO_EMC_B2_15 {
     eALT9_qtimer2_TIMER2 = 9, // Select mux mode: ALT9 mux port: TMR2_TIMER2 of instance: TMR2
     eALT10_gpio8_IO25 = 10, // Select mux mode: ALT10 mux port: GPIO8_IO25 of instance: GPIO8
   };
+  
   enum class eSION : uint32_t {
     eDISABLED = 0, // Input Path is determined by functionality
     eENABLED = 1, // Force input path of pad GPIO_EMC_B2_15
@@ -1960,7 +1960,7 @@ union SW_MUX_CTL_PAD_GPIO_EMC_B2_15 {
     eMUX_MODE MUX_MODE : 4;
     eSION SION : 1;
     uint32_t _reserved_end : 27;
-  } bits;          // Bit-field struct (auto-filling reserved gaps)
+  } bits;
   
   // Full 32-bit register value.
   uint32_t value;
@@ -1974,7 +1974,6 @@ union SW_MUX_CTL_PAD_GPIO_EMC_B2_15 {
 //
 union SW_MUX_CTL_PAD_GPIO_EMC_B2_16 {
   
-  // Enum definitions.
   enum class eMUX_MODE : uint32_t {
     eALT0_semc_DATA31 = 0, // Select mux mode: ALT0 mux port: SEMC_DATA31 of instance: SEMC
     eALT1_XBAR1_INOUT14 = 1, // Select mux mode: ALT1 mux port: XBAR1_INOUT14 of instance: XBAR1
@@ -1986,6 +1985,7 @@ union SW_MUX_CTL_PAD_GPIO_EMC_B2_16 {
     eALT9_qtimer2_TIMER3 = 9, // Select mux mode: ALT9 mux port: TMR2_TIMER3 of instance: TMR2
     eALT10_gpio8_IO26 = 10, // Select mux mode: ALT10 mux port: GPIO8_IO26 of instance: GPIO8
   };
+  
   enum class eSION : uint32_t {
     eDISABLED = 0, // Input Path is determined by functionality
     eENABLED = 1, // Force input path of pad GPIO_EMC_B2_16
@@ -1996,7 +1996,7 @@ union SW_MUX_CTL_PAD_GPIO_EMC_B2_16 {
     eMUX_MODE MUX_MODE : 4;
     eSION SION : 1;
     uint32_t _reserved_end : 27;
-  } bits;          // Bit-field struct (auto-filling reserved gaps)
+  } bits;
   
   // Full 32-bit register value.
   uint32_t value;
@@ -2010,7 +2010,6 @@ union SW_MUX_CTL_PAD_GPIO_EMC_B2_16 {
 //
 union SW_MUX_CTL_PAD_GPIO_EMC_B2_17 {
   
-  // Enum definitions.
   enum class eMUX_MODE : uint32_t {
     eALT0_semc_DM3 = 0, // Select mux mode: ALT0 mux port: SEMC_DM03 of instance: SEMC
     eALT1_XBAR1_INOUT15 = 1, // Select mux mode: ALT1 mux port: XBAR1_INOUT15 of instance: XBAR1
@@ -2022,6 +2021,7 @@ union SW_MUX_CTL_PAD_GPIO_EMC_B2_17 {
     eALT9_qtimer3_TIMER0 = 9, // Select mux mode: ALT9 mux port: TMR3_TIMER0 of instance: TMR3
     eALT10_gpio8_IO27 = 10, // Select mux mode: ALT10 mux port: GPIO8_IO27 of instance: GPIO8
   };
+  
   enum class eSION : uint32_t {
     eDISABLED = 0, // Input Path is determined by functionality
     eENABLED = 1, // Force input path of pad GPIO_EMC_B2_17
@@ -2032,7 +2032,7 @@ union SW_MUX_CTL_PAD_GPIO_EMC_B2_17 {
     eMUX_MODE MUX_MODE : 4;
     eSION SION : 1;
     uint32_t _reserved_end : 27;
-  } bits;          // Bit-field struct (auto-filling reserved gaps)
+  } bits;
   
   // Full 32-bit register value.
   uint32_t value;
@@ -2046,7 +2046,6 @@ union SW_MUX_CTL_PAD_GPIO_EMC_B2_17 {
 //
 union SW_MUX_CTL_PAD_GPIO_EMC_B2_18 {
   
-  // Enum definitions.
   enum class eMUX_MODE : uint32_t {
     eALT0_semc_DQS4 = 0, // Select mux mode: ALT0 mux port: SEMC_DQS4 of instance: SEMC
     eALT1_XBAR1_INOUT16 = 1, // Select mux mode: ALT1 mux port: XBAR1_INOUT16 of instance: XBAR1
@@ -2059,6 +2058,7 @@ union SW_MUX_CTL_PAD_GPIO_EMC_B2_18 {
     eALT9_qtimer3_TIMER1 = 9, // Select mux mode: ALT9 mux port: TMR3_TIMER1 of instance: TMR3
     eALT10_gpio8_IO28 = 10, // Select mux mode: ALT10 mux port: GPIO8_IO28 of instance: GPIO8
   };
+  
   enum class eSION : uint32_t {
     eDISABLED = 0, // Input Path is determined by functionality
     eENABLED = 1, // Force input path of pad GPIO_EMC_B2_18
@@ -2069,7 +2069,7 @@ union SW_MUX_CTL_PAD_GPIO_EMC_B2_18 {
     eMUX_MODE MUX_MODE : 4;
     eSION SION : 1;
     uint32_t _reserved_end : 27;
-  } bits;          // Bit-field struct (auto-filling reserved gaps)
+  } bits;
   
   // Full 32-bit register value.
   uint32_t value;
@@ -2083,7 +2083,6 @@ union SW_MUX_CTL_PAD_GPIO_EMC_B2_18 {
 //
 union SW_MUX_CTL_PAD_GPIO_EMC_B2_19 {
   
-  // Enum definitions.
   enum class eMUX_MODE : uint32_t {
     eALT0_semc_CLKX0 = 0, // Select mux mode: ALT0 mux port: SEMC_CLKX00 of instance: SEMC
     eALT1_enet_MDC = 1, // Select mux mode: ALT1 mux port: ENET_MDC of instance: ENET
@@ -2095,6 +2094,7 @@ union SW_MUX_CTL_PAD_GPIO_EMC_B2_19 {
     eALT9_qtimer3_TIMER2 = 9, // Select mux mode: ALT9 mux port: TMR3_TIMER2 of instance: TMR3
     eALT10_gpio8_IO29 = 10, // Select mux mode: ALT10 mux port: GPIO8_IO29 of instance: GPIO8
   };
+  
   enum class eSION : uint32_t {
     eDISABLED = 0, // Input Path is determined by functionality
     eENABLED = 1, // Force input path of pad GPIO_EMC_B2_19
@@ -2105,7 +2105,7 @@ union SW_MUX_CTL_PAD_GPIO_EMC_B2_19 {
     eMUX_MODE MUX_MODE : 4;
     eSION SION : 1;
     uint32_t _reserved_end : 27;
-  } bits;          // Bit-field struct (auto-filling reserved gaps)
+  } bits;
   
   // Full 32-bit register value.
   uint32_t value;
@@ -2119,7 +2119,6 @@ union SW_MUX_CTL_PAD_GPIO_EMC_B2_19 {
 //
 union SW_MUX_CTL_PAD_GPIO_EMC_B2_20 {
   
-  // Enum definitions.
   enum class eMUX_MODE : uint32_t {
     eALT0_semc_CLKX1 = 0, // Select mux mode: ALT0 mux port: SEMC_CLKX01 of instance: SEMC
     eALT1_enet_MDIO = 1, // Select mux mode: ALT1 mux port: ENET_MDIO of instance: ENET
@@ -2131,6 +2130,7 @@ union SW_MUX_CTL_PAD_GPIO_EMC_B2_20 {
     eALT9_qtimer3_TIMER3 = 9, // Select mux mode: ALT9 mux port: TMR3_TIMER3 of instance: TMR3
     eALT10_gpio8_IO30 = 10, // Select mux mode: ALT10 mux port: GPIO8_IO30 of instance: GPIO8
   };
+  
   enum class eSION : uint32_t {
     eDISABLED = 0, // Input Path is determined by functionality
     eENABLED = 1, // Force input path of pad GPIO_EMC_B2_20
@@ -2141,7 +2141,7 @@ union SW_MUX_CTL_PAD_GPIO_EMC_B2_20 {
     eMUX_MODE MUX_MODE : 4;
     eSION SION : 1;
     uint32_t _reserved_end : 27;
-  } bits;          // Bit-field struct (auto-filling reserved gaps)
+  } bits;
   
   // Full 32-bit register value.
   uint32_t value;
@@ -2155,7 +2155,6 @@ union SW_MUX_CTL_PAD_GPIO_EMC_B2_20 {
 //
 union SW_MUX_CTL_PAD_GPIO_AD_00 {
   
-  // Enum definitions.
   enum class eMUX_MODE : uint32_t {
     eALT0_EMVSIM1_TRXD = 0, // Select mux mode: ALT0 mux port: EMVSIM1_IO of instance: EMVSIM1
     eALT1_can2_TX = 1, // Select mux mode: ALT1 mux port: FLEXCAN2_TX of instance: FLEXCAN2
@@ -2168,6 +2167,7 @@ union SW_MUX_CTL_PAD_GPIO_AD_00 {
     eALT9_flexspi2_B_SS1_B = 9, // Select mux mode: ALT9 mux port: FLEXSPI2_B_SS1_B of instance: FLEXSPI2
     eALT10_gpio8_IO31 = 10, // Select mux mode: ALT10 mux port: GPIO8_IO31 of instance: GPIO8
   };
+  
   enum class eSION : uint32_t {
     eDISABLED = 0, // Input Path is determined by functionality
     eENABLED = 1, // Force input path of pad GPIO_AD_00
@@ -2178,7 +2178,7 @@ union SW_MUX_CTL_PAD_GPIO_AD_00 {
     eMUX_MODE MUX_MODE : 4;
     eSION SION : 1;
     uint32_t _reserved_end : 27;
-  } bits;          // Bit-field struct (auto-filling reserved gaps)
+  } bits;
   
   // Full 32-bit register value.
   uint32_t value;
@@ -2192,7 +2192,6 @@ union SW_MUX_CTL_PAD_GPIO_AD_00 {
 //
 union SW_MUX_CTL_PAD_GPIO_AD_01 {
   
-  // Enum definitions.
   enum class eMUX_MODE : uint32_t {
     eALT0_EMVSIM1_CLK = 0, // Select mux mode: ALT0 mux port: EMVSIM1_CLK of instance: EMVSIM1
     eALT1_can2_RX = 1, // Select mux mode: ALT1 mux port: FLEXCAN2_RX of instance: FLEXCAN2
@@ -2205,6 +2204,7 @@ union SW_MUX_CTL_PAD_GPIO_AD_01 {
     eALT9_flexspi2_A_SS1_B = 9, // Select mux mode: ALT9 mux port: FLEXSPI2_A_SS1_B of instance: FLEXSPI2
     eALT10_gpio9_IO0 = 10, // Select mux mode: ALT10 mux port: GPIO9_IO00 of instance: GPIO9
   };
+  
   enum class eSION : uint32_t {
     eDISABLED = 0, // Input Path is determined by functionality
     eENABLED = 1, // Force input path of pad GPIO_AD_01
@@ -2215,7 +2215,7 @@ union SW_MUX_CTL_PAD_GPIO_AD_01 {
     eMUX_MODE MUX_MODE : 4;
     eSION SION : 1;
     uint32_t _reserved_end : 27;
-  } bits;          // Bit-field struct (auto-filling reserved gaps)
+  } bits;
   
   // Full 32-bit register value.
   uint32_t value;
@@ -2229,7 +2229,6 @@ union SW_MUX_CTL_PAD_GPIO_AD_01 {
 //
 union SW_MUX_CTL_PAD_GPIO_AD_02 {
   
-  // Enum definitions.
   enum class eMUX_MODE : uint32_t {
     eALT0_EMVSIM1_RST_B = 0, // Select mux mode: ALT0 mux port: EMVSIM1_RST of instance: EMVSIM1
     eALT1_lpuart7_CTS_B = 1, // Select mux mode: ALT1 mux port: LPUART7_CTS_B of instance: LPUART7
@@ -2242,6 +2241,7 @@ union SW_MUX_CTL_PAD_GPIO_AD_02 {
     eALT9_video_mux_EXT_DCIC1 = 9, // Select mux mode: ALT9 mux port: VIDEO_MUX_EXT_DCIC1 of instance: VIDEO_MUX
     eALT10_gpio9_IO1 = 10, // Select mux mode: ALT10 mux port: GPIO9_IO01 of instance: GPIO9
   };
+  
   enum class eSION : uint32_t {
     eDISABLED = 0, // Input Path is determined by functionality
     eENABLED = 1, // Force input path of pad GPIO_AD_02
@@ -2252,7 +2252,7 @@ union SW_MUX_CTL_PAD_GPIO_AD_02 {
     eMUX_MODE MUX_MODE : 4;
     eSION SION : 1;
     uint32_t _reserved_end : 27;
-  } bits;          // Bit-field struct (auto-filling reserved gaps)
+  } bits;
   
   // Full 32-bit register value.
   uint32_t value;
@@ -2266,7 +2266,6 @@ union SW_MUX_CTL_PAD_GPIO_AD_02 {
 //
 union SW_MUX_CTL_PAD_GPIO_AD_03 {
   
-  // Enum definitions.
   enum class eMUX_MODE : uint32_t {
     eALT0_EMVSIM1_SVEN = 0, // Select mux mode: ALT0 mux port: EMVSIM1_SVEN of instance: EMVSIM1
     eALT1_lpuart7_RTS_B = 1, // Select mux mode: ALT1 mux port: LPUART7_RTS_B of instance: LPUART7
@@ -2279,6 +2278,7 @@ union SW_MUX_CTL_PAD_GPIO_AD_03 {
     eALT9_video_mux_EXT_DCIC2 = 9, // Select mux mode: ALT9 mux port: VIDEO_MUX_EXT_DCIC2 of instance: VIDEO_MUX
     eALT10_gpio9_IO2 = 10, // Select mux mode: ALT10 mux port: GPIO9_IO02 of instance: GPIO9
   };
+  
   enum class eSION : uint32_t {
     eDISABLED = 0, // Input Path is determined by functionality
     eENABLED = 1, // Force input path of pad GPIO_AD_03
@@ -2289,7 +2289,7 @@ union SW_MUX_CTL_PAD_GPIO_AD_03 {
     eMUX_MODE MUX_MODE : 4;
     eSION SION : 1;
     uint32_t _reserved_end : 27;
-  } bits;          // Bit-field struct (auto-filling reserved gaps)
+  } bits;
   
   // Full 32-bit register value.
   uint32_t value;
@@ -2303,7 +2303,6 @@ union SW_MUX_CTL_PAD_GPIO_AD_03 {
 //
 union SW_MUX_CTL_PAD_GPIO_AD_04 {
   
-  // Enum definitions.
   enum class eMUX_MODE : uint32_t {
     eALT0_EMVSIM1_PD = 0, // Select mux mode: ALT0 mux port: EMVSIM1_PD of instance: EMVSIM1
     eALT1_lpuart8_CTS_B = 1, // Select mux mode: ALT1 mux port: LPUART8_CTS_B of instance: LPUART8
@@ -2316,6 +2315,7 @@ union SW_MUX_CTL_PAD_GPIO_AD_04 {
     eALT9_qtimer4_TIMER0 = 9, // Select mux mode: ALT9 mux port: TMR4_TIMER0 of instance: TMR4
     eALT10_gpio9_IO3 = 10, // Select mux mode: ALT10 mux port: GPIO9_IO03 of instance: GPIO9
   };
+  
   enum class eSION : uint32_t {
     eDISABLED = 0, // Input Path is determined by functionality
     eENABLED = 1, // Force input path of pad GPIO_AD_04
@@ -2326,7 +2326,7 @@ union SW_MUX_CTL_PAD_GPIO_AD_04 {
     eMUX_MODE MUX_MODE : 4;
     eSION SION : 1;
     uint32_t _reserved_end : 27;
-  } bits;          // Bit-field struct (auto-filling reserved gaps)
+  } bits;
   
   // Full 32-bit register value.
   uint32_t value;
@@ -2340,7 +2340,6 @@ union SW_MUX_CTL_PAD_GPIO_AD_04 {
 //
 union SW_MUX_CTL_PAD_GPIO_AD_05 {
   
-  // Enum definitions.
   enum class eMUX_MODE : uint32_t {
     eALT0_EMVSIM1_POWER_FAIL = 0, // Select mux mode: ALT0 mux port: EMVSIM1_POWER_FAIL of instance: EMVSIM1
     eALT1_lpuart8_RTS_B = 1, // Select mux mode: ALT1 mux port: LPUART8_RTS_B of instance: LPUART8
@@ -2353,6 +2352,7 @@ union SW_MUX_CTL_PAD_GPIO_AD_05 {
     eALT9_qtimer4_TIMER1 = 9, // Select mux mode: ALT9 mux port: TMR4_TIMER1 of instance: TMR4
     eALT10_gpio9_IO4 = 10, // Select mux mode: ALT10 mux port: GPIO9_IO04 of instance: GPIO9
   };
+  
   enum class eSION : uint32_t {
     eDISABLED = 0, // Input Path is determined by functionality
     eENABLED = 1, // Force input path of pad GPIO_AD_05
@@ -2363,7 +2363,7 @@ union SW_MUX_CTL_PAD_GPIO_AD_05 {
     eMUX_MODE MUX_MODE : 4;
     eSION SION : 1;
     uint32_t _reserved_end : 27;
-  } bits;          // Bit-field struct (auto-filling reserved gaps)
+  } bits;
   
   // Full 32-bit register value.
   uint32_t value;
@@ -2377,7 +2377,6 @@ union SW_MUX_CTL_PAD_GPIO_AD_05 {
 //
 union SW_MUX_CTL_PAD_GPIO_AD_06 {
   
-  // Enum definitions.
   enum class eMUX_MODE : uint32_t {
     eALT0_usb_OTG2_OC = 0, // Select mux mode: ALT0 mux port: USB_OTG2_OC of instance: USB
     eALT1_can1_TX = 1, // Select mux mode: ALT1 mux port: FLEXCAN1_TX of instance: FLEXCAN1
@@ -2391,6 +2390,7 @@ union SW_MUX_CTL_PAD_GPIO_AD_06 {
     eALT10_gpio9_IO5 = 10, // Select mux mode: ALT10 mux port: GPIO9_IO05 of instance: GPIO9
     eALT11_flexpwm1_PWMX0 = 11, // Select mux mode: ALT11 mux port: FLEXPWM1_PWM0_X of instance: FLEXPWM1
   };
+  
   enum class eSION : uint32_t {
     eDISABLED = 0, // Input Path is determined by functionality
     eENABLED = 1, // Force input path of pad GPIO_AD_06
@@ -2401,7 +2401,7 @@ union SW_MUX_CTL_PAD_GPIO_AD_06 {
     eMUX_MODE MUX_MODE : 4;
     eSION SION : 1;
     uint32_t _reserved_end : 27;
-  } bits;          // Bit-field struct (auto-filling reserved gaps)
+  } bits;
   
   // Full 32-bit register value.
   uint32_t value;
@@ -2415,7 +2415,6 @@ union SW_MUX_CTL_PAD_GPIO_AD_06 {
 //
 union SW_MUX_CTL_PAD_GPIO_AD_07 {
   
-  // Enum definitions.
   enum class eMUX_MODE : uint32_t {
     eALT0_usb_OTG2_PWR = 0, // Select mux mode: ALT0 mux port: USB_OTG2_PWR of instance: USB
     eALT1_can1_RX = 1, // Select mux mode: ALT1 mux port: FLEXCAN1_RX of instance: FLEXCAN1
@@ -2429,6 +2428,7 @@ union SW_MUX_CTL_PAD_GPIO_AD_07 {
     eALT10_gpio9_IO6 = 10, // Select mux mode: ALT10 mux port: GPIO9_IO06 of instance: GPIO9
     eALT11_flexpwm1_PWMX1 = 11, // Select mux mode: ALT11 mux port: FLEXPWM1_PWM1_X of instance: FLEXPWM1
   };
+  
   enum class eSION : uint32_t {
     eDISABLED = 0, // Input Path is determined by functionality
     eENABLED = 1, // Force input path of pad GPIO_AD_07
@@ -2439,7 +2439,7 @@ union SW_MUX_CTL_PAD_GPIO_AD_07 {
     eMUX_MODE MUX_MODE : 4;
     eSION SION : 1;
     uint32_t _reserved_end : 27;
-  } bits;          // Bit-field struct (auto-filling reserved gaps)
+  } bits;
   
   // Full 32-bit register value.
   uint32_t value;
@@ -2453,7 +2453,6 @@ union SW_MUX_CTL_PAD_GPIO_AD_07 {
 //
 union SW_MUX_CTL_PAD_GPIO_AD_08 {
   
-  // Enum definitions.
   enum class eMUX_MODE : uint32_t {
     eALT0_usbphy2_OTG_ID = 0, // Select mux mode: ALT0 mux port: USBPHY2_OTG_ID of instance: USBPHY2
     eALT1_lpi2c1_SCL = 1, // Select mux mode: ALT1 mux port: LPI2C1_SCL of instance: LPI2C1
@@ -2466,6 +2465,7 @@ union SW_MUX_CTL_PAD_GPIO_AD_08 {
     eALT10_gpio9_IO7 = 10, // Select mux mode: ALT10 mux port: GPIO9_IO07 of instance: GPIO9
     eALT11_flexpwm1_PWMX2 = 11, // Select mux mode: ALT11 mux port: FLEXPWM1_PWM2_X of instance: FLEXPWM1
   };
+  
   enum class eSION : uint32_t {
     eDISABLED = 0, // Input Path is determined by functionality
     eENABLED = 1, // Force input path of pad GPIO_AD_08
@@ -2476,7 +2476,7 @@ union SW_MUX_CTL_PAD_GPIO_AD_08 {
     eMUX_MODE MUX_MODE : 4;
     eSION SION : 1;
     uint32_t _reserved_end : 27;
-  } bits;          // Bit-field struct (auto-filling reserved gaps)
+  } bits;
   
   // Full 32-bit register value.
   uint32_t value;
@@ -2490,7 +2490,6 @@ union SW_MUX_CTL_PAD_GPIO_AD_08 {
 //
 union SW_MUX_CTL_PAD_GPIO_AD_09 {
   
-  // Enum definitions.
   enum class eMUX_MODE : uint32_t {
     eALT0_usbphy1_OTG_ID = 0, // Select mux mode: ALT0 mux port: USBPHY1_OTG_ID of instance: USBPHY1
     eALT1_lpi2c1_SDA = 1, // Select mux mode: ALT1 mux port: LPI2C1_SDA of instance: LPI2C1
@@ -2503,6 +2502,7 @@ union SW_MUX_CTL_PAD_GPIO_AD_09 {
     eALT10_gpio9_IO8 = 10, // Select mux mode: ALT10 mux port: GPIO9_IO08 of instance: GPIO9
     eALT11_flexpwm1_PWMX3 = 11, // Select mux mode: ALT11 mux port: FLEXPWM1_PWM3_X of instance: FLEXPWM1
   };
+  
   enum class eSION : uint32_t {
     eDISABLED = 0, // Input Path is determined by functionality
     eENABLED = 1, // Force input path of pad GPIO_AD_09
@@ -2513,7 +2513,7 @@ union SW_MUX_CTL_PAD_GPIO_AD_09 {
     eMUX_MODE MUX_MODE : 4;
     eSION SION : 1;
     uint32_t _reserved_end : 27;
-  } bits;          // Bit-field struct (auto-filling reserved gaps)
+  } bits;
   
   // Full 32-bit register value.
   uint32_t value;
@@ -2527,7 +2527,6 @@ union SW_MUX_CTL_PAD_GPIO_AD_09 {
 //
 union SW_MUX_CTL_PAD_GPIO_AD_10 {
   
-  // Enum definitions.
   enum class eMUX_MODE : uint32_t {
     eALT0_usb_OTG1_PWR = 0, // Select mux mode: ALT0 mux port: USB_OTG1_PWR of instance: USB
     eALT1_lpi2c1_SCLS = 1, // Select mux mode: ALT1 mux port: LPI2C1_SCLS of instance: LPI2C1
@@ -2540,6 +2539,7 @@ union SW_MUX_CTL_PAD_GPIO_AD_10 {
     eALT10_gpio9_IO9 = 10, // Select mux mode: ALT10 mux port: GPIO9_IO09 of instance: GPIO9
     eALT11_flexpwm2_PWMX0 = 11, // Select mux mode: ALT11 mux port: FLEXPWM2_PWM0_X of instance: FLEXPWM2
   };
+  
   enum class eSION : uint32_t {
     eDISABLED = 0, // Input Path is determined by functionality
     eENABLED = 1, // Force input path of pad GPIO_AD_10
@@ -2550,7 +2550,7 @@ union SW_MUX_CTL_PAD_GPIO_AD_10 {
     eMUX_MODE MUX_MODE : 4;
     eSION SION : 1;
     uint32_t _reserved_end : 27;
-  } bits;          // Bit-field struct (auto-filling reserved gaps)
+  } bits;
   
   // Full 32-bit register value.
   uint32_t value;
@@ -2564,7 +2564,6 @@ union SW_MUX_CTL_PAD_GPIO_AD_10 {
 //
 union SW_MUX_CTL_PAD_GPIO_AD_11 {
   
-  // Enum definitions.
   enum class eMUX_MODE : uint32_t {
     eALT0_usb_OTG1_OC = 0, // Select mux mode: ALT0 mux port: USB_OTG1_OC of instance: USB
     eALT1_lpi2c1_SDAS = 1, // Select mux mode: ALT1 mux port: LPI2C1_SDAS of instance: LPI2C1
@@ -2577,6 +2576,7 @@ union SW_MUX_CTL_PAD_GPIO_AD_11 {
     eALT10_gpio9_IO10 = 10, // Select mux mode: ALT10 mux port: GPIO9_IO10 of instance: GPIO9
     eALT11_flexpwm2_PWMX1 = 11, // Select mux mode: ALT11 mux port: FLEXPWM2_PWM1_X of instance: FLEXPWM2
   };
+  
   enum class eSION : uint32_t {
     eDISABLED = 0, // Input Path is determined by functionality
     eENABLED = 1, // Force input path of pad GPIO_AD_11
@@ -2587,7 +2587,7 @@ union SW_MUX_CTL_PAD_GPIO_AD_11 {
     eMUX_MODE MUX_MODE : 4;
     eSION SION : 1;
     uint32_t _reserved_end : 27;
-  } bits;          // Bit-field struct (auto-filling reserved gaps)
+  } bits;
   
   // Full 32-bit register value.
   uint32_t value;
@@ -2601,7 +2601,6 @@ union SW_MUX_CTL_PAD_GPIO_AD_11 {
 //
 union SW_MUX_CTL_PAD_GPIO_AD_12 {
   
-  // Enum definitions.
   enum class eMUX_MODE : uint32_t {
     eALT0_spdif_LOCK = 0, // Select mux mode: ALT0 mux port: SPDIF_LOCK of instance: SPDIF
     eALT1_lpi2c1_HREQ = 1, // Select mux mode: ALT1 mux port: LPI2C1_HREQ of instance: LPI2C1
@@ -2615,6 +2614,7 @@ union SW_MUX_CTL_PAD_GPIO_AD_12 {
     eALT10_gpio9_IO11 = 10, // Select mux mode: ALT10 mux port: GPIO9_IO11 of instance: GPIO9
     eALT11_flexpwm2_PWMX2 = 11, // Select mux mode: ALT11 mux port: FLEXPWM2_PWM2_X of instance: FLEXPWM2
   };
+  
   enum class eSION : uint32_t {
     eDISABLED = 0, // Input Path is determined by functionality
     eENABLED = 1, // Force input path of pad GPIO_AD_12
@@ -2625,7 +2625,7 @@ union SW_MUX_CTL_PAD_GPIO_AD_12 {
     eMUX_MODE MUX_MODE : 4;
     eSION SION : 1;
     uint32_t _reserved_end : 27;
-  } bits;          // Bit-field struct (auto-filling reserved gaps)
+  } bits;
   
   // Full 32-bit register value.
   uint32_t value;
@@ -2639,7 +2639,6 @@ union SW_MUX_CTL_PAD_GPIO_AD_12 {
 //
 union SW_MUX_CTL_PAD_GPIO_AD_13 {
   
-  // Enum definitions.
   enum class eMUX_MODE : uint32_t {
     eALT0_spdif_SR_CLK = 0, // Select mux mode: ALT0 mux port: SPDIF_SR_CLK of instance: SPDIF
     eALT1_pit1_TRIGGER0 = 1, // Select mux mode: ALT1 mux port: PIT1_TRIGGER0 of instance: PIT1
@@ -2653,6 +2652,7 @@ union SW_MUX_CTL_PAD_GPIO_AD_13 {
     eALT10_gpio9_IO12 = 10, // Select mux mode: ALT10 mux port: GPIO9_IO12 of instance: GPIO9
     eALT11_flexpwm2_PWMX3 = 11, // Select mux mode: ALT11 mux port: FLEXPWM2_PWM3_X of instance: FLEXPWM2
   };
+  
   enum class eSION : uint32_t {
     eDISABLED = 0, // Input Path is determined by functionality
     eENABLED = 1, // Force input path of pad GPIO_AD_13
@@ -2663,7 +2663,7 @@ union SW_MUX_CTL_PAD_GPIO_AD_13 {
     eMUX_MODE MUX_MODE : 4;
     eSION SION : 1;
     uint32_t _reserved_end : 27;
-  } bits;          // Bit-field struct (auto-filling reserved gaps)
+  } bits;
   
   // Full 32-bit register value.
   uint32_t value;
@@ -2677,7 +2677,6 @@ union SW_MUX_CTL_PAD_GPIO_AD_13 {
 //
 union SW_MUX_CTL_PAD_GPIO_AD_14 {
   
-  // Enum definitions.
   enum class eMUX_MODE : uint32_t {
     eALT0_spdif_EXT_CLK = 0, // Select mux mode: ALT0 mux port: SPDIF_EXT_CLK of instance: SPDIF
     eALT1_anatop_24M_OUT = 1, // Select mux mode: ALT1 mux port: REF_CLK_24M of instance: XTAL OSC
@@ -2691,6 +2690,7 @@ union SW_MUX_CTL_PAD_GPIO_AD_14 {
     eALT10_gpio9_IO13 = 10, // Select mux mode: ALT10 mux port: GPIO9_IO13 of instance: GPIO9
     eALT11_flexpwm3_PWMX0 = 11, // Select mux mode: ALT11 mux port: FLEXPWM3_PWM0_X of instance: FLEXPWM3
   };
+  
   enum class eSION : uint32_t {
     eDISABLED = 0, // Input Path is determined by functionality
     eENABLED = 1, // Force input path of pad GPIO_AD_14
@@ -2701,7 +2701,7 @@ union SW_MUX_CTL_PAD_GPIO_AD_14 {
     eMUX_MODE MUX_MODE : 4;
     eSION SION : 1;
     uint32_t _reserved_end : 27;
-  } bits;          // Bit-field struct (auto-filling reserved gaps)
+  } bits;
   
   // Full 32-bit register value.
   uint32_t value;
@@ -2715,7 +2715,6 @@ union SW_MUX_CTL_PAD_GPIO_AD_14 {
 //
 union SW_MUX_CTL_PAD_GPIO_AD_15 {
   
-  // Enum definitions.
   enum class eMUX_MODE : uint32_t {
     eALT0_spdif_IN = 0, // Select mux mode: ALT0 mux port: SPDIF_IN of instance: SPDIF
     eALT1_lpuart10_TX = 1, // Select mux mode: ALT1 mux port: LPUART10_TXD of instance: LPUART10
@@ -2728,6 +2727,7 @@ union SW_MUX_CTL_PAD_GPIO_AD_15 {
     eALT10_gpio9_IO14 = 10, // Select mux mode: ALT10 mux port: GPIO9_IO14 of instance: GPIO9
     eALT11_flexpwm3_PWMX1 = 11, // Select mux mode: ALT11 mux port: FLEXPWM3_PWM1_X of instance: FLEXPWM3
   };
+  
   enum class eSION : uint32_t {
     eDISABLED = 0, // Input Path is determined by functionality
     eENABLED = 1, // Force input path of pad GPIO_AD_15
@@ -2738,7 +2738,7 @@ union SW_MUX_CTL_PAD_GPIO_AD_15 {
     eMUX_MODE MUX_MODE : 4;
     eSION SION : 1;
     uint32_t _reserved_end : 27;
-  } bits;          // Bit-field struct (auto-filling reserved gaps)
+  } bits;
   
   // Full 32-bit register value.
   uint32_t value;
@@ -2752,7 +2752,6 @@ union SW_MUX_CTL_PAD_GPIO_AD_15 {
 //
 union SW_MUX_CTL_PAD_GPIO_AD_16 {
   
-  // Enum definitions.
   enum class eMUX_MODE : uint32_t {
     eALT0_spdif_OUT = 0, // Select mux mode: ALT0 mux port: SPDIF_OUT of instance: SPDIF
     eALT1_lpuart10_RX = 1, // Select mux mode: ALT1 mux port: LPUART10_RXD of instance: LPUART10
@@ -2766,6 +2765,7 @@ union SW_MUX_CTL_PAD_GPIO_AD_16 {
     eALT10_gpio9_IO15 = 10, // Select mux mode: ALT10 mux port: GPIO9_IO15 of instance: GPIO9
     eALT11_flexpwm3_PWMX2 = 11, // Select mux mode: ALT11 mux port: FLEXPWM3_PWM2_X of instance: FLEXPWM3
   };
+  
   enum class eSION : uint32_t {
     eDISABLED = 0, // Input Path is determined by functionality
     eENABLED = 1, // Force input path of pad GPIO_AD_16
@@ -2776,7 +2776,7 @@ union SW_MUX_CTL_PAD_GPIO_AD_16 {
     eMUX_MODE MUX_MODE : 4;
     eSION SION : 1;
     uint32_t _reserved_end : 27;
-  } bits;          // Bit-field struct (auto-filling reserved gaps)
+  } bits;
   
   // Full 32-bit register value.
   uint32_t value;
@@ -2790,7 +2790,6 @@ union SW_MUX_CTL_PAD_GPIO_AD_16 {
 //
 union SW_MUX_CTL_PAD_GPIO_AD_17 {
   
-  // Enum definitions.
   enum class eMUX_MODE : uint32_t {
     eALT0_sai1_MCLK = 0, // Select mux mode: ALT0 mux port: SAI1_MCLK of instance: SAI1
     eALT1_ACMP1_OUT = 1, // Select mux mode: ALT1 mux port: ACMP1_OUT of instance: ACMP1
@@ -2804,6 +2803,7 @@ union SW_MUX_CTL_PAD_GPIO_AD_17 {
     eALT10_gpio9_IO16 = 10, // Select mux mode: ALT10 mux port: GPIO9_IO16 of instance: GPIO9
     eALT11_flexpwm3_PWMX3 = 11, // Select mux mode: ALT11 mux port: FLEXPWM3_PWM3_X of instance: FLEXPWM3
   };
+  
   enum class eSION : uint32_t {
     eDISABLED = 0, // Input Path is determined by functionality
     eENABLED = 1, // Force input path of pad GPIO_AD_17
@@ -2814,7 +2814,7 @@ union SW_MUX_CTL_PAD_GPIO_AD_17 {
     eMUX_MODE MUX_MODE : 4;
     eSION SION : 1;
     uint32_t _reserved_end : 27;
-  } bits;          // Bit-field struct (auto-filling reserved gaps)
+  } bits;
   
   // Full 32-bit register value.
   uint32_t value;
@@ -2828,7 +2828,6 @@ union SW_MUX_CTL_PAD_GPIO_AD_17 {
 //
 union SW_MUX_CTL_PAD_GPIO_AD_18 {
   
-  // Enum definitions.
   enum class eMUX_MODE : uint32_t {
     eALT0_sai1_RX_SYNC = 0, // Select mux mode: ALT0 mux port: SAI1_RX_SYNC of instance: SAI1
     eALT1_ACMP2_OUT = 1, // Select mux mode: ALT1 mux port: ACMP2_OUT of instance: ACMP2
@@ -2842,6 +2841,7 @@ union SW_MUX_CTL_PAD_GPIO_AD_18 {
     eALT10_gpio9_IO17 = 10, // Select mux mode: ALT10 mux port: GPIO9_IO17 of instance: GPIO9
     eALT11_flexpwm4_PWMX0 = 11, // Select mux mode: ALT11 mux port: FLEXPWM4_PWM0_X of instance: FLEXPWM4
   };
+  
   enum class eSION : uint32_t {
     eDISABLED = 0, // Input Path is determined by functionality
     eENABLED = 1, // Force input path of pad GPIO_AD_18
@@ -2852,7 +2852,7 @@ union SW_MUX_CTL_PAD_GPIO_AD_18 {
     eMUX_MODE MUX_MODE : 4;
     eSION SION : 1;
     uint32_t _reserved_end : 27;
-  } bits;          // Bit-field struct (auto-filling reserved gaps)
+  } bits;
   
   // Full 32-bit register value.
   uint32_t value;
@@ -2866,7 +2866,6 @@ union SW_MUX_CTL_PAD_GPIO_AD_18 {
 //
 union SW_MUX_CTL_PAD_GPIO_AD_19 {
   
-  // Enum definitions.
   enum class eMUX_MODE : uint32_t {
     eALT0_sai1_RX_BCLK = 0, // Select mux mode: ALT0 mux port: SAI1_RX_BCLK of instance: SAI1
     eALT1_ACMP3_OUT = 1, // Select mux mode: ALT1 mux port: ACMP3_OUT of instance: ACMP3
@@ -2880,6 +2879,7 @@ union SW_MUX_CTL_PAD_GPIO_AD_19 {
     eALT10_gpio9_IO18 = 10, // Select mux mode: ALT10 mux port: GPIO9_IO18 of instance: GPIO9
     eALT11_flexpwm4_PWMX1 = 11, // Select mux mode: ALT11 mux port: FLEXPWM4_PWM1_X of instance: FLEXPWM4
   };
+  
   enum class eSION : uint32_t {
     eDISABLED = 0, // Input Path is determined by functionality
     eENABLED = 1, // Force input path of pad GPIO_AD_19
@@ -2890,7 +2890,7 @@ union SW_MUX_CTL_PAD_GPIO_AD_19 {
     eMUX_MODE MUX_MODE : 4;
     eSION SION : 1;
     uint32_t _reserved_end : 27;
-  } bits;          // Bit-field struct (auto-filling reserved gaps)
+  } bits;
   
   // Full 32-bit register value.
   uint32_t value;
@@ -2904,7 +2904,6 @@ union SW_MUX_CTL_PAD_GPIO_AD_19 {
 //
 union SW_MUX_CTL_PAD_GPIO_AD_20 {
   
-  // Enum definitions.
   enum class eMUX_MODE : uint32_t {
     eALT0_sai1_RX_DATA0 = 0, // Select mux mode: ALT0 mux port: SAI1_RX_DATA00 of instance: SAI1
     eALT1_ACMP4_OUT = 1, // Select mux mode: ALT1 mux port: ACMP4_OUT of instance: ACMP4
@@ -2918,6 +2917,7 @@ union SW_MUX_CTL_PAD_GPIO_AD_20 {
     eALT10_gpio9_IO19 = 10, // Select mux mode: ALT10 mux port: GPIO9_IO19 of instance: GPIO9
     eALT11_flexpwm4_PWMX2 = 11, // Select mux mode: ALT11 mux port: FLEXPWM4_PWM2_X of instance: FLEXPWM4
   };
+  
   enum class eSION : uint32_t {
     eDISABLED = 0, // Input Path is determined by functionality
     eENABLED = 1, // Force input path of pad GPIO_AD_20
@@ -2928,7 +2928,7 @@ union SW_MUX_CTL_PAD_GPIO_AD_20 {
     eMUX_MODE MUX_MODE : 4;
     eSION SION : 1;
     uint32_t _reserved_end : 27;
-  } bits;          // Bit-field struct (auto-filling reserved gaps)
+  } bits;
   
   // Full 32-bit register value.
   uint32_t value;
@@ -2942,7 +2942,6 @@ union SW_MUX_CTL_PAD_GPIO_AD_20 {
 //
 union SW_MUX_CTL_PAD_GPIO_AD_21 {
   
-  // Enum definitions.
   enum class eMUX_MODE : uint32_t {
     eALT0_sai1_TX_DATA0 = 0, // Select mux mode: ALT0 mux port: SAI1_TX_DATA00 of instance: SAI1
     eALT2_lpspi2_PCS1 = 2, // Select mux mode: ALT2 mux port: LPSPI2_PCS1 of instance: LPSPI2
@@ -2955,6 +2954,7 @@ union SW_MUX_CTL_PAD_GPIO_AD_21 {
     eALT10_gpio9_IO20 = 10, // Select mux mode: ALT10 mux port: GPIO9_IO20 of instance: GPIO9
     eALT11_flexpwm4_PWMX3 = 11, // Select mux mode: ALT11 mux port: FLEXPWM4_PWM3_X of instance: FLEXPWM4
   };
+  
   enum class eSION : uint32_t {
     eDISABLED = 0, // Input Path is determined by functionality
     eENABLED = 1, // Force input path of pad GPIO_AD_21
@@ -2965,7 +2965,7 @@ union SW_MUX_CTL_PAD_GPIO_AD_21 {
     eMUX_MODE MUX_MODE : 4;
     eSION SION : 1;
     uint32_t _reserved_end : 27;
-  } bits;          // Bit-field struct (auto-filling reserved gaps)
+  } bits;
   
   // Full 32-bit register value.
   uint32_t value;
@@ -2979,7 +2979,6 @@ union SW_MUX_CTL_PAD_GPIO_AD_21 {
 //
 union SW_MUX_CTL_PAD_GPIO_AD_22 {
   
-  // Enum definitions.
   enum class eMUX_MODE : uint32_t {
     eALT0_sai1_TX_BCLK = 0, // Select mux mode: ALT0 mux port: SAI1_TX_BCLK of instance: SAI1
     eALT2_lpspi2_PCS2 = 2, // Select mux mode: ALT2 mux port: LPSPI2_PCS2 of instance: LPSPI2
@@ -2991,6 +2990,7 @@ union SW_MUX_CTL_PAD_GPIO_AD_22 {
     eALT9_enet_qos_1588_EVENT3_OUT = 9, // Select mux mode: ALT9 mux port: ENET_QOS_1588_EVENT3_OUT of instance: ENET_QOS
     eALT10_gpio9_IO21 = 10, // Select mux mode: ALT10 mux port: GPIO9_IO21 of instance: GPIO9
   };
+  
   enum class eSION : uint32_t {
     eDISABLED = 0, // Input Path is determined by functionality
     eENABLED = 1, // Force input path of pad GPIO_AD_22
@@ -3001,7 +3001,7 @@ union SW_MUX_CTL_PAD_GPIO_AD_22 {
     eMUX_MODE MUX_MODE : 4;
     eSION SION : 1;
     uint32_t _reserved_end : 27;
-  } bits;          // Bit-field struct (auto-filling reserved gaps)
+  } bits;
   
   // Full 32-bit register value.
   uint32_t value;
@@ -3015,7 +3015,6 @@ union SW_MUX_CTL_PAD_GPIO_AD_22 {
 //
 union SW_MUX_CTL_PAD_GPIO_AD_23 {
   
-  // Enum definitions.
   enum class eMUX_MODE : uint32_t {
     eALT0_sai1_TX_SYNC = 0, // Select mux mode: ALT0 mux port: SAI1_TX_SYNC of instance: SAI1
     eALT2_lpspi2_PCS3 = 2, // Select mux mode: ALT2 mux port: LPSPI2_PCS3 of instance: LPSPI2
@@ -3027,6 +3026,7 @@ union SW_MUX_CTL_PAD_GPIO_AD_23 {
     eALT9_enet_qos_1588_EVENT3_IN = 9, // Select mux mode: ALT9 mux port: ENET_QOS_1588_EVENT3_IN of instance: ENET_QOS
     eALT10_gpio9_IO22 = 10, // Select mux mode: ALT10 mux port: GPIO9_IO22 of instance: GPIO9
   };
+  
   enum class eSION : uint32_t {
     eDISABLED = 0, // Input Path is determined by functionality
     eENABLED = 1, // Force input path of pad GPIO_AD_23
@@ -3037,7 +3037,7 @@ union SW_MUX_CTL_PAD_GPIO_AD_23 {
     eMUX_MODE MUX_MODE : 4;
     eSION SION : 1;
     uint32_t _reserved_end : 27;
-  } bits;          // Bit-field struct (auto-filling reserved gaps)
+  } bits;
   
   // Full 32-bit register value.
   uint32_t value;
@@ -3051,7 +3051,6 @@ union SW_MUX_CTL_PAD_GPIO_AD_23 {
 //
 union SW_MUX_CTL_PAD_GPIO_AD_24 {
   
-  // Enum definitions.
   enum class eMUX_MODE : uint32_t {
     eALT0_lpuart1_TX = 0, // Select mux mode: ALT0 mux port: LPUART1_TXD of instance: LPUART1
     eALT1_lpspi2_SCK = 1, // Select mux mode: ALT1 mux port: LPSPI2_SCK of instance: LPSPI2
@@ -3064,6 +3063,7 @@ union SW_MUX_CTL_PAD_GPIO_AD_24 {
     eALT9_lpi2c4_SCL = 9, // Select mux mode: ALT9 mux port: LPI2C4_SCL of instance: LPI2C4
     eALT10_gpio9_IO23 = 10, // Select mux mode: ALT10 mux port: GPIO9_IO23 of instance: GPIO9
   };
+  
   enum class eSION : uint32_t {
     eDISABLED = 0, // Input Path is determined by functionality
     eENABLED = 1, // Force input path of pad GPIO_AD_24
@@ -3074,7 +3074,7 @@ union SW_MUX_CTL_PAD_GPIO_AD_24 {
     eMUX_MODE MUX_MODE : 4;
     eSION SION : 1;
     uint32_t _reserved_end : 27;
-  } bits;          // Bit-field struct (auto-filling reserved gaps)
+  } bits;
   
   // Full 32-bit register value.
   uint32_t value;
@@ -3088,7 +3088,6 @@ union SW_MUX_CTL_PAD_GPIO_AD_24 {
 //
 union SW_MUX_CTL_PAD_GPIO_AD_25 {
   
-  // Enum definitions.
   enum class eMUX_MODE : uint32_t {
     eALT0_lpuart1_RX = 0, // Select mux mode: ALT0 mux port: LPUART1_RXD of instance: LPUART1
     eALT1_lpspi2_PCS0 = 1, // Select mux mode: ALT1 mux port: LPSPI2_PCS0 of instance: LPSPI2
@@ -3101,6 +3100,7 @@ union SW_MUX_CTL_PAD_GPIO_AD_25 {
     eALT9_lpi2c4_SDA = 9, // Select mux mode: ALT9 mux port: LPI2C4_SDA of instance: LPI2C4
     eALT10_gpio9_IO24 = 10, // Select mux mode: ALT10 mux port: GPIO9_IO24 of instance: GPIO9
   };
+  
   enum class eSION : uint32_t {
     eDISABLED = 0, // Input Path is determined by functionality
     eENABLED = 1, // Force input path of pad GPIO_AD_25
@@ -3111,7 +3111,7 @@ union SW_MUX_CTL_PAD_GPIO_AD_25 {
     eMUX_MODE MUX_MODE : 4;
     eSION SION : 1;
     uint32_t _reserved_end : 27;
-  } bits;          // Bit-field struct (auto-filling reserved gaps)
+  } bits;
   
   // Full 32-bit register value.
   uint32_t value;
@@ -3125,7 +3125,6 @@ union SW_MUX_CTL_PAD_GPIO_AD_25 {
 //
 union SW_MUX_CTL_PAD_GPIO_AD_26 {
   
-  // Enum definitions.
   enum class eMUX_MODE : uint32_t {
     eALT0_lpuart1_CTS_B = 0, // Select mux mode: ALT0 mux port: LPUART1_CTS_B of instance: LPUART1
     eALT1_lpspi2_SDO = 1, // Select mux mode: ALT1 mux port: LPSPI2_SOUT of instance: LPSPI2
@@ -3139,6 +3138,7 @@ union SW_MUX_CTL_PAD_GPIO_AD_26 {
     eALT10_gpio9_IO25 = 10, // Select mux mode: ALT10 mux port: GPIO9_IO25 of instance: GPIO9
     eALT11_usdhc2_CD_B = 11, // Select mux mode: ALT11 mux port: USDHC2_CD_B of instance: USDHC2
   };
+  
   enum class eSION : uint32_t {
     eDISABLED = 0, // Input Path is determined by functionality
     eENABLED = 1, // Force input path of pad GPIO_AD_26
@@ -3149,7 +3149,7 @@ union SW_MUX_CTL_PAD_GPIO_AD_26 {
     eMUX_MODE MUX_MODE : 4;
     eSION SION : 1;
     uint32_t _reserved_end : 27;
-  } bits;          // Bit-field struct (auto-filling reserved gaps)
+  } bits;
   
   // Full 32-bit register value.
   uint32_t value;
@@ -3163,7 +3163,6 @@ union SW_MUX_CTL_PAD_GPIO_AD_26 {
 //
 union SW_MUX_CTL_PAD_GPIO_AD_27 {
   
-  // Enum definitions.
   enum class eMUX_MODE : uint32_t {
     eALT0_lpuart1_RTS_B = 0, // Select mux mode: ALT0 mux port: LPUART1_RTS_B of instance: LPUART1
     eALT1_lpspi2_SDI = 1, // Select mux mode: ALT1 mux port: LPSPI2_SIN of instance: LPSPI2
@@ -3177,6 +3176,7 @@ union SW_MUX_CTL_PAD_GPIO_AD_27 {
     eALT10_gpio9_IO26 = 10, // Select mux mode: ALT10 mux port: GPIO9_IO26 of instance: GPIO9
     eALT11_usdhc2_WP = 11, // Select mux mode: ALT11 mux port: USDHC2_WP of instance: USDHC2
   };
+  
   enum class eSION : uint32_t {
     eDISABLED = 0, // Input Path is determined by functionality
     eENABLED = 1, // Force input path of pad GPIO_AD_27
@@ -3187,7 +3187,7 @@ union SW_MUX_CTL_PAD_GPIO_AD_27 {
     eMUX_MODE MUX_MODE : 4;
     eSION SION : 1;
     uint32_t _reserved_end : 27;
-  } bits;          // Bit-field struct (auto-filling reserved gaps)
+  } bits;
   
   // Full 32-bit register value.
   uint32_t value;
@@ -3201,7 +3201,6 @@ union SW_MUX_CTL_PAD_GPIO_AD_27 {
 //
 union SW_MUX_CTL_PAD_GPIO_AD_28 {
   
-  // Enum definitions.
   enum class eMUX_MODE : uint32_t {
     eALT0_lpspi1_SCK = 0, // Select mux mode: ALT0 mux port: LPSPI1_SCK of instance: LPSPI1
     eALT1_lpuart5_TX = 1, // Select mux mode: ALT1 mux port: LPUART5_TXD of instance: LPUART5
@@ -3215,6 +3214,7 @@ union SW_MUX_CTL_PAD_GPIO_AD_28 {
     eALT10_gpio9_IO27 = 10, // Select mux mode: ALT10 mux port: GPIO9_IO27 of instance: GPIO9
     eALT11_usdhc2_VSELECT = 11, // Select mux mode: ALT11 mux port: USDHC2_VSELECT of instance: USDHC2
   };
+  
   enum class eSION : uint32_t {
     eDISABLED = 0, // Input Path is determined by functionality
     eENABLED = 1, // Force input path of pad GPIO_AD_28
@@ -3225,7 +3225,7 @@ union SW_MUX_CTL_PAD_GPIO_AD_28 {
     eMUX_MODE MUX_MODE : 4;
     eSION SION : 1;
     uint32_t _reserved_end : 27;
-  } bits;          // Bit-field struct (auto-filling reserved gaps)
+  } bits;
   
   // Full 32-bit register value.
   uint32_t value;
@@ -3239,7 +3239,6 @@ union SW_MUX_CTL_PAD_GPIO_AD_28 {
 //
 union SW_MUX_CTL_PAD_GPIO_AD_29 {
   
-  // Enum definitions.
   enum class eMUX_MODE : uint32_t {
     eALT0_lpspi1_PCS0 = 0, // Select mux mode: ALT0 mux port: LPSPI1_PCS0 of instance: LPSPI1
     eALT1_lpuart5_RX = 1, // Select mux mode: ALT1 mux port: LPUART5_RXD of instance: LPUART5
@@ -3253,6 +3252,7 @@ union SW_MUX_CTL_PAD_GPIO_AD_29 {
     eALT10_gpio9_IO28 = 10, // Select mux mode: ALT10 mux port: GPIO9_IO28 of instance: GPIO9
     eALT11_usdhc2_RESET_B = 11, // Select mux mode: ALT11 mux port: USDHC2_RESET_B of instance: USDHC2
   };
+  
   enum class eSION : uint32_t {
     eDISABLED = 0, // Input Path is determined by functionality
     eENABLED = 1, // Force input path of pad GPIO_AD_29
@@ -3263,7 +3263,7 @@ union SW_MUX_CTL_PAD_GPIO_AD_29 {
     eMUX_MODE MUX_MODE : 4;
     eSION SION : 1;
     uint32_t _reserved_end : 27;
-  } bits;          // Bit-field struct (auto-filling reserved gaps)
+  } bits;
   
   // Full 32-bit register value.
   uint32_t value;
@@ -3277,7 +3277,6 @@ union SW_MUX_CTL_PAD_GPIO_AD_29 {
 //
 union SW_MUX_CTL_PAD_GPIO_AD_30 {
   
-  // Enum definitions.
   enum class eMUX_MODE : uint32_t {
     eALT0_lpspi1_SDO = 0, // Select mux mode: ALT0 mux port: LPSPI1_SOUT of instance: LPSPI1
     eALT1_usb_OTG2_OC = 1, // Select mux mode: ALT1 mux port: USB_OTG2_OC of instance: USB
@@ -3290,6 +3289,7 @@ union SW_MUX_CTL_PAD_GPIO_AD_30 {
     eALT9_WDOG2_RESET_B_DEB = 9, // Select mux mode: ALT9 mux port: WDOG2_RESET_B_DEB of instance: WDOG2
     eALT10_gpio9_IO29 = 10, // Select mux mode: ALT10 mux port: GPIO9_IO29 of instance: GPIO9
   };
+  
   enum class eSION : uint32_t {
     eDISABLED = 0, // Input Path is determined by functionality
     eENABLED = 1, // Force input path of pad GPIO_AD_30
@@ -3300,7 +3300,7 @@ union SW_MUX_CTL_PAD_GPIO_AD_30 {
     eMUX_MODE MUX_MODE : 4;
     eSION SION : 1;
     uint32_t _reserved_end : 27;
-  } bits;          // Bit-field struct (auto-filling reserved gaps)
+  } bits;
   
   // Full 32-bit register value.
   uint32_t value;
@@ -3314,7 +3314,6 @@ union SW_MUX_CTL_PAD_GPIO_AD_30 {
 //
 union SW_MUX_CTL_PAD_GPIO_AD_31 {
   
-  // Enum definitions.
   enum class eMUX_MODE : uint32_t {
     eALT0_lpspi1_SDI = 0, // Select mux mode: ALT0 mux port: LPSPI1_SIN of instance: LPSPI1
     eALT1_usb_OTG2_PWR = 1, // Select mux mode: ALT1 mux port: USB_OTG2_PWR of instance: USB
@@ -3327,6 +3326,7 @@ union SW_MUX_CTL_PAD_GPIO_AD_31 {
     eALT9_WDOG1_RESET_B_DEB = 9, // Select mux mode: ALT9 mux port: WDOG1_RESET_B_DEB of instance: WDOG1
     eALT10_gpio9_IO30 = 10, // Select mux mode: ALT10 mux port: GPIO9_IO30 of instance: GPIO9
   };
+  
   enum class eSION : uint32_t {
     eDISABLED = 0, // Input Path is determined by functionality
     eENABLED = 1, // Force input path of pad GPIO_AD_31
@@ -3337,7 +3337,7 @@ union SW_MUX_CTL_PAD_GPIO_AD_31 {
     eMUX_MODE MUX_MODE : 4;
     eSION SION : 1;
     uint32_t _reserved_end : 27;
-  } bits;          // Bit-field struct (auto-filling reserved gaps)
+  } bits;
   
   // Full 32-bit register value.
   uint32_t value;
@@ -3351,7 +3351,6 @@ union SW_MUX_CTL_PAD_GPIO_AD_31 {
 //
 union SW_MUX_CTL_PAD_GPIO_AD_32 {
   
-  // Enum definitions.
   enum class eMUX_MODE : uint32_t {
     eALT0_lpi2c1_SCL = 0, // Select mux mode: ALT0 mux port: LPI2C1_SCL of instance: LPI2C1
     eALT1_usbphy2_OTG_ID = 1, // Select mux mode: ALT1 mux port: USBPHY2_OTG_ID of instance: USBPHY2
@@ -3364,6 +3363,7 @@ union SW_MUX_CTL_PAD_GPIO_AD_32 {
     eALT9_enet_1g_MDC = 9, // Select mux mode: ALT9 mux port: ENET_1G_MDC of instance: ENET_1G
     eALT10_gpio9_IO31 = 10, // Select mux mode: ALT10 mux port: GPIO9_IO31 of instance: GPIO9
   };
+  
   enum class eSION : uint32_t {
     eDISABLED = 0, // Input Path is determined by functionality
     eENABLED = 1, // Force input path of pad GPIO_AD_32
@@ -3374,7 +3374,7 @@ union SW_MUX_CTL_PAD_GPIO_AD_32 {
     eMUX_MODE MUX_MODE : 4;
     eSION SION : 1;
     uint32_t _reserved_end : 27;
-  } bits;          // Bit-field struct (auto-filling reserved gaps)
+  } bits;
   
   // Full 32-bit register value.
   uint32_t value;
@@ -3388,7 +3388,6 @@ union SW_MUX_CTL_PAD_GPIO_AD_32 {
 //
 union SW_MUX_CTL_PAD_GPIO_AD_33 {
   
-  // Enum definitions.
   enum class eMUX_MODE : uint32_t {
     eALT0_lpi2c1_SDA = 0, // Select mux mode: ALT0 mux port: LPI2C1_SDA of instance: LPI2C1
     eALT1_usbphy1_OTG_ID = 1, // Select mux mode: ALT1 mux port: USBPHY1_OTG_ID of instance: USBPHY1
@@ -3401,6 +3400,7 @@ union SW_MUX_CTL_PAD_GPIO_AD_33 {
     eALT9_enet_1g_MDIO = 9, // Select mux mode: ALT9 mux port: ENET_1G_MDIO of instance: ENET_1G
     eALT10_gpio10_IO0 = 10, // Select mux mode: ALT10 mux port: GPIO10_IO00 of instance: GPIO10
   };
+  
   enum class eSION : uint32_t {
     eDISABLED = 0, // Input Path is determined by functionality
     eENABLED = 1, // Force input path of pad GPIO_AD_33
@@ -3411,7 +3411,7 @@ union SW_MUX_CTL_PAD_GPIO_AD_33 {
     eMUX_MODE MUX_MODE : 4;
     eSION SION : 1;
     uint32_t _reserved_end : 27;
-  } bits;          // Bit-field struct (auto-filling reserved gaps)
+  } bits;
   
   // Full 32-bit register value.
   uint32_t value;
@@ -3425,7 +3425,6 @@ union SW_MUX_CTL_PAD_GPIO_AD_33 {
 //
 union SW_MUX_CTL_PAD_GPIO_AD_34 {
   
-  // Enum definitions.
   enum class eMUX_MODE : uint32_t {
     eALT0_enet_1g_1588_EVENT0_IN = 0, // Select mux mode: ALT0 mux port: ENET_1G_1588_EVENT0_IN of instance: ENET_1G
     eALT1_usb_OTG1_PWR = 1, // Select mux mode: ALT1 mux port: USB_OTG1_PWR of instance: USB
@@ -3438,6 +3437,7 @@ union SW_MUX_CTL_PAD_GPIO_AD_34 {
     eALT9_WDOG1_ANY = 9, // Select mux mode: ALT9 mux port: WDOG1_ANY of instance: WDOG1
     eALT10_gpio10_IO1 = 10, // Select mux mode: ALT10 mux port: GPIO10_IO01 of instance: GPIO10
   };
+  
   enum class eSION : uint32_t {
     eDISABLED = 0, // Input Path is determined by functionality
     eENABLED = 1, // Force input path of pad GPIO_AD_34
@@ -3448,7 +3448,7 @@ union SW_MUX_CTL_PAD_GPIO_AD_34 {
     eMUX_MODE MUX_MODE : 4;
     eSION SION : 1;
     uint32_t _reserved_end : 27;
-  } bits;          // Bit-field struct (auto-filling reserved gaps)
+  } bits;
   
   // Full 32-bit register value.
   uint32_t value;
@@ -3462,7 +3462,6 @@ union SW_MUX_CTL_PAD_GPIO_AD_34 {
 //
 union SW_MUX_CTL_PAD_GPIO_AD_35 {
   
-  // Enum definitions.
   enum class eMUX_MODE : uint32_t {
     eALT0_enet_1g_1588_EVENT0_OUT = 0, // Select mux mode: ALT0 mux port: ENET_1G_1588_EVENT0_OUT of instance: ENET_1G
     eALT1_usb_OTG1_OC = 1, // Select mux mode: ALT1 mux port: USB_OTG1_OC of instance: USB
@@ -3475,6 +3474,7 @@ union SW_MUX_CTL_PAD_GPIO_AD_35 {
     eALT9_flexspi1_B_SS1_B = 9, // Select mux mode: ALT9 mux port: FLEXSPI1_B_SS1_B of instance: FLEXSPI1
     eALT10_gpio10_IO2 = 10, // Select mux mode: ALT10 mux port: GPIO10_IO02 of instance: GPIO10
   };
+  
   enum class eSION : uint32_t {
     eDISABLED = 0, // Input Path is determined by functionality
     eENABLED = 1, // Force input path of pad GPIO_AD_35
@@ -3485,7 +3485,7 @@ union SW_MUX_CTL_PAD_GPIO_AD_35 {
     eMUX_MODE MUX_MODE : 4;
     eSION SION : 1;
     uint32_t _reserved_end : 27;
-  } bits;          // Bit-field struct (auto-filling reserved gaps)
+  } bits;
   
   // Full 32-bit register value.
   uint32_t value;
@@ -3499,7 +3499,6 @@ union SW_MUX_CTL_PAD_GPIO_AD_35 {
 //
 union SW_MUX_CTL_PAD_GPIO_SD_B1_00 {
   
-  // Enum definitions.
   enum class eMUX_MODE : uint32_t {
     eALT0_usdhc1_CMD = 0, // Select mux mode: ALT0 mux port: USDHC1_CMD of instance: USDHC1
     eALT2_XBAR1_INOUT20 = 2, // Select mux mode: ALT2 mux port: XBAR1_INOUT20 of instance: XBAR1
@@ -3509,6 +3508,7 @@ union SW_MUX_CTL_PAD_GPIO_SD_B1_00 {
     eALT8_kpp_ROW7 = 8, // Select mux mode: ALT8 mux port: KPP_ROW07 of instance: KPP
     eALT10_gpio10_IO3 = 10, // Select mux mode: ALT10 mux port: GPIO10_IO03 of instance: GPIO10
   };
+  
   enum class eSION : uint32_t {
     eDISABLED = 0, // Input Path is determined by functionality
     eENABLED = 1, // Force input path of pad GPIO_SD_B1_00
@@ -3519,7 +3519,7 @@ union SW_MUX_CTL_PAD_GPIO_SD_B1_00 {
     eMUX_MODE MUX_MODE : 4;
     eSION SION : 1;
     uint32_t _reserved_end : 27;
-  } bits;          // Bit-field struct (auto-filling reserved gaps)
+  } bits;
   
   // Full 32-bit register value.
   uint32_t value;
@@ -3533,7 +3533,6 @@ union SW_MUX_CTL_PAD_GPIO_SD_B1_00 {
 //
 union SW_MUX_CTL_PAD_GPIO_SD_B1_01 {
   
-  // Enum definitions.
   enum class eMUX_MODE : uint32_t {
     eALT0_usdhc1_CLK = 0, // Select mux mode: ALT0 mux port: USDHC1_CLK of instance: USDHC1
     eALT2_XBAR1_INOUT21 = 2, // Select mux mode: ALT2 mux port: XBAR1_INOUT21 of instance: XBAR1
@@ -3543,6 +3542,7 @@ union SW_MUX_CTL_PAD_GPIO_SD_B1_01 {
     eALT8_kpp_COL7 = 8, // Select mux mode: ALT8 mux port: KPP_COL07 of instance: KPP
     eALT10_gpio10_IO4 = 10, // Select mux mode: ALT10 mux port: GPIO10_IO04 of instance: GPIO10
   };
+  
   enum class eSION : uint32_t {
     eDISABLED = 0, // Input Path is determined by functionality
     eENABLED = 1, // Force input path of pad GPIO_SD_B1_01
@@ -3553,7 +3553,7 @@ union SW_MUX_CTL_PAD_GPIO_SD_B1_01 {
     eMUX_MODE MUX_MODE : 4;
     eSION SION : 1;
     uint32_t _reserved_end : 27;
-  } bits;          // Bit-field struct (auto-filling reserved gaps)
+  } bits;
   
   // Full 32-bit register value.
   uint32_t value;
@@ -3567,7 +3567,6 @@ union SW_MUX_CTL_PAD_GPIO_SD_B1_01 {
 //
 union SW_MUX_CTL_PAD_GPIO_SD_B1_02 {
   
-  // Enum definitions.
   enum class eMUX_MODE : uint32_t {
     eALT0_usdhc1_DATA0 = 0, // Select mux mode: ALT0 mux port: USDHC1_DATA0 of instance: USDHC1
     eALT2_XBAR1_INOUT22 = 2, // Select mux mode: ALT2 mux port: XBAR1_INOUT22 of instance: XBAR1
@@ -3578,6 +3577,7 @@ union SW_MUX_CTL_PAD_GPIO_SD_B1_02 {
     eALT9_flexspi1_A_SS1_B = 9, // Select mux mode: ALT9 mux port: FLEXSPI1_A_SS1_B of instance: FLEXSPI1
     eALT10_gpio10_IO5 = 10, // Select mux mode: ALT10 mux port: GPIO10_IO05 of instance: GPIO10
   };
+  
   enum class eSION : uint32_t {
     eDISABLED = 0, // Input Path is determined by functionality
     eENABLED = 1, // Force input path of pad GPIO_SD_B1_02
@@ -3588,7 +3588,7 @@ union SW_MUX_CTL_PAD_GPIO_SD_B1_02 {
     eMUX_MODE MUX_MODE : 4;
     eSION SION : 1;
     uint32_t _reserved_end : 27;
-  } bits;          // Bit-field struct (auto-filling reserved gaps)
+  } bits;
   
   // Full 32-bit register value.
   uint32_t value;
@@ -3602,7 +3602,6 @@ union SW_MUX_CTL_PAD_GPIO_SD_B1_02 {
 //
 union SW_MUX_CTL_PAD_GPIO_SD_B1_03 {
   
-  // Enum definitions.
   enum class eMUX_MODE : uint32_t {
     eALT0_usdhc1_DATA1 = 0, // Select mux mode: ALT0 mux port: USDHC1_DATA1 of instance: USDHC1
     eALT2_XBAR1_INOUT23 = 2, // Select mux mode: ALT2 mux port: XBAR1_INOUT23 of instance: XBAR1
@@ -3613,6 +3612,7 @@ union SW_MUX_CTL_PAD_GPIO_SD_B1_03 {
     eALT9_flexspi1_B_SS1_B = 9, // Select mux mode: ALT9 mux port: FLEXSPI1_B_SS1_B of instance: FLEXSPI1
     eALT10_gpio10_IO6 = 10, // Select mux mode: ALT10 mux port: GPIO10_IO06 of instance: GPIO10
   };
+  
   enum class eSION : uint32_t {
     eDISABLED = 0, // Input Path is determined by functionality
     eENABLED = 1, // Force input path of pad GPIO_SD_B1_03
@@ -3623,7 +3623,7 @@ union SW_MUX_CTL_PAD_GPIO_SD_B1_03 {
     eMUX_MODE MUX_MODE : 4;
     eSION SION : 1;
     uint32_t _reserved_end : 27;
-  } bits;          // Bit-field struct (auto-filling reserved gaps)
+  } bits;
   
   // Full 32-bit register value.
   uint32_t value;
@@ -3637,7 +3637,6 @@ union SW_MUX_CTL_PAD_GPIO_SD_B1_03 {
 //
 union SW_MUX_CTL_PAD_GPIO_SD_B1_04 {
   
-  // Enum definitions.
   enum class eMUX_MODE : uint32_t {
     eALT0_usdhc1_DATA2 = 0, // Select mux mode: ALT0 mux port: USDHC1_DATA2 of instance: USDHC1
     eALT2_XBAR1_INOUT24 = 2, // Select mux mode: ALT2 mux port: XBAR1_INOUT24 of instance: XBAR1
@@ -3648,6 +3647,7 @@ union SW_MUX_CTL_PAD_GPIO_SD_B1_04 {
     eALT9_enet_qos_1588_EVENT2_AUX_IN = 9, // Select mux mode: ALT9 mux port: ENET_QOS_1588_EVENT2_AUX_IN of instance: ENET_QOS
     eALT10_gpio10_IO7 = 10, // Select mux mode: ALT10 mux port: GPIO10_IO07 of instance: GPIO10
   };
+  
   enum class eSION : uint32_t {
     eDISABLED = 0, // Input Path is determined by functionality
     eENABLED = 1, // Force input path of pad GPIO_SD_B1_04
@@ -3658,7 +3658,7 @@ union SW_MUX_CTL_PAD_GPIO_SD_B1_04 {
     eMUX_MODE MUX_MODE : 4;
     eSION SION : 1;
     uint32_t _reserved_end : 27;
-  } bits;          // Bit-field struct (auto-filling reserved gaps)
+  } bits;
   
   // Full 32-bit register value.
   uint32_t value;
@@ -3672,7 +3672,6 @@ union SW_MUX_CTL_PAD_GPIO_SD_B1_04 {
 //
 union SW_MUX_CTL_PAD_GPIO_SD_B1_05 {
   
-  // Enum definitions.
   enum class eMUX_MODE : uint32_t {
     eALT0_usdhc1_DATA3 = 0, // Select mux mode: ALT0 mux port: USDHC1_DATA3 of instance: USDHC1
     eALT2_XBAR1_INOUT25 = 2, // Select mux mode: ALT2 mux port: XBAR1_INOUT25 of instance: XBAR1
@@ -3683,6 +3682,7 @@ union SW_MUX_CTL_PAD_GPIO_SD_B1_05 {
     eALT9_enet_qos_1588_EVENT3_AUX_IN = 9, // Select mux mode: ALT9 mux port: ENET_QOS_1588_EVENT3_AUX_IN of instance: ENET_QOS
     eALT10_gpio10_IO8 = 10, // Select mux mode: ALT10 mux port: GPIO10_IO08 of instance: GPIO10
   };
+  
   enum class eSION : uint32_t {
     eDISABLED = 0, // Input Path is determined by functionality
     eENABLED = 1, // Force input path of pad GPIO_SD_B1_05
@@ -3693,7 +3693,7 @@ union SW_MUX_CTL_PAD_GPIO_SD_B1_05 {
     eMUX_MODE MUX_MODE : 4;
     eSION SION : 1;
     uint32_t _reserved_end : 27;
-  } bits;          // Bit-field struct (auto-filling reserved gaps)
+  } bits;
   
   // Full 32-bit register value.
   uint32_t value;
@@ -3707,7 +3707,6 @@ union SW_MUX_CTL_PAD_GPIO_SD_B1_05 {
 //
 union SW_MUX_CTL_PAD_GPIO_SD_B2_00 {
   
-  // Enum definitions.
   enum class eMUX_MODE : uint32_t {
     eALT0_usdhc2_DATA3 = 0, // Select mux mode: ALT0 mux port: USDHC2_DATA3 of instance: USDHC2
     eALT1_flexspi1_B_DATA3 = 1, // Select mux mode: ALT1 mux port: FLEXSPI1_B_DATA03 of instance: FLEXSPI1
@@ -3717,6 +3716,7 @@ union SW_MUX_CTL_PAD_GPIO_SD_B2_00 {
     eALT5_gpio_mux4_IO9 = 5, // Select mux mode: ALT5 mux port: GPIO_MUX4_IO09 of instance: GPIO_MUX4
     eALT10_gpio10_IO9 = 10, // Select mux mode: ALT10 mux port: GPIO10_IO09 of instance: GPIO10
   };
+  
   enum class eSION : uint32_t {
     eDISABLED = 0, // Input Path is determined by functionality
     eENABLED = 1, // Force input path of pad GPIO_SD_B2_00
@@ -3727,7 +3727,7 @@ union SW_MUX_CTL_PAD_GPIO_SD_B2_00 {
     eMUX_MODE MUX_MODE : 4;
     eSION SION : 1;
     uint32_t _reserved_end : 27;
-  } bits;          // Bit-field struct (auto-filling reserved gaps)
+  } bits;
   
   // Full 32-bit register value.
   uint32_t value;
@@ -3741,7 +3741,6 @@ union SW_MUX_CTL_PAD_GPIO_SD_B2_00 {
 //
 union SW_MUX_CTL_PAD_GPIO_SD_B2_01 {
   
-  // Enum definitions.
   enum class eMUX_MODE : uint32_t {
     eALT0_usdhc2_DATA2 = 0, // Select mux mode: ALT0 mux port: USDHC2_DATA2 of instance: USDHC2
     eALT1_flexspi1_B_DATA2 = 1, // Select mux mode: ALT1 mux port: FLEXSPI1_B_DATA02 of instance: FLEXSPI1
@@ -3751,6 +3750,7 @@ union SW_MUX_CTL_PAD_GPIO_SD_B2_01 {
     eALT5_gpio_mux4_IO10 = 5, // Select mux mode: ALT5 mux port: GPIO_MUX4_IO10 of instance: GPIO_MUX4
     eALT10_gpio10_IO10 = 10, // Select mux mode: ALT10 mux port: GPIO10_IO10 of instance: GPIO10
   };
+  
   enum class eSION : uint32_t {
     eDISABLED = 0, // Input Path is determined by functionality
     eENABLED = 1, // Force input path of pad GPIO_SD_B2_01
@@ -3761,7 +3761,7 @@ union SW_MUX_CTL_PAD_GPIO_SD_B2_01 {
     eMUX_MODE MUX_MODE : 4;
     eSION SION : 1;
     uint32_t _reserved_end : 27;
-  } bits;          // Bit-field struct (auto-filling reserved gaps)
+  } bits;
   
   // Full 32-bit register value.
   uint32_t value;
@@ -3775,7 +3775,6 @@ union SW_MUX_CTL_PAD_GPIO_SD_B2_01 {
 //
 union SW_MUX_CTL_PAD_GPIO_SD_B2_02 {
   
-  // Enum definitions.
   enum class eMUX_MODE : uint32_t {
     eALT0_usdhc2_DATA1 = 0, // Select mux mode: ALT0 mux port: USDHC2_DATA1 of instance: USDHC2
     eALT1_flexspi1_B_DATA1 = 1, // Select mux mode: ALT1 mux port: FLEXSPI1_B_DATA01 of instance: FLEXSPI1
@@ -3785,6 +3784,7 @@ union SW_MUX_CTL_PAD_GPIO_SD_B2_02 {
     eALT5_gpio_mux4_IO11 = 5, // Select mux mode: ALT5 mux port: GPIO_MUX4_IO11 of instance: GPIO_MUX4
     eALT10_gpio10_IO11 = 10, // Select mux mode: ALT10 mux port: GPIO10_IO11 of instance: GPIO10
   };
+  
   enum class eSION : uint32_t {
     eDISABLED = 0, // Input Path is determined by functionality
     eENABLED = 1, // Force input path of pad GPIO_SD_B2_02
@@ -3795,7 +3795,7 @@ union SW_MUX_CTL_PAD_GPIO_SD_B2_02 {
     eMUX_MODE MUX_MODE : 4;
     eSION SION : 1;
     uint32_t _reserved_end : 27;
-  } bits;          // Bit-field struct (auto-filling reserved gaps)
+  } bits;
   
   // Full 32-bit register value.
   uint32_t value;
@@ -3809,7 +3809,6 @@ union SW_MUX_CTL_PAD_GPIO_SD_B2_02 {
 //
 union SW_MUX_CTL_PAD_GPIO_SD_B2_03 {
   
-  // Enum definitions.
   enum class eMUX_MODE : uint32_t {
     eALT0_usdhc2_DATA0 = 0, // Select mux mode: ALT0 mux port: USDHC2_DATA0 of instance: USDHC2
     eALT1_flexspi1_B_DATA0 = 1, // Select mux mode: ALT1 mux port: FLEXSPI1_B_DATA00 of instance: FLEXSPI1
@@ -3819,6 +3818,7 @@ union SW_MUX_CTL_PAD_GPIO_SD_B2_03 {
     eALT5_gpio_mux4_IO12 = 5, // Select mux mode: ALT5 mux port: GPIO_MUX4_IO12 of instance: GPIO_MUX4
     eALT10_gpio10_IO12 = 10, // Select mux mode: ALT10 mux port: GPIO10_IO12 of instance: GPIO10
   };
+  
   enum class eSION : uint32_t {
     eDISABLED = 0, // Input Path is determined by functionality
     eENABLED = 1, // Force input path of pad GPIO_SD_B2_03
@@ -3829,7 +3829,7 @@ union SW_MUX_CTL_PAD_GPIO_SD_B2_03 {
     eMUX_MODE MUX_MODE : 4;
     eSION SION : 1;
     uint32_t _reserved_end : 27;
-  } bits;          // Bit-field struct (auto-filling reserved gaps)
+  } bits;
   
   // Full 32-bit register value.
   uint32_t value;
@@ -3843,7 +3843,6 @@ union SW_MUX_CTL_PAD_GPIO_SD_B2_03 {
 //
 union SW_MUX_CTL_PAD_GPIO_SD_B2_04 {
   
-  // Enum definitions.
   enum class eMUX_MODE : uint32_t {
     eALT0_usdhc2_CLK = 0, // Select mux mode: ALT0 mux port: USDHC2_CLK of instance: USDHC2
     eALT1_flexspi1_B_SCLK = 1, // Select mux mode: ALT1 mux port: FLEXSPI1_B_SCLK of instance: FLEXSPI1
@@ -3853,6 +3852,7 @@ union SW_MUX_CTL_PAD_GPIO_SD_B2_04 {
     eALT5_gpio_mux4_IO13 = 5, // Select mux mode: ALT5 mux port: GPIO_MUX4_IO13 of instance: GPIO_MUX4
     eALT10_gpio10_IO13 = 10, // Select mux mode: ALT10 mux port: GPIO10_IO13 of instance: GPIO10
   };
+  
   enum class eSION : uint32_t {
     eDISABLED = 0, // Input Path is determined by functionality
     eENABLED = 1, // Force input path of pad GPIO_SD_B2_04
@@ -3863,7 +3863,7 @@ union SW_MUX_CTL_PAD_GPIO_SD_B2_04 {
     eMUX_MODE MUX_MODE : 4;
     eSION SION : 1;
     uint32_t _reserved_end : 27;
-  } bits;          // Bit-field struct (auto-filling reserved gaps)
+  } bits;
   
   // Full 32-bit register value.
   uint32_t value;
@@ -3877,7 +3877,6 @@ union SW_MUX_CTL_PAD_GPIO_SD_B2_04 {
 //
 union SW_MUX_CTL_PAD_GPIO_SD_B2_05 {
   
-  // Enum definitions.
   enum class eMUX_MODE : uint32_t {
     eALT0_usdhc2_CMD = 0, // Select mux mode: ALT0 mux port: USDHC2_CMD of instance: USDHC2
     eALT1_flexspi1_A_DQS = 1, // Select mux mode: ALT1 mux port: FLEXSPI1_A_DQS of instance: FLEXSPI1
@@ -3887,6 +3886,7 @@ union SW_MUX_CTL_PAD_GPIO_SD_B2_05 {
     eALT5_gpio_mux4_IO14 = 5, // Select mux mode: ALT5 mux port: GPIO_MUX4_IO14 of instance: GPIO_MUX4
     eALT10_gpio10_IO14 = 10, // Select mux mode: ALT10 mux port: GPIO10_IO14 of instance: GPIO10
   };
+  
   enum class eSION : uint32_t {
     eDISABLED = 0, // Input Path is determined by functionality
     eENABLED = 1, // Force input path of pad GPIO_SD_B2_05
@@ -3897,7 +3897,7 @@ union SW_MUX_CTL_PAD_GPIO_SD_B2_05 {
     eMUX_MODE MUX_MODE : 4;
     eSION SION : 1;
     uint32_t _reserved_end : 27;
-  } bits;          // Bit-field struct (auto-filling reserved gaps)
+  } bits;
   
   // Full 32-bit register value.
   uint32_t value;
@@ -3911,7 +3911,6 @@ union SW_MUX_CTL_PAD_GPIO_SD_B2_05 {
 //
 union SW_MUX_CTL_PAD_GPIO_SD_B2_06 {
   
-  // Enum definitions.
   enum class eMUX_MODE : uint32_t {
     eALT0_usdhc2_RESET_B = 0, // Select mux mode: ALT0 mux port: USDHC2_RESET_B of instance: USDHC2
     eALT1_flexspi1_A_SS0_B = 1, // Select mux mode: ALT1 mux port: FLEXSPI1_A_SS0_B of instance: FLEXSPI1
@@ -3921,6 +3920,7 @@ union SW_MUX_CTL_PAD_GPIO_SD_B2_06 {
     eALT5_gpio_mux4_IO15 = 5, // Select mux mode: ALT5 mux port: GPIO_MUX4_IO15 of instance: GPIO_MUX4
     eALT10_gpio10_IO15 = 10, // Select mux mode: ALT10 mux port: GPIO10_IO15 of instance: GPIO10
   };
+  
   enum class eSION : uint32_t {
     eDISABLED = 0, // Input Path is determined by functionality
     eENABLED = 1, // Force input path of pad GPIO_SD_B2_06
@@ -3931,7 +3931,7 @@ union SW_MUX_CTL_PAD_GPIO_SD_B2_06 {
     eMUX_MODE MUX_MODE : 4;
     eSION SION : 1;
     uint32_t _reserved_end : 27;
-  } bits;          // Bit-field struct (auto-filling reserved gaps)
+  } bits;
   
   // Full 32-bit register value.
   uint32_t value;
@@ -3945,7 +3945,6 @@ union SW_MUX_CTL_PAD_GPIO_SD_B2_06 {
 //
 union SW_MUX_CTL_PAD_GPIO_SD_B2_07 {
   
-  // Enum definitions.
   enum class eMUX_MODE : uint32_t {
     eALT0_usdhc2_STROBE = 0, // Select mux mode: ALT0 mux port: USDHC2_STROBE of instance: USDHC2
     eALT1_flexspi1_A_SCLK = 1, // Select mux mode: ALT1 mux port: FLEXSPI1_A_SCLK of instance: FLEXSPI1
@@ -3958,6 +3957,7 @@ union SW_MUX_CTL_PAD_GPIO_SD_B2_07 {
     eALT9_CCM_enet_qos_clock_generate_REF_CLK = 9, // Select mux mode: ALT9 mux port: ENET_QOS_REF_CLK of instance: ENET_QOS
     eALT10_gpio10_IO16 = 10, // Select mux mode: ALT10 mux port: GPIO10_IO16 of instance: GPIO10
   };
+  
   enum class eSION : uint32_t {
     eDISABLED = 0, // Input Path is determined by functionality
     eENABLED = 1, // Force input path of pad GPIO_SD_B2_07
@@ -3968,7 +3968,7 @@ union SW_MUX_CTL_PAD_GPIO_SD_B2_07 {
     eMUX_MODE MUX_MODE : 4;
     eSION SION : 1;
     uint32_t _reserved_end : 27;
-  } bits;          // Bit-field struct (auto-filling reserved gaps)
+  } bits;
   
   // Full 32-bit register value.
   uint32_t value;
@@ -3982,7 +3982,6 @@ union SW_MUX_CTL_PAD_GPIO_SD_B2_07 {
 //
 union SW_MUX_CTL_PAD_GPIO_SD_B2_08 {
   
-  // Enum definitions.
   enum class eMUX_MODE : uint32_t {
     eALT0_usdhc2_DATA4 = 0, // Select mux mode: ALT0 mux port: USDHC2_DATA4 of instance: USDHC2
     eALT1_flexspi1_A_DATA0 = 1, // Select mux mode: ALT1 mux port: FLEXSPI1_A_DATA00 of instance: FLEXSPI1
@@ -3993,6 +3992,7 @@ union SW_MUX_CTL_PAD_GPIO_SD_B2_08 {
     eALT6_lpspi2_PCS0 = 6, // Select mux mode: ALT6 mux port: LPSPI2_PCS0 of instance: LPSPI2
     eALT10_gpio10_IO17 = 10, // Select mux mode: ALT10 mux port: GPIO10_IO17 of instance: GPIO10
   };
+  
   enum class eSION : uint32_t {
     eDISABLED = 0, // Input Path is determined by functionality
     eENABLED = 1, // Force input path of pad GPIO_SD_B2_08
@@ -4003,7 +4003,7 @@ union SW_MUX_CTL_PAD_GPIO_SD_B2_08 {
     eMUX_MODE MUX_MODE : 4;
     eSION SION : 1;
     uint32_t _reserved_end : 27;
-  } bits;          // Bit-field struct (auto-filling reserved gaps)
+  } bits;
   
   // Full 32-bit register value.
   uint32_t value;
@@ -4017,7 +4017,6 @@ union SW_MUX_CTL_PAD_GPIO_SD_B2_08 {
 //
 union SW_MUX_CTL_PAD_GPIO_SD_B2_09 {
   
-  // Enum definitions.
   enum class eMUX_MODE : uint32_t {
     eALT0_usdhc2_DATA5 = 0, // Select mux mode: ALT0 mux port: USDHC2_DATA5 of instance: USDHC2
     eALT1_flexspi1_A_DATA1 = 1, // Select mux mode: ALT1 mux port: FLEXSPI1_A_DATA01 of instance: FLEXSPI1
@@ -4028,6 +4027,7 @@ union SW_MUX_CTL_PAD_GPIO_SD_B2_09 {
     eALT6_lpspi2_SDO = 6, // Select mux mode: ALT6 mux port: LPSPI2_SOUT of instance: LPSPI2
     eALT10_gpio10_IO18 = 10, // Select mux mode: ALT10 mux port: GPIO10_IO18 of instance: GPIO10
   };
+  
   enum class eSION : uint32_t {
     eDISABLED = 0, // Input Path is determined by functionality
     eENABLED = 1, // Force input path of pad GPIO_SD_B2_09
@@ -4038,7 +4038,7 @@ union SW_MUX_CTL_PAD_GPIO_SD_B2_09 {
     eMUX_MODE MUX_MODE : 4;
     eSION SION : 1;
     uint32_t _reserved_end : 27;
-  } bits;          // Bit-field struct (auto-filling reserved gaps)
+  } bits;
   
   // Full 32-bit register value.
   uint32_t value;
@@ -4052,7 +4052,6 @@ union SW_MUX_CTL_PAD_GPIO_SD_B2_09 {
 //
 union SW_MUX_CTL_PAD_GPIO_SD_B2_10 {
   
-  // Enum definitions.
   enum class eMUX_MODE : uint32_t {
     eALT0_usdhc2_DATA6 = 0, // Select mux mode: ALT0 mux port: USDHC2_DATA6 of instance: USDHC2
     eALT1_flexspi1_A_DATA2 = 1, // Select mux mode: ALT1 mux port: FLEXSPI1_A_DATA02 of instance: FLEXSPI1
@@ -4063,6 +4062,7 @@ union SW_MUX_CTL_PAD_GPIO_SD_B2_10 {
     eALT6_lpspi2_SDI = 6, // Select mux mode: ALT6 mux port: LPSPI2_SIN of instance: LPSPI2
     eALT10_gpio10_IO19 = 10, // Select mux mode: ALT10 mux port: GPIO10_IO19 of instance: GPIO10
   };
+  
   enum class eSION : uint32_t {
     eDISABLED = 0, // Input Path is determined by functionality
     eENABLED = 1, // Force input path of pad GPIO_SD_B2_10
@@ -4073,7 +4073,7 @@ union SW_MUX_CTL_PAD_GPIO_SD_B2_10 {
     eMUX_MODE MUX_MODE : 4;
     eSION SION : 1;
     uint32_t _reserved_end : 27;
-  } bits;          // Bit-field struct (auto-filling reserved gaps)
+  } bits;
   
   // Full 32-bit register value.
   uint32_t value;
@@ -4087,7 +4087,6 @@ union SW_MUX_CTL_PAD_GPIO_SD_B2_10 {
 //
 union SW_MUX_CTL_PAD_GPIO_SD_B2_11 {
   
-  // Enum definitions.
   enum class eMUX_MODE : uint32_t {
     eALT0_usdhc2_DATA7 = 0, // Select mux mode: ALT0 mux port: USDHC2_DATA7 of instance: USDHC2
     eALT1_flexspi1_A_DATA3 = 1, // Select mux mode: ALT1 mux port: FLEXSPI1_A_DATA03 of instance: FLEXSPI1
@@ -4098,6 +4097,7 @@ union SW_MUX_CTL_PAD_GPIO_SD_B2_11 {
     eALT6_lpspi2_PCS1 = 6, // Select mux mode: ALT6 mux port: LPSPI2_PCS1 of instance: LPSPI2
     eALT10_gpio10_IO20 = 10, // Select mux mode: ALT10 mux port: GPIO10_IO20 of instance: GPIO10
   };
+  
   enum class eSION : uint32_t {
     eDISABLED = 0, // Input Path is determined by functionality
     eENABLED = 1, // Force input path of pad GPIO_SD_B2_11
@@ -4108,7 +4108,7 @@ union SW_MUX_CTL_PAD_GPIO_SD_B2_11 {
     eMUX_MODE MUX_MODE : 4;
     eSION SION : 1;
     uint32_t _reserved_end : 27;
-  } bits;          // Bit-field struct (auto-filling reserved gaps)
+  } bits;
   
   // Full 32-bit register value.
   uint32_t value;
@@ -4122,7 +4122,6 @@ union SW_MUX_CTL_PAD_GPIO_SD_B2_11 {
 //
 union SW_MUX_CTL_PAD_GPIO_DISP_B1_00 {
   
-  // Enum definitions.
   enum class eMUX_MODE : uint32_t {
     eALT0_video_mux_LCDIF_CLK = 0, // Select mux mode: ALT0 mux port: VIDEO_MUX_LCDIF_CLK of instance: VIDEO_MUX
     eALT1_enet_1g_RX_EN = 1, // Select mux mode: ALT1 mux port: ENET_1G_RX_EN of instance: ENET_1G
@@ -4132,6 +4131,7 @@ union SW_MUX_CTL_PAD_GPIO_DISP_B1_00 {
     eALT8_enet_qos_RX_EN = 8, // Select mux mode: ALT8 mux port: ENET_QOS_RX_EN of instance: ENET_QOS
     eALT10_gpio10_IO21 = 10, // Select mux mode: ALT10 mux port: GPIO10_IO21 of instance: GPIO10
   };
+  
   enum class eSION : uint32_t {
     eDISABLED = 0, // Input Path is determined by functionality
     eENABLED = 1, // Force input path of pad GPIO_DISP_B1_00
@@ -4142,7 +4142,7 @@ union SW_MUX_CTL_PAD_GPIO_DISP_B1_00 {
     eMUX_MODE MUX_MODE : 4;
     eSION SION : 1;
     uint32_t _reserved_end : 27;
-  } bits;          // Bit-field struct (auto-filling reserved gaps)
+  } bits;
   
   // Full 32-bit register value.
   uint32_t value;
@@ -4156,7 +4156,6 @@ union SW_MUX_CTL_PAD_GPIO_DISP_B1_00 {
 //
 union SW_MUX_CTL_PAD_GPIO_DISP_B1_01 {
   
-  // Enum definitions.
   enum class eMUX_MODE : uint32_t {
     eALT0_video_mux_LCDIF_ENABLE = 0, // Select mux mode: ALT0 mux port: VIDEO_MUX_LCDIF_ENABLE of instance: VIDEO_MUX
     eALT1_enet_1g_RX_CLK = 1, // Select mux mode: ALT1 mux port: ENET_1G_RX_CLK of instance: ENET_1G
@@ -4168,6 +4167,7 @@ union SW_MUX_CTL_PAD_GPIO_DISP_B1_01 {
     eALT9_enet_qos_RX_ER = 9, // Select mux mode: ALT9 mux port: ENET_QOS_RX_ER of instance: ENET_QOS
     eALT10_gpio10_IO22 = 10, // Select mux mode: ALT10 mux port: GPIO10_IO22 of instance: GPIO10
   };
+  
   enum class eSION : uint32_t {
     eDISABLED = 0, // Input Path is determined by functionality
     eENABLED = 1, // Force input path of pad GPIO_DISP_B1_01
@@ -4178,7 +4178,7 @@ union SW_MUX_CTL_PAD_GPIO_DISP_B1_01 {
     eMUX_MODE MUX_MODE : 4;
     eSION SION : 1;
     uint32_t _reserved_end : 27;
-  } bits;          // Bit-field struct (auto-filling reserved gaps)
+  } bits;
   
   // Full 32-bit register value.
   uint32_t value;
@@ -4192,7 +4192,6 @@ union SW_MUX_CTL_PAD_GPIO_DISP_B1_01 {
 //
 union SW_MUX_CTL_PAD_GPIO_DISP_B1_02 {
   
-  // Enum definitions.
   enum class eMUX_MODE : uint32_t {
     eALT0_video_mux_LCDIF_HSYNC = 0, // Select mux mode: ALT0 mux port: VIDEO_MUX_LCDIF_HSYNC of instance: VIDEO_MUX
     eALT1_ENET_1G_RX_DATA0 = 1, // Select mux mode: ALT1 mux port: ENET_1G_RX_DATA00 of instance: ENET_1G
@@ -4204,6 +4203,7 @@ union SW_MUX_CTL_PAD_GPIO_DISP_B1_02 {
     eALT9_lpuart1_TX = 9, // Select mux mode: ALT9 mux port: LPUART1_TXD of instance: LPUART1
     eALT10_gpio10_IO23 = 10, // Select mux mode: ALT10 mux port: GPIO10_IO23 of instance: GPIO10
   };
+  
   enum class eSION : uint32_t {
     eDISABLED = 0, // Input Path is determined by functionality
     eENABLED = 1, // Force input path of pad GPIO_DISP_B1_02
@@ -4214,7 +4214,7 @@ union SW_MUX_CTL_PAD_GPIO_DISP_B1_02 {
     eMUX_MODE MUX_MODE : 4;
     eSION SION : 1;
     uint32_t _reserved_end : 27;
-  } bits;          // Bit-field struct (auto-filling reserved gaps)
+  } bits;
   
   // Full 32-bit register value.
   uint32_t value;
@@ -4228,7 +4228,6 @@ union SW_MUX_CTL_PAD_GPIO_DISP_B1_02 {
 //
 union SW_MUX_CTL_PAD_GPIO_DISP_B1_03 {
   
-  // Enum definitions.
   enum class eMUX_MODE : uint32_t {
     eALT0_video_mux_LCDIF_VSYNC = 0, // Select mux mode: ALT0 mux port: VIDEO_MUX_LCDIF_VSYNC of instance: VIDEO_MUX
     eALT1_ENET_1G_RX_DATA1 = 1, // Select mux mode: ALT1 mux port: ENET_1G_RX_DATA01 of instance: ENET_1G
@@ -4240,6 +4239,7 @@ union SW_MUX_CTL_PAD_GPIO_DISP_B1_03 {
     eALT9_lpuart1_RX = 9, // Select mux mode: ALT9 mux port: LPUART1_RXD of instance: LPUART1
     eALT10_gpio10_IO24 = 10, // Select mux mode: ALT10 mux port: GPIO10_IO24 of instance: GPIO10
   };
+  
   enum class eSION : uint32_t {
     eDISABLED = 0, // Input Path is determined by functionality
     eENABLED = 1, // Force input path of pad GPIO_DISP_B1_03
@@ -4250,7 +4250,7 @@ union SW_MUX_CTL_PAD_GPIO_DISP_B1_03 {
     eMUX_MODE MUX_MODE : 4;
     eSION SION : 1;
     uint32_t _reserved_end : 27;
-  } bits;          // Bit-field struct (auto-filling reserved gaps)
+  } bits;
   
   // Full 32-bit register value.
   uint32_t value;
@@ -4264,7 +4264,6 @@ union SW_MUX_CTL_PAD_GPIO_DISP_B1_03 {
 //
 union SW_MUX_CTL_PAD_GPIO_DISP_B1_04 {
   
-  // Enum definitions.
   enum class eMUX_MODE : uint32_t {
     eALT0_video_mux_LCDIF_DATA0 = 0, // Select mux mode: ALT0 mux port: VIDEO_MUX_LCDIF_DATA00 of instance: VIDEO_MUX
     eALT1_ENET_1G_RX_DATA2 = 1, // Select mux mode: ALT1 mux port: ENET_1G_RX_DATA02 of instance: ENET_1G
@@ -4276,6 +4275,7 @@ union SW_MUX_CTL_PAD_GPIO_DISP_B1_04 {
     eALT9_lpspi3_SCK = 9, // Select mux mode: ALT9 mux port: LPSPI3_SCK of instance: LPSPI3
     eALT10_gpio10_IO25 = 10, // Select mux mode: ALT10 mux port: GPIO10_IO25 of instance: GPIO10
   };
+  
   enum class eSION : uint32_t {
     eDISABLED = 0, // Input Path is determined by functionality
     eENABLED = 1, // Force input path of pad GPIO_DISP_B1_04
@@ -4286,7 +4286,7 @@ union SW_MUX_CTL_PAD_GPIO_DISP_B1_04 {
     eMUX_MODE MUX_MODE : 4;
     eSION SION : 1;
     uint32_t _reserved_end : 27;
-  } bits;          // Bit-field struct (auto-filling reserved gaps)
+  } bits;
   
   // Full 32-bit register value.
   uint32_t value;
@@ -4300,7 +4300,6 @@ union SW_MUX_CTL_PAD_GPIO_DISP_B1_04 {
 //
 union SW_MUX_CTL_PAD_GPIO_DISP_B1_05 {
   
-  // Enum definitions.
   enum class eMUX_MODE : uint32_t {
     eALT0_video_mux_LCDIF_DATA1 = 0, // Select mux mode: ALT0 mux port: VIDEO_MUX_LCDIF_DATA01 of instance: VIDEO_MUX
     eALT1_ENET_1G_RX_DATA3 = 1, // Select mux mode: ALT1 mux port: ENET_1G_RX_DATA03 of instance: ENET_1G
@@ -4312,6 +4311,7 @@ union SW_MUX_CTL_PAD_GPIO_DISP_B1_05 {
     eALT9_lpspi3_SDI = 9, // Select mux mode: ALT9 mux port: LPSPI3_SIN of instance: LPSPI3
     eALT10_gpio10_IO26 = 10, // Select mux mode: ALT10 mux port: GPIO10_IO26 of instance: GPIO10
   };
+  
   enum class eSION : uint32_t {
     eDISABLED = 0, // Input Path is determined by functionality
     eENABLED = 1, // Force input path of pad GPIO_DISP_B1_05
@@ -4322,7 +4322,7 @@ union SW_MUX_CTL_PAD_GPIO_DISP_B1_05 {
     eMUX_MODE MUX_MODE : 4;
     eSION SION : 1;
     uint32_t _reserved_end : 27;
-  } bits;          // Bit-field struct (auto-filling reserved gaps)
+  } bits;
   
   // Full 32-bit register value.
   uint32_t value;
@@ -4336,7 +4336,6 @@ union SW_MUX_CTL_PAD_GPIO_DISP_B1_05 {
 //
 union SW_MUX_CTL_PAD_GPIO_DISP_B1_06 {
   
-  // Enum definitions.
   enum class eMUX_MODE : uint32_t {
     eALT0_video_mux_LCDIF_DATA2 = 0, // Select mux mode: ALT0 mux port: VIDEO_MUX_LCDIF_DATA02 of instance: VIDEO_MUX
     eALT1_ENET_1G_TX_DATA3 = 1, // Select mux mode: ALT1 mux port: ENET_1G_TX_DATA03 of instance: ENET_1G
@@ -4349,6 +4348,7 @@ union SW_MUX_CTL_PAD_GPIO_DISP_B1_06 {
     eALT9_lpspi3_SDO = 9, // Select mux mode: ALT9 mux port: LPSPI3_SOUT of instance: LPSPI3
     eALT10_gpio10_IO27 = 10, // Select mux mode: ALT10 mux port: GPIO10_IO27 of instance: GPIO10
   };
+  
   enum class eSION : uint32_t {
     eDISABLED = 0, // Input Path is determined by functionality
     eENABLED = 1, // Force input path of pad GPIO_DISP_B1_06
@@ -4359,7 +4359,7 @@ union SW_MUX_CTL_PAD_GPIO_DISP_B1_06 {
     eMUX_MODE MUX_MODE : 4;
     eSION SION : 1;
     uint32_t _reserved_end : 27;
-  } bits;          // Bit-field struct (auto-filling reserved gaps)
+  } bits;
   
   // Full 32-bit register value.
   uint32_t value;
@@ -4373,7 +4373,6 @@ union SW_MUX_CTL_PAD_GPIO_DISP_B1_06 {
 //
 union SW_MUX_CTL_PAD_GPIO_DISP_B1_07 {
   
-  // Enum definitions.
   enum class eMUX_MODE : uint32_t {
     eALT0_video_mux_LCDIF_DATA3 = 0, // Select mux mode: ALT0 mux port: VIDEO_MUX_LCDIF_DATA03 of instance: VIDEO_MUX
     eALT1_ENET_1G_TX_DATA2 = 1, // Select mux mode: ALT1 mux port: ENET_1G_TX_DATA02 of instance: ENET_1G
@@ -4386,6 +4385,7 @@ union SW_MUX_CTL_PAD_GPIO_DISP_B1_07 {
     eALT9_lpspi3_PCS0 = 9, // Select mux mode: ALT9 mux port: LPSPI3_PCS0 of instance: LPSPI3
     eALT10_gpio10_IO28 = 10, // Select mux mode: ALT10 mux port: GPIO10_IO28 of instance: GPIO10
   };
+  
   enum class eSION : uint32_t {
     eDISABLED = 0, // Input Path is determined by functionality
     eENABLED = 1, // Force input path of pad GPIO_DISP_B1_07
@@ -4396,7 +4396,7 @@ union SW_MUX_CTL_PAD_GPIO_DISP_B1_07 {
     eMUX_MODE MUX_MODE : 4;
     eSION SION : 1;
     uint32_t _reserved_end : 27;
-  } bits;          // Bit-field struct (auto-filling reserved gaps)
+  } bits;
   
   // Full 32-bit register value.
   uint32_t value;
@@ -4410,7 +4410,6 @@ union SW_MUX_CTL_PAD_GPIO_DISP_B1_07 {
 //
 union SW_MUX_CTL_PAD_GPIO_DISP_B1_08 {
   
-  // Enum definitions.
   enum class eMUX_MODE : uint32_t {
     eALT0_video_mux_LCDIF_DATA4 = 0, // Select mux mode: ALT0 mux port: VIDEO_MUX_LCDIF_DATA04 of instance: VIDEO_MUX
     eALT1_ENET_1G_TX_DATA1 = 1, // Select mux mode: ALT1 mux port: ENET_1G_TX_DATA01 of instance: ENET_1G
@@ -4423,6 +4422,7 @@ union SW_MUX_CTL_PAD_GPIO_DISP_B1_08 {
     eALT9_lpspi3_PCS1 = 9, // Select mux mode: ALT9 mux port: LPSPI3_PCS1 of instance: LPSPI3
     eALT10_gpio10_IO29 = 10, // Select mux mode: ALT10 mux port: GPIO10_IO29 of instance: GPIO10
   };
+  
   enum class eSION : uint32_t {
     eDISABLED = 0, // Input Path is determined by functionality
     eENABLED = 1, // Force input path of pad GPIO_DISP_B1_08
@@ -4433,7 +4433,7 @@ union SW_MUX_CTL_PAD_GPIO_DISP_B1_08 {
     eMUX_MODE MUX_MODE : 4;
     eSION SION : 1;
     uint32_t _reserved_end : 27;
-  } bits;          // Bit-field struct (auto-filling reserved gaps)
+  } bits;
   
   // Full 32-bit register value.
   uint32_t value;
@@ -4447,7 +4447,6 @@ union SW_MUX_CTL_PAD_GPIO_DISP_B1_08 {
 //
 union SW_MUX_CTL_PAD_GPIO_DISP_B1_09 {
   
-  // Enum definitions.
   enum class eMUX_MODE : uint32_t {
     eALT0_video_mux_LCDIF_DATA5 = 0, // Select mux mode: ALT0 mux port: VIDEO_MUX_LCDIF_DATA05 of instance: VIDEO_MUX
     eALT1_ENET_1G_TX_DATA0 = 1, // Select mux mode: ALT1 mux port: ENET_1G_TX_DATA00 of instance: ENET_1G
@@ -4460,6 +4459,7 @@ union SW_MUX_CTL_PAD_GPIO_DISP_B1_09 {
     eALT9_lpspi3_PCS2 = 9, // Select mux mode: ALT9 mux port: LPSPI3_PCS2 of instance: LPSPI3
     eALT10_gpio10_IO30 = 10, // Select mux mode: ALT10 mux port: GPIO10_IO30 of instance: GPIO10
   };
+  
   enum class eSION : uint32_t {
     eDISABLED = 0, // Input Path is determined by functionality
     eENABLED = 1, // Force input path of pad GPIO_DISP_B1_09
@@ -4470,7 +4470,7 @@ union SW_MUX_CTL_PAD_GPIO_DISP_B1_09 {
     eMUX_MODE MUX_MODE : 4;
     eSION SION : 1;
     uint32_t _reserved_end : 27;
-  } bits;          // Bit-field struct (auto-filling reserved gaps)
+  } bits;
   
   // Full 32-bit register value.
   uint32_t value;
@@ -4484,7 +4484,6 @@ union SW_MUX_CTL_PAD_GPIO_DISP_B1_09 {
 //
 union SW_MUX_CTL_PAD_GPIO_DISP_B1_10 {
   
-  // Enum definitions.
   enum class eMUX_MODE : uint32_t {
     eALT0_video_mux_LCDIF_DATA6 = 0, // Select mux mode: ALT0 mux port: VIDEO_MUX_LCDIF_DATA06 of instance: VIDEO_MUX
     eALT1_enet_1g_TX_EN = 1, // Select mux mode: ALT1 mux port: ENET_1G_TX_EN of instance: ENET_1G
@@ -4497,6 +4496,7 @@ union SW_MUX_CTL_PAD_GPIO_DISP_B1_10 {
     eALT9_lpspi3_PCS3 = 9, // Select mux mode: ALT9 mux port: LPSPI3_PCS3 of instance: LPSPI3
     eALT10_gpio10_IO31 = 10, // Select mux mode: ALT10 mux port: GPIO10_IO31 of instance: GPIO10
   };
+  
   enum class eSION : uint32_t {
     eDISABLED = 0, // Input Path is determined by functionality
     eENABLED = 1, // Force input path of pad GPIO_DISP_B1_10
@@ -4507,7 +4507,7 @@ union SW_MUX_CTL_PAD_GPIO_DISP_B1_10 {
     eMUX_MODE MUX_MODE : 4;
     eSION SION : 1;
     uint32_t _reserved_end : 27;
-  } bits;          // Bit-field struct (auto-filling reserved gaps)
+  } bits;
   
   // Full 32-bit register value.
   uint32_t value;
@@ -4521,7 +4521,6 @@ union SW_MUX_CTL_PAD_GPIO_DISP_B1_10 {
 //
 union SW_MUX_CTL_PAD_GPIO_DISP_B1_11 {
   
-  // Enum definitions.
   enum class eMUX_MODE : uint32_t {
     eALT0_video_mux_LCDIF_DATA7 = 0, // Select mux mode: ALT0 mux port: VIDEO_MUX_LCDIF_DATA07 of instance: VIDEO_MUX
     eALT1_enet_1g_TX_CLK_IO = 1, // Select mux mode: ALT1 mux port: ENET_1G_TX_CLK_IO of instance: ENET_1G
@@ -4534,6 +4533,7 @@ union SW_MUX_CTL_PAD_GPIO_DISP_B1_11 {
     eALT9_CCM_enet_qos_clock_generate_REF_CLK = 9, // Select mux mode: ALT9 mux port: ENET_QOS_REF_CLK of instance: ENET_QOS
     eALT10_gpio11_IO0 = 10, // Select mux mode: ALT10 mux port: GPIO11_IO00 of instance: GPIO11
   };
+  
   enum class eSION : uint32_t {
     eDISABLED = 0, // Input Path is determined by functionality
     eENABLED = 1, // Force input path of pad GPIO_DISP_B1_11
@@ -4544,7 +4544,7 @@ union SW_MUX_CTL_PAD_GPIO_DISP_B1_11 {
     eMUX_MODE MUX_MODE : 4;
     eSION SION : 1;
     uint32_t _reserved_end : 27;
-  } bits;          // Bit-field struct (auto-filling reserved gaps)
+  } bits;
   
   // Full 32-bit register value.
   uint32_t value;
@@ -4558,7 +4558,6 @@ union SW_MUX_CTL_PAD_GPIO_DISP_B1_11 {
 //
 union SW_MUX_CTL_PAD_GPIO_DISP_B2_00 {
   
-  // Enum definitions.
   enum class eMUX_MODE : uint32_t {
     eALT0_video_mux_LCDIF_DATA8 = 0, // Select mux mode: ALT0 mux port: VIDEO_MUX_LCDIF_DATA08 of instance: VIDEO_MUX
     eALT1_WDOG1_B = 1, // Select mux mode: ALT1 mux port: WDOG1_B of instance: WDOG1
@@ -4570,6 +4569,7 @@ union SW_MUX_CTL_PAD_GPIO_DISP_B2_00 {
     eALT8_enet_qos_TX_ER = 8, // Select mux mode: ALT8 mux port: ENET_QOS_TX_ER of instance: ENET_QOS
     eALT10_gpio11_IO1 = 10, // Select mux mode: ALT10 mux port: GPIO11_IO01 of instance: GPIO11
   };
+  
   enum class eSION : uint32_t {
     eDISABLED = 0, // Input Path is determined by functionality
     eENABLED = 1, // Force input path of pad GPIO_DISP_B2_00
@@ -4580,7 +4580,7 @@ union SW_MUX_CTL_PAD_GPIO_DISP_B2_00 {
     eMUX_MODE MUX_MODE : 4;
     eSION SION : 1;
     uint32_t _reserved_end : 27;
-  } bits;          // Bit-field struct (auto-filling reserved gaps)
+  } bits;
   
   // Full 32-bit register value.
   uint32_t value;
@@ -4594,7 +4594,6 @@ union SW_MUX_CTL_PAD_GPIO_DISP_B2_00 {
 //
 union SW_MUX_CTL_PAD_GPIO_DISP_B2_01 {
   
-  // Enum definitions.
   enum class eMUX_MODE : uint32_t {
     eALT0_video_mux_LCDIF_DATA9 = 0, // Select mux mode: ALT0 mux port: VIDEO_MUX_LCDIF_DATA09 of instance: VIDEO_MUX
     eALT1_usdhc1_VSELECT = 1, // Select mux mode: ALT1 mux port: USDHC1_VSELECT of instance: USDHC1
@@ -4607,6 +4606,7 @@ union SW_MUX_CTL_PAD_GPIO_DISP_B2_01 {
     eALT9_CCM_ENET_REF_CLK_25M = 9, // Select mux mode: ALT9 mux port: CCM_ENET_REF_CLK_25M of instance: CCM
     eALT10_gpio11_IO2 = 10, // Select mux mode: ALT10 mux port: GPIO11_IO02 of instance: GPIO11
   };
+  
   enum class eSION : uint32_t {
     eDISABLED = 0, // Input Path is determined by functionality
     eENABLED = 1, // Force input path of pad GPIO_DISP_B2_01
@@ -4617,7 +4617,7 @@ union SW_MUX_CTL_PAD_GPIO_DISP_B2_01 {
     eMUX_MODE MUX_MODE : 4;
     eSION SION : 1;
     uint32_t _reserved_end : 27;
-  } bits;          // Bit-field struct (auto-filling reserved gaps)
+  } bits;
   
   // Full 32-bit register value.
   uint32_t value;
@@ -4631,7 +4631,6 @@ union SW_MUX_CTL_PAD_GPIO_DISP_B2_01 {
 //
 union SW_MUX_CTL_PAD_GPIO_DISP_B2_02 {
   
-  // Enum definitions.
   enum class eMUX_MODE : uint32_t {
     eALT0_video_mux_LCDIF_DATA10 = 0, // Select mux mode: ALT0 mux port: VIDEO_MUX_LCDIF_DATA10 of instance: VIDEO_MUX
     eALT1_ENET_TX_DATA0 = 1, // Select mux mode: ALT1 mux port: ENET_TX_DATA00 of instance: ENET
@@ -4643,6 +4642,7 @@ union SW_MUX_CTL_PAD_GPIO_DISP_B2_02 {
     eALT8_ENET_QOS_TX_DATA0 = 8, // Select mux mode: ALT8 mux port: ENET_QOS_TX_DATA00 of instance: ENET_QOS
     eALT10_gpio11_IO3 = 10, // Select mux mode: ALT10 mux port: GPIO11_IO03 of instance: GPIO11
   };
+  
   enum class eSION : uint32_t {
     eDISABLED = 0, // Input Path is determined by functionality
     eENABLED = 1, // Force input path of pad GPIO_DISP_B2_02
@@ -4653,7 +4653,7 @@ union SW_MUX_CTL_PAD_GPIO_DISP_B2_02 {
     eMUX_MODE MUX_MODE : 4;
     eSION SION : 1;
     uint32_t _reserved_end : 27;
-  } bits;          // Bit-field struct (auto-filling reserved gaps)
+  } bits;
   
   // Full 32-bit register value.
   uint32_t value;
@@ -4667,7 +4667,6 @@ union SW_MUX_CTL_PAD_GPIO_DISP_B2_02 {
 //
 union SW_MUX_CTL_PAD_GPIO_DISP_B2_03 {
   
-  // Enum definitions.
   enum class eMUX_MODE : uint32_t {
     eALT0_video_mux_LCDIF_DATA11 = 0, // Select mux mode: ALT0 mux port: VIDEO_MUX_LCDIF_DATA11 of instance: VIDEO_MUX
     eALT1_ENET_TX_DATA1 = 1, // Select mux mode: ALT1 mux port: ENET_TX_DATA01 of instance: ENET
@@ -4679,6 +4678,7 @@ union SW_MUX_CTL_PAD_GPIO_DISP_B2_03 {
     eALT8_ENET_QOS_TX_DATA1 = 8, // Select mux mode: ALT8 mux port: ENET_QOS_TX_DATA01 of instance: ENET_QOS
     eALT10_gpio11_IO4 = 10, // Select mux mode: ALT10 mux port: GPIO11_IO04 of instance: GPIO11
   };
+  
   enum class eSION : uint32_t {
     eDISABLED = 0, // Input Path is determined by functionality
     eENABLED = 1, // Force input path of pad GPIO_DISP_B2_03
@@ -4689,7 +4689,7 @@ union SW_MUX_CTL_PAD_GPIO_DISP_B2_03 {
     eMUX_MODE MUX_MODE : 4;
     eSION SION : 1;
     uint32_t _reserved_end : 27;
-  } bits;          // Bit-field struct (auto-filling reserved gaps)
+  } bits;
   
   // Full 32-bit register value.
   uint32_t value;
@@ -4703,7 +4703,6 @@ union SW_MUX_CTL_PAD_GPIO_DISP_B2_03 {
 //
 union SW_MUX_CTL_PAD_GPIO_DISP_B2_04 {
   
-  // Enum definitions.
   enum class eMUX_MODE : uint32_t {
     eALT0_video_mux_LCDIF_DATA12 = 0, // Select mux mode: ALT0 mux port: VIDEO_MUX_LCDIF_DATA12 of instance: VIDEO_MUX
     eALT1_enet_TX_EN = 1, // Select mux mode: ALT1 mux port: ENET_TX_EN of instance: ENET
@@ -4715,6 +4714,7 @@ union SW_MUX_CTL_PAD_GPIO_DISP_B2_04 {
     eALT8_enet_qos_TX_EN = 8, // Select mux mode: ALT8 mux port: ENET_QOS_TX_EN of instance: ENET_QOS
     eALT10_gpio11_IO5 = 10, // Select mux mode: ALT10 mux port: GPIO11_IO05 of instance: GPIO11
   };
+  
   enum class eSION : uint32_t {
     eDISABLED = 0, // Input Path is determined by functionality
     eENABLED = 1, // Force input path of pad GPIO_DISP_B2_04
@@ -4725,7 +4725,7 @@ union SW_MUX_CTL_PAD_GPIO_DISP_B2_04 {
     eMUX_MODE MUX_MODE : 4;
     eSION SION : 1;
     uint32_t _reserved_end : 27;
-  } bits;          // Bit-field struct (auto-filling reserved gaps)
+  } bits;
   
   // Full 32-bit register value.
   uint32_t value;
@@ -4739,7 +4739,6 @@ union SW_MUX_CTL_PAD_GPIO_DISP_B2_04 {
 //
 union SW_MUX_CTL_PAD_GPIO_DISP_B2_05 {
   
-  // Enum definitions.
   enum class eMUX_MODE : uint32_t {
     eALT0_video_mux_LCDIF_DATA13 = 0, // Select mux mode: ALT0 mux port: VIDEO_MUX_LCDIF_DATA13 of instance: VIDEO_MUX
     eALT1_enet_TX_CLK = 1, // Select mux mode: ALT1 mux port: ENET_TX_CLK of instance: ENET
@@ -4751,6 +4750,7 @@ union SW_MUX_CTL_PAD_GPIO_DISP_B2_05 {
     eALT8_CCM_enet_qos_clock_generate_TX_CLK = 8, // Select mux mode: ALT8 mux port: ENET_QOS_TX_CLK of instance: ENET_QOS
     eALT10_gpio11_IO6 = 10, // Select mux mode: ALT10 mux port: GPIO11_IO06 of instance: GPIO11
   };
+  
   enum class eSION : uint32_t {
     eDISABLED = 0, // Input Path is determined by functionality
     eENABLED = 1, // Force input path of pad GPIO_DISP_B2_05
@@ -4761,7 +4761,7 @@ union SW_MUX_CTL_PAD_GPIO_DISP_B2_05 {
     eMUX_MODE MUX_MODE : 4;
     eSION SION : 1;
     uint32_t _reserved_end : 27;
-  } bits;          // Bit-field struct (auto-filling reserved gaps)
+  } bits;
   
   // Full 32-bit register value.
   uint32_t value;
@@ -4775,7 +4775,6 @@ union SW_MUX_CTL_PAD_GPIO_DISP_B2_05 {
 //
 union SW_MUX_CTL_PAD_GPIO_DISP_B2_06 {
   
-  // Enum definitions.
   enum class eMUX_MODE : uint32_t {
     eALT0_video_mux_LCDIF_DATA14 = 0, // Select mux mode: ALT0 mux port: VIDEO_MUX_LCDIF_DATA14 of instance: VIDEO_MUX
     eALT1_ENET_RX_DATA0 = 1, // Select mux mode: ALT1 mux port: ENET_RX_DATA00 of instance: ENET
@@ -4786,6 +4785,7 @@ union SW_MUX_CTL_PAD_GPIO_DISP_B2_06 {
     eALT8_ENET_QOS_RX_DATA0 = 8, // Select mux mode: ALT8 mux port: ENET_QOS_RX_DATA00 of instance: ENET_QOS
     eALT10_gpio11_IO7 = 10, // Select mux mode: ALT10 mux port: GPIO11_IO07 of instance: GPIO11
   };
+  
   enum class eSION : uint32_t {
     eDISABLED = 0, // Input Path is determined by functionality
     eENABLED = 1, // Force input path of pad GPIO_DISP_B2_06
@@ -4796,7 +4796,7 @@ union SW_MUX_CTL_PAD_GPIO_DISP_B2_06 {
     eMUX_MODE MUX_MODE : 4;
     eSION SION : 1;
     uint32_t _reserved_end : 27;
-  } bits;          // Bit-field struct (auto-filling reserved gaps)
+  } bits;
   
   // Full 32-bit register value.
   uint32_t value;
@@ -4810,7 +4810,6 @@ union SW_MUX_CTL_PAD_GPIO_DISP_B2_06 {
 //
 union SW_MUX_CTL_PAD_GPIO_DISP_B2_07 {
   
-  // Enum definitions.
   enum class eMUX_MODE : uint32_t {
     eALT0_video_mux_LCDIF_DATA15 = 0, // Select mux mode: ALT0 mux port: VIDEO_MUX_LCDIF_DATA15 of instance: VIDEO_MUX
     eALT1_ENET_RX_DATA1 = 1, // Select mux mode: ALT1 mux port: ENET_RX_DATA01 of instance: ENET
@@ -4821,6 +4820,7 @@ union SW_MUX_CTL_PAD_GPIO_DISP_B2_07 {
     eALT8_ENET_QOS_RX_DATA1 = 8, // Select mux mode: ALT8 mux port: ENET_QOS_RX_DATA01 of instance: ENET_QOS
     eALT10_gpio11_IO8 = 10, // Select mux mode: ALT10 mux port: GPIO11_IO08 of instance: GPIO11
   };
+  
   enum class eSION : uint32_t {
     eDISABLED = 0, // Input Path is determined by functionality
     eENABLED = 1, // Force input path of pad GPIO_DISP_B2_07
@@ -4831,7 +4831,7 @@ union SW_MUX_CTL_PAD_GPIO_DISP_B2_07 {
     eMUX_MODE MUX_MODE : 4;
     eSION SION : 1;
     uint32_t _reserved_end : 27;
-  } bits;          // Bit-field struct (auto-filling reserved gaps)
+  } bits;
   
   // Full 32-bit register value.
   uint32_t value;
@@ -4845,7 +4845,6 @@ union SW_MUX_CTL_PAD_GPIO_DISP_B2_07 {
 //
 union SW_MUX_CTL_PAD_GPIO_DISP_B2_08 {
   
-  // Enum definitions.
   enum class eMUX_MODE : uint32_t {
     eALT0_video_mux_LCDIF_DATA16 = 0, // Select mux mode: ALT0 mux port: VIDEO_MUX_LCDIF_DATA16 of instance: VIDEO_MUX
     eALT1_enet_RX_EN = 1, // Select mux mode: ALT1 mux port: ENET_RX_EN of instance: ENET
@@ -4857,6 +4856,7 @@ union SW_MUX_CTL_PAD_GPIO_DISP_B2_08 {
     eALT9_lpuart1_TX = 9, // Select mux mode: ALT9 mux port: LPUART1_TXD of instance: LPUART1
     eALT10_gpio11_IO9 = 10, // Select mux mode: ALT10 mux port: GPIO11_IO09 of instance: GPIO11
   };
+  
   enum class eSION : uint32_t {
     eDISABLED = 0, // Input Path is determined by functionality
     eENABLED = 1, // Force input path of pad GPIO_DISP_B2_08
@@ -4867,7 +4867,7 @@ union SW_MUX_CTL_PAD_GPIO_DISP_B2_08 {
     eMUX_MODE MUX_MODE : 4;
     eSION SION : 1;
     uint32_t _reserved_end : 27;
-  } bits;          // Bit-field struct (auto-filling reserved gaps)
+  } bits;
   
   // Full 32-bit register value.
   uint32_t value;
@@ -4881,7 +4881,6 @@ union SW_MUX_CTL_PAD_GPIO_DISP_B2_08 {
 //
 union SW_MUX_CTL_PAD_GPIO_DISP_B2_09 {
   
-  // Enum definitions.
   enum class eMUX_MODE : uint32_t {
     eALT0_video_mux_LCDIF_DATA17 = 0, // Select mux mode: ALT0 mux port: VIDEO_MUX_LCDIF_DATA17 of instance: VIDEO_MUX
     eALT1_enet_RX_ER = 1, // Select mux mode: ALT1 mux port: ENET_RX_ER of instance: ENET
@@ -4893,6 +4892,7 @@ union SW_MUX_CTL_PAD_GPIO_DISP_B2_09 {
     eALT9_lpuart1_RX = 9, // Select mux mode: ALT9 mux port: LPUART1_RXD of instance: LPUART1
     eALT10_gpio11_IO10 = 10, // Select mux mode: ALT10 mux port: GPIO11_IO10 of instance: GPIO11
   };
+  
   enum class eSION : uint32_t {
     eDISABLED = 0, // Input Path is determined by functionality
     eENABLED = 1, // Force input path of pad GPIO_DISP_B2_09
@@ -4903,7 +4903,7 @@ union SW_MUX_CTL_PAD_GPIO_DISP_B2_09 {
     eMUX_MODE MUX_MODE : 4;
     eSION SION : 1;
     uint32_t _reserved_end : 27;
-  } bits;          // Bit-field struct (auto-filling reserved gaps)
+  } bits;
   
   // Full 32-bit register value.
   uint32_t value;
@@ -4917,7 +4917,6 @@ union SW_MUX_CTL_PAD_GPIO_DISP_B2_09 {
 //
 union SW_MUX_CTL_PAD_GPIO_DISP_B2_10 {
   
-  // Enum definitions.
   enum class eMUX_MODE : uint32_t {
     eALT0_video_mux_LCDIF_DATA18 = 0, // Select mux mode: ALT0 mux port: VIDEO_MUX_LCDIF_DATA18 of instance: VIDEO_MUX
     eALT1_EMVSIM2_TRXD = 1, // Select mux mode: ALT1 mux port: EMVSIM2_IO of instance: EMVSIM2
@@ -4930,6 +4929,7 @@ union SW_MUX_CTL_PAD_GPIO_DISP_B2_10 {
     eALT9_spdif_IN = 9, // Select mux mode: ALT9 mux port: SPDIF_IN of instance: SPDIF
     eALT10_gpio11_IO11 = 10, // Select mux mode: ALT10 mux port: GPIO11_IO11 of instance: GPIO11
   };
+  
   enum class eSION : uint32_t {
     eDISABLED = 0, // Input Path is determined by functionality
     eENABLED = 1, // Force input path of pad GPIO_DISP_B2_10
@@ -4940,7 +4940,7 @@ union SW_MUX_CTL_PAD_GPIO_DISP_B2_10 {
     eMUX_MODE MUX_MODE : 4;
     eSION SION : 1;
     uint32_t _reserved_end : 27;
-  } bits;          // Bit-field struct (auto-filling reserved gaps)
+  } bits;
   
   // Full 32-bit register value.
   uint32_t value;
@@ -4954,7 +4954,6 @@ union SW_MUX_CTL_PAD_GPIO_DISP_B2_10 {
 //
 union SW_MUX_CTL_PAD_GPIO_DISP_B2_11 {
   
-  // Enum definitions.
   enum class eMUX_MODE : uint32_t {
     eALT0_video_mux_LCDIF_DATA19 = 0, // Select mux mode: ALT0 mux port: VIDEO_MUX_LCDIF_DATA19 of instance: VIDEO_MUX
     eALT1_EMVSIM2_CLK = 1, // Select mux mode: ALT1 mux port: EMVSIM2_CLK of instance: EMVSIM2
@@ -4967,6 +4966,7 @@ union SW_MUX_CTL_PAD_GPIO_DISP_B2_11 {
     eALT9_spdif_OUT = 9, // Select mux mode: ALT9 mux port: SPDIF_OUT of instance: SPDIF
     eALT10_gpio11_IO12 = 10, // Select mux mode: ALT10 mux port: GPIO11_IO12 of instance: GPIO11
   };
+  
   enum class eSION : uint32_t {
     eDISABLED = 0, // Input Path is determined by functionality
     eENABLED = 1, // Force input path of pad GPIO_DISP_B2_11
@@ -4977,7 +4977,7 @@ union SW_MUX_CTL_PAD_GPIO_DISP_B2_11 {
     eMUX_MODE MUX_MODE : 4;
     eSION SION : 1;
     uint32_t _reserved_end : 27;
-  } bits;          // Bit-field struct (auto-filling reserved gaps)
+  } bits;
   
   // Full 32-bit register value.
   uint32_t value;
@@ -4991,7 +4991,6 @@ union SW_MUX_CTL_PAD_GPIO_DISP_B2_11 {
 //
 union SW_MUX_CTL_PAD_GPIO_DISP_B2_12 {
   
-  // Enum definitions.
   enum class eMUX_MODE : uint32_t {
     eALT0_video_mux_LCDIF_DATA20 = 0, // Select mux mode: ALT0 mux port: VIDEO_MUX_LCDIF_DATA20 of instance: VIDEO_MUX
     eALT1_EMVSIM2_RST_B = 1, // Select mux mode: ALT1 mux port: EMVSIM2_RST of instance: EMVSIM2
@@ -5004,6 +5003,7 @@ union SW_MUX_CTL_PAD_GPIO_DISP_B2_12 {
     eALT9_lpspi4_SCK = 9, // Select mux mode: ALT9 mux port: LPSPI4_SCK of instance: LPSPI4
     eALT10_gpio11_IO13 = 10, // Select mux mode: ALT10 mux port: GPIO11_IO13 of instance: GPIO11
   };
+  
   enum class eSION : uint32_t {
     eDISABLED = 0, // Input Path is determined by functionality
     eENABLED = 1, // Force input path of pad GPIO_DISP_B2_12
@@ -5014,7 +5014,7 @@ union SW_MUX_CTL_PAD_GPIO_DISP_B2_12 {
     eMUX_MODE MUX_MODE : 4;
     eSION SION : 1;
     uint32_t _reserved_end : 27;
-  } bits;          // Bit-field struct (auto-filling reserved gaps)
+  } bits;
   
   // Full 32-bit register value.
   uint32_t value;
@@ -5028,7 +5028,6 @@ union SW_MUX_CTL_PAD_GPIO_DISP_B2_12 {
 //
 union SW_MUX_CTL_PAD_GPIO_DISP_B2_13 {
   
-  // Enum definitions.
   enum class eMUX_MODE : uint32_t {
     eALT0_video_mux_LCDIF_DATA21 = 0, // Select mux mode: ALT0 mux port: VIDEO_MUX_LCDIF_DATA21 of instance: VIDEO_MUX
     eALT1_EMVSIM2_SVEN = 1, // Select mux mode: ALT1 mux port: EMVSIM2_SVEN of instance: EMVSIM2
@@ -5041,6 +5040,7 @@ union SW_MUX_CTL_PAD_GPIO_DISP_B2_13 {
     eALT9_lpspi4_SDI = 9, // Select mux mode: ALT9 mux port: LPSPI4_SIN of instance: LPSPI4
     eALT10_gpio11_IO14 = 10, // Select mux mode: ALT10 mux port: GPIO11_IO14 of instance: GPIO11
   };
+  
   enum class eSION : uint32_t {
     eDISABLED = 0, // Input Path is determined by functionality
     eENABLED = 1, // Force input path of pad GPIO_DISP_B2_13
@@ -5051,7 +5051,7 @@ union SW_MUX_CTL_PAD_GPIO_DISP_B2_13 {
     eMUX_MODE MUX_MODE : 4;
     eSION SION : 1;
     uint32_t _reserved_end : 27;
-  } bits;          // Bit-field struct (auto-filling reserved gaps)
+  } bits;
   
   // Full 32-bit register value.
   uint32_t value;
@@ -5065,7 +5065,6 @@ union SW_MUX_CTL_PAD_GPIO_DISP_B2_13 {
 //
 union SW_MUX_CTL_PAD_GPIO_DISP_B2_14 {
   
-  // Enum definitions.
   enum class eMUX_MODE : uint32_t {
     eALT0_video_mux_LCDIF_DATA22 = 0, // Select mux mode: ALT0 mux port: VIDEO_MUX_LCDIF_DATA22 of instance: VIDEO_MUX
     eALT1_EMVSIM2_PD = 1, // Select mux mode: ALT1 mux port: EMVSIM2_PD of instance: EMVSIM2
@@ -5078,6 +5077,7 @@ union SW_MUX_CTL_PAD_GPIO_DISP_B2_14 {
     eALT9_lpspi4_SDO = 9, // Select mux mode: ALT9 mux port: LPSPI4_SOUT of instance: LPSPI4
     eALT10_gpio11_IO15 = 10, // Select mux mode: ALT10 mux port: GPIO11_IO15 of instance: GPIO11
   };
+  
   enum class eSION : uint32_t {
     eDISABLED = 0, // Input Path is determined by functionality
     eENABLED = 1, // Force input path of pad GPIO_DISP_B2_14
@@ -5088,7 +5088,7 @@ union SW_MUX_CTL_PAD_GPIO_DISP_B2_14 {
     eMUX_MODE MUX_MODE : 4;
     eSION SION : 1;
     uint32_t _reserved_end : 27;
-  } bits;          // Bit-field struct (auto-filling reserved gaps)
+  } bits;
   
   // Full 32-bit register value.
   uint32_t value;
@@ -5102,7 +5102,6 @@ union SW_MUX_CTL_PAD_GPIO_DISP_B2_14 {
 //
 union SW_MUX_CTL_PAD_GPIO_DISP_B2_15 {
   
-  // Enum definitions.
   enum class eMUX_MODE : uint32_t {
     eALT0_video_mux_LCDIF_DATA23 = 0, // Select mux mode: ALT0 mux port: VIDEO_MUX_LCDIF_DATA23 of instance: VIDEO_MUX
     eALT1_EMVSIM2_POWER_FAIL = 1, // Select mux mode: ALT1 mux port: EMVSIM2_POWER_FAIL of instance: EMVSIM2
@@ -5115,6 +5114,7 @@ union SW_MUX_CTL_PAD_GPIO_DISP_B2_15 {
     eALT9_lpspi4_PCS0 = 9, // Select mux mode: ALT9 mux port: LPSPI4_PCS0 of instance: LPSPI4
     eALT10_gpio11_IO16 = 10, // Select mux mode: ALT10 mux port: GPIO11_IO16 of instance: GPIO11
   };
+  
   enum class eSION : uint32_t {
     eDISABLED = 0, // Input Path is determined by functionality
     eENABLED = 1, // Force input path of pad GPIO_DISP_B2_15
@@ -5125,7 +5125,7 @@ union SW_MUX_CTL_PAD_GPIO_DISP_B2_15 {
     eMUX_MODE MUX_MODE : 4;
     eSION SION : 1;
     uint32_t _reserved_end : 27;
-  } bits;          // Bit-field struct (auto-filling reserved gaps)
+  } bits;
   
   // Full 32-bit register value.
   uint32_t value;
@@ -5139,27 +5139,30 @@ union SW_MUX_CTL_PAD_GPIO_DISP_B2_15 {
 //
 union SW_PAD_CTL_PAD_GPIO_EMC_B1_00 {
   
-  // Enum definitions.
   enum class ePDRV : uint32_t {
     ePDRV_0_high_driver = 0, // high drive strength
     ePDRV_1_normal_driver = 1, // normal drive strength
   };
+  
   enum class ePULL : uint32_t {
     ePULL_0_Forbidden = 0, // Forbidden
     ePULL_1_PU = 1, // Internal pullup resistor enabled
     ePULL_2_PD = 2, // Internal pulldown resistor enabled
     ePULL_3_No_Pull = 3, // No Pull
   };
+  
   enum class eODE : uint32_t {
     eODE_0_Disabled = 0, // Disabled
     eODE_1_Enabled = 1, // Enabled
   };
+  
   enum class eDWP : uint32_t {
     eforbid_none = 0, // Both cores are allowed
     eforbid_CM7 = 1, // CM7 is forbidden
     eforbid_CM4 = 2, // CM4 is forbidden
     eforbid_both = 3, // Both cores are forbidden
   };
+  
   enum class eDWP_LOCK : uint32_t {
     elock_none = 0, // Neither of DWP bits is locked
     elock_low = 1, // The lower DWP bit is locked
@@ -5176,7 +5179,7 @@ union SW_PAD_CTL_PAD_GPIO_EMC_B1_00 {
     uint32_t _reserved_3 : 23;
     eDWP DWP : 2;
     eDWP_LOCK DWP_LOCK : 2;
-  } bits;          // Bit-field struct (auto-filling reserved gaps)
+  } bits;
   
   // Full 32-bit register value.
   uint32_t value;
@@ -5190,27 +5193,30 @@ union SW_PAD_CTL_PAD_GPIO_EMC_B1_00 {
 //
 union SW_PAD_CTL_PAD_GPIO_EMC_B1_01 {
   
-  // Enum definitions.
   enum class ePDRV : uint32_t {
     ePDRV_0_high_driver = 0, // high drive strength
     ePDRV_1_normal_driver = 1, // normal drive strength
   };
+  
   enum class ePULL : uint32_t {
     ePULL_0_Forbidden = 0, // Forbidden
     ePULL_1_PU = 1, // Internal pullup resistor enabled
     ePULL_2_PD = 2, // Internal pulldown resistor enabled
     ePULL_3_No_Pull = 3, // No Pull
   };
+  
   enum class eODE : uint32_t {
     eODE_0_Disabled = 0, // Disabled
     eODE_1_Enabled = 1, // Enabled
   };
+  
   enum class eDWP : uint32_t {
     eforbid_none = 0, // Both cores are allowed
     eforbid_CM7 = 1, // CM7 is forbidden
     eforbid_CM4 = 2, // CM4 is forbidden
     eforbid_both = 3, // Both cores are forbidden
   };
+  
   enum class eDWP_LOCK : uint32_t {
     elock_none = 0, // Neither of DWP bits is locked
     elock_low = 1, // The lower DWP bit is locked
@@ -5227,7 +5233,7 @@ union SW_PAD_CTL_PAD_GPIO_EMC_B1_01 {
     uint32_t _reserved_3 : 23;
     eDWP DWP : 2;
     eDWP_LOCK DWP_LOCK : 2;
-  } bits;          // Bit-field struct (auto-filling reserved gaps)
+  } bits;
   
   // Full 32-bit register value.
   uint32_t value;
@@ -5241,27 +5247,30 @@ union SW_PAD_CTL_PAD_GPIO_EMC_B1_01 {
 //
 union SW_PAD_CTL_PAD_GPIO_EMC_B1_02 {
   
-  // Enum definitions.
   enum class ePDRV : uint32_t {
     ePDRV_0_high_driver = 0, // high drive strength
     ePDRV_1_normal_driver = 1, // normal drive strength
   };
+  
   enum class ePULL : uint32_t {
     ePULL_0_Forbidden = 0, // Forbidden
     ePULL_1_PU = 1, // Internal pullup resistor enabled
     ePULL_2_PD = 2, // Internal pulldown resistor enabled
     ePULL_3_No_Pull = 3, // No Pull
   };
+  
   enum class eODE : uint32_t {
     eODE_0_Disabled = 0, // Disabled
     eODE_1_Enabled = 1, // Enabled
   };
+  
   enum class eDWP : uint32_t {
     eforbid_none = 0, // Both cores are allowed
     eforbid_CM7 = 1, // CM7 is forbidden
     eforbid_CM4 = 2, // CM4 is forbidden
     eforbid_both = 3, // Both cores are forbidden
   };
+  
   enum class eDWP_LOCK : uint32_t {
     elock_none = 0, // Neither of DWP bits is locked
     elock_low = 1, // The lower DWP bit is locked
@@ -5278,7 +5287,7 @@ union SW_PAD_CTL_PAD_GPIO_EMC_B1_02 {
     uint32_t _reserved_3 : 23;
     eDWP DWP : 2;
     eDWP_LOCK DWP_LOCK : 2;
-  } bits;          // Bit-field struct (auto-filling reserved gaps)
+  } bits;
   
   // Full 32-bit register value.
   uint32_t value;
@@ -5292,27 +5301,30 @@ union SW_PAD_CTL_PAD_GPIO_EMC_B1_02 {
 //
 union SW_PAD_CTL_PAD_GPIO_EMC_B1_03 {
   
-  // Enum definitions.
   enum class ePDRV : uint32_t {
     ePDRV_0_high_driver = 0, // high drive strength
     ePDRV_1_normal_driver = 1, // normal drive strength
   };
+  
   enum class ePULL : uint32_t {
     ePULL_0_Forbidden = 0, // Forbidden
     ePULL_1_PU = 1, // Internal pullup resistor enabled
     ePULL_2_PD = 2, // Internal pulldown resistor enabled
     ePULL_3_No_Pull = 3, // No Pull
   };
+  
   enum class eODE : uint32_t {
     eODE_0_Disabled = 0, // Disabled
     eODE_1_Enabled = 1, // Enabled
   };
+  
   enum class eDWP : uint32_t {
     eforbid_none = 0, // Both cores are allowed
     eforbid_CM7 = 1, // CM7 is forbidden
     eforbid_CM4 = 2, // CM4 is forbidden
     eforbid_both = 3, // Both cores are forbidden
   };
+  
   enum class eDWP_LOCK : uint32_t {
     elock_none = 0, // Neither of DWP bits is locked
     elock_low = 1, // The lower DWP bit is locked
@@ -5329,7 +5341,7 @@ union SW_PAD_CTL_PAD_GPIO_EMC_B1_03 {
     uint32_t _reserved_3 : 23;
     eDWP DWP : 2;
     eDWP_LOCK DWP_LOCK : 2;
-  } bits;          // Bit-field struct (auto-filling reserved gaps)
+  } bits;
   
   // Full 32-bit register value.
   uint32_t value;
@@ -5343,27 +5355,30 @@ union SW_PAD_CTL_PAD_GPIO_EMC_B1_03 {
 //
 union SW_PAD_CTL_PAD_GPIO_EMC_B1_04 {
   
-  // Enum definitions.
   enum class ePDRV : uint32_t {
     ePDRV_0_high_driver = 0, // high drive strength
     ePDRV_1_normal_driver = 1, // normal drive strength
   };
+  
   enum class ePULL : uint32_t {
     ePULL_0_Forbidden = 0, // Forbidden
     ePULL_1_PU = 1, // Internal pullup resistor enabled
     ePULL_2_PD = 2, // Internal pulldown resistor enabled
     ePULL_3_No_Pull = 3, // No Pull
   };
+  
   enum class eODE : uint32_t {
     eODE_0_Disabled = 0, // Disabled
     eODE_1_Enabled = 1, // Enabled
   };
+  
   enum class eDWP : uint32_t {
     eforbid_none = 0, // Both cores are allowed
     eforbid_CM7 = 1, // CM7 is forbidden
     eforbid_CM4 = 2, // CM4 is forbidden
     eforbid_both = 3, // Both cores are forbidden
   };
+  
   enum class eDWP_LOCK : uint32_t {
     elock_none = 0, // Neither of DWP bits is locked
     elock_low = 1, // The lower DWP bit is locked
@@ -5380,7 +5395,7 @@ union SW_PAD_CTL_PAD_GPIO_EMC_B1_04 {
     uint32_t _reserved_3 : 23;
     eDWP DWP : 2;
     eDWP_LOCK DWP_LOCK : 2;
-  } bits;          // Bit-field struct (auto-filling reserved gaps)
+  } bits;
   
   // Full 32-bit register value.
   uint32_t value;
@@ -5394,27 +5409,30 @@ union SW_PAD_CTL_PAD_GPIO_EMC_B1_04 {
 //
 union SW_PAD_CTL_PAD_GPIO_EMC_B1_05 {
   
-  // Enum definitions.
   enum class ePDRV : uint32_t {
     ePDRV_0_high_driver = 0, // high drive strength
     ePDRV_1_normal_driver = 1, // normal drive strength
   };
+  
   enum class ePULL : uint32_t {
     ePULL_0_Forbidden = 0, // Forbidden
     ePULL_1_PU = 1, // Internal pullup resistor enabled
     ePULL_2_PD = 2, // Internal pulldown resistor enabled
     ePULL_3_No_Pull = 3, // No Pull
   };
+  
   enum class eODE : uint32_t {
     eODE_0_Disabled = 0, // Disabled
     eODE_1_Enabled = 1, // Enabled
   };
+  
   enum class eDWP : uint32_t {
     eforbid_none = 0, // Both cores are allowed
     eforbid_CM7 = 1, // CM7 is forbidden
     eforbid_CM4 = 2, // CM4 is forbidden
     eforbid_both = 3, // Both cores are forbidden
   };
+  
   enum class eDWP_LOCK : uint32_t {
     elock_none = 0, // Neither of DWP bits is locked
     elock_low = 1, // The lower DWP bit is locked
@@ -5431,7 +5449,7 @@ union SW_PAD_CTL_PAD_GPIO_EMC_B1_05 {
     uint32_t _reserved_3 : 23;
     eDWP DWP : 2;
     eDWP_LOCK DWP_LOCK : 2;
-  } bits;          // Bit-field struct (auto-filling reserved gaps)
+  } bits;
   
   // Full 32-bit register value.
   uint32_t value;
@@ -5445,27 +5463,30 @@ union SW_PAD_CTL_PAD_GPIO_EMC_B1_05 {
 //
 union SW_PAD_CTL_PAD_GPIO_EMC_B1_06 {
   
-  // Enum definitions.
   enum class ePDRV : uint32_t {
     ePDRV_0_high_driver = 0, // high drive strength
     ePDRV_1_normal_driver = 1, // normal drive strength
   };
+  
   enum class ePULL : uint32_t {
     ePULL_0_Forbidden = 0, // Forbidden
     ePULL_1_PU = 1, // Internal pullup resistor enabled
     ePULL_2_PD = 2, // Internal pulldown resistor enabled
     ePULL_3_No_Pull = 3, // No Pull
   };
+  
   enum class eODE : uint32_t {
     eODE_0_Disabled = 0, // Disabled
     eODE_1_Enabled = 1, // Enabled
   };
+  
   enum class eDWP : uint32_t {
     eforbid_none = 0, // Both cores are allowed
     eforbid_CM7 = 1, // CM7 is forbidden
     eforbid_CM4 = 2, // CM4 is forbidden
     eforbid_both = 3, // Both cores are forbidden
   };
+  
   enum class eDWP_LOCK : uint32_t {
     elock_none = 0, // Neither of DWP bits is locked
     elock_low = 1, // The lower DWP bit is locked
@@ -5482,7 +5503,7 @@ union SW_PAD_CTL_PAD_GPIO_EMC_B1_06 {
     uint32_t _reserved_3 : 23;
     eDWP DWP : 2;
     eDWP_LOCK DWP_LOCK : 2;
-  } bits;          // Bit-field struct (auto-filling reserved gaps)
+  } bits;
   
   // Full 32-bit register value.
   uint32_t value;
@@ -5496,27 +5517,30 @@ union SW_PAD_CTL_PAD_GPIO_EMC_B1_06 {
 //
 union SW_PAD_CTL_PAD_GPIO_EMC_B1_07 {
   
-  // Enum definitions.
   enum class ePDRV : uint32_t {
     ePDRV_0_high_driver = 0, // high drive strength
     ePDRV_1_normal_driver = 1, // normal drive strength
   };
+  
   enum class ePULL : uint32_t {
     ePULL_0_Forbidden = 0, // Forbidden
     ePULL_1_PU = 1, // Internal pullup resistor enabled
     ePULL_2_PD = 2, // Internal pulldown resistor enabled
     ePULL_3_No_Pull = 3, // No Pull
   };
+  
   enum class eODE : uint32_t {
     eODE_0_Disabled = 0, // Disabled
     eODE_1_Enabled = 1, // Enabled
   };
+  
   enum class eDWP : uint32_t {
     eforbid_none = 0, // Both cores are allowed
     eforbid_CM7 = 1, // CM7 is forbidden
     eforbid_CM4 = 2, // CM4 is forbidden
     eforbid_both = 3, // Both cores are forbidden
   };
+  
   enum class eDWP_LOCK : uint32_t {
     elock_none = 0, // Neither of DWP bits is locked
     elock_low = 1, // The lower DWP bit is locked
@@ -5533,7 +5557,7 @@ union SW_PAD_CTL_PAD_GPIO_EMC_B1_07 {
     uint32_t _reserved_3 : 23;
     eDWP DWP : 2;
     eDWP_LOCK DWP_LOCK : 2;
-  } bits;          // Bit-field struct (auto-filling reserved gaps)
+  } bits;
   
   // Full 32-bit register value.
   uint32_t value;
@@ -5547,27 +5571,30 @@ union SW_PAD_CTL_PAD_GPIO_EMC_B1_07 {
 //
 union SW_PAD_CTL_PAD_GPIO_EMC_B1_08 {
   
-  // Enum definitions.
   enum class ePDRV : uint32_t {
     ePDRV_0_high_driver = 0, // high drive strength
     ePDRV_1_normal_driver = 1, // normal drive strength
   };
+  
   enum class ePULL : uint32_t {
     ePULL_0_Forbidden = 0, // Forbidden
     ePULL_1_PU = 1, // Internal pullup resistor enabled
     ePULL_2_PD = 2, // Internal pulldown resistor enabled
     ePULL_3_No_Pull = 3, // No Pull
   };
+  
   enum class eODE : uint32_t {
     eODE_0_Disabled = 0, // Disabled
     eODE_1_Enabled = 1, // Enabled
   };
+  
   enum class eDWP : uint32_t {
     eforbid_none = 0, // Both cores are allowed
     eforbid_CM7 = 1, // CM7 is forbidden
     eforbid_CM4 = 2, // CM4 is forbidden
     eforbid_both = 3, // Both cores are forbidden
   };
+  
   enum class eDWP_LOCK : uint32_t {
     elock_none = 0, // Neither of DWP bits is locked
     elock_low = 1, // The lower DWP bit is locked
@@ -5584,7 +5611,7 @@ union SW_PAD_CTL_PAD_GPIO_EMC_B1_08 {
     uint32_t _reserved_3 : 23;
     eDWP DWP : 2;
     eDWP_LOCK DWP_LOCK : 2;
-  } bits;          // Bit-field struct (auto-filling reserved gaps)
+  } bits;
   
   // Full 32-bit register value.
   uint32_t value;
@@ -5598,27 +5625,30 @@ union SW_PAD_CTL_PAD_GPIO_EMC_B1_08 {
 //
 union SW_PAD_CTL_PAD_GPIO_EMC_B1_09 {
   
-  // Enum definitions.
   enum class ePDRV : uint32_t {
     ePDRV_0_high_driver = 0, // high drive strength
     ePDRV_1_normal_driver = 1, // normal drive strength
   };
+  
   enum class ePULL : uint32_t {
     ePULL_0_Forbidden = 0, // Forbidden
     ePULL_1_PU = 1, // Internal pullup resistor enabled
     ePULL_2_PD = 2, // Internal pulldown resistor enabled
     ePULL_3_No_Pull = 3, // No Pull
   };
+  
   enum class eODE : uint32_t {
     eODE_0_Disabled = 0, // Disabled
     eODE_1_Enabled = 1, // Enabled
   };
+  
   enum class eDWP : uint32_t {
     eforbid_none = 0, // Both cores are allowed
     eforbid_CM7 = 1, // CM7 is forbidden
     eforbid_CM4 = 2, // CM4 is forbidden
     eforbid_both = 3, // Both cores are forbidden
   };
+  
   enum class eDWP_LOCK : uint32_t {
     elock_none = 0, // Neither of DWP bits is locked
     elock_low = 1, // The lower DWP bit is locked
@@ -5635,7 +5665,7 @@ union SW_PAD_CTL_PAD_GPIO_EMC_B1_09 {
     uint32_t _reserved_3 : 23;
     eDWP DWP : 2;
     eDWP_LOCK DWP_LOCK : 2;
-  } bits;          // Bit-field struct (auto-filling reserved gaps)
+  } bits;
   
   // Full 32-bit register value.
   uint32_t value;
@@ -5649,27 +5679,30 @@ union SW_PAD_CTL_PAD_GPIO_EMC_B1_09 {
 //
 union SW_PAD_CTL_PAD_GPIO_EMC_B1_10 {
   
-  // Enum definitions.
   enum class ePDRV : uint32_t {
     ePDRV_0_high_driver = 0, // high drive strength
     ePDRV_1_normal_driver = 1, // normal drive strength
   };
+  
   enum class ePULL : uint32_t {
     ePULL_0_Forbidden = 0, // Forbidden
     ePULL_1_PU = 1, // Internal pullup resistor enabled
     ePULL_2_PD = 2, // Internal pulldown resistor enabled
     ePULL_3_No_Pull = 3, // No Pull
   };
+  
   enum class eODE : uint32_t {
     eODE_0_Disabled = 0, // Disabled
     eODE_1_Enabled = 1, // Enabled
   };
+  
   enum class eDWP : uint32_t {
     eforbid_none = 0, // Both cores are allowed
     eforbid_CM7 = 1, // CM7 is forbidden
     eforbid_CM4 = 2, // CM4 is forbidden
     eforbid_both = 3, // Both cores are forbidden
   };
+  
   enum class eDWP_LOCK : uint32_t {
     elock_none = 0, // Neither of DWP bits is locked
     elock_low = 1, // The lower DWP bit is locked
@@ -5686,7 +5719,7 @@ union SW_PAD_CTL_PAD_GPIO_EMC_B1_10 {
     uint32_t _reserved_3 : 23;
     eDWP DWP : 2;
     eDWP_LOCK DWP_LOCK : 2;
-  } bits;          // Bit-field struct (auto-filling reserved gaps)
+  } bits;
   
   // Full 32-bit register value.
   uint32_t value;
@@ -5700,27 +5733,30 @@ union SW_PAD_CTL_PAD_GPIO_EMC_B1_10 {
 //
 union SW_PAD_CTL_PAD_GPIO_EMC_B1_11 {
   
-  // Enum definitions.
   enum class ePDRV : uint32_t {
     ePDRV_0_high_driver = 0, // high drive strength
     ePDRV_1_normal_driver = 1, // normal drive strength
   };
+  
   enum class ePULL : uint32_t {
     ePULL_0_Forbidden = 0, // Forbidden
     ePULL_1_PU = 1, // Internal pullup resistor enabled
     ePULL_2_PD = 2, // Internal pulldown resistor enabled
     ePULL_3_No_Pull = 3, // No Pull
   };
+  
   enum class eODE : uint32_t {
     eODE_0_Disabled = 0, // Disabled
     eODE_1_Enabled = 1, // Enabled
   };
+  
   enum class eDWP : uint32_t {
     eforbid_none = 0, // Both cores are allowed
     eforbid_CM7 = 1, // CM7 is forbidden
     eforbid_CM4 = 2, // CM4 is forbidden
     eforbid_both = 3, // Both cores are forbidden
   };
+  
   enum class eDWP_LOCK : uint32_t {
     elock_none = 0, // Neither of DWP bits is locked
     elock_low = 1, // The lower DWP bit is locked
@@ -5737,7 +5773,7 @@ union SW_PAD_CTL_PAD_GPIO_EMC_B1_11 {
     uint32_t _reserved_3 : 23;
     eDWP DWP : 2;
     eDWP_LOCK DWP_LOCK : 2;
-  } bits;          // Bit-field struct (auto-filling reserved gaps)
+  } bits;
   
   // Full 32-bit register value.
   uint32_t value;
@@ -5751,27 +5787,30 @@ union SW_PAD_CTL_PAD_GPIO_EMC_B1_11 {
 //
 union SW_PAD_CTL_PAD_GPIO_EMC_B1_12 {
   
-  // Enum definitions.
   enum class ePDRV : uint32_t {
     ePDRV_0_high_driver = 0, // high drive strength
     ePDRV_1_normal_driver = 1, // normal drive strength
   };
+  
   enum class ePULL : uint32_t {
     ePULL_0_Forbidden = 0, // Forbidden
     ePULL_1_PU = 1, // Internal pullup resistor enabled
     ePULL_2_PD = 2, // Internal pulldown resistor enabled
     ePULL_3_No_Pull = 3, // No Pull
   };
+  
   enum class eODE : uint32_t {
     eODE_0_Disabled = 0, // Disabled
     eODE_1_Enabled = 1, // Enabled
   };
+  
   enum class eDWP : uint32_t {
     eforbid_none = 0, // Both cores are allowed
     eforbid_CM7 = 1, // CM7 is forbidden
     eforbid_CM4 = 2, // CM4 is forbidden
     eforbid_both = 3, // Both cores are forbidden
   };
+  
   enum class eDWP_LOCK : uint32_t {
     elock_none = 0, // Neither of DWP bits is locked
     elock_low = 1, // The lower DWP bit is locked
@@ -5788,7 +5827,7 @@ union SW_PAD_CTL_PAD_GPIO_EMC_B1_12 {
     uint32_t _reserved_3 : 23;
     eDWP DWP : 2;
     eDWP_LOCK DWP_LOCK : 2;
-  } bits;          // Bit-field struct (auto-filling reserved gaps)
+  } bits;
   
   // Full 32-bit register value.
   uint32_t value;
@@ -5802,27 +5841,30 @@ union SW_PAD_CTL_PAD_GPIO_EMC_B1_12 {
 //
 union SW_PAD_CTL_PAD_GPIO_EMC_B1_13 {
   
-  // Enum definitions.
   enum class ePDRV : uint32_t {
     ePDRV_0_high_driver = 0, // high drive strength
     ePDRV_1_normal_driver = 1, // normal drive strength
   };
+  
   enum class ePULL : uint32_t {
     ePULL_0_Forbidden = 0, // Forbidden
     ePULL_1_PU = 1, // Internal pullup resistor enabled
     ePULL_2_PD = 2, // Internal pulldown resistor enabled
     ePULL_3_No_Pull = 3, // No Pull
   };
+  
   enum class eODE : uint32_t {
     eODE_0_Disabled = 0, // Disabled
     eODE_1_Enabled = 1, // Enabled
   };
+  
   enum class eDWP : uint32_t {
     eforbid_none = 0, // Both cores are allowed
     eforbid_CM7 = 1, // CM7 is forbidden
     eforbid_CM4 = 2, // CM4 is forbidden
     eforbid_both = 3, // Both cores are forbidden
   };
+  
   enum class eDWP_LOCK : uint32_t {
     elock_none = 0, // Neither of DWP bits is locked
     elock_low = 1, // The lower DWP bit is locked
@@ -5839,7 +5881,7 @@ union SW_PAD_CTL_PAD_GPIO_EMC_B1_13 {
     uint32_t _reserved_3 : 23;
     eDWP DWP : 2;
     eDWP_LOCK DWP_LOCK : 2;
-  } bits;          // Bit-field struct (auto-filling reserved gaps)
+  } bits;
   
   // Full 32-bit register value.
   uint32_t value;
@@ -5853,27 +5895,30 @@ union SW_PAD_CTL_PAD_GPIO_EMC_B1_13 {
 //
 union SW_PAD_CTL_PAD_GPIO_EMC_B1_14 {
   
-  // Enum definitions.
   enum class ePDRV : uint32_t {
     ePDRV_0_high_driver = 0, // high drive strength
     ePDRV_1_normal_driver = 1, // normal drive strength
   };
+  
   enum class ePULL : uint32_t {
     ePULL_0_Forbidden = 0, // Forbidden
     ePULL_1_PU = 1, // Internal pullup resistor enabled
     ePULL_2_PD = 2, // Internal pulldown resistor enabled
     ePULL_3_No_Pull = 3, // No Pull
   };
+  
   enum class eODE : uint32_t {
     eODE_0_Disabled = 0, // Disabled
     eODE_1_Enabled = 1, // Enabled
   };
+  
   enum class eDWP : uint32_t {
     eforbid_none = 0, // Both cores are allowed
     eforbid_CM7 = 1, // CM7 is forbidden
     eforbid_CM4 = 2, // CM4 is forbidden
     eforbid_both = 3, // Both cores are forbidden
   };
+  
   enum class eDWP_LOCK : uint32_t {
     elock_none = 0, // Neither of DWP bits is locked
     elock_low = 1, // The lower DWP bit is locked
@@ -5890,7 +5935,7 @@ union SW_PAD_CTL_PAD_GPIO_EMC_B1_14 {
     uint32_t _reserved_3 : 23;
     eDWP DWP : 2;
     eDWP_LOCK DWP_LOCK : 2;
-  } bits;          // Bit-field struct (auto-filling reserved gaps)
+  } bits;
   
   // Full 32-bit register value.
   uint32_t value;
@@ -5904,27 +5949,30 @@ union SW_PAD_CTL_PAD_GPIO_EMC_B1_14 {
 //
 union SW_PAD_CTL_PAD_GPIO_EMC_B1_15 {
   
-  // Enum definitions.
   enum class ePDRV : uint32_t {
     ePDRV_0_high_driver = 0, // high drive strength
     ePDRV_1_normal_driver = 1, // normal drive strength
   };
+  
   enum class ePULL : uint32_t {
     ePULL_0_Forbidden = 0, // Forbidden
     ePULL_1_PU = 1, // Internal pullup resistor enabled
     ePULL_2_PD = 2, // Internal pulldown resistor enabled
     ePULL_3_No_Pull = 3, // No Pull
   };
+  
   enum class eODE : uint32_t {
     eODE_0_Disabled = 0, // Disabled
     eODE_1_Enabled = 1, // Enabled
   };
+  
   enum class eDWP : uint32_t {
     eforbid_none = 0, // Both cores are allowed
     eforbid_CM7 = 1, // CM7 is forbidden
     eforbid_CM4 = 2, // CM4 is forbidden
     eforbid_both = 3, // Both cores are forbidden
   };
+  
   enum class eDWP_LOCK : uint32_t {
     elock_none = 0, // Neither of DWP bits is locked
     elock_low = 1, // The lower DWP bit is locked
@@ -5941,7 +5989,7 @@ union SW_PAD_CTL_PAD_GPIO_EMC_B1_15 {
     uint32_t _reserved_3 : 23;
     eDWP DWP : 2;
     eDWP_LOCK DWP_LOCK : 2;
-  } bits;          // Bit-field struct (auto-filling reserved gaps)
+  } bits;
   
   // Full 32-bit register value.
   uint32_t value;
@@ -5955,27 +6003,30 @@ union SW_PAD_CTL_PAD_GPIO_EMC_B1_15 {
 //
 union SW_PAD_CTL_PAD_GPIO_EMC_B1_16 {
   
-  // Enum definitions.
   enum class ePDRV : uint32_t {
     ePDRV_0_high_driver = 0, // high drive strength
     ePDRV_1_normal_driver = 1, // normal drive strength
   };
+  
   enum class ePULL : uint32_t {
     ePULL_0_Forbidden = 0, // Forbidden
     ePULL_1_PU = 1, // Internal pullup resistor enabled
     ePULL_2_PD = 2, // Internal pulldown resistor enabled
     ePULL_3_No_Pull = 3, // No Pull
   };
+  
   enum class eODE : uint32_t {
     eODE_0_Disabled = 0, // Disabled
     eODE_1_Enabled = 1, // Enabled
   };
+  
   enum class eDWP : uint32_t {
     eforbid_none = 0, // Both cores are allowed
     eforbid_CM7 = 1, // CM7 is forbidden
     eforbid_CM4 = 2, // CM4 is forbidden
     eforbid_both = 3, // Both cores are forbidden
   };
+  
   enum class eDWP_LOCK : uint32_t {
     elock_none = 0, // Neither of DWP bits is locked
     elock_low = 1, // The lower DWP bit is locked
@@ -5992,7 +6043,7 @@ union SW_PAD_CTL_PAD_GPIO_EMC_B1_16 {
     uint32_t _reserved_3 : 23;
     eDWP DWP : 2;
     eDWP_LOCK DWP_LOCK : 2;
-  } bits;          // Bit-field struct (auto-filling reserved gaps)
+  } bits;
   
   // Full 32-bit register value.
   uint32_t value;
@@ -6006,27 +6057,30 @@ union SW_PAD_CTL_PAD_GPIO_EMC_B1_16 {
 //
 union SW_PAD_CTL_PAD_GPIO_EMC_B1_17 {
   
-  // Enum definitions.
   enum class ePDRV : uint32_t {
     ePDRV_0_high_driver = 0, // high drive strength
     ePDRV_1_normal_driver = 1, // normal drive strength
   };
+  
   enum class ePULL : uint32_t {
     ePULL_0_Forbidden = 0, // Forbidden
     ePULL_1_PU = 1, // Internal pullup resistor enabled
     ePULL_2_PD = 2, // Internal pulldown resistor enabled
     ePULL_3_No_Pull = 3, // No Pull
   };
+  
   enum class eODE : uint32_t {
     eODE_0_Disabled = 0, // Disabled
     eODE_1_Enabled = 1, // Enabled
   };
+  
   enum class eDWP : uint32_t {
     eforbid_none = 0, // Both cores are allowed
     eforbid_CM7 = 1, // CM7 is forbidden
     eforbid_CM4 = 2, // CM4 is forbidden
     eforbid_both = 3, // Both cores are forbidden
   };
+  
   enum class eDWP_LOCK : uint32_t {
     elock_none = 0, // Neither of DWP bits is locked
     elock_low = 1, // The lower DWP bit is locked
@@ -6043,7 +6097,7 @@ union SW_PAD_CTL_PAD_GPIO_EMC_B1_17 {
     uint32_t _reserved_3 : 23;
     eDWP DWP : 2;
     eDWP_LOCK DWP_LOCK : 2;
-  } bits;          // Bit-field struct (auto-filling reserved gaps)
+  } bits;
   
   // Full 32-bit register value.
   uint32_t value;
@@ -6057,27 +6111,30 @@ union SW_PAD_CTL_PAD_GPIO_EMC_B1_17 {
 //
 union SW_PAD_CTL_PAD_GPIO_EMC_B1_18 {
   
-  // Enum definitions.
   enum class ePDRV : uint32_t {
     ePDRV_0_high_driver = 0, // high drive strength
     ePDRV_1_normal_driver = 1, // normal drive strength
   };
+  
   enum class ePULL : uint32_t {
     ePULL_0_Forbidden = 0, // Forbidden
     ePULL_1_PU = 1, // Internal pullup resistor enabled
     ePULL_2_PD = 2, // Internal pulldown resistor enabled
     ePULL_3_No_Pull = 3, // No Pull
   };
+  
   enum class eODE : uint32_t {
     eODE_0_Disabled = 0, // Disabled
     eODE_1_Enabled = 1, // Enabled
   };
+  
   enum class eDWP : uint32_t {
     eforbid_none = 0, // Both cores are allowed
     eforbid_CM7 = 1, // CM7 is forbidden
     eforbid_CM4 = 2, // CM4 is forbidden
     eforbid_both = 3, // Both cores are forbidden
   };
+  
   enum class eDWP_LOCK : uint32_t {
     elock_none = 0, // Neither of DWP bits is locked
     elock_low = 1, // The lower DWP bit is locked
@@ -6094,7 +6151,7 @@ union SW_PAD_CTL_PAD_GPIO_EMC_B1_18 {
     uint32_t _reserved_3 : 23;
     eDWP DWP : 2;
     eDWP_LOCK DWP_LOCK : 2;
-  } bits;          // Bit-field struct (auto-filling reserved gaps)
+  } bits;
   
   // Full 32-bit register value.
   uint32_t value;
@@ -6108,27 +6165,30 @@ union SW_PAD_CTL_PAD_GPIO_EMC_B1_18 {
 //
 union SW_PAD_CTL_PAD_GPIO_EMC_B1_19 {
   
-  // Enum definitions.
   enum class ePDRV : uint32_t {
     ePDRV_0_high_driver = 0, // high drive strength
     ePDRV_1_normal_driver = 1, // normal drive strength
   };
+  
   enum class ePULL : uint32_t {
     ePULL_0_Forbidden = 0, // Forbidden
     ePULL_1_PU = 1, // Internal pullup resistor enabled
     ePULL_2_PD = 2, // Internal pulldown resistor enabled
     ePULL_3_No_Pull = 3, // No Pull
   };
+  
   enum class eODE : uint32_t {
     eODE_0_Disabled = 0, // Disabled
     eODE_1_Enabled = 1, // Enabled
   };
+  
   enum class eDWP : uint32_t {
     eforbid_none = 0, // Both cores are allowed
     eforbid_CM7 = 1, // CM7 is forbidden
     eforbid_CM4 = 2, // CM4 is forbidden
     eforbid_both = 3, // Both cores are forbidden
   };
+  
   enum class eDWP_LOCK : uint32_t {
     elock_none = 0, // Neither of DWP bits is locked
     elock_low = 1, // The lower DWP bit is locked
@@ -6145,7 +6205,7 @@ union SW_PAD_CTL_PAD_GPIO_EMC_B1_19 {
     uint32_t _reserved_3 : 23;
     eDWP DWP : 2;
     eDWP_LOCK DWP_LOCK : 2;
-  } bits;          // Bit-field struct (auto-filling reserved gaps)
+  } bits;
   
   // Full 32-bit register value.
   uint32_t value;
@@ -6159,27 +6219,30 @@ union SW_PAD_CTL_PAD_GPIO_EMC_B1_19 {
 //
 union SW_PAD_CTL_PAD_GPIO_EMC_B1_20 {
   
-  // Enum definitions.
   enum class ePDRV : uint32_t {
     ePDRV_0_high_driver = 0, // high drive strength
     ePDRV_1_normal_driver = 1, // normal drive strength
   };
+  
   enum class ePULL : uint32_t {
     ePULL_0_Forbidden = 0, // Forbidden
     ePULL_1_PU = 1, // Internal pullup resistor enabled
     ePULL_2_PD = 2, // Internal pulldown resistor enabled
     ePULL_3_No_Pull = 3, // No Pull
   };
+  
   enum class eODE : uint32_t {
     eODE_0_Disabled = 0, // Disabled
     eODE_1_Enabled = 1, // Enabled
   };
+  
   enum class eDWP : uint32_t {
     eforbid_none = 0, // Both cores are allowed
     eforbid_CM7 = 1, // CM7 is forbidden
     eforbid_CM4 = 2, // CM4 is forbidden
     eforbid_both = 3, // Both cores are forbidden
   };
+  
   enum class eDWP_LOCK : uint32_t {
     elock_none = 0, // Neither of DWP bits is locked
     elock_low = 1, // The lower DWP bit is locked
@@ -6196,7 +6259,7 @@ union SW_PAD_CTL_PAD_GPIO_EMC_B1_20 {
     uint32_t _reserved_3 : 23;
     eDWP DWP : 2;
     eDWP_LOCK DWP_LOCK : 2;
-  } bits;          // Bit-field struct (auto-filling reserved gaps)
+  } bits;
   
   // Full 32-bit register value.
   uint32_t value;
@@ -6210,27 +6273,30 @@ union SW_PAD_CTL_PAD_GPIO_EMC_B1_20 {
 //
 union SW_PAD_CTL_PAD_GPIO_EMC_B1_21 {
   
-  // Enum definitions.
   enum class ePDRV : uint32_t {
     ePDRV_0_high_driver = 0, // high drive strength
     ePDRV_1_normal_driver = 1, // normal drive strength
   };
+  
   enum class ePULL : uint32_t {
     ePULL_0_Forbidden = 0, // Forbidden
     ePULL_1_PU = 1, // Internal pullup resistor enabled
     ePULL_2_PD = 2, // Internal pulldown resistor enabled
     ePULL_3_No_Pull = 3, // No Pull
   };
+  
   enum class eODE : uint32_t {
     eODE_0_Disabled = 0, // Disabled
     eODE_1_Enabled = 1, // Enabled
   };
+  
   enum class eDWP : uint32_t {
     eforbid_none = 0, // Both cores are allowed
     eforbid_CM7 = 1, // CM7 is forbidden
     eforbid_CM4 = 2, // CM4 is forbidden
     eforbid_both = 3, // Both cores are forbidden
   };
+  
   enum class eDWP_LOCK : uint32_t {
     elock_none = 0, // Neither of DWP bits is locked
     elock_low = 1, // The lower DWP bit is locked
@@ -6247,7 +6313,7 @@ union SW_PAD_CTL_PAD_GPIO_EMC_B1_21 {
     uint32_t _reserved_3 : 23;
     eDWP DWP : 2;
     eDWP_LOCK DWP_LOCK : 2;
-  } bits;          // Bit-field struct (auto-filling reserved gaps)
+  } bits;
   
   // Full 32-bit register value.
   uint32_t value;
@@ -6261,27 +6327,30 @@ union SW_PAD_CTL_PAD_GPIO_EMC_B1_21 {
 //
 union SW_PAD_CTL_PAD_GPIO_EMC_B1_22 {
   
-  // Enum definitions.
   enum class ePDRV : uint32_t {
     ePDRV_0_high_driver = 0, // high drive strength
     ePDRV_1_normal_driver = 1, // normal drive strength
   };
+  
   enum class ePULL : uint32_t {
     ePULL_0_Forbidden = 0, // Forbidden
     ePULL_1_PU = 1, // Internal pullup resistor enabled
     ePULL_2_PD = 2, // Internal pulldown resistor enabled
     ePULL_3_No_Pull = 3, // No Pull
   };
+  
   enum class eODE : uint32_t {
     eODE_0_Disabled = 0, // Disabled
     eODE_1_Enabled = 1, // Enabled
   };
+  
   enum class eDWP : uint32_t {
     eforbid_none = 0, // Both cores are allowed
     eforbid_CM7 = 1, // CM7 is forbidden
     eforbid_CM4 = 2, // CM4 is forbidden
     eforbid_both = 3, // Both cores are forbidden
   };
+  
   enum class eDWP_LOCK : uint32_t {
     elock_none = 0, // Neither of DWP bits is locked
     elock_low = 1, // The lower DWP bit is locked
@@ -6298,7 +6367,7 @@ union SW_PAD_CTL_PAD_GPIO_EMC_B1_22 {
     uint32_t _reserved_3 : 23;
     eDWP DWP : 2;
     eDWP_LOCK DWP_LOCK : 2;
-  } bits;          // Bit-field struct (auto-filling reserved gaps)
+  } bits;
   
   // Full 32-bit register value.
   uint32_t value;
@@ -6312,27 +6381,30 @@ union SW_PAD_CTL_PAD_GPIO_EMC_B1_22 {
 //
 union SW_PAD_CTL_PAD_GPIO_EMC_B1_23 {
   
-  // Enum definitions.
   enum class ePDRV : uint32_t {
     ePDRV_0_high_driver = 0, // high drive strength
     ePDRV_1_normal_driver = 1, // normal drive strength
   };
+  
   enum class ePULL : uint32_t {
     ePULL_0_Forbidden = 0, // Forbidden
     ePULL_1_PU = 1, // Internal pullup resistor enabled
     ePULL_2_PD = 2, // Internal pulldown resistor enabled
     ePULL_3_No_Pull = 3, // No Pull
   };
+  
   enum class eODE : uint32_t {
     eODE_0_Disabled = 0, // Disabled
     eODE_1_Enabled = 1, // Enabled
   };
+  
   enum class eDWP : uint32_t {
     eforbid_none = 0, // Both cores are allowed
     eforbid_CM7 = 1, // CM7 is forbidden
     eforbid_CM4 = 2, // CM4 is forbidden
     eforbid_both = 3, // Both cores are forbidden
   };
+  
   enum class eDWP_LOCK : uint32_t {
     elock_none = 0, // Neither of DWP bits is locked
     elock_low = 1, // The lower DWP bit is locked
@@ -6349,7 +6421,7 @@ union SW_PAD_CTL_PAD_GPIO_EMC_B1_23 {
     uint32_t _reserved_3 : 23;
     eDWP DWP : 2;
     eDWP_LOCK DWP_LOCK : 2;
-  } bits;          // Bit-field struct (auto-filling reserved gaps)
+  } bits;
   
   // Full 32-bit register value.
   uint32_t value;
@@ -6363,27 +6435,30 @@ union SW_PAD_CTL_PAD_GPIO_EMC_B1_23 {
 //
 union SW_PAD_CTL_PAD_GPIO_EMC_B1_24 {
   
-  // Enum definitions.
   enum class ePDRV : uint32_t {
     ePDRV_0_high_driver = 0, // high drive strength
     ePDRV_1_normal_driver = 1, // normal drive strength
   };
+  
   enum class ePULL : uint32_t {
     ePULL_0_Forbidden = 0, // Forbidden
     ePULL_1_PU = 1, // Internal pullup resistor enabled
     ePULL_2_PD = 2, // Internal pulldown resistor enabled
     ePULL_3_No_Pull = 3, // No Pull
   };
+  
   enum class eODE : uint32_t {
     eODE_0_Disabled = 0, // Disabled
     eODE_1_Enabled = 1, // Enabled
   };
+  
   enum class eDWP : uint32_t {
     eforbid_none = 0, // Both cores are allowed
     eforbid_CM7 = 1, // CM7 is forbidden
     eforbid_CM4 = 2, // CM4 is forbidden
     eforbid_both = 3, // Both cores are forbidden
   };
+  
   enum class eDWP_LOCK : uint32_t {
     elock_none = 0, // Neither of DWP bits is locked
     elock_low = 1, // The lower DWP bit is locked
@@ -6400,7 +6475,7 @@ union SW_PAD_CTL_PAD_GPIO_EMC_B1_24 {
     uint32_t _reserved_3 : 23;
     eDWP DWP : 2;
     eDWP_LOCK DWP_LOCK : 2;
-  } bits;          // Bit-field struct (auto-filling reserved gaps)
+  } bits;
   
   // Full 32-bit register value.
   uint32_t value;
@@ -6414,27 +6489,30 @@ union SW_PAD_CTL_PAD_GPIO_EMC_B1_24 {
 //
 union SW_PAD_CTL_PAD_GPIO_EMC_B1_25 {
   
-  // Enum definitions.
   enum class ePDRV : uint32_t {
     ePDRV_0_high_driver = 0, // high drive strength
     ePDRV_1_normal_driver = 1, // normal drive strength
   };
+  
   enum class ePULL : uint32_t {
     ePULL_0_Forbidden = 0, // Forbidden
     ePULL_1_PU = 1, // Internal pullup resistor enabled
     ePULL_2_PD = 2, // Internal pulldown resistor enabled
     ePULL_3_No_Pull = 3, // No Pull
   };
+  
   enum class eODE : uint32_t {
     eODE_0_Disabled = 0, // Disabled
     eODE_1_Enabled = 1, // Enabled
   };
+  
   enum class eDWP : uint32_t {
     eforbid_none = 0, // Both cores are allowed
     eforbid_CM7 = 1, // CM7 is forbidden
     eforbid_CM4 = 2, // CM4 is forbidden
     eforbid_both = 3, // Both cores are forbidden
   };
+  
   enum class eDWP_LOCK : uint32_t {
     elock_none = 0, // Neither of DWP bits is locked
     elock_low = 1, // The lower DWP bit is locked
@@ -6451,7 +6529,7 @@ union SW_PAD_CTL_PAD_GPIO_EMC_B1_25 {
     uint32_t _reserved_3 : 23;
     eDWP DWP : 2;
     eDWP_LOCK DWP_LOCK : 2;
-  } bits;          // Bit-field struct (auto-filling reserved gaps)
+  } bits;
   
   // Full 32-bit register value.
   uint32_t value;
@@ -6465,27 +6543,30 @@ union SW_PAD_CTL_PAD_GPIO_EMC_B1_25 {
 //
 union SW_PAD_CTL_PAD_GPIO_EMC_B1_26 {
   
-  // Enum definitions.
   enum class ePDRV : uint32_t {
     ePDRV_0_high_driver = 0, // high drive strength
     ePDRV_1_normal_driver = 1, // normal drive strength
   };
+  
   enum class ePULL : uint32_t {
     ePULL_0_Forbidden = 0, // Forbidden
     ePULL_1_PU = 1, // Internal pullup resistor enabled
     ePULL_2_PD = 2, // Internal pulldown resistor enabled
     ePULL_3_No_Pull = 3, // No Pull
   };
+  
   enum class eODE : uint32_t {
     eODE_0_Disabled = 0, // Disabled
     eODE_1_Enabled = 1, // Enabled
   };
+  
   enum class eDWP : uint32_t {
     eforbid_none = 0, // Both cores are allowed
     eforbid_CM7 = 1, // CM7 is forbidden
     eforbid_CM4 = 2, // CM4 is forbidden
     eforbid_both = 3, // Both cores are forbidden
   };
+  
   enum class eDWP_LOCK : uint32_t {
     elock_none = 0, // Neither of DWP bits is locked
     elock_low = 1, // The lower DWP bit is locked
@@ -6502,7 +6583,7 @@ union SW_PAD_CTL_PAD_GPIO_EMC_B1_26 {
     uint32_t _reserved_3 : 23;
     eDWP DWP : 2;
     eDWP_LOCK DWP_LOCK : 2;
-  } bits;          // Bit-field struct (auto-filling reserved gaps)
+  } bits;
   
   // Full 32-bit register value.
   uint32_t value;
@@ -6516,27 +6597,30 @@ union SW_PAD_CTL_PAD_GPIO_EMC_B1_26 {
 //
 union SW_PAD_CTL_PAD_GPIO_EMC_B1_27 {
   
-  // Enum definitions.
   enum class ePDRV : uint32_t {
     ePDRV_0_high_driver = 0, // high drive strength
     ePDRV_1_normal_driver = 1, // normal drive strength
   };
+  
   enum class ePULL : uint32_t {
     ePULL_0_Forbidden = 0, // Forbidden
     ePULL_1_PU = 1, // Internal pullup resistor enabled
     ePULL_2_PD = 2, // Internal pulldown resistor enabled
     ePULL_3_No_Pull = 3, // No Pull
   };
+  
   enum class eODE : uint32_t {
     eODE_0_Disabled = 0, // Disabled
     eODE_1_Enabled = 1, // Enabled
   };
+  
   enum class eDWP : uint32_t {
     eforbid_none = 0, // Both cores are allowed
     eforbid_CM7 = 1, // CM7 is forbidden
     eforbid_CM4 = 2, // CM4 is forbidden
     eforbid_both = 3, // Both cores are forbidden
   };
+  
   enum class eDWP_LOCK : uint32_t {
     elock_none = 0, // Neither of DWP bits is locked
     elock_low = 1, // The lower DWP bit is locked
@@ -6553,7 +6637,7 @@ union SW_PAD_CTL_PAD_GPIO_EMC_B1_27 {
     uint32_t _reserved_3 : 23;
     eDWP DWP : 2;
     eDWP_LOCK DWP_LOCK : 2;
-  } bits;          // Bit-field struct (auto-filling reserved gaps)
+  } bits;
   
   // Full 32-bit register value.
   uint32_t value;
@@ -6567,27 +6651,30 @@ union SW_PAD_CTL_PAD_GPIO_EMC_B1_27 {
 //
 union SW_PAD_CTL_PAD_GPIO_EMC_B1_28 {
   
-  // Enum definitions.
   enum class ePDRV : uint32_t {
     ePDRV_0_high_driver = 0, // high drive strength
     ePDRV_1_normal_driver = 1, // normal drive strength
   };
+  
   enum class ePULL : uint32_t {
     ePULL_0_Forbidden = 0, // Forbidden
     ePULL_1_PU = 1, // Internal pullup resistor enabled
     ePULL_2_PD = 2, // Internal pulldown resistor enabled
     ePULL_3_No_Pull = 3, // No Pull
   };
+  
   enum class eODE : uint32_t {
     eODE_0_Disabled = 0, // Disabled
     eODE_1_Enabled = 1, // Enabled
   };
+  
   enum class eDWP : uint32_t {
     eforbid_none = 0, // Both cores are allowed
     eforbid_CM7 = 1, // CM7 is forbidden
     eforbid_CM4 = 2, // CM4 is forbidden
     eforbid_both = 3, // Both cores are forbidden
   };
+  
   enum class eDWP_LOCK : uint32_t {
     elock_none = 0, // Neither of DWP bits is locked
     elock_low = 1, // The lower DWP bit is locked
@@ -6604,7 +6691,7 @@ union SW_PAD_CTL_PAD_GPIO_EMC_B1_28 {
     uint32_t _reserved_3 : 23;
     eDWP DWP : 2;
     eDWP_LOCK DWP_LOCK : 2;
-  } bits;          // Bit-field struct (auto-filling reserved gaps)
+  } bits;
   
   // Full 32-bit register value.
   uint32_t value;
@@ -6618,27 +6705,30 @@ union SW_PAD_CTL_PAD_GPIO_EMC_B1_28 {
 //
 union SW_PAD_CTL_PAD_GPIO_EMC_B1_29 {
   
-  // Enum definitions.
   enum class ePDRV : uint32_t {
     ePDRV_0_high_driver = 0, // high drive strength
     ePDRV_1_normal_driver = 1, // normal drive strength
   };
+  
   enum class ePULL : uint32_t {
     ePULL_0_Forbidden = 0, // Forbidden
     ePULL_1_PU = 1, // Internal pullup resistor enabled
     ePULL_2_PD = 2, // Internal pulldown resistor enabled
     ePULL_3_No_Pull = 3, // No Pull
   };
+  
   enum class eODE : uint32_t {
     eODE_0_Disabled = 0, // Disabled
     eODE_1_Enabled = 1, // Enabled
   };
+  
   enum class eDWP : uint32_t {
     eforbid_none = 0, // Both cores are allowed
     eforbid_CM7 = 1, // CM7 is forbidden
     eforbid_CM4 = 2, // CM4 is forbidden
     eforbid_both = 3, // Both cores are forbidden
   };
+  
   enum class eDWP_LOCK : uint32_t {
     elock_none = 0, // Neither of DWP bits is locked
     elock_low = 1, // The lower DWP bit is locked
@@ -6655,7 +6745,7 @@ union SW_PAD_CTL_PAD_GPIO_EMC_B1_29 {
     uint32_t _reserved_3 : 23;
     eDWP DWP : 2;
     eDWP_LOCK DWP_LOCK : 2;
-  } bits;          // Bit-field struct (auto-filling reserved gaps)
+  } bits;
   
   // Full 32-bit register value.
   uint32_t value;
@@ -6669,27 +6759,30 @@ union SW_PAD_CTL_PAD_GPIO_EMC_B1_29 {
 //
 union SW_PAD_CTL_PAD_GPIO_EMC_B1_30 {
   
-  // Enum definitions.
   enum class ePDRV : uint32_t {
     ePDRV_0_high_driver = 0, // high drive strength
     ePDRV_1_normal_driver = 1, // normal drive strength
   };
+  
   enum class ePULL : uint32_t {
     ePULL_0_Forbidden = 0, // Forbidden
     ePULL_1_PU = 1, // Internal pullup resistor enabled
     ePULL_2_PD = 2, // Internal pulldown resistor enabled
     ePULL_3_No_Pull = 3, // No Pull
   };
+  
   enum class eODE : uint32_t {
     eODE_0_Disabled = 0, // Disabled
     eODE_1_Enabled = 1, // Enabled
   };
+  
   enum class eDWP : uint32_t {
     eforbid_none = 0, // Both cores are allowed
     eforbid_CM7 = 1, // CM7 is forbidden
     eforbid_CM4 = 2, // CM4 is forbidden
     eforbid_both = 3, // Both cores are forbidden
   };
+  
   enum class eDWP_LOCK : uint32_t {
     elock_none = 0, // Neither of DWP bits is locked
     elock_low = 1, // The lower DWP bit is locked
@@ -6706,7 +6799,7 @@ union SW_PAD_CTL_PAD_GPIO_EMC_B1_30 {
     uint32_t _reserved_3 : 23;
     eDWP DWP : 2;
     eDWP_LOCK DWP_LOCK : 2;
-  } bits;          // Bit-field struct (auto-filling reserved gaps)
+  } bits;
   
   // Full 32-bit register value.
   uint32_t value;
@@ -6720,27 +6813,30 @@ union SW_PAD_CTL_PAD_GPIO_EMC_B1_30 {
 //
 union SW_PAD_CTL_PAD_GPIO_EMC_B1_31 {
   
-  // Enum definitions.
   enum class ePDRV : uint32_t {
     ePDRV_0_high_driver = 0, // high drive strength
     ePDRV_1_normal_driver = 1, // normal drive strength
   };
+  
   enum class ePULL : uint32_t {
     ePULL_0_Forbidden = 0, // Forbidden
     ePULL_1_PU = 1, // Internal pullup resistor enabled
     ePULL_2_PD = 2, // Internal pulldown resistor enabled
     ePULL_3_No_Pull = 3, // No Pull
   };
+  
   enum class eODE : uint32_t {
     eODE_0_Disabled = 0, // Disabled
     eODE_1_Enabled = 1, // Enabled
   };
+  
   enum class eDWP : uint32_t {
     eforbid_none = 0, // Both cores are allowed
     eforbid_CM7 = 1, // CM7 is forbidden
     eforbid_CM4 = 2, // CM4 is forbidden
     eforbid_both = 3, // Both cores are forbidden
   };
+  
   enum class eDWP_LOCK : uint32_t {
     elock_none = 0, // Neither of DWP bits is locked
     elock_low = 1, // The lower DWP bit is locked
@@ -6757,7 +6853,7 @@ union SW_PAD_CTL_PAD_GPIO_EMC_B1_31 {
     uint32_t _reserved_3 : 23;
     eDWP DWP : 2;
     eDWP_LOCK DWP_LOCK : 2;
-  } bits;          // Bit-field struct (auto-filling reserved gaps)
+  } bits;
   
   // Full 32-bit register value.
   uint32_t value;
@@ -6771,27 +6867,30 @@ union SW_PAD_CTL_PAD_GPIO_EMC_B1_31 {
 //
 union SW_PAD_CTL_PAD_GPIO_EMC_B1_32 {
   
-  // Enum definitions.
   enum class ePDRV : uint32_t {
     ePDRV_0_high_driver = 0, // high drive strength
     ePDRV_1_normal_driver = 1, // normal drive strength
   };
+  
   enum class ePULL : uint32_t {
     ePULL_0_Forbidden = 0, // Forbidden
     ePULL_1_PU = 1, // Internal pullup resistor enabled
     ePULL_2_PD = 2, // Internal pulldown resistor enabled
     ePULL_3_No_Pull = 3, // No Pull
   };
+  
   enum class eODE : uint32_t {
     eODE_0_Disabled = 0, // Disabled
     eODE_1_Enabled = 1, // Enabled
   };
+  
   enum class eDWP : uint32_t {
     eforbid_none = 0, // Both cores are allowed
     eforbid_CM7 = 1, // CM7 is forbidden
     eforbid_CM4 = 2, // CM4 is forbidden
     eforbid_both = 3, // Both cores are forbidden
   };
+  
   enum class eDWP_LOCK : uint32_t {
     elock_none = 0, // Neither of DWP bits is locked
     elock_low = 1, // The lower DWP bit is locked
@@ -6808,7 +6907,7 @@ union SW_PAD_CTL_PAD_GPIO_EMC_B1_32 {
     uint32_t _reserved_3 : 23;
     eDWP DWP : 2;
     eDWP_LOCK DWP_LOCK : 2;
-  } bits;          // Bit-field struct (auto-filling reserved gaps)
+  } bits;
   
   // Full 32-bit register value.
   uint32_t value;
@@ -6822,27 +6921,30 @@ union SW_PAD_CTL_PAD_GPIO_EMC_B1_32 {
 //
 union SW_PAD_CTL_PAD_GPIO_EMC_B1_33 {
   
-  // Enum definitions.
   enum class ePDRV : uint32_t {
     ePDRV_0_high_driver = 0, // high drive strength
     ePDRV_1_normal_driver = 1, // normal drive strength
   };
+  
   enum class ePULL : uint32_t {
     ePULL_0_Forbidden = 0, // Forbidden
     ePULL_1_PU = 1, // Internal pullup resistor enabled
     ePULL_2_PD = 2, // Internal pulldown resistor enabled
     ePULL_3_No_Pull = 3, // No Pull
   };
+  
   enum class eODE : uint32_t {
     eODE_0_Disabled = 0, // Disabled
     eODE_1_Enabled = 1, // Enabled
   };
+  
   enum class eDWP : uint32_t {
     eforbid_none = 0, // Both cores are allowed
     eforbid_CM7 = 1, // CM7 is forbidden
     eforbid_CM4 = 2, // CM4 is forbidden
     eforbid_both = 3, // Both cores are forbidden
   };
+  
   enum class eDWP_LOCK : uint32_t {
     elock_none = 0, // Neither of DWP bits is locked
     elock_low = 1, // The lower DWP bit is locked
@@ -6859,7 +6961,7 @@ union SW_PAD_CTL_PAD_GPIO_EMC_B1_33 {
     uint32_t _reserved_3 : 23;
     eDWP DWP : 2;
     eDWP_LOCK DWP_LOCK : 2;
-  } bits;          // Bit-field struct (auto-filling reserved gaps)
+  } bits;
   
   // Full 32-bit register value.
   uint32_t value;
@@ -6873,27 +6975,30 @@ union SW_PAD_CTL_PAD_GPIO_EMC_B1_33 {
 //
 union SW_PAD_CTL_PAD_GPIO_EMC_B1_34 {
   
-  // Enum definitions.
   enum class ePDRV : uint32_t {
     ePDRV_0_high_driver = 0, // high drive strength
     ePDRV_1_normal_driver = 1, // normal drive strength
   };
+  
   enum class ePULL : uint32_t {
     ePULL_0_Forbidden = 0, // Forbidden
     ePULL_1_PU = 1, // Internal pullup resistor enabled
     ePULL_2_PD = 2, // Internal pulldown resistor enabled
     ePULL_3_No_Pull = 3, // No Pull
   };
+  
   enum class eODE : uint32_t {
     eODE_0_Disabled = 0, // Disabled
     eODE_1_Enabled = 1, // Enabled
   };
+  
   enum class eDWP : uint32_t {
     eforbid_none = 0, // Both cores are allowed
     eforbid_CM7 = 1, // CM7 is forbidden
     eforbid_CM4 = 2, // CM4 is forbidden
     eforbid_both = 3, // Both cores are forbidden
   };
+  
   enum class eDWP_LOCK : uint32_t {
     elock_none = 0, // Neither of DWP bits is locked
     elock_low = 1, // The lower DWP bit is locked
@@ -6910,7 +7015,7 @@ union SW_PAD_CTL_PAD_GPIO_EMC_B1_34 {
     uint32_t _reserved_3 : 23;
     eDWP DWP : 2;
     eDWP_LOCK DWP_LOCK : 2;
-  } bits;          // Bit-field struct (auto-filling reserved gaps)
+  } bits;
   
   // Full 32-bit register value.
   uint32_t value;
@@ -6924,27 +7029,30 @@ union SW_PAD_CTL_PAD_GPIO_EMC_B1_34 {
 //
 union SW_PAD_CTL_PAD_GPIO_EMC_B1_35 {
   
-  // Enum definitions.
   enum class ePDRV : uint32_t {
     ePDRV_0_high_driver = 0, // high drive strength
     ePDRV_1_normal_driver = 1, // normal drive strength
   };
+  
   enum class ePULL : uint32_t {
     ePULL_0_Forbidden = 0, // Forbidden
     ePULL_1_PU = 1, // Internal pullup resistor enabled
     ePULL_2_PD = 2, // Internal pulldown resistor enabled
     ePULL_3_No_Pull = 3, // No Pull
   };
+  
   enum class eODE : uint32_t {
     eODE_0_Disabled = 0, // Disabled
     eODE_1_Enabled = 1, // Enabled
   };
+  
   enum class eDWP : uint32_t {
     eforbid_none = 0, // Both cores are allowed
     eforbid_CM7 = 1, // CM7 is forbidden
     eforbid_CM4 = 2, // CM4 is forbidden
     eforbid_both = 3, // Both cores are forbidden
   };
+  
   enum class eDWP_LOCK : uint32_t {
     elock_none = 0, // Neither of DWP bits is locked
     elock_low = 1, // The lower DWP bit is locked
@@ -6961,7 +7069,7 @@ union SW_PAD_CTL_PAD_GPIO_EMC_B1_35 {
     uint32_t _reserved_3 : 23;
     eDWP DWP : 2;
     eDWP_LOCK DWP_LOCK : 2;
-  } bits;          // Bit-field struct (auto-filling reserved gaps)
+  } bits;
   
   // Full 32-bit register value.
   uint32_t value;
@@ -6975,27 +7083,30 @@ union SW_PAD_CTL_PAD_GPIO_EMC_B1_35 {
 //
 union SW_PAD_CTL_PAD_GPIO_EMC_B1_36 {
   
-  // Enum definitions.
   enum class ePDRV : uint32_t {
     ePDRV_0_high_driver = 0, // high drive strength
     ePDRV_1_normal_driver = 1, // normal drive strength
   };
+  
   enum class ePULL : uint32_t {
     ePULL_0_Forbidden = 0, // Forbidden
     ePULL_1_PU = 1, // Internal pullup resistor enabled
     ePULL_2_PD = 2, // Internal pulldown resistor enabled
     ePULL_3_No_Pull = 3, // No Pull
   };
+  
   enum class eODE : uint32_t {
     eODE_0_Disabled = 0, // Disabled
     eODE_1_Enabled = 1, // Enabled
   };
+  
   enum class eDWP : uint32_t {
     eforbid_none = 0, // Both cores are allowed
     eforbid_CM7 = 1, // CM7 is forbidden
     eforbid_CM4 = 2, // CM4 is forbidden
     eforbid_both = 3, // Both cores are forbidden
   };
+  
   enum class eDWP_LOCK : uint32_t {
     elock_none = 0, // Neither of DWP bits is locked
     elock_low = 1, // The lower DWP bit is locked
@@ -7012,7 +7123,7 @@ union SW_PAD_CTL_PAD_GPIO_EMC_B1_36 {
     uint32_t _reserved_3 : 23;
     eDWP DWP : 2;
     eDWP_LOCK DWP_LOCK : 2;
-  } bits;          // Bit-field struct (auto-filling reserved gaps)
+  } bits;
   
   // Full 32-bit register value.
   uint32_t value;
@@ -7026,27 +7137,30 @@ union SW_PAD_CTL_PAD_GPIO_EMC_B1_36 {
 //
 union SW_PAD_CTL_PAD_GPIO_EMC_B1_37 {
   
-  // Enum definitions.
   enum class ePDRV : uint32_t {
     ePDRV_0_high_driver = 0, // high drive strength
     ePDRV_1_normal_driver = 1, // normal drive strength
   };
+  
   enum class ePULL : uint32_t {
     ePULL_0_Forbidden = 0, // Forbidden
     ePULL_1_PU = 1, // Internal pullup resistor enabled
     ePULL_2_PD = 2, // Internal pulldown resistor enabled
     ePULL_3_No_Pull = 3, // No Pull
   };
+  
   enum class eODE : uint32_t {
     eODE_0_Disabled = 0, // Disabled
     eODE_1_Enabled = 1, // Enabled
   };
+  
   enum class eDWP : uint32_t {
     eforbid_none = 0, // Both cores are allowed
     eforbid_CM7 = 1, // CM7 is forbidden
     eforbid_CM4 = 2, // CM4 is forbidden
     eforbid_both = 3, // Both cores are forbidden
   };
+  
   enum class eDWP_LOCK : uint32_t {
     elock_none = 0, // Neither of DWP bits is locked
     elock_low = 1, // The lower DWP bit is locked
@@ -7063,7 +7177,7 @@ union SW_PAD_CTL_PAD_GPIO_EMC_B1_37 {
     uint32_t _reserved_3 : 23;
     eDWP DWP : 2;
     eDWP_LOCK DWP_LOCK : 2;
-  } bits;          // Bit-field struct (auto-filling reserved gaps)
+  } bits;
   
   // Full 32-bit register value.
   uint32_t value;
@@ -7077,27 +7191,30 @@ union SW_PAD_CTL_PAD_GPIO_EMC_B1_37 {
 //
 union SW_PAD_CTL_PAD_GPIO_EMC_B1_38 {
   
-  // Enum definitions.
   enum class ePDRV : uint32_t {
     ePDRV_0_high_driver = 0, // high drive strength
     ePDRV_1_normal_driver = 1, // normal drive strength
   };
+  
   enum class ePULL : uint32_t {
     ePULL_0_Forbidden = 0, // Forbidden
     ePULL_1_PU = 1, // Internal pullup resistor enabled
     ePULL_2_PD = 2, // Internal pulldown resistor enabled
     ePULL_3_No_Pull = 3, // No Pull
   };
+  
   enum class eODE : uint32_t {
     eODE_0_Disabled = 0, // Disabled
     eODE_1_Enabled = 1, // Enabled
   };
+  
   enum class eDWP : uint32_t {
     eforbid_none = 0, // Both cores are allowed
     eforbid_CM7 = 1, // CM7 is forbidden
     eforbid_CM4 = 2, // CM4 is forbidden
     eforbid_both = 3, // Both cores are forbidden
   };
+  
   enum class eDWP_LOCK : uint32_t {
     elock_none = 0, // Neither of DWP bits is locked
     elock_low = 1, // The lower DWP bit is locked
@@ -7114,7 +7231,7 @@ union SW_PAD_CTL_PAD_GPIO_EMC_B1_38 {
     uint32_t _reserved_3 : 23;
     eDWP DWP : 2;
     eDWP_LOCK DWP_LOCK : 2;
-  } bits;          // Bit-field struct (auto-filling reserved gaps)
+  } bits;
   
   // Full 32-bit register value.
   uint32_t value;
@@ -7128,27 +7245,30 @@ union SW_PAD_CTL_PAD_GPIO_EMC_B1_38 {
 //
 union SW_PAD_CTL_PAD_GPIO_EMC_B1_39 {
   
-  // Enum definitions.
   enum class ePDRV : uint32_t {
     ePDRV_0_high_driver = 0, // high drive strength
     ePDRV_1_normal_driver = 1, // normal drive strength
   };
+  
   enum class ePULL : uint32_t {
     ePULL_0_Forbidden = 0, // Forbidden
     ePULL_1_PU = 1, // Internal pullup resistor enabled
     ePULL_2_PD = 2, // Internal pulldown resistor enabled
     ePULL_3_No_Pull = 3, // No Pull
   };
+  
   enum class eODE : uint32_t {
     eODE_0_Disabled = 0, // Disabled
     eODE_1_Enabled = 1, // Enabled
   };
+  
   enum class eDWP : uint32_t {
     eforbid_none = 0, // Both cores are allowed
     eforbid_CM7 = 1, // CM7 is forbidden
     eforbid_CM4 = 2, // CM4 is forbidden
     eforbid_both = 3, // Both cores are forbidden
   };
+  
   enum class eDWP_LOCK : uint32_t {
     elock_none = 0, // Neither of DWP bits is locked
     elock_low = 1, // The lower DWP bit is locked
@@ -7165,7 +7285,7 @@ union SW_PAD_CTL_PAD_GPIO_EMC_B1_39 {
     uint32_t _reserved_3 : 23;
     eDWP DWP : 2;
     eDWP_LOCK DWP_LOCK : 2;
-  } bits;          // Bit-field struct (auto-filling reserved gaps)
+  } bits;
   
   // Full 32-bit register value.
   uint32_t value;
@@ -7179,27 +7299,30 @@ union SW_PAD_CTL_PAD_GPIO_EMC_B1_39 {
 //
 union SW_PAD_CTL_PAD_GPIO_EMC_B1_40 {
   
-  // Enum definitions.
   enum class ePDRV : uint32_t {
     ePDRV_0_high_driver = 0, // high drive strength
     ePDRV_1_normal_driver = 1, // normal drive strength
   };
+  
   enum class ePULL : uint32_t {
     ePULL_0_Forbidden = 0, // Forbidden
     ePULL_1_PU = 1, // Internal pullup resistor enabled
     ePULL_2_PD = 2, // Internal pulldown resistor enabled
     ePULL_3_No_Pull = 3, // No Pull
   };
+  
   enum class eODE : uint32_t {
     eODE_0_Disabled = 0, // Disabled
     eODE_1_Enabled = 1, // Enabled
   };
+  
   enum class eDWP : uint32_t {
     eforbid_none = 0, // Both cores are allowed
     eforbid_CM7 = 1, // CM7 is forbidden
     eforbid_CM4 = 2, // CM4 is forbidden
     eforbid_both = 3, // Both cores are forbidden
   };
+  
   enum class eDWP_LOCK : uint32_t {
     elock_none = 0, // Neither of DWP bits is locked
     elock_low = 1, // The lower DWP bit is locked
@@ -7216,7 +7339,7 @@ union SW_PAD_CTL_PAD_GPIO_EMC_B1_40 {
     uint32_t _reserved_3 : 23;
     eDWP DWP : 2;
     eDWP_LOCK DWP_LOCK : 2;
-  } bits;          // Bit-field struct (auto-filling reserved gaps)
+  } bits;
   
   // Full 32-bit register value.
   uint32_t value;
@@ -7230,27 +7353,30 @@ union SW_PAD_CTL_PAD_GPIO_EMC_B1_40 {
 //
 union SW_PAD_CTL_PAD_GPIO_EMC_B1_41 {
   
-  // Enum definitions.
   enum class ePDRV : uint32_t {
     ePDRV_0_high_driver = 0, // high drive strength
     ePDRV_1_normal_driver = 1, // normal drive strength
   };
+  
   enum class ePULL : uint32_t {
     ePULL_0_Forbidden = 0, // Forbidden
     ePULL_1_PU = 1, // Internal pullup resistor enabled
     ePULL_2_PD = 2, // Internal pulldown resistor enabled
     ePULL_3_No_Pull = 3, // No Pull
   };
+  
   enum class eODE : uint32_t {
     eODE_0_Disabled = 0, // Disabled
     eODE_1_Enabled = 1, // Enabled
   };
+  
   enum class eDWP : uint32_t {
     eforbid_none = 0, // Both cores are allowed
     eforbid_CM7 = 1, // CM7 is forbidden
     eforbid_CM4 = 2, // CM4 is forbidden
     eforbid_both = 3, // Both cores are forbidden
   };
+  
   enum class eDWP_LOCK : uint32_t {
     elock_none = 0, // Neither of DWP bits is locked
     elock_low = 1, // The lower DWP bit is locked
@@ -7267,7 +7393,7 @@ union SW_PAD_CTL_PAD_GPIO_EMC_B1_41 {
     uint32_t _reserved_3 : 23;
     eDWP DWP : 2;
     eDWP_LOCK DWP_LOCK : 2;
-  } bits;          // Bit-field struct (auto-filling reserved gaps)
+  } bits;
   
   // Full 32-bit register value.
   uint32_t value;
@@ -7281,27 +7407,30 @@ union SW_PAD_CTL_PAD_GPIO_EMC_B1_41 {
 //
 union SW_PAD_CTL_PAD_GPIO_EMC_B2_00 {
   
-  // Enum definitions.
   enum class ePDRV : uint32_t {
     ePDRV_0_high_driver = 0, // high drive strength
     ePDRV_1_normal_driver = 1, // normal drive strength
   };
+  
   enum class ePULL : uint32_t {
     ePULL_0_Forbidden = 0, // Forbidden
     ePULL_1_PU = 1, // Internal pullup resistor enabled
     ePULL_2_PD = 2, // Internal pulldown resistor enabled
     ePULL_3_No_Pull = 3, // No Pull
   };
+  
   enum class eODE : uint32_t {
     eODE_0_Disabled = 0, // Disabled
     eODE_1_Enabled = 1, // Enabled
   };
+  
   enum class eDWP : uint32_t {
     eforbid_none = 0, // Both cores are allowed
     eforbid_CM7 = 1, // CM7 is forbidden
     eforbid_CM4 = 2, // CM4 is forbidden
     eforbid_both = 3, // Both cores are forbidden
   };
+  
   enum class eDWP_LOCK : uint32_t {
     elock_none = 0, // Neither of DWP bits is locked
     elock_low = 1, // The lower DWP bit is locked
@@ -7318,7 +7447,7 @@ union SW_PAD_CTL_PAD_GPIO_EMC_B2_00 {
     uint32_t _reserved_3 : 23;
     eDWP DWP : 2;
     eDWP_LOCK DWP_LOCK : 2;
-  } bits;          // Bit-field struct (auto-filling reserved gaps)
+  } bits;
   
   // Full 32-bit register value.
   uint32_t value;
@@ -7332,27 +7461,30 @@ union SW_PAD_CTL_PAD_GPIO_EMC_B2_00 {
 //
 union SW_PAD_CTL_PAD_GPIO_EMC_B2_01 {
   
-  // Enum definitions.
   enum class ePDRV : uint32_t {
     ePDRV_0_high_driver = 0, // high drive strength
     ePDRV_1_normal_driver = 1, // normal drive strength
   };
+  
   enum class ePULL : uint32_t {
     ePULL_0_Forbidden = 0, // Forbidden
     ePULL_1_PU = 1, // Internal pullup resistor enabled
     ePULL_2_PD = 2, // Internal pulldown resistor enabled
     ePULL_3_No_Pull = 3, // No Pull
   };
+  
   enum class eODE : uint32_t {
     eODE_0_Disabled = 0, // Disabled
     eODE_1_Enabled = 1, // Enabled
   };
+  
   enum class eDWP : uint32_t {
     eforbid_none = 0, // Both cores are allowed
     eforbid_CM7 = 1, // CM7 is forbidden
     eforbid_CM4 = 2, // CM4 is forbidden
     eforbid_both = 3, // Both cores are forbidden
   };
+  
   enum class eDWP_LOCK : uint32_t {
     elock_none = 0, // Neither of DWP bits is locked
     elock_low = 1, // The lower DWP bit is locked
@@ -7369,7 +7501,7 @@ union SW_PAD_CTL_PAD_GPIO_EMC_B2_01 {
     uint32_t _reserved_3 : 23;
     eDWP DWP : 2;
     eDWP_LOCK DWP_LOCK : 2;
-  } bits;          // Bit-field struct (auto-filling reserved gaps)
+  } bits;
   
   // Full 32-bit register value.
   uint32_t value;
@@ -7383,27 +7515,30 @@ union SW_PAD_CTL_PAD_GPIO_EMC_B2_01 {
 //
 union SW_PAD_CTL_PAD_GPIO_EMC_B2_02 {
   
-  // Enum definitions.
   enum class ePDRV : uint32_t {
     ePDRV_0_high_driver = 0, // high drive strength
     ePDRV_1_normal_driver = 1, // normal drive strength
   };
+  
   enum class ePULL : uint32_t {
     ePULL_0_Forbidden = 0, // Forbidden
     ePULL_1_PU = 1, // Internal pullup resistor enabled
     ePULL_2_PD = 2, // Internal pulldown resistor enabled
     ePULL_3_No_Pull = 3, // No Pull
   };
+  
   enum class eODE : uint32_t {
     eODE_0_Disabled = 0, // Disabled
     eODE_1_Enabled = 1, // Enabled
   };
+  
   enum class eDWP : uint32_t {
     eforbid_none = 0, // Both cores are allowed
     eforbid_CM7 = 1, // CM7 is forbidden
     eforbid_CM4 = 2, // CM4 is forbidden
     eforbid_both = 3, // Both cores are forbidden
   };
+  
   enum class eDWP_LOCK : uint32_t {
     elock_none = 0, // Neither of DWP bits is locked
     elock_low = 1, // The lower DWP bit is locked
@@ -7420,7 +7555,7 @@ union SW_PAD_CTL_PAD_GPIO_EMC_B2_02 {
     uint32_t _reserved_3 : 23;
     eDWP DWP : 2;
     eDWP_LOCK DWP_LOCK : 2;
-  } bits;          // Bit-field struct (auto-filling reserved gaps)
+  } bits;
   
   // Full 32-bit register value.
   uint32_t value;
@@ -7434,27 +7569,30 @@ union SW_PAD_CTL_PAD_GPIO_EMC_B2_02 {
 //
 union SW_PAD_CTL_PAD_GPIO_EMC_B2_03 {
   
-  // Enum definitions.
   enum class ePDRV : uint32_t {
     ePDRV_0_high_driver = 0, // high drive strength
     ePDRV_1_normal_driver = 1, // normal drive strength
   };
+  
   enum class ePULL : uint32_t {
     ePULL_0_Forbidden = 0, // Forbidden
     ePULL_1_PU = 1, // Internal pullup resistor enabled
     ePULL_2_PD = 2, // Internal pulldown resistor enabled
     ePULL_3_No_Pull = 3, // No Pull
   };
+  
   enum class eODE : uint32_t {
     eODE_0_Disabled = 0, // Disabled
     eODE_1_Enabled = 1, // Enabled
   };
+  
   enum class eDWP : uint32_t {
     eforbid_none = 0, // Both cores are allowed
     eforbid_CM7 = 1, // CM7 is forbidden
     eforbid_CM4 = 2, // CM4 is forbidden
     eforbid_both = 3, // Both cores are forbidden
   };
+  
   enum class eDWP_LOCK : uint32_t {
     elock_none = 0, // Neither of DWP bits is locked
     elock_low = 1, // The lower DWP bit is locked
@@ -7471,7 +7609,7 @@ union SW_PAD_CTL_PAD_GPIO_EMC_B2_03 {
     uint32_t _reserved_3 : 23;
     eDWP DWP : 2;
     eDWP_LOCK DWP_LOCK : 2;
-  } bits;          // Bit-field struct (auto-filling reserved gaps)
+  } bits;
   
   // Full 32-bit register value.
   uint32_t value;
@@ -7485,27 +7623,30 @@ union SW_PAD_CTL_PAD_GPIO_EMC_B2_03 {
 //
 union SW_PAD_CTL_PAD_GPIO_EMC_B2_04 {
   
-  // Enum definitions.
   enum class ePDRV : uint32_t {
     ePDRV_0_high_driver = 0, // high drive strength
     ePDRV_1_normal_driver = 1, // normal drive strength
   };
+  
   enum class ePULL : uint32_t {
     ePULL_0_Forbidden = 0, // Forbidden
     ePULL_1_PU = 1, // Internal pullup resistor enabled
     ePULL_2_PD = 2, // Internal pulldown resistor enabled
     ePULL_3_No_Pull = 3, // No Pull
   };
+  
   enum class eODE : uint32_t {
     eODE_0_Disabled = 0, // Disabled
     eODE_1_Enabled = 1, // Enabled
   };
+  
   enum class eDWP : uint32_t {
     eforbid_none = 0, // Both cores are allowed
     eforbid_CM7 = 1, // CM7 is forbidden
     eforbid_CM4 = 2, // CM4 is forbidden
     eforbid_both = 3, // Both cores are forbidden
   };
+  
   enum class eDWP_LOCK : uint32_t {
     elock_none = 0, // Neither of DWP bits is locked
     elock_low = 1, // The lower DWP bit is locked
@@ -7522,7 +7663,7 @@ union SW_PAD_CTL_PAD_GPIO_EMC_B2_04 {
     uint32_t _reserved_3 : 23;
     eDWP DWP : 2;
     eDWP_LOCK DWP_LOCK : 2;
-  } bits;          // Bit-field struct (auto-filling reserved gaps)
+  } bits;
   
   // Full 32-bit register value.
   uint32_t value;
@@ -7536,27 +7677,30 @@ union SW_PAD_CTL_PAD_GPIO_EMC_B2_04 {
 //
 union SW_PAD_CTL_PAD_GPIO_EMC_B2_05 {
   
-  // Enum definitions.
   enum class ePDRV : uint32_t {
     ePDRV_0_high_driver = 0, // high drive strength
     ePDRV_1_normal_driver = 1, // normal drive strength
   };
+  
   enum class ePULL : uint32_t {
     ePULL_0_Forbidden = 0, // Forbidden
     ePULL_1_PU = 1, // Internal pullup resistor enabled
     ePULL_2_PD = 2, // Internal pulldown resistor enabled
     ePULL_3_No_Pull = 3, // No Pull
   };
+  
   enum class eODE : uint32_t {
     eODE_0_Disabled = 0, // Disabled
     eODE_1_Enabled = 1, // Enabled
   };
+  
   enum class eDWP : uint32_t {
     eforbid_none = 0, // Both cores are allowed
     eforbid_CM7 = 1, // CM7 is forbidden
     eforbid_CM4 = 2, // CM4 is forbidden
     eforbid_both = 3, // Both cores are forbidden
   };
+  
   enum class eDWP_LOCK : uint32_t {
     elock_none = 0, // Neither of DWP bits is locked
     elock_low = 1, // The lower DWP bit is locked
@@ -7573,7 +7717,7 @@ union SW_PAD_CTL_PAD_GPIO_EMC_B2_05 {
     uint32_t _reserved_3 : 23;
     eDWP DWP : 2;
     eDWP_LOCK DWP_LOCK : 2;
-  } bits;          // Bit-field struct (auto-filling reserved gaps)
+  } bits;
   
   // Full 32-bit register value.
   uint32_t value;
@@ -7587,27 +7731,30 @@ union SW_PAD_CTL_PAD_GPIO_EMC_B2_05 {
 //
 union SW_PAD_CTL_PAD_GPIO_EMC_B2_06 {
   
-  // Enum definitions.
   enum class ePDRV : uint32_t {
     ePDRV_0_high_driver = 0, // high drive strength
     ePDRV_1_normal_driver = 1, // normal drive strength
   };
+  
   enum class ePULL : uint32_t {
     ePULL_0_Forbidden = 0, // Forbidden
     ePULL_1_PU = 1, // Internal pullup resistor enabled
     ePULL_2_PD = 2, // Internal pulldown resistor enabled
     ePULL_3_No_Pull = 3, // No Pull
   };
+  
   enum class eODE : uint32_t {
     eODE_0_Disabled = 0, // Disabled
     eODE_1_Enabled = 1, // Enabled
   };
+  
   enum class eDWP : uint32_t {
     eforbid_none = 0, // Both cores are allowed
     eforbid_CM7 = 1, // CM7 is forbidden
     eforbid_CM4 = 2, // CM4 is forbidden
     eforbid_both = 3, // Both cores are forbidden
   };
+  
   enum class eDWP_LOCK : uint32_t {
     elock_none = 0, // Neither of DWP bits is locked
     elock_low = 1, // The lower DWP bit is locked
@@ -7624,7 +7771,7 @@ union SW_PAD_CTL_PAD_GPIO_EMC_B2_06 {
     uint32_t _reserved_3 : 23;
     eDWP DWP : 2;
     eDWP_LOCK DWP_LOCK : 2;
-  } bits;          // Bit-field struct (auto-filling reserved gaps)
+  } bits;
   
   // Full 32-bit register value.
   uint32_t value;
@@ -7638,27 +7785,30 @@ union SW_PAD_CTL_PAD_GPIO_EMC_B2_06 {
 //
 union SW_PAD_CTL_PAD_GPIO_EMC_B2_07 {
   
-  // Enum definitions.
   enum class ePDRV : uint32_t {
     ePDRV_0_high_driver = 0, // high drive strength
     ePDRV_1_normal_driver = 1, // normal drive strength
   };
+  
   enum class ePULL : uint32_t {
     ePULL_0_Forbidden = 0, // Forbidden
     ePULL_1_PU = 1, // Internal pullup resistor enabled
     ePULL_2_PD = 2, // Internal pulldown resistor enabled
     ePULL_3_No_Pull = 3, // No Pull
   };
+  
   enum class eODE : uint32_t {
     eODE_0_Disabled = 0, // Disabled
     eODE_1_Enabled = 1, // Enabled
   };
+  
   enum class eDWP : uint32_t {
     eforbid_none = 0, // Both cores are allowed
     eforbid_CM7 = 1, // CM7 is forbidden
     eforbid_CM4 = 2, // CM4 is forbidden
     eforbid_both = 3, // Both cores are forbidden
   };
+  
   enum class eDWP_LOCK : uint32_t {
     elock_none = 0, // Neither of DWP bits is locked
     elock_low = 1, // The lower DWP bit is locked
@@ -7675,7 +7825,7 @@ union SW_PAD_CTL_PAD_GPIO_EMC_B2_07 {
     uint32_t _reserved_3 : 23;
     eDWP DWP : 2;
     eDWP_LOCK DWP_LOCK : 2;
-  } bits;          // Bit-field struct (auto-filling reserved gaps)
+  } bits;
   
   // Full 32-bit register value.
   uint32_t value;
@@ -7689,27 +7839,30 @@ union SW_PAD_CTL_PAD_GPIO_EMC_B2_07 {
 //
 union SW_PAD_CTL_PAD_GPIO_EMC_B2_08 {
   
-  // Enum definitions.
   enum class ePDRV : uint32_t {
     ePDRV_0_high_driver = 0, // high drive strength
     ePDRV_1_normal_driver = 1, // normal drive strength
   };
+  
   enum class ePULL : uint32_t {
     ePULL_0_Forbidden = 0, // Forbidden
     ePULL_1_PU = 1, // Internal pullup resistor enabled
     ePULL_2_PD = 2, // Internal pulldown resistor enabled
     ePULL_3_No_Pull = 3, // No Pull
   };
+  
   enum class eODE : uint32_t {
     eODE_0_Disabled = 0, // Disabled
     eODE_1_Enabled = 1, // Enabled
   };
+  
   enum class eDWP : uint32_t {
     eforbid_none = 0, // Both cores are allowed
     eforbid_CM7 = 1, // CM7 is forbidden
     eforbid_CM4 = 2, // CM4 is forbidden
     eforbid_both = 3, // Both cores are forbidden
   };
+  
   enum class eDWP_LOCK : uint32_t {
     elock_none = 0, // Neither of DWP bits is locked
     elock_low = 1, // The lower DWP bit is locked
@@ -7726,7 +7879,7 @@ union SW_PAD_CTL_PAD_GPIO_EMC_B2_08 {
     uint32_t _reserved_3 : 23;
     eDWP DWP : 2;
     eDWP_LOCK DWP_LOCK : 2;
-  } bits;          // Bit-field struct (auto-filling reserved gaps)
+  } bits;
   
   // Full 32-bit register value.
   uint32_t value;
@@ -7740,27 +7893,30 @@ union SW_PAD_CTL_PAD_GPIO_EMC_B2_08 {
 //
 union SW_PAD_CTL_PAD_GPIO_EMC_B2_09 {
   
-  // Enum definitions.
   enum class ePDRV : uint32_t {
     ePDRV_0_high_driver = 0, // high drive strength
     ePDRV_1_normal_driver = 1, // normal drive strength
   };
+  
   enum class ePULL : uint32_t {
     ePULL_0_Forbidden = 0, // Forbidden
     ePULL_1_PU = 1, // Internal pullup resistor enabled
     ePULL_2_PD = 2, // Internal pulldown resistor enabled
     ePULL_3_No_Pull = 3, // No Pull
   };
+  
   enum class eODE : uint32_t {
     eODE_0_Disabled = 0, // Disabled
     eODE_1_Enabled = 1, // Enabled
   };
+  
   enum class eDWP : uint32_t {
     eforbid_none = 0, // Both cores are allowed
     eforbid_CM7 = 1, // CM7 is forbidden
     eforbid_CM4 = 2, // CM4 is forbidden
     eforbid_both = 3, // Both cores are forbidden
   };
+  
   enum class eDWP_LOCK : uint32_t {
     elock_none = 0, // Neither of DWP bits is locked
     elock_low = 1, // The lower DWP bit is locked
@@ -7777,7 +7933,7 @@ union SW_PAD_CTL_PAD_GPIO_EMC_B2_09 {
     uint32_t _reserved_3 : 23;
     eDWP DWP : 2;
     eDWP_LOCK DWP_LOCK : 2;
-  } bits;          // Bit-field struct (auto-filling reserved gaps)
+  } bits;
   
   // Full 32-bit register value.
   uint32_t value;
@@ -7791,27 +7947,30 @@ union SW_PAD_CTL_PAD_GPIO_EMC_B2_09 {
 //
 union SW_PAD_CTL_PAD_GPIO_EMC_B2_10 {
   
-  // Enum definitions.
   enum class ePDRV : uint32_t {
     ePDRV_0_high_driver = 0, // high drive strength
     ePDRV_1_normal_driver = 1, // normal drive strength
   };
+  
   enum class ePULL : uint32_t {
     ePULL_0_Forbidden = 0, // Forbidden
     ePULL_1_PU = 1, // Internal pullup resistor enabled
     ePULL_2_PD = 2, // Internal pulldown resistor enabled
     ePULL_3_No_Pull = 3, // No Pull
   };
+  
   enum class eODE : uint32_t {
     eODE_0_Disabled = 0, // Disabled
     eODE_1_Enabled = 1, // Enabled
   };
+  
   enum class eDWP : uint32_t {
     eforbid_none = 0, // Both cores are allowed
     eforbid_CM7 = 1, // CM7 is forbidden
     eforbid_CM4 = 2, // CM4 is forbidden
     eforbid_both = 3, // Both cores are forbidden
   };
+  
   enum class eDWP_LOCK : uint32_t {
     elock_none = 0, // Neither of DWP bits is locked
     elock_low = 1, // The lower DWP bit is locked
@@ -7828,7 +7987,7 @@ union SW_PAD_CTL_PAD_GPIO_EMC_B2_10 {
     uint32_t _reserved_3 : 23;
     eDWP DWP : 2;
     eDWP_LOCK DWP_LOCK : 2;
-  } bits;          // Bit-field struct (auto-filling reserved gaps)
+  } bits;
   
   // Full 32-bit register value.
   uint32_t value;
@@ -7842,27 +8001,30 @@ union SW_PAD_CTL_PAD_GPIO_EMC_B2_10 {
 //
 union SW_PAD_CTL_PAD_GPIO_EMC_B2_11 {
   
-  // Enum definitions.
   enum class ePDRV : uint32_t {
     ePDRV_0_high_driver = 0, // high drive strength
     ePDRV_1_normal_driver = 1, // normal drive strength
   };
+  
   enum class ePULL : uint32_t {
     ePULL_0_Forbidden = 0, // Forbidden
     ePULL_1_PU = 1, // Internal pullup resistor enabled
     ePULL_2_PD = 2, // Internal pulldown resistor enabled
     ePULL_3_No_Pull = 3, // No Pull
   };
+  
   enum class eODE : uint32_t {
     eODE_0_Disabled = 0, // Disabled
     eODE_1_Enabled = 1, // Enabled
   };
+  
   enum class eDWP : uint32_t {
     eforbid_none = 0, // Both cores are allowed
     eforbid_CM7 = 1, // CM7 is forbidden
     eforbid_CM4 = 2, // CM4 is forbidden
     eforbid_both = 3, // Both cores are forbidden
   };
+  
   enum class eDWP_LOCK : uint32_t {
     elock_none = 0, // Neither of DWP bits is locked
     elock_low = 1, // The lower DWP bit is locked
@@ -7879,7 +8041,7 @@ union SW_PAD_CTL_PAD_GPIO_EMC_B2_11 {
     uint32_t _reserved_3 : 23;
     eDWP DWP : 2;
     eDWP_LOCK DWP_LOCK : 2;
-  } bits;          // Bit-field struct (auto-filling reserved gaps)
+  } bits;
   
   // Full 32-bit register value.
   uint32_t value;
@@ -7893,27 +8055,30 @@ union SW_PAD_CTL_PAD_GPIO_EMC_B2_11 {
 //
 union SW_PAD_CTL_PAD_GPIO_EMC_B2_12 {
   
-  // Enum definitions.
   enum class ePDRV : uint32_t {
     ePDRV_0_high_driver = 0, // high drive strength
     ePDRV_1_normal_driver = 1, // normal drive strength
   };
+  
   enum class ePULL : uint32_t {
     ePULL_0_Forbidden = 0, // Forbidden
     ePULL_1_PU = 1, // Internal pullup resistor enabled
     ePULL_2_PD = 2, // Internal pulldown resistor enabled
     ePULL_3_No_Pull = 3, // No Pull
   };
+  
   enum class eODE : uint32_t {
     eODE_0_Disabled = 0, // Disabled
     eODE_1_Enabled = 1, // Enabled
   };
+  
   enum class eDWP : uint32_t {
     eforbid_none = 0, // Both cores are allowed
     eforbid_CM7 = 1, // CM7 is forbidden
     eforbid_CM4 = 2, // CM4 is forbidden
     eforbid_both = 3, // Both cores are forbidden
   };
+  
   enum class eDWP_LOCK : uint32_t {
     elock_none = 0, // Neither of DWP bits is locked
     elock_low = 1, // The lower DWP bit is locked
@@ -7930,7 +8095,7 @@ union SW_PAD_CTL_PAD_GPIO_EMC_B2_12 {
     uint32_t _reserved_3 : 23;
     eDWP DWP : 2;
     eDWP_LOCK DWP_LOCK : 2;
-  } bits;          // Bit-field struct (auto-filling reserved gaps)
+  } bits;
   
   // Full 32-bit register value.
   uint32_t value;
@@ -7944,27 +8109,30 @@ union SW_PAD_CTL_PAD_GPIO_EMC_B2_12 {
 //
 union SW_PAD_CTL_PAD_GPIO_EMC_B2_13 {
   
-  // Enum definitions.
   enum class ePDRV : uint32_t {
     ePDRV_0_high_driver = 0, // high drive strength
     ePDRV_1_normal_driver = 1, // normal drive strength
   };
+  
   enum class ePULL : uint32_t {
     ePULL_0_Forbidden = 0, // Forbidden
     ePULL_1_PU = 1, // Internal pullup resistor enabled
     ePULL_2_PD = 2, // Internal pulldown resistor enabled
     ePULL_3_No_Pull = 3, // No Pull
   };
+  
   enum class eODE : uint32_t {
     eODE_0_Disabled = 0, // Disabled
     eODE_1_Enabled = 1, // Enabled
   };
+  
   enum class eDWP : uint32_t {
     eforbid_none = 0, // Both cores are allowed
     eforbid_CM7 = 1, // CM7 is forbidden
     eforbid_CM4 = 2, // CM4 is forbidden
     eforbid_both = 3, // Both cores are forbidden
   };
+  
   enum class eDWP_LOCK : uint32_t {
     elock_none = 0, // Neither of DWP bits is locked
     elock_low = 1, // The lower DWP bit is locked
@@ -7981,7 +8149,7 @@ union SW_PAD_CTL_PAD_GPIO_EMC_B2_13 {
     uint32_t _reserved_3 : 23;
     eDWP DWP : 2;
     eDWP_LOCK DWP_LOCK : 2;
-  } bits;          // Bit-field struct (auto-filling reserved gaps)
+  } bits;
   
   // Full 32-bit register value.
   uint32_t value;
@@ -7995,27 +8163,30 @@ union SW_PAD_CTL_PAD_GPIO_EMC_B2_13 {
 //
 union SW_PAD_CTL_PAD_GPIO_EMC_B2_14 {
   
-  // Enum definitions.
   enum class ePDRV : uint32_t {
     ePDRV_0_high_driver = 0, // high drive strength
     ePDRV_1_normal_driver = 1, // normal drive strength
   };
+  
   enum class ePULL : uint32_t {
     ePULL_0_Forbidden = 0, // Forbidden
     ePULL_1_PU = 1, // Internal pullup resistor enabled
     ePULL_2_PD = 2, // Internal pulldown resistor enabled
     ePULL_3_No_Pull = 3, // No Pull
   };
+  
   enum class eODE : uint32_t {
     eODE_0_Disabled = 0, // Disabled
     eODE_1_Enabled = 1, // Enabled
   };
+  
   enum class eDWP : uint32_t {
     eforbid_none = 0, // Both cores are allowed
     eforbid_CM7 = 1, // CM7 is forbidden
     eforbid_CM4 = 2, // CM4 is forbidden
     eforbid_both = 3, // Both cores are forbidden
   };
+  
   enum class eDWP_LOCK : uint32_t {
     elock_none = 0, // Neither of DWP bits is locked
     elock_low = 1, // The lower DWP bit is locked
@@ -8032,7 +8203,7 @@ union SW_PAD_CTL_PAD_GPIO_EMC_B2_14 {
     uint32_t _reserved_3 : 23;
     eDWP DWP : 2;
     eDWP_LOCK DWP_LOCK : 2;
-  } bits;          // Bit-field struct (auto-filling reserved gaps)
+  } bits;
   
   // Full 32-bit register value.
   uint32_t value;
@@ -8046,27 +8217,30 @@ union SW_PAD_CTL_PAD_GPIO_EMC_B2_14 {
 //
 union SW_PAD_CTL_PAD_GPIO_EMC_B2_15 {
   
-  // Enum definitions.
   enum class ePDRV : uint32_t {
     ePDRV_0_high_driver = 0, // high drive strength
     ePDRV_1_normal_driver = 1, // normal drive strength
   };
+  
   enum class ePULL : uint32_t {
     ePULL_0_Forbidden = 0, // Forbidden
     ePULL_1_PU = 1, // Internal pullup resistor enabled
     ePULL_2_PD = 2, // Internal pulldown resistor enabled
     ePULL_3_No_Pull = 3, // No Pull
   };
+  
   enum class eODE : uint32_t {
     eODE_0_Disabled = 0, // Disabled
     eODE_1_Enabled = 1, // Enabled
   };
+  
   enum class eDWP : uint32_t {
     eforbid_none = 0, // Both cores are allowed
     eforbid_CM7 = 1, // CM7 is forbidden
     eforbid_CM4 = 2, // CM4 is forbidden
     eforbid_both = 3, // Both cores are forbidden
   };
+  
   enum class eDWP_LOCK : uint32_t {
     elock_none = 0, // Neither of DWP bits is locked
     elock_low = 1, // The lower DWP bit is locked
@@ -8083,7 +8257,7 @@ union SW_PAD_CTL_PAD_GPIO_EMC_B2_15 {
     uint32_t _reserved_3 : 23;
     eDWP DWP : 2;
     eDWP_LOCK DWP_LOCK : 2;
-  } bits;          // Bit-field struct (auto-filling reserved gaps)
+  } bits;
   
   // Full 32-bit register value.
   uint32_t value;
@@ -8097,27 +8271,30 @@ union SW_PAD_CTL_PAD_GPIO_EMC_B2_15 {
 //
 union SW_PAD_CTL_PAD_GPIO_EMC_B2_16 {
   
-  // Enum definitions.
   enum class ePDRV : uint32_t {
     ePDRV_0_high_driver = 0, // high drive strength
     ePDRV_1_normal_driver = 1, // normal drive strength
   };
+  
   enum class ePULL : uint32_t {
     ePULL_0_Forbidden = 0, // Forbidden
     ePULL_1_PU = 1, // Internal pullup resistor enabled
     ePULL_2_PD = 2, // Internal pulldown resistor enabled
     ePULL_3_No_Pull = 3, // No Pull
   };
+  
   enum class eODE : uint32_t {
     eODE_0_Disabled = 0, // Disabled
     eODE_1_Enabled = 1, // Enabled
   };
+  
   enum class eDWP : uint32_t {
     eforbid_none = 0, // Both cores are allowed
     eforbid_CM7 = 1, // CM7 is forbidden
     eforbid_CM4 = 2, // CM4 is forbidden
     eforbid_both = 3, // Both cores are forbidden
   };
+  
   enum class eDWP_LOCK : uint32_t {
     elock_none = 0, // Neither of DWP bits is locked
     elock_low = 1, // The lower DWP bit is locked
@@ -8134,7 +8311,7 @@ union SW_PAD_CTL_PAD_GPIO_EMC_B2_16 {
     uint32_t _reserved_3 : 23;
     eDWP DWP : 2;
     eDWP_LOCK DWP_LOCK : 2;
-  } bits;          // Bit-field struct (auto-filling reserved gaps)
+  } bits;
   
   // Full 32-bit register value.
   uint32_t value;
@@ -8148,27 +8325,30 @@ union SW_PAD_CTL_PAD_GPIO_EMC_B2_16 {
 //
 union SW_PAD_CTL_PAD_GPIO_EMC_B2_17 {
   
-  // Enum definitions.
   enum class ePDRV : uint32_t {
     ePDRV_0_high_driver = 0, // high drive strength
     ePDRV_1_normal_driver = 1, // normal drive strength
   };
+  
   enum class ePULL : uint32_t {
     ePULL_0_Forbidden = 0, // Forbidden
     ePULL_1_PU = 1, // Internal pullup resistor enabled
     ePULL_2_PD = 2, // Internal pulldown resistor enabled
     ePULL_3_No_Pull = 3, // No Pull
   };
+  
   enum class eODE : uint32_t {
     eODE_0_Disabled = 0, // Disabled
     eODE_1_Enabled = 1, // Enabled
   };
+  
   enum class eDWP : uint32_t {
     eforbid_none = 0, // Both cores are allowed
     eforbid_CM7 = 1, // CM7 is forbidden
     eforbid_CM4 = 2, // CM4 is forbidden
     eforbid_both = 3, // Both cores are forbidden
   };
+  
   enum class eDWP_LOCK : uint32_t {
     elock_none = 0, // Neither of DWP bits is locked
     elock_low = 1, // The lower DWP bit is locked
@@ -8185,7 +8365,7 @@ union SW_PAD_CTL_PAD_GPIO_EMC_B2_17 {
     uint32_t _reserved_3 : 23;
     eDWP DWP : 2;
     eDWP_LOCK DWP_LOCK : 2;
-  } bits;          // Bit-field struct (auto-filling reserved gaps)
+  } bits;
   
   // Full 32-bit register value.
   uint32_t value;
@@ -8199,27 +8379,30 @@ union SW_PAD_CTL_PAD_GPIO_EMC_B2_17 {
 //
 union SW_PAD_CTL_PAD_GPIO_EMC_B2_18 {
   
-  // Enum definitions.
   enum class ePDRV : uint32_t {
     ePDRV_0_high_driver = 0, // high drive strength
     ePDRV_1_normal_driver = 1, // normal drive strength
   };
+  
   enum class ePULL : uint32_t {
     ePULL_0_Forbidden = 0, // Forbidden
     ePULL_1_PU = 1, // Internal pullup resistor enabled
     ePULL_2_PD = 2, // Internal pulldown resistor enabled
     ePULL_3_No_Pull = 3, // No Pull
   };
+  
   enum class eODE : uint32_t {
     eODE_0_Disabled = 0, // Disabled
     eODE_1_Enabled = 1, // Enabled
   };
+  
   enum class eDWP : uint32_t {
     eforbid_none = 0, // Both cores are allowed
     eforbid_CM7 = 1, // CM7 is forbidden
     eforbid_CM4 = 2, // CM4 is forbidden
     eforbid_both = 3, // Both cores are forbidden
   };
+  
   enum class eDWP_LOCK : uint32_t {
     elock_none = 0, // Neither of DWP bits is locked
     elock_low = 1, // The lower DWP bit is locked
@@ -8236,7 +8419,7 @@ union SW_PAD_CTL_PAD_GPIO_EMC_B2_18 {
     uint32_t _reserved_3 : 23;
     eDWP DWP : 2;
     eDWP_LOCK DWP_LOCK : 2;
-  } bits;          // Bit-field struct (auto-filling reserved gaps)
+  } bits;
   
   // Full 32-bit register value.
   uint32_t value;
@@ -8250,27 +8433,30 @@ union SW_PAD_CTL_PAD_GPIO_EMC_B2_18 {
 //
 union SW_PAD_CTL_PAD_GPIO_EMC_B2_19 {
   
-  // Enum definitions.
   enum class ePDRV : uint32_t {
     ePDRV_0_high_driver = 0, // high drive strength
     ePDRV_1_normal_driver = 1, // normal drive strength
   };
+  
   enum class ePULL : uint32_t {
     ePULL_0_Forbidden = 0, // Forbidden
     ePULL_1_PU = 1, // Internal pullup resistor enabled
     ePULL_2_PD = 2, // Internal pulldown resistor enabled
     ePULL_3_No_Pull = 3, // No Pull
   };
+  
   enum class eODE : uint32_t {
     eODE_0_Disabled = 0, // Disabled
     eODE_1_Enabled = 1, // Enabled
   };
+  
   enum class eDWP : uint32_t {
     eforbid_none = 0, // Both cores are allowed
     eforbid_CM7 = 1, // CM7 is forbidden
     eforbid_CM4 = 2, // CM4 is forbidden
     eforbid_both = 3, // Both cores are forbidden
   };
+  
   enum class eDWP_LOCK : uint32_t {
     elock_none = 0, // Neither of DWP bits is locked
     elock_low = 1, // The lower DWP bit is locked
@@ -8287,7 +8473,7 @@ union SW_PAD_CTL_PAD_GPIO_EMC_B2_19 {
     uint32_t _reserved_3 : 23;
     eDWP DWP : 2;
     eDWP_LOCK DWP_LOCK : 2;
-  } bits;          // Bit-field struct (auto-filling reserved gaps)
+  } bits;
   
   // Full 32-bit register value.
   uint32_t value;
@@ -8301,27 +8487,30 @@ union SW_PAD_CTL_PAD_GPIO_EMC_B2_19 {
 //
 union SW_PAD_CTL_PAD_GPIO_EMC_B2_20 {
   
-  // Enum definitions.
   enum class ePDRV : uint32_t {
     ePDRV_0_high_driver = 0, // high drive strength
     ePDRV_1_normal_driver = 1, // normal drive strength
   };
+  
   enum class ePULL : uint32_t {
     ePULL_0_Forbidden = 0, // Forbidden
     ePULL_1_PU = 1, // Internal pullup resistor enabled
     ePULL_2_PD = 2, // Internal pulldown resistor enabled
     ePULL_3_No_Pull = 3, // No Pull
   };
+  
   enum class eODE : uint32_t {
     eODE_0_Disabled = 0, // Disabled
     eODE_1_Enabled = 1, // Enabled
   };
+  
   enum class eDWP : uint32_t {
     eforbid_none = 0, // Both cores are allowed
     eforbid_CM7 = 1, // CM7 is forbidden
     eforbid_CM4 = 2, // CM4 is forbidden
     eforbid_both = 3, // Both cores are forbidden
   };
+  
   enum class eDWP_LOCK : uint32_t {
     elock_none = 0, // Neither of DWP bits is locked
     elock_low = 1, // The lower DWP bit is locked
@@ -8338,7 +8527,7 @@ union SW_PAD_CTL_PAD_GPIO_EMC_B2_20 {
     uint32_t _reserved_3 : 23;
     eDWP DWP : 2;
     eDWP_LOCK DWP_LOCK : 2;
-  } bits;          // Bit-field struct (auto-filling reserved gaps)
+  } bits;
   
   // Full 32-bit register value.
   uint32_t value;
@@ -8352,33 +8541,38 @@ union SW_PAD_CTL_PAD_GPIO_EMC_B2_20 {
 //
 union SW_PAD_CTL_PAD_GPIO_AD_00 {
   
-  // Enum definitions.
   enum class eSRE : uint32_t {
     eSRE_0_Slow_Slew_Rate = 0, // Slow Slew Rate
     eSRE_1_Fast_Slew_Rate = 1, // Fast Slew Rate
   };
+  
   enum class eDSE : uint32_t {
     eDSE_0_normal_driver = 0, // normal drive strength
     eDSE_1_high_driver = 1, // high drive strength
   };
+  
   enum class ePUE : uint32_t {
     ePUE_0_Pull_Disable__Highz = 0, // Pull Disable, Highz
     ePUE_1_Pull_Enable = 1, // Pull Enable
   };
+  
   enum class ePUS : uint32_t {
     ePUS_0_Weak_pull_down = 0, // Weak pull down
     ePUS_1_Weak_pull_up = 1, // Weak pull up
   };
+  
   enum class eODE : uint32_t {
     eODE_0_Disabled = 0, // Disabled
     eODE_1_Enabled = 1, // Enabled
   };
+  
   enum class eDWP : uint32_t {
     eforbid_none = 0, // Both cores are allowed
     eforbid_CM7 = 1, // CM7 is forbidden
     eforbid_CM4 = 2, // CM4 is forbidden
     eforbid_both = 3, // Both cores are forbidden
   };
+  
   enum class eDWP_LOCK : uint32_t {
     elock_none = 0, // Neither of DWP bits is locked
     elock_low = 1, // The lower DWP bit is locked
@@ -8396,7 +8590,7 @@ union SW_PAD_CTL_PAD_GPIO_AD_00 {
     uint32_t _reserved_5 : 23;
     eDWP DWP : 2;
     eDWP_LOCK DWP_LOCK : 2;
-  } bits;          // Bit-field struct (auto-filling reserved gaps)
+  } bits;
   
   // Full 32-bit register value.
   uint32_t value;
@@ -8410,33 +8604,38 @@ union SW_PAD_CTL_PAD_GPIO_AD_00 {
 //
 union SW_PAD_CTL_PAD_GPIO_AD_01 {
   
-  // Enum definitions.
   enum class eSRE : uint32_t {
     eSRE_0_Slow_Slew_Rate = 0, // Slow Slew Rate
     eSRE_1_Fast_Slew_Rate = 1, // Fast Slew Rate
   };
+  
   enum class eDSE : uint32_t {
     eDSE_0_normal_driver = 0, // normal drive strength
     eDSE_1_high_driver = 1, // high drive strength
   };
+  
   enum class ePUE : uint32_t {
     ePUE_0_Pull_Disable__Highz = 0, // Pull Disable, Highz
     ePUE_1_Pull_Enable = 1, // Pull Enable
   };
+  
   enum class ePUS : uint32_t {
     ePUS_0_Weak_pull_down = 0, // Weak pull down
     ePUS_1_Weak_pull_up = 1, // Weak pull up
   };
+  
   enum class eODE : uint32_t {
     eODE_0_Disabled = 0, // Disabled
     eODE_1_Enabled = 1, // Enabled
   };
+  
   enum class eDWP : uint32_t {
     eforbid_none = 0, // Both cores are allowed
     eforbid_CM7 = 1, // CM7 is forbidden
     eforbid_CM4 = 2, // CM4 is forbidden
     eforbid_both = 3, // Both cores are forbidden
   };
+  
   enum class eDWP_LOCK : uint32_t {
     elock_none = 0, // Neither of DWP bits is locked
     elock_low = 1, // The lower DWP bit is locked
@@ -8454,7 +8653,7 @@ union SW_PAD_CTL_PAD_GPIO_AD_01 {
     uint32_t _reserved_5 : 23;
     eDWP DWP : 2;
     eDWP_LOCK DWP_LOCK : 2;
-  } bits;          // Bit-field struct (auto-filling reserved gaps)
+  } bits;
   
   // Full 32-bit register value.
   uint32_t value;
@@ -8468,33 +8667,38 @@ union SW_PAD_CTL_PAD_GPIO_AD_01 {
 //
 union SW_PAD_CTL_PAD_GPIO_AD_02 {
   
-  // Enum definitions.
   enum class eSRE : uint32_t {
     eSRE_0_Slow_Slew_Rate = 0, // Slow Slew Rate
     eSRE_1_Fast_Slew_Rate = 1, // Fast Slew Rate
   };
+  
   enum class eDSE : uint32_t {
     eDSE_0_normal_driver = 0, // normal drive strength
     eDSE_1_high_driver = 1, // high drive strength
   };
+  
   enum class ePUE : uint32_t {
     ePUE_0_Pull_Disable__Highz = 0, // Pull Disable, Highz
     ePUE_1_Pull_Enable = 1, // Pull Enable
   };
+  
   enum class ePUS : uint32_t {
     ePUS_0_Weak_pull_down = 0, // Weak pull down
     ePUS_1_Weak_pull_up = 1, // Weak pull up
   };
+  
   enum class eODE : uint32_t {
     eODE_0_Disabled = 0, // Disabled
     eODE_1_Enabled = 1, // Enabled
   };
+  
   enum class eDWP : uint32_t {
     eforbid_none = 0, // Both cores are allowed
     eforbid_CM7 = 1, // CM7 is forbidden
     eforbid_CM4 = 2, // CM4 is forbidden
     eforbid_both = 3, // Both cores are forbidden
   };
+  
   enum class eDWP_LOCK : uint32_t {
     elock_none = 0, // Neither of DWP bits is locked
     elock_low = 1, // The lower DWP bit is locked
@@ -8512,7 +8716,7 @@ union SW_PAD_CTL_PAD_GPIO_AD_02 {
     uint32_t _reserved_5 : 23;
     eDWP DWP : 2;
     eDWP_LOCK DWP_LOCK : 2;
-  } bits;          // Bit-field struct (auto-filling reserved gaps)
+  } bits;
   
   // Full 32-bit register value.
   uint32_t value;
@@ -8526,33 +8730,38 @@ union SW_PAD_CTL_PAD_GPIO_AD_02 {
 //
 union SW_PAD_CTL_PAD_GPIO_AD_03 {
   
-  // Enum definitions.
   enum class eSRE : uint32_t {
     eSRE_0_Slow_Slew_Rate = 0, // Slow Slew Rate
     eSRE_1_Fast_Slew_Rate = 1, // Fast Slew Rate
   };
+  
   enum class eDSE : uint32_t {
     eDSE_0_normal_driver = 0, // normal drive strength
     eDSE_1_high_driver = 1, // high drive strength
   };
+  
   enum class ePUE : uint32_t {
     ePUE_0_Pull_Disable__Highz = 0, // Pull Disable, Highz
     ePUE_1_Pull_Enable = 1, // Pull Enable
   };
+  
   enum class ePUS : uint32_t {
     ePUS_0_Weak_pull_down = 0, // Weak pull down
     ePUS_1_Weak_pull_up = 1, // Weak pull up
   };
+  
   enum class eODE : uint32_t {
     eODE_0_Disabled = 0, // Disabled
     eODE_1_Enabled = 1, // Enabled
   };
+  
   enum class eDWP : uint32_t {
     eforbid_none = 0, // Both cores are allowed
     eforbid_CM7 = 1, // CM7 is forbidden
     eforbid_CM4 = 2, // CM4 is forbidden
     eforbid_both = 3, // Both cores are forbidden
   };
+  
   enum class eDWP_LOCK : uint32_t {
     elock_none = 0, // Neither of DWP bits is locked
     elock_low = 1, // The lower DWP bit is locked
@@ -8570,7 +8779,7 @@ union SW_PAD_CTL_PAD_GPIO_AD_03 {
     uint32_t _reserved_5 : 23;
     eDWP DWP : 2;
     eDWP_LOCK DWP_LOCK : 2;
-  } bits;          // Bit-field struct (auto-filling reserved gaps)
+  } bits;
   
   // Full 32-bit register value.
   uint32_t value;
@@ -8584,33 +8793,38 @@ union SW_PAD_CTL_PAD_GPIO_AD_03 {
 //
 union SW_PAD_CTL_PAD_GPIO_AD_04 {
   
-  // Enum definitions.
   enum class eSRE : uint32_t {
     eSRE_0_Slow_Slew_Rate = 0, // Slow Slew Rate
     eSRE_1_Fast_Slew_Rate = 1, // Fast Slew Rate
   };
+  
   enum class eDSE : uint32_t {
     eDSE_0_normal_driver = 0, // normal drive strength
     eDSE_1_high_driver = 1, // high drive strength
   };
+  
   enum class ePUE : uint32_t {
     ePUE_0_Pull_Disable__Highz = 0, // Pull Disable, Highz
     ePUE_1_Pull_Enable = 1, // Pull Enable
   };
+  
   enum class ePUS : uint32_t {
     ePUS_0_Weak_pull_down = 0, // Weak pull down
     ePUS_1_Weak_pull_up = 1, // Weak pull up
   };
+  
   enum class eODE : uint32_t {
     eODE_0_Disabled = 0, // Disabled
     eODE_1_Enabled = 1, // Enabled
   };
+  
   enum class eDWP : uint32_t {
     eforbid_none = 0, // Both cores are allowed
     eforbid_CM7 = 1, // CM7 is forbidden
     eforbid_CM4 = 2, // CM4 is forbidden
     eforbid_both = 3, // Both cores are forbidden
   };
+  
   enum class eDWP_LOCK : uint32_t {
     elock_none = 0, // Neither of DWP bits is locked
     elock_low = 1, // The lower DWP bit is locked
@@ -8628,7 +8842,7 @@ union SW_PAD_CTL_PAD_GPIO_AD_04 {
     uint32_t _reserved_5 : 23;
     eDWP DWP : 2;
     eDWP_LOCK DWP_LOCK : 2;
-  } bits;          // Bit-field struct (auto-filling reserved gaps)
+  } bits;
   
   // Full 32-bit register value.
   uint32_t value;
@@ -8642,33 +8856,38 @@ union SW_PAD_CTL_PAD_GPIO_AD_04 {
 //
 union SW_PAD_CTL_PAD_GPIO_AD_05 {
   
-  // Enum definitions.
   enum class eSRE : uint32_t {
     eSRE_0_Slow_Slew_Rate = 0, // Slow Slew Rate
     eSRE_1_Fast_Slew_Rate = 1, // Fast Slew Rate
   };
+  
   enum class eDSE : uint32_t {
     eDSE_0_normal_driver = 0, // normal drive strength
     eDSE_1_high_driver = 1, // high drive strength
   };
+  
   enum class ePUE : uint32_t {
     ePUE_0_Pull_Disable__Highz = 0, // Pull Disable, Highz
     ePUE_1_Pull_Enable = 1, // Pull Enable
   };
+  
   enum class ePUS : uint32_t {
     ePUS_0_Weak_pull_down = 0, // Weak pull down
     ePUS_1_Weak_pull_up = 1, // Weak pull up
   };
+  
   enum class eODE : uint32_t {
     eODE_0_Disabled = 0, // Disabled
     eODE_1_Enabled = 1, // Enabled
   };
+  
   enum class eDWP : uint32_t {
     eforbid_none = 0, // Both cores are allowed
     eforbid_CM7 = 1, // CM7 is forbidden
     eforbid_CM4 = 2, // CM4 is forbidden
     eforbid_both = 3, // Both cores are forbidden
   };
+  
   enum class eDWP_LOCK : uint32_t {
     elock_none = 0, // Neither of DWP bits is locked
     elock_low = 1, // The lower DWP bit is locked
@@ -8686,7 +8905,7 @@ union SW_PAD_CTL_PAD_GPIO_AD_05 {
     uint32_t _reserved_5 : 23;
     eDWP DWP : 2;
     eDWP_LOCK DWP_LOCK : 2;
-  } bits;          // Bit-field struct (auto-filling reserved gaps)
+  } bits;
   
   // Full 32-bit register value.
   uint32_t value;
@@ -8700,33 +8919,38 @@ union SW_PAD_CTL_PAD_GPIO_AD_05 {
 //
 union SW_PAD_CTL_PAD_GPIO_AD_06 {
   
-  // Enum definitions.
   enum class eSRE : uint32_t {
     eSRE_0_Slow_Slew_Rate = 0, // Slow Slew Rate
     eSRE_1_Fast_Slew_Rate = 1, // Fast Slew Rate
   };
+  
   enum class eDSE : uint32_t {
     eDSE_0_normal_driver = 0, // normal drive strength
     eDSE_1_high_driver = 1, // high drive strength
   };
+  
   enum class ePUE : uint32_t {
     ePUE_0_Pull_Disable__Highz = 0, // Pull Disable, Highz
     ePUE_1_Pull_Enable = 1, // Pull Enable
   };
+  
   enum class ePUS : uint32_t {
     ePUS_0_Weak_pull_down = 0, // Weak pull down
     ePUS_1_Weak_pull_up = 1, // Weak pull up
   };
+  
   enum class eODE : uint32_t {
     eODE_0_Disabled = 0, // Disabled
     eODE_1_Enabled = 1, // Enabled
   };
+  
   enum class eDWP : uint32_t {
     eforbid_none = 0, // Both cores are allowed
     eforbid_CM7 = 1, // CM7 is forbidden
     eforbid_CM4 = 2, // CM4 is forbidden
     eforbid_both = 3, // Both cores are forbidden
   };
+  
   enum class eDWP_LOCK : uint32_t {
     elock_none = 0, // Neither of DWP bits is locked
     elock_low = 1, // The lower DWP bit is locked
@@ -8744,7 +8968,7 @@ union SW_PAD_CTL_PAD_GPIO_AD_06 {
     uint32_t _reserved_5 : 23;
     eDWP DWP : 2;
     eDWP_LOCK DWP_LOCK : 2;
-  } bits;          // Bit-field struct (auto-filling reserved gaps)
+  } bits;
   
   // Full 32-bit register value.
   uint32_t value;
@@ -8758,33 +8982,38 @@ union SW_PAD_CTL_PAD_GPIO_AD_06 {
 //
 union SW_PAD_CTL_PAD_GPIO_AD_07 {
   
-  // Enum definitions.
   enum class eSRE : uint32_t {
     eSRE_0_Slow_Slew_Rate = 0, // Slow Slew Rate
     eSRE_1_Fast_Slew_Rate = 1, // Fast Slew Rate
   };
+  
   enum class eDSE : uint32_t {
     eDSE_0_normal_driver = 0, // normal drive strength
     eDSE_1_high_driver = 1, // high drive strength
   };
+  
   enum class ePUE : uint32_t {
     ePUE_0_Pull_Disable__Highz = 0, // Pull Disable, Highz
     ePUE_1_Pull_Enable = 1, // Pull Enable
   };
+  
   enum class ePUS : uint32_t {
     ePUS_0_Weak_pull_down = 0, // Weak pull down
     ePUS_1_Weak_pull_up = 1, // Weak pull up
   };
+  
   enum class eODE : uint32_t {
     eODE_0_Disabled = 0, // Disabled
     eODE_1_Enabled = 1, // Enabled
   };
+  
   enum class eDWP : uint32_t {
     eforbid_none = 0, // Both cores are allowed
     eforbid_CM7 = 1, // CM7 is forbidden
     eforbid_CM4 = 2, // CM4 is forbidden
     eforbid_both = 3, // Both cores are forbidden
   };
+  
   enum class eDWP_LOCK : uint32_t {
     elock_none = 0, // Neither of DWP bits is locked
     elock_low = 1, // The lower DWP bit is locked
@@ -8802,7 +9031,7 @@ union SW_PAD_CTL_PAD_GPIO_AD_07 {
     uint32_t _reserved_5 : 23;
     eDWP DWP : 2;
     eDWP_LOCK DWP_LOCK : 2;
-  } bits;          // Bit-field struct (auto-filling reserved gaps)
+  } bits;
   
   // Full 32-bit register value.
   uint32_t value;
@@ -8816,33 +9045,38 @@ union SW_PAD_CTL_PAD_GPIO_AD_07 {
 //
 union SW_PAD_CTL_PAD_GPIO_AD_08 {
   
-  // Enum definitions.
   enum class eSRE : uint32_t {
     eSRE_0_Slow_Slew_Rate = 0, // Slow Slew Rate
     eSRE_1_Fast_Slew_Rate = 1, // Fast Slew Rate
   };
+  
   enum class eDSE : uint32_t {
     eDSE_0_normal_driver = 0, // normal drive strength
     eDSE_1_high_driver = 1, // high drive strength
   };
+  
   enum class ePUE : uint32_t {
     ePUE_0_Pull_Disable__Highz = 0, // Pull Disable, Highz
     ePUE_1_Pull_Enable = 1, // Pull Enable
   };
+  
   enum class ePUS : uint32_t {
     ePUS_0_Weak_pull_down = 0, // Weak pull down
     ePUS_1_Weak_pull_up = 1, // Weak pull up
   };
+  
   enum class eODE : uint32_t {
     eODE_0_Disabled = 0, // Disabled
     eODE_1_Enabled = 1, // Enabled
   };
+  
   enum class eDWP : uint32_t {
     eforbid_none = 0, // Both cores are allowed
     eforbid_CM7 = 1, // CM7 is forbidden
     eforbid_CM4 = 2, // CM4 is forbidden
     eforbid_both = 3, // Both cores are forbidden
   };
+  
   enum class eDWP_LOCK : uint32_t {
     elock_none = 0, // Neither of DWP bits is locked
     elock_low = 1, // The lower DWP bit is locked
@@ -8860,7 +9094,7 @@ union SW_PAD_CTL_PAD_GPIO_AD_08 {
     uint32_t _reserved_5 : 23;
     eDWP DWP : 2;
     eDWP_LOCK DWP_LOCK : 2;
-  } bits;          // Bit-field struct (auto-filling reserved gaps)
+  } bits;
   
   // Full 32-bit register value.
   uint32_t value;
@@ -8874,33 +9108,38 @@ union SW_PAD_CTL_PAD_GPIO_AD_08 {
 //
 union SW_PAD_CTL_PAD_GPIO_AD_09 {
   
-  // Enum definitions.
   enum class eSRE : uint32_t {
     eSRE_0_Slow_Slew_Rate = 0, // Slow Slew Rate
     eSRE_1_Fast_Slew_Rate = 1, // Fast Slew Rate
   };
+  
   enum class eDSE : uint32_t {
     eDSE_0_normal_driver = 0, // normal drive strength
     eDSE_1_high_driver = 1, // high drive strength
   };
+  
   enum class ePUE : uint32_t {
     ePUE_0_Pull_Disable__Highz = 0, // Pull Disable, Highz
     ePUE_1_Pull_Enable = 1, // Pull Enable
   };
+  
   enum class ePUS : uint32_t {
     ePUS_0_Weak_pull_down = 0, // Weak pull down
     ePUS_1_Weak_pull_up = 1, // Weak pull up
   };
+  
   enum class eODE : uint32_t {
     eODE_0_Disabled = 0, // Disabled
     eODE_1_Enabled = 1, // Enabled
   };
+  
   enum class eDWP : uint32_t {
     eforbid_none = 0, // Both cores are allowed
     eforbid_CM7 = 1, // CM7 is forbidden
     eforbid_CM4 = 2, // CM4 is forbidden
     eforbid_both = 3, // Both cores are forbidden
   };
+  
   enum class eDWP_LOCK : uint32_t {
     elock_none = 0, // Neither of DWP bits is locked
     elock_low = 1, // The lower DWP bit is locked
@@ -8918,7 +9157,7 @@ union SW_PAD_CTL_PAD_GPIO_AD_09 {
     uint32_t _reserved_5 : 23;
     eDWP DWP : 2;
     eDWP_LOCK DWP_LOCK : 2;
-  } bits;          // Bit-field struct (auto-filling reserved gaps)
+  } bits;
   
   // Full 32-bit register value.
   uint32_t value;
@@ -8932,33 +9171,38 @@ union SW_PAD_CTL_PAD_GPIO_AD_09 {
 //
 union SW_PAD_CTL_PAD_GPIO_AD_10 {
   
-  // Enum definitions.
   enum class eSRE : uint32_t {
     eSRE_0_Slow_Slew_Rate = 0, // Slow Slew Rate
     eSRE_1_Fast_Slew_Rate = 1, // Fast Slew Rate
   };
+  
   enum class eDSE : uint32_t {
     eDSE_0_normal_driver = 0, // normal drive strength
     eDSE_1_high_driver = 1, // high drive strength
   };
+  
   enum class ePUE : uint32_t {
     ePUE_0_Pull_Disable__Highz = 0, // Pull Disable, Highz
     ePUE_1_Pull_Enable = 1, // Pull Enable
   };
+  
   enum class ePUS : uint32_t {
     ePUS_0_Weak_pull_down = 0, // Weak pull down
     ePUS_1_Weak_pull_up = 1, // Weak pull up
   };
+  
   enum class eODE : uint32_t {
     eODE_0_Disabled = 0, // Disabled
     eODE_1_Enabled = 1, // Enabled
   };
+  
   enum class eDWP : uint32_t {
     eforbid_none = 0, // Both cores are allowed
     eforbid_CM7 = 1, // CM7 is forbidden
     eforbid_CM4 = 2, // CM4 is forbidden
     eforbid_both = 3, // Both cores are forbidden
   };
+  
   enum class eDWP_LOCK : uint32_t {
     elock_none = 0, // Neither of DWP bits is locked
     elock_low = 1, // The lower DWP bit is locked
@@ -8976,7 +9220,7 @@ union SW_PAD_CTL_PAD_GPIO_AD_10 {
     uint32_t _reserved_5 : 23;
     eDWP DWP : 2;
     eDWP_LOCK DWP_LOCK : 2;
-  } bits;          // Bit-field struct (auto-filling reserved gaps)
+  } bits;
   
   // Full 32-bit register value.
   uint32_t value;
@@ -8990,33 +9234,38 @@ union SW_PAD_CTL_PAD_GPIO_AD_10 {
 //
 union SW_PAD_CTL_PAD_GPIO_AD_11 {
   
-  // Enum definitions.
   enum class eSRE : uint32_t {
     eSRE_0_Slow_Slew_Rate = 0, // Slow Slew Rate
     eSRE_1_Fast_Slew_Rate = 1, // Fast Slew Rate
   };
+  
   enum class eDSE : uint32_t {
     eDSE_0_normal_driver = 0, // normal drive strength
     eDSE_1_high_driver = 1, // high drive strength
   };
+  
   enum class ePUE : uint32_t {
     ePUE_0_Pull_Disable__Highz = 0, // Pull Disable, Highz
     ePUE_1_Pull_Enable = 1, // Pull Enable
   };
+  
   enum class ePUS : uint32_t {
     ePUS_0_Weak_pull_down = 0, // Weak pull down
     ePUS_1_Weak_pull_up = 1, // Weak pull up
   };
+  
   enum class eODE : uint32_t {
     eODE_0_Disabled = 0, // Disabled
     eODE_1_Enabled = 1, // Enabled
   };
+  
   enum class eDWP : uint32_t {
     eforbid_none = 0, // Both cores are allowed
     eforbid_CM7 = 1, // CM7 is forbidden
     eforbid_CM4 = 2, // CM4 is forbidden
     eforbid_both = 3, // Both cores are forbidden
   };
+  
   enum class eDWP_LOCK : uint32_t {
     elock_none = 0, // Neither of DWP bits is locked
     elock_low = 1, // The lower DWP bit is locked
@@ -9034,7 +9283,7 @@ union SW_PAD_CTL_PAD_GPIO_AD_11 {
     uint32_t _reserved_5 : 23;
     eDWP DWP : 2;
     eDWP_LOCK DWP_LOCK : 2;
-  } bits;          // Bit-field struct (auto-filling reserved gaps)
+  } bits;
   
   // Full 32-bit register value.
   uint32_t value;
@@ -9048,33 +9297,38 @@ union SW_PAD_CTL_PAD_GPIO_AD_11 {
 //
 union SW_PAD_CTL_PAD_GPIO_AD_12 {
   
-  // Enum definitions.
   enum class eSRE : uint32_t {
     eSRE_0_Slow_Slew_Rate = 0, // Slow Slew Rate
     eSRE_1_Fast_Slew_Rate = 1, // Fast Slew Rate
   };
+  
   enum class eDSE : uint32_t {
     eDSE_0_normal_driver = 0, // normal drive strength
     eDSE_1_high_driver = 1, // high drive strength
   };
+  
   enum class ePUE : uint32_t {
     ePUE_0_Pull_Disable__Highz = 0, // Pull Disable, Highz
     ePUE_1_Pull_Enable = 1, // Pull Enable
   };
+  
   enum class ePUS : uint32_t {
     ePUS_0_Weak_pull_down = 0, // Weak pull down
     ePUS_1_Weak_pull_up = 1, // Weak pull up
   };
+  
   enum class eODE : uint32_t {
     eODE_0_Disabled = 0, // Disabled
     eODE_1_Enabled = 1, // Enabled
   };
+  
   enum class eDWP : uint32_t {
     eforbid_none = 0, // Both cores are allowed
     eforbid_CM7 = 1, // CM7 is forbidden
     eforbid_CM4 = 2, // CM4 is forbidden
     eforbid_both = 3, // Both cores are forbidden
   };
+  
   enum class eDWP_LOCK : uint32_t {
     elock_none = 0, // Neither of DWP bits is locked
     elock_low = 1, // The lower DWP bit is locked
@@ -9092,7 +9346,7 @@ union SW_PAD_CTL_PAD_GPIO_AD_12 {
     uint32_t _reserved_5 : 23;
     eDWP DWP : 2;
     eDWP_LOCK DWP_LOCK : 2;
-  } bits;          // Bit-field struct (auto-filling reserved gaps)
+  } bits;
   
   // Full 32-bit register value.
   uint32_t value;
@@ -9106,33 +9360,38 @@ union SW_PAD_CTL_PAD_GPIO_AD_12 {
 //
 union SW_PAD_CTL_PAD_GPIO_AD_13 {
   
-  // Enum definitions.
   enum class eSRE : uint32_t {
     eSRE_0_Slow_Slew_Rate = 0, // Slow Slew Rate
     eSRE_1_Fast_Slew_Rate = 1, // Fast Slew Rate
   };
+  
   enum class eDSE : uint32_t {
     eDSE_0_normal_driver = 0, // normal drive strength
     eDSE_1_high_driver = 1, // high drive strength
   };
+  
   enum class ePUE : uint32_t {
     ePUE_0_Pull_Disable__Highz = 0, // Pull Disable, Highz
     ePUE_1_Pull_Enable = 1, // Pull Enable
   };
+  
   enum class ePUS : uint32_t {
     ePUS_0_Weak_pull_down = 0, // Weak pull down
     ePUS_1_Weak_pull_up = 1, // Weak pull up
   };
+  
   enum class eODE : uint32_t {
     eODE_0_Disabled = 0, // Disabled
     eODE_1_Enabled = 1, // Enabled
   };
+  
   enum class eDWP : uint32_t {
     eforbid_none = 0, // Both cores are allowed
     eforbid_CM7 = 1, // CM7 is forbidden
     eforbid_CM4 = 2, // CM4 is forbidden
     eforbid_both = 3, // Both cores are forbidden
   };
+  
   enum class eDWP_LOCK : uint32_t {
     elock_none = 0, // Neither of DWP bits is locked
     elock_low = 1, // The lower DWP bit is locked
@@ -9150,7 +9409,7 @@ union SW_PAD_CTL_PAD_GPIO_AD_13 {
     uint32_t _reserved_5 : 23;
     eDWP DWP : 2;
     eDWP_LOCK DWP_LOCK : 2;
-  } bits;          // Bit-field struct (auto-filling reserved gaps)
+  } bits;
   
   // Full 32-bit register value.
   uint32_t value;
@@ -9164,33 +9423,38 @@ union SW_PAD_CTL_PAD_GPIO_AD_13 {
 //
 union SW_PAD_CTL_PAD_GPIO_AD_14 {
   
-  // Enum definitions.
   enum class eSRE : uint32_t {
     eSRE_0_Slow_Slew_Rate = 0, // Slow Slew Rate
     eSRE_1_Fast_Slew_Rate = 1, // Fast Slew Rate
   };
+  
   enum class eDSE : uint32_t {
     eDSE_0_normal_driver = 0, // normal drive strength
     eDSE_1_high_driver = 1, // high drive strength
   };
+  
   enum class ePUE : uint32_t {
     ePUE_0_Pull_Disable__Highz = 0, // Pull Disable, Highz
     ePUE_1_Pull_Enable = 1, // Pull Enable
   };
+  
   enum class ePUS : uint32_t {
     ePUS_0_Weak_pull_down = 0, // Weak pull down
     ePUS_1_Weak_pull_up = 1, // Weak pull up
   };
+  
   enum class eODE : uint32_t {
     eODE_0_Disabled = 0, // Disabled
     eODE_1_Enabled = 1, // Enabled
   };
+  
   enum class eDWP : uint32_t {
     eforbid_none = 0, // Both cores are allowed
     eforbid_CM7 = 1, // CM7 is forbidden
     eforbid_CM4 = 2, // CM4 is forbidden
     eforbid_both = 3, // Both cores are forbidden
   };
+  
   enum class eDWP_LOCK : uint32_t {
     elock_none = 0, // Neither of DWP bits is locked
     elock_low = 1, // The lower DWP bit is locked
@@ -9208,7 +9472,7 @@ union SW_PAD_CTL_PAD_GPIO_AD_14 {
     uint32_t _reserved_5 : 23;
     eDWP DWP : 2;
     eDWP_LOCK DWP_LOCK : 2;
-  } bits;          // Bit-field struct (auto-filling reserved gaps)
+  } bits;
   
   // Full 32-bit register value.
   uint32_t value;
@@ -9222,33 +9486,38 @@ union SW_PAD_CTL_PAD_GPIO_AD_14 {
 //
 union SW_PAD_CTL_PAD_GPIO_AD_15 {
   
-  // Enum definitions.
   enum class eSRE : uint32_t {
     eSRE_0_Slow_Slew_Rate = 0, // Slow Slew Rate
     eSRE_1_Fast_Slew_Rate = 1, // Fast Slew Rate
   };
+  
   enum class eDSE : uint32_t {
     eDSE_0_normal_driver = 0, // normal drive strength
     eDSE_1_high_driver = 1, // high drive strength
   };
+  
   enum class ePUE : uint32_t {
     ePUE_0_Pull_Disable__Highz = 0, // Pull Disable, Highz
     ePUE_1_Pull_Enable = 1, // Pull Enable
   };
+  
   enum class ePUS : uint32_t {
     ePUS_0_Weak_pull_down = 0, // Weak pull down
     ePUS_1_Weak_pull_up = 1, // Weak pull up
   };
+  
   enum class eODE : uint32_t {
     eODE_0_Disabled = 0, // Disabled
     eODE_1_Enabled = 1, // Enabled
   };
+  
   enum class eDWP : uint32_t {
     eforbid_none = 0, // Both cores are allowed
     eforbid_CM7 = 1, // CM7 is forbidden
     eforbid_CM4 = 2, // CM4 is forbidden
     eforbid_both = 3, // Both cores are forbidden
   };
+  
   enum class eDWP_LOCK : uint32_t {
     elock_none = 0, // Neither of DWP bits is locked
     elock_low = 1, // The lower DWP bit is locked
@@ -9266,7 +9535,7 @@ union SW_PAD_CTL_PAD_GPIO_AD_15 {
     uint32_t _reserved_5 : 23;
     eDWP DWP : 2;
     eDWP_LOCK DWP_LOCK : 2;
-  } bits;          // Bit-field struct (auto-filling reserved gaps)
+  } bits;
   
   // Full 32-bit register value.
   uint32_t value;
@@ -9280,33 +9549,38 @@ union SW_PAD_CTL_PAD_GPIO_AD_15 {
 //
 union SW_PAD_CTL_PAD_GPIO_AD_16 {
   
-  // Enum definitions.
   enum class eSRE : uint32_t {
     eSRE_0_Slow_Slew_Rate = 0, // Slow Slew Rate
     eSRE_1_Fast_Slew_Rate = 1, // Fast Slew Rate
   };
+  
   enum class eDSE : uint32_t {
     eDSE_0_normal_driver = 0, // normal drive strength
     eDSE_1_high_driver = 1, // high drive strength
   };
+  
   enum class ePUE : uint32_t {
     ePUE_0_Pull_Disable__Highz = 0, // Pull Disable, Highz
     ePUE_1_Pull_Enable = 1, // Pull Enable
   };
+  
   enum class ePUS : uint32_t {
     ePUS_0_Weak_pull_down = 0, // Weak pull down
     ePUS_1_Weak_pull_up = 1, // Weak pull up
   };
+  
   enum class eODE : uint32_t {
     eODE_0_Disabled = 0, // Disabled
     eODE_1_Enabled = 1, // Enabled
   };
+  
   enum class eDWP : uint32_t {
     eforbid_none = 0, // Both cores are allowed
     eforbid_CM7 = 1, // CM7 is forbidden
     eforbid_CM4 = 2, // CM4 is forbidden
     eforbid_both = 3, // Both cores are forbidden
   };
+  
   enum class eDWP_LOCK : uint32_t {
     elock_none = 0, // Neither of DWP bits is locked
     elock_low = 1, // The lower DWP bit is locked
@@ -9324,7 +9598,7 @@ union SW_PAD_CTL_PAD_GPIO_AD_16 {
     uint32_t _reserved_5 : 23;
     eDWP DWP : 2;
     eDWP_LOCK DWP_LOCK : 2;
-  } bits;          // Bit-field struct (auto-filling reserved gaps)
+  } bits;
   
   // Full 32-bit register value.
   uint32_t value;
@@ -9338,33 +9612,38 @@ union SW_PAD_CTL_PAD_GPIO_AD_16 {
 //
 union SW_PAD_CTL_PAD_GPIO_AD_17 {
   
-  // Enum definitions.
   enum class eSRE : uint32_t {
     eSRE_0_Slow_Slew_Rate = 0, // Slow Slew Rate
     eSRE_1_Fast_Slew_Rate = 1, // Fast Slew Rate
   };
+  
   enum class eDSE : uint32_t {
     eDSE_0_normal_driver = 0, // normal drive strength
     eDSE_1_high_driver = 1, // high drive strength
   };
+  
   enum class ePUE : uint32_t {
     ePUE_0_Pull_Disable__Highz = 0, // Pull Disable, Highz
     ePUE_1_Pull_Enable = 1, // Pull Enable
   };
+  
   enum class ePUS : uint32_t {
     ePUS_0_Weak_pull_down = 0, // Weak pull down
     ePUS_1_Weak_pull_up = 1, // Weak pull up
   };
+  
   enum class eODE : uint32_t {
     eODE_0_Disabled = 0, // Disabled
     eODE_1_Enabled = 1, // Enabled
   };
+  
   enum class eDWP : uint32_t {
     eforbid_none = 0, // Both cores are allowed
     eforbid_CM7 = 1, // CM7 is forbidden
     eforbid_CM4 = 2, // CM4 is forbidden
     eforbid_both = 3, // Both cores are forbidden
   };
+  
   enum class eDWP_LOCK : uint32_t {
     elock_none = 0, // Neither of DWP bits is locked
     elock_low = 1, // The lower DWP bit is locked
@@ -9382,7 +9661,7 @@ union SW_PAD_CTL_PAD_GPIO_AD_17 {
     uint32_t _reserved_5 : 23;
     eDWP DWP : 2;
     eDWP_LOCK DWP_LOCK : 2;
-  } bits;          // Bit-field struct (auto-filling reserved gaps)
+  } bits;
   
   // Full 32-bit register value.
   uint32_t value;
@@ -9396,33 +9675,38 @@ union SW_PAD_CTL_PAD_GPIO_AD_17 {
 //
 union SW_PAD_CTL_PAD_GPIO_AD_18 {
   
-  // Enum definitions.
   enum class eSRE : uint32_t {
     eSRE_0_Slow_Slew_Rate = 0, // Slow Slew Rate
     eSRE_1_Fast_Slew_Rate = 1, // Fast Slew Rate
   };
+  
   enum class eDSE : uint32_t {
     eDSE_0_normal_driver = 0, // normal drive strength
     eDSE_1_high_driver = 1, // high drive strength
   };
+  
   enum class ePUE : uint32_t {
     ePUE_0_Pull_Disable__Highz = 0, // Pull Disable, Highz
     ePUE_1_Pull_Enable = 1, // Pull Enable
   };
+  
   enum class ePUS : uint32_t {
     ePUS_0_Weak_pull_down = 0, // Weak pull down
     ePUS_1_Weak_pull_up = 1, // Weak pull up
   };
+  
   enum class eODE : uint32_t {
     eODE_0_Disabled = 0, // Disabled
     eODE_1_Enabled = 1, // Enabled
   };
+  
   enum class eDWP : uint32_t {
     eforbid_none = 0, // Both cores are allowed
     eforbid_CM7 = 1, // CM7 is forbidden
     eforbid_CM4 = 2, // CM4 is forbidden
     eforbid_both = 3, // Both cores are forbidden
   };
+  
   enum class eDWP_LOCK : uint32_t {
     elock_none = 0, // Neither of DWP bits is locked
     elock_low = 1, // The lower DWP bit is locked
@@ -9440,7 +9724,7 @@ union SW_PAD_CTL_PAD_GPIO_AD_18 {
     uint32_t _reserved_5 : 23;
     eDWP DWP : 2;
     eDWP_LOCK DWP_LOCK : 2;
-  } bits;          // Bit-field struct (auto-filling reserved gaps)
+  } bits;
   
   // Full 32-bit register value.
   uint32_t value;
@@ -9454,33 +9738,38 @@ union SW_PAD_CTL_PAD_GPIO_AD_18 {
 //
 union SW_PAD_CTL_PAD_GPIO_AD_19 {
   
-  // Enum definitions.
   enum class eSRE : uint32_t {
     eSRE_0_Slow_Slew_Rate = 0, // Slow Slew Rate
     eSRE_1_Fast_Slew_Rate = 1, // Fast Slew Rate
   };
+  
   enum class eDSE : uint32_t {
     eDSE_0_normal_driver = 0, // normal drive strength
     eDSE_1_high_driver = 1, // high drive strength
   };
+  
   enum class ePUE : uint32_t {
     ePUE_0_Pull_Disable__Highz = 0, // Pull Disable, Highz
     ePUE_1_Pull_Enable = 1, // Pull Enable
   };
+  
   enum class ePUS : uint32_t {
     ePUS_0_Weak_pull_down = 0, // Weak pull down
     ePUS_1_Weak_pull_up = 1, // Weak pull up
   };
+  
   enum class eODE : uint32_t {
     eODE_0_Disabled = 0, // Disabled
     eODE_1_Enabled = 1, // Enabled
   };
+  
   enum class eDWP : uint32_t {
     eforbid_none = 0, // Both cores are allowed
     eforbid_CM7 = 1, // CM7 is forbidden
     eforbid_CM4 = 2, // CM4 is forbidden
     eforbid_both = 3, // Both cores are forbidden
   };
+  
   enum class eDWP_LOCK : uint32_t {
     elock_none = 0, // Neither of DWP bits is locked
     elock_low = 1, // The lower DWP bit is locked
@@ -9498,7 +9787,7 @@ union SW_PAD_CTL_PAD_GPIO_AD_19 {
     uint32_t _reserved_5 : 23;
     eDWP DWP : 2;
     eDWP_LOCK DWP_LOCK : 2;
-  } bits;          // Bit-field struct (auto-filling reserved gaps)
+  } bits;
   
   // Full 32-bit register value.
   uint32_t value;
@@ -9512,33 +9801,38 @@ union SW_PAD_CTL_PAD_GPIO_AD_19 {
 //
 union SW_PAD_CTL_PAD_GPIO_AD_20 {
   
-  // Enum definitions.
   enum class eSRE : uint32_t {
     eSRE_0_Slow_Slew_Rate = 0, // Slow Slew Rate
     eSRE_1_Fast_Slew_Rate = 1, // Fast Slew Rate
   };
+  
   enum class eDSE : uint32_t {
     eDSE_0_normal_driver = 0, // normal drive strength
     eDSE_1_high_driver = 1, // high drive strength
   };
+  
   enum class ePUE : uint32_t {
     ePUE_0_Pull_Disable__Highz = 0, // Pull Disable, Highz
     ePUE_1_Pull_Enable = 1, // Pull Enable
   };
+  
   enum class ePUS : uint32_t {
     ePUS_0_Weak_pull_down = 0, // Weak pull down
     ePUS_1_Weak_pull_up = 1, // Weak pull up
   };
+  
   enum class eODE : uint32_t {
     eODE_0_Disabled = 0, // Disabled
     eODE_1_Enabled = 1, // Enabled
   };
+  
   enum class eDWP : uint32_t {
     eforbid_none = 0, // Both cores are allowed
     eforbid_CM7 = 1, // CM7 is forbidden
     eforbid_CM4 = 2, // CM4 is forbidden
     eforbid_both = 3, // Both cores are forbidden
   };
+  
   enum class eDWP_LOCK : uint32_t {
     elock_none = 0, // Neither of DWP bits is locked
     elock_low = 1, // The lower DWP bit is locked
@@ -9556,7 +9850,7 @@ union SW_PAD_CTL_PAD_GPIO_AD_20 {
     uint32_t _reserved_5 : 23;
     eDWP DWP : 2;
     eDWP_LOCK DWP_LOCK : 2;
-  } bits;          // Bit-field struct (auto-filling reserved gaps)
+  } bits;
   
   // Full 32-bit register value.
   uint32_t value;
@@ -9570,33 +9864,38 @@ union SW_PAD_CTL_PAD_GPIO_AD_20 {
 //
 union SW_PAD_CTL_PAD_GPIO_AD_21 {
   
-  // Enum definitions.
   enum class eSRE : uint32_t {
     eSRE_0_Slow_Slew_Rate = 0, // Slow Slew Rate
     eSRE_1_Fast_Slew_Rate = 1, // Fast Slew Rate
   };
+  
   enum class eDSE : uint32_t {
     eDSE_0_normal_driver = 0, // normal drive strength
     eDSE_1_high_driver = 1, // high drive strength
   };
+  
   enum class ePUE : uint32_t {
     ePUE_0_Pull_Disable__Highz = 0, // Pull Disable, Highz
     ePUE_1_Pull_Enable = 1, // Pull Enable
   };
+  
   enum class ePUS : uint32_t {
     ePUS_0_Weak_pull_down = 0, // Weak pull down
     ePUS_1_Weak_pull_up = 1, // Weak pull up
   };
+  
   enum class eODE : uint32_t {
     eODE_0_Disabled = 0, // Disabled
     eODE_1_Enabled = 1, // Enabled
   };
+  
   enum class eDWP : uint32_t {
     eforbid_none = 0, // Both cores are allowed
     eforbid_CM7 = 1, // CM7 is forbidden
     eforbid_CM4 = 2, // CM4 is forbidden
     eforbid_both = 3, // Both cores are forbidden
   };
+  
   enum class eDWP_LOCK : uint32_t {
     elock_none = 0, // Neither of DWP bits is locked
     elock_low = 1, // The lower DWP bit is locked
@@ -9614,7 +9913,7 @@ union SW_PAD_CTL_PAD_GPIO_AD_21 {
     uint32_t _reserved_5 : 23;
     eDWP DWP : 2;
     eDWP_LOCK DWP_LOCK : 2;
-  } bits;          // Bit-field struct (auto-filling reserved gaps)
+  } bits;
   
   // Full 32-bit register value.
   uint32_t value;
@@ -9628,33 +9927,38 @@ union SW_PAD_CTL_PAD_GPIO_AD_21 {
 //
 union SW_PAD_CTL_PAD_GPIO_AD_22 {
   
-  // Enum definitions.
   enum class eSRE : uint32_t {
     eSRE_0_Slow_Slew_Rate = 0, // Slow Slew Rate
     eSRE_1_Fast_Slew_Rate = 1, // Fast Slew Rate
   };
+  
   enum class eDSE : uint32_t {
     eDSE_0_normal_driver = 0, // normal drive strength
     eDSE_1_high_driver = 1, // high drive strength
   };
+  
   enum class ePUE : uint32_t {
     ePUE_0_Pull_Disable__Highz = 0, // Pull Disable, Highz
     ePUE_1_Pull_Enable = 1, // Pull Enable
   };
+  
   enum class ePUS : uint32_t {
     ePUS_0_Weak_pull_down = 0, // Weak pull down
     ePUS_1_Weak_pull_up = 1, // Weak pull up
   };
+  
   enum class eODE : uint32_t {
     eODE_0_Disabled = 0, // Disabled
     eODE_1_Enabled = 1, // Enabled
   };
+  
   enum class eDWP : uint32_t {
     eforbid_none = 0, // Both cores are allowed
     eforbid_CM7 = 1, // CM7 is forbidden
     eforbid_CM4 = 2, // CM4 is forbidden
     eforbid_both = 3, // Both cores are forbidden
   };
+  
   enum class eDWP_LOCK : uint32_t {
     elock_none = 0, // Neither of DWP bits is locked
     elock_low = 1, // The lower DWP bit is locked
@@ -9672,7 +9976,7 @@ union SW_PAD_CTL_PAD_GPIO_AD_22 {
     uint32_t _reserved_5 : 23;
     eDWP DWP : 2;
     eDWP_LOCK DWP_LOCK : 2;
-  } bits;          // Bit-field struct (auto-filling reserved gaps)
+  } bits;
   
   // Full 32-bit register value.
   uint32_t value;
@@ -9686,33 +9990,38 @@ union SW_PAD_CTL_PAD_GPIO_AD_22 {
 //
 union SW_PAD_CTL_PAD_GPIO_AD_23 {
   
-  // Enum definitions.
   enum class eSRE : uint32_t {
     eSRE_0_Slow_Slew_Rate = 0, // Slow Slew Rate
     eSRE_1_Fast_Slew_Rate = 1, // Fast Slew Rate
   };
+  
   enum class eDSE : uint32_t {
     eDSE_0_normal_driver = 0, // normal drive strength
     eDSE_1_high_driver = 1, // high drive strength
   };
+  
   enum class ePUE : uint32_t {
     ePUE_0_Pull_Disable__Highz = 0, // Pull Disable, Highz
     ePUE_1_Pull_Enable = 1, // Pull Enable
   };
+  
   enum class ePUS : uint32_t {
     ePUS_0_Weak_pull_down = 0, // Weak pull down
     ePUS_1_Weak_pull_up = 1, // Weak pull up
   };
+  
   enum class eODE : uint32_t {
     eODE_0_Disabled = 0, // Disabled
     eODE_1_Enabled = 1, // Enabled
   };
+  
   enum class eDWP : uint32_t {
     eforbid_none = 0, // Both cores are allowed
     eforbid_CM7 = 1, // CM7 is forbidden
     eforbid_CM4 = 2, // CM4 is forbidden
     eforbid_both = 3, // Both cores are forbidden
   };
+  
   enum class eDWP_LOCK : uint32_t {
     elock_none = 0, // Neither of DWP bits is locked
     elock_low = 1, // The lower DWP bit is locked
@@ -9730,7 +10039,7 @@ union SW_PAD_CTL_PAD_GPIO_AD_23 {
     uint32_t _reserved_5 : 23;
     eDWP DWP : 2;
     eDWP_LOCK DWP_LOCK : 2;
-  } bits;          // Bit-field struct (auto-filling reserved gaps)
+  } bits;
   
   // Full 32-bit register value.
   uint32_t value;
@@ -9744,33 +10053,38 @@ union SW_PAD_CTL_PAD_GPIO_AD_23 {
 //
 union SW_PAD_CTL_PAD_GPIO_AD_24 {
   
-  // Enum definitions.
   enum class eSRE : uint32_t {
     eSRE_0_Slow_Slew_Rate = 0, // Slow Slew Rate
     eSRE_1_Fast_Slew_Rate = 1, // Fast Slew Rate
   };
+  
   enum class eDSE : uint32_t {
     eDSE_0_normal_driver = 0, // normal drive strength
     eDSE_1_high_driver = 1, // high drive strength
   };
+  
   enum class ePUE : uint32_t {
     ePUE_0_Pull_Disable__Highz = 0, // Pull Disable, Highz
     ePUE_1_Pull_Enable = 1, // Pull Enable
   };
+  
   enum class ePUS : uint32_t {
     ePUS_0_Weak_pull_down = 0, // Weak pull down
     ePUS_1_Weak_pull_up = 1, // Weak pull up
   };
+  
   enum class eODE : uint32_t {
     eODE_0_Disabled = 0, // Disabled
     eODE_1_Enabled = 1, // Enabled
   };
+  
   enum class eDWP : uint32_t {
     eforbid_none = 0, // Both cores are allowed
     eforbid_CM7 = 1, // CM7 is forbidden
     eforbid_CM4 = 2, // CM4 is forbidden
     eforbid_both = 3, // Both cores are forbidden
   };
+  
   enum class eDWP_LOCK : uint32_t {
     elock_none = 0, // Neither of DWP bits is locked
     elock_low = 1, // The lower DWP bit is locked
@@ -9788,7 +10102,7 @@ union SW_PAD_CTL_PAD_GPIO_AD_24 {
     uint32_t _reserved_5 : 23;
     eDWP DWP : 2;
     eDWP_LOCK DWP_LOCK : 2;
-  } bits;          // Bit-field struct (auto-filling reserved gaps)
+  } bits;
   
   // Full 32-bit register value.
   uint32_t value;
@@ -9802,33 +10116,38 @@ union SW_PAD_CTL_PAD_GPIO_AD_24 {
 //
 union SW_PAD_CTL_PAD_GPIO_AD_25 {
   
-  // Enum definitions.
   enum class eSRE : uint32_t {
     eSRE_0_Slow_Slew_Rate = 0, // Slow Slew Rate
     eSRE_1_Fast_Slew_Rate = 1, // Fast Slew Rate
   };
+  
   enum class eDSE : uint32_t {
     eDSE_0_normal_driver = 0, // normal drive strength
     eDSE_1_high_driver = 1, // high drive strength
   };
+  
   enum class ePUE : uint32_t {
     ePUE_0_Pull_Disable__Highz = 0, // Pull Disable, Highz
     ePUE_1_Pull_Enable = 1, // Pull Enable
   };
+  
   enum class ePUS : uint32_t {
     ePUS_0_Weak_pull_down = 0, // Weak pull down
     ePUS_1_Weak_pull_up = 1, // Weak pull up
   };
+  
   enum class eODE : uint32_t {
     eODE_0_Disabled = 0, // Disabled
     eODE_1_Enabled = 1, // Enabled
   };
+  
   enum class eDWP : uint32_t {
     eforbid_none = 0, // Both cores are allowed
     eforbid_CM7 = 1, // CM7 is forbidden
     eforbid_CM4 = 2, // CM4 is forbidden
     eforbid_both = 3, // Both cores are forbidden
   };
+  
   enum class eDWP_LOCK : uint32_t {
     elock_none = 0, // Neither of DWP bits is locked
     elock_low = 1, // The lower DWP bit is locked
@@ -9846,7 +10165,7 @@ union SW_PAD_CTL_PAD_GPIO_AD_25 {
     uint32_t _reserved_5 : 23;
     eDWP DWP : 2;
     eDWP_LOCK DWP_LOCK : 2;
-  } bits;          // Bit-field struct (auto-filling reserved gaps)
+  } bits;
   
   // Full 32-bit register value.
   uint32_t value;
@@ -9860,33 +10179,38 @@ union SW_PAD_CTL_PAD_GPIO_AD_25 {
 //
 union SW_PAD_CTL_PAD_GPIO_AD_26 {
   
-  // Enum definitions.
   enum class eSRE : uint32_t {
     eSRE_0_Slow_Slew_Rate = 0, // Slow Slew Rate
     eSRE_1_Fast_Slew_Rate = 1, // Fast Slew Rate
   };
+  
   enum class eDSE : uint32_t {
     eDSE_0_normal_driver = 0, // normal drive strength
     eDSE_1_high_driver = 1, // high drive strength
   };
+  
   enum class ePUE : uint32_t {
     ePUE_0_Pull_Disable__Highz = 0, // Pull Disable, Highz
     ePUE_1_Pull_Enable = 1, // Pull Enable
   };
+  
   enum class ePUS : uint32_t {
     ePUS_0_Weak_pull_down = 0, // Weak pull down
     ePUS_1_Weak_pull_up = 1, // Weak pull up
   };
+  
   enum class eODE : uint32_t {
     eODE_0_Disabled = 0, // Disabled
     eODE_1_Enabled = 1, // Enabled
   };
+  
   enum class eDWP : uint32_t {
     eforbid_none = 0, // Both cores are allowed
     eforbid_CM7 = 1, // CM7 is forbidden
     eforbid_CM4 = 2, // CM4 is forbidden
     eforbid_both = 3, // Both cores are forbidden
   };
+  
   enum class eDWP_LOCK : uint32_t {
     elock_none = 0, // Neither of DWP bits is locked
     elock_low = 1, // The lower DWP bit is locked
@@ -9904,7 +10228,7 @@ union SW_PAD_CTL_PAD_GPIO_AD_26 {
     uint32_t _reserved_5 : 23;
     eDWP DWP : 2;
     eDWP_LOCK DWP_LOCK : 2;
-  } bits;          // Bit-field struct (auto-filling reserved gaps)
+  } bits;
   
   // Full 32-bit register value.
   uint32_t value;
@@ -9918,33 +10242,38 @@ union SW_PAD_CTL_PAD_GPIO_AD_26 {
 //
 union SW_PAD_CTL_PAD_GPIO_AD_27 {
   
-  // Enum definitions.
   enum class eSRE : uint32_t {
     eSRE_0_Slow_Slew_Rate = 0, // Slow Slew Rate
     eSRE_1_Fast_Slew_Rate = 1, // Fast Slew Rate
   };
+  
   enum class eDSE : uint32_t {
     eDSE_0_normal_driver = 0, // normal drive strength
     eDSE_1_high_driver = 1, // high drive strength
   };
+  
   enum class ePUE : uint32_t {
     ePUE_0_Pull_Disable__Highz = 0, // Pull Disable, Highz
     ePUE_1_Pull_Enable = 1, // Pull Enable
   };
+  
   enum class ePUS : uint32_t {
     ePUS_0_Weak_pull_down = 0, // Weak pull down
     ePUS_1_Weak_pull_up = 1, // Weak pull up
   };
+  
   enum class eODE : uint32_t {
     eODE_0_Disabled = 0, // Disabled
     eODE_1_Enabled = 1, // Enabled
   };
+  
   enum class eDWP : uint32_t {
     eforbid_none = 0, // Both cores are allowed
     eforbid_CM7 = 1, // CM7 is forbidden
     eforbid_CM4 = 2, // CM4 is forbidden
     eforbid_both = 3, // Both cores are forbidden
   };
+  
   enum class eDWP_LOCK : uint32_t {
     elock_none = 0, // Neither of DWP bits is locked
     elock_low = 1, // The lower DWP bit is locked
@@ -9962,7 +10291,7 @@ union SW_PAD_CTL_PAD_GPIO_AD_27 {
     uint32_t _reserved_5 : 23;
     eDWP DWP : 2;
     eDWP_LOCK DWP_LOCK : 2;
-  } bits;          // Bit-field struct (auto-filling reserved gaps)
+  } bits;
   
   // Full 32-bit register value.
   uint32_t value;
@@ -9976,33 +10305,38 @@ union SW_PAD_CTL_PAD_GPIO_AD_27 {
 //
 union SW_PAD_CTL_PAD_GPIO_AD_28 {
   
-  // Enum definitions.
   enum class eSRE : uint32_t {
     eSRE_0_Slow_Slew_Rate = 0, // Slow Slew Rate
     eSRE_1_Fast_Slew_Rate = 1, // Fast Slew Rate
   };
+  
   enum class eDSE : uint32_t {
     eDSE_0_normal_driver = 0, // normal drive strength
     eDSE_1_high_driver = 1, // high drive strength
   };
+  
   enum class ePUE : uint32_t {
     ePUE_0_Pull_Disable__Highz = 0, // Pull Disable, Highz
     ePUE_1_Pull_Enable = 1, // Pull Enable
   };
+  
   enum class ePUS : uint32_t {
     ePUS_0_Weak_pull_down = 0, // Weak pull down
     ePUS_1_Weak_pull_up = 1, // Weak pull up
   };
+  
   enum class eODE : uint32_t {
     eODE_0_Disabled = 0, // Disabled
     eODE_1_Enabled = 1, // Enabled
   };
+  
   enum class eDWP : uint32_t {
     eforbid_none = 0, // Both cores are allowed
     eforbid_CM7 = 1, // CM7 is forbidden
     eforbid_CM4 = 2, // CM4 is forbidden
     eforbid_both = 3, // Both cores are forbidden
   };
+  
   enum class eDWP_LOCK : uint32_t {
     elock_none = 0, // Neither of DWP bits is locked
     elock_low = 1, // The lower DWP bit is locked
@@ -10020,7 +10354,7 @@ union SW_PAD_CTL_PAD_GPIO_AD_28 {
     uint32_t _reserved_5 : 23;
     eDWP DWP : 2;
     eDWP_LOCK DWP_LOCK : 2;
-  } bits;          // Bit-field struct (auto-filling reserved gaps)
+  } bits;
   
   // Full 32-bit register value.
   uint32_t value;
@@ -10034,33 +10368,38 @@ union SW_PAD_CTL_PAD_GPIO_AD_28 {
 //
 union SW_PAD_CTL_PAD_GPIO_AD_29 {
   
-  // Enum definitions.
   enum class eSRE : uint32_t {
     eSRE_0_Slow_Slew_Rate = 0, // Slow Slew Rate
     eSRE_1_Fast_Slew_Rate = 1, // Fast Slew Rate
   };
+  
   enum class eDSE : uint32_t {
     eDSE_0_normal_driver = 0, // normal drive strength
     eDSE_1_high_driver = 1, // high drive strength
   };
+  
   enum class ePUE : uint32_t {
     ePUE_0_Pull_Disable__Highz = 0, // Pull Disable, Highz
     ePUE_1_Pull_Enable = 1, // Pull Enable
   };
+  
   enum class ePUS : uint32_t {
     ePUS_0_Weak_pull_down = 0, // Weak pull down
     ePUS_1_Weak_pull_up = 1, // Weak pull up
   };
+  
   enum class eODE : uint32_t {
     eODE_0_Disabled = 0, // Disabled
     eODE_1_Enabled = 1, // Enabled
   };
+  
   enum class eDWP : uint32_t {
     eforbid_none = 0, // Both cores are allowed
     eforbid_CM7 = 1, // CM7 is forbidden
     eforbid_CM4 = 2, // CM4 is forbidden
     eforbid_both = 3, // Both cores are forbidden
   };
+  
   enum class eDWP_LOCK : uint32_t {
     elock_none = 0, // Neither of DWP bits is locked
     elock_low = 1, // The lower DWP bit is locked
@@ -10078,7 +10417,7 @@ union SW_PAD_CTL_PAD_GPIO_AD_29 {
     uint32_t _reserved_5 : 23;
     eDWP DWP : 2;
     eDWP_LOCK DWP_LOCK : 2;
-  } bits;          // Bit-field struct (auto-filling reserved gaps)
+  } bits;
   
   // Full 32-bit register value.
   uint32_t value;
@@ -10092,33 +10431,38 @@ union SW_PAD_CTL_PAD_GPIO_AD_29 {
 //
 union SW_PAD_CTL_PAD_GPIO_AD_30 {
   
-  // Enum definitions.
   enum class eSRE : uint32_t {
     eSRE_0_Slow_Slew_Rate = 0, // Slow Slew Rate
     eSRE_1_Fast_Slew_Rate = 1, // Fast Slew Rate
   };
+  
   enum class eDSE : uint32_t {
     eDSE_0_normal_driver = 0, // normal drive strength
     eDSE_1_high_driver = 1, // high drive strength
   };
+  
   enum class ePUE : uint32_t {
     ePUE_0_Pull_Disable__Highz = 0, // Pull Disable, Highz
     ePUE_1_Pull_Enable = 1, // Pull Enable
   };
+  
   enum class ePUS : uint32_t {
     ePUS_0_Weak_pull_down = 0, // Weak pull down
     ePUS_1_Weak_pull_up = 1, // Weak pull up
   };
+  
   enum class eODE : uint32_t {
     eODE_0_Disabled = 0, // Disabled
     eODE_1_Enabled = 1, // Enabled
   };
+  
   enum class eDWP : uint32_t {
     eforbid_none = 0, // Both cores are allowed
     eforbid_CM7 = 1, // CM7 is forbidden
     eforbid_CM4 = 2, // CM4 is forbidden
     eforbid_both = 3, // Both cores are forbidden
   };
+  
   enum class eDWP_LOCK : uint32_t {
     elock_none = 0, // Neither of DWP bits is locked
     elock_low = 1, // The lower DWP bit is locked
@@ -10136,7 +10480,7 @@ union SW_PAD_CTL_PAD_GPIO_AD_30 {
     uint32_t _reserved_5 : 23;
     eDWP DWP : 2;
     eDWP_LOCK DWP_LOCK : 2;
-  } bits;          // Bit-field struct (auto-filling reserved gaps)
+  } bits;
   
   // Full 32-bit register value.
   uint32_t value;
@@ -10150,33 +10494,38 @@ union SW_PAD_CTL_PAD_GPIO_AD_30 {
 //
 union SW_PAD_CTL_PAD_GPIO_AD_31 {
   
-  // Enum definitions.
   enum class eSRE : uint32_t {
     eSRE_0_Slow_Slew_Rate = 0, // Slow Slew Rate
     eSRE_1_Fast_Slew_Rate = 1, // Fast Slew Rate
   };
+  
   enum class eDSE : uint32_t {
     eDSE_0_normal_driver = 0, // normal drive strength
     eDSE_1_high_driver = 1, // high drive strength
   };
+  
   enum class ePUE : uint32_t {
     ePUE_0_Pull_Disable__Highz = 0, // Pull Disable, Highz
     ePUE_1_Pull_Enable = 1, // Pull Enable
   };
+  
   enum class ePUS : uint32_t {
     ePUS_0_Weak_pull_down = 0, // Weak pull down
     ePUS_1_Weak_pull_up = 1, // Weak pull up
   };
+  
   enum class eODE : uint32_t {
     eODE_0_Disabled = 0, // Disabled
     eODE_1_Enabled = 1, // Enabled
   };
+  
   enum class eDWP : uint32_t {
     eforbid_none = 0, // Both cores are allowed
     eforbid_CM7 = 1, // CM7 is forbidden
     eforbid_CM4 = 2, // CM4 is forbidden
     eforbid_both = 3, // Both cores are forbidden
   };
+  
   enum class eDWP_LOCK : uint32_t {
     elock_none = 0, // Neither of DWP bits is locked
     elock_low = 1, // The lower DWP bit is locked
@@ -10194,7 +10543,7 @@ union SW_PAD_CTL_PAD_GPIO_AD_31 {
     uint32_t _reserved_5 : 23;
     eDWP DWP : 2;
     eDWP_LOCK DWP_LOCK : 2;
-  } bits;          // Bit-field struct (auto-filling reserved gaps)
+  } bits;
   
   // Full 32-bit register value.
   uint32_t value;
@@ -10208,33 +10557,38 @@ union SW_PAD_CTL_PAD_GPIO_AD_31 {
 //
 union SW_PAD_CTL_PAD_GPIO_AD_32 {
   
-  // Enum definitions.
   enum class eSRE : uint32_t {
     eSRE_0_Slow_Slew_Rate = 0, // Slow Slew Rate
     eSRE_1_Fast_Slew_Rate = 1, // Fast Slew Rate
   };
+  
   enum class eDSE : uint32_t {
     eDSE_0_normal_driver = 0, // normal drive strength
     eDSE_1_high_driver = 1, // high drive strength
   };
+  
   enum class ePUE : uint32_t {
     ePUE_0_Pull_Disable__Highz = 0, // Pull Disable, Highz
     ePUE_1_Pull_Enable = 1, // Pull Enable
   };
+  
   enum class ePUS : uint32_t {
     ePUS_0_Weak_pull_down = 0, // Weak pull down
     ePUS_1_Weak_pull_up = 1, // Weak pull up
   };
+  
   enum class eODE : uint32_t {
     eODE_0_Disabled = 0, // Disabled
     eODE_1_Enabled = 1, // Enabled
   };
+  
   enum class eDWP : uint32_t {
     eforbid_none = 0, // Both cores are allowed
     eforbid_CM7 = 1, // CM7 is forbidden
     eforbid_CM4 = 2, // CM4 is forbidden
     eforbid_both = 3, // Both cores are forbidden
   };
+  
   enum class eDWP_LOCK : uint32_t {
     elock_none = 0, // Neither of DWP bits is locked
     elock_low = 1, // The lower DWP bit is locked
@@ -10252,7 +10606,7 @@ union SW_PAD_CTL_PAD_GPIO_AD_32 {
     uint32_t _reserved_5 : 23;
     eDWP DWP : 2;
     eDWP_LOCK DWP_LOCK : 2;
-  } bits;          // Bit-field struct (auto-filling reserved gaps)
+  } bits;
   
   // Full 32-bit register value.
   uint32_t value;
@@ -10266,33 +10620,38 @@ union SW_PAD_CTL_PAD_GPIO_AD_32 {
 //
 union SW_PAD_CTL_PAD_GPIO_AD_33 {
   
-  // Enum definitions.
   enum class eSRE : uint32_t {
     eSRE_0_Slow_Slew_Rate = 0, // Slow Slew Rate
     eSRE_1_Fast_Slew_Rate = 1, // Fast Slew Rate
   };
+  
   enum class eDSE : uint32_t {
     eDSE_0_normal_driver = 0, // normal drive strength
     eDSE_1_high_driver = 1, // high drive strength
   };
+  
   enum class ePUE : uint32_t {
     ePUE_0_Pull_Disable__Highz = 0, // Pull Disable, Highz
     ePUE_1_Pull_Enable = 1, // Pull Enable
   };
+  
   enum class ePUS : uint32_t {
     ePUS_0_Weak_pull_down = 0, // Weak pull down
     ePUS_1_Weak_pull_up = 1, // Weak pull up
   };
+  
   enum class eODE : uint32_t {
     eODE_0_Disabled = 0, // Disabled
     eODE_1_Enabled = 1, // Enabled
   };
+  
   enum class eDWP : uint32_t {
     eforbid_none = 0, // Both cores are allowed
     eforbid_CM7 = 1, // CM7 is forbidden
     eforbid_CM4 = 2, // CM4 is forbidden
     eforbid_both = 3, // Both cores are forbidden
   };
+  
   enum class eDWP_LOCK : uint32_t {
     elock_none = 0, // Neither of DWP bits is locked
     elock_low = 1, // The lower DWP bit is locked
@@ -10310,7 +10669,7 @@ union SW_PAD_CTL_PAD_GPIO_AD_33 {
     uint32_t _reserved_5 : 23;
     eDWP DWP : 2;
     eDWP_LOCK DWP_LOCK : 2;
-  } bits;          // Bit-field struct (auto-filling reserved gaps)
+  } bits;
   
   // Full 32-bit register value.
   uint32_t value;
@@ -10324,33 +10683,38 @@ union SW_PAD_CTL_PAD_GPIO_AD_33 {
 //
 union SW_PAD_CTL_PAD_GPIO_AD_34 {
   
-  // Enum definitions.
   enum class eSRE : uint32_t {
     eSRE_0_Slow_Slew_Rate = 0, // Slow Slew Rate
     eSRE_1_Fast_Slew_Rate = 1, // Fast Slew Rate
   };
+  
   enum class eDSE : uint32_t {
     eDSE_0_normal_driver = 0, // normal drive strength
     eDSE_1_high_driver = 1, // high drive strength
   };
+  
   enum class ePUE : uint32_t {
     ePUE_0_Pull_Disable__Highz = 0, // Pull Disable, Highz
     ePUE_1_Pull_Enable = 1, // Pull Enable
   };
+  
   enum class ePUS : uint32_t {
     ePUS_0_Weak_pull_down = 0, // Weak pull down
     ePUS_1_Weak_pull_up = 1, // Weak pull up
   };
+  
   enum class eODE : uint32_t {
     eODE_0_Disabled = 0, // Disabled
     eODE_1_Enabled = 1, // Enabled
   };
+  
   enum class eDWP : uint32_t {
     eforbid_none = 0, // Both cores are allowed
     eforbid_CM7 = 1, // CM7 is forbidden
     eforbid_CM4 = 2, // CM4 is forbidden
     eforbid_both = 3, // Both cores are forbidden
   };
+  
   enum class eDWP_LOCK : uint32_t {
     elock_none = 0, // Neither of DWP bits is locked
     elock_low = 1, // The lower DWP bit is locked
@@ -10368,7 +10732,7 @@ union SW_PAD_CTL_PAD_GPIO_AD_34 {
     uint32_t _reserved_5 : 23;
     eDWP DWP : 2;
     eDWP_LOCK DWP_LOCK : 2;
-  } bits;          // Bit-field struct (auto-filling reserved gaps)
+  } bits;
   
   // Full 32-bit register value.
   uint32_t value;
@@ -10382,33 +10746,38 @@ union SW_PAD_CTL_PAD_GPIO_AD_34 {
 //
 union SW_PAD_CTL_PAD_GPIO_AD_35 {
   
-  // Enum definitions.
   enum class eSRE : uint32_t {
     eSRE_0_Slow_Slew_Rate = 0, // Slow Slew Rate
     eSRE_1_Fast_Slew_Rate = 1, // Fast Slew Rate
   };
+  
   enum class eDSE : uint32_t {
     eDSE_0_normal_driver = 0, // normal drive strength
     eDSE_1_high_driver = 1, // high drive strength
   };
+  
   enum class ePUE : uint32_t {
     ePUE_0_Pull_Disable__Highz = 0, // Pull Disable, Highz
     ePUE_1_Pull_Enable = 1, // Pull Enable
   };
+  
   enum class ePUS : uint32_t {
     ePUS_0_Weak_pull_down = 0, // Weak pull down
     ePUS_1_Weak_pull_up = 1, // Weak pull up
   };
+  
   enum class eODE : uint32_t {
     eODE_0_Disabled = 0, // Disabled
     eODE_1_Enabled = 1, // Enabled
   };
+  
   enum class eDWP : uint32_t {
     eforbid_none = 0, // Both cores are allowed
     eforbid_CM7 = 1, // CM7 is forbidden
     eforbid_CM4 = 2, // CM4 is forbidden
     eforbid_both = 3, // Both cores are forbidden
   };
+  
   enum class eDWP_LOCK : uint32_t {
     elock_none = 0, // Neither of DWP bits is locked
     elock_low = 1, // The lower DWP bit is locked
@@ -10426,7 +10795,7 @@ union SW_PAD_CTL_PAD_GPIO_AD_35 {
     uint32_t _reserved_5 : 23;
     eDWP DWP : 2;
     eDWP_LOCK DWP_LOCK : 2;
-  } bits;          // Bit-field struct (auto-filling reserved gaps)
+  } bits;
   
   // Full 32-bit register value.
   uint32_t value;
@@ -10440,27 +10809,30 @@ union SW_PAD_CTL_PAD_GPIO_AD_35 {
 //
 union SW_PAD_CTL_PAD_GPIO_SD_B1_00 {
   
-  // Enum definitions.
   enum class ePDRV : uint32_t {
     ePDRV_0_high_driver = 0, // high drive strength
     ePDRV_1_normal_driver = 1, // normal drive strength
   };
+  
   enum class ePULL : uint32_t {
     ePULL_0_Forbidden = 0, // Forbidden
     ePULL_1_PU = 1, // Internal pullup resistor enabled
     ePULL_2_PD = 2, // Internal pulldown resistor enabled
     ePULL_3_No_Pull = 3, // No Pull
   };
+  
   enum class eODE : uint32_t {
     eODE_0_Disabled = 0, // Disabled
     eODE_1_Enabled = 1, // Enabled
   };
+  
   enum class eDWP : uint32_t {
     eforbid_none = 0, // Both cores are allowed
     eforbid_CM7 = 1, // CM7 is forbidden
     eforbid_CM4 = 2, // CM4 is forbidden
     eforbid_both = 3, // Both cores are forbidden
   };
+  
   enum class eDWP_LOCK : uint32_t {
     elock_none = 0, // Neither of DWP bits is locked
     elock_low = 1, // The lower DWP bit is locked
@@ -10477,7 +10849,7 @@ union SW_PAD_CTL_PAD_GPIO_SD_B1_00 {
     uint32_t _reserved_3 : 23;
     eDWP DWP : 2;
     eDWP_LOCK DWP_LOCK : 2;
-  } bits;          // Bit-field struct (auto-filling reserved gaps)
+  } bits;
   
   // Full 32-bit register value.
   uint32_t value;
@@ -10491,27 +10863,30 @@ union SW_PAD_CTL_PAD_GPIO_SD_B1_00 {
 //
 union SW_PAD_CTL_PAD_GPIO_SD_B1_01 {
   
-  // Enum definitions.
   enum class ePDRV : uint32_t {
     ePDRV_0_high_driver = 0, // high drive strength
     ePDRV_1_normal_driver = 1, // normal drive strength
   };
+  
   enum class ePULL : uint32_t {
     ePULL_0_Forbidden = 0, // Forbidden
     ePULL_1_PU = 1, // Internal pullup resistor enabled
     ePULL_2_PD = 2, // Internal pulldown resistor enabled
     ePULL_3_No_Pull = 3, // No Pull
   };
+  
   enum class eODE : uint32_t {
     eODE_0_Disabled = 0, // Disabled
     eODE_1_Enabled = 1, // Enabled
   };
+  
   enum class eDWP : uint32_t {
     eforbid_none = 0, // Both cores are allowed
     eforbid_CM7 = 1, // CM7 is forbidden
     eforbid_CM4 = 2, // CM4 is forbidden
     eforbid_both = 3, // Both cores are forbidden
   };
+  
   enum class eDWP_LOCK : uint32_t {
     elock_none = 0, // Neither of DWP bits is locked
     elock_low = 1, // The lower DWP bit is locked
@@ -10528,7 +10903,7 @@ union SW_PAD_CTL_PAD_GPIO_SD_B1_01 {
     uint32_t _reserved_3 : 23;
     eDWP DWP : 2;
     eDWP_LOCK DWP_LOCK : 2;
-  } bits;          // Bit-field struct (auto-filling reserved gaps)
+  } bits;
   
   // Full 32-bit register value.
   uint32_t value;
@@ -10542,27 +10917,30 @@ union SW_PAD_CTL_PAD_GPIO_SD_B1_01 {
 //
 union SW_PAD_CTL_PAD_GPIO_SD_B1_02 {
   
-  // Enum definitions.
   enum class ePDRV : uint32_t {
     ePDRV_0_high_driver = 0, // high drive strength
     ePDRV_1_normal_driver = 1, // normal drive strength
   };
+  
   enum class ePULL : uint32_t {
     ePULL_0_Forbidden = 0, // Forbidden
     ePULL_1_PU = 1, // Internal pullup resistor enabled
     ePULL_2_PD = 2, // Internal pulldown resistor enabled
     ePULL_3_No_Pull = 3, // No Pull
   };
+  
   enum class eODE : uint32_t {
     eODE_0_Disabled = 0, // Disabled
     eODE_1_Enabled = 1, // Enabled
   };
+  
   enum class eDWP : uint32_t {
     eforbid_none = 0, // Both cores are allowed
     eforbid_CM7 = 1, // CM7 is forbidden
     eforbid_CM4 = 2, // CM4 is forbidden
     eforbid_both = 3, // Both cores are forbidden
   };
+  
   enum class eDWP_LOCK : uint32_t {
     elock_none = 0, // Neither of DWP bits is locked
     elock_low = 1, // The lower DWP bit is locked
@@ -10579,7 +10957,7 @@ union SW_PAD_CTL_PAD_GPIO_SD_B1_02 {
     uint32_t _reserved_3 : 23;
     eDWP DWP : 2;
     eDWP_LOCK DWP_LOCK : 2;
-  } bits;          // Bit-field struct (auto-filling reserved gaps)
+  } bits;
   
   // Full 32-bit register value.
   uint32_t value;
@@ -10593,27 +10971,30 @@ union SW_PAD_CTL_PAD_GPIO_SD_B1_02 {
 //
 union SW_PAD_CTL_PAD_GPIO_SD_B1_03 {
   
-  // Enum definitions.
   enum class ePDRV : uint32_t {
     ePDRV_0_high_driver = 0, // high drive strength
     ePDRV_1_normal_driver = 1, // normal drive strength
   };
+  
   enum class ePULL : uint32_t {
     ePULL_0_Forbidden = 0, // Forbidden
     ePULL_1_PU = 1, // Internal pullup resistor enabled
     ePULL_2_PD = 2, // Internal pulldown resistor enabled
     ePULL_3_No_Pull = 3, // No Pull
   };
+  
   enum class eODE : uint32_t {
     eODE_0_Disabled = 0, // Disabled
     eODE_1_Enabled = 1, // Enabled
   };
+  
   enum class eDWP : uint32_t {
     eforbid_none = 0, // Both cores are allowed
     eforbid_CM7 = 1, // CM7 is forbidden
     eforbid_CM4 = 2, // CM4 is forbidden
     eforbid_both = 3, // Both cores are forbidden
   };
+  
   enum class eDWP_LOCK : uint32_t {
     elock_none = 0, // Neither of DWP bits is locked
     elock_low = 1, // The lower DWP bit is locked
@@ -10630,7 +11011,7 @@ union SW_PAD_CTL_PAD_GPIO_SD_B1_03 {
     uint32_t _reserved_3 : 23;
     eDWP DWP : 2;
     eDWP_LOCK DWP_LOCK : 2;
-  } bits;          // Bit-field struct (auto-filling reserved gaps)
+  } bits;
   
   // Full 32-bit register value.
   uint32_t value;
@@ -10644,27 +11025,30 @@ union SW_PAD_CTL_PAD_GPIO_SD_B1_03 {
 //
 union SW_PAD_CTL_PAD_GPIO_SD_B1_04 {
   
-  // Enum definitions.
   enum class ePDRV : uint32_t {
     ePDRV_0_high_driver = 0, // high drive strength
     ePDRV_1_normal_driver = 1, // normal drive strength
   };
+  
   enum class ePULL : uint32_t {
     ePULL_0_Forbidden = 0, // Forbidden
     ePULL_1_PU = 1, // Internal pullup resistor enabled
     ePULL_2_PD = 2, // Internal pulldown resistor enabled
     ePULL_3_No_Pull = 3, // No Pull
   };
+  
   enum class eODE : uint32_t {
     eODE_0_Disabled = 0, // Disabled
     eODE_1_Enabled = 1, // Enabled
   };
+  
   enum class eDWP : uint32_t {
     eforbid_none = 0, // Both cores are allowed
     eforbid_CM7 = 1, // CM7 is forbidden
     eforbid_CM4 = 2, // CM4 is forbidden
     eforbid_both = 3, // Both cores are forbidden
   };
+  
   enum class eDWP_LOCK : uint32_t {
     elock_none = 0, // Neither of DWP bits is locked
     elock_low = 1, // The lower DWP bit is locked
@@ -10681,7 +11065,7 @@ union SW_PAD_CTL_PAD_GPIO_SD_B1_04 {
     uint32_t _reserved_3 : 23;
     eDWP DWP : 2;
     eDWP_LOCK DWP_LOCK : 2;
-  } bits;          // Bit-field struct (auto-filling reserved gaps)
+  } bits;
   
   // Full 32-bit register value.
   uint32_t value;
@@ -10695,27 +11079,30 @@ union SW_PAD_CTL_PAD_GPIO_SD_B1_04 {
 //
 union SW_PAD_CTL_PAD_GPIO_SD_B1_05 {
   
-  // Enum definitions.
   enum class ePDRV : uint32_t {
     ePDRV_0_high_driver = 0, // high drive strength
     ePDRV_1_normal_driver = 1, // normal drive strength
   };
+  
   enum class ePULL : uint32_t {
     ePULL_0_Forbidden = 0, // Forbidden
     ePULL_1_PU = 1, // Internal pullup resistor enabled
     ePULL_2_PD = 2, // Internal pulldown resistor enabled
     ePULL_3_No_Pull = 3, // No Pull
   };
+  
   enum class eODE : uint32_t {
     eODE_0_Disabled = 0, // Disabled
     eODE_1_Enabled = 1, // Enabled
   };
+  
   enum class eDWP : uint32_t {
     eforbid_none = 0, // Both cores are allowed
     eforbid_CM7 = 1, // CM7 is forbidden
     eforbid_CM4 = 2, // CM4 is forbidden
     eforbid_both = 3, // Both cores are forbidden
   };
+  
   enum class eDWP_LOCK : uint32_t {
     elock_none = 0, // Neither of DWP bits is locked
     elock_low = 1, // The lower DWP bit is locked
@@ -10732,7 +11119,7 @@ union SW_PAD_CTL_PAD_GPIO_SD_B1_05 {
     uint32_t _reserved_3 : 23;
     eDWP DWP : 2;
     eDWP_LOCK DWP_LOCK : 2;
-  } bits;          // Bit-field struct (auto-filling reserved gaps)
+  } bits;
   
   // Full 32-bit register value.
   uint32_t value;
@@ -10746,27 +11133,30 @@ union SW_PAD_CTL_PAD_GPIO_SD_B1_05 {
 //
 union SW_PAD_CTL_PAD_GPIO_SD_B2_00 {
   
-  // Enum definitions.
   enum class ePDRV : uint32_t {
     ePDRV_0_high_driver = 0, // high drive strength
     ePDRV_1_normal_driver = 1, // normal drive strength
   };
+  
   enum class ePULL : uint32_t {
     ePULL_0_Forbidden = 0, // Forbidden
     ePULL_1_PU = 1, // Internal pullup resistor enabled
     ePULL_2_PD = 2, // Internal pulldown resistor enabled
     ePULL_3_No_Pull = 3, // No Pull
   };
+  
   enum class eODE : uint32_t {
     eODE_0_Disabled = 0, // Disabled
     eODE_1_Enabled = 1, // Enabled
   };
+  
   enum class eDWP : uint32_t {
     eforbid_none = 0, // Both cores are allowed
     eforbid_CM7 = 1, // CM7 is forbidden
     eforbid_CM4 = 2, // CM4 is forbidden
     eforbid_both = 3, // Both cores are forbidden
   };
+  
   enum class eDWP_LOCK : uint32_t {
     elock_none = 0, // Neither of DWP bits is locked
     elock_low = 1, // The lower DWP bit is locked
@@ -10783,7 +11173,7 @@ union SW_PAD_CTL_PAD_GPIO_SD_B2_00 {
     uint32_t _reserved_3 : 23;
     eDWP DWP : 2;
     eDWP_LOCK DWP_LOCK : 2;
-  } bits;          // Bit-field struct (auto-filling reserved gaps)
+  } bits;
   
   // Full 32-bit register value.
   uint32_t value;
@@ -10797,27 +11187,30 @@ union SW_PAD_CTL_PAD_GPIO_SD_B2_00 {
 //
 union SW_PAD_CTL_PAD_GPIO_SD_B2_01 {
   
-  // Enum definitions.
   enum class ePDRV : uint32_t {
     ePDRV_0_high_driver = 0, // high drive strength
     ePDRV_1_normal_driver = 1, // normal drive strength
   };
+  
   enum class ePULL : uint32_t {
     ePULL_0_Forbidden = 0, // Forbidden
     ePULL_1_PU = 1, // Internal pullup resistor enabled
     ePULL_2_PD = 2, // Internal pulldown resistor enabled
     ePULL_3_No_Pull = 3, // No Pull
   };
+  
   enum class eODE : uint32_t {
     eODE_0_Disabled = 0, // Disabled
     eODE_1_Enabled = 1, // Enabled
   };
+  
   enum class eDWP : uint32_t {
     eforbid_none = 0, // Both cores are allowed
     eforbid_CM7 = 1, // CM7 is forbidden
     eforbid_CM4 = 2, // CM4 is forbidden
     eforbid_both = 3, // Both cores are forbidden
   };
+  
   enum class eDWP_LOCK : uint32_t {
     elock_none = 0, // Neither of DWP bits is locked
     elock_low = 1, // The lower DWP bit is locked
@@ -10834,7 +11227,7 @@ union SW_PAD_CTL_PAD_GPIO_SD_B2_01 {
     uint32_t _reserved_3 : 23;
     eDWP DWP : 2;
     eDWP_LOCK DWP_LOCK : 2;
-  } bits;          // Bit-field struct (auto-filling reserved gaps)
+  } bits;
   
   // Full 32-bit register value.
   uint32_t value;
@@ -10848,27 +11241,30 @@ union SW_PAD_CTL_PAD_GPIO_SD_B2_01 {
 //
 union SW_PAD_CTL_PAD_GPIO_SD_B2_02 {
   
-  // Enum definitions.
   enum class ePDRV : uint32_t {
     ePDRV_0_high_driver = 0, // high drive strength
     ePDRV_1_normal_driver = 1, // normal drive strength
   };
+  
   enum class ePULL : uint32_t {
     ePULL_0_Forbidden = 0, // Forbidden
     ePULL_1_PU = 1, // Internal pullup resistor enabled
     ePULL_2_PD = 2, // Internal pulldown resistor enabled
     ePULL_3_No_Pull = 3, // No Pull
   };
+  
   enum class eODE : uint32_t {
     eODE_0_Disabled = 0, // Disabled
     eODE_1_Enabled = 1, // Enabled
   };
+  
   enum class eDWP : uint32_t {
     eforbid_none = 0, // Both cores are allowed
     eforbid_CM7 = 1, // CM7 is forbidden
     eforbid_CM4 = 2, // CM4 is forbidden
     eforbid_both = 3, // Both cores are forbidden
   };
+  
   enum class eDWP_LOCK : uint32_t {
     elock_none = 0, // Neither of DWP bits is locked
     elock_low = 1, // The lower DWP bit is locked
@@ -10885,7 +11281,7 @@ union SW_PAD_CTL_PAD_GPIO_SD_B2_02 {
     uint32_t _reserved_3 : 23;
     eDWP DWP : 2;
     eDWP_LOCK DWP_LOCK : 2;
-  } bits;          // Bit-field struct (auto-filling reserved gaps)
+  } bits;
   
   // Full 32-bit register value.
   uint32_t value;
@@ -10899,27 +11295,30 @@ union SW_PAD_CTL_PAD_GPIO_SD_B2_02 {
 //
 union SW_PAD_CTL_PAD_GPIO_SD_B2_03 {
   
-  // Enum definitions.
   enum class ePDRV : uint32_t {
     ePDRV_0_high_driver = 0, // high drive strength
     ePDRV_1_normal_driver = 1, // normal drive strength
   };
+  
   enum class ePULL : uint32_t {
     ePULL_0_Forbidden = 0, // Forbidden
     ePULL_1_PU = 1, // Internal pullup resistor enabled
     ePULL_2_PD = 2, // Internal pulldown resistor enabled
     ePULL_3_No_Pull = 3, // No Pull
   };
+  
   enum class eODE : uint32_t {
     eODE_0_Disabled = 0, // Disabled
     eODE_1_Enabled = 1, // Enabled
   };
+  
   enum class eDWP : uint32_t {
     eforbid_none = 0, // Both cores are allowed
     eforbid_CM7 = 1, // CM7 is forbidden
     eforbid_CM4 = 2, // CM4 is forbidden
     eforbid_both = 3, // Both cores are forbidden
   };
+  
   enum class eDWP_LOCK : uint32_t {
     elock_none = 0, // Neither of DWP bits is locked
     elock_low = 1, // The lower DWP bit is locked
@@ -10936,7 +11335,7 @@ union SW_PAD_CTL_PAD_GPIO_SD_B2_03 {
     uint32_t _reserved_3 : 23;
     eDWP DWP : 2;
     eDWP_LOCK DWP_LOCK : 2;
-  } bits;          // Bit-field struct (auto-filling reserved gaps)
+  } bits;
   
   // Full 32-bit register value.
   uint32_t value;
@@ -10950,27 +11349,30 @@ union SW_PAD_CTL_PAD_GPIO_SD_B2_03 {
 //
 union SW_PAD_CTL_PAD_GPIO_SD_B2_04 {
   
-  // Enum definitions.
   enum class ePDRV : uint32_t {
     ePDRV_0_high_driver = 0, // high drive strength
     ePDRV_1_normal_driver = 1, // normal drive strength
   };
+  
   enum class ePULL : uint32_t {
     ePULL_0_Forbidden = 0, // Forbidden
     ePULL_1_PU = 1, // Internal pullup resistor enabled
     ePULL_2_PD = 2, // Internal pulldown resistor enabled
     ePULL_3_No_Pull = 3, // No Pull
   };
+  
   enum class eODE : uint32_t {
     eODE_0_Disabled = 0, // Disabled
     eODE_1_Enabled = 1, // Enabled
   };
+  
   enum class eDWP : uint32_t {
     eforbid_none = 0, // Both cores are allowed
     eforbid_CM7 = 1, // CM7 is forbidden
     eforbid_CM4 = 2, // CM4 is forbidden
     eforbid_both = 3, // Both cores are forbidden
   };
+  
   enum class eDWP_LOCK : uint32_t {
     elock_none = 0, // Neither of DWP bits is locked
     elock_low = 1, // The lower DWP bit is locked
@@ -10987,7 +11389,7 @@ union SW_PAD_CTL_PAD_GPIO_SD_B2_04 {
     uint32_t _reserved_3 : 23;
     eDWP DWP : 2;
     eDWP_LOCK DWP_LOCK : 2;
-  } bits;          // Bit-field struct (auto-filling reserved gaps)
+  } bits;
   
   // Full 32-bit register value.
   uint32_t value;
@@ -11001,27 +11403,30 @@ union SW_PAD_CTL_PAD_GPIO_SD_B2_04 {
 //
 union SW_PAD_CTL_PAD_GPIO_SD_B2_05 {
   
-  // Enum definitions.
   enum class ePDRV : uint32_t {
     ePDRV_0_high_driver = 0, // high drive strength
     ePDRV_1_normal_driver = 1, // normal drive strength
   };
+  
   enum class ePULL : uint32_t {
     ePULL_0_Forbidden = 0, // Forbidden
     ePULL_1_PU = 1, // Internal pullup resistor enabled
     ePULL_2_PD = 2, // Internal pulldown resistor enabled
     ePULL_3_No_Pull = 3, // No Pull
   };
+  
   enum class eODE : uint32_t {
     eODE_0_Disabled = 0, // Disabled
     eODE_1_Enabled = 1, // Enabled
   };
+  
   enum class eDWP : uint32_t {
     eforbid_none = 0, // Both cores are allowed
     eforbid_CM7 = 1, // CM7 is forbidden
     eforbid_CM4 = 2, // CM4 is forbidden
     eforbid_both = 3, // Both cores are forbidden
   };
+  
   enum class eDWP_LOCK : uint32_t {
     elock_none = 0, // Neither of DWP bits is locked
     elock_low = 1, // The lower DWP bit is locked
@@ -11038,7 +11443,7 @@ union SW_PAD_CTL_PAD_GPIO_SD_B2_05 {
     uint32_t _reserved_3 : 23;
     eDWP DWP : 2;
     eDWP_LOCK DWP_LOCK : 2;
-  } bits;          // Bit-field struct (auto-filling reserved gaps)
+  } bits;
   
   // Full 32-bit register value.
   uint32_t value;
@@ -11052,27 +11457,30 @@ union SW_PAD_CTL_PAD_GPIO_SD_B2_05 {
 //
 union SW_PAD_CTL_PAD_GPIO_SD_B2_06 {
   
-  // Enum definitions.
   enum class ePDRV : uint32_t {
     ePDRV_0_high_driver = 0, // high drive strength
     ePDRV_1_normal_driver = 1, // normal drive strength
   };
+  
   enum class ePULL : uint32_t {
     ePULL_0_Forbidden = 0, // Forbidden
     ePULL_1_PU = 1, // Internal pullup resistor enabled
     ePULL_2_PD = 2, // Internal pulldown resistor enabled
     ePULL_3_No_Pull = 3, // No Pull
   };
+  
   enum class eODE : uint32_t {
     eODE_0_Disabled = 0, // Disabled
     eODE_1_Enabled = 1, // Enabled
   };
+  
   enum class eDWP : uint32_t {
     eforbid_none = 0, // Both cores are allowed
     eforbid_CM7 = 1, // CM7 is forbidden
     eforbid_CM4 = 2, // CM4 is forbidden
     eforbid_both = 3, // Both cores are forbidden
   };
+  
   enum class eDWP_LOCK : uint32_t {
     elock_none = 0, // Neither of DWP bits is locked
     elock_low = 1, // The lower DWP bit is locked
@@ -11089,7 +11497,7 @@ union SW_PAD_CTL_PAD_GPIO_SD_B2_06 {
     uint32_t _reserved_3 : 23;
     eDWP DWP : 2;
     eDWP_LOCK DWP_LOCK : 2;
-  } bits;          // Bit-field struct (auto-filling reserved gaps)
+  } bits;
   
   // Full 32-bit register value.
   uint32_t value;
@@ -11103,27 +11511,30 @@ union SW_PAD_CTL_PAD_GPIO_SD_B2_06 {
 //
 union SW_PAD_CTL_PAD_GPIO_SD_B2_07 {
   
-  // Enum definitions.
   enum class ePDRV : uint32_t {
     ePDRV_0_high_driver = 0, // high drive strength
     ePDRV_1_normal_driver = 1, // normal drive strength
   };
+  
   enum class ePULL : uint32_t {
     ePULL_0_Forbidden = 0, // Forbidden
     ePULL_1_PU = 1, // Internal pullup resistor enabled
     ePULL_2_PD = 2, // Internal pulldown resistor enabled
     ePULL_3_No_Pull = 3, // No Pull
   };
+  
   enum class eODE : uint32_t {
     eODE_0_Disabled = 0, // Disabled
     eODE_1_Enabled = 1, // Enabled
   };
+  
   enum class eDWP : uint32_t {
     eforbid_none = 0, // Both cores are allowed
     eforbid_CM7 = 1, // CM7 is forbidden
     eforbid_CM4 = 2, // CM4 is forbidden
     eforbid_both = 3, // Both cores are forbidden
   };
+  
   enum class eDWP_LOCK : uint32_t {
     elock_none = 0, // Neither of DWP bits is locked
     elock_low = 1, // The lower DWP bit is locked
@@ -11140,7 +11551,7 @@ union SW_PAD_CTL_PAD_GPIO_SD_B2_07 {
     uint32_t _reserved_3 : 23;
     eDWP DWP : 2;
     eDWP_LOCK DWP_LOCK : 2;
-  } bits;          // Bit-field struct (auto-filling reserved gaps)
+  } bits;
   
   // Full 32-bit register value.
   uint32_t value;
@@ -11154,27 +11565,30 @@ union SW_PAD_CTL_PAD_GPIO_SD_B2_07 {
 //
 union SW_PAD_CTL_PAD_GPIO_SD_B2_08 {
   
-  // Enum definitions.
   enum class ePDRV : uint32_t {
     ePDRV_0_high_driver = 0, // high drive strength
     ePDRV_1_normal_driver = 1, // normal drive strength
   };
+  
   enum class ePULL : uint32_t {
     ePULL_0_Forbidden = 0, // Forbidden
     ePULL_1_PU = 1, // Internal pullup resistor enabled
     ePULL_2_PD = 2, // Internal pulldown resistor enabled
     ePULL_3_No_Pull = 3, // No Pull
   };
+  
   enum class eODE : uint32_t {
     eODE_0_Disabled = 0, // Disabled
     eODE_1_Enabled = 1, // Enabled
   };
+  
   enum class eDWP : uint32_t {
     eforbid_none = 0, // Both cores are allowed
     eforbid_CM7 = 1, // CM7 is forbidden
     eforbid_CM4 = 2, // CM4 is forbidden
     eforbid_both = 3, // Both cores are forbidden
   };
+  
   enum class eDWP_LOCK : uint32_t {
     elock_none = 0, // Neither of DWP bits is locked
     elock_low = 1, // The lower DWP bit is locked
@@ -11191,7 +11605,7 @@ union SW_PAD_CTL_PAD_GPIO_SD_B2_08 {
     uint32_t _reserved_3 : 23;
     eDWP DWP : 2;
     eDWP_LOCK DWP_LOCK : 2;
-  } bits;          // Bit-field struct (auto-filling reserved gaps)
+  } bits;
   
   // Full 32-bit register value.
   uint32_t value;
@@ -11205,27 +11619,30 @@ union SW_PAD_CTL_PAD_GPIO_SD_B2_08 {
 //
 union SW_PAD_CTL_PAD_GPIO_SD_B2_09 {
   
-  // Enum definitions.
   enum class ePDRV : uint32_t {
     ePDRV_0_high_driver = 0, // high drive strength
     ePDRV_1_normal_driver = 1, // normal drive strength
   };
+  
   enum class ePULL : uint32_t {
     ePULL_0_Forbidden = 0, // Forbidden
     ePULL_1_PU = 1, // Internal pullup resistor enabled
     ePULL_2_PD = 2, // Internal pulldown resistor enabled
     ePULL_3_No_Pull = 3, // No Pull
   };
+  
   enum class eODE : uint32_t {
     eODE_0_Disabled = 0, // Disabled
     eODE_1_Enabled = 1, // Enabled
   };
+  
   enum class eDWP : uint32_t {
     eforbid_none = 0, // Both cores are allowed
     eforbid_CM7 = 1, // CM7 is forbidden
     eforbid_CM4 = 2, // CM4 is forbidden
     eforbid_both = 3, // Both cores are forbidden
   };
+  
   enum class eDWP_LOCK : uint32_t {
     elock_none = 0, // Neither of DWP bits is locked
     elock_low = 1, // The lower DWP bit is locked
@@ -11242,7 +11659,7 @@ union SW_PAD_CTL_PAD_GPIO_SD_B2_09 {
     uint32_t _reserved_3 : 23;
     eDWP DWP : 2;
     eDWP_LOCK DWP_LOCK : 2;
-  } bits;          // Bit-field struct (auto-filling reserved gaps)
+  } bits;
   
   // Full 32-bit register value.
   uint32_t value;
@@ -11256,27 +11673,30 @@ union SW_PAD_CTL_PAD_GPIO_SD_B2_09 {
 //
 union SW_PAD_CTL_PAD_GPIO_SD_B2_10 {
   
-  // Enum definitions.
   enum class ePDRV : uint32_t {
     ePDRV_0_high_driver = 0, // high drive strength
     ePDRV_1_normal_driver = 1, // normal drive strength
   };
+  
   enum class ePULL : uint32_t {
     ePULL_0_Forbidden = 0, // Forbidden
     ePULL_1_PU = 1, // Internal pullup resistor enabled
     ePULL_2_PD = 2, // Internal pulldown resistor enabled
     ePULL_3_No_Pull = 3, // No Pull
   };
+  
   enum class eODE : uint32_t {
     eODE_0_Disabled = 0, // Disabled
     eODE_1_Enabled = 1, // Enabled
   };
+  
   enum class eDWP : uint32_t {
     eforbid_none = 0, // Both cores are allowed
     eforbid_CM7 = 1, // CM7 is forbidden
     eforbid_CM4 = 2, // CM4 is forbidden
     eforbid_both = 3, // Both cores are forbidden
   };
+  
   enum class eDWP_LOCK : uint32_t {
     elock_none = 0, // Neither of DWP bits is locked
     elock_low = 1, // The lower DWP bit is locked
@@ -11293,7 +11713,7 @@ union SW_PAD_CTL_PAD_GPIO_SD_B2_10 {
     uint32_t _reserved_3 : 23;
     eDWP DWP : 2;
     eDWP_LOCK DWP_LOCK : 2;
-  } bits;          // Bit-field struct (auto-filling reserved gaps)
+  } bits;
   
   // Full 32-bit register value.
   uint32_t value;
@@ -11307,27 +11727,30 @@ union SW_PAD_CTL_PAD_GPIO_SD_B2_10 {
 //
 union SW_PAD_CTL_PAD_GPIO_SD_B2_11 {
   
-  // Enum definitions.
   enum class ePDRV : uint32_t {
     ePDRV_0_high_driver = 0, // high drive strength
     ePDRV_1_normal_driver = 1, // normal drive strength
   };
+  
   enum class ePULL : uint32_t {
     ePULL_0_Forbidden = 0, // Forbidden
     ePULL_1_PU = 1, // Internal pullup resistor enabled
     ePULL_2_PD = 2, // Internal pulldown resistor enabled
     ePULL_3_No_Pull = 3, // No Pull
   };
+  
   enum class eODE : uint32_t {
     eODE_0_Disabled = 0, // Disabled
     eODE_1_Enabled = 1, // Enabled
   };
+  
   enum class eDWP : uint32_t {
     eforbid_none = 0, // Both cores are allowed
     eforbid_CM7 = 1, // CM7 is forbidden
     eforbid_CM4 = 2, // CM4 is forbidden
     eforbid_both = 3, // Both cores are forbidden
   };
+  
   enum class eDWP_LOCK : uint32_t {
     elock_none = 0, // Neither of DWP bits is locked
     elock_low = 1, // The lower DWP bit is locked
@@ -11344,7 +11767,7 @@ union SW_PAD_CTL_PAD_GPIO_SD_B2_11 {
     uint32_t _reserved_3 : 23;
     eDWP DWP : 2;
     eDWP_LOCK DWP_LOCK : 2;
-  } bits;          // Bit-field struct (auto-filling reserved gaps)
+  } bits;
   
   // Full 32-bit register value.
   uint32_t value;
@@ -11358,27 +11781,30 @@ union SW_PAD_CTL_PAD_GPIO_SD_B2_11 {
 //
 union SW_PAD_CTL_PAD_GPIO_DISP_B1_00 {
   
-  // Enum definitions.
   enum class ePDRV : uint32_t {
     ePDRV_0_high_driver = 0, // high drive strength
     ePDRV_1_normal_driver = 1, // normal drive strength
   };
+  
   enum class ePULL : uint32_t {
     ePULL_0_Forbidden = 0, // Forbidden
     ePULL_1_PU = 1, // Internal pullup resistor enabled
     ePULL_2_PD = 2, // Internal pulldown resistor enabled
     ePULL_3_No_Pull = 3, // No Pull
   };
+  
   enum class eODE : uint32_t {
     eODE_0_Disabled = 0, // Disabled
     eODE_1_Enabled = 1, // Enabled
   };
+  
   enum class eDWP : uint32_t {
     eforbid_none = 0, // Both cores are allowed
     eforbid_CM7 = 1, // CM7 is forbidden
     eforbid_CM4 = 2, // CM4 is forbidden
     eforbid_both = 3, // Both cores are forbidden
   };
+  
   enum class eDWP_LOCK : uint32_t {
     elock_none = 0, // Neither of DWP bits is locked
     elock_low = 1, // The lower DWP bit is locked
@@ -11395,7 +11821,7 @@ union SW_PAD_CTL_PAD_GPIO_DISP_B1_00 {
     uint32_t _reserved_3 : 23;
     eDWP DWP : 2;
     eDWP_LOCK DWP_LOCK : 2;
-  } bits;          // Bit-field struct (auto-filling reserved gaps)
+  } bits;
   
   // Full 32-bit register value.
   uint32_t value;
@@ -11409,27 +11835,30 @@ union SW_PAD_CTL_PAD_GPIO_DISP_B1_00 {
 //
 union SW_PAD_CTL_PAD_GPIO_DISP_B1_01 {
   
-  // Enum definitions.
   enum class ePDRV : uint32_t {
     ePDRV_0_high_driver = 0, // high drive strength
     ePDRV_1_normal_driver = 1, // normal drive strength
   };
+  
   enum class ePULL : uint32_t {
     ePULL_0_Forbidden = 0, // Forbidden
     ePULL_1_PU = 1, // Internal pullup resistor enabled
     ePULL_2_PD = 2, // Internal pulldown resistor enabled
     ePULL_3_No_Pull = 3, // No Pull
   };
+  
   enum class eODE : uint32_t {
     eODE_0_Disabled = 0, // Disabled
     eODE_1_Enabled = 1, // Enabled
   };
+  
   enum class eDWP : uint32_t {
     eforbid_none = 0, // Both cores are allowed
     eforbid_CM7 = 1, // CM7 is forbidden
     eforbid_CM4 = 2, // CM4 is forbidden
     eforbid_both = 3, // Both cores are forbidden
   };
+  
   enum class eDWP_LOCK : uint32_t {
     elock_none = 0, // Neither of DWP bits is locked
     elock_low = 1, // The lower DWP bit is locked
@@ -11446,7 +11875,7 @@ union SW_PAD_CTL_PAD_GPIO_DISP_B1_01 {
     uint32_t _reserved_3 : 23;
     eDWP DWP : 2;
     eDWP_LOCK DWP_LOCK : 2;
-  } bits;          // Bit-field struct (auto-filling reserved gaps)
+  } bits;
   
   // Full 32-bit register value.
   uint32_t value;
@@ -11460,27 +11889,30 @@ union SW_PAD_CTL_PAD_GPIO_DISP_B1_01 {
 //
 union SW_PAD_CTL_PAD_GPIO_DISP_B1_02 {
   
-  // Enum definitions.
   enum class ePDRV : uint32_t {
     ePDRV_0_high_driver = 0, // high drive strength
     ePDRV_1_normal_driver = 1, // normal drive strength
   };
+  
   enum class ePULL : uint32_t {
     ePULL_0_Forbidden = 0, // Forbidden
     ePULL_1_PU = 1, // Internal pullup resistor enabled
     ePULL_2_PD = 2, // Internal pulldown resistor enabled
     ePULL_3_No_Pull = 3, // No Pull
   };
+  
   enum class eODE : uint32_t {
     eODE_0_Disabled = 0, // Disabled
     eODE_1_Enabled = 1, // Enabled
   };
+  
   enum class eDWP : uint32_t {
     eforbid_none = 0, // Both cores are allowed
     eforbid_CM7 = 1, // CM7 is forbidden
     eforbid_CM4 = 2, // CM4 is forbidden
     eforbid_both = 3, // Both cores are forbidden
   };
+  
   enum class eDWP_LOCK : uint32_t {
     elock_none = 0, // Neither of DWP bits is locked
     elock_low = 1, // The lower DWP bit is locked
@@ -11497,7 +11929,7 @@ union SW_PAD_CTL_PAD_GPIO_DISP_B1_02 {
     uint32_t _reserved_3 : 23;
     eDWP DWP : 2;
     eDWP_LOCK DWP_LOCK : 2;
-  } bits;          // Bit-field struct (auto-filling reserved gaps)
+  } bits;
   
   // Full 32-bit register value.
   uint32_t value;
@@ -11511,27 +11943,30 @@ union SW_PAD_CTL_PAD_GPIO_DISP_B1_02 {
 //
 union SW_PAD_CTL_PAD_GPIO_DISP_B1_03 {
   
-  // Enum definitions.
   enum class ePDRV : uint32_t {
     ePDRV_0_high_driver = 0, // high drive strength
     ePDRV_1_normal_driver = 1, // normal drive strength
   };
+  
   enum class ePULL : uint32_t {
     ePULL_0_Forbidden = 0, // Forbidden
     ePULL_1_PU = 1, // Internal pullup resistor enabled
     ePULL_2_PD = 2, // Internal pulldown resistor enabled
     ePULL_3_No_Pull = 3, // No Pull
   };
+  
   enum class eODE : uint32_t {
     eODE_0_Disabled = 0, // Disabled
     eODE_1_Enabled = 1, // Enabled
   };
+  
   enum class eDWP : uint32_t {
     eforbid_none = 0, // Both cores are allowed
     eforbid_CM7 = 1, // CM7 is forbidden
     eforbid_CM4 = 2, // CM4 is forbidden
     eforbid_both = 3, // Both cores are forbidden
   };
+  
   enum class eDWP_LOCK : uint32_t {
     elock_none = 0, // Neither of DWP bits is locked
     elock_low = 1, // The lower DWP bit is locked
@@ -11548,7 +11983,7 @@ union SW_PAD_CTL_PAD_GPIO_DISP_B1_03 {
     uint32_t _reserved_3 : 23;
     eDWP DWP : 2;
     eDWP_LOCK DWP_LOCK : 2;
-  } bits;          // Bit-field struct (auto-filling reserved gaps)
+  } bits;
   
   // Full 32-bit register value.
   uint32_t value;
@@ -11562,27 +11997,30 @@ union SW_PAD_CTL_PAD_GPIO_DISP_B1_03 {
 //
 union SW_PAD_CTL_PAD_GPIO_DISP_B1_04 {
   
-  // Enum definitions.
   enum class ePDRV : uint32_t {
     ePDRV_0_high_driver = 0, // high drive strength
     ePDRV_1_normal_driver = 1, // normal drive strength
   };
+  
   enum class ePULL : uint32_t {
     ePULL_0_Forbidden = 0, // Forbidden
     ePULL_1_PU = 1, // Internal pullup resistor enabled
     ePULL_2_PD = 2, // Internal pulldown resistor enabled
     ePULL_3_No_Pull = 3, // No Pull
   };
+  
   enum class eODE : uint32_t {
     eODE_0_Disabled = 0, // Disabled
     eODE_1_Enabled = 1, // Enabled
   };
+  
   enum class eDWP : uint32_t {
     eforbid_none = 0, // Both cores are allowed
     eforbid_CM7 = 1, // CM7 is forbidden
     eforbid_CM4 = 2, // CM4 is forbidden
     eforbid_both = 3, // Both cores are forbidden
   };
+  
   enum class eDWP_LOCK : uint32_t {
     elock_none = 0, // Neither of DWP bits is locked
     elock_low = 1, // The lower DWP bit is locked
@@ -11599,7 +12037,7 @@ union SW_PAD_CTL_PAD_GPIO_DISP_B1_04 {
     uint32_t _reserved_3 : 23;
     eDWP DWP : 2;
     eDWP_LOCK DWP_LOCK : 2;
-  } bits;          // Bit-field struct (auto-filling reserved gaps)
+  } bits;
   
   // Full 32-bit register value.
   uint32_t value;
@@ -11613,27 +12051,30 @@ union SW_PAD_CTL_PAD_GPIO_DISP_B1_04 {
 //
 union SW_PAD_CTL_PAD_GPIO_DISP_B1_05 {
   
-  // Enum definitions.
   enum class ePDRV : uint32_t {
     ePDRV_0_high_driver = 0, // high drive strength
     ePDRV_1_normal_driver = 1, // normal drive strength
   };
+  
   enum class ePULL : uint32_t {
     ePULL_0_Forbidden = 0, // Forbidden
     ePULL_1_PU = 1, // Internal pullup resistor enabled
     ePULL_2_PD = 2, // Internal pulldown resistor enabled
     ePULL_3_No_Pull = 3, // No Pull
   };
+  
   enum class eODE : uint32_t {
     eODE_0_Disabled = 0, // Disabled
     eODE_1_Enabled = 1, // Enabled
   };
+  
   enum class eDWP : uint32_t {
     eforbid_none = 0, // Both cores are allowed
     eforbid_CM7 = 1, // CM7 is forbidden
     eforbid_CM4 = 2, // CM4 is forbidden
     eforbid_both = 3, // Both cores are forbidden
   };
+  
   enum class eDWP_LOCK : uint32_t {
     elock_none = 0, // Neither of DWP bits is locked
     elock_low = 1, // The lower DWP bit is locked
@@ -11650,7 +12091,7 @@ union SW_PAD_CTL_PAD_GPIO_DISP_B1_05 {
     uint32_t _reserved_3 : 23;
     eDWP DWP : 2;
     eDWP_LOCK DWP_LOCK : 2;
-  } bits;          // Bit-field struct (auto-filling reserved gaps)
+  } bits;
   
   // Full 32-bit register value.
   uint32_t value;
@@ -11664,27 +12105,30 @@ union SW_PAD_CTL_PAD_GPIO_DISP_B1_05 {
 //
 union SW_PAD_CTL_PAD_GPIO_DISP_B1_06 {
   
-  // Enum definitions.
   enum class ePDRV : uint32_t {
     ePDRV_0_high_driver = 0, // high drive strength
     ePDRV_1_normal_driver = 1, // normal drive strength
   };
+  
   enum class ePULL : uint32_t {
     ePULL_0_Forbidden = 0, // Forbidden
     ePULL_1_PU = 1, // Internal pullup resistor enabled
     ePULL_2_PD = 2, // Internal pulldown resistor enabled
     ePULL_3_No_Pull = 3, // No Pull
   };
+  
   enum class eODE : uint32_t {
     eODE_0_Disabled = 0, // Disabled
     eODE_1_Enabled = 1, // Enabled
   };
+  
   enum class eDWP : uint32_t {
     eforbid_none = 0, // Both cores are allowed
     eforbid_CM7 = 1, // CM7 is forbidden
     eforbid_CM4 = 2, // CM4 is forbidden
     eforbid_both = 3, // Both cores are forbidden
   };
+  
   enum class eDWP_LOCK : uint32_t {
     elock_none = 0, // Neither of DWP bits is locked
     elock_low = 1, // The lower DWP bit is locked
@@ -11701,7 +12145,7 @@ union SW_PAD_CTL_PAD_GPIO_DISP_B1_06 {
     uint32_t _reserved_3 : 23;
     eDWP DWP : 2;
     eDWP_LOCK DWP_LOCK : 2;
-  } bits;          // Bit-field struct (auto-filling reserved gaps)
+  } bits;
   
   // Full 32-bit register value.
   uint32_t value;
@@ -11715,27 +12159,30 @@ union SW_PAD_CTL_PAD_GPIO_DISP_B1_06 {
 //
 union SW_PAD_CTL_PAD_GPIO_DISP_B1_07 {
   
-  // Enum definitions.
   enum class ePDRV : uint32_t {
     ePDRV_0_high_driver = 0, // high drive strength
     ePDRV_1_normal_driver = 1, // normal drive strength
   };
+  
   enum class ePULL : uint32_t {
     ePULL_0_Forbidden = 0, // Forbidden
     ePULL_1_PU = 1, // Internal pullup resistor enabled
     ePULL_2_PD = 2, // Internal pulldown resistor enabled
     ePULL_3_No_Pull = 3, // No Pull
   };
+  
   enum class eODE : uint32_t {
     eODE_0_Disabled = 0, // Disabled
     eODE_1_Enabled = 1, // Enabled
   };
+  
   enum class eDWP : uint32_t {
     eforbid_none = 0, // Both cores are allowed
     eforbid_CM7 = 1, // CM7 is forbidden
     eforbid_CM4 = 2, // CM4 is forbidden
     eforbid_both = 3, // Both cores are forbidden
   };
+  
   enum class eDWP_LOCK : uint32_t {
     elock_none = 0, // Neither of DWP bits is locked
     elock_low = 1, // The lower DWP bit is locked
@@ -11752,7 +12199,7 @@ union SW_PAD_CTL_PAD_GPIO_DISP_B1_07 {
     uint32_t _reserved_3 : 23;
     eDWP DWP : 2;
     eDWP_LOCK DWP_LOCK : 2;
-  } bits;          // Bit-field struct (auto-filling reserved gaps)
+  } bits;
   
   // Full 32-bit register value.
   uint32_t value;
@@ -11766,27 +12213,30 @@ union SW_PAD_CTL_PAD_GPIO_DISP_B1_07 {
 //
 union SW_PAD_CTL_PAD_GPIO_DISP_B1_08 {
   
-  // Enum definitions.
   enum class ePDRV : uint32_t {
     ePDRV_0_high_driver = 0, // high drive strength
     ePDRV_1_normal_driver = 1, // normal drive strength
   };
+  
   enum class ePULL : uint32_t {
     ePULL_0_Forbidden = 0, // Forbidden
     ePULL_1_PU = 1, // Internal pullup resistor enabled
     ePULL_2_PD = 2, // Internal pulldown resistor enabled
     ePULL_3_No_Pull = 3, // No Pull
   };
+  
   enum class eODE : uint32_t {
     eODE_0_Disabled = 0, // Disabled
     eODE_1_Enabled = 1, // Enabled
   };
+  
   enum class eDWP : uint32_t {
     eforbid_none = 0, // Both cores are allowed
     eforbid_CM7 = 1, // CM7 is forbidden
     eforbid_CM4 = 2, // CM4 is forbidden
     eforbid_both = 3, // Both cores are forbidden
   };
+  
   enum class eDWP_LOCK : uint32_t {
     elock_none = 0, // Neither of DWP bits is locked
     elock_low = 1, // The lower DWP bit is locked
@@ -11803,7 +12253,7 @@ union SW_PAD_CTL_PAD_GPIO_DISP_B1_08 {
     uint32_t _reserved_3 : 23;
     eDWP DWP : 2;
     eDWP_LOCK DWP_LOCK : 2;
-  } bits;          // Bit-field struct (auto-filling reserved gaps)
+  } bits;
   
   // Full 32-bit register value.
   uint32_t value;
@@ -11817,27 +12267,30 @@ union SW_PAD_CTL_PAD_GPIO_DISP_B1_08 {
 //
 union SW_PAD_CTL_PAD_GPIO_DISP_B1_09 {
   
-  // Enum definitions.
   enum class ePDRV : uint32_t {
     ePDRV_0_high_driver = 0, // high drive strength
     ePDRV_1_normal_driver = 1, // normal drive strength
   };
+  
   enum class ePULL : uint32_t {
     ePULL_0_Forbidden = 0, // Forbidden
     ePULL_1_PU = 1, // Internal pullup resistor enabled
     ePULL_2_PD = 2, // Internal pulldown resistor enabled
     ePULL_3_No_Pull = 3, // No Pull
   };
+  
   enum class eODE : uint32_t {
     eODE_0_Disabled = 0, // Disabled
     eODE_1_Enabled = 1, // Enabled
   };
+  
   enum class eDWP : uint32_t {
     eforbid_none = 0, // Both cores are allowed
     eforbid_CM7 = 1, // CM7 is forbidden
     eforbid_CM4 = 2, // CM4 is forbidden
     eforbid_both = 3, // Both cores are forbidden
   };
+  
   enum class eDWP_LOCK : uint32_t {
     elock_none = 0, // Neither of DWP bits is locked
     elock_low = 1, // The lower DWP bit is locked
@@ -11854,7 +12307,7 @@ union SW_PAD_CTL_PAD_GPIO_DISP_B1_09 {
     uint32_t _reserved_3 : 23;
     eDWP DWP : 2;
     eDWP_LOCK DWP_LOCK : 2;
-  } bits;          // Bit-field struct (auto-filling reserved gaps)
+  } bits;
   
   // Full 32-bit register value.
   uint32_t value;
@@ -11868,27 +12321,30 @@ union SW_PAD_CTL_PAD_GPIO_DISP_B1_09 {
 //
 union SW_PAD_CTL_PAD_GPIO_DISP_B1_10 {
   
-  // Enum definitions.
   enum class ePDRV : uint32_t {
     ePDRV_0_high_driver = 0, // high drive strength
     ePDRV_1_normal_driver = 1, // normal drive strength
   };
+  
   enum class ePULL : uint32_t {
     ePULL_0_Forbidden = 0, // Forbidden
     ePULL_1_PU = 1, // Internal pullup resistor enabled
     ePULL_2_PD = 2, // Internal pulldown resistor enabled
     ePULL_3_No_Pull = 3, // No Pull
   };
+  
   enum class eODE : uint32_t {
     eODE_0_Disabled = 0, // Disabled
     eODE_1_Enabled = 1, // Enabled
   };
+  
   enum class eDWP : uint32_t {
     eforbid_none = 0, // Both cores are allowed
     eforbid_CM7 = 1, // CM7 is forbidden
     eforbid_CM4 = 2, // CM4 is forbidden
     eforbid_both = 3, // Both cores are forbidden
   };
+  
   enum class eDWP_LOCK : uint32_t {
     elock_none = 0, // Neither of DWP bits is locked
     elock_low = 1, // The lower DWP bit is locked
@@ -11905,7 +12361,7 @@ union SW_PAD_CTL_PAD_GPIO_DISP_B1_10 {
     uint32_t _reserved_3 : 23;
     eDWP DWP : 2;
     eDWP_LOCK DWP_LOCK : 2;
-  } bits;          // Bit-field struct (auto-filling reserved gaps)
+  } bits;
   
   // Full 32-bit register value.
   uint32_t value;
@@ -11919,27 +12375,30 @@ union SW_PAD_CTL_PAD_GPIO_DISP_B1_10 {
 //
 union SW_PAD_CTL_PAD_GPIO_DISP_B1_11 {
   
-  // Enum definitions.
   enum class ePDRV : uint32_t {
     ePDRV_0_high_driver = 0, // high drive strength
     ePDRV_1_normal_driver = 1, // normal drive strength
   };
+  
   enum class ePULL : uint32_t {
     ePULL_0_Forbidden = 0, // Forbidden
     ePULL_1_PU = 1, // Internal pullup resistor enabled
     ePULL_2_PD = 2, // Internal pulldown resistor enabled
     ePULL_3_No_Pull = 3, // No Pull
   };
+  
   enum class eODE : uint32_t {
     eODE_0_Disabled = 0, // Disabled
     eODE_1_Enabled = 1, // Enabled
   };
+  
   enum class eDWP : uint32_t {
     eforbid_none = 0, // Both cores are allowed
     eforbid_CM7 = 1, // CM7 is forbidden
     eforbid_CM4 = 2, // CM4 is forbidden
     eforbid_both = 3, // Both cores are forbidden
   };
+  
   enum class eDWP_LOCK : uint32_t {
     elock_none = 0, // Neither of DWP bits is locked
     elock_low = 1, // The lower DWP bit is locked
@@ -11956,7 +12415,7 @@ union SW_PAD_CTL_PAD_GPIO_DISP_B1_11 {
     uint32_t _reserved_3 : 23;
     eDWP DWP : 2;
     eDWP_LOCK DWP_LOCK : 2;
-  } bits;          // Bit-field struct (auto-filling reserved gaps)
+  } bits;
   
   // Full 32-bit register value.
   uint32_t value;
@@ -11970,33 +12429,38 @@ union SW_PAD_CTL_PAD_GPIO_DISP_B1_11 {
 //
 union SW_PAD_CTL_PAD_GPIO_DISP_B2_00 {
   
-  // Enum definitions.
   enum class eSRE : uint32_t {
     eSRE_0_Slow_Slew_Rate = 0, // Slow Slew Rate
     eSRE_1_Fast_Slew_Rate = 1, // Fast Slew Rate
   };
+  
   enum class eDSE : uint32_t {
     eDSE_0_normal_driver = 0, // normal drive strength
     eDSE_1_high_driver = 1, // high drive strength
   };
+  
   enum class ePUE : uint32_t {
     ePUE_0_Pull_Disable__Highz = 0, // Pull Disable, Highz
     ePUE_1_Pull_Enable = 1, // Pull Enable
   };
+  
   enum class ePUS : uint32_t {
     ePUS_0_Weak_pull_down = 0, // Weak pull down
     ePUS_1_Weak_pull_up = 1, // Weak pull up
   };
+  
   enum class eODE : uint32_t {
     eODE_0_Disabled = 0, // Disabled
     eODE_1_Enabled = 1, // Enabled
   };
+  
   enum class eDWP : uint32_t {
     eforbid_none = 0, // Both cores are allowed
     eforbid_CM7 = 1, // CM7 is forbidden
     eforbid_CM4 = 2, // CM4 is forbidden
     eforbid_both = 3, // Both cores are forbidden
   };
+  
   enum class eDWP_LOCK : uint32_t {
     elock_none = 0, // Neither of DWP bits is locked
     elock_low = 1, // The lower DWP bit is locked
@@ -12014,7 +12478,7 @@ union SW_PAD_CTL_PAD_GPIO_DISP_B2_00 {
     uint32_t _reserved_5 : 23;
     eDWP DWP : 2;
     eDWP_LOCK DWP_LOCK : 2;
-  } bits;          // Bit-field struct (auto-filling reserved gaps)
+  } bits;
   
   // Full 32-bit register value.
   uint32_t value;
@@ -12028,33 +12492,38 @@ union SW_PAD_CTL_PAD_GPIO_DISP_B2_00 {
 //
 union SW_PAD_CTL_PAD_GPIO_DISP_B2_01 {
   
-  // Enum definitions.
   enum class eSRE : uint32_t {
     eSRE_0_Slow_Slew_Rate = 0, // Slow Slew Rate
     eSRE_1_Fast_Slew_Rate = 1, // Fast Slew Rate
   };
+  
   enum class eDSE : uint32_t {
     eDSE_0_normal_driver = 0, // normal drive strength
     eDSE_1_high_driver = 1, // high drive strength
   };
+  
   enum class ePUE : uint32_t {
     ePUE_0_Pull_Disable__Highz = 0, // Pull Disable, Highz
     ePUE_1_Pull_Enable = 1, // Pull Enable
   };
+  
   enum class ePUS : uint32_t {
     ePUS_0_Weak_pull_down = 0, // Weak pull down
     ePUS_1_Weak_pull_up = 1, // Weak pull up
   };
+  
   enum class eODE : uint32_t {
     eODE_0_Disabled = 0, // Disabled
     eODE_1_Enabled = 1, // Enabled
   };
+  
   enum class eDWP : uint32_t {
     eforbid_none = 0, // Both cores are allowed
     eforbid_CM7 = 1, // CM7 is forbidden
     eforbid_CM4 = 2, // CM4 is forbidden
     eforbid_both = 3, // Both cores are forbidden
   };
+  
   enum class eDWP_LOCK : uint32_t {
     elock_none = 0, // Neither of DWP bits is locked
     elock_low = 1, // The lower DWP bit is locked
@@ -12072,7 +12541,7 @@ union SW_PAD_CTL_PAD_GPIO_DISP_B2_01 {
     uint32_t _reserved_5 : 23;
     eDWP DWP : 2;
     eDWP_LOCK DWP_LOCK : 2;
-  } bits;          // Bit-field struct (auto-filling reserved gaps)
+  } bits;
   
   // Full 32-bit register value.
   uint32_t value;
@@ -12086,33 +12555,38 @@ union SW_PAD_CTL_PAD_GPIO_DISP_B2_01 {
 //
 union SW_PAD_CTL_PAD_GPIO_DISP_B2_02 {
   
-  // Enum definitions.
   enum class eSRE : uint32_t {
     eSRE_0_Slow_Slew_Rate = 0, // Slow Slew Rate
     eSRE_1_Fast_Slew_Rate = 1, // Fast Slew Rate
   };
+  
   enum class eDSE : uint32_t {
     eDSE_0_normal_driver = 0, // normal drive strength
     eDSE_1_high_driver = 1, // high drive strength
   };
+  
   enum class ePUE : uint32_t {
     ePUE_0_Pull_Disable__Highz = 0, // Pull Disable, Highz
     ePUE_1_Pull_Enable = 1, // Pull Enable
   };
+  
   enum class ePUS : uint32_t {
     ePUS_0_Weak_pull_down = 0, // Weak pull down
     ePUS_1_Weak_pull_up = 1, // Weak pull up
   };
+  
   enum class eODE : uint32_t {
     eODE_0_Disabled = 0, // Disabled
     eODE_1_Enabled = 1, // Enabled
   };
+  
   enum class eDWP : uint32_t {
     eforbid_none = 0, // Both cores are allowed
     eforbid_CM7 = 1, // CM7 is forbidden
     eforbid_CM4 = 2, // CM4 is forbidden
     eforbid_both = 3, // Both cores are forbidden
   };
+  
   enum class eDWP_LOCK : uint32_t {
     elock_none = 0, // Neither of DWP bits is locked
     elock_low = 1, // The lower DWP bit is locked
@@ -12130,7 +12604,7 @@ union SW_PAD_CTL_PAD_GPIO_DISP_B2_02 {
     uint32_t _reserved_5 : 23;
     eDWP DWP : 2;
     eDWP_LOCK DWP_LOCK : 2;
-  } bits;          // Bit-field struct (auto-filling reserved gaps)
+  } bits;
   
   // Full 32-bit register value.
   uint32_t value;
@@ -12144,33 +12618,38 @@ union SW_PAD_CTL_PAD_GPIO_DISP_B2_02 {
 //
 union SW_PAD_CTL_PAD_GPIO_DISP_B2_03 {
   
-  // Enum definitions.
   enum class eSRE : uint32_t {
     eSRE_0_Slow_Slew_Rate = 0, // Slow Slew Rate
     eSRE_1_Fast_Slew_Rate = 1, // Fast Slew Rate
   };
+  
   enum class eDSE : uint32_t {
     eDSE_0_normal_driver = 0, // normal drive strength
     eDSE_1_high_driver = 1, // high drive strength
   };
+  
   enum class ePUE : uint32_t {
     ePUE_0_Pull_Disable__Highz = 0, // Pull Disable, Highz
     ePUE_1_Pull_Enable = 1, // Pull Enable
   };
+  
   enum class ePUS : uint32_t {
     ePUS_0_Weak_pull_down = 0, // Weak pull down
     ePUS_1_Weak_pull_up = 1, // Weak pull up
   };
+  
   enum class eODE : uint32_t {
     eODE_0_Disabled = 0, // Disabled
     eODE_1_Enabled = 1, // Enabled
   };
+  
   enum class eDWP : uint32_t {
     eforbid_none = 0, // Both cores are allowed
     eforbid_CM7 = 1, // CM7 is forbidden
     eforbid_CM4 = 2, // CM4 is forbidden
     eforbid_both = 3, // Both cores are forbidden
   };
+  
   enum class eDWP_LOCK : uint32_t {
     elock_none = 0, // Neither of DWP bits is locked
     elock_low = 1, // The lower DWP bit is locked
@@ -12188,7 +12667,7 @@ union SW_PAD_CTL_PAD_GPIO_DISP_B2_03 {
     uint32_t _reserved_5 : 23;
     eDWP DWP : 2;
     eDWP_LOCK DWP_LOCK : 2;
-  } bits;          // Bit-field struct (auto-filling reserved gaps)
+  } bits;
   
   // Full 32-bit register value.
   uint32_t value;
@@ -12202,33 +12681,38 @@ union SW_PAD_CTL_PAD_GPIO_DISP_B2_03 {
 //
 union SW_PAD_CTL_PAD_GPIO_DISP_B2_04 {
   
-  // Enum definitions.
   enum class eSRE : uint32_t {
     eSRE_0_Slow_Slew_Rate = 0, // Slow Slew Rate
     eSRE_1_Fast_Slew_Rate = 1, // Fast Slew Rate
   };
+  
   enum class eDSE : uint32_t {
     eDSE_0_normal_driver = 0, // normal drive strength
     eDSE_1_high_driver = 1, // high drive strength
   };
+  
   enum class ePUE : uint32_t {
     ePUE_0_Pull_Disable__Highz = 0, // Pull Disable, Highz
     ePUE_1_Pull_Enable = 1, // Pull Enable
   };
+  
   enum class ePUS : uint32_t {
     ePUS_0_Weak_pull_down = 0, // Weak pull down
     ePUS_1_Weak_pull_up = 1, // Weak pull up
   };
+  
   enum class eODE : uint32_t {
     eODE_0_Disabled = 0, // Disabled
     eODE_1_Enabled = 1, // Enabled
   };
+  
   enum class eDWP : uint32_t {
     eforbid_none = 0, // Both cores are allowed
     eforbid_CM7 = 1, // CM7 is forbidden
     eforbid_CM4 = 2, // CM4 is forbidden
     eforbid_both = 3, // Both cores are forbidden
   };
+  
   enum class eDWP_LOCK : uint32_t {
     elock_none = 0, // Neither of DWP bits is locked
     elock_low = 1, // The lower DWP bit is locked
@@ -12246,7 +12730,7 @@ union SW_PAD_CTL_PAD_GPIO_DISP_B2_04 {
     uint32_t _reserved_5 : 23;
     eDWP DWP : 2;
     eDWP_LOCK DWP_LOCK : 2;
-  } bits;          // Bit-field struct (auto-filling reserved gaps)
+  } bits;
   
   // Full 32-bit register value.
   uint32_t value;
@@ -12260,33 +12744,38 @@ union SW_PAD_CTL_PAD_GPIO_DISP_B2_04 {
 //
 union SW_PAD_CTL_PAD_GPIO_DISP_B2_05 {
   
-  // Enum definitions.
   enum class eSRE : uint32_t {
     eSRE_0_Slow_Slew_Rate = 0, // Slow Slew Rate
     eSRE_1_Fast_Slew_Rate = 1, // Fast Slew Rate
   };
+  
   enum class eDSE : uint32_t {
     eDSE_0_normal_driver = 0, // normal drive strength
     eDSE_1_high_driver = 1, // high drive strength
   };
+  
   enum class ePUE : uint32_t {
     ePUE_0_Pull_Disable__Highz = 0, // Pull Disable, Highz
     ePUE_1_Pull_Enable = 1, // Pull Enable
   };
+  
   enum class ePUS : uint32_t {
     ePUS_0_Weak_pull_down = 0, // Weak pull down
     ePUS_1_Weak_pull_up = 1, // Weak pull up
   };
+  
   enum class eODE : uint32_t {
     eODE_0_Disabled = 0, // Disabled
     eODE_1_Enabled = 1, // Enabled
   };
+  
   enum class eDWP : uint32_t {
     eforbid_none = 0, // Both cores are allowed
     eforbid_CM7 = 1, // CM7 is forbidden
     eforbid_CM4 = 2, // CM4 is forbidden
     eforbid_both = 3, // Both cores are forbidden
   };
+  
   enum class eDWP_LOCK : uint32_t {
     elock_none = 0, // Neither of DWP bits is locked
     elock_low = 1, // The lower DWP bit is locked
@@ -12304,7 +12793,7 @@ union SW_PAD_CTL_PAD_GPIO_DISP_B2_05 {
     uint32_t _reserved_5 : 23;
     eDWP DWP : 2;
     eDWP_LOCK DWP_LOCK : 2;
-  } bits;          // Bit-field struct (auto-filling reserved gaps)
+  } bits;
   
   // Full 32-bit register value.
   uint32_t value;
@@ -12318,33 +12807,38 @@ union SW_PAD_CTL_PAD_GPIO_DISP_B2_05 {
 //
 union SW_PAD_CTL_PAD_GPIO_DISP_B2_06 {
   
-  // Enum definitions.
   enum class eSRE : uint32_t {
     eSRE_0_Slow_Slew_Rate = 0, // Slow Slew Rate
     eSRE_1_Fast_Slew_Rate = 1, // Fast Slew Rate
   };
+  
   enum class eDSE : uint32_t {
     eDSE_0_normal_driver = 0, // normal drive strength
     eDSE_1_high_driver = 1, // high drive strength
   };
+  
   enum class ePUE : uint32_t {
     ePUE_0_Pull_Disable__Highz = 0, // Pull Disable, Highz
     ePUE_1_Pull_Enable = 1, // Pull Enable
   };
+  
   enum class ePUS : uint32_t {
     ePUS_0_Weak_pull_down = 0, // Weak pull down
     ePUS_1_Weak_pull_up = 1, // Weak pull up
   };
+  
   enum class eODE : uint32_t {
     eODE_0_Disabled = 0, // Disabled
     eODE_1_Enabled = 1, // Enabled
   };
+  
   enum class eDWP : uint32_t {
     eforbid_none = 0, // Both cores are allowed
     eforbid_CM7 = 1, // CM7 is forbidden
     eforbid_CM4 = 2, // CM4 is forbidden
     eforbid_both = 3, // Both cores are forbidden
   };
+  
   enum class eDWP_LOCK : uint32_t {
     elock_none = 0, // Neither of DWP bits is locked
     elock_low = 1, // The lower DWP bit is locked
@@ -12362,7 +12856,7 @@ union SW_PAD_CTL_PAD_GPIO_DISP_B2_06 {
     uint32_t _reserved_5 : 23;
     eDWP DWP : 2;
     eDWP_LOCK DWP_LOCK : 2;
-  } bits;          // Bit-field struct (auto-filling reserved gaps)
+  } bits;
   
   // Full 32-bit register value.
   uint32_t value;
@@ -12376,33 +12870,38 @@ union SW_PAD_CTL_PAD_GPIO_DISP_B2_06 {
 //
 union SW_PAD_CTL_PAD_GPIO_DISP_B2_07 {
   
-  // Enum definitions.
   enum class eSRE : uint32_t {
     eSRE_0_Slow_Slew_Rate = 0, // Slow Slew Rate
     eSRE_1_Fast_Slew_Rate = 1, // Fast Slew Rate
   };
+  
   enum class eDSE : uint32_t {
     eDSE_0_normal_driver = 0, // normal drive strength
     eDSE_1_high_driver = 1, // high drive strength
   };
+  
   enum class ePUE : uint32_t {
     ePUE_0_Pull_Disable__Highz = 0, // Pull Disable, Highz
     ePUE_1_Pull_Enable = 1, // Pull Enable
   };
+  
   enum class ePUS : uint32_t {
     ePUS_0_Weak_pull_down = 0, // Weak pull down
     ePUS_1_Weak_pull_up = 1, // Weak pull up
   };
+  
   enum class eODE : uint32_t {
     eODE_0_Disabled = 0, // Disabled
     eODE_1_Enabled = 1, // Enabled
   };
+  
   enum class eDWP : uint32_t {
     eforbid_none = 0, // Both cores are allowed
     eforbid_CM7 = 1, // CM7 is forbidden
     eforbid_CM4 = 2, // CM4 is forbidden
     eforbid_both = 3, // Both cores are forbidden
   };
+  
   enum class eDWP_LOCK : uint32_t {
     elock_none = 0, // Neither of DWP bits is locked
     elock_low = 1, // The lower DWP bit is locked
@@ -12420,7 +12919,7 @@ union SW_PAD_CTL_PAD_GPIO_DISP_B2_07 {
     uint32_t _reserved_5 : 23;
     eDWP DWP : 2;
     eDWP_LOCK DWP_LOCK : 2;
-  } bits;          // Bit-field struct (auto-filling reserved gaps)
+  } bits;
   
   // Full 32-bit register value.
   uint32_t value;
@@ -12434,33 +12933,38 @@ union SW_PAD_CTL_PAD_GPIO_DISP_B2_07 {
 //
 union SW_PAD_CTL_PAD_GPIO_DISP_B2_08 {
   
-  // Enum definitions.
   enum class eSRE : uint32_t {
     eSRE_0_Slow_Slew_Rate = 0, // Slow Slew Rate
     eSRE_1_Fast_Slew_Rate = 1, // Fast Slew Rate
   };
+  
   enum class eDSE : uint32_t {
     eDSE_0_normal_driver = 0, // normal drive strength
     eDSE_1_high_driver = 1, // high drive strength
   };
+  
   enum class ePUE : uint32_t {
     ePUE_0_Pull_Disable__Highz = 0, // Pull Disable, Highz
     ePUE_1_Pull_Enable = 1, // Pull Enable
   };
+  
   enum class ePUS : uint32_t {
     ePUS_0_Weak_pull_down = 0, // Weak pull down
     ePUS_1_Weak_pull_up = 1, // Weak pull up
   };
+  
   enum class eODE : uint32_t {
     eODE_0_Disabled = 0, // Disabled
     eODE_1_Enabled = 1, // Enabled
   };
+  
   enum class eDWP : uint32_t {
     eforbid_none = 0, // Both cores are allowed
     eforbid_CM7 = 1, // CM7 is forbidden
     eforbid_CM4 = 2, // CM4 is forbidden
     eforbid_both = 3, // Both cores are forbidden
   };
+  
   enum class eDWP_LOCK : uint32_t {
     elock_none = 0, // Neither of DWP bits is locked
     elock_low = 1, // The lower DWP bit is locked
@@ -12478,7 +12982,7 @@ union SW_PAD_CTL_PAD_GPIO_DISP_B2_08 {
     uint32_t _reserved_5 : 23;
     eDWP DWP : 2;
     eDWP_LOCK DWP_LOCK : 2;
-  } bits;          // Bit-field struct (auto-filling reserved gaps)
+  } bits;
   
   // Full 32-bit register value.
   uint32_t value;
@@ -12492,33 +12996,38 @@ union SW_PAD_CTL_PAD_GPIO_DISP_B2_08 {
 //
 union SW_PAD_CTL_PAD_GPIO_DISP_B2_09 {
   
-  // Enum definitions.
   enum class eSRE : uint32_t {
     eSRE_0_Slow_Slew_Rate = 0, // Slow Slew Rate
     eSRE_1_Fast_Slew_Rate = 1, // Fast Slew Rate
   };
+  
   enum class eDSE : uint32_t {
     eDSE_0_normal_driver = 0, // normal drive strength
     eDSE_1_high_driver = 1, // high drive strength
   };
+  
   enum class ePUE : uint32_t {
     ePUE_0_Pull_Disable__Highz = 0, // Pull Disable, Highz
     ePUE_1_Pull_Enable = 1, // Pull Enable
   };
+  
   enum class ePUS : uint32_t {
     ePUS_0_Weak_pull_down = 0, // Weak pull down
     ePUS_1_Weak_pull_up = 1, // Weak pull up
   };
+  
   enum class eODE : uint32_t {
     eODE_0_Disabled = 0, // Disabled
     eODE_1_Enabled = 1, // Enabled
   };
+  
   enum class eDWP : uint32_t {
     eforbid_none = 0, // Both cores are allowed
     eforbid_CM7 = 1, // CM7 is forbidden
     eforbid_CM4 = 2, // CM4 is forbidden
     eforbid_both = 3, // Both cores are forbidden
   };
+  
   enum class eDWP_LOCK : uint32_t {
     elock_none = 0, // Neither of DWP bits is locked
     elock_low = 1, // The lower DWP bit is locked
@@ -12536,7 +13045,7 @@ union SW_PAD_CTL_PAD_GPIO_DISP_B2_09 {
     uint32_t _reserved_5 : 23;
     eDWP DWP : 2;
     eDWP_LOCK DWP_LOCK : 2;
-  } bits;          // Bit-field struct (auto-filling reserved gaps)
+  } bits;
   
   // Full 32-bit register value.
   uint32_t value;
@@ -12550,33 +13059,38 @@ union SW_PAD_CTL_PAD_GPIO_DISP_B2_09 {
 //
 union SW_PAD_CTL_PAD_GPIO_DISP_B2_10 {
   
-  // Enum definitions.
   enum class eSRE : uint32_t {
     eSRE_0_Slow_Slew_Rate = 0, // Slow Slew Rate
     eSRE_1_Fast_Slew_Rate = 1, // Fast Slew Rate
   };
+  
   enum class eDSE : uint32_t {
     eDSE_0_normal_driver = 0, // normal drive strength
     eDSE_1_high_driver = 1, // high drive strength
   };
+  
   enum class ePUE : uint32_t {
     ePUE_0_Pull_Disable__Highz = 0, // Pull Disable, Highz
     ePUE_1_Pull_Enable = 1, // Pull Enable
   };
+  
   enum class ePUS : uint32_t {
     ePUS_0_Weak_pull_down = 0, // Weak pull down
     ePUS_1_Weak_pull_up = 1, // Weak pull up
   };
+  
   enum class eODE : uint32_t {
     eODE_0_Disabled = 0, // Disabled
     eODE_1_Enabled = 1, // Enabled
   };
+  
   enum class eDWP : uint32_t {
     eforbid_none = 0, // Both cores are allowed
     eforbid_CM7 = 1, // CM7 is forbidden
     eforbid_CM4 = 2, // CM4 is forbidden
     eforbid_both = 3, // Both cores are forbidden
   };
+  
   enum class eDWP_LOCK : uint32_t {
     elock_none = 0, // Neither of DWP bits is locked
     elock_low = 1, // The lower DWP bit is locked
@@ -12594,7 +13108,7 @@ union SW_PAD_CTL_PAD_GPIO_DISP_B2_10 {
     uint32_t _reserved_5 : 23;
     eDWP DWP : 2;
     eDWP_LOCK DWP_LOCK : 2;
-  } bits;          // Bit-field struct (auto-filling reserved gaps)
+  } bits;
   
   // Full 32-bit register value.
   uint32_t value;
@@ -12608,33 +13122,38 @@ union SW_PAD_CTL_PAD_GPIO_DISP_B2_10 {
 //
 union SW_PAD_CTL_PAD_GPIO_DISP_B2_11 {
   
-  // Enum definitions.
   enum class eSRE : uint32_t {
     eSRE_0_Slow_Slew_Rate = 0, // Slow Slew Rate
     eSRE_1_Fast_Slew_Rate = 1, // Fast Slew Rate
   };
+  
   enum class eDSE : uint32_t {
     eDSE_0_normal_driver = 0, // normal drive strength
     eDSE_1_high_driver = 1, // high drive strength
   };
+  
   enum class ePUE : uint32_t {
     ePUE_0_Pull_Disable__Highz = 0, // Pull Disable, Highz
     ePUE_1_Pull_Enable = 1, // Pull Enable
   };
+  
   enum class ePUS : uint32_t {
     ePUS_0_Weak_pull_down = 0, // Weak pull down
     ePUS_1_Weak_pull_up = 1, // Weak pull up
   };
+  
   enum class eODE : uint32_t {
     eODE_0_Disabled = 0, // Disabled
     eODE_1_Enabled = 1, // Enabled
   };
+  
   enum class eDWP : uint32_t {
     eforbid_none = 0, // Both cores are allowed
     eforbid_CM7 = 1, // CM7 is forbidden
     eforbid_CM4 = 2, // CM4 is forbidden
     eforbid_both = 3, // Both cores are forbidden
   };
+  
   enum class eDWP_LOCK : uint32_t {
     elock_none = 0, // Neither of DWP bits is locked
     elock_low = 1, // The lower DWP bit is locked
@@ -12652,7 +13171,7 @@ union SW_PAD_CTL_PAD_GPIO_DISP_B2_11 {
     uint32_t _reserved_5 : 23;
     eDWP DWP : 2;
     eDWP_LOCK DWP_LOCK : 2;
-  } bits;          // Bit-field struct (auto-filling reserved gaps)
+  } bits;
   
   // Full 32-bit register value.
   uint32_t value;
@@ -12666,33 +13185,38 @@ union SW_PAD_CTL_PAD_GPIO_DISP_B2_11 {
 //
 union SW_PAD_CTL_PAD_GPIO_DISP_B2_12 {
   
-  // Enum definitions.
   enum class eSRE : uint32_t {
     eSRE_0_Slow_Slew_Rate = 0, // Slow Slew Rate
     eSRE_1_Fast_Slew_Rate = 1, // Fast Slew Rate
   };
+  
   enum class eDSE : uint32_t {
     eDSE_0_normal_driver = 0, // normal drive strength
     eDSE_1_high_driver = 1, // high drive strength
   };
+  
   enum class ePUE : uint32_t {
     ePUE_0_Pull_Disable__Highz = 0, // Pull Disable, Highz
     ePUE_1_Pull_Enable = 1, // Pull Enable
   };
+  
   enum class ePUS : uint32_t {
     ePUS_0_Weak_pull_down = 0, // Weak pull down
     ePUS_1_Weak_pull_up = 1, // Weak pull up
   };
+  
   enum class eODE : uint32_t {
     eODE_0_Disabled = 0, // Disabled
     eODE_1_Enabled = 1, // Enabled
   };
+  
   enum class eDWP : uint32_t {
     eforbid_none = 0, // Both cores are allowed
     eforbid_CM7 = 1, // CM7 is forbidden
     eforbid_CM4 = 2, // CM4 is forbidden
     eforbid_both = 3, // Both cores are forbidden
   };
+  
   enum class eDWP_LOCK : uint32_t {
     elock_none = 0, // Neither of DWP bits is locked
     elock_low = 1, // The lower DWP bit is locked
@@ -12710,7 +13234,7 @@ union SW_PAD_CTL_PAD_GPIO_DISP_B2_12 {
     uint32_t _reserved_5 : 23;
     eDWP DWP : 2;
     eDWP_LOCK DWP_LOCK : 2;
-  } bits;          // Bit-field struct (auto-filling reserved gaps)
+  } bits;
   
   // Full 32-bit register value.
   uint32_t value;
@@ -12724,33 +13248,38 @@ union SW_PAD_CTL_PAD_GPIO_DISP_B2_12 {
 //
 union SW_PAD_CTL_PAD_GPIO_DISP_B2_13 {
   
-  // Enum definitions.
   enum class eSRE : uint32_t {
     eSRE_0_Slow_Slew_Rate = 0, // Slow Slew Rate
     eSRE_1_Fast_Slew_Rate = 1, // Fast Slew Rate
   };
+  
   enum class eDSE : uint32_t {
     eDSE_0_normal_driver = 0, // normal drive strength
     eDSE_1_high_driver = 1, // high drive strength
   };
+  
   enum class ePUE : uint32_t {
     ePUE_0_Pull_Disable__Highz = 0, // Pull Disable, Highz
     ePUE_1_Pull_Enable = 1, // Pull Enable
   };
+  
   enum class ePUS : uint32_t {
     ePUS_0_Weak_pull_down = 0, // Weak pull down
     ePUS_1_Weak_pull_up = 1, // Weak pull up
   };
+  
   enum class eODE : uint32_t {
     eODE_0_Disabled = 0, // Disabled
     eODE_1_Enabled = 1, // Enabled
   };
+  
   enum class eDWP : uint32_t {
     eforbid_none = 0, // Both cores are allowed
     eforbid_CM7 = 1, // CM7 is forbidden
     eforbid_CM4 = 2, // CM4 is forbidden
     eforbid_both = 3, // Both cores are forbidden
   };
+  
   enum class eDWP_LOCK : uint32_t {
     elock_none = 0, // Neither of DWP bits is locked
     elock_low = 1, // The lower DWP bit is locked
@@ -12768,7 +13297,7 @@ union SW_PAD_CTL_PAD_GPIO_DISP_B2_13 {
     uint32_t _reserved_5 : 23;
     eDWP DWP : 2;
     eDWP_LOCK DWP_LOCK : 2;
-  } bits;          // Bit-field struct (auto-filling reserved gaps)
+  } bits;
   
   // Full 32-bit register value.
   uint32_t value;
@@ -12782,33 +13311,38 @@ union SW_PAD_CTL_PAD_GPIO_DISP_B2_13 {
 //
 union SW_PAD_CTL_PAD_GPIO_DISP_B2_14 {
   
-  // Enum definitions.
   enum class eSRE : uint32_t {
     eSRE_0_Slow_Slew_Rate = 0, // Slow Slew Rate
     eSRE_1_Fast_Slew_Rate = 1, // Fast Slew Rate
   };
+  
   enum class eDSE : uint32_t {
     eDSE_0_normal_driver = 0, // normal drive strength
     eDSE_1_high_driver = 1, // high drive strength
   };
+  
   enum class ePUE : uint32_t {
     ePUE_0_Pull_Disable__Highz = 0, // Pull Disable, Highz
     ePUE_1_Pull_Enable = 1, // Pull Enable
   };
+  
   enum class ePUS : uint32_t {
     ePUS_0_Weak_pull_down = 0, // Weak pull down
     ePUS_1_Weak_pull_up = 1, // Weak pull up
   };
+  
   enum class eODE : uint32_t {
     eODE_0_Disabled = 0, // Disabled
     eODE_1_Enabled = 1, // Enabled
   };
+  
   enum class eDWP : uint32_t {
     eforbid_none = 0, // Both cores are allowed
     eforbid_CM7 = 1, // CM7 is forbidden
     eforbid_CM4 = 2, // CM4 is forbidden
     eforbid_both = 3, // Both cores are forbidden
   };
+  
   enum class eDWP_LOCK : uint32_t {
     elock_none = 0, // Neither of DWP bits is locked
     elock_low = 1, // The lower DWP bit is locked
@@ -12826,7 +13360,7 @@ union SW_PAD_CTL_PAD_GPIO_DISP_B2_14 {
     uint32_t _reserved_5 : 23;
     eDWP DWP : 2;
     eDWP_LOCK DWP_LOCK : 2;
-  } bits;          // Bit-field struct (auto-filling reserved gaps)
+  } bits;
   
   // Full 32-bit register value.
   uint32_t value;
@@ -12840,33 +13374,38 @@ union SW_PAD_CTL_PAD_GPIO_DISP_B2_14 {
 //
 union SW_PAD_CTL_PAD_GPIO_DISP_B2_15 {
   
-  // Enum definitions.
   enum class eSRE : uint32_t {
     eSRE_0_Slow_Slew_Rate = 0, // Slow Slew Rate
     eSRE_1_Fast_Slew_Rate = 1, // Fast Slew Rate
   };
+  
   enum class eDSE : uint32_t {
     eDSE_0_normal_driver = 0, // normal drive strength
     eDSE_1_high_driver = 1, // high drive strength
   };
+  
   enum class ePUE : uint32_t {
     ePUE_0_Pull_Disable__Highz = 0, // Pull Disable, Highz
     ePUE_1_Pull_Enable = 1, // Pull Enable
   };
+  
   enum class ePUS : uint32_t {
     ePUS_0_Weak_pull_down = 0, // Weak pull down
     ePUS_1_Weak_pull_up = 1, // Weak pull up
   };
+  
   enum class eODE : uint32_t {
     eODE_0_Disabled = 0, // Disabled
     eODE_1_Enabled = 1, // Enabled
   };
+  
   enum class eDWP : uint32_t {
     eforbid_none = 0, // Both cores are allowed
     eforbid_CM7 = 1, // CM7 is forbidden
     eforbid_CM4 = 2, // CM4 is forbidden
     eforbid_both = 3, // Both cores are forbidden
   };
+  
   enum class eDWP_LOCK : uint32_t {
     elock_none = 0, // Neither of DWP bits is locked
     elock_low = 1, // The lower DWP bit is locked
@@ -12884,7 +13423,7 @@ union SW_PAD_CTL_PAD_GPIO_DISP_B2_15 {
     uint32_t _reserved_5 : 23;
     eDWP DWP : 2;
     eDWP_LOCK DWP_LOCK : 2;
-  } bits;          // Bit-field struct (auto-filling reserved gaps)
+  } bits;
   
   // Full 32-bit register value.
   uint32_t value;
@@ -12898,7 +13437,6 @@ union SW_PAD_CTL_PAD_GPIO_DISP_B2_15 {
 //
 union FLEXCAN1_RX_SELECT_INPUT {
   
-  // Enum definitions.
   enum class eDAISY : uint32_t {
     eSELECT_GPIO_AD_07_ALT1 = 0, // Selecting Pad: GPIO_AD_07 for Mode: ALT1
     eSELECT_GPIO_DISP_B2_13_ALT2 = 1, // Selecting Pad: GPIO_DISP_B2_13 for Mode: ALT2
@@ -12909,7 +13447,7 @@ union FLEXCAN1_RX_SELECT_INPUT {
   struct {
     eDAISY DAISY : 2;
     uint32_t _reserved_end : 30;
-  } bits;          // Bit-field struct (auto-filling reserved gaps)
+  } bits;
   
   // Full 32-bit register value.
   uint32_t value;
@@ -12923,7 +13461,6 @@ union FLEXCAN1_RX_SELECT_INPUT {
 //
 union FLEXCAN2_RX_SELECT_INPUT {
   
-  // Enum definitions.
   enum class eDAISY : uint32_t {
     eSELECT_GPIO_AD_01_ALT1 = 0, // Selecting Pad: GPIO_AD_01 for Mode: ALT1
     eSELECT_GPIO_AD_31_ALT2 = 1, // Selecting Pad: GPIO_AD_31 for Mode: ALT2
@@ -12933,7 +13470,7 @@ union FLEXCAN2_RX_SELECT_INPUT {
   struct {
     eDAISY DAISY : 1;
     uint32_t _reserved_end : 31;
-  } bits;          // Bit-field struct (auto-filling reserved gaps)
+  } bits;
   
   // Full 32-bit register value.
   uint32_t value;
@@ -12947,7 +13484,6 @@ union FLEXCAN2_RX_SELECT_INPUT {
 //
 union CCM_ENET_QOS_REF_CLK_SELECT_INPUT {
   
-  // Enum definitions.
   enum class eDAISY : uint32_t {
     eSELECT_GPIO_EMC_B2_20_ALT3 = 0, // Selecting Pad: GPIO_EMC_B2_20 for Mode: ALT3
     eSELECT_GPIO_SD_B2_07_ALT9 = 1, // Selecting Pad: GPIO_SD_B2_07 for Mode: ALT9
@@ -12958,7 +13494,7 @@ union CCM_ENET_QOS_REF_CLK_SELECT_INPUT {
   struct {
     eDAISY DAISY : 2;
     uint32_t _reserved_end : 30;
-  } bits;          // Bit-field struct (auto-filling reserved gaps)
+  } bits;
   
   // Full 32-bit register value.
   uint32_t value;
@@ -12972,7 +13508,6 @@ union CCM_ENET_QOS_REF_CLK_SELECT_INPUT {
 //
 union CCM_ENET_QOS_TX_CLK_SELECT_INPUT {
   
-  // Enum definitions.
   enum class eDAISY : uint32_t {
     eSELECT_GPIO_DISP_B1_11_ALT8 = 0, // Selecting Pad: GPIO_DISP_B1_11 for Mode: ALT8
     eSELECT_GPIO_DISP_B2_05_ALT8 = 1, // Selecting Pad: GPIO_DISP_B2_05 for Mode: ALT8
@@ -12982,7 +13517,7 @@ union CCM_ENET_QOS_TX_CLK_SELECT_INPUT {
   struct {
     eDAISY DAISY : 1;
     uint32_t _reserved_end : 31;
-  } bits;          // Bit-field struct (auto-filling reserved gaps)
+  } bits;
   
   // Full 32-bit register value.
   uint32_t value;
@@ -12996,7 +13531,6 @@ union CCM_ENET_QOS_TX_CLK_SELECT_INPUT {
 //
 union ENET_IPG_CLK_RMII_SELECT_INPUT {
   
-  // Enum definitions.
   enum class eDAISY : uint32_t {
     eSELECT_GPIO_AD_29_ALT2 = 0, // Selecting Pad: GPIO_AD_29 for Mode: ALT2
     eSELECT_GPIO_DISP_B2_05_ALT2 = 1, // Selecting Pad: GPIO_DISP_B2_05 for Mode: ALT2
@@ -13007,7 +13541,7 @@ union ENET_IPG_CLK_RMII_SELECT_INPUT {
   struct {
     eDAISY DAISY : 2;
     uint32_t _reserved_end : 30;
-  } bits;          // Bit-field struct (auto-filling reserved gaps)
+  } bits;
   
   // Full 32-bit register value.
   uint32_t value;
@@ -13021,7 +13555,6 @@ union ENET_IPG_CLK_RMII_SELECT_INPUT {
 //
 union ENET_MAC0_MDIO_SELECT_INPUT {
   
-  // Enum definitions.
   enum class eDAISY : uint32_t {
     eSELECT_GPIO_EMC_B2_20_ALT1 = 0, // Selecting Pad: GPIO_EMC_B2_20 for Mode: ALT1
     eSELECT_GPIO_AD_33_ALT3 = 1, // Selecting Pad: GPIO_AD_33 for Mode: ALT3
@@ -13031,7 +13564,7 @@ union ENET_MAC0_MDIO_SELECT_INPUT {
   struct {
     eDAISY DAISY : 1;
     uint32_t _reserved_end : 31;
-  } bits;          // Bit-field struct (auto-filling reserved gaps)
+  } bits;
   
   // Full 32-bit register value.
   uint32_t value;
@@ -13045,7 +13578,6 @@ union ENET_MAC0_MDIO_SELECT_INPUT {
 //
 union ENET_MAC0_RXDATA_SELECT_INPUT_0 {
   
-  // Enum definitions.
   enum class eDAISY : uint32_t {
     eSELECT_GPIO_AD_26_ALT3 = 0, // Selecting Pad: GPIO_AD_26 for Mode: ALT3
     eSELECT_GPIO_DISP_B2_06_ALT1 = 1, // Selecting Pad: GPIO_DISP_B2_06 for Mode: ALT1
@@ -13055,7 +13587,7 @@ union ENET_MAC0_RXDATA_SELECT_INPUT_0 {
   struct {
     eDAISY DAISY : 1;
     uint32_t _reserved_end : 31;
-  } bits;          // Bit-field struct (auto-filling reserved gaps)
+  } bits;
   
   // Full 32-bit register value.
   uint32_t value;
@@ -13069,7 +13601,6 @@ union ENET_MAC0_RXDATA_SELECT_INPUT_0 {
 //
 union ENET_MAC0_RXDATA_SELECT_INPUT_1 {
   
-  // Enum definitions.
   enum class eDAISY : uint32_t {
     eSELECT_GPIO_AD_27_ALT3 = 0, // Selecting Pad: GPIO_AD_27 for Mode: ALT3
     eSELECT_GPIO_DISP_B2_07_ALT1 = 1, // Selecting Pad: GPIO_DISP_B2_07 for Mode: ALT1
@@ -13079,7 +13610,7 @@ union ENET_MAC0_RXDATA_SELECT_INPUT_1 {
   struct {
     eDAISY DAISY : 1;
     uint32_t _reserved_end : 31;
-  } bits;          // Bit-field struct (auto-filling reserved gaps)
+  } bits;
   
   // Full 32-bit register value.
   uint32_t value;
@@ -13093,7 +13624,6 @@ union ENET_MAC0_RXDATA_SELECT_INPUT_1 {
 //
 union ENET_MAC0_RXEN_SELECT_INPUT {
   
-  // Enum definitions.
   enum class eDAISY : uint32_t {
     eSELECT_GPIO_AD_24_ALT3 = 0, // Selecting Pad: GPIO_AD_24 for Mode: ALT3
     eSELECT_GPIO_DISP_B2_08_ALT1 = 1, // Selecting Pad: GPIO_DISP_B2_08 for Mode: ALT1
@@ -13103,7 +13633,7 @@ union ENET_MAC0_RXEN_SELECT_INPUT {
   struct {
     eDAISY DAISY : 1;
     uint32_t _reserved_end : 31;
-  } bits;          // Bit-field struct (auto-filling reserved gaps)
+  } bits;
   
   // Full 32-bit register value.
   uint32_t value;
@@ -13117,7 +13647,6 @@ union ENET_MAC0_RXEN_SELECT_INPUT {
 //
 union ENET_MAC0_RXERR_SELECT_INPUT {
   
-  // Enum definitions.
   enum class eDAISY : uint32_t {
     eSELECT_GPIO_AD_25_ALT3 = 0, // Selecting Pad: GPIO_AD_25 for Mode: ALT3
     eSELECT_GPIO_DISP_B2_09_ALT1 = 1, // Selecting Pad: GPIO_DISP_B2_09 for Mode: ALT1
@@ -13127,7 +13656,7 @@ union ENET_MAC0_RXERR_SELECT_INPUT {
   struct {
     eDAISY DAISY : 1;
     uint32_t _reserved_end : 31;
-  } bits;          // Bit-field struct (auto-filling reserved gaps)
+  } bits;
   
   // Full 32-bit register value.
   uint32_t value;
@@ -13141,7 +13670,6 @@ union ENET_MAC0_RXERR_SELECT_INPUT {
 //
 union ENET_MAC0_TXCLK_SELECT_INPUT {
   
-  // Enum definitions.
   enum class eDAISY : uint32_t {
     eSELECT_GPIO_AD_29_ALT3 = 0, // Selecting Pad: GPIO_AD_29 for Mode: ALT3
     eSELECT_GPIO_DISP_B2_05_ALT1 = 1, // Selecting Pad: GPIO_DISP_B2_05 for Mode: ALT1
@@ -13151,7 +13679,7 @@ union ENET_MAC0_TXCLK_SELECT_INPUT {
   struct {
     eDAISY DAISY : 1;
     uint32_t _reserved_end : 31;
-  } bits;          // Bit-field struct (auto-filling reserved gaps)
+  } bits;
   
   // Full 32-bit register value.
   uint32_t value;
@@ -13165,7 +13693,6 @@ union ENET_MAC0_TXCLK_SELECT_INPUT {
 //
 union ENET_1G_IPG_CLK_RMII_SELECT_INPUT {
   
-  // Enum definitions.
   enum class eDAISY : uint32_t {
     eSELECT_GPIO_EMC_B2_19_ALT3 = 0, // Selecting Pad: GPIO_EMC_B2_19 for Mode: ALT3
     eSELECT_GPIO_SD_B2_11_ALT3 = 1, // Selecting Pad: GPIO_SD_B2_11 for Mode: ALT3
@@ -13177,7 +13704,7 @@ union ENET_1G_IPG_CLK_RMII_SELECT_INPUT {
   struct {
     eDAISY DAISY : 2;
     uint32_t _reserved_end : 30;
-  } bits;          // Bit-field struct (auto-filling reserved gaps)
+  } bits;
   
   // Full 32-bit register value.
   uint32_t value;
@@ -13191,7 +13718,6 @@ union ENET_1G_IPG_CLK_RMII_SELECT_INPUT {
 //
 union ENET_1G_MAC0_MDIO_SELECT_INPUT {
   
-  // Enum definitions.
   enum class eDAISY : uint32_t {
     eSELECT_GPIO_EMC_B1_41_ALT7 = 0, // Selecting Pad: GPIO_EMC_B1_41 for Mode: ALT7
     eSELECT_GPIO_EMC_B2_20_ALT2 = 1, // Selecting Pad: GPIO_EMC_B2_20 for Mode: ALT2
@@ -13203,7 +13729,7 @@ union ENET_1G_MAC0_MDIO_SELECT_INPUT {
   struct {
     eDAISY DAISY : 2;
     uint32_t _reserved_end : 30;
-  } bits;          // Bit-field struct (auto-filling reserved gaps)
+  } bits;
   
   // Full 32-bit register value.
   uint32_t value;
@@ -13217,7 +13743,6 @@ union ENET_1G_MAC0_MDIO_SELECT_INPUT {
 //
 union ENET_1G_MAC0_RXCLK_SELECT_INPUT {
   
-  // Enum definitions.
   enum class eDAISY : uint32_t {
     eSELECT_GPIO_EMC_B2_05_ALT7 = 0, // Selecting Pad: GPIO_EMC_B2_05 for Mode: ALT7
     eSELECT_GPIO_SD_B2_01_ALT2 = 1, // Selecting Pad: GPIO_SD_B2_01 for Mode: ALT2
@@ -13228,7 +13753,7 @@ union ENET_1G_MAC0_RXCLK_SELECT_INPUT {
   struct {
     eDAISY DAISY : 2;
     uint32_t _reserved_end : 30;
-  } bits;          // Bit-field struct (auto-filling reserved gaps)
+  } bits;
   
   // Full 32-bit register value.
   uint32_t value;
@@ -13242,7 +13767,6 @@ union ENET_1G_MAC0_RXCLK_SELECT_INPUT {
 //
 union ENET_1G_MAC0_RXDATA_0_SELECT_INPUT {
   
-  // Enum definitions.
   enum class eDAISY : uint32_t {
     eSELECT_GPIO_EMC_B2_15_ALT2 = 0, // Selecting Pad: GPIO_EMC_B2_15 for Mode: ALT2
     eSELECT_GPIO_SD_B2_02_ALT2 = 1, // Selecting Pad: GPIO_SD_B2_02 for Mode: ALT2
@@ -13253,7 +13777,7 @@ union ENET_1G_MAC0_RXDATA_0_SELECT_INPUT {
   struct {
     eDAISY DAISY : 2;
     uint32_t _reserved_end : 30;
-  } bits;          // Bit-field struct (auto-filling reserved gaps)
+  } bits;
   
   // Full 32-bit register value.
   uint32_t value;
@@ -13267,7 +13791,6 @@ union ENET_1G_MAC0_RXDATA_0_SELECT_INPUT {
 //
 union ENET_1G_MAC0_RXDATA_1_SELECT_INPUT {
   
-  // Enum definitions.
   enum class eDAISY : uint32_t {
     eSELECT_GPIO_EMC_B2_16_ALT2 = 0, // Selecting Pad: GPIO_EMC_B2_16 for Mode: ALT2
     eSELECT_GPIO_SD_B2_03_ALT2 = 1, // Selecting Pad: GPIO_SD_B2_03 for Mode: ALT2
@@ -13278,7 +13801,7 @@ union ENET_1G_MAC0_RXDATA_1_SELECT_INPUT {
   struct {
     eDAISY DAISY : 2;
     uint32_t _reserved_end : 30;
-  } bits;          // Bit-field struct (auto-filling reserved gaps)
+  } bits;
   
   // Full 32-bit register value.
   uint32_t value;
@@ -13292,7 +13815,6 @@ union ENET_1G_MAC0_RXDATA_1_SELECT_INPUT {
 //
 union ENET_1G_MAC0_RXDATA_2_SELECT_INPUT {
   
-  // Enum definitions.
   enum class eDAISY : uint32_t {
     eSELECT_GPIO_EMC_B2_08_ALT7 = 0, // Selecting Pad: GPIO_EMC_B2_08 for Mode: ALT7
     eSELECT_GPIO_SD_B2_04_ALT2 = 1, // Selecting Pad: GPIO_SD_B2_04 for Mode: ALT2
@@ -13303,7 +13825,7 @@ union ENET_1G_MAC0_RXDATA_2_SELECT_INPUT {
   struct {
     eDAISY DAISY : 2;
     uint32_t _reserved_end : 30;
-  } bits;          // Bit-field struct (auto-filling reserved gaps)
+  } bits;
   
   // Full 32-bit register value.
   uint32_t value;
@@ -13317,7 +13839,6 @@ union ENET_1G_MAC0_RXDATA_2_SELECT_INPUT {
 //
 union ENET_1G_MAC0_RXDATA_3_SELECT_INPUT {
   
-  // Enum definitions.
   enum class eDAISY : uint32_t {
     eSELECT_GPIO_EMC_B2_07_ALT7 = 0, // Selecting Pad: GPIO_EMC_B2_07 for Mode: ALT7
     eSELECT_GPIO_SD_B2_05_ALT2 = 1, // Selecting Pad: GPIO_SD_B2_05 for Mode: ALT2
@@ -13328,7 +13849,7 @@ union ENET_1G_MAC0_RXDATA_3_SELECT_INPUT {
   struct {
     eDAISY DAISY : 2;
     uint32_t _reserved_end : 30;
-  } bits;          // Bit-field struct (auto-filling reserved gaps)
+  } bits;
   
   // Full 32-bit register value.
   uint32_t value;
@@ -13342,7 +13863,6 @@ union ENET_1G_MAC0_RXDATA_3_SELECT_INPUT {
 //
 union ENET_1G_MAC0_RXEN_SELECT_INPUT {
   
-  // Enum definitions.
   enum class eDAISY : uint32_t {
     eSELECT_GPIO_EMC_B2_17_ALT2 = 0, // Selecting Pad: GPIO_EMC_B2_17 for Mode: ALT2
     eSELECT_GPIO_SD_B2_00_ALT2 = 1, // Selecting Pad: GPIO_SD_B2_00 for Mode: ALT2
@@ -13353,7 +13873,7 @@ union ENET_1G_MAC0_RXEN_SELECT_INPUT {
   struct {
     eDAISY DAISY : 2;
     uint32_t _reserved_end : 30;
-  } bits;          // Bit-field struct (auto-filling reserved gaps)
+  } bits;
   
   // Full 32-bit register value.
   uint32_t value;
@@ -13367,7 +13887,6 @@ union ENET_1G_MAC0_RXEN_SELECT_INPUT {
 //
 union ENET_1G_MAC0_RXERR_SELECT_INPUT {
   
-  // Enum definitions.
   enum class eDAISY : uint32_t {
     eSELECT_GPIO_EMC_B2_18_ALT2 = 0, // Selecting Pad: GPIO_EMC_B2_18 for Mode: ALT2
     eSELECT_GPIO_DISP_B1_01_ALT2 = 1, // Selecting Pad: GPIO_DISP_B1_01 for Mode: ALT2
@@ -13377,7 +13896,7 @@ union ENET_1G_MAC0_RXERR_SELECT_INPUT {
   struct {
     eDAISY DAISY : 1;
     uint32_t _reserved_end : 31;
-  } bits;          // Bit-field struct (auto-filling reserved gaps)
+  } bits;
   
   // Full 32-bit register value.
   uint32_t value;
@@ -13391,7 +13910,6 @@ union ENET_1G_MAC0_RXERR_SELECT_INPUT {
 //
 union ENET_1G_MAC0_TXCLK_SELECT_INPUT {
   
-  // Enum definitions.
   enum class eDAISY : uint32_t {
     eSELECT_GPIO_EMC_B2_14_ALT2 = 0, // Selecting Pad: GPIO_EMC_B2_14 for Mode: ALT2
     eSELECT_GPIO_SD_B2_11_ALT2 = 1, // Selecting Pad: GPIO_SD_B2_11 for Mode: ALT2
@@ -13402,7 +13920,7 @@ union ENET_1G_MAC0_TXCLK_SELECT_INPUT {
   struct {
     eDAISY DAISY : 2;
     uint32_t _reserved_end : 30;
-  } bits;          // Bit-field struct (auto-filling reserved gaps)
+  } bits;
   
   // Full 32-bit register value.
   uint32_t value;
@@ -13416,7 +13934,6 @@ union ENET_1G_MAC0_TXCLK_SELECT_INPUT {
 //
 union ENET_QOS_GMII_MDI_I_SELECT_INPUT {
   
-  // Enum definitions.
   enum class eDAISY : uint32_t {
     eSELECT_GPIO_EMC_B2_20_ALT8 = 0, // Selecting Pad: GPIO_EMC_B2_20 for Mode: ALT8
     eSELECT_GPIO_AD_27_ALT9 = 1, // Selecting Pad: GPIO_AD_27 for Mode: ALT9
@@ -13426,7 +13943,7 @@ union ENET_QOS_GMII_MDI_I_SELECT_INPUT {
   struct {
     eDAISY DAISY : 1;
     uint32_t _reserved_end : 31;
-  } bits;          // Bit-field struct (auto-filling reserved gaps)
+  } bits;
   
   // Full 32-bit register value.
   uint32_t value;
@@ -13440,7 +13957,6 @@ union ENET_QOS_GMII_MDI_I_SELECT_INPUT {
 //
 union ENET_QOS_PHY_RXD_I_SELECT_INPUT_0 {
   
-  // Enum definitions.
   enum class eDAISY : uint32_t {
     eSELECT_GPIO_DISP_B1_02_ALT8 = 0, // Selecting Pad: GPIO_DISP_B1_02 for Mode: ALT8
     eSELECT_GPIO_DISP_B2_06_ALT8 = 1, // Selecting Pad: GPIO_DISP_B2_06 for Mode: ALT8
@@ -13450,7 +13966,7 @@ union ENET_QOS_PHY_RXD_I_SELECT_INPUT_0 {
   struct {
     eDAISY DAISY : 1;
     uint32_t _reserved_end : 31;
-  } bits;          // Bit-field struct (auto-filling reserved gaps)
+  } bits;
   
   // Full 32-bit register value.
   uint32_t value;
@@ -13464,7 +13980,6 @@ union ENET_QOS_PHY_RXD_I_SELECT_INPUT_0 {
 //
 union ENET_QOS_PHY_RXD_I_SELECT_INPUT_1 {
   
-  // Enum definitions.
   enum class eDAISY : uint32_t {
     eSELECT_GPIO_DISP_B1_03_ALT8 = 0, // Selecting Pad: GPIO_DISP_B1_03 for Mode: ALT8
     eSELECT_GPIO_DISP_B2_07_ALT8 = 1, // Selecting Pad: GPIO_DISP_B2_07 for Mode: ALT8
@@ -13474,7 +13989,7 @@ union ENET_QOS_PHY_RXD_I_SELECT_INPUT_1 {
   struct {
     eDAISY DAISY : 1;
     uint32_t _reserved_end : 31;
-  } bits;          // Bit-field struct (auto-filling reserved gaps)
+  } bits;
   
   // Full 32-bit register value.
   uint32_t value;
@@ -13488,7 +14003,6 @@ union ENET_QOS_PHY_RXD_I_SELECT_INPUT_1 {
 //
 union ENET_QOS_PHY_RXDV_I_SELECT_INPUT {
   
-  // Enum definitions.
   enum class eDAISY : uint32_t {
     eSELECT_GPIO_DISP_B1_00_ALT8 = 0, // Selecting Pad: GPIO_DISP_B1_00 for Mode: ALT8
     eSELECT_GPIO_DISP_B2_08_ALT8 = 1, // Selecting Pad: GPIO_DISP_B2_08 for Mode: ALT8
@@ -13498,7 +14012,7 @@ union ENET_QOS_PHY_RXDV_I_SELECT_INPUT {
   struct {
     eDAISY DAISY : 1;
     uint32_t _reserved_end : 31;
-  } bits;          // Bit-field struct (auto-filling reserved gaps)
+  } bits;
   
   // Full 32-bit register value.
   uint32_t value;
@@ -13512,7 +14026,6 @@ union ENET_QOS_PHY_RXDV_I_SELECT_INPUT {
 //
 union ENET_QOS_PHY_RXER_I_SELECT_INPUT {
   
-  // Enum definitions.
   enum class eDAISY : uint32_t {
     eSELECT_GPIO_DISP_B1_01_ALT9 = 0, // Selecting Pad: GPIO_DISP_B1_01 for Mode: ALT9
     eSELECT_GPIO_DISP_B2_09_ALT8 = 1, // Selecting Pad: GPIO_DISP_B2_09 for Mode: ALT8
@@ -13523,7 +14036,7 @@ union ENET_QOS_PHY_RXER_I_SELECT_INPUT {
   struct {
     eDAISY DAISY : 2;
     uint32_t _reserved_end : 30;
-  } bits;          // Bit-field struct (auto-filling reserved gaps)
+  } bits;
   
   // Full 32-bit register value.
   uint32_t value;
@@ -13537,7 +14050,6 @@ union ENET_QOS_PHY_RXER_I_SELECT_INPUT {
 //
 union FLEXPWM1_PWMA_SELECT_INPUT_0 {
   
-  // Enum definitions.
   enum class eDAISY : uint32_t {
     eSELECT_GPIO_EMC_B1_23_ALT1 = 0, // Selecting Pad: GPIO_EMC_B1_23 for Mode: ALT1
     eSELECT_GPIO_AD_00_ALT4 = 1, // Selecting Pad: GPIO_AD_00 for Mode: ALT4
@@ -13547,7 +14059,7 @@ union FLEXPWM1_PWMA_SELECT_INPUT_0 {
   struct {
     eDAISY DAISY : 1;
     uint32_t _reserved_end : 31;
-  } bits;          // Bit-field struct (auto-filling reserved gaps)
+  } bits;
   
   // Full 32-bit register value.
   uint32_t value;
@@ -13561,7 +14073,6 @@ union FLEXPWM1_PWMA_SELECT_INPUT_0 {
 //
 union FLEXPWM1_PWMA_SELECT_INPUT_1 {
   
-  // Enum definitions.
   enum class eDAISY : uint32_t {
     eSELECT_GPIO_EMC_B1_25_ALT1 = 0, // Selecting Pad: GPIO_EMC_B1_25 for Mode: ALT1
     eSELECT_GPIO_AD_02_ALT4 = 1, // Selecting Pad: GPIO_AD_02 for Mode: ALT4
@@ -13571,7 +14082,7 @@ union FLEXPWM1_PWMA_SELECT_INPUT_1 {
   struct {
     eDAISY DAISY : 1;
     uint32_t _reserved_end : 31;
-  } bits;          // Bit-field struct (auto-filling reserved gaps)
+  } bits;
   
   // Full 32-bit register value.
   uint32_t value;
@@ -13585,7 +14096,6 @@ union FLEXPWM1_PWMA_SELECT_INPUT_1 {
 //
 union FLEXPWM1_PWMA_SELECT_INPUT_2 {
   
-  // Enum definitions.
   enum class eDAISY : uint32_t {
     eSELECT_GPIO_EMC_B1_27_ALT1 = 0, // Selecting Pad: GPIO_EMC_B1_27 for Mode: ALT1
     eSELECT_GPIO_AD_04_ALT4 = 1, // Selecting Pad: GPIO_AD_04 for Mode: ALT4
@@ -13595,7 +14105,7 @@ union FLEXPWM1_PWMA_SELECT_INPUT_2 {
   struct {
     eDAISY DAISY : 1;
     uint32_t _reserved_end : 31;
-  } bits;          // Bit-field struct (auto-filling reserved gaps)
+  } bits;
   
   // Full 32-bit register value.
   uint32_t value;
@@ -13609,7 +14119,6 @@ union FLEXPWM1_PWMA_SELECT_INPUT_2 {
 //
 union FLEXPWM1_PWMB_SELECT_INPUT_0 {
   
-  // Enum definitions.
   enum class eDAISY : uint32_t {
     eSELECT_GPIO_EMC_B1_24_ALT1 = 0, // Selecting Pad: GPIO_EMC_B1_24 for Mode: ALT1
     eSELECT_GPIO_AD_01_ALT4 = 1, // Selecting Pad: GPIO_AD_01 for Mode: ALT4
@@ -13619,7 +14128,7 @@ union FLEXPWM1_PWMB_SELECT_INPUT_0 {
   struct {
     eDAISY DAISY : 1;
     uint32_t _reserved_end : 31;
-  } bits;          // Bit-field struct (auto-filling reserved gaps)
+  } bits;
   
   // Full 32-bit register value.
   uint32_t value;
@@ -13633,7 +14142,6 @@ union FLEXPWM1_PWMB_SELECT_INPUT_0 {
 //
 union FLEXPWM1_PWMB_SELECT_INPUT_1 {
   
-  // Enum definitions.
   enum class eDAISY : uint32_t {
     eSELECT_GPIO_EMC_B1_26_ALT1 = 0, // Selecting Pad: GPIO_EMC_B1_26 for Mode: ALT1
     eSELECT_GPIO_AD_03_ALT4 = 1, // Selecting Pad: GPIO_AD_03 for Mode: ALT4
@@ -13643,7 +14151,7 @@ union FLEXPWM1_PWMB_SELECT_INPUT_1 {
   struct {
     eDAISY DAISY : 1;
     uint32_t _reserved_end : 31;
-  } bits;          // Bit-field struct (auto-filling reserved gaps)
+  } bits;
   
   // Full 32-bit register value.
   uint32_t value;
@@ -13657,7 +14165,6 @@ union FLEXPWM1_PWMB_SELECT_INPUT_1 {
 //
 union FLEXPWM1_PWMB_SELECT_INPUT_2 {
   
-  // Enum definitions.
   enum class eDAISY : uint32_t {
     eSELECT_GPIO_EMC_B1_28_ALT1 = 0, // Selecting Pad: GPIO_EMC_B1_28 for Mode: ALT1
     eSELECT_GPIO_AD_05_ALT4 = 1, // Selecting Pad: GPIO_AD_05 for Mode: ALT4
@@ -13667,7 +14174,7 @@ union FLEXPWM1_PWMB_SELECT_INPUT_2 {
   struct {
     eDAISY DAISY : 1;
     uint32_t _reserved_end : 31;
-  } bits;          // Bit-field struct (auto-filling reserved gaps)
+  } bits;
   
   // Full 32-bit register value.
   uint32_t value;
@@ -13681,7 +14188,6 @@ union FLEXPWM1_PWMB_SELECT_INPUT_2 {
 //
 union FLEXPWM2_PWMA_SELECT_INPUT_0 {
   
-  // Enum definitions.
   enum class eDAISY : uint32_t {
     eSELECT_GPIO_EMC_B1_06_ALT1 = 0, // Selecting Pad: GPIO_EMC_B1_06 for Mode: ALT1
     eSELECT_GPIO_AD_24_ALT4 = 1, // Selecting Pad: GPIO_AD_24 for Mode: ALT4
@@ -13691,7 +14197,7 @@ union FLEXPWM2_PWMA_SELECT_INPUT_0 {
   struct {
     eDAISY DAISY : 1;
     uint32_t _reserved_end : 31;
-  } bits;          // Bit-field struct (auto-filling reserved gaps)
+  } bits;
   
   // Full 32-bit register value.
   uint32_t value;
@@ -13705,7 +14211,6 @@ union FLEXPWM2_PWMA_SELECT_INPUT_0 {
 //
 union FLEXPWM2_PWMA_SELECT_INPUT_1 {
   
-  // Enum definitions.
   enum class eDAISY : uint32_t {
     eSELECT_GPIO_EMC_B1_08_ALT1 = 0, // Selecting Pad: GPIO_EMC_B1_08 for Mode: ALT1
     eSELECT_GPIO_AD_26_ALT4 = 1, // Selecting Pad: GPIO_AD_26 for Mode: ALT4
@@ -13715,7 +14220,7 @@ union FLEXPWM2_PWMA_SELECT_INPUT_1 {
   struct {
     eDAISY DAISY : 1;
     uint32_t _reserved_end : 31;
-  } bits;          // Bit-field struct (auto-filling reserved gaps)
+  } bits;
   
   // Full 32-bit register value.
   uint32_t value;
@@ -13729,7 +14234,6 @@ union FLEXPWM2_PWMA_SELECT_INPUT_1 {
 //
 union FLEXPWM2_PWMA_SELECT_INPUT_2 {
   
-  // Enum definitions.
   enum class eDAISY : uint32_t {
     eSELECT_GPIO_EMC_B1_10_ALT1 = 0, // Selecting Pad: GPIO_EMC_B1_10 for Mode: ALT1
     eSELECT_GPIO_AD_28_ALT4 = 1, // Selecting Pad: GPIO_AD_28 for Mode: ALT4
@@ -13739,7 +14243,7 @@ union FLEXPWM2_PWMA_SELECT_INPUT_2 {
   struct {
     eDAISY DAISY : 1;
     uint32_t _reserved_end : 31;
-  } bits;          // Bit-field struct (auto-filling reserved gaps)
+  } bits;
   
   // Full 32-bit register value.
   uint32_t value;
@@ -13753,7 +14257,6 @@ union FLEXPWM2_PWMA_SELECT_INPUT_2 {
 //
 union FLEXPWM2_PWMB_SELECT_INPUT_0 {
   
-  // Enum definitions.
   enum class eDAISY : uint32_t {
     eSELECT_GPIO_EMC_B1_07_ALT1 = 0, // Selecting Pad: GPIO_EMC_B1_07 for Mode: ALT1
     eSELECT_GPIO_AD_25_ALT4 = 1, // Selecting Pad: GPIO_AD_25 for Mode: ALT4
@@ -13763,7 +14266,7 @@ union FLEXPWM2_PWMB_SELECT_INPUT_0 {
   struct {
     eDAISY DAISY : 1;
     uint32_t _reserved_end : 31;
-  } bits;          // Bit-field struct (auto-filling reserved gaps)
+  } bits;
   
   // Full 32-bit register value.
   uint32_t value;
@@ -13777,7 +14280,6 @@ union FLEXPWM2_PWMB_SELECT_INPUT_0 {
 //
 union FLEXPWM2_PWMB_SELECT_INPUT_1 {
   
-  // Enum definitions.
   enum class eDAISY : uint32_t {
     eSELECT_GPIO_EMC_B1_09_ALT1 = 0, // Selecting Pad: GPIO_EMC_B1_09 for Mode: ALT1
     eSELECT_GPIO_AD_27_ALT4 = 1, // Selecting Pad: GPIO_AD_27 for Mode: ALT4
@@ -13787,7 +14289,7 @@ union FLEXPWM2_PWMB_SELECT_INPUT_1 {
   struct {
     eDAISY DAISY : 1;
     uint32_t _reserved_end : 31;
-  } bits;          // Bit-field struct (auto-filling reserved gaps)
+  } bits;
   
   // Full 32-bit register value.
   uint32_t value;
@@ -13801,7 +14303,6 @@ union FLEXPWM2_PWMB_SELECT_INPUT_1 {
 //
 union FLEXPWM2_PWMB_SELECT_INPUT_2 {
   
-  // Enum definitions.
   enum class eDAISY : uint32_t {
     eSELECT_GPIO_EMC_B1_11_ALT1 = 0, // Selecting Pad: GPIO_EMC_B1_11 for Mode: ALT1
     eSELECT_GPIO_AD_29_ALT4 = 1, // Selecting Pad: GPIO_AD_29 for Mode: ALT4
@@ -13811,7 +14312,7 @@ union FLEXPWM2_PWMB_SELECT_INPUT_2 {
   struct {
     eDAISY DAISY : 1;
     uint32_t _reserved_end : 31;
-  } bits;          // Bit-field struct (auto-filling reserved gaps)
+  } bits;
   
   // Full 32-bit register value.
   uint32_t value;
@@ -13825,7 +14326,6 @@ union FLEXPWM2_PWMB_SELECT_INPUT_2 {
 //
 union FLEXPWM3_PWMA_SELECT_INPUT_0 {
   
-  // Enum definitions.
   enum class eDAISY : uint32_t {
     eSELECT_GPIO_EMC_B1_29_ALT1 = 0, // Selecting Pad: GPIO_EMC_B1_29 for Mode: ALT1
     eSELECT_GPIO_EMC_B2_00_ALT11 = 1, // Selecting Pad: GPIO_EMC_B2_00 for Mode: ALT11
@@ -13835,7 +14335,7 @@ union FLEXPWM3_PWMA_SELECT_INPUT_0 {
   struct {
     eDAISY DAISY : 1;
     uint32_t _reserved_end : 31;
-  } bits;          // Bit-field struct (auto-filling reserved gaps)
+  } bits;
   
   // Full 32-bit register value.
   uint32_t value;
@@ -13849,7 +14349,6 @@ union FLEXPWM3_PWMA_SELECT_INPUT_0 {
 //
 union FLEXPWM3_PWMA_SELECT_INPUT_1 {
   
-  // Enum definitions.
   enum class eDAISY : uint32_t {
     eSELECT_GPIO_EMC_B1_31_ALT1 = 0, // Selecting Pad: GPIO_EMC_B1_31 for Mode: ALT1
     eSELECT_GPIO_EMC_B2_02_ALT11 = 1, // Selecting Pad: GPIO_EMC_B2_02 for Mode: ALT11
@@ -13859,7 +14358,7 @@ union FLEXPWM3_PWMA_SELECT_INPUT_1 {
   struct {
     eDAISY DAISY : 1;
     uint32_t _reserved_end : 31;
-  } bits;          // Bit-field struct (auto-filling reserved gaps)
+  } bits;
   
   // Full 32-bit register value.
   uint32_t value;
@@ -13873,7 +14372,6 @@ union FLEXPWM3_PWMA_SELECT_INPUT_1 {
 //
 union FLEXPWM3_PWMA_SELECT_INPUT_2 {
   
-  // Enum definitions.
   enum class eDAISY : uint32_t {
     eSELECT_GPIO_EMC_B1_33_ALT1 = 0, // Selecting Pad: GPIO_EMC_B1_33 for Mode: ALT1
     eSELECT_GPIO_EMC_B2_04_ALT11 = 1, // Selecting Pad: GPIO_EMC_B2_04 for Mode: ALT11
@@ -13883,7 +14381,7 @@ union FLEXPWM3_PWMA_SELECT_INPUT_2 {
   struct {
     eDAISY DAISY : 1;
     uint32_t _reserved_end : 31;
-  } bits;          // Bit-field struct (auto-filling reserved gaps)
+  } bits;
   
   // Full 32-bit register value.
   uint32_t value;
@@ -13897,7 +14395,6 @@ union FLEXPWM3_PWMA_SELECT_INPUT_2 {
 //
 union FLEXPWM3_PWMA_SELECT_INPUT_3 {
   
-  // Enum definitions.
   enum class eDAISY : uint32_t {
     eSELECT_GPIO_EMC_B1_21_ALT1 = 0, // Selecting Pad: GPIO_EMC_B1_21 for Mode: ALT1
     eSELECT_GPIO_EMC_B2_06_ALT11 = 1, // Selecting Pad: GPIO_EMC_B2_06 for Mode: ALT11
@@ -13907,7 +14404,7 @@ union FLEXPWM3_PWMA_SELECT_INPUT_3 {
   struct {
     eDAISY DAISY : 1;
     uint32_t _reserved_end : 31;
-  } bits;          // Bit-field struct (auto-filling reserved gaps)
+  } bits;
   
   // Full 32-bit register value.
   uint32_t value;
@@ -13921,7 +14418,6 @@ union FLEXPWM3_PWMA_SELECT_INPUT_3 {
 //
 union FLEXPWM3_PWMB_SELECT_INPUT_0 {
   
-  // Enum definitions.
   enum class eDAISY : uint32_t {
     eSELECT_GPIO_EMC_B1_30_ALT1 = 0, // Selecting Pad: GPIO_EMC_B1_30 for Mode: ALT1
     eSELECT_GPIO_EMC_B2_01_ALT11 = 1, // Selecting Pad: GPIO_EMC_B2_01 for Mode: ALT11
@@ -13931,7 +14427,7 @@ union FLEXPWM3_PWMB_SELECT_INPUT_0 {
   struct {
     eDAISY DAISY : 1;
     uint32_t _reserved_end : 31;
-  } bits;          // Bit-field struct (auto-filling reserved gaps)
+  } bits;
   
   // Full 32-bit register value.
   uint32_t value;
@@ -13945,7 +14441,6 @@ union FLEXPWM3_PWMB_SELECT_INPUT_0 {
 //
 union FLEXPWM3_PWMB_SELECT_INPUT_1 {
   
-  // Enum definitions.
   enum class eDAISY : uint32_t {
     eSELECT_GPIO_EMC_B1_32_ALT1 = 0, // Selecting Pad: GPIO_EMC_B1_32 for Mode: ALT1
     eSELECT_GPIO_EMC_B2_03_ALT11 = 1, // Selecting Pad: GPIO_EMC_B2_03 for Mode: ALT11
@@ -13955,7 +14450,7 @@ union FLEXPWM3_PWMB_SELECT_INPUT_1 {
   struct {
     eDAISY DAISY : 1;
     uint32_t _reserved_end : 31;
-  } bits;          // Bit-field struct (auto-filling reserved gaps)
+  } bits;
   
   // Full 32-bit register value.
   uint32_t value;
@@ -13969,7 +14464,6 @@ union FLEXPWM3_PWMB_SELECT_INPUT_1 {
 //
 union FLEXPWM3_PWMB_SELECT_INPUT_2 {
   
-  // Enum definitions.
   enum class eDAISY : uint32_t {
     eSELECT_GPIO_EMC_B1_34_ALT1 = 0, // Selecting Pad: GPIO_EMC_B1_34 for Mode: ALT1
     eSELECT_GPIO_EMC_B2_05_ALT11 = 1, // Selecting Pad: GPIO_EMC_B2_05 for Mode: ALT11
@@ -13979,7 +14473,7 @@ union FLEXPWM3_PWMB_SELECT_INPUT_2 {
   struct {
     eDAISY DAISY : 1;
     uint32_t _reserved_end : 31;
-  } bits;          // Bit-field struct (auto-filling reserved gaps)
+  } bits;
   
   // Full 32-bit register value.
   uint32_t value;
@@ -13993,7 +14487,6 @@ union FLEXPWM3_PWMB_SELECT_INPUT_2 {
 //
 union FLEXPWM3_PWMB_SELECT_INPUT_3 {
   
-  // Enum definitions.
   enum class eDAISY : uint32_t {
     eSELECT_GPIO_EMC_B1_22_ALT1 = 0, // Selecting Pad: GPIO_EMC_B1_22 for Mode: ALT1
     eSELECT_GPIO_EMC_B2_07_ALT11 = 1, // Selecting Pad: GPIO_EMC_B2_07 for Mode: ALT11
@@ -14003,7 +14496,7 @@ union FLEXPWM3_PWMB_SELECT_INPUT_3 {
   struct {
     eDAISY DAISY : 1;
     uint32_t _reserved_end : 31;
-  } bits;          // Bit-field struct (auto-filling reserved gaps)
+  } bits;
   
   // Full 32-bit register value.
   uint32_t value;
@@ -14017,7 +14510,6 @@ union FLEXPWM3_PWMB_SELECT_INPUT_3 {
 //
 union FLEXSPI1_I_DQS_FA_SELECT_INPUT {
   
-  // Enum definitions.
   enum class eDAISY : uint32_t {
     eSELECT_GPIO_EMC_B2_18_ALT6 = 0, // Selecting Pad: GPIO_EMC_B2_18 for Mode: ALT6
     eSELECT_GPIO_AD_17_ALT3 = 1, // Selecting Pad: GPIO_AD_17 for Mode: ALT3
@@ -14028,7 +14520,7 @@ union FLEXSPI1_I_DQS_FA_SELECT_INPUT {
   struct {
     eDAISY DAISY : 2;
     uint32_t _reserved_end : 30;
-  } bits;          // Bit-field struct (auto-filling reserved gaps)
+  } bits;
   
   // Full 32-bit register value.
   uint32_t value;
@@ -14042,7 +14534,6 @@ union FLEXSPI1_I_DQS_FA_SELECT_INPUT {
 //
 union FLEXSPI1_I_IO_FA_SELECT_INPUT_0 {
   
-  // Enum definitions.
   enum class eDAISY : uint32_t {
     eSELECT_GPIO_AD_20_ALT3 = 0, // Selecting Pad: GPIO_AD_20 for Mode: ALT3
     eSELECT_GPIO_SD_B2_08_ALT1 = 1, // Selecting Pad: GPIO_SD_B2_08 for Mode: ALT1
@@ -14052,7 +14543,7 @@ union FLEXSPI1_I_IO_FA_SELECT_INPUT_0 {
   struct {
     eDAISY DAISY : 1;
     uint32_t _reserved_end : 31;
-  } bits;          // Bit-field struct (auto-filling reserved gaps)
+  } bits;
   
   // Full 32-bit register value.
   uint32_t value;
@@ -14066,7 +14557,6 @@ union FLEXSPI1_I_IO_FA_SELECT_INPUT_0 {
 //
 union FLEXSPI1_I_IO_FA_SELECT_INPUT_1 {
   
-  // Enum definitions.
   enum class eDAISY : uint32_t {
     eSELECT_GPIO_AD_21_ALT3 = 0, // Selecting Pad: GPIO_AD_21 for Mode: ALT3
     eSELECT_GPIO_SD_B2_09_ALT1 = 1, // Selecting Pad: GPIO_SD_B2_09 for Mode: ALT1
@@ -14076,7 +14566,7 @@ union FLEXSPI1_I_IO_FA_SELECT_INPUT_1 {
   struct {
     eDAISY DAISY : 1;
     uint32_t _reserved_end : 31;
-  } bits;          // Bit-field struct (auto-filling reserved gaps)
+  } bits;
   
   // Full 32-bit register value.
   uint32_t value;
@@ -14090,7 +14580,6 @@ union FLEXSPI1_I_IO_FA_SELECT_INPUT_1 {
 //
 union FLEXSPI1_I_IO_FA_SELECT_INPUT_2 {
   
-  // Enum definitions.
   enum class eDAISY : uint32_t {
     eSELECT_GPIO_AD_22_ALT3 = 0, // Selecting Pad: GPIO_AD_22 for Mode: ALT3
     eSELECT_GPIO_SD_B2_10_ALT1 = 1, // Selecting Pad: GPIO_SD_B2_10 for Mode: ALT1
@@ -14100,7 +14589,7 @@ union FLEXSPI1_I_IO_FA_SELECT_INPUT_2 {
   struct {
     eDAISY DAISY : 1;
     uint32_t _reserved_end : 31;
-  } bits;          // Bit-field struct (auto-filling reserved gaps)
+  } bits;
   
   // Full 32-bit register value.
   uint32_t value;
@@ -14114,7 +14603,6 @@ union FLEXSPI1_I_IO_FA_SELECT_INPUT_2 {
 //
 union FLEXSPI1_I_IO_FA_SELECT_INPUT_3 {
   
-  // Enum definitions.
   enum class eDAISY : uint32_t {
     eSELECT_GPIO_AD_23_ALT3 = 0, // Selecting Pad: GPIO_AD_23 for Mode: ALT3
     eSELECT_GPIO_SD_B2_11_ALT1 = 1, // Selecting Pad: GPIO_SD_B2_11 for Mode: ALT1
@@ -14124,7 +14612,7 @@ union FLEXSPI1_I_IO_FA_SELECT_INPUT_3 {
   struct {
     eDAISY DAISY : 1;
     uint32_t _reserved_end : 31;
-  } bits;          // Bit-field struct (auto-filling reserved gaps)
+  } bits;
   
   // Full 32-bit register value.
   uint32_t value;
@@ -14138,7 +14626,6 @@ union FLEXSPI1_I_IO_FA_SELECT_INPUT_3 {
 //
 union FLEXSPI1_I_IO_FB_SELECT_INPUT_0 {
   
-  // Enum definitions.
   enum class eDAISY : uint32_t {
     eSELECT_GPIO_AD_15_ALT3 = 0, // Selecting Pad: GPIO_AD_15 for Mode: ALT3
     eSELECT_GPIO_SD_B2_03_ALT1 = 1, // Selecting Pad: GPIO_SD_B2_03 for Mode: ALT1
@@ -14148,7 +14635,7 @@ union FLEXSPI1_I_IO_FB_SELECT_INPUT_0 {
   struct {
     eDAISY DAISY : 1;
     uint32_t _reserved_end : 31;
-  } bits;          // Bit-field struct (auto-filling reserved gaps)
+  } bits;
   
   // Full 32-bit register value.
   uint32_t value;
@@ -14162,7 +14649,6 @@ union FLEXSPI1_I_IO_FB_SELECT_INPUT_0 {
 //
 union FLEXSPI1_I_IO_FB_SELECT_INPUT_1 {
   
-  // Enum definitions.
   enum class eDAISY : uint32_t {
     eSELECT_GPIO_AD_14_ALT3 = 0, // Selecting Pad: GPIO_AD_14 for Mode: ALT3
     eSELECT_GPIO_SD_B2_02_ALT1 = 1, // Selecting Pad: GPIO_SD_B2_02 for Mode: ALT1
@@ -14172,7 +14658,7 @@ union FLEXSPI1_I_IO_FB_SELECT_INPUT_1 {
   struct {
     eDAISY DAISY : 1;
     uint32_t _reserved_end : 31;
-  } bits;          // Bit-field struct (auto-filling reserved gaps)
+  } bits;
   
   // Full 32-bit register value.
   uint32_t value;
@@ -14186,7 +14672,6 @@ union FLEXSPI1_I_IO_FB_SELECT_INPUT_1 {
 //
 union FLEXSPI1_I_IO_FB_SELECT_INPUT_2 {
   
-  // Enum definitions.
   enum class eDAISY : uint32_t {
     eSELECT_GPIO_AD_13_ALT3 = 0, // Selecting Pad: GPIO_AD_13 for Mode: ALT3
     eSELECT_GPIO_SD_B2_01_ALT1 = 1, // Selecting Pad: GPIO_SD_B2_01 for Mode: ALT1
@@ -14196,7 +14681,7 @@ union FLEXSPI1_I_IO_FB_SELECT_INPUT_2 {
   struct {
     eDAISY DAISY : 1;
     uint32_t _reserved_end : 31;
-  } bits;          // Bit-field struct (auto-filling reserved gaps)
+  } bits;
   
   // Full 32-bit register value.
   uint32_t value;
@@ -14210,7 +14695,6 @@ union FLEXSPI1_I_IO_FB_SELECT_INPUT_2 {
 //
 union FLEXSPI1_I_IO_FB_SELECT_INPUT_3 {
   
-  // Enum definitions.
   enum class eDAISY : uint32_t {
     eSELECT_GPIO_AD_12_ALT3 = 0, // Selecting Pad: GPIO_AD_12 for Mode: ALT3
     eSELECT_GPIO_SD_B2_00_ALT1 = 1, // Selecting Pad: GPIO_SD_B2_00 for Mode: ALT1
@@ -14220,7 +14704,7 @@ union FLEXSPI1_I_IO_FB_SELECT_INPUT_3 {
   struct {
     eDAISY DAISY : 1;
     uint32_t _reserved_end : 31;
-  } bits;          // Bit-field struct (auto-filling reserved gaps)
+  } bits;
   
   // Full 32-bit register value.
   uint32_t value;
@@ -14234,7 +14718,6 @@ union FLEXSPI1_I_IO_FB_SELECT_INPUT_3 {
 //
 union FLEXSPI1_I_SCK_FA_SELECT_INPUT {
   
-  // Enum definitions.
   enum class eDAISY : uint32_t {
     eSELECT_GPIO_AD_19_ALT3 = 0, // Selecting Pad: GPIO_AD_19 for Mode: ALT3
     eSELECT_GPIO_SD_B2_07_ALT1 = 1, // Selecting Pad: GPIO_SD_B2_07 for Mode: ALT1
@@ -14244,7 +14727,7 @@ union FLEXSPI1_I_SCK_FA_SELECT_INPUT {
   struct {
     eDAISY DAISY : 1;
     uint32_t _reserved_end : 31;
-  } bits;          // Bit-field struct (auto-filling reserved gaps)
+  } bits;
   
   // Full 32-bit register value.
   uint32_t value;
@@ -14258,7 +14741,6 @@ union FLEXSPI1_I_SCK_FA_SELECT_INPUT {
 //
 union FLEXSPI1_I_SCK_FB_SELECT_INPUT {
   
-  // Enum definitions.
   enum class eDAISY : uint32_t {
     eSELECT_GPIO_AD_16_ALT3 = 0, // Selecting Pad: GPIO_AD_16 for Mode: ALT3
     eSELECT_GPIO_SD_B2_04_ALT1 = 1, // Selecting Pad: GPIO_SD_B2_04 for Mode: ALT1
@@ -14268,7 +14750,7 @@ union FLEXSPI1_I_SCK_FB_SELECT_INPUT {
   struct {
     eDAISY DAISY : 1;
     uint32_t _reserved_end : 31;
-  } bits;          // Bit-field struct (auto-filling reserved gaps)
+  } bits;
   
   // Full 32-bit register value.
   uint32_t value;
@@ -14282,7 +14764,6 @@ union FLEXSPI1_I_SCK_FB_SELECT_INPUT {
 //
 union FLEXSPI2_I_IO_FA_SELECT_INPUT_0 {
   
-  // Enum definitions.
   enum class eDAISY : uint32_t {
     eSELECT_GPIO_EMC_B2_13_ALT4 = 0, // Selecting Pad: GPIO_EMC_B2_13 for Mode: ALT4
     eSELECT_GPIO_SD_B1_02_ALT6 = 1, // Selecting Pad: GPIO_SD_B1_02 for Mode: ALT6
@@ -14292,7 +14773,7 @@ union FLEXSPI2_I_IO_FA_SELECT_INPUT_0 {
   struct {
     eDAISY DAISY : 1;
     uint32_t _reserved_end : 31;
-  } bits;          // Bit-field struct (auto-filling reserved gaps)
+  } bits;
   
   // Full 32-bit register value.
   uint32_t value;
@@ -14306,7 +14787,6 @@ union FLEXSPI2_I_IO_FA_SELECT_INPUT_0 {
 //
 union FLEXSPI2_I_IO_FA_SELECT_INPUT_1 {
   
-  // Enum definitions.
   enum class eDAISY : uint32_t {
     eSELECT_GPIO_EMC_B2_14_ALT4 = 0, // Selecting Pad: GPIO_EMC_B2_14 for Mode: ALT4
     eSELECT_GPIO_SD_B1_03_ALT6 = 1, // Selecting Pad: GPIO_SD_B1_03 for Mode: ALT6
@@ -14316,7 +14796,7 @@ union FLEXSPI2_I_IO_FA_SELECT_INPUT_1 {
   struct {
     eDAISY DAISY : 1;
     uint32_t _reserved_end : 31;
-  } bits;          // Bit-field struct (auto-filling reserved gaps)
+  } bits;
   
   // Full 32-bit register value.
   uint32_t value;
@@ -14330,7 +14810,6 @@ union FLEXSPI2_I_IO_FA_SELECT_INPUT_1 {
 //
 union FLEXSPI2_I_IO_FA_SELECT_INPUT_2 {
   
-  // Enum definitions.
   enum class eDAISY : uint32_t {
     eSELECT_GPIO_EMC_B2_15_ALT4 = 0, // Selecting Pad: GPIO_EMC_B2_15 for Mode: ALT4
     eSELECT_GPIO_SD_B1_04_ALT6 = 1, // Selecting Pad: GPIO_SD_B1_04 for Mode: ALT6
@@ -14340,7 +14819,7 @@ union FLEXSPI2_I_IO_FA_SELECT_INPUT_2 {
   struct {
     eDAISY DAISY : 1;
     uint32_t _reserved_end : 31;
-  } bits;          // Bit-field struct (auto-filling reserved gaps)
+  } bits;
   
   // Full 32-bit register value.
   uint32_t value;
@@ -14354,7 +14833,6 @@ union FLEXSPI2_I_IO_FA_SELECT_INPUT_2 {
 //
 union FLEXSPI2_I_IO_FA_SELECT_INPUT_3 {
   
-  // Enum definitions.
   enum class eDAISY : uint32_t {
     eSELECT_GPIO_EMC_B2_16_ALT4 = 0, // Selecting Pad: GPIO_EMC_B2_16 for Mode: ALT4
     eSELECT_GPIO_SD_B1_05_ALT6 = 1, // Selecting Pad: GPIO_SD_B1_05 for Mode: ALT6
@@ -14364,7 +14842,7 @@ union FLEXSPI2_I_IO_FA_SELECT_INPUT_3 {
   struct {
     eDAISY DAISY : 1;
     uint32_t _reserved_end : 31;
-  } bits;          // Bit-field struct (auto-filling reserved gaps)
+  } bits;
   
   // Full 32-bit register value.
   uint32_t value;
@@ -14378,7 +14856,6 @@ union FLEXSPI2_I_IO_FA_SELECT_INPUT_3 {
 //
 union FLEXSPI2_I_SCK_FA_SELECT_INPUT {
   
-  // Enum definitions.
   enum class eDAISY : uint32_t {
     eSELECT_GPIO_EMC_B2_10_ALT4 = 0, // Selecting Pad: GPIO_EMC_B2_10 for Mode: ALT4
     eSELECT_GPIO_SD_B1_01_ALT6 = 1, // Selecting Pad: GPIO_SD_B1_01 for Mode: ALT6
@@ -14388,7 +14865,7 @@ union FLEXSPI2_I_SCK_FA_SELECT_INPUT {
   struct {
     eDAISY DAISY : 1;
     uint32_t _reserved_end : 31;
-  } bits;          // Bit-field struct (auto-filling reserved gaps)
+  } bits;
   
   // Full 32-bit register value.
   uint32_t value;
@@ -14402,7 +14879,6 @@ union FLEXSPI2_I_SCK_FA_SELECT_INPUT {
 //
 union GPT3_CAPIN1_SELECT_INPUT {
   
-  // Enum definitions.
   enum class eDAISY : uint32_t {
     eSELECT_GPIO_EMC_B2_06_ALT1 = 0, // Selecting Pad: GPIO_EMC_B2_06 for Mode: ALT1
     eSELECT_GPIO_AD_06_ALT3 = 1, // Selecting Pad: GPIO_AD_06 for Mode: ALT3
@@ -14412,7 +14888,7 @@ union GPT3_CAPIN1_SELECT_INPUT {
   struct {
     eDAISY DAISY : 1;
     uint32_t _reserved_end : 31;
-  } bits;          // Bit-field struct (auto-filling reserved gaps)
+  } bits;
   
   // Full 32-bit register value.
   uint32_t value;
@@ -14426,7 +14902,6 @@ union GPT3_CAPIN1_SELECT_INPUT {
 //
 union GPT3_CAPIN2_SELECT_INPUT {
   
-  // Enum definitions.
   enum class eDAISY : uint32_t {
     eSELECT_GPIO_EMC_B2_07_ALT1 = 0, // Selecting Pad: GPIO_EMC_B2_07 for Mode: ALT1
     eSELECT_GPIO_AD_07_ALT3 = 1, // Selecting Pad: GPIO_AD_07 for Mode: ALT3
@@ -14436,7 +14911,7 @@ union GPT3_CAPIN2_SELECT_INPUT {
   struct {
     eDAISY DAISY : 1;
     uint32_t _reserved_end : 31;
-  } bits;          // Bit-field struct (auto-filling reserved gaps)
+  } bits;
   
   // Full 32-bit register value.
   uint32_t value;
@@ -14450,7 +14925,6 @@ union GPT3_CAPIN2_SELECT_INPUT {
 //
 union GPT3_CLKIN_SELECT_INPUT {
   
-  // Enum definitions.
   enum class eDAISY : uint32_t {
     eSELECT_GPIO_EMC_B2_05_ALT1 = 0, // Selecting Pad: GPIO_EMC_B2_05 for Mode: ALT1
     eSELECT_GPIO_AD_11_ALT3 = 1, // Selecting Pad: GPIO_AD_11 for Mode: ALT3
@@ -14460,7 +14934,7 @@ union GPT3_CLKIN_SELECT_INPUT {
   struct {
     eDAISY DAISY : 1;
     uint32_t _reserved_end : 31;
-  } bits;          // Bit-field struct (auto-filling reserved gaps)
+  } bits;
   
   // Full 32-bit register value.
   uint32_t value;
@@ -14474,7 +14948,6 @@ union GPT3_CLKIN_SELECT_INPUT {
 //
 union KPP_COL_SELECT_INPUT_6 {
   
-  // Enum definitions.
   enum class eDAISY : uint32_t {
     eSELECT_GPIO_AD_23_ALT6 = 0, // Selecting Pad: GPIO_AD_23 for Mode: ALT6
     eSELECT_GPIO_SD_B1_03_ALT8 = 1, // Selecting Pad: GPIO_SD_B1_03 for Mode: ALT8
@@ -14484,7 +14957,7 @@ union KPP_COL_SELECT_INPUT_6 {
   struct {
     eDAISY DAISY : 1;
     uint32_t _reserved_end : 31;
-  } bits;          // Bit-field struct (auto-filling reserved gaps)
+  } bits;
   
   // Full 32-bit register value.
   uint32_t value;
@@ -14498,7 +14971,6 @@ union KPP_COL_SELECT_INPUT_6 {
 //
 union KPP_COL_SELECT_INPUT_7 {
   
-  // Enum definitions.
   enum class eDAISY : uint32_t {
     eSELECT_GPIO_AD_21_ALT6 = 0, // Selecting Pad: GPIO_AD_21 for Mode: ALT6
     eSELECT_GPIO_SD_B1_01_ALT8 = 1, // Selecting Pad: GPIO_SD_B1_01 for Mode: ALT8
@@ -14508,7 +14980,7 @@ union KPP_COL_SELECT_INPUT_7 {
   struct {
     eDAISY DAISY : 1;
     uint32_t _reserved_end : 31;
-  } bits;          // Bit-field struct (auto-filling reserved gaps)
+  } bits;
   
   // Full 32-bit register value.
   uint32_t value;
@@ -14522,7 +14994,6 @@ union KPP_COL_SELECT_INPUT_7 {
 //
 union KPP_ROW_SELECT_INPUT_6 {
   
-  // Enum definitions.
   enum class eDAISY : uint32_t {
     eSELECT_GPIO_AD_22_ALT6 = 0, // Selecting Pad: GPIO_AD_22 for Mode: ALT6
     eSELECT_GPIO_SD_B1_02_ALT8 = 1, // Selecting Pad: GPIO_SD_B1_02 for Mode: ALT8
@@ -14532,7 +15003,7 @@ union KPP_ROW_SELECT_INPUT_6 {
   struct {
     eDAISY DAISY : 1;
     uint32_t _reserved_end : 31;
-  } bits;          // Bit-field struct (auto-filling reserved gaps)
+  } bits;
   
   // Full 32-bit register value.
   uint32_t value;
@@ -14546,7 +15017,6 @@ union KPP_ROW_SELECT_INPUT_6 {
 //
 union KPP_ROW_SELECT_INPUT_7 {
   
-  // Enum definitions.
   enum class eDAISY : uint32_t {
     eSELECT_GPIO_AD_20_ALT6 = 0, // Selecting Pad: GPIO_AD_20 for Mode: ALT6
     eSELECT_GPIO_SD_B1_00_ALT8 = 1, // Selecting Pad: GPIO_SD_B1_00 for Mode: ALT8
@@ -14556,7 +15026,7 @@ union KPP_ROW_SELECT_INPUT_7 {
   struct {
     eDAISY DAISY : 1;
     uint32_t _reserved_end : 31;
-  } bits;          // Bit-field struct (auto-filling reserved gaps)
+  } bits;
   
   // Full 32-bit register value.
   uint32_t value;
@@ -14570,7 +15040,6 @@ union KPP_ROW_SELECT_INPUT_7 {
 //
 union LPI2C1_LPI2C_SCL_SELECT_INPUT {
   
-  // Enum definitions.
   enum class eDAISY : uint32_t {
     eSELECT_GPIO_AD_08_ALT1 = 0, // Selecting Pad: GPIO_AD_08 for Mode: ALT1
     eSELECT_GPIO_AD_32_ALT0 = 1, // Selecting Pad: GPIO_AD_32 for Mode: ALT0
@@ -14580,7 +15049,7 @@ union LPI2C1_LPI2C_SCL_SELECT_INPUT {
   struct {
     eDAISY DAISY : 1;
     uint32_t _reserved_end : 31;
-  } bits;          // Bit-field struct (auto-filling reserved gaps)
+  } bits;
   
   // Full 32-bit register value.
   uint32_t value;
@@ -14594,7 +15063,6 @@ union LPI2C1_LPI2C_SCL_SELECT_INPUT {
 //
 union LPI2C1_LPI2C_SDA_SELECT_INPUT {
   
-  // Enum definitions.
   enum class eDAISY : uint32_t {
     eSELECT_GPIO_AD_09_ALT1 = 0, // Selecting Pad: GPIO_AD_09 for Mode: ALT1
     eSELECT_GPIO_AD_33_ALT0 = 1, // Selecting Pad: GPIO_AD_33 for Mode: ALT0
@@ -14604,7 +15072,7 @@ union LPI2C1_LPI2C_SDA_SELECT_INPUT {
   struct {
     eDAISY DAISY : 1;
     uint32_t _reserved_end : 31;
-  } bits;          // Bit-field struct (auto-filling reserved gaps)
+  } bits;
   
   // Full 32-bit register value.
   uint32_t value;
@@ -14618,7 +15086,6 @@ union LPI2C1_LPI2C_SDA_SELECT_INPUT {
 //
 union LPI2C2_LPI2C_SCL_SELECT_INPUT {
   
-  // Enum definitions.
   enum class eDAISY : uint32_t {
     eSELECT_GPIO_EMC_B2_00_ALT9 = 0, // Selecting Pad: GPIO_EMC_B2_00 for Mode: ALT9
     eSELECT_GPIO_AD_18_ALT9 = 1, // Selecting Pad: GPIO_AD_18 for Mode: ALT9
@@ -14628,7 +15095,7 @@ union LPI2C2_LPI2C_SCL_SELECT_INPUT {
   struct {
     eDAISY DAISY : 1;
     uint32_t _reserved_end : 31;
-  } bits;          // Bit-field struct (auto-filling reserved gaps)
+  } bits;
   
   // Full 32-bit register value.
   uint32_t value;
@@ -14642,7 +15109,6 @@ union LPI2C2_LPI2C_SCL_SELECT_INPUT {
 //
 union LPI2C2_LPI2C_SDA_SELECT_INPUT {
   
-  // Enum definitions.
   enum class eDAISY : uint32_t {
     eSELECT_GPIO_EMC_B2_01_ALT9 = 0, // Selecting Pad: GPIO_EMC_B2_01 for Mode: ALT9
     eSELECT_GPIO_AD_19_ALT9 = 1, // Selecting Pad: GPIO_AD_19 for Mode: ALT9
@@ -14652,7 +15118,7 @@ union LPI2C2_LPI2C_SDA_SELECT_INPUT {
   struct {
     eDAISY DAISY : 1;
     uint32_t _reserved_end : 31;
-  } bits;          // Bit-field struct (auto-filling reserved gaps)
+  } bits;
   
   // Full 32-bit register value.
   uint32_t value;
@@ -14666,7 +15132,6 @@ union LPI2C2_LPI2C_SDA_SELECT_INPUT {
 //
 union LPI2C3_LPI2C_SCL_SELECT_INPUT {
   
-  // Enum definitions.
   enum class eDAISY : uint32_t {
     eSELECT_GPIO_DISP_B1_02_ALT2 = 0, // Selecting Pad: GPIO_DISP_B1_02 for Mode: ALT2
     eSELECT_GPIO_DISP_B2_10_ALT6 = 1, // Selecting Pad: GPIO_DISP_B2_10 for Mode: ALT6
@@ -14676,7 +15141,7 @@ union LPI2C3_LPI2C_SCL_SELECT_INPUT {
   struct {
     eDAISY DAISY : 1;
     uint32_t _reserved_end : 31;
-  } bits;          // Bit-field struct (auto-filling reserved gaps)
+  } bits;
   
   // Full 32-bit register value.
   uint32_t value;
@@ -14690,7 +15155,6 @@ union LPI2C3_LPI2C_SCL_SELECT_INPUT {
 //
 union LPI2C3_LPI2C_SDA_SELECT_INPUT {
   
-  // Enum definitions.
   enum class eDAISY : uint32_t {
     eSELECT_GPIO_DISP_B1_03_ALT2 = 0, // Selecting Pad: GPIO_DISP_B1_03 for Mode: ALT2
     eSELECT_GPIO_DISP_B2_11_ALT6 = 1, // Selecting Pad: GPIO_DISP_B2_11 for Mode: ALT6
@@ -14700,7 +15164,7 @@ union LPI2C3_LPI2C_SDA_SELECT_INPUT {
   struct {
     eDAISY DAISY : 1;
     uint32_t _reserved_end : 31;
-  } bits;          // Bit-field struct (auto-filling reserved gaps)
+  } bits;
   
   // Full 32-bit register value.
   uint32_t value;
@@ -14714,7 +15178,6 @@ union LPI2C3_LPI2C_SDA_SELECT_INPUT {
 //
 union LPI2C4_LPI2C_SCL_SELECT_INPUT {
   
-  // Enum definitions.
   enum class eDAISY : uint32_t {
     eSELECT_GPIO_AD_24_ALT9 = 0, // Selecting Pad: GPIO_AD_24 for Mode: ALT9
     eSELECT_GPIO_DISP_B2_12_ALT6 = 1, // Selecting Pad: GPIO_DISP_B2_12 for Mode: ALT6
@@ -14724,7 +15187,7 @@ union LPI2C4_LPI2C_SCL_SELECT_INPUT {
   struct {
     eDAISY DAISY : 1;
     uint32_t _reserved_end : 31;
-  } bits;          // Bit-field struct (auto-filling reserved gaps)
+  } bits;
   
   // Full 32-bit register value.
   uint32_t value;
@@ -14738,7 +15201,6 @@ union LPI2C4_LPI2C_SCL_SELECT_INPUT {
 //
 union LPI2C4_LPI2C_SDA_SELECT_INPUT {
   
-  // Enum definitions.
   enum class eDAISY : uint32_t {
     eSELECT_GPIO_AD_25_ALT9 = 0, // Selecting Pad: GPIO_AD_25 for Mode: ALT9
     eSELECT_GPIO_DISP_B2_13_ALT6 = 1, // Selecting Pad: GPIO_DISP_B2_13 for Mode: ALT6
@@ -14748,7 +15210,7 @@ union LPI2C4_LPI2C_SDA_SELECT_INPUT {
   struct {
     eDAISY DAISY : 1;
     uint32_t _reserved_end : 31;
-  } bits;          // Bit-field struct (auto-filling reserved gaps)
+  } bits;
   
   // Full 32-bit register value.
   uint32_t value;
@@ -14762,7 +15224,6 @@ union LPI2C4_LPI2C_SDA_SELECT_INPUT {
 //
 union LPSPI1_LPSPI_PCS_SELECT_INPUT_0 {
   
-  // Enum definitions.
   enum class eDAISY : uint32_t {
     eSELECT_GPIO_EMC_B2_01_ALT8 = 0, // Selecting Pad: GPIO_EMC_B2_01 for Mode: ALT8
     eSELECT_GPIO_AD_29_ALT0 = 1, // Selecting Pad: GPIO_AD_29 for Mode: ALT0
@@ -14772,7 +15233,7 @@ union LPSPI1_LPSPI_PCS_SELECT_INPUT_0 {
   struct {
     eDAISY DAISY : 1;
     uint32_t _reserved_end : 31;
-  } bits;          // Bit-field struct (auto-filling reserved gaps)
+  } bits;
   
   // Full 32-bit register value.
   uint32_t value;
@@ -14786,7 +15247,6 @@ union LPSPI1_LPSPI_PCS_SELECT_INPUT_0 {
 //
 union LPSPI1_LPSPI_SCK_SELECT_INPUT {
   
-  // Enum definitions.
   enum class eDAISY : uint32_t {
     eSELECT_GPIO_EMC_B2_00_ALT8 = 0, // Selecting Pad: GPIO_EMC_B2_00 for Mode: ALT8
     eSELECT_GPIO_AD_28_ALT0 = 1, // Selecting Pad: GPIO_AD_28 for Mode: ALT0
@@ -14796,7 +15256,7 @@ union LPSPI1_LPSPI_SCK_SELECT_INPUT {
   struct {
     eDAISY DAISY : 1;
     uint32_t _reserved_end : 31;
-  } bits;          // Bit-field struct (auto-filling reserved gaps)
+  } bits;
   
   // Full 32-bit register value.
   uint32_t value;
@@ -14810,7 +15270,6 @@ union LPSPI1_LPSPI_SCK_SELECT_INPUT {
 //
 union LPSPI1_LPSPI_SDI_SELECT_INPUT {
   
-  // Enum definitions.
   enum class eDAISY : uint32_t {
     eSELECT_GPIO_EMC_B2_03_ALT8 = 0, // Selecting Pad: GPIO_EMC_B2_03 for Mode: ALT8
     eSELECT_GPIO_AD_31_ALT0 = 1, // Selecting Pad: GPIO_AD_31 for Mode: ALT0
@@ -14820,7 +15279,7 @@ union LPSPI1_LPSPI_SDI_SELECT_INPUT {
   struct {
     eDAISY DAISY : 1;
     uint32_t _reserved_end : 31;
-  } bits;          // Bit-field struct (auto-filling reserved gaps)
+  } bits;
   
   // Full 32-bit register value.
   uint32_t value;
@@ -14834,7 +15293,6 @@ union LPSPI1_LPSPI_SDI_SELECT_INPUT {
 //
 union LPSPI1_LPSPI_SDO_SELECT_INPUT {
   
-  // Enum definitions.
   enum class eDAISY : uint32_t {
     eSELECT_GPIO_EMC_B2_02_ALT8 = 0, // Selecting Pad: GPIO_EMC_B2_02 for Mode: ALT8
     eSELECT_GPIO_AD_30_ALT0 = 1, // Selecting Pad: GPIO_AD_30 for Mode: ALT0
@@ -14844,7 +15302,7 @@ union LPSPI1_LPSPI_SDO_SELECT_INPUT {
   struct {
     eDAISY DAISY : 1;
     uint32_t _reserved_end : 31;
-  } bits;          // Bit-field struct (auto-filling reserved gaps)
+  } bits;
   
   // Full 32-bit register value.
   uint32_t value;
@@ -14858,7 +15316,6 @@ union LPSPI1_LPSPI_SDO_SELECT_INPUT {
 //
 union LPSPI2_LPSPI_PCS_SELECT_INPUT_0 {
   
-  // Enum definitions.
   enum class eDAISY : uint32_t {
     eSELECT_GPIO_AD_25_ALT1 = 0, // Selecting Pad: GPIO_AD_25 for Mode: ALT1
     eSELECT_GPIO_SD_B2_08_ALT6 = 1, // Selecting Pad: GPIO_SD_B2_08 for Mode: ALT6
@@ -14868,7 +15325,7 @@ union LPSPI2_LPSPI_PCS_SELECT_INPUT_0 {
   struct {
     eDAISY DAISY : 1;
     uint32_t _reserved_end : 31;
-  } bits;          // Bit-field struct (auto-filling reserved gaps)
+  } bits;
   
   // Full 32-bit register value.
   uint32_t value;
@@ -14882,7 +15339,6 @@ union LPSPI2_LPSPI_PCS_SELECT_INPUT_0 {
 //
 union LPSPI2_LPSPI_PCS_SELECT_INPUT_1 {
   
-  // Enum definitions.
   enum class eDAISY : uint32_t {
     eSELECT_GPIO_AD_21_ALT2 = 0, // Selecting Pad: GPIO_AD_21 for Mode: ALT2
     eSELECT_GPIO_SD_B2_11_ALT6 = 1, // Selecting Pad: GPIO_SD_B2_11 for Mode: ALT6
@@ -14892,7 +15348,7 @@ union LPSPI2_LPSPI_PCS_SELECT_INPUT_1 {
   struct {
     eDAISY DAISY : 1;
     uint32_t _reserved_end : 31;
-  } bits;          // Bit-field struct (auto-filling reserved gaps)
+  } bits;
   
   // Full 32-bit register value.
   uint32_t value;
@@ -14906,7 +15362,6 @@ union LPSPI2_LPSPI_PCS_SELECT_INPUT_1 {
 //
 union LPSPI2_LPSPI_SCK_SELECT_INPUT {
   
-  // Enum definitions.
   enum class eDAISY : uint32_t {
     eSELECT_GPIO_AD_24_ALT1 = 0, // Selecting Pad: GPIO_AD_24 for Mode: ALT1
     eSELECT_GPIO_SD_B2_07_ALT6 = 1, // Selecting Pad: GPIO_SD_B2_07 for Mode: ALT6
@@ -14916,7 +15371,7 @@ union LPSPI2_LPSPI_SCK_SELECT_INPUT {
   struct {
     eDAISY DAISY : 1;
     uint32_t _reserved_end : 31;
-  } bits;          // Bit-field struct (auto-filling reserved gaps)
+  } bits;
   
   // Full 32-bit register value.
   uint32_t value;
@@ -14930,7 +15385,6 @@ union LPSPI2_LPSPI_SCK_SELECT_INPUT {
 //
 union LPSPI2_LPSPI_SDI_SELECT_INPUT {
   
-  // Enum definitions.
   enum class eDAISY : uint32_t {
     eSELECT_GPIO_AD_27_ALT1 = 0, // Selecting Pad: GPIO_AD_27 for Mode: ALT1
     eSELECT_GPIO_SD_B2_10_ALT6 = 1, // Selecting Pad: GPIO_SD_B2_10 for Mode: ALT6
@@ -14940,7 +15394,7 @@ union LPSPI2_LPSPI_SDI_SELECT_INPUT {
   struct {
     eDAISY DAISY : 1;
     uint32_t _reserved_end : 31;
-  } bits;          // Bit-field struct (auto-filling reserved gaps)
+  } bits;
   
   // Full 32-bit register value.
   uint32_t value;
@@ -14954,7 +15408,6 @@ union LPSPI2_LPSPI_SDI_SELECT_INPUT {
 //
 union LPSPI2_LPSPI_SDO_SELECT_INPUT {
   
-  // Enum definitions.
   enum class eDAISY : uint32_t {
     eSELECT_GPIO_AD_26_ALT1 = 0, // Selecting Pad: GPIO_AD_26 for Mode: ALT1
     eSELECT_GPIO_SD_B2_09_ALT6 = 1, // Selecting Pad: GPIO_SD_B2_09 for Mode: ALT6
@@ -14964,7 +15417,7 @@ union LPSPI2_LPSPI_SDO_SELECT_INPUT {
   struct {
     eDAISY DAISY : 1;
     uint32_t _reserved_end : 31;
-  } bits;          // Bit-field struct (auto-filling reserved gaps)
+  } bits;
   
   // Full 32-bit register value.
   uint32_t value;
@@ -14978,7 +15431,6 @@ union LPSPI2_LPSPI_SDO_SELECT_INPUT {
 //
 union LPSPI3_LPSPI_PCS_SELECT_INPUT_0 {
   
-  // Enum definitions.
   enum class eDAISY : uint32_t {
     eSELECT_GPIO_EMC_B2_05_ALT8 = 0, // Selecting Pad: GPIO_EMC_B2_05 for Mode: ALT8
     eSELECT_GPIO_DISP_B1_07_ALT9 = 1, // Selecting Pad: GPIO_DISP_B1_07 for Mode: ALT9
@@ -14988,7 +15440,7 @@ union LPSPI3_LPSPI_PCS_SELECT_INPUT_0 {
   struct {
     eDAISY DAISY : 1;
     uint32_t _reserved_end : 31;
-  } bits;          // Bit-field struct (auto-filling reserved gaps)
+  } bits;
   
   // Full 32-bit register value.
   uint32_t value;
@@ -15002,7 +15454,6 @@ union LPSPI3_LPSPI_PCS_SELECT_INPUT_0 {
 //
 union LPSPI3_LPSPI_PCS_SELECT_INPUT_1 {
   
-  // Enum definitions.
   enum class eDAISY : uint32_t {
     eSELECT_GPIO_EMC_B2_08_ALT8 = 0, // Selecting Pad: GPIO_EMC_B2_08 for Mode: ALT8
     eSELECT_GPIO_DISP_B1_08_ALT9 = 1, // Selecting Pad: GPIO_DISP_B1_08 for Mode: ALT9
@@ -15012,7 +15463,7 @@ union LPSPI3_LPSPI_PCS_SELECT_INPUT_1 {
   struct {
     eDAISY DAISY : 1;
     uint32_t _reserved_end : 31;
-  } bits;          // Bit-field struct (auto-filling reserved gaps)
+  } bits;
   
   // Full 32-bit register value.
   uint32_t value;
@@ -15026,7 +15477,6 @@ union LPSPI3_LPSPI_PCS_SELECT_INPUT_1 {
 //
 union LPSPI3_LPSPI_PCS_SELECT_INPUT_2 {
   
-  // Enum definitions.
   enum class eDAISY : uint32_t {
     eSELECT_GPIO_EMC_B2_09_ALT8 = 0, // Selecting Pad: GPIO_EMC_B2_09 for Mode: ALT8
     eSELECT_GPIO_DISP_B1_09_ALT9 = 1, // Selecting Pad: GPIO_DISP_B1_09 for Mode: ALT9
@@ -15036,7 +15486,7 @@ union LPSPI3_LPSPI_PCS_SELECT_INPUT_2 {
   struct {
     eDAISY DAISY : 1;
     uint32_t _reserved_end : 31;
-  } bits;          // Bit-field struct (auto-filling reserved gaps)
+  } bits;
   
   // Full 32-bit register value.
   uint32_t value;
@@ -15050,7 +15500,6 @@ union LPSPI3_LPSPI_PCS_SELECT_INPUT_2 {
 //
 union LPSPI3_LPSPI_PCS_SELECT_INPUT_3 {
   
-  // Enum definitions.
   enum class eDAISY : uint32_t {
     eSELECT_GPIO_EMC_B2_10_ALT8 = 0, // Selecting Pad: GPIO_EMC_B2_10 for Mode: ALT8
     eSELECT_GPIO_DISP_B1_10_ALT9 = 1, // Selecting Pad: GPIO_DISP_B1_10 for Mode: ALT9
@@ -15060,7 +15509,7 @@ union LPSPI3_LPSPI_PCS_SELECT_INPUT_3 {
   struct {
     eDAISY DAISY : 1;
     uint32_t _reserved_end : 31;
-  } bits;          // Bit-field struct (auto-filling reserved gaps)
+  } bits;
   
   // Full 32-bit register value.
   uint32_t value;
@@ -15074,7 +15523,6 @@ union LPSPI3_LPSPI_PCS_SELECT_INPUT_3 {
 //
 union LPSPI3_LPSPI_SCK_SELECT_INPUT {
   
-  // Enum definitions.
   enum class eDAISY : uint32_t {
     eSELECT_GPIO_EMC_B2_04_ALT8 = 0, // Selecting Pad: GPIO_EMC_B2_04 for Mode: ALT8
     eSELECT_GPIO_DISP_B1_04_ALT9 = 1, // Selecting Pad: GPIO_DISP_B1_04 for Mode: ALT9
@@ -15084,7 +15532,7 @@ union LPSPI3_LPSPI_SCK_SELECT_INPUT {
   struct {
     eDAISY DAISY : 1;
     uint32_t _reserved_end : 31;
-  } bits;          // Bit-field struct (auto-filling reserved gaps)
+  } bits;
   
   // Full 32-bit register value.
   uint32_t value;
@@ -15098,7 +15546,6 @@ union LPSPI3_LPSPI_SCK_SELECT_INPUT {
 //
 union LPSPI3_LPSPI_SDI_SELECT_INPUT {
   
-  // Enum definitions.
   enum class eDAISY : uint32_t {
     eSELECT_GPIO_EMC_B2_07_ALT8 = 0, // Selecting Pad: GPIO_EMC_B2_07 for Mode: ALT8
     eSELECT_GPIO_DISP_B1_05_ALT9 = 1, // Selecting Pad: GPIO_DISP_B1_05 for Mode: ALT9
@@ -15108,7 +15555,7 @@ union LPSPI3_LPSPI_SDI_SELECT_INPUT {
   struct {
     eDAISY DAISY : 1;
     uint32_t _reserved_end : 31;
-  } bits;          // Bit-field struct (auto-filling reserved gaps)
+  } bits;
   
   // Full 32-bit register value.
   uint32_t value;
@@ -15122,7 +15569,6 @@ union LPSPI3_LPSPI_SDI_SELECT_INPUT {
 //
 union LPSPI3_LPSPI_SDO_SELECT_INPUT {
   
-  // Enum definitions.
   enum class eDAISY : uint32_t {
     eSELECT_GPIO_EMC_B2_06_ALT8 = 0, // Selecting Pad: GPIO_EMC_B2_06 for Mode: ALT8
     eSELECT_GPIO_DISP_B1_06_ALT9 = 1, // Selecting Pad: GPIO_DISP_B1_06 for Mode: ALT9
@@ -15132,7 +15578,7 @@ union LPSPI3_LPSPI_SDO_SELECT_INPUT {
   struct {
     eDAISY DAISY : 1;
     uint32_t _reserved_end : 31;
-  } bits;          // Bit-field struct (auto-filling reserved gaps)
+  } bits;
   
   // Full 32-bit register value.
   uint32_t value;
@@ -15146,7 +15592,6 @@ union LPSPI3_LPSPI_SDO_SELECT_INPUT {
 //
 union LPSPI4_LPSPI_PCS_SELECT_INPUT_0 {
   
-  // Enum definitions.
   enum class eDAISY : uint32_t {
     eSELECT_GPIO_SD_B2_01_ALT4 = 0, // Selecting Pad: GPIO_SD_B2_01 for Mode: ALT4
     eSELECT_GPIO_DISP_B2_15_ALT9 = 1, // Selecting Pad: GPIO_DISP_B2_15 for Mode: ALT9
@@ -15156,7 +15601,7 @@ union LPSPI4_LPSPI_PCS_SELECT_INPUT_0 {
   struct {
     eDAISY DAISY : 1;
     uint32_t _reserved_end : 31;
-  } bits;          // Bit-field struct (auto-filling reserved gaps)
+  } bits;
   
   // Full 32-bit register value.
   uint32_t value;
@@ -15170,7 +15615,6 @@ union LPSPI4_LPSPI_PCS_SELECT_INPUT_0 {
 //
 union LPSPI4_LPSPI_SCK_SELECT_INPUT {
   
-  // Enum definitions.
   enum class eDAISY : uint32_t {
     eSELECT_GPIO_SD_B2_00_ALT4 = 0, // Selecting Pad: GPIO_SD_B2_00 for Mode: ALT4
     eSELECT_GPIO_DISP_B2_12_ALT9 = 1, // Selecting Pad: GPIO_DISP_B2_12 for Mode: ALT9
@@ -15180,7 +15624,7 @@ union LPSPI4_LPSPI_SCK_SELECT_INPUT {
   struct {
     eDAISY DAISY : 1;
     uint32_t _reserved_end : 31;
-  } bits;          // Bit-field struct (auto-filling reserved gaps)
+  } bits;
   
   // Full 32-bit register value.
   uint32_t value;
@@ -15194,7 +15638,6 @@ union LPSPI4_LPSPI_SCK_SELECT_INPUT {
 //
 union LPSPI4_LPSPI_SDI_SELECT_INPUT {
   
-  // Enum definitions.
   enum class eDAISY : uint32_t {
     eSELECT_GPIO_SD_B2_03_ALT4 = 0, // Selecting Pad: GPIO_SD_B2_03 for Mode: ALT4
     eSELECT_GPIO_DISP_B2_13_ALT9 = 1, // Selecting Pad: GPIO_DISP_B2_13 for Mode: ALT9
@@ -15204,7 +15647,7 @@ union LPSPI4_LPSPI_SDI_SELECT_INPUT {
   struct {
     eDAISY DAISY : 1;
     uint32_t _reserved_end : 31;
-  } bits;          // Bit-field struct (auto-filling reserved gaps)
+  } bits;
   
   // Full 32-bit register value.
   uint32_t value;
@@ -15218,7 +15661,6 @@ union LPSPI4_LPSPI_SDI_SELECT_INPUT {
 //
 union LPSPI4_LPSPI_SDO_SELECT_INPUT {
   
-  // Enum definitions.
   enum class eDAISY : uint32_t {
     eSELECT_GPIO_SD_B2_02_ALT4 = 0, // Selecting Pad: GPIO_SD_B2_02 for Mode: ALT4
     eSELECT_GPIO_DISP_B2_14_ALT9 = 1, // Selecting Pad: GPIO_DISP_B2_14 for Mode: ALT9
@@ -15228,7 +15670,7 @@ union LPSPI4_LPSPI_SDO_SELECT_INPUT {
   struct {
     eDAISY DAISY : 1;
     uint32_t _reserved_end : 31;
-  } bits;          // Bit-field struct (auto-filling reserved gaps)
+  } bits;
   
   // Full 32-bit register value.
   uint32_t value;
@@ -15242,7 +15684,6 @@ union LPSPI4_LPSPI_SDO_SELECT_INPUT {
 //
 union LPUART1_LPUART_RXD_SELECT_INPUT {
   
-  // Enum definitions.
   enum class eDAISY : uint32_t {
     eSELECT_GPIO_AD_25_ALT0 = 0, // Selecting Pad: GPIO_AD_25 for Mode: ALT0
     eSELECT_GPIO_DISP_B1_03_ALT9 = 1, // Selecting Pad: GPIO_DISP_B1_03 for Mode: ALT9
@@ -15253,7 +15694,7 @@ union LPUART1_LPUART_RXD_SELECT_INPUT {
   struct {
     eDAISY DAISY : 2;
     uint32_t _reserved_end : 30;
-  } bits;          // Bit-field struct (auto-filling reserved gaps)
+  } bits;
   
   // Full 32-bit register value.
   uint32_t value;
@@ -15267,7 +15708,6 @@ union LPUART1_LPUART_RXD_SELECT_INPUT {
 //
 union LPUART1_LPUART_TXD_SELECT_INPUT {
   
-  // Enum definitions.
   enum class eDAISY : uint32_t {
     eSELECT_GPIO_AD_24_ALT0 = 0, // Selecting Pad: GPIO_AD_24 for Mode: ALT0
     eSELECT_GPIO_DISP_B1_02_ALT9 = 1, // Selecting Pad: GPIO_DISP_B1_02 for Mode: ALT9
@@ -15278,7 +15718,7 @@ union LPUART1_LPUART_TXD_SELECT_INPUT {
   struct {
     eDAISY DAISY : 2;
     uint32_t _reserved_end : 30;
-  } bits;          // Bit-field struct (auto-filling reserved gaps)
+  } bits;
   
   // Full 32-bit register value.
   uint32_t value;
@@ -15292,7 +15732,6 @@ union LPUART1_LPUART_TXD_SELECT_INPUT {
 //
 union LPUART10_LPUART_RXD_SELECT_INPUT {
   
-  // Enum definitions.
   enum class eDAISY : uint32_t {
     eSELECT_GPIO_AD_16_ALT1 = 0, // Selecting Pad: GPIO_AD_16 for Mode: ALT1
     eSELECT_GPIO_AD_33_ALT8 = 1, // Selecting Pad: GPIO_AD_33 for Mode: ALT8
@@ -15302,7 +15741,7 @@ union LPUART10_LPUART_RXD_SELECT_INPUT {
   struct {
     eDAISY DAISY : 1;
     uint32_t _reserved_end : 31;
-  } bits;          // Bit-field struct (auto-filling reserved gaps)
+  } bits;
   
   // Full 32-bit register value.
   uint32_t value;
@@ -15316,7 +15755,6 @@ union LPUART10_LPUART_RXD_SELECT_INPUT {
 //
 union LPUART10_LPUART_TXD_SELECT_INPUT {
   
-  // Enum definitions.
   enum class eDAISY : uint32_t {
     eSELECT_GPIO_AD_15_ALT1 = 0, // Selecting Pad: GPIO_AD_15 for Mode: ALT1
     eSELECT_GPIO_AD_32_ALT8 = 1, // Selecting Pad: GPIO_AD_32 for Mode: ALT8
@@ -15326,7 +15764,7 @@ union LPUART10_LPUART_TXD_SELECT_INPUT {
   struct {
     eDAISY DAISY : 1;
     uint32_t _reserved_end : 31;
-  } bits;          // Bit-field struct (auto-filling reserved gaps)
+  } bits;
   
   // Full 32-bit register value.
   uint32_t value;
@@ -15340,7 +15778,6 @@ union LPUART10_LPUART_TXD_SELECT_INPUT {
 //
 union LPUART7_LPUART_RXD_SELECT_INPUT {
   
-  // Enum definitions.
   enum class eDAISY : uint32_t {
     eSELECT_GPIO_AD_01_ALT6 = 0, // Selecting Pad: GPIO_AD_01 for Mode: ALT6
     eSELECT_GPIO_DISP_B2_07_ALT2 = 1, // Selecting Pad: GPIO_DISP_B2_07 for Mode: ALT2
@@ -15350,7 +15787,7 @@ union LPUART7_LPUART_RXD_SELECT_INPUT {
   struct {
     eDAISY DAISY : 1;
     uint32_t _reserved_end : 31;
-  } bits;          // Bit-field struct (auto-filling reserved gaps)
+  } bits;
   
   // Full 32-bit register value.
   uint32_t value;
@@ -15364,7 +15801,6 @@ union LPUART7_LPUART_RXD_SELECT_INPUT {
 //
 union LPUART7_LPUART_TXD_SELECT_INPUT {
   
-  // Enum definitions.
   enum class eDAISY : uint32_t {
     eSELECT_GPIO_AD_00_ALT6 = 0, // Selecting Pad: GPIO_AD_00 for Mode: ALT6
     eSELECT_GPIO_DISP_B2_06_ALT2 = 1, // Selecting Pad: GPIO_DISP_B2_06 for Mode: ALT2
@@ -15374,7 +15810,7 @@ union LPUART7_LPUART_TXD_SELECT_INPUT {
   struct {
     eDAISY DAISY : 1;
     uint32_t _reserved_end : 31;
-  } bits;          // Bit-field struct (auto-filling reserved gaps)
+  } bits;
   
   // Full 32-bit register value.
   uint32_t value;
@@ -15388,7 +15824,6 @@ union LPUART7_LPUART_TXD_SELECT_INPUT {
 //
 union LPUART8_LPUART_RXD_SELECT_INPUT {
   
-  // Enum definitions.
   enum class eDAISY : uint32_t {
     eSELECT_GPIO_AD_03_ALT6 = 0, // Selecting Pad: GPIO_AD_03 for Mode: ALT6
     eSELECT_GPIO_DISP_B2_09_ALT2 = 1, // Selecting Pad: GPIO_DISP_B2_09 for Mode: ALT2
@@ -15398,7 +15833,7 @@ union LPUART8_LPUART_RXD_SELECT_INPUT {
   struct {
     eDAISY DAISY : 1;
     uint32_t _reserved_end : 31;
-  } bits;          // Bit-field struct (auto-filling reserved gaps)
+  } bits;
   
   // Full 32-bit register value.
   uint32_t value;
@@ -15412,7 +15847,6 @@ union LPUART8_LPUART_RXD_SELECT_INPUT {
 //
 union LPUART8_LPUART_TXD_SELECT_INPUT {
   
-  // Enum definitions.
   enum class eDAISY : uint32_t {
     eSELECT_GPIO_AD_02_ALT6 = 0, // Selecting Pad: GPIO_AD_02 for Mode: ALT6
     eSELECT_GPIO_DISP_B2_08_ALT2 = 1, // Selecting Pad: GPIO_DISP_B2_08 for Mode: ALT2
@@ -15422,7 +15856,7 @@ union LPUART8_LPUART_TXD_SELECT_INPUT {
   struct {
     eDAISY DAISY : 1;
     uint32_t _reserved_end : 31;
-  } bits;          // Bit-field struct (auto-filling reserved gaps)
+  } bits;
   
   // Full 32-bit register value.
   uint32_t value;
@@ -15436,7 +15870,6 @@ union LPUART8_LPUART_TXD_SELECT_INPUT {
 //
 union QTIMER1_TMR0_INPUT_SELECT_INPUT {
   
-  // Enum definitions.
   enum class eDAISY : uint32_t {
     eSELECT_GPIO_EMC_B1_17_ALT2 = 0, // Selecting Pad: GPIO_EMC_B1_17 for Mode: ALT2
     eSELECT_GPIO_EMC_B2_09_ALT9 = 1, // Selecting Pad: GPIO_EMC_B2_09 for Mode: ALT9
@@ -15447,7 +15880,7 @@ union QTIMER1_TMR0_INPUT_SELECT_INPUT {
   struct {
     eDAISY DAISY : 2;
     uint32_t _reserved_end : 30;
-  } bits;          // Bit-field struct (auto-filling reserved gaps)
+  } bits;
   
   // Full 32-bit register value.
   uint32_t value;
@@ -15461,7 +15894,6 @@ union QTIMER1_TMR0_INPUT_SELECT_INPUT {
 //
 union QTIMER1_TMR1_INPUT_SELECT_INPUT {
   
-  // Enum definitions.
   enum class eDAISY : uint32_t {
     eSELECT_GPIO_EMC_B1_38_ALT2 = 0, // Selecting Pad: GPIO_EMC_B1_38 for Mode: ALT2
     eSELECT_GPIO_EMC_B2_10_ALT9 = 1, // Selecting Pad: GPIO_EMC_B2_10 for Mode: ALT9
@@ -15472,7 +15904,7 @@ union QTIMER1_TMR1_INPUT_SELECT_INPUT {
   struct {
     eDAISY DAISY : 2;
     uint32_t _reserved_end : 30;
-  } bits;          // Bit-field struct (auto-filling reserved gaps)
+  } bits;
   
   // Full 32-bit register value.
   uint32_t value;
@@ -15486,7 +15918,6 @@ union QTIMER1_TMR1_INPUT_SELECT_INPUT {
 //
 union QTIMER1_TMR2_INPUT_SELECT_INPUT {
   
-  // Enum definitions.
   enum class eDAISY : uint32_t {
     eSELECT_GPIO_EMC_B2_11_ALT9 = 0, // Selecting Pad: GPIO_EMC_B2_11 for Mode: ALT9
     eSELECT_GPIO_DISP_B1_02_ALT3 = 1, // Selecting Pad: GPIO_DISP_B1_02 for Mode: ALT3
@@ -15496,7 +15927,7 @@ union QTIMER1_TMR2_INPUT_SELECT_INPUT {
   struct {
     eDAISY DAISY : 1;
     uint32_t _reserved_end : 31;
-  } bits;          // Bit-field struct (auto-filling reserved gaps)
+  } bits;
   
   // Full 32-bit register value.
   uint32_t value;
@@ -15510,7 +15941,6 @@ union QTIMER1_TMR2_INPUT_SELECT_INPUT {
 //
 union QTIMER2_TMR0_INPUT_SELECT_INPUT {
   
-  // Enum definitions.
   enum class eDAISY : uint32_t {
     eSELECT_GPIO_EMC_B1_18_ALT2 = 0, // Selecting Pad: GPIO_EMC_B1_18 for Mode: ALT2
     eSELECT_GPIO_EMC_B2_13_ALT9 = 1, // Selecting Pad: GPIO_EMC_B2_13 for Mode: ALT9
@@ -15521,7 +15951,7 @@ union QTIMER2_TMR0_INPUT_SELECT_INPUT {
   struct {
     eDAISY DAISY : 2;
     uint32_t _reserved_end : 30;
-  } bits;          // Bit-field struct (auto-filling reserved gaps)
+  } bits;
   
   // Full 32-bit register value.
   uint32_t value;
@@ -15535,7 +15965,6 @@ union QTIMER2_TMR0_INPUT_SELECT_INPUT {
 //
 union QTIMER2_TMR1_INPUT_SELECT_INPUT {
   
-  // Enum definitions.
   enum class eDAISY : uint32_t {
     eSELECT_GPIO_EMC_B1_39_ALT2 = 0, // Selecting Pad: GPIO_EMC_B1_39 for Mode: ALT2
     eSELECT_GPIO_EMC_B2_14_ALT9 = 1, // Selecting Pad: GPIO_EMC_B2_14 for Mode: ALT9
@@ -15546,7 +15975,7 @@ union QTIMER2_TMR1_INPUT_SELECT_INPUT {
   struct {
     eDAISY DAISY : 2;
     uint32_t _reserved_end : 30;
-  } bits;          // Bit-field struct (auto-filling reserved gaps)
+  } bits;
   
   // Full 32-bit register value.
   uint32_t value;
@@ -15560,7 +15989,6 @@ union QTIMER2_TMR1_INPUT_SELECT_INPUT {
 //
 union QTIMER2_TMR2_INPUT_SELECT_INPUT {
   
-  // Enum definitions.
   enum class eDAISY : uint32_t {
     eSELECT_GPIO_EMC_B2_15_ALT9 = 0, // Selecting Pad: GPIO_EMC_B2_15 for Mode: ALT9
     eSELECT_GPIO_DISP_B1_05_ALT3 = 1, // Selecting Pad: GPIO_DISP_B1_05 for Mode: ALT3
@@ -15570,7 +15998,7 @@ union QTIMER2_TMR2_INPUT_SELECT_INPUT {
   struct {
     eDAISY DAISY : 1;
     uint32_t _reserved_end : 31;
-  } bits;          // Bit-field struct (auto-filling reserved gaps)
+  } bits;
   
   // Full 32-bit register value.
   uint32_t value;
@@ -15584,7 +16012,6 @@ union QTIMER2_TMR2_INPUT_SELECT_INPUT {
 //
 union QTIMER3_TMR0_INPUT_SELECT_INPUT {
   
-  // Enum definitions.
   enum class eDAISY : uint32_t {
     eSELECT_GPIO_EMC_B1_19_ALT2 = 0, // Selecting Pad: GPIO_EMC_B1_19 for Mode: ALT2
     eSELECT_GPIO_EMC_B2_17_ALT9 = 1, // Selecting Pad: GPIO_EMC_B2_17 for Mode: ALT9
@@ -15595,7 +16022,7 @@ union QTIMER3_TMR0_INPUT_SELECT_INPUT {
   struct {
     eDAISY DAISY : 2;
     uint32_t _reserved_end : 30;
-  } bits;          // Bit-field struct (auto-filling reserved gaps)
+  } bits;
   
   // Full 32-bit register value.
   uint32_t value;
@@ -15609,7 +16036,6 @@ union QTIMER3_TMR0_INPUT_SELECT_INPUT {
 //
 union QTIMER3_TMR1_INPUT_SELECT_INPUT {
   
-  // Enum definitions.
   enum class eDAISY : uint32_t {
     eSELECT_GPIO_EMC_B2_00_ALT2 = 0, // Selecting Pad: GPIO_EMC_B2_00 for Mode: ALT2
     eSELECT_GPIO_EMC_B2_18_ALT9 = 1, // Selecting Pad: GPIO_EMC_B2_18 for Mode: ALT9
@@ -15620,7 +16046,7 @@ union QTIMER3_TMR1_INPUT_SELECT_INPUT {
   struct {
     eDAISY DAISY : 2;
     uint32_t _reserved_end : 30;
-  } bits;          // Bit-field struct (auto-filling reserved gaps)
+  } bits;
   
   // Full 32-bit register value.
   uint32_t value;
@@ -15634,7 +16060,6 @@ union QTIMER3_TMR1_INPUT_SELECT_INPUT {
 //
 union QTIMER3_TMR2_INPUT_SELECT_INPUT {
   
-  // Enum definitions.
   enum class eDAISY : uint32_t {
     eSELECT_GPIO_EMC_B2_19_ALT9 = 0, // Selecting Pad: GPIO_EMC_B2_19 for Mode: ALT9
     eSELECT_GPIO_DISP_B1_08_ALT3 = 1, // Selecting Pad: GPIO_DISP_B1_08 for Mode: ALT3
@@ -15644,7 +16069,7 @@ union QTIMER3_TMR2_INPUT_SELECT_INPUT {
   struct {
     eDAISY DAISY : 1;
     uint32_t _reserved_end : 31;
-  } bits;          // Bit-field struct (auto-filling reserved gaps)
+  } bits;
   
   // Full 32-bit register value.
   uint32_t value;
@@ -15658,7 +16083,6 @@ union QTIMER3_TMR2_INPUT_SELECT_INPUT {
 //
 union QTIMER4_TMR0_INPUT_SELECT_INPUT {
   
-  // Enum definitions.
   enum class eDAISY : uint32_t {
     eSELECT_GPIO_EMC_B1_20_ALT2 = 0, // Selecting Pad: GPIO_EMC_B1_20 for Mode: ALT2
     eSELECT_GPIO_AD_04_ALT9 = 1, // Selecting Pad: GPIO_AD_04 for Mode: ALT9
@@ -15669,7 +16093,7 @@ union QTIMER4_TMR0_INPUT_SELECT_INPUT {
   struct {
     eDAISY DAISY : 2;
     uint32_t _reserved_end : 30;
-  } bits;          // Bit-field struct (auto-filling reserved gaps)
+  } bits;
   
   // Full 32-bit register value.
   uint32_t value;
@@ -15683,7 +16107,6 @@ union QTIMER4_TMR0_INPUT_SELECT_INPUT {
 //
 union QTIMER4_TMR1_INPUT_SELECT_INPUT {
   
-  // Enum definitions.
   enum class eDAISY : uint32_t {
     eSELECT_GPIO_EMC_B2_01_ALT2 = 0, // Selecting Pad: GPIO_EMC_B2_01 for Mode: ALT2
     eSELECT_GPIO_AD_05_ALT9 = 1, // Selecting Pad: GPIO_AD_05 for Mode: ALT9
@@ -15694,7 +16117,7 @@ union QTIMER4_TMR1_INPUT_SELECT_INPUT {
   struct {
     eDAISY DAISY : 2;
     uint32_t _reserved_end : 30;
-  } bits;          // Bit-field struct (auto-filling reserved gaps)
+  } bits;
   
   // Full 32-bit register value.
   uint32_t value;
@@ -15708,7 +16131,6 @@ union QTIMER4_TMR1_INPUT_SELECT_INPUT {
 //
 union QTIMER4_TMR2_INPUT_SELECT_INPUT {
   
-  // Enum definitions.
   enum class eDAISY : uint32_t {
     eSELECT_GPIO_AD_06_ALT9 = 0, // Selecting Pad: GPIO_AD_06 for Mode: ALT9
     eSELECT_GPIO_DISP_B1_11_ALT3 = 1, // Selecting Pad: GPIO_DISP_B1_11 for Mode: ALT3
@@ -15718,7 +16140,7 @@ union QTIMER4_TMR2_INPUT_SELECT_INPUT {
   struct {
     eDAISY DAISY : 1;
     uint32_t _reserved_end : 31;
-  } bits;          // Bit-field struct (auto-filling reserved gaps)
+  } bits;
   
   // Full 32-bit register value.
   uint32_t value;
@@ -15732,7 +16154,6 @@ union QTIMER4_TMR2_INPUT_SELECT_INPUT {
 //
 union SAI1_IPG_CLK_SAI_MCLK_SELECT_INPUT {
   
-  // Enum definitions.
   enum class eDAISY : uint32_t {
     eSELECT_GPIO_AD_17_ALT0 = 0, // Selecting Pad: GPIO_AD_17 for Mode: ALT0
     eSELECT_GPIO_DISP_B2_03_ALT4 = 1, // Selecting Pad: GPIO_DISP_B2_03 for Mode: ALT4
@@ -15742,7 +16163,7 @@ union SAI1_IPG_CLK_SAI_MCLK_SELECT_INPUT {
   struct {
     eDAISY DAISY : 1;
     uint32_t _reserved_end : 31;
-  } bits;          // Bit-field struct (auto-filling reserved gaps)
+  } bits;
   
   // Full 32-bit register value.
   uint32_t value;
@@ -15756,7 +16177,6 @@ union SAI1_IPG_CLK_SAI_MCLK_SELECT_INPUT {
 //
 union SAI1_SAI_RXBCLK_SELECT_INPUT {
   
-  // Enum definitions.
   enum class eDAISY : uint32_t {
     eSELECT_GPIO_AD_19_ALT0 = 0, // Selecting Pad: GPIO_AD_19 for Mode: ALT0
     eSELECT_GPIO_DISP_B2_05_ALT4 = 1, // Selecting Pad: GPIO_DISP_B2_05 for Mode: ALT4
@@ -15766,7 +16186,7 @@ union SAI1_SAI_RXBCLK_SELECT_INPUT {
   struct {
     eDAISY DAISY : 1;
     uint32_t _reserved_end : 31;
-  } bits;          // Bit-field struct (auto-filling reserved gaps)
+  } bits;
   
   // Full 32-bit register value.
   uint32_t value;
@@ -15780,7 +16200,6 @@ union SAI1_SAI_RXBCLK_SELECT_INPUT {
 //
 union SAI1_SAI_RXDATA_SELECT_INPUT_0 {
   
-  // Enum definitions.
   enum class eDAISY : uint32_t {
     eSELECT_GPIO_AD_20_ALT0 = 0, // Selecting Pad: GPIO_AD_20 for Mode: ALT0
     eSELECT_GPIO_DISP_B2_06_ALT4 = 1, // Selecting Pad: GPIO_DISP_B2_06 for Mode: ALT4
@@ -15790,7 +16209,7 @@ union SAI1_SAI_RXDATA_SELECT_INPUT_0 {
   struct {
     eDAISY DAISY : 1;
     uint32_t _reserved_end : 31;
-  } bits;          // Bit-field struct (auto-filling reserved gaps)
+  } bits;
   
   // Full 32-bit register value.
   uint32_t value;
@@ -15804,7 +16223,6 @@ union SAI1_SAI_RXDATA_SELECT_INPUT_0 {
 //
 union SAI1_SAI_RXSYNC_SELECT_INPUT {
   
-  // Enum definitions.
   enum class eDAISY : uint32_t {
     eSELECT_GPIO_AD_18_ALT0 = 0, // Selecting Pad: GPIO_AD_18 for Mode: ALT0
     eSELECT_GPIO_DISP_B2_04_ALT4 = 1, // Selecting Pad: GPIO_DISP_B2_04 for Mode: ALT4
@@ -15814,7 +16232,7 @@ union SAI1_SAI_RXSYNC_SELECT_INPUT {
   struct {
     eDAISY DAISY : 1;
     uint32_t _reserved_end : 31;
-  } bits;          // Bit-field struct (auto-filling reserved gaps)
+  } bits;
   
   // Full 32-bit register value.
   uint32_t value;
@@ -15828,7 +16246,6 @@ union SAI1_SAI_RXSYNC_SELECT_INPUT {
 //
 union SAI1_SAI_TXBCLK_SELECT_INPUT {
   
-  // Enum definitions.
   enum class eDAISY : uint32_t {
     eSELECT_GPIO_AD_22_ALT0 = 0, // Selecting Pad: GPIO_AD_22 for Mode: ALT0
     eSELECT_GPIO_DISP_B2_08_ALT4 = 1, // Selecting Pad: GPIO_DISP_B2_08 for Mode: ALT4
@@ -15838,7 +16255,7 @@ union SAI1_SAI_TXBCLK_SELECT_INPUT {
   struct {
     eDAISY DAISY : 1;
     uint32_t _reserved_end : 31;
-  } bits;          // Bit-field struct (auto-filling reserved gaps)
+  } bits;
   
   // Full 32-bit register value.
   uint32_t value;
@@ -15852,7 +16269,6 @@ union SAI1_SAI_TXBCLK_SELECT_INPUT {
 //
 union SAI1_SAI_TXSYNC_SELECT_INPUT {
   
-  // Enum definitions.
   enum class eDAISY : uint32_t {
     eSELECT_GPIO_AD_23_ALT0 = 0, // Selecting Pad: GPIO_AD_23 for Mode: ALT0
     eSELECT_GPIO_DISP_B2_09_ALT4 = 1, // Selecting Pad: GPIO_DISP_B2_09 for Mode: ALT4
@@ -15862,7 +16278,7 @@ union SAI1_SAI_TXSYNC_SELECT_INPUT {
   struct {
     eDAISY DAISY : 1;
     uint32_t _reserved_end : 31;
-  } bits;          // Bit-field struct (auto-filling reserved gaps)
+  } bits;
   
   // Full 32-bit register value.
   uint32_t value;
@@ -15876,7 +16292,6 @@ union SAI1_SAI_TXSYNC_SELECT_INPUT {
 //
 union EMVSIM1_SIO_SELECT_INPUT {
   
-  // Enum definitions.
   enum class eDAISY : uint32_t {
     eSELECT_GPIO_EMC_B2_11_ALT8 = 0, // Selecting Pad: GPIO_EMC_B2_11 for Mode: ALT8
     eSELECT_GPIO_AD_00_ALT0 = 1, // Selecting Pad: GPIO_AD_00 for Mode: ALT0
@@ -15886,7 +16301,7 @@ union EMVSIM1_SIO_SELECT_INPUT {
   struct {
     eDAISY DAISY : 1;
     uint32_t _reserved_end : 31;
-  } bits;          // Bit-field struct (auto-filling reserved gaps)
+  } bits;
   
   // Full 32-bit register value.
   uint32_t value;
@@ -15900,7 +16315,6 @@ union EMVSIM1_SIO_SELECT_INPUT {
 //
 union EMVSIM1_IPP_SIMPD_SELECT_INPUT {
   
-  // Enum definitions.
   enum class eDAISY : uint32_t {
     eSELECT_GPIO_EMC_B2_15_ALT8 = 0, // Selecting Pad: GPIO_EMC_B2_15 for Mode: ALT8
     eSELECT_GPIO_AD_04_ALT0 = 1, // Selecting Pad: GPIO_AD_04 for Mode: ALT0
@@ -15910,7 +16324,7 @@ union EMVSIM1_IPP_SIMPD_SELECT_INPUT {
   struct {
     eDAISY DAISY : 1;
     uint32_t _reserved_end : 31;
-  } bits;          // Bit-field struct (auto-filling reserved gaps)
+  } bits;
   
   // Full 32-bit register value.
   uint32_t value;
@@ -15924,7 +16338,6 @@ union EMVSIM1_IPP_SIMPD_SELECT_INPUT {
 //
 union EMVSIM1_POWER_FAIL_SELECT_INPUT {
   
-  // Enum definitions.
   enum class eDAISY : uint32_t {
     eSELECT_GPIO_EMC_B2_16_ALT8 = 0, // Selecting Pad: GPIO_EMC_B2_16 for Mode: ALT8
     eSELECT_GPIO_AD_05_ALT0 = 1, // Selecting Pad: GPIO_AD_05 for Mode: ALT0
@@ -15934,7 +16347,7 @@ union EMVSIM1_POWER_FAIL_SELECT_INPUT {
   struct {
     eDAISY DAISY : 1;
     uint32_t _reserved_end : 31;
-  } bits;          // Bit-field struct (auto-filling reserved gaps)
+  } bits;
   
   // Full 32-bit register value.
   uint32_t value;
@@ -15948,7 +16361,6 @@ union EMVSIM1_POWER_FAIL_SELECT_INPUT {
 //
 union EMVSIM2_SIO_SELECT_INPUT {
   
-  // Enum definitions.
   enum class eDAISY : uint32_t {
     eSELECT_GPIO_AD_06_ALT2 = 0, // Selecting Pad: GPIO_AD_06 for Mode: ALT2
     eSELECT_GPIO_DISP_B2_10_ALT1 = 1, // Selecting Pad: GPIO_DISP_B2_10 for Mode: ALT1
@@ -15958,7 +16370,7 @@ union EMVSIM2_SIO_SELECT_INPUT {
   struct {
     eDAISY DAISY : 1;
     uint32_t _reserved_end : 31;
-  } bits;          // Bit-field struct (auto-filling reserved gaps)
+  } bits;
   
   // Full 32-bit register value.
   uint32_t value;
@@ -15972,7 +16384,6 @@ union EMVSIM2_SIO_SELECT_INPUT {
 //
 union EMVSIM2_IPP_SIMPD_SELECT_INPUT {
   
-  // Enum definitions.
   enum class eDAISY : uint32_t {
     eSELECT_GPIO_AD_10_ALT2 = 0, // Selecting Pad: GPIO_AD_10 for Mode: ALT2
     eSELECT_GPIO_DISP_B2_14_ALT1 = 1, // Selecting Pad: GPIO_DISP_B2_14 for Mode: ALT1
@@ -15982,7 +16393,7 @@ union EMVSIM2_IPP_SIMPD_SELECT_INPUT {
   struct {
     eDAISY DAISY : 1;
     uint32_t _reserved_end : 31;
-  } bits;          // Bit-field struct (auto-filling reserved gaps)
+  } bits;
   
   // Full 32-bit register value.
   uint32_t value;
@@ -15996,7 +16407,6 @@ union EMVSIM2_IPP_SIMPD_SELECT_INPUT {
 //
 union EMVSIM2_POWER_FAIL_SELECT_INPUT {
   
-  // Enum definitions.
   enum class eDAISY : uint32_t {
     eSELECT_GPIO_AD_11_ALT2 = 0, // Selecting Pad: GPIO_AD_11 for Mode: ALT2
     eSELECT_GPIO_DISP_B2_15_ALT1 = 1, // Selecting Pad: GPIO_DISP_B2_15 for Mode: ALT1
@@ -16006,7 +16416,7 @@ union EMVSIM2_POWER_FAIL_SELECT_INPUT {
   struct {
     eDAISY DAISY : 1;
     uint32_t _reserved_end : 31;
-  } bits;          // Bit-field struct (auto-filling reserved gaps)
+  } bits;
   
   // Full 32-bit register value.
   uint32_t value;
@@ -16020,7 +16430,6 @@ union EMVSIM2_POWER_FAIL_SELECT_INPUT {
 //
 union SPDIF_SPDIF_IN1_SELECT_INPUT {
   
-  // Enum definitions.
   enum class eDAISY : uint32_t {
     eSELECT_GPIO_EMC_B2_11_ALT1 = 0, // Selecting Pad: GPIO_EMC_B2_11 for Mode: ALT1
     eSELECT_GPIO_AD_15_ALT0 = 1, // Selecting Pad: GPIO_AD_15 for Mode: ALT0
@@ -16031,7 +16440,7 @@ union SPDIF_SPDIF_IN1_SELECT_INPUT {
   struct {
     eDAISY DAISY : 2;
     uint32_t _reserved_end : 30;
-  } bits;          // Bit-field struct (auto-filling reserved gaps)
+  } bits;
   
   // Full 32-bit register value.
   uint32_t value;
@@ -16045,7 +16454,6 @@ union SPDIF_SPDIF_IN1_SELECT_INPUT {
 //
 union USB_OTG2_OC_SELECT_INPUT {
   
-  // Enum definitions.
   enum class eDAISY : uint32_t {
     eSELECT_GPIO_AD_06_ALT0 = 0, // Selecting Pad: GPIO_AD_06 for Mode: ALT0
     eSELECT_GPIO_AD_30_ALT1 = 1, // Selecting Pad: GPIO_AD_30 for Mode: ALT1
@@ -16055,7 +16463,7 @@ union USB_OTG2_OC_SELECT_INPUT {
   struct {
     eDAISY DAISY : 1;
     uint32_t _reserved_end : 31;
-  } bits;          // Bit-field struct (auto-filling reserved gaps)
+  } bits;
   
   // Full 32-bit register value.
   uint32_t value;
@@ -16069,7 +16477,6 @@ union USB_OTG2_OC_SELECT_INPUT {
 //
 union USB_OTG_OC_SELECT_INPUT {
   
-  // Enum definitions.
   enum class eDAISY : uint32_t {
     eSELECT_GPIO_AD_11_ALT0 = 0, // Selecting Pad: GPIO_AD_11 for Mode: ALT0
     eSELECT_GPIO_AD_35_ALT1 = 1, // Selecting Pad: GPIO_AD_35 for Mode: ALT1
@@ -16079,7 +16486,7 @@ union USB_OTG_OC_SELECT_INPUT {
   struct {
     eDAISY DAISY : 1;
     uint32_t _reserved_end : 31;
-  } bits;          // Bit-field struct (auto-filling reserved gaps)
+  } bits;
   
   // Full 32-bit register value.
   uint32_t value;
@@ -16093,7 +16500,6 @@ union USB_OTG_OC_SELECT_INPUT {
 //
 union USBPHY1_USB_ID_SELECT_INPUT {
   
-  // Enum definitions.
   enum class eDAISY : uint32_t {
     eSELECT_GPIO_AD_09_ALT0 = 0, // Selecting Pad: GPIO_AD_09 for Mode: ALT0
     eSELECT_GPIO_AD_33_ALT1 = 1, // Selecting Pad: GPIO_AD_33 for Mode: ALT1
@@ -16103,7 +16509,7 @@ union USBPHY1_USB_ID_SELECT_INPUT {
   struct {
     eDAISY DAISY : 1;
     uint32_t _reserved_end : 31;
-  } bits;          // Bit-field struct (auto-filling reserved gaps)
+  } bits;
   
   // Full 32-bit register value.
   uint32_t value;
@@ -16117,7 +16523,6 @@ union USBPHY1_USB_ID_SELECT_INPUT {
 //
 union USBPHY2_USB_ID_SELECT_INPUT {
   
-  // Enum definitions.
   enum class eDAISY : uint32_t {
     eSELECT_GPIO_AD_08_ALT0 = 0, // Selecting Pad: GPIO_AD_08 for Mode: ALT0
     eSELECT_GPIO_AD_32_ALT1 = 1, // Selecting Pad: GPIO_AD_32 for Mode: ALT1
@@ -16127,7 +16532,7 @@ union USBPHY2_USB_ID_SELECT_INPUT {
   struct {
     eDAISY DAISY : 1;
     uint32_t _reserved_end : 31;
-  } bits;          // Bit-field struct (auto-filling reserved gaps)
+  } bits;
   
   // Full 32-bit register value.
   uint32_t value;
@@ -16141,7 +16546,6 @@ union USBPHY2_USB_ID_SELECT_INPUT {
 //
 union USDHC1_IPP_CARD_DET_SELECT_INPUT {
   
-  // Enum definitions.
   enum class eDAISY : uint32_t {
     eSELECT_GPIO_AD_32_ALT4 = 0, // Selecting Pad: GPIO_AD_32 for Mode: ALT4
     eSELECT_GPIO_DISP_B1_08_ALT2 = 1, // Selecting Pad: GPIO_DISP_B1_08 for Mode: ALT2
@@ -16151,7 +16555,7 @@ union USDHC1_IPP_CARD_DET_SELECT_INPUT {
   struct {
     eDAISY DAISY : 1;
     uint32_t _reserved_end : 31;
-  } bits;          // Bit-field struct (auto-filling reserved gaps)
+  } bits;
   
   // Full 32-bit register value.
   uint32_t value;
@@ -16165,7 +16569,6 @@ union USDHC1_IPP_CARD_DET_SELECT_INPUT {
 //
 union USDHC1_IPP_WP_ON_SELECT_INPUT {
   
-  // Enum definitions.
   enum class eDAISY : uint32_t {
     eSELECT_GPIO_AD_33_ALT4 = 0, // Selecting Pad: GPIO_AD_33 for Mode: ALT4
     eSELECT_GPIO_DISP_B1_09_ALT2 = 1, // Selecting Pad: GPIO_DISP_B1_09 for Mode: ALT2
@@ -16175,7 +16578,7 @@ union USDHC1_IPP_WP_ON_SELECT_INPUT {
   struct {
     eDAISY DAISY : 1;
     uint32_t _reserved_end : 31;
-  } bits;          // Bit-field struct (auto-filling reserved gaps)
+  } bits;
   
   // Full 32-bit register value.
   uint32_t value;
@@ -16189,7 +16592,6 @@ union USDHC1_IPP_WP_ON_SELECT_INPUT {
 //
 union USDHC2_IPP_CARD_DET_SELECT_INPUT {
   
-  // Enum definitions.
   enum class eDAISY : uint32_t {
     eSELECT_GPIO_EMC_B2_01_ALT1 = 0, // Selecting Pad: GPIO_EMC_B2_01 for Mode: ALT1
     eSELECT_GPIO_AD_26_ALT11 = 1, // Selecting Pad: GPIO_AD_26 for Mode: ALT11
@@ -16199,7 +16601,7 @@ union USDHC2_IPP_CARD_DET_SELECT_INPUT {
   struct {
     eDAISY DAISY : 1;
     uint32_t _reserved_end : 31;
-  } bits;          // Bit-field struct (auto-filling reserved gaps)
+  } bits;
   
   // Full 32-bit register value.
   uint32_t value;
@@ -16213,7 +16615,6 @@ union USDHC2_IPP_CARD_DET_SELECT_INPUT {
 //
 union USDHC2_IPP_WP_ON_SELECT_INPUT {
   
-  // Enum definitions.
   enum class eDAISY : uint32_t {
     eSELECT_GPIO_EMC_B2_02_ALT1 = 0, // Selecting Pad: GPIO_EMC_B2_02 for Mode: ALT1
     eSELECT_GPIO_AD_27_ALT11 = 1, // Selecting Pad: GPIO_AD_27 for Mode: ALT11
@@ -16223,7 +16624,7 @@ union USDHC2_IPP_WP_ON_SELECT_INPUT {
   struct {
     eDAISY DAISY : 1;
     uint32_t _reserved_end : 31;
-  } bits;          // Bit-field struct (auto-filling reserved gaps)
+  } bits;
   
   // Full 32-bit register value.
   uint32_t value;
@@ -16237,7 +16638,6 @@ union USDHC2_IPP_WP_ON_SELECT_INPUT {
 //
 union XBAR1_IN_SELECT_INPUT_20 {
   
-  // Enum definitions.
   enum class eDAISY : uint32_t {
     eSELECT_GPIO_EMC_B2_00_ALT6 = 0, // Selecting Pad: GPIO_EMC_B2_00 for Mode: ALT6
     eSELECT_GPIO_SD_B1_00_ALT2 = 1, // Selecting Pad: GPIO_SD_B1_00 for Mode: ALT2
@@ -16247,7 +16647,7 @@ union XBAR1_IN_SELECT_INPUT_20 {
   struct {
     eDAISY DAISY : 1;
     uint32_t _reserved_end : 31;
-  } bits;          // Bit-field struct (auto-filling reserved gaps)
+  } bits;
   
   // Full 32-bit register value.
   uint32_t value;
@@ -16261,7 +16661,6 @@ union XBAR1_IN_SELECT_INPUT_20 {
 //
 union XBAR1_IN_SELECT_INPUT_21 {
   
-  // Enum definitions.
   enum class eDAISY : uint32_t {
     eSELECT_GPIO_EMC_B2_01_ALT6 = 0, // Selecting Pad: GPIO_EMC_B2_01 for Mode: ALT6
     eSELECT_GPIO_SD_B1_01_ALT2 = 1, // Selecting Pad: GPIO_SD_B1_01 for Mode: ALT2
@@ -16271,7 +16670,7 @@ union XBAR1_IN_SELECT_INPUT_21 {
   struct {
     eDAISY DAISY : 1;
     uint32_t _reserved_end : 31;
-  } bits;          // Bit-field struct (auto-filling reserved gaps)
+  } bits;
   
   // Full 32-bit register value.
   uint32_t value;
@@ -16285,7 +16684,6 @@ union XBAR1_IN_SELECT_INPUT_21 {
 //
 union XBAR1_IN_SELECT_INPUT_22 {
   
-  // Enum definitions.
   enum class eDAISY : uint32_t {
     eSELECT_GPIO_EMC_B2_02_ALT6 = 0, // Selecting Pad: GPIO_EMC_B2_02 for Mode: ALT6
     eSELECT_GPIO_SD_B1_02_ALT2 = 1, // Selecting Pad: GPIO_SD_B1_02 for Mode: ALT2
@@ -16295,7 +16693,7 @@ union XBAR1_IN_SELECT_INPUT_22 {
   struct {
     eDAISY DAISY : 1;
     uint32_t _reserved_end : 31;
-  } bits;          // Bit-field struct (auto-filling reserved gaps)
+  } bits;
   
   // Full 32-bit register value.
   uint32_t value;
@@ -16309,7 +16707,6 @@ union XBAR1_IN_SELECT_INPUT_22 {
 //
 union XBAR1_IN_SELECT_INPUT_23 {
   
-  // Enum definitions.
   enum class eDAISY : uint32_t {
     eSELECT_GPIO_EMC_B2_03_ALT6 = 0, // Selecting Pad: GPIO_EMC_B2_03 for Mode: ALT6
     eSELECT_GPIO_SD_B1_03_ALT2 = 1, // Selecting Pad: GPIO_SD_B1_03 for Mode: ALT2
@@ -16319,7 +16716,7 @@ union XBAR1_IN_SELECT_INPUT_23 {
   struct {
     eDAISY DAISY : 1;
     uint32_t _reserved_end : 31;
-  } bits;          // Bit-field struct (auto-filling reserved gaps)
+  } bits;
   
   // Full 32-bit register value.
   uint32_t value;
@@ -16333,7 +16730,6 @@ union XBAR1_IN_SELECT_INPUT_23 {
 //
 union XBAR1_IN_SELECT_INPUT_24 {
   
-  // Enum definitions.
   enum class eDAISY : uint32_t {
     eSELECT_GPIO_EMC_B2_04_ALT6 = 0, // Selecting Pad: GPIO_EMC_B2_04 for Mode: ALT6
     eSELECT_GPIO_SD_B1_04_ALT2 = 1, // Selecting Pad: GPIO_SD_B1_04 for Mode: ALT2
@@ -16343,7 +16739,7 @@ union XBAR1_IN_SELECT_INPUT_24 {
   struct {
     eDAISY DAISY : 1;
     uint32_t _reserved_end : 31;
-  } bits;          // Bit-field struct (auto-filling reserved gaps)
+  } bits;
   
   // Full 32-bit register value.
   uint32_t value;
@@ -16357,7 +16753,6 @@ union XBAR1_IN_SELECT_INPUT_24 {
 //
 union XBAR1_IN_SELECT_INPUT_25 {
   
-  // Enum definitions.
   enum class eDAISY : uint32_t {
     eSELECT_GPIO_EMC_B2_05_ALT6 = 0, // Selecting Pad: GPIO_EMC_B2_05 for Mode: ALT6
     eSELECT_GPIO_SD_B1_05_ALT2 = 1, // Selecting Pad: GPIO_SD_B1_05 for Mode: ALT2
@@ -16367,7 +16762,7 @@ union XBAR1_IN_SELECT_INPUT_25 {
   struct {
     eDAISY DAISY : 1;
     uint32_t _reserved_end : 31;
-  } bits;          // Bit-field struct (auto-filling reserved gaps)
+  } bits;
   
   // Full 32-bit register value.
   uint32_t value;
@@ -16381,7 +16776,6 @@ union XBAR1_IN_SELECT_INPUT_25 {
 //
 union XBAR1_IN_SELECT_INPUT_26 {
   
-  // Enum definitions.
   enum class eDAISY : uint32_t {
     eSELECT_GPIO_EMC_B2_06_ALT6 = 0, // Selecting Pad: GPIO_EMC_B2_06 for Mode: ALT6
     eSELECT_GPIO_DISP_B1_00_ALT4 = 1, // Selecting Pad: GPIO_DISP_B1_00 for Mode: ALT4
@@ -16391,7 +16785,7 @@ union XBAR1_IN_SELECT_INPUT_26 {
   struct {
     eDAISY DAISY : 1;
     uint32_t _reserved_end : 31;
-  } bits;          // Bit-field struct (auto-filling reserved gaps)
+  } bits;
   
   // Full 32-bit register value.
   uint32_t value;
@@ -16405,7 +16799,6 @@ union XBAR1_IN_SELECT_INPUT_26 {
 //
 union XBAR1_IN_SELECT_INPUT_27 {
   
-  // Enum definitions.
   enum class eDAISY : uint32_t {
     eSELECT_GPIO_EMC_B2_07_ALT6 = 0, // Selecting Pad: GPIO_EMC_B2_07 for Mode: ALT6
     eSELECT_GPIO_DISP_B1_01_ALT4 = 1, // Selecting Pad: GPIO_DISP_B1_01 for Mode: ALT4
@@ -16415,7 +16808,7 @@ union XBAR1_IN_SELECT_INPUT_27 {
   struct {
     eDAISY DAISY : 1;
     uint32_t _reserved_end : 31;
-  } bits;          // Bit-field struct (auto-filling reserved gaps)
+  } bits;
   
   // Full 32-bit register value.
   uint32_t value;
@@ -16429,7 +16822,6 @@ union XBAR1_IN_SELECT_INPUT_27 {
 //
 union XBAR1_IN_SELECT_INPUT_28 {
   
-  // Enum definitions.
   enum class eDAISY : uint32_t {
     eSELECT_GPIO_EMC_B2_08_ALT6 = 0, // Selecting Pad: GPIO_EMC_B2_08 for Mode: ALT6
     eSELECT_GPIO_DISP_B1_02_ALT4 = 1, // Selecting Pad: GPIO_DISP_B1_02 for Mode: ALT4
@@ -16439,7 +16831,7 @@ union XBAR1_IN_SELECT_INPUT_28 {
   struct {
     eDAISY DAISY : 1;
     uint32_t _reserved_end : 31;
-  } bits;          // Bit-field struct (auto-filling reserved gaps)
+  } bits;
   
   // Full 32-bit register value.
   uint32_t value;
@@ -16453,7 +16845,6 @@ union XBAR1_IN_SELECT_INPUT_28 {
 //
 union XBAR1_IN_SELECT_INPUT_29 {
   
-  // Enum definitions.
   enum class eDAISY : uint32_t {
     eSELECT_GPIO_EMC_B2_09_ALT6 = 0, // Selecting Pad: GPIO_EMC_B2_09 for Mode: ALT6
     eSELECT_GPIO_DISP_B1_03_ALT4 = 1, // Selecting Pad: GPIO_DISP_B1_03 for Mode: ALT4
@@ -16463,7 +16854,7 @@ union XBAR1_IN_SELECT_INPUT_29 {
   struct {
     eDAISY DAISY : 1;
     uint32_t _reserved_end : 31;
-  } bits;          // Bit-field struct (auto-filling reserved gaps)
+  } bits;
   
   // Full 32-bit register value.
   uint32_t value;
@@ -16477,7 +16868,6 @@ union XBAR1_IN_SELECT_INPUT_29 {
 //
 union XBAR1_IN_SELECT_INPUT_30 {
   
-  // Enum definitions.
   enum class eDAISY : uint32_t {
     eSELECT_GPIO_EMC_B2_10_ALT6 = 0, // Selecting Pad: GPIO_EMC_B2_10 for Mode: ALT6
     eSELECT_GPIO_DISP_B1_04_ALT4 = 1, // Selecting Pad: GPIO_DISP_B1_04 for Mode: ALT4
@@ -16487,7 +16877,7 @@ union XBAR1_IN_SELECT_INPUT_30 {
   struct {
     eDAISY DAISY : 1;
     uint32_t _reserved_end : 31;
-  } bits;          // Bit-field struct (auto-filling reserved gaps)
+  } bits;
   
   // Full 32-bit register value.
   uint32_t value;
@@ -16501,7 +16891,6 @@ union XBAR1_IN_SELECT_INPUT_30 {
 //
 union XBAR1_IN_SELECT_INPUT_31 {
   
-  // Enum definitions.
   enum class eDAISY : uint32_t {
     eSELECT_GPIO_EMC_B2_11_ALT6 = 0, // Selecting Pad: GPIO_EMC_B2_11 for Mode: ALT6
     eSELECT_GPIO_DISP_B1_05_ALT4 = 1, // Selecting Pad: GPIO_DISP_B1_05 for Mode: ALT4
@@ -16511,7 +16900,7 @@ union XBAR1_IN_SELECT_INPUT_31 {
   struct {
     eDAISY DAISY : 1;
     uint32_t _reserved_end : 31;
-  } bits;          // Bit-field struct (auto-filling reserved gaps)
+  } bits;
   
   // Full 32-bit register value.
   uint32_t value;
@@ -16525,7 +16914,6 @@ union XBAR1_IN_SELECT_INPUT_31 {
 //
 union XBAR1_IN_SELECT_INPUT_32 {
   
-  // Enum definitions.
   enum class eDAISY : uint32_t {
     eSELECT_GPIO_EMC_B2_12_ALT6 = 0, // Selecting Pad: GPIO_EMC_B2_12 for Mode: ALT6
     eSELECT_GPIO_DISP_B1_06_ALT4 = 1, // Selecting Pad: GPIO_DISP_B1_06 for Mode: ALT4
@@ -16535,7 +16923,7 @@ union XBAR1_IN_SELECT_INPUT_32 {
   struct {
     eDAISY DAISY : 1;
     uint32_t _reserved_end : 31;
-  } bits;          // Bit-field struct (auto-filling reserved gaps)
+  } bits;
   
   // Full 32-bit register value.
   uint32_t value;
@@ -16549,7 +16937,6 @@ union XBAR1_IN_SELECT_INPUT_32 {
 //
 union XBAR1_IN_SELECT_INPUT_33 {
   
-  // Enum definitions.
   enum class eDAISY : uint32_t {
     eSELECT_GPIO_EMC_B2_13_ALT6 = 0, // Selecting Pad: GPIO_EMC_B2_13 for Mode: ALT6
     eSELECT_GPIO_DISP_B1_07_ALT4 = 1, // Selecting Pad: GPIO_DISP_B1_07 for Mode: ALT4
@@ -16559,7 +16946,7 @@ union XBAR1_IN_SELECT_INPUT_33 {
   struct {
     eDAISY DAISY : 1;
     uint32_t _reserved_end : 31;
-  } bits;          // Bit-field struct (auto-filling reserved gaps)
+  } bits;
   
   // Full 32-bit register value.
   uint32_t value;
@@ -16573,7 +16960,6 @@ union XBAR1_IN_SELECT_INPUT_33 {
 //
 union XBAR1_IN_SELECT_INPUT_34 {
   
-  // Enum definitions.
   enum class eDAISY : uint32_t {
     eSELECT_GPIO_EMC_B2_14_ALT6 = 0, // Selecting Pad: GPIO_EMC_B2_14 for Mode: ALT6
     eSELECT_GPIO_DISP_B1_08_ALT4 = 1, // Selecting Pad: GPIO_DISP_B1_08 for Mode: ALT4
@@ -16583,7 +16969,7 @@ union XBAR1_IN_SELECT_INPUT_34 {
   struct {
     eDAISY DAISY : 1;
     uint32_t _reserved_end : 31;
-  } bits;          // Bit-field struct (auto-filling reserved gaps)
+  } bits;
   
   // Full 32-bit register value.
   uint32_t value;
@@ -16597,7 +16983,6 @@ union XBAR1_IN_SELECT_INPUT_34 {
 //
 union XBAR1_IN_SELECT_INPUT_35 {
   
-  // Enum definitions.
   enum class eDAISY : uint32_t {
     eSELECT_GPIO_EMC_B2_15_ALT6 = 0, // Selecting Pad: GPIO_EMC_B2_15 for Mode: ALT6
     eSELECT_GPIO_DISP_B1_09_ALT4 = 1, // Selecting Pad: GPIO_DISP_B1_09 for Mode: ALT4
@@ -16607,7 +16992,7 @@ union XBAR1_IN_SELECT_INPUT_35 {
   struct {
     eDAISY DAISY : 1;
     uint32_t _reserved_end : 31;
-  } bits;          // Bit-field struct (auto-filling reserved gaps)
+  } bits;
   
   // Full 32-bit register value.
   uint32_t value;

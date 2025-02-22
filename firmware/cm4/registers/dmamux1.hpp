@@ -15,15 +15,16 @@ namespace nDMAMUX1 {
 //
 union CHCFG[0] {
   
-  // Enum definitions.
   enum class eA_ON : uint32_t {
     eA_ON_0 = 0, // DMA Channel Always ON function is disabled
     eA_ON_1 = 1, // DMA Channel Always ON function is enabled
   };
+  
   enum class eTRIG : uint32_t {
     eTRIG_0 = 0, // Triggering is disabled. If triggering is disabled and ENBL is set, the DMA Channel will simply route the specified source to the DMA channel. (Normal mode)
     eTRIG_1 = 1, // Triggering is enabled. If triggering is enabled and ENBL is set, the DMA_CH_MUX is in Periodic Trigger mode.
   };
+  
   enum class eENBL : uint32_t {
     eENBL_0 = 0, // DMA Mux channel is disabled
     eENBL_1 = 1, // DMA Mux channel is enabled
@@ -36,7 +37,7 @@ union CHCFG[0] {
     eA_ON A_ON : 1;
     eTRIG TRIG : 1;
     eENBL ENBL : 1;
-  } bits;          // Bit-field struct (auto-filling reserved gaps)
+  } bits;
   
   // Full 32-bit register value.
   uint32_t value;
@@ -49,15 +50,16 @@ union CHCFG[0] {
 //
 union CHCFG[1] {
   
-  // Enum definitions.
   enum class eA_ON : uint32_t {
     eA_ON_0 = 0, // DMA Channel Always ON function is disabled
     eA_ON_1 = 1, // DMA Channel Always ON function is enabled
   };
+  
   enum class eTRIG : uint32_t {
     eTRIG_0 = 0, // Triggering is disabled. If triggering is disabled and ENBL is set, the DMA Channel will simply route the specified source to the DMA channel. (Normal mode)
     eTRIG_1 = 1, // Triggering is enabled. If triggering is enabled and ENBL is set, the DMA_CH_MUX is in Periodic Trigger mode.
   };
+  
   enum class eENBL : uint32_t {
     eENBL_0 = 0, // DMA Mux channel is disabled
     eENBL_1 = 1, // DMA Mux channel is enabled
@@ -70,7 +72,7 @@ union CHCFG[1] {
     eA_ON A_ON : 1;
     eTRIG TRIG : 1;
     eENBL ENBL : 1;
-  } bits;          // Bit-field struct (auto-filling reserved gaps)
+  } bits;
   
   // Full 32-bit register value.
   uint32_t value;
@@ -83,15 +85,16 @@ union CHCFG[1] {
 //
 union CHCFG[2] {
   
-  // Enum definitions.
   enum class eA_ON : uint32_t {
     eA_ON_0 = 0, // DMA Channel Always ON function is disabled
     eA_ON_1 = 1, // DMA Channel Always ON function is enabled
   };
+  
   enum class eTRIG : uint32_t {
     eTRIG_0 = 0, // Triggering is disabled. If triggering is disabled and ENBL is set, the DMA Channel will simply route the specified source to the DMA channel. (Normal mode)
     eTRIG_1 = 1, // Triggering is enabled. If triggering is enabled and ENBL is set, the DMA_CH_MUX is in Periodic Trigger mode.
   };
+  
   enum class eENBL : uint32_t {
     eENBL_0 = 0, // DMA Mux channel is disabled
     eENBL_1 = 1, // DMA Mux channel is enabled
@@ -104,7 +107,7 @@ union CHCFG[2] {
     eA_ON A_ON : 1;
     eTRIG TRIG : 1;
     eENBL ENBL : 1;
-  } bits;          // Bit-field struct (auto-filling reserved gaps)
+  } bits;
   
   // Full 32-bit register value.
   uint32_t value;
@@ -117,15 +120,16 @@ union CHCFG[2] {
 //
 union CHCFG[3] {
   
-  // Enum definitions.
   enum class eA_ON : uint32_t {
     eA_ON_0 = 0, // DMA Channel Always ON function is disabled
     eA_ON_1 = 1, // DMA Channel Always ON function is enabled
   };
+  
   enum class eTRIG : uint32_t {
     eTRIG_0 = 0, // Triggering is disabled. If triggering is disabled and ENBL is set, the DMA Channel will simply route the specified source to the DMA channel. (Normal mode)
     eTRIG_1 = 1, // Triggering is enabled. If triggering is enabled and ENBL is set, the DMA_CH_MUX is in Periodic Trigger mode.
   };
+  
   enum class eENBL : uint32_t {
     eENBL_0 = 0, // DMA Mux channel is disabled
     eENBL_1 = 1, // DMA Mux channel is enabled
@@ -138,7 +142,7 @@ union CHCFG[3] {
     eA_ON A_ON : 1;
     eTRIG TRIG : 1;
     eENBL ENBL : 1;
-  } bits;          // Bit-field struct (auto-filling reserved gaps)
+  } bits;
   
   // Full 32-bit register value.
   uint32_t value;
@@ -151,15 +155,16 @@ union CHCFG[3] {
 //
 union CHCFG[4] {
   
-  // Enum definitions.
   enum class eA_ON : uint32_t {
     eA_ON_0 = 0, // DMA Channel Always ON function is disabled
     eA_ON_1 = 1, // DMA Channel Always ON function is enabled
   };
+  
   enum class eTRIG : uint32_t {
     eTRIG_0 = 0, // Triggering is disabled. If triggering is disabled and ENBL is set, the DMA Channel will simply route the specified source to the DMA channel. (Normal mode)
     eTRIG_1 = 1, // Triggering is enabled. If triggering is enabled and ENBL is set, the DMA_CH_MUX is in Periodic Trigger mode.
   };
+  
   enum class eENBL : uint32_t {
     eENBL_0 = 0, // DMA Mux channel is disabled
     eENBL_1 = 1, // DMA Mux channel is enabled
@@ -172,7 +177,7 @@ union CHCFG[4] {
     eA_ON A_ON : 1;
     eTRIG TRIG : 1;
     eENBL ENBL : 1;
-  } bits;          // Bit-field struct (auto-filling reserved gaps)
+  } bits;
   
   // Full 32-bit register value.
   uint32_t value;
@@ -185,15 +190,16 @@ union CHCFG[4] {
 //
 union CHCFG[5] {
   
-  // Enum definitions.
   enum class eA_ON : uint32_t {
     eA_ON_0 = 0, // DMA Channel Always ON function is disabled
     eA_ON_1 = 1, // DMA Channel Always ON function is enabled
   };
+  
   enum class eTRIG : uint32_t {
     eTRIG_0 = 0, // Triggering is disabled. If triggering is disabled and ENBL is set, the DMA Channel will simply route the specified source to the DMA channel. (Normal mode)
     eTRIG_1 = 1, // Triggering is enabled. If triggering is enabled and ENBL is set, the DMA_CH_MUX is in Periodic Trigger mode.
   };
+  
   enum class eENBL : uint32_t {
     eENBL_0 = 0, // DMA Mux channel is disabled
     eENBL_1 = 1, // DMA Mux channel is enabled
@@ -206,7 +212,7 @@ union CHCFG[5] {
     eA_ON A_ON : 1;
     eTRIG TRIG : 1;
     eENBL ENBL : 1;
-  } bits;          // Bit-field struct (auto-filling reserved gaps)
+  } bits;
   
   // Full 32-bit register value.
   uint32_t value;
@@ -219,15 +225,16 @@ union CHCFG[5] {
 //
 union CHCFG[6] {
   
-  // Enum definitions.
   enum class eA_ON : uint32_t {
     eA_ON_0 = 0, // DMA Channel Always ON function is disabled
     eA_ON_1 = 1, // DMA Channel Always ON function is enabled
   };
+  
   enum class eTRIG : uint32_t {
     eTRIG_0 = 0, // Triggering is disabled. If triggering is disabled and ENBL is set, the DMA Channel will simply route the specified source to the DMA channel. (Normal mode)
     eTRIG_1 = 1, // Triggering is enabled. If triggering is enabled and ENBL is set, the DMA_CH_MUX is in Periodic Trigger mode.
   };
+  
   enum class eENBL : uint32_t {
     eENBL_0 = 0, // DMA Mux channel is disabled
     eENBL_1 = 1, // DMA Mux channel is enabled
@@ -240,7 +247,7 @@ union CHCFG[6] {
     eA_ON A_ON : 1;
     eTRIG TRIG : 1;
     eENBL ENBL : 1;
-  } bits;          // Bit-field struct (auto-filling reserved gaps)
+  } bits;
   
   // Full 32-bit register value.
   uint32_t value;
@@ -253,15 +260,16 @@ union CHCFG[6] {
 //
 union CHCFG[7] {
   
-  // Enum definitions.
   enum class eA_ON : uint32_t {
     eA_ON_0 = 0, // DMA Channel Always ON function is disabled
     eA_ON_1 = 1, // DMA Channel Always ON function is enabled
   };
+  
   enum class eTRIG : uint32_t {
     eTRIG_0 = 0, // Triggering is disabled. If triggering is disabled and ENBL is set, the DMA Channel will simply route the specified source to the DMA channel. (Normal mode)
     eTRIG_1 = 1, // Triggering is enabled. If triggering is enabled and ENBL is set, the DMA_CH_MUX is in Periodic Trigger mode.
   };
+  
   enum class eENBL : uint32_t {
     eENBL_0 = 0, // DMA Mux channel is disabled
     eENBL_1 = 1, // DMA Mux channel is enabled
@@ -274,7 +282,7 @@ union CHCFG[7] {
     eA_ON A_ON : 1;
     eTRIG TRIG : 1;
     eENBL ENBL : 1;
-  } bits;          // Bit-field struct (auto-filling reserved gaps)
+  } bits;
   
   // Full 32-bit register value.
   uint32_t value;
@@ -287,15 +295,16 @@ union CHCFG[7] {
 //
 union CHCFG[8] {
   
-  // Enum definitions.
   enum class eA_ON : uint32_t {
     eA_ON_0 = 0, // DMA Channel Always ON function is disabled
     eA_ON_1 = 1, // DMA Channel Always ON function is enabled
   };
+  
   enum class eTRIG : uint32_t {
     eTRIG_0 = 0, // Triggering is disabled. If triggering is disabled and ENBL is set, the DMA Channel will simply route the specified source to the DMA channel. (Normal mode)
     eTRIG_1 = 1, // Triggering is enabled. If triggering is enabled and ENBL is set, the DMA_CH_MUX is in Periodic Trigger mode.
   };
+  
   enum class eENBL : uint32_t {
     eENBL_0 = 0, // DMA Mux channel is disabled
     eENBL_1 = 1, // DMA Mux channel is enabled
@@ -308,7 +317,7 @@ union CHCFG[8] {
     eA_ON A_ON : 1;
     eTRIG TRIG : 1;
     eENBL ENBL : 1;
-  } bits;          // Bit-field struct (auto-filling reserved gaps)
+  } bits;
   
   // Full 32-bit register value.
   uint32_t value;
@@ -321,15 +330,16 @@ union CHCFG[8] {
 //
 union CHCFG[9] {
   
-  // Enum definitions.
   enum class eA_ON : uint32_t {
     eA_ON_0 = 0, // DMA Channel Always ON function is disabled
     eA_ON_1 = 1, // DMA Channel Always ON function is enabled
   };
+  
   enum class eTRIG : uint32_t {
     eTRIG_0 = 0, // Triggering is disabled. If triggering is disabled and ENBL is set, the DMA Channel will simply route the specified source to the DMA channel. (Normal mode)
     eTRIG_1 = 1, // Triggering is enabled. If triggering is enabled and ENBL is set, the DMA_CH_MUX is in Periodic Trigger mode.
   };
+  
   enum class eENBL : uint32_t {
     eENBL_0 = 0, // DMA Mux channel is disabled
     eENBL_1 = 1, // DMA Mux channel is enabled
@@ -342,7 +352,7 @@ union CHCFG[9] {
     eA_ON A_ON : 1;
     eTRIG TRIG : 1;
     eENBL ENBL : 1;
-  } bits;          // Bit-field struct (auto-filling reserved gaps)
+  } bits;
   
   // Full 32-bit register value.
   uint32_t value;
@@ -355,15 +365,16 @@ union CHCFG[9] {
 //
 union CHCFG[10] {
   
-  // Enum definitions.
   enum class eA_ON : uint32_t {
     eA_ON_0 = 0, // DMA Channel Always ON function is disabled
     eA_ON_1 = 1, // DMA Channel Always ON function is enabled
   };
+  
   enum class eTRIG : uint32_t {
     eTRIG_0 = 0, // Triggering is disabled. If triggering is disabled and ENBL is set, the DMA Channel will simply route the specified source to the DMA channel. (Normal mode)
     eTRIG_1 = 1, // Triggering is enabled. If triggering is enabled and ENBL is set, the DMA_CH_MUX is in Periodic Trigger mode.
   };
+  
   enum class eENBL : uint32_t {
     eENBL_0 = 0, // DMA Mux channel is disabled
     eENBL_1 = 1, // DMA Mux channel is enabled
@@ -376,7 +387,7 @@ union CHCFG[10] {
     eA_ON A_ON : 1;
     eTRIG TRIG : 1;
     eENBL ENBL : 1;
-  } bits;          // Bit-field struct (auto-filling reserved gaps)
+  } bits;
   
   // Full 32-bit register value.
   uint32_t value;
@@ -389,15 +400,16 @@ union CHCFG[10] {
 //
 union CHCFG[11] {
   
-  // Enum definitions.
   enum class eA_ON : uint32_t {
     eA_ON_0 = 0, // DMA Channel Always ON function is disabled
     eA_ON_1 = 1, // DMA Channel Always ON function is enabled
   };
+  
   enum class eTRIG : uint32_t {
     eTRIG_0 = 0, // Triggering is disabled. If triggering is disabled and ENBL is set, the DMA Channel will simply route the specified source to the DMA channel. (Normal mode)
     eTRIG_1 = 1, // Triggering is enabled. If triggering is enabled and ENBL is set, the DMA_CH_MUX is in Periodic Trigger mode.
   };
+  
   enum class eENBL : uint32_t {
     eENBL_0 = 0, // DMA Mux channel is disabled
     eENBL_1 = 1, // DMA Mux channel is enabled
@@ -410,7 +422,7 @@ union CHCFG[11] {
     eA_ON A_ON : 1;
     eTRIG TRIG : 1;
     eENBL ENBL : 1;
-  } bits;          // Bit-field struct (auto-filling reserved gaps)
+  } bits;
   
   // Full 32-bit register value.
   uint32_t value;
@@ -423,15 +435,16 @@ union CHCFG[11] {
 //
 union CHCFG[12] {
   
-  // Enum definitions.
   enum class eA_ON : uint32_t {
     eA_ON_0 = 0, // DMA Channel Always ON function is disabled
     eA_ON_1 = 1, // DMA Channel Always ON function is enabled
   };
+  
   enum class eTRIG : uint32_t {
     eTRIG_0 = 0, // Triggering is disabled. If triggering is disabled and ENBL is set, the DMA Channel will simply route the specified source to the DMA channel. (Normal mode)
     eTRIG_1 = 1, // Triggering is enabled. If triggering is enabled and ENBL is set, the DMA_CH_MUX is in Periodic Trigger mode.
   };
+  
   enum class eENBL : uint32_t {
     eENBL_0 = 0, // DMA Mux channel is disabled
     eENBL_1 = 1, // DMA Mux channel is enabled
@@ -444,7 +457,7 @@ union CHCFG[12] {
     eA_ON A_ON : 1;
     eTRIG TRIG : 1;
     eENBL ENBL : 1;
-  } bits;          // Bit-field struct (auto-filling reserved gaps)
+  } bits;
   
   // Full 32-bit register value.
   uint32_t value;
@@ -457,15 +470,16 @@ union CHCFG[12] {
 //
 union CHCFG[13] {
   
-  // Enum definitions.
   enum class eA_ON : uint32_t {
     eA_ON_0 = 0, // DMA Channel Always ON function is disabled
     eA_ON_1 = 1, // DMA Channel Always ON function is enabled
   };
+  
   enum class eTRIG : uint32_t {
     eTRIG_0 = 0, // Triggering is disabled. If triggering is disabled and ENBL is set, the DMA Channel will simply route the specified source to the DMA channel. (Normal mode)
     eTRIG_1 = 1, // Triggering is enabled. If triggering is enabled and ENBL is set, the DMA_CH_MUX is in Periodic Trigger mode.
   };
+  
   enum class eENBL : uint32_t {
     eENBL_0 = 0, // DMA Mux channel is disabled
     eENBL_1 = 1, // DMA Mux channel is enabled
@@ -478,7 +492,7 @@ union CHCFG[13] {
     eA_ON A_ON : 1;
     eTRIG TRIG : 1;
     eENBL ENBL : 1;
-  } bits;          // Bit-field struct (auto-filling reserved gaps)
+  } bits;
   
   // Full 32-bit register value.
   uint32_t value;
@@ -491,15 +505,16 @@ union CHCFG[13] {
 //
 union CHCFG[14] {
   
-  // Enum definitions.
   enum class eA_ON : uint32_t {
     eA_ON_0 = 0, // DMA Channel Always ON function is disabled
     eA_ON_1 = 1, // DMA Channel Always ON function is enabled
   };
+  
   enum class eTRIG : uint32_t {
     eTRIG_0 = 0, // Triggering is disabled. If triggering is disabled and ENBL is set, the DMA Channel will simply route the specified source to the DMA channel. (Normal mode)
     eTRIG_1 = 1, // Triggering is enabled. If triggering is enabled and ENBL is set, the DMA_CH_MUX is in Periodic Trigger mode.
   };
+  
   enum class eENBL : uint32_t {
     eENBL_0 = 0, // DMA Mux channel is disabled
     eENBL_1 = 1, // DMA Mux channel is enabled
@@ -512,7 +527,7 @@ union CHCFG[14] {
     eA_ON A_ON : 1;
     eTRIG TRIG : 1;
     eENBL ENBL : 1;
-  } bits;          // Bit-field struct (auto-filling reserved gaps)
+  } bits;
   
   // Full 32-bit register value.
   uint32_t value;
@@ -525,15 +540,16 @@ union CHCFG[14] {
 //
 union CHCFG[15] {
   
-  // Enum definitions.
   enum class eA_ON : uint32_t {
     eA_ON_0 = 0, // DMA Channel Always ON function is disabled
     eA_ON_1 = 1, // DMA Channel Always ON function is enabled
   };
+  
   enum class eTRIG : uint32_t {
     eTRIG_0 = 0, // Triggering is disabled. If triggering is disabled and ENBL is set, the DMA Channel will simply route the specified source to the DMA channel. (Normal mode)
     eTRIG_1 = 1, // Triggering is enabled. If triggering is enabled and ENBL is set, the DMA_CH_MUX is in Periodic Trigger mode.
   };
+  
   enum class eENBL : uint32_t {
     eENBL_0 = 0, // DMA Mux channel is disabled
     eENBL_1 = 1, // DMA Mux channel is enabled
@@ -546,7 +562,7 @@ union CHCFG[15] {
     eA_ON A_ON : 1;
     eTRIG TRIG : 1;
     eENBL ENBL : 1;
-  } bits;          // Bit-field struct (auto-filling reserved gaps)
+  } bits;
   
   // Full 32-bit register value.
   uint32_t value;
@@ -559,15 +575,16 @@ union CHCFG[15] {
 //
 union CHCFG[16] {
   
-  // Enum definitions.
   enum class eA_ON : uint32_t {
     eA_ON_0 = 0, // DMA Channel Always ON function is disabled
     eA_ON_1 = 1, // DMA Channel Always ON function is enabled
   };
+  
   enum class eTRIG : uint32_t {
     eTRIG_0 = 0, // Triggering is disabled. If triggering is disabled and ENBL is set, the DMA Channel will simply route the specified source to the DMA channel. (Normal mode)
     eTRIG_1 = 1, // Triggering is enabled. If triggering is enabled and ENBL is set, the DMA_CH_MUX is in Periodic Trigger mode.
   };
+  
   enum class eENBL : uint32_t {
     eENBL_0 = 0, // DMA Mux channel is disabled
     eENBL_1 = 1, // DMA Mux channel is enabled
@@ -580,7 +597,7 @@ union CHCFG[16] {
     eA_ON A_ON : 1;
     eTRIG TRIG : 1;
     eENBL ENBL : 1;
-  } bits;          // Bit-field struct (auto-filling reserved gaps)
+  } bits;
   
   // Full 32-bit register value.
   uint32_t value;
@@ -593,15 +610,16 @@ union CHCFG[16] {
 //
 union CHCFG[17] {
   
-  // Enum definitions.
   enum class eA_ON : uint32_t {
     eA_ON_0 = 0, // DMA Channel Always ON function is disabled
     eA_ON_1 = 1, // DMA Channel Always ON function is enabled
   };
+  
   enum class eTRIG : uint32_t {
     eTRIG_0 = 0, // Triggering is disabled. If triggering is disabled and ENBL is set, the DMA Channel will simply route the specified source to the DMA channel. (Normal mode)
     eTRIG_1 = 1, // Triggering is enabled. If triggering is enabled and ENBL is set, the DMA_CH_MUX is in Periodic Trigger mode.
   };
+  
   enum class eENBL : uint32_t {
     eENBL_0 = 0, // DMA Mux channel is disabled
     eENBL_1 = 1, // DMA Mux channel is enabled
@@ -614,7 +632,7 @@ union CHCFG[17] {
     eA_ON A_ON : 1;
     eTRIG TRIG : 1;
     eENBL ENBL : 1;
-  } bits;          // Bit-field struct (auto-filling reserved gaps)
+  } bits;
   
   // Full 32-bit register value.
   uint32_t value;
@@ -627,15 +645,16 @@ union CHCFG[17] {
 //
 union CHCFG[18] {
   
-  // Enum definitions.
   enum class eA_ON : uint32_t {
     eA_ON_0 = 0, // DMA Channel Always ON function is disabled
     eA_ON_1 = 1, // DMA Channel Always ON function is enabled
   };
+  
   enum class eTRIG : uint32_t {
     eTRIG_0 = 0, // Triggering is disabled. If triggering is disabled and ENBL is set, the DMA Channel will simply route the specified source to the DMA channel. (Normal mode)
     eTRIG_1 = 1, // Triggering is enabled. If triggering is enabled and ENBL is set, the DMA_CH_MUX is in Periodic Trigger mode.
   };
+  
   enum class eENBL : uint32_t {
     eENBL_0 = 0, // DMA Mux channel is disabled
     eENBL_1 = 1, // DMA Mux channel is enabled
@@ -648,7 +667,7 @@ union CHCFG[18] {
     eA_ON A_ON : 1;
     eTRIG TRIG : 1;
     eENBL ENBL : 1;
-  } bits;          // Bit-field struct (auto-filling reserved gaps)
+  } bits;
   
   // Full 32-bit register value.
   uint32_t value;
@@ -661,15 +680,16 @@ union CHCFG[18] {
 //
 union CHCFG[19] {
   
-  // Enum definitions.
   enum class eA_ON : uint32_t {
     eA_ON_0 = 0, // DMA Channel Always ON function is disabled
     eA_ON_1 = 1, // DMA Channel Always ON function is enabled
   };
+  
   enum class eTRIG : uint32_t {
     eTRIG_0 = 0, // Triggering is disabled. If triggering is disabled and ENBL is set, the DMA Channel will simply route the specified source to the DMA channel. (Normal mode)
     eTRIG_1 = 1, // Triggering is enabled. If triggering is enabled and ENBL is set, the DMA_CH_MUX is in Periodic Trigger mode.
   };
+  
   enum class eENBL : uint32_t {
     eENBL_0 = 0, // DMA Mux channel is disabled
     eENBL_1 = 1, // DMA Mux channel is enabled
@@ -682,7 +702,7 @@ union CHCFG[19] {
     eA_ON A_ON : 1;
     eTRIG TRIG : 1;
     eENBL ENBL : 1;
-  } bits;          // Bit-field struct (auto-filling reserved gaps)
+  } bits;
   
   // Full 32-bit register value.
   uint32_t value;
@@ -695,15 +715,16 @@ union CHCFG[19] {
 //
 union CHCFG[20] {
   
-  // Enum definitions.
   enum class eA_ON : uint32_t {
     eA_ON_0 = 0, // DMA Channel Always ON function is disabled
     eA_ON_1 = 1, // DMA Channel Always ON function is enabled
   };
+  
   enum class eTRIG : uint32_t {
     eTRIG_0 = 0, // Triggering is disabled. If triggering is disabled and ENBL is set, the DMA Channel will simply route the specified source to the DMA channel. (Normal mode)
     eTRIG_1 = 1, // Triggering is enabled. If triggering is enabled and ENBL is set, the DMA_CH_MUX is in Periodic Trigger mode.
   };
+  
   enum class eENBL : uint32_t {
     eENBL_0 = 0, // DMA Mux channel is disabled
     eENBL_1 = 1, // DMA Mux channel is enabled
@@ -716,7 +737,7 @@ union CHCFG[20] {
     eA_ON A_ON : 1;
     eTRIG TRIG : 1;
     eENBL ENBL : 1;
-  } bits;          // Bit-field struct (auto-filling reserved gaps)
+  } bits;
   
   // Full 32-bit register value.
   uint32_t value;
@@ -729,15 +750,16 @@ union CHCFG[20] {
 //
 union CHCFG[21] {
   
-  // Enum definitions.
   enum class eA_ON : uint32_t {
     eA_ON_0 = 0, // DMA Channel Always ON function is disabled
     eA_ON_1 = 1, // DMA Channel Always ON function is enabled
   };
+  
   enum class eTRIG : uint32_t {
     eTRIG_0 = 0, // Triggering is disabled. If triggering is disabled and ENBL is set, the DMA Channel will simply route the specified source to the DMA channel. (Normal mode)
     eTRIG_1 = 1, // Triggering is enabled. If triggering is enabled and ENBL is set, the DMA_CH_MUX is in Periodic Trigger mode.
   };
+  
   enum class eENBL : uint32_t {
     eENBL_0 = 0, // DMA Mux channel is disabled
     eENBL_1 = 1, // DMA Mux channel is enabled
@@ -750,7 +772,7 @@ union CHCFG[21] {
     eA_ON A_ON : 1;
     eTRIG TRIG : 1;
     eENBL ENBL : 1;
-  } bits;          // Bit-field struct (auto-filling reserved gaps)
+  } bits;
   
   // Full 32-bit register value.
   uint32_t value;
@@ -763,15 +785,16 @@ union CHCFG[21] {
 //
 union CHCFG[22] {
   
-  // Enum definitions.
   enum class eA_ON : uint32_t {
     eA_ON_0 = 0, // DMA Channel Always ON function is disabled
     eA_ON_1 = 1, // DMA Channel Always ON function is enabled
   };
+  
   enum class eTRIG : uint32_t {
     eTRIG_0 = 0, // Triggering is disabled. If triggering is disabled and ENBL is set, the DMA Channel will simply route the specified source to the DMA channel. (Normal mode)
     eTRIG_1 = 1, // Triggering is enabled. If triggering is enabled and ENBL is set, the DMA_CH_MUX is in Periodic Trigger mode.
   };
+  
   enum class eENBL : uint32_t {
     eENBL_0 = 0, // DMA Mux channel is disabled
     eENBL_1 = 1, // DMA Mux channel is enabled
@@ -784,7 +807,7 @@ union CHCFG[22] {
     eA_ON A_ON : 1;
     eTRIG TRIG : 1;
     eENBL ENBL : 1;
-  } bits;          // Bit-field struct (auto-filling reserved gaps)
+  } bits;
   
   // Full 32-bit register value.
   uint32_t value;
@@ -797,15 +820,16 @@ union CHCFG[22] {
 //
 union CHCFG[23] {
   
-  // Enum definitions.
   enum class eA_ON : uint32_t {
     eA_ON_0 = 0, // DMA Channel Always ON function is disabled
     eA_ON_1 = 1, // DMA Channel Always ON function is enabled
   };
+  
   enum class eTRIG : uint32_t {
     eTRIG_0 = 0, // Triggering is disabled. If triggering is disabled and ENBL is set, the DMA Channel will simply route the specified source to the DMA channel. (Normal mode)
     eTRIG_1 = 1, // Triggering is enabled. If triggering is enabled and ENBL is set, the DMA_CH_MUX is in Periodic Trigger mode.
   };
+  
   enum class eENBL : uint32_t {
     eENBL_0 = 0, // DMA Mux channel is disabled
     eENBL_1 = 1, // DMA Mux channel is enabled
@@ -818,7 +842,7 @@ union CHCFG[23] {
     eA_ON A_ON : 1;
     eTRIG TRIG : 1;
     eENBL ENBL : 1;
-  } bits;          // Bit-field struct (auto-filling reserved gaps)
+  } bits;
   
   // Full 32-bit register value.
   uint32_t value;
@@ -831,15 +855,16 @@ union CHCFG[23] {
 //
 union CHCFG[24] {
   
-  // Enum definitions.
   enum class eA_ON : uint32_t {
     eA_ON_0 = 0, // DMA Channel Always ON function is disabled
     eA_ON_1 = 1, // DMA Channel Always ON function is enabled
   };
+  
   enum class eTRIG : uint32_t {
     eTRIG_0 = 0, // Triggering is disabled. If triggering is disabled and ENBL is set, the DMA Channel will simply route the specified source to the DMA channel. (Normal mode)
     eTRIG_1 = 1, // Triggering is enabled. If triggering is enabled and ENBL is set, the DMA_CH_MUX is in Periodic Trigger mode.
   };
+  
   enum class eENBL : uint32_t {
     eENBL_0 = 0, // DMA Mux channel is disabled
     eENBL_1 = 1, // DMA Mux channel is enabled
@@ -852,7 +877,7 @@ union CHCFG[24] {
     eA_ON A_ON : 1;
     eTRIG TRIG : 1;
     eENBL ENBL : 1;
-  } bits;          // Bit-field struct (auto-filling reserved gaps)
+  } bits;
   
   // Full 32-bit register value.
   uint32_t value;
@@ -865,15 +890,16 @@ union CHCFG[24] {
 //
 union CHCFG[25] {
   
-  // Enum definitions.
   enum class eA_ON : uint32_t {
     eA_ON_0 = 0, // DMA Channel Always ON function is disabled
     eA_ON_1 = 1, // DMA Channel Always ON function is enabled
   };
+  
   enum class eTRIG : uint32_t {
     eTRIG_0 = 0, // Triggering is disabled. If triggering is disabled and ENBL is set, the DMA Channel will simply route the specified source to the DMA channel. (Normal mode)
     eTRIG_1 = 1, // Triggering is enabled. If triggering is enabled and ENBL is set, the DMA_CH_MUX is in Periodic Trigger mode.
   };
+  
   enum class eENBL : uint32_t {
     eENBL_0 = 0, // DMA Mux channel is disabled
     eENBL_1 = 1, // DMA Mux channel is enabled
@@ -886,7 +912,7 @@ union CHCFG[25] {
     eA_ON A_ON : 1;
     eTRIG TRIG : 1;
     eENBL ENBL : 1;
-  } bits;          // Bit-field struct (auto-filling reserved gaps)
+  } bits;
   
   // Full 32-bit register value.
   uint32_t value;
@@ -899,15 +925,16 @@ union CHCFG[25] {
 //
 union CHCFG[26] {
   
-  // Enum definitions.
   enum class eA_ON : uint32_t {
     eA_ON_0 = 0, // DMA Channel Always ON function is disabled
     eA_ON_1 = 1, // DMA Channel Always ON function is enabled
   };
+  
   enum class eTRIG : uint32_t {
     eTRIG_0 = 0, // Triggering is disabled. If triggering is disabled and ENBL is set, the DMA Channel will simply route the specified source to the DMA channel. (Normal mode)
     eTRIG_1 = 1, // Triggering is enabled. If triggering is enabled and ENBL is set, the DMA_CH_MUX is in Periodic Trigger mode.
   };
+  
   enum class eENBL : uint32_t {
     eENBL_0 = 0, // DMA Mux channel is disabled
     eENBL_1 = 1, // DMA Mux channel is enabled
@@ -920,7 +947,7 @@ union CHCFG[26] {
     eA_ON A_ON : 1;
     eTRIG TRIG : 1;
     eENBL ENBL : 1;
-  } bits;          // Bit-field struct (auto-filling reserved gaps)
+  } bits;
   
   // Full 32-bit register value.
   uint32_t value;
@@ -933,15 +960,16 @@ union CHCFG[26] {
 //
 union CHCFG[27] {
   
-  // Enum definitions.
   enum class eA_ON : uint32_t {
     eA_ON_0 = 0, // DMA Channel Always ON function is disabled
     eA_ON_1 = 1, // DMA Channel Always ON function is enabled
   };
+  
   enum class eTRIG : uint32_t {
     eTRIG_0 = 0, // Triggering is disabled. If triggering is disabled and ENBL is set, the DMA Channel will simply route the specified source to the DMA channel. (Normal mode)
     eTRIG_1 = 1, // Triggering is enabled. If triggering is enabled and ENBL is set, the DMA_CH_MUX is in Periodic Trigger mode.
   };
+  
   enum class eENBL : uint32_t {
     eENBL_0 = 0, // DMA Mux channel is disabled
     eENBL_1 = 1, // DMA Mux channel is enabled
@@ -954,7 +982,7 @@ union CHCFG[27] {
     eA_ON A_ON : 1;
     eTRIG TRIG : 1;
     eENBL ENBL : 1;
-  } bits;          // Bit-field struct (auto-filling reserved gaps)
+  } bits;
   
   // Full 32-bit register value.
   uint32_t value;
@@ -967,15 +995,16 @@ union CHCFG[27] {
 //
 union CHCFG[28] {
   
-  // Enum definitions.
   enum class eA_ON : uint32_t {
     eA_ON_0 = 0, // DMA Channel Always ON function is disabled
     eA_ON_1 = 1, // DMA Channel Always ON function is enabled
   };
+  
   enum class eTRIG : uint32_t {
     eTRIG_0 = 0, // Triggering is disabled. If triggering is disabled and ENBL is set, the DMA Channel will simply route the specified source to the DMA channel. (Normal mode)
     eTRIG_1 = 1, // Triggering is enabled. If triggering is enabled and ENBL is set, the DMA_CH_MUX is in Periodic Trigger mode.
   };
+  
   enum class eENBL : uint32_t {
     eENBL_0 = 0, // DMA Mux channel is disabled
     eENBL_1 = 1, // DMA Mux channel is enabled
@@ -988,7 +1017,7 @@ union CHCFG[28] {
     eA_ON A_ON : 1;
     eTRIG TRIG : 1;
     eENBL ENBL : 1;
-  } bits;          // Bit-field struct (auto-filling reserved gaps)
+  } bits;
   
   // Full 32-bit register value.
   uint32_t value;
@@ -1001,15 +1030,16 @@ union CHCFG[28] {
 //
 union CHCFG[29] {
   
-  // Enum definitions.
   enum class eA_ON : uint32_t {
     eA_ON_0 = 0, // DMA Channel Always ON function is disabled
     eA_ON_1 = 1, // DMA Channel Always ON function is enabled
   };
+  
   enum class eTRIG : uint32_t {
     eTRIG_0 = 0, // Triggering is disabled. If triggering is disabled and ENBL is set, the DMA Channel will simply route the specified source to the DMA channel. (Normal mode)
     eTRIG_1 = 1, // Triggering is enabled. If triggering is enabled and ENBL is set, the DMA_CH_MUX is in Periodic Trigger mode.
   };
+  
   enum class eENBL : uint32_t {
     eENBL_0 = 0, // DMA Mux channel is disabled
     eENBL_1 = 1, // DMA Mux channel is enabled
@@ -1022,7 +1052,7 @@ union CHCFG[29] {
     eA_ON A_ON : 1;
     eTRIG TRIG : 1;
     eENBL ENBL : 1;
-  } bits;          // Bit-field struct (auto-filling reserved gaps)
+  } bits;
   
   // Full 32-bit register value.
   uint32_t value;
@@ -1035,15 +1065,16 @@ union CHCFG[29] {
 //
 union CHCFG[30] {
   
-  // Enum definitions.
   enum class eA_ON : uint32_t {
     eA_ON_0 = 0, // DMA Channel Always ON function is disabled
     eA_ON_1 = 1, // DMA Channel Always ON function is enabled
   };
+  
   enum class eTRIG : uint32_t {
     eTRIG_0 = 0, // Triggering is disabled. If triggering is disabled and ENBL is set, the DMA Channel will simply route the specified source to the DMA channel. (Normal mode)
     eTRIG_1 = 1, // Triggering is enabled. If triggering is enabled and ENBL is set, the DMA_CH_MUX is in Periodic Trigger mode.
   };
+  
   enum class eENBL : uint32_t {
     eENBL_0 = 0, // DMA Mux channel is disabled
     eENBL_1 = 1, // DMA Mux channel is enabled
@@ -1056,7 +1087,7 @@ union CHCFG[30] {
     eA_ON A_ON : 1;
     eTRIG TRIG : 1;
     eENBL ENBL : 1;
-  } bits;          // Bit-field struct (auto-filling reserved gaps)
+  } bits;
   
   // Full 32-bit register value.
   uint32_t value;
@@ -1069,15 +1100,16 @@ union CHCFG[30] {
 //
 union CHCFG[31] {
   
-  // Enum definitions.
   enum class eA_ON : uint32_t {
     eA_ON_0 = 0, // DMA Channel Always ON function is disabled
     eA_ON_1 = 1, // DMA Channel Always ON function is enabled
   };
+  
   enum class eTRIG : uint32_t {
     eTRIG_0 = 0, // Triggering is disabled. If triggering is disabled and ENBL is set, the DMA Channel will simply route the specified source to the DMA channel. (Normal mode)
     eTRIG_1 = 1, // Triggering is enabled. If triggering is enabled and ENBL is set, the DMA_CH_MUX is in Periodic Trigger mode.
   };
+  
   enum class eENBL : uint32_t {
     eENBL_0 = 0, // DMA Mux channel is disabled
     eENBL_1 = 1, // DMA Mux channel is enabled
@@ -1090,7 +1122,7 @@ union CHCFG[31] {
     eA_ON A_ON : 1;
     eTRIG TRIG : 1;
     eENBL ENBL : 1;
-  } bits;          // Bit-field struct (auto-filling reserved gaps)
+  } bits;
   
   // Full 32-bit register value.
   uint32_t value;

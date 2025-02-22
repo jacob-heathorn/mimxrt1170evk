@@ -15,12 +15,10 @@ namespace nGPIO4 {
 //
 union DR {
   
-  // Enum definitions.
-  
   // Bit field definition.
   struct {
     uint32_t DR : 32;
-  } bits;          // Bit-field struct (auto-filling reserved gaps)
+  } bits;
   
   // Full 32-bit register value.
   uint32_t value;
@@ -34,12 +32,10 @@ union DR {
 //
 union GDIR {
   
-  // Enum definitions.
-  
   // Bit field definition.
   struct {
     uint32_t GDIR : 32;
-  } bits;          // Bit-field struct (auto-filling reserved gaps)
+  } bits;
   
   // Full 32-bit register value.
   uint32_t value;
@@ -53,12 +49,10 @@ union GDIR {
 //
 union PSR {
   
-  // Enum definitions.
-  
   // Bit field definition.
   struct {
     uint32_t PSR : 32;
-  } bits;          // Bit-field struct (auto-filling reserved gaps)
+  } bits;
   
   // Full 32-bit register value.
   uint32_t value;
@@ -72,97 +66,111 @@ union PSR {
 //
 union ICR1 {
   
-  // Enum definitions.
   enum class eICR0 : uint32_t {
     eLOW_LEVEL = 0, // Interrupt 0 is low-level sensitive.
     eHIGH_LEVEL = 1, // Interrupt 0 is high-level sensitive.
     eRISING_EDGE = 2, // Interrupt 0 is rising-edge sensitive.
     eFALLING_EDGE = 3, // Interrupt 0 is falling-edge sensitive.
   };
+  
   enum class eICR1 : uint32_t {
     eLOW_LEVEL = 0, // Interrupt 1 is low-level sensitive.
     eHIGH_LEVEL = 1, // Interrupt 1 is high-level sensitive.
     eRISING_EDGE = 2, // Interrupt 1 is rising-edge sensitive.
     eFALLING_EDGE = 3, // Interrupt 1 is falling-edge sensitive.
   };
+  
   enum class eICR2 : uint32_t {
     eLOW_LEVEL = 0, // Interrupt 2 is low-level sensitive.
     eHIGH_LEVEL = 1, // Interrupt 2 is high-level sensitive.
     eRISING_EDGE = 2, // Interrupt 2 is rising-edge sensitive.
     eFALLING_EDGE = 3, // Interrupt 2 is falling-edge sensitive.
   };
+  
   enum class eICR3 : uint32_t {
     eLOW_LEVEL = 0, // Interrupt 3 is low-level sensitive.
     eHIGH_LEVEL = 1, // Interrupt 3 is high-level sensitive.
     eRISING_EDGE = 2, // Interrupt 3 is rising-edge sensitive.
     eFALLING_EDGE = 3, // Interrupt 3 is falling-edge sensitive.
   };
+  
   enum class eICR4 : uint32_t {
     eLOW_LEVEL = 0, // Interrupt 4 is low-level sensitive.
     eHIGH_LEVEL = 1, // Interrupt 4 is high-level sensitive.
     eRISING_EDGE = 2, // Interrupt 4 is rising-edge sensitive.
     eFALLING_EDGE = 3, // Interrupt 4 is falling-edge sensitive.
   };
+  
   enum class eICR5 : uint32_t {
     eLOW_LEVEL = 0, // Interrupt 5 is low-level sensitive.
     eHIGH_LEVEL = 1, // Interrupt 5 is high-level sensitive.
     eRISING_EDGE = 2, // Interrupt 5 is rising-edge sensitive.
     eFALLING_EDGE = 3, // Interrupt 5 is falling-edge sensitive.
   };
+  
   enum class eICR6 : uint32_t {
     eLOW_LEVEL = 0, // Interrupt 6 is low-level sensitive.
     eHIGH_LEVEL = 1, // Interrupt 6 is high-level sensitive.
     eRISING_EDGE = 2, // Interrupt 6 is rising-edge sensitive.
     eFALLING_EDGE = 3, // Interrupt 6 is falling-edge sensitive.
   };
+  
   enum class eICR7 : uint32_t {
     eLOW_LEVEL = 0, // Interrupt 7 is low-level sensitive.
     eHIGH_LEVEL = 1, // Interrupt 7 is high-level sensitive.
     eRISING_EDGE = 2, // Interrupt 7 is rising-edge sensitive.
     eFALLING_EDGE = 3, // Interrupt 7 is falling-edge sensitive.
   };
+  
   enum class eICR8 : uint32_t {
     eLOW_LEVEL = 0, // Interrupt 8 is low-level sensitive.
     eHIGH_LEVEL = 1, // Interrupt 8 is high-level sensitive.
     eRISING_EDGE = 2, // Interrupt 8 is rising-edge sensitive.
     eFALLING_EDGE = 3, // Interrupt 8 is falling-edge sensitive.
   };
+  
   enum class eICR9 : uint32_t {
     eLOW_LEVEL = 0, // Interrupt 9 is low-level sensitive.
     eHIGH_LEVEL = 1, // Interrupt 9 is high-level sensitive.
     eRISING_EDGE = 2, // Interrupt 9 is rising-edge sensitive.
     eFALLING_EDGE = 3, // Interrupt 9 is falling-edge sensitive.
   };
+  
   enum class eICR10 : uint32_t {
     eLOW_LEVEL = 0, // Interrupt 10 is low-level sensitive.
     eHIGH_LEVEL = 1, // Interrupt 10 is high-level sensitive.
     eRISING_EDGE = 2, // Interrupt 10 is rising-edge sensitive.
     eFALLING_EDGE = 3, // Interrupt 10 is falling-edge sensitive.
   };
+  
   enum class eICR11 : uint32_t {
     eLOW_LEVEL = 0, // Interrupt 11 is low-level sensitive.
     eHIGH_LEVEL = 1, // Interrupt 11 is high-level sensitive.
     eRISING_EDGE = 2, // Interrupt 11 is rising-edge sensitive.
     eFALLING_EDGE = 3, // Interrupt 11 is falling-edge sensitive.
   };
+  
   enum class eICR12 : uint32_t {
     eLOW_LEVEL = 0, // Interrupt 12 is low-level sensitive.
     eHIGH_LEVEL = 1, // Interrupt 12 is high-level sensitive.
     eRISING_EDGE = 2, // Interrupt 12 is rising-edge sensitive.
     eFALLING_EDGE = 3, // Interrupt 12 is falling-edge sensitive.
   };
+  
   enum class eICR13 : uint32_t {
     eLOW_LEVEL = 0, // Interrupt 13 is low-level sensitive.
     eHIGH_LEVEL = 1, // Interrupt 13 is high-level sensitive.
     eRISING_EDGE = 2, // Interrupt 13 is rising-edge sensitive.
     eFALLING_EDGE = 3, // Interrupt 13 is falling-edge sensitive.
   };
+  
   enum class eICR14 : uint32_t {
     eLOW_LEVEL = 0, // Interrupt 14 is low-level sensitive.
     eHIGH_LEVEL = 1, // Interrupt 14 is high-level sensitive.
     eRISING_EDGE = 2, // Interrupt 14 is rising-edge sensitive.
     eFALLING_EDGE = 3, // Interrupt 14 is falling-edge sensitive.
   };
+  
   enum class eICR15 : uint32_t {
     eLOW_LEVEL = 0, // Interrupt 15 is low-level sensitive.
     eHIGH_LEVEL = 1, // Interrupt 15 is high-level sensitive.
@@ -188,7 +196,7 @@ union ICR1 {
     eICR13 ICR13 : 2;
     eICR14 ICR14 : 2;
     eICR15 ICR15 : 2;
-  } bits;          // Bit-field struct (auto-filling reserved gaps)
+  } bits;
   
   // Full 32-bit register value.
   uint32_t value;
@@ -202,97 +210,111 @@ union ICR1 {
 //
 union ICR2 {
   
-  // Enum definitions.
   enum class eICR16 : uint32_t {
     eLOW_LEVEL = 0, // Interrupt 16 is low-level sensitive.
     eHIGH_LEVEL = 1, // Interrupt 16 is high-level sensitive.
     eRISING_EDGE = 2, // Interrupt 16 is rising-edge sensitive.
     eFALLING_EDGE = 3, // Interrupt 16 is falling-edge sensitive.
   };
+  
   enum class eICR17 : uint32_t {
     eLOW_LEVEL = 0, // Interrupt 17 is low-level sensitive.
     eHIGH_LEVEL = 1, // Interrupt 17 is high-level sensitive.
     eRISING_EDGE = 2, // Interrupt 17 is rising-edge sensitive.
     eFALLING_EDGE = 3, // Interrupt 17 is falling-edge sensitive.
   };
+  
   enum class eICR18 : uint32_t {
     eLOW_LEVEL = 0, // Interrupt 18 is low-level sensitive.
     eHIGH_LEVEL = 1, // Interrupt 18 is high-level sensitive.
     eRISING_EDGE = 2, // Interrupt 18 is rising-edge sensitive.
     eFALLING_EDGE = 3, // Interrupt 18 is falling-edge sensitive.
   };
+  
   enum class eICR19 : uint32_t {
     eLOW_LEVEL = 0, // Interrupt 19 is low-level sensitive.
     eHIGH_LEVEL = 1, // Interrupt 19 is high-level sensitive.
     eRISING_EDGE = 2, // Interrupt 19 is rising-edge sensitive.
     eFALLING_EDGE = 3, // Interrupt 19 is falling-edge sensitive.
   };
+  
   enum class eICR20 : uint32_t {
     eLOW_LEVEL = 0, // Interrupt 20 is low-level sensitive.
     eHIGH_LEVEL = 1, // Interrupt 20 is high-level sensitive.
     eRISING_EDGE = 2, // Interrupt 20 is rising-edge sensitive.
     eFALLING_EDGE = 3, // Interrupt 20 is falling-edge sensitive.
   };
+  
   enum class eICR21 : uint32_t {
     eLOW_LEVEL = 0, // Interrupt 21 is low-level sensitive.
     eHIGH_LEVEL = 1, // Interrupt 21 is high-level sensitive.
     eRISING_EDGE = 2, // Interrupt 21 is rising-edge sensitive.
     eFALLING_EDGE = 3, // Interrupt 21 is falling-edge sensitive.
   };
+  
   enum class eICR22 : uint32_t {
     eLOW_LEVEL = 0, // Interrupt 22 is low-level sensitive.
     eHIGH_LEVEL = 1, // Interrupt 22 is high-level sensitive.
     eRISING_EDGE = 2, // Interrupt 22 is rising-edge sensitive.
     eFALLING_EDGE = 3, // Interrupt 22 is falling-edge sensitive.
   };
+  
   enum class eICR23 : uint32_t {
     eLOW_LEVEL = 0, // Interrupt 23 is low-level sensitive.
     eHIGH_LEVEL = 1, // Interrupt 23 is high-level sensitive.
     eRISING_EDGE = 2, // Interrupt 23 is rising-edge sensitive.
     eFALLING_EDGE = 3, // Interrupt 23 is falling-edge sensitive.
   };
+  
   enum class eICR24 : uint32_t {
     eLOW_LEVEL = 0, // Interrupt 24 is low-level sensitive.
     eHIGH_LEVEL = 1, // Interrupt 24 is high-level sensitive.
     eRISING_EDGE = 2, // Interrupt 24 is rising-edge sensitive.
     eFALLING_EDGE = 3, // Interrupt 24 is falling-edge sensitive.
   };
+  
   enum class eICR25 : uint32_t {
     eLOW_LEVEL = 0, // Interrupt 25 is low-level sensitive.
     eHIGH_LEVEL = 1, // Interrupt 25 is high-level sensitive.
     eRISING_EDGE = 2, // Interrupt 25 is rising-edge sensitive.
     eFALLING_EDGE = 3, // Interrupt 25 is falling-edge sensitive.
   };
+  
   enum class eICR26 : uint32_t {
     eLOW_LEVEL = 0, // Interrupt 26 is low-level sensitive.
     eHIGH_LEVEL = 1, // Interrupt 26 is high-level sensitive.
     eRISING_EDGE = 2, // Interrupt 26 is rising-edge sensitive.
     eFALLING_EDGE = 3, // Interrupt 26 is falling-edge sensitive.
   };
+  
   enum class eICR27 : uint32_t {
     eLOW_LEVEL = 0, // Interrupt 27 is low-level sensitive.
     eHIGH_LEVEL = 1, // Interrupt 27 is high-level sensitive.
     eRISING_EDGE = 2, // Interrupt 27 is rising-edge sensitive.
     eFALLING_EDGE = 3, // Interrupt 27 is falling-edge sensitive.
   };
+  
   enum class eICR28 : uint32_t {
     eLOW_LEVEL = 0, // Interrupt 28 is low-level sensitive.
     eHIGH_LEVEL = 1, // Interrupt 28 is high-level sensitive.
     eRISING_EDGE = 2, // Interrupt 28 is rising-edge sensitive.
     eFALLING_EDGE = 3, // Interrupt 28 is falling-edge sensitive.
   };
+  
   enum class eICR29 : uint32_t {
     eLOW_LEVEL = 0, // Interrupt 29 is low-level sensitive.
     eHIGH_LEVEL = 1, // Interrupt 29 is high-level sensitive.
     eRISING_EDGE = 2, // Interrupt 29 is rising-edge sensitive.
     eFALLING_EDGE = 3, // Interrupt 29 is falling-edge sensitive.
   };
+  
   enum class eICR30 : uint32_t {
     eLOW_LEVEL = 0, // Interrupt 30 is low-level sensitive.
     eHIGH_LEVEL = 1, // Interrupt 30 is high-level sensitive.
     eRISING_EDGE = 2, // Interrupt 30 is rising-edge sensitive.
     eFALLING_EDGE = 3, // Interrupt 30 is falling-edge sensitive.
   };
+  
   enum class eICR31 : uint32_t {
     eLOW_LEVEL = 0, // Interrupt 31 is low-level sensitive.
     eHIGH_LEVEL = 1, // Interrupt 31 is high-level sensitive.
@@ -318,7 +340,7 @@ union ICR2 {
     eICR29 ICR29 : 2;
     eICR30 ICR30 : 2;
     eICR31 ICR31 : 2;
-  } bits;          // Bit-field struct (auto-filling reserved gaps)
+  } bits;
   
   // Full 32-bit register value.
   uint32_t value;
@@ -332,12 +354,10 @@ union ICR2 {
 //
 union IMR {
   
-  // Enum definitions.
-  
   // Bit field definition.
   struct {
     uint32_t IMR : 32;
-  } bits;          // Bit-field struct (auto-filling reserved gaps)
+  } bits;
   
   // Full 32-bit register value.
   uint32_t value;
@@ -351,12 +371,10 @@ union IMR {
 //
 union ISR {
   
-  // Enum definitions.
-  
   // Bit field definition.
   struct {
     uint32_t ISR : 32;
-  } bits;          // Bit-field struct (auto-filling reserved gaps)
+  } bits;
   
   // Full 32-bit register value.
   uint32_t value;
@@ -370,12 +388,10 @@ union ISR {
 //
 union EDGE_SEL {
   
-  // Enum definitions.
-  
   // Bit field definition.
   struct {
     uint32_t GPIO_EDGE_SEL : 32;
-  } bits;          // Bit-field struct (auto-filling reserved gaps)
+  } bits;
   
   // Full 32-bit register value.
   uint32_t value;
@@ -389,12 +405,10 @@ union EDGE_SEL {
 //
 union DR_SET {
   
-  // Enum definitions.
-  
   // Bit field definition.
   struct {
     uint32_t DR_SET : 32;
-  } bits;          // Bit-field struct (auto-filling reserved gaps)
+  } bits;
   
   // Full 32-bit register value.
   uint32_t value;
@@ -408,12 +422,10 @@ union DR_SET {
 //
 union DR_CLEAR {
   
-  // Enum definitions.
-  
   // Bit field definition.
   struct {
     uint32_t DR_CLEAR : 32;
-  } bits;          // Bit-field struct (auto-filling reserved gaps)
+  } bits;
   
   // Full 32-bit register value.
   uint32_t value;
@@ -427,12 +439,10 @@ union DR_CLEAR {
 //
 union DR_TOGGLE {
   
-  // Enum definitions.
-  
   // Bit field definition.
   struct {
     uint32_t DR_TOGGLE : 32;
-  } bits;          // Bit-field struct (auto-filling reserved gaps)
+  } bits;
   
   // Full 32-bit register value.
   uint32_t value;

@@ -15,32 +15,37 @@ namespace nPDM {
 //
 union CTRL_1 {
   
-  // Enum definitions.
   enum class eERREN : uint32_t {
     edisabled = 0, // Error Interrupts disabled
     eenabled = 1, // Error Interrupts enabled
   };
+  
   enum class eDISEL : uint32_t {
     eall_disabled = 0, // DMA and interrupt requests disabled
     edmareq_enabled = 1, // DMA requests enabled
     eintreq_enabled = 2, // Interrupt requests enabled
   };
+  
   enum class eDBGE : uint32_t {
     edisabled = 0, // Disabled after completing the current frame
     eenabled = 1, // Enabled
   };
+  
   enum class eSRES : uint32_t {
     eno_action = 0, // No action
     esw_reset = 1, // Software reset
   };
+  
   enum class eDBG : uint32_t {
     enormal = 0, // Normal Mode
     edebug = 1, // Debug Mode
   };
+  
   enum class ePDMIEN : uint32_t {
     estopped = 0, // PDM stopped
     estarted = 1, // PDM operation started
   };
+  
   enum class eMDIS : uint32_t {
     enormal = 0, // Normal Mode
     elow_leakage = 1, // Disable/Low Leakage Mode
@@ -65,7 +70,7 @@ union CTRL_1 {
     ePDMIEN PDMIEN : 1;
     uint32_t DOZEN : 1;
     eMDIS MDIS : 1;
-  } bits;          // Bit-field struct (auto-filling reserved gaps)
+  } bits;
   
   // Full 32-bit register value.
   uint32_t value;
@@ -79,7 +84,6 @@ union CTRL_1 {
 //
 union CTRL_2 {
   
-  // Enum definitions.
   enum class eQSEL : uint32_t {
     emq_mode = 0, // Medium quality mode
     ehq_mode = 1, // High quality mode
@@ -97,7 +101,7 @@ union CTRL_2 {
     uint32_t _reserved_2 : 5;
     eQSEL QSEL : 3;
     uint32_t _reserved_end : 4;
-  } bits;          // Bit-field struct (auto-filling reserved gaps)
+  } bits;
   
   // Full 32-bit register value.
   uint32_t value;
@@ -111,47 +115,56 @@ union CTRL_2 {
 //
 union STAT {
   
-  // Enum definitions.
   enum class eCH0F : uint32_t {
     ewm_notreached = 0, // Channel's FIFO did not reach the number of elements configured in watermark bit-field
     ewm_reached = 1, // Channel's FIFO reached the number of elements configured in watermark bit-field
   };
+  
   enum class eCH1F : uint32_t {
     ewm_notreached = 0, // Channel's FIFO did not reach the number of elements configured in watermark bit-field
     ewm_reached = 1, // Channel's FIFO reached the number of elements configured in watermark bit-field
   };
+  
   enum class eCH2F : uint32_t {
     ewm_notreached = 0, // Channel's FIFO did not reach the number of elements configured in watermark bit-field
     ewm_reached = 1, // Channel's FIFO reached the number of elements configured in watermark bit-field
   };
+  
   enum class eCH3F : uint32_t {
     ewm_notreached = 0, // Channel's FIFO did not reach the number of elements configured in watermark bit-field
     ewm_reached = 1, // Channel's FIFO reached the number of elements configured in watermark bit-field
   };
+  
   enum class eCH4F : uint32_t {
     ewm_notreached = 0, // Channel's FIFO did not reach the number of elements configured in watermark bit-field
     ewm_reached = 1, // Channel's FIFO reached the number of elements configured in watermark bit-field
   };
+  
   enum class eCH5F : uint32_t {
     ewm_notreached = 0, // Channel's FIFO did not reach the number of elements configured in watermark bit-field
     ewm_reached = 1, // Channel's FIFO reached the number of elements configured in watermark bit-field
   };
+  
   enum class eCH6F : uint32_t {
     ewm_notreached = 0, // Channel's FIFO did not reach the number of elements configured in watermark bit-field
     ewm_reached = 1, // Channel's FIFO reached the number of elements configured in watermark bit-field
   };
+  
   enum class eCH7F : uint32_t {
     ewm_notreached = 0, // Channel's FIFO did not reach the number of elements configured in watermark bit-field
     ewm_reached = 1, // Channel's FIFO reached the number of elements configured in watermark bit-field
   };
+  
   enum class eLOWFREQF : uint32_t {
     eclkdiv_ok = 0, // CLKDIV value is OK
     eclkdiv_low = 1, // CLKDIV value is too low
   };
+  
   enum class eFIR_RDY : uint32_t {
     enot_reliable = 0, // Filter data is not reliable
     ereliable = 1, // Filter data is reliable
   };
+  
   enum class eBSY_FIL : uint32_t {
     estopped = 0, // PDM is stopped
     erunning = 1, // PDM is running
@@ -171,7 +184,7 @@ union STAT {
     eLOWFREQF LOWFREQF : 1;
     eFIR_RDY FIR_RDY : 1;
     eBSY_FIL BSY_FIL : 1;
-  } bits;          // Bit-field struct (auto-filling reserved gaps)
+  } bits;
   
   // Full 32-bit register value.
   uint32_t value;
@@ -185,13 +198,11 @@ union STAT {
 //
 union FIFO_CTRL {
   
-  // Enum definitions.
-  
   // Bit field definition.
   struct {
     uint32_t FIFOWMK : 3;
     uint32_t _reserved_end : 29;
-  } bits;          // Bit-field struct (auto-filling reserved gaps)
+  } bits;
   
   // Full 32-bit register value.
   uint32_t value;
@@ -205,67 +216,81 @@ union FIFO_CTRL {
 //
 union FIFO_STAT {
   
-  // Enum definitions.
   enum class eFIFOOVF0 : uint32_t {
     eno_exception = 0, // No exception by FIFO overflow
     eexception = 1, // Exception by FIFO overflow
   };
+  
   enum class eFIFOOVF1 : uint32_t {
     eno_exception = 0, // No exception by FIFO overflow
     eexception = 1, // Exception by FIFO overflow
   };
+  
   enum class eFIFOOVF2 : uint32_t {
     eno_exception = 0, // No exception by FIFO overflow
     eexception = 1, // Exception by FIFO overflow
   };
+  
   enum class eFIFOOVF3 : uint32_t {
     eno_exception = 0, // No exception by FIFO overflow
     eexception = 1, // Exception by FIFO overflow
   };
+  
   enum class eFIFOOVF4 : uint32_t {
     eno_exception = 0, // No exception by FIFO overflow
     eexception = 1, // Exception by FIFO overflow
   };
+  
   enum class eFIFOOVF5 : uint32_t {
     eno_exception = 0, // No exception by FIFO overflow
     eexception = 1, // Exception by FIFO overflow
   };
+  
   enum class eFIFOOVF6 : uint32_t {
     eno_exception = 0, // No exception by FIFO overflow
     eexception = 1, // Exception by FIFO overflow
   };
+  
   enum class eFIFOOVF7 : uint32_t {
     eno_exception = 0, // No exception by FIFO overflow
     eexception = 1, // Exception by FIFO overflow
   };
+  
   enum class eFIFOUND0 : uint32_t {
     eno_exception = 0, // No exception by FIFO Underflow
     eexception = 1, // Exception by FIFO underflow
   };
+  
   enum class eFIFOUND1 : uint32_t {
     eno_exception = 0, // No exception by FIFO Underflow
     eexception = 1, // Exception by FIFO underflow
   };
+  
   enum class eFIFOUND2 : uint32_t {
     eno_exception = 0, // No exception by FIFO Underflow
     eexception = 1, // Exception by FIFO underflow
   };
+  
   enum class eFIFOUND3 : uint32_t {
     eno_exception = 0, // No exception by FIFO Underflow
     eexception = 1, // Exception by FIFO underflow
   };
+  
   enum class eFIFOUND4 : uint32_t {
     eno_exception = 0, // No exception by FIFO Underflow
     eexception = 1, // Exception by FIFO underflow
   };
+  
   enum class eFIFOUND5 : uint32_t {
     eno_exception = 0, // No exception by FIFO Underflow
     eexception = 1, // Exception by FIFO underflow
   };
+  
   enum class eFIFOUND6 : uint32_t {
     eno_exception = 0, // No exception by FIFO Underflow
     eexception = 1, // Exception by FIFO underflow
   };
+  
   enum class eFIFOUND7 : uint32_t {
     eno_exception = 0, // No exception by FIFO Underflow
     eexception = 1, // Exception by FIFO underflow
@@ -290,7 +315,7 @@ union FIFO_STAT {
     eFIFOUND6 FIFOUND6 : 1;
     eFIFOUND7 FIFOUND7 : 1;
     uint32_t _reserved_end : 16;
-  } bits;          // Bit-field struct (auto-filling reserved gaps)
+  } bits;
   
   // Full 32-bit register value.
   uint32_t value;
@@ -304,12 +329,10 @@ union FIFO_STAT {
 //
 union DATACH[0] {
   
-  // Enum definitions.
-  
   // Bit field definition.
   struct {
     uint32_t DATA : 32;
-  } bits;          // Bit-field struct (auto-filling reserved gaps)
+  } bits;
   
   // Full 32-bit register value.
   uint32_t value;
@@ -322,12 +345,10 @@ union DATACH[0] {
 //
 union DATACH[1] {
   
-  // Enum definitions.
-  
   // Bit field definition.
   struct {
     uint32_t DATA : 32;
-  } bits;          // Bit-field struct (auto-filling reserved gaps)
+  } bits;
   
   // Full 32-bit register value.
   uint32_t value;
@@ -340,12 +361,10 @@ union DATACH[1] {
 //
 union DATACH[2] {
   
-  // Enum definitions.
-  
   // Bit field definition.
   struct {
     uint32_t DATA : 32;
-  } bits;          // Bit-field struct (auto-filling reserved gaps)
+  } bits;
   
   // Full 32-bit register value.
   uint32_t value;
@@ -358,12 +377,10 @@ union DATACH[2] {
 //
 union DATACH[3] {
   
-  // Enum definitions.
-  
   // Bit field definition.
   struct {
     uint32_t DATA : 32;
-  } bits;          // Bit-field struct (auto-filling reserved gaps)
+  } bits;
   
   // Full 32-bit register value.
   uint32_t value;
@@ -376,12 +393,10 @@ union DATACH[3] {
 //
 union DATACH[4] {
   
-  // Enum definitions.
-  
   // Bit field definition.
   struct {
     uint32_t DATA : 32;
-  } bits;          // Bit-field struct (auto-filling reserved gaps)
+  } bits;
   
   // Full 32-bit register value.
   uint32_t value;
@@ -394,12 +409,10 @@ union DATACH[4] {
 //
 union DATACH[5] {
   
-  // Enum definitions.
-  
   // Bit field definition.
   struct {
     uint32_t DATA : 32;
-  } bits;          // Bit-field struct (auto-filling reserved gaps)
+  } bits;
   
   // Full 32-bit register value.
   uint32_t value;
@@ -412,12 +425,10 @@ union DATACH[5] {
 //
 union DATACH[6] {
   
-  // Enum definitions.
-  
   // Bit field definition.
   struct {
     uint32_t DATA : 32;
-  } bits;          // Bit-field struct (auto-filling reserved gaps)
+  } bits;
   
   // Full 32-bit register value.
   uint32_t value;
@@ -430,12 +441,10 @@ union DATACH[6] {
 //
 union DATACH[7] {
   
-  // Enum definitions.
-  
   // Bit field definition.
   struct {
     uint32_t DATA : 32;
-  } bits;          // Bit-field struct (auto-filling reserved gaps)
+  } bits;
   
   // Full 32-bit register value.
   uint32_t value;
@@ -449,49 +458,55 @@ union DATACH[7] {
 //
 union DC_CTRL {
   
-  // Enum definitions.
   enum class eDCCONFIG0 : uint32_t {
     edc_rem_21Hz = 0, // DC Remover cut-off at 21Hz
     edc_rem_83Hz = 1, // DC Remover cut-off at 83Hz
     edc_rem_152Hz = 2, // DC Remover cut-off at 152Hz
     edc_rem_bypass = 3, // DC Remover is bypassed
   };
+  
   enum class eDCCONFIG1 : uint32_t {
     edc_rem_21Hz = 0, // DC Remover cut-off at 21Hz
     edc_rem_83Hz = 1, // DC Remover cut-off at 83Hz
     edc_rem_152Hz = 2, // DC Remover cut-off at 152Hz
     edc_rem_bypass = 3, // DC Remover is bypassed
   };
+  
   enum class eDCCONFIG2 : uint32_t {
     edc_rem_21Hz = 0, // DC Remover cut-off at 21Hz
     edc_rem_83Hz = 1, // DC Remover cut-off at 83Hz
     edc_rem_152Hz = 2, // DC Remover cut-off at 152Hz
     edc_rem_bypass = 3, // DC Remover is bypassed
   };
+  
   enum class eDCCONFIG3 : uint32_t {
     edc_rem_21Hz = 0, // DC Remover cut-off at 21Hz
     edc_rem_83Hz = 1, // DC Remover cut-off at 83Hz
     edc_rem_152Hz = 2, // DC Remover cut-off at 152Hz
     edc_rem_bypass = 3, // DC Remover is bypassed
   };
+  
   enum class eDCCONFIG4 : uint32_t {
     edc_rem_21Hz = 0, // DC Remover cut-off at 21Hz
     edc_rem_83Hz = 1, // DC Remover cut-off at 83Hz
     edc_rem_152Hz = 2, // DC Remover cut-off at 152Hz
     edc_rem_bypass = 3, // DC Remover is bypassed
   };
+  
   enum class eDCCONFIG5 : uint32_t {
     edc_rem_21Hz = 0, // DC Remover cut-off at 21Hz
     edc_rem_83Hz = 1, // DC Remover cut-off at 83Hz
     edc_rem_152Hz = 2, // DC Remover cut-off at 152Hz
     edc_rem_bypass = 3, // DC Remover is bypassed
   };
+  
   enum class eDCCONFIG6 : uint32_t {
     edc_rem_21Hz = 0, // DC Remover cut-off at 21Hz
     edc_rem_83Hz = 1, // DC Remover cut-off at 83Hz
     edc_rem_152Hz = 2, // DC Remover cut-off at 152Hz
     edc_rem_bypass = 3, // DC Remover is bypassed
   };
+  
   enum class eDCCONFIG7 : uint32_t {
     edc_rem_21Hz = 0, // DC Remover cut-off at 21Hz
     edc_rem_83Hz = 1, // DC Remover cut-off at 83Hz
@@ -510,7 +525,7 @@ union DC_CTRL {
     eDCCONFIG6 DCCONFIG6 : 2;
     eDCCONFIG7 DCCONFIG7 : 2;
     uint32_t _reserved_end : 16;
-  } bits;          // Bit-field struct (auto-filling reserved gaps)
+  } bits;
   
   // Full 32-bit register value.
   uint32_t value;
@@ -524,8 +539,6 @@ union DC_CTRL {
 //
 union RANGE_CTRL {
   
-  // Enum definitions.
-  
   // Bit field definition.
   struct {
     uint32_t RANGEADJ0 : 4;
@@ -536,7 +549,7 @@ union RANGE_CTRL {
     uint32_t RANGEADJ5 : 4;
     uint32_t RANGEADJ6 : 4;
     uint32_t RANGEADJ7 : 4;
-  } bits;          // Bit-field struct (auto-filling reserved gaps)
+  } bits;
   
   // Full 32-bit register value.
   uint32_t value;
@@ -550,67 +563,81 @@ union RANGE_CTRL {
 //
 union RANGE_STAT {
   
-  // Enum definitions.
   enum class eRANGEOVF0 : uint32_t {
     eno_exception = 0, // No exception by range overflow
     eexception = 1, // Exception by range overflow
   };
+  
   enum class eRANGEOVF1 : uint32_t {
     eno_exception = 0, // No exception by range overflow
     eexception = 1, // Exception by range overflow
   };
+  
   enum class eRANGEOVF2 : uint32_t {
     eno_exception = 0, // No exception by range overflow
     eexception = 1, // Exception by range overflow
   };
+  
   enum class eRANGEOVF3 : uint32_t {
     eno_exception = 0, // No exception by range overflow
     eexception = 1, // Exception by range overflow
   };
+  
   enum class eRANGEOVF4 : uint32_t {
     eno_exception = 0, // No exception by range overflow
     eexception = 1, // Exception by range overflow
   };
+  
   enum class eRANGEOVF5 : uint32_t {
     eno_exception = 0, // No exception by range overflow
     eexception = 1, // Exception by range overflow
   };
+  
   enum class eRANGEOVF6 : uint32_t {
     eno_exception = 0, // No exception by range overflow
     eexception = 1, // Exception by range overflow
   };
+  
   enum class eRANGEOVF7 : uint32_t {
     eno_exception = 0, // No exception by range overflow
     eexception = 1, // Exception by range overflow
   };
+  
   enum class eRANGEUNF0 : uint32_t {
     eno_exception = 0, // No exception by range underflow
     eexception = 1, // Exception by range underflow
   };
+  
   enum class eRANGEUNF1 : uint32_t {
     eno_exception = 0, // No exception by range underflow
     eexception = 1, // Exception by range underflow
   };
+  
   enum class eRANGEUNF2 : uint32_t {
     eno_exception = 0, // No exception by range underflow
     eexception = 1, // Exception by range underflow
   };
+  
   enum class eRANGEUNF3 : uint32_t {
     eno_exception = 0, // No exception by range underflow
     eexception = 1, // Exception by range underflow
   };
+  
   enum class eRANGEUNF4 : uint32_t {
     eno_exception = 0, // No exception by range underflow
     eexception = 1, // Exception by range underflow
   };
+  
   enum class eRANGEUNF5 : uint32_t {
     eno_exception = 0, // No exception by range underflow
     eexception = 1, // Exception by range underflow
   };
+  
   enum class eRANGEUNF6 : uint32_t {
     eno_exception = 0, // No exception by range underflow
     eexception = 1, // Exception by range underflow
   };
+  
   enum class eRANGEUNF7 : uint32_t {
     eno_exception = 0, // No exception by range underflow
     eexception = 1, // Exception by range underflow
@@ -636,7 +663,7 @@ union RANGE_STAT {
     eRANGEUNF6 RANGEUNF6 : 1;
     eRANGEUNF7 RANGEUNF7 : 1;
     uint32_t _reserved_end : 8;
-  } bits;          // Bit-field struct (auto-filling reserved gaps)
+  } bits;
   
   // Full 32-bit register value.
   uint32_t value;
@@ -650,19 +677,21 @@ union RANGE_STAT {
 //
 union VAD0_CTRL_1 {
   
-  // Enum definitions.
   enum class eVADEN : uint32_t {
     edisabled = 0, // The HWVAD is disabled
     eenabled = 1, // The HWVAD is enabled
   };
+  
   enum class eVADIE : uint32_t {
     edisabled = 0, // HWVAD Interrupts disabled
     eenabled = 1, // HWVAD Interrupts enabled
   };
+  
   enum class eVADERIE : uint32_t {
     edisabled = 0, // HWVAD Error Interrupts disabled
     eenabled = 1, // HWVAD Error Interrupts enabled
   };
+  
   enum class eVADST10 : uint32_t {
     enormal_op = 0, // Normal operation.
     efilt_init = 1, // Filters are initialized.
@@ -682,7 +711,7 @@ union VAD0_CTRL_1 {
     uint32_t _reserved_7 : 4;
     uint32_t VADCHSEL : 3;
     uint32_t _reserved_end : 5;
-  } bits;          // Bit-field struct (auto-filling reserved gaps)
+  } bits;
   
   // Full 32-bit register value.
   uint32_t value;
@@ -696,21 +725,23 @@ union VAD0_CTRL_1 {
 //
 union VAD0_CTRL_2 {
   
-  // Enum definitions.
   enum class eVADHPF : uint32_t {
     efilt_bypass = 0, // Filter bypassed.
     ecutoff_1750Hz = 1, // Cut-off frequency at 1750Hz.
     ecutoff_215Hz = 2, // Cut-off frequency at 215Hz.
     ecutoff_102Hz = 3, // Cut-off frequency at 102Hz.
   };
+  
   enum class eVADFOUTDIS : uint32_t {
     eout_enabled = 0, // Output is enabled.
     eout_disabled = 1, // Output is disabled.
   };
+  
   enum class eVADPREFEN : uint32_t {
     ebypassed = 0, // Pre-filter is bypassed.
     eenabled = 1, // Pre-filter is enabled.
   };
+  
   enum class eVADFRENDIS : uint32_t {
     eenabled = 0, // Frame energy calculus enabled.
     edisabled = 1, // Frame energy calculus disabled.
@@ -728,7 +759,7 @@ union VAD0_CTRL_2 {
     uint32_t _reserved_4 : 1;
     eVADPREFEN VADPREFEN : 1;
     eVADFRENDIS VADFRENDIS : 1;
-  } bits;          // Bit-field struct (auto-filling reserved gaps)
+  } bits;
   
   // Full 32-bit register value.
   uint32_t value;
@@ -742,19 +773,21 @@ union VAD0_CTRL_2 {
 //
 union VAD0_STAT {
   
-  // Enum definitions.
   enum class eVADIF : uint32_t {
     eno_detect = 0, // Voice activity not detected
     edetect = 1, // Voice activity detected
   };
+  
   enum class eVADEF : uint32_t {
     eno_detect = 0, // Voice activity not detected
     edetect = 1, // Voice activity detected
   };
+  
   enum class eVADINSATF : uint32_t {
     eno_exception = 0, // No exception
     eexception = 1, // Exception
   };
+  
   enum class eVADINITF : uint32_t {
     enot_init = 0, // HWVAD is not being initialized.
     einit = 1, // HWVAD is being initialized.
@@ -768,7 +801,7 @@ union VAD0_STAT {
     eVADINSATF VADINSATF : 1;
     uint32_t _reserved_3 : 14;
     eVADINITF VADINITF : 1;
-  } bits;          // Bit-field struct (auto-filling reserved gaps)
+  } bits;
   
   // Full 32-bit register value.
   uint32_t value;
@@ -782,11 +815,11 @@ union VAD0_STAT {
 //
 union VAD0_SCONFIG {
   
-  // Enum definitions.
   enum class eVADSMAXEN : uint32_t {
     ebypassed = 0, // Maximum block is bypassed.
     eenabled = 1, // Maximum block is enabled.
   };
+  
   enum class eVADSFILEN : uint32_t {
     edisabled = 0, // Signal filter is disabled.
     eenabled = 1, // Signal filter is enabled.
@@ -798,7 +831,7 @@ union VAD0_SCONFIG {
     uint32_t _reserved_1 : 26;
     eVADSMAXEN VADSMAXEN : 1;
     eVADSFILEN VADSFILEN : 1;
-  } bits;          // Bit-field struct (auto-filling reserved gaps)
+  } bits;
   
   // Full 32-bit register value.
   uint32_t value;
@@ -812,19 +845,21 @@ union VAD0_SCONFIG {
 //
 union VAD0_NCONFIG {
   
-  // Enum definitions.
   enum class eVADNOREN : uint32_t {
     enot_decimated = 0, // Noise input is not decimated.
     edecimated = 1, // Noise input is decimated.
   };
+  
   enum class eVADNDECEN : uint32_t {
     enot_decimated = 0, // Noise input is not decimated.
     edecimated = 1, // Noise input is decimated.
   };
+  
   enum class eVADNMINEN : uint32_t {
     ebypassed = 0, // Minimum block is bypassed.
     eenabled = 1, // Minimum block is enabled.
   };
+  
   enum class eVADNFILAUTO : uint32_t {
     enf_always_en = 0, // Noise filter is always enabled.
     enf_cond_en = 1, // Noise filter is enabled/disabled based on voice activity information.
@@ -840,7 +875,7 @@ union VAD0_NCONFIG {
     eVADNDECEN VADNDECEN : 1;
     eVADNMINEN VADNMINEN : 1;
     eVADNFILAUTO VADNFILAUTO : 1;
-  } bits;          // Bit-field struct (auto-filling reserved gaps)
+  } bits;
   
   // Full 32-bit register value.
   uint32_t value;
@@ -854,13 +889,11 @@ union VAD0_NCONFIG {
 //
 union VAD0_NDATA {
   
-  // Enum definitions.
-  
   // Bit field definition.
   struct {
     uint32_t VADNDATA : 16;
     uint32_t _reserved_end : 16;
-  } bits;          // Bit-field struct (auto-filling reserved gaps)
+  } bits;
   
   // Full 32-bit register value.
   uint32_t value;
@@ -874,15 +907,16 @@ union VAD0_NDATA {
 //
 union VAD0_ZCD {
   
-  // Enum definitions.
   enum class eVADZCDEN : uint32_t {
     edisabled = 0, // The ZCD is disabled
     eenabled = 1, // The ZCD is enabled
   };
+  
   enum class eVADZCDAUTO : uint32_t {
     enot_estimated = 0, // The ZCD threshold is not estimated automatically
     eestimated = 1, // The ZCD threshold is estimated automatically
   };
+  
   enum class eVADZCDAND : uint32_t {
     eored = 0, // The ZCD result is OR'ed with the energy-based detection.
     eanded = 1, // The ZCD result is AND'ed with the energy-based detection.
@@ -900,7 +934,7 @@ union VAD0_ZCD {
     uint32_t _reserved_4 : 4;
     uint32_t VADZCDTH : 10;
     uint32_t _reserved_end : 6;
-  } bits;          // Bit-field struct (auto-filling reserved gaps)
+  } bits;
   
   // Full 32-bit register value.
   uint32_t value;

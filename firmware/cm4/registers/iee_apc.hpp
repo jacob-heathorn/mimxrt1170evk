@@ -15,13 +15,11 @@ namespace nIEE_APC {
 //
 union REGION0_TOP_ADDR {
   
-  // Enum definitions.
-  
   // Bit field definition.
   struct {
     uint32_t TOP_ADDR : 29;
     uint32_t _reserved_end : 3;
-  } bits;          // Bit-field struct (auto-filling reserved gaps)
+  } bits;
   
   // Full 32-bit register value.
   uint32_t value;
@@ -35,13 +33,11 @@ union REGION0_TOP_ADDR {
 //
 union REGION0_BOT_ADDR {
   
-  // Enum definitions.
-  
   // Bit field definition.
   struct {
     uint32_t BOT_ADDR : 29;
     uint32_t _reserved_end : 3;
-  } bits;          // Bit-field struct (auto-filling reserved gaps)
+  } bits;
   
   // Full 32-bit register value.
   uint32_t value;
@@ -55,11 +51,11 @@ union REGION0_BOT_ADDR {
 //
 union REGION0_RDC_D0 {
   
-  // Enum definitions.
   enum class eRDC_D0_WRITE_DIS : uint32_t {
     eENABLE = 0, // Write to TOP_ADDR and BOT_ADDR of this region enabled
     eDISABLE = 1, // Write to TOP_ADDR and BOT_ADDR of this region disabled
   };
+  
   enum class eRDC_D0_LOCK : uint32_t {
     eUNLOCK = 0, // Bit 0 is unlocked
     eLOCK = 1, // Bit 0 is locked
@@ -70,7 +66,7 @@ union REGION0_RDC_D0 {
     eRDC_D0_WRITE_DIS RDC_D0_WRITE_DIS : 1;
     eRDC_D0_LOCK RDC_D0_LOCK : 1;
     uint32_t _reserved_end : 30;
-  } bits;          // Bit-field struct (auto-filling reserved gaps)
+  } bits;
   
   // Full 32-bit register value.
   uint32_t value;
@@ -84,11 +80,11 @@ union REGION0_RDC_D0 {
 //
 union REGION0_RDC_D1 {
   
-  // Enum definitions.
   enum class eRDC_D1_WRITE_DIS : uint32_t {
     eENABLE = 0, // Write to TOP_ADDR and BOT_ADDR of this region enabled
     eDISABLE = 1, // Write to TOP_ADDR and BOT_ADDR of this region disabled
   };
+  
   enum class eRDC_D1_LOCK : uint32_t {
     eUNLOCK = 0, // Bit 0 is unlocked
     eLOCK = 1, // Bit 0 is locked
@@ -99,7 +95,7 @@ union REGION0_RDC_D1 {
     eRDC_D1_WRITE_DIS RDC_D1_WRITE_DIS : 1;
     eRDC_D1_LOCK RDC_D1_LOCK : 1;
     uint32_t _reserved_end : 30;
-  } bits;          // Bit-field struct (auto-filling reserved gaps)
+  } bits;
   
   // Full 32-bit register value.
   uint32_t value;
@@ -113,13 +109,11 @@ union REGION0_RDC_D1 {
 //
 union REGION1_TOP_ADDR {
   
-  // Enum definitions.
-  
   // Bit field definition.
   struct {
     uint32_t TOP_ADDR : 29;
     uint32_t _reserved_end : 3;
-  } bits;          // Bit-field struct (auto-filling reserved gaps)
+  } bits;
   
   // Full 32-bit register value.
   uint32_t value;
@@ -133,13 +127,11 @@ union REGION1_TOP_ADDR {
 //
 union REGION1_BOT_ADDR {
   
-  // Enum definitions.
-  
   // Bit field definition.
   struct {
     uint32_t BOT_ADDR : 29;
     uint32_t _reserved_end : 3;
-  } bits;          // Bit-field struct (auto-filling reserved gaps)
+  } bits;
   
   // Full 32-bit register value.
   uint32_t value;
@@ -153,11 +145,11 @@ union REGION1_BOT_ADDR {
 //
 union REGION1_RDC_D0 {
   
-  // Enum definitions.
   enum class eRDC_D0_WRITE_DIS : uint32_t {
     eENABLE = 0, // Write to TOP_ADDR and BOT_ADDR of this region enabled
     eDISABLE = 1, // Write to TOP_ADDR and BOT_ADDR of this region disabled
   };
+  
   enum class eRDC_D0_LOCK : uint32_t {
     eUNLOCK = 0, // Bit 0 is unlocked
     eLOCK = 1, // Bit 0 is locked
@@ -168,7 +160,7 @@ union REGION1_RDC_D0 {
     eRDC_D0_WRITE_DIS RDC_D0_WRITE_DIS : 1;
     eRDC_D0_LOCK RDC_D0_LOCK : 1;
     uint32_t _reserved_end : 30;
-  } bits;          // Bit-field struct (auto-filling reserved gaps)
+  } bits;
   
   // Full 32-bit register value.
   uint32_t value;
@@ -182,11 +174,11 @@ union REGION1_RDC_D0 {
 //
 union REGION1_RDC_D1 {
   
-  // Enum definitions.
   enum class eRDC_D1_WRITE_DIS : uint32_t {
     eENABLE = 0, // Write to TOP_ADDR and BOT_ADDR of this region enabled
     eDISABLE = 1, // Write to TOP_ADDR and BOT_ADDR of this region disabled
   };
+  
   enum class eRDC_D1_LOCK : uint32_t {
     eUNLOCK = 0, // Bit 0 is unlocked
     eLOCK = 1, // Bit 0 is locked
@@ -197,7 +189,7 @@ union REGION1_RDC_D1 {
     eRDC_D1_WRITE_DIS RDC_D1_WRITE_DIS : 1;
     eRDC_D1_LOCK RDC_D1_LOCK : 1;
     uint32_t _reserved_end : 30;
-  } bits;          // Bit-field struct (auto-filling reserved gaps)
+  } bits;
   
   // Full 32-bit register value.
   uint32_t value;
@@ -211,13 +203,11 @@ union REGION1_RDC_D1 {
 //
 union REGION2_TOP_ADDR {
   
-  // Enum definitions.
-  
   // Bit field definition.
   struct {
     uint32_t TOP_ADDR : 29;
     uint32_t _reserved_end : 3;
-  } bits;          // Bit-field struct (auto-filling reserved gaps)
+  } bits;
   
   // Full 32-bit register value.
   uint32_t value;
@@ -231,13 +221,11 @@ union REGION2_TOP_ADDR {
 //
 union REGION2_BOT_ADDR {
   
-  // Enum definitions.
-  
   // Bit field definition.
   struct {
     uint32_t BOT_ADDR : 29;
     uint32_t _reserved_end : 3;
-  } bits;          // Bit-field struct (auto-filling reserved gaps)
+  } bits;
   
   // Full 32-bit register value.
   uint32_t value;
@@ -251,11 +239,11 @@ union REGION2_BOT_ADDR {
 //
 union REGION2_RDC_D0 {
   
-  // Enum definitions.
   enum class eRDC_D0_WRITE_DIS : uint32_t {
     eENABLE = 0, // Write to TOP_ADDR and BOT_ADDR of this region enabled
     eDISABLE = 1, // Write to TOP_ADDR and BOT_ADDR of this region disabled
   };
+  
   enum class eRDC_D0_LOCK : uint32_t {
     eUNLOCK = 0, // Bit 0 is unlocked
     eLOCK = 1, // Bit 0 is locked
@@ -266,7 +254,7 @@ union REGION2_RDC_D0 {
     eRDC_D0_WRITE_DIS RDC_D0_WRITE_DIS : 1;
     eRDC_D0_LOCK RDC_D0_LOCK : 1;
     uint32_t _reserved_end : 30;
-  } bits;          // Bit-field struct (auto-filling reserved gaps)
+  } bits;
   
   // Full 32-bit register value.
   uint32_t value;
@@ -280,11 +268,11 @@ union REGION2_RDC_D0 {
 //
 union REGION2_RDC_D1 {
   
-  // Enum definitions.
   enum class eRDC_D1_WRITE_DIS : uint32_t {
     eENABLE = 0, // Write to TOP_ADDR and BOT_ADDR of this region enabled
     eDISABLE = 1, // Write to TOP_ADDR and BOT_ADDR of this region disabled
   };
+  
   enum class eRDC_D1_LOCK : uint32_t {
     eUNLOCK = 0, // Bit 0 is unlocked
     eLOCK = 1, // Bit 0 is locked
@@ -295,7 +283,7 @@ union REGION2_RDC_D1 {
     eRDC_D1_WRITE_DIS RDC_D1_WRITE_DIS : 1;
     eRDC_D1_LOCK RDC_D1_LOCK : 1;
     uint32_t _reserved_end : 30;
-  } bits;          // Bit-field struct (auto-filling reserved gaps)
+  } bits;
   
   // Full 32-bit register value.
   uint32_t value;
@@ -309,13 +297,11 @@ union REGION2_RDC_D1 {
 //
 union REGION3_TOP_ADDR {
   
-  // Enum definitions.
-  
   // Bit field definition.
   struct {
     uint32_t TOP_ADDR : 29;
     uint32_t _reserved_end : 3;
-  } bits;          // Bit-field struct (auto-filling reserved gaps)
+  } bits;
   
   // Full 32-bit register value.
   uint32_t value;
@@ -329,13 +315,11 @@ union REGION3_TOP_ADDR {
 //
 union REGION3_BOT_ADDR {
   
-  // Enum definitions.
-  
   // Bit field definition.
   struct {
     uint32_t BOT_ADDR : 29;
     uint32_t _reserved_end : 3;
-  } bits;          // Bit-field struct (auto-filling reserved gaps)
+  } bits;
   
   // Full 32-bit register value.
   uint32_t value;
@@ -349,11 +333,11 @@ union REGION3_BOT_ADDR {
 //
 union REGION3_RDC_D0 {
   
-  // Enum definitions.
   enum class eRDC_D0_WRITE_DIS : uint32_t {
     eENABLE = 0, // Write to TOP_ADDR and BOT_ADDR of this region enabled
     eDISABLE = 1, // Write to TOP_ADDR and BOT_ADDR of this region disabled
   };
+  
   enum class eRDC_D0_LOCK : uint32_t {
     eUNLOCK = 0, // Bit 0 is unlocked
     eLOCK = 1, // Bit 0 is locked
@@ -364,7 +348,7 @@ union REGION3_RDC_D0 {
     eRDC_D0_WRITE_DIS RDC_D0_WRITE_DIS : 1;
     eRDC_D0_LOCK RDC_D0_LOCK : 1;
     uint32_t _reserved_end : 30;
-  } bits;          // Bit-field struct (auto-filling reserved gaps)
+  } bits;
   
   // Full 32-bit register value.
   uint32_t value;
@@ -378,11 +362,11 @@ union REGION3_RDC_D0 {
 //
 union REGION3_RDC_D1 {
   
-  // Enum definitions.
   enum class eRDC_D1_WRITE_DIS : uint32_t {
     eENABLE = 0, // Write to TOP_ADDR and BOT_ADDR of this region enabled
     eDISABLE = 1, // Write to TOP_ADDR and BOT_ADDR of this region disabled
   };
+  
   enum class eRDC_D1_LOCK : uint32_t {
     eUNLOCK = 0, // Bit 0 is unlocked
     eLOCK = 1, // Bit 0 is locked
@@ -393,7 +377,7 @@ union REGION3_RDC_D1 {
     eRDC_D1_WRITE_DIS RDC_D1_WRITE_DIS : 1;
     eRDC_D1_LOCK RDC_D1_LOCK : 1;
     uint32_t _reserved_end : 30;
-  } bits;          // Bit-field struct (auto-filling reserved gaps)
+  } bits;
   
   // Full 32-bit register value.
   uint32_t value;
@@ -407,13 +391,11 @@ union REGION3_RDC_D1 {
 //
 union REGION4_TOP_ADDR {
   
-  // Enum definitions.
-  
   // Bit field definition.
   struct {
     uint32_t TOP_ADDR : 29;
     uint32_t _reserved_end : 3;
-  } bits;          // Bit-field struct (auto-filling reserved gaps)
+  } bits;
   
   // Full 32-bit register value.
   uint32_t value;
@@ -427,13 +409,11 @@ union REGION4_TOP_ADDR {
 //
 union REGION4_BOT_ADDR {
   
-  // Enum definitions.
-  
   // Bit field definition.
   struct {
     uint32_t BOT_ADDR : 29;
     uint32_t _reserved_end : 3;
-  } bits;          // Bit-field struct (auto-filling reserved gaps)
+  } bits;
   
   // Full 32-bit register value.
   uint32_t value;
@@ -447,11 +427,11 @@ union REGION4_BOT_ADDR {
 //
 union REGION4_RDC_D0 {
   
-  // Enum definitions.
   enum class eRDC_D0_WRITE_DIS : uint32_t {
     eENABLE = 0, // Write to TOP_ADDR and BOT_ADDR of this region enabled
     eDISABLE = 1, // Write to TOP_ADDR and BOT_ADDR of this region disabled
   };
+  
   enum class eRDC_D0_LOCK : uint32_t {
     eUNLOCK = 0, // Bit 0 is unlocked
     eLOCK = 1, // Bit 0 is locked
@@ -462,7 +442,7 @@ union REGION4_RDC_D0 {
     eRDC_D0_WRITE_DIS RDC_D0_WRITE_DIS : 1;
     eRDC_D0_LOCK RDC_D0_LOCK : 1;
     uint32_t _reserved_end : 30;
-  } bits;          // Bit-field struct (auto-filling reserved gaps)
+  } bits;
   
   // Full 32-bit register value.
   uint32_t value;
@@ -476,11 +456,11 @@ union REGION4_RDC_D0 {
 //
 union REGION4_RDC_D1 {
   
-  // Enum definitions.
   enum class eRDC_D1_WRITE_DIS : uint32_t {
     eENABLE = 0, // Write to TOP_ADDR and BOT_ADDR of this region enabled
     eDISABLE = 1, // Write to TOP_ADDR and BOT_ADDR of this region disabled
   };
+  
   enum class eRDC_D1_LOCK : uint32_t {
     eUNLOCK = 0, // Bit 0 is unlocked
     eLOCK = 1, // Bit 0 is locked
@@ -491,7 +471,7 @@ union REGION4_RDC_D1 {
     eRDC_D1_WRITE_DIS RDC_D1_WRITE_DIS : 1;
     eRDC_D1_LOCK RDC_D1_LOCK : 1;
     uint32_t _reserved_end : 30;
-  } bits;          // Bit-field struct (auto-filling reserved gaps)
+  } bits;
   
   // Full 32-bit register value.
   uint32_t value;
@@ -505,13 +485,11 @@ union REGION4_RDC_D1 {
 //
 union REGION5_TOP_ADDR {
   
-  // Enum definitions.
-  
   // Bit field definition.
   struct {
     uint32_t TOP_ADDR : 29;
     uint32_t _reserved_end : 3;
-  } bits;          // Bit-field struct (auto-filling reserved gaps)
+  } bits;
   
   // Full 32-bit register value.
   uint32_t value;
@@ -525,13 +503,11 @@ union REGION5_TOP_ADDR {
 //
 union REGION5_BOT_ADDR {
   
-  // Enum definitions.
-  
   // Bit field definition.
   struct {
     uint32_t BOT_ADDR : 29;
     uint32_t _reserved_end : 3;
-  } bits;          // Bit-field struct (auto-filling reserved gaps)
+  } bits;
   
   // Full 32-bit register value.
   uint32_t value;
@@ -545,11 +521,11 @@ union REGION5_BOT_ADDR {
 //
 union REGION5_RDC_D0 {
   
-  // Enum definitions.
   enum class eRDC_D0_WRITE_DIS : uint32_t {
     eENABLE = 0, // Write to TOP_ADDR and BOT_ADDR of this region enabled
     eDISABLE = 1, // Write to TOP_ADDR and BOT_ADDR of this region disabled
   };
+  
   enum class eRDC_D0_LOCK : uint32_t {
     eUNLOCK = 0, // Bit 0 is unlocked
     eLOCK = 1, // Bit 0 is locked
@@ -560,7 +536,7 @@ union REGION5_RDC_D0 {
     eRDC_D0_WRITE_DIS RDC_D0_WRITE_DIS : 1;
     eRDC_D0_LOCK RDC_D0_LOCK : 1;
     uint32_t _reserved_end : 30;
-  } bits;          // Bit-field struct (auto-filling reserved gaps)
+  } bits;
   
   // Full 32-bit register value.
   uint32_t value;
@@ -574,11 +550,11 @@ union REGION5_RDC_D0 {
 //
 union REGION5_RDC_D1 {
   
-  // Enum definitions.
   enum class eRDC_D1_WRITE_DIS : uint32_t {
     eENABLE = 0, // Write to TOP_ADDR and BOT_ADDR of this region enabled
     eDISABLE = 1, // Write to TOP_ADDR and BOT_ADDR of this region disabled
   };
+  
   enum class eRDC_D1_LOCK : uint32_t {
     eUNLOCK = 0, // Bit 0 is unlocked
     eLOCK = 1, // Bit 0 is locked
@@ -589,7 +565,7 @@ union REGION5_RDC_D1 {
     eRDC_D1_WRITE_DIS RDC_D1_WRITE_DIS : 1;
     eRDC_D1_LOCK RDC_D1_LOCK : 1;
     uint32_t _reserved_end : 30;
-  } bits;          // Bit-field struct (auto-filling reserved gaps)
+  } bits;
   
   // Full 32-bit register value.
   uint32_t value;
@@ -603,13 +579,11 @@ union REGION5_RDC_D1 {
 //
 union REGION6_TOP_ADDR {
   
-  // Enum definitions.
-  
   // Bit field definition.
   struct {
     uint32_t TOP_ADDR : 29;
     uint32_t _reserved_end : 3;
-  } bits;          // Bit-field struct (auto-filling reserved gaps)
+  } bits;
   
   // Full 32-bit register value.
   uint32_t value;
@@ -623,13 +597,11 @@ union REGION6_TOP_ADDR {
 //
 union REGION6_BOT_ADDR {
   
-  // Enum definitions.
-  
   // Bit field definition.
   struct {
     uint32_t BOT_ADDR : 29;
     uint32_t _reserved_end : 3;
-  } bits;          // Bit-field struct (auto-filling reserved gaps)
+  } bits;
   
   // Full 32-bit register value.
   uint32_t value;
@@ -643,11 +615,11 @@ union REGION6_BOT_ADDR {
 //
 union REGION6_RDC_D0 {
   
-  // Enum definitions.
   enum class eRDC_D0_WRITE_DIS : uint32_t {
     eENABLE = 0, // Write to TOP_ADDR and BOT_ADDR of this region enabled
     eDISABLE = 1, // Write to TOP_ADDR and BOT_ADDR of this region disabled
   };
+  
   enum class eRDC_D0_LOCK : uint32_t {
     eUNLOCK = 0, // Bit 0 is unlocked
     eLOCK = 1, // Bit 0 is locked
@@ -658,7 +630,7 @@ union REGION6_RDC_D0 {
     eRDC_D0_WRITE_DIS RDC_D0_WRITE_DIS : 1;
     eRDC_D0_LOCK RDC_D0_LOCK : 1;
     uint32_t _reserved_end : 30;
-  } bits;          // Bit-field struct (auto-filling reserved gaps)
+  } bits;
   
   // Full 32-bit register value.
   uint32_t value;
@@ -672,11 +644,11 @@ union REGION6_RDC_D0 {
 //
 union REGION6_RDC_D1 {
   
-  // Enum definitions.
   enum class eRDC_D1_WRITE_DIS : uint32_t {
     eENABLE = 0, // Write to TOP_ADDR and BOT_ADDR of this region enabled
     eDISABLE = 1, // Write to TOP_ADDR and BOT_ADDR of this region disabled
   };
+  
   enum class eRDC_D1_LOCK : uint32_t {
     eUNLOCK = 0, // Bit 0 is unlocked
     eLOCK = 1, // Bit 0 is locked
@@ -687,7 +659,7 @@ union REGION6_RDC_D1 {
     eRDC_D1_WRITE_DIS RDC_D1_WRITE_DIS : 1;
     eRDC_D1_LOCK RDC_D1_LOCK : 1;
     uint32_t _reserved_end : 30;
-  } bits;          // Bit-field struct (auto-filling reserved gaps)
+  } bits;
   
   // Full 32-bit register value.
   uint32_t value;
@@ -701,13 +673,11 @@ union REGION6_RDC_D1 {
 //
 union REGION7_TOP_ADDR {
   
-  // Enum definitions.
-  
   // Bit field definition.
   struct {
     uint32_t TOP_ADDR : 29;
     uint32_t _reserved_end : 3;
-  } bits;          // Bit-field struct (auto-filling reserved gaps)
+  } bits;
   
   // Full 32-bit register value.
   uint32_t value;
@@ -721,13 +691,11 @@ union REGION7_TOP_ADDR {
 //
 union REGION7_BOT_ADDR {
   
-  // Enum definitions.
-  
   // Bit field definition.
   struct {
     uint32_t BOT_ADDR : 29;
     uint32_t _reserved_end : 3;
-  } bits;          // Bit-field struct (auto-filling reserved gaps)
+  } bits;
   
   // Full 32-bit register value.
   uint32_t value;
@@ -741,11 +709,11 @@ union REGION7_BOT_ADDR {
 //
 union REGION7_RDC_D0 {
   
-  // Enum definitions.
   enum class eRDC_D0_WRITE_DIS : uint32_t {
     eENABLE = 0, // Write to TOP_ADDR and BOT_ADDR of this region enabled
     eDISABLE = 1, // Write to TOP_ADDR and BOT_ADDR of this region disabled
   };
+  
   enum class eRDC_D0_LOCK : uint32_t {
     eUNLOCK = 0, // Bit 0 is unlocked
     eLOCK = 1, // Bit 0 is locked
@@ -756,7 +724,7 @@ union REGION7_RDC_D0 {
     eRDC_D0_WRITE_DIS RDC_D0_WRITE_DIS : 1;
     eRDC_D0_LOCK RDC_D0_LOCK : 1;
     uint32_t _reserved_end : 30;
-  } bits;          // Bit-field struct (auto-filling reserved gaps)
+  } bits;
   
   // Full 32-bit register value.
   uint32_t value;
@@ -770,11 +738,11 @@ union REGION7_RDC_D0 {
 //
 union REGION7_RDC_D1 {
   
-  // Enum definitions.
   enum class eRDC_D1_WRITE_DIS : uint32_t {
     eENABLE = 0, // Write to TOP_ADDR and BOT_ADDR of this region enabled
     eDISABLE = 1, // Write to TOP_ADDR and BOT_ADDR of this region disabled
   };
+  
   enum class eRDC_D1_LOCK : uint32_t {
     eUNLOCK = 0, // Bit 0 is unlocked
     eLOCK = 1, // Bit 0 is locked
@@ -785,7 +753,7 @@ union REGION7_RDC_D1 {
     eRDC_D1_WRITE_DIS RDC_D1_WRITE_DIS : 1;
     eRDC_D1_LOCK RDC_D1_LOCK : 1;
     uint32_t _reserved_end : 30;
-  } bits;          // Bit-field struct (auto-filling reserved gaps)
+  } bits;
   
   // Full 32-bit register value.
   uint32_t value;

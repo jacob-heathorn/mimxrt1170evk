@@ -15,7 +15,6 @@ namespace nDSI_HOST_DPHY_INTFC {
 //
 union PD_TX {
   
-  // Enum definitions.
   enum class ePD_TX : uint32_t {
     ePD_TX_0 = 0, // Power Up
     ePD_TX_1 = 1, // Power Down
@@ -25,7 +24,7 @@ union PD_TX {
   struct {
     ePD_TX PD_TX : 1;
     uint32_t _reserved_end : 31;
-  } bits;          // Bit-field struct (auto-filling reserved gaps)
+  } bits;
   
   // Full 32-bit register value.
   uint32_t value;
@@ -39,13 +38,11 @@ union PD_TX {
 //
 union M_PRG_HS_PREPARE {
   
-  // Enum definitions.
-  
   // Bit field definition.
   struct {
     uint32_t M_PRG_HS_PREPARE : 2;
     uint32_t _reserved_end : 30;
-  } bits;          // Bit-field struct (auto-filling reserved gaps)
+  } bits;
   
   // Full 32-bit register value.
   uint32_t value;
@@ -59,13 +56,11 @@ union M_PRG_HS_PREPARE {
 //
 union MC_PRG_HS_PREPARE {
   
-  // Enum definitions.
-  
   // Bit field definition.
   struct {
     uint32_t MC_PRG_HS_PREPARE : 1;
     uint32_t _reserved_end : 31;
-  } bits;          // Bit-field struct (auto-filling reserved gaps)
+  } bits;
   
   // Full 32-bit register value.
   uint32_t value;
@@ -79,13 +74,11 @@ union MC_PRG_HS_PREPARE {
 //
 union M_PRG_HS_ZERO {
   
-  // Enum definitions.
-  
   // Bit field definition.
   struct {
     uint32_t M_PRG_HS_ZERO : 5;
     uint32_t _reserved_end : 27;
-  } bits;          // Bit-field struct (auto-filling reserved gaps)
+  } bits;
   
   // Full 32-bit register value.
   uint32_t value;
@@ -99,13 +92,11 @@ union M_PRG_HS_ZERO {
 //
 union MC_PRG_HS_ZERO {
   
-  // Enum definitions.
-  
   // Bit field definition.
   struct {
     uint32_t MC_PRG_HS_ZERO : 6;
     uint32_t _reserved_end : 26;
-  } bits;          // Bit-field struct (auto-filling reserved gaps)
+  } bits;
   
   // Full 32-bit register value.
   uint32_t value;
@@ -119,13 +110,11 @@ union MC_PRG_HS_ZERO {
 //
 union M_PRG_HS_TRAIL {
   
-  // Enum definitions.
-  
   // Bit field definition.
   struct {
     uint32_t M_PRG_HS_TRAIL : 4;
     uint32_t _reserved_end : 28;
-  } bits;          // Bit-field struct (auto-filling reserved gaps)
+  } bits;
   
   // Full 32-bit register value.
   uint32_t value;
@@ -139,13 +128,11 @@ union M_PRG_HS_TRAIL {
 //
 union MC_PRG_HS_TRAIL {
   
-  // Enum definitions.
-  
   // Bit field definition.
   struct {
     uint32_t MC_PRG_HS_TRAIL : 4;
     uint32_t _reserved_end : 28;
-  } bits;          // Bit-field struct (auto-filling reserved gaps)
+  } bits;
   
   // Full 32-bit register value.
   uint32_t value;
@@ -159,7 +146,6 @@ union MC_PRG_HS_TRAIL {
 //
 union PD_PLL {
   
-  // Enum definitions.
   enum class ePD_PLL : uint32_t {
     ePD_PLL_0 = 0, // Power up PLL
     ePD_PLL_1 = 1, // Power down PLL
@@ -169,7 +155,7 @@ union PD_PLL {
   struct {
     ePD_PLL PD_PLL : 1;
     uint32_t _reserved_end : 31;
-  } bits;          // Bit-field struct (auto-filling reserved gaps)
+  } bits;
   
   // Full 32-bit register value.
   uint32_t value;
@@ -183,13 +169,11 @@ union PD_PLL {
 //
 union TST {
   
-  // Enum definitions.
-  
   // Bit field definition.
   struct {
     uint32_t TST : 6;
     uint32_t _reserved_end : 26;
-  } bits;          // Bit-field struct (auto-filling reserved gaps)
+  } bits;
   
   // Full 32-bit register value.
   uint32_t value;
@@ -203,13 +187,11 @@ union TST {
 //
 union CN {
   
-  // Enum definitions.
-  
   // Bit field definition.
   struct {
     uint32_t CN : 5;
     uint32_t _reserved_end : 27;
-  } bits;          // Bit-field struct (auto-filling reserved gaps)
+  } bits;
   
   // Full 32-bit register value.
   uint32_t value;
@@ -223,13 +205,11 @@ union CN {
 //
 union CM {
   
-  // Enum definitions.
-  
   // Bit field definition.
   struct {
     uint32_t CM : 8;
     uint32_t _reserved_end : 24;
-  } bits;          // Bit-field struct (auto-filling reserved gaps)
+  } bits;
   
   // Full 32-bit register value.
   uint32_t value;
@@ -243,7 +223,6 @@ union CM {
 //
 union CO {
   
-  // Enum definitions.
   enum class eCO : uint32_t {
     eCO_0 = 0, // Divide by 1
     eCO_1 = 1, // Divide by 2
@@ -255,7 +234,7 @@ union CO {
   struct {
     eCO CO : 2;
     uint32_t _reserved_end : 30;
-  } bits;          // Bit-field struct (auto-filling reserved gaps)
+  } bits;
   
   // Full 32-bit register value.
   uint32_t value;
@@ -269,7 +248,6 @@ union CO {
 //
 union LOCK {
   
-  // Enum definitions.
   enum class eLOCK : uint32_t {
     eLOCK_0 = 0, // PLL not locked
     eLOCK_1 = 1, // PLL has achieved frequency lock
@@ -279,7 +257,7 @@ union LOCK {
   struct {
     eLOCK LOCK : 1;
     uint32_t _reserved_end : 31;
-  } bits;          // Bit-field struct (auto-filling reserved gaps)
+  } bits;
   
   // Full 32-bit register value.
   uint32_t value;
@@ -293,7 +271,6 @@ union LOCK {
 //
 union LOCK_BYP {
   
-  // Enum definitions.
   enum class eLOCK_BYP : uint32_t {
     eGATE = 0, // PLL LOCK signal will gate TxByteClkHS clock
     eNOGATE = 1, // PLL LOCK signal will not gate TxByteClkHS clock, CIL based counter will be used to gate the TxByteClkHS
@@ -303,7 +280,7 @@ union LOCK_BYP {
   struct {
     eLOCK_BYP LOCK_BYP : 1;
     uint32_t _reserved_end : 31;
-  } bits;          // Bit-field struct (auto-filling reserved gaps)
+  } bits;
   
   // Full 32-bit register value.
   uint32_t value;
@@ -317,7 +294,6 @@ union LOCK_BYP {
 //
 union TX_RCAL {
   
-  // Enum definitions.
   enum class eTX_RCAL : uint32_t {
     eTX_RCAL_0 = 0, // 20% higher than mid-range. Highest impedance setting
     eTX_RCAL_1 = 1, // Mid-range impedance setting (default)
@@ -329,7 +305,7 @@ union TX_RCAL {
   struct {
     eTX_RCAL TX_RCAL : 2;
     uint32_t _reserved_end : 30;
-  } bits;          // Bit-field struct (auto-filling reserved gaps)
+  } bits;
   
   // Full 32-bit register value.
   uint32_t value;
@@ -343,7 +319,6 @@ union TX_RCAL {
 //
 union AUTO_PD_EN {
   
-  // Enum definitions.
   enum class eAUTO_PD_EN : uint32_t {
     ePWR_UP = 0, // Inactive lanes are powered up and driving LP11
     ePWR_DWN = 1, // inactive lanes are powered down
@@ -353,7 +328,7 @@ union AUTO_PD_EN {
   struct {
     eAUTO_PD_EN AUTO_PD_EN : 1;
     uint32_t _reserved_end : 31;
-  } bits;          // Bit-field struct (auto-filling reserved gaps)
+  } bits;
   
   // Full 32-bit register value.
   uint32_t value;
@@ -367,13 +342,11 @@ union AUTO_PD_EN {
 //
 union RXLPRP {
   
-  // Enum definitions.
-  
   // Bit field definition.
   struct {
     uint32_t RXLPRP : 2;
     uint32_t _reserved_end : 30;
-  } bits;          // Bit-field struct (auto-filling reserved gaps)
+  } bits;
   
   // Full 32-bit register value.
   uint32_t value;
@@ -387,7 +360,6 @@ union RXLPRP {
 //
 union RXCDRP {
   
-  // Enum definitions.
   enum class eRXCDRP : uint32_t {
     eRXCDRP_0 = 0, // 344mV
     eRXCDRP_1 = 1, // 325mV (Default)
@@ -399,7 +371,7 @@ union RXCDRP {
   struct {
     eRXCDRP RXCDRP : 2;
     uint32_t _reserved_end : 30;
-  } bits;          // Bit-field struct (auto-filling reserved gaps)
+  } bits;
   
   // Full 32-bit register value.
   uint32_t value;

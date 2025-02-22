@@ -15,14 +15,12 @@ namespace nPGMC_CPC1_MIF1 {
 //
 union MIF_AUTHEN_CTRL {
   
-  // Enum definitions.
-  
   // Bit field definition.
   struct {
     uint32_t _reserved_0 : 20;
     uint32_t LOCK_CFG : 1;
     uint32_t _reserved_end : 11;
-  } bits;          // Bit-field struct (auto-filling reserved gaps)
+  } bits;
   
   // Full 32-bit register value.
   uint32_t value;
@@ -36,13 +34,11 @@ union MIF_AUTHEN_CTRL {
 //
 union MIF_MLPL_SLEEP {
   
-  // Enum definitions.
-  
   // Bit field definition.
   struct {
     uint32_t MLPL_CTRL : 16;
     uint32_t _reserved_end : 16;
-  } bits;          // Bit-field struct (auto-filling reserved gaps)
+  } bits;
   
   // Full 32-bit register value.
   uint32_t value;
@@ -56,13 +52,11 @@ union MIF_MLPL_SLEEP {
 //
 union MIF_MLPL_IG {
   
-  // Enum definitions.
-  
   // Bit field definition.
   struct {
     uint32_t MLPL_CTRL : 16;
     uint32_t _reserved_end : 16;
-  } bits;          // Bit-field struct (auto-filling reserved gaps)
+  } bits;
   
   // Full 32-bit register value.
   uint32_t value;
@@ -76,13 +70,11 @@ union MIF_MLPL_IG {
 //
 union MIF_MLPL_LS {
   
-  // Enum definitions.
-  
   // Bit field definition.
   struct {
     uint32_t MLPL_CTRL : 16;
     uint32_t _reserved_end : 16;
-  } bits;          // Bit-field struct (auto-filling reserved gaps)
+  } bits;
   
   // Full 32-bit register value.
   uint32_t value;
@@ -96,13 +88,11 @@ union MIF_MLPL_LS {
 //
 union MIF_MLPL_HS {
   
-  // Enum definitions.
-  
   // Bit field definition.
   struct {
     uint32_t MLPL_CTRL : 16;
     uint32_t _reserved_end : 16;
-  } bits;          // Bit-field struct (auto-filling reserved gaps)
+  } bits;
   
   // Full 32-bit register value.
   uint32_t value;
@@ -116,13 +106,11 @@ union MIF_MLPL_HS {
 //
 union MIF_MLPL_STDBY {
   
-  // Enum definitions.
-  
   // Bit field definition.
   struct {
     uint32_t MLPL_CTRL : 16;
     uint32_t _reserved_end : 16;
-  } bits;          // Bit-field struct (auto-filling reserved gaps)
+  } bits;
   
   // Full 32-bit register value.
   uint32_t value;
@@ -136,13 +124,11 @@ union MIF_MLPL_STDBY {
 //
 union MIF_MLPL_ARR_PDN {
   
-  // Enum definitions.
-  
   // Bit field definition.
   struct {
     uint32_t MLPL_CTRL : 16;
     uint32_t _reserved_end : 16;
-  } bits;          // Bit-field struct (auto-filling reserved gaps)
+  } bits;
   
   // Full 32-bit register value.
   uint32_t value;
@@ -156,13 +142,11 @@ union MIF_MLPL_ARR_PDN {
 //
 union MIF_MLPL_PER_PDN {
   
-  // Enum definitions.
-  
   // Bit field definition.
   struct {
     uint32_t MLPL_CTRL : 16;
     uint32_t _reserved_end : 16;
-  } bits;          // Bit-field struct (auto-filling reserved gaps)
+  } bits;
   
   // Full 32-bit register value.
   uint32_t value;
@@ -176,14 +160,12 @@ union MIF_MLPL_PER_PDN {
 //
 union MIF_MLPL_INITN {
   
-  // Enum definitions.
-  
   // Bit field definition.
   struct {
     uint32_t MLPL_CTRL : 16;
     uint32_t _reserved_1 : 15;
     uint32_t BYPASS_VDD_OK : 1;
-  } bits;          // Bit-field struct (auto-filling reserved gaps)
+  } bits;
   
   // Full 32-bit register value.
   uint32_t value;
@@ -197,13 +179,11 @@ union MIF_MLPL_INITN {
 //
 union MIF_MLPL_ISO {
   
-  // Enum definitions.
-  
   // Bit field definition.
   struct {
     uint32_t MLPL_CTRL : 16;
     uint32_t _reserved_end : 16;
-  } bits;          // Bit-field struct (auto-filling reserved gaps)
+  } bits;
   
   // Full 32-bit register value.
   uint32_t value;

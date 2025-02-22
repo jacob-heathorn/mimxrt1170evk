@@ -15,7 +15,6 @@ namespace nOCOTP {
 //
 union CTRL {
   
-  // Enum definitions.
   enum class eADDR : uint32_t {
     esupp_word = 0, // Address of one of the 16 supplementary fuse words in OTP memory.
     esupp_word = 1, // Address of one of the 16 supplementary fuse words in OTP memory.
@@ -284,22 +283,27 @@ union CTRL {
     euser_fuse_word = 270, // Address of one of the 256 user fuse words in OTP memory.
     euser_fuse_word = 271, // Address of one of the 256 user fuse words in OTP memory.
   };
+  
   enum class eBUSY : uint32_t {
     enot_busy = 0, // No write or read access to OTP started.
     ebusy = 1, // Write or read access to OTP started.
   };
+  
   enum class eERROR : uint32_t {
     eno_error = 0, // No error.
     eerror = 1, // Error - access to a locked region requested.
   };
+  
   enum class eRELOAD_SHADOWS : uint32_t {
     eshadow_noforce_reload = 0, // Do not force shadow register re-load.
     eshadow_force_reload = 1, // Force shadow register re-load. This bit is cleared automatically after shadow registers are re-loaded.
   };
+  
   enum class eWORDLOCK : uint32_t {
     eNO_CHANGE = 0, // No change to LOCK bit when programming a word using redundancy
     eLOCK = 1, // LOCK bit for fuse word will be set after successfully programming a word using redundancy
   };
+  
   enum class eWR_UNLOCK : uint32_t {
     eotp_w_locked = 0, // OTP write access is locked.
     eotp_w_unlocked = 15991, // OTP write access is unlocked.
@@ -314,7 +318,7 @@ union CTRL {
     uint32_t _reserved_4 : 2;
     eWORDLOCK WORDLOCK : 1;
     eWR_UNLOCK WR_UNLOCK : 16;
-  } bits;          // Bit-field struct (auto-filling reserved gaps)
+  } bits;
   
   // Full 32-bit register value.
   uint32_t value;
@@ -328,8 +332,6 @@ union CTRL {
 //
 union CTRL_SET {
   
-  // Enum definitions.
-  
   // Bit field definition.
   struct {
     uint32_t ADDR : 10;
@@ -339,7 +341,7 @@ union CTRL_SET {
     uint32_t _reserved_4 : 2;
     uint32_t WORDLOCK : 1;
     uint32_t WR_UNLOCK : 16;
-  } bits;          // Bit-field struct (auto-filling reserved gaps)
+  } bits;
   
   // Full 32-bit register value.
   uint32_t value;
@@ -353,8 +355,6 @@ union CTRL_SET {
 //
 union CTRL_CLR {
   
-  // Enum definitions.
-  
   // Bit field definition.
   struct {
     uint32_t ADDR : 10;
@@ -364,7 +364,7 @@ union CTRL_CLR {
     uint32_t _reserved_4 : 2;
     uint32_t WORDLOCK : 1;
     uint32_t WR_UNLOCK : 16;
-  } bits;          // Bit-field struct (auto-filling reserved gaps)
+  } bits;
   
   // Full 32-bit register value.
   uint32_t value;
@@ -378,8 +378,6 @@ union CTRL_CLR {
 //
 union CTRL_TOG {
   
-  // Enum definitions.
-  
   // Bit field definition.
   struct {
     uint32_t ADDR : 10;
@@ -389,7 +387,7 @@ union CTRL_TOG {
     uint32_t _reserved_4 : 2;
     uint32_t WORDLOCK : 1;
     uint32_t WR_UNLOCK : 16;
-  } bits;          // Bit-field struct (auto-filling reserved gaps)
+  } bits;
   
   // Full 32-bit register value.
   uint32_t value;
@@ -403,7 +401,6 @@ union CTRL_TOG {
 //
 union PDN {
   
-  // Enum definitions.
   enum class ePDN : uint32_t {
     epower_off = 0, // OTP memory is not powered
     epower_on = 1, // OTP memory is powered
@@ -413,7 +410,7 @@ union PDN {
   struct {
     ePDN PDN : 1;
     uint32_t _reserved_end : 31;
-  } bits;          // Bit-field struct (auto-filling reserved gaps)
+  } bits;
   
   // Full 32-bit register value.
   uint32_t value;
@@ -427,12 +424,10 @@ union PDN {
 //
 union DATA {
   
-  // Enum definitions.
-  
   // Bit field definition.
   struct {
     uint32_t DATA : 32;
-  } bits;          // Bit-field struct (auto-filling reserved gaps)
+  } bits;
   
   // Full 32-bit register value.
   uint32_t value;
@@ -446,21 +441,23 @@ union DATA {
 //
 union READ_CTRL {
   
-  // Enum definitions.
   enum class eREAD_FUSE : uint32_t {
     eDO_NOT_START_RD_OP = 0, // Do not initiate a read from OTP
     eSTART_RD_OP = 1, // Initiate a read from OTP
   };
+  
   enum class eREAD_FUSE_CNTR : uint32_t {
     eONE_WORD = 0, // 1 word
     eTWO_WORDS = 1, // 2 words
     eTHREE_WORDS = 2, // 3 words
     eFOUR_WORDS = 3, // 4 words
   };
+  
   enum class eREAD_FUSE_DONE_INTR_ENA : uint32_t {
     eDISABLE = 0, // Disable
     eENABLE = 1, // Enable
   };
+  
   enum class eREAD_FUSE_ERROR_INTR_ENA : uint32_t {
     eDISABLE = 0, // Disable
     eENABLE = 1, // Enable
@@ -473,7 +470,7 @@ union READ_CTRL {
     eREAD_FUSE_DONE_INTR_ENA READ_FUSE_DONE_INTR_ENA : 1;
     eREAD_FUSE_ERROR_INTR_ENA READ_FUSE_ERROR_INTR_ENA : 1;
     uint32_t _reserved_end : 27;
-  } bits;          // Bit-field struct (auto-filling reserved gaps)
+  } bits;
   
   // Full 32-bit register value.
   uint32_t value;
@@ -487,7 +484,6 @@ union READ_CTRL {
 //
 union OUT_STATUS {
   
-  // Enum definitions.
   enum class eREAD_ERROR_INTR : uint32_t {
     eno_error = 0, // Read operation finished with out any error
     eerror = 1, // Read operation finished with an error
@@ -513,7 +509,7 @@ union OUT_STATUS {
     uint32_t DED2 : 1;
     uint32_t DED3 : 1;
     uint32_t _reserved_end : 4;
-  } bits;          // Bit-field struct (auto-filling reserved gaps)
+  } bits;
   
   // Full 32-bit register value.
   uint32_t value;
@@ -527,8 +523,6 @@ union OUT_STATUS {
 //
 union OUT_STATUS_SET {
   
-  // Enum definitions.
-  
   // Bit field definition.
   struct {
     uint32_t _reserved_0 : 9;
@@ -549,7 +543,7 @@ union OUT_STATUS_SET {
     uint32_t DED2 : 1;
     uint32_t DED3 : 1;
     uint32_t _reserved_end : 4;
-  } bits;          // Bit-field struct (auto-filling reserved gaps)
+  } bits;
   
   // Full 32-bit register value.
   uint32_t value;
@@ -563,8 +557,6 @@ union OUT_STATUS_SET {
 //
 union OUT_STATUS_CLR {
   
-  // Enum definitions.
-  
   // Bit field definition.
   struct {
     uint32_t _reserved_0 : 9;
@@ -585,7 +577,7 @@ union OUT_STATUS_CLR {
     uint32_t DED2 : 1;
     uint32_t DED3 : 1;
     uint32_t _reserved_end : 4;
-  } bits;          // Bit-field struct (auto-filling reserved gaps)
+  } bits;
   
   // Full 32-bit register value.
   uint32_t value;
@@ -599,8 +591,6 @@ union OUT_STATUS_CLR {
 //
 union OUT_STATUS_TOG {
   
-  // Enum definitions.
-  
   // Bit field definition.
   struct {
     uint32_t _reserved_0 : 9;
@@ -621,7 +611,7 @@ union OUT_STATUS_TOG {
     uint32_t DED2 : 1;
     uint32_t DED3 : 1;
     uint32_t _reserved_end : 4;
-  } bits;          // Bit-field struct (auto-filling reserved gaps)
+  } bits;
   
   // Full 32-bit register value.
   uint32_t value;
@@ -635,14 +625,12 @@ union OUT_STATUS_TOG {
 //
 union VERSION {
   
-  // Enum definitions.
-  
   // Bit field definition.
   struct {
     uint32_t STEP : 16;
     uint32_t MINOR : 8;
     uint32_t MAJOR : 8;
-  } bits;          // Bit-field struct (auto-filling reserved gaps)
+  } bits;
   
   // Full 32-bit register value.
   uint32_t value;
@@ -656,12 +644,10 @@ union VERSION {
 //
 union READ_FUSE_DATA0 {
   
-  // Enum definitions.
-  
   // Bit field definition.
   struct {
     uint32_t DATA : 32;
-  } bits;          // Bit-field struct (auto-filling reserved gaps)
+  } bits;
   
   // Full 32-bit register value.
   uint32_t value;
@@ -675,12 +661,10 @@ union READ_FUSE_DATA0 {
 //
 union READ_FUSE_DATA1 {
   
-  // Enum definitions.
-  
   // Bit field definition.
   struct {
     uint32_t DATA : 32;
-  } bits;          // Bit-field struct (auto-filling reserved gaps)
+  } bits;
   
   // Full 32-bit register value.
   uint32_t value;
@@ -694,12 +678,10 @@ union READ_FUSE_DATA1 {
 //
 union READ_FUSE_DATA2 {
   
-  // Enum definitions.
-  
   // Bit field definition.
   struct {
     uint32_t DATA : 32;
-  } bits;          // Bit-field struct (auto-filling reserved gaps)
+  } bits;
   
   // Full 32-bit register value.
   uint32_t value;
@@ -713,12 +695,10 @@ union READ_FUSE_DATA2 {
 //
 union READ_FUSE_DATA3 {
   
-  // Enum definitions.
-  
   // Bit field definition.
   struct {
     uint32_t DATA : 32;
-  } bits;          // Bit-field struct (auto-filling reserved gaps)
+  } bits;
   
   // Full 32-bit register value.
   uint32_t value;
@@ -732,12 +712,10 @@ union READ_FUSE_DATA3 {
 //
 union SW_LOCK {
   
-  // Enum definitions.
-  
   // Bit field definition.
   struct {
     uint32_t SW_LOCK : 32;
-  } bits;          // Bit-field struct (auto-filling reserved gaps)
+  } bits;
   
   // Full 32-bit register value.
   uint32_t value;
@@ -751,12 +729,10 @@ union SW_LOCK {
 //
 union BIT_LOCK {
   
-  // Enum definitions.
-  
   // Bit field definition.
   struct {
     uint32_t BIT_LOCK : 32;
-  } bits;          // Bit-field struct (auto-filling reserved gaps)
+  } bits;
   
   // Full 32-bit register value.
   uint32_t value;
@@ -770,13 +746,11 @@ union BIT_LOCK {
 //
 union LOCKED0 {
   
-  // Enum definitions.
-  
   // Bit field definition.
   struct {
     uint32_t LOCKED : 16;
     uint32_t _reserved_end : 16;
-  } bits;          // Bit-field struct (auto-filling reserved gaps)
+  } bits;
   
   // Full 32-bit register value.
   uint32_t value;
@@ -790,12 +764,10 @@ union LOCKED0 {
 //
 union LOCKED1 {
   
-  // Enum definitions.
-  
   // Bit field definition.
   struct {
     uint32_t LOCKED : 32;
-  } bits;          // Bit-field struct (auto-filling reserved gaps)
+  } bits;
   
   // Full 32-bit register value.
   uint32_t value;
@@ -809,12 +781,10 @@ union LOCKED1 {
 //
 union LOCKED2 {
   
-  // Enum definitions.
-  
   // Bit field definition.
   struct {
     uint32_t LOCKED : 32;
-  } bits;          // Bit-field struct (auto-filling reserved gaps)
+  } bits;
   
   // Full 32-bit register value.
   uint32_t value;
@@ -828,12 +798,10 @@ union LOCKED2 {
 //
 union LOCKED3 {
   
-  // Enum definitions.
-  
   // Bit field definition.
   struct {
     uint32_t LOCKED : 32;
-  } bits;          // Bit-field struct (auto-filling reserved gaps)
+  } bits;
   
   // Full 32-bit register value.
   uint32_t value;
@@ -847,12 +815,10 @@ union LOCKED3 {
 //
 union LOCKED4 {
   
-  // Enum definitions.
-  
   // Bit field definition.
   struct {
     uint32_t LOCKED : 32;
-  } bits;          // Bit-field struct (auto-filling reserved gaps)
+  } bits;
   
   // Full 32-bit register value.
   uint32_t value;

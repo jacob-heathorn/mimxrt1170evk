@@ -15,11 +15,11 @@ namespace nSSARC_LP {
 //
 union DESC_CTRL0_0 {
   
-  // Enum definitions.
   enum class eSV_ORDER : uint32_t {
     eSV_START_END = 0, // Descriptors within the group are processed from start to end
     eSV_END_START = 1, // Descriptors within the group are processed from end to start
   };
+  
   enum class eRT_ORDER : uint32_t {
     eRT_START_END = 0, // Descriptors within the group are processed from start to end
     eRT_END_START = 1, // Descriptors within the group are processed from end to start
@@ -32,7 +32,7 @@ union DESC_CTRL0_0 {
     eSV_ORDER SV_ORDER : 1;
     eRT_ORDER RT_ORDER : 1;
     uint32_t _reserved_end : 10;
-  } bits;          // Bit-field struct (auto-filling reserved gaps)
+  } bits;
   
   // Full 32-bit register value.
   uint32_t value;
@@ -46,15 +46,16 @@ union DESC_CTRL0_0 {
 //
 union DESC_CTRL1_0 {
   
-  // Enum definitions.
   enum class eSW_TRIG_SV : uint32_t {
     eREQ_NO = 0, // No software save request/software restore request complete
     eREQ_YES = 1, // Request a software save operation/software restore operation in progress
   };
+  
   enum class eSW_TRIG_RT : uint32_t {
     eREQ_NO = 0, // No software restore request/software restore request complete
     eREQ_YES = 1, // Request a software restore operation/software restore operation in progress
   };
+  
   enum class ePOWER_DOMAIN : uint32_t {
     eDOMAIN0 = 0, // PGMC_BPC0
     eDOMAIN1 = 1, // PGMC_BPC1
@@ -65,18 +66,22 @@ union DESC_CTRL1_0 {
     eDOMAIN6 = 6, // PGMC_BPC6
     eDOMAIN7 = 7, // PGMC_BPC7
   };
+  
   enum class eGP_EN : uint32_t {
     eGP_DIS = 0, // Group disabled
     eGP_EN = 1, // Group enabled
   };
+  
   enum class eRL : uint32_t {
     eR_UNLOCK = 0, // Group is unlocked (read access allowed)
     eR_LOCK = 1, // Group is locked (read access not allowed)
   };
+  
   enum class eWL : uint32_t {
     eW_UNLOCK = 0, // Group is unlocked (write access allowed)
     eW_LOCK = 1, // Group is locked (write access not allowed)
   };
+  
   enum class eDL : uint32_t {
     eD_UNLOCK = 0, // Unlock
     eD_LOCK = 1, // Lock
@@ -96,7 +101,7 @@ union DESC_CTRL1_0 {
     eWL WL : 1;
     eDL DL : 1;
     uint32_t _reserved_end : 11;
-  } bits;          // Bit-field struct (auto-filling reserved gaps)
+  } bits;
   
   // Full 32-bit register value.
   uint32_t value;
@@ -110,12 +115,10 @@ union DESC_CTRL1_0 {
 //
 union DESC_ADDR_UP_0 {
   
-  // Enum definitions.
-  
   // Bit field definition.
   struct {
     uint32_t ADDR_UP : 32;
-  } bits;          // Bit-field struct (auto-filling reserved gaps)
+  } bits;
   
   // Full 32-bit register value.
   uint32_t value;
@@ -129,12 +132,10 @@ union DESC_ADDR_UP_0 {
 //
 union DESC_ADDR_DOWN_0 {
   
-  // Enum definitions.
-  
   // Bit field definition.
   struct {
     uint32_t ADDR_DOWN : 32;
-  } bits;          // Bit-field struct (auto-filling reserved gaps)
+  } bits;
   
   // Full 32-bit register value.
   uint32_t value;
@@ -148,11 +149,11 @@ union DESC_ADDR_DOWN_0 {
 //
 union DESC_CTRL0_1 {
   
-  // Enum definitions.
   enum class eSV_ORDER : uint32_t {
     eSV_START_END = 0, // Descriptors within the group are processed from start to end
     eSV_END_START = 1, // Descriptors within the group are processed from end to start
   };
+  
   enum class eRT_ORDER : uint32_t {
     eRT_START_END = 0, // Descriptors within the group are processed from start to end
     eRT_END_START = 1, // Descriptors within the group are processed from end to start
@@ -165,7 +166,7 @@ union DESC_CTRL0_1 {
     eSV_ORDER SV_ORDER : 1;
     eRT_ORDER RT_ORDER : 1;
     uint32_t _reserved_end : 10;
-  } bits;          // Bit-field struct (auto-filling reserved gaps)
+  } bits;
   
   // Full 32-bit register value.
   uint32_t value;
@@ -179,15 +180,16 @@ union DESC_CTRL0_1 {
 //
 union DESC_CTRL1_1 {
   
-  // Enum definitions.
   enum class eSW_TRIG_SV : uint32_t {
     eREQ_NO = 0, // No software save request/software restore request complete
     eREQ_YES = 1, // Request a software save operation/software restore operation in progress
   };
+  
   enum class eSW_TRIG_RT : uint32_t {
     eREQ_NO = 0, // No software restore request/software restore request complete
     eREQ_YES = 1, // Request a software restore operation/software restore operation in progress
   };
+  
   enum class ePOWER_DOMAIN : uint32_t {
     eDOMAIN0 = 0, // PGMC_BPC0
     eDOMAIN1 = 1, // PGMC_BPC1
@@ -198,18 +200,22 @@ union DESC_CTRL1_1 {
     eDOMAIN6 = 6, // PGMC_BPC6
     eDOMAIN7 = 7, // PGMC_BPC7
   };
+  
   enum class eGP_EN : uint32_t {
     eGP_DIS = 0, // Group disabled
     eGP_EN = 1, // Group enabled
   };
+  
   enum class eRL : uint32_t {
     eR_UNLOCK = 0, // Group is unlocked (read access allowed)
     eR_LOCK = 1, // Group is locked (read access not allowed)
   };
+  
   enum class eWL : uint32_t {
     eW_UNLOCK = 0, // Group is unlocked (write access allowed)
     eW_LOCK = 1, // Group is locked (write access not allowed)
   };
+  
   enum class eDL : uint32_t {
     eD_UNLOCK = 0, // Unlock
     eD_LOCK = 1, // Lock
@@ -229,7 +235,7 @@ union DESC_CTRL1_1 {
     eWL WL : 1;
     eDL DL : 1;
     uint32_t _reserved_end : 11;
-  } bits;          // Bit-field struct (auto-filling reserved gaps)
+  } bits;
   
   // Full 32-bit register value.
   uint32_t value;
@@ -243,12 +249,10 @@ union DESC_CTRL1_1 {
 //
 union DESC_ADDR_UP_1 {
   
-  // Enum definitions.
-  
   // Bit field definition.
   struct {
     uint32_t ADDR_UP : 32;
-  } bits;          // Bit-field struct (auto-filling reserved gaps)
+  } bits;
   
   // Full 32-bit register value.
   uint32_t value;
@@ -262,12 +266,10 @@ union DESC_ADDR_UP_1 {
 //
 union DESC_ADDR_DOWN_1 {
   
-  // Enum definitions.
-  
   // Bit field definition.
   struct {
     uint32_t ADDR_DOWN : 32;
-  } bits;          // Bit-field struct (auto-filling reserved gaps)
+  } bits;
   
   // Full 32-bit register value.
   uint32_t value;
@@ -281,11 +283,11 @@ union DESC_ADDR_DOWN_1 {
 //
 union DESC_CTRL0_2 {
   
-  // Enum definitions.
   enum class eSV_ORDER : uint32_t {
     eSV_START_END = 0, // Descriptors within the group are processed from start to end
     eSV_END_START = 1, // Descriptors within the group are processed from end to start
   };
+  
   enum class eRT_ORDER : uint32_t {
     eRT_START_END = 0, // Descriptors within the group are processed from start to end
     eRT_END_START = 1, // Descriptors within the group are processed from end to start
@@ -298,7 +300,7 @@ union DESC_CTRL0_2 {
     eSV_ORDER SV_ORDER : 1;
     eRT_ORDER RT_ORDER : 1;
     uint32_t _reserved_end : 10;
-  } bits;          // Bit-field struct (auto-filling reserved gaps)
+  } bits;
   
   // Full 32-bit register value.
   uint32_t value;
@@ -312,15 +314,16 @@ union DESC_CTRL0_2 {
 //
 union DESC_CTRL1_2 {
   
-  // Enum definitions.
   enum class eSW_TRIG_SV : uint32_t {
     eREQ_NO = 0, // No software save request/software restore request complete
     eREQ_YES = 1, // Request a software save operation/software restore operation in progress
   };
+  
   enum class eSW_TRIG_RT : uint32_t {
     eREQ_NO = 0, // No software restore request/software restore request complete
     eREQ_YES = 1, // Request a software restore operation/software restore operation in progress
   };
+  
   enum class ePOWER_DOMAIN : uint32_t {
     eDOMAIN0 = 0, // PGMC_BPC0
     eDOMAIN1 = 1, // PGMC_BPC1
@@ -331,18 +334,22 @@ union DESC_CTRL1_2 {
     eDOMAIN6 = 6, // PGMC_BPC6
     eDOMAIN7 = 7, // PGMC_BPC7
   };
+  
   enum class eGP_EN : uint32_t {
     eGP_DIS = 0, // Group disabled
     eGP_EN = 1, // Group enabled
   };
+  
   enum class eRL : uint32_t {
     eR_UNLOCK = 0, // Group is unlocked (read access allowed)
     eR_LOCK = 1, // Group is locked (read access not allowed)
   };
+  
   enum class eWL : uint32_t {
     eW_UNLOCK = 0, // Group is unlocked (write access allowed)
     eW_LOCK = 1, // Group is locked (write access not allowed)
   };
+  
   enum class eDL : uint32_t {
     eD_UNLOCK = 0, // Unlock
     eD_LOCK = 1, // Lock
@@ -362,7 +369,7 @@ union DESC_CTRL1_2 {
     eWL WL : 1;
     eDL DL : 1;
     uint32_t _reserved_end : 11;
-  } bits;          // Bit-field struct (auto-filling reserved gaps)
+  } bits;
   
   // Full 32-bit register value.
   uint32_t value;
@@ -376,12 +383,10 @@ union DESC_CTRL1_2 {
 //
 union DESC_ADDR_UP_2 {
   
-  // Enum definitions.
-  
   // Bit field definition.
   struct {
     uint32_t ADDR_UP : 32;
-  } bits;          // Bit-field struct (auto-filling reserved gaps)
+  } bits;
   
   // Full 32-bit register value.
   uint32_t value;
@@ -395,12 +400,10 @@ union DESC_ADDR_UP_2 {
 //
 union DESC_ADDR_DOWN_2 {
   
-  // Enum definitions.
-  
   // Bit field definition.
   struct {
     uint32_t ADDR_DOWN : 32;
-  } bits;          // Bit-field struct (auto-filling reserved gaps)
+  } bits;
   
   // Full 32-bit register value.
   uint32_t value;
@@ -414,11 +417,11 @@ union DESC_ADDR_DOWN_2 {
 //
 union DESC_CTRL0_3 {
   
-  // Enum definitions.
   enum class eSV_ORDER : uint32_t {
     eSV_START_END = 0, // Descriptors within the group are processed from start to end
     eSV_END_START = 1, // Descriptors within the group are processed from end to start
   };
+  
   enum class eRT_ORDER : uint32_t {
     eRT_START_END = 0, // Descriptors within the group are processed from start to end
     eRT_END_START = 1, // Descriptors within the group are processed from end to start
@@ -431,7 +434,7 @@ union DESC_CTRL0_3 {
     eSV_ORDER SV_ORDER : 1;
     eRT_ORDER RT_ORDER : 1;
     uint32_t _reserved_end : 10;
-  } bits;          // Bit-field struct (auto-filling reserved gaps)
+  } bits;
   
   // Full 32-bit register value.
   uint32_t value;
@@ -445,15 +448,16 @@ union DESC_CTRL0_3 {
 //
 union DESC_CTRL1_3 {
   
-  // Enum definitions.
   enum class eSW_TRIG_SV : uint32_t {
     eREQ_NO = 0, // No software save request/software restore request complete
     eREQ_YES = 1, // Request a software save operation/software restore operation in progress
   };
+  
   enum class eSW_TRIG_RT : uint32_t {
     eREQ_NO = 0, // No software restore request/software restore request complete
     eREQ_YES = 1, // Request a software restore operation/software restore operation in progress
   };
+  
   enum class ePOWER_DOMAIN : uint32_t {
     eDOMAIN0 = 0, // PGMC_BPC0
     eDOMAIN1 = 1, // PGMC_BPC1
@@ -464,18 +468,22 @@ union DESC_CTRL1_3 {
     eDOMAIN6 = 6, // PGMC_BPC6
     eDOMAIN7 = 7, // PGMC_BPC7
   };
+  
   enum class eGP_EN : uint32_t {
     eGP_DIS = 0, // Group disabled
     eGP_EN = 1, // Group enabled
   };
+  
   enum class eRL : uint32_t {
     eR_UNLOCK = 0, // Group is unlocked (read access allowed)
     eR_LOCK = 1, // Group is locked (read access not allowed)
   };
+  
   enum class eWL : uint32_t {
     eW_UNLOCK = 0, // Group is unlocked (write access allowed)
     eW_LOCK = 1, // Group is locked (write access not allowed)
   };
+  
   enum class eDL : uint32_t {
     eD_UNLOCK = 0, // Unlock
     eD_LOCK = 1, // Lock
@@ -495,7 +503,7 @@ union DESC_CTRL1_3 {
     eWL WL : 1;
     eDL DL : 1;
     uint32_t _reserved_end : 11;
-  } bits;          // Bit-field struct (auto-filling reserved gaps)
+  } bits;
   
   // Full 32-bit register value.
   uint32_t value;
@@ -509,12 +517,10 @@ union DESC_CTRL1_3 {
 //
 union DESC_ADDR_UP_3 {
   
-  // Enum definitions.
-  
   // Bit field definition.
   struct {
     uint32_t ADDR_UP : 32;
-  } bits;          // Bit-field struct (auto-filling reserved gaps)
+  } bits;
   
   // Full 32-bit register value.
   uint32_t value;
@@ -528,12 +534,10 @@ union DESC_ADDR_UP_3 {
 //
 union DESC_ADDR_DOWN_3 {
   
-  // Enum definitions.
-  
   // Bit field definition.
   struct {
     uint32_t ADDR_DOWN : 32;
-  } bits;          // Bit-field struct (auto-filling reserved gaps)
+  } bits;
   
   // Full 32-bit register value.
   uint32_t value;
@@ -547,11 +551,11 @@ union DESC_ADDR_DOWN_3 {
 //
 union DESC_CTRL0_4 {
   
-  // Enum definitions.
   enum class eSV_ORDER : uint32_t {
     eSV_START_END = 0, // Descriptors within the group are processed from start to end
     eSV_END_START = 1, // Descriptors within the group are processed from end to start
   };
+  
   enum class eRT_ORDER : uint32_t {
     eRT_START_END = 0, // Descriptors within the group are processed from start to end
     eRT_END_START = 1, // Descriptors within the group are processed from end to start
@@ -564,7 +568,7 @@ union DESC_CTRL0_4 {
     eSV_ORDER SV_ORDER : 1;
     eRT_ORDER RT_ORDER : 1;
     uint32_t _reserved_end : 10;
-  } bits;          // Bit-field struct (auto-filling reserved gaps)
+  } bits;
   
   // Full 32-bit register value.
   uint32_t value;
@@ -578,15 +582,16 @@ union DESC_CTRL0_4 {
 //
 union DESC_CTRL1_4 {
   
-  // Enum definitions.
   enum class eSW_TRIG_SV : uint32_t {
     eREQ_NO = 0, // No software save request/software restore request complete
     eREQ_YES = 1, // Request a software save operation/software restore operation in progress
   };
+  
   enum class eSW_TRIG_RT : uint32_t {
     eREQ_NO = 0, // No software restore request/software restore request complete
     eREQ_YES = 1, // Request a software restore operation/software restore operation in progress
   };
+  
   enum class ePOWER_DOMAIN : uint32_t {
     eDOMAIN0 = 0, // PGMC_BPC0
     eDOMAIN1 = 1, // PGMC_BPC1
@@ -597,18 +602,22 @@ union DESC_CTRL1_4 {
     eDOMAIN6 = 6, // PGMC_BPC6
     eDOMAIN7 = 7, // PGMC_BPC7
   };
+  
   enum class eGP_EN : uint32_t {
     eGP_DIS = 0, // Group disabled
     eGP_EN = 1, // Group enabled
   };
+  
   enum class eRL : uint32_t {
     eR_UNLOCK = 0, // Group is unlocked (read access allowed)
     eR_LOCK = 1, // Group is locked (read access not allowed)
   };
+  
   enum class eWL : uint32_t {
     eW_UNLOCK = 0, // Group is unlocked (write access allowed)
     eW_LOCK = 1, // Group is locked (write access not allowed)
   };
+  
   enum class eDL : uint32_t {
     eD_UNLOCK = 0, // Unlock
     eD_LOCK = 1, // Lock
@@ -628,7 +637,7 @@ union DESC_CTRL1_4 {
     eWL WL : 1;
     eDL DL : 1;
     uint32_t _reserved_end : 11;
-  } bits;          // Bit-field struct (auto-filling reserved gaps)
+  } bits;
   
   // Full 32-bit register value.
   uint32_t value;
@@ -642,12 +651,10 @@ union DESC_CTRL1_4 {
 //
 union DESC_ADDR_UP_4 {
   
-  // Enum definitions.
-  
   // Bit field definition.
   struct {
     uint32_t ADDR_UP : 32;
-  } bits;          // Bit-field struct (auto-filling reserved gaps)
+  } bits;
   
   // Full 32-bit register value.
   uint32_t value;
@@ -661,12 +668,10 @@ union DESC_ADDR_UP_4 {
 //
 union DESC_ADDR_DOWN_4 {
   
-  // Enum definitions.
-  
   // Bit field definition.
   struct {
     uint32_t ADDR_DOWN : 32;
-  } bits;          // Bit-field struct (auto-filling reserved gaps)
+  } bits;
   
   // Full 32-bit register value.
   uint32_t value;
@@ -680,11 +685,11 @@ union DESC_ADDR_DOWN_4 {
 //
 union DESC_CTRL0_5 {
   
-  // Enum definitions.
   enum class eSV_ORDER : uint32_t {
     eSV_START_END = 0, // Descriptors within the group are processed from start to end
     eSV_END_START = 1, // Descriptors within the group are processed from end to start
   };
+  
   enum class eRT_ORDER : uint32_t {
     eRT_START_END = 0, // Descriptors within the group are processed from start to end
     eRT_END_START = 1, // Descriptors within the group are processed from end to start
@@ -697,7 +702,7 @@ union DESC_CTRL0_5 {
     eSV_ORDER SV_ORDER : 1;
     eRT_ORDER RT_ORDER : 1;
     uint32_t _reserved_end : 10;
-  } bits;          // Bit-field struct (auto-filling reserved gaps)
+  } bits;
   
   // Full 32-bit register value.
   uint32_t value;
@@ -711,15 +716,16 @@ union DESC_CTRL0_5 {
 //
 union DESC_CTRL1_5 {
   
-  // Enum definitions.
   enum class eSW_TRIG_SV : uint32_t {
     eREQ_NO = 0, // No software save request/software restore request complete
     eREQ_YES = 1, // Request a software save operation/software restore operation in progress
   };
+  
   enum class eSW_TRIG_RT : uint32_t {
     eREQ_NO = 0, // No software restore request/software restore request complete
     eREQ_YES = 1, // Request a software restore operation/software restore operation in progress
   };
+  
   enum class ePOWER_DOMAIN : uint32_t {
     eDOMAIN0 = 0, // PGMC_BPC0
     eDOMAIN1 = 1, // PGMC_BPC1
@@ -730,18 +736,22 @@ union DESC_CTRL1_5 {
     eDOMAIN6 = 6, // PGMC_BPC6
     eDOMAIN7 = 7, // PGMC_BPC7
   };
+  
   enum class eGP_EN : uint32_t {
     eGP_DIS = 0, // Group disabled
     eGP_EN = 1, // Group enabled
   };
+  
   enum class eRL : uint32_t {
     eR_UNLOCK = 0, // Group is unlocked (read access allowed)
     eR_LOCK = 1, // Group is locked (read access not allowed)
   };
+  
   enum class eWL : uint32_t {
     eW_UNLOCK = 0, // Group is unlocked (write access allowed)
     eW_LOCK = 1, // Group is locked (write access not allowed)
   };
+  
   enum class eDL : uint32_t {
     eD_UNLOCK = 0, // Unlock
     eD_LOCK = 1, // Lock
@@ -761,7 +771,7 @@ union DESC_CTRL1_5 {
     eWL WL : 1;
     eDL DL : 1;
     uint32_t _reserved_end : 11;
-  } bits;          // Bit-field struct (auto-filling reserved gaps)
+  } bits;
   
   // Full 32-bit register value.
   uint32_t value;
@@ -775,12 +785,10 @@ union DESC_CTRL1_5 {
 //
 union DESC_ADDR_UP_5 {
   
-  // Enum definitions.
-  
   // Bit field definition.
   struct {
     uint32_t ADDR_UP : 32;
-  } bits;          // Bit-field struct (auto-filling reserved gaps)
+  } bits;
   
   // Full 32-bit register value.
   uint32_t value;
@@ -794,12 +802,10 @@ union DESC_ADDR_UP_5 {
 //
 union DESC_ADDR_DOWN_5 {
   
-  // Enum definitions.
-  
   // Bit field definition.
   struct {
     uint32_t ADDR_DOWN : 32;
-  } bits;          // Bit-field struct (auto-filling reserved gaps)
+  } bits;
   
   // Full 32-bit register value.
   uint32_t value;
@@ -813,11 +819,11 @@ union DESC_ADDR_DOWN_5 {
 //
 union DESC_CTRL0_6 {
   
-  // Enum definitions.
   enum class eSV_ORDER : uint32_t {
     eSV_START_END = 0, // Descriptors within the group are processed from start to end
     eSV_END_START = 1, // Descriptors within the group are processed from end to start
   };
+  
   enum class eRT_ORDER : uint32_t {
     eRT_START_END = 0, // Descriptors within the group are processed from start to end
     eRT_END_START = 1, // Descriptors within the group are processed from end to start
@@ -830,7 +836,7 @@ union DESC_CTRL0_6 {
     eSV_ORDER SV_ORDER : 1;
     eRT_ORDER RT_ORDER : 1;
     uint32_t _reserved_end : 10;
-  } bits;          // Bit-field struct (auto-filling reserved gaps)
+  } bits;
   
   // Full 32-bit register value.
   uint32_t value;
@@ -844,15 +850,16 @@ union DESC_CTRL0_6 {
 //
 union DESC_CTRL1_6 {
   
-  // Enum definitions.
   enum class eSW_TRIG_SV : uint32_t {
     eREQ_NO = 0, // No software save request/software restore request complete
     eREQ_YES = 1, // Request a software save operation/software restore operation in progress
   };
+  
   enum class eSW_TRIG_RT : uint32_t {
     eREQ_NO = 0, // No software restore request/software restore request complete
     eREQ_YES = 1, // Request a software restore operation/software restore operation in progress
   };
+  
   enum class ePOWER_DOMAIN : uint32_t {
     eDOMAIN0 = 0, // PGMC_BPC0
     eDOMAIN1 = 1, // PGMC_BPC1
@@ -863,18 +870,22 @@ union DESC_CTRL1_6 {
     eDOMAIN6 = 6, // PGMC_BPC6
     eDOMAIN7 = 7, // PGMC_BPC7
   };
+  
   enum class eGP_EN : uint32_t {
     eGP_DIS = 0, // Group disabled
     eGP_EN = 1, // Group enabled
   };
+  
   enum class eRL : uint32_t {
     eR_UNLOCK = 0, // Group is unlocked (read access allowed)
     eR_LOCK = 1, // Group is locked (read access not allowed)
   };
+  
   enum class eWL : uint32_t {
     eW_UNLOCK = 0, // Group is unlocked (write access allowed)
     eW_LOCK = 1, // Group is locked (write access not allowed)
   };
+  
   enum class eDL : uint32_t {
     eD_UNLOCK = 0, // Unlock
     eD_LOCK = 1, // Lock
@@ -894,7 +905,7 @@ union DESC_CTRL1_6 {
     eWL WL : 1;
     eDL DL : 1;
     uint32_t _reserved_end : 11;
-  } bits;          // Bit-field struct (auto-filling reserved gaps)
+  } bits;
   
   // Full 32-bit register value.
   uint32_t value;
@@ -908,12 +919,10 @@ union DESC_CTRL1_6 {
 //
 union DESC_ADDR_UP_6 {
   
-  // Enum definitions.
-  
   // Bit field definition.
   struct {
     uint32_t ADDR_UP : 32;
-  } bits;          // Bit-field struct (auto-filling reserved gaps)
+  } bits;
   
   // Full 32-bit register value.
   uint32_t value;
@@ -927,12 +936,10 @@ union DESC_ADDR_UP_6 {
 //
 union DESC_ADDR_DOWN_6 {
   
-  // Enum definitions.
-  
   // Bit field definition.
   struct {
     uint32_t ADDR_DOWN : 32;
-  } bits;          // Bit-field struct (auto-filling reserved gaps)
+  } bits;
   
   // Full 32-bit register value.
   uint32_t value;
@@ -946,11 +953,11 @@ union DESC_ADDR_DOWN_6 {
 //
 union DESC_CTRL0_7 {
   
-  // Enum definitions.
   enum class eSV_ORDER : uint32_t {
     eSV_START_END = 0, // Descriptors within the group are processed from start to end
     eSV_END_START = 1, // Descriptors within the group are processed from end to start
   };
+  
   enum class eRT_ORDER : uint32_t {
     eRT_START_END = 0, // Descriptors within the group are processed from start to end
     eRT_END_START = 1, // Descriptors within the group are processed from end to start
@@ -963,7 +970,7 @@ union DESC_CTRL0_7 {
     eSV_ORDER SV_ORDER : 1;
     eRT_ORDER RT_ORDER : 1;
     uint32_t _reserved_end : 10;
-  } bits;          // Bit-field struct (auto-filling reserved gaps)
+  } bits;
   
   // Full 32-bit register value.
   uint32_t value;
@@ -977,15 +984,16 @@ union DESC_CTRL0_7 {
 //
 union DESC_CTRL1_7 {
   
-  // Enum definitions.
   enum class eSW_TRIG_SV : uint32_t {
     eREQ_NO = 0, // No software save request/software restore request complete
     eREQ_YES = 1, // Request a software save operation/software restore operation in progress
   };
+  
   enum class eSW_TRIG_RT : uint32_t {
     eREQ_NO = 0, // No software restore request/software restore request complete
     eREQ_YES = 1, // Request a software restore operation/software restore operation in progress
   };
+  
   enum class ePOWER_DOMAIN : uint32_t {
     eDOMAIN0 = 0, // PGMC_BPC0
     eDOMAIN1 = 1, // PGMC_BPC1
@@ -996,18 +1004,22 @@ union DESC_CTRL1_7 {
     eDOMAIN6 = 6, // PGMC_BPC6
     eDOMAIN7 = 7, // PGMC_BPC7
   };
+  
   enum class eGP_EN : uint32_t {
     eGP_DIS = 0, // Group disabled
     eGP_EN = 1, // Group enabled
   };
+  
   enum class eRL : uint32_t {
     eR_UNLOCK = 0, // Group is unlocked (read access allowed)
     eR_LOCK = 1, // Group is locked (read access not allowed)
   };
+  
   enum class eWL : uint32_t {
     eW_UNLOCK = 0, // Group is unlocked (write access allowed)
     eW_LOCK = 1, // Group is locked (write access not allowed)
   };
+  
   enum class eDL : uint32_t {
     eD_UNLOCK = 0, // Unlock
     eD_LOCK = 1, // Lock
@@ -1027,7 +1039,7 @@ union DESC_CTRL1_7 {
     eWL WL : 1;
     eDL DL : 1;
     uint32_t _reserved_end : 11;
-  } bits;          // Bit-field struct (auto-filling reserved gaps)
+  } bits;
   
   // Full 32-bit register value.
   uint32_t value;
@@ -1041,12 +1053,10 @@ union DESC_CTRL1_7 {
 //
 union DESC_ADDR_UP_7 {
   
-  // Enum definitions.
-  
   // Bit field definition.
   struct {
     uint32_t ADDR_UP : 32;
-  } bits;          // Bit-field struct (auto-filling reserved gaps)
+  } bits;
   
   // Full 32-bit register value.
   uint32_t value;
@@ -1060,12 +1070,10 @@ union DESC_ADDR_UP_7 {
 //
 union DESC_ADDR_DOWN_7 {
   
-  // Enum definitions.
-  
   // Bit field definition.
   struct {
     uint32_t ADDR_DOWN : 32;
-  } bits;          // Bit-field struct (auto-filling reserved gaps)
+  } bits;
   
   // Full 32-bit register value.
   uint32_t value;
@@ -1079,11 +1087,11 @@ union DESC_ADDR_DOWN_7 {
 //
 union DESC_CTRL0_8 {
   
-  // Enum definitions.
   enum class eSV_ORDER : uint32_t {
     eSV_START_END = 0, // Descriptors within the group are processed from start to end
     eSV_END_START = 1, // Descriptors within the group are processed from end to start
   };
+  
   enum class eRT_ORDER : uint32_t {
     eRT_START_END = 0, // Descriptors within the group are processed from start to end
     eRT_END_START = 1, // Descriptors within the group are processed from end to start
@@ -1096,7 +1104,7 @@ union DESC_CTRL0_8 {
     eSV_ORDER SV_ORDER : 1;
     eRT_ORDER RT_ORDER : 1;
     uint32_t _reserved_end : 10;
-  } bits;          // Bit-field struct (auto-filling reserved gaps)
+  } bits;
   
   // Full 32-bit register value.
   uint32_t value;
@@ -1110,15 +1118,16 @@ union DESC_CTRL0_8 {
 //
 union DESC_CTRL1_8 {
   
-  // Enum definitions.
   enum class eSW_TRIG_SV : uint32_t {
     eREQ_NO = 0, // No software save request/software restore request complete
     eREQ_YES = 1, // Request a software save operation/software restore operation in progress
   };
+  
   enum class eSW_TRIG_RT : uint32_t {
     eREQ_NO = 0, // No software restore request/software restore request complete
     eREQ_YES = 1, // Request a software restore operation/software restore operation in progress
   };
+  
   enum class ePOWER_DOMAIN : uint32_t {
     eDOMAIN0 = 0, // PGMC_BPC0
     eDOMAIN1 = 1, // PGMC_BPC1
@@ -1129,18 +1138,22 @@ union DESC_CTRL1_8 {
     eDOMAIN6 = 6, // PGMC_BPC6
     eDOMAIN7 = 7, // PGMC_BPC7
   };
+  
   enum class eGP_EN : uint32_t {
     eGP_DIS = 0, // Group disabled
     eGP_EN = 1, // Group enabled
   };
+  
   enum class eRL : uint32_t {
     eR_UNLOCK = 0, // Group is unlocked (read access allowed)
     eR_LOCK = 1, // Group is locked (read access not allowed)
   };
+  
   enum class eWL : uint32_t {
     eW_UNLOCK = 0, // Group is unlocked (write access allowed)
     eW_LOCK = 1, // Group is locked (write access not allowed)
   };
+  
   enum class eDL : uint32_t {
     eD_UNLOCK = 0, // Unlock
     eD_LOCK = 1, // Lock
@@ -1160,7 +1173,7 @@ union DESC_CTRL1_8 {
     eWL WL : 1;
     eDL DL : 1;
     uint32_t _reserved_end : 11;
-  } bits;          // Bit-field struct (auto-filling reserved gaps)
+  } bits;
   
   // Full 32-bit register value.
   uint32_t value;
@@ -1174,12 +1187,10 @@ union DESC_CTRL1_8 {
 //
 union DESC_ADDR_UP_8 {
   
-  // Enum definitions.
-  
   // Bit field definition.
   struct {
     uint32_t ADDR_UP : 32;
-  } bits;          // Bit-field struct (auto-filling reserved gaps)
+  } bits;
   
   // Full 32-bit register value.
   uint32_t value;
@@ -1193,12 +1204,10 @@ union DESC_ADDR_UP_8 {
 //
 union DESC_ADDR_DOWN_8 {
   
-  // Enum definitions.
-  
   // Bit field definition.
   struct {
     uint32_t ADDR_DOWN : 32;
-  } bits;          // Bit-field struct (auto-filling reserved gaps)
+  } bits;
   
   // Full 32-bit register value.
   uint32_t value;
@@ -1212,11 +1221,11 @@ union DESC_ADDR_DOWN_8 {
 //
 union DESC_CTRL0_9 {
   
-  // Enum definitions.
   enum class eSV_ORDER : uint32_t {
     eSV_START_END = 0, // Descriptors within the group are processed from start to end
     eSV_END_START = 1, // Descriptors within the group are processed from end to start
   };
+  
   enum class eRT_ORDER : uint32_t {
     eRT_START_END = 0, // Descriptors within the group are processed from start to end
     eRT_END_START = 1, // Descriptors within the group are processed from end to start
@@ -1229,7 +1238,7 @@ union DESC_CTRL0_9 {
     eSV_ORDER SV_ORDER : 1;
     eRT_ORDER RT_ORDER : 1;
     uint32_t _reserved_end : 10;
-  } bits;          // Bit-field struct (auto-filling reserved gaps)
+  } bits;
   
   // Full 32-bit register value.
   uint32_t value;
@@ -1243,15 +1252,16 @@ union DESC_CTRL0_9 {
 //
 union DESC_CTRL1_9 {
   
-  // Enum definitions.
   enum class eSW_TRIG_SV : uint32_t {
     eREQ_NO = 0, // No software save request/software restore request complete
     eREQ_YES = 1, // Request a software save operation/software restore operation in progress
   };
+  
   enum class eSW_TRIG_RT : uint32_t {
     eREQ_NO = 0, // No software restore request/software restore request complete
     eREQ_YES = 1, // Request a software restore operation/software restore operation in progress
   };
+  
   enum class ePOWER_DOMAIN : uint32_t {
     eDOMAIN0 = 0, // PGMC_BPC0
     eDOMAIN1 = 1, // PGMC_BPC1
@@ -1262,18 +1272,22 @@ union DESC_CTRL1_9 {
     eDOMAIN6 = 6, // PGMC_BPC6
     eDOMAIN7 = 7, // PGMC_BPC7
   };
+  
   enum class eGP_EN : uint32_t {
     eGP_DIS = 0, // Group disabled
     eGP_EN = 1, // Group enabled
   };
+  
   enum class eRL : uint32_t {
     eR_UNLOCK = 0, // Group is unlocked (read access allowed)
     eR_LOCK = 1, // Group is locked (read access not allowed)
   };
+  
   enum class eWL : uint32_t {
     eW_UNLOCK = 0, // Group is unlocked (write access allowed)
     eW_LOCK = 1, // Group is locked (write access not allowed)
   };
+  
   enum class eDL : uint32_t {
     eD_UNLOCK = 0, // Unlock
     eD_LOCK = 1, // Lock
@@ -1293,7 +1307,7 @@ union DESC_CTRL1_9 {
     eWL WL : 1;
     eDL DL : 1;
     uint32_t _reserved_end : 11;
-  } bits;          // Bit-field struct (auto-filling reserved gaps)
+  } bits;
   
   // Full 32-bit register value.
   uint32_t value;
@@ -1307,12 +1321,10 @@ union DESC_CTRL1_9 {
 //
 union DESC_ADDR_UP_9 {
   
-  // Enum definitions.
-  
   // Bit field definition.
   struct {
     uint32_t ADDR_UP : 32;
-  } bits;          // Bit-field struct (auto-filling reserved gaps)
+  } bits;
   
   // Full 32-bit register value.
   uint32_t value;
@@ -1326,12 +1338,10 @@ union DESC_ADDR_UP_9 {
 //
 union DESC_ADDR_DOWN_9 {
   
-  // Enum definitions.
-  
   // Bit field definition.
   struct {
     uint32_t ADDR_DOWN : 32;
-  } bits;          // Bit-field struct (auto-filling reserved gaps)
+  } bits;
   
   // Full 32-bit register value.
   uint32_t value;
@@ -1345,11 +1355,11 @@ union DESC_ADDR_DOWN_9 {
 //
 union DESC_CTRL0_10 {
   
-  // Enum definitions.
   enum class eSV_ORDER : uint32_t {
     eSV_START_END = 0, // Descriptors within the group are processed from start to end
     eSV_END_START = 1, // Descriptors within the group are processed from end to start
   };
+  
   enum class eRT_ORDER : uint32_t {
     eRT_START_END = 0, // Descriptors within the group are processed from start to end
     eRT_END_START = 1, // Descriptors within the group are processed from end to start
@@ -1362,7 +1372,7 @@ union DESC_CTRL0_10 {
     eSV_ORDER SV_ORDER : 1;
     eRT_ORDER RT_ORDER : 1;
     uint32_t _reserved_end : 10;
-  } bits;          // Bit-field struct (auto-filling reserved gaps)
+  } bits;
   
   // Full 32-bit register value.
   uint32_t value;
@@ -1376,15 +1386,16 @@ union DESC_CTRL0_10 {
 //
 union DESC_CTRL1_10 {
   
-  // Enum definitions.
   enum class eSW_TRIG_SV : uint32_t {
     eREQ_NO = 0, // No software save request/software restore request complete
     eREQ_YES = 1, // Request a software save operation/software restore operation in progress
   };
+  
   enum class eSW_TRIG_RT : uint32_t {
     eREQ_NO = 0, // No software restore request/software restore request complete
     eREQ_YES = 1, // Request a software restore operation/software restore operation in progress
   };
+  
   enum class ePOWER_DOMAIN : uint32_t {
     eDOMAIN0 = 0, // PGMC_BPC0
     eDOMAIN1 = 1, // PGMC_BPC1
@@ -1395,18 +1406,22 @@ union DESC_CTRL1_10 {
     eDOMAIN6 = 6, // PGMC_BPC6
     eDOMAIN7 = 7, // PGMC_BPC7
   };
+  
   enum class eGP_EN : uint32_t {
     eGP_DIS = 0, // Group disabled
     eGP_EN = 1, // Group enabled
   };
+  
   enum class eRL : uint32_t {
     eR_UNLOCK = 0, // Group is unlocked (read access allowed)
     eR_LOCK = 1, // Group is locked (read access not allowed)
   };
+  
   enum class eWL : uint32_t {
     eW_UNLOCK = 0, // Group is unlocked (write access allowed)
     eW_LOCK = 1, // Group is locked (write access not allowed)
   };
+  
   enum class eDL : uint32_t {
     eD_UNLOCK = 0, // Unlock
     eD_LOCK = 1, // Lock
@@ -1426,7 +1441,7 @@ union DESC_CTRL1_10 {
     eWL WL : 1;
     eDL DL : 1;
     uint32_t _reserved_end : 11;
-  } bits;          // Bit-field struct (auto-filling reserved gaps)
+  } bits;
   
   // Full 32-bit register value.
   uint32_t value;
@@ -1440,12 +1455,10 @@ union DESC_CTRL1_10 {
 //
 union DESC_ADDR_UP_10 {
   
-  // Enum definitions.
-  
   // Bit field definition.
   struct {
     uint32_t ADDR_UP : 32;
-  } bits;          // Bit-field struct (auto-filling reserved gaps)
+  } bits;
   
   // Full 32-bit register value.
   uint32_t value;
@@ -1459,12 +1472,10 @@ union DESC_ADDR_UP_10 {
 //
 union DESC_ADDR_DOWN_10 {
   
-  // Enum definitions.
-  
   // Bit field definition.
   struct {
     uint32_t ADDR_DOWN : 32;
-  } bits;          // Bit-field struct (auto-filling reserved gaps)
+  } bits;
   
   // Full 32-bit register value.
   uint32_t value;
@@ -1478,11 +1489,11 @@ union DESC_ADDR_DOWN_10 {
 //
 union DESC_CTRL0_11 {
   
-  // Enum definitions.
   enum class eSV_ORDER : uint32_t {
     eSV_START_END = 0, // Descriptors within the group are processed from start to end
     eSV_END_START = 1, // Descriptors within the group are processed from end to start
   };
+  
   enum class eRT_ORDER : uint32_t {
     eRT_START_END = 0, // Descriptors within the group are processed from start to end
     eRT_END_START = 1, // Descriptors within the group are processed from end to start
@@ -1495,7 +1506,7 @@ union DESC_CTRL0_11 {
     eSV_ORDER SV_ORDER : 1;
     eRT_ORDER RT_ORDER : 1;
     uint32_t _reserved_end : 10;
-  } bits;          // Bit-field struct (auto-filling reserved gaps)
+  } bits;
   
   // Full 32-bit register value.
   uint32_t value;
@@ -1509,15 +1520,16 @@ union DESC_CTRL0_11 {
 //
 union DESC_CTRL1_11 {
   
-  // Enum definitions.
   enum class eSW_TRIG_SV : uint32_t {
     eREQ_NO = 0, // No software save request/software restore request complete
     eREQ_YES = 1, // Request a software save operation/software restore operation in progress
   };
+  
   enum class eSW_TRIG_RT : uint32_t {
     eREQ_NO = 0, // No software restore request/software restore request complete
     eREQ_YES = 1, // Request a software restore operation/software restore operation in progress
   };
+  
   enum class ePOWER_DOMAIN : uint32_t {
     eDOMAIN0 = 0, // PGMC_BPC0
     eDOMAIN1 = 1, // PGMC_BPC1
@@ -1528,18 +1540,22 @@ union DESC_CTRL1_11 {
     eDOMAIN6 = 6, // PGMC_BPC6
     eDOMAIN7 = 7, // PGMC_BPC7
   };
+  
   enum class eGP_EN : uint32_t {
     eGP_DIS = 0, // Group disabled
     eGP_EN = 1, // Group enabled
   };
+  
   enum class eRL : uint32_t {
     eR_UNLOCK = 0, // Group is unlocked (read access allowed)
     eR_LOCK = 1, // Group is locked (read access not allowed)
   };
+  
   enum class eWL : uint32_t {
     eW_UNLOCK = 0, // Group is unlocked (write access allowed)
     eW_LOCK = 1, // Group is locked (write access not allowed)
   };
+  
   enum class eDL : uint32_t {
     eD_UNLOCK = 0, // Unlock
     eD_LOCK = 1, // Lock
@@ -1559,7 +1575,7 @@ union DESC_CTRL1_11 {
     eWL WL : 1;
     eDL DL : 1;
     uint32_t _reserved_end : 11;
-  } bits;          // Bit-field struct (auto-filling reserved gaps)
+  } bits;
   
   // Full 32-bit register value.
   uint32_t value;
@@ -1573,12 +1589,10 @@ union DESC_CTRL1_11 {
 //
 union DESC_ADDR_UP_11 {
   
-  // Enum definitions.
-  
   // Bit field definition.
   struct {
     uint32_t ADDR_UP : 32;
-  } bits;          // Bit-field struct (auto-filling reserved gaps)
+  } bits;
   
   // Full 32-bit register value.
   uint32_t value;
@@ -1592,12 +1606,10 @@ union DESC_ADDR_UP_11 {
 //
 union DESC_ADDR_DOWN_11 {
   
-  // Enum definitions.
-  
   // Bit field definition.
   struct {
     uint32_t ADDR_DOWN : 32;
-  } bits;          // Bit-field struct (auto-filling reserved gaps)
+  } bits;
   
   // Full 32-bit register value.
   uint32_t value;
@@ -1611,11 +1623,11 @@ union DESC_ADDR_DOWN_11 {
 //
 union DESC_CTRL0_12 {
   
-  // Enum definitions.
   enum class eSV_ORDER : uint32_t {
     eSV_START_END = 0, // Descriptors within the group are processed from start to end
     eSV_END_START = 1, // Descriptors within the group are processed from end to start
   };
+  
   enum class eRT_ORDER : uint32_t {
     eRT_START_END = 0, // Descriptors within the group are processed from start to end
     eRT_END_START = 1, // Descriptors within the group are processed from end to start
@@ -1628,7 +1640,7 @@ union DESC_CTRL0_12 {
     eSV_ORDER SV_ORDER : 1;
     eRT_ORDER RT_ORDER : 1;
     uint32_t _reserved_end : 10;
-  } bits;          // Bit-field struct (auto-filling reserved gaps)
+  } bits;
   
   // Full 32-bit register value.
   uint32_t value;
@@ -1642,15 +1654,16 @@ union DESC_CTRL0_12 {
 //
 union DESC_CTRL1_12 {
   
-  // Enum definitions.
   enum class eSW_TRIG_SV : uint32_t {
     eREQ_NO = 0, // No software save request/software restore request complete
     eREQ_YES = 1, // Request a software save operation/software restore operation in progress
   };
+  
   enum class eSW_TRIG_RT : uint32_t {
     eREQ_NO = 0, // No software restore request/software restore request complete
     eREQ_YES = 1, // Request a software restore operation/software restore operation in progress
   };
+  
   enum class ePOWER_DOMAIN : uint32_t {
     eDOMAIN0 = 0, // PGMC_BPC0
     eDOMAIN1 = 1, // PGMC_BPC1
@@ -1661,18 +1674,22 @@ union DESC_CTRL1_12 {
     eDOMAIN6 = 6, // PGMC_BPC6
     eDOMAIN7 = 7, // PGMC_BPC7
   };
+  
   enum class eGP_EN : uint32_t {
     eGP_DIS = 0, // Group disabled
     eGP_EN = 1, // Group enabled
   };
+  
   enum class eRL : uint32_t {
     eR_UNLOCK = 0, // Group is unlocked (read access allowed)
     eR_LOCK = 1, // Group is locked (read access not allowed)
   };
+  
   enum class eWL : uint32_t {
     eW_UNLOCK = 0, // Group is unlocked (write access allowed)
     eW_LOCK = 1, // Group is locked (write access not allowed)
   };
+  
   enum class eDL : uint32_t {
     eD_UNLOCK = 0, // Unlock
     eD_LOCK = 1, // Lock
@@ -1692,7 +1709,7 @@ union DESC_CTRL1_12 {
     eWL WL : 1;
     eDL DL : 1;
     uint32_t _reserved_end : 11;
-  } bits;          // Bit-field struct (auto-filling reserved gaps)
+  } bits;
   
   // Full 32-bit register value.
   uint32_t value;
@@ -1706,12 +1723,10 @@ union DESC_CTRL1_12 {
 //
 union DESC_ADDR_UP_12 {
   
-  // Enum definitions.
-  
   // Bit field definition.
   struct {
     uint32_t ADDR_UP : 32;
-  } bits;          // Bit-field struct (auto-filling reserved gaps)
+  } bits;
   
   // Full 32-bit register value.
   uint32_t value;
@@ -1725,12 +1740,10 @@ union DESC_ADDR_UP_12 {
 //
 union DESC_ADDR_DOWN_12 {
   
-  // Enum definitions.
-  
   // Bit field definition.
   struct {
     uint32_t ADDR_DOWN : 32;
-  } bits;          // Bit-field struct (auto-filling reserved gaps)
+  } bits;
   
   // Full 32-bit register value.
   uint32_t value;
@@ -1744,11 +1757,11 @@ union DESC_ADDR_DOWN_12 {
 //
 union DESC_CTRL0_13 {
   
-  // Enum definitions.
   enum class eSV_ORDER : uint32_t {
     eSV_START_END = 0, // Descriptors within the group are processed from start to end
     eSV_END_START = 1, // Descriptors within the group are processed from end to start
   };
+  
   enum class eRT_ORDER : uint32_t {
     eRT_START_END = 0, // Descriptors within the group are processed from start to end
     eRT_END_START = 1, // Descriptors within the group are processed from end to start
@@ -1761,7 +1774,7 @@ union DESC_CTRL0_13 {
     eSV_ORDER SV_ORDER : 1;
     eRT_ORDER RT_ORDER : 1;
     uint32_t _reserved_end : 10;
-  } bits;          // Bit-field struct (auto-filling reserved gaps)
+  } bits;
   
   // Full 32-bit register value.
   uint32_t value;
@@ -1775,15 +1788,16 @@ union DESC_CTRL0_13 {
 //
 union DESC_CTRL1_13 {
   
-  // Enum definitions.
   enum class eSW_TRIG_SV : uint32_t {
     eREQ_NO = 0, // No software save request/software restore request complete
     eREQ_YES = 1, // Request a software save operation/software restore operation in progress
   };
+  
   enum class eSW_TRIG_RT : uint32_t {
     eREQ_NO = 0, // No software restore request/software restore request complete
     eREQ_YES = 1, // Request a software restore operation/software restore operation in progress
   };
+  
   enum class ePOWER_DOMAIN : uint32_t {
     eDOMAIN0 = 0, // PGMC_BPC0
     eDOMAIN1 = 1, // PGMC_BPC1
@@ -1794,18 +1808,22 @@ union DESC_CTRL1_13 {
     eDOMAIN6 = 6, // PGMC_BPC6
     eDOMAIN7 = 7, // PGMC_BPC7
   };
+  
   enum class eGP_EN : uint32_t {
     eGP_DIS = 0, // Group disabled
     eGP_EN = 1, // Group enabled
   };
+  
   enum class eRL : uint32_t {
     eR_UNLOCK = 0, // Group is unlocked (read access allowed)
     eR_LOCK = 1, // Group is locked (read access not allowed)
   };
+  
   enum class eWL : uint32_t {
     eW_UNLOCK = 0, // Group is unlocked (write access allowed)
     eW_LOCK = 1, // Group is locked (write access not allowed)
   };
+  
   enum class eDL : uint32_t {
     eD_UNLOCK = 0, // Unlock
     eD_LOCK = 1, // Lock
@@ -1825,7 +1843,7 @@ union DESC_CTRL1_13 {
     eWL WL : 1;
     eDL DL : 1;
     uint32_t _reserved_end : 11;
-  } bits;          // Bit-field struct (auto-filling reserved gaps)
+  } bits;
   
   // Full 32-bit register value.
   uint32_t value;
@@ -1839,12 +1857,10 @@ union DESC_CTRL1_13 {
 //
 union DESC_ADDR_UP_13 {
   
-  // Enum definitions.
-  
   // Bit field definition.
   struct {
     uint32_t ADDR_UP : 32;
-  } bits;          // Bit-field struct (auto-filling reserved gaps)
+  } bits;
   
   // Full 32-bit register value.
   uint32_t value;
@@ -1858,12 +1874,10 @@ union DESC_ADDR_UP_13 {
 //
 union DESC_ADDR_DOWN_13 {
   
-  // Enum definitions.
-  
   // Bit field definition.
   struct {
     uint32_t ADDR_DOWN : 32;
-  } bits;          // Bit-field struct (auto-filling reserved gaps)
+  } bits;
   
   // Full 32-bit register value.
   uint32_t value;
@@ -1877,11 +1891,11 @@ union DESC_ADDR_DOWN_13 {
 //
 union DESC_CTRL0_14 {
   
-  // Enum definitions.
   enum class eSV_ORDER : uint32_t {
     eSV_START_END = 0, // Descriptors within the group are processed from start to end
     eSV_END_START = 1, // Descriptors within the group are processed from end to start
   };
+  
   enum class eRT_ORDER : uint32_t {
     eRT_START_END = 0, // Descriptors within the group are processed from start to end
     eRT_END_START = 1, // Descriptors within the group are processed from end to start
@@ -1894,7 +1908,7 @@ union DESC_CTRL0_14 {
     eSV_ORDER SV_ORDER : 1;
     eRT_ORDER RT_ORDER : 1;
     uint32_t _reserved_end : 10;
-  } bits;          // Bit-field struct (auto-filling reserved gaps)
+  } bits;
   
   // Full 32-bit register value.
   uint32_t value;
@@ -1908,15 +1922,16 @@ union DESC_CTRL0_14 {
 //
 union DESC_CTRL1_14 {
   
-  // Enum definitions.
   enum class eSW_TRIG_SV : uint32_t {
     eREQ_NO = 0, // No software save request/software restore request complete
     eREQ_YES = 1, // Request a software save operation/software restore operation in progress
   };
+  
   enum class eSW_TRIG_RT : uint32_t {
     eREQ_NO = 0, // No software restore request/software restore request complete
     eREQ_YES = 1, // Request a software restore operation/software restore operation in progress
   };
+  
   enum class ePOWER_DOMAIN : uint32_t {
     eDOMAIN0 = 0, // PGMC_BPC0
     eDOMAIN1 = 1, // PGMC_BPC1
@@ -1927,18 +1942,22 @@ union DESC_CTRL1_14 {
     eDOMAIN6 = 6, // PGMC_BPC6
     eDOMAIN7 = 7, // PGMC_BPC7
   };
+  
   enum class eGP_EN : uint32_t {
     eGP_DIS = 0, // Group disabled
     eGP_EN = 1, // Group enabled
   };
+  
   enum class eRL : uint32_t {
     eR_UNLOCK = 0, // Group is unlocked (read access allowed)
     eR_LOCK = 1, // Group is locked (read access not allowed)
   };
+  
   enum class eWL : uint32_t {
     eW_UNLOCK = 0, // Group is unlocked (write access allowed)
     eW_LOCK = 1, // Group is locked (write access not allowed)
   };
+  
   enum class eDL : uint32_t {
     eD_UNLOCK = 0, // Unlock
     eD_LOCK = 1, // Lock
@@ -1958,7 +1977,7 @@ union DESC_CTRL1_14 {
     eWL WL : 1;
     eDL DL : 1;
     uint32_t _reserved_end : 11;
-  } bits;          // Bit-field struct (auto-filling reserved gaps)
+  } bits;
   
   // Full 32-bit register value.
   uint32_t value;
@@ -1972,12 +1991,10 @@ union DESC_CTRL1_14 {
 //
 union DESC_ADDR_UP_14 {
   
-  // Enum definitions.
-  
   // Bit field definition.
   struct {
     uint32_t ADDR_UP : 32;
-  } bits;          // Bit-field struct (auto-filling reserved gaps)
+  } bits;
   
   // Full 32-bit register value.
   uint32_t value;
@@ -1991,12 +2008,10 @@ union DESC_ADDR_UP_14 {
 //
 union DESC_ADDR_DOWN_14 {
   
-  // Enum definitions.
-  
   // Bit field definition.
   struct {
     uint32_t ADDR_DOWN : 32;
-  } bits;          // Bit-field struct (auto-filling reserved gaps)
+  } bits;
   
   // Full 32-bit register value.
   uint32_t value;
@@ -2010,11 +2025,11 @@ union DESC_ADDR_DOWN_14 {
 //
 union DESC_CTRL0_15 {
   
-  // Enum definitions.
   enum class eSV_ORDER : uint32_t {
     eSV_START_END = 0, // Descriptors within the group are processed from start to end
     eSV_END_START = 1, // Descriptors within the group are processed from end to start
   };
+  
   enum class eRT_ORDER : uint32_t {
     eRT_START_END = 0, // Descriptors within the group are processed from start to end
     eRT_END_START = 1, // Descriptors within the group are processed from end to start
@@ -2027,7 +2042,7 @@ union DESC_CTRL0_15 {
     eSV_ORDER SV_ORDER : 1;
     eRT_ORDER RT_ORDER : 1;
     uint32_t _reserved_end : 10;
-  } bits;          // Bit-field struct (auto-filling reserved gaps)
+  } bits;
   
   // Full 32-bit register value.
   uint32_t value;
@@ -2041,15 +2056,16 @@ union DESC_CTRL0_15 {
 //
 union DESC_CTRL1_15 {
   
-  // Enum definitions.
   enum class eSW_TRIG_SV : uint32_t {
     eREQ_NO = 0, // No software save request/software restore request complete
     eREQ_YES = 1, // Request a software save operation/software restore operation in progress
   };
+  
   enum class eSW_TRIG_RT : uint32_t {
     eREQ_NO = 0, // No software restore request/software restore request complete
     eREQ_YES = 1, // Request a software restore operation/software restore operation in progress
   };
+  
   enum class ePOWER_DOMAIN : uint32_t {
     eDOMAIN0 = 0, // PGMC_BPC0
     eDOMAIN1 = 1, // PGMC_BPC1
@@ -2060,18 +2076,22 @@ union DESC_CTRL1_15 {
     eDOMAIN6 = 6, // PGMC_BPC6
     eDOMAIN7 = 7, // PGMC_BPC7
   };
+  
   enum class eGP_EN : uint32_t {
     eGP_DIS = 0, // Group disabled
     eGP_EN = 1, // Group enabled
   };
+  
   enum class eRL : uint32_t {
     eR_UNLOCK = 0, // Group is unlocked (read access allowed)
     eR_LOCK = 1, // Group is locked (read access not allowed)
   };
+  
   enum class eWL : uint32_t {
     eW_UNLOCK = 0, // Group is unlocked (write access allowed)
     eW_LOCK = 1, // Group is locked (write access not allowed)
   };
+  
   enum class eDL : uint32_t {
     eD_UNLOCK = 0, // Unlock
     eD_LOCK = 1, // Lock
@@ -2091,7 +2111,7 @@ union DESC_CTRL1_15 {
     eWL WL : 1;
     eDL DL : 1;
     uint32_t _reserved_end : 11;
-  } bits;          // Bit-field struct (auto-filling reserved gaps)
+  } bits;
   
   // Full 32-bit register value.
   uint32_t value;
@@ -2105,12 +2125,10 @@ union DESC_CTRL1_15 {
 //
 union DESC_ADDR_UP_15 {
   
-  // Enum definitions.
-  
   // Bit field definition.
   struct {
     uint32_t ADDR_UP : 32;
-  } bits;          // Bit-field struct (auto-filling reserved gaps)
+  } bits;
   
   // Full 32-bit register value.
   uint32_t value;
@@ -2124,12 +2142,10 @@ union DESC_ADDR_UP_15 {
 //
 union DESC_ADDR_DOWN_15 {
   
-  // Enum definitions.
-  
   // Bit field definition.
   struct {
     uint32_t ADDR_DOWN : 32;
-  } bits;          // Bit-field struct (auto-filling reserved gaps)
+  } bits;
   
   // Full 32-bit register value.
   uint32_t value;
@@ -2143,7 +2159,6 @@ union DESC_ADDR_DOWN_15 {
 //
 union CTRL {
   
-  // Enum definitions.
   enum class eDIS_HW_REQ : uint32_t {
     eENABLE_PGMC = 0, // PGMC save/restore requests enabled
     eDIS_PGMC = 1, // PGMC save/restore requests disabled
@@ -2155,7 +2170,7 @@ union CTRL {
     eDIS_HW_REQ DIS_HW_REQ : 1;
     uint32_t _reserved_1 : 3;
     uint32_t SW_RESET : 1;
-  } bits;          // Bit-field struct (auto-filling reserved gaps)
+  } bits;
   
   // Full 32-bit register value.
   uint32_t value;
@@ -2169,23 +2184,26 @@ union CTRL {
 //
 union INT_STATUS {
   
-  // Enum definitions.
   enum class eGROUP_CONFLICT : uint32_t {
     eGRP_CONFLICT_ERR_NO = 0, // No group conflict error
     eGRP_CONFLICT_ERR = 1, // A group conflict error has occurred
   };
+  
   enum class eTIMEOUT : uint32_t {
     eERR_INDEX_ERR_NO = 0, // No timeout event
     eERR_INDEX_ERR = 1, // A timeout event has occurred
   };
+  
   enum class eSW_REQ_DONE : uint32_t {
     eSW_REQ_ERR_A = 0, // No software triggered requests or software triggered request still in progress
     eSW_REQ_ERR = 1, // Atleast one software triggered has been complete
   };
+  
   enum class eAHB_ERR : uint32_t {
     eAHB_ERRNO = 0, // No AHB error
     eAHB_ERR = 1, // An AHB error has occurred
   };
+  
   enum class eADDR_ERR : uint32_t {
     eADDERR_ERRNO = 0, // No address error
     eADDERR_ERR = 1, // An address error has occurred
@@ -2201,7 +2219,7 @@ union INT_STATUS {
     eSW_REQ_DONE SW_REQ_DONE : 1;
     eAHB_ERR AHB_ERR : 1;
     eADDR_ERR ADDR_ERR : 1;
-  } bits;          // Bit-field struct (auto-filling reserved gaps)
+  } bits;
   
   // Full 32-bit register value.
   uint32_t value;
@@ -2215,12 +2233,10 @@ union INT_STATUS {
 //
 union HP_TIMEOUT {
   
-  // Enum definitions.
-  
   // Bit field definition.
   struct {
     uint32_t TIMEOUT_VALUE : 32;
-  } bits;          // Bit-field struct (auto-filling reserved gaps)
+  } bits;
   
   // Full 32-bit register value.
   uint32_t value;
@@ -2234,13 +2250,11 @@ union HP_TIMEOUT {
 //
 union HW_GROUP_PENDING {
   
-  // Enum definitions.
-  
   // Bit field definition.
   struct {
     uint32_t HW_SAVE_PENDING : 16;
     uint32_t HW_RESTORE_PENDING : 16;
-  } bits;          // Bit-field struct (auto-filling reserved gaps)
+  } bits;
   
   // Full 32-bit register value.
   uint32_t value;
@@ -2254,13 +2268,11 @@ union HW_GROUP_PENDING {
 //
 union SW_GROUP_PENDING {
   
-  // Enum definitions.
-  
   // Bit field definition.
   struct {
     uint32_t SW_SAVE_PENDING : 16;
     uint32_t SW_RESTORE_PENDING : 16;
-  } bits;          // Bit-field struct (auto-filling reserved gaps)
+  } bits;
   
   // Full 32-bit register value.
   uint32_t value;

@@ -15,11 +15,11 @@ namespace nSRC {
 //
 union SCR {
   
-  // Enum definitions.
   enum class eBT_RELEASE_M4 : uint32_t {
     eBT_RELEASE_M4_0 = 0, // cm4 core reset is asserted
     eBT_RELEASE_M4_1 = 1, // cm4 core reset is released
   };
+  
   enum class eBT_RELEASE_M7 : uint32_t {
     eBT_RELEASE_M7_0 = 0, // cm7 core reset is asserted
     eBT_RELEASE_M7_1 = 1, // cm7 core reset is released
@@ -30,7 +30,7 @@ union SCR {
     eBT_RELEASE_M4 BT_RELEASE_M4 : 1;
     eBT_RELEASE_M7 BT_RELEASE_M7 : 1;
     uint32_t _reserved_end : 30;
-  } bits;          // Bit-field struct (auto-filling reserved gaps)
+  } bits;
   
   // Full 32-bit register value.
   uint32_t value;
@@ -44,47 +44,56 @@ union SCR {
 //
 union SRMR {
   
-  // Enum definitions.
   enum class eWDOG_RESET_MODE : uint32_t {
     eWDOG_RESET_MODE_0 = 0, // reset system
     eWDOG_RESET_MODE_3 = 3, // do not reset anything
   };
+  
   enum class eWDOG3_RESET_MODE : uint32_t {
     eWDOG3_RESET_MODE_0 = 0, // reset system
     eWDOG3_RESET_MODE_3 = 3, // do not reset anything
   };
+  
   enum class eWDOG4_RESET_MODE : uint32_t {
     eWDOG4_RESET_MODE_0 = 0, // reset system
     eWDOG4_RESET_MODE_3 = 3, // do not reset anything
   };
+  
   enum class eM4LOCKUP_RESET_MODE : uint32_t {
     eM4LOCKUP_RESET_MODE_0 = 0, // reset system
     eM4LOCKUP_RESET_MODE_3 = 3, // do not reset anything
   };
+  
   enum class eM7LOCKUP_RESET_MODE : uint32_t {
     eM7LOCKUP_RESET_MODE_0 = 0, // reset system
     eM7LOCKUP_RESET_MODE_3 = 3, // do not reset anything
   };
+  
   enum class eM4REQ_RESET_MODE : uint32_t {
     eM4REQ_RESET_MODE_0 = 0, // reset system
     eM4REQ_RESET_MODE_3 = 3, // do not reset anything
   };
+  
   enum class eM7REQ_RESET_MODE : uint32_t {
     eM7REQ_RESET_MODE_0 = 0, // reset system
     eM7REQ_RESET_MODE_3 = 3, // do not reset anything
   };
+  
   enum class eTEMPSENSE_RESET_MODE : uint32_t {
     eTEMPSENSE_RESET_MODE_0 = 0, // reset system
     eTEMPSENSE_RESET_MODE_3 = 3, // do not reset anything
   };
+  
   enum class eCSU_RESET_MODE : uint32_t {
     eCSU_RESET_MODE_0 = 0, // reset system
     eCSU_RESET_MODE_3 = 3, // do not reset anything
   };
+  
   enum class eJTAGSW_RESET_MODE : uint32_t {
     eJTAGSW_RESET_MODE_0 = 0, // reset system
     eJTAGSW_RESET_MODE_3 = 3, // do not reset anything
   };
+  
   enum class eOVERVOLT_RESET_MODE : uint32_t {
     eOVERVOLT_RESET_MODE_0 = 0, // reset system
     eOVERVOLT_RESET_MODE_3 = 3, // do not reset anything
@@ -104,7 +113,7 @@ union SRMR {
     eJTAGSW_RESET_MODE JTAGSW_RESET_MODE : 2;
     eOVERVOLT_RESET_MODE OVERVOLT_RESET_MODE : 2;
     uint32_t _reserved_end : 10;
-  } bits;          // Bit-field struct (auto-filling reserved gaps)
+  } bits;
   
   // Full 32-bit register value.
   uint32_t value;
@@ -118,15 +127,13 @@ union SRMR {
 //
 union SBMR1 {
   
-  // Enum definitions.
-  
   // Bit field definition.
   struct {
     uint32_t BOOT_CFG1 : 8;
     uint32_t BOOT_CFG2 : 8;
     uint32_t BOOT_CFG3 : 8;
     uint32_t BOOT_CFG4 : 8;
-  } bits;          // Bit-field struct (auto-filling reserved gaps)
+  } bits;
   
   // Full 32-bit register value.
   uint32_t value;
@@ -140,8 +147,6 @@ union SBMR1 {
 //
 union SBMR2 {
   
-  // Enum definitions.
-  
   // Bit field definition.
   struct {
     uint32_t SEC_CONFIG : 2;
@@ -150,7 +155,7 @@ union SBMR2 {
     uint32_t _reserved_2 : 19;
     uint32_t BMOD : 2;
     uint32_t _reserved_end : 6;
-  } bits;          // Bit-field struct (auto-filling reserved gaps)
+  } bits;
   
   // Full 32-bit register value.
   uint32_t value;
@@ -164,123 +169,151 @@ union SBMR2 {
 //
 union SRSR {
   
-  // Enum definitions.
   enum class eIPP_RESET_B_M7 : uint32_t {
     eIPP_RESET_B_M7_0 = 0, // Reset is not a result of ipp_reset_b pin.
     eIPP_RESET_B_M7_1 = 1, // Reset is a result of ipp_reset_b pin.
   };
+  
   enum class eM7_REQUEST_M7 : uint32_t {
     eM7_REQUEST_M7_0 = 0, // Reset is not a result of m7 reset request.
     eM7_REQUEST_M7_1 = 1, // Reset is a result of m7 reset request.
   };
+  
   enum class eM7_LOCKUP_M7 : uint32_t {
     eM7_LOCKUP_M7_0 = 0, // Reset is not a result of the mentioned case.
     eM7_LOCKUP_M7_1 = 1, // Reset is a result of the mentioned case.
   };
+  
   enum class eCSU_RESET_B_M7 : uint32_t {
     eCSU_RESET_B_M7_0 = 0, // Reset is not a result of the csu_reset_b event.
     eCSU_RESET_B_M7_1 = 1, // Reset is a result of the csu_reset_b event.
   };
+  
   enum class eIPP_USER_RESET_B_M7 : uint32_t {
     eIPP_USER_RESET_B_M7_0 = 0, // Reset is not a result of the ipp_user_reset_b qualified as COLD reset event.
     eIPP_USER_RESET_B_M7_1 = 1, // Reset is a result of the ipp_user_reset_b qualified as COLD reset event.
   };
+  
   enum class eWDOG_RST_B_M7 : uint32_t {
     eWDOG_RST_B_M7_0 = 0, // Reset is not a result of the watchdog time-out event.
     eWDOG_RST_B_M7_1 = 1, // Reset is a result of the watchdog time-out event.
   };
+  
   enum class eJTAG_RST_B_M7 : uint32_t {
     eJTAG_RST_B_M7_0 = 0, // Reset is not a result of HIGH-Z reset from JTAG.
     eJTAG_RST_B_M7_1 = 1, // Reset is a result of HIGH-Z reset from JTAG.
   };
+  
   enum class eJTAG_SW_RST_M7 : uint32_t {
     eJTAG_SW_RST_M7_0 = 0, // Reset is not a result of software reset from JTAG.
     eJTAG_SW_RST_M7_1 = 1, // Reset is a result of software reset from JTAG.
   };
+  
   enum class eWDOG3_RST_B_M7 : uint32_t {
     eWDOG3_RST_B_M7_0 = 0, // Reset is not a result of the watchdog3 time-out event.
     eWDOG3_RST_B_M7_1 = 1, // Reset is a result of the watchdog3 time-out event.
   };
+  
   enum class eWDOG4_RST_B_M7 : uint32_t {
     eWDOG4_RST_B_M7_0 = 0, // Reset is not a result of the watchdog4 time-out event.
     eWDOG4_RST_B_M7_1 = 1, // Reset is a result of the watchdog4 time-out event.
   };
+  
   enum class eTEMPSENSE_RST_B_M7 : uint32_t {
     eTEMPSENSE_RST_B_M7_0 = 0, // Reset is not a result of software reset from Temperature Sensor.
     eTEMPSENSE_RST_B_M7_1 = 1, // Reset is a result of software reset from Temperature Sensor.
   };
+  
   enum class eM4_REQUEST_M7 : uint32_t {
     eM4_REQUEST_M7_0 = 0, // Reset is not a result of m4 reset request.
     eM4_REQUEST_M7_1 = 1, // Reset is a result of m4 reset request.
   };
+  
   enum class eM4_LOCKUP_M7 : uint32_t {
     eM4_LOCKUP_M7_0 = 0, // Reset is not a result of the mentioned case.
     eM4_LOCKUP_M7_1 = 1, // Reset is a result of the mentioned case.
   };
+  
   enum class eOVERVOLT_RST_M7 : uint32_t {
     eOVERVOLT_RST_M7_0 = 0, // Reset is not a result of the mentioned case.
     eOVERVOLT_RST_M7_1 = 1, // Reset is a result of the mentioned case.
   };
+  
   enum class eCDOG_RST_M7 : uint32_t {
     eCDOG_RST_M7_0 = 0, // Reset is not a result of the mentioned case.
     eCDOG_RST_M7_1 = 1, // Reset is a result of the mentioned case.
   };
+  
   enum class eIPP_RESET_B_M4 : uint32_t {
     eIPP_RESET_B_M4_0 = 0, // Reset is not a result of ipp_reset_b pin.
     eIPP_RESET_B_M4_1 = 1, // Reset is a result of ipp_reset_b pin.
   };
+  
   enum class eM4_REQUEST_M4 : uint32_t {
     eM4_REQUEST_M4_0 = 0, // Reset is not a result of m4 reset request.
     eM4_REQUEST_M4_1 = 1, // Reset is a result of m4 reset request.
   };
+  
   enum class eM4_LOCKUP_M4 : uint32_t {
     eM4_LOCKUP_M4_0 = 0, // Reset is not a result of the mentioned case.
     eM4_LOCKUP_M4_1 = 1, // Reset is a result of the mentioned case.
   };
+  
   enum class eCSU_RESET_B_M4 : uint32_t {
     eCSU_RESET_B_M4_0 = 0, // Reset is not a result of the csu_reset_b event.
     eCSU_RESET_B_M4_1 = 1, // Reset is a result of the csu_reset_b event.
   };
+  
   enum class eIPP_USER_RESET_B_M4 : uint32_t {
     eIPP_USER_RESET_B_M4_0 = 0, // Reset is not a result of the ipp_user_reset_b qualified as COLD reset event.
     eIPP_USER_RESET_B_M4_1 = 1, // Reset is a result of the ipp_user_reset_b qualified as COLD reset event.
   };
+  
   enum class eWDOG_RST_B_M4 : uint32_t {
     eWDOG_RST_B_M4_0 = 0, // Reset is not a result of the watchdog time-out event.
     eWDOG_RST_B_M4_1 = 1, // Reset is a result of the watchdog time-out event.
   };
+  
   enum class eJTAG_RST_B_M4 : uint32_t {
     eJTAG_RST_B_M4_0 = 0, // Reset is not a result of HIGH-Z reset from JTAG.
     eJTAG_RST_B_M4_1 = 1, // Reset is a result of HIGH-Z reset from JTAG.
   };
+  
   enum class eJTAG_SW_RST_M4 : uint32_t {
     eJTAG_SW_RST_M4_0 = 0, // Reset is not a result of software reset from JTAG.
     eJTAG_SW_RST_M4_1 = 1, // Reset is a result of software reset from JTAG.
   };
+  
   enum class eWDOG3_RST_B_M4 : uint32_t {
     eWDOG3_RST_B_M4_0 = 0, // Reset is not a result of the watchdog3 time-out event.
     eWDOG3_RST_B_M4_1 = 1, // Reset is a result of the watchdog3 time-out event.
   };
+  
   enum class eWDOG4_RST_B_M4 : uint32_t {
     eWDOG4_RST_B_M4_0 = 0, // Reset is not a result of the watchdog4 time-out event.
     eWDOG4_RST_B_M4_1 = 1, // Reset is a result of the watchdog4 time-out event.
   };
+  
   enum class eTEMPSENSE_RST_B_M4 : uint32_t {
     eTEMPSENSE_RST_B_M4_0 = 0, // Reset is not a result of software reset from Temperature Sensor.
     eTEMPSENSE_RST_B_M4_1 = 1, // Reset is a result of software reset from Temperature Sensor.
   };
+  
   enum class eM7_REQUEST_M4 : uint32_t {
     eM7_REQUEST_M4_0 = 0, // Reset is not a result of m7 reset request.
     eM7_REQUEST_M4_1 = 1, // Reset is a result of m7 reset request.
   };
+  
   enum class eM7_LOCKUP_M4 : uint32_t {
     eM7_LOCKUP_M4_0 = 0, // Reset is not a result of the mentioned case.
     eM7_LOCKUP_M4_1 = 1, // Reset is a result of the mentioned case.
   };
+  
   enum class eOVERVOLT_RST_M4 : uint32_t {
     eOVERVOLT_RST_M4_0 = 0, // Reset is not a result of the mentioned case.
     eOVERVOLT_RST_M4_1 = 1, // Reset is a result of the mentioned case.
   };
+  
   enum class eCDOG_RST_M4 : uint32_t {
     eCDOG_RST_M4_0 = 0, // Reset is not a result of the mentioned case.
     eCDOG_RST_M4_1 = 1, // Reset is a result of the mentioned case.
@@ -320,7 +353,7 @@ union SRSR {
     eOVERVOLT_RST_M4 OVERVOLT_RST_M4 : 1;
     eCDOG_RST_M4 CDOG_RST_M4 : 1;
     uint32_t _reserved_end : 1;
-  } bits;          // Bit-field struct (auto-filling reserved gaps)
+  } bits;
   
   // Full 32-bit register value.
   uint32_t value;
@@ -334,12 +367,10 @@ union SRSR {
 //
 union GPR1 {
   
-  // Enum definitions.
-  
   // Bit field definition.
   struct {
     uint32_t GPR : 32;
-  } bits;          // Bit-field struct (auto-filling reserved gaps)
+  } bits;
   
   // Full 32-bit register value.
   uint32_t value;
@@ -352,12 +383,10 @@ union GPR1 {
 //
 union GPR2 {
   
-  // Enum definitions.
-  
   // Bit field definition.
   struct {
     uint32_t GPR : 32;
-  } bits;          // Bit-field struct (auto-filling reserved gaps)
+  } bits;
   
   // Full 32-bit register value.
   uint32_t value;
@@ -370,12 +399,10 @@ union GPR2 {
 //
 union GPR3 {
   
-  // Enum definitions.
-  
   // Bit field definition.
   struct {
     uint32_t GPR : 32;
-  } bits;          // Bit-field struct (auto-filling reserved gaps)
+  } bits;
   
   // Full 32-bit register value.
   uint32_t value;
@@ -388,12 +415,10 @@ union GPR3 {
 //
 union GPR4 {
   
-  // Enum definitions.
-  
   // Bit field definition.
   struct {
     uint32_t GPR : 32;
-  } bits;          // Bit-field struct (auto-filling reserved gaps)
+  } bits;
   
   // Full 32-bit register value.
   uint32_t value;
@@ -406,12 +431,10 @@ union GPR4 {
 //
 union GPR5 {
   
-  // Enum definitions.
-  
   // Bit field definition.
   struct {
     uint32_t GPR : 32;
-  } bits;          // Bit-field struct (auto-filling reserved gaps)
+  } bits;
   
   // Full 32-bit register value.
   uint32_t value;
@@ -424,12 +447,10 @@ union GPR5 {
 //
 union GPR6 {
   
-  // Enum definitions.
-  
   // Bit field definition.
   struct {
     uint32_t GPR : 32;
-  } bits;          // Bit-field struct (auto-filling reserved gaps)
+  } bits;
   
   // Full 32-bit register value.
   uint32_t value;
@@ -442,12 +463,10 @@ union GPR6 {
 //
 union GPR7 {
   
-  // Enum definitions.
-  
   // Bit field definition.
   struct {
     uint32_t GPR : 32;
-  } bits;          // Bit-field struct (auto-filling reserved gaps)
+  } bits;
   
   // Full 32-bit register value.
   uint32_t value;
@@ -460,12 +479,10 @@ union GPR7 {
 //
 union GPR8 {
   
-  // Enum definitions.
-  
   // Bit field definition.
   struct {
     uint32_t GPR : 32;
-  } bits;          // Bit-field struct (auto-filling reserved gaps)
+  } bits;
   
   // Full 32-bit register value.
   uint32_t value;
@@ -478,12 +495,10 @@ union GPR8 {
 //
 union GPR9 {
   
-  // Enum definitions.
-  
   // Bit field definition.
   struct {
     uint32_t GPR : 32;
-  } bits;          // Bit-field struct (auto-filling reserved gaps)
+  } bits;
   
   // Full 32-bit register value.
   uint32_t value;
@@ -496,12 +511,10 @@ union GPR9 {
 //
 union GPR10 {
   
-  // Enum definitions.
-  
   // Bit field definition.
   struct {
     uint32_t GPR : 32;
-  } bits;          // Bit-field struct (auto-filling reserved gaps)
+  } bits;
   
   // Full 32-bit register value.
   uint32_t value;
@@ -514,12 +527,10 @@ union GPR10 {
 //
 union GPR11 {
   
-  // Enum definitions.
-  
   // Bit field definition.
   struct {
     uint32_t GPR : 32;
-  } bits;          // Bit-field struct (auto-filling reserved gaps)
+  } bits;
   
   // Full 32-bit register value.
   uint32_t value;
@@ -532,12 +543,10 @@ union GPR11 {
 //
 union GPR12 {
   
-  // Enum definitions.
-  
   // Bit field definition.
   struct {
     uint32_t GPR : 32;
-  } bits;          // Bit-field struct (auto-filling reserved gaps)
+  } bits;
   
   // Full 32-bit register value.
   uint32_t value;
@@ -550,12 +559,10 @@ union GPR12 {
 //
 union GPR13 {
   
-  // Enum definitions.
-  
   // Bit field definition.
   struct {
     uint32_t GPR : 32;
-  } bits;          // Bit-field struct (auto-filling reserved gaps)
+  } bits;
   
   // Full 32-bit register value.
   uint32_t value;
@@ -568,12 +575,10 @@ union GPR13 {
 //
 union GPR14 {
   
-  // Enum definitions.
-  
   // Bit field definition.
   struct {
     uint32_t GPR : 32;
-  } bits;          // Bit-field struct (auto-filling reserved gaps)
+  } bits;
   
   // Full 32-bit register value.
   uint32_t value;
@@ -586,12 +591,10 @@ union GPR14 {
 //
 union GPR15 {
   
-  // Enum definitions.
-  
   // Bit field definition.
   struct {
     uint32_t GPR : 32;
-  } bits;          // Bit-field struct (auto-filling reserved gaps)
+  } bits;
   
   // Full 32-bit register value.
   uint32_t value;
@@ -604,12 +607,10 @@ union GPR15 {
 //
 union GPR16 {
   
-  // Enum definitions.
-  
   // Bit field definition.
   struct {
     uint32_t GPR : 32;
-  } bits;          // Bit-field struct (auto-filling reserved gaps)
+  } bits;
   
   // Full 32-bit register value.
   uint32_t value;
@@ -622,12 +623,10 @@ union GPR16 {
 //
 union GPR17 {
   
-  // Enum definitions.
-  
   // Bit field definition.
   struct {
     uint32_t GPR : 32;
-  } bits;          // Bit-field struct (auto-filling reserved gaps)
+  } bits;
   
   // Full 32-bit register value.
   uint32_t value;
@@ -640,12 +639,10 @@ union GPR17 {
 //
 union GPR18 {
   
-  // Enum definitions.
-  
   // Bit field definition.
   struct {
     uint32_t GPR : 32;
-  } bits;          // Bit-field struct (auto-filling reserved gaps)
+  } bits;
   
   // Full 32-bit register value.
   uint32_t value;
@@ -658,12 +655,10 @@ union GPR18 {
 //
 union GPR19 {
   
-  // Enum definitions.
-  
   // Bit field definition.
   struct {
     uint32_t GPR : 32;
-  } bits;          // Bit-field struct (auto-filling reserved gaps)
+  } bits;
   
   // Full 32-bit register value.
   uint32_t value;
@@ -676,12 +671,10 @@ union GPR19 {
 //
 union GPR20 {
   
-  // Enum definitions.
-  
   // Bit field definition.
   struct {
     uint32_t GPR : 32;
-  } bits;          // Bit-field struct (auto-filling reserved gaps)
+  } bits;
   
   // Full 32-bit register value.
   uint32_t value;
@@ -695,11 +688,11 @@ union GPR20 {
 //
 union AUTHEN_MEGA {
   
-  // Enum definitions.
   enum class eDOMAIN_MODE : uint32_t {
     eDOMAIN_MODE_0 = 0, // slice hardware reset will NOT be triggered by CPU power mode transition
     eDOMAIN_MODE_1 = 1, // slice hardware reset will be triggered by CPU power mode transition. Do not set this bit and SETPOINT_MODE at the same time.
   };
+  
   enum class eSETPOINT_MODE : uint32_t {
     eSETPOINT_MODE_0 = 0, // slice hardware reset will NOT be triggered by Setpoint transition
     eSETPOINT_MODE_1 = 1, // slice hardware reset will be triggered by Setpoint transition. Do not set this bit and DOMAIN_MODE at the same time.
@@ -721,7 +714,7 @@ union AUTHEN_MEGA {
     uint32_t NONSECURE : 1;
     uint32_t _reserved_9 : 5;
     uint32_t LOCK_SETTING : 1;
-  } bits;          // Bit-field struct (auto-filling reserved gaps)
+  } bits;
   
   // Full 32-bit register value.
   uint32_t value;
@@ -735,7 +728,6 @@ union AUTHEN_MEGA {
 //
 union CTRL_MEGA {
   
-  // Enum definitions.
   enum class eSW_RESET : uint32_t {
     eSW_RESET_0 = 0, // do not assert slice software reset
     eSW_RESET_1 = 1, // assert slice software reset
@@ -745,7 +737,7 @@ union CTRL_MEGA {
   struct {
     eSW_RESET SW_RESET : 1;
     uint32_t _reserved_end : 31;
-  } bits;          // Bit-field struct (auto-filling reserved gaps)
+  } bits;
   
   // Full 32-bit register value.
   uint32_t value;
@@ -759,67 +751,81 @@ union CTRL_MEGA {
 //
 union SETPOINT_MEGA {
   
-  // Enum definitions.
   enum class eSETPOINT0 : uint32_t {
     eSETPOINT0_0 = 0, // Slice reset will be de-asserted when system in Setpoint n
     eSETPOINT0_1 = 1, // Slice reset will be asserted when system in Setpoint n
   };
+  
   enum class eSETPOINT1 : uint32_t {
     eSETPOINT1_0 = 0, // Slice reset will be de-asserted when system in Setpoint n
     eSETPOINT1_1 = 1, // Slice reset will be asserted when system in Setpoint n
   };
+  
   enum class eSETPOINT2 : uint32_t {
     eSETPOINT2_0 = 0, // Slice reset will be de-asserted when system in Setpoint n
     eSETPOINT2_1 = 1, // Slice reset will be asserted when system in Setpoint n
   };
+  
   enum class eSETPOINT3 : uint32_t {
     eSETPOINT3_0 = 0, // Slice reset will be de-asserted when system in Setpoint n
     eSETPOINT3_1 = 1, // Slice reset will be asserted when system in Setpoint n
   };
+  
   enum class eSETPOINT4 : uint32_t {
     eSETPOINT4_0 = 0, // Slice reset will be de-asserted when system in Setpoint n
     eSETPOINT4_1 = 1, // Slice reset will be asserted when system in Setpoint n
   };
+  
   enum class eSETPOINT5 : uint32_t {
     eSETPOINT5_0 = 0, // Slice reset will be de-asserted when system in Setpoint n
     eSETPOINT5_1 = 1, // Slice reset will be asserted when system in Setpoint n
   };
+  
   enum class eSETPOINT6 : uint32_t {
     eSETPOINT6_0 = 0, // Slice reset will be de-asserted when system in Setpoint n
     eSETPOINT6_1 = 1, // Slice reset will be asserted when system in Setpoint n
   };
+  
   enum class eSETPOINT7 : uint32_t {
     eSETPOINT7_0 = 0, // Slice reset will be de-asserted when system in Setpoint n
     eSETPOINT7_1 = 1, // Slice reset will be asserted when system in Setpoint n
   };
+  
   enum class eSETPOINT8 : uint32_t {
     eSETPOINT8_0 = 0, // Slice reset will be de-asserted when system in Setpoint n
     eSETPOINT8_1 = 1, // Slice reset will be asserted when system in Setpoint n
   };
+  
   enum class eSETPOINT9 : uint32_t {
     eSETPOINT9_0 = 0, // Slice reset will be de-asserted when system in Setpoint n
     eSETPOINT9_1 = 1, // Slice reset will be asserted when system in Setpoint n
   };
+  
   enum class eSETPOINT10 : uint32_t {
     eSETPOINT10_0 = 0, // Slice reset will be de-asserted when system in Setpoint n
     eSETPOINT10_1 = 1, // Slice reset will be asserted when system in Setpoint n
   };
+  
   enum class eSETPOINT11 : uint32_t {
     eSETPOINT11_0 = 0, // Slice reset will be de-asserted when system in Setpoint n
     eSETPOINT11_1 = 1, // Slice reset will be asserted when system in Setpoint n
   };
+  
   enum class eSETPOINT12 : uint32_t {
     eSETPOINT12_0 = 0, // Slice reset will be de-asserted when system in Setpoint n
     eSETPOINT12_1 = 1, // Slice reset will be asserted when system in Setpoint n
   };
+  
   enum class eSETPOINT13 : uint32_t {
     eSETPOINT13_0 = 0, // Slice reset will be de-asserted when system in Setpoint n
     eSETPOINT13_1 = 1, // Slice reset will be asserted when system in Setpoint n
   };
+  
   enum class eSETPOINT14 : uint32_t {
     eSETPOINT14_0 = 0, // Slice reset will be de-asserted when system in Setpoint n
     eSETPOINT14_1 = 1, // Slice reset will be asserted when system in Setpoint n
   };
+  
   enum class eSETPOINT15 : uint32_t {
     eSETPOINT15_0 = 0, // Slice reset will be de-asserted when system in Setpoint n
     eSETPOINT15_1 = 1, // Slice reset will be asserted when system in Setpoint n
@@ -844,7 +850,7 @@ union SETPOINT_MEGA {
     eSETPOINT14 SETPOINT14 : 1;
     eSETPOINT15 SETPOINT15 : 1;
     uint32_t _reserved_end : 16;
-  } bits;          // Bit-field struct (auto-filling reserved gaps)
+  } bits;
   
   // Full 32-bit register value.
   uint32_t value;
@@ -858,35 +864,41 @@ union SETPOINT_MEGA {
 //
 union DOMAIN_MEGA {
   
-  // Enum definitions.
   enum class eCPU0_RUN : uint32_t {
     eCPU0_RUN_0 = 0, // Slice reset will be de-asserted when CPU0 in RUN mode
     eCPU0_RUN_1 = 1, // Slice reset will be asserted when CPU0 in RUN mode
   };
+  
   enum class eCPU0_WAIT : uint32_t {
     eCPU0_WAIT_0 = 0, // Slice reset will be de-asserted when CPU0 in WAIT mode
     eCPU0_WAIT_1 = 1, // Slice reset will be asserted when CPU0 in WAIT mode
   };
+  
   enum class eCPU0_STOP : uint32_t {
     eCPU0_STOP_0 = 0, // Slice reset will be de-asserted when CPU0 in STOP mode
     eCPU0_STOP_1 = 1, // Slice reset will be asserted when CPU0 in STOP mode
   };
+  
   enum class eCPU0_SUSP : uint32_t {
     eCPU0_SUSP_0 = 0, // Slice reset will be de-asserted when CPU0 in SUSPEND mode
     eCPU0_SUSP_1 = 1, // Slice reset will be asserted when CPU0 in SUSPEND mode
   };
+  
   enum class eCPU1_RUN : uint32_t {
     eCPU1_RUN_0 = 0, // Slice reset will be de-asserted when CPU1 in RUN mode
     eCPU1_RUN_1 = 1, // Slice reset will be asserted when CPU1 in RUN mode
   };
+  
   enum class eCPU1_WAIT : uint32_t {
     eCPU1_WAIT_0 = 0, // Slice reset will be de-asserted when CPU1 in WAIT mode
     eCPU1_WAIT_1 = 1, // Slice reset will be asserted when CPU1 in WAIT mode
   };
+  
   enum class eCPU1_STOP : uint32_t {
     eCPU1_STOP_0 = 0, // Slice reset will be de-asserted when CPU1 in STOP mode
     eCPU1_STOP_1 = 1, // Slice reset will be asserted when CPU1 in STOP mode
   };
+  
   enum class eCPU1_SUSP : uint32_t {
     eCPU1_SUSP_0 = 0, // Slice reset will be de-asserted when CPU1 in SUSPEND mode
     eCPU1_SUSP_1 = 1, // Slice reset will be asserted when CPU1 in SUSPEND mode
@@ -903,7 +915,7 @@ union DOMAIN_MEGA {
     eCPU1_STOP CPU1_STOP : 1;
     eCPU1_SUSP CPU1_SUSP : 1;
     uint32_t _reserved_end : 24;
-  } bits;          // Bit-field struct (auto-filling reserved gaps)
+  } bits;
   
   // Full 32-bit register value.
   uint32_t value;
@@ -917,15 +929,16 @@ union DOMAIN_MEGA {
 //
 union STAT_MEGA {
   
-  // Enum definitions.
   enum class eUNDER_RST : uint32_t {
     eUNDER_RST_0 = 0, // the reset is finished
     eUNDER_RST_1 = 1, // the reset is in process
   };
+  
   enum class eRST_BY_HW : uint32_t {
     eRST_BY_HW_0 = 0, // the reset is not caused by the power mode transfer
     eRST_BY_HW_1 = 1, // the reset is caused by the power mode transfer
   };
+  
   enum class eRST_BY_SW : uint32_t {
     eRST_BY_SW_0 = 0, // the reset is not caused by software setting
     eRST_BY_SW_1 = 1, // the reset is caused by software setting
@@ -938,7 +951,7 @@ union STAT_MEGA {
     eRST_BY_HW RST_BY_HW : 1;
     eRST_BY_SW RST_BY_SW : 1;
     uint32_t _reserved_end : 28;
-  } bits;          // Bit-field struct (auto-filling reserved gaps)
+  } bits;
   
   // Full 32-bit register value.
   uint32_t value;
@@ -952,11 +965,11 @@ union STAT_MEGA {
 //
 union AUTHEN_DISPLAY {
   
-  // Enum definitions.
   enum class eDOMAIN_MODE : uint32_t {
     eDOMAIN_MODE_0 = 0, // slice hardware reset will NOT be triggered by CPU power mode transition
     eDOMAIN_MODE_1 = 1, // slice hardware reset will be triggered by CPU power mode transition. Do not set this bit and SETPOINT_MODE at the same time.
   };
+  
   enum class eSETPOINT_MODE : uint32_t {
     eSETPOINT_MODE_0 = 0, // slice hardware reset will NOT be triggered by Setpoint transition
     eSETPOINT_MODE_1 = 1, // slice hardware reset will be triggered by Setpoint transition. Do not set this bit and DOMAIN_MODE at the same time.
@@ -978,7 +991,7 @@ union AUTHEN_DISPLAY {
     uint32_t NONSECURE : 1;
     uint32_t _reserved_9 : 5;
     uint32_t LOCK_SETTING : 1;
-  } bits;          // Bit-field struct (auto-filling reserved gaps)
+  } bits;
   
   // Full 32-bit register value.
   uint32_t value;
@@ -992,7 +1005,6 @@ union AUTHEN_DISPLAY {
 //
 union CTRL_DISPLAY {
   
-  // Enum definitions.
   enum class eSW_RESET : uint32_t {
     eSW_RESET_0 = 0, // do not assert slice software reset
     eSW_RESET_1 = 1, // assert slice software reset
@@ -1002,7 +1014,7 @@ union CTRL_DISPLAY {
   struct {
     eSW_RESET SW_RESET : 1;
     uint32_t _reserved_end : 31;
-  } bits;          // Bit-field struct (auto-filling reserved gaps)
+  } bits;
   
   // Full 32-bit register value.
   uint32_t value;
@@ -1016,67 +1028,81 @@ union CTRL_DISPLAY {
 //
 union SETPOINT_DISPLAY {
   
-  // Enum definitions.
   enum class eSETPOINT0 : uint32_t {
     eSETPOINT0_0 = 0, // Slice reset will be de-asserted when system in Setpoint n
     eSETPOINT0_1 = 1, // Slice reset will be asserted when system in Setpoint n
   };
+  
   enum class eSETPOINT1 : uint32_t {
     eSETPOINT1_0 = 0, // Slice reset will be de-asserted when system in Setpoint n
     eSETPOINT1_1 = 1, // Slice reset will be asserted when system in Setpoint n
   };
+  
   enum class eSETPOINT2 : uint32_t {
     eSETPOINT2_0 = 0, // Slice reset will be de-asserted when system in Setpoint n
     eSETPOINT2_1 = 1, // Slice reset will be asserted when system in Setpoint n
   };
+  
   enum class eSETPOINT3 : uint32_t {
     eSETPOINT3_0 = 0, // Slice reset will be de-asserted when system in Setpoint n
     eSETPOINT3_1 = 1, // Slice reset will be asserted when system in Setpoint n
   };
+  
   enum class eSETPOINT4 : uint32_t {
     eSETPOINT4_0 = 0, // Slice reset will be de-asserted when system in Setpoint n
     eSETPOINT4_1 = 1, // Slice reset will be asserted when system in Setpoint n
   };
+  
   enum class eSETPOINT5 : uint32_t {
     eSETPOINT5_0 = 0, // Slice reset will be de-asserted when system in Setpoint n
     eSETPOINT5_1 = 1, // Slice reset will be asserted when system in Setpoint n
   };
+  
   enum class eSETPOINT6 : uint32_t {
     eSETPOINT6_0 = 0, // Slice reset will be de-asserted when system in Setpoint n
     eSETPOINT6_1 = 1, // Slice reset will be asserted when system in Setpoint n
   };
+  
   enum class eSETPOINT7 : uint32_t {
     eSETPOINT7_0 = 0, // Slice reset will be de-asserted when system in Setpoint n
     eSETPOINT7_1 = 1, // Slice reset will be asserted when system in Setpoint n
   };
+  
   enum class eSETPOINT8 : uint32_t {
     eSETPOINT8_0 = 0, // Slice reset will be de-asserted when system in Setpoint n
     eSETPOINT8_1 = 1, // Slice reset will be asserted when system in Setpoint n
   };
+  
   enum class eSETPOINT9 : uint32_t {
     eSETPOINT9_0 = 0, // Slice reset will be de-asserted when system in Setpoint n
     eSETPOINT9_1 = 1, // Slice reset will be asserted when system in Setpoint n
   };
+  
   enum class eSETPOINT10 : uint32_t {
     eSETPOINT10_0 = 0, // Slice reset will be de-asserted when system in Setpoint n
     eSETPOINT10_1 = 1, // Slice reset will be asserted when system in Setpoint n
   };
+  
   enum class eSETPOINT11 : uint32_t {
     eSETPOINT11_0 = 0, // Slice reset will be de-asserted when system in Setpoint n
     eSETPOINT11_1 = 1, // Slice reset will be asserted when system in Setpoint n
   };
+  
   enum class eSETPOINT12 : uint32_t {
     eSETPOINT12_0 = 0, // Slice reset will be de-asserted when system in Setpoint n
     eSETPOINT12_1 = 1, // Slice reset will be asserted when system in Setpoint n
   };
+  
   enum class eSETPOINT13 : uint32_t {
     eSETPOINT13_0 = 0, // Slice reset will be de-asserted when system in Setpoint n
     eSETPOINT13_1 = 1, // Slice reset will be asserted when system in Setpoint n
   };
+  
   enum class eSETPOINT14 : uint32_t {
     eSETPOINT14_0 = 0, // Slice reset will be de-asserted when system in Setpoint n
     eSETPOINT14_1 = 1, // Slice reset will be asserted when system in Setpoint n
   };
+  
   enum class eSETPOINT15 : uint32_t {
     eSETPOINT15_0 = 0, // Slice reset will be de-asserted when system in Setpoint n
     eSETPOINT15_1 = 1, // Slice reset will be asserted when system in Setpoint n
@@ -1101,7 +1127,7 @@ union SETPOINT_DISPLAY {
     eSETPOINT14 SETPOINT14 : 1;
     eSETPOINT15 SETPOINT15 : 1;
     uint32_t _reserved_end : 16;
-  } bits;          // Bit-field struct (auto-filling reserved gaps)
+  } bits;
   
   // Full 32-bit register value.
   uint32_t value;
@@ -1115,35 +1141,41 @@ union SETPOINT_DISPLAY {
 //
 union DOMAIN_DISPLAY {
   
-  // Enum definitions.
   enum class eCPU0_RUN : uint32_t {
     eCPU0_RUN_0 = 0, // Slice reset will be de-asserted when CPU0 in RUN mode
     eCPU0_RUN_1 = 1, // Slice reset will be asserted when CPU0 in RUN mode
   };
+  
   enum class eCPU0_WAIT : uint32_t {
     eCPU0_WAIT_0 = 0, // Slice reset will be de-asserted when CPU0 in WAIT mode
     eCPU0_WAIT_1 = 1, // Slice reset will be asserted when CPU0 in WAIT mode
   };
+  
   enum class eCPU0_STOP : uint32_t {
     eCPU0_STOP_0 = 0, // Slice reset will be de-asserted when CPU0 in STOP mode
     eCPU0_STOP_1 = 1, // Slice reset will be asserted when CPU0 in STOP mode
   };
+  
   enum class eCPU0_SUSP : uint32_t {
     eCPU0_SUSP_0 = 0, // Slice reset will be de-asserted when CPU0 in SUSPEND mode
     eCPU0_SUSP_1 = 1, // Slice reset will be asserted when CPU0 in SUSPEND mode
   };
+  
   enum class eCPU1_RUN : uint32_t {
     eCPU1_RUN_0 = 0, // Slice reset will be de-asserted when CPU1 in RUN mode
     eCPU1_RUN_1 = 1, // Slice reset will be asserted when CPU1 in RUN mode
   };
+  
   enum class eCPU1_WAIT : uint32_t {
     eCPU1_WAIT_0 = 0, // Slice reset will be de-asserted when CPU1 in WAIT mode
     eCPU1_WAIT_1 = 1, // Slice reset will be asserted when CPU1 in WAIT mode
   };
+  
   enum class eCPU1_STOP : uint32_t {
     eCPU1_STOP_0 = 0, // Slice reset will be de-asserted when CPU1 in STOP mode
     eCPU1_STOP_1 = 1, // Slice reset will be asserted when CPU1 in STOP mode
   };
+  
   enum class eCPU1_SUSP : uint32_t {
     eCPU1_SUSP_0 = 0, // Slice reset will be de-asserted when CPU1 in SUSPEND mode
     eCPU1_SUSP_1 = 1, // Slice reset will be asserted when CPU1 in SUSPEND mode
@@ -1160,7 +1192,7 @@ union DOMAIN_DISPLAY {
     eCPU1_STOP CPU1_STOP : 1;
     eCPU1_SUSP CPU1_SUSP : 1;
     uint32_t _reserved_end : 24;
-  } bits;          // Bit-field struct (auto-filling reserved gaps)
+  } bits;
   
   // Full 32-bit register value.
   uint32_t value;
@@ -1174,15 +1206,16 @@ union DOMAIN_DISPLAY {
 //
 union STAT_DISPLAY {
   
-  // Enum definitions.
   enum class eUNDER_RST : uint32_t {
     eUNDER_RST_0 = 0, // the reset is finished
     eUNDER_RST_1 = 1, // the reset is in process
   };
+  
   enum class eRST_BY_HW : uint32_t {
     eRST_BY_HW_0 = 0, // the reset is not caused by the power mode transfer
     eRST_BY_HW_1 = 1, // the reset is caused by the power mode transfer
   };
+  
   enum class eRST_BY_SW : uint32_t {
     eRST_BY_SW_0 = 0, // the reset is not caused by software setting
     eRST_BY_SW_1 = 1, // the reset is caused by software setting
@@ -1195,7 +1228,7 @@ union STAT_DISPLAY {
     eRST_BY_HW RST_BY_HW : 1;
     eRST_BY_SW RST_BY_SW : 1;
     uint32_t _reserved_end : 28;
-  } bits;          // Bit-field struct (auto-filling reserved gaps)
+  } bits;
   
   // Full 32-bit register value.
   uint32_t value;
@@ -1209,11 +1242,11 @@ union STAT_DISPLAY {
 //
 union AUTHEN_WAKEUP {
   
-  // Enum definitions.
   enum class eDOMAIN_MODE : uint32_t {
     eDOMAIN_MODE_0 = 0, // slice hardware reset will NOT be triggered by CPU power mode transition
     eDOMAIN_MODE_1 = 1, // slice hardware reset will be triggered by CPU power mode transition. Do not set this bit and SETPOINT_MODE at the same time.
   };
+  
   enum class eSETPOINT_MODE : uint32_t {
     eSETPOINT_MODE_0 = 0, // slice hardware reset will NOT be triggered by Setpoint transition
     eSETPOINT_MODE_1 = 1, // slice hardware reset will be triggered by Setpoint transition. Do not set this bit and DOMAIN_MODE at the same time.
@@ -1235,7 +1268,7 @@ union AUTHEN_WAKEUP {
     uint32_t NONSECURE : 1;
     uint32_t _reserved_9 : 5;
     uint32_t LOCK_SETTING : 1;
-  } bits;          // Bit-field struct (auto-filling reserved gaps)
+  } bits;
   
   // Full 32-bit register value.
   uint32_t value;
@@ -1249,7 +1282,6 @@ union AUTHEN_WAKEUP {
 //
 union CTRL_WAKEUP {
   
-  // Enum definitions.
   enum class eSW_RESET : uint32_t {
     eSW_RESET_0 = 0, // do not assert slice software reset
     eSW_RESET_1 = 1, // assert slice software reset
@@ -1259,7 +1291,7 @@ union CTRL_WAKEUP {
   struct {
     eSW_RESET SW_RESET : 1;
     uint32_t _reserved_end : 31;
-  } bits;          // Bit-field struct (auto-filling reserved gaps)
+  } bits;
   
   // Full 32-bit register value.
   uint32_t value;
@@ -1273,67 +1305,81 @@ union CTRL_WAKEUP {
 //
 union SETPOINT_WAKEUP {
   
-  // Enum definitions.
   enum class eSETPOINT0 : uint32_t {
     eSETPOINT0_0 = 0, // Slice reset will be de-asserted when system in Setpoint n
     eSETPOINT0_1 = 1, // Slice reset will be asserted when system in Setpoint n
   };
+  
   enum class eSETPOINT1 : uint32_t {
     eSETPOINT1_0 = 0, // Slice reset will be de-asserted when system in Setpoint n
     eSETPOINT1_1 = 1, // Slice reset will be asserted when system in Setpoint n
   };
+  
   enum class eSETPOINT2 : uint32_t {
     eSETPOINT2_0 = 0, // Slice reset will be de-asserted when system in Setpoint n
     eSETPOINT2_1 = 1, // Slice reset will be asserted when system in Setpoint n
   };
+  
   enum class eSETPOINT3 : uint32_t {
     eSETPOINT3_0 = 0, // Slice reset will be de-asserted when system in Setpoint n
     eSETPOINT3_1 = 1, // Slice reset will be asserted when system in Setpoint n
   };
+  
   enum class eSETPOINT4 : uint32_t {
     eSETPOINT4_0 = 0, // Slice reset will be de-asserted when system in Setpoint n
     eSETPOINT4_1 = 1, // Slice reset will be asserted when system in Setpoint n
   };
+  
   enum class eSETPOINT5 : uint32_t {
     eSETPOINT5_0 = 0, // Slice reset will be de-asserted when system in Setpoint n
     eSETPOINT5_1 = 1, // Slice reset will be asserted when system in Setpoint n
   };
+  
   enum class eSETPOINT6 : uint32_t {
     eSETPOINT6_0 = 0, // Slice reset will be de-asserted when system in Setpoint n
     eSETPOINT6_1 = 1, // Slice reset will be asserted when system in Setpoint n
   };
+  
   enum class eSETPOINT7 : uint32_t {
     eSETPOINT7_0 = 0, // Slice reset will be de-asserted when system in Setpoint n
     eSETPOINT7_1 = 1, // Slice reset will be asserted when system in Setpoint n
   };
+  
   enum class eSETPOINT8 : uint32_t {
     eSETPOINT8_0 = 0, // Slice reset will be de-asserted when system in Setpoint n
     eSETPOINT8_1 = 1, // Slice reset will be asserted when system in Setpoint n
   };
+  
   enum class eSETPOINT9 : uint32_t {
     eSETPOINT9_0 = 0, // Slice reset will be de-asserted when system in Setpoint n
     eSETPOINT9_1 = 1, // Slice reset will be asserted when system in Setpoint n
   };
+  
   enum class eSETPOINT10 : uint32_t {
     eSETPOINT10_0 = 0, // Slice reset will be de-asserted when system in Setpoint n
     eSETPOINT10_1 = 1, // Slice reset will be asserted when system in Setpoint n
   };
+  
   enum class eSETPOINT11 : uint32_t {
     eSETPOINT11_0 = 0, // Slice reset will be de-asserted when system in Setpoint n
     eSETPOINT11_1 = 1, // Slice reset will be asserted when system in Setpoint n
   };
+  
   enum class eSETPOINT12 : uint32_t {
     eSETPOINT12_0 = 0, // Slice reset will be de-asserted when system in Setpoint n
     eSETPOINT12_1 = 1, // Slice reset will be asserted when system in Setpoint n
   };
+  
   enum class eSETPOINT13 : uint32_t {
     eSETPOINT13_0 = 0, // Slice reset will be de-asserted when system in Setpoint n
     eSETPOINT13_1 = 1, // Slice reset will be asserted when system in Setpoint n
   };
+  
   enum class eSETPOINT14 : uint32_t {
     eSETPOINT14_0 = 0, // Slice reset will be de-asserted when system in Setpoint n
     eSETPOINT14_1 = 1, // Slice reset will be asserted when system in Setpoint n
   };
+  
   enum class eSETPOINT15 : uint32_t {
     eSETPOINT15_0 = 0, // Slice reset will be de-asserted when system in Setpoint n
     eSETPOINT15_1 = 1, // Slice reset will be asserted when system in Setpoint n
@@ -1358,7 +1404,7 @@ union SETPOINT_WAKEUP {
     eSETPOINT14 SETPOINT14 : 1;
     eSETPOINT15 SETPOINT15 : 1;
     uint32_t _reserved_end : 16;
-  } bits;          // Bit-field struct (auto-filling reserved gaps)
+  } bits;
   
   // Full 32-bit register value.
   uint32_t value;
@@ -1372,35 +1418,41 @@ union SETPOINT_WAKEUP {
 //
 union DOMAIN_WAKEUP {
   
-  // Enum definitions.
   enum class eCPU0_RUN : uint32_t {
     eCPU0_RUN_0 = 0, // Slice reset will be de-asserted when CPU0 in RUN mode
     eCPU0_RUN_1 = 1, // Slice reset will be asserted when CPU0 in RUN mode
   };
+  
   enum class eCPU0_WAIT : uint32_t {
     eCPU0_WAIT_0 = 0, // Slice reset will be de-asserted when CPU0 in WAIT mode
     eCPU0_WAIT_1 = 1, // Slice reset will be asserted when CPU0 in WAIT mode
   };
+  
   enum class eCPU0_STOP : uint32_t {
     eCPU0_STOP_0 = 0, // Slice reset will be de-asserted when CPU0 in STOP mode
     eCPU0_STOP_1 = 1, // Slice reset will be asserted when CPU0 in STOP mode
   };
+  
   enum class eCPU0_SUSP : uint32_t {
     eCPU0_SUSP_0 = 0, // Slice reset will be de-asserted when CPU0 in SUSPEND mode
     eCPU0_SUSP_1 = 1, // Slice reset will be asserted when CPU0 in SUSPEND mode
   };
+  
   enum class eCPU1_RUN : uint32_t {
     eCPU1_RUN_0 = 0, // Slice reset will be de-asserted when CPU1 in RUN mode
     eCPU1_RUN_1 = 1, // Slice reset will be asserted when CPU1 in RUN mode
   };
+  
   enum class eCPU1_WAIT : uint32_t {
     eCPU1_WAIT_0 = 0, // Slice reset will be de-asserted when CPU1 in WAIT mode
     eCPU1_WAIT_1 = 1, // Slice reset will be asserted when CPU1 in WAIT mode
   };
+  
   enum class eCPU1_STOP : uint32_t {
     eCPU1_STOP_0 = 0, // Slice reset will be de-asserted when CPU1 in STOP mode
     eCPU1_STOP_1 = 1, // Slice reset will be asserted when CPU1 in STOP mode
   };
+  
   enum class eCPU1_SUSP : uint32_t {
     eCPU1_SUSP_0 = 0, // Slice reset will be de-asserted when CPU1 in SUSPEND mode
     eCPU1_SUSP_1 = 1, // Slice reset will be asserted when CPU1 in SUSPEND mode
@@ -1417,7 +1469,7 @@ union DOMAIN_WAKEUP {
     eCPU1_STOP CPU1_STOP : 1;
     eCPU1_SUSP CPU1_SUSP : 1;
     uint32_t _reserved_end : 24;
-  } bits;          // Bit-field struct (auto-filling reserved gaps)
+  } bits;
   
   // Full 32-bit register value.
   uint32_t value;
@@ -1431,15 +1483,16 @@ union DOMAIN_WAKEUP {
 //
 union STAT_WAKEUP {
   
-  // Enum definitions.
   enum class eUNDER_RST : uint32_t {
     eUNDER_RST_0 = 0, // the reset is finished
     eUNDER_RST_1 = 1, // the reset is in process
   };
+  
   enum class eRST_BY_HW : uint32_t {
     eRST_BY_HW_0 = 0, // the reset is not caused by the power mode transfer
     eRST_BY_HW_1 = 1, // the reset is caused by the power mode transfer
   };
+  
   enum class eRST_BY_SW : uint32_t {
     eRST_BY_SW_0 = 0, // the reset is not caused by software setting
     eRST_BY_SW_1 = 1, // the reset is caused by software setting
@@ -1452,7 +1505,7 @@ union STAT_WAKEUP {
     eRST_BY_HW RST_BY_HW : 1;
     eRST_BY_SW RST_BY_SW : 1;
     uint32_t _reserved_end : 28;
-  } bits;          // Bit-field struct (auto-filling reserved gaps)
+  } bits;
   
   // Full 32-bit register value.
   uint32_t value;
@@ -1466,11 +1519,11 @@ union STAT_WAKEUP {
 //
 union AUTHEN_M4CORE {
   
-  // Enum definitions.
   enum class eDOMAIN_MODE : uint32_t {
     eDOMAIN_MODE_0 = 0, // slice hardware reset will NOT be triggered by CPU power mode transition
     eDOMAIN_MODE_1 = 1, // slice hardware reset will be triggered by CPU power mode transition. Do not set this bit and SETPOINT_MODE at the same time.
   };
+  
   enum class eSETPOINT_MODE : uint32_t {
     eSETPOINT_MODE_0 = 0, // slice hardware reset will NOT be triggered by Setpoint transition
     eSETPOINT_MODE_1 = 1, // slice hardware reset will be triggered by Setpoint transition. Do not set this bit and DOMAIN_MODE at the same time.
@@ -1492,7 +1545,7 @@ union AUTHEN_M4CORE {
     uint32_t NONSECURE : 1;
     uint32_t _reserved_9 : 5;
     uint32_t LOCK_SETTING : 1;
-  } bits;          // Bit-field struct (auto-filling reserved gaps)
+  } bits;
   
   // Full 32-bit register value.
   uint32_t value;
@@ -1506,7 +1559,6 @@ union AUTHEN_M4CORE {
 //
 union CTRL_M4CORE {
   
-  // Enum definitions.
   enum class eSW_RESET : uint32_t {
     eSW_RESET_0 = 0, // do not assert slice software reset
     eSW_RESET_1 = 1, // assert slice software reset
@@ -1516,7 +1568,7 @@ union CTRL_M4CORE {
   struct {
     eSW_RESET SW_RESET : 1;
     uint32_t _reserved_end : 31;
-  } bits;          // Bit-field struct (auto-filling reserved gaps)
+  } bits;
   
   // Full 32-bit register value.
   uint32_t value;
@@ -1530,67 +1582,81 @@ union CTRL_M4CORE {
 //
 union SETPOINT_M4CORE {
   
-  // Enum definitions.
   enum class eSETPOINT0 : uint32_t {
     eSETPOINT0_0 = 0, // Slice reset will be de-asserted when system in Setpoint n
     eSETPOINT0_1 = 1, // Slice reset will be asserted when system in Setpoint n
   };
+  
   enum class eSETPOINT1 : uint32_t {
     eSETPOINT1_0 = 0, // Slice reset will be de-asserted when system in Setpoint n
     eSETPOINT1_1 = 1, // Slice reset will be asserted when system in Setpoint n
   };
+  
   enum class eSETPOINT2 : uint32_t {
     eSETPOINT2_0 = 0, // Slice reset will be de-asserted when system in Setpoint n
     eSETPOINT2_1 = 1, // Slice reset will be asserted when system in Setpoint n
   };
+  
   enum class eSETPOINT3 : uint32_t {
     eSETPOINT3_0 = 0, // Slice reset will be de-asserted when system in Setpoint n
     eSETPOINT3_1 = 1, // Slice reset will be asserted when system in Setpoint n
   };
+  
   enum class eSETPOINT4 : uint32_t {
     eSETPOINT4_0 = 0, // Slice reset will be de-asserted when system in Setpoint n
     eSETPOINT4_1 = 1, // Slice reset will be asserted when system in Setpoint n
   };
+  
   enum class eSETPOINT5 : uint32_t {
     eSETPOINT5_0 = 0, // Slice reset will be de-asserted when system in Setpoint n
     eSETPOINT5_1 = 1, // Slice reset will be asserted when system in Setpoint n
   };
+  
   enum class eSETPOINT6 : uint32_t {
     eSETPOINT6_0 = 0, // Slice reset will be de-asserted when system in Setpoint n
     eSETPOINT6_1 = 1, // Slice reset will be asserted when system in Setpoint n
   };
+  
   enum class eSETPOINT7 : uint32_t {
     eSETPOINT7_0 = 0, // Slice reset will be de-asserted when system in Setpoint n
     eSETPOINT7_1 = 1, // Slice reset will be asserted when system in Setpoint n
   };
+  
   enum class eSETPOINT8 : uint32_t {
     eSETPOINT8_0 = 0, // Slice reset will be de-asserted when system in Setpoint n
     eSETPOINT8_1 = 1, // Slice reset will be asserted when system in Setpoint n
   };
+  
   enum class eSETPOINT9 : uint32_t {
     eSETPOINT9_0 = 0, // Slice reset will be de-asserted when system in Setpoint n
     eSETPOINT9_1 = 1, // Slice reset will be asserted when system in Setpoint n
   };
+  
   enum class eSETPOINT10 : uint32_t {
     eSETPOINT10_0 = 0, // Slice reset will be de-asserted when system in Setpoint n
     eSETPOINT10_1 = 1, // Slice reset will be asserted when system in Setpoint n
   };
+  
   enum class eSETPOINT11 : uint32_t {
     eSETPOINT11_0 = 0, // Slice reset will be de-asserted when system in Setpoint n
     eSETPOINT11_1 = 1, // Slice reset will be asserted when system in Setpoint n
   };
+  
   enum class eSETPOINT12 : uint32_t {
     eSETPOINT12_0 = 0, // Slice reset will be de-asserted when system in Setpoint n
     eSETPOINT12_1 = 1, // Slice reset will be asserted when system in Setpoint n
   };
+  
   enum class eSETPOINT13 : uint32_t {
     eSETPOINT13_0 = 0, // Slice reset will be de-asserted when system in Setpoint n
     eSETPOINT13_1 = 1, // Slice reset will be asserted when system in Setpoint n
   };
+  
   enum class eSETPOINT14 : uint32_t {
     eSETPOINT14_0 = 0, // Slice reset will be de-asserted when system in Setpoint n
     eSETPOINT14_1 = 1, // Slice reset will be asserted when system in Setpoint n
   };
+  
   enum class eSETPOINT15 : uint32_t {
     eSETPOINT15_0 = 0, // Slice reset will be de-asserted when system in Setpoint n
     eSETPOINT15_1 = 1, // Slice reset will be asserted when system in Setpoint n
@@ -1615,7 +1681,7 @@ union SETPOINT_M4CORE {
     eSETPOINT14 SETPOINT14 : 1;
     eSETPOINT15 SETPOINT15 : 1;
     uint32_t _reserved_end : 16;
-  } bits;          // Bit-field struct (auto-filling reserved gaps)
+  } bits;
   
   // Full 32-bit register value.
   uint32_t value;
@@ -1629,35 +1695,41 @@ union SETPOINT_M4CORE {
 //
 union DOMAIN_M4CORE {
   
-  // Enum definitions.
   enum class eCPU0_RUN : uint32_t {
     eCPU0_RUN_0 = 0, // Slice reset will be de-asserted when CPU0 in RUN mode
     eCPU0_RUN_1 = 1, // Slice reset will be asserted when CPU0 in RUN mode
   };
+  
   enum class eCPU0_WAIT : uint32_t {
     eCPU0_WAIT_0 = 0, // Slice reset will be de-asserted when CPU0 in WAIT mode
     eCPU0_WAIT_1 = 1, // Slice reset will be asserted when CPU0 in WAIT mode
   };
+  
   enum class eCPU0_STOP : uint32_t {
     eCPU0_STOP_0 = 0, // Slice reset will be de-asserted when CPU0 in STOP mode
     eCPU0_STOP_1 = 1, // Slice reset will be asserted when CPU0 in STOP mode
   };
+  
   enum class eCPU0_SUSP : uint32_t {
     eCPU0_SUSP_0 = 0, // Slice reset will be de-asserted when CPU0 in SUSPEND mode
     eCPU0_SUSP_1 = 1, // Slice reset will be asserted when CPU0 in SUSPEND mode
   };
+  
   enum class eCPU1_RUN : uint32_t {
     eCPU1_RUN_0 = 0, // Slice reset will be de-asserted when CPU1 in RUN mode
     eCPU1_RUN_1 = 1, // Slice reset will be asserted when CPU1 in RUN mode
   };
+  
   enum class eCPU1_WAIT : uint32_t {
     eCPU1_WAIT_0 = 0, // Slice reset will be de-asserted when CPU1 in WAIT mode
     eCPU1_WAIT_1 = 1, // Slice reset will be asserted when CPU1 in WAIT mode
   };
+  
   enum class eCPU1_STOP : uint32_t {
     eCPU1_STOP_0 = 0, // Slice reset will be de-asserted when CPU1 in STOP mode
     eCPU1_STOP_1 = 1, // Slice reset will be asserted when CPU1 in STOP mode
   };
+  
   enum class eCPU1_SUSP : uint32_t {
     eCPU1_SUSP_0 = 0, // Slice reset will be de-asserted when CPU1 in SUSPEND mode
     eCPU1_SUSP_1 = 1, // Slice reset will be asserted when CPU1 in SUSPEND mode
@@ -1674,7 +1746,7 @@ union DOMAIN_M4CORE {
     eCPU1_STOP CPU1_STOP : 1;
     eCPU1_SUSP CPU1_SUSP : 1;
     uint32_t _reserved_end : 24;
-  } bits;          // Bit-field struct (auto-filling reserved gaps)
+  } bits;
   
   // Full 32-bit register value.
   uint32_t value;
@@ -1688,15 +1760,16 @@ union DOMAIN_M4CORE {
 //
 union STAT_M4CORE {
   
-  // Enum definitions.
   enum class eUNDER_RST : uint32_t {
     eUNDER_RST_0 = 0, // the reset is finished
     eUNDER_RST_1 = 1, // the reset is in process
   };
+  
   enum class eRST_BY_HW : uint32_t {
     eRST_BY_HW_0 = 0, // the reset is not caused by the power mode transfer
     eRST_BY_HW_1 = 1, // the reset is caused by the power mode transfer
   };
+  
   enum class eRST_BY_SW : uint32_t {
     eRST_BY_SW_0 = 0, // the reset is not caused by software setting
     eRST_BY_SW_1 = 1, // the reset is caused by software setting
@@ -1709,7 +1782,7 @@ union STAT_M4CORE {
     eRST_BY_HW RST_BY_HW : 1;
     eRST_BY_SW RST_BY_SW : 1;
     uint32_t _reserved_end : 28;
-  } bits;          // Bit-field struct (auto-filling reserved gaps)
+  } bits;
   
   // Full 32-bit register value.
   uint32_t value;
@@ -1723,11 +1796,11 @@ union STAT_M4CORE {
 //
 union AUTHEN_M7CORE {
   
-  // Enum definitions.
   enum class eDOMAIN_MODE : uint32_t {
     eDOMAIN_MODE_0 = 0, // slice hardware reset will NOT be triggered by CPU power mode transition
     eDOMAIN_MODE_1 = 1, // slice hardware reset will be triggered by CPU power mode transition. Do not set this bit and SETPOINT_MODE at the same time.
   };
+  
   enum class eSETPOINT_MODE : uint32_t {
     eSETPOINT_MODE_0 = 0, // slice hardware reset will NOT be triggered by Setpoint transition
     eSETPOINT_MODE_1 = 1, // slice hardware reset will be triggered by Setpoint transition. Do not set this bit and DOMAIN_MODE at the same time.
@@ -1749,7 +1822,7 @@ union AUTHEN_M7CORE {
     uint32_t NONSECURE : 1;
     uint32_t _reserved_9 : 5;
     uint32_t LOCK_SETTING : 1;
-  } bits;          // Bit-field struct (auto-filling reserved gaps)
+  } bits;
   
   // Full 32-bit register value.
   uint32_t value;
@@ -1763,7 +1836,6 @@ union AUTHEN_M7CORE {
 //
 union CTRL_M7CORE {
   
-  // Enum definitions.
   enum class eSW_RESET : uint32_t {
     eSW_RESET_0 = 0, // do not assert slice software reset
     eSW_RESET_1 = 1, // assert slice software reset
@@ -1773,7 +1845,7 @@ union CTRL_M7CORE {
   struct {
     eSW_RESET SW_RESET : 1;
     uint32_t _reserved_end : 31;
-  } bits;          // Bit-field struct (auto-filling reserved gaps)
+  } bits;
   
   // Full 32-bit register value.
   uint32_t value;
@@ -1787,67 +1859,81 @@ union CTRL_M7CORE {
 //
 union SETPOINT_M7CORE {
   
-  // Enum definitions.
   enum class eSETPOINT0 : uint32_t {
     eSETPOINT0_0 = 0, // Slice reset will be de-asserted when system in Setpoint n
     eSETPOINT0_1 = 1, // Slice reset will be asserted when system in Setpoint n
   };
+  
   enum class eSETPOINT1 : uint32_t {
     eSETPOINT1_0 = 0, // Slice reset will be de-asserted when system in Setpoint n
     eSETPOINT1_1 = 1, // Slice reset will be asserted when system in Setpoint n
   };
+  
   enum class eSETPOINT2 : uint32_t {
     eSETPOINT2_0 = 0, // Slice reset will be de-asserted when system in Setpoint n
     eSETPOINT2_1 = 1, // Slice reset will be asserted when system in Setpoint n
   };
+  
   enum class eSETPOINT3 : uint32_t {
     eSETPOINT3_0 = 0, // Slice reset will be de-asserted when system in Setpoint n
     eSETPOINT3_1 = 1, // Slice reset will be asserted when system in Setpoint n
   };
+  
   enum class eSETPOINT4 : uint32_t {
     eSETPOINT4_0 = 0, // Slice reset will be de-asserted when system in Setpoint n
     eSETPOINT4_1 = 1, // Slice reset will be asserted when system in Setpoint n
   };
+  
   enum class eSETPOINT5 : uint32_t {
     eSETPOINT5_0 = 0, // Slice reset will be de-asserted when system in Setpoint n
     eSETPOINT5_1 = 1, // Slice reset will be asserted when system in Setpoint n
   };
+  
   enum class eSETPOINT6 : uint32_t {
     eSETPOINT6_0 = 0, // Slice reset will be de-asserted when system in Setpoint n
     eSETPOINT6_1 = 1, // Slice reset will be asserted when system in Setpoint n
   };
+  
   enum class eSETPOINT7 : uint32_t {
     eSETPOINT7_0 = 0, // Slice reset will be de-asserted when system in Setpoint n
     eSETPOINT7_1 = 1, // Slice reset will be asserted when system in Setpoint n
   };
+  
   enum class eSETPOINT8 : uint32_t {
     eSETPOINT8_0 = 0, // Slice reset will be de-asserted when system in Setpoint n
     eSETPOINT8_1 = 1, // Slice reset will be asserted when system in Setpoint n
   };
+  
   enum class eSETPOINT9 : uint32_t {
     eSETPOINT9_0 = 0, // Slice reset will be de-asserted when system in Setpoint n
     eSETPOINT9_1 = 1, // Slice reset will be asserted when system in Setpoint n
   };
+  
   enum class eSETPOINT10 : uint32_t {
     eSETPOINT10_0 = 0, // Slice reset will be de-asserted when system in Setpoint n
     eSETPOINT10_1 = 1, // Slice reset will be asserted when system in Setpoint n
   };
+  
   enum class eSETPOINT11 : uint32_t {
     eSETPOINT11_0 = 0, // Slice reset will be de-asserted when system in Setpoint n
     eSETPOINT11_1 = 1, // Slice reset will be asserted when system in Setpoint n
   };
+  
   enum class eSETPOINT12 : uint32_t {
     eSETPOINT12_0 = 0, // Slice reset will be de-asserted when system in Setpoint n
     eSETPOINT12_1 = 1, // Slice reset will be asserted when system in Setpoint n
   };
+  
   enum class eSETPOINT13 : uint32_t {
     eSETPOINT13_0 = 0, // Slice reset will be de-asserted when system in Setpoint n
     eSETPOINT13_1 = 1, // Slice reset will be asserted when system in Setpoint n
   };
+  
   enum class eSETPOINT14 : uint32_t {
     eSETPOINT14_0 = 0, // Slice reset will be de-asserted when system in Setpoint n
     eSETPOINT14_1 = 1, // Slice reset will be asserted when system in Setpoint n
   };
+  
   enum class eSETPOINT15 : uint32_t {
     eSETPOINT15_0 = 0, // Slice reset will be de-asserted when system in Setpoint n
     eSETPOINT15_1 = 1, // Slice reset will be asserted when system in Setpoint n
@@ -1872,7 +1958,7 @@ union SETPOINT_M7CORE {
     eSETPOINT14 SETPOINT14 : 1;
     eSETPOINT15 SETPOINT15 : 1;
     uint32_t _reserved_end : 16;
-  } bits;          // Bit-field struct (auto-filling reserved gaps)
+  } bits;
   
   // Full 32-bit register value.
   uint32_t value;
@@ -1886,35 +1972,41 @@ union SETPOINT_M7CORE {
 //
 union DOMAIN_M7CORE {
   
-  // Enum definitions.
   enum class eCPU0_RUN : uint32_t {
     eCPU0_RUN_0 = 0, // Slice reset will be de-asserted when CPU0 in RUN mode
     eCPU0_RUN_1 = 1, // Slice reset will be asserted when CPU0 in RUN mode
   };
+  
   enum class eCPU0_WAIT : uint32_t {
     eCPU0_WAIT_0 = 0, // Slice reset will be de-asserted when CPU0 in WAIT mode
     eCPU0_WAIT_1 = 1, // Slice reset will be asserted when CPU0 in WAIT mode
   };
+  
   enum class eCPU0_STOP : uint32_t {
     eCPU0_STOP_0 = 0, // Slice reset will be de-asserted when CPU0 in STOP mode
     eCPU0_STOP_1 = 1, // Slice reset will be asserted when CPU0 in STOP mode
   };
+  
   enum class eCPU0_SUSP : uint32_t {
     eCPU0_SUSP_0 = 0, // Slice reset will be de-asserted when CPU0 in SUSPEND mode
     eCPU0_SUSP_1 = 1, // Slice reset will be asserted when CPU0 in SUSPEND mode
   };
+  
   enum class eCPU1_RUN : uint32_t {
     eCPU1_RUN_0 = 0, // Slice reset will be de-asserted when CPU1 in RUN mode
     eCPU1_RUN_1 = 1, // Slice reset will be asserted when CPU1 in RUN mode
   };
+  
   enum class eCPU1_WAIT : uint32_t {
     eCPU1_WAIT_0 = 0, // Slice reset will be de-asserted when CPU1 in WAIT mode
     eCPU1_WAIT_1 = 1, // Slice reset will be asserted when CPU1 in WAIT mode
   };
+  
   enum class eCPU1_STOP : uint32_t {
     eCPU1_STOP_0 = 0, // Slice reset will be de-asserted when CPU1 in STOP mode
     eCPU1_STOP_1 = 1, // Slice reset will be asserted when CPU1 in STOP mode
   };
+  
   enum class eCPU1_SUSP : uint32_t {
     eCPU1_SUSP_0 = 0, // Slice reset will be de-asserted when CPU1 in SUSPEND mode
     eCPU1_SUSP_1 = 1, // Slice reset will be asserted when CPU1 in SUSPEND mode
@@ -1931,7 +2023,7 @@ union DOMAIN_M7CORE {
     eCPU1_STOP CPU1_STOP : 1;
     eCPU1_SUSP CPU1_SUSP : 1;
     uint32_t _reserved_end : 24;
-  } bits;          // Bit-field struct (auto-filling reserved gaps)
+  } bits;
   
   // Full 32-bit register value.
   uint32_t value;
@@ -1945,15 +2037,16 @@ union DOMAIN_M7CORE {
 //
 union STAT_M7CORE {
   
-  // Enum definitions.
   enum class eUNDER_RST : uint32_t {
     eUNDER_RST_0 = 0, // the reset is finished
     eUNDER_RST_1 = 1, // the reset is in process
   };
+  
   enum class eRST_BY_HW : uint32_t {
     eRST_BY_HW_0 = 0, // the reset is not caused by the power mode transfer
     eRST_BY_HW_1 = 1, // the reset is caused by the power mode transfer
   };
+  
   enum class eRST_BY_SW : uint32_t {
     eRST_BY_SW_0 = 0, // the reset is not caused by software setting
     eRST_BY_SW_1 = 1, // the reset is caused by software setting
@@ -1966,7 +2059,7 @@ union STAT_M7CORE {
     eRST_BY_HW RST_BY_HW : 1;
     eRST_BY_SW RST_BY_SW : 1;
     uint32_t _reserved_end : 28;
-  } bits;          // Bit-field struct (auto-filling reserved gaps)
+  } bits;
   
   // Full 32-bit register value.
   uint32_t value;
@@ -1980,11 +2073,11 @@ union STAT_M7CORE {
 //
 union AUTHEN_M4DEBUG {
   
-  // Enum definitions.
   enum class eDOMAIN_MODE : uint32_t {
     eDOMAIN_MODE_0 = 0, // slice hardware reset will NOT be triggered by CPU power mode transition
     eDOMAIN_MODE_1 = 1, // slice hardware reset will be triggered by CPU power mode transition. Do not set this bit and SETPOINT_MODE at the same time.
   };
+  
   enum class eSETPOINT_MODE : uint32_t {
     eSETPOINT_MODE_0 = 0, // slice hardware reset will NOT be triggered by Setpoint transition
     eSETPOINT_MODE_1 = 1, // slice hardware reset will be triggered by Setpoint transition. Do not set this bit and DOMAIN_MODE at the same time.
@@ -2006,7 +2099,7 @@ union AUTHEN_M4DEBUG {
     uint32_t NONSECURE : 1;
     uint32_t _reserved_9 : 5;
     uint32_t LOCK_SETTING : 1;
-  } bits;          // Bit-field struct (auto-filling reserved gaps)
+  } bits;
   
   // Full 32-bit register value.
   uint32_t value;
@@ -2020,7 +2113,6 @@ union AUTHEN_M4DEBUG {
 //
 union CTRL_M4DEBUG {
   
-  // Enum definitions.
   enum class eSW_RESET : uint32_t {
     eSW_RESET_0 = 0, // do not assert slice software reset
     eSW_RESET_1 = 1, // assert slice software reset
@@ -2030,7 +2122,7 @@ union CTRL_M4DEBUG {
   struct {
     eSW_RESET SW_RESET : 1;
     uint32_t _reserved_end : 31;
-  } bits;          // Bit-field struct (auto-filling reserved gaps)
+  } bits;
   
   // Full 32-bit register value.
   uint32_t value;
@@ -2044,67 +2136,81 @@ union CTRL_M4DEBUG {
 //
 union SETPOINT_M4DEBUG {
   
-  // Enum definitions.
   enum class eSETPOINT0 : uint32_t {
     eSETPOINT0_0 = 0, // Slice reset will be de-asserted when system in Setpoint n
     eSETPOINT0_1 = 1, // Slice reset will be asserted when system in Setpoint n
   };
+  
   enum class eSETPOINT1 : uint32_t {
     eSETPOINT1_0 = 0, // Slice reset will be de-asserted when system in Setpoint n
     eSETPOINT1_1 = 1, // Slice reset will be asserted when system in Setpoint n
   };
+  
   enum class eSETPOINT2 : uint32_t {
     eSETPOINT2_0 = 0, // Slice reset will be de-asserted when system in Setpoint n
     eSETPOINT2_1 = 1, // Slice reset will be asserted when system in Setpoint n
   };
+  
   enum class eSETPOINT3 : uint32_t {
     eSETPOINT3_0 = 0, // Slice reset will be de-asserted when system in Setpoint n
     eSETPOINT3_1 = 1, // Slice reset will be asserted when system in Setpoint n
   };
+  
   enum class eSETPOINT4 : uint32_t {
     eSETPOINT4_0 = 0, // Slice reset will be de-asserted when system in Setpoint n
     eSETPOINT4_1 = 1, // Slice reset will be asserted when system in Setpoint n
   };
+  
   enum class eSETPOINT5 : uint32_t {
     eSETPOINT5_0 = 0, // Slice reset will be de-asserted when system in Setpoint n
     eSETPOINT5_1 = 1, // Slice reset will be asserted when system in Setpoint n
   };
+  
   enum class eSETPOINT6 : uint32_t {
     eSETPOINT6_0 = 0, // Slice reset will be de-asserted when system in Setpoint n
     eSETPOINT6_1 = 1, // Slice reset will be asserted when system in Setpoint n
   };
+  
   enum class eSETPOINT7 : uint32_t {
     eSETPOINT7_0 = 0, // Slice reset will be de-asserted when system in Setpoint n
     eSETPOINT7_1 = 1, // Slice reset will be asserted when system in Setpoint n
   };
+  
   enum class eSETPOINT8 : uint32_t {
     eSETPOINT8_0 = 0, // Slice reset will be de-asserted when system in Setpoint n
     eSETPOINT8_1 = 1, // Slice reset will be asserted when system in Setpoint n
   };
+  
   enum class eSETPOINT9 : uint32_t {
     eSETPOINT9_0 = 0, // Slice reset will be de-asserted when system in Setpoint n
     eSETPOINT9_1 = 1, // Slice reset will be asserted when system in Setpoint n
   };
+  
   enum class eSETPOINT10 : uint32_t {
     eSETPOINT10_0 = 0, // Slice reset will be de-asserted when system in Setpoint n
     eSETPOINT10_1 = 1, // Slice reset will be asserted when system in Setpoint n
   };
+  
   enum class eSETPOINT11 : uint32_t {
     eSETPOINT11_0 = 0, // Slice reset will be de-asserted when system in Setpoint n
     eSETPOINT11_1 = 1, // Slice reset will be asserted when system in Setpoint n
   };
+  
   enum class eSETPOINT12 : uint32_t {
     eSETPOINT12_0 = 0, // Slice reset will be de-asserted when system in Setpoint n
     eSETPOINT12_1 = 1, // Slice reset will be asserted when system in Setpoint n
   };
+  
   enum class eSETPOINT13 : uint32_t {
     eSETPOINT13_0 = 0, // Slice reset will be de-asserted when system in Setpoint n
     eSETPOINT13_1 = 1, // Slice reset will be asserted when system in Setpoint n
   };
+  
   enum class eSETPOINT14 : uint32_t {
     eSETPOINT14_0 = 0, // Slice reset will be de-asserted when system in Setpoint n
     eSETPOINT14_1 = 1, // Slice reset will be asserted when system in Setpoint n
   };
+  
   enum class eSETPOINT15 : uint32_t {
     eSETPOINT15_0 = 0, // Slice reset will be de-asserted when system in Setpoint n
     eSETPOINT15_1 = 1, // Slice reset will be asserted when system in Setpoint n
@@ -2129,7 +2235,7 @@ union SETPOINT_M4DEBUG {
     eSETPOINT14 SETPOINT14 : 1;
     eSETPOINT15 SETPOINT15 : 1;
     uint32_t _reserved_end : 16;
-  } bits;          // Bit-field struct (auto-filling reserved gaps)
+  } bits;
   
   // Full 32-bit register value.
   uint32_t value;
@@ -2143,35 +2249,41 @@ union SETPOINT_M4DEBUG {
 //
 union DOMAIN_M4DEBUG {
   
-  // Enum definitions.
   enum class eCPU0_RUN : uint32_t {
     eCPU0_RUN_0 = 0, // Slice reset will be de-asserted when CPU0 in RUN mode
     eCPU0_RUN_1 = 1, // Slice reset will be asserted when CPU0 in RUN mode
   };
+  
   enum class eCPU0_WAIT : uint32_t {
     eCPU0_WAIT_0 = 0, // Slice reset will be de-asserted when CPU0 in WAIT mode
     eCPU0_WAIT_1 = 1, // Slice reset will be asserted when CPU0 in WAIT mode
   };
+  
   enum class eCPU0_STOP : uint32_t {
     eCPU0_STOP_0 = 0, // Slice reset will be de-asserted when CPU0 in STOP mode
     eCPU0_STOP_1 = 1, // Slice reset will be asserted when CPU0 in STOP mode
   };
+  
   enum class eCPU0_SUSP : uint32_t {
     eCPU0_SUSP_0 = 0, // Slice reset will be de-asserted when CPU0 in SUSPEND mode
     eCPU0_SUSP_1 = 1, // Slice reset will be asserted when CPU0 in SUSPEND mode
   };
+  
   enum class eCPU1_RUN : uint32_t {
     eCPU1_RUN_0 = 0, // Slice reset will be de-asserted when CPU1 in RUN mode
     eCPU1_RUN_1 = 1, // Slice reset will be asserted when CPU1 in RUN mode
   };
+  
   enum class eCPU1_WAIT : uint32_t {
     eCPU1_WAIT_0 = 0, // Slice reset will be de-asserted when CPU1 in WAIT mode
     eCPU1_WAIT_1 = 1, // Slice reset will be asserted when CPU1 in WAIT mode
   };
+  
   enum class eCPU1_STOP : uint32_t {
     eCPU1_STOP_0 = 0, // Slice reset will be de-asserted when CPU1 in STOP mode
     eCPU1_STOP_1 = 1, // Slice reset will be asserted when CPU1 in STOP mode
   };
+  
   enum class eCPU1_SUSP : uint32_t {
     eCPU1_SUSP_0 = 0, // Slice reset will be de-asserted when CPU1 in SUSPEND mode
     eCPU1_SUSP_1 = 1, // Slice reset will be asserted when CPU1 in SUSPEND mode
@@ -2188,7 +2300,7 @@ union DOMAIN_M4DEBUG {
     eCPU1_STOP CPU1_STOP : 1;
     eCPU1_SUSP CPU1_SUSP : 1;
     uint32_t _reserved_end : 24;
-  } bits;          // Bit-field struct (auto-filling reserved gaps)
+  } bits;
   
   // Full 32-bit register value.
   uint32_t value;
@@ -2202,15 +2314,16 @@ union DOMAIN_M4DEBUG {
 //
 union STAT_M4DEBUG {
   
-  // Enum definitions.
   enum class eUNDER_RST : uint32_t {
     eUNDER_RST_0 = 0, // the reset is finished
     eUNDER_RST_1 = 1, // the reset is in process
   };
+  
   enum class eRST_BY_HW : uint32_t {
     eRST_BY_HW_0 = 0, // the reset is not caused by the power mode transfer
     eRST_BY_HW_1 = 1, // the reset is caused by the power mode transfer
   };
+  
   enum class eRST_BY_SW : uint32_t {
     eRST_BY_SW_0 = 0, // the reset is not caused by software setting
     eRST_BY_SW_1 = 1, // the reset is caused by software setting
@@ -2223,7 +2336,7 @@ union STAT_M4DEBUG {
     eRST_BY_HW RST_BY_HW : 1;
     eRST_BY_SW RST_BY_SW : 1;
     uint32_t _reserved_end : 28;
-  } bits;          // Bit-field struct (auto-filling reserved gaps)
+  } bits;
   
   // Full 32-bit register value.
   uint32_t value;
@@ -2237,11 +2350,11 @@ union STAT_M4DEBUG {
 //
 union AUTHEN_M7DEBUG {
   
-  // Enum definitions.
   enum class eDOMAIN_MODE : uint32_t {
     eDOMAIN_MODE_0 = 0, // slice hardware reset will NOT be triggered by CPU power mode transition
     eDOMAIN_MODE_1 = 1, // slice hardware reset will be triggered by CPU power mode transition. Do not set this bit and SETPOINT_MODE at the same time.
   };
+  
   enum class eSETPOINT_MODE : uint32_t {
     eSETPOINT_MODE_0 = 0, // slice hardware reset will NOT be triggered by Setpoint transition
     eSETPOINT_MODE_1 = 1, // slice hardware reset will be triggered by Setpoint transition. Do not set this bit and DOMAIN_MODE at the same time.
@@ -2263,7 +2376,7 @@ union AUTHEN_M7DEBUG {
     uint32_t NONSECURE : 1;
     uint32_t _reserved_9 : 5;
     uint32_t LOCK_SETTING : 1;
-  } bits;          // Bit-field struct (auto-filling reserved gaps)
+  } bits;
   
   // Full 32-bit register value.
   uint32_t value;
@@ -2277,7 +2390,6 @@ union AUTHEN_M7DEBUG {
 //
 union CTRL_M7DEBUG {
   
-  // Enum definitions.
   enum class eSW_RESET : uint32_t {
     eSW_RESET_0 = 0, // do not assert slice software reset
     eSW_RESET_1 = 1, // assert slice software reset
@@ -2287,7 +2399,7 @@ union CTRL_M7DEBUG {
   struct {
     eSW_RESET SW_RESET : 1;
     uint32_t _reserved_end : 31;
-  } bits;          // Bit-field struct (auto-filling reserved gaps)
+  } bits;
   
   // Full 32-bit register value.
   uint32_t value;
@@ -2301,67 +2413,81 @@ union CTRL_M7DEBUG {
 //
 union SETPOINT_M7DEBUG {
   
-  // Enum definitions.
   enum class eSETPOINT0 : uint32_t {
     eSETPOINT0_0 = 0, // Slice reset will be de-asserted when system in Setpoint n
     eSETPOINT0_1 = 1, // Slice reset will be asserted when system in Setpoint n
   };
+  
   enum class eSETPOINT1 : uint32_t {
     eSETPOINT1_0 = 0, // Slice reset will be de-asserted when system in Setpoint n
     eSETPOINT1_1 = 1, // Slice reset will be asserted when system in Setpoint n
   };
+  
   enum class eSETPOINT2 : uint32_t {
     eSETPOINT2_0 = 0, // Slice reset will be de-asserted when system in Setpoint n
     eSETPOINT2_1 = 1, // Slice reset will be asserted when system in Setpoint n
   };
+  
   enum class eSETPOINT3 : uint32_t {
     eSETPOINT3_0 = 0, // Slice reset will be de-asserted when system in Setpoint n
     eSETPOINT3_1 = 1, // Slice reset will be asserted when system in Setpoint n
   };
+  
   enum class eSETPOINT4 : uint32_t {
     eSETPOINT4_0 = 0, // Slice reset will be de-asserted when system in Setpoint n
     eSETPOINT4_1 = 1, // Slice reset will be asserted when system in Setpoint n
   };
+  
   enum class eSETPOINT5 : uint32_t {
     eSETPOINT5_0 = 0, // Slice reset will be de-asserted when system in Setpoint n
     eSETPOINT5_1 = 1, // Slice reset will be asserted when system in Setpoint n
   };
+  
   enum class eSETPOINT6 : uint32_t {
     eSETPOINT6_0 = 0, // Slice reset will be de-asserted when system in Setpoint n
     eSETPOINT6_1 = 1, // Slice reset will be asserted when system in Setpoint n
   };
+  
   enum class eSETPOINT7 : uint32_t {
     eSETPOINT7_0 = 0, // Slice reset will be de-asserted when system in Setpoint n
     eSETPOINT7_1 = 1, // Slice reset will be asserted when system in Setpoint n
   };
+  
   enum class eSETPOINT8 : uint32_t {
     eSETPOINT8_0 = 0, // Slice reset will be de-asserted when system in Setpoint n
     eSETPOINT8_1 = 1, // Slice reset will be asserted when system in Setpoint n
   };
+  
   enum class eSETPOINT9 : uint32_t {
     eSETPOINT9_0 = 0, // Slice reset will be de-asserted when system in Setpoint n
     eSETPOINT9_1 = 1, // Slice reset will be asserted when system in Setpoint n
   };
+  
   enum class eSETPOINT10 : uint32_t {
     eSETPOINT10_0 = 0, // Slice reset will be de-asserted when system in Setpoint n
     eSETPOINT10_1 = 1, // Slice reset will be asserted when system in Setpoint n
   };
+  
   enum class eSETPOINT11 : uint32_t {
     eSETPOINT11_0 = 0, // Slice reset will be de-asserted when system in Setpoint n
     eSETPOINT11_1 = 1, // Slice reset will be asserted when system in Setpoint n
   };
+  
   enum class eSETPOINT12 : uint32_t {
     eSETPOINT12_0 = 0, // Slice reset will be de-asserted when system in Setpoint n
     eSETPOINT12_1 = 1, // Slice reset will be asserted when system in Setpoint n
   };
+  
   enum class eSETPOINT13 : uint32_t {
     eSETPOINT13_0 = 0, // Slice reset will be de-asserted when system in Setpoint n
     eSETPOINT13_1 = 1, // Slice reset will be asserted when system in Setpoint n
   };
+  
   enum class eSETPOINT14 : uint32_t {
     eSETPOINT14_0 = 0, // Slice reset will be de-asserted when system in Setpoint n
     eSETPOINT14_1 = 1, // Slice reset will be asserted when system in Setpoint n
   };
+  
   enum class eSETPOINT15 : uint32_t {
     eSETPOINT15_0 = 0, // Slice reset will be de-asserted when system in Setpoint n
     eSETPOINT15_1 = 1, // Slice reset will be asserted when system in Setpoint n
@@ -2386,7 +2512,7 @@ union SETPOINT_M7DEBUG {
     eSETPOINT14 SETPOINT14 : 1;
     eSETPOINT15 SETPOINT15 : 1;
     uint32_t _reserved_end : 16;
-  } bits;          // Bit-field struct (auto-filling reserved gaps)
+  } bits;
   
   // Full 32-bit register value.
   uint32_t value;
@@ -2400,35 +2526,41 @@ union SETPOINT_M7DEBUG {
 //
 union DOMAIN_M7DEBUG {
   
-  // Enum definitions.
   enum class eCPU0_RUN : uint32_t {
     eCPU0_RUN_0 = 0, // Slice reset will be de-asserted when CPU0 in RUN mode
     eCPU0_RUN_1 = 1, // Slice reset will be asserted when CPU0 in RUN mode
   };
+  
   enum class eCPU0_WAIT : uint32_t {
     eCPU0_WAIT_0 = 0, // Slice reset will be de-asserted when CPU0 in WAIT mode
     eCPU0_WAIT_1 = 1, // Slice reset will be asserted when CPU0 in WAIT mode
   };
+  
   enum class eCPU0_STOP : uint32_t {
     eCPU0_STOP_0 = 0, // Slice reset will be de-asserted when CPU0 in STOP mode
     eCPU0_STOP_1 = 1, // Slice reset will be asserted when CPU0 in STOP mode
   };
+  
   enum class eCPU0_SUSP : uint32_t {
     eCPU0_SUSP_0 = 0, // Slice reset will be de-asserted when CPU0 in SUSPEND mode
     eCPU0_SUSP_1 = 1, // Slice reset will be asserted when CPU0 in SUSPEND mode
   };
+  
   enum class eCPU1_RUN : uint32_t {
     eCPU1_RUN_0 = 0, // Slice reset will be de-asserted when CPU1 in RUN mode
     eCPU1_RUN_1 = 1, // Slice reset will be asserted when CPU1 in RUN mode
   };
+  
   enum class eCPU1_WAIT : uint32_t {
     eCPU1_WAIT_0 = 0, // Slice reset will be de-asserted when CPU1 in WAIT mode
     eCPU1_WAIT_1 = 1, // Slice reset will be asserted when CPU1 in WAIT mode
   };
+  
   enum class eCPU1_STOP : uint32_t {
     eCPU1_STOP_0 = 0, // Slice reset will be de-asserted when CPU1 in STOP mode
     eCPU1_STOP_1 = 1, // Slice reset will be asserted when CPU1 in STOP mode
   };
+  
   enum class eCPU1_SUSP : uint32_t {
     eCPU1_SUSP_0 = 0, // Slice reset will be de-asserted when CPU1 in SUSPEND mode
     eCPU1_SUSP_1 = 1, // Slice reset will be asserted when CPU1 in SUSPEND mode
@@ -2445,7 +2577,7 @@ union DOMAIN_M7DEBUG {
     eCPU1_STOP CPU1_STOP : 1;
     eCPU1_SUSP CPU1_SUSP : 1;
     uint32_t _reserved_end : 24;
-  } bits;          // Bit-field struct (auto-filling reserved gaps)
+  } bits;
   
   // Full 32-bit register value.
   uint32_t value;
@@ -2459,15 +2591,16 @@ union DOMAIN_M7DEBUG {
 //
 union STAT_M7DEBUG {
   
-  // Enum definitions.
   enum class eUNDER_RST : uint32_t {
     eUNDER_RST_0 = 0, // the reset is finished
     eUNDER_RST_1 = 1, // the reset is in process
   };
+  
   enum class eRST_BY_HW : uint32_t {
     eRST_BY_HW_0 = 0, // the reset is not caused by the power mode transfer
     eRST_BY_HW_1 = 1, // the reset is caused by the power mode transfer
   };
+  
   enum class eRST_BY_SW : uint32_t {
     eRST_BY_SW_0 = 0, // the reset is not caused by software setting
     eRST_BY_SW_1 = 1, // the reset is caused by software setting
@@ -2480,7 +2613,7 @@ union STAT_M7DEBUG {
     eRST_BY_HW RST_BY_HW : 1;
     eRST_BY_SW RST_BY_SW : 1;
     uint32_t _reserved_end : 28;
-  } bits;          // Bit-field struct (auto-filling reserved gaps)
+  } bits;
   
   // Full 32-bit register value.
   uint32_t value;
@@ -2494,11 +2627,11 @@ union STAT_M7DEBUG {
 //
 union AUTHEN_USBPHY1 {
   
-  // Enum definitions.
   enum class eDOMAIN_MODE : uint32_t {
     eDOMAIN_MODE_0 = 0, // slice hardware reset will NOT be triggered by CPU power mode transition
     eDOMAIN_MODE_1 = 1, // slice hardware reset will be triggered by CPU power mode transition. Do not set this bit and SETPOINT_MODE at the same time.
   };
+  
   enum class eSETPOINT_MODE : uint32_t {
     eSETPOINT_MODE_0 = 0, // slice hardware reset will NOT be triggered by Setpoint transition
     eSETPOINT_MODE_1 = 1, // slice hardware reset will be triggered by Setpoint transition. Do not set this bit and DOMAIN_MODE at the same time.
@@ -2520,7 +2653,7 @@ union AUTHEN_USBPHY1 {
     uint32_t NONSECURE : 1;
     uint32_t _reserved_9 : 5;
     uint32_t LOCK_SETTING : 1;
-  } bits;          // Bit-field struct (auto-filling reserved gaps)
+  } bits;
   
   // Full 32-bit register value.
   uint32_t value;
@@ -2534,7 +2667,6 @@ union AUTHEN_USBPHY1 {
 //
 union CTRL_USBPHY1 {
   
-  // Enum definitions.
   enum class eSW_RESET : uint32_t {
     eSW_RESET_0 = 0, // do not assert slice software reset
     eSW_RESET_1 = 1, // assert slice software reset
@@ -2544,7 +2676,7 @@ union CTRL_USBPHY1 {
   struct {
     eSW_RESET SW_RESET : 1;
     uint32_t _reserved_end : 31;
-  } bits;          // Bit-field struct (auto-filling reserved gaps)
+  } bits;
   
   // Full 32-bit register value.
   uint32_t value;
@@ -2558,67 +2690,81 @@ union CTRL_USBPHY1 {
 //
 union SETPOINT_USBPHY1 {
   
-  // Enum definitions.
   enum class eSETPOINT0 : uint32_t {
     eSETPOINT0_0 = 0, // Slice reset will be de-asserted when system in Setpoint n
     eSETPOINT0_1 = 1, // Slice reset will be asserted when system in Setpoint n
   };
+  
   enum class eSETPOINT1 : uint32_t {
     eSETPOINT1_0 = 0, // Slice reset will be de-asserted when system in Setpoint n
     eSETPOINT1_1 = 1, // Slice reset will be asserted when system in Setpoint n
   };
+  
   enum class eSETPOINT2 : uint32_t {
     eSETPOINT2_0 = 0, // Slice reset will be de-asserted when system in Setpoint n
     eSETPOINT2_1 = 1, // Slice reset will be asserted when system in Setpoint n
   };
+  
   enum class eSETPOINT3 : uint32_t {
     eSETPOINT3_0 = 0, // Slice reset will be de-asserted when system in Setpoint n
     eSETPOINT3_1 = 1, // Slice reset will be asserted when system in Setpoint n
   };
+  
   enum class eSETPOINT4 : uint32_t {
     eSETPOINT4_0 = 0, // Slice reset will be de-asserted when system in Setpoint n
     eSETPOINT4_1 = 1, // Slice reset will be asserted when system in Setpoint n
   };
+  
   enum class eSETPOINT5 : uint32_t {
     eSETPOINT5_0 = 0, // Slice reset will be de-asserted when system in Setpoint n
     eSETPOINT5_1 = 1, // Slice reset will be asserted when system in Setpoint n
   };
+  
   enum class eSETPOINT6 : uint32_t {
     eSETPOINT6_0 = 0, // Slice reset will be de-asserted when system in Setpoint n
     eSETPOINT6_1 = 1, // Slice reset will be asserted when system in Setpoint n
   };
+  
   enum class eSETPOINT7 : uint32_t {
     eSETPOINT7_0 = 0, // Slice reset will be de-asserted when system in Setpoint n
     eSETPOINT7_1 = 1, // Slice reset will be asserted when system in Setpoint n
   };
+  
   enum class eSETPOINT8 : uint32_t {
     eSETPOINT8_0 = 0, // Slice reset will be de-asserted when system in Setpoint n
     eSETPOINT8_1 = 1, // Slice reset will be asserted when system in Setpoint n
   };
+  
   enum class eSETPOINT9 : uint32_t {
     eSETPOINT9_0 = 0, // Slice reset will be de-asserted when system in Setpoint n
     eSETPOINT9_1 = 1, // Slice reset will be asserted when system in Setpoint n
   };
+  
   enum class eSETPOINT10 : uint32_t {
     eSETPOINT10_0 = 0, // Slice reset will be de-asserted when system in Setpoint n
     eSETPOINT10_1 = 1, // Slice reset will be asserted when system in Setpoint n
   };
+  
   enum class eSETPOINT11 : uint32_t {
     eSETPOINT11_0 = 0, // Slice reset will be de-asserted when system in Setpoint n
     eSETPOINT11_1 = 1, // Slice reset will be asserted when system in Setpoint n
   };
+  
   enum class eSETPOINT12 : uint32_t {
     eSETPOINT12_0 = 0, // Slice reset will be de-asserted when system in Setpoint n
     eSETPOINT12_1 = 1, // Slice reset will be asserted when system in Setpoint n
   };
+  
   enum class eSETPOINT13 : uint32_t {
     eSETPOINT13_0 = 0, // Slice reset will be de-asserted when system in Setpoint n
     eSETPOINT13_1 = 1, // Slice reset will be asserted when system in Setpoint n
   };
+  
   enum class eSETPOINT14 : uint32_t {
     eSETPOINT14_0 = 0, // Slice reset will be de-asserted when system in Setpoint n
     eSETPOINT14_1 = 1, // Slice reset will be asserted when system in Setpoint n
   };
+  
   enum class eSETPOINT15 : uint32_t {
     eSETPOINT15_0 = 0, // Slice reset will be de-asserted when system in Setpoint n
     eSETPOINT15_1 = 1, // Slice reset will be asserted when system in Setpoint n
@@ -2643,7 +2789,7 @@ union SETPOINT_USBPHY1 {
     eSETPOINT14 SETPOINT14 : 1;
     eSETPOINT15 SETPOINT15 : 1;
     uint32_t _reserved_end : 16;
-  } bits;          // Bit-field struct (auto-filling reserved gaps)
+  } bits;
   
   // Full 32-bit register value.
   uint32_t value;
@@ -2657,35 +2803,41 @@ union SETPOINT_USBPHY1 {
 //
 union DOMAIN_USBPHY1 {
   
-  // Enum definitions.
   enum class eCPU0_RUN : uint32_t {
     eCPU0_RUN_0 = 0, // Slice reset will be de-asserted when CPU0 in RUN mode
     eCPU0_RUN_1 = 1, // Slice reset will be asserted when CPU0 in RUN mode
   };
+  
   enum class eCPU0_WAIT : uint32_t {
     eCPU0_WAIT_0 = 0, // Slice reset will be de-asserted when CPU0 in WAIT mode
     eCPU0_WAIT_1 = 1, // Slice reset will be asserted when CPU0 in WAIT mode
   };
+  
   enum class eCPU0_STOP : uint32_t {
     eCPU0_STOP_0 = 0, // Slice reset will be de-asserted when CPU0 in STOP mode
     eCPU0_STOP_1 = 1, // Slice reset will be asserted when CPU0 in STOP mode
   };
+  
   enum class eCPU0_SUSP : uint32_t {
     eCPU0_SUSP_0 = 0, // Slice reset will be de-asserted when CPU0 in SUSPEND mode
     eCPU0_SUSP_1 = 1, // Slice reset will be asserted when CPU0 in SUSPEND mode
   };
+  
   enum class eCPU1_RUN : uint32_t {
     eCPU1_RUN_0 = 0, // Slice reset will be de-asserted when CPU1 in RUN mode
     eCPU1_RUN_1 = 1, // Slice reset will be asserted when CPU1 in RUN mode
   };
+  
   enum class eCPU1_WAIT : uint32_t {
     eCPU1_WAIT_0 = 0, // Slice reset will be de-asserted when CPU1 in WAIT mode
     eCPU1_WAIT_1 = 1, // Slice reset will be asserted when CPU1 in WAIT mode
   };
+  
   enum class eCPU1_STOP : uint32_t {
     eCPU1_STOP_0 = 0, // Slice reset will be de-asserted when CPU1 in STOP mode
     eCPU1_STOP_1 = 1, // Slice reset will be asserted when CPU1 in STOP mode
   };
+  
   enum class eCPU1_SUSP : uint32_t {
     eCPU1_SUSP_0 = 0, // Slice reset will be de-asserted when CPU1 in SUSPEND mode
     eCPU1_SUSP_1 = 1, // Slice reset will be asserted when CPU1 in SUSPEND mode
@@ -2702,7 +2854,7 @@ union DOMAIN_USBPHY1 {
     eCPU1_STOP CPU1_STOP : 1;
     eCPU1_SUSP CPU1_SUSP : 1;
     uint32_t _reserved_end : 24;
-  } bits;          // Bit-field struct (auto-filling reserved gaps)
+  } bits;
   
   // Full 32-bit register value.
   uint32_t value;
@@ -2716,15 +2868,16 @@ union DOMAIN_USBPHY1 {
 //
 union STAT_USBPHY1 {
   
-  // Enum definitions.
   enum class eUNDER_RST : uint32_t {
     eUNDER_RST_0 = 0, // the reset is finished
     eUNDER_RST_1 = 1, // the reset is in process
   };
+  
   enum class eRST_BY_HW : uint32_t {
     eRST_BY_HW_0 = 0, // the reset is not caused by the power mode transfer
     eRST_BY_HW_1 = 1, // the reset is caused by the power mode transfer
   };
+  
   enum class eRST_BY_SW : uint32_t {
     eRST_BY_SW_0 = 0, // the reset is not caused by software setting
     eRST_BY_SW_1 = 1, // the reset is caused by software setting
@@ -2737,7 +2890,7 @@ union STAT_USBPHY1 {
     eRST_BY_HW RST_BY_HW : 1;
     eRST_BY_SW RST_BY_SW : 1;
     uint32_t _reserved_end : 28;
-  } bits;          // Bit-field struct (auto-filling reserved gaps)
+  } bits;
   
   // Full 32-bit register value.
   uint32_t value;
@@ -2751,11 +2904,11 @@ union STAT_USBPHY1 {
 //
 union AUTHEN_USBPHY2 {
   
-  // Enum definitions.
   enum class eDOMAIN_MODE : uint32_t {
     eDOMAIN_MODE_0 = 0, // slice hardware reset will NOT be triggered by CPU power mode transition
     eDOMAIN_MODE_1 = 1, // slice hardware reset will be triggered by CPU power mode transition. Do not set this bit and SETPOINT_MODE at the same time.
   };
+  
   enum class eSETPOINT_MODE : uint32_t {
     eSETPOINT_MODE_0 = 0, // slice hardware reset will NOT be triggered by Setpoint transition
     eSETPOINT_MODE_1 = 1, // slice hardware reset will be triggered by Setpoint transition. Do not set this bit and DOMAIN_MODE at the same time.
@@ -2777,7 +2930,7 @@ union AUTHEN_USBPHY2 {
     uint32_t NONSECURE : 1;
     uint32_t _reserved_9 : 5;
     uint32_t LOCK_SETTING : 1;
-  } bits;          // Bit-field struct (auto-filling reserved gaps)
+  } bits;
   
   // Full 32-bit register value.
   uint32_t value;
@@ -2791,7 +2944,6 @@ union AUTHEN_USBPHY2 {
 //
 union CTRL_USBPHY2 {
   
-  // Enum definitions.
   enum class eSW_RESET : uint32_t {
     eSW_RESET_0 = 0, // do not assert slice software reset
     eSW_RESET_1 = 1, // assert slice software reset
@@ -2801,7 +2953,7 @@ union CTRL_USBPHY2 {
   struct {
     eSW_RESET SW_RESET : 1;
     uint32_t _reserved_end : 31;
-  } bits;          // Bit-field struct (auto-filling reserved gaps)
+  } bits;
   
   // Full 32-bit register value.
   uint32_t value;
@@ -2815,67 +2967,81 @@ union CTRL_USBPHY2 {
 //
 union SETPOINT_USBPHY2 {
   
-  // Enum definitions.
   enum class eSETPOINT0 : uint32_t {
     eSETPOINT0_0 = 0, // Slice reset will be de-asserted when system in Setpoint n
     eSETPOINT0_1 = 1, // Slice reset will be asserted when system in Setpoint n
   };
+  
   enum class eSETPOINT1 : uint32_t {
     eSETPOINT1_0 = 0, // Slice reset will be de-asserted when system in Setpoint n
     eSETPOINT1_1 = 1, // Slice reset will be asserted when system in Setpoint n
   };
+  
   enum class eSETPOINT2 : uint32_t {
     eSETPOINT2_0 = 0, // Slice reset will be de-asserted when system in Setpoint n
     eSETPOINT2_1 = 1, // Slice reset will be asserted when system in Setpoint n
   };
+  
   enum class eSETPOINT3 : uint32_t {
     eSETPOINT3_0 = 0, // Slice reset will be de-asserted when system in Setpoint n
     eSETPOINT3_1 = 1, // Slice reset will be asserted when system in Setpoint n
   };
+  
   enum class eSETPOINT4 : uint32_t {
     eSETPOINT4_0 = 0, // Slice reset will be de-asserted when system in Setpoint n
     eSETPOINT4_1 = 1, // Slice reset will be asserted when system in Setpoint n
   };
+  
   enum class eSETPOINT5 : uint32_t {
     eSETPOINT5_0 = 0, // Slice reset will be de-asserted when system in Setpoint n
     eSETPOINT5_1 = 1, // Slice reset will be asserted when system in Setpoint n
   };
+  
   enum class eSETPOINT6 : uint32_t {
     eSETPOINT6_0 = 0, // Slice reset will be de-asserted when system in Setpoint n
     eSETPOINT6_1 = 1, // Slice reset will be asserted when system in Setpoint n
   };
+  
   enum class eSETPOINT7 : uint32_t {
     eSETPOINT7_0 = 0, // Slice reset will be de-asserted when system in Setpoint n
     eSETPOINT7_1 = 1, // Slice reset will be asserted when system in Setpoint n
   };
+  
   enum class eSETPOINT8 : uint32_t {
     eSETPOINT8_0 = 0, // Slice reset will be de-asserted when system in Setpoint n
     eSETPOINT8_1 = 1, // Slice reset will be asserted when system in Setpoint n
   };
+  
   enum class eSETPOINT9 : uint32_t {
     eSETPOINT9_0 = 0, // Slice reset will be de-asserted when system in Setpoint n
     eSETPOINT9_1 = 1, // Slice reset will be asserted when system in Setpoint n
   };
+  
   enum class eSETPOINT10 : uint32_t {
     eSETPOINT10_0 = 0, // Slice reset will be de-asserted when system in Setpoint n
     eSETPOINT10_1 = 1, // Slice reset will be asserted when system in Setpoint n
   };
+  
   enum class eSETPOINT11 : uint32_t {
     eSETPOINT11_0 = 0, // Slice reset will be de-asserted when system in Setpoint n
     eSETPOINT11_1 = 1, // Slice reset will be asserted when system in Setpoint n
   };
+  
   enum class eSETPOINT12 : uint32_t {
     eSETPOINT12_0 = 0, // Slice reset will be de-asserted when system in Setpoint n
     eSETPOINT12_1 = 1, // Slice reset will be asserted when system in Setpoint n
   };
+  
   enum class eSETPOINT13 : uint32_t {
     eSETPOINT13_0 = 0, // Slice reset will be de-asserted when system in Setpoint n
     eSETPOINT13_1 = 1, // Slice reset will be asserted when system in Setpoint n
   };
+  
   enum class eSETPOINT14 : uint32_t {
     eSETPOINT14_0 = 0, // Slice reset will be de-asserted when system in Setpoint n
     eSETPOINT14_1 = 1, // Slice reset will be asserted when system in Setpoint n
   };
+  
   enum class eSETPOINT15 : uint32_t {
     eSETPOINT15_0 = 0, // Slice reset will be de-asserted when system in Setpoint n
     eSETPOINT15_1 = 1, // Slice reset will be asserted when system in Setpoint n
@@ -2900,7 +3066,7 @@ union SETPOINT_USBPHY2 {
     eSETPOINT14 SETPOINT14 : 1;
     eSETPOINT15 SETPOINT15 : 1;
     uint32_t _reserved_end : 16;
-  } bits;          // Bit-field struct (auto-filling reserved gaps)
+  } bits;
   
   // Full 32-bit register value.
   uint32_t value;
@@ -2914,35 +3080,41 @@ union SETPOINT_USBPHY2 {
 //
 union DOMAIN_USBPHY2 {
   
-  // Enum definitions.
   enum class eCPU0_RUN : uint32_t {
     eCPU0_RUN_0 = 0, // Slice reset will be de-asserted when CPU0 in RUN mode
     eCPU0_RUN_1 = 1, // Slice reset will be asserted when CPU0 in RUN mode
   };
+  
   enum class eCPU0_WAIT : uint32_t {
     eCPU0_WAIT_0 = 0, // Slice reset will be de-asserted when CPU0 in WAIT mode
     eCPU0_WAIT_1 = 1, // Slice reset will be asserted when CPU0 in WAIT mode
   };
+  
   enum class eCPU0_STOP : uint32_t {
     eCPU0_STOP_0 = 0, // Slice reset will be de-asserted when CPU0 in STOP mode
     eCPU0_STOP_1 = 1, // Slice reset will be asserted when CPU0 in STOP mode
   };
+  
   enum class eCPU0_SUSP : uint32_t {
     eCPU0_SUSP_0 = 0, // Slice reset will be de-asserted when CPU0 in SUSPEND mode
     eCPU0_SUSP_1 = 1, // Slice reset will be asserted when CPU0 in SUSPEND mode
   };
+  
   enum class eCPU1_RUN : uint32_t {
     eCPU1_RUN_0 = 0, // Slice reset will be de-asserted when CPU1 in RUN mode
     eCPU1_RUN_1 = 1, // Slice reset will be asserted when CPU1 in RUN mode
   };
+  
   enum class eCPU1_WAIT : uint32_t {
     eCPU1_WAIT_0 = 0, // Slice reset will be de-asserted when CPU1 in WAIT mode
     eCPU1_WAIT_1 = 1, // Slice reset will be asserted when CPU1 in WAIT mode
   };
+  
   enum class eCPU1_STOP : uint32_t {
     eCPU1_STOP_0 = 0, // Slice reset will be de-asserted when CPU1 in STOP mode
     eCPU1_STOP_1 = 1, // Slice reset will be asserted when CPU1 in STOP mode
   };
+  
   enum class eCPU1_SUSP : uint32_t {
     eCPU1_SUSP_0 = 0, // Slice reset will be de-asserted when CPU1 in SUSPEND mode
     eCPU1_SUSP_1 = 1, // Slice reset will be asserted when CPU1 in SUSPEND mode
@@ -2959,7 +3131,7 @@ union DOMAIN_USBPHY2 {
     eCPU1_STOP CPU1_STOP : 1;
     eCPU1_SUSP CPU1_SUSP : 1;
     uint32_t _reserved_end : 24;
-  } bits;          // Bit-field struct (auto-filling reserved gaps)
+  } bits;
   
   // Full 32-bit register value.
   uint32_t value;
@@ -2973,15 +3145,16 @@ union DOMAIN_USBPHY2 {
 //
 union STAT_USBPHY2 {
   
-  // Enum definitions.
   enum class eUNDER_RST : uint32_t {
     eUNDER_RST_0 = 0, // the reset is finished
     eUNDER_RST_1 = 1, // the reset is in process
   };
+  
   enum class eRST_BY_HW : uint32_t {
     eRST_BY_HW_0 = 0, // the reset is not caused by the power mode transfer
     eRST_BY_HW_1 = 1, // the reset is caused by the power mode transfer
   };
+  
   enum class eRST_BY_SW : uint32_t {
     eRST_BY_SW_0 = 0, // the reset is not caused by software setting
     eRST_BY_SW_1 = 1, // the reset is caused by software setting
@@ -2994,7 +3167,7 @@ union STAT_USBPHY2 {
     eRST_BY_HW RST_BY_HW : 1;
     eRST_BY_SW RST_BY_SW : 1;
     uint32_t _reserved_end : 28;
-  } bits;          // Bit-field struct (auto-filling reserved gaps)
+  } bits;
   
   // Full 32-bit register value.
   uint32_t value;

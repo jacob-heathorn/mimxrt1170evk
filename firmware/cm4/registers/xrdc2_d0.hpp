@@ -15,15 +15,16 @@ namespace nXRDC2_D0 {
 //
 union MCR {
   
-  // Enum definitions.
   enum class eGVLDM : uint32_t {
     edisabled = 0, // MDACs are disabled.
     eenabled = 1, // MDACs are enabled.
   };
+  
   enum class eGVLDC : uint32_t {
     edisabled = 0, // Access controls are disabled, XRDC2 allows all transactions.
     eenabled = 1, // Access controls are enabled.
   };
+  
   enum class eGCL : uint32_t {
     edisabled_00 = 0, // Lock disabled, registers can be written by any domain.
     edisabled_01 = 1, // Lock disabled until the next reset, registers can be written by any domain.
@@ -38,7 +39,7 @@ union MCR {
     uint32_t _reserved_2 : 2;
     eGCL GCL : 2;
     uint32_t _reserved_end : 26;
-  } bits;          // Bit-field struct (auto-filling reserved gaps)
+  } bits;
   
   // Full 32-bit register value.
   uint32_t value;
@@ -52,15 +53,13 @@ union MCR {
 //
 union SR {
   
-  // Enum definitions.
-  
   // Bit field definition.
   struct {
     uint32_t DIN : 4;
     uint32_t HRL : 4;
     uint32_t GCLO : 4;
     uint32_t _reserved_end : 20;
-  } bits;          // Bit-field struct (auto-filling reserved gaps)
+  } bits;
   
   // Full 32-bit register value.
   uint32_t value;

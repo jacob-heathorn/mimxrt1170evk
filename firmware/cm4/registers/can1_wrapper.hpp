@@ -15,13 +15,11 @@ namespace nCAN1_WRAPPER {
 //
 union GFWR {
   
-  // Enum definitions.
-  
   // Bit field definition.
   struct {
     uint32_t GFWR : 8;
     uint32_t _reserved_end : 24;
-  } bits;          // Bit-field struct (auto-filling reserved gaps)
+  } bits;
   
   // Full 32-bit register value.
   uint32_t value;

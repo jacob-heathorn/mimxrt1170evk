@@ -15,11 +15,11 @@ namespace nPHY_LDO {
 //
 union CTRL0 {
   
-  // Enum definitions.
   enum class eLINREG_PWRUPLOAD_DIS : uint32_t {
     eLINREG_PWRUPLOAD_DIS_0 = 0, // Internal pull-down enabled
     eLINREG_PWRUPLOAD_DIS_1 = 1, // Internal pull-down disabled
   };
+  
   enum class eLINREG_OUTPUT_TRG : uint32_t {
     eLINREG_OUTPUT_TRG_0 = 0, // Set output voltage to x.xV
     eLINREG_OUTPUT_TRG_16 = 16, // Sets output voltage to 1.0V
@@ -36,7 +36,7 @@ union CTRL0 {
     uint32_t _reserved_4 : 6;
     uint32_t LINREG_PHY_ISO_B : 1;
     uint32_t _reserved_end : 16;
-  } bits;          // Bit-field struct (auto-filling reserved gaps)
+  } bits;
   
   // Full 32-bit register value.
   uint32_t value;
@@ -50,8 +50,6 @@ union CTRL0 {
 //
 union CTRL0_SET {
   
-  // Enum definitions.
-  
   // Bit field definition.
   struct {
     uint32_t LINREG_EN : 1;
@@ -62,7 +60,7 @@ union CTRL0_SET {
     uint32_t _reserved_4 : 6;
     uint32_t LINREG_PHY_ISO_B : 1;
     uint32_t _reserved_end : 16;
-  } bits;          // Bit-field struct (auto-filling reserved gaps)
+  } bits;
   
   // Full 32-bit register value.
   uint32_t value;
@@ -76,8 +74,6 @@ union CTRL0_SET {
 //
 union CTRL0_CLR {
   
-  // Enum definitions.
-  
   // Bit field definition.
   struct {
     uint32_t LINREG_EN : 1;
@@ -88,7 +84,7 @@ union CTRL0_CLR {
     uint32_t _reserved_4 : 6;
     uint32_t LINREG_PHY_ISO_B : 1;
     uint32_t _reserved_end : 16;
-  } bits;          // Bit-field struct (auto-filling reserved gaps)
+  } bits;
   
   // Full 32-bit register value.
   uint32_t value;
@@ -102,8 +98,6 @@ union CTRL0_CLR {
 //
 union CTRL0_TOG {
   
-  // Enum definitions.
-  
   // Bit field definition.
   struct {
     uint32_t LINREG_EN : 1;
@@ -114,7 +108,7 @@ union CTRL0_TOG {
     uint32_t _reserved_4 : 6;
     uint32_t LINREG_PHY_ISO_B : 1;
     uint32_t _reserved_end : 16;
-  } bits;          // Bit-field struct (auto-filling reserved gaps)
+  } bits;
   
   // Full 32-bit register value.
   uint32_t value;
@@ -128,13 +122,11 @@ union CTRL0_TOG {
 //
 union STAT0 {
   
-  // Enum definitions.
-  
   // Bit field definition.
   struct {
     uint32_t LINREG_STAT : 4;
     uint32_t _reserved_end : 28;
-  } bits;          // Bit-field struct (auto-filling reserved gaps)
+  } bits;
   
   // Full 32-bit register value.
   uint32_t value;
@@ -148,13 +140,11 @@ union STAT0 {
 //
 union STAT0_SET {
   
-  // Enum definitions.
-  
   // Bit field definition.
   struct {
     uint32_t LINREG_STAT : 4;
     uint32_t _reserved_end : 28;
-  } bits;          // Bit-field struct (auto-filling reserved gaps)
+  } bits;
   
   // Full 32-bit register value.
   uint32_t value;
@@ -168,13 +158,11 @@ union STAT0_SET {
 //
 union STAT0_CLR {
   
-  // Enum definitions.
-  
   // Bit field definition.
   struct {
     uint32_t LINREG_STAT : 4;
     uint32_t _reserved_end : 28;
-  } bits;          // Bit-field struct (auto-filling reserved gaps)
+  } bits;
   
   // Full 32-bit register value.
   uint32_t value;
@@ -188,13 +176,11 @@ union STAT0_CLR {
 //
 union STAT0_TOG {
   
-  // Enum definitions.
-  
   // Bit field definition.
   struct {
     uint32_t LINREG_STAT : 4;
     uint32_t _reserved_end : 28;
-  } bits;          // Bit-field struct (auto-filling reserved gaps)
+  } bits;
   
   // Full 32-bit register value.
   uint32_t value;

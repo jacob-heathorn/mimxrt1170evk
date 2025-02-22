@@ -15,8 +15,6 @@ namespace nVMBANDGAP {
 //
 union CTRL0 {
   
-  // Enum definitions.
-  
   // Bit field definition.
   struct {
     uint32_t REFTOP_PWD : 1;
@@ -25,7 +23,7 @@ union CTRL0 {
     uint32_t REFTOP_LOWPOWER : 1;
     uint32_t REFTOP_SELFBIASOFF : 1;
     uint32_t _reserved_end : 27;
-  } bits;          // Bit-field struct (auto-filling reserved gaps)
+  } bits;
   
   // Full 32-bit register value.
   uint32_t value;
@@ -39,8 +37,6 @@ union CTRL0 {
 //
 union CTRL0_SET {
   
-  // Enum definitions.
-  
   // Bit field definition.
   struct {
     uint32_t REFTOP_PWD : 1;
@@ -49,7 +45,7 @@ union CTRL0_SET {
     uint32_t REFTOP_LOWPOWER : 1;
     uint32_t REFTOP_SELFBIASOFF : 1;
     uint32_t _reserved_end : 27;
-  } bits;          // Bit-field struct (auto-filling reserved gaps)
+  } bits;
   
   // Full 32-bit register value.
   uint32_t value;
@@ -63,8 +59,6 @@ union CTRL0_SET {
 //
 union CTRL0_CLR {
   
-  // Enum definitions.
-  
   // Bit field definition.
   struct {
     uint32_t REFTOP_PWD : 1;
@@ -73,7 +67,7 @@ union CTRL0_CLR {
     uint32_t REFTOP_LOWPOWER : 1;
     uint32_t REFTOP_SELFBIASOFF : 1;
     uint32_t _reserved_end : 27;
-  } bits;          // Bit-field struct (auto-filling reserved gaps)
+  } bits;
   
   // Full 32-bit register value.
   uint32_t value;
@@ -87,8 +81,6 @@ union CTRL0_CLR {
 //
 union CTRL0_TOG {
   
-  // Enum definitions.
-  
   // Bit field definition.
   struct {
     uint32_t REFTOP_PWD : 1;
@@ -97,7 +89,7 @@ union CTRL0_TOG {
     uint32_t REFTOP_LOWPOWER : 1;
     uint32_t REFTOP_SELFBIASOFF : 1;
     uint32_t _reserved_end : 27;
-  } bits;          // Bit-field struct (auto-filling reserved gaps)
+  } bits;
   
   // Full 32-bit register value.
   uint32_t value;
@@ -111,8 +103,6 @@ union CTRL0_TOG {
 //
 union STAT0 {
   
-  // Enum definitions.
-  
   // Bit field definition.
   struct {
     uint32_t REFTOP_VBGUP : 1;
@@ -120,7 +110,7 @@ union STAT0 {
     uint32_t VDD2_PORB : 1;
     uint32_t VDD3_PORB : 1;
     uint32_t _reserved_end : 28;
-  } bits;          // Bit-field struct (auto-filling reserved gaps)
+  } bits;
   
   // Full 32-bit register value.
   uint32_t value;
@@ -134,8 +124,6 @@ union STAT0 {
 //
 union STAT0_SET {
   
-  // Enum definitions.
-  
   // Bit field definition.
   struct {
     uint32_t REFTOP_VBGUP : 1;
@@ -143,7 +131,7 @@ union STAT0_SET {
     uint32_t VDD2_PORB : 1;
     uint32_t VDD3_PORB : 1;
     uint32_t _reserved_end : 28;
-  } bits;          // Bit-field struct (auto-filling reserved gaps)
+  } bits;
   
   // Full 32-bit register value.
   uint32_t value;
@@ -157,8 +145,6 @@ union STAT0_SET {
 //
 union STAT0_CLR {
   
-  // Enum definitions.
-  
   // Bit field definition.
   struct {
     uint32_t REFTOP_VBGUP : 1;
@@ -166,7 +152,7 @@ union STAT0_CLR {
     uint32_t VDD2_PORB : 1;
     uint32_t VDD3_PORB : 1;
     uint32_t _reserved_end : 28;
-  } bits;          // Bit-field struct (auto-filling reserved gaps)
+  } bits;
   
   // Full 32-bit register value.
   uint32_t value;
@@ -180,8 +166,6 @@ union STAT0_CLR {
 //
 union STAT0_TOG {
   
-  // Enum definitions.
-  
   // Bit field definition.
   struct {
     uint32_t REFTOP_VBGUP : 1;
@@ -189,7 +173,7 @@ union STAT0_TOG {
     uint32_t VDD2_PORB : 1;
     uint32_t VDD3_PORB : 1;
     uint32_t _reserved_end : 28;
-  } bits;          // Bit-field struct (auto-filling reserved gaps)
+  } bits;
   
   // Full 32-bit register value.
   uint32_t value;

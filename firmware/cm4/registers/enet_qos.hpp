@@ -15,94 +15,114 @@ namespace nENET_QOS {
 //
 union MAC_CONFIGURATION {
   
-  // Enum definitions.
   enum class eRE : uint32_t {
     eDISABLE = 0, // Receiver is disabled
     eENABLE = 1, // Receiver is enabled
   };
+  
   enum class eTE : uint32_t {
     eDISABLE = 0, // Transmitter is disabled
     eENABLE = 1, // Transmitter is enabled
   };
+  
   enum class ePRELEN : uint32_t {
     eBYTES_7 = 0, // 7 bytes of preamble
     eBYTES_5 = 1, // 5 bytes of preamble
     eBYTES_3 = 2, // 3 bytes of preamble
   };
+  
   enum class eDC : uint32_t {
     eDISABLE = 0, // Deferral check function is disabled
     eENABLE = 1, // Deferral check function is enabled
   };
+  
   enum class eBL : uint32_t {
     eMIN_N_10 = 0, // k = min(n,10)
     eMIN_N_8 = 1, // k = min(n,8)
     eMIN_N_4 = 2, // k = min(n,4)
     eMIN_N_1 = 3, // k = min(n,1)
   };
+  
   enum class eDR : uint32_t {
     eENABLE = 0, // Enable Retry
     eDISABLE = 1, // Disable Retry
   };
+  
   enum class eDCRS : uint32_t {
     eENABLE = 0, // Enable Carrier Sense During Transmission
     eDISABLE = 1, // Disable Carrier Sense During Transmission
   };
+  
   enum class eDO : uint32_t {
     eENABLE = 0, // Enable Receive Own
     eDISABLE = 1, // Disable Receive Own
   };
+  
   enum class eECRSFD : uint32_t {
     eDISABLE = 0, // ECRSFD is disabled
     eENABLE = 1, // ECRSFD is enabled
   };
+  
   enum class eLM : uint32_t {
     eDISABLE = 0, // Loopback is disabled
     eENABLE = 1, // Loopback is enabled
   };
+  
   enum class eDM : uint32_t {
     eHDUPLX = 0, // Half-duplex mode
     eFDUPLX = 1, // Full-duplex mode
   };
+  
   enum class eFES : uint32_t {
     eMbps_10_1000M = 0, // 10 Mbps when PS bit is 1 and 1 Gbps when PS bit is 0
     eMbps_100_2500M = 1, // 100 Mbps when PS bit is 1 and 2.5 Gbps when PS bit is 0
   };
+  
   enum class ePS : uint32_t {
     ebf_1000_2500M = 0, // For 1000 or 2500 Mbps operations
     ebf_10_100M = 1, // For 10 or 100 Mbps operations
   };
+  
   enum class eJE : uint32_t {
     eDISABLE = 0, // Jumbo packet is disabled
     eENABLE = 1, // Jumbo packet is enabled
   };
+  
   enum class eJD : uint32_t {
     eENABLE = 0, // Jabber is enabled
     eDISABLE = 1, // Jabber is disabled
   };
+  
   enum class eBE : uint32_t {
     eDISABLE = 0, // Packet Burst is disabled
     eENABLE = 1, // Packet Burst is enabled
   };
+  
   enum class eWD : uint32_t {
     eENABLE = 0, // Watchdog is enabled
     eDISABLE = 1, // Watchdog is disabled
   };
+  
   enum class eACS : uint32_t {
     eDISABLE = 0, // Automatic Pad or CRC Stripping is disabled
     eENABLE = 1, // Automatic Pad or CRC Stripping is enabled
   };
+  
   enum class eCST : uint32_t {
     eDISABLE = 0, // CRC stripping for Type packets is disabled
     eENABLE = 1, // CRC stripping for Type packets is enabled
   };
+  
   enum class eS2KP : uint32_t {
     eDISABLE = 0, // Support upto 2K packet is disabled
     eENABLE = 1, // Support upto 2K packet is Enabled
   };
+  
   enum class eGPSLCE : uint32_t {
     eDISABLE = 0, // Giant Packet Size Limit Control is disabled
     eENABLE = 1, // Giant Packet Size Limit Control is enabled
   };
+  
   enum class eIPG : uint32_t {
     eIPG96 = 0, // 96 bit times IPG
     eIPG88 = 1, // 88 bit times IPG
@@ -113,10 +133,12 @@ union MAC_CONFIGURATION {
     eIPG48 = 6, // 48 bit times IPG
     eIPG40 = 7, // 40 bit times IPG
   };
+  
   enum class eIPC : uint32_t {
     eDISABLE = 0, // IP header/payload checksum checking is disabled
     eENABLE = 1, // IP header/payload checksum checking is enabled
   };
+  
   enum class eSARC : uint32_t {
     eSA_CTRL_IN = 0, // mti_sa_ctrl_i and ati_sa_ctrl_i input signals control the SA field generation
     eMAC0_INS_SA = 2, // Contents of MAC Addr-0 inserted in SA field
@@ -153,7 +175,7 @@ union MAC_CONFIGURATION {
     eIPC IPC : 1;
     eSARC SARC : 3;
     uint32_t _reserved_end : 1;
-  } bits;          // Bit-field struct (auto-filling reserved gaps)
+  } bits;
   
   // Full 32-bit register value.
   uint32_t value;
@@ -167,23 +189,26 @@ union MAC_CONFIGURATION {
 //
 union MAC_EXT_CONFIGURATION {
   
-  // Enum definitions.
   enum class eDCRCC : uint32_t {
     eENABLE = 0, // CRC Checking is enabled
     eDISABLE = 1, // CRC Checking is disabled
   };
+  
   enum class eSPEN : uint32_t {
     eDISABLE = 0, // Slow Protocol Detection is disabled
     eENABLE = 1, // Slow Protocol Detection is enabled
   };
+  
   enum class eUSP : uint32_t {
     eDISABLE = 0, // Unicast Slow Protocol Packet Detection is disabled
     eENABLE = 1, // Unicast Slow Protocol Packet Detection is enabled
   };
+  
   enum class ePDC : uint32_t {
     eDISABLE = 0, // Packet Duplication Control is disabled
     eENABLE = 1, // Packet Duplication Control is enabled
   };
+  
   enum class eEIPGEN : uint32_t {
     eDISABLE = 0, // Extended Inter-Packet Gap is disabled
     eENABLE = 1, // Extended Inter-Packet Gap is enabled
@@ -201,7 +226,7 @@ union MAC_EXT_CONFIGURATION {
     eEIPGEN EIPGEN : 1;
     uint32_t EIPG : 5;
     uint32_t _reserved_end : 2;
-  } bits;          // Bit-field struct (auto-filling reserved gaps)
+  } bits;
   
   // Full 32-bit register value.
   uint32_t value;
@@ -215,61 +240,73 @@ union MAC_EXT_CONFIGURATION {
 //
 union MAC_PACKET_FILTER {
   
-  // Enum definitions.
   enum class ePR : uint32_t {
     eDISABLE = 0, // Promiscuous Mode is disabled
     eENABLE = 1, // Promiscuous Mode is enabled
   };
+  
   enum class eHUC : uint32_t {
     eDISABLE = 0, // Hash Unicast is disabled
     eENABLE = 1, // Hash Unicast is enabled
   };
+  
   enum class eHMC : uint32_t {
     eDISABLE = 0, // Hash Multicast is disabled
     eENABLE = 1, // Hash Multicast is enabled
   };
+  
   enum class eDAIF : uint32_t {
     eDISABLE = 0, // DA Inverse Filtering is disabled
     eENABLE = 1, // DA Inverse Filtering is enabled
   };
+  
   enum class ePM : uint32_t {
     eDISABLE = 0, // Pass All Multicast is disabled
     eENABLE = 1, // Pass All Multicast is enabled
   };
+  
   enum class eDBF : uint32_t {
     eENABLE = 0, // Enable Broadcast Packets
     eDISABLE = 1, // Disable Broadcast Packets
   };
+  
   enum class ePCF : uint32_t {
     eFLTR_ALL = 0, // MAC filters all control packets from reaching the application
     eFW_XCPT_PAU = 1, // MAC forwards all control packets except Pause packets to the application even if they fail the Address filter
     eFW_ALL = 2, // MAC forwards all control packets to the application even if they fail the Address filter
     eFW_PASS = 3, // MAC forwards the control packets that pass the Address filter
   };
+  
   enum class eSAIF : uint32_t {
     eDISABLE = 0, // SA Inverse Filtering is disabled
     eENABLE = 1, // SA Inverse Filtering is enabled
   };
+  
   enum class eSAF : uint32_t {
     eDISABLE = 0, // SA Filtering is disabled
     eENABLE = 1, // SA Filtering is enabled
   };
+  
   enum class eHPF : uint32_t {
     eDISABLE = 0, // Hash or Perfect Filter is disabled
     eENABLE = 1, // Hash or Perfect Filter is enabled
   };
+  
   enum class eVTFE : uint32_t {
     eDISABLE = 0, // VLAN Tag Filter is disabled
     eENABLE = 1, // VLAN Tag Filter is enabled
   };
+  
   enum class eIPFE : uint32_t {
     eDISABLE = 0, // Layer 3 and Layer 4 Filters are disabled
     eENABLE = 1, // Layer 3 and Layer 4 Filters are enabled
   };
+  
   enum class eDNTU : uint32_t {
     eFWD = 0, // Forward Non-TCP/UDP over IP Packets
     eDROP = 1, // Drop Non-TCP/UDP over IP Packets
   };
+  
   enum class eRA : uint32_t {
     eDISABLE = 0, // Receive All is disabled
     eENABLE = 1, // Receive All is enabled
@@ -294,7 +331,7 @@ union MAC_PACKET_FILTER {
     eDNTU DNTU : 1;
     uint32_t _reserved_13 : 9;
     eRA RA : 1;
-  } bits;          // Bit-field struct (auto-filling reserved gaps)
+  } bits;
   
   // Full 32-bit register value.
   uint32_t value;
@@ -308,7 +345,6 @@ union MAC_PACKET_FILTER {
 //
 union MAC_WATCHDOG_TIMEOUT {
   
-  // Enum definitions.
   enum class eWTO : uint32_t {
     ebf_2KBYTES = 0, // 2 KB
     ebf_3KBYTES = 1, // 3 KB
@@ -326,6 +362,7 @@ union MAC_WATCHDOG_TIMEOUT {
     ebf_15KBYTES = 13, // 15 KB
     ebf_16383BYTES = 14, // 16383 Bytes
   };
+  
   enum class ePWE : uint32_t {
     eDISABLE = 0, // Programmable Watchdog is disabled
     eENABLE = 1, // Programmable Watchdog is enabled
@@ -337,7 +374,7 @@ union MAC_WATCHDOG_TIMEOUT {
     uint32_t _reserved_1 : 4;
     ePWE PWE : 1;
     uint32_t _reserved_end : 23;
-  } bits;          // Bit-field struct (auto-filling reserved gaps)
+  } bits;
   
   // Full 32-bit register value.
   uint32_t value;
@@ -351,12 +388,10 @@ union MAC_WATCHDOG_TIMEOUT {
 //
 union MAC_HASH_TABLE_REG0 {
   
-  // Enum definitions.
-  
   // Bit field definition.
   struct {
     uint32_t HT31T0 : 32;
-  } bits;          // Bit-field struct (auto-filling reserved gaps)
+  } bits;
   
   // Full 32-bit register value.
   uint32_t value;
@@ -370,12 +405,10 @@ union MAC_HASH_TABLE_REG0 {
 //
 union MAC_HASH_TABLE_REG1 {
   
-  // Enum definitions.
-  
   // Bit field definition.
   struct {
     uint32_t HT63T32 : 32;
-  } bits;          // Bit-field struct (auto-filling reserved gaps)
+  } bits;
   
   // Full 32-bit register value.
   uint32_t value;
@@ -389,51 +422,60 @@ union MAC_HASH_TABLE_REG1 {
 //
 union MAC_VLAN_TAG_CTRL {
   
-  // Enum definitions.
   enum class eOB : uint32_t {
     eDISABLE = 0, // Operation Busy is disabled
     eENABLE = 1, // Operation Busy is enabled
   };
+  
   enum class eCT : uint32_t {
     eWRITE = 0, // Write operation
     eREAD = 1, // Read operation
   };
+  
   enum class eVTIM : uint32_t {
     eDISABLE = 0, // VLAN Tag Inverse Match is disabled
     eENABLE = 1, // VLAN Tag Inverse Match is enabled
   };
+  
   enum class eESVL : uint32_t {
     eDISABLE = 0, // S-VLAN is disabled
     eENABLE = 1, // S-VLAN is enabled
   };
+  
   enum class eEVLS : uint32_t {
     eDONOT = 0, // Do not strip
     eIFPASS = 1, // Strip if VLAN filter passes
     eIFFAIL = 2, // Strip if VLAN filter fails
     eALWAYS = 3, // Always strip
   };
+  
   enum class eEVLRXS : uint32_t {
     eDISABLE = 0, // VLAN Tag in Rx status is disabled
     eENABLE = 1, // VLAN Tag in Rx status is enabled
   };
+  
   enum class eVTHM : uint32_t {
     eDISABLE = 0, // VLAN Tag Hash Table Match is disabled
     eENABLE = 1, // VLAN Tag Hash Table Match is enabled
   };
+  
   enum class eEDVLP : uint32_t {
     eDISABLE = 0, // Double VLAN Processing is disabled
     eENABLE = 1, // Double VLAN Processing is enabled
   };
+  
   enum class eERIVLT : uint32_t {
     eDISABLE = 0, // Inner VLAN tag is disabled
     eENABLE = 1, // Inner VLAN tag is enabled
   };
+  
   enum class eEIVLS : uint32_t {
     eDONOT = 0, // Do not strip
     eIFPASS = 1, // Strip if VLAN filter passes
     eIFFAIL = 2, // Strip if VLAN filter fails
     eALWAYS = 3, // Always strip
   };
+  
   enum class eEIVLRXS : uint32_t {
     eDISABLE = 0, // Inner VLAN Tag in Rx status is disabled
     eENABLE = 1, // Inner VLAN Tag in Rx status is enabled
@@ -457,7 +499,7 @@ union MAC_VLAN_TAG_CTRL {
     eEIVLS EIVLS : 2;
     uint32_t _reserved_11 : 1;
     eEIVLRXS EIVLRXS : 1;
-  } bits;          // Bit-field struct (auto-filling reserved gaps)
+  } bits;
   
   // Full 32-bit register value.
   uint32_t value;
@@ -471,27 +513,31 @@ union MAC_VLAN_TAG_CTRL {
 //
 union MAC_VLAN_TAG_DATA {
   
-  // Enum definitions.
   enum class eVEN : uint32_t {
     eDISABLE = 0, // VLAN Tag is disabled
     eENABLE = 1, // VLAN Tag is enabled
   };
+  
   enum class eETV : uint32_t {
     ebf_16BIT = 0, // 16 bit VLAN comparison
     ebf_12BIT = 1, // 12 bit VLAN comparison
   };
+  
   enum class eDOVLTC : uint32_t {
     eENABLE = 0, // VLAN type comparison is enabled
     eDISABLE = 1, // VLAN type comparison is disabled
   };
+  
   enum class eERSVLM : uint32_t {
     eDISABLE = 0, // Receive S-VLAN Match is disabled
     eENABLE = 1, // Receive S-VLAN Match is enabled
   };
+  
   enum class eERIVLT : uint32_t {
     eDISABLE = 0, // Inner VLAN tag comparison is disabled
     eENABLE = 1, // Inner VLAN tag comparison is enabled
   };
+  
   enum class eDMACHEN : uint32_t {
     eDISABLE = 0, // DMA Channel Number is disabled
     eENABLE = 1, // DMA Channel Number is enabled
@@ -509,7 +555,7 @@ union MAC_VLAN_TAG_DATA {
     eDMACHEN DMACHEN : 1;
     uint32_t DMACHN : 3;
     uint32_t _reserved_end : 4;
-  } bits;          // Bit-field struct (auto-filling reserved gaps)
+  } bits;
   
   // Full 32-bit register value.
   uint32_t value;
@@ -523,13 +569,11 @@ union MAC_VLAN_TAG_DATA {
 //
 union MAC_VLAN_HASH_TABLE {
   
-  // Enum definitions.
-  
   // Bit field definition.
   struct {
     uint32_t VLHT : 16;
     uint32_t _reserved_end : 16;
-  } bits;          // Bit-field struct (auto-filling reserved gaps)
+  } bits;
   
   // Full 32-bit register value.
   uint32_t value;
@@ -543,33 +587,38 @@ union MAC_VLAN_HASH_TABLE {
 //
 union MAC_VLAN_INCL {
   
-  // Enum definitions.
   enum class eVLC : uint32_t {
     eNONE = 0, // No VLAN tag deletion, insertion, or replacement
     eDELETE = 1, // VLAN tag deletion
     eINSERT = 2, // VLAN tag insertion
     eREPLACE = 3, // VLAN tag replacement
   };
+  
   enum class eVLP : uint32_t {
     eDISABLE = 0, // VLAN Priority Control is disabled
     eENABLE = 1, // VLAN Priority Control is enabled
   };
+  
   enum class eCSVL : uint32_t {
     eC_VLAN = 0, // C-VLAN type (0x8100) is inserted or replaced
     eS_VLAN = 1, // S-VLAN type (0x88A8) is inserted or replaced
   };
+  
   enum class eVLTI : uint32_t {
     eDISABLE = 0, // VLAN Tag Input is disabled
     eENABLE = 1, // VLAN Tag Input is enabled
   };
+  
   enum class eCBTI : uint32_t {
     eDISABLE = 0, // Channel based tag insertion is disabled
     eENABLE = 1, // Channel based tag insertion is enabled
   };
+  
   enum class eRDWR : uint32_t {
     eREAD = 0, // Read operation of indirect access
     eWRITE = 1, // Write operation of indirect access
   };
+  
   enum class eBUSY : uint32_t {
     eINACTIVE = 0, // Busy status not detected
     eACTIVE = 1, // Busy status detected
@@ -588,7 +637,7 @@ union MAC_VLAN_INCL {
     uint32_t _reserved_7 : 3;
     eRDWR RDWR : 1;
     eBUSY BUSY : 1;
-  } bits;          // Bit-field struct (auto-filling reserved gaps)
+  } bits;
   
   // Full 32-bit register value.
   uint32_t value;
@@ -602,21 +651,23 @@ union MAC_VLAN_INCL {
 //
 union MAC_INNER_VLAN_INCL {
   
-  // Enum definitions.
   enum class eVLC : uint32_t {
     eNONE = 0, // No VLAN tag deletion, insertion, or replacement
     eDELETE = 1, // VLAN tag deletion
     eINSERT = 2, // VLAN tag insertion
     eREPLACE = 3, // VLAN tag replacement
   };
+  
   enum class eVLP : uint32_t {
     eDISABLE = 0, // VLAN Priority Control is disabled
     eENABLE = 1, // VLAN Priority Control is enabled
   };
+  
   enum class eCSVL : uint32_t {
     eC_VLAN = 0, // C-VLAN type (0x8100) is inserted
     eS_VLAN = 1, // S-VLAN type (0x88A8) is inserted
   };
+  
   enum class eVLTI : uint32_t {
     eDISABLE = 0, // VLAN Tag Input is disabled
     eENABLE = 1, // VLAN Tag Input is enabled
@@ -630,7 +681,7 @@ union MAC_INNER_VLAN_INCL {
     eCSVL CSVL : 1;
     eVLTI VLTI : 1;
     uint32_t _reserved_end : 11;
-  } bits;          // Bit-field struct (auto-filling reserved gaps)
+  } bits;
   
   // Full 32-bit register value.
   uint32_t value;
@@ -644,15 +695,16 @@ union MAC_INNER_VLAN_INCL {
 //
 union MAC_Q0_TX_FLOW_CTRL {
   
-  // Enum definitions.
   enum class eFCB_BPA : uint32_t {
     eDISABLE = 0, // Flow Control Busy or Backpressure Activate is disabled
     eENABLE = 1, // Flow Control Busy or Backpressure Activate is enabled
   };
+  
   enum class eTFE : uint32_t {
     eDISABLE = 0, // Transmit Flow Control is disabled
     eENABLE = 1, // Transmit Flow Control is enabled
   };
+  
   enum class ePLT : uint32_t {
     ePT4 = 0, // Pause Time minus 4 Slot Times (PT -4 slot times)
     ePT28 = 1, // Pause Time minus 28 Slot Times (PT -28 slot times)
@@ -661,6 +713,7 @@ union MAC_Q0_TX_FLOW_CTRL {
     ePT256 = 4, // Pause Time minus 256 Slot Times (PT -256 slot times)
     ePT512 = 5, // Pause Time minus 512 Slot Times (PT -512 slot times)
   };
+  
   enum class eDZPQ : uint32_t {
     eENABLE = 0, // Zero-Quanta Pause packet generation is enabled
     eDISABLE = 1, // Zero-Quanta Pause packet generation is disabled
@@ -675,7 +728,7 @@ union MAC_Q0_TX_FLOW_CTRL {
     eDZPQ DZPQ : 1;
     uint32_t _reserved_4 : 8;
     uint32_t PT : 16;
-  } bits;          // Bit-field struct (auto-filling reserved gaps)
+  } bits;
   
   // Full 32-bit register value.
   uint32_t value;
@@ -689,15 +742,16 @@ union MAC_Q0_TX_FLOW_CTRL {
 //
 union MAC_Q1_TX_FLOW_CTRL {
   
-  // Enum definitions.
   enum class eFCB_BPA : uint32_t {
     eDISABLE = 0, // Flow Control Busy or Backpressure Activate is disabled
     eENABLE = 1, // Flow Control Busy or Backpressure Activate is enabled
   };
+  
   enum class eTFE : uint32_t {
     eDISABLE = 0, // Transmit Flow Control is disabled
     eENABLE = 1, // Transmit Flow Control is enabled
   };
+  
   enum class ePLT : uint32_t {
     ePT4 = 0, // Pause Time minus 4 Slot Times (PT -4 slot times)
     ePT28 = 1, // Pause Time minus 28 Slot Times (PT -28 slot times)
@@ -706,6 +760,7 @@ union MAC_Q1_TX_FLOW_CTRL {
     ePT256 = 4, // Pause Time minus 256 Slot Times (PT -256 slot times)
     ePT512 = 5, // Pause Time minus 512 Slot Times (PT -512 slot times)
   };
+  
   enum class eDZPQ : uint32_t {
     eENABLE = 0, // Zero-Quanta Pause packet generation is enabled
     eDISABLE = 1, // Zero-Quanta Pause packet generation is disabled
@@ -720,7 +775,7 @@ union MAC_Q1_TX_FLOW_CTRL {
     eDZPQ DZPQ : 1;
     uint32_t _reserved_4 : 8;
     uint32_t PT : 16;
-  } bits;          // Bit-field struct (auto-filling reserved gaps)
+  } bits;
   
   // Full 32-bit register value.
   uint32_t value;
@@ -734,15 +789,16 @@ union MAC_Q1_TX_FLOW_CTRL {
 //
 union MAC_Q2_TX_FLOW_CTRL {
   
-  // Enum definitions.
   enum class eFCB_BPA : uint32_t {
     eDISABLE = 0, // Flow Control Busy or Backpressure Activate is disabled
     eENABLE = 1, // Flow Control Busy or Backpressure Activate is enabled
   };
+  
   enum class eTFE : uint32_t {
     eDISABLE = 0, // Transmit Flow Control is disabled
     eENABLE = 1, // Transmit Flow Control is enabled
   };
+  
   enum class ePLT : uint32_t {
     ePT4 = 0, // Pause Time minus 4 Slot Times (PT -4 slot times)
     ePT28 = 1, // Pause Time minus 28 Slot Times (PT -28 slot times)
@@ -751,6 +807,7 @@ union MAC_Q2_TX_FLOW_CTRL {
     ePT256 = 4, // Pause Time minus 256 Slot Times (PT -256 slot times)
     ePT512 = 5, // Pause Time minus 512 Slot Times (PT -512 slot times)
   };
+  
   enum class eDZPQ : uint32_t {
     eENABLE = 0, // Zero-Quanta Pause packet generation is enabled
     eDISABLE = 1, // Zero-Quanta Pause packet generation is disabled
@@ -765,7 +822,7 @@ union MAC_Q2_TX_FLOW_CTRL {
     eDZPQ DZPQ : 1;
     uint32_t _reserved_4 : 8;
     uint32_t PT : 16;
-  } bits;          // Bit-field struct (auto-filling reserved gaps)
+  } bits;
   
   // Full 32-bit register value.
   uint32_t value;
@@ -779,15 +836,16 @@ union MAC_Q2_TX_FLOW_CTRL {
 //
 union MAC_Q3_TX_FLOW_CTRL {
   
-  // Enum definitions.
   enum class eFCB_BPA : uint32_t {
     eDISABLE = 0, // Flow Control Busy or Backpressure Activate is disabled
     eENABLE = 1, // Flow Control Busy or Backpressure Activate is enabled
   };
+  
   enum class eTFE : uint32_t {
     eDISABLE = 0, // Transmit Flow Control is disabled
     eENABLE = 1, // Transmit Flow Control is enabled
   };
+  
   enum class ePLT : uint32_t {
     ePT4 = 0, // Pause Time minus 4 Slot Times (PT -4 slot times)
     ePT28 = 1, // Pause Time minus 28 Slot Times (PT -28 slot times)
@@ -796,6 +854,7 @@ union MAC_Q3_TX_FLOW_CTRL {
     ePT256 = 4, // Pause Time minus 256 Slot Times (PT -256 slot times)
     ePT512 = 5, // Pause Time minus 512 Slot Times (PT -512 slot times)
   };
+  
   enum class eDZPQ : uint32_t {
     eENABLE = 0, // Zero-Quanta Pause packet generation is enabled
     eDISABLE = 1, // Zero-Quanta Pause packet generation is disabled
@@ -810,7 +869,7 @@ union MAC_Q3_TX_FLOW_CTRL {
     eDZPQ DZPQ : 1;
     uint32_t _reserved_4 : 8;
     uint32_t PT : 16;
-  } bits;          // Bit-field struct (auto-filling reserved gaps)
+  } bits;
   
   // Full 32-bit register value.
   uint32_t value;
@@ -824,15 +883,16 @@ union MAC_Q3_TX_FLOW_CTRL {
 //
 union MAC_Q4_TX_FLOW_CTRL {
   
-  // Enum definitions.
   enum class eFCB_BPA : uint32_t {
     eDISABLE = 0, // Flow Control Busy or Backpressure Activate is disabled
     eENABLE = 1, // Flow Control Busy or Backpressure Activate is enabled
   };
+  
   enum class eTFE : uint32_t {
     eDISABLE = 0, // Transmit Flow Control is disabled
     eENABLE = 1, // Transmit Flow Control is enabled
   };
+  
   enum class ePLT : uint32_t {
     ePT4 = 0, // Pause Time minus 4 Slot Times (PT -4 slot times)
     ePT28 = 1, // Pause Time minus 28 Slot Times (PT -28 slot times)
@@ -841,6 +901,7 @@ union MAC_Q4_TX_FLOW_CTRL {
     ePT256 = 4, // Pause Time minus 256 Slot Times (PT -256 slot times)
     ePT512 = 5, // Pause Time minus 512 Slot Times (PT -512 slot times)
   };
+  
   enum class eDZPQ : uint32_t {
     eENABLE = 0, // Zero-Quanta Pause packet generation is enabled
     eDISABLE = 1, // Zero-Quanta Pause packet generation is disabled
@@ -855,7 +916,7 @@ union MAC_Q4_TX_FLOW_CTRL {
     eDZPQ DZPQ : 1;
     uint32_t _reserved_4 : 8;
     uint32_t PT : 16;
-  } bits;          // Bit-field struct (auto-filling reserved gaps)
+  } bits;
   
   // Full 32-bit register value.
   uint32_t value;
@@ -869,15 +930,16 @@ union MAC_Q4_TX_FLOW_CTRL {
 //
 union MAC_RX_FLOW_CTRL {
   
-  // Enum definitions.
   enum class eRFE : uint32_t {
     eDISABLE = 0, // Receive Flow Control is disabled
     eENABLE = 1, // Receive Flow Control is enabled
   };
+  
   enum class eUP : uint32_t {
     eDISABLE = 0, // Unicast Pause Packet Detect disabled
     eENABLE = 1, // Unicast Pause Packet Detect enabled
   };
+  
   enum class ePFCE : uint32_t {
     eDISABLE = 0, // Priority Based Flow Control is disabled
     eENABLE = 1, // Priority Based Flow Control is enabled
@@ -890,7 +952,7 @@ union MAC_RX_FLOW_CTRL {
     uint32_t _reserved_2 : 6;
     ePFCE PFCE : 1;
     uint32_t _reserved_end : 23;
-  } bits;          // Bit-field struct (auto-filling reserved gaps)
+  } bits;
   
   // Full 32-bit register value.
   uint32_t value;
@@ -904,15 +966,16 @@ union MAC_RX_FLOW_CTRL {
 //
 union MAC_RXQ_CTRL4 {
   
-  // Enum definitions.
   enum class eUFFQE : uint32_t {
     eDISABLE = 0, // Unicast Address Filter Fail Packets Queuing is disabled
     eENABLE = 1, // Unicast Address Filter Fail Packets Queuing is enabled
   };
+  
   enum class eMFFQE : uint32_t {
     eDISABLE = 0, // Multicast Address Filter Fail Packets Queuing is disabled
     eENABLE = 1, // Multicast Address Filter Fail Packets Queuing is enabled
   };
+  
   enum class eVFFQE : uint32_t {
     eDISABLE = 0, // VLAN tag Filter Fail Packets Queuing is disabled
     eENABLE = 1, // VLAN tag Filter Fail Packets Queuing is enabled
@@ -929,7 +992,7 @@ union MAC_RXQ_CTRL4 {
     eVFFQE VFFQE : 1;
     uint32_t VFFQ : 3;
     uint32_t _reserved_end : 12;
-  } bits;          // Bit-field struct (auto-filling reserved gaps)
+  } bits;
   
   // Full 32-bit register value.
   uint32_t value;
@@ -943,15 +1006,13 @@ union MAC_RXQ_CTRL4 {
 //
 union MAC_TXQ_PRTY_MAP0 {
   
-  // Enum definitions.
-  
   // Bit field definition.
   struct {
     uint32_t PSTQ0 : 8;
     uint32_t PSTQ1 : 8;
     uint32_t PSTQ2 : 8;
     uint32_t PSTQ3 : 8;
-  } bits;          // Bit-field struct (auto-filling reserved gaps)
+  } bits;
   
   // Full 32-bit register value.
   uint32_t value;
@@ -965,13 +1026,11 @@ union MAC_TXQ_PRTY_MAP0 {
 //
 union MAC_TXQ_PRTY_MAP1 {
   
-  // Enum definitions.
-  
   // Bit field definition.
   struct {
     uint32_t PSTQ4 : 8;
     uint32_t _reserved_end : 24;
-  } bits;          // Bit-field struct (auto-filling reserved gaps)
+  } bits;
   
   // Full 32-bit register value.
   uint32_t value;
@@ -985,27 +1044,30 @@ union MAC_TXQ_PRTY_MAP1 {
 //
 union MAC_RXQ_CTRL0 {
   
-  // Enum definitions.
   enum class eRXQ0EN : uint32_t {
     eDISABLE = 0, // Queue not enabled
     eEN_AV = 1, // Queue enabled for AV
     eEN_DCB_GEN = 2, // Queue enabled for DCB/Generic
   };
+  
   enum class eRXQ1EN : uint32_t {
     eDISABLE = 0, // Queue not enabled
     eEN_AV = 1, // Queue enabled for AV
     eEN_DCB_GEN = 2, // Queue enabled for DCB/Generic
   };
+  
   enum class eRXQ2EN : uint32_t {
     eDISABLE = 0, // Queue not enabled
     eEN_AV = 1, // Queue enabled for AV
     eEN_DCB_GEN = 2, // Queue enabled for DCB/Generic
   };
+  
   enum class eRXQ3EN : uint32_t {
     eDISABLE = 0, // Queue not enabled
     eEN_AV = 1, // Queue enabled for AV
     eEN_DCB_GEN = 2, // Queue enabled for DCB/Generic
   };
+  
   enum class eRXQ4EN : uint32_t {
     eDISABLE = 0, // Queue not enabled
     eEN_AV = 1, // Queue enabled for AV
@@ -1020,7 +1082,7 @@ union MAC_RXQ_CTRL0 {
     eRXQ3EN RXQ3EN : 2;
     eRXQ4EN RXQ4EN : 2;
     uint32_t _reserved_end : 22;
-  } bits;          // Bit-field struct (auto-filling reserved gaps)
+  } bits;
   
   // Full 32-bit register value.
   uint32_t value;
@@ -1034,7 +1096,6 @@ union MAC_RXQ_CTRL0 {
 //
 union MAC_RXQ_CTRL1 {
   
-  // Enum definitions.
   enum class eAVCPQ : uint32_t {
     eQUEUE0 = 0, // Receive Queue 0
     eQUEUE1 = 1, // Receive Queue 1
@@ -1042,6 +1103,7 @@ union MAC_RXQ_CTRL1 {
     eQUEUE3 = 3, // Receive Queue 3
     eQUEUE4 = 4, // Receive Queue 4
   };
+  
   enum class ePTPQ : uint32_t {
     eQUEUE0 = 0, // Receive Queue 0
     eQUEUE1 = 1, // Receive Queue 1
@@ -1049,6 +1111,7 @@ union MAC_RXQ_CTRL1 {
     eQUEUE3 = 3, // Receive Queue 3
     eQUEUE4 = 4, // Receive Queue 4
   };
+  
   enum class eDCBCPQ : uint32_t {
     eQUEUE0 = 0, // Receive Queue 0
     eQUEUE1 = 1, // Receive Queue 1
@@ -1056,6 +1119,7 @@ union MAC_RXQ_CTRL1 {
     eQUEUE3 = 3, // Receive Queue 3
     eQUEUE4 = 4, // Receive Queue 4
   };
+  
   enum class eUPQ : uint32_t {
     eQUEUE0 = 0, // Receive Queue 0
     eQUEUE1 = 1, // Receive Queue 1
@@ -1063,6 +1127,7 @@ union MAC_RXQ_CTRL1 {
     eQUEUE3 = 3, // Receive Queue 3
     eQUEUE4 = 4, // Receive Queue 4
   };
+  
   enum class eMCBCQ : uint32_t {
     eQUEUE0 = 0, // Receive Queue 0
     eQUEUE1 = 1, // Receive Queue 1
@@ -1070,10 +1135,12 @@ union MAC_RXQ_CTRL1 {
     eQUEUE3 = 3, // Receive Queue 3
     eQUEUE4 = 4, // Receive Queue 4
   };
+  
   enum class eMCBCQEN : uint32_t {
     eDISABLE = 0, // Multicast and Broadcast Queue is disabled
     eENABLE = 1, // Multicast and Broadcast Queue is enabled
   };
+  
   enum class eTACPQE : uint32_t {
     eDISABLE = 0, // Tagged AV Control Packets Queuing is disabled
     eENABLE = 1, // Tagged AV Control Packets Queuing is enabled
@@ -1096,7 +1163,7 @@ union MAC_RXQ_CTRL1 {
     uint32_t TPQC : 2;
     uint32_t FPRQ : 3;
     uint32_t _reserved_end : 5;
-  } bits;          // Bit-field struct (auto-filling reserved gaps)
+  } bits;
   
   // Full 32-bit register value.
   uint32_t value;
@@ -1110,15 +1177,13 @@ union MAC_RXQ_CTRL1 {
 //
 union MAC_RXQ_CTRL2 {
   
-  // Enum definitions.
-  
   // Bit field definition.
   struct {
     uint32_t PSRQ0 : 8;
     uint32_t PSRQ1 : 8;
     uint32_t PSRQ2 : 8;
     uint32_t PSRQ3 : 8;
-  } bits;          // Bit-field struct (auto-filling reserved gaps)
+  } bits;
   
   // Full 32-bit register value.
   uint32_t value;
@@ -1132,13 +1197,11 @@ union MAC_RXQ_CTRL2 {
 //
 union MAC_RXQ_CTRL3 {
   
-  // Enum definitions.
-  
   // Bit field definition.
   struct {
     uint32_t PSRQ4 : 8;
     uint32_t _reserved_end : 24;
-  } bits;          // Bit-field struct (auto-filling reserved gaps)
+  } bits;
   
   // Full 32-bit register value.
   uint32_t value;
@@ -1152,63 +1215,76 @@ union MAC_RXQ_CTRL3 {
 //
 union MAC_INTERRUPT_STATUS {
   
-  // Enum definitions.
   enum class eRGSMIIIS : uint32_t {
     eINACTIVE = 0, // RGMII or SMII Interrupt Status is not active
     eACTIVE = 1, // RGMII or SMII Interrupt Status is active
   };
+  
   enum class ePHYIS : uint32_t {
     eINACTIVE = 0, // PHY Interrupt not detected
     eACTIVE = 1, // PHY Interrupt detected
   };
+  
   enum class ePMTIS : uint32_t {
     eINACTIVE = 0, // PMT Interrupt status not active
     eACTIVE = 1, // PMT Interrupt status active
   };
+  
   enum class eLPIIS : uint32_t {
     eINACTIVE = 0, // LPI Interrupt status not active
     eACTIVE = 1, // LPI Interrupt status active
   };
+  
   enum class eMMCIS : uint32_t {
     eINACTIVE = 0, // MMC Interrupt status not active
     eACTIVE = 1, // MMC Interrupt status active
   };
+  
   enum class eMMCRXIS : uint32_t {
     eINACTIVE = 0, // MMC Receive Interrupt status not active
     eACTIVE = 1, // MMC Receive Interrupt status active
   };
+  
   enum class eMMCTXIS : uint32_t {
     eINACTIVE = 0, // MMC Transmit Interrupt status not active
     eACTIVE = 1, // MMC Transmit Interrupt status active
   };
+  
   enum class eMMCRXIPIS : uint32_t {
     eINACTIVE = 0, // MMC Receive Checksum Offload Interrupt status not active
     eACTIVE = 1, // MMC Receive Checksum Offload Interrupt status active
   };
+  
   enum class eTSIS : uint32_t {
     eINACTIVE = 0, // Timestamp Interrupt status not active
     eACTIVE = 1, // Timestamp Interrupt status active
   };
+  
   enum class eTXSTSIS : uint32_t {
     eINACTIVE = 0, // Transmit Interrupt status not active
     eACTIVE = 1, // Transmit Interrupt status active
   };
+  
   enum class eRXSTSIS : uint32_t {
     eINACTIVE = 0, // Receive Interrupt status not active
     eACTIVE = 1, // Receive Interrupt status active
   };
+  
   enum class eFPEIS : uint32_t {
     eINACTIVE = 0, // Frame Preemption Interrupt status not active
     eACTIVE = 1, // Frame Preemption Interrupt status active
   };
+  
   enum class eMDIOIS : uint32_t {
     eINACTIVE = 0, // MDIO Interrupt status not active
     eACTIVE = 1, // MDIO Interrupt status active
   };
+  
   enum class eMFTIS : uint32_t {
     eINACTIVE = 0, // MMC FPE Transmit Interrupt status not active
     eACTIVE = 1, // MMC FPE Transmit Interrupt status active
   };
+  
   enum class eMFRIS : uint32_t {
     eINACTIVE = 0, // MMC FPE Receive Interrupt status not active
     eACTIVE = 1, // MMC FPE Receive Interrupt status active
@@ -1235,7 +1311,7 @@ union MAC_INTERRUPT_STATUS {
     eMFTIS MFTIS : 1;
     eMFRIS MFRIS : 1;
     uint32_t _reserved_end : 11;
-  } bits;          // Bit-field struct (auto-filling reserved gaps)
+  } bits;
   
   // Full 32-bit register value.
   uint32_t value;
@@ -1249,39 +1325,46 @@ union MAC_INTERRUPT_STATUS {
 //
 union MAC_INTERRUPT_ENABLE {
   
-  // Enum definitions.
   enum class eRGSMIIIE : uint32_t {
     eDISABLE = 0, // RGMII or SMII Interrupt is disabled
     eENABLE = 1, // RGMII or SMII Interrupt is enabled
   };
+  
   enum class ePHYIE : uint32_t {
     eDISABLE = 0, // PHY Interrupt is disabled
     eENABLE = 1, // PHY Interrupt is enabled
   };
+  
   enum class ePMTIE : uint32_t {
     eDISABLE = 0, // PMT Interrupt is disabled
     eENABLE = 1, // PMT Interrupt is enabled
   };
+  
   enum class eLPIIE : uint32_t {
     eDISABLE = 0, // LPI Interrupt is disabled
     eENABLE = 1, // LPI Interrupt is enabled
   };
+  
   enum class eTSIE : uint32_t {
     eDISABLE = 0, // Timestamp Interrupt is disabled
     eENABLE = 1, // Timestamp Interrupt is enabled
   };
+  
   enum class eTXSTSIE : uint32_t {
     eDISABLE = 0, // Timestamp Status Interrupt is disabled
     eENABLE = 1, // Timestamp Status Interrupt is enabled
   };
+  
   enum class eRXSTSIE : uint32_t {
     eDISABLE = 0, // Receive Status Interrupt is disabled
     eENABLE = 1, // Receive Status Interrupt is enabled
   };
+  
   enum class eFPEIE : uint32_t {
     eDISABLE = 0, // Frame Preemption Interrupt is disabled
     eENABLE = 1, // Frame Preemption Interrupt is enabled
   };
+  
   enum class eMDIOIE : uint32_t {
     eDISABLE = 0, // MDIO Interrupt is disabled
     eENABLE = 1, // MDIO Interrupt is enabled
@@ -1302,7 +1385,7 @@ union MAC_INTERRUPT_ENABLE {
     eFPEIE FPEIE : 1;
     eMDIOIE MDIOIE : 1;
     uint32_t _reserved_end : 13;
-  } bits;          // Bit-field struct (auto-filling reserved gaps)
+  } bits;
   
   // Full 32-bit register value.
   uint32_t value;
@@ -1316,31 +1399,36 @@ union MAC_INTERRUPT_ENABLE {
 //
 union MAC_RX_TX_STATUS {
   
-  // Enum definitions.
   enum class eTJT : uint32_t {
     eINACTIVE = 0, // No Transmit Jabber Timeout
     eACTIVE = 1, // Transmit Jabber Timeout occurred
   };
+  
   enum class eNCARR : uint32_t {
     eINACTIVE = 0, // Carrier is present
     eACTIVE = 1, // No carrier
   };
+  
   enum class eLCARR : uint32_t {
     eINACTIVE = 0, // Carrier is present
     eACTIVE = 1, // Loss of carrier
   };
+  
   enum class eEXDEF : uint32_t {
     eINACTIVE = 0, // No Excessive deferral
     eACTIVE = 1, // Excessive deferral
   };
+  
   enum class eLCOL : uint32_t {
     eINACTIVE = 0, // No collision
     eACTIVE = 1, // Late collision is sensed
   };
+  
   enum class eEXCOL : uint32_t {
     eINACTIVE = 0, // No collision
     eACTIVE = 1, // Excessive collision is sensed
   };
+  
   enum class eRWT : uint32_t {
     eINACTIVE = 0, // No receive watchdog timeout
     eACTIVE = 1, // Receive watchdog timed out
@@ -1357,7 +1445,7 @@ union MAC_RX_TX_STATUS {
     uint32_t _reserved_6 : 2;
     eRWT RWT : 1;
     uint32_t _reserved_end : 23;
-  } bits;          // Bit-field struct (auto-filling reserved gaps)
+  } bits;
   
   // Full 32-bit register value.
   uint32_t value;
@@ -1371,35 +1459,41 @@ union MAC_RX_TX_STATUS {
 //
 union MAC_PMT_CONTROL_STATUS {
   
-  // Enum definitions.
   enum class ePWRDWN : uint32_t {
     eDISABLE = 0, // Power down is disabled
     eENABLE = 1, // Power down is enabled
   };
+  
   enum class eMGKPKTEN : uint32_t {
     eDISABLE = 0, // Magic Packet is disabled
     eENABLE = 1, // Magic Packet is enabled
   };
+  
   enum class eRWKPKTEN : uint32_t {
     eDISABLE = 0, // Remote wake-up packet is disabled
     eENABLE = 1, // Remote wake-up packet is enabled
   };
+  
   enum class eMGKPRCVD : uint32_t {
     eINACTIVE = 0, // No Magic packet is received
     eACTIVE = 1, // Magic packet is received
   };
+  
   enum class eRWKPRCVD : uint32_t {
     eINACTIVE = 0, // Remote wake-up packet is received
     eACTIVE = 1, // Remote wake-up packet is received
   };
+  
   enum class eGLBLUCAST : uint32_t {
     eDISABLE = 0, // Global unicast is disabled
     eENABLE = 1, // Global unicast is enabled
   };
+  
   enum class eRWKPFE : uint32_t {
     eDISABLE = 0, // Remote Wake-up Packet Forwarding is disabled
     eENABLE = 1, // Remote Wake-up Packet Forwarding is enabled
   };
+  
   enum class eRWKFILTRST : uint32_t {
     eDISABLE = 0, // Remote Wake-Up Packet Filter Register Pointer is not Reset
     eENABLE = 1, // Remote Wake-Up Packet Filter Register Pointer is Reset
@@ -1420,7 +1514,7 @@ union MAC_PMT_CONTROL_STATUS {
     uint32_t RWKPTR : 5;
     uint32_t _reserved_8 : 2;
     eRWKFILTRST RWKFILTRST : 1;
-  } bits;          // Bit-field struct (auto-filling reserved gaps)
+  } bits;
   
   // Full 32-bit register value.
   uint32_t value;
@@ -1434,12 +1528,10 @@ union MAC_PMT_CONTROL_STATUS {
 //
 union MAC_RWK_PACKET_FILTER {
   
-  // Enum definitions.
-  
   // Bit field definition.
   struct {
     uint32_t WKUPFRMFTR : 32;
-  } bits;          // Bit-field struct (auto-filling reserved gaps)
+  } bits;
   
   // Full 32-bit register value.
   uint32_t value;
@@ -1453,51 +1545,61 @@ union MAC_RWK_PACKET_FILTER {
 //
 union MAC_LPI_CONTROL_STATUS {
   
-  // Enum definitions.
   enum class eTLPIEN : uint32_t {
     eINACTIVE = 0, // Transmit LPI entry not detected
     eACTIVE = 1, // Transmit LPI entry detected
   };
+  
   enum class eTLPIEX : uint32_t {
     eINACTIVE = 0, // Transmit LPI exit not detected
     eACTIVE = 1, // Transmit LPI exit detected
   };
+  
   enum class eRLPIEN : uint32_t {
     eINACTIVE = 0, // Receive LPI entry not detected
     eACTIVE = 1, // Receive LPI entry detected
   };
+  
   enum class eRLPIEX : uint32_t {
     eINACTIVE = 0, // Receive LPI exit not detected
     eACTIVE = 1, // Receive LPI exit detected
   };
+  
   enum class eTLPIST : uint32_t {
     eINACTIVE = 0, // Transmit LPI state not detected
     eACTIVE = 1, // Transmit LPI state detected
   };
+  
   enum class eRLPIST : uint32_t {
     eINACTIVE = 0, // Receive LPI state not detected
     eACTIVE = 1, // Receive LPI state detected
   };
+  
   enum class eLPIEN : uint32_t {
     eDISABLE = 0, // LPI state is disabled
     eENABLE = 1, // LPI state is enabled
   };
+  
   enum class ePLS : uint32_t {
     eDISABLE = 0, // link is down
     eENABLE = 1, // link is okay (UP)
   };
+  
   enum class ePLSEN : uint32_t {
     eDISABLE = 0, // PHY Link Status is disabled
     eENABLE = 1, // PHY Link Status is enabled
   };
+  
   enum class eLPITXA : uint32_t {
     eDISABLE = 0, // LPI Tx Automate is disabled
     eENABLE = 1, // LPI Tx Automate is enabled
   };
+  
   enum class eLPIATE : uint32_t {
     eDISABLE = 0, // LPI Timer is disabled
     eENABLE = 1, // LPI Timer is enabled
   };
+  
   enum class eLPITCSE : uint32_t {
     eDISABLE = 0, // LPI Tx Clock Stop is disabled
     eENABLE = 1, // LPI Tx Clock Stop is enabled
@@ -1520,7 +1622,7 @@ union MAC_LPI_CONTROL_STATUS {
     eLPIATE LPIATE : 1;
     eLPITCSE LPITCSE : 1;
     uint32_t _reserved_end : 10;
-  } bits;          // Bit-field struct (auto-filling reserved gaps)
+  } bits;
   
   // Full 32-bit register value.
   uint32_t value;
@@ -1534,14 +1636,12 @@ union MAC_LPI_CONTROL_STATUS {
 //
 union MAC_LPI_TIMERS_CONTROL {
   
-  // Enum definitions.
-  
   // Bit field definition.
   struct {
     uint32_t TWT : 16;
     uint32_t LST : 10;
     uint32_t _reserved_end : 6;
-  } bits;          // Bit-field struct (auto-filling reserved gaps)
+  } bits;
   
   // Full 32-bit register value.
   uint32_t value;
@@ -1555,14 +1655,12 @@ union MAC_LPI_TIMERS_CONTROL {
 //
 union MAC_LPI_ENTRY_TIMER {
   
-  // Enum definitions.
-  
   // Bit field definition.
   struct {
     uint32_t _reserved_0 : 3;
     uint32_t LPIET : 17;
     uint32_t _reserved_end : 12;
-  } bits;          // Bit-field struct (auto-filling reserved gaps)
+  } bits;
   
   // Full 32-bit register value.
   uint32_t value;
@@ -1576,13 +1674,11 @@ union MAC_LPI_ENTRY_TIMER {
 //
 union MAC_ONEUS_TIC_COUNTER {
   
-  // Enum definitions.
-  
   // Bit field definition.
   struct {
     uint32_t TIC_1US_CNTR : 12;
     uint32_t _reserved_end : 20;
-  } bits;          // Bit-field struct (auto-filling reserved gaps)
+  } bits;
   
   // Full 32-bit register value.
   uint32_t value;
@@ -1596,24 +1692,27 @@ union MAC_ONEUS_TIC_COUNTER {
 //
 union MAC_PHYIF_CONTROL_STATUS {
   
-  // Enum definitions.
   enum class eTC : uint32_t {
     eDISABLE = 0, // Disable Transmit Configuration in RGMII, SGMII, or SMII
     eENABLE = 1, // Enable Transmit Configuration in RGMII, SGMII, or SMII
   };
+  
   enum class eLUD : uint32_t {
     eLINKDOWN = 0, // Link down
     eLINKUP = 1, // Link up
   };
+  
   enum class eLNKMOD : uint32_t {
     eHDUPLX = 0, // Half-duplex mode
     eFDUPLX = 1, // Full-duplex mode
   };
+  
   enum class eLNKSPEED : uint32_t {
     ebf_2500K = 0, // 2.5 MHz
     ebf_25M = 1, // 25 MHz
     ebf_125M = 2, // 125 MHz
   };
+  
   enum class eLNKSTS : uint32_t {
     eINACTIVE = 0, // Link down
     eACTIVE = 1, // Link up
@@ -1628,7 +1727,7 @@ union MAC_PHYIF_CONTROL_STATUS {
     eLNKSPEED LNKSPEED : 2;
     eLNKSTS LNKSTS : 1;
     uint32_t _reserved_end : 12;
-  } bits;          // Bit-field struct (auto-filling reserved gaps)
+  } bits;
   
   // Full 32-bit register value.
   uint32_t value;
@@ -1642,14 +1741,12 @@ union MAC_PHYIF_CONTROL_STATUS {
 //
 union MAC_VERSION {
   
-  // Enum definitions.
-  
   // Bit field definition.
   struct {
     uint32_t SNPSVER : 8;
     uint32_t USERVER : 8;
     uint32_t _reserved_end : 16;
-  } bits;          // Bit-field struct (auto-filling reserved gaps)
+  } bits;
   
   // Full 32-bit register value.
   uint32_t value;
@@ -1663,15 +1760,16 @@ union MAC_VERSION {
 //
 union MAC_DEBUG {
   
-  // Enum definitions.
   enum class eRPESTS : uint32_t {
     eINACTIVE = 0, // MAC GMII or MII Receive Protocol Engine Status not detected
     eACTIVE = 1, // MAC GMII or MII Receive Protocol Engine Status detected
   };
+  
   enum class eTPESTS : uint32_t {
     eINACTIVE = 0, // MAC GMII or MII Transmit Protocol Engine Status not detected
     eACTIVE = 1, // MAC GMII or MII Transmit Protocol Engine Status detected
   };
+  
   enum class eTFCSTS : uint32_t {
     eIDLE = 0, // Idle state
     eWAITING = 1, // Waiting for one of the following: Status of the previous packet OR IPG or back off period to be over
@@ -1687,7 +1785,7 @@ union MAC_DEBUG {
     eTPESTS TPESTS : 1;
     eTFCSTS TFCSTS : 2;
     uint32_t _reserved_end : 13;
-  } bits;          // Bit-field struct (auto-filling reserved gaps)
+  } bits;
   
   // Full 32-bit register value.
   uint32_t value;
@@ -1701,80 +1799,97 @@ union MAC_DEBUG {
 //
 union MAC_HW_FEATURE0 {
   
-  // Enum definitions.
   enum class eMIISEL : uint32_t {
     eINACTIVE = 0, // No 10 or 100 Mbps support
     eACTIVE = 1, // 10 or 100 Mbps support
   };
+  
   enum class eGMIISEL : uint32_t {
     eINACTIVE = 0, // No 1000 Mbps support
     eACTIVE = 1, // 1000 Mbps support
   };
+  
   enum class eHDSEL : uint32_t {
     eINACTIVE = 0, // No Half-duplex support
     eACTIVE = 1, // Half-duplex support
   };
+  
   enum class ePCSSEL : uint32_t {
     eINACTIVE = 0, // No PCS Registers (TBI, SGMII, or RTBI PHY interface)
     eACTIVE = 1, // PCS Registers (TBI, SGMII, or RTBI PHY interface)
   };
+  
   enum class eVLHASH : uint32_t {
     eINACTIVE = 0, // VLAN Hash Filter not selected
     eACTIVE = 1, // VLAN Hash Filter selected
   };
+  
   enum class eSMASEL : uint32_t {
     eINACTIVE = 0, // SMA (MDIO) Interface not selected
     eACTIVE = 1, // SMA (MDIO) Interface selected
   };
+  
   enum class eRWKSEL : uint32_t {
     eINACTIVE = 0, // PMT Remote Wake-up Packet Enable option is not selected
     eACTIVE = 1, // PMT Remote Wake-up Packet Enable option is selected
   };
+  
   enum class eMGKSEL : uint32_t {
     eINACTIVE = 0, // PMT Magic Packet Enable option is not selected
     eACTIVE = 1, // PMT Magic Packet Enable option is selected
   };
+  
   enum class eMMCSEL : uint32_t {
     eINACTIVE = 0, // RMON Module Enable option is not selected
     eACTIVE = 1, // RMON Module Enable option is selected
   };
+  
   enum class eARPOFFSEL : uint32_t {
     eINACTIVE = 0, // ARP Offload Enable option is not selected
     eACTIVE = 1, // ARP Offload Enable option is selected
   };
+  
   enum class eTSSEL : uint32_t {
     eINACTIVE = 0, // IEEE 1588-2008 Timestamp Enable option is not selected
     eACTIVE = 1, // IEEE 1588-2008 Timestamp Enable option is selected
   };
+  
   enum class eEEESEL : uint32_t {
     eINACTIVE = 0, // Energy Efficient Ethernet Enable option is not selected
     eACTIVE = 1, // Energy Efficient Ethernet Enable option is selected
   };
+  
   enum class eTXCOESEL : uint32_t {
     eINACTIVE = 0, // Transmit Checksum Offload Enable option is not selected
     eACTIVE = 1, // Transmit Checksum Offload Enable option is selected
   };
+  
   enum class eRXCOESEL : uint32_t {
     eINACTIVE = 0, // Receive Checksum Offload Enable option is not selected
     eACTIVE = 1, // Receive Checksum Offload Enable option is selected
   };
+  
   enum class eMACADR32SEL : uint32_t {
     eINACTIVE = 0, // MAC Addresses 32-63 Select option is not selected
     eACTIVE = 1, // MAC Addresses 32-63 Select option is selected
   };
+  
   enum class eMACADR64SEL : uint32_t {
     eINACTIVE = 0, // MAC Addresses 64-127 Select option is not selected
     eACTIVE = 1, // MAC Addresses 64-127 Select option is selected
   };
+  
   enum class eTSSTSSEL : uint32_t {
     eINTRNL = 0, // Internal
     eEXTRNL = 1, // External
     eBOTH = 2, // Both
   };
+  
   enum class eSAVLANINS : uint32_t {
     eINACTIVE = 0, // Source Address or VLAN Insertion Enable option is not selected
     eACTIVE = 1, // Source Address or VLAN Insertion Enable option is selected
   };
+  
   enum class eACTPHYSEL : uint32_t {
     eGMII_MII = 0, // GMII or MII
     eRGMII = 1, // RGMII
@@ -1812,7 +1927,7 @@ union MAC_HW_FEATURE0 {
     eSAVLANINS SAVLANINS : 1;
     eACTPHYSEL ACTPHYSEL : 3;
     uint32_t _reserved_end : 1;
-  } bits;          // Bit-field struct (auto-filling reserved gaps)
+  } bits;
   
   // Full 32-bit register value.
   uint32_t value;
@@ -1826,7 +1941,6 @@ union MAC_HW_FEATURE0 {
 //
 union MAC_HW_FEATURE1 {
   
-  // Enum definitions.
   enum class eRXFIFOSIZE : uint32_t {
     ebf_128B = 0, // 128 bytes
     ebf_256B = 1, // 256 bytes
@@ -1841,10 +1955,12 @@ union MAC_HW_FEATURE1 {
     ebf_128KB = 10, // 128 KB
     ebf_256KB = 11, // 256 KB
   };
+  
   enum class eSPRAM : uint32_t {
     eINACTIVE = 0, // Single Port RAM feature is not selected
     eACTIVE = 1, // Single Port RAM feature is selected
   };
+  
   enum class eTXFIFOSIZE : uint32_t {
     ebf_128B = 0, // 128 bytes
     ebf_256B = 1, // 256 bytes
@@ -1858,57 +1974,70 @@ union MAC_HW_FEATURE1 {
     ebf_64KB = 9, // 64 KB
     ebf_128KB = 10, // 128 KB
   };
+  
   enum class eOSTEN : uint32_t {
     eINACTIVE = 0, // One-Step Timestamping feature is not selected
     eACTIVE = 1, // One-Step Timestamping feature is selected
   };
+  
   enum class ePTOEN : uint32_t {
     eINACTIVE = 0, // PTP Offload feature is not selected
     eACTIVE = 1, // PTP Offload feature is selected
   };
+  
   enum class eADVTHWORD : uint32_t {
     eINACTIVE = 0, // IEEE 1588 High Word Register option is not selected
     eACTIVE = 1, // IEEE 1588 High Word Register option is selected
   };
+  
   enum class eADDR64 : uint32_t {
     ebf_32 = 0, // 32
     ebf_40 = 1, // 40
     ebf_48 = 2, // 48
   };
+  
   enum class eDCBEN : uint32_t {
     eINACTIVE = 0, // DCB Feature is not selected
     eACTIVE = 1, // DCB Feature is selected
   };
+  
   enum class eSPHEN : uint32_t {
     eINACTIVE = 0, // Split Header Feature is not selected
     eACTIVE = 1, // Split Header Feature is selected
   };
+  
   enum class eTSOEN : uint32_t {
     eINACTIVE = 0, // TCP Segmentation Offload Feature is not selected
     eACTIVE = 1, // TCP Segmentation Offload Feature is selected
   };
+  
   enum class eDBGMEMA : uint32_t {
     eINACTIVE = 0, // DMA Debug Registers option is not selected
     eACTIVE = 1, // DMA Debug Registers option is selected
   };
+  
   enum class eAVSEL : uint32_t {
     eINACTIVE = 0, // AV Feature is not selected
     eACTIVE = 1, // AV Feature is selected
   };
+  
   enum class eRAVSEL : uint32_t {
     eINACTIVE = 0, // Rx Side Only AV Feature is not selected
     eACTIVE = 1, // Rx Side Only AV Feature is selected
   };
+  
   enum class ePOUOST : uint32_t {
     eINACTIVE = 0, // One Step for PTP over UDP/IP Feature is not selected
     eACTIVE = 1, // One Step for PTP over UDP/IP Feature is selected
   };
+  
   enum class eHASHTBLSZ : uint32_t {
     eNO_HT = 0, // No hash table
     ebf_64 = 1, // 64
     ebf_128 = 2, // 128
     ebf_256 = 3, // 256
   };
+  
   enum class eL3L4FNUM : uint32_t {
     eNOFILT = 0, // No L3 or L4 Filter
     ebf_1FILT = 1, // 1 L3 or L4 Filter
@@ -1942,7 +2071,7 @@ union MAC_HW_FEATURE1 {
     uint32_t _reserved_15 : 1;
     eL3L4FNUM L3L4FNUM : 4;
     uint32_t _reserved_end : 1;
-  } bits;          // Bit-field struct (auto-filling reserved gaps)
+  } bits;
   
   // Full 32-bit register value.
   uint32_t value;
@@ -1956,7 +2085,6 @@ union MAC_HW_FEATURE1 {
 //
 union MAC_HW_FEATURE2 {
   
-  // Enum definitions.
   enum class eRXQCNT : uint32_t {
     ebf_1RXQ = 0, // 1 MTL Rx Queue
     ebf_2RXQ = 1, // 2 MTL Rx Queues
@@ -1964,6 +2092,7 @@ union MAC_HW_FEATURE2 {
     ebf_4RXQ = 3, // 4 MTL Rx Queues
     ebf_5RXQ = 4, // 5 MTL Rx Queues
   };
+  
   enum class eTXQCNT : uint32_t {
     ebf_1TXQ = 0, // 1 MTL Tx Queue
     ebf_2TXQ = 1, // 2 MTL Tx Queues
@@ -1971,6 +2100,7 @@ union MAC_HW_FEATURE2 {
     ebf_4TXQ = 3, // 4 MTL Tx Queues
     ebf_5TXQ = 4, // 5 MTL Tx Queues
   };
+  
   enum class eRXCHCNT : uint32_t {
     ebf_1RXCH = 0, // 1 MTL Rx Channel
     ebf_2RXCH = 1, // 2 MTL Rx Channels
@@ -1978,6 +2108,7 @@ union MAC_HW_FEATURE2 {
     ebf_4RXCH = 3, // 4 MTL Rx Channels
     ebf_5RXCH = 4, // 5 MTL Rx Channels
   };
+  
   enum class eTXCHCNT : uint32_t {
     ebf_1TXCH = 0, // 1 MTL Tx Channel
     ebf_2TXCH = 1, // 2 MTL Tx Channels
@@ -1985,6 +2116,7 @@ union MAC_HW_FEATURE2 {
     ebf_4TXCH = 3, // 4 MTL Tx Channels
     ebf_5TXCH = 4, // 5 MTL Tx Channels
   };
+  
   enum class ePPSOUTNUM : uint32_t {
     eNO_PPSO = 0, // No PPS output
     ebf_1_PPSO = 1, // 1 PPS output
@@ -1992,6 +2124,7 @@ union MAC_HW_FEATURE2 {
     ebf_3_PPSO = 3, // 3 PPS output
     ebf_4_PPSO = 4, // 4 PPS output
   };
+  
   enum class eAUXSNAPNUM : uint32_t {
     eNO_AUXI = 0, // No auxiliary input
     ebf_1_AUXI = 1, // 1 auxiliary input
@@ -2014,7 +2147,7 @@ union MAC_HW_FEATURE2 {
     uint32_t _reserved_5 : 1;
     eAUXSNAPNUM AUXSNAPNUM : 3;
     uint32_t _reserved_end : 1;
-  } bits;          // Bit-field struct (auto-filling reserved gaps)
+  } bits;
   
   // Full 32-bit register value.
   uint32_t value;
@@ -2028,7 +2161,6 @@ union MAC_HW_FEATURE2 {
 //
 union MAC_HW_FEATURE3 {
   
-  // Enum definitions.
   enum class eNRVF : uint32_t {
     eNO_ERVLAN = 0, // No Extended Rx VLAN Filters
     ebf_4_ERVLAN = 1, // 4 Extended Rx VLAN Filters
@@ -2037,36 +2169,44 @@ union MAC_HW_FEATURE3 {
     ebf_24_ERVLAN = 4, // 24 Extended Rx VLAN Filters
     ebf_32_ERVLAN = 5, // 32 Extended Rx VLAN Filters
   };
+  
   enum class eCBTISEL : uint32_t {
     eINACTIVE = 0, // Enable Queue/Channel based VLAN tag insertion on Tx feature is not selected
     eACTIVE = 1, // Enable Queue/Channel based VLAN tag insertion on Tx feature is selected
   };
+  
   enum class eDVLAN : uint32_t {
     eINACTIVE = 0, // Double VLAN option is not selected
     eACTIVE = 1, // Double VLAN option is selected
   };
+  
   enum class ePDUPSEL : uint32_t {
     eINACTIVE = 0, // Broadcast/Multicast Packet Duplication feature is not selected
     eACTIVE = 1, // Broadcast/Multicast Packet Duplication feature is selected
   };
+  
   enum class eFRPSEL : uint32_t {
     eINACTIVE = 0, // Flexible Receive Parser feature is not selected
     eACTIVE = 1, // Flexible Receive Parser feature is selected
   };
+  
   enum class eFRPBS : uint32_t {
     ebf_64BYTES = 0, // 64 Bytes
     ebf_128BYTES = 1, // 128 Bytes
     ebf_256BYTES = 2, // 256 Bytes
   };
+  
   enum class eFRPES : uint32_t {
     ebf_64ENTR = 0, // 64 Entries
     ebf_128ENTR = 1, // 128 Entries
     ebf_256ENTR = 2, // 256 Entries
   };
+  
   enum class eESTSEL : uint32_t {
     eINACTIVE = 0, // Enable Enhancements to Scheduling Traffic feature is not selected
     eACTIVE = 1, // Enable Enhancements to Scheduling Traffic feature is selected
   };
+  
   enum class eESTDEP : uint32_t {
     eNODEPTH = 0, // No Depth configured
     eDEPTH64 = 1, // 64
@@ -2075,20 +2215,24 @@ union MAC_HW_FEATURE3 {
     eDEPTH512 = 4, // 512
     eDEPTH1024 = 5, // 1024
   };
+  
   enum class eESTWID : uint32_t {
     eNOWIDTH = 0, // Width not configured
     eWIDTH16 = 1, // 16
     eWIDTH20 = 2, // 20
     eWIDTH24 = 3, // 24
   };
+  
   enum class eFPESEL : uint32_t {
     eINACTIVE = 0, // Frame Preemption Enable feature is not selected
     eACTIVE = 1, // Frame Preemption Enable feature is selected
   };
+  
   enum class eTBSSEL : uint32_t {
     eINACTIVE = 0, // Time Based Scheduling Enable feature is not selected
     eACTIVE = 1, // Time Based Scheduling Enable feature is selected
   };
+  
   enum class eASP : uint32_t {
     eNONE = 0, // No Safety features selected
     eECC_ONLY = 1, // Only "ECC protection for external memory" feature is selected
@@ -2116,7 +2260,7 @@ union MAC_HW_FEATURE3 {
     eTBSSEL TBSSEL : 1;
     eASP ASP : 2;
     uint32_t _reserved_end : 2;
-  } bits;          // Bit-field struct (auto-filling reserved gaps)
+  } bits;
   
   // Full 32-bit register value.
   uint32_t value;
@@ -2130,31 +2274,36 @@ union MAC_HW_FEATURE3 {
 //
 union MAC_MDIO_ADDRESS {
   
-  // Enum definitions.
   enum class eGB : uint32_t {
     eDISABLE = 0, // GMII Busy is disabled
     eENABLE = 1, // GMII Busy is enabled
   };
+  
   enum class eC45E : uint32_t {
     eDISABLE = 0, // Clause 45 PHY is disabled
     eENABLE = 1, // Clause 45 PHY is enabled
   };
+  
   enum class eGOC_0 : uint32_t {
     eDISABLE = 0, // GMII Operation Command 0 is disabled
     eENABLE = 1, // GMII Operation Command 0 is enabled
   };
+  
   enum class eGOC_1 : uint32_t {
     eDISABLE = 0, // GMII Operation Command 1 is disabled
     eENABLE = 1, // GMII Operation Command 1 is enabled
   };
+  
   enum class eSKAP : uint32_t {
     eDISABLE = 0, // Skip Address Packet is disabled
     eENABLE = 1, // Skip Address Packet is enabled
   };
+  
   enum class eBTB : uint32_t {
     eDISABLE = 0, // Back to Back transactions disabled
     eENABLE = 1, // Back to Back transactions enabled
   };
+  
   enum class ePSE : uint32_t {
     eDISABLE = 0, // Preamble Suppression disabled
     eENABLE = 1, // Preamble Suppression enabled
@@ -2176,7 +2325,7 @@ union MAC_MDIO_ADDRESS {
     eBTB BTB : 1;
     ePSE PSE : 1;
     uint32_t _reserved_end : 4;
-  } bits;          // Bit-field struct (auto-filling reserved gaps)
+  } bits;
   
   // Full 32-bit register value.
   uint32_t value;
@@ -2190,13 +2339,11 @@ union MAC_MDIO_ADDRESS {
 //
 union MAC_MDIO_DATA {
   
-  // Enum definitions.
-  
   // Bit field definition.
   struct {
     uint32_t GD : 16;
     uint32_t RA : 16;
-  } bits;          // Bit-field struct (auto-filling reserved gaps)
+  } bits;
   
   // Full 32-bit register value.
   uint32_t value;
@@ -2210,7 +2357,6 @@ union MAC_MDIO_DATA {
 //
 union MAC_CSR_SW_CTRL {
   
-  // Enum definitions.
   enum class eRCWE : uint32_t {
     eDISABLE = 0, // Register Clear on Write 1 is disabled
     eENABLE = 1, // Register Clear on Write 1 is enabled
@@ -2220,7 +2366,7 @@ union MAC_CSR_SW_CTRL {
   struct {
     eRCWE RCWE : 1;
     uint32_t _reserved_end : 31;
-  } bits;          // Bit-field struct (auto-filling reserved gaps)
+  } bits;
   
   // Full 32-bit register value.
   uint32_t value;
@@ -2234,31 +2380,36 @@ union MAC_CSR_SW_CTRL {
 //
 union MAC_FPE_CTRL_STS {
   
-  // Enum definitions.
   enum class eEFPE : uint32_t {
     eDISABLE = 0, // Tx Frame Preemption is disabled
     eENABLE = 1, // Tx Frame Preemption is enabled
   };
+  
   enum class eSVER : uint32_t {
     eDISABLE = 0, // Send Verify mPacket is disabled
     eENABLE = 1, // Send Verify mPacket is enabled
   };
+  
   enum class eSRSP : uint32_t {
     eDISABLE = 0, // Send Respond mPacket is disabled
     eENABLE = 1, // Send Respond mPacket is enabled
   };
+  
   enum class eRVER : uint32_t {
     eINACTIVE = 0, // Not received Verify Frame
     eACTIVE = 1, // Received Verify Frame
   };
+  
   enum class eRRSP : uint32_t {
     eINACTIVE = 0, // Not received Respond Frame
     eACTIVE = 1, // Received Respond Frame
   };
+  
   enum class eTVER : uint32_t {
     eINACTIVE = 0, // Not transmitted Verify Frame
     eACTIVE = 1, // transmitted Verify Frame
   };
+  
   enum class eTRSP : uint32_t {
     eINACTIVE = 0, // Not transmitted Respond Frame
     eACTIVE = 1, // transmitted Respond Frame
@@ -2276,7 +2427,7 @@ union MAC_FPE_CTRL_STS {
     eTVER TVER : 1;
     eTRSP TRSP : 1;
     uint32_t _reserved_end : 12;
-  } bits;          // Bit-field struct (auto-filling reserved gaps)
+  } bits;
   
   // Full 32-bit register value.
   uint32_t value;
@@ -2290,12 +2441,10 @@ union MAC_FPE_CTRL_STS {
 //
 union MAC_PRESN_TIME_NS {
   
-  // Enum definitions.
-  
   // Bit field definition.
   struct {
     uint32_t MPTN : 32;
-  } bits;          // Bit-field struct (auto-filling reserved gaps)
+  } bits;
   
   // Full 32-bit register value.
   uint32_t value;
@@ -2309,12 +2458,10 @@ union MAC_PRESN_TIME_NS {
 //
 union MAC_PRESN_TIME_UPDT {
   
-  // Enum definitions.
-  
   // Bit field definition.
   struct {
     uint32_t MPTU : 32;
-  } bits;          // Bit-field struct (auto-filling reserved gaps)
+  } bits;
   
   // Full 32-bit register value.
   uint32_t value;
@@ -2328,7 +2475,6 @@ union MAC_PRESN_TIME_UPDT {
 //
 union MAC_ADDRESS0_HIGH {
   
-  // Enum definitions.
   enum class eAE : uint32_t {
     eDISABLE = 0, // INVALID : This bit must be always set to 1
     eENABLE = 1, // This bit is always set to 1
@@ -2340,7 +2486,7 @@ union MAC_ADDRESS0_HIGH {
     uint32_t DCS : 5;
     uint32_t _reserved_2 : 10;
     eAE AE : 1;
-  } bits;          // Bit-field struct (auto-filling reserved gaps)
+  } bits;
   
   // Full 32-bit register value.
   uint32_t value;
@@ -2354,12 +2500,10 @@ union MAC_ADDRESS0_HIGH {
 //
 union MAC_ADDRESS0_LOW {
   
-  // Enum definitions.
-  
   // Bit field definition.
   struct {
     uint32_t ADDRLO : 32;
-  } bits;          // Bit-field struct (auto-filling reserved gaps)
+  } bits;
   
   // Full 32-bit register value.
   uint32_t value;
@@ -2373,11 +2517,11 @@ union MAC_ADDRESS0_LOW {
 //
 union MAC_ADDRESS1_HIGH {
   
-  // Enum definitions.
   enum class eSA : uint32_t {
     eDA = 0, // Compare with Destination Address
     eSA = 1, // Compare with Source Address
   };
+  
   enum class eAE : uint32_t {
     eDISABLE = 0, // Address is ignored
     eENABLE = 1, // Address is enabled
@@ -2391,7 +2535,7 @@ union MAC_ADDRESS1_HIGH {
     uint32_t MBC : 6;
     eSA SA : 1;
     eAE AE : 1;
-  } bits;          // Bit-field struct (auto-filling reserved gaps)
+  } bits;
   
   // Full 32-bit register value.
   uint32_t value;
@@ -2405,12 +2549,10 @@ union MAC_ADDRESS1_HIGH {
 //
 union MAC_ADDRESS1_LOW {
   
-  // Enum definitions.
-  
   // Bit field definition.
   struct {
     uint32_t ADDRLO : 32;
-  } bits;          // Bit-field struct (auto-filling reserved gaps)
+  } bits;
   
   // Full 32-bit register value.
   uint32_t value;
@@ -2424,11 +2566,11 @@ union MAC_ADDRESS1_LOW {
 //
 union MAC_ADDRESS2_HIGH {
   
-  // Enum definitions.
   enum class eSA : uint32_t {
     eDA = 0, // Compare with Destination Address
     eSA = 1, // Compare with Source Address
   };
+  
   enum class eAE : uint32_t {
     eDISABLE = 0, // Address is ignored
     eENABLE = 1, // Address is enabled
@@ -2442,7 +2584,7 @@ union MAC_ADDRESS2_HIGH {
     uint32_t MBC : 6;
     eSA SA : 1;
     eAE AE : 1;
-  } bits;          // Bit-field struct (auto-filling reserved gaps)
+  } bits;
   
   // Full 32-bit register value.
   uint32_t value;
@@ -2456,12 +2598,10 @@ union MAC_ADDRESS2_HIGH {
 //
 union MAC_ADDRESS2_LOW {
   
-  // Enum definitions.
-  
   // Bit field definition.
   struct {
     uint32_t ADDRLO : 32;
-  } bits;          // Bit-field struct (auto-filling reserved gaps)
+  } bits;
   
   // Full 32-bit register value.
   uint32_t value;
@@ -2475,11 +2615,11 @@ union MAC_ADDRESS2_LOW {
 //
 union MAC_ADDRESS3_HIGH {
   
-  // Enum definitions.
   enum class eSA : uint32_t {
     eDA = 0, // Compare with Destination Address
     eSA = 1, // Compare with Source Address
   };
+  
   enum class eAE : uint32_t {
     eDISABLE = 0, // Address is ignored
     eENABLE = 1, // Address is enabled
@@ -2493,7 +2633,7 @@ union MAC_ADDRESS3_HIGH {
     uint32_t MBC : 6;
     eSA SA : 1;
     eAE AE : 1;
-  } bits;          // Bit-field struct (auto-filling reserved gaps)
+  } bits;
   
   // Full 32-bit register value.
   uint32_t value;
@@ -2507,12 +2647,10 @@ union MAC_ADDRESS3_HIGH {
 //
 union MAC_ADDRESS3_LOW {
   
-  // Enum definitions.
-  
   // Bit field definition.
   struct {
     uint32_t ADDRLO : 32;
-  } bits;          // Bit-field struct (auto-filling reserved gaps)
+  } bits;
   
   // Full 32-bit register value.
   uint32_t value;
@@ -2526,11 +2664,11 @@ union MAC_ADDRESS3_LOW {
 //
 union MAC_ADDRESS4_HIGH {
   
-  // Enum definitions.
   enum class eSA : uint32_t {
     eDA = 0, // Compare with Destination Address
     eSA = 1, // Compare with Source Address
   };
+  
   enum class eAE : uint32_t {
     eDISABLE = 0, // Address is ignored
     eENABLE = 1, // Address is enabled
@@ -2544,7 +2682,7 @@ union MAC_ADDRESS4_HIGH {
     uint32_t MBC : 6;
     eSA SA : 1;
     eAE AE : 1;
-  } bits;          // Bit-field struct (auto-filling reserved gaps)
+  } bits;
   
   // Full 32-bit register value.
   uint32_t value;
@@ -2558,12 +2696,10 @@ union MAC_ADDRESS4_HIGH {
 //
 union MAC_ADDRESS4_LOW {
   
-  // Enum definitions.
-  
   // Bit field definition.
   struct {
     uint32_t ADDRLO : 32;
-  } bits;          // Bit-field struct (auto-filling reserved gaps)
+  } bits;
   
   // Full 32-bit register value.
   uint32_t value;
@@ -2577,11 +2713,11 @@ union MAC_ADDRESS4_LOW {
 //
 union MAC_ADDRESS5_HIGH {
   
-  // Enum definitions.
   enum class eSA : uint32_t {
     eDA = 0, // Compare with Destination Address
     eSA = 1, // Compare with Source Address
   };
+  
   enum class eAE : uint32_t {
     eDISABLE = 0, // Address is ignored
     eENABLE = 1, // Address is enabled
@@ -2595,7 +2731,7 @@ union MAC_ADDRESS5_HIGH {
     uint32_t MBC : 6;
     eSA SA : 1;
     eAE AE : 1;
-  } bits;          // Bit-field struct (auto-filling reserved gaps)
+  } bits;
   
   // Full 32-bit register value.
   uint32_t value;
@@ -2609,12 +2745,10 @@ union MAC_ADDRESS5_HIGH {
 //
 union MAC_ADDRESS5_LOW {
   
-  // Enum definitions.
-  
   // Bit field definition.
   struct {
     uint32_t ADDRLO : 32;
-  } bits;          // Bit-field struct (auto-filling reserved gaps)
+  } bits;
   
   // Full 32-bit register value.
   uint32_t value;
@@ -2628,11 +2762,11 @@ union MAC_ADDRESS5_LOW {
 //
 union MAC_ADDRESS6_HIGH {
   
-  // Enum definitions.
   enum class eSA : uint32_t {
     eDA = 0, // Compare with Destination Address
     eSA = 1, // Compare with Source Address
   };
+  
   enum class eAE : uint32_t {
     eDISABLE = 0, // Address is ignored
     eENABLE = 1, // Address is enabled
@@ -2646,7 +2780,7 @@ union MAC_ADDRESS6_HIGH {
     uint32_t MBC : 6;
     eSA SA : 1;
     eAE AE : 1;
-  } bits;          // Bit-field struct (auto-filling reserved gaps)
+  } bits;
   
   // Full 32-bit register value.
   uint32_t value;
@@ -2660,12 +2794,10 @@ union MAC_ADDRESS6_HIGH {
 //
 union MAC_ADDRESS6_LOW {
   
-  // Enum definitions.
-  
   // Bit field definition.
   struct {
     uint32_t ADDRLO : 32;
-  } bits;          // Bit-field struct (auto-filling reserved gaps)
+  } bits;
   
   // Full 32-bit register value.
   uint32_t value;
@@ -2679,11 +2811,11 @@ union MAC_ADDRESS6_LOW {
 //
 union MAC_ADDRESS7_HIGH {
   
-  // Enum definitions.
   enum class eSA : uint32_t {
     eDA = 0, // Compare with Destination Address
     eSA = 1, // Compare with Source Address
   };
+  
   enum class eAE : uint32_t {
     eDISABLE = 0, // Address is ignored
     eENABLE = 1, // Address is enabled
@@ -2697,7 +2829,7 @@ union MAC_ADDRESS7_HIGH {
     uint32_t MBC : 6;
     eSA SA : 1;
     eAE AE : 1;
-  } bits;          // Bit-field struct (auto-filling reserved gaps)
+  } bits;
   
   // Full 32-bit register value.
   uint32_t value;
@@ -2711,12 +2843,10 @@ union MAC_ADDRESS7_HIGH {
 //
 union MAC_ADDRESS7_LOW {
   
-  // Enum definitions.
-  
   // Bit field definition.
   struct {
     uint32_t ADDRLO : 32;
-  } bits;          // Bit-field struct (auto-filling reserved gaps)
+  } bits;
   
   // Full 32-bit register value.
   uint32_t value;
@@ -2730,11 +2860,11 @@ union MAC_ADDRESS7_LOW {
 //
 union MAC_ADDRESS8_HIGH {
   
-  // Enum definitions.
   enum class eSA : uint32_t {
     eDA = 0, // Compare with Destination Address
     eSA = 1, // Compare with Source Address
   };
+  
   enum class eAE : uint32_t {
     eDISABLE = 0, // Address is ignored
     eENABLE = 1, // Address is enabled
@@ -2748,7 +2878,7 @@ union MAC_ADDRESS8_HIGH {
     uint32_t MBC : 6;
     eSA SA : 1;
     eAE AE : 1;
-  } bits;          // Bit-field struct (auto-filling reserved gaps)
+  } bits;
   
   // Full 32-bit register value.
   uint32_t value;
@@ -2762,12 +2892,10 @@ union MAC_ADDRESS8_HIGH {
 //
 union MAC_ADDRESS8_LOW {
   
-  // Enum definitions.
-  
   // Bit field definition.
   struct {
     uint32_t ADDRLO : 32;
-  } bits;          // Bit-field struct (auto-filling reserved gaps)
+  } bits;
   
   // Full 32-bit register value.
   uint32_t value;
@@ -2781,11 +2909,11 @@ union MAC_ADDRESS8_LOW {
 //
 union MAC_ADDRESS9_HIGH {
   
-  // Enum definitions.
   enum class eSA : uint32_t {
     eDA = 0, // Compare with Destination Address
     eSA = 1, // Compare with Source Address
   };
+  
   enum class eAE : uint32_t {
     eDISABLE = 0, // Address is ignored
     eENABLE = 1, // Address is enabled
@@ -2799,7 +2927,7 @@ union MAC_ADDRESS9_HIGH {
     uint32_t MBC : 6;
     eSA SA : 1;
     eAE AE : 1;
-  } bits;          // Bit-field struct (auto-filling reserved gaps)
+  } bits;
   
   // Full 32-bit register value.
   uint32_t value;
@@ -2813,12 +2941,10 @@ union MAC_ADDRESS9_HIGH {
 //
 union MAC_ADDRESS9_LOW {
   
-  // Enum definitions.
-  
   // Bit field definition.
   struct {
     uint32_t ADDRLO : 32;
-  } bits;          // Bit-field struct (auto-filling reserved gaps)
+  } bits;
   
   // Full 32-bit register value.
   uint32_t value;
@@ -2832,11 +2958,11 @@ union MAC_ADDRESS9_LOW {
 //
 union MAC_ADDRESS10_HIGH {
   
-  // Enum definitions.
   enum class eSA : uint32_t {
     eDA = 0, // Compare with Destination Address
     eSA = 1, // Compare with Source Address
   };
+  
   enum class eAE : uint32_t {
     eDISABLE = 0, // Address is ignored
     eENABLE = 1, // Address is enabled
@@ -2850,7 +2976,7 @@ union MAC_ADDRESS10_HIGH {
     uint32_t MBC : 6;
     eSA SA : 1;
     eAE AE : 1;
-  } bits;          // Bit-field struct (auto-filling reserved gaps)
+  } bits;
   
   // Full 32-bit register value.
   uint32_t value;
@@ -2864,12 +2990,10 @@ union MAC_ADDRESS10_HIGH {
 //
 union MAC_ADDRESS10_LOW {
   
-  // Enum definitions.
-  
   // Bit field definition.
   struct {
     uint32_t ADDRLO : 32;
-  } bits;          // Bit-field struct (auto-filling reserved gaps)
+  } bits;
   
   // Full 32-bit register value.
   uint32_t value;
@@ -2883,11 +3007,11 @@ union MAC_ADDRESS10_LOW {
 //
 union MAC_ADDRESS11_HIGH {
   
-  // Enum definitions.
   enum class eSA : uint32_t {
     eDA = 0, // Compare with Destination Address
     eSA = 1, // Compare with Source Address
   };
+  
   enum class eAE : uint32_t {
     eDISABLE = 0, // Address is ignored
     eENABLE = 1, // Address is enabled
@@ -2901,7 +3025,7 @@ union MAC_ADDRESS11_HIGH {
     uint32_t MBC : 6;
     eSA SA : 1;
     eAE AE : 1;
-  } bits;          // Bit-field struct (auto-filling reserved gaps)
+  } bits;
   
   // Full 32-bit register value.
   uint32_t value;
@@ -2915,12 +3039,10 @@ union MAC_ADDRESS11_HIGH {
 //
 union MAC_ADDRESS11_LOW {
   
-  // Enum definitions.
-  
   // Bit field definition.
   struct {
     uint32_t ADDRLO : 32;
-  } bits;          // Bit-field struct (auto-filling reserved gaps)
+  } bits;
   
   // Full 32-bit register value.
   uint32_t value;
@@ -2934,11 +3056,11 @@ union MAC_ADDRESS11_LOW {
 //
 union MAC_ADDRESS12_HIGH {
   
-  // Enum definitions.
   enum class eSA : uint32_t {
     eDA = 0, // Compare with Destination Address
     eSA = 1, // Compare with Source Address
   };
+  
   enum class eAE : uint32_t {
     eDISABLE = 0, // Address is ignored
     eENABLE = 1, // Address is enabled
@@ -2952,7 +3074,7 @@ union MAC_ADDRESS12_HIGH {
     uint32_t MBC : 6;
     eSA SA : 1;
     eAE AE : 1;
-  } bits;          // Bit-field struct (auto-filling reserved gaps)
+  } bits;
   
   // Full 32-bit register value.
   uint32_t value;
@@ -2966,12 +3088,10 @@ union MAC_ADDRESS12_HIGH {
 //
 union MAC_ADDRESS12_LOW {
   
-  // Enum definitions.
-  
   // Bit field definition.
   struct {
     uint32_t ADDRLO : 32;
-  } bits;          // Bit-field struct (auto-filling reserved gaps)
+  } bits;
   
   // Full 32-bit register value.
   uint32_t value;
@@ -2985,11 +3105,11 @@ union MAC_ADDRESS12_LOW {
 //
 union MAC_ADDRESS13_HIGH {
   
-  // Enum definitions.
   enum class eSA : uint32_t {
     eDA = 0, // Compare with Destination Address
     eSA = 1, // Compare with Source Address
   };
+  
   enum class eAE : uint32_t {
     eDISABLE = 0, // Address is ignored
     eENABLE = 1, // Address is enabled
@@ -3003,7 +3123,7 @@ union MAC_ADDRESS13_HIGH {
     uint32_t MBC : 6;
     eSA SA : 1;
     eAE AE : 1;
-  } bits;          // Bit-field struct (auto-filling reserved gaps)
+  } bits;
   
   // Full 32-bit register value.
   uint32_t value;
@@ -3017,12 +3137,10 @@ union MAC_ADDRESS13_HIGH {
 //
 union MAC_ADDRESS13_LOW {
   
-  // Enum definitions.
-  
   // Bit field definition.
   struct {
     uint32_t ADDRLO : 32;
-  } bits;          // Bit-field struct (auto-filling reserved gaps)
+  } bits;
   
   // Full 32-bit register value.
   uint32_t value;
@@ -3036,11 +3154,11 @@ union MAC_ADDRESS13_LOW {
 //
 union MAC_ADDRESS14_HIGH {
   
-  // Enum definitions.
   enum class eSA : uint32_t {
     eDA = 0, // Compare with Destination Address
     eSA = 1, // Compare with Source Address
   };
+  
   enum class eAE : uint32_t {
     eDISABLE = 0, // Address is ignored
     eENABLE = 1, // Address is enabled
@@ -3054,7 +3172,7 @@ union MAC_ADDRESS14_HIGH {
     uint32_t MBC : 6;
     eSA SA : 1;
     eAE AE : 1;
-  } bits;          // Bit-field struct (auto-filling reserved gaps)
+  } bits;
   
   // Full 32-bit register value.
   uint32_t value;
@@ -3068,12 +3186,10 @@ union MAC_ADDRESS14_HIGH {
 //
 union MAC_ADDRESS14_LOW {
   
-  // Enum definitions.
-  
   // Bit field definition.
   struct {
     uint32_t ADDRLO : 32;
-  } bits;          // Bit-field struct (auto-filling reserved gaps)
+  } bits;
   
   // Full 32-bit register value.
   uint32_t value;
@@ -3087,11 +3203,11 @@ union MAC_ADDRESS14_LOW {
 //
 union MAC_ADDRESS15_HIGH {
   
-  // Enum definitions.
   enum class eSA : uint32_t {
     eDA = 0, // Compare with Destination Address
     eSA = 1, // Compare with Source Address
   };
+  
   enum class eAE : uint32_t {
     eDISABLE = 0, // Address is ignored
     eENABLE = 1, // Address is enabled
@@ -3105,7 +3221,7 @@ union MAC_ADDRESS15_HIGH {
     uint32_t MBC : 6;
     eSA SA : 1;
     eAE AE : 1;
-  } bits;          // Bit-field struct (auto-filling reserved gaps)
+  } bits;
   
   // Full 32-bit register value.
   uint32_t value;
@@ -3119,12 +3235,10 @@ union MAC_ADDRESS15_HIGH {
 //
 union MAC_ADDRESS15_LOW {
   
-  // Enum definitions.
-  
   // Bit field definition.
   struct {
     uint32_t ADDRLO : 32;
-  } bits;          // Bit-field struct (auto-filling reserved gaps)
+  } bits;
   
   // Full 32-bit register value.
   uint32_t value;
@@ -3138,11 +3252,11 @@ union MAC_ADDRESS15_LOW {
 //
 union MAC_ADDRESS16_HIGH {
   
-  // Enum definitions.
   enum class eSA : uint32_t {
     eDA = 0, // Compare with Destination Address
     eSA = 1, // Compare with Source Address
   };
+  
   enum class eAE : uint32_t {
     eDISABLE = 0, // Address is ignored
     eENABLE = 1, // Address is enabled
@@ -3156,7 +3270,7 @@ union MAC_ADDRESS16_HIGH {
     uint32_t MBC : 6;
     eSA SA : 1;
     eAE AE : 1;
-  } bits;          // Bit-field struct (auto-filling reserved gaps)
+  } bits;
   
   // Full 32-bit register value.
   uint32_t value;
@@ -3170,12 +3284,10 @@ union MAC_ADDRESS16_HIGH {
 //
 union MAC_ADDRESS16_LOW {
   
-  // Enum definitions.
-  
   // Bit field definition.
   struct {
     uint32_t ADDRLO : 32;
-  } bits;          // Bit-field struct (auto-filling reserved gaps)
+  } bits;
   
   // Full 32-bit register value.
   uint32_t value;
@@ -3189,11 +3301,11 @@ union MAC_ADDRESS16_LOW {
 //
 union MAC_ADDRESS17_HIGH {
   
-  // Enum definitions.
   enum class eSA : uint32_t {
     eDA = 0, // Compare with Destination Address
     eSA = 1, // Compare with Source Address
   };
+  
   enum class eAE : uint32_t {
     eDISABLE = 0, // Address is ignored
     eENABLE = 1, // Address is enabled
@@ -3207,7 +3319,7 @@ union MAC_ADDRESS17_HIGH {
     uint32_t MBC : 6;
     eSA SA : 1;
     eAE AE : 1;
-  } bits;          // Bit-field struct (auto-filling reserved gaps)
+  } bits;
   
   // Full 32-bit register value.
   uint32_t value;
@@ -3221,12 +3333,10 @@ union MAC_ADDRESS17_HIGH {
 //
 union MAC_ADDRESS17_LOW {
   
-  // Enum definitions.
-  
   // Bit field definition.
   struct {
     uint32_t ADDRLO : 32;
-  } bits;          // Bit-field struct (auto-filling reserved gaps)
+  } bits;
   
   // Full 32-bit register value.
   uint32_t value;
@@ -3240,11 +3350,11 @@ union MAC_ADDRESS17_LOW {
 //
 union MAC_ADDRESS18_HIGH {
   
-  // Enum definitions.
   enum class eSA : uint32_t {
     eDA = 0, // Compare with Destination Address
     eSA = 1, // Compare with Source Address
   };
+  
   enum class eAE : uint32_t {
     eDISABLE = 0, // Address is ignored
     eENABLE = 1, // Address is enabled
@@ -3258,7 +3368,7 @@ union MAC_ADDRESS18_HIGH {
     uint32_t MBC : 6;
     eSA SA : 1;
     eAE AE : 1;
-  } bits;          // Bit-field struct (auto-filling reserved gaps)
+  } bits;
   
   // Full 32-bit register value.
   uint32_t value;
@@ -3272,12 +3382,10 @@ union MAC_ADDRESS18_HIGH {
 //
 union MAC_ADDRESS18_LOW {
   
-  // Enum definitions.
-  
   // Bit field definition.
   struct {
     uint32_t ADDRLO : 32;
-  } bits;          // Bit-field struct (auto-filling reserved gaps)
+  } bits;
   
   // Full 32-bit register value.
   uint32_t value;
@@ -3291,11 +3399,11 @@ union MAC_ADDRESS18_LOW {
 //
 union MAC_ADDRESS19_HIGH {
   
-  // Enum definitions.
   enum class eSA : uint32_t {
     eDA = 0, // Compare with Destination Address
     eSA = 1, // Compare with Source Address
   };
+  
   enum class eAE : uint32_t {
     eDISABLE = 0, // Address is ignored
     eENABLE = 1, // Address is enabled
@@ -3309,7 +3417,7 @@ union MAC_ADDRESS19_HIGH {
     uint32_t MBC : 6;
     eSA SA : 1;
     eAE AE : 1;
-  } bits;          // Bit-field struct (auto-filling reserved gaps)
+  } bits;
   
   // Full 32-bit register value.
   uint32_t value;
@@ -3323,12 +3431,10 @@ union MAC_ADDRESS19_HIGH {
 //
 union MAC_ADDRESS19_LOW {
   
-  // Enum definitions.
-  
   // Bit field definition.
   struct {
     uint32_t ADDRLO : 32;
-  } bits;          // Bit-field struct (auto-filling reserved gaps)
+  } bits;
   
   // Full 32-bit register value.
   uint32_t value;
@@ -3342,11 +3448,11 @@ union MAC_ADDRESS19_LOW {
 //
 union MAC_ADDRESS20_HIGH {
   
-  // Enum definitions.
   enum class eSA : uint32_t {
     eDA = 0, // Compare with Destination Address
     eSA = 1, // Compare with Source Address
   };
+  
   enum class eAE : uint32_t {
     eDISABLE = 0, // Address is ignored
     eENABLE = 1, // Address is enabled
@@ -3360,7 +3466,7 @@ union MAC_ADDRESS20_HIGH {
     uint32_t MBC : 6;
     eSA SA : 1;
     eAE AE : 1;
-  } bits;          // Bit-field struct (auto-filling reserved gaps)
+  } bits;
   
   // Full 32-bit register value.
   uint32_t value;
@@ -3374,12 +3480,10 @@ union MAC_ADDRESS20_HIGH {
 //
 union MAC_ADDRESS20_LOW {
   
-  // Enum definitions.
-  
   // Bit field definition.
   struct {
     uint32_t ADDRLO : 32;
-  } bits;          // Bit-field struct (auto-filling reserved gaps)
+  } bits;
   
   // Full 32-bit register value.
   uint32_t value;
@@ -3393,11 +3497,11 @@ union MAC_ADDRESS20_LOW {
 //
 union MAC_ADDRESS21_HIGH {
   
-  // Enum definitions.
   enum class eSA : uint32_t {
     eDA = 0, // Compare with Destination Address
     eSA = 1, // Compare with Source Address
   };
+  
   enum class eAE : uint32_t {
     eDISABLE = 0, // Address is ignored
     eENABLE = 1, // Address is enabled
@@ -3411,7 +3515,7 @@ union MAC_ADDRESS21_HIGH {
     uint32_t MBC : 6;
     eSA SA : 1;
     eAE AE : 1;
-  } bits;          // Bit-field struct (auto-filling reserved gaps)
+  } bits;
   
   // Full 32-bit register value.
   uint32_t value;
@@ -3425,12 +3529,10 @@ union MAC_ADDRESS21_HIGH {
 //
 union MAC_ADDRESS21_LOW {
   
-  // Enum definitions.
-  
   // Bit field definition.
   struct {
     uint32_t ADDRLO : 32;
-  } bits;          // Bit-field struct (auto-filling reserved gaps)
+  } bits;
   
   // Full 32-bit register value.
   uint32_t value;
@@ -3444,11 +3546,11 @@ union MAC_ADDRESS21_LOW {
 //
 union MAC_ADDRESS22_HIGH {
   
-  // Enum definitions.
   enum class eSA : uint32_t {
     eDA = 0, // Compare with Destination Address
     eSA = 1, // Compare with Source Address
   };
+  
   enum class eAE : uint32_t {
     eDISABLE = 0, // Address is ignored
     eENABLE = 1, // Address is enabled
@@ -3462,7 +3564,7 @@ union MAC_ADDRESS22_HIGH {
     uint32_t MBC : 6;
     eSA SA : 1;
     eAE AE : 1;
-  } bits;          // Bit-field struct (auto-filling reserved gaps)
+  } bits;
   
   // Full 32-bit register value.
   uint32_t value;
@@ -3476,12 +3578,10 @@ union MAC_ADDRESS22_HIGH {
 //
 union MAC_ADDRESS22_LOW {
   
-  // Enum definitions.
-  
   // Bit field definition.
   struct {
     uint32_t ADDRLO : 32;
-  } bits;          // Bit-field struct (auto-filling reserved gaps)
+  } bits;
   
   // Full 32-bit register value.
   uint32_t value;
@@ -3495,11 +3595,11 @@ union MAC_ADDRESS22_LOW {
 //
 union MAC_ADDRESS23_HIGH {
   
-  // Enum definitions.
   enum class eSA : uint32_t {
     eDA = 0, // Compare with Destination Address
     eSA = 1, // Compare with Source Address
   };
+  
   enum class eAE : uint32_t {
     eDISABLE = 0, // Address is ignored
     eENABLE = 1, // Address is enabled
@@ -3513,7 +3613,7 @@ union MAC_ADDRESS23_HIGH {
     uint32_t MBC : 6;
     eSA SA : 1;
     eAE AE : 1;
-  } bits;          // Bit-field struct (auto-filling reserved gaps)
+  } bits;
   
   // Full 32-bit register value.
   uint32_t value;
@@ -3527,12 +3627,10 @@ union MAC_ADDRESS23_HIGH {
 //
 union MAC_ADDRESS23_LOW {
   
-  // Enum definitions.
-  
   // Bit field definition.
   struct {
     uint32_t ADDRLO : 32;
-  } bits;          // Bit-field struct (auto-filling reserved gaps)
+  } bits;
   
   // Full 32-bit register value.
   uint32_t value;
@@ -3546,11 +3644,11 @@ union MAC_ADDRESS23_LOW {
 //
 union MAC_ADDRESS24_HIGH {
   
-  // Enum definitions.
   enum class eSA : uint32_t {
     eDA = 0, // Compare with Destination Address
     eSA = 1, // Compare with Source Address
   };
+  
   enum class eAE : uint32_t {
     eDISABLE = 0, // Address is ignored
     eENABLE = 1, // Address is enabled
@@ -3564,7 +3662,7 @@ union MAC_ADDRESS24_HIGH {
     uint32_t MBC : 6;
     eSA SA : 1;
     eAE AE : 1;
-  } bits;          // Bit-field struct (auto-filling reserved gaps)
+  } bits;
   
   // Full 32-bit register value.
   uint32_t value;
@@ -3578,12 +3676,10 @@ union MAC_ADDRESS24_HIGH {
 //
 union MAC_ADDRESS24_LOW {
   
-  // Enum definitions.
-  
   // Bit field definition.
   struct {
     uint32_t ADDRLO : 32;
-  } bits;          // Bit-field struct (auto-filling reserved gaps)
+  } bits;
   
   // Full 32-bit register value.
   uint32_t value;
@@ -3597,11 +3693,11 @@ union MAC_ADDRESS24_LOW {
 //
 union MAC_ADDRESS25_HIGH {
   
-  // Enum definitions.
   enum class eSA : uint32_t {
     eDA = 0, // Compare with Destination Address
     eSA = 1, // Compare with Source Address
   };
+  
   enum class eAE : uint32_t {
     eDISABLE = 0, // Address is ignored
     eENABLE = 1, // Address is enabled
@@ -3615,7 +3711,7 @@ union MAC_ADDRESS25_HIGH {
     uint32_t MBC : 6;
     eSA SA : 1;
     eAE AE : 1;
-  } bits;          // Bit-field struct (auto-filling reserved gaps)
+  } bits;
   
   // Full 32-bit register value.
   uint32_t value;
@@ -3629,12 +3725,10 @@ union MAC_ADDRESS25_HIGH {
 //
 union MAC_ADDRESS25_LOW {
   
-  // Enum definitions.
-  
   // Bit field definition.
   struct {
     uint32_t ADDRLO : 32;
-  } bits;          // Bit-field struct (auto-filling reserved gaps)
+  } bits;
   
   // Full 32-bit register value.
   uint32_t value;
@@ -3648,11 +3742,11 @@ union MAC_ADDRESS25_LOW {
 //
 union MAC_ADDRESS26_HIGH {
   
-  // Enum definitions.
   enum class eSA : uint32_t {
     eDA = 0, // Compare with Destination Address
     eSA = 1, // Compare with Source Address
   };
+  
   enum class eAE : uint32_t {
     eDISABLE = 0, // Address is ignored
     eENABLE = 1, // Address is enabled
@@ -3666,7 +3760,7 @@ union MAC_ADDRESS26_HIGH {
     uint32_t MBC : 6;
     eSA SA : 1;
     eAE AE : 1;
-  } bits;          // Bit-field struct (auto-filling reserved gaps)
+  } bits;
   
   // Full 32-bit register value.
   uint32_t value;
@@ -3680,12 +3774,10 @@ union MAC_ADDRESS26_HIGH {
 //
 union MAC_ADDRESS26_LOW {
   
-  // Enum definitions.
-  
   // Bit field definition.
   struct {
     uint32_t ADDRLO : 32;
-  } bits;          // Bit-field struct (auto-filling reserved gaps)
+  } bits;
   
   // Full 32-bit register value.
   uint32_t value;
@@ -3699,11 +3791,11 @@ union MAC_ADDRESS26_LOW {
 //
 union MAC_ADDRESS27_HIGH {
   
-  // Enum definitions.
   enum class eSA : uint32_t {
     eDA = 0, // Compare with Destination Address
     eSA = 1, // Compare with Source Address
   };
+  
   enum class eAE : uint32_t {
     eDISABLE = 0, // Address is ignored
     eENABLE = 1, // Address is enabled
@@ -3717,7 +3809,7 @@ union MAC_ADDRESS27_HIGH {
     uint32_t MBC : 6;
     eSA SA : 1;
     eAE AE : 1;
-  } bits;          // Bit-field struct (auto-filling reserved gaps)
+  } bits;
   
   // Full 32-bit register value.
   uint32_t value;
@@ -3731,12 +3823,10 @@ union MAC_ADDRESS27_HIGH {
 //
 union MAC_ADDRESS27_LOW {
   
-  // Enum definitions.
-  
   // Bit field definition.
   struct {
     uint32_t ADDRLO : 32;
-  } bits;          // Bit-field struct (auto-filling reserved gaps)
+  } bits;
   
   // Full 32-bit register value.
   uint32_t value;
@@ -3750,11 +3840,11 @@ union MAC_ADDRESS27_LOW {
 //
 union MAC_ADDRESS28_HIGH {
   
-  // Enum definitions.
   enum class eSA : uint32_t {
     eDA = 0, // Compare with Destination Address
     eSA = 1, // Compare with Source Address
   };
+  
   enum class eAE : uint32_t {
     eDISABLE = 0, // Address is ignored
     eENABLE = 1, // Address is enabled
@@ -3768,7 +3858,7 @@ union MAC_ADDRESS28_HIGH {
     uint32_t MBC : 6;
     eSA SA : 1;
     eAE AE : 1;
-  } bits;          // Bit-field struct (auto-filling reserved gaps)
+  } bits;
   
   // Full 32-bit register value.
   uint32_t value;
@@ -3782,12 +3872,10 @@ union MAC_ADDRESS28_HIGH {
 //
 union MAC_ADDRESS28_LOW {
   
-  // Enum definitions.
-  
   // Bit field definition.
   struct {
     uint32_t ADDRLO : 32;
-  } bits;          // Bit-field struct (auto-filling reserved gaps)
+  } bits;
   
   // Full 32-bit register value.
   uint32_t value;
@@ -3801,11 +3889,11 @@ union MAC_ADDRESS28_LOW {
 //
 union MAC_ADDRESS29_HIGH {
   
-  // Enum definitions.
   enum class eSA : uint32_t {
     eDA = 0, // Compare with Destination Address
     eSA = 1, // Compare with Source Address
   };
+  
   enum class eAE : uint32_t {
     eDISABLE = 0, // Address is ignored
     eENABLE = 1, // Address is enabled
@@ -3819,7 +3907,7 @@ union MAC_ADDRESS29_HIGH {
     uint32_t MBC : 6;
     eSA SA : 1;
     eAE AE : 1;
-  } bits;          // Bit-field struct (auto-filling reserved gaps)
+  } bits;
   
   // Full 32-bit register value.
   uint32_t value;
@@ -3833,12 +3921,10 @@ union MAC_ADDRESS29_HIGH {
 //
 union MAC_ADDRESS29_LOW {
   
-  // Enum definitions.
-  
   // Bit field definition.
   struct {
     uint32_t ADDRLO : 32;
-  } bits;          // Bit-field struct (auto-filling reserved gaps)
+  } bits;
   
   // Full 32-bit register value.
   uint32_t value;
@@ -3852,11 +3938,11 @@ union MAC_ADDRESS29_LOW {
 //
 union MAC_ADDRESS30_HIGH {
   
-  // Enum definitions.
   enum class eSA : uint32_t {
     eDA = 0, // Compare with Destination Address
     eSA = 1, // Compare with Source Address
   };
+  
   enum class eAE : uint32_t {
     eDISABLE = 0, // Address is ignored
     eENABLE = 1, // Address is enabled
@@ -3870,7 +3956,7 @@ union MAC_ADDRESS30_HIGH {
     uint32_t MBC : 6;
     eSA SA : 1;
     eAE AE : 1;
-  } bits;          // Bit-field struct (auto-filling reserved gaps)
+  } bits;
   
   // Full 32-bit register value.
   uint32_t value;
@@ -3884,12 +3970,10 @@ union MAC_ADDRESS30_HIGH {
 //
 union MAC_ADDRESS30_LOW {
   
-  // Enum definitions.
-  
   // Bit field definition.
   struct {
     uint32_t ADDRLO : 32;
-  } bits;          // Bit-field struct (auto-filling reserved gaps)
+  } bits;
   
   // Full 32-bit register value.
   uint32_t value;
@@ -3903,11 +3987,11 @@ union MAC_ADDRESS30_LOW {
 //
 union MAC_ADDRESS31_HIGH {
   
-  // Enum definitions.
   enum class eSA : uint32_t {
     eDA = 0, // Compare with Destination Address
     eSA = 1, // Compare with Source Address
   };
+  
   enum class eAE : uint32_t {
     eDISABLE = 0, // Address is ignored
     eENABLE = 1, // Address is enabled
@@ -3921,7 +4005,7 @@ union MAC_ADDRESS31_HIGH {
     uint32_t MBC : 6;
     eSA SA : 1;
     eAE AE : 1;
-  } bits;          // Bit-field struct (auto-filling reserved gaps)
+  } bits;
   
   // Full 32-bit register value.
   uint32_t value;
@@ -3935,12 +4019,10 @@ union MAC_ADDRESS31_HIGH {
 //
 union MAC_ADDRESS31_LOW {
   
-  // Enum definitions.
-  
   // Bit field definition.
   struct {
     uint32_t ADDRLO : 32;
-  } bits;          // Bit-field struct (auto-filling reserved gaps)
+  } bits;
   
   // Full 32-bit register value.
   uint32_t value;
@@ -3954,7 +4036,6 @@ union MAC_ADDRESS31_LOW {
 //
 union MAC_ADDRESS32_HIGH {
   
-  // Enum definitions.
   enum class eAE : uint32_t {
     eDISABLE = 0, // Address is ignored
     eENABLE = 1, // Address is enabled
@@ -3966,7 +4047,7 @@ union MAC_ADDRESS32_HIGH {
     uint32_t DCS : 3;
     uint32_t _reserved_2 : 12;
     eAE AE : 1;
-  } bits;          // Bit-field struct (auto-filling reserved gaps)
+  } bits;
   
   // Full 32-bit register value.
   uint32_t value;
@@ -3980,12 +4061,10 @@ union MAC_ADDRESS32_HIGH {
 //
 union MAC_ADDRESS32_LOW {
   
-  // Enum definitions.
-  
   // Bit field definition.
   struct {
     uint32_t ADDRLO : 32;
-  } bits;          // Bit-field struct (auto-filling reserved gaps)
+  } bits;
   
   // Full 32-bit register value.
   uint32_t value;
@@ -3999,7 +4078,6 @@ union MAC_ADDRESS32_LOW {
 //
 union MAC_ADDRESS33_HIGH {
   
-  // Enum definitions.
   enum class eAE : uint32_t {
     eDISABLE = 0, // Address is ignored
     eENABLE = 1, // Address is enabled
@@ -4011,7 +4089,7 @@ union MAC_ADDRESS33_HIGH {
     uint32_t DCS : 3;
     uint32_t _reserved_2 : 12;
     eAE AE : 1;
-  } bits;          // Bit-field struct (auto-filling reserved gaps)
+  } bits;
   
   // Full 32-bit register value.
   uint32_t value;
@@ -4025,12 +4103,10 @@ union MAC_ADDRESS33_HIGH {
 //
 union MAC_ADDRESS33_LOW {
   
-  // Enum definitions.
-  
   // Bit field definition.
   struct {
     uint32_t ADDRLO : 32;
-  } bits;          // Bit-field struct (auto-filling reserved gaps)
+  } bits;
   
   // Full 32-bit register value.
   uint32_t value;
@@ -4044,7 +4120,6 @@ union MAC_ADDRESS33_LOW {
 //
 union MAC_ADDRESS34_HIGH {
   
-  // Enum definitions.
   enum class eAE : uint32_t {
     eDISABLE = 0, // Address is ignored
     eENABLE = 1, // Address is enabled
@@ -4056,7 +4131,7 @@ union MAC_ADDRESS34_HIGH {
     uint32_t DCS : 3;
     uint32_t _reserved_2 : 12;
     eAE AE : 1;
-  } bits;          // Bit-field struct (auto-filling reserved gaps)
+  } bits;
   
   // Full 32-bit register value.
   uint32_t value;
@@ -4070,12 +4145,10 @@ union MAC_ADDRESS34_HIGH {
 //
 union MAC_ADDRESS34_LOW {
   
-  // Enum definitions.
-  
   // Bit field definition.
   struct {
     uint32_t ADDRLO : 32;
-  } bits;          // Bit-field struct (auto-filling reserved gaps)
+  } bits;
   
   // Full 32-bit register value.
   uint32_t value;
@@ -4089,7 +4162,6 @@ union MAC_ADDRESS34_LOW {
 //
 union MAC_ADDRESS35_HIGH {
   
-  // Enum definitions.
   enum class eAE : uint32_t {
     eDISABLE = 0, // Address is ignored
     eENABLE = 1, // Address is enabled
@@ -4101,7 +4173,7 @@ union MAC_ADDRESS35_HIGH {
     uint32_t DCS : 3;
     uint32_t _reserved_2 : 12;
     eAE AE : 1;
-  } bits;          // Bit-field struct (auto-filling reserved gaps)
+  } bits;
   
   // Full 32-bit register value.
   uint32_t value;
@@ -4115,12 +4187,10 @@ union MAC_ADDRESS35_HIGH {
 //
 union MAC_ADDRESS35_LOW {
   
-  // Enum definitions.
-  
   // Bit field definition.
   struct {
     uint32_t ADDRLO : 32;
-  } bits;          // Bit-field struct (auto-filling reserved gaps)
+  } bits;
   
   // Full 32-bit register value.
   uint32_t value;
@@ -4134,7 +4204,6 @@ union MAC_ADDRESS35_LOW {
 //
 union MAC_ADDRESS36_HIGH {
   
-  // Enum definitions.
   enum class eAE : uint32_t {
     eDISABLE = 0, // Address is ignored
     eENABLE = 1, // Address is enabled
@@ -4146,7 +4215,7 @@ union MAC_ADDRESS36_HIGH {
     uint32_t DCS : 3;
     uint32_t _reserved_2 : 12;
     eAE AE : 1;
-  } bits;          // Bit-field struct (auto-filling reserved gaps)
+  } bits;
   
   // Full 32-bit register value.
   uint32_t value;
@@ -4160,12 +4229,10 @@ union MAC_ADDRESS36_HIGH {
 //
 union MAC_ADDRESS36_LOW {
   
-  // Enum definitions.
-  
   // Bit field definition.
   struct {
     uint32_t ADDRLO : 32;
-  } bits;          // Bit-field struct (auto-filling reserved gaps)
+  } bits;
   
   // Full 32-bit register value.
   uint32_t value;
@@ -4179,7 +4246,6 @@ union MAC_ADDRESS36_LOW {
 //
 union MAC_ADDRESS37_HIGH {
   
-  // Enum definitions.
   enum class eAE : uint32_t {
     eDISABLE = 0, // Address is ignored
     eENABLE = 1, // Address is enabled
@@ -4191,7 +4257,7 @@ union MAC_ADDRESS37_HIGH {
     uint32_t DCS : 3;
     uint32_t _reserved_2 : 12;
     eAE AE : 1;
-  } bits;          // Bit-field struct (auto-filling reserved gaps)
+  } bits;
   
   // Full 32-bit register value.
   uint32_t value;
@@ -4205,12 +4271,10 @@ union MAC_ADDRESS37_HIGH {
 //
 union MAC_ADDRESS37_LOW {
   
-  // Enum definitions.
-  
   // Bit field definition.
   struct {
     uint32_t ADDRLO : 32;
-  } bits;          // Bit-field struct (auto-filling reserved gaps)
+  } bits;
   
   // Full 32-bit register value.
   uint32_t value;
@@ -4224,7 +4288,6 @@ union MAC_ADDRESS37_LOW {
 //
 union MAC_ADDRESS38_HIGH {
   
-  // Enum definitions.
   enum class eAE : uint32_t {
     eDISABLE = 0, // Address is ignored
     eENABLE = 1, // Address is enabled
@@ -4236,7 +4299,7 @@ union MAC_ADDRESS38_HIGH {
     uint32_t DCS : 3;
     uint32_t _reserved_2 : 12;
     eAE AE : 1;
-  } bits;          // Bit-field struct (auto-filling reserved gaps)
+  } bits;
   
   // Full 32-bit register value.
   uint32_t value;
@@ -4250,12 +4313,10 @@ union MAC_ADDRESS38_HIGH {
 //
 union MAC_ADDRESS38_LOW {
   
-  // Enum definitions.
-  
   // Bit field definition.
   struct {
     uint32_t ADDRLO : 32;
-  } bits;          // Bit-field struct (auto-filling reserved gaps)
+  } bits;
   
   // Full 32-bit register value.
   uint32_t value;
@@ -4269,7 +4330,6 @@ union MAC_ADDRESS38_LOW {
 //
 union MAC_ADDRESS39_HIGH {
   
-  // Enum definitions.
   enum class eAE : uint32_t {
     eDISABLE = 0, // Address is ignored
     eENABLE = 1, // Address is enabled
@@ -4281,7 +4341,7 @@ union MAC_ADDRESS39_HIGH {
     uint32_t DCS : 3;
     uint32_t _reserved_2 : 12;
     eAE AE : 1;
-  } bits;          // Bit-field struct (auto-filling reserved gaps)
+  } bits;
   
   // Full 32-bit register value.
   uint32_t value;
@@ -4295,12 +4355,10 @@ union MAC_ADDRESS39_HIGH {
 //
 union MAC_ADDRESS39_LOW {
   
-  // Enum definitions.
-  
   // Bit field definition.
   struct {
     uint32_t ADDRLO : 32;
-  } bits;          // Bit-field struct (auto-filling reserved gaps)
+  } bits;
   
   // Full 32-bit register value.
   uint32_t value;
@@ -4314,7 +4372,6 @@ union MAC_ADDRESS39_LOW {
 //
 union MAC_ADDRESS40_HIGH {
   
-  // Enum definitions.
   enum class eAE : uint32_t {
     eDISABLE = 0, // Address is ignored
     eENABLE = 1, // Address is enabled
@@ -4326,7 +4383,7 @@ union MAC_ADDRESS40_HIGH {
     uint32_t DCS : 3;
     uint32_t _reserved_2 : 12;
     eAE AE : 1;
-  } bits;          // Bit-field struct (auto-filling reserved gaps)
+  } bits;
   
   // Full 32-bit register value.
   uint32_t value;
@@ -4340,12 +4397,10 @@ union MAC_ADDRESS40_HIGH {
 //
 union MAC_ADDRESS40_LOW {
   
-  // Enum definitions.
-  
   // Bit field definition.
   struct {
     uint32_t ADDRLO : 32;
-  } bits;          // Bit-field struct (auto-filling reserved gaps)
+  } bits;
   
   // Full 32-bit register value.
   uint32_t value;
@@ -4359,7 +4414,6 @@ union MAC_ADDRESS40_LOW {
 //
 union MAC_ADDRESS41_HIGH {
   
-  // Enum definitions.
   enum class eAE : uint32_t {
     eDISABLE = 0, // Address is ignored
     eENABLE = 1, // Address is enabled
@@ -4371,7 +4425,7 @@ union MAC_ADDRESS41_HIGH {
     uint32_t DCS : 3;
     uint32_t _reserved_2 : 12;
     eAE AE : 1;
-  } bits;          // Bit-field struct (auto-filling reserved gaps)
+  } bits;
   
   // Full 32-bit register value.
   uint32_t value;
@@ -4385,12 +4439,10 @@ union MAC_ADDRESS41_HIGH {
 //
 union MAC_ADDRESS41_LOW {
   
-  // Enum definitions.
-  
   // Bit field definition.
   struct {
     uint32_t ADDRLO : 32;
-  } bits;          // Bit-field struct (auto-filling reserved gaps)
+  } bits;
   
   // Full 32-bit register value.
   uint32_t value;
@@ -4404,7 +4456,6 @@ union MAC_ADDRESS41_LOW {
 //
 union MAC_ADDRESS42_HIGH {
   
-  // Enum definitions.
   enum class eAE : uint32_t {
     eDISABLE = 0, // Address is ignored
     eENABLE = 1, // Address is enabled
@@ -4416,7 +4467,7 @@ union MAC_ADDRESS42_HIGH {
     uint32_t DCS : 3;
     uint32_t _reserved_2 : 12;
     eAE AE : 1;
-  } bits;          // Bit-field struct (auto-filling reserved gaps)
+  } bits;
   
   // Full 32-bit register value.
   uint32_t value;
@@ -4430,12 +4481,10 @@ union MAC_ADDRESS42_HIGH {
 //
 union MAC_ADDRESS42_LOW {
   
-  // Enum definitions.
-  
   // Bit field definition.
   struct {
     uint32_t ADDRLO : 32;
-  } bits;          // Bit-field struct (auto-filling reserved gaps)
+  } bits;
   
   // Full 32-bit register value.
   uint32_t value;
@@ -4449,7 +4498,6 @@ union MAC_ADDRESS42_LOW {
 //
 union MAC_ADDRESS43_HIGH {
   
-  // Enum definitions.
   enum class eAE : uint32_t {
     eDISABLE = 0, // Address is ignored
     eENABLE = 1, // Address is enabled
@@ -4461,7 +4509,7 @@ union MAC_ADDRESS43_HIGH {
     uint32_t DCS : 3;
     uint32_t _reserved_2 : 12;
     eAE AE : 1;
-  } bits;          // Bit-field struct (auto-filling reserved gaps)
+  } bits;
   
   // Full 32-bit register value.
   uint32_t value;
@@ -4475,12 +4523,10 @@ union MAC_ADDRESS43_HIGH {
 //
 union MAC_ADDRESS43_LOW {
   
-  // Enum definitions.
-  
   // Bit field definition.
   struct {
     uint32_t ADDRLO : 32;
-  } bits;          // Bit-field struct (auto-filling reserved gaps)
+  } bits;
   
   // Full 32-bit register value.
   uint32_t value;
@@ -4494,7 +4540,6 @@ union MAC_ADDRESS43_LOW {
 //
 union MAC_ADDRESS44_HIGH {
   
-  // Enum definitions.
   enum class eAE : uint32_t {
     eDISABLE = 0, // Address is ignored
     eENABLE = 1, // Address is enabled
@@ -4506,7 +4551,7 @@ union MAC_ADDRESS44_HIGH {
     uint32_t DCS : 3;
     uint32_t _reserved_2 : 12;
     eAE AE : 1;
-  } bits;          // Bit-field struct (auto-filling reserved gaps)
+  } bits;
   
   // Full 32-bit register value.
   uint32_t value;
@@ -4520,12 +4565,10 @@ union MAC_ADDRESS44_HIGH {
 //
 union MAC_ADDRESS44_LOW {
   
-  // Enum definitions.
-  
   // Bit field definition.
   struct {
     uint32_t ADDRLO : 32;
-  } bits;          // Bit-field struct (auto-filling reserved gaps)
+  } bits;
   
   // Full 32-bit register value.
   uint32_t value;
@@ -4539,7 +4582,6 @@ union MAC_ADDRESS44_LOW {
 //
 union MAC_ADDRESS45_HIGH {
   
-  // Enum definitions.
   enum class eAE : uint32_t {
     eDISABLE = 0, // Address is ignored
     eENABLE = 1, // Address is enabled
@@ -4551,7 +4593,7 @@ union MAC_ADDRESS45_HIGH {
     uint32_t DCS : 3;
     uint32_t _reserved_2 : 12;
     eAE AE : 1;
-  } bits;          // Bit-field struct (auto-filling reserved gaps)
+  } bits;
   
   // Full 32-bit register value.
   uint32_t value;
@@ -4565,12 +4607,10 @@ union MAC_ADDRESS45_HIGH {
 //
 union MAC_ADDRESS45_LOW {
   
-  // Enum definitions.
-  
   // Bit field definition.
   struct {
     uint32_t ADDRLO : 32;
-  } bits;          // Bit-field struct (auto-filling reserved gaps)
+  } bits;
   
   // Full 32-bit register value.
   uint32_t value;
@@ -4584,7 +4624,6 @@ union MAC_ADDRESS45_LOW {
 //
 union MAC_ADDRESS46_HIGH {
   
-  // Enum definitions.
   enum class eAE : uint32_t {
     eDISABLE = 0, // Address is ignored
     eENABLE = 1, // Address is enabled
@@ -4596,7 +4635,7 @@ union MAC_ADDRESS46_HIGH {
     uint32_t DCS : 3;
     uint32_t _reserved_2 : 12;
     eAE AE : 1;
-  } bits;          // Bit-field struct (auto-filling reserved gaps)
+  } bits;
   
   // Full 32-bit register value.
   uint32_t value;
@@ -4610,12 +4649,10 @@ union MAC_ADDRESS46_HIGH {
 //
 union MAC_ADDRESS46_LOW {
   
-  // Enum definitions.
-  
   // Bit field definition.
   struct {
     uint32_t ADDRLO : 32;
-  } bits;          // Bit-field struct (auto-filling reserved gaps)
+  } bits;
   
   // Full 32-bit register value.
   uint32_t value;
@@ -4629,7 +4666,6 @@ union MAC_ADDRESS46_LOW {
 //
 union MAC_ADDRESS47_HIGH {
   
-  // Enum definitions.
   enum class eAE : uint32_t {
     eDISABLE = 0, // Address is ignored
     eENABLE = 1, // Address is enabled
@@ -4641,7 +4677,7 @@ union MAC_ADDRESS47_HIGH {
     uint32_t DCS : 3;
     uint32_t _reserved_2 : 12;
     eAE AE : 1;
-  } bits;          // Bit-field struct (auto-filling reserved gaps)
+  } bits;
   
   // Full 32-bit register value.
   uint32_t value;
@@ -4655,12 +4691,10 @@ union MAC_ADDRESS47_HIGH {
 //
 union MAC_ADDRESS47_LOW {
   
-  // Enum definitions.
-  
   // Bit field definition.
   struct {
     uint32_t ADDRLO : 32;
-  } bits;          // Bit-field struct (auto-filling reserved gaps)
+  } bits;
   
   // Full 32-bit register value.
   uint32_t value;
@@ -4674,7 +4708,6 @@ union MAC_ADDRESS47_LOW {
 //
 union MAC_ADDRESS48_HIGH {
   
-  // Enum definitions.
   enum class eAE : uint32_t {
     eDISABLE = 0, // Address is ignored
     eENABLE = 1, // Address is enabled
@@ -4686,7 +4719,7 @@ union MAC_ADDRESS48_HIGH {
     uint32_t DCS : 3;
     uint32_t _reserved_2 : 12;
     eAE AE : 1;
-  } bits;          // Bit-field struct (auto-filling reserved gaps)
+  } bits;
   
   // Full 32-bit register value.
   uint32_t value;
@@ -4700,12 +4733,10 @@ union MAC_ADDRESS48_HIGH {
 //
 union MAC_ADDRESS48_LOW {
   
-  // Enum definitions.
-  
   // Bit field definition.
   struct {
     uint32_t ADDRLO : 32;
-  } bits;          // Bit-field struct (auto-filling reserved gaps)
+  } bits;
   
   // Full 32-bit register value.
   uint32_t value;
@@ -4719,7 +4750,6 @@ union MAC_ADDRESS48_LOW {
 //
 union MAC_ADDRESS49_HIGH {
   
-  // Enum definitions.
   enum class eAE : uint32_t {
     eDISABLE = 0, // Address is ignored
     eENABLE = 1, // Address is enabled
@@ -4731,7 +4761,7 @@ union MAC_ADDRESS49_HIGH {
     uint32_t DCS : 3;
     uint32_t _reserved_2 : 12;
     eAE AE : 1;
-  } bits;          // Bit-field struct (auto-filling reserved gaps)
+  } bits;
   
   // Full 32-bit register value.
   uint32_t value;
@@ -4745,12 +4775,10 @@ union MAC_ADDRESS49_HIGH {
 //
 union MAC_ADDRESS49_LOW {
   
-  // Enum definitions.
-  
   // Bit field definition.
   struct {
     uint32_t ADDRLO : 32;
-  } bits;          // Bit-field struct (auto-filling reserved gaps)
+  } bits;
   
   // Full 32-bit register value.
   uint32_t value;
@@ -4764,7 +4792,6 @@ union MAC_ADDRESS49_LOW {
 //
 union MAC_ADDRESS50_HIGH {
   
-  // Enum definitions.
   enum class eAE : uint32_t {
     eDISABLE = 0, // Address is ignored
     eENABLE = 1, // Address is enabled
@@ -4776,7 +4803,7 @@ union MAC_ADDRESS50_HIGH {
     uint32_t DCS : 3;
     uint32_t _reserved_2 : 12;
     eAE AE : 1;
-  } bits;          // Bit-field struct (auto-filling reserved gaps)
+  } bits;
   
   // Full 32-bit register value.
   uint32_t value;
@@ -4790,12 +4817,10 @@ union MAC_ADDRESS50_HIGH {
 //
 union MAC_ADDRESS50_LOW {
   
-  // Enum definitions.
-  
   // Bit field definition.
   struct {
     uint32_t ADDRLO : 32;
-  } bits;          // Bit-field struct (auto-filling reserved gaps)
+  } bits;
   
   // Full 32-bit register value.
   uint32_t value;
@@ -4809,7 +4834,6 @@ union MAC_ADDRESS50_LOW {
 //
 union MAC_ADDRESS51_HIGH {
   
-  // Enum definitions.
   enum class eAE : uint32_t {
     eDISABLE = 0, // Address is ignored
     eENABLE = 1, // Address is enabled
@@ -4821,7 +4845,7 @@ union MAC_ADDRESS51_HIGH {
     uint32_t DCS : 3;
     uint32_t _reserved_2 : 12;
     eAE AE : 1;
-  } bits;          // Bit-field struct (auto-filling reserved gaps)
+  } bits;
   
   // Full 32-bit register value.
   uint32_t value;
@@ -4835,12 +4859,10 @@ union MAC_ADDRESS51_HIGH {
 //
 union MAC_ADDRESS51_LOW {
   
-  // Enum definitions.
-  
   // Bit field definition.
   struct {
     uint32_t ADDRLO : 32;
-  } bits;          // Bit-field struct (auto-filling reserved gaps)
+  } bits;
   
   // Full 32-bit register value.
   uint32_t value;
@@ -4854,7 +4876,6 @@ union MAC_ADDRESS51_LOW {
 //
 union MAC_ADDRESS52_HIGH {
   
-  // Enum definitions.
   enum class eAE : uint32_t {
     eDISABLE = 0, // Address is ignored
     eENABLE = 1, // Address is enabled
@@ -4866,7 +4887,7 @@ union MAC_ADDRESS52_HIGH {
     uint32_t DCS : 3;
     uint32_t _reserved_2 : 12;
     eAE AE : 1;
-  } bits;          // Bit-field struct (auto-filling reserved gaps)
+  } bits;
   
   // Full 32-bit register value.
   uint32_t value;
@@ -4880,12 +4901,10 @@ union MAC_ADDRESS52_HIGH {
 //
 union MAC_ADDRESS52_LOW {
   
-  // Enum definitions.
-  
   // Bit field definition.
   struct {
     uint32_t ADDRLO : 32;
-  } bits;          // Bit-field struct (auto-filling reserved gaps)
+  } bits;
   
   // Full 32-bit register value.
   uint32_t value;
@@ -4899,7 +4918,6 @@ union MAC_ADDRESS52_LOW {
 //
 union MAC_ADDRESS53_HIGH {
   
-  // Enum definitions.
   enum class eAE : uint32_t {
     eDISABLE = 0, // Address is ignored
     eENABLE = 1, // Address is enabled
@@ -4911,7 +4929,7 @@ union MAC_ADDRESS53_HIGH {
     uint32_t DCS : 3;
     uint32_t _reserved_2 : 12;
     eAE AE : 1;
-  } bits;          // Bit-field struct (auto-filling reserved gaps)
+  } bits;
   
   // Full 32-bit register value.
   uint32_t value;
@@ -4925,12 +4943,10 @@ union MAC_ADDRESS53_HIGH {
 //
 union MAC_ADDRESS53_LOW {
   
-  // Enum definitions.
-  
   // Bit field definition.
   struct {
     uint32_t ADDRLO : 32;
-  } bits;          // Bit-field struct (auto-filling reserved gaps)
+  } bits;
   
   // Full 32-bit register value.
   uint32_t value;
@@ -4944,7 +4960,6 @@ union MAC_ADDRESS53_LOW {
 //
 union MAC_ADDRESS54_HIGH {
   
-  // Enum definitions.
   enum class eAE : uint32_t {
     eDISABLE = 0, // Address is ignored
     eENABLE = 1, // Address is enabled
@@ -4956,7 +4971,7 @@ union MAC_ADDRESS54_HIGH {
     uint32_t DCS : 3;
     uint32_t _reserved_2 : 12;
     eAE AE : 1;
-  } bits;          // Bit-field struct (auto-filling reserved gaps)
+  } bits;
   
   // Full 32-bit register value.
   uint32_t value;
@@ -4970,12 +4985,10 @@ union MAC_ADDRESS54_HIGH {
 //
 union MAC_ADDRESS54_LOW {
   
-  // Enum definitions.
-  
   // Bit field definition.
   struct {
     uint32_t ADDRLO : 32;
-  } bits;          // Bit-field struct (auto-filling reserved gaps)
+  } bits;
   
   // Full 32-bit register value.
   uint32_t value;
@@ -4989,7 +5002,6 @@ union MAC_ADDRESS54_LOW {
 //
 union MAC_ADDRESS55_HIGH {
   
-  // Enum definitions.
   enum class eAE : uint32_t {
     eDISABLE = 0, // Address is ignored
     eENABLE = 1, // Address is enabled
@@ -5001,7 +5013,7 @@ union MAC_ADDRESS55_HIGH {
     uint32_t DCS : 3;
     uint32_t _reserved_2 : 12;
     eAE AE : 1;
-  } bits;          // Bit-field struct (auto-filling reserved gaps)
+  } bits;
   
   // Full 32-bit register value.
   uint32_t value;
@@ -5015,12 +5027,10 @@ union MAC_ADDRESS55_HIGH {
 //
 union MAC_ADDRESS55_LOW {
   
-  // Enum definitions.
-  
   // Bit field definition.
   struct {
     uint32_t ADDRLO : 32;
-  } bits;          // Bit-field struct (auto-filling reserved gaps)
+  } bits;
   
   // Full 32-bit register value.
   uint32_t value;
@@ -5034,7 +5044,6 @@ union MAC_ADDRESS55_LOW {
 //
 union MAC_ADDRESS56_HIGH {
   
-  // Enum definitions.
   enum class eAE : uint32_t {
     eDISABLE = 0, // Address is ignored
     eENABLE = 1, // Address is enabled
@@ -5046,7 +5055,7 @@ union MAC_ADDRESS56_HIGH {
     uint32_t DCS : 3;
     uint32_t _reserved_2 : 12;
     eAE AE : 1;
-  } bits;          // Bit-field struct (auto-filling reserved gaps)
+  } bits;
   
   // Full 32-bit register value.
   uint32_t value;
@@ -5060,12 +5069,10 @@ union MAC_ADDRESS56_HIGH {
 //
 union MAC_ADDRESS56_LOW {
   
-  // Enum definitions.
-  
   // Bit field definition.
   struct {
     uint32_t ADDRLO : 32;
-  } bits;          // Bit-field struct (auto-filling reserved gaps)
+  } bits;
   
   // Full 32-bit register value.
   uint32_t value;
@@ -5079,7 +5086,6 @@ union MAC_ADDRESS56_LOW {
 //
 union MAC_ADDRESS57_HIGH {
   
-  // Enum definitions.
   enum class eAE : uint32_t {
     eDISABLE = 0, // Address is ignored
     eENABLE = 1, // Address is enabled
@@ -5091,7 +5097,7 @@ union MAC_ADDRESS57_HIGH {
     uint32_t DCS : 3;
     uint32_t _reserved_2 : 12;
     eAE AE : 1;
-  } bits;          // Bit-field struct (auto-filling reserved gaps)
+  } bits;
   
   // Full 32-bit register value.
   uint32_t value;
@@ -5105,12 +5111,10 @@ union MAC_ADDRESS57_HIGH {
 //
 union MAC_ADDRESS57_LOW {
   
-  // Enum definitions.
-  
   // Bit field definition.
   struct {
     uint32_t ADDRLO : 32;
-  } bits;          // Bit-field struct (auto-filling reserved gaps)
+  } bits;
   
   // Full 32-bit register value.
   uint32_t value;
@@ -5124,7 +5128,6 @@ union MAC_ADDRESS57_LOW {
 //
 union MAC_ADDRESS58_HIGH {
   
-  // Enum definitions.
   enum class eAE : uint32_t {
     eDISABLE = 0, // Address is ignored
     eENABLE = 1, // Address is enabled
@@ -5136,7 +5139,7 @@ union MAC_ADDRESS58_HIGH {
     uint32_t DCS : 3;
     uint32_t _reserved_2 : 12;
     eAE AE : 1;
-  } bits;          // Bit-field struct (auto-filling reserved gaps)
+  } bits;
   
   // Full 32-bit register value.
   uint32_t value;
@@ -5150,12 +5153,10 @@ union MAC_ADDRESS58_HIGH {
 //
 union MAC_ADDRESS58_LOW {
   
-  // Enum definitions.
-  
   // Bit field definition.
   struct {
     uint32_t ADDRLO : 32;
-  } bits;          // Bit-field struct (auto-filling reserved gaps)
+  } bits;
   
   // Full 32-bit register value.
   uint32_t value;
@@ -5169,7 +5170,6 @@ union MAC_ADDRESS58_LOW {
 //
 union MAC_ADDRESS59_HIGH {
   
-  // Enum definitions.
   enum class eAE : uint32_t {
     eDISABLE = 0, // Address is ignored
     eENABLE = 1, // Address is enabled
@@ -5181,7 +5181,7 @@ union MAC_ADDRESS59_HIGH {
     uint32_t DCS : 3;
     uint32_t _reserved_2 : 12;
     eAE AE : 1;
-  } bits;          // Bit-field struct (auto-filling reserved gaps)
+  } bits;
   
   // Full 32-bit register value.
   uint32_t value;
@@ -5195,12 +5195,10 @@ union MAC_ADDRESS59_HIGH {
 //
 union MAC_ADDRESS59_LOW {
   
-  // Enum definitions.
-  
   // Bit field definition.
   struct {
     uint32_t ADDRLO : 32;
-  } bits;          // Bit-field struct (auto-filling reserved gaps)
+  } bits;
   
   // Full 32-bit register value.
   uint32_t value;
@@ -5214,7 +5212,6 @@ union MAC_ADDRESS59_LOW {
 //
 union MAC_ADDRESS60_HIGH {
   
-  // Enum definitions.
   enum class eAE : uint32_t {
     eDISABLE = 0, // Address is ignored
     eENABLE = 1, // Address is enabled
@@ -5226,7 +5223,7 @@ union MAC_ADDRESS60_HIGH {
     uint32_t DCS : 3;
     uint32_t _reserved_2 : 12;
     eAE AE : 1;
-  } bits;          // Bit-field struct (auto-filling reserved gaps)
+  } bits;
   
   // Full 32-bit register value.
   uint32_t value;
@@ -5240,12 +5237,10 @@ union MAC_ADDRESS60_HIGH {
 //
 union MAC_ADDRESS60_LOW {
   
-  // Enum definitions.
-  
   // Bit field definition.
   struct {
     uint32_t ADDRLO : 32;
-  } bits;          // Bit-field struct (auto-filling reserved gaps)
+  } bits;
   
   // Full 32-bit register value.
   uint32_t value;
@@ -5259,7 +5254,6 @@ union MAC_ADDRESS60_LOW {
 //
 union MAC_ADDRESS61_HIGH {
   
-  // Enum definitions.
   enum class eAE : uint32_t {
     eDISABLE = 0, // Address is ignored
     eENABLE = 1, // Address is enabled
@@ -5271,7 +5265,7 @@ union MAC_ADDRESS61_HIGH {
     uint32_t DCS : 3;
     uint32_t _reserved_2 : 12;
     eAE AE : 1;
-  } bits;          // Bit-field struct (auto-filling reserved gaps)
+  } bits;
   
   // Full 32-bit register value.
   uint32_t value;
@@ -5285,12 +5279,10 @@ union MAC_ADDRESS61_HIGH {
 //
 union MAC_ADDRESS61_LOW {
   
-  // Enum definitions.
-  
   // Bit field definition.
   struct {
     uint32_t ADDRLO : 32;
-  } bits;          // Bit-field struct (auto-filling reserved gaps)
+  } bits;
   
   // Full 32-bit register value.
   uint32_t value;
@@ -5304,7 +5296,6 @@ union MAC_ADDRESS61_LOW {
 //
 union MAC_ADDRESS62_HIGH {
   
-  // Enum definitions.
   enum class eAE : uint32_t {
     eDISABLE = 0, // Address is ignored
     eENABLE = 1, // Address is enabled
@@ -5316,7 +5307,7 @@ union MAC_ADDRESS62_HIGH {
     uint32_t DCS : 3;
     uint32_t _reserved_2 : 12;
     eAE AE : 1;
-  } bits;          // Bit-field struct (auto-filling reserved gaps)
+  } bits;
   
   // Full 32-bit register value.
   uint32_t value;
@@ -5330,12 +5321,10 @@ union MAC_ADDRESS62_HIGH {
 //
 union MAC_ADDRESS62_LOW {
   
-  // Enum definitions.
-  
   // Bit field definition.
   struct {
     uint32_t ADDRLO : 32;
-  } bits;          // Bit-field struct (auto-filling reserved gaps)
+  } bits;
   
   // Full 32-bit register value.
   uint32_t value;
@@ -5349,7 +5338,6 @@ union MAC_ADDRESS62_LOW {
 //
 union MAC_ADDRESS63_HIGH {
   
-  // Enum definitions.
   enum class eAE : uint32_t {
     eDISABLE = 0, // Address is ignored
     eENABLE = 1, // Address is enabled
@@ -5361,7 +5349,7 @@ union MAC_ADDRESS63_HIGH {
     uint32_t DCS : 3;
     uint32_t _reserved_2 : 12;
     eAE AE : 1;
-  } bits;          // Bit-field struct (auto-filling reserved gaps)
+  } bits;
   
   // Full 32-bit register value.
   uint32_t value;
@@ -5375,12 +5363,10 @@ union MAC_ADDRESS63_HIGH {
 //
 union MAC_ADDRESS63_LOW {
   
-  // Enum definitions.
-  
   // Bit field definition.
   struct {
     uint32_t ADDRLO : 32;
-  } bits;          // Bit-field struct (auto-filling reserved gaps)
+  } bits;
   
   // Full 32-bit register value.
   uint32_t value;
@@ -5394,31 +5380,36 @@ union MAC_ADDRESS63_LOW {
 //
 union MAC_MMC_CONTROL {
   
-  // Enum definitions.
   enum class eCNTRST : uint32_t {
     eDISABLE = 0, // Counters are not reset
     eENABLE = 1, // All counters are reset
   };
+  
   enum class eCNTSTOPRO : uint32_t {
     eDISABLE = 0, // Counter Stop Rollover is disabled
     eENABLE = 1, // Counter Stop Rollover is enabled
   };
+  
   enum class eRSTONRD : uint32_t {
     eDISABLE = 0, // Reset on Read is disabled
     eENABLE = 1, // Reset on Read is enabled
   };
+  
   enum class eCNTFREEZ : uint32_t {
     eDISABLE = 0, // MMC Counter Freeze is disabled
     eENABLE = 1, // MMC Counter Freeze is enabled
   };
+  
   enum class eCNTPRST : uint32_t {
     eDISABLE = 0, // Counters Preset is disabled
     eENABLE = 1, // Counters Preset is enabled
   };
+  
   enum class eCNTPRSTLVL : uint32_t {
     eDISABLE = 0, // Full-Half Preset is disabled
     eENABLE = 1, // Full-Half Preset is enabled
   };
+  
   enum class eUCDBC : uint32_t {
     eDISABLE = 0, // Update MMC Counters for Dropped Broadcast Packets is disabled
     eENABLE = 1, // Update MMC Counters for Dropped Broadcast Packets is enabled
@@ -5435,7 +5426,7 @@ union MAC_MMC_CONTROL {
     uint32_t _reserved_6 : 2;
     eUCDBC UCDBC : 1;
     uint32_t _reserved_end : 23;
-  } bits;          // Bit-field struct (auto-filling reserved gaps)
+  } bits;
   
   // Full 32-bit register value.
   uint32_t value;
@@ -5449,115 +5440,141 @@ union MAC_MMC_CONTROL {
 //
 union MAC_MMC_RX_INTERRUPT {
   
-  // Enum definitions.
   enum class eRXGBPKTIS : uint32_t {
     eINACTIVE = 0, // MMC Receive Good Bad Packet Counter Interrupt Status not detected
     eACTIVE = 1, // MMC Receive Good Bad Packet Counter Interrupt Status detected
   };
+  
   enum class eRXGBOCTIS : uint32_t {
     eINACTIVE = 0, // MMC Receive Good Bad Octet Counter Interrupt Status not detected
     eACTIVE = 1, // MMC Receive Good Bad Octet Counter Interrupt Status detected
   };
+  
   enum class eRXGOCTIS : uint32_t {
     eINACTIVE = 0, // MMC Receive Good Octet Counter Interrupt Status not detected
     eACTIVE = 1, // MMC Receive Good Octet Counter Interrupt Status detected
   };
+  
   enum class eRXBCGPIS : uint32_t {
     eINACTIVE = 0, // MMC Receive Broadcast Good Packet Counter Interrupt Status not detected
     eACTIVE = 1, // MMC Receive Broadcast Good Packet Counter Interrupt Status detected
   };
+  
   enum class eRXMCGPIS : uint32_t {
     eINACTIVE = 0, // MMC Receive Multicast Good Packet Counter Interrupt Status not detected
     eACTIVE = 1, // MMC Receive Multicast Good Packet Counter Interrupt Status detected
   };
+  
   enum class eRXCRCERPIS : uint32_t {
     eINACTIVE = 0, // MMC Receive CRC Error Packet Counter Interrupt Status not detected
     eACTIVE = 1, // MMC Receive CRC Error Packet Counter Interrupt Status detected
   };
+  
   enum class eRXALGNERPIS : uint32_t {
     eINACTIVE = 0, // MMC Receive Alignment Error Packet Counter Interrupt Status not detected
     eACTIVE = 1, // MMC Receive Alignment Error Packet Counter Interrupt Status detected
   };
+  
   enum class eRXRUNTPIS : uint32_t {
     eINACTIVE = 0, // MMC Receive Runt Packet Counter Interrupt Status not detected
     eACTIVE = 1, // MMC Receive Runt Packet Counter Interrupt Status detected
   };
+  
   enum class eRXJABERPIS : uint32_t {
     eINACTIVE = 0, // MMC Receive Jabber Error Packet Counter Interrupt Status not detected
     eACTIVE = 1, // MMC Receive Jabber Error Packet Counter Interrupt Status detected
   };
+  
   enum class eRXUSIZEGPIS : uint32_t {
     eINACTIVE = 0, // MMC Receive Undersize Good Packet Counter Interrupt Status not detected
     eACTIVE = 1, // MMC Receive Undersize Good Packet Counter Interrupt Status detected
   };
+  
   enum class eRXOSIZEGPIS : uint32_t {
     eINACTIVE = 0, // MMC Receive Oversize Good Packet Counter Interrupt Status not detected
     eACTIVE = 1, // MMC Receive Oversize Good Packet Counter Interrupt Status detected
   };
+  
   enum class eRX64OCTGBPIS : uint32_t {
     eINACTIVE = 0, // MMC Receive 64 Octet Good Bad Packet Counter Interrupt Status not detected
     eACTIVE = 1, // MMC Receive 64 Octet Good Bad Packet Counter Interrupt Status detected
   };
+  
   enum class eRX65T127OCTGBPIS : uint32_t {
     eINACTIVE = 0, // MMC Receive 65 to 127 Octet Good Bad Packet Counter Interrupt Status not detected
     eACTIVE = 1, // MMC Receive 65 to 127 Octet Good Bad Packet Counter Interrupt Status detected
   };
+  
   enum class eRX128T255OCTGBPIS : uint32_t {
     eINACTIVE = 0, // MMC Receive 128 to 255 Octet Good Bad Packet Counter Interrupt Status not detected
     eACTIVE = 1, // MMC Receive 128 to 255 Octet Good Bad Packet Counter Interrupt Status detected
   };
+  
   enum class eRX256T511OCTGBPIS : uint32_t {
     eINACTIVE = 0, // MMC Receive 256 to 511 Octet Good Bad Packet Counter Interrupt Status not detected
     eACTIVE = 1, // MMC Receive 256 to 511 Octet Good Bad Packet Counter Interrupt Status detected
   };
+  
   enum class eRX512T1023OCTGBPIS : uint32_t {
     eINACTIVE = 0, // MMC Receive 512 to 1023 Octet Good Bad Packet Counter Interrupt Status not detected
     eACTIVE = 1, // MMC Receive 512 to 1023 Octet Good Bad Packet Counter Interrupt Status detected
   };
+  
   enum class eRX1024TMAXOCTGBPIS : uint32_t {
     eINACTIVE = 0, // MMC Receive 1024 to Maximum Octet Good Bad Packet Counter Interrupt Status not detected
     eACTIVE = 1, // MMC Receive 1024 to Maximum Octet Good Bad Packet Counter Interrupt Status detected
   };
+  
   enum class eRXUCGPIS : uint32_t {
     eINACTIVE = 0, // MMC Receive Unicast Good Packet Counter Interrupt Status not detected
     eACTIVE = 1, // MMC Receive Unicast Good Packet Counter Interrupt Status detected
   };
+  
   enum class eRXLENERPIS : uint32_t {
     eINACTIVE = 0, // MMC Receive Length Error Packet Counter Interrupt Status not detected
     eACTIVE = 1, // MMC Receive Length Error Packet Counter Interrupt Status detected
   };
+  
   enum class eRXORANGEPIS : uint32_t {
     eINACTIVE = 0, // MMC Receive Out Of Range Error Packet Counter Interrupt Status not detected
     eACTIVE = 1, // MMC Receive Out Of Range Error Packet Counter Interrupt Status detected
   };
+  
   enum class eRXPAUSPIS : uint32_t {
     eINACTIVE = 0, // MMC Receive Pause Packet Counter Interrupt Status not detected
     eACTIVE = 1, // MMC Receive Pause Packet Counter Interrupt Status detected
   };
+  
   enum class eRXFOVPIS : uint32_t {
     eINACTIVE = 0, // MMC Receive FIFO Overflow Packet Counter Interrupt Status not detected
     eACTIVE = 1, // MMC Receive FIFO Overflow Packet Counter Interrupt Status detected
   };
+  
   enum class eRXVLANGBPIS : uint32_t {
     eINACTIVE = 0, // MMC Receive VLAN Good Bad Packet Counter Interrupt Status not detected
     eACTIVE = 1, // MMC Receive VLAN Good Bad Packet Counter Interrupt Status detected
   };
+  
   enum class eRXWDOGPIS : uint32_t {
     eINACTIVE = 0, // MMC Receive Watchdog Error Packet Counter Interrupt Status not detected
     eACTIVE = 1, // MMC Receive Watchdog Error Packet Counter Interrupt Status detected
   };
+  
   enum class eRXRCVERRPIS : uint32_t {
     eINACTIVE = 0, // MMC Receive Error Packet Counter Interrupt Status not detected
     eACTIVE = 1, // MMC Receive Error Packet Counter Interrupt Status detected
   };
+  
   enum class eRXCTRLPIS : uint32_t {
     eINACTIVE = 0, // MMC Receive Control Packet Counter Interrupt Status not detected
     eACTIVE = 1, // MMC Receive Control Packet Counter Interrupt Status detected
   };
+  
   enum class eRXLPIUSCIS : uint32_t {
     eINACTIVE = 0, // MMC Receive LPI microsecond Counter Interrupt Status not detected
     eACTIVE = 1, // MMC Receive LPI microsecond Counter Interrupt Status detected
   };
+  
   enum class eRXLPITRCIS : uint32_t {
     eINACTIVE = 0, // MMC Receive LPI transition Counter Interrupt Status not detected
     eACTIVE = 1, // MMC Receive LPI transition Counter Interrupt Status detected
@@ -5594,7 +5611,7 @@ union MAC_MMC_RX_INTERRUPT {
     eRXLPIUSCIS RXLPIUSCIS : 1;
     eRXLPITRCIS RXLPITRCIS : 1;
     uint32_t _reserved_end : 4;
-  } bits;          // Bit-field struct (auto-filling reserved gaps)
+  } bits;
   
   // Full 32-bit register value.
   uint32_t value;
@@ -5608,115 +5625,141 @@ union MAC_MMC_RX_INTERRUPT {
 //
 union MAC_MMC_TX_INTERRUPT {
   
-  // Enum definitions.
   enum class eTXGBOCTIS : uint32_t {
     eINACTIVE = 0, // MMC Transmit Good Bad Octet Counter Interrupt Status not detected
     eACTIVE = 1, // MMC Transmit Good Bad Octet Counter Interrupt Status detected
   };
+  
   enum class eTXGBPKTIS : uint32_t {
     eINACTIVE = 0, // MMC Transmit Good Bad Packet Counter Interrupt Status not detected
     eACTIVE = 1, // MMC Transmit Good Bad Packet Counter Interrupt Status detected
   };
+  
   enum class eTXBCGPIS : uint32_t {
     eINACTIVE = 0, // MMC Transmit Broadcast Good Packet Counter Interrupt Status not detected
     eACTIVE = 1, // MMC Transmit Broadcast Good Packet Counter Interrupt Status detected
   };
+  
   enum class eTXMCGPIS : uint32_t {
     eINACTIVE = 0, // MMC Transmit Multicast Good Packet Counter Interrupt Status not detected
     eACTIVE = 1, // MMC Transmit Multicast Good Packet Counter Interrupt Status detected
   };
+  
   enum class eTX64OCTGBPIS : uint32_t {
     eINACTIVE = 0, // MMC Transmit 64 Octet Good Bad Packet Counter Interrupt Status not detected
     eACTIVE = 1, // MMC Transmit 64 Octet Good Bad Packet Counter Interrupt Status detected
   };
+  
   enum class eTX65T127OCTGBPIS : uint32_t {
     eINACTIVE = 0, // MMC Transmit 65 to 127 Octet Good Bad Packet Counter Interrupt Status not detected
     eACTIVE = 1, // MMC Transmit 65 to 127 Octet Good Bad Packet Counter Interrupt Status detected
   };
+  
   enum class eTX128T255OCTGBPIS : uint32_t {
     eINACTIVE = 0, // MMC Transmit 128 to 255 Octet Good Bad Packet Counter Interrupt Status not detected
     eACTIVE = 1, // MMC Transmit 128 to 255 Octet Good Bad Packet Counter Interrupt Status detected
   };
+  
   enum class eTX256T511OCTGBPIS : uint32_t {
     eINACTIVE = 0, // MMC Transmit 256 to 511 Octet Good Bad Packet Counter Interrupt Status not detected
     eACTIVE = 1, // MMC Transmit 256 to 511 Octet Good Bad Packet Counter Interrupt Status detected
   };
+  
   enum class eTX512T1023OCTGBPIS : uint32_t {
     eINACTIVE = 0, // MMC Transmit 512 to 1023 Octet Good Bad Packet Counter Interrupt Status not detected
     eACTIVE = 1, // MMC Transmit 512 to 1023 Octet Good Bad Packet Counter Interrupt Status detected
   };
+  
   enum class eTX1024TMAXOCTGBPIS : uint32_t {
     eINACTIVE = 0, // MMC Transmit 1024 to Maximum Octet Good Bad Packet Counter Interrupt Status not detected
     eACTIVE = 1, // MMC Transmit 1024 to Maximum Octet Good Bad Packet Counter Interrupt Status detected
   };
+  
   enum class eTXUCGBPIS : uint32_t {
     eINACTIVE = 0, // MMC Transmit Unicast Good Bad Packet Counter Interrupt Status not detected
     eACTIVE = 1, // MMC Transmit Unicast Good Bad Packet Counter Interrupt Status detected
   };
+  
   enum class eTXMCGBPIS : uint32_t {
     eINACTIVE = 0, // MMC Transmit Multicast Good Bad Packet Counter Interrupt Status not detected
     eACTIVE = 1, // MMC Transmit Multicast Good Bad Packet Counter Interrupt Status detected
   };
+  
   enum class eTXBCGBPIS : uint32_t {
     eINACTIVE = 0, // MMC Transmit Broadcast Good Bad Packet Counter Interrupt Status not detected
     eACTIVE = 1, // MMC Transmit Broadcast Good Bad Packet Counter Interrupt Status detected
   };
+  
   enum class eTXUFLOWERPIS : uint32_t {
     eINACTIVE = 0, // MMC Transmit Underflow Error Packet Counter Interrupt Status not detected
     eACTIVE = 1, // MMC Transmit Underflow Error Packet Counter Interrupt Status detected
   };
+  
   enum class eTXSCOLGPIS : uint32_t {
     eINACTIVE = 0, // MMC Transmit Single Collision Good Packet Counter Interrupt Status not detected
     eACTIVE = 1, // MMC Transmit Single Collision Good Packet Counter Interrupt Status detected
   };
+  
   enum class eTXMCOLGPIS : uint32_t {
     eINACTIVE = 0, // MMC Transmit Multiple Collision Good Packet Counter Interrupt Status not detected
     eACTIVE = 1, // MMC Transmit Multiple Collision Good Packet Counter Interrupt Status detected
   };
+  
   enum class eTXDEFPIS : uint32_t {
     eINACTIVE = 0, // MMC Transmit Deferred Packet Counter Interrupt Status not detected
     eACTIVE = 1, // MMC Transmit Deferred Packet Counter Interrupt Status detected
   };
+  
   enum class eTXLATCOLPIS : uint32_t {
     eINACTIVE = 0, // MMC Transmit Late Collision Packet Counter Interrupt Status not detected
     eACTIVE = 1, // MMC Transmit Late Collision Packet Counter Interrupt Status detected
   };
+  
   enum class eTXEXCOLPIS : uint32_t {
     eINACTIVE = 0, // MMC Transmit Excessive Collision Packet Counter Interrupt Status not detected
     eACTIVE = 1, // MMC Transmit Excessive Collision Packet Counter Interrupt Status detected
   };
+  
   enum class eTXCARERPIS : uint32_t {
     eINACTIVE = 0, // MMC Transmit Carrier Error Packet Counter Interrupt Status not detected
     eACTIVE = 1, // MMC Transmit Carrier Error Packet Counter Interrupt Status detected
   };
+  
   enum class eTXGOCTIS : uint32_t {
     eINACTIVE = 0, // MMC Transmit Good Octet Counter Interrupt Status not detected
     eACTIVE = 1, // MMC Transmit Good Octet Counter Interrupt Status detected
   };
+  
   enum class eTXGPKTIS : uint32_t {
     eINACTIVE = 0, // MMC Transmit Good Packet Counter Interrupt Status not detected
     eACTIVE = 1, // MMC Transmit Good Packet Counter Interrupt Status detected
   };
+  
   enum class eTXEXDEFPIS : uint32_t {
     eINACTIVE = 0, // MMC Transmit Excessive Deferral Packet Counter Interrupt Status not detected
     eACTIVE = 1, // MMC Transmit Excessive Deferral Packet Counter Interrupt Status detected
   };
+  
   enum class eTXPAUSPIS : uint32_t {
     eINACTIVE = 0, // MMC Transmit Pause Packet Counter Interrupt Status not detected
     eACTIVE = 1, // MMC Transmit Pause Packet Counter Interrupt Status detected
   };
+  
   enum class eTXVLANGPIS : uint32_t {
     eINACTIVE = 0, // MMC Transmit VLAN Good Packet Counter Interrupt Status not detected
     eACTIVE = 1, // MMC Transmit VLAN Good Packet Counter Interrupt Status detected
   };
+  
   enum class eTXOSIZEGPIS : uint32_t {
     eINACTIVE = 0, // MMC Transmit Oversize Good Packet Counter Interrupt Status not detected
     eACTIVE = 1, // MMC Transmit Oversize Good Packet Counter Interrupt Status detected
   };
+  
   enum class eTXLPIUSCIS : uint32_t {
     eINACTIVE = 0, // MMC Transmit LPI microsecond Counter Interrupt Status not detected
     eACTIVE = 1, // MMC Transmit LPI microsecond Counter Interrupt Status detected
   };
+  
   enum class eTXLPITRCIS : uint32_t {
     eINACTIVE = 0, // MMC Transmit LPI transition Counter Interrupt Status not detected
     eACTIVE = 1, // MMC Transmit LPI transition Counter Interrupt Status detected
@@ -5753,7 +5796,7 @@ union MAC_MMC_TX_INTERRUPT {
     eTXLPIUSCIS TXLPIUSCIS : 1;
     eTXLPITRCIS TXLPITRCIS : 1;
     uint32_t _reserved_end : 4;
-  } bits;          // Bit-field struct (auto-filling reserved gaps)
+  } bits;
   
   // Full 32-bit register value.
   uint32_t value;
@@ -5767,115 +5810,141 @@ union MAC_MMC_TX_INTERRUPT {
 //
 union MAC_MMC_RX_INTERRUPT_MASK {
   
-  // Enum definitions.
   enum class eRXGBPKTIM : uint32_t {
     eDISABLE = 0, // MMC Receive Good Bad Packet Counter Interrupt Mask is disabled
     eENABLE = 1, // MMC Receive Good Bad Packet Counter Interrupt Mask is enabled
   };
+  
   enum class eRXGBOCTIM : uint32_t {
     eDISABLE = 0, // MMC Receive Good Bad Octet Counter Interrupt Mask is disabled
     eENABLE = 1, // MMC Receive Good Bad Octet Counter Interrupt Mask is enabled
   };
+  
   enum class eRXGOCTIM : uint32_t {
     eDISABLE = 0, // MMC Receive Good Octet Counter Interrupt Mask is disabled
     eENABLE = 1, // MMC Receive Good Octet Counter Interrupt Mask is enabled
   };
+  
   enum class eRXBCGPIM : uint32_t {
     eDISABLE = 0, // MMC Receive Broadcast Good Packet Counter Interrupt Mask is disabled
     eENABLE = 1, // MMC Receive Broadcast Good Packet Counter Interrupt Mask is enabled
   };
+  
   enum class eRXMCGPIM : uint32_t {
     eDISABLE = 0, // MMC Receive Multicast Good Packet Counter Interrupt Mask is disabled
     eENABLE = 1, // MMC Receive Multicast Good Packet Counter Interrupt Mask is enabled
   };
+  
   enum class eRXCRCERPIM : uint32_t {
     eDISABLE = 0, // MMC Receive CRC Error Packet Counter Interrupt Mask is disabled
     eENABLE = 1, // MMC Receive CRC Error Packet Counter Interrupt Mask is enabled
   };
+  
   enum class eRXALGNERPIM : uint32_t {
     eDISABLE = 0, // MMC Receive Alignment Error Packet Counter Interrupt Mask is disabled
     eENABLE = 1, // MMC Receive Alignment Error Packet Counter Interrupt Mask is enabled
   };
+  
   enum class eRXRUNTPIM : uint32_t {
     eDISABLE = 0, // MMC Receive Runt Packet Counter Interrupt Mask is disabled
     eENABLE = 1, // MMC Receive Runt Packet Counter Interrupt Mask is enabled
   };
+  
   enum class eRXJABERPIM : uint32_t {
     eDISABLE = 0, // MMC Receive Jabber Error Packet Counter Interrupt Mask is disabled
     eENABLE = 1, // MMC Receive Jabber Error Packet Counter Interrupt Mask is enabled
   };
+  
   enum class eRXUSIZEGPIM : uint32_t {
     eDISABLE = 0, // MMC Receive Undersize Good Packet Counter Interrupt Mask is disabled
     eENABLE = 1, // MMC Receive Undersize Good Packet Counter Interrupt Mask is enabled
   };
+  
   enum class eRXOSIZEGPIM : uint32_t {
     eDISABLE = 0, // MMC Receive Oversize Good Packet Counter Interrupt Mask is disabled
     eENABLE = 1, // MMC Receive Oversize Good Packet Counter Interrupt Mask is enabled
   };
+  
   enum class eRX64OCTGBPIM : uint32_t {
     eDISABLE = 0, // MMC Receive 64 Octet Good Bad Packet Counter Interrupt Mask is disabled
     eENABLE = 1, // MMC Receive 64 Octet Good Bad Packet Counter Interrupt Mask is enabled
   };
+  
   enum class eRX65T127OCTGBPIM : uint32_t {
     eDISABLE = 0, // MMC Receive 65 to 127 Octet Good Bad Packet Counter Interrupt Mask is disabled
     eENABLE = 1, // MMC Receive 65 to 127 Octet Good Bad Packet Counter Interrupt Mask is enabled
   };
+  
   enum class eRX128T255OCTGBPIM : uint32_t {
     eDISABLE = 0, // MMC Receive 128 to 255 Octet Good Bad Packet Counter Interrupt Mask is disabled
     eENABLE = 1, // MMC Receive 128 to 255 Octet Good Bad Packet Counter Interrupt Mask is enabled
   };
+  
   enum class eRX256T511OCTGBPIM : uint32_t {
     eDISABLE = 0, // MMC Receive 256 to 511 Octet Good Bad Packet Counter Interrupt Mask is disabled
     eENABLE = 1, // MMC Receive 256 to 511 Octet Good Bad Packet Counter Interrupt Mask is enabled
   };
+  
   enum class eRX512T1023OCTGBPIM : uint32_t {
     eDISABLE = 0, // MMC Receive 512 to 1023 Octet Good Bad Packet Counter Interrupt Mask is disabled
     eENABLE = 1, // MMC Receive 512 to 1023 Octet Good Bad Packet Counter Interrupt Mask is enabled
   };
+  
   enum class eRX1024TMAXOCTGBPIM : uint32_t {
     eDISABLE = 0, // MMC Receive 1024 to Maximum Octet Good Bad Packet Counter Interrupt Mask is disabled
     eENABLE = 1, // MMC Receive 1024 to Maximum Octet Good Bad Packet Counter Interrupt Mask is enabled
   };
+  
   enum class eRXUCGPIM : uint32_t {
     eDISABLE = 0, // MMC Receive Unicast Good Packet Counter Interrupt Mask is disabled
     eENABLE = 1, // MMC Receive Unicast Good Packet Counter Interrupt Mask is enabled
   };
+  
   enum class eRXLENERPIM : uint32_t {
     eDISABLE = 0, // MMC Receive Length Error Packet Counter Interrupt Mask is disabled
     eENABLE = 1, // MMC Receive Length Error Packet Counter Interrupt Mask is enabled
   };
+  
   enum class eRXORANGEPIM : uint32_t {
     eDISABLE = 0, // MMC Receive Out Of Range Error Packet Counter Interrupt Mask is disabled
     eENABLE = 1, // MMC Receive Out Of Range Error Packet Counter Interrupt Mask is enabled
   };
+  
   enum class eRXPAUSPIM : uint32_t {
     eDISABLE = 0, // MMC Receive Pause Packet Counter Interrupt Mask is disabled
     eENABLE = 1, // MMC Receive Pause Packet Counter Interrupt Mask is enabled
   };
+  
   enum class eRXFOVPIM : uint32_t {
     eDISABLE = 0, // MMC Receive FIFO Overflow Packet Counter Interrupt Mask is disabled
     eENABLE = 1, // MMC Receive FIFO Overflow Packet Counter Interrupt Mask is enabled
   };
+  
   enum class eRXVLANGBPIM : uint32_t {
     eDISABLE = 0, // MMC Receive VLAN Good Bad Packet Counter Interrupt Mask is disabled
     eENABLE = 1, // MMC Receive VLAN Good Bad Packet Counter Interrupt Mask is enabled
   };
+  
   enum class eRXWDOGPIM : uint32_t {
     eDISABLE = 0, // MMC Receive Watchdog Error Packet Counter Interrupt Mask is disabled
     eENABLE = 1, // MMC Receive Watchdog Error Packet Counter Interrupt Mask is enabled
   };
+  
   enum class eRXRCVERRPIM : uint32_t {
     eDISABLE = 0, // MMC Receive Error Packet Counter Interrupt Mask is disabled
     eENABLE = 1, // MMC Receive Error Packet Counter Interrupt Mask is enabled
   };
+  
   enum class eRXCTRLPIM : uint32_t {
     eDISABLE = 0, // MMC Receive Control Packet Counter Interrupt Mask is disabled
     eENABLE = 1, // MMC Receive Control Packet Counter Interrupt Mask is enabled
   };
+  
   enum class eRXLPIUSCIM : uint32_t {
     eDISABLE = 0, // MMC Receive LPI microsecond counter interrupt Mask is disabled
     eENABLE = 1, // MMC Receive LPI microsecond counter interrupt Mask is enabled
   };
+  
   enum class eRXLPITRCIM : uint32_t {
     eDISABLE = 0, // MMC Receive LPI transition counter interrupt Mask is disabled
     eENABLE = 1, // MMC Receive LPI transition counter interrupt Mask is enabled
@@ -5912,7 +5981,7 @@ union MAC_MMC_RX_INTERRUPT_MASK {
     eRXLPIUSCIM RXLPIUSCIM : 1;
     eRXLPITRCIM RXLPITRCIM : 1;
     uint32_t _reserved_end : 4;
-  } bits;          // Bit-field struct (auto-filling reserved gaps)
+  } bits;
   
   // Full 32-bit register value.
   uint32_t value;
@@ -5926,115 +5995,141 @@ union MAC_MMC_RX_INTERRUPT_MASK {
 //
 union MAC_MMC_TX_INTERRUPT_MASK {
   
-  // Enum definitions.
   enum class eTXGBOCTIM : uint32_t {
     eDISABLE = 0, // MMC Transmit Good Bad Octet Counter Interrupt Mask is disabled
     eENABLE = 1, // MMC Transmit Good Bad Octet Counter Interrupt Mask is enabled
   };
+  
   enum class eTXGBPKTIM : uint32_t {
     eDISABLE = 0, // MMC Transmit Good Bad Packet Counter Interrupt Mask is disabled
     eENABLE = 1, // MMC Transmit Good Bad Packet Counter Interrupt Mask is enabled
   };
+  
   enum class eTXBCGPIM : uint32_t {
     eDISABLE = 0, // MMC Transmit Broadcast Good Packet Counter Interrupt Mask is disabled
     eENABLE = 1, // MMC Transmit Broadcast Good Packet Counter Interrupt Mask is enabled
   };
+  
   enum class eTXMCGPIM : uint32_t {
     eDISABLE = 0, // MMC Transmit Multicast Good Packet Counter Interrupt Mask is disabled
     eENABLE = 1, // MMC Transmit Multicast Good Packet Counter Interrupt Mask is enabled
   };
+  
   enum class eTX64OCTGBPIM : uint32_t {
     eDISABLE = 0, // MMC Transmit 64 Octet Good Bad Packet Counter Interrupt Mask is disabled
     eENABLE = 1, // MMC Transmit 64 Octet Good Bad Packet Counter Interrupt Mask is enabled
   };
+  
   enum class eTX65T127OCTGBPIM : uint32_t {
     eDISABLE = 0, // MMC Transmit 65 to 127 Octet Good Bad Packet Counter Interrupt Mask is disabled
     eENABLE = 1, // MMC Transmit 65 to 127 Octet Good Bad Packet Counter Interrupt Mask is enabled
   };
+  
   enum class eTX128T255OCTGBPIM : uint32_t {
     eDISABLE = 0, // MMC Transmit 128 to 255 Octet Good Bad Packet Counter Interrupt Mask is disabled
     eENABLE = 1, // MMC Transmit 128 to 255 Octet Good Bad Packet Counter Interrupt Mask is enabled
   };
+  
   enum class eTX256T511OCTGBPIM : uint32_t {
     eDISABLE = 0, // MMC Transmit 256 to 511 Octet Good Bad Packet Counter Interrupt Mask is disabled
     eENABLE = 1, // MMC Transmit 256 to 511 Octet Good Bad Packet Counter Interrupt Mask is enabled
   };
+  
   enum class eTX512T1023OCTGBPIM : uint32_t {
     eDISABLE = 0, // MMC Transmit 512 to 1023 Octet Good Bad Packet Counter Interrupt Mask is disabled
     eENABLE = 1, // MMC Transmit 512 to 1023 Octet Good Bad Packet Counter Interrupt Mask is enabled
   };
+  
   enum class eTX1024TMAXOCTGBPIM : uint32_t {
     eDISABLE = 0, // MMC Transmit 1024 to Maximum Octet Good Bad Packet Counter Interrupt Mask is disabled
     eENABLE = 1, // MMC Transmit 1024 to Maximum Octet Good Bad Packet Counter Interrupt Mask is enabled
   };
+  
   enum class eTXUCGBPIM : uint32_t {
     eDISABLE = 0, // MMC Transmit Unicast Good Bad Packet Counter Interrupt Mask is disabled
     eENABLE = 1, // MMC Transmit Unicast Good Bad Packet Counter Interrupt Mask is enabled
   };
+  
   enum class eTXMCGBPIM : uint32_t {
     eDISABLE = 0, // MMC Transmit Multicast Good Bad Packet Counter Interrupt Mask is disabled
     eENABLE = 1, // MMC Transmit Multicast Good Bad Packet Counter Interrupt Mask is enabled
   };
+  
   enum class eTXBCGBPIM : uint32_t {
     eDISABLE = 0, // MMC Transmit Broadcast Good Bad Packet Counter Interrupt Mask is disabled
     eENABLE = 1, // MMC Transmit Broadcast Good Bad Packet Counter Interrupt Mask is enabled
   };
+  
   enum class eTXUFLOWERPIM : uint32_t {
     eDISABLE = 0, // MMC Transmit Underflow Error Packet Counter Interrupt Mask is disabled
     eENABLE = 1, // MMC Transmit Underflow Error Packet Counter Interrupt Mask is enabled
   };
+  
   enum class eTXSCOLGPIM : uint32_t {
     eDISABLE = 0, // MMC Transmit Single Collision Good Packet Counter Interrupt Mask is disabled
     eENABLE = 1, // MMC Transmit Single Collision Good Packet Counter Interrupt Mask is enabled
   };
+  
   enum class eTXMCOLGPIM : uint32_t {
     eDISABLE = 0, // MMC Transmit Multiple Collision Good Packet Counter Interrupt Mask is disabled
     eENABLE = 1, // MMC Transmit Multiple Collision Good Packet Counter Interrupt Mask is enabled
   };
+  
   enum class eTXDEFPIM : uint32_t {
     eDISABLE = 0, // MMC Transmit Deferred Packet Counter Interrupt Mask is disabled
     eENABLE = 1, // MMC Transmit Deferred Packet Counter Interrupt Mask is enabled
   };
+  
   enum class eTXLATCOLPIM : uint32_t {
     eDISABLE = 0, // MMC Transmit Late Collision Packet Counter Interrupt Mask is disabled
     eENABLE = 1, // MMC Transmit Late Collision Packet Counter Interrupt Mask is enabled
   };
+  
   enum class eTXEXCOLPIM : uint32_t {
     eDISABLE = 0, // MMC Transmit Excessive Collision Packet Counter Interrupt Mask is disabled
     eENABLE = 1, // MMC Transmit Excessive Collision Packet Counter Interrupt Mask is enabled
   };
+  
   enum class eTXCARERPIM : uint32_t {
     eDISABLE = 0, // MMC Transmit Carrier Error Packet Counter Interrupt Mask is disabled
     eENABLE = 1, // MMC Transmit Carrier Error Packet Counter Interrupt Mask is enabled
   };
+  
   enum class eTXGOCTIM : uint32_t {
     eDISABLE = 0, // MMC Transmit Good Octet Counter Interrupt Mask is disabled
     eENABLE = 1, // MMC Transmit Good Octet Counter Interrupt Mask is enabled
   };
+  
   enum class eTXGPKTIM : uint32_t {
     eDISABLE = 0, // MMC Transmit Good Packet Counter Interrupt Mask is disabled
     eENABLE = 1, // MMC Transmit Good Packet Counter Interrupt Mask is enabled
   };
+  
   enum class eTXEXDEFPIM : uint32_t {
     eDISABLE = 0, // MMC Transmit Excessive Deferral Packet Counter Interrupt Mask is disabled
     eENABLE = 1, // MMC Transmit Excessive Deferral Packet Counter Interrupt Mask is enabled
   };
+  
   enum class eTXPAUSPIM : uint32_t {
     eDISABLE = 0, // MMC Transmit Pause Packet Counter Interrupt Mask is disabled
     eENABLE = 1, // MMC Transmit Pause Packet Counter Interrupt Mask is enabled
   };
+  
   enum class eTXVLANGPIM : uint32_t {
     eDISABLE = 0, // MMC Transmit VLAN Good Packet Counter Interrupt Mask is disabled
     eENABLE = 1, // MMC Transmit VLAN Good Packet Counter Interrupt Mask is enabled
   };
+  
   enum class eTXOSIZEGPIM : uint32_t {
     eDISABLE = 0, // MMC Transmit Oversize Good Packet Counter Interrupt Mask is disabled
     eENABLE = 1, // MMC Transmit Oversize Good Packet Counter Interrupt Mask is enabled
   };
+  
   enum class eTXLPIUSCIM : uint32_t {
     eDISABLE = 0, // MMC Transmit LPI microsecond counter interrupt Mask is disabled
     eENABLE = 1, // MMC Transmit LPI microsecond counter interrupt Mask is enabled
   };
+  
   enum class eTXLPITRCIM : uint32_t {
     eDISABLE = 0, // MMC Transmit LPI transition counter interrupt Mask is disabled
     eENABLE = 1, // MMC Transmit LPI transition counter interrupt Mask is enabled
@@ -6071,7 +6166,7 @@ union MAC_MMC_TX_INTERRUPT_MASK {
     eTXLPIUSCIM TXLPIUSCIM : 1;
     eTXLPITRCIM TXLPITRCIM : 1;
     uint32_t _reserved_end : 4;
-  } bits;          // Bit-field struct (auto-filling reserved gaps)
+  } bits;
   
   // Full 32-bit register value.
   uint32_t value;
@@ -6085,12 +6180,10 @@ union MAC_MMC_TX_INTERRUPT_MASK {
 //
 union MAC_TX_OCTET_COUNT_GOOD_BAD {
   
-  // Enum definitions.
-  
   // Bit field definition.
   struct {
     uint32_t TXOCTGB : 32;
-  } bits;          // Bit-field struct (auto-filling reserved gaps)
+  } bits;
   
   // Full 32-bit register value.
   uint32_t value;
@@ -6104,12 +6197,10 @@ union MAC_TX_OCTET_COUNT_GOOD_BAD {
 //
 union MAC_TX_PACKET_COUNT_GOOD_BAD {
   
-  // Enum definitions.
-  
   // Bit field definition.
   struct {
     uint32_t TXPKTGB : 32;
-  } bits;          // Bit-field struct (auto-filling reserved gaps)
+  } bits;
   
   // Full 32-bit register value.
   uint32_t value;
@@ -6123,12 +6214,10 @@ union MAC_TX_PACKET_COUNT_GOOD_BAD {
 //
 union MAC_TX_BROADCAST_PACKETS_GOOD {
   
-  // Enum definitions.
-  
   // Bit field definition.
   struct {
     uint32_t TXBCASTG : 32;
-  } bits;          // Bit-field struct (auto-filling reserved gaps)
+  } bits;
   
   // Full 32-bit register value.
   uint32_t value;
@@ -6142,12 +6231,10 @@ union MAC_TX_BROADCAST_PACKETS_GOOD {
 //
 union MAC_TX_MULTICAST_PACKETS_GOOD {
   
-  // Enum definitions.
-  
   // Bit field definition.
   struct {
     uint32_t TXMCASTG : 32;
-  } bits;          // Bit-field struct (auto-filling reserved gaps)
+  } bits;
   
   // Full 32-bit register value.
   uint32_t value;
@@ -6161,12 +6248,10 @@ union MAC_TX_MULTICAST_PACKETS_GOOD {
 //
 union MAC_TX_64OCTETS_PACKETS_GOOD_BAD {
   
-  // Enum definitions.
-  
   // Bit field definition.
   struct {
     uint32_t TX64OCTGB : 32;
-  } bits;          // Bit-field struct (auto-filling reserved gaps)
+  } bits;
   
   // Full 32-bit register value.
   uint32_t value;
@@ -6180,12 +6265,10 @@ union MAC_TX_64OCTETS_PACKETS_GOOD_BAD {
 //
 union MAC_TX_65TO127OCTETS_PACKETS_GOOD_BAD {
   
-  // Enum definitions.
-  
   // Bit field definition.
   struct {
     uint32_t TX65_127OCTGB : 32;
-  } bits;          // Bit-field struct (auto-filling reserved gaps)
+  } bits;
   
   // Full 32-bit register value.
   uint32_t value;
@@ -6199,12 +6282,10 @@ union MAC_TX_65TO127OCTETS_PACKETS_GOOD_BAD {
 //
 union MAC_TX_128TO255OCTETS_PACKETS_GOOD_BAD {
   
-  // Enum definitions.
-  
   // Bit field definition.
   struct {
     uint32_t TX128_255OCTGB : 32;
-  } bits;          // Bit-field struct (auto-filling reserved gaps)
+  } bits;
   
   // Full 32-bit register value.
   uint32_t value;
@@ -6218,12 +6299,10 @@ union MAC_TX_128TO255OCTETS_PACKETS_GOOD_BAD {
 //
 union MAC_TX_256TO511OCTETS_PACKETS_GOOD_BAD {
   
-  // Enum definitions.
-  
   // Bit field definition.
   struct {
     uint32_t TX256_511OCTGB : 32;
-  } bits;          // Bit-field struct (auto-filling reserved gaps)
+  } bits;
   
   // Full 32-bit register value.
   uint32_t value;
@@ -6237,12 +6316,10 @@ union MAC_TX_256TO511OCTETS_PACKETS_GOOD_BAD {
 //
 union MAC_TX_512TO1023OCTETS_PACKETS_GOOD_BAD {
   
-  // Enum definitions.
-  
   // Bit field definition.
   struct {
     uint32_t TX512_1023OCTGB : 32;
-  } bits;          // Bit-field struct (auto-filling reserved gaps)
+  } bits;
   
   // Full 32-bit register value.
   uint32_t value;
@@ -6256,12 +6333,10 @@ union MAC_TX_512TO1023OCTETS_PACKETS_GOOD_BAD {
 //
 union MAC_TX_1024TOMAXOCTETS_PACKETS_GOOD_BAD {
   
-  // Enum definitions.
-  
   // Bit field definition.
   struct {
     uint32_t TX1024_MAXOCTGB : 32;
-  } bits;          // Bit-field struct (auto-filling reserved gaps)
+  } bits;
   
   // Full 32-bit register value.
   uint32_t value;
@@ -6275,12 +6350,10 @@ union MAC_TX_1024TOMAXOCTETS_PACKETS_GOOD_BAD {
 //
 union MAC_TX_UNICAST_PACKETS_GOOD_BAD {
   
-  // Enum definitions.
-  
   // Bit field definition.
   struct {
     uint32_t TXUCASTGB : 32;
-  } bits;          // Bit-field struct (auto-filling reserved gaps)
+  } bits;
   
   // Full 32-bit register value.
   uint32_t value;
@@ -6294,12 +6367,10 @@ union MAC_TX_UNICAST_PACKETS_GOOD_BAD {
 //
 union MAC_TX_MULTICAST_PACKETS_GOOD_BAD {
   
-  // Enum definitions.
-  
   // Bit field definition.
   struct {
     uint32_t TXMCASTGB : 32;
-  } bits;          // Bit-field struct (auto-filling reserved gaps)
+  } bits;
   
   // Full 32-bit register value.
   uint32_t value;
@@ -6313,12 +6384,10 @@ union MAC_TX_MULTICAST_PACKETS_GOOD_BAD {
 //
 union MAC_TX_BROADCAST_PACKETS_GOOD_BAD {
   
-  // Enum definitions.
-  
   // Bit field definition.
   struct {
     uint32_t TXBCASTGB : 32;
-  } bits;          // Bit-field struct (auto-filling reserved gaps)
+  } bits;
   
   // Full 32-bit register value.
   uint32_t value;
@@ -6332,12 +6401,10 @@ union MAC_TX_BROADCAST_PACKETS_GOOD_BAD {
 //
 union MAC_TX_UNDERFLOW_ERROR_PACKETS {
   
-  // Enum definitions.
-  
   // Bit field definition.
   struct {
     uint32_t TXUNDRFLW : 32;
-  } bits;          // Bit-field struct (auto-filling reserved gaps)
+  } bits;
   
   // Full 32-bit register value.
   uint32_t value;
@@ -6351,12 +6418,10 @@ union MAC_TX_UNDERFLOW_ERROR_PACKETS {
 //
 union MAC_TX_SINGLE_COLLISION_GOOD_PACKETS {
   
-  // Enum definitions.
-  
   // Bit field definition.
   struct {
     uint32_t TXSNGLCOLG : 32;
-  } bits;          // Bit-field struct (auto-filling reserved gaps)
+  } bits;
   
   // Full 32-bit register value.
   uint32_t value;
@@ -6370,12 +6435,10 @@ union MAC_TX_SINGLE_COLLISION_GOOD_PACKETS {
 //
 union MAC_TX_MULTIPLE_COLLISION_GOOD_PACKETS {
   
-  // Enum definitions.
-  
   // Bit field definition.
   struct {
     uint32_t TXMULTCOLG : 32;
-  } bits;          // Bit-field struct (auto-filling reserved gaps)
+  } bits;
   
   // Full 32-bit register value.
   uint32_t value;
@@ -6389,12 +6452,10 @@ union MAC_TX_MULTIPLE_COLLISION_GOOD_PACKETS {
 //
 union MAC_TX_DEFERRED_PACKETS {
   
-  // Enum definitions.
-  
   // Bit field definition.
   struct {
     uint32_t TXDEFRD : 32;
-  } bits;          // Bit-field struct (auto-filling reserved gaps)
+  } bits;
   
   // Full 32-bit register value.
   uint32_t value;
@@ -6408,12 +6469,10 @@ union MAC_TX_DEFERRED_PACKETS {
 //
 union MAC_TX_LATE_COLLISION_PACKETS {
   
-  // Enum definitions.
-  
   // Bit field definition.
   struct {
     uint32_t TXLATECOL : 32;
-  } bits;          // Bit-field struct (auto-filling reserved gaps)
+  } bits;
   
   // Full 32-bit register value.
   uint32_t value;
@@ -6427,12 +6486,10 @@ union MAC_TX_LATE_COLLISION_PACKETS {
 //
 union MAC_TX_EXCESSIVE_COLLISION_PACKETS {
   
-  // Enum definitions.
-  
   // Bit field definition.
   struct {
     uint32_t TXEXSCOL : 32;
-  } bits;          // Bit-field struct (auto-filling reserved gaps)
+  } bits;
   
   // Full 32-bit register value.
   uint32_t value;
@@ -6446,12 +6503,10 @@ union MAC_TX_EXCESSIVE_COLLISION_PACKETS {
 //
 union MAC_TX_CARRIER_ERROR_PACKETS {
   
-  // Enum definitions.
-  
   // Bit field definition.
   struct {
     uint32_t TXCARR : 32;
-  } bits;          // Bit-field struct (auto-filling reserved gaps)
+  } bits;
   
   // Full 32-bit register value.
   uint32_t value;
@@ -6465,12 +6520,10 @@ union MAC_TX_CARRIER_ERROR_PACKETS {
 //
 union MAC_TX_OCTET_COUNT_GOOD {
   
-  // Enum definitions.
-  
   // Bit field definition.
   struct {
     uint32_t TXOCTG : 32;
-  } bits;          // Bit-field struct (auto-filling reserved gaps)
+  } bits;
   
   // Full 32-bit register value.
   uint32_t value;
@@ -6484,12 +6537,10 @@ union MAC_TX_OCTET_COUNT_GOOD {
 //
 union MAC_TX_PACKET_COUNT_GOOD {
   
-  // Enum definitions.
-  
   // Bit field definition.
   struct {
     uint32_t TXPKTG : 32;
-  } bits;          // Bit-field struct (auto-filling reserved gaps)
+  } bits;
   
   // Full 32-bit register value.
   uint32_t value;
@@ -6503,12 +6554,10 @@ union MAC_TX_PACKET_COUNT_GOOD {
 //
 union MAC_TX_EXCESSIVE_DEFERRAL_ERROR {
   
-  // Enum definitions.
-  
   // Bit field definition.
   struct {
     uint32_t TXEXSDEF : 32;
-  } bits;          // Bit-field struct (auto-filling reserved gaps)
+  } bits;
   
   // Full 32-bit register value.
   uint32_t value;
@@ -6522,12 +6571,10 @@ union MAC_TX_EXCESSIVE_DEFERRAL_ERROR {
 //
 union MAC_TX_PAUSE_PACKETS {
   
-  // Enum definitions.
-  
   // Bit field definition.
   struct {
     uint32_t TXPAUSE : 32;
-  } bits;          // Bit-field struct (auto-filling reserved gaps)
+  } bits;
   
   // Full 32-bit register value.
   uint32_t value;
@@ -6541,12 +6588,10 @@ union MAC_TX_PAUSE_PACKETS {
 //
 union MAC_TX_VLAN_PACKETS_GOOD {
   
-  // Enum definitions.
-  
   // Bit field definition.
   struct {
     uint32_t TXVLANG : 32;
-  } bits;          // Bit-field struct (auto-filling reserved gaps)
+  } bits;
   
   // Full 32-bit register value.
   uint32_t value;
@@ -6560,12 +6605,10 @@ union MAC_TX_VLAN_PACKETS_GOOD {
 //
 union MAC_TX_OSIZE_PACKETS_GOOD {
   
-  // Enum definitions.
-  
   // Bit field definition.
   struct {
     uint32_t TXOSIZG : 32;
-  } bits;          // Bit-field struct (auto-filling reserved gaps)
+  } bits;
   
   // Full 32-bit register value.
   uint32_t value;
@@ -6579,12 +6622,10 @@ union MAC_TX_OSIZE_PACKETS_GOOD {
 //
 union MAC_RX_PACKETS_COUNT_GOOD_BAD {
   
-  // Enum definitions.
-  
   // Bit field definition.
   struct {
     uint32_t RXPKTGB : 32;
-  } bits;          // Bit-field struct (auto-filling reserved gaps)
+  } bits;
   
   // Full 32-bit register value.
   uint32_t value;
@@ -6598,12 +6639,10 @@ union MAC_RX_PACKETS_COUNT_GOOD_BAD {
 //
 union MAC_RX_OCTET_COUNT_GOOD_BAD {
   
-  // Enum definitions.
-  
   // Bit field definition.
   struct {
     uint32_t RXOCTGB : 32;
-  } bits;          // Bit-field struct (auto-filling reserved gaps)
+  } bits;
   
   // Full 32-bit register value.
   uint32_t value;
@@ -6617,12 +6656,10 @@ union MAC_RX_OCTET_COUNT_GOOD_BAD {
 //
 union MAC_RX_OCTET_COUNT_GOOD {
   
-  // Enum definitions.
-  
   // Bit field definition.
   struct {
     uint32_t RXOCTG : 32;
-  } bits;          // Bit-field struct (auto-filling reserved gaps)
+  } bits;
   
   // Full 32-bit register value.
   uint32_t value;
@@ -6636,12 +6673,10 @@ union MAC_RX_OCTET_COUNT_GOOD {
 //
 union MAC_RX_BROADCAST_PACKETS_GOOD {
   
-  // Enum definitions.
-  
   // Bit field definition.
   struct {
     uint32_t RXBCASTG : 32;
-  } bits;          // Bit-field struct (auto-filling reserved gaps)
+  } bits;
   
   // Full 32-bit register value.
   uint32_t value;
@@ -6655,12 +6690,10 @@ union MAC_RX_BROADCAST_PACKETS_GOOD {
 //
 union MAC_RX_MULTICAST_PACKETS_GOOD {
   
-  // Enum definitions.
-  
   // Bit field definition.
   struct {
     uint32_t RXMCASTG : 32;
-  } bits;          // Bit-field struct (auto-filling reserved gaps)
+  } bits;
   
   // Full 32-bit register value.
   uint32_t value;
@@ -6674,12 +6707,10 @@ union MAC_RX_MULTICAST_PACKETS_GOOD {
 //
 union MAC_RX_CRC_ERROR_PACKETS {
   
-  // Enum definitions.
-  
   // Bit field definition.
   struct {
     uint32_t RXCRCERR : 32;
-  } bits;          // Bit-field struct (auto-filling reserved gaps)
+  } bits;
   
   // Full 32-bit register value.
   uint32_t value;
@@ -6693,12 +6724,10 @@ union MAC_RX_CRC_ERROR_PACKETS {
 //
 union MAC_RX_ALIGNMENT_ERROR_PACKETS {
   
-  // Enum definitions.
-  
   // Bit field definition.
   struct {
     uint32_t RXALGNERR : 32;
-  } bits;          // Bit-field struct (auto-filling reserved gaps)
+  } bits;
   
   // Full 32-bit register value.
   uint32_t value;
@@ -6712,12 +6741,10 @@ union MAC_RX_ALIGNMENT_ERROR_PACKETS {
 //
 union MAC_RX_RUNT_ERROR_PACKETS {
   
-  // Enum definitions.
-  
   // Bit field definition.
   struct {
     uint32_t RXRUNTERR : 32;
-  } bits;          // Bit-field struct (auto-filling reserved gaps)
+  } bits;
   
   // Full 32-bit register value.
   uint32_t value;
@@ -6731,12 +6758,10 @@ union MAC_RX_RUNT_ERROR_PACKETS {
 //
 union MAC_RX_JABBER_ERROR_PACKETS {
   
-  // Enum definitions.
-  
   // Bit field definition.
   struct {
     uint32_t RXJABERR : 32;
-  } bits;          // Bit-field struct (auto-filling reserved gaps)
+  } bits;
   
   // Full 32-bit register value.
   uint32_t value;
@@ -6750,12 +6775,10 @@ union MAC_RX_JABBER_ERROR_PACKETS {
 //
 union MAC_RX_UNDERSIZE_PACKETS_GOOD {
   
-  // Enum definitions.
-  
   // Bit field definition.
   struct {
     uint32_t RXUNDERSZG : 32;
-  } bits;          // Bit-field struct (auto-filling reserved gaps)
+  } bits;
   
   // Full 32-bit register value.
   uint32_t value;
@@ -6769,12 +6792,10 @@ union MAC_RX_UNDERSIZE_PACKETS_GOOD {
 //
 union MAC_RX_OVERSIZE_PACKETS_GOOD {
   
-  // Enum definitions.
-  
   // Bit field definition.
   struct {
     uint32_t RXOVERSZG : 32;
-  } bits;          // Bit-field struct (auto-filling reserved gaps)
+  } bits;
   
   // Full 32-bit register value.
   uint32_t value;
@@ -6788,12 +6809,10 @@ union MAC_RX_OVERSIZE_PACKETS_GOOD {
 //
 union MAC_RX_64OCTETS_PACKETS_GOOD_BAD {
   
-  // Enum definitions.
-  
   // Bit field definition.
   struct {
     uint32_t RX64OCTGB : 32;
-  } bits;          // Bit-field struct (auto-filling reserved gaps)
+  } bits;
   
   // Full 32-bit register value.
   uint32_t value;
@@ -6807,12 +6826,10 @@ union MAC_RX_64OCTETS_PACKETS_GOOD_BAD {
 //
 union MAC_RX_65TO127OCTETS_PACKETS_GOOD_BAD {
   
-  // Enum definitions.
-  
   // Bit field definition.
   struct {
     uint32_t RX65_127OCTGB : 32;
-  } bits;          // Bit-field struct (auto-filling reserved gaps)
+  } bits;
   
   // Full 32-bit register value.
   uint32_t value;
@@ -6826,12 +6843,10 @@ union MAC_RX_65TO127OCTETS_PACKETS_GOOD_BAD {
 //
 union MAC_RX_128TO255OCTETS_PACKETS_GOOD_BAD {
   
-  // Enum definitions.
-  
   // Bit field definition.
   struct {
     uint32_t RX128_255OCTGB : 32;
-  } bits;          // Bit-field struct (auto-filling reserved gaps)
+  } bits;
   
   // Full 32-bit register value.
   uint32_t value;
@@ -6845,12 +6860,10 @@ union MAC_RX_128TO255OCTETS_PACKETS_GOOD_BAD {
 //
 union MAC_RX_256TO511OCTETS_PACKETS_GOOD_BAD {
   
-  // Enum definitions.
-  
   // Bit field definition.
   struct {
     uint32_t RX256_511OCTGB : 32;
-  } bits;          // Bit-field struct (auto-filling reserved gaps)
+  } bits;
   
   // Full 32-bit register value.
   uint32_t value;
@@ -6864,12 +6877,10 @@ union MAC_RX_256TO511OCTETS_PACKETS_GOOD_BAD {
 //
 union MAC_RX_512TO1023OCTETS_PACKETS_GOOD_BAD {
   
-  // Enum definitions.
-  
   // Bit field definition.
   struct {
     uint32_t RX512_1023OCTGB : 32;
-  } bits;          // Bit-field struct (auto-filling reserved gaps)
+  } bits;
   
   // Full 32-bit register value.
   uint32_t value;
@@ -6883,12 +6894,10 @@ union MAC_RX_512TO1023OCTETS_PACKETS_GOOD_BAD {
 //
 union MAC_RX_1024TOMAXOCTETS_PACKETS_GOOD_BAD {
   
-  // Enum definitions.
-  
   // Bit field definition.
   struct {
     uint32_t RX1024_MAXOCTGB : 32;
-  } bits;          // Bit-field struct (auto-filling reserved gaps)
+  } bits;
   
   // Full 32-bit register value.
   uint32_t value;
@@ -6902,12 +6911,10 @@ union MAC_RX_1024TOMAXOCTETS_PACKETS_GOOD_BAD {
 //
 union MAC_RX_UNICAST_PACKETS_GOOD {
   
-  // Enum definitions.
-  
   // Bit field definition.
   struct {
     uint32_t RXUCASTG : 32;
-  } bits;          // Bit-field struct (auto-filling reserved gaps)
+  } bits;
   
   // Full 32-bit register value.
   uint32_t value;
@@ -6921,12 +6928,10 @@ union MAC_RX_UNICAST_PACKETS_GOOD {
 //
 union MAC_RX_LENGTH_ERROR_PACKETS {
   
-  // Enum definitions.
-  
   // Bit field definition.
   struct {
     uint32_t RXLENERR : 32;
-  } bits;          // Bit-field struct (auto-filling reserved gaps)
+  } bits;
   
   // Full 32-bit register value.
   uint32_t value;
@@ -6940,12 +6945,10 @@ union MAC_RX_LENGTH_ERROR_PACKETS {
 //
 union MAC_RX_OUT_OF_RANGE_TYPE_PACKETS {
   
-  // Enum definitions.
-  
   // Bit field definition.
   struct {
     uint32_t RXOUTOFRNG : 32;
-  } bits;          // Bit-field struct (auto-filling reserved gaps)
+  } bits;
   
   // Full 32-bit register value.
   uint32_t value;
@@ -6959,12 +6962,10 @@ union MAC_RX_OUT_OF_RANGE_TYPE_PACKETS {
 //
 union MAC_RX_PAUSE_PACKETS {
   
-  // Enum definitions.
-  
   // Bit field definition.
   struct {
     uint32_t RXPAUSEPKT : 32;
-  } bits;          // Bit-field struct (auto-filling reserved gaps)
+  } bits;
   
   // Full 32-bit register value.
   uint32_t value;
@@ -6978,12 +6979,10 @@ union MAC_RX_PAUSE_PACKETS {
 //
 union MAC_RX_FIFO_OVERFLOW_PACKETS {
   
-  // Enum definitions.
-  
   // Bit field definition.
   struct {
     uint32_t RXFIFOOVFL : 32;
-  } bits;          // Bit-field struct (auto-filling reserved gaps)
+  } bits;
   
   // Full 32-bit register value.
   uint32_t value;
@@ -6997,12 +6996,10 @@ union MAC_RX_FIFO_OVERFLOW_PACKETS {
 //
 union MAC_RX_VLAN_PACKETS_GOOD_BAD {
   
-  // Enum definitions.
-  
   // Bit field definition.
   struct {
     uint32_t RXVLANPKTGB : 32;
-  } bits;          // Bit-field struct (auto-filling reserved gaps)
+  } bits;
   
   // Full 32-bit register value.
   uint32_t value;
@@ -7016,12 +7013,10 @@ union MAC_RX_VLAN_PACKETS_GOOD_BAD {
 //
 union MAC_RX_WATCHDOG_ERROR_PACKETS {
   
-  // Enum definitions.
-  
   // Bit field definition.
   struct {
     uint32_t RXWDGERR : 32;
-  } bits;          // Bit-field struct (auto-filling reserved gaps)
+  } bits;
   
   // Full 32-bit register value.
   uint32_t value;
@@ -7035,12 +7030,10 @@ union MAC_RX_WATCHDOG_ERROR_PACKETS {
 //
 union MAC_RX_RECEIVE_ERROR_PACKETS {
   
-  // Enum definitions.
-  
   // Bit field definition.
   struct {
     uint32_t RXRCVERR : 32;
-  } bits;          // Bit-field struct (auto-filling reserved gaps)
+  } bits;
   
   // Full 32-bit register value.
   uint32_t value;
@@ -7054,12 +7047,10 @@ union MAC_RX_RECEIVE_ERROR_PACKETS {
 //
 union MAC_RX_CONTROL_PACKETS_GOOD {
   
-  // Enum definitions.
-  
   // Bit field definition.
   struct {
     uint32_t RXCTRLG : 32;
-  } bits;          // Bit-field struct (auto-filling reserved gaps)
+  } bits;
   
   // Full 32-bit register value.
   uint32_t value;
@@ -7073,12 +7064,10 @@ union MAC_RX_CONTROL_PACKETS_GOOD {
 //
 union MAC_TX_LPI_USEC_CNTR {
   
-  // Enum definitions.
-  
   // Bit field definition.
   struct {
     uint32_t TXLPIUSC : 32;
-  } bits;          // Bit-field struct (auto-filling reserved gaps)
+  } bits;
   
   // Full 32-bit register value.
   uint32_t value;
@@ -7092,12 +7081,10 @@ union MAC_TX_LPI_USEC_CNTR {
 //
 union MAC_TX_LPI_TRAN_CNTR {
   
-  // Enum definitions.
-  
   // Bit field definition.
   struct {
     uint32_t TXLPITRC : 32;
-  } bits;          // Bit-field struct (auto-filling reserved gaps)
+  } bits;
   
   // Full 32-bit register value.
   uint32_t value;
@@ -7111,12 +7098,10 @@ union MAC_TX_LPI_TRAN_CNTR {
 //
 union MAC_RX_LPI_USEC_CNTR {
   
-  // Enum definitions.
-  
   // Bit field definition.
   struct {
     uint32_t RXLPIUSC : 32;
-  } bits;          // Bit-field struct (auto-filling reserved gaps)
+  } bits;
   
   // Full 32-bit register value.
   uint32_t value;
@@ -7130,12 +7115,10 @@ union MAC_RX_LPI_USEC_CNTR {
 //
 union MAC_RX_LPI_TRAN_CNTR {
   
-  // Enum definitions.
-  
   // Bit field definition.
   struct {
     uint32_t RXLPITRC : 32;
-  } bits;          // Bit-field struct (auto-filling reserved gaps)
+  } bits;
   
   // Full 32-bit register value.
   uint32_t value;
@@ -7149,115 +7132,141 @@ union MAC_RX_LPI_TRAN_CNTR {
 //
 union MAC_MMC_IPC_RX_INTERRUPT_MASK {
   
-  // Enum definitions.
   enum class eRXIPV4GPIM : uint32_t {
     eDISABLE = 0, // MMC Receive IPV4 Good Packet Counter Interrupt Mask is disabled
     eENABLE = 1, // MMC Receive IPV4 Good Packet Counter Interrupt Mask is enabled
   };
+  
   enum class eRXIPV4HERPIM : uint32_t {
     eDISABLE = 0, // MMC Receive IPV4 Header Error Packet Counter Interrupt Mask is disabled
     eENABLE = 1, // MMC Receive IPV4 Header Error Packet Counter Interrupt Mask is enabled
   };
+  
   enum class eRXIPV4NOPAYPIM : uint32_t {
     eDISABLE = 0, // MMC Receive IPV4 No Payload Packet Counter Interrupt Mask is disabled
     eENABLE = 1, // MMC Receive IPV4 No Payload Packet Counter Interrupt Mask is enabled
   };
+  
   enum class eRXIPV4FRAGPIM : uint32_t {
     eDISABLE = 0, // MMC Receive IPV4 Fragmented Packet Counter Interrupt Mask is disabled
     eENABLE = 1, // MMC Receive IPV4 Fragmented Packet Counter Interrupt Mask is enabled
   };
+  
   enum class eRXIPV4UDSBLPIM : uint32_t {
     eDISABLE = 0, // MMC Receive IPV4 UDP Checksum Disabled Packet Counter Interrupt Mask is disabled
     eENABLE = 1, // MMC Receive IPV4 UDP Checksum Disabled Packet Counter Interrupt Mask is enabled
   };
+  
   enum class eRXIPV6GPIM : uint32_t {
     eDISABLE = 0, // MMC Receive IPV6 Good Packet Counter Interrupt Mask is disabled
     eENABLE = 1, // MMC Receive IPV6 Good Packet Counter Interrupt Mask is enabled
   };
+  
   enum class eRXIPV6HERPIM : uint32_t {
     eDISABLE = 0, // MMC Receive IPV6 Header Error Packet Counter Interrupt Mask is disabled
     eENABLE = 1, // MMC Receive IPV6 Header Error Packet Counter Interrupt Mask is enabled
   };
+  
   enum class eRXIPV6NOPAYPIM : uint32_t {
     eDISABLE = 0, // MMC Receive IPV6 No Payload Packet Counter Interrupt Mask is disabled
     eENABLE = 1, // MMC Receive IPV6 No Payload Packet Counter Interrupt Mask is enabled
   };
+  
   enum class eRXUDPGPIM : uint32_t {
     eDISABLE = 0, // MMC Receive UDP Good Packet Counter Interrupt Mask is disabled
     eENABLE = 1, // MMC Receive UDP Good Packet Counter Interrupt Mask is enabled
   };
+  
   enum class eRXUDPERPIM : uint32_t {
     eDISABLE = 0, // MMC Receive UDP Error Packet Counter Interrupt Mask is disabled
     eENABLE = 1, // MMC Receive UDP Error Packet Counter Interrupt Mask is enabled
   };
+  
   enum class eRXTCPGPIM : uint32_t {
     eDISABLE = 0, // MMC Receive TCP Good Packet Counter Interrupt Mask is disabled
     eENABLE = 1, // MMC Receive TCP Good Packet Counter Interrupt Mask is enabled
   };
+  
   enum class eRXTCPERPIM : uint32_t {
     eDISABLE = 0, // MMC Receive TCP Error Packet Counter Interrupt Mask is disabled
     eENABLE = 1, // MMC Receive TCP Error Packet Counter Interrupt Mask is enabled
   };
+  
   enum class eRXICMPGPIM : uint32_t {
     eDISABLE = 0, // MMC Receive ICMP Good Packet Counter Interrupt Mask is disabled
     eENABLE = 1, // MMC Receive ICMP Good Packet Counter Interrupt Mask is enabled
   };
+  
   enum class eRXICMPERPIM : uint32_t {
     eDISABLE = 0, // MMC Receive ICMP Error Packet Counter Interrupt Mask is disabled
     eENABLE = 1, // MMC Receive ICMP Error Packet Counter Interrupt Mask is enabled
   };
+  
   enum class eRXIPV4GOIM : uint32_t {
     eDISABLE = 0, // MMC Receive IPV4 Good Octet Counter Interrupt Mask is disabled
     eENABLE = 1, // MMC Receive IPV4 Good Octet Counter Interrupt Mask is enabled
   };
+  
   enum class eRXIPV4HEROIM : uint32_t {
     eDISABLE = 0, // MMC Receive IPV4 Header Error Octet Counter Interrupt Mask is disabled
     eENABLE = 1, // MMC Receive IPV4 Header Error Octet Counter Interrupt Mask is enabled
   };
+  
   enum class eRXIPV4NOPAYOIM : uint32_t {
     eDISABLE = 0, // MMC Receive IPV4 No Payload Octet Counter Interrupt Mask is disabled
     eENABLE = 1, // MMC Receive IPV4 No Payload Octet Counter Interrupt Mask is enabled
   };
+  
   enum class eRXIPV4FRAGOIM : uint32_t {
     eDISABLE = 0, // MMC Receive IPV4 Fragmented Octet Counter Interrupt Mask is disabled
     eENABLE = 1, // MMC Receive IPV4 Fragmented Octet Counter Interrupt Mask is enabled
   };
+  
   enum class eRXIPV4UDSBLOIM : uint32_t {
     eDISABLE = 0, // MMC Receive IPV4 UDP Checksum Disabled Octet Counter Interrupt Mask is disabled
     eENABLE = 1, // MMC Receive IPV4 UDP Checksum Disabled Octet Counter Interrupt Mask is enabled
   };
+  
   enum class eRXIPV6GOIM : uint32_t {
     eDISABLE = 0, // MMC Receive IPV6 Good Octet Counter Interrupt Mask is disabled
     eENABLE = 1, // MMC Receive IPV6 Good Octet Counter Interrupt Mask is enabled
   };
+  
   enum class eRXIPV6HEROIM : uint32_t {
     eDISABLE = 0, // MMC Receive IPV6 Good Octet Counter Interrupt Mask is disabled
     eENABLE = 1, // MMC Receive IPV6 Good Octet Counter Interrupt Mask is enabled
   };
+  
   enum class eRXIPV6NOPAYOIM : uint32_t {
     eDISABLE = 0, // MMC Receive IPV6 Header Error Octet Counter Interrupt Mask is disabled
     eENABLE = 1, // MMC Receive IPV6 Header Error Octet Counter Interrupt Mask is enabled
   };
+  
   enum class eRXUDPGOIM : uint32_t {
     eDISABLE = 0, // MMC Receive IPV6 No Payload Octet Counter Interrupt Mask is disabled
     eENABLE = 1, // MMC Receive IPV6 No Payload Octet Counter Interrupt Mask is enabled
   };
+  
   enum class eRXUDPEROIM : uint32_t {
     eDISABLE = 0, // MMC Receive UDP Good Octet Counter Interrupt Mask is disabled
     eENABLE = 1, // MMC Receive UDP Good Octet Counter Interrupt Mask is enabled
   };
+  
   enum class eRXTCPGOIM : uint32_t {
     eDISABLE = 0, // MMC Receive TCP Good Octet Counter Interrupt Mask is disabled
     eENABLE = 1, // MMC Receive TCP Good Octet Counter Interrupt Mask is enabled
   };
+  
   enum class eRXTCPEROIM : uint32_t {
     eDISABLE = 0, // MMC Receive TCP Error Octet Counter Interrupt Mask is disabled
     eENABLE = 1, // MMC Receive TCP Error Octet Counter Interrupt Mask is enabled
   };
+  
   enum class eRXICMPGOIM : uint32_t {
     eDISABLE = 0, // MMC Receive ICMP Good Octet Counter Interrupt Mask is disabled
     eENABLE = 1, // MMC Receive ICMP Good Octet Counter Interrupt Mask is enabled
   };
+  
   enum class eRXICMPEROIM : uint32_t {
     eDISABLE = 0, // MMC Receive ICMP Error Octet Counter Interrupt Mask is disabled
     eENABLE = 1, // MMC Receive ICMP Error Octet Counter Interrupt Mask is enabled
@@ -7295,7 +7304,7 @@ union MAC_MMC_IPC_RX_INTERRUPT_MASK {
     eRXICMPGOIM RXICMPGOIM : 1;
     eRXICMPEROIM RXICMPEROIM : 1;
     uint32_t _reserved_end : 2;
-  } bits;          // Bit-field struct (auto-filling reserved gaps)
+  } bits;
   
   // Full 32-bit register value.
   uint32_t value;
@@ -7309,115 +7318,141 @@ union MAC_MMC_IPC_RX_INTERRUPT_MASK {
 //
 union MAC_MMC_IPC_RX_INTERRUPT {
   
-  // Enum definitions.
   enum class eRXIPV4GPIS : uint32_t {
     eINACTIVE = 0, // MMC Receive IPV4 Good Packet Counter Interrupt Status not detected
     eACTIVE = 1, // MMC Receive IPV4 Good Packet Counter Interrupt Status detected
   };
+  
   enum class eRXIPV4HERPIS : uint32_t {
     eINACTIVE = 0, // MMC Receive IPV4 Header Error Packet Counter Interrupt Status not detected
     eACTIVE = 1, // MMC Receive IPV4 Header Error Packet Counter Interrupt Status detected
   };
+  
   enum class eRXIPV4NOPAYPIS : uint32_t {
     eINACTIVE = 0, // MMC Receive IPV4 No Payload Packet Counter Interrupt Status not detected
     eACTIVE = 1, // MMC Receive IPV4 No Payload Packet Counter Interrupt Status detected
   };
+  
   enum class eRXIPV4FRAGPIS : uint32_t {
     eINACTIVE = 0, // MMC Receive IPV4 Fragmented Packet Counter Interrupt Status not detected
     eACTIVE = 1, // MMC Receive IPV4 Fragmented Packet Counter Interrupt Status detected
   };
+  
   enum class eRXIPV4UDSBLPIS : uint32_t {
     eINACTIVE = 0, // MMC Receive IPV4 UDP Checksum Disabled Packet Counter Interrupt Status not detected
     eACTIVE = 1, // MMC Receive IPV4 UDP Checksum Disabled Packet Counter Interrupt Status detected
   };
+  
   enum class eRXIPV6GPIS : uint32_t {
     eINACTIVE = 0, // MMC Receive IPV6 Good Packet Counter Interrupt Status not detected
     eACTIVE = 1, // MMC Receive IPV6 Good Packet Counter Interrupt Status detected
   };
+  
   enum class eRXIPV6HERPIS : uint32_t {
     eINACTIVE = 0, // MMC Receive IPV6 Header Error Packet Counter Interrupt Status not detected
     eACTIVE = 1, // MMC Receive IPV6 Header Error Packet Counter Interrupt Status detected
   };
+  
   enum class eRXIPV6NOPAYPIS : uint32_t {
     eINACTIVE = 0, // MMC Receive IPV6 No Payload Packet Counter Interrupt Status not detected
     eACTIVE = 1, // MMC Receive IPV6 No Payload Packet Counter Interrupt Status detected
   };
+  
   enum class eRXUDPGPIS : uint32_t {
     eINACTIVE = 0, // MMC Receive UDP Good Packet Counter Interrupt Status not detected
     eACTIVE = 1, // MMC Receive UDP Good Packet Counter Interrupt Status detected
   };
+  
   enum class eRXUDPERPIS : uint32_t {
     eINACTIVE = 0, // MMC Receive UDP Error Packet Counter Interrupt Status not detected
     eACTIVE = 1, // MMC Receive UDP Error Packet Counter Interrupt Status detected
   };
+  
   enum class eRXTCPGPIS : uint32_t {
     eINACTIVE = 0, // MMC Receive TCP Good Packet Counter Interrupt Status not detected
     eACTIVE = 1, // MMC Receive TCP Good Packet Counter Interrupt Status detected
   };
+  
   enum class eRXTCPERPIS : uint32_t {
     eINACTIVE = 0, // MMC Receive TCP Error Packet Counter Interrupt Status not detected
     eACTIVE = 1, // MMC Receive TCP Error Packet Counter Interrupt Status detected
   };
+  
   enum class eRXICMPGPIS : uint32_t {
     eINACTIVE = 0, // MMC Receive ICMP Good Packet Counter Interrupt Status not detected
     eACTIVE = 1, // MMC Receive ICMP Good Packet Counter Interrupt Status detected
   };
+  
   enum class eRXICMPERPIS : uint32_t {
     eINACTIVE = 0, // MMC Receive ICMP Error Packet Counter Interrupt Status not detected
     eACTIVE = 1, // MMC Receive ICMP Error Packet Counter Interrupt Status detected
   };
+  
   enum class eRXIPV4GOIS : uint32_t {
     eINACTIVE = 0, // MMC Receive IPV4 Good Octet Counter Interrupt Status not detected
     eACTIVE = 1, // MMC Receive IPV4 Good Octet Counter Interrupt Status detected
   };
+  
   enum class eRXIPV4HEROIS : uint32_t {
     eINACTIVE = 0, // MMC Receive IPV4 Header Error Octet Counter Interrupt Status not detected
     eACTIVE = 1, // MMC Receive IPV4 Header Error Octet Counter Interrupt Status detected
   };
+  
   enum class eRXIPV4NOPAYOIS : uint32_t {
     eINACTIVE = 0, // MMC Receive IPV4 No Payload Octet Counter Interrupt Status not detected
     eACTIVE = 1, // MMC Receive IPV4 No Payload Octet Counter Interrupt Status detected
   };
+  
   enum class eRXIPV4FRAGOIS : uint32_t {
     eINACTIVE = 0, // MMC Receive IPV4 Fragmented Octet Counter Interrupt Status not detected
     eACTIVE = 1, // MMC Receive IPV4 Fragmented Octet Counter Interrupt Status detected
   };
+  
   enum class eRXIPV4UDSBLOIS : uint32_t {
     eINACTIVE = 0, // MMC Receive IPV4 UDP Checksum Disabled Octet Counter Interrupt Status not detected
     eACTIVE = 1, // MMC Receive IPV4 UDP Checksum Disabled Octet Counter Interrupt Status detected
   };
+  
   enum class eRXIPV6GOIS : uint32_t {
     eINACTIVE = 0, // MMC Receive IPV6 Good Octet Counter Interrupt Status not detected
     eACTIVE = 1, // MMC Receive IPV6 Good Octet Counter Interrupt Status detected
   };
+  
   enum class eRXIPV6HEROIS : uint32_t {
     eINACTIVE = 0, // MMC Receive IPV6 Header Error Octet Counter Interrupt Status not detected
     eACTIVE = 1, // MMC Receive IPV6 Header Error Octet Counter Interrupt Status detected
   };
+  
   enum class eRXIPV6NOPAYOIS : uint32_t {
     eINACTIVE = 0, // MMC Receive IPV6 No Payload Octet Counter Interrupt Status not detected
     eACTIVE = 1, // MMC Receive IPV6 No Payload Octet Counter Interrupt Status detected
   };
+  
   enum class eRXUDPGOIS : uint32_t {
     eINACTIVE = 0, // MMC Receive UDP Good Octet Counter Interrupt Status not detected
     eACTIVE = 1, // MMC Receive UDP Good Octet Counter Interrupt Status detected
   };
+  
   enum class eRXUDPEROIS : uint32_t {
     eINACTIVE = 0, // MMC Receive UDP Error Octet Counter Interrupt Status not detected
     eACTIVE = 1, // MMC Receive UDP Error Octet Counter Interrupt Status detected
   };
+  
   enum class eRXTCPGOIS : uint32_t {
     eINACTIVE = 0, // MMC Receive TCP Good Octet Counter Interrupt Status not detected
     eACTIVE = 1, // MMC Receive TCP Good Octet Counter Interrupt Status detected
   };
+  
   enum class eRXTCPEROIS : uint32_t {
     eINACTIVE = 0, // MMC Receive TCP Error Octet Counter Interrupt Status not detected
     eACTIVE = 1, // MMC Receive TCP Error Octet Counter Interrupt Status detected
   };
+  
   enum class eRXICMPGOIS : uint32_t {
     eINACTIVE = 0, // MMC Receive ICMP Good Octet Counter Interrupt Status not detected
     eACTIVE = 1, // MMC Receive ICMP Good Octet Counter Interrupt Status detected
   };
+  
   enum class eRXICMPEROIS : uint32_t {
     eINACTIVE = 0, // MMC Receive ICMP Error Octet Counter Interrupt Status not detected
     eACTIVE = 1, // MMC Receive ICMP Error Octet Counter Interrupt Status detected
@@ -7455,7 +7490,7 @@ union MAC_MMC_IPC_RX_INTERRUPT {
     eRXICMPGOIS RXICMPGOIS : 1;
     eRXICMPEROIS RXICMPEROIS : 1;
     uint32_t _reserved_end : 2;
-  } bits;          // Bit-field struct (auto-filling reserved gaps)
+  } bits;
   
   // Full 32-bit register value.
   uint32_t value;
@@ -7469,12 +7504,10 @@ union MAC_MMC_IPC_RX_INTERRUPT {
 //
 union MAC_RXIPV4_GOOD_PACKETS {
   
-  // Enum definitions.
-  
   // Bit field definition.
   struct {
     uint32_t RXIPV4GDPKT : 32;
-  } bits;          // Bit-field struct (auto-filling reserved gaps)
+  } bits;
   
   // Full 32-bit register value.
   uint32_t value;
@@ -7488,12 +7521,10 @@ union MAC_RXIPV4_GOOD_PACKETS {
 //
 union MAC_RXIPV4_HEADER_ERROR_PACKETS {
   
-  // Enum definitions.
-  
   // Bit field definition.
   struct {
     uint32_t RXIPV4HDRERRPKT : 32;
-  } bits;          // Bit-field struct (auto-filling reserved gaps)
+  } bits;
   
   // Full 32-bit register value.
   uint32_t value;
@@ -7507,12 +7538,10 @@ union MAC_RXIPV4_HEADER_ERROR_PACKETS {
 //
 union MAC_RXIPV4_NO_PAYLOAD_PACKETS {
   
-  // Enum definitions.
-  
   // Bit field definition.
   struct {
     uint32_t RXIPV4NOPAYPKT : 32;
-  } bits;          // Bit-field struct (auto-filling reserved gaps)
+  } bits;
   
   // Full 32-bit register value.
   uint32_t value;
@@ -7526,12 +7555,10 @@ union MAC_RXIPV4_NO_PAYLOAD_PACKETS {
 //
 union MAC_RXIPV4_FRAGMENTED_PACKETS {
   
-  // Enum definitions.
-  
   // Bit field definition.
   struct {
     uint32_t RXIPV4FRAGPKT : 32;
-  } bits;          // Bit-field struct (auto-filling reserved gaps)
+  } bits;
   
   // Full 32-bit register value.
   uint32_t value;
@@ -7545,12 +7572,10 @@ union MAC_RXIPV4_FRAGMENTED_PACKETS {
 //
 union MAC_RXIPV4_UDP_CHECKSUM_DISABLED_PACKETS {
   
-  // Enum definitions.
-  
   // Bit field definition.
   struct {
     uint32_t RXIPV4UDSBLPKT : 32;
-  } bits;          // Bit-field struct (auto-filling reserved gaps)
+  } bits;
   
   // Full 32-bit register value.
   uint32_t value;
@@ -7564,12 +7589,10 @@ union MAC_RXIPV4_UDP_CHECKSUM_DISABLED_PACKETS {
 //
 union MAC_RXIPV6_GOOD_PACKETS {
   
-  // Enum definitions.
-  
   // Bit field definition.
   struct {
     uint32_t RXIPV6GDPKT : 32;
-  } bits;          // Bit-field struct (auto-filling reserved gaps)
+  } bits;
   
   // Full 32-bit register value.
   uint32_t value;
@@ -7583,12 +7606,10 @@ union MAC_RXIPV6_GOOD_PACKETS {
 //
 union MAC_RXIPV6_HEADER_ERROR_PACKETS {
   
-  // Enum definitions.
-  
   // Bit field definition.
   struct {
     uint32_t RXIPV6HDRERRPKT : 32;
-  } bits;          // Bit-field struct (auto-filling reserved gaps)
+  } bits;
   
   // Full 32-bit register value.
   uint32_t value;
@@ -7602,12 +7623,10 @@ union MAC_RXIPV6_HEADER_ERROR_PACKETS {
 //
 union MAC_RXIPV6_NO_PAYLOAD_PACKETS {
   
-  // Enum definitions.
-  
   // Bit field definition.
   struct {
     uint32_t RXIPV6NOPAYPKT : 32;
-  } bits;          // Bit-field struct (auto-filling reserved gaps)
+  } bits;
   
   // Full 32-bit register value.
   uint32_t value;
@@ -7621,12 +7640,10 @@ union MAC_RXIPV6_NO_PAYLOAD_PACKETS {
 //
 union MAC_RXUDP_GOOD_PACKETS {
   
-  // Enum definitions.
-  
   // Bit field definition.
   struct {
     uint32_t RXUDPGDPKT : 32;
-  } bits;          // Bit-field struct (auto-filling reserved gaps)
+  } bits;
   
   // Full 32-bit register value.
   uint32_t value;
@@ -7640,12 +7657,10 @@ union MAC_RXUDP_GOOD_PACKETS {
 //
 union MAC_RXUDP_ERROR_PACKETS {
   
-  // Enum definitions.
-  
   // Bit field definition.
   struct {
     uint32_t RXUDPERRPKT : 32;
-  } bits;          // Bit-field struct (auto-filling reserved gaps)
+  } bits;
   
   // Full 32-bit register value.
   uint32_t value;
@@ -7659,12 +7674,10 @@ union MAC_RXUDP_ERROR_PACKETS {
 //
 union MAC_RXTCP_GOOD_PACKETS {
   
-  // Enum definitions.
-  
   // Bit field definition.
   struct {
     uint32_t RXTCPGDPKT : 32;
-  } bits;          // Bit-field struct (auto-filling reserved gaps)
+  } bits;
   
   // Full 32-bit register value.
   uint32_t value;
@@ -7678,12 +7691,10 @@ union MAC_RXTCP_GOOD_PACKETS {
 //
 union MAC_RXTCP_ERROR_PACKETS {
   
-  // Enum definitions.
-  
   // Bit field definition.
   struct {
     uint32_t RXTCPERRPKT : 32;
-  } bits;          // Bit-field struct (auto-filling reserved gaps)
+  } bits;
   
   // Full 32-bit register value.
   uint32_t value;
@@ -7697,12 +7708,10 @@ union MAC_RXTCP_ERROR_PACKETS {
 //
 union MAC_RXICMP_GOOD_PACKETS {
   
-  // Enum definitions.
-  
   // Bit field definition.
   struct {
     uint32_t RXICMPGDPKT : 32;
-  } bits;          // Bit-field struct (auto-filling reserved gaps)
+  } bits;
   
   // Full 32-bit register value.
   uint32_t value;
@@ -7716,12 +7725,10 @@ union MAC_RXICMP_GOOD_PACKETS {
 //
 union MAC_RXICMP_ERROR_PACKETS {
   
-  // Enum definitions.
-  
   // Bit field definition.
   struct {
     uint32_t RXICMPERRPKT : 32;
-  } bits;          // Bit-field struct (auto-filling reserved gaps)
+  } bits;
   
   // Full 32-bit register value.
   uint32_t value;
@@ -7735,12 +7742,10 @@ union MAC_RXICMP_ERROR_PACKETS {
 //
 union MAC_RXIPV4_GOOD_OCTETS {
   
-  // Enum definitions.
-  
   // Bit field definition.
   struct {
     uint32_t RXIPV4GDOCT : 32;
-  } bits;          // Bit-field struct (auto-filling reserved gaps)
+  } bits;
   
   // Full 32-bit register value.
   uint32_t value;
@@ -7754,12 +7759,10 @@ union MAC_RXIPV4_GOOD_OCTETS {
 //
 union MAC_RXIPV4_HEADER_ERROR_OCTETS {
   
-  // Enum definitions.
-  
   // Bit field definition.
   struct {
     uint32_t RXIPV4HDRERROCT : 32;
-  } bits;          // Bit-field struct (auto-filling reserved gaps)
+  } bits;
   
   // Full 32-bit register value.
   uint32_t value;
@@ -7773,12 +7776,10 @@ union MAC_RXIPV4_HEADER_ERROR_OCTETS {
 //
 union MAC_RXIPV4_NO_PAYLOAD_OCTETS {
   
-  // Enum definitions.
-  
   // Bit field definition.
   struct {
     uint32_t RXIPV4NOPAYOCT : 32;
-  } bits;          // Bit-field struct (auto-filling reserved gaps)
+  } bits;
   
   // Full 32-bit register value.
   uint32_t value;
@@ -7792,12 +7793,10 @@ union MAC_RXIPV4_NO_PAYLOAD_OCTETS {
 //
 union MAC_RXIPV4_FRAGMENTED_OCTETS {
   
-  // Enum definitions.
-  
   // Bit field definition.
   struct {
     uint32_t RXIPV4FRAGOCT : 32;
-  } bits;          // Bit-field struct (auto-filling reserved gaps)
+  } bits;
   
   // Full 32-bit register value.
   uint32_t value;
@@ -7811,12 +7810,10 @@ union MAC_RXIPV4_FRAGMENTED_OCTETS {
 //
 union MAC_RXIPV4_UDP_CHECKSUM_DISABLE_OCTETS {
   
-  // Enum definitions.
-  
   // Bit field definition.
   struct {
     uint32_t RXIPV4UDSBLOCT : 32;
-  } bits;          // Bit-field struct (auto-filling reserved gaps)
+  } bits;
   
   // Full 32-bit register value.
   uint32_t value;
@@ -7830,12 +7827,10 @@ union MAC_RXIPV4_UDP_CHECKSUM_DISABLE_OCTETS {
 //
 union MAC_RXIPV6_GOOD_OCTETS {
   
-  // Enum definitions.
-  
   // Bit field definition.
   struct {
     uint32_t RXIPV6GDOCT : 32;
-  } bits;          // Bit-field struct (auto-filling reserved gaps)
+  } bits;
   
   // Full 32-bit register value.
   uint32_t value;
@@ -7849,12 +7844,10 @@ union MAC_RXIPV6_GOOD_OCTETS {
 //
 union MAC_RXIPV6_HEADER_ERROR_OCTETS {
   
-  // Enum definitions.
-  
   // Bit field definition.
   struct {
     uint32_t RXIPV6HDRERROCT : 32;
-  } bits;          // Bit-field struct (auto-filling reserved gaps)
+  } bits;
   
   // Full 32-bit register value.
   uint32_t value;
@@ -7868,12 +7861,10 @@ union MAC_RXIPV6_HEADER_ERROR_OCTETS {
 //
 union MAC_RXIPV6_NO_PAYLOAD_OCTETS {
   
-  // Enum definitions.
-  
   // Bit field definition.
   struct {
     uint32_t RXIPV6NOPAYOCT : 32;
-  } bits;          // Bit-field struct (auto-filling reserved gaps)
+  } bits;
   
   // Full 32-bit register value.
   uint32_t value;
@@ -7887,12 +7878,10 @@ union MAC_RXIPV6_NO_PAYLOAD_OCTETS {
 //
 union MAC_RXUDP_GOOD_OCTETS {
   
-  // Enum definitions.
-  
   // Bit field definition.
   struct {
     uint32_t RXUDPGDOCT : 32;
-  } bits;          // Bit-field struct (auto-filling reserved gaps)
+  } bits;
   
   // Full 32-bit register value.
   uint32_t value;
@@ -7906,12 +7895,10 @@ union MAC_RXUDP_GOOD_OCTETS {
 //
 union MAC_RXUDP_ERROR_OCTETS {
   
-  // Enum definitions.
-  
   // Bit field definition.
   struct {
     uint32_t RXUDPERROCT : 32;
-  } bits;          // Bit-field struct (auto-filling reserved gaps)
+  } bits;
   
   // Full 32-bit register value.
   uint32_t value;
@@ -7925,12 +7912,10 @@ union MAC_RXUDP_ERROR_OCTETS {
 //
 union MAC_RXTCP_GOOD_OCTETS {
   
-  // Enum definitions.
-  
   // Bit field definition.
   struct {
     uint32_t RXTCPGDOCT : 32;
-  } bits;          // Bit-field struct (auto-filling reserved gaps)
+  } bits;
   
   // Full 32-bit register value.
   uint32_t value;
@@ -7944,12 +7929,10 @@ union MAC_RXTCP_GOOD_OCTETS {
 //
 union MAC_RXTCP_ERROR_OCTETS {
   
-  // Enum definitions.
-  
   // Bit field definition.
   struct {
     uint32_t RXTCPERROCT : 32;
-  } bits;          // Bit-field struct (auto-filling reserved gaps)
+  } bits;
   
   // Full 32-bit register value.
   uint32_t value;
@@ -7963,12 +7946,10 @@ union MAC_RXTCP_ERROR_OCTETS {
 //
 union MAC_RXICMP_GOOD_OCTETS {
   
-  // Enum definitions.
-  
   // Bit field definition.
   struct {
     uint32_t RXICMPGDOCT : 32;
-  } bits;          // Bit-field struct (auto-filling reserved gaps)
+  } bits;
   
   // Full 32-bit register value.
   uint32_t value;
@@ -7982,12 +7963,10 @@ union MAC_RXICMP_GOOD_OCTETS {
 //
 union MAC_RXICMP_ERROR_OCTETS {
   
-  // Enum definitions.
-  
   // Bit field definition.
   struct {
     uint32_t RXICMPERROCT : 32;
-  } bits;          // Bit-field struct (auto-filling reserved gaps)
+  } bits;
   
   // Full 32-bit register value.
   uint32_t value;
@@ -8001,11 +7980,11 @@ union MAC_RXICMP_ERROR_OCTETS {
 //
 union MAC_MMC_FPE_TX_INTERRUPT {
   
-  // Enum definitions.
   enum class eFCIS : uint32_t {
     eINACTIVE = 0, // MMC Tx FPE Fragment Counter Interrupt status not detected
     eACTIVE = 1, // MMC Tx FPE Fragment Counter Interrupt status detected
   };
+  
   enum class eHRCIS : uint32_t {
     eINACTIVE = 0, // MMC Tx Hold Request Counter Interrupt Status not detected
     eACTIVE = 1, // MMC Tx Hold Request Counter Interrupt Status detected
@@ -8016,7 +7995,7 @@ union MAC_MMC_FPE_TX_INTERRUPT {
     eFCIS FCIS : 1;
     eHRCIS HRCIS : 1;
     uint32_t _reserved_end : 30;
-  } bits;          // Bit-field struct (auto-filling reserved gaps)
+  } bits;
   
   // Full 32-bit register value.
   uint32_t value;
@@ -8030,11 +8009,11 @@ union MAC_MMC_FPE_TX_INTERRUPT {
 //
 union MAC_MMC_FPE_TX_INTERRUPT_MASK {
   
-  // Enum definitions.
   enum class eFCIM : uint32_t {
     eDISABLE = 0, // MMC Transmit Fragment Counter Interrupt Mask is disabled
     eENABLE = 1, // MMC Transmit Fragment Counter Interrupt Mask is enabled
   };
+  
   enum class eHRCIM : uint32_t {
     eDISABLE = 0, // MMC Transmit Hold Request Counter Interrupt Mask is disabled
     eENABLE = 1, // MMC Transmit Hold Request Counter Interrupt Mask is enabled
@@ -8045,7 +8024,7 @@ union MAC_MMC_FPE_TX_INTERRUPT_MASK {
     eFCIM FCIM : 1;
     eHRCIM HRCIM : 1;
     uint32_t _reserved_end : 30;
-  } bits;          // Bit-field struct (auto-filling reserved gaps)
+  } bits;
   
   // Full 32-bit register value.
   uint32_t value;
@@ -8059,12 +8038,10 @@ union MAC_MMC_FPE_TX_INTERRUPT_MASK {
 //
 union MAC_MMC_TX_FPE_FRAGMENT_CNTR {
   
-  // Enum definitions.
-  
   // Bit field definition.
   struct {
     uint32_t TXFFC : 32;
-  } bits;          // Bit-field struct (auto-filling reserved gaps)
+  } bits;
   
   // Full 32-bit register value.
   uint32_t value;
@@ -8078,12 +8055,10 @@ union MAC_MMC_TX_FPE_FRAGMENT_CNTR {
 //
 union MAC_MMC_TX_HOLD_REQ_CNTR {
   
-  // Enum definitions.
-  
   // Bit field definition.
   struct {
     uint32_t TXHRC : 32;
-  } bits;          // Bit-field struct (auto-filling reserved gaps)
+  } bits;
   
   // Full 32-bit register value.
   uint32_t value;
@@ -8097,19 +8072,21 @@ union MAC_MMC_TX_HOLD_REQ_CNTR {
 //
 union MAC_MMC_FPE_RX_INTERRUPT {
   
-  // Enum definitions.
   enum class ePAECIS : uint32_t {
     eINACTIVE = 0, // MMC Rx Packet Assembly Error Counter Interrupt Status not detected
     eACTIVE = 1, // MMC Rx Packet Assembly Error Counter Interrupt Status detected
   };
+  
   enum class ePSECIS : uint32_t {
     eINACTIVE = 0, // MMC Rx Packet SMD Error Counter Interrupt Status not detected
     eACTIVE = 1, // MMC Rx Packet SMD Error Counter Interrupt Status detected
   };
+  
   enum class ePAOCIS : uint32_t {
     eINACTIVE = 0, // MMC Rx Packet Assembly OK Counter Interrupt Status not detected
     eACTIVE = 1, // MMC Rx Packet Assembly OK Counter Interrupt Status detected
   };
+  
   enum class eFCIS : uint32_t {
     eINACTIVE = 0, // MMC Rx FPE Fragment Counter Interrupt Status not detected
     eACTIVE = 1, // MMC Rx FPE Fragment Counter Interrupt Status detected
@@ -8122,7 +8099,7 @@ union MAC_MMC_FPE_RX_INTERRUPT {
     ePAOCIS PAOCIS : 1;
     eFCIS FCIS : 1;
     uint32_t _reserved_end : 28;
-  } bits;          // Bit-field struct (auto-filling reserved gaps)
+  } bits;
   
   // Full 32-bit register value.
   uint32_t value;
@@ -8136,19 +8113,21 @@ union MAC_MMC_FPE_RX_INTERRUPT {
 //
 union MAC_MMC_FPE_RX_INTERRUPT_MASK {
   
-  // Enum definitions.
   enum class ePAECIM : uint32_t {
     eDISABLE = 0, // MMC Rx Packet Assembly Error Counter Interrupt Mask is disabled
     eENABLE = 1, // MMC Rx Packet Assembly Error Counter Interrupt Mask is enabled
   };
+  
   enum class ePSECIM : uint32_t {
     eDISABLE = 0, // MMC Rx Packet SMD Error Counter Interrupt Mask is disabled
     eENABLE = 1, // MMC Rx Packet SMD Error Counter Interrupt Mask is enabled
   };
+  
   enum class ePAOCIM : uint32_t {
     eDISABLE = 0, // MMC Rx Packet Assembly OK Counter Interrupt Mask is disabled
     eENABLE = 1, // MMC Rx Packet Assembly OK Counter Interrupt Mask is enabled
   };
+  
   enum class eFCIM : uint32_t {
     eDISABLE = 0, // MMC Rx FPE Fragment Counter Interrupt Mask is disabled
     eENABLE = 1, // MMC Rx FPE Fragment Counter Interrupt Mask is enabled
@@ -8161,7 +8140,7 @@ union MAC_MMC_FPE_RX_INTERRUPT_MASK {
     ePAOCIM PAOCIM : 1;
     eFCIM FCIM : 1;
     uint32_t _reserved_end : 28;
-  } bits;          // Bit-field struct (auto-filling reserved gaps)
+  } bits;
   
   // Full 32-bit register value.
   uint32_t value;
@@ -8175,12 +8154,10 @@ union MAC_MMC_FPE_RX_INTERRUPT_MASK {
 //
 union MAC_MMC_RX_PACKET_ASSEMBLY_ERR_CNTR {
   
-  // Enum definitions.
-  
   // Bit field definition.
   struct {
     uint32_t PAEC : 32;
-  } bits;          // Bit-field struct (auto-filling reserved gaps)
+  } bits;
   
   // Full 32-bit register value.
   uint32_t value;
@@ -8194,12 +8171,10 @@ union MAC_MMC_RX_PACKET_ASSEMBLY_ERR_CNTR {
 //
 union MAC_MMC_RX_PACKET_SMD_ERR_CNTR {
   
-  // Enum definitions.
-  
   // Bit field definition.
   struct {
     uint32_t PSEC : 32;
-  } bits;          // Bit-field struct (auto-filling reserved gaps)
+  } bits;
   
   // Full 32-bit register value.
   uint32_t value;
@@ -8213,12 +8188,10 @@ union MAC_MMC_RX_PACKET_SMD_ERR_CNTR {
 //
 union MAC_MMC_RX_PACKET_ASSEMBLY_OK_CNTR {
   
-  // Enum definitions.
-  
   // Bit field definition.
   struct {
     uint32_t PAOC : 32;
-  } bits;          // Bit-field struct (auto-filling reserved gaps)
+  } bits;
   
   // Full 32-bit register value.
   uint32_t value;
@@ -8232,12 +8205,10 @@ union MAC_MMC_RX_PACKET_ASSEMBLY_OK_CNTR {
 //
 union MAC_MMC_RX_FPE_FRAGMENT_CNTR {
   
-  // Enum definitions.
-  
   // Bit field definition.
   struct {
     uint32_t FFC : 32;
-  } bits;          // Bit-field struct (auto-filling reserved gaps)
+  } bits;
   
   // Full 32-bit register value.
   uint32_t value;
@@ -8251,47 +8222,56 @@ union MAC_MMC_RX_FPE_FRAGMENT_CNTR {
 //
 union MAC_L3_L4_CONTROL0 {
   
-  // Enum definitions.
   enum class eL3PEN0 : uint32_t {
     eDISABLE = 0, // Layer 3 Protocol is disabled
     eENABLE = 1, // Layer 3 Protocol is enabled
   };
+  
   enum class eL3SAM0 : uint32_t {
     eDISABLE = 0, // Layer 3 IP SA Match is disabled
     eENABLE = 1, // Layer 3 IP SA Match is enabled
   };
+  
   enum class eL3SAIM0 : uint32_t {
     eDISABLE = 0, // Layer 3 IP SA Inverse Match is disabled
     eENABLE = 1, // Layer 3 IP SA Inverse Match is enabled
   };
+  
   enum class eL3DAM0 : uint32_t {
     eDISABLE = 0, // Layer 3 IP DA Match is disabled
     eENABLE = 1, // Layer 3 IP DA Match is enabled
   };
+  
   enum class eL3DAIM0 : uint32_t {
     eDISABLE = 0, // Layer 3 IP DA Inverse Match is disabled
     eENABLE = 1, // Layer 3 IP DA Inverse Match is enabled
   };
+  
   enum class eL4PEN0 : uint32_t {
     eDISABLE = 0, // Layer 4 Protocol is disabled
     eENABLE = 1, // Layer 4 Protocol is enabled
   };
+  
   enum class eL4SPM0 : uint32_t {
     eDISABLE = 0, // Layer 4 Source Port Match is disabled
     eENABLE = 1, // Layer 4 Source Port Match is enabled
   };
+  
   enum class eL4SPIM0 : uint32_t {
     eDISABLE = 0, // Layer 4 Source Port Inverse Match is disabled
     eENABLE = 1, // Layer 4 Source Port Inverse Match is enabled
   };
+  
   enum class eL4DPM0 : uint32_t {
     eDISABLE = 0, // Layer 4 Destination Port Match is disabled
     eENABLE = 1, // Layer 4 Destination Port Match is enabled
   };
+  
   enum class eL4DPIM0 : uint32_t {
     eDISABLE = 0, // Layer 4 Destination Port Inverse Match is disabled
     eENABLE = 1, // Layer 4 Destination Port Inverse Match is enabled
   };
+  
   enum class eDMCHEN0 : uint32_t {
     eDISABLE = 0, // DMA Channel Select is disabled
     eENABLE = 1, // DMA Channel Select is enabled
@@ -8318,7 +8298,7 @@ union MAC_L3_L4_CONTROL0 {
     uint32_t _reserved_13 : 1;
     eDMCHEN0 DMCHEN0 : 1;
     uint32_t _reserved_end : 3;
-  } bits;          // Bit-field struct (auto-filling reserved gaps)
+  } bits;
   
   // Full 32-bit register value.
   uint32_t value;
@@ -8332,13 +8312,11 @@ union MAC_L3_L4_CONTROL0 {
 //
 union MAC_LAYER4_ADDRESS0 {
   
-  // Enum definitions.
-  
   // Bit field definition.
   struct {
     uint32_t L4SP0 : 16;
     uint32_t L4DP0 : 16;
-  } bits;          // Bit-field struct (auto-filling reserved gaps)
+  } bits;
   
   // Full 32-bit register value.
   uint32_t value;
@@ -8352,12 +8330,10 @@ union MAC_LAYER4_ADDRESS0 {
 //
 union MAC_LAYER3_ADDR0_REG0 {
   
-  // Enum definitions.
-  
   // Bit field definition.
   struct {
     uint32_t L3A00 : 32;
-  } bits;          // Bit-field struct (auto-filling reserved gaps)
+  } bits;
   
   // Full 32-bit register value.
   uint32_t value;
@@ -8371,12 +8347,10 @@ union MAC_LAYER3_ADDR0_REG0 {
 //
 union MAC_LAYER3_ADDR1_REG0 {
   
-  // Enum definitions.
-  
   // Bit field definition.
   struct {
     uint32_t L3A10 : 32;
-  } bits;          // Bit-field struct (auto-filling reserved gaps)
+  } bits;
   
   // Full 32-bit register value.
   uint32_t value;
@@ -8390,12 +8364,10 @@ union MAC_LAYER3_ADDR1_REG0 {
 //
 union MAC_LAYER3_ADDR2_REG0 {
   
-  // Enum definitions.
-  
   // Bit field definition.
   struct {
     uint32_t L3A20 : 32;
-  } bits;          // Bit-field struct (auto-filling reserved gaps)
+  } bits;
   
   // Full 32-bit register value.
   uint32_t value;
@@ -8409,12 +8381,10 @@ union MAC_LAYER3_ADDR2_REG0 {
 //
 union MAC_LAYER3_ADDR3_REG0 {
   
-  // Enum definitions.
-  
   // Bit field definition.
   struct {
     uint32_t L3A30 : 32;
-  } bits;          // Bit-field struct (auto-filling reserved gaps)
+  } bits;
   
   // Full 32-bit register value.
   uint32_t value;
@@ -8428,47 +8398,56 @@ union MAC_LAYER3_ADDR3_REG0 {
 //
 union MAC_L3_L4_CONTROL1 {
   
-  // Enum definitions.
   enum class eL3PEN1 : uint32_t {
     eDISABLE = 0, // Layer 3 Protocol is disabled
     eENABLE = 1, // Layer 3 Protocol is enabled
   };
+  
   enum class eL3SAM1 : uint32_t {
     eDISABLE = 0, // Layer 3 IP SA Match is disabled
     eENABLE = 1, // Layer 3 IP SA Match is enabled
   };
+  
   enum class eL3SAIM1 : uint32_t {
     eDISABLE = 0, // Layer 3 IP SA Inverse Match is disabled
     eENABLE = 1, // Layer 3 IP SA Inverse Match is enabled
   };
+  
   enum class eL3DAM1 : uint32_t {
     eDISABLE = 0, // Layer 3 IP DA Match is disabled
     eENABLE = 1, // Layer 3 IP DA Match is enabled
   };
+  
   enum class eL3DAIM1 : uint32_t {
     eDISABLE = 0, // Layer 3 IP DA Inverse Match is disabled
     eENABLE = 1, // Layer 3 IP DA Inverse Match is enabled
   };
+  
   enum class eL4PEN1 : uint32_t {
     eDISABLE = 0, // Layer 4 Protocol is disabled
     eENABLE = 1, // Layer 4 Protocol is enabled
   };
+  
   enum class eL4SPM1 : uint32_t {
     eDISABLE = 0, // Layer 4 Source Port Match is disabled
     eENABLE = 1, // Layer 4 Source Port Match is enabled
   };
+  
   enum class eL4SPIM1 : uint32_t {
     eDISABLE = 0, // Layer 4 Source Port Inverse Match is disabled
     eENABLE = 1, // Layer 4 Source Port Inverse Match is enabled
   };
+  
   enum class eL4DPM1 : uint32_t {
     eDISABLE = 0, // Layer 4 Destination Port Match is disabled
     eENABLE = 1, // Layer 4 Destination Port Match is enabled
   };
+  
   enum class eL4DPIM1 : uint32_t {
     eDISABLE = 0, // Layer 4 Destination Port Inverse Match is disabled
     eENABLE = 1, // Layer 4 Destination Port Inverse Match is enabled
   };
+  
   enum class eDMCHEN1 : uint32_t {
     eDISABLE = 0, // DMA Channel Select is disabled
     eENABLE = 1, // DMA Channel Select is enabled
@@ -8495,7 +8474,7 @@ union MAC_L3_L4_CONTROL1 {
     uint32_t _reserved_13 : 1;
     eDMCHEN1 DMCHEN1 : 1;
     uint32_t _reserved_end : 3;
-  } bits;          // Bit-field struct (auto-filling reserved gaps)
+  } bits;
   
   // Full 32-bit register value.
   uint32_t value;
@@ -8509,13 +8488,11 @@ union MAC_L3_L4_CONTROL1 {
 //
 union MAC_LAYER4_ADDRESS1 {
   
-  // Enum definitions.
-  
   // Bit field definition.
   struct {
     uint32_t L4SP1 : 16;
     uint32_t L4DP1 : 16;
-  } bits;          // Bit-field struct (auto-filling reserved gaps)
+  } bits;
   
   // Full 32-bit register value.
   uint32_t value;
@@ -8529,12 +8506,10 @@ union MAC_LAYER4_ADDRESS1 {
 //
 union MAC_LAYER3_ADDR0_REG1 {
   
-  // Enum definitions.
-  
   // Bit field definition.
   struct {
     uint32_t L3A01 : 32;
-  } bits;          // Bit-field struct (auto-filling reserved gaps)
+  } bits;
   
   // Full 32-bit register value.
   uint32_t value;
@@ -8548,12 +8523,10 @@ union MAC_LAYER3_ADDR0_REG1 {
 //
 union MAC_LAYER3_ADDR1_REG1 {
   
-  // Enum definitions.
-  
   // Bit field definition.
   struct {
     uint32_t L3A11 : 32;
-  } bits;          // Bit-field struct (auto-filling reserved gaps)
+  } bits;
   
   // Full 32-bit register value.
   uint32_t value;
@@ -8567,12 +8540,10 @@ union MAC_LAYER3_ADDR1_REG1 {
 //
 union MAC_LAYER3_ADDR2_REG1 {
   
-  // Enum definitions.
-  
   // Bit field definition.
   struct {
     uint32_t L3A21 : 32;
-  } bits;          // Bit-field struct (auto-filling reserved gaps)
+  } bits;
   
   // Full 32-bit register value.
   uint32_t value;
@@ -8586,12 +8557,10 @@ union MAC_LAYER3_ADDR2_REG1 {
 //
 union MAC_LAYER3_ADDR3_REG1 {
   
-  // Enum definitions.
-  
   // Bit field definition.
   struct {
     uint32_t L3A31 : 32;
-  } bits;          // Bit-field struct (auto-filling reserved gaps)
+  } bits;
   
   // Full 32-bit register value.
   uint32_t value;
@@ -8605,47 +8574,56 @@ union MAC_LAYER3_ADDR3_REG1 {
 //
 union MAC_L3_L4_CONTROL2 {
   
-  // Enum definitions.
   enum class eL3PEN2 : uint32_t {
     eDISABLE = 0, // Layer 3 Protocol is disabled
     eENABLE = 1, // Layer 3 Protocol is enabled
   };
+  
   enum class eL3SAM2 : uint32_t {
     eDISABLE = 0, // Layer 3 IP SA Match is disabled
     eENABLE = 1, // Layer 3 IP SA Match is enabled
   };
+  
   enum class eL3SAIM2 : uint32_t {
     eDISABLE = 0, // Layer 3 IP SA Inverse Match is disabled
     eENABLE = 1, // Layer 3 IP SA Inverse Match is enabled
   };
+  
   enum class eL3DAM2 : uint32_t {
     eDISABLE = 0, // Layer 3 IP DA Match is disabled
     eENABLE = 1, // Layer 3 IP DA Match is enabled
   };
+  
   enum class eL3DAIM2 : uint32_t {
     eDISABLE = 0, // Layer 3 IP DA Inverse Match is disabled
     eENABLE = 1, // Layer 3 IP DA Inverse Match is enabled
   };
+  
   enum class eL4PEN2 : uint32_t {
     eDISABLE = 0, // Layer 4 Protocol is disabled
     eENABLE = 1, // Layer 4 Protocol is enabled
   };
+  
   enum class eL4SPM2 : uint32_t {
     eDISABLE = 0, // Layer 4 Source Port Match is disabled
     eENABLE = 1, // Layer 4 Source Port Match is enabled
   };
+  
   enum class eL4SPIM2 : uint32_t {
     eDISABLE = 0, // Layer 4 Source Port Inverse Match is disabled
     eENABLE = 1, // Layer 4 Source Port Inverse Match is enabled
   };
+  
   enum class eL4DPM2 : uint32_t {
     eDISABLE = 0, // Layer 4 Destination Port Match is disabled
     eENABLE = 1, // Layer 4 Destination Port Match is enabled
   };
+  
   enum class eL4DPIM2 : uint32_t {
     eDISABLE = 0, // Layer 4 Destination Port Inverse Match is disabled
     eENABLE = 1, // Layer 4 Destination Port Inverse Match is enabled
   };
+  
   enum class eDMCHEN2 : uint32_t {
     eDISABLE = 0, // DMA Channel Select is disabled
     eENABLE = 1, // DMA Channel Select is enabled
@@ -8672,7 +8650,7 @@ union MAC_L3_L4_CONTROL2 {
     uint32_t _reserved_13 : 1;
     eDMCHEN2 DMCHEN2 : 1;
     uint32_t _reserved_end : 3;
-  } bits;          // Bit-field struct (auto-filling reserved gaps)
+  } bits;
   
   // Full 32-bit register value.
   uint32_t value;
@@ -8686,13 +8664,11 @@ union MAC_L3_L4_CONTROL2 {
 //
 union MAC_LAYER4_ADDRESS2 {
   
-  // Enum definitions.
-  
   // Bit field definition.
   struct {
     uint32_t L4SP2 : 16;
     uint32_t L4DP2 : 16;
-  } bits;          // Bit-field struct (auto-filling reserved gaps)
+  } bits;
   
   // Full 32-bit register value.
   uint32_t value;
@@ -8706,12 +8682,10 @@ union MAC_LAYER4_ADDRESS2 {
 //
 union MAC_LAYER3_ADDR0_REG2 {
   
-  // Enum definitions.
-  
   // Bit field definition.
   struct {
     uint32_t L3A02 : 32;
-  } bits;          // Bit-field struct (auto-filling reserved gaps)
+  } bits;
   
   // Full 32-bit register value.
   uint32_t value;
@@ -8725,12 +8699,10 @@ union MAC_LAYER3_ADDR0_REG2 {
 //
 union MAC_LAYER3_ADDR1_REG2 {
   
-  // Enum definitions.
-  
   // Bit field definition.
   struct {
     uint32_t L3A12 : 32;
-  } bits;          // Bit-field struct (auto-filling reserved gaps)
+  } bits;
   
   // Full 32-bit register value.
   uint32_t value;
@@ -8744,12 +8716,10 @@ union MAC_LAYER3_ADDR1_REG2 {
 //
 union MAC_LAYER3_ADDR2_REG2 {
   
-  // Enum definitions.
-  
   // Bit field definition.
   struct {
     uint32_t L3A22 : 32;
-  } bits;          // Bit-field struct (auto-filling reserved gaps)
+  } bits;
   
   // Full 32-bit register value.
   uint32_t value;
@@ -8763,12 +8733,10 @@ union MAC_LAYER3_ADDR2_REG2 {
 //
 union MAC_LAYER3_ADDR3_REG2 {
   
-  // Enum definitions.
-  
   // Bit field definition.
   struct {
     uint32_t L3A32 : 32;
-  } bits;          // Bit-field struct (auto-filling reserved gaps)
+  } bits;
   
   // Full 32-bit register value.
   uint32_t value;
@@ -8782,47 +8750,56 @@ union MAC_LAYER3_ADDR3_REG2 {
 //
 union MAC_L3_L4_CONTROL3 {
   
-  // Enum definitions.
   enum class eL3PEN3 : uint32_t {
     eDISABLE = 0, // Layer 3 Protocol is disabled
     eENABLE = 1, // Layer 3 Protocol is enabled
   };
+  
   enum class eL3SAM3 : uint32_t {
     eDISABLE = 0, // Layer 3 IP SA Match is disabled
     eENABLE = 1, // Layer 3 IP SA Match is enabled
   };
+  
   enum class eL3SAIM3 : uint32_t {
     eDISABLE = 0, // Layer 3 IP SA Inverse Match is disabled
     eENABLE = 1, // Layer 3 IP SA Inverse Match is enabled
   };
+  
   enum class eL3DAM3 : uint32_t {
     eDISABLE = 0, // Layer 3 IP DA Match is disabled
     eENABLE = 1, // Layer 3 IP DA Match is enabled
   };
+  
   enum class eL3DAIM3 : uint32_t {
     eDISABLE = 0, // Layer 3 IP DA Inverse Match is disabled
     eENABLE = 1, // Layer 3 IP DA Inverse Match is enabled
   };
+  
   enum class eL4PEN3 : uint32_t {
     eDISABLE = 0, // Layer 4 Protocol is disabled
     eENABLE = 1, // Layer 4 Protocol is enabled
   };
+  
   enum class eL4SPM3 : uint32_t {
     eDISABLE = 0, // Layer 4 Source Port Match is disabled
     eENABLE = 1, // Layer 4 Source Port Match is enabled
   };
+  
   enum class eL4SPIM3 : uint32_t {
     eDISABLE = 0, // Layer 4 Source Port Inverse Match is disabled
     eENABLE = 1, // Layer 4 Source Port Inverse Match is enabled
   };
+  
   enum class eL4DPM3 : uint32_t {
     eDISABLE = 0, // Layer 4 Destination Port Match is disabled
     eENABLE = 1, // Layer 4 Destination Port Match is enabled
   };
+  
   enum class eL4DPIM3 : uint32_t {
     eDISABLE = 0, // Layer 4 Destination Port Inverse Match is disabled
     eENABLE = 1, // Layer 4 Destination Port Inverse Match is enabled
   };
+  
   enum class eDMCHEN3 : uint32_t {
     eDISABLE = 0, // DMA Channel Select is disabled
     eENABLE = 1, // DMA Channel Select is enabled
@@ -8849,7 +8826,7 @@ union MAC_L3_L4_CONTROL3 {
     uint32_t _reserved_13 : 1;
     eDMCHEN3 DMCHEN3 : 1;
     uint32_t _reserved_end : 3;
-  } bits;          // Bit-field struct (auto-filling reserved gaps)
+  } bits;
   
   // Full 32-bit register value.
   uint32_t value;
@@ -8863,13 +8840,11 @@ union MAC_L3_L4_CONTROL3 {
 //
 union MAC_LAYER4_ADDRESS3 {
   
-  // Enum definitions.
-  
   // Bit field definition.
   struct {
     uint32_t L4SP3 : 16;
     uint32_t L4DP3 : 16;
-  } bits;          // Bit-field struct (auto-filling reserved gaps)
+  } bits;
   
   // Full 32-bit register value.
   uint32_t value;
@@ -8883,12 +8858,10 @@ union MAC_LAYER4_ADDRESS3 {
 //
 union MAC_LAYER3_ADDR0_REG3 {
   
-  // Enum definitions.
-  
   // Bit field definition.
   struct {
     uint32_t L3A03 : 32;
-  } bits;          // Bit-field struct (auto-filling reserved gaps)
+  } bits;
   
   // Full 32-bit register value.
   uint32_t value;
@@ -8902,12 +8875,10 @@ union MAC_LAYER3_ADDR0_REG3 {
 //
 union MAC_LAYER3_ADDR1_REG3 {
   
-  // Enum definitions.
-  
   // Bit field definition.
   struct {
     uint32_t L3A13 : 32;
-  } bits;          // Bit-field struct (auto-filling reserved gaps)
+  } bits;
   
   // Full 32-bit register value.
   uint32_t value;
@@ -8921,12 +8892,10 @@ union MAC_LAYER3_ADDR1_REG3 {
 //
 union MAC_LAYER3_ADDR2_REG3 {
   
-  // Enum definitions.
-  
   // Bit field definition.
   struct {
     uint32_t L3A23 : 32;
-  } bits;          // Bit-field struct (auto-filling reserved gaps)
+  } bits;
   
   // Full 32-bit register value.
   uint32_t value;
@@ -8940,12 +8909,10 @@ union MAC_LAYER3_ADDR2_REG3 {
 //
 union MAC_LAYER3_ADDR3_REG3 {
   
-  // Enum definitions.
-  
   // Bit field definition.
   struct {
     uint32_t L3A33 : 32;
-  } bits;          // Bit-field struct (auto-filling reserved gaps)
+  } bits;
   
   // Full 32-bit register value.
   uint32_t value;
@@ -8959,47 +8926,56 @@ union MAC_LAYER3_ADDR3_REG3 {
 //
 union MAC_L3_L4_CONTROL4 {
   
-  // Enum definitions.
   enum class eL3PEN4 : uint32_t {
     eDISABLE = 0, // Layer 3 Protocol is disabled
     eENABLE = 1, // Layer 3 Protocol is enabled
   };
+  
   enum class eL3SAM4 : uint32_t {
     eDISABLE = 0, // Layer 3 IP SA Match is disabled
     eENABLE = 1, // Layer 3 IP SA Match is enabled
   };
+  
   enum class eL3SAIM4 : uint32_t {
     eDISABLE = 0, // Layer 3 IP SA Inverse Match is disabled
     eENABLE = 1, // Layer 3 IP SA Inverse Match is enabled
   };
+  
   enum class eL3DAM4 : uint32_t {
     eDISABLE = 0, // Layer 3 IP DA Match is disabled
     eENABLE = 1, // Layer 3 IP DA Match is enabled
   };
+  
   enum class eL3DAIM4 : uint32_t {
     eDISABLE = 0, // Layer 3 IP DA Inverse Match is disabled
     eENABLE = 1, // Layer 3 IP DA Inverse Match is enabled
   };
+  
   enum class eL4PEN4 : uint32_t {
     eDISABLE = 0, // Layer 4 Protocol is disabled
     eENABLE = 1, // Layer 4 Protocol is enabled
   };
+  
   enum class eL4SPM4 : uint32_t {
     eDISABLE = 0, // Layer 4 Source Port Match is disabled
     eENABLE = 1, // Layer 4 Source Port Match is enabled
   };
+  
   enum class eL4SPIM4 : uint32_t {
     eDISABLE = 0, // Layer 4 Source Port Inverse Match is disabled
     eENABLE = 1, // Layer 4 Source Port Inverse Match is enabled
   };
+  
   enum class eL4DPM4 : uint32_t {
     eDISABLE = 0, // Layer 4 Destination Port Match is disabled
     eENABLE = 1, // Layer 4 Destination Port Match is enabled
   };
+  
   enum class eL4DPIM4 : uint32_t {
     eDISABLE = 0, // Layer 4 Destination Port Inverse Match is disabled
     eENABLE = 1, // Layer 4 Destination Port Inverse Match is enabled
   };
+  
   enum class eDMCHEN4 : uint32_t {
     eDISABLE = 0, // DMA Channel Select is disabled
     eENABLE = 1, // DMA Channel Select is enabled
@@ -9026,7 +9002,7 @@ union MAC_L3_L4_CONTROL4 {
     uint32_t _reserved_13 : 1;
     eDMCHEN4 DMCHEN4 : 1;
     uint32_t _reserved_end : 3;
-  } bits;          // Bit-field struct (auto-filling reserved gaps)
+  } bits;
   
   // Full 32-bit register value.
   uint32_t value;
@@ -9040,13 +9016,11 @@ union MAC_L3_L4_CONTROL4 {
 //
 union MAC_LAYER4_ADDRESS4 {
   
-  // Enum definitions.
-  
   // Bit field definition.
   struct {
     uint32_t L4SP4 : 16;
     uint32_t L4DP4 : 16;
-  } bits;          // Bit-field struct (auto-filling reserved gaps)
+  } bits;
   
   // Full 32-bit register value.
   uint32_t value;
@@ -9060,12 +9034,10 @@ union MAC_LAYER4_ADDRESS4 {
 //
 union MAC_LAYER3_ADDR0_REG4 {
   
-  // Enum definitions.
-  
   // Bit field definition.
   struct {
     uint32_t L3A04 : 32;
-  } bits;          // Bit-field struct (auto-filling reserved gaps)
+  } bits;
   
   // Full 32-bit register value.
   uint32_t value;
@@ -9079,12 +9051,10 @@ union MAC_LAYER3_ADDR0_REG4 {
 //
 union MAC_LAYER3_ADDR1_REG4 {
   
-  // Enum definitions.
-  
   // Bit field definition.
   struct {
     uint32_t L3A14 : 32;
-  } bits;          // Bit-field struct (auto-filling reserved gaps)
+  } bits;
   
   // Full 32-bit register value.
   uint32_t value;
@@ -9098,12 +9068,10 @@ union MAC_LAYER3_ADDR1_REG4 {
 //
 union MAC_LAYER3_ADDR2_REG4 {
   
-  // Enum definitions.
-  
   // Bit field definition.
   struct {
     uint32_t L3A24 : 32;
-  } bits;          // Bit-field struct (auto-filling reserved gaps)
+  } bits;
   
   // Full 32-bit register value.
   uint32_t value;
@@ -9117,12 +9085,10 @@ union MAC_LAYER3_ADDR2_REG4 {
 //
 union MAC_LAYER3_ADDR3_REG4 {
   
-  // Enum definitions.
-  
   // Bit field definition.
   struct {
     uint32_t L3A34 : 32;
-  } bits;          // Bit-field struct (auto-filling reserved gaps)
+  } bits;
   
   // Full 32-bit register value.
   uint32_t value;
@@ -9136,47 +9102,56 @@ union MAC_LAYER3_ADDR3_REG4 {
 //
 union MAC_L3_L4_CONTROL5 {
   
-  // Enum definitions.
   enum class eL3PEN5 : uint32_t {
     eDISABLE = 0, // Layer 3 Protocol is disabled
     eENABLE = 1, // Layer 3 Protocol is enabled
   };
+  
   enum class eL3SAM5 : uint32_t {
     eDISABLE = 0, // Layer 3 IP SA Match is disabled
     eENABLE = 1, // Layer 3 IP SA Match is enabled
   };
+  
   enum class eL3SAIM5 : uint32_t {
     eDISABLE = 0, // Layer 3 IP SA Inverse Match is disabled
     eENABLE = 1, // Layer 3 IP SA Inverse Match is enabled
   };
+  
   enum class eL3DAM5 : uint32_t {
     eDISABLE = 0, // Layer 3 IP DA Match is disabled
     eENABLE = 1, // Layer 3 IP DA Match is enabled
   };
+  
   enum class eL3DAIM5 : uint32_t {
     eDISABLE = 0, // Layer 3 IP DA Inverse Match is disabled
     eENABLE = 1, // Layer 3 IP DA Inverse Match is enabled
   };
+  
   enum class eL4PEN5 : uint32_t {
     eDISABLE = 0, // Layer 4 Protocol is disabled
     eENABLE = 1, // Layer 4 Protocol is enabled
   };
+  
   enum class eL4SPM5 : uint32_t {
     eDISABLE = 0, // Layer 4 Source Port Match is disabled
     eENABLE = 1, // Layer 4 Source Port Match is enabled
   };
+  
   enum class eL4SPIM5 : uint32_t {
     eDISABLE = 0, // Layer 4 Source Port Inverse Match is disabled
     eENABLE = 1, // Layer 4 Source Port Inverse Match is enabled
   };
+  
   enum class eL4DPM5 : uint32_t {
     eDISABLE = 0, // Layer 4 Destination Port Match is disabled
     eENABLE = 1, // Layer 4 Destination Port Match is enabled
   };
+  
   enum class eL4DPIM5 : uint32_t {
     eDISABLE = 0, // Layer 4 Destination Port Inverse Match is disabled
     eENABLE = 1, // Layer 4 Destination Port Inverse Match is enabled
   };
+  
   enum class eDMCHEN5 : uint32_t {
     eDISABLE = 0, // DMA Channel Select is disabled
     eENABLE = 1, // DMA Channel Select is enabled
@@ -9203,7 +9178,7 @@ union MAC_L3_L4_CONTROL5 {
     uint32_t _reserved_13 : 1;
     eDMCHEN5 DMCHEN5 : 1;
     uint32_t _reserved_end : 3;
-  } bits;          // Bit-field struct (auto-filling reserved gaps)
+  } bits;
   
   // Full 32-bit register value.
   uint32_t value;
@@ -9217,13 +9192,11 @@ union MAC_L3_L4_CONTROL5 {
 //
 union MAC_LAYER4_ADDRESS5 {
   
-  // Enum definitions.
-  
   // Bit field definition.
   struct {
     uint32_t L4SP5 : 16;
     uint32_t L4DP5 : 16;
-  } bits;          // Bit-field struct (auto-filling reserved gaps)
+  } bits;
   
   // Full 32-bit register value.
   uint32_t value;
@@ -9237,12 +9210,10 @@ union MAC_LAYER4_ADDRESS5 {
 //
 union MAC_LAYER3_ADDR0_REG5 {
   
-  // Enum definitions.
-  
   // Bit field definition.
   struct {
     uint32_t L3A05 : 32;
-  } bits;          // Bit-field struct (auto-filling reserved gaps)
+  } bits;
   
   // Full 32-bit register value.
   uint32_t value;
@@ -9256,12 +9227,10 @@ union MAC_LAYER3_ADDR0_REG5 {
 //
 union MAC_LAYER3_ADDR1_REG5 {
   
-  // Enum definitions.
-  
   // Bit field definition.
   struct {
     uint32_t L3A15 : 32;
-  } bits;          // Bit-field struct (auto-filling reserved gaps)
+  } bits;
   
   // Full 32-bit register value.
   uint32_t value;
@@ -9275,12 +9244,10 @@ union MAC_LAYER3_ADDR1_REG5 {
 //
 union MAC_LAYER3_ADDR2_REG5 {
   
-  // Enum definitions.
-  
   // Bit field definition.
   struct {
     uint32_t L3A25 : 32;
-  } bits;          // Bit-field struct (auto-filling reserved gaps)
+  } bits;
   
   // Full 32-bit register value.
   uint32_t value;
@@ -9294,12 +9261,10 @@ union MAC_LAYER3_ADDR2_REG5 {
 //
 union MAC_LAYER3_ADDR3_REG5 {
   
-  // Enum definitions.
-  
   // Bit field definition.
   struct {
     uint32_t L3A35 : 32;
-  } bits;          // Bit-field struct (auto-filling reserved gaps)
+  } bits;
   
   // Full 32-bit register value.
   uint32_t value;
@@ -9313,47 +9278,56 @@ union MAC_LAYER3_ADDR3_REG5 {
 //
 union MAC_L3_L4_CONTROL6 {
   
-  // Enum definitions.
   enum class eL3PEN6 : uint32_t {
     eDISABLE = 0, // Layer 3 Protocol is disabled
     eENABLE = 1, // Layer 3 Protocol is enabled
   };
+  
   enum class eL3SAM6 : uint32_t {
     eDISABLE = 0, // Layer 3 IP SA Match is disabled
     eENABLE = 1, // Layer 3 IP SA Match is enabled
   };
+  
   enum class eL3SAIM6 : uint32_t {
     eDISABLE = 0, // Layer 3 IP SA Inverse Match is disabled
     eENABLE = 1, // Layer 3 IP SA Inverse Match is enabled
   };
+  
   enum class eL3DAM6 : uint32_t {
     eDISABLE = 0, // Layer 3 IP DA Match is disabled
     eENABLE = 1, // Layer 3 IP DA Match is enabled
   };
+  
   enum class eL3DAIM6 : uint32_t {
     eDISABLE = 0, // Layer 3 IP DA Inverse Match is disabled
     eENABLE = 1, // Layer 3 IP DA Inverse Match is enabled
   };
+  
   enum class eL4PEN6 : uint32_t {
     eDISABLE = 0, // Layer 4 Protocol is disabled
     eENABLE = 1, // Layer 4 Protocol is enabled
   };
+  
   enum class eL4SPM6 : uint32_t {
     eDISABLE = 0, // Layer 4 Source Port Match is disabled
     eENABLE = 1, // Layer 4 Source Port Match is enabled
   };
+  
   enum class eL4SPIM6 : uint32_t {
     eDISABLE = 0, // Layer 4 Source Port Inverse Match is disabled
     eENABLE = 1, // Layer 4 Source Port Inverse Match is enabled
   };
+  
   enum class eL4DPM6 : uint32_t {
     eDISABLE = 0, // Layer 4 Destination Port Match is disabled
     eENABLE = 1, // Layer 4 Destination Port Match is enabled
   };
+  
   enum class eL4DPIM6 : uint32_t {
     eDISABLE = 0, // Layer 4 Destination Port Inverse Match is disabled
     eENABLE = 1, // Layer 4 Destination Port Inverse Match is enabled
   };
+  
   enum class eDMCHEN6 : uint32_t {
     eDISABLE = 0, // DMA Channel Select is disabled
     eENABLE = 1, // DMA Channel Select is enabled
@@ -9380,7 +9354,7 @@ union MAC_L3_L4_CONTROL6 {
     uint32_t _reserved_13 : 1;
     eDMCHEN6 DMCHEN6 : 1;
     uint32_t _reserved_end : 3;
-  } bits;          // Bit-field struct (auto-filling reserved gaps)
+  } bits;
   
   // Full 32-bit register value.
   uint32_t value;
@@ -9394,13 +9368,11 @@ union MAC_L3_L4_CONTROL6 {
 //
 union MAC_LAYER4_ADDRESS6 {
   
-  // Enum definitions.
-  
   // Bit field definition.
   struct {
     uint32_t L4SP6 : 16;
     uint32_t L4DP6 : 16;
-  } bits;          // Bit-field struct (auto-filling reserved gaps)
+  } bits;
   
   // Full 32-bit register value.
   uint32_t value;
@@ -9414,12 +9386,10 @@ union MAC_LAYER4_ADDRESS6 {
 //
 union MAC_LAYER3_ADDR0_REG6 {
   
-  // Enum definitions.
-  
   // Bit field definition.
   struct {
     uint32_t L3A06 : 32;
-  } bits;          // Bit-field struct (auto-filling reserved gaps)
+  } bits;
   
   // Full 32-bit register value.
   uint32_t value;
@@ -9433,12 +9403,10 @@ union MAC_LAYER3_ADDR0_REG6 {
 //
 union MAC_LAYER3_ADDR1_REG6 {
   
-  // Enum definitions.
-  
   // Bit field definition.
   struct {
     uint32_t L3A16 : 32;
-  } bits;          // Bit-field struct (auto-filling reserved gaps)
+  } bits;
   
   // Full 32-bit register value.
   uint32_t value;
@@ -9452,12 +9420,10 @@ union MAC_LAYER3_ADDR1_REG6 {
 //
 union MAC_LAYER3_ADDR2_REG6 {
   
-  // Enum definitions.
-  
   // Bit field definition.
   struct {
     uint32_t L3A26 : 32;
-  } bits;          // Bit-field struct (auto-filling reserved gaps)
+  } bits;
   
   // Full 32-bit register value.
   uint32_t value;
@@ -9471,12 +9437,10 @@ union MAC_LAYER3_ADDR2_REG6 {
 //
 union MAC_LAYER3_ADDR3_REG6 {
   
-  // Enum definitions.
-  
   // Bit field definition.
   struct {
     uint32_t L3A36 : 32;
-  } bits;          // Bit-field struct (auto-filling reserved gaps)
+  } bits;
   
   // Full 32-bit register value.
   uint32_t value;
@@ -9490,47 +9454,56 @@ union MAC_LAYER3_ADDR3_REG6 {
 //
 union MAC_L3_L4_CONTROL7 {
   
-  // Enum definitions.
   enum class eL3PEN7 : uint32_t {
     eDISABLE = 0, // Layer 3 Protocol is disabled
     eENABLE = 1, // Layer 3 Protocol is enabled
   };
+  
   enum class eL3SAM7 : uint32_t {
     eDISABLE = 0, // Layer 3 IP SA Match is disabled
     eENABLE = 1, // Layer 3 IP SA Match is enabled
   };
+  
   enum class eL3SAIM7 : uint32_t {
     eDISABLE = 0, // Layer 3 IP SA Inverse Match is disabled
     eENABLE = 1, // Layer 3 IP SA Inverse Match is enabled
   };
+  
   enum class eL3DAM7 : uint32_t {
     eDISABLE = 0, // Layer 3 IP DA Match is disabled
     eENABLE = 1, // Layer 3 IP DA Match is enabled
   };
+  
   enum class eL3DAIM7 : uint32_t {
     eDISABLE = 0, // Layer 3 IP DA Inverse Match is disabled
     eENABLE = 1, // Layer 3 IP DA Inverse Match is enabled
   };
+  
   enum class eL4PEN7 : uint32_t {
     eDISABLE = 0, // Layer 4 Protocol is disabled
     eENABLE = 1, // Layer 4 Protocol is enabled
   };
+  
   enum class eL4SPM7 : uint32_t {
     eDISABLE = 0, // Layer 4 Source Port Match is disabled
     eENABLE = 1, // Layer 4 Source Port Match is enabled
   };
+  
   enum class eL4SPIM7 : uint32_t {
     eDISABLE = 0, // Layer 4 Source Port Inverse Match is disabled
     eENABLE = 1, // Layer 4 Source Port Inverse Match is enabled
   };
+  
   enum class eL4DPM7 : uint32_t {
     eDISABLE = 0, // Layer 4 Destination Port Match is disabled
     eENABLE = 1, // Layer 4 Destination Port Match is enabled
   };
+  
   enum class eL4DPIM7 : uint32_t {
     eDISABLE = 0, // Layer 4 Destination Port Inverse Match is disabled
     eENABLE = 1, // Layer 4 Destination Port Inverse Match is enabled
   };
+  
   enum class eDMCHEN7 : uint32_t {
     eDISABLE = 0, // DMA Channel Select is disabled
     eENABLE = 1, // DMA Channel Select is enabled
@@ -9557,7 +9530,7 @@ union MAC_L3_L4_CONTROL7 {
     uint32_t _reserved_13 : 1;
     eDMCHEN7 DMCHEN7 : 1;
     uint32_t _reserved_end : 3;
-  } bits;          // Bit-field struct (auto-filling reserved gaps)
+  } bits;
   
   // Full 32-bit register value.
   uint32_t value;
@@ -9571,13 +9544,11 @@ union MAC_L3_L4_CONTROL7 {
 //
 union MAC_LAYER4_ADDRESS7 {
   
-  // Enum definitions.
-  
   // Bit field definition.
   struct {
     uint32_t L4SP7 : 16;
     uint32_t L4DP7 : 16;
-  } bits;          // Bit-field struct (auto-filling reserved gaps)
+  } bits;
   
   // Full 32-bit register value.
   uint32_t value;
@@ -9591,12 +9562,10 @@ union MAC_LAYER4_ADDRESS7 {
 //
 union MAC_LAYER3_ADDR0_REG7 {
   
-  // Enum definitions.
-  
   // Bit field definition.
   struct {
     uint32_t L3A07 : 32;
-  } bits;          // Bit-field struct (auto-filling reserved gaps)
+  } bits;
   
   // Full 32-bit register value.
   uint32_t value;
@@ -9610,12 +9579,10 @@ union MAC_LAYER3_ADDR0_REG7 {
 //
 union MAC_LAYER3_ADDR1_REG7 {
   
-  // Enum definitions.
-  
   // Bit field definition.
   struct {
     uint32_t L3A17 : 32;
-  } bits;          // Bit-field struct (auto-filling reserved gaps)
+  } bits;
   
   // Full 32-bit register value.
   uint32_t value;
@@ -9629,12 +9596,10 @@ union MAC_LAYER3_ADDR1_REG7 {
 //
 union MAC_LAYER3_ADDR2_REG7 {
   
-  // Enum definitions.
-  
   // Bit field definition.
   struct {
     uint32_t L3A27 : 32;
-  } bits;          // Bit-field struct (auto-filling reserved gaps)
+  } bits;
   
   // Full 32-bit register value.
   uint32_t value;
@@ -9648,12 +9613,10 @@ union MAC_LAYER3_ADDR2_REG7 {
 //
 union MAC_LAYER3_ADDR3_REG7 {
   
-  // Enum definitions.
-  
   // Bit field definition.
   struct {
     uint32_t L3A37 : 32;
-  } bits;          // Bit-field struct (auto-filling reserved gaps)
+  } bits;
   
   // Full 32-bit register value.
   uint32_t value;
@@ -9667,79 +9630,96 @@ union MAC_LAYER3_ADDR3_REG7 {
 //
 union MAC_TIMESTAMP_CONTROL {
   
-  // Enum definitions.
   enum class eTSENA : uint32_t {
     eDISABLE = 0, // Timestamp is disabled
     eENABLE = 1, // Timestamp is enabled
   };
+  
   enum class eTSCFUPDT : uint32_t {
     eCOARSE = 0, // Coarse method is used to update system timestamp
     eFINE = 1, // Fine method is used to update system timestamp
   };
+  
   enum class eTSINIT : uint32_t {
     eDISABLE = 0, // Timestamp is not initialized
     eENABLE = 1, // Timestamp is initialized
   };
+  
   enum class eTSUPDT : uint32_t {
     eDISABLE = 0, // Timestamp is not updated
     eENABLE = 1, // Timestamp is updated
   };
+  
   enum class eTSADDREG : uint32_t {
     eDISABLE = 0, // Addend Register is not updated
     eENABLE = 1, // Addend Register is updated
   };
+  
   enum class ePTGE : uint32_t {
     eDISABLE = 0, // Presentation Time Generation is disabled
     eENABLE = 1, // Presentation Time Generation is enabled
   };
+  
   enum class eTSENALL : uint32_t {
     eDISABLE = 0, // Timestamp for All Packets disabled
     eENABLE = 1, // Timestamp for All Packets enabled
   };
+  
   enum class eTSCTRLSSR : uint32_t {
     eDISABLE = 0, // Timestamp Digital or Binary Rollover Control is disabled
     eENABLE = 1, // Timestamp Digital or Binary Rollover Control is enabled
   };
+  
   enum class eTSVER2ENA : uint32_t {
     eDISABLE = 0, // PTP Packet Processing for Version 2 Format is disabled
     eENABLE = 1, // PTP Packet Processing for Version 2 Format is enabled
   };
+  
   enum class eTSIPENA : uint32_t {
     eDISABLE = 0, // Processing of PTP over Ethernet Packets is disabled
     eENABLE = 1, // Processing of PTP over Ethernet Packets is enabled
   };
+  
   enum class eTSIPV6ENA : uint32_t {
     eDISABLE = 0, // Processing of PTP Packets Sent over IPv6-UDP is disabled
     eENABLE = 1, // Processing of PTP Packets Sent over IPv6-UDP is enabled
   };
+  
   enum class eTSIPV4ENA : uint32_t {
     eDISABLE = 0, // Processing of PTP Packets Sent over IPv4-UDP is disabled
     eENABLE = 1, // Processing of PTP Packets Sent over IPv4-UDP is enabled
   };
+  
   enum class eTSEVNTENA : uint32_t {
     eDISABLE = 0, // Timestamp Snapshot for Event Messages is disabled
     eENABLE = 1, // Timestamp Snapshot for Event Messages is enabled
   };
+  
   enum class eTSMSTRENA : uint32_t {
     eDISABLE = 0, // Snapshot for Messages Relevant to Master is disabled
     eENABLE = 1, // Snapshot for Messages Relevant to Master is enabled
   };
+  
   enum class eTSENMACADDR : uint32_t {
     eDISABLE = 0, // MAC Address for PTP Packet Filtering is disabled
     eENABLE = 1, // MAC Address for PTP Packet Filtering is enabled
   };
+  
   enum class eCSC : uint32_t {
     eDISABLE = 0, // checksum correction during OST for PTP over UDP/IPv4 packets is disabled
     eENABLE = 1, // checksum correction during OST for PTP over UDP/IPv4 packets is enabled
   };
+  
   enum class eESTI : uint32_t {
     eDISABLE = 0, // External System Time Input is disabled
     eENABLE = 1, // External System Time Input is enabled
   };
+  
   enum class eTXTSSTSM : uint32_t {
     eDISABLE = 0, // Transmit Timestamp Status Mode is disabled
     eENABLE = 1, // Transmit Timestamp Status Mode is enabled
   };
+  
   enum class eAV8021ASMEN : uint32_t {
     eDISABLE = 0, // AV 802.1AS Mode is disabled
     eENABLE = 1, // AV 802.1AS Mode is enabled
@@ -9772,7 +9752,7 @@ union MAC_TIMESTAMP_CONTROL {
     uint32_t _reserved_19 : 3;
     eAV8021ASMEN AV8021ASMEN : 1;
     uint32_t _reserved_end : 3;
-  } bits;          // Bit-field struct (auto-filling reserved gaps)
+  } bits;
   
   // Full 32-bit register value.
   uint32_t value;
@@ -9786,15 +9766,13 @@ union MAC_TIMESTAMP_CONTROL {
 //
 union MAC_SUB_SECOND_INCREMENT {
   
-  // Enum definitions.
-  
   // Bit field definition.
   struct {
     uint32_t _reserved_0 : 8;
     uint32_t SNSINC : 8;
     uint32_t SSINC : 8;
     uint32_t _reserved_end : 8;
-  } bits;          // Bit-field struct (auto-filling reserved gaps)
+  } bits;
   
   // Full 32-bit register value.
   uint32_t value;
@@ -9808,12 +9786,10 @@ union MAC_SUB_SECOND_INCREMENT {
 //
 union MAC_SYSTEM_TIME_SECONDS {
   
-  // Enum definitions.
-  
   // Bit field definition.
   struct {
     uint32_t TSS : 32;
-  } bits;          // Bit-field struct (auto-filling reserved gaps)
+  } bits;
   
   // Full 32-bit register value.
   uint32_t value;
@@ -9827,13 +9803,11 @@ union MAC_SYSTEM_TIME_SECONDS {
 //
 union MAC_SYSTEM_TIME_NANOSECONDS {
   
-  // Enum definitions.
-  
   // Bit field definition.
   struct {
     uint32_t TSSS : 31;
     uint32_t _reserved_end : 1;
-  } bits;          // Bit-field struct (auto-filling reserved gaps)
+  } bits;
   
   // Full 32-bit register value.
   uint32_t value;
@@ -9847,12 +9821,10 @@ union MAC_SYSTEM_TIME_NANOSECONDS {
 //
 union MAC_SYSTEM_TIME_SECONDS_UPDATE {
   
-  // Enum definitions.
-  
   // Bit field definition.
   struct {
     uint32_t TSS : 32;
-  } bits;          // Bit-field struct (auto-filling reserved gaps)
+  } bits;
   
   // Full 32-bit register value.
   uint32_t value;
@@ -9866,7 +9838,6 @@ union MAC_SYSTEM_TIME_SECONDS_UPDATE {
 //
 union MAC_SYSTEM_TIME_NANOSECONDS_UPDATE {
   
-  // Enum definitions.
   enum class eADDSUB : uint32_t {
     eADD = 0, // Add time
     eSUB = 1, // Subtract time
@@ -9876,7 +9847,7 @@ union MAC_SYSTEM_TIME_NANOSECONDS_UPDATE {
   struct {
     uint32_t TSSS : 31;
     eADDSUB ADDSUB : 1;
-  } bits;          // Bit-field struct (auto-filling reserved gaps)
+  } bits;
   
   // Full 32-bit register value.
   uint32_t value;
@@ -9890,12 +9861,10 @@ union MAC_SYSTEM_TIME_NANOSECONDS_UPDATE {
 //
 union MAC_TIMESTAMP_ADDEND {
   
-  // Enum definitions.
-  
   // Bit field definition.
   struct {
     uint32_t TSAR : 32;
-  } bits;          // Bit-field struct (auto-filling reserved gaps)
+  } bits;
   
   // Full 32-bit register value.
   uint32_t value;
@@ -9909,13 +9878,11 @@ union MAC_TIMESTAMP_ADDEND {
 //
 union MAC_SYSTEM_TIME_HIGHER_WORD_SECONDS {
   
-  // Enum definitions.
-  
   // Bit field definition.
   struct {
     uint32_t TSHWR : 16;
     uint32_t _reserved_end : 16;
-  } bits;          // Bit-field struct (auto-filling reserved gaps)
+  } bits;
   
   // Full 32-bit register value.
   uint32_t value;
@@ -9929,51 +9896,61 @@ union MAC_SYSTEM_TIME_HIGHER_WORD_SECONDS {
 //
 union MAC_TIMESTAMP_STATUS {
   
-  // Enum definitions.
   enum class eTSSOVF : uint32_t {
     eINACTIVE = 0, // Timestamp Seconds Overflow status not detected
     eACTIVE = 1, // Timestamp Seconds Overflow status detected
   };
+  
   enum class eTSTARGT0 : uint32_t {
     eINACTIVE = 0, // Timestamp Target Time Reached status not detected
     eACTIVE = 1, // Timestamp Target Time Reached status detected
   };
+  
   enum class eAUXTSTRIG : uint32_t {
     eINACTIVE = 0, // Auxiliary Timestamp Trigger Snapshot status not detected
     eACTIVE = 1, // Auxiliary Timestamp Trigger Snapshot status detected
   };
+  
   enum class eTSTRGTERR0 : uint32_t {
     eINACTIVE = 0, // Timestamp Target Time Error status not detected
     eACTIVE = 1, // Timestamp Target Time Error status detected
   };
+  
   enum class eTSTARGT1 : uint32_t {
     eINACTIVE = 0, // Timestamp Target Time Reached for Target Time PPS1 status not detected
     eACTIVE = 1, // Timestamp Target Time Reached for Target Time PPS1 status detected
   };
+  
   enum class eTSTRGTERR1 : uint32_t {
     eINACTIVE = 0, // Timestamp Target Time Error status not detected
     eACTIVE = 1, // Timestamp Target Time Error status detected
   };
+  
   enum class eTSTARGT2 : uint32_t {
     eINACTIVE = 0, // Timestamp Target Time Reached for Target Time PPS2 status not detected
     eACTIVE = 1, // Timestamp Target Time Reached for Target Time PPS2 status detected
   };
+  
   enum class eTSTRGTERR2 : uint32_t {
     eINACTIVE = 0, // Timestamp Target Time Error status not detected
     eACTIVE = 1, // Timestamp Target Time Error status detected
   };
+  
   enum class eTSTARGT3 : uint32_t {
     eINACTIVE = 0, // Timestamp Target Time Reached for Target Time PPS3 status not detected
     eACTIVE = 1, // Timestamp Target Time Reached for Target Time PPS3 status detected
   };
+  
   enum class eTSTRGTERR3 : uint32_t {
     eINACTIVE = 0, // Timestamp Target Time Error status not detected
     eACTIVE = 1, // Timestamp Target Time Error status detected
   };
+  
   enum class eTXTSSIS : uint32_t {
     eINACTIVE = 0, // Tx Timestamp Status Interrupt status not detected
     eACTIVE = 1, // Tx Timestamp Status Interrupt status detected
   };
+  
   enum class eATSSTM : uint32_t {
     eINACTIVE = 0, // Auxiliary Timestamp Snapshot Trigger Missed status not detected
     eACTIVE = 1, // Auxiliary Timestamp Snapshot Trigger Missed status detected
@@ -9998,7 +9975,7 @@ union MAC_TIMESTAMP_STATUS {
     eATSSTM ATSSTM : 1;
     uint32_t ATSNS : 5;
     uint32_t _reserved_end : 2;
-  } bits;          // Bit-field struct (auto-filling reserved gaps)
+  } bits;
   
   // Full 32-bit register value.
   uint32_t value;
@@ -10012,7 +9989,6 @@ union MAC_TIMESTAMP_STATUS {
 //
 union MAC_TX_TIMESTAMP_STATUS_NANOSECONDS {
   
-  // Enum definitions.
   enum class eTXTSSMIS : uint32_t {
     eINACTIVE = 0, // Transmit Timestamp Status Missed status not detected
     eACTIVE = 1, // Transmit Timestamp Status Missed status detected
@@ -10022,7 +9998,7 @@ union MAC_TX_TIMESTAMP_STATUS_NANOSECONDS {
   struct {
     uint32_t TXTSSLO : 31;
     eTXTSSMIS TXTSSMIS : 1;
-  } bits;          // Bit-field struct (auto-filling reserved gaps)
+  } bits;
   
   // Full 32-bit register value.
   uint32_t value;
@@ -10036,12 +10012,10 @@ union MAC_TX_TIMESTAMP_STATUS_NANOSECONDS {
 //
 union MAC_TX_TIMESTAMP_STATUS_SECONDS {
   
-  // Enum definitions.
-  
   // Bit field definition.
   struct {
     uint32_t TXTSSHI : 32;
-  } bits;          // Bit-field struct (auto-filling reserved gaps)
+  } bits;
   
   // Full 32-bit register value.
   uint32_t value;
@@ -10055,23 +10029,26 @@ union MAC_TX_TIMESTAMP_STATUS_SECONDS {
 //
 union MAC_AUXILIARY_CONTROL {
   
-  // Enum definitions.
   enum class eATSFC : uint32_t {
     eDISABLE = 0, // Auxiliary Snapshot FIFO Clear is disabled
     eENABLE = 1, // Auxiliary Snapshot FIFO Clear is enabled
   };
+  
   enum class eATSEN0 : uint32_t {
     eDISABLE = 0, // Auxiliary Snapshot $i is disabled
     eENABLE = 1, // Auxiliary Snapshot $i is enabled
   };
+  
   enum class eATSEN1 : uint32_t {
     eDISABLE = 0, // Auxiliary Snapshot $i is disabled
     eENABLE = 1, // Auxiliary Snapshot $i is enabled
   };
+  
   enum class eATSEN2 : uint32_t {
     eDISABLE = 0, // Auxiliary Snapshot $i is disabled
     eENABLE = 1, // Auxiliary Snapshot $i is enabled
   };
+  
   enum class eATSEN3 : uint32_t {
     eDISABLE = 0, // Auxiliary Snapshot $i is disabled
     eENABLE = 1, // Auxiliary Snapshot $i is enabled
@@ -10086,7 +10063,7 @@ union MAC_AUXILIARY_CONTROL {
     eATSEN2 ATSEN2 : 1;
     eATSEN3 ATSEN3 : 1;
     uint32_t _reserved_end : 24;
-  } bits;          // Bit-field struct (auto-filling reserved gaps)
+  } bits;
   
   // Full 32-bit register value.
   uint32_t value;
@@ -10100,13 +10077,11 @@ union MAC_AUXILIARY_CONTROL {
 //
 union MAC_AUXILIARY_TIMESTAMP_NANOSECONDS {
   
-  // Enum definitions.
-  
   // Bit field definition.
   struct {
     uint32_t AUXTSLO : 31;
     uint32_t _reserved_end : 1;
-  } bits;          // Bit-field struct (auto-filling reserved gaps)
+  } bits;
   
   // Full 32-bit register value.
   uint32_t value;
@@ -10120,12 +10095,10 @@ union MAC_AUXILIARY_TIMESTAMP_NANOSECONDS {
 //
 union MAC_AUXILIARY_TIMESTAMP_SECONDS {
   
-  // Enum definitions.
-  
   // Bit field definition.
   struct {
     uint32_t AUXTSHI : 32;
-  } bits;          // Bit-field struct (auto-filling reserved gaps)
+  } bits;
   
   // Full 32-bit register value.
   uint32_t value;
@@ -10139,12 +10112,10 @@ union MAC_AUXILIARY_TIMESTAMP_SECONDS {
 //
 union MAC_TIMESTAMP_INGRESS_ASYM_CORR {
   
-  // Enum definitions.
-  
   // Bit field definition.
   struct {
     uint32_t OSTIAC : 32;
-  } bits;          // Bit-field struct (auto-filling reserved gaps)
+  } bits;
   
   // Full 32-bit register value.
   uint32_t value;
@@ -10158,12 +10129,10 @@ union MAC_TIMESTAMP_INGRESS_ASYM_CORR {
 //
 union MAC_TIMESTAMP_EGRESS_ASYM_CORR {
   
-  // Enum definitions.
-  
   // Bit field definition.
   struct {
     uint32_t OSTEAC : 32;
-  } bits;          // Bit-field struct (auto-filling reserved gaps)
+  } bits;
   
   // Full 32-bit register value.
   uint32_t value;
@@ -10177,12 +10146,10 @@ union MAC_TIMESTAMP_EGRESS_ASYM_CORR {
 //
 union MAC_TIMESTAMP_INGRESS_CORR_NANOSECOND {
   
-  // Enum definitions.
-  
   // Bit field definition.
   struct {
     uint32_t TSIC : 32;
-  } bits;          // Bit-field struct (auto-filling reserved gaps)
+  } bits;
   
   // Full 32-bit register value.
   uint32_t value;
@@ -10196,12 +10163,10 @@ union MAC_TIMESTAMP_INGRESS_CORR_NANOSECOND {
 //
 union MAC_TIMESTAMP_EGRESS_CORR_NANOSECOND {
   
-  // Enum definitions.
-  
   // Bit field definition.
   struct {
     uint32_t TSEC : 32;
-  } bits;          // Bit-field struct (auto-filling reserved gaps)
+  } bits;
   
   // Full 32-bit register value.
   uint32_t value;
@@ -10215,14 +10180,12 @@ union MAC_TIMESTAMP_EGRESS_CORR_NANOSECOND {
 //
 union MAC_TIMESTAMP_INGRESS_CORR_SUBNANOSEC {
   
-  // Enum definitions.
-  
   // Bit field definition.
   struct {
     uint32_t _reserved_0 : 8;
     uint32_t TSICSNS : 8;
     uint32_t _reserved_end : 16;
-  } bits;          // Bit-field struct (auto-filling reserved gaps)
+  } bits;
   
   // Full 32-bit register value.
   uint32_t value;
@@ -10236,14 +10199,12 @@ union MAC_TIMESTAMP_INGRESS_CORR_SUBNANOSEC {
 //
 union MAC_TIMESTAMP_EGRESS_CORR_SUBNANOSEC {
   
-  // Enum definitions.
-  
   // Bit field definition.
   struct {
     uint32_t _reserved_0 : 8;
     uint32_t TSECSNS : 8;
     uint32_t _reserved_end : 16;
-  } bits;          // Bit-field struct (auto-filling reserved gaps)
+  } bits;
   
   // Full 32-bit register value.
   uint32_t value;
@@ -10257,15 +10218,13 @@ union MAC_TIMESTAMP_EGRESS_CORR_SUBNANOSEC {
 //
 union MAC_TIMESTAMP_INGRESS_LATENCY {
   
-  // Enum definitions.
-  
   // Bit field definition.
   struct {
     uint32_t _reserved_0 : 8;
     uint32_t ITLSNS : 8;
     uint32_t ITLNS : 12;
     uint32_t _reserved_end : 4;
-  } bits;          // Bit-field struct (auto-filling reserved gaps)
+  } bits;
   
   // Full 32-bit register value.
   uint32_t value;
@@ -10279,15 +10238,13 @@ union MAC_TIMESTAMP_INGRESS_LATENCY {
 //
 union MAC_TIMESTAMP_EGRESS_LATENCY {
   
-  // Enum definitions.
-  
   // Bit field definition.
   struct {
     uint32_t _reserved_0 : 8;
     uint32_t ETLSNS : 8;
     uint32_t ETLNS : 12;
     uint32_t _reserved_end : 4;
-  } bits;          // Bit-field struct (auto-filling reserved gaps)
+  } bits;
   
   // Full 32-bit register value.
   uint32_t value;
@@ -10301,38 +10258,44 @@ union MAC_TIMESTAMP_EGRESS_LATENCY {
 //
 union MAC_PPS_CONTROL {
   
-  // Enum definitions.
   enum class ePPSEN0 : uint32_t {
     eDISABLE = 0, // Flexible PPS Output Mode is disabled
     eENABLE = 1, // Flexible PPS Output Mode is enabled
   };
+  
   enum class eTRGTMODSEL0 : uint32_t {
     eONLY_INT = 0, // Target Time registers are programmed only for generating the interrupt event. The Flexible PPS function must not be enabled in this mode, otherwise spurious transitions may be observed on the corresponding ptp_pps_o output port
     eINT_ST = 2, // Target Time registers are programmed for generating the interrupt event and starting or stopping the PPS0 output signal generation
     eONLY_ST = 3, // Target Time registers are programmed only for starting or stopping the PPS0 output signal generation. No interrupt is asserted
   };
+  
   enum class eMCGREN0 : uint32_t {
     ePPS = 0, // 0th PPS instance is enabled to operate in PPS mode
     eMCGR = 1, // 0th PPS instance is enabled to operate in MCGR mode
   };
+  
   enum class eTRGTMODSEL1 : uint32_t {
     eONLY_INT = 0, // Target Time registers are programmed only for generating the interrupt event. The Flexible PPS function must not be enabled in this mode, otherwise spurious transitions may be observed on the corresponding ptp_pps_o output port
     eINT_ST = 2, // Target Time registers are programmed for generating the interrupt event and starting or stopping the PPS0 output signal generation
     eONLY_ST = 3, // Target Time registers are programmed only for starting or stopping the PPS0 output signal generation. No interrupt is asserted
   };
+  
   enum class eMCGREN1 : uint32_t {
     eDISABLE = 0, // 1st PPS instance is disabled to operate in PPS or MCGR mode
     eENABLE = 1, // 1st PPS instance is enabled to operate in PPS or MCGR mode
   };
+  
   enum class eTRGTMODSEL2 : uint32_t {
     eONLY_INT = 0, // Target Time registers are programmed only for generating the interrupt event. The Flexible PPS function must not be enabled in this mode, otherwise spurious transitions may be observed on the corresponding ptp_pps_o output port
     eINT_ST = 2, // Target Time registers are programmed for generating the interrupt event and starting or stopping the PPS0 output signal generation
     eONLY_ST = 3, // Target Time registers are programmed only for starting or stopping the PPS0 output signal generation. No interrupt is asserted
   };
+  
   enum class eMCGREN2 : uint32_t {
     eDISABLE = 0, // 2nd PPS instance is disabled to operate in PPS or MCGR mode
     eENABLE = 1, // 2nd PPS instance is enabled to operate in PPS or MCGR mode
   };
+  
   enum class eTRGTMODSEL3 : uint32_t {
     eONLY_INT = 0, // Target Time registers are programmed only for generating the interrupt event. The Flexible PPS function must not be enabled in this mode, otherwise spurious transitions may be observed on the corresponding ptp_pps_o output port
     eINT_ST = 2, // Target Time registers are programmed for generating the interrupt event and starting or stopping the PPS0 output signal generation
@@ -10357,7 +10320,7 @@ union MAC_PPS_CONTROL {
     uint32_t _reserved_11 : 1;
     eTRGTMODSEL3 TRGTMODSEL3 : 2;
     uint32_t MCGREN3 : 1;
-  } bits;          // Bit-field struct (auto-filling reserved gaps)
+  } bits;
   
   // Full 32-bit register value.
   uint32_t value;
@@ -10371,12 +10334,10 @@ union MAC_PPS_CONTROL {
 //
 union MAC_PPS0_TARGET_TIME_SECONDS {
   
-  // Enum definitions.
-  
   // Bit field definition.
   struct {
     uint32_t TSTRH0 : 32;
-  } bits;          // Bit-field struct (auto-filling reserved gaps)
+  } bits;
   
   // Full 32-bit register value.
   uint32_t value;
@@ -10390,7 +10351,6 @@ union MAC_PPS0_TARGET_TIME_SECONDS {
 //
 union MAC_PPS0_TARGET_TIME_NANOSECONDS {
   
-  // Enum definitions.
   enum class eTRGTBUSY0 : uint32_t {
     eINACTIVE = 0, // PPS Target Time Register Busy status is not detected
     eACTIVE = 1, // PPS Target Time Register Busy is detected
@@ -10400,7 +10360,7 @@ union MAC_PPS0_TARGET_TIME_NANOSECONDS {
   struct {
     uint32_t TTSL0 : 31;
     eTRGTBUSY0 TRGTBUSY0 : 1;
-  } bits;          // Bit-field struct (auto-filling reserved gaps)
+  } bits;
   
   // Full 32-bit register value.
   uint32_t value;
@@ -10414,12 +10374,10 @@ union MAC_PPS0_TARGET_TIME_NANOSECONDS {
 //
 union MAC_PPS0_INTERVAL {
   
-  // Enum definitions.
-  
   // Bit field definition.
   struct {
     uint32_t PPSINT0 : 32;
-  } bits;          // Bit-field struct (auto-filling reserved gaps)
+  } bits;
   
   // Full 32-bit register value.
   uint32_t value;
@@ -10433,12 +10391,10 @@ union MAC_PPS0_INTERVAL {
 //
 union MAC_PPS0_WIDTH {
   
-  // Enum definitions.
-  
   // Bit field definition.
   struct {
     uint32_t PPSWIDTH0 : 32;
-  } bits;          // Bit-field struct (auto-filling reserved gaps)
+  } bits;
   
   // Full 32-bit register value.
   uint32_t value;
@@ -10452,12 +10408,10 @@ union MAC_PPS0_WIDTH {
 //
 union MAC_PPS1_TARGET_TIME_SECONDS {
   
-  // Enum definitions.
-  
   // Bit field definition.
   struct {
     uint32_t TSTRH1 : 32;
-  } bits;          // Bit-field struct (auto-filling reserved gaps)
+  } bits;
   
   // Full 32-bit register value.
   uint32_t value;
@@ -10471,7 +10425,6 @@ union MAC_PPS1_TARGET_TIME_SECONDS {
 //
 union MAC_PPS1_TARGET_TIME_NANOSECONDS {
   
-  // Enum definitions.
   enum class eTRGTBUSY1 : uint32_t {
     eINACTIVE = 0, // PPS Target Time Register Busy status is not detected
     eACTIVE = 1, // PPS Target Time Register Busy is detected
@@ -10481,7 +10434,7 @@ union MAC_PPS1_TARGET_TIME_NANOSECONDS {
   struct {
     uint32_t TTSL1 : 31;
     eTRGTBUSY1 TRGTBUSY1 : 1;
-  } bits;          // Bit-field struct (auto-filling reserved gaps)
+  } bits;
   
   // Full 32-bit register value.
   uint32_t value;
@@ -10495,12 +10448,10 @@ union MAC_PPS1_TARGET_TIME_NANOSECONDS {
 //
 union MAC_PPS1_INTERVAL {
   
-  // Enum definitions.
-  
   // Bit field definition.
   struct {
     uint32_t PPSINT1 : 32;
-  } bits;          // Bit-field struct (auto-filling reserved gaps)
+  } bits;
   
   // Full 32-bit register value.
   uint32_t value;
@@ -10514,12 +10465,10 @@ union MAC_PPS1_INTERVAL {
 //
 union MAC_PPS1_WIDTH {
   
-  // Enum definitions.
-  
   // Bit field definition.
   struct {
     uint32_t PPSWIDTH1 : 32;
-  } bits;          // Bit-field struct (auto-filling reserved gaps)
+  } bits;
   
   // Full 32-bit register value.
   uint32_t value;
@@ -10533,12 +10482,10 @@ union MAC_PPS1_WIDTH {
 //
 union MAC_PPS2_TARGET_TIME_SECONDS {
   
-  // Enum definitions.
-  
   // Bit field definition.
   struct {
     uint32_t TSTRH2 : 32;
-  } bits;          // Bit-field struct (auto-filling reserved gaps)
+  } bits;
   
   // Full 32-bit register value.
   uint32_t value;
@@ -10552,7 +10499,6 @@ union MAC_PPS2_TARGET_TIME_SECONDS {
 //
 union MAC_PPS2_TARGET_TIME_NANOSECONDS {
   
-  // Enum definitions.
   enum class eTRGTBUSY2 : uint32_t {
     eINACTIVE = 0, // PPS Target Time Register Busy status is not detected
     eACTIVE = 1, // PPS Target Time Register Busy is detected
@@ -10562,7 +10508,7 @@ union MAC_PPS2_TARGET_TIME_NANOSECONDS {
   struct {
     uint32_t TTSL2 : 31;
     eTRGTBUSY2 TRGTBUSY2 : 1;
-  } bits;          // Bit-field struct (auto-filling reserved gaps)
+  } bits;
   
   // Full 32-bit register value.
   uint32_t value;
@@ -10576,12 +10522,10 @@ union MAC_PPS2_TARGET_TIME_NANOSECONDS {
 //
 union MAC_PPS2_INTERVAL {
   
-  // Enum definitions.
-  
   // Bit field definition.
   struct {
     uint32_t PPSINT2 : 32;
-  } bits;          // Bit-field struct (auto-filling reserved gaps)
+  } bits;
   
   // Full 32-bit register value.
   uint32_t value;
@@ -10595,12 +10539,10 @@ union MAC_PPS2_INTERVAL {
 //
 union MAC_PPS2_WIDTH {
   
-  // Enum definitions.
-  
   // Bit field definition.
   struct {
     uint32_t PPSWIDTH2 : 32;
-  } bits;          // Bit-field struct (auto-filling reserved gaps)
+  } bits;
   
   // Full 32-bit register value.
   uint32_t value;
@@ -10614,12 +10556,10 @@ union MAC_PPS2_WIDTH {
 //
 union MAC_PPS3_TARGET_TIME_SECONDS {
   
-  // Enum definitions.
-  
   // Bit field definition.
   struct {
     uint32_t TSTRH3 : 32;
-  } bits;          // Bit-field struct (auto-filling reserved gaps)
+  } bits;
   
   // Full 32-bit register value.
   uint32_t value;
@@ -10633,7 +10573,6 @@ union MAC_PPS3_TARGET_TIME_SECONDS {
 //
 union MAC_PPS3_TARGET_TIME_NANOSECONDS {
   
-  // Enum definitions.
   enum class eTRGTBUSY3 : uint32_t {
     eINACTIVE = 0, // PPS Target Time Register Busy status is not detected
     eACTIVE = 1, // PPS Target Time Register Busy is detected
@@ -10643,7 +10582,7 @@ union MAC_PPS3_TARGET_TIME_NANOSECONDS {
   struct {
     uint32_t TTSL3 : 31;
     eTRGTBUSY3 TRGTBUSY3 : 1;
-  } bits;          // Bit-field struct (auto-filling reserved gaps)
+  } bits;
   
   // Full 32-bit register value.
   uint32_t value;
@@ -10657,12 +10596,10 @@ union MAC_PPS3_TARGET_TIME_NANOSECONDS {
 //
 union MAC_PPS3_INTERVAL {
   
-  // Enum definitions.
-  
   // Bit field definition.
   struct {
     uint32_t PPSINT3 : 32;
-  } bits;          // Bit-field struct (auto-filling reserved gaps)
+  } bits;
   
   // Full 32-bit register value.
   uint32_t value;
@@ -10676,12 +10613,10 @@ union MAC_PPS3_INTERVAL {
 //
 union MAC_PPS3_WIDTH {
   
-  // Enum definitions.
-  
   // Bit field definition.
   struct {
     uint32_t PPSWIDTH3 : 32;
-  } bits;          // Bit-field struct (auto-filling reserved gaps)
+  } bits;
   
   // Full 32-bit register value.
   uint32_t value;
@@ -10695,31 +10630,36 @@ union MAC_PPS3_WIDTH {
 //
 union MAC_PTO_CONTROL {
   
-  // Enum definitions.
   enum class ePTOEN : uint32_t {
     eDISABLE = 0, // PTP Offload feature is disabled
     eENABLE = 1, // PTP Offload feature is enabled
   };
+  
   enum class eASYNCEN : uint32_t {
     eDISABLE = 0, // Automatic PTP SYNC message is disabled
     eENABLE = 1, // Automatic PTP SYNC message is enabled
   };
+  
   enum class eAPDREQEN : uint32_t {
     eDISABLE = 0, // Automatic PTP Pdelay_Req message is disabled
     eENABLE = 1, // Automatic PTP Pdelay_Req message is enabled
   };
+  
   enum class eASYNCTRIG : uint32_t {
     eDISABLE = 0, // Automatic PTP SYNC message Trigger is disabled
     eENABLE = 1, // Automatic PTP SYNC message Trigger is enabled
   };
+  
   enum class eAPDREQTRIG : uint32_t {
     eDISABLE = 0, // Automatic PTP Pdelay_Req message Trigger is disabled
     eENABLE = 1, // Automatic PTP Pdelay_Req message Trigger is enabled
   };
+  
   enum class eDRRDIS : uint32_t {
     eENABLE = 0, // PTO Delay Request/Response response generation is enabled
     eDISABLE = 1, // PTO Delay Request/Response response generation is disabled
   };
+  
   enum class ePDRDIS : uint32_t {
     eENABLE = 0, // Peer Delay Response response generation is enabled
     eDISABLE = 1, // Peer Delay Response response generation is disabled
@@ -10737,7 +10677,7 @@ union MAC_PTO_CONTROL {
     ePDRDIS PDRDIS : 1;
     uint32_t DN : 8;
     uint32_t _reserved_end : 16;
-  } bits;          // Bit-field struct (auto-filling reserved gaps)
+  } bits;
   
   // Full 32-bit register value.
   uint32_t value;
@@ -10751,12 +10691,10 @@ union MAC_PTO_CONTROL {
 //
 union MAC_SOURCE_PORT_IDENTITY0 {
   
-  // Enum definitions.
-  
   // Bit field definition.
   struct {
     uint32_t SPI0 : 32;
-  } bits;          // Bit-field struct (auto-filling reserved gaps)
+  } bits;
   
   // Full 32-bit register value.
   uint32_t value;
@@ -10770,12 +10708,10 @@ union MAC_SOURCE_PORT_IDENTITY0 {
 //
 union MAC_SOURCE_PORT_IDENTITY1 {
   
-  // Enum definitions.
-  
   // Bit field definition.
   struct {
     uint32_t SPI1 : 32;
-  } bits;          // Bit-field struct (auto-filling reserved gaps)
+  } bits;
   
   // Full 32-bit register value.
   uint32_t value;
@@ -10789,13 +10725,11 @@ union MAC_SOURCE_PORT_IDENTITY1 {
 //
 union MAC_SOURCE_PORT_IDENTITY2 {
   
-  // Enum definitions.
-  
   // Bit field definition.
   struct {
     uint32_t SPI2 : 16;
     uint32_t _reserved_end : 16;
-  } bits;          // Bit-field struct (auto-filling reserved gaps)
+  } bits;
   
   // Full 32-bit register value.
   uint32_t value;
@@ -10809,7 +10743,6 @@ union MAC_SOURCE_PORT_IDENTITY2 {
 //
 union MAC_LOG_MESSAGE_INTERVAL {
   
-  // Enum definitions.
   enum class eDRSYNCR : uint32_t {
     eSYNC1 = 0, // DelayReq generated for every received SYNC
     eSYNC2 = 1, // DelayReq generated every alternate reception of SYNC
@@ -10825,7 +10758,7 @@ union MAC_LOG_MESSAGE_INTERVAL {
     eDRSYNCR DRSYNCR : 3;
     uint32_t _reserved_2 : 13;
     uint32_t LMPDRI : 8;
-  } bits;          // Bit-field struct (auto-filling reserved gaps)
+  } bits;
   
   // Full 32-bit register value.
   uint32_t value;
@@ -10839,29 +10772,33 @@ union MAC_LOG_MESSAGE_INTERVAL {
 //
 union MTL_OPERATION_MODE {
   
-  // Enum definitions.
   enum class eDTXSTS : uint32_t {
     eDISABLE = 0, // Drop Transmit Status is disabled
     eENABLE = 1, // Drop Transmit Status is enabled
   };
+  
   enum class eRAA : uint32_t {
     eSP = 0, // Strict priority (SP)
     eWSP = 1, // Weighted Strict Priority (WSP)
   };
+  
   enum class eSCHALG : uint32_t {
     eWRR = 0, // WRR algorithm
     eWFQ = 1, // WFQ algorithm when DCB feature is selected.Otherwise, Reserved
     eDWRR = 2, // DWRR algorithm when DCB feature is selected.Otherwise, Reserved
     eSP = 3, // Strict priority algorithm
   };
+  
   enum class eCNTPRST : uint32_t {
     eDISABLE = 0, // Counters Preset is disabled
     eENABLE = 1, // Counters Preset is enabled
   };
+  
   enum class eCNTCLR : uint32_t {
     eDISABLE = 0, // Counters are not reset
     eENABLE = 1, // All counters are reset
   };
+  
   enum class eFRPE : uint32_t {
     eDISABLE = 0, // Flexible Rx parser is disabled
     eENABLE = 1, // Flexible Rx parser is enabled
@@ -10880,7 +10817,7 @@ union MTL_OPERATION_MODE {
     uint32_t _reserved_5 : 5;
     eFRPE FRPE : 1;
     uint32_t _reserved_end : 16;
-  } bits;          // Bit-field struct (auto-filling reserved gaps)
+  } bits;
   
   // Full 32-bit register value.
   uint32_t value;
@@ -10894,53 +10831,62 @@ union MTL_OPERATION_MODE {
 //
 union MTL_DBG_CTL {
   
-  // Enum definitions.
   enum class eFDBGEN : uint32_t {
     eDISABLE = 0, // FIFO Debug Access is disabled
     eENABLE = 1, // FIFO Debug Access is enabled
   };
+  
   enum class eDBGMOD : uint32_t {
     eDISABLE = 0, // Debug Mode Access to FIFO is disabled
     eENABLE = 1, // Debug Mode Access to FIFO is enabled
   };
+  
   enum class eBYTEEN : uint32_t {
     eB0_VAL = 0, // Byte 0 valid
     eB01_VAL = 1, // Byte 0 and Byte 1 are valid
     eB012_VAL = 2, // Byte 0, Byte 1, and Byte 2 are valid
     eB0123_VAL = 3, // All four bytes are valid
   };
+  
   enum class ePKTSTATE : uint32_t {
     ePKT_DATA = 0, // Packet Data
     eCW_NS = 1, // Control Word/Normal Status
     eSOP_LS = 2, // SOP Data/Last Status
     eEOP = 3, // EOP Data/EOP
   };
+  
   enum class eRSTALL : uint32_t {
     eDISABLE = 0, // Reset All Pointers is disabled
     eENABLE = 1, // Reset All Pointers is enabled
   };
+  
   enum class eRSTSEL : uint32_t {
     eDISABLE = 0, // Reset Pointers of Selected FIFO is disabled
     eENABLE = 1, // Reset Pointers of Selected FIFO is enabled
   };
+  
   enum class eFIFORDEN : uint32_t {
     eDISABLE = 0, // FIFO Read is disabled
     eENABLE = 1, // FIFO Read is enabled
   };
+  
   enum class eFIFOWREN : uint32_t {
     eDISABLE = 0, // FIFO Write is disabled
     eENABLE = 1, // FIFO Write is enabled
   };
+  
   enum class eFIFOSEL : uint32_t {
     eTXFIFO = 0, // Tx FIFO
     eTXSTSFIFO = 1, // Tx Status FIFO (only read access when SLVMOD is set)
     eTSOFIFO = 2, // TSO FIFO (cannot be accessed when SLVMOD is set)
     eRXFIFO = 3, // Rx FIFO
   };
+  
   enum class ePKTIE : uint32_t {
     eDISABLE = 0, // Receive Packet Available Interrupt Status is disabled
     eENABLE = 1, // Receive Packet Available Interrupt Status is enabled
   };
+  
   enum class eSTSIE : uint32_t {
     eDISABLE = 0, // Transmit Packet Available Interrupt Status is disabled
     eENABLE = 1, // Transmit Packet Available Interrupt Status is enabled
@@ -10962,7 +10908,7 @@ union MTL_DBG_CTL {
     ePKTIE PKTIE : 1;
     eSTSIE STSIE : 1;
     uint32_t _reserved_end : 16;
-  } bits;          // Bit-field struct (auto-filling reserved gaps)
+  } bits;
   
   // Full 32-bit register value.
   uint32_t value;
@@ -10976,27 +10922,30 @@ union MTL_DBG_CTL {
 //
 union MTL_DBG_STS {
   
-  // Enum definitions.
   enum class eFIFOBUSY : uint32_t {
     eINACTIVE = 0, // FIFO Busy not detected
     eACTIVE = 1, // FIFO Busy detected
   };
+  
   enum class ePKTSTATE : uint32_t {
     ePKT_DATA = 0, // Packet Data
     eCW_NS = 1, // Control Word/Normal Status
     eSOP_LS = 2, // SOP Data/Last Status
     eEOP = 3, // EOP Data/EOP
   };
+  
   enum class eBYTEEN : uint32_t {
     eB0_VAL = 0, // Byte 0 valid
     eB01_VAL = 1, // Byte 0 and Byte 1 are valid
     eB012_VAL = 2, // Byte 0, Byte 1, and Byte 2 are valid
     eB0123_VAL = 3, // All four bytes are valid
   };
+  
   enum class ePKTI : uint32_t {
     eINACTIVE = 0, // Receive Packet Available Interrupt Status not detected
     eACTIVE = 1, // Receive Packet Available Interrupt Status detected
   };
+  
   enum class eSTSI : uint32_t {
     eINACTIVE = 0, // Transmit Status Available Interrupt Status not detected
     eACTIVE = 1, // Transmit Status Available Interrupt Status detected
@@ -11012,7 +10961,7 @@ union MTL_DBG_STS {
     eSTSI STSI : 1;
     uint32_t _reserved_5 : 5;
     uint32_t LOCR : 17;
-  } bits;          // Bit-field struct (auto-filling reserved gaps)
+  } bits;
   
   // Full 32-bit register value.
   uint32_t value;
@@ -11026,12 +10975,10 @@ union MTL_DBG_STS {
 //
 union MTL_FIFO_DEBUG_DATA {
   
-  // Enum definitions.
-  
   // Bit field definition.
   struct {
     uint32_t FDBGDATA : 32;
-  } bits;          // Bit-field struct (auto-filling reserved gaps)
+  } bits;
   
   // Full 32-bit register value.
   uint32_t value;
@@ -11045,35 +10992,41 @@ union MTL_FIFO_DEBUG_DATA {
 //
 union MTL_INTERRUPT_STATUS {
   
-  // Enum definitions.
   enum class eQ0IS : uint32_t {
     eINACTIVE = 0, // Queue 0 Interrupt status not detected
     eACTIVE = 1, // Queue 0 Interrupt status detected
   };
+  
   enum class eQ1IS : uint32_t {
     eINACTIVE = 0, // Queue 1 Interrupt status not detected
     eACTIVE = 1, // Queue 1 Interrupt status detected
   };
+  
   enum class eQ2IS : uint32_t {
     eINACTIVE = 0, // Queue 2 Interrupt status not detected
     eACTIVE = 1, // Queue 2 Interrupt status detected
   };
+  
   enum class eQ3IS : uint32_t {
     eINACTIVE = 0, // Queue 3 Interrupt status not detected
     eACTIVE = 1, // Queue 3 Interrupt status detected
   };
+  
   enum class eQ4IS : uint32_t {
     eINACTIVE = 0, // Queue 4 Interrupt status not detected
     eACTIVE = 1, // Queue 4 Interrupt status detected
   };
+  
   enum class eDBGIS : uint32_t {
     eINACTIVE = 0, // Debug Interrupt status not detected
     eACTIVE = 1, // Debug Interrupt status detected
   };
+  
   enum class eESTIS : uint32_t {
     eINACTIVE = 0, // EST (TAS- 802.1Qbv) Interrupt status not detected
     eACTIVE = 1, // EST (TAS- 802.1Qbv) Interrupt status detected
   };
+  
   enum class eMTLPIS : uint32_t {
     eINACTIVE = 0, // MTL Rx Parser Interrupt status not detected
     eACTIVE = 1, // MTL Rx Parser Interrupt status detected
@@ -11092,7 +11045,7 @@ union MTL_INTERRUPT_STATUS {
     uint32_t _reserved_7 : 4;
     eMTLPIS MTLPIS : 1;
     uint32_t _reserved_end : 8;
-  } bits;          // Bit-field struct (auto-filling reserved gaps)
+  } bits;
   
   // Full 32-bit register value.
   uint32_t value;
@@ -11106,19 +11059,21 @@ union MTL_INTERRUPT_STATUS {
 //
 union MTL_RXQ_DMA_MAP0 {
   
-  // Enum definitions.
   enum class eQ0DDMACH : uint32_t {
     eDISABLE = 0, // Queue 0 disabled for DA-based DMA Channel Selection
     eENABLE = 1, // Queue 0 enabled for DA-based DMA Channel Selection
   };
+  
   enum class eQ1DDMACH : uint32_t {
     eDISABLE = 0, // Queue 1 disabled for DA-based DMA Channel Selection
     eENABLE = 1, // Queue 1 enabled for DA-based DMA Channel Selection
   };
+  
   enum class eQ2DDMACH : uint32_t {
     eDISABLE = 0, // Queue 2 disabled for DA-based DMA Channel Selection
     eENABLE = 1, // Queue 2 enabled for DA-based DMA Channel Selection
   };
+  
   enum class eQ3DDMACH : uint32_t {
     eDISABLE = 0, // Queue 3 disabled for DA-based DMA Channel Selection
     eENABLE = 1, // Queue 3 enabled for DA-based DMA Channel Selection
@@ -11142,7 +11097,7 @@ union MTL_RXQ_DMA_MAP0 {
     uint32_t _reserved_7 : 1;
     eQ3DDMACH Q3DDMACH : 1;
     uint32_t _reserved_end : 3;
-  } bits;          // Bit-field struct (auto-filling reserved gaps)
+  } bits;
   
   // Full 32-bit register value.
   uint32_t value;
@@ -11156,7 +11111,6 @@ union MTL_RXQ_DMA_MAP0 {
 //
 union MTL_RXQ_DMA_MAP1 {
   
-  // Enum definitions.
   enum class eQ4DDMACH : uint32_t {
     eDISABLE = 0, // Queue 4 disabled for DA-based DMA Channel Selection
     eENABLE = 1, // Queue 4 enabled for DA-based DMA Channel Selection
@@ -11168,7 +11122,7 @@ union MTL_RXQ_DMA_MAP1 {
     uint32_t _reserved_1 : 1;
     eQ4DDMACH Q4DDMACH : 1;
     uint32_t _reserved_end : 27;
-  } bits;          // Bit-field struct (auto-filling reserved gaps)
+  } bits;
   
   // Full 32-bit register value.
   uint32_t value;
@@ -11182,11 +11136,11 @@ union MTL_RXQ_DMA_MAP1 {
 //
 union MTL_TBS_CTRL {
   
-  // Enum definitions.
   enum class eESTM : uint32_t {
     eDISABLE = 0, // EST offset Mode is disabled
     eENABLE = 1, // EST offset Mode is enabled
   };
+  
   enum class eLEOV : uint32_t {
     eINVALID = 0, // LEOS field is invalid
     eVALID = 1, // LEOS field is valid
@@ -11200,7 +11154,7 @@ union MTL_TBS_CTRL {
     uint32_t LEGOS : 3;
     uint32_t _reserved_3 : 1;
     uint32_t LEOS : 24;
-  } bits;          // Bit-field struct (auto-filling reserved gaps)
+  } bits;
   
   // Full 32-bit register value.
   uint32_t value;
@@ -11214,23 +11168,26 @@ union MTL_TBS_CTRL {
 //
 union MTL_EST_CONTROL {
   
-  // Enum definitions.
   enum class eEEST : uint32_t {
     eDISABLE = 0, // EST is disabled
     eENABLE = 1, // EST is enabled
   };
+  
   enum class eSSWL : uint32_t {
     eDISABLE = 0, // Switch to S/W owned list is disabled
     eENABLE = 1, // Switch to S/W owned list is enabled
   };
+  
   enum class eDDBF : uint32_t {
     eDROP = 0, // Drop frames during Frame Size Error
     eDONT_DROP = 1, // Do not Drop frames during Frame Size Error
   };
+  
   enum class eDFBS : uint32_t {
     eDONT_DROP = 0, // Do not Drop Frames causing Scheduling Error
     eDROP = 1, // Drop Frames causing Scheduling Error
   };
+  
   enum class eLCSE : uint32_t {
     ebf_4_ITERNS = 0, // 4 iterations
     ebf_8_ITERNS = 1, // 8 iterations
@@ -11250,7 +11207,7 @@ union MTL_EST_CONTROL {
     uint32_t _reserved_6 : 1;
     uint32_t CTOV : 12;
     uint32_t PTOV : 8;
-  } bits;          // Bit-field struct (auto-filling reserved gaps)
+  } bits;
   
   // Full 32-bit register value.
   uint32_t value;
@@ -11264,27 +11221,31 @@ union MTL_EST_CONTROL {
 //
 union MTL_EST_STATUS {
   
-  // Enum definitions.
   enum class eSWLC : uint32_t {
     eINACTIVE = 0, // Switch to S/W owned list Complete not detected
     eACTIVE = 1, // Switch to S/W owned list Complete detected
   };
+  
   enum class eBTRE : uint32_t {
     eINACTIVE = 0, // BTR Error not detected
     eACTIVE = 1, // BTR Error detected
   };
+  
   enum class eHLBF : uint32_t {
     eINACTIVE = 0, // Head-Of-Line Blocking due to Frame Size not detected
     eACTIVE = 1, // Head-Of-Line Blocking due to Frame Size detected
   };
+  
   enum class eHLBS : uint32_t {
     eINACTIVE = 0, // Head-Of-Line Blocking due to Scheduling not detected
     eACTIVE = 1, // Head-Of-Line Blocking due to Scheduling detected
   };
+  
   enum class eCGCE : uint32_t {
     eINACTIVE = 0, // Constant Gate Control Error not detected
     eACTIVE = 1, // Constant Gate Control Error detected
   };
+  
   enum class eSWOL : uint32_t {
     eINACTIVE = 0, // Gate control list number "0" is owned by software
     eACTIVE = 1, // Gate control list number "1" is owned by software
@@ -11303,7 +11264,7 @@ union MTL_EST_STATUS {
     uint32_t _reserved_7 : 4;
     uint32_t CGSN : 4;
     uint32_t _reserved_end : 12;
-  } bits;          // Bit-field struct (auto-filling reserved gaps)
+  } bits;
   
   // Full 32-bit register value.
   uint32_t value;
@@ -11317,13 +11278,11 @@ union MTL_EST_STATUS {
 //
 union MTL_EST_SCH_ERROR {
   
-  // Enum definitions.
-  
   // Bit field definition.
   struct {
     uint32_t SEQN : 5;
     uint32_t _reserved_end : 27;
-  } bits;          // Bit-field struct (auto-filling reserved gaps)
+  } bits;
   
   // Full 32-bit register value.
   uint32_t value;
@@ -11337,13 +11296,11 @@ union MTL_EST_SCH_ERROR {
 //
 union MTL_EST_FRM_SIZE_ERROR {
   
-  // Enum definitions.
-  
   // Bit field definition.
   struct {
     uint32_t FEQN : 5;
     uint32_t _reserved_end : 27;
-  } bits;          // Bit-field struct (auto-filling reserved gaps)
+  } bits;
   
   // Full 32-bit register value.
   uint32_t value;
@@ -11357,15 +11314,13 @@ union MTL_EST_FRM_SIZE_ERROR {
 //
 union MTL_EST_FRM_SIZE_CAPTURE {
   
-  // Enum definitions.
-  
   // Bit field definition.
   struct {
     uint32_t HBFS : 15;
     uint32_t _reserved_1 : 1;
     uint32_t HBFQ : 3;
     uint32_t _reserved_end : 13;
-  } bits;          // Bit-field struct (auto-filling reserved gaps)
+  } bits;
   
   // Full 32-bit register value.
   uint32_t value;
@@ -11379,23 +11334,26 @@ union MTL_EST_FRM_SIZE_CAPTURE {
 //
 union MTL_EST_INTR_ENABLE {
   
-  // Enum definitions.
   enum class eIECC : uint32_t {
     eDISABLE = 0, // Interrupt for Switch List is disabled
     eENABLE = 1, // Interrupt for Switch List is enabled
   };
+  
   enum class eIEBE : uint32_t {
     eDISABLE = 0, // Interrupt for BTR Error is disabled
     eENABLE = 1, // Interrupt for BTR Error is enabled
   };
+  
   enum class eIEHF : uint32_t {
     eDISABLE = 0, // Interrupt for HLBF is disabled
     eENABLE = 1, // Interrupt for HLBF is enabled
   };
+  
   enum class eIEHS : uint32_t {
     eDISABLE = 0, // Interrupt for HLBS is disabled
     eENABLE = 1, // Interrupt for HLBS is enabled
   };
+  
   enum class eCGCE : uint32_t {
     eDISABLE = 0, // Interrupt for CGCE is disabled
     eENABLE = 1, // Interrupt for CGCE is enabled
@@ -11409,7 +11367,7 @@ union MTL_EST_INTR_ENABLE {
     eIEHS IEHS : 1;
     eCGCE CGCE : 1;
     uint32_t _reserved_end : 27;
-  } bits;          // Bit-field struct (auto-filling reserved gaps)
+  } bits;
   
   // Full 32-bit register value.
   uint32_t value;
@@ -11423,35 +11381,41 @@ union MTL_EST_INTR_ENABLE {
 //
 union MTL_EST_GCL_CONTROL {
   
-  // Enum definitions.
   enum class eSRWO : uint32_t {
     eDISABLE = 0, // Start Read/Write Op disabled
     eENABLE = 1, // Start Read/Write Op enabled
   };
+  
   enum class eR1W0 : uint32_t {
     eWRITE = 0, // Write Operation
     eREAD = 1, // Read Operation
   };
+  
   enum class eGCRR : uint32_t {
     eDISABLE = 0, // Gate Control Related Registers are disabled
     eENABLE = 1, // Gate Control Related Registers are enabled
   };
+  
   enum class eDBGM : uint32_t {
     eDISABLE = 0, // Debug Mode is disabled
     eENABLE = 1, // Debug Mode is enabled
   };
+  
   enum class eDBGB : uint32_t {
     eBANK0 = 0, // R/W in debug mode should be directed to Bank 0
     eBANK1 = 1, // R/W in debug mode should be directed to Bank 1
   };
+  
   enum class eERR0 : uint32_t {
     eDISABLE = 0, // ERR0 is disabled
     eENABLE = 1, // ERR1 is enabled
   };
+  
   enum class eESTEIEE : uint32_t {
     eDISABLE = 0, // EST ECC Inject Error is disabled
     eENABLE = 1, // EST ECC Inject Error is enabled
   };
+  
   enum class eESTEIEC : uint32_t {
     ebf_1BIT = 0, // Insert 1 bit error
     ebf_2BIT = 1, // Insert 2 bit errors
@@ -11474,7 +11438,7 @@ union MTL_EST_GCL_CONTROL {
     eESTEIEE ESTEIEE : 1;
     eESTEIEC ESTEIEC : 2;
     uint32_t _reserved_end : 8;
-  } bits;          // Bit-field struct (auto-filling reserved gaps)
+  } bits;
   
   // Full 32-bit register value.
   uint32_t value;
@@ -11488,12 +11452,10 @@ union MTL_EST_GCL_CONTROL {
 //
 union MTL_EST_GCL_DATA {
   
-  // Enum definitions.
-  
   // Bit field definition.
   struct {
     uint32_t GCD : 32;
-  } bits;          // Bit-field struct (auto-filling reserved gaps)
+  } bits;
   
   // Full 32-bit register value.
   uint32_t value;
@@ -11507,7 +11469,6 @@ union MTL_EST_GCL_DATA {
 //
 union MTL_FPE_CTRL_STS {
   
-  // Enum definitions.
   enum class eHRS : uint32_t {
     eSET_REL = 0, // Indicates a Set-and-Release-MAC operation was last executed and the pMAC is in Release State
     eSET_HOLD = 1, // Indicates a Set-and-Hold-MAC operation was last executed and the pMAC is in Hold State
@@ -11521,7 +11482,7 @@ union MTL_FPE_CTRL_STS {
     uint32_t _reserved_2 : 15;
     eHRS HRS : 1;
     uint32_t _reserved_end : 3;
-  } bits;          // Bit-field struct (auto-filling reserved gaps)
+  } bits;
   
   // Full 32-bit register value.
   uint32_t value;
@@ -11535,13 +11496,11 @@ union MTL_FPE_CTRL_STS {
 //
 union MTL_FPE_ADVANCE {
   
-  // Enum definitions.
-  
   // Bit field definition.
   struct {
     uint32_t HADV : 16;
     uint32_t RADV : 16;
-  } bits;          // Bit-field struct (auto-filling reserved gaps)
+  } bits;
   
   // Full 32-bit register value.
   uint32_t value;
@@ -11555,7 +11514,6 @@ union MTL_FPE_ADVANCE {
 //
 union MTL_RXP_CONTROL_STATUS {
   
-  // Enum definitions.
   enum class eRXPI : uint32_t {
     eINACTIVE = 0, // RX Parser not in Idle state
     eACTIVE = 1, // RX Parser in Idle state
@@ -11568,7 +11526,7 @@ union MTL_RXP_CONTROL_STATUS {
     uint32_t NPE : 8;
     uint32_t _reserved_2 : 7;
     eRXPI RXPI : 1;
-  } bits;          // Bit-field struct (auto-filling reserved gaps)
+  } bits;
   
   // Full 32-bit register value.
   uint32_t value;
@@ -11582,35 +11540,41 @@ union MTL_RXP_CONTROL_STATUS {
 //
 union MTL_RXP_INTERRUPT_CONTROL_STATUS {
   
-  // Enum definitions.
   enum class eNVEOVIS : uint32_t {
     eINACTIVE = 0, // Number of Valid Entries Overflow Interrupt Status not detected
     eACTIVE = 1, // Number of Valid Entries Overflow Interrupt Status detected
   };
+  
   enum class eNPEOVIS : uint32_t {
     eINACTIVE = 0, // Number of Parsable Entries Overflow Interrupt Status not detected
     eACTIVE = 1, // Number of Parsable Entries Overflow Interrupt Status detected
   };
+  
   enum class eFOOVIS : uint32_t {
     eINACTIVE = 0, // Frame Offset Overflow Interrupt Status not detected
     eACTIVE = 1, // Frame Offset Overflow Interrupt Status detected
   };
+  
   enum class ePDRFIS : uint32_t {
     eINACTIVE = 0, // Packet Dropped due to RF Interrupt Status not detected
     eACTIVE = 1, // Packet Dropped due to RF Interrupt Status detected
   };
+  
   enum class eNVEOVIE : uint32_t {
     eDISABLE = 0, // Number of Valid Entries Overflow Interrupt is disabled
     eENABLE = 1, // Number of Valid Entries Overflow Interrupt is enabled
   };
+  
   enum class eNPEOVIE : uint32_t {
     eDISABLE = 0, // Number of Parsable Entries Overflow Interrupt is disabled
     eENABLE = 1, // Number of Parsable Entries Overflow Interrupt is enabled
   };
+  
   enum class eFOOVIE : uint32_t {
     eDISABLE = 0, // Frame Offset Overflow Interrupt is disabled
     eENABLE = 1, // Frame Offset Overflow Interrupt is enabled
   };
+  
   enum class ePDRFIE : uint32_t {
     eDISABLE = 0, // Packet Drop due to RF Interrupt is disabled
     eENABLE = 1, // Packet Drop due to RF Interrupt is enabled
@@ -11628,7 +11592,7 @@ union MTL_RXP_INTERRUPT_CONTROL_STATUS {
     eFOOVIE FOOVIE : 1;
     ePDRFIE PDRFIE : 1;
     uint32_t _reserved_end : 12;
-  } bits;          // Bit-field struct (auto-filling reserved gaps)
+  } bits;
   
   // Full 32-bit register value.
   uint32_t value;
@@ -11642,7 +11606,6 @@ union MTL_RXP_INTERRUPT_CONTROL_STATUS {
 //
 union MTL_RXP_DROP_CNT {
   
-  // Enum definitions.
   enum class eRXPDCOVF : uint32_t {
     eINACTIVE = 0, // Rx Parser Drop count overflow not occurred
     eACTIVE = 1, // Rx Parser Drop count overflow occurred
@@ -11652,7 +11615,7 @@ union MTL_RXP_DROP_CNT {
   struct {
     uint32_t RXPDC : 31;
     eRXPDCOVF RXPDCOVF : 1;
-  } bits;          // Bit-field struct (auto-filling reserved gaps)
+  } bits;
   
   // Full 32-bit register value.
   uint32_t value;
@@ -11666,7 +11629,6 @@ union MTL_RXP_DROP_CNT {
 //
 union MTL_RXP_ERROR_CNT {
   
-  // Enum definitions.
   enum class eRXPECOVF : uint32_t {
     eINACTIVE = 0, // Rx Parser Error count overflow not occurred
     eACTIVE = 1, // Rx Parser Error count overflow occurred
@@ -11676,7 +11638,7 @@ union MTL_RXP_ERROR_CNT {
   struct {
     uint32_t RXPEC : 31;
     eRXPECOVF RXPECOVF : 1;
-  } bits;          // Bit-field struct (auto-filling reserved gaps)
+  } bits;
   
   // Full 32-bit register value.
   uint32_t value;
@@ -11690,11 +11652,11 @@ union MTL_RXP_ERROR_CNT {
 //
 union MTL_RXP_INDIRECT_ACC_CONTROL_STATUS {
   
-  // Enum definitions.
   enum class eWRRDN : uint32_t {
     eREAD = 0, // Read operation to the Rx Parser Memory
     eWRITE = 1, // Write operation to the Rx Parser Memory
   };
+  
   enum class eSTARTBUSY : uint32_t {
     eINACTIVE = 0, // hardware not busy
     eACTIVE = 1, // hardware is busy (Read/Write operation from/to the Rx Parser Memory)
@@ -11707,7 +11669,7 @@ union MTL_RXP_INDIRECT_ACC_CONTROL_STATUS {
     eWRRDN WRRDN : 1;
     uint32_t _reserved_2 : 14;
     eSTARTBUSY STARTBUSY : 1;
-  } bits;          // Bit-field struct (auto-filling reserved gaps)
+  } bits;
   
   // Full 32-bit register value.
   uint32_t value;
@@ -11721,12 +11683,10 @@ union MTL_RXP_INDIRECT_ACC_CONTROL_STATUS {
 //
 union MTL_RXP_INDIRECT_ACC_DATA {
   
-  // Enum definitions.
-  
   // Bit field definition.
   struct {
     uint32_t DATA : 32;
-  } bits;          // Bit-field struct (auto-filling reserved gaps)
+  } bits;
   
   // Full 32-bit register value.
   uint32_t value;
@@ -11740,20 +11700,22 @@ union MTL_RXP_INDIRECT_ACC_DATA {
 //
 union MTL_TXQ0_OPERATION_MODE {
   
-  // Enum definitions.
   enum class eFTQ : uint32_t {
     eDISABLE = 0, // Flush Transmit Queue is disabled
     eENABLE = 1, // Flush Transmit Queue is enabled
   };
+  
   enum class eTSF : uint32_t {
     eDISABLE = 0, // Transmit Store and Forward is disabled
     eENABLE = 1, // Transmit Store and Forward is enabled
   };
+  
   enum class eTXQEN : uint32_t {
     eDISABLE = 0, // Not enabled
     eEN_IF_AV = 1, // Enable in AV mode (Reserved in non-AV)
     eENABLE = 2, // Enabled
   };
+  
   enum class eTTC : uint32_t {
     ebf_32BYTES = 0, // 32
     ebf_64BYTES = 1, // 64
@@ -11774,7 +11736,7 @@ union MTL_TXQ0_OPERATION_MODE {
     uint32_t _reserved_4 : 9;
     uint32_t TQS : 5;
     uint32_t _reserved_end : 11;
-  } bits;          // Bit-field struct (auto-filling reserved gaps)
+  } bits;
   
   // Full 32-bit register value.
   uint32_t value;
@@ -11788,7 +11750,6 @@ union MTL_TXQ0_OPERATION_MODE {
 //
 union MTL_TXQ0_UNDERFLOW {
   
-  // Enum definitions.
   enum class eUFCNTOVF : uint32_t {
     eINACTIVE = 0, // Overflow not detected for Underflow Packet Counter
     eACTIVE = 1, // Overflow detected for Underflow Packet Counter
@@ -11799,7 +11760,7 @@ union MTL_TXQ0_UNDERFLOW {
     uint32_t UFFRMCNT : 11;
     eUFCNTOVF UFCNTOVF : 1;
     uint32_t _reserved_end : 20;
-  } bits;          // Bit-field struct (auto-filling reserved gaps)
+  } bits;
   
   // Full 32-bit register value.
   uint32_t value;
@@ -11813,25 +11774,28 @@ union MTL_TXQ0_UNDERFLOW {
 //
 union MTL_TXQ0_DEBUG {
   
-  // Enum definitions.
   enum class eTXQPAUSED : uint32_t {
     eINACTIVE = 0, // Transmit Queue in Pause status is not detected
     eACTIVE = 1, // Transmit Queue in Pause status is detected
   };
+  
   enum class eTRCSTS : uint32_t {
     eIDLE = 0, // Idle state
     eREAD = 1, // Read state (transferring data to the MAC transmitter)
     eWAIT = 2, // Waiting for pending Tx Status from the MAC transmitter
     eFLUSH = 3, // Flushing the Tx queue because of the Packet Abort request from the MAC
   };
+  
   enum class eTWCSTS : uint32_t {
     eINACTIVE = 0, // MTL Tx Queue Write Controller status is not detected
     eACTIVE = 1, // MTL Tx Queue Write Controller status is detected
   };
+  
   enum class eTXQSTS : uint32_t {
     eINACTIVE = 0, // MTL Tx Queue Not Empty status is not detected
     eACTIVE = 1, // MTL Tx Queue Not Empty status is detected
   };
+  
   enum class eTXSTSFSTS : uint32_t {
     eINACTIVE = 0, // MTL Tx Status FIFO Full status is not detected
     eACTIVE = 1, // MTL Tx Status FIFO Full status is detected
@@ -11849,7 +11813,7 @@ union MTL_TXQ0_DEBUG {
     uint32_t _reserved_6 : 1;
     uint32_t STXSTSF : 3;
     uint32_t _reserved_end : 9;
-  } bits;          // Bit-field struct (auto-filling reserved gaps)
+  } bits;
   
   // Full 32-bit register value.
   uint32_t value;
@@ -11863,13 +11827,11 @@ union MTL_TXQ0_DEBUG {
 //
 union MTL_TXQ0_ETS_STATUS {
   
-  // Enum definitions.
-  
   // Bit field definition.
   struct {
     uint32_t ABS : 24;
     uint32_t _reserved_end : 8;
-  } bits;          // Bit-field struct (auto-filling reserved gaps)
+  } bits;
   
   // Full 32-bit register value.
   uint32_t value;
@@ -11883,13 +11845,11 @@ union MTL_TXQ0_ETS_STATUS {
 //
 union MTL_TXQ0_QUANTUM_WEIGHT {
   
-  // Enum definitions.
-  
   // Bit field definition.
   struct {
     uint32_t ISCQW : 21;
     uint32_t _reserved_end : 11;
-  } bits;          // Bit-field struct (auto-filling reserved gaps)
+  } bits;
   
   // Full 32-bit register value.
   uint32_t value;
@@ -11903,27 +11863,31 @@ union MTL_TXQ0_QUANTUM_WEIGHT {
 //
 union MTL_Q0_INTERRUPT_CONTROL_STATUS {
   
-  // Enum definitions.
   enum class eTXUNFIS : uint32_t {
     eINACTIVE = 0, // Transmit Queue Underflow Interrupt Status not detected
     eACTIVE = 1, // Transmit Queue Underflow Interrupt Status detected
   };
+  
   enum class eABPSIS : uint32_t {
     eINACTIVE = 0, // Average Bits Per Slot Interrupt Status not detected
     eACTIVE = 1, // Average Bits Per Slot Interrupt Status detected
   };
+  
   enum class eTXUIE : uint32_t {
     eDISABLE = 0, // Transmit Queue Underflow Interrupt Status is disabled
     eENABLE = 1, // Transmit Queue Underflow Interrupt Status is enabled
   };
+  
   enum class eABPSIE : uint32_t {
     eDISABLE = 0, // Average Bits Per Slot Interrupt is disabled
     eENABLE = 1, // Average Bits Per Slot Interrupt is enabled
   };
+  
   enum class eRXOVFIS : uint32_t {
     eINACTIVE = 0, // Receive Queue Overflow Interrupt Status not detected
     eACTIVE = 1, // Receive Queue Overflow Interrupt Status detected
   };
+  
   enum class eRXOIE : uint32_t {
     eDISABLE = 0, // Receive Queue Overflow Interrupt is disabled
     eENABLE = 1, // Receive Queue Overflow Interrupt is enabled
@@ -11941,7 +11905,7 @@ union MTL_Q0_INTERRUPT_CONTROL_STATUS {
     uint32_t _reserved_5 : 7;
     eRXOIE RXOIE : 1;
     uint32_t _reserved_end : 7;
-  } bits;          // Bit-field struct (auto-filling reserved gaps)
+  } bits;
   
   // Full 32-bit register value.
   uint32_t value;
@@ -11955,29 +11919,33 @@ union MTL_Q0_INTERRUPT_CONTROL_STATUS {
 //
 union MTL_RXQ0_OPERATION_MODE {
   
-  // Enum definitions.
   enum class eRTC : uint32_t {
     ebf_64BYTE = 0, // 64
     ebf_32BYTE = 1, // 32
     ebf_96BYTE = 2, // 96
     ebf_128BYTE = 3, // 128
   };
+  
   enum class eFUP : uint32_t {
     eDISABLE = 0, // Forward Undersized Good Packets is disabled
     eENABLE = 1, // Forward Undersized Good Packets is enabled
   };
+  
   enum class eFEP : uint32_t {
     eDISABLE = 0, // Forward Error Packets is disabled
     eENABLE = 1, // Forward Error Packets is enabled
   };
+  
   enum class eRSF : uint32_t {
     eDISABLE = 0, // Receive Queue Store and Forward is disabled
     eENABLE = 1, // Receive Queue Store and Forward is enabled
   };
+  
   enum class eDIS_TCP_EF : uint32_t {
     eENABLE = 0, // Dropping of TCP/IP Checksum Error Packets is enabled
     eDISABLE = 1, // Dropping of TCP/IP Checksum Error Packets is disabled
   };
+  
   enum class eEHFC : uint32_t {
     eDISABLE = 0, // Hardware Flow Control is disabled
     eENABLE = 1, // Hardware Flow Control is enabled
@@ -11998,7 +11966,7 @@ union MTL_RXQ0_OPERATION_MODE {
     uint32_t _reserved_8 : 2;
     uint32_t RQS : 5;
     uint32_t _reserved_end : 7;
-  } bits;          // Bit-field struct (auto-filling reserved gaps)
+  } bits;
   
   // Full 32-bit register value.
   uint32_t value;
@@ -12012,11 +11980,11 @@ union MTL_RXQ0_OPERATION_MODE {
 //
 union MTL_RXQ0_MISSED_PACKET_OVERFLOW_CNT {
   
-  // Enum definitions.
   enum class eOVFCNTOVF : uint32_t {
     eINACTIVE = 0, // Overflow Counter overflow not detected
     eACTIVE = 1, // Overflow Counter overflow detected
   };
+  
   enum class eMISCNTOVF : uint32_t {
     eINACTIVE = 0, // Missed Packet Counter overflow not detected
     eACTIVE = 1, // Missed Packet Counter overflow detected
@@ -12030,7 +11998,7 @@ union MTL_RXQ0_MISSED_PACKET_OVERFLOW_CNT {
     uint32_t MISPKTCNT : 11;
     eMISCNTOVF MISCNTOVF : 1;
     uint32_t _reserved_end : 4;
-  } bits;          // Bit-field struct (auto-filling reserved gaps)
+  } bits;
   
   // Full 32-bit register value.
   uint32_t value;
@@ -12044,17 +12012,18 @@ union MTL_RXQ0_MISSED_PACKET_OVERFLOW_CNT {
 //
 union MTL_RXQ0_DEBUG {
   
-  // Enum definitions.
   enum class eRWCSTS : uint32_t {
     eINACTIVE = 0, // MTL Rx Queue Write Controller Active Status not detected
     eACTIVE = 1, // MTL Rx Queue Write Controller Active Status detected
   };
+  
   enum class eRRCSTS : uint32_t {
     eIDLE = 0, // Idle state
     eREAD_DATA = 1, // Reading packet data
     eREAD_STS = 2, // Reading packet status (or timestamp)
     eFLUSH = 3, // Flushing the packet data and status
   };
+  
   enum class eRXQSTS : uint32_t {
     eEMPTY = 0, // Rx Queue empty
     eBLW_THR = 1, // Rx Queue fill-level below flow-control deactivate threshold
@@ -12071,7 +12040,7 @@ union MTL_RXQ0_DEBUG {
     uint32_t _reserved_3 : 10;
     uint32_t PRXQ : 14;
     uint32_t _reserved_end : 2;
-  } bits;          // Bit-field struct (auto-filling reserved gaps)
+  } bits;
   
   // Full 32-bit register value.
   uint32_t value;
@@ -12085,7 +12054,6 @@ union MTL_RXQ0_DEBUG {
 //
 union MTL_RXQ0_CONTROL {
   
-  // Enum definitions.
   enum class eRXQ_FRM_ARBIT : uint32_t {
     eDISABLE = 0, // Receive Queue Packet Arbitration is disabled
     eENABLE = 1, // Receive Queue Packet Arbitration is enabled
@@ -12096,7 +12064,7 @@ union MTL_RXQ0_CONTROL {
     uint32_t RXQ_WEGT : 3;
     eRXQ_FRM_ARBIT RXQ_FRM_ARBIT : 1;
     uint32_t _reserved_end : 28;
-  } bits;          // Bit-field struct (auto-filling reserved gaps)
+  } bits;
   
   // Full 32-bit register value.
   uint32_t value;
@@ -12110,20 +12078,22 @@ union MTL_RXQ0_CONTROL {
 //
 union MTL_TXQ1_OPERATION_MODE {
   
-  // Enum definitions.
   enum class eFTQ : uint32_t {
     eDISABLE = 0, // Flush Transmit Queue is disabled
     eENABLE = 1, // Flush Transmit Queue is enabled
   };
+  
   enum class eTSF : uint32_t {
     eDISABLE = 0, // Transmit Store and Forward is disabled
     eENABLE = 1, // Transmit Store and Forward is enabled
   };
+  
   enum class eTXQEN : uint32_t {
     eDISABLE = 0, // Not enabled
     eEN_IF_AV = 1, // Enable in AV mode (Reserved in non-AV)
     eENABLE = 2, // Enabled
   };
+  
   enum class eTTC : uint32_t {
     ebf_32BYTES = 0, // 32
     ebf_64BYTES = 1, // 64
@@ -12144,7 +12114,7 @@ union MTL_TXQ1_OPERATION_MODE {
     uint32_t _reserved_4 : 9;
     uint32_t TQS : 5;
     uint32_t _reserved_end : 11;
-  } bits;          // Bit-field struct (auto-filling reserved gaps)
+  } bits;
   
   // Full 32-bit register value.
   uint32_t value;
@@ -12158,7 +12128,6 @@ union MTL_TXQ1_OPERATION_MODE {
 //
 union MTL_TXQ1_UNDERFLOW {
   
-  // Enum definitions.
   enum class eUFCNTOVF : uint32_t {
     eINACTIVE = 0, // Overflow not detected for Underflow Packet Counter
     eACTIVE = 1, // Overflow detected for Underflow Packet Counter
@@ -12169,7 +12138,7 @@ union MTL_TXQ1_UNDERFLOW {
     uint32_t UFFRMCNT : 11;
     eUFCNTOVF UFCNTOVF : 1;
     uint32_t _reserved_end : 20;
-  } bits;          // Bit-field struct (auto-filling reserved gaps)
+  } bits;
   
   // Full 32-bit register value.
   uint32_t value;
@@ -12183,25 +12152,28 @@ union MTL_TXQ1_UNDERFLOW {
 //
 union MTL_TXQ1_DEBUG {
   
-  // Enum definitions.
   enum class eTXQPAUSED : uint32_t {
     eINACTIVE = 0, // Transmit Queue in Pause status is not detected
     eACTIVE = 1, // Transmit Queue in Pause status is detected
   };
+  
   enum class eTRCSTS : uint32_t {
     eIDLE = 0, // Idle state
     eREAD = 1, // Read state (transferring data to the MAC transmitter)
     eWAIT = 2, // Waiting for pending Tx Status from the MAC transmitter
     eFLUSH = 3, // Flushing the Tx queue because of the Packet Abort request from the MAC
   };
+  
   enum class eTWCSTS : uint32_t {
     eINACTIVE = 0, // MTL Tx Queue Write Controller status is not detected
     eACTIVE = 1, // MTL Tx Queue Write Controller status is detected
   };
+  
   enum class eTXQSTS : uint32_t {
     eINACTIVE = 0, // MTL Tx Queue Not Empty status is not detected
     eACTIVE = 1, // MTL Tx Queue Not Empty status is detected
   };
+  
   enum class eTXSTSFSTS : uint32_t {
     eINACTIVE = 0, // MTL Tx Status FIFO Full status is not detected
     eACTIVE = 1, // MTL Tx Status FIFO Full status is detected
@@ -12219,7 +12191,7 @@ union MTL_TXQ1_DEBUG {
     uint32_t _reserved_6 : 1;
     uint32_t STXSTSF : 3;
     uint32_t _reserved_end : 9;
-  } bits;          // Bit-field struct (auto-filling reserved gaps)
+  } bits;
   
   // Full 32-bit register value.
   uint32_t value;
@@ -12233,15 +12205,16 @@ union MTL_TXQ1_DEBUG {
 //
 union MTL_TXQ1_ETS_CONTROL {
   
-  // Enum definitions.
   enum class eAVALG : uint32_t {
     eDISABLE = 0, // CBS Algorithm is disabled
     eENABLE = 1, // CBS Algorithm is enabled
   };
+  
   enum class eCC : uint32_t {
     eDISABLE = 0, // Credit Control is disabled
     eENABLE = 1, // Credit Control is enabled
   };
+  
   enum class eSLC : uint32_t {
     ebf_1_SLOT = 0, // 1 slot
     ebf_2_SLOT = 1, // 2 slots
@@ -12257,7 +12230,7 @@ union MTL_TXQ1_ETS_CONTROL {
     eCC CC : 1;
     eSLC SLC : 3;
     uint32_t _reserved_end : 25;
-  } bits;          // Bit-field struct (auto-filling reserved gaps)
+  } bits;
   
   // Full 32-bit register value.
   uint32_t value;
@@ -12271,13 +12244,11 @@ union MTL_TXQ1_ETS_CONTROL {
 //
 union MTL_TXQ1_ETS_STATUS {
   
-  // Enum definitions.
-  
   // Bit field definition.
   struct {
     uint32_t ABS : 24;
     uint32_t _reserved_end : 8;
-  } bits;          // Bit-field struct (auto-filling reserved gaps)
+  } bits;
   
   // Full 32-bit register value.
   uint32_t value;
@@ -12291,13 +12262,11 @@ union MTL_TXQ1_ETS_STATUS {
 //
 union MTL_TXQ1_QUANTUM_WEIGHT {
   
-  // Enum definitions.
-  
   // Bit field definition.
   struct {
     uint32_t ISCQW : 21;
     uint32_t _reserved_end : 11;
-  } bits;          // Bit-field struct (auto-filling reserved gaps)
+  } bits;
   
   // Full 32-bit register value.
   uint32_t value;
@@ -12311,13 +12280,11 @@ union MTL_TXQ1_QUANTUM_WEIGHT {
 //
 union MTL_TXQ1_SENDSLOPECREDIT {
   
-  // Enum definitions.
-  
   // Bit field definition.
   struct {
     uint32_t SSC : 14;
     uint32_t _reserved_end : 18;
-  } bits;          // Bit-field struct (auto-filling reserved gaps)
+  } bits;
   
   // Full 32-bit register value.
   uint32_t value;
@@ -12331,13 +12298,11 @@ union MTL_TXQ1_SENDSLOPECREDIT {
 //
 union MTL_TXQ1_HICREDIT {
   
-  // Enum definitions.
-  
   // Bit field definition.
   struct {
     uint32_t HC : 29;
     uint32_t _reserved_end : 3;
-  } bits;          // Bit-field struct (auto-filling reserved gaps)
+  } bits;
   
   // Full 32-bit register value.
   uint32_t value;
@@ -12351,13 +12316,11 @@ union MTL_TXQ1_HICREDIT {
 //
 union MTL_TXQ1_LOCREDIT {
   
-  // Enum definitions.
-  
   // Bit field definition.
   struct {
     uint32_t LC : 29;
     uint32_t _reserved_end : 3;
-  } bits;          // Bit-field struct (auto-filling reserved gaps)
+  } bits;
   
   // Full 32-bit register value.
   uint32_t value;
@@ -12371,27 +12334,31 @@ union MTL_TXQ1_LOCREDIT {
 //
 union MTL_Q1_INTERRUPT_CONTROL_STATUS {
   
-  // Enum definitions.
   enum class eTXUNFIS : uint32_t {
     eINACTIVE = 0, // Transmit Queue Underflow Interrupt Status not detected
     eACTIVE = 1, // Transmit Queue Underflow Interrupt Status detected
   };
+  
   enum class eABPSIS : uint32_t {
     eINACTIVE = 0, // Average Bits Per Slot Interrupt Status not detected
     eACTIVE = 1, // Average Bits Per Slot Interrupt Status detected
   };
+  
   enum class eTXUIE : uint32_t {
     eDISABLE = 0, // Transmit Queue Underflow Interrupt Status is disabled
     eENABLE = 1, // Transmit Queue Underflow Interrupt Status is enabled
   };
+  
   enum class eABPSIE : uint32_t {
     eDISABLE = 0, // Average Bits Per Slot Interrupt is disabled
     eENABLE = 1, // Average Bits Per Slot Interrupt is enabled
   };
+  
   enum class eRXOVFIS : uint32_t {
     eINACTIVE = 0, // Receive Queue Overflow Interrupt Status not detected
     eACTIVE = 1, // Receive Queue Overflow Interrupt Status detected
   };
+  
   enum class eRXOIE : uint32_t {
     eDISABLE = 0, // Receive Queue Overflow Interrupt is disabled
     eENABLE = 1, // Receive Queue Overflow Interrupt is enabled
@@ -12409,7 +12376,7 @@ union MTL_Q1_INTERRUPT_CONTROL_STATUS {
     uint32_t _reserved_5 : 7;
     eRXOIE RXOIE : 1;
     uint32_t _reserved_end : 7;
-  } bits;          // Bit-field struct (auto-filling reserved gaps)
+  } bits;
   
   // Full 32-bit register value.
   uint32_t value;
@@ -12423,29 +12390,33 @@ union MTL_Q1_INTERRUPT_CONTROL_STATUS {
 //
 union MTL_RXQ1_OPERATION_MODE {
   
-  // Enum definitions.
   enum class eRTC : uint32_t {
     ebf_64BYTE = 0, // 64
     ebf_32BYTE = 1, // 32
     ebf_96BYTE = 2, // 96
     ebf_128BYTE = 3, // 128
   };
+  
   enum class eFUP : uint32_t {
     eDISABLE = 0, // Forward Undersized Good Packets is disabled
     eENABLE = 1, // Forward Undersized Good Packets is enabled
   };
+  
   enum class eFEP : uint32_t {
     eDISABLE = 0, // Forward Error Packets is disabled
     eENABLE = 1, // Forward Error Packets is enabled
   };
+  
   enum class eRSF : uint32_t {
     eDISABLE = 0, // Receive Queue Store and Forward is disabled
     eENABLE = 1, // Receive Queue Store and Forward is enabled
   };
+  
   enum class eDIS_TCP_EF : uint32_t {
     eENABLE = 0, // Dropping of TCP/IP Checksum Error Packets is enabled
     eDISABLE = 1, // Dropping of TCP/IP Checksum Error Packets is disabled
   };
+  
   enum class eEHFC : uint32_t {
     eDISABLE = 0, // Hardware Flow Control is disabled
     eENABLE = 1, // Hardware Flow Control is enabled
@@ -12466,7 +12437,7 @@ union MTL_RXQ1_OPERATION_MODE {
     uint32_t _reserved_8 : 2;
     uint32_t RQS : 5;
     uint32_t _reserved_end : 7;
-  } bits;          // Bit-field struct (auto-filling reserved gaps)
+  } bits;
   
   // Full 32-bit register value.
   uint32_t value;
@@ -12480,11 +12451,11 @@ union MTL_RXQ1_OPERATION_MODE {
 //
 union MTL_RXQ1_MISSED_PACKET_OVERFLOW_CNT {
   
-  // Enum definitions.
   enum class eOVFCNTOVF : uint32_t {
     eINACTIVE = 0, // Overflow Counter overflow not detected
     eACTIVE = 1, // Overflow Counter overflow detected
   };
+  
   enum class eMISCNTOVF : uint32_t {
     eINACTIVE = 0, // Missed Packet Counter overflow not detected
     eACTIVE = 1, // Missed Packet Counter overflow detected
@@ -12498,7 +12469,7 @@ union MTL_RXQ1_MISSED_PACKET_OVERFLOW_CNT {
     uint32_t MISPKTCNT : 11;
     eMISCNTOVF MISCNTOVF : 1;
     uint32_t _reserved_end : 4;
-  } bits;          // Bit-field struct (auto-filling reserved gaps)
+  } bits;
   
   // Full 32-bit register value.
   uint32_t value;
@@ -12512,17 +12483,18 @@ union MTL_RXQ1_MISSED_PACKET_OVERFLOW_CNT {
 //
 union MTL_RXQ1_DEBUG {
   
-  // Enum definitions.
   enum class eRWCSTS : uint32_t {
     eINACTIVE = 0, // MTL Rx Queue Write Controller Active Status not detected
     eACTIVE = 1, // MTL Rx Queue Write Controller Active Status detected
   };
+  
   enum class eRRCSTS : uint32_t {
     eIDLE = 0, // Idle state
     eREAD_DATA = 1, // Reading packet data
     eREAD_STS = 2, // Reading packet status (or timestamp)
     eFLUSH = 3, // Flushing the packet data and status
   };
+  
   enum class eRXQSTS : uint32_t {
     eEMPTY = 0, // Rx Queue empty
     eBLW_THR = 1, // Rx Queue fill-level below flow-control deactivate threshold
@@ -12539,7 +12511,7 @@ union MTL_RXQ1_DEBUG {
     uint32_t _reserved_3 : 10;
     uint32_t PRXQ : 14;
     uint32_t _reserved_end : 2;
-  } bits;          // Bit-field struct (auto-filling reserved gaps)
+  } bits;
   
   // Full 32-bit register value.
   uint32_t value;
@@ -12553,7 +12525,6 @@ union MTL_RXQ1_DEBUG {
 //
 union MTL_RXQ1_CONTROL {
   
-  // Enum definitions.
   enum class eRXQ_FRM_ARBIT : uint32_t {
     eDISABLE = 0, // Receive Queue Packet Arbitration is disabled
     eENABLE = 1, // Receive Queue Packet Arbitration is enabled
@@ -12564,7 +12535,7 @@ union MTL_RXQ1_CONTROL {
     uint32_t RXQ_WEGT : 3;
     eRXQ_FRM_ARBIT RXQ_FRM_ARBIT : 1;
     uint32_t _reserved_end : 28;
-  } bits;          // Bit-field struct (auto-filling reserved gaps)
+  } bits;
   
   // Full 32-bit register value.
   uint32_t value;
@@ -12578,20 +12549,22 @@ union MTL_RXQ1_CONTROL {
 //
 union MTL_TXQ2_OPERATION_MODE {
   
-  // Enum definitions.
   enum class eFTQ : uint32_t {
     eDISABLE = 0, // Flush Transmit Queue is disabled
     eENABLE = 1, // Flush Transmit Queue is enabled
   };
+  
   enum class eTSF : uint32_t {
     eDISABLE = 0, // Transmit Store and Forward is disabled
     eENABLE = 1, // Transmit Store and Forward is enabled
   };
+  
   enum class eTXQEN : uint32_t {
     eDISABLE = 0, // Not enabled
     eEN_IF_AV = 1, // Enable in AV mode (Reserved in non-AV)
     eENABLE = 2, // Enabled
   };
+  
   enum class eTTC : uint32_t {
     ebf_32BYTES = 0, // 32
     ebf_64BYTES = 1, // 64
@@ -12612,7 +12585,7 @@ union MTL_TXQ2_OPERATION_MODE {
     uint32_t _reserved_4 : 9;
     uint32_t TQS : 5;
     uint32_t _reserved_end : 11;
-  } bits;          // Bit-field struct (auto-filling reserved gaps)
+  } bits;
   
   // Full 32-bit register value.
   uint32_t value;
@@ -12626,7 +12599,6 @@ union MTL_TXQ2_OPERATION_MODE {
 //
 union MTL_TXQ2_UNDERFLOW {
   
-  // Enum definitions.
   enum class eUFCNTOVF : uint32_t {
     eINACTIVE = 0, // Overflow not detected for Underflow Packet Counter
     eACTIVE = 1, // Overflow detected for Underflow Packet Counter
@@ -12637,7 +12609,7 @@ union MTL_TXQ2_UNDERFLOW {
     uint32_t UFFRMCNT : 11;
     eUFCNTOVF UFCNTOVF : 1;
     uint32_t _reserved_end : 20;
-  } bits;          // Bit-field struct (auto-filling reserved gaps)
+  } bits;
   
   // Full 32-bit register value.
   uint32_t value;
@@ -12651,25 +12623,28 @@ union MTL_TXQ2_UNDERFLOW {
 //
 union MTL_TXQ2_DEBUG {
   
-  // Enum definitions.
   enum class eTXQPAUSED : uint32_t {
     eINACTIVE = 0, // Transmit Queue in Pause status is not detected
     eACTIVE = 1, // Transmit Queue in Pause status is detected
   };
+  
   enum class eTRCSTS : uint32_t {
     eIDLE = 0, // Idle state
     eREAD = 1, // Read state (transferring data to the MAC transmitter)
     eWAIT = 2, // Waiting for pending Tx Status from the MAC transmitter
     eFLUSH = 3, // Flushing the Tx queue because of the Packet Abort request from the MAC
   };
+  
   enum class eTWCSTS : uint32_t {
     eINACTIVE = 0, // MTL Tx Queue Write Controller status is not detected
     eACTIVE = 1, // MTL Tx Queue Write Controller status is detected
   };
+  
   enum class eTXQSTS : uint32_t {
     eINACTIVE = 0, // MTL Tx Queue Not Empty status is not detected
     eACTIVE = 1, // MTL Tx Queue Not Empty status is detected
   };
+  
   enum class eTXSTSFSTS : uint32_t {
     eINACTIVE = 0, // MTL Tx Status FIFO Full status is not detected
     eACTIVE = 1, // MTL Tx Status FIFO Full status is detected
@@ -12687,7 +12662,7 @@ union MTL_TXQ2_DEBUG {
     uint32_t _reserved_6 : 1;
     uint32_t STXSTSF : 3;
     uint32_t _reserved_end : 9;
-  } bits;          // Bit-field struct (auto-filling reserved gaps)
+  } bits;
   
   // Full 32-bit register value.
   uint32_t value;
@@ -12701,15 +12676,16 @@ union MTL_TXQ2_DEBUG {
 //
 union MTL_TXQ2_ETS_CONTROL {
   
-  // Enum definitions.
   enum class eAVALG : uint32_t {
     eDISABLE = 0, // CBS Algorithm is disabled
     eENABLE = 1, // CBS Algorithm is enabled
   };
+  
   enum class eCC : uint32_t {
     eDISABLE = 0, // Credit Control is disabled
     eENABLE = 1, // Credit Control is enabled
   };
+  
   enum class eSLC : uint32_t {
     ebf_1_SLOT = 0, // 1 slot
     ebf_2_SLOT = 1, // 2 slots
@@ -12725,7 +12701,7 @@ union MTL_TXQ2_ETS_CONTROL {
     eCC CC : 1;
     eSLC SLC : 3;
     uint32_t _reserved_end : 25;
-  } bits;          // Bit-field struct (auto-filling reserved gaps)
+  } bits;
   
   // Full 32-bit register value.
   uint32_t value;
@@ -12739,13 +12715,11 @@ union MTL_TXQ2_ETS_CONTROL {
 //
 union MTL_TXQ2_ETS_STATUS {
   
-  // Enum definitions.
-  
   // Bit field definition.
   struct {
     uint32_t ABS : 24;
     uint32_t _reserved_end : 8;
-  } bits;          // Bit-field struct (auto-filling reserved gaps)
+  } bits;
   
   // Full 32-bit register value.
   uint32_t value;
@@ -12759,13 +12733,11 @@ union MTL_TXQ2_ETS_STATUS {
 //
 union MTL_TXQ2_QUANTUM_WEIGHT {
   
-  // Enum definitions.
-  
   // Bit field definition.
   struct {
     uint32_t ISCQW : 21;
     uint32_t _reserved_end : 11;
-  } bits;          // Bit-field struct (auto-filling reserved gaps)
+  } bits;
   
   // Full 32-bit register value.
   uint32_t value;
@@ -12779,13 +12751,11 @@ union MTL_TXQ2_QUANTUM_WEIGHT {
 //
 union MTL_TXQ2_SENDSLOPECREDIT {
   
-  // Enum definitions.
-  
   // Bit field definition.
   struct {
     uint32_t SSC : 14;
     uint32_t _reserved_end : 18;
-  } bits;          // Bit-field struct (auto-filling reserved gaps)
+  } bits;
   
   // Full 32-bit register value.
   uint32_t value;
@@ -12799,13 +12769,11 @@ union MTL_TXQ2_SENDSLOPECREDIT {
 //
 union MTL_TXQ2_HICREDIT {
   
-  // Enum definitions.
-  
   // Bit field definition.
   struct {
     uint32_t HC : 29;
     uint32_t _reserved_end : 3;
-  } bits;          // Bit-field struct (auto-filling reserved gaps)
+  } bits;
   
   // Full 32-bit register value.
   uint32_t value;
@@ -12819,13 +12787,11 @@ union MTL_TXQ2_HICREDIT {
 //
 union MTL_TXQ2_LOCREDIT {
   
-  // Enum definitions.
-  
   // Bit field definition.
   struct {
     uint32_t LC : 29;
     uint32_t _reserved_end : 3;
-  } bits;          // Bit-field struct (auto-filling reserved gaps)
+  } bits;
   
   // Full 32-bit register value.
   uint32_t value;
@@ -12839,27 +12805,31 @@ union MTL_TXQ2_LOCREDIT {
 //
 union MTL_Q2_INTERRUPT_CONTROL_STATUS {
   
-  // Enum definitions.
   enum class eTXUNFIS : uint32_t {
     eINACTIVE = 0, // Transmit Queue Underflow Interrupt Status not detected
     eACTIVE = 1, // Transmit Queue Underflow Interrupt Status detected
   };
+  
   enum class eABPSIS : uint32_t {
     eINACTIVE = 0, // Average Bits Per Slot Interrupt Status not detected
     eACTIVE = 1, // Average Bits Per Slot Interrupt Status detected
   };
+  
   enum class eTXUIE : uint32_t {
     eDISABLE = 0, // Transmit Queue Underflow Interrupt Status is disabled
     eENABLE = 1, // Transmit Queue Underflow Interrupt Status is enabled
   };
+  
   enum class eABPSIE : uint32_t {
     eDISABLE = 0, // Average Bits Per Slot Interrupt is disabled
     eENABLE = 1, // Average Bits Per Slot Interrupt is enabled
   };
+  
   enum class eRXOVFIS : uint32_t {
     eINACTIVE = 0, // Receive Queue Overflow Interrupt Status not detected
     eACTIVE = 1, // Receive Queue Overflow Interrupt Status detected
   };
+  
   enum class eRXOIE : uint32_t {
     eDISABLE = 0, // Receive Queue Overflow Interrupt is disabled
     eENABLE = 1, // Receive Queue Overflow Interrupt is enabled
@@ -12877,7 +12847,7 @@ union MTL_Q2_INTERRUPT_CONTROL_STATUS {
     uint32_t _reserved_5 : 7;
     eRXOIE RXOIE : 1;
     uint32_t _reserved_end : 7;
-  } bits;          // Bit-field struct (auto-filling reserved gaps)
+  } bits;
   
   // Full 32-bit register value.
   uint32_t value;
@@ -12891,29 +12861,33 @@ union MTL_Q2_INTERRUPT_CONTROL_STATUS {
 //
 union MTL_RXQ2_OPERATION_MODE {
   
-  // Enum definitions.
   enum class eRTC : uint32_t {
     ebf_64BYTE = 0, // 64
     ebf_32BYTE = 1, // 32
     ebf_96BYTE = 2, // 96
     ebf_128BYTE = 3, // 128
   };
+  
   enum class eFUP : uint32_t {
     eDISABLE = 0, // Forward Undersized Good Packets is disabled
     eENABLE = 1, // Forward Undersized Good Packets is enabled
   };
+  
   enum class eFEP : uint32_t {
     eDISABLE = 0, // Forward Error Packets is disabled
     eENABLE = 1, // Forward Error Packets is enabled
   };
+  
   enum class eRSF : uint32_t {
     eDISABLE = 0, // Receive Queue Store and Forward is disabled
     eENABLE = 1, // Receive Queue Store and Forward is enabled
   };
+  
   enum class eDIS_TCP_EF : uint32_t {
     eENABLE = 0, // Dropping of TCP/IP Checksum Error Packets is enabled
     eDISABLE = 1, // Dropping of TCP/IP Checksum Error Packets is disabled
   };
+  
   enum class eEHFC : uint32_t {
     eDISABLE = 0, // Hardware Flow Control is disabled
     eENABLE = 1, // Hardware Flow Control is enabled
@@ -12934,7 +12908,7 @@ union MTL_RXQ2_OPERATION_MODE {
     uint32_t _reserved_8 : 2;
     uint32_t RQS : 5;
     uint32_t _reserved_end : 7;
-  } bits;          // Bit-field struct (auto-filling reserved gaps)
+  } bits;
   
   // Full 32-bit register value.
   uint32_t value;
@@ -12948,11 +12922,11 @@ union MTL_RXQ2_OPERATION_MODE {
 //
 union MTL_RXQ2_MISSED_PACKET_OVERFLOW_CNT {
   
-  // Enum definitions.
   enum class eOVFCNTOVF : uint32_t {
     eINACTIVE = 0, // Overflow Counter overflow not detected
     eACTIVE = 1, // Overflow Counter overflow detected
   };
+  
   enum class eMISCNTOVF : uint32_t {
     eINACTIVE = 0, // Missed Packet Counter overflow not detected
     eACTIVE = 1, // Missed Packet Counter overflow detected
@@ -12966,7 +12940,7 @@ union MTL_RXQ2_MISSED_PACKET_OVERFLOW_CNT {
     uint32_t MISPKTCNT : 11;
     eMISCNTOVF MISCNTOVF : 1;
     uint32_t _reserved_end : 4;
-  } bits;          // Bit-field struct (auto-filling reserved gaps)
+  } bits;
   
   // Full 32-bit register value.
   uint32_t value;
@@ -12980,17 +12954,18 @@ union MTL_RXQ2_MISSED_PACKET_OVERFLOW_CNT {
 //
 union MTL_RXQ2_DEBUG {
   
-  // Enum definitions.
   enum class eRWCSTS : uint32_t {
     eINACTIVE = 0, // MTL Rx Queue Write Controller Active Status not detected
     eACTIVE = 1, // MTL Rx Queue Write Controller Active Status detected
   };
+  
   enum class eRRCSTS : uint32_t {
     eIDLE = 0, // Idle state
     eREAD_DATA = 1, // Reading packet data
     eREAD_STS = 2, // Reading packet status (or timestamp)
     eFLUSH = 3, // Flushing the packet data and status
   };
+  
   enum class eRXQSTS : uint32_t {
     eEMPTY = 0, // Rx Queue empty
     eBLW_THR = 1, // Rx Queue fill-level below flow-control deactivate threshold
@@ -13007,7 +12982,7 @@ union MTL_RXQ2_DEBUG {
     uint32_t _reserved_3 : 10;
     uint32_t PRXQ : 14;
     uint32_t _reserved_end : 2;
-  } bits;          // Bit-field struct (auto-filling reserved gaps)
+  } bits;
   
   // Full 32-bit register value.
   uint32_t value;
@@ -13021,7 +12996,6 @@ union MTL_RXQ2_DEBUG {
 //
 union MTL_RXQ2_CONTROL {
   
-  // Enum definitions.
   enum class eRXQ_FRM_ARBIT : uint32_t {
     eDISABLE = 0, // Receive Queue Packet Arbitration is disabled
     eENABLE = 1, // Receive Queue Packet Arbitration is enabled
@@ -13032,7 +13006,7 @@ union MTL_RXQ2_CONTROL {
     uint32_t RXQ_WEGT : 3;
     eRXQ_FRM_ARBIT RXQ_FRM_ARBIT : 1;
     uint32_t _reserved_end : 28;
-  } bits;          // Bit-field struct (auto-filling reserved gaps)
+  } bits;
   
   // Full 32-bit register value.
   uint32_t value;
@@ -13046,20 +13020,22 @@ union MTL_RXQ2_CONTROL {
 //
 union MTL_TXQ3_OPERATION_MODE {
   
-  // Enum definitions.
   enum class eFTQ : uint32_t {
     eDISABLE = 0, // Flush Transmit Queue is disabled
     eENABLE = 1, // Flush Transmit Queue is enabled
   };
+  
   enum class eTSF : uint32_t {
     eDISABLE = 0, // Transmit Store and Forward is disabled
     eENABLE = 1, // Transmit Store and Forward is enabled
   };
+  
   enum class eTXQEN : uint32_t {
     eDISABLE = 0, // Not enabled
     eEN_IF_AV = 1, // Enable in AV mode (Reserved in non-AV)
     eENABLE = 2, // Enabled
   };
+  
   enum class eTTC : uint32_t {
     ebf_32BYTES = 0, // 32
     ebf_64BYTES = 1, // 64
@@ -13080,7 +13056,7 @@ union MTL_TXQ3_OPERATION_MODE {
     uint32_t _reserved_4 : 9;
     uint32_t TQS : 5;
     uint32_t _reserved_end : 11;
-  } bits;          // Bit-field struct (auto-filling reserved gaps)
+  } bits;
   
   // Full 32-bit register value.
   uint32_t value;
@@ -13094,7 +13070,6 @@ union MTL_TXQ3_OPERATION_MODE {
 //
 union MTL_TXQ3_UNDERFLOW {
   
-  // Enum definitions.
   enum class eUFCNTOVF : uint32_t {
     eINACTIVE = 0, // Overflow not detected for Underflow Packet Counter
     eACTIVE = 1, // Overflow detected for Underflow Packet Counter
@@ -13105,7 +13080,7 @@ union MTL_TXQ3_UNDERFLOW {
     uint32_t UFFRMCNT : 11;
     eUFCNTOVF UFCNTOVF : 1;
     uint32_t _reserved_end : 20;
-  } bits;          // Bit-field struct (auto-filling reserved gaps)
+  } bits;
   
   // Full 32-bit register value.
   uint32_t value;
@@ -13119,25 +13094,28 @@ union MTL_TXQ3_UNDERFLOW {
 //
 union MTL_TXQ3_DEBUG {
   
-  // Enum definitions.
   enum class eTXQPAUSED : uint32_t {
     eINACTIVE = 0, // Transmit Queue in Pause status is not detected
     eACTIVE = 1, // Transmit Queue in Pause status is detected
   };
+  
   enum class eTRCSTS : uint32_t {
     eIDLE = 0, // Idle state
     eREAD = 1, // Read state (transferring data to the MAC transmitter)
     eWAIT = 2, // Waiting for pending Tx Status from the MAC transmitter
     eFLUSH = 3, // Flushing the Tx queue because of the Packet Abort request from the MAC
   };
+  
   enum class eTWCSTS : uint32_t {
     eINACTIVE = 0, // MTL Tx Queue Write Controller status is not detected
     eACTIVE = 1, // MTL Tx Queue Write Controller status is detected
   };
+  
   enum class eTXQSTS : uint32_t {
     eINACTIVE = 0, // MTL Tx Queue Not Empty status is not detected
     eACTIVE = 1, // MTL Tx Queue Not Empty status is detected
   };
+  
   enum class eTXSTSFSTS : uint32_t {
     eINACTIVE = 0, // MTL Tx Status FIFO Full status is not detected
     eACTIVE = 1, // MTL Tx Status FIFO Full status is detected
@@ -13155,7 +13133,7 @@ union MTL_TXQ3_DEBUG {
     uint32_t _reserved_6 : 1;
     uint32_t STXSTSF : 3;
     uint32_t _reserved_end : 9;
-  } bits;          // Bit-field struct (auto-filling reserved gaps)
+  } bits;
   
   // Full 32-bit register value.
   uint32_t value;
@@ -13169,15 +13147,16 @@ union MTL_TXQ3_DEBUG {
 //
 union MTL_TXQ3_ETS_CONTROL {
   
-  // Enum definitions.
   enum class eAVALG : uint32_t {
     eDISABLE = 0, // CBS Algorithm is disabled
     eENABLE = 1, // CBS Algorithm is enabled
   };
+  
   enum class eCC : uint32_t {
     eDISABLE = 0, // Credit Control is disabled
     eENABLE = 1, // Credit Control is enabled
   };
+  
   enum class eSLC : uint32_t {
     ebf_1_SLOT = 0, // 1 slot
     ebf_2_SLOT = 1, // 2 slots
@@ -13193,7 +13172,7 @@ union MTL_TXQ3_ETS_CONTROL {
     eCC CC : 1;
     eSLC SLC : 3;
     uint32_t _reserved_end : 25;
-  } bits;          // Bit-field struct (auto-filling reserved gaps)
+  } bits;
   
   // Full 32-bit register value.
   uint32_t value;
@@ -13207,13 +13186,11 @@ union MTL_TXQ3_ETS_CONTROL {
 //
 union MTL_TXQ3_ETS_STATUS {
   
-  // Enum definitions.
-  
   // Bit field definition.
   struct {
     uint32_t ABS : 24;
     uint32_t _reserved_end : 8;
-  } bits;          // Bit-field struct (auto-filling reserved gaps)
+  } bits;
   
   // Full 32-bit register value.
   uint32_t value;
@@ -13227,13 +13204,11 @@ union MTL_TXQ3_ETS_STATUS {
 //
 union MTL_TXQ3_QUANTUM_WEIGHT {
   
-  // Enum definitions.
-  
   // Bit field definition.
   struct {
     uint32_t ISCQW : 21;
     uint32_t _reserved_end : 11;
-  } bits;          // Bit-field struct (auto-filling reserved gaps)
+  } bits;
   
   // Full 32-bit register value.
   uint32_t value;
@@ -13247,13 +13222,11 @@ union MTL_TXQ3_QUANTUM_WEIGHT {
 //
 union MTL_TXQ3_SENDSLOPECREDIT {
   
-  // Enum definitions.
-  
   // Bit field definition.
   struct {
     uint32_t SSC : 14;
     uint32_t _reserved_end : 18;
-  } bits;          // Bit-field struct (auto-filling reserved gaps)
+  } bits;
   
   // Full 32-bit register value.
   uint32_t value;
@@ -13267,13 +13240,11 @@ union MTL_TXQ3_SENDSLOPECREDIT {
 //
 union MTL_TXQ3_HICREDIT {
   
-  // Enum definitions.
-  
   // Bit field definition.
   struct {
     uint32_t HC : 29;
     uint32_t _reserved_end : 3;
-  } bits;          // Bit-field struct (auto-filling reserved gaps)
+  } bits;
   
   // Full 32-bit register value.
   uint32_t value;
@@ -13287,13 +13258,11 @@ union MTL_TXQ3_HICREDIT {
 //
 union MTL_TXQ3_LOCREDIT {
   
-  // Enum definitions.
-  
   // Bit field definition.
   struct {
     uint32_t LC : 29;
     uint32_t _reserved_end : 3;
-  } bits;          // Bit-field struct (auto-filling reserved gaps)
+  } bits;
   
   // Full 32-bit register value.
   uint32_t value;
@@ -13307,27 +13276,31 @@ union MTL_TXQ3_LOCREDIT {
 //
 union MTL_Q3_INTERRUPT_CONTROL_STATUS {
   
-  // Enum definitions.
   enum class eTXUNFIS : uint32_t {
     eINACTIVE = 0, // Transmit Queue Underflow Interrupt Status not detected
     eACTIVE = 1, // Transmit Queue Underflow Interrupt Status detected
   };
+  
   enum class eABPSIS : uint32_t {
     eINACTIVE = 0, // Average Bits Per Slot Interrupt Status not detected
     eACTIVE = 1, // Average Bits Per Slot Interrupt Status detected
   };
+  
   enum class eTXUIE : uint32_t {
     eDISABLE = 0, // Transmit Queue Underflow Interrupt Status is disabled
     eENABLE = 1, // Transmit Queue Underflow Interrupt Status is enabled
   };
+  
   enum class eABPSIE : uint32_t {
     eDISABLE = 0, // Average Bits Per Slot Interrupt is disabled
     eENABLE = 1, // Average Bits Per Slot Interrupt is enabled
   };
+  
   enum class eRXOVFIS : uint32_t {
     eINACTIVE = 0, // Receive Queue Overflow Interrupt Status not detected
     eACTIVE = 1, // Receive Queue Overflow Interrupt Status detected
   };
+  
   enum class eRXOIE : uint32_t {
     eDISABLE = 0, // Receive Queue Overflow Interrupt is disabled
     eENABLE = 1, // Receive Queue Overflow Interrupt is enabled
@@ -13345,7 +13318,7 @@ union MTL_Q3_INTERRUPT_CONTROL_STATUS {
     uint32_t _reserved_5 : 7;
     eRXOIE RXOIE : 1;
     uint32_t _reserved_end : 7;
-  } bits;          // Bit-field struct (auto-filling reserved gaps)
+  } bits;
   
   // Full 32-bit register value.
   uint32_t value;
@@ -13359,29 +13332,33 @@ union MTL_Q3_INTERRUPT_CONTROL_STATUS {
 //
 union MTL_RXQ3_OPERATION_MODE {
   
-  // Enum definitions.
   enum class eRTC : uint32_t {
     ebf_64BYTE = 0, // 64
     ebf_32BYTE = 1, // 32
     ebf_96BYTE = 2, // 96
     ebf_128BYTE = 3, // 128
   };
+  
   enum class eFUP : uint32_t {
     eDISABLE = 0, // Forward Undersized Good Packets is disabled
     eENABLE = 1, // Forward Undersized Good Packets is enabled
   };
+  
   enum class eFEP : uint32_t {
     eDISABLE = 0, // Forward Error Packets is disabled
     eENABLE = 1, // Forward Error Packets is enabled
   };
+  
   enum class eRSF : uint32_t {
     eDISABLE = 0, // Receive Queue Store and Forward is disabled
     eENABLE = 1, // Receive Queue Store and Forward is enabled
   };
+  
   enum class eDIS_TCP_EF : uint32_t {
     eENABLE = 0, // Dropping of TCP/IP Checksum Error Packets is enabled
     eDISABLE = 1, // Dropping of TCP/IP Checksum Error Packets is disabled
   };
+  
   enum class eEHFC : uint32_t {
     eDISABLE = 0, // Hardware Flow Control is disabled
     eENABLE = 1, // Hardware Flow Control is enabled
@@ -13402,7 +13379,7 @@ union MTL_RXQ3_OPERATION_MODE {
     uint32_t _reserved_8 : 2;
     uint32_t RQS : 5;
     uint32_t _reserved_end : 7;
-  } bits;          // Bit-field struct (auto-filling reserved gaps)
+  } bits;
   
   // Full 32-bit register value.
   uint32_t value;
@@ -13416,11 +13393,11 @@ union MTL_RXQ3_OPERATION_MODE {
 //
 union MTL_RXQ3_MISSED_PACKET_OVERFLOW_CNT {
   
-  // Enum definitions.
   enum class eOVFCNTOVF : uint32_t {
     eINACTIVE = 0, // Overflow Counter overflow not detected
     eACTIVE = 1, // Overflow Counter overflow detected
   };
+  
   enum class eMISCNTOVF : uint32_t {
     eINACTIVE = 0, // Missed Packet Counter overflow not detected
     eACTIVE = 1, // Missed Packet Counter overflow detected
@@ -13434,7 +13411,7 @@ union MTL_RXQ3_MISSED_PACKET_OVERFLOW_CNT {
     uint32_t MISPKTCNT : 11;
     eMISCNTOVF MISCNTOVF : 1;
     uint32_t _reserved_end : 4;
-  } bits;          // Bit-field struct (auto-filling reserved gaps)
+  } bits;
   
   // Full 32-bit register value.
   uint32_t value;
@@ -13448,17 +13425,18 @@ union MTL_RXQ3_MISSED_PACKET_OVERFLOW_CNT {
 //
 union MTL_RXQ3_DEBUG {
   
-  // Enum definitions.
   enum class eRWCSTS : uint32_t {
     eINACTIVE = 0, // MTL Rx Queue Write Controller Active Status not detected
     eACTIVE = 1, // MTL Rx Queue Write Controller Active Status detected
   };
+  
   enum class eRRCSTS : uint32_t {
     eIDLE = 0, // Idle state
     eREAD_DATA = 1, // Reading packet data
     eREAD_STS = 2, // Reading packet status (or timestamp)
     eFLUSH = 3, // Flushing the packet data and status
   };
+  
   enum class eRXQSTS : uint32_t {
     eEMPTY = 0, // Rx Queue empty
     eBLW_THR = 1, // Rx Queue fill-level below flow-control deactivate threshold
@@ -13475,7 +13453,7 @@ union MTL_RXQ3_DEBUG {
     uint32_t _reserved_3 : 10;
     uint32_t PRXQ : 14;
     uint32_t _reserved_end : 2;
-  } bits;          // Bit-field struct (auto-filling reserved gaps)
+  } bits;
   
   // Full 32-bit register value.
   uint32_t value;
@@ -13489,7 +13467,6 @@ union MTL_RXQ3_DEBUG {
 //
 union MTL_RXQ3_CONTROL {
   
-  // Enum definitions.
   enum class eRXQ_FRM_ARBIT : uint32_t {
     eDISABLE = 0, // Receive Queue Packet Arbitration is disabled
     eENABLE = 1, // Receive Queue Packet Arbitration is enabled
@@ -13500,7 +13477,7 @@ union MTL_RXQ3_CONTROL {
     uint32_t RXQ_WEGT : 3;
     eRXQ_FRM_ARBIT RXQ_FRM_ARBIT : 1;
     uint32_t _reserved_end : 28;
-  } bits;          // Bit-field struct (auto-filling reserved gaps)
+  } bits;
   
   // Full 32-bit register value.
   uint32_t value;
@@ -13514,20 +13491,22 @@ union MTL_RXQ3_CONTROL {
 //
 union MTL_TXQ4_OPERATION_MODE {
   
-  // Enum definitions.
   enum class eFTQ : uint32_t {
     eDISABLE = 0, // Flush Transmit Queue is disabled
     eENABLE = 1, // Flush Transmit Queue is enabled
   };
+  
   enum class eTSF : uint32_t {
     eDISABLE = 0, // Transmit Store and Forward is disabled
     eENABLE = 1, // Transmit Store and Forward is enabled
   };
+  
   enum class eTXQEN : uint32_t {
     eDISABLE = 0, // Not enabled
     eEN_IF_AV = 1, // Enable in AV mode (Reserved in non-AV)
     eENABLE = 2, // Enabled
   };
+  
   enum class eTTC : uint32_t {
     ebf_32BYTES = 0, // 32
     ebf_64BYTES = 1, // 64
@@ -13548,7 +13527,7 @@ union MTL_TXQ4_OPERATION_MODE {
     uint32_t _reserved_4 : 9;
     uint32_t TQS : 5;
     uint32_t _reserved_end : 11;
-  } bits;          // Bit-field struct (auto-filling reserved gaps)
+  } bits;
   
   // Full 32-bit register value.
   uint32_t value;
@@ -13562,7 +13541,6 @@ union MTL_TXQ4_OPERATION_MODE {
 //
 union MTL_TXQ4_UNDERFLOW {
   
-  // Enum definitions.
   enum class eUFCNTOVF : uint32_t {
     eINACTIVE = 0, // Overflow not detected for Underflow Packet Counter
     eACTIVE = 1, // Overflow detected for Underflow Packet Counter
@@ -13573,7 +13551,7 @@ union MTL_TXQ4_UNDERFLOW {
     uint32_t UFFRMCNT : 11;
     eUFCNTOVF UFCNTOVF : 1;
     uint32_t _reserved_end : 20;
-  } bits;          // Bit-field struct (auto-filling reserved gaps)
+  } bits;
   
   // Full 32-bit register value.
   uint32_t value;
@@ -13587,25 +13565,28 @@ union MTL_TXQ4_UNDERFLOW {
 //
 union MTL_TXQ4_DEBUG {
   
-  // Enum definitions.
   enum class eTXQPAUSED : uint32_t {
     eINACTIVE = 0, // Transmit Queue in Pause status is not detected
     eACTIVE = 1, // Transmit Queue in Pause status is detected
   };
+  
   enum class eTRCSTS : uint32_t {
     eIDLE = 0, // Idle state
     eREAD = 1, // Read state (transferring data to the MAC transmitter)
     eWAIT = 2, // Waiting for pending Tx Status from the MAC transmitter
     eFLUSH = 3, // Flushing the Tx queue because of the Packet Abort request from the MAC
   };
+  
   enum class eTWCSTS : uint32_t {
     eINACTIVE = 0, // MTL Tx Queue Write Controller status is not detected
     eACTIVE = 1, // MTL Tx Queue Write Controller status is detected
   };
+  
   enum class eTXQSTS : uint32_t {
     eINACTIVE = 0, // MTL Tx Queue Not Empty status is not detected
     eACTIVE = 1, // MTL Tx Queue Not Empty status is detected
   };
+  
   enum class eTXSTSFSTS : uint32_t {
     eINACTIVE = 0, // MTL Tx Status FIFO Full status is not detected
     eACTIVE = 1, // MTL Tx Status FIFO Full status is detected
@@ -13623,7 +13604,7 @@ union MTL_TXQ4_DEBUG {
     uint32_t _reserved_6 : 1;
     uint32_t STXSTSF : 3;
     uint32_t _reserved_end : 9;
-  } bits;          // Bit-field struct (auto-filling reserved gaps)
+  } bits;
   
   // Full 32-bit register value.
   uint32_t value;
@@ -13637,15 +13618,16 @@ union MTL_TXQ4_DEBUG {
 //
 union MTL_TXQ4_ETS_CONTROL {
   
-  // Enum definitions.
   enum class eAVALG : uint32_t {
     eDISABLE = 0, // CBS Algorithm is disabled
     eENABLE = 1, // CBS Algorithm is enabled
   };
+  
   enum class eCC : uint32_t {
     eDISABLE = 0, // Credit Control is disabled
     eENABLE = 1, // Credit Control is enabled
   };
+  
   enum class eSLC : uint32_t {
     ebf_1_SLOT = 0, // 1 slot
     ebf_2_SLOT = 1, // 2 slots
@@ -13661,7 +13643,7 @@ union MTL_TXQ4_ETS_CONTROL {
     eCC CC : 1;
     eSLC SLC : 3;
     uint32_t _reserved_end : 25;
-  } bits;          // Bit-field struct (auto-filling reserved gaps)
+  } bits;
   
   // Full 32-bit register value.
   uint32_t value;
@@ -13675,13 +13657,11 @@ union MTL_TXQ4_ETS_CONTROL {
 //
 union MTL_TXQ4_ETS_STATUS {
   
-  // Enum definitions.
-  
   // Bit field definition.
   struct {
     uint32_t ABS : 24;
     uint32_t _reserved_end : 8;
-  } bits;          // Bit-field struct (auto-filling reserved gaps)
+  } bits;
   
   // Full 32-bit register value.
   uint32_t value;
@@ -13695,13 +13675,11 @@ union MTL_TXQ4_ETS_STATUS {
 //
 union MTL_TXQ4_QUANTUM_WEIGHT {
   
-  // Enum definitions.
-  
   // Bit field definition.
   struct {
     uint32_t ISCQW : 21;
     uint32_t _reserved_end : 11;
-  } bits;          // Bit-field struct (auto-filling reserved gaps)
+  } bits;
   
   // Full 32-bit register value.
   uint32_t value;
@@ -13715,13 +13693,11 @@ union MTL_TXQ4_QUANTUM_WEIGHT {
 //
 union MTL_TXQ4_SENDSLOPECREDIT {
   
-  // Enum definitions.
-  
   // Bit field definition.
   struct {
     uint32_t SSC : 14;
     uint32_t _reserved_end : 18;
-  } bits;          // Bit-field struct (auto-filling reserved gaps)
+  } bits;
   
   // Full 32-bit register value.
   uint32_t value;
@@ -13735,13 +13711,11 @@ union MTL_TXQ4_SENDSLOPECREDIT {
 //
 union MTL_TXQ4_HICREDIT {
   
-  // Enum definitions.
-  
   // Bit field definition.
   struct {
     uint32_t HC : 29;
     uint32_t _reserved_end : 3;
-  } bits;          // Bit-field struct (auto-filling reserved gaps)
+  } bits;
   
   // Full 32-bit register value.
   uint32_t value;
@@ -13755,13 +13729,11 @@ union MTL_TXQ4_HICREDIT {
 //
 union MTL_TXQ4_LOCREDIT {
   
-  // Enum definitions.
-  
   // Bit field definition.
   struct {
     uint32_t LC : 29;
     uint32_t _reserved_end : 3;
-  } bits;          // Bit-field struct (auto-filling reserved gaps)
+  } bits;
   
   // Full 32-bit register value.
   uint32_t value;
@@ -13775,27 +13747,31 @@ union MTL_TXQ4_LOCREDIT {
 //
 union MTL_Q4_INTERRUPT_CONTROL_STATUS {
   
-  // Enum definitions.
   enum class eTXUNFIS : uint32_t {
     eINACTIVE = 0, // Transmit Queue Underflow Interrupt Status not detected
     eACTIVE = 1, // Transmit Queue Underflow Interrupt Status detected
   };
+  
   enum class eABPSIS : uint32_t {
     eINACTIVE = 0, // Average Bits Per Slot Interrupt Status not detected
     eACTIVE = 1, // Average Bits Per Slot Interrupt Status detected
   };
+  
   enum class eTXUIE : uint32_t {
     eDISABLE = 0, // Transmit Queue Underflow Interrupt Status is disabled
     eENABLE = 1, // Transmit Queue Underflow Interrupt Status is enabled
   };
+  
   enum class eABPSIE : uint32_t {
     eDISABLE = 0, // Average Bits Per Slot Interrupt is disabled
     eENABLE = 1, // Average Bits Per Slot Interrupt is enabled
   };
+  
   enum class eRXOVFIS : uint32_t {
     eINACTIVE = 0, // Receive Queue Overflow Interrupt Status not detected
     eACTIVE = 1, // Receive Queue Overflow Interrupt Status detected
   };
+  
   enum class eRXOIE : uint32_t {
     eDISABLE = 0, // Receive Queue Overflow Interrupt is disabled
     eENABLE = 1, // Receive Queue Overflow Interrupt is enabled
@@ -13813,7 +13789,7 @@ union MTL_Q4_INTERRUPT_CONTROL_STATUS {
     uint32_t _reserved_5 : 7;
     eRXOIE RXOIE : 1;
     uint32_t _reserved_end : 7;
-  } bits;          // Bit-field struct (auto-filling reserved gaps)
+  } bits;
   
   // Full 32-bit register value.
   uint32_t value;
@@ -13827,29 +13803,33 @@ union MTL_Q4_INTERRUPT_CONTROL_STATUS {
 //
 union MTL_RXQ4_OPERATION_MODE {
   
-  // Enum definitions.
   enum class eRTC : uint32_t {
     ebf_64BYTE = 0, // 64
     ebf_32BYTE = 1, // 32
     ebf_96BYTE = 2, // 96
     ebf_128BYTE = 3, // 128
   };
+  
   enum class eFUP : uint32_t {
     eDISABLE = 0, // Forward Undersized Good Packets is disabled
     eENABLE = 1, // Forward Undersized Good Packets is enabled
   };
+  
   enum class eFEP : uint32_t {
     eDISABLE = 0, // Forward Error Packets is disabled
     eENABLE = 1, // Forward Error Packets is enabled
   };
+  
   enum class eRSF : uint32_t {
     eDISABLE = 0, // Receive Queue Store and Forward is disabled
     eENABLE = 1, // Receive Queue Store and Forward is enabled
   };
+  
   enum class eDIS_TCP_EF : uint32_t {
     eENABLE = 0, // Dropping of TCP/IP Checksum Error Packets is enabled
     eDISABLE = 1, // Dropping of TCP/IP Checksum Error Packets is disabled
   };
+  
   enum class eEHFC : uint32_t {
     eDISABLE = 0, // Hardware Flow Control is disabled
     eENABLE = 1, // Hardware Flow Control is enabled
@@ -13870,7 +13850,7 @@ union MTL_RXQ4_OPERATION_MODE {
     uint32_t _reserved_8 : 2;
     uint32_t RQS : 5;
     uint32_t _reserved_end : 7;
-  } bits;          // Bit-field struct (auto-filling reserved gaps)
+  } bits;
   
   // Full 32-bit register value.
   uint32_t value;
@@ -13884,11 +13864,11 @@ union MTL_RXQ4_OPERATION_MODE {
 //
 union MTL_RXQ4_MISSED_PACKET_OVERFLOW_CNT {
   
-  // Enum definitions.
   enum class eOVFCNTOVF : uint32_t {
     eINACTIVE = 0, // Overflow Counter overflow not detected
     eACTIVE = 1, // Overflow Counter overflow detected
   };
+  
   enum class eMISCNTOVF : uint32_t {
     eINACTIVE = 0, // Missed Packet Counter overflow not detected
     eACTIVE = 1, // Missed Packet Counter overflow detected
@@ -13902,7 +13882,7 @@ union MTL_RXQ4_MISSED_PACKET_OVERFLOW_CNT {
     uint32_t MISPKTCNT : 11;
     eMISCNTOVF MISCNTOVF : 1;
     uint32_t _reserved_end : 4;
-  } bits;          // Bit-field struct (auto-filling reserved gaps)
+  } bits;
   
   // Full 32-bit register value.
   uint32_t value;
@@ -13916,17 +13896,18 @@ union MTL_RXQ4_MISSED_PACKET_OVERFLOW_CNT {
 //
 union MTL_RXQ4_DEBUG {
   
-  // Enum definitions.
   enum class eRWCSTS : uint32_t {
     eINACTIVE = 0, // MTL Rx Queue Write Controller Active Status not detected
     eACTIVE = 1, // MTL Rx Queue Write Controller Active Status detected
   };
+  
   enum class eRRCSTS : uint32_t {
     eIDLE = 0, // Idle state
     eREAD_DATA = 1, // Reading packet data
     eREAD_STS = 2, // Reading packet status (or timestamp)
     eFLUSH = 3, // Flushing the packet data and status
   };
+  
   enum class eRXQSTS : uint32_t {
     eEMPTY = 0, // Rx Queue empty
     eBLW_THR = 1, // Rx Queue fill-level below flow-control deactivate threshold
@@ -13943,7 +13924,7 @@ union MTL_RXQ4_DEBUG {
     uint32_t _reserved_3 : 10;
     uint32_t PRXQ : 14;
     uint32_t _reserved_end : 2;
-  } bits;          // Bit-field struct (auto-filling reserved gaps)
+  } bits;
   
   // Full 32-bit register value.
   uint32_t value;
@@ -13957,7 +13938,6 @@ union MTL_RXQ4_DEBUG {
 //
 union MTL_RXQ4_CONTROL {
   
-  // Enum definitions.
   enum class eRXQ_FRM_ARBIT : uint32_t {
     eDISABLE = 0, // Receive Queue Packet Arbitration is disabled
     eENABLE = 1, // Receive Queue Packet Arbitration is enabled
@@ -13968,7 +13948,7 @@ union MTL_RXQ4_CONTROL {
     uint32_t RXQ_WEGT : 3;
     eRXQ_FRM_ARBIT RXQ_FRM_ARBIT : 1;
     uint32_t _reserved_end : 28;
-  } bits;          // Bit-field struct (auto-filling reserved gaps)
+  } bits;
   
   // Full 32-bit register value.
   uint32_t value;
@@ -13982,15 +13962,16 @@ union MTL_RXQ4_CONTROL {
 //
 union DMA_MODE {
   
-  // Enum definitions.
   enum class eSWR : uint32_t {
     eDISABLE = 0, // Software Reset is disabled
     eENABLE = 1, // Software Reset is enabled
   };
+  
   enum class eDSPW : uint32_t {
     eDISABLE = 0, // Descriptor Posted Write is disabled
     eENABLE = 1, // Descriptor Posted Write is enabled
   };
+  
   enum class eINTM : uint32_t {
     eMODE0 = 0, // See above description
     eMODE1 = 1, // See above description
@@ -14005,7 +13986,7 @@ union DMA_MODE {
     uint32_t _reserved_2 : 7;
     eINTM INTM : 2;
     uint32_t _reserved_end : 14;
-  } bits;          // Bit-field struct (auto-filling reserved gaps)
+  } bits;
   
   // Full 32-bit register value.
   uint32_t value;
@@ -14019,39 +14000,46 @@ union DMA_MODE {
 //
 union DMA_SYSBUS_MODE {
   
-  // Enum definitions.
   enum class eFB : uint32_t {
     eDISABLE = 0, // Fixed Burst Length is disabled
     eENABLE = 1, // Fixed Burst Length is enabled
   };
+  
   enum class eBLEN4 : uint32_t {
     eDISABLE = 0, // No effect
     eENABLE = 1, // AXI Burst Length 4
   };
+  
   enum class eBLEN8 : uint32_t {
     eDISABLE = 0, // No effect
     eENABLE = 1, // AXI Burst Length 8
   };
+  
   enum class eBLEN16 : uint32_t {
     eDISABLE = 0, // No effect
     eENABLE = 1, // AXI Burst Length 16
   };
+  
   enum class eAALE : uint32_t {
     eDISABLE = 0, // Automatic AXI LPI is disabled
     eENABLE = 1, // Automatic AXI LPI is enabled
   };
+  
   enum class eAAL : uint32_t {
     eDISABLE = 0, // Address-Aligned Beats is disabled
     eENABLE = 1, // Address-Aligned Beats is enabled
   };
+  
   enum class eONEKBBE : uint32_t {
     eDISABLE = 0, // 1 KB Boundary Crossing for the EQOS-AXI Master Beats is disabled
     eENABLE = 1, // 1 KB Boundary Crossing for the EQOS-AXI Master Beats is enabled
   };
+  
   enum class eLPI_XIT_PKT : uint32_t {
     eDISABLE = 0, // Unlock on Magic Packet or Remote Wake-Up Packet is disabled
     eENABLE = 1, // Unlock on Magic Packet or Remote Wake-Up Packet is enabled
   };
+  
   enum class eEN_LPI : uint32_t {
     eDISABLE = 0, // Low Power Interface (LPI) is disabled
     eENABLE = 1, // Low Power Interface (LPI) is enabled
@@ -14075,7 +14063,7 @@ union DMA_SYSBUS_MODE {
     uint32_t _reserved_9 : 2;
     eLPI_XIT_PKT LPI_XIT_PKT : 1;
     eEN_LPI EN_LPI : 1;
-  } bits;          // Bit-field struct (auto-filling reserved gaps)
+  } bits;
   
   // Full 32-bit register value.
   uint32_t value;
@@ -14089,31 +14077,36 @@ union DMA_SYSBUS_MODE {
 //
 union DMA_INTERRUPT_STATUS {
   
-  // Enum definitions.
   enum class eDC0IS : uint32_t {
     eINACTIVE = 0, // DMA Channel 0 Interrupt Status not detected
     eACTIVE = 1, // DMA Channel 0 Interrupt Status detected
   };
+  
   enum class eDC1IS : uint32_t {
     eINACTIVE = 0, // DMA Channel 1 Interrupt Status not detected
     eACTIVE = 1, // DMA Channel 1 Interrupt Status detected
   };
+  
   enum class eDC2IS : uint32_t {
     eINACTIVE = 0, // DMA Channel 2 Interrupt Status not detected
     eACTIVE = 1, // DMA Channel 2 Interrupt Status detected
   };
+  
   enum class eDC3IS : uint32_t {
     eINACTIVE = 0, // DMA Channel 3 Interrupt Status not detected
     eACTIVE = 1, // DMA Channel 3 Interrupt Status detected
   };
+  
   enum class eDC4IS : uint32_t {
     eINACTIVE = 0, // DMA Channel 4 Interrupt Status not detected
     eACTIVE = 1, // DMA Channel 4 Interrupt Status detected
   };
+  
   enum class eMTLIS : uint32_t {
     eINACTIVE = 0, // MTL Interrupt Status not detected
     eACTIVE = 1, // MTL Interrupt Status detected
   };
+  
   enum class eMACIS : uint32_t {
     eINACTIVE = 0, // MAC Interrupt Status not detected
     eACTIVE = 1, // MAC Interrupt Status detected
@@ -14130,7 +14123,7 @@ union DMA_INTERRUPT_STATUS {
     eMTLIS MTLIS : 1;
     eMACIS MACIS : 1;
     uint32_t _reserved_end : 14;
-  } bits;          // Bit-field struct (auto-filling reserved gaps)
+  } bits;
   
   // Full 32-bit register value.
   uint32_t value;
@@ -14144,15 +14137,16 @@ union DMA_INTERRUPT_STATUS {
 //
 union DMA_DEBUG_STATUS0 {
   
-  // Enum definitions.
   enum class eAXWHSTS : uint32_t {
     eINACTIVE = 0, // AXI Master Write Channel or AHB Master Status not detected
     eACTIVE = 1, // AXI Master Write Channel or AHB Master Status detected
   };
+  
   enum class eAXRHSTS : uint32_t {
     eINACTIVE = 0, // AXI Master Read Channel Status not detected
     eACTIVE = 1, // AXI Master Read Channel Status detected
   };
+  
   enum class eRPS0 : uint32_t {
     eSTOP = 0, // Stopped (Reset or Stop Receive Command issued)
     eRUN_FRTD = 1, // Running (Fetching Rx Transfer Descriptor)
@@ -14162,6 +14156,7 @@ union DMA_DEBUG_STATUS0 {
     eTSTMP = 6, // Timestamp write state
     eRUN_TRP = 7, // Running (Transferring the received packet data from the Rx buffer to the system memory)
   };
+  
   enum class eTPS0 : uint32_t {
     eSTOP = 0, // Stopped (Reset or Stop Transmit Command issued)
     eRUN_FTTD = 1, // Running (Fetching Tx Transfer Descriptor)
@@ -14171,6 +14166,7 @@ union DMA_DEBUG_STATUS0 {
     eSUSPND = 6, // Suspended (Tx Descriptor Unavailable or Tx Buffer Underflow)
     eRUN_CTD = 7, // Running (Closing Tx Descriptor)
   };
+  
   enum class eRPS1 : uint32_t {
     eSTOP = 0, // Stopped (Reset or Stop Receive Command issued)
     eRUN_FRTD = 1, // Running (Fetching Rx Transfer Descriptor)
@@ -14180,6 +14176,7 @@ union DMA_DEBUG_STATUS0 {
     eTSTMP = 6, // Timestamp write state
     eRUN_TRP = 7, // Running (Transferring the received packet data from the Rx buffer to the system memory)
   };
+  
   enum class eTPS1 : uint32_t {
     eSTOP = 0, // Stopped (Reset or Stop Transmit Command issued)
     eRUN_FTTD = 1, // Running (Fetching Tx Transfer Descriptor)
@@ -14189,6 +14186,7 @@ union DMA_DEBUG_STATUS0 {
     eSUSPND = 6, // Suspended (Tx Descriptor Unavailable or Tx Buffer Underflow)
     eRUN_CTD = 7, // Running (Closing Tx Descriptor)
   };
+  
   enum class eRPS2 : uint32_t {
     eSTOP = 0, // Stopped (Reset or Stop Receive Command issued)
     eRUN_FRTD = 1, // Running (Fetching Rx Transfer Descriptor)
@@ -14198,6 +14196,7 @@ union DMA_DEBUG_STATUS0 {
     eTSTMP = 6, // Timestamp write state
     eRUN_TRP = 7, // Running (Transferring the received packet data from the Rx buffer to the system memory)
   };
+  
   enum class eTPS2 : uint32_t {
     eSTOP = 0, // Stopped (Reset or Stop Transmit Command issued)
     eRUN_FTTD = 1, // Running (Fetching Tx Transfer Descriptor)
@@ -14219,7 +14218,7 @@ union DMA_DEBUG_STATUS0 {
     eTPS1 TPS1 : 4;
     eRPS2 RPS2 : 4;
     eTPS2 TPS2 : 4;
-  } bits;          // Bit-field struct (auto-filling reserved gaps)
+  } bits;
   
   // Full 32-bit register value.
   uint32_t value;
@@ -14233,7 +14232,6 @@ union DMA_DEBUG_STATUS0 {
 //
 union DMA_DEBUG_STATUS1 {
   
-  // Enum definitions.
   enum class eRPS3 : uint32_t {
     eSTOP = 0, // Stopped (Reset or Stop Receive Command issued)
     eRUN_FRTD = 1, // Running (Fetching Rx Transfer Descriptor)
@@ -14243,6 +14241,7 @@ union DMA_DEBUG_STATUS1 {
     eTSTMP = 6, // Timestamp write state
     eRUN_TRP = 7, // Running (Transferring the received packet data from the Rx buffer to the system memory)
   };
+  
   enum class eTPS3 : uint32_t {
     eSTOP = 0, // Stopped (Reset or Stop Transmit Command issued)
     eRUN_FTTD = 1, // Running (Fetching Tx Transfer Descriptor)
@@ -14252,6 +14251,7 @@ union DMA_DEBUG_STATUS1 {
     eSUSPND = 6, // Suspended (Tx Descriptor Unavailable or Tx Buffer Underflow)
     eRUN_CTD = 7, // Running (Closing Tx Descriptor)
   };
+  
   enum class eRPS4 : uint32_t {
     eSTOP = 0, // Stopped (Reset or Stop Receive Command issued)
     eRUN_FRTD = 1, // Running (Fetching Rx Transfer Descriptor)
@@ -14261,6 +14261,7 @@ union DMA_DEBUG_STATUS1 {
     eTSTMP = 6, // Timestamp write state
     eRUN_TRP = 7, // Running (Transferring the received packet data from the Rx buffer to the system memory)
   };
+  
   enum class eTPS4 : uint32_t {
     eSTOP = 0, // Stopped (Reset or Stop Transmit Command issued)
     eRUN_FTTD = 1, // Running (Fetching Tx Transfer Descriptor)
@@ -14278,7 +14279,7 @@ union DMA_DEBUG_STATUS1 {
     eRPS4 RPS4 : 4;
     eTPS4 TPS4 : 4;
     uint32_t _reserved_end : 16;
-  } bits;          // Bit-field struct (auto-filling reserved gaps)
+  } bits;
   
   // Full 32-bit register value.
   uint32_t value;
@@ -14292,13 +14293,11 @@ union DMA_DEBUG_STATUS1 {
 //
 union DMA_AXI_LPI_ENTRY_INTERVAL {
   
-  // Enum definitions.
-  
   // Bit field definition.
   struct {
     uint32_t LPIEI : 4;
     uint32_t _reserved_end : 28;
-  } bits;          // Bit-field struct (auto-filling reserved gaps)
+  } bits;
   
   // Full 32-bit register value.
   uint32_t value;
@@ -14312,7 +14311,6 @@ union DMA_AXI_LPI_ENTRY_INTERVAL {
 //
 union DMA_TBS_CTRL {
   
-  // Enum definitions.
   enum class eFTOV : uint32_t {
     eINVALID = 0, // Fetch Time Offset is invalid
     eVALID = 1, // Fetch Time Offset is valid
@@ -14325,7 +14323,7 @@ union DMA_TBS_CTRL {
     uint32_t FGOS : 3;
     uint32_t _reserved_2 : 1;
     uint32_t FTOS : 24;
-  } bits;          // Bit-field struct (auto-filling reserved gaps)
+  } bits;
   
   // Full 32-bit register value.
   uint32_t value;
@@ -14339,7 +14337,6 @@ union DMA_TBS_CTRL {
 //
 union DMA_CH0_CONTROL {
   
-  // Enum definitions.
   enum class ePBLx8 : uint32_t {
     eDISABLE = 0, // 8xPBL mode is disabled
     eENABLE = 1, // 8xPBL mode is enabled
@@ -14352,7 +14349,7 @@ union DMA_CH0_CONTROL {
     uint32_t _reserved_1 : 1;
     uint32_t DSL : 3;
     uint32_t _reserved_end : 11;
-  } bits;          // Bit-field struct (auto-filling reserved gaps)
+  } bits;
   
   // Full 32-bit register value.
   uint32_t value;
@@ -14366,19 +14363,21 @@ union DMA_CH0_CONTROL {
 //
 union DMA_CH0_TX_CONTROL {
   
-  // Enum definitions.
   enum class eST : uint32_t {
     eSTOP = 0, // Stop Transmission Command
     eSTART = 1, // Start Transmission Command
   };
+  
   enum class eOSF : uint32_t {
     eDISABLE = 0, // Operate on Second Packet disabled
     eENABLE = 1, // Operate on Second Packet enabled
   };
+  
   enum class eIPBL : uint32_t {
     eDISABLE = 0, // Ignore PBL Requirement is disabled
     eENABLE = 1, // Ignore PBL Requirement is enabled
   };
+  
   enum class eEDSE : uint32_t {
     eDISABLE = 0, // Enhanced Descriptor is disabled
     eENABLE = 1, // Enhanced Descriptor is enabled
@@ -14395,7 +14394,7 @@ union DMA_CH0_TX_CONTROL {
     uint32_t _reserved_4 : 6;
     eEDSE EDSE : 1;
     uint32_t _reserved_end : 3;
-  } bits;          // Bit-field struct (auto-filling reserved gaps)
+  } bits;
   
   // Full 32-bit register value.
   uint32_t value;
@@ -14409,11 +14408,11 @@ union DMA_CH0_TX_CONTROL {
 //
 union DMA_CH0_RX_CONTROL {
   
-  // Enum definitions.
   enum class eSR : uint32_t {
     eSTOP = 0, // Stop Receive
     eSTART = 1, // Start Receive
   };
+  
   enum class eRPF : uint32_t {
     eDISABLE = 0, // Rx Packet Flush is disabled
     eENABLE = 1, // Rx Packet Flush is enabled
@@ -14428,7 +14427,7 @@ union DMA_CH0_RX_CONTROL {
     uint32_t RxPBL : 6;
     uint32_t _reserved_4 : 9;
     eRPF RPF : 1;
-  } bits;          // Bit-field struct (auto-filling reserved gaps)
+  } bits;
   
   // Full 32-bit register value.
   uint32_t value;
@@ -14442,13 +14441,11 @@ union DMA_CH0_RX_CONTROL {
 //
 union DMA_CH0_TXDESC_LIST_ADDRESS {
   
-  // Enum definitions.
-  
   // Bit field definition.
   struct {
     uint32_t _reserved_0 : 3;
     uint32_t TDESLA : 29;
-  } bits;          // Bit-field struct (auto-filling reserved gaps)
+  } bits;
   
   // Full 32-bit register value.
   uint32_t value;
@@ -14462,13 +14459,11 @@ union DMA_CH0_TXDESC_LIST_ADDRESS {
 //
 union DMA_CH0_RXDESC_LIST_ADDRESS {
   
-  // Enum definitions.
-  
   // Bit field definition.
   struct {
     uint32_t _reserved_0 : 3;
     uint32_t RDESLA : 29;
-  } bits;          // Bit-field struct (auto-filling reserved gaps)
+  } bits;
   
   // Full 32-bit register value.
   uint32_t value;
@@ -14482,13 +14477,11 @@ union DMA_CH0_RXDESC_LIST_ADDRESS {
 //
 union DMA_CH0_TXDESC_TAIL_POINTER {
   
-  // Enum definitions.
-  
   // Bit field definition.
   struct {
     uint32_t _reserved_0 : 3;
     uint32_t TDTP : 29;
-  } bits;          // Bit-field struct (auto-filling reserved gaps)
+  } bits;
   
   // Full 32-bit register value.
   uint32_t value;
@@ -14502,13 +14495,11 @@ union DMA_CH0_TXDESC_TAIL_POINTER {
 //
 union DMA_CH0_RXDESC_TAIL_POINTER {
   
-  // Enum definitions.
-  
   // Bit field definition.
   struct {
     uint32_t _reserved_0 : 3;
     uint32_t RDTP : 29;
-  } bits;          // Bit-field struct (auto-filling reserved gaps)
+  } bits;
   
   // Full 32-bit register value.
   uint32_t value;
@@ -14522,13 +14513,11 @@ union DMA_CH0_RXDESC_TAIL_POINTER {
 //
 union DMA_CH0_TXDESC_RING_LENGTH {
   
-  // Enum definitions.
-  
   // Bit field definition.
   struct {
     uint32_t TDRL : 10;
     uint32_t _reserved_end : 22;
-  } bits;          // Bit-field struct (auto-filling reserved gaps)
+  } bits;
   
   // Full 32-bit register value.
   uint32_t value;
@@ -14542,13 +14531,11 @@ union DMA_CH0_TXDESC_RING_LENGTH {
 //
 union DMA_CH0_RXDESC_RING_LENGTH {
   
-  // Enum definitions.
-  
   // Bit field definition.
   struct {
     uint32_t RDRL : 10;
     uint32_t _reserved_end : 22;
-  } bits;          // Bit-field struct (auto-filling reserved gaps)
+  } bits;
   
   // Full 32-bit register value.
   uint32_t value;
@@ -14562,55 +14549,66 @@ union DMA_CH0_RXDESC_RING_LENGTH {
 //
 union DMA_CH0_INTERRUPT_ENABLE {
   
-  // Enum definitions.
   enum class eTIE : uint32_t {
     eDISABLE = 0, // Transmit Interrupt is disabled
     eENABLE = 1, // Transmit Interrupt is enabled
   };
+  
   enum class eTXSE : uint32_t {
     eDISABLE = 0, // Transmit Stopped is disabled
     eENABLE = 1, // Transmit Stopped is enabled
   };
+  
   enum class eTBUE : uint32_t {
     eDISABLE = 0, // Transmit Buffer Unavailable is disabled
     eENABLE = 1, // Transmit Buffer Unavailable is enabled
   };
+  
   enum class eRIE : uint32_t {
     eDISABLE = 0, // Receive Interrupt is disabled
     eENABLE = 1, // Receive Interrupt is enabled
   };
+  
   enum class eRBUE : uint32_t {
     eDISABLE = 0, // Receive Buffer Unavailable is disabled
     eENABLE = 1, // Receive Buffer Unavailable is enabled
   };
+  
   enum class eRSE : uint32_t {
     eDISABLE = 0, // Receive Stopped is disabled
     eENABLE = 1, // Receive Stopped is enabled
   };
+  
   enum class eRWTE : uint32_t {
     eDISABLE = 0, // Receive Watchdog Timeout is disabled
     eENABLE = 1, // Receive Watchdog Timeout is enabled
   };
+  
   enum class eETIE : uint32_t {
     eDISABLE = 0, // Early Transmit Interrupt is disabled
     eENABLE = 1, // Early Transmit Interrupt is enabled
   };
+  
   enum class eERIE : uint32_t {
     eDISABLE = 0, // Early Receive Interrupt is disabled
     eENABLE = 1, // Early Receive Interrupt is enabled
   };
+  
   enum class eFBEE : uint32_t {
     eDISABLE = 0, // Fatal Bus Error is disabled
     eENABLE = 1, // Fatal Bus Error is enabled
   };
+  
   enum class eCDEE : uint32_t {
     eDISABLE = 0, // Context Descriptor Error is disabled
     eENABLE = 1, // Context Descriptor Error is enabled
   };
+  
   enum class eAIE : uint32_t {
     eDISABLE = 0, // Abnormal Interrupt Summary is disabled
     eENABLE = 1, // Abnormal Interrupt Summary is enabled
   };
+  
   enum class eNIE : uint32_t {
     eDISABLE = 0, // Normal Interrupt Summary is disabled
     eENABLE = 1, // Normal Interrupt Summary is enabled
@@ -14633,7 +14631,7 @@ union DMA_CH0_INTERRUPT_ENABLE {
     eAIE AIE : 1;
     eNIE NIE : 1;
     uint32_t _reserved_end : 16;
-  } bits;          // Bit-field struct (auto-filling reserved gaps)
+  } bits;
   
   // Full 32-bit register value.
   uint32_t value;
@@ -14647,15 +14645,13 @@ union DMA_CH0_INTERRUPT_ENABLE {
 //
 union DMA_CH0_RX_INTERRUPT_WATCHDOG_TIMER {
   
-  // Enum definitions.
-  
   // Bit field definition.
   struct {
     uint32_t RWT : 8;
     uint32_t _reserved_1 : 8;
     uint32_t RWTU : 2;
     uint32_t _reserved_end : 14;
-  } bits;          // Bit-field struct (auto-filling reserved gaps)
+  } bits;
   
   // Full 32-bit register value.
   uint32_t value;
@@ -14669,11 +14665,11 @@ union DMA_CH0_RX_INTERRUPT_WATCHDOG_TIMER {
 //
 union DMA_CH0_SLOT_FUNCTION_CONTROL_STATUS {
   
-  // Enum definitions.
   enum class eESC : uint32_t {
     eDISABLE = 0, // Slot Comparison is disabled
     eENABLE = 1, // Slot Comparison is enabled
   };
+  
   enum class eASC : uint32_t {
     eDISABLE = 0, // Advance Slot Check is disabled
     eENABLE = 1, // Advance Slot Check is enabled
@@ -14687,7 +14683,7 @@ union DMA_CH0_SLOT_FUNCTION_CONTROL_STATUS {
     uint32_t SIV : 12;
     uint32_t RSN : 4;
     uint32_t _reserved_end : 12;
-  } bits;          // Bit-field struct (auto-filling reserved gaps)
+  } bits;
   
   // Full 32-bit register value.
   uint32_t value;
@@ -14701,12 +14697,10 @@ union DMA_CH0_SLOT_FUNCTION_CONTROL_STATUS {
 //
 union DMA_CH0_CURRENT_APP_TXDESC {
   
-  // Enum definitions.
-  
   // Bit field definition.
   struct {
     uint32_t CURTDESAPTR : 32;
-  } bits;          // Bit-field struct (auto-filling reserved gaps)
+  } bits;
   
   // Full 32-bit register value.
   uint32_t value;
@@ -14720,12 +14714,10 @@ union DMA_CH0_CURRENT_APP_TXDESC {
 //
 union DMA_CH0_CURRENT_APP_RXDESC {
   
-  // Enum definitions.
-  
   // Bit field definition.
   struct {
     uint32_t CURRDESAPTR : 32;
-  } bits;          // Bit-field struct (auto-filling reserved gaps)
+  } bits;
   
   // Full 32-bit register value.
   uint32_t value;
@@ -14739,12 +14731,10 @@ union DMA_CH0_CURRENT_APP_RXDESC {
 //
 union DMA_CH0_CURRENT_APP_TXBUFFER {
   
-  // Enum definitions.
-  
   // Bit field definition.
   struct {
     uint32_t CURTBUFAPTR : 32;
-  } bits;          // Bit-field struct (auto-filling reserved gaps)
+  } bits;
   
   // Full 32-bit register value.
   uint32_t value;
@@ -14758,12 +14748,10 @@ union DMA_CH0_CURRENT_APP_TXBUFFER {
 //
 union DMA_CH0_CURRENT_APP_RXBUFFER {
   
-  // Enum definitions.
-  
   // Bit field definition.
   struct {
     uint32_t CURRBUFAPTR : 32;
-  } bits;          // Bit-field struct (auto-filling reserved gaps)
+  } bits;
   
   // Full 32-bit register value.
   uint32_t value;
@@ -14777,55 +14765,66 @@ union DMA_CH0_CURRENT_APP_RXBUFFER {
 //
 union DMA_CH0_STATUS {
   
-  // Enum definitions.
   enum class eTI : uint32_t {
     eINACTIVE = 0, // Transmit Interrupt status not detected
     eACTIVE = 1, // Transmit Interrupt status detected
   };
+  
   enum class eTPS : uint32_t {
     eINACTIVE = 0, // Transmit Process Stopped status not detected
     eACTIVE = 1, // Transmit Process Stopped status detected
   };
+  
   enum class eTBU : uint32_t {
     eINACTIVE = 0, // Transmit Buffer Unavailable status not detected
     eACTIVE = 1, // Transmit Buffer Unavailable status detected
   };
+  
   enum class eRI : uint32_t {
     eINACTIVE = 0, // Receive Interrupt status not detected
     eACTIVE = 1, // Receive Interrupt status detected
   };
+  
   enum class eRBU : uint32_t {
     eINACTIVE = 0, // Receive Buffer Unavailable status not detected
     eACTIVE = 1, // Receive Buffer Unavailable status detected
   };
+  
   enum class eRPS : uint32_t {
     eINACTIVE = 0, // Receive Process Stopped status not detected
     eACTIVE = 1, // Receive Process Stopped status detected
   };
+  
   enum class eRWT : uint32_t {
     eINACTIVE = 0, // Receive Watchdog Timeout status not detected
     eACTIVE = 1, // Receive Watchdog Timeout status detected
   };
+  
   enum class eETI : uint32_t {
     eINACTIVE = 0, // Early Transmit Interrupt status not detected
     eACTIVE = 1, // Early Transmit Interrupt status detected
   };
+  
   enum class eERI : uint32_t {
     eINACTIVE = 0, // Early Receive Interrupt status not detected
     eACTIVE = 1, // Early Receive Interrupt status detected
   };
+  
   enum class eFBE : uint32_t {
     eINACTIVE = 0, // Fatal Bus Error status not detected
     eACTIVE = 1, // Fatal Bus Error status detected
   };
+  
   enum class eCDE : uint32_t {
     eINACTIVE = 0, // Context Descriptor Error status not detected
     eACTIVE = 1, // Context Descriptor Error status detected
   };
+  
   enum class eAIS : uint32_t {
     eINACTIVE = 0, // Abnormal Interrupt Summary status not detected
     eACTIVE = 1, // Abnormal Interrupt Summary status detected
   };
+  
   enum class eNIS : uint32_t {
     eINACTIVE = 0, // Normal Interrupt Summary status not detected
     eACTIVE = 1, // Normal Interrupt Summary status detected
@@ -14850,7 +14849,7 @@ union DMA_CH0_STATUS {
     uint32_t TEB : 3;
     uint32_t REB : 3;
     uint32_t _reserved_end : 10;
-  } bits;          // Bit-field struct (auto-filling reserved gaps)
+  } bits;
   
   // Full 32-bit register value.
   uint32_t value;
@@ -14864,7 +14863,6 @@ union DMA_CH0_STATUS {
 //
 union DMA_CH0_MISS_FRAME_CNT {
   
-  // Enum definitions.
   enum class eMFCO : uint32_t {
     eINACTIVE = 0, // Miss Frame Counter overflow not occurred
     eACTIVE = 1, // Miss Frame Counter overflow occurred
@@ -14876,7 +14874,7 @@ union DMA_CH0_MISS_FRAME_CNT {
     uint32_t _reserved_1 : 4;
     eMFCO MFCO : 1;
     uint32_t _reserved_end : 16;
-  } bits;          // Bit-field struct (auto-filling reserved gaps)
+  } bits;
   
   // Full 32-bit register value.
   uint32_t value;
@@ -14890,7 +14888,6 @@ union DMA_CH0_MISS_FRAME_CNT {
 //
 union DMA_CH0_RXP_ACCEPT_CNT {
   
-  // Enum definitions.
   enum class eRXPACOF : uint32_t {
     eINACTIVE = 0, // Rx Parser Accept Counter overflow not occurred
     eACTIVE = 1, // Rx Parser Accept Counter overflow occurred
@@ -14900,7 +14897,7 @@ union DMA_CH0_RXP_ACCEPT_CNT {
   struct {
     uint32_t RXPAC : 31;
     eRXPACOF RXPACOF : 1;
-  } bits;          // Bit-field struct (auto-filling reserved gaps)
+  } bits;
   
   // Full 32-bit register value.
   uint32_t value;
@@ -14914,13 +14911,11 @@ union DMA_CH0_RXP_ACCEPT_CNT {
 //
 union DMA_CH0_RX_ERI_CNT {
   
-  // Enum definitions.
-  
   // Bit field definition.
   struct {
     uint32_t ECNT : 12;
     uint32_t _reserved_end : 20;
-  } bits;          // Bit-field struct (auto-filling reserved gaps)
+  } bits;
   
   // Full 32-bit register value.
   uint32_t value;
@@ -14934,7 +14929,6 @@ union DMA_CH0_RX_ERI_CNT {
 //
 union DMA_CH1_CONTROL {
   
-  // Enum definitions.
   enum class ePBLx8 : uint32_t {
     eDISABLE = 0, // 8xPBL mode is disabled
     eENABLE = 1, // 8xPBL mode is enabled
@@ -14947,7 +14941,7 @@ union DMA_CH1_CONTROL {
     uint32_t _reserved_1 : 1;
     uint32_t DSL : 3;
     uint32_t _reserved_end : 11;
-  } bits;          // Bit-field struct (auto-filling reserved gaps)
+  } bits;
   
   // Full 32-bit register value.
   uint32_t value;
@@ -14961,19 +14955,21 @@ union DMA_CH1_CONTROL {
 //
 union DMA_CH1_TX_CONTROL {
   
-  // Enum definitions.
   enum class eST : uint32_t {
     eSTOP = 0, // Stop Transmission Command
     eSTART = 1, // Start Transmission Command
   };
+  
   enum class eOSF : uint32_t {
     eDISABLE = 0, // Operate on Second Packet disabled
     eENABLE = 1, // Operate on Second Packet enabled
   };
+  
   enum class eIPBL : uint32_t {
     eDISABLE = 0, // Ignore PBL Requirement is disabled
     eENABLE = 1, // Ignore PBL Requirement is enabled
   };
+  
   enum class eEDSE : uint32_t {
     eDISABLE = 0, // Enhanced Descriptor is disabled
     eENABLE = 1, // Enhanced Descriptor is enabled
@@ -14990,7 +14986,7 @@ union DMA_CH1_TX_CONTROL {
     uint32_t _reserved_4 : 6;
     eEDSE EDSE : 1;
     uint32_t _reserved_end : 3;
-  } bits;          // Bit-field struct (auto-filling reserved gaps)
+  } bits;
   
   // Full 32-bit register value.
   uint32_t value;
@@ -15004,11 +15000,11 @@ union DMA_CH1_TX_CONTROL {
 //
 union DMA_CH1_RX_CONTROL {
   
-  // Enum definitions.
   enum class eSR : uint32_t {
     eSTOP = 0, // Stop Receive
     eSTART = 1, // Start Receive
   };
+  
   enum class eRPF : uint32_t {
     eDISABLE = 0, // Rx Packet Flush is disabled
     eENABLE = 1, // Rx Packet Flush is enabled
@@ -15023,7 +15019,7 @@ union DMA_CH1_RX_CONTROL {
     uint32_t RxPBL : 6;
     uint32_t _reserved_4 : 9;
     eRPF RPF : 1;
-  } bits;          // Bit-field struct (auto-filling reserved gaps)
+  } bits;
   
   // Full 32-bit register value.
   uint32_t value;
@@ -15037,13 +15033,11 @@ union DMA_CH1_RX_CONTROL {
 //
 union DMA_CH1_TXDESC_LIST_ADDRESS {
   
-  // Enum definitions.
-  
   // Bit field definition.
   struct {
     uint32_t _reserved_0 : 3;
     uint32_t TDESLA : 29;
-  } bits;          // Bit-field struct (auto-filling reserved gaps)
+  } bits;
   
   // Full 32-bit register value.
   uint32_t value;
@@ -15057,13 +15051,11 @@ union DMA_CH1_TXDESC_LIST_ADDRESS {
 //
 union DMA_CH1_RXDESC_LIST_ADDRESS {
   
-  // Enum definitions.
-  
   // Bit field definition.
   struct {
     uint32_t _reserved_0 : 3;
     uint32_t RDESLA : 29;
-  } bits;          // Bit-field struct (auto-filling reserved gaps)
+  } bits;
   
   // Full 32-bit register value.
   uint32_t value;
@@ -15077,13 +15069,11 @@ union DMA_CH1_RXDESC_LIST_ADDRESS {
 //
 union DMA_CH1_TXDESC_TAIL_POINTER {
   
-  // Enum definitions.
-  
   // Bit field definition.
   struct {
     uint32_t _reserved_0 : 3;
     uint32_t TDTP : 29;
-  } bits;          // Bit-field struct (auto-filling reserved gaps)
+  } bits;
   
   // Full 32-bit register value.
   uint32_t value;
@@ -15097,13 +15087,11 @@ union DMA_CH1_TXDESC_TAIL_POINTER {
 //
 union DMA_CH1_RXDESC_TAIL_POINTER {
   
-  // Enum definitions.
-  
   // Bit field definition.
   struct {
     uint32_t _reserved_0 : 3;
     uint32_t RDTP : 29;
-  } bits;          // Bit-field struct (auto-filling reserved gaps)
+  } bits;
   
   // Full 32-bit register value.
   uint32_t value;
@@ -15117,13 +15105,11 @@ union DMA_CH1_RXDESC_TAIL_POINTER {
 //
 union DMA_CH1_TXDESC_RING_LENGTH {
   
-  // Enum definitions.
-  
   // Bit field definition.
   struct {
     uint32_t TDRL : 10;
     uint32_t _reserved_end : 22;
-  } bits;          // Bit-field struct (auto-filling reserved gaps)
+  } bits;
   
   // Full 32-bit register value.
   uint32_t value;
@@ -15137,13 +15123,11 @@ union DMA_CH1_TXDESC_RING_LENGTH {
 //
 union DMA_CH1_RXDESC_RING_LENGTH {
   
-  // Enum definitions.
-  
   // Bit field definition.
   struct {
     uint32_t RDRL : 10;
     uint32_t _reserved_end : 22;
-  } bits;          // Bit-field struct (auto-filling reserved gaps)
+  } bits;
   
   // Full 32-bit register value.
   uint32_t value;
@@ -15157,55 +15141,66 @@ union DMA_CH1_RXDESC_RING_LENGTH {
 //
 union DMA_CH1_INTERRUPT_ENABLE {
   
-  // Enum definitions.
   enum class eTIE : uint32_t {
     eDISABLE = 0, // Transmit Interrupt is disabled
     eENABLE = 1, // Transmit Interrupt is enabled
   };
+  
   enum class eTXSE : uint32_t {
     eDISABLE = 0, // Transmit Stopped is disabled
     eENABLE = 1, // Transmit Stopped is enabled
   };
+  
   enum class eTBUE : uint32_t {
     eDISABLE = 0, // Transmit Buffer Unavailable is disabled
     eENABLE = 1, // Transmit Buffer Unavailable is enabled
   };
+  
   enum class eRIE : uint32_t {
     eDISABLE = 0, // Receive Interrupt is disabled
     eENABLE = 1, // Receive Interrupt is enabled
   };
+  
   enum class eRBUE : uint32_t {
     eDISABLE = 0, // Receive Buffer Unavailable is disabled
     eENABLE = 1, // Receive Buffer Unavailable is enabled
   };
+  
   enum class eRSE : uint32_t {
     eDISABLE = 0, // Receive Stopped is disabled
     eENABLE = 1, // Receive Stopped is enabled
   };
+  
   enum class eRWTE : uint32_t {
     eDISABLE = 0, // Receive Watchdog Timeout is disabled
     eENABLE = 1, // Receive Watchdog Timeout is enabled
   };
+  
   enum class eETIE : uint32_t {
     eDISABLE = 0, // Early Transmit Interrupt is disabled
     eENABLE = 1, // Early Transmit Interrupt is enabled
   };
+  
   enum class eERIE : uint32_t {
     eDISABLE = 0, // Early Receive Interrupt is disabled
     eENABLE = 1, // Early Receive Interrupt is enabled
   };
+  
   enum class eFBEE : uint32_t {
     eDISABLE = 0, // Fatal Bus Error is disabled
     eENABLE = 1, // Fatal Bus Error is enabled
   };
+  
   enum class eCDEE : uint32_t {
     eDISABLE = 0, // Context Descriptor Error is disabled
     eENABLE = 1, // Context Descriptor Error is enabled
   };
+  
   enum class eAIE : uint32_t {
     eDISABLE = 0, // Abnormal Interrupt Summary is disabled
     eENABLE = 1, // Abnormal Interrupt Summary is enabled
   };
+  
   enum class eNIE : uint32_t {
     eDISABLE = 0, // Normal Interrupt Summary is disabled
     eENABLE = 1, // Normal Interrupt Summary is enabled
@@ -15228,7 +15223,7 @@ union DMA_CH1_INTERRUPT_ENABLE {
     eAIE AIE : 1;
     eNIE NIE : 1;
     uint32_t _reserved_end : 16;
-  } bits;          // Bit-field struct (auto-filling reserved gaps)
+  } bits;
   
   // Full 32-bit register value.
   uint32_t value;
@@ -15242,15 +15237,13 @@ union DMA_CH1_INTERRUPT_ENABLE {
 //
 union DMA_CH1_RX_INTERRUPT_WATCHDOG_TIMER {
   
-  // Enum definitions.
-  
   // Bit field definition.
   struct {
     uint32_t RWT : 8;
     uint32_t _reserved_1 : 8;
     uint32_t RWTU : 2;
     uint32_t _reserved_end : 14;
-  } bits;          // Bit-field struct (auto-filling reserved gaps)
+  } bits;
   
   // Full 32-bit register value.
   uint32_t value;
@@ -15264,11 +15257,11 @@ union DMA_CH1_RX_INTERRUPT_WATCHDOG_TIMER {
 //
 union DMA_CH1_SLOT_FUNCTION_CONTROL_STATUS {
   
-  // Enum definitions.
   enum class eESC : uint32_t {
     eDISABLE = 0, // Slot Comparison is disabled
     eENABLE = 1, // Slot Comparison is enabled
   };
+  
   enum class eASC : uint32_t {
     eDISABLE = 0, // Advance Slot Check is disabled
     eENABLE = 1, // Advance Slot Check is enabled
@@ -15282,7 +15275,7 @@ union DMA_CH1_SLOT_FUNCTION_CONTROL_STATUS {
     uint32_t SIV : 12;
     uint32_t RSN : 4;
     uint32_t _reserved_end : 12;
-  } bits;          // Bit-field struct (auto-filling reserved gaps)
+  } bits;
   
   // Full 32-bit register value.
   uint32_t value;
@@ -15296,12 +15289,10 @@ union DMA_CH1_SLOT_FUNCTION_CONTROL_STATUS {
 //
 union DMA_CH1_CURRENT_APP_TXDESC {
   
-  // Enum definitions.
-  
   // Bit field definition.
   struct {
     uint32_t CURTDESAPTR : 32;
-  } bits;          // Bit-field struct (auto-filling reserved gaps)
+  } bits;
   
   // Full 32-bit register value.
   uint32_t value;
@@ -15315,12 +15306,10 @@ union DMA_CH1_CURRENT_APP_TXDESC {
 //
 union DMA_CH1_CURRENT_APP_RXDESC {
   
-  // Enum definitions.
-  
   // Bit field definition.
   struct {
     uint32_t CURRDESAPTR : 32;
-  } bits;          // Bit-field struct (auto-filling reserved gaps)
+  } bits;
   
   // Full 32-bit register value.
   uint32_t value;
@@ -15334,12 +15323,10 @@ union DMA_CH1_CURRENT_APP_RXDESC {
 //
 union DMA_CH1_CURRENT_APP_TXBUFFER {
   
-  // Enum definitions.
-  
   // Bit field definition.
   struct {
     uint32_t CURTBUFAPTR : 32;
-  } bits;          // Bit-field struct (auto-filling reserved gaps)
+  } bits;
   
   // Full 32-bit register value.
   uint32_t value;
@@ -15353,12 +15340,10 @@ union DMA_CH1_CURRENT_APP_TXBUFFER {
 //
 union DMA_CH1_CURRENT_APP_RXBUFFER {
   
-  // Enum definitions.
-  
   // Bit field definition.
   struct {
     uint32_t CURRBUFAPTR : 32;
-  } bits;          // Bit-field struct (auto-filling reserved gaps)
+  } bits;
   
   // Full 32-bit register value.
   uint32_t value;
@@ -15372,55 +15357,66 @@ union DMA_CH1_CURRENT_APP_RXBUFFER {
 //
 union DMA_CH1_STATUS {
   
-  // Enum definitions.
   enum class eTI : uint32_t {
     eINACTIVE = 0, // Transmit Interrupt status not detected
     eACTIVE = 1, // Transmit Interrupt status detected
   };
+  
   enum class eTPS : uint32_t {
     eINACTIVE = 0, // Transmit Process Stopped status not detected
     eACTIVE = 1, // Transmit Process Stopped status detected
   };
+  
   enum class eTBU : uint32_t {
     eINACTIVE = 0, // Transmit Buffer Unavailable status not detected
     eACTIVE = 1, // Transmit Buffer Unavailable status detected
   };
+  
   enum class eRI : uint32_t {
     eINACTIVE = 0, // Receive Interrupt status not detected
     eACTIVE = 1, // Receive Interrupt status detected
   };
+  
   enum class eRBU : uint32_t {
     eINACTIVE = 0, // Receive Buffer Unavailable status not detected
     eACTIVE = 1, // Receive Buffer Unavailable status detected
   };
+  
   enum class eRPS : uint32_t {
     eINACTIVE = 0, // Receive Process Stopped status not detected
     eACTIVE = 1, // Receive Process Stopped status detected
   };
+  
   enum class eRWT : uint32_t {
     eINACTIVE = 0, // Receive Watchdog Timeout status not detected
     eACTIVE = 1, // Receive Watchdog Timeout status detected
   };
+  
   enum class eETI : uint32_t {
     eINACTIVE = 0, // Early Transmit Interrupt status not detected
     eACTIVE = 1, // Early Transmit Interrupt status detected
   };
+  
   enum class eERI : uint32_t {
     eINACTIVE = 0, // Early Receive Interrupt status not detected
     eACTIVE = 1, // Early Receive Interrupt status detected
   };
+  
   enum class eFBE : uint32_t {
     eINACTIVE = 0, // Fatal Bus Error status not detected
     eACTIVE = 1, // Fatal Bus Error status detected
   };
+  
   enum class eCDE : uint32_t {
     eINACTIVE = 0, // Context Descriptor Error status not detected
     eACTIVE = 1, // Context Descriptor Error status detected
   };
+  
   enum class eAIS : uint32_t {
     eINACTIVE = 0, // Abnormal Interrupt Summary status not detected
     eACTIVE = 1, // Abnormal Interrupt Summary status detected
   };
+  
   enum class eNIS : uint32_t {
     eINACTIVE = 0, // Normal Interrupt Summary status not detected
     eACTIVE = 1, // Normal Interrupt Summary status detected
@@ -15445,7 +15441,7 @@ union DMA_CH1_STATUS {
     uint32_t TEB : 3;
     uint32_t REB : 3;
     uint32_t _reserved_end : 10;
-  } bits;          // Bit-field struct (auto-filling reserved gaps)
+  } bits;
   
   // Full 32-bit register value.
   uint32_t value;
@@ -15459,7 +15455,6 @@ union DMA_CH1_STATUS {
 //
 union DMA_CH1_MISS_FRAME_CNT {
   
-  // Enum definitions.
   enum class eMFCO : uint32_t {
     eINACTIVE = 0, // Miss Frame Counter overflow not occurred
     eACTIVE = 1, // Miss Frame Counter overflow occurred
@@ -15471,7 +15466,7 @@ union DMA_CH1_MISS_FRAME_CNT {
     uint32_t _reserved_1 : 4;
     eMFCO MFCO : 1;
     uint32_t _reserved_end : 16;
-  } bits;          // Bit-field struct (auto-filling reserved gaps)
+  } bits;
   
   // Full 32-bit register value.
   uint32_t value;
@@ -15485,7 +15480,6 @@ union DMA_CH1_MISS_FRAME_CNT {
 //
 union DMA_CH1_RXP_ACCEPT_CNT {
   
-  // Enum definitions.
   enum class eRXPACOF : uint32_t {
     eINACTIVE = 0, // Rx Parser Accept Counter overflow not occurred
     eACTIVE = 1, // Rx Parser Accept Counter overflow occurred
@@ -15495,7 +15489,7 @@ union DMA_CH1_RXP_ACCEPT_CNT {
   struct {
     uint32_t RXPAC : 31;
     eRXPACOF RXPACOF : 1;
-  } bits;          // Bit-field struct (auto-filling reserved gaps)
+  } bits;
   
   // Full 32-bit register value.
   uint32_t value;
@@ -15509,13 +15503,11 @@ union DMA_CH1_RXP_ACCEPT_CNT {
 //
 union DMA_CH1_RX_ERI_CNT {
   
-  // Enum definitions.
-  
   // Bit field definition.
   struct {
     uint32_t ECNT : 12;
     uint32_t _reserved_end : 20;
-  } bits;          // Bit-field struct (auto-filling reserved gaps)
+  } bits;
   
   // Full 32-bit register value.
   uint32_t value;
@@ -15529,7 +15521,6 @@ union DMA_CH1_RX_ERI_CNT {
 //
 union DMA_CH2_CONTROL {
   
-  // Enum definitions.
   enum class ePBLx8 : uint32_t {
     eDISABLE = 0, // 8xPBL mode is disabled
     eENABLE = 1, // 8xPBL mode is enabled
@@ -15542,7 +15533,7 @@ union DMA_CH2_CONTROL {
     uint32_t _reserved_1 : 1;
     uint32_t DSL : 3;
     uint32_t _reserved_end : 11;
-  } bits;          // Bit-field struct (auto-filling reserved gaps)
+  } bits;
   
   // Full 32-bit register value.
   uint32_t value;
@@ -15556,19 +15547,21 @@ union DMA_CH2_CONTROL {
 //
 union DMA_CH2_TX_CONTROL {
   
-  // Enum definitions.
   enum class eST : uint32_t {
     eSTOP = 0, // Stop Transmission Command
     eSTART = 1, // Start Transmission Command
   };
+  
   enum class eOSF : uint32_t {
     eDISABLE = 0, // Operate on Second Packet disabled
     eENABLE = 1, // Operate on Second Packet enabled
   };
+  
   enum class eIPBL : uint32_t {
     eDISABLE = 0, // Ignore PBL Requirement is disabled
     eENABLE = 1, // Ignore PBL Requirement is enabled
   };
+  
   enum class eEDSE : uint32_t {
     eDISABLE = 0, // Enhanced Descriptor is disabled
     eENABLE = 1, // Enhanced Descriptor is enabled
@@ -15585,7 +15578,7 @@ union DMA_CH2_TX_CONTROL {
     uint32_t _reserved_4 : 6;
     eEDSE EDSE : 1;
     uint32_t _reserved_end : 3;
-  } bits;          // Bit-field struct (auto-filling reserved gaps)
+  } bits;
   
   // Full 32-bit register value.
   uint32_t value;
@@ -15599,11 +15592,11 @@ union DMA_CH2_TX_CONTROL {
 //
 union DMA_CH2_RX_CONTROL {
   
-  // Enum definitions.
   enum class eSR : uint32_t {
     eSTOP = 0, // Stop Receive
     eSTART = 1, // Start Receive
   };
+  
   enum class eRPF : uint32_t {
     eDISABLE = 0, // Rx Packet Flush is disabled
     eENABLE = 1, // Rx Packet Flush is enabled
@@ -15618,7 +15611,7 @@ union DMA_CH2_RX_CONTROL {
     uint32_t RxPBL : 6;
     uint32_t _reserved_4 : 9;
     eRPF RPF : 1;
-  } bits;          // Bit-field struct (auto-filling reserved gaps)
+  } bits;
   
   // Full 32-bit register value.
   uint32_t value;
@@ -15632,13 +15625,11 @@ union DMA_CH2_RX_CONTROL {
 //
 union DMA_CH2_TXDESC_LIST_ADDRESS {
   
-  // Enum definitions.
-  
   // Bit field definition.
   struct {
     uint32_t _reserved_0 : 3;
     uint32_t TDESLA : 29;
-  } bits;          // Bit-field struct (auto-filling reserved gaps)
+  } bits;
   
   // Full 32-bit register value.
   uint32_t value;
@@ -15652,13 +15643,11 @@ union DMA_CH2_TXDESC_LIST_ADDRESS {
 //
 union DMA_CH2_RXDESC_LIST_ADDRESS {
   
-  // Enum definitions.
-  
   // Bit field definition.
   struct {
     uint32_t _reserved_0 : 3;
     uint32_t RDESLA : 29;
-  } bits;          // Bit-field struct (auto-filling reserved gaps)
+  } bits;
   
   // Full 32-bit register value.
   uint32_t value;
@@ -15672,13 +15661,11 @@ union DMA_CH2_RXDESC_LIST_ADDRESS {
 //
 union DMA_CH2_TXDESC_TAIL_POINTER {
   
-  // Enum definitions.
-  
   // Bit field definition.
   struct {
     uint32_t _reserved_0 : 3;
     uint32_t TDTP : 29;
-  } bits;          // Bit-field struct (auto-filling reserved gaps)
+  } bits;
   
   // Full 32-bit register value.
   uint32_t value;
@@ -15692,13 +15679,11 @@ union DMA_CH2_TXDESC_TAIL_POINTER {
 //
 union DMA_CH2_RXDESC_TAIL_POINTER {
   
-  // Enum definitions.
-  
   // Bit field definition.
   struct {
     uint32_t _reserved_0 : 3;
     uint32_t RDTP : 29;
-  } bits;          // Bit-field struct (auto-filling reserved gaps)
+  } bits;
   
   // Full 32-bit register value.
   uint32_t value;
@@ -15712,13 +15697,11 @@ union DMA_CH2_RXDESC_TAIL_POINTER {
 //
 union DMA_CH2_TXDESC_RING_LENGTH {
   
-  // Enum definitions.
-  
   // Bit field definition.
   struct {
     uint32_t TDRL : 10;
     uint32_t _reserved_end : 22;
-  } bits;          // Bit-field struct (auto-filling reserved gaps)
+  } bits;
   
   // Full 32-bit register value.
   uint32_t value;
@@ -15732,13 +15715,11 @@ union DMA_CH2_TXDESC_RING_LENGTH {
 //
 union DMA_CH2_RXDESC_RING_LENGTH {
   
-  // Enum definitions.
-  
   // Bit field definition.
   struct {
     uint32_t RDRL : 10;
     uint32_t _reserved_end : 22;
-  } bits;          // Bit-field struct (auto-filling reserved gaps)
+  } bits;
   
   // Full 32-bit register value.
   uint32_t value;
@@ -15752,55 +15733,66 @@ union DMA_CH2_RXDESC_RING_LENGTH {
 //
 union DMA_CH2_INTERRUPT_ENABLE {
   
-  // Enum definitions.
   enum class eTIE : uint32_t {
     eDISABLE = 0, // Transmit Interrupt is disabled
     eENABLE = 1, // Transmit Interrupt is enabled
   };
+  
   enum class eTXSE : uint32_t {
     eDISABLE = 0, // Transmit Stopped is disabled
     eENABLE = 1, // Transmit Stopped is enabled
   };
+  
   enum class eTBUE : uint32_t {
     eDISABLE = 0, // Transmit Buffer Unavailable is disabled
     eENABLE = 1, // Transmit Buffer Unavailable is enabled
   };
+  
   enum class eRIE : uint32_t {
     eDISABLE = 0, // Receive Interrupt is disabled
     eENABLE = 1, // Receive Interrupt is enabled
   };
+  
   enum class eRBUE : uint32_t {
     eDISABLE = 0, // Receive Buffer Unavailable is disabled
     eENABLE = 1, // Receive Buffer Unavailable is enabled
   };
+  
   enum class eRSE : uint32_t {
     eDISABLE = 0, // Receive Stopped is disabled
     eENABLE = 1, // Receive Stopped is enabled
   };
+  
   enum class eRWTE : uint32_t {
     eDISABLE = 0, // Receive Watchdog Timeout is disabled
     eENABLE = 1, // Receive Watchdog Timeout is enabled
   };
+  
   enum class eETIE : uint32_t {
     eDISABLE = 0, // Early Transmit Interrupt is disabled
     eENABLE = 1, // Early Transmit Interrupt is enabled
   };
+  
   enum class eERIE : uint32_t {
     eDISABLE = 0, // Early Receive Interrupt is disabled
     eENABLE = 1, // Early Receive Interrupt is enabled
   };
+  
   enum class eFBEE : uint32_t {
     eDISABLE = 0, // Fatal Bus Error is disabled
     eENABLE = 1, // Fatal Bus Error is enabled
   };
+  
   enum class eCDEE : uint32_t {
     eDISABLE = 0, // Context Descriptor Error is disabled
     eENABLE = 1, // Context Descriptor Error is enabled
   };
+  
   enum class eAIE : uint32_t {
     eDISABLE = 0, // Abnormal Interrupt Summary is disabled
     eENABLE = 1, // Abnormal Interrupt Summary is enabled
   };
+  
   enum class eNIE : uint32_t {
     eDISABLE = 0, // Normal Interrupt Summary is disabled
     eENABLE = 1, // Normal Interrupt Summary is enabled
@@ -15823,7 +15815,7 @@ union DMA_CH2_INTERRUPT_ENABLE {
     eAIE AIE : 1;
     eNIE NIE : 1;
     uint32_t _reserved_end : 16;
-  } bits;          // Bit-field struct (auto-filling reserved gaps)
+  } bits;
   
   // Full 32-bit register value.
   uint32_t value;
@@ -15837,15 +15829,13 @@ union DMA_CH2_INTERRUPT_ENABLE {
 //
 union DMA_CH2_RX_INTERRUPT_WATCHDOG_TIMER {
   
-  // Enum definitions.
-  
   // Bit field definition.
   struct {
     uint32_t RWT : 8;
     uint32_t _reserved_1 : 8;
     uint32_t RWTU : 2;
     uint32_t _reserved_end : 14;
-  } bits;          // Bit-field struct (auto-filling reserved gaps)
+  } bits;
   
   // Full 32-bit register value.
   uint32_t value;
@@ -15859,11 +15849,11 @@ union DMA_CH2_RX_INTERRUPT_WATCHDOG_TIMER {
 //
 union DMA_CH2_SLOT_FUNCTION_CONTROL_STATUS {
   
-  // Enum definitions.
   enum class eESC : uint32_t {
     eDISABLE = 0, // Slot Comparison is disabled
     eENABLE = 1, // Slot Comparison is enabled
   };
+  
   enum class eASC : uint32_t {
     eDISABLE = 0, // Advance Slot Check is disabled
     eENABLE = 1, // Advance Slot Check is enabled
@@ -15877,7 +15867,7 @@ union DMA_CH2_SLOT_FUNCTION_CONTROL_STATUS {
     uint32_t SIV : 12;
     uint32_t RSN : 4;
     uint32_t _reserved_end : 12;
-  } bits;          // Bit-field struct (auto-filling reserved gaps)
+  } bits;
   
   // Full 32-bit register value.
   uint32_t value;
@@ -15891,12 +15881,10 @@ union DMA_CH2_SLOT_FUNCTION_CONTROL_STATUS {
 //
 union DMA_CH2_CURRENT_APP_TXDESC {
   
-  // Enum definitions.
-  
   // Bit field definition.
   struct {
     uint32_t CURTDESAPTR : 32;
-  } bits;          // Bit-field struct (auto-filling reserved gaps)
+  } bits;
   
   // Full 32-bit register value.
   uint32_t value;
@@ -15910,12 +15898,10 @@ union DMA_CH2_CURRENT_APP_TXDESC {
 //
 union DMA_CH2_CURRENT_APP_RXDESC {
   
-  // Enum definitions.
-  
   // Bit field definition.
   struct {
     uint32_t CURRDESAPTR : 32;
-  } bits;          // Bit-field struct (auto-filling reserved gaps)
+  } bits;
   
   // Full 32-bit register value.
   uint32_t value;
@@ -15929,12 +15915,10 @@ union DMA_CH2_CURRENT_APP_RXDESC {
 //
 union DMA_CH2_CURRENT_APP_TXBUFFER {
   
-  // Enum definitions.
-  
   // Bit field definition.
   struct {
     uint32_t CURTBUFAPTR : 32;
-  } bits;          // Bit-field struct (auto-filling reserved gaps)
+  } bits;
   
   // Full 32-bit register value.
   uint32_t value;
@@ -15948,12 +15932,10 @@ union DMA_CH2_CURRENT_APP_TXBUFFER {
 //
 union DMA_CH2_CURRENT_APP_RXBUFFER {
   
-  // Enum definitions.
-  
   // Bit field definition.
   struct {
     uint32_t CURRBUFAPTR : 32;
-  } bits;          // Bit-field struct (auto-filling reserved gaps)
+  } bits;
   
   // Full 32-bit register value.
   uint32_t value;
@@ -15967,55 +15949,66 @@ union DMA_CH2_CURRENT_APP_RXBUFFER {
 //
 union DMA_CH2_STATUS {
   
-  // Enum definitions.
   enum class eTI : uint32_t {
     eINACTIVE = 0, // Transmit Interrupt status not detected
     eACTIVE = 1, // Transmit Interrupt status detected
   };
+  
   enum class eTPS : uint32_t {
     eINACTIVE = 0, // Transmit Process Stopped status not detected
     eACTIVE = 1, // Transmit Process Stopped status detected
   };
+  
   enum class eTBU : uint32_t {
     eINACTIVE = 0, // Transmit Buffer Unavailable status not detected
     eACTIVE = 1, // Transmit Buffer Unavailable status detected
   };
+  
   enum class eRI : uint32_t {
     eINACTIVE = 0, // Receive Interrupt status not detected
     eACTIVE = 1, // Receive Interrupt status detected
   };
+  
   enum class eRBU : uint32_t {
     eINACTIVE = 0, // Receive Buffer Unavailable status not detected
     eACTIVE = 1, // Receive Buffer Unavailable status detected
   };
+  
   enum class eRPS : uint32_t {
     eINACTIVE = 0, // Receive Process Stopped status not detected
     eACTIVE = 1, // Receive Process Stopped status detected
   };
+  
   enum class eRWT : uint32_t {
     eINACTIVE = 0, // Receive Watchdog Timeout status not detected
     eACTIVE = 1, // Receive Watchdog Timeout status detected
   };
+  
   enum class eETI : uint32_t {
     eINACTIVE = 0, // Early Transmit Interrupt status not detected
     eACTIVE = 1, // Early Transmit Interrupt status detected
   };
+  
   enum class eERI : uint32_t {
     eINACTIVE = 0, // Early Receive Interrupt status not detected
     eACTIVE = 1, // Early Receive Interrupt status detected
   };
+  
   enum class eFBE : uint32_t {
     eINACTIVE = 0, // Fatal Bus Error status not detected
     eACTIVE = 1, // Fatal Bus Error status detected
   };
+  
   enum class eCDE : uint32_t {
     eINACTIVE = 0, // Context Descriptor Error status not detected
     eACTIVE = 1, // Context Descriptor Error status detected
   };
+  
   enum class eAIS : uint32_t {
     eINACTIVE = 0, // Abnormal Interrupt Summary status not detected
     eACTIVE = 1, // Abnormal Interrupt Summary status detected
   };
+  
   enum class eNIS : uint32_t {
     eINACTIVE = 0, // Normal Interrupt Summary status not detected
     eACTIVE = 1, // Normal Interrupt Summary status detected
@@ -16040,7 +16033,7 @@ union DMA_CH2_STATUS {
     uint32_t TEB : 3;
     uint32_t REB : 3;
     uint32_t _reserved_end : 10;
-  } bits;          // Bit-field struct (auto-filling reserved gaps)
+  } bits;
   
   // Full 32-bit register value.
   uint32_t value;
@@ -16054,7 +16047,6 @@ union DMA_CH2_STATUS {
 //
 union DMA_CH2_MISS_FRAME_CNT {
   
-  // Enum definitions.
   enum class eMFCO : uint32_t {
     eINACTIVE = 0, // Miss Frame Counter overflow not occurred
     eACTIVE = 1, // Miss Frame Counter overflow occurred
@@ -16066,7 +16058,7 @@ union DMA_CH2_MISS_FRAME_CNT {
     uint32_t _reserved_1 : 4;
     eMFCO MFCO : 1;
     uint32_t _reserved_end : 16;
-  } bits;          // Bit-field struct (auto-filling reserved gaps)
+  } bits;
   
   // Full 32-bit register value.
   uint32_t value;
@@ -16080,7 +16072,6 @@ union DMA_CH2_MISS_FRAME_CNT {
 //
 union DMA_CH2_RXP_ACCEPT_CNT {
   
-  // Enum definitions.
   enum class eRXPACOF : uint32_t {
     eINACTIVE = 0, // Rx Parser Accept Counter overflow not occurred
     eACTIVE = 1, // Rx Parser Accept Counter overflow occurred
@@ -16090,7 +16081,7 @@ union DMA_CH2_RXP_ACCEPT_CNT {
   struct {
     uint32_t RXPAC : 31;
     eRXPACOF RXPACOF : 1;
-  } bits;          // Bit-field struct (auto-filling reserved gaps)
+  } bits;
   
   // Full 32-bit register value.
   uint32_t value;
@@ -16104,13 +16095,11 @@ union DMA_CH2_RXP_ACCEPT_CNT {
 //
 union DMA_CH2_RX_ERI_CNT {
   
-  // Enum definitions.
-  
   // Bit field definition.
   struct {
     uint32_t ECNT : 12;
     uint32_t _reserved_end : 20;
-  } bits;          // Bit-field struct (auto-filling reserved gaps)
+  } bits;
   
   // Full 32-bit register value.
   uint32_t value;
@@ -16124,7 +16113,6 @@ union DMA_CH2_RX_ERI_CNT {
 //
 union DMA_CH3_CONTROL {
   
-  // Enum definitions.
   enum class ePBLx8 : uint32_t {
     eDISABLE = 0, // 8xPBL mode is disabled
     eENABLE = 1, // 8xPBL mode is enabled
@@ -16137,7 +16125,7 @@ union DMA_CH3_CONTROL {
     uint32_t _reserved_1 : 1;
     uint32_t DSL : 3;
     uint32_t _reserved_end : 11;
-  } bits;          // Bit-field struct (auto-filling reserved gaps)
+  } bits;
   
   // Full 32-bit register value.
   uint32_t value;
@@ -16151,19 +16139,21 @@ union DMA_CH3_CONTROL {
 //
 union DMA_CH3_TX_CONTROL {
   
-  // Enum definitions.
   enum class eST : uint32_t {
     eSTOP = 0, // Stop Transmission Command
     eSTART = 1, // Start Transmission Command
   };
+  
   enum class eOSF : uint32_t {
     eDISABLE = 0, // Operate on Second Packet disabled
     eENABLE = 1, // Operate on Second Packet enabled
   };
+  
   enum class eIPBL : uint32_t {
     eDISABLE = 0, // Ignore PBL Requirement is disabled
     eENABLE = 1, // Ignore PBL Requirement is enabled
   };
+  
   enum class eEDSE : uint32_t {
     eDISABLE = 0, // Enhanced Descriptor is disabled
     eENABLE = 1, // Enhanced Descriptor is enabled
@@ -16180,7 +16170,7 @@ union DMA_CH3_TX_CONTROL {
     uint32_t _reserved_4 : 6;
     eEDSE EDSE : 1;
     uint32_t _reserved_end : 3;
-  } bits;          // Bit-field struct (auto-filling reserved gaps)
+  } bits;
   
   // Full 32-bit register value.
   uint32_t value;
@@ -16194,11 +16184,11 @@ union DMA_CH3_TX_CONTROL {
 //
 union DMA_CH3_RX_CONTROL {
   
-  // Enum definitions.
   enum class eSR : uint32_t {
     eSTOP = 0, // Stop Receive
     eSTART = 1, // Start Receive
   };
+  
   enum class eRPF : uint32_t {
     eDISABLE = 0, // Rx Packet Flush is disabled
     eENABLE = 1, // Rx Packet Flush is enabled
@@ -16213,7 +16203,7 @@ union DMA_CH3_RX_CONTROL {
     uint32_t RxPBL : 6;
     uint32_t _reserved_4 : 9;
     eRPF RPF : 1;
-  } bits;          // Bit-field struct (auto-filling reserved gaps)
+  } bits;
   
   // Full 32-bit register value.
   uint32_t value;
@@ -16227,13 +16217,11 @@ union DMA_CH3_RX_CONTROL {
 //
 union DMA_CH3_TXDESC_LIST_ADDRESS {
   
-  // Enum definitions.
-  
   // Bit field definition.
   struct {
     uint32_t _reserved_0 : 3;
     uint32_t TDESLA : 29;
-  } bits;          // Bit-field struct (auto-filling reserved gaps)
+  } bits;
   
   // Full 32-bit register value.
   uint32_t value;
@@ -16247,13 +16235,11 @@ union DMA_CH3_TXDESC_LIST_ADDRESS {
 //
 union DMA_CH3_RXDESC_LIST_ADDRESS {
   
-  // Enum definitions.
-  
   // Bit field definition.
   struct {
     uint32_t _reserved_0 : 3;
     uint32_t RDESLA : 29;
-  } bits;          // Bit-field struct (auto-filling reserved gaps)
+  } bits;
   
   // Full 32-bit register value.
   uint32_t value;
@@ -16267,13 +16253,11 @@ union DMA_CH3_RXDESC_LIST_ADDRESS {
 //
 union DMA_CH3_TXDESC_TAIL_POINTER {
   
-  // Enum definitions.
-  
   // Bit field definition.
   struct {
     uint32_t _reserved_0 : 3;
     uint32_t TDTP : 29;
-  } bits;          // Bit-field struct (auto-filling reserved gaps)
+  } bits;
   
   // Full 32-bit register value.
   uint32_t value;
@@ -16287,13 +16271,11 @@ union DMA_CH3_TXDESC_TAIL_POINTER {
 //
 union DMA_CH3_RXDESC_TAIL_POINTER {
   
-  // Enum definitions.
-  
   // Bit field definition.
   struct {
     uint32_t _reserved_0 : 3;
     uint32_t RDTP : 29;
-  } bits;          // Bit-field struct (auto-filling reserved gaps)
+  } bits;
   
   // Full 32-bit register value.
   uint32_t value;
@@ -16307,13 +16289,11 @@ union DMA_CH3_RXDESC_TAIL_POINTER {
 //
 union DMA_CH3_TXDESC_RING_LENGTH {
   
-  // Enum definitions.
-  
   // Bit field definition.
   struct {
     uint32_t TDRL : 10;
     uint32_t _reserved_end : 22;
-  } bits;          // Bit-field struct (auto-filling reserved gaps)
+  } bits;
   
   // Full 32-bit register value.
   uint32_t value;
@@ -16327,13 +16307,11 @@ union DMA_CH3_TXDESC_RING_LENGTH {
 //
 union DMA_CH3_RXDESC_RING_LENGTH {
   
-  // Enum definitions.
-  
   // Bit field definition.
   struct {
     uint32_t RDRL : 10;
     uint32_t _reserved_end : 22;
-  } bits;          // Bit-field struct (auto-filling reserved gaps)
+  } bits;
   
   // Full 32-bit register value.
   uint32_t value;
@@ -16347,55 +16325,66 @@ union DMA_CH3_RXDESC_RING_LENGTH {
 //
 union DMA_CH3_INTERRUPT_ENABLE {
   
-  // Enum definitions.
   enum class eTIE : uint32_t {
     eDISABLE = 0, // Transmit Interrupt is disabled
     eENABLE = 1, // Transmit Interrupt is enabled
   };
+  
   enum class eTXSE : uint32_t {
     eDISABLE = 0, // Transmit Stopped is disabled
     eENABLE = 1, // Transmit Stopped is enabled
   };
+  
   enum class eTBUE : uint32_t {
     eDISABLE = 0, // Transmit Buffer Unavailable is disabled
     eENABLE = 1, // Transmit Buffer Unavailable is enabled
   };
+  
   enum class eRIE : uint32_t {
     eDISABLE = 0, // Receive Interrupt is disabled
     eENABLE = 1, // Receive Interrupt is enabled
   };
+  
   enum class eRBUE : uint32_t {
     eDISABLE = 0, // Receive Buffer Unavailable is disabled
     eENABLE = 1, // Receive Buffer Unavailable is enabled
   };
+  
   enum class eRSE : uint32_t {
     eDISABLE = 0, // Receive Stopped is disabled
     eENABLE = 1, // Receive Stopped is enabled
   };
+  
   enum class eRWTE : uint32_t {
     eDISABLE = 0, // Receive Watchdog Timeout is disabled
     eENABLE = 1, // Receive Watchdog Timeout is enabled
   };
+  
   enum class eETIE : uint32_t {
     eDISABLE = 0, // Early Transmit Interrupt is disabled
     eENABLE = 1, // Early Transmit Interrupt is enabled
   };
+  
   enum class eERIE : uint32_t {
     eDISABLE = 0, // Early Receive Interrupt is disabled
     eENABLE = 1, // Early Receive Interrupt is enabled
   };
+  
   enum class eFBEE : uint32_t {
     eDISABLE = 0, // Fatal Bus Error is disabled
     eENABLE = 1, // Fatal Bus Error is enabled
   };
+  
   enum class eCDEE : uint32_t {
     eDISABLE = 0, // Context Descriptor Error is disabled
     eENABLE = 1, // Context Descriptor Error is enabled
   };
+  
   enum class eAIE : uint32_t {
     eDISABLE = 0, // Abnormal Interrupt Summary is disabled
     eENABLE = 1, // Abnormal Interrupt Summary is enabled
   };
+  
   enum class eNIE : uint32_t {
     eDISABLE = 0, // Normal Interrupt Summary is disabled
     eENABLE = 1, // Normal Interrupt Summary is enabled
@@ -16418,7 +16407,7 @@ union DMA_CH3_INTERRUPT_ENABLE {
     eAIE AIE : 1;
     eNIE NIE : 1;
     uint32_t _reserved_end : 16;
-  } bits;          // Bit-field struct (auto-filling reserved gaps)
+  } bits;
   
   // Full 32-bit register value.
   uint32_t value;
@@ -16432,15 +16421,13 @@ union DMA_CH3_INTERRUPT_ENABLE {
 //
 union DMA_CH3_RX_INTERRUPT_WATCHDOG_TIMER {
   
-  // Enum definitions.
-  
   // Bit field definition.
   struct {
     uint32_t RWT : 8;
     uint32_t _reserved_1 : 8;
     uint32_t RWTU : 2;
     uint32_t _reserved_end : 14;
-  } bits;          // Bit-field struct (auto-filling reserved gaps)
+  } bits;
   
   // Full 32-bit register value.
   uint32_t value;
@@ -16454,11 +16441,11 @@ union DMA_CH3_RX_INTERRUPT_WATCHDOG_TIMER {
 //
 union DMA_CH3_SLOT_FUNCTION_CONTROL_STATUS {
   
-  // Enum definitions.
   enum class eESC : uint32_t {
     eDISABLE = 0, // Slot Comparison is disabled
     eENABLE = 1, // Slot Comparison is enabled
   };
+  
   enum class eASC : uint32_t {
     eDISABLE = 0, // Advance Slot Check is disabled
     eENABLE = 1, // Advance Slot Check is enabled
@@ -16472,7 +16459,7 @@ union DMA_CH3_SLOT_FUNCTION_CONTROL_STATUS {
     uint32_t SIV : 12;
     uint32_t RSN : 4;
     uint32_t _reserved_end : 12;
-  } bits;          // Bit-field struct (auto-filling reserved gaps)
+  } bits;
   
   // Full 32-bit register value.
   uint32_t value;
@@ -16486,12 +16473,10 @@ union DMA_CH3_SLOT_FUNCTION_CONTROL_STATUS {
 //
 union DMA_CH3_CURRENT_APP_TXDESC {
   
-  // Enum definitions.
-  
   // Bit field definition.
   struct {
     uint32_t CURTDESAPTR : 32;
-  } bits;          // Bit-field struct (auto-filling reserved gaps)
+  } bits;
   
   // Full 32-bit register value.
   uint32_t value;
@@ -16505,12 +16490,10 @@ union DMA_CH3_CURRENT_APP_TXDESC {
 //
 union DMA_CH3_CURRENT_APP_RXDESC {
   
-  // Enum definitions.
-  
   // Bit field definition.
   struct {
     uint32_t CURRDESAPTR : 32;
-  } bits;          // Bit-field struct (auto-filling reserved gaps)
+  } bits;
   
   // Full 32-bit register value.
   uint32_t value;
@@ -16524,12 +16507,10 @@ union DMA_CH3_CURRENT_APP_RXDESC {
 //
 union DMA_CH3_CURRENT_APP_TXBUFFER {
   
-  // Enum definitions.
-  
   // Bit field definition.
   struct {
     uint32_t CURTBUFAPTR : 32;
-  } bits;          // Bit-field struct (auto-filling reserved gaps)
+  } bits;
   
   // Full 32-bit register value.
   uint32_t value;
@@ -16543,12 +16524,10 @@ union DMA_CH3_CURRENT_APP_TXBUFFER {
 //
 union DMA_CH3_CURRENT_APP_RXBUFFER {
   
-  // Enum definitions.
-  
   // Bit field definition.
   struct {
     uint32_t CURRBUFAPTR : 32;
-  } bits;          // Bit-field struct (auto-filling reserved gaps)
+  } bits;
   
   // Full 32-bit register value.
   uint32_t value;
@@ -16562,55 +16541,66 @@ union DMA_CH3_CURRENT_APP_RXBUFFER {
 //
 union DMA_CH3_STATUS {
   
-  // Enum definitions.
   enum class eTI : uint32_t {
     eINACTIVE = 0, // Transmit Interrupt status not detected
     eACTIVE = 1, // Transmit Interrupt status detected
   };
+  
   enum class eTPS : uint32_t {
     eINACTIVE = 0, // Transmit Process Stopped status not detected
     eACTIVE = 1, // Transmit Process Stopped status detected
   };
+  
   enum class eTBU : uint32_t {
     eINACTIVE = 0, // Transmit Buffer Unavailable status not detected
     eACTIVE = 1, // Transmit Buffer Unavailable status detected
   };
+  
   enum class eRI : uint32_t {
     eINACTIVE = 0, // Receive Interrupt status not detected
     eACTIVE = 1, // Receive Interrupt status detected
   };
+  
   enum class eRBU : uint32_t {
     eINACTIVE = 0, // Receive Buffer Unavailable status not detected
     eACTIVE = 1, // Receive Buffer Unavailable status detected
   };
+  
   enum class eRPS : uint32_t {
     eINACTIVE = 0, // Receive Process Stopped status not detected
     eACTIVE = 1, // Receive Process Stopped status detected
   };
+  
   enum class eRWT : uint32_t {
     eINACTIVE = 0, // Receive Watchdog Timeout status not detected
     eACTIVE = 1, // Receive Watchdog Timeout status detected
   };
+  
   enum class eETI : uint32_t {
     eINACTIVE = 0, // Early Transmit Interrupt status not detected
     eACTIVE = 1, // Early Transmit Interrupt status detected
   };
+  
   enum class eERI : uint32_t {
     eINACTIVE = 0, // Early Receive Interrupt status not detected
     eACTIVE = 1, // Early Receive Interrupt status detected
   };
+  
   enum class eFBE : uint32_t {
     eINACTIVE = 0, // Fatal Bus Error status not detected
     eACTIVE = 1, // Fatal Bus Error status detected
   };
+  
   enum class eCDE : uint32_t {
     eINACTIVE = 0, // Context Descriptor Error status not detected
     eACTIVE = 1, // Context Descriptor Error status detected
   };
+  
   enum class eAIS : uint32_t {
     eINACTIVE = 0, // Abnormal Interrupt Summary status not detected
     eACTIVE = 1, // Abnormal Interrupt Summary status detected
   };
+  
   enum class eNIS : uint32_t {
     eINACTIVE = 0, // Normal Interrupt Summary status not detected
     eACTIVE = 1, // Normal Interrupt Summary status detected
@@ -16635,7 +16625,7 @@ union DMA_CH3_STATUS {
     uint32_t TEB : 3;
     uint32_t REB : 3;
     uint32_t _reserved_end : 10;
-  } bits;          // Bit-field struct (auto-filling reserved gaps)
+  } bits;
   
   // Full 32-bit register value.
   uint32_t value;
@@ -16649,7 +16639,6 @@ union DMA_CH3_STATUS {
 //
 union DMA_CH3_MISS_FRAME_CNT {
   
-  // Enum definitions.
   enum class eMFCO : uint32_t {
     eINACTIVE = 0, // Miss Frame Counter overflow not occurred
     eACTIVE = 1, // Miss Frame Counter overflow occurred
@@ -16661,7 +16650,7 @@ union DMA_CH3_MISS_FRAME_CNT {
     uint32_t _reserved_1 : 4;
     eMFCO MFCO : 1;
     uint32_t _reserved_end : 16;
-  } bits;          // Bit-field struct (auto-filling reserved gaps)
+  } bits;
   
   // Full 32-bit register value.
   uint32_t value;
@@ -16675,7 +16664,6 @@ union DMA_CH3_MISS_FRAME_CNT {
 //
 union DMA_CH3_RXP_ACCEPT_CNT {
   
-  // Enum definitions.
   enum class eRXPACOF : uint32_t {
     eINACTIVE = 0, // Rx Parser Accept Counter overflow not occurred
     eACTIVE = 1, // Rx Parser Accept Counter overflow occurred
@@ -16685,7 +16673,7 @@ union DMA_CH3_RXP_ACCEPT_CNT {
   struct {
     uint32_t RXPAC : 31;
     eRXPACOF RXPACOF : 1;
-  } bits;          // Bit-field struct (auto-filling reserved gaps)
+  } bits;
   
   // Full 32-bit register value.
   uint32_t value;
@@ -16699,13 +16687,11 @@ union DMA_CH3_RXP_ACCEPT_CNT {
 //
 union DMA_CH3_RX_ERI_CNT {
   
-  // Enum definitions.
-  
   // Bit field definition.
   struct {
     uint32_t ECNT : 12;
     uint32_t _reserved_end : 20;
-  } bits;          // Bit-field struct (auto-filling reserved gaps)
+  } bits;
   
   // Full 32-bit register value.
   uint32_t value;
@@ -16719,7 +16705,6 @@ union DMA_CH3_RX_ERI_CNT {
 //
 union DMA_CH4_CONTROL {
   
-  // Enum definitions.
   enum class ePBLx8 : uint32_t {
     eDISABLE = 0, // 8xPBL mode is disabled
     eENABLE = 1, // 8xPBL mode is enabled
@@ -16732,7 +16717,7 @@ union DMA_CH4_CONTROL {
     uint32_t _reserved_1 : 1;
     uint32_t DSL : 3;
     uint32_t _reserved_end : 11;
-  } bits;          // Bit-field struct (auto-filling reserved gaps)
+  } bits;
   
   // Full 32-bit register value.
   uint32_t value;
@@ -16746,19 +16731,21 @@ union DMA_CH4_CONTROL {
 //
 union DMA_CH4_TX_CONTROL {
   
-  // Enum definitions.
   enum class eST : uint32_t {
     eSTOP = 0, // Stop Transmission Command
     eSTART = 1, // Start Transmission Command
   };
+  
   enum class eOSF : uint32_t {
     eDISABLE = 0, // Operate on Second Packet disabled
     eENABLE = 1, // Operate on Second Packet enabled
   };
+  
   enum class eIPBL : uint32_t {
     eDISABLE = 0, // Ignore PBL Requirement is disabled
     eENABLE = 1, // Ignore PBL Requirement is enabled
   };
+  
   enum class eEDSE : uint32_t {
     eDISABLE = 0, // Enhanced Descriptor is disabled
     eENABLE = 1, // Enhanced Descriptor is enabled
@@ -16775,7 +16762,7 @@ union DMA_CH4_TX_CONTROL {
     uint32_t _reserved_4 : 6;
     eEDSE EDSE : 1;
     uint32_t _reserved_end : 3;
-  } bits;          // Bit-field struct (auto-filling reserved gaps)
+  } bits;
   
   // Full 32-bit register value.
   uint32_t value;
@@ -16789,11 +16776,11 @@ union DMA_CH4_TX_CONTROL {
 //
 union DMA_CH4_RX_CONTROL {
   
-  // Enum definitions.
   enum class eSR : uint32_t {
     eSTOP = 0, // Stop Receive
     eSTART = 1, // Start Receive
   };
+  
   enum class eRPF : uint32_t {
     eDISABLE = 0, // Rx Packet Flush is disabled
     eENABLE = 1, // Rx Packet Flush is enabled
@@ -16808,7 +16795,7 @@ union DMA_CH4_RX_CONTROL {
     uint32_t RxPBL : 6;
     uint32_t _reserved_4 : 9;
     eRPF RPF : 1;
-  } bits;          // Bit-field struct (auto-filling reserved gaps)
+  } bits;
   
   // Full 32-bit register value.
   uint32_t value;
@@ -16822,13 +16809,11 @@ union DMA_CH4_RX_CONTROL {
 //
 union DMA_CH4_TXDESC_LIST_ADDRESS {
   
-  // Enum definitions.
-  
   // Bit field definition.
   struct {
     uint32_t _reserved_0 : 3;
     uint32_t TDESLA : 29;
-  } bits;          // Bit-field struct (auto-filling reserved gaps)
+  } bits;
   
   // Full 32-bit register value.
   uint32_t value;
@@ -16842,13 +16827,11 @@ union DMA_CH4_TXDESC_LIST_ADDRESS {
 //
 union DMA_CH4_RXDESC_LIST_ADDRESS {
   
-  // Enum definitions.
-  
   // Bit field definition.
   struct {
     uint32_t _reserved_0 : 3;
     uint32_t RDESLA : 29;
-  } bits;          // Bit-field struct (auto-filling reserved gaps)
+  } bits;
   
   // Full 32-bit register value.
   uint32_t value;
@@ -16862,13 +16845,11 @@ union DMA_CH4_RXDESC_LIST_ADDRESS {
 //
 union DMA_CH4_TXDESC_TAIL_POINTER {
   
-  // Enum definitions.
-  
   // Bit field definition.
   struct {
     uint32_t _reserved_0 : 3;
     uint32_t TDTP : 29;
-  } bits;          // Bit-field struct (auto-filling reserved gaps)
+  } bits;
   
   // Full 32-bit register value.
   uint32_t value;
@@ -16882,13 +16863,11 @@ union DMA_CH4_TXDESC_TAIL_POINTER {
 //
 union DMA_CH4_RXDESC_TAIL_POINTER {
   
-  // Enum definitions.
-  
   // Bit field definition.
   struct {
     uint32_t _reserved_0 : 3;
     uint32_t RDTP : 29;
-  } bits;          // Bit-field struct (auto-filling reserved gaps)
+  } bits;
   
   // Full 32-bit register value.
   uint32_t value;
@@ -16902,13 +16881,11 @@ union DMA_CH4_RXDESC_TAIL_POINTER {
 //
 union DMA_CH4_TXDESC_RING_LENGTH {
   
-  // Enum definitions.
-  
   // Bit field definition.
   struct {
     uint32_t TDRL : 10;
     uint32_t _reserved_end : 22;
-  } bits;          // Bit-field struct (auto-filling reserved gaps)
+  } bits;
   
   // Full 32-bit register value.
   uint32_t value;
@@ -16922,13 +16899,11 @@ union DMA_CH4_TXDESC_RING_LENGTH {
 //
 union DMA_CH4_RXDESC_RING_LENGTH {
   
-  // Enum definitions.
-  
   // Bit field definition.
   struct {
     uint32_t RDRL : 10;
     uint32_t _reserved_end : 22;
-  } bits;          // Bit-field struct (auto-filling reserved gaps)
+  } bits;
   
   // Full 32-bit register value.
   uint32_t value;
@@ -16942,55 +16917,66 @@ union DMA_CH4_RXDESC_RING_LENGTH {
 //
 union DMA_CH4_INTERRUPT_ENABLE {
   
-  // Enum definitions.
   enum class eTIE : uint32_t {
     eDISABLE = 0, // Transmit Interrupt is disabled
     eENABLE = 1, // Transmit Interrupt is enabled
   };
+  
   enum class eTXSE : uint32_t {
     eDISABLE = 0, // Transmit Stopped is disabled
     eENABLE = 1, // Transmit Stopped is enabled
   };
+  
   enum class eTBUE : uint32_t {
     eDISABLE = 0, // Transmit Buffer Unavailable is disabled
     eENABLE = 1, // Transmit Buffer Unavailable is enabled
   };
+  
   enum class eRIE : uint32_t {
     eDISABLE = 0, // Receive Interrupt is disabled
     eENABLE = 1, // Receive Interrupt is enabled
   };
+  
   enum class eRBUE : uint32_t {
     eDISABLE = 0, // Receive Buffer Unavailable is disabled
     eENABLE = 1, // Receive Buffer Unavailable is enabled
   };
+  
   enum class eRSE : uint32_t {
     eDISABLE = 0, // Receive Stopped is disabled
     eENABLE = 1, // Receive Stopped is enabled
   };
+  
   enum class eRWTE : uint32_t {
     eDISABLE = 0, // Receive Watchdog Timeout is disabled
     eENABLE = 1, // Receive Watchdog Timeout is enabled
   };
+  
   enum class eETIE : uint32_t {
     eDISABLE = 0, // Early Transmit Interrupt is disabled
     eENABLE = 1, // Early Transmit Interrupt is enabled
   };
+  
   enum class eERIE : uint32_t {
     eDISABLE = 0, // Early Receive Interrupt is disabled
     eENABLE = 1, // Early Receive Interrupt is enabled
   };
+  
   enum class eFBEE : uint32_t {
     eDISABLE = 0, // Fatal Bus Error is disabled
     eENABLE = 1, // Fatal Bus Error is enabled
   };
+  
   enum class eCDEE : uint32_t {
     eDISABLE = 0, // Context Descriptor Error is disabled
     eENABLE = 1, // Context Descriptor Error is enabled
   };
+  
   enum class eAIE : uint32_t {
     eDISABLE = 0, // Abnormal Interrupt Summary is disabled
     eENABLE = 1, // Abnormal Interrupt Summary is enabled
   };
+  
   enum class eNIE : uint32_t {
     eDISABLE = 0, // Normal Interrupt Summary is disabled
     eENABLE = 1, // Normal Interrupt Summary is enabled
@@ -17013,7 +16999,7 @@ union DMA_CH4_INTERRUPT_ENABLE {
     eAIE AIE : 1;
     eNIE NIE : 1;
     uint32_t _reserved_end : 16;
-  } bits;          // Bit-field struct (auto-filling reserved gaps)
+  } bits;
   
   // Full 32-bit register value.
   uint32_t value;
@@ -17027,15 +17013,13 @@ union DMA_CH4_INTERRUPT_ENABLE {
 //
 union DMA_CH4_RX_INTERRUPT_WATCHDOG_TIMER {
   
-  // Enum definitions.
-  
   // Bit field definition.
   struct {
     uint32_t RWT : 8;
     uint32_t _reserved_1 : 8;
     uint32_t RWTU : 2;
     uint32_t _reserved_end : 14;
-  } bits;          // Bit-field struct (auto-filling reserved gaps)
+  } bits;
   
   // Full 32-bit register value.
   uint32_t value;
@@ -17049,11 +17033,11 @@ union DMA_CH4_RX_INTERRUPT_WATCHDOG_TIMER {
 //
 union DMA_CH4_SLOT_FUNCTION_CONTROL_STATUS {
   
-  // Enum definitions.
   enum class eESC : uint32_t {
     eDISABLE = 0, // Slot Comparison is disabled
     eENABLE = 1, // Slot Comparison is enabled
   };
+  
   enum class eASC : uint32_t {
     eDISABLE = 0, // Advance Slot Check is disabled
     eENABLE = 1, // Advance Slot Check is enabled
@@ -17067,7 +17051,7 @@ union DMA_CH4_SLOT_FUNCTION_CONTROL_STATUS {
     uint32_t SIV : 12;
     uint32_t RSN : 4;
     uint32_t _reserved_end : 12;
-  } bits;          // Bit-field struct (auto-filling reserved gaps)
+  } bits;
   
   // Full 32-bit register value.
   uint32_t value;
@@ -17081,12 +17065,10 @@ union DMA_CH4_SLOT_FUNCTION_CONTROL_STATUS {
 //
 union DMA_CH4_CURRENT_APP_TXDESC {
   
-  // Enum definitions.
-  
   // Bit field definition.
   struct {
     uint32_t CURTDESAPTR : 32;
-  } bits;          // Bit-field struct (auto-filling reserved gaps)
+  } bits;
   
   // Full 32-bit register value.
   uint32_t value;
@@ -17100,12 +17082,10 @@ union DMA_CH4_CURRENT_APP_TXDESC {
 //
 union DMA_CH4_CURRENT_APP_RXDESC {
   
-  // Enum definitions.
-  
   // Bit field definition.
   struct {
     uint32_t CURRDESAPTR : 32;
-  } bits;          // Bit-field struct (auto-filling reserved gaps)
+  } bits;
   
   // Full 32-bit register value.
   uint32_t value;
@@ -17119,12 +17099,10 @@ union DMA_CH4_CURRENT_APP_RXDESC {
 //
 union DMA_CH4_CURRENT_APP_TXBUFFER {
   
-  // Enum definitions.
-  
   // Bit field definition.
   struct {
     uint32_t CURTBUFAPTR : 32;
-  } bits;          // Bit-field struct (auto-filling reserved gaps)
+  } bits;
   
   // Full 32-bit register value.
   uint32_t value;
@@ -17138,12 +17116,10 @@ union DMA_CH4_CURRENT_APP_TXBUFFER {
 //
 union DMA_CH4_CURRENT_APP_RXBUFFER {
   
-  // Enum definitions.
-  
   // Bit field definition.
   struct {
     uint32_t CURRBUFAPTR : 32;
-  } bits;          // Bit-field struct (auto-filling reserved gaps)
+  } bits;
   
   // Full 32-bit register value.
   uint32_t value;
@@ -17157,55 +17133,66 @@ union DMA_CH4_CURRENT_APP_RXBUFFER {
 //
 union DMA_CH4_STATUS {
   
-  // Enum definitions.
   enum class eTI : uint32_t {
     eINACTIVE = 0, // Transmit Interrupt status not detected
     eACTIVE = 1, // Transmit Interrupt status detected
   };
+  
   enum class eTPS : uint32_t {
     eINACTIVE = 0, // Transmit Process Stopped status not detected
     eACTIVE = 1, // Transmit Process Stopped status detected
   };
+  
   enum class eTBU : uint32_t {
     eINACTIVE = 0, // Transmit Buffer Unavailable status not detected
     eACTIVE = 1, // Transmit Buffer Unavailable status detected
   };
+  
   enum class eRI : uint32_t {
     eINACTIVE = 0, // Receive Interrupt status not detected
     eACTIVE = 1, // Receive Interrupt status detected
   };
+  
   enum class eRBU : uint32_t {
     eINACTIVE = 0, // Receive Buffer Unavailable status not detected
     eACTIVE = 1, // Receive Buffer Unavailable status detected
   };
+  
   enum class eRPS : uint32_t {
     eINACTIVE = 0, // Receive Process Stopped status not detected
     eACTIVE = 1, // Receive Process Stopped status detected
   };
+  
   enum class eRWT : uint32_t {
     eINACTIVE = 0, // Receive Watchdog Timeout status not detected
     eACTIVE = 1, // Receive Watchdog Timeout status detected
   };
+  
   enum class eETI : uint32_t {
     eINACTIVE = 0, // Early Transmit Interrupt status not detected
     eACTIVE = 1, // Early Transmit Interrupt status detected
   };
+  
   enum class eERI : uint32_t {
     eINACTIVE = 0, // Early Receive Interrupt status not detected
     eACTIVE = 1, // Early Receive Interrupt status detected
   };
+  
   enum class eFBE : uint32_t {
     eINACTIVE = 0, // Fatal Bus Error status not detected
     eACTIVE = 1, // Fatal Bus Error status detected
   };
+  
   enum class eCDE : uint32_t {
     eINACTIVE = 0, // Context Descriptor Error status not detected
     eACTIVE = 1, // Context Descriptor Error status detected
   };
+  
   enum class eAIS : uint32_t {
     eINACTIVE = 0, // Abnormal Interrupt Summary status not detected
     eACTIVE = 1, // Abnormal Interrupt Summary status detected
   };
+  
   enum class eNIS : uint32_t {
     eINACTIVE = 0, // Normal Interrupt Summary status not detected
     eACTIVE = 1, // Normal Interrupt Summary status detected
@@ -17230,7 +17217,7 @@ union DMA_CH4_STATUS {
     uint32_t TEB : 3;
     uint32_t REB : 3;
     uint32_t _reserved_end : 10;
-  } bits;          // Bit-field struct (auto-filling reserved gaps)
+  } bits;
   
   // Full 32-bit register value.
   uint32_t value;
@@ -17244,7 +17231,6 @@ union DMA_CH4_STATUS {
 //
 union DMA_CH4_MISS_FRAME_CNT {
   
-  // Enum definitions.
   enum class eMFCO : uint32_t {
     eINACTIVE = 0, // Miss Frame Counter overflow not occurred
     eACTIVE = 1, // Miss Frame Counter overflow occurred
@@ -17256,7 +17242,7 @@ union DMA_CH4_MISS_FRAME_CNT {
     uint32_t _reserved_1 : 4;
     eMFCO MFCO : 1;
     uint32_t _reserved_end : 16;
-  } bits;          // Bit-field struct (auto-filling reserved gaps)
+  } bits;
   
   // Full 32-bit register value.
   uint32_t value;
@@ -17270,7 +17256,6 @@ union DMA_CH4_MISS_FRAME_CNT {
 //
 union DMA_CH4_RXP_ACCEPT_CNT {
   
-  // Enum definitions.
   enum class eRXPACOF : uint32_t {
     eINACTIVE = 0, // Rx Parser Accept Counter overflow not occurred
     eACTIVE = 1, // Rx Parser Accept Counter overflow occurred
@@ -17280,7 +17265,7 @@ union DMA_CH4_RXP_ACCEPT_CNT {
   struct {
     uint32_t RXPAC : 31;
     eRXPACOF RXPACOF : 1;
-  } bits;          // Bit-field struct (auto-filling reserved gaps)
+  } bits;
   
   // Full 32-bit register value.
   uint32_t value;
@@ -17294,13 +17279,11 @@ union DMA_CH4_RXP_ACCEPT_CNT {
 //
 union DMA_CH4_RX_ERI_CNT {
   
-  // Enum definitions.
-  
   // Bit field definition.
   struct {
     uint32_t ECNT : 12;
     uint32_t _reserved_end : 20;
-  } bits;          // Bit-field struct (auto-filling reserved gaps)
+  } bits;
   
   // Full 32-bit register value.
   uint32_t value;

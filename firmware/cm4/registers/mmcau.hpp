@@ -15,15 +15,16 @@ namespace nMMCAU {
 //
 union CASR {
   
-  // Enum definitions.
   enum class eIC : uint32_t {
     eIC_0 = 0, // No illegal commands issued.
     eIC_1 = 1, // Illegal command issued.
   };
+  
   enum class eDPE : uint32_t {
     eDPE_0 = 0, // No error detected.
     eDPE_1 = 1, // DES key parity error detected.
   };
+  
   enum class eVER : uint32_t {
     eVER_1 = 1, // Initial CAU version.
     eVER_2 = 2, // Second version, added support for SHA-256 algorithm (This is the value on this device).
@@ -35,7 +36,7 @@ union CASR {
     eDPE DPE : 1;
     uint32_t _reserved_2 : 26;
     eVER VER : 4;
-  } bits;          // Bit-field struct (auto-filling reserved gaps)
+  } bits;
   
   // Full 32-bit register value.
   uint32_t value;
@@ -49,12 +50,10 @@ union CASR {
 //
 union CAA {
   
-  // Enum definitions.
-  
   // Bit field definition.
   struct {
     uint32_t ACC : 32;
-  } bits;          // Bit-field struct (auto-filling reserved gaps)
+  } bits;
   
   // Full 32-bit register value.
   uint32_t value;
@@ -68,12 +67,10 @@ union CAA {
 //
 union CA[0] {
   
-  // Enum definitions.
-  
   // Bit field definition.
   struct {
     uint32_t CAn : 32;
-  } bits;          // Bit-field struct (auto-filling reserved gaps)
+  } bits;
   
   // Full 32-bit register value.
   uint32_t value;
@@ -86,12 +83,10 @@ union CA[0] {
 //
 union CA[1] {
   
-  // Enum definitions.
-  
   // Bit field definition.
   struct {
     uint32_t CAn : 32;
-  } bits;          // Bit-field struct (auto-filling reserved gaps)
+  } bits;
   
   // Full 32-bit register value.
   uint32_t value;
@@ -104,12 +99,10 @@ union CA[1] {
 //
 union CA[2] {
   
-  // Enum definitions.
-  
   // Bit field definition.
   struct {
     uint32_t CAn : 32;
-  } bits;          // Bit-field struct (auto-filling reserved gaps)
+  } bits;
   
   // Full 32-bit register value.
   uint32_t value;
@@ -122,12 +115,10 @@ union CA[2] {
 //
 union CA[3] {
   
-  // Enum definitions.
-  
   // Bit field definition.
   struct {
     uint32_t CAn : 32;
-  } bits;          // Bit-field struct (auto-filling reserved gaps)
+  } bits;
   
   // Full 32-bit register value.
   uint32_t value;
@@ -140,12 +131,10 @@ union CA[3] {
 //
 union CA[4] {
   
-  // Enum definitions.
-  
   // Bit field definition.
   struct {
     uint32_t CAn : 32;
-  } bits;          // Bit-field struct (auto-filling reserved gaps)
+  } bits;
   
   // Full 32-bit register value.
   uint32_t value;
@@ -158,12 +147,10 @@ union CA[4] {
 //
 union CA[5] {
   
-  // Enum definitions.
-  
   // Bit field definition.
   struct {
     uint32_t CAn : 32;
-  } bits;          // Bit-field struct (auto-filling reserved gaps)
+  } bits;
   
   // Full 32-bit register value.
   uint32_t value;
@@ -176,12 +163,10 @@ union CA[5] {
 //
 union CA[6] {
   
-  // Enum definitions.
-  
   // Bit field definition.
   struct {
     uint32_t CAn : 32;
-  } bits;          // Bit-field struct (auto-filling reserved gaps)
+  } bits;
   
   // Full 32-bit register value.
   uint32_t value;
@@ -194,12 +179,10 @@ union CA[6] {
 //
 union CA[7] {
   
-  // Enum definitions.
-  
   // Bit field definition.
   struct {
     uint32_t CAn : 32;
-  } bits;          // Bit-field struct (auto-filling reserved gaps)
+  } bits;
   
   // Full 32-bit register value.
   uint32_t value;
@@ -212,12 +195,10 @@ union CA[7] {
 //
 union CA[8] {
   
-  // Enum definitions.
-  
   // Bit field definition.
   struct {
     uint32_t CAn : 32;
-  } bits;          // Bit-field struct (auto-filling reserved gaps)
+  } bits;
   
   // Full 32-bit register value.
   uint32_t value;

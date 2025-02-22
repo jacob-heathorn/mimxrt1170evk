@@ -15,19 +15,21 @@ namespace nANADIG_OSC {
 //
 union OSC_48M_CTRL {
   
-  // Enum definitions.
   enum class eTEN : uint32_t {
     ePD = 0, // Power down
     ePU = 1, // Power up
   };
+  
   enum class eRC_48M_DIV2_EN : uint32_t {
     ePD = 0, // Disable
     ePU = 1, // Enable
   };
+  
   enum class eRC_48M_DIV2_CONTROL_MODE : uint32_t {
     eSW = 0, // Software mode (default)
     eGPC = 1, // GPC mode (Setpoint)
   };
+  
   enum class eRC_48M_CONTROL_MODE : uint32_t {
     eSW = 0, // Software mode (default)
     eGPC = 1, // GPC mode (Setpoint)
@@ -42,7 +44,7 @@ union OSC_48M_CTRL {
     uint32_t _reserved_2 : 5;
     eRC_48M_DIV2_CONTROL_MODE RC_48M_DIV2_CONTROL_MODE : 1;
     eRC_48M_CONTROL_MODE RC_48M_CONTROL_MODE : 1;
-  } bits;          // Bit-field struct (auto-filling reserved gaps)
+  } bits;
   
   // Full 32-bit register value.
   uint32_t value;
@@ -56,31 +58,36 @@ union OSC_48M_CTRL {
 //
 union OSC_24M_CTRL {
   
-  // Enum definitions.
   enum class eBYPASS_EN : uint32_t {
     eDISABLE = 0, // Disable
     eENABLE = 1, // Enable
   };
+  
   enum class eLP_EN : uint32_t {
     eHP = 0, // High Gain mode (HP)
     eLP = 1, // Low-power mode (LP)
   };
+  
   enum class eOSC_COMP_MODE : uint32_t {
     eSINGLE = 0, // Single-ended mode (default)
     eDIFF = 1, // Differential mode (test mode)
   };
+  
   enum class eOSC_EN : uint32_t {
     eDISABLE = 0, // Disable
     eENABLE = 1, // Enable
   };
+  
   enum class eOSC_24M_GATE : uint32_t {
     eNG = 0, // Not Gated
     eGATE = 1, // Gated
   };
+  
   enum class eOSC_24M_STABLE : uint32_t {
     eNS = 0, // Not Stable
     eSTABLE = 1, // Stable
   };
+  
   enum class eOSC_24M_CONTROL_MODE : uint32_t {
     eSW = 0, // Software mode (default)
     eGPC = 1, // GPC mode (Setpoint)
@@ -98,7 +105,7 @@ union OSC_24M_CTRL {
     uint32_t _reserved_6 : 22;
     eOSC_24M_STABLE OSC_24M_STABLE : 1;
     eOSC_24M_CONTROL_MODE OSC_24M_CONTROL_MODE : 1;
-  } bits;          // Bit-field struct (auto-filling reserved gaps)
+  } bits;
   
   // Full 32-bit register value.
   uint32_t value;
@@ -112,13 +119,11 @@ union OSC_24M_CTRL {
 //
 union OSC_400M_CTRL0 {
   
-  // Enum definitions.
-  
   // Bit field definition.
   struct {
     uint32_t _reserved_0 : 31;
     uint32_t OSC400M_AI_BUSY : 1;
-  } bits;          // Bit-field struct (auto-filling reserved gaps)
+  } bits;
   
   // Full 32-bit register value.
   uint32_t value;
@@ -132,15 +137,16 @@ union OSC_400M_CTRL0 {
 //
 union OSC_400M_CTRL1 {
   
-  // Enum definitions.
   enum class ePWD : uint32_t {
     ePD = 0, // No Power down
     ePU = 1, // Power down
   };
+  
   enum class eCLKGATE_400MEG : uint32_t {
     eNG = 0, // Not Gated
     eGATE = 1, // Gated
   };
+  
   enum class eRC_400M_CONTROL_MODE : uint32_t {
     eSW = 0, // Software mode (default)
     eGPC = 1, // GPC mode (Setpoint)
@@ -152,7 +158,7 @@ union OSC_400M_CTRL1 {
     eCLKGATE_400MEG CLKGATE_400MEG : 1;
     uint32_t _reserved_2 : 29;
     eRC_400M_CONTROL_MODE RC_400M_CONTROL_MODE : 1;
-  } bits;          // Bit-field struct (auto-filling reserved gaps)
+  } bits;
   
   // Full 32-bit register value.
   uint32_t value;
@@ -166,11 +172,11 @@ union OSC_400M_CTRL1 {
 //
 union OSC_400M_CTRL2 {
   
-  // Enum definitions.
   enum class eENABLE_CLK : uint32_t {
     eDISABLE = 0, // Clock is disabled before entering GPC mode
     eENABLE = 1, // Clock is enabled before entering GPC mode
   };
+  
   enum class eTUNE_BYP : uint32_t {
     eRUN = 0, // Use the output of tuning logic to run the oscillator
     eBYPASS = 1, // Bypass the tuning logic and use the programmed OSC_TUNE_VAL to run the oscillator
@@ -183,7 +189,7 @@ union OSC_400M_CTRL2 {
     eTUNE_BYP TUNE_BYP : 1;
     uint32_t _reserved_2 : 13;
     uint32_t OSC_TUNE_VAL : 8;
-  } bits;          // Bit-field struct (auto-filling reserved gaps)
+  } bits;
   
   // Full 32-bit register value.
   uint32_t value;
@@ -197,19 +203,21 @@ union OSC_400M_CTRL2 {
 //
 union OSC_16M_CTRL {
   
-  // Enum definitions.
   enum class eEN_IRC4M16M : uint32_t {
     eDISABLE = 0, // Disable
     eENABLE = 1, // Enable
   };
+  
   enum class eEN_POWER_SAVE : uint32_t {
     eDISABLE = 0, // Disable
     eENABLE = 1, // Enable
   };
+  
   enum class eSOURCE_SEL_16M : uint32_t {
     eMhz_16 = 0, // 16MHz Oscillator
     eMhz_24 = 1, // 24MHz Oscillator
   };
+  
   enum class eRC_16M_CONTROL_MODE : uint32_t {
     eSW = 0, // Software mode (default)
     eGPC = 1, // GPC mode (Setpoint)
@@ -225,7 +233,7 @@ union OSC_16M_CTRL {
     eSOURCE_SEL_16M SOURCE_SEL_16M : 1;
     uint32_t _reserved_3 : 22;
     eRC_16M_CONTROL_MODE RC_16M_CONTROL_MODE : 1;
-  } bits;          // Bit-field struct (auto-filling reserved gaps)
+  } bits;
   
   // Full 32-bit register value.
   uint32_t value;

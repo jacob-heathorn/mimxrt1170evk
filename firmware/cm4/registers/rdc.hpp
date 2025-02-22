@@ -15,8 +15,6 @@ namespace nRDC {
 //
 union RDC_VIR {
   
-  // Enum definitions.
-  
   // Bit field definition.
   struct {
     uint32_t NDID : 4;
@@ -24,7 +22,7 @@ union RDC_VIR {
     uint32_t NPER : 8;
     uint32_t NRGN : 8;
     uint32_t _reserved_end : 4;
-  } bits;          // Bit-field struct (auto-filling reserved gaps)
+  } bits;
   
   // Full 32-bit register value.
   uint32_t value;
@@ -38,7 +36,6 @@ union RDC_VIR {
 //
 union RDC_STAT {
   
-  // Enum definitions.
   enum class ePDS : uint32_t {
     ePDS_0 = 0, // Power Down Domain is OFF
     ePDS_1 = 1, // Power Down Domain is ON
@@ -50,7 +47,7 @@ union RDC_STAT {
     uint32_t _reserved_1 : 4;
     ePDS PDS : 1;
     uint32_t _reserved_end : 23;
-  } bits;          // Bit-field struct (auto-filling reserved gaps)
+  } bits;
   
   // Full 32-bit register value.
   uint32_t value;
@@ -64,7 +61,6 @@ union RDC_STAT {
 //
 union RDC_INTCTRL {
   
-  // Enum definitions.
   enum class eRCI_EN : uint32_t {
     eRCI_EN_0 = 0, // Interrupt Disabled
     eRCI_EN_1 = 1, // Interrupt Enabled
@@ -74,7 +70,7 @@ union RDC_INTCTRL {
   struct {
     eRCI_EN RCI_EN : 1;
     uint32_t _reserved_end : 31;
-  } bits;          // Bit-field struct (auto-filling reserved gaps)
+  } bits;
   
   // Full 32-bit register value.
   uint32_t value;
@@ -88,7 +84,6 @@ union RDC_INTCTRL {
 //
 union RDC_INTSTAT {
   
-  // Enum definitions.
   enum class eINT : uint32_t {
     eINT_0 = 0, // No Interrupt Pending
     eINT_1 = 1, // Interrupt Pending
@@ -98,7 +93,7 @@ union RDC_INTSTAT {
   struct {
     eINT INT : 1;
     uint32_t _reserved_end : 31;
-  } bits;          // Bit-field struct (auto-filling reserved gaps)
+  } bits;
   
   // Full 32-bit register value.
   uint32_t value;
@@ -112,11 +107,11 @@ union RDC_INTSTAT {
 //
 union RDC_MDA0 {
   
-  // Enum definitions.
   enum class eDID : uint32_t {
     eDID_0 = 0, // Master assigned to Processing Domain 0
     eDID_1 = 1, // Master assigned to Processing Domain 1
   };
+  
   enum class eLCK : uint32_t {
     eLCK_0 = 0, // Not Locked
     eLCK_1 = 1, // Locked
@@ -127,7 +122,7 @@ union RDC_MDA0 {
     eDID DID : 2;
     uint32_t _reserved_1 : 29;
     eLCK LCK : 1;
-  } bits;          // Bit-field struct (auto-filling reserved gaps)
+  } bits;
   
   // Full 32-bit register value.
   uint32_t value;
@@ -140,11 +135,11 @@ union RDC_MDA0 {
 //
 union RDC_MDA1 {
   
-  // Enum definitions.
   enum class eDID : uint32_t {
     eDID_0 = 0, // Master assigned to Processing Domain 0
     eDID_1 = 1, // Master assigned to Processing Domain 1
   };
+  
   enum class eLCK : uint32_t {
     eLCK_0 = 0, // Not Locked
     eLCK_1 = 1, // Locked
@@ -155,7 +150,7 @@ union RDC_MDA1 {
     eDID DID : 2;
     uint32_t _reserved_1 : 29;
     eLCK LCK : 1;
-  } bits;          // Bit-field struct (auto-filling reserved gaps)
+  } bits;
   
   // Full 32-bit register value.
   uint32_t value;
@@ -168,11 +163,11 @@ union RDC_MDA1 {
 //
 union RDC_MDA2 {
   
-  // Enum definitions.
   enum class eDID : uint32_t {
     eDID_0 = 0, // Master assigned to Processing Domain 0
     eDID_1 = 1, // Master assigned to Processing Domain 1
   };
+  
   enum class eLCK : uint32_t {
     eLCK_0 = 0, // Not Locked
     eLCK_1 = 1, // Locked
@@ -183,7 +178,7 @@ union RDC_MDA2 {
     eDID DID : 2;
     uint32_t _reserved_1 : 29;
     eLCK LCK : 1;
-  } bits;          // Bit-field struct (auto-filling reserved gaps)
+  } bits;
   
   // Full 32-bit register value.
   uint32_t value;
@@ -196,11 +191,11 @@ union RDC_MDA2 {
 //
 union RDC_MDA3 {
   
-  // Enum definitions.
   enum class eDID : uint32_t {
     eDID_0 = 0, // Master assigned to Processing Domain 0
     eDID_1 = 1, // Master assigned to Processing Domain 1
   };
+  
   enum class eLCK : uint32_t {
     eLCK_0 = 0, // Not Locked
     eLCK_1 = 1, // Locked
@@ -211,7 +206,7 @@ union RDC_MDA3 {
     eDID DID : 2;
     uint32_t _reserved_1 : 29;
     eLCK LCK : 1;
-  } bits;          // Bit-field struct (auto-filling reserved gaps)
+  } bits;
   
   // Full 32-bit register value.
   uint32_t value;
@@ -224,11 +219,11 @@ union RDC_MDA3 {
 //
 union RDC_MDA4 {
   
-  // Enum definitions.
   enum class eDID : uint32_t {
     eDID_0 = 0, // Master assigned to Processing Domain 0
     eDID_1 = 1, // Master assigned to Processing Domain 1
   };
+  
   enum class eLCK : uint32_t {
     eLCK_0 = 0, // Not Locked
     eLCK_1 = 1, // Locked
@@ -239,7 +234,7 @@ union RDC_MDA4 {
     eDID DID : 2;
     uint32_t _reserved_1 : 29;
     eLCK LCK : 1;
-  } bits;          // Bit-field struct (auto-filling reserved gaps)
+  } bits;
   
   // Full 32-bit register value.
   uint32_t value;
@@ -252,11 +247,11 @@ union RDC_MDA4 {
 //
 union RDC_MDA5 {
   
-  // Enum definitions.
   enum class eDID : uint32_t {
     eDID_0 = 0, // Master assigned to Processing Domain 0
     eDID_1 = 1, // Master assigned to Processing Domain 1
   };
+  
   enum class eLCK : uint32_t {
     eLCK_0 = 0, // Not Locked
     eLCK_1 = 1, // Locked
@@ -267,7 +262,7 @@ union RDC_MDA5 {
     eDID DID : 2;
     uint32_t _reserved_1 : 29;
     eLCK LCK : 1;
-  } bits;          // Bit-field struct (auto-filling reserved gaps)
+  } bits;
   
   // Full 32-bit register value.
   uint32_t value;
@@ -280,11 +275,11 @@ union RDC_MDA5 {
 //
 union RDC_MDA6 {
   
-  // Enum definitions.
   enum class eDID : uint32_t {
     eDID_0 = 0, // Master assigned to Processing Domain 0
     eDID_1 = 1, // Master assigned to Processing Domain 1
   };
+  
   enum class eLCK : uint32_t {
     eLCK_0 = 0, // Not Locked
     eLCK_1 = 1, // Locked
@@ -295,7 +290,7 @@ union RDC_MDA6 {
     eDID DID : 2;
     uint32_t _reserved_1 : 29;
     eLCK LCK : 1;
-  } bits;          // Bit-field struct (auto-filling reserved gaps)
+  } bits;
   
   // Full 32-bit register value.
   uint32_t value;
@@ -308,11 +303,11 @@ union RDC_MDA6 {
 //
 union RDC_MDA7 {
   
-  // Enum definitions.
   enum class eDID : uint32_t {
     eDID_0 = 0, // Master assigned to Processing Domain 0
     eDID_1 = 1, // Master assigned to Processing Domain 1
   };
+  
   enum class eLCK : uint32_t {
     eLCK_0 = 0, // Not Locked
     eLCK_1 = 1, // Locked
@@ -323,7 +318,7 @@ union RDC_MDA7 {
     eDID DID : 2;
     uint32_t _reserved_1 : 29;
     eLCK LCK : 1;
-  } bits;          // Bit-field struct (auto-filling reserved gaps)
+  } bits;
   
   // Full 32-bit register value.
   uint32_t value;
@@ -336,11 +331,11 @@ union RDC_MDA7 {
 //
 union RDC_MDA8 {
   
-  // Enum definitions.
   enum class eDID : uint32_t {
     eDID_0 = 0, // Master assigned to Processing Domain 0
     eDID_1 = 1, // Master assigned to Processing Domain 1
   };
+  
   enum class eLCK : uint32_t {
     eLCK_0 = 0, // Not Locked
     eLCK_1 = 1, // Locked
@@ -351,7 +346,7 @@ union RDC_MDA8 {
     eDID DID : 2;
     uint32_t _reserved_1 : 29;
     eLCK LCK : 1;
-  } bits;          // Bit-field struct (auto-filling reserved gaps)
+  } bits;
   
   // Full 32-bit register value.
   uint32_t value;
@@ -364,11 +359,11 @@ union RDC_MDA8 {
 //
 union RDC_MDA9 {
   
-  // Enum definitions.
   enum class eDID : uint32_t {
     eDID_0 = 0, // Master assigned to Processing Domain 0
     eDID_1 = 1, // Master assigned to Processing Domain 1
   };
+  
   enum class eLCK : uint32_t {
     eLCK_0 = 0, // Not Locked
     eLCK_1 = 1, // Locked
@@ -379,7 +374,7 @@ union RDC_MDA9 {
     eDID DID : 2;
     uint32_t _reserved_1 : 29;
     eLCK LCK : 1;
-  } bits;          // Bit-field struct (auto-filling reserved gaps)
+  } bits;
   
   // Full 32-bit register value.
   uint32_t value;
@@ -392,11 +387,11 @@ union RDC_MDA9 {
 //
 union RDC_MDA10 {
   
-  // Enum definitions.
   enum class eDID : uint32_t {
     eDID_0 = 0, // Master assigned to Processing Domain 0
     eDID_1 = 1, // Master assigned to Processing Domain 1
   };
+  
   enum class eLCK : uint32_t {
     eLCK_0 = 0, // Not Locked
     eLCK_1 = 1, // Locked
@@ -407,7 +402,7 @@ union RDC_MDA10 {
     eDID DID : 2;
     uint32_t _reserved_1 : 29;
     eLCK LCK : 1;
-  } bits;          // Bit-field struct (auto-filling reserved gaps)
+  } bits;
   
   // Full 32-bit register value.
   uint32_t value;
@@ -420,11 +415,11 @@ union RDC_MDA10 {
 //
 union RDC_MDA11 {
   
-  // Enum definitions.
   enum class eDID : uint32_t {
     eDID_0 = 0, // Master assigned to Processing Domain 0
     eDID_1 = 1, // Master assigned to Processing Domain 1
   };
+  
   enum class eLCK : uint32_t {
     eLCK_0 = 0, // Not Locked
     eLCK_1 = 1, // Locked
@@ -435,7 +430,7 @@ union RDC_MDA11 {
     eDID DID : 2;
     uint32_t _reserved_1 : 29;
     eLCK LCK : 1;
-  } bits;          // Bit-field struct (auto-filling reserved gaps)
+  } bits;
   
   // Full 32-bit register value.
   uint32_t value;
@@ -449,27 +444,31 @@ union RDC_MDA11 {
 //
 union RDC_PDAP0 {
   
-  // Enum definitions.
   enum class eD0W : uint32_t {
     eD0W_0 = 0, // No Write Access
     eD0W_1 = 1, // Write Access Allowed
   };
+  
   enum class eD0R : uint32_t {
     eD0R_0 = 0, // No Read Access
     eD0R_1 = 1, // Read Access Allowed
   };
+  
   enum class eD1W : uint32_t {
     eD1W_0 = 0, // No Write Access
     eD1W_1 = 1, // Write Access Allowed
   };
+  
   enum class eD1R : uint32_t {
     eD1R_0 = 0, // No Read Access
     eD1R_1 = 1, // Read Access Allowed
   };
+  
   enum class eSREQ : uint32_t {
     eSREQ_0 = 0, // Semaphores have no effect
     eSREQ_1 = 1, // Semaphores are enforced
   };
+  
   enum class eLCK : uint32_t {
     eLCK_0 = 0, // Not Locked
     eLCK_1 = 1, // Locked
@@ -484,7 +483,7 @@ union RDC_PDAP0 {
     uint32_t _reserved_4 : 26;
     eSREQ SREQ : 1;
     eLCK LCK : 1;
-  } bits;          // Bit-field struct (auto-filling reserved gaps)
+  } bits;
   
   // Full 32-bit register value.
   uint32_t value;
@@ -497,27 +496,31 @@ union RDC_PDAP0 {
 //
 union RDC_PDAP1 {
   
-  // Enum definitions.
   enum class eD0W : uint32_t {
     eD0W_0 = 0, // No Write Access
     eD0W_1 = 1, // Write Access Allowed
   };
+  
   enum class eD0R : uint32_t {
     eD0R_0 = 0, // No Read Access
     eD0R_1 = 1, // Read Access Allowed
   };
+  
   enum class eD1W : uint32_t {
     eD1W_0 = 0, // No Write Access
     eD1W_1 = 1, // Write Access Allowed
   };
+  
   enum class eD1R : uint32_t {
     eD1R_0 = 0, // No Read Access
     eD1R_1 = 1, // Read Access Allowed
   };
+  
   enum class eSREQ : uint32_t {
     eSREQ_0 = 0, // Semaphores have no effect
     eSREQ_1 = 1, // Semaphores are enforced
   };
+  
   enum class eLCK : uint32_t {
     eLCK_0 = 0, // Not Locked
     eLCK_1 = 1, // Locked
@@ -532,7 +535,7 @@ union RDC_PDAP1 {
     uint32_t _reserved_4 : 26;
     eSREQ SREQ : 1;
     eLCK LCK : 1;
-  } bits;          // Bit-field struct (auto-filling reserved gaps)
+  } bits;
   
   // Full 32-bit register value.
   uint32_t value;
@@ -545,27 +548,31 @@ union RDC_PDAP1 {
 //
 union RDC_PDAP2 {
   
-  // Enum definitions.
   enum class eD0W : uint32_t {
     eD0W_0 = 0, // No Write Access
     eD0W_1 = 1, // Write Access Allowed
   };
+  
   enum class eD0R : uint32_t {
     eD0R_0 = 0, // No Read Access
     eD0R_1 = 1, // Read Access Allowed
   };
+  
   enum class eD1W : uint32_t {
     eD1W_0 = 0, // No Write Access
     eD1W_1 = 1, // Write Access Allowed
   };
+  
   enum class eD1R : uint32_t {
     eD1R_0 = 0, // No Read Access
     eD1R_1 = 1, // Read Access Allowed
   };
+  
   enum class eSREQ : uint32_t {
     eSREQ_0 = 0, // Semaphores have no effect
     eSREQ_1 = 1, // Semaphores are enforced
   };
+  
   enum class eLCK : uint32_t {
     eLCK_0 = 0, // Not Locked
     eLCK_1 = 1, // Locked
@@ -580,7 +587,7 @@ union RDC_PDAP2 {
     uint32_t _reserved_4 : 26;
     eSREQ SREQ : 1;
     eLCK LCK : 1;
-  } bits;          // Bit-field struct (auto-filling reserved gaps)
+  } bits;
   
   // Full 32-bit register value.
   uint32_t value;
@@ -593,27 +600,31 @@ union RDC_PDAP2 {
 //
 union RDC_PDAP3 {
   
-  // Enum definitions.
   enum class eD0W : uint32_t {
     eD0W_0 = 0, // No Write Access
     eD0W_1 = 1, // Write Access Allowed
   };
+  
   enum class eD0R : uint32_t {
     eD0R_0 = 0, // No Read Access
     eD0R_1 = 1, // Read Access Allowed
   };
+  
   enum class eD1W : uint32_t {
     eD1W_0 = 0, // No Write Access
     eD1W_1 = 1, // Write Access Allowed
   };
+  
   enum class eD1R : uint32_t {
     eD1R_0 = 0, // No Read Access
     eD1R_1 = 1, // Read Access Allowed
   };
+  
   enum class eSREQ : uint32_t {
     eSREQ_0 = 0, // Semaphores have no effect
     eSREQ_1 = 1, // Semaphores are enforced
   };
+  
   enum class eLCK : uint32_t {
     eLCK_0 = 0, // Not Locked
     eLCK_1 = 1, // Locked
@@ -628,7 +639,7 @@ union RDC_PDAP3 {
     uint32_t _reserved_4 : 26;
     eSREQ SREQ : 1;
     eLCK LCK : 1;
-  } bits;          // Bit-field struct (auto-filling reserved gaps)
+  } bits;
   
   // Full 32-bit register value.
   uint32_t value;
@@ -641,27 +652,31 @@ union RDC_PDAP3 {
 //
 union RDC_PDAP4 {
   
-  // Enum definitions.
   enum class eD0W : uint32_t {
     eD0W_0 = 0, // No Write Access
     eD0W_1 = 1, // Write Access Allowed
   };
+  
   enum class eD0R : uint32_t {
     eD0R_0 = 0, // No Read Access
     eD0R_1 = 1, // Read Access Allowed
   };
+  
   enum class eD1W : uint32_t {
     eD1W_0 = 0, // No Write Access
     eD1W_1 = 1, // Write Access Allowed
   };
+  
   enum class eD1R : uint32_t {
     eD1R_0 = 0, // No Read Access
     eD1R_1 = 1, // Read Access Allowed
   };
+  
   enum class eSREQ : uint32_t {
     eSREQ_0 = 0, // Semaphores have no effect
     eSREQ_1 = 1, // Semaphores are enforced
   };
+  
   enum class eLCK : uint32_t {
     eLCK_0 = 0, // Not Locked
     eLCK_1 = 1, // Locked
@@ -676,7 +691,7 @@ union RDC_PDAP4 {
     uint32_t _reserved_4 : 26;
     eSREQ SREQ : 1;
     eLCK LCK : 1;
-  } bits;          // Bit-field struct (auto-filling reserved gaps)
+  } bits;
   
   // Full 32-bit register value.
   uint32_t value;
@@ -689,27 +704,31 @@ union RDC_PDAP4 {
 //
 union RDC_PDAP5 {
   
-  // Enum definitions.
   enum class eD0W : uint32_t {
     eD0W_0 = 0, // No Write Access
     eD0W_1 = 1, // Write Access Allowed
   };
+  
   enum class eD0R : uint32_t {
     eD0R_0 = 0, // No Read Access
     eD0R_1 = 1, // Read Access Allowed
   };
+  
   enum class eD1W : uint32_t {
     eD1W_0 = 0, // No Write Access
     eD1W_1 = 1, // Write Access Allowed
   };
+  
   enum class eD1R : uint32_t {
     eD1R_0 = 0, // No Read Access
     eD1R_1 = 1, // Read Access Allowed
   };
+  
   enum class eSREQ : uint32_t {
     eSREQ_0 = 0, // Semaphores have no effect
     eSREQ_1 = 1, // Semaphores are enforced
   };
+  
   enum class eLCK : uint32_t {
     eLCK_0 = 0, // Not Locked
     eLCK_1 = 1, // Locked
@@ -724,7 +743,7 @@ union RDC_PDAP5 {
     uint32_t _reserved_4 : 26;
     eSREQ SREQ : 1;
     eLCK LCK : 1;
-  } bits;          // Bit-field struct (auto-filling reserved gaps)
+  } bits;
   
   // Full 32-bit register value.
   uint32_t value;
@@ -737,27 +756,31 @@ union RDC_PDAP5 {
 //
 union RDC_PDAP6 {
   
-  // Enum definitions.
   enum class eD0W : uint32_t {
     eD0W_0 = 0, // No Write Access
     eD0W_1 = 1, // Write Access Allowed
   };
+  
   enum class eD0R : uint32_t {
     eD0R_0 = 0, // No Read Access
     eD0R_1 = 1, // Read Access Allowed
   };
+  
   enum class eD1W : uint32_t {
     eD1W_0 = 0, // No Write Access
     eD1W_1 = 1, // Write Access Allowed
   };
+  
   enum class eD1R : uint32_t {
     eD1R_0 = 0, // No Read Access
     eD1R_1 = 1, // Read Access Allowed
   };
+  
   enum class eSREQ : uint32_t {
     eSREQ_0 = 0, // Semaphores have no effect
     eSREQ_1 = 1, // Semaphores are enforced
   };
+  
   enum class eLCK : uint32_t {
     eLCK_0 = 0, // Not Locked
     eLCK_1 = 1, // Locked
@@ -772,7 +795,7 @@ union RDC_PDAP6 {
     uint32_t _reserved_4 : 26;
     eSREQ SREQ : 1;
     eLCK LCK : 1;
-  } bits;          // Bit-field struct (auto-filling reserved gaps)
+  } bits;
   
   // Full 32-bit register value.
   uint32_t value;
@@ -785,27 +808,31 @@ union RDC_PDAP6 {
 //
 union RDC_PDAP7 {
   
-  // Enum definitions.
   enum class eD0W : uint32_t {
     eD0W_0 = 0, // No Write Access
     eD0W_1 = 1, // Write Access Allowed
   };
+  
   enum class eD0R : uint32_t {
     eD0R_0 = 0, // No Read Access
     eD0R_1 = 1, // Read Access Allowed
   };
+  
   enum class eD1W : uint32_t {
     eD1W_0 = 0, // No Write Access
     eD1W_1 = 1, // Write Access Allowed
   };
+  
   enum class eD1R : uint32_t {
     eD1R_0 = 0, // No Read Access
     eD1R_1 = 1, // Read Access Allowed
   };
+  
   enum class eSREQ : uint32_t {
     eSREQ_0 = 0, // Semaphores have no effect
     eSREQ_1 = 1, // Semaphores are enforced
   };
+  
   enum class eLCK : uint32_t {
     eLCK_0 = 0, // Not Locked
     eLCK_1 = 1, // Locked
@@ -820,7 +847,7 @@ union RDC_PDAP7 {
     uint32_t _reserved_4 : 26;
     eSREQ SREQ : 1;
     eLCK LCK : 1;
-  } bits;          // Bit-field struct (auto-filling reserved gaps)
+  } bits;
   
   // Full 32-bit register value.
   uint32_t value;
@@ -833,27 +860,31 @@ union RDC_PDAP7 {
 //
 union RDC_PDAP8 {
   
-  // Enum definitions.
   enum class eD0W : uint32_t {
     eD0W_0 = 0, // No Write Access
     eD0W_1 = 1, // Write Access Allowed
   };
+  
   enum class eD0R : uint32_t {
     eD0R_0 = 0, // No Read Access
     eD0R_1 = 1, // Read Access Allowed
   };
+  
   enum class eD1W : uint32_t {
     eD1W_0 = 0, // No Write Access
     eD1W_1 = 1, // Write Access Allowed
   };
+  
   enum class eD1R : uint32_t {
     eD1R_0 = 0, // No Read Access
     eD1R_1 = 1, // Read Access Allowed
   };
+  
   enum class eSREQ : uint32_t {
     eSREQ_0 = 0, // Semaphores have no effect
     eSREQ_1 = 1, // Semaphores are enforced
   };
+  
   enum class eLCK : uint32_t {
     eLCK_0 = 0, // Not Locked
     eLCK_1 = 1, // Locked
@@ -868,7 +899,7 @@ union RDC_PDAP8 {
     uint32_t _reserved_4 : 26;
     eSREQ SREQ : 1;
     eLCK LCK : 1;
-  } bits;          // Bit-field struct (auto-filling reserved gaps)
+  } bits;
   
   // Full 32-bit register value.
   uint32_t value;
@@ -881,27 +912,31 @@ union RDC_PDAP8 {
 //
 union RDC_PDAP9 {
   
-  // Enum definitions.
   enum class eD0W : uint32_t {
     eD0W_0 = 0, // No Write Access
     eD0W_1 = 1, // Write Access Allowed
   };
+  
   enum class eD0R : uint32_t {
     eD0R_0 = 0, // No Read Access
     eD0R_1 = 1, // Read Access Allowed
   };
+  
   enum class eD1W : uint32_t {
     eD1W_0 = 0, // No Write Access
     eD1W_1 = 1, // Write Access Allowed
   };
+  
   enum class eD1R : uint32_t {
     eD1R_0 = 0, // No Read Access
     eD1R_1 = 1, // Read Access Allowed
   };
+  
   enum class eSREQ : uint32_t {
     eSREQ_0 = 0, // Semaphores have no effect
     eSREQ_1 = 1, // Semaphores are enforced
   };
+  
   enum class eLCK : uint32_t {
     eLCK_0 = 0, // Not Locked
     eLCK_1 = 1, // Locked
@@ -916,7 +951,7 @@ union RDC_PDAP9 {
     uint32_t _reserved_4 : 26;
     eSREQ SREQ : 1;
     eLCK LCK : 1;
-  } bits;          // Bit-field struct (auto-filling reserved gaps)
+  } bits;
   
   // Full 32-bit register value.
   uint32_t value;
@@ -929,27 +964,31 @@ union RDC_PDAP9 {
 //
 union RDC_PDAP10 {
   
-  // Enum definitions.
   enum class eD0W : uint32_t {
     eD0W_0 = 0, // No Write Access
     eD0W_1 = 1, // Write Access Allowed
   };
+  
   enum class eD0R : uint32_t {
     eD0R_0 = 0, // No Read Access
     eD0R_1 = 1, // Read Access Allowed
   };
+  
   enum class eD1W : uint32_t {
     eD1W_0 = 0, // No Write Access
     eD1W_1 = 1, // Write Access Allowed
   };
+  
   enum class eD1R : uint32_t {
     eD1R_0 = 0, // No Read Access
     eD1R_1 = 1, // Read Access Allowed
   };
+  
   enum class eSREQ : uint32_t {
     eSREQ_0 = 0, // Semaphores have no effect
     eSREQ_1 = 1, // Semaphores are enforced
   };
+  
   enum class eLCK : uint32_t {
     eLCK_0 = 0, // Not Locked
     eLCK_1 = 1, // Locked
@@ -964,7 +1003,7 @@ union RDC_PDAP10 {
     uint32_t _reserved_4 : 26;
     eSREQ SREQ : 1;
     eLCK LCK : 1;
-  } bits;          // Bit-field struct (auto-filling reserved gaps)
+  } bits;
   
   // Full 32-bit register value.
   uint32_t value;
@@ -977,27 +1016,31 @@ union RDC_PDAP10 {
 //
 union RDC_PDAP11 {
   
-  // Enum definitions.
   enum class eD0W : uint32_t {
     eD0W_0 = 0, // No Write Access
     eD0W_1 = 1, // Write Access Allowed
   };
+  
   enum class eD0R : uint32_t {
     eD0R_0 = 0, // No Read Access
     eD0R_1 = 1, // Read Access Allowed
   };
+  
   enum class eD1W : uint32_t {
     eD1W_0 = 0, // No Write Access
     eD1W_1 = 1, // Write Access Allowed
   };
+  
   enum class eD1R : uint32_t {
     eD1R_0 = 0, // No Read Access
     eD1R_1 = 1, // Read Access Allowed
   };
+  
   enum class eSREQ : uint32_t {
     eSREQ_0 = 0, // Semaphores have no effect
     eSREQ_1 = 1, // Semaphores are enforced
   };
+  
   enum class eLCK : uint32_t {
     eLCK_0 = 0, // Not Locked
     eLCK_1 = 1, // Locked
@@ -1012,7 +1055,7 @@ union RDC_PDAP11 {
     uint32_t _reserved_4 : 26;
     eSREQ SREQ : 1;
     eLCK LCK : 1;
-  } bits;          // Bit-field struct (auto-filling reserved gaps)
+  } bits;
   
   // Full 32-bit register value.
   uint32_t value;
@@ -1025,27 +1068,31 @@ union RDC_PDAP11 {
 //
 union RDC_PDAP12 {
   
-  // Enum definitions.
   enum class eD0W : uint32_t {
     eD0W_0 = 0, // No Write Access
     eD0W_1 = 1, // Write Access Allowed
   };
+  
   enum class eD0R : uint32_t {
     eD0R_0 = 0, // No Read Access
     eD0R_1 = 1, // Read Access Allowed
   };
+  
   enum class eD1W : uint32_t {
     eD1W_0 = 0, // No Write Access
     eD1W_1 = 1, // Write Access Allowed
   };
+  
   enum class eD1R : uint32_t {
     eD1R_0 = 0, // No Read Access
     eD1R_1 = 1, // Read Access Allowed
   };
+  
   enum class eSREQ : uint32_t {
     eSREQ_0 = 0, // Semaphores have no effect
     eSREQ_1 = 1, // Semaphores are enforced
   };
+  
   enum class eLCK : uint32_t {
     eLCK_0 = 0, // Not Locked
     eLCK_1 = 1, // Locked
@@ -1060,7 +1107,7 @@ union RDC_PDAP12 {
     uint32_t _reserved_4 : 26;
     eSREQ SREQ : 1;
     eLCK LCK : 1;
-  } bits;          // Bit-field struct (auto-filling reserved gaps)
+  } bits;
   
   // Full 32-bit register value.
   uint32_t value;
@@ -1073,27 +1120,31 @@ union RDC_PDAP12 {
 //
 union RDC_PDAP13 {
   
-  // Enum definitions.
   enum class eD0W : uint32_t {
     eD0W_0 = 0, // No Write Access
     eD0W_1 = 1, // Write Access Allowed
   };
+  
   enum class eD0R : uint32_t {
     eD0R_0 = 0, // No Read Access
     eD0R_1 = 1, // Read Access Allowed
   };
+  
   enum class eD1W : uint32_t {
     eD1W_0 = 0, // No Write Access
     eD1W_1 = 1, // Write Access Allowed
   };
+  
   enum class eD1R : uint32_t {
     eD1R_0 = 0, // No Read Access
     eD1R_1 = 1, // Read Access Allowed
   };
+  
   enum class eSREQ : uint32_t {
     eSREQ_0 = 0, // Semaphores have no effect
     eSREQ_1 = 1, // Semaphores are enforced
   };
+  
   enum class eLCK : uint32_t {
     eLCK_0 = 0, // Not Locked
     eLCK_1 = 1, // Locked
@@ -1108,7 +1159,7 @@ union RDC_PDAP13 {
     uint32_t _reserved_4 : 26;
     eSREQ SREQ : 1;
     eLCK LCK : 1;
-  } bits;          // Bit-field struct (auto-filling reserved gaps)
+  } bits;
   
   // Full 32-bit register value.
   uint32_t value;
@@ -1121,27 +1172,31 @@ union RDC_PDAP13 {
 //
 union RDC_PDAP14 {
   
-  // Enum definitions.
   enum class eD0W : uint32_t {
     eD0W_0 = 0, // No Write Access
     eD0W_1 = 1, // Write Access Allowed
   };
+  
   enum class eD0R : uint32_t {
     eD0R_0 = 0, // No Read Access
     eD0R_1 = 1, // Read Access Allowed
   };
+  
   enum class eD1W : uint32_t {
     eD1W_0 = 0, // No Write Access
     eD1W_1 = 1, // Write Access Allowed
   };
+  
   enum class eD1R : uint32_t {
     eD1R_0 = 0, // No Read Access
     eD1R_1 = 1, // Read Access Allowed
   };
+  
   enum class eSREQ : uint32_t {
     eSREQ_0 = 0, // Semaphores have no effect
     eSREQ_1 = 1, // Semaphores are enforced
   };
+  
   enum class eLCK : uint32_t {
     eLCK_0 = 0, // Not Locked
     eLCK_1 = 1, // Locked
@@ -1156,7 +1211,7 @@ union RDC_PDAP14 {
     uint32_t _reserved_4 : 26;
     eSREQ SREQ : 1;
     eLCK LCK : 1;
-  } bits;          // Bit-field struct (auto-filling reserved gaps)
+  } bits;
   
   // Full 32-bit register value.
   uint32_t value;
@@ -1169,27 +1224,31 @@ union RDC_PDAP14 {
 //
 union RDC_PDAP15 {
   
-  // Enum definitions.
   enum class eD0W : uint32_t {
     eD0W_0 = 0, // No Write Access
     eD0W_1 = 1, // Write Access Allowed
   };
+  
   enum class eD0R : uint32_t {
     eD0R_0 = 0, // No Read Access
     eD0R_1 = 1, // Read Access Allowed
   };
+  
   enum class eD1W : uint32_t {
     eD1W_0 = 0, // No Write Access
     eD1W_1 = 1, // Write Access Allowed
   };
+  
   enum class eD1R : uint32_t {
     eD1R_0 = 0, // No Read Access
     eD1R_1 = 1, // Read Access Allowed
   };
+  
   enum class eSREQ : uint32_t {
     eSREQ_0 = 0, // Semaphores have no effect
     eSREQ_1 = 1, // Semaphores are enforced
   };
+  
   enum class eLCK : uint32_t {
     eLCK_0 = 0, // Not Locked
     eLCK_1 = 1, // Locked
@@ -1204,7 +1263,7 @@ union RDC_PDAP15 {
     uint32_t _reserved_4 : 26;
     eSREQ SREQ : 1;
     eLCK LCK : 1;
-  } bits;          // Bit-field struct (auto-filling reserved gaps)
+  } bits;
   
   // Full 32-bit register value.
   uint32_t value;
@@ -1217,27 +1276,31 @@ union RDC_PDAP15 {
 //
 union RDC_PDAP16 {
   
-  // Enum definitions.
   enum class eD0W : uint32_t {
     eD0W_0 = 0, // No Write Access
     eD0W_1 = 1, // Write Access Allowed
   };
+  
   enum class eD0R : uint32_t {
     eD0R_0 = 0, // No Read Access
     eD0R_1 = 1, // Read Access Allowed
   };
+  
   enum class eD1W : uint32_t {
     eD1W_0 = 0, // No Write Access
     eD1W_1 = 1, // Write Access Allowed
   };
+  
   enum class eD1R : uint32_t {
     eD1R_0 = 0, // No Read Access
     eD1R_1 = 1, // Read Access Allowed
   };
+  
   enum class eSREQ : uint32_t {
     eSREQ_0 = 0, // Semaphores have no effect
     eSREQ_1 = 1, // Semaphores are enforced
   };
+  
   enum class eLCK : uint32_t {
     eLCK_0 = 0, // Not Locked
     eLCK_1 = 1, // Locked
@@ -1252,7 +1315,7 @@ union RDC_PDAP16 {
     uint32_t _reserved_4 : 26;
     eSREQ SREQ : 1;
     eLCK LCK : 1;
-  } bits;          // Bit-field struct (auto-filling reserved gaps)
+  } bits;
   
   // Full 32-bit register value.
   uint32_t value;
@@ -1265,27 +1328,31 @@ union RDC_PDAP16 {
 //
 union RDC_PDAP17 {
   
-  // Enum definitions.
   enum class eD0W : uint32_t {
     eD0W_0 = 0, // No Write Access
     eD0W_1 = 1, // Write Access Allowed
   };
+  
   enum class eD0R : uint32_t {
     eD0R_0 = 0, // No Read Access
     eD0R_1 = 1, // Read Access Allowed
   };
+  
   enum class eD1W : uint32_t {
     eD1W_0 = 0, // No Write Access
     eD1W_1 = 1, // Write Access Allowed
   };
+  
   enum class eD1R : uint32_t {
     eD1R_0 = 0, // No Read Access
     eD1R_1 = 1, // Read Access Allowed
   };
+  
   enum class eSREQ : uint32_t {
     eSREQ_0 = 0, // Semaphores have no effect
     eSREQ_1 = 1, // Semaphores are enforced
   };
+  
   enum class eLCK : uint32_t {
     eLCK_0 = 0, // Not Locked
     eLCK_1 = 1, // Locked
@@ -1300,7 +1367,7 @@ union RDC_PDAP17 {
     uint32_t _reserved_4 : 26;
     eSREQ SREQ : 1;
     eLCK LCK : 1;
-  } bits;          // Bit-field struct (auto-filling reserved gaps)
+  } bits;
   
   // Full 32-bit register value.
   uint32_t value;
@@ -1313,27 +1380,31 @@ union RDC_PDAP17 {
 //
 union RDC_PDAP18 {
   
-  // Enum definitions.
   enum class eD0W : uint32_t {
     eD0W_0 = 0, // No Write Access
     eD0W_1 = 1, // Write Access Allowed
   };
+  
   enum class eD0R : uint32_t {
     eD0R_0 = 0, // No Read Access
     eD0R_1 = 1, // Read Access Allowed
   };
+  
   enum class eD1W : uint32_t {
     eD1W_0 = 0, // No Write Access
     eD1W_1 = 1, // Write Access Allowed
   };
+  
   enum class eD1R : uint32_t {
     eD1R_0 = 0, // No Read Access
     eD1R_1 = 1, // Read Access Allowed
   };
+  
   enum class eSREQ : uint32_t {
     eSREQ_0 = 0, // Semaphores have no effect
     eSREQ_1 = 1, // Semaphores are enforced
   };
+  
   enum class eLCK : uint32_t {
     eLCK_0 = 0, // Not Locked
     eLCK_1 = 1, // Locked
@@ -1348,7 +1419,7 @@ union RDC_PDAP18 {
     uint32_t _reserved_4 : 26;
     eSREQ SREQ : 1;
     eLCK LCK : 1;
-  } bits;          // Bit-field struct (auto-filling reserved gaps)
+  } bits;
   
   // Full 32-bit register value.
   uint32_t value;
@@ -1361,27 +1432,31 @@ union RDC_PDAP18 {
 //
 union RDC_PDAP19 {
   
-  // Enum definitions.
   enum class eD0W : uint32_t {
     eD0W_0 = 0, // No Write Access
     eD0W_1 = 1, // Write Access Allowed
   };
+  
   enum class eD0R : uint32_t {
     eD0R_0 = 0, // No Read Access
     eD0R_1 = 1, // Read Access Allowed
   };
+  
   enum class eD1W : uint32_t {
     eD1W_0 = 0, // No Write Access
     eD1W_1 = 1, // Write Access Allowed
   };
+  
   enum class eD1R : uint32_t {
     eD1R_0 = 0, // No Read Access
     eD1R_1 = 1, // Read Access Allowed
   };
+  
   enum class eSREQ : uint32_t {
     eSREQ_0 = 0, // Semaphores have no effect
     eSREQ_1 = 1, // Semaphores are enforced
   };
+  
   enum class eLCK : uint32_t {
     eLCK_0 = 0, // Not Locked
     eLCK_1 = 1, // Locked
@@ -1396,7 +1471,7 @@ union RDC_PDAP19 {
     uint32_t _reserved_4 : 26;
     eSREQ SREQ : 1;
     eLCK LCK : 1;
-  } bits;          // Bit-field struct (auto-filling reserved gaps)
+  } bits;
   
   // Full 32-bit register value.
   uint32_t value;
@@ -1409,27 +1484,31 @@ union RDC_PDAP19 {
 //
 union RDC_PDAP20 {
   
-  // Enum definitions.
   enum class eD0W : uint32_t {
     eD0W_0 = 0, // No Write Access
     eD0W_1 = 1, // Write Access Allowed
   };
+  
   enum class eD0R : uint32_t {
     eD0R_0 = 0, // No Read Access
     eD0R_1 = 1, // Read Access Allowed
   };
+  
   enum class eD1W : uint32_t {
     eD1W_0 = 0, // No Write Access
     eD1W_1 = 1, // Write Access Allowed
   };
+  
   enum class eD1R : uint32_t {
     eD1R_0 = 0, // No Read Access
     eD1R_1 = 1, // Read Access Allowed
   };
+  
   enum class eSREQ : uint32_t {
     eSREQ_0 = 0, // Semaphores have no effect
     eSREQ_1 = 1, // Semaphores are enforced
   };
+  
   enum class eLCK : uint32_t {
     eLCK_0 = 0, // Not Locked
     eLCK_1 = 1, // Locked
@@ -1444,7 +1523,7 @@ union RDC_PDAP20 {
     uint32_t _reserved_4 : 26;
     eSREQ SREQ : 1;
     eLCK LCK : 1;
-  } bits;          // Bit-field struct (auto-filling reserved gaps)
+  } bits;
   
   // Full 32-bit register value.
   uint32_t value;
@@ -1457,27 +1536,31 @@ union RDC_PDAP20 {
 //
 union RDC_PDAP21 {
   
-  // Enum definitions.
   enum class eD0W : uint32_t {
     eD0W_0 = 0, // No Write Access
     eD0W_1 = 1, // Write Access Allowed
   };
+  
   enum class eD0R : uint32_t {
     eD0R_0 = 0, // No Read Access
     eD0R_1 = 1, // Read Access Allowed
   };
+  
   enum class eD1W : uint32_t {
     eD1W_0 = 0, // No Write Access
     eD1W_1 = 1, // Write Access Allowed
   };
+  
   enum class eD1R : uint32_t {
     eD1R_0 = 0, // No Read Access
     eD1R_1 = 1, // Read Access Allowed
   };
+  
   enum class eSREQ : uint32_t {
     eSREQ_0 = 0, // Semaphores have no effect
     eSREQ_1 = 1, // Semaphores are enforced
   };
+  
   enum class eLCK : uint32_t {
     eLCK_0 = 0, // Not Locked
     eLCK_1 = 1, // Locked
@@ -1492,7 +1575,7 @@ union RDC_PDAP21 {
     uint32_t _reserved_4 : 26;
     eSREQ SREQ : 1;
     eLCK LCK : 1;
-  } bits;          // Bit-field struct (auto-filling reserved gaps)
+  } bits;
   
   // Full 32-bit register value.
   uint32_t value;
@@ -1505,27 +1588,31 @@ union RDC_PDAP21 {
 //
 union RDC_PDAP22 {
   
-  // Enum definitions.
   enum class eD0W : uint32_t {
     eD0W_0 = 0, // No Write Access
     eD0W_1 = 1, // Write Access Allowed
   };
+  
   enum class eD0R : uint32_t {
     eD0R_0 = 0, // No Read Access
     eD0R_1 = 1, // Read Access Allowed
   };
+  
   enum class eD1W : uint32_t {
     eD1W_0 = 0, // No Write Access
     eD1W_1 = 1, // Write Access Allowed
   };
+  
   enum class eD1R : uint32_t {
     eD1R_0 = 0, // No Read Access
     eD1R_1 = 1, // Read Access Allowed
   };
+  
   enum class eSREQ : uint32_t {
     eSREQ_0 = 0, // Semaphores have no effect
     eSREQ_1 = 1, // Semaphores are enforced
   };
+  
   enum class eLCK : uint32_t {
     eLCK_0 = 0, // Not Locked
     eLCK_1 = 1, // Locked
@@ -1540,7 +1627,7 @@ union RDC_PDAP22 {
     uint32_t _reserved_4 : 26;
     eSREQ SREQ : 1;
     eLCK LCK : 1;
-  } bits;          // Bit-field struct (auto-filling reserved gaps)
+  } bits;
   
   // Full 32-bit register value.
   uint32_t value;
@@ -1553,27 +1640,31 @@ union RDC_PDAP22 {
 //
 union RDC_PDAP23 {
   
-  // Enum definitions.
   enum class eD0W : uint32_t {
     eD0W_0 = 0, // No Write Access
     eD0W_1 = 1, // Write Access Allowed
   };
+  
   enum class eD0R : uint32_t {
     eD0R_0 = 0, // No Read Access
     eD0R_1 = 1, // Read Access Allowed
   };
+  
   enum class eD1W : uint32_t {
     eD1W_0 = 0, // No Write Access
     eD1W_1 = 1, // Write Access Allowed
   };
+  
   enum class eD1R : uint32_t {
     eD1R_0 = 0, // No Read Access
     eD1R_1 = 1, // Read Access Allowed
   };
+  
   enum class eSREQ : uint32_t {
     eSREQ_0 = 0, // Semaphores have no effect
     eSREQ_1 = 1, // Semaphores are enforced
   };
+  
   enum class eLCK : uint32_t {
     eLCK_0 = 0, // Not Locked
     eLCK_1 = 1, // Locked
@@ -1588,7 +1679,7 @@ union RDC_PDAP23 {
     uint32_t _reserved_4 : 26;
     eSREQ SREQ : 1;
     eLCK LCK : 1;
-  } bits;          // Bit-field struct (auto-filling reserved gaps)
+  } bits;
   
   // Full 32-bit register value.
   uint32_t value;
@@ -1601,27 +1692,31 @@ union RDC_PDAP23 {
 //
 union RDC_PDAP24 {
   
-  // Enum definitions.
   enum class eD0W : uint32_t {
     eD0W_0 = 0, // No Write Access
     eD0W_1 = 1, // Write Access Allowed
   };
+  
   enum class eD0R : uint32_t {
     eD0R_0 = 0, // No Read Access
     eD0R_1 = 1, // Read Access Allowed
   };
+  
   enum class eD1W : uint32_t {
     eD1W_0 = 0, // No Write Access
     eD1W_1 = 1, // Write Access Allowed
   };
+  
   enum class eD1R : uint32_t {
     eD1R_0 = 0, // No Read Access
     eD1R_1 = 1, // Read Access Allowed
   };
+  
   enum class eSREQ : uint32_t {
     eSREQ_0 = 0, // Semaphores have no effect
     eSREQ_1 = 1, // Semaphores are enforced
   };
+  
   enum class eLCK : uint32_t {
     eLCK_0 = 0, // Not Locked
     eLCK_1 = 1, // Locked
@@ -1636,7 +1731,7 @@ union RDC_PDAP24 {
     uint32_t _reserved_4 : 26;
     eSREQ SREQ : 1;
     eLCK LCK : 1;
-  } bits;          // Bit-field struct (auto-filling reserved gaps)
+  } bits;
   
   // Full 32-bit register value.
   uint32_t value;
@@ -1649,27 +1744,31 @@ union RDC_PDAP24 {
 //
 union RDC_PDAP25 {
   
-  // Enum definitions.
   enum class eD0W : uint32_t {
     eD0W_0 = 0, // No Write Access
     eD0W_1 = 1, // Write Access Allowed
   };
+  
   enum class eD0R : uint32_t {
     eD0R_0 = 0, // No Read Access
     eD0R_1 = 1, // Read Access Allowed
   };
+  
   enum class eD1W : uint32_t {
     eD1W_0 = 0, // No Write Access
     eD1W_1 = 1, // Write Access Allowed
   };
+  
   enum class eD1R : uint32_t {
     eD1R_0 = 0, // No Read Access
     eD1R_1 = 1, // Read Access Allowed
   };
+  
   enum class eSREQ : uint32_t {
     eSREQ_0 = 0, // Semaphores have no effect
     eSREQ_1 = 1, // Semaphores are enforced
   };
+  
   enum class eLCK : uint32_t {
     eLCK_0 = 0, // Not Locked
     eLCK_1 = 1, // Locked
@@ -1684,7 +1783,7 @@ union RDC_PDAP25 {
     uint32_t _reserved_4 : 26;
     eSREQ SREQ : 1;
     eLCK LCK : 1;
-  } bits;          // Bit-field struct (auto-filling reserved gaps)
+  } bits;
   
   // Full 32-bit register value.
   uint32_t value;
@@ -1697,27 +1796,31 @@ union RDC_PDAP25 {
 //
 union RDC_PDAP26 {
   
-  // Enum definitions.
   enum class eD0W : uint32_t {
     eD0W_0 = 0, // No Write Access
     eD0W_1 = 1, // Write Access Allowed
   };
+  
   enum class eD0R : uint32_t {
     eD0R_0 = 0, // No Read Access
     eD0R_1 = 1, // Read Access Allowed
   };
+  
   enum class eD1W : uint32_t {
     eD1W_0 = 0, // No Write Access
     eD1W_1 = 1, // Write Access Allowed
   };
+  
   enum class eD1R : uint32_t {
     eD1R_0 = 0, // No Read Access
     eD1R_1 = 1, // Read Access Allowed
   };
+  
   enum class eSREQ : uint32_t {
     eSREQ_0 = 0, // Semaphores have no effect
     eSREQ_1 = 1, // Semaphores are enforced
   };
+  
   enum class eLCK : uint32_t {
     eLCK_0 = 0, // Not Locked
     eLCK_1 = 1, // Locked
@@ -1732,7 +1835,7 @@ union RDC_PDAP26 {
     uint32_t _reserved_4 : 26;
     eSREQ SREQ : 1;
     eLCK LCK : 1;
-  } bits;          // Bit-field struct (auto-filling reserved gaps)
+  } bits;
   
   // Full 32-bit register value.
   uint32_t value;
@@ -1745,27 +1848,31 @@ union RDC_PDAP26 {
 //
 union RDC_PDAP27 {
   
-  // Enum definitions.
   enum class eD0W : uint32_t {
     eD0W_0 = 0, // No Write Access
     eD0W_1 = 1, // Write Access Allowed
   };
+  
   enum class eD0R : uint32_t {
     eD0R_0 = 0, // No Read Access
     eD0R_1 = 1, // Read Access Allowed
   };
+  
   enum class eD1W : uint32_t {
     eD1W_0 = 0, // No Write Access
     eD1W_1 = 1, // Write Access Allowed
   };
+  
   enum class eD1R : uint32_t {
     eD1R_0 = 0, // No Read Access
     eD1R_1 = 1, // Read Access Allowed
   };
+  
   enum class eSREQ : uint32_t {
     eSREQ_0 = 0, // Semaphores have no effect
     eSREQ_1 = 1, // Semaphores are enforced
   };
+  
   enum class eLCK : uint32_t {
     eLCK_0 = 0, // Not Locked
     eLCK_1 = 1, // Locked
@@ -1780,7 +1887,7 @@ union RDC_PDAP27 {
     uint32_t _reserved_4 : 26;
     eSREQ SREQ : 1;
     eLCK LCK : 1;
-  } bits;          // Bit-field struct (auto-filling reserved gaps)
+  } bits;
   
   // Full 32-bit register value.
   uint32_t value;
@@ -1793,27 +1900,31 @@ union RDC_PDAP27 {
 //
 union RDC_PDAP28 {
   
-  // Enum definitions.
   enum class eD0W : uint32_t {
     eD0W_0 = 0, // No Write Access
     eD0W_1 = 1, // Write Access Allowed
   };
+  
   enum class eD0R : uint32_t {
     eD0R_0 = 0, // No Read Access
     eD0R_1 = 1, // Read Access Allowed
   };
+  
   enum class eD1W : uint32_t {
     eD1W_0 = 0, // No Write Access
     eD1W_1 = 1, // Write Access Allowed
   };
+  
   enum class eD1R : uint32_t {
     eD1R_0 = 0, // No Read Access
     eD1R_1 = 1, // Read Access Allowed
   };
+  
   enum class eSREQ : uint32_t {
     eSREQ_0 = 0, // Semaphores have no effect
     eSREQ_1 = 1, // Semaphores are enforced
   };
+  
   enum class eLCK : uint32_t {
     eLCK_0 = 0, // Not Locked
     eLCK_1 = 1, // Locked
@@ -1828,7 +1939,7 @@ union RDC_PDAP28 {
     uint32_t _reserved_4 : 26;
     eSREQ SREQ : 1;
     eLCK LCK : 1;
-  } bits;          // Bit-field struct (auto-filling reserved gaps)
+  } bits;
   
   // Full 32-bit register value.
   uint32_t value;
@@ -1841,27 +1952,31 @@ union RDC_PDAP28 {
 //
 union RDC_PDAP29 {
   
-  // Enum definitions.
   enum class eD0W : uint32_t {
     eD0W_0 = 0, // No Write Access
     eD0W_1 = 1, // Write Access Allowed
   };
+  
   enum class eD0R : uint32_t {
     eD0R_0 = 0, // No Read Access
     eD0R_1 = 1, // Read Access Allowed
   };
+  
   enum class eD1W : uint32_t {
     eD1W_0 = 0, // No Write Access
     eD1W_1 = 1, // Write Access Allowed
   };
+  
   enum class eD1R : uint32_t {
     eD1R_0 = 0, // No Read Access
     eD1R_1 = 1, // Read Access Allowed
   };
+  
   enum class eSREQ : uint32_t {
     eSREQ_0 = 0, // Semaphores have no effect
     eSREQ_1 = 1, // Semaphores are enforced
   };
+  
   enum class eLCK : uint32_t {
     eLCK_0 = 0, // Not Locked
     eLCK_1 = 1, // Locked
@@ -1876,7 +1991,7 @@ union RDC_PDAP29 {
     uint32_t _reserved_4 : 26;
     eSREQ SREQ : 1;
     eLCK LCK : 1;
-  } bits;          // Bit-field struct (auto-filling reserved gaps)
+  } bits;
   
   // Full 32-bit register value.
   uint32_t value;
@@ -1889,27 +2004,31 @@ union RDC_PDAP29 {
 //
 union RDC_PDAP30 {
   
-  // Enum definitions.
   enum class eD0W : uint32_t {
     eD0W_0 = 0, // No Write Access
     eD0W_1 = 1, // Write Access Allowed
   };
+  
   enum class eD0R : uint32_t {
     eD0R_0 = 0, // No Read Access
     eD0R_1 = 1, // Read Access Allowed
   };
+  
   enum class eD1W : uint32_t {
     eD1W_0 = 0, // No Write Access
     eD1W_1 = 1, // Write Access Allowed
   };
+  
   enum class eD1R : uint32_t {
     eD1R_0 = 0, // No Read Access
     eD1R_1 = 1, // Read Access Allowed
   };
+  
   enum class eSREQ : uint32_t {
     eSREQ_0 = 0, // Semaphores have no effect
     eSREQ_1 = 1, // Semaphores are enforced
   };
+  
   enum class eLCK : uint32_t {
     eLCK_0 = 0, // Not Locked
     eLCK_1 = 1, // Locked
@@ -1924,7 +2043,7 @@ union RDC_PDAP30 {
     uint32_t _reserved_4 : 26;
     eSREQ SREQ : 1;
     eLCK LCK : 1;
-  } bits;          // Bit-field struct (auto-filling reserved gaps)
+  } bits;
   
   // Full 32-bit register value.
   uint32_t value;
@@ -1937,27 +2056,31 @@ union RDC_PDAP30 {
 //
 union RDC_PDAP31 {
   
-  // Enum definitions.
   enum class eD0W : uint32_t {
     eD0W_0 = 0, // No Write Access
     eD0W_1 = 1, // Write Access Allowed
   };
+  
   enum class eD0R : uint32_t {
     eD0R_0 = 0, // No Read Access
     eD0R_1 = 1, // Read Access Allowed
   };
+  
   enum class eD1W : uint32_t {
     eD1W_0 = 0, // No Write Access
     eD1W_1 = 1, // Write Access Allowed
   };
+  
   enum class eD1R : uint32_t {
     eD1R_0 = 0, // No Read Access
     eD1R_1 = 1, // Read Access Allowed
   };
+  
   enum class eSREQ : uint32_t {
     eSREQ_0 = 0, // Semaphores have no effect
     eSREQ_1 = 1, // Semaphores are enforced
   };
+  
   enum class eLCK : uint32_t {
     eLCK_0 = 0, // Not Locked
     eLCK_1 = 1, // Locked
@@ -1972,7 +2095,7 @@ union RDC_PDAP31 {
     uint32_t _reserved_4 : 26;
     eSREQ SREQ : 1;
     eLCK LCK : 1;
-  } bits;          // Bit-field struct (auto-filling reserved gaps)
+  } bits;
   
   // Full 32-bit register value.
   uint32_t value;
@@ -1985,27 +2108,31 @@ union RDC_PDAP31 {
 //
 union RDC_PDAP32 {
   
-  // Enum definitions.
   enum class eD0W : uint32_t {
     eD0W_0 = 0, // No Write Access
     eD0W_1 = 1, // Write Access Allowed
   };
+  
   enum class eD0R : uint32_t {
     eD0R_0 = 0, // No Read Access
     eD0R_1 = 1, // Read Access Allowed
   };
+  
   enum class eD1W : uint32_t {
     eD1W_0 = 0, // No Write Access
     eD1W_1 = 1, // Write Access Allowed
   };
+  
   enum class eD1R : uint32_t {
     eD1R_0 = 0, // No Read Access
     eD1R_1 = 1, // Read Access Allowed
   };
+  
   enum class eSREQ : uint32_t {
     eSREQ_0 = 0, // Semaphores have no effect
     eSREQ_1 = 1, // Semaphores are enforced
   };
+  
   enum class eLCK : uint32_t {
     eLCK_0 = 0, // Not Locked
     eLCK_1 = 1, // Locked
@@ -2020,7 +2147,7 @@ union RDC_PDAP32 {
     uint32_t _reserved_4 : 26;
     eSREQ SREQ : 1;
     eLCK LCK : 1;
-  } bits;          // Bit-field struct (auto-filling reserved gaps)
+  } bits;
   
   // Full 32-bit register value.
   uint32_t value;
@@ -2033,27 +2160,31 @@ union RDC_PDAP32 {
 //
 union RDC_PDAP33 {
   
-  // Enum definitions.
   enum class eD0W : uint32_t {
     eD0W_0 = 0, // No Write Access
     eD0W_1 = 1, // Write Access Allowed
   };
+  
   enum class eD0R : uint32_t {
     eD0R_0 = 0, // No Read Access
     eD0R_1 = 1, // Read Access Allowed
   };
+  
   enum class eD1W : uint32_t {
     eD1W_0 = 0, // No Write Access
     eD1W_1 = 1, // Write Access Allowed
   };
+  
   enum class eD1R : uint32_t {
     eD1R_0 = 0, // No Read Access
     eD1R_1 = 1, // Read Access Allowed
   };
+  
   enum class eSREQ : uint32_t {
     eSREQ_0 = 0, // Semaphores have no effect
     eSREQ_1 = 1, // Semaphores are enforced
   };
+  
   enum class eLCK : uint32_t {
     eLCK_0 = 0, // Not Locked
     eLCK_1 = 1, // Locked
@@ -2068,7 +2199,7 @@ union RDC_PDAP33 {
     uint32_t _reserved_4 : 26;
     eSREQ SREQ : 1;
     eLCK LCK : 1;
-  } bits;          // Bit-field struct (auto-filling reserved gaps)
+  } bits;
   
   // Full 32-bit register value.
   uint32_t value;
@@ -2081,27 +2212,31 @@ union RDC_PDAP33 {
 //
 union RDC_PDAP34 {
   
-  // Enum definitions.
   enum class eD0W : uint32_t {
     eD0W_0 = 0, // No Write Access
     eD0W_1 = 1, // Write Access Allowed
   };
+  
   enum class eD0R : uint32_t {
     eD0R_0 = 0, // No Read Access
     eD0R_1 = 1, // Read Access Allowed
   };
+  
   enum class eD1W : uint32_t {
     eD1W_0 = 0, // No Write Access
     eD1W_1 = 1, // Write Access Allowed
   };
+  
   enum class eD1R : uint32_t {
     eD1R_0 = 0, // No Read Access
     eD1R_1 = 1, // Read Access Allowed
   };
+  
   enum class eSREQ : uint32_t {
     eSREQ_0 = 0, // Semaphores have no effect
     eSREQ_1 = 1, // Semaphores are enforced
   };
+  
   enum class eLCK : uint32_t {
     eLCK_0 = 0, // Not Locked
     eLCK_1 = 1, // Locked
@@ -2116,7 +2251,7 @@ union RDC_PDAP34 {
     uint32_t _reserved_4 : 26;
     eSREQ SREQ : 1;
     eLCK LCK : 1;
-  } bits;          // Bit-field struct (auto-filling reserved gaps)
+  } bits;
   
   // Full 32-bit register value.
   uint32_t value;
@@ -2129,27 +2264,31 @@ union RDC_PDAP34 {
 //
 union RDC_PDAP35 {
   
-  // Enum definitions.
   enum class eD0W : uint32_t {
     eD0W_0 = 0, // No Write Access
     eD0W_1 = 1, // Write Access Allowed
   };
+  
   enum class eD0R : uint32_t {
     eD0R_0 = 0, // No Read Access
     eD0R_1 = 1, // Read Access Allowed
   };
+  
   enum class eD1W : uint32_t {
     eD1W_0 = 0, // No Write Access
     eD1W_1 = 1, // Write Access Allowed
   };
+  
   enum class eD1R : uint32_t {
     eD1R_0 = 0, // No Read Access
     eD1R_1 = 1, // Read Access Allowed
   };
+  
   enum class eSREQ : uint32_t {
     eSREQ_0 = 0, // Semaphores have no effect
     eSREQ_1 = 1, // Semaphores are enforced
   };
+  
   enum class eLCK : uint32_t {
     eLCK_0 = 0, // Not Locked
     eLCK_1 = 1, // Locked
@@ -2164,7 +2303,7 @@ union RDC_PDAP35 {
     uint32_t _reserved_4 : 26;
     eSREQ SREQ : 1;
     eLCK LCK : 1;
-  } bits;          // Bit-field struct (auto-filling reserved gaps)
+  } bits;
   
   // Full 32-bit register value.
   uint32_t value;
@@ -2177,27 +2316,31 @@ union RDC_PDAP35 {
 //
 union RDC_PDAP36 {
   
-  // Enum definitions.
   enum class eD0W : uint32_t {
     eD0W_0 = 0, // No Write Access
     eD0W_1 = 1, // Write Access Allowed
   };
+  
   enum class eD0R : uint32_t {
     eD0R_0 = 0, // No Read Access
     eD0R_1 = 1, // Read Access Allowed
   };
+  
   enum class eD1W : uint32_t {
     eD1W_0 = 0, // No Write Access
     eD1W_1 = 1, // Write Access Allowed
   };
+  
   enum class eD1R : uint32_t {
     eD1R_0 = 0, // No Read Access
     eD1R_1 = 1, // Read Access Allowed
   };
+  
   enum class eSREQ : uint32_t {
     eSREQ_0 = 0, // Semaphores have no effect
     eSREQ_1 = 1, // Semaphores are enforced
   };
+  
   enum class eLCK : uint32_t {
     eLCK_0 = 0, // Not Locked
     eLCK_1 = 1, // Locked
@@ -2212,7 +2355,7 @@ union RDC_PDAP36 {
     uint32_t _reserved_4 : 26;
     eSREQ SREQ : 1;
     eLCK LCK : 1;
-  } bits;          // Bit-field struct (auto-filling reserved gaps)
+  } bits;
   
   // Full 32-bit register value.
   uint32_t value;
@@ -2225,27 +2368,31 @@ union RDC_PDAP36 {
 //
 union RDC_PDAP37 {
   
-  // Enum definitions.
   enum class eD0W : uint32_t {
     eD0W_0 = 0, // No Write Access
     eD0W_1 = 1, // Write Access Allowed
   };
+  
   enum class eD0R : uint32_t {
     eD0R_0 = 0, // No Read Access
     eD0R_1 = 1, // Read Access Allowed
   };
+  
   enum class eD1W : uint32_t {
     eD1W_0 = 0, // No Write Access
     eD1W_1 = 1, // Write Access Allowed
   };
+  
   enum class eD1R : uint32_t {
     eD1R_0 = 0, // No Read Access
     eD1R_1 = 1, // Read Access Allowed
   };
+  
   enum class eSREQ : uint32_t {
     eSREQ_0 = 0, // Semaphores have no effect
     eSREQ_1 = 1, // Semaphores are enforced
   };
+  
   enum class eLCK : uint32_t {
     eLCK_0 = 0, // Not Locked
     eLCK_1 = 1, // Locked
@@ -2260,7 +2407,7 @@ union RDC_PDAP37 {
     uint32_t _reserved_4 : 26;
     eSREQ SREQ : 1;
     eLCK LCK : 1;
-  } bits;          // Bit-field struct (auto-filling reserved gaps)
+  } bits;
   
   // Full 32-bit register value.
   uint32_t value;
@@ -2273,27 +2420,31 @@ union RDC_PDAP37 {
 //
 union RDC_PDAP38 {
   
-  // Enum definitions.
   enum class eD0W : uint32_t {
     eD0W_0 = 0, // No Write Access
     eD0W_1 = 1, // Write Access Allowed
   };
+  
   enum class eD0R : uint32_t {
     eD0R_0 = 0, // No Read Access
     eD0R_1 = 1, // Read Access Allowed
   };
+  
   enum class eD1W : uint32_t {
     eD1W_0 = 0, // No Write Access
     eD1W_1 = 1, // Write Access Allowed
   };
+  
   enum class eD1R : uint32_t {
     eD1R_0 = 0, // No Read Access
     eD1R_1 = 1, // Read Access Allowed
   };
+  
   enum class eSREQ : uint32_t {
     eSREQ_0 = 0, // Semaphores have no effect
     eSREQ_1 = 1, // Semaphores are enforced
   };
+  
   enum class eLCK : uint32_t {
     eLCK_0 = 0, // Not Locked
     eLCK_1 = 1, // Locked
@@ -2308,7 +2459,7 @@ union RDC_PDAP38 {
     uint32_t _reserved_4 : 26;
     eSREQ SREQ : 1;
     eLCK LCK : 1;
-  } bits;          // Bit-field struct (auto-filling reserved gaps)
+  } bits;
   
   // Full 32-bit register value.
   uint32_t value;
@@ -2321,27 +2472,31 @@ union RDC_PDAP38 {
 //
 union RDC_PDAP39 {
   
-  // Enum definitions.
   enum class eD0W : uint32_t {
     eD0W_0 = 0, // No Write Access
     eD0W_1 = 1, // Write Access Allowed
   };
+  
   enum class eD0R : uint32_t {
     eD0R_0 = 0, // No Read Access
     eD0R_1 = 1, // Read Access Allowed
   };
+  
   enum class eD1W : uint32_t {
     eD1W_0 = 0, // No Write Access
     eD1W_1 = 1, // Write Access Allowed
   };
+  
   enum class eD1R : uint32_t {
     eD1R_0 = 0, // No Read Access
     eD1R_1 = 1, // Read Access Allowed
   };
+  
   enum class eSREQ : uint32_t {
     eSREQ_0 = 0, // Semaphores have no effect
     eSREQ_1 = 1, // Semaphores are enforced
   };
+  
   enum class eLCK : uint32_t {
     eLCK_0 = 0, // Not Locked
     eLCK_1 = 1, // Locked
@@ -2356,7 +2511,7 @@ union RDC_PDAP39 {
     uint32_t _reserved_4 : 26;
     eSREQ SREQ : 1;
     eLCK LCK : 1;
-  } bits;          // Bit-field struct (auto-filling reserved gaps)
+  } bits;
   
   // Full 32-bit register value.
   uint32_t value;
@@ -2369,27 +2524,31 @@ union RDC_PDAP39 {
 //
 union RDC_PDAP40 {
   
-  // Enum definitions.
   enum class eD0W : uint32_t {
     eD0W_0 = 0, // No Write Access
     eD0W_1 = 1, // Write Access Allowed
   };
+  
   enum class eD0R : uint32_t {
     eD0R_0 = 0, // No Read Access
     eD0R_1 = 1, // Read Access Allowed
   };
+  
   enum class eD1W : uint32_t {
     eD1W_0 = 0, // No Write Access
     eD1W_1 = 1, // Write Access Allowed
   };
+  
   enum class eD1R : uint32_t {
     eD1R_0 = 0, // No Read Access
     eD1R_1 = 1, // Read Access Allowed
   };
+  
   enum class eSREQ : uint32_t {
     eSREQ_0 = 0, // Semaphores have no effect
     eSREQ_1 = 1, // Semaphores are enforced
   };
+  
   enum class eLCK : uint32_t {
     eLCK_0 = 0, // Not Locked
     eLCK_1 = 1, // Locked
@@ -2404,7 +2563,7 @@ union RDC_PDAP40 {
     uint32_t _reserved_4 : 26;
     eSREQ SREQ : 1;
     eLCK LCK : 1;
-  } bits;          // Bit-field struct (auto-filling reserved gaps)
+  } bits;
   
   // Full 32-bit register value.
   uint32_t value;
@@ -2417,27 +2576,31 @@ union RDC_PDAP40 {
 //
 union RDC_PDAP41 {
   
-  // Enum definitions.
   enum class eD0W : uint32_t {
     eD0W_0 = 0, // No Write Access
     eD0W_1 = 1, // Write Access Allowed
   };
+  
   enum class eD0R : uint32_t {
     eD0R_0 = 0, // No Read Access
     eD0R_1 = 1, // Read Access Allowed
   };
+  
   enum class eD1W : uint32_t {
     eD1W_0 = 0, // No Write Access
     eD1W_1 = 1, // Write Access Allowed
   };
+  
   enum class eD1R : uint32_t {
     eD1R_0 = 0, // No Read Access
     eD1R_1 = 1, // Read Access Allowed
   };
+  
   enum class eSREQ : uint32_t {
     eSREQ_0 = 0, // Semaphores have no effect
     eSREQ_1 = 1, // Semaphores are enforced
   };
+  
   enum class eLCK : uint32_t {
     eLCK_0 = 0, // Not Locked
     eLCK_1 = 1, // Locked
@@ -2452,7 +2615,7 @@ union RDC_PDAP41 {
     uint32_t _reserved_4 : 26;
     eSREQ SREQ : 1;
     eLCK LCK : 1;
-  } bits;          // Bit-field struct (auto-filling reserved gaps)
+  } bits;
   
   // Full 32-bit register value.
   uint32_t value;
@@ -2465,27 +2628,31 @@ union RDC_PDAP41 {
 //
 union RDC_PDAP42 {
   
-  // Enum definitions.
   enum class eD0W : uint32_t {
     eD0W_0 = 0, // No Write Access
     eD0W_1 = 1, // Write Access Allowed
   };
+  
   enum class eD0R : uint32_t {
     eD0R_0 = 0, // No Read Access
     eD0R_1 = 1, // Read Access Allowed
   };
+  
   enum class eD1W : uint32_t {
     eD1W_0 = 0, // No Write Access
     eD1W_1 = 1, // Write Access Allowed
   };
+  
   enum class eD1R : uint32_t {
     eD1R_0 = 0, // No Read Access
     eD1R_1 = 1, // Read Access Allowed
   };
+  
   enum class eSREQ : uint32_t {
     eSREQ_0 = 0, // Semaphores have no effect
     eSREQ_1 = 1, // Semaphores are enforced
   };
+  
   enum class eLCK : uint32_t {
     eLCK_0 = 0, // Not Locked
     eLCK_1 = 1, // Locked
@@ -2500,7 +2667,7 @@ union RDC_PDAP42 {
     uint32_t _reserved_4 : 26;
     eSREQ SREQ : 1;
     eLCK LCK : 1;
-  } bits;          // Bit-field struct (auto-filling reserved gaps)
+  } bits;
   
   // Full 32-bit register value.
   uint32_t value;
@@ -2513,27 +2680,31 @@ union RDC_PDAP42 {
 //
 union RDC_PDAP43 {
   
-  // Enum definitions.
   enum class eD0W : uint32_t {
     eD0W_0 = 0, // No Write Access
     eD0W_1 = 1, // Write Access Allowed
   };
+  
   enum class eD0R : uint32_t {
     eD0R_0 = 0, // No Read Access
     eD0R_1 = 1, // Read Access Allowed
   };
+  
   enum class eD1W : uint32_t {
     eD1W_0 = 0, // No Write Access
     eD1W_1 = 1, // Write Access Allowed
   };
+  
   enum class eD1R : uint32_t {
     eD1R_0 = 0, // No Read Access
     eD1R_1 = 1, // Read Access Allowed
   };
+  
   enum class eSREQ : uint32_t {
     eSREQ_0 = 0, // Semaphores have no effect
     eSREQ_1 = 1, // Semaphores are enforced
   };
+  
   enum class eLCK : uint32_t {
     eLCK_0 = 0, // Not Locked
     eLCK_1 = 1, // Locked
@@ -2548,7 +2719,7 @@ union RDC_PDAP43 {
     uint32_t _reserved_4 : 26;
     eSREQ SREQ : 1;
     eLCK LCK : 1;
-  } bits;          // Bit-field struct (auto-filling reserved gaps)
+  } bits;
   
   // Full 32-bit register value.
   uint32_t value;
@@ -2561,27 +2732,31 @@ union RDC_PDAP43 {
 //
 union RDC_PDAP44 {
   
-  // Enum definitions.
   enum class eD0W : uint32_t {
     eD0W_0 = 0, // No Write Access
     eD0W_1 = 1, // Write Access Allowed
   };
+  
   enum class eD0R : uint32_t {
     eD0R_0 = 0, // No Read Access
     eD0R_1 = 1, // Read Access Allowed
   };
+  
   enum class eD1W : uint32_t {
     eD1W_0 = 0, // No Write Access
     eD1W_1 = 1, // Write Access Allowed
   };
+  
   enum class eD1R : uint32_t {
     eD1R_0 = 0, // No Read Access
     eD1R_1 = 1, // Read Access Allowed
   };
+  
   enum class eSREQ : uint32_t {
     eSREQ_0 = 0, // Semaphores have no effect
     eSREQ_1 = 1, // Semaphores are enforced
   };
+  
   enum class eLCK : uint32_t {
     eLCK_0 = 0, // Not Locked
     eLCK_1 = 1, // Locked
@@ -2596,7 +2771,7 @@ union RDC_PDAP44 {
     uint32_t _reserved_4 : 26;
     eSREQ SREQ : 1;
     eLCK LCK : 1;
-  } bits;          // Bit-field struct (auto-filling reserved gaps)
+  } bits;
   
   // Full 32-bit register value.
   uint32_t value;
@@ -2609,27 +2784,31 @@ union RDC_PDAP44 {
 //
 union RDC_PDAP45 {
   
-  // Enum definitions.
   enum class eD0W : uint32_t {
     eD0W_0 = 0, // No Write Access
     eD0W_1 = 1, // Write Access Allowed
   };
+  
   enum class eD0R : uint32_t {
     eD0R_0 = 0, // No Read Access
     eD0R_1 = 1, // Read Access Allowed
   };
+  
   enum class eD1W : uint32_t {
     eD1W_0 = 0, // No Write Access
     eD1W_1 = 1, // Write Access Allowed
   };
+  
   enum class eD1R : uint32_t {
     eD1R_0 = 0, // No Read Access
     eD1R_1 = 1, // Read Access Allowed
   };
+  
   enum class eSREQ : uint32_t {
     eSREQ_0 = 0, // Semaphores have no effect
     eSREQ_1 = 1, // Semaphores are enforced
   };
+  
   enum class eLCK : uint32_t {
     eLCK_0 = 0, // Not Locked
     eLCK_1 = 1, // Locked
@@ -2644,7 +2823,7 @@ union RDC_PDAP45 {
     uint32_t _reserved_4 : 26;
     eSREQ SREQ : 1;
     eLCK LCK : 1;
-  } bits;          // Bit-field struct (auto-filling reserved gaps)
+  } bits;
   
   // Full 32-bit register value.
   uint32_t value;
@@ -2657,27 +2836,31 @@ union RDC_PDAP45 {
 //
 union RDC_PDAP46 {
   
-  // Enum definitions.
   enum class eD0W : uint32_t {
     eD0W_0 = 0, // No Write Access
     eD0W_1 = 1, // Write Access Allowed
   };
+  
   enum class eD0R : uint32_t {
     eD0R_0 = 0, // No Read Access
     eD0R_1 = 1, // Read Access Allowed
   };
+  
   enum class eD1W : uint32_t {
     eD1W_0 = 0, // No Write Access
     eD1W_1 = 1, // Write Access Allowed
   };
+  
   enum class eD1R : uint32_t {
     eD1R_0 = 0, // No Read Access
     eD1R_1 = 1, // Read Access Allowed
   };
+  
   enum class eSREQ : uint32_t {
     eSREQ_0 = 0, // Semaphores have no effect
     eSREQ_1 = 1, // Semaphores are enforced
   };
+  
   enum class eLCK : uint32_t {
     eLCK_0 = 0, // Not Locked
     eLCK_1 = 1, // Locked
@@ -2692,7 +2875,7 @@ union RDC_PDAP46 {
     uint32_t _reserved_4 : 26;
     eSREQ SREQ : 1;
     eLCK LCK : 1;
-  } bits;          // Bit-field struct (auto-filling reserved gaps)
+  } bits;
   
   // Full 32-bit register value.
   uint32_t value;
@@ -2705,27 +2888,31 @@ union RDC_PDAP46 {
 //
 union RDC_PDAP47 {
   
-  // Enum definitions.
   enum class eD0W : uint32_t {
     eD0W_0 = 0, // No Write Access
     eD0W_1 = 1, // Write Access Allowed
   };
+  
   enum class eD0R : uint32_t {
     eD0R_0 = 0, // No Read Access
     eD0R_1 = 1, // Read Access Allowed
   };
+  
   enum class eD1W : uint32_t {
     eD1W_0 = 0, // No Write Access
     eD1W_1 = 1, // Write Access Allowed
   };
+  
   enum class eD1R : uint32_t {
     eD1R_0 = 0, // No Read Access
     eD1R_1 = 1, // Read Access Allowed
   };
+  
   enum class eSREQ : uint32_t {
     eSREQ_0 = 0, // Semaphores have no effect
     eSREQ_1 = 1, // Semaphores are enforced
   };
+  
   enum class eLCK : uint32_t {
     eLCK_0 = 0, // Not Locked
     eLCK_1 = 1, // Locked
@@ -2740,7 +2927,7 @@ union RDC_PDAP47 {
     uint32_t _reserved_4 : 26;
     eSREQ SREQ : 1;
     eLCK LCK : 1;
-  } bits;          // Bit-field struct (auto-filling reserved gaps)
+  } bits;
   
   // Full 32-bit register value.
   uint32_t value;
@@ -2753,27 +2940,31 @@ union RDC_PDAP47 {
 //
 union RDC_PDAP48 {
   
-  // Enum definitions.
   enum class eD0W : uint32_t {
     eD0W_0 = 0, // No Write Access
     eD0W_1 = 1, // Write Access Allowed
   };
+  
   enum class eD0R : uint32_t {
     eD0R_0 = 0, // No Read Access
     eD0R_1 = 1, // Read Access Allowed
   };
+  
   enum class eD1W : uint32_t {
     eD1W_0 = 0, // No Write Access
     eD1W_1 = 1, // Write Access Allowed
   };
+  
   enum class eD1R : uint32_t {
     eD1R_0 = 0, // No Read Access
     eD1R_1 = 1, // Read Access Allowed
   };
+  
   enum class eSREQ : uint32_t {
     eSREQ_0 = 0, // Semaphores have no effect
     eSREQ_1 = 1, // Semaphores are enforced
   };
+  
   enum class eLCK : uint32_t {
     eLCK_0 = 0, // Not Locked
     eLCK_1 = 1, // Locked
@@ -2788,7 +2979,7 @@ union RDC_PDAP48 {
     uint32_t _reserved_4 : 26;
     eSREQ SREQ : 1;
     eLCK LCK : 1;
-  } bits;          // Bit-field struct (auto-filling reserved gaps)
+  } bits;
   
   // Full 32-bit register value.
   uint32_t value;
@@ -2801,27 +2992,31 @@ union RDC_PDAP48 {
 //
 union RDC_PDAP49 {
   
-  // Enum definitions.
   enum class eD0W : uint32_t {
     eD0W_0 = 0, // No Write Access
     eD0W_1 = 1, // Write Access Allowed
   };
+  
   enum class eD0R : uint32_t {
     eD0R_0 = 0, // No Read Access
     eD0R_1 = 1, // Read Access Allowed
   };
+  
   enum class eD1W : uint32_t {
     eD1W_0 = 0, // No Write Access
     eD1W_1 = 1, // Write Access Allowed
   };
+  
   enum class eD1R : uint32_t {
     eD1R_0 = 0, // No Read Access
     eD1R_1 = 1, // Read Access Allowed
   };
+  
   enum class eSREQ : uint32_t {
     eSREQ_0 = 0, // Semaphores have no effect
     eSREQ_1 = 1, // Semaphores are enforced
   };
+  
   enum class eLCK : uint32_t {
     eLCK_0 = 0, // Not Locked
     eLCK_1 = 1, // Locked
@@ -2836,7 +3031,7 @@ union RDC_PDAP49 {
     uint32_t _reserved_4 : 26;
     eSREQ SREQ : 1;
     eLCK LCK : 1;
-  } bits;          // Bit-field struct (auto-filling reserved gaps)
+  } bits;
   
   // Full 32-bit register value.
   uint32_t value;
@@ -2849,27 +3044,31 @@ union RDC_PDAP49 {
 //
 union RDC_PDAP50 {
   
-  // Enum definitions.
   enum class eD0W : uint32_t {
     eD0W_0 = 0, // No Write Access
     eD0W_1 = 1, // Write Access Allowed
   };
+  
   enum class eD0R : uint32_t {
     eD0R_0 = 0, // No Read Access
     eD0R_1 = 1, // Read Access Allowed
   };
+  
   enum class eD1W : uint32_t {
     eD1W_0 = 0, // No Write Access
     eD1W_1 = 1, // Write Access Allowed
   };
+  
   enum class eD1R : uint32_t {
     eD1R_0 = 0, // No Read Access
     eD1R_1 = 1, // Read Access Allowed
   };
+  
   enum class eSREQ : uint32_t {
     eSREQ_0 = 0, // Semaphores have no effect
     eSREQ_1 = 1, // Semaphores are enforced
   };
+  
   enum class eLCK : uint32_t {
     eLCK_0 = 0, // Not Locked
     eLCK_1 = 1, // Locked
@@ -2884,7 +3083,7 @@ union RDC_PDAP50 {
     uint32_t _reserved_4 : 26;
     eSREQ SREQ : 1;
     eLCK LCK : 1;
-  } bits;          // Bit-field struct (auto-filling reserved gaps)
+  } bits;
   
   // Full 32-bit register value.
   uint32_t value;
@@ -2897,27 +3096,31 @@ union RDC_PDAP50 {
 //
 union RDC_PDAP51 {
   
-  // Enum definitions.
   enum class eD0W : uint32_t {
     eD0W_0 = 0, // No Write Access
     eD0W_1 = 1, // Write Access Allowed
   };
+  
   enum class eD0R : uint32_t {
     eD0R_0 = 0, // No Read Access
     eD0R_1 = 1, // Read Access Allowed
   };
+  
   enum class eD1W : uint32_t {
     eD1W_0 = 0, // No Write Access
     eD1W_1 = 1, // Write Access Allowed
   };
+  
   enum class eD1R : uint32_t {
     eD1R_0 = 0, // No Read Access
     eD1R_1 = 1, // Read Access Allowed
   };
+  
   enum class eSREQ : uint32_t {
     eSREQ_0 = 0, // Semaphores have no effect
     eSREQ_1 = 1, // Semaphores are enforced
   };
+  
   enum class eLCK : uint32_t {
     eLCK_0 = 0, // Not Locked
     eLCK_1 = 1, // Locked
@@ -2932,7 +3135,7 @@ union RDC_PDAP51 {
     uint32_t _reserved_4 : 26;
     eSREQ SREQ : 1;
     eLCK LCK : 1;
-  } bits;          // Bit-field struct (auto-filling reserved gaps)
+  } bits;
   
   // Full 32-bit register value.
   uint32_t value;
@@ -2945,27 +3148,31 @@ union RDC_PDAP51 {
 //
 union RDC_PDAP52 {
   
-  // Enum definitions.
   enum class eD0W : uint32_t {
     eD0W_0 = 0, // No Write Access
     eD0W_1 = 1, // Write Access Allowed
   };
+  
   enum class eD0R : uint32_t {
     eD0R_0 = 0, // No Read Access
     eD0R_1 = 1, // Read Access Allowed
   };
+  
   enum class eD1W : uint32_t {
     eD1W_0 = 0, // No Write Access
     eD1W_1 = 1, // Write Access Allowed
   };
+  
   enum class eD1R : uint32_t {
     eD1R_0 = 0, // No Read Access
     eD1R_1 = 1, // Read Access Allowed
   };
+  
   enum class eSREQ : uint32_t {
     eSREQ_0 = 0, // Semaphores have no effect
     eSREQ_1 = 1, // Semaphores are enforced
   };
+  
   enum class eLCK : uint32_t {
     eLCK_0 = 0, // Not Locked
     eLCK_1 = 1, // Locked
@@ -2980,7 +3187,7 @@ union RDC_PDAP52 {
     uint32_t _reserved_4 : 26;
     eSREQ SREQ : 1;
     eLCK LCK : 1;
-  } bits;          // Bit-field struct (auto-filling reserved gaps)
+  } bits;
   
   // Full 32-bit register value.
   uint32_t value;
@@ -2993,27 +3200,31 @@ union RDC_PDAP52 {
 //
 union RDC_PDAP53 {
   
-  // Enum definitions.
   enum class eD0W : uint32_t {
     eD0W_0 = 0, // No Write Access
     eD0W_1 = 1, // Write Access Allowed
   };
+  
   enum class eD0R : uint32_t {
     eD0R_0 = 0, // No Read Access
     eD0R_1 = 1, // Read Access Allowed
   };
+  
   enum class eD1W : uint32_t {
     eD1W_0 = 0, // No Write Access
     eD1W_1 = 1, // Write Access Allowed
   };
+  
   enum class eD1R : uint32_t {
     eD1R_0 = 0, // No Read Access
     eD1R_1 = 1, // Read Access Allowed
   };
+  
   enum class eSREQ : uint32_t {
     eSREQ_0 = 0, // Semaphores have no effect
     eSREQ_1 = 1, // Semaphores are enforced
   };
+  
   enum class eLCK : uint32_t {
     eLCK_0 = 0, // Not Locked
     eLCK_1 = 1, // Locked
@@ -3028,7 +3239,7 @@ union RDC_PDAP53 {
     uint32_t _reserved_4 : 26;
     eSREQ SREQ : 1;
     eLCK LCK : 1;
-  } bits;          // Bit-field struct (auto-filling reserved gaps)
+  } bits;
   
   // Full 32-bit register value.
   uint32_t value;
@@ -3041,27 +3252,31 @@ union RDC_PDAP53 {
 //
 union RDC_PDAP54 {
   
-  // Enum definitions.
   enum class eD0W : uint32_t {
     eD0W_0 = 0, // No Write Access
     eD0W_1 = 1, // Write Access Allowed
   };
+  
   enum class eD0R : uint32_t {
     eD0R_0 = 0, // No Read Access
     eD0R_1 = 1, // Read Access Allowed
   };
+  
   enum class eD1W : uint32_t {
     eD1W_0 = 0, // No Write Access
     eD1W_1 = 1, // Write Access Allowed
   };
+  
   enum class eD1R : uint32_t {
     eD1R_0 = 0, // No Read Access
     eD1R_1 = 1, // Read Access Allowed
   };
+  
   enum class eSREQ : uint32_t {
     eSREQ_0 = 0, // Semaphores have no effect
     eSREQ_1 = 1, // Semaphores are enforced
   };
+  
   enum class eLCK : uint32_t {
     eLCK_0 = 0, // Not Locked
     eLCK_1 = 1, // Locked
@@ -3076,7 +3291,7 @@ union RDC_PDAP54 {
     uint32_t _reserved_4 : 26;
     eSREQ SREQ : 1;
     eLCK LCK : 1;
-  } bits;          // Bit-field struct (auto-filling reserved gaps)
+  } bits;
   
   // Full 32-bit register value.
   uint32_t value;
@@ -3089,27 +3304,31 @@ union RDC_PDAP54 {
 //
 union RDC_PDAP55 {
   
-  // Enum definitions.
   enum class eD0W : uint32_t {
     eD0W_0 = 0, // No Write Access
     eD0W_1 = 1, // Write Access Allowed
   };
+  
   enum class eD0R : uint32_t {
     eD0R_0 = 0, // No Read Access
     eD0R_1 = 1, // Read Access Allowed
   };
+  
   enum class eD1W : uint32_t {
     eD1W_0 = 0, // No Write Access
     eD1W_1 = 1, // Write Access Allowed
   };
+  
   enum class eD1R : uint32_t {
     eD1R_0 = 0, // No Read Access
     eD1R_1 = 1, // Read Access Allowed
   };
+  
   enum class eSREQ : uint32_t {
     eSREQ_0 = 0, // Semaphores have no effect
     eSREQ_1 = 1, // Semaphores are enforced
   };
+  
   enum class eLCK : uint32_t {
     eLCK_0 = 0, // Not Locked
     eLCK_1 = 1, // Locked
@@ -3124,7 +3343,7 @@ union RDC_PDAP55 {
     uint32_t _reserved_4 : 26;
     eSREQ SREQ : 1;
     eLCK LCK : 1;
-  } bits;          // Bit-field struct (auto-filling reserved gaps)
+  } bits;
   
   // Full 32-bit register value.
   uint32_t value;
@@ -3137,27 +3356,31 @@ union RDC_PDAP55 {
 //
 union RDC_PDAP56 {
   
-  // Enum definitions.
   enum class eD0W : uint32_t {
     eD0W_0 = 0, // No Write Access
     eD0W_1 = 1, // Write Access Allowed
   };
+  
   enum class eD0R : uint32_t {
     eD0R_0 = 0, // No Read Access
     eD0R_1 = 1, // Read Access Allowed
   };
+  
   enum class eD1W : uint32_t {
     eD1W_0 = 0, // No Write Access
     eD1W_1 = 1, // Write Access Allowed
   };
+  
   enum class eD1R : uint32_t {
     eD1R_0 = 0, // No Read Access
     eD1R_1 = 1, // Read Access Allowed
   };
+  
   enum class eSREQ : uint32_t {
     eSREQ_0 = 0, // Semaphores have no effect
     eSREQ_1 = 1, // Semaphores are enforced
   };
+  
   enum class eLCK : uint32_t {
     eLCK_0 = 0, // Not Locked
     eLCK_1 = 1, // Locked
@@ -3172,7 +3395,7 @@ union RDC_PDAP56 {
     uint32_t _reserved_4 : 26;
     eSREQ SREQ : 1;
     eLCK LCK : 1;
-  } bits;          // Bit-field struct (auto-filling reserved gaps)
+  } bits;
   
   // Full 32-bit register value.
   uint32_t value;
@@ -3185,27 +3408,31 @@ union RDC_PDAP56 {
 //
 union RDC_PDAP57 {
   
-  // Enum definitions.
   enum class eD0W : uint32_t {
     eD0W_0 = 0, // No Write Access
     eD0W_1 = 1, // Write Access Allowed
   };
+  
   enum class eD0R : uint32_t {
     eD0R_0 = 0, // No Read Access
     eD0R_1 = 1, // Read Access Allowed
   };
+  
   enum class eD1W : uint32_t {
     eD1W_0 = 0, // No Write Access
     eD1W_1 = 1, // Write Access Allowed
   };
+  
   enum class eD1R : uint32_t {
     eD1R_0 = 0, // No Read Access
     eD1R_1 = 1, // Read Access Allowed
   };
+  
   enum class eSREQ : uint32_t {
     eSREQ_0 = 0, // Semaphores have no effect
     eSREQ_1 = 1, // Semaphores are enforced
   };
+  
   enum class eLCK : uint32_t {
     eLCK_0 = 0, // Not Locked
     eLCK_1 = 1, // Locked
@@ -3220,7 +3447,7 @@ union RDC_PDAP57 {
     uint32_t _reserved_4 : 26;
     eSREQ SREQ : 1;
     eLCK LCK : 1;
-  } bits;          // Bit-field struct (auto-filling reserved gaps)
+  } bits;
   
   // Full 32-bit register value.
   uint32_t value;
@@ -3233,27 +3460,31 @@ union RDC_PDAP57 {
 //
 union RDC_PDAP58 {
   
-  // Enum definitions.
   enum class eD0W : uint32_t {
     eD0W_0 = 0, // No Write Access
     eD0W_1 = 1, // Write Access Allowed
   };
+  
   enum class eD0R : uint32_t {
     eD0R_0 = 0, // No Read Access
     eD0R_1 = 1, // Read Access Allowed
   };
+  
   enum class eD1W : uint32_t {
     eD1W_0 = 0, // No Write Access
     eD1W_1 = 1, // Write Access Allowed
   };
+  
   enum class eD1R : uint32_t {
     eD1R_0 = 0, // No Read Access
     eD1R_1 = 1, // Read Access Allowed
   };
+  
   enum class eSREQ : uint32_t {
     eSREQ_0 = 0, // Semaphores have no effect
     eSREQ_1 = 1, // Semaphores are enforced
   };
+  
   enum class eLCK : uint32_t {
     eLCK_0 = 0, // Not Locked
     eLCK_1 = 1, // Locked
@@ -3268,7 +3499,7 @@ union RDC_PDAP58 {
     uint32_t _reserved_4 : 26;
     eSREQ SREQ : 1;
     eLCK LCK : 1;
-  } bits;          // Bit-field struct (auto-filling reserved gaps)
+  } bits;
   
   // Full 32-bit register value.
   uint32_t value;
@@ -3281,27 +3512,31 @@ union RDC_PDAP58 {
 //
 union RDC_PDAP59 {
   
-  // Enum definitions.
   enum class eD0W : uint32_t {
     eD0W_0 = 0, // No Write Access
     eD0W_1 = 1, // Write Access Allowed
   };
+  
   enum class eD0R : uint32_t {
     eD0R_0 = 0, // No Read Access
     eD0R_1 = 1, // Read Access Allowed
   };
+  
   enum class eD1W : uint32_t {
     eD1W_0 = 0, // No Write Access
     eD1W_1 = 1, // Write Access Allowed
   };
+  
   enum class eD1R : uint32_t {
     eD1R_0 = 0, // No Read Access
     eD1R_1 = 1, // Read Access Allowed
   };
+  
   enum class eSREQ : uint32_t {
     eSREQ_0 = 0, // Semaphores have no effect
     eSREQ_1 = 1, // Semaphores are enforced
   };
+  
   enum class eLCK : uint32_t {
     eLCK_0 = 0, // Not Locked
     eLCK_1 = 1, // Locked
@@ -3316,7 +3551,7 @@ union RDC_PDAP59 {
     uint32_t _reserved_4 : 26;
     eSREQ SREQ : 1;
     eLCK LCK : 1;
-  } bits;          // Bit-field struct (auto-filling reserved gaps)
+  } bits;
   
   // Full 32-bit register value.
   uint32_t value;
@@ -3329,27 +3564,31 @@ union RDC_PDAP59 {
 //
 union RDC_PDAP60 {
   
-  // Enum definitions.
   enum class eD0W : uint32_t {
     eD0W_0 = 0, // No Write Access
     eD0W_1 = 1, // Write Access Allowed
   };
+  
   enum class eD0R : uint32_t {
     eD0R_0 = 0, // No Read Access
     eD0R_1 = 1, // Read Access Allowed
   };
+  
   enum class eD1W : uint32_t {
     eD1W_0 = 0, // No Write Access
     eD1W_1 = 1, // Write Access Allowed
   };
+  
   enum class eD1R : uint32_t {
     eD1R_0 = 0, // No Read Access
     eD1R_1 = 1, // Read Access Allowed
   };
+  
   enum class eSREQ : uint32_t {
     eSREQ_0 = 0, // Semaphores have no effect
     eSREQ_1 = 1, // Semaphores are enforced
   };
+  
   enum class eLCK : uint32_t {
     eLCK_0 = 0, // Not Locked
     eLCK_1 = 1, // Locked
@@ -3364,7 +3603,7 @@ union RDC_PDAP60 {
     uint32_t _reserved_4 : 26;
     eSREQ SREQ : 1;
     eLCK LCK : 1;
-  } bits;          // Bit-field struct (auto-filling reserved gaps)
+  } bits;
   
   // Full 32-bit register value.
   uint32_t value;
@@ -3377,27 +3616,31 @@ union RDC_PDAP60 {
 //
 union RDC_PDAP61 {
   
-  // Enum definitions.
   enum class eD0W : uint32_t {
     eD0W_0 = 0, // No Write Access
     eD0W_1 = 1, // Write Access Allowed
   };
+  
   enum class eD0R : uint32_t {
     eD0R_0 = 0, // No Read Access
     eD0R_1 = 1, // Read Access Allowed
   };
+  
   enum class eD1W : uint32_t {
     eD1W_0 = 0, // No Write Access
     eD1W_1 = 1, // Write Access Allowed
   };
+  
   enum class eD1R : uint32_t {
     eD1R_0 = 0, // No Read Access
     eD1R_1 = 1, // Read Access Allowed
   };
+  
   enum class eSREQ : uint32_t {
     eSREQ_0 = 0, // Semaphores have no effect
     eSREQ_1 = 1, // Semaphores are enforced
   };
+  
   enum class eLCK : uint32_t {
     eLCK_0 = 0, // Not Locked
     eLCK_1 = 1, // Locked
@@ -3412,7 +3655,7 @@ union RDC_PDAP61 {
     uint32_t _reserved_4 : 26;
     eSREQ SREQ : 1;
     eLCK LCK : 1;
-  } bits;          // Bit-field struct (auto-filling reserved gaps)
+  } bits;
   
   // Full 32-bit register value.
   uint32_t value;
@@ -3425,27 +3668,31 @@ union RDC_PDAP61 {
 //
 union RDC_PDAP62 {
   
-  // Enum definitions.
   enum class eD0W : uint32_t {
     eD0W_0 = 0, // No Write Access
     eD0W_1 = 1, // Write Access Allowed
   };
+  
   enum class eD0R : uint32_t {
     eD0R_0 = 0, // No Read Access
     eD0R_1 = 1, // Read Access Allowed
   };
+  
   enum class eD1W : uint32_t {
     eD1W_0 = 0, // No Write Access
     eD1W_1 = 1, // Write Access Allowed
   };
+  
   enum class eD1R : uint32_t {
     eD1R_0 = 0, // No Read Access
     eD1R_1 = 1, // Read Access Allowed
   };
+  
   enum class eSREQ : uint32_t {
     eSREQ_0 = 0, // Semaphores have no effect
     eSREQ_1 = 1, // Semaphores are enforced
   };
+  
   enum class eLCK : uint32_t {
     eLCK_0 = 0, // Not Locked
     eLCK_1 = 1, // Locked
@@ -3460,7 +3707,7 @@ union RDC_PDAP62 {
     uint32_t _reserved_4 : 26;
     eSREQ SREQ : 1;
     eLCK LCK : 1;
-  } bits;          // Bit-field struct (auto-filling reserved gaps)
+  } bits;
   
   // Full 32-bit register value.
   uint32_t value;
@@ -3473,27 +3720,31 @@ union RDC_PDAP62 {
 //
 union RDC_PDAP63 {
   
-  // Enum definitions.
   enum class eD0W : uint32_t {
     eD0W_0 = 0, // No Write Access
     eD0W_1 = 1, // Write Access Allowed
   };
+  
   enum class eD0R : uint32_t {
     eD0R_0 = 0, // No Read Access
     eD0R_1 = 1, // Read Access Allowed
   };
+  
   enum class eD1W : uint32_t {
     eD1W_0 = 0, // No Write Access
     eD1W_1 = 1, // Write Access Allowed
   };
+  
   enum class eD1R : uint32_t {
     eD1R_0 = 0, // No Read Access
     eD1R_1 = 1, // Read Access Allowed
   };
+  
   enum class eSREQ : uint32_t {
     eSREQ_0 = 0, // Semaphores have no effect
     eSREQ_1 = 1, // Semaphores are enforced
   };
+  
   enum class eLCK : uint32_t {
     eLCK_0 = 0, // Not Locked
     eLCK_1 = 1, // Locked
@@ -3508,7 +3759,7 @@ union RDC_PDAP63 {
     uint32_t _reserved_4 : 26;
     eSREQ SREQ : 1;
     eLCK LCK : 1;
-  } bits;          // Bit-field struct (auto-filling reserved gaps)
+  } bits;
   
   // Full 32-bit register value.
   uint32_t value;
@@ -3521,27 +3772,31 @@ union RDC_PDAP63 {
 //
 union RDC_PDAP64 {
   
-  // Enum definitions.
   enum class eD0W : uint32_t {
     eD0W_0 = 0, // No Write Access
     eD0W_1 = 1, // Write Access Allowed
   };
+  
   enum class eD0R : uint32_t {
     eD0R_0 = 0, // No Read Access
     eD0R_1 = 1, // Read Access Allowed
   };
+  
   enum class eD1W : uint32_t {
     eD1W_0 = 0, // No Write Access
     eD1W_1 = 1, // Write Access Allowed
   };
+  
   enum class eD1R : uint32_t {
     eD1R_0 = 0, // No Read Access
     eD1R_1 = 1, // Read Access Allowed
   };
+  
   enum class eSREQ : uint32_t {
     eSREQ_0 = 0, // Semaphores have no effect
     eSREQ_1 = 1, // Semaphores are enforced
   };
+  
   enum class eLCK : uint32_t {
     eLCK_0 = 0, // Not Locked
     eLCK_1 = 1, // Locked
@@ -3556,7 +3811,7 @@ union RDC_PDAP64 {
     uint32_t _reserved_4 : 26;
     eSREQ SREQ : 1;
     eLCK LCK : 1;
-  } bits;          // Bit-field struct (auto-filling reserved gaps)
+  } bits;
   
   // Full 32-bit register value.
   uint32_t value;
@@ -3569,27 +3824,31 @@ union RDC_PDAP64 {
 //
 union RDC_PDAP65 {
   
-  // Enum definitions.
   enum class eD0W : uint32_t {
     eD0W_0 = 0, // No Write Access
     eD0W_1 = 1, // Write Access Allowed
   };
+  
   enum class eD0R : uint32_t {
     eD0R_0 = 0, // No Read Access
     eD0R_1 = 1, // Read Access Allowed
   };
+  
   enum class eD1W : uint32_t {
     eD1W_0 = 0, // No Write Access
     eD1W_1 = 1, // Write Access Allowed
   };
+  
   enum class eD1R : uint32_t {
     eD1R_0 = 0, // No Read Access
     eD1R_1 = 1, // Read Access Allowed
   };
+  
   enum class eSREQ : uint32_t {
     eSREQ_0 = 0, // Semaphores have no effect
     eSREQ_1 = 1, // Semaphores are enforced
   };
+  
   enum class eLCK : uint32_t {
     eLCK_0 = 0, // Not Locked
     eLCK_1 = 1, // Locked
@@ -3604,7 +3863,7 @@ union RDC_PDAP65 {
     uint32_t _reserved_4 : 26;
     eSREQ SREQ : 1;
     eLCK LCK : 1;
-  } bits;          // Bit-field struct (auto-filling reserved gaps)
+  } bits;
   
   // Full 32-bit register value.
   uint32_t value;
@@ -3617,27 +3876,31 @@ union RDC_PDAP65 {
 //
 union RDC_PDAP66 {
   
-  // Enum definitions.
   enum class eD0W : uint32_t {
     eD0W_0 = 0, // No Write Access
     eD0W_1 = 1, // Write Access Allowed
   };
+  
   enum class eD0R : uint32_t {
     eD0R_0 = 0, // No Read Access
     eD0R_1 = 1, // Read Access Allowed
   };
+  
   enum class eD1W : uint32_t {
     eD1W_0 = 0, // No Write Access
     eD1W_1 = 1, // Write Access Allowed
   };
+  
   enum class eD1R : uint32_t {
     eD1R_0 = 0, // No Read Access
     eD1R_1 = 1, // Read Access Allowed
   };
+  
   enum class eSREQ : uint32_t {
     eSREQ_0 = 0, // Semaphores have no effect
     eSREQ_1 = 1, // Semaphores are enforced
   };
+  
   enum class eLCK : uint32_t {
     eLCK_0 = 0, // Not Locked
     eLCK_1 = 1, // Locked
@@ -3652,7 +3915,7 @@ union RDC_PDAP66 {
     uint32_t _reserved_4 : 26;
     eSREQ SREQ : 1;
     eLCK LCK : 1;
-  } bits;          // Bit-field struct (auto-filling reserved gaps)
+  } bits;
   
   // Full 32-bit register value.
   uint32_t value;
@@ -3665,27 +3928,31 @@ union RDC_PDAP66 {
 //
 union RDC_PDAP67 {
   
-  // Enum definitions.
   enum class eD0W : uint32_t {
     eD0W_0 = 0, // No Write Access
     eD0W_1 = 1, // Write Access Allowed
   };
+  
   enum class eD0R : uint32_t {
     eD0R_0 = 0, // No Read Access
     eD0R_1 = 1, // Read Access Allowed
   };
+  
   enum class eD1W : uint32_t {
     eD1W_0 = 0, // No Write Access
     eD1W_1 = 1, // Write Access Allowed
   };
+  
   enum class eD1R : uint32_t {
     eD1R_0 = 0, // No Read Access
     eD1R_1 = 1, // Read Access Allowed
   };
+  
   enum class eSREQ : uint32_t {
     eSREQ_0 = 0, // Semaphores have no effect
     eSREQ_1 = 1, // Semaphores are enforced
   };
+  
   enum class eLCK : uint32_t {
     eLCK_0 = 0, // Not Locked
     eLCK_1 = 1, // Locked
@@ -3700,7 +3967,7 @@ union RDC_PDAP67 {
     uint32_t _reserved_4 : 26;
     eSREQ SREQ : 1;
     eLCK LCK : 1;
-  } bits;          // Bit-field struct (auto-filling reserved gaps)
+  } bits;
   
   // Full 32-bit register value.
   uint32_t value;
@@ -3713,27 +3980,31 @@ union RDC_PDAP67 {
 //
 union RDC_PDAP68 {
   
-  // Enum definitions.
   enum class eD0W : uint32_t {
     eD0W_0 = 0, // No Write Access
     eD0W_1 = 1, // Write Access Allowed
   };
+  
   enum class eD0R : uint32_t {
     eD0R_0 = 0, // No Read Access
     eD0R_1 = 1, // Read Access Allowed
   };
+  
   enum class eD1W : uint32_t {
     eD1W_0 = 0, // No Write Access
     eD1W_1 = 1, // Write Access Allowed
   };
+  
   enum class eD1R : uint32_t {
     eD1R_0 = 0, // No Read Access
     eD1R_1 = 1, // Read Access Allowed
   };
+  
   enum class eSREQ : uint32_t {
     eSREQ_0 = 0, // Semaphores have no effect
     eSREQ_1 = 1, // Semaphores are enforced
   };
+  
   enum class eLCK : uint32_t {
     eLCK_0 = 0, // Not Locked
     eLCK_1 = 1, // Locked
@@ -3748,7 +4019,7 @@ union RDC_PDAP68 {
     uint32_t _reserved_4 : 26;
     eSREQ SREQ : 1;
     eLCK LCK : 1;
-  } bits;          // Bit-field struct (auto-filling reserved gaps)
+  } bits;
   
   // Full 32-bit register value.
   uint32_t value;
@@ -3761,27 +4032,31 @@ union RDC_PDAP68 {
 //
 union RDC_PDAP69 {
   
-  // Enum definitions.
   enum class eD0W : uint32_t {
     eD0W_0 = 0, // No Write Access
     eD0W_1 = 1, // Write Access Allowed
   };
+  
   enum class eD0R : uint32_t {
     eD0R_0 = 0, // No Read Access
     eD0R_1 = 1, // Read Access Allowed
   };
+  
   enum class eD1W : uint32_t {
     eD1W_0 = 0, // No Write Access
     eD1W_1 = 1, // Write Access Allowed
   };
+  
   enum class eD1R : uint32_t {
     eD1R_0 = 0, // No Read Access
     eD1R_1 = 1, // Read Access Allowed
   };
+  
   enum class eSREQ : uint32_t {
     eSREQ_0 = 0, // Semaphores have no effect
     eSREQ_1 = 1, // Semaphores are enforced
   };
+  
   enum class eLCK : uint32_t {
     eLCK_0 = 0, // Not Locked
     eLCK_1 = 1, // Locked
@@ -3796,7 +4071,7 @@ union RDC_PDAP69 {
     uint32_t _reserved_4 : 26;
     eSREQ SREQ : 1;
     eLCK LCK : 1;
-  } bits;          // Bit-field struct (auto-filling reserved gaps)
+  } bits;
   
   // Full 32-bit register value.
   uint32_t value;
@@ -3809,27 +4084,31 @@ union RDC_PDAP69 {
 //
 union RDC_PDAP70 {
   
-  // Enum definitions.
   enum class eD0W : uint32_t {
     eD0W_0 = 0, // No Write Access
     eD0W_1 = 1, // Write Access Allowed
   };
+  
   enum class eD0R : uint32_t {
     eD0R_0 = 0, // No Read Access
     eD0R_1 = 1, // Read Access Allowed
   };
+  
   enum class eD1W : uint32_t {
     eD1W_0 = 0, // No Write Access
     eD1W_1 = 1, // Write Access Allowed
   };
+  
   enum class eD1R : uint32_t {
     eD1R_0 = 0, // No Read Access
     eD1R_1 = 1, // Read Access Allowed
   };
+  
   enum class eSREQ : uint32_t {
     eSREQ_0 = 0, // Semaphores have no effect
     eSREQ_1 = 1, // Semaphores are enforced
   };
+  
   enum class eLCK : uint32_t {
     eLCK_0 = 0, // Not Locked
     eLCK_1 = 1, // Locked
@@ -3844,7 +4123,7 @@ union RDC_PDAP70 {
     uint32_t _reserved_4 : 26;
     eSREQ SREQ : 1;
     eLCK LCK : 1;
-  } bits;          // Bit-field struct (auto-filling reserved gaps)
+  } bits;
   
   // Full 32-bit register value.
   uint32_t value;
@@ -3857,27 +4136,31 @@ union RDC_PDAP70 {
 //
 union RDC_PDAP71 {
   
-  // Enum definitions.
   enum class eD0W : uint32_t {
     eD0W_0 = 0, // No Write Access
     eD0W_1 = 1, // Write Access Allowed
   };
+  
   enum class eD0R : uint32_t {
     eD0R_0 = 0, // No Read Access
     eD0R_1 = 1, // Read Access Allowed
   };
+  
   enum class eD1W : uint32_t {
     eD1W_0 = 0, // No Write Access
     eD1W_1 = 1, // Write Access Allowed
   };
+  
   enum class eD1R : uint32_t {
     eD1R_0 = 0, // No Read Access
     eD1R_1 = 1, // Read Access Allowed
   };
+  
   enum class eSREQ : uint32_t {
     eSREQ_0 = 0, // Semaphores have no effect
     eSREQ_1 = 1, // Semaphores are enforced
   };
+  
   enum class eLCK : uint32_t {
     eLCK_0 = 0, // Not Locked
     eLCK_1 = 1, // Locked
@@ -3892,7 +4175,7 @@ union RDC_PDAP71 {
     uint32_t _reserved_4 : 26;
     eSREQ SREQ : 1;
     eLCK LCK : 1;
-  } bits;          // Bit-field struct (auto-filling reserved gaps)
+  } bits;
   
   // Full 32-bit register value.
   uint32_t value;
@@ -3905,27 +4188,31 @@ union RDC_PDAP71 {
 //
 union RDC_PDAP72 {
   
-  // Enum definitions.
   enum class eD0W : uint32_t {
     eD0W_0 = 0, // No Write Access
     eD0W_1 = 1, // Write Access Allowed
   };
+  
   enum class eD0R : uint32_t {
     eD0R_0 = 0, // No Read Access
     eD0R_1 = 1, // Read Access Allowed
   };
+  
   enum class eD1W : uint32_t {
     eD1W_0 = 0, // No Write Access
     eD1W_1 = 1, // Write Access Allowed
   };
+  
   enum class eD1R : uint32_t {
     eD1R_0 = 0, // No Read Access
     eD1R_1 = 1, // Read Access Allowed
   };
+  
   enum class eSREQ : uint32_t {
     eSREQ_0 = 0, // Semaphores have no effect
     eSREQ_1 = 1, // Semaphores are enforced
   };
+  
   enum class eLCK : uint32_t {
     eLCK_0 = 0, // Not Locked
     eLCK_1 = 1, // Locked
@@ -3940,7 +4227,7 @@ union RDC_PDAP72 {
     uint32_t _reserved_4 : 26;
     eSREQ SREQ : 1;
     eLCK LCK : 1;
-  } bits;          // Bit-field struct (auto-filling reserved gaps)
+  } bits;
   
   // Full 32-bit register value.
   uint32_t value;
@@ -3953,27 +4240,31 @@ union RDC_PDAP72 {
 //
 union RDC_PDAP73 {
   
-  // Enum definitions.
   enum class eD0W : uint32_t {
     eD0W_0 = 0, // No Write Access
     eD0W_1 = 1, // Write Access Allowed
   };
+  
   enum class eD0R : uint32_t {
     eD0R_0 = 0, // No Read Access
     eD0R_1 = 1, // Read Access Allowed
   };
+  
   enum class eD1W : uint32_t {
     eD1W_0 = 0, // No Write Access
     eD1W_1 = 1, // Write Access Allowed
   };
+  
   enum class eD1R : uint32_t {
     eD1R_0 = 0, // No Read Access
     eD1R_1 = 1, // Read Access Allowed
   };
+  
   enum class eSREQ : uint32_t {
     eSREQ_0 = 0, // Semaphores have no effect
     eSREQ_1 = 1, // Semaphores are enforced
   };
+  
   enum class eLCK : uint32_t {
     eLCK_0 = 0, // Not Locked
     eLCK_1 = 1, // Locked
@@ -3988,7 +4279,7 @@ union RDC_PDAP73 {
     uint32_t _reserved_4 : 26;
     eSREQ SREQ : 1;
     eLCK LCK : 1;
-  } bits;          // Bit-field struct (auto-filling reserved gaps)
+  } bits;
   
   // Full 32-bit register value.
   uint32_t value;
@@ -4001,27 +4292,31 @@ union RDC_PDAP73 {
 //
 union RDC_PDAP74 {
   
-  // Enum definitions.
   enum class eD0W : uint32_t {
     eD0W_0 = 0, // No Write Access
     eD0W_1 = 1, // Write Access Allowed
   };
+  
   enum class eD0R : uint32_t {
     eD0R_0 = 0, // No Read Access
     eD0R_1 = 1, // Read Access Allowed
   };
+  
   enum class eD1W : uint32_t {
     eD1W_0 = 0, // No Write Access
     eD1W_1 = 1, // Write Access Allowed
   };
+  
   enum class eD1R : uint32_t {
     eD1R_0 = 0, // No Read Access
     eD1R_1 = 1, // Read Access Allowed
   };
+  
   enum class eSREQ : uint32_t {
     eSREQ_0 = 0, // Semaphores have no effect
     eSREQ_1 = 1, // Semaphores are enforced
   };
+  
   enum class eLCK : uint32_t {
     eLCK_0 = 0, // Not Locked
     eLCK_1 = 1, // Locked
@@ -4036,7 +4331,7 @@ union RDC_PDAP74 {
     uint32_t _reserved_4 : 26;
     eSREQ SREQ : 1;
     eLCK LCK : 1;
-  } bits;          // Bit-field struct (auto-filling reserved gaps)
+  } bits;
   
   // Full 32-bit register value.
   uint32_t value;
@@ -4049,27 +4344,31 @@ union RDC_PDAP74 {
 //
 union RDC_PDAP75 {
   
-  // Enum definitions.
   enum class eD0W : uint32_t {
     eD0W_0 = 0, // No Write Access
     eD0W_1 = 1, // Write Access Allowed
   };
+  
   enum class eD0R : uint32_t {
     eD0R_0 = 0, // No Read Access
     eD0R_1 = 1, // Read Access Allowed
   };
+  
   enum class eD1W : uint32_t {
     eD1W_0 = 0, // No Write Access
     eD1W_1 = 1, // Write Access Allowed
   };
+  
   enum class eD1R : uint32_t {
     eD1R_0 = 0, // No Read Access
     eD1R_1 = 1, // Read Access Allowed
   };
+  
   enum class eSREQ : uint32_t {
     eSREQ_0 = 0, // Semaphores have no effect
     eSREQ_1 = 1, // Semaphores are enforced
   };
+  
   enum class eLCK : uint32_t {
     eLCK_0 = 0, // Not Locked
     eLCK_1 = 1, // Locked
@@ -4084,7 +4383,7 @@ union RDC_PDAP75 {
     uint32_t _reserved_4 : 26;
     eSREQ SREQ : 1;
     eLCK LCK : 1;
-  } bits;          // Bit-field struct (auto-filling reserved gaps)
+  } bits;
   
   // Full 32-bit register value.
   uint32_t value;
@@ -4097,27 +4396,31 @@ union RDC_PDAP75 {
 //
 union RDC_PDAP76 {
   
-  // Enum definitions.
   enum class eD0W : uint32_t {
     eD0W_0 = 0, // No Write Access
     eD0W_1 = 1, // Write Access Allowed
   };
+  
   enum class eD0R : uint32_t {
     eD0R_0 = 0, // No Read Access
     eD0R_1 = 1, // Read Access Allowed
   };
+  
   enum class eD1W : uint32_t {
     eD1W_0 = 0, // No Write Access
     eD1W_1 = 1, // Write Access Allowed
   };
+  
   enum class eD1R : uint32_t {
     eD1R_0 = 0, // No Read Access
     eD1R_1 = 1, // Read Access Allowed
   };
+  
   enum class eSREQ : uint32_t {
     eSREQ_0 = 0, // Semaphores have no effect
     eSREQ_1 = 1, // Semaphores are enforced
   };
+  
   enum class eLCK : uint32_t {
     eLCK_0 = 0, // Not Locked
     eLCK_1 = 1, // Locked
@@ -4132,7 +4435,7 @@ union RDC_PDAP76 {
     uint32_t _reserved_4 : 26;
     eSREQ SREQ : 1;
     eLCK LCK : 1;
-  } bits;          // Bit-field struct (auto-filling reserved gaps)
+  } bits;
   
   // Full 32-bit register value.
   uint32_t value;
@@ -4145,27 +4448,31 @@ union RDC_PDAP76 {
 //
 union RDC_PDAP77 {
   
-  // Enum definitions.
   enum class eD0W : uint32_t {
     eD0W_0 = 0, // No Write Access
     eD0W_1 = 1, // Write Access Allowed
   };
+  
   enum class eD0R : uint32_t {
     eD0R_0 = 0, // No Read Access
     eD0R_1 = 1, // Read Access Allowed
   };
+  
   enum class eD1W : uint32_t {
     eD1W_0 = 0, // No Write Access
     eD1W_1 = 1, // Write Access Allowed
   };
+  
   enum class eD1R : uint32_t {
     eD1R_0 = 0, // No Read Access
     eD1R_1 = 1, // Read Access Allowed
   };
+  
   enum class eSREQ : uint32_t {
     eSREQ_0 = 0, // Semaphores have no effect
     eSREQ_1 = 1, // Semaphores are enforced
   };
+  
   enum class eLCK : uint32_t {
     eLCK_0 = 0, // Not Locked
     eLCK_1 = 1, // Locked
@@ -4180,7 +4487,7 @@ union RDC_PDAP77 {
     uint32_t _reserved_4 : 26;
     eSREQ SREQ : 1;
     eLCK LCK : 1;
-  } bits;          // Bit-field struct (auto-filling reserved gaps)
+  } bits;
   
   // Full 32-bit register value.
   uint32_t value;
@@ -4193,27 +4500,31 @@ union RDC_PDAP77 {
 //
 union RDC_PDAP78 {
   
-  // Enum definitions.
   enum class eD0W : uint32_t {
     eD0W_0 = 0, // No Write Access
     eD0W_1 = 1, // Write Access Allowed
   };
+  
   enum class eD0R : uint32_t {
     eD0R_0 = 0, // No Read Access
     eD0R_1 = 1, // Read Access Allowed
   };
+  
   enum class eD1W : uint32_t {
     eD1W_0 = 0, // No Write Access
     eD1W_1 = 1, // Write Access Allowed
   };
+  
   enum class eD1R : uint32_t {
     eD1R_0 = 0, // No Read Access
     eD1R_1 = 1, // Read Access Allowed
   };
+  
   enum class eSREQ : uint32_t {
     eSREQ_0 = 0, // Semaphores have no effect
     eSREQ_1 = 1, // Semaphores are enforced
   };
+  
   enum class eLCK : uint32_t {
     eLCK_0 = 0, // Not Locked
     eLCK_1 = 1, // Locked
@@ -4228,7 +4539,7 @@ union RDC_PDAP78 {
     uint32_t _reserved_4 : 26;
     eSREQ SREQ : 1;
     eLCK LCK : 1;
-  } bits;          // Bit-field struct (auto-filling reserved gaps)
+  } bits;
   
   // Full 32-bit register value.
   uint32_t value;
@@ -4241,27 +4552,31 @@ union RDC_PDAP78 {
 //
 union RDC_PDAP79 {
   
-  // Enum definitions.
   enum class eD0W : uint32_t {
     eD0W_0 = 0, // No Write Access
     eD0W_1 = 1, // Write Access Allowed
   };
+  
   enum class eD0R : uint32_t {
     eD0R_0 = 0, // No Read Access
     eD0R_1 = 1, // Read Access Allowed
   };
+  
   enum class eD1W : uint32_t {
     eD1W_0 = 0, // No Write Access
     eD1W_1 = 1, // Write Access Allowed
   };
+  
   enum class eD1R : uint32_t {
     eD1R_0 = 0, // No Read Access
     eD1R_1 = 1, // Read Access Allowed
   };
+  
   enum class eSREQ : uint32_t {
     eSREQ_0 = 0, // Semaphores have no effect
     eSREQ_1 = 1, // Semaphores are enforced
   };
+  
   enum class eLCK : uint32_t {
     eLCK_0 = 0, // Not Locked
     eLCK_1 = 1, // Locked
@@ -4276,7 +4591,7 @@ union RDC_PDAP79 {
     uint32_t _reserved_4 : 26;
     eSREQ SREQ : 1;
     eLCK LCK : 1;
-  } bits;          // Bit-field struct (auto-filling reserved gaps)
+  } bits;
   
   // Full 32-bit register value.
   uint32_t value;
@@ -4289,27 +4604,31 @@ union RDC_PDAP79 {
 //
 union RDC_PDAP80 {
   
-  // Enum definitions.
   enum class eD0W : uint32_t {
     eD0W_0 = 0, // No Write Access
     eD0W_1 = 1, // Write Access Allowed
   };
+  
   enum class eD0R : uint32_t {
     eD0R_0 = 0, // No Read Access
     eD0R_1 = 1, // Read Access Allowed
   };
+  
   enum class eD1W : uint32_t {
     eD1W_0 = 0, // No Write Access
     eD1W_1 = 1, // Write Access Allowed
   };
+  
   enum class eD1R : uint32_t {
     eD1R_0 = 0, // No Read Access
     eD1R_1 = 1, // Read Access Allowed
   };
+  
   enum class eSREQ : uint32_t {
     eSREQ_0 = 0, // Semaphores have no effect
     eSREQ_1 = 1, // Semaphores are enforced
   };
+  
   enum class eLCK : uint32_t {
     eLCK_0 = 0, // Not Locked
     eLCK_1 = 1, // Locked
@@ -4324,7 +4643,7 @@ union RDC_PDAP80 {
     uint32_t _reserved_4 : 26;
     eSREQ SREQ : 1;
     eLCK LCK : 1;
-  } bits;          // Bit-field struct (auto-filling reserved gaps)
+  } bits;
   
   // Full 32-bit register value.
   uint32_t value;
@@ -4337,27 +4656,31 @@ union RDC_PDAP80 {
 //
 union RDC_PDAP81 {
   
-  // Enum definitions.
   enum class eD0W : uint32_t {
     eD0W_0 = 0, // No Write Access
     eD0W_1 = 1, // Write Access Allowed
   };
+  
   enum class eD0R : uint32_t {
     eD0R_0 = 0, // No Read Access
     eD0R_1 = 1, // Read Access Allowed
   };
+  
   enum class eD1W : uint32_t {
     eD1W_0 = 0, // No Write Access
     eD1W_1 = 1, // Write Access Allowed
   };
+  
   enum class eD1R : uint32_t {
     eD1R_0 = 0, // No Read Access
     eD1R_1 = 1, // Read Access Allowed
   };
+  
   enum class eSREQ : uint32_t {
     eSREQ_0 = 0, // Semaphores have no effect
     eSREQ_1 = 1, // Semaphores are enforced
   };
+  
   enum class eLCK : uint32_t {
     eLCK_0 = 0, // Not Locked
     eLCK_1 = 1, // Locked
@@ -4372,7 +4695,7 @@ union RDC_PDAP81 {
     uint32_t _reserved_4 : 26;
     eSREQ SREQ : 1;
     eLCK LCK : 1;
-  } bits;          // Bit-field struct (auto-filling reserved gaps)
+  } bits;
   
   // Full 32-bit register value.
   uint32_t value;
@@ -4385,27 +4708,31 @@ union RDC_PDAP81 {
 //
 union RDC_PDAP82 {
   
-  // Enum definitions.
   enum class eD0W : uint32_t {
     eD0W_0 = 0, // No Write Access
     eD0W_1 = 1, // Write Access Allowed
   };
+  
   enum class eD0R : uint32_t {
     eD0R_0 = 0, // No Read Access
     eD0R_1 = 1, // Read Access Allowed
   };
+  
   enum class eD1W : uint32_t {
     eD1W_0 = 0, // No Write Access
     eD1W_1 = 1, // Write Access Allowed
   };
+  
   enum class eD1R : uint32_t {
     eD1R_0 = 0, // No Read Access
     eD1R_1 = 1, // Read Access Allowed
   };
+  
   enum class eSREQ : uint32_t {
     eSREQ_0 = 0, // Semaphores have no effect
     eSREQ_1 = 1, // Semaphores are enforced
   };
+  
   enum class eLCK : uint32_t {
     eLCK_0 = 0, // Not Locked
     eLCK_1 = 1, // Locked
@@ -4420,7 +4747,7 @@ union RDC_PDAP82 {
     uint32_t _reserved_4 : 26;
     eSREQ SREQ : 1;
     eLCK LCK : 1;
-  } bits;          // Bit-field struct (auto-filling reserved gaps)
+  } bits;
   
   // Full 32-bit register value.
   uint32_t value;
@@ -4433,27 +4760,31 @@ union RDC_PDAP82 {
 //
 union RDC_PDAP83 {
   
-  // Enum definitions.
   enum class eD0W : uint32_t {
     eD0W_0 = 0, // No Write Access
     eD0W_1 = 1, // Write Access Allowed
   };
+  
   enum class eD0R : uint32_t {
     eD0R_0 = 0, // No Read Access
     eD0R_1 = 1, // Read Access Allowed
   };
+  
   enum class eD1W : uint32_t {
     eD1W_0 = 0, // No Write Access
     eD1W_1 = 1, // Write Access Allowed
   };
+  
   enum class eD1R : uint32_t {
     eD1R_0 = 0, // No Read Access
     eD1R_1 = 1, // Read Access Allowed
   };
+  
   enum class eSREQ : uint32_t {
     eSREQ_0 = 0, // Semaphores have no effect
     eSREQ_1 = 1, // Semaphores are enforced
   };
+  
   enum class eLCK : uint32_t {
     eLCK_0 = 0, // Not Locked
     eLCK_1 = 1, // Locked
@@ -4468,7 +4799,7 @@ union RDC_PDAP83 {
     uint32_t _reserved_4 : 26;
     eSREQ SREQ : 1;
     eLCK LCK : 1;
-  } bits;          // Bit-field struct (auto-filling reserved gaps)
+  } bits;
   
   // Full 32-bit register value.
   uint32_t value;
@@ -4481,27 +4812,31 @@ union RDC_PDAP83 {
 //
 union RDC_PDAP84 {
   
-  // Enum definitions.
   enum class eD0W : uint32_t {
     eD0W_0 = 0, // No Write Access
     eD0W_1 = 1, // Write Access Allowed
   };
+  
   enum class eD0R : uint32_t {
     eD0R_0 = 0, // No Read Access
     eD0R_1 = 1, // Read Access Allowed
   };
+  
   enum class eD1W : uint32_t {
     eD1W_0 = 0, // No Write Access
     eD1W_1 = 1, // Write Access Allowed
   };
+  
   enum class eD1R : uint32_t {
     eD1R_0 = 0, // No Read Access
     eD1R_1 = 1, // Read Access Allowed
   };
+  
   enum class eSREQ : uint32_t {
     eSREQ_0 = 0, // Semaphores have no effect
     eSREQ_1 = 1, // Semaphores are enforced
   };
+  
   enum class eLCK : uint32_t {
     eLCK_0 = 0, // Not Locked
     eLCK_1 = 1, // Locked
@@ -4516,7 +4851,7 @@ union RDC_PDAP84 {
     uint32_t _reserved_4 : 26;
     eSREQ SREQ : 1;
     eLCK LCK : 1;
-  } bits;          // Bit-field struct (auto-filling reserved gaps)
+  } bits;
   
   // Full 32-bit register value.
   uint32_t value;
@@ -4529,27 +4864,31 @@ union RDC_PDAP84 {
 //
 union RDC_PDAP85 {
   
-  // Enum definitions.
   enum class eD0W : uint32_t {
     eD0W_0 = 0, // No Write Access
     eD0W_1 = 1, // Write Access Allowed
   };
+  
   enum class eD0R : uint32_t {
     eD0R_0 = 0, // No Read Access
     eD0R_1 = 1, // Read Access Allowed
   };
+  
   enum class eD1W : uint32_t {
     eD1W_0 = 0, // No Write Access
     eD1W_1 = 1, // Write Access Allowed
   };
+  
   enum class eD1R : uint32_t {
     eD1R_0 = 0, // No Read Access
     eD1R_1 = 1, // Read Access Allowed
   };
+  
   enum class eSREQ : uint32_t {
     eSREQ_0 = 0, // Semaphores have no effect
     eSREQ_1 = 1, // Semaphores are enforced
   };
+  
   enum class eLCK : uint32_t {
     eLCK_0 = 0, // Not Locked
     eLCK_1 = 1, // Locked
@@ -4564,7 +4903,7 @@ union RDC_PDAP85 {
     uint32_t _reserved_4 : 26;
     eSREQ SREQ : 1;
     eLCK LCK : 1;
-  } bits;          // Bit-field struct (auto-filling reserved gaps)
+  } bits;
   
   // Full 32-bit register value.
   uint32_t value;
@@ -4577,27 +4916,31 @@ union RDC_PDAP85 {
 //
 union RDC_PDAP86 {
   
-  // Enum definitions.
   enum class eD0W : uint32_t {
     eD0W_0 = 0, // No Write Access
     eD0W_1 = 1, // Write Access Allowed
   };
+  
   enum class eD0R : uint32_t {
     eD0R_0 = 0, // No Read Access
     eD0R_1 = 1, // Read Access Allowed
   };
+  
   enum class eD1W : uint32_t {
     eD1W_0 = 0, // No Write Access
     eD1W_1 = 1, // Write Access Allowed
   };
+  
   enum class eD1R : uint32_t {
     eD1R_0 = 0, // No Read Access
     eD1R_1 = 1, // Read Access Allowed
   };
+  
   enum class eSREQ : uint32_t {
     eSREQ_0 = 0, // Semaphores have no effect
     eSREQ_1 = 1, // Semaphores are enforced
   };
+  
   enum class eLCK : uint32_t {
     eLCK_0 = 0, // Not Locked
     eLCK_1 = 1, // Locked
@@ -4612,7 +4955,7 @@ union RDC_PDAP86 {
     uint32_t _reserved_4 : 26;
     eSREQ SREQ : 1;
     eLCK LCK : 1;
-  } bits;          // Bit-field struct (auto-filling reserved gaps)
+  } bits;
   
   // Full 32-bit register value.
   uint32_t value;
@@ -4625,27 +4968,31 @@ union RDC_PDAP86 {
 //
 union RDC_PDAP87 {
   
-  // Enum definitions.
   enum class eD0W : uint32_t {
     eD0W_0 = 0, // No Write Access
     eD0W_1 = 1, // Write Access Allowed
   };
+  
   enum class eD0R : uint32_t {
     eD0R_0 = 0, // No Read Access
     eD0R_1 = 1, // Read Access Allowed
   };
+  
   enum class eD1W : uint32_t {
     eD1W_0 = 0, // No Write Access
     eD1W_1 = 1, // Write Access Allowed
   };
+  
   enum class eD1R : uint32_t {
     eD1R_0 = 0, // No Read Access
     eD1R_1 = 1, // Read Access Allowed
   };
+  
   enum class eSREQ : uint32_t {
     eSREQ_0 = 0, // Semaphores have no effect
     eSREQ_1 = 1, // Semaphores are enforced
   };
+  
   enum class eLCK : uint32_t {
     eLCK_0 = 0, // Not Locked
     eLCK_1 = 1, // Locked
@@ -4660,7 +5007,7 @@ union RDC_PDAP87 {
     uint32_t _reserved_4 : 26;
     eSREQ SREQ : 1;
     eLCK LCK : 1;
-  } bits;          // Bit-field struct (auto-filling reserved gaps)
+  } bits;
   
   // Full 32-bit register value.
   uint32_t value;
@@ -4673,27 +5020,31 @@ union RDC_PDAP87 {
 //
 union RDC_PDAP88 {
   
-  // Enum definitions.
   enum class eD0W : uint32_t {
     eD0W_0 = 0, // No Write Access
     eD0W_1 = 1, // Write Access Allowed
   };
+  
   enum class eD0R : uint32_t {
     eD0R_0 = 0, // No Read Access
     eD0R_1 = 1, // Read Access Allowed
   };
+  
   enum class eD1W : uint32_t {
     eD1W_0 = 0, // No Write Access
     eD1W_1 = 1, // Write Access Allowed
   };
+  
   enum class eD1R : uint32_t {
     eD1R_0 = 0, // No Read Access
     eD1R_1 = 1, // Read Access Allowed
   };
+  
   enum class eSREQ : uint32_t {
     eSREQ_0 = 0, // Semaphores have no effect
     eSREQ_1 = 1, // Semaphores are enforced
   };
+  
   enum class eLCK : uint32_t {
     eLCK_0 = 0, // Not Locked
     eLCK_1 = 1, // Locked
@@ -4708,7 +5059,7 @@ union RDC_PDAP88 {
     uint32_t _reserved_4 : 26;
     eSREQ SREQ : 1;
     eLCK LCK : 1;
-  } bits;          // Bit-field struct (auto-filling reserved gaps)
+  } bits;
   
   // Full 32-bit register value.
   uint32_t value;
@@ -4721,27 +5072,31 @@ union RDC_PDAP88 {
 //
 union RDC_PDAP89 {
   
-  // Enum definitions.
   enum class eD0W : uint32_t {
     eD0W_0 = 0, // No Write Access
     eD0W_1 = 1, // Write Access Allowed
   };
+  
   enum class eD0R : uint32_t {
     eD0R_0 = 0, // No Read Access
     eD0R_1 = 1, // Read Access Allowed
   };
+  
   enum class eD1W : uint32_t {
     eD1W_0 = 0, // No Write Access
     eD1W_1 = 1, // Write Access Allowed
   };
+  
   enum class eD1R : uint32_t {
     eD1R_0 = 0, // No Read Access
     eD1R_1 = 1, // Read Access Allowed
   };
+  
   enum class eSREQ : uint32_t {
     eSREQ_0 = 0, // Semaphores have no effect
     eSREQ_1 = 1, // Semaphores are enforced
   };
+  
   enum class eLCK : uint32_t {
     eLCK_0 = 0, // Not Locked
     eLCK_1 = 1, // Locked
@@ -4756,7 +5111,7 @@ union RDC_PDAP89 {
     uint32_t _reserved_4 : 26;
     eSREQ SREQ : 1;
     eLCK LCK : 1;
-  } bits;          // Bit-field struct (auto-filling reserved gaps)
+  } bits;
   
   // Full 32-bit register value.
   uint32_t value;
@@ -4769,27 +5124,31 @@ union RDC_PDAP89 {
 //
 union RDC_PDAP90 {
   
-  // Enum definitions.
   enum class eD0W : uint32_t {
     eD0W_0 = 0, // No Write Access
     eD0W_1 = 1, // Write Access Allowed
   };
+  
   enum class eD0R : uint32_t {
     eD0R_0 = 0, // No Read Access
     eD0R_1 = 1, // Read Access Allowed
   };
+  
   enum class eD1W : uint32_t {
     eD1W_0 = 0, // No Write Access
     eD1W_1 = 1, // Write Access Allowed
   };
+  
   enum class eD1R : uint32_t {
     eD1R_0 = 0, // No Read Access
     eD1R_1 = 1, // Read Access Allowed
   };
+  
   enum class eSREQ : uint32_t {
     eSREQ_0 = 0, // Semaphores have no effect
     eSREQ_1 = 1, // Semaphores are enforced
   };
+  
   enum class eLCK : uint32_t {
     eLCK_0 = 0, // Not Locked
     eLCK_1 = 1, // Locked
@@ -4804,7 +5163,7 @@ union RDC_PDAP90 {
     uint32_t _reserved_4 : 26;
     eSREQ SREQ : 1;
     eLCK LCK : 1;
-  } bits;          // Bit-field struct (auto-filling reserved gaps)
+  } bits;
   
   // Full 32-bit register value.
   uint32_t value;
@@ -4817,27 +5176,31 @@ union RDC_PDAP90 {
 //
 union RDC_PDAP91 {
   
-  // Enum definitions.
   enum class eD0W : uint32_t {
     eD0W_0 = 0, // No Write Access
     eD0W_1 = 1, // Write Access Allowed
   };
+  
   enum class eD0R : uint32_t {
     eD0R_0 = 0, // No Read Access
     eD0R_1 = 1, // Read Access Allowed
   };
+  
   enum class eD1W : uint32_t {
     eD1W_0 = 0, // No Write Access
     eD1W_1 = 1, // Write Access Allowed
   };
+  
   enum class eD1R : uint32_t {
     eD1R_0 = 0, // No Read Access
     eD1R_1 = 1, // Read Access Allowed
   };
+  
   enum class eSREQ : uint32_t {
     eSREQ_0 = 0, // Semaphores have no effect
     eSREQ_1 = 1, // Semaphores are enforced
   };
+  
   enum class eLCK : uint32_t {
     eLCK_0 = 0, // Not Locked
     eLCK_1 = 1, // Locked
@@ -4852,7 +5215,7 @@ union RDC_PDAP91 {
     uint32_t _reserved_4 : 26;
     eSREQ SREQ : 1;
     eLCK LCK : 1;
-  } bits;          // Bit-field struct (auto-filling reserved gaps)
+  } bits;
   
   // Full 32-bit register value.
   uint32_t value;
@@ -4865,27 +5228,31 @@ union RDC_PDAP91 {
 //
 union RDC_PDAP92 {
   
-  // Enum definitions.
   enum class eD0W : uint32_t {
     eD0W_0 = 0, // No Write Access
     eD0W_1 = 1, // Write Access Allowed
   };
+  
   enum class eD0R : uint32_t {
     eD0R_0 = 0, // No Read Access
     eD0R_1 = 1, // Read Access Allowed
   };
+  
   enum class eD1W : uint32_t {
     eD1W_0 = 0, // No Write Access
     eD1W_1 = 1, // Write Access Allowed
   };
+  
   enum class eD1R : uint32_t {
     eD1R_0 = 0, // No Read Access
     eD1R_1 = 1, // Read Access Allowed
   };
+  
   enum class eSREQ : uint32_t {
     eSREQ_0 = 0, // Semaphores have no effect
     eSREQ_1 = 1, // Semaphores are enforced
   };
+  
   enum class eLCK : uint32_t {
     eLCK_0 = 0, // Not Locked
     eLCK_1 = 1, // Locked
@@ -4900,7 +5267,7 @@ union RDC_PDAP92 {
     uint32_t _reserved_4 : 26;
     eSREQ SREQ : 1;
     eLCK LCK : 1;
-  } bits;          // Bit-field struct (auto-filling reserved gaps)
+  } bits;
   
   // Full 32-bit register value.
   uint32_t value;
@@ -4913,27 +5280,31 @@ union RDC_PDAP92 {
 //
 union RDC_PDAP93 {
   
-  // Enum definitions.
   enum class eD0W : uint32_t {
     eD0W_0 = 0, // No Write Access
     eD0W_1 = 1, // Write Access Allowed
   };
+  
   enum class eD0R : uint32_t {
     eD0R_0 = 0, // No Read Access
     eD0R_1 = 1, // Read Access Allowed
   };
+  
   enum class eD1W : uint32_t {
     eD1W_0 = 0, // No Write Access
     eD1W_1 = 1, // Write Access Allowed
   };
+  
   enum class eD1R : uint32_t {
     eD1R_0 = 0, // No Read Access
     eD1R_1 = 1, // Read Access Allowed
   };
+  
   enum class eSREQ : uint32_t {
     eSREQ_0 = 0, // Semaphores have no effect
     eSREQ_1 = 1, // Semaphores are enforced
   };
+  
   enum class eLCK : uint32_t {
     eLCK_0 = 0, // Not Locked
     eLCK_1 = 1, // Locked
@@ -4948,7 +5319,7 @@ union RDC_PDAP93 {
     uint32_t _reserved_4 : 26;
     eSREQ SREQ : 1;
     eLCK LCK : 1;
-  } bits;          // Bit-field struct (auto-filling reserved gaps)
+  } bits;
   
   // Full 32-bit register value.
   uint32_t value;
@@ -4961,27 +5332,31 @@ union RDC_PDAP93 {
 //
 union RDC_PDAP94 {
   
-  // Enum definitions.
   enum class eD0W : uint32_t {
     eD0W_0 = 0, // No Write Access
     eD0W_1 = 1, // Write Access Allowed
   };
+  
   enum class eD0R : uint32_t {
     eD0R_0 = 0, // No Read Access
     eD0R_1 = 1, // Read Access Allowed
   };
+  
   enum class eD1W : uint32_t {
     eD1W_0 = 0, // No Write Access
     eD1W_1 = 1, // Write Access Allowed
   };
+  
   enum class eD1R : uint32_t {
     eD1R_0 = 0, // No Read Access
     eD1R_1 = 1, // Read Access Allowed
   };
+  
   enum class eSREQ : uint32_t {
     eSREQ_0 = 0, // Semaphores have no effect
     eSREQ_1 = 1, // Semaphores are enforced
   };
+  
   enum class eLCK : uint32_t {
     eLCK_0 = 0, // Not Locked
     eLCK_1 = 1, // Locked
@@ -4996,7 +5371,7 @@ union RDC_PDAP94 {
     uint32_t _reserved_4 : 26;
     eSREQ SREQ : 1;
     eLCK LCK : 1;
-  } bits;          // Bit-field struct (auto-filling reserved gaps)
+  } bits;
   
   // Full 32-bit register value.
   uint32_t value;
@@ -5009,27 +5384,31 @@ union RDC_PDAP94 {
 //
 union RDC_PDAP95 {
   
-  // Enum definitions.
   enum class eD0W : uint32_t {
     eD0W_0 = 0, // No Write Access
     eD0W_1 = 1, // Write Access Allowed
   };
+  
   enum class eD0R : uint32_t {
     eD0R_0 = 0, // No Read Access
     eD0R_1 = 1, // Read Access Allowed
   };
+  
   enum class eD1W : uint32_t {
     eD1W_0 = 0, // No Write Access
     eD1W_1 = 1, // Write Access Allowed
   };
+  
   enum class eD1R : uint32_t {
     eD1R_0 = 0, // No Read Access
     eD1R_1 = 1, // Read Access Allowed
   };
+  
   enum class eSREQ : uint32_t {
     eSREQ_0 = 0, // Semaphores have no effect
     eSREQ_1 = 1, // Semaphores are enforced
   };
+  
   enum class eLCK : uint32_t {
     eLCK_0 = 0, // Not Locked
     eLCK_1 = 1, // Locked
@@ -5044,7 +5423,7 @@ union RDC_PDAP95 {
     uint32_t _reserved_4 : 26;
     eSREQ SREQ : 1;
     eLCK LCK : 1;
-  } bits;          // Bit-field struct (auto-filling reserved gaps)
+  } bits;
   
   // Full 32-bit register value.
   uint32_t value;
@@ -5057,27 +5436,31 @@ union RDC_PDAP95 {
 //
 union RDC_PDAP96 {
   
-  // Enum definitions.
   enum class eD0W : uint32_t {
     eD0W_0 = 0, // No Write Access
     eD0W_1 = 1, // Write Access Allowed
   };
+  
   enum class eD0R : uint32_t {
     eD0R_0 = 0, // No Read Access
     eD0R_1 = 1, // Read Access Allowed
   };
+  
   enum class eD1W : uint32_t {
     eD1W_0 = 0, // No Write Access
     eD1W_1 = 1, // Write Access Allowed
   };
+  
   enum class eD1R : uint32_t {
     eD1R_0 = 0, // No Read Access
     eD1R_1 = 1, // Read Access Allowed
   };
+  
   enum class eSREQ : uint32_t {
     eSREQ_0 = 0, // Semaphores have no effect
     eSREQ_1 = 1, // Semaphores are enforced
   };
+  
   enum class eLCK : uint32_t {
     eLCK_0 = 0, // Not Locked
     eLCK_1 = 1, // Locked
@@ -5092,7 +5475,7 @@ union RDC_PDAP96 {
     uint32_t _reserved_4 : 26;
     eSREQ SREQ : 1;
     eLCK LCK : 1;
-  } bits;          // Bit-field struct (auto-filling reserved gaps)
+  } bits;
   
   // Full 32-bit register value.
   uint32_t value;
@@ -5105,27 +5488,31 @@ union RDC_PDAP96 {
 //
 union RDC_PDAP97 {
   
-  // Enum definitions.
   enum class eD0W : uint32_t {
     eD0W_0 = 0, // No Write Access
     eD0W_1 = 1, // Write Access Allowed
   };
+  
   enum class eD0R : uint32_t {
     eD0R_0 = 0, // No Read Access
     eD0R_1 = 1, // Read Access Allowed
   };
+  
   enum class eD1W : uint32_t {
     eD1W_0 = 0, // No Write Access
     eD1W_1 = 1, // Write Access Allowed
   };
+  
   enum class eD1R : uint32_t {
     eD1R_0 = 0, // No Read Access
     eD1R_1 = 1, // Read Access Allowed
   };
+  
   enum class eSREQ : uint32_t {
     eSREQ_0 = 0, // Semaphores have no effect
     eSREQ_1 = 1, // Semaphores are enforced
   };
+  
   enum class eLCK : uint32_t {
     eLCK_0 = 0, // Not Locked
     eLCK_1 = 1, // Locked
@@ -5140,7 +5527,7 @@ union RDC_PDAP97 {
     uint32_t _reserved_4 : 26;
     eSREQ SREQ : 1;
     eLCK LCK : 1;
-  } bits;          // Bit-field struct (auto-filling reserved gaps)
+  } bits;
   
   // Full 32-bit register value.
   uint32_t value;
@@ -5153,27 +5540,31 @@ union RDC_PDAP97 {
 //
 union RDC_PDAP98 {
   
-  // Enum definitions.
   enum class eD0W : uint32_t {
     eD0W_0 = 0, // No Write Access
     eD0W_1 = 1, // Write Access Allowed
   };
+  
   enum class eD0R : uint32_t {
     eD0R_0 = 0, // No Read Access
     eD0R_1 = 1, // Read Access Allowed
   };
+  
   enum class eD1W : uint32_t {
     eD1W_0 = 0, // No Write Access
     eD1W_1 = 1, // Write Access Allowed
   };
+  
   enum class eD1R : uint32_t {
     eD1R_0 = 0, // No Read Access
     eD1R_1 = 1, // Read Access Allowed
   };
+  
   enum class eSREQ : uint32_t {
     eSREQ_0 = 0, // Semaphores have no effect
     eSREQ_1 = 1, // Semaphores are enforced
   };
+  
   enum class eLCK : uint32_t {
     eLCK_0 = 0, // Not Locked
     eLCK_1 = 1, // Locked
@@ -5188,7 +5579,7 @@ union RDC_PDAP98 {
     uint32_t _reserved_4 : 26;
     eSREQ SREQ : 1;
     eLCK LCK : 1;
-  } bits;          // Bit-field struct (auto-filling reserved gaps)
+  } bits;
   
   // Full 32-bit register value.
   uint32_t value;
@@ -5201,27 +5592,31 @@ union RDC_PDAP98 {
 //
 union RDC_PDAP99 {
   
-  // Enum definitions.
   enum class eD0W : uint32_t {
     eD0W_0 = 0, // No Write Access
     eD0W_1 = 1, // Write Access Allowed
   };
+  
   enum class eD0R : uint32_t {
     eD0R_0 = 0, // No Read Access
     eD0R_1 = 1, // Read Access Allowed
   };
+  
   enum class eD1W : uint32_t {
     eD1W_0 = 0, // No Write Access
     eD1W_1 = 1, // Write Access Allowed
   };
+  
   enum class eD1R : uint32_t {
     eD1R_0 = 0, // No Read Access
     eD1R_1 = 1, // Read Access Allowed
   };
+  
   enum class eSREQ : uint32_t {
     eSREQ_0 = 0, // Semaphores have no effect
     eSREQ_1 = 1, // Semaphores are enforced
   };
+  
   enum class eLCK : uint32_t {
     eLCK_0 = 0, // Not Locked
     eLCK_1 = 1, // Locked
@@ -5236,7 +5631,7 @@ union RDC_PDAP99 {
     uint32_t _reserved_4 : 26;
     eSREQ SREQ : 1;
     eLCK LCK : 1;
-  } bits;          // Bit-field struct (auto-filling reserved gaps)
+  } bits;
   
   // Full 32-bit register value.
   uint32_t value;
@@ -5249,27 +5644,31 @@ union RDC_PDAP99 {
 //
 union RDC_PDAP100 {
   
-  // Enum definitions.
   enum class eD0W : uint32_t {
     eD0W_0 = 0, // No Write Access
     eD0W_1 = 1, // Write Access Allowed
   };
+  
   enum class eD0R : uint32_t {
     eD0R_0 = 0, // No Read Access
     eD0R_1 = 1, // Read Access Allowed
   };
+  
   enum class eD1W : uint32_t {
     eD1W_0 = 0, // No Write Access
     eD1W_1 = 1, // Write Access Allowed
   };
+  
   enum class eD1R : uint32_t {
     eD1R_0 = 0, // No Read Access
     eD1R_1 = 1, // Read Access Allowed
   };
+  
   enum class eSREQ : uint32_t {
     eSREQ_0 = 0, // Semaphores have no effect
     eSREQ_1 = 1, // Semaphores are enforced
   };
+  
   enum class eLCK : uint32_t {
     eLCK_0 = 0, // Not Locked
     eLCK_1 = 1, // Locked
@@ -5284,7 +5683,7 @@ union RDC_PDAP100 {
     uint32_t _reserved_4 : 26;
     eSREQ SREQ : 1;
     eLCK LCK : 1;
-  } bits;          // Bit-field struct (auto-filling reserved gaps)
+  } bits;
   
   // Full 32-bit register value.
   uint32_t value;
@@ -5297,27 +5696,31 @@ union RDC_PDAP100 {
 //
 union RDC_PDAP101 {
   
-  // Enum definitions.
   enum class eD0W : uint32_t {
     eD0W_0 = 0, // No Write Access
     eD0W_1 = 1, // Write Access Allowed
   };
+  
   enum class eD0R : uint32_t {
     eD0R_0 = 0, // No Read Access
     eD0R_1 = 1, // Read Access Allowed
   };
+  
   enum class eD1W : uint32_t {
     eD1W_0 = 0, // No Write Access
     eD1W_1 = 1, // Write Access Allowed
   };
+  
   enum class eD1R : uint32_t {
     eD1R_0 = 0, // No Read Access
     eD1R_1 = 1, // Read Access Allowed
   };
+  
   enum class eSREQ : uint32_t {
     eSREQ_0 = 0, // Semaphores have no effect
     eSREQ_1 = 1, // Semaphores are enforced
   };
+  
   enum class eLCK : uint32_t {
     eLCK_0 = 0, // Not Locked
     eLCK_1 = 1, // Locked
@@ -5332,7 +5735,7 @@ union RDC_PDAP101 {
     uint32_t _reserved_4 : 26;
     eSREQ SREQ : 1;
     eLCK LCK : 1;
-  } bits;          // Bit-field struct (auto-filling reserved gaps)
+  } bits;
   
   // Full 32-bit register value.
   uint32_t value;
@@ -5345,27 +5748,31 @@ union RDC_PDAP101 {
 //
 union RDC_PDAP102 {
   
-  // Enum definitions.
   enum class eD0W : uint32_t {
     eD0W_0 = 0, // No Write Access
     eD0W_1 = 1, // Write Access Allowed
   };
+  
   enum class eD0R : uint32_t {
     eD0R_0 = 0, // No Read Access
     eD0R_1 = 1, // Read Access Allowed
   };
+  
   enum class eD1W : uint32_t {
     eD1W_0 = 0, // No Write Access
     eD1W_1 = 1, // Write Access Allowed
   };
+  
   enum class eD1R : uint32_t {
     eD1R_0 = 0, // No Read Access
     eD1R_1 = 1, // Read Access Allowed
   };
+  
   enum class eSREQ : uint32_t {
     eSREQ_0 = 0, // Semaphores have no effect
     eSREQ_1 = 1, // Semaphores are enforced
   };
+  
   enum class eLCK : uint32_t {
     eLCK_0 = 0, // Not Locked
     eLCK_1 = 1, // Locked
@@ -5380,7 +5787,7 @@ union RDC_PDAP102 {
     uint32_t _reserved_4 : 26;
     eSREQ SREQ : 1;
     eLCK LCK : 1;
-  } bits;          // Bit-field struct (auto-filling reserved gaps)
+  } bits;
   
   // Full 32-bit register value.
   uint32_t value;
@@ -5393,27 +5800,31 @@ union RDC_PDAP102 {
 //
 union RDC_PDAP103 {
   
-  // Enum definitions.
   enum class eD0W : uint32_t {
     eD0W_0 = 0, // No Write Access
     eD0W_1 = 1, // Write Access Allowed
   };
+  
   enum class eD0R : uint32_t {
     eD0R_0 = 0, // No Read Access
     eD0R_1 = 1, // Read Access Allowed
   };
+  
   enum class eD1W : uint32_t {
     eD1W_0 = 0, // No Write Access
     eD1W_1 = 1, // Write Access Allowed
   };
+  
   enum class eD1R : uint32_t {
     eD1R_0 = 0, // No Read Access
     eD1R_1 = 1, // Read Access Allowed
   };
+  
   enum class eSREQ : uint32_t {
     eSREQ_0 = 0, // Semaphores have no effect
     eSREQ_1 = 1, // Semaphores are enforced
   };
+  
   enum class eLCK : uint32_t {
     eLCK_0 = 0, // Not Locked
     eLCK_1 = 1, // Locked
@@ -5428,7 +5839,7 @@ union RDC_PDAP103 {
     uint32_t _reserved_4 : 26;
     eSREQ SREQ : 1;
     eLCK LCK : 1;
-  } bits;          // Bit-field struct (auto-filling reserved gaps)
+  } bits;
   
   // Full 32-bit register value.
   uint32_t value;
@@ -5441,27 +5852,31 @@ union RDC_PDAP103 {
 //
 union RDC_PDAP104 {
   
-  // Enum definitions.
   enum class eD0W : uint32_t {
     eD0W_0 = 0, // No Write Access
     eD0W_1 = 1, // Write Access Allowed
   };
+  
   enum class eD0R : uint32_t {
     eD0R_0 = 0, // No Read Access
     eD0R_1 = 1, // Read Access Allowed
   };
+  
   enum class eD1W : uint32_t {
     eD1W_0 = 0, // No Write Access
     eD1W_1 = 1, // Write Access Allowed
   };
+  
   enum class eD1R : uint32_t {
     eD1R_0 = 0, // No Read Access
     eD1R_1 = 1, // Read Access Allowed
   };
+  
   enum class eSREQ : uint32_t {
     eSREQ_0 = 0, // Semaphores have no effect
     eSREQ_1 = 1, // Semaphores are enforced
   };
+  
   enum class eLCK : uint32_t {
     eLCK_0 = 0, // Not Locked
     eLCK_1 = 1, // Locked
@@ -5476,7 +5891,7 @@ union RDC_PDAP104 {
     uint32_t _reserved_4 : 26;
     eSREQ SREQ : 1;
     eLCK LCK : 1;
-  } bits;          // Bit-field struct (auto-filling reserved gaps)
+  } bits;
   
   // Full 32-bit register value.
   uint32_t value;
@@ -5489,27 +5904,31 @@ union RDC_PDAP104 {
 //
 union RDC_PDAP105 {
   
-  // Enum definitions.
   enum class eD0W : uint32_t {
     eD0W_0 = 0, // No Write Access
     eD0W_1 = 1, // Write Access Allowed
   };
+  
   enum class eD0R : uint32_t {
     eD0R_0 = 0, // No Read Access
     eD0R_1 = 1, // Read Access Allowed
   };
+  
   enum class eD1W : uint32_t {
     eD1W_0 = 0, // No Write Access
     eD1W_1 = 1, // Write Access Allowed
   };
+  
   enum class eD1R : uint32_t {
     eD1R_0 = 0, // No Read Access
     eD1R_1 = 1, // Read Access Allowed
   };
+  
   enum class eSREQ : uint32_t {
     eSREQ_0 = 0, // Semaphores have no effect
     eSREQ_1 = 1, // Semaphores are enforced
   };
+  
   enum class eLCK : uint32_t {
     eLCK_0 = 0, // Not Locked
     eLCK_1 = 1, // Locked
@@ -5524,7 +5943,7 @@ union RDC_PDAP105 {
     uint32_t _reserved_4 : 26;
     eSREQ SREQ : 1;
     eLCK LCK : 1;
-  } bits;          // Bit-field struct (auto-filling reserved gaps)
+  } bits;
   
   // Full 32-bit register value.
   uint32_t value;
@@ -5537,27 +5956,31 @@ union RDC_PDAP105 {
 //
 union RDC_PDAP106 {
   
-  // Enum definitions.
   enum class eD0W : uint32_t {
     eD0W_0 = 0, // No Write Access
     eD0W_1 = 1, // Write Access Allowed
   };
+  
   enum class eD0R : uint32_t {
     eD0R_0 = 0, // No Read Access
     eD0R_1 = 1, // Read Access Allowed
   };
+  
   enum class eD1W : uint32_t {
     eD1W_0 = 0, // No Write Access
     eD1W_1 = 1, // Write Access Allowed
   };
+  
   enum class eD1R : uint32_t {
     eD1R_0 = 0, // No Read Access
     eD1R_1 = 1, // Read Access Allowed
   };
+  
   enum class eSREQ : uint32_t {
     eSREQ_0 = 0, // Semaphores have no effect
     eSREQ_1 = 1, // Semaphores are enforced
   };
+  
   enum class eLCK : uint32_t {
     eLCK_0 = 0, // Not Locked
     eLCK_1 = 1, // Locked
@@ -5572,7 +5995,7 @@ union RDC_PDAP106 {
     uint32_t _reserved_4 : 26;
     eSREQ SREQ : 1;
     eLCK LCK : 1;
-  } bits;          // Bit-field struct (auto-filling reserved gaps)
+  } bits;
   
   // Full 32-bit register value.
   uint32_t value;
@@ -5585,27 +6008,31 @@ union RDC_PDAP106 {
 //
 union RDC_PDAP107 {
   
-  // Enum definitions.
   enum class eD0W : uint32_t {
     eD0W_0 = 0, // No Write Access
     eD0W_1 = 1, // Write Access Allowed
   };
+  
   enum class eD0R : uint32_t {
     eD0R_0 = 0, // No Read Access
     eD0R_1 = 1, // Read Access Allowed
   };
+  
   enum class eD1W : uint32_t {
     eD1W_0 = 0, // No Write Access
     eD1W_1 = 1, // Write Access Allowed
   };
+  
   enum class eD1R : uint32_t {
     eD1R_0 = 0, // No Read Access
     eD1R_1 = 1, // Read Access Allowed
   };
+  
   enum class eSREQ : uint32_t {
     eSREQ_0 = 0, // Semaphores have no effect
     eSREQ_1 = 1, // Semaphores are enforced
   };
+  
   enum class eLCK : uint32_t {
     eLCK_0 = 0, // Not Locked
     eLCK_1 = 1, // Locked
@@ -5620,7 +6047,7 @@ union RDC_PDAP107 {
     uint32_t _reserved_4 : 26;
     eSREQ SREQ : 1;
     eLCK LCK : 1;
-  } bits;          // Bit-field struct (auto-filling reserved gaps)
+  } bits;
   
   // Full 32-bit register value.
   uint32_t value;
@@ -5633,27 +6060,31 @@ union RDC_PDAP107 {
 //
 union RDC_PDAP108 {
   
-  // Enum definitions.
   enum class eD0W : uint32_t {
     eD0W_0 = 0, // No Write Access
     eD0W_1 = 1, // Write Access Allowed
   };
+  
   enum class eD0R : uint32_t {
     eD0R_0 = 0, // No Read Access
     eD0R_1 = 1, // Read Access Allowed
   };
+  
   enum class eD1W : uint32_t {
     eD1W_0 = 0, // No Write Access
     eD1W_1 = 1, // Write Access Allowed
   };
+  
   enum class eD1R : uint32_t {
     eD1R_0 = 0, // No Read Access
     eD1R_1 = 1, // Read Access Allowed
   };
+  
   enum class eSREQ : uint32_t {
     eSREQ_0 = 0, // Semaphores have no effect
     eSREQ_1 = 1, // Semaphores are enforced
   };
+  
   enum class eLCK : uint32_t {
     eLCK_0 = 0, // Not Locked
     eLCK_1 = 1, // Locked
@@ -5668,7 +6099,7 @@ union RDC_PDAP108 {
     uint32_t _reserved_4 : 26;
     eSREQ SREQ : 1;
     eLCK LCK : 1;
-  } bits;          // Bit-field struct (auto-filling reserved gaps)
+  } bits;
   
   // Full 32-bit register value.
   uint32_t value;
@@ -5681,27 +6112,31 @@ union RDC_PDAP108 {
 //
 union RDC_PDAP109 {
   
-  // Enum definitions.
   enum class eD0W : uint32_t {
     eD0W_0 = 0, // No Write Access
     eD0W_1 = 1, // Write Access Allowed
   };
+  
   enum class eD0R : uint32_t {
     eD0R_0 = 0, // No Read Access
     eD0R_1 = 1, // Read Access Allowed
   };
+  
   enum class eD1W : uint32_t {
     eD1W_0 = 0, // No Write Access
     eD1W_1 = 1, // Write Access Allowed
   };
+  
   enum class eD1R : uint32_t {
     eD1R_0 = 0, // No Read Access
     eD1R_1 = 1, // Read Access Allowed
   };
+  
   enum class eSREQ : uint32_t {
     eSREQ_0 = 0, // Semaphores have no effect
     eSREQ_1 = 1, // Semaphores are enforced
   };
+  
   enum class eLCK : uint32_t {
     eLCK_0 = 0, // Not Locked
     eLCK_1 = 1, // Locked
@@ -5716,7 +6151,7 @@ union RDC_PDAP109 {
     uint32_t _reserved_4 : 26;
     eSREQ SREQ : 1;
     eLCK LCK : 1;
-  } bits;          // Bit-field struct (auto-filling reserved gaps)
+  } bits;
   
   // Full 32-bit register value.
   uint32_t value;
@@ -5729,27 +6164,31 @@ union RDC_PDAP109 {
 //
 union RDC_PDAP110 {
   
-  // Enum definitions.
   enum class eD0W : uint32_t {
     eD0W_0 = 0, // No Write Access
     eD0W_1 = 1, // Write Access Allowed
   };
+  
   enum class eD0R : uint32_t {
     eD0R_0 = 0, // No Read Access
     eD0R_1 = 1, // Read Access Allowed
   };
+  
   enum class eD1W : uint32_t {
     eD1W_0 = 0, // No Write Access
     eD1W_1 = 1, // Write Access Allowed
   };
+  
   enum class eD1R : uint32_t {
     eD1R_0 = 0, // No Read Access
     eD1R_1 = 1, // Read Access Allowed
   };
+  
   enum class eSREQ : uint32_t {
     eSREQ_0 = 0, // Semaphores have no effect
     eSREQ_1 = 1, // Semaphores are enforced
   };
+  
   enum class eLCK : uint32_t {
     eLCK_0 = 0, // Not Locked
     eLCK_1 = 1, // Locked
@@ -5764,7 +6203,7 @@ union RDC_PDAP110 {
     uint32_t _reserved_4 : 26;
     eSREQ SREQ : 1;
     eLCK LCK : 1;
-  } bits;          // Bit-field struct (auto-filling reserved gaps)
+  } bits;
   
   // Full 32-bit register value.
   uint32_t value;
@@ -5777,27 +6216,31 @@ union RDC_PDAP110 {
 //
 union RDC_PDAP111 {
   
-  // Enum definitions.
   enum class eD0W : uint32_t {
     eD0W_0 = 0, // No Write Access
     eD0W_1 = 1, // Write Access Allowed
   };
+  
   enum class eD0R : uint32_t {
     eD0R_0 = 0, // No Read Access
     eD0R_1 = 1, // Read Access Allowed
   };
+  
   enum class eD1W : uint32_t {
     eD1W_0 = 0, // No Write Access
     eD1W_1 = 1, // Write Access Allowed
   };
+  
   enum class eD1R : uint32_t {
     eD1R_0 = 0, // No Read Access
     eD1R_1 = 1, // Read Access Allowed
   };
+  
   enum class eSREQ : uint32_t {
     eSREQ_0 = 0, // Semaphores have no effect
     eSREQ_1 = 1, // Semaphores are enforced
   };
+  
   enum class eLCK : uint32_t {
     eLCK_0 = 0, // Not Locked
     eLCK_1 = 1, // Locked
@@ -5812,7 +6255,7 @@ union RDC_PDAP111 {
     uint32_t _reserved_4 : 26;
     eSREQ SREQ : 1;
     eLCK LCK : 1;
-  } bits;          // Bit-field struct (auto-filling reserved gaps)
+  } bits;
   
   // Full 32-bit register value.
   uint32_t value;
@@ -5825,27 +6268,31 @@ union RDC_PDAP111 {
 //
 union RDC_PDAP112 {
   
-  // Enum definitions.
   enum class eD0W : uint32_t {
     eD0W_0 = 0, // No Write Access
     eD0W_1 = 1, // Write Access Allowed
   };
+  
   enum class eD0R : uint32_t {
     eD0R_0 = 0, // No Read Access
     eD0R_1 = 1, // Read Access Allowed
   };
+  
   enum class eD1W : uint32_t {
     eD1W_0 = 0, // No Write Access
     eD1W_1 = 1, // Write Access Allowed
   };
+  
   enum class eD1R : uint32_t {
     eD1R_0 = 0, // No Read Access
     eD1R_1 = 1, // Read Access Allowed
   };
+  
   enum class eSREQ : uint32_t {
     eSREQ_0 = 0, // Semaphores have no effect
     eSREQ_1 = 1, // Semaphores are enforced
   };
+  
   enum class eLCK : uint32_t {
     eLCK_0 = 0, // Not Locked
     eLCK_1 = 1, // Locked
@@ -5860,7 +6307,7 @@ union RDC_PDAP112 {
     uint32_t _reserved_4 : 26;
     eSREQ SREQ : 1;
     eLCK LCK : 1;
-  } bits;          // Bit-field struct (auto-filling reserved gaps)
+  } bits;
   
   // Full 32-bit register value.
   uint32_t value;
@@ -5873,27 +6320,31 @@ union RDC_PDAP112 {
 //
 union RDC_PDAP113 {
   
-  // Enum definitions.
   enum class eD0W : uint32_t {
     eD0W_0 = 0, // No Write Access
     eD0W_1 = 1, // Write Access Allowed
   };
+  
   enum class eD0R : uint32_t {
     eD0R_0 = 0, // No Read Access
     eD0R_1 = 1, // Read Access Allowed
   };
+  
   enum class eD1W : uint32_t {
     eD1W_0 = 0, // No Write Access
     eD1W_1 = 1, // Write Access Allowed
   };
+  
   enum class eD1R : uint32_t {
     eD1R_0 = 0, // No Read Access
     eD1R_1 = 1, // Read Access Allowed
   };
+  
   enum class eSREQ : uint32_t {
     eSREQ_0 = 0, // Semaphores have no effect
     eSREQ_1 = 1, // Semaphores are enforced
   };
+  
   enum class eLCK : uint32_t {
     eLCK_0 = 0, // Not Locked
     eLCK_1 = 1, // Locked
@@ -5908,7 +6359,7 @@ union RDC_PDAP113 {
     uint32_t _reserved_4 : 26;
     eSREQ SREQ : 1;
     eLCK LCK : 1;
-  } bits;          // Bit-field struct (auto-filling reserved gaps)
+  } bits;
   
   // Full 32-bit register value.
   uint32_t value;
@@ -5921,27 +6372,31 @@ union RDC_PDAP113 {
 //
 union RDC_PDAP114 {
   
-  // Enum definitions.
   enum class eD0W : uint32_t {
     eD0W_0 = 0, // No Write Access
     eD0W_1 = 1, // Write Access Allowed
   };
+  
   enum class eD0R : uint32_t {
     eD0R_0 = 0, // No Read Access
     eD0R_1 = 1, // Read Access Allowed
   };
+  
   enum class eD1W : uint32_t {
     eD1W_0 = 0, // No Write Access
     eD1W_1 = 1, // Write Access Allowed
   };
+  
   enum class eD1R : uint32_t {
     eD1R_0 = 0, // No Read Access
     eD1R_1 = 1, // Read Access Allowed
   };
+  
   enum class eSREQ : uint32_t {
     eSREQ_0 = 0, // Semaphores have no effect
     eSREQ_1 = 1, // Semaphores are enforced
   };
+  
   enum class eLCK : uint32_t {
     eLCK_0 = 0, // Not Locked
     eLCK_1 = 1, // Locked
@@ -5956,7 +6411,7 @@ union RDC_PDAP114 {
     uint32_t _reserved_4 : 26;
     eSREQ SREQ : 1;
     eLCK LCK : 1;
-  } bits;          // Bit-field struct (auto-filling reserved gaps)
+  } bits;
   
   // Full 32-bit register value.
   uint32_t value;
@@ -5969,27 +6424,31 @@ union RDC_PDAP114 {
 //
 union RDC_PDAP115 {
   
-  // Enum definitions.
   enum class eD0W : uint32_t {
     eD0W_0 = 0, // No Write Access
     eD0W_1 = 1, // Write Access Allowed
   };
+  
   enum class eD0R : uint32_t {
     eD0R_0 = 0, // No Read Access
     eD0R_1 = 1, // Read Access Allowed
   };
+  
   enum class eD1W : uint32_t {
     eD1W_0 = 0, // No Write Access
     eD1W_1 = 1, // Write Access Allowed
   };
+  
   enum class eD1R : uint32_t {
     eD1R_0 = 0, // No Read Access
     eD1R_1 = 1, // Read Access Allowed
   };
+  
   enum class eSREQ : uint32_t {
     eSREQ_0 = 0, // Semaphores have no effect
     eSREQ_1 = 1, // Semaphores are enforced
   };
+  
   enum class eLCK : uint32_t {
     eLCK_0 = 0, // Not Locked
     eLCK_1 = 1, // Locked
@@ -6004,7 +6463,7 @@ union RDC_PDAP115 {
     uint32_t _reserved_4 : 26;
     eSREQ SREQ : 1;
     eLCK LCK : 1;
-  } bits;          // Bit-field struct (auto-filling reserved gaps)
+  } bits;
   
   // Full 32-bit register value.
   uint32_t value;
@@ -6017,27 +6476,31 @@ union RDC_PDAP115 {
 //
 union RDC_PDAP116 {
   
-  // Enum definitions.
   enum class eD0W : uint32_t {
     eD0W_0 = 0, // No Write Access
     eD0W_1 = 1, // Write Access Allowed
   };
+  
   enum class eD0R : uint32_t {
     eD0R_0 = 0, // No Read Access
     eD0R_1 = 1, // Read Access Allowed
   };
+  
   enum class eD1W : uint32_t {
     eD1W_0 = 0, // No Write Access
     eD1W_1 = 1, // Write Access Allowed
   };
+  
   enum class eD1R : uint32_t {
     eD1R_0 = 0, // No Read Access
     eD1R_1 = 1, // Read Access Allowed
   };
+  
   enum class eSREQ : uint32_t {
     eSREQ_0 = 0, // Semaphores have no effect
     eSREQ_1 = 1, // Semaphores are enforced
   };
+  
   enum class eLCK : uint32_t {
     eLCK_0 = 0, // Not Locked
     eLCK_1 = 1, // Locked
@@ -6052,7 +6515,7 @@ union RDC_PDAP116 {
     uint32_t _reserved_4 : 26;
     eSREQ SREQ : 1;
     eLCK LCK : 1;
-  } bits;          // Bit-field struct (auto-filling reserved gaps)
+  } bits;
   
   // Full 32-bit register value.
   uint32_t value;
@@ -6065,27 +6528,31 @@ union RDC_PDAP116 {
 //
 union RDC_PDAP117 {
   
-  // Enum definitions.
   enum class eD0W : uint32_t {
     eD0W_0 = 0, // No Write Access
     eD0W_1 = 1, // Write Access Allowed
   };
+  
   enum class eD0R : uint32_t {
     eD0R_0 = 0, // No Read Access
     eD0R_1 = 1, // Read Access Allowed
   };
+  
   enum class eD1W : uint32_t {
     eD1W_0 = 0, // No Write Access
     eD1W_1 = 1, // Write Access Allowed
   };
+  
   enum class eD1R : uint32_t {
     eD1R_0 = 0, // No Read Access
     eD1R_1 = 1, // Read Access Allowed
   };
+  
   enum class eSREQ : uint32_t {
     eSREQ_0 = 0, // Semaphores have no effect
     eSREQ_1 = 1, // Semaphores are enforced
   };
+  
   enum class eLCK : uint32_t {
     eLCK_0 = 0, // Not Locked
     eLCK_1 = 1, // Locked
@@ -6100,7 +6567,7 @@ union RDC_PDAP117 {
     uint32_t _reserved_4 : 26;
     eSREQ SREQ : 1;
     eLCK LCK : 1;
-  } bits;          // Bit-field struct (auto-filling reserved gaps)
+  } bits;
   
   // Full 32-bit register value.
   uint32_t value;
@@ -6113,27 +6580,31 @@ union RDC_PDAP117 {
 //
 union RDC_PDAP118 {
   
-  // Enum definitions.
   enum class eD0W : uint32_t {
     eD0W_0 = 0, // No Write Access
     eD0W_1 = 1, // Write Access Allowed
   };
+  
   enum class eD0R : uint32_t {
     eD0R_0 = 0, // No Read Access
     eD0R_1 = 1, // Read Access Allowed
   };
+  
   enum class eD1W : uint32_t {
     eD1W_0 = 0, // No Write Access
     eD1W_1 = 1, // Write Access Allowed
   };
+  
   enum class eD1R : uint32_t {
     eD1R_0 = 0, // No Read Access
     eD1R_1 = 1, // Read Access Allowed
   };
+  
   enum class eSREQ : uint32_t {
     eSREQ_0 = 0, // Semaphores have no effect
     eSREQ_1 = 1, // Semaphores are enforced
   };
+  
   enum class eLCK : uint32_t {
     eLCK_0 = 0, // Not Locked
     eLCK_1 = 1, // Locked
@@ -6148,7 +6619,7 @@ union RDC_PDAP118 {
     uint32_t _reserved_4 : 26;
     eSREQ SREQ : 1;
     eLCK LCK : 1;
-  } bits;          // Bit-field struct (auto-filling reserved gaps)
+  } bits;
   
   // Full 32-bit register value.
   uint32_t value;
@@ -6161,27 +6632,31 @@ union RDC_PDAP118 {
 //
 union RDC_PDAP119 {
   
-  // Enum definitions.
   enum class eD0W : uint32_t {
     eD0W_0 = 0, // No Write Access
     eD0W_1 = 1, // Write Access Allowed
   };
+  
   enum class eD0R : uint32_t {
     eD0R_0 = 0, // No Read Access
     eD0R_1 = 1, // Read Access Allowed
   };
+  
   enum class eD1W : uint32_t {
     eD1W_0 = 0, // No Write Access
     eD1W_1 = 1, // Write Access Allowed
   };
+  
   enum class eD1R : uint32_t {
     eD1R_0 = 0, // No Read Access
     eD1R_1 = 1, // Read Access Allowed
   };
+  
   enum class eSREQ : uint32_t {
     eSREQ_0 = 0, // Semaphores have no effect
     eSREQ_1 = 1, // Semaphores are enforced
   };
+  
   enum class eLCK : uint32_t {
     eLCK_0 = 0, // Not Locked
     eLCK_1 = 1, // Locked
@@ -6196,7 +6671,7 @@ union RDC_PDAP119 {
     uint32_t _reserved_4 : 26;
     eSREQ SREQ : 1;
     eLCK LCK : 1;
-  } bits;          // Bit-field struct (auto-filling reserved gaps)
+  } bits;
   
   // Full 32-bit register value.
   uint32_t value;
@@ -6209,27 +6684,31 @@ union RDC_PDAP119 {
 //
 union RDC_PDAP120 {
   
-  // Enum definitions.
   enum class eD0W : uint32_t {
     eD0W_0 = 0, // No Write Access
     eD0W_1 = 1, // Write Access Allowed
   };
+  
   enum class eD0R : uint32_t {
     eD0R_0 = 0, // No Read Access
     eD0R_1 = 1, // Read Access Allowed
   };
+  
   enum class eD1W : uint32_t {
     eD1W_0 = 0, // No Write Access
     eD1W_1 = 1, // Write Access Allowed
   };
+  
   enum class eD1R : uint32_t {
     eD1R_0 = 0, // No Read Access
     eD1R_1 = 1, // Read Access Allowed
   };
+  
   enum class eSREQ : uint32_t {
     eSREQ_0 = 0, // Semaphores have no effect
     eSREQ_1 = 1, // Semaphores are enforced
   };
+  
   enum class eLCK : uint32_t {
     eLCK_0 = 0, // Not Locked
     eLCK_1 = 1, // Locked
@@ -6244,7 +6723,7 @@ union RDC_PDAP120 {
     uint32_t _reserved_4 : 26;
     eSREQ SREQ : 1;
     eLCK LCK : 1;
-  } bits;          // Bit-field struct (auto-filling reserved gaps)
+  } bits;
   
   // Full 32-bit register value.
   uint32_t value;
@@ -6257,27 +6736,31 @@ union RDC_PDAP120 {
 //
 union RDC_PDAP121 {
   
-  // Enum definitions.
   enum class eD0W : uint32_t {
     eD0W_0 = 0, // No Write Access
     eD0W_1 = 1, // Write Access Allowed
   };
+  
   enum class eD0R : uint32_t {
     eD0R_0 = 0, // No Read Access
     eD0R_1 = 1, // Read Access Allowed
   };
+  
   enum class eD1W : uint32_t {
     eD1W_0 = 0, // No Write Access
     eD1W_1 = 1, // Write Access Allowed
   };
+  
   enum class eD1R : uint32_t {
     eD1R_0 = 0, // No Read Access
     eD1R_1 = 1, // Read Access Allowed
   };
+  
   enum class eSREQ : uint32_t {
     eSREQ_0 = 0, // Semaphores have no effect
     eSREQ_1 = 1, // Semaphores are enforced
   };
+  
   enum class eLCK : uint32_t {
     eLCK_0 = 0, // Not Locked
     eLCK_1 = 1, // Locked
@@ -6292,7 +6775,7 @@ union RDC_PDAP121 {
     uint32_t _reserved_4 : 26;
     eSREQ SREQ : 1;
     eLCK LCK : 1;
-  } bits;          // Bit-field struct (auto-filling reserved gaps)
+  } bits;
   
   // Full 32-bit register value.
   uint32_t value;
@@ -6305,27 +6788,31 @@ union RDC_PDAP121 {
 //
 union RDC_PDAP122 {
   
-  // Enum definitions.
   enum class eD0W : uint32_t {
     eD0W_0 = 0, // No Write Access
     eD0W_1 = 1, // Write Access Allowed
   };
+  
   enum class eD0R : uint32_t {
     eD0R_0 = 0, // No Read Access
     eD0R_1 = 1, // Read Access Allowed
   };
+  
   enum class eD1W : uint32_t {
     eD1W_0 = 0, // No Write Access
     eD1W_1 = 1, // Write Access Allowed
   };
+  
   enum class eD1R : uint32_t {
     eD1R_0 = 0, // No Read Access
     eD1R_1 = 1, // Read Access Allowed
   };
+  
   enum class eSREQ : uint32_t {
     eSREQ_0 = 0, // Semaphores have no effect
     eSREQ_1 = 1, // Semaphores are enforced
   };
+  
   enum class eLCK : uint32_t {
     eLCK_0 = 0, // Not Locked
     eLCK_1 = 1, // Locked
@@ -6340,7 +6827,7 @@ union RDC_PDAP122 {
     uint32_t _reserved_4 : 26;
     eSREQ SREQ : 1;
     eLCK LCK : 1;
-  } bits;          // Bit-field struct (auto-filling reserved gaps)
+  } bits;
   
   // Full 32-bit register value.
   uint32_t value;
@@ -6353,27 +6840,31 @@ union RDC_PDAP122 {
 //
 union RDC_PDAP123 {
   
-  // Enum definitions.
   enum class eD0W : uint32_t {
     eD0W_0 = 0, // No Write Access
     eD0W_1 = 1, // Write Access Allowed
   };
+  
   enum class eD0R : uint32_t {
     eD0R_0 = 0, // No Read Access
     eD0R_1 = 1, // Read Access Allowed
   };
+  
   enum class eD1W : uint32_t {
     eD1W_0 = 0, // No Write Access
     eD1W_1 = 1, // Write Access Allowed
   };
+  
   enum class eD1R : uint32_t {
     eD1R_0 = 0, // No Read Access
     eD1R_1 = 1, // Read Access Allowed
   };
+  
   enum class eSREQ : uint32_t {
     eSREQ_0 = 0, // Semaphores have no effect
     eSREQ_1 = 1, // Semaphores are enforced
   };
+  
   enum class eLCK : uint32_t {
     eLCK_0 = 0, // Not Locked
     eLCK_1 = 1, // Locked
@@ -6388,7 +6879,7 @@ union RDC_PDAP123 {
     uint32_t _reserved_4 : 26;
     eSREQ SREQ : 1;
     eLCK LCK : 1;
-  } bits;          // Bit-field struct (auto-filling reserved gaps)
+  } bits;
   
   // Full 32-bit register value.
   uint32_t value;
@@ -6401,27 +6892,31 @@ union RDC_PDAP123 {
 //
 union RDC_PDAP124 {
   
-  // Enum definitions.
   enum class eD0W : uint32_t {
     eD0W_0 = 0, // No Write Access
     eD0W_1 = 1, // Write Access Allowed
   };
+  
   enum class eD0R : uint32_t {
     eD0R_0 = 0, // No Read Access
     eD0R_1 = 1, // Read Access Allowed
   };
+  
   enum class eD1W : uint32_t {
     eD1W_0 = 0, // No Write Access
     eD1W_1 = 1, // Write Access Allowed
   };
+  
   enum class eD1R : uint32_t {
     eD1R_0 = 0, // No Read Access
     eD1R_1 = 1, // Read Access Allowed
   };
+  
   enum class eSREQ : uint32_t {
     eSREQ_0 = 0, // Semaphores have no effect
     eSREQ_1 = 1, // Semaphores are enforced
   };
+  
   enum class eLCK : uint32_t {
     eLCK_0 = 0, // Not Locked
     eLCK_1 = 1, // Locked
@@ -6436,7 +6931,7 @@ union RDC_PDAP124 {
     uint32_t _reserved_4 : 26;
     eSREQ SREQ : 1;
     eLCK LCK : 1;
-  } bits;          // Bit-field struct (auto-filling reserved gaps)
+  } bits;
   
   // Full 32-bit register value.
   uint32_t value;
@@ -6449,27 +6944,31 @@ union RDC_PDAP124 {
 //
 union RDC_PDAP125 {
   
-  // Enum definitions.
   enum class eD0W : uint32_t {
     eD0W_0 = 0, // No Write Access
     eD0W_1 = 1, // Write Access Allowed
   };
+  
   enum class eD0R : uint32_t {
     eD0R_0 = 0, // No Read Access
     eD0R_1 = 1, // Read Access Allowed
   };
+  
   enum class eD1W : uint32_t {
     eD1W_0 = 0, // No Write Access
     eD1W_1 = 1, // Write Access Allowed
   };
+  
   enum class eD1R : uint32_t {
     eD1R_0 = 0, // No Read Access
     eD1R_1 = 1, // Read Access Allowed
   };
+  
   enum class eSREQ : uint32_t {
     eSREQ_0 = 0, // Semaphores have no effect
     eSREQ_1 = 1, // Semaphores are enforced
   };
+  
   enum class eLCK : uint32_t {
     eLCK_0 = 0, // Not Locked
     eLCK_1 = 1, // Locked
@@ -6484,7 +6983,7 @@ union RDC_PDAP125 {
     uint32_t _reserved_4 : 26;
     eSREQ SREQ : 1;
     eLCK LCK : 1;
-  } bits;          // Bit-field struct (auto-filling reserved gaps)
+  } bits;
   
   // Full 32-bit register value.
   uint32_t value;
@@ -6497,27 +6996,31 @@ union RDC_PDAP125 {
 //
 union RDC_PDAP126 {
   
-  // Enum definitions.
   enum class eD0W : uint32_t {
     eD0W_0 = 0, // No Write Access
     eD0W_1 = 1, // Write Access Allowed
   };
+  
   enum class eD0R : uint32_t {
     eD0R_0 = 0, // No Read Access
     eD0R_1 = 1, // Read Access Allowed
   };
+  
   enum class eD1W : uint32_t {
     eD1W_0 = 0, // No Write Access
     eD1W_1 = 1, // Write Access Allowed
   };
+  
   enum class eD1R : uint32_t {
     eD1R_0 = 0, // No Read Access
     eD1R_1 = 1, // Read Access Allowed
   };
+  
   enum class eSREQ : uint32_t {
     eSREQ_0 = 0, // Semaphores have no effect
     eSREQ_1 = 1, // Semaphores are enforced
   };
+  
   enum class eLCK : uint32_t {
     eLCK_0 = 0, // Not Locked
     eLCK_1 = 1, // Locked
@@ -6532,7 +7035,7 @@ union RDC_PDAP126 {
     uint32_t _reserved_4 : 26;
     eSREQ SREQ : 1;
     eLCK LCK : 1;
-  } bits;          // Bit-field struct (auto-filling reserved gaps)
+  } bits;
   
   // Full 32-bit register value.
   uint32_t value;
@@ -6545,27 +7048,31 @@ union RDC_PDAP126 {
 //
 union RDC_PDAP127 {
   
-  // Enum definitions.
   enum class eD0W : uint32_t {
     eD0W_0 = 0, // No Write Access
     eD0W_1 = 1, // Write Access Allowed
   };
+  
   enum class eD0R : uint32_t {
     eD0R_0 = 0, // No Read Access
     eD0R_1 = 1, // Read Access Allowed
   };
+  
   enum class eD1W : uint32_t {
     eD1W_0 = 0, // No Write Access
     eD1W_1 = 1, // Write Access Allowed
   };
+  
   enum class eD1R : uint32_t {
     eD1R_0 = 0, // No Read Access
     eD1R_1 = 1, // Read Access Allowed
   };
+  
   enum class eSREQ : uint32_t {
     eSREQ_0 = 0, // Semaphores have no effect
     eSREQ_1 = 1, // Semaphores are enforced
   };
+  
   enum class eLCK : uint32_t {
     eLCK_0 = 0, // Not Locked
     eLCK_1 = 1, // Locked
@@ -6580,7 +7087,7 @@ union RDC_PDAP127 {
     uint32_t _reserved_4 : 26;
     eSREQ SREQ : 1;
     eLCK LCK : 1;
-  } bits;          // Bit-field struct (auto-filling reserved gaps)
+  } bits;
   
   // Full 32-bit register value.
   uint32_t value;
@@ -6594,13 +7101,11 @@ union RDC_PDAP127 {
 //
 union RDC_MRSA0 {
   
-  // Enum definitions.
-  
   // Bit field definition.
   struct {
     uint32_t _reserved_0 : 7;
     uint32_t SADR : 25;
-  } bits;          // Bit-field struct (auto-filling reserved gaps)
+  } bits;
   
   // Full 32-bit register value.
   uint32_t value;
@@ -6613,13 +7118,11 @@ union RDC_MRSA0 {
 //
 union RDC_MRSA1 {
   
-  // Enum definitions.
-  
   // Bit field definition.
   struct {
     uint32_t _reserved_0 : 7;
     uint32_t SADR : 25;
-  } bits;          // Bit-field struct (auto-filling reserved gaps)
+  } bits;
   
   // Full 32-bit register value.
   uint32_t value;
@@ -6632,13 +7135,11 @@ union RDC_MRSA1 {
 //
 union RDC_MRSA2 {
   
-  // Enum definitions.
-  
   // Bit field definition.
   struct {
     uint32_t _reserved_0 : 7;
     uint32_t SADR : 25;
-  } bits;          // Bit-field struct (auto-filling reserved gaps)
+  } bits;
   
   // Full 32-bit register value.
   uint32_t value;
@@ -6651,13 +7152,11 @@ union RDC_MRSA2 {
 //
 union RDC_MRSA3 {
   
-  // Enum definitions.
-  
   // Bit field definition.
   struct {
     uint32_t _reserved_0 : 7;
     uint32_t SADR : 25;
-  } bits;          // Bit-field struct (auto-filling reserved gaps)
+  } bits;
   
   // Full 32-bit register value.
   uint32_t value;
@@ -6670,13 +7169,11 @@ union RDC_MRSA3 {
 //
 union RDC_MRSA4 {
   
-  // Enum definitions.
-  
   // Bit field definition.
   struct {
     uint32_t _reserved_0 : 7;
     uint32_t SADR : 25;
-  } bits;          // Bit-field struct (auto-filling reserved gaps)
+  } bits;
   
   // Full 32-bit register value.
   uint32_t value;
@@ -6689,13 +7186,11 @@ union RDC_MRSA4 {
 //
 union RDC_MRSA5 {
   
-  // Enum definitions.
-  
   // Bit field definition.
   struct {
     uint32_t _reserved_0 : 7;
     uint32_t SADR : 25;
-  } bits;          // Bit-field struct (auto-filling reserved gaps)
+  } bits;
   
   // Full 32-bit register value.
   uint32_t value;
@@ -6708,13 +7203,11 @@ union RDC_MRSA5 {
 //
 union RDC_MRSA6 {
   
-  // Enum definitions.
-  
   // Bit field definition.
   struct {
     uint32_t _reserved_0 : 7;
     uint32_t SADR : 25;
-  } bits;          // Bit-field struct (auto-filling reserved gaps)
+  } bits;
   
   // Full 32-bit register value.
   uint32_t value;
@@ -6727,13 +7220,11 @@ union RDC_MRSA6 {
 //
 union RDC_MRSA7 {
   
-  // Enum definitions.
-  
   // Bit field definition.
   struct {
     uint32_t _reserved_0 : 7;
     uint32_t SADR : 25;
-  } bits;          // Bit-field struct (auto-filling reserved gaps)
+  } bits;
   
   // Full 32-bit register value.
   uint32_t value;
@@ -6746,13 +7237,11 @@ union RDC_MRSA7 {
 //
 union RDC_MRSA8 {
   
-  // Enum definitions.
-  
   // Bit field definition.
   struct {
     uint32_t _reserved_0 : 7;
     uint32_t SADR : 25;
-  } bits;          // Bit-field struct (auto-filling reserved gaps)
+  } bits;
   
   // Full 32-bit register value.
   uint32_t value;
@@ -6765,13 +7254,11 @@ union RDC_MRSA8 {
 //
 union RDC_MRSA9 {
   
-  // Enum definitions.
-  
   // Bit field definition.
   struct {
     uint32_t _reserved_0 : 7;
     uint32_t SADR : 25;
-  } bits;          // Bit-field struct (auto-filling reserved gaps)
+  } bits;
   
   // Full 32-bit register value.
   uint32_t value;
@@ -6784,13 +7271,11 @@ union RDC_MRSA9 {
 //
 union RDC_MRSA10 {
   
-  // Enum definitions.
-  
   // Bit field definition.
   struct {
     uint32_t _reserved_0 : 7;
     uint32_t SADR : 25;
-  } bits;          // Bit-field struct (auto-filling reserved gaps)
+  } bits;
   
   // Full 32-bit register value.
   uint32_t value;
@@ -6803,13 +7288,11 @@ union RDC_MRSA10 {
 //
 union RDC_MRSA11 {
   
-  // Enum definitions.
-  
   // Bit field definition.
   struct {
     uint32_t _reserved_0 : 7;
     uint32_t SADR : 25;
-  } bits;          // Bit-field struct (auto-filling reserved gaps)
+  } bits;
   
   // Full 32-bit register value.
   uint32_t value;
@@ -6822,13 +7305,11 @@ union RDC_MRSA11 {
 //
 union RDC_MRSA12 {
   
-  // Enum definitions.
-  
   // Bit field definition.
   struct {
     uint32_t _reserved_0 : 7;
     uint32_t SADR : 25;
-  } bits;          // Bit-field struct (auto-filling reserved gaps)
+  } bits;
   
   // Full 32-bit register value.
   uint32_t value;
@@ -6841,13 +7322,11 @@ union RDC_MRSA12 {
 //
 union RDC_MRSA13 {
   
-  // Enum definitions.
-  
   // Bit field definition.
   struct {
     uint32_t _reserved_0 : 7;
     uint32_t SADR : 25;
-  } bits;          // Bit-field struct (auto-filling reserved gaps)
+  } bits;
   
   // Full 32-bit register value.
   uint32_t value;
@@ -6860,13 +7339,11 @@ union RDC_MRSA13 {
 //
 union RDC_MRSA14 {
   
-  // Enum definitions.
-  
   // Bit field definition.
   struct {
     uint32_t _reserved_0 : 7;
     uint32_t SADR : 25;
-  } bits;          // Bit-field struct (auto-filling reserved gaps)
+  } bits;
   
   // Full 32-bit register value.
   uint32_t value;
@@ -6879,13 +7356,11 @@ union RDC_MRSA14 {
 //
 union RDC_MRSA15 {
   
-  // Enum definitions.
-  
   // Bit field definition.
   struct {
     uint32_t _reserved_0 : 7;
     uint32_t SADR : 25;
-  } bits;          // Bit-field struct (auto-filling reserved gaps)
+  } bits;
   
   // Full 32-bit register value.
   uint32_t value;
@@ -6898,13 +7373,11 @@ union RDC_MRSA15 {
 //
 union RDC_MRSA16 {
   
-  // Enum definitions.
-  
   // Bit field definition.
   struct {
     uint32_t _reserved_0 : 7;
     uint32_t SADR : 25;
-  } bits;          // Bit-field struct (auto-filling reserved gaps)
+  } bits;
   
   // Full 32-bit register value.
   uint32_t value;
@@ -6917,13 +7390,11 @@ union RDC_MRSA16 {
 //
 union RDC_MRSA17 {
   
-  // Enum definitions.
-  
   // Bit field definition.
   struct {
     uint32_t _reserved_0 : 7;
     uint32_t SADR : 25;
-  } bits;          // Bit-field struct (auto-filling reserved gaps)
+  } bits;
   
   // Full 32-bit register value.
   uint32_t value;
@@ -6936,13 +7407,11 @@ union RDC_MRSA17 {
 //
 union RDC_MRSA18 {
   
-  // Enum definitions.
-  
   // Bit field definition.
   struct {
     uint32_t _reserved_0 : 7;
     uint32_t SADR : 25;
-  } bits;          // Bit-field struct (auto-filling reserved gaps)
+  } bits;
   
   // Full 32-bit register value.
   uint32_t value;
@@ -6955,13 +7424,11 @@ union RDC_MRSA18 {
 //
 union RDC_MRSA19 {
   
-  // Enum definitions.
-  
   // Bit field definition.
   struct {
     uint32_t _reserved_0 : 7;
     uint32_t SADR : 25;
-  } bits;          // Bit-field struct (auto-filling reserved gaps)
+  } bits;
   
   // Full 32-bit register value.
   uint32_t value;
@@ -6974,13 +7441,11 @@ union RDC_MRSA19 {
 //
 union RDC_MRSA20 {
   
-  // Enum definitions.
-  
   // Bit field definition.
   struct {
     uint32_t _reserved_0 : 7;
     uint32_t SADR : 25;
-  } bits;          // Bit-field struct (auto-filling reserved gaps)
+  } bits;
   
   // Full 32-bit register value.
   uint32_t value;
@@ -6993,13 +7458,11 @@ union RDC_MRSA20 {
 //
 union RDC_MRSA21 {
   
-  // Enum definitions.
-  
   // Bit field definition.
   struct {
     uint32_t _reserved_0 : 7;
     uint32_t SADR : 25;
-  } bits;          // Bit-field struct (auto-filling reserved gaps)
+  } bits;
   
   // Full 32-bit register value.
   uint32_t value;
@@ -7012,13 +7475,11 @@ union RDC_MRSA21 {
 //
 union RDC_MRSA22 {
   
-  // Enum definitions.
-  
   // Bit field definition.
   struct {
     uint32_t _reserved_0 : 7;
     uint32_t SADR : 25;
-  } bits;          // Bit-field struct (auto-filling reserved gaps)
+  } bits;
   
   // Full 32-bit register value.
   uint32_t value;
@@ -7031,13 +7492,11 @@ union RDC_MRSA22 {
 //
 union RDC_MRSA23 {
   
-  // Enum definitions.
-  
   // Bit field definition.
   struct {
     uint32_t _reserved_0 : 7;
     uint32_t SADR : 25;
-  } bits;          // Bit-field struct (auto-filling reserved gaps)
+  } bits;
   
   // Full 32-bit register value.
   uint32_t value;
@@ -7050,13 +7509,11 @@ union RDC_MRSA23 {
 //
 union RDC_MRSA24 {
   
-  // Enum definitions.
-  
   // Bit field definition.
   struct {
     uint32_t _reserved_0 : 7;
     uint32_t SADR : 25;
-  } bits;          // Bit-field struct (auto-filling reserved gaps)
+  } bits;
   
   // Full 32-bit register value.
   uint32_t value;
@@ -7069,13 +7526,11 @@ union RDC_MRSA24 {
 //
 union RDC_MRSA25 {
   
-  // Enum definitions.
-  
   // Bit field definition.
   struct {
     uint32_t _reserved_0 : 7;
     uint32_t SADR : 25;
-  } bits;          // Bit-field struct (auto-filling reserved gaps)
+  } bits;
   
   // Full 32-bit register value.
   uint32_t value;
@@ -7088,13 +7543,11 @@ union RDC_MRSA25 {
 //
 union RDC_MRSA26 {
   
-  // Enum definitions.
-  
   // Bit field definition.
   struct {
     uint32_t _reserved_0 : 7;
     uint32_t SADR : 25;
-  } bits;          // Bit-field struct (auto-filling reserved gaps)
+  } bits;
   
   // Full 32-bit register value.
   uint32_t value;
@@ -7107,13 +7560,11 @@ union RDC_MRSA26 {
 //
 union RDC_MRSA27 {
   
-  // Enum definitions.
-  
   // Bit field definition.
   struct {
     uint32_t _reserved_0 : 7;
     uint32_t SADR : 25;
-  } bits;          // Bit-field struct (auto-filling reserved gaps)
+  } bits;
   
   // Full 32-bit register value.
   uint32_t value;
@@ -7126,13 +7577,11 @@ union RDC_MRSA27 {
 //
 union RDC_MRSA28 {
   
-  // Enum definitions.
-  
   // Bit field definition.
   struct {
     uint32_t _reserved_0 : 7;
     uint32_t SADR : 25;
-  } bits;          // Bit-field struct (auto-filling reserved gaps)
+  } bits;
   
   // Full 32-bit register value.
   uint32_t value;
@@ -7145,13 +7594,11 @@ union RDC_MRSA28 {
 //
 union RDC_MRSA29 {
   
-  // Enum definitions.
-  
   // Bit field definition.
   struct {
     uint32_t _reserved_0 : 7;
     uint32_t SADR : 25;
-  } bits;          // Bit-field struct (auto-filling reserved gaps)
+  } bits;
   
   // Full 32-bit register value.
   uint32_t value;
@@ -7164,13 +7611,11 @@ union RDC_MRSA29 {
 //
 union RDC_MRSA30 {
   
-  // Enum definitions.
-  
   // Bit field definition.
   struct {
     uint32_t _reserved_0 : 7;
     uint32_t SADR : 25;
-  } bits;          // Bit-field struct (auto-filling reserved gaps)
+  } bits;
   
   // Full 32-bit register value.
   uint32_t value;
@@ -7183,13 +7628,11 @@ union RDC_MRSA30 {
 //
 union RDC_MRSA31 {
   
-  // Enum definitions.
-  
   // Bit field definition.
   struct {
     uint32_t _reserved_0 : 7;
     uint32_t SADR : 25;
-  } bits;          // Bit-field struct (auto-filling reserved gaps)
+  } bits;
   
   // Full 32-bit register value.
   uint32_t value;
@@ -7202,13 +7645,11 @@ union RDC_MRSA31 {
 //
 union RDC_MRSA32 {
   
-  // Enum definitions.
-  
   // Bit field definition.
   struct {
     uint32_t _reserved_0 : 7;
     uint32_t SADR : 25;
-  } bits;          // Bit-field struct (auto-filling reserved gaps)
+  } bits;
   
   // Full 32-bit register value.
   uint32_t value;
@@ -7221,13 +7662,11 @@ union RDC_MRSA32 {
 //
 union RDC_MRSA33 {
   
-  // Enum definitions.
-  
   // Bit field definition.
   struct {
     uint32_t _reserved_0 : 7;
     uint32_t SADR : 25;
-  } bits;          // Bit-field struct (auto-filling reserved gaps)
+  } bits;
   
   // Full 32-bit register value.
   uint32_t value;
@@ -7240,13 +7679,11 @@ union RDC_MRSA33 {
 //
 union RDC_MRSA34 {
   
-  // Enum definitions.
-  
   // Bit field definition.
   struct {
     uint32_t _reserved_0 : 7;
     uint32_t SADR : 25;
-  } bits;          // Bit-field struct (auto-filling reserved gaps)
+  } bits;
   
   // Full 32-bit register value.
   uint32_t value;
@@ -7259,13 +7696,11 @@ union RDC_MRSA34 {
 //
 union RDC_MRSA35 {
   
-  // Enum definitions.
-  
   // Bit field definition.
   struct {
     uint32_t _reserved_0 : 7;
     uint32_t SADR : 25;
-  } bits;          // Bit-field struct (auto-filling reserved gaps)
+  } bits;
   
   // Full 32-bit register value.
   uint32_t value;
@@ -7278,13 +7713,11 @@ union RDC_MRSA35 {
 //
 union RDC_MRSA36 {
   
-  // Enum definitions.
-  
   // Bit field definition.
   struct {
     uint32_t _reserved_0 : 7;
     uint32_t SADR : 25;
-  } bits;          // Bit-field struct (auto-filling reserved gaps)
+  } bits;
   
   // Full 32-bit register value.
   uint32_t value;
@@ -7297,13 +7730,11 @@ union RDC_MRSA36 {
 //
 union RDC_MRSA37 {
   
-  // Enum definitions.
-  
   // Bit field definition.
   struct {
     uint32_t _reserved_0 : 7;
     uint32_t SADR : 25;
-  } bits;          // Bit-field struct (auto-filling reserved gaps)
+  } bits;
   
   // Full 32-bit register value.
   uint32_t value;
@@ -7316,13 +7747,11 @@ union RDC_MRSA37 {
 //
 union RDC_MRSA38 {
   
-  // Enum definitions.
-  
   // Bit field definition.
   struct {
     uint32_t _reserved_0 : 7;
     uint32_t SADR : 25;
-  } bits;          // Bit-field struct (auto-filling reserved gaps)
+  } bits;
   
   // Full 32-bit register value.
   uint32_t value;
@@ -7335,13 +7764,11 @@ union RDC_MRSA38 {
 //
 union RDC_MRSA39 {
   
-  // Enum definitions.
-  
   // Bit field definition.
   struct {
     uint32_t _reserved_0 : 7;
     uint32_t SADR : 25;
-  } bits;          // Bit-field struct (auto-filling reserved gaps)
+  } bits;
   
   // Full 32-bit register value.
   uint32_t value;
@@ -7354,13 +7781,11 @@ union RDC_MRSA39 {
 //
 union RDC_MRSA40 {
   
-  // Enum definitions.
-  
   // Bit field definition.
   struct {
     uint32_t _reserved_0 : 7;
     uint32_t SADR : 25;
-  } bits;          // Bit-field struct (auto-filling reserved gaps)
+  } bits;
   
   // Full 32-bit register value.
   uint32_t value;
@@ -7373,13 +7798,11 @@ union RDC_MRSA40 {
 //
 union RDC_MRSA41 {
   
-  // Enum definitions.
-  
   // Bit field definition.
   struct {
     uint32_t _reserved_0 : 7;
     uint32_t SADR : 25;
-  } bits;          // Bit-field struct (auto-filling reserved gaps)
+  } bits;
   
   // Full 32-bit register value.
   uint32_t value;
@@ -7392,13 +7815,11 @@ union RDC_MRSA41 {
 //
 union RDC_MRSA42 {
   
-  // Enum definitions.
-  
   // Bit field definition.
   struct {
     uint32_t _reserved_0 : 7;
     uint32_t SADR : 25;
-  } bits;          // Bit-field struct (auto-filling reserved gaps)
+  } bits;
   
   // Full 32-bit register value.
   uint32_t value;
@@ -7411,13 +7832,11 @@ union RDC_MRSA42 {
 //
 union RDC_MRSA43 {
   
-  // Enum definitions.
-  
   // Bit field definition.
   struct {
     uint32_t _reserved_0 : 7;
     uint32_t SADR : 25;
-  } bits;          // Bit-field struct (auto-filling reserved gaps)
+  } bits;
   
   // Full 32-bit register value.
   uint32_t value;
@@ -7430,13 +7849,11 @@ union RDC_MRSA43 {
 //
 union RDC_MRSA44 {
   
-  // Enum definitions.
-  
   // Bit field definition.
   struct {
     uint32_t _reserved_0 : 7;
     uint32_t SADR : 25;
-  } bits;          // Bit-field struct (auto-filling reserved gaps)
+  } bits;
   
   // Full 32-bit register value.
   uint32_t value;
@@ -7449,13 +7866,11 @@ union RDC_MRSA44 {
 //
 union RDC_MRSA45 {
   
-  // Enum definitions.
-  
   // Bit field definition.
   struct {
     uint32_t _reserved_0 : 7;
     uint32_t SADR : 25;
-  } bits;          // Bit-field struct (auto-filling reserved gaps)
+  } bits;
   
   // Full 32-bit register value.
   uint32_t value;
@@ -7468,13 +7883,11 @@ union RDC_MRSA45 {
 //
 union RDC_MRSA46 {
   
-  // Enum definitions.
-  
   // Bit field definition.
   struct {
     uint32_t _reserved_0 : 7;
     uint32_t SADR : 25;
-  } bits;          // Bit-field struct (auto-filling reserved gaps)
+  } bits;
   
   // Full 32-bit register value.
   uint32_t value;
@@ -7487,13 +7900,11 @@ union RDC_MRSA46 {
 //
 union RDC_MRSA47 {
   
-  // Enum definitions.
-  
   // Bit field definition.
   struct {
     uint32_t _reserved_0 : 7;
     uint32_t SADR : 25;
-  } bits;          // Bit-field struct (auto-filling reserved gaps)
+  } bits;
   
   // Full 32-bit register value.
   uint32_t value;
@@ -7506,13 +7917,11 @@ union RDC_MRSA47 {
 //
 union RDC_MRSA48 {
   
-  // Enum definitions.
-  
   // Bit field definition.
   struct {
     uint32_t _reserved_0 : 7;
     uint32_t SADR : 25;
-  } bits;          // Bit-field struct (auto-filling reserved gaps)
+  } bits;
   
   // Full 32-bit register value.
   uint32_t value;
@@ -7525,13 +7934,11 @@ union RDC_MRSA48 {
 //
 union RDC_MRSA49 {
   
-  // Enum definitions.
-  
   // Bit field definition.
   struct {
     uint32_t _reserved_0 : 7;
     uint32_t SADR : 25;
-  } bits;          // Bit-field struct (auto-filling reserved gaps)
+  } bits;
   
   // Full 32-bit register value.
   uint32_t value;
@@ -7544,13 +7951,11 @@ union RDC_MRSA49 {
 //
 union RDC_MRSA50 {
   
-  // Enum definitions.
-  
   // Bit field definition.
   struct {
     uint32_t _reserved_0 : 7;
     uint32_t SADR : 25;
-  } bits;          // Bit-field struct (auto-filling reserved gaps)
+  } bits;
   
   // Full 32-bit register value.
   uint32_t value;
@@ -7563,13 +7968,11 @@ union RDC_MRSA50 {
 //
 union RDC_MRSA51 {
   
-  // Enum definitions.
-  
   // Bit field definition.
   struct {
     uint32_t _reserved_0 : 7;
     uint32_t SADR : 25;
-  } bits;          // Bit-field struct (auto-filling reserved gaps)
+  } bits;
   
   // Full 32-bit register value.
   uint32_t value;
@@ -7582,13 +7985,11 @@ union RDC_MRSA51 {
 //
 union RDC_MRSA52 {
   
-  // Enum definitions.
-  
   // Bit field definition.
   struct {
     uint32_t _reserved_0 : 7;
     uint32_t SADR : 25;
-  } bits;          // Bit-field struct (auto-filling reserved gaps)
+  } bits;
   
   // Full 32-bit register value.
   uint32_t value;
@@ -7601,13 +8002,11 @@ union RDC_MRSA52 {
 //
 union RDC_MRSA53 {
   
-  // Enum definitions.
-  
   // Bit field definition.
   struct {
     uint32_t _reserved_0 : 7;
     uint32_t SADR : 25;
-  } bits;          // Bit-field struct (auto-filling reserved gaps)
+  } bits;
   
   // Full 32-bit register value.
   uint32_t value;
@@ -7620,13 +8019,11 @@ union RDC_MRSA53 {
 //
 union RDC_MRSA54 {
   
-  // Enum definitions.
-  
   // Bit field definition.
   struct {
     uint32_t _reserved_0 : 7;
     uint32_t SADR : 25;
-  } bits;          // Bit-field struct (auto-filling reserved gaps)
+  } bits;
   
   // Full 32-bit register value.
   uint32_t value;
@@ -7639,13 +8036,11 @@ union RDC_MRSA54 {
 //
 union RDC_MRSA55 {
   
-  // Enum definitions.
-  
   // Bit field definition.
   struct {
     uint32_t _reserved_0 : 7;
     uint32_t SADR : 25;
-  } bits;          // Bit-field struct (auto-filling reserved gaps)
+  } bits;
   
   // Full 32-bit register value.
   uint32_t value;
@@ -7658,13 +8053,11 @@ union RDC_MRSA55 {
 //
 union RDC_MRSA56 {
   
-  // Enum definitions.
-  
   // Bit field definition.
   struct {
     uint32_t _reserved_0 : 7;
     uint32_t SADR : 25;
-  } bits;          // Bit-field struct (auto-filling reserved gaps)
+  } bits;
   
   // Full 32-bit register value.
   uint32_t value;
@@ -7677,13 +8070,11 @@ union RDC_MRSA56 {
 //
 union RDC_MRSA57 {
   
-  // Enum definitions.
-  
   // Bit field definition.
   struct {
     uint32_t _reserved_0 : 7;
     uint32_t SADR : 25;
-  } bits;          // Bit-field struct (auto-filling reserved gaps)
+  } bits;
   
   // Full 32-bit register value.
   uint32_t value;
@@ -7696,13 +8087,11 @@ union RDC_MRSA57 {
 //
 union RDC_MRSA58 {
   
-  // Enum definitions.
-  
   // Bit field definition.
   struct {
     uint32_t _reserved_0 : 7;
     uint32_t SADR : 25;
-  } bits;          // Bit-field struct (auto-filling reserved gaps)
+  } bits;
   
   // Full 32-bit register value.
   uint32_t value;
@@ -7716,13 +8105,11 @@ union RDC_MRSA58 {
 //
 union RDC_MREA0 {
   
-  // Enum definitions.
-  
   // Bit field definition.
   struct {
     uint32_t _reserved_0 : 7;
     uint32_t EADR : 25;
-  } bits;          // Bit-field struct (auto-filling reserved gaps)
+  } bits;
   
   // Full 32-bit register value.
   uint32_t value;
@@ -7735,13 +8122,11 @@ union RDC_MREA0 {
 //
 union RDC_MREA1 {
   
-  // Enum definitions.
-  
   // Bit field definition.
   struct {
     uint32_t _reserved_0 : 7;
     uint32_t EADR : 25;
-  } bits;          // Bit-field struct (auto-filling reserved gaps)
+  } bits;
   
   // Full 32-bit register value.
   uint32_t value;
@@ -7754,13 +8139,11 @@ union RDC_MREA1 {
 //
 union RDC_MREA2 {
   
-  // Enum definitions.
-  
   // Bit field definition.
   struct {
     uint32_t _reserved_0 : 7;
     uint32_t EADR : 25;
-  } bits;          // Bit-field struct (auto-filling reserved gaps)
+  } bits;
   
   // Full 32-bit register value.
   uint32_t value;
@@ -7773,13 +8156,11 @@ union RDC_MREA2 {
 //
 union RDC_MREA3 {
   
-  // Enum definitions.
-  
   // Bit field definition.
   struct {
     uint32_t _reserved_0 : 7;
     uint32_t EADR : 25;
-  } bits;          // Bit-field struct (auto-filling reserved gaps)
+  } bits;
   
   // Full 32-bit register value.
   uint32_t value;
@@ -7792,13 +8173,11 @@ union RDC_MREA3 {
 //
 union RDC_MREA4 {
   
-  // Enum definitions.
-  
   // Bit field definition.
   struct {
     uint32_t _reserved_0 : 7;
     uint32_t EADR : 25;
-  } bits;          // Bit-field struct (auto-filling reserved gaps)
+  } bits;
   
   // Full 32-bit register value.
   uint32_t value;
@@ -7811,13 +8190,11 @@ union RDC_MREA4 {
 //
 union RDC_MREA5 {
   
-  // Enum definitions.
-  
   // Bit field definition.
   struct {
     uint32_t _reserved_0 : 7;
     uint32_t EADR : 25;
-  } bits;          // Bit-field struct (auto-filling reserved gaps)
+  } bits;
   
   // Full 32-bit register value.
   uint32_t value;
@@ -7830,13 +8207,11 @@ union RDC_MREA5 {
 //
 union RDC_MREA6 {
   
-  // Enum definitions.
-  
   // Bit field definition.
   struct {
     uint32_t _reserved_0 : 7;
     uint32_t EADR : 25;
-  } bits;          // Bit-field struct (auto-filling reserved gaps)
+  } bits;
   
   // Full 32-bit register value.
   uint32_t value;
@@ -7849,13 +8224,11 @@ union RDC_MREA6 {
 //
 union RDC_MREA7 {
   
-  // Enum definitions.
-  
   // Bit field definition.
   struct {
     uint32_t _reserved_0 : 7;
     uint32_t EADR : 25;
-  } bits;          // Bit-field struct (auto-filling reserved gaps)
+  } bits;
   
   // Full 32-bit register value.
   uint32_t value;
@@ -7868,13 +8241,11 @@ union RDC_MREA7 {
 //
 union RDC_MREA8 {
   
-  // Enum definitions.
-  
   // Bit field definition.
   struct {
     uint32_t _reserved_0 : 7;
     uint32_t EADR : 25;
-  } bits;          // Bit-field struct (auto-filling reserved gaps)
+  } bits;
   
   // Full 32-bit register value.
   uint32_t value;
@@ -7887,13 +8258,11 @@ union RDC_MREA8 {
 //
 union RDC_MREA9 {
   
-  // Enum definitions.
-  
   // Bit field definition.
   struct {
     uint32_t _reserved_0 : 7;
     uint32_t EADR : 25;
-  } bits;          // Bit-field struct (auto-filling reserved gaps)
+  } bits;
   
   // Full 32-bit register value.
   uint32_t value;
@@ -7906,13 +8275,11 @@ union RDC_MREA9 {
 //
 union RDC_MREA10 {
   
-  // Enum definitions.
-  
   // Bit field definition.
   struct {
     uint32_t _reserved_0 : 7;
     uint32_t EADR : 25;
-  } bits;          // Bit-field struct (auto-filling reserved gaps)
+  } bits;
   
   // Full 32-bit register value.
   uint32_t value;
@@ -7925,13 +8292,11 @@ union RDC_MREA10 {
 //
 union RDC_MREA11 {
   
-  // Enum definitions.
-  
   // Bit field definition.
   struct {
     uint32_t _reserved_0 : 7;
     uint32_t EADR : 25;
-  } bits;          // Bit-field struct (auto-filling reserved gaps)
+  } bits;
   
   // Full 32-bit register value.
   uint32_t value;
@@ -7944,13 +8309,11 @@ union RDC_MREA11 {
 //
 union RDC_MREA12 {
   
-  // Enum definitions.
-  
   // Bit field definition.
   struct {
     uint32_t _reserved_0 : 7;
     uint32_t EADR : 25;
-  } bits;          // Bit-field struct (auto-filling reserved gaps)
+  } bits;
   
   // Full 32-bit register value.
   uint32_t value;
@@ -7963,13 +8326,11 @@ union RDC_MREA12 {
 //
 union RDC_MREA13 {
   
-  // Enum definitions.
-  
   // Bit field definition.
   struct {
     uint32_t _reserved_0 : 7;
     uint32_t EADR : 25;
-  } bits;          // Bit-field struct (auto-filling reserved gaps)
+  } bits;
   
   // Full 32-bit register value.
   uint32_t value;
@@ -7982,13 +8343,11 @@ union RDC_MREA13 {
 //
 union RDC_MREA14 {
   
-  // Enum definitions.
-  
   // Bit field definition.
   struct {
     uint32_t _reserved_0 : 7;
     uint32_t EADR : 25;
-  } bits;          // Bit-field struct (auto-filling reserved gaps)
+  } bits;
   
   // Full 32-bit register value.
   uint32_t value;
@@ -8001,13 +8360,11 @@ union RDC_MREA14 {
 //
 union RDC_MREA15 {
   
-  // Enum definitions.
-  
   // Bit field definition.
   struct {
     uint32_t _reserved_0 : 7;
     uint32_t EADR : 25;
-  } bits;          // Bit-field struct (auto-filling reserved gaps)
+  } bits;
   
   // Full 32-bit register value.
   uint32_t value;
@@ -8020,13 +8377,11 @@ union RDC_MREA15 {
 //
 union RDC_MREA16 {
   
-  // Enum definitions.
-  
   // Bit field definition.
   struct {
     uint32_t _reserved_0 : 7;
     uint32_t EADR : 25;
-  } bits;          // Bit-field struct (auto-filling reserved gaps)
+  } bits;
   
   // Full 32-bit register value.
   uint32_t value;
@@ -8039,13 +8394,11 @@ union RDC_MREA16 {
 //
 union RDC_MREA17 {
   
-  // Enum definitions.
-  
   // Bit field definition.
   struct {
     uint32_t _reserved_0 : 7;
     uint32_t EADR : 25;
-  } bits;          // Bit-field struct (auto-filling reserved gaps)
+  } bits;
   
   // Full 32-bit register value.
   uint32_t value;
@@ -8058,13 +8411,11 @@ union RDC_MREA17 {
 //
 union RDC_MREA18 {
   
-  // Enum definitions.
-  
   // Bit field definition.
   struct {
     uint32_t _reserved_0 : 7;
     uint32_t EADR : 25;
-  } bits;          // Bit-field struct (auto-filling reserved gaps)
+  } bits;
   
   // Full 32-bit register value.
   uint32_t value;
@@ -8077,13 +8428,11 @@ union RDC_MREA18 {
 //
 union RDC_MREA19 {
   
-  // Enum definitions.
-  
   // Bit field definition.
   struct {
     uint32_t _reserved_0 : 7;
     uint32_t EADR : 25;
-  } bits;          // Bit-field struct (auto-filling reserved gaps)
+  } bits;
   
   // Full 32-bit register value.
   uint32_t value;
@@ -8096,13 +8445,11 @@ union RDC_MREA19 {
 //
 union RDC_MREA20 {
   
-  // Enum definitions.
-  
   // Bit field definition.
   struct {
     uint32_t _reserved_0 : 7;
     uint32_t EADR : 25;
-  } bits;          // Bit-field struct (auto-filling reserved gaps)
+  } bits;
   
   // Full 32-bit register value.
   uint32_t value;
@@ -8115,13 +8462,11 @@ union RDC_MREA20 {
 //
 union RDC_MREA21 {
   
-  // Enum definitions.
-  
   // Bit field definition.
   struct {
     uint32_t _reserved_0 : 7;
     uint32_t EADR : 25;
-  } bits;          // Bit-field struct (auto-filling reserved gaps)
+  } bits;
   
   // Full 32-bit register value.
   uint32_t value;
@@ -8134,13 +8479,11 @@ union RDC_MREA21 {
 //
 union RDC_MREA22 {
   
-  // Enum definitions.
-  
   // Bit field definition.
   struct {
     uint32_t _reserved_0 : 7;
     uint32_t EADR : 25;
-  } bits;          // Bit-field struct (auto-filling reserved gaps)
+  } bits;
   
   // Full 32-bit register value.
   uint32_t value;
@@ -8153,13 +8496,11 @@ union RDC_MREA22 {
 //
 union RDC_MREA23 {
   
-  // Enum definitions.
-  
   // Bit field definition.
   struct {
     uint32_t _reserved_0 : 7;
     uint32_t EADR : 25;
-  } bits;          // Bit-field struct (auto-filling reserved gaps)
+  } bits;
   
   // Full 32-bit register value.
   uint32_t value;
@@ -8172,13 +8513,11 @@ union RDC_MREA23 {
 //
 union RDC_MREA24 {
   
-  // Enum definitions.
-  
   // Bit field definition.
   struct {
     uint32_t _reserved_0 : 7;
     uint32_t EADR : 25;
-  } bits;          // Bit-field struct (auto-filling reserved gaps)
+  } bits;
   
   // Full 32-bit register value.
   uint32_t value;
@@ -8191,13 +8530,11 @@ union RDC_MREA24 {
 //
 union RDC_MREA25 {
   
-  // Enum definitions.
-  
   // Bit field definition.
   struct {
     uint32_t _reserved_0 : 7;
     uint32_t EADR : 25;
-  } bits;          // Bit-field struct (auto-filling reserved gaps)
+  } bits;
   
   // Full 32-bit register value.
   uint32_t value;
@@ -8210,13 +8547,11 @@ union RDC_MREA25 {
 //
 union RDC_MREA26 {
   
-  // Enum definitions.
-  
   // Bit field definition.
   struct {
     uint32_t _reserved_0 : 7;
     uint32_t EADR : 25;
-  } bits;          // Bit-field struct (auto-filling reserved gaps)
+  } bits;
   
   // Full 32-bit register value.
   uint32_t value;
@@ -8229,13 +8564,11 @@ union RDC_MREA26 {
 //
 union RDC_MREA27 {
   
-  // Enum definitions.
-  
   // Bit field definition.
   struct {
     uint32_t _reserved_0 : 7;
     uint32_t EADR : 25;
-  } bits;          // Bit-field struct (auto-filling reserved gaps)
+  } bits;
   
   // Full 32-bit register value.
   uint32_t value;
@@ -8248,13 +8581,11 @@ union RDC_MREA27 {
 //
 union RDC_MREA28 {
   
-  // Enum definitions.
-  
   // Bit field definition.
   struct {
     uint32_t _reserved_0 : 7;
     uint32_t EADR : 25;
-  } bits;          // Bit-field struct (auto-filling reserved gaps)
+  } bits;
   
   // Full 32-bit register value.
   uint32_t value;
@@ -8267,13 +8598,11 @@ union RDC_MREA28 {
 //
 union RDC_MREA29 {
   
-  // Enum definitions.
-  
   // Bit field definition.
   struct {
     uint32_t _reserved_0 : 7;
     uint32_t EADR : 25;
-  } bits;          // Bit-field struct (auto-filling reserved gaps)
+  } bits;
   
   // Full 32-bit register value.
   uint32_t value;
@@ -8286,13 +8615,11 @@ union RDC_MREA29 {
 //
 union RDC_MREA30 {
   
-  // Enum definitions.
-  
   // Bit field definition.
   struct {
     uint32_t _reserved_0 : 7;
     uint32_t EADR : 25;
-  } bits;          // Bit-field struct (auto-filling reserved gaps)
+  } bits;
   
   // Full 32-bit register value.
   uint32_t value;
@@ -8305,13 +8632,11 @@ union RDC_MREA30 {
 //
 union RDC_MREA31 {
   
-  // Enum definitions.
-  
   // Bit field definition.
   struct {
     uint32_t _reserved_0 : 7;
     uint32_t EADR : 25;
-  } bits;          // Bit-field struct (auto-filling reserved gaps)
+  } bits;
   
   // Full 32-bit register value.
   uint32_t value;
@@ -8324,13 +8649,11 @@ union RDC_MREA31 {
 //
 union RDC_MREA32 {
   
-  // Enum definitions.
-  
   // Bit field definition.
   struct {
     uint32_t _reserved_0 : 7;
     uint32_t EADR : 25;
-  } bits;          // Bit-field struct (auto-filling reserved gaps)
+  } bits;
   
   // Full 32-bit register value.
   uint32_t value;
@@ -8343,13 +8666,11 @@ union RDC_MREA32 {
 //
 union RDC_MREA33 {
   
-  // Enum definitions.
-  
   // Bit field definition.
   struct {
     uint32_t _reserved_0 : 7;
     uint32_t EADR : 25;
-  } bits;          // Bit-field struct (auto-filling reserved gaps)
+  } bits;
   
   // Full 32-bit register value.
   uint32_t value;
@@ -8362,13 +8683,11 @@ union RDC_MREA33 {
 //
 union RDC_MREA34 {
   
-  // Enum definitions.
-  
   // Bit field definition.
   struct {
     uint32_t _reserved_0 : 7;
     uint32_t EADR : 25;
-  } bits;          // Bit-field struct (auto-filling reserved gaps)
+  } bits;
   
   // Full 32-bit register value.
   uint32_t value;
@@ -8381,13 +8700,11 @@ union RDC_MREA34 {
 //
 union RDC_MREA35 {
   
-  // Enum definitions.
-  
   // Bit field definition.
   struct {
     uint32_t _reserved_0 : 7;
     uint32_t EADR : 25;
-  } bits;          // Bit-field struct (auto-filling reserved gaps)
+  } bits;
   
   // Full 32-bit register value.
   uint32_t value;
@@ -8400,13 +8717,11 @@ union RDC_MREA35 {
 //
 union RDC_MREA36 {
   
-  // Enum definitions.
-  
   // Bit field definition.
   struct {
     uint32_t _reserved_0 : 7;
     uint32_t EADR : 25;
-  } bits;          // Bit-field struct (auto-filling reserved gaps)
+  } bits;
   
   // Full 32-bit register value.
   uint32_t value;
@@ -8419,13 +8734,11 @@ union RDC_MREA36 {
 //
 union RDC_MREA37 {
   
-  // Enum definitions.
-  
   // Bit field definition.
   struct {
     uint32_t _reserved_0 : 7;
     uint32_t EADR : 25;
-  } bits;          // Bit-field struct (auto-filling reserved gaps)
+  } bits;
   
   // Full 32-bit register value.
   uint32_t value;
@@ -8438,13 +8751,11 @@ union RDC_MREA37 {
 //
 union RDC_MREA38 {
   
-  // Enum definitions.
-  
   // Bit field definition.
   struct {
     uint32_t _reserved_0 : 7;
     uint32_t EADR : 25;
-  } bits;          // Bit-field struct (auto-filling reserved gaps)
+  } bits;
   
   // Full 32-bit register value.
   uint32_t value;
@@ -8457,13 +8768,11 @@ union RDC_MREA38 {
 //
 union RDC_MREA39 {
   
-  // Enum definitions.
-  
   // Bit field definition.
   struct {
     uint32_t _reserved_0 : 7;
     uint32_t EADR : 25;
-  } bits;          // Bit-field struct (auto-filling reserved gaps)
+  } bits;
   
   // Full 32-bit register value.
   uint32_t value;
@@ -8476,13 +8785,11 @@ union RDC_MREA39 {
 //
 union RDC_MREA40 {
   
-  // Enum definitions.
-  
   // Bit field definition.
   struct {
     uint32_t _reserved_0 : 7;
     uint32_t EADR : 25;
-  } bits;          // Bit-field struct (auto-filling reserved gaps)
+  } bits;
   
   // Full 32-bit register value.
   uint32_t value;
@@ -8495,13 +8802,11 @@ union RDC_MREA40 {
 //
 union RDC_MREA41 {
   
-  // Enum definitions.
-  
   // Bit field definition.
   struct {
     uint32_t _reserved_0 : 7;
     uint32_t EADR : 25;
-  } bits;          // Bit-field struct (auto-filling reserved gaps)
+  } bits;
   
   // Full 32-bit register value.
   uint32_t value;
@@ -8514,13 +8819,11 @@ union RDC_MREA41 {
 //
 union RDC_MREA42 {
   
-  // Enum definitions.
-  
   // Bit field definition.
   struct {
     uint32_t _reserved_0 : 7;
     uint32_t EADR : 25;
-  } bits;          // Bit-field struct (auto-filling reserved gaps)
+  } bits;
   
   // Full 32-bit register value.
   uint32_t value;
@@ -8533,13 +8836,11 @@ union RDC_MREA42 {
 //
 union RDC_MREA43 {
   
-  // Enum definitions.
-  
   // Bit field definition.
   struct {
     uint32_t _reserved_0 : 7;
     uint32_t EADR : 25;
-  } bits;          // Bit-field struct (auto-filling reserved gaps)
+  } bits;
   
   // Full 32-bit register value.
   uint32_t value;
@@ -8552,13 +8853,11 @@ union RDC_MREA43 {
 //
 union RDC_MREA44 {
   
-  // Enum definitions.
-  
   // Bit field definition.
   struct {
     uint32_t _reserved_0 : 7;
     uint32_t EADR : 25;
-  } bits;          // Bit-field struct (auto-filling reserved gaps)
+  } bits;
   
   // Full 32-bit register value.
   uint32_t value;
@@ -8571,13 +8870,11 @@ union RDC_MREA44 {
 //
 union RDC_MREA45 {
   
-  // Enum definitions.
-  
   // Bit field definition.
   struct {
     uint32_t _reserved_0 : 7;
     uint32_t EADR : 25;
-  } bits;          // Bit-field struct (auto-filling reserved gaps)
+  } bits;
   
   // Full 32-bit register value.
   uint32_t value;
@@ -8590,13 +8887,11 @@ union RDC_MREA45 {
 //
 union RDC_MREA46 {
   
-  // Enum definitions.
-  
   // Bit field definition.
   struct {
     uint32_t _reserved_0 : 7;
     uint32_t EADR : 25;
-  } bits;          // Bit-field struct (auto-filling reserved gaps)
+  } bits;
   
   // Full 32-bit register value.
   uint32_t value;
@@ -8609,13 +8904,11 @@ union RDC_MREA46 {
 //
 union RDC_MREA47 {
   
-  // Enum definitions.
-  
   // Bit field definition.
   struct {
     uint32_t _reserved_0 : 7;
     uint32_t EADR : 25;
-  } bits;          // Bit-field struct (auto-filling reserved gaps)
+  } bits;
   
   // Full 32-bit register value.
   uint32_t value;
@@ -8628,13 +8921,11 @@ union RDC_MREA47 {
 //
 union RDC_MREA48 {
   
-  // Enum definitions.
-  
   // Bit field definition.
   struct {
     uint32_t _reserved_0 : 7;
     uint32_t EADR : 25;
-  } bits;          // Bit-field struct (auto-filling reserved gaps)
+  } bits;
   
   // Full 32-bit register value.
   uint32_t value;
@@ -8647,13 +8938,11 @@ union RDC_MREA48 {
 //
 union RDC_MREA49 {
   
-  // Enum definitions.
-  
   // Bit field definition.
   struct {
     uint32_t _reserved_0 : 7;
     uint32_t EADR : 25;
-  } bits;          // Bit-field struct (auto-filling reserved gaps)
+  } bits;
   
   // Full 32-bit register value.
   uint32_t value;
@@ -8666,13 +8955,11 @@ union RDC_MREA49 {
 //
 union RDC_MREA50 {
   
-  // Enum definitions.
-  
   // Bit field definition.
   struct {
     uint32_t _reserved_0 : 7;
     uint32_t EADR : 25;
-  } bits;          // Bit-field struct (auto-filling reserved gaps)
+  } bits;
   
   // Full 32-bit register value.
   uint32_t value;
@@ -8685,13 +8972,11 @@ union RDC_MREA50 {
 //
 union RDC_MREA51 {
   
-  // Enum definitions.
-  
   // Bit field definition.
   struct {
     uint32_t _reserved_0 : 7;
     uint32_t EADR : 25;
-  } bits;          // Bit-field struct (auto-filling reserved gaps)
+  } bits;
   
   // Full 32-bit register value.
   uint32_t value;
@@ -8704,13 +8989,11 @@ union RDC_MREA51 {
 //
 union RDC_MREA52 {
   
-  // Enum definitions.
-  
   // Bit field definition.
   struct {
     uint32_t _reserved_0 : 7;
     uint32_t EADR : 25;
-  } bits;          // Bit-field struct (auto-filling reserved gaps)
+  } bits;
   
   // Full 32-bit register value.
   uint32_t value;
@@ -8723,13 +9006,11 @@ union RDC_MREA52 {
 //
 union RDC_MREA53 {
   
-  // Enum definitions.
-  
   // Bit field definition.
   struct {
     uint32_t _reserved_0 : 7;
     uint32_t EADR : 25;
-  } bits;          // Bit-field struct (auto-filling reserved gaps)
+  } bits;
   
   // Full 32-bit register value.
   uint32_t value;
@@ -8742,13 +9023,11 @@ union RDC_MREA53 {
 //
 union RDC_MREA54 {
   
-  // Enum definitions.
-  
   // Bit field definition.
   struct {
     uint32_t _reserved_0 : 7;
     uint32_t EADR : 25;
-  } bits;          // Bit-field struct (auto-filling reserved gaps)
+  } bits;
   
   // Full 32-bit register value.
   uint32_t value;
@@ -8761,13 +9040,11 @@ union RDC_MREA54 {
 //
 union RDC_MREA55 {
   
-  // Enum definitions.
-  
   // Bit field definition.
   struct {
     uint32_t _reserved_0 : 7;
     uint32_t EADR : 25;
-  } bits;          // Bit-field struct (auto-filling reserved gaps)
+  } bits;
   
   // Full 32-bit register value.
   uint32_t value;
@@ -8780,13 +9057,11 @@ union RDC_MREA55 {
 //
 union RDC_MREA56 {
   
-  // Enum definitions.
-  
   // Bit field definition.
   struct {
     uint32_t _reserved_0 : 7;
     uint32_t EADR : 25;
-  } bits;          // Bit-field struct (auto-filling reserved gaps)
+  } bits;
   
   // Full 32-bit register value.
   uint32_t value;
@@ -8799,13 +9074,11 @@ union RDC_MREA56 {
 //
 union RDC_MREA57 {
   
-  // Enum definitions.
-  
   // Bit field definition.
   struct {
     uint32_t _reserved_0 : 7;
     uint32_t EADR : 25;
-  } bits;          // Bit-field struct (auto-filling reserved gaps)
+  } bits;
   
   // Full 32-bit register value.
   uint32_t value;
@@ -8818,13 +9091,11 @@ union RDC_MREA57 {
 //
 union RDC_MREA58 {
   
-  // Enum definitions.
-  
   // Bit field definition.
   struct {
     uint32_t _reserved_0 : 7;
     uint32_t EADR : 25;
-  } bits;          // Bit-field struct (auto-filling reserved gaps)
+  } bits;
   
   // Full 32-bit register value.
   uint32_t value;
@@ -8838,27 +9109,31 @@ union RDC_MREA58 {
 //
 union RDC_MRC0 {
   
-  // Enum definitions.
   enum class eD0W : uint32_t {
     eD0W_0 = 0, // Processing Domain 0 does not have Write access to the memory region
     eD0W_1 = 1, // Processing Domain 0 has Write access to the memory region
   };
+  
   enum class eD0R : uint32_t {
     eD0R_0 = 0, // Processing Domain 0 does not have Read access to the memory region
     eD0R_1 = 1, // Processing Domain 0 has Read access to the memory region
   };
+  
   enum class eD1W : uint32_t {
     eD1W_0 = 0, // Processing Domain 1 does not have Write access to the memory region
     eD1W_1 = 1, // Processing Domain 1 has Write access to the memory region
   };
+  
   enum class eD1R : uint32_t {
     eD1R_0 = 0, // Processing Domain 1 does not have Read access to the memory region
     eD1R_1 = 1, // Processing Domain 1 has Read access to the memory region
   };
+  
   enum class eENA : uint32_t {
     eENA_0 = 0, // Memory region is not defined or restricted.
     eENA_1 = 1, // Memory boundaries, domain permissions and controls are in effect.
   };
+  
   enum class eLCK : uint32_t {
     eLCK_0 = 0, // No Lock. All fields in this register may be modified.
     eLCK_1 = 1, // Locked. No fields in this register may be modified except ENA, which may be set but not cleared.
@@ -8873,7 +9148,7 @@ union RDC_MRC0 {
     uint32_t _reserved_4 : 26;
     eENA ENA : 1;
     eLCK LCK : 1;
-  } bits;          // Bit-field struct (auto-filling reserved gaps)
+  } bits;
   
   // Full 32-bit register value.
   uint32_t value;
@@ -8886,27 +9161,31 @@ union RDC_MRC0 {
 //
 union RDC_MRC1 {
   
-  // Enum definitions.
   enum class eD0W : uint32_t {
     eD0W_0 = 0, // Processing Domain 0 does not have Write access to the memory region
     eD0W_1 = 1, // Processing Domain 0 has Write access to the memory region
   };
+  
   enum class eD0R : uint32_t {
     eD0R_0 = 0, // Processing Domain 0 does not have Read access to the memory region
     eD0R_1 = 1, // Processing Domain 0 has Read access to the memory region
   };
+  
   enum class eD1W : uint32_t {
     eD1W_0 = 0, // Processing Domain 1 does not have Write access to the memory region
     eD1W_1 = 1, // Processing Domain 1 has Write access to the memory region
   };
+  
   enum class eD1R : uint32_t {
     eD1R_0 = 0, // Processing Domain 1 does not have Read access to the memory region
     eD1R_1 = 1, // Processing Domain 1 has Read access to the memory region
   };
+  
   enum class eENA : uint32_t {
     eENA_0 = 0, // Memory region is not defined or restricted.
     eENA_1 = 1, // Memory boundaries, domain permissions and controls are in effect.
   };
+  
   enum class eLCK : uint32_t {
     eLCK_0 = 0, // No Lock. All fields in this register may be modified.
     eLCK_1 = 1, // Locked. No fields in this register may be modified except ENA, which may be set but not cleared.
@@ -8921,7 +9200,7 @@ union RDC_MRC1 {
     uint32_t _reserved_4 : 26;
     eENA ENA : 1;
     eLCK LCK : 1;
-  } bits;          // Bit-field struct (auto-filling reserved gaps)
+  } bits;
   
   // Full 32-bit register value.
   uint32_t value;
@@ -8934,27 +9213,31 @@ union RDC_MRC1 {
 //
 union RDC_MRC2 {
   
-  // Enum definitions.
   enum class eD0W : uint32_t {
     eD0W_0 = 0, // Processing Domain 0 does not have Write access to the memory region
     eD0W_1 = 1, // Processing Domain 0 has Write access to the memory region
   };
+  
   enum class eD0R : uint32_t {
     eD0R_0 = 0, // Processing Domain 0 does not have Read access to the memory region
     eD0R_1 = 1, // Processing Domain 0 has Read access to the memory region
   };
+  
   enum class eD1W : uint32_t {
     eD1W_0 = 0, // Processing Domain 1 does not have Write access to the memory region
     eD1W_1 = 1, // Processing Domain 1 has Write access to the memory region
   };
+  
   enum class eD1R : uint32_t {
     eD1R_0 = 0, // Processing Domain 1 does not have Read access to the memory region
     eD1R_1 = 1, // Processing Domain 1 has Read access to the memory region
   };
+  
   enum class eENA : uint32_t {
     eENA_0 = 0, // Memory region is not defined or restricted.
     eENA_1 = 1, // Memory boundaries, domain permissions and controls are in effect.
   };
+  
   enum class eLCK : uint32_t {
     eLCK_0 = 0, // No Lock. All fields in this register may be modified.
     eLCK_1 = 1, // Locked. No fields in this register may be modified except ENA, which may be set but not cleared.
@@ -8969,7 +9252,7 @@ union RDC_MRC2 {
     uint32_t _reserved_4 : 26;
     eENA ENA : 1;
     eLCK LCK : 1;
-  } bits;          // Bit-field struct (auto-filling reserved gaps)
+  } bits;
   
   // Full 32-bit register value.
   uint32_t value;
@@ -8982,27 +9265,31 @@ union RDC_MRC2 {
 //
 union RDC_MRC3 {
   
-  // Enum definitions.
   enum class eD0W : uint32_t {
     eD0W_0 = 0, // Processing Domain 0 does not have Write access to the memory region
     eD0W_1 = 1, // Processing Domain 0 has Write access to the memory region
   };
+  
   enum class eD0R : uint32_t {
     eD0R_0 = 0, // Processing Domain 0 does not have Read access to the memory region
     eD0R_1 = 1, // Processing Domain 0 has Read access to the memory region
   };
+  
   enum class eD1W : uint32_t {
     eD1W_0 = 0, // Processing Domain 1 does not have Write access to the memory region
     eD1W_1 = 1, // Processing Domain 1 has Write access to the memory region
   };
+  
   enum class eD1R : uint32_t {
     eD1R_0 = 0, // Processing Domain 1 does not have Read access to the memory region
     eD1R_1 = 1, // Processing Domain 1 has Read access to the memory region
   };
+  
   enum class eENA : uint32_t {
     eENA_0 = 0, // Memory region is not defined or restricted.
     eENA_1 = 1, // Memory boundaries, domain permissions and controls are in effect.
   };
+  
   enum class eLCK : uint32_t {
     eLCK_0 = 0, // No Lock. All fields in this register may be modified.
     eLCK_1 = 1, // Locked. No fields in this register may be modified except ENA, which may be set but not cleared.
@@ -9017,7 +9304,7 @@ union RDC_MRC3 {
     uint32_t _reserved_4 : 26;
     eENA ENA : 1;
     eLCK LCK : 1;
-  } bits;          // Bit-field struct (auto-filling reserved gaps)
+  } bits;
   
   // Full 32-bit register value.
   uint32_t value;
@@ -9030,27 +9317,31 @@ union RDC_MRC3 {
 //
 union RDC_MRC4 {
   
-  // Enum definitions.
   enum class eD0W : uint32_t {
     eD0W_0 = 0, // Processing Domain 0 does not have Write access to the memory region
     eD0W_1 = 1, // Processing Domain 0 has Write access to the memory region
   };
+  
   enum class eD0R : uint32_t {
     eD0R_0 = 0, // Processing Domain 0 does not have Read access to the memory region
     eD0R_1 = 1, // Processing Domain 0 has Read access to the memory region
   };
+  
   enum class eD1W : uint32_t {
     eD1W_0 = 0, // Processing Domain 1 does not have Write access to the memory region
     eD1W_1 = 1, // Processing Domain 1 has Write access to the memory region
   };
+  
   enum class eD1R : uint32_t {
     eD1R_0 = 0, // Processing Domain 1 does not have Read access to the memory region
     eD1R_1 = 1, // Processing Domain 1 has Read access to the memory region
   };
+  
   enum class eENA : uint32_t {
     eENA_0 = 0, // Memory region is not defined or restricted.
     eENA_1 = 1, // Memory boundaries, domain permissions and controls are in effect.
   };
+  
   enum class eLCK : uint32_t {
     eLCK_0 = 0, // No Lock. All fields in this register may be modified.
     eLCK_1 = 1, // Locked. No fields in this register may be modified except ENA, which may be set but not cleared.
@@ -9065,7 +9356,7 @@ union RDC_MRC4 {
     uint32_t _reserved_4 : 26;
     eENA ENA : 1;
     eLCK LCK : 1;
-  } bits;          // Bit-field struct (auto-filling reserved gaps)
+  } bits;
   
   // Full 32-bit register value.
   uint32_t value;
@@ -9078,27 +9369,31 @@ union RDC_MRC4 {
 //
 union RDC_MRC5 {
   
-  // Enum definitions.
   enum class eD0W : uint32_t {
     eD0W_0 = 0, // Processing Domain 0 does not have Write access to the memory region
     eD0W_1 = 1, // Processing Domain 0 has Write access to the memory region
   };
+  
   enum class eD0R : uint32_t {
     eD0R_0 = 0, // Processing Domain 0 does not have Read access to the memory region
     eD0R_1 = 1, // Processing Domain 0 has Read access to the memory region
   };
+  
   enum class eD1W : uint32_t {
     eD1W_0 = 0, // Processing Domain 1 does not have Write access to the memory region
     eD1W_1 = 1, // Processing Domain 1 has Write access to the memory region
   };
+  
   enum class eD1R : uint32_t {
     eD1R_0 = 0, // Processing Domain 1 does not have Read access to the memory region
     eD1R_1 = 1, // Processing Domain 1 has Read access to the memory region
   };
+  
   enum class eENA : uint32_t {
     eENA_0 = 0, // Memory region is not defined or restricted.
     eENA_1 = 1, // Memory boundaries, domain permissions and controls are in effect.
   };
+  
   enum class eLCK : uint32_t {
     eLCK_0 = 0, // No Lock. All fields in this register may be modified.
     eLCK_1 = 1, // Locked. No fields in this register may be modified except ENA, which may be set but not cleared.
@@ -9113,7 +9408,7 @@ union RDC_MRC5 {
     uint32_t _reserved_4 : 26;
     eENA ENA : 1;
     eLCK LCK : 1;
-  } bits;          // Bit-field struct (auto-filling reserved gaps)
+  } bits;
   
   // Full 32-bit register value.
   uint32_t value;
@@ -9126,27 +9421,31 @@ union RDC_MRC5 {
 //
 union RDC_MRC6 {
   
-  // Enum definitions.
   enum class eD0W : uint32_t {
     eD0W_0 = 0, // Processing Domain 0 does not have Write access to the memory region
     eD0W_1 = 1, // Processing Domain 0 has Write access to the memory region
   };
+  
   enum class eD0R : uint32_t {
     eD0R_0 = 0, // Processing Domain 0 does not have Read access to the memory region
     eD0R_1 = 1, // Processing Domain 0 has Read access to the memory region
   };
+  
   enum class eD1W : uint32_t {
     eD1W_0 = 0, // Processing Domain 1 does not have Write access to the memory region
     eD1W_1 = 1, // Processing Domain 1 has Write access to the memory region
   };
+  
   enum class eD1R : uint32_t {
     eD1R_0 = 0, // Processing Domain 1 does not have Read access to the memory region
     eD1R_1 = 1, // Processing Domain 1 has Read access to the memory region
   };
+  
   enum class eENA : uint32_t {
     eENA_0 = 0, // Memory region is not defined or restricted.
     eENA_1 = 1, // Memory boundaries, domain permissions and controls are in effect.
   };
+  
   enum class eLCK : uint32_t {
     eLCK_0 = 0, // No Lock. All fields in this register may be modified.
     eLCK_1 = 1, // Locked. No fields in this register may be modified except ENA, which may be set but not cleared.
@@ -9161,7 +9460,7 @@ union RDC_MRC6 {
     uint32_t _reserved_4 : 26;
     eENA ENA : 1;
     eLCK LCK : 1;
-  } bits;          // Bit-field struct (auto-filling reserved gaps)
+  } bits;
   
   // Full 32-bit register value.
   uint32_t value;
@@ -9174,27 +9473,31 @@ union RDC_MRC6 {
 //
 union RDC_MRC7 {
   
-  // Enum definitions.
   enum class eD0W : uint32_t {
     eD0W_0 = 0, // Processing Domain 0 does not have Write access to the memory region
     eD0W_1 = 1, // Processing Domain 0 has Write access to the memory region
   };
+  
   enum class eD0R : uint32_t {
     eD0R_0 = 0, // Processing Domain 0 does not have Read access to the memory region
     eD0R_1 = 1, // Processing Domain 0 has Read access to the memory region
   };
+  
   enum class eD1W : uint32_t {
     eD1W_0 = 0, // Processing Domain 1 does not have Write access to the memory region
     eD1W_1 = 1, // Processing Domain 1 has Write access to the memory region
   };
+  
   enum class eD1R : uint32_t {
     eD1R_0 = 0, // Processing Domain 1 does not have Read access to the memory region
     eD1R_1 = 1, // Processing Domain 1 has Read access to the memory region
   };
+  
   enum class eENA : uint32_t {
     eENA_0 = 0, // Memory region is not defined or restricted.
     eENA_1 = 1, // Memory boundaries, domain permissions and controls are in effect.
   };
+  
   enum class eLCK : uint32_t {
     eLCK_0 = 0, // No Lock. All fields in this register may be modified.
     eLCK_1 = 1, // Locked. No fields in this register may be modified except ENA, which may be set but not cleared.
@@ -9209,7 +9512,7 @@ union RDC_MRC7 {
     uint32_t _reserved_4 : 26;
     eENA ENA : 1;
     eLCK LCK : 1;
-  } bits;          // Bit-field struct (auto-filling reserved gaps)
+  } bits;
   
   // Full 32-bit register value.
   uint32_t value;
@@ -9222,27 +9525,31 @@ union RDC_MRC7 {
 //
 union RDC_MRC8 {
   
-  // Enum definitions.
   enum class eD0W : uint32_t {
     eD0W_0 = 0, // Processing Domain 0 does not have Write access to the memory region
     eD0W_1 = 1, // Processing Domain 0 has Write access to the memory region
   };
+  
   enum class eD0R : uint32_t {
     eD0R_0 = 0, // Processing Domain 0 does not have Read access to the memory region
     eD0R_1 = 1, // Processing Domain 0 has Read access to the memory region
   };
+  
   enum class eD1W : uint32_t {
     eD1W_0 = 0, // Processing Domain 1 does not have Write access to the memory region
     eD1W_1 = 1, // Processing Domain 1 has Write access to the memory region
   };
+  
   enum class eD1R : uint32_t {
     eD1R_0 = 0, // Processing Domain 1 does not have Read access to the memory region
     eD1R_1 = 1, // Processing Domain 1 has Read access to the memory region
   };
+  
   enum class eENA : uint32_t {
     eENA_0 = 0, // Memory region is not defined or restricted.
     eENA_1 = 1, // Memory boundaries, domain permissions and controls are in effect.
   };
+  
   enum class eLCK : uint32_t {
     eLCK_0 = 0, // No Lock. All fields in this register may be modified.
     eLCK_1 = 1, // Locked. No fields in this register may be modified except ENA, which may be set but not cleared.
@@ -9257,7 +9564,7 @@ union RDC_MRC8 {
     uint32_t _reserved_4 : 26;
     eENA ENA : 1;
     eLCK LCK : 1;
-  } bits;          // Bit-field struct (auto-filling reserved gaps)
+  } bits;
   
   // Full 32-bit register value.
   uint32_t value;
@@ -9270,27 +9577,31 @@ union RDC_MRC8 {
 //
 union RDC_MRC9 {
   
-  // Enum definitions.
   enum class eD0W : uint32_t {
     eD0W_0 = 0, // Processing Domain 0 does not have Write access to the memory region
     eD0W_1 = 1, // Processing Domain 0 has Write access to the memory region
   };
+  
   enum class eD0R : uint32_t {
     eD0R_0 = 0, // Processing Domain 0 does not have Read access to the memory region
     eD0R_1 = 1, // Processing Domain 0 has Read access to the memory region
   };
+  
   enum class eD1W : uint32_t {
     eD1W_0 = 0, // Processing Domain 1 does not have Write access to the memory region
     eD1W_1 = 1, // Processing Domain 1 has Write access to the memory region
   };
+  
   enum class eD1R : uint32_t {
     eD1R_0 = 0, // Processing Domain 1 does not have Read access to the memory region
     eD1R_1 = 1, // Processing Domain 1 has Read access to the memory region
   };
+  
   enum class eENA : uint32_t {
     eENA_0 = 0, // Memory region is not defined or restricted.
     eENA_1 = 1, // Memory boundaries, domain permissions and controls are in effect.
   };
+  
   enum class eLCK : uint32_t {
     eLCK_0 = 0, // No Lock. All fields in this register may be modified.
     eLCK_1 = 1, // Locked. No fields in this register may be modified except ENA, which may be set but not cleared.
@@ -9305,7 +9616,7 @@ union RDC_MRC9 {
     uint32_t _reserved_4 : 26;
     eENA ENA : 1;
     eLCK LCK : 1;
-  } bits;          // Bit-field struct (auto-filling reserved gaps)
+  } bits;
   
   // Full 32-bit register value.
   uint32_t value;
@@ -9318,27 +9629,31 @@ union RDC_MRC9 {
 //
 union RDC_MRC10 {
   
-  // Enum definitions.
   enum class eD0W : uint32_t {
     eD0W_0 = 0, // Processing Domain 0 does not have Write access to the memory region
     eD0W_1 = 1, // Processing Domain 0 has Write access to the memory region
   };
+  
   enum class eD0R : uint32_t {
     eD0R_0 = 0, // Processing Domain 0 does not have Read access to the memory region
     eD0R_1 = 1, // Processing Domain 0 has Read access to the memory region
   };
+  
   enum class eD1W : uint32_t {
     eD1W_0 = 0, // Processing Domain 1 does not have Write access to the memory region
     eD1W_1 = 1, // Processing Domain 1 has Write access to the memory region
   };
+  
   enum class eD1R : uint32_t {
     eD1R_0 = 0, // Processing Domain 1 does not have Read access to the memory region
     eD1R_1 = 1, // Processing Domain 1 has Read access to the memory region
   };
+  
   enum class eENA : uint32_t {
     eENA_0 = 0, // Memory region is not defined or restricted.
     eENA_1 = 1, // Memory boundaries, domain permissions and controls are in effect.
   };
+  
   enum class eLCK : uint32_t {
     eLCK_0 = 0, // No Lock. All fields in this register may be modified.
     eLCK_1 = 1, // Locked. No fields in this register may be modified except ENA, which may be set but not cleared.
@@ -9353,7 +9668,7 @@ union RDC_MRC10 {
     uint32_t _reserved_4 : 26;
     eENA ENA : 1;
     eLCK LCK : 1;
-  } bits;          // Bit-field struct (auto-filling reserved gaps)
+  } bits;
   
   // Full 32-bit register value.
   uint32_t value;
@@ -9366,27 +9681,31 @@ union RDC_MRC10 {
 //
 union RDC_MRC11 {
   
-  // Enum definitions.
   enum class eD0W : uint32_t {
     eD0W_0 = 0, // Processing Domain 0 does not have Write access to the memory region
     eD0W_1 = 1, // Processing Domain 0 has Write access to the memory region
   };
+  
   enum class eD0R : uint32_t {
     eD0R_0 = 0, // Processing Domain 0 does not have Read access to the memory region
     eD0R_1 = 1, // Processing Domain 0 has Read access to the memory region
   };
+  
   enum class eD1W : uint32_t {
     eD1W_0 = 0, // Processing Domain 1 does not have Write access to the memory region
     eD1W_1 = 1, // Processing Domain 1 has Write access to the memory region
   };
+  
   enum class eD1R : uint32_t {
     eD1R_0 = 0, // Processing Domain 1 does not have Read access to the memory region
     eD1R_1 = 1, // Processing Domain 1 has Read access to the memory region
   };
+  
   enum class eENA : uint32_t {
     eENA_0 = 0, // Memory region is not defined or restricted.
     eENA_1 = 1, // Memory boundaries, domain permissions and controls are in effect.
   };
+  
   enum class eLCK : uint32_t {
     eLCK_0 = 0, // No Lock. All fields in this register may be modified.
     eLCK_1 = 1, // Locked. No fields in this register may be modified except ENA, which may be set but not cleared.
@@ -9401,7 +9720,7 @@ union RDC_MRC11 {
     uint32_t _reserved_4 : 26;
     eENA ENA : 1;
     eLCK LCK : 1;
-  } bits;          // Bit-field struct (auto-filling reserved gaps)
+  } bits;
   
   // Full 32-bit register value.
   uint32_t value;
@@ -9414,27 +9733,31 @@ union RDC_MRC11 {
 //
 union RDC_MRC12 {
   
-  // Enum definitions.
   enum class eD0W : uint32_t {
     eD0W_0 = 0, // Processing Domain 0 does not have Write access to the memory region
     eD0W_1 = 1, // Processing Domain 0 has Write access to the memory region
   };
+  
   enum class eD0R : uint32_t {
     eD0R_0 = 0, // Processing Domain 0 does not have Read access to the memory region
     eD0R_1 = 1, // Processing Domain 0 has Read access to the memory region
   };
+  
   enum class eD1W : uint32_t {
     eD1W_0 = 0, // Processing Domain 1 does not have Write access to the memory region
     eD1W_1 = 1, // Processing Domain 1 has Write access to the memory region
   };
+  
   enum class eD1R : uint32_t {
     eD1R_0 = 0, // Processing Domain 1 does not have Read access to the memory region
     eD1R_1 = 1, // Processing Domain 1 has Read access to the memory region
   };
+  
   enum class eENA : uint32_t {
     eENA_0 = 0, // Memory region is not defined or restricted.
     eENA_1 = 1, // Memory boundaries, domain permissions and controls are in effect.
   };
+  
   enum class eLCK : uint32_t {
     eLCK_0 = 0, // No Lock. All fields in this register may be modified.
     eLCK_1 = 1, // Locked. No fields in this register may be modified except ENA, which may be set but not cleared.
@@ -9449,7 +9772,7 @@ union RDC_MRC12 {
     uint32_t _reserved_4 : 26;
     eENA ENA : 1;
     eLCK LCK : 1;
-  } bits;          // Bit-field struct (auto-filling reserved gaps)
+  } bits;
   
   // Full 32-bit register value.
   uint32_t value;
@@ -9462,27 +9785,31 @@ union RDC_MRC12 {
 //
 union RDC_MRC13 {
   
-  // Enum definitions.
   enum class eD0W : uint32_t {
     eD0W_0 = 0, // Processing Domain 0 does not have Write access to the memory region
     eD0W_1 = 1, // Processing Domain 0 has Write access to the memory region
   };
+  
   enum class eD0R : uint32_t {
     eD0R_0 = 0, // Processing Domain 0 does not have Read access to the memory region
     eD0R_1 = 1, // Processing Domain 0 has Read access to the memory region
   };
+  
   enum class eD1W : uint32_t {
     eD1W_0 = 0, // Processing Domain 1 does not have Write access to the memory region
     eD1W_1 = 1, // Processing Domain 1 has Write access to the memory region
   };
+  
   enum class eD1R : uint32_t {
     eD1R_0 = 0, // Processing Domain 1 does not have Read access to the memory region
     eD1R_1 = 1, // Processing Domain 1 has Read access to the memory region
   };
+  
   enum class eENA : uint32_t {
     eENA_0 = 0, // Memory region is not defined or restricted.
     eENA_1 = 1, // Memory boundaries, domain permissions and controls are in effect.
   };
+  
   enum class eLCK : uint32_t {
     eLCK_0 = 0, // No Lock. All fields in this register may be modified.
     eLCK_1 = 1, // Locked. No fields in this register may be modified except ENA, which may be set but not cleared.
@@ -9497,7 +9824,7 @@ union RDC_MRC13 {
     uint32_t _reserved_4 : 26;
     eENA ENA : 1;
     eLCK LCK : 1;
-  } bits;          // Bit-field struct (auto-filling reserved gaps)
+  } bits;
   
   // Full 32-bit register value.
   uint32_t value;
@@ -9510,27 +9837,31 @@ union RDC_MRC13 {
 //
 union RDC_MRC14 {
   
-  // Enum definitions.
   enum class eD0W : uint32_t {
     eD0W_0 = 0, // Processing Domain 0 does not have Write access to the memory region
     eD0W_1 = 1, // Processing Domain 0 has Write access to the memory region
   };
+  
   enum class eD0R : uint32_t {
     eD0R_0 = 0, // Processing Domain 0 does not have Read access to the memory region
     eD0R_1 = 1, // Processing Domain 0 has Read access to the memory region
   };
+  
   enum class eD1W : uint32_t {
     eD1W_0 = 0, // Processing Domain 1 does not have Write access to the memory region
     eD1W_1 = 1, // Processing Domain 1 has Write access to the memory region
   };
+  
   enum class eD1R : uint32_t {
     eD1R_0 = 0, // Processing Domain 1 does not have Read access to the memory region
     eD1R_1 = 1, // Processing Domain 1 has Read access to the memory region
   };
+  
   enum class eENA : uint32_t {
     eENA_0 = 0, // Memory region is not defined or restricted.
     eENA_1 = 1, // Memory boundaries, domain permissions and controls are in effect.
   };
+  
   enum class eLCK : uint32_t {
     eLCK_0 = 0, // No Lock. All fields in this register may be modified.
     eLCK_1 = 1, // Locked. No fields in this register may be modified except ENA, which may be set but not cleared.
@@ -9545,7 +9876,7 @@ union RDC_MRC14 {
     uint32_t _reserved_4 : 26;
     eENA ENA : 1;
     eLCK LCK : 1;
-  } bits;          // Bit-field struct (auto-filling reserved gaps)
+  } bits;
   
   // Full 32-bit register value.
   uint32_t value;
@@ -9558,27 +9889,31 @@ union RDC_MRC14 {
 //
 union RDC_MRC15 {
   
-  // Enum definitions.
   enum class eD0W : uint32_t {
     eD0W_0 = 0, // Processing Domain 0 does not have Write access to the memory region
     eD0W_1 = 1, // Processing Domain 0 has Write access to the memory region
   };
+  
   enum class eD0R : uint32_t {
     eD0R_0 = 0, // Processing Domain 0 does not have Read access to the memory region
     eD0R_1 = 1, // Processing Domain 0 has Read access to the memory region
   };
+  
   enum class eD1W : uint32_t {
     eD1W_0 = 0, // Processing Domain 1 does not have Write access to the memory region
     eD1W_1 = 1, // Processing Domain 1 has Write access to the memory region
   };
+  
   enum class eD1R : uint32_t {
     eD1R_0 = 0, // Processing Domain 1 does not have Read access to the memory region
     eD1R_1 = 1, // Processing Domain 1 has Read access to the memory region
   };
+  
   enum class eENA : uint32_t {
     eENA_0 = 0, // Memory region is not defined or restricted.
     eENA_1 = 1, // Memory boundaries, domain permissions and controls are in effect.
   };
+  
   enum class eLCK : uint32_t {
     eLCK_0 = 0, // No Lock. All fields in this register may be modified.
     eLCK_1 = 1, // Locked. No fields in this register may be modified except ENA, which may be set but not cleared.
@@ -9593,7 +9928,7 @@ union RDC_MRC15 {
     uint32_t _reserved_4 : 26;
     eENA ENA : 1;
     eLCK LCK : 1;
-  } bits;          // Bit-field struct (auto-filling reserved gaps)
+  } bits;
   
   // Full 32-bit register value.
   uint32_t value;
@@ -9606,27 +9941,31 @@ union RDC_MRC15 {
 //
 union RDC_MRC16 {
   
-  // Enum definitions.
   enum class eD0W : uint32_t {
     eD0W_0 = 0, // Processing Domain 0 does not have Write access to the memory region
     eD0W_1 = 1, // Processing Domain 0 has Write access to the memory region
   };
+  
   enum class eD0R : uint32_t {
     eD0R_0 = 0, // Processing Domain 0 does not have Read access to the memory region
     eD0R_1 = 1, // Processing Domain 0 has Read access to the memory region
   };
+  
   enum class eD1W : uint32_t {
     eD1W_0 = 0, // Processing Domain 1 does not have Write access to the memory region
     eD1W_1 = 1, // Processing Domain 1 has Write access to the memory region
   };
+  
   enum class eD1R : uint32_t {
     eD1R_0 = 0, // Processing Domain 1 does not have Read access to the memory region
     eD1R_1 = 1, // Processing Domain 1 has Read access to the memory region
   };
+  
   enum class eENA : uint32_t {
     eENA_0 = 0, // Memory region is not defined or restricted.
     eENA_1 = 1, // Memory boundaries, domain permissions and controls are in effect.
   };
+  
   enum class eLCK : uint32_t {
     eLCK_0 = 0, // No Lock. All fields in this register may be modified.
     eLCK_1 = 1, // Locked. No fields in this register may be modified except ENA, which may be set but not cleared.
@@ -9641,7 +9980,7 @@ union RDC_MRC16 {
     uint32_t _reserved_4 : 26;
     eENA ENA : 1;
     eLCK LCK : 1;
-  } bits;          // Bit-field struct (auto-filling reserved gaps)
+  } bits;
   
   // Full 32-bit register value.
   uint32_t value;
@@ -9654,27 +9993,31 @@ union RDC_MRC16 {
 //
 union RDC_MRC17 {
   
-  // Enum definitions.
   enum class eD0W : uint32_t {
     eD0W_0 = 0, // Processing Domain 0 does not have Write access to the memory region
     eD0W_1 = 1, // Processing Domain 0 has Write access to the memory region
   };
+  
   enum class eD0R : uint32_t {
     eD0R_0 = 0, // Processing Domain 0 does not have Read access to the memory region
     eD0R_1 = 1, // Processing Domain 0 has Read access to the memory region
   };
+  
   enum class eD1W : uint32_t {
     eD1W_0 = 0, // Processing Domain 1 does not have Write access to the memory region
     eD1W_1 = 1, // Processing Domain 1 has Write access to the memory region
   };
+  
   enum class eD1R : uint32_t {
     eD1R_0 = 0, // Processing Domain 1 does not have Read access to the memory region
     eD1R_1 = 1, // Processing Domain 1 has Read access to the memory region
   };
+  
   enum class eENA : uint32_t {
     eENA_0 = 0, // Memory region is not defined or restricted.
     eENA_1 = 1, // Memory boundaries, domain permissions and controls are in effect.
   };
+  
   enum class eLCK : uint32_t {
     eLCK_0 = 0, // No Lock. All fields in this register may be modified.
     eLCK_1 = 1, // Locked. No fields in this register may be modified except ENA, which may be set but not cleared.
@@ -9689,7 +10032,7 @@ union RDC_MRC17 {
     uint32_t _reserved_4 : 26;
     eENA ENA : 1;
     eLCK LCK : 1;
-  } bits;          // Bit-field struct (auto-filling reserved gaps)
+  } bits;
   
   // Full 32-bit register value.
   uint32_t value;
@@ -9702,27 +10045,31 @@ union RDC_MRC17 {
 //
 union RDC_MRC18 {
   
-  // Enum definitions.
   enum class eD0W : uint32_t {
     eD0W_0 = 0, // Processing Domain 0 does not have Write access to the memory region
     eD0W_1 = 1, // Processing Domain 0 has Write access to the memory region
   };
+  
   enum class eD0R : uint32_t {
     eD0R_0 = 0, // Processing Domain 0 does not have Read access to the memory region
     eD0R_1 = 1, // Processing Domain 0 has Read access to the memory region
   };
+  
   enum class eD1W : uint32_t {
     eD1W_0 = 0, // Processing Domain 1 does not have Write access to the memory region
     eD1W_1 = 1, // Processing Domain 1 has Write access to the memory region
   };
+  
   enum class eD1R : uint32_t {
     eD1R_0 = 0, // Processing Domain 1 does not have Read access to the memory region
     eD1R_1 = 1, // Processing Domain 1 has Read access to the memory region
   };
+  
   enum class eENA : uint32_t {
     eENA_0 = 0, // Memory region is not defined or restricted.
     eENA_1 = 1, // Memory boundaries, domain permissions and controls are in effect.
   };
+  
   enum class eLCK : uint32_t {
     eLCK_0 = 0, // No Lock. All fields in this register may be modified.
     eLCK_1 = 1, // Locked. No fields in this register may be modified except ENA, which may be set but not cleared.
@@ -9737,7 +10084,7 @@ union RDC_MRC18 {
     uint32_t _reserved_4 : 26;
     eENA ENA : 1;
     eLCK LCK : 1;
-  } bits;          // Bit-field struct (auto-filling reserved gaps)
+  } bits;
   
   // Full 32-bit register value.
   uint32_t value;
@@ -9750,27 +10097,31 @@ union RDC_MRC18 {
 //
 union RDC_MRC19 {
   
-  // Enum definitions.
   enum class eD0W : uint32_t {
     eD0W_0 = 0, // Processing Domain 0 does not have Write access to the memory region
     eD0W_1 = 1, // Processing Domain 0 has Write access to the memory region
   };
+  
   enum class eD0R : uint32_t {
     eD0R_0 = 0, // Processing Domain 0 does not have Read access to the memory region
     eD0R_1 = 1, // Processing Domain 0 has Read access to the memory region
   };
+  
   enum class eD1W : uint32_t {
     eD1W_0 = 0, // Processing Domain 1 does not have Write access to the memory region
     eD1W_1 = 1, // Processing Domain 1 has Write access to the memory region
   };
+  
   enum class eD1R : uint32_t {
     eD1R_0 = 0, // Processing Domain 1 does not have Read access to the memory region
     eD1R_1 = 1, // Processing Domain 1 has Read access to the memory region
   };
+  
   enum class eENA : uint32_t {
     eENA_0 = 0, // Memory region is not defined or restricted.
     eENA_1 = 1, // Memory boundaries, domain permissions and controls are in effect.
   };
+  
   enum class eLCK : uint32_t {
     eLCK_0 = 0, // No Lock. All fields in this register may be modified.
     eLCK_1 = 1, // Locked. No fields in this register may be modified except ENA, which may be set but not cleared.
@@ -9785,7 +10136,7 @@ union RDC_MRC19 {
     uint32_t _reserved_4 : 26;
     eENA ENA : 1;
     eLCK LCK : 1;
-  } bits;          // Bit-field struct (auto-filling reserved gaps)
+  } bits;
   
   // Full 32-bit register value.
   uint32_t value;
@@ -9798,27 +10149,31 @@ union RDC_MRC19 {
 //
 union RDC_MRC20 {
   
-  // Enum definitions.
   enum class eD0W : uint32_t {
     eD0W_0 = 0, // Processing Domain 0 does not have Write access to the memory region
     eD0W_1 = 1, // Processing Domain 0 has Write access to the memory region
   };
+  
   enum class eD0R : uint32_t {
     eD0R_0 = 0, // Processing Domain 0 does not have Read access to the memory region
     eD0R_1 = 1, // Processing Domain 0 has Read access to the memory region
   };
+  
   enum class eD1W : uint32_t {
     eD1W_0 = 0, // Processing Domain 1 does not have Write access to the memory region
     eD1W_1 = 1, // Processing Domain 1 has Write access to the memory region
   };
+  
   enum class eD1R : uint32_t {
     eD1R_0 = 0, // Processing Domain 1 does not have Read access to the memory region
     eD1R_1 = 1, // Processing Domain 1 has Read access to the memory region
   };
+  
   enum class eENA : uint32_t {
     eENA_0 = 0, // Memory region is not defined or restricted.
     eENA_1 = 1, // Memory boundaries, domain permissions and controls are in effect.
   };
+  
   enum class eLCK : uint32_t {
     eLCK_0 = 0, // No Lock. All fields in this register may be modified.
     eLCK_1 = 1, // Locked. No fields in this register may be modified except ENA, which may be set but not cleared.
@@ -9833,7 +10188,7 @@ union RDC_MRC20 {
     uint32_t _reserved_4 : 26;
     eENA ENA : 1;
     eLCK LCK : 1;
-  } bits;          // Bit-field struct (auto-filling reserved gaps)
+  } bits;
   
   // Full 32-bit register value.
   uint32_t value;
@@ -9846,27 +10201,31 @@ union RDC_MRC20 {
 //
 union RDC_MRC21 {
   
-  // Enum definitions.
   enum class eD0W : uint32_t {
     eD0W_0 = 0, // Processing Domain 0 does not have Write access to the memory region
     eD0W_1 = 1, // Processing Domain 0 has Write access to the memory region
   };
+  
   enum class eD0R : uint32_t {
     eD0R_0 = 0, // Processing Domain 0 does not have Read access to the memory region
     eD0R_1 = 1, // Processing Domain 0 has Read access to the memory region
   };
+  
   enum class eD1W : uint32_t {
     eD1W_0 = 0, // Processing Domain 1 does not have Write access to the memory region
     eD1W_1 = 1, // Processing Domain 1 has Write access to the memory region
   };
+  
   enum class eD1R : uint32_t {
     eD1R_0 = 0, // Processing Domain 1 does not have Read access to the memory region
     eD1R_1 = 1, // Processing Domain 1 has Read access to the memory region
   };
+  
   enum class eENA : uint32_t {
     eENA_0 = 0, // Memory region is not defined or restricted.
     eENA_1 = 1, // Memory boundaries, domain permissions and controls are in effect.
   };
+  
   enum class eLCK : uint32_t {
     eLCK_0 = 0, // No Lock. All fields in this register may be modified.
     eLCK_1 = 1, // Locked. No fields in this register may be modified except ENA, which may be set but not cleared.
@@ -9881,7 +10240,7 @@ union RDC_MRC21 {
     uint32_t _reserved_4 : 26;
     eENA ENA : 1;
     eLCK LCK : 1;
-  } bits;          // Bit-field struct (auto-filling reserved gaps)
+  } bits;
   
   // Full 32-bit register value.
   uint32_t value;
@@ -9894,27 +10253,31 @@ union RDC_MRC21 {
 //
 union RDC_MRC22 {
   
-  // Enum definitions.
   enum class eD0W : uint32_t {
     eD0W_0 = 0, // Processing Domain 0 does not have Write access to the memory region
     eD0W_1 = 1, // Processing Domain 0 has Write access to the memory region
   };
+  
   enum class eD0R : uint32_t {
     eD0R_0 = 0, // Processing Domain 0 does not have Read access to the memory region
     eD0R_1 = 1, // Processing Domain 0 has Read access to the memory region
   };
+  
   enum class eD1W : uint32_t {
     eD1W_0 = 0, // Processing Domain 1 does not have Write access to the memory region
     eD1W_1 = 1, // Processing Domain 1 has Write access to the memory region
   };
+  
   enum class eD1R : uint32_t {
     eD1R_0 = 0, // Processing Domain 1 does not have Read access to the memory region
     eD1R_1 = 1, // Processing Domain 1 has Read access to the memory region
   };
+  
   enum class eENA : uint32_t {
     eENA_0 = 0, // Memory region is not defined or restricted.
     eENA_1 = 1, // Memory boundaries, domain permissions and controls are in effect.
   };
+  
   enum class eLCK : uint32_t {
     eLCK_0 = 0, // No Lock. All fields in this register may be modified.
     eLCK_1 = 1, // Locked. No fields in this register may be modified except ENA, which may be set but not cleared.
@@ -9929,7 +10292,7 @@ union RDC_MRC22 {
     uint32_t _reserved_4 : 26;
     eENA ENA : 1;
     eLCK LCK : 1;
-  } bits;          // Bit-field struct (auto-filling reserved gaps)
+  } bits;
   
   // Full 32-bit register value.
   uint32_t value;
@@ -9942,27 +10305,31 @@ union RDC_MRC22 {
 //
 union RDC_MRC23 {
   
-  // Enum definitions.
   enum class eD0W : uint32_t {
     eD0W_0 = 0, // Processing Domain 0 does not have Write access to the memory region
     eD0W_1 = 1, // Processing Domain 0 has Write access to the memory region
   };
+  
   enum class eD0R : uint32_t {
     eD0R_0 = 0, // Processing Domain 0 does not have Read access to the memory region
     eD0R_1 = 1, // Processing Domain 0 has Read access to the memory region
   };
+  
   enum class eD1W : uint32_t {
     eD1W_0 = 0, // Processing Domain 1 does not have Write access to the memory region
     eD1W_1 = 1, // Processing Domain 1 has Write access to the memory region
   };
+  
   enum class eD1R : uint32_t {
     eD1R_0 = 0, // Processing Domain 1 does not have Read access to the memory region
     eD1R_1 = 1, // Processing Domain 1 has Read access to the memory region
   };
+  
   enum class eENA : uint32_t {
     eENA_0 = 0, // Memory region is not defined or restricted.
     eENA_1 = 1, // Memory boundaries, domain permissions and controls are in effect.
   };
+  
   enum class eLCK : uint32_t {
     eLCK_0 = 0, // No Lock. All fields in this register may be modified.
     eLCK_1 = 1, // Locked. No fields in this register may be modified except ENA, which may be set but not cleared.
@@ -9977,7 +10344,7 @@ union RDC_MRC23 {
     uint32_t _reserved_4 : 26;
     eENA ENA : 1;
     eLCK LCK : 1;
-  } bits;          // Bit-field struct (auto-filling reserved gaps)
+  } bits;
   
   // Full 32-bit register value.
   uint32_t value;
@@ -9990,27 +10357,31 @@ union RDC_MRC23 {
 //
 union RDC_MRC24 {
   
-  // Enum definitions.
   enum class eD0W : uint32_t {
     eD0W_0 = 0, // Processing Domain 0 does not have Write access to the memory region
     eD0W_1 = 1, // Processing Domain 0 has Write access to the memory region
   };
+  
   enum class eD0R : uint32_t {
     eD0R_0 = 0, // Processing Domain 0 does not have Read access to the memory region
     eD0R_1 = 1, // Processing Domain 0 has Read access to the memory region
   };
+  
   enum class eD1W : uint32_t {
     eD1W_0 = 0, // Processing Domain 1 does not have Write access to the memory region
     eD1W_1 = 1, // Processing Domain 1 has Write access to the memory region
   };
+  
   enum class eD1R : uint32_t {
     eD1R_0 = 0, // Processing Domain 1 does not have Read access to the memory region
     eD1R_1 = 1, // Processing Domain 1 has Read access to the memory region
   };
+  
   enum class eENA : uint32_t {
     eENA_0 = 0, // Memory region is not defined or restricted.
     eENA_1 = 1, // Memory boundaries, domain permissions and controls are in effect.
   };
+  
   enum class eLCK : uint32_t {
     eLCK_0 = 0, // No Lock. All fields in this register may be modified.
     eLCK_1 = 1, // Locked. No fields in this register may be modified except ENA, which may be set but not cleared.
@@ -10025,7 +10396,7 @@ union RDC_MRC24 {
     uint32_t _reserved_4 : 26;
     eENA ENA : 1;
     eLCK LCK : 1;
-  } bits;          // Bit-field struct (auto-filling reserved gaps)
+  } bits;
   
   // Full 32-bit register value.
   uint32_t value;
@@ -10038,27 +10409,31 @@ union RDC_MRC24 {
 //
 union RDC_MRC25 {
   
-  // Enum definitions.
   enum class eD0W : uint32_t {
     eD0W_0 = 0, // Processing Domain 0 does not have Write access to the memory region
     eD0W_1 = 1, // Processing Domain 0 has Write access to the memory region
   };
+  
   enum class eD0R : uint32_t {
     eD0R_0 = 0, // Processing Domain 0 does not have Read access to the memory region
     eD0R_1 = 1, // Processing Domain 0 has Read access to the memory region
   };
+  
   enum class eD1W : uint32_t {
     eD1W_0 = 0, // Processing Domain 1 does not have Write access to the memory region
     eD1W_1 = 1, // Processing Domain 1 has Write access to the memory region
   };
+  
   enum class eD1R : uint32_t {
     eD1R_0 = 0, // Processing Domain 1 does not have Read access to the memory region
     eD1R_1 = 1, // Processing Domain 1 has Read access to the memory region
   };
+  
   enum class eENA : uint32_t {
     eENA_0 = 0, // Memory region is not defined or restricted.
     eENA_1 = 1, // Memory boundaries, domain permissions and controls are in effect.
   };
+  
   enum class eLCK : uint32_t {
     eLCK_0 = 0, // No Lock. All fields in this register may be modified.
     eLCK_1 = 1, // Locked. No fields in this register may be modified except ENA, which may be set but not cleared.
@@ -10073,7 +10448,7 @@ union RDC_MRC25 {
     uint32_t _reserved_4 : 26;
     eENA ENA : 1;
     eLCK LCK : 1;
-  } bits;          // Bit-field struct (auto-filling reserved gaps)
+  } bits;
   
   // Full 32-bit register value.
   uint32_t value;
@@ -10086,27 +10461,31 @@ union RDC_MRC25 {
 //
 union RDC_MRC26 {
   
-  // Enum definitions.
   enum class eD0W : uint32_t {
     eD0W_0 = 0, // Processing Domain 0 does not have Write access to the memory region
     eD0W_1 = 1, // Processing Domain 0 has Write access to the memory region
   };
+  
   enum class eD0R : uint32_t {
     eD0R_0 = 0, // Processing Domain 0 does not have Read access to the memory region
     eD0R_1 = 1, // Processing Domain 0 has Read access to the memory region
   };
+  
   enum class eD1W : uint32_t {
     eD1W_0 = 0, // Processing Domain 1 does not have Write access to the memory region
     eD1W_1 = 1, // Processing Domain 1 has Write access to the memory region
   };
+  
   enum class eD1R : uint32_t {
     eD1R_0 = 0, // Processing Domain 1 does not have Read access to the memory region
     eD1R_1 = 1, // Processing Domain 1 has Read access to the memory region
   };
+  
   enum class eENA : uint32_t {
     eENA_0 = 0, // Memory region is not defined or restricted.
     eENA_1 = 1, // Memory boundaries, domain permissions and controls are in effect.
   };
+  
   enum class eLCK : uint32_t {
     eLCK_0 = 0, // No Lock. All fields in this register may be modified.
     eLCK_1 = 1, // Locked. No fields in this register may be modified except ENA, which may be set but not cleared.
@@ -10121,7 +10500,7 @@ union RDC_MRC26 {
     uint32_t _reserved_4 : 26;
     eENA ENA : 1;
     eLCK LCK : 1;
-  } bits;          // Bit-field struct (auto-filling reserved gaps)
+  } bits;
   
   // Full 32-bit register value.
   uint32_t value;
@@ -10134,27 +10513,31 @@ union RDC_MRC26 {
 //
 union RDC_MRC27 {
   
-  // Enum definitions.
   enum class eD0W : uint32_t {
     eD0W_0 = 0, // Processing Domain 0 does not have Write access to the memory region
     eD0W_1 = 1, // Processing Domain 0 has Write access to the memory region
   };
+  
   enum class eD0R : uint32_t {
     eD0R_0 = 0, // Processing Domain 0 does not have Read access to the memory region
     eD0R_1 = 1, // Processing Domain 0 has Read access to the memory region
   };
+  
   enum class eD1W : uint32_t {
     eD1W_0 = 0, // Processing Domain 1 does not have Write access to the memory region
     eD1W_1 = 1, // Processing Domain 1 has Write access to the memory region
   };
+  
   enum class eD1R : uint32_t {
     eD1R_0 = 0, // Processing Domain 1 does not have Read access to the memory region
     eD1R_1 = 1, // Processing Domain 1 has Read access to the memory region
   };
+  
   enum class eENA : uint32_t {
     eENA_0 = 0, // Memory region is not defined or restricted.
     eENA_1 = 1, // Memory boundaries, domain permissions and controls are in effect.
   };
+  
   enum class eLCK : uint32_t {
     eLCK_0 = 0, // No Lock. All fields in this register may be modified.
     eLCK_1 = 1, // Locked. No fields in this register may be modified except ENA, which may be set but not cleared.
@@ -10169,7 +10552,7 @@ union RDC_MRC27 {
     uint32_t _reserved_4 : 26;
     eENA ENA : 1;
     eLCK LCK : 1;
-  } bits;          // Bit-field struct (auto-filling reserved gaps)
+  } bits;
   
   // Full 32-bit register value.
   uint32_t value;
@@ -10182,27 +10565,31 @@ union RDC_MRC27 {
 //
 union RDC_MRC28 {
   
-  // Enum definitions.
   enum class eD0W : uint32_t {
     eD0W_0 = 0, // Processing Domain 0 does not have Write access to the memory region
     eD0W_1 = 1, // Processing Domain 0 has Write access to the memory region
   };
+  
   enum class eD0R : uint32_t {
     eD0R_0 = 0, // Processing Domain 0 does not have Read access to the memory region
     eD0R_1 = 1, // Processing Domain 0 has Read access to the memory region
   };
+  
   enum class eD1W : uint32_t {
     eD1W_0 = 0, // Processing Domain 1 does not have Write access to the memory region
     eD1W_1 = 1, // Processing Domain 1 has Write access to the memory region
   };
+  
   enum class eD1R : uint32_t {
     eD1R_0 = 0, // Processing Domain 1 does not have Read access to the memory region
     eD1R_1 = 1, // Processing Domain 1 has Read access to the memory region
   };
+  
   enum class eENA : uint32_t {
     eENA_0 = 0, // Memory region is not defined or restricted.
     eENA_1 = 1, // Memory boundaries, domain permissions and controls are in effect.
   };
+  
   enum class eLCK : uint32_t {
     eLCK_0 = 0, // No Lock. All fields in this register may be modified.
     eLCK_1 = 1, // Locked. No fields in this register may be modified except ENA, which may be set but not cleared.
@@ -10217,7 +10604,7 @@ union RDC_MRC28 {
     uint32_t _reserved_4 : 26;
     eENA ENA : 1;
     eLCK LCK : 1;
-  } bits;          // Bit-field struct (auto-filling reserved gaps)
+  } bits;
   
   // Full 32-bit register value.
   uint32_t value;
@@ -10230,27 +10617,31 @@ union RDC_MRC28 {
 //
 union RDC_MRC29 {
   
-  // Enum definitions.
   enum class eD0W : uint32_t {
     eD0W_0 = 0, // Processing Domain 0 does not have Write access to the memory region
     eD0W_1 = 1, // Processing Domain 0 has Write access to the memory region
   };
+  
   enum class eD0R : uint32_t {
     eD0R_0 = 0, // Processing Domain 0 does not have Read access to the memory region
     eD0R_1 = 1, // Processing Domain 0 has Read access to the memory region
   };
+  
   enum class eD1W : uint32_t {
     eD1W_0 = 0, // Processing Domain 1 does not have Write access to the memory region
     eD1W_1 = 1, // Processing Domain 1 has Write access to the memory region
   };
+  
   enum class eD1R : uint32_t {
     eD1R_0 = 0, // Processing Domain 1 does not have Read access to the memory region
     eD1R_1 = 1, // Processing Domain 1 has Read access to the memory region
   };
+  
   enum class eENA : uint32_t {
     eENA_0 = 0, // Memory region is not defined or restricted.
     eENA_1 = 1, // Memory boundaries, domain permissions and controls are in effect.
   };
+  
   enum class eLCK : uint32_t {
     eLCK_0 = 0, // No Lock. All fields in this register may be modified.
     eLCK_1 = 1, // Locked. No fields in this register may be modified except ENA, which may be set but not cleared.
@@ -10265,7 +10656,7 @@ union RDC_MRC29 {
     uint32_t _reserved_4 : 26;
     eENA ENA : 1;
     eLCK LCK : 1;
-  } bits;          // Bit-field struct (auto-filling reserved gaps)
+  } bits;
   
   // Full 32-bit register value.
   uint32_t value;
@@ -10278,27 +10669,31 @@ union RDC_MRC29 {
 //
 union RDC_MRC30 {
   
-  // Enum definitions.
   enum class eD0W : uint32_t {
     eD0W_0 = 0, // Processing Domain 0 does not have Write access to the memory region
     eD0W_1 = 1, // Processing Domain 0 has Write access to the memory region
   };
+  
   enum class eD0R : uint32_t {
     eD0R_0 = 0, // Processing Domain 0 does not have Read access to the memory region
     eD0R_1 = 1, // Processing Domain 0 has Read access to the memory region
   };
+  
   enum class eD1W : uint32_t {
     eD1W_0 = 0, // Processing Domain 1 does not have Write access to the memory region
     eD1W_1 = 1, // Processing Domain 1 has Write access to the memory region
   };
+  
   enum class eD1R : uint32_t {
     eD1R_0 = 0, // Processing Domain 1 does not have Read access to the memory region
     eD1R_1 = 1, // Processing Domain 1 has Read access to the memory region
   };
+  
   enum class eENA : uint32_t {
     eENA_0 = 0, // Memory region is not defined or restricted.
     eENA_1 = 1, // Memory boundaries, domain permissions and controls are in effect.
   };
+  
   enum class eLCK : uint32_t {
     eLCK_0 = 0, // No Lock. All fields in this register may be modified.
     eLCK_1 = 1, // Locked. No fields in this register may be modified except ENA, which may be set but not cleared.
@@ -10313,7 +10708,7 @@ union RDC_MRC30 {
     uint32_t _reserved_4 : 26;
     eENA ENA : 1;
     eLCK LCK : 1;
-  } bits;          // Bit-field struct (auto-filling reserved gaps)
+  } bits;
   
   // Full 32-bit register value.
   uint32_t value;
@@ -10326,27 +10721,31 @@ union RDC_MRC30 {
 //
 union RDC_MRC31 {
   
-  // Enum definitions.
   enum class eD0W : uint32_t {
     eD0W_0 = 0, // Processing Domain 0 does not have Write access to the memory region
     eD0W_1 = 1, // Processing Domain 0 has Write access to the memory region
   };
+  
   enum class eD0R : uint32_t {
     eD0R_0 = 0, // Processing Domain 0 does not have Read access to the memory region
     eD0R_1 = 1, // Processing Domain 0 has Read access to the memory region
   };
+  
   enum class eD1W : uint32_t {
     eD1W_0 = 0, // Processing Domain 1 does not have Write access to the memory region
     eD1W_1 = 1, // Processing Domain 1 has Write access to the memory region
   };
+  
   enum class eD1R : uint32_t {
     eD1R_0 = 0, // Processing Domain 1 does not have Read access to the memory region
     eD1R_1 = 1, // Processing Domain 1 has Read access to the memory region
   };
+  
   enum class eENA : uint32_t {
     eENA_0 = 0, // Memory region is not defined or restricted.
     eENA_1 = 1, // Memory boundaries, domain permissions and controls are in effect.
   };
+  
   enum class eLCK : uint32_t {
     eLCK_0 = 0, // No Lock. All fields in this register may be modified.
     eLCK_1 = 1, // Locked. No fields in this register may be modified except ENA, which may be set but not cleared.
@@ -10361,7 +10760,7 @@ union RDC_MRC31 {
     uint32_t _reserved_4 : 26;
     eENA ENA : 1;
     eLCK LCK : 1;
-  } bits;          // Bit-field struct (auto-filling reserved gaps)
+  } bits;
   
   // Full 32-bit register value.
   uint32_t value;
@@ -10374,27 +10773,31 @@ union RDC_MRC31 {
 //
 union RDC_MRC32 {
   
-  // Enum definitions.
   enum class eD0W : uint32_t {
     eD0W_0 = 0, // Processing Domain 0 does not have Write access to the memory region
     eD0W_1 = 1, // Processing Domain 0 has Write access to the memory region
   };
+  
   enum class eD0R : uint32_t {
     eD0R_0 = 0, // Processing Domain 0 does not have Read access to the memory region
     eD0R_1 = 1, // Processing Domain 0 has Read access to the memory region
   };
+  
   enum class eD1W : uint32_t {
     eD1W_0 = 0, // Processing Domain 1 does not have Write access to the memory region
     eD1W_1 = 1, // Processing Domain 1 has Write access to the memory region
   };
+  
   enum class eD1R : uint32_t {
     eD1R_0 = 0, // Processing Domain 1 does not have Read access to the memory region
     eD1R_1 = 1, // Processing Domain 1 has Read access to the memory region
   };
+  
   enum class eENA : uint32_t {
     eENA_0 = 0, // Memory region is not defined or restricted.
     eENA_1 = 1, // Memory boundaries, domain permissions and controls are in effect.
   };
+  
   enum class eLCK : uint32_t {
     eLCK_0 = 0, // No Lock. All fields in this register may be modified.
     eLCK_1 = 1, // Locked. No fields in this register may be modified except ENA, which may be set but not cleared.
@@ -10409,7 +10812,7 @@ union RDC_MRC32 {
     uint32_t _reserved_4 : 26;
     eENA ENA : 1;
     eLCK LCK : 1;
-  } bits;          // Bit-field struct (auto-filling reserved gaps)
+  } bits;
   
   // Full 32-bit register value.
   uint32_t value;
@@ -10422,27 +10825,31 @@ union RDC_MRC32 {
 //
 union RDC_MRC33 {
   
-  // Enum definitions.
   enum class eD0W : uint32_t {
     eD0W_0 = 0, // Processing Domain 0 does not have Write access to the memory region
     eD0W_1 = 1, // Processing Domain 0 has Write access to the memory region
   };
+  
   enum class eD0R : uint32_t {
     eD0R_0 = 0, // Processing Domain 0 does not have Read access to the memory region
     eD0R_1 = 1, // Processing Domain 0 has Read access to the memory region
   };
+  
   enum class eD1W : uint32_t {
     eD1W_0 = 0, // Processing Domain 1 does not have Write access to the memory region
     eD1W_1 = 1, // Processing Domain 1 has Write access to the memory region
   };
+  
   enum class eD1R : uint32_t {
     eD1R_0 = 0, // Processing Domain 1 does not have Read access to the memory region
     eD1R_1 = 1, // Processing Domain 1 has Read access to the memory region
   };
+  
   enum class eENA : uint32_t {
     eENA_0 = 0, // Memory region is not defined or restricted.
     eENA_1 = 1, // Memory boundaries, domain permissions and controls are in effect.
   };
+  
   enum class eLCK : uint32_t {
     eLCK_0 = 0, // No Lock. All fields in this register may be modified.
     eLCK_1 = 1, // Locked. No fields in this register may be modified except ENA, which may be set but not cleared.
@@ -10457,7 +10864,7 @@ union RDC_MRC33 {
     uint32_t _reserved_4 : 26;
     eENA ENA : 1;
     eLCK LCK : 1;
-  } bits;          // Bit-field struct (auto-filling reserved gaps)
+  } bits;
   
   // Full 32-bit register value.
   uint32_t value;
@@ -10470,27 +10877,31 @@ union RDC_MRC33 {
 //
 union RDC_MRC34 {
   
-  // Enum definitions.
   enum class eD0W : uint32_t {
     eD0W_0 = 0, // Processing Domain 0 does not have Write access to the memory region
     eD0W_1 = 1, // Processing Domain 0 has Write access to the memory region
   };
+  
   enum class eD0R : uint32_t {
     eD0R_0 = 0, // Processing Domain 0 does not have Read access to the memory region
     eD0R_1 = 1, // Processing Domain 0 has Read access to the memory region
   };
+  
   enum class eD1W : uint32_t {
     eD1W_0 = 0, // Processing Domain 1 does not have Write access to the memory region
     eD1W_1 = 1, // Processing Domain 1 has Write access to the memory region
   };
+  
   enum class eD1R : uint32_t {
     eD1R_0 = 0, // Processing Domain 1 does not have Read access to the memory region
     eD1R_1 = 1, // Processing Domain 1 has Read access to the memory region
   };
+  
   enum class eENA : uint32_t {
     eENA_0 = 0, // Memory region is not defined or restricted.
     eENA_1 = 1, // Memory boundaries, domain permissions and controls are in effect.
   };
+  
   enum class eLCK : uint32_t {
     eLCK_0 = 0, // No Lock. All fields in this register may be modified.
     eLCK_1 = 1, // Locked. No fields in this register may be modified except ENA, which may be set but not cleared.
@@ -10505,7 +10916,7 @@ union RDC_MRC34 {
     uint32_t _reserved_4 : 26;
     eENA ENA : 1;
     eLCK LCK : 1;
-  } bits;          // Bit-field struct (auto-filling reserved gaps)
+  } bits;
   
   // Full 32-bit register value.
   uint32_t value;
@@ -10518,27 +10929,31 @@ union RDC_MRC34 {
 //
 union RDC_MRC35 {
   
-  // Enum definitions.
   enum class eD0W : uint32_t {
     eD0W_0 = 0, // Processing Domain 0 does not have Write access to the memory region
     eD0W_1 = 1, // Processing Domain 0 has Write access to the memory region
   };
+  
   enum class eD0R : uint32_t {
     eD0R_0 = 0, // Processing Domain 0 does not have Read access to the memory region
     eD0R_1 = 1, // Processing Domain 0 has Read access to the memory region
   };
+  
   enum class eD1W : uint32_t {
     eD1W_0 = 0, // Processing Domain 1 does not have Write access to the memory region
     eD1W_1 = 1, // Processing Domain 1 has Write access to the memory region
   };
+  
   enum class eD1R : uint32_t {
     eD1R_0 = 0, // Processing Domain 1 does not have Read access to the memory region
     eD1R_1 = 1, // Processing Domain 1 has Read access to the memory region
   };
+  
   enum class eENA : uint32_t {
     eENA_0 = 0, // Memory region is not defined or restricted.
     eENA_1 = 1, // Memory boundaries, domain permissions and controls are in effect.
   };
+  
   enum class eLCK : uint32_t {
     eLCK_0 = 0, // No Lock. All fields in this register may be modified.
     eLCK_1 = 1, // Locked. No fields in this register may be modified except ENA, which may be set but not cleared.
@@ -10553,7 +10968,7 @@ union RDC_MRC35 {
     uint32_t _reserved_4 : 26;
     eENA ENA : 1;
     eLCK LCK : 1;
-  } bits;          // Bit-field struct (auto-filling reserved gaps)
+  } bits;
   
   // Full 32-bit register value.
   uint32_t value;
@@ -10566,27 +10981,31 @@ union RDC_MRC35 {
 //
 union RDC_MRC36 {
   
-  // Enum definitions.
   enum class eD0W : uint32_t {
     eD0W_0 = 0, // Processing Domain 0 does not have Write access to the memory region
     eD0W_1 = 1, // Processing Domain 0 has Write access to the memory region
   };
+  
   enum class eD0R : uint32_t {
     eD0R_0 = 0, // Processing Domain 0 does not have Read access to the memory region
     eD0R_1 = 1, // Processing Domain 0 has Read access to the memory region
   };
+  
   enum class eD1W : uint32_t {
     eD1W_0 = 0, // Processing Domain 1 does not have Write access to the memory region
     eD1W_1 = 1, // Processing Domain 1 has Write access to the memory region
   };
+  
   enum class eD1R : uint32_t {
     eD1R_0 = 0, // Processing Domain 1 does not have Read access to the memory region
     eD1R_1 = 1, // Processing Domain 1 has Read access to the memory region
   };
+  
   enum class eENA : uint32_t {
     eENA_0 = 0, // Memory region is not defined or restricted.
     eENA_1 = 1, // Memory boundaries, domain permissions and controls are in effect.
   };
+  
   enum class eLCK : uint32_t {
     eLCK_0 = 0, // No Lock. All fields in this register may be modified.
     eLCK_1 = 1, // Locked. No fields in this register may be modified except ENA, which may be set but not cleared.
@@ -10601,7 +11020,7 @@ union RDC_MRC36 {
     uint32_t _reserved_4 : 26;
     eENA ENA : 1;
     eLCK LCK : 1;
-  } bits;          // Bit-field struct (auto-filling reserved gaps)
+  } bits;
   
   // Full 32-bit register value.
   uint32_t value;
@@ -10614,27 +11033,31 @@ union RDC_MRC36 {
 //
 union RDC_MRC37 {
   
-  // Enum definitions.
   enum class eD0W : uint32_t {
     eD0W_0 = 0, // Processing Domain 0 does not have Write access to the memory region
     eD0W_1 = 1, // Processing Domain 0 has Write access to the memory region
   };
+  
   enum class eD0R : uint32_t {
     eD0R_0 = 0, // Processing Domain 0 does not have Read access to the memory region
     eD0R_1 = 1, // Processing Domain 0 has Read access to the memory region
   };
+  
   enum class eD1W : uint32_t {
     eD1W_0 = 0, // Processing Domain 1 does not have Write access to the memory region
     eD1W_1 = 1, // Processing Domain 1 has Write access to the memory region
   };
+  
   enum class eD1R : uint32_t {
     eD1R_0 = 0, // Processing Domain 1 does not have Read access to the memory region
     eD1R_1 = 1, // Processing Domain 1 has Read access to the memory region
   };
+  
   enum class eENA : uint32_t {
     eENA_0 = 0, // Memory region is not defined or restricted.
     eENA_1 = 1, // Memory boundaries, domain permissions and controls are in effect.
   };
+  
   enum class eLCK : uint32_t {
     eLCK_0 = 0, // No Lock. All fields in this register may be modified.
     eLCK_1 = 1, // Locked. No fields in this register may be modified except ENA, which may be set but not cleared.
@@ -10649,7 +11072,7 @@ union RDC_MRC37 {
     uint32_t _reserved_4 : 26;
     eENA ENA : 1;
     eLCK LCK : 1;
-  } bits;          // Bit-field struct (auto-filling reserved gaps)
+  } bits;
   
   // Full 32-bit register value.
   uint32_t value;
@@ -10662,27 +11085,31 @@ union RDC_MRC37 {
 //
 union RDC_MRC38 {
   
-  // Enum definitions.
   enum class eD0W : uint32_t {
     eD0W_0 = 0, // Processing Domain 0 does not have Write access to the memory region
     eD0W_1 = 1, // Processing Domain 0 has Write access to the memory region
   };
+  
   enum class eD0R : uint32_t {
     eD0R_0 = 0, // Processing Domain 0 does not have Read access to the memory region
     eD0R_1 = 1, // Processing Domain 0 has Read access to the memory region
   };
+  
   enum class eD1W : uint32_t {
     eD1W_0 = 0, // Processing Domain 1 does not have Write access to the memory region
     eD1W_1 = 1, // Processing Domain 1 has Write access to the memory region
   };
+  
   enum class eD1R : uint32_t {
     eD1R_0 = 0, // Processing Domain 1 does not have Read access to the memory region
     eD1R_1 = 1, // Processing Domain 1 has Read access to the memory region
   };
+  
   enum class eENA : uint32_t {
     eENA_0 = 0, // Memory region is not defined or restricted.
     eENA_1 = 1, // Memory boundaries, domain permissions and controls are in effect.
   };
+  
   enum class eLCK : uint32_t {
     eLCK_0 = 0, // No Lock. All fields in this register may be modified.
     eLCK_1 = 1, // Locked. No fields in this register may be modified except ENA, which may be set but not cleared.
@@ -10697,7 +11124,7 @@ union RDC_MRC38 {
     uint32_t _reserved_4 : 26;
     eENA ENA : 1;
     eLCK LCK : 1;
-  } bits;          // Bit-field struct (auto-filling reserved gaps)
+  } bits;
   
   // Full 32-bit register value.
   uint32_t value;
@@ -10710,27 +11137,31 @@ union RDC_MRC38 {
 //
 union RDC_MRC39 {
   
-  // Enum definitions.
   enum class eD0W : uint32_t {
     eD0W_0 = 0, // Processing Domain 0 does not have Write access to the memory region
     eD0W_1 = 1, // Processing Domain 0 has Write access to the memory region
   };
+  
   enum class eD0R : uint32_t {
     eD0R_0 = 0, // Processing Domain 0 does not have Read access to the memory region
     eD0R_1 = 1, // Processing Domain 0 has Read access to the memory region
   };
+  
   enum class eD1W : uint32_t {
     eD1W_0 = 0, // Processing Domain 1 does not have Write access to the memory region
     eD1W_1 = 1, // Processing Domain 1 has Write access to the memory region
   };
+  
   enum class eD1R : uint32_t {
     eD1R_0 = 0, // Processing Domain 1 does not have Read access to the memory region
     eD1R_1 = 1, // Processing Domain 1 has Read access to the memory region
   };
+  
   enum class eENA : uint32_t {
     eENA_0 = 0, // Memory region is not defined or restricted.
     eENA_1 = 1, // Memory boundaries, domain permissions and controls are in effect.
   };
+  
   enum class eLCK : uint32_t {
     eLCK_0 = 0, // No Lock. All fields in this register may be modified.
     eLCK_1 = 1, // Locked. No fields in this register may be modified except ENA, which may be set but not cleared.
@@ -10745,7 +11176,7 @@ union RDC_MRC39 {
     uint32_t _reserved_4 : 26;
     eENA ENA : 1;
     eLCK LCK : 1;
-  } bits;          // Bit-field struct (auto-filling reserved gaps)
+  } bits;
   
   // Full 32-bit register value.
   uint32_t value;
@@ -10758,27 +11189,31 @@ union RDC_MRC39 {
 //
 union RDC_MRC40 {
   
-  // Enum definitions.
   enum class eD0W : uint32_t {
     eD0W_0 = 0, // Processing Domain 0 does not have Write access to the memory region
     eD0W_1 = 1, // Processing Domain 0 has Write access to the memory region
   };
+  
   enum class eD0R : uint32_t {
     eD0R_0 = 0, // Processing Domain 0 does not have Read access to the memory region
     eD0R_1 = 1, // Processing Domain 0 has Read access to the memory region
   };
+  
   enum class eD1W : uint32_t {
     eD1W_0 = 0, // Processing Domain 1 does not have Write access to the memory region
     eD1W_1 = 1, // Processing Domain 1 has Write access to the memory region
   };
+  
   enum class eD1R : uint32_t {
     eD1R_0 = 0, // Processing Domain 1 does not have Read access to the memory region
     eD1R_1 = 1, // Processing Domain 1 has Read access to the memory region
   };
+  
   enum class eENA : uint32_t {
     eENA_0 = 0, // Memory region is not defined or restricted.
     eENA_1 = 1, // Memory boundaries, domain permissions and controls are in effect.
   };
+  
   enum class eLCK : uint32_t {
     eLCK_0 = 0, // No Lock. All fields in this register may be modified.
     eLCK_1 = 1, // Locked. No fields in this register may be modified except ENA, which may be set but not cleared.
@@ -10793,7 +11228,7 @@ union RDC_MRC40 {
     uint32_t _reserved_4 : 26;
     eENA ENA : 1;
     eLCK LCK : 1;
-  } bits;          // Bit-field struct (auto-filling reserved gaps)
+  } bits;
   
   // Full 32-bit register value.
   uint32_t value;
@@ -10806,27 +11241,31 @@ union RDC_MRC40 {
 //
 union RDC_MRC41 {
   
-  // Enum definitions.
   enum class eD0W : uint32_t {
     eD0W_0 = 0, // Processing Domain 0 does not have Write access to the memory region
     eD0W_1 = 1, // Processing Domain 0 has Write access to the memory region
   };
+  
   enum class eD0R : uint32_t {
     eD0R_0 = 0, // Processing Domain 0 does not have Read access to the memory region
     eD0R_1 = 1, // Processing Domain 0 has Read access to the memory region
   };
+  
   enum class eD1W : uint32_t {
     eD1W_0 = 0, // Processing Domain 1 does not have Write access to the memory region
     eD1W_1 = 1, // Processing Domain 1 has Write access to the memory region
   };
+  
   enum class eD1R : uint32_t {
     eD1R_0 = 0, // Processing Domain 1 does not have Read access to the memory region
     eD1R_1 = 1, // Processing Domain 1 has Read access to the memory region
   };
+  
   enum class eENA : uint32_t {
     eENA_0 = 0, // Memory region is not defined or restricted.
     eENA_1 = 1, // Memory boundaries, domain permissions and controls are in effect.
   };
+  
   enum class eLCK : uint32_t {
     eLCK_0 = 0, // No Lock. All fields in this register may be modified.
     eLCK_1 = 1, // Locked. No fields in this register may be modified except ENA, which may be set but not cleared.
@@ -10841,7 +11280,7 @@ union RDC_MRC41 {
     uint32_t _reserved_4 : 26;
     eENA ENA : 1;
     eLCK LCK : 1;
-  } bits;          // Bit-field struct (auto-filling reserved gaps)
+  } bits;
   
   // Full 32-bit register value.
   uint32_t value;
@@ -10854,27 +11293,31 @@ union RDC_MRC41 {
 //
 union RDC_MRC42 {
   
-  // Enum definitions.
   enum class eD0W : uint32_t {
     eD0W_0 = 0, // Processing Domain 0 does not have Write access to the memory region
     eD0W_1 = 1, // Processing Domain 0 has Write access to the memory region
   };
+  
   enum class eD0R : uint32_t {
     eD0R_0 = 0, // Processing Domain 0 does not have Read access to the memory region
     eD0R_1 = 1, // Processing Domain 0 has Read access to the memory region
   };
+  
   enum class eD1W : uint32_t {
     eD1W_0 = 0, // Processing Domain 1 does not have Write access to the memory region
     eD1W_1 = 1, // Processing Domain 1 has Write access to the memory region
   };
+  
   enum class eD1R : uint32_t {
     eD1R_0 = 0, // Processing Domain 1 does not have Read access to the memory region
     eD1R_1 = 1, // Processing Domain 1 has Read access to the memory region
   };
+  
   enum class eENA : uint32_t {
     eENA_0 = 0, // Memory region is not defined or restricted.
     eENA_1 = 1, // Memory boundaries, domain permissions and controls are in effect.
   };
+  
   enum class eLCK : uint32_t {
     eLCK_0 = 0, // No Lock. All fields in this register may be modified.
     eLCK_1 = 1, // Locked. No fields in this register may be modified except ENA, which may be set but not cleared.
@@ -10889,7 +11332,7 @@ union RDC_MRC42 {
     uint32_t _reserved_4 : 26;
     eENA ENA : 1;
     eLCK LCK : 1;
-  } bits;          // Bit-field struct (auto-filling reserved gaps)
+  } bits;
   
   // Full 32-bit register value.
   uint32_t value;
@@ -10902,27 +11345,31 @@ union RDC_MRC42 {
 //
 union RDC_MRC43 {
   
-  // Enum definitions.
   enum class eD0W : uint32_t {
     eD0W_0 = 0, // Processing Domain 0 does not have Write access to the memory region
     eD0W_1 = 1, // Processing Domain 0 has Write access to the memory region
   };
+  
   enum class eD0R : uint32_t {
     eD0R_0 = 0, // Processing Domain 0 does not have Read access to the memory region
     eD0R_1 = 1, // Processing Domain 0 has Read access to the memory region
   };
+  
   enum class eD1W : uint32_t {
     eD1W_0 = 0, // Processing Domain 1 does not have Write access to the memory region
     eD1W_1 = 1, // Processing Domain 1 has Write access to the memory region
   };
+  
   enum class eD1R : uint32_t {
     eD1R_0 = 0, // Processing Domain 1 does not have Read access to the memory region
     eD1R_1 = 1, // Processing Domain 1 has Read access to the memory region
   };
+  
   enum class eENA : uint32_t {
     eENA_0 = 0, // Memory region is not defined or restricted.
     eENA_1 = 1, // Memory boundaries, domain permissions and controls are in effect.
   };
+  
   enum class eLCK : uint32_t {
     eLCK_0 = 0, // No Lock. All fields in this register may be modified.
     eLCK_1 = 1, // Locked. No fields in this register may be modified except ENA, which may be set but not cleared.
@@ -10937,7 +11384,7 @@ union RDC_MRC43 {
     uint32_t _reserved_4 : 26;
     eENA ENA : 1;
     eLCK LCK : 1;
-  } bits;          // Bit-field struct (auto-filling reserved gaps)
+  } bits;
   
   // Full 32-bit register value.
   uint32_t value;
@@ -10950,27 +11397,31 @@ union RDC_MRC43 {
 //
 union RDC_MRC44 {
   
-  // Enum definitions.
   enum class eD0W : uint32_t {
     eD0W_0 = 0, // Processing Domain 0 does not have Write access to the memory region
     eD0W_1 = 1, // Processing Domain 0 has Write access to the memory region
   };
+  
   enum class eD0R : uint32_t {
     eD0R_0 = 0, // Processing Domain 0 does not have Read access to the memory region
     eD0R_1 = 1, // Processing Domain 0 has Read access to the memory region
   };
+  
   enum class eD1W : uint32_t {
     eD1W_0 = 0, // Processing Domain 1 does not have Write access to the memory region
     eD1W_1 = 1, // Processing Domain 1 has Write access to the memory region
   };
+  
   enum class eD1R : uint32_t {
     eD1R_0 = 0, // Processing Domain 1 does not have Read access to the memory region
     eD1R_1 = 1, // Processing Domain 1 has Read access to the memory region
   };
+  
   enum class eENA : uint32_t {
     eENA_0 = 0, // Memory region is not defined or restricted.
     eENA_1 = 1, // Memory boundaries, domain permissions and controls are in effect.
   };
+  
   enum class eLCK : uint32_t {
     eLCK_0 = 0, // No Lock. All fields in this register may be modified.
     eLCK_1 = 1, // Locked. No fields in this register may be modified except ENA, which may be set but not cleared.
@@ -10985,7 +11436,7 @@ union RDC_MRC44 {
     uint32_t _reserved_4 : 26;
     eENA ENA : 1;
     eLCK LCK : 1;
-  } bits;          // Bit-field struct (auto-filling reserved gaps)
+  } bits;
   
   // Full 32-bit register value.
   uint32_t value;
@@ -10998,27 +11449,31 @@ union RDC_MRC44 {
 //
 union RDC_MRC45 {
   
-  // Enum definitions.
   enum class eD0W : uint32_t {
     eD0W_0 = 0, // Processing Domain 0 does not have Write access to the memory region
     eD0W_1 = 1, // Processing Domain 0 has Write access to the memory region
   };
+  
   enum class eD0R : uint32_t {
     eD0R_0 = 0, // Processing Domain 0 does not have Read access to the memory region
     eD0R_1 = 1, // Processing Domain 0 has Read access to the memory region
   };
+  
   enum class eD1W : uint32_t {
     eD1W_0 = 0, // Processing Domain 1 does not have Write access to the memory region
     eD1W_1 = 1, // Processing Domain 1 has Write access to the memory region
   };
+  
   enum class eD1R : uint32_t {
     eD1R_0 = 0, // Processing Domain 1 does not have Read access to the memory region
     eD1R_1 = 1, // Processing Domain 1 has Read access to the memory region
   };
+  
   enum class eENA : uint32_t {
     eENA_0 = 0, // Memory region is not defined or restricted.
     eENA_1 = 1, // Memory boundaries, domain permissions and controls are in effect.
   };
+  
   enum class eLCK : uint32_t {
     eLCK_0 = 0, // No Lock. All fields in this register may be modified.
     eLCK_1 = 1, // Locked. No fields in this register may be modified except ENA, which may be set but not cleared.
@@ -11033,7 +11488,7 @@ union RDC_MRC45 {
     uint32_t _reserved_4 : 26;
     eENA ENA : 1;
     eLCK LCK : 1;
-  } bits;          // Bit-field struct (auto-filling reserved gaps)
+  } bits;
   
   // Full 32-bit register value.
   uint32_t value;
@@ -11046,27 +11501,31 @@ union RDC_MRC45 {
 //
 union RDC_MRC46 {
   
-  // Enum definitions.
   enum class eD0W : uint32_t {
     eD0W_0 = 0, // Processing Domain 0 does not have Write access to the memory region
     eD0W_1 = 1, // Processing Domain 0 has Write access to the memory region
   };
+  
   enum class eD0R : uint32_t {
     eD0R_0 = 0, // Processing Domain 0 does not have Read access to the memory region
     eD0R_1 = 1, // Processing Domain 0 has Read access to the memory region
   };
+  
   enum class eD1W : uint32_t {
     eD1W_0 = 0, // Processing Domain 1 does not have Write access to the memory region
     eD1W_1 = 1, // Processing Domain 1 has Write access to the memory region
   };
+  
   enum class eD1R : uint32_t {
     eD1R_0 = 0, // Processing Domain 1 does not have Read access to the memory region
     eD1R_1 = 1, // Processing Domain 1 has Read access to the memory region
   };
+  
   enum class eENA : uint32_t {
     eENA_0 = 0, // Memory region is not defined or restricted.
     eENA_1 = 1, // Memory boundaries, domain permissions and controls are in effect.
   };
+  
   enum class eLCK : uint32_t {
     eLCK_0 = 0, // No Lock. All fields in this register may be modified.
     eLCK_1 = 1, // Locked. No fields in this register may be modified except ENA, which may be set but not cleared.
@@ -11081,7 +11540,7 @@ union RDC_MRC46 {
     uint32_t _reserved_4 : 26;
     eENA ENA : 1;
     eLCK LCK : 1;
-  } bits;          // Bit-field struct (auto-filling reserved gaps)
+  } bits;
   
   // Full 32-bit register value.
   uint32_t value;
@@ -11094,27 +11553,31 @@ union RDC_MRC46 {
 //
 union RDC_MRC47 {
   
-  // Enum definitions.
   enum class eD0W : uint32_t {
     eD0W_0 = 0, // Processing Domain 0 does not have Write access to the memory region
     eD0W_1 = 1, // Processing Domain 0 has Write access to the memory region
   };
+  
   enum class eD0R : uint32_t {
     eD0R_0 = 0, // Processing Domain 0 does not have Read access to the memory region
     eD0R_1 = 1, // Processing Domain 0 has Read access to the memory region
   };
+  
   enum class eD1W : uint32_t {
     eD1W_0 = 0, // Processing Domain 1 does not have Write access to the memory region
     eD1W_1 = 1, // Processing Domain 1 has Write access to the memory region
   };
+  
   enum class eD1R : uint32_t {
     eD1R_0 = 0, // Processing Domain 1 does not have Read access to the memory region
     eD1R_1 = 1, // Processing Domain 1 has Read access to the memory region
   };
+  
   enum class eENA : uint32_t {
     eENA_0 = 0, // Memory region is not defined or restricted.
     eENA_1 = 1, // Memory boundaries, domain permissions and controls are in effect.
   };
+  
   enum class eLCK : uint32_t {
     eLCK_0 = 0, // No Lock. All fields in this register may be modified.
     eLCK_1 = 1, // Locked. No fields in this register may be modified except ENA, which may be set but not cleared.
@@ -11129,7 +11592,7 @@ union RDC_MRC47 {
     uint32_t _reserved_4 : 26;
     eENA ENA : 1;
     eLCK LCK : 1;
-  } bits;          // Bit-field struct (auto-filling reserved gaps)
+  } bits;
   
   // Full 32-bit register value.
   uint32_t value;
@@ -11142,27 +11605,31 @@ union RDC_MRC47 {
 //
 union RDC_MRC48 {
   
-  // Enum definitions.
   enum class eD0W : uint32_t {
     eD0W_0 = 0, // Processing Domain 0 does not have Write access to the memory region
     eD0W_1 = 1, // Processing Domain 0 has Write access to the memory region
   };
+  
   enum class eD0R : uint32_t {
     eD0R_0 = 0, // Processing Domain 0 does not have Read access to the memory region
     eD0R_1 = 1, // Processing Domain 0 has Read access to the memory region
   };
+  
   enum class eD1W : uint32_t {
     eD1W_0 = 0, // Processing Domain 1 does not have Write access to the memory region
     eD1W_1 = 1, // Processing Domain 1 has Write access to the memory region
   };
+  
   enum class eD1R : uint32_t {
     eD1R_0 = 0, // Processing Domain 1 does not have Read access to the memory region
     eD1R_1 = 1, // Processing Domain 1 has Read access to the memory region
   };
+  
   enum class eENA : uint32_t {
     eENA_0 = 0, // Memory region is not defined or restricted.
     eENA_1 = 1, // Memory boundaries, domain permissions and controls are in effect.
   };
+  
   enum class eLCK : uint32_t {
     eLCK_0 = 0, // No Lock. All fields in this register may be modified.
     eLCK_1 = 1, // Locked. No fields in this register may be modified except ENA, which may be set but not cleared.
@@ -11177,7 +11644,7 @@ union RDC_MRC48 {
     uint32_t _reserved_4 : 26;
     eENA ENA : 1;
     eLCK LCK : 1;
-  } bits;          // Bit-field struct (auto-filling reserved gaps)
+  } bits;
   
   // Full 32-bit register value.
   uint32_t value;
@@ -11190,27 +11657,31 @@ union RDC_MRC48 {
 //
 union RDC_MRC49 {
   
-  // Enum definitions.
   enum class eD0W : uint32_t {
     eD0W_0 = 0, // Processing Domain 0 does not have Write access to the memory region
     eD0W_1 = 1, // Processing Domain 0 has Write access to the memory region
   };
+  
   enum class eD0R : uint32_t {
     eD0R_0 = 0, // Processing Domain 0 does not have Read access to the memory region
     eD0R_1 = 1, // Processing Domain 0 has Read access to the memory region
   };
+  
   enum class eD1W : uint32_t {
     eD1W_0 = 0, // Processing Domain 1 does not have Write access to the memory region
     eD1W_1 = 1, // Processing Domain 1 has Write access to the memory region
   };
+  
   enum class eD1R : uint32_t {
     eD1R_0 = 0, // Processing Domain 1 does not have Read access to the memory region
     eD1R_1 = 1, // Processing Domain 1 has Read access to the memory region
   };
+  
   enum class eENA : uint32_t {
     eENA_0 = 0, // Memory region is not defined or restricted.
     eENA_1 = 1, // Memory boundaries, domain permissions and controls are in effect.
   };
+  
   enum class eLCK : uint32_t {
     eLCK_0 = 0, // No Lock. All fields in this register may be modified.
     eLCK_1 = 1, // Locked. No fields in this register may be modified except ENA, which may be set but not cleared.
@@ -11225,7 +11696,7 @@ union RDC_MRC49 {
     uint32_t _reserved_4 : 26;
     eENA ENA : 1;
     eLCK LCK : 1;
-  } bits;          // Bit-field struct (auto-filling reserved gaps)
+  } bits;
   
   // Full 32-bit register value.
   uint32_t value;
@@ -11238,27 +11709,31 @@ union RDC_MRC49 {
 //
 union RDC_MRC50 {
   
-  // Enum definitions.
   enum class eD0W : uint32_t {
     eD0W_0 = 0, // Processing Domain 0 does not have Write access to the memory region
     eD0W_1 = 1, // Processing Domain 0 has Write access to the memory region
   };
+  
   enum class eD0R : uint32_t {
     eD0R_0 = 0, // Processing Domain 0 does not have Read access to the memory region
     eD0R_1 = 1, // Processing Domain 0 has Read access to the memory region
   };
+  
   enum class eD1W : uint32_t {
     eD1W_0 = 0, // Processing Domain 1 does not have Write access to the memory region
     eD1W_1 = 1, // Processing Domain 1 has Write access to the memory region
   };
+  
   enum class eD1R : uint32_t {
     eD1R_0 = 0, // Processing Domain 1 does not have Read access to the memory region
     eD1R_1 = 1, // Processing Domain 1 has Read access to the memory region
   };
+  
   enum class eENA : uint32_t {
     eENA_0 = 0, // Memory region is not defined or restricted.
     eENA_1 = 1, // Memory boundaries, domain permissions and controls are in effect.
   };
+  
   enum class eLCK : uint32_t {
     eLCK_0 = 0, // No Lock. All fields in this register may be modified.
     eLCK_1 = 1, // Locked. No fields in this register may be modified except ENA, which may be set but not cleared.
@@ -11273,7 +11748,7 @@ union RDC_MRC50 {
     uint32_t _reserved_4 : 26;
     eENA ENA : 1;
     eLCK LCK : 1;
-  } bits;          // Bit-field struct (auto-filling reserved gaps)
+  } bits;
   
   // Full 32-bit register value.
   uint32_t value;
@@ -11286,27 +11761,31 @@ union RDC_MRC50 {
 //
 union RDC_MRC51 {
   
-  // Enum definitions.
   enum class eD0W : uint32_t {
     eD0W_0 = 0, // Processing Domain 0 does not have Write access to the memory region
     eD0W_1 = 1, // Processing Domain 0 has Write access to the memory region
   };
+  
   enum class eD0R : uint32_t {
     eD0R_0 = 0, // Processing Domain 0 does not have Read access to the memory region
     eD0R_1 = 1, // Processing Domain 0 has Read access to the memory region
   };
+  
   enum class eD1W : uint32_t {
     eD1W_0 = 0, // Processing Domain 1 does not have Write access to the memory region
     eD1W_1 = 1, // Processing Domain 1 has Write access to the memory region
   };
+  
   enum class eD1R : uint32_t {
     eD1R_0 = 0, // Processing Domain 1 does not have Read access to the memory region
     eD1R_1 = 1, // Processing Domain 1 has Read access to the memory region
   };
+  
   enum class eENA : uint32_t {
     eENA_0 = 0, // Memory region is not defined or restricted.
     eENA_1 = 1, // Memory boundaries, domain permissions and controls are in effect.
   };
+  
   enum class eLCK : uint32_t {
     eLCK_0 = 0, // No Lock. All fields in this register may be modified.
     eLCK_1 = 1, // Locked. No fields in this register may be modified except ENA, which may be set but not cleared.
@@ -11321,7 +11800,7 @@ union RDC_MRC51 {
     uint32_t _reserved_4 : 26;
     eENA ENA : 1;
     eLCK LCK : 1;
-  } bits;          // Bit-field struct (auto-filling reserved gaps)
+  } bits;
   
   // Full 32-bit register value.
   uint32_t value;
@@ -11334,27 +11813,31 @@ union RDC_MRC51 {
 //
 union RDC_MRC52 {
   
-  // Enum definitions.
   enum class eD0W : uint32_t {
     eD0W_0 = 0, // Processing Domain 0 does not have Write access to the memory region
     eD0W_1 = 1, // Processing Domain 0 has Write access to the memory region
   };
+  
   enum class eD0R : uint32_t {
     eD0R_0 = 0, // Processing Domain 0 does not have Read access to the memory region
     eD0R_1 = 1, // Processing Domain 0 has Read access to the memory region
   };
+  
   enum class eD1W : uint32_t {
     eD1W_0 = 0, // Processing Domain 1 does not have Write access to the memory region
     eD1W_1 = 1, // Processing Domain 1 has Write access to the memory region
   };
+  
   enum class eD1R : uint32_t {
     eD1R_0 = 0, // Processing Domain 1 does not have Read access to the memory region
     eD1R_1 = 1, // Processing Domain 1 has Read access to the memory region
   };
+  
   enum class eENA : uint32_t {
     eENA_0 = 0, // Memory region is not defined or restricted.
     eENA_1 = 1, // Memory boundaries, domain permissions and controls are in effect.
   };
+  
   enum class eLCK : uint32_t {
     eLCK_0 = 0, // No Lock. All fields in this register may be modified.
     eLCK_1 = 1, // Locked. No fields in this register may be modified except ENA, which may be set but not cleared.
@@ -11369,7 +11852,7 @@ union RDC_MRC52 {
     uint32_t _reserved_4 : 26;
     eENA ENA : 1;
     eLCK LCK : 1;
-  } bits;          // Bit-field struct (auto-filling reserved gaps)
+  } bits;
   
   // Full 32-bit register value.
   uint32_t value;
@@ -11382,27 +11865,31 @@ union RDC_MRC52 {
 //
 union RDC_MRC53 {
   
-  // Enum definitions.
   enum class eD0W : uint32_t {
     eD0W_0 = 0, // Processing Domain 0 does not have Write access to the memory region
     eD0W_1 = 1, // Processing Domain 0 has Write access to the memory region
   };
+  
   enum class eD0R : uint32_t {
     eD0R_0 = 0, // Processing Domain 0 does not have Read access to the memory region
     eD0R_1 = 1, // Processing Domain 0 has Read access to the memory region
   };
+  
   enum class eD1W : uint32_t {
     eD1W_0 = 0, // Processing Domain 1 does not have Write access to the memory region
     eD1W_1 = 1, // Processing Domain 1 has Write access to the memory region
   };
+  
   enum class eD1R : uint32_t {
     eD1R_0 = 0, // Processing Domain 1 does not have Read access to the memory region
     eD1R_1 = 1, // Processing Domain 1 has Read access to the memory region
   };
+  
   enum class eENA : uint32_t {
     eENA_0 = 0, // Memory region is not defined or restricted.
     eENA_1 = 1, // Memory boundaries, domain permissions and controls are in effect.
   };
+  
   enum class eLCK : uint32_t {
     eLCK_0 = 0, // No Lock. All fields in this register may be modified.
     eLCK_1 = 1, // Locked. No fields in this register may be modified except ENA, which may be set but not cleared.
@@ -11417,7 +11904,7 @@ union RDC_MRC53 {
     uint32_t _reserved_4 : 26;
     eENA ENA : 1;
     eLCK LCK : 1;
-  } bits;          // Bit-field struct (auto-filling reserved gaps)
+  } bits;
   
   // Full 32-bit register value.
   uint32_t value;
@@ -11430,27 +11917,31 @@ union RDC_MRC53 {
 //
 union RDC_MRC54 {
   
-  // Enum definitions.
   enum class eD0W : uint32_t {
     eD0W_0 = 0, // Processing Domain 0 does not have Write access to the memory region
     eD0W_1 = 1, // Processing Domain 0 has Write access to the memory region
   };
+  
   enum class eD0R : uint32_t {
     eD0R_0 = 0, // Processing Domain 0 does not have Read access to the memory region
     eD0R_1 = 1, // Processing Domain 0 has Read access to the memory region
   };
+  
   enum class eD1W : uint32_t {
     eD1W_0 = 0, // Processing Domain 1 does not have Write access to the memory region
     eD1W_1 = 1, // Processing Domain 1 has Write access to the memory region
   };
+  
   enum class eD1R : uint32_t {
     eD1R_0 = 0, // Processing Domain 1 does not have Read access to the memory region
     eD1R_1 = 1, // Processing Domain 1 has Read access to the memory region
   };
+  
   enum class eENA : uint32_t {
     eENA_0 = 0, // Memory region is not defined or restricted.
     eENA_1 = 1, // Memory boundaries, domain permissions and controls are in effect.
   };
+  
   enum class eLCK : uint32_t {
     eLCK_0 = 0, // No Lock. All fields in this register may be modified.
     eLCK_1 = 1, // Locked. No fields in this register may be modified except ENA, which may be set but not cleared.
@@ -11465,7 +11956,7 @@ union RDC_MRC54 {
     uint32_t _reserved_4 : 26;
     eENA ENA : 1;
     eLCK LCK : 1;
-  } bits;          // Bit-field struct (auto-filling reserved gaps)
+  } bits;
   
   // Full 32-bit register value.
   uint32_t value;
@@ -11478,27 +11969,31 @@ union RDC_MRC54 {
 //
 union RDC_MRC55 {
   
-  // Enum definitions.
   enum class eD0W : uint32_t {
     eD0W_0 = 0, // Processing Domain 0 does not have Write access to the memory region
     eD0W_1 = 1, // Processing Domain 0 has Write access to the memory region
   };
+  
   enum class eD0R : uint32_t {
     eD0R_0 = 0, // Processing Domain 0 does not have Read access to the memory region
     eD0R_1 = 1, // Processing Domain 0 has Read access to the memory region
   };
+  
   enum class eD1W : uint32_t {
     eD1W_0 = 0, // Processing Domain 1 does not have Write access to the memory region
     eD1W_1 = 1, // Processing Domain 1 has Write access to the memory region
   };
+  
   enum class eD1R : uint32_t {
     eD1R_0 = 0, // Processing Domain 1 does not have Read access to the memory region
     eD1R_1 = 1, // Processing Domain 1 has Read access to the memory region
   };
+  
   enum class eENA : uint32_t {
     eENA_0 = 0, // Memory region is not defined or restricted.
     eENA_1 = 1, // Memory boundaries, domain permissions and controls are in effect.
   };
+  
   enum class eLCK : uint32_t {
     eLCK_0 = 0, // No Lock. All fields in this register may be modified.
     eLCK_1 = 1, // Locked. No fields in this register may be modified except ENA, which may be set but not cleared.
@@ -11513,7 +12008,7 @@ union RDC_MRC55 {
     uint32_t _reserved_4 : 26;
     eENA ENA : 1;
     eLCK LCK : 1;
-  } bits;          // Bit-field struct (auto-filling reserved gaps)
+  } bits;
   
   // Full 32-bit register value.
   uint32_t value;
@@ -11526,27 +12021,31 @@ union RDC_MRC55 {
 //
 union RDC_MRC56 {
   
-  // Enum definitions.
   enum class eD0W : uint32_t {
     eD0W_0 = 0, // Processing Domain 0 does not have Write access to the memory region
     eD0W_1 = 1, // Processing Domain 0 has Write access to the memory region
   };
+  
   enum class eD0R : uint32_t {
     eD0R_0 = 0, // Processing Domain 0 does not have Read access to the memory region
     eD0R_1 = 1, // Processing Domain 0 has Read access to the memory region
   };
+  
   enum class eD1W : uint32_t {
     eD1W_0 = 0, // Processing Domain 1 does not have Write access to the memory region
     eD1W_1 = 1, // Processing Domain 1 has Write access to the memory region
   };
+  
   enum class eD1R : uint32_t {
     eD1R_0 = 0, // Processing Domain 1 does not have Read access to the memory region
     eD1R_1 = 1, // Processing Domain 1 has Read access to the memory region
   };
+  
   enum class eENA : uint32_t {
     eENA_0 = 0, // Memory region is not defined or restricted.
     eENA_1 = 1, // Memory boundaries, domain permissions and controls are in effect.
   };
+  
   enum class eLCK : uint32_t {
     eLCK_0 = 0, // No Lock. All fields in this register may be modified.
     eLCK_1 = 1, // Locked. No fields in this register may be modified except ENA, which may be set but not cleared.
@@ -11561,7 +12060,7 @@ union RDC_MRC56 {
     uint32_t _reserved_4 : 26;
     eENA ENA : 1;
     eLCK LCK : 1;
-  } bits;          // Bit-field struct (auto-filling reserved gaps)
+  } bits;
   
   // Full 32-bit register value.
   uint32_t value;
@@ -11574,27 +12073,31 @@ union RDC_MRC56 {
 //
 union RDC_MRC57 {
   
-  // Enum definitions.
   enum class eD0W : uint32_t {
     eD0W_0 = 0, // Processing Domain 0 does not have Write access to the memory region
     eD0W_1 = 1, // Processing Domain 0 has Write access to the memory region
   };
+  
   enum class eD0R : uint32_t {
     eD0R_0 = 0, // Processing Domain 0 does not have Read access to the memory region
     eD0R_1 = 1, // Processing Domain 0 has Read access to the memory region
   };
+  
   enum class eD1W : uint32_t {
     eD1W_0 = 0, // Processing Domain 1 does not have Write access to the memory region
     eD1W_1 = 1, // Processing Domain 1 has Write access to the memory region
   };
+  
   enum class eD1R : uint32_t {
     eD1R_0 = 0, // Processing Domain 1 does not have Read access to the memory region
     eD1R_1 = 1, // Processing Domain 1 has Read access to the memory region
   };
+  
   enum class eENA : uint32_t {
     eENA_0 = 0, // Memory region is not defined or restricted.
     eENA_1 = 1, // Memory boundaries, domain permissions and controls are in effect.
   };
+  
   enum class eLCK : uint32_t {
     eLCK_0 = 0, // No Lock. All fields in this register may be modified.
     eLCK_1 = 1, // Locked. No fields in this register may be modified except ENA, which may be set but not cleared.
@@ -11609,7 +12112,7 @@ union RDC_MRC57 {
     uint32_t _reserved_4 : 26;
     eENA ENA : 1;
     eLCK LCK : 1;
-  } bits;          // Bit-field struct (auto-filling reserved gaps)
+  } bits;
   
   // Full 32-bit register value.
   uint32_t value;
@@ -11622,27 +12125,31 @@ union RDC_MRC57 {
 //
 union RDC_MRC58 {
   
-  // Enum definitions.
   enum class eD0W : uint32_t {
     eD0W_0 = 0, // Processing Domain 0 does not have Write access to the memory region
     eD0W_1 = 1, // Processing Domain 0 has Write access to the memory region
   };
+  
   enum class eD0R : uint32_t {
     eD0R_0 = 0, // Processing Domain 0 does not have Read access to the memory region
     eD0R_1 = 1, // Processing Domain 0 has Read access to the memory region
   };
+  
   enum class eD1W : uint32_t {
     eD1W_0 = 0, // Processing Domain 1 does not have Write access to the memory region
     eD1W_1 = 1, // Processing Domain 1 has Write access to the memory region
   };
+  
   enum class eD1R : uint32_t {
     eD1R_0 = 0, // Processing Domain 1 does not have Read access to the memory region
     eD1R_1 = 1, // Processing Domain 1 has Read access to the memory region
   };
+  
   enum class eENA : uint32_t {
     eENA_0 = 0, // Memory region is not defined or restricted.
     eENA_1 = 1, // Memory boundaries, domain permissions and controls are in effect.
   };
+  
   enum class eLCK : uint32_t {
     eLCK_0 = 0, // No Lock. All fields in this register may be modified.
     eLCK_1 = 1, // Locked. No fields in this register may be modified except ENA, which may be set but not cleared.
@@ -11657,7 +12164,7 @@ union RDC_MRC58 {
     uint32_t _reserved_4 : 26;
     eENA ENA : 1;
     eLCK LCK : 1;
-  } bits;          // Bit-field struct (auto-filling reserved gaps)
+  } bits;
   
   // Full 32-bit register value.
   uint32_t value;
@@ -11671,7 +12178,6 @@ union RDC_MRC58 {
 //
 union RDC_MRVS0 {
   
-  // Enum definitions.
   enum class eVDID : uint32_t {
     eVDID_0 = 0, // Processing Domain 0
     eVDID_1 = 1, // Processing Domain 1
@@ -11683,7 +12189,7 @@ union RDC_MRVS0 {
     uint32_t _reserved_1 : 2;
     uint32_t AD : 1;
     uint32_t VADR : 27;
-  } bits;          // Bit-field struct (auto-filling reserved gaps)
+  } bits;
   
   // Full 32-bit register value.
   uint32_t value;
@@ -11696,7 +12202,6 @@ union RDC_MRVS0 {
 //
 union RDC_MRVS1 {
   
-  // Enum definitions.
   enum class eVDID : uint32_t {
     eVDID_0 = 0, // Processing Domain 0
     eVDID_1 = 1, // Processing Domain 1
@@ -11708,7 +12213,7 @@ union RDC_MRVS1 {
     uint32_t _reserved_1 : 2;
     uint32_t AD : 1;
     uint32_t VADR : 27;
-  } bits;          // Bit-field struct (auto-filling reserved gaps)
+  } bits;
   
   // Full 32-bit register value.
   uint32_t value;
@@ -11721,7 +12226,6 @@ union RDC_MRVS1 {
 //
 union RDC_MRVS2 {
   
-  // Enum definitions.
   enum class eVDID : uint32_t {
     eVDID_0 = 0, // Processing Domain 0
     eVDID_1 = 1, // Processing Domain 1
@@ -11733,7 +12237,7 @@ union RDC_MRVS2 {
     uint32_t _reserved_1 : 2;
     uint32_t AD : 1;
     uint32_t VADR : 27;
-  } bits;          // Bit-field struct (auto-filling reserved gaps)
+  } bits;
   
   // Full 32-bit register value.
   uint32_t value;
@@ -11746,7 +12250,6 @@ union RDC_MRVS2 {
 //
 union RDC_MRVS3 {
   
-  // Enum definitions.
   enum class eVDID : uint32_t {
     eVDID_0 = 0, // Processing Domain 0
     eVDID_1 = 1, // Processing Domain 1
@@ -11758,7 +12261,7 @@ union RDC_MRVS3 {
     uint32_t _reserved_1 : 2;
     uint32_t AD : 1;
     uint32_t VADR : 27;
-  } bits;          // Bit-field struct (auto-filling reserved gaps)
+  } bits;
   
   // Full 32-bit register value.
   uint32_t value;
@@ -11771,7 +12274,6 @@ union RDC_MRVS3 {
 //
 union RDC_MRVS4 {
   
-  // Enum definitions.
   enum class eVDID : uint32_t {
     eVDID_0 = 0, // Processing Domain 0
     eVDID_1 = 1, // Processing Domain 1
@@ -11783,7 +12285,7 @@ union RDC_MRVS4 {
     uint32_t _reserved_1 : 2;
     uint32_t AD : 1;
     uint32_t VADR : 27;
-  } bits;          // Bit-field struct (auto-filling reserved gaps)
+  } bits;
   
   // Full 32-bit register value.
   uint32_t value;
@@ -11796,7 +12298,6 @@ union RDC_MRVS4 {
 //
 union RDC_MRVS5 {
   
-  // Enum definitions.
   enum class eVDID : uint32_t {
     eVDID_0 = 0, // Processing Domain 0
     eVDID_1 = 1, // Processing Domain 1
@@ -11808,7 +12309,7 @@ union RDC_MRVS5 {
     uint32_t _reserved_1 : 2;
     uint32_t AD : 1;
     uint32_t VADR : 27;
-  } bits;          // Bit-field struct (auto-filling reserved gaps)
+  } bits;
   
   // Full 32-bit register value.
   uint32_t value;
@@ -11821,7 +12322,6 @@ union RDC_MRVS5 {
 //
 union RDC_MRVS6 {
   
-  // Enum definitions.
   enum class eVDID : uint32_t {
     eVDID_0 = 0, // Processing Domain 0
     eVDID_1 = 1, // Processing Domain 1
@@ -11833,7 +12333,7 @@ union RDC_MRVS6 {
     uint32_t _reserved_1 : 2;
     uint32_t AD : 1;
     uint32_t VADR : 27;
-  } bits;          // Bit-field struct (auto-filling reserved gaps)
+  } bits;
   
   // Full 32-bit register value.
   uint32_t value;
@@ -11846,7 +12346,6 @@ union RDC_MRVS6 {
 //
 union RDC_MRVS7 {
   
-  // Enum definitions.
   enum class eVDID : uint32_t {
     eVDID_0 = 0, // Processing Domain 0
     eVDID_1 = 1, // Processing Domain 1
@@ -11858,7 +12357,7 @@ union RDC_MRVS7 {
     uint32_t _reserved_1 : 2;
     uint32_t AD : 1;
     uint32_t VADR : 27;
-  } bits;          // Bit-field struct (auto-filling reserved gaps)
+  } bits;
   
   // Full 32-bit register value.
   uint32_t value;
@@ -11871,7 +12370,6 @@ union RDC_MRVS7 {
 //
 union RDC_MRVS8 {
   
-  // Enum definitions.
   enum class eVDID : uint32_t {
     eVDID_0 = 0, // Processing Domain 0
     eVDID_1 = 1, // Processing Domain 1
@@ -11883,7 +12381,7 @@ union RDC_MRVS8 {
     uint32_t _reserved_1 : 2;
     uint32_t AD : 1;
     uint32_t VADR : 27;
-  } bits;          // Bit-field struct (auto-filling reserved gaps)
+  } bits;
   
   // Full 32-bit register value.
   uint32_t value;
@@ -11896,7 +12394,6 @@ union RDC_MRVS8 {
 //
 union RDC_MRVS9 {
   
-  // Enum definitions.
   enum class eVDID : uint32_t {
     eVDID_0 = 0, // Processing Domain 0
     eVDID_1 = 1, // Processing Domain 1
@@ -11908,7 +12405,7 @@ union RDC_MRVS9 {
     uint32_t _reserved_1 : 2;
     uint32_t AD : 1;
     uint32_t VADR : 27;
-  } bits;          // Bit-field struct (auto-filling reserved gaps)
+  } bits;
   
   // Full 32-bit register value.
   uint32_t value;
@@ -11921,7 +12418,6 @@ union RDC_MRVS9 {
 //
 union RDC_MRVS10 {
   
-  // Enum definitions.
   enum class eVDID : uint32_t {
     eVDID_0 = 0, // Processing Domain 0
     eVDID_1 = 1, // Processing Domain 1
@@ -11933,7 +12429,7 @@ union RDC_MRVS10 {
     uint32_t _reserved_1 : 2;
     uint32_t AD : 1;
     uint32_t VADR : 27;
-  } bits;          // Bit-field struct (auto-filling reserved gaps)
+  } bits;
   
   // Full 32-bit register value.
   uint32_t value;
@@ -11946,7 +12442,6 @@ union RDC_MRVS10 {
 //
 union RDC_MRVS11 {
   
-  // Enum definitions.
   enum class eVDID : uint32_t {
     eVDID_0 = 0, // Processing Domain 0
     eVDID_1 = 1, // Processing Domain 1
@@ -11958,7 +12453,7 @@ union RDC_MRVS11 {
     uint32_t _reserved_1 : 2;
     uint32_t AD : 1;
     uint32_t VADR : 27;
-  } bits;          // Bit-field struct (auto-filling reserved gaps)
+  } bits;
   
   // Full 32-bit register value.
   uint32_t value;
@@ -11971,7 +12466,6 @@ union RDC_MRVS11 {
 //
 union RDC_MRVS12 {
   
-  // Enum definitions.
   enum class eVDID : uint32_t {
     eVDID_0 = 0, // Processing Domain 0
     eVDID_1 = 1, // Processing Domain 1
@@ -11983,7 +12477,7 @@ union RDC_MRVS12 {
     uint32_t _reserved_1 : 2;
     uint32_t AD : 1;
     uint32_t VADR : 27;
-  } bits;          // Bit-field struct (auto-filling reserved gaps)
+  } bits;
   
   // Full 32-bit register value.
   uint32_t value;
@@ -11996,7 +12490,6 @@ union RDC_MRVS12 {
 //
 union RDC_MRVS13 {
   
-  // Enum definitions.
   enum class eVDID : uint32_t {
     eVDID_0 = 0, // Processing Domain 0
     eVDID_1 = 1, // Processing Domain 1
@@ -12008,7 +12501,7 @@ union RDC_MRVS13 {
     uint32_t _reserved_1 : 2;
     uint32_t AD : 1;
     uint32_t VADR : 27;
-  } bits;          // Bit-field struct (auto-filling reserved gaps)
+  } bits;
   
   // Full 32-bit register value.
   uint32_t value;
@@ -12021,7 +12514,6 @@ union RDC_MRVS13 {
 //
 union RDC_MRVS14 {
   
-  // Enum definitions.
   enum class eVDID : uint32_t {
     eVDID_0 = 0, // Processing Domain 0
     eVDID_1 = 1, // Processing Domain 1
@@ -12033,7 +12525,7 @@ union RDC_MRVS14 {
     uint32_t _reserved_1 : 2;
     uint32_t AD : 1;
     uint32_t VADR : 27;
-  } bits;          // Bit-field struct (auto-filling reserved gaps)
+  } bits;
   
   // Full 32-bit register value.
   uint32_t value;
@@ -12046,7 +12538,6 @@ union RDC_MRVS14 {
 //
 union RDC_MRVS15 {
   
-  // Enum definitions.
   enum class eVDID : uint32_t {
     eVDID_0 = 0, // Processing Domain 0
     eVDID_1 = 1, // Processing Domain 1
@@ -12058,7 +12549,7 @@ union RDC_MRVS15 {
     uint32_t _reserved_1 : 2;
     uint32_t AD : 1;
     uint32_t VADR : 27;
-  } bits;          // Bit-field struct (auto-filling reserved gaps)
+  } bits;
   
   // Full 32-bit register value.
   uint32_t value;
@@ -12071,7 +12562,6 @@ union RDC_MRVS15 {
 //
 union RDC_MRVS16 {
   
-  // Enum definitions.
   enum class eVDID : uint32_t {
     eVDID_0 = 0, // Processing Domain 0
     eVDID_1 = 1, // Processing Domain 1
@@ -12083,7 +12573,7 @@ union RDC_MRVS16 {
     uint32_t _reserved_1 : 2;
     uint32_t AD : 1;
     uint32_t VADR : 27;
-  } bits;          // Bit-field struct (auto-filling reserved gaps)
+  } bits;
   
   // Full 32-bit register value.
   uint32_t value;
@@ -12096,7 +12586,6 @@ union RDC_MRVS16 {
 //
 union RDC_MRVS17 {
   
-  // Enum definitions.
   enum class eVDID : uint32_t {
     eVDID_0 = 0, // Processing Domain 0
     eVDID_1 = 1, // Processing Domain 1
@@ -12108,7 +12597,7 @@ union RDC_MRVS17 {
     uint32_t _reserved_1 : 2;
     uint32_t AD : 1;
     uint32_t VADR : 27;
-  } bits;          // Bit-field struct (auto-filling reserved gaps)
+  } bits;
   
   // Full 32-bit register value.
   uint32_t value;
@@ -12121,7 +12610,6 @@ union RDC_MRVS17 {
 //
 union RDC_MRVS18 {
   
-  // Enum definitions.
   enum class eVDID : uint32_t {
     eVDID_0 = 0, // Processing Domain 0
     eVDID_1 = 1, // Processing Domain 1
@@ -12133,7 +12621,7 @@ union RDC_MRVS18 {
     uint32_t _reserved_1 : 2;
     uint32_t AD : 1;
     uint32_t VADR : 27;
-  } bits;          // Bit-field struct (auto-filling reserved gaps)
+  } bits;
   
   // Full 32-bit register value.
   uint32_t value;
@@ -12146,7 +12634,6 @@ union RDC_MRVS18 {
 //
 union RDC_MRVS19 {
   
-  // Enum definitions.
   enum class eVDID : uint32_t {
     eVDID_0 = 0, // Processing Domain 0
     eVDID_1 = 1, // Processing Domain 1
@@ -12158,7 +12645,7 @@ union RDC_MRVS19 {
     uint32_t _reserved_1 : 2;
     uint32_t AD : 1;
     uint32_t VADR : 27;
-  } bits;          // Bit-field struct (auto-filling reserved gaps)
+  } bits;
   
   // Full 32-bit register value.
   uint32_t value;
@@ -12171,7 +12658,6 @@ union RDC_MRVS19 {
 //
 union RDC_MRVS20 {
   
-  // Enum definitions.
   enum class eVDID : uint32_t {
     eVDID_0 = 0, // Processing Domain 0
     eVDID_1 = 1, // Processing Domain 1
@@ -12183,7 +12669,7 @@ union RDC_MRVS20 {
     uint32_t _reserved_1 : 2;
     uint32_t AD : 1;
     uint32_t VADR : 27;
-  } bits;          // Bit-field struct (auto-filling reserved gaps)
+  } bits;
   
   // Full 32-bit register value.
   uint32_t value;
@@ -12196,7 +12682,6 @@ union RDC_MRVS20 {
 //
 union RDC_MRVS21 {
   
-  // Enum definitions.
   enum class eVDID : uint32_t {
     eVDID_0 = 0, // Processing Domain 0
     eVDID_1 = 1, // Processing Domain 1
@@ -12208,7 +12693,7 @@ union RDC_MRVS21 {
     uint32_t _reserved_1 : 2;
     uint32_t AD : 1;
     uint32_t VADR : 27;
-  } bits;          // Bit-field struct (auto-filling reserved gaps)
+  } bits;
   
   // Full 32-bit register value.
   uint32_t value;
@@ -12221,7 +12706,6 @@ union RDC_MRVS21 {
 //
 union RDC_MRVS22 {
   
-  // Enum definitions.
   enum class eVDID : uint32_t {
     eVDID_0 = 0, // Processing Domain 0
     eVDID_1 = 1, // Processing Domain 1
@@ -12233,7 +12717,7 @@ union RDC_MRVS22 {
     uint32_t _reserved_1 : 2;
     uint32_t AD : 1;
     uint32_t VADR : 27;
-  } bits;          // Bit-field struct (auto-filling reserved gaps)
+  } bits;
   
   // Full 32-bit register value.
   uint32_t value;
@@ -12246,7 +12730,6 @@ union RDC_MRVS22 {
 //
 union RDC_MRVS23 {
   
-  // Enum definitions.
   enum class eVDID : uint32_t {
     eVDID_0 = 0, // Processing Domain 0
     eVDID_1 = 1, // Processing Domain 1
@@ -12258,7 +12741,7 @@ union RDC_MRVS23 {
     uint32_t _reserved_1 : 2;
     uint32_t AD : 1;
     uint32_t VADR : 27;
-  } bits;          // Bit-field struct (auto-filling reserved gaps)
+  } bits;
   
   // Full 32-bit register value.
   uint32_t value;
@@ -12271,7 +12754,6 @@ union RDC_MRVS23 {
 //
 union RDC_MRVS24 {
   
-  // Enum definitions.
   enum class eVDID : uint32_t {
     eVDID_0 = 0, // Processing Domain 0
     eVDID_1 = 1, // Processing Domain 1
@@ -12283,7 +12765,7 @@ union RDC_MRVS24 {
     uint32_t _reserved_1 : 2;
     uint32_t AD : 1;
     uint32_t VADR : 27;
-  } bits;          // Bit-field struct (auto-filling reserved gaps)
+  } bits;
   
   // Full 32-bit register value.
   uint32_t value;
@@ -12296,7 +12778,6 @@ union RDC_MRVS24 {
 //
 union RDC_MRVS25 {
   
-  // Enum definitions.
   enum class eVDID : uint32_t {
     eVDID_0 = 0, // Processing Domain 0
     eVDID_1 = 1, // Processing Domain 1
@@ -12308,7 +12789,7 @@ union RDC_MRVS25 {
     uint32_t _reserved_1 : 2;
     uint32_t AD : 1;
     uint32_t VADR : 27;
-  } bits;          // Bit-field struct (auto-filling reserved gaps)
+  } bits;
   
   // Full 32-bit register value.
   uint32_t value;
@@ -12321,7 +12802,6 @@ union RDC_MRVS25 {
 //
 union RDC_MRVS26 {
   
-  // Enum definitions.
   enum class eVDID : uint32_t {
     eVDID_0 = 0, // Processing Domain 0
     eVDID_1 = 1, // Processing Domain 1
@@ -12333,7 +12813,7 @@ union RDC_MRVS26 {
     uint32_t _reserved_1 : 2;
     uint32_t AD : 1;
     uint32_t VADR : 27;
-  } bits;          // Bit-field struct (auto-filling reserved gaps)
+  } bits;
   
   // Full 32-bit register value.
   uint32_t value;
@@ -12346,7 +12826,6 @@ union RDC_MRVS26 {
 //
 union RDC_MRVS27 {
   
-  // Enum definitions.
   enum class eVDID : uint32_t {
     eVDID_0 = 0, // Processing Domain 0
     eVDID_1 = 1, // Processing Domain 1
@@ -12358,7 +12837,7 @@ union RDC_MRVS27 {
     uint32_t _reserved_1 : 2;
     uint32_t AD : 1;
     uint32_t VADR : 27;
-  } bits;          // Bit-field struct (auto-filling reserved gaps)
+  } bits;
   
   // Full 32-bit register value.
   uint32_t value;
@@ -12371,7 +12850,6 @@ union RDC_MRVS27 {
 //
 union RDC_MRVS28 {
   
-  // Enum definitions.
   enum class eVDID : uint32_t {
     eVDID_0 = 0, // Processing Domain 0
     eVDID_1 = 1, // Processing Domain 1
@@ -12383,7 +12861,7 @@ union RDC_MRVS28 {
     uint32_t _reserved_1 : 2;
     uint32_t AD : 1;
     uint32_t VADR : 27;
-  } bits;          // Bit-field struct (auto-filling reserved gaps)
+  } bits;
   
   // Full 32-bit register value.
   uint32_t value;
@@ -12396,7 +12874,6 @@ union RDC_MRVS28 {
 //
 union RDC_MRVS29 {
   
-  // Enum definitions.
   enum class eVDID : uint32_t {
     eVDID_0 = 0, // Processing Domain 0
     eVDID_1 = 1, // Processing Domain 1
@@ -12408,7 +12885,7 @@ union RDC_MRVS29 {
     uint32_t _reserved_1 : 2;
     uint32_t AD : 1;
     uint32_t VADR : 27;
-  } bits;          // Bit-field struct (auto-filling reserved gaps)
+  } bits;
   
   // Full 32-bit register value.
   uint32_t value;
@@ -12421,7 +12898,6 @@ union RDC_MRVS29 {
 //
 union RDC_MRVS30 {
   
-  // Enum definitions.
   enum class eVDID : uint32_t {
     eVDID_0 = 0, // Processing Domain 0
     eVDID_1 = 1, // Processing Domain 1
@@ -12433,7 +12909,7 @@ union RDC_MRVS30 {
     uint32_t _reserved_1 : 2;
     uint32_t AD : 1;
     uint32_t VADR : 27;
-  } bits;          // Bit-field struct (auto-filling reserved gaps)
+  } bits;
   
   // Full 32-bit register value.
   uint32_t value;
@@ -12446,7 +12922,6 @@ union RDC_MRVS30 {
 //
 union RDC_MRVS31 {
   
-  // Enum definitions.
   enum class eVDID : uint32_t {
     eVDID_0 = 0, // Processing Domain 0
     eVDID_1 = 1, // Processing Domain 1
@@ -12458,7 +12933,7 @@ union RDC_MRVS31 {
     uint32_t _reserved_1 : 2;
     uint32_t AD : 1;
     uint32_t VADR : 27;
-  } bits;          // Bit-field struct (auto-filling reserved gaps)
+  } bits;
   
   // Full 32-bit register value.
   uint32_t value;
@@ -12471,7 +12946,6 @@ union RDC_MRVS31 {
 //
 union RDC_MRVS32 {
   
-  // Enum definitions.
   enum class eVDID : uint32_t {
     eVDID_0 = 0, // Processing Domain 0
     eVDID_1 = 1, // Processing Domain 1
@@ -12483,7 +12957,7 @@ union RDC_MRVS32 {
     uint32_t _reserved_1 : 2;
     uint32_t AD : 1;
     uint32_t VADR : 27;
-  } bits;          // Bit-field struct (auto-filling reserved gaps)
+  } bits;
   
   // Full 32-bit register value.
   uint32_t value;
@@ -12496,7 +12970,6 @@ union RDC_MRVS32 {
 //
 union RDC_MRVS33 {
   
-  // Enum definitions.
   enum class eVDID : uint32_t {
     eVDID_0 = 0, // Processing Domain 0
     eVDID_1 = 1, // Processing Domain 1
@@ -12508,7 +12981,7 @@ union RDC_MRVS33 {
     uint32_t _reserved_1 : 2;
     uint32_t AD : 1;
     uint32_t VADR : 27;
-  } bits;          // Bit-field struct (auto-filling reserved gaps)
+  } bits;
   
   // Full 32-bit register value.
   uint32_t value;
@@ -12521,7 +12994,6 @@ union RDC_MRVS33 {
 //
 union RDC_MRVS34 {
   
-  // Enum definitions.
   enum class eVDID : uint32_t {
     eVDID_0 = 0, // Processing Domain 0
     eVDID_1 = 1, // Processing Domain 1
@@ -12533,7 +13005,7 @@ union RDC_MRVS34 {
     uint32_t _reserved_1 : 2;
     uint32_t AD : 1;
     uint32_t VADR : 27;
-  } bits;          // Bit-field struct (auto-filling reserved gaps)
+  } bits;
   
   // Full 32-bit register value.
   uint32_t value;
@@ -12546,7 +13018,6 @@ union RDC_MRVS34 {
 //
 union RDC_MRVS35 {
   
-  // Enum definitions.
   enum class eVDID : uint32_t {
     eVDID_0 = 0, // Processing Domain 0
     eVDID_1 = 1, // Processing Domain 1
@@ -12558,7 +13029,7 @@ union RDC_MRVS35 {
     uint32_t _reserved_1 : 2;
     uint32_t AD : 1;
     uint32_t VADR : 27;
-  } bits;          // Bit-field struct (auto-filling reserved gaps)
+  } bits;
   
   // Full 32-bit register value.
   uint32_t value;
@@ -12571,7 +13042,6 @@ union RDC_MRVS35 {
 //
 union RDC_MRVS36 {
   
-  // Enum definitions.
   enum class eVDID : uint32_t {
     eVDID_0 = 0, // Processing Domain 0
     eVDID_1 = 1, // Processing Domain 1
@@ -12583,7 +13053,7 @@ union RDC_MRVS36 {
     uint32_t _reserved_1 : 2;
     uint32_t AD : 1;
     uint32_t VADR : 27;
-  } bits;          // Bit-field struct (auto-filling reserved gaps)
+  } bits;
   
   // Full 32-bit register value.
   uint32_t value;
@@ -12596,7 +13066,6 @@ union RDC_MRVS36 {
 //
 union RDC_MRVS37 {
   
-  // Enum definitions.
   enum class eVDID : uint32_t {
     eVDID_0 = 0, // Processing Domain 0
     eVDID_1 = 1, // Processing Domain 1
@@ -12608,7 +13077,7 @@ union RDC_MRVS37 {
     uint32_t _reserved_1 : 2;
     uint32_t AD : 1;
     uint32_t VADR : 27;
-  } bits;          // Bit-field struct (auto-filling reserved gaps)
+  } bits;
   
   // Full 32-bit register value.
   uint32_t value;
@@ -12621,7 +13090,6 @@ union RDC_MRVS37 {
 //
 union RDC_MRVS38 {
   
-  // Enum definitions.
   enum class eVDID : uint32_t {
     eVDID_0 = 0, // Processing Domain 0
     eVDID_1 = 1, // Processing Domain 1
@@ -12633,7 +13101,7 @@ union RDC_MRVS38 {
     uint32_t _reserved_1 : 2;
     uint32_t AD : 1;
     uint32_t VADR : 27;
-  } bits;          // Bit-field struct (auto-filling reserved gaps)
+  } bits;
   
   // Full 32-bit register value.
   uint32_t value;
@@ -12646,7 +13114,6 @@ union RDC_MRVS38 {
 //
 union RDC_MRVS39 {
   
-  // Enum definitions.
   enum class eVDID : uint32_t {
     eVDID_0 = 0, // Processing Domain 0
     eVDID_1 = 1, // Processing Domain 1
@@ -12658,7 +13125,7 @@ union RDC_MRVS39 {
     uint32_t _reserved_1 : 2;
     uint32_t AD : 1;
     uint32_t VADR : 27;
-  } bits;          // Bit-field struct (auto-filling reserved gaps)
+  } bits;
   
   // Full 32-bit register value.
   uint32_t value;
@@ -12671,7 +13138,6 @@ union RDC_MRVS39 {
 //
 union RDC_MRVS40 {
   
-  // Enum definitions.
   enum class eVDID : uint32_t {
     eVDID_0 = 0, // Processing Domain 0
     eVDID_1 = 1, // Processing Domain 1
@@ -12683,7 +13149,7 @@ union RDC_MRVS40 {
     uint32_t _reserved_1 : 2;
     uint32_t AD : 1;
     uint32_t VADR : 27;
-  } bits;          // Bit-field struct (auto-filling reserved gaps)
+  } bits;
   
   // Full 32-bit register value.
   uint32_t value;
@@ -12696,7 +13162,6 @@ union RDC_MRVS40 {
 //
 union RDC_MRVS41 {
   
-  // Enum definitions.
   enum class eVDID : uint32_t {
     eVDID_0 = 0, // Processing Domain 0
     eVDID_1 = 1, // Processing Domain 1
@@ -12708,7 +13173,7 @@ union RDC_MRVS41 {
     uint32_t _reserved_1 : 2;
     uint32_t AD : 1;
     uint32_t VADR : 27;
-  } bits;          // Bit-field struct (auto-filling reserved gaps)
+  } bits;
   
   // Full 32-bit register value.
   uint32_t value;
@@ -12721,7 +13186,6 @@ union RDC_MRVS41 {
 //
 union RDC_MRVS42 {
   
-  // Enum definitions.
   enum class eVDID : uint32_t {
     eVDID_0 = 0, // Processing Domain 0
     eVDID_1 = 1, // Processing Domain 1
@@ -12733,7 +13197,7 @@ union RDC_MRVS42 {
     uint32_t _reserved_1 : 2;
     uint32_t AD : 1;
     uint32_t VADR : 27;
-  } bits;          // Bit-field struct (auto-filling reserved gaps)
+  } bits;
   
   // Full 32-bit register value.
   uint32_t value;
@@ -12746,7 +13210,6 @@ union RDC_MRVS42 {
 //
 union RDC_MRVS43 {
   
-  // Enum definitions.
   enum class eVDID : uint32_t {
     eVDID_0 = 0, // Processing Domain 0
     eVDID_1 = 1, // Processing Domain 1
@@ -12758,7 +13221,7 @@ union RDC_MRVS43 {
     uint32_t _reserved_1 : 2;
     uint32_t AD : 1;
     uint32_t VADR : 27;
-  } bits;          // Bit-field struct (auto-filling reserved gaps)
+  } bits;
   
   // Full 32-bit register value.
   uint32_t value;
@@ -12771,7 +13234,6 @@ union RDC_MRVS43 {
 //
 union RDC_MRVS44 {
   
-  // Enum definitions.
   enum class eVDID : uint32_t {
     eVDID_0 = 0, // Processing Domain 0
     eVDID_1 = 1, // Processing Domain 1
@@ -12783,7 +13245,7 @@ union RDC_MRVS44 {
     uint32_t _reserved_1 : 2;
     uint32_t AD : 1;
     uint32_t VADR : 27;
-  } bits;          // Bit-field struct (auto-filling reserved gaps)
+  } bits;
   
   // Full 32-bit register value.
   uint32_t value;
@@ -12796,7 +13258,6 @@ union RDC_MRVS44 {
 //
 union RDC_MRVS45 {
   
-  // Enum definitions.
   enum class eVDID : uint32_t {
     eVDID_0 = 0, // Processing Domain 0
     eVDID_1 = 1, // Processing Domain 1
@@ -12808,7 +13269,7 @@ union RDC_MRVS45 {
     uint32_t _reserved_1 : 2;
     uint32_t AD : 1;
     uint32_t VADR : 27;
-  } bits;          // Bit-field struct (auto-filling reserved gaps)
+  } bits;
   
   // Full 32-bit register value.
   uint32_t value;
@@ -12821,7 +13282,6 @@ union RDC_MRVS45 {
 //
 union RDC_MRVS46 {
   
-  // Enum definitions.
   enum class eVDID : uint32_t {
     eVDID_0 = 0, // Processing Domain 0
     eVDID_1 = 1, // Processing Domain 1
@@ -12833,7 +13293,7 @@ union RDC_MRVS46 {
     uint32_t _reserved_1 : 2;
     uint32_t AD : 1;
     uint32_t VADR : 27;
-  } bits;          // Bit-field struct (auto-filling reserved gaps)
+  } bits;
   
   // Full 32-bit register value.
   uint32_t value;
@@ -12846,7 +13306,6 @@ union RDC_MRVS46 {
 //
 union RDC_MRVS47 {
   
-  // Enum definitions.
   enum class eVDID : uint32_t {
     eVDID_0 = 0, // Processing Domain 0
     eVDID_1 = 1, // Processing Domain 1
@@ -12858,7 +13317,7 @@ union RDC_MRVS47 {
     uint32_t _reserved_1 : 2;
     uint32_t AD : 1;
     uint32_t VADR : 27;
-  } bits;          // Bit-field struct (auto-filling reserved gaps)
+  } bits;
   
   // Full 32-bit register value.
   uint32_t value;
@@ -12871,7 +13330,6 @@ union RDC_MRVS47 {
 //
 union RDC_MRVS48 {
   
-  // Enum definitions.
   enum class eVDID : uint32_t {
     eVDID_0 = 0, // Processing Domain 0
     eVDID_1 = 1, // Processing Domain 1
@@ -12883,7 +13341,7 @@ union RDC_MRVS48 {
     uint32_t _reserved_1 : 2;
     uint32_t AD : 1;
     uint32_t VADR : 27;
-  } bits;          // Bit-field struct (auto-filling reserved gaps)
+  } bits;
   
   // Full 32-bit register value.
   uint32_t value;
@@ -12896,7 +13354,6 @@ union RDC_MRVS48 {
 //
 union RDC_MRVS49 {
   
-  // Enum definitions.
   enum class eVDID : uint32_t {
     eVDID_0 = 0, // Processing Domain 0
     eVDID_1 = 1, // Processing Domain 1
@@ -12908,7 +13365,7 @@ union RDC_MRVS49 {
     uint32_t _reserved_1 : 2;
     uint32_t AD : 1;
     uint32_t VADR : 27;
-  } bits;          // Bit-field struct (auto-filling reserved gaps)
+  } bits;
   
   // Full 32-bit register value.
   uint32_t value;
@@ -12921,7 +13378,6 @@ union RDC_MRVS49 {
 //
 union RDC_MRVS50 {
   
-  // Enum definitions.
   enum class eVDID : uint32_t {
     eVDID_0 = 0, // Processing Domain 0
     eVDID_1 = 1, // Processing Domain 1
@@ -12933,7 +13389,7 @@ union RDC_MRVS50 {
     uint32_t _reserved_1 : 2;
     uint32_t AD : 1;
     uint32_t VADR : 27;
-  } bits;          // Bit-field struct (auto-filling reserved gaps)
+  } bits;
   
   // Full 32-bit register value.
   uint32_t value;
@@ -12946,7 +13402,6 @@ union RDC_MRVS50 {
 //
 union RDC_MRVS51 {
   
-  // Enum definitions.
   enum class eVDID : uint32_t {
     eVDID_0 = 0, // Processing Domain 0
     eVDID_1 = 1, // Processing Domain 1
@@ -12958,7 +13413,7 @@ union RDC_MRVS51 {
     uint32_t _reserved_1 : 2;
     uint32_t AD : 1;
     uint32_t VADR : 27;
-  } bits;          // Bit-field struct (auto-filling reserved gaps)
+  } bits;
   
   // Full 32-bit register value.
   uint32_t value;
@@ -12971,7 +13426,6 @@ union RDC_MRVS51 {
 //
 union RDC_MRVS52 {
   
-  // Enum definitions.
   enum class eVDID : uint32_t {
     eVDID_0 = 0, // Processing Domain 0
     eVDID_1 = 1, // Processing Domain 1
@@ -12983,7 +13437,7 @@ union RDC_MRVS52 {
     uint32_t _reserved_1 : 2;
     uint32_t AD : 1;
     uint32_t VADR : 27;
-  } bits;          // Bit-field struct (auto-filling reserved gaps)
+  } bits;
   
   // Full 32-bit register value.
   uint32_t value;
@@ -12996,7 +13450,6 @@ union RDC_MRVS52 {
 //
 union RDC_MRVS53 {
   
-  // Enum definitions.
   enum class eVDID : uint32_t {
     eVDID_0 = 0, // Processing Domain 0
     eVDID_1 = 1, // Processing Domain 1
@@ -13008,7 +13461,7 @@ union RDC_MRVS53 {
     uint32_t _reserved_1 : 2;
     uint32_t AD : 1;
     uint32_t VADR : 27;
-  } bits;          // Bit-field struct (auto-filling reserved gaps)
+  } bits;
   
   // Full 32-bit register value.
   uint32_t value;
@@ -13021,7 +13474,6 @@ union RDC_MRVS53 {
 //
 union RDC_MRVS54 {
   
-  // Enum definitions.
   enum class eVDID : uint32_t {
     eVDID_0 = 0, // Processing Domain 0
     eVDID_1 = 1, // Processing Domain 1
@@ -13033,7 +13485,7 @@ union RDC_MRVS54 {
     uint32_t _reserved_1 : 2;
     uint32_t AD : 1;
     uint32_t VADR : 27;
-  } bits;          // Bit-field struct (auto-filling reserved gaps)
+  } bits;
   
   // Full 32-bit register value.
   uint32_t value;
@@ -13046,7 +13498,6 @@ union RDC_MRVS54 {
 //
 union RDC_MRVS55 {
   
-  // Enum definitions.
   enum class eVDID : uint32_t {
     eVDID_0 = 0, // Processing Domain 0
     eVDID_1 = 1, // Processing Domain 1
@@ -13058,7 +13509,7 @@ union RDC_MRVS55 {
     uint32_t _reserved_1 : 2;
     uint32_t AD : 1;
     uint32_t VADR : 27;
-  } bits;          // Bit-field struct (auto-filling reserved gaps)
+  } bits;
   
   // Full 32-bit register value.
   uint32_t value;
@@ -13071,7 +13522,6 @@ union RDC_MRVS55 {
 //
 union RDC_MRVS56 {
   
-  // Enum definitions.
   enum class eVDID : uint32_t {
     eVDID_0 = 0, // Processing Domain 0
     eVDID_1 = 1, // Processing Domain 1
@@ -13083,7 +13533,7 @@ union RDC_MRVS56 {
     uint32_t _reserved_1 : 2;
     uint32_t AD : 1;
     uint32_t VADR : 27;
-  } bits;          // Bit-field struct (auto-filling reserved gaps)
+  } bits;
   
   // Full 32-bit register value.
   uint32_t value;
@@ -13096,7 +13546,6 @@ union RDC_MRVS56 {
 //
 union RDC_MRVS57 {
   
-  // Enum definitions.
   enum class eVDID : uint32_t {
     eVDID_0 = 0, // Processing Domain 0
     eVDID_1 = 1, // Processing Domain 1
@@ -13108,7 +13557,7 @@ union RDC_MRVS57 {
     uint32_t _reserved_1 : 2;
     uint32_t AD : 1;
     uint32_t VADR : 27;
-  } bits;          // Bit-field struct (auto-filling reserved gaps)
+  } bits;
   
   // Full 32-bit register value.
   uint32_t value;
@@ -13121,7 +13570,6 @@ union RDC_MRVS57 {
 //
 union RDC_MRVS58 {
   
-  // Enum definitions.
   enum class eVDID : uint32_t {
     eVDID_0 = 0, // Processing Domain 0
     eVDID_1 = 1, // Processing Domain 1
@@ -13133,7 +13581,7 @@ union RDC_MRVS58 {
     uint32_t _reserved_1 : 2;
     uint32_t AD : 1;
     uint32_t VADR : 27;
-  } bits;          // Bit-field struct (auto-filling reserved gaps)
+  } bits;
   
   // Full 32-bit register value.
   uint32_t value;

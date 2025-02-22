@@ -15,8 +15,6 @@ namespace nUSB_OTG2 {
 //
 union ID {
   
-  // Enum definitions.
-  
   // Bit field definition.
   struct {
     uint32_t ID : 6;
@@ -25,7 +23,7 @@ union ID {
     uint32_t _reserved_2 : 2;
     uint32_t REVISION : 8;
     uint32_t _reserved_end : 8;
-  } bits;          // Bit-field struct (auto-filling reserved gaps)
+  } bits;
   
   // Full 32-bit register value.
   uint32_t value;
@@ -39,13 +37,13 @@ union ID {
 //
 union HWGENERAL {
   
-  // Enum definitions.
   enum class ePHYW : uint32_t {
     eDATA_BUS_8 = 0, // 8 bit wide data bus (Software non-programmable)
     eDATA_BUS_16 = 1, // 16 bit wide data bus (Software non-programmable)
     eSW_RST_8 = 2, // Reset to 8 bit wide data bus (Software programmable)
     eSW_RST_16 = 3, // Reset to 16 bit wide data bus (Software programmable)
   };
+  
   enum class ePHYM : uint32_t {
     eUTMI = 0, // UTMI/UMTI+
     eULPI_DDR = 1, // ULPI DDR
@@ -56,6 +54,7 @@ union HWGENERAL {
     eSW_RST_ULPI = 6, // Software programmable - reset to ULPI
     eSW_RST_SERIAL = 7, // Software programmable - reset to Serial
   };
+  
   enum class eSM : uint32_t {
     eSERIAL_ENGINE_NO = 0, // No Serial Engine, always use parallel signalling.
     eSERIAL_ENGINE_EN = 1, // Serial Engine present, always use serial signalling for FS/LS.
@@ -70,7 +69,7 @@ union HWGENERAL {
     ePHYM PHYM : 3;
     eSM SM : 2;
     uint32_t _reserved_end : 21;
-  } bits;          // Bit-field struct (auto-filling reserved gaps)
+  } bits;
   
   // Full 32-bit register value.
   uint32_t value;
@@ -84,7 +83,6 @@ union HWGENERAL {
 //
 union HWHOST {
   
-  // Enum definitions.
   enum class eHC : uint32_t {
     eHOST_OP_DIS = 0, // Not supported
     eHOST_OP_EN = 1, // Supported
@@ -95,7 +93,7 @@ union HWHOST {
     eHC HC : 1;
     uint32_t NPORT : 3;
     uint32_t _reserved_end : 28;
-  } bits;          // Bit-field struct (auto-filling reserved gaps)
+  } bits;
   
   // Full 32-bit register value.
   uint32_t value;
@@ -109,7 +107,6 @@ union HWHOST {
 //
 union HWDEVICE {
   
-  // Enum definitions.
   enum class eDC : uint32_t {
     eDEVICE_OP_DIS = 0, // Not supported
     eDEVICE_OP_EN = 1, // Supported
@@ -120,7 +117,7 @@ union HWDEVICE {
     eDC DC : 1;
     uint32_t DEVEP : 5;
     uint32_t _reserved_end : 26;
-  } bits;          // Bit-field struct (auto-filling reserved gaps)
+  } bits;
   
   // Full 32-bit register value.
   uint32_t value;
@@ -134,15 +131,13 @@ union HWDEVICE {
 //
 union HWTXBUF {
   
-  // Enum definitions.
-  
   // Bit field definition.
   struct {
     uint32_t TXBURST : 8;
     uint32_t _reserved_1 : 8;
     uint32_t TXCHANADD : 8;
     uint32_t _reserved_end : 8;
-  } bits;          // Bit-field struct (auto-filling reserved gaps)
+  } bits;
   
   // Full 32-bit register value.
   uint32_t value;
@@ -156,14 +151,12 @@ union HWTXBUF {
 //
 union HWRXBUF {
   
-  // Enum definitions.
-  
   // Bit field definition.
   struct {
     uint32_t RXBURST : 8;
     uint32_t RXADD : 8;
     uint32_t _reserved_end : 16;
-  } bits;          // Bit-field struct (auto-filling reserved gaps)
+  } bits;
   
   // Full 32-bit register value.
   uint32_t value;
@@ -177,13 +170,11 @@ union HWRXBUF {
 //
 union GPTIMER0LD {
   
-  // Enum definitions.
-  
   // Bit field definition.
   struct {
     uint32_t GPTLD : 24;
     uint32_t _reserved_end : 8;
-  } bits;          // Bit-field struct (auto-filling reserved gaps)
+  } bits;
   
   // Full 32-bit register value.
   uint32_t value;
@@ -197,15 +188,16 @@ union GPTIMER0LD {
 //
 union GPTIMER0CTRL {
   
-  // Enum definitions.
   enum class eGPTMODE : uint32_t {
     eONE_SHOT = 0, // One Shot Mode
     eREPEAT = 1, // Repeat Mode
   };
+  
   enum class eGPTRST : uint32_t {
     eNO_ACTION = 0, // No action
     eLOAD_CNTR = 1, // Load counter value from GPTLD bits in n_GPTIMER0LD
   };
+  
   enum class eGPTRUN : uint32_t {
     eSTOP_CNTR = 0, // Stop counting
     eRUN = 1, // Run
@@ -218,7 +210,7 @@ union GPTIMER0CTRL {
     uint32_t _reserved_2 : 5;
     eGPTRST GPTRST : 1;
     eGPTRUN GPTRUN : 1;
-  } bits;          // Bit-field struct (auto-filling reserved gaps)
+  } bits;
   
   // Full 32-bit register value.
   uint32_t value;
@@ -232,13 +224,11 @@ union GPTIMER0CTRL {
 //
 union GPTIMER1LD {
   
-  // Enum definitions.
-  
   // Bit field definition.
   struct {
     uint32_t GPTLD : 24;
     uint32_t _reserved_end : 8;
-  } bits;          // Bit-field struct (auto-filling reserved gaps)
+  } bits;
   
   // Full 32-bit register value.
   uint32_t value;
@@ -252,15 +242,16 @@ union GPTIMER1LD {
 //
 union GPTIMER1CTRL {
   
-  // Enum definitions.
   enum class eGPTMODE : uint32_t {
     eONE_SHOT = 0, // One Shot Mode
     eREPEAT = 1, // Repeat Mode
   };
+  
   enum class eGPTRST : uint32_t {
     eNO_ACTION = 0, // No action
     eLOAD_CNTR = 1, // Load counter value from GPTLD bits in USB_n_GPTIMER0LD
   };
+  
   enum class eGPTRUN : uint32_t {
     eSTOP_CNTR = 0, // Stop counting
     eRUN = 1, // Run
@@ -273,7 +264,7 @@ union GPTIMER1CTRL {
     uint32_t _reserved_2 : 5;
     eGPTRST GPTRST : 1;
     eGPTRUN GPTRUN : 1;
-  } bits;          // Bit-field struct (auto-filling reserved gaps)
+  } bits;
   
   // Full 32-bit register value.
   uint32_t value;
@@ -287,7 +278,6 @@ union GPTIMER1CTRL {
 //
 union SBUSCFG {
   
-  // Enum definitions.
   enum class eAHBBRST : uint32_t {
     eINCR_BURST = 0, // Incremental burst of unspecified length only
     eINCR4_BURST = 1, // INCR4 burst, then single transfer
@@ -302,7 +292,7 @@ union SBUSCFG {
   struct {
     eAHBBRST AHBBRST : 3;
     uint32_t _reserved_end : 29;
-  } bits;          // Bit-field struct (auto-filling reserved gaps)
+  } bits;
   
   // Full 32-bit register value.
   uint32_t value;
@@ -316,13 +306,11 @@ union SBUSCFG {
 //
 union CAPLENGTH {
   
-  // Enum definitions.
-  
   // Bit field definition.
   struct {
     uint32_t CAPLENGTH : 8;
     uint32_t _reserved_end : 24;
-  } bits;          // Bit-field struct (auto-filling reserved gaps)
+  } bits;
   
   // Full 32-bit register value.
   uint32_t value;
@@ -336,13 +324,11 @@ union CAPLENGTH {
 //
 union HCIVERSION {
   
-  // Enum definitions.
-  
   // Bit field definition.
   struct {
     uint32_t HCIVERSION : 16;
     uint32_t _reserved_end : 16;
-  } bits;          // Bit-field struct (auto-filling reserved gaps)
+  } bits;
   
   // Full 32-bit register value.
   uint32_t value;
@@ -356,7 +342,6 @@ union HCIVERSION {
 //
 union HCSPARAMS {
   
-  // Enum definitions.
   enum class eN_CC : uint32_t {
     eNO_COMP_CONTROLLER = 0, // There is no internal Companion Controller and port-ownership hand-off is not supported.
     eCOMP_CONTROLLER = 1, // There are internal companion controller(s) and port-ownership hand-offs is supported.
@@ -374,7 +359,7 @@ union HCSPARAMS {
     uint32_t N_PTT : 4;
     uint32_t N_TT : 4;
     uint32_t _reserved_end : 4;
-  } bits;          // Bit-field struct (auto-filling reserved gaps)
+  } bits;
   
   // Full 32-bit register value.
   uint32_t value;
@@ -388,8 +373,6 @@ union HCSPARAMS {
 //
 union HCCPARAMS {
   
-  // Enum definitions.
-  
   // Bit field definition.
   struct {
     uint32_t ADC : 1;
@@ -399,7 +382,7 @@ union HCCPARAMS {
     uint32_t IST : 4;
     uint32_t EECP : 8;
     uint32_t _reserved_end : 16;
-  } bits;          // Bit-field struct (auto-filling reserved gaps)
+  } bits;
   
   // Full 32-bit register value.
   uint32_t value;
@@ -413,13 +396,11 @@ union HCCPARAMS {
 //
 union DCIVERSION {
   
-  // Enum definitions.
-  
   // Bit field definition.
   struct {
     uint32_t DCIVERSION : 16;
     uint32_t _reserved_end : 16;
-  } bits;          // Bit-field struct (auto-filling reserved gaps)
+  } bits;
   
   // Full 32-bit register value.
   uint32_t value;
@@ -433,8 +414,6 @@ union DCIVERSION {
 //
 union DCCPARAMS {
   
-  // Enum definitions.
-  
   // Bit field definition.
   struct {
     uint32_t DEN : 5;
@@ -442,7 +421,7 @@ union DCCPARAMS {
     uint32_t DC : 1;
     uint32_t HC : 1;
     uint32_t _reserved_end : 23;
-  } bits;          // Bit-field struct (auto-filling reserved gaps)
+  } bits;
   
   // Full 32-bit register value.
   uint32_t value;
@@ -456,15 +435,16 @@ union DCCPARAMS {
 //
 union USBCMD {
   
-  // Enum definitions.
   enum class ePSE : uint32_t {
     eDONT_PROCESS_PT = 0, // Do not process the Periodic Schedule
     ePROCESS_PT_PERIODICLISTBASE = 1, // Use the PERIODICLISTBASE register to access the Periodic Schedule.
   };
+  
   enum class eASE : uint32_t {
     eDONT_PROCESS_ASYNC = 0, // Do not process the Asynchronous Schedule.
     eACCESS_ASYNC = 1, // Use the ASYNCLISTADDR register to access the Asynchronous Schedule.
   };
+  
   enum class eITC : uint32_t {
     eIMMEDIATE = 0, // Immediate (no threshold)
     eMICROFRAME_1 = 1, // 1 micro-frame
@@ -494,7 +474,7 @@ union USBCMD {
     uint32_t FS_2 : 1;
     eITC ITC : 8;
     uint32_t _reserved_end : 8;
-  } bits;          // Bit-field struct (auto-filling reserved gaps)
+  } bits;
   
   // Full 32-bit register value.
   uint32_t value;
@@ -507,8 +487,6 @@ union USBCMD {
 // USB Status Register
 //
 union USBSTS {
-  
-  // Enum definitions.
   
   // Bit field definition.
   struct {
@@ -533,7 +511,7 @@ union USBSTS {
     uint32_t TI0 : 1;
     uint32_t TI1 : 1;
     uint32_t _reserved_end : 6;
-  } bits;          // Bit-field struct (auto-filling reserved gaps)
+  } bits;
   
   // Full 32-bit register value.
   uint32_t value;
@@ -546,8 +524,6 @@ union USBSTS {
 // Interrupt Enable Register
 //
 union USBINTR {
-  
-  // Enum definitions.
   
   // Bit field definition.
   struct {
@@ -571,7 +547,7 @@ union USBINTR {
     uint32_t TIE0 : 1;
     uint32_t TIE1 : 1;
     uint32_t _reserved_end : 6;
-  } bits;          // Bit-field struct (auto-filling reserved gaps)
+  } bits;
   
   // Full 32-bit register value.
   uint32_t value;
@@ -585,7 +561,6 @@ union USBINTR {
 //
 union FRINDEX {
   
-  // Enum definitions.
   enum class eFRINDEX : uint32_t {
     eFRINDEX_1024 = 0, // (1024) 12
     eFRINDEX_512 = 1, // (512) 11
@@ -601,7 +576,7 @@ union FRINDEX {
   struct {
     eFRINDEX FRINDEX : 14;
     uint32_t _reserved_end : 18;
-  } bits;          // Bit-field struct (auto-filling reserved gaps)
+  } bits;
   
   // Full 32-bit register value.
   uint32_t value;
@@ -615,14 +590,12 @@ union FRINDEX {
 //
 union DEVICEADDR {
   
-  // Enum definitions.
-  
   // Bit field definition.
   struct {
     uint32_t _reserved_0 : 24;
     uint32_t USBADRA : 1;
     uint32_t USBADR : 7;
-  } bits;          // Bit-field struct (auto-filling reserved gaps)
+  } bits;
   
   // Full 32-bit register value.
   uint32_t value;
@@ -636,13 +609,11 @@ union DEVICEADDR {
 //
 union PERIODICLISTBASE {
   
-  // Enum definitions.
-  
   // Bit field definition.
   struct {
     uint32_t _reserved_0 : 12;
     uint32_t BASEADR : 20;
-  } bits;          // Bit-field struct (auto-filling reserved gaps)
+  } bits;
   
   // Full 32-bit register value.
   uint32_t value;
@@ -656,13 +627,11 @@ union PERIODICLISTBASE {
 //
 union ASYNCLISTADDR {
   
-  // Enum definitions.
-  
   // Bit field definition.
   struct {
     uint32_t _reserved_0 : 5;
     uint32_t ASYBASE : 27;
-  } bits;          // Bit-field struct (auto-filling reserved gaps)
+  } bits;
   
   // Full 32-bit register value.
   uint32_t value;
@@ -676,13 +645,11 @@ union ASYNCLISTADDR {
 //
 union ENDPTLISTADDR {
   
-  // Enum definitions.
-  
   // Bit field definition.
   struct {
     uint32_t _reserved_0 : 11;
     uint32_t EPBASE : 21;
-  } bits;          // Bit-field struct (auto-filling reserved gaps)
+  } bits;
   
   // Full 32-bit register value.
   uint32_t value;
@@ -696,14 +663,12 @@ union ENDPTLISTADDR {
 //
 union BURSTSIZE {
   
-  // Enum definitions.
-  
   // Bit field definition.
   struct {
     uint32_t RXPBURST : 8;
     uint32_t TXPBURST : 9;
     uint32_t _reserved_end : 15;
-  } bits;          // Bit-field struct (auto-filling reserved gaps)
+  } bits;
   
   // Full 32-bit register value.
   uint32_t value;
@@ -717,8 +682,6 @@ union BURSTSIZE {
 //
 union TXFILLTUNING {
   
-  // Enum definitions.
-  
   // Bit field definition.
   struct {
     uint32_t TXSCHOH : 8;
@@ -726,7 +689,7 @@ union TXFILLTUNING {
     uint32_t _reserved_2 : 3;
     uint32_t TXFIFOTHRES : 6;
     uint32_t _reserved_end : 10;
-  } bits;          // Bit-field struct (auto-filling reserved gaps)
+  } bits;
   
   // Full 32-bit register value.
   uint32_t value;
@@ -740,15 +703,13 @@ union TXFILLTUNING {
 //
 union ENDPTNAK {
   
-  // Enum definitions.
-  
   // Bit field definition.
   struct {
     uint32_t EPRN : 8;
     uint32_t _reserved_1 : 8;
     uint32_t EPTN : 8;
     uint32_t _reserved_end : 8;
-  } bits;          // Bit-field struct (auto-filling reserved gaps)
+  } bits;
   
   // Full 32-bit register value.
   uint32_t value;
@@ -762,15 +723,13 @@ union ENDPTNAK {
 //
 union ENDPTNAKEN {
   
-  // Enum definitions.
-  
   // Bit field definition.
   struct {
     uint32_t EPRNE : 8;
     uint32_t _reserved_1 : 8;
     uint32_t EPTNE : 8;
     uint32_t _reserved_end : 8;
-  } bits;          // Bit-field struct (auto-filling reserved gaps)
+  } bits;
   
   // Full 32-bit register value.
   uint32_t value;
@@ -784,7 +743,6 @@ union ENDPTNAKEN {
 //
 union CONFIGFLAG {
   
-  // Enum definitions.
   enum class eCF : uint32_t {
     ePORT_ROUTING_CLASSIC_HOST = 0, // Port routing control logic default-routes each port to an implementation dependent classic host controller.
     ePORT_ROUTING_HOST = 1, // Port routing control logic default-routes all ports to this host controller.
@@ -794,7 +752,7 @@ union CONFIGFLAG {
   struct {
     eCF CF : 1;
     uint32_t _reserved_end : 31;
-  } bits;          // Bit-field struct (auto-filling reserved gaps)
+  } bits;
   
   // Full 32-bit register value.
   uint32_t value;
@@ -808,23 +766,25 @@ union CONFIGFLAG {
 //
 union PORTSC1 {
   
-  // Enum definitions.
   enum class eOCA : uint32_t {
     eNO_OVERCURRENT = 0, // This port does not have an over-current condition.
     eOVERCURRENT = 1, // This port currently has an over-current condition
   };
+  
   enum class eLS : uint32_t {
     eSE0 = 0, // SE0
     eK_STATE = 1, // K-state
     eJ_STATE = 2, // J-state
     eUNDEFINED = 3, // Undefined
   };
+  
   enum class ePIC : uint32_t {
     ePORT_INDICATOR_OFF = 0, // Port indicators are off
     ePORT_IND_AMBER = 1, // Amber
     ePORT_IND_GREEN = 2, // Green
     eUNDEFINED = 3, // Undefined
   };
+  
   enum class ePTC : uint32_t {
     eTST_MODE_DIS = 0, // TEST_MODE_DISABLE
     eJ_STATE = 1, // J_STATE
@@ -835,20 +795,24 @@ union PORTSC1 {
     eFS = 6, // FORCE_ENABLE_FS
     eLS = 7, // FORCE_ENABLE_LS
   };
+  
   enum class ePHCD : uint32_t {
     ePHY_CLK_EN = 0, // Enable PHY clock
     ePHY_CLK_DIS = 1, // Disable PHY clock
   };
+  
   enum class ePFSC : uint32_t {
     eNORMAL = 0, // Normal operation
     eFULL_SPEED = 1, // Forced to full speed
   };
+  
   enum class ePSPD : uint32_t {
     eFS = 0, // Full Speed
     eLS = 1, // Low Speed
     eHS = 2, // High Speed
     eUNDEFINED = 3, // Undefined
   };
+  
   enum class ePTW : uint32_t {
     eUTMI_8 = 0, // Select the 8-bit UTMI interface [60MHz]
     eUTMI_16 = 1, // Select the 16-bit UTMI interface [30MHz]
@@ -881,7 +845,7 @@ union PORTSC1 {
     ePTW PTW : 1;
     uint32_t STS : 1;
     uint32_t PTS_1 : 2;
-  } bits;          // Bit-field struct (auto-filling reserved gaps)
+  } bits;
   
   // Full 32-bit register value.
   uint32_t value;
@@ -894,8 +858,6 @@ union PORTSC1 {
 // On-The-Go Status & control
 //
 union OTGSC {
-  
-  // Enum definitions.
   
   // Bit field definition.
   struct {
@@ -930,7 +892,7 @@ union OTGSC {
     uint32_t EN_1MS : 1;
     uint32_t DPIE : 1;
     uint32_t _reserved_end : 1;
-  } bits;          // Bit-field struct (auto-filling reserved gaps)
+  } bits;
   
   // Full 32-bit register value.
   uint32_t value;
@@ -944,16 +906,17 @@ union OTGSC {
 //
 union USBMODE {
   
-  // Enum definitions.
   enum class eCM : uint32_t {
     eIDL = 0, // Idle [Default for combination host/device]
     eDEVICE_CONTR = 2, // Device Controller [Default for device only controller]
     eHOST_CONTR = 3, // Host Controller [Default for host only controller]
   };
+  
   enum class eES : uint32_t {
     eLITTLE_ENDIAN = 0, // Little Endian [Default]
     eBIG_ENDIAN = 1, // Big Endian
   };
+  
   enum class eSLOM : uint32_t {
     eLOCKOUT_ON = 0, // Setup Lockouts On (default);
     eLOCKOUT_OFF = 1, // Setup Lockouts Off
@@ -966,7 +929,7 @@ union USBMODE {
     eSLOM SLOM : 1;
     uint32_t SDIS : 1;
     uint32_t _reserved_end : 27;
-  } bits;          // Bit-field struct (auto-filling reserved gaps)
+  } bits;
   
   // Full 32-bit register value.
   uint32_t value;
@@ -980,13 +943,11 @@ union USBMODE {
 //
 union ENDPTSETUPSTAT {
   
-  // Enum definitions.
-  
   // Bit field definition.
   struct {
     uint32_t ENDPTSETUPSTAT : 16;
     uint32_t _reserved_end : 16;
-  } bits;          // Bit-field struct (auto-filling reserved gaps)
+  } bits;
   
   // Full 32-bit register value.
   uint32_t value;
@@ -1000,15 +961,13 @@ union ENDPTSETUPSTAT {
 //
 union ENDPTPRIME {
   
-  // Enum definitions.
-  
   // Bit field definition.
   struct {
     uint32_t PERB : 8;
     uint32_t _reserved_1 : 8;
     uint32_t PETB : 8;
     uint32_t _reserved_end : 8;
-  } bits;          // Bit-field struct (auto-filling reserved gaps)
+  } bits;
   
   // Full 32-bit register value.
   uint32_t value;
@@ -1022,15 +981,13 @@ union ENDPTPRIME {
 //
 union ENDPTFLUSH {
   
-  // Enum definitions.
-  
   // Bit field definition.
   struct {
     uint32_t FERB : 8;
     uint32_t _reserved_1 : 8;
     uint32_t FETB : 8;
     uint32_t _reserved_end : 8;
-  } bits;          // Bit-field struct (auto-filling reserved gaps)
+  } bits;
   
   // Full 32-bit register value.
   uint32_t value;
@@ -1044,15 +1001,13 @@ union ENDPTFLUSH {
 //
 union ENDPTSTAT {
   
-  // Enum definitions.
-  
   // Bit field definition.
   struct {
     uint32_t ERBR : 8;
     uint32_t _reserved_1 : 8;
     uint32_t ETBR : 8;
     uint32_t _reserved_end : 8;
-  } bits;          // Bit-field struct (auto-filling reserved gaps)
+  } bits;
   
   // Full 32-bit register value.
   uint32_t value;
@@ -1066,15 +1021,13 @@ union ENDPTSTAT {
 //
 union ENDPTCOMPLETE {
   
-  // Enum definitions.
-  
   // Bit field definition.
   struct {
     uint32_t ERCE : 8;
     uint32_t _reserved_1 : 8;
     uint32_t ETCE : 8;
     uint32_t _reserved_end : 8;
-  } bits;          // Bit-field struct (auto-filling reserved gaps)
+  } bits;
   
   // Full 32-bit register value.
   uint32_t value;
@@ -1087,8 +1040,6 @@ union ENDPTCOMPLETE {
 // Endpoint Control0
 //
 union ENDPTCTRL0 {
-  
-  // Enum definitions.
   
   // Bit field definition.
   struct {
@@ -1104,7 +1055,7 @@ union ENDPTCTRL0 {
     uint32_t _reserved_5 : 3;
     uint32_t TXE : 1;
     uint32_t _reserved_end : 8;
-  } bits;          // Bit-field struct (auto-filling reserved gaps)
+  } bits;
   
   // Full 32-bit register value.
   uint32_t value;
@@ -1118,8 +1069,6 @@ union ENDPTCTRL0 {
 //
 union ENDPTCTRL1 {
   
-  // Enum definitions.
-  
   // Bit field definition.
   struct {
     uint32_t RXS : 1;
@@ -1138,7 +1087,7 @@ union ENDPTCTRL1 {
     uint32_t TXR : 1;
     uint32_t TXE : 1;
     uint32_t _reserved_end : 8;
-  } bits;          // Bit-field struct (auto-filling reserved gaps)
+  } bits;
   
   // Full 32-bit register value.
   uint32_t value;
@@ -1152,8 +1101,6 @@ union ENDPTCTRL1 {
 //
 union ENDPTCTRL2 {
   
-  // Enum definitions.
-  
   // Bit field definition.
   struct {
     uint32_t RXS : 1;
@@ -1172,7 +1119,7 @@ union ENDPTCTRL2 {
     uint32_t TXR : 1;
     uint32_t TXE : 1;
     uint32_t _reserved_end : 8;
-  } bits;          // Bit-field struct (auto-filling reserved gaps)
+  } bits;
   
   // Full 32-bit register value.
   uint32_t value;
@@ -1186,8 +1133,6 @@ union ENDPTCTRL2 {
 //
 union ENDPTCTRL3 {
   
-  // Enum definitions.
-  
   // Bit field definition.
   struct {
     uint32_t RXS : 1;
@@ -1206,7 +1151,7 @@ union ENDPTCTRL3 {
     uint32_t TXR : 1;
     uint32_t TXE : 1;
     uint32_t _reserved_end : 8;
-  } bits;          // Bit-field struct (auto-filling reserved gaps)
+  } bits;
   
   // Full 32-bit register value.
   uint32_t value;
@@ -1220,8 +1165,6 @@ union ENDPTCTRL3 {
 //
 union ENDPTCTRL4 {
   
-  // Enum definitions.
-  
   // Bit field definition.
   struct {
     uint32_t RXS : 1;
@@ -1240,7 +1183,7 @@ union ENDPTCTRL4 {
     uint32_t TXR : 1;
     uint32_t TXE : 1;
     uint32_t _reserved_end : 8;
-  } bits;          // Bit-field struct (auto-filling reserved gaps)
+  } bits;
   
   // Full 32-bit register value.
   uint32_t value;
@@ -1254,8 +1197,6 @@ union ENDPTCTRL4 {
 //
 union ENDPTCTRL5 {
   
-  // Enum definitions.
-  
   // Bit field definition.
   struct {
     uint32_t RXS : 1;
@@ -1274,7 +1215,7 @@ union ENDPTCTRL5 {
     uint32_t TXR : 1;
     uint32_t TXE : 1;
     uint32_t _reserved_end : 8;
-  } bits;          // Bit-field struct (auto-filling reserved gaps)
+  } bits;
   
   // Full 32-bit register value.
   uint32_t value;
@@ -1288,8 +1229,6 @@ union ENDPTCTRL5 {
 //
 union ENDPTCTRL6 {
   
-  // Enum definitions.
-  
   // Bit field definition.
   struct {
     uint32_t RXS : 1;
@@ -1308,7 +1247,7 @@ union ENDPTCTRL6 {
     uint32_t TXR : 1;
     uint32_t TXE : 1;
     uint32_t _reserved_end : 8;
-  } bits;          // Bit-field struct (auto-filling reserved gaps)
+  } bits;
   
   // Full 32-bit register value.
   uint32_t value;
@@ -1322,8 +1261,6 @@ union ENDPTCTRL6 {
 //
 union ENDPTCTRL7 {
   
-  // Enum definitions.
-  
   // Bit field definition.
   struct {
     uint32_t RXS : 1;
@@ -1342,7 +1279,7 @@ union ENDPTCTRL7 {
     uint32_t TXR : 1;
     uint32_t TXE : 1;
     uint32_t _reserved_end : 8;
-  } bits;          // Bit-field struct (auto-filling reserved gaps)
+  } bits;
   
   // Full 32-bit register value.
   uint32_t value;

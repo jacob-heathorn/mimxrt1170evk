@@ -15,13 +15,11 @@ namespace nTMR2 {
 //
 union COMP10 {
   
-  // Enum definitions.
-  
   // Bit field definition.
   struct {
     uint32_t COMPARISON_1 : 16;
     uint32_t _reserved_end : 16;
-  } bits;          // Bit-field struct (auto-filling reserved gaps)
+  } bits;
   
   // Full 32-bit register value.
   uint32_t value;
@@ -35,13 +33,11 @@ union COMP10 {
 //
 union COMP20 {
   
-  // Enum definitions.
-  
   // Bit field definition.
   struct {
     uint32_t COMPARISON_2 : 16;
     uint32_t _reserved_end : 16;
-  } bits;          // Bit-field struct (auto-filling reserved gaps)
+  } bits;
   
   // Full 32-bit register value.
   uint32_t value;
@@ -55,13 +51,11 @@ union COMP20 {
 //
 union CAPT0 {
   
-  // Enum definitions.
-  
   // Bit field definition.
   struct {
     uint32_t CAPTURE : 16;
     uint32_t _reserved_end : 16;
-  } bits;          // Bit-field struct (auto-filling reserved gaps)
+  } bits;
   
   // Full 32-bit register value.
   uint32_t value;
@@ -75,13 +69,11 @@ union CAPT0 {
 //
 union LOAD0 {
   
-  // Enum definitions.
-  
   // Bit field definition.
   struct {
     uint32_t LOAD : 16;
     uint32_t _reserved_end : 16;
-  } bits;          // Bit-field struct (auto-filling reserved gaps)
+  } bits;
   
   // Full 32-bit register value.
   uint32_t value;
@@ -95,13 +87,11 @@ union LOAD0 {
 //
 union HOLD0 {
   
-  // Enum definitions.
-  
   // Bit field definition.
   struct {
     uint32_t HOLD : 16;
     uint32_t _reserved_end : 16;
-  } bits;          // Bit-field struct (auto-filling reserved gaps)
+  } bits;
   
   // Full 32-bit register value.
   uint32_t value;
@@ -115,13 +105,11 @@ union HOLD0 {
 //
 union CNTR0 {
   
-  // Enum definitions.
-  
   // Bit field definition.
   struct {
     uint32_t COUNTER : 16;
     uint32_t _reserved_end : 16;
-  } bits;          // Bit-field struct (auto-filling reserved gaps)
+  } bits;
   
   // Full 32-bit register value.
   uint32_t value;
@@ -135,7 +123,6 @@ union CNTR0 {
 //
 union CTRL0 {
   
-  // Enum definitions.
   enum class eOUTMODE : uint32_t {
     eCOUNTER_ACTIVE = 0, // Asserted while counter is active
     eCLEAR_OFLAG = 1, // Clear OFLAG output on successful compare
@@ -146,28 +133,34 @@ union CTRL0 {
     eCLEAR_ON_ROLLOVER = 6, // Set on compare, cleared on counter rollover
     eENABLE_GATED_OUT = 7, // Enable gated clock output while counter is active
   };
+  
   enum class eCOINIT : uint32_t {
     eDISABLE = 0, // Co-channel counter/timers cannot force a re-initialization of this counter/timer
     eENABLE = 1, // Co-channel counter/timers may force a re-initialization of this counter/timer
   };
+  
   enum class eDIR : uint32_t {
     eCOUNTUP = 0, // Count up.
     eCOUNTDOWN = 1, // Count down.
   };
+  
   enum class eLENGTH : uint32_t {
     eUNTIL_ROLLOVER = 0, // Count until roll over at $FFFF and continue from $0000.
     eUNTIL_COMPARE = 1, // Count until compare, then re-initialize. If counting up, a successful compare occurs when the counter reaches a COMP1 value. If counting down, a successful compare occurs when the counter reaches a COMP2 value. When output mode $4 is used, alternating values of COMP1 and COMP2 are used to generate successful comparisons. For example, the counter counts until a COMP1 value is reached, re-initializes, counts until COMP2 value is reached, re-initializes, counts until COMP1 value is reached, and so on.
   };
+  
   enum class eONCE : uint32_t {
     eREPEAT = 0, // Count repeatedly.
     eUNTIL_COMPARE = 1, // Count until compare and then stop. If counting up, a successful compare occurs when the counter reaches a COMP1 value. If counting down, a successful compare occurs when the counter reaches a COMP2 value. When output mode $4 is used, the counter re-initializes after reaching the COMP1 value, continues to count to the COMP2 value, and then stops.
   };
+  
   enum class eSCS : uint32_t {
     eCOUNTER0_IN = 0, // Counter 0 input pin
     eCOUNTER1_IN = 1, // Counter 1 input pin
     eCOUNTER2_IN = 2, // Counter 2 input pin
     eCOUNTER3_IN = 3, // Counter 3 input pin
   };
+  
   enum class ePCS : uint32_t {
     eCOUNTER0_IN = 0, // Counter 0 input pin
     eCOUNTER1_IN = 1, // Counter 1 input pin
@@ -186,6 +179,7 @@ union CTRL0 {
     eBUS_DIVBY64 = 14, // IP bus clock divide by 64 prescaler
     eBUS_DIVBY128 = 15, // IP bus clock divide by 128 prescaler
   };
+  
   enum class eCM : uint32_t {
     eNOOP = 0, // No operation
     eRISING_ONLY = 1, // Count rising edges of primary sourceRising edges are counted only when SCTRL[IPS] = 0. Falling edges are counted when SCTRL[IPS] = 1. If the primary count source is IP bus clock divide by 1, only rising edges are counted regardless of the value of SCTRL[IPS].
@@ -208,7 +202,7 @@ union CTRL0 {
     ePCS PCS : 4;
     eCM CM : 3;
     uint32_t _reserved_end : 16;
-  } bits;          // Bit-field struct (auto-filling reserved gaps)
+  } bits;
   
   // Full 32-bit register value.
   uint32_t value;
@@ -222,15 +216,16 @@ union CTRL0 {
 //
 union SCTRL0 {
   
-  // Enum definitions.
   enum class eOEN : uint32_t {
     eINPUT = 0, // The external pin is configured as an input.
     eOFLAG_OUT = 1, // The OFLAG output signal is driven on the external pin. Other timer groups using this external pin as their input see the driven value. The polarity of the signal is determined by OPS.
   };
+  
   enum class eOPS : uint32_t {
     eTRUE = 0, // True polarity.
     eINVERTED = 1, // Inverted polarity.
   };
+  
   enum class eCAPTURE_MODE : uint32_t {
     eDISABLED = 0, // Capture function is disabled
     eENABLE_RISING = 1, // Load capture register on rising edge (when IPS=0) or falling edge (when IPS=1) of input
@@ -256,7 +251,7 @@ union SCTRL0 {
     uint32_t TCFIE : 1;
     uint32_t TCF : 1;
     uint32_t _reserved_end : 16;
-  } bits;          // Bit-field struct (auto-filling reserved gaps)
+  } bits;
   
   // Full 32-bit register value.
   uint32_t value;
@@ -270,13 +265,11 @@ union SCTRL0 {
 //
 union CMPLD10 {
   
-  // Enum definitions.
-  
   // Bit field definition.
   struct {
     uint32_t COMPARATOR_LOAD_1 : 16;
     uint32_t _reserved_end : 16;
-  } bits;          // Bit-field struct (auto-filling reserved gaps)
+  } bits;
   
   // Full 32-bit register value.
   uint32_t value;
@@ -290,13 +283,11 @@ union CMPLD10 {
 //
 union CMPLD20 {
   
-  // Enum definitions.
-  
   // Bit field definition.
   struct {
     uint32_t COMPARATOR_LOAD_2 : 16;
     uint32_t _reserved_end : 16;
-  } bits;          // Bit-field struct (auto-filling reserved gaps)
+  } bits;
   
   // Full 32-bit register value.
   uint32_t value;
@@ -310,37 +301,43 @@ union CMPLD20 {
 //
 union CSCTRL0 {
   
-  // Enum definitions.
   enum class eCL1 : uint32_t {
     eNEVER = 0, // Never preload
     eCOMP1 = 1, // Load upon successful compare with the value in COMP1
     eCOMP2 = 2, // Load upon successful compare with the value in COMP2
   };
+  
   enum class eCL2 : uint32_t {
     eNEVER = 0, // Never preload
     eCOMP1 = 1, // Load upon successful compare with the value in COMP1
     eCOMP2 = 2, // Load upon successful compare with the value in COMP2
   };
+  
   enum class eUP : uint32_t {
     eDOWN = 0, // The last count was in the DOWN direction.
     eUP = 1, // The last count was in the UP direction.
   };
+  
   enum class eTCI : uint32_t {
     eSTOP = 0, // Stop counter upon receiving a second trigger event while still counting from the first trigger event.
     eRELOAD = 1, // Reload the counter upon receiving a second trigger event while still counting from the first trigger event.
   };
+  
   enum class eROC : uint32_t {
     eDISABLE = 0, // Do not reload the counter on a capture event.
     eENABLE = 1, // Reload the counter on a capture event.
   };
+  
   enum class eALT_LOAD : uint32_t {
     eDISABLE = 0, // Counter can be re-initialized only with the LOAD register.
     eENABLE = 1, // Counter can be re-initialized with the LOAD or CMPLD2 registers depending on count direction.
   };
+  
   enum class eFAULT : uint32_t {
     eDISABLE = 0, // Fault function disabled.
     eENABLE = 1, // Fault function enabled.
   };
+  
   enum class eDBG_EN : uint32_t {
     eNORMAL = 0, // Continue with normal operation during debug mode. (default)
     eHALT_TMR = 1, // Halt TMR counter during debug mode.
@@ -364,7 +361,7 @@ union CSCTRL0 {
     eFAULT FAULT : 1;
     eDBG_EN DBG_EN : 2;
     uint32_t _reserved_end : 16;
-  } bits;          // Bit-field struct (auto-filling reserved gaps)
+  } bits;
   
   // Full 32-bit register value.
   uint32_t value;
@@ -378,14 +375,12 @@ union CSCTRL0 {
 //
 union FILT0 {
   
-  // Enum definitions.
-  
   // Bit field definition.
   struct {
     uint32_t FILT_PER : 8;
     uint32_t FILT_CNT : 3;
     uint32_t _reserved_end : 21;
-  } bits;          // Bit-field struct (auto-filling reserved gaps)
+  } bits;
   
   // Full 32-bit register value.
   uint32_t value;
@@ -399,15 +394,13 @@ union FILT0 {
 //
 union DMA0 {
   
-  // Enum definitions.
-  
   // Bit field definition.
   struct {
     uint32_t IEFDE : 1;
     uint32_t CMPLD1DE : 1;
     uint32_t CMPLD2DE : 1;
     uint32_t _reserved_end : 29;
-  } bits;          // Bit-field struct (auto-filling reserved gaps)
+  } bits;
   
   // Full 32-bit register value.
   uint32_t value;
@@ -421,7 +414,6 @@ union DMA0 {
 //
 union ENBL {
   
-  // Enum definitions.
   enum class eENBL : uint32_t {
     eDISABLE = 0, // Timer channel is disabled.
     eENABLE = 1, // Timer channel is enabled. (default)
@@ -431,7 +423,7 @@ union ENBL {
   struct {
     eENBL ENBL : 4;
     uint32_t _reserved_end : 28;
-  } bits;          // Bit-field struct (auto-filling reserved gaps)
+  } bits;
   
   // Full 32-bit register value.
   uint32_t value;
@@ -445,13 +437,11 @@ union ENBL {
 //
 union COMP11 {
   
-  // Enum definitions.
-  
   // Bit field definition.
   struct {
     uint32_t COMPARISON_1 : 16;
     uint32_t _reserved_end : 16;
-  } bits;          // Bit-field struct (auto-filling reserved gaps)
+  } bits;
   
   // Full 32-bit register value.
   uint32_t value;
@@ -465,13 +455,11 @@ union COMP11 {
 //
 union COMP21 {
   
-  // Enum definitions.
-  
   // Bit field definition.
   struct {
     uint32_t COMPARISON_2 : 16;
     uint32_t _reserved_end : 16;
-  } bits;          // Bit-field struct (auto-filling reserved gaps)
+  } bits;
   
   // Full 32-bit register value.
   uint32_t value;
@@ -485,13 +473,11 @@ union COMP21 {
 //
 union CAPT1 {
   
-  // Enum definitions.
-  
   // Bit field definition.
   struct {
     uint32_t CAPTURE : 16;
     uint32_t _reserved_end : 16;
-  } bits;          // Bit-field struct (auto-filling reserved gaps)
+  } bits;
   
   // Full 32-bit register value.
   uint32_t value;
@@ -505,13 +491,11 @@ union CAPT1 {
 //
 union LOAD1 {
   
-  // Enum definitions.
-  
   // Bit field definition.
   struct {
     uint32_t LOAD : 16;
     uint32_t _reserved_end : 16;
-  } bits;          // Bit-field struct (auto-filling reserved gaps)
+  } bits;
   
   // Full 32-bit register value.
   uint32_t value;
@@ -525,13 +509,11 @@ union LOAD1 {
 //
 union HOLD1 {
   
-  // Enum definitions.
-  
   // Bit field definition.
   struct {
     uint32_t HOLD : 16;
     uint32_t _reserved_end : 16;
-  } bits;          // Bit-field struct (auto-filling reserved gaps)
+  } bits;
   
   // Full 32-bit register value.
   uint32_t value;
@@ -545,13 +527,11 @@ union HOLD1 {
 //
 union CNTR1 {
   
-  // Enum definitions.
-  
   // Bit field definition.
   struct {
     uint32_t COUNTER : 16;
     uint32_t _reserved_end : 16;
-  } bits;          // Bit-field struct (auto-filling reserved gaps)
+  } bits;
   
   // Full 32-bit register value.
   uint32_t value;
@@ -565,7 +545,6 @@ union CNTR1 {
 //
 union CTRL1 {
   
-  // Enum definitions.
   enum class eOUTMODE : uint32_t {
     eCOUNTER_ACTIVE = 0, // Asserted while counter is active
     eCLEAR_OFLAG = 1, // Clear OFLAG output on successful compare
@@ -576,28 +555,34 @@ union CTRL1 {
     eCLEAR_ON_ROLLOVER = 6, // Set on compare, cleared on counter rollover
     eENABLE_GATED_OUT = 7, // Enable gated clock output while counter is active
   };
+  
   enum class eCOINIT : uint32_t {
     eDISABLE = 0, // Co-channel counter/timers cannot force a re-initialization of this counter/timer
     eENABLE = 1, // Co-channel counter/timers may force a re-initialization of this counter/timer
   };
+  
   enum class eDIR : uint32_t {
     eCOUNTUP = 0, // Count up.
     eCOUNTDOWN = 1, // Count down.
   };
+  
   enum class eLENGTH : uint32_t {
     eUNTIL_ROLLOVER = 0, // Count until roll over at $FFFF and continue from $0000.
     eUNTIL_COMPARE = 1, // Count until compare, then re-initialize. If counting up, a successful compare occurs when the counter reaches a COMP1 value. If counting down, a successful compare occurs when the counter reaches a COMP2 value. When output mode $4 is used, alternating values of COMP1 and COMP2 are used to generate successful comparisons. For example, the counter counts until a COMP1 value is reached, re-initializes, counts until COMP2 value is reached, re-initializes, counts until COMP1 value is reached, and so on.
   };
+  
   enum class eONCE : uint32_t {
     eREPEAT = 0, // Count repeatedly.
     eUNTIL_COMPARE = 1, // Count until compare and then stop. If counting up, a successful compare occurs when the counter reaches a COMP1 value. If counting down, a successful compare occurs when the counter reaches a COMP2 value. When output mode $4 is used, the counter re-initializes after reaching the COMP1 value, continues to count to the COMP2 value, and then stops.
   };
+  
   enum class eSCS : uint32_t {
     eCOUNTER0_IN = 0, // Counter 0 input pin
     eCOUNTER1_IN = 1, // Counter 1 input pin
     eCOUNTER2_IN = 2, // Counter 2 input pin
     eCOUNTER3_IN = 3, // Counter 3 input pin
   };
+  
   enum class ePCS : uint32_t {
     eCOUNTER0_IN = 0, // Counter 0 input pin
     eCOUNTER1_IN = 1, // Counter 1 input pin
@@ -616,6 +601,7 @@ union CTRL1 {
     eBUS_DIVBY64 = 14, // IP bus clock divide by 64 prescaler
     eBUS_DIVBY128 = 15, // IP bus clock divide by 128 prescaler
   };
+  
   enum class eCM : uint32_t {
     eNOOP = 0, // No operation
     eRISING_ONLY = 1, // Count rising edges of primary sourceRising edges are counted only when SCTRL[IPS] = 0. Falling edges are counted when SCTRL[IPS] = 1. If the primary count source is IP bus clock divide by 1, only rising edges are counted regardless of the value of SCTRL[IPS].
@@ -638,7 +624,7 @@ union CTRL1 {
     ePCS PCS : 4;
     eCM CM : 3;
     uint32_t _reserved_end : 16;
-  } bits;          // Bit-field struct (auto-filling reserved gaps)
+  } bits;
   
   // Full 32-bit register value.
   uint32_t value;
@@ -652,15 +638,16 @@ union CTRL1 {
 //
 union SCTRL1 {
   
-  // Enum definitions.
   enum class eOEN : uint32_t {
     eINPUT = 0, // The external pin is configured as an input.
     eOFLAG_OUT = 1, // The OFLAG output signal is driven on the external pin. Other timer groups using this external pin as their input see the driven value. The polarity of the signal is determined by OPS.
   };
+  
   enum class eOPS : uint32_t {
     eTRUE = 0, // True polarity.
     eINVERTED = 1, // Inverted polarity.
   };
+  
   enum class eCAPTURE_MODE : uint32_t {
     eDISABLED = 0, // Capture function is disabled
     eENABLE_RISING = 1, // Load capture register on rising edge (when IPS=0) or falling edge (when IPS=1) of input
@@ -686,7 +673,7 @@ union SCTRL1 {
     uint32_t TCFIE : 1;
     uint32_t TCF : 1;
     uint32_t _reserved_end : 16;
-  } bits;          // Bit-field struct (auto-filling reserved gaps)
+  } bits;
   
   // Full 32-bit register value.
   uint32_t value;
@@ -700,13 +687,11 @@ union SCTRL1 {
 //
 union CMPLD11 {
   
-  // Enum definitions.
-  
   // Bit field definition.
   struct {
     uint32_t COMPARATOR_LOAD_1 : 16;
     uint32_t _reserved_end : 16;
-  } bits;          // Bit-field struct (auto-filling reserved gaps)
+  } bits;
   
   // Full 32-bit register value.
   uint32_t value;
@@ -720,13 +705,11 @@ union CMPLD11 {
 //
 union CMPLD21 {
   
-  // Enum definitions.
-  
   // Bit field definition.
   struct {
     uint32_t COMPARATOR_LOAD_2 : 16;
     uint32_t _reserved_end : 16;
-  } bits;          // Bit-field struct (auto-filling reserved gaps)
+  } bits;
   
   // Full 32-bit register value.
   uint32_t value;
@@ -740,37 +723,43 @@ union CMPLD21 {
 //
 union CSCTRL1 {
   
-  // Enum definitions.
   enum class eCL1 : uint32_t {
     eNEVER = 0, // Never preload
     eCOMP1 = 1, // Load upon successful compare with the value in COMP1
     eCOMP2 = 2, // Load upon successful compare with the value in COMP2
   };
+  
   enum class eCL2 : uint32_t {
     eNEVER = 0, // Never preload
     eCOMP1 = 1, // Load upon successful compare with the value in COMP1
     eCOMP2 = 2, // Load upon successful compare with the value in COMP2
   };
+  
   enum class eUP : uint32_t {
     eDOWN = 0, // The last count was in the DOWN direction.
     eUP = 1, // The last count was in the UP direction.
   };
+  
   enum class eTCI : uint32_t {
     eSTOP = 0, // Stop counter upon receiving a second trigger event while still counting from the first trigger event.
     eRELOAD = 1, // Reload the counter upon receiving a second trigger event while still counting from the first trigger event.
   };
+  
   enum class eROC : uint32_t {
     eDISABLE = 0, // Do not reload the counter on a capture event.
     eENABLE = 1, // Reload the counter on a capture event.
   };
+  
   enum class eALT_LOAD : uint32_t {
     eDISABLE = 0, // Counter can be re-initialized only with the LOAD register.
     eENABLE = 1, // Counter can be re-initialized with the LOAD or CMPLD2 registers depending on count direction.
   };
+  
   enum class eFAULT : uint32_t {
     eDISABLE = 0, // Fault function disabled.
     eENABLE = 1, // Fault function enabled.
   };
+  
   enum class eDBG_EN : uint32_t {
     eNORMAL = 0, // Continue with normal operation during debug mode. (default)
     eHALT_TMR = 1, // Halt TMR counter during debug mode.
@@ -794,7 +783,7 @@ union CSCTRL1 {
     eFAULT FAULT : 1;
     eDBG_EN DBG_EN : 2;
     uint32_t _reserved_end : 16;
-  } bits;          // Bit-field struct (auto-filling reserved gaps)
+  } bits;
   
   // Full 32-bit register value.
   uint32_t value;
@@ -808,14 +797,12 @@ union CSCTRL1 {
 //
 union FILT1 {
   
-  // Enum definitions.
-  
   // Bit field definition.
   struct {
     uint32_t FILT_PER : 8;
     uint32_t FILT_CNT : 3;
     uint32_t _reserved_end : 21;
-  } bits;          // Bit-field struct (auto-filling reserved gaps)
+  } bits;
   
   // Full 32-bit register value.
   uint32_t value;
@@ -829,15 +816,13 @@ union FILT1 {
 //
 union DMA1 {
   
-  // Enum definitions.
-  
   // Bit field definition.
   struct {
     uint32_t IEFDE : 1;
     uint32_t CMPLD1DE : 1;
     uint32_t CMPLD2DE : 1;
     uint32_t _reserved_end : 29;
-  } bits;          // Bit-field struct (auto-filling reserved gaps)
+  } bits;
   
   // Full 32-bit register value.
   uint32_t value;
@@ -851,13 +836,11 @@ union DMA1 {
 //
 union COMP12 {
   
-  // Enum definitions.
-  
   // Bit field definition.
   struct {
     uint32_t COMPARISON_1 : 16;
     uint32_t _reserved_end : 16;
-  } bits;          // Bit-field struct (auto-filling reserved gaps)
+  } bits;
   
   // Full 32-bit register value.
   uint32_t value;
@@ -871,13 +854,11 @@ union COMP12 {
 //
 union COMP22 {
   
-  // Enum definitions.
-  
   // Bit field definition.
   struct {
     uint32_t COMPARISON_2 : 16;
     uint32_t _reserved_end : 16;
-  } bits;          // Bit-field struct (auto-filling reserved gaps)
+  } bits;
   
   // Full 32-bit register value.
   uint32_t value;
@@ -891,13 +872,11 @@ union COMP22 {
 //
 union CAPT2 {
   
-  // Enum definitions.
-  
   // Bit field definition.
   struct {
     uint32_t CAPTURE : 16;
     uint32_t _reserved_end : 16;
-  } bits;          // Bit-field struct (auto-filling reserved gaps)
+  } bits;
   
   // Full 32-bit register value.
   uint32_t value;
@@ -911,13 +890,11 @@ union CAPT2 {
 //
 union LOAD2 {
   
-  // Enum definitions.
-  
   // Bit field definition.
   struct {
     uint32_t LOAD : 16;
     uint32_t _reserved_end : 16;
-  } bits;          // Bit-field struct (auto-filling reserved gaps)
+  } bits;
   
   // Full 32-bit register value.
   uint32_t value;
@@ -931,13 +908,11 @@ union LOAD2 {
 //
 union HOLD2 {
   
-  // Enum definitions.
-  
   // Bit field definition.
   struct {
     uint32_t HOLD : 16;
     uint32_t _reserved_end : 16;
-  } bits;          // Bit-field struct (auto-filling reserved gaps)
+  } bits;
   
   // Full 32-bit register value.
   uint32_t value;
@@ -951,13 +926,11 @@ union HOLD2 {
 //
 union CNTR2 {
   
-  // Enum definitions.
-  
   // Bit field definition.
   struct {
     uint32_t COUNTER : 16;
     uint32_t _reserved_end : 16;
-  } bits;          // Bit-field struct (auto-filling reserved gaps)
+  } bits;
   
   // Full 32-bit register value.
   uint32_t value;
@@ -971,7 +944,6 @@ union CNTR2 {
 //
 union CTRL2 {
   
-  // Enum definitions.
   enum class eOUTMODE : uint32_t {
     eCOUNTER_ACTIVE = 0, // Asserted while counter is active
     eCLEAR_OFLAG = 1, // Clear OFLAG output on successful compare
@@ -982,28 +954,34 @@ union CTRL2 {
     eCLEAR_ON_ROLLOVER = 6, // Set on compare, cleared on counter rollover
     eENABLE_GATED_OUT = 7, // Enable gated clock output while counter is active
   };
+  
   enum class eCOINIT : uint32_t {
     eDISABLE = 0, // Co-channel counter/timers cannot force a re-initialization of this counter/timer
     eENABLE = 1, // Co-channel counter/timers may force a re-initialization of this counter/timer
   };
+  
   enum class eDIR : uint32_t {
     eCOUNTUP = 0, // Count up.
     eCOUNTDOWN = 1, // Count down.
   };
+  
   enum class eLENGTH : uint32_t {
     eUNTIL_ROLLOVER = 0, // Count until roll over at $FFFF and continue from $0000.
     eUNTIL_COMPARE = 1, // Count until compare, then re-initialize. If counting up, a successful compare occurs when the counter reaches a COMP1 value. If counting down, a successful compare occurs when the counter reaches a COMP2 value. When output mode $4 is used, alternating values of COMP1 and COMP2 are used to generate successful comparisons. For example, the counter counts until a COMP1 value is reached, re-initializes, counts until COMP2 value is reached, re-initializes, counts until COMP1 value is reached, and so on.
   };
+  
   enum class eONCE : uint32_t {
     eREPEAT = 0, // Count repeatedly.
     eUNTIL_COMPARE = 1, // Count until compare and then stop. If counting up, a successful compare occurs when the counter reaches a COMP1 value. If counting down, a successful compare occurs when the counter reaches a COMP2 value. When output mode $4 is used, the counter re-initializes after reaching the COMP1 value, continues to count to the COMP2 value, and then stops.
   };
+  
   enum class eSCS : uint32_t {
     eCOUNTER0_IN = 0, // Counter 0 input pin
     eCOUNTER1_IN = 1, // Counter 1 input pin
     eCOUNTER2_IN = 2, // Counter 2 input pin
     eCOUNTER3_IN = 3, // Counter 3 input pin
   };
+  
   enum class ePCS : uint32_t {
     eCOUNTER0_IN = 0, // Counter 0 input pin
     eCOUNTER1_IN = 1, // Counter 1 input pin
@@ -1022,6 +1000,7 @@ union CTRL2 {
     eBUS_DIVBY64 = 14, // IP bus clock divide by 64 prescaler
     eBUS_DIVBY128 = 15, // IP bus clock divide by 128 prescaler
   };
+  
   enum class eCM : uint32_t {
     eNOOP = 0, // No operation
     eRISING_ONLY = 1, // Count rising edges of primary sourceRising edges are counted only when SCTRL[IPS] = 0. Falling edges are counted when SCTRL[IPS] = 1. If the primary count source is IP bus clock divide by 1, only rising edges are counted regardless of the value of SCTRL[IPS].
@@ -1044,7 +1023,7 @@ union CTRL2 {
     ePCS PCS : 4;
     eCM CM : 3;
     uint32_t _reserved_end : 16;
-  } bits;          // Bit-field struct (auto-filling reserved gaps)
+  } bits;
   
   // Full 32-bit register value.
   uint32_t value;
@@ -1058,15 +1037,16 @@ union CTRL2 {
 //
 union SCTRL2 {
   
-  // Enum definitions.
   enum class eOEN : uint32_t {
     eINPUT = 0, // The external pin is configured as an input.
     eOFLAG_OUT = 1, // The OFLAG output signal is driven on the external pin. Other timer groups using this external pin as their input see the driven value. The polarity of the signal is determined by OPS.
   };
+  
   enum class eOPS : uint32_t {
     eTRUE = 0, // True polarity.
     eINVERTED = 1, // Inverted polarity.
   };
+  
   enum class eCAPTURE_MODE : uint32_t {
     eDISABLED = 0, // Capture function is disabled
     eENABLE_RISING = 1, // Load capture register on rising edge (when IPS=0) or falling edge (when IPS=1) of input
@@ -1092,7 +1072,7 @@ union SCTRL2 {
     uint32_t TCFIE : 1;
     uint32_t TCF : 1;
     uint32_t _reserved_end : 16;
-  } bits;          // Bit-field struct (auto-filling reserved gaps)
+  } bits;
   
   // Full 32-bit register value.
   uint32_t value;
@@ -1106,13 +1086,11 @@ union SCTRL2 {
 //
 union CMPLD12 {
   
-  // Enum definitions.
-  
   // Bit field definition.
   struct {
     uint32_t COMPARATOR_LOAD_1 : 16;
     uint32_t _reserved_end : 16;
-  } bits;          // Bit-field struct (auto-filling reserved gaps)
+  } bits;
   
   // Full 32-bit register value.
   uint32_t value;
@@ -1126,13 +1104,11 @@ union CMPLD12 {
 //
 union CMPLD22 {
   
-  // Enum definitions.
-  
   // Bit field definition.
   struct {
     uint32_t COMPARATOR_LOAD_2 : 16;
     uint32_t _reserved_end : 16;
-  } bits;          // Bit-field struct (auto-filling reserved gaps)
+  } bits;
   
   // Full 32-bit register value.
   uint32_t value;
@@ -1146,37 +1122,43 @@ union CMPLD22 {
 //
 union CSCTRL2 {
   
-  // Enum definitions.
   enum class eCL1 : uint32_t {
     eNEVER = 0, // Never preload
     eCOMP1 = 1, // Load upon successful compare with the value in COMP1
     eCOMP2 = 2, // Load upon successful compare with the value in COMP2
   };
+  
   enum class eCL2 : uint32_t {
     eNEVER = 0, // Never preload
     eCOMP1 = 1, // Load upon successful compare with the value in COMP1
     eCOMP2 = 2, // Load upon successful compare with the value in COMP2
   };
+  
   enum class eUP : uint32_t {
     eDOWN = 0, // The last count was in the DOWN direction.
     eUP = 1, // The last count was in the UP direction.
   };
+  
   enum class eTCI : uint32_t {
     eSTOP = 0, // Stop counter upon receiving a second trigger event while still counting from the first trigger event.
     eRELOAD = 1, // Reload the counter upon receiving a second trigger event while still counting from the first trigger event.
   };
+  
   enum class eROC : uint32_t {
     eDISABLE = 0, // Do not reload the counter on a capture event.
     eENABLE = 1, // Reload the counter on a capture event.
   };
+  
   enum class eALT_LOAD : uint32_t {
     eDISABLE = 0, // Counter can be re-initialized only with the LOAD register.
     eENABLE = 1, // Counter can be re-initialized with the LOAD or CMPLD2 registers depending on count direction.
   };
+  
   enum class eFAULT : uint32_t {
     eDISABLE = 0, // Fault function disabled.
     eENABLE = 1, // Fault function enabled.
   };
+  
   enum class eDBG_EN : uint32_t {
     eNORMAL = 0, // Continue with normal operation during debug mode. (default)
     eHALT_TMR = 1, // Halt TMR counter during debug mode.
@@ -1200,7 +1182,7 @@ union CSCTRL2 {
     eFAULT FAULT : 1;
     eDBG_EN DBG_EN : 2;
     uint32_t _reserved_end : 16;
-  } bits;          // Bit-field struct (auto-filling reserved gaps)
+  } bits;
   
   // Full 32-bit register value.
   uint32_t value;
@@ -1214,14 +1196,12 @@ union CSCTRL2 {
 //
 union FILT2 {
   
-  // Enum definitions.
-  
   // Bit field definition.
   struct {
     uint32_t FILT_PER : 8;
     uint32_t FILT_CNT : 3;
     uint32_t _reserved_end : 21;
-  } bits;          // Bit-field struct (auto-filling reserved gaps)
+  } bits;
   
   // Full 32-bit register value.
   uint32_t value;
@@ -1235,15 +1215,13 @@ union FILT2 {
 //
 union DMA2 {
   
-  // Enum definitions.
-  
   // Bit field definition.
   struct {
     uint32_t IEFDE : 1;
     uint32_t CMPLD1DE : 1;
     uint32_t CMPLD2DE : 1;
     uint32_t _reserved_end : 29;
-  } bits;          // Bit-field struct (auto-filling reserved gaps)
+  } bits;
   
   // Full 32-bit register value.
   uint32_t value;
@@ -1257,13 +1235,11 @@ union DMA2 {
 //
 union COMP13 {
   
-  // Enum definitions.
-  
   // Bit field definition.
   struct {
     uint32_t COMPARISON_1 : 16;
     uint32_t _reserved_end : 16;
-  } bits;          // Bit-field struct (auto-filling reserved gaps)
+  } bits;
   
   // Full 32-bit register value.
   uint32_t value;
@@ -1277,13 +1253,11 @@ union COMP13 {
 //
 union COMP23 {
   
-  // Enum definitions.
-  
   // Bit field definition.
   struct {
     uint32_t COMPARISON_2 : 16;
     uint32_t _reserved_end : 16;
-  } bits;          // Bit-field struct (auto-filling reserved gaps)
+  } bits;
   
   // Full 32-bit register value.
   uint32_t value;
@@ -1297,13 +1271,11 @@ union COMP23 {
 //
 union CAPT3 {
   
-  // Enum definitions.
-  
   // Bit field definition.
   struct {
     uint32_t CAPTURE : 16;
     uint32_t _reserved_end : 16;
-  } bits;          // Bit-field struct (auto-filling reserved gaps)
+  } bits;
   
   // Full 32-bit register value.
   uint32_t value;
@@ -1317,13 +1289,11 @@ union CAPT3 {
 //
 union LOAD3 {
   
-  // Enum definitions.
-  
   // Bit field definition.
   struct {
     uint32_t LOAD : 16;
     uint32_t _reserved_end : 16;
-  } bits;          // Bit-field struct (auto-filling reserved gaps)
+  } bits;
   
   // Full 32-bit register value.
   uint32_t value;
@@ -1337,13 +1307,11 @@ union LOAD3 {
 //
 union HOLD3 {
   
-  // Enum definitions.
-  
   // Bit field definition.
   struct {
     uint32_t HOLD : 16;
     uint32_t _reserved_end : 16;
-  } bits;          // Bit-field struct (auto-filling reserved gaps)
+  } bits;
   
   // Full 32-bit register value.
   uint32_t value;
@@ -1357,13 +1325,11 @@ union HOLD3 {
 //
 union CNTR3 {
   
-  // Enum definitions.
-  
   // Bit field definition.
   struct {
     uint32_t COUNTER : 16;
     uint32_t _reserved_end : 16;
-  } bits;          // Bit-field struct (auto-filling reserved gaps)
+  } bits;
   
   // Full 32-bit register value.
   uint32_t value;
@@ -1377,7 +1343,6 @@ union CNTR3 {
 //
 union CTRL3 {
   
-  // Enum definitions.
   enum class eOUTMODE : uint32_t {
     eCOUNTER_ACTIVE = 0, // Asserted while counter is active
     eCLEAR_OFLAG = 1, // Clear OFLAG output on successful compare
@@ -1388,28 +1353,34 @@ union CTRL3 {
     eCLEAR_ON_ROLLOVER = 6, // Set on compare, cleared on counter rollover
     eENABLE_GATED_OUT = 7, // Enable gated clock output while counter is active
   };
+  
   enum class eCOINIT : uint32_t {
     eDISABLE = 0, // Co-channel counter/timers cannot force a re-initialization of this counter/timer
     eENABLE = 1, // Co-channel counter/timers may force a re-initialization of this counter/timer
   };
+  
   enum class eDIR : uint32_t {
     eCOUNTUP = 0, // Count up.
     eCOUNTDOWN = 1, // Count down.
   };
+  
   enum class eLENGTH : uint32_t {
     eUNTIL_ROLLOVER = 0, // Count until roll over at $FFFF and continue from $0000.
     eUNTIL_COMPARE = 1, // Count until compare, then re-initialize. If counting up, a successful compare occurs when the counter reaches a COMP1 value. If counting down, a successful compare occurs when the counter reaches a COMP2 value. When output mode $4 is used, alternating values of COMP1 and COMP2 are used to generate successful comparisons. For example, the counter counts until a COMP1 value is reached, re-initializes, counts until COMP2 value is reached, re-initializes, counts until COMP1 value is reached, and so on.
   };
+  
   enum class eONCE : uint32_t {
     eREPEAT = 0, // Count repeatedly.
     eUNTIL_COMPARE = 1, // Count until compare and then stop. If counting up, a successful compare occurs when the counter reaches a COMP1 value. If counting down, a successful compare occurs when the counter reaches a COMP2 value. When output mode $4 is used, the counter re-initializes after reaching the COMP1 value, continues to count to the COMP2 value, and then stops.
   };
+  
   enum class eSCS : uint32_t {
     eCOUNTER0_IN = 0, // Counter 0 input pin
     eCOUNTER1_IN = 1, // Counter 1 input pin
     eCOUNTER2_IN = 2, // Counter 2 input pin
     eCOUNTER3_IN = 3, // Counter 3 input pin
   };
+  
   enum class ePCS : uint32_t {
     eCOUNTER0_IN = 0, // Counter 0 input pin
     eCOUNTER1_IN = 1, // Counter 1 input pin
@@ -1428,6 +1399,7 @@ union CTRL3 {
     eBUS_DIVBY64 = 14, // IP bus clock divide by 64 prescaler
     eBUS_DIVBY128 = 15, // IP bus clock divide by 128 prescaler
   };
+  
   enum class eCM : uint32_t {
     eNOOP = 0, // No operation
     eRISING_ONLY = 1, // Count rising edges of primary sourceRising edges are counted only when SCTRL[IPS] = 0. Falling edges are counted when SCTRL[IPS] = 1. If the primary count source is IP bus clock divide by 1, only rising edges are counted regardless of the value of SCTRL[IPS].
@@ -1450,7 +1422,7 @@ union CTRL3 {
     ePCS PCS : 4;
     eCM CM : 3;
     uint32_t _reserved_end : 16;
-  } bits;          // Bit-field struct (auto-filling reserved gaps)
+  } bits;
   
   // Full 32-bit register value.
   uint32_t value;
@@ -1464,15 +1436,16 @@ union CTRL3 {
 //
 union SCTRL3 {
   
-  // Enum definitions.
   enum class eOEN : uint32_t {
     eINPUT = 0, // The external pin is configured as an input.
     eOFLAG_OUT = 1, // The OFLAG output signal is driven on the external pin. Other timer groups using this external pin as their input see the driven value. The polarity of the signal is determined by OPS.
   };
+  
   enum class eOPS : uint32_t {
     eTRUE = 0, // True polarity.
     eINVERTED = 1, // Inverted polarity.
   };
+  
   enum class eCAPTURE_MODE : uint32_t {
     eDISABLED = 0, // Capture function is disabled
     eENABLE_RISING = 1, // Load capture register on rising edge (when IPS=0) or falling edge (when IPS=1) of input
@@ -1498,7 +1471,7 @@ union SCTRL3 {
     uint32_t TCFIE : 1;
     uint32_t TCF : 1;
     uint32_t _reserved_end : 16;
-  } bits;          // Bit-field struct (auto-filling reserved gaps)
+  } bits;
   
   // Full 32-bit register value.
   uint32_t value;
@@ -1512,13 +1485,11 @@ union SCTRL3 {
 //
 union CMPLD13 {
   
-  // Enum definitions.
-  
   // Bit field definition.
   struct {
     uint32_t COMPARATOR_LOAD_1 : 16;
     uint32_t _reserved_end : 16;
-  } bits;          // Bit-field struct (auto-filling reserved gaps)
+  } bits;
   
   // Full 32-bit register value.
   uint32_t value;
@@ -1532,13 +1503,11 @@ union CMPLD13 {
 //
 union CMPLD23 {
   
-  // Enum definitions.
-  
   // Bit field definition.
   struct {
     uint32_t COMPARATOR_LOAD_2 : 16;
     uint32_t _reserved_end : 16;
-  } bits;          // Bit-field struct (auto-filling reserved gaps)
+  } bits;
   
   // Full 32-bit register value.
   uint32_t value;
@@ -1552,37 +1521,43 @@ union CMPLD23 {
 //
 union CSCTRL3 {
   
-  // Enum definitions.
   enum class eCL1 : uint32_t {
     eNEVER = 0, // Never preload
     eCOMP1 = 1, // Load upon successful compare with the value in COMP1
     eCOMP2 = 2, // Load upon successful compare with the value in COMP2
   };
+  
   enum class eCL2 : uint32_t {
     eNEVER = 0, // Never preload
     eCOMP1 = 1, // Load upon successful compare with the value in COMP1
     eCOMP2 = 2, // Load upon successful compare with the value in COMP2
   };
+  
   enum class eUP : uint32_t {
     eDOWN = 0, // The last count was in the DOWN direction.
     eUP = 1, // The last count was in the UP direction.
   };
+  
   enum class eTCI : uint32_t {
     eSTOP = 0, // Stop counter upon receiving a second trigger event while still counting from the first trigger event.
     eRELOAD = 1, // Reload the counter upon receiving a second trigger event while still counting from the first trigger event.
   };
+  
   enum class eROC : uint32_t {
     eDISABLE = 0, // Do not reload the counter on a capture event.
     eENABLE = 1, // Reload the counter on a capture event.
   };
+  
   enum class eALT_LOAD : uint32_t {
     eDISABLE = 0, // Counter can be re-initialized only with the LOAD register.
     eENABLE = 1, // Counter can be re-initialized with the LOAD or CMPLD2 registers depending on count direction.
   };
+  
   enum class eFAULT : uint32_t {
     eDISABLE = 0, // Fault function disabled.
     eENABLE = 1, // Fault function enabled.
   };
+  
   enum class eDBG_EN : uint32_t {
     eNORMAL = 0, // Continue with normal operation during debug mode. (default)
     eHALT_TMR = 1, // Halt TMR counter during debug mode.
@@ -1606,7 +1581,7 @@ union CSCTRL3 {
     eFAULT FAULT : 1;
     eDBG_EN DBG_EN : 2;
     uint32_t _reserved_end : 16;
-  } bits;          // Bit-field struct (auto-filling reserved gaps)
+  } bits;
   
   // Full 32-bit register value.
   uint32_t value;
@@ -1620,14 +1595,12 @@ union CSCTRL3 {
 //
 union FILT3 {
   
-  // Enum definitions.
-  
   // Bit field definition.
   struct {
     uint32_t FILT_PER : 8;
     uint32_t FILT_CNT : 3;
     uint32_t _reserved_end : 21;
-  } bits;          // Bit-field struct (auto-filling reserved gaps)
+  } bits;
   
   // Full 32-bit register value.
   uint32_t value;
@@ -1641,15 +1614,13 @@ union FILT3 {
 //
 union DMA3 {
   
-  // Enum definitions.
-  
   // Bit field definition.
   struct {
     uint32_t IEFDE : 1;
     uint32_t CMPLD1DE : 1;
     uint32_t CMPLD2DE : 1;
     uint32_t _reserved_end : 29;
-  } bits;          // Bit-field struct (auto-filling reserved gaps)
+  } bits;
   
   // Full 32-bit register value.
   uint32_t value;

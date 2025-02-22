@@ -15,13 +15,13 @@ namespace nIOMUXC_LPSR_GPR {
 //
 union GPR0 {
   
-  // Enum definitions.
   enum class eDWP : uint32_t {
     eforbid_none = 0, // Both cores are allowed
     eforbid_CM7 = 1, // CM7 is forbidden
     eforbid_CM4 = 2, // CM4 is forbidden
     eforbid_both = 3, // Both cores are forbidden
   };
+  
   enum class eDWP_LOCK : uint32_t {
     elock_none = 0, // Neither of DWP bits is locked
     elock_low = 1, // The lower DWP bit is locked
@@ -36,7 +36,7 @@ union GPR0 {
     uint32_t _reserved_1 : 12;
     eDWP DWP : 2;
     eDWP_LOCK DWP_LOCK : 2;
-  } bits;          // Bit-field struct (auto-filling reserved gaps)
+  } bits;
   
   // Full 32-bit register value.
   uint32_t value;
@@ -50,13 +50,13 @@ union GPR0 {
 //
 union GPR1 {
   
-  // Enum definitions.
   enum class eDWP : uint32_t {
     eforbid_none = 0, // Both cores are allowed
     eforbid_CM7 = 1, // CM7 is forbidden
     eforbid_CM4 = 2, // CM4 is forbidden
     eforbid_both = 3, // Both cores are forbidden
   };
+  
   enum class eDWP_LOCK : uint32_t {
     elock_none = 0, // Neither of DWP bits is locked
     elock_low = 1, // The lower DWP bit is locked
@@ -70,7 +70,7 @@ union GPR1 {
     uint32_t _reserved_1 : 12;
     eDWP DWP : 2;
     eDWP_LOCK DWP_LOCK : 2;
-  } bits;          // Bit-field struct (auto-filling reserved gaps)
+  } bits;
   
   // Full 32-bit register value.
   uint32_t value;
@@ -84,7 +84,6 @@ union GPR1 {
 //
 union GPR2 {
   
-  // Enum definitions.
   enum class eLOCK : uint32_t {
     eNO = 0, // Write access to bit 31:1 is not blocked
     eBLOCK = 1, // Write access to bit 31:1 is blocked
@@ -95,7 +94,7 @@ union GPR2 {
     eLOCK LOCK : 1;
     uint32_t _reserved_1 : 2;
     uint32_t APC_AC_R0_BOT : 29;
-  } bits;          // Bit-field struct (auto-filling reserved gaps)
+  } bits;
   
   // Full 32-bit register value.
   uint32_t value;
@@ -109,7 +108,6 @@ union GPR2 {
 //
 union GPR3 {
   
-  // Enum definitions.
   enum class eLOCK : uint32_t {
     eNO = 0, // Write access to bit 31:1 is not blocked
     eBLOCK = 1, // Write access to bit 31:1 is blocked
@@ -120,7 +118,7 @@ union GPR3 {
     eLOCK LOCK : 1;
     uint32_t _reserved_1 : 2;
     uint32_t APC_AC_R0_TOP : 29;
-  } bits;          // Bit-field struct (auto-filling reserved gaps)
+  } bits;
   
   // Full 32-bit register value.
   uint32_t value;
@@ -134,7 +132,6 @@ union GPR3 {
 //
 union GPR4 {
   
-  // Enum definitions.
   enum class eLOCK : uint32_t {
     eNO = 0, // Write access to bit 31:1 is not blocked
     eBLOCK = 1, // Write access to bit 31:1 is blocked
@@ -145,7 +142,7 @@ union GPR4 {
     eLOCK LOCK : 1;
     uint32_t _reserved_1 : 2;
     uint32_t APC_AC_R1_BOT : 29;
-  } bits;          // Bit-field struct (auto-filling reserved gaps)
+  } bits;
   
   // Full 32-bit register value.
   uint32_t value;
@@ -159,7 +156,6 @@ union GPR4 {
 //
 union GPR5 {
   
-  // Enum definitions.
   enum class eLOCK : uint32_t {
     eNO = 0, // Write access to bit 31:1 is not blocked
     eBLOCK = 1, // Write access to bit 31:1 is blocked
@@ -170,7 +166,7 @@ union GPR5 {
     eLOCK LOCK : 1;
     uint32_t _reserved_1 : 2;
     uint32_t APC_AC_R1_TOP : 29;
-  } bits;          // Bit-field struct (auto-filling reserved gaps)
+  } bits;
   
   // Full 32-bit register value.
   uint32_t value;
@@ -184,7 +180,6 @@ union GPR5 {
 //
 union GPR6 {
   
-  // Enum definitions.
   enum class eLOCK : uint32_t {
     eNO = 0, // Write access to bit 31:1 is not blocked
     eBLOCK = 1, // Write access to bit 31:1 is blocked
@@ -195,7 +190,7 @@ union GPR6 {
     eLOCK LOCK : 1;
     uint32_t _reserved_1 : 2;
     uint32_t APC_AC_R2_BOT : 29;
-  } bits;          // Bit-field struct (auto-filling reserved gaps)
+  } bits;
   
   // Full 32-bit register value.
   uint32_t value;
@@ -209,7 +204,6 @@ union GPR6 {
 //
 union GPR7 {
   
-  // Enum definitions.
   enum class eLOCK : uint32_t {
     eNO = 0, // Write access to bit 31:1 is not blocked
     eBLOCK = 1, // Write access to bit 31:1 is blocked
@@ -220,7 +214,7 @@ union GPR7 {
     eLOCK LOCK : 1;
     uint32_t _reserved_1 : 2;
     uint32_t APC_AC_R2_TOP : 29;
-  } bits;          // Bit-field struct (auto-filling reserved gaps)
+  } bits;
   
   // Full 32-bit register value.
   uint32_t value;
@@ -234,7 +228,6 @@ union GPR7 {
 //
 union GPR8 {
   
-  // Enum definitions.
   enum class eLOCK : uint32_t {
     eNO = 0, // Write access to bit 31:1 is not blocked
     eBLOCK = 1, // Write access to bit 31:1 is blocked
@@ -245,7 +238,7 @@ union GPR8 {
     eLOCK LOCK : 1;
     uint32_t _reserved_1 : 2;
     uint32_t APC_AC_R3_BOT : 29;
-  } bits;          // Bit-field struct (auto-filling reserved gaps)
+  } bits;
   
   // Full 32-bit register value.
   uint32_t value;
@@ -259,7 +252,6 @@ union GPR8 {
 //
 union GPR9 {
   
-  // Enum definitions.
   enum class eLOCK : uint32_t {
     eNO = 0, // Write access to bit 31:1 is not blocked
     eBLOCK = 1, // Write access to bit 31:1 is blocked
@@ -270,7 +262,7 @@ union GPR9 {
     eLOCK LOCK : 1;
     uint32_t _reserved_1 : 2;
     uint32_t APC_AC_R3_TOP : 29;
-  } bits;          // Bit-field struct (auto-filling reserved gaps)
+  } bits;
   
   // Full 32-bit register value.
   uint32_t value;
@@ -284,7 +276,6 @@ union GPR9 {
 //
 union GPR10 {
   
-  // Enum definitions.
   enum class eLOCK : uint32_t {
     eNO = 0, // Write access to bit 31:1 is not blocked
     eBLOCK = 1, // Write access to bit 31:1 is blocked
@@ -295,7 +286,7 @@ union GPR10 {
     eLOCK LOCK : 1;
     uint32_t _reserved_1 : 2;
     uint32_t APC_AC_R4_BOT : 29;
-  } bits;          // Bit-field struct (auto-filling reserved gaps)
+  } bits;
   
   // Full 32-bit register value.
   uint32_t value;
@@ -309,7 +300,6 @@ union GPR10 {
 //
 union GPR11 {
   
-  // Enum definitions.
   enum class eLOCK : uint32_t {
     eNO = 0, // Write access to bit 31:1 is not blocked
     eBLOCK = 1, // Write access to bit 31:1 is blocked
@@ -320,7 +310,7 @@ union GPR11 {
     eLOCK LOCK : 1;
     uint32_t _reserved_1 : 2;
     uint32_t APC_AC_R4_TOP : 29;
-  } bits;          // Bit-field struct (auto-filling reserved gaps)
+  } bits;
   
   // Full 32-bit register value.
   uint32_t value;
@@ -334,7 +324,6 @@ union GPR11 {
 //
 union GPR12 {
   
-  // Enum definitions.
   enum class eLOCK : uint32_t {
     eNO = 0, // Write access to bit 31:1 is not blocked
     eBLOCK = 1, // Write access to bit 31:1 is blocked
@@ -345,7 +334,7 @@ union GPR12 {
     eLOCK LOCK : 1;
     uint32_t _reserved_1 : 2;
     uint32_t APC_AC_R5_BOT : 29;
-  } bits;          // Bit-field struct (auto-filling reserved gaps)
+  } bits;
   
   // Full 32-bit register value.
   uint32_t value;
@@ -359,7 +348,6 @@ union GPR12 {
 //
 union GPR13 {
   
-  // Enum definitions.
   enum class eLOCK : uint32_t {
     eNO = 0, // Write access to bit 31:1 is not blocked
     eBLOCK = 1, // Write access to bit 31:1 is blocked
@@ -370,7 +358,7 @@ union GPR13 {
     eLOCK LOCK : 1;
     uint32_t _reserved_1 : 2;
     uint32_t APC_AC_R5_TOP : 29;
-  } bits;          // Bit-field struct (auto-filling reserved gaps)
+  } bits;
   
   // Full 32-bit register value.
   uint32_t value;
@@ -384,7 +372,6 @@ union GPR13 {
 //
 union GPR14 {
   
-  // Enum definitions.
   enum class eLOCK : uint32_t {
     eNO = 0, // Write access to bit 31:1 is not blocked
     eBLOCK = 1, // Write access to bit 31:1 is blocked
@@ -395,7 +382,7 @@ union GPR14 {
     eLOCK LOCK : 1;
     uint32_t _reserved_1 : 2;
     uint32_t APC_AC_R6_BOT : 29;
-  } bits;          // Bit-field struct (auto-filling reserved gaps)
+  } bits;
   
   // Full 32-bit register value.
   uint32_t value;
@@ -409,7 +396,6 @@ union GPR14 {
 //
 union GPR15 {
   
-  // Enum definitions.
   enum class eLOCK : uint32_t {
     eNO = 0, // Write access to bit 31:1 is not blocked
     eBLOCK = 1, // Write access to bit 31:1 is blocked
@@ -420,7 +406,7 @@ union GPR15 {
     eLOCK LOCK : 1;
     uint32_t _reserved_1 : 2;
     uint32_t APC_AC_R6_TOP : 29;
-  } bits;          // Bit-field struct (auto-filling reserved gaps)
+  } bits;
   
   // Full 32-bit register value.
   uint32_t value;
@@ -434,7 +420,6 @@ union GPR15 {
 //
 union GPR16 {
   
-  // Enum definitions.
   enum class eLOCK : uint32_t {
     eNO = 0, // Write access to bit 31:1 is not blocked
     eBLOCK = 1, // Write access to bit 31:1 is blocked
@@ -445,7 +430,7 @@ union GPR16 {
     eLOCK LOCK : 1;
     uint32_t _reserved_1 : 2;
     uint32_t APC_AC_R7_BOT : 29;
-  } bits;          // Bit-field struct (auto-filling reserved gaps)
+  } bits;
   
   // Full 32-bit register value.
   uint32_t value;
@@ -459,7 +444,6 @@ union GPR16 {
 //
 union GPR17 {
   
-  // Enum definitions.
   enum class eLOCK : uint32_t {
     eNO = 0, // Write access to bit 31:1 is not blocked
     eBLOCK = 1, // Write access to bit 31:1 is blocked
@@ -470,7 +454,7 @@ union GPR17 {
     eLOCK LOCK : 1;
     uint32_t _reserved_1 : 2;
     uint32_t APC_AC_R7_TOP : 29;
-  } bits;          // Bit-field struct (auto-filling reserved gaps)
+  } bits;
   
   // Full 32-bit register value.
   uint32_t value;
@@ -484,7 +468,6 @@ union GPR17 {
 //
 union GPR18 {
   
-  // Enum definitions.
   enum class eAPC_R0_ENCRYPT_ENABLE : uint32_t {
     eDIS = 0, // No effect
     eENABLE = 1, // Encryption enabled
@@ -496,7 +479,7 @@ union GPR18 {
     eAPC_R0_ENCRYPT_ENABLE APC_R0_ENCRYPT_ENABLE : 1;
     uint32_t _reserved_1 : 11;
     uint32_t LOCK : 16;
-  } bits;          // Bit-field struct (auto-filling reserved gaps)
+  } bits;
   
   // Full 32-bit register value.
   uint32_t value;
@@ -510,7 +493,6 @@ union GPR18 {
 //
 union GPR19 {
   
-  // Enum definitions.
   enum class eAPC_R1_ENCRYPT_ENABLE : uint32_t {
     eDIS = 0, // No effect
     eENABLE = 1, // Encryption enabled
@@ -522,7 +504,7 @@ union GPR19 {
     eAPC_R1_ENCRYPT_ENABLE APC_R1_ENCRYPT_ENABLE : 1;
     uint32_t _reserved_1 : 11;
     uint32_t LOCK : 16;
-  } bits;          // Bit-field struct (auto-filling reserved gaps)
+  } bits;
   
   // Full 32-bit register value.
   uint32_t value;
@@ -536,7 +518,6 @@ union GPR19 {
 //
 union GPR20 {
   
-  // Enum definitions.
   enum class eAPC_R2_ENCRYPT_ENABLE : uint32_t {
     eDIS = 0, // No effect
     eENABLE = 1, // Encryption enabled
@@ -548,7 +529,7 @@ union GPR20 {
     eAPC_R2_ENCRYPT_ENABLE APC_R2_ENCRYPT_ENABLE : 1;
     uint32_t _reserved_1 : 11;
     uint32_t LOCK : 16;
-  } bits;          // Bit-field struct (auto-filling reserved gaps)
+  } bits;
   
   // Full 32-bit register value.
   uint32_t value;
@@ -562,7 +543,6 @@ union GPR20 {
 //
 union GPR21 {
   
-  // Enum definitions.
   enum class eAPC_R3_ENCRYPT_ENABLE : uint32_t {
     eDIS = 0, // No effect
     eENABLE = 1, // Encryption enabled
@@ -574,7 +554,7 @@ union GPR21 {
     eAPC_R3_ENCRYPT_ENABLE APC_R3_ENCRYPT_ENABLE : 1;
     uint32_t _reserved_1 : 11;
     uint32_t LOCK : 16;
-  } bits;          // Bit-field struct (auto-filling reserved gaps)
+  } bits;
   
   // Full 32-bit register value.
   uint32_t value;
@@ -588,7 +568,6 @@ union GPR21 {
 //
 union GPR22 {
   
-  // Enum definitions.
   enum class eAPC_R4_ENCRYPT_ENABLE : uint32_t {
     eDIS = 0, // No effect
     eENABLE = 1, // Encryption enabled
@@ -600,7 +579,7 @@ union GPR22 {
     eAPC_R4_ENCRYPT_ENABLE APC_R4_ENCRYPT_ENABLE : 1;
     uint32_t _reserved_1 : 11;
     uint32_t LOCK : 16;
-  } bits;          // Bit-field struct (auto-filling reserved gaps)
+  } bits;
   
   // Full 32-bit register value.
   uint32_t value;
@@ -614,7 +593,6 @@ union GPR22 {
 //
 union GPR23 {
   
-  // Enum definitions.
   enum class eAPC_R5_ENCRYPT_ENABLE : uint32_t {
     eDIS = 0, // No effect
     eENABLE = 1, // Encryption enabled
@@ -626,7 +604,7 @@ union GPR23 {
     eAPC_R5_ENCRYPT_ENABLE APC_R5_ENCRYPT_ENABLE : 1;
     uint32_t _reserved_1 : 11;
     uint32_t LOCK : 16;
-  } bits;          // Bit-field struct (auto-filling reserved gaps)
+  } bits;
   
   // Full 32-bit register value.
   uint32_t value;
@@ -640,7 +618,6 @@ union GPR23 {
 //
 union GPR24 {
   
-  // Enum definitions.
   enum class eAPC_R6_ENCRYPT_ENABLE : uint32_t {
     eDIS = 0, // No effect
     eENABLE = 1, // Encryption enabled
@@ -652,7 +629,7 @@ union GPR24 {
     eAPC_R6_ENCRYPT_ENABLE APC_R6_ENCRYPT_ENABLE : 1;
     uint32_t _reserved_1 : 11;
     uint32_t LOCK : 16;
-  } bits;          // Bit-field struct (auto-filling reserved gaps)
+  } bits;
   
   // Full 32-bit register value.
   uint32_t value;
@@ -666,11 +643,11 @@ union GPR24 {
 //
 union GPR25 {
   
-  // Enum definitions.
   enum class eAPC_R7_ENCRYPT_ENABLE : uint32_t {
     eDIS = 0, // No effect
     eENABLE = 1, // Encryption enabled
   };
+  
   enum class eAPC_VALID : uint32_t {
     eDIS = 0, // No effect
     eENABLE = 1, // Enable encryption for GPRx[APC_x_ENCRYPT_ENABLE] (valid for GPR2-GPR25)
@@ -683,7 +660,7 @@ union GPR25 {
     eAPC_VALID APC_VALID : 1;
     uint32_t _reserved_2 : 10;
     uint32_t LOCK : 16;
-  } bits;          // Bit-field struct (auto-filling reserved gaps)
+  } bits;
   
   // Full 32-bit register value.
   uint32_t value;
@@ -697,13 +674,13 @@ union GPR25 {
 //
 union GPR26 {
   
-  // Enum definitions.
   enum class eDWP : uint32_t {
     eforbid_none = 0, // Both cores are allowed
     eforbid_CM7 = 1, // CM7 is forbidden
     eforbid_CM4 = 2, // CM4 is forbidden
     eforbid_both = 3, // Both cores are forbidden
   };
+  
   enum class eDWP_LOCK : uint32_t {
     elock_none = 0, // Neither of DWP bits is locked
     elock_low = 1, // The lower DWP bit is locked
@@ -717,7 +694,7 @@ union GPR26 {
     uint32_t FIELD_0 : 3;
     eDWP DWP : 2;
     eDWP_LOCK DWP_LOCK : 2;
-  } bits;          // Bit-field struct (auto-filling reserved gaps)
+  } bits;
   
   // Full 32-bit register value.
   uint32_t value;
@@ -731,13 +708,13 @@ union GPR26 {
 //
 union GPR33 {
   
-  // Enum definitions.
   enum class eDWP : uint32_t {
     eforbid_none = 0, // Both cores are allowed
     eforbid_CM7 = 1, // CM7 is forbidden
     eforbid_CM4 = 2, // CM4 is forbidden
     eforbid_both = 3, // Both cores are forbidden
   };
+  
   enum class eDWP_LOCK : uint32_t {
     elock_none = 0, // Neither of DWP bits is locked
     elock_low = 1, // The lower DWP bit is locked
@@ -754,7 +731,7 @@ union GPR33 {
     uint32_t _reserved_3 : 18;
     eDWP DWP : 2;
     eDWP_LOCK DWP_LOCK : 2;
-  } bits;          // Bit-field struct (auto-filling reserved gaps)
+  } bits;
   
   // Full 32-bit register value.
   uint32_t value;
@@ -768,29 +745,33 @@ union GPR33 {
 //
 union GPR34 {
   
-  // Enum definitions.
   enum class eM7_NMI_MASK : uint32_t {
     eDISABLE = 0, // NMI input from IO to CM7 is not blocked
     eENABLE = 1, // NMI input from IO to CM7 is blocked
   };
+  
   enum class eM4_NMI_MASK : uint32_t {
     eDISABLE = 0, // NMI input from IO to CM4 is not blocked
     eENABLE = 1, // NMI input from IO to CM4 is blocked
   };
+  
   enum class eM4_GPC_SLEEP_SEL : uint32_t {
     eDISABLE = 0, // CM4 SLEEPDEEP is sent to GPC
     eNABLE = 1, // CM4 SLEEPING is sent to GPC
   };
+  
   enum class eSEC_ERR_RESP : uint32_t {
     eDISABLE = 0, // OKEY response
     eENABLE = 1, // SLVError (default)
   };
+  
   enum class eDWP : uint32_t {
     eforbid_none = 0, // Both cores are allowed
     eforbid_CM7 = 1, // CM7 is forbidden
     eforbid_CM4 = 2, // CM4 is forbidden
     eforbid_both = 3, // Both cores are forbidden
   };
+  
   enum class eDWP_LOCK : uint32_t {
     elock_none = 0, // Neither of DWP bits is locked
     elock_low = 1, // The lower DWP bit is locked
@@ -811,7 +792,7 @@ union GPR34 {
     uint32_t _reserved_6 : 16;
     eDWP DWP : 2;
     eDWP_LOCK DWP_LOCK : 2;
-  } bits;          // Bit-field struct (auto-filling reserved gaps)
+  } bits;
   
   // Full 32-bit register value.
   uint32_t value;
@@ -825,117 +806,143 @@ union GPR34 {
 //
 union GPR35 {
   
-  // Enum definitions.
   enum class eADC1_IPG_DOZE : uint32_t {
     eDISABLE = 0, // Not in doze mode
     eENABLE = 1, // In doze mode
   };
+  
   enum class eADC1_STOP_REQ : uint32_t {
     eDISABLE = 0, // Stop request off
     eENABLE = 1, // Stop request on
   };
+  
   enum class eADC1_IPG_STOP_MODE : uint32_t {
     eFUNC = 0, // This module is functional in Stop Mode
     eNONFUNC = 1, // This module is not functional in Stop Mode and the corresponding x_STOP_REQ field is set to '1'.
   };
+  
   enum class eADC2_IPG_DOZE : uint32_t {
     eDISABLE = 0, // Not in doze mode
     eENABLE = 1, // In doze mode
   };
+  
   enum class eADC2_STOP_REQ : uint32_t {
     eDISABLE = 0, // Stop request off
     eENABLE = 1, // Stop request on
   };
+  
   enum class eADC2_IPG_STOP_MODE : uint32_t {
     eFUNC = 0, // This module is functional in Stop Mode
     eNONFUNC = 1, // This module is not functional in Stop Mode and the corresponding x_STOP_REQ field is set to '1'.
   };
+  
   enum class eCAAM_IPG_DOZE : uint32_t {
     eDISABLE = 0, // Not in doze mode
     eENABLE = 1, // In doze mode
   };
+  
   enum class eCAAM_STOP_REQ : uint32_t {
     eDISABLE = 0, // Stop request off
     eENABLE = 1, // Stop request on
   };
+  
   enum class eCAN1_IPG_DOZE : uint32_t {
     eDISABLE = 0, // Not in doze mode
     eENABLE = 1, // In doze mode
   };
+  
   enum class eCAN1_STOP_REQ : uint32_t {
     eDISABLE = 0, // Stop request off
     eENABLE = 1, // Stop request on
   };
+  
   enum class eCAN2_IPG_DOZE : uint32_t {
     eDISABLE = 0, // Not in doze mode
     eENABLE = 1, // In doze mode
   };
+  
   enum class eCAN2_STOP_REQ : uint32_t {
     eDISABLE = 0, // Stop request off
     eENABLE = 1, // Stop request on
   };
+  
   enum class eCAN3_IPG_DOZE : uint32_t {
     eDISABLE = 0, // Not in doze mode
     eENABLE = 1, // In doze mode
   };
+  
   enum class eCAN3_STOP_REQ : uint32_t {
     eDISABLE = 0, // Stop request off
     eENABLE = 1, // Stop request on
   };
+  
   enum class eEDMA_STOP_REQ : uint32_t {
     eDISABLE = 0, // Stop request off
     eENABLE = 1, // Stop request on
   };
+  
   enum class eEDMA_LPSR_STOP_REQ : uint32_t {
     eDISABLE = 0, // Stop request off
     eENABLE = 1, // Stop request on
   };
+  
   enum class eENET_IPG_DOZE : uint32_t {
     eDISABLE = 0, // Not in doze mode
     eENABLE = 1, // In doze mode
   };
+  
   enum class eENET_STOP_REQ : uint32_t {
     eDISABLE = 0, // Stop request off
     eENABLE = 1, // Stop request on
   };
+  
   enum class eENET1G_IPG_DOZE : uint32_t {
     eDISABLE = 0, // Not in doze mode
     eENABLE = 1, // In doze mode
   };
+  
   enum class eENET1G_STOP_REQ : uint32_t {
     eDISABLE = 0, // Stop request off
     eENABLE = 1, // Stop request on
   };
+  
   enum class eFLEXIO1_IPG_DOZE : uint32_t {
     eDISABLE = 0, // Not in doze mode
     eENABLE = 1, // In doze mode
   };
+  
   enum class eFLEXIO2_IPG_DOZE : uint32_t {
     eDISABLE = 0, // Not in doze mode
     eENABLE = 1, // In doze mode
   };
+  
   enum class eFLEXSPI1_IPG_DOZE : uint32_t {
     eDISABLE = 0, // Not in doze mode
     eENABLE = 1, // In doze mode
   };
+  
   enum class eFLEXSPI1_STOP_REQ : uint32_t {
     eDISABLE = 0, // Stop request off
     eENABLE = 1, // Stop request on
   };
+  
   enum class eFLEXSPI2_IPG_DOZE : uint32_t {
     eDISABLE = 0, // Not in doze mode
     eENABLE = 1, // In doze mode
   };
+  
   enum class eFLEXSPI2_STOP_REQ : uint32_t {
     eDISABLE = 0, // Stop request off
     eENABLE = 1, // Stop request on
   };
+  
   enum class eDWP : uint32_t {
     eforbid_none = 0, // Both cores are allowed
     eforbid_CM7 = 1, // CM7 is forbidden
     eforbid_CM4 = 2, // CM4 is forbidden
     eforbid_both = 3, // Both cores are forbidden
   };
+  
   enum class eDWP_LOCK : uint32_t {
     elock_none = 0, // Neither of DWP bits is locked
     elock_low = 1, // The lower DWP bit is locked
@@ -975,7 +982,7 @@ union GPR35 {
     uint32_t _reserved_26 : 1;
     eDWP DWP : 2;
     eDWP_LOCK DWP_LOCK : 2;
-  } bits;          // Bit-field struct (auto-filling reserved gaps)
+  } bits;
   
   // Full 32-bit register value.
   uint32_t value;
@@ -989,121 +996,148 @@ union GPR35 {
 //
 union GPR36 {
   
-  // Enum definitions.
   enum class eGPT1_IPG_DOZE : uint32_t {
     eDISABLE = 0, // Not in doze mode
     eENABLE = 1, // In doze mode
   };
+  
   enum class eGPT2_IPG_DOZE : uint32_t {
     eDISABLE = 0, // Not in doze mode
     eENABLE = 1, // In doze mode
   };
+  
   enum class eGPT3_IPG_DOZE : uint32_t {
     eDISABLE = 0, // Not in doze mode
     eENABLE = 1, // In doze mode
   };
+  
   enum class eGPT4_IPG_DOZE : uint32_t {
     eDISABLE = 0, // Not in doze mode
     eENABLE = 1, // In doze mode
   };
+  
   enum class eGPT5_IPG_DOZE : uint32_t {
     eDISABLE = 0, // Not in doze mode
     eENABLE = 1, // In doze mode
   };
+  
   enum class eGPT6_IPG_DOZE : uint32_t {
     eDISABLE = 0, // Not in doze mode
     eENABLE = 1, // In doze mode
   };
+  
   enum class eLPI2C1_IPG_DOZE : uint32_t {
     eDISABLE = 0, // Not in doze mode
     eENABLE = 1, // In doze mode
   };
+  
   enum class eLPI2C1_STOP_REQ : uint32_t {
     eDISABLE = 0, // Stop request off
     eENABLE = 1, // Stop request on
   };
+  
   enum class eLPI2C1_IPG_STOP_MODE : uint32_t {
     eFUNC = 0, // This module is functional in Stop Mode
     eNONFUNC = 1, // This module is not functional in Stop Mode and the corresponding x_STOP_REQ field is set to '1'.
   };
+  
   enum class eLPI2C2_IPG_DOZE : uint32_t {
     eDISABLE = 0, // Not in doze mode
     eENABLE = 1, // In doze mode
   };
+  
   enum class eLPI2C2_STOP_REQ : uint32_t {
     eDISABLE = 0, // Stop request off
     eENABLE = 1, // Stop request on
   };
+  
   enum class eLPI2C2_IPG_STOP_MODE : uint32_t {
     eFUNC = 0, // This module is functional in Stop Mode
     eNONFUNC = 1, // This module is not functional in Stop Mode and the corresponding x_STOP_REQ field is set to '1'.
   };
+  
   enum class eLPI2C3_IPG_DOZE : uint32_t {
     eDISABLE = 0, // Not in doze mode
     eENABLE = 1, // In doze mode
   };
+  
   enum class eLPI2C3_STOP_REQ : uint32_t {
     eDISABLE = 0, // Stop request off
     eENABLE = 1, // Stop request on
   };
+  
   enum class eLPI2C3_IPG_STOP_MODE : uint32_t {
     eFUNC = 0, // This module is functional in Stop Mode
     eNONFUNC = 1, // This module is not functional in Stop Mode and the corresponding x_STOP_REQ field is set to '1'.
   };
+  
   enum class eLPI2C4_IPG_DOZE : uint32_t {
     eDISABLE = 0, // Not in doze mode
     eENABLE = 1, // In doze mode
   };
+  
   enum class eLPI2C4_STOP_REQ : uint32_t {
     eDISABLE = 0, // Stop request off
     eENABLE = 1, // Stop request on
   };
+  
   enum class eLPI2C4_IPG_STOP_MODE : uint32_t {
     eFUNC = 0, // This module is functional in Stop Mode
     eNONFUNC = 1, // This module is not functional in Stop Mode and the corresponding x_STOP_REQ field is set to '1'.
   };
+  
   enum class eLPI2C5_IPG_DOZE : uint32_t {
     eDISABLE = 0, // Not in doze mode
     eENABLE = 1, // In doze mode
   };
+  
   enum class eLPI2C5_STOP_REQ : uint32_t {
     eDISABLE = 0, // Stop request off
     eENABLE = 1, // Stop request on
   };
+  
   enum class eLPI2C5_IPG_STOP_MODE : uint32_t {
     eFUNC = 0, // This module is functional in Stop Mode
     eNONFUNC = 1, // This module is not functional in Stop Mode and the corresponding x_STOP_REQ field is set to '1'.
   };
+  
   enum class eLPI2C6_IPG_DOZE : uint32_t {
     eDISABLE = 0, // Not in doze mode
     eENABLE = 1, // In doze mode
   };
+  
   enum class eLPI2C6_STOP_REQ : uint32_t {
     eDISABLE = 0, // Stop request off
     eENABLE = 1, // Stop request on
   };
+  
   enum class eLPI2C6_IPG_STOP_MODE : uint32_t {
     eFUNC = 0, // This module is functional in Stop Mode
     eNONFUNC = 1, // This module is not functional in Stop Mode and the corresponding x_STOP_REQ field is set to '1'.
   };
+  
   enum class eLPSPI1_IPG_DOZE : uint32_t {
     eDISABLE = 0, // Not in doze mode
     eENABLE = 1, // In doze mode
   };
+  
   enum class eLPSPI1_STOP_REQ : uint32_t {
     eDISABLE = 0, // Stop request off
     eENABLE = 1, // Stop request on
   };
+  
   enum class eLPSPI1_IPG_STOP_MODE : uint32_t {
     eFUNC = 0, // This module is functional in Stop Mode
     eNONFUNC = 1, // This module is not functional in Stop Mode and the corresponding x_STOP_REQ field is set to '1'.
   };
+  
   enum class eDWP : uint32_t {
     eforbid_none = 0, // Both cores are allowed
     eforbid_CM7 = 1, // CM7 is forbidden
     eforbid_CM4 = 2, // CM4 is forbidden
     eforbid_both = 3, // Both cores are forbidden
   };
+  
   enum class eDWP_LOCK : uint32_t {
     elock_none = 0, // Neither of DWP bits is locked
     elock_low = 1, // The lower DWP bit is locked
@@ -1143,7 +1177,7 @@ union GPR36 {
     uint32_t _reserved_27 : 1;
     eDWP DWP : 2;
     eDWP_LOCK DWP_LOCK : 2;
-  } bits;          // Bit-field struct (auto-filling reserved gaps)
+  } bits;
   
   // Full 32-bit register value.
   uint32_t value;
@@ -1157,121 +1191,148 @@ union GPR36 {
 //
 union GPR37 {
   
-  // Enum definitions.
   enum class eLPSPI2_IPG_DOZE : uint32_t {
     eDISABLE = 0, // Not in doze mode
     eENABLE = 1, // In doze mode
   };
+  
   enum class eLPSPI2_STOP_REQ : uint32_t {
     eDISABLE = 0, // Stop request off
     eENABLE = 1, // Stop request on
   };
+  
   enum class eLPSPI2_IPG_STOP_MODE : uint32_t {
     eFUNC = 0, // This module is functional in Stop Mode
     eNONFUNC = 1, // This module is not functional in Stop Mode and the corresponding x_STOP_REQ field is set to '1'.
   };
+  
   enum class eLPSPI3_IPG_DOZE : uint32_t {
     eDISABLE = 0, // Not in doze mode
     eENABLE = 1, // In doze mode
   };
+  
   enum class eLPSPI3_STOP_REQ : uint32_t {
     eDISABLE = 0, // Stop request off
     eENABLE = 1, // Stop request on
   };
+  
   enum class eLPSPI3_IPG_STOP_MODE : uint32_t {
     eFUNC = 0, // This module is functional in Stop Mode
     eNONFUNC = 1, // This module is not functional in Stop Mode and the corresponding x_STOP_REQ field is set to '1'.
   };
+  
   enum class eLPSPI4_IPG_DOZE : uint32_t {
     eDISABLE = 0, // Not in doze mode
     eENABLE = 1, // In doze mode
   };
+  
   enum class eLPSPI4_STOP_REQ : uint32_t {
     eDISABLE = 0, // Stop request off
     eENABLE = 1, // Stop request on
   };
+  
   enum class eLPSPI4_IPG_STOP_MODE : uint32_t {
     eFUNC = 0, // This module is functional in Stop Mode
     eNONFUNC = 1, // This module is not functional in Stop Mode and the corresponding x_STOP_REQ field is set to '1'.
   };
+  
   enum class eLPSPI5_IPG_DOZE : uint32_t {
     eDISABLE = 0, // Not in doze mode
     eENABLE = 1, // In doze mode
   };
+  
   enum class eLPSPI5_STOP_REQ : uint32_t {
     eDISABLE = 0, // Stop request off
     eENABLE = 1, // Stop request on
   };
+  
   enum class eLPSPI5_IPG_STOP_MODE : uint32_t {
     eFUNC = 0, // This module is functional in Stop Mode
     eNONFUNC = 1, // This module is not functional in Stop Mode and the corresponding x_STOP_REQ field is set to '1'.
   };
+  
   enum class eLPSPI6_IPG_DOZE : uint32_t {
     eDISABLE = 0, // Not in doze mode
     eENABLE = 1, // In doze mode
   };
+  
   enum class eLPSPI6_STOP_REQ : uint32_t {
     eDISABLE = 0, // Stop request off
     eENABLE = 1, // Stop request on
   };
+  
   enum class eLPSPI6_IPG_STOP_MODE : uint32_t {
     eFUNC = 0, // This module is functional in Stop Mode
     eNONFUNC = 1, // This module is not functional in Stop Mode and the corresponding x_STOP_REQ field is set to '1'.
   };
+  
   enum class eLPUART1_IPG_DOZE : uint32_t {
     eDISABLE = 0, // Not in doze mode
     eENABLE = 1, // In doze mode
   };
+  
   enum class eLPUART1_STOP_REQ : uint32_t {
     eDISABLE = 0, // Stop request off
     eENABLE = 1, // Stop request on
   };
+  
   enum class eLPUART1_IPG_STOP_MODE : uint32_t {
     eFUNC = 0, // This module is functional in Stop Mode
     eNONFUNC = 1, // This module is not functional in Stop Mode and the corresponding x_STOP_REQ field is set to '1'.
   };
+  
   enum class eLPUART2_IPG_DOZE : uint32_t {
     eDISABLE = 0, // Not in doze mode
     eENABLE = 1, // In doze mode
   };
+  
   enum class eLPUART2_STOP_REQ : uint32_t {
     eDISABLE = 0, // Stop request off
     eENABLE = 1, // Stop request on
   };
+  
   enum class eLPUART2_IPG_STOP_MODE : uint32_t {
     eFUNC = 0, // This module is functional in Stop Mode
     eNONFUNC = 1, // This module is not functional in Stop Mode and the corresponding x_STOP_REQ field is set to '1'.
   };
+  
   enum class eLPUART3_IPG_DOZE : uint32_t {
     eDISABLE = 0, // Not in doze mode
     eENABLE = 1, // In doze mode
   };
+  
   enum class eLPUART3_STOP_REQ : uint32_t {
     eDISABLE = 0, // Stop request off
     eENABLE = 1, // Stop request on
   };
+  
   enum class eLPUART3_IPG_STOP_MODE : uint32_t {
     eFUNC = 0, // This module is functional in Stop Mode
     eNONFUNC = 1, // This module is not functional in Stop Mode and the corresponding x_STOP_REQ field is set to '1'.
   };
+  
   enum class eLPUART4_IPG_DOZE : uint32_t {
     eDISABLE = 0, // Not in doze mode
     eENABLE = 1, // In doze mode
   };
+  
   enum class eLPUART4_STOP_REQ : uint32_t {
     eDISABLE = 0, // Stop request off
     eENABLE = 1, // Stop request on
   };
+  
   enum class eLPUART4_IPG_STOP_MODE : uint32_t {
     eFUNC = 0, // This module is functional in Stop Mode
     eNONFUNC = 1, // This module is not functional in Stop Mode and the corresponding x_STOP_REQ field is set to '1'.
   };
+  
   enum class eDWP : uint32_t {
     eforbid_none = 0, // Both cores are allowed
     eforbid_CM7 = 1, // CM7 is forbidden
     eforbid_CM4 = 2, // CM4 is forbidden
     eforbid_both = 3, // Both cores are forbidden
   };
+  
   enum class eDWP_LOCK : uint32_t {
     elock_none = 0, // Neither of DWP bits is locked
     elock_low = 1, // The lower DWP bit is locked
@@ -1311,7 +1372,7 @@ union GPR37 {
     uint32_t _reserved_27 : 1;
     eDWP DWP : 2;
     eDWP_LOCK DWP_LOCK : 2;
-  } bits;          // Bit-field struct (auto-filling reserved gaps)
+  } bits;
   
   // Full 32-bit register value.
   uint32_t value;
@@ -1325,121 +1386,148 @@ union GPR37 {
 //
 union GPR38 {
   
-  // Enum definitions.
   enum class eLPUART5_IPG_DOZE : uint32_t {
     eDISABLE = 0, // Not in doze mode
     eENABLE = 1, // In doze mode
   };
+  
   enum class eLPUART5_STOP_REQ : uint32_t {
     eDISABLE = 0, // Stop request off
     eENABLE = 1, // Stop request on
   };
+  
   enum class eLPUART5_IPG_STOP_MODE : uint32_t {
     eFUNC = 0, // This module is functional in Stop Mode
     eNONFUNC = 1, // This module is not functional in Stop Mode and the corresponding x_STOP_REQ field is set to '1'.
   };
+  
   enum class eLPUART6_IPG_DOZE : uint32_t {
     eDISABLE = 0, // Not in doze mode
     eENABLE = 1, // In doze mode
   };
+  
   enum class eLPUART6_STOP_REQ : uint32_t {
     eDISABLE = 0, // Stop request off
     eENABLE = 1, // Stop request on
   };
+  
   enum class eLPUART6_IPG_STOP_MODE : uint32_t {
     eFUNC = 0, // This module is functional in Stop Mode
     eNONFUNC = 1, // This module is not functional in Stop Mode and the corresponding x_STOP_REQ field is set to '1'.
   };
+  
   enum class eLPUART7_IPG_DOZE : uint32_t {
     eDISABLE = 0, // Not in doze mode
     eENABLE = 1, // In doze mode
   };
+  
   enum class eLPUART7_STOP_REQ : uint32_t {
     eDISABLE = 0, // Stop request off
     eENABLE = 1, // Stop request on
   };
+  
   enum class eLPUART7_IPG_STOP_MODE : uint32_t {
     eFUNC = 0, // This module is functional in Stop Mode
     eNONFUNC = 1, // This module is not functional in Stop Mode and the corresponding x_STOP_REQ field is set to '1'.
   };
+  
   enum class eLPUART8_IPG_DOZE : uint32_t {
     eDISABLE = 0, // Not in doze mode
     eENABLE = 1, // In doze mode
   };
+  
   enum class eLPUART8_STOP_REQ : uint32_t {
     eDISABLE = 0, // Stop request off
     eENABLE = 1, // Stop request on
   };
+  
   enum class eLPUART8_IPG_STOP_MODE : uint32_t {
     eFUNC = 0, // This module is functional in Stop Mode
     eNONFUNC = 1, // This module is not functional in Stop Mode and the corresponding x_STOP_REQ field is set to '1'.
   };
+  
   enum class eLPUART9_IPG_DOZE : uint32_t {
     eDISABLE = 0, // Not in doze mode
     eENABLE = 1, // In doze mode
   };
+  
   enum class eLPUART9_STOP_REQ : uint32_t {
     eDISABLE = 0, // Stop request off
     eENABLE = 1, // Stop request on
   };
+  
   enum class eLPUART9_IPG_STOP_MODE : uint32_t {
     eFUNC = 0, // This module is functional in Stop Mode
     eNONFUNC = 1, // This module is not functional in Stop Mode and the corresponding x_STOP_REQ field is set to '1'.
   };
+  
   enum class eLPUART10_IPG_DOZE : uint32_t {
     eDISABLE = 0, // Not in doze mode
     eENABLE = 1, // In doze mode
   };
+  
   enum class eLPUART10_STOP_REQ : uint32_t {
     eDISABLE = 0, // Stop request off
     eENABLE = 1, // Stop request on
   };
+  
   enum class eLPUART10_IPG_STOP_MODE : uint32_t {
     eFUNC = 0, // This module is functional in Stop Mode
     eNONFUNC = 1, // This module is not functional in Stop Mode and the corresponding x_STOP_REQ field is set to '1'.
   };
+  
   enum class eLPUART11_IPG_DOZE : uint32_t {
     eDISABLE = 0, // Not in doze mode
     eENABLE = 1, // In doze mode
   };
+  
   enum class eLPUART11_STOP_REQ : uint32_t {
     eDISABLE = 0, // Stop request off
     eENABLE = 1, // Stop request on
   };
+  
   enum class eLPUART11_IPG_STOP_MODE : uint32_t {
     eFUNC = 0, // This module is functional in Stop Mode
     eNONFUNC = 1, // This module is not functional in Stop Mode and the corresponding x_STOP_REQ field is set to '1'.
   };
+  
   enum class eLPUART12_IPG_DOZE : uint32_t {
     eDISABLE = 0, // Not in doze mode
     eENABLE = 1, // In doze mode
   };
+  
   enum class eLPUART12_STOP_REQ : uint32_t {
     eDISABLE = 0, // Stop request off
     eENABLE = 1, // Stop request on
   };
+  
   enum class eLPUART12_IPG_STOP_MODE : uint32_t {
     eFUNC = 0, // This module is functional in Stop Mode
     eNONFUNC = 1, // This module is not functional in Stop Mode and the corresponding x_STOP_REQ field is set to '1'.
   };
+  
   enum class eMIC_IPG_DOZE : uint32_t {
     eDISABLE = 0, // Not in doze mode
     eENABLE = 1, // In doze mode
   };
+  
   enum class eMIC_STOP_REQ : uint32_t {
     eDISABLE = 0, // Stop request off
     eENABLE = 1, // Stop request on
   };
+  
   enum class eMIC_IPG_STOP_MODE : uint32_t {
     eFUNC = 0, // This module is functional in Stop Mode
     eNONFUNC = 1, // This module is not functional in Stop Mode and the corresponding x_STOP_REQ field is set to '1'.
   };
+  
   enum class eDWP : uint32_t {
     eforbid_none = 0, // Both cores are allowed
     eforbid_CM7 = 1, // CM7 is forbidden
     eforbid_CM4 = 2, // CM4 is forbidden
     eforbid_both = 3, // Both cores are forbidden
   };
+  
   enum class eDWP_LOCK : uint32_t {
     elock_none = 0, // Neither of DWP bits is locked
     elock_low = 1, // The lower DWP bit is locked
@@ -1479,7 +1567,7 @@ union GPR38 {
     uint32_t _reserved_27 : 1;
     eDWP DWP : 2;
     eDWP_LOCK DWP_LOCK : 2;
-  } bits;          // Bit-field struct (auto-filling reserved gaps)
+  } bits;
   
   // Full 32-bit register value.
   uint32_t value;
@@ -1493,81 +1581,98 @@ union GPR38 {
 //
 union GPR39 {
   
-  // Enum definitions.
   enum class ePIT1_STOP_REQ : uint32_t {
     eDISABLE = 0, // Stop request off
     eENABLE = 1, // Stop request on
   };
+  
   enum class ePIT2_STOP_REQ : uint32_t {
     eDISABLE = 0, // Stop request off
     eENABLE = 1, // Stop request on
   };
+  
   enum class eSEMC_STOP_REQ : uint32_t {
     eDISABLE = 0, // Stop request off
     eENABLE = 1, // Stop request on
   };
+  
   enum class eSIM1_IPG_DOZE : uint32_t {
     eDISABLE = 0, // Not in doze mode
     eENABLE = 1, // In doze mode
   };
+  
   enum class eSIM2_IPG_DOZE : uint32_t {
     eDISABLE = 0, // Not in doze mode
     eENABLE = 1, // In doze mode
   };
+  
   enum class eSNVS_HP_IPG_DOZE : uint32_t {
     eDISABLE = 0, // Not in doze mode
     eENABLE = 1, // In doze mode
   };
+  
   enum class eSNVS_HP_STOP_REQ : uint32_t {
     eDISABLE = 0, // Stop request off
     eENABLE = 1, // Stop request on
   };
+  
   enum class eWDOG1_IPG_DOZE : uint32_t {
     eDISABLE = 0, // Not in doze mode
     eENABLE = 1, // In doze mode
   };
+  
   enum class eWDOG2_IPG_DOZE : uint32_t {
     eDISABLE = 0, // Not in doze mode
     eENABLE = 1, // In doze mode
   };
+  
   enum class eSAI1_STOP_REQ : uint32_t {
     eDISABLE = 0, // Stop request off
     eENABLE = 1, // Stop request on
   };
+  
   enum class eSAI2_STOP_REQ : uint32_t {
     eDISABLE = 0, // Stop request off
     eENABLE = 1, // Stop request on
   };
+  
   enum class eSAI3_STOP_REQ : uint32_t {
     eDISABLE = 0, // Stop request off
     eENABLE = 1, // Stop request on
   };
+  
   enum class eSAI4_STOP_REQ : uint32_t {
     eDISABLE = 0, // Stop request off
     eENABLE = 1, // Stop request on
   };
+  
   enum class eFLEXIO1_STOP_REQ_BUS : uint32_t {
     eDISABLE = 0, // Stop request off
     eENABLE = 1, // Stop request on
   };
+  
   enum class eFLEXIO1_STOP_REQ_PER : uint32_t {
     eDISABLE = 0, // Stop request off
     eENABLE = 1, // Stop request on
   };
+  
   enum class eFLEXIO2_STOP_REQ_BUS : uint32_t {
     eDISABLE = 0, // Stop request off
     eENABLE = 1, // Stop request on
   };
+  
   enum class eFLEXIO2_STOP_REQ_PER : uint32_t {
     eDISABLE = 0, // Stop request off
     eENABLE = 1, // Stop request on
   };
+  
   enum class eDWP : uint32_t {
     eforbid_none = 0, // Both cores are allowed
     eforbid_CM7 = 1, // CM7 is forbidden
     eforbid_CM4 = 2, // CM4 is forbidden
     eforbid_both = 3, // Both cores are forbidden
   };
+  
   enum class eDWP_LOCK : uint32_t {
     elock_none = 0, // Neither of DWP bits is locked
     elock_low = 1, // The lower DWP bit is locked
@@ -1598,7 +1703,7 @@ union GPR39 {
     uint32_t _reserved_17 : 10;
     eDWP DWP : 2;
     eDWP_LOCK DWP_LOCK : 2;
-  } bits;          // Bit-field struct (auto-filling reserved gaps)
+  } bits;
   
   // Full 32-bit register value.
   uint32_t value;
@@ -1611,8 +1716,6 @@ union GPR39 {
 // GPR40 General Purpose Register
 //
 union GPR40 {
-  
-  // Enum definitions.
   
   // Bit field definition.
   struct {
@@ -1648,7 +1751,7 @@ union GPR40 {
     uint32_t LPUART6_STOP_ACK : 1;
     uint32_t LPUART7_STOP_ACK : 1;
     uint32_t LPUART8_STOP_ACK : 1;
-  } bits;          // Bit-field struct (auto-filling reserved gaps)
+  } bits;
   
   // Full 32-bit register value.
   uint32_t value;
@@ -1661,8 +1764,6 @@ union GPR40 {
 // GPR41 General Purpose Register
 //
 union GPR41 {
-  
-  // Enum definitions.
   
   // Bit field definition.
   struct {
@@ -1686,7 +1787,7 @@ union GPR41 {
     uint32_t _reserved_17 : 7;
     uint32_t ROM_READ_LOCKED : 1;
     uint32_t _reserved_end : 7;
-  } bits;          // Bit-field struct (auto-filling reserved gaps)
+  } bits;
   
   // Full 32-bit register value.
   uint32_t value;

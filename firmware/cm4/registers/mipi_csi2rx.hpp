@@ -15,7 +15,6 @@ namespace nMIPI_CSI2RX {
 //
 union CFG_NUM_LANES {
   
-  // Enum definitions.
   enum class eCFG_NUM_LANES : uint32_t {
     eCFG_NUM_LANES_0 = 0, // 1 Lane
     eCFG_NUM_LANES_1 = 1, // 2 Lane
@@ -25,7 +24,7 @@ union CFG_NUM_LANES {
   struct {
     eCFG_NUM_LANES CFG_NUM_LANES : 2;
     uint32_t _reserved_end : 30;
-  } bits;          // Bit-field struct (auto-filling reserved gaps)
+  } bits;
   
   // Full 32-bit register value.
   uint32_t value;
@@ -39,13 +38,11 @@ union CFG_NUM_LANES {
 //
 union CFG_DISABLE_DATA_LANES {
   
-  // Enum definitions.
-  
   // Bit field definition.
   struct {
     uint32_t CFG_DISABLE_DATA_LANES : 4;
     uint32_t _reserved_end : 28;
-  } bits;          // Bit-field struct (auto-filling reserved gaps)
+  } bits;
   
   // Full 32-bit register value.
   uint32_t value;
@@ -59,13 +56,11 @@ union CFG_DISABLE_DATA_LANES {
 //
 union BIT_ERR {
   
-  // Enum definitions.
-  
   // Bit field definition.
   struct {
     uint32_t BIT_ERR : 10;
     uint32_t _reserved_end : 22;
-  } bits;          // Bit-field struct (auto-filling reserved gaps)
+  } bits;
   
   // Full 32-bit register value.
   uint32_t value;
@@ -79,13 +74,11 @@ union BIT_ERR {
 //
 union IRQ_STATUS {
   
-  // Enum definitions.
-  
   // Bit field definition.
   struct {
     uint32_t IRQ_STATUS : 9;
     uint32_t _reserved_end : 23;
-  } bits;          // Bit-field struct (auto-filling reserved gaps)
+  } bits;
   
   // Full 32-bit register value.
   uint32_t value;
@@ -99,13 +92,11 @@ union IRQ_STATUS {
 //
 union IRQ_MASK {
   
-  // Enum definitions.
-  
   // Bit field definition.
   struct {
     uint32_t IRQ_MASK : 9;
     uint32_t _reserved_end : 23;
-  } bits;          // Bit-field struct (auto-filling reserved gaps)
+  } bits;
   
   // Full 32-bit register value.
   uint32_t value;
@@ -119,13 +110,11 @@ union IRQ_MASK {
 //
 union ULPS_STATUS {
   
-  // Enum definitions.
-  
   // Bit field definition.
   struct {
     uint32_t STATUS : 10;
     uint32_t _reserved_end : 22;
-  } bits;          // Bit-field struct (auto-filling reserved gaps)
+  } bits;
   
   // Full 32-bit register value.
   uint32_t value;
@@ -139,13 +128,11 @@ union ULPS_STATUS {
 //
 union PPI_ERRSOT_HS {
   
-  // Enum definitions.
-  
   // Bit field definition.
   struct {
     uint32_t STATUS : 4;
     uint32_t _reserved_end : 28;
-  } bits;          // Bit-field struct (auto-filling reserved gaps)
+  } bits;
   
   // Full 32-bit register value.
   uint32_t value;
@@ -159,13 +146,11 @@ union PPI_ERRSOT_HS {
 //
 union PPI_ERRSOTSYNC_HS {
   
-  // Enum definitions.
-  
   // Bit field definition.
   struct {
     uint32_t STATUS : 4;
     uint32_t _reserved_end : 28;
-  } bits;          // Bit-field struct (auto-filling reserved gaps)
+  } bits;
   
   // Full 32-bit register value.
   uint32_t value;
@@ -179,13 +164,11 @@ union PPI_ERRSOTSYNC_HS {
 //
 union PPI_ERRESC {
   
-  // Enum definitions.
-  
   // Bit field definition.
   struct {
     uint32_t STATUS : 4;
     uint32_t _reserved_end : 28;
-  } bits;          // Bit-field struct (auto-filling reserved gaps)
+  } bits;
   
   // Full 32-bit register value.
   uint32_t value;
@@ -199,13 +182,11 @@ union PPI_ERRESC {
 //
 union PPI_ERRSYNCESC {
   
-  // Enum definitions.
-  
   // Bit field definition.
   struct {
     uint32_t STATUS : 4;
     uint32_t _reserved_end : 28;
-  } bits;          // Bit-field struct (auto-filling reserved gaps)
+  } bits;
   
   // Full 32-bit register value.
   uint32_t value;
@@ -219,13 +200,11 @@ union PPI_ERRSYNCESC {
 //
 union PPI_ERRCONTROL {
   
-  // Enum definitions.
-  
   // Bit field definition.
   struct {
     uint32_t STATUS : 4;
     uint32_t _reserved_end : 28;
-  } bits;          // Bit-field struct (auto-filling reserved gaps)
+  } bits;
   
   // Full 32-bit register value.
   uint32_t value;
@@ -238,8 +217,6 @@ union PPI_ERRCONTROL {
 // Disable Payload 0 Register
 //
 union CFG_DISABLE_PAYLOAD_0 {
-  
-  // Enum definitions.
   
   // Bit field definition.
   struct {
@@ -257,7 +234,7 @@ union CFG_DISABLE_PAYLOAD_0 {
     uint32_t DIS_PAYLOAD_RGB666 : 1;
     uint32_t DIS_PAYLOAD_RGB888 : 1;
     uint32_t _reserved_end : 11;
-  } bits;          // Bit-field struct (auto-filling reserved gaps)
+  } bits;
   
   // Full 32-bit register value.
   uint32_t value;
@@ -270,8 +247,6 @@ union CFG_DISABLE_PAYLOAD_0 {
 // Disable Payload 1 Register
 //
 union CFG_DISABLE_PAYLOAD_1 {
-  
-  // Enum definitions.
   
   // Bit field definition.
   struct {
@@ -286,7 +261,7 @@ union CFG_DISABLE_PAYLOAD_1 {
     uint32_t _reserved_8 : 8;
     uint32_t DIS_PAYLOAD_UNSUPPORTED : 1;
     uint32_t _reserved_end : 15;
-  } bits;          // Bit-field struct (auto-filling reserved gaps)
+  } bits;
   
   // Full 32-bit register value.
   uint32_t value;
@@ -300,13 +275,11 @@ union CFG_DISABLE_PAYLOAD_1 {
 //
 union CFG_IGNORE_VC {
   
-  // Enum definitions.
-  
   // Bit field definition.
   struct {
     uint32_t IGNORE_VC : 1;
     uint32_t _reserved_end : 31;
-  } bits;          // Bit-field struct (auto-filling reserved gaps)
+  } bits;
   
   // Full 32-bit register value.
   uint32_t value;
@@ -320,13 +293,11 @@ union CFG_IGNORE_VC {
 //
 union CFG_VID_VC {
   
-  // Enum definitions.
-  
   // Bit field definition.
   struct {
     uint32_t VID_VC : 2;
     uint32_t _reserved_end : 30;
-  } bits;          // Bit-field struct (auto-filling reserved gaps)
+  } bits;
   
   // Full 32-bit register value.
   uint32_t value;
@@ -340,13 +311,11 @@ union CFG_VID_VC {
 //
 union CFG_VID_P_FIFO_SEND_LEVEL {
   
-  // Enum definitions.
-  
   // Bit field definition.
   struct {
     uint32_t SEND_LEVEL : 16;
     uint32_t _reserved_end : 16;
-  } bits;          // Bit-field struct (auto-filling reserved gaps)
+  } bits;
   
   // Full 32-bit register value.
   uint32_t value;
@@ -360,13 +329,11 @@ union CFG_VID_P_FIFO_SEND_LEVEL {
 //
 union CFG_VID_VSYNC {
   
-  // Enum definitions.
-  
   // Bit field definition.
   struct {
     uint32_t WIDTH : 8;
     uint32_t _reserved_end : 24;
-  } bits;          // Bit-field struct (auto-filling reserved gaps)
+  } bits;
   
   // Full 32-bit register value.
   uint32_t value;
@@ -380,13 +347,11 @@ union CFG_VID_VSYNC {
 //
 union CFG_VID_HSYNC_FP {
   
-  // Enum definitions.
-  
   // Bit field definition.
   struct {
     uint32_t DELAY_CTL : 8;
     uint32_t _reserved_end : 24;
-  } bits;          // Bit-field struct (auto-filling reserved gaps)
+  } bits;
   
   // Full 32-bit register value.
   uint32_t value;
@@ -400,13 +365,11 @@ union CFG_VID_HSYNC_FP {
 //
 union CFG_VID_HSYNC {
   
-  // Enum definitions.
-  
   // Bit field definition.
   struct {
     uint32_t WIDTH : 8;
     uint32_t _reserved_end : 24;
-  } bits;          // Bit-field struct (auto-filling reserved gaps)
+  } bits;
   
   // Full 32-bit register value.
   uint32_t value;
@@ -420,13 +383,11 @@ union CFG_VID_HSYNC {
 //
 union CFG_VID_HSYNC_BP {
   
-  // Enum definitions.
-  
   // Bit field definition.
   struct {
     uint32_t DELAY_CTL : 8;
     uint32_t _reserved_end : 24;
-  } bits;          // Bit-field struct (auto-filling reserved gaps)
+  } bits;
   
   // Full 32-bit register value.
   uint32_t value;

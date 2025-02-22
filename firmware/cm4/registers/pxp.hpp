@@ -15,45 +15,53 @@ namespace nPXP {
 //
 union PXP_CTRL {
   
-  // Enum definitions.
   enum class eENABLE : uint32_t {
     eDisabled = 0, // PXP is disabled
     eEnabled = 1, // PXP is enabled
   };
+  
   enum class eIRQ_ENABLE : uint32_t {
     eDisabled = 0, // PXP interrupt is disabled
     eEnabled = 1, // PXP interrupt is enabled
   };
+  
   enum class eNEXT_IRQ_ENABLE : uint32_t {
     eDisabled = 0, // Disabled
     eEnabled = 1, // Enabled
   };
+  
   enum class eROTATE : uint32_t {
     eROT_0 = 0, // ROT_0
     eROT_90 = 1, // ROT_90
     eROT_180 = 2, // ROT_180
     eROT_270 = 3, // ROT_270
   };
+  
   enum class eHFLIP : uint32_t {
     eDisabled = 0, // Horizontal Flip is disabled
     eEnabled = 1, // Horizontal Flip is enabled
   };
+  
   enum class eVFLIP : uint32_t {
     eDisabled = 0, // Vertical Flip is disabled
     eEnabled = 1, // Vertical Flip is enabled
   };
+  
   enum class eBLOCK_SIZE : uint32_t {
     e8X8 = 0, // Process 8x8 pixel blocks.
     e16X16 = 1, // Process 16x16 pixel blocks.
   };
+  
   enum class eEN_REPEAT : uint32_t {
     eComplete = 0, // PXP will complete the process and enter the idle state ready to accept the next frame to be processed
     eRepeat = 1, // PXP will repeat based on the current configuration register settings
   };
+  
   enum class eCLKGATE : uint32_t {
     eNormal = 0, // Normal operation
     eGated = 1, // All clocks to PXP is gated-off
   };
+  
   enum class eSFTRST : uint32_t {
     eEnabled = 0, // Normal PXP operation is enabled
     eDisabled = 1, // Clocking with PXP is disabled and held in its reset (lowest power) state. This is the default value.
@@ -78,7 +86,7 @@ union PXP_CTRL {
     uint32_t _reserved_10 : 1;
     eCLKGATE CLKGATE : 1;
     eSFTRST SFTRST : 1;
-  } bits;          // Bit-field struct (auto-filling reserved gaps)
+  } bits;
   
   // Full 32-bit register value.
   uint32_t value;
@@ -92,45 +100,53 @@ union PXP_CTRL {
 //
 union PXP_CTRL_SET {
   
-  // Enum definitions.
   enum class eENABLE : uint32_t {
     eDisabled = 0, // PXP is disabled
     eEnabled = 1, // PXP is enabled
   };
+  
   enum class eIRQ_ENABLE : uint32_t {
     eDisabled = 0, // PXP interrupt is disabled
     eEnabled = 1, // PXP interrupt is enabled
   };
+  
   enum class eNEXT_IRQ_ENABLE : uint32_t {
     eDisabled = 0, // Disabled
     eEnabled = 1, // Enabled
   };
+  
   enum class eROTATE : uint32_t {
     eROT_0 = 0, // ROT_0
     eROT_90 = 1, // ROT_90
     eROT_180 = 2, // ROT_180
     eROT_270 = 3, // ROT_270
   };
+  
   enum class eHFLIP : uint32_t {
     eDisabled = 0, // Horizontal Flip is disabled
     eEnabled = 1, // Horizontal Flip is enabled
   };
+  
   enum class eVFLIP : uint32_t {
     eDisabled = 0, // Vertical Flip is disabled
     eEnabled = 1, // Vertical Flip is enabled
   };
+  
   enum class eBLOCK_SIZE : uint32_t {
     e8X8 = 0, // Process 8x8 pixel blocks.
     e16X16 = 1, // Process 16x16 pixel blocks.
   };
+  
   enum class eEN_REPEAT : uint32_t {
     eComplete = 0, // PXP will complete the process and enter the idle state ready to accept the next frame to be processed
     eRepeat = 1, // PXP will repeat based on the current configuration register settings
   };
+  
   enum class eCLKGATE : uint32_t {
     eNormal = 0, // Normal operation
     eGated = 1, // All clocks to PXP is gated-off
   };
+  
   enum class eSFTRST : uint32_t {
     eEnabled = 0, // Normal PXP operation is enabled
     eDisabled = 1, // Clocking with PXP is disabled and held in its reset (lowest power) state. This is the default value.
@@ -155,7 +171,7 @@ union PXP_CTRL_SET {
     uint32_t _reserved_10 : 1;
     eCLKGATE CLKGATE : 1;
     eSFTRST SFTRST : 1;
-  } bits;          // Bit-field struct (auto-filling reserved gaps)
+  } bits;
   
   // Full 32-bit register value.
   uint32_t value;
@@ -169,45 +185,53 @@ union PXP_CTRL_SET {
 //
 union PXP_CTRL_CLR {
   
-  // Enum definitions.
   enum class eENABLE : uint32_t {
     eDisabled = 0, // PXP is disabled
     eEnabled = 1, // PXP is enabled
   };
+  
   enum class eIRQ_ENABLE : uint32_t {
     eDisabled = 0, // PXP interrupt is disabled
     eEnabled = 1, // PXP interrupt is enabled
   };
+  
   enum class eNEXT_IRQ_ENABLE : uint32_t {
     eDisabled = 0, // Disabled
     eEnabled = 1, // Enabled
   };
+  
   enum class eROTATE : uint32_t {
     eROT_0 = 0, // ROT_0
     eROT_90 = 1, // ROT_90
     eROT_180 = 2, // ROT_180
     eROT_270 = 3, // ROT_270
   };
+  
   enum class eHFLIP : uint32_t {
     eDisabled = 0, // Horizontal Flip is disabled
     eEnabled = 1, // Horizontal Flip is enabled
   };
+  
   enum class eVFLIP : uint32_t {
     eDisabled = 0, // Vertical Flip is disabled
     eEnabled = 1, // Vertical Flip is enabled
   };
+  
   enum class eBLOCK_SIZE : uint32_t {
     e8X8 = 0, // Process 8x8 pixel blocks.
     e16X16 = 1, // Process 16x16 pixel blocks.
   };
+  
   enum class eEN_REPEAT : uint32_t {
     eComplete = 0, // PXP will complete the process and enter the idle state ready to accept the next frame to be processed
     eRepeat = 1, // PXP will repeat based on the current configuration register settings
   };
+  
   enum class eCLKGATE : uint32_t {
     eNormal = 0, // Normal operation
     eGated = 1, // All clocks to PXP is gated-off
   };
+  
   enum class eSFTRST : uint32_t {
     eEnabled = 0, // Normal PXP operation is enabled
     eDisabled = 1, // Clocking with PXP is disabled and held in its reset (lowest power) state. This is the default value.
@@ -232,7 +256,7 @@ union PXP_CTRL_CLR {
     uint32_t _reserved_10 : 1;
     eCLKGATE CLKGATE : 1;
     eSFTRST SFTRST : 1;
-  } bits;          // Bit-field struct (auto-filling reserved gaps)
+  } bits;
   
   // Full 32-bit register value.
   uint32_t value;
@@ -246,45 +270,53 @@ union PXP_CTRL_CLR {
 //
 union PXP_CTRL_TOG {
   
-  // Enum definitions.
   enum class eENABLE : uint32_t {
     eDisabled = 0, // PXP is disabled
     eEnabled = 1, // PXP is enabled
   };
+  
   enum class eIRQ_ENABLE : uint32_t {
     eDisabled = 0, // PXP interrupt is disabled
     eEnabled = 1, // PXP interrupt is enabled
   };
+  
   enum class eNEXT_IRQ_ENABLE : uint32_t {
     eDisabled = 0, // Disabled
     eEnabled = 1, // Enabled
   };
+  
   enum class eROTATE : uint32_t {
     eROT_0 = 0, // ROT_0
     eROT_90 = 1, // ROT_90
     eROT_180 = 2, // ROT_180
     eROT_270 = 3, // ROT_270
   };
+  
   enum class eHFLIP : uint32_t {
     eDisabled = 0, // Horizontal Flip is disabled
     eEnabled = 1, // Horizontal Flip is enabled
   };
+  
   enum class eVFLIP : uint32_t {
     eDisabled = 0, // Vertical Flip is disabled
     eEnabled = 1, // Vertical Flip is enabled
   };
+  
   enum class eBLOCK_SIZE : uint32_t {
     e8X8 = 0, // Process 8x8 pixel blocks.
     e16X16 = 1, // Process 16x16 pixel blocks.
   };
+  
   enum class eEN_REPEAT : uint32_t {
     eComplete = 0, // PXP will complete the process and enter the idle state ready to accept the next frame to be processed
     eRepeat = 1, // PXP will repeat based on the current configuration register settings
   };
+  
   enum class eCLKGATE : uint32_t {
     eNormal = 0, // Normal operation
     eGated = 1, // All clocks to PXP is gated-off
   };
+  
   enum class eSFTRST : uint32_t {
     eEnabled = 0, // Normal PXP operation is enabled
     eDisabled = 1, // Clocking with PXP is disabled and held in its reset (lowest power) state. This is the default value.
@@ -309,7 +341,7 @@ union PXP_CTRL_TOG {
     uint32_t _reserved_10 : 1;
     eCLKGATE CLKGATE : 1;
     eSFTRST SFTRST : 1;
-  } bits;          // Bit-field struct (auto-filling reserved gaps)
+  } bits;
   
   // Full 32-bit register value.
   uint32_t value;
@@ -323,19 +355,21 @@ union PXP_CTRL_TOG {
 //
 union PXP_STAT {
   
-  // Enum definitions.
   enum class eIRQ : uint32_t {
     eIRQ_0 = 0, // No interrupt
     eIRQ_1 = 1, // Interrupt generated
   };
+  
   enum class eAXI_WRITE_ERROR : uint32_t {
     eNormal = 0, // AXI write is normal
     eError = 1, // AXI write error has occurred
   };
+  
   enum class eAXI_READ_ERROR : uint32_t {
     eNormal = 0, // AXI read is normal
     eError = 1, // AXI read error has occurred
   };
+  
   enum class eLUT_DMA_LOAD_DONE_IRQ : uint32_t {
     eActive = 0, // LUT DMA LOAD transfer is active
     eComplete = 1, // LUT DMA LOAD transfer is complete
@@ -352,7 +386,7 @@ union PXP_STAT {
     uint32_t _reserved_6 : 7;
     uint32_t BLOCKY : 8;
     uint32_t BLOCKX : 8;
-  } bits;          // Bit-field struct (auto-filling reserved gaps)
+  } bits;
   
   // Full 32-bit register value.
   uint32_t value;
@@ -366,19 +400,21 @@ union PXP_STAT {
 //
 union PXP_STAT_SET {
   
-  // Enum definitions.
   enum class eIRQ : uint32_t {
     eIRQ_0 = 0, // No interrupt
     eIRQ_1 = 1, // Interrupt generated
   };
+  
   enum class eAXI_WRITE_ERROR : uint32_t {
     eNormal = 0, // AXI write is normal
     eError = 1, // AXI write error has occurred
   };
+  
   enum class eAXI_READ_ERROR : uint32_t {
     eNormal = 0, // AXI read is normal
     eError = 1, // AXI read error has occurred
   };
+  
   enum class eLUT_DMA_LOAD_DONE_IRQ : uint32_t {
     eActive = 0, // LUT DMA LOAD transfer is active
     eComplete = 1, // LUT DMA LOAD transfer is complete
@@ -395,7 +431,7 @@ union PXP_STAT_SET {
     uint32_t _reserved_6 : 7;
     uint32_t BLOCKY : 8;
     uint32_t BLOCKX : 8;
-  } bits;          // Bit-field struct (auto-filling reserved gaps)
+  } bits;
   
   // Full 32-bit register value.
   uint32_t value;
@@ -409,19 +445,21 @@ union PXP_STAT_SET {
 //
 union PXP_STAT_CLR {
   
-  // Enum definitions.
   enum class eIRQ : uint32_t {
     eIRQ_0 = 0, // No interrupt
     eIRQ_1 = 1, // Interrupt generated
   };
+  
   enum class eAXI_WRITE_ERROR : uint32_t {
     eNormal = 0, // AXI write is normal
     eError = 1, // AXI write error has occurred
   };
+  
   enum class eAXI_READ_ERROR : uint32_t {
     eNormal = 0, // AXI read is normal
     eError = 1, // AXI read error has occurred
   };
+  
   enum class eLUT_DMA_LOAD_DONE_IRQ : uint32_t {
     eActive = 0, // LUT DMA LOAD transfer is active
     eComplete = 1, // LUT DMA LOAD transfer is complete
@@ -438,7 +476,7 @@ union PXP_STAT_CLR {
     uint32_t _reserved_6 : 7;
     uint32_t BLOCKY : 8;
     uint32_t BLOCKX : 8;
-  } bits;          // Bit-field struct (auto-filling reserved gaps)
+  } bits;
   
   // Full 32-bit register value.
   uint32_t value;
@@ -452,19 +490,21 @@ union PXP_STAT_CLR {
 //
 union PXP_STAT_TOG {
   
-  // Enum definitions.
   enum class eIRQ : uint32_t {
     eIRQ_0 = 0, // No interrupt
     eIRQ_1 = 1, // Interrupt generated
   };
+  
   enum class eAXI_WRITE_ERROR : uint32_t {
     eNormal = 0, // AXI write is normal
     eError = 1, // AXI write error has occurred
   };
+  
   enum class eAXI_READ_ERROR : uint32_t {
     eNormal = 0, // AXI read is normal
     eError = 1, // AXI read error has occurred
   };
+  
   enum class eLUT_DMA_LOAD_DONE_IRQ : uint32_t {
     eActive = 0, // LUT DMA LOAD transfer is active
     eComplete = 1, // LUT DMA LOAD transfer is complete
@@ -481,7 +521,7 @@ union PXP_STAT_TOG {
     uint32_t _reserved_6 : 7;
     uint32_t BLOCKY : 8;
     uint32_t BLOCKX : 8;
-  } bits;          // Bit-field struct (auto-filling reserved gaps)
+  } bits;
   
   // Full 32-bit register value.
   uint32_t value;
@@ -495,7 +535,6 @@ union PXP_STAT_TOG {
 //
 union PXP_OUT_CTRL {
   
-  // Enum definitions.
   enum class eFORMAT : uint32_t {
     eARGB8888 = 0, // 32-bit pixels
     eRGB888 = 4, // 32-bit pixels (unpacked 24-bit pixel in 32 bit DWORD.)
@@ -515,12 +554,14 @@ union PXP_OUT_CTRL {
     eYVU2P422 = 26, // 16-bit pixels (2-plane VU interleaved bytes)
     eYVU2P420 = 27, // 16-bit pixels (2-plane VU)
   };
+  
   enum class eINTERLACED_OUTPUT : uint32_t {
     ePROGRESSIVE = 0, // All data written in progressive format to the OUTBUF Pointer.
     eFIELD0 = 1, // Interlaced output: only data for field 0 is written to the OUTBUF Pointer.
     eFIELD1 = 2, // Interlaced output: only data for field 1 is written to the OUTBUF2 Pointer.
     eINTERLACED = 3, // Interlaced output: data for field 0 is written to OUTBUF and data for field 1 is written to OUTBUF2.
   };
+  
   enum class eALPHA_OUTPUT : uint32_t {
     eRetain = 0, // Retain
     eOverwritten = 1, // Overwritten
@@ -534,7 +575,7 @@ union PXP_OUT_CTRL {
     uint32_t _reserved_2 : 13;
     eALPHA_OUTPUT ALPHA_OUTPUT : 1;
     uint32_t ALPHA : 8;
-  } bits;          // Bit-field struct (auto-filling reserved gaps)
+  } bits;
   
   // Full 32-bit register value.
   uint32_t value;
@@ -548,7 +589,6 @@ union PXP_OUT_CTRL {
 //
 union PXP_OUT_CTRL_SET {
   
-  // Enum definitions.
   enum class eFORMAT : uint32_t {
     eARGB8888 = 0, // 32-bit pixels
     eRGB888 = 4, // 32-bit pixels (unpacked 24-bit pixel in 32 bit DWORD.)
@@ -568,12 +608,14 @@ union PXP_OUT_CTRL_SET {
     eYVU2P422 = 26, // 16-bit pixels (2-plane VU interleaved bytes)
     eYVU2P420 = 27, // 16-bit pixels (2-plane VU)
   };
+  
   enum class eINTERLACED_OUTPUT : uint32_t {
     ePROGRESSIVE = 0, // All data written in progressive format to the OUTBUF Pointer.
     eFIELD0 = 1, // Interlaced output: only data for field 0 is written to the OUTBUF Pointer.
     eFIELD1 = 2, // Interlaced output: only data for field 1 is written to the OUTBUF2 Pointer.
     eINTERLACED = 3, // Interlaced output: data for field 0 is written to OUTBUF and data for field 1 is written to OUTBUF2.
   };
+  
   enum class eALPHA_OUTPUT : uint32_t {
     eRetain = 0, // Retain
     eOverwritten = 1, // Overwritten
@@ -587,7 +629,7 @@ union PXP_OUT_CTRL_SET {
     uint32_t _reserved_2 : 13;
     eALPHA_OUTPUT ALPHA_OUTPUT : 1;
     uint32_t ALPHA : 8;
-  } bits;          // Bit-field struct (auto-filling reserved gaps)
+  } bits;
   
   // Full 32-bit register value.
   uint32_t value;
@@ -601,7 +643,6 @@ union PXP_OUT_CTRL_SET {
 //
 union PXP_OUT_CTRL_CLR {
   
-  // Enum definitions.
   enum class eFORMAT : uint32_t {
     eARGB8888 = 0, // 32-bit pixels
     eRGB888 = 4, // 32-bit pixels (unpacked 24-bit pixel in 32 bit DWORD.)
@@ -621,12 +662,14 @@ union PXP_OUT_CTRL_CLR {
     eYVU2P422 = 26, // 16-bit pixels (2-plane VU interleaved bytes)
     eYVU2P420 = 27, // 16-bit pixels (2-plane VU)
   };
+  
   enum class eINTERLACED_OUTPUT : uint32_t {
     ePROGRESSIVE = 0, // All data written in progressive format to the OUTBUF Pointer.
     eFIELD0 = 1, // Interlaced output: only data for field 0 is written to the OUTBUF Pointer.
     eFIELD1 = 2, // Interlaced output: only data for field 1 is written to the OUTBUF2 Pointer.
     eINTERLACED = 3, // Interlaced output: data for field 0 is written to OUTBUF and data for field 1 is written to OUTBUF2.
   };
+  
   enum class eALPHA_OUTPUT : uint32_t {
     eRetain = 0, // Retain
     eOverwritten = 1, // Overwritten
@@ -640,7 +683,7 @@ union PXP_OUT_CTRL_CLR {
     uint32_t _reserved_2 : 13;
     eALPHA_OUTPUT ALPHA_OUTPUT : 1;
     uint32_t ALPHA : 8;
-  } bits;          // Bit-field struct (auto-filling reserved gaps)
+  } bits;
   
   // Full 32-bit register value.
   uint32_t value;
@@ -654,7 +697,6 @@ union PXP_OUT_CTRL_CLR {
 //
 union PXP_OUT_CTRL_TOG {
   
-  // Enum definitions.
   enum class eFORMAT : uint32_t {
     eARGB8888 = 0, // 32-bit pixels
     eRGB888 = 4, // 32-bit pixels (unpacked 24-bit pixel in 32 bit DWORD.)
@@ -674,12 +716,14 @@ union PXP_OUT_CTRL_TOG {
     eYVU2P422 = 26, // 16-bit pixels (2-plane VU interleaved bytes)
     eYVU2P420 = 27, // 16-bit pixels (2-plane VU)
   };
+  
   enum class eINTERLACED_OUTPUT : uint32_t {
     ePROGRESSIVE = 0, // All data written in progressive format to the OUTBUF Pointer.
     eFIELD0 = 1, // Interlaced output: only data for field 0 is written to the OUTBUF Pointer.
     eFIELD1 = 2, // Interlaced output: only data for field 1 is written to the OUTBUF2 Pointer.
     eINTERLACED = 3, // Interlaced output: data for field 0 is written to OUTBUF and data for field 1 is written to OUTBUF2.
   };
+  
   enum class eALPHA_OUTPUT : uint32_t {
     eRetain = 0, // Retain
     eOverwritten = 1, // Overwritten
@@ -693,7 +737,7 @@ union PXP_OUT_CTRL_TOG {
     uint32_t _reserved_2 : 13;
     eALPHA_OUTPUT ALPHA_OUTPUT : 1;
     uint32_t ALPHA : 8;
-  } bits;          // Bit-field struct (auto-filling reserved gaps)
+  } bits;
   
   // Full 32-bit register value.
   uint32_t value;
@@ -707,12 +751,10 @@ union PXP_OUT_CTRL_TOG {
 //
 union PXP_OUT_BUF {
   
-  // Enum definitions.
-  
   // Bit field definition.
   struct {
     uint32_t ADDR : 32;
-  } bits;          // Bit-field struct (auto-filling reserved gaps)
+  } bits;
   
   // Full 32-bit register value.
   uint32_t value;
@@ -726,12 +768,10 @@ union PXP_OUT_BUF {
 //
 union PXP_OUT_BUF2 {
   
-  // Enum definitions.
-  
   // Bit field definition.
   struct {
     uint32_t ADDR : 32;
-  } bits;          // Bit-field struct (auto-filling reserved gaps)
+  } bits;
   
   // Full 32-bit register value.
   uint32_t value;
@@ -745,13 +785,11 @@ union PXP_OUT_BUF2 {
 //
 union PXP_OUT_PITCH {
   
-  // Enum definitions.
-  
   // Bit field definition.
   struct {
     uint32_t PITCH : 16;
     uint32_t _reserved_end : 16;
-  } bits;          // Bit-field struct (auto-filling reserved gaps)
+  } bits;
   
   // Full 32-bit register value.
   uint32_t value;
@@ -765,15 +803,13 @@ union PXP_OUT_PITCH {
 //
 union PXP_OUT_LRC {
   
-  // Enum definitions.
-  
   // Bit field definition.
   struct {
     uint32_t Y : 14;
     uint32_t _reserved_1 : 2;
     uint32_t X : 14;
     uint32_t _reserved_end : 2;
-  } bits;          // Bit-field struct (auto-filling reserved gaps)
+  } bits;
   
   // Full 32-bit register value.
   uint32_t value;
@@ -787,15 +823,13 @@ union PXP_OUT_LRC {
 //
 union PXP_OUT_PS_ULC {
   
-  // Enum definitions.
-  
   // Bit field definition.
   struct {
     uint32_t Y : 14;
     uint32_t _reserved_1 : 2;
     uint32_t X : 14;
     uint32_t _reserved_end : 2;
-  } bits;          // Bit-field struct (auto-filling reserved gaps)
+  } bits;
   
   // Full 32-bit register value.
   uint32_t value;
@@ -809,15 +843,13 @@ union PXP_OUT_PS_ULC {
 //
 union PXP_OUT_PS_LRC {
   
-  // Enum definitions.
-  
   // Bit field definition.
   struct {
     uint32_t Y : 14;
     uint32_t _reserved_1 : 2;
     uint32_t X : 14;
     uint32_t _reserved_end : 2;
-  } bits;          // Bit-field struct (auto-filling reserved gaps)
+  } bits;
   
   // Full 32-bit register value.
   uint32_t value;
@@ -831,15 +863,13 @@ union PXP_OUT_PS_LRC {
 //
 union PXP_OUT_AS_ULC {
   
-  // Enum definitions.
-  
   // Bit field definition.
   struct {
     uint32_t Y : 14;
     uint32_t _reserved_1 : 2;
     uint32_t X : 14;
     uint32_t _reserved_end : 2;
-  } bits;          // Bit-field struct (auto-filling reserved gaps)
+  } bits;
   
   // Full 32-bit register value.
   uint32_t value;
@@ -853,15 +883,13 @@ union PXP_OUT_AS_ULC {
 //
 union PXP_OUT_AS_LRC {
   
-  // Enum definitions.
-  
   // Bit field definition.
   struct {
     uint32_t Y : 14;
     uint32_t _reserved_1 : 2;
     uint32_t X : 14;
     uint32_t _reserved_end : 2;
-  } bits;          // Bit-field struct (auto-filling reserved gaps)
+  } bits;
   
   // Full 32-bit register value.
   uint32_t value;
@@ -875,7 +903,6 @@ union PXP_OUT_AS_LRC {
 //
 union PXP_PS_CTRL {
   
-  // Enum definitions.
   enum class eFORMAT : uint32_t {
     eRGB888_ARGB8888 = 4, // 32-bit pixels (unpacked 24-bit format with/without alpha at high 8bits)
     eRGB555_ARGB1555 = 12, // 16-bit pixels with/without alpha at high 1bit
@@ -896,16 +923,19 @@ union PXP_PS_CTRL {
     eRGBA5551 = 44, // 16-bit pixels with alpha at the low 1bits
     eRGBA4444 = 45, // 16-bit pixels with alpha at the low 4 bits
   };
+  
   enum class eWB_SWAP : uint32_t {
     eDisabled = 0, // Byte swap is disabled
     eEnabled = 1, // Byte swap is enabled
   };
+  
   enum class eDECY : uint32_t {
     eDISABLE = 0, // Disable pre-decimation filter.
     eDECY2 = 1, // Decimate PS by 2.
     eDECY4 = 2, // Decimate PS by 4.
     eDECY8 = 3, // Decimate PS by 8.
   };
+  
   enum class eDECX : uint32_t {
     eDISABLE = 0, // Disable pre-decimation filter.
     eDECX2 = 1, // Decimate PS by 2.
@@ -921,7 +951,7 @@ union PXP_PS_CTRL {
     eDECY DECY : 2;
     eDECX DECX : 2;
     uint32_t _reserved_end : 20;
-  } bits;          // Bit-field struct (auto-filling reserved gaps)
+  } bits;
   
   // Full 32-bit register value.
   uint32_t value;
@@ -935,7 +965,6 @@ union PXP_PS_CTRL {
 //
 union PXP_PS_CTRL_SET {
   
-  // Enum definitions.
   enum class eFORMAT : uint32_t {
     eRGB888_ARGB8888 = 4, // 32-bit pixels (unpacked 24-bit format with/without alpha at high 8bits)
     eRGB555_ARGB1555 = 12, // 16-bit pixels with/without alpha at high 1bit
@@ -956,16 +985,19 @@ union PXP_PS_CTRL_SET {
     eRGBA5551 = 44, // 16-bit pixels with alpha at the low 1bits
     eRGBA4444 = 45, // 16-bit pixels with alpha at the low 4 bits
   };
+  
   enum class eWB_SWAP : uint32_t {
     eDisabled = 0, // Byte swap is disabled
     eEnabled = 1, // Byte swap is enabled
   };
+  
   enum class eDECY : uint32_t {
     eDISABLE = 0, // Disable pre-decimation filter.
     eDECY2 = 1, // Decimate PS by 2.
     eDECY4 = 2, // Decimate PS by 4.
     eDECY8 = 3, // Decimate PS by 8.
   };
+  
   enum class eDECX : uint32_t {
     eDISABLE = 0, // Disable pre-decimation filter.
     eDECX2 = 1, // Decimate PS by 2.
@@ -981,7 +1013,7 @@ union PXP_PS_CTRL_SET {
     eDECY DECY : 2;
     eDECX DECX : 2;
     uint32_t _reserved_end : 20;
-  } bits;          // Bit-field struct (auto-filling reserved gaps)
+  } bits;
   
   // Full 32-bit register value.
   uint32_t value;
@@ -995,7 +1027,6 @@ union PXP_PS_CTRL_SET {
 //
 union PXP_PS_CTRL_CLR {
   
-  // Enum definitions.
   enum class eFORMAT : uint32_t {
     eRGB888_ARGB8888 = 4, // 32-bit pixels (unpacked 24-bit format with/without alpha at high 8bits)
     eRGB555_ARGB1555 = 12, // 16-bit pixels with/without alpha at high 1bit
@@ -1016,16 +1047,19 @@ union PXP_PS_CTRL_CLR {
     eRGBA5551 = 44, // 16-bit pixels with alpha at the low 1bits
     eRGBA4444 = 45, // 16-bit pixels with alpha at the low 4 bits
   };
+  
   enum class eWB_SWAP : uint32_t {
     eDisabled = 0, // Byte swap is disabled
     eEnabled = 1, // Byte swap is enabled
   };
+  
   enum class eDECY : uint32_t {
     eDISABLE = 0, // Disable pre-decimation filter.
     eDECY2 = 1, // Decimate PS by 2.
     eDECY4 = 2, // Decimate PS by 4.
     eDECY8 = 3, // Decimate PS by 8.
   };
+  
   enum class eDECX : uint32_t {
     eDISABLE = 0, // Disable pre-decimation filter.
     eDECX2 = 1, // Decimate PS by 2.
@@ -1041,7 +1075,7 @@ union PXP_PS_CTRL_CLR {
     eDECY DECY : 2;
     eDECX DECX : 2;
     uint32_t _reserved_end : 20;
-  } bits;          // Bit-field struct (auto-filling reserved gaps)
+  } bits;
   
   // Full 32-bit register value.
   uint32_t value;
@@ -1055,7 +1089,6 @@ union PXP_PS_CTRL_CLR {
 //
 union PXP_PS_CTRL_TOG {
   
-  // Enum definitions.
   enum class eFORMAT : uint32_t {
     eRGB888_ARGB8888 = 4, // 32-bit pixels (unpacked 24-bit format with/without alpha at high 8bits)
     eRGB555_ARGB1555 = 12, // 16-bit pixels with/without alpha at high 1bit
@@ -1076,16 +1109,19 @@ union PXP_PS_CTRL_TOG {
     eRGBA5551 = 44, // 16-bit pixels with alpha at the low 1bits
     eRGBA4444 = 45, // 16-bit pixels with alpha at the low 4 bits
   };
+  
   enum class eWB_SWAP : uint32_t {
     eDisabled = 0, // Byte swap is disabled
     eEnabled = 1, // Byte swap is enabled
   };
+  
   enum class eDECY : uint32_t {
     eDISABLE = 0, // Disable pre-decimation filter.
     eDECY2 = 1, // Decimate PS by 2.
     eDECY4 = 2, // Decimate PS by 4.
     eDECY8 = 3, // Decimate PS by 8.
   };
+  
   enum class eDECX : uint32_t {
     eDISABLE = 0, // Disable pre-decimation filter.
     eDECX2 = 1, // Decimate PS by 2.
@@ -1101,7 +1137,7 @@ union PXP_PS_CTRL_TOG {
     eDECY DECY : 2;
     eDECX DECX : 2;
     uint32_t _reserved_end : 20;
-  } bits;          // Bit-field struct (auto-filling reserved gaps)
+  } bits;
   
   // Full 32-bit register value.
   uint32_t value;
@@ -1115,12 +1151,10 @@ union PXP_PS_CTRL_TOG {
 //
 union PXP_PS_BUF {
   
-  // Enum definitions.
-  
   // Bit field definition.
   struct {
     uint32_t ADDR : 32;
-  } bits;          // Bit-field struct (auto-filling reserved gaps)
+  } bits;
   
   // Full 32-bit register value.
   uint32_t value;
@@ -1134,12 +1168,10 @@ union PXP_PS_BUF {
 //
 union PXP_PS_UBUF {
   
-  // Enum definitions.
-  
   // Bit field definition.
   struct {
     uint32_t ADDR : 32;
-  } bits;          // Bit-field struct (auto-filling reserved gaps)
+  } bits;
   
   // Full 32-bit register value.
   uint32_t value;
@@ -1153,12 +1185,10 @@ union PXP_PS_UBUF {
 //
 union PXP_PS_VBUF {
   
-  // Enum definitions.
-  
   // Bit field definition.
   struct {
     uint32_t ADDR : 32;
-  } bits;          // Bit-field struct (auto-filling reserved gaps)
+  } bits;
   
   // Full 32-bit register value.
   uint32_t value;
@@ -1172,13 +1202,11 @@ union PXP_PS_VBUF {
 //
 union PXP_PS_PITCH {
   
-  // Enum definitions.
-  
   // Bit field definition.
   struct {
     uint32_t PITCH : 16;
     uint32_t _reserved_end : 16;
-  } bits;          // Bit-field struct (auto-filling reserved gaps)
+  } bits;
   
   // Full 32-bit register value.
   uint32_t value;
@@ -1192,13 +1220,11 @@ union PXP_PS_PITCH {
 //
 union PXP_PS_BACKGROUND {
   
-  // Enum definitions.
-  
   // Bit field definition.
   struct {
     uint32_t COLOR : 24;
     uint32_t _reserved_end : 8;
-  } bits;          // Bit-field struct (auto-filling reserved gaps)
+  } bits;
   
   // Full 32-bit register value.
   uint32_t value;
@@ -1212,15 +1238,13 @@ union PXP_PS_BACKGROUND {
 //
 union PXP_PS_SCALE {
   
-  // Enum definitions.
-  
   // Bit field definition.
   struct {
     uint32_t XSCALE : 15;
     uint32_t _reserved_1 : 1;
     uint32_t YSCALE : 15;
     uint32_t _reserved_end : 1;
-  } bits;          // Bit-field struct (auto-filling reserved gaps)
+  } bits;
   
   // Full 32-bit register value.
   uint32_t value;
@@ -1234,15 +1258,13 @@ union PXP_PS_SCALE {
 //
 union PXP_PS_OFFSET {
   
-  // Enum definitions.
-  
   // Bit field definition.
   struct {
     uint32_t XOFFSET : 12;
     uint32_t _reserved_1 : 4;
     uint32_t YOFFSET : 12;
     uint32_t _reserved_end : 4;
-  } bits;          // Bit-field struct (auto-filling reserved gaps)
+  } bits;
   
   // Full 32-bit register value.
   uint32_t value;
@@ -1256,13 +1278,11 @@ union PXP_PS_OFFSET {
 //
 union PXP_PS_CLRKEYLOW {
   
-  // Enum definitions.
-  
   // Bit field definition.
   struct {
     uint32_t PIXEL : 24;
     uint32_t _reserved_end : 8;
-  } bits;          // Bit-field struct (auto-filling reserved gaps)
+  } bits;
   
   // Full 32-bit register value.
   uint32_t value;
@@ -1276,13 +1296,11 @@ union PXP_PS_CLRKEYLOW {
 //
 union PXP_PS_CLRKEYHIGH {
   
-  // Enum definitions.
-  
   // Bit field definition.
   struct {
     uint32_t PIXEL : 24;
     uint32_t _reserved_end : 8;
-  } bits;          // Bit-field struct (auto-filling reserved gaps)
+  } bits;
   
   // Full 32-bit register value.
   uint32_t value;
@@ -1296,17 +1314,18 @@ union PXP_PS_CLRKEYHIGH {
 //
 union PXP_AS_CTRL {
   
-  // Enum definitions.
   enum class eALPHA_CTRL : uint32_t {
     eEmbedded = 0, // Indicates that the AS pixel alpha value will be used to blend the AS with PS. The ALPHA field is ignored.
     eOverride = 1, // Indicates that the value in the ALPHA field should be used instead of the alpha values present in the input pixels.
     eMultiply = 2, // Indicates that the value in the ALPHA field should be used to scale all pixel alpha values. Each pixel alpha is multiplied by the value in the ALPHA field.
     eROPs = 3, // Enable ROPs. The ROP field indicates an operation to be performed on the alpha surface and PS pixels.
   };
+  
   enum class eENABLE_COLORKEY : uint32_t {
     eDisabled = 0, // Disabled
     eEnabled = 1, // Enabled
   };
+  
   enum class eFORMAT : uint32_t {
     eARGB8888 = 0, // 32-bit pixels with alpha
     eRGBA888 = 1, // 2-bit pixel with alpha at low 8 bits
@@ -1319,6 +1338,7 @@ union PXP_AS_CTRL {
     eRGB444 = 13, // 16-bit pixels without alpha
     eRGB565 = 14, // 16-bit pixels without alpha
   };
+  
   enum class eROP : uint32_t {
     eMASKAS = 0, // AS AND PS
     eMASKNOTAS = 1, // nAS AND PS
@@ -1333,6 +1353,7 @@ union PXP_AS_CTRL {
     eXORAS = 10, // AS XOR PS
     eNOTXORAS = 11, // AS XNOR PS
   };
+  
   enum class eALPHA_INVERT : uint32_t {
     eALPHA_INVERT_0 = 0, // Not inverted
     eInverted = 1, // Inverted
@@ -1348,7 +1369,7 @@ union PXP_AS_CTRL {
     eROP ROP : 4;
     eALPHA_INVERT ALPHA_INVERT : 1;
     uint32_t _reserved_end : 11;
-  } bits;          // Bit-field struct (auto-filling reserved gaps)
+  } bits;
   
   // Full 32-bit register value.
   uint32_t value;
@@ -1362,12 +1383,10 @@ union PXP_AS_CTRL {
 //
 union PXP_AS_BUF {
   
-  // Enum definitions.
-  
   // Bit field definition.
   struct {
     uint32_t ADDR : 32;
-  } bits;          // Bit-field struct (auto-filling reserved gaps)
+  } bits;
   
   // Full 32-bit register value.
   uint32_t value;
@@ -1381,13 +1400,11 @@ union PXP_AS_BUF {
 //
 union PXP_AS_PITCH {
   
-  // Enum definitions.
-  
   // Bit field definition.
   struct {
     uint32_t PITCH : 16;
     uint32_t _reserved_end : 16;
-  } bits;          // Bit-field struct (auto-filling reserved gaps)
+  } bits;
   
   // Full 32-bit register value.
   uint32_t value;
@@ -1401,13 +1418,11 @@ union PXP_AS_PITCH {
 //
 union PXP_AS_CLRKEYLOW {
   
-  // Enum definitions.
-  
   // Bit field definition.
   struct {
     uint32_t PIXEL : 24;
     uint32_t _reserved_end : 8;
-  } bits;          // Bit-field struct (auto-filling reserved gaps)
+  } bits;
   
   // Full 32-bit register value.
   uint32_t value;
@@ -1421,13 +1436,11 @@ union PXP_AS_CLRKEYLOW {
 //
 union PXP_AS_CLRKEYHIGH {
   
-  // Enum definitions.
-  
   // Bit field definition.
   struct {
     uint32_t PIXEL : 24;
     uint32_t _reserved_end : 8;
-  } bits;          // Bit-field struct (auto-filling reserved gaps)
+  } bits;
   
   // Full 32-bit register value.
   uint32_t value;
@@ -1441,7 +1454,6 @@ union PXP_AS_CLRKEYHIGH {
 //
 union PXP_CSC1_COEF0 {
   
-  // Enum definitions.
   enum class eYCBCR_MODE : uint32_t {
     eYCBCR_MODE_0 = 0, // YUV to RGB
     eYCBCR_MODE_1 = 1, // YCbCr to RGB
@@ -1455,7 +1467,7 @@ union PXP_CSC1_COEF0 {
     uint32_t _reserved_3 : 1;
     uint32_t BYPASS : 1;
     eYCBCR_MODE YCBCR_MODE : 1;
-  } bits;          // Bit-field struct (auto-filling reserved gaps)
+  } bits;
   
   // Full 32-bit register value.
   uint32_t value;
@@ -1469,15 +1481,13 @@ union PXP_CSC1_COEF0 {
 //
 union PXP_CSC1_COEF1 {
   
-  // Enum definitions.
-  
   // Bit field definition.
   struct {
     uint32_t C4 : 11;
     uint32_t _reserved_1 : 5;
     uint32_t C1 : 11;
     uint32_t _reserved_end : 5;
-  } bits;          // Bit-field struct (auto-filling reserved gaps)
+  } bits;
   
   // Full 32-bit register value.
   uint32_t value;
@@ -1491,15 +1501,13 @@ union PXP_CSC1_COEF1 {
 //
 union PXP_CSC1_COEF2 {
   
-  // Enum definitions.
-  
   // Bit field definition.
   struct {
     uint32_t C3 : 11;
     uint32_t _reserved_1 : 5;
     uint32_t C2 : 11;
     uint32_t _reserved_end : 5;
-  } bits;          // Bit-field struct (auto-filling reserved gaps)
+  } bits;
   
   // Full 32-bit register value.
   uint32_t value;
@@ -1513,7 +1521,6 @@ union PXP_CSC1_COEF2 {
 //
 union PXP_POWER {
   
-  // Enum definitions.
   enum class eROT_MEM_LP_STATE : uint32_t {
     eNONE = 0, // Memory is not in low power state.
     eLS = 1, // Light Sleep Mode. Low leakage mode, maintain memory contents.
@@ -1526,7 +1533,7 @@ union PXP_POWER {
     uint32_t _reserved_0 : 9;
     eROT_MEM_LP_STATE ROT_MEM_LP_STATE : 3;
     uint32_t _reserved_end : 20;
-  } bits;          // Bit-field struct (auto-filling reserved gaps)
+  } bits;
   
   // Full 32-bit register value.
   uint32_t value;
@@ -1540,14 +1547,12 @@ union PXP_POWER {
 //
 union PXP_NEXT {
   
-  // Enum definitions.
-  
   // Bit field definition.
   struct {
     uint32_t ENABLED : 1;
     uint32_t _reserved_1 : 1;
     uint32_t POINTER : 30;
-  } bits;          // Bit-field struct (auto-filling reserved gaps)
+  } bits;
   
   // Full 32-bit register value.
   uint32_t value;
@@ -1561,47 +1566,54 @@ union PXP_NEXT {
 //
 union PXP_PORTER_DUFF_CTRL {
   
-  // Enum definitions.
   enum class ePORTER_DUFF_ENABLE : uint32_t {
     eDisabled = 0, // Disabled
     eEnabled = 1, // Enabled
   };
+  
   enum class eS0_S1_FACTOR_MODE : uint32_t {
     eS0_S1_FACTOR_MODE_0 = 0, // 1
     eS0_S1_FACTOR_MODE_1 = 1, // 0
     eS0_S1_FACTOR_MODE_2 = 2, // Straight alpha
     eS0_S1_FACTOR_MODE_3 = 3, // Inverse alpha
   };
+  
   enum class eS0_GLOBAL_ALPHA_MODE : uint32_t {
     eS0_GLOBAL_ALPHA_MODE_0 = 0, // Global alpha
     eS0_GLOBAL_ALPHA_MODE_1 = 1, // Local alpha
     eS0_GLOBAL_ALPHA_MODE_2 = 2, // Scaled alpha
     eS0_GLOBAL_ALPHA_MODE_3 = 3, // Scaled alpha
   };
+  
   enum class eS0_ALPHA_MODE : uint32_t {
     eS0_ALPHA_MODE_0 = 0, // Straight mode
     eS0_ALPHA_MODE_1 = 1, // Inverted mode
   };
+  
   enum class eS0_COLOR_MODE : uint32_t {
     eS0_COLOR_MODE_0 = 0, // Original pixel
     eS0_COLOR_MODE_1 = 1, // Scaled pixel
   };
+  
   enum class eS1_S0_FACTOR_MODE : uint32_t {
     eS1_S0_FACTOR_MODE_0 = 0, // 1
     eS1_S0_FACTOR_MODE_1 = 1, // 0
     eS1_S0_FACTOR_MODE_2 = 2, // Straight alpha
     eS1_S0_FACTOR_MODE_3 = 3, // Inverse alpha
   };
+  
   enum class eS1_GLOBAL_ALPHA_MODE : uint32_t {
     eS1_GLOBAL_ALPHA_MODE_0 = 0, // Global alpha
     eS1_GLOBAL_ALPHA_MODE_1 = 1, // Local alpha
     eS1_GLOBAL_ALPHA_MODE_2 = 2, // Scaled alpha
     eS1_GLOBAL_ALPHA_MODE_3 = 3, // Scaled alpha
   };
+  
   enum class eS1_ALPHA_MODE : uint32_t {
     eS1_ALPHA_MODE_0 = 0, // Straight mode
     eS1_ALPHA_MODE_1 = 1, // Inverted mode
   };
+  
   enum class eS1_COLOR_MODE : uint32_t {
     eS1_COLOR_MODE_0 = 0, // Original pixel
     eS1_COLOR_MODE_1 = 1, // Scaled pixel
@@ -1622,7 +1634,7 @@ union PXP_PORTER_DUFF_CTRL {
     uint32_t _reserved_9 : 2;
     uint32_t S0_GLOBAL_ALPHA : 8;
     uint32_t S1_GLOBAL_ALPHA : 8;
-  } bits;          // Bit-field struct (auto-filling reserved gaps)
+  } bits;
   
   // Full 32-bit register value.
   uint32_t value;

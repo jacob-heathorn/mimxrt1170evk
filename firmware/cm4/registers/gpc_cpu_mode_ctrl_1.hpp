@@ -15,11 +15,11 @@ namespace nGPC_CPU_MODE_CTRL_1 {
 //
 union CM_AUTHEN_CTRL {
   
-  // Enum definitions.
   enum class eUSER : uint32_t {
     eb0 = 0, // Allow only privilege mode to access CPU mode control registers
     eb1 = 1, // Allow both privilege and user mode to access CPU mode control registers
   };
+  
   enum class eNONSECURE : uint32_t {
     eb0 = 0, // Allow only secure mode to access CPU mode control registers
     eb1 = 1, // Allow both secure and non-secure mode to access CPU mode control registers
@@ -37,7 +37,7 @@ union CM_AUTHEN_CTRL {
     uint32_t _reserved_5 : 7;
     uint32_t LOCK_CFG : 1;
     uint32_t _reserved_end : 11;
-  } bits;          // Bit-field struct (auto-filling reserved gaps)
+  } bits;
   
   // Full 32-bit register value.
   uint32_t value;
@@ -51,15 +51,16 @@ union CM_AUTHEN_CTRL {
 //
 union CM_INT_CTRL {
   
-  // Enum definitions.
   enum class eSP_REQ_NOT_ALLOWED_SLEEP_INT_EN : uint32_t {
     eb0 = 0, // Interrupt disable
     eb1 = 1, // Interrupt enable
   };
+  
   enum class eSP_REQ_NOT_ALLOWED_WAKEUP_INT_EN : uint32_t {
     eb0 = 0, // Interrupt disable
     eb1 = 1, // Interrupt enable
   };
+  
   enum class eSP_REQ_NOT_ALLOWED_SOFT_INT_EN : uint32_t {
     eb0 = 0, // Interrupt disable
     eb1 = 1, // Interrupt enable
@@ -75,7 +76,7 @@ union CM_INT_CTRL {
     uint32_t SP_REQ_NOT_ALLOWED_WAKEUP_INT : 1;
     uint32_t SP_REQ_NOT_ALLOWED_SOFT_INT : 1;
     uint32_t _reserved_end : 13;
-  } bits;          // Bit-field struct (auto-filling reserved gaps)
+  } bits;
   
   // Full 32-bit register value.
   uint32_t value;
@@ -89,11 +90,11 @@ union CM_INT_CTRL {
 //
 union CM_MISC {
   
-  // Enum definitions.
   enum class eNMI_STAT : uint32_t {
     eb0 = 0, // NMI is not asserting
     eb1 = 1, // NMI is asserting
   };
+  
   enum class eSLEEP_HOLD_EN : uint32_t {
     eb0 = 0, // Disable cpu_sleep_hold_req
     eb1 = 1, // Allow cpu_sleep_hold_req assert during CPU low power status
@@ -107,7 +108,7 @@ union CM_MISC {
     uint32_t _reserved_3 : 1;
     uint32_t MASTER_CPU : 1;
     uint32_t _reserved_end : 27;
-  } bits;          // Bit-field struct (auto-filling reserved gaps)
+  } bits;
   
   // Full 32-bit register value.
   uint32_t value;
@@ -121,13 +122,13 @@ union CM_MISC {
 //
 union CM_MODE_CTRL {
   
-  // Enum definitions.
   enum class eCPU_MODE_TARGET : uint32_t {
     eb0 = 0, // Stay in RUN mode
     eb1 = 1, // Transit to WAIT mode
     eb2 = 2, // Transit to STOP mode
     eb3 = 3, // Transit to SUSPEND mode
   };
+  
   enum class eWFE_EN : uint32_t {
     eb0 = 0, // WFE assertion can not trigger low power
     eb1 = 1, // WFE assertion can trigger low power
@@ -139,7 +140,7 @@ union CM_MODE_CTRL {
     uint32_t _reserved_1 : 2;
     eWFE_EN WFE_EN : 1;
     uint32_t _reserved_end : 27;
-  } bits;          // Bit-field struct (auto-filling reserved gaps)
+  } bits;
   
   // Full 32-bit register value.
   uint32_t value;
@@ -153,13 +154,13 @@ union CM_MODE_CTRL {
 //
 union CM_MODE_STAT {
   
-  // Enum definitions.
   enum class eCPU_MODE_CURRENT : uint32_t {
     eRUN = 0, // CPU is currently in RUN mode
     eWAIT = 1, // CPU is currently in WAIT mode
     eSTOP = 2, // CPU is currently in STOP mode
     eSUSPEND = 3, // CPU is currently in SUSPEND mode
   };
+  
   enum class eCPU_MODE_PREVIOUS : uint32_t {
     eRUN = 0, // CPU was previously in RUN mode
     eWAIT = 1, // CPU was previously in WAIT mode
@@ -172,7 +173,7 @@ union CM_MODE_STAT {
     eCPU_MODE_CURRENT CPU_MODE_CURRENT : 2;
     eCPU_MODE_PREVIOUS CPU_MODE_PREVIOUS : 2;
     uint32_t _reserved_end : 28;
-  } bits;          // Bit-field struct (auto-filling reserved gaps)
+  } bits;
   
   // Full 32-bit register value.
   uint32_t value;
@@ -186,12 +187,10 @@ union CM_MODE_STAT {
 //
 union CM_IRQ_WAKEUP_MASK_0 {
   
-  // Enum definitions.
-  
   // Bit field definition.
   struct {
     uint32_t IRQ_WAKEUP_MASK_0_31 : 32;
-  } bits;          // Bit-field struct (auto-filling reserved gaps)
+  } bits;
   
   // Full 32-bit register value.
   uint32_t value;
@@ -205,12 +204,10 @@ union CM_IRQ_WAKEUP_MASK_0 {
 //
 union CM_IRQ_WAKEUP_MASK_1 {
   
-  // Enum definitions.
-  
   // Bit field definition.
   struct {
     uint32_t IRQ_WAKEUP_MASK_32_63 : 32;
-  } bits;          // Bit-field struct (auto-filling reserved gaps)
+  } bits;
   
   // Full 32-bit register value.
   uint32_t value;
@@ -224,12 +221,10 @@ union CM_IRQ_WAKEUP_MASK_1 {
 //
 union CM_IRQ_WAKEUP_MASK_2 {
   
-  // Enum definitions.
-  
   // Bit field definition.
   struct {
     uint32_t IRQ_WAKEUP_MASK_64_95 : 32;
-  } bits;          // Bit-field struct (auto-filling reserved gaps)
+  } bits;
   
   // Full 32-bit register value.
   uint32_t value;
@@ -243,12 +238,10 @@ union CM_IRQ_WAKEUP_MASK_2 {
 //
 union CM_IRQ_WAKEUP_MASK_3 {
   
-  // Enum definitions.
-  
   // Bit field definition.
   struct {
     uint32_t IRQ_WAKEUP_MASK_96_127 : 32;
-  } bits;          // Bit-field struct (auto-filling reserved gaps)
+  } bits;
   
   // Full 32-bit register value.
   uint32_t value;
@@ -262,12 +255,10 @@ union CM_IRQ_WAKEUP_MASK_3 {
 //
 union CM_IRQ_WAKEUP_MASK_4 {
   
-  // Enum definitions.
-  
   // Bit field definition.
   struct {
     uint32_t IRQ_WAKEUP_MASK_128_159 : 32;
-  } bits;          // Bit-field struct (auto-filling reserved gaps)
+  } bits;
   
   // Full 32-bit register value.
   uint32_t value;
@@ -281,12 +272,10 @@ union CM_IRQ_WAKEUP_MASK_4 {
 //
 union CM_IRQ_WAKEUP_MASK_5 {
   
-  // Enum definitions.
-  
   // Bit field definition.
   struct {
     uint32_t IRQ_WAKEUP_MASK_160_191 : 32;
-  } bits;          // Bit-field struct (auto-filling reserved gaps)
+  } bits;
   
   // Full 32-bit register value.
   uint32_t value;
@@ -300,12 +289,10 @@ union CM_IRQ_WAKEUP_MASK_5 {
 //
 union CM_IRQ_WAKEUP_MASK_6 {
   
-  // Enum definitions.
-  
   // Bit field definition.
   struct {
     uint32_t IRQ_WAKEUP_MASK_192_223 : 32;
-  } bits;          // Bit-field struct (auto-filling reserved gaps)
+  } bits;
   
   // Full 32-bit register value.
   uint32_t value;
@@ -319,12 +306,10 @@ union CM_IRQ_WAKEUP_MASK_6 {
 //
 union CM_IRQ_WAKEUP_MASK_7 {
   
-  // Enum definitions.
-  
   // Bit field definition.
   struct {
     uint32_t IRQ_WAKEUP_MASK_224_255 : 32;
-  } bits;          // Bit-field struct (auto-filling reserved gaps)
+  } bits;
   
   // Full 32-bit register value.
   uint32_t value;
@@ -338,7 +323,6 @@ union CM_IRQ_WAKEUP_MASK_7 {
 //
 union CM_NON_IRQ_WAKEUP_MASK {
   
-  // Enum definitions.
   enum class eEVENT_WAKEUP_MASK : uint32_t {
     eb1 = 1, // The event cannot wakeup CPU platform
   };
@@ -348,7 +332,7 @@ union CM_NON_IRQ_WAKEUP_MASK {
     eEVENT_WAKEUP_MASK EVENT_WAKEUP_MASK : 1;
     uint32_t DEBUG_WAKEUP_MASK : 1;
     uint32_t _reserved_end : 30;
-  } bits;          // Bit-field struct (auto-filling reserved gaps)
+  } bits;
   
   // Full 32-bit register value.
   uint32_t value;
@@ -362,7 +346,6 @@ union CM_NON_IRQ_WAKEUP_MASK {
 //
 union CM_IRQ_WAKEUP_STAT_0 {
   
-  // Enum definitions.
   enum class eIRQ_WAKEUP_STAT_0_31 : uint32_t {
     eb0 = 0, // None
     eb1 = 1, // Valid
@@ -371,7 +354,7 @@ union CM_IRQ_WAKEUP_STAT_0 {
   // Bit field definition.
   struct {
     eIRQ_WAKEUP_STAT_0_31 IRQ_WAKEUP_STAT_0_31 : 32;
-  } bits;          // Bit-field struct (auto-filling reserved gaps)
+  } bits;
   
   // Full 32-bit register value.
   uint32_t value;
@@ -385,7 +368,6 @@ union CM_IRQ_WAKEUP_STAT_0 {
 //
 union CM_IRQ_WAKEUP_STAT_1 {
   
-  // Enum definitions.
   enum class eIRQ_WAKEUP_STAT_32_63 : uint32_t {
     eb0 = 0, // None
     eb1 = 1, // Valid
@@ -394,7 +376,7 @@ union CM_IRQ_WAKEUP_STAT_1 {
   // Bit field definition.
   struct {
     eIRQ_WAKEUP_STAT_32_63 IRQ_WAKEUP_STAT_32_63 : 32;
-  } bits;          // Bit-field struct (auto-filling reserved gaps)
+  } bits;
   
   // Full 32-bit register value.
   uint32_t value;
@@ -408,7 +390,6 @@ union CM_IRQ_WAKEUP_STAT_1 {
 //
 union CM_IRQ_WAKEUP_STAT_2 {
   
-  // Enum definitions.
   enum class eIRQ_WAKEUP_STAT_64_95 : uint32_t {
     eb0 = 0, // None
     eb1 = 1, // Valid
@@ -417,7 +398,7 @@ union CM_IRQ_WAKEUP_STAT_2 {
   // Bit field definition.
   struct {
     eIRQ_WAKEUP_STAT_64_95 IRQ_WAKEUP_STAT_64_95 : 32;
-  } bits;          // Bit-field struct (auto-filling reserved gaps)
+  } bits;
   
   // Full 32-bit register value.
   uint32_t value;
@@ -431,7 +412,6 @@ union CM_IRQ_WAKEUP_STAT_2 {
 //
 union CM_IRQ_WAKEUP_STAT_3 {
   
-  // Enum definitions.
   enum class eIRQ_WAKEUP_STAT_96_127 : uint32_t {
     eb0 = 0, // None
     eb1 = 1, // Valid
@@ -440,7 +420,7 @@ union CM_IRQ_WAKEUP_STAT_3 {
   // Bit field definition.
   struct {
     eIRQ_WAKEUP_STAT_96_127 IRQ_WAKEUP_STAT_96_127 : 32;
-  } bits;          // Bit-field struct (auto-filling reserved gaps)
+  } bits;
   
   // Full 32-bit register value.
   uint32_t value;
@@ -454,7 +434,6 @@ union CM_IRQ_WAKEUP_STAT_3 {
 //
 union CM_IRQ_WAKEUP_STAT_4 {
   
-  // Enum definitions.
   enum class eIRQ_WAKEUP_STAT_128_159 : uint32_t {
     eb0 = 0, // None
     eb1 = 1, // Valid
@@ -463,7 +442,7 @@ union CM_IRQ_WAKEUP_STAT_4 {
   // Bit field definition.
   struct {
     eIRQ_WAKEUP_STAT_128_159 IRQ_WAKEUP_STAT_128_159 : 32;
-  } bits;          // Bit-field struct (auto-filling reserved gaps)
+  } bits;
   
   // Full 32-bit register value.
   uint32_t value;
@@ -477,7 +456,6 @@ union CM_IRQ_WAKEUP_STAT_4 {
 //
 union CM_IRQ_WAKEUP_STAT_5 {
   
-  // Enum definitions.
   enum class eIRQ_WAKEUP_STAT_160_191 : uint32_t {
     eb0 = 0, // None
     eb1 = 1, // Valid
@@ -486,7 +464,7 @@ union CM_IRQ_WAKEUP_STAT_5 {
   // Bit field definition.
   struct {
     eIRQ_WAKEUP_STAT_160_191 IRQ_WAKEUP_STAT_160_191 : 32;
-  } bits;          // Bit-field struct (auto-filling reserved gaps)
+  } bits;
   
   // Full 32-bit register value.
   uint32_t value;
@@ -500,7 +478,6 @@ union CM_IRQ_WAKEUP_STAT_5 {
 //
 union CM_IRQ_WAKEUP_STAT_6 {
   
-  // Enum definitions.
   enum class eIRQ_WAKEUP_STAT_192_223 : uint32_t {
     eb0 = 0, // None
     eb1 = 1, // Valid
@@ -509,7 +486,7 @@ union CM_IRQ_WAKEUP_STAT_6 {
   // Bit field definition.
   struct {
     eIRQ_WAKEUP_STAT_192_223 IRQ_WAKEUP_STAT_192_223 : 32;
-  } bits;          // Bit-field struct (auto-filling reserved gaps)
+  } bits;
   
   // Full 32-bit register value.
   uint32_t value;
@@ -523,7 +500,6 @@ union CM_IRQ_WAKEUP_STAT_6 {
 //
 union CM_IRQ_WAKEUP_STAT_7 {
   
-  // Enum definitions.
   enum class eIRQ_WAKEUP_MASK_224_255 : uint32_t {
     eb0 = 0, // None
     eb1 = 1, // Valid
@@ -532,7 +508,7 @@ union CM_IRQ_WAKEUP_STAT_7 {
   // Bit field definition.
   struct {
     eIRQ_WAKEUP_MASK_224_255 IRQ_WAKEUP_MASK_224_255 : 32;
-  } bits;          // Bit-field struct (auto-filling reserved gaps)
+  } bits;
   
   // Full 32-bit register value.
   uint32_t value;
@@ -546,7 +522,6 @@ union CM_IRQ_WAKEUP_STAT_7 {
 //
 union CM_NON_IRQ_WAKEUP_STAT {
   
-  // Enum definitions.
   enum class eEVENT_WAKEUP_STAT : uint32_t {
     eb1 = 1, // Interrupt is asserting (pending)
   };
@@ -556,7 +531,7 @@ union CM_NON_IRQ_WAKEUP_STAT {
     eEVENT_WAKEUP_STAT EVENT_WAKEUP_STAT : 1;
     uint32_t DEBUG_WAKEUP_STAT : 1;
     uint32_t _reserved_end : 30;
-  } bits;          // Bit-field struct (auto-filling reserved gaps)
+  } bits;
   
   // Full 32-bit register value.
   uint32_t value;
@@ -570,7 +545,6 @@ union CM_NON_IRQ_WAKEUP_STAT {
 //
 union CM_SLEEP_SSAR_CTRL {
   
-  // Enum definitions.
   enum class eCNT_MODE : uint32_t {
     eb0 = 0, // Counter disable mode: not use step counter, step completes once receiving step_done
     eb1 = 1, // Counter delay mode: delay after receiving step_done, delay cycle number is STEP_CNT
@@ -585,7 +559,7 @@ union CM_SLEEP_SSAR_CTRL {
     eCNT_MODE CNT_MODE : 2;
     uint32_t _reserved_2 : 1;
     uint32_t DISABLE : 1;
-  } bits;          // Bit-field struct (auto-filling reserved gaps)
+  } bits;
   
   // Full 32-bit register value.
   uint32_t value;
@@ -599,7 +573,6 @@ union CM_SLEEP_SSAR_CTRL {
 //
 union CM_SLEEP_LPCG_CTRL {
   
-  // Enum definitions.
   enum class eCNT_MODE : uint32_t {
     eb0 = 0, // Counter disable mode: not use step counter, step completes once receiving step_done
     eb1 = 1, // Counter delay mode: delay after receiving step_done, delay cycle number is STEP_CNT
@@ -614,7 +587,7 @@ union CM_SLEEP_LPCG_CTRL {
     eCNT_MODE CNT_MODE : 2;
     uint32_t _reserved_2 : 1;
     uint32_t DISABLE : 1;
-  } bits;          // Bit-field struct (auto-filling reserved gaps)
+  } bits;
   
   // Full 32-bit register value.
   uint32_t value;
@@ -628,7 +601,6 @@ union CM_SLEEP_LPCG_CTRL {
 //
 union CM_SLEEP_PLL_CTRL {
   
-  // Enum definitions.
   enum class eCNT_MODE : uint32_t {
     eb0 = 0, // Counter disable mode: not use step counter, step completes once receiving step_done
     eb1 = 1, // Counter delay mode: delay after receiving step_done, delay cycle number is STEP_CNT
@@ -643,7 +615,7 @@ union CM_SLEEP_PLL_CTRL {
     eCNT_MODE CNT_MODE : 2;
     uint32_t _reserved_2 : 1;
     uint32_t DISABLE : 1;
-  } bits;          // Bit-field struct (auto-filling reserved gaps)
+  } bits;
   
   // Full 32-bit register value.
   uint32_t value;
@@ -657,7 +629,6 @@ union CM_SLEEP_PLL_CTRL {
 //
 union CM_SLEEP_ISO_CTRL {
   
-  // Enum definitions.
   enum class eCNT_MODE : uint32_t {
     eb0 = 0, // Counter disable mode: not use step counter, step completes once receiving step_done
     eb1 = 1, // Counter delay mode: delay after receiving step_done, delay cycle number is STEP_CNT
@@ -672,7 +643,7 @@ union CM_SLEEP_ISO_CTRL {
     eCNT_MODE CNT_MODE : 2;
     uint32_t _reserved_2 : 1;
     uint32_t DISABLE : 1;
-  } bits;          // Bit-field struct (auto-filling reserved gaps)
+  } bits;
   
   // Full 32-bit register value.
   uint32_t value;
@@ -686,7 +657,6 @@ union CM_SLEEP_ISO_CTRL {
 //
 union CM_SLEEP_RESET_CTRL {
   
-  // Enum definitions.
   enum class eCNT_MODE : uint32_t {
     eb0 = 0, // Counter disable mode: not use step counter, step completes once receiving step_done
     eb1 = 1, // Counter delay mode: delay after receiving step_done, delay cycle number is STEP_CNT
@@ -701,7 +671,7 @@ union CM_SLEEP_RESET_CTRL {
     eCNT_MODE CNT_MODE : 2;
     uint32_t _reserved_2 : 1;
     uint32_t DISABLE : 1;
-  } bits;          // Bit-field struct (auto-filling reserved gaps)
+  } bits;
   
   // Full 32-bit register value.
   uint32_t value;
@@ -715,7 +685,6 @@ union CM_SLEEP_RESET_CTRL {
 //
 union CM_SLEEP_POWER_CTRL {
   
-  // Enum definitions.
   enum class eCNT_MODE : uint32_t {
     eb0 = 0, // Counter disable mode: not use step counter, step completes once receiving step_done
     eb1 = 1, // Counter delay mode: delay after receiving step_done, delay cycle number is STEP_CNT
@@ -730,7 +699,7 @@ union CM_SLEEP_POWER_CTRL {
     eCNT_MODE CNT_MODE : 2;
     uint32_t _reserved_2 : 1;
     uint32_t DISABLE : 1;
-  } bits;          // Bit-field struct (auto-filling reserved gaps)
+  } bits;
   
   // Full 32-bit register value.
   uint32_t value;
@@ -744,7 +713,6 @@ union CM_SLEEP_POWER_CTRL {
 //
 union CM_WAKEUP_POWER_CTRL {
   
-  // Enum definitions.
   enum class eCNT_MODE : uint32_t {
     eb0 = 0, // Counter disable mode: not use step counter, step completes once receiving step_done
     eb1 = 1, // Counter delay mode: delay after receiving step_done, delay cycle number is STEP_CNT
@@ -759,7 +727,7 @@ union CM_WAKEUP_POWER_CTRL {
     eCNT_MODE CNT_MODE : 2;
     uint32_t _reserved_2 : 1;
     uint32_t DISABLE : 1;
-  } bits;          // Bit-field struct (auto-filling reserved gaps)
+  } bits;
   
   // Full 32-bit register value.
   uint32_t value;
@@ -773,7 +741,6 @@ union CM_WAKEUP_POWER_CTRL {
 //
 union CM_WAKEUP_RESET_CTRL {
   
-  // Enum definitions.
   enum class eCNT_MODE : uint32_t {
     eb0 = 0, // Counter disable mode: not use step counter, step completes once receiving step_done
     eb1 = 1, // Counter delay mode: delay after receiving step_done, delay cycle number is STEP_CNT
@@ -788,7 +755,7 @@ union CM_WAKEUP_RESET_CTRL {
     eCNT_MODE CNT_MODE : 2;
     uint32_t _reserved_2 : 1;
     uint32_t DISABLE : 1;
-  } bits;          // Bit-field struct (auto-filling reserved gaps)
+  } bits;
   
   // Full 32-bit register value.
   uint32_t value;
@@ -802,7 +769,6 @@ union CM_WAKEUP_RESET_CTRL {
 //
 union CM_WAKEUP_ISO_CTRL {
   
-  // Enum definitions.
   enum class eCNT_MODE : uint32_t {
     eb0 = 0, // Counter disable mode: not use step counter, step completes once receiving step_done
     eb1 = 1, // Counter delay mode: delay after receiving step_done, delay cycle number is STEP_CNT
@@ -817,7 +783,7 @@ union CM_WAKEUP_ISO_CTRL {
     eCNT_MODE CNT_MODE : 2;
     uint32_t _reserved_2 : 1;
     uint32_t DISABLE : 1;
-  } bits;          // Bit-field struct (auto-filling reserved gaps)
+  } bits;
   
   // Full 32-bit register value.
   uint32_t value;
@@ -831,7 +797,6 @@ union CM_WAKEUP_ISO_CTRL {
 //
 union CM_WAKEUP_PLL_CTRL {
   
-  // Enum definitions.
   enum class eCNT_MODE : uint32_t {
     eb0 = 0, // Counter disable mode: not use step counter, step completes once receiving step_done
     eb1 = 1, // Counter delay mode: delay after receiving step_done, delay cycle number is STEP_CNT
@@ -846,7 +811,7 @@ union CM_WAKEUP_PLL_CTRL {
     eCNT_MODE CNT_MODE : 2;
     uint32_t _reserved_2 : 1;
     uint32_t DISABLE : 1;
-  } bits;          // Bit-field struct (auto-filling reserved gaps)
+  } bits;
   
   // Full 32-bit register value.
   uint32_t value;
@@ -860,7 +825,6 @@ union CM_WAKEUP_PLL_CTRL {
 //
 union CM_WAKEUP_LPCG_CTRL {
   
-  // Enum definitions.
   enum class eCNT_MODE : uint32_t {
     eb0 = 0, // Counter disable mode: not use step counter, step completes once receiving step_done
     eb1 = 1, // Counter delay mode: delay after receiving step_done, delay cycle number is STEP_CNT
@@ -875,7 +839,7 @@ union CM_WAKEUP_LPCG_CTRL {
     eCNT_MODE CNT_MODE : 2;
     uint32_t _reserved_2 : 1;
     uint32_t DISABLE : 1;
-  } bits;          // Bit-field struct (auto-filling reserved gaps)
+  } bits;
   
   // Full 32-bit register value.
   uint32_t value;
@@ -889,7 +853,6 @@ union CM_WAKEUP_LPCG_CTRL {
 //
 union CM_WAKEUP_SSAR_CTRL {
   
-  // Enum definitions.
   enum class eCNT_MODE : uint32_t {
     eb0 = 0, // Counter disable mode: not use step counter, step completes once receiving step_done
     eb1 = 1, // Counter delay mode: delay after receiving step_done, delay cycle number is STEP_CNT
@@ -904,7 +867,7 @@ union CM_WAKEUP_SSAR_CTRL {
     eCNT_MODE CNT_MODE : 2;
     uint32_t _reserved_2 : 1;
     uint32_t DISABLE : 1;
-  } bits;          // Bit-field struct (auto-filling reserved gaps)
+  } bits;
   
   // Full 32-bit register value.
   uint32_t value;
@@ -918,7 +881,6 @@ union CM_WAKEUP_SSAR_CTRL {
 //
 union CM_SP_CTRL {
   
-  // Enum definitions.
   enum class eCPU_SP_WAKEUP_SEL : uint32_t {
     eb0 = 0, // Request SP transition to CPU_SP_WAKEUP
     eb1 = 1, // Request SP transition to the Setpoint when the sleep event happens, which is captured in CPU_SP_PREVIOUS
@@ -934,7 +896,7 @@ union CM_SP_CTRL {
     uint32_t CPU_SP_WAKEUP : 4;
     eCPU_SP_WAKEUP_SEL CPU_SP_WAKEUP_SEL : 1;
     uint32_t _reserved_end : 16;
-  } bits;          // Bit-field struct (auto-filling reserved gaps)
+  } bits;
   
   // Full 32-bit register value.
   uint32_t value;
@@ -948,15 +910,13 @@ union CM_SP_CTRL {
 //
 union CM_SP_STAT {
   
-  // Enum definitions.
-  
   // Bit field definition.
   struct {
     uint32_t CPU_SP_CURRENT : 4;
     uint32_t CPU_SP_PREVIOUS : 4;
     uint32_t CPU_SP_TARGET : 4;
     uint32_t _reserved_end : 20;
-  } bits;          // Bit-field struct (auto-filling reserved gaps)
+  } bits;
   
   // Full 32-bit register value.
   uint32_t value;
@@ -970,13 +930,11 @@ union CM_SP_STAT {
 //
 union CM_RUN_MODE_MAPPING {
   
-  // Enum definitions.
-  
   // Bit field definition.
   struct {
     uint32_t CPU_RUN_MODE_MAPPING : 16;
     uint32_t _reserved_end : 16;
-  } bits;          // Bit-field struct (auto-filling reserved gaps)
+  } bits;
   
   // Full 32-bit register value.
   uint32_t value;
@@ -990,13 +948,11 @@ union CM_RUN_MODE_MAPPING {
 //
 union CM_WAIT_MODE_MAPPING {
   
-  // Enum definitions.
-  
   // Bit field definition.
   struct {
     uint32_t CPU_WAIT_MODE_MAPPING : 16;
     uint32_t _reserved_end : 16;
-  } bits;          // Bit-field struct (auto-filling reserved gaps)
+  } bits;
   
   // Full 32-bit register value.
   uint32_t value;
@@ -1010,13 +966,11 @@ union CM_WAIT_MODE_MAPPING {
 //
 union CM_STOP_MODE_MAPPING {
   
-  // Enum definitions.
-  
   // Bit field definition.
   struct {
     uint32_t CPU_STOP_MODE_MAPPING : 16;
     uint32_t _reserved_end : 16;
-  } bits;          // Bit-field struct (auto-filling reserved gaps)
+  } bits;
   
   // Full 32-bit register value.
   uint32_t value;
@@ -1030,13 +984,11 @@ union CM_STOP_MODE_MAPPING {
 //
 union CM_SUSPEND_MODE_MAPPING {
   
-  // Enum definitions.
-  
   // Bit field definition.
   struct {
     uint32_t CPU_SUSPEND_MODE_MAPPING : 16;
     uint32_t _reserved_end : 16;
-  } bits;          // Bit-field struct (auto-filling reserved gaps)
+  } bits;
   
   // Full 32-bit register value.
   uint32_t value;
@@ -1050,13 +1002,11 @@ union CM_SUSPEND_MODE_MAPPING {
 //
 union CM_SP0_MAPPING {
   
-  // Enum definitions.
-  
   // Bit field definition.
   struct {
     uint32_t CPU_SP0_MAPPING : 16;
     uint32_t _reserved_end : 16;
-  } bits;          // Bit-field struct (auto-filling reserved gaps)
+  } bits;
   
   // Full 32-bit register value.
   uint32_t value;
@@ -1070,13 +1020,11 @@ union CM_SP0_MAPPING {
 //
 union CM_SP1_MAPPING {
   
-  // Enum definitions.
-  
   // Bit field definition.
   struct {
     uint32_t CPU_SP1_MAPPING : 16;
     uint32_t _reserved_end : 16;
-  } bits;          // Bit-field struct (auto-filling reserved gaps)
+  } bits;
   
   // Full 32-bit register value.
   uint32_t value;
@@ -1090,13 +1038,11 @@ union CM_SP1_MAPPING {
 //
 union CM_SP2_MAPPING {
   
-  // Enum definitions.
-  
   // Bit field definition.
   struct {
     uint32_t CPU_SP2_MAPPING : 16;
     uint32_t _reserved_end : 16;
-  } bits;          // Bit-field struct (auto-filling reserved gaps)
+  } bits;
   
   // Full 32-bit register value.
   uint32_t value;
@@ -1110,13 +1056,11 @@ union CM_SP2_MAPPING {
 //
 union CM_SP3_MAPPING {
   
-  // Enum definitions.
-  
   // Bit field definition.
   struct {
     uint32_t CPU_SP3_MAPPING : 16;
     uint32_t _reserved_end : 16;
-  } bits;          // Bit-field struct (auto-filling reserved gaps)
+  } bits;
   
   // Full 32-bit register value.
   uint32_t value;
@@ -1130,13 +1074,11 @@ union CM_SP3_MAPPING {
 //
 union CM_SP4_MAPPING {
   
-  // Enum definitions.
-  
   // Bit field definition.
   struct {
     uint32_t CPU_SP4_MAPPING : 16;
     uint32_t _reserved_end : 16;
-  } bits;          // Bit-field struct (auto-filling reserved gaps)
+  } bits;
   
   // Full 32-bit register value.
   uint32_t value;
@@ -1150,13 +1092,11 @@ union CM_SP4_MAPPING {
 //
 union CM_SP5_MAPPING {
   
-  // Enum definitions.
-  
   // Bit field definition.
   struct {
     uint32_t CPU_SP5_MAPPING : 16;
     uint32_t _reserved_end : 16;
-  } bits;          // Bit-field struct (auto-filling reserved gaps)
+  } bits;
   
   // Full 32-bit register value.
   uint32_t value;
@@ -1170,13 +1110,11 @@ union CM_SP5_MAPPING {
 //
 union CM_SP6_MAPPING {
   
-  // Enum definitions.
-  
   // Bit field definition.
   struct {
     uint32_t CPU_SP6_MAPPING : 16;
     uint32_t _reserved_end : 16;
-  } bits;          // Bit-field struct (auto-filling reserved gaps)
+  } bits;
   
   // Full 32-bit register value.
   uint32_t value;
@@ -1190,13 +1128,11 @@ union CM_SP6_MAPPING {
 //
 union CM_SP7_MAPPING {
   
-  // Enum definitions.
-  
   // Bit field definition.
   struct {
     uint32_t CPU_SP7_MAPPING : 16;
     uint32_t _reserved_end : 16;
-  } bits;          // Bit-field struct (auto-filling reserved gaps)
+  } bits;
   
   // Full 32-bit register value.
   uint32_t value;
@@ -1210,13 +1146,11 @@ union CM_SP7_MAPPING {
 //
 union CM_SP8_MAPPING {
   
-  // Enum definitions.
-  
   // Bit field definition.
   struct {
     uint32_t CPU_SP8_MAPPING : 16;
     uint32_t _reserved_end : 16;
-  } bits;          // Bit-field struct (auto-filling reserved gaps)
+  } bits;
   
   // Full 32-bit register value.
   uint32_t value;
@@ -1230,13 +1164,11 @@ union CM_SP8_MAPPING {
 //
 union CM_SP9_MAPPING {
   
-  // Enum definitions.
-  
   // Bit field definition.
   struct {
     uint32_t CPU_SP9_MAPPING : 16;
     uint32_t _reserved_end : 16;
-  } bits;          // Bit-field struct (auto-filling reserved gaps)
+  } bits;
   
   // Full 32-bit register value.
   uint32_t value;
@@ -1250,13 +1182,11 @@ union CM_SP9_MAPPING {
 //
 union CM_SP10_MAPPING {
   
-  // Enum definitions.
-  
   // Bit field definition.
   struct {
     uint32_t CPU_SP10_MAPPING : 16;
     uint32_t _reserved_end : 16;
-  } bits;          // Bit-field struct (auto-filling reserved gaps)
+  } bits;
   
   // Full 32-bit register value.
   uint32_t value;
@@ -1270,13 +1200,11 @@ union CM_SP10_MAPPING {
 //
 union CM_SP11_MAPPING {
   
-  // Enum definitions.
-  
   // Bit field definition.
   struct {
     uint32_t CPU_SP11_MAPPING : 16;
     uint32_t _reserved_end : 16;
-  } bits;          // Bit-field struct (auto-filling reserved gaps)
+  } bits;
   
   // Full 32-bit register value.
   uint32_t value;
@@ -1290,13 +1218,11 @@ union CM_SP11_MAPPING {
 //
 union CM_SP12_MAPPING {
   
-  // Enum definitions.
-  
   // Bit field definition.
   struct {
     uint32_t CPU_SP12_MAPPING : 16;
     uint32_t _reserved_end : 16;
-  } bits;          // Bit-field struct (auto-filling reserved gaps)
+  } bits;
   
   // Full 32-bit register value.
   uint32_t value;
@@ -1310,13 +1236,11 @@ union CM_SP12_MAPPING {
 //
 union CM_SP13_MAPPING {
   
-  // Enum definitions.
-  
   // Bit field definition.
   struct {
     uint32_t CPU_SP13_MAPPING : 16;
     uint32_t _reserved_end : 16;
-  } bits;          // Bit-field struct (auto-filling reserved gaps)
+  } bits;
   
   // Full 32-bit register value.
   uint32_t value;
@@ -1330,13 +1254,11 @@ union CM_SP13_MAPPING {
 //
 union CM_SP14_MAPPING {
   
-  // Enum definitions.
-  
   // Bit field definition.
   struct {
     uint32_t CPU_SP14_MAPPING : 16;
     uint32_t _reserved_end : 16;
-  } bits;          // Bit-field struct (auto-filling reserved gaps)
+  } bits;
   
   // Full 32-bit register value.
   uint32_t value;
@@ -1350,13 +1272,11 @@ union CM_SP14_MAPPING {
 //
 union CM_SP15_MAPPING {
   
-  // Enum definitions.
-  
   // Bit field definition.
   struct {
     uint32_t CPU_SP15_MAPPING : 16;
     uint32_t _reserved_end : 16;
-  } bits;          // Bit-field struct (auto-filling reserved gaps)
+  } bits;
   
   // Full 32-bit register value.
   uint32_t value;
@@ -1370,8 +1290,6 @@ union CM_SP15_MAPPING {
 //
 union CM_STBY_CTRL {
   
-  // Enum definitions.
-  
   // Bit field definition.
   struct {
     uint32_t STBY_WAIT : 1;
@@ -1381,7 +1299,7 @@ union CM_STBY_CTRL {
     uint32_t STBY_SLEEP_BUSY : 1;
     uint32_t STBY_WAKEUP_BUSY : 1;
     uint32_t _reserved_end : 14;
-  } bits;          // Bit-field struct (auto-filling reserved gaps)
+  } bits;
   
   // Full 32-bit register value.
   uint32_t value;

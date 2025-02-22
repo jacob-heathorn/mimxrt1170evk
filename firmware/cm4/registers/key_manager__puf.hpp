@@ -15,27 +15,31 @@ namespace nKEY_MANAGER__PUF {
 //
 union CTRL {
   
-  // Enum definitions.
   enum class eZEROIZE : uint32_t {
     eUNSET = 0, // No Zeroize operation in progress
     eSET = 1, // Zeroize operation in progress
   };
+  
   enum class eENROLL : uint32_t {
     eUNSET = 0, // No Enroll operation in progress
     eSET = 1, // Enroll operation in progress
   };
+  
   enum class eSTART : uint32_t {
     eUNSET = 0, // No Start operation in progress
     eSET = 1, // Start operation in progress
   };
+  
   enum class eGENERATEKEY : uint32_t {
     eUNSET = 0, // No Set Intrinsic Key operation in progress
     eSET = 1, // Set Intrinsic Key operation in progress
   };
+  
   enum class eSETKEY : uint32_t {
     eUNSET = 0, // No Set Key operation in progress
     eSET = 1, // Set Key operation in progress
   };
+  
   enum class eGETKEY : uint32_t {
     eUNSET = 0, // No Get Key operation in progress
     eSET = 1, // Get Key operation in progress
@@ -51,7 +55,7 @@ union CTRL {
     uint32_t _reserved_5 : 1;
     eGETKEY GETKEY : 1;
     uint32_t _reserved_end : 25;
-  } bits;          // Bit-field struct (auto-filling reserved gaps)
+  } bits;
   
   // Full 32-bit register value.
   uint32_t value;
@@ -65,7 +69,6 @@ union CTRL {
 //
 union KEYINDEX {
   
-  // Enum definitions.
   enum class eKEYIDX : uint32_t {
     eINDEX0 = 0, // USE INDEX0
     eINDEX1 = 1, // USE INDEX1
@@ -89,7 +92,7 @@ union KEYINDEX {
   struct {
     eKEYIDX KEYIDX : 4;
     uint32_t _reserved_end : 28;
-  } bits;          // Bit-field struct (auto-filling reserved gaps)
+  } bits;
   
   // Full 32-bit register value.
   uint32_t value;
@@ -103,7 +106,6 @@ union KEYINDEX {
 //
 union KEYSIZE {
   
-  // Enum definitions.
   enum class eKEYSIZE : uint32_t {
     eSIZE64 = 0, // Key Size is 512 Bytes and KC Size is 532 Bytes
     eSIZE1 = 1, // Key Size is 8 Bytes and KC Size is 52 Bytes
@@ -175,7 +177,7 @@ union KEYSIZE {
   struct {
     eKEYSIZE KEYSIZE : 6;
     uint32_t _reserved_end : 26;
-  } bits;          // Bit-field struct (auto-filling reserved gaps)
+  } bits;
   
   // Full 32-bit register value.
   uint32_t value;
@@ -189,31 +191,36 @@ union KEYSIZE {
 //
 union STAT {
   
-  // Enum definitions.
   enum class eBUSY : uint32_t {
     eIDLE = 0, // IDLE
     eBUSY = 1, // BUSY
   };
+  
   enum class eSUCCESS : uint32_t {
     eNO = 0, // Last operation was unsuccessful
     eSUCCESSFUL = 1, // Last operation was successful
   };
+  
   enum class eERROR : uint32_t {
     eNO_IN_ERROR = 0, // PUF is not in the Error state
     eIN_ERROR = 1, // PUF is in the Error state
   };
+  
   enum class eKEYINREQ : uint32_t {
     eNOREQUEST = 0, // No request for next part of key
     eREQUEST = 1, // Request for next part of key in KEYINPUT register
   };
+  
   enum class eKEYOUTAVAIL : uint32_t {
     eNOAVAILABLE = 0, // Next part of key is not available
     eAVAILABLE = 1, // Next part of key is available in KEYOUTPUT register
   };
+  
   enum class eCODEINREQ : uint32_t {
     eNOREQUEST = 0, // No request for next part of Activation Code/Key Code
     eREQUEST = 1, // request for next part of Activation Code/Key Code in CODEINPUT register
   };
+  
   enum class eCODEOUTAVAIL : uint32_t {
     eNOAVAILABLE = 0, // Next part of Activation Code/Key Code is not available
     eAVAILABLE = 1, // Next part of Activation Code/Key Code is available in CODEOUTPUT register
@@ -230,7 +237,7 @@ union STAT {
     eCODEINREQ CODEINREQ : 1;
     eCODEOUTAVAIL CODEOUTAVAIL : 1;
     uint32_t _reserved_end : 24;
-  } bits;          // Bit-field struct (auto-filling reserved gaps)
+  } bits;
   
   // Full 32-bit register value.
   uint32_t value;
@@ -244,19 +251,21 @@ union STAT {
 //
 union ALLOW {
   
-  // Enum definitions.
   enum class eALLOWENROLL : uint32_t {
     eNOALLOW = 0, // Specified operation is not currently allowed
     eALLOW = 1, // Specified operation is allowed
   };
+  
   enum class eALLOWSTART : uint32_t {
     eNOALLOW = 0, // Specified operation is not currently allowed
     eALLOW = 1, // Specified operation is allowed
   };
+  
   enum class eALLOWSETKEY : uint32_t {
     eNOALLOW = 0, // Specified operation is not currently allowed
     eALLOW = 1, // Specified operation is allowed
   };
+  
   enum class eALLOWGETKEY : uint32_t {
     eNOALLOW = 0, // Specified operation is not currently allowed
     eALLOW = 1, // Specified operation is allowed
@@ -269,7 +278,7 @@ union ALLOW {
     eALLOWSETKEY ALLOWSETKEY : 1;
     eALLOWGETKEY ALLOWGETKEY : 1;
     uint32_t _reserved_end : 28;
-  } bits;          // Bit-field struct (auto-filling reserved gaps)
+  } bits;
   
   // Full 32-bit register value.
   uint32_t value;
@@ -283,12 +292,10 @@ union ALLOW {
 //
 union KEYINPUT {
   
-  // Enum definitions.
-  
   // Bit field definition.
   struct {
     uint32_t KEYIN : 32;
-  } bits;          // Bit-field struct (auto-filling reserved gaps)
+  } bits;
   
   // Full 32-bit register value.
   uint32_t value;
@@ -302,12 +309,10 @@ union KEYINPUT {
 //
 union CODEINPUT {
   
-  // Enum definitions.
-  
   // Bit field definition.
   struct {
     uint32_t CODEIN : 32;
-  } bits;          // Bit-field struct (auto-filling reserved gaps)
+  } bits;
   
   // Full 32-bit register value.
   uint32_t value;
@@ -321,12 +326,10 @@ union CODEINPUT {
 //
 union CODEOUTPUT {
   
-  // Enum definitions.
-  
   // Bit field definition.
   struct {
     uint32_t CODEOUT : 32;
-  } bits;          // Bit-field struct (auto-filling reserved gaps)
+  } bits;
   
   // Full 32-bit register value.
   uint32_t value;
@@ -340,12 +343,10 @@ union CODEOUTPUT {
 //
 union KEYOUTINDEX {
   
-  // Enum definitions.
-  
   // Bit field definition.
   struct {
     uint32_t KEYOUTIDX : 32;
-  } bits;          // Bit-field struct (auto-filling reserved gaps)
+  } bits;
   
   // Full 32-bit register value.
   uint32_t value;
@@ -359,12 +360,10 @@ union KEYOUTINDEX {
 //
 union KEYOUTPUT {
   
-  // Enum definitions.
-  
   // Bit field definition.
   struct {
     uint32_t KEYOUT : 32;
-  } bits;          // Bit-field struct (auto-filling reserved gaps)
+  } bits;
   
   // Full 32-bit register value.
   uint32_t value;
@@ -378,7 +377,6 @@ union KEYOUTPUT {
 //
 union IFSTAT {
   
-  // Enum definitions.
   enum class eERROR : uint32_t {
     eNOERROR = 0, // NOERROR
     eERROR = 1, // ERROR
@@ -388,7 +386,7 @@ union IFSTAT {
   struct {
     eERROR ERROR : 1;
     uint32_t _reserved_end : 31;
-  } bits;          // Bit-field struct (auto-filling reserved gaps)
+  } bits;
   
   // Full 32-bit register value.
   uint32_t value;
@@ -402,12 +400,10 @@ union IFSTAT {
 //
 union VERSION {
   
-  // Enum definitions.
-  
   // Bit field definition.
   struct {
     uint32_t VERSION : 32;
-  } bits;          // Bit-field struct (auto-filling reserved gaps)
+  } bits;
   
   // Full 32-bit register value.
   uint32_t value;
@@ -421,31 +417,36 @@ union VERSION {
 //
 union INTEN {
   
-  // Enum definitions.
   enum class eREADYEN : uint32_t {
     eDISABLE = 0, // PUF ready interrupt disabled
     eENABLE = 1, // PUF ready interrupt enabled
   };
+  
   enum class eSUCCESSEN : uint32_t {
     eDISABLE = 0, // PUF successful interrupt disabled
     eENABLE = 1, // PUF successful interrupt enabled
   };
+  
   enum class eERROREN : uint32_t {
     eDISABLE = 0, // PUF error interrupt disabled
     eENABLE = 1, // PUF error interrupt enabled
   };
+  
   enum class eKEYINREQEN : uint32_t {
     eDISABLE = 0, // Key interrupt request disabled
     eENABLE = 1, // Key interrupt request enabled
   };
+  
   enum class eKEYOUTAVAILEN : uint32_t {
     eDISABLE = 0, // Key available interrupt disabled
     eENABLE = 1, // Key available interrupt enabled
   };
+  
   enum class eCODEINREQEN : uint32_t {
     eDISABLE = 0, // AC/KC interrupt request disabled
     eENABLE = 1, // AC/KC interrupt request enabled
   };
+  
   enum class eCODEOUTAVAILEN : uint32_t {
     eDISABLE = 0, // AC/KC available interrupt disabled
     eENABLE = 1, // AC/KC available interrupt enabled
@@ -462,7 +463,7 @@ union INTEN {
     eCODEINREQEN CODEINREQEN : 1;
     eCODEOUTAVAILEN CODEOUTAVAILEN : 1;
     uint32_t _reserved_end : 24;
-  } bits;          // Bit-field struct (auto-filling reserved gaps)
+  } bits;
   
   // Full 32-bit register value.
   uint32_t value;
@@ -476,31 +477,36 @@ union INTEN {
 //
 union INTSTAT {
   
-  // Enum definitions.
   enum class eREADY : uint32_t {
     eNOT_FINISHED = 0, // Indicates that last operation not finished
     eFINISHED = 1, // Indicates that last operation is finished
   };
+  
   enum class eSUCCESS : uint32_t {
     eUNSUCCESSFUL = 0, // Indicates that last operation was not successful
     eSUCCESSFUL = 1, // Indicates that last operation was successful
   };
+  
   enum class eERROR : uint32_t {
     eNO_ERROR = 0, // PUF is not in the Error state and operations can be performed
     eERROR = 1, // PUF is in the Error state and no operations can be performed
   };
+  
   enum class eKEYINREQ : uint32_t {
     eNO_REQUEST = 0, // No request for next part of key
     eREQUEST = 1, // Request for next part of key
   };
+  
   enum class eKEYOUTAVAIL : uint32_t {
     eNOT_AVAILABLE = 0, // Next part of key is not available
     eAVAILABLE = 1, // Next part of key is available
   };
+  
   enum class eCODEINREQ : uint32_t {
     eNO_REQUEST = 0, // No request for next part of AC/KC
     eREQUEST = 1, // Request for next part of AC/KC
   };
+  
   enum class eCODEOUTAVAIL : uint32_t {
     eNOT_AVAILABLE = 0, // Next part of AC/KC is not available
     eAVAILABLE = 1, // Next part of AC/KC is available
@@ -517,7 +523,7 @@ union INTSTAT {
     eCODEINREQ CODEINREQ : 1;
     eCODEOUTAVAIL CODEOUTAVAIL : 1;
     uint32_t _reserved_end : 24;
-  } bits;          // Bit-field struct (auto-filling reserved gaps)
+  } bits;
   
   // Full 32-bit register value.
   uint32_t value;
@@ -531,15 +537,16 @@ union INTSTAT {
 //
 union PWRCTRL {
   
-  // Enum definitions.
   enum class eRAM_ON : uint32_t {
     eSLEEP = 0, // PUF RAM is in sleep mode (PUF operation disabled)
     eWAKE = 1, // PUF RAM is awake (normal PUF operation enabled)
   };
+  
   enum class eCK_DIS : uint32_t {
     eENABLE = 0, // PUF RAM is clocked (normal PUF operation enabled)
     eDISABLE = 1, // PUF RAM clock is gated/disabled (PUF operation disabled)
   };
+  
   enum class eRAM_INITN : uint32_t {
     eRESET = 0, // Reset the PUF RAM (PUF operation disabled)
     eDO_NOT_RESET = 1, // Do not reset the PUF RAM (normal PUF operation enabled)
@@ -553,7 +560,7 @@ union PWRCTRL {
     eRAM_INITN RAM_INITN : 1;
     uint32_t RAM_PSW : 4;
     uint32_t _reserved_end : 24;
-  } bits;          // Bit-field struct (auto-filling reserved gaps)
+  } bits;
   
   // Full 32-bit register value.
   uint32_t value;
@@ -567,11 +574,11 @@ union PWRCTRL {
 //
 union CFG {
   
-  // Enum definitions.
   enum class ePUF_BLOCK_SET_KEY : uint32_t {
     eENABLE = 0, // Enable the Set Key state
     eDISABLE = 1, // Disable the Set Key state
   };
+  
   enum class ePUF_BLOCK_ENROLL : uint32_t {
     eENABLE = 0, // Enable the Enrollment state
     eDISABLE = 1, // Disable the Enrollment state
@@ -582,7 +589,7 @@ union CFG {
     ePUF_BLOCK_SET_KEY PUF_BLOCK_SET_KEY : 1;
     ePUF_BLOCK_ENROLL PUF_BLOCK_ENROLL : 1;
     uint32_t _reserved_end : 30;
-  } bits;          // Bit-field struct (auto-filling reserved gaps)
+  } bits;
   
   // Full 32-bit register value.
   uint32_t value;
@@ -596,13 +603,13 @@ union CFG {
 //
 union KEYLOCK {
   
-  // Enum definitions.
   enum class eLOCK0 : uint32_t {
     eLOCKED_00 = 0, // SNVS Key block locked
     eLOCKED_01 = 1, // SNVS Key block locked
     eUNLOCKED = 2, // SNVS Key block unlocked
     eLOCKED_11 = 3, // SNVS Key block locked
   };
+  
   enum class eLOCK1 : uint32_t {
     eLOCKED_00 = 0, // OTFAD Key block locked
     eLOCKED_01 = 1, // OTFAD Key block locked
@@ -615,7 +622,7 @@ union KEYLOCK {
     eLOCK0 LOCK0 : 2;
     eLOCK1 LOCK1 : 2;
     uint32_t _reserved_end : 28;
-  } bits;          // Bit-field struct (auto-filling reserved gaps)
+  } bits;
   
   // Full 32-bit register value.
   uint32_t value;
@@ -629,13 +636,13 @@ union KEYLOCK {
 //
 union KEYENABLE {
   
-  // Enum definitions.
   enum class eENABLE0 : uint32_t {
     eDISABLED_00 = 0, // Key block 0 disabled
     eDISABLED_01 = 1, // Key block 0 disabled
     eENABLED = 2, // Key block 0 enabled
     eDISABLED_11 = 3, // Key block 0 disabled
   };
+  
   enum class eENABLE1 : uint32_t {
     eDISABLED_00 = 0, // Key block 1 disabled
     eDISABLED_01 = 1, // Key block 1 disabled
@@ -648,7 +655,7 @@ union KEYENABLE {
     eENABLE0 ENABLE0 : 2;
     eENABLE1 ENABLE1 : 2;
     uint32_t _reserved_end : 28;
-  } bits;          // Bit-field struct (auto-filling reserved gaps)
+  } bits;
   
   // Full 32-bit register value.
   uint32_t value;
@@ -662,13 +669,13 @@ union KEYENABLE {
 //
 union KEYRESET {
   
-  // Enum definitions.
   enum class eRESET0 : uint32_t {
     eNORESET_00 = 0, // Do not reset key block 0
     eNORESET_01 = 1, // Do not reset key block 0
     eRESET = 2, // Reset key block 0
     eNORESET_11 = 3, // Do not reset key block 0
   };
+  
   enum class eRESET1 : uint32_t {
     eNORESET_00 = 0, // Do not reset key block 1
     eNORESET_01 = 1, // Do not reset key block 1
@@ -681,7 +688,7 @@ union KEYRESET {
     eRESET0 RESET0 : 2;
     eRESET1 RESET1 : 2;
     uint32_t _reserved_end : 28;
-  } bits;          // Bit-field struct (auto-filling reserved gaps)
+  } bits;
   
   // Full 32-bit register value.
   uint32_t value;
@@ -694,8 +701,6 @@ union KEYRESET {
 // PUF Index Block Key Output
 //
 union IDXBLK {
-  
-  // Enum definitions.
   
   // Bit field definition.
   struct {
@@ -715,7 +720,7 @@ union IDXBLK {
     uint32_t IDXBLK13 : 2;
     uint32_t IDXBLK14 : 2;
     uint32_t IDXBLK15 : 2;
-  } bits;          // Bit-field struct (auto-filling reserved gaps)
+  } bits;
   
   // Full 32-bit register value.
   uint32_t value;
@@ -728,8 +733,6 @@ union IDXBLK {
 // PUF Index Block Key Output
 //
 union IDXBLK_DP {
-  
-  // Enum definitions.
   
   // Bit field definition.
   struct {
@@ -749,7 +752,7 @@ union IDXBLK_DP {
     uint32_t IDXBLK_DP13 : 2;
     uint32_t IDXBLK_DP14 : 2;
     uint32_t IDXBLK_DP15 : 2;
-  } bits;          // Bit-field struct (auto-filling reserved gaps)
+  } bits;
   
   // Full 32-bit register value.
   uint32_t value;
@@ -763,12 +766,10 @@ union IDXBLK_DP {
 //
 union KEYMASK0 {
   
-  // Enum definitions.
-  
   // Bit field definition.
   struct {
     uint32_t KEYMASK : 32;
-  } bits;          // Bit-field struct (auto-filling reserved gaps)
+  } bits;
   
   // Full 32-bit register value.
   uint32_t value;
@@ -782,12 +783,10 @@ union KEYMASK0 {
 //
 union KEYMASK1 {
   
-  // Enum definitions.
-  
   // Bit field definition.
   struct {
     uint32_t KEYMASK : 32;
-  } bits;          // Bit-field struct (auto-filling reserved gaps)
+  } bits;
   
   // Full 32-bit register value.
   uint32_t value;
@@ -800,8 +799,6 @@ union KEYMASK1 {
 // PUF Index Block Setting Status Register
 //
 union IDXBLK_STATUS {
-  
-  // Enum definitions.
   
   // Bit field definition.
   struct {
@@ -821,7 +818,7 @@ union IDXBLK_STATUS {
     uint32_t IDXBLK_STATUS13 : 2;
     uint32_t IDXBLK_STATUS14 : 2;
     uint32_t IDXBLK_STATUS15 : 2;
-  } bits;          // Bit-field struct (auto-filling reserved gaps)
+  } bits;
   
   // Full 32-bit register value.
   uint32_t value;
@@ -835,14 +832,12 @@ union IDXBLK_STATUS {
 //
 union IDXBLK_SHIFT {
   
-  // Enum definitions.
-  
   // Bit field definition.
   struct {
     uint32_t IND_KEY0 : 4;
     uint32_t IND_KEY1 : 4;
     uint32_t _reserved_end : 24;
-  } bits;          // Bit-field struct (auto-filling reserved gaps)
+  } bits;
   
   // Full 32-bit register value.
   uint32_t value;

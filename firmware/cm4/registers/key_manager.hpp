@@ -15,11 +15,11 @@ namespace nKEY_MANAGER {
 //
 union MASTER_KEY_CTRL {
   
-  // Enum definitions.
   enum class eSELECT : uint32_t {
     eSELECT_FROM_UDF = 0, // select key from UDF
     eSELECT_FROM_PUF = 1, // If LOCK = 1, select key from PUF, otherwise select key from fuse (bypass the fuse OTPMK to SNVS)
   };
+  
   enum class eLOCK : uint32_t {
     eUNLOCK = 0, // not locked
     eLOCK = 1, // locked
@@ -31,7 +31,7 @@ union MASTER_KEY_CTRL {
     uint32_t _reserved_1 : 15;
     eLOCK LOCK : 1;
     uint32_t _reserved_end : 15;
-  } bits;          // Bit-field struct (auto-filling reserved gaps)
+  } bits;
   
   // Full 32-bit register value.
   uint32_t value;
@@ -45,11 +45,11 @@ union MASTER_KEY_CTRL {
 //
 union OTFAD1_KEY_CTRL {
   
-  // Enum definitions.
   enum class eSELECT : uint32_t {
     eSELECT_FROM_USER_KEY5 = 0, // Select key from OCOTP USER_KEY5
     eSELECT_FROM_PUF = 1, // If PUF_KEY_CTRL[LOCK] is 1, select key from PUF, otherwise select key from OCOTP USER_KEY5
   };
+  
   enum class eLOCK : uint32_t {
     eUNLOCK = 0, // not locked
     eLOCK = 1, // locked
@@ -61,7 +61,7 @@ union OTFAD1_KEY_CTRL {
     uint32_t _reserved_1 : 15;
     eLOCK LOCK : 1;
     uint32_t _reserved_end : 15;
-  } bits;          // Bit-field struct (auto-filling reserved gaps)
+  } bits;
   
   // Full 32-bit register value.
   uint32_t value;
@@ -75,11 +75,11 @@ union OTFAD1_KEY_CTRL {
 //
 union OTFAD2_KEY_CTRL {
   
-  // Enum definitions.
   enum class eSELECT : uint32_t {
     eSELECT_FROM_USER_KEY5 = 0, // select key from OCOTP USER_KEY5
     eSELECT_FROM_PUF = 1, // If PUF_KEY_CTRL[LOCK] is 1, select key from PUF, otherwise select key from OCOTP USER_KEY5
   };
+  
   enum class eLOCK : uint32_t {
     eUNLOCK = 0, // not locked
     eLOCK = 1, // locked
@@ -91,7 +91,7 @@ union OTFAD2_KEY_CTRL {
     uint32_t _reserved_1 : 15;
     eLOCK LOCK : 1;
     uint32_t _reserved_end : 15;
-  } bits;          // Bit-field struct (auto-filling reserved gaps)
+  } bits;
   
   // Full 32-bit register value.
   uint32_t value;
@@ -105,7 +105,6 @@ union OTFAD2_KEY_CTRL {
 //
 union IEE_KEY_CTRL {
   
-  // Enum definitions.
   enum class eRELOAD : uint32_t {
     eIDLE = 0, // Do nothing
     eRESTART = 1, // Restart IEE key load flow
@@ -115,7 +114,7 @@ union IEE_KEY_CTRL {
   struct {
     eRELOAD RELOAD : 1;
     uint32_t _reserved_end : 31;
-  } bits;          // Bit-field struct (auto-filling reserved gaps)
+  } bits;
   
   // Full 32-bit register value.
   uint32_t value;
@@ -129,7 +128,6 @@ union IEE_KEY_CTRL {
 //
 union PUF_KEY_CTRL {
   
-  // Enum definitions.
   enum class eLOCK : uint32_t {
     eUNLOCK = 0, // Do not lock the key select
     eLOCK = 1, // Lock the key select to select key from PUF, otherwise bypass key from OCOPT and do not lock. Once it has been set to 1, it cannot be reset manually. It will be set to 0 when the IEE key reload operation is done.
@@ -139,7 +137,7 @@ union PUF_KEY_CTRL {
   struct {
     eLOCK LOCK : 1;
     uint32_t _reserved_end : 31;
-  } bits;          // Bit-field struct (auto-filling reserved gaps)
+  } bits;
   
   // Full 32-bit register value.
   uint32_t value;
@@ -153,19 +151,21 @@ union PUF_KEY_CTRL {
 //
 union SLOT0_CTRL {
   
-  // Enum definitions.
   enum class eLOCK_LIST : uint32_t {
     eUNLOCK = 0, // Whitelist is not locked
     eLOCK = 1, // Whitelist is locked
   };
+  
   enum class eTZ_NS : uint32_t {
     ePREVENT = 0, // Do not allow non-secure write access
     eALLOW = 1, // Allow non-secure write access
   };
+  
   enum class eTZ_USER : uint32_t {
     ePREVENT = 0, // Do not allow user write access
     eALLOW = 1, // Allow user write access
   };
+  
   enum class eLOCK_CONTROL : uint32_t {
     eUNLOCK = 0, // Do not lock the control register of this slot
     eLOCK = 1, // Lock the control register of this slot
@@ -180,7 +180,7 @@ union SLOT0_CTRL {
     eTZ_USER TZ_USER : 1;
     uint32_t _reserved_4 : 13;
     eLOCK_CONTROL LOCK_CONTROL : 1;
-  } bits;          // Bit-field struct (auto-filling reserved gaps)
+  } bits;
   
   // Full 32-bit register value.
   uint32_t value;
@@ -194,19 +194,21 @@ union SLOT0_CTRL {
 //
 union SLOT1_CTRL {
   
-  // Enum definitions.
   enum class eLOCK_LIST : uint32_t {
     eUNLOCK = 0, // Whitelist is not locked
     eLOCK = 1, // Whitelist is locked
   };
+  
   enum class eTZ_NS : uint32_t {
     ePREVENT = 0, // Do not allow non-secure write access
     eALLOW = 1, // Allow non-secure write access
   };
+  
   enum class eTZ_USER : uint32_t {
     ePREVENT = 0, // Do not allow user write access
     eALLOW = 1, // Allow user write access
   };
+  
   enum class eLOCK_CONTROL : uint32_t {
     eUNLOCK = 0, // Do not lock the control register of this slot
     eLOCK = 1, // Lock the control register of this slot
@@ -221,7 +223,7 @@ union SLOT1_CTRL {
     eTZ_USER TZ_USER : 1;
     uint32_t _reserved_4 : 13;
     eLOCK_CONTROL LOCK_CONTROL : 1;
-  } bits;          // Bit-field struct (auto-filling reserved gaps)
+  } bits;
   
   // Full 32-bit register value.
   uint32_t value;
@@ -235,19 +237,21 @@ union SLOT1_CTRL {
 //
 union SLOT2_CTRL {
   
-  // Enum definitions.
   enum class eLOCK_LIST : uint32_t {
     eUNLOCK = 0, // Whitelist is not locked
     eLOCK = 1, // Whitelist is locked
   };
+  
   enum class eTZ_NS : uint32_t {
     ePREVENT = 0, // Do not allow non-secure write access
     eALLOW = 1, // Allow non-secure write access
   };
+  
   enum class eTZ_USER : uint32_t {
     ePREVENT = 0, // Do not allow user write access
     eALLOW = 1, // Allow user write access
   };
+  
   enum class eLOCK_CONTROL : uint32_t {
     eUNLOCK = 0, // Do not lock the control register of this slot
     eLOCK = 1, // Lock the control register of this slot
@@ -262,7 +266,7 @@ union SLOT2_CTRL {
     eTZ_USER TZ_USER : 1;
     uint32_t _reserved_4 : 13;
     eLOCK_CONTROL LOCK_CONTROL : 1;
-  } bits;          // Bit-field struct (auto-filling reserved gaps)
+  } bits;
   
   // Full 32-bit register value.
   uint32_t value;
@@ -276,19 +280,21 @@ union SLOT2_CTRL {
 //
 union SLOT3_CTRL {
   
-  // Enum definitions.
   enum class eLOCK_LIST : uint32_t {
     eUNLOCK = 0, // Whitelist is not locked
     eLOCK = 1, // Whitelist is locked
   };
+  
   enum class eTZ_NS : uint32_t {
     ePREVENT = 0, // Do not allow non-secure write access
     eALLOW = 1, // Allow non-secure write access
   };
+  
   enum class eTZ_USER : uint32_t {
     ePREVENT = 0, // Do not allow user write access
     eALLOW = 1, // Allow user write access
   };
+  
   enum class eLOCK_CONTROL : uint32_t {
     eUNLOCK = 0, // Do not lock the control register of this slot
     eLOCK = 1, // Lock the control register of this slot
@@ -303,7 +309,7 @@ union SLOT3_CTRL {
     eTZ_USER TZ_USER : 1;
     uint32_t _reserved_4 : 13;
     eLOCK_CONTROL LOCK_CONTROL : 1;
-  } bits;          // Bit-field struct (auto-filling reserved gaps)
+  } bits;
   
   // Full 32-bit register value.
   uint32_t value;
@@ -317,19 +323,21 @@ union SLOT3_CTRL {
 //
 union SLOT4_CTRL {
   
-  // Enum definitions.
   enum class eLOCK_LIST : uint32_t {
     eUNLOCK = 0, // Whitelist is not locked
     eLOCK = 1, // Whitelist is locked
   };
+  
   enum class eTZ_NS : uint32_t {
     ePREVENT = 0, // Do not allow non-secure write access
     eALLOW = 1, // Allow non-secure write access
   };
+  
   enum class eTZ_USER : uint32_t {
     ePREVENT = 0, // Do not allow user write access
     eALLOW = 1, // Allow user write access
   };
+  
   enum class eLOCK_CONTROL : uint32_t {
     eUNLOCK = 0, // Do not lock the control register of this slot
     eLOCK = 1, // Lock the control register of this slot
@@ -344,7 +352,7 @@ union SLOT4_CTRL {
     eTZ_USER TZ_USER : 1;
     uint32_t _reserved_4 : 13;
     eLOCK_CONTROL LOCK_CONTROL : 1;
-  } bits;          // Bit-field struct (auto-filling reserved gaps)
+  } bits;
   
   // Full 32-bit register value.
   uint32_t value;

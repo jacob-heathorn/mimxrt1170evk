@@ -15,7 +15,6 @@ namespace nADC_ETC {
 //
 union CTRL {
   
-  // Enum definitions.
   enum class eTRIG_ENABLE : uint32_t {
     eTRIG_ENABLE_0 = 0, // disable all 8 external XBAR triggers.
     eTRIG_ENABLE_1 = 1, // enable external XBAR trigger0.
@@ -23,10 +22,12 @@ union CTRL {
     eTRIG_ENABLE_3 = 3, // enable external XBAR trigger0 and trigger1.
     eTRIG_ENABLE_255 = 255, // enable all 8 external XBAR triggers.
   };
+  
   enum class eDMA_MODE_SEL : uint32_t {
     eDMA_MODE_SEL_0 = 0, // Trig DMA_REQ with latched signal, REQ will be cleared when ACK and source request cleared.
     eDMA_MODE_SEL_1 = 1, // Trig DMA_REQ with pulsed signal, REQ will be cleared by ACK only.
   };
+  
   enum class eSOFTRST : uint32_t {
     eSOFTRST_0 = 0, // ADC_ETC works normally.
     eSOFTRST_1 = 1, // All registers inside ADC_ETC will be reset to the default value.
@@ -41,7 +42,7 @@ union CTRL {
     eDMA_MODE_SEL DMA_MODE_SEL : 1;
     uint32_t _reserved_3 : 1;
     eSOFTRST SOFTRST : 1;
-  } bits;          // Bit-field struct (auto-filling reserved gaps)
+  } bits;
   
   // Full 32-bit register value.
   uint32_t value;
@@ -55,67 +56,81 @@ union CTRL {
 //
 union DONE0_1_IRQ {
   
-  // Enum definitions.
   enum class eTRIG0_DONE0 : uint32_t {
     eTRIG0_DONE0_0 = 0, // No TRIG0_DONE0 interrupt detected
     eTRIG0_DONE0_1 = 1, // TRIG0_DONE0 interrupt detected
   };
+  
   enum class eTRIG1_DONE0 : uint32_t {
     eTRIG1_DONE0_0 = 0, // No TRIG1_DONE0 interrupt detected
     eTRIG1_DONE0_1 = 1, // TRIG1_DONE0 interrupt detected
   };
+  
   enum class eTRIG2_DONE0 : uint32_t {
     eTRIG2_DONE0_0 = 0, // No TRIG2_DONE0 interrupt detected
     eTRIG2_DONE0_1 = 1, // TRIG2_DONE0 interrupt detected
   };
+  
   enum class eTRIG3_DONE0 : uint32_t {
     eTRIG3_DONE0_0 = 0, // No TRIG3_DONE0 interrupt detected
     eTRIG3_DONE0_1 = 1, // TRIG3_DONE0 interrupt detected
   };
+  
   enum class eTRIG4_DONE0 : uint32_t {
     eTRIG4_DONE0_0 = 0, // No TRIG4_DONE0 interrupt detected
     eTRIG4_DONE0_1 = 1, // TRIG4_DONE0 interrupt detected
   };
+  
   enum class eTRIG5_DONE0 : uint32_t {
     eTRIG5_DONE0_0 = 0, // No TRIG5_DONE0 interrupt detected
     eTRIG5_DONE0_1 = 1, // TRIG5_DONE0 interrupt detected
   };
+  
   enum class eTRIG6_DONE0 : uint32_t {
     eTRIG6_DONE0_0 = 0, // No TRIG6_DONE0 interrupt detected
     eTRIG6_DONE0_1 = 1, // TRIG6_DONE0 interrupt detected
   };
+  
   enum class eTRIG7_DONE0 : uint32_t {
     eTRIG7_DONE0_0 = 0, // No TRIG7_DONE0 interrupt detected
     eTRIG7_DONE0_1 = 1, // TRIG7_DONE0 interrupt detected
   };
+  
   enum class eTRIG0_DONE1 : uint32_t {
     eTRIG0_DONE1_0 = 0, // No TRIG0_DONE1 interrupt detected
     eTRIG0_DONE1_1 = 1, // TRIG0_DONE1 interrupt detected
   };
+  
   enum class eTRIG1_DONE1 : uint32_t {
     eTRIG1_DONE1_0 = 0, // No TRIG1_DONE1 interrupt detected
     eTRIG1_DONE1_1 = 1, // TRIG1_DONE1 interrupt detected
   };
+  
   enum class eTRIG2_DONE1 : uint32_t {
     eTRIG2_DONE1_0 = 0, // No TRIG2_DONE1 interrupt detected
     eTRIG2_DONE1_1 = 1, // TRIG2_DONE1 interrupt detected
   };
+  
   enum class eTRIG3_DONE1 : uint32_t {
     eTRIG3_DONE1_0 = 0, // No TRIG3_DONE1 interrupt detected
     eTRIG3_DONE1_1 = 1, // TRIG3_DONE1 interrupt detected
   };
+  
   enum class eTRIG4_DONE1 : uint32_t {
     eTRIG4_DONE1_0 = 0, // No TRIG4_DONE1 interrupt detected
     eTRIG4_DONE1_1 = 1, // TRIG4_DONE1 interrupt detected
   };
+  
   enum class eTRIG5_DONE1 : uint32_t {
     eTRIG5_DONE1_0 = 0, // No TRIG5_DONE1 interrupt detected
     eTRIG5_DONE1_1 = 1, // TRIG5_DONE1 interrupt detected
   };
+  
   enum class eTRIG6_DONE1 : uint32_t {
     eTRIG6_DONE1_0 = 0, // No TRIG6_DONE1 interrupt detected
     eTRIG6_DONE1_1 = 1, // TRIG6_DONE1 interrupt detected
   };
+  
   enum class eTRIG7_DONE1 : uint32_t {
     eTRIG7_DONE1_0 = 0, // No TRIG7_DONE1 interrupt detected
     eTRIG7_DONE1_1 = 1, // TRIG7_DONE1 interrupt detected
@@ -141,7 +156,7 @@ union DONE0_1_IRQ {
     eTRIG6_DONE1 TRIG6_DONE1 : 1;
     eTRIG7_DONE1 TRIG7_DONE1 : 1;
     uint32_t _reserved_end : 8;
-  } bits;          // Bit-field struct (auto-filling reserved gaps)
+  } bits;
   
   // Full 32-bit register value.
   uint32_t value;
@@ -155,99 +170,121 @@ union DONE0_1_IRQ {
 //
 union DONE2_3_ERR_IRQ {
   
-  // Enum definitions.
   enum class eTRIG0_DONE2 : uint32_t {
     eTRIG0_DONE2_0 = 0, // No TRIG0_DONE2 interrupt detected
     eTRIG0_DONE2_1 = 1, // TRIG0_DONE2 interrupt detected
   };
+  
   enum class eTRIG1_DONE2 : uint32_t {
     eTRIG1_DONE2_0 = 0, // No TRIG1_DONE2 interrupt detected
     eTRIG1_DONE2_1 = 1, // TRIG1_DONE2 interrupt detected
   };
+  
   enum class eTRIG2_DONE2 : uint32_t {
     eTRIG2_DONE2_0 = 0, // No TRIG2_DONE2 interrupt detected
     eTRIG2_DONE2_1 = 1, // TRIG2_DONE2 interrupt detected
   };
+  
   enum class eTRIG3_DONE2 : uint32_t {
     eTRIG3_DONE2_0 = 0, // No TRIG3_DONE2 interrupt detected
     eTRIG3_DONE2_1 = 1, // TRIG3_DONE2 interrupt detected
   };
+  
   enum class eTRIG4_DONE2 : uint32_t {
     eTRIG4_DONE2_0 = 0, // No TRIG4_DONE2 interrupt detected
     eTRIG4_DONE2_1 = 1, // TRIG4_DONE2 interrupt detected
   };
+  
   enum class eTRIG5_DONE2 : uint32_t {
     eTRIG5_DONE2_0 = 0, // No TRIG5_DONE2 interrupt detected
     eTRIG5_DONE2_1 = 1, // TRIG5_DONE2 interrupt detected
   };
+  
   enum class eTRIG6_DONE2 : uint32_t {
     eTRIG6_DONE2_0 = 0, // No TRIG6_DONE2 interrupt detected
     eTRIG6_DONE2_1 = 1, // TRIG6_DONE2 interrupt detected
   };
+  
   enum class eTRIG7_DONE2 : uint32_t {
     eTRIG7_DONE2_0 = 0, // No TRIG7_DONE2 interrupt detected
     eTRIG7_DONE2_1 = 1, // TRIG7_DONE2 interrupt detected
   };
+  
   enum class eTRIG0_DONE3 : uint32_t {
     eTRIG0_DONE3_0 = 0, // No TRIG0_DONE3 interrupt detected
     eTRIG0_DONE3_1 = 1, // TRIG0_DONE3 interrupt detected
   };
+  
   enum class eTRIG1_DONE3 : uint32_t {
     eTRIG1_DONE3_0 = 0, // No TRIG1_DONE3 interrupt detected
     eTRIG1_DONE3_1 = 1, // TRIG1_DONE3 interrupt detected
   };
+  
   enum class eTRIG2_DONE3 : uint32_t {
     eTRIG2_DONE3_0 = 0, // No TRIG2_DONE3 interrupt detected
     eTRIG2_DONE3_1 = 1, // TRIG2_DONE3 interrupt detected
   };
+  
   enum class eTRIG3_DONE3 : uint32_t {
     eTRIG3_DONE3_0 = 0, // No TRIG3_DONE3 interrupt detected
     eTRIG3_DONE3_1 = 1, // TRIG3_DONE3 interrupt detected
   };
+  
   enum class eTRIG4_DONE3 : uint32_t {
     eTRIG4_DONE3_0 = 0, // No TRIG4_DONE3 interrupt detected
     eTRIG4_DONE3_1 = 1, // TRIG4_DONE3 interrupt detected
   };
+  
   enum class eTRIG5_DONE3 : uint32_t {
     eTRIG5_DONE3_0 = 0, // No TRIG5_DONE3 interrupt detected
     eTRIG5_DONE3_1 = 1, // TRIG5_DONE3 interrupt detected
   };
+  
   enum class eTRIG6_DONE3 : uint32_t {
     eTRIG6_DONE3_0 = 0, // No TRIG6_DONE3 interrupt detected
     eTRIG6_DONE3_1 = 1, // TRIG6_DONE3 interrupt detected
   };
+  
   enum class eTRIG7_DONE3 : uint32_t {
     eTRIG7_DONE3_0 = 0, // No TRIG7_DONE3 interrupt detected
     eTRIG7_DONE3_1 = 1, // TRIG7_DONE3 interrupt detected
   };
+  
   enum class eTRIG0_ERR : uint32_t {
     eTRIG0_ERR_0 = 0, // No TRIG0_ERR interrupt detected
     eTRIG0_ERR_1 = 1, // TRIG0_ERR interrupt detected
   };
+  
   enum class eTRIG1_ERR : uint32_t {
     eTRIG1_ERR_0 = 0, // No TRIG1_ERR interrupt detected
     eTRIG1_ERR_1 = 1, // TRIG1_ERR interrupt detected
   };
+  
   enum class eTRIG2_ERR : uint32_t {
     eTRIG2_ERR_0 = 0, // No TRIG2_ERR interrupt detected
     eTRIG2_ERR_1 = 1, // TRIG2_ERR interrupt detected
   };
+  
   enum class eTRIG3_ERR : uint32_t {
     eTRIG3_ERR_0 = 0, // No TRIG3_ERR interrupt detected
     eTRIG3_ERR_1 = 1, // TRIG3_ERR interrupt detected
   };
+  
   enum class eTRIG4_ERR : uint32_t {
     eTRIG4_ERR_0 = 0, // No TRIG4_ERR interrupt detected
     eTRIG4_ERR_1 = 1, // TRIG4_ERR interrupt detected
   };
+  
   enum class eTRIG5_ERR : uint32_t {
     eTRIG5_ERR_0 = 0, // No TRIG5_ERR interrupt detected
     eTRIG5_ERR_1 = 1, // TRIG5_ERR interrupt detected
   };
+  
   enum class eTRIG6_ERR : uint32_t {
     eTRIG6_ERR_0 = 0, // No TRIG6_ERR interrupt detected
     eTRIG6_ERR_1 = 1, // TRIG6_ERR interrupt detected
   };
+  
   enum class eTRIG7_ERR : uint32_t {
     eTRIG7_ERR_0 = 0, // No TRIG7_ERR interrupt detected
     eTRIG7_ERR_1 = 1, // TRIG7_ERR interrupt detected
@@ -280,7 +317,7 @@ union DONE2_3_ERR_IRQ {
     eTRIG6_ERR TRIG6_ERR : 1;
     eTRIG7_ERR TRIG7_ERR : 1;
     uint32_t _reserved_end : 8;
-  } bits;          // Bit-field struct (auto-filling reserved gaps)
+  } bits;
   
   // Full 32-bit register value.
   uint32_t value;
@@ -294,67 +331,81 @@ union DONE2_3_ERR_IRQ {
 //
 union DMA_CTRL {
   
-  // Enum definitions.
   enum class eTRIG0_ENABLE : uint32_t {
     eTRIG0_ENABLE_0 = 0, // TRIG0 DMA request disabled.
     eTRIG0_ENABLE_1 = 1, // TRIG0 DMA request enabled.
   };
+  
   enum class eTRIG1_ENABLE : uint32_t {
     eTRIG1_ENABLE_0 = 0, // TRIG1 DMA request disabled.
     eTRIG1_ENABLE_1 = 1, // TRIG1 DMA request enabled.
   };
+  
   enum class eTRIG2_ENABLE : uint32_t {
     eTRIG2_ENABLE_0 = 0, // TRIG2 DMA request disabled.
     eTRIG2_ENABLE_1 = 1, // TRIG2 DMA request enabled.
   };
+  
   enum class eTRIG3_ENABLE : uint32_t {
     eTRIG3_ENABLE_0 = 0, // TRIG3 DMA request disabled.
     eTRIG3_ENABLE_1 = 1, // TRIG3 DMA request enabled.
   };
+  
   enum class eTRIG4_ENABLE : uint32_t {
     eTRIG4_ENABLE_0 = 0, // TRIG4 DMA request disabled.
     eTRIG4_ENABLE_1 = 1, // TRIG4 DMA request enabled.
   };
+  
   enum class eTRIG5_ENABLE : uint32_t {
     eTRIG5_ENABLE_0 = 0, // TRIG5 DMA request disabled.
     eTRIG5_ENABLE_1 = 1, // TRIG5 DMA request enabled.
   };
+  
   enum class eTRIG6_ENABLE : uint32_t {
     eTRIG6_ENABLE_0 = 0, // TRIG6 DMA request disabled.
     eTRIG6_ENABLE_1 = 1, // TRIG6 DMA request enabled.
   };
+  
   enum class eTRIG7_ENABLE : uint32_t {
     eTRIG7_ENABLE_0 = 0, // TRIG7 DMA request disabled.
     eTRIG7_ENABLE_1 = 1, // TRIG7 DMA request enabled.
   };
+  
   enum class eTRIG0_REQ : uint32_t {
     eTRIG0_REQ_0 = 0, // TRIG0_REQ not detected.
     eTRIG0_REQ_1 = 1, // TRIG0_REQ detected.
   };
+  
   enum class eTRIG1_REQ : uint32_t {
     eTRIG1_REQ_0 = 0, // TRIG1_REQ not detected.
     eTRIG1_REQ_1 = 1, // TRIG1_REQ detected.
   };
+  
   enum class eTRIG2_REQ : uint32_t {
     eTRIG2_REQ_0 = 0, // TRIG2_REQ not detected.
     eTRIG2_REQ_1 = 1, // TRIG2_REQ detected.
   };
+  
   enum class eTRIG3_REQ : uint32_t {
     eTRIG3_REQ_0 = 0, // TRIG3_REQ not detected.
     eTRIG3_REQ_1 = 1, // TRIG3_REQ detected.
   };
+  
   enum class eTRIG4_REQ : uint32_t {
     eTRIG4_REQ_0 = 0, // TRIG4_REQ not detected.
     eTRIG4_REQ_1 = 1, // TRIG4_REQ detected.
   };
+  
   enum class eTRIG5_REQ : uint32_t {
     eTRIG5_REQ_0 = 0, // TRIG5_REQ not detected.
     eTRIG5_REQ_1 = 1, // TRIG5_REQ detected.
   };
+  
   enum class eTRIG6_REQ : uint32_t {
     eTRIG6_REQ_0 = 0, // TRIG6_REQ not detected.
     eTRIG6_REQ_1 = 1, // TRIG6_REQ detected.
   };
+  
   enum class eTRIG7_REQ : uint32_t {
     eTRIG7_REQ_0 = 0, // TRIG7_REQ not detected.
     eTRIG7_REQ_1 = 1, // TRIG7_REQ detected.
@@ -380,7 +431,7 @@ union DMA_CTRL {
     eTRIG6_REQ TRIG6_REQ : 1;
     eTRIG7_REQ TRIG7_REQ : 1;
     uint32_t _reserved_end : 8;
-  } bits;          // Bit-field struct (auto-filling reserved gaps)
+  } bits;
   
   // Full 32-bit register value.
   uint32_t value;
@@ -394,15 +445,16 @@ union DMA_CTRL {
 //
 union TRIG0_CTRL {
   
-  // Enum definitions.
   enum class eSW_TRIG : uint32_t {
     eSW_TRIG_0 = 0, // No software trigger event generated.
     eSW_TRIG_1 = 1, // Software trigger event generated.
   };
+  
   enum class eTRIG_MODE : uint32_t {
     eTRIG_MODE_0 = 0, // Hardware trigger. The softerware trigger will be ignored.
     eTRIG_MODE_1 = 1, // Software trigger. The hardware trigger will be ignored.
   };
+  
   enum class eTRIG_CHAIN : uint32_t {
     eTRIG_CHAIN_0 = 0, // Trigger chain length is 1
     eTRIG_CHAIN_1 = 1, // Trigger chain length is 2
@@ -413,10 +465,12 @@ union TRIG0_CTRL {
     eTRIG_CHAIN_6 = 6, // Trigger chain length is 7
     eTRIG_CHAIN_7 = 7, // Trigger chain length is 8
   };
+  
   enum class eSYNC_MODE : uint32_t {
     eSYNC_MODE_0 = 0, // Synchronization mode disabled, TRIGa and TRIG(a+4) are triggered independently.
     eSYNC_MODE_1 = 1, // Synchronization mode enabled, TRIGa and TRIG(a+4) are triggered by TRIGa source synchronously.
   };
+  
   enum class eCHAINx_DONE : uint32_t {
     eCHAINx_DONE_0 = 0, // segment x done not detected.
     eCHAINx_DONE_1 = 1, // segment x done detected.
@@ -435,7 +489,7 @@ union TRIG0_CTRL {
     eSYNC_MODE SYNC_MODE : 1;
     uint32_t _reserved_5 : 7;
     eCHAINx_DONE CHAINx_DONE : 8;
-  } bits;          // Bit-field struct (auto-filling reserved gaps)
+  } bits;
   
   // Full 32-bit register value.
   uint32_t value;
@@ -449,13 +503,11 @@ union TRIG0_CTRL {
 //
 union TRIG0_COUNTER {
   
-  // Enum definitions.
-  
   // Bit field definition.
   struct {
     uint32_t INIT_DELAY : 16;
     uint32_t SAMPLE_INTERVAL : 16;
-  } bits;          // Bit-field struct (auto-filling reserved gaps)
+  } bits;
   
   // Full 32-bit register value.
   uint32_t value;
@@ -469,7 +521,6 @@ union TRIG0_COUNTER {
 //
 union TRIG0_CHAIN_1_0 {
   
-  // Enum definitions.
   enum class eCSEL0 : uint32_t {
     eCSEL0_0 = 0, // Not a valid selection from the command buffer. Trigger event is ignored.
     eCSEL0_1 = 1, // ADC CMD1 selected.
@@ -488,6 +539,7 @@ union TRIG0_CHAIN_1_0 {
     eCSEL0_14 = 14, // ADC CMD14 selected.
     eCSEL0_15 = 15, // ADC CMD15 selected.
   };
+  
   enum class eHWTS0 : uint32_t {
     eHWTS0_0 = 0, // no trigger selected
     eHWTS0_1 = 1, // ADC TRIG0 selected
@@ -499,20 +551,24 @@ union TRIG0_CHAIN_1_0 {
     eHWTS0_64 = 64, // ADC TRIG6 selected
     eHWTS0_128 = 128, // ADC TRIG7 selected
   };
+  
   enum class eB2B0 : uint32_t {
     eB2B0_0 = 0, // Disable B2B. Wait until delay value defined by TRIG0_COUNTER[SAMPLE_INTERVAL] is reached
     eB2B0_1 = 1, // Enable B2B. When Segment 0 finished (ADC COCO) then automatically trigger next ADC conversion, no need to wait until interval delay reached.
   };
+  
   enum class eIE0 : uint32_t {
     eIE0_0 = 0, // Generate interrupt on Done0 when segment 0 finish.
     eIE0_1 = 1, // Generate interrupt on Done1 when segment 0 finish.
     eIE0_2 = 2, // Generate interrupt on Done2 when segment 0 finish.
     eIE0_3 = 3, // Generate interrupt on Done3 when segment 0 finish.
   };
+  
   enum class eIE0_EN : uint32_t {
     eIE0_EN_0 = 0, // Interrupt DONE disabled.
     eIE0_EN_1 = 1, // Interrupt DONE enabled. When segment 0 finish, an interrupt will be generated on the specific port configured by the IE0.
   };
+  
   enum class eCSEL1 : uint32_t {
     eCSEL1_0 = 0, // Not a valid selection from the command buffer. Trigger event is ignored.
     eCSEL1_1 = 1, // ADC CMD1 selected.
@@ -531,6 +587,7 @@ union TRIG0_CHAIN_1_0 {
     eCSEL1_14 = 14, // ADC CMD14 selected.
     eCSEL1_15 = 15, // ADC CMD15 selected.
   };
+  
   enum class eHWTS1 : uint32_t {
     eHWTS1_0 = 0, // no trigger selected
     eHWTS1_1 = 1, // ADC TRIG0 selected
@@ -542,16 +599,19 @@ union TRIG0_CHAIN_1_0 {
     eHWTS1_64 = 64, // ADC TRIG6 selected
     eHWTS1_128 = 128, // ADC TRIG7 selected
   };
+  
   enum class eB2B1 : uint32_t {
     eB2B1_0 = 0, // Disable B2B. Wait until delay value defined by TRIG1_COUNTER[SAMPLE_INTERVAL] is reached
     eB2B1_1 = 1, // Enable B2B. When Segment 0 finished (ADC COCO) then automatically trigger next ADC conversion, no need to wait until interval delay reached.
   };
+  
   enum class eIE1 : uint32_t {
     eIE1_0 = 0, // Generate interrupt on Done0 when Segment 1 finish.
     eIE1_1 = 1, // Generate interrupt on Done1 when Segment 1 finish.
     eIE1_2 = 2, // Generate interrupt on Done2 when Segment 1 finish.
     eIE1_3 = 3, // Generate interrupt on Done3 when Segment 1 finish.
   };
+  
   enum class eIE1_EN : uint32_t {
     eIE1_EN_0 = 0, // Interrupt DONE disabled.
     eIE1_EN_1 = 1, // Interrupt DONE enabled. When segment 1 finish, an interrupt will be generated on the specific port configured by the IE1.
@@ -569,7 +629,7 @@ union TRIG0_CHAIN_1_0 {
     eB2B1 B2B1 : 1;
     eIE1 IE1 : 2;
     eIE1_EN IE1_EN : 1;
-  } bits;          // Bit-field struct (auto-filling reserved gaps)
+  } bits;
   
   // Full 32-bit register value.
   uint32_t value;
@@ -583,7 +643,6 @@ union TRIG0_CHAIN_1_0 {
 //
 union TRIG0_CHAIN_3_2 {
   
-  // Enum definitions.
   enum class eCSEL2 : uint32_t {
     eCSEL2_0 = 0, // Not a valid selection from the command buffer. Trigger event is ignored.
     eCSEL2_1 = 1, // ADC CMD1 selected.
@@ -602,6 +661,7 @@ union TRIG0_CHAIN_3_2 {
     eCSEL2_14 = 14, // ADC CMD14 selected.
     eCSEL2_15 = 15, // ADC CMD15 selected.
   };
+  
   enum class eHWTS2 : uint32_t {
     eHWTS2_0 = 0, // no trigger selected
     eHWTS2_1 = 1, // ADC TRIG0 selected
@@ -613,20 +673,24 @@ union TRIG0_CHAIN_3_2 {
     eHWTS2_64 = 64, // ADC TRIG6 selected
     eHWTS2_128 = 128, // ADC TRIG7 selected
   };
+  
   enum class eB2B2 : uint32_t {
     eB2B2_0 = 0, // Disable B2B. Wait until delay value defined by TRIG2_COUNTER[SAMPLE_INTERVAL] is reached
     eB2B2_1 = 1, // Enable B2B. When Segment 0 finished (ADC COCO) then automatically trigger next ADC conversion, no need to wait until interval delay reached.
   };
+  
   enum class eIE2 : uint32_t {
     eIE2_0 = 0, // Generate interrupt on Done0 when segment 2 finish.
     eIE2_1 = 1, // Generate interrupt on Done1 when segment 2 finish.
     eIE2_2 = 2, // Generate interrupt on Done2 when segment 2 finish.
     eIE2_3 = 3, // Generate interrupt on Done3 when segment 2 finish.
   };
+  
   enum class eIE2_EN : uint32_t {
     eIE2_EN_0 = 0, // Interrupt DONE disabled.
     eIE2_EN_1 = 1, // Interrupt DONE enabled. When segment 2 finish, an interrupt will be generated on the specific port configured by the IE2.
   };
+  
   enum class eCSEL3 : uint32_t {
     eCSEL3_0 = 0, // Not a valid selection from the command buffer. Trigger event is ignored.
     eCSEL3_1 = 1, // ADC CMD1 selected.
@@ -645,6 +709,7 @@ union TRIG0_CHAIN_3_2 {
     eCSEL3_14 = 14, // ADC CMD14 selected.
     eCSEL3_15 = 15, // ADC CMD15 selected.
   };
+  
   enum class eHWTS3 : uint32_t {
     eHWTS3_0 = 0, // no trigger selected
     eHWTS3_1 = 1, // ADC TRIG0 selected
@@ -656,16 +721,19 @@ union TRIG0_CHAIN_3_2 {
     eHWTS3_64 = 64, // ADC TRIG6 selected
     eHWTS3_128 = 128, // ADC TRIG7 selected
   };
+  
   enum class eB2B3 : uint32_t {
     eB2B3_0 = 0, // Disable B2B. Wait until delay value defined by TRIG3_COUNTER[SAMPLE_INTERVAL] is reached
     eB2B3_1 = 1, // Enable B2B. When Segment 0 finished (ADC COCO) then automatically trigger next ADC conversion, no need to wait until interval delay reached.
   };
+  
   enum class eIE3 : uint32_t {
     eIE3_0 = 0, // Generate interrupt on Done0 when segment 3 finish.
     eIE3_1 = 1, // Generate interrupt on Done1 when segment 3 finish.
     eIE3_2 = 2, // Generate interrupt on Done2 when segment 3 finish.
     eIE3_3 = 3, // Generate interrupt on Done3 when segment 3 finish.
   };
+  
   enum class eIE3_EN : uint32_t {
     eIE3_EN_0 = 0, // Interrupt DONE disabled.
     eIE3_EN_1 = 1, // Interrupt DONE enabled. When segment 3 finish, an interrupt will be generated on the specific port configured by the IE3.
@@ -683,7 +751,7 @@ union TRIG0_CHAIN_3_2 {
     eB2B3 B2B3 : 1;
     eIE3 IE3 : 2;
     eIE3_EN IE3_EN : 1;
-  } bits;          // Bit-field struct (auto-filling reserved gaps)
+  } bits;
   
   // Full 32-bit register value.
   uint32_t value;
@@ -697,7 +765,6 @@ union TRIG0_CHAIN_3_2 {
 //
 union TRIG0_CHAIN_5_4 {
   
-  // Enum definitions.
   enum class eCSEL4 : uint32_t {
     eCSEL4_0 = 0, // Not a valid selection from the command buffer. Trigger event is ignored.
     eCSEL4_1 = 1, // ADC CMD1 selected.
@@ -716,6 +783,7 @@ union TRIG0_CHAIN_5_4 {
     eCSEL4_14 = 14, // ADC CMD14 selected.
     eCSEL4_15 = 15, // ADC CMD15 selected.
   };
+  
   enum class eHWTS4 : uint32_t {
     eHWTS4_0 = 0, // no trigger selected
     eHWTS4_1 = 1, // ADC TRIG0 selected
@@ -727,20 +795,24 @@ union TRIG0_CHAIN_5_4 {
     eHWTS4_64 = 64, // ADC TRIG6 selected
     eHWTS4_128 = 128, // ADC TRIG7 selected
   };
+  
   enum class eB2B4 : uint32_t {
     eB2B4_0 = 0, // Disable B2B. Wait until delay value defined by TRIG4_COUNTER[SAMPLE_INTERVAL] is reached
     eB2B4_1 = 1, // Enable B2B. When Segment 0 finished (ADC COCO) then automatically trigger next ADC conversion, no need to wait until interval delay reached.
   };
+  
   enum class eIE4 : uint32_t {
     eIE4_0 = 0, // Generate interrupt on Done0 when segment 4 finish.
     eIE4_1 = 1, // Generate interrupt on Done1 when segment 4 finish.
     eIE4_2 = 2, // Generate interrupt on Done2 when segment 4 finish.
     eIE4_3 = 3, // Generate interrupt on Done3 when segment 4 finish.
   };
+  
   enum class eIE4_EN : uint32_t {
     eIE4_EN_0 = 0, // Interrupt DONE disabled.
     eIE4_EN_1 = 1, // Interrupt DONE enabled. When segment 4 finish, an interrupt will be generated on the specific port configured by the IE4.
   };
+  
   enum class eCSEL5 : uint32_t {
     eCSEL5_0 = 0, // Not a valid selection from the command buffer. Trigger event is ignored.
     eCSEL5_1 = 1, // ADC CMD1 selected.
@@ -759,6 +831,7 @@ union TRIG0_CHAIN_5_4 {
     eCSEL5_14 = 14, // ADC CMD14 selected.
     eCSEL5_15 = 15, // ADC CMD15 selected.
   };
+  
   enum class eHWTS5 : uint32_t {
     eHWTS5_0 = 0, // no trigger selected
     eHWTS5_1 = 1, // ADC TRIG0 selected
@@ -770,16 +843,19 @@ union TRIG0_CHAIN_5_4 {
     eHWTS5_64 = 64, // ADC TRIG6 selected
     eHWTS5_128 = 128, // ADC TRIG7 selected
   };
+  
   enum class eB2B5 : uint32_t {
     eB2B5_0 = 0, // Disable B2B. Wait until delay value defined by TRIG5_COUNTER[SAMPLE_INTERVAL] is reached
     eB2B5_1 = 1, // Enable B2B. When Segment 0 finished (ADC COCO) then automatically trigger next ADC conversion, no need to wait until interval delay reached.
   };
+  
   enum class eIE5 : uint32_t {
     eIE5_0 = 0, // Generate interrupt on Done0 when segment 5 finish.
     eIE5_1 = 1, // Generate interrupt on Done1 when segment 5 finish.
     eIE5_2 = 2, // Generate interrupt on Done2 when segment 5 finish.
     eIE5_3 = 3, // Generate interrupt on Done3 when segment 5 finish.
   };
+  
   enum class eIE5_EN : uint32_t {
     eIE5_EN_0 = 0, // Interrupt DONE disabled.
     eIE5_EN_1 = 1, // Interrupt DONE enabled. When segment 5 finish, an interrupt will be generated on the specific port configured by the IE5.
@@ -797,7 +873,7 @@ union TRIG0_CHAIN_5_4 {
     eB2B5 B2B5 : 1;
     eIE5 IE5 : 2;
     eIE5_EN IE5_EN : 1;
-  } bits;          // Bit-field struct (auto-filling reserved gaps)
+  } bits;
   
   // Full 32-bit register value.
   uint32_t value;
@@ -811,7 +887,6 @@ union TRIG0_CHAIN_5_4 {
 //
 union TRIG0_CHAIN_7_6 {
   
-  // Enum definitions.
   enum class eCSEL6 : uint32_t {
     eCSEL6_0 = 0, // Not a valid selection from the command buffer. Trigger event is ignored.
     eCSEL6_1 = 1, // ADC CMD1 selected.
@@ -830,6 +905,7 @@ union TRIG0_CHAIN_7_6 {
     eCSEL6_14 = 14, // ADC CMD14 selected.
     eCSEL6_15 = 15, // ADC CMD15 selected.
   };
+  
   enum class eHWTS6 : uint32_t {
     eHWTS6_0 = 0, // no trigger selected
     eHWTS6_1 = 1, // ADC TRIG0 selected
@@ -841,20 +917,24 @@ union TRIG0_CHAIN_7_6 {
     eHWTS6_64 = 64, // ADC TRIG6 selected
     eHWTS6_128 = 128, // ADC TRIG7 selected
   };
+  
   enum class eB2B6 : uint32_t {
     eB2B6_0 = 0, // Disable B2B. Wait until delay value defined by TRIG6_COUNTER[SAMPLE_INTERVAL] is reached
     eB2B6_1 = 1, // Enable B2B. When Segment 0 finished (ADC COCO) then automatically trigger next ADC conversion, no need to wait until interval delay reached.
   };
+  
   enum class eIE6 : uint32_t {
     eIE6_0 = 0, // Generate interrupt on Done0 when segment 6 finish.
     eIE6_1 = 1, // Generate interrupt on Done1 when segment 6 finish.
     eIE6_2 = 2, // Generate interrupt on Done2 when segment 6 finish.
     eIE6_3 = 3, // Generate interrupt on Done3 when segment 6 finish.
   };
+  
   enum class eIE6_EN : uint32_t {
     eIE6_EN_0 = 0, // Interrupt DONE disabled.
     eIE6_EN_1 = 1, // Interrupt DONE enabled. When segment 6 finish, an interrupt will be generated on the specific port configured by the IE6.
   };
+  
   enum class eCSEL7 : uint32_t {
     eCSEL7_0 = 0, // Not a valid selection from the command buffer. Trigger event is ignored.
     eCSEL7_1 = 1, // ADC CMD1 selected.
@@ -873,6 +953,7 @@ union TRIG0_CHAIN_7_6 {
     eCSEL7_14 = 14, // ADC CMD14 selected.
     eCSEL7_15 = 15, // ADC CMD15 selected.
   };
+  
   enum class eHWTS7 : uint32_t {
     eHWTS7_0 = 0, // no trigger selected
     eHWTS7_1 = 1, // ADC TRIG0 selected
@@ -884,16 +965,19 @@ union TRIG0_CHAIN_7_6 {
     eHWTS7_64 = 64, // ADC TRIG6 selected
     eHWTS7_128 = 128, // ADC TRIG7 selected
   };
+  
   enum class eB2B7 : uint32_t {
     eB2B7_0 = 0, // Disable B2B. Wait until delay value defined by TRIG7_COUNTER[SAMPLE_INTERVAL] is reached
     eB2B7_1 = 1, // Enable B2B. When Segment 0 finished (ADC COCO) then automatically trigger next ADC conversion, no need to wait until interval delay reached.
   };
+  
   enum class eIE7 : uint32_t {
     eIE7_0 = 0, // Generate interrupt on Done0 when segment 7 finish.
     eIE7_1 = 1, // Generate interrupt on Done1 when segment 7 finish.
     eIE7_2 = 2, // Generate interrupt on Done2 when segment 7 finish.
     eIE7_3 = 3, // Generate interrupt on Done3 when segment 7 finish.
   };
+  
   enum class eIE7_EN : uint32_t {
     eIE7_EN_0 = 0, // Interrupt DONE disabled.
     eIE7_EN_1 = 1, // Interrupt DONE enabled. When segment 7 finish, an interrupt will be generated on the specific port configured by the IE7.
@@ -911,7 +995,7 @@ union TRIG0_CHAIN_7_6 {
     eB2B7 B2B7 : 1;
     eIE7 IE7 : 2;
     eIE7_EN IE7_EN : 1;
-  } bits;          // Bit-field struct (auto-filling reserved gaps)
+  } bits;
   
   // Full 32-bit register value.
   uint32_t value;
@@ -925,15 +1009,13 @@ union TRIG0_CHAIN_7_6 {
 //
 union TRIG0_RESULT_1_0 {
   
-  // Enum definitions.
-  
   // Bit field definition.
   struct {
     uint32_t DATA0 : 12;
     uint32_t _reserved_1 : 4;
     uint32_t DATA1 : 12;
     uint32_t _reserved_end : 4;
-  } bits;          // Bit-field struct (auto-filling reserved gaps)
+  } bits;
   
   // Full 32-bit register value.
   uint32_t value;
@@ -947,15 +1029,13 @@ union TRIG0_RESULT_1_0 {
 //
 union TRIG0_RESULT_3_2 {
   
-  // Enum definitions.
-  
   // Bit field definition.
   struct {
     uint32_t DATA2 : 12;
     uint32_t _reserved_1 : 4;
     uint32_t DATA3 : 12;
     uint32_t _reserved_end : 4;
-  } bits;          // Bit-field struct (auto-filling reserved gaps)
+  } bits;
   
   // Full 32-bit register value.
   uint32_t value;
@@ -969,15 +1049,13 @@ union TRIG0_RESULT_3_2 {
 //
 union TRIG0_RESULT_5_4 {
   
-  // Enum definitions.
-  
   // Bit field definition.
   struct {
     uint32_t DATA4 : 12;
     uint32_t _reserved_1 : 4;
     uint32_t DATA5 : 12;
     uint32_t _reserved_end : 4;
-  } bits;          // Bit-field struct (auto-filling reserved gaps)
+  } bits;
   
   // Full 32-bit register value.
   uint32_t value;
@@ -991,15 +1069,13 @@ union TRIG0_RESULT_5_4 {
 //
 union TRIG0_RESULT_7_6 {
   
-  // Enum definitions.
-  
   // Bit field definition.
   struct {
     uint32_t DATA6 : 12;
     uint32_t _reserved_1 : 4;
     uint32_t DATA7 : 12;
     uint32_t _reserved_end : 4;
-  } bits;          // Bit-field struct (auto-filling reserved gaps)
+  } bits;
   
   // Full 32-bit register value.
   uint32_t value;
@@ -1013,15 +1089,16 @@ union TRIG0_RESULT_7_6 {
 //
 union TRIG1_CTRL {
   
-  // Enum definitions.
   enum class eSW_TRIG : uint32_t {
     eSW_TRIG_0 = 0, // No software trigger event generated.
     eSW_TRIG_1 = 1, // Software trigger event generated.
   };
+  
   enum class eTRIG_MODE : uint32_t {
     eTRIG_MODE_0 = 0, // Hardware trigger. The softerware trigger will be ignored.
     eTRIG_MODE_1 = 1, // Software trigger. The hardware trigger will be ignored.
   };
+  
   enum class eTRIG_CHAIN : uint32_t {
     eTRIG_CHAIN_0 = 0, // Trigger chain length is 1
     eTRIG_CHAIN_1 = 1, // Trigger chain length is 2
@@ -1032,10 +1109,12 @@ union TRIG1_CTRL {
     eTRIG_CHAIN_6 = 6, // Trigger chain length is 7
     eTRIG_CHAIN_7 = 7, // Trigger chain length is 8
   };
+  
   enum class eSYNC_MODE : uint32_t {
     eSYNC_MODE_0 = 0, // Synchronization mode disabled, TRIGa and TRIG(a+4) are triggered independently.
     eSYNC_MODE_1 = 1, // Synchronization mode enabled, TRIGa and TRIG(a+4) are triggered by TRIGa source synchronously.
   };
+  
   enum class eCHAINx_DONE : uint32_t {
     eCHAINx_DONE_0 = 0, // segment x done not detected.
     eCHAINx_DONE_1 = 1, // segment x done detected.
@@ -1054,7 +1133,7 @@ union TRIG1_CTRL {
     eSYNC_MODE SYNC_MODE : 1;
     uint32_t _reserved_5 : 7;
     eCHAINx_DONE CHAINx_DONE : 8;
-  } bits;          // Bit-field struct (auto-filling reserved gaps)
+  } bits;
   
   // Full 32-bit register value.
   uint32_t value;
@@ -1068,13 +1147,11 @@ union TRIG1_CTRL {
 //
 union TRIG1_COUNTER {
   
-  // Enum definitions.
-  
   // Bit field definition.
   struct {
     uint32_t INIT_DELAY : 16;
     uint32_t SAMPLE_INTERVAL : 16;
-  } bits;          // Bit-field struct (auto-filling reserved gaps)
+  } bits;
   
   // Full 32-bit register value.
   uint32_t value;
@@ -1088,7 +1165,6 @@ union TRIG1_COUNTER {
 //
 union TRIG1_CHAIN_1_0 {
   
-  // Enum definitions.
   enum class eCSEL0 : uint32_t {
     eCSEL0_0 = 0, // Not a valid selection from the command buffer. Trigger event is ignored.
     eCSEL0_1 = 1, // ADC CMD1 selected.
@@ -1107,6 +1183,7 @@ union TRIG1_CHAIN_1_0 {
     eCSEL0_14 = 14, // ADC CMD14 selected.
     eCSEL0_15 = 15, // ADC CMD15 selected.
   };
+  
   enum class eHWTS0 : uint32_t {
     eHWTS0_0 = 0, // no trigger selected
     eHWTS0_1 = 1, // ADC TRIG0 selected
@@ -1118,20 +1195,24 @@ union TRIG1_CHAIN_1_0 {
     eHWTS0_64 = 64, // ADC TRIG6 selected
     eHWTS0_128 = 128, // ADC TRIG7 selected
   };
+  
   enum class eB2B0 : uint32_t {
     eB2B0_0 = 0, // Disable B2B. Wait until delay value defined by TRIG0_COUNTER[SAMPLE_INTERVAL] is reached
     eB2B0_1 = 1, // Enable B2B. When Segment 0 finished (ADC COCO) then automatically trigger next ADC conversion, no need to wait until interval delay reached.
   };
+  
   enum class eIE0 : uint32_t {
     eIE0_0 = 0, // Generate interrupt on Done0 when segment 0 finish.
     eIE0_1 = 1, // Generate interrupt on Done1 when segment 0 finish.
     eIE0_2 = 2, // Generate interrupt on Done2 when segment 0 finish.
     eIE0_3 = 3, // Generate interrupt on Done3 when segment 0 finish.
   };
+  
   enum class eIE0_EN : uint32_t {
     eIE0_EN_0 = 0, // Interrupt DONE disabled.
     eIE0_EN_1 = 1, // Interrupt DONE enabled. When segment 0 finish, an interrupt will be generated on the specific port configured by the IE0.
   };
+  
   enum class eCSEL1 : uint32_t {
     eCSEL1_0 = 0, // Not a valid selection from the command buffer. Trigger event is ignored.
     eCSEL1_1 = 1, // ADC CMD1 selected.
@@ -1150,6 +1231,7 @@ union TRIG1_CHAIN_1_0 {
     eCSEL1_14 = 14, // ADC CMD14 selected.
     eCSEL1_15 = 15, // ADC CMD15 selected.
   };
+  
   enum class eHWTS1 : uint32_t {
     eHWTS1_0 = 0, // no trigger selected
     eHWTS1_1 = 1, // ADC TRIG0 selected
@@ -1161,16 +1243,19 @@ union TRIG1_CHAIN_1_0 {
     eHWTS1_64 = 64, // ADC TRIG6 selected
     eHWTS1_128 = 128, // ADC TRIG7 selected
   };
+  
   enum class eB2B1 : uint32_t {
     eB2B1_0 = 0, // Disable B2B. Wait until delay value defined by TRIG1_COUNTER[SAMPLE_INTERVAL] is reached
     eB2B1_1 = 1, // Enable B2B. When Segment 0 finished (ADC COCO) then automatically trigger next ADC conversion, no need to wait until interval delay reached.
   };
+  
   enum class eIE1 : uint32_t {
     eIE1_0 = 0, // Generate interrupt on Done0 when Segment 1 finish.
     eIE1_1 = 1, // Generate interrupt on Done1 when Segment 1 finish.
     eIE1_2 = 2, // Generate interrupt on Done2 when Segment 1 finish.
     eIE1_3 = 3, // Generate interrupt on Done3 when Segment 1 finish.
   };
+  
   enum class eIE1_EN : uint32_t {
     eIE1_EN_0 = 0, // Interrupt DONE disabled.
     eIE1_EN_1 = 1, // Interrupt DONE enabled. When segment 1 finish, an interrupt will be generated on the specific port configured by the IE1.
@@ -1188,7 +1273,7 @@ union TRIG1_CHAIN_1_0 {
     eB2B1 B2B1 : 1;
     eIE1 IE1 : 2;
     eIE1_EN IE1_EN : 1;
-  } bits;          // Bit-field struct (auto-filling reserved gaps)
+  } bits;
   
   // Full 32-bit register value.
   uint32_t value;
@@ -1202,7 +1287,6 @@ union TRIG1_CHAIN_1_0 {
 //
 union TRIG1_CHAIN_3_2 {
   
-  // Enum definitions.
   enum class eCSEL2 : uint32_t {
     eCSEL2_0 = 0, // Not a valid selection from the command buffer. Trigger event is ignored.
     eCSEL2_1 = 1, // ADC CMD1 selected.
@@ -1221,6 +1305,7 @@ union TRIG1_CHAIN_3_2 {
     eCSEL2_14 = 14, // ADC CMD14 selected.
     eCSEL2_15 = 15, // ADC CMD15 selected.
   };
+  
   enum class eHWTS2 : uint32_t {
     eHWTS2_0 = 0, // no trigger selected
     eHWTS2_1 = 1, // ADC TRIG0 selected
@@ -1232,20 +1317,24 @@ union TRIG1_CHAIN_3_2 {
     eHWTS2_64 = 64, // ADC TRIG6 selected
     eHWTS2_128 = 128, // ADC TRIG7 selected
   };
+  
   enum class eB2B2 : uint32_t {
     eB2B2_0 = 0, // Disable B2B. Wait until delay value defined by TRIG2_COUNTER[SAMPLE_INTERVAL] is reached
     eB2B2_1 = 1, // Enable B2B. When Segment 0 finished (ADC COCO) then automatically trigger next ADC conversion, no need to wait until interval delay reached.
   };
+  
   enum class eIE2 : uint32_t {
     eIE2_0 = 0, // Generate interrupt on Done0 when segment 2 finish.
     eIE2_1 = 1, // Generate interrupt on Done1 when segment 2 finish.
     eIE2_2 = 2, // Generate interrupt on Done2 when segment 2 finish.
     eIE2_3 = 3, // Generate interrupt on Done3 when segment 2 finish.
   };
+  
   enum class eIE2_EN : uint32_t {
     eIE2_EN_0 = 0, // Interrupt DONE disabled.
     eIE2_EN_1 = 1, // Interrupt DONE enabled. When segment 2 finish, an interrupt will be generated on the specific port configured by the IE2.
   };
+  
   enum class eCSEL3 : uint32_t {
     eCSEL3_0 = 0, // Not a valid selection from the command buffer. Trigger event is ignored.
     eCSEL3_1 = 1, // ADC CMD1 selected.
@@ -1264,6 +1353,7 @@ union TRIG1_CHAIN_3_2 {
     eCSEL3_14 = 14, // ADC CMD14 selected.
     eCSEL3_15 = 15, // ADC CMD15 selected.
   };
+  
   enum class eHWTS3 : uint32_t {
     eHWTS3_0 = 0, // no trigger selected
     eHWTS3_1 = 1, // ADC TRIG0 selected
@@ -1275,16 +1365,19 @@ union TRIG1_CHAIN_3_2 {
     eHWTS3_64 = 64, // ADC TRIG6 selected
     eHWTS3_128 = 128, // ADC TRIG7 selected
   };
+  
   enum class eB2B3 : uint32_t {
     eB2B3_0 = 0, // Disable B2B. Wait until delay value defined by TRIG3_COUNTER[SAMPLE_INTERVAL] is reached
     eB2B3_1 = 1, // Enable B2B. When Segment 0 finished (ADC COCO) then automatically trigger next ADC conversion, no need to wait until interval delay reached.
   };
+  
   enum class eIE3 : uint32_t {
     eIE3_0 = 0, // Generate interrupt on Done0 when segment 3 finish.
     eIE3_1 = 1, // Generate interrupt on Done1 when segment 3 finish.
     eIE3_2 = 2, // Generate interrupt on Done2 when segment 3 finish.
     eIE3_3 = 3, // Generate interrupt on Done3 when segment 3 finish.
   };
+  
   enum class eIE3_EN : uint32_t {
     eIE3_EN_0 = 0, // Interrupt DONE disabled.
     eIE3_EN_1 = 1, // Interrupt DONE enabled. When segment 3 finish, an interrupt will be generated on the specific port configured by the IE3.
@@ -1302,7 +1395,7 @@ union TRIG1_CHAIN_3_2 {
     eB2B3 B2B3 : 1;
     eIE3 IE3 : 2;
     eIE3_EN IE3_EN : 1;
-  } bits;          // Bit-field struct (auto-filling reserved gaps)
+  } bits;
   
   // Full 32-bit register value.
   uint32_t value;
@@ -1316,7 +1409,6 @@ union TRIG1_CHAIN_3_2 {
 //
 union TRIG1_CHAIN_5_4 {
   
-  // Enum definitions.
   enum class eCSEL4 : uint32_t {
     eCSEL4_0 = 0, // Not a valid selection from the command buffer. Trigger event is ignored.
     eCSEL4_1 = 1, // ADC CMD1 selected.
@@ -1335,6 +1427,7 @@ union TRIG1_CHAIN_5_4 {
     eCSEL4_14 = 14, // ADC CMD14 selected.
     eCSEL4_15 = 15, // ADC CMD15 selected.
   };
+  
   enum class eHWTS4 : uint32_t {
     eHWTS4_0 = 0, // no trigger selected
     eHWTS4_1 = 1, // ADC TRIG0 selected
@@ -1346,20 +1439,24 @@ union TRIG1_CHAIN_5_4 {
     eHWTS4_64 = 64, // ADC TRIG6 selected
     eHWTS4_128 = 128, // ADC TRIG7 selected
   };
+  
   enum class eB2B4 : uint32_t {
     eB2B4_0 = 0, // Disable B2B. Wait until delay value defined by TRIG4_COUNTER[SAMPLE_INTERVAL] is reached
     eB2B4_1 = 1, // Enable B2B. When Segment 0 finished (ADC COCO) then automatically trigger next ADC conversion, no need to wait until interval delay reached.
   };
+  
   enum class eIE4 : uint32_t {
     eIE4_0 = 0, // Generate interrupt on Done0 when segment 4 finish.
     eIE4_1 = 1, // Generate interrupt on Done1 when segment 4 finish.
     eIE4_2 = 2, // Generate interrupt on Done2 when segment 4 finish.
     eIE4_3 = 3, // Generate interrupt on Done3 when segment 4 finish.
   };
+  
   enum class eIE4_EN : uint32_t {
     eIE4_EN_0 = 0, // Interrupt DONE disabled.
     eIE4_EN_1 = 1, // Interrupt DONE enabled. When segment 4 finish, an interrupt will be generated on the specific port configured by the IE4.
   };
+  
   enum class eCSEL5 : uint32_t {
     eCSEL5_0 = 0, // Not a valid selection from the command buffer. Trigger event is ignored.
     eCSEL5_1 = 1, // ADC CMD1 selected.
@@ -1378,6 +1475,7 @@ union TRIG1_CHAIN_5_4 {
     eCSEL5_14 = 14, // ADC CMD14 selected.
     eCSEL5_15 = 15, // ADC CMD15 selected.
   };
+  
   enum class eHWTS5 : uint32_t {
     eHWTS5_0 = 0, // no trigger selected
     eHWTS5_1 = 1, // ADC TRIG0 selected
@@ -1389,16 +1487,19 @@ union TRIG1_CHAIN_5_4 {
     eHWTS5_64 = 64, // ADC TRIG6 selected
     eHWTS5_128 = 128, // ADC TRIG7 selected
   };
+  
   enum class eB2B5 : uint32_t {
     eB2B5_0 = 0, // Disable B2B. Wait until delay value defined by TRIG5_COUNTER[SAMPLE_INTERVAL] is reached
     eB2B5_1 = 1, // Enable B2B. When Segment 0 finished (ADC COCO) then automatically trigger next ADC conversion, no need to wait until interval delay reached.
   };
+  
   enum class eIE5 : uint32_t {
     eIE5_0 = 0, // Generate interrupt on Done0 when segment 5 finish.
     eIE5_1 = 1, // Generate interrupt on Done1 when segment 5 finish.
     eIE5_2 = 2, // Generate interrupt on Done2 when segment 5 finish.
     eIE5_3 = 3, // Generate interrupt on Done3 when segment 5 finish.
   };
+  
   enum class eIE5_EN : uint32_t {
     eIE5_EN_0 = 0, // Interrupt DONE disabled.
     eIE5_EN_1 = 1, // Interrupt DONE enabled. When segment 5 finish, an interrupt will be generated on the specific port configured by the IE5.
@@ -1416,7 +1517,7 @@ union TRIG1_CHAIN_5_4 {
     eB2B5 B2B5 : 1;
     eIE5 IE5 : 2;
     eIE5_EN IE5_EN : 1;
-  } bits;          // Bit-field struct (auto-filling reserved gaps)
+  } bits;
   
   // Full 32-bit register value.
   uint32_t value;
@@ -1430,7 +1531,6 @@ union TRIG1_CHAIN_5_4 {
 //
 union TRIG1_CHAIN_7_6 {
   
-  // Enum definitions.
   enum class eCSEL6 : uint32_t {
     eCSEL6_0 = 0, // Not a valid selection from the command buffer. Trigger event is ignored.
     eCSEL6_1 = 1, // ADC CMD1 selected.
@@ -1449,6 +1549,7 @@ union TRIG1_CHAIN_7_6 {
     eCSEL6_14 = 14, // ADC CMD14 selected.
     eCSEL6_15 = 15, // ADC CMD15 selected.
   };
+  
   enum class eHWTS6 : uint32_t {
     eHWTS6_0 = 0, // no trigger selected
     eHWTS6_1 = 1, // ADC TRIG0 selected
@@ -1460,20 +1561,24 @@ union TRIG1_CHAIN_7_6 {
     eHWTS6_64 = 64, // ADC TRIG6 selected
     eHWTS6_128 = 128, // ADC TRIG7 selected
   };
+  
   enum class eB2B6 : uint32_t {
     eB2B6_0 = 0, // Disable B2B. Wait until delay value defined by TRIG6_COUNTER[SAMPLE_INTERVAL] is reached
     eB2B6_1 = 1, // Enable B2B. When Segment 0 finished (ADC COCO) then automatically trigger next ADC conversion, no need to wait until interval delay reached.
   };
+  
   enum class eIE6 : uint32_t {
     eIE6_0 = 0, // Generate interrupt on Done0 when segment 6 finish.
     eIE6_1 = 1, // Generate interrupt on Done1 when segment 6 finish.
     eIE6_2 = 2, // Generate interrupt on Done2 when segment 6 finish.
     eIE6_3 = 3, // Generate interrupt on Done3 when segment 6 finish.
   };
+  
   enum class eIE6_EN : uint32_t {
     eIE6_EN_0 = 0, // Interrupt DONE disabled.
     eIE6_EN_1 = 1, // Interrupt DONE enabled. When segment 6 finish, an interrupt will be generated on the specific port configured by the IE6.
   };
+  
   enum class eCSEL7 : uint32_t {
     eCSEL7_0 = 0, // Not a valid selection from the command buffer. Trigger event is ignored.
     eCSEL7_1 = 1, // ADC CMD1 selected.
@@ -1492,6 +1597,7 @@ union TRIG1_CHAIN_7_6 {
     eCSEL7_14 = 14, // ADC CMD14 selected.
     eCSEL7_15 = 15, // ADC CMD15 selected.
   };
+  
   enum class eHWTS7 : uint32_t {
     eHWTS7_0 = 0, // no trigger selected
     eHWTS7_1 = 1, // ADC TRIG0 selected
@@ -1503,16 +1609,19 @@ union TRIG1_CHAIN_7_6 {
     eHWTS7_64 = 64, // ADC TRIG6 selected
     eHWTS7_128 = 128, // ADC TRIG7 selected
   };
+  
   enum class eB2B7 : uint32_t {
     eB2B7_0 = 0, // Disable B2B. Wait until delay value defined by TRIG7_COUNTER[SAMPLE_INTERVAL] is reached
     eB2B7_1 = 1, // Enable B2B. When Segment 0 finished (ADC COCO) then automatically trigger next ADC conversion, no need to wait until interval delay reached.
   };
+  
   enum class eIE7 : uint32_t {
     eIE7_0 = 0, // Generate interrupt on Done0 when segment 7 finish.
     eIE7_1 = 1, // Generate interrupt on Done1 when segment 7 finish.
     eIE7_2 = 2, // Generate interrupt on Done2 when segment 7 finish.
     eIE7_3 = 3, // Generate interrupt on Done3 when segment 7 finish.
   };
+  
   enum class eIE7_EN : uint32_t {
     eIE7_EN_0 = 0, // Interrupt DONE disabled.
     eIE7_EN_1 = 1, // Interrupt DONE enabled. When segment 7 finish, an interrupt will be generated on the specific port configured by the IE7.
@@ -1530,7 +1639,7 @@ union TRIG1_CHAIN_7_6 {
     eB2B7 B2B7 : 1;
     eIE7 IE7 : 2;
     eIE7_EN IE7_EN : 1;
-  } bits;          // Bit-field struct (auto-filling reserved gaps)
+  } bits;
   
   // Full 32-bit register value.
   uint32_t value;
@@ -1544,15 +1653,13 @@ union TRIG1_CHAIN_7_6 {
 //
 union TRIG1_RESULT_1_0 {
   
-  // Enum definitions.
-  
   // Bit field definition.
   struct {
     uint32_t DATA0 : 12;
     uint32_t _reserved_1 : 4;
     uint32_t DATA1 : 12;
     uint32_t _reserved_end : 4;
-  } bits;          // Bit-field struct (auto-filling reserved gaps)
+  } bits;
   
   // Full 32-bit register value.
   uint32_t value;
@@ -1566,15 +1673,13 @@ union TRIG1_RESULT_1_0 {
 //
 union TRIG1_RESULT_3_2 {
   
-  // Enum definitions.
-  
   // Bit field definition.
   struct {
     uint32_t DATA2 : 12;
     uint32_t _reserved_1 : 4;
     uint32_t DATA3 : 12;
     uint32_t _reserved_end : 4;
-  } bits;          // Bit-field struct (auto-filling reserved gaps)
+  } bits;
   
   // Full 32-bit register value.
   uint32_t value;
@@ -1588,15 +1693,13 @@ union TRIG1_RESULT_3_2 {
 //
 union TRIG1_RESULT_5_4 {
   
-  // Enum definitions.
-  
   // Bit field definition.
   struct {
     uint32_t DATA4 : 12;
     uint32_t _reserved_1 : 4;
     uint32_t DATA5 : 12;
     uint32_t _reserved_end : 4;
-  } bits;          // Bit-field struct (auto-filling reserved gaps)
+  } bits;
   
   // Full 32-bit register value.
   uint32_t value;
@@ -1610,15 +1713,13 @@ union TRIG1_RESULT_5_4 {
 //
 union TRIG1_RESULT_7_6 {
   
-  // Enum definitions.
-  
   // Bit field definition.
   struct {
     uint32_t DATA6 : 12;
     uint32_t _reserved_1 : 4;
     uint32_t DATA7 : 12;
     uint32_t _reserved_end : 4;
-  } bits;          // Bit-field struct (auto-filling reserved gaps)
+  } bits;
   
   // Full 32-bit register value.
   uint32_t value;
@@ -1632,15 +1733,16 @@ union TRIG1_RESULT_7_6 {
 //
 union TRIG2_CTRL {
   
-  // Enum definitions.
   enum class eSW_TRIG : uint32_t {
     eSW_TRIG_0 = 0, // No software trigger event generated.
     eSW_TRIG_1 = 1, // Software trigger event generated.
   };
+  
   enum class eTRIG_MODE : uint32_t {
     eTRIG_MODE_0 = 0, // Hardware trigger. The softerware trigger will be ignored.
     eTRIG_MODE_1 = 1, // Software trigger. The hardware trigger will be ignored.
   };
+  
   enum class eTRIG_CHAIN : uint32_t {
     eTRIG_CHAIN_0 = 0, // Trigger chain length is 1
     eTRIG_CHAIN_1 = 1, // Trigger chain length is 2
@@ -1651,10 +1753,12 @@ union TRIG2_CTRL {
     eTRIG_CHAIN_6 = 6, // Trigger chain length is 7
     eTRIG_CHAIN_7 = 7, // Trigger chain length is 8
   };
+  
   enum class eSYNC_MODE : uint32_t {
     eSYNC_MODE_0 = 0, // Synchronization mode disabled, TRIGa and TRIG(a+4) are triggered independently.
     eSYNC_MODE_1 = 1, // Synchronization mode enabled, TRIGa and TRIG(a+4) are triggered by TRIGa source synchronously.
   };
+  
   enum class eCHAINx_DONE : uint32_t {
     eCHAINx_DONE_0 = 0, // segment x done not detected.
     eCHAINx_DONE_1 = 1, // segment x done detected.
@@ -1673,7 +1777,7 @@ union TRIG2_CTRL {
     eSYNC_MODE SYNC_MODE : 1;
     uint32_t _reserved_5 : 7;
     eCHAINx_DONE CHAINx_DONE : 8;
-  } bits;          // Bit-field struct (auto-filling reserved gaps)
+  } bits;
   
   // Full 32-bit register value.
   uint32_t value;
@@ -1687,13 +1791,11 @@ union TRIG2_CTRL {
 //
 union TRIG2_COUNTER {
   
-  // Enum definitions.
-  
   // Bit field definition.
   struct {
     uint32_t INIT_DELAY : 16;
     uint32_t SAMPLE_INTERVAL : 16;
-  } bits;          // Bit-field struct (auto-filling reserved gaps)
+  } bits;
   
   // Full 32-bit register value.
   uint32_t value;
@@ -1707,7 +1809,6 @@ union TRIG2_COUNTER {
 //
 union TRIG2_CHAIN_1_0 {
   
-  // Enum definitions.
   enum class eCSEL0 : uint32_t {
     eCSEL0_0 = 0, // Not a valid selection from the command buffer. Trigger event is ignored.
     eCSEL0_1 = 1, // ADC CMD1 selected.
@@ -1726,6 +1827,7 @@ union TRIG2_CHAIN_1_0 {
     eCSEL0_14 = 14, // ADC CMD14 selected.
     eCSEL0_15 = 15, // ADC CMD15 selected.
   };
+  
   enum class eHWTS0 : uint32_t {
     eHWTS0_0 = 0, // no trigger selected
     eHWTS0_1 = 1, // ADC TRIG0 selected
@@ -1737,20 +1839,24 @@ union TRIG2_CHAIN_1_0 {
     eHWTS0_64 = 64, // ADC TRIG6 selected
     eHWTS0_128 = 128, // ADC TRIG7 selected
   };
+  
   enum class eB2B0 : uint32_t {
     eB2B0_0 = 0, // Disable B2B. Wait until delay value defined by TRIG0_COUNTER[SAMPLE_INTERVAL] is reached
     eB2B0_1 = 1, // Enable B2B. When Segment 0 finished (ADC COCO) then automatically trigger next ADC conversion, no need to wait until interval delay reached.
   };
+  
   enum class eIE0 : uint32_t {
     eIE0_0 = 0, // Generate interrupt on Done0 when segment 0 finish.
     eIE0_1 = 1, // Generate interrupt on Done1 when segment 0 finish.
     eIE0_2 = 2, // Generate interrupt on Done2 when segment 0 finish.
     eIE0_3 = 3, // Generate interrupt on Done3 when segment 0 finish.
   };
+  
   enum class eIE0_EN : uint32_t {
     eIE0_EN_0 = 0, // Interrupt DONE disabled.
     eIE0_EN_1 = 1, // Interrupt DONE enabled. When segment 0 finish, an interrupt will be generated on the specific port configured by the IE0.
   };
+  
   enum class eCSEL1 : uint32_t {
     eCSEL1_0 = 0, // Not a valid selection from the command buffer. Trigger event is ignored.
     eCSEL1_1 = 1, // ADC CMD1 selected.
@@ -1769,6 +1875,7 @@ union TRIG2_CHAIN_1_0 {
     eCSEL1_14 = 14, // ADC CMD14 selected.
     eCSEL1_15 = 15, // ADC CMD15 selected.
   };
+  
   enum class eHWTS1 : uint32_t {
     eHWTS1_0 = 0, // no trigger selected
     eHWTS1_1 = 1, // ADC TRIG0 selected
@@ -1780,16 +1887,19 @@ union TRIG2_CHAIN_1_0 {
     eHWTS1_64 = 64, // ADC TRIG6 selected
     eHWTS1_128 = 128, // ADC TRIG7 selected
   };
+  
   enum class eB2B1 : uint32_t {
     eB2B1_0 = 0, // Disable B2B. Wait until delay value defined by TRIG1_COUNTER[SAMPLE_INTERVAL] is reached
     eB2B1_1 = 1, // Enable B2B. When Segment 0 finished (ADC COCO) then automatically trigger next ADC conversion, no need to wait until interval delay reached.
   };
+  
   enum class eIE1 : uint32_t {
     eIE1_0 = 0, // Generate interrupt on Done0 when Segment 1 finish.
     eIE1_1 = 1, // Generate interrupt on Done1 when Segment 1 finish.
     eIE1_2 = 2, // Generate interrupt on Done2 when Segment 1 finish.
     eIE1_3 = 3, // Generate interrupt on Done3 when Segment 1 finish.
   };
+  
   enum class eIE1_EN : uint32_t {
     eIE1_EN_0 = 0, // Interrupt DONE disabled.
     eIE1_EN_1 = 1, // Interrupt DONE enabled. When segment 1 finish, an interrupt will be generated on the specific port configured by the IE1.
@@ -1807,7 +1917,7 @@ union TRIG2_CHAIN_1_0 {
     eB2B1 B2B1 : 1;
     eIE1 IE1 : 2;
     eIE1_EN IE1_EN : 1;
-  } bits;          // Bit-field struct (auto-filling reserved gaps)
+  } bits;
   
   // Full 32-bit register value.
   uint32_t value;
@@ -1821,7 +1931,6 @@ union TRIG2_CHAIN_1_0 {
 //
 union TRIG2_CHAIN_3_2 {
   
-  // Enum definitions.
   enum class eCSEL2 : uint32_t {
     eCSEL2_0 = 0, // Not a valid selection from the command buffer. Trigger event is ignored.
     eCSEL2_1 = 1, // ADC CMD1 selected.
@@ -1840,6 +1949,7 @@ union TRIG2_CHAIN_3_2 {
     eCSEL2_14 = 14, // ADC CMD14 selected.
     eCSEL2_15 = 15, // ADC CMD15 selected.
   };
+  
   enum class eHWTS2 : uint32_t {
     eHWTS2_0 = 0, // no trigger selected
     eHWTS2_1 = 1, // ADC TRIG0 selected
@@ -1851,20 +1961,24 @@ union TRIG2_CHAIN_3_2 {
     eHWTS2_64 = 64, // ADC TRIG6 selected
     eHWTS2_128 = 128, // ADC TRIG7 selected
   };
+  
   enum class eB2B2 : uint32_t {
     eB2B2_0 = 0, // Disable B2B. Wait until delay value defined by TRIG2_COUNTER[SAMPLE_INTERVAL] is reached
     eB2B2_1 = 1, // Enable B2B. When Segment 0 finished (ADC COCO) then automatically trigger next ADC conversion, no need to wait until interval delay reached.
   };
+  
   enum class eIE2 : uint32_t {
     eIE2_0 = 0, // Generate interrupt on Done0 when segment 2 finish.
     eIE2_1 = 1, // Generate interrupt on Done1 when segment 2 finish.
     eIE2_2 = 2, // Generate interrupt on Done2 when segment 2 finish.
     eIE2_3 = 3, // Generate interrupt on Done3 when segment 2 finish.
   };
+  
   enum class eIE2_EN : uint32_t {
     eIE2_EN_0 = 0, // Interrupt DONE disabled.
     eIE2_EN_1 = 1, // Interrupt DONE enabled. When segment 2 finish, an interrupt will be generated on the specific port configured by the IE2.
   };
+  
   enum class eCSEL3 : uint32_t {
     eCSEL3_0 = 0, // Not a valid selection from the command buffer. Trigger event is ignored.
     eCSEL3_1 = 1, // ADC CMD1 selected.
@@ -1883,6 +1997,7 @@ union TRIG2_CHAIN_3_2 {
     eCSEL3_14 = 14, // ADC CMD14 selected.
     eCSEL3_15 = 15, // ADC CMD15 selected.
   };
+  
   enum class eHWTS3 : uint32_t {
     eHWTS3_0 = 0, // no trigger selected
     eHWTS3_1 = 1, // ADC TRIG0 selected
@@ -1894,16 +2009,19 @@ union TRIG2_CHAIN_3_2 {
     eHWTS3_64 = 64, // ADC TRIG6 selected
     eHWTS3_128 = 128, // ADC TRIG7 selected
   };
+  
   enum class eB2B3 : uint32_t {
     eB2B3_0 = 0, // Disable B2B. Wait until delay value defined by TRIG3_COUNTER[SAMPLE_INTERVAL] is reached
     eB2B3_1 = 1, // Enable B2B. When Segment 0 finished (ADC COCO) then automatically trigger next ADC conversion, no need to wait until interval delay reached.
   };
+  
   enum class eIE3 : uint32_t {
     eIE3_0 = 0, // Generate interrupt on Done0 when segment 3 finish.
     eIE3_1 = 1, // Generate interrupt on Done1 when segment 3 finish.
     eIE3_2 = 2, // Generate interrupt on Done2 when segment 3 finish.
     eIE3_3 = 3, // Generate interrupt on Done3 when segment 3 finish.
   };
+  
   enum class eIE3_EN : uint32_t {
     eIE3_EN_0 = 0, // Interrupt DONE disabled.
     eIE3_EN_1 = 1, // Interrupt DONE enabled. When segment 3 finish, an interrupt will be generated on the specific port configured by the IE3.
@@ -1921,7 +2039,7 @@ union TRIG2_CHAIN_3_2 {
     eB2B3 B2B3 : 1;
     eIE3 IE3 : 2;
     eIE3_EN IE3_EN : 1;
-  } bits;          // Bit-field struct (auto-filling reserved gaps)
+  } bits;
   
   // Full 32-bit register value.
   uint32_t value;
@@ -1935,7 +2053,6 @@ union TRIG2_CHAIN_3_2 {
 //
 union TRIG2_CHAIN_5_4 {
   
-  // Enum definitions.
   enum class eCSEL4 : uint32_t {
     eCSEL4_0 = 0, // Not a valid selection from the command buffer. Trigger event is ignored.
     eCSEL4_1 = 1, // ADC CMD1 selected.
@@ -1954,6 +2071,7 @@ union TRIG2_CHAIN_5_4 {
     eCSEL4_14 = 14, // ADC CMD14 selected.
     eCSEL4_15 = 15, // ADC CMD15 selected.
   };
+  
   enum class eHWTS4 : uint32_t {
     eHWTS4_0 = 0, // no trigger selected
     eHWTS4_1 = 1, // ADC TRIG0 selected
@@ -1965,20 +2083,24 @@ union TRIG2_CHAIN_5_4 {
     eHWTS4_64 = 64, // ADC TRIG6 selected
     eHWTS4_128 = 128, // ADC TRIG7 selected
   };
+  
   enum class eB2B4 : uint32_t {
     eB2B4_0 = 0, // Disable B2B. Wait until delay value defined by TRIG4_COUNTER[SAMPLE_INTERVAL] is reached
     eB2B4_1 = 1, // Enable B2B. When Segment 0 finished (ADC COCO) then automatically trigger next ADC conversion, no need to wait until interval delay reached.
   };
+  
   enum class eIE4 : uint32_t {
     eIE4_0 = 0, // Generate interrupt on Done0 when segment 4 finish.
     eIE4_1 = 1, // Generate interrupt on Done1 when segment 4 finish.
     eIE4_2 = 2, // Generate interrupt on Done2 when segment 4 finish.
     eIE4_3 = 3, // Generate interrupt on Done3 when segment 4 finish.
   };
+  
   enum class eIE4_EN : uint32_t {
     eIE4_EN_0 = 0, // Interrupt DONE disabled.
     eIE4_EN_1 = 1, // Interrupt DONE enabled. When segment 4 finish, an interrupt will be generated on the specific port configured by the IE4.
   };
+  
   enum class eCSEL5 : uint32_t {
     eCSEL5_0 = 0, // Not a valid selection from the command buffer. Trigger event is ignored.
     eCSEL5_1 = 1, // ADC CMD1 selected.
@@ -1997,6 +2119,7 @@ union TRIG2_CHAIN_5_4 {
     eCSEL5_14 = 14, // ADC CMD14 selected.
     eCSEL5_15 = 15, // ADC CMD15 selected.
   };
+  
   enum class eHWTS5 : uint32_t {
     eHWTS5_0 = 0, // no trigger selected
     eHWTS5_1 = 1, // ADC TRIG0 selected
@@ -2008,16 +2131,19 @@ union TRIG2_CHAIN_5_4 {
     eHWTS5_64 = 64, // ADC TRIG6 selected
     eHWTS5_128 = 128, // ADC TRIG7 selected
   };
+  
   enum class eB2B5 : uint32_t {
     eB2B5_0 = 0, // Disable B2B. Wait until delay value defined by TRIG5_COUNTER[SAMPLE_INTERVAL] is reached
     eB2B5_1 = 1, // Enable B2B. When Segment 0 finished (ADC COCO) then automatically trigger next ADC conversion, no need to wait until interval delay reached.
   };
+  
   enum class eIE5 : uint32_t {
     eIE5_0 = 0, // Generate interrupt on Done0 when segment 5 finish.
     eIE5_1 = 1, // Generate interrupt on Done1 when segment 5 finish.
     eIE5_2 = 2, // Generate interrupt on Done2 when segment 5 finish.
     eIE5_3 = 3, // Generate interrupt on Done3 when segment 5 finish.
   };
+  
   enum class eIE5_EN : uint32_t {
     eIE5_EN_0 = 0, // Interrupt DONE disabled.
     eIE5_EN_1 = 1, // Interrupt DONE enabled. When segment 5 finish, an interrupt will be generated on the specific port configured by the IE5.
@@ -2035,7 +2161,7 @@ union TRIG2_CHAIN_5_4 {
     eB2B5 B2B5 : 1;
     eIE5 IE5 : 2;
     eIE5_EN IE5_EN : 1;
-  } bits;          // Bit-field struct (auto-filling reserved gaps)
+  } bits;
   
   // Full 32-bit register value.
   uint32_t value;
@@ -2049,7 +2175,6 @@ union TRIG2_CHAIN_5_4 {
 //
 union TRIG2_CHAIN_7_6 {
   
-  // Enum definitions.
   enum class eCSEL6 : uint32_t {
     eCSEL6_0 = 0, // Not a valid selection from the command buffer. Trigger event is ignored.
     eCSEL6_1 = 1, // ADC CMD1 selected.
@@ -2068,6 +2193,7 @@ union TRIG2_CHAIN_7_6 {
     eCSEL6_14 = 14, // ADC CMD14 selected.
     eCSEL6_15 = 15, // ADC CMD15 selected.
   };
+  
   enum class eHWTS6 : uint32_t {
     eHWTS6_0 = 0, // no trigger selected
     eHWTS6_1 = 1, // ADC TRIG0 selected
@@ -2079,20 +2205,24 @@ union TRIG2_CHAIN_7_6 {
     eHWTS6_64 = 64, // ADC TRIG6 selected
     eHWTS6_128 = 128, // ADC TRIG7 selected
   };
+  
   enum class eB2B6 : uint32_t {
     eB2B6_0 = 0, // Disable B2B. Wait until delay value defined by TRIG6_COUNTER[SAMPLE_INTERVAL] is reached
     eB2B6_1 = 1, // Enable B2B. When Segment 0 finished (ADC COCO) then automatically trigger next ADC conversion, no need to wait until interval delay reached.
   };
+  
   enum class eIE6 : uint32_t {
     eIE6_0 = 0, // Generate interrupt on Done0 when segment 6 finish.
     eIE6_1 = 1, // Generate interrupt on Done1 when segment 6 finish.
     eIE6_2 = 2, // Generate interrupt on Done2 when segment 6 finish.
     eIE6_3 = 3, // Generate interrupt on Done3 when segment 6 finish.
   };
+  
   enum class eIE6_EN : uint32_t {
     eIE6_EN_0 = 0, // Interrupt DONE disabled.
     eIE6_EN_1 = 1, // Interrupt DONE enabled. When segment 6 finish, an interrupt will be generated on the specific port configured by the IE6.
   };
+  
   enum class eCSEL7 : uint32_t {
     eCSEL7_0 = 0, // Not a valid selection from the command buffer. Trigger event is ignored.
     eCSEL7_1 = 1, // ADC CMD1 selected.
@@ -2111,6 +2241,7 @@ union TRIG2_CHAIN_7_6 {
     eCSEL7_14 = 14, // ADC CMD14 selected.
     eCSEL7_15 = 15, // ADC CMD15 selected.
   };
+  
   enum class eHWTS7 : uint32_t {
     eHWTS7_0 = 0, // no trigger selected
     eHWTS7_1 = 1, // ADC TRIG0 selected
@@ -2122,16 +2253,19 @@ union TRIG2_CHAIN_7_6 {
     eHWTS7_64 = 64, // ADC TRIG6 selected
     eHWTS7_128 = 128, // ADC TRIG7 selected
   };
+  
   enum class eB2B7 : uint32_t {
     eB2B7_0 = 0, // Disable B2B. Wait until delay value defined by TRIG7_COUNTER[SAMPLE_INTERVAL] is reached
     eB2B7_1 = 1, // Enable B2B. When Segment 0 finished (ADC COCO) then automatically trigger next ADC conversion, no need to wait until interval delay reached.
   };
+  
   enum class eIE7 : uint32_t {
     eIE7_0 = 0, // Generate interrupt on Done0 when segment 7 finish.
     eIE7_1 = 1, // Generate interrupt on Done1 when segment 7 finish.
     eIE7_2 = 2, // Generate interrupt on Done2 when segment 7 finish.
     eIE7_3 = 3, // Generate interrupt on Done3 when segment 7 finish.
   };
+  
   enum class eIE7_EN : uint32_t {
     eIE7_EN_0 = 0, // Interrupt DONE disabled.
     eIE7_EN_1 = 1, // Interrupt DONE enabled. When segment 7 finish, an interrupt will be generated on the specific port configured by the IE7.
@@ -2149,7 +2283,7 @@ union TRIG2_CHAIN_7_6 {
     eB2B7 B2B7 : 1;
     eIE7 IE7 : 2;
     eIE7_EN IE7_EN : 1;
-  } bits;          // Bit-field struct (auto-filling reserved gaps)
+  } bits;
   
   // Full 32-bit register value.
   uint32_t value;
@@ -2163,15 +2297,13 @@ union TRIG2_CHAIN_7_6 {
 //
 union TRIG2_RESULT_1_0 {
   
-  // Enum definitions.
-  
   // Bit field definition.
   struct {
     uint32_t DATA0 : 12;
     uint32_t _reserved_1 : 4;
     uint32_t DATA1 : 12;
     uint32_t _reserved_end : 4;
-  } bits;          // Bit-field struct (auto-filling reserved gaps)
+  } bits;
   
   // Full 32-bit register value.
   uint32_t value;
@@ -2185,15 +2317,13 @@ union TRIG2_RESULT_1_0 {
 //
 union TRIG2_RESULT_3_2 {
   
-  // Enum definitions.
-  
   // Bit field definition.
   struct {
     uint32_t DATA2 : 12;
     uint32_t _reserved_1 : 4;
     uint32_t DATA3 : 12;
     uint32_t _reserved_end : 4;
-  } bits;          // Bit-field struct (auto-filling reserved gaps)
+  } bits;
   
   // Full 32-bit register value.
   uint32_t value;
@@ -2207,15 +2337,13 @@ union TRIG2_RESULT_3_2 {
 //
 union TRIG2_RESULT_5_4 {
   
-  // Enum definitions.
-  
   // Bit field definition.
   struct {
     uint32_t DATA4 : 12;
     uint32_t _reserved_1 : 4;
     uint32_t DATA5 : 12;
     uint32_t _reserved_end : 4;
-  } bits;          // Bit-field struct (auto-filling reserved gaps)
+  } bits;
   
   // Full 32-bit register value.
   uint32_t value;
@@ -2229,15 +2357,13 @@ union TRIG2_RESULT_5_4 {
 //
 union TRIG2_RESULT_7_6 {
   
-  // Enum definitions.
-  
   // Bit field definition.
   struct {
     uint32_t DATA6 : 12;
     uint32_t _reserved_1 : 4;
     uint32_t DATA7 : 12;
     uint32_t _reserved_end : 4;
-  } bits;          // Bit-field struct (auto-filling reserved gaps)
+  } bits;
   
   // Full 32-bit register value.
   uint32_t value;
@@ -2251,15 +2377,16 @@ union TRIG2_RESULT_7_6 {
 //
 union TRIG3_CTRL {
   
-  // Enum definitions.
   enum class eSW_TRIG : uint32_t {
     eSW_TRIG_0 = 0, // No software trigger event generated.
     eSW_TRIG_1 = 1, // Software trigger event generated.
   };
+  
   enum class eTRIG_MODE : uint32_t {
     eTRIG_MODE_0 = 0, // Hardware trigger. The softerware trigger will be ignored.
     eTRIG_MODE_1 = 1, // Software trigger. The hardware trigger will be ignored.
   };
+  
   enum class eTRIG_CHAIN : uint32_t {
     eTRIG_CHAIN_0 = 0, // Trigger chain length is 1
     eTRIG_CHAIN_1 = 1, // Trigger chain length is 2
@@ -2270,10 +2397,12 @@ union TRIG3_CTRL {
     eTRIG_CHAIN_6 = 6, // Trigger chain length is 7
     eTRIG_CHAIN_7 = 7, // Trigger chain length is 8
   };
+  
   enum class eSYNC_MODE : uint32_t {
     eSYNC_MODE_0 = 0, // Synchronization mode disabled, TRIGa and TRIG(a+4) are triggered independently.
     eSYNC_MODE_1 = 1, // Synchronization mode enabled, TRIGa and TRIG(a+4) are triggered by TRIGa source synchronously.
   };
+  
   enum class eCHAINx_DONE : uint32_t {
     eCHAINx_DONE_0 = 0, // segment x done not detected.
     eCHAINx_DONE_1 = 1, // segment x done detected.
@@ -2292,7 +2421,7 @@ union TRIG3_CTRL {
     eSYNC_MODE SYNC_MODE : 1;
     uint32_t _reserved_5 : 7;
     eCHAINx_DONE CHAINx_DONE : 8;
-  } bits;          // Bit-field struct (auto-filling reserved gaps)
+  } bits;
   
   // Full 32-bit register value.
   uint32_t value;
@@ -2306,13 +2435,11 @@ union TRIG3_CTRL {
 //
 union TRIG3_COUNTER {
   
-  // Enum definitions.
-  
   // Bit field definition.
   struct {
     uint32_t INIT_DELAY : 16;
     uint32_t SAMPLE_INTERVAL : 16;
-  } bits;          // Bit-field struct (auto-filling reserved gaps)
+  } bits;
   
   // Full 32-bit register value.
   uint32_t value;
@@ -2326,7 +2453,6 @@ union TRIG3_COUNTER {
 //
 union TRIG3_CHAIN_1_0 {
   
-  // Enum definitions.
   enum class eCSEL0 : uint32_t {
     eCSEL0_0 = 0, // Not a valid selection from the command buffer. Trigger event is ignored.
     eCSEL0_1 = 1, // ADC CMD1 selected.
@@ -2345,6 +2471,7 @@ union TRIG3_CHAIN_1_0 {
     eCSEL0_14 = 14, // ADC CMD14 selected.
     eCSEL0_15 = 15, // ADC CMD15 selected.
   };
+  
   enum class eHWTS0 : uint32_t {
     eHWTS0_0 = 0, // no trigger selected
     eHWTS0_1 = 1, // ADC TRIG0 selected
@@ -2356,20 +2483,24 @@ union TRIG3_CHAIN_1_0 {
     eHWTS0_64 = 64, // ADC TRIG6 selected
     eHWTS0_128 = 128, // ADC TRIG7 selected
   };
+  
   enum class eB2B0 : uint32_t {
     eB2B0_0 = 0, // Disable B2B. Wait until delay value defined by TRIG0_COUNTER[SAMPLE_INTERVAL] is reached
     eB2B0_1 = 1, // Enable B2B. When Segment 0 finished (ADC COCO) then automatically trigger next ADC conversion, no need to wait until interval delay reached.
   };
+  
   enum class eIE0 : uint32_t {
     eIE0_0 = 0, // Generate interrupt on Done0 when segment 0 finish.
     eIE0_1 = 1, // Generate interrupt on Done1 when segment 0 finish.
     eIE0_2 = 2, // Generate interrupt on Done2 when segment 0 finish.
     eIE0_3 = 3, // Generate interrupt on Done3 when segment 0 finish.
   };
+  
   enum class eIE0_EN : uint32_t {
     eIE0_EN_0 = 0, // Interrupt DONE disabled.
     eIE0_EN_1 = 1, // Interrupt DONE enabled. When segment 0 finish, an interrupt will be generated on the specific port configured by the IE0.
   };
+  
   enum class eCSEL1 : uint32_t {
     eCSEL1_0 = 0, // Not a valid selection from the command buffer. Trigger event is ignored.
     eCSEL1_1 = 1, // ADC CMD1 selected.
@@ -2388,6 +2519,7 @@ union TRIG3_CHAIN_1_0 {
     eCSEL1_14 = 14, // ADC CMD14 selected.
     eCSEL1_15 = 15, // ADC CMD15 selected.
   };
+  
   enum class eHWTS1 : uint32_t {
     eHWTS1_0 = 0, // no trigger selected
     eHWTS1_1 = 1, // ADC TRIG0 selected
@@ -2399,16 +2531,19 @@ union TRIG3_CHAIN_1_0 {
     eHWTS1_64 = 64, // ADC TRIG6 selected
     eHWTS1_128 = 128, // ADC TRIG7 selected
   };
+  
   enum class eB2B1 : uint32_t {
     eB2B1_0 = 0, // Disable B2B. Wait until delay value defined by TRIG1_COUNTER[SAMPLE_INTERVAL] is reached
     eB2B1_1 = 1, // Enable B2B. When Segment 0 finished (ADC COCO) then automatically trigger next ADC conversion, no need to wait until interval delay reached.
   };
+  
   enum class eIE1 : uint32_t {
     eIE1_0 = 0, // Generate interrupt on Done0 when Segment 1 finish.
     eIE1_1 = 1, // Generate interrupt on Done1 when Segment 1 finish.
     eIE1_2 = 2, // Generate interrupt on Done2 when Segment 1 finish.
     eIE1_3 = 3, // Generate interrupt on Done3 when Segment 1 finish.
   };
+  
   enum class eIE1_EN : uint32_t {
     eIE1_EN_0 = 0, // Interrupt DONE disabled.
     eIE1_EN_1 = 1, // Interrupt DONE enabled. When segment 1 finish, an interrupt will be generated on the specific port configured by the IE1.
@@ -2426,7 +2561,7 @@ union TRIG3_CHAIN_1_0 {
     eB2B1 B2B1 : 1;
     eIE1 IE1 : 2;
     eIE1_EN IE1_EN : 1;
-  } bits;          // Bit-field struct (auto-filling reserved gaps)
+  } bits;
   
   // Full 32-bit register value.
   uint32_t value;
@@ -2440,7 +2575,6 @@ union TRIG3_CHAIN_1_0 {
 //
 union TRIG3_CHAIN_3_2 {
   
-  // Enum definitions.
   enum class eCSEL2 : uint32_t {
     eCSEL2_0 = 0, // Not a valid selection from the command buffer. Trigger event is ignored.
     eCSEL2_1 = 1, // ADC CMD1 selected.
@@ -2459,6 +2593,7 @@ union TRIG3_CHAIN_3_2 {
     eCSEL2_14 = 14, // ADC CMD14 selected.
     eCSEL2_15 = 15, // ADC CMD15 selected.
   };
+  
   enum class eHWTS2 : uint32_t {
     eHWTS2_0 = 0, // no trigger selected
     eHWTS2_1 = 1, // ADC TRIG0 selected
@@ -2470,20 +2605,24 @@ union TRIG3_CHAIN_3_2 {
     eHWTS2_64 = 64, // ADC TRIG6 selected
     eHWTS2_128 = 128, // ADC TRIG7 selected
   };
+  
   enum class eB2B2 : uint32_t {
     eB2B2_0 = 0, // Disable B2B. Wait until delay value defined by TRIG2_COUNTER[SAMPLE_INTERVAL] is reached
     eB2B2_1 = 1, // Enable B2B. When Segment 0 finished (ADC COCO) then automatically trigger next ADC conversion, no need to wait until interval delay reached.
   };
+  
   enum class eIE2 : uint32_t {
     eIE2_0 = 0, // Generate interrupt on Done0 when segment 2 finish.
     eIE2_1 = 1, // Generate interrupt on Done1 when segment 2 finish.
     eIE2_2 = 2, // Generate interrupt on Done2 when segment 2 finish.
     eIE2_3 = 3, // Generate interrupt on Done3 when segment 2 finish.
   };
+  
   enum class eIE2_EN : uint32_t {
     eIE2_EN_0 = 0, // Interrupt DONE disabled.
     eIE2_EN_1 = 1, // Interrupt DONE enabled. When segment 2 finish, an interrupt will be generated on the specific port configured by the IE2.
   };
+  
   enum class eCSEL3 : uint32_t {
     eCSEL3_0 = 0, // Not a valid selection from the command buffer. Trigger event is ignored.
     eCSEL3_1 = 1, // ADC CMD1 selected.
@@ -2502,6 +2641,7 @@ union TRIG3_CHAIN_3_2 {
     eCSEL3_14 = 14, // ADC CMD14 selected.
     eCSEL3_15 = 15, // ADC CMD15 selected.
   };
+  
   enum class eHWTS3 : uint32_t {
     eHWTS3_0 = 0, // no trigger selected
     eHWTS3_1 = 1, // ADC TRIG0 selected
@@ -2513,16 +2653,19 @@ union TRIG3_CHAIN_3_2 {
     eHWTS3_64 = 64, // ADC TRIG6 selected
     eHWTS3_128 = 128, // ADC TRIG7 selected
   };
+  
   enum class eB2B3 : uint32_t {
     eB2B3_0 = 0, // Disable B2B. Wait until delay value defined by TRIG3_COUNTER[SAMPLE_INTERVAL] is reached
     eB2B3_1 = 1, // Enable B2B. When Segment 0 finished (ADC COCO) then automatically trigger next ADC conversion, no need to wait until interval delay reached.
   };
+  
   enum class eIE3 : uint32_t {
     eIE3_0 = 0, // Generate interrupt on Done0 when segment 3 finish.
     eIE3_1 = 1, // Generate interrupt on Done1 when segment 3 finish.
     eIE3_2 = 2, // Generate interrupt on Done2 when segment 3 finish.
     eIE3_3 = 3, // Generate interrupt on Done3 when segment 3 finish.
   };
+  
   enum class eIE3_EN : uint32_t {
     eIE3_EN_0 = 0, // Interrupt DONE disabled.
     eIE3_EN_1 = 1, // Interrupt DONE enabled. When segment 3 finish, an interrupt will be generated on the specific port configured by the IE3.
@@ -2540,7 +2683,7 @@ union TRIG3_CHAIN_3_2 {
     eB2B3 B2B3 : 1;
     eIE3 IE3 : 2;
     eIE3_EN IE3_EN : 1;
-  } bits;          // Bit-field struct (auto-filling reserved gaps)
+  } bits;
   
   // Full 32-bit register value.
   uint32_t value;
@@ -2554,7 +2697,6 @@ union TRIG3_CHAIN_3_2 {
 //
 union TRIG3_CHAIN_5_4 {
   
-  // Enum definitions.
   enum class eCSEL4 : uint32_t {
     eCSEL4_0 = 0, // Not a valid selection from the command buffer. Trigger event is ignored.
     eCSEL4_1 = 1, // ADC CMD1 selected.
@@ -2573,6 +2715,7 @@ union TRIG3_CHAIN_5_4 {
     eCSEL4_14 = 14, // ADC CMD14 selected.
     eCSEL4_15 = 15, // ADC CMD15 selected.
   };
+  
   enum class eHWTS4 : uint32_t {
     eHWTS4_0 = 0, // no trigger selected
     eHWTS4_1 = 1, // ADC TRIG0 selected
@@ -2584,20 +2727,24 @@ union TRIG3_CHAIN_5_4 {
     eHWTS4_64 = 64, // ADC TRIG6 selected
     eHWTS4_128 = 128, // ADC TRIG7 selected
   };
+  
   enum class eB2B4 : uint32_t {
     eB2B4_0 = 0, // Disable B2B. Wait until delay value defined by TRIG4_COUNTER[SAMPLE_INTERVAL] is reached
     eB2B4_1 = 1, // Enable B2B. When Segment 0 finished (ADC COCO) then automatically trigger next ADC conversion, no need to wait until interval delay reached.
   };
+  
   enum class eIE4 : uint32_t {
     eIE4_0 = 0, // Generate interrupt on Done0 when segment 4 finish.
     eIE4_1 = 1, // Generate interrupt on Done1 when segment 4 finish.
     eIE4_2 = 2, // Generate interrupt on Done2 when segment 4 finish.
     eIE4_3 = 3, // Generate interrupt on Done3 when segment 4 finish.
   };
+  
   enum class eIE4_EN : uint32_t {
     eIE4_EN_0 = 0, // Interrupt DONE disabled.
     eIE4_EN_1 = 1, // Interrupt DONE enabled. When segment 4 finish, an interrupt will be generated on the specific port configured by the IE4.
   };
+  
   enum class eCSEL5 : uint32_t {
     eCSEL5_0 = 0, // Not a valid selection from the command buffer. Trigger event is ignored.
     eCSEL5_1 = 1, // ADC CMD1 selected.
@@ -2616,6 +2763,7 @@ union TRIG3_CHAIN_5_4 {
     eCSEL5_14 = 14, // ADC CMD14 selected.
     eCSEL5_15 = 15, // ADC CMD15 selected.
   };
+  
   enum class eHWTS5 : uint32_t {
     eHWTS5_0 = 0, // no trigger selected
     eHWTS5_1 = 1, // ADC TRIG0 selected
@@ -2627,16 +2775,19 @@ union TRIG3_CHAIN_5_4 {
     eHWTS5_64 = 64, // ADC TRIG6 selected
     eHWTS5_128 = 128, // ADC TRIG7 selected
   };
+  
   enum class eB2B5 : uint32_t {
     eB2B5_0 = 0, // Disable B2B. Wait until delay value defined by TRIG5_COUNTER[SAMPLE_INTERVAL] is reached
     eB2B5_1 = 1, // Enable B2B. When Segment 0 finished (ADC COCO) then automatically trigger next ADC conversion, no need to wait until interval delay reached.
   };
+  
   enum class eIE5 : uint32_t {
     eIE5_0 = 0, // Generate interrupt on Done0 when segment 5 finish.
     eIE5_1 = 1, // Generate interrupt on Done1 when segment 5 finish.
     eIE5_2 = 2, // Generate interrupt on Done2 when segment 5 finish.
     eIE5_3 = 3, // Generate interrupt on Done3 when segment 5 finish.
   };
+  
   enum class eIE5_EN : uint32_t {
     eIE5_EN_0 = 0, // Interrupt DONE disabled.
     eIE5_EN_1 = 1, // Interrupt DONE enabled. When segment 5 finish, an interrupt will be generated on the specific port configured by the IE5.
@@ -2654,7 +2805,7 @@ union TRIG3_CHAIN_5_4 {
     eB2B5 B2B5 : 1;
     eIE5 IE5 : 2;
     eIE5_EN IE5_EN : 1;
-  } bits;          // Bit-field struct (auto-filling reserved gaps)
+  } bits;
   
   // Full 32-bit register value.
   uint32_t value;
@@ -2668,7 +2819,6 @@ union TRIG3_CHAIN_5_4 {
 //
 union TRIG3_CHAIN_7_6 {
   
-  // Enum definitions.
   enum class eCSEL6 : uint32_t {
     eCSEL6_0 = 0, // Not a valid selection from the command buffer. Trigger event is ignored.
     eCSEL6_1 = 1, // ADC CMD1 selected.
@@ -2687,6 +2837,7 @@ union TRIG3_CHAIN_7_6 {
     eCSEL6_14 = 14, // ADC CMD14 selected.
     eCSEL6_15 = 15, // ADC CMD15 selected.
   };
+  
   enum class eHWTS6 : uint32_t {
     eHWTS6_0 = 0, // no trigger selected
     eHWTS6_1 = 1, // ADC TRIG0 selected
@@ -2698,20 +2849,24 @@ union TRIG3_CHAIN_7_6 {
     eHWTS6_64 = 64, // ADC TRIG6 selected
     eHWTS6_128 = 128, // ADC TRIG7 selected
   };
+  
   enum class eB2B6 : uint32_t {
     eB2B6_0 = 0, // Disable B2B. Wait until delay value defined by TRIG6_COUNTER[SAMPLE_INTERVAL] is reached
     eB2B6_1 = 1, // Enable B2B. When Segment 0 finished (ADC COCO) then automatically trigger next ADC conversion, no need to wait until interval delay reached.
   };
+  
   enum class eIE6 : uint32_t {
     eIE6_0 = 0, // Generate interrupt on Done0 when segment 6 finish.
     eIE6_1 = 1, // Generate interrupt on Done1 when segment 6 finish.
     eIE6_2 = 2, // Generate interrupt on Done2 when segment 6 finish.
     eIE6_3 = 3, // Generate interrupt on Done3 when segment 6 finish.
   };
+  
   enum class eIE6_EN : uint32_t {
     eIE6_EN_0 = 0, // Interrupt DONE disabled.
     eIE6_EN_1 = 1, // Interrupt DONE enabled. When segment 6 finish, an interrupt will be generated on the specific port configured by the IE6.
   };
+  
   enum class eCSEL7 : uint32_t {
     eCSEL7_0 = 0, // Not a valid selection from the command buffer. Trigger event is ignored.
     eCSEL7_1 = 1, // ADC CMD1 selected.
@@ -2730,6 +2885,7 @@ union TRIG3_CHAIN_7_6 {
     eCSEL7_14 = 14, // ADC CMD14 selected.
     eCSEL7_15 = 15, // ADC CMD15 selected.
   };
+  
   enum class eHWTS7 : uint32_t {
     eHWTS7_0 = 0, // no trigger selected
     eHWTS7_1 = 1, // ADC TRIG0 selected
@@ -2741,16 +2897,19 @@ union TRIG3_CHAIN_7_6 {
     eHWTS7_64 = 64, // ADC TRIG6 selected
     eHWTS7_128 = 128, // ADC TRIG7 selected
   };
+  
   enum class eB2B7 : uint32_t {
     eB2B7_0 = 0, // Disable B2B. Wait until delay value defined by TRIG7_COUNTER[SAMPLE_INTERVAL] is reached
     eB2B7_1 = 1, // Enable B2B. When Segment 0 finished (ADC COCO) then automatically trigger next ADC conversion, no need to wait until interval delay reached.
   };
+  
   enum class eIE7 : uint32_t {
     eIE7_0 = 0, // Generate interrupt on Done0 when segment 7 finish.
     eIE7_1 = 1, // Generate interrupt on Done1 when segment 7 finish.
     eIE7_2 = 2, // Generate interrupt on Done2 when segment 7 finish.
     eIE7_3 = 3, // Generate interrupt on Done3 when segment 7 finish.
   };
+  
   enum class eIE7_EN : uint32_t {
     eIE7_EN_0 = 0, // Interrupt DONE disabled.
     eIE7_EN_1 = 1, // Interrupt DONE enabled. When segment 7 finish, an interrupt will be generated on the specific port configured by the IE7.
@@ -2768,7 +2927,7 @@ union TRIG3_CHAIN_7_6 {
     eB2B7 B2B7 : 1;
     eIE7 IE7 : 2;
     eIE7_EN IE7_EN : 1;
-  } bits;          // Bit-field struct (auto-filling reserved gaps)
+  } bits;
   
   // Full 32-bit register value.
   uint32_t value;
@@ -2782,15 +2941,13 @@ union TRIG3_CHAIN_7_6 {
 //
 union TRIG3_RESULT_1_0 {
   
-  // Enum definitions.
-  
   // Bit field definition.
   struct {
     uint32_t DATA0 : 12;
     uint32_t _reserved_1 : 4;
     uint32_t DATA1 : 12;
     uint32_t _reserved_end : 4;
-  } bits;          // Bit-field struct (auto-filling reserved gaps)
+  } bits;
   
   // Full 32-bit register value.
   uint32_t value;
@@ -2804,15 +2961,13 @@ union TRIG3_RESULT_1_0 {
 //
 union TRIG3_RESULT_3_2 {
   
-  // Enum definitions.
-  
   // Bit field definition.
   struct {
     uint32_t DATA2 : 12;
     uint32_t _reserved_1 : 4;
     uint32_t DATA3 : 12;
     uint32_t _reserved_end : 4;
-  } bits;          // Bit-field struct (auto-filling reserved gaps)
+  } bits;
   
   // Full 32-bit register value.
   uint32_t value;
@@ -2826,15 +2981,13 @@ union TRIG3_RESULT_3_2 {
 //
 union TRIG3_RESULT_5_4 {
   
-  // Enum definitions.
-  
   // Bit field definition.
   struct {
     uint32_t DATA4 : 12;
     uint32_t _reserved_1 : 4;
     uint32_t DATA5 : 12;
     uint32_t _reserved_end : 4;
-  } bits;          // Bit-field struct (auto-filling reserved gaps)
+  } bits;
   
   // Full 32-bit register value.
   uint32_t value;
@@ -2848,15 +3001,13 @@ union TRIG3_RESULT_5_4 {
 //
 union TRIG3_RESULT_7_6 {
   
-  // Enum definitions.
-  
   // Bit field definition.
   struct {
     uint32_t DATA6 : 12;
     uint32_t _reserved_1 : 4;
     uint32_t DATA7 : 12;
     uint32_t _reserved_end : 4;
-  } bits;          // Bit-field struct (auto-filling reserved gaps)
+  } bits;
   
   // Full 32-bit register value.
   uint32_t value;
@@ -2870,15 +3021,16 @@ union TRIG3_RESULT_7_6 {
 //
 union TRIG4_CTRL {
   
-  // Enum definitions.
   enum class eSW_TRIG : uint32_t {
     eSW_TRIG_0 = 0, // No software trigger event generated.
     eSW_TRIG_1 = 1, // Software trigger event generated.
   };
+  
   enum class eTRIG_MODE : uint32_t {
     eTRIG_MODE_0 = 0, // Hardware trigger. The softerware trigger will be ignored.
     eTRIG_MODE_1 = 1, // Software trigger. The hardware trigger will be ignored.
   };
+  
   enum class eTRIG_CHAIN : uint32_t {
     eTRIG_CHAIN_0 = 0, // Trigger chain length is 1
     eTRIG_CHAIN_1 = 1, // Trigger chain length is 2
@@ -2889,10 +3041,12 @@ union TRIG4_CTRL {
     eTRIG_CHAIN_6 = 6, // Trigger chain length is 7
     eTRIG_CHAIN_7 = 7, // Trigger chain length is 8
   };
+  
   enum class eSYNC_MODE : uint32_t {
     eSYNC_MODE_0 = 0, // Synchronization mode disabled, TRIGa and TRIG(a+4) are triggered independently.
     eSYNC_MODE_1 = 1, // Synchronization mode enabled, TRIGa and TRIG(a+4) are triggered by TRIGa source synchronously.
   };
+  
   enum class eCHAINx_DONE : uint32_t {
     eCHAINx_DONE_0 = 0, // segment x done not detected.
     eCHAINx_DONE_1 = 1, // segment x done detected.
@@ -2911,7 +3065,7 @@ union TRIG4_CTRL {
     eSYNC_MODE SYNC_MODE : 1;
     uint32_t _reserved_5 : 7;
     eCHAINx_DONE CHAINx_DONE : 8;
-  } bits;          // Bit-field struct (auto-filling reserved gaps)
+  } bits;
   
   // Full 32-bit register value.
   uint32_t value;
@@ -2925,13 +3079,11 @@ union TRIG4_CTRL {
 //
 union TRIG4_COUNTER {
   
-  // Enum definitions.
-  
   // Bit field definition.
   struct {
     uint32_t INIT_DELAY : 16;
     uint32_t SAMPLE_INTERVAL : 16;
-  } bits;          // Bit-field struct (auto-filling reserved gaps)
+  } bits;
   
   // Full 32-bit register value.
   uint32_t value;
@@ -2945,7 +3097,6 @@ union TRIG4_COUNTER {
 //
 union TRIG4_CHAIN_1_0 {
   
-  // Enum definitions.
   enum class eCSEL0 : uint32_t {
     eCSEL0_0 = 0, // Not a valid selection from the command buffer. Trigger event is ignored.
     eCSEL0_1 = 1, // ADC CMD1 selected.
@@ -2964,6 +3115,7 @@ union TRIG4_CHAIN_1_0 {
     eCSEL0_14 = 14, // ADC CMD14 selected.
     eCSEL0_15 = 15, // ADC CMD15 selected.
   };
+  
   enum class eHWTS0 : uint32_t {
     eHWTS0_0 = 0, // no trigger selected
     eHWTS0_1 = 1, // ADC TRIG0 selected
@@ -2975,20 +3127,24 @@ union TRIG4_CHAIN_1_0 {
     eHWTS0_64 = 64, // ADC TRIG6 selected
     eHWTS0_128 = 128, // ADC TRIG7 selected
   };
+  
   enum class eB2B0 : uint32_t {
     eB2B0_0 = 0, // Disable B2B. Wait until delay value defined by TRIG0_COUNTER[SAMPLE_INTERVAL] is reached
     eB2B0_1 = 1, // Enable B2B. When Segment 0 finished (ADC COCO) then automatically trigger next ADC conversion, no need to wait until interval delay reached.
   };
+  
   enum class eIE0 : uint32_t {
     eIE0_0 = 0, // Generate interrupt on Done0 when segment 0 finish.
     eIE0_1 = 1, // Generate interrupt on Done1 when segment 0 finish.
     eIE0_2 = 2, // Generate interrupt on Done2 when segment 0 finish.
     eIE0_3 = 3, // Generate interrupt on Done3 when segment 0 finish.
   };
+  
   enum class eIE0_EN : uint32_t {
     eIE0_EN_0 = 0, // Interrupt DONE disabled.
     eIE0_EN_1 = 1, // Interrupt DONE enabled. When segment 0 finish, an interrupt will be generated on the specific port configured by the IE0.
   };
+  
   enum class eCSEL1 : uint32_t {
     eCSEL1_0 = 0, // Not a valid selection from the command buffer. Trigger event is ignored.
     eCSEL1_1 = 1, // ADC CMD1 selected.
@@ -3007,6 +3163,7 @@ union TRIG4_CHAIN_1_0 {
     eCSEL1_14 = 14, // ADC CMD14 selected.
     eCSEL1_15 = 15, // ADC CMD15 selected.
   };
+  
   enum class eHWTS1 : uint32_t {
     eHWTS1_0 = 0, // no trigger selected
     eHWTS1_1 = 1, // ADC TRIG0 selected
@@ -3018,16 +3175,19 @@ union TRIG4_CHAIN_1_0 {
     eHWTS1_64 = 64, // ADC TRIG6 selected
     eHWTS1_128 = 128, // ADC TRIG7 selected
   };
+  
   enum class eB2B1 : uint32_t {
     eB2B1_0 = 0, // Disable B2B. Wait until delay value defined by TRIG1_COUNTER[SAMPLE_INTERVAL] is reached
     eB2B1_1 = 1, // Enable B2B. When Segment 0 finished (ADC COCO) then automatically trigger next ADC conversion, no need to wait until interval delay reached.
   };
+  
   enum class eIE1 : uint32_t {
     eIE1_0 = 0, // Generate interrupt on Done0 when Segment 1 finish.
     eIE1_1 = 1, // Generate interrupt on Done1 when Segment 1 finish.
     eIE1_2 = 2, // Generate interrupt on Done2 when Segment 1 finish.
     eIE1_3 = 3, // Generate interrupt on Done3 when Segment 1 finish.
   };
+  
   enum class eIE1_EN : uint32_t {
     eIE1_EN_0 = 0, // Interrupt DONE disabled.
     eIE1_EN_1 = 1, // Interrupt DONE enabled. When segment 1 finish, an interrupt will be generated on the specific port configured by the IE1.
@@ -3045,7 +3205,7 @@ union TRIG4_CHAIN_1_0 {
     eB2B1 B2B1 : 1;
     eIE1 IE1 : 2;
     eIE1_EN IE1_EN : 1;
-  } bits;          // Bit-field struct (auto-filling reserved gaps)
+  } bits;
   
   // Full 32-bit register value.
   uint32_t value;
@@ -3059,7 +3219,6 @@ union TRIG4_CHAIN_1_0 {
 //
 union TRIG4_CHAIN_3_2 {
   
-  // Enum definitions.
   enum class eCSEL2 : uint32_t {
     eCSEL2_0 = 0, // Not a valid selection from the command buffer. Trigger event is ignored.
     eCSEL2_1 = 1, // ADC CMD1 selected.
@@ -3078,6 +3237,7 @@ union TRIG4_CHAIN_3_2 {
     eCSEL2_14 = 14, // ADC CMD14 selected.
     eCSEL2_15 = 15, // ADC CMD15 selected.
   };
+  
   enum class eHWTS2 : uint32_t {
     eHWTS2_0 = 0, // no trigger selected
     eHWTS2_1 = 1, // ADC TRIG0 selected
@@ -3089,20 +3249,24 @@ union TRIG4_CHAIN_3_2 {
     eHWTS2_64 = 64, // ADC TRIG6 selected
     eHWTS2_128 = 128, // ADC TRIG7 selected
   };
+  
   enum class eB2B2 : uint32_t {
     eB2B2_0 = 0, // Disable B2B. Wait until delay value defined by TRIG2_COUNTER[SAMPLE_INTERVAL] is reached
     eB2B2_1 = 1, // Enable B2B. When Segment 0 finished (ADC COCO) then automatically trigger next ADC conversion, no need to wait until interval delay reached.
   };
+  
   enum class eIE2 : uint32_t {
     eIE2_0 = 0, // Generate interrupt on Done0 when segment 2 finish.
     eIE2_1 = 1, // Generate interrupt on Done1 when segment 2 finish.
     eIE2_2 = 2, // Generate interrupt on Done2 when segment 2 finish.
     eIE2_3 = 3, // Generate interrupt on Done3 when segment 2 finish.
   };
+  
   enum class eIE2_EN : uint32_t {
     eIE2_EN_0 = 0, // Interrupt DONE disabled.
     eIE2_EN_1 = 1, // Interrupt DONE enabled. When segment 2 finish, an interrupt will be generated on the specific port configured by the IE2.
   };
+  
   enum class eCSEL3 : uint32_t {
     eCSEL3_0 = 0, // Not a valid selection from the command buffer. Trigger event is ignored.
     eCSEL3_1 = 1, // ADC CMD1 selected.
@@ -3121,6 +3285,7 @@ union TRIG4_CHAIN_3_2 {
     eCSEL3_14 = 14, // ADC CMD14 selected.
     eCSEL3_15 = 15, // ADC CMD15 selected.
   };
+  
   enum class eHWTS3 : uint32_t {
     eHWTS3_0 = 0, // no trigger selected
     eHWTS3_1 = 1, // ADC TRIG0 selected
@@ -3132,16 +3297,19 @@ union TRIG4_CHAIN_3_2 {
     eHWTS3_64 = 64, // ADC TRIG6 selected
     eHWTS3_128 = 128, // ADC TRIG7 selected
   };
+  
   enum class eB2B3 : uint32_t {
     eB2B3_0 = 0, // Disable B2B. Wait until delay value defined by TRIG3_COUNTER[SAMPLE_INTERVAL] is reached
     eB2B3_1 = 1, // Enable B2B. When Segment 0 finished (ADC COCO) then automatically trigger next ADC conversion, no need to wait until interval delay reached.
   };
+  
   enum class eIE3 : uint32_t {
     eIE3_0 = 0, // Generate interrupt on Done0 when segment 3 finish.
     eIE3_1 = 1, // Generate interrupt on Done1 when segment 3 finish.
     eIE3_2 = 2, // Generate interrupt on Done2 when segment 3 finish.
     eIE3_3 = 3, // Generate interrupt on Done3 when segment 3 finish.
   };
+  
   enum class eIE3_EN : uint32_t {
     eIE3_EN_0 = 0, // Interrupt DONE disabled.
     eIE3_EN_1 = 1, // Interrupt DONE enabled. When segment 3 finish, an interrupt will be generated on the specific port configured by the IE3.
@@ -3159,7 +3327,7 @@ union TRIG4_CHAIN_3_2 {
     eB2B3 B2B3 : 1;
     eIE3 IE3 : 2;
     eIE3_EN IE3_EN : 1;
-  } bits;          // Bit-field struct (auto-filling reserved gaps)
+  } bits;
   
   // Full 32-bit register value.
   uint32_t value;
@@ -3173,7 +3341,6 @@ union TRIG4_CHAIN_3_2 {
 //
 union TRIG4_CHAIN_5_4 {
   
-  // Enum definitions.
   enum class eCSEL4 : uint32_t {
     eCSEL4_0 = 0, // Not a valid selection from the command buffer. Trigger event is ignored.
     eCSEL4_1 = 1, // ADC CMD1 selected.
@@ -3192,6 +3359,7 @@ union TRIG4_CHAIN_5_4 {
     eCSEL4_14 = 14, // ADC CMD14 selected.
     eCSEL4_15 = 15, // ADC CMD15 selected.
   };
+  
   enum class eHWTS4 : uint32_t {
     eHWTS4_0 = 0, // no trigger selected
     eHWTS4_1 = 1, // ADC TRIG0 selected
@@ -3203,20 +3371,24 @@ union TRIG4_CHAIN_5_4 {
     eHWTS4_64 = 64, // ADC TRIG6 selected
     eHWTS4_128 = 128, // ADC TRIG7 selected
   };
+  
   enum class eB2B4 : uint32_t {
     eB2B4_0 = 0, // Disable B2B. Wait until delay value defined by TRIG4_COUNTER[SAMPLE_INTERVAL] is reached
     eB2B4_1 = 1, // Enable B2B. When Segment 0 finished (ADC COCO) then automatically trigger next ADC conversion, no need to wait until interval delay reached.
   };
+  
   enum class eIE4 : uint32_t {
     eIE4_0 = 0, // Generate interrupt on Done0 when segment 4 finish.
     eIE4_1 = 1, // Generate interrupt on Done1 when segment 4 finish.
     eIE4_2 = 2, // Generate interrupt on Done2 when segment 4 finish.
     eIE4_3 = 3, // Generate interrupt on Done3 when segment 4 finish.
   };
+  
   enum class eIE4_EN : uint32_t {
     eIE4_EN_0 = 0, // Interrupt DONE disabled.
     eIE4_EN_1 = 1, // Interrupt DONE enabled. When segment 4 finish, an interrupt will be generated on the specific port configured by the IE4.
   };
+  
   enum class eCSEL5 : uint32_t {
     eCSEL5_0 = 0, // Not a valid selection from the command buffer. Trigger event is ignored.
     eCSEL5_1 = 1, // ADC CMD1 selected.
@@ -3235,6 +3407,7 @@ union TRIG4_CHAIN_5_4 {
     eCSEL5_14 = 14, // ADC CMD14 selected.
     eCSEL5_15 = 15, // ADC CMD15 selected.
   };
+  
   enum class eHWTS5 : uint32_t {
     eHWTS5_0 = 0, // no trigger selected
     eHWTS5_1 = 1, // ADC TRIG0 selected
@@ -3246,16 +3419,19 @@ union TRIG4_CHAIN_5_4 {
     eHWTS5_64 = 64, // ADC TRIG6 selected
     eHWTS5_128 = 128, // ADC TRIG7 selected
   };
+  
   enum class eB2B5 : uint32_t {
     eB2B5_0 = 0, // Disable B2B. Wait until delay value defined by TRIG5_COUNTER[SAMPLE_INTERVAL] is reached
     eB2B5_1 = 1, // Enable B2B. When Segment 0 finished (ADC COCO) then automatically trigger next ADC conversion, no need to wait until interval delay reached.
   };
+  
   enum class eIE5 : uint32_t {
     eIE5_0 = 0, // Generate interrupt on Done0 when segment 5 finish.
     eIE5_1 = 1, // Generate interrupt on Done1 when segment 5 finish.
     eIE5_2 = 2, // Generate interrupt on Done2 when segment 5 finish.
     eIE5_3 = 3, // Generate interrupt on Done3 when segment 5 finish.
   };
+  
   enum class eIE5_EN : uint32_t {
     eIE5_EN_0 = 0, // Interrupt DONE disabled.
     eIE5_EN_1 = 1, // Interrupt DONE enabled. When segment 5 finish, an interrupt will be generated on the specific port configured by the IE5.
@@ -3273,7 +3449,7 @@ union TRIG4_CHAIN_5_4 {
     eB2B5 B2B5 : 1;
     eIE5 IE5 : 2;
     eIE5_EN IE5_EN : 1;
-  } bits;          // Bit-field struct (auto-filling reserved gaps)
+  } bits;
   
   // Full 32-bit register value.
   uint32_t value;
@@ -3287,7 +3463,6 @@ union TRIG4_CHAIN_5_4 {
 //
 union TRIG4_CHAIN_7_6 {
   
-  // Enum definitions.
   enum class eCSEL6 : uint32_t {
     eCSEL6_0 = 0, // Not a valid selection from the command buffer. Trigger event is ignored.
     eCSEL6_1 = 1, // ADC CMD1 selected.
@@ -3306,6 +3481,7 @@ union TRIG4_CHAIN_7_6 {
     eCSEL6_14 = 14, // ADC CMD14 selected.
     eCSEL6_15 = 15, // ADC CMD15 selected.
   };
+  
   enum class eHWTS6 : uint32_t {
     eHWTS6_0 = 0, // no trigger selected
     eHWTS6_1 = 1, // ADC TRIG0 selected
@@ -3317,20 +3493,24 @@ union TRIG4_CHAIN_7_6 {
     eHWTS6_64 = 64, // ADC TRIG6 selected
     eHWTS6_128 = 128, // ADC TRIG7 selected
   };
+  
   enum class eB2B6 : uint32_t {
     eB2B6_0 = 0, // Disable B2B. Wait until delay value defined by TRIG6_COUNTER[SAMPLE_INTERVAL] is reached
     eB2B6_1 = 1, // Enable B2B. When Segment 0 finished (ADC COCO) then automatically trigger next ADC conversion, no need to wait until interval delay reached.
   };
+  
   enum class eIE6 : uint32_t {
     eIE6_0 = 0, // Generate interrupt on Done0 when segment 6 finish.
     eIE6_1 = 1, // Generate interrupt on Done1 when segment 6 finish.
     eIE6_2 = 2, // Generate interrupt on Done2 when segment 6 finish.
     eIE6_3 = 3, // Generate interrupt on Done3 when segment 6 finish.
   };
+  
   enum class eIE6_EN : uint32_t {
     eIE6_EN_0 = 0, // Interrupt DONE disabled.
     eIE6_EN_1 = 1, // Interrupt DONE enabled. When segment 6 finish, an interrupt will be generated on the specific port configured by the IE6.
   };
+  
   enum class eCSEL7 : uint32_t {
     eCSEL7_0 = 0, // Not a valid selection from the command buffer. Trigger event is ignored.
     eCSEL7_1 = 1, // ADC CMD1 selected.
@@ -3349,6 +3529,7 @@ union TRIG4_CHAIN_7_6 {
     eCSEL7_14 = 14, // ADC CMD14 selected.
     eCSEL7_15 = 15, // ADC CMD15 selected.
   };
+  
   enum class eHWTS7 : uint32_t {
     eHWTS7_0 = 0, // no trigger selected
     eHWTS7_1 = 1, // ADC TRIG0 selected
@@ -3360,16 +3541,19 @@ union TRIG4_CHAIN_7_6 {
     eHWTS7_64 = 64, // ADC TRIG6 selected
     eHWTS7_128 = 128, // ADC TRIG7 selected
   };
+  
   enum class eB2B7 : uint32_t {
     eB2B7_0 = 0, // Disable B2B. Wait until delay value defined by TRIG7_COUNTER[SAMPLE_INTERVAL] is reached
     eB2B7_1 = 1, // Enable B2B. When Segment 0 finished (ADC COCO) then automatically trigger next ADC conversion, no need to wait until interval delay reached.
   };
+  
   enum class eIE7 : uint32_t {
     eIE7_0 = 0, // Generate interrupt on Done0 when segment 7 finish.
     eIE7_1 = 1, // Generate interrupt on Done1 when segment 7 finish.
     eIE7_2 = 2, // Generate interrupt on Done2 when segment 7 finish.
     eIE7_3 = 3, // Generate interrupt on Done3 when segment 7 finish.
   };
+  
   enum class eIE7_EN : uint32_t {
     eIE7_EN_0 = 0, // Interrupt DONE disabled.
     eIE7_EN_1 = 1, // Interrupt DONE enabled. When segment 7 finish, an interrupt will be generated on the specific port configured by the IE7.
@@ -3387,7 +3571,7 @@ union TRIG4_CHAIN_7_6 {
     eB2B7 B2B7 : 1;
     eIE7 IE7 : 2;
     eIE7_EN IE7_EN : 1;
-  } bits;          // Bit-field struct (auto-filling reserved gaps)
+  } bits;
   
   // Full 32-bit register value.
   uint32_t value;
@@ -3401,15 +3585,13 @@ union TRIG4_CHAIN_7_6 {
 //
 union TRIG4_RESULT_1_0 {
   
-  // Enum definitions.
-  
   // Bit field definition.
   struct {
     uint32_t DATA0 : 12;
     uint32_t _reserved_1 : 4;
     uint32_t DATA1 : 12;
     uint32_t _reserved_end : 4;
-  } bits;          // Bit-field struct (auto-filling reserved gaps)
+  } bits;
   
   // Full 32-bit register value.
   uint32_t value;
@@ -3423,15 +3605,13 @@ union TRIG4_RESULT_1_0 {
 //
 union TRIG4_RESULT_3_2 {
   
-  // Enum definitions.
-  
   // Bit field definition.
   struct {
     uint32_t DATA2 : 12;
     uint32_t _reserved_1 : 4;
     uint32_t DATA3 : 12;
     uint32_t _reserved_end : 4;
-  } bits;          // Bit-field struct (auto-filling reserved gaps)
+  } bits;
   
   // Full 32-bit register value.
   uint32_t value;
@@ -3445,15 +3625,13 @@ union TRIG4_RESULT_3_2 {
 //
 union TRIG4_RESULT_5_4 {
   
-  // Enum definitions.
-  
   // Bit field definition.
   struct {
     uint32_t DATA4 : 12;
     uint32_t _reserved_1 : 4;
     uint32_t DATA5 : 12;
     uint32_t _reserved_end : 4;
-  } bits;          // Bit-field struct (auto-filling reserved gaps)
+  } bits;
   
   // Full 32-bit register value.
   uint32_t value;
@@ -3467,15 +3645,13 @@ union TRIG4_RESULT_5_4 {
 //
 union TRIG4_RESULT_7_6 {
   
-  // Enum definitions.
-  
   // Bit field definition.
   struct {
     uint32_t DATA6 : 12;
     uint32_t _reserved_1 : 4;
     uint32_t DATA7 : 12;
     uint32_t _reserved_end : 4;
-  } bits;          // Bit-field struct (auto-filling reserved gaps)
+  } bits;
   
   // Full 32-bit register value.
   uint32_t value;
@@ -3489,15 +3665,16 @@ union TRIG4_RESULT_7_6 {
 //
 union TRIG5_CTRL {
   
-  // Enum definitions.
   enum class eSW_TRIG : uint32_t {
     eSW_TRIG_0 = 0, // No software trigger event generated.
     eSW_TRIG_1 = 1, // Software trigger event generated.
   };
+  
   enum class eTRIG_MODE : uint32_t {
     eTRIG_MODE_0 = 0, // Hardware trigger. The softerware trigger will be ignored.
     eTRIG_MODE_1 = 1, // Software trigger. The hardware trigger will be ignored.
   };
+  
   enum class eTRIG_CHAIN : uint32_t {
     eTRIG_CHAIN_0 = 0, // Trigger chain length is 1
     eTRIG_CHAIN_1 = 1, // Trigger chain length is 2
@@ -3508,10 +3685,12 @@ union TRIG5_CTRL {
     eTRIG_CHAIN_6 = 6, // Trigger chain length is 7
     eTRIG_CHAIN_7 = 7, // Trigger chain length is 8
   };
+  
   enum class eSYNC_MODE : uint32_t {
     eSYNC_MODE_0 = 0, // Synchronization mode disabled, TRIGa and TRIG(a+4) are triggered independently.
     eSYNC_MODE_1 = 1, // Synchronization mode enabled, TRIGa and TRIG(a+4) are triggered by TRIGa source synchronously.
   };
+  
   enum class eCHAINx_DONE : uint32_t {
     eCHAINx_DONE_0 = 0, // segment x done not detected.
     eCHAINx_DONE_1 = 1, // segment x done detected.
@@ -3530,7 +3709,7 @@ union TRIG5_CTRL {
     eSYNC_MODE SYNC_MODE : 1;
     uint32_t _reserved_5 : 7;
     eCHAINx_DONE CHAINx_DONE : 8;
-  } bits;          // Bit-field struct (auto-filling reserved gaps)
+  } bits;
   
   // Full 32-bit register value.
   uint32_t value;
@@ -3544,13 +3723,11 @@ union TRIG5_CTRL {
 //
 union TRIG5_COUNTER {
   
-  // Enum definitions.
-  
   // Bit field definition.
   struct {
     uint32_t INIT_DELAY : 16;
     uint32_t SAMPLE_INTERVAL : 16;
-  } bits;          // Bit-field struct (auto-filling reserved gaps)
+  } bits;
   
   // Full 32-bit register value.
   uint32_t value;
@@ -3564,7 +3741,6 @@ union TRIG5_COUNTER {
 //
 union TRIG5_CHAIN_1_0 {
   
-  // Enum definitions.
   enum class eCSEL0 : uint32_t {
     eCSEL0_0 = 0, // Not a valid selection from the command buffer. Trigger event is ignored.
     eCSEL0_1 = 1, // ADC CMD1 selected.
@@ -3583,6 +3759,7 @@ union TRIG5_CHAIN_1_0 {
     eCSEL0_14 = 14, // ADC CMD14 selected.
     eCSEL0_15 = 15, // ADC CMD15 selected.
   };
+  
   enum class eHWTS0 : uint32_t {
     eHWTS0_0 = 0, // no trigger selected
     eHWTS0_1 = 1, // ADC TRIG0 selected
@@ -3594,20 +3771,24 @@ union TRIG5_CHAIN_1_0 {
     eHWTS0_64 = 64, // ADC TRIG6 selected
     eHWTS0_128 = 128, // ADC TRIG7 selected
   };
+  
   enum class eB2B0 : uint32_t {
     eB2B0_0 = 0, // Disable B2B. Wait until delay value defined by TRIG0_COUNTER[SAMPLE_INTERVAL] is reached
     eB2B0_1 = 1, // Enable B2B. When Segment 0 finished (ADC COCO) then automatically trigger next ADC conversion, no need to wait until interval delay reached.
   };
+  
   enum class eIE0 : uint32_t {
     eIE0_0 = 0, // Generate interrupt on Done0 when segment 0 finish.
     eIE0_1 = 1, // Generate interrupt on Done1 when segment 0 finish.
     eIE0_2 = 2, // Generate interrupt on Done2 when segment 0 finish.
     eIE0_3 = 3, // Generate interrupt on Done3 when segment 0 finish.
   };
+  
   enum class eIE0_EN : uint32_t {
     eIE0_EN_0 = 0, // Interrupt DONE disabled.
     eIE0_EN_1 = 1, // Interrupt DONE enabled. When segment 0 finish, an interrupt will be generated on the specific port configured by the IE0.
   };
+  
   enum class eCSEL1 : uint32_t {
     eCSEL1_0 = 0, // Not a valid selection from the command buffer. Trigger event is ignored.
     eCSEL1_1 = 1, // ADC CMD1 selected.
@@ -3626,6 +3807,7 @@ union TRIG5_CHAIN_1_0 {
     eCSEL1_14 = 14, // ADC CMD14 selected.
     eCSEL1_15 = 15, // ADC CMD15 selected.
   };
+  
   enum class eHWTS1 : uint32_t {
     eHWTS1_0 = 0, // no trigger selected
     eHWTS1_1 = 1, // ADC TRIG0 selected
@@ -3637,16 +3819,19 @@ union TRIG5_CHAIN_1_0 {
     eHWTS1_64 = 64, // ADC TRIG6 selected
     eHWTS1_128 = 128, // ADC TRIG7 selected
   };
+  
   enum class eB2B1 : uint32_t {
     eB2B1_0 = 0, // Disable B2B. Wait until delay value defined by TRIG1_COUNTER[SAMPLE_INTERVAL] is reached
     eB2B1_1 = 1, // Enable B2B. When Segment 0 finished (ADC COCO) then automatically trigger next ADC conversion, no need to wait until interval delay reached.
   };
+  
   enum class eIE1 : uint32_t {
     eIE1_0 = 0, // Generate interrupt on Done0 when Segment 1 finish.
     eIE1_1 = 1, // Generate interrupt on Done1 when Segment 1 finish.
     eIE1_2 = 2, // Generate interrupt on Done2 when Segment 1 finish.
     eIE1_3 = 3, // Generate interrupt on Done3 when Segment 1 finish.
   };
+  
   enum class eIE1_EN : uint32_t {
     eIE1_EN_0 = 0, // Interrupt DONE disabled.
     eIE1_EN_1 = 1, // Interrupt DONE enabled. When segment 1 finish, an interrupt will be generated on the specific port configured by the IE1.
@@ -3664,7 +3849,7 @@ union TRIG5_CHAIN_1_0 {
     eB2B1 B2B1 : 1;
     eIE1 IE1 : 2;
     eIE1_EN IE1_EN : 1;
-  } bits;          // Bit-field struct (auto-filling reserved gaps)
+  } bits;
   
   // Full 32-bit register value.
   uint32_t value;
@@ -3678,7 +3863,6 @@ union TRIG5_CHAIN_1_0 {
 //
 union TRIG5_CHAIN_3_2 {
   
-  // Enum definitions.
   enum class eCSEL2 : uint32_t {
     eCSEL2_0 = 0, // Not a valid selection from the command buffer. Trigger event is ignored.
     eCSEL2_1 = 1, // ADC CMD1 selected.
@@ -3697,6 +3881,7 @@ union TRIG5_CHAIN_3_2 {
     eCSEL2_14 = 14, // ADC CMD14 selected.
     eCSEL2_15 = 15, // ADC CMD15 selected.
   };
+  
   enum class eHWTS2 : uint32_t {
     eHWTS2_0 = 0, // no trigger selected
     eHWTS2_1 = 1, // ADC TRIG0 selected
@@ -3708,20 +3893,24 @@ union TRIG5_CHAIN_3_2 {
     eHWTS2_64 = 64, // ADC TRIG6 selected
     eHWTS2_128 = 128, // ADC TRIG7 selected
   };
+  
   enum class eB2B2 : uint32_t {
     eB2B2_0 = 0, // Disable B2B. Wait until delay value defined by TRIG2_COUNTER[SAMPLE_INTERVAL] is reached
     eB2B2_1 = 1, // Enable B2B. When Segment 0 finished (ADC COCO) then automatically trigger next ADC conversion, no need to wait until interval delay reached.
   };
+  
   enum class eIE2 : uint32_t {
     eIE2_0 = 0, // Generate interrupt on Done0 when segment 2 finish.
     eIE2_1 = 1, // Generate interrupt on Done1 when segment 2 finish.
     eIE2_2 = 2, // Generate interrupt on Done2 when segment 2 finish.
     eIE2_3 = 3, // Generate interrupt on Done3 when segment 2 finish.
   };
+  
   enum class eIE2_EN : uint32_t {
     eIE2_EN_0 = 0, // Interrupt DONE disabled.
     eIE2_EN_1 = 1, // Interrupt DONE enabled. When segment 2 finish, an interrupt will be generated on the specific port configured by the IE2.
   };
+  
   enum class eCSEL3 : uint32_t {
     eCSEL3_0 = 0, // Not a valid selection from the command buffer. Trigger event is ignored.
     eCSEL3_1 = 1, // ADC CMD1 selected.
@@ -3740,6 +3929,7 @@ union TRIG5_CHAIN_3_2 {
     eCSEL3_14 = 14, // ADC CMD14 selected.
     eCSEL3_15 = 15, // ADC CMD15 selected.
   };
+  
   enum class eHWTS3 : uint32_t {
     eHWTS3_0 = 0, // no trigger selected
     eHWTS3_1 = 1, // ADC TRIG0 selected
@@ -3751,16 +3941,19 @@ union TRIG5_CHAIN_3_2 {
     eHWTS3_64 = 64, // ADC TRIG6 selected
     eHWTS3_128 = 128, // ADC TRIG7 selected
   };
+  
   enum class eB2B3 : uint32_t {
     eB2B3_0 = 0, // Disable B2B. Wait until delay value defined by TRIG3_COUNTER[SAMPLE_INTERVAL] is reached
     eB2B3_1 = 1, // Enable B2B. When Segment 0 finished (ADC COCO) then automatically trigger next ADC conversion, no need to wait until interval delay reached.
   };
+  
   enum class eIE3 : uint32_t {
     eIE3_0 = 0, // Generate interrupt on Done0 when segment 3 finish.
     eIE3_1 = 1, // Generate interrupt on Done1 when segment 3 finish.
     eIE3_2 = 2, // Generate interrupt on Done2 when segment 3 finish.
     eIE3_3 = 3, // Generate interrupt on Done3 when segment 3 finish.
   };
+  
   enum class eIE3_EN : uint32_t {
     eIE3_EN_0 = 0, // Interrupt DONE disabled.
     eIE3_EN_1 = 1, // Interrupt DONE enabled. When segment 3 finish, an interrupt will be generated on the specific port configured by the IE3.
@@ -3778,7 +3971,7 @@ union TRIG5_CHAIN_3_2 {
     eB2B3 B2B3 : 1;
     eIE3 IE3 : 2;
     eIE3_EN IE3_EN : 1;
-  } bits;          // Bit-field struct (auto-filling reserved gaps)
+  } bits;
   
   // Full 32-bit register value.
   uint32_t value;
@@ -3792,7 +3985,6 @@ union TRIG5_CHAIN_3_2 {
 //
 union TRIG5_CHAIN_5_4 {
   
-  // Enum definitions.
   enum class eCSEL4 : uint32_t {
     eCSEL4_0 = 0, // Not a valid selection from the command buffer. Trigger event is ignored.
     eCSEL4_1 = 1, // ADC CMD1 selected.
@@ -3811,6 +4003,7 @@ union TRIG5_CHAIN_5_4 {
     eCSEL4_14 = 14, // ADC CMD14 selected.
     eCSEL4_15 = 15, // ADC CMD15 selected.
   };
+  
   enum class eHWTS4 : uint32_t {
     eHWTS4_0 = 0, // no trigger selected
     eHWTS4_1 = 1, // ADC TRIG0 selected
@@ -3822,20 +4015,24 @@ union TRIG5_CHAIN_5_4 {
     eHWTS4_64 = 64, // ADC TRIG6 selected
     eHWTS4_128 = 128, // ADC TRIG7 selected
   };
+  
   enum class eB2B4 : uint32_t {
     eB2B4_0 = 0, // Disable B2B. Wait until delay value defined by TRIG4_COUNTER[SAMPLE_INTERVAL] is reached
     eB2B4_1 = 1, // Enable B2B. When Segment 0 finished (ADC COCO) then automatically trigger next ADC conversion, no need to wait until interval delay reached.
   };
+  
   enum class eIE4 : uint32_t {
     eIE4_0 = 0, // Generate interrupt on Done0 when segment 4 finish.
     eIE4_1 = 1, // Generate interrupt on Done1 when segment 4 finish.
     eIE4_2 = 2, // Generate interrupt on Done2 when segment 4 finish.
     eIE4_3 = 3, // Generate interrupt on Done3 when segment 4 finish.
   };
+  
   enum class eIE4_EN : uint32_t {
     eIE4_EN_0 = 0, // Interrupt DONE disabled.
     eIE4_EN_1 = 1, // Interrupt DONE enabled. When segment 4 finish, an interrupt will be generated on the specific port configured by the IE4.
   };
+  
   enum class eCSEL5 : uint32_t {
     eCSEL5_0 = 0, // Not a valid selection from the command buffer. Trigger event is ignored.
     eCSEL5_1 = 1, // ADC CMD1 selected.
@@ -3854,6 +4051,7 @@ union TRIG5_CHAIN_5_4 {
     eCSEL5_14 = 14, // ADC CMD14 selected.
     eCSEL5_15 = 15, // ADC CMD15 selected.
   };
+  
   enum class eHWTS5 : uint32_t {
     eHWTS5_0 = 0, // no trigger selected
     eHWTS5_1 = 1, // ADC TRIG0 selected
@@ -3865,16 +4063,19 @@ union TRIG5_CHAIN_5_4 {
     eHWTS5_64 = 64, // ADC TRIG6 selected
     eHWTS5_128 = 128, // ADC TRIG7 selected
   };
+  
   enum class eB2B5 : uint32_t {
     eB2B5_0 = 0, // Disable B2B. Wait until delay value defined by TRIG5_COUNTER[SAMPLE_INTERVAL] is reached
     eB2B5_1 = 1, // Enable B2B. When Segment 0 finished (ADC COCO) then automatically trigger next ADC conversion, no need to wait until interval delay reached.
   };
+  
   enum class eIE5 : uint32_t {
     eIE5_0 = 0, // Generate interrupt on Done0 when segment 5 finish.
     eIE5_1 = 1, // Generate interrupt on Done1 when segment 5 finish.
     eIE5_2 = 2, // Generate interrupt on Done2 when segment 5 finish.
     eIE5_3 = 3, // Generate interrupt on Done3 when segment 5 finish.
   };
+  
   enum class eIE5_EN : uint32_t {
     eIE5_EN_0 = 0, // Interrupt DONE disabled.
     eIE5_EN_1 = 1, // Interrupt DONE enabled. When segment 5 finish, an interrupt will be generated on the specific port configured by the IE5.
@@ -3892,7 +4093,7 @@ union TRIG5_CHAIN_5_4 {
     eB2B5 B2B5 : 1;
     eIE5 IE5 : 2;
     eIE5_EN IE5_EN : 1;
-  } bits;          // Bit-field struct (auto-filling reserved gaps)
+  } bits;
   
   // Full 32-bit register value.
   uint32_t value;
@@ -3906,7 +4107,6 @@ union TRIG5_CHAIN_5_4 {
 //
 union TRIG5_CHAIN_7_6 {
   
-  // Enum definitions.
   enum class eCSEL6 : uint32_t {
     eCSEL6_0 = 0, // Not a valid selection from the command buffer. Trigger event is ignored.
     eCSEL6_1 = 1, // ADC CMD1 selected.
@@ -3925,6 +4125,7 @@ union TRIG5_CHAIN_7_6 {
     eCSEL6_14 = 14, // ADC CMD14 selected.
     eCSEL6_15 = 15, // ADC CMD15 selected.
   };
+  
   enum class eHWTS6 : uint32_t {
     eHWTS6_0 = 0, // no trigger selected
     eHWTS6_1 = 1, // ADC TRIG0 selected
@@ -3936,20 +4137,24 @@ union TRIG5_CHAIN_7_6 {
     eHWTS6_64 = 64, // ADC TRIG6 selected
     eHWTS6_128 = 128, // ADC TRIG7 selected
   };
+  
   enum class eB2B6 : uint32_t {
     eB2B6_0 = 0, // Disable B2B. Wait until delay value defined by TRIG6_COUNTER[SAMPLE_INTERVAL] is reached
     eB2B6_1 = 1, // Enable B2B. When Segment 0 finished (ADC COCO) then automatically trigger next ADC conversion, no need to wait until interval delay reached.
   };
+  
   enum class eIE6 : uint32_t {
     eIE6_0 = 0, // Generate interrupt on Done0 when segment 6 finish.
     eIE6_1 = 1, // Generate interrupt on Done1 when segment 6 finish.
     eIE6_2 = 2, // Generate interrupt on Done2 when segment 6 finish.
     eIE6_3 = 3, // Generate interrupt on Done3 when segment 6 finish.
   };
+  
   enum class eIE6_EN : uint32_t {
     eIE6_EN_0 = 0, // Interrupt DONE disabled.
     eIE6_EN_1 = 1, // Interrupt DONE enabled. When segment 6 finish, an interrupt will be generated on the specific port configured by the IE6.
   };
+  
   enum class eCSEL7 : uint32_t {
     eCSEL7_0 = 0, // Not a valid selection from the command buffer. Trigger event is ignored.
     eCSEL7_1 = 1, // ADC CMD1 selected.
@@ -3968,6 +4173,7 @@ union TRIG5_CHAIN_7_6 {
     eCSEL7_14 = 14, // ADC CMD14 selected.
     eCSEL7_15 = 15, // ADC CMD15 selected.
   };
+  
   enum class eHWTS7 : uint32_t {
     eHWTS7_0 = 0, // no trigger selected
     eHWTS7_1 = 1, // ADC TRIG0 selected
@@ -3979,16 +4185,19 @@ union TRIG5_CHAIN_7_6 {
     eHWTS7_64 = 64, // ADC TRIG6 selected
     eHWTS7_128 = 128, // ADC TRIG7 selected
   };
+  
   enum class eB2B7 : uint32_t {
     eB2B7_0 = 0, // Disable B2B. Wait until delay value defined by TRIG7_COUNTER[SAMPLE_INTERVAL] is reached
     eB2B7_1 = 1, // Enable B2B. When Segment 0 finished (ADC COCO) then automatically trigger next ADC conversion, no need to wait until interval delay reached.
   };
+  
   enum class eIE7 : uint32_t {
     eIE7_0 = 0, // Generate interrupt on Done0 when segment 7 finish.
     eIE7_1 = 1, // Generate interrupt on Done1 when segment 7 finish.
     eIE7_2 = 2, // Generate interrupt on Done2 when segment 7 finish.
     eIE7_3 = 3, // Generate interrupt on Done3 when segment 7 finish.
   };
+  
   enum class eIE7_EN : uint32_t {
     eIE7_EN_0 = 0, // Interrupt DONE disabled.
     eIE7_EN_1 = 1, // Interrupt DONE enabled. When segment 7 finish, an interrupt will be generated on the specific port configured by the IE7.
@@ -4006,7 +4215,7 @@ union TRIG5_CHAIN_7_6 {
     eB2B7 B2B7 : 1;
     eIE7 IE7 : 2;
     eIE7_EN IE7_EN : 1;
-  } bits;          // Bit-field struct (auto-filling reserved gaps)
+  } bits;
   
   // Full 32-bit register value.
   uint32_t value;
@@ -4020,15 +4229,13 @@ union TRIG5_CHAIN_7_6 {
 //
 union TRIG5_RESULT_1_0 {
   
-  // Enum definitions.
-  
   // Bit field definition.
   struct {
     uint32_t DATA0 : 12;
     uint32_t _reserved_1 : 4;
     uint32_t DATA1 : 12;
     uint32_t _reserved_end : 4;
-  } bits;          // Bit-field struct (auto-filling reserved gaps)
+  } bits;
   
   // Full 32-bit register value.
   uint32_t value;
@@ -4042,15 +4249,13 @@ union TRIG5_RESULT_1_0 {
 //
 union TRIG5_RESULT_3_2 {
   
-  // Enum definitions.
-  
   // Bit field definition.
   struct {
     uint32_t DATA2 : 12;
     uint32_t _reserved_1 : 4;
     uint32_t DATA3 : 12;
     uint32_t _reserved_end : 4;
-  } bits;          // Bit-field struct (auto-filling reserved gaps)
+  } bits;
   
   // Full 32-bit register value.
   uint32_t value;
@@ -4064,15 +4269,13 @@ union TRIG5_RESULT_3_2 {
 //
 union TRIG5_RESULT_5_4 {
   
-  // Enum definitions.
-  
   // Bit field definition.
   struct {
     uint32_t DATA4 : 12;
     uint32_t _reserved_1 : 4;
     uint32_t DATA5 : 12;
     uint32_t _reserved_end : 4;
-  } bits;          // Bit-field struct (auto-filling reserved gaps)
+  } bits;
   
   // Full 32-bit register value.
   uint32_t value;
@@ -4086,15 +4289,13 @@ union TRIG5_RESULT_5_4 {
 //
 union TRIG5_RESULT_7_6 {
   
-  // Enum definitions.
-  
   // Bit field definition.
   struct {
     uint32_t DATA6 : 12;
     uint32_t _reserved_1 : 4;
     uint32_t DATA7 : 12;
     uint32_t _reserved_end : 4;
-  } bits;          // Bit-field struct (auto-filling reserved gaps)
+  } bits;
   
   // Full 32-bit register value.
   uint32_t value;
@@ -4108,15 +4309,16 @@ union TRIG5_RESULT_7_6 {
 //
 union TRIG6_CTRL {
   
-  // Enum definitions.
   enum class eSW_TRIG : uint32_t {
     eSW_TRIG_0 = 0, // No software trigger event generated.
     eSW_TRIG_1 = 1, // Software trigger event generated.
   };
+  
   enum class eTRIG_MODE : uint32_t {
     eTRIG_MODE_0 = 0, // Hardware trigger. The softerware trigger will be ignored.
     eTRIG_MODE_1 = 1, // Software trigger. The hardware trigger will be ignored.
   };
+  
   enum class eTRIG_CHAIN : uint32_t {
     eTRIG_CHAIN_0 = 0, // Trigger chain length is 1
     eTRIG_CHAIN_1 = 1, // Trigger chain length is 2
@@ -4127,10 +4329,12 @@ union TRIG6_CTRL {
     eTRIG_CHAIN_6 = 6, // Trigger chain length is 7
     eTRIG_CHAIN_7 = 7, // Trigger chain length is 8
   };
+  
   enum class eSYNC_MODE : uint32_t {
     eSYNC_MODE_0 = 0, // Synchronization mode disabled, TRIGa and TRIG(a+4) are triggered independently.
     eSYNC_MODE_1 = 1, // Synchronization mode enabled, TRIGa and TRIG(a+4) are triggered by TRIGa source synchronously.
   };
+  
   enum class eCHAINx_DONE : uint32_t {
     eCHAINx_DONE_0 = 0, // segment x done not detected.
     eCHAINx_DONE_1 = 1, // segment x done detected.
@@ -4149,7 +4353,7 @@ union TRIG6_CTRL {
     eSYNC_MODE SYNC_MODE : 1;
     uint32_t _reserved_5 : 7;
     eCHAINx_DONE CHAINx_DONE : 8;
-  } bits;          // Bit-field struct (auto-filling reserved gaps)
+  } bits;
   
   // Full 32-bit register value.
   uint32_t value;
@@ -4163,13 +4367,11 @@ union TRIG6_CTRL {
 //
 union TRIG6_COUNTER {
   
-  // Enum definitions.
-  
   // Bit field definition.
   struct {
     uint32_t INIT_DELAY : 16;
     uint32_t SAMPLE_INTERVAL : 16;
-  } bits;          // Bit-field struct (auto-filling reserved gaps)
+  } bits;
   
   // Full 32-bit register value.
   uint32_t value;
@@ -4183,7 +4385,6 @@ union TRIG6_COUNTER {
 //
 union TRIG6_CHAIN_1_0 {
   
-  // Enum definitions.
   enum class eCSEL0 : uint32_t {
     eCSEL0_0 = 0, // Not a valid selection from the command buffer. Trigger event is ignored.
     eCSEL0_1 = 1, // ADC CMD1 selected.
@@ -4202,6 +4403,7 @@ union TRIG6_CHAIN_1_0 {
     eCSEL0_14 = 14, // ADC CMD14 selected.
     eCSEL0_15 = 15, // ADC CMD15 selected.
   };
+  
   enum class eHWTS0 : uint32_t {
     eHWTS0_0 = 0, // no trigger selected
     eHWTS0_1 = 1, // ADC TRIG0 selected
@@ -4213,20 +4415,24 @@ union TRIG6_CHAIN_1_0 {
     eHWTS0_64 = 64, // ADC TRIG6 selected
     eHWTS0_128 = 128, // ADC TRIG7 selected
   };
+  
   enum class eB2B0 : uint32_t {
     eB2B0_0 = 0, // Disable B2B. Wait until delay value defined by TRIG0_COUNTER[SAMPLE_INTERVAL] is reached
     eB2B0_1 = 1, // Enable B2B. When Segment 0 finished (ADC COCO) then automatically trigger next ADC conversion, no need to wait until interval delay reached.
   };
+  
   enum class eIE0 : uint32_t {
     eIE0_0 = 0, // Generate interrupt on Done0 when segment 0 finish.
     eIE0_1 = 1, // Generate interrupt on Done1 when segment 0 finish.
     eIE0_2 = 2, // Generate interrupt on Done2 when segment 0 finish.
     eIE0_3 = 3, // Generate interrupt on Done3 when segment 0 finish.
   };
+  
   enum class eIE0_EN : uint32_t {
     eIE0_EN_0 = 0, // Interrupt DONE disabled.
     eIE0_EN_1 = 1, // Interrupt DONE enabled. When segment 0 finish, an interrupt will be generated on the specific port configured by the IE0.
   };
+  
   enum class eCSEL1 : uint32_t {
     eCSEL1_0 = 0, // Not a valid selection from the command buffer. Trigger event is ignored.
     eCSEL1_1 = 1, // ADC CMD1 selected.
@@ -4245,6 +4451,7 @@ union TRIG6_CHAIN_1_0 {
     eCSEL1_14 = 14, // ADC CMD14 selected.
     eCSEL1_15 = 15, // ADC CMD15 selected.
   };
+  
   enum class eHWTS1 : uint32_t {
     eHWTS1_0 = 0, // no trigger selected
     eHWTS1_1 = 1, // ADC TRIG0 selected
@@ -4256,16 +4463,19 @@ union TRIG6_CHAIN_1_0 {
     eHWTS1_64 = 64, // ADC TRIG6 selected
     eHWTS1_128 = 128, // ADC TRIG7 selected
   };
+  
   enum class eB2B1 : uint32_t {
     eB2B1_0 = 0, // Disable B2B. Wait until delay value defined by TRIG1_COUNTER[SAMPLE_INTERVAL] is reached
     eB2B1_1 = 1, // Enable B2B. When Segment 0 finished (ADC COCO) then automatically trigger next ADC conversion, no need to wait until interval delay reached.
   };
+  
   enum class eIE1 : uint32_t {
     eIE1_0 = 0, // Generate interrupt on Done0 when Segment 1 finish.
     eIE1_1 = 1, // Generate interrupt on Done1 when Segment 1 finish.
     eIE1_2 = 2, // Generate interrupt on Done2 when Segment 1 finish.
     eIE1_3 = 3, // Generate interrupt on Done3 when Segment 1 finish.
   };
+  
   enum class eIE1_EN : uint32_t {
     eIE1_EN_0 = 0, // Interrupt DONE disabled.
     eIE1_EN_1 = 1, // Interrupt DONE enabled. When segment 1 finish, an interrupt will be generated on the specific port configured by the IE1.
@@ -4283,7 +4493,7 @@ union TRIG6_CHAIN_1_0 {
     eB2B1 B2B1 : 1;
     eIE1 IE1 : 2;
     eIE1_EN IE1_EN : 1;
-  } bits;          // Bit-field struct (auto-filling reserved gaps)
+  } bits;
   
   // Full 32-bit register value.
   uint32_t value;
@@ -4297,7 +4507,6 @@ union TRIG6_CHAIN_1_0 {
 //
 union TRIG6_CHAIN_3_2 {
   
-  // Enum definitions.
   enum class eCSEL2 : uint32_t {
     eCSEL2_0 = 0, // Not a valid selection from the command buffer. Trigger event is ignored.
     eCSEL2_1 = 1, // ADC CMD1 selected.
@@ -4316,6 +4525,7 @@ union TRIG6_CHAIN_3_2 {
     eCSEL2_14 = 14, // ADC CMD14 selected.
     eCSEL2_15 = 15, // ADC CMD15 selected.
   };
+  
   enum class eHWTS2 : uint32_t {
     eHWTS2_0 = 0, // no trigger selected
     eHWTS2_1 = 1, // ADC TRIG0 selected
@@ -4327,20 +4537,24 @@ union TRIG6_CHAIN_3_2 {
     eHWTS2_64 = 64, // ADC TRIG6 selected
     eHWTS2_128 = 128, // ADC TRIG7 selected
   };
+  
   enum class eB2B2 : uint32_t {
     eB2B2_0 = 0, // Disable B2B. Wait until delay value defined by TRIG2_COUNTER[SAMPLE_INTERVAL] is reached
     eB2B2_1 = 1, // Enable B2B. When Segment 0 finished (ADC COCO) then automatically trigger next ADC conversion, no need to wait until interval delay reached.
   };
+  
   enum class eIE2 : uint32_t {
     eIE2_0 = 0, // Generate interrupt on Done0 when segment 2 finish.
     eIE2_1 = 1, // Generate interrupt on Done1 when segment 2 finish.
     eIE2_2 = 2, // Generate interrupt on Done2 when segment 2 finish.
     eIE2_3 = 3, // Generate interrupt on Done3 when segment 2 finish.
   };
+  
   enum class eIE2_EN : uint32_t {
     eIE2_EN_0 = 0, // Interrupt DONE disabled.
     eIE2_EN_1 = 1, // Interrupt DONE enabled. When segment 2 finish, an interrupt will be generated on the specific port configured by the IE2.
   };
+  
   enum class eCSEL3 : uint32_t {
     eCSEL3_0 = 0, // Not a valid selection from the command buffer. Trigger event is ignored.
     eCSEL3_1 = 1, // ADC CMD1 selected.
@@ -4359,6 +4573,7 @@ union TRIG6_CHAIN_3_2 {
     eCSEL3_14 = 14, // ADC CMD14 selected.
     eCSEL3_15 = 15, // ADC CMD15 selected.
   };
+  
   enum class eHWTS3 : uint32_t {
     eHWTS3_0 = 0, // no trigger selected
     eHWTS3_1 = 1, // ADC TRIG0 selected
@@ -4370,16 +4585,19 @@ union TRIG6_CHAIN_3_2 {
     eHWTS3_64 = 64, // ADC TRIG6 selected
     eHWTS3_128 = 128, // ADC TRIG7 selected
   };
+  
   enum class eB2B3 : uint32_t {
     eB2B3_0 = 0, // Disable B2B. Wait until delay value defined by TRIG3_COUNTER[SAMPLE_INTERVAL] is reached
     eB2B3_1 = 1, // Enable B2B. When Segment 0 finished (ADC COCO) then automatically trigger next ADC conversion, no need to wait until interval delay reached.
   };
+  
   enum class eIE3 : uint32_t {
     eIE3_0 = 0, // Generate interrupt on Done0 when segment 3 finish.
     eIE3_1 = 1, // Generate interrupt on Done1 when segment 3 finish.
     eIE3_2 = 2, // Generate interrupt on Done2 when segment 3 finish.
     eIE3_3 = 3, // Generate interrupt on Done3 when segment 3 finish.
   };
+  
   enum class eIE3_EN : uint32_t {
     eIE3_EN_0 = 0, // Interrupt DONE disabled.
     eIE3_EN_1 = 1, // Interrupt DONE enabled. When segment 3 finish, an interrupt will be generated on the specific port configured by the IE3.
@@ -4397,7 +4615,7 @@ union TRIG6_CHAIN_3_2 {
     eB2B3 B2B3 : 1;
     eIE3 IE3 : 2;
     eIE3_EN IE3_EN : 1;
-  } bits;          // Bit-field struct (auto-filling reserved gaps)
+  } bits;
   
   // Full 32-bit register value.
   uint32_t value;
@@ -4411,7 +4629,6 @@ union TRIG6_CHAIN_3_2 {
 //
 union TRIG6_CHAIN_5_4 {
   
-  // Enum definitions.
   enum class eCSEL4 : uint32_t {
     eCSEL4_0 = 0, // Not a valid selection from the command buffer. Trigger event is ignored.
     eCSEL4_1 = 1, // ADC CMD1 selected.
@@ -4430,6 +4647,7 @@ union TRIG6_CHAIN_5_4 {
     eCSEL4_14 = 14, // ADC CMD14 selected.
     eCSEL4_15 = 15, // ADC CMD15 selected.
   };
+  
   enum class eHWTS4 : uint32_t {
     eHWTS4_0 = 0, // no trigger selected
     eHWTS4_1 = 1, // ADC TRIG0 selected
@@ -4441,20 +4659,24 @@ union TRIG6_CHAIN_5_4 {
     eHWTS4_64 = 64, // ADC TRIG6 selected
     eHWTS4_128 = 128, // ADC TRIG7 selected
   };
+  
   enum class eB2B4 : uint32_t {
     eB2B4_0 = 0, // Disable B2B. Wait until delay value defined by TRIG4_COUNTER[SAMPLE_INTERVAL] is reached
     eB2B4_1 = 1, // Enable B2B. When Segment 0 finished (ADC COCO) then automatically trigger next ADC conversion, no need to wait until interval delay reached.
   };
+  
   enum class eIE4 : uint32_t {
     eIE4_0 = 0, // Generate interrupt on Done0 when segment 4 finish.
     eIE4_1 = 1, // Generate interrupt on Done1 when segment 4 finish.
     eIE4_2 = 2, // Generate interrupt on Done2 when segment 4 finish.
     eIE4_3 = 3, // Generate interrupt on Done3 when segment 4 finish.
   };
+  
   enum class eIE4_EN : uint32_t {
     eIE4_EN_0 = 0, // Interrupt DONE disabled.
     eIE4_EN_1 = 1, // Interrupt DONE enabled. When segment 4 finish, an interrupt will be generated on the specific port configured by the IE4.
   };
+  
   enum class eCSEL5 : uint32_t {
     eCSEL5_0 = 0, // Not a valid selection from the command buffer. Trigger event is ignored.
     eCSEL5_1 = 1, // ADC CMD1 selected.
@@ -4473,6 +4695,7 @@ union TRIG6_CHAIN_5_4 {
     eCSEL5_14 = 14, // ADC CMD14 selected.
     eCSEL5_15 = 15, // ADC CMD15 selected.
   };
+  
   enum class eHWTS5 : uint32_t {
     eHWTS5_0 = 0, // no trigger selected
     eHWTS5_1 = 1, // ADC TRIG0 selected
@@ -4484,16 +4707,19 @@ union TRIG6_CHAIN_5_4 {
     eHWTS5_64 = 64, // ADC TRIG6 selected
     eHWTS5_128 = 128, // ADC TRIG7 selected
   };
+  
   enum class eB2B5 : uint32_t {
     eB2B5_0 = 0, // Disable B2B. Wait until delay value defined by TRIG5_COUNTER[SAMPLE_INTERVAL] is reached
     eB2B5_1 = 1, // Enable B2B. When Segment 0 finished (ADC COCO) then automatically trigger next ADC conversion, no need to wait until interval delay reached.
   };
+  
   enum class eIE5 : uint32_t {
     eIE5_0 = 0, // Generate interrupt on Done0 when segment 5 finish.
     eIE5_1 = 1, // Generate interrupt on Done1 when segment 5 finish.
     eIE5_2 = 2, // Generate interrupt on Done2 when segment 5 finish.
     eIE5_3 = 3, // Generate interrupt on Done3 when segment 5 finish.
   };
+  
   enum class eIE5_EN : uint32_t {
     eIE5_EN_0 = 0, // Interrupt DONE disabled.
     eIE5_EN_1 = 1, // Interrupt DONE enabled. When segment 5 finish, an interrupt will be generated on the specific port configured by the IE5.
@@ -4511,7 +4737,7 @@ union TRIG6_CHAIN_5_4 {
     eB2B5 B2B5 : 1;
     eIE5 IE5 : 2;
     eIE5_EN IE5_EN : 1;
-  } bits;          // Bit-field struct (auto-filling reserved gaps)
+  } bits;
   
   // Full 32-bit register value.
   uint32_t value;
@@ -4525,7 +4751,6 @@ union TRIG6_CHAIN_5_4 {
 //
 union TRIG6_CHAIN_7_6 {
   
-  // Enum definitions.
   enum class eCSEL6 : uint32_t {
     eCSEL6_0 = 0, // Not a valid selection from the command buffer. Trigger event is ignored.
     eCSEL6_1 = 1, // ADC CMD1 selected.
@@ -4544,6 +4769,7 @@ union TRIG6_CHAIN_7_6 {
     eCSEL6_14 = 14, // ADC CMD14 selected.
     eCSEL6_15 = 15, // ADC CMD15 selected.
   };
+  
   enum class eHWTS6 : uint32_t {
     eHWTS6_0 = 0, // no trigger selected
     eHWTS6_1 = 1, // ADC TRIG0 selected
@@ -4555,20 +4781,24 @@ union TRIG6_CHAIN_7_6 {
     eHWTS6_64 = 64, // ADC TRIG6 selected
     eHWTS6_128 = 128, // ADC TRIG7 selected
   };
+  
   enum class eB2B6 : uint32_t {
     eB2B6_0 = 0, // Disable B2B. Wait until delay value defined by TRIG6_COUNTER[SAMPLE_INTERVAL] is reached
     eB2B6_1 = 1, // Enable B2B. When Segment 0 finished (ADC COCO) then automatically trigger next ADC conversion, no need to wait until interval delay reached.
   };
+  
   enum class eIE6 : uint32_t {
     eIE6_0 = 0, // Generate interrupt on Done0 when segment 6 finish.
     eIE6_1 = 1, // Generate interrupt on Done1 when segment 6 finish.
     eIE6_2 = 2, // Generate interrupt on Done2 when segment 6 finish.
     eIE6_3 = 3, // Generate interrupt on Done3 when segment 6 finish.
   };
+  
   enum class eIE6_EN : uint32_t {
     eIE6_EN_0 = 0, // Interrupt DONE disabled.
     eIE6_EN_1 = 1, // Interrupt DONE enabled. When segment 6 finish, an interrupt will be generated on the specific port configured by the IE6.
   };
+  
   enum class eCSEL7 : uint32_t {
     eCSEL7_0 = 0, // Not a valid selection from the command buffer. Trigger event is ignored.
     eCSEL7_1 = 1, // ADC CMD1 selected.
@@ -4587,6 +4817,7 @@ union TRIG6_CHAIN_7_6 {
     eCSEL7_14 = 14, // ADC CMD14 selected.
     eCSEL7_15 = 15, // ADC CMD15 selected.
   };
+  
   enum class eHWTS7 : uint32_t {
     eHWTS7_0 = 0, // no trigger selected
     eHWTS7_1 = 1, // ADC TRIG0 selected
@@ -4598,16 +4829,19 @@ union TRIG6_CHAIN_7_6 {
     eHWTS7_64 = 64, // ADC TRIG6 selected
     eHWTS7_128 = 128, // ADC TRIG7 selected
   };
+  
   enum class eB2B7 : uint32_t {
     eB2B7_0 = 0, // Disable B2B. Wait until delay value defined by TRIG7_COUNTER[SAMPLE_INTERVAL] is reached
     eB2B7_1 = 1, // Enable B2B. When Segment 0 finished (ADC COCO) then automatically trigger next ADC conversion, no need to wait until interval delay reached.
   };
+  
   enum class eIE7 : uint32_t {
     eIE7_0 = 0, // Generate interrupt on Done0 when segment 7 finish.
     eIE7_1 = 1, // Generate interrupt on Done1 when segment 7 finish.
     eIE7_2 = 2, // Generate interrupt on Done2 when segment 7 finish.
     eIE7_3 = 3, // Generate interrupt on Done3 when segment 7 finish.
   };
+  
   enum class eIE7_EN : uint32_t {
     eIE7_EN_0 = 0, // Interrupt DONE disabled.
     eIE7_EN_1 = 1, // Interrupt DONE enabled. When segment 7 finish, an interrupt will be generated on the specific port configured by the IE7.
@@ -4625,7 +4859,7 @@ union TRIG6_CHAIN_7_6 {
     eB2B7 B2B7 : 1;
     eIE7 IE7 : 2;
     eIE7_EN IE7_EN : 1;
-  } bits;          // Bit-field struct (auto-filling reserved gaps)
+  } bits;
   
   // Full 32-bit register value.
   uint32_t value;
@@ -4639,15 +4873,13 @@ union TRIG6_CHAIN_7_6 {
 //
 union TRIG6_RESULT_1_0 {
   
-  // Enum definitions.
-  
   // Bit field definition.
   struct {
     uint32_t DATA0 : 12;
     uint32_t _reserved_1 : 4;
     uint32_t DATA1 : 12;
     uint32_t _reserved_end : 4;
-  } bits;          // Bit-field struct (auto-filling reserved gaps)
+  } bits;
   
   // Full 32-bit register value.
   uint32_t value;
@@ -4661,15 +4893,13 @@ union TRIG6_RESULT_1_0 {
 //
 union TRIG6_RESULT_3_2 {
   
-  // Enum definitions.
-  
   // Bit field definition.
   struct {
     uint32_t DATA2 : 12;
     uint32_t _reserved_1 : 4;
     uint32_t DATA3 : 12;
     uint32_t _reserved_end : 4;
-  } bits;          // Bit-field struct (auto-filling reserved gaps)
+  } bits;
   
   // Full 32-bit register value.
   uint32_t value;
@@ -4683,15 +4913,13 @@ union TRIG6_RESULT_3_2 {
 //
 union TRIG6_RESULT_5_4 {
   
-  // Enum definitions.
-  
   // Bit field definition.
   struct {
     uint32_t DATA4 : 12;
     uint32_t _reserved_1 : 4;
     uint32_t DATA5 : 12;
     uint32_t _reserved_end : 4;
-  } bits;          // Bit-field struct (auto-filling reserved gaps)
+  } bits;
   
   // Full 32-bit register value.
   uint32_t value;
@@ -4705,15 +4933,13 @@ union TRIG6_RESULT_5_4 {
 //
 union TRIG6_RESULT_7_6 {
   
-  // Enum definitions.
-  
   // Bit field definition.
   struct {
     uint32_t DATA6 : 12;
     uint32_t _reserved_1 : 4;
     uint32_t DATA7 : 12;
     uint32_t _reserved_end : 4;
-  } bits;          // Bit-field struct (auto-filling reserved gaps)
+  } bits;
   
   // Full 32-bit register value.
   uint32_t value;
@@ -4727,15 +4953,16 @@ union TRIG6_RESULT_7_6 {
 //
 union TRIG7_CTRL {
   
-  // Enum definitions.
   enum class eSW_TRIG : uint32_t {
     eSW_TRIG_0 = 0, // No software trigger event generated.
     eSW_TRIG_1 = 1, // Software trigger event generated.
   };
+  
   enum class eTRIG_MODE : uint32_t {
     eTRIG_MODE_0 = 0, // Hardware trigger. The softerware trigger will be ignored.
     eTRIG_MODE_1 = 1, // Software trigger. The hardware trigger will be ignored.
   };
+  
   enum class eTRIG_CHAIN : uint32_t {
     eTRIG_CHAIN_0 = 0, // Trigger chain length is 1
     eTRIG_CHAIN_1 = 1, // Trigger chain length is 2
@@ -4746,10 +4973,12 @@ union TRIG7_CTRL {
     eTRIG_CHAIN_6 = 6, // Trigger chain length is 7
     eTRIG_CHAIN_7 = 7, // Trigger chain length is 8
   };
+  
   enum class eSYNC_MODE : uint32_t {
     eSYNC_MODE_0 = 0, // Synchronization mode disabled, TRIGa and TRIG(a+4) are triggered independently.
     eSYNC_MODE_1 = 1, // Synchronization mode enabled, TRIGa and TRIG(a+4) are triggered by TRIGa source synchronously.
   };
+  
   enum class eCHAINx_DONE : uint32_t {
     eCHAINx_DONE_0 = 0, // segment x done not detected.
     eCHAINx_DONE_1 = 1, // segment x done detected.
@@ -4768,7 +4997,7 @@ union TRIG7_CTRL {
     eSYNC_MODE SYNC_MODE : 1;
     uint32_t _reserved_5 : 7;
     eCHAINx_DONE CHAINx_DONE : 8;
-  } bits;          // Bit-field struct (auto-filling reserved gaps)
+  } bits;
   
   // Full 32-bit register value.
   uint32_t value;
@@ -4782,13 +5011,11 @@ union TRIG7_CTRL {
 //
 union TRIG7_COUNTER {
   
-  // Enum definitions.
-  
   // Bit field definition.
   struct {
     uint32_t INIT_DELAY : 16;
     uint32_t SAMPLE_INTERVAL : 16;
-  } bits;          // Bit-field struct (auto-filling reserved gaps)
+  } bits;
   
   // Full 32-bit register value.
   uint32_t value;
@@ -4802,7 +5029,6 @@ union TRIG7_COUNTER {
 //
 union TRIG7_CHAIN_1_0 {
   
-  // Enum definitions.
   enum class eCSEL0 : uint32_t {
     eCSEL0_0 = 0, // Not a valid selection from the command buffer. Trigger event is ignored.
     eCSEL0_1 = 1, // ADC CMD1 selected.
@@ -4821,6 +5047,7 @@ union TRIG7_CHAIN_1_0 {
     eCSEL0_14 = 14, // ADC CMD14 selected.
     eCSEL0_15 = 15, // ADC CMD15 selected.
   };
+  
   enum class eHWTS0 : uint32_t {
     eHWTS0_0 = 0, // no trigger selected
     eHWTS0_1 = 1, // ADC TRIG0 selected
@@ -4832,20 +5059,24 @@ union TRIG7_CHAIN_1_0 {
     eHWTS0_64 = 64, // ADC TRIG6 selected
     eHWTS0_128 = 128, // ADC TRIG7 selected
   };
+  
   enum class eB2B0 : uint32_t {
     eB2B0_0 = 0, // Disable B2B. Wait until delay value defined by TRIG0_COUNTER[SAMPLE_INTERVAL] is reached
     eB2B0_1 = 1, // Enable B2B. When Segment 0 finished (ADC COCO) then automatically trigger next ADC conversion, no need to wait until interval delay reached.
   };
+  
   enum class eIE0 : uint32_t {
     eIE0_0 = 0, // Generate interrupt on Done0 when segment 0 finish.
     eIE0_1 = 1, // Generate interrupt on Done1 when segment 0 finish.
     eIE0_2 = 2, // Generate interrupt on Done2 when segment 0 finish.
     eIE0_3 = 3, // Generate interrupt on Done3 when segment 0 finish.
   };
+  
   enum class eIE0_EN : uint32_t {
     eIE0_EN_0 = 0, // Interrupt DONE disabled.
     eIE0_EN_1 = 1, // Interrupt DONE enabled. When segment 0 finish, an interrupt will be generated on the specific port configured by the IE0.
   };
+  
   enum class eCSEL1 : uint32_t {
     eCSEL1_0 = 0, // Not a valid selection from the command buffer. Trigger event is ignored.
     eCSEL1_1 = 1, // ADC CMD1 selected.
@@ -4864,6 +5095,7 @@ union TRIG7_CHAIN_1_0 {
     eCSEL1_14 = 14, // ADC CMD14 selected.
     eCSEL1_15 = 15, // ADC CMD15 selected.
   };
+  
   enum class eHWTS1 : uint32_t {
     eHWTS1_0 = 0, // no trigger selected
     eHWTS1_1 = 1, // ADC TRIG0 selected
@@ -4875,16 +5107,19 @@ union TRIG7_CHAIN_1_0 {
     eHWTS1_64 = 64, // ADC TRIG6 selected
     eHWTS1_128 = 128, // ADC TRIG7 selected
   };
+  
   enum class eB2B1 : uint32_t {
     eB2B1_0 = 0, // Disable B2B. Wait until delay value defined by TRIG1_COUNTER[SAMPLE_INTERVAL] is reached
     eB2B1_1 = 1, // Enable B2B. When Segment 0 finished (ADC COCO) then automatically trigger next ADC conversion, no need to wait until interval delay reached.
   };
+  
   enum class eIE1 : uint32_t {
     eIE1_0 = 0, // Generate interrupt on Done0 when Segment 1 finish.
     eIE1_1 = 1, // Generate interrupt on Done1 when Segment 1 finish.
     eIE1_2 = 2, // Generate interrupt on Done2 when Segment 1 finish.
     eIE1_3 = 3, // Generate interrupt on Done3 when Segment 1 finish.
   };
+  
   enum class eIE1_EN : uint32_t {
     eIE1_EN_0 = 0, // Interrupt DONE disabled.
     eIE1_EN_1 = 1, // Interrupt DONE enabled. When segment 1 finish, an interrupt will be generated on the specific port configured by the IE1.
@@ -4902,7 +5137,7 @@ union TRIG7_CHAIN_1_0 {
     eB2B1 B2B1 : 1;
     eIE1 IE1 : 2;
     eIE1_EN IE1_EN : 1;
-  } bits;          // Bit-field struct (auto-filling reserved gaps)
+  } bits;
   
   // Full 32-bit register value.
   uint32_t value;
@@ -4916,7 +5151,6 @@ union TRIG7_CHAIN_1_0 {
 //
 union TRIG7_CHAIN_3_2 {
   
-  // Enum definitions.
   enum class eCSEL2 : uint32_t {
     eCSEL2_0 = 0, // Not a valid selection from the command buffer. Trigger event is ignored.
     eCSEL2_1 = 1, // ADC CMD1 selected.
@@ -4935,6 +5169,7 @@ union TRIG7_CHAIN_3_2 {
     eCSEL2_14 = 14, // ADC CMD14 selected.
     eCSEL2_15 = 15, // ADC CMD15 selected.
   };
+  
   enum class eHWTS2 : uint32_t {
     eHWTS2_0 = 0, // no trigger selected
     eHWTS2_1 = 1, // ADC TRIG0 selected
@@ -4946,20 +5181,24 @@ union TRIG7_CHAIN_3_2 {
     eHWTS2_64 = 64, // ADC TRIG6 selected
     eHWTS2_128 = 128, // ADC TRIG7 selected
   };
+  
   enum class eB2B2 : uint32_t {
     eB2B2_0 = 0, // Disable B2B. Wait until delay value defined by TRIG2_COUNTER[SAMPLE_INTERVAL] is reached
     eB2B2_1 = 1, // Enable B2B. When Segment 0 finished (ADC COCO) then automatically trigger next ADC conversion, no need to wait until interval delay reached.
   };
+  
   enum class eIE2 : uint32_t {
     eIE2_0 = 0, // Generate interrupt on Done0 when segment 2 finish.
     eIE2_1 = 1, // Generate interrupt on Done1 when segment 2 finish.
     eIE2_2 = 2, // Generate interrupt on Done2 when segment 2 finish.
     eIE2_3 = 3, // Generate interrupt on Done3 when segment 2 finish.
   };
+  
   enum class eIE2_EN : uint32_t {
     eIE2_EN_0 = 0, // Interrupt DONE disabled.
     eIE2_EN_1 = 1, // Interrupt DONE enabled. When segment 2 finish, an interrupt will be generated on the specific port configured by the IE2.
   };
+  
   enum class eCSEL3 : uint32_t {
     eCSEL3_0 = 0, // Not a valid selection from the command buffer. Trigger event is ignored.
     eCSEL3_1 = 1, // ADC CMD1 selected.
@@ -4978,6 +5217,7 @@ union TRIG7_CHAIN_3_2 {
     eCSEL3_14 = 14, // ADC CMD14 selected.
     eCSEL3_15 = 15, // ADC CMD15 selected.
   };
+  
   enum class eHWTS3 : uint32_t {
     eHWTS3_0 = 0, // no trigger selected
     eHWTS3_1 = 1, // ADC TRIG0 selected
@@ -4989,16 +5229,19 @@ union TRIG7_CHAIN_3_2 {
     eHWTS3_64 = 64, // ADC TRIG6 selected
     eHWTS3_128 = 128, // ADC TRIG7 selected
   };
+  
   enum class eB2B3 : uint32_t {
     eB2B3_0 = 0, // Disable B2B. Wait until delay value defined by TRIG3_COUNTER[SAMPLE_INTERVAL] is reached
     eB2B3_1 = 1, // Enable B2B. When Segment 0 finished (ADC COCO) then automatically trigger next ADC conversion, no need to wait until interval delay reached.
   };
+  
   enum class eIE3 : uint32_t {
     eIE3_0 = 0, // Generate interrupt on Done0 when segment 3 finish.
     eIE3_1 = 1, // Generate interrupt on Done1 when segment 3 finish.
     eIE3_2 = 2, // Generate interrupt on Done2 when segment 3 finish.
     eIE3_3 = 3, // Generate interrupt on Done3 when segment 3 finish.
   };
+  
   enum class eIE3_EN : uint32_t {
     eIE3_EN_0 = 0, // Interrupt DONE disabled.
     eIE3_EN_1 = 1, // Interrupt DONE enabled. When segment 3 finish, an interrupt will be generated on the specific port configured by the IE3.
@@ -5016,7 +5259,7 @@ union TRIG7_CHAIN_3_2 {
     eB2B3 B2B3 : 1;
     eIE3 IE3 : 2;
     eIE3_EN IE3_EN : 1;
-  } bits;          // Bit-field struct (auto-filling reserved gaps)
+  } bits;
   
   // Full 32-bit register value.
   uint32_t value;
@@ -5030,7 +5273,6 @@ union TRIG7_CHAIN_3_2 {
 //
 union TRIG7_CHAIN_5_4 {
   
-  // Enum definitions.
   enum class eCSEL4 : uint32_t {
     eCSEL4_0 = 0, // Not a valid selection from the command buffer. Trigger event is ignored.
     eCSEL4_1 = 1, // ADC CMD1 selected.
@@ -5049,6 +5291,7 @@ union TRIG7_CHAIN_5_4 {
     eCSEL4_14 = 14, // ADC CMD14 selected.
     eCSEL4_15 = 15, // ADC CMD15 selected.
   };
+  
   enum class eHWTS4 : uint32_t {
     eHWTS4_0 = 0, // no trigger selected
     eHWTS4_1 = 1, // ADC TRIG0 selected
@@ -5060,20 +5303,24 @@ union TRIG7_CHAIN_5_4 {
     eHWTS4_64 = 64, // ADC TRIG6 selected
     eHWTS4_128 = 128, // ADC TRIG7 selected
   };
+  
   enum class eB2B4 : uint32_t {
     eB2B4_0 = 0, // Disable B2B. Wait until delay value defined by TRIG4_COUNTER[SAMPLE_INTERVAL] is reached
     eB2B4_1 = 1, // Enable B2B. When Segment 0 finished (ADC COCO) then automatically trigger next ADC conversion, no need to wait until interval delay reached.
   };
+  
   enum class eIE4 : uint32_t {
     eIE4_0 = 0, // Generate interrupt on Done0 when segment 4 finish.
     eIE4_1 = 1, // Generate interrupt on Done1 when segment 4 finish.
     eIE4_2 = 2, // Generate interrupt on Done2 when segment 4 finish.
     eIE4_3 = 3, // Generate interrupt on Done3 when segment 4 finish.
   };
+  
   enum class eIE4_EN : uint32_t {
     eIE4_EN_0 = 0, // Interrupt DONE disabled.
     eIE4_EN_1 = 1, // Interrupt DONE enabled. When segment 4 finish, an interrupt will be generated on the specific port configured by the IE4.
   };
+  
   enum class eCSEL5 : uint32_t {
     eCSEL5_0 = 0, // Not a valid selection from the command buffer. Trigger event is ignored.
     eCSEL5_1 = 1, // ADC CMD1 selected.
@@ -5092,6 +5339,7 @@ union TRIG7_CHAIN_5_4 {
     eCSEL5_14 = 14, // ADC CMD14 selected.
     eCSEL5_15 = 15, // ADC CMD15 selected.
   };
+  
   enum class eHWTS5 : uint32_t {
     eHWTS5_0 = 0, // no trigger selected
     eHWTS5_1 = 1, // ADC TRIG0 selected
@@ -5103,16 +5351,19 @@ union TRIG7_CHAIN_5_4 {
     eHWTS5_64 = 64, // ADC TRIG6 selected
     eHWTS5_128 = 128, // ADC TRIG7 selected
   };
+  
   enum class eB2B5 : uint32_t {
     eB2B5_0 = 0, // Disable B2B. Wait until delay value defined by TRIG5_COUNTER[SAMPLE_INTERVAL] is reached
     eB2B5_1 = 1, // Enable B2B. When Segment 0 finished (ADC COCO) then automatically trigger next ADC conversion, no need to wait until interval delay reached.
   };
+  
   enum class eIE5 : uint32_t {
     eIE5_0 = 0, // Generate interrupt on Done0 when segment 5 finish.
     eIE5_1 = 1, // Generate interrupt on Done1 when segment 5 finish.
     eIE5_2 = 2, // Generate interrupt on Done2 when segment 5 finish.
     eIE5_3 = 3, // Generate interrupt on Done3 when segment 5 finish.
   };
+  
   enum class eIE5_EN : uint32_t {
     eIE5_EN_0 = 0, // Interrupt DONE disabled.
     eIE5_EN_1 = 1, // Interrupt DONE enabled. When segment 5 finish, an interrupt will be generated on the specific port configured by the IE5.
@@ -5130,7 +5381,7 @@ union TRIG7_CHAIN_5_4 {
     eB2B5 B2B5 : 1;
     eIE5 IE5 : 2;
     eIE5_EN IE5_EN : 1;
-  } bits;          // Bit-field struct (auto-filling reserved gaps)
+  } bits;
   
   // Full 32-bit register value.
   uint32_t value;
@@ -5144,7 +5395,6 @@ union TRIG7_CHAIN_5_4 {
 //
 union TRIG7_CHAIN_7_6 {
   
-  // Enum definitions.
   enum class eCSEL6 : uint32_t {
     eCSEL6_0 = 0, // Not a valid selection from the command buffer. Trigger event is ignored.
     eCSEL6_1 = 1, // ADC CMD1 selected.
@@ -5163,6 +5413,7 @@ union TRIG7_CHAIN_7_6 {
     eCSEL6_14 = 14, // ADC CMD14 selected.
     eCSEL6_15 = 15, // ADC CMD15 selected.
   };
+  
   enum class eHWTS6 : uint32_t {
     eHWTS6_0 = 0, // no trigger selected
     eHWTS6_1 = 1, // ADC TRIG0 selected
@@ -5174,20 +5425,24 @@ union TRIG7_CHAIN_7_6 {
     eHWTS6_64 = 64, // ADC TRIG6 selected
     eHWTS6_128 = 128, // ADC TRIG7 selected
   };
+  
   enum class eB2B6 : uint32_t {
     eB2B6_0 = 0, // Disable B2B. Wait until delay value defined by TRIG6_COUNTER[SAMPLE_INTERVAL] is reached
     eB2B6_1 = 1, // Enable B2B. When Segment 0 finished (ADC COCO) then automatically trigger next ADC conversion, no need to wait until interval delay reached.
   };
+  
   enum class eIE6 : uint32_t {
     eIE6_0 = 0, // Generate interrupt on Done0 when segment 6 finish.
     eIE6_1 = 1, // Generate interrupt on Done1 when segment 6 finish.
     eIE6_2 = 2, // Generate interrupt on Done2 when segment 6 finish.
     eIE6_3 = 3, // Generate interrupt on Done3 when segment 6 finish.
   };
+  
   enum class eIE6_EN : uint32_t {
     eIE6_EN_0 = 0, // Interrupt DONE disabled.
     eIE6_EN_1 = 1, // Interrupt DONE enabled. When segment 6 finish, an interrupt will be generated on the specific port configured by the IE6.
   };
+  
   enum class eCSEL7 : uint32_t {
     eCSEL7_0 = 0, // Not a valid selection from the command buffer. Trigger event is ignored.
     eCSEL7_1 = 1, // ADC CMD1 selected.
@@ -5206,6 +5461,7 @@ union TRIG7_CHAIN_7_6 {
     eCSEL7_14 = 14, // ADC CMD14 selected.
     eCSEL7_15 = 15, // ADC CMD15 selected.
   };
+  
   enum class eHWTS7 : uint32_t {
     eHWTS7_0 = 0, // no trigger selected
     eHWTS7_1 = 1, // ADC TRIG0 selected
@@ -5217,16 +5473,19 @@ union TRIG7_CHAIN_7_6 {
     eHWTS7_64 = 64, // ADC TRIG6 selected
     eHWTS7_128 = 128, // ADC TRIG7 selected
   };
+  
   enum class eB2B7 : uint32_t {
     eB2B7_0 = 0, // Disable B2B. Wait until delay value defined by TRIG7_COUNTER[SAMPLE_INTERVAL] is reached
     eB2B7_1 = 1, // Enable B2B. When Segment 0 finished (ADC COCO) then automatically trigger next ADC conversion, no need to wait until interval delay reached.
   };
+  
   enum class eIE7 : uint32_t {
     eIE7_0 = 0, // Generate interrupt on Done0 when segment 7 finish.
     eIE7_1 = 1, // Generate interrupt on Done1 when segment 7 finish.
     eIE7_2 = 2, // Generate interrupt on Done2 when segment 7 finish.
     eIE7_3 = 3, // Generate interrupt on Done3 when segment 7 finish.
   };
+  
   enum class eIE7_EN : uint32_t {
     eIE7_EN_0 = 0, // Interrupt DONE disabled.
     eIE7_EN_1 = 1, // Interrupt DONE enabled. When segment 7 finish, an interrupt will be generated on the specific port configured by the IE7.
@@ -5244,7 +5503,7 @@ union TRIG7_CHAIN_7_6 {
     eB2B7 B2B7 : 1;
     eIE7 IE7 : 2;
     eIE7_EN IE7_EN : 1;
-  } bits;          // Bit-field struct (auto-filling reserved gaps)
+  } bits;
   
   // Full 32-bit register value.
   uint32_t value;
@@ -5258,15 +5517,13 @@ union TRIG7_CHAIN_7_6 {
 //
 union TRIG7_RESULT_1_0 {
   
-  // Enum definitions.
-  
   // Bit field definition.
   struct {
     uint32_t DATA0 : 12;
     uint32_t _reserved_1 : 4;
     uint32_t DATA1 : 12;
     uint32_t _reserved_end : 4;
-  } bits;          // Bit-field struct (auto-filling reserved gaps)
+  } bits;
   
   // Full 32-bit register value.
   uint32_t value;
@@ -5280,15 +5537,13 @@ union TRIG7_RESULT_1_0 {
 //
 union TRIG7_RESULT_3_2 {
   
-  // Enum definitions.
-  
   // Bit field definition.
   struct {
     uint32_t DATA2 : 12;
     uint32_t _reserved_1 : 4;
     uint32_t DATA3 : 12;
     uint32_t _reserved_end : 4;
-  } bits;          // Bit-field struct (auto-filling reserved gaps)
+  } bits;
   
   // Full 32-bit register value.
   uint32_t value;
@@ -5302,15 +5557,13 @@ union TRIG7_RESULT_3_2 {
 //
 union TRIG7_RESULT_5_4 {
   
-  // Enum definitions.
-  
   // Bit field definition.
   struct {
     uint32_t DATA4 : 12;
     uint32_t _reserved_1 : 4;
     uint32_t DATA5 : 12;
     uint32_t _reserved_end : 4;
-  } bits;          // Bit-field struct (auto-filling reserved gaps)
+  } bits;
   
   // Full 32-bit register value.
   uint32_t value;
@@ -5324,15 +5577,13 @@ union TRIG7_RESULT_5_4 {
 //
 union TRIG7_RESULT_7_6 {
   
-  // Enum definitions.
-  
   // Bit field definition.
   struct {
     uint32_t DATA6 : 12;
     uint32_t _reserved_1 : 4;
     uint32_t DATA7 : 12;
     uint32_t _reserved_end : 4;
-  } bits;          // Bit-field struct (auto-filling reserved gaps)
+  } bits;
   
   // Full 32-bit register value.
   uint32_t value;

@@ -15,7 +15,6 @@ namespace nTMPSNS {
 //
 union CTRL0 {
   
-  // Enum definitions.
   enum class eV_SEL : uint32_t {
     eV_SEL_0 = 0, // Normal temperature measuring mode
   };
@@ -28,7 +27,7 @@ union CTRL0 {
     uint32_t _reserved_2 : 2;
     uint32_t IBIAS_TRIM : 4;
     uint32_t _reserved_end : 16;
-  } bits;          // Bit-field struct (auto-filling reserved gaps)
+  } bits;
   
   // Full 32-bit register value.
   uint32_t value;
@@ -42,8 +41,6 @@ union CTRL0 {
 //
 union CTRL0_SET {
   
-  // Enum definitions.
-  
   // Bit field definition.
   struct {
     uint32_t SLOPE_CAL : 6;
@@ -52,7 +49,7 @@ union CTRL0_SET {
     uint32_t _reserved_2 : 2;
     uint32_t IBIAS_TRIM : 4;
     uint32_t _reserved_end : 16;
-  } bits;          // Bit-field struct (auto-filling reserved gaps)
+  } bits;
   
   // Full 32-bit register value.
   uint32_t value;
@@ -66,8 +63,6 @@ union CTRL0_SET {
 //
 union CTRL0_CLR {
   
-  // Enum definitions.
-  
   // Bit field definition.
   struct {
     uint32_t SLOPE_CAL : 6;
@@ -76,7 +71,7 @@ union CTRL0_CLR {
     uint32_t _reserved_2 : 2;
     uint32_t IBIAS_TRIM : 4;
     uint32_t _reserved_end : 16;
-  } bits;          // Bit-field struct (auto-filling reserved gaps)
+  } bits;
   
   // Full 32-bit register value.
   uint32_t value;
@@ -90,8 +85,6 @@ union CTRL0_CLR {
 //
 union CTRL0_TOG {
   
-  // Enum definitions.
-  
   // Bit field definition.
   struct {
     uint32_t SLOPE_CAL : 6;
@@ -100,7 +93,7 @@ union CTRL0_TOG {
     uint32_t _reserved_2 : 2;
     uint32_t IBIAS_TRIM : 4;
     uint32_t _reserved_end : 16;
-  } bits;          // Bit-field struct (auto-filling reserved gaps)
+  } bits;
   
   // Full 32-bit register value.
   uint32_t value;
@@ -114,7 +107,6 @@ union CTRL0_TOG {
 //
 union CTRL1 {
   
-  // Enum definitions.
   enum class eFREQ : uint32_t {
     eFREQ_0 = 0, // Single Reading Mode. New reading available every time CTRL1[START] bit is set to 1 from 0.
     eFREQ_1 = 1, // Continuous Reading Mode. Next temperature reading taken after programmed number of cycles after current reading is complete.
@@ -127,30 +119,37 @@ union CTRL1 {
     eFREQ_8 = 8, // Continuous Reading Mode. Next temperature reading taken after programmed number of cycles after current reading is complete.
     eFREQ_9 = 9, // Continuous Reading Mode. Next temperature reading taken after programmed number of cycles after current reading is complete.
   };
+  
   enum class eFINISH_IE : uint32_t {
     eFINISH_IE_0 = 0, // Interrupt is disabled
     eFINISH_IE_1 = 1, // Interrupt is enabled
   };
+  
   enum class eLOW_TEMP_IE : uint32_t {
     eLOW_TEMP_IE_0 = 0, // Interrupt is disabled
     eLOW_TEMP_IE_1 = 1, // Interrupt is enabled
   };
+  
   enum class eHIGH_TEMP_IE : uint32_t {
     eHIGH_TEMP_IE_0 = 0, // Interrupt is disabled
     eHIGH_TEMP_IE_1 = 1, // Interrupt is enabled
   };
+  
   enum class ePANIC_TEMP_IE : uint32_t {
     ePANIC_TEMP_IE_0 = 0, // Interrupt is disabled
     ePANIC_TEMP_IE_1 = 1, // Interrupt is enabled
   };
+  
   enum class eSTART : uint32_t {
     eSTART_0 = 0, // No new temperature reading taken
     eSTART_1 = 1, // Initiate a new temperature reading
   };
+  
   enum class ePWD : uint32_t {
     ePWD_0 = 0, // Sensor is active
     ePWD_1 = 1, // Sensor is powered down
   };
+  
   enum class ePWD_FULL : uint32_t {
     ePWD_FULL_0 = 0, // Sensor is active
     ePWD_FULL_1 = 1, // Sensor is powered down
@@ -168,7 +167,7 @@ union CTRL1 {
     ePWD PWD : 1;
     uint32_t RFU : 7;
     ePWD_FULL PWD_FULL : 1;
-  } bits;          // Bit-field struct (auto-filling reserved gaps)
+  } bits;
   
   // Full 32-bit register value.
   uint32_t value;
@@ -182,8 +181,6 @@ union CTRL1 {
 //
 union CTRL1_SET {
   
-  // Enum definitions.
-  
   // Bit field definition.
   struct {
     uint32_t FREQ : 16;
@@ -196,7 +193,7 @@ union CTRL1_SET {
     uint32_t PWD : 1;
     uint32_t RFU : 7;
     uint32_t PWD_FULL : 1;
-  } bits;          // Bit-field struct (auto-filling reserved gaps)
+  } bits;
   
   // Full 32-bit register value.
   uint32_t value;
@@ -210,8 +207,6 @@ union CTRL1_SET {
 //
 union CTRL1_CLR {
   
-  // Enum definitions.
-  
   // Bit field definition.
   struct {
     uint32_t FREQ : 16;
@@ -224,7 +219,7 @@ union CTRL1_CLR {
     uint32_t PWD : 1;
     uint32_t RFU : 7;
     uint32_t PWD_FULL : 1;
-  } bits;          // Bit-field struct (auto-filling reserved gaps)
+  } bits;
   
   // Full 32-bit register value.
   uint32_t value;
@@ -238,8 +233,6 @@ union CTRL1_CLR {
 //
 union CTRL1_TOG {
   
-  // Enum definitions.
-  
   // Bit field definition.
   struct {
     uint32_t FREQ : 16;
@@ -252,7 +245,7 @@ union CTRL1_TOG {
     uint32_t PWD : 1;
     uint32_t RFU : 7;
     uint32_t PWD_FULL : 1;
-  } bits;          // Bit-field struct (auto-filling reserved gaps)
+  } bits;
   
   // Full 32-bit register value.
   uint32_t value;
@@ -266,15 +259,13 @@ union CTRL1_TOG {
 //
 union RANGE0 {
   
-  // Enum definitions.
-  
   // Bit field definition.
   struct {
     uint32_t LOW_TEMP_VAL : 12;
     uint32_t _reserved_1 : 4;
     uint32_t HIGH_TEMP_VAL : 12;
     uint32_t _reserved_end : 4;
-  } bits;          // Bit-field struct (auto-filling reserved gaps)
+  } bits;
   
   // Full 32-bit register value.
   uint32_t value;
@@ -288,15 +279,13 @@ union RANGE0 {
 //
 union RANGE0_SET {
   
-  // Enum definitions.
-  
   // Bit field definition.
   struct {
     uint32_t LOW_TEMP_VAL : 12;
     uint32_t _reserved_1 : 4;
     uint32_t HIGH_TEMP_VAL : 12;
     uint32_t _reserved_end : 4;
-  } bits;          // Bit-field struct (auto-filling reserved gaps)
+  } bits;
   
   // Full 32-bit register value.
   uint32_t value;
@@ -310,15 +299,13 @@ union RANGE0_SET {
 //
 union RANGE0_CLR {
   
-  // Enum definitions.
-  
   // Bit field definition.
   struct {
     uint32_t LOW_TEMP_VAL : 12;
     uint32_t _reserved_1 : 4;
     uint32_t HIGH_TEMP_VAL : 12;
     uint32_t _reserved_end : 4;
-  } bits;          // Bit-field struct (auto-filling reserved gaps)
+  } bits;
   
   // Full 32-bit register value.
   uint32_t value;
@@ -332,15 +319,13 @@ union RANGE0_CLR {
 //
 union RANGE0_TOG {
   
-  // Enum definitions.
-  
   // Bit field definition.
   struct {
     uint32_t LOW_TEMP_VAL : 12;
     uint32_t _reserved_1 : 4;
     uint32_t HIGH_TEMP_VAL : 12;
     uint32_t _reserved_end : 4;
-  } bits;          // Bit-field struct (auto-filling reserved gaps)
+  } bits;
   
   // Full 32-bit register value.
   uint32_t value;
@@ -354,13 +339,11 @@ union RANGE0_TOG {
 //
 union RANGE1 {
   
-  // Enum definitions.
-  
   // Bit field definition.
   struct {
     uint32_t PANIC_TEMP_VAL : 12;
     uint32_t _reserved_end : 20;
-  } bits;          // Bit-field struct (auto-filling reserved gaps)
+  } bits;
   
   // Full 32-bit register value.
   uint32_t value;
@@ -374,13 +357,11 @@ union RANGE1 {
 //
 union RANGE1_SET {
   
-  // Enum definitions.
-  
   // Bit field definition.
   struct {
     uint32_t PANIC_TEMP_VAL : 12;
     uint32_t _reserved_end : 20;
-  } bits;          // Bit-field struct (auto-filling reserved gaps)
+  } bits;
   
   // Full 32-bit register value.
   uint32_t value;
@@ -394,13 +375,11 @@ union RANGE1_SET {
 //
 union RANGE1_CLR {
   
-  // Enum definitions.
-  
   // Bit field definition.
   struct {
     uint32_t PANIC_TEMP_VAL : 12;
     uint32_t _reserved_end : 20;
-  } bits;          // Bit-field struct (auto-filling reserved gaps)
+  } bits;
   
   // Full 32-bit register value.
   uint32_t value;
@@ -414,13 +393,11 @@ union RANGE1_CLR {
 //
 union RANGE1_TOG {
   
-  // Enum definitions.
-  
   // Bit field definition.
   struct {
     uint32_t PANIC_TEMP_VAL : 12;
     uint32_t _reserved_end : 20;
-  } bits;          // Bit-field struct (auto-filling reserved gaps)
+  } bits;
   
   // Full 32-bit register value.
   uint32_t value;
@@ -434,19 +411,21 @@ union RANGE1_TOG {
 //
 union STATUS0 {
   
-  // Enum definitions.
   enum class eFINISH : uint32_t {
     eFINISH_0 = 0, // Temperature sensor is busy (if CTRL1[START] = 1)or no new reading has been initiated (if CTRL1[START] = 0)
     eFINISH_1 = 1, // Temperature reading is complete and new temperature value available for reading
   };
+  
   enum class eLOW_TEMP : uint32_t {
     eLOW_TEMP_0 = 0, // No Low temperature alert
     eLOW_TEMP_1 = 1, // Low temperature alert
   };
+  
   enum class eHIGH_TEMP : uint32_t {
     eHIGH_TEMP_0 = 0, // No High temperature alert
     eHIGH_TEMP_1 = 1, // High temperature alert
   };
+  
   enum class ePANIC_TEMP : uint32_t {
     ePANIC_TEMP_0 = 0, // No Panic temperature alert
     ePANIC_TEMP_1 = 1, // Panic temperature alert
@@ -461,7 +440,7 @@ union STATUS0 {
     eHIGH_TEMP HIGH_TEMP : 1;
     ePANIC_TEMP PANIC_TEMP : 1;
     uint32_t _reserved_end : 12;
-  } bits;          // Bit-field struct (auto-filling reserved gaps)
+  } bits;
   
   // Full 32-bit register value.
   uint32_t value;

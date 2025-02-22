@@ -15,27 +15,31 @@ namespace nLCDIFV2 {
 //
 union CTRL {
   
-  // Enum definitions.
   enum class eINV_HS : uint32_t {
     eINV_HS_0 = 0, // HSYNC signal not inverted (active HIGH)
     eINV_HS_1 = 1, // Invert HSYNC signal (active LOW)
   };
+  
   enum class eINV_VS : uint32_t {
     eINV_VS_0 = 0, // VSYNC signal not inverted (active HIGH)
     eINV_VS_1 = 1, // Invert VSYNC signal (active LOW)
   };
+  
   enum class eINV_DE : uint32_t {
     eINV_DE_0 = 0, // Data enable is active high
     eINV_DE_1 = 1, // Data enable is active low
   };
+  
   enum class eINV_PXCK : uint32_t {
     eINV_PXCK_0 = 0, // Display samples data on the falling edge
     eINV_PXCK_1 = 1, // Display samples data on the rising edge
   };
+  
   enum class eNEG : uint32_t {
     eNEG_0 = 0, // Output is to remain same
     eNEG_1 = 1, // Output to be negated
   };
+  
   enum class eSW_RESET : uint32_t {
     eSW_RESET_0 = 0, // No action
     eSW_RESET_1 = 1, // All LCDIFv2 internal registers are forced into their reset state. User registers are not affected
@@ -50,7 +54,7 @@ union CTRL {
     eNEG NEG : 1;
     uint32_t _reserved_5 : 26;
     eSW_RESET SW_RESET : 1;
-  } bits;          // Bit-field struct (auto-filling reserved gaps)
+  } bits;
   
   // Full 32-bit register value.
   uint32_t value;
@@ -64,8 +68,6 @@ union CTRL {
 //
 union CTRL_SET {
   
-  // Enum definitions.
-  
   // Bit field definition.
   struct {
     uint32_t INV_HS : 1;
@@ -75,7 +77,7 @@ union CTRL_SET {
     uint32_t NEG : 1;
     uint32_t _reserved_5 : 26;
     uint32_t SW_RESET : 1;
-  } bits;          // Bit-field struct (auto-filling reserved gaps)
+  } bits;
   
   // Full 32-bit register value.
   uint32_t value;
@@ -89,8 +91,6 @@ union CTRL_SET {
 //
 union CTRL_CLR {
   
-  // Enum definitions.
-  
   // Bit field definition.
   struct {
     uint32_t INV_HS : 1;
@@ -100,7 +100,7 @@ union CTRL_CLR {
     uint32_t NEG : 1;
     uint32_t _reserved_5 : 26;
     uint32_t SW_RESET : 1;
-  } bits;          // Bit-field struct (auto-filling reserved gaps)
+  } bits;
   
   // Full 32-bit register value.
   uint32_t value;
@@ -114,8 +114,6 @@ union CTRL_CLR {
 //
 union CTRL_TOG {
   
-  // Enum definitions.
-  
   // Bit field definition.
   struct {
     uint32_t INV_HS : 1;
@@ -125,7 +123,7 @@ union CTRL_TOG {
     uint32_t NEG : 1;
     uint32_t _reserved_5 : 26;
     uint32_t SW_RESET : 1;
-  } bits;          // Bit-field struct (auto-filling reserved gaps)
+  } bits;
   
   // Full 32-bit register value.
   uint32_t value;
@@ -139,13 +137,13 @@ union CTRL_TOG {
 //
 union DISP_PARA {
   
-  // Enum definitions.
   enum class eDISP_MODE : uint32_t {
     eDISP_MODE_0 = 0, // Normal mode. Panel content controlled by layer configuration
     eDISP_MODE_1 = 1, // Test Mode1(BGND Color Display)
     eDISP_MODE_2 = 2, // Test Mode2(Column Color Bar)
     eDISP_MODE_3 = 3, // Test Mode3(Row Color Bar)
   };
+  
   enum class eLINE_PATTERN : uint32_t {
     eLINE_PATTERN_0 = 0, // RGB
     eLINE_PATTERN_1 = 1, // RBG
@@ -154,6 +152,7 @@ union DISP_PARA {
     eLINE_PATTERN_4 = 4, // BRG
     eLINE_PATTERN_5 = 5, // BGR
   };
+  
   enum class eDISP_ON : uint32_t {
     eDISP_ON_0 = 0, // Display Off
     eDISP_ON_1 = 1, // Display On
@@ -168,7 +167,7 @@ union DISP_PARA {
     eLINE_PATTERN LINE_PATTERN : 3;
     uint32_t _reserved_5 : 2;
     eDISP_ON DISP_ON : 1;
-  } bits;          // Bit-field struct (auto-filling reserved gaps)
+  } bits;
   
   // Full 32-bit register value.
   uint32_t value;
@@ -182,15 +181,13 @@ union DISP_PARA {
 //
 union DISP_SIZE {
   
-  // Enum definitions.
-  
   // Bit field definition.
   struct {
     uint32_t DELTA_X : 12;
     uint32_t _reserved_1 : 4;
     uint32_t DELTA_Y : 12;
     uint32_t _reserved_end : 4;
-  } bits;          // Bit-field struct (auto-filling reserved gaps)
+  } bits;
   
   // Full 32-bit register value.
   uint32_t value;
@@ -204,8 +201,6 @@ union DISP_SIZE {
 //
 union HSYN_PARA {
   
-  // Enum definitions.
-  
   // Bit field definition.
   struct {
     uint32_t FP_H : 9;
@@ -214,7 +209,7 @@ union HSYN_PARA {
     uint32_t _reserved_2 : 2;
     uint32_t BP_H : 9;
     uint32_t _reserved_end : 1;
-  } bits;          // Bit-field struct (auto-filling reserved gaps)
+  } bits;
   
   // Full 32-bit register value.
   uint32_t value;
@@ -228,8 +223,6 @@ union HSYN_PARA {
 //
 union VSYN_PARA {
   
-  // Enum definitions.
-  
   // Bit field definition.
   struct {
     uint32_t FP_V : 9;
@@ -238,7 +231,7 @@ union VSYN_PARA {
     uint32_t _reserved_2 : 2;
     uint32_t BP_V : 9;
     uint32_t _reserved_end : 1;
-  } bits;          // Bit-field struct (auto-filling reserved gaps)
+  } bits;
   
   // Full 32-bit register value.
   uint32_t value;
@@ -252,15 +245,16 @@ union VSYN_PARA {
 //
 union INT_STATUS_D0 {
   
-  // Enum definitions.
   enum class eVSYNC : uint32_t {
     eVSYNC_0 = 0, // VSYNC has not started
     eVSYNC_1 = 1, // VSYNC has started
   };
+  
   enum class eUNDERRUN : uint32_t {
     eUNDERRUN_0 = 0, // Output buffer not underrun
     eUNDERRUN_1 = 1, // Output buffer underrun
   };
+  
   enum class eVS_BLANK : uint32_t {
     eVS_BLANK_0 = 0, // Vertical blanking period has not started
     eVS_BLANK_1 = 1, // Vertical blanking period has started
@@ -275,7 +269,7 @@ union INT_STATUS_D0 {
     uint32_t DMA_ERR : 8;
     uint32_t DMA_DONE : 8;
     uint32_t FIFO_EMPTY : 8;
-  } bits;          // Bit-field struct (auto-filling reserved gaps)
+  } bits;
   
   // Full 32-bit register value.
   uint32_t value;
@@ -289,15 +283,16 @@ union INT_STATUS_D0 {
 //
 union INT_ENABLE_D0 {
   
-  // Enum definitions.
   enum class eVSYNC_EN : uint32_t {
     eVSYNC_EN_0 = 0, // VSYNC interrupt disable
     eVSYNC_EN_1 = 1, // VSYNC interrupt enable
   };
+  
   enum class eUNDERRUN_EN : uint32_t {
     eUNDERRUN_EN_0 = 0, // Output buffer underrun disable
     eUNDERRUN_EN_1 = 1, // Output buffer underrun enable
   };
+  
   enum class eVS_BLANK_EN : uint32_t {
     eVS_BLANK_EN_0 = 0, // Vertical blanking start interrupt disable
     eVS_BLANK_EN_1 = 1, // Vertical blanking start interrupt enable
@@ -312,7 +307,7 @@ union INT_ENABLE_D0 {
     uint32_t DMA_ERR_EN : 8;
     uint32_t DMA_DONE_EN : 8;
     uint32_t FIFO_EMPTY_EN : 8;
-  } bits;          // Bit-field struct (auto-filling reserved gaps)
+  } bits;
   
   // Full 32-bit register value.
   uint32_t value;
@@ -326,8 +321,6 @@ union INT_ENABLE_D0 {
 //
 union INT_STATUS_D1 {
   
-  // Enum definitions.
-  
   // Bit field definition.
   struct {
     uint32_t VSYNC : 1;
@@ -337,7 +330,7 @@ union INT_STATUS_D1 {
     uint32_t DMA_ERR : 8;
     uint32_t DMA_DONE : 8;
     uint32_t FIFO_EMPTY : 8;
-  } bits;          // Bit-field struct (auto-filling reserved gaps)
+  } bits;
   
   // Full 32-bit register value.
   uint32_t value;
@@ -351,8 +344,6 @@ union INT_STATUS_D1 {
 //
 union INT_ENABLE_D1 {
   
-  // Enum definitions.
-  
   // Bit field definition.
   struct {
     uint32_t VSYNC_EN : 1;
@@ -362,7 +353,7 @@ union INT_ENABLE_D1 {
     uint32_t DMA_ERR_EN : 8;
     uint32_t DMA_DONE_EN : 8;
     uint32_t FIFO_EMPTY_EN : 8;
-  } bits;          // Bit-field struct (auto-filling reserved gaps)
+  } bits;
   
   // Full 32-bit register value.
   uint32_t value;
@@ -376,23 +367,26 @@ union INT_ENABLE_D1 {
 //
 union PDI_PARA {
   
-  // Enum definitions.
   enum class eINV_PDI_HS : uint32_t {
     eINV_PDI_HS_0 = 0, // HSYNC is active HIGH
     eINV_PDI_HS_1 = 1, // HSYNC is active LOW
   };
+  
   enum class eINV_PDI_VS : uint32_t {
     eINV_PDI_VS_0 = 0, // VSYNC is active HIGH
     eINV_PDI_VS_1 = 1, // VSYNC is active LOW
   };
+  
   enum class eINV_PDI_DE : uint32_t {
     eINV_PDI_DE_0 = 0, // Data enable is active HIGH
     eINV_PDI_DE_1 = 1, // Data enable is active LOW
   };
+  
   enum class eINV_PDI_PXCK : uint32_t {
     eINV_PDI_PXCK_0 = 0, // Samples data on the falling edge
     eINV_PDI_PXCK_1 = 1, // Samples data on the rising edge
   };
+  
   enum class eMODE : uint32_t {
     eMODE_0 = 0, // 32 bpp (ARGB8888)
     eMODE_1 = 1, // 24 bpp (RGB888)
@@ -402,10 +396,12 @@ union PDI_PARA {
     eMODE_5 = 5, // 16 bpp (RGB555)
     eMODE_6 = 6, // 16 bpp (YCbCr422)
   };
+  
   enum class ePDI_SEL : uint32_t {
     ePDI_SEL_0 = 0, // PDI selected on LCDIFv2 plane 0
     ePDI_SEL_1 = 1, // PDI selected on LCDIFv2 plane 1
   };
+  
   enum class ePDI_EN : uint32_t {
     ePDI_EN_0 = 0, // Disable PDI input data
     ePDI_EN_1 = 1, // Enable PDI input data
@@ -421,7 +417,7 @@ union PDI_PARA {
     uint32_t _reserved_5 : 22;
     ePDI_SEL PDI_SEL : 1;
     ePDI_EN PDI_EN : 1;
-  } bits;          // Bit-field struct (auto-filling reserved gaps)
+  } bits;
   
   // Full 32-bit register value.
   uint32_t value;
@@ -435,15 +431,13 @@ union PDI_PARA {
 //
 union CTRLDESCL0_1 {
   
-  // Enum definitions.
-  
   // Bit field definition.
   struct {
     uint32_t WIDTH : 12;
     uint32_t _reserved_1 : 4;
     uint32_t HEIGHT : 12;
     uint32_t _reserved_end : 4;
-  } bits;          // Bit-field struct (auto-filling reserved gaps)
+  } bits;
   
   // Full 32-bit register value.
   uint32_t value;
@@ -457,15 +451,13 @@ union CTRLDESCL0_1 {
 //
 union CTRLDESCL0_2 {
   
-  // Enum definitions.
-  
   // Bit field definition.
   struct {
     uint32_t POSX : 12;
     uint32_t _reserved_1 : 4;
     uint32_t POSY : 12;
     uint32_t _reserved_end : 4;
-  } bits;          // Bit-field struct (auto-filling reserved gaps)
+  } bits;
   
   // Full 32-bit register value.
   uint32_t value;
@@ -479,13 +471,11 @@ union CTRLDESCL0_2 {
 //
 union CTRLDESCL0_3 {
   
-  // Enum definitions.
-  
   // Bit field definition.
   struct {
     uint32_t PITCH : 16;
     uint32_t _reserved_end : 16;
-  } bits;          // Bit-field struct (auto-filling reserved gaps)
+  } bits;
   
   // Full 32-bit register value.
   uint32_t value;
@@ -499,12 +489,10 @@ union CTRLDESCL0_3 {
 //
 union CTRLDESCL0_4 {
   
-  // Enum definitions.
-  
   // Bit field definition.
   struct {
     uint32_t ADDR : 32;
-  } bits;          // Bit-field struct (auto-filling reserved gaps)
+  } bits;
   
   // Full 32-bit register value.
   uint32_t value;
@@ -518,39 +506,44 @@ union CTRLDESCL0_4 {
 //
 union CTRLDESCL0_5 {
   
-  // Enum definitions.
   enum class eAB_MODE : uint32_t {
     eAB_MODE_0 = 0, // No alpha Blending (The SAFETY_EN bit need set to 1)
     eAB_MODE_1 = 1, // Blend with global ALPHA
     eAB_MODE_2 = 2, // Blend with embedded ALPHA
     eAB_MODE_3 = 3, // Blend with PoterDuff enable
   };
+  
   enum class ePD_FACTOR_MODE : uint32_t {
     ePD_FACTOR_MODE_0 = 0, // Using 1
     ePD_FACTOR_MODE_1 = 1, // Using 0
     ePD_FACTOR_MODE_2 = 2, // Using straight alpha
     ePD_FACTOR_MODE_3 = 3, // Using inverse alpha
   };
+  
   enum class ePD_GLOBAL_ALPHA_MODE : uint32_t {
     ePD_GLOBAL_ALPHA_MODE_0 = 0, // Using global alpha
     ePD_GLOBAL_ALPHA_MODE_1 = 1, // Using local alpha
     ePD_GLOBAL_ALPHA_MODE_2 = 2, // Using scaled alpha
     ePD_GLOBAL_ALPHA_MODE_3 = 3, // Using scaled alpha
   };
+  
   enum class ePD_ALPHA_MODE : uint32_t {
     ePD_ALPHA_MODE_0 = 0, // Straight mode for Porter Duff alpha
     ePD_ALPHA_MODE_1 = 1, // Inversed mode for Porter Duff alpha
   };
+  
   enum class ePD_COLOR_MODE : uint32_t {
     ePD_COLOR_MODE_0 = 0, // Straight mode for Porter Duff color
     ePD_COLOR_MODE_1 = 1, // Inversed mode for Porter Duff color
   };
+  
   enum class eYUV_FORMAT : uint32_t {
     eYUV_FORMAT_0 = 0, // The YVYU422 8bit sequence is U1,Y1,V1,Y2
     eYUV_FORMAT_1 = 1, // The YVYU422 8bit sequence is V1,Y1,U1,Y2
     eYUV_FORMAT_2 = 2, // The YVYU422 8bit sequence is Y1,U1,Y2,V1
     eYUV_FORMAT_3 = 3, // The YVYU422 8bit sequence is Y1,V1,Y2,U1
   };
+  
   enum class eBPP : uint32_t {
     eBPP_0 = 0, // 1 bpp
     eBPP_1 = 1, // 2 bpp
@@ -564,10 +557,12 @@ union CTRLDESCL0_5 {
     eBPP_9 = 9, // 32 bpp (ARGB8888)
     eBPP_10 = 10, // 32 bpp (ABGR8888)
   };
+  
   enum class eSAFETY_EN : uint32_t {
     eSAFETY_EN_0 = 0, // Safety Mode is disabled
     eSAFETY_EN_1 = 1, // Safety Mode is enabled for this layer
   };
+  
   enum class eEN : uint32_t {
     eEN_0 = 0, // OFF
     eEN_1 = 1, // ON
@@ -589,7 +584,7 @@ union CTRLDESCL0_5 {
     uint32_t _reserved_9 : 1;
     uint32_t SHADOW_LOAD_EN : 1;
     eEN EN : 1;
-  } bits;          // Bit-field struct (auto-filling reserved gaps)
+  } bits;
   
   // Full 32-bit register value.
   uint32_t value;
@@ -603,15 +598,13 @@ union CTRLDESCL0_5 {
 //
 union CTRLDESCL0_6 {
   
-  // Enum definitions.
-  
   // Bit field definition.
   struct {
     uint32_t BCLR_B : 8;
     uint32_t BCLR_G : 8;
     uint32_t BCLR_R : 8;
     uint32_t _reserved_end : 8;
-  } bits;          // Bit-field struct (auto-filling reserved gaps)
+  } bits;
   
   // Full 32-bit register value.
   uint32_t value;
@@ -625,11 +618,11 @@ union CTRLDESCL0_6 {
 //
 union CSC0_COEF0 {
   
-  // Enum definitions.
   enum class eENABLE : uint32_t {
     eENABLE_0 = 0, // The CSC is bypassed and the input pixels are RGB data already
     eENABLE_1 = 1, // The CSC is enabled and the pixels will be converted to RGB data
   };
+  
   enum class eYCBCR_MODE : uint32_t {
     eYCBCR_MODE_0 = 0, // Converting YUV to RGB data
     eYCBCR_MODE_1 = 1, // Converting YCbCr to RGB data
@@ -643,7 +636,7 @@ union CSC0_COEF0 {
     uint32_t _reserved_3 : 1;
     eENABLE ENABLE : 1;
     eYCBCR_MODE YCBCR_MODE : 1;
-  } bits;          // Bit-field struct (auto-filling reserved gaps)
+  } bits;
   
   // Full 32-bit register value.
   uint32_t value;
@@ -657,15 +650,13 @@ union CSC0_COEF0 {
 //
 union CSC0_COEF1 {
   
-  // Enum definitions.
-  
   // Bit field definition.
   struct {
     uint32_t C4 : 11;
     uint32_t _reserved_1 : 5;
     uint32_t C1 : 11;
     uint32_t _reserved_end : 5;
-  } bits;          // Bit-field struct (auto-filling reserved gaps)
+  } bits;
   
   // Full 32-bit register value.
   uint32_t value;
@@ -679,15 +670,13 @@ union CSC0_COEF1 {
 //
 union CSC0_COEF2 {
   
-  // Enum definitions.
-  
   // Bit field definition.
   struct {
     uint32_t C3 : 11;
     uint32_t _reserved_1 : 5;
     uint32_t C2 : 11;
     uint32_t _reserved_end : 5;
-  } bits;          // Bit-field struct (auto-filling reserved gaps)
+  } bits;
   
   // Full 32-bit register value.
   uint32_t value;
@@ -701,15 +690,13 @@ union CSC0_COEF2 {
 //
 union CTRLDESCL1_1 {
   
-  // Enum definitions.
-  
   // Bit field definition.
   struct {
     uint32_t WIDTH : 12;
     uint32_t _reserved_1 : 4;
     uint32_t HEIGHT : 12;
     uint32_t _reserved_end : 4;
-  } bits;          // Bit-field struct (auto-filling reserved gaps)
+  } bits;
   
   // Full 32-bit register value.
   uint32_t value;
@@ -723,15 +710,13 @@ union CTRLDESCL1_1 {
 //
 union CTRLDESCL1_2 {
   
-  // Enum definitions.
-  
   // Bit field definition.
   struct {
     uint32_t POSX : 12;
     uint32_t _reserved_1 : 4;
     uint32_t POSY : 12;
     uint32_t _reserved_end : 4;
-  } bits;          // Bit-field struct (auto-filling reserved gaps)
+  } bits;
   
   // Full 32-bit register value.
   uint32_t value;
@@ -745,13 +730,11 @@ union CTRLDESCL1_2 {
 //
 union CTRLDESCL1_3 {
   
-  // Enum definitions.
-  
   // Bit field definition.
   struct {
     uint32_t PITCH : 16;
     uint32_t _reserved_end : 16;
-  } bits;          // Bit-field struct (auto-filling reserved gaps)
+  } bits;
   
   // Full 32-bit register value.
   uint32_t value;
@@ -765,12 +748,10 @@ union CTRLDESCL1_3 {
 //
 union CTRLDESCL1_4 {
   
-  // Enum definitions.
-  
   // Bit field definition.
   struct {
     uint32_t ADDR : 32;
-  } bits;          // Bit-field struct (auto-filling reserved gaps)
+  } bits;
   
   // Full 32-bit register value.
   uint32_t value;
@@ -784,39 +765,44 @@ union CTRLDESCL1_4 {
 //
 union CTRLDESCL1_5 {
   
-  // Enum definitions.
   enum class eAB_MODE : uint32_t {
     eAB_MODE_0 = 0, // No alpha Blending (The SAFETY_EN bit need set to 1)
     eAB_MODE_1 = 1, // Blend with global ALPHA
     eAB_MODE_2 = 2, // Blend with embedded ALPHA
     eAB_MODE_3 = 3, // Blend with PoterDuff enable
   };
+  
   enum class ePD_FACTOR_MODE : uint32_t {
     ePD_FACTOR_MODE_0 = 0, // Using 1
     ePD_FACTOR_MODE_1 = 1, // Using 0
     ePD_FACTOR_MODE_2 = 2, // Using straight alpha
     ePD_FACTOR_MODE_3 = 3, // Using inverse alpha
   };
+  
   enum class ePD_GLOBAL_ALPHA_MODE : uint32_t {
     ePD_GLOBAL_ALPHA_MODE_0 = 0, // Using global alpha
     ePD_GLOBAL_ALPHA_MODE_1 = 1, // Using local alpha
     ePD_GLOBAL_ALPHA_MODE_2 = 2, // Using scaled alpha
     ePD_GLOBAL_ALPHA_MODE_3 = 3, // Using scaled alpha
   };
+  
   enum class ePD_ALPHA_MODE : uint32_t {
     ePD_ALPHA_MODE_0 = 0, // Straight mode for Porter Duff alpha
     ePD_ALPHA_MODE_1 = 1, // Inversed mode for Porter Duff alpha
   };
+  
   enum class ePD_COLOR_MODE : uint32_t {
     ePD_COLOR_MODE_0 = 0, // Straight mode for Porter Duff color
     ePD_COLOR_MODE_1 = 1, // Inversed mode for Porter Duff color
   };
+  
   enum class eYUV_FORMAT : uint32_t {
     eYUV_FORMAT_0 = 0, // The YVYU422 8bit sequence is U1,Y1,V1,Y2
     eYUV_FORMAT_1 = 1, // The YVYU422 8bit sequence is V1,Y1,U1,Y2
     eYUV_FORMAT_2 = 2, // The YVYU422 8bit sequence is Y1,U1,Y2,V1
     eYUV_FORMAT_3 = 3, // The YVYU422 8bit sequence is Y1,V1,Y2,U1
   };
+  
   enum class eBPP : uint32_t {
     eBPP_0 = 0, // 1 bpp
     eBPP_1 = 1, // 2 bpp
@@ -830,10 +816,12 @@ union CTRLDESCL1_5 {
     eBPP_9 = 9, // 32 bpp (ARGB8888)
     eBPP_10 = 10, // 32 bpp (ABGR8888)
   };
+  
   enum class eSAFETY_EN : uint32_t {
     eSAFETY_EN_0 = 0, // Safety Mode is disabled
     eSAFETY_EN_1 = 1, // Safety Mode is enabled for this layer
   };
+  
   enum class eEN : uint32_t {
     eEN_0 = 0, // OFF
     eEN_1 = 1, // ON
@@ -855,7 +843,7 @@ union CTRLDESCL1_5 {
     uint32_t _reserved_9 : 1;
     uint32_t SHADOW_LOAD_EN : 1;
     eEN EN : 1;
-  } bits;          // Bit-field struct (auto-filling reserved gaps)
+  } bits;
   
   // Full 32-bit register value.
   uint32_t value;
@@ -869,15 +857,13 @@ union CTRLDESCL1_5 {
 //
 union CTRLDESCL1_6 {
   
-  // Enum definitions.
-  
   // Bit field definition.
   struct {
     uint32_t BCLR_B : 8;
     uint32_t BCLR_G : 8;
     uint32_t BCLR_R : 8;
     uint32_t _reserved_end : 8;
-  } bits;          // Bit-field struct (auto-filling reserved gaps)
+  } bits;
   
   // Full 32-bit register value.
   uint32_t value;
@@ -891,11 +877,11 @@ union CTRLDESCL1_6 {
 //
 union CSC1_COEF0 {
   
-  // Enum definitions.
   enum class eENABLE : uint32_t {
     eENABLE_0 = 0, // The CSC is bypassed and the input pixels are RGB data already
     eENABLE_1 = 1, // The CSC is enabled and the pixels will be converted to RGB data
   };
+  
   enum class eYCBCR_MODE : uint32_t {
     eYCBCR_MODE_0 = 0, // Converting YUV to RGB data
     eYCBCR_MODE_1 = 1, // Converting YCbCr to RGB data
@@ -909,7 +895,7 @@ union CSC1_COEF0 {
     uint32_t _reserved_3 : 1;
     eENABLE ENABLE : 1;
     eYCBCR_MODE YCBCR_MODE : 1;
-  } bits;          // Bit-field struct (auto-filling reserved gaps)
+  } bits;
   
   // Full 32-bit register value.
   uint32_t value;
@@ -923,15 +909,13 @@ union CSC1_COEF0 {
 //
 union CSC1_COEF1 {
   
-  // Enum definitions.
-  
   // Bit field definition.
   struct {
     uint32_t C4 : 11;
     uint32_t _reserved_1 : 5;
     uint32_t C1 : 11;
     uint32_t _reserved_end : 5;
-  } bits;          // Bit-field struct (auto-filling reserved gaps)
+  } bits;
   
   // Full 32-bit register value.
   uint32_t value;
@@ -945,15 +929,13 @@ union CSC1_COEF1 {
 //
 union CSC1_COEF2 {
   
-  // Enum definitions.
-  
   // Bit field definition.
   struct {
     uint32_t C3 : 11;
     uint32_t _reserved_1 : 5;
     uint32_t C2 : 11;
     uint32_t _reserved_end : 5;
-  } bits;          // Bit-field struct (auto-filling reserved gaps)
+  } bits;
   
   // Full 32-bit register value.
   uint32_t value;
@@ -967,15 +949,13 @@ union CSC1_COEF2 {
 //
 union CTRLDESCL2_1 {
   
-  // Enum definitions.
-  
   // Bit field definition.
   struct {
     uint32_t WIDTH : 12;
     uint32_t _reserved_1 : 4;
     uint32_t HEIGHT : 12;
     uint32_t _reserved_end : 4;
-  } bits;          // Bit-field struct (auto-filling reserved gaps)
+  } bits;
   
   // Full 32-bit register value.
   uint32_t value;
@@ -989,15 +969,13 @@ union CTRLDESCL2_1 {
 //
 union CTRLDESCL2_2 {
   
-  // Enum definitions.
-  
   // Bit field definition.
   struct {
     uint32_t POSX : 12;
     uint32_t _reserved_1 : 4;
     uint32_t POSY : 12;
     uint32_t _reserved_end : 4;
-  } bits;          // Bit-field struct (auto-filling reserved gaps)
+  } bits;
   
   // Full 32-bit register value.
   uint32_t value;
@@ -1011,13 +989,11 @@ union CTRLDESCL2_2 {
 //
 union CTRLDESCL2_3 {
   
-  // Enum definitions.
-  
   // Bit field definition.
   struct {
     uint32_t PITCH : 16;
     uint32_t _reserved_end : 16;
-  } bits;          // Bit-field struct (auto-filling reserved gaps)
+  } bits;
   
   // Full 32-bit register value.
   uint32_t value;
@@ -1031,12 +1007,10 @@ union CTRLDESCL2_3 {
 //
 union CTRLDESCL2_4 {
   
-  // Enum definitions.
-  
   // Bit field definition.
   struct {
     uint32_t ADDR : 32;
-  } bits;          // Bit-field struct (auto-filling reserved gaps)
+  } bits;
   
   // Full 32-bit register value.
   uint32_t value;
@@ -1050,39 +1024,44 @@ union CTRLDESCL2_4 {
 //
 union CTRLDESCL2_5 {
   
-  // Enum definitions.
   enum class eAB_MODE : uint32_t {
     eAB_MODE_0 = 0, // No alpha Blending (The SAFETY_EN bit need set to 1)
     eAB_MODE_1 = 1, // Blend with global ALPHA
     eAB_MODE_2 = 2, // Blend with embedded ALPHA
     eAB_MODE_3 = 3, // Blend with PoterDuff enable
   };
+  
   enum class ePD_FACTOR_MODE : uint32_t {
     ePD_FACTOR_MODE_0 = 0, // Using 1
     ePD_FACTOR_MODE_1 = 1, // Using 0
     ePD_FACTOR_MODE_2 = 2, // Using straight alpha
     ePD_FACTOR_MODE_3 = 3, // Using inverse alpha
   };
+  
   enum class ePD_GLOBAL_ALPHA_MODE : uint32_t {
     ePD_GLOBAL_ALPHA_MODE_0 = 0, // Using global alpha
     ePD_GLOBAL_ALPHA_MODE_1 = 1, // Using local alpha
     ePD_GLOBAL_ALPHA_MODE_2 = 2, // Using scaled alpha
     ePD_GLOBAL_ALPHA_MODE_3 = 3, // Using scaled alpha
   };
+  
   enum class ePD_ALPHA_MODE : uint32_t {
     ePD_ALPHA_MODE_0 = 0, // Straight mode for Porter Duff alpha
     ePD_ALPHA_MODE_1 = 1, // Inversed mode for Porter Duff alpha
   };
+  
   enum class ePD_COLOR_MODE : uint32_t {
     ePD_COLOR_MODE_0 = 0, // Straight mode for Porter Duff color
     ePD_COLOR_MODE_1 = 1, // Inversed mode for Porter Duff color
   };
+  
   enum class eYUV_FORMAT : uint32_t {
     eYUV_FORMAT_0 = 0, // The YVYU422 8bit sequence is U1,Y1,V1,Y2
     eYUV_FORMAT_1 = 1, // The YVYU422 8bit sequence is V1,Y1,U1,Y2
     eYUV_FORMAT_2 = 2, // The YVYU422 8bit sequence is Y1,U1,Y2,V1
     eYUV_FORMAT_3 = 3, // The YVYU422 8bit sequence is Y1,V1,Y2,U1
   };
+  
   enum class eBPP : uint32_t {
     eBPP_0 = 0, // 1 bpp
     eBPP_1 = 1, // 2 bpp
@@ -1096,10 +1075,12 @@ union CTRLDESCL2_5 {
     eBPP_9 = 9, // 32 bpp (ARGB8888)
     eBPP_10 = 10, // 32 bpp (ABGR8888)
   };
+  
   enum class eSAFETY_EN : uint32_t {
     eSAFETY_EN_0 = 0, // Safety Mode is disabled
     eSAFETY_EN_1 = 1, // Safety Mode is enabled for this layer
   };
+  
   enum class eEN : uint32_t {
     eEN_0 = 0, // OFF
     eEN_1 = 1, // ON
@@ -1121,7 +1102,7 @@ union CTRLDESCL2_5 {
     uint32_t _reserved_9 : 1;
     uint32_t SHADOW_LOAD_EN : 1;
     eEN EN : 1;
-  } bits;          // Bit-field struct (auto-filling reserved gaps)
+  } bits;
   
   // Full 32-bit register value.
   uint32_t value;
@@ -1135,15 +1116,13 @@ union CTRLDESCL2_5 {
 //
 union CTRLDESCL2_6 {
   
-  // Enum definitions.
-  
   // Bit field definition.
   struct {
     uint32_t BCLR_B : 8;
     uint32_t BCLR_G : 8;
     uint32_t BCLR_R : 8;
     uint32_t _reserved_end : 8;
-  } bits;          // Bit-field struct (auto-filling reserved gaps)
+  } bits;
   
   // Full 32-bit register value.
   uint32_t value;
@@ -1157,15 +1136,13 @@ union CTRLDESCL2_6 {
 //
 union CTRLDESCL3_1 {
   
-  // Enum definitions.
-  
   // Bit field definition.
   struct {
     uint32_t WIDTH : 12;
     uint32_t _reserved_1 : 4;
     uint32_t HEIGHT : 12;
     uint32_t _reserved_end : 4;
-  } bits;          // Bit-field struct (auto-filling reserved gaps)
+  } bits;
   
   // Full 32-bit register value.
   uint32_t value;
@@ -1179,15 +1156,13 @@ union CTRLDESCL3_1 {
 //
 union CTRLDESCL3_2 {
   
-  // Enum definitions.
-  
   // Bit field definition.
   struct {
     uint32_t POSX : 12;
     uint32_t _reserved_1 : 4;
     uint32_t POSY : 12;
     uint32_t _reserved_end : 4;
-  } bits;          // Bit-field struct (auto-filling reserved gaps)
+  } bits;
   
   // Full 32-bit register value.
   uint32_t value;
@@ -1201,13 +1176,11 @@ union CTRLDESCL3_2 {
 //
 union CTRLDESCL3_3 {
   
-  // Enum definitions.
-  
   // Bit field definition.
   struct {
     uint32_t PITCH : 16;
     uint32_t _reserved_end : 16;
-  } bits;          // Bit-field struct (auto-filling reserved gaps)
+  } bits;
   
   // Full 32-bit register value.
   uint32_t value;
@@ -1221,12 +1194,10 @@ union CTRLDESCL3_3 {
 //
 union CTRLDESCL3_4 {
   
-  // Enum definitions.
-  
   // Bit field definition.
   struct {
     uint32_t ADDR : 32;
-  } bits;          // Bit-field struct (auto-filling reserved gaps)
+  } bits;
   
   // Full 32-bit register value.
   uint32_t value;
@@ -1240,39 +1211,44 @@ union CTRLDESCL3_4 {
 //
 union CTRLDESCL3_5 {
   
-  // Enum definitions.
   enum class eAB_MODE : uint32_t {
     eAB_MODE_0 = 0, // No alpha Blending (The SAFETY_EN bit need set to 1)
     eAB_MODE_1 = 1, // Blend with global ALPHA
     eAB_MODE_2 = 2, // Blend with embedded ALPHA
     eAB_MODE_3 = 3, // Blend with PoterDuff enable
   };
+  
   enum class ePD_FACTOR_MODE : uint32_t {
     ePD_FACTOR_MODE_0 = 0, // Using 1
     ePD_FACTOR_MODE_1 = 1, // Using 0
     ePD_FACTOR_MODE_2 = 2, // Using straight alpha
     ePD_FACTOR_MODE_3 = 3, // Using inverse alpha
   };
+  
   enum class ePD_GLOBAL_ALPHA_MODE : uint32_t {
     ePD_GLOBAL_ALPHA_MODE_0 = 0, // Using global alpha
     ePD_GLOBAL_ALPHA_MODE_1 = 1, // Using local alpha
     ePD_GLOBAL_ALPHA_MODE_2 = 2, // Using scaled alpha
     ePD_GLOBAL_ALPHA_MODE_3 = 3, // Using scaled alpha
   };
+  
   enum class ePD_ALPHA_MODE : uint32_t {
     ePD_ALPHA_MODE_0 = 0, // Straight mode for Porter Duff alpha
     ePD_ALPHA_MODE_1 = 1, // Inversed mode for Porter Duff alpha
   };
+  
   enum class ePD_COLOR_MODE : uint32_t {
     ePD_COLOR_MODE_0 = 0, // Straight mode for Porter Duff color
     ePD_COLOR_MODE_1 = 1, // Inversed mode for Porter Duff color
   };
+  
   enum class eYUV_FORMAT : uint32_t {
     eYUV_FORMAT_0 = 0, // The YVYU422 8bit sequence is U1,Y1,V1,Y2
     eYUV_FORMAT_1 = 1, // The YVYU422 8bit sequence is V1,Y1,U1,Y2
     eYUV_FORMAT_2 = 2, // The YVYU422 8bit sequence is Y1,U1,Y2,V1
     eYUV_FORMAT_3 = 3, // The YVYU422 8bit sequence is Y1,V1,Y2,U1
   };
+  
   enum class eBPP : uint32_t {
     eBPP_0 = 0, // 1 bpp
     eBPP_1 = 1, // 2 bpp
@@ -1286,10 +1262,12 @@ union CTRLDESCL3_5 {
     eBPP_9 = 9, // 32 bpp (ARGB8888)
     eBPP_10 = 10, // 32 bpp (ABGR8888)
   };
+  
   enum class eSAFETY_EN : uint32_t {
     eSAFETY_EN_0 = 0, // Safety Mode is disabled
     eSAFETY_EN_1 = 1, // Safety Mode is enabled for this layer
   };
+  
   enum class eEN : uint32_t {
     eEN_0 = 0, // OFF
     eEN_1 = 1, // ON
@@ -1311,7 +1289,7 @@ union CTRLDESCL3_5 {
     uint32_t _reserved_9 : 1;
     uint32_t SHADOW_LOAD_EN : 1;
     eEN EN : 1;
-  } bits;          // Bit-field struct (auto-filling reserved gaps)
+  } bits;
   
   // Full 32-bit register value.
   uint32_t value;
@@ -1325,15 +1303,13 @@ union CTRLDESCL3_5 {
 //
 union CTRLDESCL3_6 {
   
-  // Enum definitions.
-  
   // Bit field definition.
   struct {
     uint32_t BCLR_B : 8;
     uint32_t BCLR_G : 8;
     uint32_t BCLR_R : 8;
     uint32_t _reserved_end : 8;
-  } bits;          // Bit-field struct (auto-filling reserved gaps)
+  } bits;
   
   // Full 32-bit register value.
   uint32_t value;
@@ -1347,15 +1323,13 @@ union CTRLDESCL3_6 {
 //
 union CTRLDESCL4_1 {
   
-  // Enum definitions.
-  
   // Bit field definition.
   struct {
     uint32_t WIDTH : 12;
     uint32_t _reserved_1 : 4;
     uint32_t HEIGHT : 12;
     uint32_t _reserved_end : 4;
-  } bits;          // Bit-field struct (auto-filling reserved gaps)
+  } bits;
   
   // Full 32-bit register value.
   uint32_t value;
@@ -1369,15 +1343,13 @@ union CTRLDESCL4_1 {
 //
 union CTRLDESCL4_2 {
   
-  // Enum definitions.
-  
   // Bit field definition.
   struct {
     uint32_t POSX : 12;
     uint32_t _reserved_1 : 4;
     uint32_t POSY : 12;
     uint32_t _reserved_end : 4;
-  } bits;          // Bit-field struct (auto-filling reserved gaps)
+  } bits;
   
   // Full 32-bit register value.
   uint32_t value;
@@ -1391,13 +1363,11 @@ union CTRLDESCL4_2 {
 //
 union CTRLDESCL4_3 {
   
-  // Enum definitions.
-  
   // Bit field definition.
   struct {
     uint32_t PITCH : 16;
     uint32_t _reserved_end : 16;
-  } bits;          // Bit-field struct (auto-filling reserved gaps)
+  } bits;
   
   // Full 32-bit register value.
   uint32_t value;
@@ -1411,12 +1381,10 @@ union CTRLDESCL4_3 {
 //
 union CTRLDESCL4_4 {
   
-  // Enum definitions.
-  
   // Bit field definition.
   struct {
     uint32_t ADDR : 32;
-  } bits;          // Bit-field struct (auto-filling reserved gaps)
+  } bits;
   
   // Full 32-bit register value.
   uint32_t value;
@@ -1430,39 +1398,44 @@ union CTRLDESCL4_4 {
 //
 union CTRLDESCL4_5 {
   
-  // Enum definitions.
   enum class eAB_MODE : uint32_t {
     eAB_MODE_0 = 0, // No alpha Blending (The SAFETY_EN bit need set to 1)
     eAB_MODE_1 = 1, // Blend with global ALPHA
     eAB_MODE_2 = 2, // Blend with embedded ALPHA
     eAB_MODE_3 = 3, // Blend with PoterDuff enable
   };
+  
   enum class ePD_FACTOR_MODE : uint32_t {
     ePD_FACTOR_MODE_0 = 0, // Using 1
     ePD_FACTOR_MODE_1 = 1, // Using 0
     ePD_FACTOR_MODE_2 = 2, // Using straight alpha
     ePD_FACTOR_MODE_3 = 3, // Using inverse alpha
   };
+  
   enum class ePD_GLOBAL_ALPHA_MODE : uint32_t {
     ePD_GLOBAL_ALPHA_MODE_0 = 0, // Using global alpha
     ePD_GLOBAL_ALPHA_MODE_1 = 1, // Using local alpha
     ePD_GLOBAL_ALPHA_MODE_2 = 2, // Using scaled alpha
     ePD_GLOBAL_ALPHA_MODE_3 = 3, // Using scaled alpha
   };
+  
   enum class ePD_ALPHA_MODE : uint32_t {
     ePD_ALPHA_MODE_0 = 0, // Straight mode for Porter Duff alpha
     ePD_ALPHA_MODE_1 = 1, // Inversed mode for Porter Duff alpha
   };
+  
   enum class ePD_COLOR_MODE : uint32_t {
     ePD_COLOR_MODE_0 = 0, // Straight mode for Porter Duff color
     ePD_COLOR_MODE_1 = 1, // Inversed mode for Porter Duff color
   };
+  
   enum class eYUV_FORMAT : uint32_t {
     eYUV_FORMAT_0 = 0, // The YVYU422 8bit sequence is U1,Y1,V1,Y2
     eYUV_FORMAT_1 = 1, // The YVYU422 8bit sequence is V1,Y1,U1,Y2
     eYUV_FORMAT_2 = 2, // The YVYU422 8bit sequence is Y1,U1,Y2,V1
     eYUV_FORMAT_3 = 3, // The YVYU422 8bit sequence is Y1,V1,Y2,U1
   };
+  
   enum class eBPP : uint32_t {
     eBPP_0 = 0, // 1 bpp
     eBPP_1 = 1, // 2 bpp
@@ -1476,10 +1449,12 @@ union CTRLDESCL4_5 {
     eBPP_9 = 9, // 32 bpp (ARGB8888)
     eBPP_10 = 10, // 32 bpp (ABGR8888)
   };
+  
   enum class eSAFETY_EN : uint32_t {
     eSAFETY_EN_0 = 0, // Safety Mode is disabled
     eSAFETY_EN_1 = 1, // Safety Mode is enabled for this layer
   };
+  
   enum class eEN : uint32_t {
     eEN_0 = 0, // OFF
     eEN_1 = 1, // ON
@@ -1501,7 +1476,7 @@ union CTRLDESCL4_5 {
     uint32_t _reserved_9 : 1;
     uint32_t SHADOW_LOAD_EN : 1;
     eEN EN : 1;
-  } bits;          // Bit-field struct (auto-filling reserved gaps)
+  } bits;
   
   // Full 32-bit register value.
   uint32_t value;
@@ -1515,15 +1490,13 @@ union CTRLDESCL4_5 {
 //
 union CTRLDESCL4_6 {
   
-  // Enum definitions.
-  
   // Bit field definition.
   struct {
     uint32_t BCLR_B : 8;
     uint32_t BCLR_G : 8;
     uint32_t BCLR_R : 8;
     uint32_t _reserved_end : 8;
-  } bits;          // Bit-field struct (auto-filling reserved gaps)
+  } bits;
   
   // Full 32-bit register value.
   uint32_t value;
@@ -1537,15 +1510,13 @@ union CTRLDESCL4_6 {
 //
 union CTRLDESCL5_1 {
   
-  // Enum definitions.
-  
   // Bit field definition.
   struct {
     uint32_t WIDTH : 12;
     uint32_t _reserved_1 : 4;
     uint32_t HEIGHT : 12;
     uint32_t _reserved_end : 4;
-  } bits;          // Bit-field struct (auto-filling reserved gaps)
+  } bits;
   
   // Full 32-bit register value.
   uint32_t value;
@@ -1559,15 +1530,13 @@ union CTRLDESCL5_1 {
 //
 union CTRLDESCL5_2 {
   
-  // Enum definitions.
-  
   // Bit field definition.
   struct {
     uint32_t POSX : 12;
     uint32_t _reserved_1 : 4;
     uint32_t POSY : 12;
     uint32_t _reserved_end : 4;
-  } bits;          // Bit-field struct (auto-filling reserved gaps)
+  } bits;
   
   // Full 32-bit register value.
   uint32_t value;
@@ -1581,13 +1550,11 @@ union CTRLDESCL5_2 {
 //
 union CTRLDESCL5_3 {
   
-  // Enum definitions.
-  
   // Bit field definition.
   struct {
     uint32_t PITCH : 16;
     uint32_t _reserved_end : 16;
-  } bits;          // Bit-field struct (auto-filling reserved gaps)
+  } bits;
   
   // Full 32-bit register value.
   uint32_t value;
@@ -1601,12 +1568,10 @@ union CTRLDESCL5_3 {
 //
 union CTRLDESCL5_4 {
   
-  // Enum definitions.
-  
   // Bit field definition.
   struct {
     uint32_t ADDR : 32;
-  } bits;          // Bit-field struct (auto-filling reserved gaps)
+  } bits;
   
   // Full 32-bit register value.
   uint32_t value;
@@ -1620,39 +1585,44 @@ union CTRLDESCL5_4 {
 //
 union CTRLDESCL5_5 {
   
-  // Enum definitions.
   enum class eAB_MODE : uint32_t {
     eAB_MODE_0 = 0, // No alpha Blending (The SAFETY_EN bit need set to 1)
     eAB_MODE_1 = 1, // Blend with global ALPHA
     eAB_MODE_2 = 2, // Blend with embedded ALPHA
     eAB_MODE_3 = 3, // Blend with PoterDuff enable
   };
+  
   enum class ePD_FACTOR_MODE : uint32_t {
     ePD_FACTOR_MODE_0 = 0, // Using 1
     ePD_FACTOR_MODE_1 = 1, // Using 0
     ePD_FACTOR_MODE_2 = 2, // Using straight alpha
     ePD_FACTOR_MODE_3 = 3, // Using inverse alpha
   };
+  
   enum class ePD_GLOBAL_ALPHA_MODE : uint32_t {
     ePD_GLOBAL_ALPHA_MODE_0 = 0, // Using global alpha
     ePD_GLOBAL_ALPHA_MODE_1 = 1, // Using local alpha
     ePD_GLOBAL_ALPHA_MODE_2 = 2, // Using scaled alpha
     ePD_GLOBAL_ALPHA_MODE_3 = 3, // Using scaled alpha
   };
+  
   enum class ePD_ALPHA_MODE : uint32_t {
     ePD_ALPHA_MODE_0 = 0, // Straight mode for Porter Duff alpha
     ePD_ALPHA_MODE_1 = 1, // Inversed mode for Porter Duff alpha
   };
+  
   enum class ePD_COLOR_MODE : uint32_t {
     ePD_COLOR_MODE_0 = 0, // Straight mode for Porter Duff color
     ePD_COLOR_MODE_1 = 1, // Inversed mode for Porter Duff color
   };
+  
   enum class eYUV_FORMAT : uint32_t {
     eYUV_FORMAT_0 = 0, // The YVYU422 8bit sequence is U1,Y1,V1,Y2
     eYUV_FORMAT_1 = 1, // The YVYU422 8bit sequence is V1,Y1,U1,Y2
     eYUV_FORMAT_2 = 2, // The YVYU422 8bit sequence is Y1,U1,Y2,V1
     eYUV_FORMAT_3 = 3, // The YVYU422 8bit sequence is Y1,V1,Y2,U1
   };
+  
   enum class eBPP : uint32_t {
     eBPP_0 = 0, // 1 bpp
     eBPP_1 = 1, // 2 bpp
@@ -1666,10 +1636,12 @@ union CTRLDESCL5_5 {
     eBPP_9 = 9, // 32 bpp (ARGB8888)
     eBPP_10 = 10, // 32 bpp (ABGR8888)
   };
+  
   enum class eSAFETY_EN : uint32_t {
     eSAFETY_EN_0 = 0, // Safety Mode is disabled
     eSAFETY_EN_1 = 1, // Safety Mode is enabled for this layer
   };
+  
   enum class eEN : uint32_t {
     eEN_0 = 0, // OFF
     eEN_1 = 1, // ON
@@ -1691,7 +1663,7 @@ union CTRLDESCL5_5 {
     uint32_t _reserved_9 : 1;
     uint32_t SHADOW_LOAD_EN : 1;
     eEN EN : 1;
-  } bits;          // Bit-field struct (auto-filling reserved gaps)
+  } bits;
   
   // Full 32-bit register value.
   uint32_t value;
@@ -1705,15 +1677,13 @@ union CTRLDESCL5_5 {
 //
 union CTRLDESCL5_6 {
   
-  // Enum definitions.
-  
   // Bit field definition.
   struct {
     uint32_t BCLR_B : 8;
     uint32_t BCLR_G : 8;
     uint32_t BCLR_R : 8;
     uint32_t _reserved_end : 8;
-  } bits;          // Bit-field struct (auto-filling reserved gaps)
+  } bits;
   
   // Full 32-bit register value.
   uint32_t value;
@@ -1727,15 +1697,13 @@ union CTRLDESCL5_6 {
 //
 union CTRLDESCL6_1 {
   
-  // Enum definitions.
-  
   // Bit field definition.
   struct {
     uint32_t WIDTH : 12;
     uint32_t _reserved_1 : 4;
     uint32_t HEIGHT : 12;
     uint32_t _reserved_end : 4;
-  } bits;          // Bit-field struct (auto-filling reserved gaps)
+  } bits;
   
   // Full 32-bit register value.
   uint32_t value;
@@ -1749,15 +1717,13 @@ union CTRLDESCL6_1 {
 //
 union CTRLDESCL6_2 {
   
-  // Enum definitions.
-  
   // Bit field definition.
   struct {
     uint32_t POSX : 12;
     uint32_t _reserved_1 : 4;
     uint32_t POSY : 12;
     uint32_t _reserved_end : 4;
-  } bits;          // Bit-field struct (auto-filling reserved gaps)
+  } bits;
   
   // Full 32-bit register value.
   uint32_t value;
@@ -1771,13 +1737,11 @@ union CTRLDESCL6_2 {
 //
 union CTRLDESCL6_3 {
   
-  // Enum definitions.
-  
   // Bit field definition.
   struct {
     uint32_t PITCH : 16;
     uint32_t _reserved_end : 16;
-  } bits;          // Bit-field struct (auto-filling reserved gaps)
+  } bits;
   
   // Full 32-bit register value.
   uint32_t value;
@@ -1791,12 +1755,10 @@ union CTRLDESCL6_3 {
 //
 union CTRLDESCL6_4 {
   
-  // Enum definitions.
-  
   // Bit field definition.
   struct {
     uint32_t ADDR : 32;
-  } bits;          // Bit-field struct (auto-filling reserved gaps)
+  } bits;
   
   // Full 32-bit register value.
   uint32_t value;
@@ -1810,39 +1772,44 @@ union CTRLDESCL6_4 {
 //
 union CTRLDESCL6_5 {
   
-  // Enum definitions.
   enum class eAB_MODE : uint32_t {
     eAB_MODE_0 = 0, // No alpha Blending (The SAFETY_EN bit need set to 1)
     eAB_MODE_1 = 1, // Blend with global ALPHA
     eAB_MODE_2 = 2, // Blend with embedded ALPHA
     eAB_MODE_3 = 3, // Blend with PoterDuff enable
   };
+  
   enum class ePD_FACTOR_MODE : uint32_t {
     ePD_FACTOR_MODE_0 = 0, // Using 1
     ePD_FACTOR_MODE_1 = 1, // Using 0
     ePD_FACTOR_MODE_2 = 2, // Using straight alpha
     ePD_FACTOR_MODE_3 = 3, // Using inverse alpha
   };
+  
   enum class ePD_GLOBAL_ALPHA_MODE : uint32_t {
     ePD_GLOBAL_ALPHA_MODE_0 = 0, // Using global alpha
     ePD_GLOBAL_ALPHA_MODE_1 = 1, // Using local alpha
     ePD_GLOBAL_ALPHA_MODE_2 = 2, // Using scaled alpha
     ePD_GLOBAL_ALPHA_MODE_3 = 3, // Using scaled alpha
   };
+  
   enum class ePD_ALPHA_MODE : uint32_t {
     ePD_ALPHA_MODE_0 = 0, // Straight mode for Porter Duff alpha
     ePD_ALPHA_MODE_1 = 1, // Inversed mode for Porter Duff alpha
   };
+  
   enum class ePD_COLOR_MODE : uint32_t {
     ePD_COLOR_MODE_0 = 0, // Straight mode for Porter Duff color
     ePD_COLOR_MODE_1 = 1, // Inversed mode for Porter Duff color
   };
+  
   enum class eYUV_FORMAT : uint32_t {
     eYUV_FORMAT_0 = 0, // The YVYU422 8bit sequence is U1,Y1,V1,Y2
     eYUV_FORMAT_1 = 1, // The YVYU422 8bit sequence is V1,Y1,U1,Y2
     eYUV_FORMAT_2 = 2, // The YVYU422 8bit sequence is Y1,U1,Y2,V1
     eYUV_FORMAT_3 = 3, // The YVYU422 8bit sequence is Y1,V1,Y2,U1
   };
+  
   enum class eBPP : uint32_t {
     eBPP_0 = 0, // 1 bpp
     eBPP_1 = 1, // 2 bpp
@@ -1856,10 +1823,12 @@ union CTRLDESCL6_5 {
     eBPP_9 = 9, // 32 bpp (ARGB8888)
     eBPP_10 = 10, // 32 bpp (ABGR8888)
   };
+  
   enum class eSAFETY_EN : uint32_t {
     eSAFETY_EN_0 = 0, // Safety Mode is disabled
     eSAFETY_EN_1 = 1, // Safety Mode is enabled for this layer
   };
+  
   enum class eEN : uint32_t {
     eEN_0 = 0, // OFF
     eEN_1 = 1, // ON
@@ -1881,7 +1850,7 @@ union CTRLDESCL6_5 {
     uint32_t _reserved_9 : 1;
     uint32_t SHADOW_LOAD_EN : 1;
     eEN EN : 1;
-  } bits;          // Bit-field struct (auto-filling reserved gaps)
+  } bits;
   
   // Full 32-bit register value.
   uint32_t value;
@@ -1895,15 +1864,13 @@ union CTRLDESCL6_5 {
 //
 union CTRLDESCL6_6 {
   
-  // Enum definitions.
-  
   // Bit field definition.
   struct {
     uint32_t BCLR_B : 8;
     uint32_t BCLR_G : 8;
     uint32_t BCLR_R : 8;
     uint32_t _reserved_end : 8;
-  } bits;          // Bit-field struct (auto-filling reserved gaps)
+  } bits;
   
   // Full 32-bit register value.
   uint32_t value;
@@ -1917,15 +1884,13 @@ union CTRLDESCL6_6 {
 //
 union CTRLDESCL7_1 {
   
-  // Enum definitions.
-  
   // Bit field definition.
   struct {
     uint32_t WIDTH : 12;
     uint32_t _reserved_1 : 4;
     uint32_t HEIGHT : 12;
     uint32_t _reserved_end : 4;
-  } bits;          // Bit-field struct (auto-filling reserved gaps)
+  } bits;
   
   // Full 32-bit register value.
   uint32_t value;
@@ -1939,15 +1904,13 @@ union CTRLDESCL7_1 {
 //
 union CTRLDESCL7_2 {
   
-  // Enum definitions.
-  
   // Bit field definition.
   struct {
     uint32_t POSX : 12;
     uint32_t _reserved_1 : 4;
     uint32_t POSY : 12;
     uint32_t _reserved_end : 4;
-  } bits;          // Bit-field struct (auto-filling reserved gaps)
+  } bits;
   
   // Full 32-bit register value.
   uint32_t value;
@@ -1961,13 +1924,11 @@ union CTRLDESCL7_2 {
 //
 union CTRLDESCL7_3 {
   
-  // Enum definitions.
-  
   // Bit field definition.
   struct {
     uint32_t PITCH : 16;
     uint32_t _reserved_end : 16;
-  } bits;          // Bit-field struct (auto-filling reserved gaps)
+  } bits;
   
   // Full 32-bit register value.
   uint32_t value;
@@ -1981,12 +1942,10 @@ union CTRLDESCL7_3 {
 //
 union CTRLDESCL7_4 {
   
-  // Enum definitions.
-  
   // Bit field definition.
   struct {
     uint32_t ADDR : 32;
-  } bits;          // Bit-field struct (auto-filling reserved gaps)
+  } bits;
   
   // Full 32-bit register value.
   uint32_t value;
@@ -2000,39 +1959,44 @@ union CTRLDESCL7_4 {
 //
 union CTRLDESCL7_5 {
   
-  // Enum definitions.
   enum class eAB_MODE : uint32_t {
     eAB_MODE_0 = 0, // No alpha Blending (The SAFETY_EN bit need set to 1)
     eAB_MODE_1 = 1, // Blend with global ALPHA
     eAB_MODE_2 = 2, // Blend with embedded ALPHA
     eAB_MODE_3 = 3, // Blend with PoterDuff enable
   };
+  
   enum class ePD_FACTOR_MODE : uint32_t {
     ePD_FACTOR_MODE_0 = 0, // Using 1
     ePD_FACTOR_MODE_1 = 1, // Using 0
     ePD_FACTOR_MODE_2 = 2, // Using straight alpha
     ePD_FACTOR_MODE_3 = 3, // Using inverse alpha
   };
+  
   enum class ePD_GLOBAL_ALPHA_MODE : uint32_t {
     ePD_GLOBAL_ALPHA_MODE_0 = 0, // Using global alpha
     ePD_GLOBAL_ALPHA_MODE_1 = 1, // Using local alpha
     ePD_GLOBAL_ALPHA_MODE_2 = 2, // Using scaled alpha
     ePD_GLOBAL_ALPHA_MODE_3 = 3, // Using scaled alpha
   };
+  
   enum class ePD_ALPHA_MODE : uint32_t {
     ePD_ALPHA_MODE_0 = 0, // Straight mode for Porter Duff alpha
     ePD_ALPHA_MODE_1 = 1, // Inversed mode for Porter Duff alpha
   };
+  
   enum class ePD_COLOR_MODE : uint32_t {
     ePD_COLOR_MODE_0 = 0, // Straight mode for Porter Duff color
     ePD_COLOR_MODE_1 = 1, // Inversed mode for Porter Duff color
   };
+  
   enum class eYUV_FORMAT : uint32_t {
     eYUV_FORMAT_0 = 0, // The YVYU422 8bit sequence is U1,Y1,V1,Y2
     eYUV_FORMAT_1 = 1, // The YVYU422 8bit sequence is V1,Y1,U1,Y2
     eYUV_FORMAT_2 = 2, // The YVYU422 8bit sequence is Y1,U1,Y2,V1
     eYUV_FORMAT_3 = 3, // The YVYU422 8bit sequence is Y1,V1,Y2,U1
   };
+  
   enum class eBPP : uint32_t {
     eBPP_0 = 0, // 1 bpp
     eBPP_1 = 1, // 2 bpp
@@ -2046,10 +2010,12 @@ union CTRLDESCL7_5 {
     eBPP_9 = 9, // 32 bpp (ARGB8888)
     eBPP_10 = 10, // 32 bpp (ABGR8888)
   };
+  
   enum class eSAFETY_EN : uint32_t {
     eSAFETY_EN_0 = 0, // Safety Mode is disabled
     eSAFETY_EN_1 = 1, // Safety Mode is enabled for this layer
   };
+  
   enum class eEN : uint32_t {
     eEN_0 = 0, // OFF
     eEN_1 = 1, // ON
@@ -2071,7 +2037,7 @@ union CTRLDESCL7_5 {
     uint32_t _reserved_9 : 1;
     uint32_t SHADOW_LOAD_EN : 1;
     eEN EN : 1;
-  } bits;          // Bit-field struct (auto-filling reserved gaps)
+  } bits;
   
   // Full 32-bit register value.
   uint32_t value;
@@ -2085,15 +2051,13 @@ union CTRLDESCL7_5 {
 //
 union CTRLDESCL7_6 {
   
-  // Enum definitions.
-  
   // Bit field definition.
   struct {
     uint32_t BCLR_B : 8;
     uint32_t BCLR_G : 8;
     uint32_t BCLR_R : 8;
     uint32_t _reserved_end : 8;
-  } bits;          // Bit-field struct (auto-filling reserved gaps)
+  } bits;
   
   // Full 32-bit register value.
   uint32_t value;
@@ -2107,15 +2071,13 @@ union CTRLDESCL7_6 {
 //
 union CLUT_LOAD {
   
-  // Enum definitions.
-  
   // Bit field definition.
   struct {
     uint32_t CLUT_UPDATE_EN : 1;
     uint32_t _reserved_1 : 3;
     uint32_t SEL_CLUT_NUM : 3;
     uint32_t _reserved_end : 25;
-  } bits;          // Bit-field struct (auto-filling reserved gaps)
+  } bits;
   
   // Full 32-bit register value.
   uint32_t value;

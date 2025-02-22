@@ -15,19 +15,21 @@ namespace nSRAM {
 //
 union CTRL {
   
-  // Enum definitions.
   enum class eRAM_RD_EN : uint32_t {
     eDISABLE = 0, // Disable read access
     eENABLE = 1, // Enable read access
   };
+  
   enum class eRAM_WR_EN : uint32_t {
     eDISABLE = 0, // Disable write access
     eENABLE = 1, // Enable write access
   };
+  
   enum class eTAMPER_BLOCK_EN : uint32_t {
     eACCESS = 0, // Allow R/W access to secure RAM when tamper is detected
     eBLOCK = 1, // Block R/W access to secure RAM when tamper is detected
   };
+  
   enum class eTAMPER_PWR_OFF_EN : uint32_t {
     eOFF = 0, // Disable the turn off function when tamper is detected
     eON = 1, // Turn off power for all secure RAM banks when tamper is detected
@@ -43,7 +45,7 @@ union CTRL {
     uint32_t _reserved_5 : 8;
     uint32_t LOCK_BIT : 8;
     uint32_t _reserved_end : 8;
-  } bits;          // Bit-field struct (auto-filling reserved gaps)
+  } bits;
   
   // Full 32-bit register value.
   uint32_t value;

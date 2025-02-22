@@ -15,12 +15,10 @@ namespace nDSI_HOST_APB_PKT_IF {
 //
 union TX_PAYLOAD {
   
-  // Enum definitions.
-  
   // Bit field definition.
   struct {
     uint32_t PAYLOAD : 32;
-  } bits;          // Bit-field struct (auto-filling reserved gaps)
+  } bits;
   
   // Full 32-bit register value.
   uint32_t value;
@@ -34,13 +32,11 @@ union TX_PAYLOAD {
 //
 union PKT_CONTROL {
   
-  // Enum definitions.
-  
   // Bit field definition.
   struct {
     uint32_t CTRL : 27;
     uint32_t _reserved_end : 5;
-  } bits;          // Bit-field struct (auto-filling reserved gaps)
+  } bits;
   
   // Full 32-bit register value.
   uint32_t value;
@@ -54,7 +50,6 @@ union PKT_CONTROL {
 //
 union SEND_PACKET {
   
-  // Enum definitions.
   enum class eTX_SEND : uint32_t {
     eTX_SEND_0 = 0, // Packet not sent
     eTX_SEND_1 = 1, // Packet is sent
@@ -64,7 +59,7 @@ union SEND_PACKET {
   struct {
     eTX_SEND TX_SEND : 1;
     uint32_t _reserved_end : 31;
-  } bits;          // Bit-field struct (auto-filling reserved gaps)
+  } bits;
   
   // Full 32-bit register value.
   uint32_t value;
@@ -78,13 +73,11 @@ union SEND_PACKET {
 //
 union PKT_STATUS {
   
-  // Enum definitions.
-  
   // Bit field definition.
   struct {
     uint32_t STATUS : 9;
     uint32_t _reserved_end : 23;
-  } bits;          // Bit-field struct (auto-filling reserved gaps)
+  } bits;
   
   // Full 32-bit register value.
   uint32_t value;
@@ -98,13 +91,11 @@ union PKT_STATUS {
 //
 union PKT_FIFO_WR_LEVEL {
   
-  // Enum definitions.
-  
   // Bit field definition.
   struct {
     uint32_t WR : 16;
     uint32_t _reserved_end : 16;
-  } bits;          // Bit-field struct (auto-filling reserved gaps)
+  } bits;
   
   // Full 32-bit register value.
   uint32_t value;
@@ -118,13 +109,11 @@ union PKT_FIFO_WR_LEVEL {
 //
 union PKT_FIFO_RD_LEVEL {
   
-  // Enum definitions.
-  
   // Bit field definition.
   struct {
     uint32_t RD : 16;
     uint32_t _reserved_end : 16;
-  } bits;          // Bit-field struct (auto-filling reserved gaps)
+  } bits;
   
   // Full 32-bit register value.
   uint32_t value;
@@ -138,12 +127,10 @@ union PKT_FIFO_RD_LEVEL {
 //
 union PKT_RX_PAYLOAD {
   
-  // Enum definitions.
-  
   // Bit field definition.
   struct {
     uint32_t PAYLOAD : 32;
-  } bits;          // Bit-field struct (auto-filling reserved gaps)
+  } bits;
   
   // Full 32-bit register value.
   uint32_t value;
@@ -157,13 +144,11 @@ union PKT_RX_PAYLOAD {
 //
 union PKT_RX_PKT_HEADER {
   
-  // Enum definitions.
-  
   // Bit field definition.
   struct {
     uint32_t HEADER : 24;
     uint32_t _reserved_end : 8;
-  } bits;          // Bit-field struct (auto-filling reserved gaps)
+  } bits;
   
   // Full 32-bit register value.
   uint32_t value;
@@ -177,12 +162,10 @@ union PKT_RX_PKT_HEADER {
 //
 union IRQ_STATUS {
   
-  // Enum definitions.
-  
   // Bit field definition.
   struct {
     uint32_t STATUS : 32;
-  } bits;          // Bit-field struct (auto-filling reserved gaps)
+  } bits;
   
   // Full 32-bit register value.
   uint32_t value;
@@ -196,13 +179,11 @@ union IRQ_STATUS {
 //
 union IRQ_STATUS2 {
   
-  // Enum definitions.
-  
   // Bit field definition.
   struct {
     uint32_t STATUS2 : 3;
     uint32_t _reserved_end : 29;
-  } bits;          // Bit-field struct (auto-filling reserved gaps)
+  } bits;
   
   // Full 32-bit register value.
   uint32_t value;
@@ -216,12 +197,10 @@ union IRQ_STATUS2 {
 //
 union IRQ_MASK {
   
-  // Enum definitions.
-  
   // Bit field definition.
   struct {
     uint32_t MASK : 32;
-  } bits;          // Bit-field struct (auto-filling reserved gaps)
+  } bits;
   
   // Full 32-bit register value.
   uint32_t value;
@@ -235,13 +214,11 @@ union IRQ_MASK {
 //
 union IRQ_MASK2 {
   
-  // Enum definitions.
-  
   // Bit field definition.
   struct {
     uint32_t MASK2 : 3;
     uint32_t _reserved_end : 29;
-  } bits;          // Bit-field struct (auto-filling reserved gaps)
+  } bits;
   
   // Full 32-bit register value.
   uint32_t value;

@@ -15,12 +15,10 @@ namespace nANADIG_MISC {
 //
 union MISC_DIFPROG {
   
-  // Enum definitions.
-  
   // Bit field definition.
   struct {
     uint32_t CHIPID : 32;
-  } bits;          // Bit-field struct (auto-filling reserved gaps)
+  } bits;
   
   // Full 32-bit register value.
   uint32_t value;
@@ -34,15 +32,13 @@ union MISC_DIFPROG {
 //
 union VDDSOC_AI_CTRL {
   
-  // Enum definitions.
-  
   // Bit field definition.
   struct {
     uint32_t VDDSOC_AI_ADDR : 8;
     uint32_t _reserved_1 : 8;
     uint32_t VDDSOC_AIRWB : 1;
     uint32_t _reserved_end : 15;
-  } bits;          // Bit-field struct (auto-filling reserved gaps)
+  } bits;
   
   // Full 32-bit register value.
   uint32_t value;
@@ -56,12 +52,10 @@ union VDDSOC_AI_CTRL {
 //
 union VDDSOC_AI_WDATA {
   
-  // Enum definitions.
-  
   // Bit field definition.
   struct {
     uint32_t VDDSOC_AI_WDATA : 32;
-  } bits;          // Bit-field struct (auto-filling reserved gaps)
+  } bits;
   
   // Full 32-bit register value.
   uint32_t value;
@@ -75,12 +69,10 @@ union VDDSOC_AI_WDATA {
 //
 union VDDSOC_AI_RDATA {
   
-  // Enum definitions.
-  
   // Bit field definition.
   struct {
     uint32_t VDDSOC_AI_RDATA : 32;
-  } bits;          // Bit-field struct (auto-filling reserved gaps)
+  } bits;
   
   // Full 32-bit register value.
   uint32_t value;
@@ -94,8 +86,6 @@ union VDDSOC_AI_RDATA {
 //
 union VDDSOC2PLL_AI_CTRL_1G {
   
-  // Enum definitions.
-  
   // Bit field definition.
   struct {
     uint32_t VDDSOC2PLL_AIADDR_1G : 8;
@@ -104,7 +94,7 @@ union VDDSOC2PLL_AI_CTRL_1G {
     uint32_t _reserved_3 : 6;
     uint32_t VDDSOC2PLL_AIRWB_1G : 1;
     uint32_t _reserved_end : 15;
-  } bits;          // Bit-field struct (auto-filling reserved gaps)
+  } bits;
   
   // Full 32-bit register value.
   uint32_t value;
@@ -118,12 +108,10 @@ union VDDSOC2PLL_AI_CTRL_1G {
 //
 union VDDSOC2PLL_AI_WDATA_1G {
   
-  // Enum definitions.
-  
   // Bit field definition.
   struct {
     uint32_t VDDSOC2PLL_AI_WDATA_1G : 32;
-  } bits;          // Bit-field struct (auto-filling reserved gaps)
+  } bits;
   
   // Full 32-bit register value.
   uint32_t value;
@@ -137,12 +125,10 @@ union VDDSOC2PLL_AI_WDATA_1G {
 //
 union VDDSOC2PLL_AI_RDATA_1G {
   
-  // Enum definitions.
-  
   // Bit field definition.
   struct {
     uint32_t VDDSOC2PLL_AI_RDATA_1G : 32;
-  } bits;          // Bit-field struct (auto-filling reserved gaps)
+  } bits;
   
   // Full 32-bit register value.
   uint32_t value;
@@ -156,8 +142,6 @@ union VDDSOC2PLL_AI_RDATA_1G {
 //
 union VDDSOC2PLL_AI_CTRL_AUDIO {
   
-  // Enum definitions.
-  
   // Bit field definition.
   struct {
     uint32_t VDDSOC2PLL_AI_ADDR_AUDIO : 8;
@@ -166,7 +150,7 @@ union VDDSOC2PLL_AI_CTRL_AUDIO {
     uint32_t _reserved_3 : 6;
     uint32_t VDDSOC2PLL_AIRWB_AUDIO : 1;
     uint32_t _reserved_end : 15;
-  } bits;          // Bit-field struct (auto-filling reserved gaps)
+  } bits;
   
   // Full 32-bit register value.
   uint32_t value;
@@ -180,12 +164,10 @@ union VDDSOC2PLL_AI_CTRL_AUDIO {
 //
 union VDDSOC2PLL_AI_WDATA_AUDIO {
   
-  // Enum definitions.
-  
   // Bit field definition.
   struct {
     uint32_t VDDSOC2PLL_AI_WDATA_AUDIO : 32;
-  } bits;          // Bit-field struct (auto-filling reserved gaps)
+  } bits;
   
   // Full 32-bit register value.
   uint32_t value;
@@ -199,12 +181,10 @@ union VDDSOC2PLL_AI_WDATA_AUDIO {
 //
 union VDDSOC2PLL_AI_RDATA_AUDIO {
   
-  // Enum definitions.
-  
   // Bit field definition.
   struct {
     uint32_t VDDSOC2PLL_AI_RDATA_AUDIO : 32;
-  } bits;          // Bit-field struct (auto-filling reserved gaps)
+  } bits;
   
   // Full 32-bit register value.
   uint32_t value;
@@ -218,8 +198,6 @@ union VDDSOC2PLL_AI_RDATA_AUDIO {
 //
 union VDDSOC2PLL_AI_CTRL_VIDEO {
   
-  // Enum definitions.
-  
   // Bit field definition.
   struct {
     uint32_t VDDSOC2PLL_AIADDR_VIDEO : 8;
@@ -228,7 +206,7 @@ union VDDSOC2PLL_AI_CTRL_VIDEO {
     uint32_t _reserved_3 : 6;
     uint32_t VDDSOC2PLL_AIRWB_VIDEO : 1;
     uint32_t _reserved_end : 15;
-  } bits;          // Bit-field struct (auto-filling reserved gaps)
+  } bits;
   
   // Full 32-bit register value.
   uint32_t value;
@@ -242,12 +220,10 @@ union VDDSOC2PLL_AI_CTRL_VIDEO {
 //
 union VDDSOC2PLL_AI_WDATA_VIDEO {
   
-  // Enum definitions.
-  
   // Bit field definition.
   struct {
     uint32_t VDDSOC2PLL_AI_WDATA_VIDEO : 32;
-  } bits;          // Bit-field struct (auto-filling reserved gaps)
+  } bits;
   
   // Full 32-bit register value.
   uint32_t value;
@@ -261,12 +237,10 @@ union VDDSOC2PLL_AI_WDATA_VIDEO {
 //
 union VDDSOC2PLL_AI_RDATA_VIDEO {
   
-  // Enum definitions.
-  
   // Bit field definition.
   struct {
     uint32_t VDDSOC2PLL_AI_RDATA_VIDEO : 32;
-  } bits;          // Bit-field struct (auto-filling reserved gaps)
+  } bits;
   
   // Full 32-bit register value.
   uint32_t value;
@@ -280,15 +254,13 @@ union VDDSOC2PLL_AI_RDATA_VIDEO {
 //
 union VDDLPSR_AI_CTRL {
   
-  // Enum definitions.
-  
   // Bit field definition.
   struct {
     uint32_t VDDLPSR_AI_ADDR : 8;
     uint32_t _reserved_1 : 8;
     uint32_t VDDLPSR_AIRWB : 1;
     uint32_t _reserved_end : 15;
-  } bits;          // Bit-field struct (auto-filling reserved gaps)
+  } bits;
   
   // Full 32-bit register value.
   uint32_t value;
@@ -302,12 +274,10 @@ union VDDLPSR_AI_CTRL {
 //
 union VDDLPSR_AI_WDATA {
   
-  // Enum definitions.
-  
   // Bit field definition.
   struct {
     uint32_t VDDLPSR_AI_WDATA : 32;
-  } bits;          // Bit-field struct (auto-filling reserved gaps)
+  } bits;
   
   // Full 32-bit register value.
   uint32_t value;
@@ -321,12 +291,10 @@ union VDDLPSR_AI_WDATA {
 //
 union VDDLPSR_AI_RDATA_REFTOP {
   
-  // Enum definitions.
-  
   // Bit field definition.
   struct {
     uint32_t VDDLPSR_AI_RDATA_REFTOP : 32;
-  } bits;          // Bit-field struct (auto-filling reserved gaps)
+  } bits;
   
   // Full 32-bit register value.
   uint32_t value;
@@ -340,12 +308,10 @@ union VDDLPSR_AI_RDATA_REFTOP {
 //
 union VDDLPSR_AI_RDATA_TMPSNS {
   
-  // Enum definitions.
-  
   // Bit field definition.
   struct {
     uint32_t VDDLPSR_AI_RDATA_TMPSNS : 32;
-  } bits;          // Bit-field struct (auto-filling reserved gaps)
+  } bits;
   
   // Full 32-bit register value.
   uint32_t value;
@@ -359,8 +325,6 @@ union VDDLPSR_AI_RDATA_TMPSNS {
 //
 union VDDLPSR_AI400M_CTRL {
   
-  // Enum definitions.
-  
   // Bit field definition.
   struct {
     uint32_t VDDLPSR_AI400M_ADDR : 8;
@@ -369,7 +333,7 @@ union VDDLPSR_AI400M_CTRL {
     uint32_t _reserved_3 : 6;
     uint32_t VDDLPSR_AI400M_RWB : 1;
     uint32_t _reserved_end : 15;
-  } bits;          // Bit-field struct (auto-filling reserved gaps)
+  } bits;
   
   // Full 32-bit register value.
   uint32_t value;
@@ -383,12 +347,10 @@ union VDDLPSR_AI400M_CTRL {
 //
 union VDDLPSR_AI400M_WDATA {
   
-  // Enum definitions.
-  
   // Bit field definition.
   struct {
     uint32_t VDDLPSR_AI400M_WDATA : 32;
-  } bits;          // Bit-field struct (auto-filling reserved gaps)
+  } bits;
   
   // Full 32-bit register value.
   uint32_t value;
@@ -402,12 +364,10 @@ union VDDLPSR_AI400M_WDATA {
 //
 union VDDLPSR_AI400M_RDATA {
   
-  // Enum definitions.
-  
   // Bit field definition.
   struct {
     uint32_t VDDLPSR_AI400M_RDATA : 32;
-  } bits;          // Bit-field struct (auto-filling reserved gaps)
+  } bits;
   
   // Full 32-bit register value.
   uint32_t value;

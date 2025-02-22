@@ -15,59 +15,71 @@ namespace nIEE__IEE_RT1170 {
 //
 union GCFG {
   
-  // Enum definitions.
   enum class eRL0 : uint32_t {
     eRL0_0 = 0, // Unlocked.
     eRL0_1 = 1, // Key, Offset and Attribute registers are locked.
   };
+  
   enum class eRL1 : uint32_t {
     eRL1_0 = 0, // Unlocked.
     eRL1_1 = 1, // Key, Offset and Attribute registers are locked.
   };
+  
   enum class eRL2 : uint32_t {
     eRL2_0 = 0, // Unlocked.
     eRL2_1 = 1, // Key, Offset and Attribute registers are locked.
   };
+  
   enum class eRL3 : uint32_t {
     eRL3_0 = 0, // Unlocked.
     eRL3_1 = 1, // Key, Offset and Attribute registers are locked.
   };
+  
   enum class eRL4 : uint32_t {
     eRL4_0 = 0, // Unlocked.
     eRL4_1 = 1, // Key, Offset and Attribute registers are locked.
   };
+  
   enum class eRL5 : uint32_t {
     eRL5_0 = 0, // Unlocked.
     eRL5_1 = 1, // Key, Offset and Attribute registers are locked.
   };
+  
   enum class eRL6 : uint32_t {
     eRL6_0 = 0, // Unlocked.
     eRL6_1 = 1, // Key, Offset and Attribute registers are locked.
   };
+  
   enum class eRL7 : uint32_t {
     eRL7_0 = 0, // Unlocked.
     eRL7_1 = 1, // Key, Offset and Attribute registers are locked.
   };
+  
   enum class eTME : uint32_t {
     eTME_0 = 0, // Disabled.
     eTME_1 = 1, // Enabled.
   };
+  
   enum class eTMD : uint32_t {
     eTMD_0 = 0, // Test mode is usable.
     eTMD_1 = 1, // Test mode is disabled.
   };
+  
   enum class eKEY_RD_DIS : uint32_t {
     eKEY_RD_DIS_0 = 0, // Key read enabled. Reading the key registers is allowed.
     eKEY_RD_DIS_1 = 1, // Key read disabled. Reading the key registers is disabled.
   };
+  
   enum class eMON_EN : uint32_t {
     eMON_EN_0 = 0, // Performance monitoring disabled. Writing of the performance counter registers is enabled.
     eMON_EN_1 = 1, // Performance monitoring enabled. Writing of the performance counter registers is disabled.
   };
+  
   enum class eCLR_MON : uint32_t {
     eCLR_MON_0 = 0, // Do not reset.
     eCLR_MON_1 = 1, // Reset performance counters.
   };
+  
   enum class eRST : uint32_t {
     eRST_0 = 0, // Do Not Reset.
     eRST_1 = 1, // Reset IEE.
@@ -93,7 +105,7 @@ union GCFG {
     eCLR_MON CLR_MON : 1;
     uint32_t _reserved_13 : 1;
     eRST RST : 1;
-  } bits;          // Bit-field struct (auto-filling reserved gaps)
+  } bits;
   
   // Full 32-bit register value.
   uint32_t value;
@@ -107,11 +119,11 @@ union GCFG {
 //
 union STA {
   
-  // Enum definitions.
   enum class eDSR : uint32_t {
     eDSR_0 = 0, // No seed request present
     eDSR_1 = 1, // Seed request present
   };
+  
   enum class eAFD : uint32_t {
     eAFD_0 = 0, // No fault detected
     eAFD_1 = 1, // Fault detected
@@ -123,7 +135,7 @@ union STA {
     uint32_t _reserved_1 : 3;
     eAFD AFD : 1;
     uint32_t _reserved_end : 27;
-  } bits;          // Bit-field struct (auto-filling reserved gaps)
+  } bits;
   
   // Full 32-bit register value.
   uint32_t value;
@@ -137,23 +149,26 @@ union STA {
 //
 union TSTMD {
   
-  // Enum definitions.
   enum class eTMRDY : uint32_t {
     eTMRDY_0 = 0, // Not Ready.
     eTMRDY_1 = 1, // Ready.
   };
+  
   enum class eTMR : uint32_t {
     eTMR_0 = 0, // Not running. May be written if IEE_GCFG[TME] = 1
     eTMR_1 = 1, // Run AES Test until TMDONE is indicated.
   };
+  
   enum class eTMENCR : uint32_t {
     eTMENCR_0 = 0, // AES Test mode will do decryption.
     eTMENCR_1 = 1, // AES Test mode will do encryption.
   };
+  
   enum class eTMCONT : uint32_t {
     eTMCONT_0 = 0, // Do not continue. This is the last block of data for AES.
     eTMCONT_1 = 1, // Continue. Do not initialize AES after this block.
   };
+  
   enum class eTMDONE : uint32_t {
     eTMDONE_0 = 0, // Not Done.
     eTMDONE_1 = 1, // Test Done.
@@ -169,7 +184,7 @@ union TSTMD {
     uint32_t _reserved_5 : 3;
     uint32_t TMLEN : 4;
     uint32_t _reserved_end : 20;
-  } bits;          // Bit-field struct (auto-filling reserved gaps)
+  } bits;
   
   // Full 32-bit register value.
   uint32_t value;
@@ -183,12 +198,10 @@ union TSTMD {
 //
 union DPAMS {
   
-  // Enum definitions.
-  
   // Bit field definition.
   struct {
     uint32_t DPAMS : 32;
-  } bits;          // Bit-field struct (auto-filling reserved gaps)
+  } bits;
   
   // Full 32-bit register value.
   uint32_t value;
@@ -202,13 +215,11 @@ union DPAMS {
 //
 union PC_S_LT {
   
-  // Enum definitions.
-  
   // Bit field definition.
   struct {
     uint32_t SW_LT : 16;
     uint32_t SR_LT : 16;
-  } bits;          // Bit-field struct (auto-filling reserved gaps)
+  } bits;
   
   // Full 32-bit register value.
   uint32_t value;
@@ -222,15 +233,13 @@ union PC_S_LT {
 //
 union PC_M_LT {
   
-  // Enum definitions.
-  
   // Bit field definition.
   struct {
     uint32_t MW_LT : 12;
     uint32_t _reserved_1 : 4;
     uint32_t MR_LT : 12;
     uint32_t _reserved_end : 4;
-  } bits;          // Bit-field struct (auto-filling reserved gaps)
+  } bits;
   
   // Full 32-bit register value.
   uint32_t value;
@@ -244,12 +253,10 @@ union PC_M_LT {
 //
 union PC_BLK_ENC {
   
-  // Enum definitions.
-  
   // Bit field definition.
   struct {
     uint32_t BLK_ENC : 32;
-  } bits;          // Bit-field struct (auto-filling reserved gaps)
+  } bits;
   
   // Full 32-bit register value.
   uint32_t value;
@@ -263,12 +270,10 @@ union PC_BLK_ENC {
 //
 union PC_BLK_DEC {
   
-  // Enum definitions.
-  
   // Bit field definition.
   struct {
     uint32_t BLK_DEC : 32;
-  } bits;          // Bit-field struct (auto-filling reserved gaps)
+  } bits;
   
   // Full 32-bit register value.
   uint32_t value;
@@ -282,12 +287,10 @@ union PC_BLK_DEC {
 //
 union PC_SR_TRANS {
   
-  // Enum definitions.
-  
   // Bit field definition.
   struct {
     uint32_t SR_TRANS : 32;
-  } bits;          // Bit-field struct (auto-filling reserved gaps)
+  } bits;
   
   // Full 32-bit register value.
   uint32_t value;
@@ -301,12 +304,10 @@ union PC_SR_TRANS {
 //
 union PC_SW_TRANS {
   
-  // Enum definitions.
-  
   // Bit field definition.
   struct {
     uint32_t SW_TRANS : 32;
-  } bits;          // Bit-field struct (auto-filling reserved gaps)
+  } bits;
   
   // Full 32-bit register value.
   uint32_t value;
@@ -320,12 +321,10 @@ union PC_SW_TRANS {
 //
 union PC_MR_TRANS {
   
-  // Enum definitions.
-  
   // Bit field definition.
   struct {
     uint32_t MR_TRANS : 32;
-  } bits;          // Bit-field struct (auto-filling reserved gaps)
+  } bits;
   
   // Full 32-bit register value.
   uint32_t value;
@@ -339,12 +338,10 @@ union PC_MR_TRANS {
 //
 union PC_MW_TRANS {
   
-  // Enum definitions.
-  
   // Bit field definition.
   struct {
     uint32_t MW_TRANS : 32;
-  } bits;          // Bit-field struct (auto-filling reserved gaps)
+  } bits;
   
   // Full 32-bit register value.
   uint32_t value;
@@ -358,12 +355,10 @@ union PC_MW_TRANS {
 //
 union PC_M_MBR {
   
-  // Enum definitions.
-  
   // Bit field definition.
   struct {
     uint32_t M_MBR : 32;
-  } bits;          // Bit-field struct (auto-filling reserved gaps)
+  } bits;
   
   // Full 32-bit register value.
   uint32_t value;
@@ -377,13 +372,11 @@ union PC_M_MBR {
 //
 union PC_SR_TBC_U {
   
-  // Enum definitions.
-  
   // Bit field definition.
   struct {
     uint32_t SR_TBC : 16;
     uint32_t _reserved_end : 16;
-  } bits;          // Bit-field struct (auto-filling reserved gaps)
+  } bits;
   
   // Full 32-bit register value.
   uint32_t value;
@@ -397,12 +390,10 @@ union PC_SR_TBC_U {
 //
 union PC_SR_TBC_L {
   
-  // Enum definitions.
-  
   // Bit field definition.
   struct {
     uint32_t SR_TBC : 32;
-  } bits;          // Bit-field struct (auto-filling reserved gaps)
+  } bits;
   
   // Full 32-bit register value.
   uint32_t value;
@@ -416,13 +407,11 @@ union PC_SR_TBC_L {
 //
 union PC_SW_TBC_U {
   
-  // Enum definitions.
-  
   // Bit field definition.
   struct {
     uint32_t SW_TBC : 16;
     uint32_t _reserved_end : 16;
-  } bits;          // Bit-field struct (auto-filling reserved gaps)
+  } bits;
   
   // Full 32-bit register value.
   uint32_t value;
@@ -436,12 +425,10 @@ union PC_SW_TBC_U {
 //
 union PC_SW_TBC_L {
   
-  // Enum definitions.
-  
   // Bit field definition.
   struct {
     uint32_t SW_TBC : 32;
-  } bits;          // Bit-field struct (auto-filling reserved gaps)
+  } bits;
   
   // Full 32-bit register value.
   uint32_t value;
@@ -455,13 +442,11 @@ union PC_SW_TBC_L {
 //
 union PC_MR_TBC_U {
   
-  // Enum definitions.
-  
   // Bit field definition.
   struct {
     uint32_t MR_TBC : 16;
     uint32_t _reserved_end : 16;
-  } bits;          // Bit-field struct (auto-filling reserved gaps)
+  } bits;
   
   // Full 32-bit register value.
   uint32_t value;
@@ -475,13 +460,11 @@ union PC_MR_TBC_U {
 //
 union PC_MR_TBC_L {
   
-  // Enum definitions.
-  
   // Bit field definition.
   struct {
     uint32_t MR_TBC_LSB : 4;
     uint32_t MR_TBC : 28;
-  } bits;          // Bit-field struct (auto-filling reserved gaps)
+  } bits;
   
   // Full 32-bit register value.
   uint32_t value;
@@ -495,13 +478,11 @@ union PC_MR_TBC_L {
 //
 union PC_MW_TBC_U {
   
-  // Enum definitions.
-  
   // Bit field definition.
   struct {
     uint32_t MW_TBC : 16;
     uint32_t _reserved_end : 16;
-  } bits;          // Bit-field struct (auto-filling reserved gaps)
+  } bits;
   
   // Full 32-bit register value.
   uint32_t value;
@@ -515,13 +496,11 @@ union PC_MW_TBC_U {
 //
 union PC_MW_TBC_L {
   
-  // Enum definitions.
-  
   // Bit field definition.
   struct {
     uint32_t MW_TBC_LSB : 4;
     uint32_t MW_TBC : 28;
-  } bits;          // Bit-field struct (auto-filling reserved gaps)
+  } bits;
   
   // Full 32-bit register value.
   uint32_t value;
@@ -536,12 +515,10 @@ union PC_MW_TBC_L {
 //
 union PC_SR_TLGTT {
   
-  // Enum definitions.
-  
   // Bit field definition.
   struct {
     uint32_t SR_TLGTT : 32;
-  } bits;          // Bit-field struct (auto-filling reserved gaps)
+  } bits;
   
   // Full 32-bit register value.
   uint32_t value;
@@ -556,12 +533,10 @@ union PC_SR_TLGTT {
 //
 union PC_SW_TLGTT {
   
-  // Enum definitions.
-  
   // Bit field definition.
   struct {
     uint32_t SW_TLGTT : 32;
-  } bits;          // Bit-field struct (auto-filling reserved gaps)
+  } bits;
   
   // Full 32-bit register value.
   uint32_t value;
@@ -576,12 +551,10 @@ union PC_SW_TLGTT {
 //
 union PC_MR_TLGTT {
   
-  // Enum definitions.
-  
   // Bit field definition.
   struct {
     uint32_t MR_TLGTT : 32;
-  } bits;          // Bit-field struct (auto-filling reserved gaps)
+  } bits;
   
   // Full 32-bit register value.
   uint32_t value;
@@ -596,12 +569,10 @@ union PC_MR_TLGTT {
 //
 union PC_MW_TLGTT {
   
-  // Enum definitions.
-  
   // Bit field definition.
   struct {
     uint32_t MW_TGTT : 32;
-  } bits;          // Bit-field struct (auto-filling reserved gaps)
+  } bits;
   
   // Full 32-bit register value.
   uint32_t value;
@@ -615,13 +586,11 @@ union PC_MW_TLGTT {
 //
 union PC_SR_TLAT_U {
   
-  // Enum definitions.
-  
   // Bit field definition.
   struct {
     uint32_t SR_TLAT : 16;
     uint32_t _reserved_end : 16;
-  } bits;          // Bit-field struct (auto-filling reserved gaps)
+  } bits;
   
   // Full 32-bit register value.
   uint32_t value;
@@ -635,12 +604,10 @@ union PC_SR_TLAT_U {
 //
 union PC_SR_TLAT_L {
   
-  // Enum definitions.
-  
   // Bit field definition.
   struct {
     uint32_t SR_TLAT : 32;
-  } bits;          // Bit-field struct (auto-filling reserved gaps)
+  } bits;
   
   // Full 32-bit register value.
   uint32_t value;
@@ -654,13 +621,11 @@ union PC_SR_TLAT_L {
 //
 union PC_SW_TLAT_U {
   
-  // Enum definitions.
-  
   // Bit field definition.
   struct {
     uint32_t SW_TLAT : 16;
     uint32_t _reserved_end : 16;
-  } bits;          // Bit-field struct (auto-filling reserved gaps)
+  } bits;
   
   // Full 32-bit register value.
   uint32_t value;
@@ -674,12 +639,10 @@ union PC_SW_TLAT_U {
 //
 union PC_SW_TLAT_L {
   
-  // Enum definitions.
-  
   // Bit field definition.
   struct {
     uint32_t SW_TLAT : 32;
-  } bits;          // Bit-field struct (auto-filling reserved gaps)
+  } bits;
   
   // Full 32-bit register value.
   uint32_t value;
@@ -693,13 +656,11 @@ union PC_SW_TLAT_L {
 //
 union PC_MR_TLAT_U {
   
-  // Enum definitions.
-  
   // Bit field definition.
   struct {
     uint32_t MR_TLAT : 16;
     uint32_t _reserved_end : 16;
-  } bits;          // Bit-field struct (auto-filling reserved gaps)
+  } bits;
   
   // Full 32-bit register value.
   uint32_t value;
@@ -713,12 +674,10 @@ union PC_MR_TLAT_U {
 //
 union PC_MR_TLAT_L {
   
-  // Enum definitions.
-  
   // Bit field definition.
   struct {
     uint32_t MR_TLAT : 32;
-  } bits;          // Bit-field struct (auto-filling reserved gaps)
+  } bits;
   
   // Full 32-bit register value.
   uint32_t value;
@@ -732,13 +691,11 @@ union PC_MR_TLAT_L {
 //
 union PC_MW_TLAT_U {
   
-  // Enum definitions.
-  
   // Bit field definition.
   struct {
     uint32_t MW_TLAT : 16;
     uint32_t _reserved_end : 16;
-  } bits;          // Bit-field struct (auto-filling reserved gaps)
+  } bits;
   
   // Full 32-bit register value.
   uint32_t value;
@@ -752,12 +709,10 @@ union PC_MW_TLAT_U {
 //
 union PC_MW_TLAT_L {
   
-  // Enum definitions.
-  
   // Bit field definition.
   struct {
     uint32_t MW_TLAT : 32;
-  } bits;          // Bit-field struct (auto-filling reserved gaps)
+  } bits;
   
   // Full 32-bit register value.
   uint32_t value;
@@ -771,13 +726,11 @@ union PC_MW_TLAT_L {
 //
 union PC_SR_TNRT_U {
   
-  // Enum definitions.
-  
   // Bit field definition.
   struct {
     uint32_t SR_TNRT : 16;
     uint32_t _reserved_end : 16;
-  } bits;          // Bit-field struct (auto-filling reserved gaps)
+  } bits;
   
   // Full 32-bit register value.
   uint32_t value;
@@ -791,12 +744,10 @@ union PC_SR_TNRT_U {
 //
 union PC_SR_TNRT_L {
   
-  // Enum definitions.
-  
   // Bit field definition.
   struct {
     uint32_t SR_TNRT : 32;
-  } bits;          // Bit-field struct (auto-filling reserved gaps)
+  } bits;
   
   // Full 32-bit register value.
   uint32_t value;
@@ -810,13 +761,11 @@ union PC_SR_TNRT_L {
 //
 union PC_SW_TNRT_U {
   
-  // Enum definitions.
-  
   // Bit field definition.
   struct {
     uint32_t SW_TNRT : 16;
     uint32_t _reserved_end : 16;
-  } bits;          // Bit-field struct (auto-filling reserved gaps)
+  } bits;
   
   // Full 32-bit register value.
   uint32_t value;
@@ -830,12 +779,10 @@ union PC_SW_TNRT_U {
 //
 union PC_SW_TNRT_L {
   
-  // Enum definitions.
-  
   // Bit field definition.
   struct {
     uint32_t SW_TNRT : 32;
-  } bits;          // Bit-field struct (auto-filling reserved gaps)
+  } bits;
   
   // Full 32-bit register value.
   uint32_t value;
@@ -849,14 +796,12 @@ union PC_SW_TNRT_L {
 //
 union VIDR1 {
   
-  // Enum definitions.
-  
   // Bit field definition.
   struct {
     uint32_t MIN_REV : 8;
     uint32_t MAJ_REV : 8;
     uint32_t IP_ID : 16;
-  } bits;          // Bit-field struct (auto-filling reserved gaps)
+  } bits;
   
   // Full 32-bit register value.
   uint32_t value;
@@ -870,14 +815,12 @@ union VIDR1 {
 //
 union AESVID {
   
-  // Enum definitions.
-  
   // Bit field definition.
   struct {
     uint32_t AESRN : 4;
     uint32_t AESVID : 4;
     uint32_t _reserved_end : 24;
-  } bits;          // Bit-field struct (auto-filling reserved gaps)
+  } bits;
   
   // Full 32-bit register value.
   uint32_t value;
@@ -891,12 +834,10 @@ union AESVID {
 //
 union AES_TST_DB[0] {
   
-  // Enum definitions.
-  
   // Bit field definition.
   struct {
     uint32_t AES_TST_DB0 : 32;
-  } bits;          // Bit-field struct (auto-filling reserved gaps)
+  } bits;
   
   // Full 32-bit register value.
   uint32_t value;
@@ -909,12 +850,10 @@ union AES_TST_DB[0] {
 //
 union AES_TST_DB[1] {
   
-  // Enum definitions.
-  
   // Bit field definition.
   struct {
     uint32_t AES_TST_DB0 : 32;
-  } bits;          // Bit-field struct (auto-filling reserved gaps)
+  } bits;
   
   // Full 32-bit register value.
   uint32_t value;
@@ -927,12 +866,10 @@ union AES_TST_DB[1] {
 //
 union AES_TST_DB[2] {
   
-  // Enum definitions.
-  
   // Bit field definition.
   struct {
     uint32_t AES_TST_DB0 : 32;
-  } bits;          // Bit-field struct (auto-filling reserved gaps)
+  } bits;
   
   // Full 32-bit register value.
   uint32_t value;
@@ -945,12 +882,10 @@ union AES_TST_DB[2] {
 //
 union AES_TST_DB[3] {
   
-  // Enum definitions.
-  
   // Bit field definition.
   struct {
     uint32_t AES_TST_DB0 : 32;
-  } bits;          // Bit-field struct (auto-filling reserved gaps)
+  } bits;
   
   // Full 32-bit register value.
   uint32_t value;
@@ -963,12 +898,10 @@ union AES_TST_DB[3] {
 //
 union AES_TST_DB[4] {
   
-  // Enum definitions.
-  
   // Bit field definition.
   struct {
     uint32_t AES_TST_DB0 : 32;
-  } bits;          // Bit-field struct (auto-filling reserved gaps)
+  } bits;
   
   // Full 32-bit register value.
   uint32_t value;
@@ -981,12 +914,10 @@ union AES_TST_DB[4] {
 //
 union AES_TST_DB[5] {
   
-  // Enum definitions.
-  
   // Bit field definition.
   struct {
     uint32_t AES_TST_DB0 : 32;
-  } bits;          // Bit-field struct (auto-filling reserved gaps)
+  } bits;
   
   // Full 32-bit register value.
   uint32_t value;
@@ -999,12 +930,10 @@ union AES_TST_DB[5] {
 //
 union AES_TST_DB[6] {
   
-  // Enum definitions.
-  
   // Bit field definition.
   struct {
     uint32_t AES_TST_DB0 : 32;
-  } bits;          // Bit-field struct (auto-filling reserved gaps)
+  } bits;
   
   // Full 32-bit register value.
   uint32_t value;
@@ -1017,12 +946,10 @@ union AES_TST_DB[6] {
 //
 union AES_TST_DB[7] {
   
-  // Enum definitions.
-  
   // Bit field definition.
   struct {
     uint32_t AES_TST_DB0 : 32;
-  } bits;          // Bit-field struct (auto-filling reserved gaps)
+  } bits;
   
   // Full 32-bit register value.
   uint32_t value;
@@ -1035,12 +962,10 @@ union AES_TST_DB[7] {
 //
 union AES_TST_DB[8] {
   
-  // Enum definitions.
-  
   // Bit field definition.
   struct {
     uint32_t AES_TST_DB0 : 32;
-  } bits;          // Bit-field struct (auto-filling reserved gaps)
+  } bits;
   
   // Full 32-bit register value.
   uint32_t value;
@@ -1053,12 +978,10 @@ union AES_TST_DB[8] {
 //
 union AES_TST_DB[9] {
   
-  // Enum definitions.
-  
   // Bit field definition.
   struct {
     uint32_t AES_TST_DB0 : 32;
-  } bits;          // Bit-field struct (auto-filling reserved gaps)
+  } bits;
   
   // Full 32-bit register value.
   uint32_t value;
@@ -1071,12 +994,10 @@ union AES_TST_DB[9] {
 //
 union AES_TST_DB[10] {
   
-  // Enum definitions.
-  
   // Bit field definition.
   struct {
     uint32_t AES_TST_DB0 : 32;
-  } bits;          // Bit-field struct (auto-filling reserved gaps)
+  } bits;
   
   // Full 32-bit register value.
   uint32_t value;
@@ -1089,12 +1010,10 @@ union AES_TST_DB[10] {
 //
 union AES_TST_DB[11] {
   
-  // Enum definitions.
-  
   // Bit field definition.
   struct {
     uint32_t AES_TST_DB0 : 32;
-  } bits;          // Bit-field struct (auto-filling reserved gaps)
+  } bits;
   
   // Full 32-bit register value.
   uint32_t value;
@@ -1107,12 +1026,10 @@ union AES_TST_DB[11] {
 //
 union AES_TST_DB[12] {
   
-  // Enum definitions.
-  
   // Bit field definition.
   struct {
     uint32_t AES_TST_DB0 : 32;
-  } bits;          // Bit-field struct (auto-filling reserved gaps)
+  } bits;
   
   // Full 32-bit register value.
   uint32_t value;
@@ -1125,12 +1042,10 @@ union AES_TST_DB[12] {
 //
 union AES_TST_DB[13] {
   
-  // Enum definitions.
-  
   // Bit field definition.
   struct {
     uint32_t AES_TST_DB0 : 32;
-  } bits;          // Bit-field struct (auto-filling reserved gaps)
+  } bits;
   
   // Full 32-bit register value.
   uint32_t value;
@@ -1143,12 +1058,10 @@ union AES_TST_DB[13] {
 //
 union AES_TST_DB[14] {
   
-  // Enum definitions.
-  
   // Bit field definition.
   struct {
     uint32_t AES_TST_DB0 : 32;
-  } bits;          // Bit-field struct (auto-filling reserved gaps)
+  } bits;
   
   // Full 32-bit register value.
   uint32_t value;
@@ -1161,12 +1074,10 @@ union AES_TST_DB[14] {
 //
 union AES_TST_DB[15] {
   
-  // Enum definitions.
-  
   // Bit field definition.
   struct {
     uint32_t AES_TST_DB0 : 32;
-  } bits;          // Bit-field struct (auto-filling reserved gaps)
+  } bits;
   
   // Full 32-bit register value.
   uint32_t value;
@@ -1179,12 +1090,10 @@ union AES_TST_DB[15] {
 //
 union AES_TST_DB[16] {
   
-  // Enum definitions.
-  
   // Bit field definition.
   struct {
     uint32_t AES_TST_DB0 : 32;
-  } bits;          // Bit-field struct (auto-filling reserved gaps)
+  } bits;
   
   // Full 32-bit register value.
   uint32_t value;
@@ -1197,12 +1106,10 @@ union AES_TST_DB[16] {
 //
 union AES_TST_DB[17] {
   
-  // Enum definitions.
-  
   // Bit field definition.
   struct {
     uint32_t AES_TST_DB0 : 32;
-  } bits;          // Bit-field struct (auto-filling reserved gaps)
+  } bits;
   
   // Full 32-bit register value.
   uint32_t value;
@@ -1215,12 +1122,10 @@ union AES_TST_DB[17] {
 //
 union AES_TST_DB[18] {
   
-  // Enum definitions.
-  
   // Bit field definition.
   struct {
     uint32_t AES_TST_DB0 : 32;
-  } bits;          // Bit-field struct (auto-filling reserved gaps)
+  } bits;
   
   // Full 32-bit register value.
   uint32_t value;
@@ -1233,12 +1138,10 @@ union AES_TST_DB[18] {
 //
 union AES_TST_DB[19] {
   
-  // Enum definitions.
-  
   // Bit field definition.
   struct {
     uint32_t AES_TST_DB0 : 32;
-  } bits;          // Bit-field struct (auto-filling reserved gaps)
+  } bits;
   
   // Full 32-bit register value.
   uint32_t value;
@@ -1251,12 +1154,10 @@ union AES_TST_DB[19] {
 //
 union AES_TST_DB[20] {
   
-  // Enum definitions.
-  
   // Bit field definition.
   struct {
     uint32_t AES_TST_DB0 : 32;
-  } bits;          // Bit-field struct (auto-filling reserved gaps)
+  } bits;
   
   // Full 32-bit register value.
   uint32_t value;
@@ -1269,12 +1170,10 @@ union AES_TST_DB[20] {
 //
 union AES_TST_DB[21] {
   
-  // Enum definitions.
-  
   // Bit field definition.
   struct {
     uint32_t AES_TST_DB0 : 32;
-  } bits;          // Bit-field struct (auto-filling reserved gaps)
+  } bits;
   
   // Full 32-bit register value.
   uint32_t value;
@@ -1287,12 +1186,10 @@ union AES_TST_DB[21] {
 //
 union AES_TST_DB[22] {
   
-  // Enum definitions.
-  
   // Bit field definition.
   struct {
     uint32_t AES_TST_DB0 : 32;
-  } bits;          // Bit-field struct (auto-filling reserved gaps)
+  } bits;
   
   // Full 32-bit register value.
   uint32_t value;
@@ -1305,12 +1202,10 @@ union AES_TST_DB[22] {
 //
 union AES_TST_DB[23] {
   
-  // Enum definitions.
-  
   // Bit field definition.
   struct {
     uint32_t AES_TST_DB0 : 32;
-  } bits;          // Bit-field struct (auto-filling reserved gaps)
+  } bits;
   
   // Full 32-bit register value.
   uint32_t value;
@@ -1323,12 +1218,10 @@ union AES_TST_DB[23] {
 //
 union AES_TST_DB[24] {
   
-  // Enum definitions.
-  
   // Bit field definition.
   struct {
     uint32_t AES_TST_DB0 : 32;
-  } bits;          // Bit-field struct (auto-filling reserved gaps)
+  } bits;
   
   // Full 32-bit register value.
   uint32_t value;
@@ -1341,12 +1234,10 @@ union AES_TST_DB[24] {
 //
 union AES_TST_DB[25] {
   
-  // Enum definitions.
-  
   // Bit field definition.
   struct {
     uint32_t AES_TST_DB0 : 32;
-  } bits;          // Bit-field struct (auto-filling reserved gaps)
+  } bits;
   
   // Full 32-bit register value.
   uint32_t value;
@@ -1359,12 +1250,10 @@ union AES_TST_DB[25] {
 //
 union AES_TST_DB[26] {
   
-  // Enum definitions.
-  
   // Bit field definition.
   struct {
     uint32_t AES_TST_DB0 : 32;
-  } bits;          // Bit-field struct (auto-filling reserved gaps)
+  } bits;
   
   // Full 32-bit register value.
   uint32_t value;
@@ -1377,12 +1266,10 @@ union AES_TST_DB[26] {
 //
 union AES_TST_DB[27] {
   
-  // Enum definitions.
-  
   // Bit field definition.
   struct {
     uint32_t AES_TST_DB0 : 32;
-  } bits;          // Bit-field struct (auto-filling reserved gaps)
+  } bits;
   
   // Full 32-bit register value.
   uint32_t value;
@@ -1395,12 +1282,10 @@ union AES_TST_DB[27] {
 //
 union AES_TST_DB[28] {
   
-  // Enum definitions.
-  
   // Bit field definition.
   struct {
     uint32_t AES_TST_DB0 : 32;
-  } bits;          // Bit-field struct (auto-filling reserved gaps)
+  } bits;
   
   // Full 32-bit register value.
   uint32_t value;
@@ -1413,12 +1298,10 @@ union AES_TST_DB[28] {
 //
 union AES_TST_DB[29] {
   
-  // Enum definitions.
-  
   // Bit field definition.
   struct {
     uint32_t AES_TST_DB0 : 32;
-  } bits;          // Bit-field struct (auto-filling reserved gaps)
+  } bits;
   
   // Full 32-bit register value.
   uint32_t value;
@@ -1431,12 +1314,10 @@ union AES_TST_DB[29] {
 //
 union AES_TST_DB[30] {
   
-  // Enum definitions.
-  
   // Bit field definition.
   struct {
     uint32_t AES_TST_DB0 : 32;
-  } bits;          // Bit-field struct (auto-filling reserved gaps)
+  } bits;
   
   // Full 32-bit register value.
   uint32_t value;
@@ -1449,12 +1330,10 @@ union AES_TST_DB[30] {
 //
 union AES_TST_DB[31] {
   
-  // Enum definitions.
-  
   // Bit field definition.
   struct {
     uint32_t AES_TST_DB0 : 32;
-  } bits;          // Bit-field struct (auto-filling reserved gaps)
+  } bits;
   
   // Full 32-bit register value.
   uint32_t value;

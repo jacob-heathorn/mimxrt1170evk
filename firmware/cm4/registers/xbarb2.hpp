@@ -15,15 +15,13 @@ namespace nXBARB2 {
 //
 union XBARB2_SEL0 {
   
-  // Enum definitions.
-  
   // Bit field definition.
   struct {
     uint32_t SEL0 : 7;
     uint32_t _reserved_1 : 1;
     uint32_t SEL1 : 7;
     uint32_t _reserved_end : 17;
-  } bits;          // Bit-field struct (auto-filling reserved gaps)
+  } bits;
   
   // Full 32-bit register value.
   uint32_t value;
@@ -37,15 +35,13 @@ union XBARB2_SEL0 {
 //
 union XBARB2_SEL1 {
   
-  // Enum definitions.
-  
   // Bit field definition.
   struct {
     uint32_t SEL2 : 7;
     uint32_t _reserved_1 : 1;
     uint32_t SEL3 : 7;
     uint32_t _reserved_end : 17;
-  } bits;          // Bit-field struct (auto-filling reserved gaps)
+  } bits;
   
   // Full 32-bit register value.
   uint32_t value;
@@ -59,15 +55,13 @@ union XBARB2_SEL1 {
 //
 union XBARB2_SEL2 {
   
-  // Enum definitions.
-  
   // Bit field definition.
   struct {
     uint32_t SEL4 : 7;
     uint32_t _reserved_1 : 1;
     uint32_t SEL5 : 7;
     uint32_t _reserved_end : 17;
-  } bits;          // Bit-field struct (auto-filling reserved gaps)
+  } bits;
   
   // Full 32-bit register value.
   uint32_t value;
@@ -81,15 +75,13 @@ union XBARB2_SEL2 {
 //
 union XBARB2_SEL3 {
   
-  // Enum definitions.
-  
   // Bit field definition.
   struct {
     uint32_t SEL6 : 7;
     uint32_t _reserved_1 : 1;
     uint32_t SEL7 : 7;
     uint32_t _reserved_end : 17;
-  } bits;          // Bit-field struct (auto-filling reserved gaps)
+  } bits;
   
   // Full 32-bit register value.
   uint32_t value;
@@ -103,15 +95,13 @@ union XBARB2_SEL3 {
 //
 union XBARB2_SEL4 {
   
-  // Enum definitions.
-  
   // Bit field definition.
   struct {
     uint32_t SEL8 : 7;
     uint32_t _reserved_1 : 1;
     uint32_t SEL9 : 7;
     uint32_t _reserved_end : 17;
-  } bits;          // Bit-field struct (auto-filling reserved gaps)
+  } bits;
   
   // Full 32-bit register value.
   uint32_t value;
@@ -125,15 +115,13 @@ union XBARB2_SEL4 {
 //
 union XBARB2_SEL5 {
   
-  // Enum definitions.
-  
   // Bit field definition.
   struct {
     uint32_t SEL10 : 7;
     uint32_t _reserved_1 : 1;
     uint32_t SEL11 : 7;
     uint32_t _reserved_end : 17;
-  } bits;          // Bit-field struct (auto-filling reserved gaps)
+  } bits;
   
   // Full 32-bit register value.
   uint32_t value;
@@ -147,15 +135,13 @@ union XBARB2_SEL5 {
 //
 union XBARB2_SEL6 {
   
-  // Enum definitions.
-  
   // Bit field definition.
   struct {
     uint32_t SEL12 : 7;
     uint32_t _reserved_1 : 1;
     uint32_t SEL13 : 7;
     uint32_t _reserved_end : 17;
-  } bits;          // Bit-field struct (auto-filling reserved gaps)
+  } bits;
   
   // Full 32-bit register value.
   uint32_t value;
@@ -169,15 +155,13 @@ union XBARB2_SEL6 {
 //
 union XBARB2_SEL7 {
   
-  // Enum definitions.
-  
   // Bit field definition.
   struct {
     uint32_t SEL14 : 7;
     uint32_t _reserved_1 : 1;
     uint32_t SEL15 : 7;
     uint32_t _reserved_end : 17;
-  } bits;          // Bit-field struct (auto-filling reserved gaps)
+  } bits;
   
   // Full 32-bit register value.
   uint32_t value;

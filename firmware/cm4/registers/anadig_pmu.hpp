@@ -15,7 +15,6 @@ namespace nANADIG_PMU {
 //
 union PMU_LDO_PLL {
   
-  // Enum definitions.
   enum class eLDO_PLL_CONTROL_MODE : uint32_t {
     esw = 0, // SW Control
     ehw = 1, // HW Control
@@ -30,7 +29,7 @@ union PMU_LDO_PLL {
     uint32_t _reserved_3 : 13;
     uint32_t LDO_PLL_AI_BUSY : 1;
     uint32_t _reserved_end : 1;
-  } bits;          // Bit-field struct (auto-filling reserved gaps)
+  } bits;
   
   // Full 32-bit register value.
   uint32_t value;
@@ -44,7 +43,6 @@ union PMU_LDO_PLL {
 //
 union PMU_BIAS_CTRL {
   
-  // Enum definitions.
   enum class eWB_VDD_SEL_1P8 : uint32_t {
     elv1 = 0, // VDD_LV1
     elv2 = 1, // VDD_LV2
@@ -56,7 +54,7 @@ union PMU_BIAS_CTRL {
     uint32_t _reserved_1 : 1;
     eWB_VDD_SEL_1P8 WB_VDD_SEL_1P8 : 1;
     uint32_t _reserved_end : 17;
-  } bits;          // Bit-field struct (auto-filling reserved gaps)
+  } bits;
   
   // Full 32-bit register value.
   uint32_t value;
@@ -70,12 +68,12 @@ union PMU_BIAS_CTRL {
 //
 union PMU_BIAS_CTRL2 {
   
-  // Enum definitions.
   enum class eWB_PWR_SW_EN_1P8 : uint32_t {
     ebb0 = 1, // No BB
     ebb1 = 2, // BB
     ebb2 = 4, // BB
   };
+  
   enum class eWB_ADJ_1P8 : uint32_t {
     ewb00000000 = 0, // Cref= 0fF Cspl= 0fF DeltaC= 0fF
     ewb00000001 = 1, // Cref= 0fF Cspl= 30fF DeltaC= -30fF
@@ -94,14 +92,17 @@ union PMU_BIAS_CTRL2 {
     ewb00001110 = 14, // Cref=105fF Cspl=30fF DeltaC= 75fF
     ewb00001111 = 15, // Cref=0fF Cspl=0fF DeltaC= 0fF
   };
+  
   enum class eFBB_M7_CONTROL_MODE : uint32_t {
     esw = 0, // SW Control
     ehw = 1, // HW Control
   };
+  
   enum class eRBB_SOC_CONTROL_MODE : uint32_t {
     esw = 0, // SW Control
     ehw = 1, // HW Control
   };
+  
   enum class eRBB_LPSR_CONTROL_MODE : uint32_t {
     esw = 0, // SW Control
     ehw = 1, // HW Control
@@ -120,7 +121,7 @@ union PMU_BIAS_CTRL2 {
     uint32_t WB_TST_DIG_OUT : 1;
     uint32_t WB_OK : 1;
     uint32_t _reserved_end : 5;
-  } bits;          // Bit-field struct (auto-filling reserved gaps)
+  } bits;
   
   // Full 32-bit register value.
   uint32_t value;
@@ -134,7 +135,6 @@ union PMU_BIAS_CTRL2 {
 //
 union PMU_REF_CTRL {
   
-  // Enum definitions.
   enum class eREF_CONTROL_MODE : uint32_t {
     esw = 0, // SW Control
     ehw = 1, // HW Control
@@ -148,7 +148,7 @@ union PMU_REF_CTRL {
     eREF_CONTROL_MODE REF_CONTROL_MODE : 1;
     uint32_t EN_PLL_VOL_REF_BUFFER : 1;
     uint32_t _reserved_end : 27;
-  } bits;          // Bit-field struct (auto-filling reserved gaps)
+  } bits;
   
   // Full 32-bit register value.
   uint32_t value;
@@ -162,14 +162,12 @@ union PMU_REF_CTRL {
 //
 union PMU_POWER_DETECT_CTRL {
   
-  // Enum definitions.
-  
   // Bit field definition.
   struct {
     uint32_t _reserved_0 : 8;
     uint32_t CKGB_LPSR1P0 : 1;
     uint32_t _reserved_end : 23;
-  } bits;          // Bit-field struct (auto-filling reserved gaps)
+  } bits;
   
   // Full 32-bit register value.
   uint32_t value;
@@ -183,67 +181,81 @@ union PMU_POWER_DETECT_CTRL {
 //
 union LDO_PLL_ENABLE_SP {
   
-  // Enum definitions.
   enum class eON_OFF_SETPOINT0 : uint32_t {
     es0 = 0, // ON
     es1 = 1, // OFF
   };
+  
   enum class eON_OFF_SETPOINT1 : uint32_t {
     es0 = 0, // ON
     es1 = 1, // OFF
   };
+  
   enum class eON_OFF_SETPOINT2 : uint32_t {
     es0 = 0, // ON
     es1 = 1, // OFF
   };
+  
   enum class eON_OFF_SETPOINT3 : uint32_t {
     es0 = 0, // ON
     es1 = 1, // OFF
   };
+  
   enum class eON_OFF_SETPOINT4 : uint32_t {
     es0 = 0, // ON
     es1 = 1, // OFF
   };
+  
   enum class eON_OFF_SETPOINT5 : uint32_t {
     es0 = 0, // ON
     es1 = 1, // OFF
   };
+  
   enum class eON_OFF_SETPOINT6 : uint32_t {
     es0 = 0, // ON
     es1 = 1, // OFF
   };
+  
   enum class eON_OFF_SETPOINT7 : uint32_t {
     es0 = 0, // ON
     es1 = 1, // OFF
   };
+  
   enum class eON_OFF_SETPOINT8 : uint32_t {
     es0 = 0, // ON
     es1 = 1, // OFF
   };
+  
   enum class eON_OFF_SETPOINT9 : uint32_t {
     es0 = 0, // ON
     es1 = 1, // OFF
   };
+  
   enum class eON_OFF_SETPOINT10 : uint32_t {
     es0 = 0, // ON
     es1 = 1, // OFF
   };
+  
   enum class eON_OFF_SETPOINT11 : uint32_t {
     es0 = 0, // ON
     es1 = 1, // OFF
   };
+  
   enum class eON_OFF_SETPOINT12 : uint32_t {
     es0 = 0, // ON
     es1 = 1, // OFF
   };
+  
   enum class eON_OFF_SETPOINT13 : uint32_t {
     es0 = 0, // ON
     es1 = 1, // OFF
   };
+  
   enum class eON_OFF_SETPOINT14 : uint32_t {
     es0 = 0, // ON
     es1 = 1, // OFF
   };
+  
   enum class eON_OFF_SETPOINT15 : uint32_t {
     es0 = 0, // ON
     es1 = 1, // OFF
@@ -268,7 +280,7 @@ union LDO_PLL_ENABLE_SP {
     eON_OFF_SETPOINT14 ON_OFF_SETPOINT14 : 1;
     eON_OFF_SETPOINT15 ON_OFF_SETPOINT15 : 1;
     uint32_t _reserved_end : 16;
-  } bits;          // Bit-field struct (auto-filling reserved gaps)
+  } bits;
   
   // Full 32-bit register value.
   uint32_t value;
@@ -282,67 +294,81 @@ union LDO_PLL_ENABLE_SP {
 //
 union LDO_LPSR_ANA_ENABLE_SP {
   
-  // Enum definitions.
   enum class eON_OFF_SETPOINT0 : uint32_t {
     es0 = 0, // ON
     es1 = 1, // OFF
   };
+  
   enum class eON_OFF_SETPOINT1 : uint32_t {
     es0 = 0, // ON
     es1 = 1, // OFF
   };
+  
   enum class eON_OFF_SETPOINT2 : uint32_t {
     es0 = 0, // ON
     es1 = 1, // OFF
   };
+  
   enum class eON_OFF_SETPOINT3 : uint32_t {
     es0 = 0, // ON
     es1 = 1, // OFF
   };
+  
   enum class eON_OFF_SETPOINT4 : uint32_t {
     es0 = 0, // ON
     es1 = 1, // OFF
   };
+  
   enum class eON_OFF_SETPOINT5 : uint32_t {
     es0 = 0, // ON
     es1 = 1, // OFF
   };
+  
   enum class eON_OFF_SETPOINT6 : uint32_t {
     es0 = 0, // ON
     es1 = 1, // OFF
   };
+  
   enum class eON_OFF_SETPOINT7 : uint32_t {
     es0 = 0, // ON
     es1 = 1, // OFF
   };
+  
   enum class eON_OFF_SETPOINT8 : uint32_t {
     es0 = 0, // ON
     es1 = 1, // OFF
   };
+  
   enum class eON_OFF_SETPOINT9 : uint32_t {
     es0 = 0, // ON
     es1 = 1, // OFF
   };
+  
   enum class eON_OFF_SETPOINT10 : uint32_t {
     es0 = 0, // ON
     es1 = 1, // OFF
   };
+  
   enum class eON_OFF_SETPOINT11 : uint32_t {
     es0 = 0, // ON
     es1 = 1, // OFF
   };
+  
   enum class eON_OFF_SETPOINT12 : uint32_t {
     es0 = 0, // ON
     es1 = 1, // OFF
   };
+  
   enum class eON_OFF_SETPOINT13 : uint32_t {
     es0 = 0, // ON
     es1 = 1, // OFF
   };
+  
   enum class eON_OFF_SETPOINT14 : uint32_t {
     es0 = 0, // ON
     es1 = 1, // OFF
   };
+  
   enum class eON_OFF_SETPOINT15 : uint32_t {
     es0 = 0, // ON
     es1 = 1, // OFF
@@ -367,7 +393,7 @@ union LDO_LPSR_ANA_ENABLE_SP {
     eON_OFF_SETPOINT14 ON_OFF_SETPOINT14 : 1;
     eON_OFF_SETPOINT15 ON_OFF_SETPOINT15 : 1;
     uint32_t _reserved_end : 16;
-  } bits;          // Bit-field struct (auto-filling reserved gaps)
+  } bits;
   
   // Full 32-bit register value.
   uint32_t value;
@@ -381,67 +407,81 @@ union LDO_LPSR_ANA_ENABLE_SP {
 //
 union LDO_LPSR_ANA_LP_MODE_SP {
   
-  // Enum definitions.
   enum class eLP_MODE_SETPOINT0 : uint32_t {
     elp0 = 0, // LP
     ehp1 = 1, // HP
   };
+  
   enum class eLP_MODE_SETPOINT1 : uint32_t {
     elp0 = 0, // LP
     ehp1 = 1, // HP
   };
+  
   enum class eLP_MODE_SETPONIT2 : uint32_t {
     elp0 = 0, // LP
     ehp1 = 1, // HP
   };
+  
   enum class eLP_MODE_SETPONIT3 : uint32_t {
     elp0 = 0, // LP
     ehp1 = 1, // HP
   };
+  
   enum class eLP_MODE_SETPONIT4 : uint32_t {
     elp0 = 0, // LP
     ehp1 = 1, // HP
   };
+  
   enum class eLP_MODE_SETPONIT5 : uint32_t {
     elp0 = 0, // LP
     ehp1 = 1, // HP
   };
+  
   enum class eLP_MODE_SETPONIT6 : uint32_t {
     elp0 = 0, // LP
     ehp1 = 1, // HP
   };
+  
   enum class eLP_MODE_SETPONIT7 : uint32_t {
     elp0 = 0, // LP
     ehp1 = 1, // HP
   };
+  
   enum class eLP_MODE_SETPONIT8 : uint32_t {
     elp0 = 0, // LP
     ehp1 = 1, // HP
   };
+  
   enum class eLP_MODE_SETPONIT9 : uint32_t {
     elp0 = 0, // LP
     ehp1 = 1, // HP
   };
+  
   enum class eLP_MODE_SETPONIT10 : uint32_t {
     elp0 = 0, // LP
     ehp1 = 1, // HP
   };
+  
   enum class eLP_MODE_SETPONIT11 : uint32_t {
     elp0 = 0, // LP
     ehp1 = 1, // HP
   };
+  
   enum class eLP_MODE_SETPONIT12 : uint32_t {
     elp0 = 0, // LP
     ehp1 = 1, // HP
   };
+  
   enum class eLP_MODE_SETPONIT13 : uint32_t {
     elp0 = 0, // LP
     ehp1 = 1, // HP
   };
+  
   enum class eLP_MODE_SETPONIT14 : uint32_t {
     elp0 = 0, // LP
     ehp1 = 1, // HP
   };
+  
   enum class eLP_MODE_SETPONIT15 : uint32_t {
     elp0 = 0, // LP
     ehp1 = 1, // HP
@@ -466,7 +506,7 @@ union LDO_LPSR_ANA_LP_MODE_SP {
     eLP_MODE_SETPONIT14 LP_MODE_SETPONIT14 : 1;
     eLP_MODE_SETPONIT15 LP_MODE_SETPONIT15 : 1;
     uint32_t _reserved_end : 16;
-  } bits;          // Bit-field struct (auto-filling reserved gaps)
+  } bits;
   
   // Full 32-bit register value.
   uint32_t value;
@@ -480,67 +520,81 @@ union LDO_LPSR_ANA_LP_MODE_SP {
 //
 union LDO_LPSR_ANA_TRACKING_EN_SP {
   
-  // Enum definitions.
   enum class eTRACKING_EN_SETPOINT0 : uint32_t {
     etrack0 = 0, // Disabled
     etrack1 = 1, // Enabled
   };
+  
   enum class eTRACKING_EN_SETPOINT1 : uint32_t {
     etrack0 = 0, // Disabled
     etrack1 = 1, // Enabled
   };
+  
   enum class eTRACKING_EN_SETPOINT2 : uint32_t {
     etrack0 = 0, // Disabled
     etrack1 = 1, // Enabled
   };
+  
   enum class eTRACKING_EN_SETPOINT3 : uint32_t {
     etrack0 = 0, // Disabled
     etrack1 = 1, // Enabled
   };
+  
   enum class eTRACKING_EN_SETPOINT4 : uint32_t {
     etrack0 = 0, // Disabled
     etrack1 = 1, // Enabled
   };
+  
   enum class eTRACKING_EN_SETPOINT5 : uint32_t {
     etrack0 = 0, // Disabled
     etrack1 = 1, // Enabled
   };
+  
   enum class eTRACKING_EN_SETPOINT6 : uint32_t {
     etrack0 = 0, // Disabled
     etrack1 = 1, // Enabled
   };
+  
   enum class eTRACKING_EN_SETPOINT7 : uint32_t {
     etrack0 = 0, // Disabled
     etrack1 = 1, // Enabled
   };
+  
   enum class eTRACKING_EN_SETPOINT8 : uint32_t {
     etrack0 = 0, // Disabled
     etrack1 = 1, // Enabled
   };
+  
   enum class eTRACKING_EN_SETPOINT9 : uint32_t {
     etrack0 = 0, // Disabled
     etrack1 = 1, // Enabled
   };
+  
   enum class eTRACKING_EN_SETPOINT10 : uint32_t {
     etrack0 = 0, // Disabled
     etrack1 = 1, // Enabled
   };
+  
   enum class eTRACKING_EN_SETPOINT11 : uint32_t {
     etrack0 = 0, // Disabled
     etrack1 = 1, // Enabled
   };
+  
   enum class eTRACKING_EN_SETPOINT12 : uint32_t {
     etrack0 = 0, // Disabled
     etrack1 = 1, // Enabled
   };
+  
   enum class eTRACKING_EN_SETPOINT13 : uint32_t {
     etrack0 = 0, // Disabled
     etrack1 = 1, // Enabled
   };
+  
   enum class eTRACKING_EN_SETPOINT14 : uint32_t {
     etrack0 = 0, // Disabled
     etrack1 = 1, // Enabled
   };
+  
   enum class eTRACKING_EN_SETPOINT15 : uint32_t {
     etrack0 = 0, // Disabled
     etrack1 = 1, // Enabled
@@ -565,7 +619,7 @@ union LDO_LPSR_ANA_TRACKING_EN_SP {
     eTRACKING_EN_SETPOINT14 TRACKING_EN_SETPOINT14 : 1;
     eTRACKING_EN_SETPOINT15 TRACKING_EN_SETPOINT15 : 1;
     uint32_t _reserved_end : 16;
-  } bits;          // Bit-field struct (auto-filling reserved gaps)
+  } bits;
   
   // Full 32-bit register value.
   uint32_t value;
@@ -579,67 +633,81 @@ union LDO_LPSR_ANA_TRACKING_EN_SP {
 //
 union LDO_LPSR_ANA_BYPASS_EN_SP {
   
-  // Enum definitions.
   enum class eBYPASS_EN_SETPOINT0 : uint32_t {
     ebyp0 = 0, // Disabled
     ebyp1 = 1, // Enabled
   };
+  
   enum class eBYPASS_EN_SETPOINT1 : uint32_t {
     ebyp0 = 0, // Disabled
     ebyp1 = 1, // Enabled
   };
+  
   enum class eBYPASS_EN_SETPOINT2 : uint32_t {
     ebyp0 = 0, // Disabled
     ebyp1 = 1, // Enabled
   };
+  
   enum class eBYPASS_EN_SETPOINT3 : uint32_t {
     ebyp0 = 0, // Disabled
     ebyp1 = 1, // Enabled
   };
+  
   enum class eBYPASS_EN_SETPOINT4 : uint32_t {
     ebyp0 = 0, // Disabled
     ebyp1 = 1, // Enabled
   };
+  
   enum class eBYPASS_EN_SETPOINT5 : uint32_t {
     ebyp0 = 0, // Disabled
     ebyp1 = 1, // Enabled
   };
+  
   enum class eBYPASS_EN_SETPOINT6 : uint32_t {
     ebyp0 = 0, // Disabled
     ebyp1 = 1, // Enabled
   };
+  
   enum class eBYPASS_EN_SETPOINT7 : uint32_t {
     ebyp0 = 0, // Disabled
     ebyp1 = 1, // Enabled
   };
+  
   enum class eBYPASS_EN_SETPOINT8 : uint32_t {
     ebyp0 = 0, // Disabled
     ebyp1 = 1, // Enabled
   };
+  
   enum class eBYPASS_EN_SETPOINT9 : uint32_t {
     ebyp0 = 0, // Disabled
     ebyp1 = 1, // Enabled
   };
+  
   enum class eBYPASS_EN_SETPOINT10 : uint32_t {
     ebyp0 = 0, // Disabled
     ebyp1 = 1, // Enabled
   };
+  
   enum class eBYPASS_EN_SETPOINT11 : uint32_t {
     ebyp0 = 0, // Disabled
     ebyp1 = 1, // Enabled
   };
+  
   enum class eBYPASS_EN_SETPOINT12 : uint32_t {
     ebyp0 = 0, // Disabled
     ebyp1 = 1, // Enabled
   };
+  
   enum class eBYPASS_EN_SETPOINT13 : uint32_t {
     ebyp0 = 0, // Disabled
     ebyp1 = 1, // Enabled
   };
+  
   enum class eBYPASS_EN_SETPOINT14 : uint32_t {
     ebyp0 = 0, // Disabled
     ebyp1 = 1, // Enabled
   };
+  
   enum class eBYPASS_EN_SETPOINT15 : uint32_t {
     ebyp0 = 0, // Disabled
     ebyp1 = 1, // Enabled
@@ -664,7 +732,7 @@ union LDO_LPSR_ANA_BYPASS_EN_SP {
     eBYPASS_EN_SETPOINT14 BYPASS_EN_SETPOINT14 : 1;
     eBYPASS_EN_SETPOINT15 BYPASS_EN_SETPOINT15 : 1;
     uint32_t _reserved_end : 16;
-  } bits;          // Bit-field struct (auto-filling reserved gaps)
+  } bits;
   
   // Full 32-bit register value.
   uint32_t value;
@@ -678,67 +746,81 @@ union LDO_LPSR_ANA_BYPASS_EN_SP {
 //
 union LDO_LPSR_ANA_STBY_EN_SP {
   
-  // Enum definitions.
   enum class eSTBY_EN_SETPOINT0 : uint32_t {
     eb0 = 0, // Disabled
     eb1 = 1, // Enabled
   };
+  
   enum class eSTBY_EN_SETPOINT1 : uint32_t {
     eb0 = 0, // Disabled
     eb1 = 1, // Enabled
   };
+  
   enum class eSTBY_EN_SETPOINT2 : uint32_t {
     eb0 = 0, // Disabled
     eb1 = 1, // Enabled
   };
+  
   enum class eSTBY_EN_SETPOINT3 : uint32_t {
     eb0 = 0, // Disabled
     eb1 = 1, // Enabled
   };
+  
   enum class eSTBY_EN_SETPOINT4 : uint32_t {
     eb0 = 0, // Disabled
     eb1 = 1, // Enabled
   };
+  
   enum class eSTBY_EN_SETPOINT5 : uint32_t {
     eb0 = 0, // Disabled
     eb1 = 1, // Enabled
   };
+  
   enum class eSTBY_EN_SETPOINT6 : uint32_t {
     eb0 = 0, // Disabled
     eb1 = 1, // Enabled
   };
+  
   enum class eSTBY_EN_SETPOINT7 : uint32_t {
     eb0 = 0, // Disabled
     eb1 = 1, // Enabled
   };
+  
   enum class eSTBY_EN_SETPOINT8 : uint32_t {
     eb0 = 0, // Disabled
     eb1 = 1, // Enabled
   };
+  
   enum class eSTBY_EN_SETPOINT9 : uint32_t {
     eb0 = 0, // Disabled
     eb1 = 1, // Enabled
   };
+  
   enum class eSTBY_EN_SETPOINT10 : uint32_t {
     eb0 = 0, // Disabled
     eb1 = 1, // Enabled
   };
+  
   enum class eSTBY_EN_SETPOINT11 : uint32_t {
     eb0 = 0, // Disabled
     eb1 = 1, // Enabled
   };
+  
   enum class eSTBY_EN_SETPOINT12 : uint32_t {
     eb0 = 0, // Disabled
     eb1 = 1, // Enabled
   };
+  
   enum class eSTBY_EN_SETPOINT13 : uint32_t {
     eb0 = 0, // Disabled
     eb1 = 1, // Enabled
   };
+  
   enum class eSTBY_EN_SETPOINT14 : uint32_t {
     eb0 = 0, // Disabled
     eb1 = 1, // Enabled
   };
+  
   enum class eSTBY_EN_SETPOINT15 : uint32_t {
     eb0 = 0, // Disabled
     eb1 = 1, // Enabled
@@ -763,7 +845,7 @@ union LDO_LPSR_ANA_STBY_EN_SP {
     eSTBY_EN_SETPOINT14 STBY_EN_SETPOINT14 : 1;
     eSTBY_EN_SETPOINT15 STBY_EN_SETPOINT15 : 1;
     uint32_t _reserved_end : 16;
-  } bits;          // Bit-field struct (auto-filling reserved gaps)
+  } bits;
   
   // Full 32-bit register value.
   uint32_t value;
@@ -777,67 +859,81 @@ union LDO_LPSR_ANA_STBY_EN_SP {
 //
 union LDO_LPSR_DIG_ENABLE_SP {
   
-  // Enum definitions.
   enum class eON_OFF_SETPOINT0 : uint32_t {
     es0 = 0, // ON
     es1 = 1, // OFF
   };
+  
   enum class eON_OFF_SETPOINT1 : uint32_t {
     es0 = 0, // ON
     es1 = 1, // OFF
   };
+  
   enum class eON_OFF_SETPOINT2 : uint32_t {
     es0 = 0, // ON
     es1 = 1, // OFF
   };
+  
   enum class eON_OFF_SETPOINT3 : uint32_t {
     es0 = 0, // ON
     es1 = 1, // OFF
   };
+  
   enum class eON_OFF_SETPOINT4 : uint32_t {
     es0 = 0, // ON
     es1 = 1, // OFF
   };
+  
   enum class eON_OFF_SETPOINT5 : uint32_t {
     es0 = 0, // ON
     es1 = 1, // OFF
   };
+  
   enum class eON_OFF_SETPOINT6 : uint32_t {
     es0 = 0, // ON
     es1 = 1, // OFF
   };
+  
   enum class eON_OFF_SETPOINT7 : uint32_t {
     es0 = 0, // ON
     es1 = 1, // OFF
   };
+  
   enum class eON_OFF_SETPOINT8 : uint32_t {
     es0 = 0, // ON
     es1 = 1, // OFF
   };
+  
   enum class eON_OFF_SETPOINT9 : uint32_t {
     es0 = 0, // ON
     es1 = 1, // OFF
   };
+  
   enum class eON_OFF_SETPOINT10 : uint32_t {
     es0 = 0, // ON
     es1 = 1, // OFF
   };
+  
   enum class eON_OFF_SETPOINT11 : uint32_t {
     es0 = 0, // ON
     es1 = 1, // OFF
   };
+  
   enum class eON_OFF_SETPOINT12 : uint32_t {
     es0 = 0, // ON
     es1 = 1, // OFF
   };
+  
   enum class eON_OFF_SETPOINT13 : uint32_t {
     es0 = 0, // ON
     es1 = 1, // OFF
   };
+  
   enum class eON_OFF_SETPOINT14 : uint32_t {
     es0 = 0, // ON
     es1 = 1, // OFF
   };
+  
   enum class eON_OFF_SETPOINT15 : uint32_t {
     es0 = 0, // ON
     es1 = 1, // OFF
@@ -862,7 +958,7 @@ union LDO_LPSR_DIG_ENABLE_SP {
     eON_OFF_SETPOINT14 ON_OFF_SETPOINT14 : 1;
     eON_OFF_SETPOINT15 ON_OFF_SETPOINT15 : 1;
     uint32_t _reserved_end : 16;
-  } bits;          // Bit-field struct (auto-filling reserved gaps)
+  } bits;
   
   // Full 32-bit register value.
   uint32_t value;
@@ -876,15 +972,13 @@ union LDO_LPSR_DIG_ENABLE_SP {
 //
 union LDO_LPSR_DIG_TRG_SP0 {
   
-  // Enum definitions.
-  
   // Bit field definition.
   struct {
     uint32_t VOLTAGE_SETPOINT0 : 8;
     uint32_t VOLTAGE_SETPOINT1 : 8;
     uint32_t VOLTAGE_SETPOINT2 : 8;
     uint32_t VOLTAGE_SETPOINT3 : 8;
-  } bits;          // Bit-field struct (auto-filling reserved gaps)
+  } bits;
   
   // Full 32-bit register value.
   uint32_t value;
@@ -898,15 +992,13 @@ union LDO_LPSR_DIG_TRG_SP0 {
 //
 union LDO_LPSR_DIG_TRG_SP1 {
   
-  // Enum definitions.
-  
   // Bit field definition.
   struct {
     uint32_t VOLTAGE_SETPOINT4 : 8;
     uint32_t VOLTAGE_SETPOINT5 : 8;
     uint32_t VOLTAGE_SETPOINT6 : 8;
     uint32_t VOLTAGE_SETPOINT7 : 8;
-  } bits;          // Bit-field struct (auto-filling reserved gaps)
+  } bits;
   
   // Full 32-bit register value.
   uint32_t value;
@@ -920,15 +1012,13 @@ union LDO_LPSR_DIG_TRG_SP1 {
 //
 union LDO_LPSR_DIG_TRG_SP2 {
   
-  // Enum definitions.
-  
   // Bit field definition.
   struct {
     uint32_t VOLTAGE_SETPOINT8 : 8;
     uint32_t VOLTAGE_SETPOINT9 : 8;
     uint32_t VOLTAGE_SETPOINT10 : 8;
     uint32_t VOLTAGE_SETPOINT11 : 8;
-  } bits;          // Bit-field struct (auto-filling reserved gaps)
+  } bits;
   
   // Full 32-bit register value.
   uint32_t value;
@@ -942,15 +1032,13 @@ union LDO_LPSR_DIG_TRG_SP2 {
 //
 union LDO_LPSR_DIG_TRG_SP3 {
   
-  // Enum definitions.
-  
   // Bit field definition.
   struct {
     uint32_t VOLTAGE_SETPOINT12 : 8;
     uint32_t VOLTAGE_SETPOINT13 : 8;
     uint32_t VOLTAGE_SETPOINT14 : 8;
     uint32_t VOLTAGE_SETPOINT15 : 8;
-  } bits;          // Bit-field struct (auto-filling reserved gaps)
+  } bits;
   
   // Full 32-bit register value.
   uint32_t value;
@@ -964,67 +1052,81 @@ union LDO_LPSR_DIG_TRG_SP3 {
 //
 union LDO_LPSR_DIG_LP_MODE_SP {
   
-  // Enum definitions.
   enum class eLP_MODE_SETPOINT0 : uint32_t {
     elp0 = 0, // LP
     ehp1 = 1, // HP
   };
+  
   enum class eLP_MODE_SETPOINT1 : uint32_t {
     elp0 = 0, // LP
     ehp1 = 1, // HP
   };
+  
   enum class eLP_MODE_SETPOINT2 : uint32_t {
     elp0 = 0, // LP
     ehp1 = 1, // HP
   };
+  
   enum class eLP_MODE_SETPOINT3 : uint32_t {
     elp0 = 0, // LP
     ehp1 = 1, // HP
   };
+  
   enum class eLP_MODE_SETPOINT4 : uint32_t {
     elp0 = 0, // LP
     ehp1 = 1, // HP
   };
+  
   enum class eLP_MODE_SETPOINT5 : uint32_t {
     elp0 = 0, // LP
     ehp1 = 1, // HP
   };
+  
   enum class eLP_MODE_SETPOINT6 : uint32_t {
     elp0 = 0, // LP
     ehp1 = 1, // HP
   };
+  
   enum class eLP_MODE_SETPOINT7 : uint32_t {
     elp0 = 0, // LP
     ehp1 = 1, // HP
   };
+  
   enum class eLP_MODE_SETPOINT8 : uint32_t {
     elp0 = 0, // LP
     ehp1 = 1, // HP
   };
+  
   enum class eLP_MODE_SETPOINT9 : uint32_t {
     elp0 = 0, // LP
     ehp1 = 1, // HP
   };
+  
   enum class eLP_MODE_SETPOINT10 : uint32_t {
     elp0 = 0, // LP
     ehp1 = 1, // HP
   };
+  
   enum class eLP_MODE_SETPOINT11 : uint32_t {
     elp0 = 0, // LP
     ehp1 = 1, // HP
   };
+  
   enum class eLP_MODE_SETPOINT12 : uint32_t {
     elp0 = 0, // LP
     ehp1 = 1, // HP
   };
+  
   enum class eLP_MODE_SETPOINT13 : uint32_t {
     elp0 = 0, // LP
     ehp1 = 1, // HP
   };
+  
   enum class eLP_MODE_SETPOINT14 : uint32_t {
     elp0 = 0, // LP
     ehp1 = 1, // HP
   };
+  
   enum class eLP_MODE_SETPOINT15 : uint32_t {
     elp0 = 0, // LP
     ehp1 = 1, // HP
@@ -1049,7 +1151,7 @@ union LDO_LPSR_DIG_LP_MODE_SP {
     eLP_MODE_SETPOINT14 LP_MODE_SETPOINT14 : 1;
     eLP_MODE_SETPOINT15 LP_MODE_SETPOINT15 : 1;
     uint32_t _reserved_end : 16;
-  } bits;          // Bit-field struct (auto-filling reserved gaps)
+  } bits;
   
   // Full 32-bit register value.
   uint32_t value;
@@ -1063,67 +1165,81 @@ union LDO_LPSR_DIG_LP_MODE_SP {
 //
 union LDO_LPSR_DIG_TRACKING_EN_SP {
   
-  // Enum definitions.
   enum class eTRACKING_EN_SETPOINT0 : uint32_t {
     etrack0 = 0, // Disabled
     etrack1 = 1, // Enabled
   };
+  
   enum class eTRACKING_EN_SETPOINT1 : uint32_t {
     etrack0 = 0, // Disabled
     etrack1 = 1, // Enabled
   };
+  
   enum class eTRACKING_EN_SETPOINT2 : uint32_t {
     etrack0 = 0, // Disabled
     etrack1 = 1, // Enabled
   };
+  
   enum class eTRACKING_EN_SETPOINT3 : uint32_t {
     etrack0 = 0, // Disabled
     etrack1 = 1, // Enabled
   };
+  
   enum class eTRACKING_EN_SETPOINT4 : uint32_t {
     etrack0 = 0, // Disabled
     etrack1 = 1, // Enabled
   };
+  
   enum class eTRACKING_EN_SETPOINT5 : uint32_t {
     etrack0 = 0, // Disabled
     etrack1 = 1, // Enabled
   };
+  
   enum class eTRACKING_EN_SETPOINT6 : uint32_t {
     etrack0 = 0, // Disabled
     etrack1 = 1, // Enabled
   };
+  
   enum class eTRACKING_EN_SETPOINT7 : uint32_t {
     etrack0 = 0, // Disabled
     etrack1 = 1, // Enabled
   };
+  
   enum class eTRACKING_EN_SETPOINT8 : uint32_t {
     etrack0 = 0, // Disabled
     etrack1 = 1, // Enabled
   };
+  
   enum class eTRACKING_EN_SETPOINT9 : uint32_t {
     etrack0 = 0, // Disabled
     etrack1 = 1, // Enabled
   };
+  
   enum class eTRACKING_EN_SETPOINT10 : uint32_t {
     etrack0 = 0, // Disabled
     etrack1 = 1, // Enabled
   };
+  
   enum class eTRACKING_EN_SETPOINT11 : uint32_t {
     etrack0 = 0, // Disabled
     etrack1 = 1, // Enabled
   };
+  
   enum class eTRACKING_EN_SETPOINT12 : uint32_t {
     etrack0 = 0, // Disabled
     etrack1 = 1, // Enabled
   };
+  
   enum class eTRACKING_EN_SETPOINT13 : uint32_t {
     etrack0 = 0, // Disabled
     etrack1 = 1, // Enabled
   };
+  
   enum class eTRACKING_EN_SETPOINT14 : uint32_t {
     etrack0 = 0, // Disabled
     etrack1 = 1, // Enabled
   };
+  
   enum class eTRACKING_EN_SETPOINT15 : uint32_t {
     etrack0 = 0, // Disabled
     etrack1 = 1, // Enabled
@@ -1148,7 +1264,7 @@ union LDO_LPSR_DIG_TRACKING_EN_SP {
     eTRACKING_EN_SETPOINT14 TRACKING_EN_SETPOINT14 : 1;
     eTRACKING_EN_SETPOINT15 TRACKING_EN_SETPOINT15 : 1;
     uint32_t _reserved_end : 16;
-  } bits;          // Bit-field struct (auto-filling reserved gaps)
+  } bits;
   
   // Full 32-bit register value.
   uint32_t value;
@@ -1162,67 +1278,81 @@ union LDO_LPSR_DIG_TRACKING_EN_SP {
 //
 union LDO_LPSR_DIG_BYPASS_EN_SP {
   
-  // Enum definitions.
   enum class eBYPASS_EN_SETPOINT0 : uint32_t {
     ebyp0 = 0, // Disabled
     ebyp1 = 1, // Enabled
   };
+  
   enum class eBYPASS_EN_SETPOINT1 : uint32_t {
     ebyp0 = 0, // Disabled
     ebyp1 = 1, // Enabled
   };
+  
   enum class eBYPASS_EN_SETPOINT2 : uint32_t {
     ebyp0 = 0, // Disabled
     ebyp1 = 1, // Enabled
   };
+  
   enum class eBYPASS_EN_SETPOINT3 : uint32_t {
     ebyp0 = 0, // Disabled
     ebyp1 = 1, // Enabled
   };
+  
   enum class eBYPASS_EN_SETPOINT4 : uint32_t {
     ebyp0 = 0, // Disabled
     ebyp1 = 1, // Enabled
   };
+  
   enum class eBYPASS_EN_SETPOINT5 : uint32_t {
     ebyp0 = 0, // Disabled
     ebyp1 = 1, // Enabled
   };
+  
   enum class eBYPASS_EN_SETPOINT6 : uint32_t {
     ebyp0 = 0, // Disabled
     ebyp1 = 1, // Enabled
   };
+  
   enum class eBYPASS_EN_SETPOINT7 : uint32_t {
     ebyp0 = 0, // Disabled
     ebyp1 = 1, // Enabled
   };
+  
   enum class eBYPASS_EN_SETPOINT8 : uint32_t {
     ebyp0 = 0, // Disabled
     ebyp1 = 1, // Enabled
   };
+  
   enum class eBYPASS_EN_SETPOINT9 : uint32_t {
     ebyp0 = 0, // Disabled
     ebyp1 = 1, // Enabled
   };
+  
   enum class eBYPASS_EN_SETPOINT10 : uint32_t {
     ebyp0 = 0, // Disabled
     ebyp1 = 1, // Enabled
   };
+  
   enum class eBYPASS_EN_SETPOINT11 : uint32_t {
     ebyp0 = 0, // Disabled
     ebyp1 = 1, // Enabled
   };
+  
   enum class eBYPASS_EN_SETPOINT12 : uint32_t {
     ebyp0 = 0, // Disabled
     ebyp1 = 1, // Enabled
   };
+  
   enum class eBYPASS_EN_SETPOINT13 : uint32_t {
     ebyp0 = 0, // Disabled
     ebyp1 = 1, // Enabled
   };
+  
   enum class eBYPASS_EN_SETPOINT14 : uint32_t {
     ebyp0 = 0, // Disabled
     ebyp1 = 1, // Enabled
   };
+  
   enum class eBYPASS_EN_SETPOINT15 : uint32_t {
     ebyp0 = 0, // Disabled
     ebyp1 = 1, // Enabled
@@ -1247,7 +1377,7 @@ union LDO_LPSR_DIG_BYPASS_EN_SP {
     eBYPASS_EN_SETPOINT14 BYPASS_EN_SETPOINT14 : 1;
     eBYPASS_EN_SETPOINT15 BYPASS_EN_SETPOINT15 : 1;
     uint32_t _reserved_end : 16;
-  } bits;          // Bit-field struct (auto-filling reserved gaps)
+  } bits;
   
   // Full 32-bit register value.
   uint32_t value;
@@ -1261,67 +1391,81 @@ union LDO_LPSR_DIG_BYPASS_EN_SP {
 //
 union LDO_LPSR_DIG_STBY_EN_SP {
   
-  // Enum definitions.
   enum class eSTBY_EN_SETPOINT0 : uint32_t {
     eb0 = 0, // Disabled
     eb1 = 1, // Enabled
   };
+  
   enum class eSTBY_EN_SETPOINT1 : uint32_t {
     eb0 = 0, // Disabled
     eb1 = 1, // Enabled
   };
+  
   enum class eSTBY_EN_SETPOINT2 : uint32_t {
     eb0 = 0, // Disabled
     eb1 = 1, // Enabled
   };
+  
   enum class eSTBY_EN_SETPOINT3 : uint32_t {
     eb0 = 0, // Disabled
     eb1 = 1, // Enabled
   };
+  
   enum class eSTBY_EN_SETPOINT4 : uint32_t {
     eb0 = 0, // Disabled
     eb1 = 1, // Enabled
   };
+  
   enum class eSTBY_EN_SETPOINT5 : uint32_t {
     eb0 = 0, // Disabled
     eb1 = 1, // Enabled
   };
+  
   enum class eSTBY_EN_SETPOINT6 : uint32_t {
     eb0 = 0, // Disabled
     eb1 = 1, // Enabled
   };
+  
   enum class eSTBY_EN_SETPOINT7 : uint32_t {
     eb0 = 0, // Disabled
     eb1 = 1, // Enabled
   };
+  
   enum class eSTBY_EN_SETPOINT8 : uint32_t {
     eb0 = 0, // Disabled
     eb1 = 1, // Enabled
   };
+  
   enum class eSTBY_EN_SETPOINT9 : uint32_t {
     eb0 = 0, // Disabled
     eb1 = 1, // Enabled
   };
+  
   enum class eSTBY_EN_SETPOINT10 : uint32_t {
     eb0 = 0, // Disabled
     eb1 = 1, // Enabled
   };
+  
   enum class eSTBY_EN_SETPOINT11 : uint32_t {
     eb0 = 0, // Disabled
     eb1 = 1, // Enabled
   };
+  
   enum class eSTBY_EN_SETPOINT12 : uint32_t {
     eb0 = 0, // Disabled
     eb1 = 1, // Enabled
   };
+  
   enum class eSTBY_EN_SETPOINT13 : uint32_t {
     eb0 = 0, // Disabled
     eb1 = 1, // Enabled
   };
+  
   enum class eSTBY_EN_SETPOINT14 : uint32_t {
     eb0 = 0, // Disabled
     eb1 = 1, // Enabled
   };
+  
   enum class eSTBY_EN_SETPOINT15 : uint32_t {
     eb0 = 0, // Disabled
     eb1 = 1, // Enabled
@@ -1346,7 +1490,7 @@ union LDO_LPSR_DIG_STBY_EN_SP {
     eSTBY_EN_SETPOINT14 STBY_EN_SETPOINT14 : 1;
     eSTBY_EN_SETPOINT15 STBY_EN_SETPOINT15 : 1;
     uint32_t _reserved_end : 16;
-  } bits;          // Bit-field struct (auto-filling reserved gaps)
+  } bits;
   
   // Full 32-bit register value.
   uint32_t value;
@@ -1360,67 +1504,81 @@ union LDO_LPSR_DIG_STBY_EN_SP {
 //
 union BANDGAP_ENABLE_SP {
   
-  // Enum definitions.
   enum class eON_OFF_SETPOINT0 : uint32_t {
     es0 = 0, // ON
     es1 = 1, // OFF
   };
+  
   enum class eON_OFF_SETPOINT1 : uint32_t {
     es0 = 0, // ON
     es1 = 1, // OFF
   };
+  
   enum class eON_OFF_SETPOINT2 : uint32_t {
     es0 = 0, // ON
     es1 = 1, // OFF
   };
+  
   enum class eON_OFF_SETPOINT3 : uint32_t {
     es0 = 0, // ON
     es1 = 1, // OFF
   };
+  
   enum class eON_OFF_SETPOINT4 : uint32_t {
     es0 = 0, // ON
     es1 = 1, // OFF
   };
+  
   enum class eON_OFF_SETPOINT5 : uint32_t {
     es0 = 0, // ON
     es1 = 1, // OFF
   };
+  
   enum class eON_OFF_SETPOINT6 : uint32_t {
     es0 = 0, // ON
     es1 = 1, // OFF
   };
+  
   enum class eON_OFF_SETPOINT7 : uint32_t {
     es0 = 0, // ON
     es1 = 1, // OFF
   };
+  
   enum class eON_OFF_SETPOINT8 : uint32_t {
     es0 = 0, // ON
     es1 = 1, // OFF
   };
+  
   enum class eON_OFF_SETPOINT9 : uint32_t {
     es0 = 0, // ON
     es1 = 1, // OFF
   };
+  
   enum class eON_OFF_SETPOINT10 : uint32_t {
     es0 = 0, // ON
     es1 = 1, // OFF
   };
+  
   enum class eON_OFF_SETPOINT11 : uint32_t {
     es0 = 0, // ON
     es1 = 1, // OFF
   };
+  
   enum class eON_OFF_SETPOINT12 : uint32_t {
     es0 = 0, // ON
     es1 = 1, // OFF
   };
+  
   enum class eON_OFF_SETPOINT13 : uint32_t {
     es0 = 0, // ON
     es1 = 1, // OFF
   };
+  
   enum class eON_OFF_SETPOINT14 : uint32_t {
     es0 = 0, // ON
     es1 = 1, // OFF
   };
+  
   enum class eON_OFF_SETPOINT15 : uint32_t {
     es0 = 0, // ON
     es1 = 1, // OFF
@@ -1445,7 +1603,7 @@ union BANDGAP_ENABLE_SP {
     eON_OFF_SETPOINT14 ON_OFF_SETPOINT14 : 1;
     eON_OFF_SETPOINT15 ON_OFF_SETPOINT15 : 1;
     uint32_t _reserved_end : 16;
-  } bits;          // Bit-field struct (auto-filling reserved gaps)
+  } bits;
   
   // Full 32-bit register value.
   uint32_t value;
@@ -1459,67 +1617,81 @@ union BANDGAP_ENABLE_SP {
 //
 union FBB_M7_ENABLE_SP {
   
-  // Enum definitions.
   enum class eON_OFF_SETPOINT0 : uint32_t {
     es0 = 0, // ON
     es1 = 1, // OFF
   };
+  
   enum class eON_OFF_SETPOINT1 : uint32_t {
     es0 = 0, // ON
     es1 = 1, // OFF
   };
+  
   enum class eON_OFF_SETPOINT2 : uint32_t {
     es0 = 0, // ON
     es1 = 1, // OFF
   };
+  
   enum class eON_OFF_SETPOINT3 : uint32_t {
     es0 = 0, // ON
     es1 = 1, // OFF
   };
+  
   enum class eON_OFF_SETPOINT4 : uint32_t {
     es0 = 0, // ON
     es1 = 1, // OFF
   };
+  
   enum class eON_OFF_SETPOINT5 : uint32_t {
     es0 = 0, // ON
     es1 = 1, // OFF
   };
+  
   enum class eON_OFF_SETPOINT6 : uint32_t {
     es0 = 0, // ON
     es1 = 1, // OFF
   };
+  
   enum class eON_OFF_SETPOINT7 : uint32_t {
     es0 = 0, // ON
     es1 = 1, // OFF
   };
+  
   enum class eON_OFF_SETPOINT8 : uint32_t {
     es0 = 0, // ON
     es1 = 1, // OFF
   };
+  
   enum class eON_OFF_SETPOINT9 : uint32_t {
     es0 = 0, // ON
     es1 = 1, // OFF
   };
+  
   enum class eON_OFF_SETPOINT10 : uint32_t {
     es0 = 0, // ON
     es1 = 1, // OFF
   };
+  
   enum class eON_OFF_SETPOINT11 : uint32_t {
     es0 = 0, // ON
     es1 = 1, // OFF
   };
+  
   enum class eON_OFF_SETPOINT12 : uint32_t {
     es0 = 0, // ON
     es1 = 1, // OFF
   };
+  
   enum class eON_OFF_SETPOINT13 : uint32_t {
     es0 = 0, // ON
     es1 = 1, // OFF
   };
+  
   enum class eON_OFF_SETPOINT14 : uint32_t {
     es0 = 0, // ON
     es1 = 1, // OFF
   };
+  
   enum class eON_OFF_SETPOINT15 : uint32_t {
     es0 = 0, // ON
     es1 = 1, // OFF
@@ -1544,7 +1716,7 @@ union FBB_M7_ENABLE_SP {
     eON_OFF_SETPOINT14 ON_OFF_SETPOINT14 : 1;
     eON_OFF_SETPOINT15 ON_OFF_SETPOINT15 : 1;
     uint32_t _reserved_end : 16;
-  } bits;          // Bit-field struct (auto-filling reserved gaps)
+  } bits;
   
   // Full 32-bit register value.
   uint32_t value;
@@ -1558,67 +1730,81 @@ union FBB_M7_ENABLE_SP {
 //
 union RBB_SOC_ENABLE_SP {
   
-  // Enum definitions.
   enum class eON_OFF_SETPOINT0 : uint32_t {
     es0 = 0, // ON
     es1 = 1, // OFF
   };
+  
   enum class eON_OFF_SETPOINT1 : uint32_t {
     es0 = 0, // ON
     es1 = 1, // OFF
   };
+  
   enum class eON_OFF_SETPOINT2 : uint32_t {
     es0 = 0, // ON
     es1 = 1, // OFF
   };
+  
   enum class eON_OFF_SETPOINT3 : uint32_t {
     es0 = 0, // ON
     es1 = 1, // OFF
   };
+  
   enum class eON_OFF_SETPOINT4 : uint32_t {
     es0 = 0, // ON
     es1 = 1, // OFF
   };
+  
   enum class eON_OFF_SETPOINT5 : uint32_t {
     es0 = 0, // ON
     es1 = 1, // OFF
   };
+  
   enum class eON_OFF_SETPOINT6 : uint32_t {
     es0 = 0, // ON
     es1 = 1, // OFF
   };
+  
   enum class eON_OFF_SETPOINT7 : uint32_t {
     es0 = 0, // ON
     es1 = 1, // OFF
   };
+  
   enum class eON_OFF_SETPOINT8 : uint32_t {
     es0 = 0, // ON
     es1 = 1, // OFF
   };
+  
   enum class eON_OFF_SETPOINT9 : uint32_t {
     es0 = 0, // ON
     es1 = 1, // OFF
   };
+  
   enum class eON_OFF_SETPOINT10 : uint32_t {
     es0 = 0, // ON
     es1 = 1, // OFF
   };
+  
   enum class eON_OFF_SETPOINT11 : uint32_t {
     es0 = 0, // ON
     es1 = 1, // OFF
   };
+  
   enum class eON_OFF_SETPOINT12 : uint32_t {
     es0 = 0, // ON
     es1 = 1, // OFF
   };
+  
   enum class eON_OFF_SETPOINT13 : uint32_t {
     es0 = 0, // ON
     es1 = 1, // OFF
   };
+  
   enum class eON_OFF_SETPOINT14 : uint32_t {
     es0 = 0, // ON
     es1 = 1, // OFF
   };
+  
   enum class eON_OFF_SETPOINT15 : uint32_t {
     es0 = 0, // ON
     es1 = 1, // OFF
@@ -1643,7 +1829,7 @@ union RBB_SOC_ENABLE_SP {
     eON_OFF_SETPOINT14 ON_OFF_SETPOINT14 : 1;
     eON_OFF_SETPOINT15 ON_OFF_SETPOINT15 : 1;
     uint32_t _reserved_end : 16;
-  } bits;          // Bit-field struct (auto-filling reserved gaps)
+  } bits;
   
   // Full 32-bit register value.
   uint32_t value;
@@ -1657,67 +1843,81 @@ union RBB_SOC_ENABLE_SP {
 //
 union RBB_LPSR_ENABLE_SP {
   
-  // Enum definitions.
   enum class eON_OFF_SETPOINT0 : uint32_t {
     es0 = 0, // ON
     es1 = 1, // OFF
   };
+  
   enum class eON_OFF_SETPOINT1 : uint32_t {
     es0 = 0, // ON
     es1 = 1, // OFF
   };
+  
   enum class eON_OFF_SETPOINT2 : uint32_t {
     es0 = 0, // ON
     es1 = 1, // OFF
   };
+  
   enum class eON_OFF_SETPOINT3 : uint32_t {
     es0 = 0, // ON
     es1 = 1, // OFF
   };
+  
   enum class eON_OFF_SETPOINT4 : uint32_t {
     es0 = 0, // ON
     es1 = 1, // OFF
   };
+  
   enum class eON_OFF_SETPOINT5 : uint32_t {
     es0 = 0, // ON
     es1 = 1, // OFF
   };
+  
   enum class eON_OFF_SETPOINT6 : uint32_t {
     es0 = 0, // ON
     es1 = 1, // OFF
   };
+  
   enum class eON_OFF_SETPOINT7 : uint32_t {
     es0 = 0, // ON
     es1 = 1, // OFF
   };
+  
   enum class eON_OFF_SETPOINT8 : uint32_t {
     es0 = 0, // ON
     es1 = 1, // OFF
   };
+  
   enum class eON_OFF_SETPOINT9 : uint32_t {
     es0 = 0, // ON
     es1 = 1, // OFF
   };
+  
   enum class eON_OFF_SETPOINT10 : uint32_t {
     es0 = 0, // ON
     es1 = 1, // OFF
   };
+  
   enum class eON_OFF_SETPOINT11 : uint32_t {
     es0 = 0, // ON
     es1 = 1, // OFF
   };
+  
   enum class eON_OFF_SETPOINT12 : uint32_t {
     es0 = 0, // ON
     es1 = 1, // OFF
   };
+  
   enum class eON_OFF_SETPOINT13 : uint32_t {
     es0 = 0, // ON
     es1 = 1, // OFF
   };
+  
   enum class eON_OFF_SETPOINT14 : uint32_t {
     es0 = 0, // ON
     es1 = 1, // OFF
   };
+  
   enum class eON_OFF_SETPOINT15 : uint32_t {
     es0 = 0, // ON
     es1 = 1, // OFF
@@ -1742,7 +1942,7 @@ union RBB_LPSR_ENABLE_SP {
     eON_OFF_SETPOINT14 ON_OFF_SETPOINT14 : 1;
     eON_OFF_SETPOINT15 ON_OFF_SETPOINT15 : 1;
     uint32_t _reserved_end : 16;
-  } bits;          // Bit-field struct (auto-filling reserved gaps)
+  } bits;
   
   // Full 32-bit register value.
   uint32_t value;
@@ -1756,67 +1956,81 @@ union RBB_LPSR_ENABLE_SP {
 //
 union BANDGAP_STBY_EN_SP {
   
-  // Enum definitions.
   enum class eSTBY_EN_SETPOINT0 : uint32_t {
     eb0 = 0, // Disabled
     eb1 = 1, // Enabled
   };
+  
   enum class eSTBY_EN_SETPOINT1 : uint32_t {
     eb0 = 0, // Disabled
     eb1 = 1, // Enabled
   };
+  
   enum class eSTBY_EN_SETPOINT2 : uint32_t {
     eb0 = 0, // Disabled
     eb1 = 1, // Enabled
   };
+  
   enum class eSTBY_EN_SETPOINT3 : uint32_t {
     eb0 = 0, // Disabled
     eb1 = 1, // Enabled
   };
+  
   enum class eSTBY_EN_SETPOINT4 : uint32_t {
     eb0 = 0, // Disabled
     eb1 = 1, // Enabled
   };
+  
   enum class eSTBY_EN_SETPOINT5 : uint32_t {
     eb0 = 0, // Disabled
     eb1 = 1, // Enabled
   };
+  
   enum class eSTBY_EN_SETPOINT6 : uint32_t {
     eb0 = 0, // Disabled
     eb1 = 1, // Enabled
   };
+  
   enum class eSTBY_EN_SETPOINT7 : uint32_t {
     eb0 = 0, // Disabled
     eb1 = 1, // Enabled
   };
+  
   enum class eSTBY_EN_SETPOINT8 : uint32_t {
     eb0 = 0, // Disabled
     eb1 = 1, // Enabled
   };
+  
   enum class eSTBY_EN_SETPOINT9 : uint32_t {
     eb0 = 0, // Disabled
     eb1 = 1, // Enabled
   };
+  
   enum class eSTBY_EN_SETPOINT10 : uint32_t {
     eb0 = 0, // Disabled
     eb1 = 1, // Enabled
   };
+  
   enum class eSTBY_EN_SETPOINT11 : uint32_t {
     eb0 = 0, // Disabled
     eb1 = 1, // Enabled
   };
+  
   enum class eSTBY_EN_SETPOINT12 : uint32_t {
     eb0 = 0, // Disabled
     eb1 = 1, // Enabled
   };
+  
   enum class eSTBY_EN_SETPOINT13 : uint32_t {
     eb0 = 0, // Disabled
     eb1 = 1, // Enabled
   };
+  
   enum class eSTBY_EN_SETPOINT14 : uint32_t {
     eb0 = 0, // Disabled
     eb1 = 1, // Enabled
   };
+  
   enum class eSTBY_EN_SETPOINT15 : uint32_t {
     eb0 = 0, // Disabled
     eb1 = 1, // Enabled
@@ -1841,7 +2055,7 @@ union BANDGAP_STBY_EN_SP {
     eSTBY_EN_SETPOINT14 STBY_EN_SETPOINT14 : 1;
     eSTBY_EN_SETPOINT15 STBY_EN_SETPOINT15 : 1;
     uint32_t _reserved_end : 16;
-  } bits;          // Bit-field struct (auto-filling reserved gaps)
+  } bits;
   
   // Full 32-bit register value.
   uint32_t value;
@@ -1855,67 +2069,81 @@ union BANDGAP_STBY_EN_SP {
 //
 union PLL_LDO_STBY_EN_SP {
   
-  // Enum definitions.
   enum class eSTBY_EN_SETPOINT0 : uint32_t {
     eb0 = 0, // Disabled
     eb1 = 1, // Enabled
   };
+  
   enum class eSTBY_EN_SETPOINT1 : uint32_t {
     eb0 = 0, // Disabled
     eb1 = 1, // Enabled
   };
+  
   enum class eSTBY_EN_SETPOINT2 : uint32_t {
     eb0 = 0, // Disabled
     eb1 = 1, // Enabled
   };
+  
   enum class eSTBY_EN_SETPOINT3 : uint32_t {
     eb0 = 0, // Disabled
     eb1 = 1, // Enabled
   };
+  
   enum class eSTBY_EN_SETPOINT4 : uint32_t {
     eb0 = 0, // Disabled
     eb1 = 1, // Enabled
   };
+  
   enum class eSTBY_EN_SETPOINT5 : uint32_t {
     eb0 = 0, // Disabled
     eb1 = 1, // Enabled
   };
+  
   enum class eSTBY_EN_SETPOINT6 : uint32_t {
     eb0 = 0, // Disabled
     eb1 = 1, // Enabled
   };
+  
   enum class eSTBY_EN_SETPOINT7 : uint32_t {
     eb0 = 0, // Disabled
     eb1 = 1, // Enabled
   };
+  
   enum class eSTBY_EN_SETPOINT8 : uint32_t {
     eb0 = 0, // Disabled
     eb1 = 1, // Enabled
   };
+  
   enum class eSTBY_EN_SETPOINT9 : uint32_t {
     eb0 = 0, // Disabled
     eb1 = 1, // Enabled
   };
+  
   enum class eSTBY_EN_SETPOINT10 : uint32_t {
     eb0 = 0, // Disabled
     eb1 = 1, // Enabled
   };
+  
   enum class eSTBY_EN_SETPOINT11 : uint32_t {
     eb0 = 0, // Disabled
     eb1 = 1, // Enabled
   };
+  
   enum class eSTBY_EN_SETPOINT12 : uint32_t {
     eb0 = 0, // Disabled
     eb1 = 1, // Enabled
   };
+  
   enum class eSTBY_EN_SETPOINT13 : uint32_t {
     eb0 = 0, // Disabled
     eb1 = 1, // Enabled
   };
+  
   enum class eSTBY_EN_SETPOINT14 : uint32_t {
     eb0 = 0, // Disabled
     eb1 = 1, // Enabled
   };
+  
   enum class eSTBY_EN_SETPOINT15 : uint32_t {
     eb0 = 0, // Disabled
     eb1 = 1, // Enabled
@@ -1940,7 +2168,7 @@ union PLL_LDO_STBY_EN_SP {
     eSTBY_EN_SETPOINT14 STBY_EN_SETPOINT14 : 1;
     eSTBY_EN_SETPOINT15 STBY_EN_SETPOINT15 : 1;
     uint32_t _reserved_end : 16;
-  } bits;          // Bit-field struct (auto-filling reserved gaps)
+  } bits;
   
   // Full 32-bit register value.
   uint32_t value;
@@ -1954,67 +2182,81 @@ union PLL_LDO_STBY_EN_SP {
 //
 union FBB_M7_STBY_EN_SP {
   
-  // Enum definitions.
   enum class eSTBY_EN_SETPOINT0 : uint32_t {
     eb0 = 0, // Disabled
     eb1 = 1, // Enabled
   };
+  
   enum class eSTBY_EN_SETPOINT1 : uint32_t {
     eb0 = 0, // Disabled
     eb1 = 1, // Enabled
   };
+  
   enum class eSTBY_EN_SETPOINT2 : uint32_t {
     eb0 = 0, // Disabled
     eb1 = 1, // Enabled
   };
+  
   enum class eSTBY_EN_SETPOINT3 : uint32_t {
     eb0 = 0, // Disabled
     eb1 = 1, // Enabled
   };
+  
   enum class eSTBY_EN_SETPOINT4 : uint32_t {
     eb0 = 0, // Disabled
     eb1 = 1, // Enabled
   };
+  
   enum class eSTBY_EN_SETPOINT5 : uint32_t {
     eb0 = 0, // Disabled
     eb1 = 1, // Enabled
   };
+  
   enum class eSTBY_EN_SETPOINT6 : uint32_t {
     eb0 = 0, // Disabled
     eb1 = 1, // Enabled
   };
+  
   enum class eSTBY_EN_SETPOINT7 : uint32_t {
     eb0 = 0, // Disabled
     eb1 = 1, // Enabled
   };
+  
   enum class eSTBY_EN_SETPOINT8 : uint32_t {
     eb0 = 0, // Disabled
     eb1 = 1, // Enabled
   };
+  
   enum class eSTBY_EN_SETPOINT9 : uint32_t {
     eb0 = 0, // Disabled
     eb1 = 1, // Enabled
   };
+  
   enum class eSTBY_EN_SETPOINT10 : uint32_t {
     eb0 = 0, // Disabled
     eb1 = 1, // Enabled
   };
+  
   enum class eSTBY_EN_SETPOINT11 : uint32_t {
     eb0 = 0, // Disabled
     eb1 = 1, // Enabled
   };
+  
   enum class eSTBY_EN_SETPOINT12 : uint32_t {
     eb0 = 0, // Disabled
     eb1 = 1, // Enabled
   };
+  
   enum class eSTBY_EN_SETPOINT13 : uint32_t {
     eb0 = 0, // Disabled
     eb1 = 1, // Enabled
   };
+  
   enum class eSTBY_EN_SETPOINT14 : uint32_t {
     eb0 = 0, // Disabled
     eb1 = 1, // Enabled
   };
+  
   enum class eSTBY_EN_SETPOINT15 : uint32_t {
     eb0 = 0, // Disabled
     eb1 = 1, // Enabled
@@ -2039,7 +2281,7 @@ union FBB_M7_STBY_EN_SP {
     eSTBY_EN_SETPOINT14 STBY_EN_SETPOINT14 : 1;
     eSTBY_EN_SETPOINT15 STBY_EN_SETPOINT15 : 1;
     uint32_t _reserved_end : 16;
-  } bits;          // Bit-field struct (auto-filling reserved gaps)
+  } bits;
   
   // Full 32-bit register value.
   uint32_t value;
@@ -2053,67 +2295,81 @@ union FBB_M7_STBY_EN_SP {
 //
 union RBB_SOC_STBY_EN_SP {
   
-  // Enum definitions.
   enum class eSTBY_EN_SETPOINT0 : uint32_t {
     eb0 = 0, // Disabled
     eb1 = 1, // Enabled
   };
+  
   enum class eSTBY_EN_SETPOINT1 : uint32_t {
     eb0 = 0, // Disabled
     eb1 = 1, // Enabled
   };
+  
   enum class eSTBY_EN_SETPOINT2 : uint32_t {
     eb0 = 0, // Disabled
     eb1 = 1, // Enabled
   };
+  
   enum class eSTBY_EN_SETPOINT3 : uint32_t {
     eb0 = 0, // Disabled
     eb1 = 1, // Enabled
   };
+  
   enum class eSTBY_EN_SETPOINT4 : uint32_t {
     eb0 = 0, // Disabled
     eb1 = 1, // Enabled
   };
+  
   enum class eSTBY_EN_SETPOINT5 : uint32_t {
     eb0 = 0, // Disabled
     eb1 = 1, // Enabled
   };
+  
   enum class eSTBY_EN_SETPOINT6 : uint32_t {
     eb0 = 0, // Disabled
     eb1 = 1, // Enabled
   };
+  
   enum class eSTBY_EN_SETPOINT7 : uint32_t {
     eb0 = 0, // Disabled
     eb1 = 1, // Enabled
   };
+  
   enum class eSTBY_EN_SETPOINT8 : uint32_t {
     eb0 = 0, // Disabled
     eb1 = 1, // Enabled
   };
+  
   enum class eSTBY_EN_SETPOINT9 : uint32_t {
     eb0 = 0, // Disabled
     eb1 = 1, // Enabled
   };
+  
   enum class eSTBY_EN_SETPOINT10 : uint32_t {
     eb0 = 0, // Disabled
     eb1 = 1, // Enabled
   };
+  
   enum class eSTBY_EN_SETPOINT11 : uint32_t {
     eb0 = 0, // Disabled
     eb1 = 1, // Enabled
   };
+  
   enum class eSTBY_EN_SETPOINT12 : uint32_t {
     eb0 = 0, // Disabled
     eb1 = 1, // Enabled
   };
+  
   enum class eSTBY_EN_SETPOINT13 : uint32_t {
     eb0 = 0, // Disabled
     eb1 = 1, // Enabled
   };
+  
   enum class eSTBY_EN_SETPOINT14 : uint32_t {
     eb0 = 0, // Disabled
     eb1 = 1, // Enabled
   };
+  
   enum class eSTBY_EN_SETPOINT15 : uint32_t {
     eb0 = 0, // Disabled
     eb1 = 1, // Enabled
@@ -2138,7 +2394,7 @@ union RBB_SOC_STBY_EN_SP {
     eSTBY_EN_SETPOINT14 STBY_EN_SETPOINT14 : 1;
     eSTBY_EN_SETPOINT15 STBY_EN_SETPOINT15 : 1;
     uint32_t _reserved_end : 16;
-  } bits;          // Bit-field struct (auto-filling reserved gaps)
+  } bits;
   
   // Full 32-bit register value.
   uint32_t value;
@@ -2152,67 +2408,81 @@ union RBB_SOC_STBY_EN_SP {
 //
 union RBB_LPSR_STBY_EN_SP {
   
-  // Enum definitions.
   enum class eSTBY_EN_SETPOINT0 : uint32_t {
     eb0 = 0, // Disabled
     eb1 = 1, // Enabled
   };
+  
   enum class eSTBY_EN_SETPOINT1 : uint32_t {
     eb0 = 0, // Disabled
     eb1 = 1, // Enabled
   };
+  
   enum class eSTBY_EN_SETPOINT2 : uint32_t {
     eb0 = 0, // Disabled
     eb1 = 1, // Enabled
   };
+  
   enum class eSTBY_EN_SETPOINT3 : uint32_t {
     eb0 = 0, // Disabled
     eb1 = 1, // Enabled
   };
+  
   enum class eSTBY_EN_SETPOINT4 : uint32_t {
     eb0 = 0, // Disabled
     eb1 = 1, // Enabled
   };
+  
   enum class eSTBY_EN_SETPOINT5 : uint32_t {
     eb0 = 0, // Disabled
     eb1 = 1, // Enabled
   };
+  
   enum class eSTBY_EN_SETPOINT6 : uint32_t {
     eb0 = 0, // Disabled
     eb1 = 1, // Enabled
   };
+  
   enum class eSTBY_EN_SETPOINT7 : uint32_t {
     eb0 = 0, // Disabled
     eb1 = 1, // Enabled
   };
+  
   enum class eSTBY_EN_SETPOINT8 : uint32_t {
     eb0 = 0, // Disabled
     eb1 = 1, // Enabled
   };
+  
   enum class eSTBY_EN_SETPOINT9 : uint32_t {
     eb0 = 0, // Disabled
     eb1 = 1, // Enabled
   };
+  
   enum class eSTBY_EN_SETPOINT10 : uint32_t {
     eb0 = 0, // Disabled
     eb1 = 1, // Enabled
   };
+  
   enum class eSTBY_EN_SETPOINT11 : uint32_t {
     eb0 = 0, // Disabled
     eb1 = 1, // Enabled
   };
+  
   enum class eSTBY_EN_SETPOINT12 : uint32_t {
     eb0 = 0, // Disabled
     eb1 = 1, // Enabled
   };
+  
   enum class eSTBY_EN_SETPOINT13 : uint32_t {
     eb0 = 0, // Disabled
     eb1 = 1, // Enabled
   };
+  
   enum class eSTBY_EN_SETPOINT14 : uint32_t {
     eb0 = 0, // Disabled
     eb1 = 1, // Enabled
   };
+  
   enum class eSTBY_EN_SETPOINT15 : uint32_t {
     eb0 = 0, // Disabled
     eb1 = 1, // Enabled
@@ -2237,7 +2507,7 @@ union RBB_LPSR_STBY_EN_SP {
     eSTBY_EN_SETPOINT14 STBY_EN_SETPOINT14 : 1;
     eSTBY_EN_SETPOINT15 STBY_EN_SETPOINT15 : 1;
     uint32_t _reserved_end : 16;
-  } bits;          // Bit-field struct (auto-filling reserved gaps)
+  } bits;
   
   // Full 32-bit register value.
   uint32_t value;
@@ -2251,8 +2521,6 @@ union RBB_LPSR_STBY_EN_SP {
 //
 union FBB_M7_CONFIGURE {
   
-  // Enum definitions.
-  
   // Bit field definition.
   struct {
     uint32_t WB_CFG_PW : 4;
@@ -2260,7 +2528,7 @@ union FBB_M7_CONFIGURE {
     uint32_t OSCILLATOR_BITS : 3;
     uint32_t REGULATOR_STRENGTH : 3;
     uint32_t _reserved_end : 18;
-  } bits;          // Bit-field struct (auto-filling reserved gaps)
+  } bits;
   
   // Full 32-bit register value.
   uint32_t value;
@@ -2274,8 +2542,6 @@ union FBB_M7_CONFIGURE {
 //
 union RBB_LPSR_CONFIGURE {
   
-  // Enum definitions.
-  
   // Bit field definition.
   struct {
     uint32_t WB_CFG_PW : 4;
@@ -2283,7 +2549,7 @@ union RBB_LPSR_CONFIGURE {
     uint32_t OSCILLATOR_BITS : 3;
     uint32_t REGULATOR_STRENGTH : 3;
     uint32_t _reserved_end : 18;
-  } bits;          // Bit-field struct (auto-filling reserved gaps)
+  } bits;
   
   // Full 32-bit register value.
   uint32_t value;
@@ -2297,8 +2563,6 @@ union RBB_LPSR_CONFIGURE {
 //
 union RBB_SOC_CONFIGURE {
   
-  // Enum definitions.
-  
   // Bit field definition.
   struct {
     uint32_t WB_CFG_PW : 4;
@@ -2306,7 +2570,7 @@ union RBB_SOC_CONFIGURE {
     uint32_t OSCILLATOR_BITS : 3;
     uint32_t REGULATOR_STRENGTH : 3;
     uint32_t _reserved_end : 18;
-  } bits;          // Bit-field struct (auto-filling reserved gaps)
+  } bits;
   
   // Full 32-bit register value.
   uint32_t value;
@@ -2320,15 +2584,13 @@ union RBB_SOC_CONFIGURE {
 //
 union REFTOP_OTP_TRIM_VALUE {
   
-  // Enum definitions.
-  
   // Bit field definition.
   struct {
     uint32_t REFTOP_IBZTCADJ : 3;
     uint32_t REFTOP_VBGADJ : 3;
     uint32_t REFTOP_TRIM_EN : 1;
     uint32_t _reserved_end : 25;
-  } bits;          // Bit-field struct (auto-filling reserved gaps)
+  } bits;
   
   // Full 32-bit register value.
   uint32_t value;
@@ -2342,14 +2604,12 @@ union REFTOP_OTP_TRIM_VALUE {
 //
 union LPSR_1P8_LDO_OTP_TRIM_VALUE {
   
-  // Enum definitions.
-  
   // Bit field definition.
   struct {
     uint32_t LPSR_LDO_1P8_TRIM : 2;
     uint32_t LPSR_LDO_1P8_TRIM_EN : 1;
     uint32_t _reserved_end : 29;
-  } bits;          // Bit-field struct (auto-filling reserved gaps)
+  } bits;
   
   // Full 32-bit register value.
   uint32_t value;

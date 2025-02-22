@@ -15,13 +15,11 @@ namespace nDSI_HOST_DPI_INTFC {
 //
 union PIXEL_PAYLOAD_SIZE {
   
-  // Enum definitions.
-  
   // Bit field definition.
   struct {
     uint32_t PAYLOAD_SIZE : 16;
     uint32_t _reserved_end : 16;
-  } bits;          // Bit-field struct (auto-filling reserved gaps)
+  } bits;
   
   // Full 32-bit register value.
   uint32_t value;
@@ -35,13 +33,11 @@ union PIXEL_PAYLOAD_SIZE {
 //
 union PIXEL_FIFO_SEND_LEVEL {
   
-  // Enum definitions.
-  
   // Bit field definition.
   struct {
     uint32_t FIFO_SEND_LEVEL : 16;
     uint32_t _reserved_end : 16;
-  } bits;          // Bit-field struct (auto-filling reserved gaps)
+  } bits;
   
   // Full 32-bit register value.
   uint32_t value;
@@ -55,7 +51,6 @@ union PIXEL_FIFO_SEND_LEVEL {
 //
 union INTERFACE_COLOR_CODING {
   
-  // Enum definitions.
   enum class eRGB_CONFIG : uint32_t {
     eRGB_CONFIG_0 = 0, // 16-bit Configuration 1
     eRGB_CONFIG_1 = 1, // 16-bit Configuration 2
@@ -69,7 +64,7 @@ union INTERFACE_COLOR_CODING {
   struct {
     eRGB_CONFIG RGB_CONFIG : 3;
     uint32_t _reserved_end : 29;
-  } bits;          // Bit-field struct (auto-filling reserved gaps)
+  } bits;
   
   // Full 32-bit register value.
   uint32_t value;
@@ -83,7 +78,6 @@ union INTERFACE_COLOR_CODING {
 //
 union PIXEL_FORMAT {
   
-  // Enum definitions.
   enum class ePIXEL_FORMAT : uint32_t {
     ePIXEL_FORMAT_0 = 0, // 16 bit
     ePIXEL_FORMAT_1 = 1, // 18 bit
@@ -95,7 +89,7 @@ union PIXEL_FORMAT {
   struct {
     ePIXEL_FORMAT PIXEL_FORMAT : 2;
     uint32_t _reserved_end : 30;
-  } bits;          // Bit-field struct (auto-filling reserved gaps)
+  } bits;
   
   // Full 32-bit register value.
   uint32_t value;
@@ -109,7 +103,6 @@ union PIXEL_FORMAT {
 //
 union VSYNC_POLARITY {
   
-  // Enum definitions.
   enum class eVSYNC_POLARITY : uint32_t {
     eVSYNC_POLARITY_0 = 0, // active low
     eVSYNC_POLARITY_1 = 1, // active high
@@ -119,7 +112,7 @@ union VSYNC_POLARITY {
   struct {
     eVSYNC_POLARITY VSYNC_POLARITY : 1;
     uint32_t _reserved_end : 31;
-  } bits;          // Bit-field struct (auto-filling reserved gaps)
+  } bits;
   
   // Full 32-bit register value.
   uint32_t value;
@@ -133,7 +126,6 @@ union VSYNC_POLARITY {
 //
 union HSYNC_POLARITY {
   
-  // Enum definitions.
   enum class eHSYNC_POLARITY : uint32_t {
     eHSYNC_POLARITY_0 = 0, // active low
     eHSYNC_POLARITY_1 = 1, // active high
@@ -143,7 +135,7 @@ union HSYNC_POLARITY {
   struct {
     eHSYNC_POLARITY HSYNC_POLARITY : 1;
     uint32_t _reserved_end : 31;
-  } bits;          // Bit-field struct (auto-filling reserved gaps)
+  } bits;
   
   // Full 32-bit register value.
   uint32_t value;
@@ -157,7 +149,6 @@ union HSYNC_POLARITY {
 //
 union VIDEO_MODE {
   
-  // Enum definitions.
   enum class eVIDEO_MODE : uint32_t {
     eVIDEO_MODE_0 = 0, // Non-Burst mode with Sync Pulses
     eVIDEO_MODE_1 = 1, // Non-Burst mode with Sync Events
@@ -168,7 +159,7 @@ union VIDEO_MODE {
   struct {
     eVIDEO_MODE VIDEO_MODE : 2;
     uint32_t _reserved_end : 30;
-  } bits;          // Bit-field struct (auto-filling reserved gaps)
+  } bits;
   
   // Full 32-bit register value.
   uint32_t value;
@@ -182,13 +173,11 @@ union VIDEO_MODE {
 //
 union HFP {
   
-  // Enum definitions.
-  
   // Bit field definition.
   struct {
     uint32_t PAYLOAD_SIZE : 16;
     uint32_t _reserved_end : 16;
-  } bits;          // Bit-field struct (auto-filling reserved gaps)
+  } bits;
   
   // Full 32-bit register value.
   uint32_t value;
@@ -202,13 +191,11 @@ union HFP {
 //
 union HBP {
   
-  // Enum definitions.
-  
   // Bit field definition.
   struct {
     uint32_t PAYLOAD_SIZE : 16;
     uint32_t _reserved_end : 16;
-  } bits;          // Bit-field struct (auto-filling reserved gaps)
+  } bits;
   
   // Full 32-bit register value.
   uint32_t value;
@@ -222,13 +209,11 @@ union HBP {
 //
 union HSA {
   
-  // Enum definitions.
-  
   // Bit field definition.
   struct {
     uint32_t PAYLOAD_SIZE : 16;
     uint32_t _reserved_end : 16;
-  } bits;          // Bit-field struct (auto-filling reserved gaps)
+  } bits;
   
   // Full 32-bit register value.
   uint32_t value;
@@ -242,7 +227,6 @@ union HSA {
 //
 union ENABLE_MULT_PKTS {
   
-  // Enum definitions.
   enum class eENABLE_MULT_PKTS : uint32_t {
     eENABLE_MULT_PKTS_0 = 0, // Video Line is sent in a single packet
     eENABLE_MULT_PKTS_1 = 1, // Video Line is sent in two packets
@@ -252,7 +236,7 @@ union ENABLE_MULT_PKTS {
   struct {
     eENABLE_MULT_PKTS ENABLE_MULT_PKTS : 1;
     uint32_t _reserved_end : 31;
-  } bits;          // Bit-field struct (auto-filling reserved gaps)
+  } bits;
   
   // Full 32-bit register value.
   uint32_t value;
@@ -266,13 +250,11 @@ union ENABLE_MULT_PKTS {
 //
 union VBP {
   
-  // Enum definitions.
-  
   // Bit field definition.
   struct {
     uint32_t NUM_LINES : 8;
     uint32_t _reserved_end : 24;
-  } bits;          // Bit-field struct (auto-filling reserved gaps)
+  } bits;
   
   // Full 32-bit register value.
   uint32_t value;
@@ -286,13 +268,11 @@ union VBP {
 //
 union VFP {
   
-  // Enum definitions.
-  
   // Bit field definition.
   struct {
     uint32_t NUM_LINES : 8;
     uint32_t _reserved_end : 24;
-  } bits;          // Bit-field struct (auto-filling reserved gaps)
+  } bits;
   
   // Full 32-bit register value.
   uint32_t value;
@@ -306,7 +286,6 @@ union VFP {
 //
 union BLLP_MODE {
   
-  // Enum definitions.
   enum class eLP : uint32_t {
     eLP_0 = 0, // Blanking packets are sent during BLLP periods
     eLP_1 = 1, // LP mode is used for BLLP periods
@@ -316,7 +295,7 @@ union BLLP_MODE {
   struct {
     eLP LP : 1;
     uint32_t _reserved_end : 31;
-  } bits;          // Bit-field struct (auto-filling reserved gaps)
+  } bits;
   
   // Full 32-bit register value.
   uint32_t value;
@@ -330,7 +309,6 @@ union BLLP_MODE {
 //
 union USE_NULL_PKT_BLLP {
   
-  // Enum definitions.
   enum class eNULL : uint32_t {
     eNULL_0 = 0, // Blanking packet used in bllp region 1
     eNULL_1 = 1, // Null packet used in bllp region
@@ -340,7 +318,7 @@ union USE_NULL_PKT_BLLP {
   struct {
     eNULL NULL : 1;
     uint32_t _reserved_end : 31;
-  } bits;          // Bit-field struct (auto-filling reserved gaps)
+  } bits;
   
   // Full 32-bit register value.
   uint32_t value;
@@ -354,13 +332,11 @@ union USE_NULL_PKT_BLLP {
 //
 union VACTIVE {
   
-  // Enum definitions.
-  
   // Bit field definition.
   struct {
     uint32_t NUM_LINES : 14;
     uint32_t _reserved_end : 18;
-  } bits;          // Bit-field struct (auto-filling reserved gaps)
+  } bits;
   
   // Full 32-bit register value.
   uint32_t value;

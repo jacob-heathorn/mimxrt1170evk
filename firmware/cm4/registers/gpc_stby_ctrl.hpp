@@ -15,14 +15,12 @@ namespace nGPC_STBY_CTRL {
 //
 union STBY_AUTHEN_CTRL {
   
-  // Enum definitions.
-  
   // Bit field definition.
   struct {
     uint32_t _reserved_0 : 20;
     uint32_t LOCK_CFG : 1;
     uint32_t _reserved_end : 11;
-  } bits;          // Bit-field struct (auto-filling reserved gaps)
+  } bits;
   
   // Full 32-bit register value.
   uint32_t value;
@@ -36,8 +34,6 @@ union STBY_AUTHEN_CTRL {
 //
 union STBY_MISC {
   
-  // Enum definitions.
-  
   // Bit field definition.
   struct {
     uint32_t FORCE_CPU0_STBY : 1;
@@ -45,7 +41,7 @@ union STBY_MISC {
     uint32_t FORCE_CPU2_STBY : 1;
     uint32_t FORCE_CPU3_STBY : 1;
     uint32_t _reserved_end : 28;
-  } bits;          // Bit-field struct (auto-filling reserved gaps)
+  } bits;
   
   // Full 32-bit register value.
   uint32_t value;
@@ -59,7 +55,6 @@ union STBY_MISC {
 //
 union STBY_LPCG_IN_CTRL {
   
-  // Enum definitions.
   enum class eCNT_MODE : uint32_t {
     eb0 = 0, // Counter disable mode: not use step counter, step completes once receiving step_done
     eb1 = 1, // Counter delay mode: delay after receiving step_done, delay cycle number is STEP_CNT
@@ -74,7 +69,7 @@ union STBY_LPCG_IN_CTRL {
     eCNT_MODE CNT_MODE : 2;
     uint32_t _reserved_2 : 1;
     uint32_t DISABLE : 1;
-  } bits;          // Bit-field struct (auto-filling reserved gaps)
+  } bits;
   
   // Full 32-bit register value.
   uint32_t value;
@@ -88,7 +83,6 @@ union STBY_LPCG_IN_CTRL {
 //
 union STBY_PLL_IN_CTRL {
   
-  // Enum definitions.
   enum class eCNT_MODE : uint32_t {
     eb0 = 0, // Counter disable mode: not use step counter, step completes once receiving step_done
     eb1 = 1, // Counter delay mode: delay after receiving step_done, delay cycle number is STEP_CNT
@@ -103,7 +97,7 @@ union STBY_PLL_IN_CTRL {
     eCNT_MODE CNT_MODE : 2;
     uint32_t _reserved_2 : 1;
     uint32_t DISABLE : 1;
-  } bits;          // Bit-field struct (auto-filling reserved gaps)
+  } bits;
   
   // Full 32-bit register value.
   uint32_t value;
@@ -117,7 +111,6 @@ union STBY_PLL_IN_CTRL {
 //
 union STBY_BIAS_IN_CTRL {
   
-  // Enum definitions.
   enum class eCNT_MODE : uint32_t {
     eb0 = 0, // Counter disable mode: not use step counter, step completes once receiving step_done
     eb1 = 1, // Counter delay mode: delay after receiving step_done, delay cycle number is STEP_CNT
@@ -132,7 +125,7 @@ union STBY_BIAS_IN_CTRL {
     eCNT_MODE CNT_MODE : 2;
     uint32_t _reserved_2 : 1;
     uint32_t DISABLE : 1;
-  } bits;          // Bit-field struct (auto-filling reserved gaps)
+  } bits;
   
   // Full 32-bit register value.
   uint32_t value;
@@ -146,7 +139,6 @@ union STBY_BIAS_IN_CTRL {
 //
 union STBY_PLDO_IN_CTRL {
   
-  // Enum definitions.
   enum class eCNT_MODE : uint32_t {
     eb0 = 0, // Counter disable mode: not use step counter, step completes once receiving step_done
     eb1 = 1, // Counter delay mode: delay after receiving step_done, delay cycle number is STEP_CNT
@@ -161,7 +153,7 @@ union STBY_PLDO_IN_CTRL {
     eCNT_MODE CNT_MODE : 2;
     uint32_t _reserved_2 : 1;
     uint32_t DISABLE : 1;
-  } bits;          // Bit-field struct (auto-filling reserved gaps)
+  } bits;
   
   // Full 32-bit register value.
   uint32_t value;
@@ -175,7 +167,6 @@ union STBY_PLDO_IN_CTRL {
 //
 union STBY_BANDGAP_IN_CTRL {
   
-  // Enum definitions.
   enum class eCNT_MODE : uint32_t {
     eb0 = 0, // Counter disable mode: not use step counter, step completes once receiving step_done
     eb1 = 1, // Counter delay mode: delay after receiving step_done, delay cycle number is STEP_CNT
@@ -190,7 +181,7 @@ union STBY_BANDGAP_IN_CTRL {
     eCNT_MODE CNT_MODE : 2;
     uint32_t _reserved_2 : 1;
     uint32_t DISABLE : 1;
-  } bits;          // Bit-field struct (auto-filling reserved gaps)
+  } bits;
   
   // Full 32-bit register value.
   uint32_t value;
@@ -204,7 +195,6 @@ union STBY_BANDGAP_IN_CTRL {
 //
 union STBY_LDO_IN_CTRL {
   
-  // Enum definitions.
   enum class eCNT_MODE : uint32_t {
     eb0 = 0, // Counter disable mode: not use step counter, step completes once receiving step_done
     eb1 = 1, // Counter delay mode: delay after receiving step_done, delay cycle number is STEP_CNT
@@ -219,7 +209,7 @@ union STBY_LDO_IN_CTRL {
     eCNT_MODE CNT_MODE : 2;
     uint32_t _reserved_2 : 1;
     uint32_t DISABLE : 1;
-  } bits;          // Bit-field struct (auto-filling reserved gaps)
+  } bits;
   
   // Full 32-bit register value.
   uint32_t value;
@@ -233,7 +223,6 @@ union STBY_LDO_IN_CTRL {
 //
 union STBY_DCDC_IN_CTRL {
   
-  // Enum definitions.
   enum class eCNT_MODE : uint32_t {
     eb0 = 0, // Counter disable mode: not use step counter, step completes once receiving step_done
     eb1 = 1, // Counter delay mode: delay after receiving step_done, delay cycle number is STEP_CNT
@@ -248,7 +237,7 @@ union STBY_DCDC_IN_CTRL {
     eCNT_MODE CNT_MODE : 2;
     uint32_t _reserved_2 : 1;
     uint32_t DISABLE : 1;
-  } bits;          // Bit-field struct (auto-filling reserved gaps)
+  } bits;
   
   // Full 32-bit register value.
   uint32_t value;
@@ -262,7 +251,6 @@ union STBY_DCDC_IN_CTRL {
 //
 union STBY_PMIC_IN_CTRL {
   
-  // Enum definitions.
   enum class eCNT_MODE : uint32_t {
     eb0 = 0, // Counter disable mode: not use step counter, step completes once receiving step_done
     eb1 = 1, // Counter delay mode: delay after receiving step_done, delay cycle number is STEP_CNT
@@ -277,7 +265,7 @@ union STBY_PMIC_IN_CTRL {
     eCNT_MODE CNT_MODE : 2;
     uint32_t _reserved_2 : 1;
     uint32_t DISABLE : 1;
-  } bits;          // Bit-field struct (auto-filling reserved gaps)
+  } bits;
   
   // Full 32-bit register value.
   uint32_t value;
@@ -291,7 +279,6 @@ union STBY_PMIC_IN_CTRL {
 //
 union STBY_PMIC_OUT_CTRL {
   
-  // Enum definitions.
   enum class eCNT_MODE : uint32_t {
     eb0 = 0, // Counter disable mode: not use step counter, step completes once receiving step_done
     eb1 = 1, // Counter delay mode: delay after receiving step_done, delay cycle number is STEP_CNT
@@ -306,7 +293,7 @@ union STBY_PMIC_OUT_CTRL {
     eCNT_MODE CNT_MODE : 2;
     uint32_t _reserved_2 : 1;
     uint32_t DISABLE : 1;
-  } bits;          // Bit-field struct (auto-filling reserved gaps)
+  } bits;
   
   // Full 32-bit register value.
   uint32_t value;
@@ -320,7 +307,6 @@ union STBY_PMIC_OUT_CTRL {
 //
 union STBY_DCDC_OUT_CTRL {
   
-  // Enum definitions.
   enum class eCNT_MODE : uint32_t {
     eb0 = 0, // Counter disable mode: not use step counter, step completes once receiving step_done
     eb1 = 1, // Counter delay mode: delay after receiving step_done, delay cycle number is STEP_CNT
@@ -335,7 +321,7 @@ union STBY_DCDC_OUT_CTRL {
     eCNT_MODE CNT_MODE : 2;
     uint32_t _reserved_2 : 1;
     uint32_t DISABLE : 1;
-  } bits;          // Bit-field struct (auto-filling reserved gaps)
+  } bits;
   
   // Full 32-bit register value.
   uint32_t value;
@@ -349,7 +335,6 @@ union STBY_DCDC_OUT_CTRL {
 //
 union STBY_LDO_OUT_CTRL {
   
-  // Enum definitions.
   enum class eCNT_MODE : uint32_t {
     eb0 = 0, // Counter disable mode: not use step counter, step completes once receiving step_done
     eb1 = 1, // Counter delay mode: delay after receiving step_done, delay cycle number is STEP_CNT
@@ -364,7 +349,7 @@ union STBY_LDO_OUT_CTRL {
     eCNT_MODE CNT_MODE : 2;
     uint32_t _reserved_2 : 1;
     uint32_t DISABLE : 1;
-  } bits;          // Bit-field struct (auto-filling reserved gaps)
+  } bits;
   
   // Full 32-bit register value.
   uint32_t value;
@@ -378,7 +363,6 @@ union STBY_LDO_OUT_CTRL {
 //
 union STBY_BANDGAP_OUT_CTRL {
   
-  // Enum definitions.
   enum class eCNT_MODE : uint32_t {
     eb0 = 0, // Counter disable mode: not use step counter, step completes once receiving step_done
     eb1 = 1, // Counter delay mode: delay after receiving step_done, delay cycle number is STEP_CNT
@@ -393,7 +377,7 @@ union STBY_BANDGAP_OUT_CTRL {
     eCNT_MODE CNT_MODE : 2;
     uint32_t _reserved_2 : 1;
     uint32_t DISABLE : 1;
-  } bits;          // Bit-field struct (auto-filling reserved gaps)
+  } bits;
   
   // Full 32-bit register value.
   uint32_t value;
@@ -407,7 +391,6 @@ union STBY_BANDGAP_OUT_CTRL {
 //
 union STBY_PLDO_OUT_CTRL {
   
-  // Enum definitions.
   enum class eCNT_MODE : uint32_t {
     eb0 = 0, // Counter disable mode: not use step counter, step completes once receiving step_done
     eb1 = 1, // Counter delay mode: delay after receiving step_done, delay cycle number is STEP_CNT
@@ -422,7 +405,7 @@ union STBY_PLDO_OUT_CTRL {
     eCNT_MODE CNT_MODE : 2;
     uint32_t _reserved_2 : 1;
     uint32_t DISABLE : 1;
-  } bits;          // Bit-field struct (auto-filling reserved gaps)
+  } bits;
   
   // Full 32-bit register value.
   uint32_t value;
@@ -436,7 +419,6 @@ union STBY_PLDO_OUT_CTRL {
 //
 union STBY_BIAS_OUT_CTRL {
   
-  // Enum definitions.
   enum class eCNT_MODE : uint32_t {
     eb0 = 0, // Counter disable mode: not use step counter, step completes once receiving step_done
     eb1 = 1, // Counter delay mode: delay after receiving step_done, delay cycle number is STEP_CNT
@@ -451,7 +433,7 @@ union STBY_BIAS_OUT_CTRL {
     eCNT_MODE CNT_MODE : 2;
     uint32_t _reserved_2 : 1;
     uint32_t DISABLE : 1;
-  } bits;          // Bit-field struct (auto-filling reserved gaps)
+  } bits;
   
   // Full 32-bit register value.
   uint32_t value;
@@ -465,7 +447,6 @@ union STBY_BIAS_OUT_CTRL {
 //
 union STBY_PLL_OUT_CTRL {
   
-  // Enum definitions.
   enum class eCNT_MODE : uint32_t {
     eb0 = 0, // Counter disable mode: not use step counter, step completes once receiving step_done
     eb1 = 1, // Counter delay mode: delay after receiving step_done, delay cycle number is STEP_CNT
@@ -480,7 +461,7 @@ union STBY_PLL_OUT_CTRL {
     eCNT_MODE CNT_MODE : 2;
     uint32_t _reserved_2 : 1;
     uint32_t DISABLE : 1;
-  } bits;          // Bit-field struct (auto-filling reserved gaps)
+  } bits;
   
   // Full 32-bit register value.
   uint32_t value;
@@ -494,7 +475,6 @@ union STBY_PLL_OUT_CTRL {
 //
 union STBY_LPCG_OUT_CTRL {
   
-  // Enum definitions.
   enum class eCNT_MODE : uint32_t {
     eb0 = 0, // Counter disable mode: not use step counter, step completes once receiving step_done
     eb1 = 1, // Counter delay mode: delay after receiving step_done, delay cycle number is STEP_CNT
@@ -509,7 +489,7 @@ union STBY_LPCG_OUT_CTRL {
     eCNT_MODE CNT_MODE : 2;
     uint32_t _reserved_2 : 1;
     uint32_t DISABLE : 1;
-  } bits;          // Bit-field struct (auto-filling reserved gaps)
+  } bits;
   
   // Full 32-bit register value.
   uint32_t value;

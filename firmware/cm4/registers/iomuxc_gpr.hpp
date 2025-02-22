@@ -15,13 +15,13 @@ namespace nIOMUXC_GPR {
 //
 union GPR0 {
   
-  // Enum definitions.
   enum class eDWP : uint32_t {
     eforbid_none = 0, // Both cores are allowed
     eforbid_CM7 = 1, // CM7 is forbidden
     eforbid_CM4 = 2, // CM4 is forbidden
     eforbid_both = 3, // Both cores are forbidden
   };
+  
   enum class eDWP_LOCK : uint32_t {
     elock_none = 0, // Neither of DWP bits is locked
     elock_low = 1, // The lower DWP bit is locked
@@ -38,7 +38,7 @@ union GPR0 {
     uint32_t _reserved_4 : 19;
     eDWP DWP : 2;
     eDWP_LOCK DWP_LOCK : 2;
-  } bits;          // Bit-field struct (auto-filling reserved gaps)
+  } bits;
   
   // Full 32-bit register value.
   uint32_t value;
@@ -52,13 +52,13 @@ union GPR0 {
 //
 union GPR1 {
   
-  // Enum definitions.
   enum class eDWP : uint32_t {
     eforbid_none = 0, // Both cores are allowed
     eforbid_CM7 = 1, // CM7 is forbidden
     eforbid_CM4 = 2, // CM4 is forbidden
     eforbid_both = 3, // Both cores are forbidden
   };
+  
   enum class eDWP_LOCK : uint32_t {
     elock_none = 0, // Neither of DWP bits is locked
     elock_low = 1, // The lower DWP bit is locked
@@ -74,7 +74,7 @@ union GPR1 {
     uint32_t _reserved_2 : 19;
     eDWP DWP : 2;
     eDWP_LOCK DWP_LOCK : 2;
-  } bits;          // Bit-field struct (auto-filling reserved gaps)
+  } bits;
   
   // Full 32-bit register value.
   uint32_t value;
@@ -88,13 +88,13 @@ union GPR1 {
 //
 union GPR2 {
   
-  // Enum definitions.
   enum class eDWP : uint32_t {
     eforbid_none = 0, // Both cores are allowed
     eforbid_CM7 = 1, // CM7 is forbidden
     eforbid_CM4 = 2, // CM4 is forbidden
     eforbid_both = 3, // Both cores are forbidden
   };
+  
   enum class eDWP_LOCK : uint32_t {
     elock_none = 0, // Neither of DWP bits is locked
     elock_low = 1, // The lower DWP bit is locked
@@ -111,7 +111,7 @@ union GPR2 {
     uint32_t _reserved_3 : 18;
     eDWP DWP : 2;
     eDWP_LOCK DWP_LOCK : 2;
-  } bits;          // Bit-field struct (auto-filling reserved gaps)
+  } bits;
   
   // Full 32-bit register value.
   uint32_t value;
@@ -125,13 +125,13 @@ union GPR2 {
 //
 union GPR3 {
   
-  // Enum definitions.
   enum class eDWP : uint32_t {
     eforbid_none = 0, // Both cores are allowed
     eforbid_CM7 = 1, // CM7 is forbidden
     eforbid_CM4 = 2, // CM4 is forbidden
     eforbid_both = 3, // Both cores are forbidden
   };
+  
   enum class eDWP_LOCK : uint32_t {
     elock_none = 0, // Neither of DWP bits is locked
     elock_low = 1, // The lower DWP bit is locked
@@ -148,7 +148,7 @@ union GPR3 {
     uint32_t _reserved_4 : 17;
     eDWP DWP : 2;
     eDWP_LOCK DWP_LOCK : 2;
-  } bits;          // Bit-field struct (auto-filling reserved gaps)
+  } bits;
   
   // Full 32-bit register value.
   uint32_t value;
@@ -162,13 +162,13 @@ union GPR3 {
 //
 union GPR4 {
   
-  // Enum definitions.
   enum class eDWP : uint32_t {
     eforbid_none = 0, // Both cores are allowed
     eforbid_CM7 = 1, // CM7 is forbidden
     eforbid_CM4 = 2, // CM4 is forbidden
     eforbid_both = 3, // Both cores are forbidden
   };
+  
   enum class eDWP_LOCK : uint32_t {
     elock_none = 0, // Neither of DWP bits is locked
     elock_low = 1, // The lower DWP bit is locked
@@ -185,7 +185,7 @@ union GPR4 {
     uint32_t _reserved_4 : 24;
     eDWP DWP : 2;
     eDWP_LOCK DWP_LOCK : 2;
-  } bits;          // Bit-field struct (auto-filling reserved gaps)
+  } bits;
   
   // Full 32-bit register value.
   uint32_t value;
@@ -199,13 +199,13 @@ union GPR4 {
 //
 union GPR5 {
   
-  // Enum definitions.
   enum class eDWP : uint32_t {
     eforbid_none = 0, // Both cores are allowed
     eforbid_CM7 = 1, // CM7 is forbidden
     eforbid_CM4 = 2, // CM4 is forbidden
     eforbid_both = 3, // Both cores are forbidden
   };
+  
   enum class eDWP_LOCK : uint32_t {
     elock_none = 0, // Neither of DWP bits is locked
     elock_low = 1, // The lower DWP bit is locked
@@ -223,7 +223,7 @@ union GPR5 {
     uint32_t _reserved_5 : 23;
     eDWP DWP : 2;
     eDWP_LOCK DWP_LOCK : 2;
-  } bits;          // Bit-field struct (auto-filling reserved gaps)
+  } bits;
   
   // Full 32-bit register value.
   uint32_t value;
@@ -237,13 +237,13 @@ union GPR5 {
 //
 union GPR6 {
   
-  // Enum definitions.
   enum class eDWP : uint32_t {
     eforbid_none = 0, // Both cores are allowed
     eforbid_CM7 = 1, // CM7 is forbidden
     eforbid_CM4 = 2, // CM4 is forbidden
     eforbid_both = 3, // Both cores are forbidden
   };
+  
   enum class eDWP_LOCK : uint32_t {
     elock_none = 0, // Neither of DWP bits is locked
     elock_low = 1, // The lower DWP bit is locked
@@ -262,7 +262,7 @@ union GPR6 {
     uint32_t _reserved_6 : 20;
     eDWP DWP : 2;
     eDWP_LOCK DWP_LOCK : 2;
-  } bits;          // Bit-field struct (auto-filling reserved gaps)
+  } bits;
   
   // Full 32-bit register value.
   uint32_t value;
@@ -276,13 +276,13 @@ union GPR6 {
 //
 union GPR7 {
   
-  // Enum definitions.
   enum class eDWP : uint32_t {
     eforbid_none = 0, // Both cores are allowed
     eforbid_CM7 = 1, // CM7 is forbidden
     eforbid_CM4 = 2, // CM4 is forbidden
     eforbid_both = 3, // Both cores are forbidden
   };
+  
   enum class eDWP_LOCK : uint32_t {
     elock_none = 0, // Neither of DWP bits is locked
     elock_low = 1, // The lower DWP bit is locked
@@ -296,7 +296,7 @@ union GPR7 {
     uint32_t _reserved_1 : 27;
     eDWP DWP : 2;
     eDWP_LOCK DWP_LOCK : 2;
-  } bits;          // Bit-field struct (auto-filling reserved gaps)
+  } bits;
   
   // Full 32-bit register value.
   uint32_t value;
@@ -310,13 +310,13 @@ union GPR7 {
 //
 union GPR8 {
   
-  // Enum definitions.
   enum class eDWP : uint32_t {
     eforbid_none = 0, // Both cores are allowed
     eforbid_CM7 = 1, // CM7 is forbidden
     eforbid_CM4 = 2, // CM4 is forbidden
     eforbid_both = 3, // Both cores are forbidden
   };
+  
   enum class eDWP_LOCK : uint32_t {
     elock_none = 0, // Neither of DWP bits is locked
     elock_low = 1, // The lower DWP bit is locked
@@ -330,7 +330,7 @@ union GPR8 {
     uint32_t _reserved_1 : 27;
     eDWP DWP : 2;
     eDWP_LOCK DWP_LOCK : 2;
-  } bits;          // Bit-field struct (auto-filling reserved gaps)
+  } bits;
   
   // Full 32-bit register value.
   uint32_t value;
@@ -344,13 +344,13 @@ union GPR8 {
 //
 union GPR9 {
   
-  // Enum definitions.
   enum class eDWP : uint32_t {
     eforbid_none = 0, // Both cores are allowed
     eforbid_CM7 = 1, // CM7 is forbidden
     eforbid_CM4 = 2, // CM4 is forbidden
     eforbid_both = 3, // Both cores are forbidden
   };
+  
   enum class eDWP_LOCK : uint32_t {
     elock_none = 0, // Neither of DWP bits is locked
     elock_low = 1, // The lower DWP bit is locked
@@ -364,7 +364,7 @@ union GPR9 {
     uint32_t _reserved_1 : 27;
     eDWP DWP : 2;
     eDWP_LOCK DWP_LOCK : 2;
-  } bits;          // Bit-field struct (auto-filling reserved gaps)
+  } bits;
   
   // Full 32-bit register value.
   uint32_t value;
@@ -378,13 +378,13 @@ union GPR9 {
 //
 union GPR10 {
   
-  // Enum definitions.
   enum class eDWP : uint32_t {
     eforbid_none = 0, // Both cores are allowed
     eforbid_CM7 = 1, // CM7 is forbidden
     eforbid_CM4 = 2, // CM4 is forbidden
     eforbid_both = 3, // Both cores are forbidden
   };
+  
   enum class eDWP_LOCK : uint32_t {
     elock_none = 0, // Neither of DWP bits is locked
     elock_low = 1, // The lower DWP bit is locked
@@ -397,7 +397,7 @@ union GPR10 {
     uint32_t _reserved_0 : 28;
     eDWP DWP : 2;
     eDWP_LOCK DWP_LOCK : 2;
-  } bits;          // Bit-field struct (auto-filling reserved gaps)
+  } bits;
   
   // Full 32-bit register value.
   uint32_t value;
@@ -411,13 +411,13 @@ union GPR10 {
 //
 union GPR11 {
   
-  // Enum definitions.
   enum class eDWP : uint32_t {
     eforbid_none = 0, // Both cores are allowed
     eforbid_CM7 = 1, // CM7 is forbidden
     eforbid_CM4 = 2, // CM4 is forbidden
     eforbid_both = 3, // Both cores are forbidden
   };
+  
   enum class eDWP_LOCK : uint32_t {
     elock_none = 0, // Neither of DWP bits is locked
     elock_low = 1, // The lower DWP bit is locked
@@ -430,7 +430,7 @@ union GPR11 {
     uint32_t _reserved_0 : 28;
     eDWP DWP : 2;
     eDWP_LOCK DWP_LOCK : 2;
-  } bits;          // Bit-field struct (auto-filling reserved gaps)
+  } bits;
   
   // Full 32-bit register value.
   uint32_t value;
@@ -444,13 +444,13 @@ union GPR11 {
 //
 union GPR12 {
   
-  // Enum definitions.
   enum class eDWP : uint32_t {
     eforbid_none = 0, // Both cores are allowed
     eforbid_CM7 = 1, // CM7 is forbidden
     eforbid_CM4 = 2, // CM4 is forbidden
     eforbid_both = 3, // Both cores are forbidden
   };
+  
   enum class eDWP_LOCK : uint32_t {
     elock_none = 0, // Neither of DWP bits is locked
     elock_low = 1, // The lower DWP bit is locked
@@ -469,7 +469,7 @@ union GPR12 {
     uint32_t _reserved_5 : 16;
     eDWP DWP : 2;
     eDWP_LOCK DWP_LOCK : 2;
-  } bits;          // Bit-field struct (auto-filling reserved gaps)
+  } bits;
   
   // Full 32-bit register value.
   uint32_t value;
@@ -483,13 +483,13 @@ union GPR12 {
 //
 union GPR13 {
   
-  // Enum definitions.
   enum class eDWP : uint32_t {
     eforbid_none = 0, // Both cores are allowed
     eforbid_CM7 = 1, // CM7 is forbidden
     eforbid_CM4 = 2, // CM4 is forbidden
     eforbid_both = 3, // Both cores are forbidden
   };
+  
   enum class eDWP_LOCK : uint32_t {
     elock_none = 0, // Neither of DWP bits is locked
     elock_low = 1, // The lower DWP bit is locked
@@ -508,7 +508,7 @@ union GPR13 {
     uint32_t _reserved_5 : 16;
     eDWP DWP : 2;
     eDWP_LOCK DWP_LOCK : 2;
-  } bits;          // Bit-field struct (auto-filling reserved gaps)
+  } bits;
   
   // Full 32-bit register value.
   uint32_t value;
@@ -522,13 +522,13 @@ union GPR13 {
 //
 union GPR14 {
   
-  // Enum definitions.
   enum class eDWP : uint32_t {
     eforbid_none = 0, // Both cores are allowed
     eforbid_CM7 = 1, // CM7 is forbidden
     eforbid_CM4 = 2, // CM4 is forbidden
     eforbid_both = 3, // Both cores are forbidden
   };
+  
   enum class eDWP_LOCK : uint32_t {
     elock_none = 0, // Neither of DWP bits is locked
     elock_low = 1, // The lower DWP bit is locked
@@ -547,7 +547,7 @@ union GPR14 {
     uint32_t _reserved_5 : 16;
     eDWP DWP : 2;
     eDWP_LOCK DWP_LOCK : 2;
-  } bits;          // Bit-field struct (auto-filling reserved gaps)
+  } bits;
   
   // Full 32-bit register value.
   uint32_t value;
@@ -561,13 +561,13 @@ union GPR14 {
 //
 union GPR15 {
   
-  // Enum definitions.
   enum class eDWP : uint32_t {
     eforbid_none = 0, // Both cores are allowed
     eforbid_CM7 = 1, // CM7 is forbidden
     eforbid_CM4 = 2, // CM4 is forbidden
     eforbid_both = 3, // Both cores are forbidden
   };
+  
   enum class eDWP_LOCK : uint32_t {
     elock_none = 0, // Neither of DWP bits is locked
     elock_low = 1, // The lower DWP bit is locked
@@ -586,7 +586,7 @@ union GPR15 {
     uint32_t _reserved_5 : 16;
     eDWP DWP : 2;
     eDWP_LOCK DWP_LOCK : 2;
-  } bits;          // Bit-field struct (auto-filling reserved gaps)
+  } bits;
   
   // Full 32-bit register value.
   uint32_t value;
@@ -600,13 +600,13 @@ union GPR15 {
 //
 union GPR16 {
   
-  // Enum definitions.
   enum class eDWP : uint32_t {
     eforbid_none = 0, // Both cores are allowed
     eforbid_CM7 = 1, // CM7 is forbidden
     eforbid_CM4 = 2, // CM4 is forbidden
     eforbid_both = 3, // Both cores are forbidden
   };
+  
   enum class eDWP_LOCK : uint32_t {
     elock_none = 0, // Neither of DWP bits is locked
     elock_low = 1, // The lower DWP bit is locked
@@ -624,7 +624,7 @@ union GPR16 {
     uint32_t _reserved_3 : 22;
     eDWP DWP : 2;
     eDWP_LOCK DWP_LOCK : 2;
-  } bits;          // Bit-field struct (auto-filling reserved gaps)
+  } bits;
   
   // Full 32-bit register value.
   uint32_t value;
@@ -638,13 +638,13 @@ union GPR16 {
 //
 union GPR17 {
   
-  // Enum definitions.
   enum class eDWP : uint32_t {
     eforbid_none = 0, // Both cores are allowed
     eforbid_CM7 = 1, // CM7 is forbidden
     eforbid_CM4 = 2, // CM4 is forbidden
     eforbid_both = 3, // Both cores are forbidden
   };
+  
   enum class eDWP_LOCK : uint32_t {
     elock_none = 0, // Neither of DWP bits is locked
     elock_low = 1, // The lower DWP bit is locked
@@ -658,7 +658,7 @@ union GPR17 {
     uint32_t _reserved_1 : 12;
     eDWP DWP : 2;
     eDWP_LOCK DWP_LOCK : 2;
-  } bits;          // Bit-field struct (auto-filling reserved gaps)
+  } bits;
   
   // Full 32-bit register value.
   uint32_t value;
@@ -672,13 +672,13 @@ union GPR17 {
 //
 union GPR18 {
   
-  // Enum definitions.
   enum class eDWP : uint32_t {
     eforbid_none = 0, // Both cores are allowed
     eforbid_CM7 = 1, // CM7 is forbidden
     eforbid_CM4 = 2, // CM4 is forbidden
     eforbid_both = 3, // Both cores are forbidden
   };
+  
   enum class eDWP_LOCK : uint32_t {
     elock_none = 0, // Neither of DWP bits is locked
     elock_low = 1, // The lower DWP bit is locked
@@ -692,7 +692,7 @@ union GPR18 {
     uint32_t _reserved_1 : 12;
     eDWP DWP : 2;
     eDWP_LOCK DWP_LOCK : 2;
-  } bits;          // Bit-field struct (auto-filling reserved gaps)
+  } bits;
   
   // Full 32-bit register value.
   uint32_t value;
@@ -706,13 +706,13 @@ union GPR18 {
 //
 union GPR20 {
   
-  // Enum definitions.
   enum class eDWP : uint32_t {
     eforbid_none = 0, // Both cores are allowed
     eforbid_CM7 = 1, // CM7 is forbidden
     eforbid_CM4 = 2, // CM4 is forbidden
     eforbid_both = 3, // Both cores are forbidden
   };
+  
   enum class eDWP_LOCK : uint32_t {
     elock_none = 0, // Neither of DWP bits is locked
     elock_low = 1, // The lower DWP bit is locked
@@ -752,7 +752,7 @@ union GPR20 {
     uint32_t IOMUXC_XBAR_DIR_SEL_31 : 1;
     eDWP DWP : 2;
     eDWP_LOCK DWP_LOCK : 2;
-  } bits;          // Bit-field struct (auto-filling reserved gaps)
+  } bits;
   
   // Full 32-bit register value.
   uint32_t value;
@@ -766,13 +766,13 @@ union GPR20 {
 //
 union GPR21 {
   
-  // Enum definitions.
   enum class eDWP : uint32_t {
     eforbid_none = 0, // Both cores are allowed
     eforbid_CM7 = 1, // CM7 is forbidden
     eforbid_CM4 = 2, // CM4 is forbidden
     eforbid_both = 3, // Both cores are forbidden
   };
+  
   enum class eDWP_LOCK : uint32_t {
     elock_none = 0, // Neither of DWP bits is locked
     elock_low = 1, // The lower DWP bit is locked
@@ -796,7 +796,7 @@ union GPR21 {
     uint32_t _reserved_11 : 17;
     eDWP DWP : 2;
     eDWP_LOCK DWP_LOCK : 2;
-  } bits;          // Bit-field struct (auto-filling reserved gaps)
+  } bits;
   
   // Full 32-bit register value.
   uint32_t value;
@@ -810,13 +810,13 @@ union GPR21 {
 //
 union GPR22 {
   
-  // Enum definitions.
   enum class eDWP : uint32_t {
     eforbid_none = 0, // Both cores are allowed
     eforbid_CM7 = 1, // CM7 is forbidden
     eforbid_CM4 = 2, // CM4 is forbidden
     eforbid_both = 3, // Both cores are forbidden
   };
+  
   enum class eDWP_LOCK : uint32_t {
     elock_none = 0, // Neither of DWP bits is locked
     elock_low = 1, // The lower DWP bit is locked
@@ -830,7 +830,7 @@ union GPR22 {
     uint32_t _reserved_1 : 27;
     eDWP DWP : 2;
     eDWP_LOCK DWP_LOCK : 2;
-  } bits;          // Bit-field struct (auto-filling reserved gaps)
+  } bits;
   
   // Full 32-bit register value.
   uint32_t value;
@@ -844,13 +844,13 @@ union GPR22 {
 //
 union GPR23 {
   
-  // Enum definitions.
   enum class eDWP : uint32_t {
     eforbid_none = 0, // Both cores are allowed
     eforbid_CM7 = 1, // CM7 is forbidden
     eforbid_CM4 = 2, // CM4 is forbidden
     eforbid_both = 3, // Both cores are forbidden
   };
+  
   enum class eDWP_LOCK : uint32_t {
     elock_none = 0, // Neither of DWP bits is locked
     elock_low = 1, // The lower DWP bit is locked
@@ -866,7 +866,7 @@ union GPR23 {
     uint32_t _reserved_3 : 25;
     eDWP DWP : 2;
     eDWP_LOCK DWP_LOCK : 2;
-  } bits;          // Bit-field struct (auto-filling reserved gaps)
+  } bits;
   
   // Full 32-bit register value.
   uint32_t value;
@@ -880,13 +880,13 @@ union GPR23 {
 //
 union GPR24 {
   
-  // Enum definitions.
   enum class eDWP : uint32_t {
     eforbid_none = 0, // Both cores are allowed
     eforbid_CM7 = 1, // CM7 is forbidden
     eforbid_CM4 = 2, // CM4 is forbidden
     eforbid_both = 3, // Both cores are forbidden
   };
+  
   enum class eDWP_LOCK : uint32_t {
     elock_none = 0, // Neither of DWP bits is locked
     elock_low = 1, // The lower DWP bit is locked
@@ -901,7 +901,7 @@ union GPR24 {
     uint32_t _reserved_2 : 26;
     eDWP DWP : 2;
     eDWP_LOCK DWP_LOCK : 2;
-  } bits;          // Bit-field struct (auto-filling reserved gaps)
+  } bits;
   
   // Full 32-bit register value.
   uint32_t value;
@@ -915,13 +915,13 @@ union GPR24 {
 //
 union GPR25 {
   
-  // Enum definitions.
   enum class eDWP : uint32_t {
     eforbid_none = 0, // Both cores are allowed
     eforbid_CM7 = 1, // CM7 is forbidden
     eforbid_CM4 = 2, // CM4 is forbidden
     eforbid_both = 3, // Both cores are forbidden
   };
+  
   enum class eDWP_LOCK : uint32_t {
     elock_none = 0, // Neither of DWP bits is locked
     elock_low = 1, // The lower DWP bit is locked
@@ -935,7 +935,7 @@ union GPR25 {
     uint32_t _reserved_1 : 27;
     eDWP DWP : 2;
     eDWP_LOCK DWP_LOCK : 2;
-  } bits;          // Bit-field struct (auto-filling reserved gaps)
+  } bits;
   
   // Full 32-bit register value.
   uint32_t value;
@@ -949,13 +949,13 @@ union GPR25 {
 //
 union GPR26 {
   
-  // Enum definitions.
   enum class eDWP : uint32_t {
     eforbid_none = 0, // Both cores are allowed
     eforbid_CM7 = 1, // CM7 is forbidden
     eforbid_CM4 = 2, // CM4 is forbidden
     eforbid_both = 3, // Both cores are forbidden
   };
+  
   enum class eDWP_LOCK : uint32_t {
     elock_none = 0, // Neither of DWP bits is locked
     elock_low = 1, // The lower DWP bit is locked
@@ -969,7 +969,7 @@ union GPR26 {
     uint32_t _reserved_1 : 27;
     eDWP DWP : 2;
     eDWP_LOCK DWP_LOCK : 2;
-  } bits;          // Bit-field struct (auto-filling reserved gaps)
+  } bits;
   
   // Full 32-bit register value.
   uint32_t value;
@@ -983,13 +983,13 @@ union GPR26 {
 //
 union GPR27 {
   
-  // Enum definitions.
   enum class eDWP : uint32_t {
     eforbid_none = 0, // Both cores are allowed
     eforbid_CM7 = 1, // CM7 is forbidden
     eforbid_CM4 = 2, // CM4 is forbidden
     eforbid_both = 3, // Both cores are forbidden
   };
+  
   enum class eDWP_LOCK : uint32_t {
     elock_none = 0, // Neither of DWP bits is locked
     elock_low = 1, // The lower DWP bit is locked
@@ -1003,7 +1003,7 @@ union GPR27 {
     uint32_t _reserved_1 : 27;
     eDWP DWP : 2;
     eDWP_LOCK DWP_LOCK : 2;
-  } bits;          // Bit-field struct (auto-filling reserved gaps)
+  } bits;
   
   // Full 32-bit register value.
   uint32_t value;
@@ -1017,13 +1017,13 @@ union GPR27 {
 //
 union GPR28 {
   
-  // Enum definitions.
   enum class eDWP : uint32_t {
     eforbid_none = 0, // Both cores are allowed
     eforbid_CM7 = 1, // CM7 is forbidden
     eforbid_CM4 = 2, // CM4 is forbidden
     eforbid_both = 3, // Both cores are forbidden
   };
+  
   enum class eDWP_LOCK : uint32_t {
     elock_none = 0, // Neither of DWP bits is locked
     elock_low = 1, // The lower DWP bit is locked
@@ -1044,7 +1044,7 @@ union GPR28 {
     uint32_t _reserved_5 : 14;
     eDWP DWP : 2;
     eDWP_LOCK DWP_LOCK : 2;
-  } bits;          // Bit-field struct (auto-filling reserved gaps)
+  } bits;
   
   // Full 32-bit register value.
   uint32_t value;
@@ -1058,13 +1058,13 @@ union GPR28 {
 //
 union GPR29 {
   
-  // Enum definitions.
   enum class eDWP : uint32_t {
     eforbid_none = 0, // Both cores are allowed
     eforbid_CM7 = 1, // CM7 is forbidden
     eforbid_CM4 = 2, // CM4 is forbidden
     eforbid_both = 3, // Both cores are forbidden
   };
+  
   enum class eDWP_LOCK : uint32_t {
     elock_none = 0, // Neither of DWP bits is locked
     elock_low = 1, // The lower DWP bit is locked
@@ -1078,7 +1078,7 @@ union GPR29 {
     uint32_t _reserved_1 : 27;
     eDWP DWP : 2;
     eDWP_LOCK DWP_LOCK : 2;
-  } bits;          // Bit-field struct (auto-filling reserved gaps)
+  } bits;
   
   // Full 32-bit register value.
   uint32_t value;
@@ -1092,13 +1092,13 @@ union GPR29 {
 //
 union GPR30 {
   
-  // Enum definitions.
   enum class eDWP : uint32_t {
     eforbid_none = 0, // Both cores are allowed
     eforbid_CM7 = 1, // CM7 is forbidden
     eforbid_CM4 = 2, // CM4 is forbidden
     eforbid_both = 3, // Both cores are forbidden
   };
+  
   enum class eDWP_LOCK : uint32_t {
     elock_none = 0, // Neither of DWP bits is locked
     elock_low = 1, // The lower DWP bit is locked
@@ -1112,7 +1112,7 @@ union GPR30 {
     uint32_t _reserved_1 : 27;
     eDWP DWP : 2;
     eDWP_LOCK DWP_LOCK : 2;
-  } bits;          // Bit-field struct (auto-filling reserved gaps)
+  } bits;
   
   // Full 32-bit register value.
   uint32_t value;
@@ -1126,13 +1126,13 @@ union GPR30 {
 //
 union GPR31 {
   
-  // Enum definitions.
   enum class eDWP : uint32_t {
     eforbid_none = 0, // Both cores are allowed
     eforbid_CM7 = 1, // CM7 is forbidden
     eforbid_CM4 = 2, // CM4 is forbidden
     eforbid_both = 3, // Both cores are forbidden
   };
+  
   enum class eDWP_LOCK : uint32_t {
     elock_none = 0, // Neither of DWP bits is locked
     elock_low = 1, // The lower DWP bit is locked
@@ -1148,7 +1148,7 @@ union GPR31 {
     uint32_t _reserved_2 : 25;
     eDWP DWP : 2;
     eDWP_LOCK DWP_LOCK : 2;
-  } bits;          // Bit-field struct (auto-filling reserved gaps)
+  } bits;
   
   // Full 32-bit register value.
   uint32_t value;
@@ -1162,13 +1162,13 @@ union GPR31 {
 //
 union GPR32 {
   
-  // Enum definitions.
   enum class eDWP : uint32_t {
     eforbid_none = 0, // Both cores are allowed
     eforbid_CM7 = 1, // CM7 is forbidden
     eforbid_CM4 = 2, // CM4 is forbidden
     eforbid_both = 3, // Both cores are forbidden
   };
+  
   enum class eDWP_LOCK : uint32_t {
     elock_none = 0, // Neither of DWP bits is locked
     elock_low = 1, // The lower DWP bit is locked
@@ -1182,7 +1182,7 @@ union GPR32 {
     uint32_t _reserved_1 : 27;
     eDWP DWP : 2;
     eDWP_LOCK DWP_LOCK : 2;
-  } bits;          // Bit-field struct (auto-filling reserved gaps)
+  } bits;
   
   // Full 32-bit register value.
   uint32_t value;
@@ -1196,13 +1196,13 @@ union GPR32 {
 //
 union GPR33 {
   
-  // Enum definitions.
   enum class eDWP : uint32_t {
     eforbid_none = 0, // Both cores are allowed
     eforbid_CM7 = 1, // CM7 is forbidden
     eforbid_CM4 = 2, // CM4 is forbidden
     eforbid_both = 3, // Both cores are forbidden
   };
+  
   enum class eDWP_LOCK : uint32_t {
     elock_none = 0, // Neither of DWP bits is locked
     elock_low = 1, // The lower DWP bit is locked
@@ -1216,7 +1216,7 @@ union GPR33 {
     uint32_t _reserved_1 : 27;
     eDWP DWP : 2;
     eDWP_LOCK DWP_LOCK : 2;
-  } bits;          // Bit-field struct (auto-filling reserved gaps)
+  } bits;
   
   // Full 32-bit register value.
   uint32_t value;
@@ -1230,13 +1230,13 @@ union GPR33 {
 //
 union GPR34 {
   
-  // Enum definitions.
   enum class eDWP : uint32_t {
     eforbid_none = 0, // Both cores are allowed
     eforbid_CM7 = 1, // CM7 is forbidden
     eforbid_CM4 = 2, // CM4 is forbidden
     eforbid_both = 3, // Both cores are forbidden
   };
+  
   enum class eDWP_LOCK : uint32_t {
     elock_none = 0, // Neither of DWP bits is locked
     elock_low = 1, // The lower DWP bit is locked
@@ -1251,7 +1251,7 @@ union GPR34 {
     uint32_t _reserved_2 : 26;
     eDWP DWP : 2;
     eDWP_LOCK DWP_LOCK : 2;
-  } bits;          // Bit-field struct (auto-filling reserved gaps)
+  } bits;
   
   // Full 32-bit register value.
   uint32_t value;
@@ -1265,13 +1265,13 @@ union GPR34 {
 //
 union GPR35 {
   
-  // Enum definitions.
   enum class eDWP : uint32_t {
     eforbid_none = 0, // Both cores are allowed
     eforbid_CM7 = 1, // CM7 is forbidden
     eforbid_CM4 = 2, // CM4 is forbidden
     eforbid_both = 3, // Both cores are forbidden
   };
+  
   enum class eDWP_LOCK : uint32_t {
     elock_none = 0, // Neither of DWP bits is locked
     elock_low = 1, // The lower DWP bit is locked
@@ -1286,7 +1286,7 @@ union GPR35 {
     uint32_t _reserved_2 : 26;
     eDWP DWP : 2;
     eDWP_LOCK DWP_LOCK : 2;
-  } bits;          // Bit-field struct (auto-filling reserved gaps)
+  } bits;
   
   // Full 32-bit register value.
   uint32_t value;
@@ -1300,13 +1300,13 @@ union GPR35 {
 //
 union GPR36 {
   
-  // Enum definitions.
   enum class eDWP : uint32_t {
     eforbid_none = 0, // Both cores are allowed
     eforbid_CM7 = 1, // CM7 is forbidden
     eforbid_CM4 = 2, // CM4 is forbidden
     eforbid_both = 3, // Both cores are forbidden
   };
+  
   enum class eDWP_LOCK : uint32_t {
     elock_none = 0, // Neither of DWP bits is locked
     elock_low = 1, // The lower DWP bit is locked
@@ -1320,7 +1320,7 @@ union GPR36 {
     uint32_t _reserved_1 : 27;
     eDWP DWP : 2;
     eDWP_LOCK DWP_LOCK : 2;
-  } bits;          // Bit-field struct (auto-filling reserved gaps)
+  } bits;
   
   // Full 32-bit register value.
   uint32_t value;
@@ -1334,13 +1334,13 @@ union GPR36 {
 //
 union GPR37 {
   
-  // Enum definitions.
   enum class eDWP : uint32_t {
     eforbid_none = 0, // Both cores are allowed
     eforbid_CM7 = 1, // CM7 is forbidden
     eforbid_CM4 = 2, // CM4 is forbidden
     eforbid_both = 3, // Both cores are forbidden
   };
+  
   enum class eDWP_LOCK : uint32_t {
     elock_none = 0, // Neither of DWP bits is locked
     elock_low = 1, // The lower DWP bit is locked
@@ -1360,7 +1360,7 @@ union GPR37 {
     uint32_t _reserved_5 : 21;
     eDWP DWP : 2;
     eDWP_LOCK DWP_LOCK : 2;
-  } bits;          // Bit-field struct (auto-filling reserved gaps)
+  } bits;
   
   // Full 32-bit register value.
   uint32_t value;
@@ -1374,13 +1374,13 @@ union GPR37 {
 //
 union GPR38 {
   
-  // Enum definitions.
   enum class eDWP : uint32_t {
     eforbid_none = 0, // Both cores are allowed
     eforbid_CM7 = 1, // CM7 is forbidden
     eforbid_CM4 = 2, // CM4 is forbidden
     eforbid_both = 3, // Both cores are forbidden
   };
+  
   enum class eDWP_LOCK : uint32_t {
     elock_none = 0, // Neither of DWP bits is locked
     elock_low = 1, // The lower DWP bit is locked
@@ -1393,7 +1393,7 @@ union GPR38 {
     uint32_t _reserved_0 : 28;
     eDWP DWP : 2;
     eDWP_LOCK DWP_LOCK : 2;
-  } bits;          // Bit-field struct (auto-filling reserved gaps)
+  } bits;
   
   // Full 32-bit register value.
   uint32_t value;
@@ -1407,13 +1407,13 @@ union GPR38 {
 //
 union GPR39 {
   
-  // Enum definitions.
   enum class eDWP : uint32_t {
     eforbid_none = 0, // Both cores are allowed
     eforbid_CM7 = 1, // CM7 is forbidden
     eforbid_CM4 = 2, // CM4 is forbidden
     eforbid_both = 3, // Both cores are forbidden
   };
+  
   enum class eDWP_LOCK : uint32_t {
     elock_none = 0, // Neither of DWP bits is locked
     elock_low = 1, // The lower DWP bit is locked
@@ -1426,7 +1426,7 @@ union GPR39 {
     uint32_t _reserved_0 : 28;
     eDWP DWP : 2;
     eDWP_LOCK DWP_LOCK : 2;
-  } bits;          // Bit-field struct (auto-filling reserved gaps)
+  } bits;
   
   // Full 32-bit register value.
   uint32_t value;
@@ -1440,13 +1440,13 @@ union GPR39 {
 //
 union GPR40 {
   
-  // Enum definitions.
   enum class eDWP : uint32_t {
     eforbid_none = 0, // Both cores are allowed
     eforbid_CM7 = 1, // CM7 is forbidden
     eforbid_CM4 = 2, // CM4 is forbidden
     eforbid_both = 3, // Both cores are forbidden
   };
+  
   enum class eDWP_LOCK : uint32_t {
     elock_none = 0, // Neither of DWP bits is locked
     elock_low = 1, // The lower DWP bit is locked
@@ -1460,7 +1460,7 @@ union GPR40 {
     uint32_t _reserved_1 : 12;
     eDWP DWP : 2;
     eDWP_LOCK DWP_LOCK : 2;
-  } bits;          // Bit-field struct (auto-filling reserved gaps)
+  } bits;
   
   // Full 32-bit register value.
   uint32_t value;
@@ -1474,13 +1474,13 @@ union GPR40 {
 //
 union GPR41 {
   
-  // Enum definitions.
   enum class eDWP : uint32_t {
     eforbid_none = 0, // Both cores are allowed
     eforbid_CM7 = 1, // CM7 is forbidden
     eforbid_CM4 = 2, // CM4 is forbidden
     eforbid_both = 3, // Both cores are forbidden
   };
+  
   enum class eDWP_LOCK : uint32_t {
     elock_none = 0, // Neither of DWP bits is locked
     elock_low = 1, // The lower DWP bit is locked
@@ -1494,7 +1494,7 @@ union GPR41 {
     uint32_t _reserved_1 : 12;
     eDWP DWP : 2;
     eDWP_LOCK DWP_LOCK : 2;
-  } bits;          // Bit-field struct (auto-filling reserved gaps)
+  } bits;
   
   // Full 32-bit register value.
   uint32_t value;
@@ -1508,13 +1508,13 @@ union GPR41 {
 //
 union GPR42 {
   
-  // Enum definitions.
   enum class eDWP : uint32_t {
     eforbid_none = 0, // Both cores are allowed
     eforbid_CM7 = 1, // CM7 is forbidden
     eforbid_CM4 = 2, // CM4 is forbidden
     eforbid_both = 3, // Both cores are forbidden
   };
+  
   enum class eDWP_LOCK : uint32_t {
     elock_none = 0, // Neither of DWP bits is locked
     elock_low = 1, // The lower DWP bit is locked
@@ -1528,7 +1528,7 @@ union GPR42 {
     uint32_t _reserved_1 : 12;
     eDWP DWP : 2;
     eDWP_LOCK DWP_LOCK : 2;
-  } bits;          // Bit-field struct (auto-filling reserved gaps)
+  } bits;
   
   // Full 32-bit register value.
   uint32_t value;
@@ -1542,13 +1542,13 @@ union GPR42 {
 //
 union GPR43 {
   
-  // Enum definitions.
   enum class eDWP : uint32_t {
     eforbid_none = 0, // Both cores are allowed
     eforbid_CM7 = 1, // CM7 is forbidden
     eforbid_CM4 = 2, // CM4 is forbidden
     eforbid_both = 3, // Both cores are forbidden
   };
+  
   enum class eDWP_LOCK : uint32_t {
     elock_none = 0, // Neither of DWP bits is locked
     elock_low = 1, // The lower DWP bit is locked
@@ -1562,7 +1562,7 @@ union GPR43 {
     uint32_t _reserved_1 : 12;
     eDWP DWP : 2;
     eDWP_LOCK DWP_LOCK : 2;
-  } bits;          // Bit-field struct (auto-filling reserved gaps)
+  } bits;
   
   // Full 32-bit register value.
   uint32_t value;
@@ -1576,13 +1576,13 @@ union GPR43 {
 //
 union GPR44 {
   
-  // Enum definitions.
   enum class eDWP : uint32_t {
     eforbid_none = 0, // Both cores are allowed
     eforbid_CM7 = 1, // CM7 is forbidden
     eforbid_CM4 = 2, // CM4 is forbidden
     eforbid_both = 3, // Both cores are forbidden
   };
+  
   enum class eDWP_LOCK : uint32_t {
     elock_none = 0, // Neither of DWP bits is locked
     elock_low = 1, // The lower DWP bit is locked
@@ -1595,7 +1595,7 @@ union GPR44 {
     uint32_t _reserved_0 : 28;
     eDWP DWP : 2;
     eDWP_LOCK DWP_LOCK : 2;
-  } bits;          // Bit-field struct (auto-filling reserved gaps)
+  } bits;
   
   // Full 32-bit register value.
   uint32_t value;
@@ -1609,13 +1609,13 @@ union GPR44 {
 //
 union GPR45 {
   
-  // Enum definitions.
   enum class eDWP : uint32_t {
     eforbid_none = 0, // Both cores are allowed
     eforbid_CM7 = 1, // CM7 is forbidden
     eforbid_CM4 = 2, // CM4 is forbidden
     eforbid_both = 3, // Both cores are forbidden
   };
+  
   enum class eDWP_LOCK : uint32_t {
     elock_none = 0, // Neither of DWP bits is locked
     elock_low = 1, // The lower DWP bit is locked
@@ -1628,7 +1628,7 @@ union GPR45 {
     uint32_t _reserved_0 : 28;
     eDWP DWP : 2;
     eDWP_LOCK DWP_LOCK : 2;
-  } bits;          // Bit-field struct (auto-filling reserved gaps)
+  } bits;
   
   // Full 32-bit register value.
   uint32_t value;
@@ -1642,13 +1642,13 @@ union GPR45 {
 //
 union GPR46 {
   
-  // Enum definitions.
   enum class eDWP : uint32_t {
     eforbid_none = 0, // Both cores are allowed
     eforbid_CM7 = 1, // CM7 is forbidden
     eforbid_CM4 = 2, // CM4 is forbidden
     eforbid_both = 3, // Both cores are forbidden
   };
+  
   enum class eDWP_LOCK : uint32_t {
     elock_none = 0, // Neither of DWP bits is locked
     elock_low = 1, // The lower DWP bit is locked
@@ -1661,7 +1661,7 @@ union GPR46 {
     uint32_t _reserved_0 : 28;
     eDWP DWP : 2;
     eDWP_LOCK DWP_LOCK : 2;
-  } bits;          // Bit-field struct (auto-filling reserved gaps)
+  } bits;
   
   // Full 32-bit register value.
   uint32_t value;
@@ -1675,13 +1675,13 @@ union GPR46 {
 //
 union GPR47 {
   
-  // Enum definitions.
   enum class eDWP : uint32_t {
     eforbid_none = 0, // Both cores are allowed
     eforbid_CM7 = 1, // CM7 is forbidden
     eforbid_CM4 = 2, // CM4 is forbidden
     eforbid_both = 3, // Both cores are forbidden
   };
+  
   enum class eDWP_LOCK : uint32_t {
     elock_none = 0, // Neither of DWP bits is locked
     elock_low = 1, // The lower DWP bit is locked
@@ -1694,7 +1694,7 @@ union GPR47 {
     uint32_t _reserved_0 : 28;
     eDWP DWP : 2;
     eDWP_LOCK DWP_LOCK : 2;
-  } bits;          // Bit-field struct (auto-filling reserved gaps)
+  } bits;
   
   // Full 32-bit register value.
   uint32_t value;
@@ -1708,13 +1708,13 @@ union GPR47 {
 //
 union GPR48 {
   
-  // Enum definitions.
   enum class eDWP : uint32_t {
     eforbid_none = 0, // Both cores are allowed
     eforbid_CM7 = 1, // CM7 is forbidden
     eforbid_CM4 = 2, // CM4 is forbidden
     eforbid_both = 3, // Both cores are forbidden
   };
+  
   enum class eDWP_LOCK : uint32_t {
     elock_none = 0, // Neither of DWP bits is locked
     elock_low = 1, // The lower DWP bit is locked
@@ -1727,7 +1727,7 @@ union GPR48 {
     uint32_t _reserved_0 : 28;
     eDWP DWP : 2;
     eDWP_LOCK DWP_LOCK : 2;
-  } bits;          // Bit-field struct (auto-filling reserved gaps)
+  } bits;
   
   // Full 32-bit register value.
   uint32_t value;
@@ -1741,13 +1741,13 @@ union GPR48 {
 //
 union GPR49 {
   
-  // Enum definitions.
   enum class eDWP : uint32_t {
     eforbid_none = 0, // Both cores are allowed
     eforbid_CM7 = 1, // CM7 is forbidden
     eforbid_CM4 = 2, // CM4 is forbidden
     eforbid_both = 3, // Both cores are forbidden
   };
+  
   enum class eDWP_LOCK : uint32_t {
     elock_none = 0, // Neither of DWP bits is locked
     elock_low = 1, // The lower DWP bit is locked
@@ -1760,7 +1760,7 @@ union GPR49 {
     uint32_t _reserved_0 : 28;
     eDWP DWP : 2;
     eDWP_LOCK DWP_LOCK : 2;
-  } bits;          // Bit-field struct (auto-filling reserved gaps)
+  } bits;
   
   // Full 32-bit register value.
   uint32_t value;
@@ -1774,13 +1774,13 @@ union GPR49 {
 //
 union GPR50 {
   
-  // Enum definitions.
   enum class eDWP : uint32_t {
     eforbid_none = 0, // Both cores are allowed
     eforbid_CM7 = 1, // CM7 is forbidden
     eforbid_CM4 = 2, // CM4 is forbidden
     eforbid_both = 3, // Both cores are forbidden
   };
+  
   enum class eDWP_LOCK : uint32_t {
     elock_none = 0, // Neither of DWP bits is locked
     elock_low = 1, // The lower DWP bit is locked
@@ -1794,7 +1794,7 @@ union GPR50 {
     uint32_t _reserved_1 : 23;
     eDWP DWP : 2;
     eDWP_LOCK DWP_LOCK : 2;
-  } bits;          // Bit-field struct (auto-filling reserved gaps)
+  } bits;
   
   // Full 32-bit register value.
   uint32_t value;
@@ -1808,13 +1808,13 @@ union GPR50 {
 //
 union GPR51 {
   
-  // Enum definitions.
   enum class eDWP : uint32_t {
     eforbid_none = 0, // Both cores are allowed
     eforbid_CM7 = 1, // CM7 is forbidden
     eforbid_CM4 = 2, // CM4 is forbidden
     eforbid_both = 3, // Both cores are forbidden
   };
+  
   enum class eDWP_LOCK : uint32_t {
     elock_none = 0, // Neither of DWP bits is locked
     elock_low = 1, // The lower DWP bit is locked
@@ -1828,7 +1828,7 @@ union GPR51 {
     uint32_t _reserved_1 : 27;
     eDWP DWP : 2;
     eDWP_LOCK DWP_LOCK : 2;
-  } bits;          // Bit-field struct (auto-filling reserved gaps)
+  } bits;
   
   // Full 32-bit register value.
   uint32_t value;
@@ -1842,13 +1842,13 @@ union GPR51 {
 //
 union GPR52 {
   
-  // Enum definitions.
   enum class eDWP : uint32_t {
     eforbid_none = 0, // Both cores are allowed
     eforbid_CM7 = 1, // CM7 is forbidden
     eforbid_CM4 = 2, // CM4 is forbidden
     eforbid_both = 3, // Both cores are forbidden
   };
+  
   enum class eDWP_LOCK : uint32_t {
     elock_none = 0, // Neither of DWP bits is locked
     elock_low = 1, // The lower DWP bit is locked
@@ -1861,7 +1861,7 @@ union GPR52 {
     uint32_t _reserved_0 : 28;
     eDWP DWP : 2;
     eDWP_LOCK DWP_LOCK : 2;
-  } bits;          // Bit-field struct (auto-filling reserved gaps)
+  } bits;
   
   // Full 32-bit register value.
   uint32_t value;
@@ -1875,13 +1875,13 @@ union GPR52 {
 //
 union GPR53 {
   
-  // Enum definitions.
   enum class eDWP : uint32_t {
     eforbid_none = 0, // Both cores are allowed
     eforbid_CM7 = 1, // CM7 is forbidden
     eforbid_CM4 = 2, // CM4 is forbidden
     eforbid_both = 3, // Both cores are forbidden
   };
+  
   enum class eDWP_LOCK : uint32_t {
     elock_none = 0, // Neither of DWP bits is locked
     elock_low = 1, // The lower DWP bit is locked
@@ -1894,7 +1894,7 @@ union GPR53 {
     uint32_t _reserved_0 : 28;
     eDWP DWP : 2;
     eDWP_LOCK DWP_LOCK : 2;
-  } bits;          // Bit-field struct (auto-filling reserved gaps)
+  } bits;
   
   // Full 32-bit register value.
   uint32_t value;
@@ -1908,13 +1908,13 @@ union GPR53 {
 //
 union GPR54 {
   
-  // Enum definitions.
   enum class eDWP : uint32_t {
     eforbid_none = 0, // Both cores are allowed
     eforbid_CM7 = 1, // CM7 is forbidden
     eforbid_CM4 = 2, // CM4 is forbidden
     eforbid_both = 3, // Both cores are forbidden
   };
+  
   enum class eDWP_LOCK : uint32_t {
     elock_none = 0, // Neither of DWP bits is locked
     elock_low = 1, // The lower DWP bit is locked
@@ -1927,7 +1927,7 @@ union GPR54 {
     uint32_t _reserved_0 : 28;
     eDWP DWP : 2;
     eDWP_LOCK DWP_LOCK : 2;
-  } bits;          // Bit-field struct (auto-filling reserved gaps)
+  } bits;
   
   // Full 32-bit register value.
   uint32_t value;
@@ -1941,13 +1941,13 @@ union GPR54 {
 //
 union GPR55 {
   
-  // Enum definitions.
   enum class eDWP : uint32_t {
     eforbid_none = 0, // Both cores are allowed
     eforbid_CM7 = 1, // CM7 is forbidden
     eforbid_CM4 = 2, // CM4 is forbidden
     eforbid_both = 3, // Both cores are forbidden
   };
+  
   enum class eDWP_LOCK : uint32_t {
     elock_none = 0, // Neither of DWP bits is locked
     elock_low = 1, // The lower DWP bit is locked
@@ -1960,7 +1960,7 @@ union GPR55 {
     uint32_t _reserved_0 : 28;
     eDWP DWP : 2;
     eDWP_LOCK DWP_LOCK : 2;
-  } bits;          // Bit-field struct (auto-filling reserved gaps)
+  } bits;
   
   // Full 32-bit register value.
   uint32_t value;
@@ -1974,23 +1974,25 @@ union GPR55 {
 //
 union GPR59 {
   
-  // Enum definitions.
   enum class eMIPI_CSI_SOFT_RST_N : uint32_t {
     eASSERT = 0, // Assert reset
     eDEAST = 1, // De-assert reset
   };
+  
   enum class eMIPI_CSI_RXCDRP : uint32_t {
     eVAL0 = 0, // 344mV
     eVAL01 = 1, // 325mV (Default)
     eVAL10 = 2, // 307mV
     eVAL11 = 3, // Invalid
   };
+  
   enum class eDWP : uint32_t {
     eforbid_none = 0, // Both cores are allowed
     eforbid_CM7 = 1, // CM7 is forbidden
     eforbid_CM4 = 2, // CM4 is forbidden
     eforbid_both = 3, // Both cores are forbidden
   };
+  
   enum class eDWP_LOCK : uint32_t {
     elock_none = 0, // Neither of DWP bits is locked
     elock_low = 1, // The lower DWP bit is locked
@@ -2013,7 +2015,7 @@ union GPR59 {
     uint32_t _reserved_10 : 10;
     eDWP DWP : 2;
     eDWP_LOCK DWP_LOCK : 2;
-  } bits;          // Bit-field struct (auto-filling reserved gaps)
+  } bits;
   
   // Full 32-bit register value.
   uint32_t value;
@@ -2027,29 +2029,33 @@ union GPR59 {
 //
 union GPR62 {
   
-  // Enum definitions.
   enum class eMIPI_DSI_PCLK_SOFT_RESET_N : uint32_t {
     eASSERT = 0, // Assert reset
     eDEASSERT = 1, // De-assert reset
   };
+  
   enum class eMIPI_DSI_BYTE_SOFT_RESET_N : uint32_t {
     eASSERT = 0, // Assert reset
     eDEASSERT = 1, // De-assert reset
   };
+  
   enum class eMIPI_DSI_DPI_SOFT_RESET_N : uint32_t {
     eASSERT = 0, // Assert reset
     eDEASSERT = 1, // De-assert reset
   };
+  
   enum class eMIPI_DSI_ESC_SOFT_RESET_N : uint32_t {
     eASSERT = 0, // Assert reset
     eDEASSERT = 1, // De-assert reset
   };
+  
   enum class eDWP : uint32_t {
     eforbid_none = 0, // Both cores are allowed
     eforbid_CM7 = 1, // CM7 is forbidden
     eforbid_CM4 = 2, // CM4 is forbidden
     eforbid_both = 3, // Both cores are forbidden
   };
+  
   enum class eDWP_LOCK : uint32_t {
     elock_none = 0, // Neither of DWP bits is locked
     elock_low = 1, // The lower DWP bit is locked
@@ -2072,7 +2078,7 @@ union GPR62 {
     uint32_t _reserved_9 : 8;
     eDWP DWP : 2;
     eDWP_LOCK DWP_LOCK : 2;
-  } bits;          // Bit-field struct (auto-filling reserved gaps)
+  } bits;
   
   // Full 32-bit register value.
   uint32_t value;
@@ -2086,13 +2092,11 @@ union GPR62 {
 //
 union GPR63 {
   
-  // Enum definitions.
-  
   // Bit field definition.
   struct {
     uint32_t MIPI_DSI_TX_ULPS_ACTIVE : 3;
     uint32_t _reserved_end : 29;
-  } bits;          // Bit-field struct (auto-filling reserved gaps)
+  } bits;
   
   // Full 32-bit register value.
   uint32_t value;
@@ -2106,13 +2110,13 @@ union GPR63 {
 //
 union GPR64 {
   
-  // Enum definitions.
   enum class eDWP : uint32_t {
     eforbid_none = 0, // Both cores are allowed
     eforbid_CM7 = 1, // CM7 is forbidden
     eforbid_CM4 = 2, // CM4 is forbidden
     eforbid_both = 3, // Both cores are forbidden
   };
+  
   enum class eDWP_LOCK : uint32_t {
     elock_none = 0, // Neither of DWP bits is locked
     elock_low = 1, // The lower DWP bit is locked
@@ -2137,7 +2141,7 @@ union GPR64 {
     uint32_t _reserved_11 : 3;
     eDWP DWP : 2;
     eDWP_LOCK DWP_LOCK : 2;
-  } bits;          // Bit-field struct (auto-filling reserved gaps)
+  } bits;
   
   // Full 32-bit register value.
   uint32_t value;
@@ -2151,13 +2155,13 @@ union GPR64 {
 //
 union GPR65 {
   
-  // Enum definitions.
   enum class eDWP : uint32_t {
     eforbid_none = 0, // Both cores are allowed
     eforbid_CM7 = 1, // CM7 is forbidden
     eforbid_CM4 = 2, // CM4 is forbidden
     eforbid_both = 3, // Both cores are forbidden
   };
+  
   enum class eDWP_LOCK : uint32_t {
     elock_none = 0, // Neither of DWP bits is locked
     elock_low = 1, // The lower DWP bit is locked
@@ -2182,7 +2186,7 @@ union GPR65 {
     uint32_t _reserved_11 : 3;
     eDWP DWP : 2;
     eDWP_LOCK DWP_LOCK : 2;
-  } bits;          // Bit-field struct (auto-filling reserved gaps)
+  } bits;
   
   // Full 32-bit register value.
   uint32_t value;
@@ -2196,13 +2200,13 @@ union GPR65 {
 //
 union GPR66 {
   
-  // Enum definitions.
   enum class eDWP : uint32_t {
     eforbid_none = 0, // Both cores are allowed
     eforbid_CM7 = 1, // CM7 is forbidden
     eforbid_CM4 = 2, // CM4 is forbidden
     eforbid_both = 3, // Both cores are forbidden
   };
+  
   enum class eDWP_LOCK : uint32_t {
     elock_none = 0, // Neither of DWP bits is locked
     elock_low = 1, // The lower DWP bit is locked
@@ -2227,7 +2231,7 @@ union GPR66 {
     uint32_t _reserved_11 : 3;
     eDWP DWP : 2;
     eDWP_LOCK DWP_LOCK : 2;
-  } bits;          // Bit-field struct (auto-filling reserved gaps)
+  } bits;
   
   // Full 32-bit register value.
   uint32_t value;
@@ -2241,13 +2245,13 @@ union GPR66 {
 //
 union GPR67 {
   
-  // Enum definitions.
   enum class eDWP : uint32_t {
     eforbid_none = 0, // Both cores are allowed
     eforbid_CM7 = 1, // CM7 is forbidden
     eforbid_CM4 = 2, // CM4 is forbidden
     eforbid_both = 3, // Both cores are forbidden
   };
+  
   enum class eDWP_LOCK : uint32_t {
     elock_none = 0, // Neither of DWP bits is locked
     elock_low = 1, // The lower DWP bit is locked
@@ -2272,7 +2276,7 @@ union GPR67 {
     uint32_t _reserved_11 : 3;
     eDWP DWP : 2;
     eDWP_LOCK DWP_LOCK : 2;
-  } bits;          // Bit-field struct (auto-filling reserved gaps)
+  } bits;
   
   // Full 32-bit register value.
   uint32_t value;
@@ -2286,13 +2290,13 @@ union GPR67 {
 //
 union GPR68 {
   
-  // Enum definitions.
   enum class eDWP : uint32_t {
     eforbid_none = 0, // Both cores are allowed
     eforbid_CM7 = 1, // CM7 is forbidden
     eforbid_CM4 = 2, // CM4 is forbidden
     eforbid_both = 3, // Both cores are forbidden
   };
+  
   enum class eDWP_LOCK : uint32_t {
     elock_none = 0, // Neither of DWP bits is locked
     elock_low = 1, // The lower DWP bit is locked
@@ -2317,7 +2321,7 @@ union GPR68 {
     uint32_t _reserved_11 : 3;
     eDWP DWP : 2;
     eDWP_LOCK DWP_LOCK : 2;
-  } bits;          // Bit-field struct (auto-filling reserved gaps)
+  } bits;
   
   // Full 32-bit register value.
   uint32_t value;
@@ -2331,13 +2335,13 @@ union GPR68 {
 //
 union GPR69 {
   
-  // Enum definitions.
   enum class eDWP : uint32_t {
     eforbid_none = 0, // Both cores are allowed
     eforbid_CM7 = 1, // CM7 is forbidden
     eforbid_CM4 = 2, // CM4 is forbidden
     eforbid_both = 3, // Both cores are forbidden
   };
+  
   enum class eDWP_LOCK : uint32_t {
     elock_none = 0, // Neither of DWP bits is locked
     elock_low = 1, // The lower DWP bit is locked
@@ -2364,7 +2368,7 @@ union GPR69 {
     uint32_t _reserved_11 : 14;
     eDWP DWP : 2;
     eDWP_LOCK DWP_LOCK : 2;
-  } bits;          // Bit-field struct (auto-filling reserved gaps)
+  } bits;
   
   // Full 32-bit register value.
   uint32_t value;
@@ -2378,21 +2382,23 @@ union GPR69 {
 //
 union GPR70 {
   
-  // Enum definitions.
   enum class eADC1_IPG_STOP_MODE : uint32_t {
     eFUNC = 0, // This module is functional in Stop Mode
     eNONFUNC = 1, // This module is not functional in Stop Mode and the corresponding x_STOP_REQ field is set to '1'.
   };
+  
   enum class eADC2_IPG_STOP_MODE : uint32_t {
     eFUNC = 0, // This module is functional in Stop Mode
     eNONFUNC = 1, // This module is not functional in Stop Mode and the corresponding x_STOP_REQ field is set to '1'.
   };
+  
   enum class eDWP : uint32_t {
     eforbid_none = 0, // Both cores are allowed
     eforbid_CM7 = 1, // CM7 is forbidden
     eforbid_CM4 = 2, // CM4 is forbidden
     eforbid_both = 3, // Both cores are forbidden
   };
+  
   enum class eDWP_LOCK : uint32_t {
     elock_none = 0, // Neither of DWP bits is locked
     elock_low = 1, // The lower DWP bit is locked
@@ -2432,7 +2438,7 @@ union GPR70 {
     uint32_t _reserved_26 : 1;
     eDWP DWP : 2;
     eDWP_LOCK DWP_LOCK : 2;
-  } bits;          // Bit-field struct (auto-filling reserved gaps)
+  } bits;
   
   // Full 32-bit register value.
   uint32_t value;
@@ -2446,41 +2452,48 @@ union GPR70 {
 //
 union GPR71 {
   
-  // Enum definitions.
   enum class eLPI2C1_IPG_STOP_MODE : uint32_t {
     eFUNC = 0, // This module is functional in Stop Mode
     eNONFUNC = 1, // This module is not functional in Stop Mode and the corresponding x_STOP_REQ field is set to '1'.
   };
+  
   enum class eLPI2C2_IPG_STOP_MODE : uint32_t {
     eFUNC = 0, // This module is functional in Stop Mode
     eNONFUNC = 1, // This module is not functional in Stop Mode and the corresponding x_STOP_REQ field is set to '1'.
   };
+  
   enum class eLPI2C3_IPG_STOP_MODE : uint32_t {
     eFUNC = 0, // This module is functional in Stop Mode
     eNONFUNC = 1, // This module is not functional in Stop Mode and the corresponding x_STOP_REQ field is set to '1'.
   };
+  
   enum class eLPI2C4_IPG_STOP_MODE : uint32_t {
     eFUNC = 0, // This module is functional in Stop Mode
     eNONFUNC = 1, // This module is not functional in Stop Mode and the corresponding x_STOP_REQ field is set to '1'.
   };
+  
   enum class eLPI2C5_IPG_STOP_MODE : uint32_t {
     eFUNC = 0, // This module is functional in Stop Mode
     eNONFUNC = 1, // This module is not functional in Stop Mode and the corresponding x_STOP_REQ field is set to '1'.
   };
+  
   enum class eLPI2C6_IPG_STOP_MODE : uint32_t {
     eFUNC = 0, // This module is functional in Stop Mode
     eNONFUNC = 1, // This module is not functional in Stop Mode and the corresponding x_STOP_REQ field is set to '1'.
   };
+  
   enum class eLPSPI1_IPG_STOP_MODE : uint32_t {
     eFUNC = 0, // This module is functional in Stop Mode
     eNONFUNC = 1, // This module is not functional in Stop Mode and the corresponding x_STOP_REQ field is set to '1'.
   };
+  
   enum class eDWP : uint32_t {
     eforbid_none = 0, // Both cores are allowed
     eforbid_CM7 = 1, // CM7 is forbidden
     eforbid_CM4 = 2, // CM4 is forbidden
     eforbid_both = 3, // Both cores are forbidden
   };
+  
   enum class eDWP_LOCK : uint32_t {
     elock_none = 0, // Neither of DWP bits is locked
     elock_low = 1, // The lower DWP bit is locked
@@ -2520,7 +2533,7 @@ union GPR71 {
     uint32_t _reserved_27 : 1;
     eDWP DWP : 2;
     eDWP_LOCK DWP_LOCK : 2;
-  } bits;          // Bit-field struct (auto-filling reserved gaps)
+  } bits;
   
   // Full 32-bit register value.
   uint32_t value;
@@ -2534,49 +2547,58 @@ union GPR71 {
 //
 union GPR72 {
   
-  // Enum definitions.
   enum class eLPSPI2_IPG_STOP_MODE : uint32_t {
     eFUNC = 0, // This module is functional in Stop Mode
     eNONFUNC = 1, // This module is not functional in Stop Mode and the corresponding x_STOP_REQ field is set to '1'.
   };
+  
   enum class eLPSPI3_IPG_STOP_MODE : uint32_t {
     eFUNC = 0, // This module is functional in Stop Mode
     eNONFUNC = 1, // This module is not functional in Stop Mode and the corresponding x_STOP_REQ field is set to '1'.
   };
+  
   enum class eLPSPI4_IPG_STOP_MODE : uint32_t {
     eFUNC = 0, // This module is functional in Stop Mode
     eNONFUNC = 1, // This module is not functional in Stop Mode and the corresponding x_STOP_REQ field is set to '1'.
   };
+  
   enum class eLPSPI5_IPG_STOP_MODE : uint32_t {
     eFUNC = 0, // This module is functional in Stop Mode
     eNONFUNC = 1, // This module is not functional in Stop Mode and the corresponding x_STOP_REQ field is set to '1'.
   };
+  
   enum class eLPSPI6_IPG_STOP_MODE : uint32_t {
     eFUNC = 0, // This module is functional in Stop Mode
     eNONFUNC = 1, // This module is not functional in Stop Mode and the corresponding x_STOP_REQ field is set to '1'.
   };
+  
   enum class eLPUART1_IPG_STOP_MODE : uint32_t {
     eFUNC = 0, // This module is functional in Stop Mode
     eNONFUNC = 1, // This module is not functional in Stop Mode and the corresponding x_STOP_REQ field is set to '1'.
   };
+  
   enum class eLPUART2_IPG_STOP_MODE : uint32_t {
     eFUNC = 0, // This module is functional in Stop Mode
     eNONFUNC = 1, // This module is not functional in Stop Mode and the corresponding x_STOP_REQ field is set to '1'.
   };
+  
   enum class eLPUART3_IPG_STOP_MODE : uint32_t {
     eFUNC = 0, // This module is functional in Stop Mode
     eNONFUNC = 1, // This module is not functional in Stop Mode and the corresponding x_STOP_REQ field is set to '1'.
   };
+  
   enum class eLPUART4_IPG_STOP_MODE : uint32_t {
     eFUNC = 0, // This module is functional in Stop Mode
     eNONFUNC = 1, // This module is not functional in Stop Mode and the corresponding x_STOP_REQ field is set to '1'.
   };
+  
   enum class eDWP : uint32_t {
     eforbid_none = 0, // Both cores are allowed
     eforbid_CM7 = 1, // CM7 is forbidden
     eforbid_CM4 = 2, // CM4 is forbidden
     eforbid_both = 3, // Both cores are forbidden
   };
+  
   enum class eDWP_LOCK : uint32_t {
     elock_none = 0, // Neither of DWP bits is locked
     elock_low = 1, // The lower DWP bit is locked
@@ -2616,7 +2638,7 @@ union GPR72 {
     uint32_t _reserved_27 : 1;
     eDWP DWP : 2;
     eDWP_LOCK DWP_LOCK : 2;
-  } bits;          // Bit-field struct (auto-filling reserved gaps)
+  } bits;
   
   // Full 32-bit register value.
   uint32_t value;
@@ -2630,49 +2652,58 @@ union GPR72 {
 //
 union GPR73 {
   
-  // Enum definitions.
   enum class eLPUART5_IPG_STOP_MODE : uint32_t {
     eFUNC = 0, // This module is functional in Stop Mode
     eNONFUNC = 1, // This module is not functional in Stop Mode and the corresponding x_STOP_REQ field is set to '1'.
   };
+  
   enum class eLPUART6_IPG_STOP_MODE : uint32_t {
     eFUNC = 0, // This module is functional in Stop Mode
     eNONFUNC = 1, // This module is not functional in Stop Mode and the corresponding x_STOP_REQ field is set to '1'.
   };
+  
   enum class eLPUART7_IPG_STOP_MODE : uint32_t {
     eFUNC = 0, // This module is functional in Stop Mode
     eNONFUNC = 1, // This module is not functional in Stop Mode and the corresponding x_STOP_REQ field is set to '1'.
   };
+  
   enum class eLPUART8_IPG_STOP_MODE : uint32_t {
     eFUNC = 0, // This module is functional in Stop Mode
     eNONFUNC = 1, // This module is not functional in Stop Mode and the corresponding x_STOP_REQ field is set to '1'.
   };
+  
   enum class eLPUART9_IPG_STOP_MODE : uint32_t {
     eFUNC = 0, // This module is functional in Stop Mode
     eNONFUNC = 1, // This module is not functional in Stop Mode and the corresponding x_STOP_REQ field is set to '1'.
   };
+  
   enum class eLPUART10_IPG_STOP_MODE : uint32_t {
     eFUNC = 0, // This module is functional in Stop Mode
     eNONFUNC = 1, // This module is not functional in Stop Mode and the corresponding x_STOP_REQ field is set to '1'.
   };
+  
   enum class eLPUART11_IPG_STOP_MODE : uint32_t {
     eFUNC = 0, // This module is functional in Stop Mode
     eNONFUNC = 1, // This module is not functional in Stop Mode and the corresponding x_STOP_REQ field is set to '1'.
   };
+  
   enum class eLPUART12_IPG_STOP_MODE : uint32_t {
     eFUNC = 0, // This module is functional in Stop Mode
     eNONFUNC = 1, // This module is not functional in Stop Mode and the corresponding x_STOP_REQ field is set to '1'.
   };
+  
   enum class eMIC_IPG_STOP_MODE : uint32_t {
     eFUNC = 0, // This module is functional in Stop Mode
     eNONFUNC = 1, // This module is not functional in Stop Mode and the corresponding x_STOP_REQ field is set to '1'.
   };
+  
   enum class eDWP : uint32_t {
     eforbid_none = 0, // Both cores are allowed
     eforbid_CM7 = 1, // CM7 is forbidden
     eforbid_CM4 = 2, // CM4 is forbidden
     eforbid_both = 3, // Both cores are forbidden
   };
+  
   enum class eDWP_LOCK : uint32_t {
     elock_none = 0, // Neither of DWP bits is locked
     elock_low = 1, // The lower DWP bit is locked
@@ -2712,7 +2743,7 @@ union GPR73 {
     uint32_t _reserved_27 : 1;
     eDWP DWP : 2;
     eDWP_LOCK DWP_LOCK : 2;
-  } bits;          // Bit-field struct (auto-filling reserved gaps)
+  } bits;
   
   // Full 32-bit register value.
   uint32_t value;
@@ -2726,13 +2757,13 @@ union GPR73 {
 //
 union GPR74 {
   
-  // Enum definitions.
   enum class eDWP : uint32_t {
     eforbid_none = 0, // Both cores are allowed
     eforbid_CM7 = 1, // CM7 is forbidden
     eforbid_CM4 = 2, // CM4 is forbidden
     eforbid_both = 3, // Both cores are forbidden
   };
+  
   enum class eDWP_LOCK : uint32_t {
     elock_none = 0, // Neither of DWP bits is locked
     elock_low = 1, // The lower DWP bit is locked
@@ -2763,7 +2794,7 @@ union GPR74 {
     uint32_t _reserved_17 : 10;
     eDWP DWP : 2;
     eDWP_LOCK DWP_LOCK : 2;
-  } bits;          // Bit-field struct (auto-filling reserved gaps)
+  } bits;
   
   // Full 32-bit register value.
   uint32_t value;
@@ -2776,8 +2807,6 @@ union GPR74 {
 // GPR75 General Purpose Register
 //
 union GPR75 {
-  
-  // Enum definitions.
   
   // Bit field definition.
   struct {
@@ -2813,7 +2842,7 @@ union GPR75 {
     uint32_t LPUART6_STOP_ACK : 1;
     uint32_t LPUART7_STOP_ACK : 1;
     uint32_t LPUART8_STOP_ACK : 1;
-  } bits;          // Bit-field struct (auto-filling reserved gaps)
+  } bits;
   
   // Full 32-bit register value.
   uint32_t value;
@@ -2826,8 +2855,6 @@ union GPR75 {
 // GPR76 General Purpose Register
 //
 union GPR76 {
-  
-  // Enum definitions.
   
   // Bit field definition.
   struct {
@@ -2849,7 +2876,7 @@ union GPR76 {
     uint32_t FLEXIO2_STOP_ACK_BUS : 1;
     uint32_t FLEXIO2_STOP_ACK_PER : 1;
     uint32_t _reserved_end : 15;
-  } bits;          // Bit-field struct (auto-filling reserved gaps)
+  } bits;
   
   // Full 32-bit register value.
   uint32_t value;

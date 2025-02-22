@@ -15,12 +15,10 @@ namespace nIOMUXC_SNVS_GPR {
 //
 union GPR[0] {
   
-  // Enum definitions.
-  
   // Bit field definition.
   struct {
     uint32_t GPR : 32;
-  } bits;          // Bit-field struct (auto-filling reserved gaps)
+  } bits;
   
   // Full 32-bit register value.
   uint32_t value;
@@ -33,12 +31,10 @@ union GPR[0] {
 //
 union GPR[1] {
   
-  // Enum definitions.
-  
   // Bit field definition.
   struct {
     uint32_t GPR : 32;
-  } bits;          // Bit-field struct (auto-filling reserved gaps)
+  } bits;
   
   // Full 32-bit register value.
   uint32_t value;
@@ -51,12 +47,10 @@ union GPR[1] {
 //
 union GPR[2] {
   
-  // Enum definitions.
-  
   // Bit field definition.
   struct {
     uint32_t GPR : 32;
-  } bits;          // Bit-field struct (auto-filling reserved gaps)
+  } bits;
   
   // Full 32-bit register value.
   uint32_t value;
@@ -69,12 +63,10 @@ union GPR[2] {
 //
 union GPR[3] {
   
-  // Enum definitions.
-  
   // Bit field definition.
   struct {
     uint32_t GPR : 32;
-  } bits;          // Bit-field struct (auto-filling reserved gaps)
+  } bits;
   
   // Full 32-bit register value.
   uint32_t value;
@@ -87,12 +79,10 @@ union GPR[3] {
 //
 union GPR[4] {
   
-  // Enum definitions.
-  
   // Bit field definition.
   struct {
     uint32_t GPR : 32;
-  } bits;          // Bit-field struct (auto-filling reserved gaps)
+  } bits;
   
   // Full 32-bit register value.
   uint32_t value;
@@ -105,12 +95,10 @@ union GPR[4] {
 //
 union GPR[5] {
   
-  // Enum definitions.
-  
   // Bit field definition.
   struct {
     uint32_t GPR : 32;
-  } bits;          // Bit-field struct (auto-filling reserved gaps)
+  } bits;
   
   // Full 32-bit register value.
   uint32_t value;
@@ -123,12 +111,10 @@ union GPR[5] {
 //
 union GPR[6] {
   
-  // Enum definitions.
-  
   // Bit field definition.
   struct {
     uint32_t GPR : 32;
-  } bits;          // Bit-field struct (auto-filling reserved gaps)
+  } bits;
   
   // Full 32-bit register value.
   uint32_t value;
@@ -141,12 +127,10 @@ union GPR[6] {
 //
 union GPR[7] {
   
-  // Enum definitions.
-  
   // Bit field definition.
   struct {
     uint32_t GPR : 32;
-  } bits;          // Bit-field struct (auto-filling reserved gaps)
+  } bits;
   
   // Full 32-bit register value.
   uint32_t value;
@@ -159,12 +143,10 @@ union GPR[7] {
 //
 union GPR[8] {
   
-  // Enum definitions.
-  
   // Bit field definition.
   struct {
     uint32_t GPR : 32;
-  } bits;          // Bit-field struct (auto-filling reserved gaps)
+  } bits;
   
   // Full 32-bit register value.
   uint32_t value;
@@ -177,12 +159,10 @@ union GPR[8] {
 //
 union GPR[9] {
   
-  // Enum definitions.
-  
   // Bit field definition.
   struct {
     uint32_t GPR : 32;
-  } bits;          // Bit-field struct (auto-filling reserved gaps)
+  } bits;
   
   // Full 32-bit register value.
   uint32_t value;
@@ -195,12 +175,10 @@ union GPR[9] {
 //
 union GPR[10] {
   
-  // Enum definitions.
-  
   // Bit field definition.
   struct {
     uint32_t GPR : 32;
-  } bits;          // Bit-field struct (auto-filling reserved gaps)
+  } bits;
   
   // Full 32-bit register value.
   uint32_t value;
@@ -213,12 +191,10 @@ union GPR[10] {
 //
 union GPR[11] {
   
-  // Enum definitions.
-  
   // Bit field definition.
   struct {
     uint32_t GPR : 32;
-  } bits;          // Bit-field struct (auto-filling reserved gaps)
+  } bits;
   
   // Full 32-bit register value.
   uint32_t value;
@@ -231,12 +207,10 @@ union GPR[11] {
 //
 union GPR[12] {
   
-  // Enum definitions.
-  
   // Bit field definition.
   struct {
     uint32_t GPR : 32;
-  } bits;          // Bit-field struct (auto-filling reserved gaps)
+  } bits;
   
   // Full 32-bit register value.
   uint32_t value;
@@ -249,12 +223,10 @@ union GPR[12] {
 //
 union GPR[13] {
   
-  // Enum definitions.
-  
   // Bit field definition.
   struct {
     uint32_t GPR : 32;
-  } bits;          // Bit-field struct (auto-filling reserved gaps)
+  } bits;
   
   // Full 32-bit register value.
   uint32_t value;
@@ -267,12 +239,10 @@ union GPR[13] {
 //
 union GPR[14] {
   
-  // Enum definitions.
-  
   // Bit field definition.
   struct {
     uint32_t GPR : 32;
-  } bits;          // Bit-field struct (auto-filling reserved gaps)
+  } bits;
   
   // Full 32-bit register value.
   uint32_t value;
@@ -285,12 +255,10 @@ union GPR[14] {
 //
 union GPR[15] {
   
-  // Enum definitions.
-  
   // Bit field definition.
   struct {
     uint32_t GPR : 32;
-  } bits;          // Bit-field struct (auto-filling reserved gaps)
+  } bits;
   
   // Full 32-bit register value.
   uint32_t value;
@@ -303,12 +271,10 @@ union GPR[15] {
 //
 union GPR[16] {
   
-  // Enum definitions.
-  
   // Bit field definition.
   struct {
     uint32_t GPR : 32;
-  } bits;          // Bit-field struct (auto-filling reserved gaps)
+  } bits;
   
   // Full 32-bit register value.
   uint32_t value;
@@ -321,12 +287,10 @@ union GPR[16] {
 //
 union GPR[17] {
   
-  // Enum definitions.
-  
   // Bit field definition.
   struct {
     uint32_t GPR : 32;
-  } bits;          // Bit-field struct (auto-filling reserved gaps)
+  } bits;
   
   // Full 32-bit register value.
   uint32_t value;
@@ -339,12 +303,10 @@ union GPR[17] {
 //
 union GPR[18] {
   
-  // Enum definitions.
-  
   // Bit field definition.
   struct {
     uint32_t GPR : 32;
-  } bits;          // Bit-field struct (auto-filling reserved gaps)
+  } bits;
   
   // Full 32-bit register value.
   uint32_t value;
@@ -357,12 +319,10 @@ union GPR[18] {
 //
 union GPR[19] {
   
-  // Enum definitions.
-  
   // Bit field definition.
   struct {
     uint32_t GPR : 32;
-  } bits;          // Bit-field struct (auto-filling reserved gaps)
+  } bits;
   
   // Full 32-bit register value.
   uint32_t value;
@@ -375,12 +335,10 @@ union GPR[19] {
 //
 union GPR[20] {
   
-  // Enum definitions.
-  
   // Bit field definition.
   struct {
     uint32_t GPR : 32;
-  } bits;          // Bit-field struct (auto-filling reserved gaps)
+  } bits;
   
   // Full 32-bit register value.
   uint32_t value;
@@ -393,12 +351,10 @@ union GPR[20] {
 //
 union GPR[21] {
   
-  // Enum definitions.
-  
   // Bit field definition.
   struct {
     uint32_t GPR : 32;
-  } bits;          // Bit-field struct (auto-filling reserved gaps)
+  } bits;
   
   // Full 32-bit register value.
   uint32_t value;
@@ -411,12 +367,10 @@ union GPR[21] {
 //
 union GPR[22] {
   
-  // Enum definitions.
-  
   // Bit field definition.
   struct {
     uint32_t GPR : 32;
-  } bits;          // Bit-field struct (auto-filling reserved gaps)
+  } bits;
   
   // Full 32-bit register value.
   uint32_t value;
@@ -429,12 +383,10 @@ union GPR[22] {
 //
 union GPR[23] {
   
-  // Enum definitions.
-  
   // Bit field definition.
   struct {
     uint32_t GPR : 32;
-  } bits;          // Bit-field struct (auto-filling reserved gaps)
+  } bits;
   
   // Full 32-bit register value.
   uint32_t value;
@@ -447,12 +399,10 @@ union GPR[23] {
 //
 union GPR[24] {
   
-  // Enum definitions.
-  
   // Bit field definition.
   struct {
     uint32_t GPR : 32;
-  } bits;          // Bit-field struct (auto-filling reserved gaps)
+  } bits;
   
   // Full 32-bit register value.
   uint32_t value;
@@ -465,12 +415,10 @@ union GPR[24] {
 //
 union GPR[25] {
   
-  // Enum definitions.
-  
   // Bit field definition.
   struct {
     uint32_t GPR : 32;
-  } bits;          // Bit-field struct (auto-filling reserved gaps)
+  } bits;
   
   // Full 32-bit register value.
   uint32_t value;
@@ -483,12 +431,10 @@ union GPR[25] {
 //
 union GPR[26] {
   
-  // Enum definitions.
-  
   // Bit field definition.
   struct {
     uint32_t GPR : 32;
-  } bits;          // Bit-field struct (auto-filling reserved gaps)
+  } bits;
   
   // Full 32-bit register value.
   uint32_t value;
@@ -501,12 +447,10 @@ union GPR[26] {
 //
 union GPR[27] {
   
-  // Enum definitions.
-  
   // Bit field definition.
   struct {
     uint32_t GPR : 32;
-  } bits;          // Bit-field struct (auto-filling reserved gaps)
+  } bits;
   
   // Full 32-bit register value.
   uint32_t value;
@@ -519,12 +463,10 @@ union GPR[27] {
 //
 union GPR[28] {
   
-  // Enum definitions.
-  
   // Bit field definition.
   struct {
     uint32_t GPR : 32;
-  } bits;          // Bit-field struct (auto-filling reserved gaps)
+  } bits;
   
   // Full 32-bit register value.
   uint32_t value;
@@ -537,12 +479,10 @@ union GPR[28] {
 //
 union GPR[29] {
   
-  // Enum definitions.
-  
   // Bit field definition.
   struct {
     uint32_t GPR : 32;
-  } bits;          // Bit-field struct (auto-filling reserved gaps)
+  } bits;
   
   // Full 32-bit register value.
   uint32_t value;
@@ -555,12 +495,10 @@ union GPR[29] {
 //
 union GPR[30] {
   
-  // Enum definitions.
-  
   // Bit field definition.
   struct {
     uint32_t GPR : 32;
-  } bits;          // Bit-field struct (auto-filling reserved gaps)
+  } bits;
   
   // Full 32-bit register value.
   uint32_t value;
@@ -573,12 +511,10 @@ union GPR[30] {
 //
 union GPR[31] {
   
-  // Enum definitions.
-  
   // Bit field definition.
   struct {
     uint32_t GPR : 32;
-  } bits;          // Bit-field struct (auto-filling reserved gaps)
+  } bits;
   
   // Full 32-bit register value.
   uint32_t value;
@@ -592,14 +528,12 @@ union GPR[31] {
 //
 union GPR32 {
   
-  // Enum definitions.
-  
   // Bit field definition.
   struct {
     uint32_t _reserved_0 : 1;
     uint32_t GPR : 15;
     uint32_t LOCK : 16;
-  } bits;          // Bit-field struct (auto-filling reserved gaps)
+  } bits;
   
   // Full 32-bit register value.
   uint32_t value;
@@ -613,31 +547,36 @@ union GPR32 {
 //
 union GPR33 {
   
-  // Enum definitions.
   enum class eDCDC_STATUS_CAPT_CLR : uint32_t {
     eOVER = 0, // No change
     eNO = 1, // Clear the 3 bits of DCDC captured status: DCDC_OVER_VOL, DCDC_OVER_CUR, and DCDC_IN_LOW_VOL
   };
+  
   enum class eSNVS_BYPASS_EN : uint32_t {
     eNO = 0, // Disable bypass
     eOVER = 1, // Enable bypass
   };
+  
   enum class eDCDC_IN_LOW_VOL : uint32_t {
     eNO = 0, // Voltage on DCDC_IN is higher than 2.6V
     eOVER = 1, // Voltage on DCDC_IN is lower than 2.6V
   };
+  
   enum class eDCDC_OVER_CUR : uint32_t {
     eNO = 0, // No Overcurrent on DCDC output
     eOVER = 1, // Overcurrent on DCDC output
   };
+  
   enum class eDCDC_OVER_VOL : uint32_t {
     eNO = 0, // No Overvoltage on DCDC VDDLP0 or VDDLP8 output
     eOVERVOLTAGE = 1, // Overvoltage on DCDC VDDLP0 or VDDLP8 output
   };
+  
   enum class eDCDC_STS_DC_OK : uint32_t {
     eDISABLE = 0, // DCDC is settling
     eENABLE = 1, // DCDC already settled
   };
+  
   enum class eSNVS_XTAL_CLK_OK : uint32_t {
     eUNSTABLE = 0, // 32K oscillator is NOT stable into normal operation
     eSTABLE = 1, // 32K oscillator is stable into normal operation
@@ -655,7 +594,7 @@ union GPR33 {
     eDCDC_STS_DC_OK DCDC_STS_DC_OK : 1;
     eSNVS_XTAL_CLK_OK SNVS_XTAL_CLK_OK : 1;
     uint32_t _reserved_end : 11;
-  } bits;          // Bit-field struct (auto-filling reserved gaps)
+  } bits;
   
   // Full 32-bit register value.
   uint32_t value;
@@ -669,31 +608,35 @@ union GPR33 {
 //
 union GPR34 {
   
-  // Enum definitions.
   enum class eLOCK : uint32_t {
     eOVER1 = 0, // Write access is not blocked
     eNO1 = 1, // Write access is blocked
   };
+  
   enum class eSNVS_CORE_VOLT_DET_TRIM_SEL : uint32_t {
     eOVER1 = 0, // The trimming codes are selected from eFuse
     eNO1 = 1, // The trimming codes of core voltage detectors used to change the voltage falling trip point are selected from SNVS_CORE_VOLT_DET_TRIM
   };
+  
   enum class eSNVS_CLK_DET_TRIM_SEL : uint32_t {
     eOVER1 = 0, // The trimming codes are selected from eFuse
     eNO1 = 1, // The trimming codes of clock detector used to change the boundary frequencies are selected from SNVS_CLK_DET_TRIM
   };
+  
   enum class eSNVS_CLK_DET_OFFSET_HIGH : uint32_t {
     eOVER = 0, // No change (Default)
     eNO = 1, // Add +5 to the Trim
     eOVER1 = 2, // Add +10 to the trim
     eNO1 = 3, // Add -5 to the Trim
   };
+  
   enum class eSNVS_CLK_DET_OFFSET_LOW : uint32_t {
     eOVER = 0, // No change (Default)
     eNO = 1, // Add +5 to the Trim
     eOVER1 = 2, // Add +10 to the trim
     eNO1 = 3, // Add -5 to the Trim
   };
+  
   enum class eSNVS_CAP_TRIM_SEL : uint32_t {
     eOVER = 0, // The trimming codes are selected from eFuse
     eNO = 1, // The trimming codes are used from SNVS_OSC_CAP_TRIM (osc32k's load capacitor)
@@ -713,7 +656,7 @@ union GPR34 {
     eSNVS_CAP_TRIM_SEL SNVS_CAP_TRIM_SEL : 1;
     uint32_t SNVS_OSC_CAP_TRIM : 4;
     uint32_t _reserved_end : 4;
-  } bits;          // Bit-field struct (auto-filling reserved gaps)
+  } bits;
   
   // Full 32-bit register value.
   uint32_t value;
@@ -727,25 +670,28 @@ union GPR34 {
 //
 union GPR35 {
   
-  // Enum definitions.
   enum class eLOCK : uint32_t {
     eOVER1 = 0, // Write access is not blocked
     eNO1 = 1, // Write access is blocked
   };
+  
   enum class eSNVS_VOLT_DET_TRIM_SEL : uint32_t {
     eOVER1 = 0, // The trimming codes are selected from eFuse
     eNO1 = 1, // The trimming codes of voltage detectors to change the voltage boundaries in battery voltage detecting are selected from SNVS_VOLT_DET_TRIM
   };
+  
   enum class eSNVS_TEMP_DET_TRIM_SEL : uint32_t {
     eOVER1 = 0, // The trimming codes are selected from eFuse
     eNO1 = 1, // The trimming codes to define the temperature boundaries of temperature detector are selected from SNVS_TEMP_DET_TRIM
   };
+  
   enum class eSNVS_TEMP_DET_OFFSET_HIGH : uint32_t {
     eOVER = 0, // No change (Default)
     eNO = 1, // Add +5 to the Trim
     eOVER1 = 2, // Add +10 to the trim
     eNO1 = 3, // Add -5 to the Trim
   };
+  
   enum class eSNVS_TEMP_DET_OFFSET_LOW : uint32_t {
     eOVER = 0, // No change (Default)
     eNO = 1, // Add +5 to the Trim
@@ -764,7 +710,7 @@ union GPR35 {
     uint32_t SNVS_TEMP_DET_TRIM : 12;
     eSNVS_TEMP_DET_OFFSET_HIGH SNVS_TEMP_DET_OFFSET_HIGH : 2;
     eSNVS_TEMP_DET_OFFSET_LOW SNVS_TEMP_DET_OFFSET_LOW : 2;
-  } bits;          // Bit-field struct (auto-filling reserved gaps)
+  } bits;
   
   // Full 32-bit register value.
   uint32_t value;
@@ -778,31 +724,36 @@ union GPR35 {
 //
 union GPR36 {
   
-  // Enum definitions.
   enum class eSNVSDIG_SNVS1P8_ISO_EN : uint32_t {
     eDIS = 0, // Enable SRAM access (It should be cleared after LDO_SNVS_DIG and SNVS SRAM peripheral power is back)
     eEN = 1, // Enable the isolation to avoid extra leakage power before SNVS SRAM peripheral power or LDO_SNVS_DIG is switched off
   };
+  
   enum class eSNVS_SRAM_SLEEP : uint32_t {
     eDIS = 0, // Enable SRAM access (It should be cleared after LDO_SNVS_DIG is enabled)
     eEN = 1, // SNVS SRAM can go in Shutdown/ Periphery Off Array On/ Periphery On Array Off mode. In addition, this bit ensures power-up without stuck-at /high DC current states and hence must be held to 1 during wake-up, so this bit is default high.
   };
+  
   enum class eSNVS_SRAM_STDBY : uint32_t {
     eNo = 0, // SNVS SRAM does not enter low leakage state
     eDISABLE = 1, // SNVS SRAM enters low leakage state and large drivers are switched OFF
   };
+  
   enum class eSNVS_SRAM_PSWLARGEMP_FORCE : uint32_t {
     eNo = 0, // Switch on SNVS SRAM power for peripheral
     eDISABLE = 1, // Switch off SNVS SRAM power for peripheral (SRAM array power is not impacted, and data can be retained)
   };
+  
   enum class eSNVS_SRAM_PSWLARGE : uint32_t {
     eNo = 0, // Switch on SNVS SRAM power for peripheral and array
     eDISABLE = 1, // Switch off SNVS SRAM power for peripheral and array
   };
+  
   enum class eSNVS_SRAM_PSWSMALLMP_FORCE : uint32_t {
     eNo = 0, // Switch on SNVS SRAM power for peripheral
     eDISABLE = 1, // Switch off SNVS SRAM power for peripheral (SRAM array power is not impacted, and data can be retained)
   };
+  
   enum class eSNVS_SRAM_PSWSMALL : uint32_t {
     eNo = 0, // Switch on SNVS SRAM power for peripheral and array
     eDISABLE = 1, // Switch off SNVS SRAM power for peripheral and array
@@ -819,7 +770,7 @@ union GPR36 {
     eSNVS_SRAM_PSWLARGE SNVS_SRAM_PSWLARGE : 1;
     eSNVS_SRAM_PSWSMALLMP_FORCE SNVS_SRAM_PSWSMALLMP_FORCE : 1;
     eSNVS_SRAM_PSWSMALL SNVS_SRAM_PSWSMALL : 1;
-  } bits;          // Bit-field struct (auto-filling reserved gaps)
+  } bits;
   
   // Full 32-bit register value.
   uint32_t value;
@@ -833,7 +784,6 @@ union GPR36 {
 //
 union GPR37 {
   
-  // Enum definitions.
   enum class eLOCK : uint32_t {
     eOVER1 = 0, // Write access is not blocked
     eNO1 = 1, // Write access is blocked
@@ -845,7 +795,7 @@ union GPR37 {
     uint32_t SNVS_TAMPER_PUE : 10;
     uint32_t SNVS_TAMPER_PUS : 10;
     uint32_t _reserved_end : 11;
-  } bits;          // Bit-field struct (auto-filling reserved gaps)
+  } bits;
   
   // Full 32-bit register value.
   uint32_t value;

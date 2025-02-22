@@ -15,12 +15,10 @@ namespace nNVIC {
 //
 union NVICISER0 {
   
-  // Enum definitions.
-  
   // Bit field definition.
   struct {
     uint32_t SETENA : 32;
-  } bits;          // Bit-field struct (auto-filling reserved gaps)
+  } bits;
   
   // Full 32-bit register value.
   uint32_t value;
@@ -34,12 +32,10 @@ union NVICISER0 {
 //
 union NVICISER1 {
   
-  // Enum definitions.
-  
   // Bit field definition.
   struct {
     uint32_t SETENA : 32;
-  } bits;          // Bit-field struct (auto-filling reserved gaps)
+  } bits;
   
   // Full 32-bit register value.
   uint32_t value;
@@ -53,12 +49,10 @@ union NVICISER1 {
 //
 union NVICISER2 {
   
-  // Enum definitions.
-  
   // Bit field definition.
   struct {
     uint32_t SETENA : 32;
-  } bits;          // Bit-field struct (auto-filling reserved gaps)
+  } bits;
   
   // Full 32-bit register value.
   uint32_t value;
@@ -72,12 +66,10 @@ union NVICISER2 {
 //
 union NVICISER3 {
   
-  // Enum definitions.
-  
   // Bit field definition.
   struct {
     uint32_t SETENA : 32;
-  } bits;          // Bit-field struct (auto-filling reserved gaps)
+  } bits;
   
   // Full 32-bit register value.
   uint32_t value;
@@ -91,12 +83,10 @@ union NVICISER3 {
 //
 union NVICICER0 {
   
-  // Enum definitions.
-  
   // Bit field definition.
   struct {
     uint32_t CLRENA : 32;
-  } bits;          // Bit-field struct (auto-filling reserved gaps)
+  } bits;
   
   // Full 32-bit register value.
   uint32_t value;
@@ -110,12 +100,10 @@ union NVICICER0 {
 //
 union NVICICER1 {
   
-  // Enum definitions.
-  
   // Bit field definition.
   struct {
     uint32_t CLRENA : 32;
-  } bits;          // Bit-field struct (auto-filling reserved gaps)
+  } bits;
   
   // Full 32-bit register value.
   uint32_t value;
@@ -129,12 +117,10 @@ union NVICICER1 {
 //
 union NVICICER2 {
   
-  // Enum definitions.
-  
   // Bit field definition.
   struct {
     uint32_t CLRENA : 32;
-  } bits;          // Bit-field struct (auto-filling reserved gaps)
+  } bits;
   
   // Full 32-bit register value.
   uint32_t value;
@@ -148,12 +134,10 @@ union NVICICER2 {
 //
 union NVICICER3 {
   
-  // Enum definitions.
-  
   // Bit field definition.
   struct {
     uint32_t CLRENA : 32;
-  } bits;          // Bit-field struct (auto-filling reserved gaps)
+  } bits;
   
   // Full 32-bit register value.
   uint32_t value;
@@ -167,12 +151,10 @@ union NVICICER3 {
 //
 union NVICISPR0 {
   
-  // Enum definitions.
-  
   // Bit field definition.
   struct {
     uint32_t SETPEND : 32;
-  } bits;          // Bit-field struct (auto-filling reserved gaps)
+  } bits;
   
   // Full 32-bit register value.
   uint32_t value;
@@ -186,12 +168,10 @@ union NVICISPR0 {
 //
 union NVICISPR1 {
   
-  // Enum definitions.
-  
   // Bit field definition.
   struct {
     uint32_t SETPEND : 32;
-  } bits;          // Bit-field struct (auto-filling reserved gaps)
+  } bits;
   
   // Full 32-bit register value.
   uint32_t value;
@@ -205,12 +185,10 @@ union NVICISPR1 {
 //
 union NVICISPR2 {
   
-  // Enum definitions.
-  
   // Bit field definition.
   struct {
     uint32_t SETPEND : 32;
-  } bits;          // Bit-field struct (auto-filling reserved gaps)
+  } bits;
   
   // Full 32-bit register value.
   uint32_t value;
@@ -224,12 +202,10 @@ union NVICISPR2 {
 //
 union NVICISPR3 {
   
-  // Enum definitions.
-  
   // Bit field definition.
   struct {
     uint32_t SETPEND : 32;
-  } bits;          // Bit-field struct (auto-filling reserved gaps)
+  } bits;
   
   // Full 32-bit register value.
   uint32_t value;
@@ -243,12 +219,10 @@ union NVICISPR3 {
 //
 union NVICICPR0 {
   
-  // Enum definitions.
-  
   // Bit field definition.
   struct {
     uint32_t CLRPEND : 32;
-  } bits;          // Bit-field struct (auto-filling reserved gaps)
+  } bits;
   
   // Full 32-bit register value.
   uint32_t value;
@@ -262,12 +236,10 @@ union NVICICPR0 {
 //
 union NVICICPR1 {
   
-  // Enum definitions.
-  
   // Bit field definition.
   struct {
     uint32_t CLRPEND : 32;
-  } bits;          // Bit-field struct (auto-filling reserved gaps)
+  } bits;
   
   // Full 32-bit register value.
   uint32_t value;
@@ -281,12 +253,10 @@ union NVICICPR1 {
 //
 union NVICICPR2 {
   
-  // Enum definitions.
-  
   // Bit field definition.
   struct {
     uint32_t CLRPEND : 32;
-  } bits;          // Bit-field struct (auto-filling reserved gaps)
+  } bits;
   
   // Full 32-bit register value.
   uint32_t value;
@@ -300,12 +270,10 @@ union NVICICPR2 {
 //
 union NVICICPR3 {
   
-  // Enum definitions.
-  
   // Bit field definition.
   struct {
     uint32_t CLRPEND : 32;
-  } bits;          // Bit-field struct (auto-filling reserved gaps)
+  } bits;
   
   // Full 32-bit register value.
   uint32_t value;
@@ -319,12 +287,10 @@ union NVICICPR3 {
 //
 union NVICIABR0 {
   
-  // Enum definitions.
-  
   // Bit field definition.
   struct {
     uint32_t ACTIVE : 32;
-  } bits;          // Bit-field struct (auto-filling reserved gaps)
+  } bits;
   
   // Full 32-bit register value.
   uint32_t value;
@@ -338,12 +304,10 @@ union NVICIABR0 {
 //
 union NVICIABR1 {
   
-  // Enum definitions.
-  
   // Bit field definition.
   struct {
     uint32_t ACTIVE : 32;
-  } bits;          // Bit-field struct (auto-filling reserved gaps)
+  } bits;
   
   // Full 32-bit register value.
   uint32_t value;
@@ -357,12 +321,10 @@ union NVICIABR1 {
 //
 union NVICIABR2 {
   
-  // Enum definitions.
-  
   // Bit field definition.
   struct {
     uint32_t ACTIVE : 32;
-  } bits;          // Bit-field struct (auto-filling reserved gaps)
+  } bits;
   
   // Full 32-bit register value.
   uint32_t value;
@@ -376,12 +338,10 @@ union NVICIABR2 {
 //
 union NVICIABR3 {
   
-  // Enum definitions.
-  
   // Bit field definition.
   struct {
     uint32_t ACTIVE : 32;
-  } bits;          // Bit-field struct (auto-filling reserved gaps)
+  } bits;
   
   // Full 32-bit register value.
   uint32_t value;
@@ -395,14 +355,12 @@ union NVICIABR3 {
 //
 union NVICIP0 {
   
-  // Enum definitions.
-  
   // Bit field definition.
   struct {
     uint32_t _reserved_0 : 4;
     uint32_t PRI0 : 4;
     uint32_t _reserved_end : 24;
-  } bits;          // Bit-field struct (auto-filling reserved gaps)
+  } bits;
   
   // Full 32-bit register value.
   uint32_t value;
@@ -416,14 +374,12 @@ union NVICIP0 {
 //
 union NVICIP1 {
   
-  // Enum definitions.
-  
   // Bit field definition.
   struct {
     uint32_t _reserved_0 : 4;
     uint32_t PRI1 : 4;
     uint32_t _reserved_end : 24;
-  } bits;          // Bit-field struct (auto-filling reserved gaps)
+  } bits;
   
   // Full 32-bit register value.
   uint32_t value;
@@ -437,14 +393,12 @@ union NVICIP1 {
 //
 union NVICIP2 {
   
-  // Enum definitions.
-  
   // Bit field definition.
   struct {
     uint32_t _reserved_0 : 4;
     uint32_t PRI2 : 4;
     uint32_t _reserved_end : 24;
-  } bits;          // Bit-field struct (auto-filling reserved gaps)
+  } bits;
   
   // Full 32-bit register value.
   uint32_t value;
@@ -458,14 +412,12 @@ union NVICIP2 {
 //
 union NVICIP3 {
   
-  // Enum definitions.
-  
   // Bit field definition.
   struct {
     uint32_t _reserved_0 : 4;
     uint32_t PRI3 : 4;
     uint32_t _reserved_end : 24;
-  } bits;          // Bit-field struct (auto-filling reserved gaps)
+  } bits;
   
   // Full 32-bit register value.
   uint32_t value;
@@ -479,14 +431,12 @@ union NVICIP3 {
 //
 union NVICIP4 {
   
-  // Enum definitions.
-  
   // Bit field definition.
   struct {
     uint32_t _reserved_0 : 4;
     uint32_t PRI4 : 4;
     uint32_t _reserved_end : 24;
-  } bits;          // Bit-field struct (auto-filling reserved gaps)
+  } bits;
   
   // Full 32-bit register value.
   uint32_t value;
@@ -500,14 +450,12 @@ union NVICIP4 {
 //
 union NVICIP5 {
   
-  // Enum definitions.
-  
   // Bit field definition.
   struct {
     uint32_t _reserved_0 : 4;
     uint32_t PRI5 : 4;
     uint32_t _reserved_end : 24;
-  } bits;          // Bit-field struct (auto-filling reserved gaps)
+  } bits;
   
   // Full 32-bit register value.
   uint32_t value;
@@ -521,14 +469,12 @@ union NVICIP5 {
 //
 union NVICIP6 {
   
-  // Enum definitions.
-  
   // Bit field definition.
   struct {
     uint32_t _reserved_0 : 4;
     uint32_t PRI6 : 4;
     uint32_t _reserved_end : 24;
-  } bits;          // Bit-field struct (auto-filling reserved gaps)
+  } bits;
   
   // Full 32-bit register value.
   uint32_t value;
@@ -542,14 +488,12 @@ union NVICIP6 {
 //
 union NVICIP7 {
   
-  // Enum definitions.
-  
   // Bit field definition.
   struct {
     uint32_t _reserved_0 : 4;
     uint32_t PRI7 : 4;
     uint32_t _reserved_end : 24;
-  } bits;          // Bit-field struct (auto-filling reserved gaps)
+  } bits;
   
   // Full 32-bit register value.
   uint32_t value;
@@ -563,14 +507,12 @@ union NVICIP7 {
 //
 union NVICIP8 {
   
-  // Enum definitions.
-  
   // Bit field definition.
   struct {
     uint32_t _reserved_0 : 4;
     uint32_t PRI8 : 4;
     uint32_t _reserved_end : 24;
-  } bits;          // Bit-field struct (auto-filling reserved gaps)
+  } bits;
   
   // Full 32-bit register value.
   uint32_t value;
@@ -584,14 +526,12 @@ union NVICIP8 {
 //
 union NVICIP9 {
   
-  // Enum definitions.
-  
   // Bit field definition.
   struct {
     uint32_t _reserved_0 : 4;
     uint32_t PRI9 : 4;
     uint32_t _reserved_end : 24;
-  } bits;          // Bit-field struct (auto-filling reserved gaps)
+  } bits;
   
   // Full 32-bit register value.
   uint32_t value;
@@ -605,14 +545,12 @@ union NVICIP9 {
 //
 union NVICIP10 {
   
-  // Enum definitions.
-  
   // Bit field definition.
   struct {
     uint32_t _reserved_0 : 4;
     uint32_t PRI10 : 4;
     uint32_t _reserved_end : 24;
-  } bits;          // Bit-field struct (auto-filling reserved gaps)
+  } bits;
   
   // Full 32-bit register value.
   uint32_t value;
@@ -626,14 +564,12 @@ union NVICIP10 {
 //
 union NVICIP11 {
   
-  // Enum definitions.
-  
   // Bit field definition.
   struct {
     uint32_t _reserved_0 : 4;
     uint32_t PRI11 : 4;
     uint32_t _reserved_end : 24;
-  } bits;          // Bit-field struct (auto-filling reserved gaps)
+  } bits;
   
   // Full 32-bit register value.
   uint32_t value;
@@ -647,14 +583,12 @@ union NVICIP11 {
 //
 union NVICIP12 {
   
-  // Enum definitions.
-  
   // Bit field definition.
   struct {
     uint32_t _reserved_0 : 4;
     uint32_t PRI12 : 4;
     uint32_t _reserved_end : 24;
-  } bits;          // Bit-field struct (auto-filling reserved gaps)
+  } bits;
   
   // Full 32-bit register value.
   uint32_t value;
@@ -668,14 +602,12 @@ union NVICIP12 {
 //
 union NVICIP13 {
   
-  // Enum definitions.
-  
   // Bit field definition.
   struct {
     uint32_t _reserved_0 : 4;
     uint32_t PRI13 : 4;
     uint32_t _reserved_end : 24;
-  } bits;          // Bit-field struct (auto-filling reserved gaps)
+  } bits;
   
   // Full 32-bit register value.
   uint32_t value;
@@ -689,14 +621,12 @@ union NVICIP13 {
 //
 union NVICIP14 {
   
-  // Enum definitions.
-  
   // Bit field definition.
   struct {
     uint32_t _reserved_0 : 4;
     uint32_t PRI14 : 4;
     uint32_t _reserved_end : 24;
-  } bits;          // Bit-field struct (auto-filling reserved gaps)
+  } bits;
   
   // Full 32-bit register value.
   uint32_t value;
@@ -710,14 +640,12 @@ union NVICIP14 {
 //
 union NVICIP15 {
   
-  // Enum definitions.
-  
   // Bit field definition.
   struct {
     uint32_t _reserved_0 : 4;
     uint32_t PRI15 : 4;
     uint32_t _reserved_end : 24;
-  } bits;          // Bit-field struct (auto-filling reserved gaps)
+  } bits;
   
   // Full 32-bit register value.
   uint32_t value;
@@ -731,14 +659,12 @@ union NVICIP15 {
 //
 union NVICIP16 {
   
-  // Enum definitions.
-  
   // Bit field definition.
   struct {
     uint32_t _reserved_0 : 4;
     uint32_t PRI16 : 4;
     uint32_t _reserved_end : 24;
-  } bits;          // Bit-field struct (auto-filling reserved gaps)
+  } bits;
   
   // Full 32-bit register value.
   uint32_t value;
@@ -752,14 +678,12 @@ union NVICIP16 {
 //
 union NVICIP17 {
   
-  // Enum definitions.
-  
   // Bit field definition.
   struct {
     uint32_t _reserved_0 : 4;
     uint32_t PRI17 : 4;
     uint32_t _reserved_end : 24;
-  } bits;          // Bit-field struct (auto-filling reserved gaps)
+  } bits;
   
   // Full 32-bit register value.
   uint32_t value;
@@ -773,14 +697,12 @@ union NVICIP17 {
 //
 union NVICIP18 {
   
-  // Enum definitions.
-  
   // Bit field definition.
   struct {
     uint32_t _reserved_0 : 4;
     uint32_t PRI18 : 4;
     uint32_t _reserved_end : 24;
-  } bits;          // Bit-field struct (auto-filling reserved gaps)
+  } bits;
   
   // Full 32-bit register value.
   uint32_t value;
@@ -794,14 +716,12 @@ union NVICIP18 {
 //
 union NVICIP19 {
   
-  // Enum definitions.
-  
   // Bit field definition.
   struct {
     uint32_t _reserved_0 : 4;
     uint32_t PRI19 : 4;
     uint32_t _reserved_end : 24;
-  } bits;          // Bit-field struct (auto-filling reserved gaps)
+  } bits;
   
   // Full 32-bit register value.
   uint32_t value;
@@ -815,14 +735,12 @@ union NVICIP19 {
 //
 union NVICIP20 {
   
-  // Enum definitions.
-  
   // Bit field definition.
   struct {
     uint32_t _reserved_0 : 4;
     uint32_t PRI20 : 4;
     uint32_t _reserved_end : 24;
-  } bits;          // Bit-field struct (auto-filling reserved gaps)
+  } bits;
   
   // Full 32-bit register value.
   uint32_t value;
@@ -836,14 +754,12 @@ union NVICIP20 {
 //
 union NVICIP21 {
   
-  // Enum definitions.
-  
   // Bit field definition.
   struct {
     uint32_t _reserved_0 : 4;
     uint32_t PRI21 : 4;
     uint32_t _reserved_end : 24;
-  } bits;          // Bit-field struct (auto-filling reserved gaps)
+  } bits;
   
   // Full 32-bit register value.
   uint32_t value;
@@ -857,14 +773,12 @@ union NVICIP21 {
 //
 union NVICIP22 {
   
-  // Enum definitions.
-  
   // Bit field definition.
   struct {
     uint32_t _reserved_0 : 4;
     uint32_t PRI22 : 4;
     uint32_t _reserved_end : 24;
-  } bits;          // Bit-field struct (auto-filling reserved gaps)
+  } bits;
   
   // Full 32-bit register value.
   uint32_t value;
@@ -878,14 +792,12 @@ union NVICIP22 {
 //
 union NVICIP23 {
   
-  // Enum definitions.
-  
   // Bit field definition.
   struct {
     uint32_t _reserved_0 : 4;
     uint32_t PRI23 : 4;
     uint32_t _reserved_end : 24;
-  } bits;          // Bit-field struct (auto-filling reserved gaps)
+  } bits;
   
   // Full 32-bit register value.
   uint32_t value;
@@ -899,14 +811,12 @@ union NVICIP23 {
 //
 union NVICIP24 {
   
-  // Enum definitions.
-  
   // Bit field definition.
   struct {
     uint32_t _reserved_0 : 4;
     uint32_t PRI24 : 4;
     uint32_t _reserved_end : 24;
-  } bits;          // Bit-field struct (auto-filling reserved gaps)
+  } bits;
   
   // Full 32-bit register value.
   uint32_t value;
@@ -920,14 +830,12 @@ union NVICIP24 {
 //
 union NVICIP25 {
   
-  // Enum definitions.
-  
   // Bit field definition.
   struct {
     uint32_t _reserved_0 : 4;
     uint32_t PRI25 : 4;
     uint32_t _reserved_end : 24;
-  } bits;          // Bit-field struct (auto-filling reserved gaps)
+  } bits;
   
   // Full 32-bit register value.
   uint32_t value;
@@ -941,14 +849,12 @@ union NVICIP25 {
 //
 union NVICIP26 {
   
-  // Enum definitions.
-  
   // Bit field definition.
   struct {
     uint32_t _reserved_0 : 4;
     uint32_t PRI26 : 4;
     uint32_t _reserved_end : 24;
-  } bits;          // Bit-field struct (auto-filling reserved gaps)
+  } bits;
   
   // Full 32-bit register value.
   uint32_t value;
@@ -962,14 +868,12 @@ union NVICIP26 {
 //
 union NVICIP27 {
   
-  // Enum definitions.
-  
   // Bit field definition.
   struct {
     uint32_t _reserved_0 : 4;
     uint32_t PRI27 : 4;
     uint32_t _reserved_end : 24;
-  } bits;          // Bit-field struct (auto-filling reserved gaps)
+  } bits;
   
   // Full 32-bit register value.
   uint32_t value;
@@ -983,14 +887,12 @@ union NVICIP27 {
 //
 union NVICIP28 {
   
-  // Enum definitions.
-  
   // Bit field definition.
   struct {
     uint32_t _reserved_0 : 4;
     uint32_t PRI28 : 4;
     uint32_t _reserved_end : 24;
-  } bits;          // Bit-field struct (auto-filling reserved gaps)
+  } bits;
   
   // Full 32-bit register value.
   uint32_t value;
@@ -1004,14 +906,12 @@ union NVICIP28 {
 //
 union NVICIP29 {
   
-  // Enum definitions.
-  
   // Bit field definition.
   struct {
     uint32_t _reserved_0 : 4;
     uint32_t PRI29 : 4;
     uint32_t _reserved_end : 24;
-  } bits;          // Bit-field struct (auto-filling reserved gaps)
+  } bits;
   
   // Full 32-bit register value.
   uint32_t value;
@@ -1025,14 +925,12 @@ union NVICIP29 {
 //
 union NVICIP30 {
   
-  // Enum definitions.
-  
   // Bit field definition.
   struct {
     uint32_t _reserved_0 : 4;
     uint32_t PRI30 : 4;
     uint32_t _reserved_end : 24;
-  } bits;          // Bit-field struct (auto-filling reserved gaps)
+  } bits;
   
   // Full 32-bit register value.
   uint32_t value;
@@ -1046,14 +944,12 @@ union NVICIP30 {
 //
 union NVICIP31 {
   
-  // Enum definitions.
-  
   // Bit field definition.
   struct {
     uint32_t _reserved_0 : 4;
     uint32_t PRI31 : 4;
     uint32_t _reserved_end : 24;
-  } bits;          // Bit-field struct (auto-filling reserved gaps)
+  } bits;
   
   // Full 32-bit register value.
   uint32_t value;
@@ -1067,14 +963,12 @@ union NVICIP31 {
 //
 union NVICIP32 {
   
-  // Enum definitions.
-  
   // Bit field definition.
   struct {
     uint32_t _reserved_0 : 4;
     uint32_t PRI32 : 4;
     uint32_t _reserved_end : 24;
-  } bits;          // Bit-field struct (auto-filling reserved gaps)
+  } bits;
   
   // Full 32-bit register value.
   uint32_t value;
@@ -1088,14 +982,12 @@ union NVICIP32 {
 //
 union NVICIP33 {
   
-  // Enum definitions.
-  
   // Bit field definition.
   struct {
     uint32_t _reserved_0 : 4;
     uint32_t PRI33 : 4;
     uint32_t _reserved_end : 24;
-  } bits;          // Bit-field struct (auto-filling reserved gaps)
+  } bits;
   
   // Full 32-bit register value.
   uint32_t value;
@@ -1109,14 +1001,12 @@ union NVICIP33 {
 //
 union NVICIP34 {
   
-  // Enum definitions.
-  
   // Bit field definition.
   struct {
     uint32_t _reserved_0 : 4;
     uint32_t PRI34 : 4;
     uint32_t _reserved_end : 24;
-  } bits;          // Bit-field struct (auto-filling reserved gaps)
+  } bits;
   
   // Full 32-bit register value.
   uint32_t value;
@@ -1130,14 +1020,12 @@ union NVICIP34 {
 //
 union NVICIP35 {
   
-  // Enum definitions.
-  
   // Bit field definition.
   struct {
     uint32_t _reserved_0 : 4;
     uint32_t PRI35 : 4;
     uint32_t _reserved_end : 24;
-  } bits;          // Bit-field struct (auto-filling reserved gaps)
+  } bits;
   
   // Full 32-bit register value.
   uint32_t value;
@@ -1151,14 +1039,12 @@ union NVICIP35 {
 //
 union NVICIP36 {
   
-  // Enum definitions.
-  
   // Bit field definition.
   struct {
     uint32_t _reserved_0 : 4;
     uint32_t PRI36 : 4;
     uint32_t _reserved_end : 24;
-  } bits;          // Bit-field struct (auto-filling reserved gaps)
+  } bits;
   
   // Full 32-bit register value.
   uint32_t value;
@@ -1172,14 +1058,12 @@ union NVICIP36 {
 //
 union NVICIP37 {
   
-  // Enum definitions.
-  
   // Bit field definition.
   struct {
     uint32_t _reserved_0 : 4;
     uint32_t PRI37 : 4;
     uint32_t _reserved_end : 24;
-  } bits;          // Bit-field struct (auto-filling reserved gaps)
+  } bits;
   
   // Full 32-bit register value.
   uint32_t value;
@@ -1193,14 +1077,12 @@ union NVICIP37 {
 //
 union NVICIP38 {
   
-  // Enum definitions.
-  
   // Bit field definition.
   struct {
     uint32_t _reserved_0 : 4;
     uint32_t PRI38 : 4;
     uint32_t _reserved_end : 24;
-  } bits;          // Bit-field struct (auto-filling reserved gaps)
+  } bits;
   
   // Full 32-bit register value.
   uint32_t value;
@@ -1214,14 +1096,12 @@ union NVICIP38 {
 //
 union NVICIP39 {
   
-  // Enum definitions.
-  
   // Bit field definition.
   struct {
     uint32_t _reserved_0 : 4;
     uint32_t PRI39 : 4;
     uint32_t _reserved_end : 24;
-  } bits;          // Bit-field struct (auto-filling reserved gaps)
+  } bits;
   
   // Full 32-bit register value.
   uint32_t value;
@@ -1235,14 +1115,12 @@ union NVICIP39 {
 //
 union NVICIP40 {
   
-  // Enum definitions.
-  
   // Bit field definition.
   struct {
     uint32_t _reserved_0 : 4;
     uint32_t PRI40 : 4;
     uint32_t _reserved_end : 24;
-  } bits;          // Bit-field struct (auto-filling reserved gaps)
+  } bits;
   
   // Full 32-bit register value.
   uint32_t value;
@@ -1256,14 +1134,12 @@ union NVICIP40 {
 //
 union NVICIP41 {
   
-  // Enum definitions.
-  
   // Bit field definition.
   struct {
     uint32_t _reserved_0 : 4;
     uint32_t PRI41 : 4;
     uint32_t _reserved_end : 24;
-  } bits;          // Bit-field struct (auto-filling reserved gaps)
+  } bits;
   
   // Full 32-bit register value.
   uint32_t value;
@@ -1277,14 +1153,12 @@ union NVICIP41 {
 //
 union NVICIP42 {
   
-  // Enum definitions.
-  
   // Bit field definition.
   struct {
     uint32_t _reserved_0 : 4;
     uint32_t PRI42 : 4;
     uint32_t _reserved_end : 24;
-  } bits;          // Bit-field struct (auto-filling reserved gaps)
+  } bits;
   
   // Full 32-bit register value.
   uint32_t value;
@@ -1298,14 +1172,12 @@ union NVICIP42 {
 //
 union NVICIP43 {
   
-  // Enum definitions.
-  
   // Bit field definition.
   struct {
     uint32_t _reserved_0 : 4;
     uint32_t PRI43 : 4;
     uint32_t _reserved_end : 24;
-  } bits;          // Bit-field struct (auto-filling reserved gaps)
+  } bits;
   
   // Full 32-bit register value.
   uint32_t value;
@@ -1319,14 +1191,12 @@ union NVICIP43 {
 //
 union NVICIP44 {
   
-  // Enum definitions.
-  
   // Bit field definition.
   struct {
     uint32_t _reserved_0 : 4;
     uint32_t PRI44 : 4;
     uint32_t _reserved_end : 24;
-  } bits;          // Bit-field struct (auto-filling reserved gaps)
+  } bits;
   
   // Full 32-bit register value.
   uint32_t value;
@@ -1340,14 +1210,12 @@ union NVICIP44 {
 //
 union NVICIP45 {
   
-  // Enum definitions.
-  
   // Bit field definition.
   struct {
     uint32_t _reserved_0 : 4;
     uint32_t PRI45 : 4;
     uint32_t _reserved_end : 24;
-  } bits;          // Bit-field struct (auto-filling reserved gaps)
+  } bits;
   
   // Full 32-bit register value.
   uint32_t value;
@@ -1361,14 +1229,12 @@ union NVICIP45 {
 //
 union NVICIP46 {
   
-  // Enum definitions.
-  
   // Bit field definition.
   struct {
     uint32_t _reserved_0 : 4;
     uint32_t PRI46 : 4;
     uint32_t _reserved_end : 24;
-  } bits;          // Bit-field struct (auto-filling reserved gaps)
+  } bits;
   
   // Full 32-bit register value.
   uint32_t value;
@@ -1382,14 +1248,12 @@ union NVICIP46 {
 //
 union NVICIP47 {
   
-  // Enum definitions.
-  
   // Bit field definition.
   struct {
     uint32_t _reserved_0 : 4;
     uint32_t PRI47 : 4;
     uint32_t _reserved_end : 24;
-  } bits;          // Bit-field struct (auto-filling reserved gaps)
+  } bits;
   
   // Full 32-bit register value.
   uint32_t value;
@@ -1403,14 +1267,12 @@ union NVICIP47 {
 //
 union NVICIP48 {
   
-  // Enum definitions.
-  
   // Bit field definition.
   struct {
     uint32_t _reserved_0 : 4;
     uint32_t PRI48 : 4;
     uint32_t _reserved_end : 24;
-  } bits;          // Bit-field struct (auto-filling reserved gaps)
+  } bits;
   
   // Full 32-bit register value.
   uint32_t value;
@@ -1424,14 +1286,12 @@ union NVICIP48 {
 //
 union NVICIP49 {
   
-  // Enum definitions.
-  
   // Bit field definition.
   struct {
     uint32_t _reserved_0 : 4;
     uint32_t PRI49 : 4;
     uint32_t _reserved_end : 24;
-  } bits;          // Bit-field struct (auto-filling reserved gaps)
+  } bits;
   
   // Full 32-bit register value.
   uint32_t value;
@@ -1445,14 +1305,12 @@ union NVICIP49 {
 //
 union NVICIP50 {
   
-  // Enum definitions.
-  
   // Bit field definition.
   struct {
     uint32_t _reserved_0 : 4;
     uint32_t PRI50 : 4;
     uint32_t _reserved_end : 24;
-  } bits;          // Bit-field struct (auto-filling reserved gaps)
+  } bits;
   
   // Full 32-bit register value.
   uint32_t value;
@@ -1466,14 +1324,12 @@ union NVICIP50 {
 //
 union NVICIP51 {
   
-  // Enum definitions.
-  
   // Bit field definition.
   struct {
     uint32_t _reserved_0 : 4;
     uint32_t PRI51 : 4;
     uint32_t _reserved_end : 24;
-  } bits;          // Bit-field struct (auto-filling reserved gaps)
+  } bits;
   
   // Full 32-bit register value.
   uint32_t value;
@@ -1487,14 +1343,12 @@ union NVICIP51 {
 //
 union NVICIP52 {
   
-  // Enum definitions.
-  
   // Bit field definition.
   struct {
     uint32_t _reserved_0 : 4;
     uint32_t PRI52 : 4;
     uint32_t _reserved_end : 24;
-  } bits;          // Bit-field struct (auto-filling reserved gaps)
+  } bits;
   
   // Full 32-bit register value.
   uint32_t value;
@@ -1508,14 +1362,12 @@ union NVICIP52 {
 //
 union NVICIP53 {
   
-  // Enum definitions.
-  
   // Bit field definition.
   struct {
     uint32_t _reserved_0 : 4;
     uint32_t PRI53 : 4;
     uint32_t _reserved_end : 24;
-  } bits;          // Bit-field struct (auto-filling reserved gaps)
+  } bits;
   
   // Full 32-bit register value.
   uint32_t value;
@@ -1529,14 +1381,12 @@ union NVICIP53 {
 //
 union NVICIP54 {
   
-  // Enum definitions.
-  
   // Bit field definition.
   struct {
     uint32_t _reserved_0 : 4;
     uint32_t PRI54 : 4;
     uint32_t _reserved_end : 24;
-  } bits;          // Bit-field struct (auto-filling reserved gaps)
+  } bits;
   
   // Full 32-bit register value.
   uint32_t value;
@@ -1550,14 +1400,12 @@ union NVICIP54 {
 //
 union NVICIP55 {
   
-  // Enum definitions.
-  
   // Bit field definition.
   struct {
     uint32_t _reserved_0 : 4;
     uint32_t PRI55 : 4;
     uint32_t _reserved_end : 24;
-  } bits;          // Bit-field struct (auto-filling reserved gaps)
+  } bits;
   
   // Full 32-bit register value.
   uint32_t value;
@@ -1571,14 +1419,12 @@ union NVICIP55 {
 //
 union NVICIP56 {
   
-  // Enum definitions.
-  
   // Bit field definition.
   struct {
     uint32_t _reserved_0 : 4;
     uint32_t PRI56 : 4;
     uint32_t _reserved_end : 24;
-  } bits;          // Bit-field struct (auto-filling reserved gaps)
+  } bits;
   
   // Full 32-bit register value.
   uint32_t value;
@@ -1592,14 +1438,12 @@ union NVICIP56 {
 //
 union NVICIP57 {
   
-  // Enum definitions.
-  
   // Bit field definition.
   struct {
     uint32_t _reserved_0 : 4;
     uint32_t PRI57 : 4;
     uint32_t _reserved_end : 24;
-  } bits;          // Bit-field struct (auto-filling reserved gaps)
+  } bits;
   
   // Full 32-bit register value.
   uint32_t value;
@@ -1613,14 +1457,12 @@ union NVICIP57 {
 //
 union NVICIP58 {
   
-  // Enum definitions.
-  
   // Bit field definition.
   struct {
     uint32_t _reserved_0 : 4;
     uint32_t PRI58 : 4;
     uint32_t _reserved_end : 24;
-  } bits;          // Bit-field struct (auto-filling reserved gaps)
+  } bits;
   
   // Full 32-bit register value.
   uint32_t value;
@@ -1634,14 +1476,12 @@ union NVICIP58 {
 //
 union NVICIP59 {
   
-  // Enum definitions.
-  
   // Bit field definition.
   struct {
     uint32_t _reserved_0 : 4;
     uint32_t PRI59 : 4;
     uint32_t _reserved_end : 24;
-  } bits;          // Bit-field struct (auto-filling reserved gaps)
+  } bits;
   
   // Full 32-bit register value.
   uint32_t value;
@@ -1655,14 +1495,12 @@ union NVICIP59 {
 //
 union NVICIP60 {
   
-  // Enum definitions.
-  
   // Bit field definition.
   struct {
     uint32_t _reserved_0 : 4;
     uint32_t PRI60 : 4;
     uint32_t _reserved_end : 24;
-  } bits;          // Bit-field struct (auto-filling reserved gaps)
+  } bits;
   
   // Full 32-bit register value.
   uint32_t value;
@@ -1676,14 +1514,12 @@ union NVICIP60 {
 //
 union NVICIP61 {
   
-  // Enum definitions.
-  
   // Bit field definition.
   struct {
     uint32_t _reserved_0 : 4;
     uint32_t PRI61 : 4;
     uint32_t _reserved_end : 24;
-  } bits;          // Bit-field struct (auto-filling reserved gaps)
+  } bits;
   
   // Full 32-bit register value.
   uint32_t value;
@@ -1697,14 +1533,12 @@ union NVICIP61 {
 //
 union NVICIP62 {
   
-  // Enum definitions.
-  
   // Bit field definition.
   struct {
     uint32_t _reserved_0 : 4;
     uint32_t PRI62 : 4;
     uint32_t _reserved_end : 24;
-  } bits;          // Bit-field struct (auto-filling reserved gaps)
+  } bits;
   
   // Full 32-bit register value.
   uint32_t value;
@@ -1718,14 +1552,12 @@ union NVICIP62 {
 //
 union NVICIP63 {
   
-  // Enum definitions.
-  
   // Bit field definition.
   struct {
     uint32_t _reserved_0 : 4;
     uint32_t PRI63 : 4;
     uint32_t _reserved_end : 24;
-  } bits;          // Bit-field struct (auto-filling reserved gaps)
+  } bits;
   
   // Full 32-bit register value.
   uint32_t value;
@@ -1739,14 +1571,12 @@ union NVICIP63 {
 //
 union NVICIP64 {
   
-  // Enum definitions.
-  
   // Bit field definition.
   struct {
     uint32_t _reserved_0 : 4;
     uint32_t PRI64 : 4;
     uint32_t _reserved_end : 24;
-  } bits;          // Bit-field struct (auto-filling reserved gaps)
+  } bits;
   
   // Full 32-bit register value.
   uint32_t value;
@@ -1760,14 +1590,12 @@ union NVICIP64 {
 //
 union NVICIP65 {
   
-  // Enum definitions.
-  
   // Bit field definition.
   struct {
     uint32_t _reserved_0 : 4;
     uint32_t PRI65 : 4;
     uint32_t _reserved_end : 24;
-  } bits;          // Bit-field struct (auto-filling reserved gaps)
+  } bits;
   
   // Full 32-bit register value.
   uint32_t value;
@@ -1781,14 +1609,12 @@ union NVICIP65 {
 //
 union NVICIP66 {
   
-  // Enum definitions.
-  
   // Bit field definition.
   struct {
     uint32_t _reserved_0 : 4;
     uint32_t PRI66 : 4;
     uint32_t _reserved_end : 24;
-  } bits;          // Bit-field struct (auto-filling reserved gaps)
+  } bits;
   
   // Full 32-bit register value.
   uint32_t value;
@@ -1802,14 +1628,12 @@ union NVICIP66 {
 //
 union NVICIP67 {
   
-  // Enum definitions.
-  
   // Bit field definition.
   struct {
     uint32_t _reserved_0 : 4;
     uint32_t PRI67 : 4;
     uint32_t _reserved_end : 24;
-  } bits;          // Bit-field struct (auto-filling reserved gaps)
+  } bits;
   
   // Full 32-bit register value.
   uint32_t value;
@@ -1823,14 +1647,12 @@ union NVICIP67 {
 //
 union NVICIP68 {
   
-  // Enum definitions.
-  
   // Bit field definition.
   struct {
     uint32_t _reserved_0 : 4;
     uint32_t PRI68 : 4;
     uint32_t _reserved_end : 24;
-  } bits;          // Bit-field struct (auto-filling reserved gaps)
+  } bits;
   
   // Full 32-bit register value.
   uint32_t value;
@@ -1844,14 +1666,12 @@ union NVICIP68 {
 //
 union NVICIP69 {
   
-  // Enum definitions.
-  
   // Bit field definition.
   struct {
     uint32_t _reserved_0 : 4;
     uint32_t PRI69 : 4;
     uint32_t _reserved_end : 24;
-  } bits;          // Bit-field struct (auto-filling reserved gaps)
+  } bits;
   
   // Full 32-bit register value.
   uint32_t value;
@@ -1865,14 +1685,12 @@ union NVICIP69 {
 //
 union NVICIP70 {
   
-  // Enum definitions.
-  
   // Bit field definition.
   struct {
     uint32_t _reserved_0 : 4;
     uint32_t PRI70 : 4;
     uint32_t _reserved_end : 24;
-  } bits;          // Bit-field struct (auto-filling reserved gaps)
+  } bits;
   
   // Full 32-bit register value.
   uint32_t value;
@@ -1886,14 +1704,12 @@ union NVICIP70 {
 //
 union NVICIP71 {
   
-  // Enum definitions.
-  
   // Bit field definition.
   struct {
     uint32_t _reserved_0 : 4;
     uint32_t PRI71 : 4;
     uint32_t _reserved_end : 24;
-  } bits;          // Bit-field struct (auto-filling reserved gaps)
+  } bits;
   
   // Full 32-bit register value.
   uint32_t value;
@@ -1907,14 +1723,12 @@ union NVICIP71 {
 //
 union NVICIP72 {
   
-  // Enum definitions.
-  
   // Bit field definition.
   struct {
     uint32_t _reserved_0 : 4;
     uint32_t PRI72 : 4;
     uint32_t _reserved_end : 24;
-  } bits;          // Bit-field struct (auto-filling reserved gaps)
+  } bits;
   
   // Full 32-bit register value.
   uint32_t value;
@@ -1928,14 +1742,12 @@ union NVICIP72 {
 //
 union NVICIP73 {
   
-  // Enum definitions.
-  
   // Bit field definition.
   struct {
     uint32_t _reserved_0 : 4;
     uint32_t PRI73 : 4;
     uint32_t _reserved_end : 24;
-  } bits;          // Bit-field struct (auto-filling reserved gaps)
+  } bits;
   
   // Full 32-bit register value.
   uint32_t value;
@@ -1949,14 +1761,12 @@ union NVICIP73 {
 //
 union NVICIP74 {
   
-  // Enum definitions.
-  
   // Bit field definition.
   struct {
     uint32_t _reserved_0 : 4;
     uint32_t PRI74 : 4;
     uint32_t _reserved_end : 24;
-  } bits;          // Bit-field struct (auto-filling reserved gaps)
+  } bits;
   
   // Full 32-bit register value.
   uint32_t value;
@@ -1970,14 +1780,12 @@ union NVICIP74 {
 //
 union NVICIP75 {
   
-  // Enum definitions.
-  
   // Bit field definition.
   struct {
     uint32_t _reserved_0 : 4;
     uint32_t PRI75 : 4;
     uint32_t _reserved_end : 24;
-  } bits;          // Bit-field struct (auto-filling reserved gaps)
+  } bits;
   
   // Full 32-bit register value.
   uint32_t value;
@@ -1991,14 +1799,12 @@ union NVICIP75 {
 //
 union NVICIP76 {
   
-  // Enum definitions.
-  
   // Bit field definition.
   struct {
     uint32_t _reserved_0 : 4;
     uint32_t PRI76 : 4;
     uint32_t _reserved_end : 24;
-  } bits;          // Bit-field struct (auto-filling reserved gaps)
+  } bits;
   
   // Full 32-bit register value.
   uint32_t value;
@@ -2012,14 +1818,12 @@ union NVICIP76 {
 //
 union NVICIP77 {
   
-  // Enum definitions.
-  
   // Bit field definition.
   struct {
     uint32_t _reserved_0 : 4;
     uint32_t PRI77 : 4;
     uint32_t _reserved_end : 24;
-  } bits;          // Bit-field struct (auto-filling reserved gaps)
+  } bits;
   
   // Full 32-bit register value.
   uint32_t value;
@@ -2033,14 +1837,12 @@ union NVICIP77 {
 //
 union NVICIP78 {
   
-  // Enum definitions.
-  
   // Bit field definition.
   struct {
     uint32_t _reserved_0 : 4;
     uint32_t PRI78 : 4;
     uint32_t _reserved_end : 24;
-  } bits;          // Bit-field struct (auto-filling reserved gaps)
+  } bits;
   
   // Full 32-bit register value.
   uint32_t value;
@@ -2054,14 +1856,12 @@ union NVICIP78 {
 //
 union NVICIP79 {
   
-  // Enum definitions.
-  
   // Bit field definition.
   struct {
     uint32_t _reserved_0 : 4;
     uint32_t PRI79 : 4;
     uint32_t _reserved_end : 24;
-  } bits;          // Bit-field struct (auto-filling reserved gaps)
+  } bits;
   
   // Full 32-bit register value.
   uint32_t value;
@@ -2075,14 +1875,12 @@ union NVICIP79 {
 //
 union NVICIP80 {
   
-  // Enum definitions.
-  
   // Bit field definition.
   struct {
     uint32_t _reserved_0 : 4;
     uint32_t PRI80 : 4;
     uint32_t _reserved_end : 24;
-  } bits;          // Bit-field struct (auto-filling reserved gaps)
+  } bits;
   
   // Full 32-bit register value.
   uint32_t value;
@@ -2096,14 +1894,12 @@ union NVICIP80 {
 //
 union NVICIP81 {
   
-  // Enum definitions.
-  
   // Bit field definition.
   struct {
     uint32_t _reserved_0 : 4;
     uint32_t PRI81 : 4;
     uint32_t _reserved_end : 24;
-  } bits;          // Bit-field struct (auto-filling reserved gaps)
+  } bits;
   
   // Full 32-bit register value.
   uint32_t value;
@@ -2117,14 +1913,12 @@ union NVICIP81 {
 //
 union NVICIP82 {
   
-  // Enum definitions.
-  
   // Bit field definition.
   struct {
     uint32_t _reserved_0 : 4;
     uint32_t PRI82 : 4;
     uint32_t _reserved_end : 24;
-  } bits;          // Bit-field struct (auto-filling reserved gaps)
+  } bits;
   
   // Full 32-bit register value.
   uint32_t value;
@@ -2138,14 +1932,12 @@ union NVICIP82 {
 //
 union NVICIP83 {
   
-  // Enum definitions.
-  
   // Bit field definition.
   struct {
     uint32_t _reserved_0 : 4;
     uint32_t PRI83 : 4;
     uint32_t _reserved_end : 24;
-  } bits;          // Bit-field struct (auto-filling reserved gaps)
+  } bits;
   
   // Full 32-bit register value.
   uint32_t value;
@@ -2159,14 +1951,12 @@ union NVICIP83 {
 //
 union NVICIP84 {
   
-  // Enum definitions.
-  
   // Bit field definition.
   struct {
     uint32_t _reserved_0 : 4;
     uint32_t PRI84 : 4;
     uint32_t _reserved_end : 24;
-  } bits;          // Bit-field struct (auto-filling reserved gaps)
+  } bits;
   
   // Full 32-bit register value.
   uint32_t value;
@@ -2180,14 +1970,12 @@ union NVICIP84 {
 //
 union NVICIP85 {
   
-  // Enum definitions.
-  
   // Bit field definition.
   struct {
     uint32_t _reserved_0 : 4;
     uint32_t PRI85 : 4;
     uint32_t _reserved_end : 24;
-  } bits;          // Bit-field struct (auto-filling reserved gaps)
+  } bits;
   
   // Full 32-bit register value.
   uint32_t value;
@@ -2201,14 +1989,12 @@ union NVICIP85 {
 //
 union NVICIP86 {
   
-  // Enum definitions.
-  
   // Bit field definition.
   struct {
     uint32_t _reserved_0 : 4;
     uint32_t PRI86 : 4;
     uint32_t _reserved_end : 24;
-  } bits;          // Bit-field struct (auto-filling reserved gaps)
+  } bits;
   
   // Full 32-bit register value.
   uint32_t value;
@@ -2222,14 +2008,12 @@ union NVICIP86 {
 //
 union NVICIP87 {
   
-  // Enum definitions.
-  
   // Bit field definition.
   struct {
     uint32_t _reserved_0 : 4;
     uint32_t PRI87 : 4;
     uint32_t _reserved_end : 24;
-  } bits;          // Bit-field struct (auto-filling reserved gaps)
+  } bits;
   
   // Full 32-bit register value.
   uint32_t value;
@@ -2243,14 +2027,12 @@ union NVICIP87 {
 //
 union NVICIP88 {
   
-  // Enum definitions.
-  
   // Bit field definition.
   struct {
     uint32_t _reserved_0 : 4;
     uint32_t PRI88 : 4;
     uint32_t _reserved_end : 24;
-  } bits;          // Bit-field struct (auto-filling reserved gaps)
+  } bits;
   
   // Full 32-bit register value.
   uint32_t value;
@@ -2264,14 +2046,12 @@ union NVICIP88 {
 //
 union NVICIP89 {
   
-  // Enum definitions.
-  
   // Bit field definition.
   struct {
     uint32_t _reserved_0 : 4;
     uint32_t PRI89 : 4;
     uint32_t _reserved_end : 24;
-  } bits;          // Bit-field struct (auto-filling reserved gaps)
+  } bits;
   
   // Full 32-bit register value.
   uint32_t value;
@@ -2285,14 +2065,12 @@ union NVICIP89 {
 //
 union NVICIP90 {
   
-  // Enum definitions.
-  
   // Bit field definition.
   struct {
     uint32_t _reserved_0 : 4;
     uint32_t PRI90 : 4;
     uint32_t _reserved_end : 24;
-  } bits;          // Bit-field struct (auto-filling reserved gaps)
+  } bits;
   
   // Full 32-bit register value.
   uint32_t value;
@@ -2306,14 +2084,12 @@ union NVICIP90 {
 //
 union NVICIP91 {
   
-  // Enum definitions.
-  
   // Bit field definition.
   struct {
     uint32_t _reserved_0 : 4;
     uint32_t PRI91 : 4;
     uint32_t _reserved_end : 24;
-  } bits;          // Bit-field struct (auto-filling reserved gaps)
+  } bits;
   
   // Full 32-bit register value.
   uint32_t value;
@@ -2327,14 +2103,12 @@ union NVICIP91 {
 //
 union NVICIP92 {
   
-  // Enum definitions.
-  
   // Bit field definition.
   struct {
     uint32_t _reserved_0 : 4;
     uint32_t PRI92 : 4;
     uint32_t _reserved_end : 24;
-  } bits;          // Bit-field struct (auto-filling reserved gaps)
+  } bits;
   
   // Full 32-bit register value.
   uint32_t value;
@@ -2348,14 +2122,12 @@ union NVICIP92 {
 //
 union NVICIP93 {
   
-  // Enum definitions.
-  
   // Bit field definition.
   struct {
     uint32_t _reserved_0 : 4;
     uint32_t PRI93 : 4;
     uint32_t _reserved_end : 24;
-  } bits;          // Bit-field struct (auto-filling reserved gaps)
+  } bits;
   
   // Full 32-bit register value.
   uint32_t value;
@@ -2369,14 +2141,12 @@ union NVICIP93 {
 //
 union NVICIP94 {
   
-  // Enum definitions.
-  
   // Bit field definition.
   struct {
     uint32_t _reserved_0 : 4;
     uint32_t PRI94 : 4;
     uint32_t _reserved_end : 24;
-  } bits;          // Bit-field struct (auto-filling reserved gaps)
+  } bits;
   
   // Full 32-bit register value.
   uint32_t value;
@@ -2390,14 +2160,12 @@ union NVICIP94 {
 //
 union NVICIP95 {
   
-  // Enum definitions.
-  
   // Bit field definition.
   struct {
     uint32_t _reserved_0 : 4;
     uint32_t PRI95 : 4;
     uint32_t _reserved_end : 24;
-  } bits;          // Bit-field struct (auto-filling reserved gaps)
+  } bits;
   
   // Full 32-bit register value.
   uint32_t value;
@@ -2411,14 +2179,12 @@ union NVICIP95 {
 //
 union NVICIP96 {
   
-  // Enum definitions.
-  
   // Bit field definition.
   struct {
     uint32_t _reserved_0 : 4;
     uint32_t PRI96 : 4;
     uint32_t _reserved_end : 24;
-  } bits;          // Bit-field struct (auto-filling reserved gaps)
+  } bits;
   
   // Full 32-bit register value.
   uint32_t value;
@@ -2432,14 +2198,12 @@ union NVICIP96 {
 //
 union NVICIP97 {
   
-  // Enum definitions.
-  
   // Bit field definition.
   struct {
     uint32_t _reserved_0 : 4;
     uint32_t PRI97 : 4;
     uint32_t _reserved_end : 24;
-  } bits;          // Bit-field struct (auto-filling reserved gaps)
+  } bits;
   
   // Full 32-bit register value.
   uint32_t value;
@@ -2453,14 +2217,12 @@ union NVICIP97 {
 //
 union NVICIP98 {
   
-  // Enum definitions.
-  
   // Bit field definition.
   struct {
     uint32_t _reserved_0 : 4;
     uint32_t PRI98 : 4;
     uint32_t _reserved_end : 24;
-  } bits;          // Bit-field struct (auto-filling reserved gaps)
+  } bits;
   
   // Full 32-bit register value.
   uint32_t value;
@@ -2474,14 +2236,12 @@ union NVICIP98 {
 //
 union NVICIP99 {
   
-  // Enum definitions.
-  
   // Bit field definition.
   struct {
     uint32_t _reserved_0 : 4;
     uint32_t PRI99 : 4;
     uint32_t _reserved_end : 24;
-  } bits;          // Bit-field struct (auto-filling reserved gaps)
+  } bits;
   
   // Full 32-bit register value.
   uint32_t value;
@@ -2495,14 +2255,12 @@ union NVICIP99 {
 //
 union NVICIP100 {
   
-  // Enum definitions.
-  
   // Bit field definition.
   struct {
     uint32_t _reserved_0 : 4;
     uint32_t PRI100 : 4;
     uint32_t _reserved_end : 24;
-  } bits;          // Bit-field struct (auto-filling reserved gaps)
+  } bits;
   
   // Full 32-bit register value.
   uint32_t value;
@@ -2516,14 +2274,12 @@ union NVICIP100 {
 //
 union NVICIP101 {
   
-  // Enum definitions.
-  
   // Bit field definition.
   struct {
     uint32_t _reserved_0 : 4;
     uint32_t PRI101 : 4;
     uint32_t _reserved_end : 24;
-  } bits;          // Bit-field struct (auto-filling reserved gaps)
+  } bits;
   
   // Full 32-bit register value.
   uint32_t value;
@@ -2537,14 +2293,12 @@ union NVICIP101 {
 //
 union NVICIP102 {
   
-  // Enum definitions.
-  
   // Bit field definition.
   struct {
     uint32_t _reserved_0 : 4;
     uint32_t PRI102 : 4;
     uint32_t _reserved_end : 24;
-  } bits;          // Bit-field struct (auto-filling reserved gaps)
+  } bits;
   
   // Full 32-bit register value.
   uint32_t value;
@@ -2558,14 +2312,12 @@ union NVICIP102 {
 //
 union NVICIP103 {
   
-  // Enum definitions.
-  
   // Bit field definition.
   struct {
     uint32_t _reserved_0 : 4;
     uint32_t PRI103 : 4;
     uint32_t _reserved_end : 24;
-  } bits;          // Bit-field struct (auto-filling reserved gaps)
+  } bits;
   
   // Full 32-bit register value.
   uint32_t value;
@@ -2579,14 +2331,12 @@ union NVICIP103 {
 //
 union NVICIP104 {
   
-  // Enum definitions.
-  
   // Bit field definition.
   struct {
     uint32_t _reserved_0 : 4;
     uint32_t PRI104 : 4;
     uint32_t _reserved_end : 24;
-  } bits;          // Bit-field struct (auto-filling reserved gaps)
+  } bits;
   
   // Full 32-bit register value.
   uint32_t value;
@@ -2600,14 +2350,12 @@ union NVICIP104 {
 //
 union NVICIP105 {
   
-  // Enum definitions.
-  
   // Bit field definition.
   struct {
     uint32_t _reserved_0 : 4;
     uint32_t PRI105 : 4;
     uint32_t _reserved_end : 24;
-  } bits;          // Bit-field struct (auto-filling reserved gaps)
+  } bits;
   
   // Full 32-bit register value.
   uint32_t value;
@@ -2621,13 +2369,11 @@ union NVICIP105 {
 //
 union NVICSTIR {
   
-  // Enum definitions.
-  
   // Bit field definition.
   struct {
     uint32_t INTID : 9;
     uint32_t _reserved_end : 23;
-  } bits;          // Bit-field struct (auto-filling reserved gaps)
+  } bits;
   
   // Full 32-bit register value.
   uint32_t value;

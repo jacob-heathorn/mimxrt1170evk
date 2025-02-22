@@ -15,14 +15,12 @@ namespace nXBARA1 {
 //
 union XBARA1_SEL0 {
   
-  // Enum definitions.
-  
   // Bit field definition.
   struct {
     uint32_t SEL0 : 8;
     uint32_t SEL1 : 8;
     uint32_t _reserved_end : 16;
-  } bits;          // Bit-field struct (auto-filling reserved gaps)
+  } bits;
   
   // Full 32-bit register value.
   uint32_t value;
@@ -36,14 +34,12 @@ union XBARA1_SEL0 {
 //
 union XBARA1_SEL1 {
   
-  // Enum definitions.
-  
   // Bit field definition.
   struct {
     uint32_t SEL2 : 8;
     uint32_t SEL3 : 8;
     uint32_t _reserved_end : 16;
-  } bits;          // Bit-field struct (auto-filling reserved gaps)
+  } bits;
   
   // Full 32-bit register value.
   uint32_t value;
@@ -57,14 +53,12 @@ union XBARA1_SEL1 {
 //
 union XBARA1_SEL2 {
   
-  // Enum definitions.
-  
   // Bit field definition.
   struct {
     uint32_t SEL4 : 8;
     uint32_t SEL5 : 8;
     uint32_t _reserved_end : 16;
-  } bits;          // Bit-field struct (auto-filling reserved gaps)
+  } bits;
   
   // Full 32-bit register value.
   uint32_t value;
@@ -78,14 +72,12 @@ union XBARA1_SEL2 {
 //
 union XBARA1_SEL3 {
   
-  // Enum definitions.
-  
   // Bit field definition.
   struct {
     uint32_t SEL6 : 8;
     uint32_t SEL7 : 8;
     uint32_t _reserved_end : 16;
-  } bits;          // Bit-field struct (auto-filling reserved gaps)
+  } bits;
   
   // Full 32-bit register value.
   uint32_t value;
@@ -99,14 +91,12 @@ union XBARA1_SEL3 {
 //
 union XBARA1_SEL4 {
   
-  // Enum definitions.
-  
   // Bit field definition.
   struct {
     uint32_t SEL8 : 8;
     uint32_t SEL9 : 8;
     uint32_t _reserved_end : 16;
-  } bits;          // Bit-field struct (auto-filling reserved gaps)
+  } bits;
   
   // Full 32-bit register value.
   uint32_t value;
@@ -120,14 +110,12 @@ union XBARA1_SEL4 {
 //
 union XBARA1_SEL5 {
   
-  // Enum definitions.
-  
   // Bit field definition.
   struct {
     uint32_t SEL10 : 8;
     uint32_t SEL11 : 8;
     uint32_t _reserved_end : 16;
-  } bits;          // Bit-field struct (auto-filling reserved gaps)
+  } bits;
   
   // Full 32-bit register value.
   uint32_t value;
@@ -141,14 +129,12 @@ union XBARA1_SEL5 {
 //
 union XBARA1_SEL6 {
   
-  // Enum definitions.
-  
   // Bit field definition.
   struct {
     uint32_t SEL12 : 8;
     uint32_t SEL13 : 8;
     uint32_t _reserved_end : 16;
-  } bits;          // Bit-field struct (auto-filling reserved gaps)
+  } bits;
   
   // Full 32-bit register value.
   uint32_t value;
@@ -162,14 +148,12 @@ union XBARA1_SEL6 {
 //
 union XBARA1_SEL7 {
   
-  // Enum definitions.
-  
   // Bit field definition.
   struct {
     uint32_t SEL14 : 8;
     uint32_t SEL15 : 8;
     uint32_t _reserved_end : 16;
-  } bits;          // Bit-field struct (auto-filling reserved gaps)
+  } bits;
   
   // Full 32-bit register value.
   uint32_t value;
@@ -183,14 +167,12 @@ union XBARA1_SEL7 {
 //
 union XBARA1_SEL8 {
   
-  // Enum definitions.
-  
   // Bit field definition.
   struct {
     uint32_t SEL16 : 8;
     uint32_t SEL17 : 8;
     uint32_t _reserved_end : 16;
-  } bits;          // Bit-field struct (auto-filling reserved gaps)
+  } bits;
   
   // Full 32-bit register value.
   uint32_t value;
@@ -204,14 +186,12 @@ union XBARA1_SEL8 {
 //
 union XBARA1_SEL9 {
   
-  // Enum definitions.
-  
   // Bit field definition.
   struct {
     uint32_t SEL18 : 8;
     uint32_t SEL19 : 8;
     uint32_t _reserved_end : 16;
-  } bits;          // Bit-field struct (auto-filling reserved gaps)
+  } bits;
   
   // Full 32-bit register value.
   uint32_t value;
@@ -225,14 +205,12 @@ union XBARA1_SEL9 {
 //
 union XBARA1_SEL10 {
   
-  // Enum definitions.
-  
   // Bit field definition.
   struct {
     uint32_t SEL20 : 8;
     uint32_t SEL21 : 8;
     uint32_t _reserved_end : 16;
-  } bits;          // Bit-field struct (auto-filling reserved gaps)
+  } bits;
   
   // Full 32-bit register value.
   uint32_t value;
@@ -246,14 +224,12 @@ union XBARA1_SEL10 {
 //
 union XBARA1_SEL11 {
   
-  // Enum definitions.
-  
   // Bit field definition.
   struct {
     uint32_t SEL22 : 8;
     uint32_t SEL23 : 8;
     uint32_t _reserved_end : 16;
-  } bits;          // Bit-field struct (auto-filling reserved gaps)
+  } bits;
   
   // Full 32-bit register value.
   uint32_t value;
@@ -267,14 +243,12 @@ union XBARA1_SEL11 {
 //
 union XBARA1_SEL12 {
   
-  // Enum definitions.
-  
   // Bit field definition.
   struct {
     uint32_t SEL24 : 8;
     uint32_t SEL25 : 8;
     uint32_t _reserved_end : 16;
-  } bits;          // Bit-field struct (auto-filling reserved gaps)
+  } bits;
   
   // Full 32-bit register value.
   uint32_t value;
@@ -288,14 +262,12 @@ union XBARA1_SEL12 {
 //
 union XBARA1_SEL13 {
   
-  // Enum definitions.
-  
   // Bit field definition.
   struct {
     uint32_t SEL26 : 8;
     uint32_t SEL27 : 8;
     uint32_t _reserved_end : 16;
-  } bits;          // Bit-field struct (auto-filling reserved gaps)
+  } bits;
   
   // Full 32-bit register value.
   uint32_t value;
@@ -309,14 +281,12 @@ union XBARA1_SEL13 {
 //
 union XBARA1_SEL14 {
   
-  // Enum definitions.
-  
   // Bit field definition.
   struct {
     uint32_t SEL28 : 8;
     uint32_t SEL29 : 8;
     uint32_t _reserved_end : 16;
-  } bits;          // Bit-field struct (auto-filling reserved gaps)
+  } bits;
   
   // Full 32-bit register value.
   uint32_t value;
@@ -330,14 +300,12 @@ union XBARA1_SEL14 {
 //
 union XBARA1_SEL15 {
   
-  // Enum definitions.
-  
   // Bit field definition.
   struct {
     uint32_t SEL30 : 8;
     uint32_t SEL31 : 8;
     uint32_t _reserved_end : 16;
-  } bits;          // Bit-field struct (auto-filling reserved gaps)
+  } bits;
   
   // Full 32-bit register value.
   uint32_t value;
@@ -351,14 +319,12 @@ union XBARA1_SEL15 {
 //
 union XBARA1_SEL16 {
   
-  // Enum definitions.
-  
   // Bit field definition.
   struct {
     uint32_t SEL32 : 8;
     uint32_t SEL33 : 8;
     uint32_t _reserved_end : 16;
-  } bits;          // Bit-field struct (auto-filling reserved gaps)
+  } bits;
   
   // Full 32-bit register value.
   uint32_t value;
@@ -372,14 +338,12 @@ union XBARA1_SEL16 {
 //
 union XBARA1_SEL17 {
   
-  // Enum definitions.
-  
   // Bit field definition.
   struct {
     uint32_t SEL34 : 8;
     uint32_t SEL35 : 8;
     uint32_t _reserved_end : 16;
-  } bits;          // Bit-field struct (auto-filling reserved gaps)
+  } bits;
   
   // Full 32-bit register value.
   uint32_t value;
@@ -393,14 +357,12 @@ union XBARA1_SEL17 {
 //
 union XBARA1_SEL18 {
   
-  // Enum definitions.
-  
   // Bit field definition.
   struct {
     uint32_t SEL36 : 8;
     uint32_t SEL37 : 8;
     uint32_t _reserved_end : 16;
-  } bits;          // Bit-field struct (auto-filling reserved gaps)
+  } bits;
   
   // Full 32-bit register value.
   uint32_t value;
@@ -414,14 +376,12 @@ union XBARA1_SEL18 {
 //
 union XBARA1_SEL19 {
   
-  // Enum definitions.
-  
   // Bit field definition.
   struct {
     uint32_t SEL38 : 8;
     uint32_t SEL39 : 8;
     uint32_t _reserved_end : 16;
-  } bits;          // Bit-field struct (auto-filling reserved gaps)
+  } bits;
   
   // Full 32-bit register value.
   uint32_t value;
@@ -435,14 +395,12 @@ union XBARA1_SEL19 {
 //
 union XBARA1_SEL20 {
   
-  // Enum definitions.
-  
   // Bit field definition.
   struct {
     uint32_t SEL40 : 8;
     uint32_t SEL41 : 8;
     uint32_t _reserved_end : 16;
-  } bits;          // Bit-field struct (auto-filling reserved gaps)
+  } bits;
   
   // Full 32-bit register value.
   uint32_t value;
@@ -456,14 +414,12 @@ union XBARA1_SEL20 {
 //
 union XBARA1_SEL21 {
   
-  // Enum definitions.
-  
   // Bit field definition.
   struct {
     uint32_t SEL42 : 8;
     uint32_t SEL43 : 8;
     uint32_t _reserved_end : 16;
-  } bits;          // Bit-field struct (auto-filling reserved gaps)
+  } bits;
   
   // Full 32-bit register value.
   uint32_t value;
@@ -477,14 +433,12 @@ union XBARA1_SEL21 {
 //
 union XBARA1_SEL22 {
   
-  // Enum definitions.
-  
   // Bit field definition.
   struct {
     uint32_t SEL44 : 8;
     uint32_t SEL45 : 8;
     uint32_t _reserved_end : 16;
-  } bits;          // Bit-field struct (auto-filling reserved gaps)
+  } bits;
   
   // Full 32-bit register value.
   uint32_t value;
@@ -498,14 +452,12 @@ union XBARA1_SEL22 {
 //
 union XBARA1_SEL23 {
   
-  // Enum definitions.
-  
   // Bit field definition.
   struct {
     uint32_t SEL46 : 8;
     uint32_t SEL47 : 8;
     uint32_t _reserved_end : 16;
-  } bits;          // Bit-field struct (auto-filling reserved gaps)
+  } bits;
   
   // Full 32-bit register value.
   uint32_t value;
@@ -519,14 +471,12 @@ union XBARA1_SEL23 {
 //
 union XBARA1_SEL24 {
   
-  // Enum definitions.
-  
   // Bit field definition.
   struct {
     uint32_t SEL48 : 8;
     uint32_t SEL49 : 8;
     uint32_t _reserved_end : 16;
-  } bits;          // Bit-field struct (auto-filling reserved gaps)
+  } bits;
   
   // Full 32-bit register value.
   uint32_t value;
@@ -540,14 +490,12 @@ union XBARA1_SEL24 {
 //
 union XBARA1_SEL25 {
   
-  // Enum definitions.
-  
   // Bit field definition.
   struct {
     uint32_t SEL50 : 8;
     uint32_t SEL51 : 8;
     uint32_t _reserved_end : 16;
-  } bits;          // Bit-field struct (auto-filling reserved gaps)
+  } bits;
   
   // Full 32-bit register value.
   uint32_t value;
@@ -561,14 +509,12 @@ union XBARA1_SEL25 {
 //
 union XBARA1_SEL26 {
   
-  // Enum definitions.
-  
   // Bit field definition.
   struct {
     uint32_t SEL52 : 8;
     uint32_t SEL53 : 8;
     uint32_t _reserved_end : 16;
-  } bits;          // Bit-field struct (auto-filling reserved gaps)
+  } bits;
   
   // Full 32-bit register value.
   uint32_t value;
@@ -582,14 +528,12 @@ union XBARA1_SEL26 {
 //
 union XBARA1_SEL27 {
   
-  // Enum definitions.
-  
   // Bit field definition.
   struct {
     uint32_t SEL54 : 8;
     uint32_t SEL55 : 8;
     uint32_t _reserved_end : 16;
-  } bits;          // Bit-field struct (auto-filling reserved gaps)
+  } bits;
   
   // Full 32-bit register value.
   uint32_t value;
@@ -603,14 +547,12 @@ union XBARA1_SEL27 {
 //
 union XBARA1_SEL28 {
   
-  // Enum definitions.
-  
   // Bit field definition.
   struct {
     uint32_t SEL56 : 8;
     uint32_t SEL57 : 8;
     uint32_t _reserved_end : 16;
-  } bits;          // Bit-field struct (auto-filling reserved gaps)
+  } bits;
   
   // Full 32-bit register value.
   uint32_t value;
@@ -624,14 +566,12 @@ union XBARA1_SEL28 {
 //
 union XBARA1_SEL29 {
   
-  // Enum definitions.
-  
   // Bit field definition.
   struct {
     uint32_t SEL58 : 8;
     uint32_t SEL59 : 8;
     uint32_t _reserved_end : 16;
-  } bits;          // Bit-field struct (auto-filling reserved gaps)
+  } bits;
   
   // Full 32-bit register value.
   uint32_t value;
@@ -645,14 +585,12 @@ union XBARA1_SEL29 {
 //
 union XBARA1_SEL30 {
   
-  // Enum definitions.
-  
   // Bit field definition.
   struct {
     uint32_t SEL60 : 8;
     uint32_t SEL61 : 8;
     uint32_t _reserved_end : 16;
-  } bits;          // Bit-field struct (auto-filling reserved gaps)
+  } bits;
   
   // Full 32-bit register value.
   uint32_t value;
@@ -666,14 +604,12 @@ union XBARA1_SEL30 {
 //
 union XBARA1_SEL31 {
   
-  // Enum definitions.
-  
   // Bit field definition.
   struct {
     uint32_t SEL62 : 8;
     uint32_t SEL63 : 8;
     uint32_t _reserved_end : 16;
-  } bits;          // Bit-field struct (auto-filling reserved gaps)
+  } bits;
   
   // Full 32-bit register value.
   uint32_t value;
@@ -687,14 +623,12 @@ union XBARA1_SEL31 {
 //
 union XBARA1_SEL32 {
   
-  // Enum definitions.
-  
   // Bit field definition.
   struct {
     uint32_t SEL64 : 8;
     uint32_t SEL65 : 8;
     uint32_t _reserved_end : 16;
-  } bits;          // Bit-field struct (auto-filling reserved gaps)
+  } bits;
   
   // Full 32-bit register value.
   uint32_t value;
@@ -708,14 +642,12 @@ union XBARA1_SEL32 {
 //
 union XBARA1_SEL33 {
   
-  // Enum definitions.
-  
   // Bit field definition.
   struct {
     uint32_t SEL66 : 8;
     uint32_t SEL67 : 8;
     uint32_t _reserved_end : 16;
-  } bits;          // Bit-field struct (auto-filling reserved gaps)
+  } bits;
   
   // Full 32-bit register value.
   uint32_t value;
@@ -729,14 +661,12 @@ union XBARA1_SEL33 {
 //
 union XBARA1_SEL34 {
   
-  // Enum definitions.
-  
   // Bit field definition.
   struct {
     uint32_t SEL68 : 8;
     uint32_t SEL69 : 8;
     uint32_t _reserved_end : 16;
-  } bits;          // Bit-field struct (auto-filling reserved gaps)
+  } bits;
   
   // Full 32-bit register value.
   uint32_t value;
@@ -750,14 +680,12 @@ union XBARA1_SEL34 {
 //
 union XBARA1_SEL35 {
   
-  // Enum definitions.
-  
   // Bit field definition.
   struct {
     uint32_t SEL70 : 8;
     uint32_t SEL71 : 8;
     uint32_t _reserved_end : 16;
-  } bits;          // Bit-field struct (auto-filling reserved gaps)
+  } bits;
   
   // Full 32-bit register value.
   uint32_t value;
@@ -771,14 +699,12 @@ union XBARA1_SEL35 {
 //
 union XBARA1_SEL36 {
   
-  // Enum definitions.
-  
   // Bit field definition.
   struct {
     uint32_t SEL72 : 8;
     uint32_t SEL73 : 8;
     uint32_t _reserved_end : 16;
-  } bits;          // Bit-field struct (auto-filling reserved gaps)
+  } bits;
   
   // Full 32-bit register value.
   uint32_t value;
@@ -792,14 +718,12 @@ union XBARA1_SEL36 {
 //
 union XBARA1_SEL37 {
   
-  // Enum definitions.
-  
   // Bit field definition.
   struct {
     uint32_t SEL74 : 8;
     uint32_t SEL75 : 8;
     uint32_t _reserved_end : 16;
-  } bits;          // Bit-field struct (auto-filling reserved gaps)
+  } bits;
   
   // Full 32-bit register value.
   uint32_t value;
@@ -813,14 +737,12 @@ union XBARA1_SEL37 {
 //
 union XBARA1_SEL38 {
   
-  // Enum definitions.
-  
   // Bit field definition.
   struct {
     uint32_t SEL76 : 8;
     uint32_t SEL77 : 8;
     uint32_t _reserved_end : 16;
-  } bits;          // Bit-field struct (auto-filling reserved gaps)
+  } bits;
   
   // Full 32-bit register value.
   uint32_t value;
@@ -834,14 +756,12 @@ union XBARA1_SEL38 {
 //
 union XBARA1_SEL39 {
   
-  // Enum definitions.
-  
   // Bit field definition.
   struct {
     uint32_t SEL78 : 8;
     uint32_t SEL79 : 8;
     uint32_t _reserved_end : 16;
-  } bits;          // Bit-field struct (auto-filling reserved gaps)
+  } bits;
   
   // Full 32-bit register value.
   uint32_t value;
@@ -855,14 +775,12 @@ union XBARA1_SEL39 {
 //
 union XBARA1_SEL40 {
   
-  // Enum definitions.
-  
   // Bit field definition.
   struct {
     uint32_t SEL80 : 8;
     uint32_t SEL81 : 8;
     uint32_t _reserved_end : 16;
-  } bits;          // Bit-field struct (auto-filling reserved gaps)
+  } bits;
   
   // Full 32-bit register value.
   uint32_t value;
@@ -876,14 +794,12 @@ union XBARA1_SEL40 {
 //
 union XBARA1_SEL41 {
   
-  // Enum definitions.
-  
   // Bit field definition.
   struct {
     uint32_t SEL82 : 8;
     uint32_t SEL83 : 8;
     uint32_t _reserved_end : 16;
-  } bits;          // Bit-field struct (auto-filling reserved gaps)
+  } bits;
   
   // Full 32-bit register value.
   uint32_t value;
@@ -897,14 +813,12 @@ union XBARA1_SEL41 {
 //
 union XBARA1_SEL42 {
   
-  // Enum definitions.
-  
   // Bit field definition.
   struct {
     uint32_t SEL84 : 8;
     uint32_t SEL85 : 8;
     uint32_t _reserved_end : 16;
-  } bits;          // Bit-field struct (auto-filling reserved gaps)
+  } bits;
   
   // Full 32-bit register value.
   uint32_t value;
@@ -918,14 +832,12 @@ union XBARA1_SEL42 {
 //
 union XBARA1_SEL43 {
   
-  // Enum definitions.
-  
   // Bit field definition.
   struct {
     uint32_t SEL86 : 8;
     uint32_t SEL87 : 8;
     uint32_t _reserved_end : 16;
-  } bits;          // Bit-field struct (auto-filling reserved gaps)
+  } bits;
   
   // Full 32-bit register value.
   uint32_t value;
@@ -939,14 +851,12 @@ union XBARA1_SEL43 {
 //
 union XBARA1_SEL44 {
   
-  // Enum definitions.
-  
   // Bit field definition.
   struct {
     uint32_t SEL88 : 8;
     uint32_t SEL89 : 8;
     uint32_t _reserved_end : 16;
-  } bits;          // Bit-field struct (auto-filling reserved gaps)
+  } bits;
   
   // Full 32-bit register value.
   uint32_t value;
@@ -960,14 +870,12 @@ union XBARA1_SEL44 {
 //
 union XBARA1_SEL45 {
   
-  // Enum definitions.
-  
   // Bit field definition.
   struct {
     uint32_t SEL90 : 8;
     uint32_t SEL91 : 8;
     uint32_t _reserved_end : 16;
-  } bits;          // Bit-field struct (auto-filling reserved gaps)
+  } bits;
   
   // Full 32-bit register value.
   uint32_t value;
@@ -981,14 +889,12 @@ union XBARA1_SEL45 {
 //
 union XBARA1_SEL46 {
   
-  // Enum definitions.
-  
   // Bit field definition.
   struct {
     uint32_t SEL92 : 8;
     uint32_t SEL93 : 8;
     uint32_t _reserved_end : 16;
-  } bits;          // Bit-field struct (auto-filling reserved gaps)
+  } bits;
   
   // Full 32-bit register value.
   uint32_t value;
@@ -1002,14 +908,12 @@ union XBARA1_SEL46 {
 //
 union XBARA1_SEL47 {
   
-  // Enum definitions.
-  
   // Bit field definition.
   struct {
     uint32_t SEL94 : 8;
     uint32_t SEL95 : 8;
     uint32_t _reserved_end : 16;
-  } bits;          // Bit-field struct (auto-filling reserved gaps)
+  } bits;
   
   // Full 32-bit register value.
   uint32_t value;
@@ -1023,14 +927,12 @@ union XBARA1_SEL47 {
 //
 union XBARA1_SEL48 {
   
-  // Enum definitions.
-  
   // Bit field definition.
   struct {
     uint32_t SEL96 : 8;
     uint32_t SEL97 : 8;
     uint32_t _reserved_end : 16;
-  } bits;          // Bit-field struct (auto-filling reserved gaps)
+  } bits;
   
   // Full 32-bit register value.
   uint32_t value;
@@ -1044,14 +946,12 @@ union XBARA1_SEL48 {
 //
 union XBARA1_SEL49 {
   
-  // Enum definitions.
-  
   // Bit field definition.
   struct {
     uint32_t SEL98 : 8;
     uint32_t SEL99 : 8;
     uint32_t _reserved_end : 16;
-  } bits;          // Bit-field struct (auto-filling reserved gaps)
+  } bits;
   
   // Full 32-bit register value.
   uint32_t value;
@@ -1065,14 +965,12 @@ union XBARA1_SEL49 {
 //
 union XBARA1_SEL50 {
   
-  // Enum definitions.
-  
   // Bit field definition.
   struct {
     uint32_t SEL100 : 8;
     uint32_t SEL101 : 8;
     uint32_t _reserved_end : 16;
-  } bits;          // Bit-field struct (auto-filling reserved gaps)
+  } bits;
   
   // Full 32-bit register value.
   uint32_t value;
@@ -1086,14 +984,12 @@ union XBARA1_SEL50 {
 //
 union XBARA1_SEL51 {
   
-  // Enum definitions.
-  
   // Bit field definition.
   struct {
     uint32_t SEL102 : 8;
     uint32_t SEL103 : 8;
     uint32_t _reserved_end : 16;
-  } bits;          // Bit-field struct (auto-filling reserved gaps)
+  } bits;
   
   // Full 32-bit register value.
   uint32_t value;
@@ -1107,14 +1003,12 @@ union XBARA1_SEL51 {
 //
 union XBARA1_SEL52 {
   
-  // Enum definitions.
-  
   // Bit field definition.
   struct {
     uint32_t SEL104 : 8;
     uint32_t SEL105 : 8;
     uint32_t _reserved_end : 16;
-  } bits;          // Bit-field struct (auto-filling reserved gaps)
+  } bits;
   
   // Full 32-bit register value.
   uint32_t value;
@@ -1128,14 +1022,12 @@ union XBARA1_SEL52 {
 //
 union XBARA1_SEL53 {
   
-  // Enum definitions.
-  
   // Bit field definition.
   struct {
     uint32_t SEL106 : 8;
     uint32_t SEL107 : 8;
     uint32_t _reserved_end : 16;
-  } bits;          // Bit-field struct (auto-filling reserved gaps)
+  } bits;
   
   // Full 32-bit register value.
   uint32_t value;
@@ -1149,14 +1041,12 @@ union XBARA1_SEL53 {
 //
 union XBARA1_SEL54 {
   
-  // Enum definitions.
-  
   // Bit field definition.
   struct {
     uint32_t SEL108 : 8;
     uint32_t SEL109 : 8;
     uint32_t _reserved_end : 16;
-  } bits;          // Bit-field struct (auto-filling reserved gaps)
+  } bits;
   
   // Full 32-bit register value.
   uint32_t value;
@@ -1170,14 +1060,12 @@ union XBARA1_SEL54 {
 //
 union XBARA1_SEL55 {
   
-  // Enum definitions.
-  
   // Bit field definition.
   struct {
     uint32_t SEL110 : 8;
     uint32_t SEL111 : 8;
     uint32_t _reserved_end : 16;
-  } bits;          // Bit-field struct (auto-filling reserved gaps)
+  } bits;
   
   // Full 32-bit register value.
   uint32_t value;
@@ -1191,14 +1079,12 @@ union XBARA1_SEL55 {
 //
 union XBARA1_SEL56 {
   
-  // Enum definitions.
-  
   // Bit field definition.
   struct {
     uint32_t SEL112 : 8;
     uint32_t SEL113 : 8;
     uint32_t _reserved_end : 16;
-  } bits;          // Bit-field struct (auto-filling reserved gaps)
+  } bits;
   
   // Full 32-bit register value.
   uint32_t value;
@@ -1212,14 +1098,12 @@ union XBARA1_SEL56 {
 //
 union XBARA1_SEL57 {
   
-  // Enum definitions.
-  
   // Bit field definition.
   struct {
     uint32_t SEL114 : 8;
     uint32_t SEL115 : 8;
     uint32_t _reserved_end : 16;
-  } bits;          // Bit-field struct (auto-filling reserved gaps)
+  } bits;
   
   // Full 32-bit register value.
   uint32_t value;
@@ -1233,14 +1117,12 @@ union XBARA1_SEL57 {
 //
 union XBARA1_SEL58 {
   
-  // Enum definitions.
-  
   // Bit field definition.
   struct {
     uint32_t SEL116 : 8;
     uint32_t SEL117 : 8;
     uint32_t _reserved_end : 16;
-  } bits;          // Bit-field struct (auto-filling reserved gaps)
+  } bits;
   
   // Full 32-bit register value.
   uint32_t value;
@@ -1254,14 +1136,12 @@ union XBARA1_SEL58 {
 //
 union XBARA1_SEL59 {
   
-  // Enum definitions.
-  
   // Bit field definition.
   struct {
     uint32_t SEL118 : 8;
     uint32_t SEL119 : 8;
     uint32_t _reserved_end : 16;
-  } bits;          // Bit-field struct (auto-filling reserved gaps)
+  } bits;
   
   // Full 32-bit register value.
   uint32_t value;
@@ -1275,14 +1155,12 @@ union XBARA1_SEL59 {
 //
 union XBARA1_SEL60 {
   
-  // Enum definitions.
-  
   // Bit field definition.
   struct {
     uint32_t SEL120 : 8;
     uint32_t SEL121 : 8;
     uint32_t _reserved_end : 16;
-  } bits;          // Bit-field struct (auto-filling reserved gaps)
+  } bits;
   
   // Full 32-bit register value.
   uint32_t value;
@@ -1296,14 +1174,12 @@ union XBARA1_SEL60 {
 //
 union XBARA1_SEL61 {
   
-  // Enum definitions.
-  
   // Bit field definition.
   struct {
     uint32_t SEL122 : 8;
     uint32_t SEL123 : 8;
     uint32_t _reserved_end : 16;
-  } bits;          // Bit-field struct (auto-filling reserved gaps)
+  } bits;
   
   // Full 32-bit register value.
   uint32_t value;
@@ -1317,14 +1193,12 @@ union XBARA1_SEL61 {
 //
 union XBARA1_SEL62 {
   
-  // Enum definitions.
-  
   // Bit field definition.
   struct {
     uint32_t SEL124 : 8;
     uint32_t SEL125 : 8;
     uint32_t _reserved_end : 16;
-  } bits;          // Bit-field struct (auto-filling reserved gaps)
+  } bits;
   
   // Full 32-bit register value.
   uint32_t value;
@@ -1338,14 +1212,12 @@ union XBARA1_SEL62 {
 //
 union XBARA1_SEL63 {
   
-  // Enum definitions.
-  
   // Bit field definition.
   struct {
     uint32_t SEL126 : 8;
     uint32_t SEL127 : 8;
     uint32_t _reserved_end : 16;
-  } bits;          // Bit-field struct (auto-filling reserved gaps)
+  } bits;
   
   // Full 32-bit register value.
   uint32_t value;
@@ -1359,14 +1231,12 @@ union XBARA1_SEL63 {
 //
 union XBARA1_SEL64 {
   
-  // Enum definitions.
-  
   // Bit field definition.
   struct {
     uint32_t SEL128 : 8;
     uint32_t SEL129 : 8;
     uint32_t _reserved_end : 16;
-  } bits;          // Bit-field struct (auto-filling reserved gaps)
+  } bits;
   
   // Full 32-bit register value.
   uint32_t value;
@@ -1380,14 +1250,12 @@ union XBARA1_SEL64 {
 //
 union XBARA1_SEL65 {
   
-  // Enum definitions.
-  
   // Bit field definition.
   struct {
     uint32_t SEL130 : 8;
     uint32_t SEL131 : 8;
     uint32_t _reserved_end : 16;
-  } bits;          // Bit-field struct (auto-filling reserved gaps)
+  } bits;
   
   // Full 32-bit register value.
   uint32_t value;
@@ -1401,14 +1269,12 @@ union XBARA1_SEL65 {
 //
 union XBARA1_SEL66 {
   
-  // Enum definitions.
-  
   // Bit field definition.
   struct {
     uint32_t SEL132 : 8;
     uint32_t SEL133 : 8;
     uint32_t _reserved_end : 16;
-  } bits;          // Bit-field struct (auto-filling reserved gaps)
+  } bits;
   
   // Full 32-bit register value.
   uint32_t value;
@@ -1422,14 +1288,12 @@ union XBARA1_SEL66 {
 //
 union XBARA1_SEL67 {
   
-  // Enum definitions.
-  
   // Bit field definition.
   struct {
     uint32_t SEL134 : 8;
     uint32_t SEL135 : 8;
     uint32_t _reserved_end : 16;
-  } bits;          // Bit-field struct (auto-filling reserved gaps)
+  } bits;
   
   // Full 32-bit register value.
   uint32_t value;
@@ -1443,14 +1307,12 @@ union XBARA1_SEL67 {
 //
 union XBARA1_SEL68 {
   
-  // Enum definitions.
-  
   // Bit field definition.
   struct {
     uint32_t SEL136 : 8;
     uint32_t SEL137 : 8;
     uint32_t _reserved_end : 16;
-  } bits;          // Bit-field struct (auto-filling reserved gaps)
+  } bits;
   
   // Full 32-bit register value.
   uint32_t value;
@@ -1464,14 +1326,12 @@ union XBARA1_SEL68 {
 //
 union XBARA1_SEL69 {
   
-  // Enum definitions.
-  
   // Bit field definition.
   struct {
     uint32_t SEL138 : 8;
     uint32_t SEL139 : 8;
     uint32_t _reserved_end : 16;
-  } bits;          // Bit-field struct (auto-filling reserved gaps)
+  } bits;
   
   // Full 32-bit register value.
   uint32_t value;
@@ -1485,14 +1345,12 @@ union XBARA1_SEL69 {
 //
 union XBARA1_SEL70 {
   
-  // Enum definitions.
-  
   // Bit field definition.
   struct {
     uint32_t SEL140 : 8;
     uint32_t SEL141 : 8;
     uint32_t _reserved_end : 16;
-  } bits;          // Bit-field struct (auto-filling reserved gaps)
+  } bits;
   
   // Full 32-bit register value.
   uint32_t value;
@@ -1506,14 +1364,12 @@ union XBARA1_SEL70 {
 //
 union XBARA1_SEL71 {
   
-  // Enum definitions.
-  
   // Bit field definition.
   struct {
     uint32_t SEL142 : 8;
     uint32_t SEL143 : 8;
     uint32_t _reserved_end : 16;
-  } bits;          // Bit-field struct (auto-filling reserved gaps)
+  } bits;
   
   // Full 32-bit register value.
   uint32_t value;
@@ -1527,14 +1383,12 @@ union XBARA1_SEL71 {
 //
 union XBARA1_SEL72 {
   
-  // Enum definitions.
-  
   // Bit field definition.
   struct {
     uint32_t SEL144 : 8;
     uint32_t SEL145 : 8;
     uint32_t _reserved_end : 16;
-  } bits;          // Bit-field struct (auto-filling reserved gaps)
+  } bits;
   
   // Full 32-bit register value.
   uint32_t value;
@@ -1548,14 +1402,12 @@ union XBARA1_SEL72 {
 //
 union XBARA1_SEL73 {
   
-  // Enum definitions.
-  
   // Bit field definition.
   struct {
     uint32_t SEL146 : 8;
     uint32_t SEL147 : 8;
     uint32_t _reserved_end : 16;
-  } bits;          // Bit-field struct (auto-filling reserved gaps)
+  } bits;
   
   // Full 32-bit register value.
   uint32_t value;
@@ -1569,14 +1421,12 @@ union XBARA1_SEL73 {
 //
 union XBARA1_SEL74 {
   
-  // Enum definitions.
-  
   // Bit field definition.
   struct {
     uint32_t SEL148 : 8;
     uint32_t SEL149 : 8;
     uint32_t _reserved_end : 16;
-  } bits;          // Bit-field struct (auto-filling reserved gaps)
+  } bits;
   
   // Full 32-bit register value.
   uint32_t value;
@@ -1590,14 +1440,12 @@ union XBARA1_SEL74 {
 //
 union XBARA1_SEL75 {
   
-  // Enum definitions.
-  
   // Bit field definition.
   struct {
     uint32_t SEL150 : 8;
     uint32_t SEL151 : 8;
     uint32_t _reserved_end : 16;
-  } bits;          // Bit-field struct (auto-filling reserved gaps)
+  } bits;
   
   // Full 32-bit register value.
   uint32_t value;
@@ -1611,14 +1459,12 @@ union XBARA1_SEL75 {
 //
 union XBARA1_SEL76 {
   
-  // Enum definitions.
-  
   // Bit field definition.
   struct {
     uint32_t SEL152 : 8;
     uint32_t SEL153 : 8;
     uint32_t _reserved_end : 16;
-  } bits;          // Bit-field struct (auto-filling reserved gaps)
+  } bits;
   
   // Full 32-bit register value.
   uint32_t value;
@@ -1632,14 +1478,12 @@ union XBARA1_SEL76 {
 //
 union XBARA1_SEL77 {
   
-  // Enum definitions.
-  
   // Bit field definition.
   struct {
     uint32_t SEL154 : 8;
     uint32_t SEL155 : 8;
     uint32_t _reserved_end : 16;
-  } bits;          // Bit-field struct (auto-filling reserved gaps)
+  } bits;
   
   // Full 32-bit register value.
   uint32_t value;
@@ -1653,14 +1497,12 @@ union XBARA1_SEL77 {
 //
 union XBARA1_SEL78 {
   
-  // Enum definitions.
-  
   // Bit field definition.
   struct {
     uint32_t SEL156 : 8;
     uint32_t SEL157 : 8;
     uint32_t _reserved_end : 16;
-  } bits;          // Bit-field struct (auto-filling reserved gaps)
+  } bits;
   
   // Full 32-bit register value.
   uint32_t value;
@@ -1674,14 +1516,12 @@ union XBARA1_SEL78 {
 //
 union XBARA1_SEL79 {
   
-  // Enum definitions.
-  
   // Bit field definition.
   struct {
     uint32_t SEL158 : 8;
     uint32_t SEL159 : 8;
     uint32_t _reserved_end : 16;
-  } bits;          // Bit-field struct (auto-filling reserved gaps)
+  } bits;
   
   // Full 32-bit register value.
   uint32_t value;
@@ -1695,14 +1535,12 @@ union XBARA1_SEL79 {
 //
 union XBARA1_SEL80 {
   
-  // Enum definitions.
-  
   // Bit field definition.
   struct {
     uint32_t SEL160 : 8;
     uint32_t SEL161 : 8;
     uint32_t _reserved_end : 16;
-  } bits;          // Bit-field struct (auto-filling reserved gaps)
+  } bits;
   
   // Full 32-bit register value.
   uint32_t value;
@@ -1716,14 +1554,12 @@ union XBARA1_SEL80 {
 //
 union XBARA1_SEL81 {
   
-  // Enum definitions.
-  
   // Bit field definition.
   struct {
     uint32_t SEL162 : 8;
     uint32_t SEL163 : 8;
     uint32_t _reserved_end : 16;
-  } bits;          // Bit-field struct (auto-filling reserved gaps)
+  } bits;
   
   // Full 32-bit register value.
   uint32_t value;
@@ -1737,14 +1573,12 @@ union XBARA1_SEL81 {
 //
 union XBARA1_SEL82 {
   
-  // Enum definitions.
-  
   // Bit field definition.
   struct {
     uint32_t SEL164 : 8;
     uint32_t SEL165 : 8;
     uint32_t _reserved_end : 16;
-  } bits;          // Bit-field struct (auto-filling reserved gaps)
+  } bits;
   
   // Full 32-bit register value.
   uint32_t value;
@@ -1758,14 +1592,12 @@ union XBARA1_SEL82 {
 //
 union XBARA1_SEL83 {
   
-  // Enum definitions.
-  
   // Bit field definition.
   struct {
     uint32_t SEL166 : 8;
     uint32_t SEL167 : 8;
     uint32_t _reserved_end : 16;
-  } bits;          // Bit-field struct (auto-filling reserved gaps)
+  } bits;
   
   // Full 32-bit register value.
   uint32_t value;
@@ -1779,14 +1611,12 @@ union XBARA1_SEL83 {
 //
 union XBARA1_SEL84 {
   
-  // Enum definitions.
-  
   // Bit field definition.
   struct {
     uint32_t SEL168 : 8;
     uint32_t SEL169 : 8;
     uint32_t _reserved_end : 16;
-  } bits;          // Bit-field struct (auto-filling reserved gaps)
+  } bits;
   
   // Full 32-bit register value.
   uint32_t value;
@@ -1800,14 +1630,12 @@ union XBARA1_SEL84 {
 //
 union XBARA1_SEL85 {
   
-  // Enum definitions.
-  
   // Bit field definition.
   struct {
     uint32_t SEL170 : 8;
     uint32_t SEL171 : 8;
     uint32_t _reserved_end : 16;
-  } bits;          // Bit-field struct (auto-filling reserved gaps)
+  } bits;
   
   // Full 32-bit register value.
   uint32_t value;
@@ -1821,14 +1649,12 @@ union XBARA1_SEL85 {
 //
 union XBARA1_SEL86 {
   
-  // Enum definitions.
-  
   // Bit field definition.
   struct {
     uint32_t SEL172 : 8;
     uint32_t SEL173 : 8;
     uint32_t _reserved_end : 16;
-  } bits;          // Bit-field struct (auto-filling reserved gaps)
+  } bits;
   
   // Full 32-bit register value.
   uint32_t value;
@@ -1842,14 +1668,12 @@ union XBARA1_SEL86 {
 //
 union XBARA1_SEL87 {
   
-  // Enum definitions.
-  
   // Bit field definition.
   struct {
     uint32_t SEL174 : 8;
     uint32_t SEL175 : 8;
     uint32_t _reserved_end : 16;
-  } bits;          // Bit-field struct (auto-filling reserved gaps)
+  } bits;
   
   // Full 32-bit register value.
   uint32_t value;
@@ -1863,39 +1687,45 @@ union XBARA1_SEL87 {
 //
 union XBARA1_CTRL0 {
   
-  // Enum definitions.
   enum class eDEN0 : uint32_t {
     eDEN0_0 = 0, // DMA disabled
     eDEN0_1 = 1, // DMA enabled
   };
+  
   enum class eIEN0 : uint32_t {
     eIEN0_0 = 0, // Interrupt disabled
     eIEN0_1 = 1, // Interrupt enabled
   };
+  
   enum class eEDGE0 : uint32_t {
     eEDGE0_0 = 0, // STS0 never asserts
     eEDGE0_1 = 1, // STS0 asserts on rising edges of XBAR_OUT0
     eEDGE0_2 = 2, // STS0 asserts on falling edges of XBAR_OUT0
     eEDGE0_3 = 3, // STS0 asserts on rising and falling edges of XBAR_OUT0
   };
+  
   enum class eSTS0 : uint32_t {
     eSTS0_0 = 0, // Active edge not yet detected on XBAR_OUT0
     eSTS0_1 = 1, // Active edge detected on XBAR_OUT0
   };
+  
   enum class eDEN1 : uint32_t {
     eDEN1_0 = 0, // DMA disabled
     eDEN1_1 = 1, // DMA enabled
   };
+  
   enum class eIEN1 : uint32_t {
     eIEN1_0 = 0, // Interrupt disabled
     eIEN1_1 = 1, // Interrupt enabled
   };
+  
   enum class eEDGE1 : uint32_t {
     eEDGE1_0 = 0, // STS1 never asserts
     eEDGE1_1 = 1, // STS1 asserts on rising edges of XBAR_OUT1
     eEDGE1_2 = 2, // STS1 asserts on falling edges of XBAR_OUT1
     eEDGE1_3 = 3, // STS1 asserts on rising and falling edges of XBAR_OUT1
   };
+  
   enum class eSTS1 : uint32_t {
     eSTS1_0 = 0, // Active edge not yet detected on XBAR_OUT1
     eSTS1_1 = 1, // Active edge detected on XBAR_OUT1
@@ -1913,7 +1743,7 @@ union XBARA1_CTRL0 {
     eEDGE1 EDGE1 : 2;
     eSTS1 STS1 : 1;
     uint32_t _reserved_end : 19;
-  } bits;          // Bit-field struct (auto-filling reserved gaps)
+  } bits;
   
   // Full 32-bit register value.
   uint32_t value;
@@ -1927,39 +1757,45 @@ union XBARA1_CTRL0 {
 //
 union XBARA1_CTRL1 {
   
-  // Enum definitions.
   enum class eDEN2 : uint32_t {
     eDEN2_0 = 0, // DMA disabled
     eDEN2_1 = 1, // DMA enabled
   };
+  
   enum class eIEN2 : uint32_t {
     eIEN2_0 = 0, // Interrupt disabled
     eIEN2_1 = 1, // Interrupt enabled
   };
+  
   enum class eEDGE2 : uint32_t {
     eEDGE2_0 = 0, // STS2 never asserts
     eEDGE2_1 = 1, // STS2 asserts on rising edges of XBAR_OUT2
     eEDGE2_2 = 2, // STS2 asserts on falling edges of XBAR_OUT2
     eEDGE2_3 = 3, // STS2 asserts on rising and falling edges of XBAR_OUT2
   };
+  
   enum class eSTS2 : uint32_t {
     eSTS2_0 = 0, // Active edge not yet detected on XBAR_OUT2
     eSTS2_1 = 1, // Active edge detected on XBAR_OUT2
   };
+  
   enum class eDEN3 : uint32_t {
     eDEN3_0 = 0, // DMA disabled
     eDEN3_1 = 1, // DMA enabled
   };
+  
   enum class eIEN3 : uint32_t {
     eIEN3_0 = 0, // Interrupt disabled
     eIEN3_1 = 1, // Interrupt enabled
   };
+  
   enum class eEDGE3 : uint32_t {
     eEDGE3_0 = 0, // STS3 never asserts
     eEDGE3_1 = 1, // STS3 asserts on rising edges of XBAR_OUT3
     eEDGE3_2 = 2, // STS3 asserts on falling edges of XBAR_OUT3
     eEDGE3_3 = 3, // STS3 asserts on rising and falling edges of XBAR_OUT3
   };
+  
   enum class eSTS3 : uint32_t {
     eSTS3_0 = 0, // Active edge not yet detected on XBAR_OUT3
     eSTS3_1 = 1, // Active edge detected on XBAR_OUT3
@@ -1977,7 +1813,7 @@ union XBARA1_CTRL1 {
     eEDGE3 EDGE3 : 2;
     eSTS3 STS3 : 1;
     uint32_t _reserved_end : 19;
-  } bits;          // Bit-field struct (auto-filling reserved gaps)
+  } bits;
   
   // Full 32-bit register value.
   uint32_t value;

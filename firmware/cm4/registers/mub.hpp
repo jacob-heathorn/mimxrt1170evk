@@ -15,12 +15,10 @@ namespace nMUB {
 //
 union TR0 {
   
-  // Enum definitions.
-  
   // Bit field definition.
   struct {
     uint32_t DATA : 32;
-  } bits;          // Bit-field struct (auto-filling reserved gaps)
+  } bits;
   
   // Full 32-bit register value.
   uint32_t value;
@@ -34,12 +32,10 @@ union TR0 {
 //
 union TR1 {
   
-  // Enum definitions.
-  
   // Bit field definition.
   struct {
     uint32_t DATA : 32;
-  } bits;          // Bit-field struct (auto-filling reserved gaps)
+  } bits;
   
   // Full 32-bit register value.
   uint32_t value;
@@ -53,12 +49,10 @@ union TR1 {
 //
 union TR2 {
   
-  // Enum definitions.
-  
   // Bit field definition.
   struct {
     uint32_t DATA : 32;
-  } bits;          // Bit-field struct (auto-filling reserved gaps)
+  } bits;
   
   // Full 32-bit register value.
   uint32_t value;
@@ -72,12 +66,10 @@ union TR2 {
 //
 union TR3 {
   
-  // Enum definitions.
-  
   // Bit field definition.
   struct {
     uint32_t DATA : 32;
-  } bits;          // Bit-field struct (auto-filling reserved gaps)
+  } bits;
   
   // Full 32-bit register value.
   uint32_t value;
@@ -91,12 +83,10 @@ union TR3 {
 //
 union RR0 {
   
-  // Enum definitions.
-  
   // Bit field definition.
   struct {
     uint32_t DATA : 32;
-  } bits;          // Bit-field struct (auto-filling reserved gaps)
+  } bits;
   
   // Full 32-bit register value.
   uint32_t value;
@@ -110,12 +100,10 @@ union RR0 {
 //
 union RR1 {
   
-  // Enum definitions.
-  
   // Bit field definition.
   struct {
     uint32_t DATA : 32;
-  } bits;          // Bit-field struct (auto-filling reserved gaps)
+  } bits;
   
   // Full 32-bit register value.
   uint32_t value;
@@ -129,12 +117,10 @@ union RR1 {
 //
 union RR2 {
   
-  // Enum definitions.
-  
   // Bit field definition.
   struct {
     uint32_t DATA : 32;
-  } bits;          // Bit-field struct (auto-filling reserved gaps)
+  } bits;
   
   // Full 32-bit register value.
   uint32_t value;
@@ -148,12 +134,10 @@ union RR2 {
 //
 union RR3 {
   
-  // Enum definitions.
-  
   // Bit field definition.
   struct {
     uint32_t DATA : 32;
-  } bits;          // Bit-field struct (auto-filling reserved gaps)
+  } bits;
   
   // Full 32-bit register value.
   uint32_t value;
@@ -167,31 +151,36 @@ union RR3 {
 //
 union SR {
   
-  // Enum definitions.
   enum class eFn : uint32_t {
     ezero = 0, // ABFn bit in MUA.CR register is written 0 (default).
     eone = 1, // ABFn bit in MUA.CR register is written 1.
   };
+  
   enum class eEP : uint32_t {
     enot_pending = 0, // The Processor B-side event is not pending (default).
     epending = 1, // The Processor B-side event is pending.
   };
+  
   enum class eRS : uint32_t {
     enot_reset = 0, // The Processor A or the Processor A-side of the MU is not in reset.
     ereset = 1, // The Processor A or the Processor A-side of the MU is in reset.
   };
+  
   enum class eFUP : uint32_t {
     eno_update = 0, // No flags updated, initiated by the Processor B, in progress (default)
     eupdate = 1, // Processor B initiated flags update, processing
   };
+  
   enum class eTEn : uint32_t {
     enot_empty = 0, // MUB.TRn register is not empty.
     eempty = 1, // MUB.TRn register is empty (default).
   };
+  
   enum class eRFn : uint32_t {
     enot_full = 0, // MUB.RRn register is not full (default).
     efull = 1, // MUB.RRn register has received data from MUA.TRn register and is ready to be read by the Processor B.
   };
+  
   enum class eGIPn : uint32_t {
     enot_pending = 0, // Processor B general purpose interrupt n is not pending. (default)
     epending = 1, // Processor B general purpose interrupt n is pending.
@@ -209,7 +198,7 @@ union SR {
     eTEn TEn : 4;
     eRFn RFn : 4;
     eGIPn GIPn : 4;
-  } bits;          // Bit-field struct (auto-filling reserved gaps)
+  } bits;
   
   // Full 32-bit register value.
   uint32_t value;
@@ -223,23 +212,26 @@ union SR {
 //
 union CR {
   
-  // Enum definitions.
   enum class eFn : uint32_t {
     eclear = 0, // Clears the Fn bit in the MUA.SR register.
     eset = 1, // Sets the Fn bit in the MUA.SR register.
   };
+  
   enum class eGIRn : uint32_t {
     enot_requested = 0, // Processor B General Interrupt n is not requested to the Processor A (default).
     erequested = 1, // Processor B General Interrupt n is requested to the Processor A.
   };
+  
   enum class eTIEn : uint32_t {
     edisable = 0, // Disables Processor B Transmit Interrupt n. (default)
     eenable = 1, // Enables Processor B Transmit Interrupt n.
   };
+  
   enum class eRIEn : uint32_t {
     edisable = 0, // Disables Processor B Receive Interrupt n. (default)
     eenable = 1, // Enables Processor B Receive Interrupt n.
   };
+  
   enum class eGIEn : uint32_t {
     edisable = 0, // Disables Processor B General Interrupt n. (default)
     eenable = 1, // Enables Processor B General Interrupt n.
@@ -253,7 +245,7 @@ union CR {
     eTIEn TIEn : 4;
     eRIEn RIEn : 4;
     eGIEn GIEn : 4;
-  } bits;          // Bit-field struct (auto-filling reserved gaps)
+  } bits;
   
   // Full 32-bit register value.
   uint32_t value;

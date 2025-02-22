@@ -15,23 +15,26 @@ namespace nDCIC2 {
 //
 union DCIC2_DCICC {
   
-  // Enum definitions.
   enum class eIC_EN : uint32_t {
     eIC_EN_0 = 0, // Disabled
     eIC_EN_1 = 1, // Enabled
   };
+  
   enum class eDE_POL : uint32_t {
     eDE_POL_0 = 0, // Active High.
     eDE_POL_1 = 1, // Active Low.
   };
+  
   enum class eHSYNC_POL : uint32_t {
     eHSYNC_POL_0 = 0, // Active High.
     eHSYNC_POL_1 = 1, // Active Low.
   };
+  
   enum class eVSYNC_POL : uint32_t {
     eVSYNC_POL_0 = 0, // Active High.
     eVSYNC_POL_1 = 1, // Active Low.
   };
+  
   enum class eCLK_POL : uint32_t {
     eCLK_POL_0 = 0, // Not inverted (default).
     eCLK_POL_1 = 1, // Inverted.
@@ -46,7 +49,7 @@ union DCIC2_DCICC {
     eVSYNC_POL VSYNC_POL : 1;
     eCLK_POL CLK_POL : 1;
     uint32_t _reserved_end : 24;
-  } bits;          // Bit-field struct (auto-filling reserved gaps)
+  } bits;
   
   // Full 32-bit register value.
   uint32_t value;
@@ -60,19 +63,21 @@ union DCIC2_DCICC {
 //
 union DCIC2_DCICIC {
   
-  // Enum definitions.
   enum class eEI_MASK : uint32_t {
     eEI_MASK_0 = 0, // Mask disabled - Interrupt assertion enabled
     eEI_MASK_1 = 1, // Mask enabled - Interrupt assertion disabled
   };
+  
   enum class eFI_MASK : uint32_t {
     eFI_MASK_0 = 0, // Mask disabled - Interrupt assertion enabled
     eFI_MASK_1 = 1, // Mask enabled - Interrupt assertion disabled
   };
+  
   enum class eFREEZE_MASK : uint32_t {
     eFREEZE_MASK_0 = 0, // Masks change allowed
     eFREEZE_MASK_1 = 1, // Masks are frozen
   };
+  
   enum class eEXT_SIG_EN : uint32_t {
     eEXT_SIG_EN_0 = 0, // Disabled
     eEXT_SIG_EN_1 = 1, // Enabled
@@ -87,7 +92,7 @@ union DCIC2_DCICIC {
     uint32_t _reserved_3 : 12;
     eEXT_SIG_EN EXT_SIG_EN : 1;
     uint32_t _reserved_end : 15;
-  } bits;          // Bit-field struct (auto-filling reserved gaps)
+  } bits;
   
   // Full 32-bit register value.
   uint32_t value;
@@ -101,15 +106,16 @@ union DCIC2_DCICIC {
 //
 union DCIC2_DCICS {
   
-  // Enum definitions.
   enum class eROI_MATCH_STAT : uint32_t {
     eROI_MATCH_STAT_0 = 0, // ROI calculated CRC matches expected signature
     eROI_MATCH_STAT_1 = 1, // Mismatch at ROI calculated CRC
   };
+  
   enum class eEI_STAT : uint32_t {
     eEI_STAT_0 = 0, // No pending Interrupt
     eEI_STAT_1 = 1, // Pending Interrupt
   };
+  
   enum class eFI_STAT : uint32_t {
     eFI_STAT_0 = 0, // No pending Interrupt
     eFI_STAT_1 = 1, // Pending Interrupt
@@ -121,7 +127,7 @@ union DCIC2_DCICS {
     eEI_STAT EI_STAT : 1;
     eFI_STAT FI_STAT : 1;
     uint32_t _reserved_end : 14;
-  } bits;          // Bit-field struct (auto-filling reserved gaps)
+  } bits;
   
   // Full 32-bit register value.
   uint32_t value;
@@ -135,11 +141,11 @@ union DCIC2_DCICS {
 //
 union DCIC2_DCICRC1 {
   
-  // Enum definitions.
   enum class eROI_FREEZE : uint32_t {
     eROI_FREEZE_0 = 0, // ROI configuration can be changed
     eROI_FREEZE_1 = 1, // ROI configuration is frozen
   };
+  
   enum class eROI_EN : uint32_t {
     eROI_EN_0 = 0, // Disabled
     eROI_EN_1 = 1, // Enabled
@@ -153,7 +159,7 @@ union DCIC2_DCICRC1 {
     uint32_t _reserved_2 : 2;
     eROI_FREEZE ROI_FREEZE : 1;
     eROI_EN ROI_EN : 1;
-  } bits;          // Bit-field struct (auto-filling reserved gaps)
+  } bits;
   
   // Full 32-bit register value.
   uint32_t value;
@@ -166,11 +172,11 @@ union DCIC2_DCICRC1 {
 //
 union DCIC2_DCICRC2 {
   
-  // Enum definitions.
   enum class eROI_FREEZE : uint32_t {
     eROI_FREEZE_0 = 0, // ROI configuration can be changed
     eROI_FREEZE_1 = 1, // ROI configuration is frozen
   };
+  
   enum class eROI_EN : uint32_t {
     eROI_EN_0 = 0, // Disabled
     eROI_EN_1 = 1, // Enabled
@@ -184,7 +190,7 @@ union DCIC2_DCICRC2 {
     uint32_t _reserved_2 : 2;
     eROI_FREEZE ROI_FREEZE : 1;
     eROI_EN ROI_EN : 1;
-  } bits;          // Bit-field struct (auto-filling reserved gaps)
+  } bits;
   
   // Full 32-bit register value.
   uint32_t value;
@@ -197,11 +203,11 @@ union DCIC2_DCICRC2 {
 //
 union DCIC2_DCICRC3 {
   
-  // Enum definitions.
   enum class eROI_FREEZE : uint32_t {
     eROI_FREEZE_0 = 0, // ROI configuration can be changed
     eROI_FREEZE_1 = 1, // ROI configuration is frozen
   };
+  
   enum class eROI_EN : uint32_t {
     eROI_EN_0 = 0, // Disabled
     eROI_EN_1 = 1, // Enabled
@@ -215,7 +221,7 @@ union DCIC2_DCICRC3 {
     uint32_t _reserved_2 : 2;
     eROI_FREEZE ROI_FREEZE : 1;
     eROI_EN ROI_EN : 1;
-  } bits;          // Bit-field struct (auto-filling reserved gaps)
+  } bits;
   
   // Full 32-bit register value.
   uint32_t value;
@@ -228,11 +234,11 @@ union DCIC2_DCICRC3 {
 //
 union DCIC2_DCICRC4 {
   
-  // Enum definitions.
   enum class eROI_FREEZE : uint32_t {
     eROI_FREEZE_0 = 0, // ROI configuration can be changed
     eROI_FREEZE_1 = 1, // ROI configuration is frozen
   };
+  
   enum class eROI_EN : uint32_t {
     eROI_EN_0 = 0, // Disabled
     eROI_EN_1 = 1, // Enabled
@@ -246,7 +252,7 @@ union DCIC2_DCICRC4 {
     uint32_t _reserved_2 : 2;
     eROI_FREEZE ROI_FREEZE : 1;
     eROI_EN ROI_EN : 1;
-  } bits;          // Bit-field struct (auto-filling reserved gaps)
+  } bits;
   
   // Full 32-bit register value.
   uint32_t value;
@@ -259,11 +265,11 @@ union DCIC2_DCICRC4 {
 //
 union DCIC2_DCICRC5 {
   
-  // Enum definitions.
   enum class eROI_FREEZE : uint32_t {
     eROI_FREEZE_0 = 0, // ROI configuration can be changed
     eROI_FREEZE_1 = 1, // ROI configuration is frozen
   };
+  
   enum class eROI_EN : uint32_t {
     eROI_EN_0 = 0, // Disabled
     eROI_EN_1 = 1, // Enabled
@@ -277,7 +283,7 @@ union DCIC2_DCICRC5 {
     uint32_t _reserved_2 : 2;
     eROI_FREEZE ROI_FREEZE : 1;
     eROI_EN ROI_EN : 1;
-  } bits;          // Bit-field struct (auto-filling reserved gaps)
+  } bits;
   
   // Full 32-bit register value.
   uint32_t value;
@@ -290,11 +296,11 @@ union DCIC2_DCICRC5 {
 //
 union DCIC2_DCICRC6 {
   
-  // Enum definitions.
   enum class eROI_FREEZE : uint32_t {
     eROI_FREEZE_0 = 0, // ROI configuration can be changed
     eROI_FREEZE_1 = 1, // ROI configuration is frozen
   };
+  
   enum class eROI_EN : uint32_t {
     eROI_EN_0 = 0, // Disabled
     eROI_EN_1 = 1, // Enabled
@@ -308,7 +314,7 @@ union DCIC2_DCICRC6 {
     uint32_t _reserved_2 : 2;
     eROI_FREEZE ROI_FREEZE : 1;
     eROI_EN ROI_EN : 1;
-  } bits;          // Bit-field struct (auto-filling reserved gaps)
+  } bits;
   
   // Full 32-bit register value.
   uint32_t value;
@@ -321,11 +327,11 @@ union DCIC2_DCICRC6 {
 //
 union DCIC2_DCICRC7 {
   
-  // Enum definitions.
   enum class eROI_FREEZE : uint32_t {
     eROI_FREEZE_0 = 0, // ROI configuration can be changed
     eROI_FREEZE_1 = 1, // ROI configuration is frozen
   };
+  
   enum class eROI_EN : uint32_t {
     eROI_EN_0 = 0, // Disabled
     eROI_EN_1 = 1, // Enabled
@@ -339,7 +345,7 @@ union DCIC2_DCICRC7 {
     uint32_t _reserved_2 : 2;
     eROI_FREEZE ROI_FREEZE : 1;
     eROI_EN ROI_EN : 1;
-  } bits;          // Bit-field struct (auto-filling reserved gaps)
+  } bits;
   
   // Full 32-bit register value.
   uint32_t value;
@@ -352,11 +358,11 @@ union DCIC2_DCICRC7 {
 //
 union DCIC2_DCICRC8 {
   
-  // Enum definitions.
   enum class eROI_FREEZE : uint32_t {
     eROI_FREEZE_0 = 0, // ROI configuration can be changed
     eROI_FREEZE_1 = 1, // ROI configuration is frozen
   };
+  
   enum class eROI_EN : uint32_t {
     eROI_EN_0 = 0, // Disabled
     eROI_EN_1 = 1, // Enabled
@@ -370,7 +376,7 @@ union DCIC2_DCICRC8 {
     uint32_t _reserved_2 : 2;
     eROI_FREEZE ROI_FREEZE : 1;
     eROI_EN ROI_EN : 1;
-  } bits;          // Bit-field struct (auto-filling reserved gaps)
+  } bits;
   
   // Full 32-bit register value.
   uint32_t value;
@@ -383,11 +389,11 @@ union DCIC2_DCICRC8 {
 //
 union DCIC2_DCICRC9 {
   
-  // Enum definitions.
   enum class eROI_FREEZE : uint32_t {
     eROI_FREEZE_0 = 0, // ROI configuration can be changed
     eROI_FREEZE_1 = 1, // ROI configuration is frozen
   };
+  
   enum class eROI_EN : uint32_t {
     eROI_EN_0 = 0, // Disabled
     eROI_EN_1 = 1, // Enabled
@@ -401,7 +407,7 @@ union DCIC2_DCICRC9 {
     uint32_t _reserved_2 : 2;
     eROI_FREEZE ROI_FREEZE : 1;
     eROI_EN ROI_EN : 1;
-  } bits;          // Bit-field struct (auto-filling reserved gaps)
+  } bits;
   
   // Full 32-bit register value.
   uint32_t value;
@@ -414,11 +420,11 @@ union DCIC2_DCICRC9 {
 //
 union DCIC2_DCICRC10 {
   
-  // Enum definitions.
   enum class eROI_FREEZE : uint32_t {
     eROI_FREEZE_0 = 0, // ROI configuration can be changed
     eROI_FREEZE_1 = 1, // ROI configuration is frozen
   };
+  
   enum class eROI_EN : uint32_t {
     eROI_EN_0 = 0, // Disabled
     eROI_EN_1 = 1, // Enabled
@@ -432,7 +438,7 @@ union DCIC2_DCICRC10 {
     uint32_t _reserved_2 : 2;
     eROI_FREEZE ROI_FREEZE : 1;
     eROI_EN ROI_EN : 1;
-  } bits;          // Bit-field struct (auto-filling reserved gaps)
+  } bits;
   
   // Full 32-bit register value.
   uint32_t value;
@@ -445,11 +451,11 @@ union DCIC2_DCICRC10 {
 //
 union DCIC2_DCICRC11 {
   
-  // Enum definitions.
   enum class eROI_FREEZE : uint32_t {
     eROI_FREEZE_0 = 0, // ROI configuration can be changed
     eROI_FREEZE_1 = 1, // ROI configuration is frozen
   };
+  
   enum class eROI_EN : uint32_t {
     eROI_EN_0 = 0, // Disabled
     eROI_EN_1 = 1, // Enabled
@@ -463,7 +469,7 @@ union DCIC2_DCICRC11 {
     uint32_t _reserved_2 : 2;
     eROI_FREEZE ROI_FREEZE : 1;
     eROI_EN ROI_EN : 1;
-  } bits;          // Bit-field struct (auto-filling reserved gaps)
+  } bits;
   
   // Full 32-bit register value.
   uint32_t value;
@@ -476,11 +482,11 @@ union DCIC2_DCICRC11 {
 //
 union DCIC2_DCICRC12 {
   
-  // Enum definitions.
   enum class eROI_FREEZE : uint32_t {
     eROI_FREEZE_0 = 0, // ROI configuration can be changed
     eROI_FREEZE_1 = 1, // ROI configuration is frozen
   };
+  
   enum class eROI_EN : uint32_t {
     eROI_EN_0 = 0, // Disabled
     eROI_EN_1 = 1, // Enabled
@@ -494,7 +500,7 @@ union DCIC2_DCICRC12 {
     uint32_t _reserved_2 : 2;
     eROI_FREEZE ROI_FREEZE : 1;
     eROI_EN ROI_EN : 1;
-  } bits;          // Bit-field struct (auto-filling reserved gaps)
+  } bits;
   
   // Full 32-bit register value.
   uint32_t value;
@@ -507,11 +513,11 @@ union DCIC2_DCICRC12 {
 //
 union DCIC2_DCICRC13 {
   
-  // Enum definitions.
   enum class eROI_FREEZE : uint32_t {
     eROI_FREEZE_0 = 0, // ROI configuration can be changed
     eROI_FREEZE_1 = 1, // ROI configuration is frozen
   };
+  
   enum class eROI_EN : uint32_t {
     eROI_EN_0 = 0, // Disabled
     eROI_EN_1 = 1, // Enabled
@@ -525,7 +531,7 @@ union DCIC2_DCICRC13 {
     uint32_t _reserved_2 : 2;
     eROI_FREEZE ROI_FREEZE : 1;
     eROI_EN ROI_EN : 1;
-  } bits;          // Bit-field struct (auto-filling reserved gaps)
+  } bits;
   
   // Full 32-bit register value.
   uint32_t value;
@@ -538,11 +544,11 @@ union DCIC2_DCICRC13 {
 //
 union DCIC2_DCICRC14 {
   
-  // Enum definitions.
   enum class eROI_FREEZE : uint32_t {
     eROI_FREEZE_0 = 0, // ROI configuration can be changed
     eROI_FREEZE_1 = 1, // ROI configuration is frozen
   };
+  
   enum class eROI_EN : uint32_t {
     eROI_EN_0 = 0, // Disabled
     eROI_EN_1 = 1, // Enabled
@@ -556,7 +562,7 @@ union DCIC2_DCICRC14 {
     uint32_t _reserved_2 : 2;
     eROI_FREEZE ROI_FREEZE : 1;
     eROI_EN ROI_EN : 1;
-  } bits;          // Bit-field struct (auto-filling reserved gaps)
+  } bits;
   
   // Full 32-bit register value.
   uint32_t value;
@@ -569,11 +575,11 @@ union DCIC2_DCICRC14 {
 //
 union DCIC2_DCICRC15 {
   
-  // Enum definitions.
   enum class eROI_FREEZE : uint32_t {
     eROI_FREEZE_0 = 0, // ROI configuration can be changed
     eROI_FREEZE_1 = 1, // ROI configuration is frozen
   };
+  
   enum class eROI_EN : uint32_t {
     eROI_EN_0 = 0, // Disabled
     eROI_EN_1 = 1, // Enabled
@@ -587,7 +593,7 @@ union DCIC2_DCICRC15 {
     uint32_t _reserved_2 : 2;
     eROI_FREEZE ROI_FREEZE : 1;
     eROI_EN ROI_EN : 1;
-  } bits;          // Bit-field struct (auto-filling reserved gaps)
+  } bits;
   
   // Full 32-bit register value.
   uint32_t value;
@@ -600,11 +606,11 @@ union DCIC2_DCICRC15 {
 //
 union DCIC2_DCICRC16 {
   
-  // Enum definitions.
   enum class eROI_FREEZE : uint32_t {
     eROI_FREEZE_0 = 0, // ROI configuration can be changed
     eROI_FREEZE_1 = 1, // ROI configuration is frozen
   };
+  
   enum class eROI_EN : uint32_t {
     eROI_EN_0 = 0, // Disabled
     eROI_EN_1 = 1, // Enabled
@@ -618,7 +624,7 @@ union DCIC2_DCICRC16 {
     uint32_t _reserved_2 : 2;
     eROI_FREEZE ROI_FREEZE : 1;
     eROI_EN ROI_EN : 1;
-  } bits;          // Bit-field struct (auto-filling reserved gaps)
+  } bits;
   
   // Full 32-bit register value.
   uint32_t value;
@@ -632,15 +638,13 @@ union DCIC2_DCICRC16 {
 //
 union DCIC2_DCICRS1 {
   
-  // Enum definitions.
-  
   // Bit field definition.
   struct {
     uint32_t END_OFFSET_X : 13;
     uint32_t _reserved_1 : 3;
     uint32_t END_OFFSET_Y : 12;
     uint32_t _reserved_end : 4;
-  } bits;          // Bit-field struct (auto-filling reserved gaps)
+  } bits;
   
   // Full 32-bit register value.
   uint32_t value;
@@ -653,15 +657,13 @@ union DCIC2_DCICRS1 {
 //
 union DCIC2_DCICRS2 {
   
-  // Enum definitions.
-  
   // Bit field definition.
   struct {
     uint32_t END_OFFSET_X : 13;
     uint32_t _reserved_1 : 3;
     uint32_t END_OFFSET_Y : 12;
     uint32_t _reserved_end : 4;
-  } bits;          // Bit-field struct (auto-filling reserved gaps)
+  } bits;
   
   // Full 32-bit register value.
   uint32_t value;
@@ -674,15 +676,13 @@ union DCIC2_DCICRS2 {
 //
 union DCIC2_DCICRS3 {
   
-  // Enum definitions.
-  
   // Bit field definition.
   struct {
     uint32_t END_OFFSET_X : 13;
     uint32_t _reserved_1 : 3;
     uint32_t END_OFFSET_Y : 12;
     uint32_t _reserved_end : 4;
-  } bits;          // Bit-field struct (auto-filling reserved gaps)
+  } bits;
   
   // Full 32-bit register value.
   uint32_t value;
@@ -695,15 +695,13 @@ union DCIC2_DCICRS3 {
 //
 union DCIC2_DCICRS4 {
   
-  // Enum definitions.
-  
   // Bit field definition.
   struct {
     uint32_t END_OFFSET_X : 13;
     uint32_t _reserved_1 : 3;
     uint32_t END_OFFSET_Y : 12;
     uint32_t _reserved_end : 4;
-  } bits;          // Bit-field struct (auto-filling reserved gaps)
+  } bits;
   
   // Full 32-bit register value.
   uint32_t value;
@@ -716,15 +714,13 @@ union DCIC2_DCICRS4 {
 //
 union DCIC2_DCICRS5 {
   
-  // Enum definitions.
-  
   // Bit field definition.
   struct {
     uint32_t END_OFFSET_X : 13;
     uint32_t _reserved_1 : 3;
     uint32_t END_OFFSET_Y : 12;
     uint32_t _reserved_end : 4;
-  } bits;          // Bit-field struct (auto-filling reserved gaps)
+  } bits;
   
   // Full 32-bit register value.
   uint32_t value;
@@ -737,15 +733,13 @@ union DCIC2_DCICRS5 {
 //
 union DCIC2_DCICRS6 {
   
-  // Enum definitions.
-  
   // Bit field definition.
   struct {
     uint32_t END_OFFSET_X : 13;
     uint32_t _reserved_1 : 3;
     uint32_t END_OFFSET_Y : 12;
     uint32_t _reserved_end : 4;
-  } bits;          // Bit-field struct (auto-filling reserved gaps)
+  } bits;
   
   // Full 32-bit register value.
   uint32_t value;
@@ -758,15 +752,13 @@ union DCIC2_DCICRS6 {
 //
 union DCIC2_DCICRS7 {
   
-  // Enum definitions.
-  
   // Bit field definition.
   struct {
     uint32_t END_OFFSET_X : 13;
     uint32_t _reserved_1 : 3;
     uint32_t END_OFFSET_Y : 12;
     uint32_t _reserved_end : 4;
-  } bits;          // Bit-field struct (auto-filling reserved gaps)
+  } bits;
   
   // Full 32-bit register value.
   uint32_t value;
@@ -779,15 +771,13 @@ union DCIC2_DCICRS7 {
 //
 union DCIC2_DCICRS8 {
   
-  // Enum definitions.
-  
   // Bit field definition.
   struct {
     uint32_t END_OFFSET_X : 13;
     uint32_t _reserved_1 : 3;
     uint32_t END_OFFSET_Y : 12;
     uint32_t _reserved_end : 4;
-  } bits;          // Bit-field struct (auto-filling reserved gaps)
+  } bits;
   
   // Full 32-bit register value.
   uint32_t value;
@@ -800,15 +790,13 @@ union DCIC2_DCICRS8 {
 //
 union DCIC2_DCICRS9 {
   
-  // Enum definitions.
-  
   // Bit field definition.
   struct {
     uint32_t END_OFFSET_X : 13;
     uint32_t _reserved_1 : 3;
     uint32_t END_OFFSET_Y : 12;
     uint32_t _reserved_end : 4;
-  } bits;          // Bit-field struct (auto-filling reserved gaps)
+  } bits;
   
   // Full 32-bit register value.
   uint32_t value;
@@ -821,15 +809,13 @@ union DCIC2_DCICRS9 {
 //
 union DCIC2_DCICRS10 {
   
-  // Enum definitions.
-  
   // Bit field definition.
   struct {
     uint32_t END_OFFSET_X : 13;
     uint32_t _reserved_1 : 3;
     uint32_t END_OFFSET_Y : 12;
     uint32_t _reserved_end : 4;
-  } bits;          // Bit-field struct (auto-filling reserved gaps)
+  } bits;
   
   // Full 32-bit register value.
   uint32_t value;
@@ -842,15 +828,13 @@ union DCIC2_DCICRS10 {
 //
 union DCIC2_DCICRS11 {
   
-  // Enum definitions.
-  
   // Bit field definition.
   struct {
     uint32_t END_OFFSET_X : 13;
     uint32_t _reserved_1 : 3;
     uint32_t END_OFFSET_Y : 12;
     uint32_t _reserved_end : 4;
-  } bits;          // Bit-field struct (auto-filling reserved gaps)
+  } bits;
   
   // Full 32-bit register value.
   uint32_t value;
@@ -863,15 +847,13 @@ union DCIC2_DCICRS11 {
 //
 union DCIC2_DCICRS12 {
   
-  // Enum definitions.
-  
   // Bit field definition.
   struct {
     uint32_t END_OFFSET_X : 13;
     uint32_t _reserved_1 : 3;
     uint32_t END_OFFSET_Y : 12;
     uint32_t _reserved_end : 4;
-  } bits;          // Bit-field struct (auto-filling reserved gaps)
+  } bits;
   
   // Full 32-bit register value.
   uint32_t value;
@@ -884,15 +866,13 @@ union DCIC2_DCICRS12 {
 //
 union DCIC2_DCICRS13 {
   
-  // Enum definitions.
-  
   // Bit field definition.
   struct {
     uint32_t END_OFFSET_X : 13;
     uint32_t _reserved_1 : 3;
     uint32_t END_OFFSET_Y : 12;
     uint32_t _reserved_end : 4;
-  } bits;          // Bit-field struct (auto-filling reserved gaps)
+  } bits;
   
   // Full 32-bit register value.
   uint32_t value;
@@ -905,15 +885,13 @@ union DCIC2_DCICRS13 {
 //
 union DCIC2_DCICRS14 {
   
-  // Enum definitions.
-  
   // Bit field definition.
   struct {
     uint32_t END_OFFSET_X : 13;
     uint32_t _reserved_1 : 3;
     uint32_t END_OFFSET_Y : 12;
     uint32_t _reserved_end : 4;
-  } bits;          // Bit-field struct (auto-filling reserved gaps)
+  } bits;
   
   // Full 32-bit register value.
   uint32_t value;
@@ -926,15 +904,13 @@ union DCIC2_DCICRS14 {
 //
 union DCIC2_DCICRS15 {
   
-  // Enum definitions.
-  
   // Bit field definition.
   struct {
     uint32_t END_OFFSET_X : 13;
     uint32_t _reserved_1 : 3;
     uint32_t END_OFFSET_Y : 12;
     uint32_t _reserved_end : 4;
-  } bits;          // Bit-field struct (auto-filling reserved gaps)
+  } bits;
   
   // Full 32-bit register value.
   uint32_t value;
@@ -947,15 +923,13 @@ union DCIC2_DCICRS15 {
 //
 union DCIC2_DCICRS16 {
   
-  // Enum definitions.
-  
   // Bit field definition.
   struct {
     uint32_t END_OFFSET_X : 13;
     uint32_t _reserved_1 : 3;
     uint32_t END_OFFSET_Y : 12;
     uint32_t _reserved_end : 4;
-  } bits;          // Bit-field struct (auto-filling reserved gaps)
+  } bits;
   
   // Full 32-bit register value.
   uint32_t value;
@@ -969,12 +943,10 @@ union DCIC2_DCICRS16 {
 //
 union DCIC2_DCICRRS1 {
   
-  // Enum definitions.
-  
   // Bit field definition.
   struct {
     uint32_t REFERENCE_SIGNATURE : 32;
-  } bits;          // Bit-field struct (auto-filling reserved gaps)
+  } bits;
   
   // Full 32-bit register value.
   uint32_t value;
@@ -987,12 +959,10 @@ union DCIC2_DCICRRS1 {
 //
 union DCIC2_DCICRRS2 {
   
-  // Enum definitions.
-  
   // Bit field definition.
   struct {
     uint32_t REFERENCE_SIGNATURE : 32;
-  } bits;          // Bit-field struct (auto-filling reserved gaps)
+  } bits;
   
   // Full 32-bit register value.
   uint32_t value;
@@ -1005,12 +975,10 @@ union DCIC2_DCICRRS2 {
 //
 union DCIC2_DCICRRS3 {
   
-  // Enum definitions.
-  
   // Bit field definition.
   struct {
     uint32_t REFERENCE_SIGNATURE : 32;
-  } bits;          // Bit-field struct (auto-filling reserved gaps)
+  } bits;
   
   // Full 32-bit register value.
   uint32_t value;
@@ -1023,12 +991,10 @@ union DCIC2_DCICRRS3 {
 //
 union DCIC2_DCICRRS4 {
   
-  // Enum definitions.
-  
   // Bit field definition.
   struct {
     uint32_t REFERENCE_SIGNATURE : 32;
-  } bits;          // Bit-field struct (auto-filling reserved gaps)
+  } bits;
   
   // Full 32-bit register value.
   uint32_t value;
@@ -1041,12 +1007,10 @@ union DCIC2_DCICRRS4 {
 //
 union DCIC2_DCICRRS5 {
   
-  // Enum definitions.
-  
   // Bit field definition.
   struct {
     uint32_t REFERENCE_SIGNATURE : 32;
-  } bits;          // Bit-field struct (auto-filling reserved gaps)
+  } bits;
   
   // Full 32-bit register value.
   uint32_t value;
@@ -1059,12 +1023,10 @@ union DCIC2_DCICRRS5 {
 //
 union DCIC2_DCICRRS6 {
   
-  // Enum definitions.
-  
   // Bit field definition.
   struct {
     uint32_t REFERENCE_SIGNATURE : 32;
-  } bits;          // Bit-field struct (auto-filling reserved gaps)
+  } bits;
   
   // Full 32-bit register value.
   uint32_t value;
@@ -1077,12 +1039,10 @@ union DCIC2_DCICRRS6 {
 //
 union DCIC2_DCICRRS7 {
   
-  // Enum definitions.
-  
   // Bit field definition.
   struct {
     uint32_t REFERENCE_SIGNATURE : 32;
-  } bits;          // Bit-field struct (auto-filling reserved gaps)
+  } bits;
   
   // Full 32-bit register value.
   uint32_t value;
@@ -1095,12 +1055,10 @@ union DCIC2_DCICRRS7 {
 //
 union DCIC2_DCICRRS8 {
   
-  // Enum definitions.
-  
   // Bit field definition.
   struct {
     uint32_t REFERENCE_SIGNATURE : 32;
-  } bits;          // Bit-field struct (auto-filling reserved gaps)
+  } bits;
   
   // Full 32-bit register value.
   uint32_t value;
@@ -1113,12 +1071,10 @@ union DCIC2_DCICRRS8 {
 //
 union DCIC2_DCICRRS9 {
   
-  // Enum definitions.
-  
   // Bit field definition.
   struct {
     uint32_t REFERENCE_SIGNATURE : 32;
-  } bits;          // Bit-field struct (auto-filling reserved gaps)
+  } bits;
   
   // Full 32-bit register value.
   uint32_t value;
@@ -1131,12 +1087,10 @@ union DCIC2_DCICRRS9 {
 //
 union DCIC2_DCICRRS10 {
   
-  // Enum definitions.
-  
   // Bit field definition.
   struct {
     uint32_t REFERENCE_SIGNATURE : 32;
-  } bits;          // Bit-field struct (auto-filling reserved gaps)
+  } bits;
   
   // Full 32-bit register value.
   uint32_t value;
@@ -1149,12 +1103,10 @@ union DCIC2_DCICRRS10 {
 //
 union DCIC2_DCICRRS11 {
   
-  // Enum definitions.
-  
   // Bit field definition.
   struct {
     uint32_t REFERENCE_SIGNATURE : 32;
-  } bits;          // Bit-field struct (auto-filling reserved gaps)
+  } bits;
   
   // Full 32-bit register value.
   uint32_t value;
@@ -1167,12 +1119,10 @@ union DCIC2_DCICRRS11 {
 //
 union DCIC2_DCICRRS12 {
   
-  // Enum definitions.
-  
   // Bit field definition.
   struct {
     uint32_t REFERENCE_SIGNATURE : 32;
-  } bits;          // Bit-field struct (auto-filling reserved gaps)
+  } bits;
   
   // Full 32-bit register value.
   uint32_t value;
@@ -1185,12 +1135,10 @@ union DCIC2_DCICRRS12 {
 //
 union DCIC2_DCICRRS13 {
   
-  // Enum definitions.
-  
   // Bit field definition.
   struct {
     uint32_t REFERENCE_SIGNATURE : 32;
-  } bits;          // Bit-field struct (auto-filling reserved gaps)
+  } bits;
   
   // Full 32-bit register value.
   uint32_t value;
@@ -1203,12 +1151,10 @@ union DCIC2_DCICRRS13 {
 //
 union DCIC2_DCICRRS14 {
   
-  // Enum definitions.
-  
   // Bit field definition.
   struct {
     uint32_t REFERENCE_SIGNATURE : 32;
-  } bits;          // Bit-field struct (auto-filling reserved gaps)
+  } bits;
   
   // Full 32-bit register value.
   uint32_t value;
@@ -1221,12 +1167,10 @@ union DCIC2_DCICRRS14 {
 //
 union DCIC2_DCICRRS15 {
   
-  // Enum definitions.
-  
   // Bit field definition.
   struct {
     uint32_t REFERENCE_SIGNATURE : 32;
-  } bits;          // Bit-field struct (auto-filling reserved gaps)
+  } bits;
   
   // Full 32-bit register value.
   uint32_t value;
@@ -1239,12 +1183,10 @@ union DCIC2_DCICRRS15 {
 //
 union DCIC2_DCICRRS16 {
   
-  // Enum definitions.
-  
   // Bit field definition.
   struct {
     uint32_t REFERENCE_SIGNATURE : 32;
-  } bits;          // Bit-field struct (auto-filling reserved gaps)
+  } bits;
   
   // Full 32-bit register value.
   uint32_t value;
@@ -1258,12 +1200,10 @@ union DCIC2_DCICRRS16 {
 //
 union DCIC2_DCICRCS1 {
   
-  // Enum definitions.
-  
   // Bit field definition.
   struct {
     uint32_t CALCULATED_SIGNATURE : 32;
-  } bits;          // Bit-field struct (auto-filling reserved gaps)
+  } bits;
   
   // Full 32-bit register value.
   uint32_t value;
@@ -1276,12 +1216,10 @@ union DCIC2_DCICRCS1 {
 //
 union DCIC2_DCICRCS2 {
   
-  // Enum definitions.
-  
   // Bit field definition.
   struct {
     uint32_t CALCULATED_SIGNATURE : 32;
-  } bits;          // Bit-field struct (auto-filling reserved gaps)
+  } bits;
   
   // Full 32-bit register value.
   uint32_t value;
@@ -1294,12 +1232,10 @@ union DCIC2_DCICRCS2 {
 //
 union DCIC2_DCICRCS3 {
   
-  // Enum definitions.
-  
   // Bit field definition.
   struct {
     uint32_t CALCULATED_SIGNATURE : 32;
-  } bits;          // Bit-field struct (auto-filling reserved gaps)
+  } bits;
   
   // Full 32-bit register value.
   uint32_t value;
@@ -1312,12 +1248,10 @@ union DCIC2_DCICRCS3 {
 //
 union DCIC2_DCICRCS4 {
   
-  // Enum definitions.
-  
   // Bit field definition.
   struct {
     uint32_t CALCULATED_SIGNATURE : 32;
-  } bits;          // Bit-field struct (auto-filling reserved gaps)
+  } bits;
   
   // Full 32-bit register value.
   uint32_t value;
@@ -1330,12 +1264,10 @@ union DCIC2_DCICRCS4 {
 //
 union DCIC2_DCICRCS5 {
   
-  // Enum definitions.
-  
   // Bit field definition.
   struct {
     uint32_t CALCULATED_SIGNATURE : 32;
-  } bits;          // Bit-field struct (auto-filling reserved gaps)
+  } bits;
   
   // Full 32-bit register value.
   uint32_t value;
@@ -1348,12 +1280,10 @@ union DCIC2_DCICRCS5 {
 //
 union DCIC2_DCICRCS6 {
   
-  // Enum definitions.
-  
   // Bit field definition.
   struct {
     uint32_t CALCULATED_SIGNATURE : 32;
-  } bits;          // Bit-field struct (auto-filling reserved gaps)
+  } bits;
   
   // Full 32-bit register value.
   uint32_t value;
@@ -1366,12 +1296,10 @@ union DCIC2_DCICRCS6 {
 //
 union DCIC2_DCICRCS7 {
   
-  // Enum definitions.
-  
   // Bit field definition.
   struct {
     uint32_t CALCULATED_SIGNATURE : 32;
-  } bits;          // Bit-field struct (auto-filling reserved gaps)
+  } bits;
   
   // Full 32-bit register value.
   uint32_t value;
@@ -1384,12 +1312,10 @@ union DCIC2_DCICRCS7 {
 //
 union DCIC2_DCICRCS8 {
   
-  // Enum definitions.
-  
   // Bit field definition.
   struct {
     uint32_t CALCULATED_SIGNATURE : 32;
-  } bits;          // Bit-field struct (auto-filling reserved gaps)
+  } bits;
   
   // Full 32-bit register value.
   uint32_t value;
@@ -1402,12 +1328,10 @@ union DCIC2_DCICRCS8 {
 //
 union DCIC2_DCICRCS9 {
   
-  // Enum definitions.
-  
   // Bit field definition.
   struct {
     uint32_t CALCULATED_SIGNATURE : 32;
-  } bits;          // Bit-field struct (auto-filling reserved gaps)
+  } bits;
   
   // Full 32-bit register value.
   uint32_t value;
@@ -1420,12 +1344,10 @@ union DCIC2_DCICRCS9 {
 //
 union DCIC2_DCICRCS10 {
   
-  // Enum definitions.
-  
   // Bit field definition.
   struct {
     uint32_t CALCULATED_SIGNATURE : 32;
-  } bits;          // Bit-field struct (auto-filling reserved gaps)
+  } bits;
   
   // Full 32-bit register value.
   uint32_t value;
@@ -1438,12 +1360,10 @@ union DCIC2_DCICRCS10 {
 //
 union DCIC2_DCICRCS11 {
   
-  // Enum definitions.
-  
   // Bit field definition.
   struct {
     uint32_t CALCULATED_SIGNATURE : 32;
-  } bits;          // Bit-field struct (auto-filling reserved gaps)
+  } bits;
   
   // Full 32-bit register value.
   uint32_t value;
@@ -1456,12 +1376,10 @@ union DCIC2_DCICRCS11 {
 //
 union DCIC2_DCICRCS12 {
   
-  // Enum definitions.
-  
   // Bit field definition.
   struct {
     uint32_t CALCULATED_SIGNATURE : 32;
-  } bits;          // Bit-field struct (auto-filling reserved gaps)
+  } bits;
   
   // Full 32-bit register value.
   uint32_t value;
@@ -1474,12 +1392,10 @@ union DCIC2_DCICRCS12 {
 //
 union DCIC2_DCICRCS13 {
   
-  // Enum definitions.
-  
   // Bit field definition.
   struct {
     uint32_t CALCULATED_SIGNATURE : 32;
-  } bits;          // Bit-field struct (auto-filling reserved gaps)
+  } bits;
   
   // Full 32-bit register value.
   uint32_t value;
@@ -1492,12 +1408,10 @@ union DCIC2_DCICRCS13 {
 //
 union DCIC2_DCICRCS14 {
   
-  // Enum definitions.
-  
   // Bit field definition.
   struct {
     uint32_t CALCULATED_SIGNATURE : 32;
-  } bits;          // Bit-field struct (auto-filling reserved gaps)
+  } bits;
   
   // Full 32-bit register value.
   uint32_t value;
@@ -1510,12 +1424,10 @@ union DCIC2_DCICRCS14 {
 //
 union DCIC2_DCICRCS15 {
   
-  // Enum definitions.
-  
   // Bit field definition.
   struct {
     uint32_t CALCULATED_SIGNATURE : 32;
-  } bits;          // Bit-field struct (auto-filling reserved gaps)
+  } bits;
   
   // Full 32-bit register value.
   uint32_t value;
@@ -1528,12 +1440,10 @@ union DCIC2_DCICRCS15 {
 //
 union DCIC2_DCICRCS16 {
   
-  // Enum definitions.
-  
   // Bit field definition.
   struct {
     uint32_t CALCULATED_SIGNATURE : 32;
-  } bits;          // Bit-field struct (auto-filling reserved gaps)
+  } bits;
   
   // Full 32-bit register value.
   uint32_t value;

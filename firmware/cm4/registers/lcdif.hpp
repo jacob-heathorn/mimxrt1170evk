@@ -15,39 +15,44 @@ namespace nLCDIF {
 //
 union LCDIF_CTRL {
   
-  // Enum definitions.
   enum class eDATA_FORMAT_24_BIT : uint32_t {
     eALL_24_BITS_VALID = 0, // Data input to the block is in 24 bpp format, such that all RGB 888 data is contained in 24 bits.
     eDROP_UPPER_2_BITS_PER_BYTE = 1, // Data input to the block is actually RGB 18 bpp, but there is 1 color per byte, hence the upper 2 bits in each byte do not contain any useful data, and should be dropped.
   };
+  
   enum class eDATA_FORMAT_18_BIT : uint32_t {
     eLOWER_18_BITS_VALID = 0, // Data input to the block is in 18 bpp format, such that lower 18 bits contain RGB 666 and upper 14 bits do not contain any useful data.
     eUPPER_18_BITS_VALID = 1, // Data input to the block is in 18 bpp format, such that upper 18 bits contain RGB 666 and lower 14 bits do not contain any useful data.
   };
+  
   enum class eWORD_LENGTH : uint32_t {
     e16_BIT = 0, // Input data is 16 bits per pixel.
     e8_BIT = 1, // Input data is 8 bits wide.
     e18_BIT = 2, // Input data is 18 bits per pixel.
     e24_BIT = 3, // Input data is 24 bits per pixel.
   };
+  
   enum class eLCD_DATABUS_WIDTH : uint32_t {
     e16_BIT = 0, // 16-bit data bus mode.
     e8_BIT = 1, // 8-bit data bus mode.
     e18_BIT = 2, // 18-bit data bus mode.
     e24_BIT = 3, // 24-bit data bus mode.
   };
+  
   enum class eCSC_DATA_SWIZZLE : uint32_t {
     eNO_SWAP = 0, // No byte swapping.(Little endian)
     eBIG_ENDIAN_SWAP = 1, // Big Endian swap (swap bytes 0,3 and 1,2).
     eHWD_SWAP = 2, // Swap half-words.
     eHWD_BYTE_SWAP = 3, // Swap bytes within each half-word.
   };
+  
   enum class eINPUT_DATA_SWIZZLE : uint32_t {
     eNO_SWAP = 0, // No byte swapping.(Little endian)
     eBIG_ENDIAN_SWAP = 1, // Big Endian swap (swap bytes 0,3 and 1,2).
     eHWD_SWAP = 2, // Swap half-words.
     eHWD_BYTE_SWAP = 3, // Swap bytes within each half-word.
   };
+  
   enum class eDATA_SHIFT_DIR : uint32_t {
     eTXDATA_SHIFT_LEFT = 0, // Data to be transmitted is shifted LEFT by SHIFT_NUM_BITS bits.
     eTXDATA_SHIFT_RIGHT = 1, // Data to be transmitted is shifted RIGHT by SHIFT_NUM_BITS bits.
@@ -77,7 +82,7 @@ union LCDIF_CTRL {
     uint32_t _reserved_14 : 3;
     uint32_t CLKGATE : 1;
     uint32_t SFTRST : 1;
-  } bits;          // Bit-field struct (auto-filling reserved gaps)
+  } bits;
   
   // Full 32-bit register value.
   uint32_t value;
@@ -91,39 +96,44 @@ union LCDIF_CTRL {
 //
 union LCDIF_CTRL_SET {
   
-  // Enum definitions.
   enum class eDATA_FORMAT_24_BIT : uint32_t {
     eALL_24_BITS_VALID = 0, // Data input to the block is in 24 bpp format, such that all RGB 888 data is contained in 24 bits.
     eDROP_UPPER_2_BITS_PER_BYTE = 1, // Data input to the block is actually RGB 18 bpp, but there is 1 color per byte, hence the upper 2 bits in each byte do not contain any useful data, and should be dropped.
   };
+  
   enum class eDATA_FORMAT_18_BIT : uint32_t {
     eLOWER_18_BITS_VALID = 0, // Data input to the block is in 18 bpp format, such that lower 18 bits contain RGB 666 and upper 14 bits do not contain any useful data.
     eUPPER_18_BITS_VALID = 1, // Data input to the block is in 18 bpp format, such that upper 18 bits contain RGB 666 and lower 14 bits do not contain any useful data.
   };
+  
   enum class eWORD_LENGTH : uint32_t {
     e16_BIT = 0, // Input data is 16 bits per pixel.
     e8_BIT = 1, // Input data is 8 bits wide.
     e18_BIT = 2, // Input data is 18 bits per pixel.
     e24_BIT = 3, // Input data is 24 bits per pixel.
   };
+  
   enum class eLCD_DATABUS_WIDTH : uint32_t {
     e16_BIT = 0, // 16-bit data bus mode.
     e8_BIT = 1, // 8-bit data bus mode.
     e18_BIT = 2, // 18-bit data bus mode.
     e24_BIT = 3, // 24-bit data bus mode.
   };
+  
   enum class eCSC_DATA_SWIZZLE : uint32_t {
     eNO_SWAP = 0, // No byte swapping.(Little endian)
     eBIG_ENDIAN_SWAP = 1, // Big Endian swap (swap bytes 0,3 and 1,2).
     eHWD_SWAP = 2, // Swap half-words.
     eHWD_BYTE_SWAP = 3, // Swap bytes within each half-word.
   };
+  
   enum class eINPUT_DATA_SWIZZLE : uint32_t {
     eNO_SWAP = 0, // No byte swapping.(Little endian)
     eBIG_ENDIAN_SWAP = 1, // Big Endian swap (swap bytes 0,3 and 1,2).
     eHWD_SWAP = 2, // Swap half-words.
     eHWD_BYTE_SWAP = 3, // Swap bytes within each half-word.
   };
+  
   enum class eDATA_SHIFT_DIR : uint32_t {
     eTXDATA_SHIFT_LEFT = 0, // Data to be transmitted is shifted LEFT by SHIFT_NUM_BITS bits.
     eTXDATA_SHIFT_RIGHT = 1, // Data to be transmitted is shifted RIGHT by SHIFT_NUM_BITS bits.
@@ -153,7 +163,7 @@ union LCDIF_CTRL_SET {
     uint32_t _reserved_14 : 3;
     uint32_t CLKGATE : 1;
     uint32_t SFTRST : 1;
-  } bits;          // Bit-field struct (auto-filling reserved gaps)
+  } bits;
   
   // Full 32-bit register value.
   uint32_t value;
@@ -167,39 +177,44 @@ union LCDIF_CTRL_SET {
 //
 union LCDIF_CTRL_CLR {
   
-  // Enum definitions.
   enum class eDATA_FORMAT_24_BIT : uint32_t {
     eALL_24_BITS_VALID = 0, // Data input to the block is in 24 bpp format, such that all RGB 888 data is contained in 24 bits.
     eDROP_UPPER_2_BITS_PER_BYTE = 1, // Data input to the block is actually RGB 18 bpp, but there is 1 color per byte, hence the upper 2 bits in each byte do not contain any useful data, and should be dropped.
   };
+  
   enum class eDATA_FORMAT_18_BIT : uint32_t {
     eLOWER_18_BITS_VALID = 0, // Data input to the block is in 18 bpp format, such that lower 18 bits contain RGB 666 and upper 14 bits do not contain any useful data.
     eUPPER_18_BITS_VALID = 1, // Data input to the block is in 18 bpp format, such that upper 18 bits contain RGB 666 and lower 14 bits do not contain any useful data.
   };
+  
   enum class eWORD_LENGTH : uint32_t {
     e16_BIT = 0, // Input data is 16 bits per pixel.
     e8_BIT = 1, // Input data is 8 bits wide.
     e18_BIT = 2, // Input data is 18 bits per pixel.
     e24_BIT = 3, // Input data is 24 bits per pixel.
   };
+  
   enum class eLCD_DATABUS_WIDTH : uint32_t {
     e16_BIT = 0, // 16-bit data bus mode.
     e8_BIT = 1, // 8-bit data bus mode.
     e18_BIT = 2, // 18-bit data bus mode.
     e24_BIT = 3, // 24-bit data bus mode.
   };
+  
   enum class eCSC_DATA_SWIZZLE : uint32_t {
     eNO_SWAP = 0, // No byte swapping.(Little endian)
     eBIG_ENDIAN_SWAP = 1, // Big Endian swap (swap bytes 0,3 and 1,2).
     eHWD_SWAP = 2, // Swap half-words.
     eHWD_BYTE_SWAP = 3, // Swap bytes within each half-word.
   };
+  
   enum class eINPUT_DATA_SWIZZLE : uint32_t {
     eNO_SWAP = 0, // No byte swapping.(Little endian)
     eBIG_ENDIAN_SWAP = 1, // Big Endian swap (swap bytes 0,3 and 1,2).
     eHWD_SWAP = 2, // Swap half-words.
     eHWD_BYTE_SWAP = 3, // Swap bytes within each half-word.
   };
+  
   enum class eDATA_SHIFT_DIR : uint32_t {
     eTXDATA_SHIFT_LEFT = 0, // Data to be transmitted is shifted LEFT by SHIFT_NUM_BITS bits.
     eTXDATA_SHIFT_RIGHT = 1, // Data to be transmitted is shifted RIGHT by SHIFT_NUM_BITS bits.
@@ -229,7 +244,7 @@ union LCDIF_CTRL_CLR {
     uint32_t _reserved_14 : 3;
     uint32_t CLKGATE : 1;
     uint32_t SFTRST : 1;
-  } bits;          // Bit-field struct (auto-filling reserved gaps)
+  } bits;
   
   // Full 32-bit register value.
   uint32_t value;
@@ -243,39 +258,44 @@ union LCDIF_CTRL_CLR {
 //
 union LCDIF_CTRL_TOG {
   
-  // Enum definitions.
   enum class eDATA_FORMAT_24_BIT : uint32_t {
     eALL_24_BITS_VALID = 0, // Data input to the block is in 24 bpp format, such that all RGB 888 data is contained in 24 bits.
     eDROP_UPPER_2_BITS_PER_BYTE = 1, // Data input to the block is actually RGB 18 bpp, but there is 1 color per byte, hence the upper 2 bits in each byte do not contain any useful data, and should be dropped.
   };
+  
   enum class eDATA_FORMAT_18_BIT : uint32_t {
     eLOWER_18_BITS_VALID = 0, // Data input to the block is in 18 bpp format, such that lower 18 bits contain RGB 666 and upper 14 bits do not contain any useful data.
     eUPPER_18_BITS_VALID = 1, // Data input to the block is in 18 bpp format, such that upper 18 bits contain RGB 666 and lower 14 bits do not contain any useful data.
   };
+  
   enum class eWORD_LENGTH : uint32_t {
     e16_BIT = 0, // Input data is 16 bits per pixel.
     e8_BIT = 1, // Input data is 8 bits wide.
     e18_BIT = 2, // Input data is 18 bits per pixel.
     e24_BIT = 3, // Input data is 24 bits per pixel.
   };
+  
   enum class eLCD_DATABUS_WIDTH : uint32_t {
     e16_BIT = 0, // 16-bit data bus mode.
     e8_BIT = 1, // 8-bit data bus mode.
     e18_BIT = 2, // 18-bit data bus mode.
     e24_BIT = 3, // 24-bit data bus mode.
   };
+  
   enum class eCSC_DATA_SWIZZLE : uint32_t {
     eNO_SWAP = 0, // No byte swapping.(Little endian)
     eBIG_ENDIAN_SWAP = 1, // Big Endian swap (swap bytes 0,3 and 1,2).
     eHWD_SWAP = 2, // Swap half-words.
     eHWD_BYTE_SWAP = 3, // Swap bytes within each half-word.
   };
+  
   enum class eINPUT_DATA_SWIZZLE : uint32_t {
     eNO_SWAP = 0, // No byte swapping.(Little endian)
     eBIG_ENDIAN_SWAP = 1, // Big Endian swap (swap bytes 0,3 and 1,2).
     eHWD_SWAP = 2, // Swap half-words.
     eHWD_BYTE_SWAP = 3, // Swap bytes within each half-word.
   };
+  
   enum class eDATA_SHIFT_DIR : uint32_t {
     eTXDATA_SHIFT_LEFT = 0, // Data to be transmitted is shifted LEFT by SHIFT_NUM_BITS bits.
     eTXDATA_SHIFT_RIGHT = 1, // Data to be transmitted is shifted RIGHT by SHIFT_NUM_BITS bits.
@@ -305,7 +325,7 @@ union LCDIF_CTRL_TOG {
     uint32_t _reserved_14 : 3;
     uint32_t CLKGATE : 1;
     uint32_t SFTRST : 1;
-  } bits;          // Bit-field struct (auto-filling reserved gaps)
+  } bits;
   
   // Full 32-bit register value.
   uint32_t value;
@@ -319,23 +339,26 @@ union LCDIF_CTRL_TOG {
 //
 union LCDIF_CTRL1 {
   
-  // Enum definitions.
   enum class eVSYNC_EDGE_IRQ : uint32_t {
     eNO_REQUEST = 0, // No Interrupt Request Pending.
     eREQUEST = 1, // Interrupt Request Pending.
   };
+  
   enum class eCUR_FRAME_DONE_IRQ : uint32_t {
     eNO_REQUEST = 0, // No Interrupt Request Pending.
     eREQUEST = 1, // Interrupt Request Pending.
   };
+  
   enum class eUNDERFLOW_IRQ : uint32_t {
     eNO_REQUEST = 0, // No Interrupt Request Pending.
     eREQUEST = 1, // Interrupt Request Pending.
   };
+  
   enum class eOVERFLOW_IRQ : uint32_t {
     eNO_REQUEST = 0, // No Interrupt Request Pending.
     eREQUEST = 1, // Interrupt Request Pending.
   };
+  
   enum class eBM_ERROR_IRQ : uint32_t {
     eNO_REQUEST = 0, // No Interrupt Request Pending.
     eREQUEST = 1, // Interrupt Request Pending.
@@ -363,7 +386,7 @@ union LCDIF_CTRL1 {
     uint32_t _reserved_16 : 3;
     uint32_t CS_OUT_SELECT : 1;
     uint32_t IMAGE_DATA_SELECT : 1;
-  } bits;          // Bit-field struct (auto-filling reserved gaps)
+  } bits;
   
   // Full 32-bit register value.
   uint32_t value;
@@ -377,23 +400,26 @@ union LCDIF_CTRL1 {
 //
 union LCDIF_CTRL1_SET {
   
-  // Enum definitions.
   enum class eVSYNC_EDGE_IRQ : uint32_t {
     eNO_REQUEST = 0, // No Interrupt Request Pending.
     eREQUEST = 1, // Interrupt Request Pending.
   };
+  
   enum class eCUR_FRAME_DONE_IRQ : uint32_t {
     eNO_REQUEST = 0, // No Interrupt Request Pending.
     eREQUEST = 1, // Interrupt Request Pending.
   };
+  
   enum class eUNDERFLOW_IRQ : uint32_t {
     eNO_REQUEST = 0, // No Interrupt Request Pending.
     eREQUEST = 1, // Interrupt Request Pending.
   };
+  
   enum class eOVERFLOW_IRQ : uint32_t {
     eNO_REQUEST = 0, // No Interrupt Request Pending.
     eREQUEST = 1, // Interrupt Request Pending.
   };
+  
   enum class eBM_ERROR_IRQ : uint32_t {
     eNO_REQUEST = 0, // No Interrupt Request Pending.
     eREQUEST = 1, // Interrupt Request Pending.
@@ -421,7 +447,7 @@ union LCDIF_CTRL1_SET {
     uint32_t _reserved_16 : 3;
     uint32_t CS_OUT_SELECT : 1;
     uint32_t IMAGE_DATA_SELECT : 1;
-  } bits;          // Bit-field struct (auto-filling reserved gaps)
+  } bits;
   
   // Full 32-bit register value.
   uint32_t value;
@@ -435,23 +461,26 @@ union LCDIF_CTRL1_SET {
 //
 union LCDIF_CTRL1_CLR {
   
-  // Enum definitions.
   enum class eVSYNC_EDGE_IRQ : uint32_t {
     eNO_REQUEST = 0, // No Interrupt Request Pending.
     eREQUEST = 1, // Interrupt Request Pending.
   };
+  
   enum class eCUR_FRAME_DONE_IRQ : uint32_t {
     eNO_REQUEST = 0, // No Interrupt Request Pending.
     eREQUEST = 1, // Interrupt Request Pending.
   };
+  
   enum class eUNDERFLOW_IRQ : uint32_t {
     eNO_REQUEST = 0, // No Interrupt Request Pending.
     eREQUEST = 1, // Interrupt Request Pending.
   };
+  
   enum class eOVERFLOW_IRQ : uint32_t {
     eNO_REQUEST = 0, // No Interrupt Request Pending.
     eREQUEST = 1, // Interrupt Request Pending.
   };
+  
   enum class eBM_ERROR_IRQ : uint32_t {
     eNO_REQUEST = 0, // No Interrupt Request Pending.
     eREQUEST = 1, // Interrupt Request Pending.
@@ -479,7 +508,7 @@ union LCDIF_CTRL1_CLR {
     uint32_t _reserved_16 : 3;
     uint32_t CS_OUT_SELECT : 1;
     uint32_t IMAGE_DATA_SELECT : 1;
-  } bits;          // Bit-field struct (auto-filling reserved gaps)
+  } bits;
   
   // Full 32-bit register value.
   uint32_t value;
@@ -493,23 +522,26 @@ union LCDIF_CTRL1_CLR {
 //
 union LCDIF_CTRL1_TOG {
   
-  // Enum definitions.
   enum class eVSYNC_EDGE_IRQ : uint32_t {
     eNO_REQUEST = 0, // No Interrupt Request Pending.
     eREQUEST = 1, // Interrupt Request Pending.
   };
+  
   enum class eCUR_FRAME_DONE_IRQ : uint32_t {
     eNO_REQUEST = 0, // No Interrupt Request Pending.
     eREQUEST = 1, // Interrupt Request Pending.
   };
+  
   enum class eUNDERFLOW_IRQ : uint32_t {
     eNO_REQUEST = 0, // No Interrupt Request Pending.
     eREQUEST = 1, // Interrupt Request Pending.
   };
+  
   enum class eOVERFLOW_IRQ : uint32_t {
     eNO_REQUEST = 0, // No Interrupt Request Pending.
     eREQUEST = 1, // Interrupt Request Pending.
   };
+  
   enum class eBM_ERROR_IRQ : uint32_t {
     eNO_REQUEST = 0, // No Interrupt Request Pending.
     eREQUEST = 1, // Interrupt Request Pending.
@@ -537,7 +569,7 @@ union LCDIF_CTRL1_TOG {
     uint32_t _reserved_16 : 3;
     uint32_t CS_OUT_SELECT : 1;
     uint32_t IMAGE_DATA_SELECT : 1;
-  } bits;          // Bit-field struct (auto-filling reserved gaps)
+  } bits;
   
   // Full 32-bit register value.
   uint32_t value;
@@ -551,7 +583,6 @@ union LCDIF_CTRL1_TOG {
 //
 union LCDIF_CTRL2 {
   
-  // Enum definitions.
   enum class eEVEN_LINE_PATTERN : uint32_t {
     eRGB = 0, // RGB
     eRBG = 1, // RBG
@@ -560,6 +591,7 @@ union LCDIF_CTRL2 {
     eBRG = 4, // BRG
     eBGR = 5, // BGR
   };
+  
   enum class eODD_LINE_PATTERN : uint32_t {
     eRGB = 0, // RGB
     eRBG = 1, // RBG
@@ -568,6 +600,7 @@ union LCDIF_CTRL2 {
     eBRG = 4, // BRG
     eBGR = 5, // BGR
   };
+  
   enum class eOUTSTANDING_REQS : uint32_t {
     eREQ_1 = 0, // REQ_1
     eREQ_2 = 1, // REQ_2
@@ -586,7 +619,7 @@ union LCDIF_CTRL2 {
     uint32_t BURST_LEN_8 : 1;
     eOUTSTANDING_REQS OUTSTANDING_REQS : 3;
     uint32_t _reserved_end : 8;
-  } bits;          // Bit-field struct (auto-filling reserved gaps)
+  } bits;
   
   // Full 32-bit register value.
   uint32_t value;
@@ -600,7 +633,6 @@ union LCDIF_CTRL2 {
 //
 union LCDIF_CTRL2_SET {
   
-  // Enum definitions.
   enum class eEVEN_LINE_PATTERN : uint32_t {
     eRGB = 0, // RGB
     eRBG = 1, // RBG
@@ -609,6 +641,7 @@ union LCDIF_CTRL2_SET {
     eBRG = 4, // BRG
     eBGR = 5, // BGR
   };
+  
   enum class eODD_LINE_PATTERN : uint32_t {
     eRGB = 0, // RGB
     eRBG = 1, // RBG
@@ -617,6 +650,7 @@ union LCDIF_CTRL2_SET {
     eBRG = 4, // BRG
     eBGR = 5, // BGR
   };
+  
   enum class eOUTSTANDING_REQS : uint32_t {
     eREQ_1 = 0, // REQ_1
     eREQ_2 = 1, // REQ_2
@@ -635,7 +669,7 @@ union LCDIF_CTRL2_SET {
     uint32_t BURST_LEN_8 : 1;
     eOUTSTANDING_REQS OUTSTANDING_REQS : 3;
     uint32_t _reserved_end : 8;
-  } bits;          // Bit-field struct (auto-filling reserved gaps)
+  } bits;
   
   // Full 32-bit register value.
   uint32_t value;
@@ -649,7 +683,6 @@ union LCDIF_CTRL2_SET {
 //
 union LCDIF_CTRL2_CLR {
   
-  // Enum definitions.
   enum class eEVEN_LINE_PATTERN : uint32_t {
     eRGB = 0, // RGB
     eRBG = 1, // RBG
@@ -658,6 +691,7 @@ union LCDIF_CTRL2_CLR {
     eBRG = 4, // BRG
     eBGR = 5, // BGR
   };
+  
   enum class eODD_LINE_PATTERN : uint32_t {
     eRGB = 0, // RGB
     eRBG = 1, // RBG
@@ -666,6 +700,7 @@ union LCDIF_CTRL2_CLR {
     eBRG = 4, // BRG
     eBGR = 5, // BGR
   };
+  
   enum class eOUTSTANDING_REQS : uint32_t {
     eREQ_1 = 0, // REQ_1
     eREQ_2 = 1, // REQ_2
@@ -684,7 +719,7 @@ union LCDIF_CTRL2_CLR {
     uint32_t BURST_LEN_8 : 1;
     eOUTSTANDING_REQS OUTSTANDING_REQS : 3;
     uint32_t _reserved_end : 8;
-  } bits;          // Bit-field struct (auto-filling reserved gaps)
+  } bits;
   
   // Full 32-bit register value.
   uint32_t value;
@@ -698,7 +733,6 @@ union LCDIF_CTRL2_CLR {
 //
 union LCDIF_CTRL2_TOG {
   
-  // Enum definitions.
   enum class eEVEN_LINE_PATTERN : uint32_t {
     eRGB = 0, // RGB
     eRBG = 1, // RBG
@@ -707,6 +741,7 @@ union LCDIF_CTRL2_TOG {
     eBRG = 4, // BRG
     eBGR = 5, // BGR
   };
+  
   enum class eODD_LINE_PATTERN : uint32_t {
     eRGB = 0, // RGB
     eRBG = 1, // RBG
@@ -715,6 +750,7 @@ union LCDIF_CTRL2_TOG {
     eBRG = 4, // BRG
     eBGR = 5, // BGR
   };
+  
   enum class eOUTSTANDING_REQS : uint32_t {
     eREQ_1 = 0, // REQ_1
     eREQ_2 = 1, // REQ_2
@@ -733,7 +769,7 @@ union LCDIF_CTRL2_TOG {
     uint32_t BURST_LEN_8 : 1;
     eOUTSTANDING_REQS OUTSTANDING_REQS : 3;
     uint32_t _reserved_end : 8;
-  } bits;          // Bit-field struct (auto-filling reserved gaps)
+  } bits;
   
   // Full 32-bit register value.
   uint32_t value;
@@ -747,13 +783,11 @@ union LCDIF_CTRL2_TOG {
 //
 union LCDIF_TRANSFER_COUNT {
   
-  // Enum definitions.
-  
   // Bit field definition.
   struct {
     uint32_t H_COUNT : 16;
     uint32_t V_COUNT : 16;
-  } bits;          // Bit-field struct (auto-filling reserved gaps)
+  } bits;
   
   // Full 32-bit register value.
   uint32_t value;
@@ -767,12 +801,10 @@ union LCDIF_TRANSFER_COUNT {
 //
 union LCDIF_CUR_BUF {
   
-  // Enum definitions.
-  
   // Bit field definition.
   struct {
     uint32_t ADDR : 32;
-  } bits;          // Bit-field struct (auto-filling reserved gaps)
+  } bits;
   
   // Full 32-bit register value.
   uint32_t value;
@@ -786,12 +818,10 @@ union LCDIF_CUR_BUF {
 //
 union LCDIF_NEXT_BUF {
   
-  // Enum definitions.
-  
   // Bit field definition.
   struct {
     uint32_t ADDR : 32;
-  } bits;          // Bit-field struct (auto-filling reserved gaps)
+  } bits;
   
   // Full 32-bit register value.
   uint32_t value;
@@ -805,7 +835,6 @@ union LCDIF_NEXT_BUF {
 //
 union LCDIF_VDCTRL0 {
   
-  // Enum definitions.
   enum class eVSYNC_OEB : uint32_t {
     eVSYNC_OUTPUT = 0, // The VSYNC pin is in the output mode and the VSYNC signal has to be generated by the LCDIF block.
     eVSYNC_INPUT = 1, // The VSYNC pin is in the input mode and the LCD controller sends the VSYNC signal to the block.
@@ -826,7 +855,7 @@ union LCDIF_VDCTRL0 {
     uint32_t ENABLE_PRESENT : 1;
     eVSYNC_OEB VSYNC_OEB : 1;
     uint32_t _reserved_end : 2;
-  } bits;          // Bit-field struct (auto-filling reserved gaps)
+  } bits;
   
   // Full 32-bit register value.
   uint32_t value;
@@ -840,7 +869,6 @@ union LCDIF_VDCTRL0 {
 //
 union LCDIF_VDCTRL0_SET {
   
-  // Enum definitions.
   enum class eVSYNC_OEB : uint32_t {
     eVSYNC_OUTPUT = 0, // The VSYNC pin is in the output mode and the VSYNC signal has to be generated by the LCDIF block.
     eVSYNC_INPUT = 1, // The VSYNC pin is in the input mode and the LCD controller sends the VSYNC signal to the block.
@@ -861,7 +889,7 @@ union LCDIF_VDCTRL0_SET {
     uint32_t ENABLE_PRESENT : 1;
     eVSYNC_OEB VSYNC_OEB : 1;
     uint32_t _reserved_end : 2;
-  } bits;          // Bit-field struct (auto-filling reserved gaps)
+  } bits;
   
   // Full 32-bit register value.
   uint32_t value;
@@ -875,7 +903,6 @@ union LCDIF_VDCTRL0_SET {
 //
 union LCDIF_VDCTRL0_CLR {
   
-  // Enum definitions.
   enum class eVSYNC_OEB : uint32_t {
     eVSYNC_OUTPUT = 0, // The VSYNC pin is in the output mode and the VSYNC signal has to be generated by the LCDIF block.
     eVSYNC_INPUT = 1, // The VSYNC pin is in the input mode and the LCD controller sends the VSYNC signal to the block.
@@ -896,7 +923,7 @@ union LCDIF_VDCTRL0_CLR {
     uint32_t ENABLE_PRESENT : 1;
     eVSYNC_OEB VSYNC_OEB : 1;
     uint32_t _reserved_end : 2;
-  } bits;          // Bit-field struct (auto-filling reserved gaps)
+  } bits;
   
   // Full 32-bit register value.
   uint32_t value;
@@ -910,7 +937,6 @@ union LCDIF_VDCTRL0_CLR {
 //
 union LCDIF_VDCTRL0_TOG {
   
-  // Enum definitions.
   enum class eVSYNC_OEB : uint32_t {
     eVSYNC_OUTPUT = 0, // The VSYNC pin is in the output mode and the VSYNC signal has to be generated by the LCDIF block.
     eVSYNC_INPUT = 1, // The VSYNC pin is in the input mode and the LCD controller sends the VSYNC signal to the block.
@@ -931,7 +957,7 @@ union LCDIF_VDCTRL0_TOG {
     uint32_t ENABLE_PRESENT : 1;
     eVSYNC_OEB VSYNC_OEB : 1;
     uint32_t _reserved_end : 2;
-  } bits;          // Bit-field struct (auto-filling reserved gaps)
+  } bits;
   
   // Full 32-bit register value.
   uint32_t value;
@@ -945,12 +971,10 @@ union LCDIF_VDCTRL0_TOG {
 //
 union LCDIF_VDCTRL1 {
   
-  // Enum definitions.
-  
   // Bit field definition.
   struct {
     uint32_t VSYNC_PERIOD : 32;
-  } bits;          // Bit-field struct (auto-filling reserved gaps)
+  } bits;
   
   // Full 32-bit register value.
   uint32_t value;
@@ -964,13 +988,11 @@ union LCDIF_VDCTRL1 {
 //
 union LCDIF_VDCTRL2 {
   
-  // Enum definitions.
-  
   // Bit field definition.
   struct {
     uint32_t HSYNC_PERIOD : 18;
     uint32_t HSYNC_PULSE_WIDTH : 14;
-  } bits;          // Bit-field struct (auto-filling reserved gaps)
+  } bits;
   
   // Full 32-bit register value.
   uint32_t value;
@@ -984,8 +1006,6 @@ union LCDIF_VDCTRL2 {
 //
 union LCDIF_VDCTRL3 {
   
-  // Enum definitions.
-  
   // Bit field definition.
   struct {
     uint32_t VERTICAL_WAIT_CNT : 16;
@@ -993,7 +1013,7 @@ union LCDIF_VDCTRL3 {
     uint32_t VSYNC_ONLY : 1;
     uint32_t MUX_SYNC_SIGNALS : 1;
     uint32_t _reserved_end : 2;
-  } bits;          // Bit-field struct (auto-filling reserved gaps)
+  } bits;
   
   // Full 32-bit register value.
   uint32_t value;
@@ -1007,15 +1027,13 @@ union LCDIF_VDCTRL3 {
 //
 union LCDIF_VDCTRL4 {
   
-  // Enum definitions.
-  
   // Bit field definition.
   struct {
     uint32_t DOTCLK_H_VALID_DATA_CNT : 18;
     uint32_t SYNC_SIGNALS_ON : 1;
     uint32_t _reserved_2 : 10;
     uint32_t DOTCLK_DLY_SEL : 3;
-  } bits;          // Bit-field struct (auto-filling reserved gaps)
+  } bits;
   
   // Full 32-bit register value.
   uint32_t value;
@@ -1029,12 +1047,10 @@ union LCDIF_VDCTRL4 {
 //
 union LCDIF_BM_ERROR_STAT {
   
-  // Enum definitions.
-  
   // Bit field definition.
   struct {
     uint32_t ADDR : 32;
-  } bits;          // Bit-field struct (auto-filling reserved gaps)
+  } bits;
   
   // Full 32-bit register value.
   uint32_t value;
@@ -1048,12 +1064,10 @@ union LCDIF_BM_ERROR_STAT {
 //
 union LCDIF_CRC_STAT {
   
-  // Enum definitions.
-  
   // Bit field definition.
   struct {
     uint32_t CRC_VALUE : 32;
-  } bits;          // Bit-field struct (auto-filling reserved gaps)
+  } bits;
   
   // Full 32-bit register value.
   uint32_t value;
@@ -1067,8 +1081,6 @@ union LCDIF_CRC_STAT {
 //
 union LCDIF_STAT {
   
-  // Enum definitions.
-  
   // Bit field definition.
   struct {
     uint32_t LFIFO_COUNT : 9;
@@ -1079,7 +1091,7 @@ union LCDIF_STAT {
     uint32_t LFIFO_FULL : 1;
     uint32_t DMA_REQ : 1;
     uint32_t PRESENT : 1;
-  } bits;          // Bit-field struct (auto-filling reserved gaps)
+  } bits;
   
   // Full 32-bit register value.
   uint32_t value;
@@ -1093,14 +1105,12 @@ union LCDIF_STAT {
 //
 union LCDIF_THRES {
   
-  // Enum definitions.
-  
   // Bit field definition.
   struct {
     uint32_t _reserved_0 : 16;
     uint32_t FASTCLOCK : 9;
     uint32_t _reserved_end : 7;
-  } bits;          // Bit-field struct (auto-filling reserved gaps)
+  } bits;
   
   // Full 32-bit register value.
   uint32_t value;
@@ -1114,15 +1124,13 @@ union LCDIF_THRES {
 //
 union LCDIF_PIGEONCTRL0 {
   
-  // Enum definitions.
-  
   // Bit field definition.
   struct {
     uint32_t FD_PERIOD : 12;
     uint32_t _reserved_1 : 4;
     uint32_t LD_PERIOD : 12;
     uint32_t _reserved_end : 4;
-  } bits;          // Bit-field struct (auto-filling reserved gaps)
+  } bits;
   
   // Full 32-bit register value.
   uint32_t value;
@@ -1136,15 +1144,13 @@ union LCDIF_PIGEONCTRL0 {
 //
 union LCDIF_PIGEONCTRL0_SET {
   
-  // Enum definitions.
-  
   // Bit field definition.
   struct {
     uint32_t FD_PERIOD : 12;
     uint32_t _reserved_1 : 4;
     uint32_t LD_PERIOD : 12;
     uint32_t _reserved_end : 4;
-  } bits;          // Bit-field struct (auto-filling reserved gaps)
+  } bits;
   
   // Full 32-bit register value.
   uint32_t value;
@@ -1158,15 +1164,13 @@ union LCDIF_PIGEONCTRL0_SET {
 //
 union LCDIF_PIGEONCTRL0_CLR {
   
-  // Enum definitions.
-  
   // Bit field definition.
   struct {
     uint32_t FD_PERIOD : 12;
     uint32_t _reserved_1 : 4;
     uint32_t LD_PERIOD : 12;
     uint32_t _reserved_end : 4;
-  } bits;          // Bit-field struct (auto-filling reserved gaps)
+  } bits;
   
   // Full 32-bit register value.
   uint32_t value;
@@ -1180,15 +1184,13 @@ union LCDIF_PIGEONCTRL0_CLR {
 //
 union LCDIF_PIGEONCTRL0_TOG {
   
-  // Enum definitions.
-  
   // Bit field definition.
   struct {
     uint32_t FD_PERIOD : 12;
     uint32_t _reserved_1 : 4;
     uint32_t LD_PERIOD : 12;
     uint32_t _reserved_end : 4;
-  } bits;          // Bit-field struct (auto-filling reserved gaps)
+  } bits;
   
   // Full 32-bit register value.
   uint32_t value;
@@ -1202,15 +1204,13 @@ union LCDIF_PIGEONCTRL0_TOG {
 //
 union LCDIF_PIGEONCTRL1 {
   
-  // Enum definitions.
-  
   // Bit field definition.
   struct {
     uint32_t FRAME_CNT_PERIOD : 12;
     uint32_t _reserved_1 : 4;
     uint32_t FRAME_CNT_CYCLES : 12;
     uint32_t _reserved_end : 4;
-  } bits;          // Bit-field struct (auto-filling reserved gaps)
+  } bits;
   
   // Full 32-bit register value.
   uint32_t value;
@@ -1224,15 +1224,13 @@ union LCDIF_PIGEONCTRL1 {
 //
 union LCDIF_PIGEONCTRL1_SET {
   
-  // Enum definitions.
-  
   // Bit field definition.
   struct {
     uint32_t FRAME_CNT_PERIOD : 12;
     uint32_t _reserved_1 : 4;
     uint32_t FRAME_CNT_CYCLES : 12;
     uint32_t _reserved_end : 4;
-  } bits;          // Bit-field struct (auto-filling reserved gaps)
+  } bits;
   
   // Full 32-bit register value.
   uint32_t value;
@@ -1246,15 +1244,13 @@ union LCDIF_PIGEONCTRL1_SET {
 //
 union LCDIF_PIGEONCTRL1_CLR {
   
-  // Enum definitions.
-  
   // Bit field definition.
   struct {
     uint32_t FRAME_CNT_PERIOD : 12;
     uint32_t _reserved_1 : 4;
     uint32_t FRAME_CNT_CYCLES : 12;
     uint32_t _reserved_end : 4;
-  } bits;          // Bit-field struct (auto-filling reserved gaps)
+  } bits;
   
   // Full 32-bit register value.
   uint32_t value;
@@ -1268,15 +1264,13 @@ union LCDIF_PIGEONCTRL1_CLR {
 //
 union LCDIF_PIGEONCTRL1_TOG {
   
-  // Enum definitions.
-  
   // Bit field definition.
   struct {
     uint32_t FRAME_CNT_PERIOD : 12;
     uint32_t _reserved_1 : 4;
     uint32_t FRAME_CNT_CYCLES : 12;
     uint32_t _reserved_end : 4;
-  } bits;          // Bit-field struct (auto-filling reserved gaps)
+  } bits;
   
   // Full 32-bit register value.
   uint32_t value;
@@ -1290,14 +1284,12 @@ union LCDIF_PIGEONCTRL1_TOG {
 //
 union LCDIF_PIGEONCTRL2 {
   
-  // Enum definitions.
-  
   // Bit field definition.
   struct {
     uint32_t PIGEON_DATA_EN : 1;
     uint32_t PIGEON_CLK_GATE : 1;
     uint32_t _reserved_end : 30;
-  } bits;          // Bit-field struct (auto-filling reserved gaps)
+  } bits;
   
   // Full 32-bit register value.
   uint32_t value;
@@ -1311,14 +1303,12 @@ union LCDIF_PIGEONCTRL2 {
 //
 union LCDIF_PIGEONCTRL2_SET {
   
-  // Enum definitions.
-  
   // Bit field definition.
   struct {
     uint32_t PIGEON_DATA_EN : 1;
     uint32_t PIGEON_CLK_GATE : 1;
     uint32_t _reserved_end : 30;
-  } bits;          // Bit-field struct (auto-filling reserved gaps)
+  } bits;
   
   // Full 32-bit register value.
   uint32_t value;
@@ -1332,14 +1322,12 @@ union LCDIF_PIGEONCTRL2_SET {
 //
 union LCDIF_PIGEONCTRL2_CLR {
   
-  // Enum definitions.
-  
   // Bit field definition.
   struct {
     uint32_t PIGEON_DATA_EN : 1;
     uint32_t PIGEON_CLK_GATE : 1;
     uint32_t _reserved_end : 30;
-  } bits;          // Bit-field struct (auto-filling reserved gaps)
+  } bits;
   
   // Full 32-bit register value.
   uint32_t value;
@@ -1353,14 +1341,12 @@ union LCDIF_PIGEONCTRL2_CLR {
 //
 union LCDIF_PIGEONCTRL2_TOG {
   
-  // Enum definitions.
-  
   // Bit field definition.
   struct {
     uint32_t PIGEON_DATA_EN : 1;
     uint32_t PIGEON_CLK_GATE : 1;
     uint32_t _reserved_end : 30;
-  } bits;          // Bit-field struct (auto-filling reserved gaps)
+  } bits;
   
   // Full 32-bit register value.
   uint32_t value;
@@ -1374,17 +1360,18 @@ union LCDIF_PIGEONCTRL2_TOG {
 //
 union LCDIF_PIGEON_0_0 {
   
-  // Enum definitions.
   enum class ePOL : uint32_t {
     eACTIVE_HIGH = 0, // Normal Signal (Active high)
     eACTIVE_LOW = 1, // Inverted signal (Active low)
   };
+  
   enum class eINC_SEL : uint32_t {
     ePCLK = 0, // pclk
     eLINE = 1, // Line start pulse
     eFRAME = 2, // Frame start pulse
     eSIG_ANOTHER = 3, // Use another signal as tick event
   };
+  
   enum class eMASK_CNT_SEL : uint32_t {
     eHSTATE_CNT = 0, // pclk counter within one hscan state
     eHSTATE_CYCLE = 1, // pclk cycle within one hscan state
@@ -1395,6 +1382,7 @@ union LCDIF_PIGEON_0_0 {
     eHCNT = 6, // horizontal counter (pclk counter within one line )
     eVCNT = 7, // vertical counter (line counter within one frame)
   };
+  
   enum class eSTATE_MASK : uint32_t {
     eFS = 1, // FRAME SYNC
     eFB = 2, // FRAME BEGIN
@@ -1415,7 +1403,7 @@ union LCDIF_PIGEON_0_0 {
     eMASK_CNT_SEL MASK_CNT_SEL : 4;
     uint32_t MASK_CNT : 12;
     eSTATE_MASK STATE_MASK : 8;
-  } bits;          // Bit-field struct (auto-filling reserved gaps)
+  } bits;
   
   // Full 32-bit register value.
   uint32_t value;
@@ -1429,10 +1417,10 @@ union LCDIF_PIGEON_0_0 {
 //
 union LCDIF_PIGEON_0_1 {
   
-  // Enum definitions.
   enum class eSET_CNT : uint32_t {
     eSTART_ACTIVE = 0, // Start as active
   };
+  
   enum class eCLR_CNT : uint32_t {
     eCLEAR_USING_MASK = 0, // Keep active until mask off
   };
@@ -1441,7 +1429,7 @@ union LCDIF_PIGEON_0_1 {
   struct {
     eSET_CNT SET_CNT : 16;
     eCLR_CNT CLR_CNT : 16;
-  } bits;          // Bit-field struct (auto-filling reserved gaps)
+  } bits;
   
   // Full 32-bit register value.
   uint32_t value;
@@ -1455,13 +1443,13 @@ union LCDIF_PIGEON_0_1 {
 //
 union LCDIF_PIGEON_0_2 {
   
-  // Enum definitions.
   enum class eSIG_LOGIC : uint32_t {
     eDIS = 0, // No logic operation
     eAND = 1, // sigout = sig_another AND this_sig
     eOR = 2, // sigout = sig_another OR this_sig
     eMASK = 3, // mask = sig_another AND other_masks
   };
+  
   enum class eSIG_ANOTHER : uint32_t {
     eCLEAR_USING_MASK = 0, // Keep active until mask off
   };
@@ -1471,7 +1459,7 @@ union LCDIF_PIGEON_0_2 {
     eSIG_LOGIC SIG_LOGIC : 4;
     eSIG_ANOTHER SIG_ANOTHER : 5;
     uint32_t _reserved_end : 23;
-  } bits;          // Bit-field struct (auto-filling reserved gaps)
+  } bits;
   
   // Full 32-bit register value.
   uint32_t value;
@@ -1485,17 +1473,18 @@ union LCDIF_PIGEON_0_2 {
 //
 union LCDIF_PIGEON_1_0 {
   
-  // Enum definitions.
   enum class ePOL : uint32_t {
     eACTIVE_HIGH = 0, // Normal Signal (Active high)
     eACTIVE_LOW = 1, // Inverted signal (Active low)
   };
+  
   enum class eINC_SEL : uint32_t {
     ePCLK = 0, // pclk
     eLINE = 1, // Line start pulse
     eFRAME = 2, // Frame start pulse
     eSIG_ANOTHER = 3, // Use another signal as tick event
   };
+  
   enum class eMASK_CNT_SEL : uint32_t {
     eHSTATE_CNT = 0, // pclk counter within one hscan state
     eHSTATE_CYCLE = 1, // pclk cycle within one hscan state
@@ -1506,6 +1495,7 @@ union LCDIF_PIGEON_1_0 {
     eHCNT = 6, // horizontal counter (pclk counter within one line )
     eVCNT = 7, // vertical counter (line counter within one frame)
   };
+  
   enum class eSTATE_MASK : uint32_t {
     eFS = 1, // FRAME SYNC
     eFB = 2, // FRAME BEGIN
@@ -1526,7 +1516,7 @@ union LCDIF_PIGEON_1_0 {
     eMASK_CNT_SEL MASK_CNT_SEL : 4;
     uint32_t MASK_CNT : 12;
     eSTATE_MASK STATE_MASK : 8;
-  } bits;          // Bit-field struct (auto-filling reserved gaps)
+  } bits;
   
   // Full 32-bit register value.
   uint32_t value;
@@ -1540,10 +1530,10 @@ union LCDIF_PIGEON_1_0 {
 //
 union LCDIF_PIGEON_1_1 {
   
-  // Enum definitions.
   enum class eSET_CNT : uint32_t {
     eSTART_ACTIVE = 0, // Start as active
   };
+  
   enum class eCLR_CNT : uint32_t {
     eCLEAR_USING_MASK = 0, // Keep active until mask off
   };
@@ -1552,7 +1542,7 @@ union LCDIF_PIGEON_1_1 {
   struct {
     eSET_CNT SET_CNT : 16;
     eCLR_CNT CLR_CNT : 16;
-  } bits;          // Bit-field struct (auto-filling reserved gaps)
+  } bits;
   
   // Full 32-bit register value.
   uint32_t value;
@@ -1566,13 +1556,13 @@ union LCDIF_PIGEON_1_1 {
 //
 union LCDIF_PIGEON_1_2 {
   
-  // Enum definitions.
   enum class eSIG_LOGIC : uint32_t {
     eDIS = 0, // No logic operation
     eAND = 1, // sigout = sig_another AND this_sig
     eOR = 2, // sigout = sig_another OR this_sig
     eMASK = 3, // mask = sig_another AND other_masks
   };
+  
   enum class eSIG_ANOTHER : uint32_t {
     eCLEAR_USING_MASK = 0, // Keep active until mask off
   };
@@ -1582,7 +1572,7 @@ union LCDIF_PIGEON_1_2 {
     eSIG_LOGIC SIG_LOGIC : 4;
     eSIG_ANOTHER SIG_ANOTHER : 5;
     uint32_t _reserved_end : 23;
-  } bits;          // Bit-field struct (auto-filling reserved gaps)
+  } bits;
   
   // Full 32-bit register value.
   uint32_t value;
@@ -1596,17 +1586,18 @@ union LCDIF_PIGEON_1_2 {
 //
 union LCDIF_PIGEON_2_0 {
   
-  // Enum definitions.
   enum class ePOL : uint32_t {
     eACTIVE_HIGH = 0, // Normal Signal (Active high)
     eACTIVE_LOW = 1, // Inverted signal (Active low)
   };
+  
   enum class eINC_SEL : uint32_t {
     ePCLK = 0, // pclk
     eLINE = 1, // Line start pulse
     eFRAME = 2, // Frame start pulse
     eSIG_ANOTHER = 3, // Use another signal as tick event
   };
+  
   enum class eMASK_CNT_SEL : uint32_t {
     eHSTATE_CNT = 0, // pclk counter within one hscan state
     eHSTATE_CYCLE = 1, // pclk cycle within one hscan state
@@ -1617,6 +1608,7 @@ union LCDIF_PIGEON_2_0 {
     eHCNT = 6, // horizontal counter (pclk counter within one line )
     eVCNT = 7, // vertical counter (line counter within one frame)
   };
+  
   enum class eSTATE_MASK : uint32_t {
     eFS = 1, // FRAME SYNC
     eFB = 2, // FRAME BEGIN
@@ -1637,7 +1629,7 @@ union LCDIF_PIGEON_2_0 {
     eMASK_CNT_SEL MASK_CNT_SEL : 4;
     uint32_t MASK_CNT : 12;
     eSTATE_MASK STATE_MASK : 8;
-  } bits;          // Bit-field struct (auto-filling reserved gaps)
+  } bits;
   
   // Full 32-bit register value.
   uint32_t value;
@@ -1651,10 +1643,10 @@ union LCDIF_PIGEON_2_0 {
 //
 union LCDIF_PIGEON_2_1 {
   
-  // Enum definitions.
   enum class eSET_CNT : uint32_t {
     eSTART_ACTIVE = 0, // Start as active
   };
+  
   enum class eCLR_CNT : uint32_t {
     eCLEAR_USING_MASK = 0, // Keep active until mask off
   };
@@ -1663,7 +1655,7 @@ union LCDIF_PIGEON_2_1 {
   struct {
     eSET_CNT SET_CNT : 16;
     eCLR_CNT CLR_CNT : 16;
-  } bits;          // Bit-field struct (auto-filling reserved gaps)
+  } bits;
   
   // Full 32-bit register value.
   uint32_t value;
@@ -1677,13 +1669,13 @@ union LCDIF_PIGEON_2_1 {
 //
 union LCDIF_PIGEON_2_2 {
   
-  // Enum definitions.
   enum class eSIG_LOGIC : uint32_t {
     eDIS = 0, // No logic operation
     eAND = 1, // sigout = sig_another AND this_sig
     eOR = 2, // sigout = sig_another OR this_sig
     eMASK = 3, // mask = sig_another AND other_masks
   };
+  
   enum class eSIG_ANOTHER : uint32_t {
     eCLEAR_USING_MASK = 0, // Keep active until mask off
   };
@@ -1693,7 +1685,7 @@ union LCDIF_PIGEON_2_2 {
     eSIG_LOGIC SIG_LOGIC : 4;
     eSIG_ANOTHER SIG_ANOTHER : 5;
     uint32_t _reserved_end : 23;
-  } bits;          // Bit-field struct (auto-filling reserved gaps)
+  } bits;
   
   // Full 32-bit register value.
   uint32_t value;
@@ -1707,17 +1699,18 @@ union LCDIF_PIGEON_2_2 {
 //
 union LCDIF_PIGEON_3_0 {
   
-  // Enum definitions.
   enum class ePOL : uint32_t {
     eACTIVE_HIGH = 0, // Normal Signal (Active high)
     eACTIVE_LOW = 1, // Inverted signal (Active low)
   };
+  
   enum class eINC_SEL : uint32_t {
     ePCLK = 0, // pclk
     eLINE = 1, // Line start pulse
     eFRAME = 2, // Frame start pulse
     eSIG_ANOTHER = 3, // Use another signal as tick event
   };
+  
   enum class eMASK_CNT_SEL : uint32_t {
     eHSTATE_CNT = 0, // pclk counter within one hscan state
     eHSTATE_CYCLE = 1, // pclk cycle within one hscan state
@@ -1728,6 +1721,7 @@ union LCDIF_PIGEON_3_0 {
     eHCNT = 6, // horizontal counter (pclk counter within one line )
     eVCNT = 7, // vertical counter (line counter within one frame)
   };
+  
   enum class eSTATE_MASK : uint32_t {
     eFS = 1, // FRAME SYNC
     eFB = 2, // FRAME BEGIN
@@ -1748,7 +1742,7 @@ union LCDIF_PIGEON_3_0 {
     eMASK_CNT_SEL MASK_CNT_SEL : 4;
     uint32_t MASK_CNT : 12;
     eSTATE_MASK STATE_MASK : 8;
-  } bits;          // Bit-field struct (auto-filling reserved gaps)
+  } bits;
   
   // Full 32-bit register value.
   uint32_t value;
@@ -1762,10 +1756,10 @@ union LCDIF_PIGEON_3_0 {
 //
 union LCDIF_PIGEON_3_1 {
   
-  // Enum definitions.
   enum class eSET_CNT : uint32_t {
     eSTART_ACTIVE = 0, // Start as active
   };
+  
   enum class eCLR_CNT : uint32_t {
     eCLEAR_USING_MASK = 0, // Keep active until mask off
   };
@@ -1774,7 +1768,7 @@ union LCDIF_PIGEON_3_1 {
   struct {
     eSET_CNT SET_CNT : 16;
     eCLR_CNT CLR_CNT : 16;
-  } bits;          // Bit-field struct (auto-filling reserved gaps)
+  } bits;
   
   // Full 32-bit register value.
   uint32_t value;
@@ -1788,13 +1782,13 @@ union LCDIF_PIGEON_3_1 {
 //
 union LCDIF_PIGEON_3_2 {
   
-  // Enum definitions.
   enum class eSIG_LOGIC : uint32_t {
     eDIS = 0, // No logic operation
     eAND = 1, // sigout = sig_another AND this_sig
     eOR = 2, // sigout = sig_another OR this_sig
     eMASK = 3, // mask = sig_another AND other_masks
   };
+  
   enum class eSIG_ANOTHER : uint32_t {
     eCLEAR_USING_MASK = 0, // Keep active until mask off
   };
@@ -1804,7 +1798,7 @@ union LCDIF_PIGEON_3_2 {
     eSIG_LOGIC SIG_LOGIC : 4;
     eSIG_ANOTHER SIG_ANOTHER : 5;
     uint32_t _reserved_end : 23;
-  } bits;          // Bit-field struct (auto-filling reserved gaps)
+  } bits;
   
   // Full 32-bit register value.
   uint32_t value;
@@ -1818,17 +1812,18 @@ union LCDIF_PIGEON_3_2 {
 //
 union LCDIF_PIGEON_4_0 {
   
-  // Enum definitions.
   enum class ePOL : uint32_t {
     eACTIVE_HIGH = 0, // Normal Signal (Active high)
     eACTIVE_LOW = 1, // Inverted signal (Active low)
   };
+  
   enum class eINC_SEL : uint32_t {
     ePCLK = 0, // pclk
     eLINE = 1, // Line start pulse
     eFRAME = 2, // Frame start pulse
     eSIG_ANOTHER = 3, // Use another signal as tick event
   };
+  
   enum class eMASK_CNT_SEL : uint32_t {
     eHSTATE_CNT = 0, // pclk counter within one hscan state
     eHSTATE_CYCLE = 1, // pclk cycle within one hscan state
@@ -1839,6 +1834,7 @@ union LCDIF_PIGEON_4_0 {
     eHCNT = 6, // horizontal counter (pclk counter within one line )
     eVCNT = 7, // vertical counter (line counter within one frame)
   };
+  
   enum class eSTATE_MASK : uint32_t {
     eFS = 1, // FRAME SYNC
     eFB = 2, // FRAME BEGIN
@@ -1859,7 +1855,7 @@ union LCDIF_PIGEON_4_0 {
     eMASK_CNT_SEL MASK_CNT_SEL : 4;
     uint32_t MASK_CNT : 12;
     eSTATE_MASK STATE_MASK : 8;
-  } bits;          // Bit-field struct (auto-filling reserved gaps)
+  } bits;
   
   // Full 32-bit register value.
   uint32_t value;
@@ -1873,10 +1869,10 @@ union LCDIF_PIGEON_4_0 {
 //
 union LCDIF_PIGEON_4_1 {
   
-  // Enum definitions.
   enum class eSET_CNT : uint32_t {
     eSTART_ACTIVE = 0, // Start as active
   };
+  
   enum class eCLR_CNT : uint32_t {
     eCLEAR_USING_MASK = 0, // Keep active until mask off
   };
@@ -1885,7 +1881,7 @@ union LCDIF_PIGEON_4_1 {
   struct {
     eSET_CNT SET_CNT : 16;
     eCLR_CNT CLR_CNT : 16;
-  } bits;          // Bit-field struct (auto-filling reserved gaps)
+  } bits;
   
   // Full 32-bit register value.
   uint32_t value;
@@ -1899,13 +1895,13 @@ union LCDIF_PIGEON_4_1 {
 //
 union LCDIF_PIGEON_4_2 {
   
-  // Enum definitions.
   enum class eSIG_LOGIC : uint32_t {
     eDIS = 0, // No logic operation
     eAND = 1, // sigout = sig_another AND this_sig
     eOR = 2, // sigout = sig_another OR this_sig
     eMASK = 3, // mask = sig_another AND other_masks
   };
+  
   enum class eSIG_ANOTHER : uint32_t {
     eCLEAR_USING_MASK = 0, // Keep active until mask off
   };
@@ -1915,7 +1911,7 @@ union LCDIF_PIGEON_4_2 {
     eSIG_LOGIC SIG_LOGIC : 4;
     eSIG_ANOTHER SIG_ANOTHER : 5;
     uint32_t _reserved_end : 23;
-  } bits;          // Bit-field struct (auto-filling reserved gaps)
+  } bits;
   
   // Full 32-bit register value.
   uint32_t value;
@@ -1929,17 +1925,18 @@ union LCDIF_PIGEON_4_2 {
 //
 union LCDIF_PIGEON_5_0 {
   
-  // Enum definitions.
   enum class ePOL : uint32_t {
     eACTIVE_HIGH = 0, // Normal Signal (Active high)
     eACTIVE_LOW = 1, // Inverted signal (Active low)
   };
+  
   enum class eINC_SEL : uint32_t {
     ePCLK = 0, // pclk
     eLINE = 1, // Line start pulse
     eFRAME = 2, // Frame start pulse
     eSIG_ANOTHER = 3, // Use another signal as tick event
   };
+  
   enum class eMASK_CNT_SEL : uint32_t {
     eHSTATE_CNT = 0, // pclk counter within one hscan state
     eHSTATE_CYCLE = 1, // pclk cycle within one hscan state
@@ -1950,6 +1947,7 @@ union LCDIF_PIGEON_5_0 {
     eHCNT = 6, // horizontal counter (pclk counter within one line )
     eVCNT = 7, // vertical counter (line counter within one frame)
   };
+  
   enum class eSTATE_MASK : uint32_t {
     eFS = 1, // FRAME SYNC
     eFB = 2, // FRAME BEGIN
@@ -1970,7 +1968,7 @@ union LCDIF_PIGEON_5_0 {
     eMASK_CNT_SEL MASK_CNT_SEL : 4;
     uint32_t MASK_CNT : 12;
     eSTATE_MASK STATE_MASK : 8;
-  } bits;          // Bit-field struct (auto-filling reserved gaps)
+  } bits;
   
   // Full 32-bit register value.
   uint32_t value;
@@ -1984,10 +1982,10 @@ union LCDIF_PIGEON_5_0 {
 //
 union LCDIF_PIGEON_5_1 {
   
-  // Enum definitions.
   enum class eSET_CNT : uint32_t {
     eSTART_ACTIVE = 0, // Start as active
   };
+  
   enum class eCLR_CNT : uint32_t {
     eCLEAR_USING_MASK = 0, // Keep active until mask off
   };
@@ -1996,7 +1994,7 @@ union LCDIF_PIGEON_5_1 {
   struct {
     eSET_CNT SET_CNT : 16;
     eCLR_CNT CLR_CNT : 16;
-  } bits;          // Bit-field struct (auto-filling reserved gaps)
+  } bits;
   
   // Full 32-bit register value.
   uint32_t value;
@@ -2010,13 +2008,13 @@ union LCDIF_PIGEON_5_1 {
 //
 union LCDIF_PIGEON_5_2 {
   
-  // Enum definitions.
   enum class eSIG_LOGIC : uint32_t {
     eDIS = 0, // No logic operation
     eAND = 1, // sigout = sig_another AND this_sig
     eOR = 2, // sigout = sig_another OR this_sig
     eMASK = 3, // mask = sig_another AND other_masks
   };
+  
   enum class eSIG_ANOTHER : uint32_t {
     eCLEAR_USING_MASK = 0, // Keep active until mask off
   };
@@ -2026,7 +2024,7 @@ union LCDIF_PIGEON_5_2 {
     eSIG_LOGIC SIG_LOGIC : 4;
     eSIG_ANOTHER SIG_ANOTHER : 5;
     uint32_t _reserved_end : 23;
-  } bits;          // Bit-field struct (auto-filling reserved gaps)
+  } bits;
   
   // Full 32-bit register value.
   uint32_t value;
@@ -2040,17 +2038,18 @@ union LCDIF_PIGEON_5_2 {
 //
 union LCDIF_PIGEON_6_0 {
   
-  // Enum definitions.
   enum class ePOL : uint32_t {
     eACTIVE_HIGH = 0, // Normal Signal (Active high)
     eACTIVE_LOW = 1, // Inverted signal (Active low)
   };
+  
   enum class eINC_SEL : uint32_t {
     ePCLK = 0, // pclk
     eLINE = 1, // Line start pulse
     eFRAME = 2, // Frame start pulse
     eSIG_ANOTHER = 3, // Use another signal as tick event
   };
+  
   enum class eMASK_CNT_SEL : uint32_t {
     eHSTATE_CNT = 0, // pclk counter within one hscan state
     eHSTATE_CYCLE = 1, // pclk cycle within one hscan state
@@ -2061,6 +2060,7 @@ union LCDIF_PIGEON_6_0 {
     eHCNT = 6, // horizontal counter (pclk counter within one line )
     eVCNT = 7, // vertical counter (line counter within one frame)
   };
+  
   enum class eSTATE_MASK : uint32_t {
     eFS = 1, // FRAME SYNC
     eFB = 2, // FRAME BEGIN
@@ -2081,7 +2081,7 @@ union LCDIF_PIGEON_6_0 {
     eMASK_CNT_SEL MASK_CNT_SEL : 4;
     uint32_t MASK_CNT : 12;
     eSTATE_MASK STATE_MASK : 8;
-  } bits;          // Bit-field struct (auto-filling reserved gaps)
+  } bits;
   
   // Full 32-bit register value.
   uint32_t value;
@@ -2095,10 +2095,10 @@ union LCDIF_PIGEON_6_0 {
 //
 union LCDIF_PIGEON_6_1 {
   
-  // Enum definitions.
   enum class eSET_CNT : uint32_t {
     eSTART_ACTIVE = 0, // Start as active
   };
+  
   enum class eCLR_CNT : uint32_t {
     eCLEAR_USING_MASK = 0, // Keep active until mask off
   };
@@ -2107,7 +2107,7 @@ union LCDIF_PIGEON_6_1 {
   struct {
     eSET_CNT SET_CNT : 16;
     eCLR_CNT CLR_CNT : 16;
-  } bits;          // Bit-field struct (auto-filling reserved gaps)
+  } bits;
   
   // Full 32-bit register value.
   uint32_t value;
@@ -2121,13 +2121,13 @@ union LCDIF_PIGEON_6_1 {
 //
 union LCDIF_PIGEON_6_2 {
   
-  // Enum definitions.
   enum class eSIG_LOGIC : uint32_t {
     eDIS = 0, // No logic operation
     eAND = 1, // sigout = sig_another AND this_sig
     eOR = 2, // sigout = sig_another OR this_sig
     eMASK = 3, // mask = sig_another AND other_masks
   };
+  
   enum class eSIG_ANOTHER : uint32_t {
     eCLEAR_USING_MASK = 0, // Keep active until mask off
   };
@@ -2137,7 +2137,7 @@ union LCDIF_PIGEON_6_2 {
     eSIG_LOGIC SIG_LOGIC : 4;
     eSIG_ANOTHER SIG_ANOTHER : 5;
     uint32_t _reserved_end : 23;
-  } bits;          // Bit-field struct (auto-filling reserved gaps)
+  } bits;
   
   // Full 32-bit register value.
   uint32_t value;
@@ -2151,17 +2151,18 @@ union LCDIF_PIGEON_6_2 {
 //
 union LCDIF_PIGEON_7_0 {
   
-  // Enum definitions.
   enum class ePOL : uint32_t {
     eACTIVE_HIGH = 0, // Normal Signal (Active high)
     eACTIVE_LOW = 1, // Inverted signal (Active low)
   };
+  
   enum class eINC_SEL : uint32_t {
     ePCLK = 0, // pclk
     eLINE = 1, // Line start pulse
     eFRAME = 2, // Frame start pulse
     eSIG_ANOTHER = 3, // Use another signal as tick event
   };
+  
   enum class eMASK_CNT_SEL : uint32_t {
     eHSTATE_CNT = 0, // pclk counter within one hscan state
     eHSTATE_CYCLE = 1, // pclk cycle within one hscan state
@@ -2172,6 +2173,7 @@ union LCDIF_PIGEON_7_0 {
     eHCNT = 6, // horizontal counter (pclk counter within one line )
     eVCNT = 7, // vertical counter (line counter within one frame)
   };
+  
   enum class eSTATE_MASK : uint32_t {
     eFS = 1, // FRAME SYNC
     eFB = 2, // FRAME BEGIN
@@ -2192,7 +2194,7 @@ union LCDIF_PIGEON_7_0 {
     eMASK_CNT_SEL MASK_CNT_SEL : 4;
     uint32_t MASK_CNT : 12;
     eSTATE_MASK STATE_MASK : 8;
-  } bits;          // Bit-field struct (auto-filling reserved gaps)
+  } bits;
   
   // Full 32-bit register value.
   uint32_t value;
@@ -2206,10 +2208,10 @@ union LCDIF_PIGEON_7_0 {
 //
 union LCDIF_PIGEON_7_1 {
   
-  // Enum definitions.
   enum class eSET_CNT : uint32_t {
     eSTART_ACTIVE = 0, // Start as active
   };
+  
   enum class eCLR_CNT : uint32_t {
     eCLEAR_USING_MASK = 0, // Keep active until mask off
   };
@@ -2218,7 +2220,7 @@ union LCDIF_PIGEON_7_1 {
   struct {
     eSET_CNT SET_CNT : 16;
     eCLR_CNT CLR_CNT : 16;
-  } bits;          // Bit-field struct (auto-filling reserved gaps)
+  } bits;
   
   // Full 32-bit register value.
   uint32_t value;
@@ -2232,13 +2234,13 @@ union LCDIF_PIGEON_7_1 {
 //
 union LCDIF_PIGEON_7_2 {
   
-  // Enum definitions.
   enum class eSIG_LOGIC : uint32_t {
     eDIS = 0, // No logic operation
     eAND = 1, // sigout = sig_another AND this_sig
     eOR = 2, // sigout = sig_another OR this_sig
     eMASK = 3, // mask = sig_another AND other_masks
   };
+  
   enum class eSIG_ANOTHER : uint32_t {
     eCLEAR_USING_MASK = 0, // Keep active until mask off
   };
@@ -2248,7 +2250,7 @@ union LCDIF_PIGEON_7_2 {
     eSIG_LOGIC SIG_LOGIC : 4;
     eSIG_ANOTHER SIG_ANOTHER : 5;
     uint32_t _reserved_end : 23;
-  } bits;          // Bit-field struct (auto-filling reserved gaps)
+  } bits;
   
   // Full 32-bit register value.
   uint32_t value;
@@ -2262,17 +2264,18 @@ union LCDIF_PIGEON_7_2 {
 //
 union LCDIF_PIGEON_8_0 {
   
-  // Enum definitions.
   enum class ePOL : uint32_t {
     eACTIVE_HIGH = 0, // Normal Signal (Active high)
     eACTIVE_LOW = 1, // Inverted signal (Active low)
   };
+  
   enum class eINC_SEL : uint32_t {
     ePCLK = 0, // pclk
     eLINE = 1, // Line start pulse
     eFRAME = 2, // Frame start pulse
     eSIG_ANOTHER = 3, // Use another signal as tick event
   };
+  
   enum class eMASK_CNT_SEL : uint32_t {
     eHSTATE_CNT = 0, // pclk counter within one hscan state
     eHSTATE_CYCLE = 1, // pclk cycle within one hscan state
@@ -2283,6 +2286,7 @@ union LCDIF_PIGEON_8_0 {
     eHCNT = 6, // horizontal counter (pclk counter within one line )
     eVCNT = 7, // vertical counter (line counter within one frame)
   };
+  
   enum class eSTATE_MASK : uint32_t {
     eFS = 1, // FRAME SYNC
     eFB = 2, // FRAME BEGIN
@@ -2303,7 +2307,7 @@ union LCDIF_PIGEON_8_0 {
     eMASK_CNT_SEL MASK_CNT_SEL : 4;
     uint32_t MASK_CNT : 12;
     eSTATE_MASK STATE_MASK : 8;
-  } bits;          // Bit-field struct (auto-filling reserved gaps)
+  } bits;
   
   // Full 32-bit register value.
   uint32_t value;
@@ -2317,10 +2321,10 @@ union LCDIF_PIGEON_8_0 {
 //
 union LCDIF_PIGEON_8_1 {
   
-  // Enum definitions.
   enum class eSET_CNT : uint32_t {
     eSTART_ACTIVE = 0, // Start as active
   };
+  
   enum class eCLR_CNT : uint32_t {
     eCLEAR_USING_MASK = 0, // Keep active until mask off
   };
@@ -2329,7 +2333,7 @@ union LCDIF_PIGEON_8_1 {
   struct {
     eSET_CNT SET_CNT : 16;
     eCLR_CNT CLR_CNT : 16;
-  } bits;          // Bit-field struct (auto-filling reserved gaps)
+  } bits;
   
   // Full 32-bit register value.
   uint32_t value;
@@ -2343,13 +2347,13 @@ union LCDIF_PIGEON_8_1 {
 //
 union LCDIF_PIGEON_8_2 {
   
-  // Enum definitions.
   enum class eSIG_LOGIC : uint32_t {
     eDIS = 0, // No logic operation
     eAND = 1, // sigout = sig_another AND this_sig
     eOR = 2, // sigout = sig_another OR this_sig
     eMASK = 3, // mask = sig_another AND other_masks
   };
+  
   enum class eSIG_ANOTHER : uint32_t {
     eCLEAR_USING_MASK = 0, // Keep active until mask off
   };
@@ -2359,7 +2363,7 @@ union LCDIF_PIGEON_8_2 {
     eSIG_LOGIC SIG_LOGIC : 4;
     eSIG_ANOTHER SIG_ANOTHER : 5;
     uint32_t _reserved_end : 23;
-  } bits;          // Bit-field struct (auto-filling reserved gaps)
+  } bits;
   
   // Full 32-bit register value.
   uint32_t value;
@@ -2373,17 +2377,18 @@ union LCDIF_PIGEON_8_2 {
 //
 union LCDIF_PIGEON_9_0 {
   
-  // Enum definitions.
   enum class ePOL : uint32_t {
     eACTIVE_HIGH = 0, // Normal Signal (Active high)
     eACTIVE_LOW = 1, // Inverted signal (Active low)
   };
+  
   enum class eINC_SEL : uint32_t {
     ePCLK = 0, // pclk
     eLINE = 1, // Line start pulse
     eFRAME = 2, // Frame start pulse
     eSIG_ANOTHER = 3, // Use another signal as tick event
   };
+  
   enum class eMASK_CNT_SEL : uint32_t {
     eHSTATE_CNT = 0, // pclk counter within one hscan state
     eHSTATE_CYCLE = 1, // pclk cycle within one hscan state
@@ -2394,6 +2399,7 @@ union LCDIF_PIGEON_9_0 {
     eHCNT = 6, // horizontal counter (pclk counter within one line )
     eVCNT = 7, // vertical counter (line counter within one frame)
   };
+  
   enum class eSTATE_MASK : uint32_t {
     eFS = 1, // FRAME SYNC
     eFB = 2, // FRAME BEGIN
@@ -2414,7 +2420,7 @@ union LCDIF_PIGEON_9_0 {
     eMASK_CNT_SEL MASK_CNT_SEL : 4;
     uint32_t MASK_CNT : 12;
     eSTATE_MASK STATE_MASK : 8;
-  } bits;          // Bit-field struct (auto-filling reserved gaps)
+  } bits;
   
   // Full 32-bit register value.
   uint32_t value;
@@ -2428,10 +2434,10 @@ union LCDIF_PIGEON_9_0 {
 //
 union LCDIF_PIGEON_9_1 {
   
-  // Enum definitions.
   enum class eSET_CNT : uint32_t {
     eSTART_ACTIVE = 0, // Start as active
   };
+  
   enum class eCLR_CNT : uint32_t {
     eCLEAR_USING_MASK = 0, // Keep active until mask off
   };
@@ -2440,7 +2446,7 @@ union LCDIF_PIGEON_9_1 {
   struct {
     eSET_CNT SET_CNT : 16;
     eCLR_CNT CLR_CNT : 16;
-  } bits;          // Bit-field struct (auto-filling reserved gaps)
+  } bits;
   
   // Full 32-bit register value.
   uint32_t value;
@@ -2454,13 +2460,13 @@ union LCDIF_PIGEON_9_1 {
 //
 union LCDIF_PIGEON_9_2 {
   
-  // Enum definitions.
   enum class eSIG_LOGIC : uint32_t {
     eDIS = 0, // No logic operation
     eAND = 1, // sigout = sig_another AND this_sig
     eOR = 2, // sigout = sig_another OR this_sig
     eMASK = 3, // mask = sig_another AND other_masks
   };
+  
   enum class eSIG_ANOTHER : uint32_t {
     eCLEAR_USING_MASK = 0, // Keep active until mask off
   };
@@ -2470,7 +2476,7 @@ union LCDIF_PIGEON_9_2 {
     eSIG_LOGIC SIG_LOGIC : 4;
     eSIG_ANOTHER SIG_ANOTHER : 5;
     uint32_t _reserved_end : 23;
-  } bits;          // Bit-field struct (auto-filling reserved gaps)
+  } bits;
   
   // Full 32-bit register value.
   uint32_t value;
@@ -2484,17 +2490,18 @@ union LCDIF_PIGEON_9_2 {
 //
 union LCDIF_PIGEON_10_0 {
   
-  // Enum definitions.
   enum class ePOL : uint32_t {
     eACTIVE_HIGH = 0, // Normal Signal (Active high)
     eACTIVE_LOW = 1, // Inverted signal (Active low)
   };
+  
   enum class eINC_SEL : uint32_t {
     ePCLK = 0, // pclk
     eLINE = 1, // Line start pulse
     eFRAME = 2, // Frame start pulse
     eSIG_ANOTHER = 3, // Use another signal as tick event
   };
+  
   enum class eMASK_CNT_SEL : uint32_t {
     eHSTATE_CNT = 0, // pclk counter within one hscan state
     eHSTATE_CYCLE = 1, // pclk cycle within one hscan state
@@ -2505,6 +2512,7 @@ union LCDIF_PIGEON_10_0 {
     eHCNT = 6, // horizontal counter (pclk counter within one line )
     eVCNT = 7, // vertical counter (line counter within one frame)
   };
+  
   enum class eSTATE_MASK : uint32_t {
     eFS = 1, // FRAME SYNC
     eFB = 2, // FRAME BEGIN
@@ -2525,7 +2533,7 @@ union LCDIF_PIGEON_10_0 {
     eMASK_CNT_SEL MASK_CNT_SEL : 4;
     uint32_t MASK_CNT : 12;
     eSTATE_MASK STATE_MASK : 8;
-  } bits;          // Bit-field struct (auto-filling reserved gaps)
+  } bits;
   
   // Full 32-bit register value.
   uint32_t value;
@@ -2539,10 +2547,10 @@ union LCDIF_PIGEON_10_0 {
 //
 union LCDIF_PIGEON_10_1 {
   
-  // Enum definitions.
   enum class eSET_CNT : uint32_t {
     eSTART_ACTIVE = 0, // Start as active
   };
+  
   enum class eCLR_CNT : uint32_t {
     eCLEAR_USING_MASK = 0, // Keep active until mask off
   };
@@ -2551,7 +2559,7 @@ union LCDIF_PIGEON_10_1 {
   struct {
     eSET_CNT SET_CNT : 16;
     eCLR_CNT CLR_CNT : 16;
-  } bits;          // Bit-field struct (auto-filling reserved gaps)
+  } bits;
   
   // Full 32-bit register value.
   uint32_t value;
@@ -2565,13 +2573,13 @@ union LCDIF_PIGEON_10_1 {
 //
 union LCDIF_PIGEON_10_2 {
   
-  // Enum definitions.
   enum class eSIG_LOGIC : uint32_t {
     eDIS = 0, // No logic operation
     eAND = 1, // sigout = sig_another AND this_sig
     eOR = 2, // sigout = sig_another OR this_sig
     eMASK = 3, // mask = sig_another AND other_masks
   };
+  
   enum class eSIG_ANOTHER : uint32_t {
     eCLEAR_USING_MASK = 0, // Keep active until mask off
   };
@@ -2581,7 +2589,7 @@ union LCDIF_PIGEON_10_2 {
     eSIG_LOGIC SIG_LOGIC : 4;
     eSIG_ANOTHER SIG_ANOTHER : 5;
     uint32_t _reserved_end : 23;
-  } bits;          // Bit-field struct (auto-filling reserved gaps)
+  } bits;
   
   // Full 32-bit register value.
   uint32_t value;
@@ -2595,17 +2603,18 @@ union LCDIF_PIGEON_10_2 {
 //
 union LCDIF_PIGEON_11_0 {
   
-  // Enum definitions.
   enum class ePOL : uint32_t {
     eACTIVE_HIGH = 0, // Normal Signal (Active high)
     eACTIVE_LOW = 1, // Inverted signal (Active low)
   };
+  
   enum class eINC_SEL : uint32_t {
     ePCLK = 0, // pclk
     eLINE = 1, // Line start pulse
     eFRAME = 2, // Frame start pulse
     eSIG_ANOTHER = 3, // Use another signal as tick event
   };
+  
   enum class eMASK_CNT_SEL : uint32_t {
     eHSTATE_CNT = 0, // pclk counter within one hscan state
     eHSTATE_CYCLE = 1, // pclk cycle within one hscan state
@@ -2616,6 +2625,7 @@ union LCDIF_PIGEON_11_0 {
     eHCNT = 6, // horizontal counter (pclk counter within one line )
     eVCNT = 7, // vertical counter (line counter within one frame)
   };
+  
   enum class eSTATE_MASK : uint32_t {
     eFS = 1, // FRAME SYNC
     eFB = 2, // FRAME BEGIN
@@ -2636,7 +2646,7 @@ union LCDIF_PIGEON_11_0 {
     eMASK_CNT_SEL MASK_CNT_SEL : 4;
     uint32_t MASK_CNT : 12;
     eSTATE_MASK STATE_MASK : 8;
-  } bits;          // Bit-field struct (auto-filling reserved gaps)
+  } bits;
   
   // Full 32-bit register value.
   uint32_t value;
@@ -2650,10 +2660,10 @@ union LCDIF_PIGEON_11_0 {
 //
 union LCDIF_PIGEON_11_1 {
   
-  // Enum definitions.
   enum class eSET_CNT : uint32_t {
     eSTART_ACTIVE = 0, // Start as active
   };
+  
   enum class eCLR_CNT : uint32_t {
     eCLEAR_USING_MASK = 0, // Keep active until mask off
   };
@@ -2662,7 +2672,7 @@ union LCDIF_PIGEON_11_1 {
   struct {
     eSET_CNT SET_CNT : 16;
     eCLR_CNT CLR_CNT : 16;
-  } bits;          // Bit-field struct (auto-filling reserved gaps)
+  } bits;
   
   // Full 32-bit register value.
   uint32_t value;
@@ -2676,13 +2686,13 @@ union LCDIF_PIGEON_11_1 {
 //
 union LCDIF_PIGEON_11_2 {
   
-  // Enum definitions.
   enum class eSIG_LOGIC : uint32_t {
     eDIS = 0, // No logic operation
     eAND = 1, // sigout = sig_another AND this_sig
     eOR = 2, // sigout = sig_another OR this_sig
     eMASK = 3, // mask = sig_another AND other_masks
   };
+  
   enum class eSIG_ANOTHER : uint32_t {
     eCLEAR_USING_MASK = 0, // Keep active until mask off
   };
@@ -2692,7 +2702,7 @@ union LCDIF_PIGEON_11_2 {
     eSIG_LOGIC SIG_LOGIC : 4;
     eSIG_ANOTHER SIG_ANOTHER : 5;
     uint32_t _reserved_end : 23;
-  } bits;          // Bit-field struct (auto-filling reserved gaps)
+  } bits;
   
   // Full 32-bit register value.
   uint32_t value;
@@ -2706,13 +2716,11 @@ union LCDIF_PIGEON_11_2 {
 //
 union LCDIF_LUT_CTRL {
   
-  // Enum definitions.
-  
   // Bit field definition.
   struct {
     uint32_t LUT_BYPASS : 1;
     uint32_t _reserved_end : 31;
-  } bits;          // Bit-field struct (auto-filling reserved gaps)
+  } bits;
   
   // Full 32-bit register value.
   uint32_t value;
@@ -2726,13 +2734,11 @@ union LCDIF_LUT_CTRL {
 //
 union LCDIF_LUT0_ADDR {
   
-  // Enum definitions.
-  
   // Bit field definition.
   struct {
     uint32_t ADDR : 8;
     uint32_t _reserved_end : 24;
-  } bits;          // Bit-field struct (auto-filling reserved gaps)
+  } bits;
   
   // Full 32-bit register value.
   uint32_t value;
@@ -2746,12 +2752,10 @@ union LCDIF_LUT0_ADDR {
 //
 union LCDIF_LUT0_DATA {
   
-  // Enum definitions.
-  
   // Bit field definition.
   struct {
     uint32_t DATA : 32;
-  } bits;          // Bit-field struct (auto-filling reserved gaps)
+  } bits;
   
   // Full 32-bit register value.
   uint32_t value;
@@ -2765,13 +2769,11 @@ union LCDIF_LUT0_DATA {
 //
 union LCDIF_LUT1_ADDR {
   
-  // Enum definitions.
-  
   // Bit field definition.
   struct {
     uint32_t ADDR : 8;
     uint32_t _reserved_end : 24;
-  } bits;          // Bit-field struct (auto-filling reserved gaps)
+  } bits;
   
   // Full 32-bit register value.
   uint32_t value;
@@ -2785,12 +2787,10 @@ union LCDIF_LUT1_ADDR {
 //
 union LCDIF_LUT1_DATA {
   
-  // Enum definitions.
-  
   // Bit field definition.
   struct {
     uint32_t DATA : 32;
-  } bits;          // Bit-field struct (auto-filling reserved gaps)
+  } bits;
   
   // Full 32-bit register value.
   uint32_t value;

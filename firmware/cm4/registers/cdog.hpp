@@ -15,44 +15,51 @@ namespace nCDOG {
 //
 union CONTROL {
   
-  // Enum definitions.
   enum class eLOCK_CTRL : uint32_t {
     eLOCKED = 1, // Locked
     eUNLOCKED = 2, // Unlocked
   };
+  
   enum class eTIMEOUT_CTRL : uint32_t {
     eENABLE_RESET = 1, // Enable reset
     eENABLE_INTERRUPT = 2, // Enable interrupt
     eDISABLE_BOTH = 4, // Disable both reset and interrupt
   };
+  
   enum class eMISCOMPARE_CTRL : uint32_t {
     eENABLE_RESET = 1, // Enable reset
     eENABLE_INTERRUPT = 2, // Enable interrupt
     eDISABLE_BOTH = 4, // Disable both reset and interrupt
   };
+  
   enum class eSEQUENCE_CTRL : uint32_t {
     eENABLE_RESET = 1, // Enable reset
     eENABLE_INTERRUPT = 2, // Enable interrupt
     eDISABLE_BOTH = 4, // Disable both reset and interrupt
   };
+  
   enum class eCONTROL_CTRL : uint32_t {
     eENABLE_RESET = 1, // Enable reset
     eDISABLE_BOTH = 4, // Disable reset
   };
+  
   enum class eSTATE_CTRL : uint32_t {
     eENABLE_RESET = 1, // Enable reset
     eENABLE_INTERRUPT = 2, // Enable interrupt
     eDISABLE_BOTH = 4, // Disable both reset and interrupt
   };
+  
   enum class eADDRESS_CTRL : uint32_t {
     eENABLE_RESET = 1, // Enable reset
     eENABLE_INTERRUPT = 2, // Enable interrupt
     eDISABLE_BOTH = 4, // Disable both reset and interrupt
   };
+  
   enum class eIRQ_PAUSE : uint32_t {
     eRUN_TIMER = 1, // Keep the timer running
     ePAUSE_TIMER = 2, // Stop the timer
   };
+  
   enum class eDEBUG_HALT_CTRL : uint32_t {
     eRUN_TIMER = 1, // Keep the timer running
     ePAUSE_TIMER = 2, // Stop the timer
@@ -70,7 +77,7 @@ union CONTROL {
     uint32_t _reserved_7 : 8;
     eIRQ_PAUSE IRQ_PAUSE : 2;
     eDEBUG_HALT_CTRL DEBUG_HALT_CTRL : 2;
-  } bits;          // Bit-field struct (auto-filling reserved gaps)
+  } bits;
   
   // Full 32-bit register value.
   uint32_t value;
@@ -84,12 +91,10 @@ union CONTROL {
 //
 union RELOAD {
   
-  // Enum definitions.
-  
   // Bit field definition.
   struct {
     uint32_t RLOAD : 32;
-  } bits;          // Bit-field struct (auto-filling reserved gaps)
+  } bits;
   
   // Full 32-bit register value.
   uint32_t value;
@@ -103,12 +108,10 @@ union RELOAD {
 //
 union INSTRUCTION_TIMER {
   
-  // Enum definitions.
-  
   // Bit field definition.
   struct {
     uint32_t INSTIM : 32;
-  } bits;          // Bit-field struct (auto-filling reserved gaps)
+  } bits;
   
   // Full 32-bit register value.
   uint32_t value;
@@ -122,12 +125,10 @@ union INSTRUCTION_TIMER {
 //
 union SECURE_COUNTER {
   
-  // Enum definitions.
-  
   // Bit field definition.
   struct {
     uint32_t SECCNT : 32;
-  } bits;          // Bit-field struct (auto-filling reserved gaps)
+  } bits;
   
   // Full 32-bit register value.
   uint32_t value;
@@ -141,8 +142,6 @@ union SECURE_COUNTER {
 //
 union STATUS {
   
-  // Enum definitions.
-  
   // Bit field definition.
   struct {
     uint32_t NUMTOF : 8;
@@ -150,7 +149,7 @@ union STATUS {
     uint32_t NUMILSEQF : 8;
     uint32_t _reserved_3 : 4;
     uint32_t CURST : 4;
-  } bits;          // Bit-field struct (auto-filling reserved gaps)
+  } bits;
   
   // Full 32-bit register value.
   uint32_t value;
@@ -164,15 +163,13 @@ union STATUS {
 //
 union STATUS2 {
   
-  // Enum definitions.
-  
   // Bit field definition.
   struct {
     uint32_t NUMCNTF : 8;
     uint32_t NUMILLSTF : 8;
     uint32_t NUMILLA : 8;
     uint32_t _reserved_end : 8;
-  } bits;          // Bit-field struct (auto-filling reserved gaps)
+  } bits;
   
   // Full 32-bit register value.
   uint32_t value;
@@ -186,31 +183,36 @@ union STATUS2 {
 //
 union FLAGS {
   
-  // Enum definitions.
   enum class eTO_FLAG : uint32_t {
     eNO_FLAG = 0, // A TIMEOUT fault has not occurred
     eFLAG = 1, // A TIMEOUT fault has occurred
   };
+  
   enum class eMISCOM_FLAG : uint32_t {
     eNO_FLAG = 0, // A MISCOMPARE fault has not occurred
     eFLAG = 1, // A MISCOMPARE fault has occurred
   };
+  
   enum class eSEQ_FLAG : uint32_t {
     eNO_FLAG = 0, // A SEQUENCE fault has not occurred
     eFLAG = 1, // A SEQUENCE fault has occurred
   };
+  
   enum class eCNT_FLAG : uint32_t {
     eNO_FLAG = 0, // A CONTROL fault has not occurred
     eFLAG = 1, // A CONTROL fault has occurred
   };
+  
   enum class eSTATE_FLAG : uint32_t {
     eNO_FLAG = 0, // A STATE fault has not occurred
     eFLAG = 1, // A STATE fault has occurred
   };
+  
   enum class eADDR_FLAG : uint32_t {
     eNO_FLAG = 0, // An ADDRESS fault has not occurred
     eFLAG = 1, // An ADDRESS fault has occurred
   };
+  
   enum class ePOR_FLAG : uint32_t {
     eNO_FLAG = 0, // A Power-on reset event has not occurred
     eFLAG = 1, // A Power-on reset event has occurred
@@ -227,7 +229,7 @@ union FLAGS {
     uint32_t _reserved_6 : 10;
     ePOR_FLAG POR_FLAG : 1;
     uint32_t _reserved_end : 15;
-  } bits;          // Bit-field struct (auto-filling reserved gaps)
+  } bits;
   
   // Full 32-bit register value.
   uint32_t value;
@@ -241,12 +243,10 @@ union FLAGS {
 //
 union PERSISTENT {
   
-  // Enum definitions.
-  
   // Bit field definition.
   struct {
     uint32_t PERSIS : 32;
-  } bits;          // Bit-field struct (auto-filling reserved gaps)
+  } bits;
   
   // Full 32-bit register value.
   uint32_t value;
@@ -260,12 +260,10 @@ union PERSISTENT {
 //
 union START {
   
-  // Enum definitions.
-  
   // Bit field definition.
   struct {
     uint32_t STRT : 32;
-  } bits;          // Bit-field struct (auto-filling reserved gaps)
+  } bits;
   
   // Full 32-bit register value.
   uint32_t value;
@@ -279,12 +277,10 @@ union START {
 //
 union STOP {
   
-  // Enum definitions.
-  
   // Bit field definition.
   struct {
     uint32_t STP : 32;
-  } bits;          // Bit-field struct (auto-filling reserved gaps)
+  } bits;
   
   // Full 32-bit register value.
   uint32_t value;
@@ -298,12 +294,10 @@ union STOP {
 //
 union RESTART {
   
-  // Enum definitions.
-  
   // Bit field definition.
   struct {
     uint32_t RSTRT : 32;
-  } bits;          // Bit-field struct (auto-filling reserved gaps)
+  } bits;
   
   // Full 32-bit register value.
   uint32_t value;
@@ -317,12 +311,10 @@ union RESTART {
 //
 union ADD {
   
-  // Enum definitions.
-  
   // Bit field definition.
   struct {
     uint32_t AD : 32;
-  } bits;          // Bit-field struct (auto-filling reserved gaps)
+  } bits;
   
   // Full 32-bit register value.
   uint32_t value;
@@ -336,12 +328,10 @@ union ADD {
 //
 union ADD1 {
   
-  // Enum definitions.
-  
   // Bit field definition.
   struct {
     uint32_t AD1 : 32;
-  } bits;          // Bit-field struct (auto-filling reserved gaps)
+  } bits;
   
   // Full 32-bit register value.
   uint32_t value;
@@ -355,12 +345,10 @@ union ADD1 {
 //
 union ADD16 {
   
-  // Enum definitions.
-  
   // Bit field definition.
   struct {
     uint32_t AD16 : 32;
-  } bits;          // Bit-field struct (auto-filling reserved gaps)
+  } bits;
   
   // Full 32-bit register value.
   uint32_t value;
@@ -374,12 +362,10 @@ union ADD16 {
 //
 union ADD256 {
   
-  // Enum definitions.
-  
   // Bit field definition.
   struct {
     uint32_t AD256 : 32;
-  } bits;          // Bit-field struct (auto-filling reserved gaps)
+  } bits;
   
   // Full 32-bit register value.
   uint32_t value;
@@ -393,12 +379,10 @@ union ADD256 {
 //
 union SUB {
   
-  // Enum definitions.
-  
   // Bit field definition.
   struct {
     uint32_t S0B : 32;
-  } bits;          // Bit-field struct (auto-filling reserved gaps)
+  } bits;
   
   // Full 32-bit register value.
   uint32_t value;
@@ -412,12 +396,10 @@ union SUB {
 //
 union SUB1 {
   
-  // Enum definitions.
-  
   // Bit field definition.
   struct {
     uint32_t S1B : 32;
-  } bits;          // Bit-field struct (auto-filling reserved gaps)
+  } bits;
   
   // Full 32-bit register value.
   uint32_t value;
@@ -431,12 +413,10 @@ union SUB1 {
 //
 union SUB16 {
   
-  // Enum definitions.
-  
   // Bit field definition.
   struct {
     uint32_t SB16 : 32;
-  } bits;          // Bit-field struct (auto-filling reserved gaps)
+  } bits;
   
   // Full 32-bit register value.
   uint32_t value;
@@ -450,12 +430,10 @@ union SUB16 {
 //
 union SUB256 {
   
-  // Enum definitions.
-  
   // Bit field definition.
   struct {
     uint32_t SB256 : 32;
-  } bits;          // Bit-field struct (auto-filling reserved gaps)
+  } bits;
   
   // Full 32-bit register value.
   uint32_t value;

@@ -15,8 +15,6 @@ namespace nENET {
 //
 union EIR {
   
-  // Enum definitions.
-  
   // Bit field definition.
   struct {
     uint32_t _reserved_0 : 15;
@@ -37,7 +35,7 @@ union EIR {
     uint32_t BABT : 1;
     uint32_t BABR : 1;
     uint32_t _reserved_end : 1;
-  } bits;          // Bit-field struct (auto-filling reserved gaps)
+  } bits;
   
   // Full 32-bit register value.
   uint32_t value;
@@ -51,67 +49,81 @@ union EIR {
 //
 union EIMR {
   
-  // Enum definitions.
   enum class eTS_TIMER : uint32_t {
     eZERO = 0, // The corresponding interrupt source is masked.
     eONE = 1, // The corresponding interrupt source is not masked.
   };
+  
   enum class eTS_AVAIL : uint32_t {
     eZERO = 0, // The corresponding interrupt source is masked.
     eONE = 1, // The corresponding interrupt source is not masked.
   };
+  
   enum class eWAKEUP : uint32_t {
     eZERO = 0, // The corresponding interrupt source is masked.
     eONE = 1, // The corresponding interrupt source is not masked.
   };
+  
   enum class ePLR : uint32_t {
     eZERO = 0, // The corresponding interrupt source is masked.
     eONE = 1, // The corresponding interrupt source is not masked.
   };
+  
   enum class eUN : uint32_t {
     eZERO = 0, // The corresponding interrupt source is masked.
     eONE = 1, // The corresponding interrupt source is not masked.
   };
+  
   enum class eRL : uint32_t {
     eZERO = 0, // The corresponding interrupt source is masked.
     eONE = 1, // The corresponding interrupt source is not masked.
   };
+  
   enum class eLC : uint32_t {
     eZERO = 0, // The corresponding interrupt source is masked.
     eONE = 1, // The corresponding interrupt source is not masked.
   };
+  
   enum class eEBERR : uint32_t {
     eZERO = 0, // The corresponding interrupt source is masked.
     eONE = 1, // The corresponding interrupt source is not masked.
   };
+  
   enum class eMII : uint32_t {
     eZERO = 0, // The corresponding interrupt source is masked.
     eONE = 1, // The corresponding interrupt source is not masked.
   };
+  
   enum class eRXB : uint32_t {
     eZERO = 0, // The corresponding interrupt source is masked.
     eONE = 1, // The corresponding interrupt source is not masked.
   };
+  
   enum class eRXF : uint32_t {
     eZERO = 0, // The corresponding interrupt source is masked.
     eONE = 1, // The corresponding interrupt source is not masked.
   };
+  
   enum class eTXB : uint32_t {
     eMASKED = 0, // The corresponding interrupt source is masked.
     eUNMASKED = 1, // The corresponding interrupt source is not masked.
   };
+  
   enum class eTXF : uint32_t {
     eMASKED = 0, // The corresponding interrupt source is masked.
     eUNMASKED = 1, // The corresponding interrupt source is not masked.
   };
+  
   enum class eGRA : uint32_t {
     eMASKED = 0, // The corresponding interrupt source is masked.
     eUMASKED = 1, // The corresponding interrupt source is not masked.
   };
+  
   enum class eBABT : uint32_t {
     eZERO = 0, // The corresponding interrupt source is masked.
     eONE = 1, // The corresponding interrupt source is not masked.
   };
+  
   enum class eBABR : uint32_t {
     eZERO = 0, // The corresponding interrupt source is masked.
     eONE = 1, // The corresponding interrupt source is not masked.
@@ -137,7 +149,7 @@ union EIMR {
     eBABT BABT : 1;
     eBABR BABR : 1;
     uint32_t _reserved_end : 1;
-  } bits;          // Bit-field struct (auto-filling reserved gaps)
+  } bits;
   
   // Full 32-bit register value.
   uint32_t value;
@@ -151,14 +163,12 @@ union EIMR {
 //
 union RDAR {
   
-  // Enum definitions.
-  
   // Bit field definition.
   struct {
     uint32_t _reserved_0 : 24;
     uint32_t RDAR : 1;
     uint32_t _reserved_end : 7;
-  } bits;          // Bit-field struct (auto-filling reserved gaps)
+  } bits;
   
   // Full 32-bit register value.
   uint32_t value;
@@ -172,14 +182,12 @@ union RDAR {
 //
 union TDAR {
   
-  // Enum definitions.
-  
   // Bit field definition.
   struct {
     uint32_t _reserved_0 : 24;
     uint32_t TDAR : 1;
     uint32_t _reserved_end : 7;
-  } bits;          // Bit-field struct (auto-filling reserved gaps)
+  } bits;
   
   // Full 32-bit register value.
   uint32_t value;
@@ -193,27 +201,31 @@ union TDAR {
 //
 union ECR {
   
-  // Enum definitions.
   enum class eETHEREN : uint32_t {
     eZERO = 0, // Reception immediately stops and transmission stops after a bad CRC is appended to any currently transmitted frame.
     eONE = 1, // MAC is enabled, and reception and transmission are possible.
   };
+  
   enum class eMAGICEN : uint32_t {
     eZERO = 0, // Magic detection logic disabled.
     eONE = 1, // The MAC core detects magic packets and asserts EIR[WAKEUP] when a frame is detected.
   };
+  
   enum class eSLEEP : uint32_t {
     eZERO = 0, // Normal operating mode.
     eONE = 1, // Sleep mode.
   };
+  
   enum class eEN1588 : uint32_t {
     eZERO = 0, // Legacy FEC buffer descriptors and functions enabled.
     eONE = 1, // Enhanced frame time-stamping functions enabled. Has no effect within the MAC besides controlling the DMA control bit ena_1588.
   };
+  
   enum class eDBGEN : uint32_t {
     eZERO = 0, // MAC continues operation in debug mode.
     eONE = 1, // MAC enters hardware freeze mode when the processor is in debug mode.
   };
+  
   enum class eDBSWP : uint32_t {
     eZERO = 0, // The buffer descriptor bytes are not swapped to support big-endian devices.
     eONE = 1, // The buffer descriptor bytes are swapped to support little-endian devices.
@@ -231,7 +243,7 @@ union ECR {
     uint32_t _reserved_6 : 1;
     eDBSWP DBSWP : 1;
     uint32_t _reserved_end : 23;
-  } bits;          // Bit-field struct (auto-filling reserved gaps)
+  } bits;
   
   // Full 32-bit register value.
   uint32_t value;
@@ -245,8 +257,6 @@ union ECR {
 //
 union MMFR {
   
-  // Enum definitions.
-  
   // Bit field definition.
   struct {
     uint32_t DATA : 16;
@@ -255,7 +265,7 @@ union MMFR {
     uint32_t PA : 5;
     uint32_t OP : 2;
     uint32_t ST : 2;
-  } bits;          // Bit-field struct (auto-filling reserved gaps)
+  } bits;
   
   // Full 32-bit register value.
   uint32_t value;
@@ -269,11 +279,11 @@ union MMFR {
 //
 union MSCR {
   
-  // Enum definitions.
   enum class eDIS_PRE : uint32_t {
     eZERO = 0, // Preamble enabled.
     eONE = 1, // Preamble (32 ones) is not prepended to the MII management frame.
   };
+  
   enum class eHOLDTIME : uint32_t {
     eVAL_1 = 0, // 1 internal module clock cycle
     eVAL2 = 1, // 2 internal module clock cycles
@@ -288,7 +298,7 @@ union MSCR {
     eDIS_PRE DIS_PRE : 1;
     eHOLDTIME HOLDTIME : 3;
     uint32_t _reserved_end : 21;
-  } bits;          // Bit-field struct (auto-filling reserved gaps)
+  } bits;
   
   // Full 32-bit register value.
   uint32_t value;
@@ -302,15 +312,16 @@ union MSCR {
 //
 union MIBC {
   
-  // Enum definitions.
   enum class eMIB_CLEAR : uint32_t {
     eZERO = 0, // See note above.
     eONE = 1, // All statistics counters are reset to 0.
   };
+  
   enum class eMIB_IDLE : uint32_t {
     eZERO = 0, // The MIB block is updating MIB counters.
     eONE = 1, // The MIB block is not currently updating any MIB counters.
   };
+  
   enum class eMIB_DIS : uint32_t {
     eZERO = 0, // MIB logic is enabled.
     eONE = 1, // MIB logic is disabled. The MIB logic halts and does not update any MIB counters.
@@ -322,7 +333,7 @@ union MIBC {
     eMIB_CLEAR MIB_CLEAR : 1;
     eMIB_IDLE MIB_IDLE : 1;
     eMIB_DIS MIB_DIS : 1;
-  } bits;          // Bit-field struct (auto-filling reserved gaps)
+  } bits;
   
   // Full 32-bit register value.
   uint32_t value;
@@ -336,58 +347,70 @@ union MIBC {
 //
 union RCR {
   
-  // Enum definitions.
   enum class eLOOP : uint32_t {
     eZERO = 0, // Loopback disabled.
     eONE = 1, // Transmitted frames are looped back internal to the device and transmit MII output signals are not asserted. DRT must be cleared.
   };
+  
   enum class eDRT : uint32_t {
     eZERO = 0, // Receive path operates independently of transmit (i.e., full-duplex mode). Can also be used to monitor transmit activity in half-duplex mode.
     eONE = 1, // Disable reception of frames while transmitting. (Normally used for half-duplex mode.)
   };
+  
   enum class eMII_MODE : uint32_t {
     eONE = 1, // MII or RMII mode, as indicated by the RMII_MODE field.
   };
+  
   enum class ePROM : uint32_t {
     eZERO = 0, // Disabled.
     eONE = 1, // Enabled.
   };
+  
   enum class eBC_REJ : uint32_t {
     eZERO = 0, // Will not reject frames as described above
     eONE = 1, // Will reject frames as described above
   };
+  
   enum class eFCE : uint32_t {
     eZERO = 0, // Disable flow control
     eONE = 1, // Enable flow control
   };
+  
   enum class eRMII_MODE : uint32_t {
     eZERO = 0, // MAC configured for MII mode.
     eONE = 1, // MAC configured for RMII operation.
   };
+  
   enum class eRMII_10T : uint32_t {
     eZERO = 0, // 100-Mbit/s operation.
     eONE = 1, // 10-Mbit/s operation.
   };
+  
   enum class ePADEN : uint32_t {
     eZERO = 0, // No padding is removed on receive by the MAC.
     eONE = 1, // Padding is removed from received frames.
   };
+  
   enum class ePAUFWD : uint32_t {
     eZERO = 0, // Pause frames are terminated and discarded in the MAC.
     eONE = 1, // Pause frames are forwarded to the user application.
   };
+  
   enum class eCRCFWD : uint32_t {
     eZERO = 0, // The CRC field of received frames is transmitted to the user application.
     eONE = 1, // The CRC field is stripped from the frame.
   };
+  
   enum class eCFEN : uint32_t {
     eZERO = 0, // MAC control frames with any opcode other than 0x0001 (pause frame) are accepted and forwarded to the client interface.
     eONE = 1, // MAC control frames with any opcode other than 0x0001 (pause frame) are silently discarded.
   };
+  
   enum class eNLC : uint32_t {
     eZERO = 0, // The payload length check is disabled.
     eONE = 1, // The core checks the frame's payload length with the frame length/type field. Errors are indicated in the EIR[PLR] field.
   };
+  
   enum class eGRS : uint32_t {
     eZERO = 0, // Receive not stopped
     eONE = 1, // Receive stopped
@@ -412,7 +435,7 @@ union RCR {
     uint32_t MAX_FL : 14;
     eNLC NLC : 1;
     eGRS GRS : 1;
-  } bits;          // Bit-field struct (auto-filling reserved gaps)
+  } bits;
   
   // Full 32-bit register value.
   uint32_t value;
@@ -426,26 +449,30 @@ union RCR {
 //
 union TCR {
   
-  // Enum definitions.
   enum class eGTS : uint32_t {
     eZERO = 0, // Disable graceful transmit stop
     eONE = 1, // Enable graceful transmit stop
   };
+  
   enum class eFDEN : uint32_t {
     eZERO = 0, // Disable full-duplex
     eONE = 1, // Enable full-duplex
   };
+  
   enum class eTFC_PAUSE : uint32_t {
     eZERO = 0, // No PAUSE frame transmitted.
     eONE = 1, // The MAC stops transmission of data frames after the current transmission is complete.
   };
+  
   enum class eADDSEL : uint32_t {
     eVAL_MAC = 0, // Node MAC address programmed on PADDR1/2 registers.
   };
+  
   enum class eADDINS : uint32_t {
     eZERO = 0, // The source MAC address is not modified by the MAC.
     eONE = 1, // The MAC overwrites the source MAC address with the programmed MAC address according to ADDSEL.
   };
+  
   enum class eCRCFWD : uint32_t {
     eZERO = 0, // TxBD[TC] controls whether the frame has a CRC from the application.
     eONE = 1, // The transmitter does not append any CRC to transmitted frames, as it is expecting a frame with CRC from the application.
@@ -462,7 +489,7 @@ union TCR {
     eADDINS ADDINS : 1;
     eCRCFWD CRCFWD : 1;
     uint32_t _reserved_end : 22;
-  } bits;          // Bit-field struct (auto-filling reserved gaps)
+  } bits;
   
   // Full 32-bit register value.
   uint32_t value;
@@ -476,12 +503,10 @@ union TCR {
 //
 union PALR {
   
-  // Enum definitions.
-  
   // Bit field definition.
   struct {
     uint32_t PADDR1 : 32;
-  } bits;          // Bit-field struct (auto-filling reserved gaps)
+  } bits;
   
   // Full 32-bit register value.
   uint32_t value;
@@ -495,13 +520,11 @@ union PALR {
 //
 union PAUR {
   
-  // Enum definitions.
-  
   // Bit field definition.
   struct {
     uint32_t TYPE : 16;
     uint32_t PADDR2 : 16;
-  } bits;          // Bit-field struct (auto-filling reserved gaps)
+  } bits;
   
   // Full 32-bit register value.
   uint32_t value;
@@ -515,13 +538,11 @@ union PAUR {
 //
 union OPD {
   
-  // Enum definitions.
-  
   // Bit field definition.
   struct {
     uint32_t PAUSE_DUR : 16;
     uint32_t OPCODE : 16;
-  } bits;          // Bit-field struct (auto-filling reserved gaps)
+  } bits;
   
   // Full 32-bit register value.
   uint32_t value;
@@ -535,11 +556,11 @@ union OPD {
 //
 union TXIC[0] {
   
-  // Enum definitions.
   enum class eICCS : uint32_t {
     eZERO = 0, // Use MII/GMII TX clocks.
     eONE = 1, // Use ENET system clock.
   };
+  
   enum class eICEN : uint32_t {
     eZERO = 0, // Disable Interrupt coalescing.
     eONE = 1, // Enable Interrupt coalescing.
@@ -553,7 +574,7 @@ union TXIC[0] {
     uint32_t _reserved_2 : 2;
     eICCS ICCS : 1;
     eICEN ICEN : 1;
-  } bits;          // Bit-field struct (auto-filling reserved gaps)
+  } bits;
   
   // Full 32-bit register value.
   uint32_t value;
@@ -566,11 +587,11 @@ union TXIC[0] {
 //
 union TXIC[1] {
   
-  // Enum definitions.
   enum class eICCS : uint32_t {
     eZERO = 0, // Use MII/GMII TX clocks.
     eONE = 1, // Use ENET system clock.
   };
+  
   enum class eICEN : uint32_t {
     eZERO = 0, // Disable Interrupt coalescing.
     eONE = 1, // Enable Interrupt coalescing.
@@ -584,7 +605,7 @@ union TXIC[1] {
     uint32_t _reserved_2 : 2;
     eICCS ICCS : 1;
     eICEN ICEN : 1;
-  } bits;          // Bit-field struct (auto-filling reserved gaps)
+  } bits;
   
   // Full 32-bit register value.
   uint32_t value;
@@ -597,11 +618,11 @@ union TXIC[1] {
 //
 union TXIC[2] {
   
-  // Enum definitions.
   enum class eICCS : uint32_t {
     eZERO = 0, // Use MII/GMII TX clocks.
     eONE = 1, // Use ENET system clock.
   };
+  
   enum class eICEN : uint32_t {
     eZERO = 0, // Disable Interrupt coalescing.
     eONE = 1, // Enable Interrupt coalescing.
@@ -615,7 +636,7 @@ union TXIC[2] {
     uint32_t _reserved_2 : 2;
     eICCS ICCS : 1;
     eICEN ICEN : 1;
-  } bits;          // Bit-field struct (auto-filling reserved gaps)
+  } bits;
   
   // Full 32-bit register value.
   uint32_t value;
@@ -629,11 +650,11 @@ union TXIC[2] {
 //
 union RXIC[0] {
   
-  // Enum definitions.
   enum class eICCS : uint32_t {
     eZERO = 0, // Use MII/GMII TX clocks.
     eONE = 1, // Use ENET system clock.
   };
+  
   enum class eICEN : uint32_t {
     eZERO = 0, // Disable Interrupt coalescing.
     eONE = 1, // Enable Interrupt coalescing.
@@ -647,7 +668,7 @@ union RXIC[0] {
     uint32_t _reserved_2 : 2;
     eICCS ICCS : 1;
     eICEN ICEN : 1;
-  } bits;          // Bit-field struct (auto-filling reserved gaps)
+  } bits;
   
   // Full 32-bit register value.
   uint32_t value;
@@ -660,11 +681,11 @@ union RXIC[0] {
 //
 union RXIC[1] {
   
-  // Enum definitions.
   enum class eICCS : uint32_t {
     eZERO = 0, // Use MII/GMII TX clocks.
     eONE = 1, // Use ENET system clock.
   };
+  
   enum class eICEN : uint32_t {
     eZERO = 0, // Disable Interrupt coalescing.
     eONE = 1, // Enable Interrupt coalescing.
@@ -678,7 +699,7 @@ union RXIC[1] {
     uint32_t _reserved_2 : 2;
     eICCS ICCS : 1;
     eICEN ICEN : 1;
-  } bits;          // Bit-field struct (auto-filling reserved gaps)
+  } bits;
   
   // Full 32-bit register value.
   uint32_t value;
@@ -691,11 +712,11 @@ union RXIC[1] {
 //
 union RXIC[2] {
   
-  // Enum definitions.
   enum class eICCS : uint32_t {
     eZERO = 0, // Use MII/GMII TX clocks.
     eONE = 1, // Use ENET system clock.
   };
+  
   enum class eICEN : uint32_t {
     eZERO = 0, // Disable Interrupt coalescing.
     eONE = 1, // Enable Interrupt coalescing.
@@ -709,7 +730,7 @@ union RXIC[2] {
     uint32_t _reserved_2 : 2;
     eICCS ICCS : 1;
     eICEN ICEN : 1;
-  } bits;          // Bit-field struct (auto-filling reserved gaps)
+  } bits;
   
   // Full 32-bit register value.
   uint32_t value;
@@ -723,12 +744,10 @@ union RXIC[2] {
 //
 union IAUR {
   
-  // Enum definitions.
-  
   // Bit field definition.
   struct {
     uint32_t IADDR1 : 32;
-  } bits;          // Bit-field struct (auto-filling reserved gaps)
+  } bits;
   
   // Full 32-bit register value.
   uint32_t value;
@@ -742,12 +761,10 @@ union IAUR {
 //
 union IALR {
   
-  // Enum definitions.
-  
   // Bit field definition.
   struct {
     uint32_t IADDR2 : 32;
-  } bits;          // Bit-field struct (auto-filling reserved gaps)
+  } bits;
   
   // Full 32-bit register value.
   uint32_t value;
@@ -761,12 +778,10 @@ union IALR {
 //
 union GAUR {
   
-  // Enum definitions.
-  
   // Bit field definition.
   struct {
     uint32_t GADDR1 : 32;
-  } bits;          // Bit-field struct (auto-filling reserved gaps)
+  } bits;
   
   // Full 32-bit register value.
   uint32_t value;
@@ -780,12 +795,10 @@ union GAUR {
 //
 union GALR {
   
-  // Enum definitions.
-  
   // Bit field definition.
   struct {
     uint32_t GADDR2 : 32;
-  } bits;          // Bit-field struct (auto-filling reserved gaps)
+  } bits;
   
   // Full 32-bit register value.
   uint32_t value;
@@ -799,7 +812,6 @@ union GALR {
 //
 union TFWR {
   
-  // Enum definitions.
   enum class eTFWR : uint32_t {
     eVAL64_0 = 0, // 64 bytes written.
     eVAL64_1 = 1, // 64 bytes written.
@@ -807,6 +819,7 @@ union TFWR {
     eVAL192 = 3, // 192 bytes written.
     eVAL1984 = 31, // 1984 bytes written.
   };
+  
   enum class eSTRFWD : uint32_t {
     eZERO = 0, // Reset. The transmission start threshold is programmed in TFWR[TFWR].
     eONE = 1, // Enabled.
@@ -818,7 +831,7 @@ union TFWR {
     uint32_t _reserved_1 : 2;
     eSTRFWD STRFWD : 1;
     uint32_t _reserved_end : 23;
-  } bits;          // Bit-field struct (auto-filling reserved gaps)
+  } bits;
   
   // Full 32-bit register value.
   uint32_t value;
@@ -832,13 +845,11 @@ union TFWR {
 //
 union RDSR {
   
-  // Enum definitions.
-  
   // Bit field definition.
   struct {
     uint32_t _reserved_0 : 3;
     uint32_t R_DES_START : 29;
-  } bits;          // Bit-field struct (auto-filling reserved gaps)
+  } bits;
   
   // Full 32-bit register value.
   uint32_t value;
@@ -852,13 +863,11 @@ union RDSR {
 //
 union TDSR {
   
-  // Enum definitions.
-  
   // Bit field definition.
   struct {
     uint32_t _reserved_0 : 3;
     uint32_t X_DES_START : 29;
-  } bits;          // Bit-field struct (auto-filling reserved gaps)
+  } bits;
   
   // Full 32-bit register value.
   uint32_t value;
@@ -872,14 +881,12 @@ union TDSR {
 //
 union MRBR {
   
-  // Enum definitions.
-  
   // Bit field definition.
   struct {
     uint32_t _reserved_0 : 4;
     uint32_t R_BUF_SIZE : 10;
     uint32_t _reserved_end : 18;
-  } bits;          // Bit-field struct (auto-filling reserved gaps)
+  } bits;
   
   // Full 32-bit register value.
   uint32_t value;
@@ -893,13 +900,11 @@ union MRBR {
 //
 union RSFL {
   
-  // Enum definitions.
-  
   // Bit field definition.
   struct {
     uint32_t RX_SECTION_FULL : 8;
     uint32_t _reserved_end : 24;
-  } bits;          // Bit-field struct (auto-filling reserved gaps)
+  } bits;
   
   // Full 32-bit register value.
   uint32_t value;
@@ -913,15 +918,13 @@ union RSFL {
 //
 union RSEM {
   
-  // Enum definitions.
-  
   // Bit field definition.
   struct {
     uint32_t RX_SECTION_EMPTY : 8;
     uint32_t _reserved_1 : 8;
     uint32_t STAT_SECTION_EMPTY : 5;
     uint32_t _reserved_end : 11;
-  } bits;          // Bit-field struct (auto-filling reserved gaps)
+  } bits;
   
   // Full 32-bit register value.
   uint32_t value;
@@ -935,13 +938,11 @@ union RSEM {
 //
 union RAEM {
   
-  // Enum definitions.
-  
   // Bit field definition.
   struct {
     uint32_t RX_ALMOST_EMPTY : 8;
     uint32_t _reserved_end : 24;
-  } bits;          // Bit-field struct (auto-filling reserved gaps)
+  } bits;
   
   // Full 32-bit register value.
   uint32_t value;
@@ -955,13 +956,11 @@ union RAEM {
 //
 union RAFL {
   
-  // Enum definitions.
-  
   // Bit field definition.
   struct {
     uint32_t RX_ALMOST_FULL : 8;
     uint32_t _reserved_end : 24;
-  } bits;          // Bit-field struct (auto-filling reserved gaps)
+  } bits;
   
   // Full 32-bit register value.
   uint32_t value;
@@ -975,13 +974,11 @@ union RAFL {
 //
 union TSEM {
   
-  // Enum definitions.
-  
   // Bit field definition.
   struct {
     uint32_t TX_SECTION_EMPTY : 8;
     uint32_t _reserved_end : 24;
-  } bits;          // Bit-field struct (auto-filling reserved gaps)
+  } bits;
   
   // Full 32-bit register value.
   uint32_t value;
@@ -995,13 +992,11 @@ union TSEM {
 //
 union TAEM {
   
-  // Enum definitions.
-  
   // Bit field definition.
   struct {
     uint32_t TX_ALMOST_EMPTY : 8;
     uint32_t _reserved_end : 24;
-  } bits;          // Bit-field struct (auto-filling reserved gaps)
+  } bits;
   
   // Full 32-bit register value.
   uint32_t value;
@@ -1015,13 +1010,11 @@ union TAEM {
 //
 union TAFL {
   
-  // Enum definitions.
-  
   // Bit field definition.
   struct {
     uint32_t TX_ALMOST_FULL : 8;
     uint32_t _reserved_end : 24;
-  } bits;          // Bit-field struct (auto-filling reserved gaps)
+  } bits;
   
   // Full 32-bit register value.
   uint32_t value;
@@ -1035,13 +1028,11 @@ union TAFL {
 //
 union TIPG {
   
-  // Enum definitions.
-  
   // Bit field definition.
   struct {
     uint32_t IPG : 5;
     uint32_t _reserved_end : 27;
-  } bits;          // Bit-field struct (auto-filling reserved gaps)
+  } bits;
   
   // Full 32-bit register value.
   uint32_t value;
@@ -1055,13 +1046,11 @@ union TIPG {
 //
 union FTRL {
   
-  // Enum definitions.
-  
   // Bit field definition.
   struct {
     uint32_t TRUNC_FL : 14;
     uint32_t _reserved_end : 18;
-  } bits;          // Bit-field struct (auto-filling reserved gaps)
+  } bits;
   
   // Full 32-bit register value.
   uint32_t value;
@@ -1075,15 +1064,16 @@ union FTRL {
 //
 union TACC {
   
-  // Enum definitions.
   enum class eSHIFT16 : uint32_t {
     eZERO = 0, // Disabled.
     eONE = 1, // Indicates to the transmit data FIFO that the written frames contain two additional octets before the frame data. This means the actual frame begins at bit 16 of the first word written into the FIFO. This function allows putting the frame payload on a 32-bit boundary in memory, as the 14-byte Ethernet header is extended to a 16-byte header.
   };
+  
   enum class eIPCHK : uint32_t {
     eZERO = 0, // Checksum is not inserted.
     eONE = 1, // If an IP frame is transmitted, the checksum is inserted automatically. The IP header checksum field must be cleared. If a non-IP frame is transmitted the frame is not modified.
   };
+  
   enum class ePROCHK : uint32_t {
     eZERO = 0, // Checksum not inserted.
     eONE = 1, // If an IP frame with a known protocol is transmitted, the checksum is inserted automatically into the frame. The checksum field must be cleared. The other frames are not modified.
@@ -1096,7 +1086,7 @@ union TACC {
     eIPCHK IPCHK : 1;
     ePROCHK PROCHK : 1;
     uint32_t _reserved_end : 27;
-  } bits;          // Bit-field struct (auto-filling reserved gaps)
+  } bits;
   
   // Full 32-bit register value.
   uint32_t value;
@@ -1110,23 +1100,26 @@ union TACC {
 //
 union RACC {
   
-  // Enum definitions.
   enum class ePADREM : uint32_t {
     eZERO = 0, // Padding not removed.
     eONE = 1, // Any bytes following the IP payload section of the frame are removed from the frame.
   };
+  
   enum class eIPDIS : uint32_t {
     eZERO = 0, // Frames with wrong IPv4 header checksum are not discarded.
     eONE = 1, // If an IPv4 frame is received with a mismatching header checksum, the frame is discarded. IPv6 has no header checksum and is not affected by this setting. Discarding is only available when the RX FIFO operates in store and forward mode (RSFL cleared).
   };
+  
   enum class ePRODIS : uint32_t {
     eZERO = 0, // Frames with wrong checksum are not discarded.
     eONE = 1, // If a TCP/IP, UDP/IP, or ICMP/IP frame is received that has a wrong TCP, UDP, or ICMP checksum, the frame is discarded. Discarding is only available when the RX FIFO operates in store and forward mode (RSFL cleared).
   };
+  
   enum class eLINEDIS : uint32_t {
     eZERO = 0, // Frames with errors are not discarded.
     eONE = 1, // Any frame received with a CRC, length, or PHY error is automatically discarded and not forwarded to the user application interface.
   };
+  
   enum class eSHIFT16 : uint32_t {
     eZERO = 0, // Disabled.
     eONE = 1, // Instructs the MAC to write two additional bytes in front of each frame received into the RX FIFO.
@@ -1141,7 +1134,7 @@ union RACC {
     eLINEDIS LINEDIS : 1;
     eSHIFT16 SHIFT16 : 1;
     uint32_t _reserved_end : 24;
-  } bits;          // Bit-field struct (auto-filling reserved gaps)
+  } bits;
   
   // Full 32-bit register value.
   uint32_t value;
@@ -1155,13 +1148,11 @@ union RACC {
 //
 union RMON_T_PACKETS {
   
-  // Enum definitions.
-  
   // Bit field definition.
   struct {
     uint32_t TXPKTS : 16;
     uint32_t _reserved_end : 16;
-  } bits;          // Bit-field struct (auto-filling reserved gaps)
+  } bits;
   
   // Full 32-bit register value.
   uint32_t value;
@@ -1175,13 +1166,11 @@ union RMON_T_PACKETS {
 //
 union RMON_T_BC_PKT {
   
-  // Enum definitions.
-  
   // Bit field definition.
   struct {
     uint32_t TXPKTS : 16;
     uint32_t _reserved_end : 16;
-  } bits;          // Bit-field struct (auto-filling reserved gaps)
+  } bits;
   
   // Full 32-bit register value.
   uint32_t value;
@@ -1195,13 +1184,11 @@ union RMON_T_BC_PKT {
 //
 union RMON_T_MC_PKT {
   
-  // Enum definitions.
-  
   // Bit field definition.
   struct {
     uint32_t TXPKTS : 16;
     uint32_t _reserved_end : 16;
-  } bits;          // Bit-field struct (auto-filling reserved gaps)
+  } bits;
   
   // Full 32-bit register value.
   uint32_t value;
@@ -1215,13 +1202,11 @@ union RMON_T_MC_PKT {
 //
 union RMON_T_CRC_ALIGN {
   
-  // Enum definitions.
-  
   // Bit field definition.
   struct {
     uint32_t TXPKTS : 16;
     uint32_t _reserved_end : 16;
-  } bits;          // Bit-field struct (auto-filling reserved gaps)
+  } bits;
   
   // Full 32-bit register value.
   uint32_t value;
@@ -1235,13 +1220,11 @@ union RMON_T_CRC_ALIGN {
 //
 union RMON_T_UNDERSIZE {
   
-  // Enum definitions.
-  
   // Bit field definition.
   struct {
     uint32_t TXPKTS : 16;
     uint32_t _reserved_end : 16;
-  } bits;          // Bit-field struct (auto-filling reserved gaps)
+  } bits;
   
   // Full 32-bit register value.
   uint32_t value;
@@ -1255,13 +1238,11 @@ union RMON_T_UNDERSIZE {
 //
 union RMON_T_OVERSIZE {
   
-  // Enum definitions.
-  
   // Bit field definition.
   struct {
     uint32_t TXPKTS : 16;
     uint32_t _reserved_end : 16;
-  } bits;          // Bit-field struct (auto-filling reserved gaps)
+  } bits;
   
   // Full 32-bit register value.
   uint32_t value;
@@ -1275,13 +1256,11 @@ union RMON_T_OVERSIZE {
 //
 union RMON_T_FRAG {
   
-  // Enum definitions.
-  
   // Bit field definition.
   struct {
     uint32_t TXPKTS : 16;
     uint32_t _reserved_end : 16;
-  } bits;          // Bit-field struct (auto-filling reserved gaps)
+  } bits;
   
   // Full 32-bit register value.
   uint32_t value;
@@ -1295,13 +1274,11 @@ union RMON_T_FRAG {
 //
 union RMON_T_JAB {
   
-  // Enum definitions.
-  
   // Bit field definition.
   struct {
     uint32_t TXPKTS : 16;
     uint32_t _reserved_end : 16;
-  } bits;          // Bit-field struct (auto-filling reserved gaps)
+  } bits;
   
   // Full 32-bit register value.
   uint32_t value;
@@ -1315,13 +1292,11 @@ union RMON_T_JAB {
 //
 union RMON_T_COL {
   
-  // Enum definitions.
-  
   // Bit field definition.
   struct {
     uint32_t TXPKTS : 16;
     uint32_t _reserved_end : 16;
-  } bits;          // Bit-field struct (auto-filling reserved gaps)
+  } bits;
   
   // Full 32-bit register value.
   uint32_t value;
@@ -1335,13 +1310,11 @@ union RMON_T_COL {
 //
 union RMON_T_P64 {
   
-  // Enum definitions.
-  
   // Bit field definition.
   struct {
     uint32_t TXPKTS : 16;
     uint32_t _reserved_end : 16;
-  } bits;          // Bit-field struct (auto-filling reserved gaps)
+  } bits;
   
   // Full 32-bit register value.
   uint32_t value;
@@ -1355,13 +1328,11 @@ union RMON_T_P64 {
 //
 union RMON_T_P65TO127 {
   
-  // Enum definitions.
-  
   // Bit field definition.
   struct {
     uint32_t TXPKTS : 16;
     uint32_t _reserved_end : 16;
-  } bits;          // Bit-field struct (auto-filling reserved gaps)
+  } bits;
   
   // Full 32-bit register value.
   uint32_t value;
@@ -1375,13 +1346,11 @@ union RMON_T_P65TO127 {
 //
 union RMON_T_P128TO255 {
   
-  // Enum definitions.
-  
   // Bit field definition.
   struct {
     uint32_t TXPKTS : 16;
     uint32_t _reserved_end : 16;
-  } bits;          // Bit-field struct (auto-filling reserved gaps)
+  } bits;
   
   // Full 32-bit register value.
   uint32_t value;
@@ -1395,13 +1364,11 @@ union RMON_T_P128TO255 {
 //
 union RMON_T_P256TO511 {
   
-  // Enum definitions.
-  
   // Bit field definition.
   struct {
     uint32_t TXPKTS : 16;
     uint32_t _reserved_end : 16;
-  } bits;          // Bit-field struct (auto-filling reserved gaps)
+  } bits;
   
   // Full 32-bit register value.
   uint32_t value;
@@ -1415,13 +1382,11 @@ union RMON_T_P256TO511 {
 //
 union RMON_T_P512TO1023 {
   
-  // Enum definitions.
-  
   // Bit field definition.
   struct {
     uint32_t TXPKTS : 16;
     uint32_t _reserved_end : 16;
-  } bits;          // Bit-field struct (auto-filling reserved gaps)
+  } bits;
   
   // Full 32-bit register value.
   uint32_t value;
@@ -1435,13 +1400,11 @@ union RMON_T_P512TO1023 {
 //
 union RMON_T_P1024TO2047 {
   
-  // Enum definitions.
-  
   // Bit field definition.
   struct {
     uint32_t TXPKTS : 16;
     uint32_t _reserved_end : 16;
-  } bits;          // Bit-field struct (auto-filling reserved gaps)
+  } bits;
   
   // Full 32-bit register value.
   uint32_t value;
@@ -1455,13 +1418,11 @@ union RMON_T_P1024TO2047 {
 //
 union RMON_T_P_GTE2048 {
   
-  // Enum definitions.
-  
   // Bit field definition.
   struct {
     uint32_t TXPKTS : 16;
     uint32_t _reserved_end : 16;
-  } bits;          // Bit-field struct (auto-filling reserved gaps)
+  } bits;
   
   // Full 32-bit register value.
   uint32_t value;
@@ -1475,12 +1436,10 @@ union RMON_T_P_GTE2048 {
 //
 union RMON_T_OCTETS {
   
-  // Enum definitions.
-  
   // Bit field definition.
   struct {
     uint32_t TXOCTS : 32;
-  } bits;          // Bit-field struct (auto-filling reserved gaps)
+  } bits;
   
   // Full 32-bit register value.
   uint32_t value;
@@ -1494,12 +1453,10 @@ union RMON_T_OCTETS {
 //
 union IEEE_T_DROP {
   
-  // Enum definitions.
-  
   // Bit field definition.
   struct {
     uint32_t _reserved_end : 32;
-  } bits;          // Bit-field struct (auto-filling reserved gaps)
+  } bits;
   
   // Full 32-bit register value.
   uint32_t value;
@@ -1513,13 +1470,11 @@ union IEEE_T_DROP {
 //
 union IEEE_T_FRAME_OK {
   
-  // Enum definitions.
-  
   // Bit field definition.
   struct {
     uint32_t COUNT : 16;
     uint32_t _reserved_end : 16;
-  } bits;          // Bit-field struct (auto-filling reserved gaps)
+  } bits;
   
   // Full 32-bit register value.
   uint32_t value;
@@ -1533,13 +1488,11 @@ union IEEE_T_FRAME_OK {
 //
 union IEEE_T_1COL {
   
-  // Enum definitions.
-  
   // Bit field definition.
   struct {
     uint32_t COUNT : 16;
     uint32_t _reserved_end : 16;
-  } bits;          // Bit-field struct (auto-filling reserved gaps)
+  } bits;
   
   // Full 32-bit register value.
   uint32_t value;
@@ -1553,13 +1506,11 @@ union IEEE_T_1COL {
 //
 union IEEE_T_MCOL {
   
-  // Enum definitions.
-  
   // Bit field definition.
   struct {
     uint32_t COUNT : 16;
     uint32_t _reserved_end : 16;
-  } bits;          // Bit-field struct (auto-filling reserved gaps)
+  } bits;
   
   // Full 32-bit register value.
   uint32_t value;
@@ -1573,13 +1524,11 @@ union IEEE_T_MCOL {
 //
 union IEEE_T_DEF {
   
-  // Enum definitions.
-  
   // Bit field definition.
   struct {
     uint32_t COUNT : 16;
     uint32_t _reserved_end : 16;
-  } bits;          // Bit-field struct (auto-filling reserved gaps)
+  } bits;
   
   // Full 32-bit register value.
   uint32_t value;
@@ -1593,13 +1542,11 @@ union IEEE_T_DEF {
 //
 union IEEE_T_LCOL {
   
-  // Enum definitions.
-  
   // Bit field definition.
   struct {
     uint32_t COUNT : 16;
     uint32_t _reserved_end : 16;
-  } bits;          // Bit-field struct (auto-filling reserved gaps)
+  } bits;
   
   // Full 32-bit register value.
   uint32_t value;
@@ -1613,13 +1560,11 @@ union IEEE_T_LCOL {
 //
 union IEEE_T_EXCOL {
   
-  // Enum definitions.
-  
   // Bit field definition.
   struct {
     uint32_t COUNT : 16;
     uint32_t _reserved_end : 16;
-  } bits;          // Bit-field struct (auto-filling reserved gaps)
+  } bits;
   
   // Full 32-bit register value.
   uint32_t value;
@@ -1633,13 +1578,11 @@ union IEEE_T_EXCOL {
 //
 union IEEE_T_MACERR {
   
-  // Enum definitions.
-  
   // Bit field definition.
   struct {
     uint32_t COUNT : 16;
     uint32_t _reserved_end : 16;
-  } bits;          // Bit-field struct (auto-filling reserved gaps)
+  } bits;
   
   // Full 32-bit register value.
   uint32_t value;
@@ -1653,13 +1596,11 @@ union IEEE_T_MACERR {
 //
 union IEEE_T_CSERR {
   
-  // Enum definitions.
-  
   // Bit field definition.
   struct {
     uint32_t COUNT : 16;
     uint32_t _reserved_end : 16;
-  } bits;          // Bit-field struct (auto-filling reserved gaps)
+  } bits;
   
   // Full 32-bit register value.
   uint32_t value;
@@ -1673,13 +1614,11 @@ union IEEE_T_CSERR {
 //
 union IEEE_T_SQE {
   
-  // Enum definitions.
-  
   // Bit field definition.
   struct {
     uint32_t COUNT : 16;
     uint32_t _reserved_end : 16;
-  } bits;          // Bit-field struct (auto-filling reserved gaps)
+  } bits;
   
   // Full 32-bit register value.
   uint32_t value;
@@ -1693,13 +1632,11 @@ union IEEE_T_SQE {
 //
 union IEEE_T_FDXFC {
   
-  // Enum definitions.
-  
   // Bit field definition.
   struct {
     uint32_t COUNT : 16;
     uint32_t _reserved_end : 16;
-  } bits;          // Bit-field struct (auto-filling reserved gaps)
+  } bits;
   
   // Full 32-bit register value.
   uint32_t value;
@@ -1713,12 +1650,10 @@ union IEEE_T_FDXFC {
 //
 union IEEE_T_OCTETS_OK {
   
-  // Enum definitions.
-  
   // Bit field definition.
   struct {
     uint32_t COUNT : 32;
-  } bits;          // Bit-field struct (auto-filling reserved gaps)
+  } bits;
   
   // Full 32-bit register value.
   uint32_t value;
@@ -1732,13 +1667,11 @@ union IEEE_T_OCTETS_OK {
 //
 union RMON_R_PACKETS {
   
-  // Enum definitions.
-  
   // Bit field definition.
   struct {
     uint32_t COUNT : 16;
     uint32_t _reserved_end : 16;
-  } bits;          // Bit-field struct (auto-filling reserved gaps)
+  } bits;
   
   // Full 32-bit register value.
   uint32_t value;
@@ -1752,13 +1685,11 @@ union RMON_R_PACKETS {
 //
 union RMON_R_BC_PKT {
   
-  // Enum definitions.
-  
   // Bit field definition.
   struct {
     uint32_t COUNT : 16;
     uint32_t _reserved_end : 16;
-  } bits;          // Bit-field struct (auto-filling reserved gaps)
+  } bits;
   
   // Full 32-bit register value.
   uint32_t value;
@@ -1772,13 +1703,11 @@ union RMON_R_BC_PKT {
 //
 union RMON_R_MC_PKT {
   
-  // Enum definitions.
-  
   // Bit field definition.
   struct {
     uint32_t COUNT : 16;
     uint32_t _reserved_end : 16;
-  } bits;          // Bit-field struct (auto-filling reserved gaps)
+  } bits;
   
   // Full 32-bit register value.
   uint32_t value;
@@ -1792,13 +1721,11 @@ union RMON_R_MC_PKT {
 //
 union RMON_R_CRC_ALIGN {
   
-  // Enum definitions.
-  
   // Bit field definition.
   struct {
     uint32_t COUNT : 16;
     uint32_t _reserved_end : 16;
-  } bits;          // Bit-field struct (auto-filling reserved gaps)
+  } bits;
   
   // Full 32-bit register value.
   uint32_t value;
@@ -1812,13 +1739,11 @@ union RMON_R_CRC_ALIGN {
 //
 union RMON_R_UNDERSIZE {
   
-  // Enum definitions.
-  
   // Bit field definition.
   struct {
     uint32_t COUNT : 16;
     uint32_t _reserved_end : 16;
-  } bits;          // Bit-field struct (auto-filling reserved gaps)
+  } bits;
   
   // Full 32-bit register value.
   uint32_t value;
@@ -1832,13 +1757,11 @@ union RMON_R_UNDERSIZE {
 //
 union RMON_R_OVERSIZE {
   
-  // Enum definitions.
-  
   // Bit field definition.
   struct {
     uint32_t COUNT : 16;
     uint32_t _reserved_end : 16;
-  } bits;          // Bit-field struct (auto-filling reserved gaps)
+  } bits;
   
   // Full 32-bit register value.
   uint32_t value;
@@ -1852,13 +1775,11 @@ union RMON_R_OVERSIZE {
 //
 union RMON_R_FRAG {
   
-  // Enum definitions.
-  
   // Bit field definition.
   struct {
     uint32_t COUNT : 16;
     uint32_t _reserved_end : 16;
-  } bits;          // Bit-field struct (auto-filling reserved gaps)
+  } bits;
   
   // Full 32-bit register value.
   uint32_t value;
@@ -1872,13 +1793,11 @@ union RMON_R_FRAG {
 //
 union RMON_R_JAB {
   
-  // Enum definitions.
-  
   // Bit field definition.
   struct {
     uint32_t COUNT : 16;
     uint32_t _reserved_end : 16;
-  } bits;          // Bit-field struct (auto-filling reserved gaps)
+  } bits;
   
   // Full 32-bit register value.
   uint32_t value;
@@ -1892,13 +1811,11 @@ union RMON_R_JAB {
 //
 union RMON_R_P64 {
   
-  // Enum definitions.
-  
   // Bit field definition.
   struct {
     uint32_t COUNT : 16;
     uint32_t _reserved_end : 16;
-  } bits;          // Bit-field struct (auto-filling reserved gaps)
+  } bits;
   
   // Full 32-bit register value.
   uint32_t value;
@@ -1912,13 +1829,11 @@ union RMON_R_P64 {
 //
 union RMON_R_P65TO127 {
   
-  // Enum definitions.
-  
   // Bit field definition.
   struct {
     uint32_t COUNT : 16;
     uint32_t _reserved_end : 16;
-  } bits;          // Bit-field struct (auto-filling reserved gaps)
+  } bits;
   
   // Full 32-bit register value.
   uint32_t value;
@@ -1932,13 +1847,11 @@ union RMON_R_P65TO127 {
 //
 union RMON_R_P128TO255 {
   
-  // Enum definitions.
-  
   // Bit field definition.
   struct {
     uint32_t COUNT : 16;
     uint32_t _reserved_end : 16;
-  } bits;          // Bit-field struct (auto-filling reserved gaps)
+  } bits;
   
   // Full 32-bit register value.
   uint32_t value;
@@ -1952,13 +1865,11 @@ union RMON_R_P128TO255 {
 //
 union RMON_R_P256TO511 {
   
-  // Enum definitions.
-  
   // Bit field definition.
   struct {
     uint32_t COUNT : 16;
     uint32_t _reserved_end : 16;
-  } bits;          // Bit-field struct (auto-filling reserved gaps)
+  } bits;
   
   // Full 32-bit register value.
   uint32_t value;
@@ -1972,13 +1883,11 @@ union RMON_R_P256TO511 {
 //
 union RMON_R_P512TO1023 {
   
-  // Enum definitions.
-  
   // Bit field definition.
   struct {
     uint32_t COUNT : 16;
     uint32_t _reserved_end : 16;
-  } bits;          // Bit-field struct (auto-filling reserved gaps)
+  } bits;
   
   // Full 32-bit register value.
   uint32_t value;
@@ -1992,13 +1901,11 @@ union RMON_R_P512TO1023 {
 //
 union RMON_R_P1024TO2047 {
   
-  // Enum definitions.
-  
   // Bit field definition.
   struct {
     uint32_t COUNT : 16;
     uint32_t _reserved_end : 16;
-  } bits;          // Bit-field struct (auto-filling reserved gaps)
+  } bits;
   
   // Full 32-bit register value.
   uint32_t value;
@@ -2012,13 +1919,11 @@ union RMON_R_P1024TO2047 {
 //
 union RMON_R_P_GTE2048 {
   
-  // Enum definitions.
-  
   // Bit field definition.
   struct {
     uint32_t COUNT : 16;
     uint32_t _reserved_end : 16;
-  } bits;          // Bit-field struct (auto-filling reserved gaps)
+  } bits;
   
   // Full 32-bit register value.
   uint32_t value;
@@ -2032,12 +1937,10 @@ union RMON_R_P_GTE2048 {
 //
 union RMON_R_OCTETS {
   
-  // Enum definitions.
-  
   // Bit field definition.
   struct {
     uint32_t COUNT : 32;
-  } bits;          // Bit-field struct (auto-filling reserved gaps)
+  } bits;
   
   // Full 32-bit register value.
   uint32_t value;
@@ -2051,13 +1954,11 @@ union RMON_R_OCTETS {
 //
 union IEEE_R_DROP {
   
-  // Enum definitions.
-  
   // Bit field definition.
   struct {
     uint32_t COUNT : 16;
     uint32_t _reserved_end : 16;
-  } bits;          // Bit-field struct (auto-filling reserved gaps)
+  } bits;
   
   // Full 32-bit register value.
   uint32_t value;
@@ -2071,13 +1972,11 @@ union IEEE_R_DROP {
 //
 union IEEE_R_FRAME_OK {
   
-  // Enum definitions.
-  
   // Bit field definition.
   struct {
     uint32_t COUNT : 16;
     uint32_t _reserved_end : 16;
-  } bits;          // Bit-field struct (auto-filling reserved gaps)
+  } bits;
   
   // Full 32-bit register value.
   uint32_t value;
@@ -2091,13 +1990,11 @@ union IEEE_R_FRAME_OK {
 //
 union IEEE_R_CRC {
   
-  // Enum definitions.
-  
   // Bit field definition.
   struct {
     uint32_t COUNT : 16;
     uint32_t _reserved_end : 16;
-  } bits;          // Bit-field struct (auto-filling reserved gaps)
+  } bits;
   
   // Full 32-bit register value.
   uint32_t value;
@@ -2111,13 +2008,11 @@ union IEEE_R_CRC {
 //
 union IEEE_R_ALIGN {
   
-  // Enum definitions.
-  
   // Bit field definition.
   struct {
     uint32_t COUNT : 16;
     uint32_t _reserved_end : 16;
-  } bits;          // Bit-field struct (auto-filling reserved gaps)
+  } bits;
   
   // Full 32-bit register value.
   uint32_t value;
@@ -2131,13 +2026,11 @@ union IEEE_R_ALIGN {
 //
 union IEEE_R_MACERR {
   
-  // Enum definitions.
-  
   // Bit field definition.
   struct {
     uint32_t COUNT : 16;
     uint32_t _reserved_end : 16;
-  } bits;          // Bit-field struct (auto-filling reserved gaps)
+  } bits;
   
   // Full 32-bit register value.
   uint32_t value;
@@ -2151,13 +2044,11 @@ union IEEE_R_MACERR {
 //
 union IEEE_R_FDXFC {
   
-  // Enum definitions.
-  
   // Bit field definition.
   struct {
     uint32_t COUNT : 16;
     uint32_t _reserved_end : 16;
-  } bits;          // Bit-field struct (auto-filling reserved gaps)
+  } bits;
   
   // Full 32-bit register value.
   uint32_t value;
@@ -2171,12 +2062,10 @@ union IEEE_R_FDXFC {
 //
 union IEEE_R_OCTETS_OK {
   
-  // Enum definitions.
-  
   // Bit field definition.
   struct {
     uint32_t COUNT : 32;
-  } bits;          // Bit-field struct (auto-filling reserved gaps)
+  } bits;
   
   // Full 32-bit register value.
   uint32_t value;
@@ -2190,31 +2079,36 @@ union IEEE_R_OCTETS_OK {
 //
 union ATCR {
   
-  // Enum definitions.
   enum class eEN : uint32_t {
     eZERO = 0, // The timer stops at the current value.
     eONE = 1, // The timer starts incrementing.
   };
+  
   enum class eOFFEN : uint32_t {
     eZERO = 0, // Disable.
     eONE = 1, // The timer can be reset to zero when the given offset time is reached (offset event). The field is cleared when the offset event is reached, so no further event occurs until the field is set again. The timer offset value must be set before setting this field.
   };
+  
   enum class eOFFRST : uint32_t {
     eZERO = 0, // The timer is not affected and no action occurs, besides clearing OFFEN, when the offset is reached.
     eONE = 1, // If OFFEN is set, the timer resets to zero when the offset setting is reached. The offset event does not cause a timer interrupt.
   };
+  
   enum class ePEREN : uint32_t {
     eZERO = 0, // Disable.
     eONE = 1, // A period event interrupt can be generated (EIR[TS_TIMER]) and the event signal output is asserted when the timer wraps around according to the periodic setting ATPER. The timer period value must be set before setting this bit. Not all devices contain the event signal output. See the chip configuration details.
   };
+  
   enum class ePINPER : uint32_t {
     eZERO = 0, // Disable.
     eONE = 1, // Enable.
   };
+  
   enum class eCAPTURE : uint32_t {
     eZERO = 0, // No effect.
     eONE = 1, // The current time is captured and can be read from the ATVR register.
   };
+  
   enum class eSLAVE : uint32_t {
     eZERO = 0, // The timer is active and all configuration fields in this register are relevant.
     eONE = 1, // The internal timer is disabled and the externally provided timer value is used. All other fields, except CAPTURE, in this register have no effect. CAPTURE can still be used to capture the current timer value.
@@ -2236,7 +2130,7 @@ union ATCR {
     uint32_t _reserved_7 : 1;
     eSLAVE SLAVE : 1;
     uint32_t _reserved_end : 18;
-  } bits;          // Bit-field struct (auto-filling reserved gaps)
+  } bits;
   
   // Full 32-bit register value.
   uint32_t value;
@@ -2250,12 +2144,10 @@ union ATCR {
 //
 union ATVR {
   
-  // Enum definitions.
-  
   // Bit field definition.
   struct {
     uint32_t ATIME : 32;
-  } bits;          // Bit-field struct (auto-filling reserved gaps)
+  } bits;
   
   // Full 32-bit register value.
   uint32_t value;
@@ -2269,12 +2161,10 @@ union ATVR {
 //
 union ATOFF {
   
-  // Enum definitions.
-  
   // Bit field definition.
   struct {
     uint32_t OFFSET : 32;
-  } bits;          // Bit-field struct (auto-filling reserved gaps)
+  } bits;
   
   // Full 32-bit register value.
   uint32_t value;
@@ -2288,12 +2178,10 @@ union ATOFF {
 //
 union ATPER {
   
-  // Enum definitions.
-  
   // Bit field definition.
   struct {
     uint32_t PERIOD : 32;
-  } bits;          // Bit-field struct (auto-filling reserved gaps)
+  } bits;
   
   // Full 32-bit register value.
   uint32_t value;
@@ -2307,13 +2195,11 @@ union ATPER {
 //
 union ATCOR {
   
-  // Enum definitions.
-  
   // Bit field definition.
   struct {
     uint32_t COR : 31;
     uint32_t _reserved_end : 1;
-  } bits;          // Bit-field struct (auto-filling reserved gaps)
+  } bits;
   
   // Full 32-bit register value.
   uint32_t value;
@@ -2327,15 +2213,13 @@ union ATCOR {
 //
 union ATINC {
   
-  // Enum definitions.
-  
   // Bit field definition.
   struct {
     uint32_t INC : 7;
     uint32_t _reserved_1 : 1;
     uint32_t INC_CORR : 7;
     uint32_t _reserved_end : 17;
-  } bits;          // Bit-field struct (auto-filling reserved gaps)
+  } bits;
   
   // Full 32-bit register value.
   uint32_t value;
@@ -2349,12 +2233,10 @@ union ATINC {
 //
 union ATSTMP {
   
-  // Enum definitions.
-  
   // Bit field definition.
   struct {
     uint32_t TIMESTAMP : 32;
-  } bits;          // Bit-field struct (auto-filling reserved gaps)
+  } bits;
   
   // Full 32-bit register value.
   uint32_t value;
@@ -2368,19 +2250,21 @@ union ATSTMP {
 //
 union TGSR {
   
-  // Enum definitions.
   enum class eTF0 : uint32_t {
     eZERO = 0, // Timer Flag for Channel 0 is clear
     eONE = 1, // Timer Flag for Channel 0 is set
   };
+  
   enum class eTF1 : uint32_t {
     eZERO = 0, // Timer Flag for Channel 1 is clear
     eONE = 1, // Timer Flag for Channel 1 is set
   };
+  
   enum class eTF2 : uint32_t {
     eZERO = 0, // Timer Flag for Channel 2 is clear
     eONE = 1, // Timer Flag for Channel 2 is set
   };
+  
   enum class eTF3 : uint32_t {
     eZERO = 0, // Timer Flag for Channel 3 is clear
     eONE = 1, // Timer Flag for Channel 3 is set
@@ -2393,7 +2277,7 @@ union TGSR {
     eTF2 TF2 : 1;
     eTF3 TF3 : 1;
     uint32_t _reserved_end : 28;
-  } bits;          // Bit-field struct (auto-filling reserved gaps)
+  } bits;
   
   // Full 32-bit register value.
   uint32_t value;
@@ -2407,11 +2291,11 @@ union TGSR {
 //
 union TCSR0 {
   
-  // Enum definitions.
   enum class eTDRE : uint32_t {
     eZERO = 0, // DMA request is disabled
     eONE = 1, // DMA request is enabled
   };
+  
   enum class eTMODE : uint32_t {
     eTMR_DIS = 0, // Timer Channel is disabled.
     eTMR_RE = 1, // Timer Channel is configured for Input Capture on rising edge.
@@ -2426,14 +2310,17 @@ union TCSR0 {
     eTMR_OUT_CMP_LOW = 14, // Timer Channel is configured for Output Compare - pulse output low on compare for 1 to 32 1588-clock cycles as specified by TPWC.
     eTMR_OUT_CMP_HIGH = 15, // Timer Channel is configured for Output Compare - pulse output high on compare for 1 to 32 1588-clock cycles as specified by TPWC.
   };
+  
   enum class eTIE : uint32_t {
     eZERO = 0, // Interrupt is disabled
     eONE = 1, // Interrupt is enabled
   };
+  
   enum class eTF : uint32_t {
     eZERO = 0, // Input Capture or Output Compare has not occurred.
     eONE = 1, // Input Capture or Output Compare has occurred.
   };
+  
   enum class eTPWC : uint32_t {
     eVALW1 = 0, // Pulse width is one 1588-clock cycle.
     eVALW2 = 1, // Pulse width is two 1588-clock cycles.
@@ -2452,7 +2339,7 @@ union TCSR0 {
     uint32_t _reserved_4 : 3;
     eTPWC TPWC : 5;
     uint32_t _reserved_end : 16;
-  } bits;          // Bit-field struct (auto-filling reserved gaps)
+  } bits;
   
   // Full 32-bit register value.
   uint32_t value;
@@ -2466,12 +2353,10 @@ union TCSR0 {
 //
 union TCCR0 {
   
-  // Enum definitions.
-  
   // Bit field definition.
   struct {
     uint32_t TCC : 32;
-  } bits;          // Bit-field struct (auto-filling reserved gaps)
+  } bits;
   
   // Full 32-bit register value.
   uint32_t value;
@@ -2485,11 +2370,11 @@ union TCCR0 {
 //
 union TCSR1 {
   
-  // Enum definitions.
   enum class eTDRE : uint32_t {
     eZERO = 0, // DMA request is disabled
     eONE = 1, // DMA request is enabled
   };
+  
   enum class eTMODE : uint32_t {
     eTMR_DIS = 0, // Timer Channel is disabled.
     eTMR_RE = 1, // Timer Channel is configured for Input Capture on rising edge.
@@ -2504,14 +2389,17 @@ union TCSR1 {
     eTMR_OUT_CMP_LOW = 14, // Timer Channel is configured for Output Compare - pulse output low on compare for 1 to 32 1588-clock cycles as specified by TPWC.
     eTMR_OUT_CMP_HIGH = 15, // Timer Channel is configured for Output Compare - pulse output high on compare for 1 to 32 1588-clock cycles as specified by TPWC.
   };
+  
   enum class eTIE : uint32_t {
     eZERO = 0, // Interrupt is disabled
     eONE = 1, // Interrupt is enabled
   };
+  
   enum class eTF : uint32_t {
     eZERO = 0, // Input Capture or Output Compare has not occurred.
     eONE = 1, // Input Capture or Output Compare has occurred.
   };
+  
   enum class eTPWC : uint32_t {
     eVALW1 = 0, // Pulse width is one 1588-clock cycle.
     eVALW2 = 1, // Pulse width is two 1588-clock cycles.
@@ -2530,7 +2418,7 @@ union TCSR1 {
     uint32_t _reserved_4 : 3;
     eTPWC TPWC : 5;
     uint32_t _reserved_end : 16;
-  } bits;          // Bit-field struct (auto-filling reserved gaps)
+  } bits;
   
   // Full 32-bit register value.
   uint32_t value;
@@ -2544,12 +2432,10 @@ union TCSR1 {
 //
 union TCCR1 {
   
-  // Enum definitions.
-  
   // Bit field definition.
   struct {
     uint32_t TCC : 32;
-  } bits;          // Bit-field struct (auto-filling reserved gaps)
+  } bits;
   
   // Full 32-bit register value.
   uint32_t value;
@@ -2563,11 +2449,11 @@ union TCCR1 {
 //
 union TCSR2 {
   
-  // Enum definitions.
   enum class eTDRE : uint32_t {
     eZERO = 0, // DMA request is disabled
     eONE = 1, // DMA request is enabled
   };
+  
   enum class eTMODE : uint32_t {
     eTMR_DIS = 0, // Timer Channel is disabled.
     eTMR_RE = 1, // Timer Channel is configured for Input Capture on rising edge.
@@ -2582,14 +2468,17 @@ union TCSR2 {
     eTMR_OUT_CMP_LOW = 14, // Timer Channel is configured for Output Compare - pulse output low on compare for 1 to 32 1588-clock cycles as specified by TPWC.
     eTMR_OUT_CMP_HIGH = 15, // Timer Channel is configured for Output Compare - pulse output high on compare for 1 to 32 1588-clock cycles as specified by TPWC.
   };
+  
   enum class eTIE : uint32_t {
     eZERO = 0, // Interrupt is disabled
     eONE = 1, // Interrupt is enabled
   };
+  
   enum class eTF : uint32_t {
     eZERO = 0, // Input Capture or Output Compare has not occurred.
     eONE = 1, // Input Capture or Output Compare has occurred.
   };
+  
   enum class eTPWC : uint32_t {
     eVALW1 = 0, // Pulse width is one 1588-clock cycle.
     eVALW2 = 1, // Pulse width is two 1588-clock cycles.
@@ -2608,7 +2497,7 @@ union TCSR2 {
     uint32_t _reserved_4 : 3;
     eTPWC TPWC : 5;
     uint32_t _reserved_end : 16;
-  } bits;          // Bit-field struct (auto-filling reserved gaps)
+  } bits;
   
   // Full 32-bit register value.
   uint32_t value;
@@ -2622,12 +2511,10 @@ union TCSR2 {
 //
 union TCCR2 {
   
-  // Enum definitions.
-  
   // Bit field definition.
   struct {
     uint32_t TCC : 32;
-  } bits;          // Bit-field struct (auto-filling reserved gaps)
+  } bits;
   
   // Full 32-bit register value.
   uint32_t value;
@@ -2641,11 +2528,11 @@ union TCCR2 {
 //
 union TCSR3 {
   
-  // Enum definitions.
   enum class eTDRE : uint32_t {
     eZERO = 0, // DMA request is disabled
     eONE = 1, // DMA request is enabled
   };
+  
   enum class eTMODE : uint32_t {
     eTMR_DIS = 0, // Timer Channel is disabled.
     eTMR_RE = 1, // Timer Channel is configured for Input Capture on rising edge.
@@ -2660,14 +2547,17 @@ union TCSR3 {
     eTMR_OUT_CMP_LOW = 14, // Timer Channel is configured for Output Compare - pulse output low on compare for 1 to 32 1588-clock cycles as specified by TPWC.
     eTMR_OUT_CMP_HIGH = 15, // Timer Channel is configured for Output Compare - pulse output high on compare for 1 to 32 1588-clock cycles as specified by TPWC.
   };
+  
   enum class eTIE : uint32_t {
     eZERO = 0, // Interrupt is disabled
     eONE = 1, // Interrupt is enabled
   };
+  
   enum class eTF : uint32_t {
     eZERO = 0, // Input Capture or Output Compare has not occurred.
     eONE = 1, // Input Capture or Output Compare has occurred.
   };
+  
   enum class eTPWC : uint32_t {
     eVALW1 = 0, // Pulse width is one 1588-clock cycle.
     eVALW2 = 1, // Pulse width is two 1588-clock cycles.
@@ -2686,7 +2576,7 @@ union TCSR3 {
     uint32_t _reserved_4 : 3;
     eTPWC TPWC : 5;
     uint32_t _reserved_end : 16;
-  } bits;          // Bit-field struct (auto-filling reserved gaps)
+  } bits;
   
   // Full 32-bit register value.
   uint32_t value;
@@ -2700,12 +2590,10 @@ union TCSR3 {
 //
 union TCCR3 {
   
-  // Enum definitions.
-  
   // Bit field definition.
   struct {
     uint32_t TCC : 32;
-  } bits;          // Bit-field struct (auto-filling reserved gaps)
+  } bits;
   
   // Full 32-bit register value.
   uint32_t value;

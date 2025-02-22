@@ -15,49 +15,55 @@ namespace nAOI2 {
 //
 union BFCRT010 {
   
-  // Enum definitions.
   enum class ePT1_DC : uint32_t {
     ePT1_DC_0 = 0, // Force the D input in this product term to a logical zero
     ePT1_DC_1 = 1, // Pass the D input in this product term
     ePT1_DC_2 = 2, // Complement the D input in this product term
     ePT1_DC_3 = 3, // Force the D input in this product term to a logical one
   };
+  
   enum class ePT1_CC : uint32_t {
     ePT1_CC_0 = 0, // Force the C input in this product term to a logical zero
     ePT1_CC_1 = 1, // Pass the C input in this product term
     ePT1_CC_2 = 2, // Complement the C input in this product term
     ePT1_CC_3 = 3, // Force the C input in this product term to a logical one
   };
+  
   enum class ePT1_BC : uint32_t {
     ePT1_BC_0 = 0, // Force the B input in this product term to a logical zero
     ePT1_BC_1 = 1, // Pass the B input in this product term
     ePT1_BC_2 = 2, // Complement the B input in this product term
     ePT1_BC_3 = 3, // Force the B input in this product term to a logical one
   };
+  
   enum class ePT1_AC : uint32_t {
     ePT1_AC_0 = 0, // Force the A input in this product term to a logical zero
     ePT1_AC_1 = 1, // Pass the A input in this product term
     ePT1_AC_2 = 2, // Complement the A input in this product term
     ePT1_AC_3 = 3, // Force the A input in this product term to a logical one
   };
+  
   enum class ePT0_DC : uint32_t {
     ePT0_DC_0 = 0, // Force the D input in this product term to a logical zero
     ePT0_DC_1 = 1, // Pass the D input in this product term
     ePT0_DC_2 = 2, // Complement the D input in this product term
     ePT0_DC_3 = 3, // Force the D input in this product term to a logical one
   };
+  
   enum class ePT0_CC : uint32_t {
     ePT0_CC_0 = 0, // Force the C input in this product term to a logical zero
     ePT0_CC_1 = 1, // Pass the C input in this product term
     ePT0_CC_2 = 2, // Complement the C input in this product term
     ePT0_CC_3 = 3, // Force the C input in this product term to a logical one
   };
+  
   enum class ePT0_BC : uint32_t {
     ePT0_BC_0 = 0, // Force the B input in this product term to a logical zero
     ePT0_BC_1 = 1, // Pass the B input in this product term
     ePT0_BC_2 = 2, // Complement the B input in this product term
     ePT0_BC_3 = 3, // Force the B input in this product term to a logical one
   };
+  
   enum class ePT0_AC : uint32_t {
     ePT0_AC_0 = 0, // Force the A input in this product term to a logical zero
     ePT0_AC_1 = 1, // Pass the A input in this product term
@@ -76,7 +82,7 @@ union BFCRT010 {
     ePT0_BC PT0_BC : 2;
     ePT0_AC PT0_AC : 2;
     uint32_t _reserved_end : 16;
-  } bits;          // Bit-field struct (auto-filling reserved gaps)
+  } bits;
   
   // Full 32-bit register value.
   uint32_t value;
@@ -90,49 +96,55 @@ union BFCRT010 {
 //
 union BFCRT230 {
   
-  // Enum definitions.
   enum class ePT3_DC : uint32_t {
     ePT3_DC_0 = 0, // Force the D input in this product term to a logical zero
     ePT3_DC_1 = 1, // Pass the D input in this product term
     ePT3_DC_2 = 2, // Complement the D input in this product term
     ePT3_DC_3 = 3, // Force the D input in this product term to a logical one
   };
+  
   enum class ePT3_CC : uint32_t {
     ePT3_CC_0 = 0, // Force the C input in this product term to a logical zero
     ePT3_CC_1 = 1, // Pass the C input in this product term
     ePT3_CC_2 = 2, // Complement the C input in this product term
     ePT3_CC_3 = 3, // Force the C input in this product term to a logical one
   };
+  
   enum class ePT3_BC : uint32_t {
     ePT3_BC_0 = 0, // Force the B input in this product term to a logical zero
     ePT3_BC_1 = 1, // Pass the B input in this product term
     ePT3_BC_2 = 2, // Complement the B input in this product term
     ePT3_BC_3 = 3, // Force the B input in this product term to a logical one
   };
+  
   enum class ePT3_AC : uint32_t {
     ePT3_AC_0 = 0, // Force the A input in this product term to a logical zero
     ePT3_AC_1 = 1, // Pass the A input in this product term
     ePT3_AC_2 = 2, // Complement the A input in this product term
     ePT3_AC_3 = 3, // Force the A input in this product term to a logical one
   };
+  
   enum class ePT2_DC : uint32_t {
     ePT2_DC_0 = 0, // Force the D input in this product term to a logical zero
     ePT2_DC_1 = 1, // Pass the D input in this product term
     ePT2_DC_2 = 2, // Complement the D input in this product term
     ePT2_DC_3 = 3, // Force the D input in this product term to a logical one
   };
+  
   enum class ePT2_CC : uint32_t {
     ePT2_CC_0 = 0, // Force the C input in this product term to a logical zero
     ePT2_CC_1 = 1, // Pass the C input in this product term
     ePT2_CC_2 = 2, // Complement the C input in this product term
     ePT2_CC_3 = 3, // Force the C input in this product term to a logical one
   };
+  
   enum class ePT2_BC : uint32_t {
     ePT2_BC_0 = 0, // Force the B input in this product term to a logical zero
     ePT2_BC_1 = 1, // Pass the B input in this product term
     ePT2_BC_2 = 2, // Complement the B input in this product term
     ePT2_BC_3 = 3, // Force the B input in this product term to a logical one
   };
+  
   enum class ePT2_AC : uint32_t {
     ePT2_AC_0 = 0, // Force the A input in this product term to a logical zero
     ePT2_AC_1 = 1, // Pass the A input in this product term
@@ -151,7 +163,7 @@ union BFCRT230 {
     ePT2_BC PT2_BC : 2;
     ePT2_AC PT2_AC : 2;
     uint32_t _reserved_end : 16;
-  } bits;          // Bit-field struct (auto-filling reserved gaps)
+  } bits;
   
   // Full 32-bit register value.
   uint32_t value;
@@ -165,49 +177,55 @@ union BFCRT230 {
 //
 union BFCRT011 {
   
-  // Enum definitions.
   enum class ePT1_DC : uint32_t {
     ePT1_DC_0 = 0, // Force the D input in this product term to a logical zero
     ePT1_DC_1 = 1, // Pass the D input in this product term
     ePT1_DC_2 = 2, // Complement the D input in this product term
     ePT1_DC_3 = 3, // Force the D input in this product term to a logical one
   };
+  
   enum class ePT1_CC : uint32_t {
     ePT1_CC_0 = 0, // Force the C input in this product term to a logical zero
     ePT1_CC_1 = 1, // Pass the C input in this product term
     ePT1_CC_2 = 2, // Complement the C input in this product term
     ePT1_CC_3 = 3, // Force the C input in this product term to a logical one
   };
+  
   enum class ePT1_BC : uint32_t {
     ePT1_BC_0 = 0, // Force the B input in this product term to a logical zero
     ePT1_BC_1 = 1, // Pass the B input in this product term
     ePT1_BC_2 = 2, // Complement the B input in this product term
     ePT1_BC_3 = 3, // Force the B input in this product term to a logical one
   };
+  
   enum class ePT1_AC : uint32_t {
     ePT1_AC_0 = 0, // Force the A input in this product term to a logical zero
     ePT1_AC_1 = 1, // Pass the A input in this product term
     ePT1_AC_2 = 2, // Complement the A input in this product term
     ePT1_AC_3 = 3, // Force the A input in this product term to a logical one
   };
+  
   enum class ePT0_DC : uint32_t {
     ePT0_DC_0 = 0, // Force the D input in this product term to a logical zero
     ePT0_DC_1 = 1, // Pass the D input in this product term
     ePT0_DC_2 = 2, // Complement the D input in this product term
     ePT0_DC_3 = 3, // Force the D input in this product term to a logical one
   };
+  
   enum class ePT0_CC : uint32_t {
     ePT0_CC_0 = 0, // Force the C input in this product term to a logical zero
     ePT0_CC_1 = 1, // Pass the C input in this product term
     ePT0_CC_2 = 2, // Complement the C input in this product term
     ePT0_CC_3 = 3, // Force the C input in this product term to a logical one
   };
+  
   enum class ePT0_BC : uint32_t {
     ePT0_BC_0 = 0, // Force the B input in this product term to a logical zero
     ePT0_BC_1 = 1, // Pass the B input in this product term
     ePT0_BC_2 = 2, // Complement the B input in this product term
     ePT0_BC_3 = 3, // Force the B input in this product term to a logical one
   };
+  
   enum class ePT0_AC : uint32_t {
     ePT0_AC_0 = 0, // Force the A input in this product term to a logical zero
     ePT0_AC_1 = 1, // Pass the A input in this product term
@@ -226,7 +244,7 @@ union BFCRT011 {
     ePT0_BC PT0_BC : 2;
     ePT0_AC PT0_AC : 2;
     uint32_t _reserved_end : 16;
-  } bits;          // Bit-field struct (auto-filling reserved gaps)
+  } bits;
   
   // Full 32-bit register value.
   uint32_t value;
@@ -240,49 +258,55 @@ union BFCRT011 {
 //
 union BFCRT231 {
   
-  // Enum definitions.
   enum class ePT3_DC : uint32_t {
     ePT3_DC_0 = 0, // Force the D input in this product term to a logical zero
     ePT3_DC_1 = 1, // Pass the D input in this product term
     ePT3_DC_2 = 2, // Complement the D input in this product term
     ePT3_DC_3 = 3, // Force the D input in this product term to a logical one
   };
+  
   enum class ePT3_CC : uint32_t {
     ePT3_CC_0 = 0, // Force the C input in this product term to a logical zero
     ePT3_CC_1 = 1, // Pass the C input in this product term
     ePT3_CC_2 = 2, // Complement the C input in this product term
     ePT3_CC_3 = 3, // Force the C input in this product term to a logical one
   };
+  
   enum class ePT3_BC : uint32_t {
     ePT3_BC_0 = 0, // Force the B input in this product term to a logical zero
     ePT3_BC_1 = 1, // Pass the B input in this product term
     ePT3_BC_2 = 2, // Complement the B input in this product term
     ePT3_BC_3 = 3, // Force the B input in this product term to a logical one
   };
+  
   enum class ePT3_AC : uint32_t {
     ePT3_AC_0 = 0, // Force the A input in this product term to a logical zero
     ePT3_AC_1 = 1, // Pass the A input in this product term
     ePT3_AC_2 = 2, // Complement the A input in this product term
     ePT3_AC_3 = 3, // Force the A input in this product term to a logical one
   };
+  
   enum class ePT2_DC : uint32_t {
     ePT2_DC_0 = 0, // Force the D input in this product term to a logical zero
     ePT2_DC_1 = 1, // Pass the D input in this product term
     ePT2_DC_2 = 2, // Complement the D input in this product term
     ePT2_DC_3 = 3, // Force the D input in this product term to a logical one
   };
+  
   enum class ePT2_CC : uint32_t {
     ePT2_CC_0 = 0, // Force the C input in this product term to a logical zero
     ePT2_CC_1 = 1, // Pass the C input in this product term
     ePT2_CC_2 = 2, // Complement the C input in this product term
     ePT2_CC_3 = 3, // Force the C input in this product term to a logical one
   };
+  
   enum class ePT2_BC : uint32_t {
     ePT2_BC_0 = 0, // Force the B input in this product term to a logical zero
     ePT2_BC_1 = 1, // Pass the B input in this product term
     ePT2_BC_2 = 2, // Complement the B input in this product term
     ePT2_BC_3 = 3, // Force the B input in this product term to a logical one
   };
+  
   enum class ePT2_AC : uint32_t {
     ePT2_AC_0 = 0, // Force the A input in this product term to a logical zero
     ePT2_AC_1 = 1, // Pass the A input in this product term
@@ -301,7 +325,7 @@ union BFCRT231 {
     ePT2_BC PT2_BC : 2;
     ePT2_AC PT2_AC : 2;
     uint32_t _reserved_end : 16;
-  } bits;          // Bit-field struct (auto-filling reserved gaps)
+  } bits;
   
   // Full 32-bit register value.
   uint32_t value;
@@ -315,49 +339,55 @@ union BFCRT231 {
 //
 union BFCRT012 {
   
-  // Enum definitions.
   enum class ePT1_DC : uint32_t {
     ePT1_DC_0 = 0, // Force the D input in this product term to a logical zero
     ePT1_DC_1 = 1, // Pass the D input in this product term
     ePT1_DC_2 = 2, // Complement the D input in this product term
     ePT1_DC_3 = 3, // Force the D input in this product term to a logical one
   };
+  
   enum class ePT1_CC : uint32_t {
     ePT1_CC_0 = 0, // Force the C input in this product term to a logical zero
     ePT1_CC_1 = 1, // Pass the C input in this product term
     ePT1_CC_2 = 2, // Complement the C input in this product term
     ePT1_CC_3 = 3, // Force the C input in this product term to a logical one
   };
+  
   enum class ePT1_BC : uint32_t {
     ePT1_BC_0 = 0, // Force the B input in this product term to a logical zero
     ePT1_BC_1 = 1, // Pass the B input in this product term
     ePT1_BC_2 = 2, // Complement the B input in this product term
     ePT1_BC_3 = 3, // Force the B input in this product term to a logical one
   };
+  
   enum class ePT1_AC : uint32_t {
     ePT1_AC_0 = 0, // Force the A input in this product term to a logical zero
     ePT1_AC_1 = 1, // Pass the A input in this product term
     ePT1_AC_2 = 2, // Complement the A input in this product term
     ePT1_AC_3 = 3, // Force the A input in this product term to a logical one
   };
+  
   enum class ePT0_DC : uint32_t {
     ePT0_DC_0 = 0, // Force the D input in this product term to a logical zero
     ePT0_DC_1 = 1, // Pass the D input in this product term
     ePT0_DC_2 = 2, // Complement the D input in this product term
     ePT0_DC_3 = 3, // Force the D input in this product term to a logical one
   };
+  
   enum class ePT0_CC : uint32_t {
     ePT0_CC_0 = 0, // Force the C input in this product term to a logical zero
     ePT0_CC_1 = 1, // Pass the C input in this product term
     ePT0_CC_2 = 2, // Complement the C input in this product term
     ePT0_CC_3 = 3, // Force the C input in this product term to a logical one
   };
+  
   enum class ePT0_BC : uint32_t {
     ePT0_BC_0 = 0, // Force the B input in this product term to a logical zero
     ePT0_BC_1 = 1, // Pass the B input in this product term
     ePT0_BC_2 = 2, // Complement the B input in this product term
     ePT0_BC_3 = 3, // Force the B input in this product term to a logical one
   };
+  
   enum class ePT0_AC : uint32_t {
     ePT0_AC_0 = 0, // Force the A input in this product term to a logical zero
     ePT0_AC_1 = 1, // Pass the A input in this product term
@@ -376,7 +406,7 @@ union BFCRT012 {
     ePT0_BC PT0_BC : 2;
     ePT0_AC PT0_AC : 2;
     uint32_t _reserved_end : 16;
-  } bits;          // Bit-field struct (auto-filling reserved gaps)
+  } bits;
   
   // Full 32-bit register value.
   uint32_t value;
@@ -390,49 +420,55 @@ union BFCRT012 {
 //
 union BFCRT232 {
   
-  // Enum definitions.
   enum class ePT3_DC : uint32_t {
     ePT3_DC_0 = 0, // Force the D input in this product term to a logical zero
     ePT3_DC_1 = 1, // Pass the D input in this product term
     ePT3_DC_2 = 2, // Complement the D input in this product term
     ePT3_DC_3 = 3, // Force the D input in this product term to a logical one
   };
+  
   enum class ePT3_CC : uint32_t {
     ePT3_CC_0 = 0, // Force the C input in this product term to a logical zero
     ePT3_CC_1 = 1, // Pass the C input in this product term
     ePT3_CC_2 = 2, // Complement the C input in this product term
     ePT3_CC_3 = 3, // Force the C input in this product term to a logical one
   };
+  
   enum class ePT3_BC : uint32_t {
     ePT3_BC_0 = 0, // Force the B input in this product term to a logical zero
     ePT3_BC_1 = 1, // Pass the B input in this product term
     ePT3_BC_2 = 2, // Complement the B input in this product term
     ePT3_BC_3 = 3, // Force the B input in this product term to a logical one
   };
+  
   enum class ePT3_AC : uint32_t {
     ePT3_AC_0 = 0, // Force the A input in this product term to a logical zero
     ePT3_AC_1 = 1, // Pass the A input in this product term
     ePT3_AC_2 = 2, // Complement the A input in this product term
     ePT3_AC_3 = 3, // Force the A input in this product term to a logical one
   };
+  
   enum class ePT2_DC : uint32_t {
     ePT2_DC_0 = 0, // Force the D input in this product term to a logical zero
     ePT2_DC_1 = 1, // Pass the D input in this product term
     ePT2_DC_2 = 2, // Complement the D input in this product term
     ePT2_DC_3 = 3, // Force the D input in this product term to a logical one
   };
+  
   enum class ePT2_CC : uint32_t {
     ePT2_CC_0 = 0, // Force the C input in this product term to a logical zero
     ePT2_CC_1 = 1, // Pass the C input in this product term
     ePT2_CC_2 = 2, // Complement the C input in this product term
     ePT2_CC_3 = 3, // Force the C input in this product term to a logical one
   };
+  
   enum class ePT2_BC : uint32_t {
     ePT2_BC_0 = 0, // Force the B input in this product term to a logical zero
     ePT2_BC_1 = 1, // Pass the B input in this product term
     ePT2_BC_2 = 2, // Complement the B input in this product term
     ePT2_BC_3 = 3, // Force the B input in this product term to a logical one
   };
+  
   enum class ePT2_AC : uint32_t {
     ePT2_AC_0 = 0, // Force the A input in this product term to a logical zero
     ePT2_AC_1 = 1, // Pass the A input in this product term
@@ -451,7 +487,7 @@ union BFCRT232 {
     ePT2_BC PT2_BC : 2;
     ePT2_AC PT2_AC : 2;
     uint32_t _reserved_end : 16;
-  } bits;          // Bit-field struct (auto-filling reserved gaps)
+  } bits;
   
   // Full 32-bit register value.
   uint32_t value;
@@ -465,49 +501,55 @@ union BFCRT232 {
 //
 union BFCRT013 {
   
-  // Enum definitions.
   enum class ePT1_DC : uint32_t {
     ePT1_DC_0 = 0, // Force the D input in this product term to a logical zero
     ePT1_DC_1 = 1, // Pass the D input in this product term
     ePT1_DC_2 = 2, // Complement the D input in this product term
     ePT1_DC_3 = 3, // Force the D input in this product term to a logical one
   };
+  
   enum class ePT1_CC : uint32_t {
     ePT1_CC_0 = 0, // Force the C input in this product term to a logical zero
     ePT1_CC_1 = 1, // Pass the C input in this product term
     ePT1_CC_2 = 2, // Complement the C input in this product term
     ePT1_CC_3 = 3, // Force the C input in this product term to a logical one
   };
+  
   enum class ePT1_BC : uint32_t {
     ePT1_BC_0 = 0, // Force the B input in this product term to a logical zero
     ePT1_BC_1 = 1, // Pass the B input in this product term
     ePT1_BC_2 = 2, // Complement the B input in this product term
     ePT1_BC_3 = 3, // Force the B input in this product term to a logical one
   };
+  
   enum class ePT1_AC : uint32_t {
     ePT1_AC_0 = 0, // Force the A input in this product term to a logical zero
     ePT1_AC_1 = 1, // Pass the A input in this product term
     ePT1_AC_2 = 2, // Complement the A input in this product term
     ePT1_AC_3 = 3, // Force the A input in this product term to a logical one
   };
+  
   enum class ePT0_DC : uint32_t {
     ePT0_DC_0 = 0, // Force the D input in this product term to a logical zero
     ePT0_DC_1 = 1, // Pass the D input in this product term
     ePT0_DC_2 = 2, // Complement the D input in this product term
     ePT0_DC_3 = 3, // Force the D input in this product term to a logical one
   };
+  
   enum class ePT0_CC : uint32_t {
     ePT0_CC_0 = 0, // Force the C input in this product term to a logical zero
     ePT0_CC_1 = 1, // Pass the C input in this product term
     ePT0_CC_2 = 2, // Complement the C input in this product term
     ePT0_CC_3 = 3, // Force the C input in this product term to a logical one
   };
+  
   enum class ePT0_BC : uint32_t {
     ePT0_BC_0 = 0, // Force the B input in this product term to a logical zero
     ePT0_BC_1 = 1, // Pass the B input in this product term
     ePT0_BC_2 = 2, // Complement the B input in this product term
     ePT0_BC_3 = 3, // Force the B input in this product term to a logical one
   };
+  
   enum class ePT0_AC : uint32_t {
     ePT0_AC_0 = 0, // Force the A input in this product term to a logical zero
     ePT0_AC_1 = 1, // Pass the A input in this product term
@@ -526,7 +568,7 @@ union BFCRT013 {
     ePT0_BC PT0_BC : 2;
     ePT0_AC PT0_AC : 2;
     uint32_t _reserved_end : 16;
-  } bits;          // Bit-field struct (auto-filling reserved gaps)
+  } bits;
   
   // Full 32-bit register value.
   uint32_t value;
@@ -540,49 +582,55 @@ union BFCRT013 {
 //
 union BFCRT233 {
   
-  // Enum definitions.
   enum class ePT3_DC : uint32_t {
     ePT3_DC_0 = 0, // Force the D input in this product term to a logical zero
     ePT3_DC_1 = 1, // Pass the D input in this product term
     ePT3_DC_2 = 2, // Complement the D input in this product term
     ePT3_DC_3 = 3, // Force the D input in this product term to a logical one
   };
+  
   enum class ePT3_CC : uint32_t {
     ePT3_CC_0 = 0, // Force the C input in this product term to a logical zero
     ePT3_CC_1 = 1, // Pass the C input in this product term
     ePT3_CC_2 = 2, // Complement the C input in this product term
     ePT3_CC_3 = 3, // Force the C input in this product term to a logical one
   };
+  
   enum class ePT3_BC : uint32_t {
     ePT3_BC_0 = 0, // Force the B input in this product term to a logical zero
     ePT3_BC_1 = 1, // Pass the B input in this product term
     ePT3_BC_2 = 2, // Complement the B input in this product term
     ePT3_BC_3 = 3, // Force the B input in this product term to a logical one
   };
+  
   enum class ePT3_AC : uint32_t {
     ePT3_AC_0 = 0, // Force the A input in this product term to a logical zero
     ePT3_AC_1 = 1, // Pass the A input in this product term
     ePT3_AC_2 = 2, // Complement the A input in this product term
     ePT3_AC_3 = 3, // Force the A input in this product term to a logical one
   };
+  
   enum class ePT2_DC : uint32_t {
     ePT2_DC_0 = 0, // Force the D input in this product term to a logical zero
     ePT2_DC_1 = 1, // Pass the D input in this product term
     ePT2_DC_2 = 2, // Complement the D input in this product term
     ePT2_DC_3 = 3, // Force the D input in this product term to a logical one
   };
+  
   enum class ePT2_CC : uint32_t {
     ePT2_CC_0 = 0, // Force the C input in this product term to a logical zero
     ePT2_CC_1 = 1, // Pass the C input in this product term
     ePT2_CC_2 = 2, // Complement the C input in this product term
     ePT2_CC_3 = 3, // Force the C input in this product term to a logical one
   };
+  
   enum class ePT2_BC : uint32_t {
     ePT2_BC_0 = 0, // Force the B input in this product term to a logical zero
     ePT2_BC_1 = 1, // Pass the B input in this product term
     ePT2_BC_2 = 2, // Complement the B input in this product term
     ePT2_BC_3 = 3, // Force the B input in this product term to a logical one
   };
+  
   enum class ePT2_AC : uint32_t {
     ePT2_AC_0 = 0, // Force the A input in this product term to a logical zero
     ePT2_AC_1 = 1, // Pass the A input in this product term
@@ -601,7 +649,7 @@ union BFCRT233 {
     ePT2_BC PT2_BC : 2;
     ePT2_AC PT2_AC : 2;
     uint32_t _reserved_end : 16;
-  } bits;          // Bit-field struct (auto-filling reserved gaps)
+  } bits;
   
   // Full 32-bit register value.
   uint32_t value;

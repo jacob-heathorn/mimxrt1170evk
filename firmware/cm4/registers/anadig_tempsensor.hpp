@@ -15,15 +15,13 @@ namespace nANADIG_TEMPSENSOR {
 //
 union TEMPSENSOR {
   
-  // Enum definitions.
-  
   // Bit field definition.
   struct {
     uint32_t _reserved_0 : 15;
     uint32_t TEMPSNS_AI_TOGGLE : 1;
     uint32_t TEMPSNS_AI_BUSY : 1;
     uint32_t _reserved_end : 15;
-  } bits;          // Bit-field struct (auto-filling reserved gaps)
+  } bits;
   
   // Full 32-bit register value.
   uint32_t value;
@@ -37,14 +35,12 @@ union TEMPSENSOR {
 //
 union TEMPSNS_OTP_TRIM_VALUE {
   
-  // Enum definitions.
-  
   // Bit field definition.
   struct {
     uint32_t _reserved_0 : 10;
     uint32_t TEMPSNS_TEMP_VAL : 12;
     uint32_t _reserved_end : 10;
-  } bits;          // Bit-field struct (auto-filling reserved gaps)
+  } bits;
   
   // Full 32-bit register value.
   uint32_t value;

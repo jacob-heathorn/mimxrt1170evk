@@ -15,7 +15,6 @@ namespace nFLEXIO2 {
 //
 union VERID {
   
-  // Enum definitions.
   enum class eFEATURE : uint32_t {
     estandard = 0, // Standard features implemented.
     estate_logic_parallel = 1, // Supports state, logic and parallel modes.
@@ -28,7 +27,7 @@ union VERID {
     eFEATURE FEATURE : 16;
     uint32_t MINOR : 8;
     uint32_t MAJOR : 8;
-  } bits;          // Bit-field struct (auto-filling reserved gaps)
+  } bits;
   
   // Full 32-bit register value.
   uint32_t value;
@@ -42,15 +41,13 @@ union VERID {
 //
 union PARAM {
   
-  // Enum definitions.
-  
   // Bit field definition.
   struct {
     uint32_t SHIFTER : 8;
     uint32_t TIMER : 8;
     uint32_t PIN : 8;
     uint32_t TRIGGER : 8;
-  } bits;          // Bit-field struct (auto-filling reserved gaps)
+  } bits;
   
   // Full 32-bit register value.
   uint32_t value;
@@ -64,23 +61,26 @@ union PARAM {
 //
 union CTRL {
   
-  // Enum definitions.
   enum class eFLEXEN : uint32_t {
     edisable = 0, // FlexIO module is disabled.
     eenable = 1, // FlexIO module is enabled.
   };
+  
   enum class eSWRST : uint32_t {
     edisable = 0, // Software reset is disabled
     eenable = 1, // Software reset is enabled, all FlexIO registers except the Control Register are reset.
   };
+  
   enum class eFASTACC : uint32_t {
     enormal = 0, // Configures for normal register accesses to FlexIO
     efast = 1, // Configures for fast register accesses to FlexIO
   };
+  
   enum class eDBGE : uint32_t {
     edisable = 0, // FlexIO is disabled in debug modes.
     eemable = 1, // FlexIO is enabled in debug modes
   };
+  
   enum class eDOZEN : uint32_t {
     eenable = 0, // FlexIO enabled in Doze modes.
     edisable = 1, // FlexIO disabled in Doze modes.
@@ -94,7 +94,7 @@ union CTRL {
     uint32_t _reserved_3 : 27;
     eDBGE DBGE : 1;
     eDOZEN DOZEN : 1;
-  } bits;          // Bit-field struct (auto-filling reserved gaps)
+  } bits;
   
   // Full 32-bit register value.
   uint32_t value;
@@ -108,12 +108,10 @@ union CTRL {
 //
 union PIN {
   
-  // Enum definitions.
-  
   // Bit field definition.
   struct {
     uint32_t PDI : 32;
-  } bits;          // Bit-field struct (auto-filling reserved gaps)
+  } bits;
   
   // Full 32-bit register value.
   uint32_t value;
@@ -127,13 +125,11 @@ union PIN {
 //
 union SHIFTSTAT {
   
-  // Enum definitions.
-  
   // Bit field definition.
   struct {
     uint32_t SSF : 8;
     uint32_t _reserved_end : 24;
-  } bits;          // Bit-field struct (auto-filling reserved gaps)
+  } bits;
   
   // Full 32-bit register value.
   uint32_t value;
@@ -147,13 +143,11 @@ union SHIFTSTAT {
 //
 union SHIFTERR {
   
-  // Enum definitions.
-  
   // Bit field definition.
   struct {
     uint32_t SEF : 8;
     uint32_t _reserved_end : 24;
-  } bits;          // Bit-field struct (auto-filling reserved gaps)
+  } bits;
   
   // Full 32-bit register value.
   uint32_t value;
@@ -167,13 +161,11 @@ union SHIFTERR {
 //
 union TIMSTAT {
   
-  // Enum definitions.
-  
   // Bit field definition.
   struct {
     uint32_t TSF : 8;
     uint32_t _reserved_end : 24;
-  } bits;          // Bit-field struct (auto-filling reserved gaps)
+  } bits;
   
   // Full 32-bit register value.
   uint32_t value;
@@ -187,13 +179,11 @@ union TIMSTAT {
 //
 union SHIFTSIEN {
   
-  // Enum definitions.
-  
   // Bit field definition.
   struct {
     uint32_t SSIE : 8;
     uint32_t _reserved_end : 24;
-  } bits;          // Bit-field struct (auto-filling reserved gaps)
+  } bits;
   
   // Full 32-bit register value.
   uint32_t value;
@@ -207,13 +197,11 @@ union SHIFTSIEN {
 //
 union SHIFTEIEN {
   
-  // Enum definitions.
-  
   // Bit field definition.
   struct {
     uint32_t SEIE : 8;
     uint32_t _reserved_end : 24;
-  } bits;          // Bit-field struct (auto-filling reserved gaps)
+  } bits;
   
   // Full 32-bit register value.
   uint32_t value;
@@ -227,13 +215,11 @@ union SHIFTEIEN {
 //
 union TIMIEN {
   
-  // Enum definitions.
-  
   // Bit field definition.
   struct {
     uint32_t TEIE : 8;
     uint32_t _reserved_end : 24;
-  } bits;          // Bit-field struct (auto-filling reserved gaps)
+  } bits;
   
   // Full 32-bit register value.
   uint32_t value;
@@ -247,13 +233,11 @@ union TIMIEN {
 //
 union SHIFTSDEN {
   
-  // Enum definitions.
-  
   // Bit field definition.
   struct {
     uint32_t SSDE : 8;
     uint32_t _reserved_end : 24;
-  } bits;          // Bit-field struct (auto-filling reserved gaps)
+  } bits;
   
   // Full 32-bit register value.
   uint32_t value;
@@ -267,13 +251,11 @@ union SHIFTSDEN {
 //
 union TIMERSDEN {
   
-  // Enum definitions.
-  
   // Bit field definition.
   struct {
     uint32_t TSDE : 8;
     uint32_t _reserved_end : 24;
-  } bits;          // Bit-field struct (auto-filling reserved gaps)
+  } bits;
   
   // Full 32-bit register value.
   uint32_t value;
@@ -287,13 +269,11 @@ union TIMERSDEN {
 //
 union SHIFTSTATE {
   
-  // Enum definitions.
-  
   // Bit field definition.
   struct {
     uint32_t STATE : 3;
     uint32_t _reserved_end : 29;
-  } bits;          // Bit-field struct (auto-filling reserved gaps)
+  } bits;
   
   // Full 32-bit register value.
   uint32_t value;
@@ -307,7 +287,6 @@ union SHIFTSTATE {
 //
 union SHIFTCTL[0] {
   
-  // Enum definitions.
   enum class eSMOD : uint32_t {
     edisable = 0, // Disabled.
     ereceive = 1, // Receive mode. Captures the current Shifter content into the SHIFTBUF on expiration of the Timer.
@@ -317,16 +296,19 @@ union SHIFTCTL[0] {
     estate = 6, // State mode. SHIFTBUF contents are used for storing programmable state attributes.
     elogic = 7, // Logic mode. SHIFTBUF contents are used for implementing programmable logic look up table.
   };
+  
   enum class ePINPOL : uint32_t {
     eactive_high = 0, // Pin is active high
     eactive_low = 1, // Pin is active low
   };
+  
   enum class ePINCFG : uint32_t {
     edisable = 0, // Shifter pin output disabled
     eopend_bidirouten = 1, // Shifter pin open drain or bidirectional output enable
     ebidir_outdata = 2, // Shifter pin bidirectional output data
     eoutput = 3, // Shifter pin output
   };
+  
   enum class eTIMPOL : uint32_t {
     eposedge = 0, // Shift on posedge of Shift clock
     enegedge = 1, // Shift on negedge of Shift clock
@@ -344,7 +326,7 @@ union SHIFTCTL[0] {
     eTIMPOL TIMPOL : 1;
     uint32_t TIMSEL : 3;
     uint32_t _reserved_end : 5;
-  } bits;          // Bit-field struct (auto-filling reserved gaps)
+  } bits;
   
   // Full 32-bit register value.
   uint32_t value;
@@ -357,7 +339,6 @@ union SHIFTCTL[0] {
 //
 union SHIFTCTL[1] {
   
-  // Enum definitions.
   enum class eSMOD : uint32_t {
     edisable = 0, // Disabled.
     ereceive = 1, // Receive mode. Captures the current Shifter content into the SHIFTBUF on expiration of the Timer.
@@ -367,16 +348,19 @@ union SHIFTCTL[1] {
     estate = 6, // State mode. SHIFTBUF contents are used for storing programmable state attributes.
     elogic = 7, // Logic mode. SHIFTBUF contents are used for implementing programmable logic look up table.
   };
+  
   enum class ePINPOL : uint32_t {
     eactive_high = 0, // Pin is active high
     eactive_low = 1, // Pin is active low
   };
+  
   enum class ePINCFG : uint32_t {
     edisable = 0, // Shifter pin output disabled
     eopend_bidirouten = 1, // Shifter pin open drain or bidirectional output enable
     ebidir_outdata = 2, // Shifter pin bidirectional output data
     eoutput = 3, // Shifter pin output
   };
+  
   enum class eTIMPOL : uint32_t {
     eposedge = 0, // Shift on posedge of Shift clock
     enegedge = 1, // Shift on negedge of Shift clock
@@ -394,7 +378,7 @@ union SHIFTCTL[1] {
     eTIMPOL TIMPOL : 1;
     uint32_t TIMSEL : 3;
     uint32_t _reserved_end : 5;
-  } bits;          // Bit-field struct (auto-filling reserved gaps)
+  } bits;
   
   // Full 32-bit register value.
   uint32_t value;
@@ -407,7 +391,6 @@ union SHIFTCTL[1] {
 //
 union SHIFTCTL[2] {
   
-  // Enum definitions.
   enum class eSMOD : uint32_t {
     edisable = 0, // Disabled.
     ereceive = 1, // Receive mode. Captures the current Shifter content into the SHIFTBUF on expiration of the Timer.
@@ -417,16 +400,19 @@ union SHIFTCTL[2] {
     estate = 6, // State mode. SHIFTBUF contents are used for storing programmable state attributes.
     elogic = 7, // Logic mode. SHIFTBUF contents are used for implementing programmable logic look up table.
   };
+  
   enum class ePINPOL : uint32_t {
     eactive_high = 0, // Pin is active high
     eactive_low = 1, // Pin is active low
   };
+  
   enum class ePINCFG : uint32_t {
     edisable = 0, // Shifter pin output disabled
     eopend_bidirouten = 1, // Shifter pin open drain or bidirectional output enable
     ebidir_outdata = 2, // Shifter pin bidirectional output data
     eoutput = 3, // Shifter pin output
   };
+  
   enum class eTIMPOL : uint32_t {
     eposedge = 0, // Shift on posedge of Shift clock
     enegedge = 1, // Shift on negedge of Shift clock
@@ -444,7 +430,7 @@ union SHIFTCTL[2] {
     eTIMPOL TIMPOL : 1;
     uint32_t TIMSEL : 3;
     uint32_t _reserved_end : 5;
-  } bits;          // Bit-field struct (auto-filling reserved gaps)
+  } bits;
   
   // Full 32-bit register value.
   uint32_t value;
@@ -457,7 +443,6 @@ union SHIFTCTL[2] {
 //
 union SHIFTCTL[3] {
   
-  // Enum definitions.
   enum class eSMOD : uint32_t {
     edisable = 0, // Disabled.
     ereceive = 1, // Receive mode. Captures the current Shifter content into the SHIFTBUF on expiration of the Timer.
@@ -467,16 +452,19 @@ union SHIFTCTL[3] {
     estate = 6, // State mode. SHIFTBUF contents are used for storing programmable state attributes.
     elogic = 7, // Logic mode. SHIFTBUF contents are used for implementing programmable logic look up table.
   };
+  
   enum class ePINPOL : uint32_t {
     eactive_high = 0, // Pin is active high
     eactive_low = 1, // Pin is active low
   };
+  
   enum class ePINCFG : uint32_t {
     edisable = 0, // Shifter pin output disabled
     eopend_bidirouten = 1, // Shifter pin open drain or bidirectional output enable
     ebidir_outdata = 2, // Shifter pin bidirectional output data
     eoutput = 3, // Shifter pin output
   };
+  
   enum class eTIMPOL : uint32_t {
     eposedge = 0, // Shift on posedge of Shift clock
     enegedge = 1, // Shift on negedge of Shift clock
@@ -494,7 +482,7 @@ union SHIFTCTL[3] {
     eTIMPOL TIMPOL : 1;
     uint32_t TIMSEL : 3;
     uint32_t _reserved_end : 5;
-  } bits;          // Bit-field struct (auto-filling reserved gaps)
+  } bits;
   
   // Full 32-bit register value.
   uint32_t value;
@@ -507,7 +495,6 @@ union SHIFTCTL[3] {
 //
 union SHIFTCTL[4] {
   
-  // Enum definitions.
   enum class eSMOD : uint32_t {
     edisable = 0, // Disabled.
     ereceive = 1, // Receive mode. Captures the current Shifter content into the SHIFTBUF on expiration of the Timer.
@@ -517,16 +504,19 @@ union SHIFTCTL[4] {
     estate = 6, // State mode. SHIFTBUF contents are used for storing programmable state attributes.
     elogic = 7, // Logic mode. SHIFTBUF contents are used for implementing programmable logic look up table.
   };
+  
   enum class ePINPOL : uint32_t {
     eactive_high = 0, // Pin is active high
     eactive_low = 1, // Pin is active low
   };
+  
   enum class ePINCFG : uint32_t {
     edisable = 0, // Shifter pin output disabled
     eopend_bidirouten = 1, // Shifter pin open drain or bidirectional output enable
     ebidir_outdata = 2, // Shifter pin bidirectional output data
     eoutput = 3, // Shifter pin output
   };
+  
   enum class eTIMPOL : uint32_t {
     eposedge = 0, // Shift on posedge of Shift clock
     enegedge = 1, // Shift on negedge of Shift clock
@@ -544,7 +534,7 @@ union SHIFTCTL[4] {
     eTIMPOL TIMPOL : 1;
     uint32_t TIMSEL : 3;
     uint32_t _reserved_end : 5;
-  } bits;          // Bit-field struct (auto-filling reserved gaps)
+  } bits;
   
   // Full 32-bit register value.
   uint32_t value;
@@ -557,7 +547,6 @@ union SHIFTCTL[4] {
 //
 union SHIFTCTL[5] {
   
-  // Enum definitions.
   enum class eSMOD : uint32_t {
     edisable = 0, // Disabled.
     ereceive = 1, // Receive mode. Captures the current Shifter content into the SHIFTBUF on expiration of the Timer.
@@ -567,16 +556,19 @@ union SHIFTCTL[5] {
     estate = 6, // State mode. SHIFTBUF contents are used for storing programmable state attributes.
     elogic = 7, // Logic mode. SHIFTBUF contents are used for implementing programmable logic look up table.
   };
+  
   enum class ePINPOL : uint32_t {
     eactive_high = 0, // Pin is active high
     eactive_low = 1, // Pin is active low
   };
+  
   enum class ePINCFG : uint32_t {
     edisable = 0, // Shifter pin output disabled
     eopend_bidirouten = 1, // Shifter pin open drain or bidirectional output enable
     ebidir_outdata = 2, // Shifter pin bidirectional output data
     eoutput = 3, // Shifter pin output
   };
+  
   enum class eTIMPOL : uint32_t {
     eposedge = 0, // Shift on posedge of Shift clock
     enegedge = 1, // Shift on negedge of Shift clock
@@ -594,7 +586,7 @@ union SHIFTCTL[5] {
     eTIMPOL TIMPOL : 1;
     uint32_t TIMSEL : 3;
     uint32_t _reserved_end : 5;
-  } bits;          // Bit-field struct (auto-filling reserved gaps)
+  } bits;
   
   // Full 32-bit register value.
   uint32_t value;
@@ -607,7 +599,6 @@ union SHIFTCTL[5] {
 //
 union SHIFTCTL[6] {
   
-  // Enum definitions.
   enum class eSMOD : uint32_t {
     edisable = 0, // Disabled.
     ereceive = 1, // Receive mode. Captures the current Shifter content into the SHIFTBUF on expiration of the Timer.
@@ -617,16 +608,19 @@ union SHIFTCTL[6] {
     estate = 6, // State mode. SHIFTBUF contents are used for storing programmable state attributes.
     elogic = 7, // Logic mode. SHIFTBUF contents are used for implementing programmable logic look up table.
   };
+  
   enum class ePINPOL : uint32_t {
     eactive_high = 0, // Pin is active high
     eactive_low = 1, // Pin is active low
   };
+  
   enum class ePINCFG : uint32_t {
     edisable = 0, // Shifter pin output disabled
     eopend_bidirouten = 1, // Shifter pin open drain or bidirectional output enable
     ebidir_outdata = 2, // Shifter pin bidirectional output data
     eoutput = 3, // Shifter pin output
   };
+  
   enum class eTIMPOL : uint32_t {
     eposedge = 0, // Shift on posedge of Shift clock
     enegedge = 1, // Shift on negedge of Shift clock
@@ -644,7 +638,7 @@ union SHIFTCTL[6] {
     eTIMPOL TIMPOL : 1;
     uint32_t TIMSEL : 3;
     uint32_t _reserved_end : 5;
-  } bits;          // Bit-field struct (auto-filling reserved gaps)
+  } bits;
   
   // Full 32-bit register value.
   uint32_t value;
@@ -657,7 +651,6 @@ union SHIFTCTL[6] {
 //
 union SHIFTCTL[7] {
   
-  // Enum definitions.
   enum class eSMOD : uint32_t {
     edisable = 0, // Disabled.
     ereceive = 1, // Receive mode. Captures the current Shifter content into the SHIFTBUF on expiration of the Timer.
@@ -667,16 +660,19 @@ union SHIFTCTL[7] {
     estate = 6, // State mode. SHIFTBUF contents are used for storing programmable state attributes.
     elogic = 7, // Logic mode. SHIFTBUF contents are used for implementing programmable logic look up table.
   };
+  
   enum class ePINPOL : uint32_t {
     eactive_high = 0, // Pin is active high
     eactive_low = 1, // Pin is active low
   };
+  
   enum class ePINCFG : uint32_t {
     edisable = 0, // Shifter pin output disabled
     eopend_bidirouten = 1, // Shifter pin open drain or bidirectional output enable
     ebidir_outdata = 2, // Shifter pin bidirectional output data
     eoutput = 3, // Shifter pin output
   };
+  
   enum class eTIMPOL : uint32_t {
     eposedge = 0, // Shift on posedge of Shift clock
     enegedge = 1, // Shift on negedge of Shift clock
@@ -694,7 +690,7 @@ union SHIFTCTL[7] {
     eTIMPOL TIMPOL : 1;
     uint32_t TIMSEL : 3;
     uint32_t _reserved_end : 5;
-  } bits;          // Bit-field struct (auto-filling reserved gaps)
+  } bits;
   
   // Full 32-bit register value.
   uint32_t value;
@@ -708,22 +704,24 @@ union SHIFTCTL[7] {
 //
 union SHIFTCFG[0] {
   
-  // Enum definitions.
   enum class eSSTART : uint32_t {
     evalue00 = 0, // Start bit disabled for transmitter/receiver/match store, transmitter loads data on enable
     evalue01 = 1, // Start bit disabled for transmitter/receiver/match store, transmitter loads data on first shift
     evalue10 = 2, // Transmitter outputs start bit value 0 before loading data on first shift, receiver/match store sets error flag if start bit is not 0
     evalue11 = 3, // Transmitter outputs start bit value 1 before loading data on first shift, receiver/match store sets error flag if start bit is not 1
   };
+  
   enum class eSSTOP : uint32_t {
     evalue00 = 0, // Stop bit disabled for transmitter/receiver/match store
     evalue10 = 2, // Transmitter outputs stop bit value 0 on store, receiver/match store sets error flag if stop bit is not 0
     evalue11 = 3, // Transmitter outputs stop bit value 1 on store, receiver/match store sets error flag if stop bit is not 1
   };
+  
   enum class eINSRC : uint32_t {
     epin = 0, // Pin
     eshifter_nplus1 = 1, // Shifter N+1 Output
   };
+  
   enum class eLATST : uint32_t {
     epreshift = 0, // Shift register stores the pre-shift register state.
     epostshift = 1, // Shift register stores the post-shift register state.
@@ -740,7 +738,7 @@ union SHIFTCFG[0] {
     uint32_t _reserved_4 : 6;
     uint32_t PWIDTH : 5;
     uint32_t _reserved_end : 11;
-  } bits;          // Bit-field struct (auto-filling reserved gaps)
+  } bits;
   
   // Full 32-bit register value.
   uint32_t value;
@@ -753,22 +751,24 @@ union SHIFTCFG[0] {
 //
 union SHIFTCFG[1] {
   
-  // Enum definitions.
   enum class eSSTART : uint32_t {
     evalue00 = 0, // Start bit disabled for transmitter/receiver/match store, transmitter loads data on enable
     evalue01 = 1, // Start bit disabled for transmitter/receiver/match store, transmitter loads data on first shift
     evalue10 = 2, // Transmitter outputs start bit value 0 before loading data on first shift, receiver/match store sets error flag if start bit is not 0
     evalue11 = 3, // Transmitter outputs start bit value 1 before loading data on first shift, receiver/match store sets error flag if start bit is not 1
   };
+  
   enum class eSSTOP : uint32_t {
     evalue00 = 0, // Stop bit disabled for transmitter/receiver/match store
     evalue10 = 2, // Transmitter outputs stop bit value 0 on store, receiver/match store sets error flag if stop bit is not 0
     evalue11 = 3, // Transmitter outputs stop bit value 1 on store, receiver/match store sets error flag if stop bit is not 1
   };
+  
   enum class eINSRC : uint32_t {
     epin = 0, // Pin
     eshifter_nplus1 = 1, // Shifter N+1 Output
   };
+  
   enum class eLATST : uint32_t {
     epreshift = 0, // Shift register stores the pre-shift register state.
     epostshift = 1, // Shift register stores the post-shift register state.
@@ -785,7 +785,7 @@ union SHIFTCFG[1] {
     uint32_t _reserved_4 : 6;
     uint32_t PWIDTH : 5;
     uint32_t _reserved_end : 11;
-  } bits;          // Bit-field struct (auto-filling reserved gaps)
+  } bits;
   
   // Full 32-bit register value.
   uint32_t value;
@@ -798,22 +798,24 @@ union SHIFTCFG[1] {
 //
 union SHIFTCFG[2] {
   
-  // Enum definitions.
   enum class eSSTART : uint32_t {
     evalue00 = 0, // Start bit disabled for transmitter/receiver/match store, transmitter loads data on enable
     evalue01 = 1, // Start bit disabled for transmitter/receiver/match store, transmitter loads data on first shift
     evalue10 = 2, // Transmitter outputs start bit value 0 before loading data on first shift, receiver/match store sets error flag if start bit is not 0
     evalue11 = 3, // Transmitter outputs start bit value 1 before loading data on first shift, receiver/match store sets error flag if start bit is not 1
   };
+  
   enum class eSSTOP : uint32_t {
     evalue00 = 0, // Stop bit disabled for transmitter/receiver/match store
     evalue10 = 2, // Transmitter outputs stop bit value 0 on store, receiver/match store sets error flag if stop bit is not 0
     evalue11 = 3, // Transmitter outputs stop bit value 1 on store, receiver/match store sets error flag if stop bit is not 1
   };
+  
   enum class eINSRC : uint32_t {
     epin = 0, // Pin
     eshifter_nplus1 = 1, // Shifter N+1 Output
   };
+  
   enum class eLATST : uint32_t {
     epreshift = 0, // Shift register stores the pre-shift register state.
     epostshift = 1, // Shift register stores the post-shift register state.
@@ -830,7 +832,7 @@ union SHIFTCFG[2] {
     uint32_t _reserved_4 : 6;
     uint32_t PWIDTH : 5;
     uint32_t _reserved_end : 11;
-  } bits;          // Bit-field struct (auto-filling reserved gaps)
+  } bits;
   
   // Full 32-bit register value.
   uint32_t value;
@@ -843,22 +845,24 @@ union SHIFTCFG[2] {
 //
 union SHIFTCFG[3] {
   
-  // Enum definitions.
   enum class eSSTART : uint32_t {
     evalue00 = 0, // Start bit disabled for transmitter/receiver/match store, transmitter loads data on enable
     evalue01 = 1, // Start bit disabled for transmitter/receiver/match store, transmitter loads data on first shift
     evalue10 = 2, // Transmitter outputs start bit value 0 before loading data on first shift, receiver/match store sets error flag if start bit is not 0
     evalue11 = 3, // Transmitter outputs start bit value 1 before loading data on first shift, receiver/match store sets error flag if start bit is not 1
   };
+  
   enum class eSSTOP : uint32_t {
     evalue00 = 0, // Stop bit disabled for transmitter/receiver/match store
     evalue10 = 2, // Transmitter outputs stop bit value 0 on store, receiver/match store sets error flag if stop bit is not 0
     evalue11 = 3, // Transmitter outputs stop bit value 1 on store, receiver/match store sets error flag if stop bit is not 1
   };
+  
   enum class eINSRC : uint32_t {
     epin = 0, // Pin
     eshifter_nplus1 = 1, // Shifter N+1 Output
   };
+  
   enum class eLATST : uint32_t {
     epreshift = 0, // Shift register stores the pre-shift register state.
     epostshift = 1, // Shift register stores the post-shift register state.
@@ -875,7 +879,7 @@ union SHIFTCFG[3] {
     uint32_t _reserved_4 : 6;
     uint32_t PWIDTH : 5;
     uint32_t _reserved_end : 11;
-  } bits;          // Bit-field struct (auto-filling reserved gaps)
+  } bits;
   
   // Full 32-bit register value.
   uint32_t value;
@@ -888,22 +892,24 @@ union SHIFTCFG[3] {
 //
 union SHIFTCFG[4] {
   
-  // Enum definitions.
   enum class eSSTART : uint32_t {
     evalue00 = 0, // Start bit disabled for transmitter/receiver/match store, transmitter loads data on enable
     evalue01 = 1, // Start bit disabled for transmitter/receiver/match store, transmitter loads data on first shift
     evalue10 = 2, // Transmitter outputs start bit value 0 before loading data on first shift, receiver/match store sets error flag if start bit is not 0
     evalue11 = 3, // Transmitter outputs start bit value 1 before loading data on first shift, receiver/match store sets error flag if start bit is not 1
   };
+  
   enum class eSSTOP : uint32_t {
     evalue00 = 0, // Stop bit disabled for transmitter/receiver/match store
     evalue10 = 2, // Transmitter outputs stop bit value 0 on store, receiver/match store sets error flag if stop bit is not 0
     evalue11 = 3, // Transmitter outputs stop bit value 1 on store, receiver/match store sets error flag if stop bit is not 1
   };
+  
   enum class eINSRC : uint32_t {
     epin = 0, // Pin
     eshifter_nplus1 = 1, // Shifter N+1 Output
   };
+  
   enum class eLATST : uint32_t {
     epreshift = 0, // Shift register stores the pre-shift register state.
     epostshift = 1, // Shift register stores the post-shift register state.
@@ -920,7 +926,7 @@ union SHIFTCFG[4] {
     uint32_t _reserved_4 : 6;
     uint32_t PWIDTH : 5;
     uint32_t _reserved_end : 11;
-  } bits;          // Bit-field struct (auto-filling reserved gaps)
+  } bits;
   
   // Full 32-bit register value.
   uint32_t value;
@@ -933,22 +939,24 @@ union SHIFTCFG[4] {
 //
 union SHIFTCFG[5] {
   
-  // Enum definitions.
   enum class eSSTART : uint32_t {
     evalue00 = 0, // Start bit disabled for transmitter/receiver/match store, transmitter loads data on enable
     evalue01 = 1, // Start bit disabled for transmitter/receiver/match store, transmitter loads data on first shift
     evalue10 = 2, // Transmitter outputs start bit value 0 before loading data on first shift, receiver/match store sets error flag if start bit is not 0
     evalue11 = 3, // Transmitter outputs start bit value 1 before loading data on first shift, receiver/match store sets error flag if start bit is not 1
   };
+  
   enum class eSSTOP : uint32_t {
     evalue00 = 0, // Stop bit disabled for transmitter/receiver/match store
     evalue10 = 2, // Transmitter outputs stop bit value 0 on store, receiver/match store sets error flag if stop bit is not 0
     evalue11 = 3, // Transmitter outputs stop bit value 1 on store, receiver/match store sets error flag if stop bit is not 1
   };
+  
   enum class eINSRC : uint32_t {
     epin = 0, // Pin
     eshifter_nplus1 = 1, // Shifter N+1 Output
   };
+  
   enum class eLATST : uint32_t {
     epreshift = 0, // Shift register stores the pre-shift register state.
     epostshift = 1, // Shift register stores the post-shift register state.
@@ -965,7 +973,7 @@ union SHIFTCFG[5] {
     uint32_t _reserved_4 : 6;
     uint32_t PWIDTH : 5;
     uint32_t _reserved_end : 11;
-  } bits;          // Bit-field struct (auto-filling reserved gaps)
+  } bits;
   
   // Full 32-bit register value.
   uint32_t value;
@@ -978,22 +986,24 @@ union SHIFTCFG[5] {
 //
 union SHIFTCFG[6] {
   
-  // Enum definitions.
   enum class eSSTART : uint32_t {
     evalue00 = 0, // Start bit disabled for transmitter/receiver/match store, transmitter loads data on enable
     evalue01 = 1, // Start bit disabled for transmitter/receiver/match store, transmitter loads data on first shift
     evalue10 = 2, // Transmitter outputs start bit value 0 before loading data on first shift, receiver/match store sets error flag if start bit is not 0
     evalue11 = 3, // Transmitter outputs start bit value 1 before loading data on first shift, receiver/match store sets error flag if start bit is not 1
   };
+  
   enum class eSSTOP : uint32_t {
     evalue00 = 0, // Stop bit disabled for transmitter/receiver/match store
     evalue10 = 2, // Transmitter outputs stop bit value 0 on store, receiver/match store sets error flag if stop bit is not 0
     evalue11 = 3, // Transmitter outputs stop bit value 1 on store, receiver/match store sets error flag if stop bit is not 1
   };
+  
   enum class eINSRC : uint32_t {
     epin = 0, // Pin
     eshifter_nplus1 = 1, // Shifter N+1 Output
   };
+  
   enum class eLATST : uint32_t {
     epreshift = 0, // Shift register stores the pre-shift register state.
     epostshift = 1, // Shift register stores the post-shift register state.
@@ -1010,7 +1020,7 @@ union SHIFTCFG[6] {
     uint32_t _reserved_4 : 6;
     uint32_t PWIDTH : 5;
     uint32_t _reserved_end : 11;
-  } bits;          // Bit-field struct (auto-filling reserved gaps)
+  } bits;
   
   // Full 32-bit register value.
   uint32_t value;
@@ -1023,22 +1033,24 @@ union SHIFTCFG[6] {
 //
 union SHIFTCFG[7] {
   
-  // Enum definitions.
   enum class eSSTART : uint32_t {
     evalue00 = 0, // Start bit disabled for transmitter/receiver/match store, transmitter loads data on enable
     evalue01 = 1, // Start bit disabled for transmitter/receiver/match store, transmitter loads data on first shift
     evalue10 = 2, // Transmitter outputs start bit value 0 before loading data on first shift, receiver/match store sets error flag if start bit is not 0
     evalue11 = 3, // Transmitter outputs start bit value 1 before loading data on first shift, receiver/match store sets error flag if start bit is not 1
   };
+  
   enum class eSSTOP : uint32_t {
     evalue00 = 0, // Stop bit disabled for transmitter/receiver/match store
     evalue10 = 2, // Transmitter outputs stop bit value 0 on store, receiver/match store sets error flag if stop bit is not 0
     evalue11 = 3, // Transmitter outputs stop bit value 1 on store, receiver/match store sets error flag if stop bit is not 1
   };
+  
   enum class eINSRC : uint32_t {
     epin = 0, // Pin
     eshifter_nplus1 = 1, // Shifter N+1 Output
   };
+  
   enum class eLATST : uint32_t {
     epreshift = 0, // Shift register stores the pre-shift register state.
     epostshift = 1, // Shift register stores the post-shift register state.
@@ -1055,7 +1067,7 @@ union SHIFTCFG[7] {
     uint32_t _reserved_4 : 6;
     uint32_t PWIDTH : 5;
     uint32_t _reserved_end : 11;
-  } bits;          // Bit-field struct (auto-filling reserved gaps)
+  } bits;
   
   // Full 32-bit register value.
   uint32_t value;
@@ -1069,12 +1081,10 @@ union SHIFTCFG[7] {
 //
 union SHIFTBUF[0] {
   
-  // Enum definitions.
-  
   // Bit field definition.
   struct {
     uint32_t SHIFTBUF : 32;
-  } bits;          // Bit-field struct (auto-filling reserved gaps)
+  } bits;
   
   // Full 32-bit register value.
   uint32_t value;
@@ -1087,12 +1097,10 @@ union SHIFTBUF[0] {
 //
 union SHIFTBUF[1] {
   
-  // Enum definitions.
-  
   // Bit field definition.
   struct {
     uint32_t SHIFTBUF : 32;
-  } bits;          // Bit-field struct (auto-filling reserved gaps)
+  } bits;
   
   // Full 32-bit register value.
   uint32_t value;
@@ -1105,12 +1113,10 @@ union SHIFTBUF[1] {
 //
 union SHIFTBUF[2] {
   
-  // Enum definitions.
-  
   // Bit field definition.
   struct {
     uint32_t SHIFTBUF : 32;
-  } bits;          // Bit-field struct (auto-filling reserved gaps)
+  } bits;
   
   // Full 32-bit register value.
   uint32_t value;
@@ -1123,12 +1129,10 @@ union SHIFTBUF[2] {
 //
 union SHIFTBUF[3] {
   
-  // Enum definitions.
-  
   // Bit field definition.
   struct {
     uint32_t SHIFTBUF : 32;
-  } bits;          // Bit-field struct (auto-filling reserved gaps)
+  } bits;
   
   // Full 32-bit register value.
   uint32_t value;
@@ -1141,12 +1145,10 @@ union SHIFTBUF[3] {
 //
 union SHIFTBUF[4] {
   
-  // Enum definitions.
-  
   // Bit field definition.
   struct {
     uint32_t SHIFTBUF : 32;
-  } bits;          // Bit-field struct (auto-filling reserved gaps)
+  } bits;
   
   // Full 32-bit register value.
   uint32_t value;
@@ -1159,12 +1161,10 @@ union SHIFTBUF[4] {
 //
 union SHIFTBUF[5] {
   
-  // Enum definitions.
-  
   // Bit field definition.
   struct {
     uint32_t SHIFTBUF : 32;
-  } bits;          // Bit-field struct (auto-filling reserved gaps)
+  } bits;
   
   // Full 32-bit register value.
   uint32_t value;
@@ -1177,12 +1177,10 @@ union SHIFTBUF[5] {
 //
 union SHIFTBUF[6] {
   
-  // Enum definitions.
-  
   // Bit field definition.
   struct {
     uint32_t SHIFTBUF : 32;
-  } bits;          // Bit-field struct (auto-filling reserved gaps)
+  } bits;
   
   // Full 32-bit register value.
   uint32_t value;
@@ -1195,12 +1193,10 @@ union SHIFTBUF[6] {
 //
 union SHIFTBUF[7] {
   
-  // Enum definitions.
-  
   // Bit field definition.
   struct {
     uint32_t SHIFTBUF : 32;
-  } bits;          // Bit-field struct (auto-filling reserved gaps)
+  } bits;
   
   // Full 32-bit register value.
   uint32_t value;
@@ -1214,12 +1210,10 @@ union SHIFTBUF[7] {
 //
 union SHIFTBUFBIS[0] {
   
-  // Enum definitions.
-  
   // Bit field definition.
   struct {
     uint32_t SHIFTBUFBIS : 32;
-  } bits;          // Bit-field struct (auto-filling reserved gaps)
+  } bits;
   
   // Full 32-bit register value.
   uint32_t value;
@@ -1232,12 +1226,10 @@ union SHIFTBUFBIS[0] {
 //
 union SHIFTBUFBIS[1] {
   
-  // Enum definitions.
-  
   // Bit field definition.
   struct {
     uint32_t SHIFTBUFBIS : 32;
-  } bits;          // Bit-field struct (auto-filling reserved gaps)
+  } bits;
   
   // Full 32-bit register value.
   uint32_t value;
@@ -1250,12 +1242,10 @@ union SHIFTBUFBIS[1] {
 //
 union SHIFTBUFBIS[2] {
   
-  // Enum definitions.
-  
   // Bit field definition.
   struct {
     uint32_t SHIFTBUFBIS : 32;
-  } bits;          // Bit-field struct (auto-filling reserved gaps)
+  } bits;
   
   // Full 32-bit register value.
   uint32_t value;
@@ -1268,12 +1258,10 @@ union SHIFTBUFBIS[2] {
 //
 union SHIFTBUFBIS[3] {
   
-  // Enum definitions.
-  
   // Bit field definition.
   struct {
     uint32_t SHIFTBUFBIS : 32;
-  } bits;          // Bit-field struct (auto-filling reserved gaps)
+  } bits;
   
   // Full 32-bit register value.
   uint32_t value;
@@ -1286,12 +1274,10 @@ union SHIFTBUFBIS[3] {
 //
 union SHIFTBUFBIS[4] {
   
-  // Enum definitions.
-  
   // Bit field definition.
   struct {
     uint32_t SHIFTBUFBIS : 32;
-  } bits;          // Bit-field struct (auto-filling reserved gaps)
+  } bits;
   
   // Full 32-bit register value.
   uint32_t value;
@@ -1304,12 +1290,10 @@ union SHIFTBUFBIS[4] {
 //
 union SHIFTBUFBIS[5] {
   
-  // Enum definitions.
-  
   // Bit field definition.
   struct {
     uint32_t SHIFTBUFBIS : 32;
-  } bits;          // Bit-field struct (auto-filling reserved gaps)
+  } bits;
   
   // Full 32-bit register value.
   uint32_t value;
@@ -1322,12 +1306,10 @@ union SHIFTBUFBIS[5] {
 //
 union SHIFTBUFBIS[6] {
   
-  // Enum definitions.
-  
   // Bit field definition.
   struct {
     uint32_t SHIFTBUFBIS : 32;
-  } bits;          // Bit-field struct (auto-filling reserved gaps)
+  } bits;
   
   // Full 32-bit register value.
   uint32_t value;
@@ -1340,12 +1322,10 @@ union SHIFTBUFBIS[6] {
 //
 union SHIFTBUFBIS[7] {
   
-  // Enum definitions.
-  
   // Bit field definition.
   struct {
     uint32_t SHIFTBUFBIS : 32;
-  } bits;          // Bit-field struct (auto-filling reserved gaps)
+  } bits;
   
   // Full 32-bit register value.
   uint32_t value;
@@ -1359,12 +1339,10 @@ union SHIFTBUFBIS[7] {
 //
 union SHIFTBUFBYS[0] {
   
-  // Enum definitions.
-  
   // Bit field definition.
   struct {
     uint32_t SHIFTBUFBYS : 32;
-  } bits;          // Bit-field struct (auto-filling reserved gaps)
+  } bits;
   
   // Full 32-bit register value.
   uint32_t value;
@@ -1377,12 +1355,10 @@ union SHIFTBUFBYS[0] {
 //
 union SHIFTBUFBYS[1] {
   
-  // Enum definitions.
-  
   // Bit field definition.
   struct {
     uint32_t SHIFTBUFBYS : 32;
-  } bits;          // Bit-field struct (auto-filling reserved gaps)
+  } bits;
   
   // Full 32-bit register value.
   uint32_t value;
@@ -1395,12 +1371,10 @@ union SHIFTBUFBYS[1] {
 //
 union SHIFTBUFBYS[2] {
   
-  // Enum definitions.
-  
   // Bit field definition.
   struct {
     uint32_t SHIFTBUFBYS : 32;
-  } bits;          // Bit-field struct (auto-filling reserved gaps)
+  } bits;
   
   // Full 32-bit register value.
   uint32_t value;
@@ -1413,12 +1387,10 @@ union SHIFTBUFBYS[2] {
 //
 union SHIFTBUFBYS[3] {
   
-  // Enum definitions.
-  
   // Bit field definition.
   struct {
     uint32_t SHIFTBUFBYS : 32;
-  } bits;          // Bit-field struct (auto-filling reserved gaps)
+  } bits;
   
   // Full 32-bit register value.
   uint32_t value;
@@ -1431,12 +1403,10 @@ union SHIFTBUFBYS[3] {
 //
 union SHIFTBUFBYS[4] {
   
-  // Enum definitions.
-  
   // Bit field definition.
   struct {
     uint32_t SHIFTBUFBYS : 32;
-  } bits;          // Bit-field struct (auto-filling reserved gaps)
+  } bits;
   
   // Full 32-bit register value.
   uint32_t value;
@@ -1449,12 +1419,10 @@ union SHIFTBUFBYS[4] {
 //
 union SHIFTBUFBYS[5] {
   
-  // Enum definitions.
-  
   // Bit field definition.
   struct {
     uint32_t SHIFTBUFBYS : 32;
-  } bits;          // Bit-field struct (auto-filling reserved gaps)
+  } bits;
   
   // Full 32-bit register value.
   uint32_t value;
@@ -1467,12 +1435,10 @@ union SHIFTBUFBYS[5] {
 //
 union SHIFTBUFBYS[6] {
   
-  // Enum definitions.
-  
   // Bit field definition.
   struct {
     uint32_t SHIFTBUFBYS : 32;
-  } bits;          // Bit-field struct (auto-filling reserved gaps)
+  } bits;
   
   // Full 32-bit register value.
   uint32_t value;
@@ -1485,12 +1451,10 @@ union SHIFTBUFBYS[6] {
 //
 union SHIFTBUFBYS[7] {
   
-  // Enum definitions.
-  
   // Bit field definition.
   struct {
     uint32_t SHIFTBUFBYS : 32;
-  } bits;          // Bit-field struct (auto-filling reserved gaps)
+  } bits;
   
   // Full 32-bit register value.
   uint32_t value;
@@ -1504,12 +1468,10 @@ union SHIFTBUFBYS[7] {
 //
 union SHIFTBUFBBS[0] {
   
-  // Enum definitions.
-  
   // Bit field definition.
   struct {
     uint32_t SHIFTBUFBBS : 32;
-  } bits;          // Bit-field struct (auto-filling reserved gaps)
+  } bits;
   
   // Full 32-bit register value.
   uint32_t value;
@@ -1522,12 +1484,10 @@ union SHIFTBUFBBS[0] {
 //
 union SHIFTBUFBBS[1] {
   
-  // Enum definitions.
-  
   // Bit field definition.
   struct {
     uint32_t SHIFTBUFBBS : 32;
-  } bits;          // Bit-field struct (auto-filling reserved gaps)
+  } bits;
   
   // Full 32-bit register value.
   uint32_t value;
@@ -1540,12 +1500,10 @@ union SHIFTBUFBBS[1] {
 //
 union SHIFTBUFBBS[2] {
   
-  // Enum definitions.
-  
   // Bit field definition.
   struct {
     uint32_t SHIFTBUFBBS : 32;
-  } bits;          // Bit-field struct (auto-filling reserved gaps)
+  } bits;
   
   // Full 32-bit register value.
   uint32_t value;
@@ -1558,12 +1516,10 @@ union SHIFTBUFBBS[2] {
 //
 union SHIFTBUFBBS[3] {
   
-  // Enum definitions.
-  
   // Bit field definition.
   struct {
     uint32_t SHIFTBUFBBS : 32;
-  } bits;          // Bit-field struct (auto-filling reserved gaps)
+  } bits;
   
   // Full 32-bit register value.
   uint32_t value;
@@ -1576,12 +1532,10 @@ union SHIFTBUFBBS[3] {
 //
 union SHIFTBUFBBS[4] {
   
-  // Enum definitions.
-  
   // Bit field definition.
   struct {
     uint32_t SHIFTBUFBBS : 32;
-  } bits;          // Bit-field struct (auto-filling reserved gaps)
+  } bits;
   
   // Full 32-bit register value.
   uint32_t value;
@@ -1594,12 +1548,10 @@ union SHIFTBUFBBS[4] {
 //
 union SHIFTBUFBBS[5] {
   
-  // Enum definitions.
-  
   // Bit field definition.
   struct {
     uint32_t SHIFTBUFBBS : 32;
-  } bits;          // Bit-field struct (auto-filling reserved gaps)
+  } bits;
   
   // Full 32-bit register value.
   uint32_t value;
@@ -1612,12 +1564,10 @@ union SHIFTBUFBBS[5] {
 //
 union SHIFTBUFBBS[6] {
   
-  // Enum definitions.
-  
   // Bit field definition.
   struct {
     uint32_t SHIFTBUFBBS : 32;
-  } bits;          // Bit-field struct (auto-filling reserved gaps)
+  } bits;
   
   // Full 32-bit register value.
   uint32_t value;
@@ -1630,12 +1580,10 @@ union SHIFTBUFBBS[6] {
 //
 union SHIFTBUFBBS[7] {
   
-  // Enum definitions.
-  
   // Bit field definition.
   struct {
     uint32_t SHIFTBUFBBS : 32;
-  } bits;          // Bit-field struct (auto-filling reserved gaps)
+  } bits;
   
   // Full 32-bit register value.
   uint32_t value;
@@ -1649,7 +1597,6 @@ union SHIFTBUFBBS[7] {
 //
 union TIMCTL[0] {
   
-  // Enum definitions.
   enum class eTIMOD : uint32_t {
     edisable = 0, // Timer Disabled.
     edual8bit_baud = 1, // Dual 8-bit counters baud mode.
@@ -1660,28 +1607,34 @@ union TIMCTL[0] {
     edual8bit_pwm_l = 6, // Dual 8-bit counters PWM low mode.
     esingle16bit_in_capture = 7, // Single 16-bit input capture mode.
   };
+  
   enum class eONETIM : uint32_t {
     enot_blocked = 0, // The timer enable event is generated as normal.
     eblocked = 1, // The timer enable event is blocked unless timer status flag is clear.
   };
+  
   enum class ePININS : uint32_t {
     epinsel = 0, // Timer pin input and output are selected by PINSEL.
     epinselplus1 = 1, // Timer pin input is selected by PINSEL+1, timer pin output remains selected by PINSEL.
   };
+  
   enum class ePINPOL : uint32_t {
     eactive_high = 0, // Pin is active high
     eactive_low = 1, // Pin is active low
   };
+  
   enum class ePINCFG : uint32_t {
     eoutdisable = 0, // Timer pin output disabled
     eopend_bidirouten = 1, // Timer pin open drain or bidirectional output enable
     ebidir_outdata = 2, // Timer pin bidirectional output data
     eoutput = 3, // Timer pin output
   };
+  
   enum class eTRGSRC : uint32_t {
     eext_trig = 0, // External trigger selected
     einternal_trig = 1, // Internal trigger selected
   };
+  
   enum class eTRGPOL : uint32_t {
     eactive_high = 0, // Trigger active high
     eactive_low = 1, // Trigger active low
@@ -1702,7 +1655,7 @@ union TIMCTL[0] {
     eTRGPOL TRGPOL : 1;
     uint32_t TRGSEL : 6;
     uint32_t _reserved_end : 2;
-  } bits;          // Bit-field struct (auto-filling reserved gaps)
+  } bits;
   
   // Full 32-bit register value.
   uint32_t value;
@@ -1715,7 +1668,6 @@ union TIMCTL[0] {
 //
 union TIMCTL[1] {
   
-  // Enum definitions.
   enum class eTIMOD : uint32_t {
     edisable = 0, // Timer Disabled.
     edual8bit_baud = 1, // Dual 8-bit counters baud mode.
@@ -1726,28 +1678,34 @@ union TIMCTL[1] {
     edual8bit_pwm_l = 6, // Dual 8-bit counters PWM low mode.
     esingle16bit_in_capture = 7, // Single 16-bit input capture mode.
   };
+  
   enum class eONETIM : uint32_t {
     enot_blocked = 0, // The timer enable event is generated as normal.
     eblocked = 1, // The timer enable event is blocked unless timer status flag is clear.
   };
+  
   enum class ePININS : uint32_t {
     epinsel = 0, // Timer pin input and output are selected by PINSEL.
     epinselplus1 = 1, // Timer pin input is selected by PINSEL+1, timer pin output remains selected by PINSEL.
   };
+  
   enum class ePINPOL : uint32_t {
     eactive_high = 0, // Pin is active high
     eactive_low = 1, // Pin is active low
   };
+  
   enum class ePINCFG : uint32_t {
     eoutdisable = 0, // Timer pin output disabled
     eopend_bidirouten = 1, // Timer pin open drain or bidirectional output enable
     ebidir_outdata = 2, // Timer pin bidirectional output data
     eoutput = 3, // Timer pin output
   };
+  
   enum class eTRGSRC : uint32_t {
     eext_trig = 0, // External trigger selected
     einternal_trig = 1, // Internal trigger selected
   };
+  
   enum class eTRGPOL : uint32_t {
     eactive_high = 0, // Trigger active high
     eactive_low = 1, // Trigger active low
@@ -1768,7 +1726,7 @@ union TIMCTL[1] {
     eTRGPOL TRGPOL : 1;
     uint32_t TRGSEL : 6;
     uint32_t _reserved_end : 2;
-  } bits;          // Bit-field struct (auto-filling reserved gaps)
+  } bits;
   
   // Full 32-bit register value.
   uint32_t value;
@@ -1781,7 +1739,6 @@ union TIMCTL[1] {
 //
 union TIMCTL[2] {
   
-  // Enum definitions.
   enum class eTIMOD : uint32_t {
     edisable = 0, // Timer Disabled.
     edual8bit_baud = 1, // Dual 8-bit counters baud mode.
@@ -1792,28 +1749,34 @@ union TIMCTL[2] {
     edual8bit_pwm_l = 6, // Dual 8-bit counters PWM low mode.
     esingle16bit_in_capture = 7, // Single 16-bit input capture mode.
   };
+  
   enum class eONETIM : uint32_t {
     enot_blocked = 0, // The timer enable event is generated as normal.
     eblocked = 1, // The timer enable event is blocked unless timer status flag is clear.
   };
+  
   enum class ePININS : uint32_t {
     epinsel = 0, // Timer pin input and output are selected by PINSEL.
     epinselplus1 = 1, // Timer pin input is selected by PINSEL+1, timer pin output remains selected by PINSEL.
   };
+  
   enum class ePINPOL : uint32_t {
     eactive_high = 0, // Pin is active high
     eactive_low = 1, // Pin is active low
   };
+  
   enum class ePINCFG : uint32_t {
     eoutdisable = 0, // Timer pin output disabled
     eopend_bidirouten = 1, // Timer pin open drain or bidirectional output enable
     ebidir_outdata = 2, // Timer pin bidirectional output data
     eoutput = 3, // Timer pin output
   };
+  
   enum class eTRGSRC : uint32_t {
     eext_trig = 0, // External trigger selected
     einternal_trig = 1, // Internal trigger selected
   };
+  
   enum class eTRGPOL : uint32_t {
     eactive_high = 0, // Trigger active high
     eactive_low = 1, // Trigger active low
@@ -1834,7 +1797,7 @@ union TIMCTL[2] {
     eTRGPOL TRGPOL : 1;
     uint32_t TRGSEL : 6;
     uint32_t _reserved_end : 2;
-  } bits;          // Bit-field struct (auto-filling reserved gaps)
+  } bits;
   
   // Full 32-bit register value.
   uint32_t value;
@@ -1847,7 +1810,6 @@ union TIMCTL[2] {
 //
 union TIMCTL[3] {
   
-  // Enum definitions.
   enum class eTIMOD : uint32_t {
     edisable = 0, // Timer Disabled.
     edual8bit_baud = 1, // Dual 8-bit counters baud mode.
@@ -1858,28 +1820,34 @@ union TIMCTL[3] {
     edual8bit_pwm_l = 6, // Dual 8-bit counters PWM low mode.
     esingle16bit_in_capture = 7, // Single 16-bit input capture mode.
   };
+  
   enum class eONETIM : uint32_t {
     enot_blocked = 0, // The timer enable event is generated as normal.
     eblocked = 1, // The timer enable event is blocked unless timer status flag is clear.
   };
+  
   enum class ePININS : uint32_t {
     epinsel = 0, // Timer pin input and output are selected by PINSEL.
     epinselplus1 = 1, // Timer pin input is selected by PINSEL+1, timer pin output remains selected by PINSEL.
   };
+  
   enum class ePINPOL : uint32_t {
     eactive_high = 0, // Pin is active high
     eactive_low = 1, // Pin is active low
   };
+  
   enum class ePINCFG : uint32_t {
     eoutdisable = 0, // Timer pin output disabled
     eopend_bidirouten = 1, // Timer pin open drain or bidirectional output enable
     ebidir_outdata = 2, // Timer pin bidirectional output data
     eoutput = 3, // Timer pin output
   };
+  
   enum class eTRGSRC : uint32_t {
     eext_trig = 0, // External trigger selected
     einternal_trig = 1, // Internal trigger selected
   };
+  
   enum class eTRGPOL : uint32_t {
     eactive_high = 0, // Trigger active high
     eactive_low = 1, // Trigger active low
@@ -1900,7 +1868,7 @@ union TIMCTL[3] {
     eTRGPOL TRGPOL : 1;
     uint32_t TRGSEL : 6;
     uint32_t _reserved_end : 2;
-  } bits;          // Bit-field struct (auto-filling reserved gaps)
+  } bits;
   
   // Full 32-bit register value.
   uint32_t value;
@@ -1913,7 +1881,6 @@ union TIMCTL[3] {
 //
 union TIMCTL[4] {
   
-  // Enum definitions.
   enum class eTIMOD : uint32_t {
     edisable = 0, // Timer Disabled.
     edual8bit_baud = 1, // Dual 8-bit counters baud mode.
@@ -1924,28 +1891,34 @@ union TIMCTL[4] {
     edual8bit_pwm_l = 6, // Dual 8-bit counters PWM low mode.
     esingle16bit_in_capture = 7, // Single 16-bit input capture mode.
   };
+  
   enum class eONETIM : uint32_t {
     enot_blocked = 0, // The timer enable event is generated as normal.
     eblocked = 1, // The timer enable event is blocked unless timer status flag is clear.
   };
+  
   enum class ePININS : uint32_t {
     epinsel = 0, // Timer pin input and output are selected by PINSEL.
     epinselplus1 = 1, // Timer pin input is selected by PINSEL+1, timer pin output remains selected by PINSEL.
   };
+  
   enum class ePINPOL : uint32_t {
     eactive_high = 0, // Pin is active high
     eactive_low = 1, // Pin is active low
   };
+  
   enum class ePINCFG : uint32_t {
     eoutdisable = 0, // Timer pin output disabled
     eopend_bidirouten = 1, // Timer pin open drain or bidirectional output enable
     ebidir_outdata = 2, // Timer pin bidirectional output data
     eoutput = 3, // Timer pin output
   };
+  
   enum class eTRGSRC : uint32_t {
     eext_trig = 0, // External trigger selected
     einternal_trig = 1, // Internal trigger selected
   };
+  
   enum class eTRGPOL : uint32_t {
     eactive_high = 0, // Trigger active high
     eactive_low = 1, // Trigger active low
@@ -1966,7 +1939,7 @@ union TIMCTL[4] {
     eTRGPOL TRGPOL : 1;
     uint32_t TRGSEL : 6;
     uint32_t _reserved_end : 2;
-  } bits;          // Bit-field struct (auto-filling reserved gaps)
+  } bits;
   
   // Full 32-bit register value.
   uint32_t value;
@@ -1979,7 +1952,6 @@ union TIMCTL[4] {
 //
 union TIMCTL[5] {
   
-  // Enum definitions.
   enum class eTIMOD : uint32_t {
     edisable = 0, // Timer Disabled.
     edual8bit_baud = 1, // Dual 8-bit counters baud mode.
@@ -1990,28 +1962,34 @@ union TIMCTL[5] {
     edual8bit_pwm_l = 6, // Dual 8-bit counters PWM low mode.
     esingle16bit_in_capture = 7, // Single 16-bit input capture mode.
   };
+  
   enum class eONETIM : uint32_t {
     enot_blocked = 0, // The timer enable event is generated as normal.
     eblocked = 1, // The timer enable event is blocked unless timer status flag is clear.
   };
+  
   enum class ePININS : uint32_t {
     epinsel = 0, // Timer pin input and output are selected by PINSEL.
     epinselplus1 = 1, // Timer pin input is selected by PINSEL+1, timer pin output remains selected by PINSEL.
   };
+  
   enum class ePINPOL : uint32_t {
     eactive_high = 0, // Pin is active high
     eactive_low = 1, // Pin is active low
   };
+  
   enum class ePINCFG : uint32_t {
     eoutdisable = 0, // Timer pin output disabled
     eopend_bidirouten = 1, // Timer pin open drain or bidirectional output enable
     ebidir_outdata = 2, // Timer pin bidirectional output data
     eoutput = 3, // Timer pin output
   };
+  
   enum class eTRGSRC : uint32_t {
     eext_trig = 0, // External trigger selected
     einternal_trig = 1, // Internal trigger selected
   };
+  
   enum class eTRGPOL : uint32_t {
     eactive_high = 0, // Trigger active high
     eactive_low = 1, // Trigger active low
@@ -2032,7 +2010,7 @@ union TIMCTL[5] {
     eTRGPOL TRGPOL : 1;
     uint32_t TRGSEL : 6;
     uint32_t _reserved_end : 2;
-  } bits;          // Bit-field struct (auto-filling reserved gaps)
+  } bits;
   
   // Full 32-bit register value.
   uint32_t value;
@@ -2045,7 +2023,6 @@ union TIMCTL[5] {
 //
 union TIMCTL[6] {
   
-  // Enum definitions.
   enum class eTIMOD : uint32_t {
     edisable = 0, // Timer Disabled.
     edual8bit_baud = 1, // Dual 8-bit counters baud mode.
@@ -2056,28 +2033,34 @@ union TIMCTL[6] {
     edual8bit_pwm_l = 6, // Dual 8-bit counters PWM low mode.
     esingle16bit_in_capture = 7, // Single 16-bit input capture mode.
   };
+  
   enum class eONETIM : uint32_t {
     enot_blocked = 0, // The timer enable event is generated as normal.
     eblocked = 1, // The timer enable event is blocked unless timer status flag is clear.
   };
+  
   enum class ePININS : uint32_t {
     epinsel = 0, // Timer pin input and output are selected by PINSEL.
     epinselplus1 = 1, // Timer pin input is selected by PINSEL+1, timer pin output remains selected by PINSEL.
   };
+  
   enum class ePINPOL : uint32_t {
     eactive_high = 0, // Pin is active high
     eactive_low = 1, // Pin is active low
   };
+  
   enum class ePINCFG : uint32_t {
     eoutdisable = 0, // Timer pin output disabled
     eopend_bidirouten = 1, // Timer pin open drain or bidirectional output enable
     ebidir_outdata = 2, // Timer pin bidirectional output data
     eoutput = 3, // Timer pin output
   };
+  
   enum class eTRGSRC : uint32_t {
     eext_trig = 0, // External trigger selected
     einternal_trig = 1, // Internal trigger selected
   };
+  
   enum class eTRGPOL : uint32_t {
     eactive_high = 0, // Trigger active high
     eactive_low = 1, // Trigger active low
@@ -2098,7 +2081,7 @@ union TIMCTL[6] {
     eTRGPOL TRGPOL : 1;
     uint32_t TRGSEL : 6;
     uint32_t _reserved_end : 2;
-  } bits;          // Bit-field struct (auto-filling reserved gaps)
+  } bits;
   
   // Full 32-bit register value.
   uint32_t value;
@@ -2111,7 +2094,6 @@ union TIMCTL[6] {
 //
 union TIMCTL[7] {
   
-  // Enum definitions.
   enum class eTIMOD : uint32_t {
     edisable = 0, // Timer Disabled.
     edual8bit_baud = 1, // Dual 8-bit counters baud mode.
@@ -2122,28 +2104,34 @@ union TIMCTL[7] {
     edual8bit_pwm_l = 6, // Dual 8-bit counters PWM low mode.
     esingle16bit_in_capture = 7, // Single 16-bit input capture mode.
   };
+  
   enum class eONETIM : uint32_t {
     enot_blocked = 0, // The timer enable event is generated as normal.
     eblocked = 1, // The timer enable event is blocked unless timer status flag is clear.
   };
+  
   enum class ePININS : uint32_t {
     epinsel = 0, // Timer pin input and output are selected by PINSEL.
     epinselplus1 = 1, // Timer pin input is selected by PINSEL+1, timer pin output remains selected by PINSEL.
   };
+  
   enum class ePINPOL : uint32_t {
     eactive_high = 0, // Pin is active high
     eactive_low = 1, // Pin is active low
   };
+  
   enum class ePINCFG : uint32_t {
     eoutdisable = 0, // Timer pin output disabled
     eopend_bidirouten = 1, // Timer pin open drain or bidirectional output enable
     ebidir_outdata = 2, // Timer pin bidirectional output data
     eoutput = 3, // Timer pin output
   };
+  
   enum class eTRGSRC : uint32_t {
     eext_trig = 0, // External trigger selected
     einternal_trig = 1, // Internal trigger selected
   };
+  
   enum class eTRGPOL : uint32_t {
     eactive_high = 0, // Trigger active high
     eactive_low = 1, // Trigger active low
@@ -2164,7 +2152,7 @@ union TIMCTL[7] {
     eTRGPOL TRGPOL : 1;
     uint32_t TRGSEL : 6;
     uint32_t _reserved_end : 2;
-  } bits;          // Bit-field struct (auto-filling reserved gaps)
+  } bits;
   
   // Full 32-bit register value.
   uint32_t value;
@@ -2178,17 +2166,18 @@ union TIMCTL[7] {
 //
 union TIMCFG[0] {
   
-  // Enum definitions.
   enum class eTSTART : uint32_t {
     edisable = 0, // Start bit disabled
     eenable = 1, // Start bit enabled
   };
+  
   enum class eTSTOP : uint32_t {
     estop_disable = 0, // Stop bit disabled
     eenable_tmrcmp = 1, // Stop bit is enabled on timer compare
     eenable_tmrdisable = 2, // Stop bit is enabled on timer disable
     eenable_tmr_cmp_dis = 3, // Stop bit is enabled on timer compare and timer disable
   };
+  
   enum class eTIMENA : uint32_t {
     eenable = 0, // Timer always enabled
     etmr_nminus1_en = 1, // Timer enabled on Timer N-1 enable
@@ -2199,6 +2188,7 @@ union TIMCFG[0] {
     etmr_trigrise_en = 6, // Timer enabled on Trigger rising edge
     etmr_trigedge_en = 7, // Timer enabled on Trigger rising or falling edge
   };
+  
   enum class eTIMDIS : uint32_t {
     enever = 0, // Timer never disabled
     etmr_nminus1 = 1, // Timer disabled on Timer N-1 disable
@@ -2208,6 +2198,7 @@ union TIMCFG[0] {
     epin_edge_trighi = 5, // Timer disabled on Pin rising or falling edge provided Trigger is high
     etrig_falledge = 6, // Timer disabled on Trigger falling edge
   };
+  
   enum class eTIMRST : uint32_t {
     enever = 0, // Timer never reset
     etmr_out_hi = 1, // Timer reset on Timer Output high.
@@ -2217,6 +2208,7 @@ union TIMCFG[0] {
     etrig_rise_edge = 6, // Timer reset on Trigger rising edge
     etrig_edge = 7, // Timer reset on Trigger rising or falling edge
   };
+  
   enum class eTIMDEC : uint32_t {
     eflexio_clk_shiftclk_tmr_out = 0, // Decrement counter on FlexIO clock, Shift clock equals Timer output.
     etrig_edge_shiftclk_tmr_out = 1, // Decrement counter on Trigger input (both edges), Shift clock equals Timer output.
@@ -2227,6 +2219,7 @@ union TIMCFG[0] {
     epin_rise_shiftclk_pin_in = 6, // Decrement counter on Pin input (rising edge), Shift clock equals Pin input.
     etrig_rise_shiftclk_trig_in = 7, // Decrement counter on Trigger input (rising edge), Shift clock equals Trigger input.
   };
+  
   enum class eTIMOUT : uint32_t {
     eone = 0, // Timer output is logic one when enabled and is not affected by timer reset
     ezero = 1, // Timer output is logic zero when enabled and is not affected by timer reset
@@ -2251,7 +2244,7 @@ union TIMCFG[0] {
     uint32_t _reserved_6 : 1;
     eTIMOUT TIMOUT : 2;
     uint32_t _reserved_end : 6;
-  } bits;          // Bit-field struct (auto-filling reserved gaps)
+  } bits;
   
   // Full 32-bit register value.
   uint32_t value;
@@ -2264,17 +2257,18 @@ union TIMCFG[0] {
 //
 union TIMCFG[1] {
   
-  // Enum definitions.
   enum class eTSTART : uint32_t {
     edisable = 0, // Start bit disabled
     eenable = 1, // Start bit enabled
   };
+  
   enum class eTSTOP : uint32_t {
     estop_disable = 0, // Stop bit disabled
     eenable_tmrcmp = 1, // Stop bit is enabled on timer compare
     eenable_tmrdisable = 2, // Stop bit is enabled on timer disable
     eenable_tmr_cmp_dis = 3, // Stop bit is enabled on timer compare and timer disable
   };
+  
   enum class eTIMENA : uint32_t {
     eenable = 0, // Timer always enabled
     etmr_nminus1_en = 1, // Timer enabled on Timer N-1 enable
@@ -2285,6 +2279,7 @@ union TIMCFG[1] {
     etmr_trigrise_en = 6, // Timer enabled on Trigger rising edge
     etmr_trigedge_en = 7, // Timer enabled on Trigger rising or falling edge
   };
+  
   enum class eTIMDIS : uint32_t {
     enever = 0, // Timer never disabled
     etmr_nminus1 = 1, // Timer disabled on Timer N-1 disable
@@ -2294,6 +2289,7 @@ union TIMCFG[1] {
     epin_edge_trighi = 5, // Timer disabled on Pin rising or falling edge provided Trigger is high
     etrig_falledge = 6, // Timer disabled on Trigger falling edge
   };
+  
   enum class eTIMRST : uint32_t {
     enever = 0, // Timer never reset
     etmr_out_hi = 1, // Timer reset on Timer Output high.
@@ -2303,6 +2299,7 @@ union TIMCFG[1] {
     etrig_rise_edge = 6, // Timer reset on Trigger rising edge
     etrig_edge = 7, // Timer reset on Trigger rising or falling edge
   };
+  
   enum class eTIMDEC : uint32_t {
     eflexio_clk_shiftclk_tmr_out = 0, // Decrement counter on FlexIO clock, Shift clock equals Timer output.
     etrig_edge_shiftclk_tmr_out = 1, // Decrement counter on Trigger input (both edges), Shift clock equals Timer output.
@@ -2313,6 +2310,7 @@ union TIMCFG[1] {
     epin_rise_shiftclk_pin_in = 6, // Decrement counter on Pin input (rising edge), Shift clock equals Pin input.
     etrig_rise_shiftclk_trig_in = 7, // Decrement counter on Trigger input (rising edge), Shift clock equals Trigger input.
   };
+  
   enum class eTIMOUT : uint32_t {
     eone = 0, // Timer output is logic one when enabled and is not affected by timer reset
     ezero = 1, // Timer output is logic zero when enabled and is not affected by timer reset
@@ -2337,7 +2335,7 @@ union TIMCFG[1] {
     uint32_t _reserved_6 : 1;
     eTIMOUT TIMOUT : 2;
     uint32_t _reserved_end : 6;
-  } bits;          // Bit-field struct (auto-filling reserved gaps)
+  } bits;
   
   // Full 32-bit register value.
   uint32_t value;
@@ -2350,17 +2348,18 @@ union TIMCFG[1] {
 //
 union TIMCFG[2] {
   
-  // Enum definitions.
   enum class eTSTART : uint32_t {
     edisable = 0, // Start bit disabled
     eenable = 1, // Start bit enabled
   };
+  
   enum class eTSTOP : uint32_t {
     estop_disable = 0, // Stop bit disabled
     eenable_tmrcmp = 1, // Stop bit is enabled on timer compare
     eenable_tmrdisable = 2, // Stop bit is enabled on timer disable
     eenable_tmr_cmp_dis = 3, // Stop bit is enabled on timer compare and timer disable
   };
+  
   enum class eTIMENA : uint32_t {
     eenable = 0, // Timer always enabled
     etmr_nminus1_en = 1, // Timer enabled on Timer N-1 enable
@@ -2371,6 +2370,7 @@ union TIMCFG[2] {
     etmr_trigrise_en = 6, // Timer enabled on Trigger rising edge
     etmr_trigedge_en = 7, // Timer enabled on Trigger rising or falling edge
   };
+  
   enum class eTIMDIS : uint32_t {
     enever = 0, // Timer never disabled
     etmr_nminus1 = 1, // Timer disabled on Timer N-1 disable
@@ -2380,6 +2380,7 @@ union TIMCFG[2] {
     epin_edge_trighi = 5, // Timer disabled on Pin rising or falling edge provided Trigger is high
     etrig_falledge = 6, // Timer disabled on Trigger falling edge
   };
+  
   enum class eTIMRST : uint32_t {
     enever = 0, // Timer never reset
     etmr_out_hi = 1, // Timer reset on Timer Output high.
@@ -2389,6 +2390,7 @@ union TIMCFG[2] {
     etrig_rise_edge = 6, // Timer reset on Trigger rising edge
     etrig_edge = 7, // Timer reset on Trigger rising or falling edge
   };
+  
   enum class eTIMDEC : uint32_t {
     eflexio_clk_shiftclk_tmr_out = 0, // Decrement counter on FlexIO clock, Shift clock equals Timer output.
     etrig_edge_shiftclk_tmr_out = 1, // Decrement counter on Trigger input (both edges), Shift clock equals Timer output.
@@ -2399,6 +2401,7 @@ union TIMCFG[2] {
     epin_rise_shiftclk_pin_in = 6, // Decrement counter on Pin input (rising edge), Shift clock equals Pin input.
     etrig_rise_shiftclk_trig_in = 7, // Decrement counter on Trigger input (rising edge), Shift clock equals Trigger input.
   };
+  
   enum class eTIMOUT : uint32_t {
     eone = 0, // Timer output is logic one when enabled and is not affected by timer reset
     ezero = 1, // Timer output is logic zero when enabled and is not affected by timer reset
@@ -2423,7 +2426,7 @@ union TIMCFG[2] {
     uint32_t _reserved_6 : 1;
     eTIMOUT TIMOUT : 2;
     uint32_t _reserved_end : 6;
-  } bits;          // Bit-field struct (auto-filling reserved gaps)
+  } bits;
   
   // Full 32-bit register value.
   uint32_t value;
@@ -2436,17 +2439,18 @@ union TIMCFG[2] {
 //
 union TIMCFG[3] {
   
-  // Enum definitions.
   enum class eTSTART : uint32_t {
     edisable = 0, // Start bit disabled
     eenable = 1, // Start bit enabled
   };
+  
   enum class eTSTOP : uint32_t {
     estop_disable = 0, // Stop bit disabled
     eenable_tmrcmp = 1, // Stop bit is enabled on timer compare
     eenable_tmrdisable = 2, // Stop bit is enabled on timer disable
     eenable_tmr_cmp_dis = 3, // Stop bit is enabled on timer compare and timer disable
   };
+  
   enum class eTIMENA : uint32_t {
     eenable = 0, // Timer always enabled
     etmr_nminus1_en = 1, // Timer enabled on Timer N-1 enable
@@ -2457,6 +2461,7 @@ union TIMCFG[3] {
     etmr_trigrise_en = 6, // Timer enabled on Trigger rising edge
     etmr_trigedge_en = 7, // Timer enabled on Trigger rising or falling edge
   };
+  
   enum class eTIMDIS : uint32_t {
     enever = 0, // Timer never disabled
     etmr_nminus1 = 1, // Timer disabled on Timer N-1 disable
@@ -2466,6 +2471,7 @@ union TIMCFG[3] {
     epin_edge_trighi = 5, // Timer disabled on Pin rising or falling edge provided Trigger is high
     etrig_falledge = 6, // Timer disabled on Trigger falling edge
   };
+  
   enum class eTIMRST : uint32_t {
     enever = 0, // Timer never reset
     etmr_out_hi = 1, // Timer reset on Timer Output high.
@@ -2475,6 +2481,7 @@ union TIMCFG[3] {
     etrig_rise_edge = 6, // Timer reset on Trigger rising edge
     etrig_edge = 7, // Timer reset on Trigger rising or falling edge
   };
+  
   enum class eTIMDEC : uint32_t {
     eflexio_clk_shiftclk_tmr_out = 0, // Decrement counter on FlexIO clock, Shift clock equals Timer output.
     etrig_edge_shiftclk_tmr_out = 1, // Decrement counter on Trigger input (both edges), Shift clock equals Timer output.
@@ -2485,6 +2492,7 @@ union TIMCFG[3] {
     epin_rise_shiftclk_pin_in = 6, // Decrement counter on Pin input (rising edge), Shift clock equals Pin input.
     etrig_rise_shiftclk_trig_in = 7, // Decrement counter on Trigger input (rising edge), Shift clock equals Trigger input.
   };
+  
   enum class eTIMOUT : uint32_t {
     eone = 0, // Timer output is logic one when enabled and is not affected by timer reset
     ezero = 1, // Timer output is logic zero when enabled and is not affected by timer reset
@@ -2509,7 +2517,7 @@ union TIMCFG[3] {
     uint32_t _reserved_6 : 1;
     eTIMOUT TIMOUT : 2;
     uint32_t _reserved_end : 6;
-  } bits;          // Bit-field struct (auto-filling reserved gaps)
+  } bits;
   
   // Full 32-bit register value.
   uint32_t value;
@@ -2522,17 +2530,18 @@ union TIMCFG[3] {
 //
 union TIMCFG[4] {
   
-  // Enum definitions.
   enum class eTSTART : uint32_t {
     edisable = 0, // Start bit disabled
     eenable = 1, // Start bit enabled
   };
+  
   enum class eTSTOP : uint32_t {
     estop_disable = 0, // Stop bit disabled
     eenable_tmrcmp = 1, // Stop bit is enabled on timer compare
     eenable_tmrdisable = 2, // Stop bit is enabled on timer disable
     eenable_tmr_cmp_dis = 3, // Stop bit is enabled on timer compare and timer disable
   };
+  
   enum class eTIMENA : uint32_t {
     eenable = 0, // Timer always enabled
     etmr_nminus1_en = 1, // Timer enabled on Timer N-1 enable
@@ -2543,6 +2552,7 @@ union TIMCFG[4] {
     etmr_trigrise_en = 6, // Timer enabled on Trigger rising edge
     etmr_trigedge_en = 7, // Timer enabled on Trigger rising or falling edge
   };
+  
   enum class eTIMDIS : uint32_t {
     enever = 0, // Timer never disabled
     etmr_nminus1 = 1, // Timer disabled on Timer N-1 disable
@@ -2552,6 +2562,7 @@ union TIMCFG[4] {
     epin_edge_trighi = 5, // Timer disabled on Pin rising or falling edge provided Trigger is high
     etrig_falledge = 6, // Timer disabled on Trigger falling edge
   };
+  
   enum class eTIMRST : uint32_t {
     enever = 0, // Timer never reset
     etmr_out_hi = 1, // Timer reset on Timer Output high.
@@ -2561,6 +2572,7 @@ union TIMCFG[4] {
     etrig_rise_edge = 6, // Timer reset on Trigger rising edge
     etrig_edge = 7, // Timer reset on Trigger rising or falling edge
   };
+  
   enum class eTIMDEC : uint32_t {
     eflexio_clk_shiftclk_tmr_out = 0, // Decrement counter on FlexIO clock, Shift clock equals Timer output.
     etrig_edge_shiftclk_tmr_out = 1, // Decrement counter on Trigger input (both edges), Shift clock equals Timer output.
@@ -2571,6 +2583,7 @@ union TIMCFG[4] {
     epin_rise_shiftclk_pin_in = 6, // Decrement counter on Pin input (rising edge), Shift clock equals Pin input.
     etrig_rise_shiftclk_trig_in = 7, // Decrement counter on Trigger input (rising edge), Shift clock equals Trigger input.
   };
+  
   enum class eTIMOUT : uint32_t {
     eone = 0, // Timer output is logic one when enabled and is not affected by timer reset
     ezero = 1, // Timer output is logic zero when enabled and is not affected by timer reset
@@ -2595,7 +2608,7 @@ union TIMCFG[4] {
     uint32_t _reserved_6 : 1;
     eTIMOUT TIMOUT : 2;
     uint32_t _reserved_end : 6;
-  } bits;          // Bit-field struct (auto-filling reserved gaps)
+  } bits;
   
   // Full 32-bit register value.
   uint32_t value;
@@ -2608,17 +2621,18 @@ union TIMCFG[4] {
 //
 union TIMCFG[5] {
   
-  // Enum definitions.
   enum class eTSTART : uint32_t {
     edisable = 0, // Start bit disabled
     eenable = 1, // Start bit enabled
   };
+  
   enum class eTSTOP : uint32_t {
     estop_disable = 0, // Stop bit disabled
     eenable_tmrcmp = 1, // Stop bit is enabled on timer compare
     eenable_tmrdisable = 2, // Stop bit is enabled on timer disable
     eenable_tmr_cmp_dis = 3, // Stop bit is enabled on timer compare and timer disable
   };
+  
   enum class eTIMENA : uint32_t {
     eenable = 0, // Timer always enabled
     etmr_nminus1_en = 1, // Timer enabled on Timer N-1 enable
@@ -2629,6 +2643,7 @@ union TIMCFG[5] {
     etmr_trigrise_en = 6, // Timer enabled on Trigger rising edge
     etmr_trigedge_en = 7, // Timer enabled on Trigger rising or falling edge
   };
+  
   enum class eTIMDIS : uint32_t {
     enever = 0, // Timer never disabled
     etmr_nminus1 = 1, // Timer disabled on Timer N-1 disable
@@ -2638,6 +2653,7 @@ union TIMCFG[5] {
     epin_edge_trighi = 5, // Timer disabled on Pin rising or falling edge provided Trigger is high
     etrig_falledge = 6, // Timer disabled on Trigger falling edge
   };
+  
   enum class eTIMRST : uint32_t {
     enever = 0, // Timer never reset
     etmr_out_hi = 1, // Timer reset on Timer Output high.
@@ -2647,6 +2663,7 @@ union TIMCFG[5] {
     etrig_rise_edge = 6, // Timer reset on Trigger rising edge
     etrig_edge = 7, // Timer reset on Trigger rising or falling edge
   };
+  
   enum class eTIMDEC : uint32_t {
     eflexio_clk_shiftclk_tmr_out = 0, // Decrement counter on FlexIO clock, Shift clock equals Timer output.
     etrig_edge_shiftclk_tmr_out = 1, // Decrement counter on Trigger input (both edges), Shift clock equals Timer output.
@@ -2657,6 +2674,7 @@ union TIMCFG[5] {
     epin_rise_shiftclk_pin_in = 6, // Decrement counter on Pin input (rising edge), Shift clock equals Pin input.
     etrig_rise_shiftclk_trig_in = 7, // Decrement counter on Trigger input (rising edge), Shift clock equals Trigger input.
   };
+  
   enum class eTIMOUT : uint32_t {
     eone = 0, // Timer output is logic one when enabled and is not affected by timer reset
     ezero = 1, // Timer output is logic zero when enabled and is not affected by timer reset
@@ -2681,7 +2699,7 @@ union TIMCFG[5] {
     uint32_t _reserved_6 : 1;
     eTIMOUT TIMOUT : 2;
     uint32_t _reserved_end : 6;
-  } bits;          // Bit-field struct (auto-filling reserved gaps)
+  } bits;
   
   // Full 32-bit register value.
   uint32_t value;
@@ -2694,17 +2712,18 @@ union TIMCFG[5] {
 //
 union TIMCFG[6] {
   
-  // Enum definitions.
   enum class eTSTART : uint32_t {
     edisable = 0, // Start bit disabled
     eenable = 1, // Start bit enabled
   };
+  
   enum class eTSTOP : uint32_t {
     estop_disable = 0, // Stop bit disabled
     eenable_tmrcmp = 1, // Stop bit is enabled on timer compare
     eenable_tmrdisable = 2, // Stop bit is enabled on timer disable
     eenable_tmr_cmp_dis = 3, // Stop bit is enabled on timer compare and timer disable
   };
+  
   enum class eTIMENA : uint32_t {
     eenable = 0, // Timer always enabled
     etmr_nminus1_en = 1, // Timer enabled on Timer N-1 enable
@@ -2715,6 +2734,7 @@ union TIMCFG[6] {
     etmr_trigrise_en = 6, // Timer enabled on Trigger rising edge
     etmr_trigedge_en = 7, // Timer enabled on Trigger rising or falling edge
   };
+  
   enum class eTIMDIS : uint32_t {
     enever = 0, // Timer never disabled
     etmr_nminus1 = 1, // Timer disabled on Timer N-1 disable
@@ -2724,6 +2744,7 @@ union TIMCFG[6] {
     epin_edge_trighi = 5, // Timer disabled on Pin rising or falling edge provided Trigger is high
     etrig_falledge = 6, // Timer disabled on Trigger falling edge
   };
+  
   enum class eTIMRST : uint32_t {
     enever = 0, // Timer never reset
     etmr_out_hi = 1, // Timer reset on Timer Output high.
@@ -2733,6 +2754,7 @@ union TIMCFG[6] {
     etrig_rise_edge = 6, // Timer reset on Trigger rising edge
     etrig_edge = 7, // Timer reset on Trigger rising or falling edge
   };
+  
   enum class eTIMDEC : uint32_t {
     eflexio_clk_shiftclk_tmr_out = 0, // Decrement counter on FlexIO clock, Shift clock equals Timer output.
     etrig_edge_shiftclk_tmr_out = 1, // Decrement counter on Trigger input (both edges), Shift clock equals Timer output.
@@ -2743,6 +2765,7 @@ union TIMCFG[6] {
     epin_rise_shiftclk_pin_in = 6, // Decrement counter on Pin input (rising edge), Shift clock equals Pin input.
     etrig_rise_shiftclk_trig_in = 7, // Decrement counter on Trigger input (rising edge), Shift clock equals Trigger input.
   };
+  
   enum class eTIMOUT : uint32_t {
     eone = 0, // Timer output is logic one when enabled and is not affected by timer reset
     ezero = 1, // Timer output is logic zero when enabled and is not affected by timer reset
@@ -2767,7 +2790,7 @@ union TIMCFG[6] {
     uint32_t _reserved_6 : 1;
     eTIMOUT TIMOUT : 2;
     uint32_t _reserved_end : 6;
-  } bits;          // Bit-field struct (auto-filling reserved gaps)
+  } bits;
   
   // Full 32-bit register value.
   uint32_t value;
@@ -2780,17 +2803,18 @@ union TIMCFG[6] {
 //
 union TIMCFG[7] {
   
-  // Enum definitions.
   enum class eTSTART : uint32_t {
     edisable = 0, // Start bit disabled
     eenable = 1, // Start bit enabled
   };
+  
   enum class eTSTOP : uint32_t {
     estop_disable = 0, // Stop bit disabled
     eenable_tmrcmp = 1, // Stop bit is enabled on timer compare
     eenable_tmrdisable = 2, // Stop bit is enabled on timer disable
     eenable_tmr_cmp_dis = 3, // Stop bit is enabled on timer compare and timer disable
   };
+  
   enum class eTIMENA : uint32_t {
     eenable = 0, // Timer always enabled
     etmr_nminus1_en = 1, // Timer enabled on Timer N-1 enable
@@ -2801,6 +2825,7 @@ union TIMCFG[7] {
     etmr_trigrise_en = 6, // Timer enabled on Trigger rising edge
     etmr_trigedge_en = 7, // Timer enabled on Trigger rising or falling edge
   };
+  
   enum class eTIMDIS : uint32_t {
     enever = 0, // Timer never disabled
     etmr_nminus1 = 1, // Timer disabled on Timer N-1 disable
@@ -2810,6 +2835,7 @@ union TIMCFG[7] {
     epin_edge_trighi = 5, // Timer disabled on Pin rising or falling edge provided Trigger is high
     etrig_falledge = 6, // Timer disabled on Trigger falling edge
   };
+  
   enum class eTIMRST : uint32_t {
     enever = 0, // Timer never reset
     etmr_out_hi = 1, // Timer reset on Timer Output high.
@@ -2819,6 +2845,7 @@ union TIMCFG[7] {
     etrig_rise_edge = 6, // Timer reset on Trigger rising edge
     etrig_edge = 7, // Timer reset on Trigger rising or falling edge
   };
+  
   enum class eTIMDEC : uint32_t {
     eflexio_clk_shiftclk_tmr_out = 0, // Decrement counter on FlexIO clock, Shift clock equals Timer output.
     etrig_edge_shiftclk_tmr_out = 1, // Decrement counter on Trigger input (both edges), Shift clock equals Timer output.
@@ -2829,6 +2856,7 @@ union TIMCFG[7] {
     epin_rise_shiftclk_pin_in = 6, // Decrement counter on Pin input (rising edge), Shift clock equals Pin input.
     etrig_rise_shiftclk_trig_in = 7, // Decrement counter on Trigger input (rising edge), Shift clock equals Trigger input.
   };
+  
   enum class eTIMOUT : uint32_t {
     eone = 0, // Timer output is logic one when enabled and is not affected by timer reset
     ezero = 1, // Timer output is logic zero when enabled and is not affected by timer reset
@@ -2853,7 +2881,7 @@ union TIMCFG[7] {
     uint32_t _reserved_6 : 1;
     eTIMOUT TIMOUT : 2;
     uint32_t _reserved_end : 6;
-  } bits;          // Bit-field struct (auto-filling reserved gaps)
+  } bits;
   
   // Full 32-bit register value.
   uint32_t value;
@@ -2867,13 +2895,11 @@ union TIMCFG[7] {
 //
 union TIMCMP[0] {
   
-  // Enum definitions.
-  
   // Bit field definition.
   struct {
     uint32_t CMP : 16;
     uint32_t _reserved_end : 16;
-  } bits;          // Bit-field struct (auto-filling reserved gaps)
+  } bits;
   
   // Full 32-bit register value.
   uint32_t value;
@@ -2886,13 +2912,11 @@ union TIMCMP[0] {
 //
 union TIMCMP[1] {
   
-  // Enum definitions.
-  
   // Bit field definition.
   struct {
     uint32_t CMP : 16;
     uint32_t _reserved_end : 16;
-  } bits;          // Bit-field struct (auto-filling reserved gaps)
+  } bits;
   
   // Full 32-bit register value.
   uint32_t value;
@@ -2905,13 +2929,11 @@ union TIMCMP[1] {
 //
 union TIMCMP[2] {
   
-  // Enum definitions.
-  
   // Bit field definition.
   struct {
     uint32_t CMP : 16;
     uint32_t _reserved_end : 16;
-  } bits;          // Bit-field struct (auto-filling reserved gaps)
+  } bits;
   
   // Full 32-bit register value.
   uint32_t value;
@@ -2924,13 +2946,11 @@ union TIMCMP[2] {
 //
 union TIMCMP[3] {
   
-  // Enum definitions.
-  
   // Bit field definition.
   struct {
     uint32_t CMP : 16;
     uint32_t _reserved_end : 16;
-  } bits;          // Bit-field struct (auto-filling reserved gaps)
+  } bits;
   
   // Full 32-bit register value.
   uint32_t value;
@@ -2943,13 +2963,11 @@ union TIMCMP[3] {
 //
 union TIMCMP[4] {
   
-  // Enum definitions.
-  
   // Bit field definition.
   struct {
     uint32_t CMP : 16;
     uint32_t _reserved_end : 16;
-  } bits;          // Bit-field struct (auto-filling reserved gaps)
+  } bits;
   
   // Full 32-bit register value.
   uint32_t value;
@@ -2962,13 +2980,11 @@ union TIMCMP[4] {
 //
 union TIMCMP[5] {
   
-  // Enum definitions.
-  
   // Bit field definition.
   struct {
     uint32_t CMP : 16;
     uint32_t _reserved_end : 16;
-  } bits;          // Bit-field struct (auto-filling reserved gaps)
+  } bits;
   
   // Full 32-bit register value.
   uint32_t value;
@@ -2981,13 +2997,11 @@ union TIMCMP[5] {
 //
 union TIMCMP[6] {
   
-  // Enum definitions.
-  
   // Bit field definition.
   struct {
     uint32_t CMP : 16;
     uint32_t _reserved_end : 16;
-  } bits;          // Bit-field struct (auto-filling reserved gaps)
+  } bits;
   
   // Full 32-bit register value.
   uint32_t value;
@@ -3000,13 +3014,11 @@ union TIMCMP[6] {
 //
 union TIMCMP[7] {
   
-  // Enum definitions.
-  
   // Bit field definition.
   struct {
     uint32_t CMP : 16;
     uint32_t _reserved_end : 16;
-  } bits;          // Bit-field struct (auto-filling reserved gaps)
+  } bits;
   
   // Full 32-bit register value.
   uint32_t value;
@@ -3020,12 +3032,10 @@ union TIMCMP[7] {
 //
 union SHIFTBUFNBS[0] {
   
-  // Enum definitions.
-  
   // Bit field definition.
   struct {
     uint32_t SHIFTBUFNBS : 32;
-  } bits;          // Bit-field struct (auto-filling reserved gaps)
+  } bits;
   
   // Full 32-bit register value.
   uint32_t value;
@@ -3038,12 +3048,10 @@ union SHIFTBUFNBS[0] {
 //
 union SHIFTBUFNBS[1] {
   
-  // Enum definitions.
-  
   // Bit field definition.
   struct {
     uint32_t SHIFTBUFNBS : 32;
-  } bits;          // Bit-field struct (auto-filling reserved gaps)
+  } bits;
   
   // Full 32-bit register value.
   uint32_t value;
@@ -3056,12 +3064,10 @@ union SHIFTBUFNBS[1] {
 //
 union SHIFTBUFNBS[2] {
   
-  // Enum definitions.
-  
   // Bit field definition.
   struct {
     uint32_t SHIFTBUFNBS : 32;
-  } bits;          // Bit-field struct (auto-filling reserved gaps)
+  } bits;
   
   // Full 32-bit register value.
   uint32_t value;
@@ -3074,12 +3080,10 @@ union SHIFTBUFNBS[2] {
 //
 union SHIFTBUFNBS[3] {
   
-  // Enum definitions.
-  
   // Bit field definition.
   struct {
     uint32_t SHIFTBUFNBS : 32;
-  } bits;          // Bit-field struct (auto-filling reserved gaps)
+  } bits;
   
   // Full 32-bit register value.
   uint32_t value;
@@ -3092,12 +3096,10 @@ union SHIFTBUFNBS[3] {
 //
 union SHIFTBUFNBS[4] {
   
-  // Enum definitions.
-  
   // Bit field definition.
   struct {
     uint32_t SHIFTBUFNBS : 32;
-  } bits;          // Bit-field struct (auto-filling reserved gaps)
+  } bits;
   
   // Full 32-bit register value.
   uint32_t value;
@@ -3110,12 +3112,10 @@ union SHIFTBUFNBS[4] {
 //
 union SHIFTBUFNBS[5] {
   
-  // Enum definitions.
-  
   // Bit field definition.
   struct {
     uint32_t SHIFTBUFNBS : 32;
-  } bits;          // Bit-field struct (auto-filling reserved gaps)
+  } bits;
   
   // Full 32-bit register value.
   uint32_t value;
@@ -3128,12 +3128,10 @@ union SHIFTBUFNBS[5] {
 //
 union SHIFTBUFNBS[6] {
   
-  // Enum definitions.
-  
   // Bit field definition.
   struct {
     uint32_t SHIFTBUFNBS : 32;
-  } bits;          // Bit-field struct (auto-filling reserved gaps)
+  } bits;
   
   // Full 32-bit register value.
   uint32_t value;
@@ -3146,12 +3144,10 @@ union SHIFTBUFNBS[6] {
 //
 union SHIFTBUFNBS[7] {
   
-  // Enum definitions.
-  
   // Bit field definition.
   struct {
     uint32_t SHIFTBUFNBS : 32;
-  } bits;          // Bit-field struct (auto-filling reserved gaps)
+  } bits;
   
   // Full 32-bit register value.
   uint32_t value;
@@ -3165,12 +3161,10 @@ union SHIFTBUFNBS[7] {
 //
 union SHIFTBUFHWS[0] {
   
-  // Enum definitions.
-  
   // Bit field definition.
   struct {
     uint32_t SHIFTBUFHWS : 32;
-  } bits;          // Bit-field struct (auto-filling reserved gaps)
+  } bits;
   
   // Full 32-bit register value.
   uint32_t value;
@@ -3183,12 +3177,10 @@ union SHIFTBUFHWS[0] {
 //
 union SHIFTBUFHWS[1] {
   
-  // Enum definitions.
-  
   // Bit field definition.
   struct {
     uint32_t SHIFTBUFHWS : 32;
-  } bits;          // Bit-field struct (auto-filling reserved gaps)
+  } bits;
   
   // Full 32-bit register value.
   uint32_t value;
@@ -3201,12 +3193,10 @@ union SHIFTBUFHWS[1] {
 //
 union SHIFTBUFHWS[2] {
   
-  // Enum definitions.
-  
   // Bit field definition.
   struct {
     uint32_t SHIFTBUFHWS : 32;
-  } bits;          // Bit-field struct (auto-filling reserved gaps)
+  } bits;
   
   // Full 32-bit register value.
   uint32_t value;
@@ -3219,12 +3209,10 @@ union SHIFTBUFHWS[2] {
 //
 union SHIFTBUFHWS[3] {
   
-  // Enum definitions.
-  
   // Bit field definition.
   struct {
     uint32_t SHIFTBUFHWS : 32;
-  } bits;          // Bit-field struct (auto-filling reserved gaps)
+  } bits;
   
   // Full 32-bit register value.
   uint32_t value;
@@ -3237,12 +3225,10 @@ union SHIFTBUFHWS[3] {
 //
 union SHIFTBUFHWS[4] {
   
-  // Enum definitions.
-  
   // Bit field definition.
   struct {
     uint32_t SHIFTBUFHWS : 32;
-  } bits;          // Bit-field struct (auto-filling reserved gaps)
+  } bits;
   
   // Full 32-bit register value.
   uint32_t value;
@@ -3255,12 +3241,10 @@ union SHIFTBUFHWS[4] {
 //
 union SHIFTBUFHWS[5] {
   
-  // Enum definitions.
-  
   // Bit field definition.
   struct {
     uint32_t SHIFTBUFHWS : 32;
-  } bits;          // Bit-field struct (auto-filling reserved gaps)
+  } bits;
   
   // Full 32-bit register value.
   uint32_t value;
@@ -3273,12 +3257,10 @@ union SHIFTBUFHWS[5] {
 //
 union SHIFTBUFHWS[6] {
   
-  // Enum definitions.
-  
   // Bit field definition.
   struct {
     uint32_t SHIFTBUFHWS : 32;
-  } bits;          // Bit-field struct (auto-filling reserved gaps)
+  } bits;
   
   // Full 32-bit register value.
   uint32_t value;
@@ -3291,12 +3273,10 @@ union SHIFTBUFHWS[6] {
 //
 union SHIFTBUFHWS[7] {
   
-  // Enum definitions.
-  
   // Bit field definition.
   struct {
     uint32_t SHIFTBUFHWS : 32;
-  } bits;          // Bit-field struct (auto-filling reserved gaps)
+  } bits;
   
   // Full 32-bit register value.
   uint32_t value;
@@ -3310,12 +3290,10 @@ union SHIFTBUFHWS[7] {
 //
 union SHIFTBUFNIS[0] {
   
-  // Enum definitions.
-  
   // Bit field definition.
   struct {
     uint32_t SHIFTBUFNIS : 32;
-  } bits;          // Bit-field struct (auto-filling reserved gaps)
+  } bits;
   
   // Full 32-bit register value.
   uint32_t value;
@@ -3328,12 +3306,10 @@ union SHIFTBUFNIS[0] {
 //
 union SHIFTBUFNIS[1] {
   
-  // Enum definitions.
-  
   // Bit field definition.
   struct {
     uint32_t SHIFTBUFNIS : 32;
-  } bits;          // Bit-field struct (auto-filling reserved gaps)
+  } bits;
   
   // Full 32-bit register value.
   uint32_t value;
@@ -3346,12 +3322,10 @@ union SHIFTBUFNIS[1] {
 //
 union SHIFTBUFNIS[2] {
   
-  // Enum definitions.
-  
   // Bit field definition.
   struct {
     uint32_t SHIFTBUFNIS : 32;
-  } bits;          // Bit-field struct (auto-filling reserved gaps)
+  } bits;
   
   // Full 32-bit register value.
   uint32_t value;
@@ -3364,12 +3338,10 @@ union SHIFTBUFNIS[2] {
 //
 union SHIFTBUFNIS[3] {
   
-  // Enum definitions.
-  
   // Bit field definition.
   struct {
     uint32_t SHIFTBUFNIS : 32;
-  } bits;          // Bit-field struct (auto-filling reserved gaps)
+  } bits;
   
   // Full 32-bit register value.
   uint32_t value;
@@ -3382,12 +3354,10 @@ union SHIFTBUFNIS[3] {
 //
 union SHIFTBUFNIS[4] {
   
-  // Enum definitions.
-  
   // Bit field definition.
   struct {
     uint32_t SHIFTBUFNIS : 32;
-  } bits;          // Bit-field struct (auto-filling reserved gaps)
+  } bits;
   
   // Full 32-bit register value.
   uint32_t value;
@@ -3400,12 +3370,10 @@ union SHIFTBUFNIS[4] {
 //
 union SHIFTBUFNIS[5] {
   
-  // Enum definitions.
-  
   // Bit field definition.
   struct {
     uint32_t SHIFTBUFNIS : 32;
-  } bits;          // Bit-field struct (auto-filling reserved gaps)
+  } bits;
   
   // Full 32-bit register value.
   uint32_t value;
@@ -3418,12 +3386,10 @@ union SHIFTBUFNIS[5] {
 //
 union SHIFTBUFNIS[6] {
   
-  // Enum definitions.
-  
   // Bit field definition.
   struct {
     uint32_t SHIFTBUFNIS : 32;
-  } bits;          // Bit-field struct (auto-filling reserved gaps)
+  } bits;
   
   // Full 32-bit register value.
   uint32_t value;
@@ -3436,12 +3402,10 @@ union SHIFTBUFNIS[6] {
 //
 union SHIFTBUFNIS[7] {
   
-  // Enum definitions.
-  
   // Bit field definition.
   struct {
     uint32_t SHIFTBUFNIS : 32;
-  } bits;          // Bit-field struct (auto-filling reserved gaps)
+  } bits;
   
   // Full 32-bit register value.
   uint32_t value;
@@ -3455,12 +3419,10 @@ union SHIFTBUFNIS[7] {
 //
 union SHIFTBUFOES[0] {
   
-  // Enum definitions.
-  
   // Bit field definition.
   struct {
     uint32_t SHIFTBUFOES : 32;
-  } bits;          // Bit-field struct (auto-filling reserved gaps)
+  } bits;
   
   // Full 32-bit register value.
   uint32_t value;
@@ -3473,12 +3435,10 @@ union SHIFTBUFOES[0] {
 //
 union SHIFTBUFOES[1] {
   
-  // Enum definitions.
-  
   // Bit field definition.
   struct {
     uint32_t SHIFTBUFOES : 32;
-  } bits;          // Bit-field struct (auto-filling reserved gaps)
+  } bits;
   
   // Full 32-bit register value.
   uint32_t value;
@@ -3491,12 +3451,10 @@ union SHIFTBUFOES[1] {
 //
 union SHIFTBUFOES[2] {
   
-  // Enum definitions.
-  
   // Bit field definition.
   struct {
     uint32_t SHIFTBUFOES : 32;
-  } bits;          // Bit-field struct (auto-filling reserved gaps)
+  } bits;
   
   // Full 32-bit register value.
   uint32_t value;
@@ -3509,12 +3467,10 @@ union SHIFTBUFOES[2] {
 //
 union SHIFTBUFOES[3] {
   
-  // Enum definitions.
-  
   // Bit field definition.
   struct {
     uint32_t SHIFTBUFOES : 32;
-  } bits;          // Bit-field struct (auto-filling reserved gaps)
+  } bits;
   
   // Full 32-bit register value.
   uint32_t value;
@@ -3527,12 +3483,10 @@ union SHIFTBUFOES[3] {
 //
 union SHIFTBUFOES[4] {
   
-  // Enum definitions.
-  
   // Bit field definition.
   struct {
     uint32_t SHIFTBUFOES : 32;
-  } bits;          // Bit-field struct (auto-filling reserved gaps)
+  } bits;
   
   // Full 32-bit register value.
   uint32_t value;
@@ -3545,12 +3499,10 @@ union SHIFTBUFOES[4] {
 //
 union SHIFTBUFOES[5] {
   
-  // Enum definitions.
-  
   // Bit field definition.
   struct {
     uint32_t SHIFTBUFOES : 32;
-  } bits;          // Bit-field struct (auto-filling reserved gaps)
+  } bits;
   
   // Full 32-bit register value.
   uint32_t value;
@@ -3563,12 +3515,10 @@ union SHIFTBUFOES[5] {
 //
 union SHIFTBUFOES[6] {
   
-  // Enum definitions.
-  
   // Bit field definition.
   struct {
     uint32_t SHIFTBUFOES : 32;
-  } bits;          // Bit-field struct (auto-filling reserved gaps)
+  } bits;
   
   // Full 32-bit register value.
   uint32_t value;
@@ -3581,12 +3531,10 @@ union SHIFTBUFOES[6] {
 //
 union SHIFTBUFOES[7] {
   
-  // Enum definitions.
-  
   // Bit field definition.
   struct {
     uint32_t SHIFTBUFOES : 32;
-  } bits;          // Bit-field struct (auto-filling reserved gaps)
+  } bits;
   
   // Full 32-bit register value.
   uint32_t value;
@@ -3600,12 +3548,10 @@ union SHIFTBUFOES[7] {
 //
 union SHIFTBUFEOS[0] {
   
-  // Enum definitions.
-  
   // Bit field definition.
   struct {
     uint32_t SHIFTBUFEOS : 32;
-  } bits;          // Bit-field struct (auto-filling reserved gaps)
+  } bits;
   
   // Full 32-bit register value.
   uint32_t value;
@@ -3618,12 +3564,10 @@ union SHIFTBUFEOS[0] {
 //
 union SHIFTBUFEOS[1] {
   
-  // Enum definitions.
-  
   // Bit field definition.
   struct {
     uint32_t SHIFTBUFEOS : 32;
-  } bits;          // Bit-field struct (auto-filling reserved gaps)
+  } bits;
   
   // Full 32-bit register value.
   uint32_t value;
@@ -3636,12 +3580,10 @@ union SHIFTBUFEOS[1] {
 //
 union SHIFTBUFEOS[2] {
   
-  // Enum definitions.
-  
   // Bit field definition.
   struct {
     uint32_t SHIFTBUFEOS : 32;
-  } bits;          // Bit-field struct (auto-filling reserved gaps)
+  } bits;
   
   // Full 32-bit register value.
   uint32_t value;
@@ -3654,12 +3596,10 @@ union SHIFTBUFEOS[2] {
 //
 union SHIFTBUFEOS[3] {
   
-  // Enum definitions.
-  
   // Bit field definition.
   struct {
     uint32_t SHIFTBUFEOS : 32;
-  } bits;          // Bit-field struct (auto-filling reserved gaps)
+  } bits;
   
   // Full 32-bit register value.
   uint32_t value;
@@ -3672,12 +3612,10 @@ union SHIFTBUFEOS[3] {
 //
 union SHIFTBUFEOS[4] {
   
-  // Enum definitions.
-  
   // Bit field definition.
   struct {
     uint32_t SHIFTBUFEOS : 32;
-  } bits;          // Bit-field struct (auto-filling reserved gaps)
+  } bits;
   
   // Full 32-bit register value.
   uint32_t value;
@@ -3690,12 +3628,10 @@ union SHIFTBUFEOS[4] {
 //
 union SHIFTBUFEOS[5] {
   
-  // Enum definitions.
-  
   // Bit field definition.
   struct {
     uint32_t SHIFTBUFEOS : 32;
-  } bits;          // Bit-field struct (auto-filling reserved gaps)
+  } bits;
   
   // Full 32-bit register value.
   uint32_t value;
@@ -3708,12 +3644,10 @@ union SHIFTBUFEOS[5] {
 //
 union SHIFTBUFEOS[6] {
   
-  // Enum definitions.
-  
   // Bit field definition.
   struct {
     uint32_t SHIFTBUFEOS : 32;
-  } bits;          // Bit-field struct (auto-filling reserved gaps)
+  } bits;
   
   // Full 32-bit register value.
   uint32_t value;
@@ -3726,12 +3660,10 @@ union SHIFTBUFEOS[6] {
 //
 union SHIFTBUFEOS[7] {
   
-  // Enum definitions.
-  
   // Bit field definition.
   struct {
     uint32_t SHIFTBUFEOS : 32;
-  } bits;          // Bit-field struct (auto-filling reserved gaps)
+  } bits;
   
   // Full 32-bit register value.
   uint32_t value;

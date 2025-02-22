@@ -15,67 +15,81 @@ namespace nENC3 {
 //
 union CTRL {
   
-  // Enum definitions.
   enum class eCMPIE : uint32_t {
     eCMPIE_0 = 0, // Disabled
     eCMPIE_1 = 1, // Enabled
   };
+  
   enum class eCMPIRQ : uint32_t {
     eCMPIRQ_0 = 0, // No match has occurred (the counter does not match the COMP value)
     eCMPIRQ_1 = 1, // COMP match has occurred (the counter matches the COMP value)
   };
+  
   enum class eWDE : uint32_t {
     eWDE_0 = 0, // Disabled
     eWDE_1 = 1, // Enabled
   };
+  
   enum class eDIE : uint32_t {
     eDIE_0 = 0, // Disabled
     eDIE_1 = 1, // Enabled
   };
+  
   enum class eDIRQ : uint32_t {
     eDIRQ_0 = 0, // No Watchdog timeout interrupt has occurred
     eDIRQ_1 = 1, // Watchdog timeout interrupt has occurred
   };
+  
   enum class eXNE : uint32_t {
     eXNE_0 = 0, // Use positive edge of INDEX pulse
     eXNE_1 = 1, // Use negative edge of INDEX pulse
   };
+  
   enum class eXIP : uint32_t {
     eXIP_0 = 0, // INDEX pulse does not initialize the position counter
     eXIP_1 = 1, // INDEX pulse initializes the position counter
   };
+  
   enum class eXIE : uint32_t {
     eXIE_0 = 0, // Disabled
     eXIE_1 = 1, // Enabled
   };
+  
   enum class eXIRQ : uint32_t {
     eXIRQ_0 = 0, // INDEX pulse has not occurred
     eXIRQ_1 = 1, // INDEX pulse has occurred
   };
+  
   enum class ePH1 : uint32_t {
     ePH1_0 = 0, // Use the standard quadrature decoder, where PHASEA and PHASEB represent a two-phase quadrature signal.
     ePH1_1 = 1, // Bypass the quadrature decoder. A positive transition of the PHASEA input generates a count signal. The PHASEB input and the REV bit control the counter direction: If CTRL[REV] = 0, PHASEB = 0, then count up If CTRL[REV] = 1, PHASEB = 1, then count up If CTRL[REV] = 0, PHASEB = 1, then count down If CTRL[REV] = 1, PHASEB = 0, then count down
   };
+  
   enum class eREV : uint32_t {
     eREV_0 = 0, // Count normally
     eREV_1 = 1, // Count in the reverse direction
   };
+  
   enum class eSWIP : uint32_t {
     eSWIP_0 = 0, // No action
     eSWIP_1 = 1, // Initialize position counter (using upper and lower initialization registers, UINIT and LINIT)
   };
+  
   enum class eHNE : uint32_t {
     eHNE_0 = 0, // Use positive-going edge-to-trigger initialization of position counters UPOS and LPOS
     eHNE_1 = 1, // Use negative-going edge-to-trigger initialization of position counters UPOS and LPOS
   };
+  
   enum class eHIP : uint32_t {
     eHIP_0 = 0, // No action
     eHIP_1 = 1, // HOME signal initializes the position counter
   };
+  
   enum class eHIE : uint32_t {
     eHIE_0 = 0, // Disabled
     eHIE_1 = 1, // Enabled
   };
+  
   enum class eHIRQ : uint32_t {
     eHIRQ_0 = 0, // No transition on the HOME signal has occurred
     eHIRQ_1 = 1, // A transition on the HOME signal has occurred
@@ -100,7 +114,7 @@ union CTRL {
     eHIE HIE : 1;
     eHIRQ HIRQ : 1;
     uint32_t _reserved_end : 16;
-  } bits;          // Bit-field struct (auto-filling reserved gaps)
+  } bits;
   
   // Full 32-bit register value.
   uint32_t value;
@@ -114,8 +128,6 @@ union CTRL {
 //
 union FILT {
   
-  // Enum definitions.
-  
   // Bit field definition.
   struct {
     uint32_t FILT_PER : 8;
@@ -123,7 +135,7 @@ union FILT {
     uint32_t _reserved_2 : 2;
     uint32_t FILT_PRSC : 3;
     uint32_t _reserved_end : 16;
-  } bits;          // Bit-field struct (auto-filling reserved gaps)
+  } bits;
   
   // Full 32-bit register value.
   uint32_t value;
@@ -137,13 +149,11 @@ union FILT {
 //
 union WTR {
   
-  // Enum definitions.
-  
   // Bit field definition.
   struct {
     uint32_t WDOG : 16;
     uint32_t _reserved_end : 16;
-  } bits;          // Bit-field struct (auto-filling reserved gaps)
+  } bits;
   
   // Full 32-bit register value.
   uint32_t value;
@@ -157,13 +167,11 @@ union WTR {
 //
 union POSD {
   
-  // Enum definitions.
-  
   // Bit field definition.
   struct {
     uint32_t POSD : 16;
     uint32_t _reserved_end : 16;
-  } bits;          // Bit-field struct (auto-filling reserved gaps)
+  } bits;
   
   // Full 32-bit register value.
   uint32_t value;
@@ -177,13 +185,11 @@ union POSD {
 //
 union POSDH {
   
-  // Enum definitions.
-  
   // Bit field definition.
   struct {
     uint32_t POSDH : 16;
     uint32_t _reserved_end : 16;
-  } bits;          // Bit-field struct (auto-filling reserved gaps)
+  } bits;
   
   // Full 32-bit register value.
   uint32_t value;
@@ -197,13 +203,11 @@ union POSDH {
 //
 union REV {
   
-  // Enum definitions.
-  
   // Bit field definition.
   struct {
     uint32_t REV : 16;
     uint32_t _reserved_end : 16;
-  } bits;          // Bit-field struct (auto-filling reserved gaps)
+  } bits;
   
   // Full 32-bit register value.
   uint32_t value;
@@ -217,13 +221,11 @@ union REV {
 //
 union REVH {
   
-  // Enum definitions.
-  
   // Bit field definition.
   struct {
     uint32_t REVH : 16;
     uint32_t _reserved_end : 16;
-  } bits;          // Bit-field struct (auto-filling reserved gaps)
+  } bits;
   
   // Full 32-bit register value.
   uint32_t value;
@@ -237,13 +239,11 @@ union REVH {
 //
 union UPOS {
   
-  // Enum definitions.
-  
   // Bit field definition.
   struct {
     uint32_t POS : 16;
     uint32_t _reserved_end : 16;
-  } bits;          // Bit-field struct (auto-filling reserved gaps)
+  } bits;
   
   // Full 32-bit register value.
   uint32_t value;
@@ -257,13 +257,11 @@ union UPOS {
 //
 union LPOS {
   
-  // Enum definitions.
-  
   // Bit field definition.
   struct {
     uint32_t POS : 16;
     uint32_t _reserved_end : 16;
-  } bits;          // Bit-field struct (auto-filling reserved gaps)
+  } bits;
   
   // Full 32-bit register value.
   uint32_t value;
@@ -277,13 +275,11 @@ union LPOS {
 //
 union UPOSH {
   
-  // Enum definitions.
-  
   // Bit field definition.
   struct {
     uint32_t POSH : 16;
     uint32_t _reserved_end : 16;
-  } bits;          // Bit-field struct (auto-filling reserved gaps)
+  } bits;
   
   // Full 32-bit register value.
   uint32_t value;
@@ -297,13 +293,11 @@ union UPOSH {
 //
 union LPOSH {
   
-  // Enum definitions.
-  
   // Bit field definition.
   struct {
     uint32_t POSH : 16;
     uint32_t _reserved_end : 16;
-  } bits;          // Bit-field struct (auto-filling reserved gaps)
+  } bits;
   
   // Full 32-bit register value.
   uint32_t value;
@@ -317,13 +311,11 @@ union LPOSH {
 //
 union UINIT {
   
-  // Enum definitions.
-  
   // Bit field definition.
   struct {
     uint32_t INIT : 16;
     uint32_t _reserved_end : 16;
-  } bits;          // Bit-field struct (auto-filling reserved gaps)
+  } bits;
   
   // Full 32-bit register value.
   uint32_t value;
@@ -337,13 +329,11 @@ union UINIT {
 //
 union LINIT {
   
-  // Enum definitions.
-  
   // Bit field definition.
   struct {
     uint32_t INIT : 16;
     uint32_t _reserved_end : 16;
-  } bits;          // Bit-field struct (auto-filling reserved gaps)
+  } bits;
   
   // Full 32-bit register value.
   uint32_t value;
@@ -357,8 +347,6 @@ union LINIT {
 //
 union IMR {
   
-  // Enum definitions.
-  
   // Bit field definition.
   struct {
     uint32_t HOME : 1;
@@ -370,7 +358,7 @@ union IMR {
     uint32_t FPHB : 1;
     uint32_t FPHA : 1;
     uint32_t _reserved_end : 24;
-  } bits;          // Bit-field struct (auto-filling reserved gaps)
+  } bits;
   
   // Full 32-bit register value.
   uint32_t value;
@@ -384,15 +372,16 @@ union IMR {
 //
 union TST {
   
-  // Enum definitions.
   enum class eQDN : uint32_t {
     eQDN_0 = 0, // Generates a positive quadrature decoder signal
     eQDN_1 = 1, // Generates a negative quadrature decoder signal
   };
+  
   enum class eTCE : uint32_t {
     eTCE_0 = 0, // Disabled
     eTCE_1 = 1, // Enabled
   };
+  
   enum class eTEN : uint32_t {
     eTEN_0 = 0, // Disabled
     eTEN_1 = 1, // Enabled
@@ -406,7 +395,7 @@ union TST {
     eTCE TCE : 1;
     eTEN TEN : 1;
     uint32_t _reserved_end : 16;
-  } bits;          // Bit-field struct (auto-filling reserved gaps)
+  } bits;
   
   // Full 32-bit register value.
   uint32_t value;
@@ -420,51 +409,61 @@ union TST {
 //
 union CTRL2 {
   
-  // Enum definitions.
   enum class eUPDHLD : uint32_t {
     eUPDHLD_0 = 0, // Disable updates of hold registers on the rising edge of TRIGGER input signal
     eUPDHLD_1 = 1, // Enable updates of hold registers on the rising edge of TRIGGER input signal
   };
+  
   enum class eUPDPOS : uint32_t {
     eUPDPOS_0 = 0, // No action for POSD, REV, UPOS and LPOS registers on rising edge of TRIGGER
     eUPDPOS_1 = 1, // Clear POSD, REV, UPOS and LPOS registers on rising edge of TRIGGER
   };
+  
   enum class eMOD : uint32_t {
     eMOD_0 = 0, // Disable modulo counting
     eMOD_1 = 1, // Enable modulo counting
   };
+  
   enum class eDIR : uint32_t {
     eDIR_0 = 0, // Last count was in the down direction
     eDIR_1 = 1, // Last count was in the up direction
   };
+  
   enum class eRUIE : uint32_t {
     eRUIE_0 = 0, // Disabled
     eRUIE_1 = 1, // Enabled
   };
+  
   enum class eRUIRQ : uint32_t {
     eRUIRQ_0 = 0, // No roll-under has occurred
     eRUIRQ_1 = 1, // Roll-under has occurred
   };
+  
   enum class eROIE : uint32_t {
     eROIE_0 = 0, // Disabled
     eROIE_1 = 1, // Enabled
   };
+  
   enum class eROIRQ : uint32_t {
     eROIRQ_0 = 0, // No roll-over has occurred
     eROIRQ_1 = 1, // Roll-over has occurred
   };
+  
   enum class eREVMOD : uint32_t {
     eREVMOD_0 = 0, // Use INDEX pulse to increment/decrement revolution counter (REV)
     eREVMOD_1 = 1, // Use modulus counting roll-over/under to increment/decrement revolution counter (REV)
   };
+  
   enum class eOUTCTL : uint32_t {
     eOUTCTL_0 = 0, // POSMATCH pulses when a match occurs between the position counters (POS) and the corresponding compare value (COMP )
     eOUTCTL_1 = 1, // POSMATCH pulses when the UPOS, LPOS, REV, or POSD registers are read
   };
+  
   enum class eSABIE : uint32_t {
     eSABIE_0 = 0, // Disabled
     eSABIE_1 = 1, // Enabled
   };
+  
   enum class eSABIRQ : uint32_t {
     eSABIRQ_0 = 0, // No simultaneous change of PHASEA and PHASEB has occurred
     eSABIRQ_1 = 1, // A simultaneous change of PHASEA and PHASEB has occurred
@@ -485,7 +484,7 @@ union CTRL2 {
     eSABIE SABIE : 1;
     eSABIRQ SABIRQ : 1;
     uint32_t _reserved_end : 20;
-  } bits;          // Bit-field struct (auto-filling reserved gaps)
+  } bits;
   
   // Full 32-bit register value.
   uint32_t value;
@@ -499,13 +498,11 @@ union CTRL2 {
 //
 union UMOD {
   
-  // Enum definitions.
-  
   // Bit field definition.
   struct {
     uint32_t MOD : 16;
     uint32_t _reserved_end : 16;
-  } bits;          // Bit-field struct (auto-filling reserved gaps)
+  } bits;
   
   // Full 32-bit register value.
   uint32_t value;
@@ -519,13 +516,11 @@ union UMOD {
 //
 union LMOD {
   
-  // Enum definitions.
-  
   // Bit field definition.
   struct {
     uint32_t MOD : 16;
     uint32_t _reserved_end : 16;
-  } bits;          // Bit-field struct (auto-filling reserved gaps)
+  } bits;
   
   // Full 32-bit register value.
   uint32_t value;
@@ -539,13 +534,11 @@ union LMOD {
 //
 union UCOMP {
   
-  // Enum definitions.
-  
   // Bit field definition.
   struct {
     uint32_t COMP : 16;
     uint32_t _reserved_end : 16;
-  } bits;          // Bit-field struct (auto-filling reserved gaps)
+  } bits;
   
   // Full 32-bit register value.
   uint32_t value;
@@ -559,13 +552,11 @@ union UCOMP {
 //
 union LCOMP {
   
-  // Enum definitions.
-  
   // Bit field definition.
   struct {
     uint32_t COMP : 16;
     uint32_t _reserved_end : 16;
-  } bits;          // Bit-field struct (auto-filling reserved gaps)
+  } bits;
   
   // Full 32-bit register value.
   uint32_t value;
@@ -579,13 +570,11 @@ union LCOMP {
 //
 union LASTEDGE {
   
-  // Enum definitions.
-  
   // Bit field definition.
   struct {
     uint32_t LASTEDGE : 16;
     uint32_t _reserved_end : 16;
-  } bits;          // Bit-field struct (auto-filling reserved gaps)
+  } bits;
   
   // Full 32-bit register value.
   uint32_t value;
@@ -599,13 +588,11 @@ union LASTEDGE {
 //
 union LASTEDGEH {
   
-  // Enum definitions.
-  
   // Bit field definition.
   struct {
     uint32_t LASTEDGEH : 16;
     uint32_t _reserved_end : 16;
-  } bits;          // Bit-field struct (auto-filling reserved gaps)
+  } bits;
   
   // Full 32-bit register value.
   uint32_t value;
@@ -619,13 +606,11 @@ union LASTEDGEH {
 //
 union POSDPER {
   
-  // Enum definitions.
-  
   // Bit field definition.
   struct {
     uint32_t POSDPER : 16;
     uint32_t _reserved_end : 16;
-  } bits;          // Bit-field struct (auto-filling reserved gaps)
+  } bits;
   
   // Full 32-bit register value.
   uint32_t value;
@@ -639,13 +624,11 @@ union POSDPER {
 //
 union POSDPERBFR {
   
-  // Enum definitions.
-  
   // Bit field definition.
   struct {
     uint32_t POSDPERBFR : 16;
     uint32_t _reserved_end : 16;
-  } bits;          // Bit-field struct (auto-filling reserved gaps)
+  } bits;
   
   // Full 32-bit register value.
   uint32_t value;
@@ -659,13 +642,11 @@ union POSDPERBFR {
 //
 union POSDPERH {
   
-  // Enum definitions.
-  
   // Bit field definition.
   struct {
     uint32_t POSDPERH : 16;
     uint32_t _reserved_end : 16;
-  } bits;          // Bit-field struct (auto-filling reserved gaps)
+  } bits;
   
   // Full 32-bit register value.
   uint32_t value;
@@ -679,7 +660,6 @@ union POSDPERH {
 //
 union CTRL3 {
   
-  // Enum definitions.
   enum class ePMEN : uint32_t {
     ePMEN_0 = 0, // Period measurement functions are not used. POSD is loaded to POSDH and then cleared whenever POSD, UPOS, LPOS, or REV is read.
     ePMEN_1 = 1, // Period measurement functions are used. POSD is loaded to POSDH and then cleared only when POSD is read.
@@ -691,7 +671,7 @@ union CTRL3 {
     uint32_t _reserved_1 : 3;
     uint32_t PRSC : 4;
     uint32_t _reserved_end : 24;
-  } bits;          // Bit-field struct (auto-filling reserved gaps)
+  } bits;
   
   // Full 32-bit register value.
   uint32_t value;

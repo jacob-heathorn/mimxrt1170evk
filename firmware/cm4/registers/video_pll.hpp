@@ -15,31 +15,36 @@ namespace nVIDEO_PLL {
 //
 union CTRL0 {
   
-  // Enum definitions.
   enum class eENABLE_ALT : uint32_t {
     eDISABLE = 0, // Disable the alternate clock output
     eENABLE = 1, // Enable the alternate clock output which is the output of the post_divider, and cannot be bypassed
   };
+  
   enum class eHOLD_RING_OFF : uint32_t {
     eNORMAL = 0, // Normal operation
     eENABLE = 1, // Initialize PLL start up
   };
+  
   enum class ePOWERUP : uint32_t {
     ePDOWN = 0, // Power down the PLL
     ePUP = 1, // Power Up the PLL
   };
+  
   enum class eENABLE : uint32_t {
     eDISABLE = 0, // Disable the clock output
     eENABLE = 1, // Enable the clock output
   };
+  
   enum class eBYPASS : uint32_t {
     eNOBYPASS = 0, // No Bypass
     eBYPASS = 1, // Bypass the PLL
   };
+  
   enum class eDITHER_EN : uint32_t {
     eDISABLE = 0, // Disable Dither
     eENABLE = 1, // Enable Dither
   };
+  
   enum class ePOST_DIV_SEL : uint32_t {
     eDIVIDE1 = 0, // Divide by 1
     eDIVIDE2 = 1, // Divide by 2
@@ -48,6 +53,7 @@ union CTRL0 {
     eDIVIDE16 = 4, // Divide by 16
     eDIVIDE32 = 5, // Divide by 32
   };
+  
   enum class eBIAS_SELECT : uint32_t {
     eBAIS10 = 0, // Used in SoCs with a bias current of 10uA
     eBAIS2 = 1, // Used in SoCs with a bias current of 2uA
@@ -72,7 +78,7 @@ union CTRL0 {
     uint32_t _reserved_10 : 1;
     eBIAS_SELECT BIAS_SELECT : 1;
     uint32_t _reserved_end : 2;
-  } bits;          // Bit-field struct (auto-filling reserved gaps)
+  } bits;
   
   // Full 32-bit register value.
   uint32_t value;
@@ -86,8 +92,6 @@ union CTRL0 {
 //
 union CTRL0_SET {
   
-  // Enum definitions.
-  
   // Bit field definition.
   struct {
     uint32_t DIV_SELECT : 7;
@@ -107,7 +111,7 @@ union CTRL0_SET {
     uint32_t _reserved_10 : 1;
     uint32_t BIAS_SELECT : 1;
     uint32_t _reserved_end : 2;
-  } bits;          // Bit-field struct (auto-filling reserved gaps)
+  } bits;
   
   // Full 32-bit register value.
   uint32_t value;
@@ -121,8 +125,6 @@ union CTRL0_SET {
 //
 union CTRL0_CLR {
   
-  // Enum definitions.
-  
   // Bit field definition.
   struct {
     uint32_t DIV_SELECT : 7;
@@ -142,7 +144,7 @@ union CTRL0_CLR {
     uint32_t _reserved_10 : 1;
     uint32_t BIAS_SELECT : 1;
     uint32_t _reserved_end : 2;
-  } bits;          // Bit-field struct (auto-filling reserved gaps)
+  } bits;
   
   // Full 32-bit register value.
   uint32_t value;
@@ -156,8 +158,6 @@ union CTRL0_CLR {
 //
 union CTRL0_TOG {
   
-  // Enum definitions.
-  
   // Bit field definition.
   struct {
     uint32_t DIV_SELECT : 7;
@@ -177,7 +177,7 @@ union CTRL0_TOG {
     uint32_t _reserved_10 : 1;
     uint32_t BIAS_SELECT : 1;
     uint32_t _reserved_end : 2;
-  } bits;          // Bit-field struct (auto-filling reserved gaps)
+  } bits;
   
   // Full 32-bit register value.
   uint32_t value;
@@ -191,14 +191,12 @@ union CTRL0_TOG {
 //
 union SPREAD_SPECTRUM {
   
-  // Enum definitions.
-  
   // Bit field definition.
   struct {
     uint32_t STEP : 15;
     uint32_t ENABLE : 1;
     uint32_t STOP : 16;
-  } bits;          // Bit-field struct (auto-filling reserved gaps)
+  } bits;
   
   // Full 32-bit register value.
   uint32_t value;
@@ -212,14 +210,12 @@ union SPREAD_SPECTRUM {
 //
 union SPREAD_SPECTRUM_SET {
   
-  // Enum definitions.
-  
   // Bit field definition.
   struct {
     uint32_t STEP : 15;
     uint32_t ENABLE : 1;
     uint32_t STOP : 16;
-  } bits;          // Bit-field struct (auto-filling reserved gaps)
+  } bits;
   
   // Full 32-bit register value.
   uint32_t value;
@@ -233,14 +229,12 @@ union SPREAD_SPECTRUM_SET {
 //
 union SPREAD_SPECTRUM_CLR {
   
-  // Enum definitions.
-  
   // Bit field definition.
   struct {
     uint32_t STEP : 15;
     uint32_t ENABLE : 1;
     uint32_t STOP : 16;
-  } bits;          // Bit-field struct (auto-filling reserved gaps)
+  } bits;
   
   // Full 32-bit register value.
   uint32_t value;
@@ -254,14 +248,12 @@ union SPREAD_SPECTRUM_CLR {
 //
 union SPREAD_SPECTRUM_TOG {
   
-  // Enum definitions.
-  
   // Bit field definition.
   struct {
     uint32_t STEP : 15;
     uint32_t ENABLE : 1;
     uint32_t STOP : 16;
-  } bits;          // Bit-field struct (auto-filling reserved gaps)
+  } bits;
   
   // Full 32-bit register value.
   uint32_t value;
@@ -275,13 +267,11 @@ union SPREAD_SPECTRUM_TOG {
 //
 union NUMERATOR {
   
-  // Enum definitions.
-  
   // Bit field definition.
   struct {
     uint32_t NUM : 30;
     uint32_t _reserved_end : 2;
-  } bits;          // Bit-field struct (auto-filling reserved gaps)
+  } bits;
   
   // Full 32-bit register value.
   uint32_t value;
@@ -295,13 +285,11 @@ union NUMERATOR {
 //
 union NUMERATOR_SET {
   
-  // Enum definitions.
-  
   // Bit field definition.
   struct {
     uint32_t NUM : 30;
     uint32_t _reserved_end : 2;
-  } bits;          // Bit-field struct (auto-filling reserved gaps)
+  } bits;
   
   // Full 32-bit register value.
   uint32_t value;
@@ -315,13 +303,11 @@ union NUMERATOR_SET {
 //
 union NUMERATOR_CLR {
   
-  // Enum definitions.
-  
   // Bit field definition.
   struct {
     uint32_t NUM : 30;
     uint32_t _reserved_end : 2;
-  } bits;          // Bit-field struct (auto-filling reserved gaps)
+  } bits;
   
   // Full 32-bit register value.
   uint32_t value;
@@ -335,13 +321,11 @@ union NUMERATOR_CLR {
 //
 union NUMERATOR_TOG {
   
-  // Enum definitions.
-  
   // Bit field definition.
   struct {
     uint32_t NUM : 30;
     uint32_t _reserved_end : 2;
-  } bits;          // Bit-field struct (auto-filling reserved gaps)
+  } bits;
   
   // Full 32-bit register value.
   uint32_t value;
@@ -355,13 +339,11 @@ union NUMERATOR_TOG {
 //
 union DENOMINATOR {
   
-  // Enum definitions.
-  
   // Bit field definition.
   struct {
     uint32_t DENOM : 30;
     uint32_t _reserved_end : 2;
-  } bits;          // Bit-field struct (auto-filling reserved gaps)
+  } bits;
   
   // Full 32-bit register value.
   uint32_t value;
@@ -375,13 +357,11 @@ union DENOMINATOR {
 //
 union DENOMINATOR_SET {
   
-  // Enum definitions.
-  
   // Bit field definition.
   struct {
     uint32_t DENOM : 30;
     uint32_t _reserved_end : 2;
-  } bits;          // Bit-field struct (auto-filling reserved gaps)
+  } bits;
   
   // Full 32-bit register value.
   uint32_t value;
@@ -395,13 +375,11 @@ union DENOMINATOR_SET {
 //
 union DENOMINATOR_CLR {
   
-  // Enum definitions.
-  
   // Bit field definition.
   struct {
     uint32_t DENOM : 30;
     uint32_t _reserved_end : 2;
-  } bits;          // Bit-field struct (auto-filling reserved gaps)
+  } bits;
   
   // Full 32-bit register value.
   uint32_t value;
@@ -415,13 +393,11 @@ union DENOMINATOR_CLR {
 //
 union DENOMINATOR_TOG {
   
-  // Enum definitions.
-  
   // Bit field definition.
   struct {
     uint32_t DENOM : 30;
     uint32_t _reserved_end : 2;
-  } bits;          // Bit-field struct (auto-filling reserved gaps)
+  } bits;
   
   // Full 32-bit register value.
   uint32_t value;

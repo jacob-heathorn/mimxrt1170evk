@@ -15,12 +15,10 @@ namespace nUSDHC2 {
 //
 union DS_ADDR {
   
-  // Enum definitions.
-  
   // Bit field definition.
   struct {
     uint32_t DS_ADDR : 32;
-  } bits;          // Bit-field struct (auto-filling reserved gaps)
+  } bits;
   
   // Full 32-bit register value.
   uint32_t value;
@@ -34,7 +32,6 @@ union DS_ADDR {
 //
 union BLK_ATT {
   
-  // Enum definitions.
   enum class eBLKSIZE : uint32_t {
     eBLKSIZE_0 = 0, // No data transfer
     eBLKSIZE_1 = 1, // 1 byte
@@ -46,6 +43,7 @@ union BLK_ATT {
     eBLKSIZE_2048 = 2048, // 2048 bytes
     eBLKSIZE_4096 = 4096, // 4096 bytes
   };
+  
   enum class eBLKCNT : uint32_t {
     eBLKCNT_0 = 0, // Stop count
     eBLKCNT_1 = 1, // 1 block
@@ -58,7 +56,7 @@ union BLK_ATT {
     eBLKSIZE BLKSIZE : 13;
     uint32_t _reserved_1 : 3;
     eBLKCNT BLKCNT : 16;
-  } bits;          // Bit-field struct (auto-filling reserved gaps)
+  } bits;
   
   // Full 32-bit register value.
   uint32_t value;
@@ -72,12 +70,10 @@ union BLK_ATT {
 //
 union CMD_ARG {
   
-  // Enum definitions.
-  
   // Bit field definition.
   struct {
     uint32_t CMDARG : 32;
-  } bits;          // Bit-field struct (auto-filling reserved gaps)
+  } bits;
   
   // Full 32-bit register value.
   uint32_t value;
@@ -91,25 +87,28 @@ union CMD_ARG {
 //
 union CMD_XFR_TYP {
   
-  // Enum definitions.
   enum class eRSPTYP : uint32_t {
     eRSPTYP_0 = 0, // No response
     eRSPTYP_1 = 1, // Response length 136
     eRSPTYP_2 = 2, // Response length 48
     eRSPTYP_3 = 3, // Response length 48, check busy after response
   };
+  
   enum class eCCCEN : uint32_t {
     eCCCEN_0 = 0, // Disables command CRC check
     eCCCEN_1 = 1, // Enables command CRC check
   };
+  
   enum class eCICEN : uint32_t {
     eCICEN_0 = 0, // Disable command index check
     eCICEN_1 = 1, // Enables command index check
   };
+  
   enum class eDPSEL : uint32_t {
     eDPSEL_0 = 0, // No data present
     eDPSEL_1 = 1, // Data present
   };
+  
   enum class eCMDTYP : uint32_t {
     eCMDTYP_0 = 0, // Normal other commands
     eCMDTYP_1 = 1, // Suspend CMD52 for writing bus suspend in CCCR
@@ -128,7 +127,7 @@ union CMD_XFR_TYP {
     eCMDTYP CMDTYP : 2;
     uint32_t CMDINX : 6;
     uint32_t _reserved_end : 2;
-  } bits;          // Bit-field struct (auto-filling reserved gaps)
+  } bits;
   
   // Full 32-bit register value.
   uint32_t value;
@@ -142,12 +141,10 @@ union CMD_XFR_TYP {
 //
 union CMD_RSP0 {
   
-  // Enum definitions.
-  
   // Bit field definition.
   struct {
     uint32_t CMDRSP0 : 32;
-  } bits;          // Bit-field struct (auto-filling reserved gaps)
+  } bits;
   
   // Full 32-bit register value.
   uint32_t value;
@@ -161,12 +158,10 @@ union CMD_RSP0 {
 //
 union CMD_RSP1 {
   
-  // Enum definitions.
-  
   // Bit field definition.
   struct {
     uint32_t CMDRSP1 : 32;
-  } bits;          // Bit-field struct (auto-filling reserved gaps)
+  } bits;
   
   // Full 32-bit register value.
   uint32_t value;
@@ -180,12 +175,10 @@ union CMD_RSP1 {
 //
 union CMD_RSP2 {
   
-  // Enum definitions.
-  
   // Bit field definition.
   struct {
     uint32_t CMDRSP2 : 32;
-  } bits;          // Bit-field struct (auto-filling reserved gaps)
+  } bits;
   
   // Full 32-bit register value.
   uint32_t value;
@@ -199,12 +192,10 @@ union CMD_RSP2 {
 //
 union CMD_RSP3 {
   
-  // Enum definitions.
-  
   // Bit field definition.
   struct {
     uint32_t CMDRSP3 : 32;
-  } bits;          // Bit-field struct (auto-filling reserved gaps)
+  } bits;
   
   // Full 32-bit register value.
   uint32_t value;
@@ -218,12 +209,10 @@ union CMD_RSP3 {
 //
 union DATA_BUFF_ACC_PORT {
   
-  // Enum definitions.
-  
   // Bit field definition.
   struct {
     uint32_t DATCONT : 32;
-  } bits;          // Bit-field struct (auto-filling reserved gaps)
+  } bits;
   
   // Full 32-bit register value.
   uint32_t value;
@@ -237,75 +226,91 @@ union DATA_BUFF_ACC_PORT {
 //
 union PRES_STATE {
   
-  // Enum definitions.
   enum class eCIHB : uint32_t {
     eCIHB_0 = 0, // Can issue command using only CMD line
     eCIHB_1 = 1, // Cannot issue command
   };
+  
   enum class eCDIHB : uint32_t {
     eCDIHB_0 = 0, // Can issue command that uses the DATA line
     eCDIHB_1 = 1, // Cannot issue command that uses the DATA line
   };
+  
   enum class eDLA : uint32_t {
     eDLA_0 = 0, // DATA line inactive
     eDLA_1 = 1, // DATA line active
   };
+  
   enum class eSDSTB : uint32_t {
     eSDSTB_0 = 0, // Clock is changing frequency and not stable.
     eSDSTB_1 = 1, // Clock is stable.
   };
+  
   enum class eIPGOFF : uint32_t {
     eIPGOFF_0 = 0, // Peripheral clock is active.
     eIPGOFF_1 = 1, // Peripheral clock is gated off.
   };
+  
   enum class eHCKOFF : uint32_t {
     eHCKOFF_0 = 0, // HCLK is active.
     eHCKOFF_1 = 1, // HCLK is gated off.
   };
+  
   enum class ePEROFF : uint32_t {
     ePEROFF_0 = 0, // IPG_PERCLK is active.
     ePEROFF_1 = 1, // IPG_PERCLK is gated off.
   };
+  
   enum class eSDOFF : uint32_t {
     eSDOFF_0 = 0, // SD clock is active.
     eSDOFF_1 = 1, // SD clock is gated off.
   };
+  
   enum class eWTA : uint32_t {
     eWTA_0 = 0, // No valid data
     eWTA_1 = 1, // Transferring data
   };
+  
   enum class eRTA : uint32_t {
     eRTA_0 = 0, // No valid data
     eRTA_1 = 1, // Transferring data
   };
+  
   enum class eBWEN : uint32_t {
     eBWEN_0 = 0, // Write disable
     eBWEN_1 = 1, // Write enable
   };
+  
   enum class eBREN : uint32_t {
     eBREN_0 = 0, // Read disable
     eBREN_1 = 1, // Read enable
   };
+  
   enum class eRTR : uint32_t {
     eRTR_0 = 0, // Fixed or well tuned sampling clock
     eRTR_1 = 1, // Sampling clock needs re-tuning
   };
+  
   enum class eTSCD : uint32_t {
     eTSCD_0 = 0, // Delay cell select change is not finished.
     eTSCD_1 = 1, // Delay cell select change is finished.
   };
+  
   enum class eCINST : uint32_t {
     eCINST_0 = 0, // Power on reset or no card
     eCINST_1 = 1, // Card inserted
   };
+  
   enum class eCDPL : uint32_t {
     eCDPL_0 = 0, // No card present (CD_B = 1)
     eCDPL_1 = 1, // Card present (CD_B = 0)
   };
+  
   enum class eWPSPL : uint32_t {
     eWPSPL_0 = 0, // Write protected (WP = 1)
     eWPSPL_1 = 1, // Write enabled (WP = 0)
   };
+  
   enum class eDLSL : uint32_t {
     eDATA0 = 0, // Data 0 line signal level
     eDATA1 = 1, // Data 1 line signal level
@@ -341,7 +346,7 @@ union PRES_STATE {
     uint32_t _reserved_17 : 3;
     uint32_t CLSL : 1;
     eDLSL DLSL : 8;
-  } bits;          // Bit-field struct (auto-filling reserved gaps)
+  } bits;
   
   // Full 32-bit register value.
   uint32_t value;
@@ -355,62 +360,74 @@ union PRES_STATE {
 //
 union PROT_CTRL {
   
-  // Enum definitions.
   enum class eDTW : uint32_t {
     eDTW_0 = 0, // 1-bit mode
     eDTW_1 = 1, // 4-bit mode
     eDTW_2 = 2, // 8-bit mode
   };
+  
   enum class eD3CD : uint32_t {
     eD3CD_0 = 0, // DATA3 does not monitor card insertion
     eD3CD_1 = 1, // DATA3 as card detection pin
   };
+  
   enum class eEMODE : uint32_t {
     eEMODE_0 = 0, // Big endian mode
     eEMODE_1 = 1, // Half word big endian mode
     eEMODE_2 = 2, // Little endian mode
   };
+  
   enum class eCDTL : uint32_t {
     eCDTL_0 = 0, // Card detect test level is 0, no card inserted
     eCDTL_1 = 1, // Card detect test level is 1, card inserted
   };
+  
   enum class eCDSS : uint32_t {
     eCDSS_0 = 0, // Card detection level is selected (for normal purpose).
     eCDSS_1 = 1, // Card detection test level is selected (for test purpose).
   };
+  
   enum class eDMASEL : uint32_t {
     eDMASEL_0 = 0, // No DMA or simple DMA is selected.
     eDMASEL_1 = 1, // ADMA1 is selected.
     eDMASEL_2 = 2, // ADMA2 is selected.
   };
+  
   enum class eSABGREQ : uint32_t {
     eSABGREQ_0 = 0, // Transfer
     eSABGREQ_1 = 1, // Stop
   };
+  
   enum class eCREQ : uint32_t {
     eCREQ_0 = 0, // No effect
     eCREQ_1 = 1, // Restart
   };
+  
   enum class eRWCTL : uint32_t {
     eRWCTL_0 = 0, // Disables read wait control and stop SD clock at block gap when SABGREQ field is set
     eRWCTL_1 = 1, // Enables read wait control and assert read wait without stopping SD clock at block gap when SABGREQ field is set
   };
+  
   enum class eIABG : uint32_t {
     eIABG_0 = 0, // Disables interrupt at block gap
     eIABG_1 = 1, // Enables interrupt at block gap
   };
+  
   enum class eWECINT : uint32_t {
     eWECINT_0 = 0, // Disables wakeup event enable on card interrupt
     eWECINT_1 = 1, // Enables wakeup event enable on card interrupt
   };
+  
   enum class eWECINS : uint32_t {
     eWECINS_0 = 0, // Disable wakeup event enable on SD card insertion
     eWECINS_1 = 1, // Enable wakeup event enable on SD card insertion
   };
+  
   enum class eWECRM : uint32_t {
     eWECRM_0 = 0, // Disables wakeup event enable on SD card removal
     eWECRM_1 = 1, // Enables wakeup event enable on SD card removal
   };
+  
   enum class eNON_EXACT_BLK_RD : uint32_t {
     eNON_EXACT_BLK_RD_0 = 0, // The block read is exact block read. Host driver does not need to issue abort command to terminate this multi-block read.
     eNON_EXACT_BLK_RD_1 = 1, // The block read is non-exact block read. Host driver needs to issue abort command to terminate this multi-block read.
@@ -438,7 +455,7 @@ union PROT_CTRL {
     uint32_t _reserved_14 : 3;
     eNON_EXACT_BLK_RD NON_EXACT_BLK_RD : 1;
     uint32_t _reserved_end : 1;
-  } bits;          // Bit-field struct (auto-filling reserved gaps)
+  } bits;
   
   // Full 32-bit register value.
   uint32_t value;
@@ -452,13 +469,13 @@ union PROT_CTRL {
 //
 union SYS_CTRL {
   
-  // Enum definitions.
   enum class eDVS : uint32_t {
     eDVS_0 = 0, // Divide-by-1
     eDVS_1 = 1, // Divide-by-2
     eDVS_14 = 14, // Divide-by-15
     eDVS_15 = 15, // Divide-by-16
   };
+  
   enum class eDTOCV : uint32_t {
     eDTOCV_0 = 0, // SDCLK x 2 14
     eDTOCV_1 = 1, // SDCLK x 2 15
@@ -477,14 +494,17 @@ union SYS_CTRL {
     eDTOCV_14 = 14, // SDCLK x 2 28
     eDTOCV_15 = 15, // SDCLK x 2 29
   };
+  
   enum class eRSTA : uint32_t {
     eRSTA_0 = 0, // No reset
     eRSTA_1 = 1, // Reset
   };
+  
   enum class eRSTC : uint32_t {
     eRSTC_0 = 0, // No reset
     eRSTC_1 = 1, // Reset
   };
+  
   enum class eRSTD : uint32_t {
     eRSTD_0 = 0, // No reset
     eRSTD_1 = 1, // Reset
@@ -504,7 +524,7 @@ union SYS_CTRL {
     uint32_t INITA : 1;
     uint32_t RSTT : 1;
     uint32_t _reserved_end : 3;
-  } bits;          // Bit-field struct (auto-filling reserved gaps)
+  } bits;
   
   // Full 32-bit register value.
   uint32_t value;
@@ -518,79 +538,96 @@ union SYS_CTRL {
 //
 union INT_STATUS {
   
-  // Enum definitions.
   enum class eCC : uint32_t {
     eCC_0 = 0, // Command not complete
     eCC_1 = 1, // Command complete
   };
+  
   enum class eTC : uint32_t {
     eTC_0 = 0, // Transfer does not complete
     eTC_1 = 1, // Transfer complete
   };
+  
   enum class eBGE : uint32_t {
     eBGE_0 = 0, // No block gap event
     eBGE_1 = 1, // Transaction stopped at block gap
   };
+  
   enum class eDINT : uint32_t {
     eDINT_0 = 0, // No DMA interrupt
     eDINT_1 = 1, // DMA interrupt is generated.
   };
+  
   enum class eBWR : uint32_t {
     eBWR_0 = 0, // Not ready to write buffer
     eBWR_1 = 1, // Ready to write buffer
   };
+  
   enum class eBRR : uint32_t {
     eBRR_0 = 0, // Not ready to read buffer
     eBRR_1 = 1, // Ready to read buffer
   };
+  
   enum class eCINS : uint32_t {
     eCINS_0 = 0, // Card state unstable or removed
     eCINS_1 = 1, // Card inserted
   };
+  
   enum class eCRM : uint32_t {
     eCRM_0 = 0, // Card state unstable or inserted
     eCRM_1 = 1, // Card removed
   };
+  
   enum class eCINT : uint32_t {
     eCINT_0 = 0, // No card interrupt
     eCINT_1 = 1, // Generate card interrupt
   };
+  
   enum class eRTE : uint32_t {
     eRTE_0 = 0, // Re-tuning is not required.
     eRTE_1 = 1, // Re-tuning should be performed.
   };
+  
   enum class eCTOE : uint32_t {
     eCTOE_0 = 0, // No error
     eCTOE_1 = 1, // Time out
   };
+  
   enum class eCCE : uint32_t {
     eCCE_0 = 0, // No error
     eCCE_1 = 1, // CRC error generated
   };
+  
   enum class eCEBE : uint32_t {
     eCEBE_0 = 0, // No error
     eCEBE_1 = 1, // End bit error generated
   };
+  
   enum class eCIE : uint32_t {
     eCIE_0 = 0, // No error
     eCIE_1 = 1, // Error
   };
+  
   enum class eDTOE : uint32_t {
     eDTOE_0 = 0, // No error
     eDTOE_1 = 1, // Time out
   };
+  
   enum class eDCE : uint32_t {
     eDCE_0 = 0, // No error
     eDCE_1 = 1, // Error
   };
+  
   enum class eDEBE : uint32_t {
     eDEBE_0 = 0, // No error
     eDEBE_1 = 1, // Error
   };
+  
   enum class eAC12E : uint32_t {
     eAC12E_0 = 0, // No error
     eAC12E_1 = 1, // Error
   };
+  
   enum class eDMAE : uint32_t {
     eDMAE_0 = 0, // No error
     eDMAE_1 = 1, // Error
@@ -626,7 +663,7 @@ union INT_STATUS {
     uint32_t _reserved_20 : 1;
     eDMAE DMAE : 1;
     uint32_t _reserved_end : 3;
-  } bits;          // Bit-field struct (auto-filling reserved gaps)
+  } bits;
   
   // Full 32-bit register value.
   uint32_t value;
@@ -640,87 +677,106 @@ union INT_STATUS {
 //
 union INT_STATUS_EN {
   
-  // Enum definitions.
   enum class eCCSEN : uint32_t {
     eCCSEN_0 = 0, // Masked
     eCCSEN_1 = 1, // Enabled
   };
+  
   enum class eTCSEN : uint32_t {
     eTCSEN_0 = 0, // Masked
     eTCSEN_1 = 1, // Enabled
   };
+  
   enum class eBGESEN : uint32_t {
     eBGESEN_0 = 0, // Masked
     eBGESEN_1 = 1, // Enabled
   };
+  
   enum class eDINTSEN : uint32_t {
     eDINTSEN_0 = 0, // Masked
     eDINTSEN_1 = 1, // Enabled
   };
+  
   enum class eBWRSEN : uint32_t {
     eBWRSEN_0 = 0, // Masked
     eBWRSEN_1 = 1, // Enabled
   };
+  
   enum class eBRRSEN : uint32_t {
     eBRRSEN_0 = 0, // Masked
     eBRRSEN_1 = 1, // Enabled
   };
+  
   enum class eCINSSEN : uint32_t {
     eCINSSEN_0 = 0, // Masked
     eCINSSEN_1 = 1, // Enabled
   };
+  
   enum class eCRMSEN : uint32_t {
     eCRMSEN_0 = 0, // Masked
     eCRMSEN_1 = 1, // Enabled
   };
+  
   enum class eCINTSEN : uint32_t {
     eCINTSEN_0 = 0, // Masked
     eCINTSEN_1 = 1, // Enabled
   };
+  
   enum class eRTESEN : uint32_t {
     eRTESEN_0 = 0, // Masked
     eRTESEN_1 = 1, // Enabled
   };
+  
   enum class eTPSEN : uint32_t {
     eTPSEN_0 = 0, // Masked
     eTPSEN_1 = 1, // Enabled
   };
+  
   enum class eCTOESEN : uint32_t {
     eCTOESEN_0 = 0, // Masked
     eCTOESEN_1 = 1, // Enabled
   };
+  
   enum class eCCESEN : uint32_t {
     eCCESEN_0 = 0, // Masked
     eCCESEN_1 = 1, // Enabled
   };
+  
   enum class eCEBESEN : uint32_t {
     eCEBESEN_0 = 0, // Masked
     eCEBESEN_1 = 1, // Enabled
   };
+  
   enum class eCIESEN : uint32_t {
     eCIESEN_0 = 0, // Masked
     eCIESEN_1 = 1, // Enabled
   };
+  
   enum class eDTOESEN : uint32_t {
     eDTOESEN_0 = 0, // Masked
     eDTOESEN_1 = 1, // Enabled
   };
+  
   enum class eDCESEN : uint32_t {
     eDCESEN_0 = 0, // Masked
     eDCESEN_1 = 1, // Enabled
   };
+  
   enum class eDEBESEN : uint32_t {
     eDEBESEN_0 = 0, // Masked
     eDEBESEN_1 = 1, // Enabled
   };
+  
   enum class eAC12ESEN : uint32_t {
     eAC12ESEN_0 = 0, // Masked
     eAC12ESEN_1 = 1, // Enabled
   };
+  
   enum class eTNESEN : uint32_t {
     eTNESEN_0 = 0, // Masked
     eTNESEN_1 = 1, // Enabled
   };
+  
   enum class eDMAESEN : uint32_t {
     eDMAESEN_0 = 0, // Masked
     eDMAESEN_1 = 1, // Enabled
@@ -756,7 +812,7 @@ union INT_STATUS_EN {
     uint32_t _reserved_20 : 1;
     eDMAESEN DMAESEN : 1;
     uint32_t _reserved_end : 3;
-  } bits;          // Bit-field struct (auto-filling reserved gaps)
+  } bits;
   
   // Full 32-bit register value.
   uint32_t value;
@@ -770,87 +826,106 @@ union INT_STATUS_EN {
 //
 union INT_SIGNAL_EN {
   
-  // Enum definitions.
   enum class eCCIEN : uint32_t {
     eCCIEN_0 = 0, // Masked
     eCCIEN_1 = 1, // Enabled
   };
+  
   enum class eTCIEN : uint32_t {
     eTCIEN_0 = 0, // Masked
     eTCIEN_1 = 1, // Enabled
   };
+  
   enum class eBGEIEN : uint32_t {
     eBGEIEN_0 = 0, // Masked
     eBGEIEN_1 = 1, // Enabled
   };
+  
   enum class eDINTIEN : uint32_t {
     eDINTIEN_0 = 0, // Masked
     eDINTIEN_1 = 1, // Enabled
   };
+  
   enum class eBWRIEN : uint32_t {
     eBWRIEN_0 = 0, // Masked
     eBWRIEN_1 = 1, // Enabled
   };
+  
   enum class eBRRIEN : uint32_t {
     eBRRIEN_0 = 0, // Masked
     eBRRIEN_1 = 1, // Enabled
   };
+  
   enum class eCINSIEN : uint32_t {
     eCINSIEN_0 = 0, // Masked
     eCINSIEN_1 = 1, // Enabled
   };
+  
   enum class eCRMIEN : uint32_t {
     eCRMIEN_0 = 0, // Masked
     eCRMIEN_1 = 1, // Enabled
   };
+  
   enum class eCINTIEN : uint32_t {
     eCINTIEN_0 = 0, // Masked
     eCINTIEN_1 = 1, // Enabled
   };
+  
   enum class eRTEIEN : uint32_t {
     eRTEIEN_0 = 0, // Masked
     eRTEIEN_1 = 1, // Enabled
   };
+  
   enum class eTPIEN : uint32_t {
     eTPIEN_0 = 0, // Masked
     eTPIEN_1 = 1, // Enabled
   };
+  
   enum class eCTOEIEN : uint32_t {
     eCTOEIEN_0 = 0, // Masked
     eCTOEIEN_1 = 1, // Enabled
   };
+  
   enum class eCCEIEN : uint32_t {
     eCCEIEN_0 = 0, // Masked
     eCCEIEN_1 = 1, // Enabled
   };
+  
   enum class eCEBEIEN : uint32_t {
     eCEBEIEN_0 = 0, // Masked
     eCEBEIEN_1 = 1, // Enabled
   };
+  
   enum class eCIEIEN : uint32_t {
     eCIEIEN_0 = 0, // Masked
     eCIEIEN_1 = 1, // Enabled
   };
+  
   enum class eDTOEIEN : uint32_t {
     eDTOEIEN_0 = 0, // Masked
     eDTOEIEN_1 = 1, // Enabled
   };
+  
   enum class eDCEIEN : uint32_t {
     eDCEIEN_0 = 0, // Masked
     eDCEIEN_1 = 1, // Enabled
   };
+  
   enum class eDEBEIEN : uint32_t {
     eDEBEIEN_0 = 0, // Masked
     eDEBEIEN_1 = 1, // Enabled
   };
+  
   enum class eAC12EIEN : uint32_t {
     eAC12EIEN_0 = 0, // Masked
     eAC12EIEN_1 = 1, // Enabled
   };
+  
   enum class eTNEIEN : uint32_t {
     eTNEIEN_0 = 0, // Masked
     eTNEIEN_1 = 1, // Enabled
   };
+  
   enum class eDMAEIEN : uint32_t {
     eDMAEIEN_0 = 0, // Masked
     eDMAEIEN_1 = 1, // Enable
@@ -886,7 +961,7 @@ union INT_SIGNAL_EN {
     uint32_t _reserved_20 : 1;
     eDMAEIEN DMAEIEN : 1;
     uint32_t _reserved_end : 3;
-  } bits;          // Bit-field struct (auto-filling reserved gaps)
+  } bits;
   
   // Full 32-bit register value.
   uint32_t value;
@@ -900,35 +975,41 @@ union INT_SIGNAL_EN {
 //
 union AUTOCMD12_ERR_STATUS {
   
-  // Enum definitions.
   enum class eAC12NE : uint32_t {
     eAC12NE_0 = 0, // Executed
     eAC12NE_1 = 1, // Not executed
   };
+  
   enum class eAC12TOE : uint32_t {
     eAC12TOE_0 = 0, // No error
     eAC12TOE_1 = 1, // Time out
   };
+  
   enum class eAC12EBE : uint32_t {
     eAC12EBE_0 = 0, // No error
     eAC12EBE_1 = 1, // End bit error generated
   };
+  
   enum class eAC12CE : uint32_t {
     eAC12CE_0 = 0, // No CRC error
     eAC12CE_1 = 1, // CRC error met in Auto CMD12/23 response
   };
+  
   enum class eAC12IE : uint32_t {
     eAC12IE_0 = 0, // No error
     eAC12IE_1 = 1, // Error, the CMD index in response is not CMD12/23
   };
+  
   enum class eCNIBAC12E : uint32_t {
     eCNIBAC12E_0 = 0, // No error
     eCNIBAC12E_1 = 1, // Not issued
   };
+  
   enum class eEXECUTE_TUNING : uint32_t {
     eEXECUTE_TUNING_0 = 0, // Tuning procedure is aborted
     eEXECUTE_TUNING_1 = 1, // Start tuning procedure
   };
+  
   enum class eSMP_CLK_SEL : uint32_t {
     eSMP_CLK_SEL_0 = 0, // Fixed clock is used to sample data
     eSMP_CLK_SEL_1 = 1, // Tuned clock is used to sample data
@@ -947,7 +1028,7 @@ union AUTOCMD12_ERR_STATUS {
     eEXECUTE_TUNING EXECUTE_TUNING : 1;
     eSMP_CLK_SEL SMP_CLK_SEL : 1;
     uint32_t _reserved_end : 8;
-  } bits;          // Bit-field struct (auto-filling reserved gaps)
+  } bits;
   
   // Full 32-bit register value.
   uint32_t value;
@@ -961,41 +1042,48 @@ union AUTOCMD12_ERR_STATUS {
 //
 union HOST_CTRL_CAP {
   
-  // Enum definitions.
   enum class eUSE_TUNING_SDR50 : uint32_t {
     eUSE_TUNING_SDR50_0 = 0, // SDR50 does not support tuning
     eUSE_TUNING_SDR50_1 = 1, // SDR50 supports tuning
   };
+  
   enum class eMBL : uint32_t {
     eMBL_0 = 0, // 512 bytes
     eMBL_1 = 1, // 1024 bytes
     eMBL_2 = 2, // 2048 bytes
     eMBL_3 = 3, // 4096 bytes
   };
+  
   enum class eADMAS : uint32_t {
     eADMAS_0 = 0, // Advanced DMA not supported
     eADMAS_1 = 1, // Advanced DMA supported
   };
+  
   enum class eHSS : uint32_t {
     eHSS_0 = 0, // High speed not supported
     eHSS_1 = 1, // High speed supported
   };
+  
   enum class eDMAS : uint32_t {
     eDMAS_0 = 0, // DMA not supported
     eDMAS_1 = 1, // DMA supported
   };
+  
   enum class eSRS : uint32_t {
     eSRS_0 = 0, // Not supported
     eSRS_1 = 1, // Supported
   };
+  
   enum class eVS33 : uint32_t {
     eVS33_0 = 0, // 3.3 V not supported
     eVS33_1 = 1, // 3.3 V supported
   };
+  
   enum class eVS30 : uint32_t {
     eVS30_0 = 0, // 3.0 V not supported
     eVS30_1 = 1, // 3.0 V supported
   };
+  
   enum class eVS18 : uint32_t {
     eVS18_0 = 0, // 1.8 V not supported
     eVS18_1 = 1, // 1.8 V supported
@@ -1019,7 +1107,7 @@ union HOST_CTRL_CAP {
     eVS30 VS30 : 1;
     eVS18 VS18 : 1;
     uint32_t _reserved_end : 5;
-  } bits;          // Bit-field struct (auto-filling reserved gaps)
+  } bits;
   
   // Full 32-bit register value.
   uint32_t value;
@@ -1033,15 +1121,13 @@ union HOST_CTRL_CAP {
 //
 union WTMK_LVL {
   
-  // Enum definitions.
-  
   // Bit field definition.
   struct {
     uint32_t RD_WML : 8;
     uint32_t _reserved_1 : 8;
     uint32_t WR_WML : 8;
     uint32_t _reserved_end : 8;
-  } bits;          // Bit-field struct (auto-filling reserved gaps)
+  } bits;
   
   // Full 32-bit register value.
   uint32_t value;
@@ -1055,39 +1141,46 @@ union WTMK_LVL {
 //
 union MIX_CTRL {
   
-  // Enum definitions.
   enum class eDMAEN : uint32_t {
     eDMAEN_0 = 0, // Disable
     eDMAEN_1 = 1, // Enable
   };
+  
   enum class eBCEN : uint32_t {
     eBCEN_0 = 0, // Disable
     eBCEN_1 = 1, // Enable
   };
+  
   enum class eAC12EN : uint32_t {
     eAC12EN_0 = 0, // Disable
     eAC12EN_1 = 1, // Enable
   };
+  
   enum class eDTDSEL : uint32_t {
     eDTDSEL_0 = 0, // Write (Host to card)
     eDTDSEL_1 = 1, // Read (Card to host)
   };
+  
   enum class eMSBSEL : uint32_t {
     eMSBSEL_0 = 0, // Single block
     eMSBSEL_1 = 1, // Multiple blocks
   };
+  
   enum class eEXE_TUNE : uint32_t {
     eEXE_TUNE_0 = 0, // Not tuned or tuning completed
     eEXE_TUNE_1 = 1, // Execute tuning
   };
+  
   enum class eSMP_CLK_SEL : uint32_t {
     eSMP_CLK_SEL_0 = 0, // Fixed clock is used to sample data / cmd
     eSMP_CLK_SEL_1 = 1, // Tuned clock is used to sample data / cmd
   };
+  
   enum class eAUTO_TUNE_EN : uint32_t {
     eAUTO_TUNE_EN_0 = 0, // Disable auto tuning
     eAUTO_TUNE_EN_1 = 1, // Enable auto tuning
   };
+  
   enum class eFBCLK_SEL : uint32_t {
     eFBCLK_SEL_0 = 0, // Feedback clock comes from the loopback CLK
     eFBCLK_SEL_1 = 1, // Feedback clock comes from the ipp_card_clk_out
@@ -1110,7 +1203,7 @@ union MIX_CTRL {
     eFBCLK_SEL FBCLK_SEL : 1;
     uint32_t HS400_MODE : 1;
     uint32_t _reserved_end : 5;
-  } bits;          // Bit-field struct (auto-filling reserved gaps)
+  } bits;
   
   // Full 32-bit register value.
   uint32_t value;
@@ -1123,8 +1216,6 @@ union MIX_CTRL {
 // Force Event
 //
 union FORCE_EVENT {
-  
-  // Enum definitions.
   
   // Bit field definition.
   struct {
@@ -1151,7 +1242,7 @@ union FORCE_EVENT {
     uint32_t FEVTDMAE : 1;
     uint32_t _reserved_16 : 2;
     uint32_t FEVTCINT : 1;
-  } bits;          // Bit-field struct (auto-filling reserved gaps)
+  } bits;
   
   // Full 32-bit register value.
   uint32_t value;
@@ -1165,11 +1256,11 @@ union FORCE_EVENT {
 //
 union ADMA_ERR_STATUS {
   
-  // Enum definitions.
   enum class eADMALME : uint32_t {
     eADMALME_0 = 0, // No error
     eADMALME_1 = 1, // Error
   };
+  
   enum class eADMADCE : uint32_t {
     eADMADCE_0 = 0, // No error
     eADMADCE_1 = 1, // Error
@@ -1181,7 +1272,7 @@ union ADMA_ERR_STATUS {
     eADMALME ADMALME : 1;
     eADMADCE ADMADCE : 1;
     uint32_t _reserved_end : 28;
-  } bits;          // Bit-field struct (auto-filling reserved gaps)
+  } bits;
   
   // Full 32-bit register value.
   uint32_t value;
@@ -1195,13 +1286,11 @@ union ADMA_ERR_STATUS {
 //
 union ADMA_SYS_ADDR {
   
-  // Enum definitions.
-  
   // Bit field definition.
   struct {
     uint32_t _reserved_0 : 2;
     uint32_t ADS_ADDR : 30;
-  } bits;          // Bit-field struct (auto-filling reserved gaps)
+  } bits;
   
   // Full 32-bit register value.
   uint32_t value;
@@ -1214,8 +1303,6 @@ union ADMA_SYS_ADDR {
 // DLL (Delay Line) Control
 //
 union DLL_CTRL {
-  
-  // Enum definitions.
   
   // Bit field definition.
   struct {
@@ -1230,7 +1317,7 @@ union DLL_CTRL {
     uint32_t _reserved_8 : 1;
     uint32_t DLL_CTRL_SLV_UPDATE_INT : 8;
     uint32_t DLL_CTRL_REF_UPDATE_INT : 4;
-  } bits;          // Bit-field struct (auto-filling reserved gaps)
+  } bits;
   
   // Full 32-bit register value.
   uint32_t value;
@@ -1244,8 +1331,6 @@ union DLL_CTRL {
 //
 union DLL_STATUS {
   
-  // Enum definitions.
-  
   // Bit field definition.
   struct {
     uint32_t DLL_STS_SLV_LOCK : 1;
@@ -1253,7 +1338,7 @@ union DLL_STATUS {
     uint32_t DLL_STS_SLV_SEL : 7;
     uint32_t DLL_STS_REF_SEL : 7;
     uint32_t _reserved_end : 16;
-  } bits;          // Bit-field struct (auto-filling reserved gaps)
+  } bits;
   
   // Full 32-bit register value.
   uint32_t value;
@@ -1267,8 +1352,6 @@ union DLL_STATUS {
 //
 union CLK_TUNE_CTRL_STATUS {
   
-  // Enum definitions.
-  
   // Bit field definition.
   struct {
     uint32_t DLY_CELL_SET_POST : 4;
@@ -1279,7 +1362,7 @@ union CLK_TUNE_CTRL_STATUS {
     uint32_t TAP_SEL_OUT : 4;
     uint32_t TAP_SEL_PRE : 7;
     uint32_t PRE_ERR : 1;
-  } bits;          // Bit-field struct (auto-filling reserved gaps)
+  } bits;
   
   // Full 32-bit register value.
   uint32_t value;
@@ -1293,8 +1376,6 @@ union CLK_TUNE_CTRL_STATUS {
 //
 union STROBE_DLL_CTRL {
   
-  // Enum definitions.
-  
   // Bit field definition.
   struct {
     uint32_t STROBE_DLL_CTRL_ENABLE : 1;
@@ -1307,7 +1388,7 @@ union STROBE_DLL_CTRL {
     uint32_t _reserved_7 : 4;
     uint32_t STROBE_DLL_CTRL_SLV_UPDATE_INT : 8;
     uint32_t STROBE_DLL_CTRL_REF_UPDATE_INT : 4;
-  } bits;          // Bit-field struct (auto-filling reserved gaps)
+  } bits;
   
   // Full 32-bit register value.
   uint32_t value;
@@ -1321,8 +1402,6 @@ union STROBE_DLL_CTRL {
 //
 union STROBE_DLL_STATUS {
   
-  // Enum definitions.
-  
   // Bit field definition.
   struct {
     uint32_t STROBE_DLL_STS_SLV_LOCK : 1;
@@ -1330,7 +1409,7 @@ union STROBE_DLL_STATUS {
     uint32_t STROBE_DLL_STS_SLV_SEL : 7;
     uint32_t STROBE_DLL_STS_REF_SEL : 7;
     uint32_t _reserved_end : 16;
-  } bits;          // Bit-field struct (auto-filling reserved gaps)
+  } bits;
   
   // Full 32-bit register value.
   uint32_t value;
@@ -1344,27 +1423,31 @@ union STROBE_DLL_STATUS {
 //
 union VEND_SPEC {
   
-  // Enum definitions.
   enum class eVSELECT : uint32_t {
     eVSELECT_0 = 0, // Change the voltage to high voltage range, around 3.0 V
     eVSELECT_1 = 1, // Change the voltage to low voltage range, around 1.8 V
   };
+  
   enum class eCONFLICT_CHK_EN : uint32_t {
     eCONFLICT_CHK_EN_0 = 0, // Conflict check disable
     eCONFLICT_CHK_EN_1 = 1, // Conflict check enable
   };
+  
   enum class eAC12_WR_CHKBUSY_EN : uint32_t {
     eAC12_WR_CHKBUSY_EN_0 = 0, // Do not check busy after auto CMD12 for write data packet
     eAC12_WR_CHKBUSY_EN_1 = 1, // Check busy after auto CMD12 for write data packet
   };
+  
   enum class eFRC_SDCLK_ON : uint32_t {
     eFRC_SDCLK_ON_0 = 0, // CLK active or inactive is fully controlled by the hardware.
     eFRC_SDCLK_ON_1 = 1, // Force CLK active
   };
+  
   enum class eCRC_CHK_DIS : uint32_t {
     eCRC_CHK_DIS_0 = 0, // Check CRC16 for every read data packet and check CRC fields for every write data packet
     eCRC_CHK_DIS_1 = 1, // Ignore CRC16 check for every read data packet and ignore CRC fields check for every write data packet
   };
+  
   enum class eCMD_BYTE_EN : uint32_t {
     eCMD_BYTE_EN_0 = 0, // Disable
     eCMD_BYTE_EN_1 = 1, // Enable
@@ -1382,7 +1465,7 @@ union VEND_SPEC {
     eCRC_CHK_DIS CRC_CHK_DIS : 1;
     uint32_t _reserved_5 : 15;
     eCMD_BYTE_EN CMD_BYTE_EN : 1;
-  } bits;          // Bit-field struct (auto-filling reserved gaps)
+  } bits;
   
   // Full 32-bit register value.
   uint32_t value;
@@ -1396,7 +1479,6 @@ union VEND_SPEC {
 //
 union MMC_BOOT {
   
-  // Enum definitions.
   enum class eDTOCV_ACK : uint32_t {
     eDTOCV_ACK_0 = 0, // SDCLK x 2^14
     eDTOCV_ACK_1 = 1, // SDCLK x 2^15
@@ -1409,18 +1491,22 @@ union MMC_BOOT {
     eDTOCV_ACK_14 = 14, // SDCLK x 2^28
     eDTOCV_ACK_15 = 15, // SDCLK x 2^29
   };
+  
   enum class eBOOT_ACK : uint32_t {
     eBOOT_ACK_0 = 0, // No ack
     eBOOT_ACK_1 = 1, // Ack
   };
+  
   enum class eBOOT_MODE : uint32_t {
     eBOOT_MODE_0 = 0, // Normal boot
     eBOOT_MODE_1 = 1, // Alternative boot
   };
+  
   enum class eBOOT_EN : uint32_t {
     eBOOT_EN_0 = 0, // Fast boot disable
     eBOOT_EN_1 = 1, // Fast boot enable
   };
+  
   enum class eDISABLE_TIME_OUT : uint32_t {
     eDISABLE_TIME_OUT_0 = 0, // Enable time out
     eDISABLE_TIME_OUT_1 = 1, // Disable time out
@@ -1436,7 +1522,7 @@ union MMC_BOOT {
     eDISABLE_TIME_OUT DISABLE_TIME_OUT : 1;
     uint32_t _reserved_6 : 7;
     uint32_t BOOT_BLK_CNT : 16;
-  } bits;          // Bit-field struct (auto-filling reserved gaps)
+  } bits;
   
   // Full 32-bit register value.
   uint32_t value;
@@ -1450,15 +1536,16 @@ union MMC_BOOT {
 //
 union VEND_SPEC2 {
   
-  // Enum definitions.
   enum class eCARD_INT_D3_TEST : uint32_t {
     eCARD_INT_D3_TEST_0 = 0, // Check the card interrupt only when DATA3 is high.
     eCARD_INT_D3_TEST_1 = 1, // Check the card interrupt by ignoring the status of DATA3.
   };
+  
   enum class eTUNING_CMD_EN : uint32_t {
     eTUNING_CMD_EN_0 = 0, // Auto tuning circuit does not check the CMD line.
     eTUNING_CMD_EN_1 = 1, // Auto tuning circuit checks the CMD line.
   };
+  
   enum class eACMD23_ARGU2_EN : uint32_t {
     eACMD23_ARGU2_EN_0 = 0, // Disable
     eACMD23_ARGU2_EN_1 = 1, // Argument2 register enable for ACMD23 sharing with SDMA system address register. Default is enabled.
@@ -1476,7 +1563,7 @@ union VEND_SPEC2 {
     uint32_t HS400_RD_CLK_STOP_EN : 1;
     eACMD23_ARGU2_EN ACMD23_ARGU2_EN : 1;
     uint32_t _reserved_end : 19;
-  } bits;          // Bit-field struct (auto-filling reserved gaps)
+  } bits;
   
   // Full 32-bit register value.
   uint32_t value;
@@ -1490,8 +1577,6 @@ union VEND_SPEC2 {
 //
 union TUNING_CTRL {
   
-  // Enum definitions.
-  
   // Bit field definition.
   struct {
     uint32_t TUNING_START_TAP : 7;
@@ -1503,7 +1588,7 @@ union TUNING_CTRL {
     uint32_t _reserved_5 : 1;
     uint32_t STD_TUNING_EN : 1;
     uint32_t _reserved_end : 7;
-  } bits;          // Bit-field struct (auto-filling reserved gaps)
+  } bits;
   
   // Full 32-bit register value.
   uint32_t value;

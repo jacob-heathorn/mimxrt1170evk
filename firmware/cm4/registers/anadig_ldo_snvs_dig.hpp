@@ -15,15 +15,13 @@ namespace nANADIG_LDO_SNVS_DIG {
 //
 union PMU_LDO_SNVS_DIG {
   
-  // Enum definitions.
-  
   // Bit field definition.
   struct {
     uint32_t REG_LP_EN : 1;
     uint32_t TEST_OVERRIDE : 1;
     uint32_t REG_EN : 1;
     uint32_t _reserved_end : 29;
-  } bits;          // Bit-field struct (auto-filling reserved gaps)
+  } bits;
   
   // Full 32-bit register value.
   uint32_t value;

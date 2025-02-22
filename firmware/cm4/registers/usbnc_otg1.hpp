@@ -15,43 +15,51 @@ namespace nUSBNC_OTG1 {
 //
 union CTRL1 {
   
-  // Enum definitions.
   enum class eOVER_CUR_DIS : uint32_t {
     eOVRCRNT_DETCT_EN = 0, // Enables overcurrent detection
     eOVRCRNT_DETCT_DIS = 1, // Disables overcurrent detection
   };
+  
   enum class eOVER_CUR_POL : uint32_t {
     eACTIVE_HI_OVRCRNT = 0, // High active (high on this signal represents an overcurrent condition)
     eACTIVE_LOW_OVRCRNT = 1, // Low active (low on this signal represents an overcurrent condition)
   };
+  
   enum class ePWR_POL : uint32_t {
     eACTIVE_LO_PMIC = 0, // PMIC Power Pin is Low active.
     eACTIVE_HI_PMIC = 1, // PMIC Power Pin is High active.
   };
+  
   enum class eWIE : uint32_t {
     eINT_DIS = 0, // Interrupt Disabled
     eINT_EN = 1, // Interrupt Enabled
   };
+  
   enum class eWKUP_SW_EN : uint32_t {
     eSW_WKUP_DIS = 0, // Disable
     eSW_WKUP_EN = 1, // Enable
   };
+  
   enum class eWKUP_SW : uint32_t {
     eINACTIVE = 0, // Inactive
     eFORCE_WKUP = 1, // Force wake-up
   };
+  
   enum class eWKUP_ID_EN : uint32_t {
     eWKUP_ID_DIS = 0, // Disable
     eWKUP_ID_EN = 1, // Enable
   };
+  
   enum class eWKUP_VBUS_EN : uint32_t {
     eWKUP_VBUS_DIS = 0, // Disable
     eWKUP_VBUS_EN = 1, // Enable
   };
+  
   enum class eWKUP_DPDM_EN : uint32_t {
     eDPDM_WKUP_DIS = 0, // DPDM changes wake-up to be disabled only when VBUS is 0.
     eDPDM_WKUP_EN = 1, // (Default) DPDM changes wake-up to be enabled, it is for device only.
   };
+  
   enum class eWIR : uint32_t {
     eNO_WKUP_REQ = 0, // No wake-up interrupt request received
     eWKUP_REQ = 1, // Wake-up Interrupt Request received
@@ -73,7 +81,7 @@ union CTRL1 {
     eWKUP_DPDM_EN WKUP_DPDM_EN : 1;
     uint32_t _reserved_9 : 1;
     eWIR WIR : 1;
-  } bits;          // Bit-field struct (auto-filling reserved gaps)
+  } bits;
   
   // Full 32-bit register value.
   uint32_t value;
@@ -87,19 +95,21 @@ union CTRL1 {
 //
 union CTRL2 {
   
-  // Enum definitions.
   enum class eVBUS_SOURCE_SEL : uint32_t {
     eVBUS_VALID = 0, // vbus_valid
     eSESS_VALID_1 = 1, // sess_valid
     eSESS_VALID_2 = 2, // sess_valid
     eSESS_VALID_3 = 3, // sess_valid
   };
+  
   enum class eAUTURESUME_EN : uint32_t {
     eDEFAULT = 0, // Default
   };
+  
   enum class eLOWSPEED_EN : uint32_t {
     eDEFAULT = 0, // Default
   };
+  
   enum class eUTMI_CLK_VLD : uint32_t {
     eDEFAULT = 0, // Default
   };
@@ -111,7 +121,7 @@ union CTRL2 {
     eLOWSPEED_EN LOWSPEED_EN : 1;
     uint32_t _reserved_3 : 27;
     eUTMI_CLK_VLD UTMI_CLK_VLD : 1;
-  } bits;          // Bit-field struct (auto-filling reserved gaps)
+  } bits;
   
   // Full 32-bit register value.
   uint32_t value;
@@ -125,15 +135,16 @@ union CTRL2 {
 //
 union HSIC_CTRL {
   
-  // Enum definitions.
   enum class eHSIC_CLK_ON : uint32_t {
     eINACTIVE = 0, // Inactive
     eACTIVE = 1, // Active
   };
+  
   enum class eHSIC_EN : uint32_t {
     eDISABLE = 0, // Disabled
     eENABLE = 1, // Enabled
   };
+  
   enum class eCLK_VLD : uint32_t {
     eINVALID = 0, // Invalid
     eVALID = 1, // Valid
@@ -146,7 +157,7 @@ union HSIC_CTRL {
     eHSIC_EN HSIC_EN : 1;
     uint32_t _reserved_2 : 18;
     eCLK_VLD CLK_VLD : 1;
-  } bits;          // Bit-field struct (auto-filling reserved gaps)
+  } bits;
   
   // Full 32-bit register value.
   uint32_t value;

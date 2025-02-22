@@ -15,43 +15,51 @@ namespace nDMA1 {
 //
 union CR {
   
-  // Enum definitions.
   enum class eEDBG : uint32_t {
     eDISABLED = 0, // When the chip is in Debug mode, the eDMA continues to operate.
     eENABLED = 1, // When the chip is in debug mode, the DMA stalls the start of a new channel. Executing channels are allowed to complete.
   };
+  
   enum class eERCA : uint32_t {
     eDISABLED = 0, // Fixed priority arbitration within each group
     eENABLED = 1, // Round robin arbitration within each group
   };
+  
   enum class eERGA : uint32_t {
     eDISABLED = 0, // Fixed priority arbitration
     eENABLED = 1, // Round robin arbitration
   };
+  
   enum class eHOE : uint32_t {
     eNORMAL_OPS = 0, // Normal operation
     eHALT_ON_ERROR = 1, // Error causes HALT field to be automatically set to 1
   };
+  
   enum class eHALT : uint32_t {
     eNORMAL_OPS = 0, // Normal operation
     eHALT_DMA = 1, // eDMA operations halted
   };
+  
   enum class eCLM : uint32_t {
     eCLM_OFF = 0, // Continuous link mode is off
     eCLM_ON = 1, // Continuous link mode is on
   };
+  
   enum class eEMLM : uint32_t {
     eDISABLED = 0, // Disabled
     eENABLED = 1, // Enabled
   };
+  
   enum class eECX : uint32_t {
     eNORMAL_OPS = 0, // Normal operation
     eCANCEL = 1, // Cancel the remaining data transfer
   };
+  
   enum class eCX : uint32_t {
     eNORMAL_OPS = 0, // Normal operation
     eCANCEL = 1, // Cancel the remaining data transfer
   };
+  
   enum class eACTIVE : uint32_t {
     eIDLE = 0, // eDMA is idle
     eACTIVE = 1, // eDMA is executing a channel
@@ -76,7 +84,7 @@ union CR {
     uint32_t _reserved_11 : 6;
     uint32_t VERSION : 7;
     eACTIVE ACTIVE : 1;
-  } bits;          // Bit-field struct (auto-filling reserved gaps)
+  } bits;
   
   // Full 32-bit register value.
   uint32_t value;
@@ -90,51 +98,61 @@ union CR {
 //
 union ES {
   
-  // Enum definitions.
   enum class eDBE : uint32_t {
     eNO_ERROR = 0, // No destination bus error.
     eERROR = 1, // The most-recently recorded error was a bus error on a destination write.
   };
+  
   enum class eSBE : uint32_t {
     eNO_ERROR = 0, // No source bus error.
     eERROR = 1, // The most-recently recorded error was a bus error on a source read.
   };
+  
   enum class eSGE : uint32_t {
     eNO_ERROR = 0, // No scatter/gather configuration error.
     eERROR = 1, // The most-recently recorded error was a configuration error detected in the TCDn_DLASTSGA field.
   };
+  
   enum class eNCE : uint32_t {
     eNO_ERROR = 0, // No NBYTES/CITER configuration error.
     eERROR = 1, // The most-recently recorded error was a configuration error detected in the TCDn_NBYTES or TCDn_CITER fields. TCDn_NBYTES is not a multiple of TCDn_ATTR[SSIZE] and TCDn_ATTR[DSIZE], or TCDn_CITER[CITER] = 0, or TCDn_CITER[ELINK] is not equal to TCDn_BITER[ELINK].
   };
+  
   enum class eDOE : uint32_t {
     eNO_ERROR = 0, // No destination offset configuration error.
     eERROR = 1, // The most-recently recorded error was a configuration error detected in the TCDn_DOFF field. TCDn_DOFF is inconsistent with TCDn_ATTR[DSIZE].
   };
+  
   enum class eDAE : uint32_t {
     eNO_ERROR = 0, // No destination address configuration error.
     eERROR = 1, // The most-recently recorded error was a configuration error detected in the TCDn_DADDR field. TCDn_DADDR is inconsistent with TCDn_ATTR[DSIZE].
   };
+  
   enum class eSOE : uint32_t {
     eNO_ERROR = 0, // No source offset configuration error.
     eERROR = 1, // The most-recently recorded error was a configuration error detected in the TCDn_SOFF field. TCDn_SOFF is inconsistent with TCDn_ATTR[SSIZE].
   };
+  
   enum class eSAE : uint32_t {
     eNO_ERROR = 0, // No source address configuration error.
     eERROR = 1, // The most-recently recorded error was a configuration error detected in the TCDn_SADDR field. TCDn_SADDR is inconsistent with TCDn_ATTR[SSIZE].
   };
+  
   enum class eCPE : uint32_t {
     eNO_ERROR = 0, // No channel priority error.
     eERROR = 1, // The most-recently recorded error was a configuration error in the channel priorities within a group. Channel priorities within a group are not unique.
   };
+  
   enum class eGPE : uint32_t {
     eNO_ERROR = 0, // No group priority error.
     eERROR = 1, // The most-recently recorded error was a configuration error among the group priorities. All group priorities are not unique.
   };
+  
   enum class eECX : uint32_t {
     eNO_CANCELS = 0, // No canceled transfers
     eCANCELED = 1, // The most-recently recorded entry was a canceled transfer initiated by the error cancel transfer field
   };
+  
   enum class eVLD : uint32_t {
     eNO_ERROR = 0, // No ERR fields are 1
     eERROR = 1, // At least one ERR field has a value of 1, indicating a valid error exists that has not been cleared
@@ -157,7 +175,7 @@ union ES {
     eECX ECX : 1;
     uint32_t _reserved_12 : 14;
     eVLD VLD : 1;
-  } bits;          // Bit-field struct (auto-filling reserved gaps)
+  } bits;
   
   // Full 32-bit register value.
   uint32_t value;
@@ -171,131 +189,161 @@ union ES {
 //
 union ERQ {
   
-  // Enum definitions.
   enum class eERQ0 : uint32_t {
     eDISABLE = 0, // The DMA request signal for channel 0 is disabled
     eENABLE = 1, // The DMA request signal for channel 0 is enabled
   };
+  
   enum class eERQ1 : uint32_t {
     eDISABLE = 0, // The DMA request signal for channel 1 is disabled
     eENABLE = 1, // The DMA request signal for channel 1 is enabled
   };
+  
   enum class eERQ2 : uint32_t {
     eDISABLE = 0, // The DMA request signal for channel 2 is disabled
     eENABLE = 1, // The DMA request signal for channel 2 is enabled
   };
+  
   enum class eERQ3 : uint32_t {
     eDISABLE = 0, // The DMA request signal for channel 3 is disabled
     eENABLE = 1, // The DMA request signal for channel 3 is enabled
   };
+  
   enum class eERQ4 : uint32_t {
     eDISABLE = 0, // The DMA request signal for channel 4 is disabled
     eENABLE = 1, // The DMA request signal for channel 4 is enabled
   };
+  
   enum class eERQ5 : uint32_t {
     eDISABLE = 0, // The DMA request signal for channel 5 is disabled
     eENABLE = 1, // The DMA request signal for channel 5 is enabled
   };
+  
   enum class eERQ6 : uint32_t {
     eDISABLE = 0, // The DMA request signal for channel 6 is disabled
     eENABLE = 1, // The DMA request signal for channel 6 is enabled
   };
+  
   enum class eERQ7 : uint32_t {
     eDISABLE = 0, // The DMA request signal for channel 7 is disabled
     eENABLE = 1, // The DMA request signal for channel 7 is enabled
   };
+  
   enum class eERQ8 : uint32_t {
     eDISABLE = 0, // The DMA request signal for channel 8 is disabled
     eENABLE = 1, // The DMA request signal for channel 8 is enabled
   };
+  
   enum class eERQ9 : uint32_t {
     eDISABLE = 0, // The DMA request signal for channel 9 is disabled
     eENABLE = 1, // The DMA request signal for channel 9 is enabled
   };
+  
   enum class eERQ10 : uint32_t {
     eDISABLE = 0, // The DMA request signal for channel 10 is disabled
     eENABLE = 1, // The DMA request signal for channel 10 is enabled
   };
+  
   enum class eERQ11 : uint32_t {
     eDISABLE = 0, // The DMA request signal for channel 11 is disabled
     eENABLE = 1, // The DMA request signal for channel 11 is enabled
   };
+  
   enum class eERQ12 : uint32_t {
     eDISABLE = 0, // The DMA request signal for channel 12 is disabled
     eENABLE = 1, // The DMA request signal for channel 12 is enabled
   };
+  
   enum class eERQ13 : uint32_t {
     eDISABLE = 0, // The DMA request signal for channel 13 is disabled
     eENABLE = 1, // The DMA request signal for channel 13 is enabled
   };
+  
   enum class eERQ14 : uint32_t {
     eDISABLE = 0, // The DMA request signal for channel 14 is disabled
     eENABLE = 1, // The DMA request signal for channel 14 is enabled
   };
+  
   enum class eERQ15 : uint32_t {
     eDISABLE = 0, // The DMA request signal for channel 15 is disabled
     eENABLE = 1, // The DMA request signal for channel 15 is enabled
   };
+  
   enum class eERQ16 : uint32_t {
     eDISABLE = 0, // The DMA request signal for channel 16 is disabled
     eENABLE = 1, // The DMA request signal for channel 16 is enabled
   };
+  
   enum class eERQ17 : uint32_t {
     eDISABLE = 0, // The DMA request signal for channel 17 is disabled
     eENABLE = 1, // The DMA request signal for channel 17 is enabled
   };
+  
   enum class eERQ18 : uint32_t {
     eDISABLE = 0, // The DMA request signal for channel 18 is disabled
     eENABLE = 1, // The DMA request signal for channel 18 is enabled
   };
+  
   enum class eERQ19 : uint32_t {
     eDISABLE = 0, // The DMA request signal for channel 19 is disabled
     eENABLE = 1, // The DMA request signal for channel 19 is enabled
   };
+  
   enum class eERQ20 : uint32_t {
     eDISABLE = 0, // The DMA request signal for channel 20 is disabled
     eENABLE = 1, // The DMA request signal for channel 20 is enabled
   };
+  
   enum class eERQ21 : uint32_t {
     eDISABLE = 0, // The DMA request signal for channel 21 is disabled
     eENABLE = 1, // The DMA request signal for channel 21 is enabled
   };
+  
   enum class eERQ22 : uint32_t {
     eDISABLE = 0, // The DMA request signal for channel 22 is disabled
     eENABLE = 1, // The DMA request signal for channel 22 is enabled
   };
+  
   enum class eERQ23 : uint32_t {
     eDISABLE = 0, // The DMA request signal for channel 23 is disabled
     eENABLE = 1, // The DMA request signal for channel 23 is enabled
   };
+  
   enum class eERQ24 : uint32_t {
     eDISABLE = 0, // The DMA request signal for channel 24 is disabled
     eENABLE = 1, // The DMA request signal for channel 24 is enabled
   };
+  
   enum class eERQ25 : uint32_t {
     eDISABLE = 0, // The DMA request signal for channel 25 is disabled
     eENABLE = 1, // The DMA request signal for channel 25 is enabled
   };
+  
   enum class eERQ26 : uint32_t {
     eDISABLE = 0, // The DMA request signal for channel 26 is disabled
     eENABLE = 1, // The DMA request signal for channel 26 is enabled
   };
+  
   enum class eERQ27 : uint32_t {
     eDISABLE = 0, // The DMA request signal for channel 27 is disabled
     eENABLE = 1, // The DMA request signal for channel 27 is enabled
   };
+  
   enum class eERQ28 : uint32_t {
     eDISABLE = 0, // The DMA request signal for channel 28 is disabled
     eENABLE = 1, // The DMA request signal for channel 28 is enabled
   };
+  
   enum class eERQ29 : uint32_t {
     eDISABLE = 0, // The DMA request signal for channel 29 is disabled
     eENABLE = 1, // The DMA request signal for channel 29 is enabled
   };
+  
   enum class eERQ30 : uint32_t {
     eDISABLE = 0, // The DMA request signal for channel 30 is disabled
     eENABLE = 1, // The DMA request signal for channel 30 is enabled
   };
+  
   enum class eERQ31 : uint32_t {
     eDISABLE = 0, // The DMA request signal for channel 31 is disabled
     eENABLE = 1, // The DMA request signal for channel 31 is enabled
@@ -335,7 +383,7 @@ union ERQ {
     eERQ29 ERQ29 : 1;
     eERQ30 ERQ30 : 1;
     eERQ31 ERQ31 : 1;
-  } bits;          // Bit-field struct (auto-filling reserved gaps)
+  } bits;
   
   // Full 32-bit register value.
   uint32_t value;
@@ -349,131 +397,161 @@ union ERQ {
 //
 union EEI {
   
-  // Enum definitions.
   enum class eEEI0 : uint32_t {
     eNO_INTERRUPT = 0, // An error on channel 0 does not generate an error interrupt
     eINTERRUPT = 1, // An error on channel 0 generates an error interrupt request
   };
+  
   enum class eEEI1 : uint32_t {
     eNO_INTERRUPT = 0, // An error on channel 1 does not generate an error interrupt
     eINTERRUPT = 1, // An error on channel 1 generates an error interrupt request
   };
+  
   enum class eEEI2 : uint32_t {
     eNO_INTERRUPT = 0, // An error on channel 2 does not generate an error interrupt
     eINTERRUPT = 1, // An error on channel 2 generates an error interrupt request
   };
+  
   enum class eEEI3 : uint32_t {
     eNO_INTERRUPT = 0, // An error on channel 3 does not generate an error interrupt
     eINTERRUPT = 1, // An error on channel 3 generates an error interrupt request
   };
+  
   enum class eEEI4 : uint32_t {
     eNO_INTERRUPT = 0, // An error on channel 4 does not generate an error interrupt
     eINTERRUPT = 1, // An error on channel 4 generates an error interrupt request
   };
+  
   enum class eEEI5 : uint32_t {
     eNO_INTERRUPT = 0, // An error on channel 5 does not generate an error interrupt
     eINTERRUPT = 1, // An error on channel 5 generates an error interrupt request
   };
+  
   enum class eEEI6 : uint32_t {
     eNO_INTERRUPT = 0, // An error on channel 6 does not generate an error interrupt
     eINTERRUPT = 1, // An error on channel 6 generates an error interrupt request
   };
+  
   enum class eEEI7 : uint32_t {
     eNO_INTERRUPT = 0, // An error on channel 7 does not generate an error interrupt
     eINTERRUPT = 1, // An error on channel 7 generates an error interrupt request
   };
+  
   enum class eEEI8 : uint32_t {
     eNO_INTERRUPT = 0, // An error on channel 8 does not generate an error interrupt
     eINTERRUPT = 1, // An error on channel 8 generates an error interrupt request
   };
+  
   enum class eEEI9 : uint32_t {
     eNO_INTERRUPT = 0, // An error on channel 9 does not generate an error interrupt
     eINTERRUPT = 1, // An error on channel 9 generates an error interrupt request
   };
+  
   enum class eEEI10 : uint32_t {
     eNO_INTERRUPT = 0, // An error on channel 10 does not generate an error interrupt
     eINTERRUPT = 1, // An error on channel 10 generates an error interrupt request
   };
+  
   enum class eEEI11 : uint32_t {
     eNO_INTERRUPT = 0, // An error on channel 11 does not generate an error interrupt
     eINTERRUPT = 1, // An error on channel 11 generates an error interrupt request
   };
+  
   enum class eEEI12 : uint32_t {
     eNO_INTERRUPT = 0, // An error on channel 12 does not generate an error interrupt
     eINTERRUPT = 1, // An error on channel 12 generates an error interrupt request
   };
+  
   enum class eEEI13 : uint32_t {
     eNO_INTERRUPT = 0, // An error on channel 13 does not generate an error interrupt
     eINTERRUPT = 1, // An error on channel 13 generates an error interrupt request
   };
+  
   enum class eEEI14 : uint32_t {
     eNO_INTERRUPT = 0, // An error on channel 14 does not generate an error interrupt
     eINTERRUPT = 1, // An error on channel 14 generates an error interrupt request
   };
+  
   enum class eEEI15 : uint32_t {
     eNO_INTERRUPT = 0, // An error on channel 15 does not generate an error interrupt
     eINTERRUPT = 1, // An error on channel 15 generates an error interrupt request
   };
+  
   enum class eEEI16 : uint32_t {
     eNO_INTERRUPT = 0, // An error on channel 16 does not generate an error interrupt
     eINTERRUPT = 1, // An error on channel 16 generates an error interrupt request
   };
+  
   enum class eEEI17 : uint32_t {
     eNO_INTERRUPT = 0, // An error on channel 17 does not generate an error interrupt
     eINTERRUPT = 1, // An error on channel 17 generates an error interrupt request
   };
+  
   enum class eEEI18 : uint32_t {
     eNO_INTERRUPT = 0, // An error on channel 18 does not generate an error interrupt
     eINTERRUPT = 1, // An error on channel 18 generates an error interrupt request
   };
+  
   enum class eEEI19 : uint32_t {
     eNO_INTERRUPT = 0, // An error on channel 19 does not generate an error interrupt
     eINTERRUPT = 1, // An error on channel 19 generates an error interrupt request
   };
+  
   enum class eEEI20 : uint32_t {
     eNO_INTERRUPT = 0, // An error on channel 20 does not generate an error interrupt
     eINTERRUPT = 1, // An error on channel 20 generates an error interrupt request
   };
+  
   enum class eEEI21 : uint32_t {
     eNO_INTERRUPT = 0, // An error on channel 21 does not generate an error interrupt
     eINTERRUPT = 1, // An error on channel 21 generates an error interrupt request
   };
+  
   enum class eEEI22 : uint32_t {
     eNO_INTERRUPT = 0, // An error on channel 22 does not generate an error interrupt
     eINTERRUPT = 1, // An error on channel 22 generates an error interrupt request
   };
+  
   enum class eEEI23 : uint32_t {
     eNO_INTERRUPT = 0, // An error on channel 23 does not generate an error interrupt
     eINTERRUPT = 1, // An error on channel 23 generates an error interrupt request
   };
+  
   enum class eEEI24 : uint32_t {
     eNO_INTERRUPT = 0, // An error on channel 24 does not generate an error interrupt
     eINTERRUPT = 1, // An error on channel 24 generates an error interrupt request
   };
+  
   enum class eEEI25 : uint32_t {
     eNO_INTERRUPT = 0, // An error on channel 25 does not generate an error interrupt
     eINTERRUPT = 1, // An error on channel 25 generates an error interrupt request
   };
+  
   enum class eEEI26 : uint32_t {
     eNO_INTERRUPT = 0, // An error on channel 26 does not generate an error interrupt
     eINTERRUPT = 1, // An error on channel 26 generates an error interrupt request
   };
+  
   enum class eEEI27 : uint32_t {
     eNO_INTERRUPT = 0, // An error on channel 27 does not generate an error interrupt
     eINTERRUPT = 1, // An error on channel 27 generates an error interrupt request
   };
+  
   enum class eEEI28 : uint32_t {
     eNO_INTERRUPT = 0, // An error on channel 28 does not generate an error interrupt
     eINTERRUPT = 1, // An error on channel 28 generates an error interrupt request
   };
+  
   enum class eEEI29 : uint32_t {
     eNO_INTERRUPT = 0, // An error on channel 29 does not generate an error interrupt
     eINTERRUPT = 1, // An error on channel 29 generates an error interrupt request
   };
+  
   enum class eEEI30 : uint32_t {
     eNO_INTERRUPT = 0, // An error on channel 30 does not generate an error interrupt
     eINTERRUPT = 1, // An error on channel 30 generates an error interrupt request
   };
+  
   enum class eEEI31 : uint32_t {
     eNO_INTERRUPT = 0, // An error on channel 31 does not generate an error interrupt
     eINTERRUPT = 1, // An error on channel 31 generates an error interrupt request
@@ -513,7 +591,7 @@ union EEI {
     eEEI29 EEI29 : 1;
     eEEI30 EEI30 : 1;
     eEEI31 EEI31 : 1;
-  } bits;          // Bit-field struct (auto-filling reserved gaps)
+  } bits;
   
   // Full 32-bit register value.
   uint32_t value;
@@ -527,11 +605,11 @@ union EEI {
 //
 union CEEI {
   
-  // Enum definitions.
   enum class eCAEE : uint32_t {
     eCLEAR_EEI = 0, // Write 0 only to the EEI field specified in the CEEI field
     eCLEAR_ALL = 1, // Write 0 to all fields in EEI
   };
+  
   enum class eNOP : uint32_t {
     eNORMAL_OPS = 0, // Normal operation
     eNO_OPS = 1, // No operation, ignore the other fields in this register
@@ -544,7 +622,7 @@ union CEEI {
     eCAEE CAEE : 1;
     eNOP NOP : 1;
     uint32_t _reserved_end : 24;
-  } bits;          // Bit-field struct (auto-filling reserved gaps)
+  } bits;
   
   // Full 32-bit register value.
   uint32_t value;
@@ -558,11 +636,11 @@ union CEEI {
 //
 union SEEI {
   
-  // Enum definitions.
   enum class eSAEE : uint32_t {
     eSET_EEI = 0, // Write 1 only to the EEI field specified in the SEEI field
     eSET_ALL = 1, // Writes 1 to all fields in EEI
   };
+  
   enum class eNOP : uint32_t {
     eNORMAL_OPS = 0, // Normal operation
     eNO_OPS = 1, // No operation, ignore the other fields in this register
@@ -575,7 +653,7 @@ union SEEI {
     eSAEE SAEE : 1;
     eNOP NOP : 1;
     uint32_t _reserved_end : 24;
-  } bits;          // Bit-field struct (auto-filling reserved gaps)
+  } bits;
   
   // Full 32-bit register value.
   uint32_t value;
@@ -589,11 +667,11 @@ union SEEI {
 //
 union CERQ {
   
-  // Enum definitions.
   enum class eCAER : uint32_t {
     eCLEAR_ERQ = 0, // Write 0 to only the ERQ field specified in the CERQ field
     eCLEAR_ALL = 1, // Write 0 to all fields in ERQ
   };
+  
   enum class eNOP : uint32_t {
     eNORMAL_OPS = 0, // Normal operation
     eNO_OPS = 1, // No operation, ignore the other fields in this register
@@ -606,7 +684,7 @@ union CERQ {
     eCAER CAER : 1;
     eNOP NOP : 1;
     uint32_t _reserved_end : 24;
-  } bits;          // Bit-field struct (auto-filling reserved gaps)
+  } bits;
   
   // Full 32-bit register value.
   uint32_t value;
@@ -620,11 +698,11 @@ union CERQ {
 //
 union SERQ {
   
-  // Enum definitions.
   enum class eSAER : uint32_t {
     eSET_ERQ = 0, // Write 1 to only the ERQ field specified in the SERQ field
     eSET_ALL = 1, // Write 1 to all fields in ERQ
   };
+  
   enum class eNOP : uint32_t {
     eNORMAL_OPS = 0, // Normal operation
     eNO_OPS = 1, // No operation, ignore the other fields in this register
@@ -637,7 +715,7 @@ union SERQ {
     eSAER SAER : 1;
     eNOP NOP : 1;
     uint32_t _reserved_end : 24;
-  } bits;          // Bit-field struct (auto-filling reserved gaps)
+  } bits;
   
   // Full 32-bit register value.
   uint32_t value;
@@ -651,11 +729,11 @@ union SERQ {
 //
 union CDNE {
   
-  // Enum definitions.
   enum class eCADN : uint32_t {
     eCLEAR_DONE = 0, // Writes 0 to only the TCDn_CSR[DONE] field specified in the CDNE field
     eCLEAR_ALL = 1, // Writes 0 to all bits in TCDn_CSR[DONE]
   };
+  
   enum class eNOP : uint32_t {
     eNORMAL_OPS = 0, // Normal operation
     eNO_OPS = 1, // No operation; all other fields in this register are ignored.
@@ -668,7 +746,7 @@ union CDNE {
     eCADN CADN : 1;
     eNOP NOP : 1;
     uint32_t _reserved_end : 24;
-  } bits;          // Bit-field struct (auto-filling reserved gaps)
+  } bits;
   
   // Full 32-bit register value.
   uint32_t value;
@@ -682,11 +760,11 @@ union CDNE {
 //
 union SSRT {
   
-  // Enum definitions.
   enum class eSAST : uint32_t {
     eSET_START = 0, // Write 1 to only the TCDn_CSR[START] field specified in the SSRT field
     eSET_ALL = 1, // Write 1 to all bits in TCDn_CSR[START]
   };
+  
   enum class eNOP : uint32_t {
     eNORMAL_OPS = 0, // Normal operation
     eNO_OPS = 1, // No operation; all other fields in this register are ignored.
@@ -699,7 +777,7 @@ union SSRT {
     eSAST SAST : 1;
     eNOP NOP : 1;
     uint32_t _reserved_end : 24;
-  } bits;          // Bit-field struct (auto-filling reserved gaps)
+  } bits;
   
   // Full 32-bit register value.
   uint32_t value;
@@ -713,11 +791,11 @@ union SSRT {
 //
 union CERR {
   
-  // Enum definitions.
   enum class eCAEI : uint32_t {
     eCLEAR_ERR = 0, // Write 0 to only the ERR field specified in the CERR field
     eCLEAR_ALL = 1, // Write 0 to all fields in ERR
   };
+  
   enum class eNOP : uint32_t {
     eNORMAL_OPS = 0, // Normal operation
     eNO_OPS = 1, // No operation; all other fields in this register are ignored.
@@ -730,7 +808,7 @@ union CERR {
     eCAEI CAEI : 1;
     eNOP NOP : 1;
     uint32_t _reserved_end : 24;
-  } bits;          // Bit-field struct (auto-filling reserved gaps)
+  } bits;
   
   // Full 32-bit register value.
   uint32_t value;
@@ -744,11 +822,11 @@ union CERR {
 //
 union CINT {
   
-  // Enum definitions.
   enum class eCAIR : uint32_t {
     eCLEAR_INT = 0, // Clear only the INT field specified in the CINT field
     eCLEAR_ALL = 1, // Clear all bits in INT
   };
+  
   enum class eNOP : uint32_t {
     eNORMAL_OPS = 0, // Normal operation
     eNO_OPS = 1, // No operation; all other fields in this register are ignored.
@@ -761,7 +839,7 @@ union CINT {
     eCAIR CAIR : 1;
     eNOP NOP : 1;
     uint32_t _reserved_end : 24;
-  } bits;          // Bit-field struct (auto-filling reserved gaps)
+  } bits;
   
   // Full 32-bit register value.
   uint32_t value;
@@ -775,131 +853,161 @@ union CINT {
 //
 union INT {
   
-  // Enum definitions.
   enum class eINT0 : uint32_t {
     eNOT_ACTIVE = 0, // The interrupt request for channel 0 is cleared
     eACTIVE = 1, // The interrupt request for channel 0 is active
   };
+  
   enum class eINT1 : uint32_t {
     eNOT_ACTIVE = 0, // The interrupt request for channel 1 is cleared
     eACTIVE = 1, // The interrupt request for channel 1 is active
   };
+  
   enum class eINT2 : uint32_t {
     eNOT_ACTIVE = 0, // The interrupt request for channel 2 is cleared
     eACTIVE = 1, // The interrupt request for channel 2 is active
   };
+  
   enum class eINT3 : uint32_t {
     eNOT_ACTIVE = 0, // The interrupt request for channel 3 is cleared
     eACTIVE = 1, // The interrupt request for channel 3 is active
   };
+  
   enum class eINT4 : uint32_t {
     eNOT_ACTIVE = 0, // The interrupt request for channel 4 is cleared
     eACTIVE = 1, // The interrupt request for channel 4 is active
   };
+  
   enum class eINT5 : uint32_t {
     eNOT_ACTIVE = 0, // The interrupt request for channel 5 is cleared
     eACTIVE = 1, // The interrupt request for channel 5 is active
   };
+  
   enum class eINT6 : uint32_t {
     eNOT_ACTIVE = 0, // The interrupt request for channel 6 is cleared
     eCTIVE = 1, // The interrupt request for channel 6 is active
   };
+  
   enum class eINT7 : uint32_t {
     eNOT_ACTIVE = 0, // The interrupt request for channel 7 is cleared
     eACTIVE = 1, // The interrupt request for channel 7 is active
   };
+  
   enum class eINT8 : uint32_t {
     eNOT_ACTIVE = 0, // The interrupt request for channel 8 is cleared
     eACTIVE = 1, // The interrupt request for channel 8 is active
   };
+  
   enum class eINT9 : uint32_t {
     eNOT_ACTIVE = 0, // The interrupt request for channel 9 is cleared
     eACTIVE = 1, // The interrupt request for channel 9 is active
   };
+  
   enum class eINT10 : uint32_t {
     eNOT_ACTIVE = 0, // The interrupt request for channel 10 is cleared
     eACTIVE = 1, // The interrupt request for channel 10 is active
   };
+  
   enum class eINT11 : uint32_t {
     eNOT_ACTIVE = 0, // The interrupt request for channel 11 is cleared
     eACTIVE = 1, // The interrupt request for channel 11 is active
   };
+  
   enum class eINT12 : uint32_t {
     eNOT_ACTIVE = 0, // The interrupt request for channel 12 is cleared
     eACTIVE = 1, // The interrupt request for channel 12 is active
   };
+  
   enum class eINT13 : uint32_t {
     eNOT_ACTIVE = 0, // The interrupt request for channel 13 is cleared
     eACTIVE = 1, // The interrupt request for channel 13 is active
   };
+  
   enum class eINT14 : uint32_t {
     eNOT_ACTIVE = 0, // The interrupt request for channel 14 is cleared
     eACTIVE = 1, // The interrupt request for channel 14 is active
   };
+  
   enum class eINT15 : uint32_t {
     eNOT_ACTIVE = 0, // The interrupt request for channel 15 is cleared
     eACTIVE = 1, // The interrupt request for channel 15 is active
   };
+  
   enum class eINT16 : uint32_t {
     eNOT_ACTIVE = 0, // The interrupt request for channel 16 is cleared
     eACTIVE = 1, // The interrupt request for channel 16 is active
   };
+  
   enum class eINT17 : uint32_t {
     eNOT_ACTIVE = 0, // The interrupt request for channel 17 is cleared
     eACTIVE = 1, // The interrupt request for channel 17 is active
   };
+  
   enum class eINT18 : uint32_t {
     eNOT_ACTIVE = 0, // The interrupt request for channel 18 is cleared
     eACTIVE = 1, // The interrupt request for channel 18 is active
   };
+  
   enum class eINT19 : uint32_t {
     eNOT_ACTIVE = 0, // The interrupt request for channel 19 is cleared
     eACTIVE = 1, // The interrupt request for channel 19 is active
   };
+  
   enum class eINT20 : uint32_t {
     eNOT_ACTIVE = 0, // The interrupt request for channel 20 is cleared
     eACTIVE = 1, // The interrupt request for channel 20 is active
   };
+  
   enum class eINT21 : uint32_t {
     eNOT_ACTIVE = 0, // The interrupt request for channel 21 is cleared
     eACTIVE = 1, // The interrupt request for channel 21 is active
   };
+  
   enum class eINT22 : uint32_t {
     eNOT_ACTIVE = 0, // The interrupt request for channel 22 is cleared
     eACTIVE = 1, // The interrupt request for channel 22 is active
   };
+  
   enum class eINT23 : uint32_t {
     eNOT_ACTIVE = 0, // The interrupt request for channel 23 is cleared
     eACTIVE = 1, // The interrupt request for channel 23 is active
   };
+  
   enum class eINT24 : uint32_t {
     eNOT_ACTIVE = 0, // The interrupt request for channel 24 is cleared
     eACTIVE = 1, // The interrupt request for channel 24 is active
   };
+  
   enum class eINT25 : uint32_t {
     eNOT_ACTIVE = 0, // The interrupt request for channel 25 is cleared
     eACTIVE = 1, // The interrupt request for channel 25 is active
   };
+  
   enum class eINT26 : uint32_t {
     eNOT_ACTIVE = 0, // The interrupt request for channel 26 is cleared
     eACTIVE = 1, // The interrupt request for channel 26 is active
   };
+  
   enum class eINT27 : uint32_t {
     eNOT_ACTIVE = 0, // The interrupt request for channel 27 is cleared
     eACTIVE = 1, // The interrupt request for channel 27 is active
   };
+  
   enum class eINT28 : uint32_t {
     eNOT_ACTIVE = 0, // The interrupt request for channel 28 is cleared
     eACTIVE = 1, // The interrupt request for channel 28 is active
   };
+  
   enum class eINT29 : uint32_t {
     eNOT_ACTIVE = 0, // The interrupt request for channel 29 is cleared
     eACTIVE = 1, // The interrupt request for channel 29 is active
   };
+  
   enum class eINT30 : uint32_t {
     eNOT_ACTIVE = 0, // The interrupt request for channel 30 is cleared
     eACTIVE = 1, // The interrupt request for channel 30 is active
   };
+  
   enum class eINT31 : uint32_t {
     eNOT_ACTIVE = 0, // The interrupt request for channel 31 is cleared
     eACTIVE = 1, // The interrupt request for channel 31 is active
@@ -939,7 +1047,7 @@ union INT {
     eINT29 INT29 : 1;
     eINT30 INT30 : 1;
     eINT31 INT31 : 1;
-  } bits;          // Bit-field struct (auto-filling reserved gaps)
+  } bits;
   
   // Full 32-bit register value.
   uint32_t value;
@@ -953,131 +1061,161 @@ union INT {
 //
 union ERR {
   
-  // Enum definitions.
   enum class eERR0 : uint32_t {
     eNO_ERR = 0, // No error in this channel has occurred
     eERR = 1, // An error in this channel has occurred
   };
+  
   enum class eERR1 : uint32_t {
     eNO_ERR = 0, // No error in this channel has occurred
     eERR = 1, // An error in this channel has occurred
   };
+  
   enum class eERR2 : uint32_t {
     eNO_ERR = 0, // No error in this channel has occurred
     eERR = 1, // An error in this channel has occurred
   };
+  
   enum class eERR3 : uint32_t {
     eNO_ERR = 0, // No error in this channel has occurred
     eERR = 1, // An error in this channel has occurred
   };
+  
   enum class eERR4 : uint32_t {
     eNO_ERR = 0, // No error in this channel has occurred
     eERR = 1, // An error in this channel has occurred
   };
+  
   enum class eERR5 : uint32_t {
     eNO_ERR = 0, // No error in this channel has occurred
     eERR = 1, // An error in this channel has occurred
   };
+  
   enum class eERR6 : uint32_t {
     eNO_ERR = 0, // No error in this channel has occurred
     eERR = 1, // An error in this channel has occurred
   };
+  
   enum class eERR7 : uint32_t {
     eNO_ERR = 0, // No error in this channel has occurred
     eERR = 1, // An error in this channel has occurred
   };
+  
   enum class eERR8 : uint32_t {
     eNO_ERR = 0, // No error in this channel has occurred
     eERR = 1, // An error in this channel has occurred
   };
+  
   enum class eERR9 : uint32_t {
     eNO_ERR = 0, // No error in this channel has occurred
     eERR = 1, // An error in this channel has occurred
   };
+  
   enum class eERR10 : uint32_t {
     eNO_ERR = 0, // No error in this channel has occurred
     eERR = 1, // An error in this channel has occurred
   };
+  
   enum class eERR11 : uint32_t {
     eNO_ERR = 0, // No error in this channel has occurred
     eERR = 1, // An error in this channel has occurred
   };
+  
   enum class eERR12 : uint32_t {
     eNO_ERR = 0, // No error in this channel has occurred
     eERR = 1, // An error in this channel has occurred
   };
+  
   enum class eERR13 : uint32_t {
     eNO_ERR = 0, // No error in this channel has occurred
     eERR = 1, // An error in this channel has occurred
   };
+  
   enum class eERR14 : uint32_t {
     eNO_ERR = 0, // No error in this channel has occurred
     eERR = 1, // An error in this channel has occurred
   };
+  
   enum class eERR15 : uint32_t {
     eNO_ERR = 0, // No error in this channel has occurred
     eERR = 1, // An error in this channel has occurred
   };
+  
   enum class eERR16 : uint32_t {
     eNO_ERR = 0, // No error in this channel has occurred
     eERR = 1, // An error in this channel has occurred
   };
+  
   enum class eERR17 : uint32_t {
     eNO_ERR = 0, // No error in this channel has occurred
     eERR = 1, // An error in this channel has occurred
   };
+  
   enum class eERR18 : uint32_t {
     eNO_ERR = 0, // No error in this channel has occurred
     eERR = 1, // An error in this channel has occurred
   };
+  
   enum class eERR19 : uint32_t {
     eNO_ERR = 0, // No error in this channel has occurred
     eERR = 1, // An error in this channel has occurred
   };
+  
   enum class eERR20 : uint32_t {
     eNO_ERR = 0, // No error in this channel has occurred
     eERR = 1, // An error in this channel has occurred
   };
+  
   enum class eERR21 : uint32_t {
     eNO_ERR = 0, // No error in this channel has occurred
     eERR = 1, // An error in this channel has occurred
   };
+  
   enum class eERR22 : uint32_t {
     eNO_ERR = 0, // No error in this channel has occurred
     eERR = 1, // An error in this channel has occurred
   };
+  
   enum class eERR23 : uint32_t {
     eNO_ERR = 0, // No error in this channel has occurred
     eERR = 1, // An error in this channel has occurred
   };
+  
   enum class eERR24 : uint32_t {
     eNO_ERR = 0, // No error in this channel has occurred
     eERR = 1, // An error in this channel has occurred
   };
+  
   enum class eERR25 : uint32_t {
     eNO_ERR = 0, // No error in this channel has occurred
     eERR = 1, // An error in this channel has occurred
   };
+  
   enum class eERR26 : uint32_t {
     eNO_ERR = 0, // No error in this channel has occurred
     eERR = 1, // An error in this channel has occurred
   };
+  
   enum class eERR27 : uint32_t {
     eNO_ERR = 0, // No error in this channel has occurred
     eERR = 1, // An error in this channel has occurred
   };
+  
   enum class eERR28 : uint32_t {
     eNO_ERR = 0, // No error in this channel has occurred
     eERR = 1, // An error in this channel has occurred
   };
+  
   enum class eERR29 : uint32_t {
     eNO_ERR = 0, // No error in this channel has occurred
     eERR = 1, // An error in this channel has occurred
   };
+  
   enum class eERR30 : uint32_t {
     eNO_ERR = 0, // No error in this channel has occurred
     eERR = 1, // An error in this channel has occurred
   };
+  
   enum class eERR31 : uint32_t {
     eNO_ERR = 0, // No error in this channel has occurred
     eERR = 1, // An error in this channel has occurred
@@ -1117,7 +1255,7 @@ union ERR {
     eERR29 ERR29 : 1;
     eERR30 ERR30 : 1;
     eERR31 ERR31 : 1;
-  } bits;          // Bit-field struct (auto-filling reserved gaps)
+  } bits;
   
   // Full 32-bit register value.
   uint32_t value;
@@ -1131,131 +1269,161 @@ union ERR {
 //
 union HRS {
   
-  // Enum definitions.
   enum class eHRS0 : uint32_t {
     eNO_HWRQST = 0, // A hardware service request for channel 0 is not present
     eHWRQST = 1, // A hardware service request for channel 0 is present
   };
+  
   enum class eHRS1 : uint32_t {
     eNO_HWRQST = 0, // A hardware service request for channel 1 is not present
     eHWRQST = 1, // A hardware service request for channel 1 is present
   };
+  
   enum class eHRS2 : uint32_t {
     eNO_HWRQST = 0, // A hardware service request for channel 2 is not present
     eHWRQST = 1, // A hardware service request for channel 2 is present
   };
+  
   enum class eHRS3 : uint32_t {
     eNO_HWRQST = 0, // A hardware service request for channel 3 is not present
     eHWRQST = 1, // A hardware service request for channel 3 is present
   };
+  
   enum class eHRS4 : uint32_t {
     eNO_HWRQST = 0, // A hardware service request for channel 4 is not present
     eHWRQST = 1, // A hardware service request for channel 4 is present
   };
+  
   enum class eHRS5 : uint32_t {
     eNO_HWRQST = 0, // A hardware service request for channel 5 is not present
     eHWRQST = 1, // A hardware service request for channel 5 is present
   };
+  
   enum class eHRS6 : uint32_t {
     eNO_HWRQST = 0, // A hardware service request for channel 6 is not present
     eHWRQST = 1, // A hardware service request for channel 6 is present
   };
+  
   enum class eHRS7 : uint32_t {
     eNO_HWRQST = 0, // A hardware service request for channel 7 is not present
     eHWRQST = 1, // A hardware service request for channel 7 is present
   };
+  
   enum class eHRS8 : uint32_t {
     eNO_HWRQST = 0, // A hardware service request for channel 8 is not present
     eHWRQST = 1, // A hardware service request for channel 8 is present
   };
+  
   enum class eHRS9 : uint32_t {
     eNO_HWRQST = 0, // A hardware service request for channel 9 is not present
     eHWRQST = 1, // A hardware service request for channel 9 is present
   };
+  
   enum class eHRS10 : uint32_t {
     eNO_HWRQST = 0, // A hardware service request for channel 10 is not present
     eHWRQST = 1, // A hardware service request for channel 10 is present
   };
+  
   enum class eHRS11 : uint32_t {
     eNO_HWRQST = 0, // A hardware service request for channel 11 is not present
     eHWRQST = 1, // A hardware service request for channel 11 is present
   };
+  
   enum class eHRS12 : uint32_t {
     eNO_HWRQST = 0, // A hardware service request for channel 12 is not present
     eHWRQST = 1, // A hardware service request for channel 12 is present
   };
+  
   enum class eHRS13 : uint32_t {
     eNO_HWRQST = 0, // A hardware service request for channel 13 is not present
     eHWRQST = 1, // A hardware service request for channel 13 is present
   };
+  
   enum class eHRS14 : uint32_t {
     eNO_HWRQST = 0, // A hardware service request for channel 14 is not present
     eHWRQST = 1, // A hardware service request for channel 14 is present
   };
+  
   enum class eHRS15 : uint32_t {
     eNO_HWRQST = 0, // A hardware service request for channel 15 is not present
     eHWRQST = 1, // A hardware service request for channel 15 is present
   };
+  
   enum class eHRS16 : uint32_t {
     eNO_HWRQST = 0, // A hardware service request for channel 16 is not present
     eHWRQST = 1, // A hardware service request for channel 16 is present
   };
+  
   enum class eHRS17 : uint32_t {
     eNO_HWRQST = 0, // A hardware service request for channel 17 is not present
     eHWRQST = 1, // A hardware service request for channel 17 is present
   };
+  
   enum class eHRS18 : uint32_t {
     eNO_HWRQST = 0, // A hardware service request for channel 18 is not present
     eHWRQST = 1, // A hardware service request for channel 18 is present
   };
+  
   enum class eHRS19 : uint32_t {
     eNO_HWRQST = 0, // A hardware service request for channel 19 is not present
     eHWRQST = 1, // A hardware service request for channel 19 is present
   };
+  
   enum class eHRS20 : uint32_t {
     eNO_HWRQST = 0, // A hardware service request for channel 20 is not present
     eHWRQST = 1, // A hardware service request for channel 20 is present
   };
+  
   enum class eHRS21 : uint32_t {
     eNO_HWRQST = 0, // A hardware service request for channel 21 is not present
     eHWRQST = 1, // A hardware service request for channel 21 is present
   };
+  
   enum class eHRS22 : uint32_t {
     eNO_HWRQST = 0, // A hardware service request for channel 22 is not present
     eHWRQST = 1, // A hardware service request for channel 22 is present
   };
+  
   enum class eHRS23 : uint32_t {
     eNO_HWRQST = 0, // A hardware service request for channel 23 is not present
     eHWRQST = 1, // A hardware service request for channel 23 is present
   };
+  
   enum class eHRS24 : uint32_t {
     eNO_HWRQST = 0, // A hardware service request for channel 24 is not present
     eHWRQST = 1, // A hardware service request for channel 24 is present
   };
+  
   enum class eHRS25 : uint32_t {
     eNO_HWRQST = 0, // A hardware service request for channel 25 is not present
     eHWRQST = 1, // A hardware service request for channel 25 is present
   };
+  
   enum class eHRS26 : uint32_t {
     eNO_HWRQST = 0, // A hardware service request for channel 26 is not present
     eHWRQST = 1, // A hardware service request for channel 26 is present
   };
+  
   enum class eHRS27 : uint32_t {
     eNO_HWRQST = 0, // A hardware service request for channel 27 is not present
     eHWRQST = 1, // A hardware service request for channel 27 is present
   };
+  
   enum class eHRS28 : uint32_t {
     eNO_HWRQST = 0, // A hardware service request for channel 28 is not present
     eHWRQST = 1, // A hardware service request for channel 28 is present
   };
+  
   enum class eHRS29 : uint32_t {
     eNO_HWRQST = 0, // A hardware service request for channel 29 is not preset
     eHWRQST = 1, // A hardware service request for channel 29 is present
   };
+  
   enum class eHRS30 : uint32_t {
     eNO_HWRQST = 0, // A hardware service request for channel 30 is not present
     eHWRQST = 1, // A hardware service request for channel 30 is present
   };
+  
   enum class eHRS31 : uint32_t {
     eNO_HWRQST = 0, // A hardware service request for channel 31 is not present
     eHWRQST = 1, // A hardware service request for channel 31 is present
@@ -1295,7 +1463,7 @@ union HRS {
     eHRS29 HRS29 : 1;
     eHRS30 HRS30 : 1;
     eHRS31 HRS31 : 1;
-  } bits;          // Bit-field struct (auto-filling reserved gaps)
+  } bits;
   
   // Full 32-bit register value.
   uint32_t value;
@@ -1309,131 +1477,161 @@ union HRS {
 //
 union EARS {
   
-  // Enum definitions.
   enum class eEDREQ_0 : uint32_t {
     eDISABLE = 0, // Disable asynchronous DMA request for channel 0
     eENABLE = 1, // Enable asynchronous DMA request for channel 0
   };
+  
   enum class eEDREQ_1 : uint32_t {
     eDISABLE = 0, // Disable asynchronous DMA request for channel 1
     eENABLE = 1, // Enable asynchronous DMA request for channel 1
   };
+  
   enum class eEDREQ_2 : uint32_t {
     eDISABLE = 0, // Disable asynchronous DMA request for channel 2
     eENABLE = 1, // Enable asynchronous DMA request for channel 2
   };
+  
   enum class eEDREQ_3 : uint32_t {
     eDISABLE = 0, // Disable asynchronous DMA request for channel 3
     eENABLE = 1, // Enable asynchronous DMA request for channel 3
   };
+  
   enum class eEDREQ_4 : uint32_t {
     eDISABLE = 0, // Disable asynchronous DMA request for channel 4
     eENABLE = 1, // Enable asynchronous DMA request for channel 4
   };
+  
   enum class eEDREQ_5 : uint32_t {
     eDISABLE = 0, // Disable asynchronous DMA request for channel 5
     eENABLE = 1, // Enable asynchronous DMA request for channel 5
   };
+  
   enum class eEDREQ_6 : uint32_t {
     eDISABLE = 0, // Disable asynchronous DMA request for channel 6
     eENABLE = 1, // Enable asynchronous DMA request for channel 6
   };
+  
   enum class eEDREQ_7 : uint32_t {
     eDISABLE = 0, // Disable asynchronous DMA request for channel 7
     eENABLE = 1, // Enable asynchronous DMA request for channel 7
   };
+  
   enum class eEDREQ_8 : uint32_t {
     eDISABLE = 0, // Disable asynchronous DMA request for channel 8
     eENABLE = 1, // Enable asynchronous DMA request for channel 8
   };
+  
   enum class eEDREQ_9 : uint32_t {
     eDISABLE = 0, // Disable asynchronous DMA request for channel 9
     eENABLE = 1, // Enable asynchronous DMA request for channel 9
   };
+  
   enum class eEDREQ_10 : uint32_t {
     eDISABLE = 0, // Disable asynchronous DMA request for channel 10
     eENABLE = 1, // Enable asynchronous DMA request for channel 10
   };
+  
   enum class eEDREQ_11 : uint32_t {
     eDISABLE = 0, // Disable asynchronous DMA request for channel 11
     eENABLE = 1, // Enable asynchronous DMA request for channel 11
   };
+  
   enum class eEDREQ_12 : uint32_t {
     eDISABLE = 0, // Disable asynchronous DMA request for channel 12
     eENABLE = 1, // Enable asynchronous DMA request for channel 12
   };
+  
   enum class eEDREQ_13 : uint32_t {
     eDISABLE = 0, // Disable asynchronous DMA request for channel 13
     eENABLE = 1, // Enable asynchronous DMA request for channel 13
   };
+  
   enum class eEDREQ_14 : uint32_t {
     eDISABLE = 0, // Disable asynchronous DMA request for channel 14
     eENABLE = 1, // Enable asynchronous DMA request for channel 14
   };
+  
   enum class eEDREQ_15 : uint32_t {
     eDISABLE = 0, // Disable asynchronous DMA request for channel 15
     eENABLE = 1, // Enable asynchronous DMA request for channel 15
   };
+  
   enum class eEDREQ_16 : uint32_t {
     eDISABLE = 0, // Disable asynchronous DMA request for channel 16
     eENABLE = 1, // Enable asynchronous DMA request for channel 16
   };
+  
   enum class eEDREQ_17 : uint32_t {
     eDISABLE = 0, // Disable asynchronous DMA request for channel 17
     eENABLE = 1, // Enable asynchronous DMA request for channel 17
   };
+  
   enum class eEDREQ_18 : uint32_t {
     eDISABLE = 0, // Disable asynchronous DMA request for channel 18
     eENABLE = 1, // Enable asynchronous DMA request for channel 18
   };
+  
   enum class eEDREQ_19 : uint32_t {
     eDISABLE = 0, // Disable asynchronous DMA request for channel 19
     eENABLE = 1, // Enable asynchronous DMA request for channel 19
   };
+  
   enum class eEDREQ_20 : uint32_t {
     eDISABLE = 0, // Disable asynchronous DMA request for channel 20
     eENABLE = 1, // Enable asynchronous DMA request for channel 20
   };
+  
   enum class eEDREQ_21 : uint32_t {
     eDISABLE = 0, // Disable asynchronous DMA request for channel 21
     eENABLE = 1, // Enable asynchronous DMA request for channel 21
   };
+  
   enum class eEDREQ_22 : uint32_t {
     eDISABLE = 0, // Disable asynchronous DMA request for channel 22
     eENABLE = 1, // Enable asynchronous DMA request for channel 22
   };
+  
   enum class eEDREQ_23 : uint32_t {
     eDISABLE = 0, // Disable asynchronous DMA request for channel 23
     eENABLE = 1, // Enable asynchronous DMA request for channel 23
   };
+  
   enum class eEDREQ_24 : uint32_t {
     eDISABLE = 0, // Disable asynchronous DMA request for channel 24
     eENABLE = 1, // Enable asynchronous DMA request for channel 24
   };
+  
   enum class eEDREQ_25 : uint32_t {
     eDISABLE = 0, // Disable asynchronous DMA request for channel 25
     eENABLE = 1, // Enable asynchronous DMA request for channel 25
   };
+  
   enum class eEDREQ_26 : uint32_t {
     eDISABLE = 0, // Disable asynchronous DMA request for channel 26
     eENABLE = 1, // Enable asynchronous DMA request for channel 26
   };
+  
   enum class eEDREQ_27 : uint32_t {
     eDISABLE = 0, // Disable asynchronous DMA request for channel 27
     eENABLE = 1, // Enable asynchronous DMA request for channel 27
   };
+  
   enum class eEDREQ_28 : uint32_t {
     eDISABLE = 0, // Disable asynchronous DMA request for channel 28
     eENABLE = 1, // Enable asynchronous DMA request for channel 28
   };
+  
   enum class eEDREQ_29 : uint32_t {
     eDISABLE = 0, // Disable asynchronous DMA request for channel 29
     eENABLE = 1, // Enable asynchronous DMA request for channel 29
   };
+  
   enum class eEDREQ_30 : uint32_t {
     eDISABLE = 0, // Disable asynchronous DMA request for channel 30
     eENABLE = 1, // Enable asynchronous DMA request for channel 30
   };
+  
   enum class eEDREQ_31 : uint32_t {
     eDISABLE = 0, // Disable asynchronous DMA request for channel 31
     eENABLE = 1, // Enable asynchronous DMA request for channel 31
@@ -1473,7 +1671,7 @@ union EARS {
     eEDREQ_29 EDREQ_29 : 1;
     eEDREQ_30 EDREQ_30 : 1;
     eEDREQ_31 EDREQ_31 : 1;
-  } bits;          // Bit-field struct (auto-filling reserved gaps)
+  } bits;
   
   // Full 32-bit register value.
   uint32_t value;
@@ -1487,11 +1685,11 @@ union EARS {
 //
 union DCHPRI3 {
   
-  // Enum definitions.
   enum class eDPA : uint32_t {
     eENABLED = 0, // Channel n can suspend a lower priority channel
     eDISABLED = 1, // Channel n cannot suspend any channel, regardless of channel priority
   };
+  
   enum class eECP : uint32_t {
     eDISABLED = 0, // Channel n cannot be suspended by a higher priority channel's service request
     eENABLED = 1, // Channel n can be temporarily suspended by the service request of a higher priority channel
@@ -1504,7 +1702,7 @@ union DCHPRI3 {
     eDPA DPA : 1;
     eECP ECP : 1;
     uint32_t _reserved_end : 24;
-  } bits;          // Bit-field struct (auto-filling reserved gaps)
+  } bits;
   
   // Full 32-bit register value.
   uint32_t value;
@@ -1518,11 +1716,11 @@ union DCHPRI3 {
 //
 union DCHPRI2 {
   
-  // Enum definitions.
   enum class eDPA : uint32_t {
     eENABLED = 0, // Channel n can suspend a lower priority channel
     eDISABLED = 1, // Channel n cannot suspend any channel, regardless of channel priority
   };
+  
   enum class eECP : uint32_t {
     eDISABLED = 0, // Channel n cannot be suspended by a higher priority channel's service request
     eENABLED = 1, // Channel n can be temporarily suspended by the service request of a higher priority channel
@@ -1535,7 +1733,7 @@ union DCHPRI2 {
     eDPA DPA : 1;
     eECP ECP : 1;
     uint32_t _reserved_end : 24;
-  } bits;          // Bit-field struct (auto-filling reserved gaps)
+  } bits;
   
   // Full 32-bit register value.
   uint32_t value;
@@ -1549,11 +1747,11 @@ union DCHPRI2 {
 //
 union DCHPRI1 {
   
-  // Enum definitions.
   enum class eDPA : uint32_t {
     eENABLED = 0, // Channel n can suspend a lower priority channel
     eDISABLED = 1, // Channel n cannot suspend any channel, regardless of channel priority
   };
+  
   enum class eECP : uint32_t {
     eDISABLED = 0, // Channel n cannot be suspended by a higher priority channel's service request
     eENABLED = 1, // Channel n can be temporarily suspended by the service request of a higher priority channel
@@ -1566,7 +1764,7 @@ union DCHPRI1 {
     eDPA DPA : 1;
     eECP ECP : 1;
     uint32_t _reserved_end : 24;
-  } bits;          // Bit-field struct (auto-filling reserved gaps)
+  } bits;
   
   // Full 32-bit register value.
   uint32_t value;
@@ -1580,11 +1778,11 @@ union DCHPRI1 {
 //
 union DCHPRI0 {
   
-  // Enum definitions.
   enum class eDPA : uint32_t {
     eENABLED = 0, // Channel n can suspend a lower priority channel
     eDISABLED = 1, // Channel n cannot suspend any channel, regardless of channel priority
   };
+  
   enum class eECP : uint32_t {
     eDISABLED = 0, // Channel n cannot be suspended by a higher priority channel's service request
     eENABLED = 1, // Channel n can be temporarily suspended by the service request of a higher priority channel
@@ -1597,7 +1795,7 @@ union DCHPRI0 {
     eDPA DPA : 1;
     eECP ECP : 1;
     uint32_t _reserved_end : 24;
-  } bits;          // Bit-field struct (auto-filling reserved gaps)
+  } bits;
   
   // Full 32-bit register value.
   uint32_t value;
@@ -1611,11 +1809,11 @@ union DCHPRI0 {
 //
 union DCHPRI7 {
   
-  // Enum definitions.
   enum class eDPA : uint32_t {
     eENABLED = 0, // Channel n can suspend a lower priority channel
     eDISABLED = 1, // Channel n cannot suspend any channel, regardless of channel priority
   };
+  
   enum class eECP : uint32_t {
     eDISABLED = 0, // Channel n cannot be suspended by a higher priority channel's service request
     eENABLED = 1, // Channel n can be temporarily suspended by the service request of a higher priority channel
@@ -1628,7 +1826,7 @@ union DCHPRI7 {
     eDPA DPA : 1;
     eECP ECP : 1;
     uint32_t _reserved_end : 24;
-  } bits;          // Bit-field struct (auto-filling reserved gaps)
+  } bits;
   
   // Full 32-bit register value.
   uint32_t value;
@@ -1642,11 +1840,11 @@ union DCHPRI7 {
 //
 union DCHPRI6 {
   
-  // Enum definitions.
   enum class eDPA : uint32_t {
     eENABLED = 0, // Channel n can suspend a lower priority channel
     eDISABLED = 1, // Channel n cannot suspend any channel, regardless of channel priority
   };
+  
   enum class eECP : uint32_t {
     eDISABLED = 0, // Channel n cannot be suspended by a higher priority channel's service request
     eENABLED = 1, // Channel n can be temporarily suspended by the service request of a higher priority channel
@@ -1659,7 +1857,7 @@ union DCHPRI6 {
     eDPA DPA : 1;
     eECP ECP : 1;
     uint32_t _reserved_end : 24;
-  } bits;          // Bit-field struct (auto-filling reserved gaps)
+  } bits;
   
   // Full 32-bit register value.
   uint32_t value;
@@ -1673,11 +1871,11 @@ union DCHPRI6 {
 //
 union DCHPRI5 {
   
-  // Enum definitions.
   enum class eDPA : uint32_t {
     eENABLED = 0, // Channel n can suspend a lower priority channel
     eDISABLED = 1, // Channel n cannot suspend any channel, regardless of channel priority
   };
+  
   enum class eECP : uint32_t {
     eDISABLED = 0, // Channel n cannot be suspended by a higher priority channel's service request
     eENABLED = 1, // Channel n can be temporarily suspended by the service request of a higher priority channel
@@ -1690,7 +1888,7 @@ union DCHPRI5 {
     eDPA DPA : 1;
     eECP ECP : 1;
     uint32_t _reserved_end : 24;
-  } bits;          // Bit-field struct (auto-filling reserved gaps)
+  } bits;
   
   // Full 32-bit register value.
   uint32_t value;
@@ -1704,11 +1902,11 @@ union DCHPRI5 {
 //
 union DCHPRI4 {
   
-  // Enum definitions.
   enum class eDPA : uint32_t {
     eENABLED = 0, // Channel n can suspend a lower priority channel
     eDISABLED = 1, // Channel n cannot suspend any channel, regardless of channel priority
   };
+  
   enum class eECP : uint32_t {
     eDISABLED = 0, // Channel n cannot be suspended by a higher priority channel's service request
     eENABLED = 1, // Channel n can be temporarily suspended by the service request of a higher priority channel
@@ -1721,7 +1919,7 @@ union DCHPRI4 {
     eDPA DPA : 1;
     eECP ECP : 1;
     uint32_t _reserved_end : 24;
-  } bits;          // Bit-field struct (auto-filling reserved gaps)
+  } bits;
   
   // Full 32-bit register value.
   uint32_t value;
@@ -1735,11 +1933,11 @@ union DCHPRI4 {
 //
 union DCHPRI11 {
   
-  // Enum definitions.
   enum class eDPA : uint32_t {
     eENABLED = 0, // Channel n can suspend a lower priority channel
     eDISABLED = 1, // Channel n cannot suspend any channel, regardless of channel priority
   };
+  
   enum class eECP : uint32_t {
     eDISABLED = 0, // Channel n cannot be suspended by a higher priority channel's service request
     eENABLED = 1, // Channel n can be temporarily suspended by the service request of a higher priority channel
@@ -1752,7 +1950,7 @@ union DCHPRI11 {
     eDPA DPA : 1;
     eECP ECP : 1;
     uint32_t _reserved_end : 24;
-  } bits;          // Bit-field struct (auto-filling reserved gaps)
+  } bits;
   
   // Full 32-bit register value.
   uint32_t value;
@@ -1766,11 +1964,11 @@ union DCHPRI11 {
 //
 union DCHPRI10 {
   
-  // Enum definitions.
   enum class eDPA : uint32_t {
     eENABLED = 0, // Channel n can suspend a lower priority channel
     eDISABLED = 1, // Channel n cannot suspend any channel, regardless of channel priority
   };
+  
   enum class eECP : uint32_t {
     eDISABLED = 0, // Channel n cannot be suspended by a higher priority channel's service request
     eENABLED = 1, // Channel n can be temporarily suspended by the service request of a higher priority channel
@@ -1783,7 +1981,7 @@ union DCHPRI10 {
     eDPA DPA : 1;
     eECP ECP : 1;
     uint32_t _reserved_end : 24;
-  } bits;          // Bit-field struct (auto-filling reserved gaps)
+  } bits;
   
   // Full 32-bit register value.
   uint32_t value;
@@ -1797,11 +1995,11 @@ union DCHPRI10 {
 //
 union DCHPRI9 {
   
-  // Enum definitions.
   enum class eDPA : uint32_t {
     eENABLED = 0, // Channel n can suspend a lower priority channel
     eDISABLED = 1, // Channel n cannot suspend any channel, regardless of channel priority
   };
+  
   enum class eECP : uint32_t {
     eDISABLED = 0, // Channel n cannot be suspended by a higher priority channel's service request
     eENABLED = 1, // Channel n can be temporarily suspended by the service request of a higher priority channel
@@ -1814,7 +2012,7 @@ union DCHPRI9 {
     eDPA DPA : 1;
     eECP ECP : 1;
     uint32_t _reserved_end : 24;
-  } bits;          // Bit-field struct (auto-filling reserved gaps)
+  } bits;
   
   // Full 32-bit register value.
   uint32_t value;
@@ -1828,11 +2026,11 @@ union DCHPRI9 {
 //
 union DCHPRI8 {
   
-  // Enum definitions.
   enum class eDPA : uint32_t {
     eENABLED = 0, // Channel n can suspend a lower priority channel
     eDISABLED = 1, // Channel n cannot suspend any channel, regardless of channel priority
   };
+  
   enum class eECP : uint32_t {
     eDISABLED = 0, // Channel n cannot be suspended by a higher priority channel's service request
     eENABLED = 1, // Channel n can be temporarily suspended by the service request of a higher priority channel
@@ -1845,7 +2043,7 @@ union DCHPRI8 {
     eDPA DPA : 1;
     eECP ECP : 1;
     uint32_t _reserved_end : 24;
-  } bits;          // Bit-field struct (auto-filling reserved gaps)
+  } bits;
   
   // Full 32-bit register value.
   uint32_t value;
@@ -1859,11 +2057,11 @@ union DCHPRI8 {
 //
 union DCHPRI15 {
   
-  // Enum definitions.
   enum class eDPA : uint32_t {
     eENABLED = 0, // Channel n can suspend a lower priority channel
     eDISABLED = 1, // Channel n cannot suspend any channel, regardless of channel priority
   };
+  
   enum class eECP : uint32_t {
     eDISABLED = 0, // Channel n cannot be suspended by a higher priority channel's service request
     eENABLED = 1, // Channel n can be temporarily suspended by the service request of a higher priority channel
@@ -1876,7 +2074,7 @@ union DCHPRI15 {
     eDPA DPA : 1;
     eECP ECP : 1;
     uint32_t _reserved_end : 24;
-  } bits;          // Bit-field struct (auto-filling reserved gaps)
+  } bits;
   
   // Full 32-bit register value.
   uint32_t value;
@@ -1890,11 +2088,11 @@ union DCHPRI15 {
 //
 union DCHPRI14 {
   
-  // Enum definitions.
   enum class eDPA : uint32_t {
     eENABLED = 0, // Channel n can suspend a lower priority channel
     eDISABLED = 1, // Channel n cannot suspend any channel, regardless of channel priority
   };
+  
   enum class eECP : uint32_t {
     eDISABLED = 0, // Channel n cannot be suspended by a higher priority channel's service request
     eENABLED = 1, // Channel n can be temporarily suspended by the service request of a higher priority channel
@@ -1907,7 +2105,7 @@ union DCHPRI14 {
     eDPA DPA : 1;
     eECP ECP : 1;
     uint32_t _reserved_end : 24;
-  } bits;          // Bit-field struct (auto-filling reserved gaps)
+  } bits;
   
   // Full 32-bit register value.
   uint32_t value;
@@ -1921,11 +2119,11 @@ union DCHPRI14 {
 //
 union DCHPRI13 {
   
-  // Enum definitions.
   enum class eDPA : uint32_t {
     eENABLED = 0, // Channel n can suspend a lower priority channel
     eDISABLED = 1, // Channel n cannot suspend any channel, regardless of channel priority
   };
+  
   enum class eECP : uint32_t {
     eDISABLED = 0, // Channel n cannot be suspended by a higher priority channel's service request
     eENABLED = 1, // Channel n can be temporarily suspended by the service request of a higher priority channel
@@ -1938,7 +2136,7 @@ union DCHPRI13 {
     eDPA DPA : 1;
     eECP ECP : 1;
     uint32_t _reserved_end : 24;
-  } bits;          // Bit-field struct (auto-filling reserved gaps)
+  } bits;
   
   // Full 32-bit register value.
   uint32_t value;
@@ -1952,11 +2150,11 @@ union DCHPRI13 {
 //
 union DCHPRI12 {
   
-  // Enum definitions.
   enum class eDPA : uint32_t {
     eENABLED = 0, // Channel n can suspend a lower priority channel
     eDISABLED = 1, // Channel n cannot suspend any channel, regardless of channel priority
   };
+  
   enum class eECP : uint32_t {
     eDISABLED = 0, // Channel n cannot be suspended by a higher priority channel's service request
     eENABLED = 1, // Channel n can be temporarily suspended by the service request of a higher priority channel
@@ -1969,7 +2167,7 @@ union DCHPRI12 {
     eDPA DPA : 1;
     eECP ECP : 1;
     uint32_t _reserved_end : 24;
-  } bits;          // Bit-field struct (auto-filling reserved gaps)
+  } bits;
   
   // Full 32-bit register value.
   uint32_t value;
@@ -1983,11 +2181,11 @@ union DCHPRI12 {
 //
 union DCHPRI19 {
   
-  // Enum definitions.
   enum class eDPA : uint32_t {
     eENABLED = 0, // Channel n can suspend a lower priority channel
     eDISABLED = 1, // Channel n cannot suspend any channel, regardless of channel priority
   };
+  
   enum class eECP : uint32_t {
     eDISABLED = 0, // Channel n cannot be suspended by a higher priority channel's service request
     eENABLED = 1, // Channel n can be temporarily suspended by the service request of a higher priority channel
@@ -2000,7 +2198,7 @@ union DCHPRI19 {
     eDPA DPA : 1;
     eECP ECP : 1;
     uint32_t _reserved_end : 24;
-  } bits;          // Bit-field struct (auto-filling reserved gaps)
+  } bits;
   
   // Full 32-bit register value.
   uint32_t value;
@@ -2014,11 +2212,11 @@ union DCHPRI19 {
 //
 union DCHPRI18 {
   
-  // Enum definitions.
   enum class eDPA : uint32_t {
     eENABLED = 0, // Channel n can suspend a lower priority channel
     eDISABLED = 1, // Channel n cannot suspend any channel, regardless of channel priority
   };
+  
   enum class eECP : uint32_t {
     eDISABLED = 0, // Channel n cannot be suspended by a higher priority channel's service request
     eENABLED = 1, // Channel n can be temporarily suspended by the service request of a higher priority channel
@@ -2031,7 +2229,7 @@ union DCHPRI18 {
     eDPA DPA : 1;
     eECP ECP : 1;
     uint32_t _reserved_end : 24;
-  } bits;          // Bit-field struct (auto-filling reserved gaps)
+  } bits;
   
   // Full 32-bit register value.
   uint32_t value;
@@ -2045,11 +2243,11 @@ union DCHPRI18 {
 //
 union DCHPRI17 {
   
-  // Enum definitions.
   enum class eDPA : uint32_t {
     eENABLED = 0, // Channel n can suspend a lower priority channel
     eDISABLED = 1, // Channel n cannot suspend any channel, regardless of channel priority
   };
+  
   enum class eECP : uint32_t {
     eDISABLED = 0, // Channel n cannot be suspended by a higher priority channel's service request
     eENABLED = 1, // Channel n can be temporarily suspended by the service request of a higher priority channel
@@ -2062,7 +2260,7 @@ union DCHPRI17 {
     eDPA DPA : 1;
     eECP ECP : 1;
     uint32_t _reserved_end : 24;
-  } bits;          // Bit-field struct (auto-filling reserved gaps)
+  } bits;
   
   // Full 32-bit register value.
   uint32_t value;
@@ -2076,11 +2274,11 @@ union DCHPRI17 {
 //
 union DCHPRI16 {
   
-  // Enum definitions.
   enum class eDPA : uint32_t {
     eENABLED = 0, // Channel n can suspend a lower priority channel
     eDISABLED = 1, // Channel n cannot suspend any channel, regardless of channel priority
   };
+  
   enum class eECP : uint32_t {
     eDISABLED = 0, // Channel n cannot be suspended by a higher priority channel's service request
     eENABLED = 1, // Channel n can be temporarily suspended by the service request of a higher priority channel
@@ -2093,7 +2291,7 @@ union DCHPRI16 {
     eDPA DPA : 1;
     eECP ECP : 1;
     uint32_t _reserved_end : 24;
-  } bits;          // Bit-field struct (auto-filling reserved gaps)
+  } bits;
   
   // Full 32-bit register value.
   uint32_t value;
@@ -2107,11 +2305,11 @@ union DCHPRI16 {
 //
 union DCHPRI23 {
   
-  // Enum definitions.
   enum class eDPA : uint32_t {
     eENABLED = 0, // Channel n can suspend a lower priority channel
     eDISABLED = 1, // Channel n cannot suspend any channel, regardless of channel priority
   };
+  
   enum class eECP : uint32_t {
     eDISABLED = 0, // Channel n cannot be suspended by a higher priority channel's service request
     eENABLED = 1, // Channel n can be temporarily suspended by the service request of a higher priority channel
@@ -2124,7 +2322,7 @@ union DCHPRI23 {
     eDPA DPA : 1;
     eECP ECP : 1;
     uint32_t _reserved_end : 24;
-  } bits;          // Bit-field struct (auto-filling reserved gaps)
+  } bits;
   
   // Full 32-bit register value.
   uint32_t value;
@@ -2138,11 +2336,11 @@ union DCHPRI23 {
 //
 union DCHPRI22 {
   
-  // Enum definitions.
   enum class eDPA : uint32_t {
     eENABLED = 0, // Channel n can suspend a lower priority channel
     eDISABLED = 1, // Channel n cannot suspend any channel, regardless of channel priority
   };
+  
   enum class eECP : uint32_t {
     eDISABLED = 0, // Channel n cannot be suspended by a higher priority channel's service request
     eENABLED = 1, // Channel n can be temporarily suspended by the service request of a higher priority channel
@@ -2155,7 +2353,7 @@ union DCHPRI22 {
     eDPA DPA : 1;
     eECP ECP : 1;
     uint32_t _reserved_end : 24;
-  } bits;          // Bit-field struct (auto-filling reserved gaps)
+  } bits;
   
   // Full 32-bit register value.
   uint32_t value;
@@ -2169,11 +2367,11 @@ union DCHPRI22 {
 //
 union DCHPRI21 {
   
-  // Enum definitions.
   enum class eDPA : uint32_t {
     eENABLED = 0, // Channel n can suspend a lower priority channel
     eDISABLED = 1, // Channel n cannot suspend any channel, regardless of channel priority
   };
+  
   enum class eECP : uint32_t {
     eDISABLED = 0, // Channel n cannot be suspended by a higher priority channel's service request
     eENABLED = 1, // Channel n can be temporarily suspended by the service request of a higher priority channel
@@ -2186,7 +2384,7 @@ union DCHPRI21 {
     eDPA DPA : 1;
     eECP ECP : 1;
     uint32_t _reserved_end : 24;
-  } bits;          // Bit-field struct (auto-filling reserved gaps)
+  } bits;
   
   // Full 32-bit register value.
   uint32_t value;
@@ -2200,11 +2398,11 @@ union DCHPRI21 {
 //
 union DCHPRI20 {
   
-  // Enum definitions.
   enum class eDPA : uint32_t {
     eENABLED = 0, // Channel n can suspend a lower priority channel
     eDISABLED = 1, // Channel n cannot suspend any channel, regardless of channel priority
   };
+  
   enum class eECP : uint32_t {
     eDISABLED = 0, // Channel n cannot be suspended by a higher priority channel's service request
     eENABLED = 1, // Channel n can be temporarily suspended by the service request of a higher priority channel
@@ -2217,7 +2415,7 @@ union DCHPRI20 {
     eDPA DPA : 1;
     eECP ECP : 1;
     uint32_t _reserved_end : 24;
-  } bits;          // Bit-field struct (auto-filling reserved gaps)
+  } bits;
   
   // Full 32-bit register value.
   uint32_t value;
@@ -2231,11 +2429,11 @@ union DCHPRI20 {
 //
 union DCHPRI27 {
   
-  // Enum definitions.
   enum class eDPA : uint32_t {
     eENABLED = 0, // Channel n can suspend a lower priority channel
     eDISABLED = 1, // Channel n cannot suspend any channel, regardless of channel priority
   };
+  
   enum class eECP : uint32_t {
     eDISABLED = 0, // Channel n cannot be suspended by a higher priority channel's service request
     eENABLED = 1, // Channel n can be temporarily suspended by the service request of a higher priority channel
@@ -2248,7 +2446,7 @@ union DCHPRI27 {
     eDPA DPA : 1;
     eECP ECP : 1;
     uint32_t _reserved_end : 24;
-  } bits;          // Bit-field struct (auto-filling reserved gaps)
+  } bits;
   
   // Full 32-bit register value.
   uint32_t value;
@@ -2262,11 +2460,11 @@ union DCHPRI27 {
 //
 union DCHPRI26 {
   
-  // Enum definitions.
   enum class eDPA : uint32_t {
     eENABLED = 0, // Channel n can suspend a lower priority channel
     eDISABLED = 1, // Channel n cannot suspend any channel, regardless of channel priority
   };
+  
   enum class eECP : uint32_t {
     eDISABLED = 0, // Channel n cannot be suspended by a higher priority channel's service request
     eENABLED = 1, // Channel n can be temporarily suspended by the service request of a higher priority channel
@@ -2279,7 +2477,7 @@ union DCHPRI26 {
     eDPA DPA : 1;
     eECP ECP : 1;
     uint32_t _reserved_end : 24;
-  } bits;          // Bit-field struct (auto-filling reserved gaps)
+  } bits;
   
   // Full 32-bit register value.
   uint32_t value;
@@ -2293,11 +2491,11 @@ union DCHPRI26 {
 //
 union DCHPRI25 {
   
-  // Enum definitions.
   enum class eDPA : uint32_t {
     eENABLED = 0, // Channel n can suspend a lower priority channel
     eDISABLED = 1, // Channel n cannot suspend any channel, regardless of channel priority
   };
+  
   enum class eECP : uint32_t {
     eDISABLED = 0, // Channel n cannot be suspended by a higher priority channel's service request
     eENABLED = 1, // Channel n can be temporarily suspended by the service request of a higher priority channel
@@ -2310,7 +2508,7 @@ union DCHPRI25 {
     eDPA DPA : 1;
     eECP ECP : 1;
     uint32_t _reserved_end : 24;
-  } bits;          // Bit-field struct (auto-filling reserved gaps)
+  } bits;
   
   // Full 32-bit register value.
   uint32_t value;
@@ -2324,11 +2522,11 @@ union DCHPRI25 {
 //
 union DCHPRI24 {
   
-  // Enum definitions.
   enum class eDPA : uint32_t {
     eENABLED = 0, // Channel n can suspend a lower priority channel
     eDISABLED = 1, // Channel n cannot suspend any channel, regardless of channel priority
   };
+  
   enum class eECP : uint32_t {
     eDISABLED = 0, // Channel n cannot be suspended by a higher priority channel's service request
     eENABLED = 1, // Channel n can be temporarily suspended by the service request of a higher priority channel
@@ -2341,7 +2539,7 @@ union DCHPRI24 {
     eDPA DPA : 1;
     eECP ECP : 1;
     uint32_t _reserved_end : 24;
-  } bits;          // Bit-field struct (auto-filling reserved gaps)
+  } bits;
   
   // Full 32-bit register value.
   uint32_t value;
@@ -2355,11 +2553,11 @@ union DCHPRI24 {
 //
 union DCHPRI31 {
   
-  // Enum definitions.
   enum class eDPA : uint32_t {
     eENABLED = 0, // Channel n can suspend a lower priority channel
     eDISABLED = 1, // Channel n cannot suspend any channel, regardless of channel priority
   };
+  
   enum class eECP : uint32_t {
     eDISABLED = 0, // Channel n cannot be suspended by a higher priority channel's service request
     eENABLED = 1, // Channel n can be temporarily suspended by the service request of a higher priority channel
@@ -2372,7 +2570,7 @@ union DCHPRI31 {
     eDPA DPA : 1;
     eECP ECP : 1;
     uint32_t _reserved_end : 24;
-  } bits;          // Bit-field struct (auto-filling reserved gaps)
+  } bits;
   
   // Full 32-bit register value.
   uint32_t value;
@@ -2386,11 +2584,11 @@ union DCHPRI31 {
 //
 union DCHPRI30 {
   
-  // Enum definitions.
   enum class eDPA : uint32_t {
     eENABLED = 0, // Channel n can suspend a lower priority channel
     eDISABLED = 1, // Channel n cannot suspend any channel, regardless of channel priority
   };
+  
   enum class eECP : uint32_t {
     eDISABLED = 0, // Channel n cannot be suspended by a higher priority channel's service request
     eENABLED = 1, // Channel n can be temporarily suspended by the service request of a higher priority channel
@@ -2403,7 +2601,7 @@ union DCHPRI30 {
     eDPA DPA : 1;
     eECP ECP : 1;
     uint32_t _reserved_end : 24;
-  } bits;          // Bit-field struct (auto-filling reserved gaps)
+  } bits;
   
   // Full 32-bit register value.
   uint32_t value;
@@ -2417,11 +2615,11 @@ union DCHPRI30 {
 //
 union DCHPRI29 {
   
-  // Enum definitions.
   enum class eDPA : uint32_t {
     eENABLED = 0, // Channel n can suspend a lower priority channel
     eDISABLED = 1, // Channel n cannot suspend any channel, regardless of channel priority
   };
+  
   enum class eECP : uint32_t {
     eDISABLED = 0, // Channel n cannot be suspended by a higher priority channel's service request
     eENABLED = 1, // Channel n can be temporarily suspended by the service request of a higher priority channel
@@ -2434,7 +2632,7 @@ union DCHPRI29 {
     eDPA DPA : 1;
     eECP ECP : 1;
     uint32_t _reserved_end : 24;
-  } bits;          // Bit-field struct (auto-filling reserved gaps)
+  } bits;
   
   // Full 32-bit register value.
   uint32_t value;
@@ -2448,11 +2646,11 @@ union DCHPRI29 {
 //
 union DCHPRI28 {
   
-  // Enum definitions.
   enum class eDPA : uint32_t {
     eENABLED = 0, // Channel n can suspend a lower priority channel
     eDISABLED = 1, // Channel n cannot suspend any channel, regardless of channel priority
   };
+  
   enum class eECP : uint32_t {
     eDISABLED = 0, // Channel n cannot be suspended by a higher priority channel's service request
     eENABLED = 1, // Channel n can be temporarily suspended by the service request of a higher priority channel
@@ -2465,7 +2663,7 @@ union DCHPRI28 {
     eDPA DPA : 1;
     eECP ECP : 1;
     uint32_t _reserved_end : 24;
-  } bits;          // Bit-field struct (auto-filling reserved gaps)
+  } bits;
   
   // Full 32-bit register value.
   uint32_t value;
@@ -2479,12 +2677,10 @@ union DCHPRI28 {
 //
 union TCD0_SADDR {
   
-  // Enum definitions.
-  
   // Bit field definition.
   struct {
     uint32_t SADDR : 32;
-  } bits;          // Bit-field struct (auto-filling reserved gaps)
+  } bits;
   
   // Full 32-bit register value.
   uint32_t value;
@@ -2498,13 +2694,11 @@ union TCD0_SADDR {
 //
 union TCD0_SOFF {
   
-  // Enum definitions.
-  
   // Bit field definition.
   struct {
     uint32_t SOFF : 16;
     uint32_t _reserved_end : 16;
-  } bits;          // Bit-field struct (auto-filling reserved gaps)
+  } bits;
   
   // Full 32-bit register value.
   uint32_t value;
@@ -2518,7 +2712,6 @@ union TCD0_SOFF {
 //
 union TCD0_ATTR {
   
-  // Enum definitions.
   enum class eSSIZE : uint32_t {
     eEIGHT = 0, // 8-bit
     eSIXTEEN_BIT = 1, // 16-bit
@@ -2526,6 +2719,7 @@ union TCD0_ATTR {
     eSIXTYFOUR = 3, // 64-bit
     eTHIRTYTWO_BYTE = 5, // 32-byte burst (4 beats of 64 bits)
   };
+  
   enum class eSMOD : uint32_t {
     eDISABLED = 0, // Source address modulo feature is disabled
     eENABLED = 1, // Value defines address range used to set up circular data queue
@@ -2546,7 +2740,7 @@ union TCD0_ATTR {
     eSSIZE SSIZE : 3;
     eSMOD SMOD : 5;
     uint32_t _reserved_end : 16;
-  } bits;          // Bit-field struct (auto-filling reserved gaps)
+  } bits;
   
   // Full 32-bit register value.
   uint32_t value;
@@ -2560,12 +2754,10 @@ union TCD0_ATTR {
 //
 union TCD0_NBYTES_MLNO {
   
-  // Enum definitions.
-  
   // Bit field definition.
   struct {
     uint32_t NBYTES : 32;
-  } bits;          // Bit-field struct (auto-filling reserved gaps)
+  } bits;
   
   // Full 32-bit register value.
   uint32_t value;
@@ -2579,11 +2771,11 @@ union TCD0_NBYTES_MLNO {
 //
 union TCD0_NBYTES_MLOFFNO {
   
-  // Enum definitions.
   enum class eDMLOE : uint32_t {
     eDISABLED = 0, // The minor loop offset is not applied to the DADDR
     eENABLED = 1, // The minor loop offset is applied to the DADDR
   };
+  
   enum class eSMLOE : uint32_t {
     eDISABLED = 0, // The minor loop offset is not applied to the SADDR
     eENABLED = 1, // The minor loop offset is applied to the SADDR
@@ -2594,7 +2786,7 @@ union TCD0_NBYTES_MLOFFNO {
     uint32_t NBYTES : 30;
     eDMLOE DMLOE : 1;
     eSMLOE SMLOE : 1;
-  } bits;          // Bit-field struct (auto-filling reserved gaps)
+  } bits;
   
   // Full 32-bit register value.
   uint32_t value;
@@ -2608,11 +2800,11 @@ union TCD0_NBYTES_MLOFFNO {
 //
 union TCD0_NBYTES_MLOFFYES {
   
-  // Enum definitions.
   enum class eDMLOE : uint32_t {
     eDISABLED = 0, // The minor loop offset is not applied to the DADDR
     eENABLED = 1, // The minor loop offset is applied to the DADDR
   };
+  
   enum class eSMLOE : uint32_t {
     eDISABLED = 0, // The minor loop offset is not applied to the SADDR
     eENABLED = 1, // The minor loop offset is applied to the SADDR
@@ -2624,7 +2816,7 @@ union TCD0_NBYTES_MLOFFYES {
     uint32_t MLOFF : 20;
     eDMLOE DMLOE : 1;
     eSMLOE SMLOE : 1;
-  } bits;          // Bit-field struct (auto-filling reserved gaps)
+  } bits;
   
   // Full 32-bit register value.
   uint32_t value;
@@ -2638,12 +2830,10 @@ union TCD0_NBYTES_MLOFFYES {
 //
 union TCD0_SLAST {
   
-  // Enum definitions.
-  
   // Bit field definition.
   struct {
     uint32_t SLAST : 32;
-  } bits;          // Bit-field struct (auto-filling reserved gaps)
+  } bits;
   
   // Full 32-bit register value.
   uint32_t value;
@@ -2657,12 +2847,10 @@ union TCD0_SLAST {
 //
 union TCD0_DADDR {
   
-  // Enum definitions.
-  
   // Bit field definition.
   struct {
     uint32_t DADDR : 32;
-  } bits;          // Bit-field struct (auto-filling reserved gaps)
+  } bits;
   
   // Full 32-bit register value.
   uint32_t value;
@@ -2676,13 +2864,11 @@ union TCD0_DADDR {
 //
 union TCD0_DOFF {
   
-  // Enum definitions.
-  
   // Bit field definition.
   struct {
     uint32_t DOFF : 16;
     uint32_t _reserved_end : 16;
-  } bits;          // Bit-field struct (auto-filling reserved gaps)
+  } bits;
   
   // Full 32-bit register value.
   uint32_t value;
@@ -2696,7 +2882,6 @@ union TCD0_DOFF {
 //
 union TCD0_CITER_ELINKNO {
   
-  // Enum definitions.
   enum class eELINK : uint32_t {
     eDISABLED = 0, // Channel-to-channel linking is disabled
     eENABLED = 1, // Channel-to-channel linking is enabled
@@ -2707,7 +2892,7 @@ union TCD0_CITER_ELINKNO {
     uint32_t CITER : 15;
     eELINK ELINK : 1;
     uint32_t _reserved_end : 16;
-  } bits;          // Bit-field struct (auto-filling reserved gaps)
+  } bits;
   
   // Full 32-bit register value.
   uint32_t value;
@@ -2721,7 +2906,6 @@ union TCD0_CITER_ELINKNO {
 //
 union TCD0_CITER_ELINKYES {
   
-  // Enum definitions.
   enum class eELINK : uint32_t {
     eDISABLED = 0, // Channel-to-channel linking is disabled
     eENABLED = 1, // Channel-to-channel linking is enabled
@@ -2734,7 +2918,7 @@ union TCD0_CITER_ELINKYES {
     uint32_t _reserved_2 : 1;
     eELINK ELINK : 1;
     uint32_t _reserved_end : 16;
-  } bits;          // Bit-field struct (auto-filling reserved gaps)
+  } bits;
   
   // Full 32-bit register value.
   uint32_t value;
@@ -2748,12 +2932,10 @@ union TCD0_CITER_ELINKYES {
 //
 union TCD0_DLASTSGA {
   
-  // Enum definitions.
-  
   // Bit field definition.
   struct {
     uint32_t DLASTSGA : 32;
-  } bits;          // Bit-field struct (auto-filling reserved gaps)
+  } bits;
   
   // Full 32-bit register value.
   uint32_t value;
@@ -2767,31 +2949,36 @@ union TCD0_DLASTSGA {
 //
 union TCD0_CSR {
   
-  // Enum definitions.
   enum class eSTART : uint32_t {
     eNO_START = 0, // Channel is not explicitly started
     eSTART = 1, // Channel is explicitly started via a software initiated service request
   };
+  
   enum class eINTMAJOR : uint32_t {
     eDISABLED = 0, // End of major loop interrupt is disabled
     eENABLED = 1, // End of major loop interrupt is enabled
   };
+  
   enum class eINTHALF : uint32_t {
     eDISABLED = 0, // Half-point interrupt is disabled
     eENABLED = 1, // Half-point interrupt is enabled
   };
+  
   enum class eDREQ : uint32_t {
     eNO_CLEAR = 0, // The channel's ERQ field is not affected
     eCLEAR = 1, // The channel's ERQ field value changes to 0 when the major loop is complete
   };
+  
   enum class eESG : uint32_t {
     eNORMAL = 0, // The current channel's TCD is normal format
     eSCATTER = 1, // The current channel's TCD specifies a scatter gather format
   };
+  
   enum class eMAJORELINK : uint32_t {
     eDISABLED = 0, // Channel-to-channel linking is disabled
     eENABLED = 1, // Channel-to-channel linking is enabled
   };
+  
   enum class eBWC : uint32_t {
     eDISABLED = 0, // No eDMA engine stalls
     eSTALL4 = 2, // eDMA engine stalls for 4 cycles after each R/W
@@ -2812,7 +2999,7 @@ union TCD0_CSR {
     uint32_t _reserved_9 : 1;
     eBWC BWC : 2;
     uint32_t _reserved_end : 16;
-  } bits;          // Bit-field struct (auto-filling reserved gaps)
+  } bits;
   
   // Full 32-bit register value.
   uint32_t value;
@@ -2826,7 +3013,6 @@ union TCD0_CSR {
 //
 union TCD0_BITER_ELINKNO {
   
-  // Enum definitions.
   enum class eELINK : uint32_t {
     eDISABLED = 0, // Channel-to-channel linking is disabled
     eENABLED = 1, // Channel-to-channel linking is enabled
@@ -2837,7 +3023,7 @@ union TCD0_BITER_ELINKNO {
     uint32_t BITER : 15;
     eELINK ELINK : 1;
     uint32_t _reserved_end : 16;
-  } bits;          // Bit-field struct (auto-filling reserved gaps)
+  } bits;
   
   // Full 32-bit register value.
   uint32_t value;
@@ -2851,7 +3037,6 @@ union TCD0_BITER_ELINKNO {
 //
 union TCD0_BITER_ELINKYES {
   
-  // Enum definitions.
   enum class eELINK : uint32_t {
     eDISABLED = 0, // Channel-to-channel linking is disabled
     eENABLED = 1, // Channel-to-channel linking is enabled
@@ -2864,7 +3049,7 @@ union TCD0_BITER_ELINKYES {
     uint32_t _reserved_2 : 1;
     eELINK ELINK : 1;
     uint32_t _reserved_end : 16;
-  } bits;          // Bit-field struct (auto-filling reserved gaps)
+  } bits;
   
   // Full 32-bit register value.
   uint32_t value;
@@ -2878,12 +3063,10 @@ union TCD0_BITER_ELINKYES {
 //
 union TCD1_SADDR {
   
-  // Enum definitions.
-  
   // Bit field definition.
   struct {
     uint32_t SADDR : 32;
-  } bits;          // Bit-field struct (auto-filling reserved gaps)
+  } bits;
   
   // Full 32-bit register value.
   uint32_t value;
@@ -2897,13 +3080,11 @@ union TCD1_SADDR {
 //
 union TCD1_SOFF {
   
-  // Enum definitions.
-  
   // Bit field definition.
   struct {
     uint32_t SOFF : 16;
     uint32_t _reserved_end : 16;
-  } bits;          // Bit-field struct (auto-filling reserved gaps)
+  } bits;
   
   // Full 32-bit register value.
   uint32_t value;
@@ -2917,7 +3098,6 @@ union TCD1_SOFF {
 //
 union TCD1_ATTR {
   
-  // Enum definitions.
   enum class eSSIZE : uint32_t {
     eEIGHT = 0, // 8-bit
     eSIXTEEN_BIT = 1, // 16-bit
@@ -2925,6 +3105,7 @@ union TCD1_ATTR {
     eSIXTYFOUR = 3, // 64-bit
     eTHIRTYTWO_BYTE = 5, // 32-byte burst (4 beats of 64 bits)
   };
+  
   enum class eSMOD : uint32_t {
     eDISABLED = 0, // Source address modulo feature is disabled
     eENABLED = 1, // Value defines address range used to set up circular data queue
@@ -2945,7 +3126,7 @@ union TCD1_ATTR {
     eSSIZE SSIZE : 3;
     eSMOD SMOD : 5;
     uint32_t _reserved_end : 16;
-  } bits;          // Bit-field struct (auto-filling reserved gaps)
+  } bits;
   
   // Full 32-bit register value.
   uint32_t value;
@@ -2959,12 +3140,10 @@ union TCD1_ATTR {
 //
 union TCD1_NBYTES_MLNO {
   
-  // Enum definitions.
-  
   // Bit field definition.
   struct {
     uint32_t NBYTES : 32;
-  } bits;          // Bit-field struct (auto-filling reserved gaps)
+  } bits;
   
   // Full 32-bit register value.
   uint32_t value;
@@ -2978,11 +3157,11 @@ union TCD1_NBYTES_MLNO {
 //
 union TCD1_NBYTES_MLOFFNO {
   
-  // Enum definitions.
   enum class eDMLOE : uint32_t {
     eDISABLED = 0, // The minor loop offset is not applied to the DADDR
     eENABLED = 1, // The minor loop offset is applied to the DADDR
   };
+  
   enum class eSMLOE : uint32_t {
     eDISABLED = 0, // The minor loop offset is not applied to the SADDR
     eENABLED = 1, // The minor loop offset is applied to the SADDR
@@ -2993,7 +3172,7 @@ union TCD1_NBYTES_MLOFFNO {
     uint32_t NBYTES : 30;
     eDMLOE DMLOE : 1;
     eSMLOE SMLOE : 1;
-  } bits;          // Bit-field struct (auto-filling reserved gaps)
+  } bits;
   
   // Full 32-bit register value.
   uint32_t value;
@@ -3007,11 +3186,11 @@ union TCD1_NBYTES_MLOFFNO {
 //
 union TCD1_NBYTES_MLOFFYES {
   
-  // Enum definitions.
   enum class eDMLOE : uint32_t {
     eDISABLED = 0, // The minor loop offset is not applied to the DADDR
     eENABLED = 1, // The minor loop offset is applied to the DADDR
   };
+  
   enum class eSMLOE : uint32_t {
     eDISABLED = 0, // The minor loop offset is not applied to the SADDR
     eENABLED = 1, // The minor loop offset is applied to the SADDR
@@ -3023,7 +3202,7 @@ union TCD1_NBYTES_MLOFFYES {
     uint32_t MLOFF : 20;
     eDMLOE DMLOE : 1;
     eSMLOE SMLOE : 1;
-  } bits;          // Bit-field struct (auto-filling reserved gaps)
+  } bits;
   
   // Full 32-bit register value.
   uint32_t value;
@@ -3037,12 +3216,10 @@ union TCD1_NBYTES_MLOFFYES {
 //
 union TCD1_SLAST {
   
-  // Enum definitions.
-  
   // Bit field definition.
   struct {
     uint32_t SLAST : 32;
-  } bits;          // Bit-field struct (auto-filling reserved gaps)
+  } bits;
   
   // Full 32-bit register value.
   uint32_t value;
@@ -3056,12 +3233,10 @@ union TCD1_SLAST {
 //
 union TCD1_DADDR {
   
-  // Enum definitions.
-  
   // Bit field definition.
   struct {
     uint32_t DADDR : 32;
-  } bits;          // Bit-field struct (auto-filling reserved gaps)
+  } bits;
   
   // Full 32-bit register value.
   uint32_t value;
@@ -3075,13 +3250,11 @@ union TCD1_DADDR {
 //
 union TCD1_DOFF {
   
-  // Enum definitions.
-  
   // Bit field definition.
   struct {
     uint32_t DOFF : 16;
     uint32_t _reserved_end : 16;
-  } bits;          // Bit-field struct (auto-filling reserved gaps)
+  } bits;
   
   // Full 32-bit register value.
   uint32_t value;
@@ -3095,7 +3268,6 @@ union TCD1_DOFF {
 //
 union TCD1_CITER_ELINKNO {
   
-  // Enum definitions.
   enum class eELINK : uint32_t {
     eDISABLED = 0, // Channel-to-channel linking is disabled
     eENABLED = 1, // Channel-to-channel linking is enabled
@@ -3106,7 +3278,7 @@ union TCD1_CITER_ELINKNO {
     uint32_t CITER : 15;
     eELINK ELINK : 1;
     uint32_t _reserved_end : 16;
-  } bits;          // Bit-field struct (auto-filling reserved gaps)
+  } bits;
   
   // Full 32-bit register value.
   uint32_t value;
@@ -3120,7 +3292,6 @@ union TCD1_CITER_ELINKNO {
 //
 union TCD1_CITER_ELINKYES {
   
-  // Enum definitions.
   enum class eELINK : uint32_t {
     eDISABLED = 0, // Channel-to-channel linking is disabled
     eENABLED = 1, // Channel-to-channel linking is enabled
@@ -3133,7 +3304,7 @@ union TCD1_CITER_ELINKYES {
     uint32_t _reserved_2 : 1;
     eELINK ELINK : 1;
     uint32_t _reserved_end : 16;
-  } bits;          // Bit-field struct (auto-filling reserved gaps)
+  } bits;
   
   // Full 32-bit register value.
   uint32_t value;
@@ -3147,12 +3318,10 @@ union TCD1_CITER_ELINKYES {
 //
 union TCD1_DLASTSGA {
   
-  // Enum definitions.
-  
   // Bit field definition.
   struct {
     uint32_t DLASTSGA : 32;
-  } bits;          // Bit-field struct (auto-filling reserved gaps)
+  } bits;
   
   // Full 32-bit register value.
   uint32_t value;
@@ -3166,31 +3335,36 @@ union TCD1_DLASTSGA {
 //
 union TCD1_CSR {
   
-  // Enum definitions.
   enum class eSTART : uint32_t {
     eNO_START = 0, // Channel is not explicitly started
     eSTART = 1, // Channel is explicitly started via a software initiated service request
   };
+  
   enum class eINTMAJOR : uint32_t {
     eDISABLED = 0, // End of major loop interrupt is disabled
     eENABLED = 1, // End of major loop interrupt is enabled
   };
+  
   enum class eINTHALF : uint32_t {
     eDISABLED = 0, // Half-point interrupt is disabled
     eENABLED = 1, // Half-point interrupt is enabled
   };
+  
   enum class eDREQ : uint32_t {
     eNO_CLEAR = 0, // The channel's ERQ field is not affected
     eCLEAR = 1, // The channel's ERQ field value changes to 0 when the major loop is complete
   };
+  
   enum class eESG : uint32_t {
     eNORMAL = 0, // The current channel's TCD is normal format
     eSCATTER = 1, // The current channel's TCD specifies a scatter gather format
   };
+  
   enum class eMAJORELINK : uint32_t {
     eDISABLED = 0, // Channel-to-channel linking is disabled
     eENABLED = 1, // Channel-to-channel linking is enabled
   };
+  
   enum class eBWC : uint32_t {
     eDISABLED = 0, // No eDMA engine stalls
     eSTALL4 = 2, // eDMA engine stalls for 4 cycles after each R/W
@@ -3211,7 +3385,7 @@ union TCD1_CSR {
     uint32_t _reserved_9 : 1;
     eBWC BWC : 2;
     uint32_t _reserved_end : 16;
-  } bits;          // Bit-field struct (auto-filling reserved gaps)
+  } bits;
   
   // Full 32-bit register value.
   uint32_t value;
@@ -3225,7 +3399,6 @@ union TCD1_CSR {
 //
 union TCD1_BITER_ELINKNO {
   
-  // Enum definitions.
   enum class eELINK : uint32_t {
     eDISABLED = 0, // Channel-to-channel linking is disabled
     eENABLED = 1, // Channel-to-channel linking is enabled
@@ -3236,7 +3409,7 @@ union TCD1_BITER_ELINKNO {
     uint32_t BITER : 15;
     eELINK ELINK : 1;
     uint32_t _reserved_end : 16;
-  } bits;          // Bit-field struct (auto-filling reserved gaps)
+  } bits;
   
   // Full 32-bit register value.
   uint32_t value;
@@ -3250,7 +3423,6 @@ union TCD1_BITER_ELINKNO {
 //
 union TCD1_BITER_ELINKYES {
   
-  // Enum definitions.
   enum class eELINK : uint32_t {
     eDISABLED = 0, // Channel-to-channel linking is disabled
     eENABLED = 1, // Channel-to-channel linking is enabled
@@ -3263,7 +3435,7 @@ union TCD1_BITER_ELINKYES {
     uint32_t _reserved_2 : 1;
     eELINK ELINK : 1;
     uint32_t _reserved_end : 16;
-  } bits;          // Bit-field struct (auto-filling reserved gaps)
+  } bits;
   
   // Full 32-bit register value.
   uint32_t value;
@@ -3277,12 +3449,10 @@ union TCD1_BITER_ELINKYES {
 //
 union TCD2_SADDR {
   
-  // Enum definitions.
-  
   // Bit field definition.
   struct {
     uint32_t SADDR : 32;
-  } bits;          // Bit-field struct (auto-filling reserved gaps)
+  } bits;
   
   // Full 32-bit register value.
   uint32_t value;
@@ -3296,13 +3466,11 @@ union TCD2_SADDR {
 //
 union TCD2_SOFF {
   
-  // Enum definitions.
-  
   // Bit field definition.
   struct {
     uint32_t SOFF : 16;
     uint32_t _reserved_end : 16;
-  } bits;          // Bit-field struct (auto-filling reserved gaps)
+  } bits;
   
   // Full 32-bit register value.
   uint32_t value;
@@ -3316,7 +3484,6 @@ union TCD2_SOFF {
 //
 union TCD2_ATTR {
   
-  // Enum definitions.
   enum class eSSIZE : uint32_t {
     eEIGHT = 0, // 8-bit
     eSIXTEEN_BIT = 1, // 16-bit
@@ -3324,6 +3491,7 @@ union TCD2_ATTR {
     eSIXTYFOUR = 3, // 64-bit
     eTHIRTYTWO_BYTE = 5, // 32-byte burst (4 beats of 64 bits)
   };
+  
   enum class eSMOD : uint32_t {
     eDISABLED = 0, // Source address modulo feature is disabled
     eENABLED = 1, // Value defines address range used to set up circular data queue
@@ -3344,7 +3512,7 @@ union TCD2_ATTR {
     eSSIZE SSIZE : 3;
     eSMOD SMOD : 5;
     uint32_t _reserved_end : 16;
-  } bits;          // Bit-field struct (auto-filling reserved gaps)
+  } bits;
   
   // Full 32-bit register value.
   uint32_t value;
@@ -3358,12 +3526,10 @@ union TCD2_ATTR {
 //
 union TCD2_NBYTES_MLNO {
   
-  // Enum definitions.
-  
   // Bit field definition.
   struct {
     uint32_t NBYTES : 32;
-  } bits;          // Bit-field struct (auto-filling reserved gaps)
+  } bits;
   
   // Full 32-bit register value.
   uint32_t value;
@@ -3377,11 +3543,11 @@ union TCD2_NBYTES_MLNO {
 //
 union TCD2_NBYTES_MLOFFNO {
   
-  // Enum definitions.
   enum class eDMLOE : uint32_t {
     eDISABLED = 0, // The minor loop offset is not applied to the DADDR
     eENABLED = 1, // The minor loop offset is applied to the DADDR
   };
+  
   enum class eSMLOE : uint32_t {
     eDISABLED = 0, // The minor loop offset is not applied to the SADDR
     eENABLED = 1, // The minor loop offset is applied to the SADDR
@@ -3392,7 +3558,7 @@ union TCD2_NBYTES_MLOFFNO {
     uint32_t NBYTES : 30;
     eDMLOE DMLOE : 1;
     eSMLOE SMLOE : 1;
-  } bits;          // Bit-field struct (auto-filling reserved gaps)
+  } bits;
   
   // Full 32-bit register value.
   uint32_t value;
@@ -3406,11 +3572,11 @@ union TCD2_NBYTES_MLOFFNO {
 //
 union TCD2_NBYTES_MLOFFYES {
   
-  // Enum definitions.
   enum class eDMLOE : uint32_t {
     eDISABLED = 0, // The minor loop offset is not applied to the DADDR
     eENABLED = 1, // The minor loop offset is applied to the DADDR
   };
+  
   enum class eSMLOE : uint32_t {
     eDISABLED = 0, // The minor loop offset is not applied to the SADDR
     eENABLED = 1, // The minor loop offset is applied to the SADDR
@@ -3422,7 +3588,7 @@ union TCD2_NBYTES_MLOFFYES {
     uint32_t MLOFF : 20;
     eDMLOE DMLOE : 1;
     eSMLOE SMLOE : 1;
-  } bits;          // Bit-field struct (auto-filling reserved gaps)
+  } bits;
   
   // Full 32-bit register value.
   uint32_t value;
@@ -3436,12 +3602,10 @@ union TCD2_NBYTES_MLOFFYES {
 //
 union TCD2_SLAST {
   
-  // Enum definitions.
-  
   // Bit field definition.
   struct {
     uint32_t SLAST : 32;
-  } bits;          // Bit-field struct (auto-filling reserved gaps)
+  } bits;
   
   // Full 32-bit register value.
   uint32_t value;
@@ -3455,12 +3619,10 @@ union TCD2_SLAST {
 //
 union TCD2_DADDR {
   
-  // Enum definitions.
-  
   // Bit field definition.
   struct {
     uint32_t DADDR : 32;
-  } bits;          // Bit-field struct (auto-filling reserved gaps)
+  } bits;
   
   // Full 32-bit register value.
   uint32_t value;
@@ -3474,13 +3636,11 @@ union TCD2_DADDR {
 //
 union TCD2_DOFF {
   
-  // Enum definitions.
-  
   // Bit field definition.
   struct {
     uint32_t DOFF : 16;
     uint32_t _reserved_end : 16;
-  } bits;          // Bit-field struct (auto-filling reserved gaps)
+  } bits;
   
   // Full 32-bit register value.
   uint32_t value;
@@ -3494,7 +3654,6 @@ union TCD2_DOFF {
 //
 union TCD2_CITER_ELINKNO {
   
-  // Enum definitions.
   enum class eELINK : uint32_t {
     eDISABLED = 0, // Channel-to-channel linking is disabled
     eENABLED = 1, // Channel-to-channel linking is enabled
@@ -3505,7 +3664,7 @@ union TCD2_CITER_ELINKNO {
     uint32_t CITER : 15;
     eELINK ELINK : 1;
     uint32_t _reserved_end : 16;
-  } bits;          // Bit-field struct (auto-filling reserved gaps)
+  } bits;
   
   // Full 32-bit register value.
   uint32_t value;
@@ -3519,7 +3678,6 @@ union TCD2_CITER_ELINKNO {
 //
 union TCD2_CITER_ELINKYES {
   
-  // Enum definitions.
   enum class eELINK : uint32_t {
     eDISABLED = 0, // Channel-to-channel linking is disabled
     eENABLED = 1, // Channel-to-channel linking is enabled
@@ -3532,7 +3690,7 @@ union TCD2_CITER_ELINKYES {
     uint32_t _reserved_2 : 1;
     eELINK ELINK : 1;
     uint32_t _reserved_end : 16;
-  } bits;          // Bit-field struct (auto-filling reserved gaps)
+  } bits;
   
   // Full 32-bit register value.
   uint32_t value;
@@ -3546,12 +3704,10 @@ union TCD2_CITER_ELINKYES {
 //
 union TCD2_DLASTSGA {
   
-  // Enum definitions.
-  
   // Bit field definition.
   struct {
     uint32_t DLASTSGA : 32;
-  } bits;          // Bit-field struct (auto-filling reserved gaps)
+  } bits;
   
   // Full 32-bit register value.
   uint32_t value;
@@ -3565,31 +3721,36 @@ union TCD2_DLASTSGA {
 //
 union TCD2_CSR {
   
-  // Enum definitions.
   enum class eSTART : uint32_t {
     eNO_START = 0, // Channel is not explicitly started
     eSTART = 1, // Channel is explicitly started via a software initiated service request
   };
+  
   enum class eINTMAJOR : uint32_t {
     eDISABLED = 0, // End of major loop interrupt is disabled
     eENABLED = 1, // End of major loop interrupt is enabled
   };
+  
   enum class eINTHALF : uint32_t {
     eDISABLED = 0, // Half-point interrupt is disabled
     eENABLED = 1, // Half-point interrupt is enabled
   };
+  
   enum class eDREQ : uint32_t {
     eNO_CLEAR = 0, // The channel's ERQ field is not affected
     eCLEAR = 1, // The channel's ERQ field value changes to 0 when the major loop is complete
   };
+  
   enum class eESG : uint32_t {
     eNORMAL = 0, // The current channel's TCD is normal format
     eSCATTER = 1, // The current channel's TCD specifies a scatter gather format
   };
+  
   enum class eMAJORELINK : uint32_t {
     eDISABLED = 0, // Channel-to-channel linking is disabled
     eENABLED = 1, // Channel-to-channel linking is enabled
   };
+  
   enum class eBWC : uint32_t {
     eDISABLED = 0, // No eDMA engine stalls
     eSTALL4 = 2, // eDMA engine stalls for 4 cycles after each R/W
@@ -3610,7 +3771,7 @@ union TCD2_CSR {
     uint32_t _reserved_9 : 1;
     eBWC BWC : 2;
     uint32_t _reserved_end : 16;
-  } bits;          // Bit-field struct (auto-filling reserved gaps)
+  } bits;
   
   // Full 32-bit register value.
   uint32_t value;
@@ -3624,7 +3785,6 @@ union TCD2_CSR {
 //
 union TCD2_BITER_ELINKNO {
   
-  // Enum definitions.
   enum class eELINK : uint32_t {
     eDISABLED = 0, // Channel-to-channel linking is disabled
     eENABLED = 1, // Channel-to-channel linking is enabled
@@ -3635,7 +3795,7 @@ union TCD2_BITER_ELINKNO {
     uint32_t BITER : 15;
     eELINK ELINK : 1;
     uint32_t _reserved_end : 16;
-  } bits;          // Bit-field struct (auto-filling reserved gaps)
+  } bits;
   
   // Full 32-bit register value.
   uint32_t value;
@@ -3649,7 +3809,6 @@ union TCD2_BITER_ELINKNO {
 //
 union TCD2_BITER_ELINKYES {
   
-  // Enum definitions.
   enum class eELINK : uint32_t {
     eDISABLED = 0, // Channel-to-channel linking is disabled
     eENABLED = 1, // Channel-to-channel linking is enabled
@@ -3662,7 +3821,7 @@ union TCD2_BITER_ELINKYES {
     uint32_t _reserved_2 : 1;
     eELINK ELINK : 1;
     uint32_t _reserved_end : 16;
-  } bits;          // Bit-field struct (auto-filling reserved gaps)
+  } bits;
   
   // Full 32-bit register value.
   uint32_t value;
@@ -3676,12 +3835,10 @@ union TCD2_BITER_ELINKYES {
 //
 union TCD3_SADDR {
   
-  // Enum definitions.
-  
   // Bit field definition.
   struct {
     uint32_t SADDR : 32;
-  } bits;          // Bit-field struct (auto-filling reserved gaps)
+  } bits;
   
   // Full 32-bit register value.
   uint32_t value;
@@ -3695,13 +3852,11 @@ union TCD3_SADDR {
 //
 union TCD3_SOFF {
   
-  // Enum definitions.
-  
   // Bit field definition.
   struct {
     uint32_t SOFF : 16;
     uint32_t _reserved_end : 16;
-  } bits;          // Bit-field struct (auto-filling reserved gaps)
+  } bits;
   
   // Full 32-bit register value.
   uint32_t value;
@@ -3715,7 +3870,6 @@ union TCD3_SOFF {
 //
 union TCD3_ATTR {
   
-  // Enum definitions.
   enum class eSSIZE : uint32_t {
     eEIGHT = 0, // 8-bit
     eSIXTEEN_BIT = 1, // 16-bit
@@ -3723,6 +3877,7 @@ union TCD3_ATTR {
     eSIXTYFOUR = 3, // 64-bit
     eTHIRTYTWO_BYTE = 5, // 32-byte burst (4 beats of 64 bits)
   };
+  
   enum class eSMOD : uint32_t {
     eDISABLED = 0, // Source address modulo feature is disabled
     eENABLED = 1, // Value defines address range used to set up circular data queue
@@ -3743,7 +3898,7 @@ union TCD3_ATTR {
     eSSIZE SSIZE : 3;
     eSMOD SMOD : 5;
     uint32_t _reserved_end : 16;
-  } bits;          // Bit-field struct (auto-filling reserved gaps)
+  } bits;
   
   // Full 32-bit register value.
   uint32_t value;
@@ -3757,12 +3912,10 @@ union TCD3_ATTR {
 //
 union TCD3_NBYTES_MLNO {
   
-  // Enum definitions.
-  
   // Bit field definition.
   struct {
     uint32_t NBYTES : 32;
-  } bits;          // Bit-field struct (auto-filling reserved gaps)
+  } bits;
   
   // Full 32-bit register value.
   uint32_t value;
@@ -3776,11 +3929,11 @@ union TCD3_NBYTES_MLNO {
 //
 union TCD3_NBYTES_MLOFFNO {
   
-  // Enum definitions.
   enum class eDMLOE : uint32_t {
     eDISABLED = 0, // The minor loop offset is not applied to the DADDR
     eENABLED = 1, // The minor loop offset is applied to the DADDR
   };
+  
   enum class eSMLOE : uint32_t {
     eDISABLED = 0, // The minor loop offset is not applied to the SADDR
     eENABLED = 1, // The minor loop offset is applied to the SADDR
@@ -3791,7 +3944,7 @@ union TCD3_NBYTES_MLOFFNO {
     uint32_t NBYTES : 30;
     eDMLOE DMLOE : 1;
     eSMLOE SMLOE : 1;
-  } bits;          // Bit-field struct (auto-filling reserved gaps)
+  } bits;
   
   // Full 32-bit register value.
   uint32_t value;
@@ -3805,11 +3958,11 @@ union TCD3_NBYTES_MLOFFNO {
 //
 union TCD3_NBYTES_MLOFFYES {
   
-  // Enum definitions.
   enum class eDMLOE : uint32_t {
     eDISABLED = 0, // The minor loop offset is not applied to the DADDR
     eENABLED = 1, // The minor loop offset is applied to the DADDR
   };
+  
   enum class eSMLOE : uint32_t {
     eDISABLED = 0, // The minor loop offset is not applied to the SADDR
     eENABLED = 1, // The minor loop offset is applied to the SADDR
@@ -3821,7 +3974,7 @@ union TCD3_NBYTES_MLOFFYES {
     uint32_t MLOFF : 20;
     eDMLOE DMLOE : 1;
     eSMLOE SMLOE : 1;
-  } bits;          // Bit-field struct (auto-filling reserved gaps)
+  } bits;
   
   // Full 32-bit register value.
   uint32_t value;
@@ -3835,12 +3988,10 @@ union TCD3_NBYTES_MLOFFYES {
 //
 union TCD3_SLAST {
   
-  // Enum definitions.
-  
   // Bit field definition.
   struct {
     uint32_t SLAST : 32;
-  } bits;          // Bit-field struct (auto-filling reserved gaps)
+  } bits;
   
   // Full 32-bit register value.
   uint32_t value;
@@ -3854,12 +4005,10 @@ union TCD3_SLAST {
 //
 union TCD3_DADDR {
   
-  // Enum definitions.
-  
   // Bit field definition.
   struct {
     uint32_t DADDR : 32;
-  } bits;          // Bit-field struct (auto-filling reserved gaps)
+  } bits;
   
   // Full 32-bit register value.
   uint32_t value;
@@ -3873,13 +4022,11 @@ union TCD3_DADDR {
 //
 union TCD3_DOFF {
   
-  // Enum definitions.
-  
   // Bit field definition.
   struct {
     uint32_t DOFF : 16;
     uint32_t _reserved_end : 16;
-  } bits;          // Bit-field struct (auto-filling reserved gaps)
+  } bits;
   
   // Full 32-bit register value.
   uint32_t value;
@@ -3893,7 +4040,6 @@ union TCD3_DOFF {
 //
 union TCD3_CITER_ELINKNO {
   
-  // Enum definitions.
   enum class eELINK : uint32_t {
     eDISABLED = 0, // Channel-to-channel linking is disabled
     eENABLED = 1, // Channel-to-channel linking is enabled
@@ -3904,7 +4050,7 @@ union TCD3_CITER_ELINKNO {
     uint32_t CITER : 15;
     eELINK ELINK : 1;
     uint32_t _reserved_end : 16;
-  } bits;          // Bit-field struct (auto-filling reserved gaps)
+  } bits;
   
   // Full 32-bit register value.
   uint32_t value;
@@ -3918,7 +4064,6 @@ union TCD3_CITER_ELINKNO {
 //
 union TCD3_CITER_ELINKYES {
   
-  // Enum definitions.
   enum class eELINK : uint32_t {
     eDISABLED = 0, // Channel-to-channel linking is disabled
     eENABLED = 1, // Channel-to-channel linking is enabled
@@ -3931,7 +4076,7 @@ union TCD3_CITER_ELINKYES {
     uint32_t _reserved_2 : 1;
     eELINK ELINK : 1;
     uint32_t _reserved_end : 16;
-  } bits;          // Bit-field struct (auto-filling reserved gaps)
+  } bits;
   
   // Full 32-bit register value.
   uint32_t value;
@@ -3945,12 +4090,10 @@ union TCD3_CITER_ELINKYES {
 //
 union TCD3_DLASTSGA {
   
-  // Enum definitions.
-  
   // Bit field definition.
   struct {
     uint32_t DLASTSGA : 32;
-  } bits;          // Bit-field struct (auto-filling reserved gaps)
+  } bits;
   
   // Full 32-bit register value.
   uint32_t value;
@@ -3964,31 +4107,36 @@ union TCD3_DLASTSGA {
 //
 union TCD3_CSR {
   
-  // Enum definitions.
   enum class eSTART : uint32_t {
     eNO_START = 0, // Channel is not explicitly started
     eSTART = 1, // Channel is explicitly started via a software initiated service request
   };
+  
   enum class eINTMAJOR : uint32_t {
     eDISABLED = 0, // End of major loop interrupt is disabled
     eENABLED = 1, // End of major loop interrupt is enabled
   };
+  
   enum class eINTHALF : uint32_t {
     eDISABLED = 0, // Half-point interrupt is disabled
     eENABLED = 1, // Half-point interrupt is enabled
   };
+  
   enum class eDREQ : uint32_t {
     eNO_CLEAR = 0, // The channel's ERQ field is not affected
     eCLEAR = 1, // The channel's ERQ field value changes to 0 when the major loop is complete
   };
+  
   enum class eESG : uint32_t {
     eNORMAL = 0, // The current channel's TCD is normal format
     eSCATTER = 1, // The current channel's TCD specifies a scatter gather format
   };
+  
   enum class eMAJORELINK : uint32_t {
     eDISABLED = 0, // Channel-to-channel linking is disabled
     eENABLED = 1, // Channel-to-channel linking is enabled
   };
+  
   enum class eBWC : uint32_t {
     eDISABLED = 0, // No eDMA engine stalls
     eSTALL4 = 2, // eDMA engine stalls for 4 cycles after each R/W
@@ -4009,7 +4157,7 @@ union TCD3_CSR {
     uint32_t _reserved_9 : 1;
     eBWC BWC : 2;
     uint32_t _reserved_end : 16;
-  } bits;          // Bit-field struct (auto-filling reserved gaps)
+  } bits;
   
   // Full 32-bit register value.
   uint32_t value;
@@ -4023,7 +4171,6 @@ union TCD3_CSR {
 //
 union TCD3_BITER_ELINKNO {
   
-  // Enum definitions.
   enum class eELINK : uint32_t {
     eDISABLED = 0, // Channel-to-channel linking is disabled
     eENABLED = 1, // Channel-to-channel linking is enabled
@@ -4034,7 +4181,7 @@ union TCD3_BITER_ELINKNO {
     uint32_t BITER : 15;
     eELINK ELINK : 1;
     uint32_t _reserved_end : 16;
-  } bits;          // Bit-field struct (auto-filling reserved gaps)
+  } bits;
   
   // Full 32-bit register value.
   uint32_t value;
@@ -4048,7 +4195,6 @@ union TCD3_BITER_ELINKNO {
 //
 union TCD3_BITER_ELINKYES {
   
-  // Enum definitions.
   enum class eELINK : uint32_t {
     eDISABLED = 0, // Channel-to-channel linking is disabled
     eENABLED = 1, // Channel-to-channel linking is enabled
@@ -4061,7 +4207,7 @@ union TCD3_BITER_ELINKYES {
     uint32_t _reserved_2 : 1;
     eELINK ELINK : 1;
     uint32_t _reserved_end : 16;
-  } bits;          // Bit-field struct (auto-filling reserved gaps)
+  } bits;
   
   // Full 32-bit register value.
   uint32_t value;
@@ -4075,12 +4221,10 @@ union TCD3_BITER_ELINKYES {
 //
 union TCD4_SADDR {
   
-  // Enum definitions.
-  
   // Bit field definition.
   struct {
     uint32_t SADDR : 32;
-  } bits;          // Bit-field struct (auto-filling reserved gaps)
+  } bits;
   
   // Full 32-bit register value.
   uint32_t value;
@@ -4094,13 +4238,11 @@ union TCD4_SADDR {
 //
 union TCD4_SOFF {
   
-  // Enum definitions.
-  
   // Bit field definition.
   struct {
     uint32_t SOFF : 16;
     uint32_t _reserved_end : 16;
-  } bits;          // Bit-field struct (auto-filling reserved gaps)
+  } bits;
   
   // Full 32-bit register value.
   uint32_t value;
@@ -4114,7 +4256,6 @@ union TCD4_SOFF {
 //
 union TCD4_ATTR {
   
-  // Enum definitions.
   enum class eSSIZE : uint32_t {
     eEIGHT = 0, // 8-bit
     eSIXTEEN_BIT = 1, // 16-bit
@@ -4122,6 +4263,7 @@ union TCD4_ATTR {
     eSIXTYFOUR = 3, // 64-bit
     eTHIRTYTWO_BYTE = 5, // 32-byte burst (4 beats of 64 bits)
   };
+  
   enum class eSMOD : uint32_t {
     eDISABLED = 0, // Source address modulo feature is disabled
     eENABLED = 1, // Value defines address range used to set up circular data queue
@@ -4142,7 +4284,7 @@ union TCD4_ATTR {
     eSSIZE SSIZE : 3;
     eSMOD SMOD : 5;
     uint32_t _reserved_end : 16;
-  } bits;          // Bit-field struct (auto-filling reserved gaps)
+  } bits;
   
   // Full 32-bit register value.
   uint32_t value;
@@ -4156,12 +4298,10 @@ union TCD4_ATTR {
 //
 union TCD4_NBYTES_MLNO {
   
-  // Enum definitions.
-  
   // Bit field definition.
   struct {
     uint32_t NBYTES : 32;
-  } bits;          // Bit-field struct (auto-filling reserved gaps)
+  } bits;
   
   // Full 32-bit register value.
   uint32_t value;
@@ -4175,11 +4315,11 @@ union TCD4_NBYTES_MLNO {
 //
 union TCD4_NBYTES_MLOFFNO {
   
-  // Enum definitions.
   enum class eDMLOE : uint32_t {
     eDISABLED = 0, // The minor loop offset is not applied to the DADDR
     eENABLED = 1, // The minor loop offset is applied to the DADDR
   };
+  
   enum class eSMLOE : uint32_t {
     eDISABLED = 0, // The minor loop offset is not applied to the SADDR
     eENABLED = 1, // The minor loop offset is applied to the SADDR
@@ -4190,7 +4330,7 @@ union TCD4_NBYTES_MLOFFNO {
     uint32_t NBYTES : 30;
     eDMLOE DMLOE : 1;
     eSMLOE SMLOE : 1;
-  } bits;          // Bit-field struct (auto-filling reserved gaps)
+  } bits;
   
   // Full 32-bit register value.
   uint32_t value;
@@ -4204,11 +4344,11 @@ union TCD4_NBYTES_MLOFFNO {
 //
 union TCD4_NBYTES_MLOFFYES {
   
-  // Enum definitions.
   enum class eDMLOE : uint32_t {
     eDISABLED = 0, // The minor loop offset is not applied to the DADDR
     eENABLED = 1, // The minor loop offset is applied to the DADDR
   };
+  
   enum class eSMLOE : uint32_t {
     eDISABLED = 0, // The minor loop offset is not applied to the SADDR
     eENABLED = 1, // The minor loop offset is applied to the SADDR
@@ -4220,7 +4360,7 @@ union TCD4_NBYTES_MLOFFYES {
     uint32_t MLOFF : 20;
     eDMLOE DMLOE : 1;
     eSMLOE SMLOE : 1;
-  } bits;          // Bit-field struct (auto-filling reserved gaps)
+  } bits;
   
   // Full 32-bit register value.
   uint32_t value;
@@ -4234,12 +4374,10 @@ union TCD4_NBYTES_MLOFFYES {
 //
 union TCD4_SLAST {
   
-  // Enum definitions.
-  
   // Bit field definition.
   struct {
     uint32_t SLAST : 32;
-  } bits;          // Bit-field struct (auto-filling reserved gaps)
+  } bits;
   
   // Full 32-bit register value.
   uint32_t value;
@@ -4253,12 +4391,10 @@ union TCD4_SLAST {
 //
 union TCD4_DADDR {
   
-  // Enum definitions.
-  
   // Bit field definition.
   struct {
     uint32_t DADDR : 32;
-  } bits;          // Bit-field struct (auto-filling reserved gaps)
+  } bits;
   
   // Full 32-bit register value.
   uint32_t value;
@@ -4272,13 +4408,11 @@ union TCD4_DADDR {
 //
 union TCD4_DOFF {
   
-  // Enum definitions.
-  
   // Bit field definition.
   struct {
     uint32_t DOFF : 16;
     uint32_t _reserved_end : 16;
-  } bits;          // Bit-field struct (auto-filling reserved gaps)
+  } bits;
   
   // Full 32-bit register value.
   uint32_t value;
@@ -4292,7 +4426,6 @@ union TCD4_DOFF {
 //
 union TCD4_CITER_ELINKNO {
   
-  // Enum definitions.
   enum class eELINK : uint32_t {
     eDISABLED = 0, // Channel-to-channel linking is disabled
     eENABLED = 1, // Channel-to-channel linking is enabled
@@ -4303,7 +4436,7 @@ union TCD4_CITER_ELINKNO {
     uint32_t CITER : 15;
     eELINK ELINK : 1;
     uint32_t _reserved_end : 16;
-  } bits;          // Bit-field struct (auto-filling reserved gaps)
+  } bits;
   
   // Full 32-bit register value.
   uint32_t value;
@@ -4317,7 +4450,6 @@ union TCD4_CITER_ELINKNO {
 //
 union TCD4_CITER_ELINKYES {
   
-  // Enum definitions.
   enum class eELINK : uint32_t {
     eDISABLED = 0, // Channel-to-channel linking is disabled
     eENABLED = 1, // Channel-to-channel linking is enabled
@@ -4330,7 +4462,7 @@ union TCD4_CITER_ELINKYES {
     uint32_t _reserved_2 : 1;
     eELINK ELINK : 1;
     uint32_t _reserved_end : 16;
-  } bits;          // Bit-field struct (auto-filling reserved gaps)
+  } bits;
   
   // Full 32-bit register value.
   uint32_t value;
@@ -4344,12 +4476,10 @@ union TCD4_CITER_ELINKYES {
 //
 union TCD4_DLASTSGA {
   
-  // Enum definitions.
-  
   // Bit field definition.
   struct {
     uint32_t DLASTSGA : 32;
-  } bits;          // Bit-field struct (auto-filling reserved gaps)
+  } bits;
   
   // Full 32-bit register value.
   uint32_t value;
@@ -4363,31 +4493,36 @@ union TCD4_DLASTSGA {
 //
 union TCD4_CSR {
   
-  // Enum definitions.
   enum class eSTART : uint32_t {
     eNO_START = 0, // Channel is not explicitly started
     eSTART = 1, // Channel is explicitly started via a software initiated service request
   };
+  
   enum class eINTMAJOR : uint32_t {
     eDISABLED = 0, // End of major loop interrupt is disabled
     eENABLED = 1, // End of major loop interrupt is enabled
   };
+  
   enum class eINTHALF : uint32_t {
     eDISABLED = 0, // Half-point interrupt is disabled
     eENABLED = 1, // Half-point interrupt is enabled
   };
+  
   enum class eDREQ : uint32_t {
     eNO_CLEAR = 0, // The channel's ERQ field is not affected
     eCLEAR = 1, // The channel's ERQ field value changes to 0 when the major loop is complete
   };
+  
   enum class eESG : uint32_t {
     eNORMAL = 0, // The current channel's TCD is normal format
     eSCATTER = 1, // The current channel's TCD specifies a scatter gather format
   };
+  
   enum class eMAJORELINK : uint32_t {
     eDISABLED = 0, // Channel-to-channel linking is disabled
     eENABLED = 1, // Channel-to-channel linking is enabled
   };
+  
   enum class eBWC : uint32_t {
     eDISABLED = 0, // No eDMA engine stalls
     eSTALL4 = 2, // eDMA engine stalls for 4 cycles after each R/W
@@ -4408,7 +4543,7 @@ union TCD4_CSR {
     uint32_t _reserved_9 : 1;
     eBWC BWC : 2;
     uint32_t _reserved_end : 16;
-  } bits;          // Bit-field struct (auto-filling reserved gaps)
+  } bits;
   
   // Full 32-bit register value.
   uint32_t value;
@@ -4422,7 +4557,6 @@ union TCD4_CSR {
 //
 union TCD4_BITER_ELINKNO {
   
-  // Enum definitions.
   enum class eELINK : uint32_t {
     eDISABLED = 0, // Channel-to-channel linking is disabled
     eENABLED = 1, // Channel-to-channel linking is enabled
@@ -4433,7 +4567,7 @@ union TCD4_BITER_ELINKNO {
     uint32_t BITER : 15;
     eELINK ELINK : 1;
     uint32_t _reserved_end : 16;
-  } bits;          // Bit-field struct (auto-filling reserved gaps)
+  } bits;
   
   // Full 32-bit register value.
   uint32_t value;
@@ -4447,7 +4581,6 @@ union TCD4_BITER_ELINKNO {
 //
 union TCD4_BITER_ELINKYES {
   
-  // Enum definitions.
   enum class eELINK : uint32_t {
     eDISABLED = 0, // Channel-to-channel linking is disabled
     eENABLED = 1, // Channel-to-channel linking is enabled
@@ -4460,7 +4593,7 @@ union TCD4_BITER_ELINKYES {
     uint32_t _reserved_2 : 1;
     eELINK ELINK : 1;
     uint32_t _reserved_end : 16;
-  } bits;          // Bit-field struct (auto-filling reserved gaps)
+  } bits;
   
   // Full 32-bit register value.
   uint32_t value;
@@ -4474,12 +4607,10 @@ union TCD4_BITER_ELINKYES {
 //
 union TCD5_SADDR {
   
-  // Enum definitions.
-  
   // Bit field definition.
   struct {
     uint32_t SADDR : 32;
-  } bits;          // Bit-field struct (auto-filling reserved gaps)
+  } bits;
   
   // Full 32-bit register value.
   uint32_t value;
@@ -4493,13 +4624,11 @@ union TCD5_SADDR {
 //
 union TCD5_SOFF {
   
-  // Enum definitions.
-  
   // Bit field definition.
   struct {
     uint32_t SOFF : 16;
     uint32_t _reserved_end : 16;
-  } bits;          // Bit-field struct (auto-filling reserved gaps)
+  } bits;
   
   // Full 32-bit register value.
   uint32_t value;
@@ -4513,7 +4642,6 @@ union TCD5_SOFF {
 //
 union TCD5_ATTR {
   
-  // Enum definitions.
   enum class eSSIZE : uint32_t {
     eEIGHT = 0, // 8-bit
     eSIXTEEN_BIT = 1, // 16-bit
@@ -4521,6 +4649,7 @@ union TCD5_ATTR {
     eSIXTYFOUR = 3, // 64-bit
     eTHIRTYTWO_BYTE = 5, // 32-byte burst (4 beats of 64 bits)
   };
+  
   enum class eSMOD : uint32_t {
     eDISABLED = 0, // Source address modulo feature is disabled
     eENABLED = 1, // Value defines address range used to set up circular data queue
@@ -4541,7 +4670,7 @@ union TCD5_ATTR {
     eSSIZE SSIZE : 3;
     eSMOD SMOD : 5;
     uint32_t _reserved_end : 16;
-  } bits;          // Bit-field struct (auto-filling reserved gaps)
+  } bits;
   
   // Full 32-bit register value.
   uint32_t value;
@@ -4555,12 +4684,10 @@ union TCD5_ATTR {
 //
 union TCD5_NBYTES_MLNO {
   
-  // Enum definitions.
-  
   // Bit field definition.
   struct {
     uint32_t NBYTES : 32;
-  } bits;          // Bit-field struct (auto-filling reserved gaps)
+  } bits;
   
   // Full 32-bit register value.
   uint32_t value;
@@ -4574,11 +4701,11 @@ union TCD5_NBYTES_MLNO {
 //
 union TCD5_NBYTES_MLOFFNO {
   
-  // Enum definitions.
   enum class eDMLOE : uint32_t {
     eDISABLED = 0, // The minor loop offset is not applied to the DADDR
     eENABLED = 1, // The minor loop offset is applied to the DADDR
   };
+  
   enum class eSMLOE : uint32_t {
     eDISABLED = 0, // The minor loop offset is not applied to the SADDR
     eENABLED = 1, // The minor loop offset is applied to the SADDR
@@ -4589,7 +4716,7 @@ union TCD5_NBYTES_MLOFFNO {
     uint32_t NBYTES : 30;
     eDMLOE DMLOE : 1;
     eSMLOE SMLOE : 1;
-  } bits;          // Bit-field struct (auto-filling reserved gaps)
+  } bits;
   
   // Full 32-bit register value.
   uint32_t value;
@@ -4603,11 +4730,11 @@ union TCD5_NBYTES_MLOFFNO {
 //
 union TCD5_NBYTES_MLOFFYES {
   
-  // Enum definitions.
   enum class eDMLOE : uint32_t {
     eDISABLED = 0, // The minor loop offset is not applied to the DADDR
     eENABLED = 1, // The minor loop offset is applied to the DADDR
   };
+  
   enum class eSMLOE : uint32_t {
     eDISABLED = 0, // The minor loop offset is not applied to the SADDR
     eENABLED = 1, // The minor loop offset is applied to the SADDR
@@ -4619,7 +4746,7 @@ union TCD5_NBYTES_MLOFFYES {
     uint32_t MLOFF : 20;
     eDMLOE DMLOE : 1;
     eSMLOE SMLOE : 1;
-  } bits;          // Bit-field struct (auto-filling reserved gaps)
+  } bits;
   
   // Full 32-bit register value.
   uint32_t value;
@@ -4633,12 +4760,10 @@ union TCD5_NBYTES_MLOFFYES {
 //
 union TCD5_SLAST {
   
-  // Enum definitions.
-  
   // Bit field definition.
   struct {
     uint32_t SLAST : 32;
-  } bits;          // Bit-field struct (auto-filling reserved gaps)
+  } bits;
   
   // Full 32-bit register value.
   uint32_t value;
@@ -4652,12 +4777,10 @@ union TCD5_SLAST {
 //
 union TCD5_DADDR {
   
-  // Enum definitions.
-  
   // Bit field definition.
   struct {
     uint32_t DADDR : 32;
-  } bits;          // Bit-field struct (auto-filling reserved gaps)
+  } bits;
   
   // Full 32-bit register value.
   uint32_t value;
@@ -4671,13 +4794,11 @@ union TCD5_DADDR {
 //
 union TCD5_DOFF {
   
-  // Enum definitions.
-  
   // Bit field definition.
   struct {
     uint32_t DOFF : 16;
     uint32_t _reserved_end : 16;
-  } bits;          // Bit-field struct (auto-filling reserved gaps)
+  } bits;
   
   // Full 32-bit register value.
   uint32_t value;
@@ -4691,7 +4812,6 @@ union TCD5_DOFF {
 //
 union TCD5_CITER_ELINKNO {
   
-  // Enum definitions.
   enum class eELINK : uint32_t {
     eDISABLED = 0, // Channel-to-channel linking is disabled
     eENABLED = 1, // Channel-to-channel linking is enabled
@@ -4702,7 +4822,7 @@ union TCD5_CITER_ELINKNO {
     uint32_t CITER : 15;
     eELINK ELINK : 1;
     uint32_t _reserved_end : 16;
-  } bits;          // Bit-field struct (auto-filling reserved gaps)
+  } bits;
   
   // Full 32-bit register value.
   uint32_t value;
@@ -4716,7 +4836,6 @@ union TCD5_CITER_ELINKNO {
 //
 union TCD5_CITER_ELINKYES {
   
-  // Enum definitions.
   enum class eELINK : uint32_t {
     eDISABLED = 0, // Channel-to-channel linking is disabled
     eENABLED = 1, // Channel-to-channel linking is enabled
@@ -4729,7 +4848,7 @@ union TCD5_CITER_ELINKYES {
     uint32_t _reserved_2 : 1;
     eELINK ELINK : 1;
     uint32_t _reserved_end : 16;
-  } bits;          // Bit-field struct (auto-filling reserved gaps)
+  } bits;
   
   // Full 32-bit register value.
   uint32_t value;
@@ -4743,12 +4862,10 @@ union TCD5_CITER_ELINKYES {
 //
 union TCD5_DLASTSGA {
   
-  // Enum definitions.
-  
   // Bit field definition.
   struct {
     uint32_t DLASTSGA : 32;
-  } bits;          // Bit-field struct (auto-filling reserved gaps)
+  } bits;
   
   // Full 32-bit register value.
   uint32_t value;
@@ -4762,31 +4879,36 @@ union TCD5_DLASTSGA {
 //
 union TCD5_CSR {
   
-  // Enum definitions.
   enum class eSTART : uint32_t {
     eNO_START = 0, // Channel is not explicitly started
     eSTART = 1, // Channel is explicitly started via a software initiated service request
   };
+  
   enum class eINTMAJOR : uint32_t {
     eDISABLED = 0, // End of major loop interrupt is disabled
     eENABLED = 1, // End of major loop interrupt is enabled
   };
+  
   enum class eINTHALF : uint32_t {
     eDISABLED = 0, // Half-point interrupt is disabled
     eENABLED = 1, // Half-point interrupt is enabled
   };
+  
   enum class eDREQ : uint32_t {
     eNO_CLEAR = 0, // The channel's ERQ field is not affected
     eCLEAR = 1, // The channel's ERQ field value changes to 0 when the major loop is complete
   };
+  
   enum class eESG : uint32_t {
     eNORMAL = 0, // The current channel's TCD is normal format
     eSCATTER = 1, // The current channel's TCD specifies a scatter gather format
   };
+  
   enum class eMAJORELINK : uint32_t {
     eDISABLED = 0, // Channel-to-channel linking is disabled
     eENABLED = 1, // Channel-to-channel linking is enabled
   };
+  
   enum class eBWC : uint32_t {
     eDISABLED = 0, // No eDMA engine stalls
     eSTALL4 = 2, // eDMA engine stalls for 4 cycles after each R/W
@@ -4807,7 +4929,7 @@ union TCD5_CSR {
     uint32_t _reserved_9 : 1;
     eBWC BWC : 2;
     uint32_t _reserved_end : 16;
-  } bits;          // Bit-field struct (auto-filling reserved gaps)
+  } bits;
   
   // Full 32-bit register value.
   uint32_t value;
@@ -4821,7 +4943,6 @@ union TCD5_CSR {
 //
 union TCD5_BITER_ELINKNO {
   
-  // Enum definitions.
   enum class eELINK : uint32_t {
     eDISABLED = 0, // Channel-to-channel linking is disabled
     eENABLED = 1, // Channel-to-channel linking is enabled
@@ -4832,7 +4953,7 @@ union TCD5_BITER_ELINKNO {
     uint32_t BITER : 15;
     eELINK ELINK : 1;
     uint32_t _reserved_end : 16;
-  } bits;          // Bit-field struct (auto-filling reserved gaps)
+  } bits;
   
   // Full 32-bit register value.
   uint32_t value;
@@ -4846,7 +4967,6 @@ union TCD5_BITER_ELINKNO {
 //
 union TCD5_BITER_ELINKYES {
   
-  // Enum definitions.
   enum class eELINK : uint32_t {
     eDISABLED = 0, // Channel-to-channel linking is disabled
     eENABLED = 1, // Channel-to-channel linking is enabled
@@ -4859,7 +4979,7 @@ union TCD5_BITER_ELINKYES {
     uint32_t _reserved_2 : 1;
     eELINK ELINK : 1;
     uint32_t _reserved_end : 16;
-  } bits;          // Bit-field struct (auto-filling reserved gaps)
+  } bits;
   
   // Full 32-bit register value.
   uint32_t value;
@@ -4873,12 +4993,10 @@ union TCD5_BITER_ELINKYES {
 //
 union TCD6_SADDR {
   
-  // Enum definitions.
-  
   // Bit field definition.
   struct {
     uint32_t SADDR : 32;
-  } bits;          // Bit-field struct (auto-filling reserved gaps)
+  } bits;
   
   // Full 32-bit register value.
   uint32_t value;
@@ -4892,13 +5010,11 @@ union TCD6_SADDR {
 //
 union TCD6_SOFF {
   
-  // Enum definitions.
-  
   // Bit field definition.
   struct {
     uint32_t SOFF : 16;
     uint32_t _reserved_end : 16;
-  } bits;          // Bit-field struct (auto-filling reserved gaps)
+  } bits;
   
   // Full 32-bit register value.
   uint32_t value;
@@ -4912,7 +5028,6 @@ union TCD6_SOFF {
 //
 union TCD6_ATTR {
   
-  // Enum definitions.
   enum class eSSIZE : uint32_t {
     eEIGHT = 0, // 8-bit
     eSIXTEEN_BIT = 1, // 16-bit
@@ -4920,6 +5035,7 @@ union TCD6_ATTR {
     eSIXTYFOUR = 3, // 64-bit
     eTHIRTYTWO_BYTE = 5, // 32-byte burst (4 beats of 64 bits)
   };
+  
   enum class eSMOD : uint32_t {
     eDISABLED = 0, // Source address modulo feature is disabled
     eENABLED = 1, // Value defines address range used to set up circular data queue
@@ -4940,7 +5056,7 @@ union TCD6_ATTR {
     eSSIZE SSIZE : 3;
     eSMOD SMOD : 5;
     uint32_t _reserved_end : 16;
-  } bits;          // Bit-field struct (auto-filling reserved gaps)
+  } bits;
   
   // Full 32-bit register value.
   uint32_t value;
@@ -4954,12 +5070,10 @@ union TCD6_ATTR {
 //
 union TCD6_NBYTES_MLNO {
   
-  // Enum definitions.
-  
   // Bit field definition.
   struct {
     uint32_t NBYTES : 32;
-  } bits;          // Bit-field struct (auto-filling reserved gaps)
+  } bits;
   
   // Full 32-bit register value.
   uint32_t value;
@@ -4973,11 +5087,11 @@ union TCD6_NBYTES_MLNO {
 //
 union TCD6_NBYTES_MLOFFNO {
   
-  // Enum definitions.
   enum class eDMLOE : uint32_t {
     eDISABLED = 0, // The minor loop offset is not applied to the DADDR
     eENABLED = 1, // The minor loop offset is applied to the DADDR
   };
+  
   enum class eSMLOE : uint32_t {
     eDISABLED = 0, // The minor loop offset is not applied to the SADDR
     eENABLED = 1, // The minor loop offset is applied to the SADDR
@@ -4988,7 +5102,7 @@ union TCD6_NBYTES_MLOFFNO {
     uint32_t NBYTES : 30;
     eDMLOE DMLOE : 1;
     eSMLOE SMLOE : 1;
-  } bits;          // Bit-field struct (auto-filling reserved gaps)
+  } bits;
   
   // Full 32-bit register value.
   uint32_t value;
@@ -5002,11 +5116,11 @@ union TCD6_NBYTES_MLOFFNO {
 //
 union TCD6_NBYTES_MLOFFYES {
   
-  // Enum definitions.
   enum class eDMLOE : uint32_t {
     eDISABLED = 0, // The minor loop offset is not applied to the DADDR
     eENABLED = 1, // The minor loop offset is applied to the DADDR
   };
+  
   enum class eSMLOE : uint32_t {
     eDISABLED = 0, // The minor loop offset is not applied to the SADDR
     eENABLED = 1, // The minor loop offset is applied to the SADDR
@@ -5018,7 +5132,7 @@ union TCD6_NBYTES_MLOFFYES {
     uint32_t MLOFF : 20;
     eDMLOE DMLOE : 1;
     eSMLOE SMLOE : 1;
-  } bits;          // Bit-field struct (auto-filling reserved gaps)
+  } bits;
   
   // Full 32-bit register value.
   uint32_t value;
@@ -5032,12 +5146,10 @@ union TCD6_NBYTES_MLOFFYES {
 //
 union TCD6_SLAST {
   
-  // Enum definitions.
-  
   // Bit field definition.
   struct {
     uint32_t SLAST : 32;
-  } bits;          // Bit-field struct (auto-filling reserved gaps)
+  } bits;
   
   // Full 32-bit register value.
   uint32_t value;
@@ -5051,12 +5163,10 @@ union TCD6_SLAST {
 //
 union TCD6_DADDR {
   
-  // Enum definitions.
-  
   // Bit field definition.
   struct {
     uint32_t DADDR : 32;
-  } bits;          // Bit-field struct (auto-filling reserved gaps)
+  } bits;
   
   // Full 32-bit register value.
   uint32_t value;
@@ -5070,13 +5180,11 @@ union TCD6_DADDR {
 //
 union TCD6_DOFF {
   
-  // Enum definitions.
-  
   // Bit field definition.
   struct {
     uint32_t DOFF : 16;
     uint32_t _reserved_end : 16;
-  } bits;          // Bit-field struct (auto-filling reserved gaps)
+  } bits;
   
   // Full 32-bit register value.
   uint32_t value;
@@ -5090,7 +5198,6 @@ union TCD6_DOFF {
 //
 union TCD6_CITER_ELINKNO {
   
-  // Enum definitions.
   enum class eELINK : uint32_t {
     eDISABLED = 0, // Channel-to-channel linking is disabled
     eENABLED = 1, // Channel-to-channel linking is enabled
@@ -5101,7 +5208,7 @@ union TCD6_CITER_ELINKNO {
     uint32_t CITER : 15;
     eELINK ELINK : 1;
     uint32_t _reserved_end : 16;
-  } bits;          // Bit-field struct (auto-filling reserved gaps)
+  } bits;
   
   // Full 32-bit register value.
   uint32_t value;
@@ -5115,7 +5222,6 @@ union TCD6_CITER_ELINKNO {
 //
 union TCD6_CITER_ELINKYES {
   
-  // Enum definitions.
   enum class eELINK : uint32_t {
     eDISABLED = 0, // Channel-to-channel linking is disabled
     eENABLED = 1, // Channel-to-channel linking is enabled
@@ -5128,7 +5234,7 @@ union TCD6_CITER_ELINKYES {
     uint32_t _reserved_2 : 1;
     eELINK ELINK : 1;
     uint32_t _reserved_end : 16;
-  } bits;          // Bit-field struct (auto-filling reserved gaps)
+  } bits;
   
   // Full 32-bit register value.
   uint32_t value;
@@ -5142,12 +5248,10 @@ union TCD6_CITER_ELINKYES {
 //
 union TCD6_DLASTSGA {
   
-  // Enum definitions.
-  
   // Bit field definition.
   struct {
     uint32_t DLASTSGA : 32;
-  } bits;          // Bit-field struct (auto-filling reserved gaps)
+  } bits;
   
   // Full 32-bit register value.
   uint32_t value;
@@ -5161,31 +5265,36 @@ union TCD6_DLASTSGA {
 //
 union TCD6_CSR {
   
-  // Enum definitions.
   enum class eSTART : uint32_t {
     eNO_START = 0, // Channel is not explicitly started
     eSTART = 1, // Channel is explicitly started via a software initiated service request
   };
+  
   enum class eINTMAJOR : uint32_t {
     eDISABLED = 0, // End of major loop interrupt is disabled
     eENABLED = 1, // End of major loop interrupt is enabled
   };
+  
   enum class eINTHALF : uint32_t {
     eDISABLED = 0, // Half-point interrupt is disabled
     eENABLED = 1, // Half-point interrupt is enabled
   };
+  
   enum class eDREQ : uint32_t {
     eNO_CLEAR = 0, // The channel's ERQ field is not affected
     eCLEAR = 1, // The channel's ERQ field value changes to 0 when the major loop is complete
   };
+  
   enum class eESG : uint32_t {
     eNORMAL = 0, // The current channel's TCD is normal format
     eSCATTER = 1, // The current channel's TCD specifies a scatter gather format
   };
+  
   enum class eMAJORELINK : uint32_t {
     eDISABLED = 0, // Channel-to-channel linking is disabled
     eENABLED = 1, // Channel-to-channel linking is enabled
   };
+  
   enum class eBWC : uint32_t {
     eDISABLED = 0, // No eDMA engine stalls
     eSTALL4 = 2, // eDMA engine stalls for 4 cycles after each R/W
@@ -5206,7 +5315,7 @@ union TCD6_CSR {
     uint32_t _reserved_9 : 1;
     eBWC BWC : 2;
     uint32_t _reserved_end : 16;
-  } bits;          // Bit-field struct (auto-filling reserved gaps)
+  } bits;
   
   // Full 32-bit register value.
   uint32_t value;
@@ -5220,7 +5329,6 @@ union TCD6_CSR {
 //
 union TCD6_BITER_ELINKNO {
   
-  // Enum definitions.
   enum class eELINK : uint32_t {
     eDISABLED = 0, // Channel-to-channel linking is disabled
     eENABLED = 1, // Channel-to-channel linking is enabled
@@ -5231,7 +5339,7 @@ union TCD6_BITER_ELINKNO {
     uint32_t BITER : 15;
     eELINK ELINK : 1;
     uint32_t _reserved_end : 16;
-  } bits;          // Bit-field struct (auto-filling reserved gaps)
+  } bits;
   
   // Full 32-bit register value.
   uint32_t value;
@@ -5245,7 +5353,6 @@ union TCD6_BITER_ELINKNO {
 //
 union TCD6_BITER_ELINKYES {
   
-  // Enum definitions.
   enum class eELINK : uint32_t {
     eDISABLED = 0, // Channel-to-channel linking is disabled
     eENABLED = 1, // Channel-to-channel linking is enabled
@@ -5258,7 +5365,7 @@ union TCD6_BITER_ELINKYES {
     uint32_t _reserved_2 : 1;
     eELINK ELINK : 1;
     uint32_t _reserved_end : 16;
-  } bits;          // Bit-field struct (auto-filling reserved gaps)
+  } bits;
   
   // Full 32-bit register value.
   uint32_t value;
@@ -5272,12 +5379,10 @@ union TCD6_BITER_ELINKYES {
 //
 union TCD7_SADDR {
   
-  // Enum definitions.
-  
   // Bit field definition.
   struct {
     uint32_t SADDR : 32;
-  } bits;          // Bit-field struct (auto-filling reserved gaps)
+  } bits;
   
   // Full 32-bit register value.
   uint32_t value;
@@ -5291,13 +5396,11 @@ union TCD7_SADDR {
 //
 union TCD7_SOFF {
   
-  // Enum definitions.
-  
   // Bit field definition.
   struct {
     uint32_t SOFF : 16;
     uint32_t _reserved_end : 16;
-  } bits;          // Bit-field struct (auto-filling reserved gaps)
+  } bits;
   
   // Full 32-bit register value.
   uint32_t value;
@@ -5311,7 +5414,6 @@ union TCD7_SOFF {
 //
 union TCD7_ATTR {
   
-  // Enum definitions.
   enum class eSSIZE : uint32_t {
     eEIGHT = 0, // 8-bit
     eSIXTEEN_BIT = 1, // 16-bit
@@ -5319,6 +5421,7 @@ union TCD7_ATTR {
     eSIXTYFOUR = 3, // 64-bit
     eTHIRTYTWO_BYTE = 5, // 32-byte burst (4 beats of 64 bits)
   };
+  
   enum class eSMOD : uint32_t {
     eDISABLED = 0, // Source address modulo feature is disabled
     eENABLED = 1, // Value defines address range used to set up circular data queue
@@ -5339,7 +5442,7 @@ union TCD7_ATTR {
     eSSIZE SSIZE : 3;
     eSMOD SMOD : 5;
     uint32_t _reserved_end : 16;
-  } bits;          // Bit-field struct (auto-filling reserved gaps)
+  } bits;
   
   // Full 32-bit register value.
   uint32_t value;
@@ -5353,12 +5456,10 @@ union TCD7_ATTR {
 //
 union TCD7_NBYTES_MLNO {
   
-  // Enum definitions.
-  
   // Bit field definition.
   struct {
     uint32_t NBYTES : 32;
-  } bits;          // Bit-field struct (auto-filling reserved gaps)
+  } bits;
   
   // Full 32-bit register value.
   uint32_t value;
@@ -5372,11 +5473,11 @@ union TCD7_NBYTES_MLNO {
 //
 union TCD7_NBYTES_MLOFFNO {
   
-  // Enum definitions.
   enum class eDMLOE : uint32_t {
     eDISABLED = 0, // The minor loop offset is not applied to the DADDR
     eENABLED = 1, // The minor loop offset is applied to the DADDR
   };
+  
   enum class eSMLOE : uint32_t {
     eDISABLED = 0, // The minor loop offset is not applied to the SADDR
     eENABLED = 1, // The minor loop offset is applied to the SADDR
@@ -5387,7 +5488,7 @@ union TCD7_NBYTES_MLOFFNO {
     uint32_t NBYTES : 30;
     eDMLOE DMLOE : 1;
     eSMLOE SMLOE : 1;
-  } bits;          // Bit-field struct (auto-filling reserved gaps)
+  } bits;
   
   // Full 32-bit register value.
   uint32_t value;
@@ -5401,11 +5502,11 @@ union TCD7_NBYTES_MLOFFNO {
 //
 union TCD7_NBYTES_MLOFFYES {
   
-  // Enum definitions.
   enum class eDMLOE : uint32_t {
     eDISABLED = 0, // The minor loop offset is not applied to the DADDR
     eENABLED = 1, // The minor loop offset is applied to the DADDR
   };
+  
   enum class eSMLOE : uint32_t {
     eDISABLED = 0, // The minor loop offset is not applied to the SADDR
     eENABLED = 1, // The minor loop offset is applied to the SADDR
@@ -5417,7 +5518,7 @@ union TCD7_NBYTES_MLOFFYES {
     uint32_t MLOFF : 20;
     eDMLOE DMLOE : 1;
     eSMLOE SMLOE : 1;
-  } bits;          // Bit-field struct (auto-filling reserved gaps)
+  } bits;
   
   // Full 32-bit register value.
   uint32_t value;
@@ -5431,12 +5532,10 @@ union TCD7_NBYTES_MLOFFYES {
 //
 union TCD7_SLAST {
   
-  // Enum definitions.
-  
   // Bit field definition.
   struct {
     uint32_t SLAST : 32;
-  } bits;          // Bit-field struct (auto-filling reserved gaps)
+  } bits;
   
   // Full 32-bit register value.
   uint32_t value;
@@ -5450,12 +5549,10 @@ union TCD7_SLAST {
 //
 union TCD7_DADDR {
   
-  // Enum definitions.
-  
   // Bit field definition.
   struct {
     uint32_t DADDR : 32;
-  } bits;          // Bit-field struct (auto-filling reserved gaps)
+  } bits;
   
   // Full 32-bit register value.
   uint32_t value;
@@ -5469,13 +5566,11 @@ union TCD7_DADDR {
 //
 union TCD7_DOFF {
   
-  // Enum definitions.
-  
   // Bit field definition.
   struct {
     uint32_t DOFF : 16;
     uint32_t _reserved_end : 16;
-  } bits;          // Bit-field struct (auto-filling reserved gaps)
+  } bits;
   
   // Full 32-bit register value.
   uint32_t value;
@@ -5489,7 +5584,6 @@ union TCD7_DOFF {
 //
 union TCD7_CITER_ELINKNO {
   
-  // Enum definitions.
   enum class eELINK : uint32_t {
     eDISABLED = 0, // Channel-to-channel linking is disabled
     eENABLED = 1, // Channel-to-channel linking is enabled
@@ -5500,7 +5594,7 @@ union TCD7_CITER_ELINKNO {
     uint32_t CITER : 15;
     eELINK ELINK : 1;
     uint32_t _reserved_end : 16;
-  } bits;          // Bit-field struct (auto-filling reserved gaps)
+  } bits;
   
   // Full 32-bit register value.
   uint32_t value;
@@ -5514,7 +5608,6 @@ union TCD7_CITER_ELINKNO {
 //
 union TCD7_CITER_ELINKYES {
   
-  // Enum definitions.
   enum class eELINK : uint32_t {
     eDISABLED = 0, // Channel-to-channel linking is disabled
     eENABLED = 1, // Channel-to-channel linking is enabled
@@ -5527,7 +5620,7 @@ union TCD7_CITER_ELINKYES {
     uint32_t _reserved_2 : 1;
     eELINK ELINK : 1;
     uint32_t _reserved_end : 16;
-  } bits;          // Bit-field struct (auto-filling reserved gaps)
+  } bits;
   
   // Full 32-bit register value.
   uint32_t value;
@@ -5541,12 +5634,10 @@ union TCD7_CITER_ELINKYES {
 //
 union TCD7_DLASTSGA {
   
-  // Enum definitions.
-  
   // Bit field definition.
   struct {
     uint32_t DLASTSGA : 32;
-  } bits;          // Bit-field struct (auto-filling reserved gaps)
+  } bits;
   
   // Full 32-bit register value.
   uint32_t value;
@@ -5560,31 +5651,36 @@ union TCD7_DLASTSGA {
 //
 union TCD7_CSR {
   
-  // Enum definitions.
   enum class eSTART : uint32_t {
     eNO_START = 0, // Channel is not explicitly started
     eSTART = 1, // Channel is explicitly started via a software initiated service request
   };
+  
   enum class eINTMAJOR : uint32_t {
     eDISABLED = 0, // End of major loop interrupt is disabled
     eENABLED = 1, // End of major loop interrupt is enabled
   };
+  
   enum class eINTHALF : uint32_t {
     eDISABLED = 0, // Half-point interrupt is disabled
     eENABLED = 1, // Half-point interrupt is enabled
   };
+  
   enum class eDREQ : uint32_t {
     eNO_CLEAR = 0, // The channel's ERQ field is not affected
     eCLEAR = 1, // The channel's ERQ field value changes to 0 when the major loop is complete
   };
+  
   enum class eESG : uint32_t {
     eNORMAL = 0, // The current channel's TCD is normal format
     eSCATTER = 1, // The current channel's TCD specifies a scatter gather format
   };
+  
   enum class eMAJORELINK : uint32_t {
     eDISABLED = 0, // Channel-to-channel linking is disabled
     eENABLED = 1, // Channel-to-channel linking is enabled
   };
+  
   enum class eBWC : uint32_t {
     eDISABLED = 0, // No eDMA engine stalls
     eSTALL4 = 2, // eDMA engine stalls for 4 cycles after each R/W
@@ -5605,7 +5701,7 @@ union TCD7_CSR {
     uint32_t _reserved_9 : 1;
     eBWC BWC : 2;
     uint32_t _reserved_end : 16;
-  } bits;          // Bit-field struct (auto-filling reserved gaps)
+  } bits;
   
   // Full 32-bit register value.
   uint32_t value;
@@ -5619,7 +5715,6 @@ union TCD7_CSR {
 //
 union TCD7_BITER_ELINKNO {
   
-  // Enum definitions.
   enum class eELINK : uint32_t {
     eDISABLED = 0, // Channel-to-channel linking is disabled
     eENABLED = 1, // Channel-to-channel linking is enabled
@@ -5630,7 +5725,7 @@ union TCD7_BITER_ELINKNO {
     uint32_t BITER : 15;
     eELINK ELINK : 1;
     uint32_t _reserved_end : 16;
-  } bits;          // Bit-field struct (auto-filling reserved gaps)
+  } bits;
   
   // Full 32-bit register value.
   uint32_t value;
@@ -5644,7 +5739,6 @@ union TCD7_BITER_ELINKNO {
 //
 union TCD7_BITER_ELINKYES {
   
-  // Enum definitions.
   enum class eELINK : uint32_t {
     eDISABLED = 0, // Channel-to-channel linking is disabled
     eENABLED = 1, // Channel-to-channel linking is enabled
@@ -5657,7 +5751,7 @@ union TCD7_BITER_ELINKYES {
     uint32_t _reserved_2 : 1;
     eELINK ELINK : 1;
     uint32_t _reserved_end : 16;
-  } bits;          // Bit-field struct (auto-filling reserved gaps)
+  } bits;
   
   // Full 32-bit register value.
   uint32_t value;
@@ -5671,12 +5765,10 @@ union TCD7_BITER_ELINKYES {
 //
 union TCD8_SADDR {
   
-  // Enum definitions.
-  
   // Bit field definition.
   struct {
     uint32_t SADDR : 32;
-  } bits;          // Bit-field struct (auto-filling reserved gaps)
+  } bits;
   
   // Full 32-bit register value.
   uint32_t value;
@@ -5690,13 +5782,11 @@ union TCD8_SADDR {
 //
 union TCD8_SOFF {
   
-  // Enum definitions.
-  
   // Bit field definition.
   struct {
     uint32_t SOFF : 16;
     uint32_t _reserved_end : 16;
-  } bits;          // Bit-field struct (auto-filling reserved gaps)
+  } bits;
   
   // Full 32-bit register value.
   uint32_t value;
@@ -5710,7 +5800,6 @@ union TCD8_SOFF {
 //
 union TCD8_ATTR {
   
-  // Enum definitions.
   enum class eSSIZE : uint32_t {
     eEIGHT = 0, // 8-bit
     eSIXTEEN_BIT = 1, // 16-bit
@@ -5718,6 +5807,7 @@ union TCD8_ATTR {
     eSIXTYFOUR = 3, // 64-bit
     eTHIRTYTWO_BYTE = 5, // 32-byte burst (4 beats of 64 bits)
   };
+  
   enum class eSMOD : uint32_t {
     eDISABLED = 0, // Source address modulo feature is disabled
     eENABLED = 1, // Value defines address range used to set up circular data queue
@@ -5738,7 +5828,7 @@ union TCD8_ATTR {
     eSSIZE SSIZE : 3;
     eSMOD SMOD : 5;
     uint32_t _reserved_end : 16;
-  } bits;          // Bit-field struct (auto-filling reserved gaps)
+  } bits;
   
   // Full 32-bit register value.
   uint32_t value;
@@ -5752,12 +5842,10 @@ union TCD8_ATTR {
 //
 union TCD8_NBYTES_MLNO {
   
-  // Enum definitions.
-  
   // Bit field definition.
   struct {
     uint32_t NBYTES : 32;
-  } bits;          // Bit-field struct (auto-filling reserved gaps)
+  } bits;
   
   // Full 32-bit register value.
   uint32_t value;
@@ -5771,11 +5859,11 @@ union TCD8_NBYTES_MLNO {
 //
 union TCD8_NBYTES_MLOFFNO {
   
-  // Enum definitions.
   enum class eDMLOE : uint32_t {
     eDISABLED = 0, // The minor loop offset is not applied to the DADDR
     eENABLED = 1, // The minor loop offset is applied to the DADDR
   };
+  
   enum class eSMLOE : uint32_t {
     eDISABLED = 0, // The minor loop offset is not applied to the SADDR
     eENABLED = 1, // The minor loop offset is applied to the SADDR
@@ -5786,7 +5874,7 @@ union TCD8_NBYTES_MLOFFNO {
     uint32_t NBYTES : 30;
     eDMLOE DMLOE : 1;
     eSMLOE SMLOE : 1;
-  } bits;          // Bit-field struct (auto-filling reserved gaps)
+  } bits;
   
   // Full 32-bit register value.
   uint32_t value;
@@ -5800,11 +5888,11 @@ union TCD8_NBYTES_MLOFFNO {
 //
 union TCD8_NBYTES_MLOFFYES {
   
-  // Enum definitions.
   enum class eDMLOE : uint32_t {
     eDISABLED = 0, // The minor loop offset is not applied to the DADDR
     eENABLED = 1, // The minor loop offset is applied to the DADDR
   };
+  
   enum class eSMLOE : uint32_t {
     eDISABLED = 0, // The minor loop offset is not applied to the SADDR
     eENABLED = 1, // The minor loop offset is applied to the SADDR
@@ -5816,7 +5904,7 @@ union TCD8_NBYTES_MLOFFYES {
     uint32_t MLOFF : 20;
     eDMLOE DMLOE : 1;
     eSMLOE SMLOE : 1;
-  } bits;          // Bit-field struct (auto-filling reserved gaps)
+  } bits;
   
   // Full 32-bit register value.
   uint32_t value;
@@ -5830,12 +5918,10 @@ union TCD8_NBYTES_MLOFFYES {
 //
 union TCD8_SLAST {
   
-  // Enum definitions.
-  
   // Bit field definition.
   struct {
     uint32_t SLAST : 32;
-  } bits;          // Bit-field struct (auto-filling reserved gaps)
+  } bits;
   
   // Full 32-bit register value.
   uint32_t value;
@@ -5849,12 +5935,10 @@ union TCD8_SLAST {
 //
 union TCD8_DADDR {
   
-  // Enum definitions.
-  
   // Bit field definition.
   struct {
     uint32_t DADDR : 32;
-  } bits;          // Bit-field struct (auto-filling reserved gaps)
+  } bits;
   
   // Full 32-bit register value.
   uint32_t value;
@@ -5868,13 +5952,11 @@ union TCD8_DADDR {
 //
 union TCD8_DOFF {
   
-  // Enum definitions.
-  
   // Bit field definition.
   struct {
     uint32_t DOFF : 16;
     uint32_t _reserved_end : 16;
-  } bits;          // Bit-field struct (auto-filling reserved gaps)
+  } bits;
   
   // Full 32-bit register value.
   uint32_t value;
@@ -5888,7 +5970,6 @@ union TCD8_DOFF {
 //
 union TCD8_CITER_ELINKNO {
   
-  // Enum definitions.
   enum class eELINK : uint32_t {
     eDISABLED = 0, // Channel-to-channel linking is disabled
     eENABLED = 1, // Channel-to-channel linking is enabled
@@ -5899,7 +5980,7 @@ union TCD8_CITER_ELINKNO {
     uint32_t CITER : 15;
     eELINK ELINK : 1;
     uint32_t _reserved_end : 16;
-  } bits;          // Bit-field struct (auto-filling reserved gaps)
+  } bits;
   
   // Full 32-bit register value.
   uint32_t value;
@@ -5913,7 +5994,6 @@ union TCD8_CITER_ELINKNO {
 //
 union TCD8_CITER_ELINKYES {
   
-  // Enum definitions.
   enum class eELINK : uint32_t {
     eDISABLED = 0, // Channel-to-channel linking is disabled
     eENABLED = 1, // Channel-to-channel linking is enabled
@@ -5926,7 +6006,7 @@ union TCD8_CITER_ELINKYES {
     uint32_t _reserved_2 : 1;
     eELINK ELINK : 1;
     uint32_t _reserved_end : 16;
-  } bits;          // Bit-field struct (auto-filling reserved gaps)
+  } bits;
   
   // Full 32-bit register value.
   uint32_t value;
@@ -5940,12 +6020,10 @@ union TCD8_CITER_ELINKYES {
 //
 union TCD8_DLASTSGA {
   
-  // Enum definitions.
-  
   // Bit field definition.
   struct {
     uint32_t DLASTSGA : 32;
-  } bits;          // Bit-field struct (auto-filling reserved gaps)
+  } bits;
   
   // Full 32-bit register value.
   uint32_t value;
@@ -5959,31 +6037,36 @@ union TCD8_DLASTSGA {
 //
 union TCD8_CSR {
   
-  // Enum definitions.
   enum class eSTART : uint32_t {
     eNO_START = 0, // Channel is not explicitly started
     eSTART = 1, // Channel is explicitly started via a software initiated service request
   };
+  
   enum class eINTMAJOR : uint32_t {
     eDISABLED = 0, // End of major loop interrupt is disabled
     eENABLED = 1, // End of major loop interrupt is enabled
   };
+  
   enum class eINTHALF : uint32_t {
     eDISABLED = 0, // Half-point interrupt is disabled
     eENABLED = 1, // Half-point interrupt is enabled
   };
+  
   enum class eDREQ : uint32_t {
     eNO_CLEAR = 0, // The channel's ERQ field is not affected
     eCLEAR = 1, // The channel's ERQ field value changes to 0 when the major loop is complete
   };
+  
   enum class eESG : uint32_t {
     eNORMAL = 0, // The current channel's TCD is normal format
     eSCATTER = 1, // The current channel's TCD specifies a scatter gather format
   };
+  
   enum class eMAJORELINK : uint32_t {
     eDISABLED = 0, // Channel-to-channel linking is disabled
     eENABLED = 1, // Channel-to-channel linking is enabled
   };
+  
   enum class eBWC : uint32_t {
     eDISABLED = 0, // No eDMA engine stalls
     eSTALL4 = 2, // eDMA engine stalls for 4 cycles after each R/W
@@ -6004,7 +6087,7 @@ union TCD8_CSR {
     uint32_t _reserved_9 : 1;
     eBWC BWC : 2;
     uint32_t _reserved_end : 16;
-  } bits;          // Bit-field struct (auto-filling reserved gaps)
+  } bits;
   
   // Full 32-bit register value.
   uint32_t value;
@@ -6018,7 +6101,6 @@ union TCD8_CSR {
 //
 union TCD8_BITER_ELINKNO {
   
-  // Enum definitions.
   enum class eELINK : uint32_t {
     eDISABLED = 0, // Channel-to-channel linking is disabled
     eENABLED = 1, // Channel-to-channel linking is enabled
@@ -6029,7 +6111,7 @@ union TCD8_BITER_ELINKNO {
     uint32_t BITER : 15;
     eELINK ELINK : 1;
     uint32_t _reserved_end : 16;
-  } bits;          // Bit-field struct (auto-filling reserved gaps)
+  } bits;
   
   // Full 32-bit register value.
   uint32_t value;
@@ -6043,7 +6125,6 @@ union TCD8_BITER_ELINKNO {
 //
 union TCD8_BITER_ELINKYES {
   
-  // Enum definitions.
   enum class eELINK : uint32_t {
     eDISABLED = 0, // Channel-to-channel linking is disabled
     eENABLED = 1, // Channel-to-channel linking is enabled
@@ -6056,7 +6137,7 @@ union TCD8_BITER_ELINKYES {
     uint32_t _reserved_2 : 1;
     eELINK ELINK : 1;
     uint32_t _reserved_end : 16;
-  } bits;          // Bit-field struct (auto-filling reserved gaps)
+  } bits;
   
   // Full 32-bit register value.
   uint32_t value;
@@ -6070,12 +6151,10 @@ union TCD8_BITER_ELINKYES {
 //
 union TCD9_SADDR {
   
-  // Enum definitions.
-  
   // Bit field definition.
   struct {
     uint32_t SADDR : 32;
-  } bits;          // Bit-field struct (auto-filling reserved gaps)
+  } bits;
   
   // Full 32-bit register value.
   uint32_t value;
@@ -6089,13 +6168,11 @@ union TCD9_SADDR {
 //
 union TCD9_SOFF {
   
-  // Enum definitions.
-  
   // Bit field definition.
   struct {
     uint32_t SOFF : 16;
     uint32_t _reserved_end : 16;
-  } bits;          // Bit-field struct (auto-filling reserved gaps)
+  } bits;
   
   // Full 32-bit register value.
   uint32_t value;
@@ -6109,7 +6186,6 @@ union TCD9_SOFF {
 //
 union TCD9_ATTR {
   
-  // Enum definitions.
   enum class eSSIZE : uint32_t {
     eEIGHT = 0, // 8-bit
     eSIXTEEN_BIT = 1, // 16-bit
@@ -6117,6 +6193,7 @@ union TCD9_ATTR {
     eSIXTYFOUR = 3, // 64-bit
     eTHIRTYTWO_BYTE = 5, // 32-byte burst (4 beats of 64 bits)
   };
+  
   enum class eSMOD : uint32_t {
     eDISABLED = 0, // Source address modulo feature is disabled
     eENABLED = 1, // Value defines address range used to set up circular data queue
@@ -6137,7 +6214,7 @@ union TCD9_ATTR {
     eSSIZE SSIZE : 3;
     eSMOD SMOD : 5;
     uint32_t _reserved_end : 16;
-  } bits;          // Bit-field struct (auto-filling reserved gaps)
+  } bits;
   
   // Full 32-bit register value.
   uint32_t value;
@@ -6151,12 +6228,10 @@ union TCD9_ATTR {
 //
 union TCD9_NBYTES_MLNO {
   
-  // Enum definitions.
-  
   // Bit field definition.
   struct {
     uint32_t NBYTES : 32;
-  } bits;          // Bit-field struct (auto-filling reserved gaps)
+  } bits;
   
   // Full 32-bit register value.
   uint32_t value;
@@ -6170,11 +6245,11 @@ union TCD9_NBYTES_MLNO {
 //
 union TCD9_NBYTES_MLOFFNO {
   
-  // Enum definitions.
   enum class eDMLOE : uint32_t {
     eDISABLED = 0, // The minor loop offset is not applied to the DADDR
     eENABLED = 1, // The minor loop offset is applied to the DADDR
   };
+  
   enum class eSMLOE : uint32_t {
     eDISABLED = 0, // The minor loop offset is not applied to the SADDR
     eENABLED = 1, // The minor loop offset is applied to the SADDR
@@ -6185,7 +6260,7 @@ union TCD9_NBYTES_MLOFFNO {
     uint32_t NBYTES : 30;
     eDMLOE DMLOE : 1;
     eSMLOE SMLOE : 1;
-  } bits;          // Bit-field struct (auto-filling reserved gaps)
+  } bits;
   
   // Full 32-bit register value.
   uint32_t value;
@@ -6199,11 +6274,11 @@ union TCD9_NBYTES_MLOFFNO {
 //
 union TCD9_NBYTES_MLOFFYES {
   
-  // Enum definitions.
   enum class eDMLOE : uint32_t {
     eDISABLED = 0, // The minor loop offset is not applied to the DADDR
     eENABLED = 1, // The minor loop offset is applied to the DADDR
   };
+  
   enum class eSMLOE : uint32_t {
     eDISABLED = 0, // The minor loop offset is not applied to the SADDR
     eENABLED = 1, // The minor loop offset is applied to the SADDR
@@ -6215,7 +6290,7 @@ union TCD9_NBYTES_MLOFFYES {
     uint32_t MLOFF : 20;
     eDMLOE DMLOE : 1;
     eSMLOE SMLOE : 1;
-  } bits;          // Bit-field struct (auto-filling reserved gaps)
+  } bits;
   
   // Full 32-bit register value.
   uint32_t value;
@@ -6229,12 +6304,10 @@ union TCD9_NBYTES_MLOFFYES {
 //
 union TCD9_SLAST {
   
-  // Enum definitions.
-  
   // Bit field definition.
   struct {
     uint32_t SLAST : 32;
-  } bits;          // Bit-field struct (auto-filling reserved gaps)
+  } bits;
   
   // Full 32-bit register value.
   uint32_t value;
@@ -6248,12 +6321,10 @@ union TCD9_SLAST {
 //
 union TCD9_DADDR {
   
-  // Enum definitions.
-  
   // Bit field definition.
   struct {
     uint32_t DADDR : 32;
-  } bits;          // Bit-field struct (auto-filling reserved gaps)
+  } bits;
   
   // Full 32-bit register value.
   uint32_t value;
@@ -6267,13 +6338,11 @@ union TCD9_DADDR {
 //
 union TCD9_DOFF {
   
-  // Enum definitions.
-  
   // Bit field definition.
   struct {
     uint32_t DOFF : 16;
     uint32_t _reserved_end : 16;
-  } bits;          // Bit-field struct (auto-filling reserved gaps)
+  } bits;
   
   // Full 32-bit register value.
   uint32_t value;
@@ -6287,7 +6356,6 @@ union TCD9_DOFF {
 //
 union TCD9_CITER_ELINKNO {
   
-  // Enum definitions.
   enum class eELINK : uint32_t {
     eDISABLED = 0, // Channel-to-channel linking is disabled
     eENABLED = 1, // Channel-to-channel linking is enabled
@@ -6298,7 +6366,7 @@ union TCD9_CITER_ELINKNO {
     uint32_t CITER : 15;
     eELINK ELINK : 1;
     uint32_t _reserved_end : 16;
-  } bits;          // Bit-field struct (auto-filling reserved gaps)
+  } bits;
   
   // Full 32-bit register value.
   uint32_t value;
@@ -6312,7 +6380,6 @@ union TCD9_CITER_ELINKNO {
 //
 union TCD9_CITER_ELINKYES {
   
-  // Enum definitions.
   enum class eELINK : uint32_t {
     eDISABLED = 0, // Channel-to-channel linking is disabled
     eENABLED = 1, // Channel-to-channel linking is enabled
@@ -6325,7 +6392,7 @@ union TCD9_CITER_ELINKYES {
     uint32_t _reserved_2 : 1;
     eELINK ELINK : 1;
     uint32_t _reserved_end : 16;
-  } bits;          // Bit-field struct (auto-filling reserved gaps)
+  } bits;
   
   // Full 32-bit register value.
   uint32_t value;
@@ -6339,12 +6406,10 @@ union TCD9_CITER_ELINKYES {
 //
 union TCD9_DLASTSGA {
   
-  // Enum definitions.
-  
   // Bit field definition.
   struct {
     uint32_t DLASTSGA : 32;
-  } bits;          // Bit-field struct (auto-filling reserved gaps)
+  } bits;
   
   // Full 32-bit register value.
   uint32_t value;
@@ -6358,31 +6423,36 @@ union TCD9_DLASTSGA {
 //
 union TCD9_CSR {
   
-  // Enum definitions.
   enum class eSTART : uint32_t {
     eNO_START = 0, // Channel is not explicitly started
     eSTART = 1, // Channel is explicitly started via a software initiated service request
   };
+  
   enum class eINTMAJOR : uint32_t {
     eDISABLED = 0, // End of major loop interrupt is disabled
     eENABLED = 1, // End of major loop interrupt is enabled
   };
+  
   enum class eINTHALF : uint32_t {
     eDISABLED = 0, // Half-point interrupt is disabled
     eENABLED = 1, // Half-point interrupt is enabled
   };
+  
   enum class eDREQ : uint32_t {
     eNO_CLEAR = 0, // The channel's ERQ field is not affected
     eCLEAR = 1, // The channel's ERQ field value changes to 0 when the major loop is complete
   };
+  
   enum class eESG : uint32_t {
     eNORMAL = 0, // The current channel's TCD is normal format
     eSCATTER = 1, // The current channel's TCD specifies a scatter gather format
   };
+  
   enum class eMAJORELINK : uint32_t {
     eDISABLED = 0, // Channel-to-channel linking is disabled
     eENABLED = 1, // Channel-to-channel linking is enabled
   };
+  
   enum class eBWC : uint32_t {
     eDISABLED = 0, // No eDMA engine stalls
     eSTALL4 = 2, // eDMA engine stalls for 4 cycles after each R/W
@@ -6403,7 +6473,7 @@ union TCD9_CSR {
     uint32_t _reserved_9 : 1;
     eBWC BWC : 2;
     uint32_t _reserved_end : 16;
-  } bits;          // Bit-field struct (auto-filling reserved gaps)
+  } bits;
   
   // Full 32-bit register value.
   uint32_t value;
@@ -6417,7 +6487,6 @@ union TCD9_CSR {
 //
 union TCD9_BITER_ELINKNO {
   
-  // Enum definitions.
   enum class eELINK : uint32_t {
     eDISABLED = 0, // Channel-to-channel linking is disabled
     eENABLED = 1, // Channel-to-channel linking is enabled
@@ -6428,7 +6497,7 @@ union TCD9_BITER_ELINKNO {
     uint32_t BITER : 15;
     eELINK ELINK : 1;
     uint32_t _reserved_end : 16;
-  } bits;          // Bit-field struct (auto-filling reserved gaps)
+  } bits;
   
   // Full 32-bit register value.
   uint32_t value;
@@ -6442,7 +6511,6 @@ union TCD9_BITER_ELINKNO {
 //
 union TCD9_BITER_ELINKYES {
   
-  // Enum definitions.
   enum class eELINK : uint32_t {
     eDISABLED = 0, // Channel-to-channel linking is disabled
     eENABLED = 1, // Channel-to-channel linking is enabled
@@ -6455,7 +6523,7 @@ union TCD9_BITER_ELINKYES {
     uint32_t _reserved_2 : 1;
     eELINK ELINK : 1;
     uint32_t _reserved_end : 16;
-  } bits;          // Bit-field struct (auto-filling reserved gaps)
+  } bits;
   
   // Full 32-bit register value.
   uint32_t value;
@@ -6469,12 +6537,10 @@ union TCD9_BITER_ELINKYES {
 //
 union TCD10_SADDR {
   
-  // Enum definitions.
-  
   // Bit field definition.
   struct {
     uint32_t SADDR : 32;
-  } bits;          // Bit-field struct (auto-filling reserved gaps)
+  } bits;
   
   // Full 32-bit register value.
   uint32_t value;
@@ -6488,13 +6554,11 @@ union TCD10_SADDR {
 //
 union TCD10_SOFF {
   
-  // Enum definitions.
-  
   // Bit field definition.
   struct {
     uint32_t SOFF : 16;
     uint32_t _reserved_end : 16;
-  } bits;          // Bit-field struct (auto-filling reserved gaps)
+  } bits;
   
   // Full 32-bit register value.
   uint32_t value;
@@ -6508,7 +6572,6 @@ union TCD10_SOFF {
 //
 union TCD10_ATTR {
   
-  // Enum definitions.
   enum class eSSIZE : uint32_t {
     eEIGHT = 0, // 8-bit
     eSIXTEEN_BIT = 1, // 16-bit
@@ -6516,6 +6579,7 @@ union TCD10_ATTR {
     eSIXTYFOUR = 3, // 64-bit
     eTHIRTYTWO_BYTE = 5, // 32-byte burst (4 beats of 64 bits)
   };
+  
   enum class eSMOD : uint32_t {
     eDISABLED = 0, // Source address modulo feature is disabled
     eENABLED = 1, // Value defines address range used to set up circular data queue
@@ -6536,7 +6600,7 @@ union TCD10_ATTR {
     eSSIZE SSIZE : 3;
     eSMOD SMOD : 5;
     uint32_t _reserved_end : 16;
-  } bits;          // Bit-field struct (auto-filling reserved gaps)
+  } bits;
   
   // Full 32-bit register value.
   uint32_t value;
@@ -6550,12 +6614,10 @@ union TCD10_ATTR {
 //
 union TCD10_NBYTES_MLNO {
   
-  // Enum definitions.
-  
   // Bit field definition.
   struct {
     uint32_t NBYTES : 32;
-  } bits;          // Bit-field struct (auto-filling reserved gaps)
+  } bits;
   
   // Full 32-bit register value.
   uint32_t value;
@@ -6569,11 +6631,11 @@ union TCD10_NBYTES_MLNO {
 //
 union TCD10_NBYTES_MLOFFNO {
   
-  // Enum definitions.
   enum class eDMLOE : uint32_t {
     eDISABLED = 0, // The minor loop offset is not applied to the DADDR
     eENABLED = 1, // The minor loop offset is applied to the DADDR
   };
+  
   enum class eSMLOE : uint32_t {
     eDISABLED = 0, // The minor loop offset is not applied to the SADDR
     eENABLED = 1, // The minor loop offset is applied to the SADDR
@@ -6584,7 +6646,7 @@ union TCD10_NBYTES_MLOFFNO {
     uint32_t NBYTES : 30;
     eDMLOE DMLOE : 1;
     eSMLOE SMLOE : 1;
-  } bits;          // Bit-field struct (auto-filling reserved gaps)
+  } bits;
   
   // Full 32-bit register value.
   uint32_t value;
@@ -6598,11 +6660,11 @@ union TCD10_NBYTES_MLOFFNO {
 //
 union TCD10_NBYTES_MLOFFYES {
   
-  // Enum definitions.
   enum class eDMLOE : uint32_t {
     eDISABLED = 0, // The minor loop offset is not applied to the DADDR
     eENABLED = 1, // The minor loop offset is applied to the DADDR
   };
+  
   enum class eSMLOE : uint32_t {
     eDISABLED = 0, // The minor loop offset is not applied to the SADDR
     eENABLED = 1, // The minor loop offset is applied to the SADDR
@@ -6614,7 +6676,7 @@ union TCD10_NBYTES_MLOFFYES {
     uint32_t MLOFF : 20;
     eDMLOE DMLOE : 1;
     eSMLOE SMLOE : 1;
-  } bits;          // Bit-field struct (auto-filling reserved gaps)
+  } bits;
   
   // Full 32-bit register value.
   uint32_t value;
@@ -6628,12 +6690,10 @@ union TCD10_NBYTES_MLOFFYES {
 //
 union TCD10_SLAST {
   
-  // Enum definitions.
-  
   // Bit field definition.
   struct {
     uint32_t SLAST : 32;
-  } bits;          // Bit-field struct (auto-filling reserved gaps)
+  } bits;
   
   // Full 32-bit register value.
   uint32_t value;
@@ -6647,12 +6707,10 @@ union TCD10_SLAST {
 //
 union TCD10_DADDR {
   
-  // Enum definitions.
-  
   // Bit field definition.
   struct {
     uint32_t DADDR : 32;
-  } bits;          // Bit-field struct (auto-filling reserved gaps)
+  } bits;
   
   // Full 32-bit register value.
   uint32_t value;
@@ -6666,13 +6724,11 @@ union TCD10_DADDR {
 //
 union TCD10_DOFF {
   
-  // Enum definitions.
-  
   // Bit field definition.
   struct {
     uint32_t DOFF : 16;
     uint32_t _reserved_end : 16;
-  } bits;          // Bit-field struct (auto-filling reserved gaps)
+  } bits;
   
   // Full 32-bit register value.
   uint32_t value;
@@ -6686,7 +6742,6 @@ union TCD10_DOFF {
 //
 union TCD10_CITER_ELINKNO {
   
-  // Enum definitions.
   enum class eELINK : uint32_t {
     eDISABLED = 0, // Channel-to-channel linking is disabled
     eENABLED = 1, // Channel-to-channel linking is enabled
@@ -6697,7 +6752,7 @@ union TCD10_CITER_ELINKNO {
     uint32_t CITER : 15;
     eELINK ELINK : 1;
     uint32_t _reserved_end : 16;
-  } bits;          // Bit-field struct (auto-filling reserved gaps)
+  } bits;
   
   // Full 32-bit register value.
   uint32_t value;
@@ -6711,7 +6766,6 @@ union TCD10_CITER_ELINKNO {
 //
 union TCD10_CITER_ELINKYES {
   
-  // Enum definitions.
   enum class eELINK : uint32_t {
     eDISABLED = 0, // Channel-to-channel linking is disabled
     eENABLED = 1, // Channel-to-channel linking is enabled
@@ -6724,7 +6778,7 @@ union TCD10_CITER_ELINKYES {
     uint32_t _reserved_2 : 1;
     eELINK ELINK : 1;
     uint32_t _reserved_end : 16;
-  } bits;          // Bit-field struct (auto-filling reserved gaps)
+  } bits;
   
   // Full 32-bit register value.
   uint32_t value;
@@ -6738,12 +6792,10 @@ union TCD10_CITER_ELINKYES {
 //
 union TCD10_DLASTSGA {
   
-  // Enum definitions.
-  
   // Bit field definition.
   struct {
     uint32_t DLASTSGA : 32;
-  } bits;          // Bit-field struct (auto-filling reserved gaps)
+  } bits;
   
   // Full 32-bit register value.
   uint32_t value;
@@ -6757,31 +6809,36 @@ union TCD10_DLASTSGA {
 //
 union TCD10_CSR {
   
-  // Enum definitions.
   enum class eSTART : uint32_t {
     eNO_START = 0, // Channel is not explicitly started
     eSTART = 1, // Channel is explicitly started via a software initiated service request
   };
+  
   enum class eINTMAJOR : uint32_t {
     eDISABLED = 0, // End of major loop interrupt is disabled
     eENABLED = 1, // End of major loop interrupt is enabled
   };
+  
   enum class eINTHALF : uint32_t {
     eDISABLED = 0, // Half-point interrupt is disabled
     eENABLED = 1, // Half-point interrupt is enabled
   };
+  
   enum class eDREQ : uint32_t {
     eNO_CLEAR = 0, // The channel's ERQ field is not affected
     eCLEAR = 1, // The channel's ERQ field value changes to 0 when the major loop is complete
   };
+  
   enum class eESG : uint32_t {
     eNORMAL = 0, // The current channel's TCD is normal format
     eSCATTER = 1, // The current channel's TCD specifies a scatter gather format
   };
+  
   enum class eMAJORELINK : uint32_t {
     eDISABLED = 0, // Channel-to-channel linking is disabled
     eENABLED = 1, // Channel-to-channel linking is enabled
   };
+  
   enum class eBWC : uint32_t {
     eDISABLED = 0, // No eDMA engine stalls
     eSTALL4 = 2, // eDMA engine stalls for 4 cycles after each R/W
@@ -6802,7 +6859,7 @@ union TCD10_CSR {
     uint32_t _reserved_9 : 1;
     eBWC BWC : 2;
     uint32_t _reserved_end : 16;
-  } bits;          // Bit-field struct (auto-filling reserved gaps)
+  } bits;
   
   // Full 32-bit register value.
   uint32_t value;
@@ -6816,7 +6873,6 @@ union TCD10_CSR {
 //
 union TCD10_BITER_ELINKNO {
   
-  // Enum definitions.
   enum class eELINK : uint32_t {
     eDISABLED = 0, // Channel-to-channel linking is disabled
     eENABLED = 1, // Channel-to-channel linking is enabled
@@ -6827,7 +6883,7 @@ union TCD10_BITER_ELINKNO {
     uint32_t BITER : 15;
     eELINK ELINK : 1;
     uint32_t _reserved_end : 16;
-  } bits;          // Bit-field struct (auto-filling reserved gaps)
+  } bits;
   
   // Full 32-bit register value.
   uint32_t value;
@@ -6841,7 +6897,6 @@ union TCD10_BITER_ELINKNO {
 //
 union TCD10_BITER_ELINKYES {
   
-  // Enum definitions.
   enum class eELINK : uint32_t {
     eDISABLED = 0, // Channel-to-channel linking is disabled
     eENABLED = 1, // Channel-to-channel linking is enabled
@@ -6854,7 +6909,7 @@ union TCD10_BITER_ELINKYES {
     uint32_t _reserved_2 : 1;
     eELINK ELINK : 1;
     uint32_t _reserved_end : 16;
-  } bits;          // Bit-field struct (auto-filling reserved gaps)
+  } bits;
   
   // Full 32-bit register value.
   uint32_t value;
@@ -6868,12 +6923,10 @@ union TCD10_BITER_ELINKYES {
 //
 union TCD11_SADDR {
   
-  // Enum definitions.
-  
   // Bit field definition.
   struct {
     uint32_t SADDR : 32;
-  } bits;          // Bit-field struct (auto-filling reserved gaps)
+  } bits;
   
   // Full 32-bit register value.
   uint32_t value;
@@ -6887,13 +6940,11 @@ union TCD11_SADDR {
 //
 union TCD11_SOFF {
   
-  // Enum definitions.
-  
   // Bit field definition.
   struct {
     uint32_t SOFF : 16;
     uint32_t _reserved_end : 16;
-  } bits;          // Bit-field struct (auto-filling reserved gaps)
+  } bits;
   
   // Full 32-bit register value.
   uint32_t value;
@@ -6907,7 +6958,6 @@ union TCD11_SOFF {
 //
 union TCD11_ATTR {
   
-  // Enum definitions.
   enum class eSSIZE : uint32_t {
     eEIGHT = 0, // 8-bit
     eSIXTEEN_BIT = 1, // 16-bit
@@ -6915,6 +6965,7 @@ union TCD11_ATTR {
     eSIXTYFOUR = 3, // 64-bit
     eTHIRTYTWO_BYTE = 5, // 32-byte burst (4 beats of 64 bits)
   };
+  
   enum class eSMOD : uint32_t {
     eDISABLED = 0, // Source address modulo feature is disabled
     eENABLED = 1, // Value defines address range used to set up circular data queue
@@ -6935,7 +6986,7 @@ union TCD11_ATTR {
     eSSIZE SSIZE : 3;
     eSMOD SMOD : 5;
     uint32_t _reserved_end : 16;
-  } bits;          // Bit-field struct (auto-filling reserved gaps)
+  } bits;
   
   // Full 32-bit register value.
   uint32_t value;
@@ -6949,12 +7000,10 @@ union TCD11_ATTR {
 //
 union TCD11_NBYTES_MLNO {
   
-  // Enum definitions.
-  
   // Bit field definition.
   struct {
     uint32_t NBYTES : 32;
-  } bits;          // Bit-field struct (auto-filling reserved gaps)
+  } bits;
   
   // Full 32-bit register value.
   uint32_t value;
@@ -6968,11 +7017,11 @@ union TCD11_NBYTES_MLNO {
 //
 union TCD11_NBYTES_MLOFFNO {
   
-  // Enum definitions.
   enum class eDMLOE : uint32_t {
     eDISABLED = 0, // The minor loop offset is not applied to the DADDR
     eENABLED = 1, // The minor loop offset is applied to the DADDR
   };
+  
   enum class eSMLOE : uint32_t {
     eDISABLED = 0, // The minor loop offset is not applied to the SADDR
     eENABLED = 1, // The minor loop offset is applied to the SADDR
@@ -6983,7 +7032,7 @@ union TCD11_NBYTES_MLOFFNO {
     uint32_t NBYTES : 30;
     eDMLOE DMLOE : 1;
     eSMLOE SMLOE : 1;
-  } bits;          // Bit-field struct (auto-filling reserved gaps)
+  } bits;
   
   // Full 32-bit register value.
   uint32_t value;
@@ -6997,11 +7046,11 @@ union TCD11_NBYTES_MLOFFNO {
 //
 union TCD11_NBYTES_MLOFFYES {
   
-  // Enum definitions.
   enum class eDMLOE : uint32_t {
     eDISABLED = 0, // The minor loop offset is not applied to the DADDR
     eENABLED = 1, // The minor loop offset is applied to the DADDR
   };
+  
   enum class eSMLOE : uint32_t {
     eDISABLED = 0, // The minor loop offset is not applied to the SADDR
     eENABLED = 1, // The minor loop offset is applied to the SADDR
@@ -7013,7 +7062,7 @@ union TCD11_NBYTES_MLOFFYES {
     uint32_t MLOFF : 20;
     eDMLOE DMLOE : 1;
     eSMLOE SMLOE : 1;
-  } bits;          // Bit-field struct (auto-filling reserved gaps)
+  } bits;
   
   // Full 32-bit register value.
   uint32_t value;
@@ -7027,12 +7076,10 @@ union TCD11_NBYTES_MLOFFYES {
 //
 union TCD11_SLAST {
   
-  // Enum definitions.
-  
   // Bit field definition.
   struct {
     uint32_t SLAST : 32;
-  } bits;          // Bit-field struct (auto-filling reserved gaps)
+  } bits;
   
   // Full 32-bit register value.
   uint32_t value;
@@ -7046,12 +7093,10 @@ union TCD11_SLAST {
 //
 union TCD11_DADDR {
   
-  // Enum definitions.
-  
   // Bit field definition.
   struct {
     uint32_t DADDR : 32;
-  } bits;          // Bit-field struct (auto-filling reserved gaps)
+  } bits;
   
   // Full 32-bit register value.
   uint32_t value;
@@ -7065,13 +7110,11 @@ union TCD11_DADDR {
 //
 union TCD11_DOFF {
   
-  // Enum definitions.
-  
   // Bit field definition.
   struct {
     uint32_t DOFF : 16;
     uint32_t _reserved_end : 16;
-  } bits;          // Bit-field struct (auto-filling reserved gaps)
+  } bits;
   
   // Full 32-bit register value.
   uint32_t value;
@@ -7085,7 +7128,6 @@ union TCD11_DOFF {
 //
 union TCD11_CITER_ELINKNO {
   
-  // Enum definitions.
   enum class eELINK : uint32_t {
     eDISABLED = 0, // Channel-to-channel linking is disabled
     eENABLED = 1, // Channel-to-channel linking is enabled
@@ -7096,7 +7138,7 @@ union TCD11_CITER_ELINKNO {
     uint32_t CITER : 15;
     eELINK ELINK : 1;
     uint32_t _reserved_end : 16;
-  } bits;          // Bit-field struct (auto-filling reserved gaps)
+  } bits;
   
   // Full 32-bit register value.
   uint32_t value;
@@ -7110,7 +7152,6 @@ union TCD11_CITER_ELINKNO {
 //
 union TCD11_CITER_ELINKYES {
   
-  // Enum definitions.
   enum class eELINK : uint32_t {
     eDISABLED = 0, // Channel-to-channel linking is disabled
     eENABLED = 1, // Channel-to-channel linking is enabled
@@ -7123,7 +7164,7 @@ union TCD11_CITER_ELINKYES {
     uint32_t _reserved_2 : 1;
     eELINK ELINK : 1;
     uint32_t _reserved_end : 16;
-  } bits;          // Bit-field struct (auto-filling reserved gaps)
+  } bits;
   
   // Full 32-bit register value.
   uint32_t value;
@@ -7137,12 +7178,10 @@ union TCD11_CITER_ELINKYES {
 //
 union TCD11_DLASTSGA {
   
-  // Enum definitions.
-  
   // Bit field definition.
   struct {
     uint32_t DLASTSGA : 32;
-  } bits;          // Bit-field struct (auto-filling reserved gaps)
+  } bits;
   
   // Full 32-bit register value.
   uint32_t value;
@@ -7156,31 +7195,36 @@ union TCD11_DLASTSGA {
 //
 union TCD11_CSR {
   
-  // Enum definitions.
   enum class eSTART : uint32_t {
     eNO_START = 0, // Channel is not explicitly started
     eSTART = 1, // Channel is explicitly started via a software initiated service request
   };
+  
   enum class eINTMAJOR : uint32_t {
     eDISABLED = 0, // End of major loop interrupt is disabled
     eENABLED = 1, // End of major loop interrupt is enabled
   };
+  
   enum class eINTHALF : uint32_t {
     eDISABLED = 0, // Half-point interrupt is disabled
     eENABLED = 1, // Half-point interrupt is enabled
   };
+  
   enum class eDREQ : uint32_t {
     eNO_CLEAR = 0, // The channel's ERQ field is not affected
     eCLEAR = 1, // The channel's ERQ field value changes to 0 when the major loop is complete
   };
+  
   enum class eESG : uint32_t {
     eNORMAL = 0, // The current channel's TCD is normal format
     eSCATTER = 1, // The current channel's TCD specifies a scatter gather format
   };
+  
   enum class eMAJORELINK : uint32_t {
     eDISABLED = 0, // Channel-to-channel linking is disabled
     eENABLED = 1, // Channel-to-channel linking is enabled
   };
+  
   enum class eBWC : uint32_t {
     eDISABLED = 0, // No eDMA engine stalls
     eSTALL4 = 2, // eDMA engine stalls for 4 cycles after each R/W
@@ -7201,7 +7245,7 @@ union TCD11_CSR {
     uint32_t _reserved_9 : 1;
     eBWC BWC : 2;
     uint32_t _reserved_end : 16;
-  } bits;          // Bit-field struct (auto-filling reserved gaps)
+  } bits;
   
   // Full 32-bit register value.
   uint32_t value;
@@ -7215,7 +7259,6 @@ union TCD11_CSR {
 //
 union TCD11_BITER_ELINKNO {
   
-  // Enum definitions.
   enum class eELINK : uint32_t {
     eDISABLED = 0, // Channel-to-channel linking is disabled
     eENABLED = 1, // Channel-to-channel linking is enabled
@@ -7226,7 +7269,7 @@ union TCD11_BITER_ELINKNO {
     uint32_t BITER : 15;
     eELINK ELINK : 1;
     uint32_t _reserved_end : 16;
-  } bits;          // Bit-field struct (auto-filling reserved gaps)
+  } bits;
   
   // Full 32-bit register value.
   uint32_t value;
@@ -7240,7 +7283,6 @@ union TCD11_BITER_ELINKNO {
 //
 union TCD11_BITER_ELINKYES {
   
-  // Enum definitions.
   enum class eELINK : uint32_t {
     eDISABLED = 0, // Channel-to-channel linking is disabled
     eENABLED = 1, // Channel-to-channel linking is enabled
@@ -7253,7 +7295,7 @@ union TCD11_BITER_ELINKYES {
     uint32_t _reserved_2 : 1;
     eELINK ELINK : 1;
     uint32_t _reserved_end : 16;
-  } bits;          // Bit-field struct (auto-filling reserved gaps)
+  } bits;
   
   // Full 32-bit register value.
   uint32_t value;
@@ -7267,12 +7309,10 @@ union TCD11_BITER_ELINKYES {
 //
 union TCD12_SADDR {
   
-  // Enum definitions.
-  
   // Bit field definition.
   struct {
     uint32_t SADDR : 32;
-  } bits;          // Bit-field struct (auto-filling reserved gaps)
+  } bits;
   
   // Full 32-bit register value.
   uint32_t value;
@@ -7286,13 +7326,11 @@ union TCD12_SADDR {
 //
 union TCD12_SOFF {
   
-  // Enum definitions.
-  
   // Bit field definition.
   struct {
     uint32_t SOFF : 16;
     uint32_t _reserved_end : 16;
-  } bits;          // Bit-field struct (auto-filling reserved gaps)
+  } bits;
   
   // Full 32-bit register value.
   uint32_t value;
@@ -7306,7 +7344,6 @@ union TCD12_SOFF {
 //
 union TCD12_ATTR {
   
-  // Enum definitions.
   enum class eSSIZE : uint32_t {
     eEIGHT = 0, // 8-bit
     eSIXTEEN_BIT = 1, // 16-bit
@@ -7314,6 +7351,7 @@ union TCD12_ATTR {
     eSIXTYFOUR = 3, // 64-bit
     eTHIRTYTWO_BYTE = 5, // 32-byte burst (4 beats of 64 bits)
   };
+  
   enum class eSMOD : uint32_t {
     eDISABLED = 0, // Source address modulo feature is disabled
     eENABLED = 1, // Value defines address range used to set up circular data queue
@@ -7334,7 +7372,7 @@ union TCD12_ATTR {
     eSSIZE SSIZE : 3;
     eSMOD SMOD : 5;
     uint32_t _reserved_end : 16;
-  } bits;          // Bit-field struct (auto-filling reserved gaps)
+  } bits;
   
   // Full 32-bit register value.
   uint32_t value;
@@ -7348,12 +7386,10 @@ union TCD12_ATTR {
 //
 union TCD12_NBYTES_MLNO {
   
-  // Enum definitions.
-  
   // Bit field definition.
   struct {
     uint32_t NBYTES : 32;
-  } bits;          // Bit-field struct (auto-filling reserved gaps)
+  } bits;
   
   // Full 32-bit register value.
   uint32_t value;
@@ -7367,11 +7403,11 @@ union TCD12_NBYTES_MLNO {
 //
 union TCD12_NBYTES_MLOFFNO {
   
-  // Enum definitions.
   enum class eDMLOE : uint32_t {
     eDISABLED = 0, // The minor loop offset is not applied to the DADDR
     eENABLED = 1, // The minor loop offset is applied to the DADDR
   };
+  
   enum class eSMLOE : uint32_t {
     eDISABLED = 0, // The minor loop offset is not applied to the SADDR
     eENABLED = 1, // The minor loop offset is applied to the SADDR
@@ -7382,7 +7418,7 @@ union TCD12_NBYTES_MLOFFNO {
     uint32_t NBYTES : 30;
     eDMLOE DMLOE : 1;
     eSMLOE SMLOE : 1;
-  } bits;          // Bit-field struct (auto-filling reserved gaps)
+  } bits;
   
   // Full 32-bit register value.
   uint32_t value;
@@ -7396,11 +7432,11 @@ union TCD12_NBYTES_MLOFFNO {
 //
 union TCD12_NBYTES_MLOFFYES {
   
-  // Enum definitions.
   enum class eDMLOE : uint32_t {
     eDISABLED = 0, // The minor loop offset is not applied to the DADDR
     eENABLED = 1, // The minor loop offset is applied to the DADDR
   };
+  
   enum class eSMLOE : uint32_t {
     eDISABLED = 0, // The minor loop offset is not applied to the SADDR
     eENABLED = 1, // The minor loop offset is applied to the SADDR
@@ -7412,7 +7448,7 @@ union TCD12_NBYTES_MLOFFYES {
     uint32_t MLOFF : 20;
     eDMLOE DMLOE : 1;
     eSMLOE SMLOE : 1;
-  } bits;          // Bit-field struct (auto-filling reserved gaps)
+  } bits;
   
   // Full 32-bit register value.
   uint32_t value;
@@ -7426,12 +7462,10 @@ union TCD12_NBYTES_MLOFFYES {
 //
 union TCD12_SLAST {
   
-  // Enum definitions.
-  
   // Bit field definition.
   struct {
     uint32_t SLAST : 32;
-  } bits;          // Bit-field struct (auto-filling reserved gaps)
+  } bits;
   
   // Full 32-bit register value.
   uint32_t value;
@@ -7445,12 +7479,10 @@ union TCD12_SLAST {
 //
 union TCD12_DADDR {
   
-  // Enum definitions.
-  
   // Bit field definition.
   struct {
     uint32_t DADDR : 32;
-  } bits;          // Bit-field struct (auto-filling reserved gaps)
+  } bits;
   
   // Full 32-bit register value.
   uint32_t value;
@@ -7464,13 +7496,11 @@ union TCD12_DADDR {
 //
 union TCD12_DOFF {
   
-  // Enum definitions.
-  
   // Bit field definition.
   struct {
     uint32_t DOFF : 16;
     uint32_t _reserved_end : 16;
-  } bits;          // Bit-field struct (auto-filling reserved gaps)
+  } bits;
   
   // Full 32-bit register value.
   uint32_t value;
@@ -7484,7 +7514,6 @@ union TCD12_DOFF {
 //
 union TCD12_CITER_ELINKNO {
   
-  // Enum definitions.
   enum class eELINK : uint32_t {
     eDISABLED = 0, // Channel-to-channel linking is disabled
     eENABLED = 1, // Channel-to-channel linking is enabled
@@ -7495,7 +7524,7 @@ union TCD12_CITER_ELINKNO {
     uint32_t CITER : 15;
     eELINK ELINK : 1;
     uint32_t _reserved_end : 16;
-  } bits;          // Bit-field struct (auto-filling reserved gaps)
+  } bits;
   
   // Full 32-bit register value.
   uint32_t value;
@@ -7509,7 +7538,6 @@ union TCD12_CITER_ELINKNO {
 //
 union TCD12_CITER_ELINKYES {
   
-  // Enum definitions.
   enum class eELINK : uint32_t {
     eDISABLED = 0, // Channel-to-channel linking is disabled
     eENABLED = 1, // Channel-to-channel linking is enabled
@@ -7522,7 +7550,7 @@ union TCD12_CITER_ELINKYES {
     uint32_t _reserved_2 : 1;
     eELINK ELINK : 1;
     uint32_t _reserved_end : 16;
-  } bits;          // Bit-field struct (auto-filling reserved gaps)
+  } bits;
   
   // Full 32-bit register value.
   uint32_t value;
@@ -7536,12 +7564,10 @@ union TCD12_CITER_ELINKYES {
 //
 union TCD12_DLASTSGA {
   
-  // Enum definitions.
-  
   // Bit field definition.
   struct {
     uint32_t DLASTSGA : 32;
-  } bits;          // Bit-field struct (auto-filling reserved gaps)
+  } bits;
   
   // Full 32-bit register value.
   uint32_t value;
@@ -7555,31 +7581,36 @@ union TCD12_DLASTSGA {
 //
 union TCD12_CSR {
   
-  // Enum definitions.
   enum class eSTART : uint32_t {
     eNO_START = 0, // Channel is not explicitly started
     eSTART = 1, // Channel is explicitly started via a software initiated service request
   };
+  
   enum class eINTMAJOR : uint32_t {
     eDISABLED = 0, // End of major loop interrupt is disabled
     eENABLED = 1, // End of major loop interrupt is enabled
   };
+  
   enum class eINTHALF : uint32_t {
     eDISABLED = 0, // Half-point interrupt is disabled
     eENABLED = 1, // Half-point interrupt is enabled
   };
+  
   enum class eDREQ : uint32_t {
     eNO_CLEAR = 0, // The channel's ERQ field is not affected
     eCLEAR = 1, // The channel's ERQ field value changes to 0 when the major loop is complete
   };
+  
   enum class eESG : uint32_t {
     eNORMAL = 0, // The current channel's TCD is normal format
     eSCATTER = 1, // The current channel's TCD specifies a scatter gather format
   };
+  
   enum class eMAJORELINK : uint32_t {
     eDISABLED = 0, // Channel-to-channel linking is disabled
     eENABLED = 1, // Channel-to-channel linking is enabled
   };
+  
   enum class eBWC : uint32_t {
     eDISABLED = 0, // No eDMA engine stalls
     eSTALL4 = 2, // eDMA engine stalls for 4 cycles after each R/W
@@ -7600,7 +7631,7 @@ union TCD12_CSR {
     uint32_t _reserved_9 : 1;
     eBWC BWC : 2;
     uint32_t _reserved_end : 16;
-  } bits;          // Bit-field struct (auto-filling reserved gaps)
+  } bits;
   
   // Full 32-bit register value.
   uint32_t value;
@@ -7614,7 +7645,6 @@ union TCD12_CSR {
 //
 union TCD12_BITER_ELINKNO {
   
-  // Enum definitions.
   enum class eELINK : uint32_t {
     eDISABLED = 0, // Channel-to-channel linking is disabled
     eENABLED = 1, // Channel-to-channel linking is enabled
@@ -7625,7 +7655,7 @@ union TCD12_BITER_ELINKNO {
     uint32_t BITER : 15;
     eELINK ELINK : 1;
     uint32_t _reserved_end : 16;
-  } bits;          // Bit-field struct (auto-filling reserved gaps)
+  } bits;
   
   // Full 32-bit register value.
   uint32_t value;
@@ -7639,7 +7669,6 @@ union TCD12_BITER_ELINKNO {
 //
 union TCD12_BITER_ELINKYES {
   
-  // Enum definitions.
   enum class eELINK : uint32_t {
     eDISABLED = 0, // Channel-to-channel linking is disabled
     eENABLED = 1, // Channel-to-channel linking is enabled
@@ -7652,7 +7681,7 @@ union TCD12_BITER_ELINKYES {
     uint32_t _reserved_2 : 1;
     eELINK ELINK : 1;
     uint32_t _reserved_end : 16;
-  } bits;          // Bit-field struct (auto-filling reserved gaps)
+  } bits;
   
   // Full 32-bit register value.
   uint32_t value;
@@ -7666,12 +7695,10 @@ union TCD12_BITER_ELINKYES {
 //
 union TCD13_SADDR {
   
-  // Enum definitions.
-  
   // Bit field definition.
   struct {
     uint32_t SADDR : 32;
-  } bits;          // Bit-field struct (auto-filling reserved gaps)
+  } bits;
   
   // Full 32-bit register value.
   uint32_t value;
@@ -7685,13 +7712,11 @@ union TCD13_SADDR {
 //
 union TCD13_SOFF {
   
-  // Enum definitions.
-  
   // Bit field definition.
   struct {
     uint32_t SOFF : 16;
     uint32_t _reserved_end : 16;
-  } bits;          // Bit-field struct (auto-filling reserved gaps)
+  } bits;
   
   // Full 32-bit register value.
   uint32_t value;
@@ -7705,7 +7730,6 @@ union TCD13_SOFF {
 //
 union TCD13_ATTR {
   
-  // Enum definitions.
   enum class eSSIZE : uint32_t {
     eEIGHT = 0, // 8-bit
     eSIXTEEN_BIT = 1, // 16-bit
@@ -7713,6 +7737,7 @@ union TCD13_ATTR {
     eSIXTYFOUR = 3, // 64-bit
     eTHIRTYTWO_BYTE = 5, // 32-byte burst (4 beats of 64 bits)
   };
+  
   enum class eSMOD : uint32_t {
     eDISABLED = 0, // Source address modulo feature is disabled
     eENABLED = 1, // Value defines address range used to set up circular data queue
@@ -7733,7 +7758,7 @@ union TCD13_ATTR {
     eSSIZE SSIZE : 3;
     eSMOD SMOD : 5;
     uint32_t _reserved_end : 16;
-  } bits;          // Bit-field struct (auto-filling reserved gaps)
+  } bits;
   
   // Full 32-bit register value.
   uint32_t value;
@@ -7747,12 +7772,10 @@ union TCD13_ATTR {
 //
 union TCD13_NBYTES_MLNO {
   
-  // Enum definitions.
-  
   // Bit field definition.
   struct {
     uint32_t NBYTES : 32;
-  } bits;          // Bit-field struct (auto-filling reserved gaps)
+  } bits;
   
   // Full 32-bit register value.
   uint32_t value;
@@ -7766,11 +7789,11 @@ union TCD13_NBYTES_MLNO {
 //
 union TCD13_NBYTES_MLOFFNO {
   
-  // Enum definitions.
   enum class eDMLOE : uint32_t {
     eDISABLED = 0, // The minor loop offset is not applied to the DADDR
     eENABLED = 1, // The minor loop offset is applied to the DADDR
   };
+  
   enum class eSMLOE : uint32_t {
     eDISABLED = 0, // The minor loop offset is not applied to the SADDR
     eENABLED = 1, // The minor loop offset is applied to the SADDR
@@ -7781,7 +7804,7 @@ union TCD13_NBYTES_MLOFFNO {
     uint32_t NBYTES : 30;
     eDMLOE DMLOE : 1;
     eSMLOE SMLOE : 1;
-  } bits;          // Bit-field struct (auto-filling reserved gaps)
+  } bits;
   
   // Full 32-bit register value.
   uint32_t value;
@@ -7795,11 +7818,11 @@ union TCD13_NBYTES_MLOFFNO {
 //
 union TCD13_NBYTES_MLOFFYES {
   
-  // Enum definitions.
   enum class eDMLOE : uint32_t {
     eDISABLED = 0, // The minor loop offset is not applied to the DADDR
     eENABLED = 1, // The minor loop offset is applied to the DADDR
   };
+  
   enum class eSMLOE : uint32_t {
     eDISABLED = 0, // The minor loop offset is not applied to the SADDR
     eENABLED = 1, // The minor loop offset is applied to the SADDR
@@ -7811,7 +7834,7 @@ union TCD13_NBYTES_MLOFFYES {
     uint32_t MLOFF : 20;
     eDMLOE DMLOE : 1;
     eSMLOE SMLOE : 1;
-  } bits;          // Bit-field struct (auto-filling reserved gaps)
+  } bits;
   
   // Full 32-bit register value.
   uint32_t value;
@@ -7825,12 +7848,10 @@ union TCD13_NBYTES_MLOFFYES {
 //
 union TCD13_SLAST {
   
-  // Enum definitions.
-  
   // Bit field definition.
   struct {
     uint32_t SLAST : 32;
-  } bits;          // Bit-field struct (auto-filling reserved gaps)
+  } bits;
   
   // Full 32-bit register value.
   uint32_t value;
@@ -7844,12 +7865,10 @@ union TCD13_SLAST {
 //
 union TCD13_DADDR {
   
-  // Enum definitions.
-  
   // Bit field definition.
   struct {
     uint32_t DADDR : 32;
-  } bits;          // Bit-field struct (auto-filling reserved gaps)
+  } bits;
   
   // Full 32-bit register value.
   uint32_t value;
@@ -7863,13 +7882,11 @@ union TCD13_DADDR {
 //
 union TCD13_DOFF {
   
-  // Enum definitions.
-  
   // Bit field definition.
   struct {
     uint32_t DOFF : 16;
     uint32_t _reserved_end : 16;
-  } bits;          // Bit-field struct (auto-filling reserved gaps)
+  } bits;
   
   // Full 32-bit register value.
   uint32_t value;
@@ -7883,7 +7900,6 @@ union TCD13_DOFF {
 //
 union TCD13_CITER_ELINKNO {
   
-  // Enum definitions.
   enum class eELINK : uint32_t {
     eDISABLED = 0, // Channel-to-channel linking is disabled
     eENABLED = 1, // Channel-to-channel linking is enabled
@@ -7894,7 +7910,7 @@ union TCD13_CITER_ELINKNO {
     uint32_t CITER : 15;
     eELINK ELINK : 1;
     uint32_t _reserved_end : 16;
-  } bits;          // Bit-field struct (auto-filling reserved gaps)
+  } bits;
   
   // Full 32-bit register value.
   uint32_t value;
@@ -7908,7 +7924,6 @@ union TCD13_CITER_ELINKNO {
 //
 union TCD13_CITER_ELINKYES {
   
-  // Enum definitions.
   enum class eELINK : uint32_t {
     eDISABLED = 0, // Channel-to-channel linking is disabled
     eENABLED = 1, // Channel-to-channel linking is enabled
@@ -7921,7 +7936,7 @@ union TCD13_CITER_ELINKYES {
     uint32_t _reserved_2 : 1;
     eELINK ELINK : 1;
     uint32_t _reserved_end : 16;
-  } bits;          // Bit-field struct (auto-filling reserved gaps)
+  } bits;
   
   // Full 32-bit register value.
   uint32_t value;
@@ -7935,12 +7950,10 @@ union TCD13_CITER_ELINKYES {
 //
 union TCD13_DLASTSGA {
   
-  // Enum definitions.
-  
   // Bit field definition.
   struct {
     uint32_t DLASTSGA : 32;
-  } bits;          // Bit-field struct (auto-filling reserved gaps)
+  } bits;
   
   // Full 32-bit register value.
   uint32_t value;
@@ -7954,31 +7967,36 @@ union TCD13_DLASTSGA {
 //
 union TCD13_CSR {
   
-  // Enum definitions.
   enum class eSTART : uint32_t {
     eNO_START = 0, // Channel is not explicitly started
     eSTART = 1, // Channel is explicitly started via a software initiated service request
   };
+  
   enum class eINTMAJOR : uint32_t {
     eDISABLED = 0, // End of major loop interrupt is disabled
     eENABLED = 1, // End of major loop interrupt is enabled
   };
+  
   enum class eINTHALF : uint32_t {
     eDISABLED = 0, // Half-point interrupt is disabled
     eENABLED = 1, // Half-point interrupt is enabled
   };
+  
   enum class eDREQ : uint32_t {
     eNO_CLEAR = 0, // The channel's ERQ field is not affected
     eCLEAR = 1, // The channel's ERQ field value changes to 0 when the major loop is complete
   };
+  
   enum class eESG : uint32_t {
     eNORMAL = 0, // The current channel's TCD is normal format
     eSCATTER = 1, // The current channel's TCD specifies a scatter gather format
   };
+  
   enum class eMAJORELINK : uint32_t {
     eDISABLED = 0, // Channel-to-channel linking is disabled
     eENABLED = 1, // Channel-to-channel linking is enabled
   };
+  
   enum class eBWC : uint32_t {
     eDISABLED = 0, // No eDMA engine stalls
     eSTALL4 = 2, // eDMA engine stalls for 4 cycles after each R/W
@@ -7999,7 +8017,7 @@ union TCD13_CSR {
     uint32_t _reserved_9 : 1;
     eBWC BWC : 2;
     uint32_t _reserved_end : 16;
-  } bits;          // Bit-field struct (auto-filling reserved gaps)
+  } bits;
   
   // Full 32-bit register value.
   uint32_t value;
@@ -8013,7 +8031,6 @@ union TCD13_CSR {
 //
 union TCD13_BITER_ELINKNO {
   
-  // Enum definitions.
   enum class eELINK : uint32_t {
     eDISABLED = 0, // Channel-to-channel linking is disabled
     eENABLED = 1, // Channel-to-channel linking is enabled
@@ -8024,7 +8041,7 @@ union TCD13_BITER_ELINKNO {
     uint32_t BITER : 15;
     eELINK ELINK : 1;
     uint32_t _reserved_end : 16;
-  } bits;          // Bit-field struct (auto-filling reserved gaps)
+  } bits;
   
   // Full 32-bit register value.
   uint32_t value;
@@ -8038,7 +8055,6 @@ union TCD13_BITER_ELINKNO {
 //
 union TCD13_BITER_ELINKYES {
   
-  // Enum definitions.
   enum class eELINK : uint32_t {
     eDISABLED = 0, // Channel-to-channel linking is disabled
     eENABLED = 1, // Channel-to-channel linking is enabled
@@ -8051,7 +8067,7 @@ union TCD13_BITER_ELINKYES {
     uint32_t _reserved_2 : 1;
     eELINK ELINK : 1;
     uint32_t _reserved_end : 16;
-  } bits;          // Bit-field struct (auto-filling reserved gaps)
+  } bits;
   
   // Full 32-bit register value.
   uint32_t value;
@@ -8065,12 +8081,10 @@ union TCD13_BITER_ELINKYES {
 //
 union TCD14_SADDR {
   
-  // Enum definitions.
-  
   // Bit field definition.
   struct {
     uint32_t SADDR : 32;
-  } bits;          // Bit-field struct (auto-filling reserved gaps)
+  } bits;
   
   // Full 32-bit register value.
   uint32_t value;
@@ -8084,13 +8098,11 @@ union TCD14_SADDR {
 //
 union TCD14_SOFF {
   
-  // Enum definitions.
-  
   // Bit field definition.
   struct {
     uint32_t SOFF : 16;
     uint32_t _reserved_end : 16;
-  } bits;          // Bit-field struct (auto-filling reserved gaps)
+  } bits;
   
   // Full 32-bit register value.
   uint32_t value;
@@ -8104,7 +8116,6 @@ union TCD14_SOFF {
 //
 union TCD14_ATTR {
   
-  // Enum definitions.
   enum class eSSIZE : uint32_t {
     eEIGHT = 0, // 8-bit
     eSIXTEEN_BIT = 1, // 16-bit
@@ -8112,6 +8123,7 @@ union TCD14_ATTR {
     eSIXTYFOUR = 3, // 64-bit
     eTHIRTYTWO_BYTE = 5, // 32-byte burst (4 beats of 64 bits)
   };
+  
   enum class eSMOD : uint32_t {
     eDISABLED = 0, // Source address modulo feature is disabled
     eENABLED = 1, // Value defines address range used to set up circular data queue
@@ -8132,7 +8144,7 @@ union TCD14_ATTR {
     eSSIZE SSIZE : 3;
     eSMOD SMOD : 5;
     uint32_t _reserved_end : 16;
-  } bits;          // Bit-field struct (auto-filling reserved gaps)
+  } bits;
   
   // Full 32-bit register value.
   uint32_t value;
@@ -8146,12 +8158,10 @@ union TCD14_ATTR {
 //
 union TCD14_NBYTES_MLNO {
   
-  // Enum definitions.
-  
   // Bit field definition.
   struct {
     uint32_t NBYTES : 32;
-  } bits;          // Bit-field struct (auto-filling reserved gaps)
+  } bits;
   
   // Full 32-bit register value.
   uint32_t value;
@@ -8165,11 +8175,11 @@ union TCD14_NBYTES_MLNO {
 //
 union TCD14_NBYTES_MLOFFNO {
   
-  // Enum definitions.
   enum class eDMLOE : uint32_t {
     eDISABLED = 0, // The minor loop offset is not applied to the DADDR
     eENABLED = 1, // The minor loop offset is applied to the DADDR
   };
+  
   enum class eSMLOE : uint32_t {
     eDISABLED = 0, // The minor loop offset is not applied to the SADDR
     eENABLED = 1, // The minor loop offset is applied to the SADDR
@@ -8180,7 +8190,7 @@ union TCD14_NBYTES_MLOFFNO {
     uint32_t NBYTES : 30;
     eDMLOE DMLOE : 1;
     eSMLOE SMLOE : 1;
-  } bits;          // Bit-field struct (auto-filling reserved gaps)
+  } bits;
   
   // Full 32-bit register value.
   uint32_t value;
@@ -8194,11 +8204,11 @@ union TCD14_NBYTES_MLOFFNO {
 //
 union TCD14_NBYTES_MLOFFYES {
   
-  // Enum definitions.
   enum class eDMLOE : uint32_t {
     eDISABLED = 0, // The minor loop offset is not applied to the DADDR
     eENABLED = 1, // The minor loop offset is applied to the DADDR
   };
+  
   enum class eSMLOE : uint32_t {
     eDISABLED = 0, // The minor loop offset is not applied to the SADDR
     eENABLED = 1, // The minor loop offset is applied to the SADDR
@@ -8210,7 +8220,7 @@ union TCD14_NBYTES_MLOFFYES {
     uint32_t MLOFF : 20;
     eDMLOE DMLOE : 1;
     eSMLOE SMLOE : 1;
-  } bits;          // Bit-field struct (auto-filling reserved gaps)
+  } bits;
   
   // Full 32-bit register value.
   uint32_t value;
@@ -8224,12 +8234,10 @@ union TCD14_NBYTES_MLOFFYES {
 //
 union TCD14_SLAST {
   
-  // Enum definitions.
-  
   // Bit field definition.
   struct {
     uint32_t SLAST : 32;
-  } bits;          // Bit-field struct (auto-filling reserved gaps)
+  } bits;
   
   // Full 32-bit register value.
   uint32_t value;
@@ -8243,12 +8251,10 @@ union TCD14_SLAST {
 //
 union TCD14_DADDR {
   
-  // Enum definitions.
-  
   // Bit field definition.
   struct {
     uint32_t DADDR : 32;
-  } bits;          // Bit-field struct (auto-filling reserved gaps)
+  } bits;
   
   // Full 32-bit register value.
   uint32_t value;
@@ -8262,13 +8268,11 @@ union TCD14_DADDR {
 //
 union TCD14_DOFF {
   
-  // Enum definitions.
-  
   // Bit field definition.
   struct {
     uint32_t DOFF : 16;
     uint32_t _reserved_end : 16;
-  } bits;          // Bit-field struct (auto-filling reserved gaps)
+  } bits;
   
   // Full 32-bit register value.
   uint32_t value;
@@ -8282,7 +8286,6 @@ union TCD14_DOFF {
 //
 union TCD14_CITER_ELINKNO {
   
-  // Enum definitions.
   enum class eELINK : uint32_t {
     eDISABLED = 0, // Channel-to-channel linking is disabled
     eENABLED = 1, // Channel-to-channel linking is enabled
@@ -8293,7 +8296,7 @@ union TCD14_CITER_ELINKNO {
     uint32_t CITER : 15;
     eELINK ELINK : 1;
     uint32_t _reserved_end : 16;
-  } bits;          // Bit-field struct (auto-filling reserved gaps)
+  } bits;
   
   // Full 32-bit register value.
   uint32_t value;
@@ -8307,7 +8310,6 @@ union TCD14_CITER_ELINKNO {
 //
 union TCD14_CITER_ELINKYES {
   
-  // Enum definitions.
   enum class eELINK : uint32_t {
     eDISABLED = 0, // Channel-to-channel linking is disabled
     eENABLED = 1, // Channel-to-channel linking is enabled
@@ -8320,7 +8322,7 @@ union TCD14_CITER_ELINKYES {
     uint32_t _reserved_2 : 1;
     eELINK ELINK : 1;
     uint32_t _reserved_end : 16;
-  } bits;          // Bit-field struct (auto-filling reserved gaps)
+  } bits;
   
   // Full 32-bit register value.
   uint32_t value;
@@ -8334,12 +8336,10 @@ union TCD14_CITER_ELINKYES {
 //
 union TCD14_DLASTSGA {
   
-  // Enum definitions.
-  
   // Bit field definition.
   struct {
     uint32_t DLASTSGA : 32;
-  } bits;          // Bit-field struct (auto-filling reserved gaps)
+  } bits;
   
   // Full 32-bit register value.
   uint32_t value;
@@ -8353,31 +8353,36 @@ union TCD14_DLASTSGA {
 //
 union TCD14_CSR {
   
-  // Enum definitions.
   enum class eSTART : uint32_t {
     eNO_START = 0, // Channel is not explicitly started
     eSTART = 1, // Channel is explicitly started via a software initiated service request
   };
+  
   enum class eINTMAJOR : uint32_t {
     eDISABLED = 0, // End of major loop interrupt is disabled
     eENABLED = 1, // End of major loop interrupt is enabled
   };
+  
   enum class eINTHALF : uint32_t {
     eDISABLED = 0, // Half-point interrupt is disabled
     eENABLED = 1, // Half-point interrupt is enabled
   };
+  
   enum class eDREQ : uint32_t {
     eNO_CLEAR = 0, // The channel's ERQ field is not affected
     eCLEAR = 1, // The channel's ERQ field value changes to 0 when the major loop is complete
   };
+  
   enum class eESG : uint32_t {
     eNORMAL = 0, // The current channel's TCD is normal format
     eSCATTER = 1, // The current channel's TCD specifies a scatter gather format
   };
+  
   enum class eMAJORELINK : uint32_t {
     eDISABLED = 0, // Channel-to-channel linking is disabled
     eENABLED = 1, // Channel-to-channel linking is enabled
   };
+  
   enum class eBWC : uint32_t {
     eDISABLED = 0, // No eDMA engine stalls
     eSTALL4 = 2, // eDMA engine stalls for 4 cycles after each R/W
@@ -8398,7 +8403,7 @@ union TCD14_CSR {
     uint32_t _reserved_9 : 1;
     eBWC BWC : 2;
     uint32_t _reserved_end : 16;
-  } bits;          // Bit-field struct (auto-filling reserved gaps)
+  } bits;
   
   // Full 32-bit register value.
   uint32_t value;
@@ -8412,7 +8417,6 @@ union TCD14_CSR {
 //
 union TCD14_BITER_ELINKNO {
   
-  // Enum definitions.
   enum class eELINK : uint32_t {
     eDISABLED = 0, // Channel-to-channel linking is disabled
     eENABLED = 1, // Channel-to-channel linking is enabled
@@ -8423,7 +8427,7 @@ union TCD14_BITER_ELINKNO {
     uint32_t BITER : 15;
     eELINK ELINK : 1;
     uint32_t _reserved_end : 16;
-  } bits;          // Bit-field struct (auto-filling reserved gaps)
+  } bits;
   
   // Full 32-bit register value.
   uint32_t value;
@@ -8437,7 +8441,6 @@ union TCD14_BITER_ELINKNO {
 //
 union TCD14_BITER_ELINKYES {
   
-  // Enum definitions.
   enum class eELINK : uint32_t {
     eDISABLED = 0, // Channel-to-channel linking is disabled
     eENABLED = 1, // Channel-to-channel linking is enabled
@@ -8450,7 +8453,7 @@ union TCD14_BITER_ELINKYES {
     uint32_t _reserved_2 : 1;
     eELINK ELINK : 1;
     uint32_t _reserved_end : 16;
-  } bits;          // Bit-field struct (auto-filling reserved gaps)
+  } bits;
   
   // Full 32-bit register value.
   uint32_t value;
@@ -8464,12 +8467,10 @@ union TCD14_BITER_ELINKYES {
 //
 union TCD15_SADDR {
   
-  // Enum definitions.
-  
   // Bit field definition.
   struct {
     uint32_t SADDR : 32;
-  } bits;          // Bit-field struct (auto-filling reserved gaps)
+  } bits;
   
   // Full 32-bit register value.
   uint32_t value;
@@ -8483,13 +8484,11 @@ union TCD15_SADDR {
 //
 union TCD15_SOFF {
   
-  // Enum definitions.
-  
   // Bit field definition.
   struct {
     uint32_t SOFF : 16;
     uint32_t _reserved_end : 16;
-  } bits;          // Bit-field struct (auto-filling reserved gaps)
+  } bits;
   
   // Full 32-bit register value.
   uint32_t value;
@@ -8503,7 +8502,6 @@ union TCD15_SOFF {
 //
 union TCD15_ATTR {
   
-  // Enum definitions.
   enum class eSSIZE : uint32_t {
     eEIGHT = 0, // 8-bit
     eSIXTEEN_BIT = 1, // 16-bit
@@ -8511,6 +8509,7 @@ union TCD15_ATTR {
     eSIXTYFOUR = 3, // 64-bit
     eTHIRTYTWO_BYTE = 5, // 32-byte burst (4 beats of 64 bits)
   };
+  
   enum class eSMOD : uint32_t {
     eDISABLED = 0, // Source address modulo feature is disabled
     eENABLED = 1, // Value defines address range used to set up circular data queue
@@ -8531,7 +8530,7 @@ union TCD15_ATTR {
     eSSIZE SSIZE : 3;
     eSMOD SMOD : 5;
     uint32_t _reserved_end : 16;
-  } bits;          // Bit-field struct (auto-filling reserved gaps)
+  } bits;
   
   // Full 32-bit register value.
   uint32_t value;
@@ -8545,12 +8544,10 @@ union TCD15_ATTR {
 //
 union TCD15_NBYTES_MLNO {
   
-  // Enum definitions.
-  
   // Bit field definition.
   struct {
     uint32_t NBYTES : 32;
-  } bits;          // Bit-field struct (auto-filling reserved gaps)
+  } bits;
   
   // Full 32-bit register value.
   uint32_t value;
@@ -8564,11 +8561,11 @@ union TCD15_NBYTES_MLNO {
 //
 union TCD15_NBYTES_MLOFFNO {
   
-  // Enum definitions.
   enum class eDMLOE : uint32_t {
     eDISABLED = 0, // The minor loop offset is not applied to the DADDR
     eENABLED = 1, // The minor loop offset is applied to the DADDR
   };
+  
   enum class eSMLOE : uint32_t {
     eDISABLED = 0, // The minor loop offset is not applied to the SADDR
     eENABLED = 1, // The minor loop offset is applied to the SADDR
@@ -8579,7 +8576,7 @@ union TCD15_NBYTES_MLOFFNO {
     uint32_t NBYTES : 30;
     eDMLOE DMLOE : 1;
     eSMLOE SMLOE : 1;
-  } bits;          // Bit-field struct (auto-filling reserved gaps)
+  } bits;
   
   // Full 32-bit register value.
   uint32_t value;
@@ -8593,11 +8590,11 @@ union TCD15_NBYTES_MLOFFNO {
 //
 union TCD15_NBYTES_MLOFFYES {
   
-  // Enum definitions.
   enum class eDMLOE : uint32_t {
     eDISABLED = 0, // The minor loop offset is not applied to the DADDR
     eENABLED = 1, // The minor loop offset is applied to the DADDR
   };
+  
   enum class eSMLOE : uint32_t {
     eDISABLED = 0, // The minor loop offset is not applied to the SADDR
     eENABLED = 1, // The minor loop offset is applied to the SADDR
@@ -8609,7 +8606,7 @@ union TCD15_NBYTES_MLOFFYES {
     uint32_t MLOFF : 20;
     eDMLOE DMLOE : 1;
     eSMLOE SMLOE : 1;
-  } bits;          // Bit-field struct (auto-filling reserved gaps)
+  } bits;
   
   // Full 32-bit register value.
   uint32_t value;
@@ -8623,12 +8620,10 @@ union TCD15_NBYTES_MLOFFYES {
 //
 union TCD15_SLAST {
   
-  // Enum definitions.
-  
   // Bit field definition.
   struct {
     uint32_t SLAST : 32;
-  } bits;          // Bit-field struct (auto-filling reserved gaps)
+  } bits;
   
   // Full 32-bit register value.
   uint32_t value;
@@ -8642,12 +8637,10 @@ union TCD15_SLAST {
 //
 union TCD15_DADDR {
   
-  // Enum definitions.
-  
   // Bit field definition.
   struct {
     uint32_t DADDR : 32;
-  } bits;          // Bit-field struct (auto-filling reserved gaps)
+  } bits;
   
   // Full 32-bit register value.
   uint32_t value;
@@ -8661,13 +8654,11 @@ union TCD15_DADDR {
 //
 union TCD15_DOFF {
   
-  // Enum definitions.
-  
   // Bit field definition.
   struct {
     uint32_t DOFF : 16;
     uint32_t _reserved_end : 16;
-  } bits;          // Bit-field struct (auto-filling reserved gaps)
+  } bits;
   
   // Full 32-bit register value.
   uint32_t value;
@@ -8681,7 +8672,6 @@ union TCD15_DOFF {
 //
 union TCD15_CITER_ELINKNO {
   
-  // Enum definitions.
   enum class eELINK : uint32_t {
     eDISABLED = 0, // Channel-to-channel linking is disabled
     eENABLED = 1, // Channel-to-channel linking is enabled
@@ -8692,7 +8682,7 @@ union TCD15_CITER_ELINKNO {
     uint32_t CITER : 15;
     eELINK ELINK : 1;
     uint32_t _reserved_end : 16;
-  } bits;          // Bit-field struct (auto-filling reserved gaps)
+  } bits;
   
   // Full 32-bit register value.
   uint32_t value;
@@ -8706,7 +8696,6 @@ union TCD15_CITER_ELINKNO {
 //
 union TCD15_CITER_ELINKYES {
   
-  // Enum definitions.
   enum class eELINK : uint32_t {
     eDISABLED = 0, // Channel-to-channel linking is disabled
     eENABLED = 1, // Channel-to-channel linking is enabled
@@ -8719,7 +8708,7 @@ union TCD15_CITER_ELINKYES {
     uint32_t _reserved_2 : 1;
     eELINK ELINK : 1;
     uint32_t _reserved_end : 16;
-  } bits;          // Bit-field struct (auto-filling reserved gaps)
+  } bits;
   
   // Full 32-bit register value.
   uint32_t value;
@@ -8733,12 +8722,10 @@ union TCD15_CITER_ELINKYES {
 //
 union TCD15_DLASTSGA {
   
-  // Enum definitions.
-  
   // Bit field definition.
   struct {
     uint32_t DLASTSGA : 32;
-  } bits;          // Bit-field struct (auto-filling reserved gaps)
+  } bits;
   
   // Full 32-bit register value.
   uint32_t value;
@@ -8752,31 +8739,36 @@ union TCD15_DLASTSGA {
 //
 union TCD15_CSR {
   
-  // Enum definitions.
   enum class eSTART : uint32_t {
     eNO_START = 0, // Channel is not explicitly started
     eSTART = 1, // Channel is explicitly started via a software initiated service request
   };
+  
   enum class eINTMAJOR : uint32_t {
     eDISABLED = 0, // End of major loop interrupt is disabled
     eENABLED = 1, // End of major loop interrupt is enabled
   };
+  
   enum class eINTHALF : uint32_t {
     eDISABLED = 0, // Half-point interrupt is disabled
     eENABLED = 1, // Half-point interrupt is enabled
   };
+  
   enum class eDREQ : uint32_t {
     eNO_CLEAR = 0, // The channel's ERQ field is not affected
     eCLEAR = 1, // The channel's ERQ field value changes to 0 when the major loop is complete
   };
+  
   enum class eESG : uint32_t {
     eNORMAL = 0, // The current channel's TCD is normal format
     eSCATTER = 1, // The current channel's TCD specifies a scatter gather format
   };
+  
   enum class eMAJORELINK : uint32_t {
     eDISABLED = 0, // Channel-to-channel linking is disabled
     eENABLED = 1, // Channel-to-channel linking is enabled
   };
+  
   enum class eBWC : uint32_t {
     eDISABLED = 0, // No eDMA engine stalls
     eSTALL4 = 2, // eDMA engine stalls for 4 cycles after each R/W
@@ -8797,7 +8789,7 @@ union TCD15_CSR {
     uint32_t _reserved_9 : 1;
     eBWC BWC : 2;
     uint32_t _reserved_end : 16;
-  } bits;          // Bit-field struct (auto-filling reserved gaps)
+  } bits;
   
   // Full 32-bit register value.
   uint32_t value;
@@ -8811,7 +8803,6 @@ union TCD15_CSR {
 //
 union TCD15_BITER_ELINKNO {
   
-  // Enum definitions.
   enum class eELINK : uint32_t {
     eDISABLED = 0, // Channel-to-channel linking is disabled
     eENABLED = 1, // Channel-to-channel linking is enabled
@@ -8822,7 +8813,7 @@ union TCD15_BITER_ELINKNO {
     uint32_t BITER : 15;
     eELINK ELINK : 1;
     uint32_t _reserved_end : 16;
-  } bits;          // Bit-field struct (auto-filling reserved gaps)
+  } bits;
   
   // Full 32-bit register value.
   uint32_t value;
@@ -8836,7 +8827,6 @@ union TCD15_BITER_ELINKNO {
 //
 union TCD15_BITER_ELINKYES {
   
-  // Enum definitions.
   enum class eELINK : uint32_t {
     eDISABLED = 0, // Channel-to-channel linking is disabled
     eENABLED = 1, // Channel-to-channel linking is enabled
@@ -8849,7 +8839,7 @@ union TCD15_BITER_ELINKYES {
     uint32_t _reserved_2 : 1;
     eELINK ELINK : 1;
     uint32_t _reserved_end : 16;
-  } bits;          // Bit-field struct (auto-filling reserved gaps)
+  } bits;
   
   // Full 32-bit register value.
   uint32_t value;
@@ -8863,12 +8853,10 @@ union TCD15_BITER_ELINKYES {
 //
 union TCD16_SADDR {
   
-  // Enum definitions.
-  
   // Bit field definition.
   struct {
     uint32_t SADDR : 32;
-  } bits;          // Bit-field struct (auto-filling reserved gaps)
+  } bits;
   
   // Full 32-bit register value.
   uint32_t value;
@@ -8882,13 +8870,11 @@ union TCD16_SADDR {
 //
 union TCD16_SOFF {
   
-  // Enum definitions.
-  
   // Bit field definition.
   struct {
     uint32_t SOFF : 16;
     uint32_t _reserved_end : 16;
-  } bits;          // Bit-field struct (auto-filling reserved gaps)
+  } bits;
   
   // Full 32-bit register value.
   uint32_t value;
@@ -8902,7 +8888,6 @@ union TCD16_SOFF {
 //
 union TCD16_ATTR {
   
-  // Enum definitions.
   enum class eSSIZE : uint32_t {
     eEIGHT = 0, // 8-bit
     eSIXTEEN_BIT = 1, // 16-bit
@@ -8910,6 +8895,7 @@ union TCD16_ATTR {
     eSIXTYFOUR = 3, // 64-bit
     eTHIRTYTWO_BYTE = 5, // 32-byte burst (4 beats of 64 bits)
   };
+  
   enum class eSMOD : uint32_t {
     eDISABLED = 0, // Source address modulo feature is disabled
     eENABLED = 1, // Value defines address range used to set up circular data queue
@@ -8930,7 +8916,7 @@ union TCD16_ATTR {
     eSSIZE SSIZE : 3;
     eSMOD SMOD : 5;
     uint32_t _reserved_end : 16;
-  } bits;          // Bit-field struct (auto-filling reserved gaps)
+  } bits;
   
   // Full 32-bit register value.
   uint32_t value;
@@ -8944,12 +8930,10 @@ union TCD16_ATTR {
 //
 union TCD16_NBYTES_MLNO {
   
-  // Enum definitions.
-  
   // Bit field definition.
   struct {
     uint32_t NBYTES : 32;
-  } bits;          // Bit-field struct (auto-filling reserved gaps)
+  } bits;
   
   // Full 32-bit register value.
   uint32_t value;
@@ -8963,11 +8947,11 @@ union TCD16_NBYTES_MLNO {
 //
 union TCD16_NBYTES_MLOFFNO {
   
-  // Enum definitions.
   enum class eDMLOE : uint32_t {
     eDISABLED = 0, // The minor loop offset is not applied to the DADDR
     eENABLED = 1, // The minor loop offset is applied to the DADDR
   };
+  
   enum class eSMLOE : uint32_t {
     eDISABLED = 0, // The minor loop offset is not applied to the SADDR
     eENABLED = 1, // The minor loop offset is applied to the SADDR
@@ -8978,7 +8962,7 @@ union TCD16_NBYTES_MLOFFNO {
     uint32_t NBYTES : 30;
     eDMLOE DMLOE : 1;
     eSMLOE SMLOE : 1;
-  } bits;          // Bit-field struct (auto-filling reserved gaps)
+  } bits;
   
   // Full 32-bit register value.
   uint32_t value;
@@ -8992,11 +8976,11 @@ union TCD16_NBYTES_MLOFFNO {
 //
 union TCD16_NBYTES_MLOFFYES {
   
-  // Enum definitions.
   enum class eDMLOE : uint32_t {
     eDISABLED = 0, // The minor loop offset is not applied to the DADDR
     eENABLED = 1, // The minor loop offset is applied to the DADDR
   };
+  
   enum class eSMLOE : uint32_t {
     eDISABLED = 0, // The minor loop offset is not applied to the SADDR
     eENABLED = 1, // The minor loop offset is applied to the SADDR
@@ -9008,7 +8992,7 @@ union TCD16_NBYTES_MLOFFYES {
     uint32_t MLOFF : 20;
     eDMLOE DMLOE : 1;
     eSMLOE SMLOE : 1;
-  } bits;          // Bit-field struct (auto-filling reserved gaps)
+  } bits;
   
   // Full 32-bit register value.
   uint32_t value;
@@ -9022,12 +9006,10 @@ union TCD16_NBYTES_MLOFFYES {
 //
 union TCD16_SLAST {
   
-  // Enum definitions.
-  
   // Bit field definition.
   struct {
     uint32_t SLAST : 32;
-  } bits;          // Bit-field struct (auto-filling reserved gaps)
+  } bits;
   
   // Full 32-bit register value.
   uint32_t value;
@@ -9041,12 +9023,10 @@ union TCD16_SLAST {
 //
 union TCD16_DADDR {
   
-  // Enum definitions.
-  
   // Bit field definition.
   struct {
     uint32_t DADDR : 32;
-  } bits;          // Bit-field struct (auto-filling reserved gaps)
+  } bits;
   
   // Full 32-bit register value.
   uint32_t value;
@@ -9060,13 +9040,11 @@ union TCD16_DADDR {
 //
 union TCD16_DOFF {
   
-  // Enum definitions.
-  
   // Bit field definition.
   struct {
     uint32_t DOFF : 16;
     uint32_t _reserved_end : 16;
-  } bits;          // Bit-field struct (auto-filling reserved gaps)
+  } bits;
   
   // Full 32-bit register value.
   uint32_t value;
@@ -9080,7 +9058,6 @@ union TCD16_DOFF {
 //
 union TCD16_CITER_ELINKNO {
   
-  // Enum definitions.
   enum class eELINK : uint32_t {
     eDISABLED = 0, // Channel-to-channel linking is disabled
     eENABLED = 1, // Channel-to-channel linking is enabled
@@ -9091,7 +9068,7 @@ union TCD16_CITER_ELINKNO {
     uint32_t CITER : 15;
     eELINK ELINK : 1;
     uint32_t _reserved_end : 16;
-  } bits;          // Bit-field struct (auto-filling reserved gaps)
+  } bits;
   
   // Full 32-bit register value.
   uint32_t value;
@@ -9105,7 +9082,6 @@ union TCD16_CITER_ELINKNO {
 //
 union TCD16_CITER_ELINKYES {
   
-  // Enum definitions.
   enum class eELINK : uint32_t {
     eDISABLED = 0, // Channel-to-channel linking is disabled
     eENABLED = 1, // Channel-to-channel linking is enabled
@@ -9118,7 +9094,7 @@ union TCD16_CITER_ELINKYES {
     uint32_t _reserved_2 : 1;
     eELINK ELINK : 1;
     uint32_t _reserved_end : 16;
-  } bits;          // Bit-field struct (auto-filling reserved gaps)
+  } bits;
   
   // Full 32-bit register value.
   uint32_t value;
@@ -9132,12 +9108,10 @@ union TCD16_CITER_ELINKYES {
 //
 union TCD16_DLASTSGA {
   
-  // Enum definitions.
-  
   // Bit field definition.
   struct {
     uint32_t DLASTSGA : 32;
-  } bits;          // Bit-field struct (auto-filling reserved gaps)
+  } bits;
   
   // Full 32-bit register value.
   uint32_t value;
@@ -9151,31 +9125,36 @@ union TCD16_DLASTSGA {
 //
 union TCD16_CSR {
   
-  // Enum definitions.
   enum class eSTART : uint32_t {
     eNO_START = 0, // Channel is not explicitly started
     eSTART = 1, // Channel is explicitly started via a software initiated service request
   };
+  
   enum class eINTMAJOR : uint32_t {
     eDISABLED = 0, // End of major loop interrupt is disabled
     eENABLED = 1, // End of major loop interrupt is enabled
   };
+  
   enum class eINTHALF : uint32_t {
     eDISABLED = 0, // Half-point interrupt is disabled
     eENABLED = 1, // Half-point interrupt is enabled
   };
+  
   enum class eDREQ : uint32_t {
     eNO_CLEAR = 0, // The channel's ERQ field is not affected
     eCLEAR = 1, // The channel's ERQ field value changes to 0 when the major loop is complete
   };
+  
   enum class eESG : uint32_t {
     eNORMAL = 0, // The current channel's TCD is normal format
     eSCATTER = 1, // The current channel's TCD specifies a scatter gather format
   };
+  
   enum class eMAJORELINK : uint32_t {
     eDISABLED = 0, // Channel-to-channel linking is disabled
     eENABLED = 1, // Channel-to-channel linking is enabled
   };
+  
   enum class eBWC : uint32_t {
     eDISABLED = 0, // No eDMA engine stalls
     eSTALL4 = 2, // eDMA engine stalls for 4 cycles after each R/W
@@ -9196,7 +9175,7 @@ union TCD16_CSR {
     uint32_t _reserved_9 : 1;
     eBWC BWC : 2;
     uint32_t _reserved_end : 16;
-  } bits;          // Bit-field struct (auto-filling reserved gaps)
+  } bits;
   
   // Full 32-bit register value.
   uint32_t value;
@@ -9210,7 +9189,6 @@ union TCD16_CSR {
 //
 union TCD16_BITER_ELINKNO {
   
-  // Enum definitions.
   enum class eELINK : uint32_t {
     eDISABLED = 0, // Channel-to-channel linking is disabled
     eENABLED = 1, // Channel-to-channel linking is enabled
@@ -9221,7 +9199,7 @@ union TCD16_BITER_ELINKNO {
     uint32_t BITER : 15;
     eELINK ELINK : 1;
     uint32_t _reserved_end : 16;
-  } bits;          // Bit-field struct (auto-filling reserved gaps)
+  } bits;
   
   // Full 32-bit register value.
   uint32_t value;
@@ -9235,7 +9213,6 @@ union TCD16_BITER_ELINKNO {
 //
 union TCD16_BITER_ELINKYES {
   
-  // Enum definitions.
   enum class eELINK : uint32_t {
     eDISABLED = 0, // Channel-to-channel linking is disabled
     eENABLED = 1, // Channel-to-channel linking is enabled
@@ -9248,7 +9225,7 @@ union TCD16_BITER_ELINKYES {
     uint32_t _reserved_2 : 1;
     eELINK ELINK : 1;
     uint32_t _reserved_end : 16;
-  } bits;          // Bit-field struct (auto-filling reserved gaps)
+  } bits;
   
   // Full 32-bit register value.
   uint32_t value;
@@ -9262,12 +9239,10 @@ union TCD16_BITER_ELINKYES {
 //
 union TCD17_SADDR {
   
-  // Enum definitions.
-  
   // Bit field definition.
   struct {
     uint32_t SADDR : 32;
-  } bits;          // Bit-field struct (auto-filling reserved gaps)
+  } bits;
   
   // Full 32-bit register value.
   uint32_t value;
@@ -9281,13 +9256,11 @@ union TCD17_SADDR {
 //
 union TCD17_SOFF {
   
-  // Enum definitions.
-  
   // Bit field definition.
   struct {
     uint32_t SOFF : 16;
     uint32_t _reserved_end : 16;
-  } bits;          // Bit-field struct (auto-filling reserved gaps)
+  } bits;
   
   // Full 32-bit register value.
   uint32_t value;
@@ -9301,7 +9274,6 @@ union TCD17_SOFF {
 //
 union TCD17_ATTR {
   
-  // Enum definitions.
   enum class eSSIZE : uint32_t {
     eEIGHT = 0, // 8-bit
     eSIXTEEN_BIT = 1, // 16-bit
@@ -9309,6 +9281,7 @@ union TCD17_ATTR {
     eSIXTYFOUR = 3, // 64-bit
     eTHIRTYTWO_BYTE = 5, // 32-byte burst (4 beats of 64 bits)
   };
+  
   enum class eSMOD : uint32_t {
     eDISABLED = 0, // Source address modulo feature is disabled
     eENABLED = 1, // Value defines address range used to set up circular data queue
@@ -9329,7 +9302,7 @@ union TCD17_ATTR {
     eSSIZE SSIZE : 3;
     eSMOD SMOD : 5;
     uint32_t _reserved_end : 16;
-  } bits;          // Bit-field struct (auto-filling reserved gaps)
+  } bits;
   
   // Full 32-bit register value.
   uint32_t value;
@@ -9343,12 +9316,10 @@ union TCD17_ATTR {
 //
 union TCD17_NBYTES_MLNO {
   
-  // Enum definitions.
-  
   // Bit field definition.
   struct {
     uint32_t NBYTES : 32;
-  } bits;          // Bit-field struct (auto-filling reserved gaps)
+  } bits;
   
   // Full 32-bit register value.
   uint32_t value;
@@ -9362,11 +9333,11 @@ union TCD17_NBYTES_MLNO {
 //
 union TCD17_NBYTES_MLOFFNO {
   
-  // Enum definitions.
   enum class eDMLOE : uint32_t {
     eDISABLED = 0, // The minor loop offset is not applied to the DADDR
     eENABLED = 1, // The minor loop offset is applied to the DADDR
   };
+  
   enum class eSMLOE : uint32_t {
     eDISABLED = 0, // The minor loop offset is not applied to the SADDR
     eENABLED = 1, // The minor loop offset is applied to the SADDR
@@ -9377,7 +9348,7 @@ union TCD17_NBYTES_MLOFFNO {
     uint32_t NBYTES : 30;
     eDMLOE DMLOE : 1;
     eSMLOE SMLOE : 1;
-  } bits;          // Bit-field struct (auto-filling reserved gaps)
+  } bits;
   
   // Full 32-bit register value.
   uint32_t value;
@@ -9391,11 +9362,11 @@ union TCD17_NBYTES_MLOFFNO {
 //
 union TCD17_NBYTES_MLOFFYES {
   
-  // Enum definitions.
   enum class eDMLOE : uint32_t {
     eDISABLED = 0, // The minor loop offset is not applied to the DADDR
     eENABLED = 1, // The minor loop offset is applied to the DADDR
   };
+  
   enum class eSMLOE : uint32_t {
     eDISABLED = 0, // The minor loop offset is not applied to the SADDR
     eENABLED = 1, // The minor loop offset is applied to the SADDR
@@ -9407,7 +9378,7 @@ union TCD17_NBYTES_MLOFFYES {
     uint32_t MLOFF : 20;
     eDMLOE DMLOE : 1;
     eSMLOE SMLOE : 1;
-  } bits;          // Bit-field struct (auto-filling reserved gaps)
+  } bits;
   
   // Full 32-bit register value.
   uint32_t value;
@@ -9421,12 +9392,10 @@ union TCD17_NBYTES_MLOFFYES {
 //
 union TCD17_SLAST {
   
-  // Enum definitions.
-  
   // Bit field definition.
   struct {
     uint32_t SLAST : 32;
-  } bits;          // Bit-field struct (auto-filling reserved gaps)
+  } bits;
   
   // Full 32-bit register value.
   uint32_t value;
@@ -9440,12 +9409,10 @@ union TCD17_SLAST {
 //
 union TCD17_DADDR {
   
-  // Enum definitions.
-  
   // Bit field definition.
   struct {
     uint32_t DADDR : 32;
-  } bits;          // Bit-field struct (auto-filling reserved gaps)
+  } bits;
   
   // Full 32-bit register value.
   uint32_t value;
@@ -9459,13 +9426,11 @@ union TCD17_DADDR {
 //
 union TCD17_DOFF {
   
-  // Enum definitions.
-  
   // Bit field definition.
   struct {
     uint32_t DOFF : 16;
     uint32_t _reserved_end : 16;
-  } bits;          // Bit-field struct (auto-filling reserved gaps)
+  } bits;
   
   // Full 32-bit register value.
   uint32_t value;
@@ -9479,7 +9444,6 @@ union TCD17_DOFF {
 //
 union TCD17_CITER_ELINKNO {
   
-  // Enum definitions.
   enum class eELINK : uint32_t {
     eDISABLED = 0, // Channel-to-channel linking is disabled
     eENABLED = 1, // Channel-to-channel linking is enabled
@@ -9490,7 +9454,7 @@ union TCD17_CITER_ELINKNO {
     uint32_t CITER : 15;
     eELINK ELINK : 1;
     uint32_t _reserved_end : 16;
-  } bits;          // Bit-field struct (auto-filling reserved gaps)
+  } bits;
   
   // Full 32-bit register value.
   uint32_t value;
@@ -9504,7 +9468,6 @@ union TCD17_CITER_ELINKNO {
 //
 union TCD17_CITER_ELINKYES {
   
-  // Enum definitions.
   enum class eELINK : uint32_t {
     eDISABLED = 0, // Channel-to-channel linking is disabled
     eENABLED = 1, // Channel-to-channel linking is enabled
@@ -9517,7 +9480,7 @@ union TCD17_CITER_ELINKYES {
     uint32_t _reserved_2 : 1;
     eELINK ELINK : 1;
     uint32_t _reserved_end : 16;
-  } bits;          // Bit-field struct (auto-filling reserved gaps)
+  } bits;
   
   // Full 32-bit register value.
   uint32_t value;
@@ -9531,12 +9494,10 @@ union TCD17_CITER_ELINKYES {
 //
 union TCD17_DLASTSGA {
   
-  // Enum definitions.
-  
   // Bit field definition.
   struct {
     uint32_t DLASTSGA : 32;
-  } bits;          // Bit-field struct (auto-filling reserved gaps)
+  } bits;
   
   // Full 32-bit register value.
   uint32_t value;
@@ -9550,31 +9511,36 @@ union TCD17_DLASTSGA {
 //
 union TCD17_CSR {
   
-  // Enum definitions.
   enum class eSTART : uint32_t {
     eNO_START = 0, // Channel is not explicitly started
     eSTART = 1, // Channel is explicitly started via a software initiated service request
   };
+  
   enum class eINTMAJOR : uint32_t {
     eDISABLED = 0, // End of major loop interrupt is disabled
     eENABLED = 1, // End of major loop interrupt is enabled
   };
+  
   enum class eINTHALF : uint32_t {
     eDISABLED = 0, // Half-point interrupt is disabled
     eENABLED = 1, // Half-point interrupt is enabled
   };
+  
   enum class eDREQ : uint32_t {
     eNO_CLEAR = 0, // The channel's ERQ field is not affected
     eCLEAR = 1, // The channel's ERQ field value changes to 0 when the major loop is complete
   };
+  
   enum class eESG : uint32_t {
     eNORMAL = 0, // The current channel's TCD is normal format
     eSCATTER = 1, // The current channel's TCD specifies a scatter gather format
   };
+  
   enum class eMAJORELINK : uint32_t {
     eDISABLED = 0, // Channel-to-channel linking is disabled
     eENABLED = 1, // Channel-to-channel linking is enabled
   };
+  
   enum class eBWC : uint32_t {
     eDISABLED = 0, // No eDMA engine stalls
     eSTALL4 = 2, // eDMA engine stalls for 4 cycles after each R/W
@@ -9595,7 +9561,7 @@ union TCD17_CSR {
     uint32_t _reserved_9 : 1;
     eBWC BWC : 2;
     uint32_t _reserved_end : 16;
-  } bits;          // Bit-field struct (auto-filling reserved gaps)
+  } bits;
   
   // Full 32-bit register value.
   uint32_t value;
@@ -9609,7 +9575,6 @@ union TCD17_CSR {
 //
 union TCD17_BITER_ELINKNO {
   
-  // Enum definitions.
   enum class eELINK : uint32_t {
     eDISABLED = 0, // Channel-to-channel linking is disabled
     eENABLED = 1, // Channel-to-channel linking is enabled
@@ -9620,7 +9585,7 @@ union TCD17_BITER_ELINKNO {
     uint32_t BITER : 15;
     eELINK ELINK : 1;
     uint32_t _reserved_end : 16;
-  } bits;          // Bit-field struct (auto-filling reserved gaps)
+  } bits;
   
   // Full 32-bit register value.
   uint32_t value;
@@ -9634,7 +9599,6 @@ union TCD17_BITER_ELINKNO {
 //
 union TCD17_BITER_ELINKYES {
   
-  // Enum definitions.
   enum class eELINK : uint32_t {
     eDISABLED = 0, // Channel-to-channel linking is disabled
     eENABLED = 1, // Channel-to-channel linking is enabled
@@ -9647,7 +9611,7 @@ union TCD17_BITER_ELINKYES {
     uint32_t _reserved_2 : 1;
     eELINK ELINK : 1;
     uint32_t _reserved_end : 16;
-  } bits;          // Bit-field struct (auto-filling reserved gaps)
+  } bits;
   
   // Full 32-bit register value.
   uint32_t value;
@@ -9661,12 +9625,10 @@ union TCD17_BITER_ELINKYES {
 //
 union TCD18_SADDR {
   
-  // Enum definitions.
-  
   // Bit field definition.
   struct {
     uint32_t SADDR : 32;
-  } bits;          // Bit-field struct (auto-filling reserved gaps)
+  } bits;
   
   // Full 32-bit register value.
   uint32_t value;
@@ -9680,13 +9642,11 @@ union TCD18_SADDR {
 //
 union TCD18_SOFF {
   
-  // Enum definitions.
-  
   // Bit field definition.
   struct {
     uint32_t SOFF : 16;
     uint32_t _reserved_end : 16;
-  } bits;          // Bit-field struct (auto-filling reserved gaps)
+  } bits;
   
   // Full 32-bit register value.
   uint32_t value;
@@ -9700,7 +9660,6 @@ union TCD18_SOFF {
 //
 union TCD18_ATTR {
   
-  // Enum definitions.
   enum class eSSIZE : uint32_t {
     eEIGHT = 0, // 8-bit
     eSIXTEEN_BIT = 1, // 16-bit
@@ -9708,6 +9667,7 @@ union TCD18_ATTR {
     eSIXTYFOUR = 3, // 64-bit
     eTHIRTYTWO_BYTE = 5, // 32-byte burst (4 beats of 64 bits)
   };
+  
   enum class eSMOD : uint32_t {
     eDISABLED = 0, // Source address modulo feature is disabled
     eENABLED = 1, // Value defines address range used to set up circular data queue
@@ -9728,7 +9688,7 @@ union TCD18_ATTR {
     eSSIZE SSIZE : 3;
     eSMOD SMOD : 5;
     uint32_t _reserved_end : 16;
-  } bits;          // Bit-field struct (auto-filling reserved gaps)
+  } bits;
   
   // Full 32-bit register value.
   uint32_t value;
@@ -9742,12 +9702,10 @@ union TCD18_ATTR {
 //
 union TCD18_NBYTES_MLNO {
   
-  // Enum definitions.
-  
   // Bit field definition.
   struct {
     uint32_t NBYTES : 32;
-  } bits;          // Bit-field struct (auto-filling reserved gaps)
+  } bits;
   
   // Full 32-bit register value.
   uint32_t value;
@@ -9761,11 +9719,11 @@ union TCD18_NBYTES_MLNO {
 //
 union TCD18_NBYTES_MLOFFNO {
   
-  // Enum definitions.
   enum class eDMLOE : uint32_t {
     eDISABLED = 0, // The minor loop offset is not applied to the DADDR
     eENABLED = 1, // The minor loop offset is applied to the DADDR
   };
+  
   enum class eSMLOE : uint32_t {
     eDISABLED = 0, // The minor loop offset is not applied to the SADDR
     eENABLED = 1, // The minor loop offset is applied to the SADDR
@@ -9776,7 +9734,7 @@ union TCD18_NBYTES_MLOFFNO {
     uint32_t NBYTES : 30;
     eDMLOE DMLOE : 1;
     eSMLOE SMLOE : 1;
-  } bits;          // Bit-field struct (auto-filling reserved gaps)
+  } bits;
   
   // Full 32-bit register value.
   uint32_t value;
@@ -9790,11 +9748,11 @@ union TCD18_NBYTES_MLOFFNO {
 //
 union TCD18_NBYTES_MLOFFYES {
   
-  // Enum definitions.
   enum class eDMLOE : uint32_t {
     eDISABLED = 0, // The minor loop offset is not applied to the DADDR
     eENABLED = 1, // The minor loop offset is applied to the DADDR
   };
+  
   enum class eSMLOE : uint32_t {
     eDISABLED = 0, // The minor loop offset is not applied to the SADDR
     eENABLED = 1, // The minor loop offset is applied to the SADDR
@@ -9806,7 +9764,7 @@ union TCD18_NBYTES_MLOFFYES {
     uint32_t MLOFF : 20;
     eDMLOE DMLOE : 1;
     eSMLOE SMLOE : 1;
-  } bits;          // Bit-field struct (auto-filling reserved gaps)
+  } bits;
   
   // Full 32-bit register value.
   uint32_t value;
@@ -9820,12 +9778,10 @@ union TCD18_NBYTES_MLOFFYES {
 //
 union TCD18_SLAST {
   
-  // Enum definitions.
-  
   // Bit field definition.
   struct {
     uint32_t SLAST : 32;
-  } bits;          // Bit-field struct (auto-filling reserved gaps)
+  } bits;
   
   // Full 32-bit register value.
   uint32_t value;
@@ -9839,12 +9795,10 @@ union TCD18_SLAST {
 //
 union TCD18_DADDR {
   
-  // Enum definitions.
-  
   // Bit field definition.
   struct {
     uint32_t DADDR : 32;
-  } bits;          // Bit-field struct (auto-filling reserved gaps)
+  } bits;
   
   // Full 32-bit register value.
   uint32_t value;
@@ -9858,13 +9812,11 @@ union TCD18_DADDR {
 //
 union TCD18_DOFF {
   
-  // Enum definitions.
-  
   // Bit field definition.
   struct {
     uint32_t DOFF : 16;
     uint32_t _reserved_end : 16;
-  } bits;          // Bit-field struct (auto-filling reserved gaps)
+  } bits;
   
   // Full 32-bit register value.
   uint32_t value;
@@ -9878,7 +9830,6 @@ union TCD18_DOFF {
 //
 union TCD18_CITER_ELINKNO {
   
-  // Enum definitions.
   enum class eELINK : uint32_t {
     eDISABLED = 0, // Channel-to-channel linking is disabled
     eENABLED = 1, // Channel-to-channel linking is enabled
@@ -9889,7 +9840,7 @@ union TCD18_CITER_ELINKNO {
     uint32_t CITER : 15;
     eELINK ELINK : 1;
     uint32_t _reserved_end : 16;
-  } bits;          // Bit-field struct (auto-filling reserved gaps)
+  } bits;
   
   // Full 32-bit register value.
   uint32_t value;
@@ -9903,7 +9854,6 @@ union TCD18_CITER_ELINKNO {
 //
 union TCD18_CITER_ELINKYES {
   
-  // Enum definitions.
   enum class eELINK : uint32_t {
     eDISABLED = 0, // Channel-to-channel linking is disabled
     eENABLED = 1, // Channel-to-channel linking is enabled
@@ -9916,7 +9866,7 @@ union TCD18_CITER_ELINKYES {
     uint32_t _reserved_2 : 1;
     eELINK ELINK : 1;
     uint32_t _reserved_end : 16;
-  } bits;          // Bit-field struct (auto-filling reserved gaps)
+  } bits;
   
   // Full 32-bit register value.
   uint32_t value;
@@ -9930,12 +9880,10 @@ union TCD18_CITER_ELINKYES {
 //
 union TCD18_DLASTSGA {
   
-  // Enum definitions.
-  
   // Bit field definition.
   struct {
     uint32_t DLASTSGA : 32;
-  } bits;          // Bit-field struct (auto-filling reserved gaps)
+  } bits;
   
   // Full 32-bit register value.
   uint32_t value;
@@ -9949,31 +9897,36 @@ union TCD18_DLASTSGA {
 //
 union TCD18_CSR {
   
-  // Enum definitions.
   enum class eSTART : uint32_t {
     eNO_START = 0, // Channel is not explicitly started
     eSTART = 1, // Channel is explicitly started via a software initiated service request
   };
+  
   enum class eINTMAJOR : uint32_t {
     eDISABLED = 0, // End of major loop interrupt is disabled
     eENABLED = 1, // End of major loop interrupt is enabled
   };
+  
   enum class eINTHALF : uint32_t {
     eDISABLED = 0, // Half-point interrupt is disabled
     eENABLED = 1, // Half-point interrupt is enabled
   };
+  
   enum class eDREQ : uint32_t {
     eNO_CLEAR = 0, // The channel's ERQ field is not affected
     eCLEAR = 1, // The channel's ERQ field value changes to 0 when the major loop is complete
   };
+  
   enum class eESG : uint32_t {
     eNORMAL = 0, // The current channel's TCD is normal format
     eSCATTER = 1, // The current channel's TCD specifies a scatter gather format
   };
+  
   enum class eMAJORELINK : uint32_t {
     eDISABLED = 0, // Channel-to-channel linking is disabled
     eENABLED = 1, // Channel-to-channel linking is enabled
   };
+  
   enum class eBWC : uint32_t {
     eDISABLED = 0, // No eDMA engine stalls
     eSTALL4 = 2, // eDMA engine stalls for 4 cycles after each R/W
@@ -9994,7 +9947,7 @@ union TCD18_CSR {
     uint32_t _reserved_9 : 1;
     eBWC BWC : 2;
     uint32_t _reserved_end : 16;
-  } bits;          // Bit-field struct (auto-filling reserved gaps)
+  } bits;
   
   // Full 32-bit register value.
   uint32_t value;
@@ -10008,7 +9961,6 @@ union TCD18_CSR {
 //
 union TCD18_BITER_ELINKNO {
   
-  // Enum definitions.
   enum class eELINK : uint32_t {
     eDISABLED = 0, // Channel-to-channel linking is disabled
     eENABLED = 1, // Channel-to-channel linking is enabled
@@ -10019,7 +9971,7 @@ union TCD18_BITER_ELINKNO {
     uint32_t BITER : 15;
     eELINK ELINK : 1;
     uint32_t _reserved_end : 16;
-  } bits;          // Bit-field struct (auto-filling reserved gaps)
+  } bits;
   
   // Full 32-bit register value.
   uint32_t value;
@@ -10033,7 +9985,6 @@ union TCD18_BITER_ELINKNO {
 //
 union TCD18_BITER_ELINKYES {
   
-  // Enum definitions.
   enum class eELINK : uint32_t {
     eDISABLED = 0, // Channel-to-channel linking is disabled
     eENABLED = 1, // Channel-to-channel linking is enabled
@@ -10046,7 +9997,7 @@ union TCD18_BITER_ELINKYES {
     uint32_t _reserved_2 : 1;
     eELINK ELINK : 1;
     uint32_t _reserved_end : 16;
-  } bits;          // Bit-field struct (auto-filling reserved gaps)
+  } bits;
   
   // Full 32-bit register value.
   uint32_t value;
@@ -10060,12 +10011,10 @@ union TCD18_BITER_ELINKYES {
 //
 union TCD19_SADDR {
   
-  // Enum definitions.
-  
   // Bit field definition.
   struct {
     uint32_t SADDR : 32;
-  } bits;          // Bit-field struct (auto-filling reserved gaps)
+  } bits;
   
   // Full 32-bit register value.
   uint32_t value;
@@ -10079,13 +10028,11 @@ union TCD19_SADDR {
 //
 union TCD19_SOFF {
   
-  // Enum definitions.
-  
   // Bit field definition.
   struct {
     uint32_t SOFF : 16;
     uint32_t _reserved_end : 16;
-  } bits;          // Bit-field struct (auto-filling reserved gaps)
+  } bits;
   
   // Full 32-bit register value.
   uint32_t value;
@@ -10099,7 +10046,6 @@ union TCD19_SOFF {
 //
 union TCD19_ATTR {
   
-  // Enum definitions.
   enum class eSSIZE : uint32_t {
     eEIGHT = 0, // 8-bit
     eSIXTEEN_BIT = 1, // 16-bit
@@ -10107,6 +10053,7 @@ union TCD19_ATTR {
     eSIXTYFOUR = 3, // 64-bit
     eTHIRTYTWO_BYTE = 5, // 32-byte burst (4 beats of 64 bits)
   };
+  
   enum class eSMOD : uint32_t {
     eDISABLED = 0, // Source address modulo feature is disabled
     eENABLED = 1, // Value defines address range used to set up circular data queue
@@ -10127,7 +10074,7 @@ union TCD19_ATTR {
     eSSIZE SSIZE : 3;
     eSMOD SMOD : 5;
     uint32_t _reserved_end : 16;
-  } bits;          // Bit-field struct (auto-filling reserved gaps)
+  } bits;
   
   // Full 32-bit register value.
   uint32_t value;
@@ -10141,12 +10088,10 @@ union TCD19_ATTR {
 //
 union TCD19_NBYTES_MLNO {
   
-  // Enum definitions.
-  
   // Bit field definition.
   struct {
     uint32_t NBYTES : 32;
-  } bits;          // Bit-field struct (auto-filling reserved gaps)
+  } bits;
   
   // Full 32-bit register value.
   uint32_t value;
@@ -10160,11 +10105,11 @@ union TCD19_NBYTES_MLNO {
 //
 union TCD19_NBYTES_MLOFFNO {
   
-  // Enum definitions.
   enum class eDMLOE : uint32_t {
     eDISABLED = 0, // The minor loop offset is not applied to the DADDR
     eENABLED = 1, // The minor loop offset is applied to the DADDR
   };
+  
   enum class eSMLOE : uint32_t {
     eDISABLED = 0, // The minor loop offset is not applied to the SADDR
     eENABLED = 1, // The minor loop offset is applied to the SADDR
@@ -10175,7 +10120,7 @@ union TCD19_NBYTES_MLOFFNO {
     uint32_t NBYTES : 30;
     eDMLOE DMLOE : 1;
     eSMLOE SMLOE : 1;
-  } bits;          // Bit-field struct (auto-filling reserved gaps)
+  } bits;
   
   // Full 32-bit register value.
   uint32_t value;
@@ -10189,11 +10134,11 @@ union TCD19_NBYTES_MLOFFNO {
 //
 union TCD19_NBYTES_MLOFFYES {
   
-  // Enum definitions.
   enum class eDMLOE : uint32_t {
     eDISABLED = 0, // The minor loop offset is not applied to the DADDR
     eENABLED = 1, // The minor loop offset is applied to the DADDR
   };
+  
   enum class eSMLOE : uint32_t {
     eDISABLED = 0, // The minor loop offset is not applied to the SADDR
     eENABLED = 1, // The minor loop offset is applied to the SADDR
@@ -10205,7 +10150,7 @@ union TCD19_NBYTES_MLOFFYES {
     uint32_t MLOFF : 20;
     eDMLOE DMLOE : 1;
     eSMLOE SMLOE : 1;
-  } bits;          // Bit-field struct (auto-filling reserved gaps)
+  } bits;
   
   // Full 32-bit register value.
   uint32_t value;
@@ -10219,12 +10164,10 @@ union TCD19_NBYTES_MLOFFYES {
 //
 union TCD19_SLAST {
   
-  // Enum definitions.
-  
   // Bit field definition.
   struct {
     uint32_t SLAST : 32;
-  } bits;          // Bit-field struct (auto-filling reserved gaps)
+  } bits;
   
   // Full 32-bit register value.
   uint32_t value;
@@ -10238,12 +10181,10 @@ union TCD19_SLAST {
 //
 union TCD19_DADDR {
   
-  // Enum definitions.
-  
   // Bit field definition.
   struct {
     uint32_t DADDR : 32;
-  } bits;          // Bit-field struct (auto-filling reserved gaps)
+  } bits;
   
   // Full 32-bit register value.
   uint32_t value;
@@ -10257,13 +10198,11 @@ union TCD19_DADDR {
 //
 union TCD19_DOFF {
   
-  // Enum definitions.
-  
   // Bit field definition.
   struct {
     uint32_t DOFF : 16;
     uint32_t _reserved_end : 16;
-  } bits;          // Bit-field struct (auto-filling reserved gaps)
+  } bits;
   
   // Full 32-bit register value.
   uint32_t value;
@@ -10277,7 +10216,6 @@ union TCD19_DOFF {
 //
 union TCD19_CITER_ELINKNO {
   
-  // Enum definitions.
   enum class eELINK : uint32_t {
     eDISABLED = 0, // Channel-to-channel linking is disabled
     eENABLED = 1, // Channel-to-channel linking is enabled
@@ -10288,7 +10226,7 @@ union TCD19_CITER_ELINKNO {
     uint32_t CITER : 15;
     eELINK ELINK : 1;
     uint32_t _reserved_end : 16;
-  } bits;          // Bit-field struct (auto-filling reserved gaps)
+  } bits;
   
   // Full 32-bit register value.
   uint32_t value;
@@ -10302,7 +10240,6 @@ union TCD19_CITER_ELINKNO {
 //
 union TCD19_CITER_ELINKYES {
   
-  // Enum definitions.
   enum class eELINK : uint32_t {
     eDISABLED = 0, // Channel-to-channel linking is disabled
     eENABLED = 1, // Channel-to-channel linking is enabled
@@ -10315,7 +10252,7 @@ union TCD19_CITER_ELINKYES {
     uint32_t _reserved_2 : 1;
     eELINK ELINK : 1;
     uint32_t _reserved_end : 16;
-  } bits;          // Bit-field struct (auto-filling reserved gaps)
+  } bits;
   
   // Full 32-bit register value.
   uint32_t value;
@@ -10329,12 +10266,10 @@ union TCD19_CITER_ELINKYES {
 //
 union TCD19_DLASTSGA {
   
-  // Enum definitions.
-  
   // Bit field definition.
   struct {
     uint32_t DLASTSGA : 32;
-  } bits;          // Bit-field struct (auto-filling reserved gaps)
+  } bits;
   
   // Full 32-bit register value.
   uint32_t value;
@@ -10348,31 +10283,36 @@ union TCD19_DLASTSGA {
 //
 union TCD19_CSR {
   
-  // Enum definitions.
   enum class eSTART : uint32_t {
     eNO_START = 0, // Channel is not explicitly started
     eSTART = 1, // Channel is explicitly started via a software initiated service request
   };
+  
   enum class eINTMAJOR : uint32_t {
     eDISABLED = 0, // End of major loop interrupt is disabled
     eENABLED = 1, // End of major loop interrupt is enabled
   };
+  
   enum class eINTHALF : uint32_t {
     eDISABLED = 0, // Half-point interrupt is disabled
     eENABLED = 1, // Half-point interrupt is enabled
   };
+  
   enum class eDREQ : uint32_t {
     eNO_CLEAR = 0, // The channel's ERQ field is not affected
     eCLEAR = 1, // The channel's ERQ field value changes to 0 when the major loop is complete
   };
+  
   enum class eESG : uint32_t {
     eNORMAL = 0, // The current channel's TCD is normal format
     eSCATTER = 1, // The current channel's TCD specifies a scatter gather format
   };
+  
   enum class eMAJORELINK : uint32_t {
     eDISABLED = 0, // Channel-to-channel linking is disabled
     eENABLED = 1, // Channel-to-channel linking is enabled
   };
+  
   enum class eBWC : uint32_t {
     eDISABLED = 0, // No eDMA engine stalls
     eSTALL4 = 2, // eDMA engine stalls for 4 cycles after each R/W
@@ -10393,7 +10333,7 @@ union TCD19_CSR {
     uint32_t _reserved_9 : 1;
     eBWC BWC : 2;
     uint32_t _reserved_end : 16;
-  } bits;          // Bit-field struct (auto-filling reserved gaps)
+  } bits;
   
   // Full 32-bit register value.
   uint32_t value;
@@ -10407,7 +10347,6 @@ union TCD19_CSR {
 //
 union TCD19_BITER_ELINKNO {
   
-  // Enum definitions.
   enum class eELINK : uint32_t {
     eDISABLED = 0, // Channel-to-channel linking is disabled
     eENABLED = 1, // Channel-to-channel linking is enabled
@@ -10418,7 +10357,7 @@ union TCD19_BITER_ELINKNO {
     uint32_t BITER : 15;
     eELINK ELINK : 1;
     uint32_t _reserved_end : 16;
-  } bits;          // Bit-field struct (auto-filling reserved gaps)
+  } bits;
   
   // Full 32-bit register value.
   uint32_t value;
@@ -10432,7 +10371,6 @@ union TCD19_BITER_ELINKNO {
 //
 union TCD19_BITER_ELINKYES {
   
-  // Enum definitions.
   enum class eELINK : uint32_t {
     eDISABLED = 0, // Channel-to-channel linking is disabled
     eENABLED = 1, // Channel-to-channel linking is enabled
@@ -10445,7 +10383,7 @@ union TCD19_BITER_ELINKYES {
     uint32_t _reserved_2 : 1;
     eELINK ELINK : 1;
     uint32_t _reserved_end : 16;
-  } bits;          // Bit-field struct (auto-filling reserved gaps)
+  } bits;
   
   // Full 32-bit register value.
   uint32_t value;
@@ -10459,12 +10397,10 @@ union TCD19_BITER_ELINKYES {
 //
 union TCD20_SADDR {
   
-  // Enum definitions.
-  
   // Bit field definition.
   struct {
     uint32_t SADDR : 32;
-  } bits;          // Bit-field struct (auto-filling reserved gaps)
+  } bits;
   
   // Full 32-bit register value.
   uint32_t value;
@@ -10478,13 +10414,11 @@ union TCD20_SADDR {
 //
 union TCD20_SOFF {
   
-  // Enum definitions.
-  
   // Bit field definition.
   struct {
     uint32_t SOFF : 16;
     uint32_t _reserved_end : 16;
-  } bits;          // Bit-field struct (auto-filling reserved gaps)
+  } bits;
   
   // Full 32-bit register value.
   uint32_t value;
@@ -10498,7 +10432,6 @@ union TCD20_SOFF {
 //
 union TCD20_ATTR {
   
-  // Enum definitions.
   enum class eSSIZE : uint32_t {
     eEIGHT = 0, // 8-bit
     eSIXTEEN_BIT = 1, // 16-bit
@@ -10506,6 +10439,7 @@ union TCD20_ATTR {
     eSIXTYFOUR = 3, // 64-bit
     eTHIRTYTWO_BYTE = 5, // 32-byte burst (4 beats of 64 bits)
   };
+  
   enum class eSMOD : uint32_t {
     eDISABLED = 0, // Source address modulo feature is disabled
     eENABLED = 1, // Value defines address range used to set up circular data queue
@@ -10526,7 +10460,7 @@ union TCD20_ATTR {
     eSSIZE SSIZE : 3;
     eSMOD SMOD : 5;
     uint32_t _reserved_end : 16;
-  } bits;          // Bit-field struct (auto-filling reserved gaps)
+  } bits;
   
   // Full 32-bit register value.
   uint32_t value;
@@ -10540,12 +10474,10 @@ union TCD20_ATTR {
 //
 union TCD20_NBYTES_MLNO {
   
-  // Enum definitions.
-  
   // Bit field definition.
   struct {
     uint32_t NBYTES : 32;
-  } bits;          // Bit-field struct (auto-filling reserved gaps)
+  } bits;
   
   // Full 32-bit register value.
   uint32_t value;
@@ -10559,11 +10491,11 @@ union TCD20_NBYTES_MLNO {
 //
 union TCD20_NBYTES_MLOFFNO {
   
-  // Enum definitions.
   enum class eDMLOE : uint32_t {
     eDISABLED = 0, // The minor loop offset is not applied to the DADDR
     eENABLED = 1, // The minor loop offset is applied to the DADDR
   };
+  
   enum class eSMLOE : uint32_t {
     eDISABLED = 0, // The minor loop offset is not applied to the SADDR
     eENABLED = 1, // The minor loop offset is applied to the SADDR
@@ -10574,7 +10506,7 @@ union TCD20_NBYTES_MLOFFNO {
     uint32_t NBYTES : 30;
     eDMLOE DMLOE : 1;
     eSMLOE SMLOE : 1;
-  } bits;          // Bit-field struct (auto-filling reserved gaps)
+  } bits;
   
   // Full 32-bit register value.
   uint32_t value;
@@ -10588,11 +10520,11 @@ union TCD20_NBYTES_MLOFFNO {
 //
 union TCD20_NBYTES_MLOFFYES {
   
-  // Enum definitions.
   enum class eDMLOE : uint32_t {
     eDISABLED = 0, // The minor loop offset is not applied to the DADDR
     eENABLED = 1, // The minor loop offset is applied to the DADDR
   };
+  
   enum class eSMLOE : uint32_t {
     eDISABLED = 0, // The minor loop offset is not applied to the SADDR
     eENABLED = 1, // The minor loop offset is applied to the SADDR
@@ -10604,7 +10536,7 @@ union TCD20_NBYTES_MLOFFYES {
     uint32_t MLOFF : 20;
     eDMLOE DMLOE : 1;
     eSMLOE SMLOE : 1;
-  } bits;          // Bit-field struct (auto-filling reserved gaps)
+  } bits;
   
   // Full 32-bit register value.
   uint32_t value;
@@ -10618,12 +10550,10 @@ union TCD20_NBYTES_MLOFFYES {
 //
 union TCD20_SLAST {
   
-  // Enum definitions.
-  
   // Bit field definition.
   struct {
     uint32_t SLAST : 32;
-  } bits;          // Bit-field struct (auto-filling reserved gaps)
+  } bits;
   
   // Full 32-bit register value.
   uint32_t value;
@@ -10637,12 +10567,10 @@ union TCD20_SLAST {
 //
 union TCD20_DADDR {
   
-  // Enum definitions.
-  
   // Bit field definition.
   struct {
     uint32_t DADDR : 32;
-  } bits;          // Bit-field struct (auto-filling reserved gaps)
+  } bits;
   
   // Full 32-bit register value.
   uint32_t value;
@@ -10656,13 +10584,11 @@ union TCD20_DADDR {
 //
 union TCD20_DOFF {
   
-  // Enum definitions.
-  
   // Bit field definition.
   struct {
     uint32_t DOFF : 16;
     uint32_t _reserved_end : 16;
-  } bits;          // Bit-field struct (auto-filling reserved gaps)
+  } bits;
   
   // Full 32-bit register value.
   uint32_t value;
@@ -10676,7 +10602,6 @@ union TCD20_DOFF {
 //
 union TCD20_CITER_ELINKNO {
   
-  // Enum definitions.
   enum class eELINK : uint32_t {
     eDISABLED = 0, // Channel-to-channel linking is disabled
     eENABLED = 1, // Channel-to-channel linking is enabled
@@ -10687,7 +10612,7 @@ union TCD20_CITER_ELINKNO {
     uint32_t CITER : 15;
     eELINK ELINK : 1;
     uint32_t _reserved_end : 16;
-  } bits;          // Bit-field struct (auto-filling reserved gaps)
+  } bits;
   
   // Full 32-bit register value.
   uint32_t value;
@@ -10701,7 +10626,6 @@ union TCD20_CITER_ELINKNO {
 //
 union TCD20_CITER_ELINKYES {
   
-  // Enum definitions.
   enum class eELINK : uint32_t {
     eDISABLED = 0, // Channel-to-channel linking is disabled
     eENABLED = 1, // Channel-to-channel linking is enabled
@@ -10714,7 +10638,7 @@ union TCD20_CITER_ELINKYES {
     uint32_t _reserved_2 : 1;
     eELINK ELINK : 1;
     uint32_t _reserved_end : 16;
-  } bits;          // Bit-field struct (auto-filling reserved gaps)
+  } bits;
   
   // Full 32-bit register value.
   uint32_t value;
@@ -10728,12 +10652,10 @@ union TCD20_CITER_ELINKYES {
 //
 union TCD20_DLASTSGA {
   
-  // Enum definitions.
-  
   // Bit field definition.
   struct {
     uint32_t DLASTSGA : 32;
-  } bits;          // Bit-field struct (auto-filling reserved gaps)
+  } bits;
   
   // Full 32-bit register value.
   uint32_t value;
@@ -10747,31 +10669,36 @@ union TCD20_DLASTSGA {
 //
 union TCD20_CSR {
   
-  // Enum definitions.
   enum class eSTART : uint32_t {
     eNO_START = 0, // Channel is not explicitly started
     eSTART = 1, // Channel is explicitly started via a software initiated service request
   };
+  
   enum class eINTMAJOR : uint32_t {
     eDISABLED = 0, // End of major loop interrupt is disabled
     eENABLED = 1, // End of major loop interrupt is enabled
   };
+  
   enum class eINTHALF : uint32_t {
     eDISABLED = 0, // Half-point interrupt is disabled
     eENABLED = 1, // Half-point interrupt is enabled
   };
+  
   enum class eDREQ : uint32_t {
     eNO_CLEAR = 0, // The channel's ERQ field is not affected
     eCLEAR = 1, // The channel's ERQ field value changes to 0 when the major loop is complete
   };
+  
   enum class eESG : uint32_t {
     eNORMAL = 0, // The current channel's TCD is normal format
     eSCATTER = 1, // The current channel's TCD specifies a scatter gather format
   };
+  
   enum class eMAJORELINK : uint32_t {
     eDISABLED = 0, // Channel-to-channel linking is disabled
     eENABLED = 1, // Channel-to-channel linking is enabled
   };
+  
   enum class eBWC : uint32_t {
     eDISABLED = 0, // No eDMA engine stalls
     eSTALL4 = 2, // eDMA engine stalls for 4 cycles after each R/W
@@ -10792,7 +10719,7 @@ union TCD20_CSR {
     uint32_t _reserved_9 : 1;
     eBWC BWC : 2;
     uint32_t _reserved_end : 16;
-  } bits;          // Bit-field struct (auto-filling reserved gaps)
+  } bits;
   
   // Full 32-bit register value.
   uint32_t value;
@@ -10806,7 +10733,6 @@ union TCD20_CSR {
 //
 union TCD20_BITER_ELINKNO {
   
-  // Enum definitions.
   enum class eELINK : uint32_t {
     eDISABLED = 0, // Channel-to-channel linking is disabled
     eENABLED = 1, // Channel-to-channel linking is enabled
@@ -10817,7 +10743,7 @@ union TCD20_BITER_ELINKNO {
     uint32_t BITER : 15;
     eELINK ELINK : 1;
     uint32_t _reserved_end : 16;
-  } bits;          // Bit-field struct (auto-filling reserved gaps)
+  } bits;
   
   // Full 32-bit register value.
   uint32_t value;
@@ -10831,7 +10757,6 @@ union TCD20_BITER_ELINKNO {
 //
 union TCD20_BITER_ELINKYES {
   
-  // Enum definitions.
   enum class eELINK : uint32_t {
     eDISABLED = 0, // Channel-to-channel linking is disabled
     eENABLED = 1, // Channel-to-channel linking is enabled
@@ -10844,7 +10769,7 @@ union TCD20_BITER_ELINKYES {
     uint32_t _reserved_2 : 1;
     eELINK ELINK : 1;
     uint32_t _reserved_end : 16;
-  } bits;          // Bit-field struct (auto-filling reserved gaps)
+  } bits;
   
   // Full 32-bit register value.
   uint32_t value;
@@ -10858,12 +10783,10 @@ union TCD20_BITER_ELINKYES {
 //
 union TCD21_SADDR {
   
-  // Enum definitions.
-  
   // Bit field definition.
   struct {
     uint32_t SADDR : 32;
-  } bits;          // Bit-field struct (auto-filling reserved gaps)
+  } bits;
   
   // Full 32-bit register value.
   uint32_t value;
@@ -10877,13 +10800,11 @@ union TCD21_SADDR {
 //
 union TCD21_SOFF {
   
-  // Enum definitions.
-  
   // Bit field definition.
   struct {
     uint32_t SOFF : 16;
     uint32_t _reserved_end : 16;
-  } bits;          // Bit-field struct (auto-filling reserved gaps)
+  } bits;
   
   // Full 32-bit register value.
   uint32_t value;
@@ -10897,7 +10818,6 @@ union TCD21_SOFF {
 //
 union TCD21_ATTR {
   
-  // Enum definitions.
   enum class eSSIZE : uint32_t {
     eEIGHT = 0, // 8-bit
     eSIXTEEN_BIT = 1, // 16-bit
@@ -10905,6 +10825,7 @@ union TCD21_ATTR {
     eSIXTYFOUR = 3, // 64-bit
     eTHIRTYTWO_BYTE = 5, // 32-byte burst (4 beats of 64 bits)
   };
+  
   enum class eSMOD : uint32_t {
     eDISABLED = 0, // Source address modulo feature is disabled
     eENABLED = 1, // Value defines address range used to set up circular data queue
@@ -10925,7 +10846,7 @@ union TCD21_ATTR {
     eSSIZE SSIZE : 3;
     eSMOD SMOD : 5;
     uint32_t _reserved_end : 16;
-  } bits;          // Bit-field struct (auto-filling reserved gaps)
+  } bits;
   
   // Full 32-bit register value.
   uint32_t value;
@@ -10939,12 +10860,10 @@ union TCD21_ATTR {
 //
 union TCD21_NBYTES_MLNO {
   
-  // Enum definitions.
-  
   // Bit field definition.
   struct {
     uint32_t NBYTES : 32;
-  } bits;          // Bit-field struct (auto-filling reserved gaps)
+  } bits;
   
   // Full 32-bit register value.
   uint32_t value;
@@ -10958,11 +10877,11 @@ union TCD21_NBYTES_MLNO {
 //
 union TCD21_NBYTES_MLOFFNO {
   
-  // Enum definitions.
   enum class eDMLOE : uint32_t {
     eDISABLED = 0, // The minor loop offset is not applied to the DADDR
     eENABLED = 1, // The minor loop offset is applied to the DADDR
   };
+  
   enum class eSMLOE : uint32_t {
     eDISABLED = 0, // The minor loop offset is not applied to the SADDR
     eENABLED = 1, // The minor loop offset is applied to the SADDR
@@ -10973,7 +10892,7 @@ union TCD21_NBYTES_MLOFFNO {
     uint32_t NBYTES : 30;
     eDMLOE DMLOE : 1;
     eSMLOE SMLOE : 1;
-  } bits;          // Bit-field struct (auto-filling reserved gaps)
+  } bits;
   
   // Full 32-bit register value.
   uint32_t value;
@@ -10987,11 +10906,11 @@ union TCD21_NBYTES_MLOFFNO {
 //
 union TCD21_NBYTES_MLOFFYES {
   
-  // Enum definitions.
   enum class eDMLOE : uint32_t {
     eDISABLED = 0, // The minor loop offset is not applied to the DADDR
     eENABLED = 1, // The minor loop offset is applied to the DADDR
   };
+  
   enum class eSMLOE : uint32_t {
     eDISABLED = 0, // The minor loop offset is not applied to the SADDR
     eENABLED = 1, // The minor loop offset is applied to the SADDR
@@ -11003,7 +10922,7 @@ union TCD21_NBYTES_MLOFFYES {
     uint32_t MLOFF : 20;
     eDMLOE DMLOE : 1;
     eSMLOE SMLOE : 1;
-  } bits;          // Bit-field struct (auto-filling reserved gaps)
+  } bits;
   
   // Full 32-bit register value.
   uint32_t value;
@@ -11017,12 +10936,10 @@ union TCD21_NBYTES_MLOFFYES {
 //
 union TCD21_SLAST {
   
-  // Enum definitions.
-  
   // Bit field definition.
   struct {
     uint32_t SLAST : 32;
-  } bits;          // Bit-field struct (auto-filling reserved gaps)
+  } bits;
   
   // Full 32-bit register value.
   uint32_t value;
@@ -11036,12 +10953,10 @@ union TCD21_SLAST {
 //
 union TCD21_DADDR {
   
-  // Enum definitions.
-  
   // Bit field definition.
   struct {
     uint32_t DADDR : 32;
-  } bits;          // Bit-field struct (auto-filling reserved gaps)
+  } bits;
   
   // Full 32-bit register value.
   uint32_t value;
@@ -11055,13 +10970,11 @@ union TCD21_DADDR {
 //
 union TCD21_DOFF {
   
-  // Enum definitions.
-  
   // Bit field definition.
   struct {
     uint32_t DOFF : 16;
     uint32_t _reserved_end : 16;
-  } bits;          // Bit-field struct (auto-filling reserved gaps)
+  } bits;
   
   // Full 32-bit register value.
   uint32_t value;
@@ -11075,7 +10988,6 @@ union TCD21_DOFF {
 //
 union TCD21_CITER_ELINKNO {
   
-  // Enum definitions.
   enum class eELINK : uint32_t {
     eDISABLED = 0, // Channel-to-channel linking is disabled
     eENABLED = 1, // Channel-to-channel linking is enabled
@@ -11086,7 +10998,7 @@ union TCD21_CITER_ELINKNO {
     uint32_t CITER : 15;
     eELINK ELINK : 1;
     uint32_t _reserved_end : 16;
-  } bits;          // Bit-field struct (auto-filling reserved gaps)
+  } bits;
   
   // Full 32-bit register value.
   uint32_t value;
@@ -11100,7 +11012,6 @@ union TCD21_CITER_ELINKNO {
 //
 union TCD21_CITER_ELINKYES {
   
-  // Enum definitions.
   enum class eELINK : uint32_t {
     eDISABLED = 0, // Channel-to-channel linking is disabled
     eENABLED = 1, // Channel-to-channel linking is enabled
@@ -11113,7 +11024,7 @@ union TCD21_CITER_ELINKYES {
     uint32_t _reserved_2 : 1;
     eELINK ELINK : 1;
     uint32_t _reserved_end : 16;
-  } bits;          // Bit-field struct (auto-filling reserved gaps)
+  } bits;
   
   // Full 32-bit register value.
   uint32_t value;
@@ -11127,12 +11038,10 @@ union TCD21_CITER_ELINKYES {
 //
 union TCD21_DLASTSGA {
   
-  // Enum definitions.
-  
   // Bit field definition.
   struct {
     uint32_t DLASTSGA : 32;
-  } bits;          // Bit-field struct (auto-filling reserved gaps)
+  } bits;
   
   // Full 32-bit register value.
   uint32_t value;
@@ -11146,31 +11055,36 @@ union TCD21_DLASTSGA {
 //
 union TCD21_CSR {
   
-  // Enum definitions.
   enum class eSTART : uint32_t {
     eNO_START = 0, // Channel is not explicitly started
     eSTART = 1, // Channel is explicitly started via a software initiated service request
   };
+  
   enum class eINTMAJOR : uint32_t {
     eDISABLED = 0, // End of major loop interrupt is disabled
     eENABLED = 1, // End of major loop interrupt is enabled
   };
+  
   enum class eINTHALF : uint32_t {
     eDISABLED = 0, // Half-point interrupt is disabled
     eENABLED = 1, // Half-point interrupt is enabled
   };
+  
   enum class eDREQ : uint32_t {
     eNO_CLEAR = 0, // The channel's ERQ field is not affected
     eCLEAR = 1, // The channel's ERQ field value changes to 0 when the major loop is complete
   };
+  
   enum class eESG : uint32_t {
     eNORMAL = 0, // The current channel's TCD is normal format
     eSCATTER = 1, // The current channel's TCD specifies a scatter gather format
   };
+  
   enum class eMAJORELINK : uint32_t {
     eDISABLED = 0, // Channel-to-channel linking is disabled
     eENABLED = 1, // Channel-to-channel linking is enabled
   };
+  
   enum class eBWC : uint32_t {
     eDISABLED = 0, // No eDMA engine stalls
     eSTALL4 = 2, // eDMA engine stalls for 4 cycles after each R/W
@@ -11191,7 +11105,7 @@ union TCD21_CSR {
     uint32_t _reserved_9 : 1;
     eBWC BWC : 2;
     uint32_t _reserved_end : 16;
-  } bits;          // Bit-field struct (auto-filling reserved gaps)
+  } bits;
   
   // Full 32-bit register value.
   uint32_t value;
@@ -11205,7 +11119,6 @@ union TCD21_CSR {
 //
 union TCD21_BITER_ELINKNO {
   
-  // Enum definitions.
   enum class eELINK : uint32_t {
     eDISABLED = 0, // Channel-to-channel linking is disabled
     eENABLED = 1, // Channel-to-channel linking is enabled
@@ -11216,7 +11129,7 @@ union TCD21_BITER_ELINKNO {
     uint32_t BITER : 15;
     eELINK ELINK : 1;
     uint32_t _reserved_end : 16;
-  } bits;          // Bit-field struct (auto-filling reserved gaps)
+  } bits;
   
   // Full 32-bit register value.
   uint32_t value;
@@ -11230,7 +11143,6 @@ union TCD21_BITER_ELINKNO {
 //
 union TCD21_BITER_ELINKYES {
   
-  // Enum definitions.
   enum class eELINK : uint32_t {
     eDISABLED = 0, // Channel-to-channel linking is disabled
     eENABLED = 1, // Channel-to-channel linking is enabled
@@ -11243,7 +11155,7 @@ union TCD21_BITER_ELINKYES {
     uint32_t _reserved_2 : 1;
     eELINK ELINK : 1;
     uint32_t _reserved_end : 16;
-  } bits;          // Bit-field struct (auto-filling reserved gaps)
+  } bits;
   
   // Full 32-bit register value.
   uint32_t value;
@@ -11257,12 +11169,10 @@ union TCD21_BITER_ELINKYES {
 //
 union TCD22_SADDR {
   
-  // Enum definitions.
-  
   // Bit field definition.
   struct {
     uint32_t SADDR : 32;
-  } bits;          // Bit-field struct (auto-filling reserved gaps)
+  } bits;
   
   // Full 32-bit register value.
   uint32_t value;
@@ -11276,13 +11186,11 @@ union TCD22_SADDR {
 //
 union TCD22_SOFF {
   
-  // Enum definitions.
-  
   // Bit field definition.
   struct {
     uint32_t SOFF : 16;
     uint32_t _reserved_end : 16;
-  } bits;          // Bit-field struct (auto-filling reserved gaps)
+  } bits;
   
   // Full 32-bit register value.
   uint32_t value;
@@ -11296,7 +11204,6 @@ union TCD22_SOFF {
 //
 union TCD22_ATTR {
   
-  // Enum definitions.
   enum class eSSIZE : uint32_t {
     eEIGHT = 0, // 8-bit
     eSIXTEEN_BIT = 1, // 16-bit
@@ -11304,6 +11211,7 @@ union TCD22_ATTR {
     eSIXTYFOUR = 3, // 64-bit
     eTHIRTYTWO_BYTE = 5, // 32-byte burst (4 beats of 64 bits)
   };
+  
   enum class eSMOD : uint32_t {
     eDISABLED = 0, // Source address modulo feature is disabled
     eENABLED = 1, // Value defines address range used to set up circular data queue
@@ -11324,7 +11232,7 @@ union TCD22_ATTR {
     eSSIZE SSIZE : 3;
     eSMOD SMOD : 5;
     uint32_t _reserved_end : 16;
-  } bits;          // Bit-field struct (auto-filling reserved gaps)
+  } bits;
   
   // Full 32-bit register value.
   uint32_t value;
@@ -11338,12 +11246,10 @@ union TCD22_ATTR {
 //
 union TCD22_NBYTES_MLNO {
   
-  // Enum definitions.
-  
   // Bit field definition.
   struct {
     uint32_t NBYTES : 32;
-  } bits;          // Bit-field struct (auto-filling reserved gaps)
+  } bits;
   
   // Full 32-bit register value.
   uint32_t value;
@@ -11357,11 +11263,11 @@ union TCD22_NBYTES_MLNO {
 //
 union TCD22_NBYTES_MLOFFNO {
   
-  // Enum definitions.
   enum class eDMLOE : uint32_t {
     eDISABLED = 0, // The minor loop offset is not applied to the DADDR
     eENABLED = 1, // The minor loop offset is applied to the DADDR
   };
+  
   enum class eSMLOE : uint32_t {
     eDISABLED = 0, // The minor loop offset is not applied to the SADDR
     eENABLED = 1, // The minor loop offset is applied to the SADDR
@@ -11372,7 +11278,7 @@ union TCD22_NBYTES_MLOFFNO {
     uint32_t NBYTES : 30;
     eDMLOE DMLOE : 1;
     eSMLOE SMLOE : 1;
-  } bits;          // Bit-field struct (auto-filling reserved gaps)
+  } bits;
   
   // Full 32-bit register value.
   uint32_t value;
@@ -11386,11 +11292,11 @@ union TCD22_NBYTES_MLOFFNO {
 //
 union TCD22_NBYTES_MLOFFYES {
   
-  // Enum definitions.
   enum class eDMLOE : uint32_t {
     eDISABLED = 0, // The minor loop offset is not applied to the DADDR
     eENABLED = 1, // The minor loop offset is applied to the DADDR
   };
+  
   enum class eSMLOE : uint32_t {
     eDISABLED = 0, // The minor loop offset is not applied to the SADDR
     eENABLED = 1, // The minor loop offset is applied to the SADDR
@@ -11402,7 +11308,7 @@ union TCD22_NBYTES_MLOFFYES {
     uint32_t MLOFF : 20;
     eDMLOE DMLOE : 1;
     eSMLOE SMLOE : 1;
-  } bits;          // Bit-field struct (auto-filling reserved gaps)
+  } bits;
   
   // Full 32-bit register value.
   uint32_t value;
@@ -11416,12 +11322,10 @@ union TCD22_NBYTES_MLOFFYES {
 //
 union TCD22_SLAST {
   
-  // Enum definitions.
-  
   // Bit field definition.
   struct {
     uint32_t SLAST : 32;
-  } bits;          // Bit-field struct (auto-filling reserved gaps)
+  } bits;
   
   // Full 32-bit register value.
   uint32_t value;
@@ -11435,12 +11339,10 @@ union TCD22_SLAST {
 //
 union TCD22_DADDR {
   
-  // Enum definitions.
-  
   // Bit field definition.
   struct {
     uint32_t DADDR : 32;
-  } bits;          // Bit-field struct (auto-filling reserved gaps)
+  } bits;
   
   // Full 32-bit register value.
   uint32_t value;
@@ -11454,13 +11356,11 @@ union TCD22_DADDR {
 //
 union TCD22_DOFF {
   
-  // Enum definitions.
-  
   // Bit field definition.
   struct {
     uint32_t DOFF : 16;
     uint32_t _reserved_end : 16;
-  } bits;          // Bit-field struct (auto-filling reserved gaps)
+  } bits;
   
   // Full 32-bit register value.
   uint32_t value;
@@ -11474,7 +11374,6 @@ union TCD22_DOFF {
 //
 union TCD22_CITER_ELINKNO {
   
-  // Enum definitions.
   enum class eELINK : uint32_t {
     eDISABLED = 0, // Channel-to-channel linking is disabled
     eENABLED = 1, // Channel-to-channel linking is enabled
@@ -11485,7 +11384,7 @@ union TCD22_CITER_ELINKNO {
     uint32_t CITER : 15;
     eELINK ELINK : 1;
     uint32_t _reserved_end : 16;
-  } bits;          // Bit-field struct (auto-filling reserved gaps)
+  } bits;
   
   // Full 32-bit register value.
   uint32_t value;
@@ -11499,7 +11398,6 @@ union TCD22_CITER_ELINKNO {
 //
 union TCD22_CITER_ELINKYES {
   
-  // Enum definitions.
   enum class eELINK : uint32_t {
     eDISABLED = 0, // Channel-to-channel linking is disabled
     eENABLED = 1, // Channel-to-channel linking is enabled
@@ -11512,7 +11410,7 @@ union TCD22_CITER_ELINKYES {
     uint32_t _reserved_2 : 1;
     eELINK ELINK : 1;
     uint32_t _reserved_end : 16;
-  } bits;          // Bit-field struct (auto-filling reserved gaps)
+  } bits;
   
   // Full 32-bit register value.
   uint32_t value;
@@ -11526,12 +11424,10 @@ union TCD22_CITER_ELINKYES {
 //
 union TCD22_DLASTSGA {
   
-  // Enum definitions.
-  
   // Bit field definition.
   struct {
     uint32_t DLASTSGA : 32;
-  } bits;          // Bit-field struct (auto-filling reserved gaps)
+  } bits;
   
   // Full 32-bit register value.
   uint32_t value;
@@ -11545,31 +11441,36 @@ union TCD22_DLASTSGA {
 //
 union TCD22_CSR {
   
-  // Enum definitions.
   enum class eSTART : uint32_t {
     eNO_START = 0, // Channel is not explicitly started
     eSTART = 1, // Channel is explicitly started via a software initiated service request
   };
+  
   enum class eINTMAJOR : uint32_t {
     eDISABLED = 0, // End of major loop interrupt is disabled
     eENABLED = 1, // End of major loop interrupt is enabled
   };
+  
   enum class eINTHALF : uint32_t {
     eDISABLED = 0, // Half-point interrupt is disabled
     eENABLED = 1, // Half-point interrupt is enabled
   };
+  
   enum class eDREQ : uint32_t {
     eNO_CLEAR = 0, // The channel's ERQ field is not affected
     eCLEAR = 1, // The channel's ERQ field value changes to 0 when the major loop is complete
   };
+  
   enum class eESG : uint32_t {
     eNORMAL = 0, // The current channel's TCD is normal format
     eSCATTER = 1, // The current channel's TCD specifies a scatter gather format
   };
+  
   enum class eMAJORELINK : uint32_t {
     eDISABLED = 0, // Channel-to-channel linking is disabled
     eENABLED = 1, // Channel-to-channel linking is enabled
   };
+  
   enum class eBWC : uint32_t {
     eDISABLED = 0, // No eDMA engine stalls
     eSTALL4 = 2, // eDMA engine stalls for 4 cycles after each R/W
@@ -11590,7 +11491,7 @@ union TCD22_CSR {
     uint32_t _reserved_9 : 1;
     eBWC BWC : 2;
     uint32_t _reserved_end : 16;
-  } bits;          // Bit-field struct (auto-filling reserved gaps)
+  } bits;
   
   // Full 32-bit register value.
   uint32_t value;
@@ -11604,7 +11505,6 @@ union TCD22_CSR {
 //
 union TCD22_BITER_ELINKNO {
   
-  // Enum definitions.
   enum class eELINK : uint32_t {
     eDISABLED = 0, // Channel-to-channel linking is disabled
     eENABLED = 1, // Channel-to-channel linking is enabled
@@ -11615,7 +11515,7 @@ union TCD22_BITER_ELINKNO {
     uint32_t BITER : 15;
     eELINK ELINK : 1;
     uint32_t _reserved_end : 16;
-  } bits;          // Bit-field struct (auto-filling reserved gaps)
+  } bits;
   
   // Full 32-bit register value.
   uint32_t value;
@@ -11629,7 +11529,6 @@ union TCD22_BITER_ELINKNO {
 //
 union TCD22_BITER_ELINKYES {
   
-  // Enum definitions.
   enum class eELINK : uint32_t {
     eDISABLED = 0, // Channel-to-channel linking is disabled
     eENABLED = 1, // Channel-to-channel linking is enabled
@@ -11642,7 +11541,7 @@ union TCD22_BITER_ELINKYES {
     uint32_t _reserved_2 : 1;
     eELINK ELINK : 1;
     uint32_t _reserved_end : 16;
-  } bits;          // Bit-field struct (auto-filling reserved gaps)
+  } bits;
   
   // Full 32-bit register value.
   uint32_t value;
@@ -11656,12 +11555,10 @@ union TCD22_BITER_ELINKYES {
 //
 union TCD23_SADDR {
   
-  // Enum definitions.
-  
   // Bit field definition.
   struct {
     uint32_t SADDR : 32;
-  } bits;          // Bit-field struct (auto-filling reserved gaps)
+  } bits;
   
   // Full 32-bit register value.
   uint32_t value;
@@ -11675,13 +11572,11 @@ union TCD23_SADDR {
 //
 union TCD23_SOFF {
   
-  // Enum definitions.
-  
   // Bit field definition.
   struct {
     uint32_t SOFF : 16;
     uint32_t _reserved_end : 16;
-  } bits;          // Bit-field struct (auto-filling reserved gaps)
+  } bits;
   
   // Full 32-bit register value.
   uint32_t value;
@@ -11695,7 +11590,6 @@ union TCD23_SOFF {
 //
 union TCD23_ATTR {
   
-  // Enum definitions.
   enum class eSSIZE : uint32_t {
     eEIGHT = 0, // 8-bit
     eSIXTEEN_BIT = 1, // 16-bit
@@ -11703,6 +11597,7 @@ union TCD23_ATTR {
     eSIXTYFOUR = 3, // 64-bit
     eTHIRTYTWO_BYTE = 5, // 32-byte burst (4 beats of 64 bits)
   };
+  
   enum class eSMOD : uint32_t {
     eDISABLED = 0, // Source address modulo feature is disabled
     eENABLED = 1, // Value defines address range used to set up circular data queue
@@ -11723,7 +11618,7 @@ union TCD23_ATTR {
     eSSIZE SSIZE : 3;
     eSMOD SMOD : 5;
     uint32_t _reserved_end : 16;
-  } bits;          // Bit-field struct (auto-filling reserved gaps)
+  } bits;
   
   // Full 32-bit register value.
   uint32_t value;
@@ -11737,12 +11632,10 @@ union TCD23_ATTR {
 //
 union TCD23_NBYTES_MLNO {
   
-  // Enum definitions.
-  
   // Bit field definition.
   struct {
     uint32_t NBYTES : 32;
-  } bits;          // Bit-field struct (auto-filling reserved gaps)
+  } bits;
   
   // Full 32-bit register value.
   uint32_t value;
@@ -11756,11 +11649,11 @@ union TCD23_NBYTES_MLNO {
 //
 union TCD23_NBYTES_MLOFFNO {
   
-  // Enum definitions.
   enum class eDMLOE : uint32_t {
     eDISABLED = 0, // The minor loop offset is not applied to the DADDR
     eENABLED = 1, // The minor loop offset is applied to the DADDR
   };
+  
   enum class eSMLOE : uint32_t {
     eDISABLED = 0, // The minor loop offset is not applied to the SADDR
     eENABLED = 1, // The minor loop offset is applied to the SADDR
@@ -11771,7 +11664,7 @@ union TCD23_NBYTES_MLOFFNO {
     uint32_t NBYTES : 30;
     eDMLOE DMLOE : 1;
     eSMLOE SMLOE : 1;
-  } bits;          // Bit-field struct (auto-filling reserved gaps)
+  } bits;
   
   // Full 32-bit register value.
   uint32_t value;
@@ -11785,11 +11678,11 @@ union TCD23_NBYTES_MLOFFNO {
 //
 union TCD23_NBYTES_MLOFFYES {
   
-  // Enum definitions.
   enum class eDMLOE : uint32_t {
     eDISABLED = 0, // The minor loop offset is not applied to the DADDR
     eENABLED = 1, // The minor loop offset is applied to the DADDR
   };
+  
   enum class eSMLOE : uint32_t {
     eDISABLED = 0, // The minor loop offset is not applied to the SADDR
     eENABLED = 1, // The minor loop offset is applied to the SADDR
@@ -11801,7 +11694,7 @@ union TCD23_NBYTES_MLOFFYES {
     uint32_t MLOFF : 20;
     eDMLOE DMLOE : 1;
     eSMLOE SMLOE : 1;
-  } bits;          // Bit-field struct (auto-filling reserved gaps)
+  } bits;
   
   // Full 32-bit register value.
   uint32_t value;
@@ -11815,12 +11708,10 @@ union TCD23_NBYTES_MLOFFYES {
 //
 union TCD23_SLAST {
   
-  // Enum definitions.
-  
   // Bit field definition.
   struct {
     uint32_t SLAST : 32;
-  } bits;          // Bit-field struct (auto-filling reserved gaps)
+  } bits;
   
   // Full 32-bit register value.
   uint32_t value;
@@ -11834,12 +11725,10 @@ union TCD23_SLAST {
 //
 union TCD23_DADDR {
   
-  // Enum definitions.
-  
   // Bit field definition.
   struct {
     uint32_t DADDR : 32;
-  } bits;          // Bit-field struct (auto-filling reserved gaps)
+  } bits;
   
   // Full 32-bit register value.
   uint32_t value;
@@ -11853,13 +11742,11 @@ union TCD23_DADDR {
 //
 union TCD23_DOFF {
   
-  // Enum definitions.
-  
   // Bit field definition.
   struct {
     uint32_t DOFF : 16;
     uint32_t _reserved_end : 16;
-  } bits;          // Bit-field struct (auto-filling reserved gaps)
+  } bits;
   
   // Full 32-bit register value.
   uint32_t value;
@@ -11873,7 +11760,6 @@ union TCD23_DOFF {
 //
 union TCD23_CITER_ELINKNO {
   
-  // Enum definitions.
   enum class eELINK : uint32_t {
     eDISABLED = 0, // Channel-to-channel linking is disabled
     eENABLED = 1, // Channel-to-channel linking is enabled
@@ -11884,7 +11770,7 @@ union TCD23_CITER_ELINKNO {
     uint32_t CITER : 15;
     eELINK ELINK : 1;
     uint32_t _reserved_end : 16;
-  } bits;          // Bit-field struct (auto-filling reserved gaps)
+  } bits;
   
   // Full 32-bit register value.
   uint32_t value;
@@ -11898,7 +11784,6 @@ union TCD23_CITER_ELINKNO {
 //
 union TCD23_CITER_ELINKYES {
   
-  // Enum definitions.
   enum class eELINK : uint32_t {
     eDISABLED = 0, // Channel-to-channel linking is disabled
     eENABLED = 1, // Channel-to-channel linking is enabled
@@ -11911,7 +11796,7 @@ union TCD23_CITER_ELINKYES {
     uint32_t _reserved_2 : 1;
     eELINK ELINK : 1;
     uint32_t _reserved_end : 16;
-  } bits;          // Bit-field struct (auto-filling reserved gaps)
+  } bits;
   
   // Full 32-bit register value.
   uint32_t value;
@@ -11925,12 +11810,10 @@ union TCD23_CITER_ELINKYES {
 //
 union TCD23_DLASTSGA {
   
-  // Enum definitions.
-  
   // Bit field definition.
   struct {
     uint32_t DLASTSGA : 32;
-  } bits;          // Bit-field struct (auto-filling reserved gaps)
+  } bits;
   
   // Full 32-bit register value.
   uint32_t value;
@@ -11944,31 +11827,36 @@ union TCD23_DLASTSGA {
 //
 union TCD23_CSR {
   
-  // Enum definitions.
   enum class eSTART : uint32_t {
     eNO_START = 0, // Channel is not explicitly started
     eSTART = 1, // Channel is explicitly started via a software initiated service request
   };
+  
   enum class eINTMAJOR : uint32_t {
     eDISABLED = 0, // End of major loop interrupt is disabled
     eENABLED = 1, // End of major loop interrupt is enabled
   };
+  
   enum class eINTHALF : uint32_t {
     eDISABLED = 0, // Half-point interrupt is disabled
     eENABLED = 1, // Half-point interrupt is enabled
   };
+  
   enum class eDREQ : uint32_t {
     eNO_CLEAR = 0, // The channel's ERQ field is not affected
     eCLEAR = 1, // The channel's ERQ field value changes to 0 when the major loop is complete
   };
+  
   enum class eESG : uint32_t {
     eNORMAL = 0, // The current channel's TCD is normal format
     eSCATTER = 1, // The current channel's TCD specifies a scatter gather format
   };
+  
   enum class eMAJORELINK : uint32_t {
     eDISABLED = 0, // Channel-to-channel linking is disabled
     eENABLED = 1, // Channel-to-channel linking is enabled
   };
+  
   enum class eBWC : uint32_t {
     eDISABLED = 0, // No eDMA engine stalls
     eSTALL4 = 2, // eDMA engine stalls for 4 cycles after each R/W
@@ -11989,7 +11877,7 @@ union TCD23_CSR {
     uint32_t _reserved_9 : 1;
     eBWC BWC : 2;
     uint32_t _reserved_end : 16;
-  } bits;          // Bit-field struct (auto-filling reserved gaps)
+  } bits;
   
   // Full 32-bit register value.
   uint32_t value;
@@ -12003,7 +11891,6 @@ union TCD23_CSR {
 //
 union TCD23_BITER_ELINKNO {
   
-  // Enum definitions.
   enum class eELINK : uint32_t {
     eDISABLED = 0, // Channel-to-channel linking is disabled
     eENABLED = 1, // Channel-to-channel linking is enabled
@@ -12014,7 +11901,7 @@ union TCD23_BITER_ELINKNO {
     uint32_t BITER : 15;
     eELINK ELINK : 1;
     uint32_t _reserved_end : 16;
-  } bits;          // Bit-field struct (auto-filling reserved gaps)
+  } bits;
   
   // Full 32-bit register value.
   uint32_t value;
@@ -12028,7 +11915,6 @@ union TCD23_BITER_ELINKNO {
 //
 union TCD23_BITER_ELINKYES {
   
-  // Enum definitions.
   enum class eELINK : uint32_t {
     eDISABLED = 0, // Channel-to-channel linking is disabled
     eENABLED = 1, // Channel-to-channel linking is enabled
@@ -12041,7 +11927,7 @@ union TCD23_BITER_ELINKYES {
     uint32_t _reserved_2 : 1;
     eELINK ELINK : 1;
     uint32_t _reserved_end : 16;
-  } bits;          // Bit-field struct (auto-filling reserved gaps)
+  } bits;
   
   // Full 32-bit register value.
   uint32_t value;
@@ -12055,12 +11941,10 @@ union TCD23_BITER_ELINKYES {
 //
 union TCD24_SADDR {
   
-  // Enum definitions.
-  
   // Bit field definition.
   struct {
     uint32_t SADDR : 32;
-  } bits;          // Bit-field struct (auto-filling reserved gaps)
+  } bits;
   
   // Full 32-bit register value.
   uint32_t value;
@@ -12074,13 +11958,11 @@ union TCD24_SADDR {
 //
 union TCD24_SOFF {
   
-  // Enum definitions.
-  
   // Bit field definition.
   struct {
     uint32_t SOFF : 16;
     uint32_t _reserved_end : 16;
-  } bits;          // Bit-field struct (auto-filling reserved gaps)
+  } bits;
   
   // Full 32-bit register value.
   uint32_t value;
@@ -12094,7 +11976,6 @@ union TCD24_SOFF {
 //
 union TCD24_ATTR {
   
-  // Enum definitions.
   enum class eSSIZE : uint32_t {
     eEIGHT = 0, // 8-bit
     eSIXTEEN_BIT = 1, // 16-bit
@@ -12102,6 +11983,7 @@ union TCD24_ATTR {
     eSIXTYFOUR = 3, // 64-bit
     eTHIRTYTWO_BYTE = 5, // 32-byte burst (4 beats of 64 bits)
   };
+  
   enum class eSMOD : uint32_t {
     eDISABLED = 0, // Source address modulo feature is disabled
     eENABLED = 1, // Value defines address range used to set up circular data queue
@@ -12122,7 +12004,7 @@ union TCD24_ATTR {
     eSSIZE SSIZE : 3;
     eSMOD SMOD : 5;
     uint32_t _reserved_end : 16;
-  } bits;          // Bit-field struct (auto-filling reserved gaps)
+  } bits;
   
   // Full 32-bit register value.
   uint32_t value;
@@ -12136,12 +12018,10 @@ union TCD24_ATTR {
 //
 union TCD24_NBYTES_MLNO {
   
-  // Enum definitions.
-  
   // Bit field definition.
   struct {
     uint32_t NBYTES : 32;
-  } bits;          // Bit-field struct (auto-filling reserved gaps)
+  } bits;
   
   // Full 32-bit register value.
   uint32_t value;
@@ -12155,11 +12035,11 @@ union TCD24_NBYTES_MLNO {
 //
 union TCD24_NBYTES_MLOFFNO {
   
-  // Enum definitions.
   enum class eDMLOE : uint32_t {
     eDISABLED = 0, // The minor loop offset is not applied to the DADDR
     eENABLED = 1, // The minor loop offset is applied to the DADDR
   };
+  
   enum class eSMLOE : uint32_t {
     eDISABLED = 0, // The minor loop offset is not applied to the SADDR
     eENABLED = 1, // The minor loop offset is applied to the SADDR
@@ -12170,7 +12050,7 @@ union TCD24_NBYTES_MLOFFNO {
     uint32_t NBYTES : 30;
     eDMLOE DMLOE : 1;
     eSMLOE SMLOE : 1;
-  } bits;          // Bit-field struct (auto-filling reserved gaps)
+  } bits;
   
   // Full 32-bit register value.
   uint32_t value;
@@ -12184,11 +12064,11 @@ union TCD24_NBYTES_MLOFFNO {
 //
 union TCD24_NBYTES_MLOFFYES {
   
-  // Enum definitions.
   enum class eDMLOE : uint32_t {
     eDISABLED = 0, // The minor loop offset is not applied to the DADDR
     eENABLED = 1, // The minor loop offset is applied to the DADDR
   };
+  
   enum class eSMLOE : uint32_t {
     eDISABLED = 0, // The minor loop offset is not applied to the SADDR
     eENABLED = 1, // The minor loop offset is applied to the SADDR
@@ -12200,7 +12080,7 @@ union TCD24_NBYTES_MLOFFYES {
     uint32_t MLOFF : 20;
     eDMLOE DMLOE : 1;
     eSMLOE SMLOE : 1;
-  } bits;          // Bit-field struct (auto-filling reserved gaps)
+  } bits;
   
   // Full 32-bit register value.
   uint32_t value;
@@ -12214,12 +12094,10 @@ union TCD24_NBYTES_MLOFFYES {
 //
 union TCD24_SLAST {
   
-  // Enum definitions.
-  
   // Bit field definition.
   struct {
     uint32_t SLAST : 32;
-  } bits;          // Bit-field struct (auto-filling reserved gaps)
+  } bits;
   
   // Full 32-bit register value.
   uint32_t value;
@@ -12233,12 +12111,10 @@ union TCD24_SLAST {
 //
 union TCD24_DADDR {
   
-  // Enum definitions.
-  
   // Bit field definition.
   struct {
     uint32_t DADDR : 32;
-  } bits;          // Bit-field struct (auto-filling reserved gaps)
+  } bits;
   
   // Full 32-bit register value.
   uint32_t value;
@@ -12252,13 +12128,11 @@ union TCD24_DADDR {
 //
 union TCD24_DOFF {
   
-  // Enum definitions.
-  
   // Bit field definition.
   struct {
     uint32_t DOFF : 16;
     uint32_t _reserved_end : 16;
-  } bits;          // Bit-field struct (auto-filling reserved gaps)
+  } bits;
   
   // Full 32-bit register value.
   uint32_t value;
@@ -12272,7 +12146,6 @@ union TCD24_DOFF {
 //
 union TCD24_CITER_ELINKNO {
   
-  // Enum definitions.
   enum class eELINK : uint32_t {
     eDISABLED = 0, // Channel-to-channel linking is disabled
     eENABLED = 1, // Channel-to-channel linking is enabled
@@ -12283,7 +12156,7 @@ union TCD24_CITER_ELINKNO {
     uint32_t CITER : 15;
     eELINK ELINK : 1;
     uint32_t _reserved_end : 16;
-  } bits;          // Bit-field struct (auto-filling reserved gaps)
+  } bits;
   
   // Full 32-bit register value.
   uint32_t value;
@@ -12297,7 +12170,6 @@ union TCD24_CITER_ELINKNO {
 //
 union TCD24_CITER_ELINKYES {
   
-  // Enum definitions.
   enum class eELINK : uint32_t {
     eDISABLED = 0, // Channel-to-channel linking is disabled
     eENABLED = 1, // Channel-to-channel linking is enabled
@@ -12310,7 +12182,7 @@ union TCD24_CITER_ELINKYES {
     uint32_t _reserved_2 : 1;
     eELINK ELINK : 1;
     uint32_t _reserved_end : 16;
-  } bits;          // Bit-field struct (auto-filling reserved gaps)
+  } bits;
   
   // Full 32-bit register value.
   uint32_t value;
@@ -12324,12 +12196,10 @@ union TCD24_CITER_ELINKYES {
 //
 union TCD24_DLASTSGA {
   
-  // Enum definitions.
-  
   // Bit field definition.
   struct {
     uint32_t DLASTSGA : 32;
-  } bits;          // Bit-field struct (auto-filling reserved gaps)
+  } bits;
   
   // Full 32-bit register value.
   uint32_t value;
@@ -12343,31 +12213,36 @@ union TCD24_DLASTSGA {
 //
 union TCD24_CSR {
   
-  // Enum definitions.
   enum class eSTART : uint32_t {
     eNO_START = 0, // Channel is not explicitly started
     eSTART = 1, // Channel is explicitly started via a software initiated service request
   };
+  
   enum class eINTMAJOR : uint32_t {
     eDISABLED = 0, // End of major loop interrupt is disabled
     eENABLED = 1, // End of major loop interrupt is enabled
   };
+  
   enum class eINTHALF : uint32_t {
     eDISABLED = 0, // Half-point interrupt is disabled
     eENABLED = 1, // Half-point interrupt is enabled
   };
+  
   enum class eDREQ : uint32_t {
     eNO_CLEAR = 0, // The channel's ERQ field is not affected
     eCLEAR = 1, // The channel's ERQ field value changes to 0 when the major loop is complete
   };
+  
   enum class eESG : uint32_t {
     eNORMAL = 0, // The current channel's TCD is normal format
     eSCATTER = 1, // The current channel's TCD specifies a scatter gather format
   };
+  
   enum class eMAJORELINK : uint32_t {
     eDISABLED = 0, // Channel-to-channel linking is disabled
     eENABLED = 1, // Channel-to-channel linking is enabled
   };
+  
   enum class eBWC : uint32_t {
     eDISABLED = 0, // No eDMA engine stalls
     eSTALL4 = 2, // eDMA engine stalls for 4 cycles after each R/W
@@ -12388,7 +12263,7 @@ union TCD24_CSR {
     uint32_t _reserved_9 : 1;
     eBWC BWC : 2;
     uint32_t _reserved_end : 16;
-  } bits;          // Bit-field struct (auto-filling reserved gaps)
+  } bits;
   
   // Full 32-bit register value.
   uint32_t value;
@@ -12402,7 +12277,6 @@ union TCD24_CSR {
 //
 union TCD24_BITER_ELINKNO {
   
-  // Enum definitions.
   enum class eELINK : uint32_t {
     eDISABLED = 0, // Channel-to-channel linking is disabled
     eENABLED = 1, // Channel-to-channel linking is enabled
@@ -12413,7 +12287,7 @@ union TCD24_BITER_ELINKNO {
     uint32_t BITER : 15;
     eELINK ELINK : 1;
     uint32_t _reserved_end : 16;
-  } bits;          // Bit-field struct (auto-filling reserved gaps)
+  } bits;
   
   // Full 32-bit register value.
   uint32_t value;
@@ -12427,7 +12301,6 @@ union TCD24_BITER_ELINKNO {
 //
 union TCD24_BITER_ELINKYES {
   
-  // Enum definitions.
   enum class eELINK : uint32_t {
     eDISABLED = 0, // Channel-to-channel linking is disabled
     eENABLED = 1, // Channel-to-channel linking is enabled
@@ -12440,7 +12313,7 @@ union TCD24_BITER_ELINKYES {
     uint32_t _reserved_2 : 1;
     eELINK ELINK : 1;
     uint32_t _reserved_end : 16;
-  } bits;          // Bit-field struct (auto-filling reserved gaps)
+  } bits;
   
   // Full 32-bit register value.
   uint32_t value;
@@ -12454,12 +12327,10 @@ union TCD24_BITER_ELINKYES {
 //
 union TCD25_SADDR {
   
-  // Enum definitions.
-  
   // Bit field definition.
   struct {
     uint32_t SADDR : 32;
-  } bits;          // Bit-field struct (auto-filling reserved gaps)
+  } bits;
   
   // Full 32-bit register value.
   uint32_t value;
@@ -12473,13 +12344,11 @@ union TCD25_SADDR {
 //
 union TCD25_SOFF {
   
-  // Enum definitions.
-  
   // Bit field definition.
   struct {
     uint32_t SOFF : 16;
     uint32_t _reserved_end : 16;
-  } bits;          // Bit-field struct (auto-filling reserved gaps)
+  } bits;
   
   // Full 32-bit register value.
   uint32_t value;
@@ -12493,7 +12362,6 @@ union TCD25_SOFF {
 //
 union TCD25_ATTR {
   
-  // Enum definitions.
   enum class eSSIZE : uint32_t {
     eEIGHT = 0, // 8-bit
     eSIXTEEN_BIT = 1, // 16-bit
@@ -12501,6 +12369,7 @@ union TCD25_ATTR {
     eSIXTYFOUR = 3, // 64-bit
     eTHIRTYTWO_BYTE = 5, // 32-byte burst (4 beats of 64 bits)
   };
+  
   enum class eSMOD : uint32_t {
     eDISABLED = 0, // Source address modulo feature is disabled
     eENABLED = 1, // Value defines address range used to set up circular data queue
@@ -12521,7 +12390,7 @@ union TCD25_ATTR {
     eSSIZE SSIZE : 3;
     eSMOD SMOD : 5;
     uint32_t _reserved_end : 16;
-  } bits;          // Bit-field struct (auto-filling reserved gaps)
+  } bits;
   
   // Full 32-bit register value.
   uint32_t value;
@@ -12535,12 +12404,10 @@ union TCD25_ATTR {
 //
 union TCD25_NBYTES_MLNO {
   
-  // Enum definitions.
-  
   // Bit field definition.
   struct {
     uint32_t NBYTES : 32;
-  } bits;          // Bit-field struct (auto-filling reserved gaps)
+  } bits;
   
   // Full 32-bit register value.
   uint32_t value;
@@ -12554,11 +12421,11 @@ union TCD25_NBYTES_MLNO {
 //
 union TCD25_NBYTES_MLOFFNO {
   
-  // Enum definitions.
   enum class eDMLOE : uint32_t {
     eDISABLED = 0, // The minor loop offset is not applied to the DADDR
     eENABLED = 1, // The minor loop offset is applied to the DADDR
   };
+  
   enum class eSMLOE : uint32_t {
     eDISABLED = 0, // The minor loop offset is not applied to the SADDR
     eENABLED = 1, // The minor loop offset is applied to the SADDR
@@ -12569,7 +12436,7 @@ union TCD25_NBYTES_MLOFFNO {
     uint32_t NBYTES : 30;
     eDMLOE DMLOE : 1;
     eSMLOE SMLOE : 1;
-  } bits;          // Bit-field struct (auto-filling reserved gaps)
+  } bits;
   
   // Full 32-bit register value.
   uint32_t value;
@@ -12583,11 +12450,11 @@ union TCD25_NBYTES_MLOFFNO {
 //
 union TCD25_NBYTES_MLOFFYES {
   
-  // Enum definitions.
   enum class eDMLOE : uint32_t {
     eDISABLED = 0, // The minor loop offset is not applied to the DADDR
     eENABLED = 1, // The minor loop offset is applied to the DADDR
   };
+  
   enum class eSMLOE : uint32_t {
     eDISABLED = 0, // The minor loop offset is not applied to the SADDR
     eENABLED = 1, // The minor loop offset is applied to the SADDR
@@ -12599,7 +12466,7 @@ union TCD25_NBYTES_MLOFFYES {
     uint32_t MLOFF : 20;
     eDMLOE DMLOE : 1;
     eSMLOE SMLOE : 1;
-  } bits;          // Bit-field struct (auto-filling reserved gaps)
+  } bits;
   
   // Full 32-bit register value.
   uint32_t value;
@@ -12613,12 +12480,10 @@ union TCD25_NBYTES_MLOFFYES {
 //
 union TCD25_SLAST {
   
-  // Enum definitions.
-  
   // Bit field definition.
   struct {
     uint32_t SLAST : 32;
-  } bits;          // Bit-field struct (auto-filling reserved gaps)
+  } bits;
   
   // Full 32-bit register value.
   uint32_t value;
@@ -12632,12 +12497,10 @@ union TCD25_SLAST {
 //
 union TCD25_DADDR {
   
-  // Enum definitions.
-  
   // Bit field definition.
   struct {
     uint32_t DADDR : 32;
-  } bits;          // Bit-field struct (auto-filling reserved gaps)
+  } bits;
   
   // Full 32-bit register value.
   uint32_t value;
@@ -12651,13 +12514,11 @@ union TCD25_DADDR {
 //
 union TCD25_DOFF {
   
-  // Enum definitions.
-  
   // Bit field definition.
   struct {
     uint32_t DOFF : 16;
     uint32_t _reserved_end : 16;
-  } bits;          // Bit-field struct (auto-filling reserved gaps)
+  } bits;
   
   // Full 32-bit register value.
   uint32_t value;
@@ -12671,7 +12532,6 @@ union TCD25_DOFF {
 //
 union TCD25_CITER_ELINKNO {
   
-  // Enum definitions.
   enum class eELINK : uint32_t {
     eDISABLED = 0, // Channel-to-channel linking is disabled
     eENABLED = 1, // Channel-to-channel linking is enabled
@@ -12682,7 +12542,7 @@ union TCD25_CITER_ELINKNO {
     uint32_t CITER : 15;
     eELINK ELINK : 1;
     uint32_t _reserved_end : 16;
-  } bits;          // Bit-field struct (auto-filling reserved gaps)
+  } bits;
   
   // Full 32-bit register value.
   uint32_t value;
@@ -12696,7 +12556,6 @@ union TCD25_CITER_ELINKNO {
 //
 union TCD25_CITER_ELINKYES {
   
-  // Enum definitions.
   enum class eELINK : uint32_t {
     eDISABLED = 0, // Channel-to-channel linking is disabled
     eENABLED = 1, // Channel-to-channel linking is enabled
@@ -12709,7 +12568,7 @@ union TCD25_CITER_ELINKYES {
     uint32_t _reserved_2 : 1;
     eELINK ELINK : 1;
     uint32_t _reserved_end : 16;
-  } bits;          // Bit-field struct (auto-filling reserved gaps)
+  } bits;
   
   // Full 32-bit register value.
   uint32_t value;
@@ -12723,12 +12582,10 @@ union TCD25_CITER_ELINKYES {
 //
 union TCD25_DLASTSGA {
   
-  // Enum definitions.
-  
   // Bit field definition.
   struct {
     uint32_t DLASTSGA : 32;
-  } bits;          // Bit-field struct (auto-filling reserved gaps)
+  } bits;
   
   // Full 32-bit register value.
   uint32_t value;
@@ -12742,31 +12599,36 @@ union TCD25_DLASTSGA {
 //
 union TCD25_CSR {
   
-  // Enum definitions.
   enum class eSTART : uint32_t {
     eNO_START = 0, // Channel is not explicitly started
     eSTART = 1, // Channel is explicitly started via a software initiated service request
   };
+  
   enum class eINTMAJOR : uint32_t {
     eDISABLED = 0, // End of major loop interrupt is disabled
     eENABLED = 1, // End of major loop interrupt is enabled
   };
+  
   enum class eINTHALF : uint32_t {
     eDISABLED = 0, // Half-point interrupt is disabled
     eENABLED = 1, // Half-point interrupt is enabled
   };
+  
   enum class eDREQ : uint32_t {
     eNO_CLEAR = 0, // The channel's ERQ field is not affected
     eCLEAR = 1, // The channel's ERQ field value changes to 0 when the major loop is complete
   };
+  
   enum class eESG : uint32_t {
     eNORMAL = 0, // The current channel's TCD is normal format
     eSCATTER = 1, // The current channel's TCD specifies a scatter gather format
   };
+  
   enum class eMAJORELINK : uint32_t {
     eDISABLED = 0, // Channel-to-channel linking is disabled
     eENABLED = 1, // Channel-to-channel linking is enabled
   };
+  
   enum class eBWC : uint32_t {
     eDISABLED = 0, // No eDMA engine stalls
     eSTALL4 = 2, // eDMA engine stalls for 4 cycles after each R/W
@@ -12787,7 +12649,7 @@ union TCD25_CSR {
     uint32_t _reserved_9 : 1;
     eBWC BWC : 2;
     uint32_t _reserved_end : 16;
-  } bits;          // Bit-field struct (auto-filling reserved gaps)
+  } bits;
   
   // Full 32-bit register value.
   uint32_t value;
@@ -12801,7 +12663,6 @@ union TCD25_CSR {
 //
 union TCD25_BITER_ELINKNO {
   
-  // Enum definitions.
   enum class eELINK : uint32_t {
     eDISABLED = 0, // Channel-to-channel linking is disabled
     eENABLED = 1, // Channel-to-channel linking is enabled
@@ -12812,7 +12673,7 @@ union TCD25_BITER_ELINKNO {
     uint32_t BITER : 15;
     eELINK ELINK : 1;
     uint32_t _reserved_end : 16;
-  } bits;          // Bit-field struct (auto-filling reserved gaps)
+  } bits;
   
   // Full 32-bit register value.
   uint32_t value;
@@ -12826,7 +12687,6 @@ union TCD25_BITER_ELINKNO {
 //
 union TCD25_BITER_ELINKYES {
   
-  // Enum definitions.
   enum class eELINK : uint32_t {
     eDISABLED = 0, // Channel-to-channel linking is disabled
     eENABLED = 1, // Channel-to-channel linking is enabled
@@ -12839,7 +12699,7 @@ union TCD25_BITER_ELINKYES {
     uint32_t _reserved_2 : 1;
     eELINK ELINK : 1;
     uint32_t _reserved_end : 16;
-  } bits;          // Bit-field struct (auto-filling reserved gaps)
+  } bits;
   
   // Full 32-bit register value.
   uint32_t value;
@@ -12853,12 +12713,10 @@ union TCD25_BITER_ELINKYES {
 //
 union TCD26_SADDR {
   
-  // Enum definitions.
-  
   // Bit field definition.
   struct {
     uint32_t SADDR : 32;
-  } bits;          // Bit-field struct (auto-filling reserved gaps)
+  } bits;
   
   // Full 32-bit register value.
   uint32_t value;
@@ -12872,13 +12730,11 @@ union TCD26_SADDR {
 //
 union TCD26_SOFF {
   
-  // Enum definitions.
-  
   // Bit field definition.
   struct {
     uint32_t SOFF : 16;
     uint32_t _reserved_end : 16;
-  } bits;          // Bit-field struct (auto-filling reserved gaps)
+  } bits;
   
   // Full 32-bit register value.
   uint32_t value;
@@ -12892,7 +12748,6 @@ union TCD26_SOFF {
 //
 union TCD26_ATTR {
   
-  // Enum definitions.
   enum class eSSIZE : uint32_t {
     eEIGHT = 0, // 8-bit
     eSIXTEEN_BIT = 1, // 16-bit
@@ -12900,6 +12755,7 @@ union TCD26_ATTR {
     eSIXTYFOUR = 3, // 64-bit
     eTHIRTYTWO_BYTE = 5, // 32-byte burst (4 beats of 64 bits)
   };
+  
   enum class eSMOD : uint32_t {
     eDISABLED = 0, // Source address modulo feature is disabled
     eENABLED = 1, // Value defines address range used to set up circular data queue
@@ -12920,7 +12776,7 @@ union TCD26_ATTR {
     eSSIZE SSIZE : 3;
     eSMOD SMOD : 5;
     uint32_t _reserved_end : 16;
-  } bits;          // Bit-field struct (auto-filling reserved gaps)
+  } bits;
   
   // Full 32-bit register value.
   uint32_t value;
@@ -12934,12 +12790,10 @@ union TCD26_ATTR {
 //
 union TCD26_NBYTES_MLNO {
   
-  // Enum definitions.
-  
   // Bit field definition.
   struct {
     uint32_t NBYTES : 32;
-  } bits;          // Bit-field struct (auto-filling reserved gaps)
+  } bits;
   
   // Full 32-bit register value.
   uint32_t value;
@@ -12953,11 +12807,11 @@ union TCD26_NBYTES_MLNO {
 //
 union TCD26_NBYTES_MLOFFNO {
   
-  // Enum definitions.
   enum class eDMLOE : uint32_t {
     eDISABLED = 0, // The minor loop offset is not applied to the DADDR
     eENABLED = 1, // The minor loop offset is applied to the DADDR
   };
+  
   enum class eSMLOE : uint32_t {
     eDISABLED = 0, // The minor loop offset is not applied to the SADDR
     eENABLED = 1, // The minor loop offset is applied to the SADDR
@@ -12968,7 +12822,7 @@ union TCD26_NBYTES_MLOFFNO {
     uint32_t NBYTES : 30;
     eDMLOE DMLOE : 1;
     eSMLOE SMLOE : 1;
-  } bits;          // Bit-field struct (auto-filling reserved gaps)
+  } bits;
   
   // Full 32-bit register value.
   uint32_t value;
@@ -12982,11 +12836,11 @@ union TCD26_NBYTES_MLOFFNO {
 //
 union TCD26_NBYTES_MLOFFYES {
   
-  // Enum definitions.
   enum class eDMLOE : uint32_t {
     eDISABLED = 0, // The minor loop offset is not applied to the DADDR
     eENABLED = 1, // The minor loop offset is applied to the DADDR
   };
+  
   enum class eSMLOE : uint32_t {
     eDISABLED = 0, // The minor loop offset is not applied to the SADDR
     eENABLED = 1, // The minor loop offset is applied to the SADDR
@@ -12998,7 +12852,7 @@ union TCD26_NBYTES_MLOFFYES {
     uint32_t MLOFF : 20;
     eDMLOE DMLOE : 1;
     eSMLOE SMLOE : 1;
-  } bits;          // Bit-field struct (auto-filling reserved gaps)
+  } bits;
   
   // Full 32-bit register value.
   uint32_t value;
@@ -13012,12 +12866,10 @@ union TCD26_NBYTES_MLOFFYES {
 //
 union TCD26_SLAST {
   
-  // Enum definitions.
-  
   // Bit field definition.
   struct {
     uint32_t SLAST : 32;
-  } bits;          // Bit-field struct (auto-filling reserved gaps)
+  } bits;
   
   // Full 32-bit register value.
   uint32_t value;
@@ -13031,12 +12883,10 @@ union TCD26_SLAST {
 //
 union TCD26_DADDR {
   
-  // Enum definitions.
-  
   // Bit field definition.
   struct {
     uint32_t DADDR : 32;
-  } bits;          // Bit-field struct (auto-filling reserved gaps)
+  } bits;
   
   // Full 32-bit register value.
   uint32_t value;
@@ -13050,13 +12900,11 @@ union TCD26_DADDR {
 //
 union TCD26_DOFF {
   
-  // Enum definitions.
-  
   // Bit field definition.
   struct {
     uint32_t DOFF : 16;
     uint32_t _reserved_end : 16;
-  } bits;          // Bit-field struct (auto-filling reserved gaps)
+  } bits;
   
   // Full 32-bit register value.
   uint32_t value;
@@ -13070,7 +12918,6 @@ union TCD26_DOFF {
 //
 union TCD26_CITER_ELINKNO {
   
-  // Enum definitions.
   enum class eELINK : uint32_t {
     eDISABLED = 0, // Channel-to-channel linking is disabled
     eENABLED = 1, // Channel-to-channel linking is enabled
@@ -13081,7 +12928,7 @@ union TCD26_CITER_ELINKNO {
     uint32_t CITER : 15;
     eELINK ELINK : 1;
     uint32_t _reserved_end : 16;
-  } bits;          // Bit-field struct (auto-filling reserved gaps)
+  } bits;
   
   // Full 32-bit register value.
   uint32_t value;
@@ -13095,7 +12942,6 @@ union TCD26_CITER_ELINKNO {
 //
 union TCD26_CITER_ELINKYES {
   
-  // Enum definitions.
   enum class eELINK : uint32_t {
     eDISABLED = 0, // Channel-to-channel linking is disabled
     eENABLED = 1, // Channel-to-channel linking is enabled
@@ -13108,7 +12954,7 @@ union TCD26_CITER_ELINKYES {
     uint32_t _reserved_2 : 1;
     eELINK ELINK : 1;
     uint32_t _reserved_end : 16;
-  } bits;          // Bit-field struct (auto-filling reserved gaps)
+  } bits;
   
   // Full 32-bit register value.
   uint32_t value;
@@ -13122,12 +12968,10 @@ union TCD26_CITER_ELINKYES {
 //
 union TCD26_DLASTSGA {
   
-  // Enum definitions.
-  
   // Bit field definition.
   struct {
     uint32_t DLASTSGA : 32;
-  } bits;          // Bit-field struct (auto-filling reserved gaps)
+  } bits;
   
   // Full 32-bit register value.
   uint32_t value;
@@ -13141,31 +12985,36 @@ union TCD26_DLASTSGA {
 //
 union TCD26_CSR {
   
-  // Enum definitions.
   enum class eSTART : uint32_t {
     eNO_START = 0, // Channel is not explicitly started
     eSTART = 1, // Channel is explicitly started via a software initiated service request
   };
+  
   enum class eINTMAJOR : uint32_t {
     eDISABLED = 0, // End of major loop interrupt is disabled
     eENABLED = 1, // End of major loop interrupt is enabled
   };
+  
   enum class eINTHALF : uint32_t {
     eDISABLED = 0, // Half-point interrupt is disabled
     eENABLED = 1, // Half-point interrupt is enabled
   };
+  
   enum class eDREQ : uint32_t {
     eNO_CLEAR = 0, // The channel's ERQ field is not affected
     eCLEAR = 1, // The channel's ERQ field value changes to 0 when the major loop is complete
   };
+  
   enum class eESG : uint32_t {
     eNORMAL = 0, // The current channel's TCD is normal format
     eSCATTER = 1, // The current channel's TCD specifies a scatter gather format
   };
+  
   enum class eMAJORELINK : uint32_t {
     eDISABLED = 0, // Channel-to-channel linking is disabled
     eENABLED = 1, // Channel-to-channel linking is enabled
   };
+  
   enum class eBWC : uint32_t {
     eDISABLED = 0, // No eDMA engine stalls
     eSTALL4 = 2, // eDMA engine stalls for 4 cycles after each R/W
@@ -13186,7 +13035,7 @@ union TCD26_CSR {
     uint32_t _reserved_9 : 1;
     eBWC BWC : 2;
     uint32_t _reserved_end : 16;
-  } bits;          // Bit-field struct (auto-filling reserved gaps)
+  } bits;
   
   // Full 32-bit register value.
   uint32_t value;
@@ -13200,7 +13049,6 @@ union TCD26_CSR {
 //
 union TCD26_BITER_ELINKNO {
   
-  // Enum definitions.
   enum class eELINK : uint32_t {
     eDISABLED = 0, // Channel-to-channel linking is disabled
     eENABLED = 1, // Channel-to-channel linking is enabled
@@ -13211,7 +13059,7 @@ union TCD26_BITER_ELINKNO {
     uint32_t BITER : 15;
     eELINK ELINK : 1;
     uint32_t _reserved_end : 16;
-  } bits;          // Bit-field struct (auto-filling reserved gaps)
+  } bits;
   
   // Full 32-bit register value.
   uint32_t value;
@@ -13225,7 +13073,6 @@ union TCD26_BITER_ELINKNO {
 //
 union TCD26_BITER_ELINKYES {
   
-  // Enum definitions.
   enum class eELINK : uint32_t {
     eDISABLED = 0, // Channel-to-channel linking is disabled
     eENABLED = 1, // Channel-to-channel linking is enabled
@@ -13238,7 +13085,7 @@ union TCD26_BITER_ELINKYES {
     uint32_t _reserved_2 : 1;
     eELINK ELINK : 1;
     uint32_t _reserved_end : 16;
-  } bits;          // Bit-field struct (auto-filling reserved gaps)
+  } bits;
   
   // Full 32-bit register value.
   uint32_t value;
@@ -13252,12 +13099,10 @@ union TCD26_BITER_ELINKYES {
 //
 union TCD27_SADDR {
   
-  // Enum definitions.
-  
   // Bit field definition.
   struct {
     uint32_t SADDR : 32;
-  } bits;          // Bit-field struct (auto-filling reserved gaps)
+  } bits;
   
   // Full 32-bit register value.
   uint32_t value;
@@ -13271,13 +13116,11 @@ union TCD27_SADDR {
 //
 union TCD27_SOFF {
   
-  // Enum definitions.
-  
   // Bit field definition.
   struct {
     uint32_t SOFF : 16;
     uint32_t _reserved_end : 16;
-  } bits;          // Bit-field struct (auto-filling reserved gaps)
+  } bits;
   
   // Full 32-bit register value.
   uint32_t value;
@@ -13291,7 +13134,6 @@ union TCD27_SOFF {
 //
 union TCD27_ATTR {
   
-  // Enum definitions.
   enum class eSSIZE : uint32_t {
     eEIGHT = 0, // 8-bit
     eSIXTEEN_BIT = 1, // 16-bit
@@ -13299,6 +13141,7 @@ union TCD27_ATTR {
     eSIXTYFOUR = 3, // 64-bit
     eTHIRTYTWO_BYTE = 5, // 32-byte burst (4 beats of 64 bits)
   };
+  
   enum class eSMOD : uint32_t {
     eDISABLED = 0, // Source address modulo feature is disabled
     eENABLED = 1, // Value defines address range used to set up circular data queue
@@ -13319,7 +13162,7 @@ union TCD27_ATTR {
     eSSIZE SSIZE : 3;
     eSMOD SMOD : 5;
     uint32_t _reserved_end : 16;
-  } bits;          // Bit-field struct (auto-filling reserved gaps)
+  } bits;
   
   // Full 32-bit register value.
   uint32_t value;
@@ -13333,12 +13176,10 @@ union TCD27_ATTR {
 //
 union TCD27_NBYTES_MLNO {
   
-  // Enum definitions.
-  
   // Bit field definition.
   struct {
     uint32_t NBYTES : 32;
-  } bits;          // Bit-field struct (auto-filling reserved gaps)
+  } bits;
   
   // Full 32-bit register value.
   uint32_t value;
@@ -13352,11 +13193,11 @@ union TCD27_NBYTES_MLNO {
 //
 union TCD27_NBYTES_MLOFFNO {
   
-  // Enum definitions.
   enum class eDMLOE : uint32_t {
     eDISABLED = 0, // The minor loop offset is not applied to the DADDR
     eENABLED = 1, // The minor loop offset is applied to the DADDR
   };
+  
   enum class eSMLOE : uint32_t {
     eDISABLED = 0, // The minor loop offset is not applied to the SADDR
     eENABLED = 1, // The minor loop offset is applied to the SADDR
@@ -13367,7 +13208,7 @@ union TCD27_NBYTES_MLOFFNO {
     uint32_t NBYTES : 30;
     eDMLOE DMLOE : 1;
     eSMLOE SMLOE : 1;
-  } bits;          // Bit-field struct (auto-filling reserved gaps)
+  } bits;
   
   // Full 32-bit register value.
   uint32_t value;
@@ -13381,11 +13222,11 @@ union TCD27_NBYTES_MLOFFNO {
 //
 union TCD27_NBYTES_MLOFFYES {
   
-  // Enum definitions.
   enum class eDMLOE : uint32_t {
     eDISABLED = 0, // The minor loop offset is not applied to the DADDR
     eENABLED = 1, // The minor loop offset is applied to the DADDR
   };
+  
   enum class eSMLOE : uint32_t {
     eDISABLED = 0, // The minor loop offset is not applied to the SADDR
     eENABLED = 1, // The minor loop offset is applied to the SADDR
@@ -13397,7 +13238,7 @@ union TCD27_NBYTES_MLOFFYES {
     uint32_t MLOFF : 20;
     eDMLOE DMLOE : 1;
     eSMLOE SMLOE : 1;
-  } bits;          // Bit-field struct (auto-filling reserved gaps)
+  } bits;
   
   // Full 32-bit register value.
   uint32_t value;
@@ -13411,12 +13252,10 @@ union TCD27_NBYTES_MLOFFYES {
 //
 union TCD27_SLAST {
   
-  // Enum definitions.
-  
   // Bit field definition.
   struct {
     uint32_t SLAST : 32;
-  } bits;          // Bit-field struct (auto-filling reserved gaps)
+  } bits;
   
   // Full 32-bit register value.
   uint32_t value;
@@ -13430,12 +13269,10 @@ union TCD27_SLAST {
 //
 union TCD27_DADDR {
   
-  // Enum definitions.
-  
   // Bit field definition.
   struct {
     uint32_t DADDR : 32;
-  } bits;          // Bit-field struct (auto-filling reserved gaps)
+  } bits;
   
   // Full 32-bit register value.
   uint32_t value;
@@ -13449,13 +13286,11 @@ union TCD27_DADDR {
 //
 union TCD27_DOFF {
   
-  // Enum definitions.
-  
   // Bit field definition.
   struct {
     uint32_t DOFF : 16;
     uint32_t _reserved_end : 16;
-  } bits;          // Bit-field struct (auto-filling reserved gaps)
+  } bits;
   
   // Full 32-bit register value.
   uint32_t value;
@@ -13469,7 +13304,6 @@ union TCD27_DOFF {
 //
 union TCD27_CITER_ELINKNO {
   
-  // Enum definitions.
   enum class eELINK : uint32_t {
     eDISABLED = 0, // Channel-to-channel linking is disabled
     eENABLED = 1, // Channel-to-channel linking is enabled
@@ -13480,7 +13314,7 @@ union TCD27_CITER_ELINKNO {
     uint32_t CITER : 15;
     eELINK ELINK : 1;
     uint32_t _reserved_end : 16;
-  } bits;          // Bit-field struct (auto-filling reserved gaps)
+  } bits;
   
   // Full 32-bit register value.
   uint32_t value;
@@ -13494,7 +13328,6 @@ union TCD27_CITER_ELINKNO {
 //
 union TCD27_CITER_ELINKYES {
   
-  // Enum definitions.
   enum class eELINK : uint32_t {
     eDISABLED = 0, // Channel-to-channel linking is disabled
     eENABLED = 1, // Channel-to-channel linking is enabled
@@ -13507,7 +13340,7 @@ union TCD27_CITER_ELINKYES {
     uint32_t _reserved_2 : 1;
     eELINK ELINK : 1;
     uint32_t _reserved_end : 16;
-  } bits;          // Bit-field struct (auto-filling reserved gaps)
+  } bits;
   
   // Full 32-bit register value.
   uint32_t value;
@@ -13521,12 +13354,10 @@ union TCD27_CITER_ELINKYES {
 //
 union TCD27_DLASTSGA {
   
-  // Enum definitions.
-  
   // Bit field definition.
   struct {
     uint32_t DLASTSGA : 32;
-  } bits;          // Bit-field struct (auto-filling reserved gaps)
+  } bits;
   
   // Full 32-bit register value.
   uint32_t value;
@@ -13540,31 +13371,36 @@ union TCD27_DLASTSGA {
 //
 union TCD27_CSR {
   
-  // Enum definitions.
   enum class eSTART : uint32_t {
     eNO_START = 0, // Channel is not explicitly started
     eSTART = 1, // Channel is explicitly started via a software initiated service request
   };
+  
   enum class eINTMAJOR : uint32_t {
     eDISABLED = 0, // End of major loop interrupt is disabled
     eENABLED = 1, // End of major loop interrupt is enabled
   };
+  
   enum class eINTHALF : uint32_t {
     eDISABLED = 0, // Half-point interrupt is disabled
     eENABLED = 1, // Half-point interrupt is enabled
   };
+  
   enum class eDREQ : uint32_t {
     eNO_CLEAR = 0, // The channel's ERQ field is not affected
     eCLEAR = 1, // The channel's ERQ field value changes to 0 when the major loop is complete
   };
+  
   enum class eESG : uint32_t {
     eNORMAL = 0, // The current channel's TCD is normal format
     eSCATTER = 1, // The current channel's TCD specifies a scatter gather format
   };
+  
   enum class eMAJORELINK : uint32_t {
     eDISABLED = 0, // Channel-to-channel linking is disabled
     eENABLED = 1, // Channel-to-channel linking is enabled
   };
+  
   enum class eBWC : uint32_t {
     eDISABLED = 0, // No eDMA engine stalls
     eSTALL4 = 2, // eDMA engine stalls for 4 cycles after each R/W
@@ -13585,7 +13421,7 @@ union TCD27_CSR {
     uint32_t _reserved_9 : 1;
     eBWC BWC : 2;
     uint32_t _reserved_end : 16;
-  } bits;          // Bit-field struct (auto-filling reserved gaps)
+  } bits;
   
   // Full 32-bit register value.
   uint32_t value;
@@ -13599,7 +13435,6 @@ union TCD27_CSR {
 //
 union TCD27_BITER_ELINKNO {
   
-  // Enum definitions.
   enum class eELINK : uint32_t {
     eDISABLED = 0, // Channel-to-channel linking is disabled
     eENABLED = 1, // Channel-to-channel linking is enabled
@@ -13610,7 +13445,7 @@ union TCD27_BITER_ELINKNO {
     uint32_t BITER : 15;
     eELINK ELINK : 1;
     uint32_t _reserved_end : 16;
-  } bits;          // Bit-field struct (auto-filling reserved gaps)
+  } bits;
   
   // Full 32-bit register value.
   uint32_t value;
@@ -13624,7 +13459,6 @@ union TCD27_BITER_ELINKNO {
 //
 union TCD27_BITER_ELINKYES {
   
-  // Enum definitions.
   enum class eELINK : uint32_t {
     eDISABLED = 0, // Channel-to-channel linking is disabled
     eENABLED = 1, // Channel-to-channel linking is enabled
@@ -13637,7 +13471,7 @@ union TCD27_BITER_ELINKYES {
     uint32_t _reserved_2 : 1;
     eELINK ELINK : 1;
     uint32_t _reserved_end : 16;
-  } bits;          // Bit-field struct (auto-filling reserved gaps)
+  } bits;
   
   // Full 32-bit register value.
   uint32_t value;
@@ -13651,12 +13485,10 @@ union TCD27_BITER_ELINKYES {
 //
 union TCD28_SADDR {
   
-  // Enum definitions.
-  
   // Bit field definition.
   struct {
     uint32_t SADDR : 32;
-  } bits;          // Bit-field struct (auto-filling reserved gaps)
+  } bits;
   
   // Full 32-bit register value.
   uint32_t value;
@@ -13670,13 +13502,11 @@ union TCD28_SADDR {
 //
 union TCD28_SOFF {
   
-  // Enum definitions.
-  
   // Bit field definition.
   struct {
     uint32_t SOFF : 16;
     uint32_t _reserved_end : 16;
-  } bits;          // Bit-field struct (auto-filling reserved gaps)
+  } bits;
   
   // Full 32-bit register value.
   uint32_t value;
@@ -13690,7 +13520,6 @@ union TCD28_SOFF {
 //
 union TCD28_ATTR {
   
-  // Enum definitions.
   enum class eSSIZE : uint32_t {
     eEIGHT = 0, // 8-bit
     eSIXTEEN_BIT = 1, // 16-bit
@@ -13698,6 +13527,7 @@ union TCD28_ATTR {
     eSIXTYFOUR = 3, // 64-bit
     eTHIRTYTWO_BYTE = 5, // 32-byte burst (4 beats of 64 bits)
   };
+  
   enum class eSMOD : uint32_t {
     eDISABLED = 0, // Source address modulo feature is disabled
     eENABLED = 1, // Value defines address range used to set up circular data queue
@@ -13718,7 +13548,7 @@ union TCD28_ATTR {
     eSSIZE SSIZE : 3;
     eSMOD SMOD : 5;
     uint32_t _reserved_end : 16;
-  } bits;          // Bit-field struct (auto-filling reserved gaps)
+  } bits;
   
   // Full 32-bit register value.
   uint32_t value;
@@ -13732,12 +13562,10 @@ union TCD28_ATTR {
 //
 union TCD28_NBYTES_MLNO {
   
-  // Enum definitions.
-  
   // Bit field definition.
   struct {
     uint32_t NBYTES : 32;
-  } bits;          // Bit-field struct (auto-filling reserved gaps)
+  } bits;
   
   // Full 32-bit register value.
   uint32_t value;
@@ -13751,11 +13579,11 @@ union TCD28_NBYTES_MLNO {
 //
 union TCD28_NBYTES_MLOFFNO {
   
-  // Enum definitions.
   enum class eDMLOE : uint32_t {
     eDISABLED = 0, // The minor loop offset is not applied to the DADDR
     eENABLED = 1, // The minor loop offset is applied to the DADDR
   };
+  
   enum class eSMLOE : uint32_t {
     eDISABLED = 0, // The minor loop offset is not applied to the SADDR
     eENABLED = 1, // The minor loop offset is applied to the SADDR
@@ -13766,7 +13594,7 @@ union TCD28_NBYTES_MLOFFNO {
     uint32_t NBYTES : 30;
     eDMLOE DMLOE : 1;
     eSMLOE SMLOE : 1;
-  } bits;          // Bit-field struct (auto-filling reserved gaps)
+  } bits;
   
   // Full 32-bit register value.
   uint32_t value;
@@ -13780,11 +13608,11 @@ union TCD28_NBYTES_MLOFFNO {
 //
 union TCD28_NBYTES_MLOFFYES {
   
-  // Enum definitions.
   enum class eDMLOE : uint32_t {
     eDISABLED = 0, // The minor loop offset is not applied to the DADDR
     eENABLED = 1, // The minor loop offset is applied to the DADDR
   };
+  
   enum class eSMLOE : uint32_t {
     eDISABLED = 0, // The minor loop offset is not applied to the SADDR
     eENABLED = 1, // The minor loop offset is applied to the SADDR
@@ -13796,7 +13624,7 @@ union TCD28_NBYTES_MLOFFYES {
     uint32_t MLOFF : 20;
     eDMLOE DMLOE : 1;
     eSMLOE SMLOE : 1;
-  } bits;          // Bit-field struct (auto-filling reserved gaps)
+  } bits;
   
   // Full 32-bit register value.
   uint32_t value;
@@ -13810,12 +13638,10 @@ union TCD28_NBYTES_MLOFFYES {
 //
 union TCD28_SLAST {
   
-  // Enum definitions.
-  
   // Bit field definition.
   struct {
     uint32_t SLAST : 32;
-  } bits;          // Bit-field struct (auto-filling reserved gaps)
+  } bits;
   
   // Full 32-bit register value.
   uint32_t value;
@@ -13829,12 +13655,10 @@ union TCD28_SLAST {
 //
 union TCD28_DADDR {
   
-  // Enum definitions.
-  
   // Bit field definition.
   struct {
     uint32_t DADDR : 32;
-  } bits;          // Bit-field struct (auto-filling reserved gaps)
+  } bits;
   
   // Full 32-bit register value.
   uint32_t value;
@@ -13848,13 +13672,11 @@ union TCD28_DADDR {
 //
 union TCD28_DOFF {
   
-  // Enum definitions.
-  
   // Bit field definition.
   struct {
     uint32_t DOFF : 16;
     uint32_t _reserved_end : 16;
-  } bits;          // Bit-field struct (auto-filling reserved gaps)
+  } bits;
   
   // Full 32-bit register value.
   uint32_t value;
@@ -13868,7 +13690,6 @@ union TCD28_DOFF {
 //
 union TCD28_CITER_ELINKNO {
   
-  // Enum definitions.
   enum class eELINK : uint32_t {
     eDISABLED = 0, // Channel-to-channel linking is disabled
     eENABLED = 1, // Channel-to-channel linking is enabled
@@ -13879,7 +13700,7 @@ union TCD28_CITER_ELINKNO {
     uint32_t CITER : 15;
     eELINK ELINK : 1;
     uint32_t _reserved_end : 16;
-  } bits;          // Bit-field struct (auto-filling reserved gaps)
+  } bits;
   
   // Full 32-bit register value.
   uint32_t value;
@@ -13893,7 +13714,6 @@ union TCD28_CITER_ELINKNO {
 //
 union TCD28_CITER_ELINKYES {
   
-  // Enum definitions.
   enum class eELINK : uint32_t {
     eDISABLED = 0, // Channel-to-channel linking is disabled
     eENABLED = 1, // Channel-to-channel linking is enabled
@@ -13906,7 +13726,7 @@ union TCD28_CITER_ELINKYES {
     uint32_t _reserved_2 : 1;
     eELINK ELINK : 1;
     uint32_t _reserved_end : 16;
-  } bits;          // Bit-field struct (auto-filling reserved gaps)
+  } bits;
   
   // Full 32-bit register value.
   uint32_t value;
@@ -13920,12 +13740,10 @@ union TCD28_CITER_ELINKYES {
 //
 union TCD28_DLASTSGA {
   
-  // Enum definitions.
-  
   // Bit field definition.
   struct {
     uint32_t DLASTSGA : 32;
-  } bits;          // Bit-field struct (auto-filling reserved gaps)
+  } bits;
   
   // Full 32-bit register value.
   uint32_t value;
@@ -13939,31 +13757,36 @@ union TCD28_DLASTSGA {
 //
 union TCD28_CSR {
   
-  // Enum definitions.
   enum class eSTART : uint32_t {
     eNO_START = 0, // Channel is not explicitly started
     eSTART = 1, // Channel is explicitly started via a software initiated service request
   };
+  
   enum class eINTMAJOR : uint32_t {
     eDISABLED = 0, // End of major loop interrupt is disabled
     eENABLED = 1, // End of major loop interrupt is enabled
   };
+  
   enum class eINTHALF : uint32_t {
     eDISABLED = 0, // Half-point interrupt is disabled
     eENABLED = 1, // Half-point interrupt is enabled
   };
+  
   enum class eDREQ : uint32_t {
     eNO_CLEAR = 0, // The channel's ERQ field is not affected
     eCLEAR = 1, // The channel's ERQ field value changes to 0 when the major loop is complete
   };
+  
   enum class eESG : uint32_t {
     eNORMAL = 0, // The current channel's TCD is normal format
     eSCATTER = 1, // The current channel's TCD specifies a scatter gather format
   };
+  
   enum class eMAJORELINK : uint32_t {
     eDISABLED = 0, // Channel-to-channel linking is disabled
     eENABLED = 1, // Channel-to-channel linking is enabled
   };
+  
   enum class eBWC : uint32_t {
     eDISABLED = 0, // No eDMA engine stalls
     eSTALL4 = 2, // eDMA engine stalls for 4 cycles after each R/W
@@ -13984,7 +13807,7 @@ union TCD28_CSR {
     uint32_t _reserved_9 : 1;
     eBWC BWC : 2;
     uint32_t _reserved_end : 16;
-  } bits;          // Bit-field struct (auto-filling reserved gaps)
+  } bits;
   
   // Full 32-bit register value.
   uint32_t value;
@@ -13998,7 +13821,6 @@ union TCD28_CSR {
 //
 union TCD28_BITER_ELINKNO {
   
-  // Enum definitions.
   enum class eELINK : uint32_t {
     eDISABLED = 0, // Channel-to-channel linking is disabled
     eENABLED = 1, // Channel-to-channel linking is enabled
@@ -14009,7 +13831,7 @@ union TCD28_BITER_ELINKNO {
     uint32_t BITER : 15;
     eELINK ELINK : 1;
     uint32_t _reserved_end : 16;
-  } bits;          // Bit-field struct (auto-filling reserved gaps)
+  } bits;
   
   // Full 32-bit register value.
   uint32_t value;
@@ -14023,7 +13845,6 @@ union TCD28_BITER_ELINKNO {
 //
 union TCD28_BITER_ELINKYES {
   
-  // Enum definitions.
   enum class eELINK : uint32_t {
     eDISABLED = 0, // Channel-to-channel linking is disabled
     eENABLED = 1, // Channel-to-channel linking is enabled
@@ -14036,7 +13857,7 @@ union TCD28_BITER_ELINKYES {
     uint32_t _reserved_2 : 1;
     eELINK ELINK : 1;
     uint32_t _reserved_end : 16;
-  } bits;          // Bit-field struct (auto-filling reserved gaps)
+  } bits;
   
   // Full 32-bit register value.
   uint32_t value;
@@ -14050,12 +13871,10 @@ union TCD28_BITER_ELINKYES {
 //
 union TCD29_SADDR {
   
-  // Enum definitions.
-  
   // Bit field definition.
   struct {
     uint32_t SADDR : 32;
-  } bits;          // Bit-field struct (auto-filling reserved gaps)
+  } bits;
   
   // Full 32-bit register value.
   uint32_t value;
@@ -14069,13 +13888,11 @@ union TCD29_SADDR {
 //
 union TCD29_SOFF {
   
-  // Enum definitions.
-  
   // Bit field definition.
   struct {
     uint32_t SOFF : 16;
     uint32_t _reserved_end : 16;
-  } bits;          // Bit-field struct (auto-filling reserved gaps)
+  } bits;
   
   // Full 32-bit register value.
   uint32_t value;
@@ -14089,7 +13906,6 @@ union TCD29_SOFF {
 //
 union TCD29_ATTR {
   
-  // Enum definitions.
   enum class eSSIZE : uint32_t {
     eEIGHT = 0, // 8-bit
     eSIXTEEN_BIT = 1, // 16-bit
@@ -14097,6 +13913,7 @@ union TCD29_ATTR {
     eSIXTYFOUR = 3, // 64-bit
     eTHIRTYTWO_BYTE = 5, // 32-byte burst (4 beats of 64 bits)
   };
+  
   enum class eSMOD : uint32_t {
     eDISABLED = 0, // Source address modulo feature is disabled
     eENABLED = 1, // Value defines address range used to set up circular data queue
@@ -14117,7 +13934,7 @@ union TCD29_ATTR {
     eSSIZE SSIZE : 3;
     eSMOD SMOD : 5;
     uint32_t _reserved_end : 16;
-  } bits;          // Bit-field struct (auto-filling reserved gaps)
+  } bits;
   
   // Full 32-bit register value.
   uint32_t value;
@@ -14131,12 +13948,10 @@ union TCD29_ATTR {
 //
 union TCD29_NBYTES_MLNO {
   
-  // Enum definitions.
-  
   // Bit field definition.
   struct {
     uint32_t NBYTES : 32;
-  } bits;          // Bit-field struct (auto-filling reserved gaps)
+  } bits;
   
   // Full 32-bit register value.
   uint32_t value;
@@ -14150,11 +13965,11 @@ union TCD29_NBYTES_MLNO {
 //
 union TCD29_NBYTES_MLOFFNO {
   
-  // Enum definitions.
   enum class eDMLOE : uint32_t {
     eDISABLED = 0, // The minor loop offset is not applied to the DADDR
     eENABLED = 1, // The minor loop offset is applied to the DADDR
   };
+  
   enum class eSMLOE : uint32_t {
     eDISABLED = 0, // The minor loop offset is not applied to the SADDR
     eENABLED = 1, // The minor loop offset is applied to the SADDR
@@ -14165,7 +13980,7 @@ union TCD29_NBYTES_MLOFFNO {
     uint32_t NBYTES : 30;
     eDMLOE DMLOE : 1;
     eSMLOE SMLOE : 1;
-  } bits;          // Bit-field struct (auto-filling reserved gaps)
+  } bits;
   
   // Full 32-bit register value.
   uint32_t value;
@@ -14179,11 +13994,11 @@ union TCD29_NBYTES_MLOFFNO {
 //
 union TCD29_NBYTES_MLOFFYES {
   
-  // Enum definitions.
   enum class eDMLOE : uint32_t {
     eDISABLED = 0, // The minor loop offset is not applied to the DADDR
     eENABLED = 1, // The minor loop offset is applied to the DADDR
   };
+  
   enum class eSMLOE : uint32_t {
     eDISABLED = 0, // The minor loop offset is not applied to the SADDR
     eENABLED = 1, // The minor loop offset is applied to the SADDR
@@ -14195,7 +14010,7 @@ union TCD29_NBYTES_MLOFFYES {
     uint32_t MLOFF : 20;
     eDMLOE DMLOE : 1;
     eSMLOE SMLOE : 1;
-  } bits;          // Bit-field struct (auto-filling reserved gaps)
+  } bits;
   
   // Full 32-bit register value.
   uint32_t value;
@@ -14209,12 +14024,10 @@ union TCD29_NBYTES_MLOFFYES {
 //
 union TCD29_SLAST {
   
-  // Enum definitions.
-  
   // Bit field definition.
   struct {
     uint32_t SLAST : 32;
-  } bits;          // Bit-field struct (auto-filling reserved gaps)
+  } bits;
   
   // Full 32-bit register value.
   uint32_t value;
@@ -14228,12 +14041,10 @@ union TCD29_SLAST {
 //
 union TCD29_DADDR {
   
-  // Enum definitions.
-  
   // Bit field definition.
   struct {
     uint32_t DADDR : 32;
-  } bits;          // Bit-field struct (auto-filling reserved gaps)
+  } bits;
   
   // Full 32-bit register value.
   uint32_t value;
@@ -14247,13 +14058,11 @@ union TCD29_DADDR {
 //
 union TCD29_DOFF {
   
-  // Enum definitions.
-  
   // Bit field definition.
   struct {
     uint32_t DOFF : 16;
     uint32_t _reserved_end : 16;
-  } bits;          // Bit-field struct (auto-filling reserved gaps)
+  } bits;
   
   // Full 32-bit register value.
   uint32_t value;
@@ -14267,7 +14076,6 @@ union TCD29_DOFF {
 //
 union TCD29_CITER_ELINKNO {
   
-  // Enum definitions.
   enum class eELINK : uint32_t {
     eDISABLED = 0, // Channel-to-channel linking is disabled
     eENABLED = 1, // Channel-to-channel linking is enabled
@@ -14278,7 +14086,7 @@ union TCD29_CITER_ELINKNO {
     uint32_t CITER : 15;
     eELINK ELINK : 1;
     uint32_t _reserved_end : 16;
-  } bits;          // Bit-field struct (auto-filling reserved gaps)
+  } bits;
   
   // Full 32-bit register value.
   uint32_t value;
@@ -14292,7 +14100,6 @@ union TCD29_CITER_ELINKNO {
 //
 union TCD29_CITER_ELINKYES {
   
-  // Enum definitions.
   enum class eELINK : uint32_t {
     eDISABLED = 0, // Channel-to-channel linking is disabled
     eENABLED = 1, // Channel-to-channel linking is enabled
@@ -14305,7 +14112,7 @@ union TCD29_CITER_ELINKYES {
     uint32_t _reserved_2 : 1;
     eELINK ELINK : 1;
     uint32_t _reserved_end : 16;
-  } bits;          // Bit-field struct (auto-filling reserved gaps)
+  } bits;
   
   // Full 32-bit register value.
   uint32_t value;
@@ -14319,12 +14126,10 @@ union TCD29_CITER_ELINKYES {
 //
 union TCD29_DLASTSGA {
   
-  // Enum definitions.
-  
   // Bit field definition.
   struct {
     uint32_t DLASTSGA : 32;
-  } bits;          // Bit-field struct (auto-filling reserved gaps)
+  } bits;
   
   // Full 32-bit register value.
   uint32_t value;
@@ -14338,31 +14143,36 @@ union TCD29_DLASTSGA {
 //
 union TCD29_CSR {
   
-  // Enum definitions.
   enum class eSTART : uint32_t {
     eNO_START = 0, // Channel is not explicitly started
     eSTART = 1, // Channel is explicitly started via a software initiated service request
   };
+  
   enum class eINTMAJOR : uint32_t {
     eDISABLED = 0, // End of major loop interrupt is disabled
     eENABLED = 1, // End of major loop interrupt is enabled
   };
+  
   enum class eINTHALF : uint32_t {
     eDISABLED = 0, // Half-point interrupt is disabled
     eENABLED = 1, // Half-point interrupt is enabled
   };
+  
   enum class eDREQ : uint32_t {
     eNO_CLEAR = 0, // The channel's ERQ field is not affected
     eCLEAR = 1, // The channel's ERQ field value changes to 0 when the major loop is complete
   };
+  
   enum class eESG : uint32_t {
     eNORMAL = 0, // The current channel's TCD is normal format
     eSCATTER = 1, // The current channel's TCD specifies a scatter gather format
   };
+  
   enum class eMAJORELINK : uint32_t {
     eDISABLED = 0, // Channel-to-channel linking is disabled
     eENABLED = 1, // Channel-to-channel linking is enabled
   };
+  
   enum class eBWC : uint32_t {
     eDISABLED = 0, // No eDMA engine stalls
     eSTALL4 = 2, // eDMA engine stalls for 4 cycles after each R/W
@@ -14383,7 +14193,7 @@ union TCD29_CSR {
     uint32_t _reserved_9 : 1;
     eBWC BWC : 2;
     uint32_t _reserved_end : 16;
-  } bits;          // Bit-field struct (auto-filling reserved gaps)
+  } bits;
   
   // Full 32-bit register value.
   uint32_t value;
@@ -14397,7 +14207,6 @@ union TCD29_CSR {
 //
 union TCD29_BITER_ELINKNO {
   
-  // Enum definitions.
   enum class eELINK : uint32_t {
     eDISABLED = 0, // Channel-to-channel linking is disabled
     eENABLED = 1, // Channel-to-channel linking is enabled
@@ -14408,7 +14217,7 @@ union TCD29_BITER_ELINKNO {
     uint32_t BITER : 15;
     eELINK ELINK : 1;
     uint32_t _reserved_end : 16;
-  } bits;          // Bit-field struct (auto-filling reserved gaps)
+  } bits;
   
   // Full 32-bit register value.
   uint32_t value;
@@ -14422,7 +14231,6 @@ union TCD29_BITER_ELINKNO {
 //
 union TCD29_BITER_ELINKYES {
   
-  // Enum definitions.
   enum class eELINK : uint32_t {
     eDISABLED = 0, // Channel-to-channel linking is disabled
     eENABLED = 1, // Channel-to-channel linking is enabled
@@ -14435,7 +14243,7 @@ union TCD29_BITER_ELINKYES {
     uint32_t _reserved_2 : 1;
     eELINK ELINK : 1;
     uint32_t _reserved_end : 16;
-  } bits;          // Bit-field struct (auto-filling reserved gaps)
+  } bits;
   
   // Full 32-bit register value.
   uint32_t value;
@@ -14449,12 +14257,10 @@ union TCD29_BITER_ELINKYES {
 //
 union TCD30_SADDR {
   
-  // Enum definitions.
-  
   // Bit field definition.
   struct {
     uint32_t SADDR : 32;
-  } bits;          // Bit-field struct (auto-filling reserved gaps)
+  } bits;
   
   // Full 32-bit register value.
   uint32_t value;
@@ -14468,13 +14274,11 @@ union TCD30_SADDR {
 //
 union TCD30_SOFF {
   
-  // Enum definitions.
-  
   // Bit field definition.
   struct {
     uint32_t SOFF : 16;
     uint32_t _reserved_end : 16;
-  } bits;          // Bit-field struct (auto-filling reserved gaps)
+  } bits;
   
   // Full 32-bit register value.
   uint32_t value;
@@ -14488,7 +14292,6 @@ union TCD30_SOFF {
 //
 union TCD30_ATTR {
   
-  // Enum definitions.
   enum class eSSIZE : uint32_t {
     eEIGHT = 0, // 8-bit
     eSIXTEEN_BIT = 1, // 16-bit
@@ -14496,6 +14299,7 @@ union TCD30_ATTR {
     eSIXTYFOUR = 3, // 64-bit
     eTHIRTYTWO_BYTE = 5, // 32-byte burst (4 beats of 64 bits)
   };
+  
   enum class eSMOD : uint32_t {
     eDISABLED = 0, // Source address modulo feature is disabled
     eENABLED = 1, // Value defines address range used to set up circular data queue
@@ -14516,7 +14320,7 @@ union TCD30_ATTR {
     eSSIZE SSIZE : 3;
     eSMOD SMOD : 5;
     uint32_t _reserved_end : 16;
-  } bits;          // Bit-field struct (auto-filling reserved gaps)
+  } bits;
   
   // Full 32-bit register value.
   uint32_t value;
@@ -14530,12 +14334,10 @@ union TCD30_ATTR {
 //
 union TCD30_NBYTES_MLNO {
   
-  // Enum definitions.
-  
   // Bit field definition.
   struct {
     uint32_t NBYTES : 32;
-  } bits;          // Bit-field struct (auto-filling reserved gaps)
+  } bits;
   
   // Full 32-bit register value.
   uint32_t value;
@@ -14549,11 +14351,11 @@ union TCD30_NBYTES_MLNO {
 //
 union TCD30_NBYTES_MLOFFNO {
   
-  // Enum definitions.
   enum class eDMLOE : uint32_t {
     eDISABLED = 0, // The minor loop offset is not applied to the DADDR
     eENABLED = 1, // The minor loop offset is applied to the DADDR
   };
+  
   enum class eSMLOE : uint32_t {
     eDISABLED = 0, // The minor loop offset is not applied to the SADDR
     eENABLED = 1, // The minor loop offset is applied to the SADDR
@@ -14564,7 +14366,7 @@ union TCD30_NBYTES_MLOFFNO {
     uint32_t NBYTES : 30;
     eDMLOE DMLOE : 1;
     eSMLOE SMLOE : 1;
-  } bits;          // Bit-field struct (auto-filling reserved gaps)
+  } bits;
   
   // Full 32-bit register value.
   uint32_t value;
@@ -14578,11 +14380,11 @@ union TCD30_NBYTES_MLOFFNO {
 //
 union TCD30_NBYTES_MLOFFYES {
   
-  // Enum definitions.
   enum class eDMLOE : uint32_t {
     eDISABLED = 0, // The minor loop offset is not applied to the DADDR
     eENABLED = 1, // The minor loop offset is applied to the DADDR
   };
+  
   enum class eSMLOE : uint32_t {
     eDISABLED = 0, // The minor loop offset is not applied to the SADDR
     eENABLED = 1, // The minor loop offset is applied to the SADDR
@@ -14594,7 +14396,7 @@ union TCD30_NBYTES_MLOFFYES {
     uint32_t MLOFF : 20;
     eDMLOE DMLOE : 1;
     eSMLOE SMLOE : 1;
-  } bits;          // Bit-field struct (auto-filling reserved gaps)
+  } bits;
   
   // Full 32-bit register value.
   uint32_t value;
@@ -14608,12 +14410,10 @@ union TCD30_NBYTES_MLOFFYES {
 //
 union TCD30_SLAST {
   
-  // Enum definitions.
-  
   // Bit field definition.
   struct {
     uint32_t SLAST : 32;
-  } bits;          // Bit-field struct (auto-filling reserved gaps)
+  } bits;
   
   // Full 32-bit register value.
   uint32_t value;
@@ -14627,12 +14427,10 @@ union TCD30_SLAST {
 //
 union TCD30_DADDR {
   
-  // Enum definitions.
-  
   // Bit field definition.
   struct {
     uint32_t DADDR : 32;
-  } bits;          // Bit-field struct (auto-filling reserved gaps)
+  } bits;
   
   // Full 32-bit register value.
   uint32_t value;
@@ -14646,13 +14444,11 @@ union TCD30_DADDR {
 //
 union TCD30_DOFF {
   
-  // Enum definitions.
-  
   // Bit field definition.
   struct {
     uint32_t DOFF : 16;
     uint32_t _reserved_end : 16;
-  } bits;          // Bit-field struct (auto-filling reserved gaps)
+  } bits;
   
   // Full 32-bit register value.
   uint32_t value;
@@ -14666,7 +14462,6 @@ union TCD30_DOFF {
 //
 union TCD30_CITER_ELINKNO {
   
-  // Enum definitions.
   enum class eELINK : uint32_t {
     eDISABLED = 0, // Channel-to-channel linking is disabled
     eENABLED = 1, // Channel-to-channel linking is enabled
@@ -14677,7 +14472,7 @@ union TCD30_CITER_ELINKNO {
     uint32_t CITER : 15;
     eELINK ELINK : 1;
     uint32_t _reserved_end : 16;
-  } bits;          // Bit-field struct (auto-filling reserved gaps)
+  } bits;
   
   // Full 32-bit register value.
   uint32_t value;
@@ -14691,7 +14486,6 @@ union TCD30_CITER_ELINKNO {
 //
 union TCD30_CITER_ELINKYES {
   
-  // Enum definitions.
   enum class eELINK : uint32_t {
     eDISABLED = 0, // Channel-to-channel linking is disabled
     eENABLED = 1, // Channel-to-channel linking is enabled
@@ -14704,7 +14498,7 @@ union TCD30_CITER_ELINKYES {
     uint32_t _reserved_2 : 1;
     eELINK ELINK : 1;
     uint32_t _reserved_end : 16;
-  } bits;          // Bit-field struct (auto-filling reserved gaps)
+  } bits;
   
   // Full 32-bit register value.
   uint32_t value;
@@ -14718,12 +14512,10 @@ union TCD30_CITER_ELINKYES {
 //
 union TCD30_DLASTSGA {
   
-  // Enum definitions.
-  
   // Bit field definition.
   struct {
     uint32_t DLASTSGA : 32;
-  } bits;          // Bit-field struct (auto-filling reserved gaps)
+  } bits;
   
   // Full 32-bit register value.
   uint32_t value;
@@ -14737,31 +14529,36 @@ union TCD30_DLASTSGA {
 //
 union TCD30_CSR {
   
-  // Enum definitions.
   enum class eSTART : uint32_t {
     eNO_START = 0, // Channel is not explicitly started
     eSTART = 1, // Channel is explicitly started via a software initiated service request
   };
+  
   enum class eINTMAJOR : uint32_t {
     eDISABLED = 0, // End of major loop interrupt is disabled
     eENABLED = 1, // End of major loop interrupt is enabled
   };
+  
   enum class eINTHALF : uint32_t {
     eDISABLED = 0, // Half-point interrupt is disabled
     eENABLED = 1, // Half-point interrupt is enabled
   };
+  
   enum class eDREQ : uint32_t {
     eNO_CLEAR = 0, // The channel's ERQ field is not affected
     eCLEAR = 1, // The channel's ERQ field value changes to 0 when the major loop is complete
   };
+  
   enum class eESG : uint32_t {
     eNORMAL = 0, // The current channel's TCD is normal format
     eSCATTER = 1, // The current channel's TCD specifies a scatter gather format
   };
+  
   enum class eMAJORELINK : uint32_t {
     eDISABLED = 0, // Channel-to-channel linking is disabled
     eENABLED = 1, // Channel-to-channel linking is enabled
   };
+  
   enum class eBWC : uint32_t {
     eDISABLED = 0, // No eDMA engine stalls
     eSTALL4 = 2, // eDMA engine stalls for 4 cycles after each R/W
@@ -14782,7 +14579,7 @@ union TCD30_CSR {
     uint32_t _reserved_9 : 1;
     eBWC BWC : 2;
     uint32_t _reserved_end : 16;
-  } bits;          // Bit-field struct (auto-filling reserved gaps)
+  } bits;
   
   // Full 32-bit register value.
   uint32_t value;
@@ -14796,7 +14593,6 @@ union TCD30_CSR {
 //
 union TCD30_BITER_ELINKNO {
   
-  // Enum definitions.
   enum class eELINK : uint32_t {
     eDISABLED = 0, // Channel-to-channel linking is disabled
     eENABLED = 1, // Channel-to-channel linking is enabled
@@ -14807,7 +14603,7 @@ union TCD30_BITER_ELINKNO {
     uint32_t BITER : 15;
     eELINK ELINK : 1;
     uint32_t _reserved_end : 16;
-  } bits;          // Bit-field struct (auto-filling reserved gaps)
+  } bits;
   
   // Full 32-bit register value.
   uint32_t value;
@@ -14821,7 +14617,6 @@ union TCD30_BITER_ELINKNO {
 //
 union TCD30_BITER_ELINKYES {
   
-  // Enum definitions.
   enum class eELINK : uint32_t {
     eDISABLED = 0, // Channel-to-channel linking is disabled
     eENABLED = 1, // Channel-to-channel linking is enabled
@@ -14834,7 +14629,7 @@ union TCD30_BITER_ELINKYES {
     uint32_t _reserved_2 : 1;
     eELINK ELINK : 1;
     uint32_t _reserved_end : 16;
-  } bits;          // Bit-field struct (auto-filling reserved gaps)
+  } bits;
   
   // Full 32-bit register value.
   uint32_t value;
@@ -14848,12 +14643,10 @@ union TCD30_BITER_ELINKYES {
 //
 union TCD31_SADDR {
   
-  // Enum definitions.
-  
   // Bit field definition.
   struct {
     uint32_t SADDR : 32;
-  } bits;          // Bit-field struct (auto-filling reserved gaps)
+  } bits;
   
   // Full 32-bit register value.
   uint32_t value;
@@ -14867,13 +14660,11 @@ union TCD31_SADDR {
 //
 union TCD31_SOFF {
   
-  // Enum definitions.
-  
   // Bit field definition.
   struct {
     uint32_t SOFF : 16;
     uint32_t _reserved_end : 16;
-  } bits;          // Bit-field struct (auto-filling reserved gaps)
+  } bits;
   
   // Full 32-bit register value.
   uint32_t value;
@@ -14887,7 +14678,6 @@ union TCD31_SOFF {
 //
 union TCD31_ATTR {
   
-  // Enum definitions.
   enum class eSSIZE : uint32_t {
     eEIGHT = 0, // 8-bit
     eSIXTEEN_BIT = 1, // 16-bit
@@ -14895,6 +14685,7 @@ union TCD31_ATTR {
     eSIXTYFOUR = 3, // 64-bit
     eTHIRTYTWO_BYTE = 5, // 32-byte burst (4 beats of 64 bits)
   };
+  
   enum class eSMOD : uint32_t {
     eDISABLED = 0, // Source address modulo feature is disabled
     eENABLED = 1, // Value defines address range used to set up circular data queue
@@ -14915,7 +14706,7 @@ union TCD31_ATTR {
     eSSIZE SSIZE : 3;
     eSMOD SMOD : 5;
     uint32_t _reserved_end : 16;
-  } bits;          // Bit-field struct (auto-filling reserved gaps)
+  } bits;
   
   // Full 32-bit register value.
   uint32_t value;
@@ -14929,12 +14720,10 @@ union TCD31_ATTR {
 //
 union TCD31_NBYTES_MLNO {
   
-  // Enum definitions.
-  
   // Bit field definition.
   struct {
     uint32_t NBYTES : 32;
-  } bits;          // Bit-field struct (auto-filling reserved gaps)
+  } bits;
   
   // Full 32-bit register value.
   uint32_t value;
@@ -14948,11 +14737,11 @@ union TCD31_NBYTES_MLNO {
 //
 union TCD31_NBYTES_MLOFFNO {
   
-  // Enum definitions.
   enum class eDMLOE : uint32_t {
     eDISABLED = 0, // The minor loop offset is not applied to the DADDR
     eENABLED = 1, // The minor loop offset is applied to the DADDR
   };
+  
   enum class eSMLOE : uint32_t {
     eDISABLED = 0, // The minor loop offset is not applied to the SADDR
     eENABLED = 1, // The minor loop offset is applied to the SADDR
@@ -14963,7 +14752,7 @@ union TCD31_NBYTES_MLOFFNO {
     uint32_t NBYTES : 30;
     eDMLOE DMLOE : 1;
     eSMLOE SMLOE : 1;
-  } bits;          // Bit-field struct (auto-filling reserved gaps)
+  } bits;
   
   // Full 32-bit register value.
   uint32_t value;
@@ -14977,11 +14766,11 @@ union TCD31_NBYTES_MLOFFNO {
 //
 union TCD31_NBYTES_MLOFFYES {
   
-  // Enum definitions.
   enum class eDMLOE : uint32_t {
     eDISABLED = 0, // The minor loop offset is not applied to the DADDR
     eENABLED = 1, // The minor loop offset is applied to the DADDR
   };
+  
   enum class eSMLOE : uint32_t {
     eDISABLED = 0, // The minor loop offset is not applied to the SADDR
     eENABLED = 1, // The minor loop offset is applied to the SADDR
@@ -14993,7 +14782,7 @@ union TCD31_NBYTES_MLOFFYES {
     uint32_t MLOFF : 20;
     eDMLOE DMLOE : 1;
     eSMLOE SMLOE : 1;
-  } bits;          // Bit-field struct (auto-filling reserved gaps)
+  } bits;
   
   // Full 32-bit register value.
   uint32_t value;
@@ -15007,12 +14796,10 @@ union TCD31_NBYTES_MLOFFYES {
 //
 union TCD31_SLAST {
   
-  // Enum definitions.
-  
   // Bit field definition.
   struct {
     uint32_t SLAST : 32;
-  } bits;          // Bit-field struct (auto-filling reserved gaps)
+  } bits;
   
   // Full 32-bit register value.
   uint32_t value;
@@ -15026,12 +14813,10 @@ union TCD31_SLAST {
 //
 union TCD31_DADDR {
   
-  // Enum definitions.
-  
   // Bit field definition.
   struct {
     uint32_t DADDR : 32;
-  } bits;          // Bit-field struct (auto-filling reserved gaps)
+  } bits;
   
   // Full 32-bit register value.
   uint32_t value;
@@ -15045,13 +14830,11 @@ union TCD31_DADDR {
 //
 union TCD31_DOFF {
   
-  // Enum definitions.
-  
   // Bit field definition.
   struct {
     uint32_t DOFF : 16;
     uint32_t _reserved_end : 16;
-  } bits;          // Bit-field struct (auto-filling reserved gaps)
+  } bits;
   
   // Full 32-bit register value.
   uint32_t value;
@@ -15065,7 +14848,6 @@ union TCD31_DOFF {
 //
 union TCD31_CITER_ELINKNO {
   
-  // Enum definitions.
   enum class eELINK : uint32_t {
     eDISABLED = 0, // Channel-to-channel linking is disabled
     eENABLED = 1, // Channel-to-channel linking is enabled
@@ -15076,7 +14858,7 @@ union TCD31_CITER_ELINKNO {
     uint32_t CITER : 15;
     eELINK ELINK : 1;
     uint32_t _reserved_end : 16;
-  } bits;          // Bit-field struct (auto-filling reserved gaps)
+  } bits;
   
   // Full 32-bit register value.
   uint32_t value;
@@ -15090,7 +14872,6 @@ union TCD31_CITER_ELINKNO {
 //
 union TCD31_CITER_ELINKYES {
   
-  // Enum definitions.
   enum class eELINK : uint32_t {
     eDISABLED = 0, // Channel-to-channel linking is disabled
     eENABLED = 1, // Channel-to-channel linking is enabled
@@ -15103,7 +14884,7 @@ union TCD31_CITER_ELINKYES {
     uint32_t _reserved_2 : 1;
     eELINK ELINK : 1;
     uint32_t _reserved_end : 16;
-  } bits;          // Bit-field struct (auto-filling reserved gaps)
+  } bits;
   
   // Full 32-bit register value.
   uint32_t value;
@@ -15117,12 +14898,10 @@ union TCD31_CITER_ELINKYES {
 //
 union TCD31_DLASTSGA {
   
-  // Enum definitions.
-  
   // Bit field definition.
   struct {
     uint32_t DLASTSGA : 32;
-  } bits;          // Bit-field struct (auto-filling reserved gaps)
+  } bits;
   
   // Full 32-bit register value.
   uint32_t value;
@@ -15136,31 +14915,36 @@ union TCD31_DLASTSGA {
 //
 union TCD31_CSR {
   
-  // Enum definitions.
   enum class eSTART : uint32_t {
     eNO_START = 0, // Channel is not explicitly started
     eSTART = 1, // Channel is explicitly started via a software initiated service request
   };
+  
   enum class eINTMAJOR : uint32_t {
     eDISABLED = 0, // End of major loop interrupt is disabled
     eENABLED = 1, // End of major loop interrupt is enabled
   };
+  
   enum class eINTHALF : uint32_t {
     eDISABLED = 0, // Half-point interrupt is disabled
     eENABLED = 1, // Half-point interrupt is enabled
   };
+  
   enum class eDREQ : uint32_t {
     eNO_CLEAR = 0, // The channel's ERQ field is not affected
     eCLEAR = 1, // The channel's ERQ field value changes to 0 when the major loop is complete
   };
+  
   enum class eESG : uint32_t {
     eNORMAL = 0, // The current channel's TCD is normal format
     eSCATTER = 1, // The current channel's TCD specifies a scatter gather format
   };
+  
   enum class eMAJORELINK : uint32_t {
     eDISABLED = 0, // Channel-to-channel linking is disabled
     eENABLED = 1, // Channel-to-channel linking is enabled
   };
+  
   enum class eBWC : uint32_t {
     eDISABLED = 0, // No eDMA engine stalls
     eSTALL4 = 2, // eDMA engine stalls for 4 cycles after each R/W
@@ -15181,7 +14965,7 @@ union TCD31_CSR {
     uint32_t _reserved_9 : 1;
     eBWC BWC : 2;
     uint32_t _reserved_end : 16;
-  } bits;          // Bit-field struct (auto-filling reserved gaps)
+  } bits;
   
   // Full 32-bit register value.
   uint32_t value;
@@ -15195,7 +14979,6 @@ union TCD31_CSR {
 //
 union TCD31_BITER_ELINKNO {
   
-  // Enum definitions.
   enum class eELINK : uint32_t {
     eDISABLED = 0, // Channel-to-channel linking is disabled
     eENABLED = 1, // Channel-to-channel linking is enabled
@@ -15206,7 +14989,7 @@ union TCD31_BITER_ELINKNO {
     uint32_t BITER : 15;
     eELINK ELINK : 1;
     uint32_t _reserved_end : 16;
-  } bits;          // Bit-field struct (auto-filling reserved gaps)
+  } bits;
   
   // Full 32-bit register value.
   uint32_t value;
@@ -15220,7 +15003,6 @@ union TCD31_BITER_ELINKNO {
 //
 union TCD31_BITER_ELINKYES {
   
-  // Enum definitions.
   enum class eELINK : uint32_t {
     eDISABLED = 0, // Channel-to-channel linking is disabled
     eENABLED = 1, // Channel-to-channel linking is enabled
@@ -15233,7 +15015,7 @@ union TCD31_BITER_ELINKYES {
     uint32_t _reserved_2 : 1;
     eELINK ELINK : 1;
     uint32_t _reserved_end : 16;
-  } bits;          // Bit-field struct (auto-filling reserved gaps)
+  } bits;
   
   // Full 32-bit register value.
   uint32_t value;

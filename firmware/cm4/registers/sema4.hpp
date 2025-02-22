@@ -15,7 +15,6 @@ namespace nSEMA4 {
 //
 union SEMA4_Gate0 {
   
-  // Enum definitions.
   enum class eGTFSM : uint32_t {
     eGTFSM_0 = 0, // The gate is unlocked (free).
     eGTFSM_1 = 1, // The gate has been locked by processor 0.
@@ -27,7 +26,7 @@ union SEMA4_Gate0 {
   struct {
     eGTFSM GTFSM : 2;
     uint32_t _reserved_end : 30;
-  } bits;          // Bit-field struct (auto-filling reserved gaps)
+  } bits;
   
   // Full 32-bit register value.
   uint32_t value;
@@ -40,7 +39,6 @@ union SEMA4_Gate0 {
 //
 union SEMA4_Gate1 {
   
-  // Enum definitions.
   enum class eGTFSM : uint32_t {
     eGTFSM_0 = 0, // The gate is unlocked (free).
     eGTFSM_1 = 1, // The gate has been locked by processor 0.
@@ -52,7 +50,7 @@ union SEMA4_Gate1 {
   struct {
     eGTFSM GTFSM : 2;
     uint32_t _reserved_end : 30;
-  } bits;          // Bit-field struct (auto-filling reserved gaps)
+  } bits;
   
   // Full 32-bit register value.
   uint32_t value;
@@ -65,7 +63,6 @@ union SEMA4_Gate1 {
 //
 union SEMA4_Gate2 {
   
-  // Enum definitions.
   enum class eGTFSM : uint32_t {
     eGTFSM_0 = 0, // The gate is unlocked (free).
     eGTFSM_1 = 1, // The gate has been locked by processor 0.
@@ -77,7 +74,7 @@ union SEMA4_Gate2 {
   struct {
     eGTFSM GTFSM : 2;
     uint32_t _reserved_end : 30;
-  } bits;          // Bit-field struct (auto-filling reserved gaps)
+  } bits;
   
   // Full 32-bit register value.
   uint32_t value;
@@ -90,7 +87,6 @@ union SEMA4_Gate2 {
 //
 union SEMA4_Gate3 {
   
-  // Enum definitions.
   enum class eGTFSM : uint32_t {
     eGTFSM_0 = 0, // The gate is unlocked (free).
     eGTFSM_1 = 1, // The gate has been locked by processor 0.
@@ -102,7 +98,7 @@ union SEMA4_Gate3 {
   struct {
     eGTFSM GTFSM : 2;
     uint32_t _reserved_end : 30;
-  } bits;          // Bit-field struct (auto-filling reserved gaps)
+  } bits;
   
   // Full 32-bit register value.
   uint32_t value;
@@ -115,7 +111,6 @@ union SEMA4_Gate3 {
 //
 union SEMA4_Gate4 {
   
-  // Enum definitions.
   enum class eGTFSM : uint32_t {
     eGTFSM_0 = 0, // The gate is unlocked (free).
     eGTFSM_1 = 1, // The gate has been locked by processor 0.
@@ -127,7 +122,7 @@ union SEMA4_Gate4 {
   struct {
     eGTFSM GTFSM : 2;
     uint32_t _reserved_end : 30;
-  } bits;          // Bit-field struct (auto-filling reserved gaps)
+  } bits;
   
   // Full 32-bit register value.
   uint32_t value;
@@ -140,7 +135,6 @@ union SEMA4_Gate4 {
 //
 union SEMA4_Gate5 {
   
-  // Enum definitions.
   enum class eGTFSM : uint32_t {
     eGTFSM_0 = 0, // The gate is unlocked (free).
     eGTFSM_1 = 1, // The gate has been locked by processor 0.
@@ -152,7 +146,7 @@ union SEMA4_Gate5 {
   struct {
     eGTFSM GTFSM : 2;
     uint32_t _reserved_end : 30;
-  } bits;          // Bit-field struct (auto-filling reserved gaps)
+  } bits;
   
   // Full 32-bit register value.
   uint32_t value;
@@ -165,7 +159,6 @@ union SEMA4_Gate5 {
 //
 union SEMA4_Gate6 {
   
-  // Enum definitions.
   enum class eGTFSM : uint32_t {
     eGTFSM_0 = 0, // The gate is unlocked (free).
     eGTFSM_1 = 1, // The gate has been locked by processor 0.
@@ -177,7 +170,7 @@ union SEMA4_Gate6 {
   struct {
     eGTFSM GTFSM : 2;
     uint32_t _reserved_end : 30;
-  } bits;          // Bit-field struct (auto-filling reserved gaps)
+  } bits;
   
   // Full 32-bit register value.
   uint32_t value;
@@ -190,7 +183,6 @@ union SEMA4_Gate6 {
 //
 union SEMA4_Gate7 {
   
-  // Enum definitions.
   enum class eGTFSM : uint32_t {
     eGTFSM_0 = 0, // The gate is unlocked (free).
     eGTFSM_1 = 1, // The gate has been locked by processor 0.
@@ -202,7 +194,7 @@ union SEMA4_Gate7 {
   struct {
     eGTFSM GTFSM : 2;
     uint32_t _reserved_end : 30;
-  } bits;          // Bit-field struct (auto-filling reserved gaps)
+  } bits;
   
   // Full 32-bit register value.
   uint32_t value;
@@ -215,7 +207,6 @@ union SEMA4_Gate7 {
 //
 union SEMA4_Gate8 {
   
-  // Enum definitions.
   enum class eGTFSM : uint32_t {
     eGTFSM_0 = 0, // The gate is unlocked (free).
     eGTFSM_1 = 1, // The gate has been locked by processor 0.
@@ -227,7 +218,7 @@ union SEMA4_Gate8 {
   struct {
     eGTFSM GTFSM : 2;
     uint32_t _reserved_end : 30;
-  } bits;          // Bit-field struct (auto-filling reserved gaps)
+  } bits;
   
   // Full 32-bit register value.
   uint32_t value;
@@ -240,7 +231,6 @@ union SEMA4_Gate8 {
 //
 union SEMA4_Gate9 {
   
-  // Enum definitions.
   enum class eGTFSM : uint32_t {
     eGTFSM_0 = 0, // The gate is unlocked (free).
     eGTFSM_1 = 1, // The gate has been locked by processor 0.
@@ -252,7 +242,7 @@ union SEMA4_Gate9 {
   struct {
     eGTFSM GTFSM : 2;
     uint32_t _reserved_end : 30;
-  } bits;          // Bit-field struct (auto-filling reserved gaps)
+  } bits;
   
   // Full 32-bit register value.
   uint32_t value;
@@ -265,7 +255,6 @@ union SEMA4_Gate9 {
 //
 union SEMA4_Gate10 {
   
-  // Enum definitions.
   enum class eGTFSM : uint32_t {
     eGTFSM_0 = 0, // The gate is unlocked (free).
     eGTFSM_1 = 1, // The gate has been locked by processor 0.
@@ -277,7 +266,7 @@ union SEMA4_Gate10 {
   struct {
     eGTFSM GTFSM : 2;
     uint32_t _reserved_end : 30;
-  } bits;          // Bit-field struct (auto-filling reserved gaps)
+  } bits;
   
   // Full 32-bit register value.
   uint32_t value;
@@ -290,7 +279,6 @@ union SEMA4_Gate10 {
 //
 union SEMA4_Gate11 {
   
-  // Enum definitions.
   enum class eGTFSM : uint32_t {
     eGTFSM_0 = 0, // The gate is unlocked (free).
     eGTFSM_1 = 1, // The gate has been locked by processor 0.
@@ -302,7 +290,7 @@ union SEMA4_Gate11 {
   struct {
     eGTFSM GTFSM : 2;
     uint32_t _reserved_end : 30;
-  } bits;          // Bit-field struct (auto-filling reserved gaps)
+  } bits;
   
   // Full 32-bit register value.
   uint32_t value;
@@ -315,7 +303,6 @@ union SEMA4_Gate11 {
 //
 union SEMA4_Gate12 {
   
-  // Enum definitions.
   enum class eGTFSM : uint32_t {
     eGTFSM_0 = 0, // The gate is unlocked (free).
     eGTFSM_1 = 1, // The gate has been locked by processor 0.
@@ -327,7 +314,7 @@ union SEMA4_Gate12 {
   struct {
     eGTFSM GTFSM : 2;
     uint32_t _reserved_end : 30;
-  } bits;          // Bit-field struct (auto-filling reserved gaps)
+  } bits;
   
   // Full 32-bit register value.
   uint32_t value;
@@ -340,7 +327,6 @@ union SEMA4_Gate12 {
 //
 union SEMA4_Gate13 {
   
-  // Enum definitions.
   enum class eGTFSM : uint32_t {
     eGTFSM_0 = 0, // The gate is unlocked (free).
     eGTFSM_1 = 1, // The gate has been locked by processor 0.
@@ -352,7 +338,7 @@ union SEMA4_Gate13 {
   struct {
     eGTFSM GTFSM : 2;
     uint32_t _reserved_end : 30;
-  } bits;          // Bit-field struct (auto-filling reserved gaps)
+  } bits;
   
   // Full 32-bit register value.
   uint32_t value;
@@ -365,7 +351,6 @@ union SEMA4_Gate13 {
 //
 union SEMA4_Gate14 {
   
-  // Enum definitions.
   enum class eGTFSM : uint32_t {
     eGTFSM_0 = 0, // The gate is unlocked (free).
     eGTFSM_1 = 1, // The gate has been locked by processor 0.
@@ -377,7 +362,7 @@ union SEMA4_Gate14 {
   struct {
     eGTFSM GTFSM : 2;
     uint32_t _reserved_end : 30;
-  } bits;          // Bit-field struct (auto-filling reserved gaps)
+  } bits;
   
   // Full 32-bit register value.
   uint32_t value;
@@ -390,7 +375,6 @@ union SEMA4_Gate14 {
 //
 union SEMA4_Gate15 {
   
-  // Enum definitions.
   enum class eGTFSM : uint32_t {
     eGTFSM_0 = 0, // The gate is unlocked (free).
     eGTFSM_1 = 1, // The gate has been locked by processor 0.
@@ -402,7 +386,7 @@ union SEMA4_Gate15 {
   struct {
     eGTFSM GTFSM : 2;
     uint32_t _reserved_end : 30;
-  } bits;          // Bit-field struct (auto-filling reserved gaps)
+  } bits;
   
   // Full 32-bit register value.
   uint32_t value;
@@ -416,67 +400,81 @@ union SEMA4_Gate15 {
 //
 union SEMA4_CP0INE {
   
-  // Enum definitions.
   enum class eINE7 : uint32_t {
     eINE7_0 = 0, // The generation of the notification interrupt is disabled.
     eINE7_1 = 1, // The generation of the notification interrupt is enabled.
   };
+  
   enum class eINE6 : uint32_t {
     eINE6_0 = 0, // The generation of the notification interrupt is disabled.
     eINE6_1 = 1, // The generation of the notification interrupt is enabled.
   };
+  
   enum class eINE5 : uint32_t {
     eINE5_0 = 0, // The generation of the notification interrupt is disabled.
     eINE5_1 = 1, // The generation of the notification interrupt is enabled.
   };
+  
   enum class eINE4 : uint32_t {
     eINE4_0 = 0, // The generation of the notification interrupt is disabled.
     eINE4_1 = 1, // The generation of the notification interrupt is enabled.
   };
+  
   enum class eINE3 : uint32_t {
     eINE3_0 = 0, // The generation of the notification interrupt is disabled.
     eINE3_1 = 1, // The generation of the notification interrupt is enabled.
   };
+  
   enum class eINE2 : uint32_t {
     eINE2_0 = 0, // The generation of the notification interrupt is disabled.
     eINE2_1 = 1, // The generation of the notification interrupt is enabled.
   };
+  
   enum class eINE1 : uint32_t {
     eINE1_0 = 0, // The generation of the notification interrupt is disabled.
     eINE1_1 = 1, // The generation of the notification interrupt is enabled.
   };
+  
   enum class eINE0 : uint32_t {
     eINE0_0 = 0, // The generation of the notification interrupt is disabled.
     eINE0_1 = 1, // The generation of the notification interrupt is enabled.
   };
+  
   enum class eINE15 : uint32_t {
     eINE15_0 = 0, // The generation of the notification interrupt is disabled.
     eINE15_1 = 1, // The generation of the notification interrupt is enabled.
   };
+  
   enum class eINE14 : uint32_t {
     eINE14_0 = 0, // The generation of the notification interrupt is disabled.
     eINE14_1 = 1, // The generation of the notification interrupt is enabled.
   };
+  
   enum class eINE13 : uint32_t {
     eINE13_0 = 0, // The generation of the notification interrupt is disabled.
     eINE13_1 = 1, // The generation of the notification interrupt is enabled.
   };
+  
   enum class eINE12 : uint32_t {
     eINE12_0 = 0, // The generation of the notification interrupt is disabled.
     eINE12_1 = 1, // The generation of the notification interrupt is enabled.
   };
+  
   enum class eINE11 : uint32_t {
     eINE11_0 = 0, // The generation of the notification interrupt is disabled.
     eINE11_1 = 1, // The generation of the notification interrupt is enabled.
   };
+  
   enum class eINE10 : uint32_t {
     eINE10_0 = 0, // The generation of the notification interrupt is disabled.
     eINE10_1 = 1, // The generation of the notification interrupt is enabled.
   };
+  
   enum class eINE9 : uint32_t {
     eINE9_0 = 0, // The generation of the notification interrupt is disabled.
     eINE9_1 = 1, // The generation of the notification interrupt is enabled.
   };
+  
   enum class eINE8 : uint32_t {
     eINE8_0 = 0, // The generation of the notification interrupt is disabled.
     eINE8_1 = 1, // The generation of the notification interrupt is enabled.
@@ -501,7 +499,7 @@ union SEMA4_CP0INE {
     eINE9 INE9 : 1;
     eINE8 INE8 : 1;
     uint32_t _reserved_end : 16;
-  } bits;          // Bit-field struct (auto-filling reserved gaps)
+  } bits;
   
   // Full 32-bit register value.
   uint32_t value;
@@ -514,67 +512,81 @@ union SEMA4_CP0INE {
 //
 union SEMA4_CP1INE {
   
-  // Enum definitions.
   enum class eINE7 : uint32_t {
     eINE7_0 = 0, // The generation of the notification interrupt is disabled.
     eINE7_1 = 1, // The generation of the notification interrupt is enabled.
   };
+  
   enum class eINE6 : uint32_t {
     eINE6_0 = 0, // The generation of the notification interrupt is disabled.
     eINE6_1 = 1, // The generation of the notification interrupt is enabled.
   };
+  
   enum class eINE5 : uint32_t {
     eINE5_0 = 0, // The generation of the notification interrupt is disabled.
     eINE5_1 = 1, // The generation of the notification interrupt is enabled.
   };
+  
   enum class eINE4 : uint32_t {
     eINE4_0 = 0, // The generation of the notification interrupt is disabled.
     eINE4_1 = 1, // The generation of the notification interrupt is enabled.
   };
+  
   enum class eINE3 : uint32_t {
     eINE3_0 = 0, // The generation of the notification interrupt is disabled.
     eINE3_1 = 1, // The generation of the notification interrupt is enabled.
   };
+  
   enum class eINE2 : uint32_t {
     eINE2_0 = 0, // The generation of the notification interrupt is disabled.
     eINE2_1 = 1, // The generation of the notification interrupt is enabled.
   };
+  
   enum class eINE1 : uint32_t {
     eINE1_0 = 0, // The generation of the notification interrupt is disabled.
     eINE1_1 = 1, // The generation of the notification interrupt is enabled.
   };
+  
   enum class eINE0 : uint32_t {
     eINE0_0 = 0, // The generation of the notification interrupt is disabled.
     eINE0_1 = 1, // The generation of the notification interrupt is enabled.
   };
+  
   enum class eINE15 : uint32_t {
     eINE15_0 = 0, // The generation of the notification interrupt is disabled.
     eINE15_1 = 1, // The generation of the notification interrupt is enabled.
   };
+  
   enum class eINE14 : uint32_t {
     eINE14_0 = 0, // The generation of the notification interrupt is disabled.
     eINE14_1 = 1, // The generation of the notification interrupt is enabled.
   };
+  
   enum class eINE13 : uint32_t {
     eINE13_0 = 0, // The generation of the notification interrupt is disabled.
     eINE13_1 = 1, // The generation of the notification interrupt is enabled.
   };
+  
   enum class eINE12 : uint32_t {
     eINE12_0 = 0, // The generation of the notification interrupt is disabled.
     eINE12_1 = 1, // The generation of the notification interrupt is enabled.
   };
+  
   enum class eINE11 : uint32_t {
     eINE11_0 = 0, // The generation of the notification interrupt is disabled.
     eINE11_1 = 1, // The generation of the notification interrupt is enabled.
   };
+  
   enum class eINE10 : uint32_t {
     eINE10_0 = 0, // The generation of the notification interrupt is disabled.
     eINE10_1 = 1, // The generation of the notification interrupt is enabled.
   };
+  
   enum class eINE9 : uint32_t {
     eINE9_0 = 0, // The generation of the notification interrupt is disabled.
     eINE9_1 = 1, // The generation of the notification interrupt is enabled.
   };
+  
   enum class eINE8 : uint32_t {
     eINE8_0 = 0, // The generation of the notification interrupt is disabled.
     eINE8_1 = 1, // The generation of the notification interrupt is enabled.
@@ -599,7 +611,7 @@ union SEMA4_CP1INE {
     eINE9 INE9 : 1;
     eINE8 INE8 : 1;
     uint32_t _reserved_end : 16;
-  } bits;          // Bit-field struct (auto-filling reserved gaps)
+  } bits;
   
   // Full 32-bit register value.
   uint32_t value;
@@ -613,8 +625,6 @@ union SEMA4_CP1INE {
 //
 union SEMA4_CP0NTF {
   
-  // Enum definitions.
-  
   // Bit field definition.
   struct {
     uint32_t GN7 : 1;
@@ -634,7 +644,7 @@ union SEMA4_CP0NTF {
     uint32_t GN9 : 1;
     uint32_t GN8 : 1;
     uint32_t _reserved_end : 16;
-  } bits;          // Bit-field struct (auto-filling reserved gaps)
+  } bits;
   
   // Full 32-bit register value.
   uint32_t value;
@@ -647,8 +657,6 @@ union SEMA4_CP0NTF {
 //
 union SEMA4_CP1NTF {
   
-  // Enum definitions.
-  
   // Bit field definition.
   struct {
     uint32_t GN7 : 1;
@@ -668,7 +676,7 @@ union SEMA4_CP1NTF {
     uint32_t GN9 : 1;
     uint32_t GN8 : 1;
     uint32_t _reserved_end : 16;
-  } bits;          // Bit-field struct (auto-filling reserved gaps)
+  } bits;
   
   // Full 32-bit register value.
   uint32_t value;
@@ -682,14 +690,12 @@ union SEMA4_CP1NTF {
 //
 union SEMA4_RSTGT {
   
-  // Enum definitions.
-  
   // Bit field definition.
   struct {
     uint32_t RSTGSM_RSTGMS_RSTGDP : 8;
     uint32_t RSTGTN : 8;
     uint32_t _reserved_end : 16;
-  } bits;          // Bit-field struct (auto-filling reserved gaps)
+  } bits;
   
   // Full 32-bit register value.
   uint32_t value;
@@ -703,14 +709,12 @@ union SEMA4_RSTGT {
 //
 union SEMA4_RSTNTF {
   
-  // Enum definitions.
-  
   // Bit field definition.
   struct {
     uint32_t RSTNSM_RSTNMS_RSTNDP : 8;
     uint32_t RSTNTN : 8;
     uint32_t _reserved_end : 16;
-  } bits;          // Bit-field struct (auto-filling reserved gaps)
+  } bits;
   
   // Full 32-bit register value.
   uint32_t value;

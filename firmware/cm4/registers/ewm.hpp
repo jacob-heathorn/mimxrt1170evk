@@ -15,19 +15,21 @@ namespace nEWM {
 //
 union CTRL {
   
-  // Enum definitions.
   enum class eEWMEN : uint32_t {
     eDISABLE = 0, // EWM module is disabled.
     eENABLE = 1, // EWM module is enabled.
   };
+  
   enum class eASSIN : uint32_t {
     eDISABLE = 0, // Default assert state of the EWM_in signal.
     eENABLE = 1, // Inverts the assert state of EWM_in signal.
   };
+  
   enum class eINEN : uint32_t {
     eDISABLE = 0, // EWM_in port is disabled.
     eENABLE = 1, // EWM_in port is enabled.
   };
+  
   enum class eINTEN : uint32_t {
     eZERO = 0, // Deasserts the interrupt request.
     eINT_REQ = 1, // Generates an interrupt request, when EWM_OUT_b is asserted.
@@ -40,7 +42,7 @@ union CTRL {
     eINEN INEN : 1;
     eINTEN INTEN : 1;
     uint32_t _reserved_end : 28;
-  } bits;          // Bit-field struct (auto-filling reserved gaps)
+  } bits;
   
   // Full 32-bit register value.
   uint32_t value;
@@ -54,13 +56,11 @@ union CTRL {
 //
 union SERV {
   
-  // Enum definitions.
-  
   // Bit field definition.
   struct {
     uint32_t SERVICE : 8;
     uint32_t _reserved_end : 24;
-  } bits;          // Bit-field struct (auto-filling reserved gaps)
+  } bits;
   
   // Full 32-bit register value.
   uint32_t value;
@@ -74,13 +74,11 @@ union SERV {
 //
 union CMPL {
   
-  // Enum definitions.
-  
   // Bit field definition.
   struct {
     uint32_t COMPAREL : 8;
     uint32_t _reserved_end : 24;
-  } bits;          // Bit-field struct (auto-filling reserved gaps)
+  } bits;
   
   // Full 32-bit register value.
   uint32_t value;
@@ -94,13 +92,11 @@ union CMPL {
 //
 union CMPH {
   
-  // Enum definitions.
-  
   // Bit field definition.
   struct {
     uint32_t COMPAREH : 8;
     uint32_t _reserved_end : 24;
-  } bits;          // Bit-field struct (auto-filling reserved gaps)
+  } bits;
   
   // Full 32-bit register value.
   uint32_t value;
@@ -114,13 +110,11 @@ union CMPH {
 //
 union CLKCTRL {
   
-  // Enum definitions.
-  
   // Bit field definition.
   struct {
     uint32_t CLKSEL : 2;
     uint32_t _reserved_end : 30;
-  } bits;          // Bit-field struct (auto-filling reserved gaps)
+  } bits;
   
   // Full 32-bit register value.
   uint32_t value;
@@ -134,13 +128,11 @@ union CLKCTRL {
 //
 union CLKPRESCALER {
   
-  // Enum definitions.
-  
   // Bit field definition.
   struct {
     uint32_t CLK_DIV : 8;
     uint32_t _reserved_end : 24;
-  } bits;          // Bit-field struct (auto-filling reserved gaps)
+  } bits;
   
   // Full 32-bit register value.
   uint32_t value;

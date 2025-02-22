@@ -15,11 +15,11 @@ namespace nCAAM {
 //
 union MCFGR {
   
-  // Enum definitions.
   enum class eNORMAL_BURST : uint32_t {
     eALIGNED_32B_TARGET = 0, // Aligned 32 byte burst size target
     eALIGNED_64B_TARGET = 1, // Aligned 64 byte burst size target
   };
+  
   enum class ePS : uint32_t {
     eSML_32Bit_PTRS = 0, // Pointers fit in one 32-bit word (pointers are 32-bit addresses).
     eLRG_64BIT_PTRS = 1, // Pointers require two 32-bit words (pointers are 36-bit addresses).
@@ -43,7 +43,7 @@ union MCFGR {
     uint32_t WDF : 1;
     uint32_t WDE : 1;
     uint32_t SWRST : 1;
-  } bits;          // Bit-field struct (auto-filling reserved gaps)
+  } bits;
   
   // Full 32-bit register value.
   uint32_t value;
@@ -57,13 +57,11 @@ union MCFGR {
 //
 union PAGE0_SDID {
   
-  // Enum definitions.
-  
   // Bit field definition.
   struct {
     uint32_t SDID : 15;
     uint32_t _reserved_end : 17;
-  } bits;          // Bit-field struct (auto-filling reserved gaps)
+  } bits;
   
   // Full 32-bit register value.
   uint32_t value;
@@ -77,17 +75,18 @@ union PAGE0_SDID {
 //
 union SCFGR {
   
-  // Enum definitions.
   enum class ePRIBLOB : uint32_t {
     ePRIV_SEC_BOOT_SW = 0, // Private secure boot software blobs
     ePRIV_PROV_TYPE_1 = 1, // Private provisioning type 1 blobs
     ePRIV_PROV_TYPE_2 = 2, // Private provisioning type 2 blobs
     eNORMAL_OPERATION = 3, // Normal operation blobs
   };
+  
   enum class eRNGSH0 : uint32_t {
     eSH0_ANY_MODE = 0, // When RNGSH0 is 0, RNG DRNG State Handle 0 can be instantiated in any mode. RNGSH0 is set to 0 only for testing.
     eSH0_RANDOM_MODE = 1, // When RNGSH0 is 1, RNG DRNG State Handle 0 cannot be instantiated in deterministic (test) mode. RNGSHO should be set to 1 before the RNG is instantiated. If it is currently instantiated in a deterministic mode, it will be un-instantiated. Once this bit has been written to a 1, it cannot be changed to a 0 until the next power on reset.
   };
+  
   enum class eVIRT_EN : uint32_t {
     eDISABLE_JR_VIRT = 0, // Disable job ring virtualization
     eENABLE_JR_VIRT = 1, // Enable job ring virtualization
@@ -106,7 +105,7 @@ union SCFGR {
     uint32_t MPMRL : 1;
     uint32_t MPPKRC : 1;
     uint32_t MPCURVE : 4;
-  } bits;          // Bit-field struct (auto-filling reserved gaps)
+  } bits;
   
   // Full 32-bit register value.
   uint32_t value;
@@ -120,15 +119,13 @@ union SCFGR {
 //
 union DEBUGCTL {
   
-  // Enum definitions.
-  
   // Bit field definition.
   struct {
     uint32_t _reserved_0 : 16;
     uint32_t STOP : 1;
     uint32_t STOP_ACK : 1;
     uint32_t _reserved_end : 14;
-  } bits;          // Bit-field struct (auto-filling reserved gaps)
+  } bits;
   
   // Full 32-bit register value.
   uint32_t value;
@@ -142,19 +139,21 @@ union DEBUGCTL {
 //
 union JRSTARTR {
   
-  // Enum definitions.
   enum class eStart_JR0 : uint32_t {
     eJR0_STOP_MODE = 0, // Stop Mode. The JR0DID register and the SMVBA register for Job Ring 0 can be written but the IRBAR, IRSR, IRSAR, IRJAR, ORBAR, ORSR, ORJRR, ORSFR and JRSTAR for Job Ring 0 are NOT accessible. If Job Ring 0 is allocated to TrustZone SecureWorld (JR0DID[TZ]=1), the JR0DID and SMVBA register can be written only via a bus transaction that has ns=0.
     eJR0_START_MODE = 1, // Start Mode. The JR0DID register and the SMVBA register for Job Ring 0 CANNOT be written but the IRBAR, IRSR, IRSAR, IRJAR, ORBAR, ORSR, ORJRR, ORSFR and JRSTAR for Job Ring 0 ARE accessible. If Job Ring 0 is allocated to TrustZone SecureWorld (JR0DID[TZ]=1), then the SMVBA, IRBAR, IRSR, IRSAR, IRJAR, ORBAR, ORSR, ORJRR, ORSFR and JRSTAR registers for Job Ring 0 can be written only via a bus transaction that has ns=0.
   };
+  
   enum class eStart_JR1 : uint32_t {
     eJR1_STOP_MODE = 0, // Stop Mode. The JR1DID register and the SMVBA register for Job Ring 1 can be written but the IRBAR, IRSR, IRSAR, IRJAR, ORBAR, ORSR, ORJRR, ORSFR and JRSTAR for Job Ring 1 are NOT accessible. If Job Ring 1 is allocated to TrustZone SecureWorld (JR1DID[TZ]=1), the JR1DID and SMVBA register can be written only via a bus transaction that has ns=0.
     eJR1_START_MODE = 1, // Start Mode. The JR1DID register and the SMVBA register for Job Ring 1 CANNOT be written but the IRBAR, IRSR, IRSAR, IRJAR, ORBAR, ORSR, ORJRR, ORSFR and JRSTAR for Job Ring 1 ARE accessible. If Job Ring 1 is allocated to TrustZone SecureWorld (JR1DID[TZ]=1), then the SMVBA, IRBAR, IRSR, IRSAR, IRJAR, ORBAR, ORSR, ORJRR, ORSFR and JRSTAR registers for Job Ring 1 can be written only via a bus transaction that has ns=0.
   };
+  
   enum class eStart_JR2 : uint32_t {
     eJR2_STOP_MODE = 0, // Stop Mode. The JR2DID register and the SMVBA register for Job Ring 2 can be written but the IRBAR, IRSR, IRSAR, IRJAR, ORBAR, ORSR, ORJRR, ORSFR and JRSTAR for Job Ring 2 are NOT accessible. If Job Ring 2 is allocated to TrustZone SecureWorld (JR2DID[TZ]=1), the JR2DID and SMVBA register can be written only via a bus transaction that has ns=0.
     eJR2_START_MODE = 1, // Start Mode. The JR2DID register and the SMVBA register for Job Ring 2 CANNOT be written but the IRBAR, IRSR, IRSAR, IRJAR, ORBAR, ORSR, ORJRR, ORSFR and JRSTAR for Job Ring 2 ARE accessible. If Job Ring 2 is allocated to TrustZone SecureWorld (JR2DID[TZ]=1), then the SMVBA, IRBAR, IRSR, IRSAR, IRJAR, ORBAR, ORSR, ORJRR, ORSFR and JRSTAR registers for Job Ring 2 can be written only via a bus transaction that has ns=0.
   };
+  
   enum class eStart_JR3 : uint32_t {
     eJR3_STOP_MODE = 0, // Stop Mode. The JR3DID register and the SMVBA register for Job Ring 3 can be written but the IRBAR, IRSR, IRSAR, IRJAR, ORBAR, ORSR, ORJRR, ORSFR and JRSTAR for Job Ring 3 are NOT accessible. If Job Ring 3 is allocated to TrustZone SecureWorld (JR3DID[TZ]=1), the JR3DID and SMVBA register can be written only via a bus transaction that has ns=0.
     eJR3_START_MODE = 1, // Start Mode. The JR3DID register and the SMVBA register for Job Ring 3 CANNOT be written but the IRBAR, IRSR, IRSAR, IRJAR, ORBAR, ORSR, ORJRR, ORSFR and JRSTAR for Job Ring 3 ARE accessible. If Job Ring 3 is allocated to TrustZone SecureWorld (JR3DID[TZ]=1), then the SMVBA, IRBAR, IRSR, IRSAR, IRJAR, ORBAR, ORSR, ORJRR, ORSFR and JRSTAR registers for Job Ring 3 can be written only via a bus transaction that has ns=0.
@@ -167,7 +166,7 @@ union JRSTARTR {
     eStart_JR2 Start_JR2 : 1;
     eStart_JR3 Start_JR3 : 1;
     uint32_t _reserved_end : 28;
-  } bits;          // Bit-field struct (auto-filling reserved gaps)
+  } bits;
   
   // Full 32-bit register value.
   uint32_t value;
@@ -181,15 +180,13 @@ union JRSTARTR {
 //
 union RTIC_OWN {
   
-  // Enum definitions.
-  
   // Bit field definition.
   struct {
     uint32_t ROWN_DID : 4;
     uint32_t ROWN_TZ : 1;
     uint32_t _reserved_2 : 26;
     uint32_t LCK : 1;
-  } bits;          // Bit-field struct (auto-filling reserved gaps)
+  } bits;
   
   // Full 32-bit register value.
   uint32_t value;
@@ -203,14 +200,12 @@ union RTIC_OWN {
 //
 union DECORSR {
   
-  // Enum definitions.
-  
   // Bit field definition.
   struct {
     uint32_t JR : 2;
     uint32_t _reserved_1 : 29;
     uint32_t VALID : 1;
-  } bits;          // Bit-field struct (auto-filling reserved gaps)
+  } bits;
   
   // Full 32-bit register value.
   uint32_t value;
@@ -224,15 +219,13 @@ union DECORSR {
 //
 union DECORR {
   
-  // Enum definitions.
-  
   // Bit field definition.
   struct {
     uint32_t RQD0 : 1;
     uint32_t _reserved_1 : 15;
     uint32_t DEN0 : 1;
     uint32_t _reserved_end : 15;
-  } bits;          // Bit-field struct (auto-filling reserved gaps)
+  } bits;
   
   // Full 32-bit register value.
   uint32_t value;
@@ -246,15 +239,13 @@ union DECORR {
 //
 union DECO0DID_MS {
   
-  // Enum definitions.
-  
   // Bit field definition.
   struct {
     uint32_t DPRIM_DID : 4;
     uint32_t D_NS : 1;
     uint32_t _reserved_2 : 26;
     uint32_t LCK : 1;
-  } bits;          // Bit-field struct (auto-filling reserved gaps)
+  } bits;
   
   // Full 32-bit register value.
   uint32_t value;
@@ -268,8 +259,6 @@ union DECO0DID_MS {
 //
 union DECO0DID_LS {
   
-  // Enum definitions.
-  
   // Bit field definition.
   struct {
     uint32_t DSEQ_DID : 4;
@@ -278,7 +267,7 @@ union DECO0DID_LS {
     uint32_t DNSEQ_DID : 4;
     uint32_t DNONSEQ_NS : 1;
     uint32_t _reserved_end : 11;
-  } bits;          // Bit-field struct (auto-filling reserved gaps)
+  } bits;
   
   // Full 32-bit register value.
   uint32_t value;
@@ -292,13 +281,11 @@ union DECO0DID_LS {
 //
 union DAR {
   
-  // Enum definitions.
-  
   // Bit field definition.
   struct {
     uint32_t NYA0 : 1;
     uint32_t _reserved_end : 31;
-  } bits;          // Bit-field struct (auto-filling reserved gaps)
+  } bits;
   
   // Full 32-bit register value.
   uint32_t value;
@@ -312,13 +299,11 @@ union DAR {
 //
 union DRR {
   
-  // Enum definitions.
-  
   // Bit field definition.
   struct {
     uint32_t RST0 : 1;
     uint32_t _reserved_end : 31;
-  } bits;          // Bit-field struct (auto-filling reserved gaps)
+  } bits;
   
   // Full 32-bit register value.
   uint32_t value;
@@ -332,13 +317,11 @@ union DRR {
 //
 union PBSL {
   
-  // Enum definitions.
-  
   // Bit field definition.
   struct {
     uint32_t PBSL : 7;
     uint32_t _reserved_end : 25;
-  } bits;          // Bit-field struct (auto-filling reserved gaps)
+  } bits;
   
   // Full 32-bit register value.
   uint32_t value;
@@ -352,15 +335,13 @@ union PBSL {
 //
 union DMA0_AIDL_MAP_MS {
   
-  // Enum definitions.
-  
   // Bit field definition.
   struct {
     uint32_t AID4_BID : 8;
     uint32_t AID5_BID : 8;
     uint32_t AID6_BID : 8;
     uint32_t AID7_BID : 8;
-  } bits;          // Bit-field struct (auto-filling reserved gaps)
+  } bits;
   
   // Full 32-bit register value.
   uint32_t value;
@@ -374,15 +355,13 @@ union DMA0_AIDL_MAP_MS {
 //
 union DMA0_AIDL_MAP_LS {
   
-  // Enum definitions.
-  
   // Bit field definition.
   struct {
     uint32_t AID0_BID : 8;
     uint32_t AID1_BID : 8;
     uint32_t AID2_BID : 8;
     uint32_t AID3_BID : 8;
-  } bits;          // Bit-field struct (auto-filling reserved gaps)
+  } bits;
   
   // Full 32-bit register value.
   uint32_t value;
@@ -396,15 +375,13 @@ union DMA0_AIDL_MAP_LS {
 //
 union DMA0_AIDM_MAP_MS {
   
-  // Enum definitions.
-  
   // Bit field definition.
   struct {
     uint32_t AID12_BID : 8;
     uint32_t AID13_BID : 8;
     uint32_t AID14_BID : 8;
     uint32_t AID15_BID : 8;
-  } bits;          // Bit-field struct (auto-filling reserved gaps)
+  } bits;
   
   // Full 32-bit register value.
   uint32_t value;
@@ -418,15 +395,13 @@ union DMA0_AIDM_MAP_MS {
 //
 union DMA0_AIDM_MAP_LS {
   
-  // Enum definitions.
-  
   // Bit field definition.
   struct {
     uint32_t AID8_BID : 8;
     uint32_t AID9_BID : 8;
     uint32_t AID10_BID : 8;
     uint32_t AID11_BID : 8;
-  } bits;          // Bit-field struct (auto-filling reserved gaps)
+  } bits;
   
   // Full 32-bit register value.
   uint32_t value;
@@ -440,8 +415,6 @@ union DMA0_AIDM_MAP_LS {
 //
 union DMA0_AID_ENB {
   
-  // Enum definitions.
-  
   // Bit field definition.
   struct {
     uint32_t AID0E : 1;
@@ -461,7 +434,7 @@ union DMA0_AID_ENB {
     uint32_t AID14E : 1;
     uint32_t AID15E : 1;
     uint32_t _reserved_end : 16;
-  } bits;          // Bit-field struct (auto-filling reserved gaps)
+  } bits;
   
   // Full 32-bit register value.
   uint32_t value;
@@ -475,8 +448,6 @@ union DMA0_AID_ENB {
 //
 union DMA0_ARD_TC {
   
-  // Enum definitions.
-  
   // Bit field definition.
   struct {
     uint32_t ARSC : 20;
@@ -488,7 +459,7 @@ union DMA0_ARD_TC {
     uint32_t ARTT : 1;
     uint32_t ARCT : 1;
     uint32_t ARTCE : 1;
-  } bits;          // Bit-field struct (auto-filling reserved gaps)
+  } bits;
   
   // Full 32-bit register value.
   uint32_t value;
@@ -502,12 +473,10 @@ union DMA0_ARD_TC {
 //
 union DMA0_ARD_LAT {
   
-  // Enum definitions.
-  
   // Bit field definition.
   struct {
     uint32_t SARL : 32;
-  } bits;          // Bit-field struct (auto-filling reserved gaps)
+  } bits;
   
   // Full 32-bit register value.
   uint32_t value;
@@ -521,8 +490,6 @@ union DMA0_ARD_LAT {
 //
 union DMA0_AWR_TC {
   
-  // Enum definitions.
-  
   // Bit field definition.
   struct {
     uint32_t AWSC : 20;
@@ -534,7 +501,7 @@ union DMA0_AWR_TC {
     uint32_t AWTT : 1;
     uint32_t AWCT : 1;
     uint32_t AWTCE : 1;
-  } bits;          // Bit-field struct (auto-filling reserved gaps)
+  } bits;
   
   // Full 32-bit register value.
   uint32_t value;
@@ -548,12 +515,10 @@ union DMA0_AWR_TC {
 //
 union DMA0_AWR_LAT {
   
-  // Enum definitions.
-  
   // Bit field definition.
   struct {
     uint32_t SAWL : 32;
-  } bits;          // Bit-field struct (auto-filling reserved gaps)
+  } bits;
   
   // Full 32-bit register value.
   uint32_t value;
@@ -567,13 +532,11 @@ union DMA0_AWR_LAT {
 //
 union MPPKR[0] {
   
-  // Enum definitions.
-  
   // Bit field definition.
   struct {
     uint32_t MPPrivK : 8;
     uint32_t _reserved_end : 24;
-  } bits;          // Bit-field struct (auto-filling reserved gaps)
+  } bits;
   
   // Full 32-bit register value.
   uint32_t value;
@@ -586,13 +549,11 @@ union MPPKR[0] {
 //
 union MPPKR[1] {
   
-  // Enum definitions.
-  
   // Bit field definition.
   struct {
     uint32_t MPPrivK : 8;
     uint32_t _reserved_end : 24;
-  } bits;          // Bit-field struct (auto-filling reserved gaps)
+  } bits;
   
   // Full 32-bit register value.
   uint32_t value;
@@ -605,13 +566,11 @@ union MPPKR[1] {
 //
 union MPPKR[2] {
   
-  // Enum definitions.
-  
   // Bit field definition.
   struct {
     uint32_t MPPrivK : 8;
     uint32_t _reserved_end : 24;
-  } bits;          // Bit-field struct (auto-filling reserved gaps)
+  } bits;
   
   // Full 32-bit register value.
   uint32_t value;
@@ -624,13 +583,11 @@ union MPPKR[2] {
 //
 union MPPKR[3] {
   
-  // Enum definitions.
-  
   // Bit field definition.
   struct {
     uint32_t MPPrivK : 8;
     uint32_t _reserved_end : 24;
-  } bits;          // Bit-field struct (auto-filling reserved gaps)
+  } bits;
   
   // Full 32-bit register value.
   uint32_t value;
@@ -643,13 +600,11 @@ union MPPKR[3] {
 //
 union MPPKR[4] {
   
-  // Enum definitions.
-  
   // Bit field definition.
   struct {
     uint32_t MPPrivK : 8;
     uint32_t _reserved_end : 24;
-  } bits;          // Bit-field struct (auto-filling reserved gaps)
+  } bits;
   
   // Full 32-bit register value.
   uint32_t value;
@@ -662,13 +617,11 @@ union MPPKR[4] {
 //
 union MPPKR[5] {
   
-  // Enum definitions.
-  
   // Bit field definition.
   struct {
     uint32_t MPPrivK : 8;
     uint32_t _reserved_end : 24;
-  } bits;          // Bit-field struct (auto-filling reserved gaps)
+  } bits;
   
   // Full 32-bit register value.
   uint32_t value;
@@ -681,13 +634,11 @@ union MPPKR[5] {
 //
 union MPPKR[6] {
   
-  // Enum definitions.
-  
   // Bit field definition.
   struct {
     uint32_t MPPrivK : 8;
     uint32_t _reserved_end : 24;
-  } bits;          // Bit-field struct (auto-filling reserved gaps)
+  } bits;
   
   // Full 32-bit register value.
   uint32_t value;
@@ -700,13 +651,11 @@ union MPPKR[6] {
 //
 union MPPKR[7] {
   
-  // Enum definitions.
-  
   // Bit field definition.
   struct {
     uint32_t MPPrivK : 8;
     uint32_t _reserved_end : 24;
-  } bits;          // Bit-field struct (auto-filling reserved gaps)
+  } bits;
   
   // Full 32-bit register value.
   uint32_t value;
@@ -719,13 +668,11 @@ union MPPKR[7] {
 //
 union MPPKR[8] {
   
-  // Enum definitions.
-  
   // Bit field definition.
   struct {
     uint32_t MPPrivK : 8;
     uint32_t _reserved_end : 24;
-  } bits;          // Bit-field struct (auto-filling reserved gaps)
+  } bits;
   
   // Full 32-bit register value.
   uint32_t value;
@@ -738,13 +685,11 @@ union MPPKR[8] {
 //
 union MPPKR[9] {
   
-  // Enum definitions.
-  
   // Bit field definition.
   struct {
     uint32_t MPPrivK : 8;
     uint32_t _reserved_end : 24;
-  } bits;          // Bit-field struct (auto-filling reserved gaps)
+  } bits;
   
   // Full 32-bit register value.
   uint32_t value;
@@ -757,13 +702,11 @@ union MPPKR[9] {
 //
 union MPPKR[10] {
   
-  // Enum definitions.
-  
   // Bit field definition.
   struct {
     uint32_t MPPrivK : 8;
     uint32_t _reserved_end : 24;
-  } bits;          // Bit-field struct (auto-filling reserved gaps)
+  } bits;
   
   // Full 32-bit register value.
   uint32_t value;
@@ -776,13 +719,11 @@ union MPPKR[10] {
 //
 union MPPKR[11] {
   
-  // Enum definitions.
-  
   // Bit field definition.
   struct {
     uint32_t MPPrivK : 8;
     uint32_t _reserved_end : 24;
-  } bits;          // Bit-field struct (auto-filling reserved gaps)
+  } bits;
   
   // Full 32-bit register value.
   uint32_t value;
@@ -795,13 +736,11 @@ union MPPKR[11] {
 //
 union MPPKR[12] {
   
-  // Enum definitions.
-  
   // Bit field definition.
   struct {
     uint32_t MPPrivK : 8;
     uint32_t _reserved_end : 24;
-  } bits;          // Bit-field struct (auto-filling reserved gaps)
+  } bits;
   
   // Full 32-bit register value.
   uint32_t value;
@@ -814,13 +753,11 @@ union MPPKR[12] {
 //
 union MPPKR[13] {
   
-  // Enum definitions.
-  
   // Bit field definition.
   struct {
     uint32_t MPPrivK : 8;
     uint32_t _reserved_end : 24;
-  } bits;          // Bit-field struct (auto-filling reserved gaps)
+  } bits;
   
   // Full 32-bit register value.
   uint32_t value;
@@ -833,13 +770,11 @@ union MPPKR[13] {
 //
 union MPPKR[14] {
   
-  // Enum definitions.
-  
   // Bit field definition.
   struct {
     uint32_t MPPrivK : 8;
     uint32_t _reserved_end : 24;
-  } bits;          // Bit-field struct (auto-filling reserved gaps)
+  } bits;
   
   // Full 32-bit register value.
   uint32_t value;
@@ -852,13 +787,11 @@ union MPPKR[14] {
 //
 union MPPKR[15] {
   
-  // Enum definitions.
-  
   // Bit field definition.
   struct {
     uint32_t MPPrivK : 8;
     uint32_t _reserved_end : 24;
-  } bits;          // Bit-field struct (auto-filling reserved gaps)
+  } bits;
   
   // Full 32-bit register value.
   uint32_t value;
@@ -871,13 +804,11 @@ union MPPKR[15] {
 //
 union MPPKR[16] {
   
-  // Enum definitions.
-  
   // Bit field definition.
   struct {
     uint32_t MPPrivK : 8;
     uint32_t _reserved_end : 24;
-  } bits;          // Bit-field struct (auto-filling reserved gaps)
+  } bits;
   
   // Full 32-bit register value.
   uint32_t value;
@@ -890,13 +821,11 @@ union MPPKR[16] {
 //
 union MPPKR[17] {
   
-  // Enum definitions.
-  
   // Bit field definition.
   struct {
     uint32_t MPPrivK : 8;
     uint32_t _reserved_end : 24;
-  } bits;          // Bit-field struct (auto-filling reserved gaps)
+  } bits;
   
   // Full 32-bit register value.
   uint32_t value;
@@ -909,13 +838,11 @@ union MPPKR[17] {
 //
 union MPPKR[18] {
   
-  // Enum definitions.
-  
   // Bit field definition.
   struct {
     uint32_t MPPrivK : 8;
     uint32_t _reserved_end : 24;
-  } bits;          // Bit-field struct (auto-filling reserved gaps)
+  } bits;
   
   // Full 32-bit register value.
   uint32_t value;
@@ -928,13 +855,11 @@ union MPPKR[18] {
 //
 union MPPKR[19] {
   
-  // Enum definitions.
-  
   // Bit field definition.
   struct {
     uint32_t MPPrivK : 8;
     uint32_t _reserved_end : 24;
-  } bits;          // Bit-field struct (auto-filling reserved gaps)
+  } bits;
   
   // Full 32-bit register value.
   uint32_t value;
@@ -947,13 +872,11 @@ union MPPKR[19] {
 //
 union MPPKR[20] {
   
-  // Enum definitions.
-  
   // Bit field definition.
   struct {
     uint32_t MPPrivK : 8;
     uint32_t _reserved_end : 24;
-  } bits;          // Bit-field struct (auto-filling reserved gaps)
+  } bits;
   
   // Full 32-bit register value.
   uint32_t value;
@@ -966,13 +889,11 @@ union MPPKR[20] {
 //
 union MPPKR[21] {
   
-  // Enum definitions.
-  
   // Bit field definition.
   struct {
     uint32_t MPPrivK : 8;
     uint32_t _reserved_end : 24;
-  } bits;          // Bit-field struct (auto-filling reserved gaps)
+  } bits;
   
   // Full 32-bit register value.
   uint32_t value;
@@ -985,13 +906,11 @@ union MPPKR[21] {
 //
 union MPPKR[22] {
   
-  // Enum definitions.
-  
   // Bit field definition.
   struct {
     uint32_t MPPrivK : 8;
     uint32_t _reserved_end : 24;
-  } bits;          // Bit-field struct (auto-filling reserved gaps)
+  } bits;
   
   // Full 32-bit register value.
   uint32_t value;
@@ -1004,13 +923,11 @@ union MPPKR[22] {
 //
 union MPPKR[23] {
   
-  // Enum definitions.
-  
   // Bit field definition.
   struct {
     uint32_t MPPrivK : 8;
     uint32_t _reserved_end : 24;
-  } bits;          // Bit-field struct (auto-filling reserved gaps)
+  } bits;
   
   // Full 32-bit register value.
   uint32_t value;
@@ -1023,13 +940,11 @@ union MPPKR[23] {
 //
 union MPPKR[24] {
   
-  // Enum definitions.
-  
   // Bit field definition.
   struct {
     uint32_t MPPrivK : 8;
     uint32_t _reserved_end : 24;
-  } bits;          // Bit-field struct (auto-filling reserved gaps)
+  } bits;
   
   // Full 32-bit register value.
   uint32_t value;
@@ -1042,13 +957,11 @@ union MPPKR[24] {
 //
 union MPPKR[25] {
   
-  // Enum definitions.
-  
   // Bit field definition.
   struct {
     uint32_t MPPrivK : 8;
     uint32_t _reserved_end : 24;
-  } bits;          // Bit-field struct (auto-filling reserved gaps)
+  } bits;
   
   // Full 32-bit register value.
   uint32_t value;
@@ -1061,13 +974,11 @@ union MPPKR[25] {
 //
 union MPPKR[26] {
   
-  // Enum definitions.
-  
   // Bit field definition.
   struct {
     uint32_t MPPrivK : 8;
     uint32_t _reserved_end : 24;
-  } bits;          // Bit-field struct (auto-filling reserved gaps)
+  } bits;
   
   // Full 32-bit register value.
   uint32_t value;
@@ -1080,13 +991,11 @@ union MPPKR[26] {
 //
 union MPPKR[27] {
   
-  // Enum definitions.
-  
   // Bit field definition.
   struct {
     uint32_t MPPrivK : 8;
     uint32_t _reserved_end : 24;
-  } bits;          // Bit-field struct (auto-filling reserved gaps)
+  } bits;
   
   // Full 32-bit register value.
   uint32_t value;
@@ -1099,13 +1008,11 @@ union MPPKR[27] {
 //
 union MPPKR[28] {
   
-  // Enum definitions.
-  
   // Bit field definition.
   struct {
     uint32_t MPPrivK : 8;
     uint32_t _reserved_end : 24;
-  } bits;          // Bit-field struct (auto-filling reserved gaps)
+  } bits;
   
   // Full 32-bit register value.
   uint32_t value;
@@ -1118,13 +1025,11 @@ union MPPKR[28] {
 //
 union MPPKR[29] {
   
-  // Enum definitions.
-  
   // Bit field definition.
   struct {
     uint32_t MPPrivK : 8;
     uint32_t _reserved_end : 24;
-  } bits;          // Bit-field struct (auto-filling reserved gaps)
+  } bits;
   
   // Full 32-bit register value.
   uint32_t value;
@@ -1137,13 +1042,11 @@ union MPPKR[29] {
 //
 union MPPKR[30] {
   
-  // Enum definitions.
-  
   // Bit field definition.
   struct {
     uint32_t MPPrivK : 8;
     uint32_t _reserved_end : 24;
-  } bits;          // Bit-field struct (auto-filling reserved gaps)
+  } bits;
   
   // Full 32-bit register value.
   uint32_t value;
@@ -1156,13 +1059,11 @@ union MPPKR[30] {
 //
 union MPPKR[31] {
   
-  // Enum definitions.
-  
   // Bit field definition.
   struct {
     uint32_t MPPrivK : 8;
     uint32_t _reserved_end : 24;
-  } bits;          // Bit-field struct (auto-filling reserved gaps)
+  } bits;
   
   // Full 32-bit register value.
   uint32_t value;
@@ -1175,13 +1076,11 @@ union MPPKR[31] {
 //
 union MPPKR[32] {
   
-  // Enum definitions.
-  
   // Bit field definition.
   struct {
     uint32_t MPPrivK : 8;
     uint32_t _reserved_end : 24;
-  } bits;          // Bit-field struct (auto-filling reserved gaps)
+  } bits;
   
   // Full 32-bit register value.
   uint32_t value;
@@ -1194,13 +1093,11 @@ union MPPKR[32] {
 //
 union MPPKR[33] {
   
-  // Enum definitions.
-  
   // Bit field definition.
   struct {
     uint32_t MPPrivK : 8;
     uint32_t _reserved_end : 24;
-  } bits;          // Bit-field struct (auto-filling reserved gaps)
+  } bits;
   
   // Full 32-bit register value.
   uint32_t value;
@@ -1213,13 +1110,11 @@ union MPPKR[33] {
 //
 union MPPKR[34] {
   
-  // Enum definitions.
-  
   // Bit field definition.
   struct {
     uint32_t MPPrivK : 8;
     uint32_t _reserved_end : 24;
-  } bits;          // Bit-field struct (auto-filling reserved gaps)
+  } bits;
   
   // Full 32-bit register value.
   uint32_t value;
@@ -1232,13 +1127,11 @@ union MPPKR[34] {
 //
 union MPPKR[35] {
   
-  // Enum definitions.
-  
   // Bit field definition.
   struct {
     uint32_t MPPrivK : 8;
     uint32_t _reserved_end : 24;
-  } bits;          // Bit-field struct (auto-filling reserved gaps)
+  } bits;
   
   // Full 32-bit register value.
   uint32_t value;
@@ -1251,13 +1144,11 @@ union MPPKR[35] {
 //
 union MPPKR[36] {
   
-  // Enum definitions.
-  
   // Bit field definition.
   struct {
     uint32_t MPPrivK : 8;
     uint32_t _reserved_end : 24;
-  } bits;          // Bit-field struct (auto-filling reserved gaps)
+  } bits;
   
   // Full 32-bit register value.
   uint32_t value;
@@ -1270,13 +1161,11 @@ union MPPKR[36] {
 //
 union MPPKR[37] {
   
-  // Enum definitions.
-  
   // Bit field definition.
   struct {
     uint32_t MPPrivK : 8;
     uint32_t _reserved_end : 24;
-  } bits;          // Bit-field struct (auto-filling reserved gaps)
+  } bits;
   
   // Full 32-bit register value.
   uint32_t value;
@@ -1289,13 +1178,11 @@ union MPPKR[37] {
 //
 union MPPKR[38] {
   
-  // Enum definitions.
-  
   // Bit field definition.
   struct {
     uint32_t MPPrivK : 8;
     uint32_t _reserved_end : 24;
-  } bits;          // Bit-field struct (auto-filling reserved gaps)
+  } bits;
   
   // Full 32-bit register value.
   uint32_t value;
@@ -1308,13 +1195,11 @@ union MPPKR[38] {
 //
 union MPPKR[39] {
   
-  // Enum definitions.
-  
   // Bit field definition.
   struct {
     uint32_t MPPrivK : 8;
     uint32_t _reserved_end : 24;
-  } bits;          // Bit-field struct (auto-filling reserved gaps)
+  } bits;
   
   // Full 32-bit register value.
   uint32_t value;
@@ -1327,13 +1212,11 @@ union MPPKR[39] {
 //
 union MPPKR[40] {
   
-  // Enum definitions.
-  
   // Bit field definition.
   struct {
     uint32_t MPPrivK : 8;
     uint32_t _reserved_end : 24;
-  } bits;          // Bit-field struct (auto-filling reserved gaps)
+  } bits;
   
   // Full 32-bit register value.
   uint32_t value;
@@ -1346,13 +1229,11 @@ union MPPKR[40] {
 //
 union MPPKR[41] {
   
-  // Enum definitions.
-  
   // Bit field definition.
   struct {
     uint32_t MPPrivK : 8;
     uint32_t _reserved_end : 24;
-  } bits;          // Bit-field struct (auto-filling reserved gaps)
+  } bits;
   
   // Full 32-bit register value.
   uint32_t value;
@@ -1365,13 +1246,11 @@ union MPPKR[41] {
 //
 union MPPKR[42] {
   
-  // Enum definitions.
-  
   // Bit field definition.
   struct {
     uint32_t MPPrivK : 8;
     uint32_t _reserved_end : 24;
-  } bits;          // Bit-field struct (auto-filling reserved gaps)
+  } bits;
   
   // Full 32-bit register value.
   uint32_t value;
@@ -1384,13 +1263,11 @@ union MPPKR[42] {
 //
 union MPPKR[43] {
   
-  // Enum definitions.
-  
   // Bit field definition.
   struct {
     uint32_t MPPrivK : 8;
     uint32_t _reserved_end : 24;
-  } bits;          // Bit-field struct (auto-filling reserved gaps)
+  } bits;
   
   // Full 32-bit register value.
   uint32_t value;
@@ -1403,13 +1280,11 @@ union MPPKR[43] {
 //
 union MPPKR[44] {
   
-  // Enum definitions.
-  
   // Bit field definition.
   struct {
     uint32_t MPPrivK : 8;
     uint32_t _reserved_end : 24;
-  } bits;          // Bit-field struct (auto-filling reserved gaps)
+  } bits;
   
   // Full 32-bit register value.
   uint32_t value;
@@ -1422,13 +1297,11 @@ union MPPKR[44] {
 //
 union MPPKR[45] {
   
-  // Enum definitions.
-  
   // Bit field definition.
   struct {
     uint32_t MPPrivK : 8;
     uint32_t _reserved_end : 24;
-  } bits;          // Bit-field struct (auto-filling reserved gaps)
+  } bits;
   
   // Full 32-bit register value.
   uint32_t value;
@@ -1441,13 +1314,11 @@ union MPPKR[45] {
 //
 union MPPKR[46] {
   
-  // Enum definitions.
-  
   // Bit field definition.
   struct {
     uint32_t MPPrivK : 8;
     uint32_t _reserved_end : 24;
-  } bits;          // Bit-field struct (auto-filling reserved gaps)
+  } bits;
   
   // Full 32-bit register value.
   uint32_t value;
@@ -1460,13 +1331,11 @@ union MPPKR[46] {
 //
 union MPPKR[47] {
   
-  // Enum definitions.
-  
   // Bit field definition.
   struct {
     uint32_t MPPrivK : 8;
     uint32_t _reserved_end : 24;
-  } bits;          // Bit-field struct (auto-filling reserved gaps)
+  } bits;
   
   // Full 32-bit register value.
   uint32_t value;
@@ -1479,13 +1348,11 @@ union MPPKR[47] {
 //
 union MPPKR[48] {
   
-  // Enum definitions.
-  
   // Bit field definition.
   struct {
     uint32_t MPPrivK : 8;
     uint32_t _reserved_end : 24;
-  } bits;          // Bit-field struct (auto-filling reserved gaps)
+  } bits;
   
   // Full 32-bit register value.
   uint32_t value;
@@ -1498,13 +1365,11 @@ union MPPKR[48] {
 //
 union MPPKR[49] {
   
-  // Enum definitions.
-  
   // Bit field definition.
   struct {
     uint32_t MPPrivK : 8;
     uint32_t _reserved_end : 24;
-  } bits;          // Bit-field struct (auto-filling reserved gaps)
+  } bits;
   
   // Full 32-bit register value.
   uint32_t value;
@@ -1517,13 +1382,11 @@ union MPPKR[49] {
 //
 union MPPKR[50] {
   
-  // Enum definitions.
-  
   // Bit field definition.
   struct {
     uint32_t MPPrivK : 8;
     uint32_t _reserved_end : 24;
-  } bits;          // Bit-field struct (auto-filling reserved gaps)
+  } bits;
   
   // Full 32-bit register value.
   uint32_t value;
@@ -1536,13 +1399,11 @@ union MPPKR[50] {
 //
 union MPPKR[51] {
   
-  // Enum definitions.
-  
   // Bit field definition.
   struct {
     uint32_t MPPrivK : 8;
     uint32_t _reserved_end : 24;
-  } bits;          // Bit-field struct (auto-filling reserved gaps)
+  } bits;
   
   // Full 32-bit register value.
   uint32_t value;
@@ -1555,13 +1416,11 @@ union MPPKR[51] {
 //
 union MPPKR[52] {
   
-  // Enum definitions.
-  
   // Bit field definition.
   struct {
     uint32_t MPPrivK : 8;
     uint32_t _reserved_end : 24;
-  } bits;          // Bit-field struct (auto-filling reserved gaps)
+  } bits;
   
   // Full 32-bit register value.
   uint32_t value;
@@ -1574,13 +1433,11 @@ union MPPKR[52] {
 //
 union MPPKR[53] {
   
-  // Enum definitions.
-  
   // Bit field definition.
   struct {
     uint32_t MPPrivK : 8;
     uint32_t _reserved_end : 24;
-  } bits;          // Bit-field struct (auto-filling reserved gaps)
+  } bits;
   
   // Full 32-bit register value.
   uint32_t value;
@@ -1593,13 +1450,11 @@ union MPPKR[53] {
 //
 union MPPKR[54] {
   
-  // Enum definitions.
-  
   // Bit field definition.
   struct {
     uint32_t MPPrivK : 8;
     uint32_t _reserved_end : 24;
-  } bits;          // Bit-field struct (auto-filling reserved gaps)
+  } bits;
   
   // Full 32-bit register value.
   uint32_t value;
@@ -1612,13 +1467,11 @@ union MPPKR[54] {
 //
 union MPPKR[55] {
   
-  // Enum definitions.
-  
   // Bit field definition.
   struct {
     uint32_t MPPrivK : 8;
     uint32_t _reserved_end : 24;
-  } bits;          // Bit-field struct (auto-filling reserved gaps)
+  } bits;
   
   // Full 32-bit register value.
   uint32_t value;
@@ -1631,13 +1484,11 @@ union MPPKR[55] {
 //
 union MPPKR[56] {
   
-  // Enum definitions.
-  
   // Bit field definition.
   struct {
     uint32_t MPPrivK : 8;
     uint32_t _reserved_end : 24;
-  } bits;          // Bit-field struct (auto-filling reserved gaps)
+  } bits;
   
   // Full 32-bit register value.
   uint32_t value;
@@ -1650,13 +1501,11 @@ union MPPKR[56] {
 //
 union MPPKR[57] {
   
-  // Enum definitions.
-  
   // Bit field definition.
   struct {
     uint32_t MPPrivK : 8;
     uint32_t _reserved_end : 24;
-  } bits;          // Bit-field struct (auto-filling reserved gaps)
+  } bits;
   
   // Full 32-bit register value.
   uint32_t value;
@@ -1669,13 +1518,11 @@ union MPPKR[57] {
 //
 union MPPKR[58] {
   
-  // Enum definitions.
-  
   // Bit field definition.
   struct {
     uint32_t MPPrivK : 8;
     uint32_t _reserved_end : 24;
-  } bits;          // Bit-field struct (auto-filling reserved gaps)
+  } bits;
   
   // Full 32-bit register value.
   uint32_t value;
@@ -1688,13 +1535,11 @@ union MPPKR[58] {
 //
 union MPPKR[59] {
   
-  // Enum definitions.
-  
   // Bit field definition.
   struct {
     uint32_t MPPrivK : 8;
     uint32_t _reserved_end : 24;
-  } bits;          // Bit-field struct (auto-filling reserved gaps)
+  } bits;
   
   // Full 32-bit register value.
   uint32_t value;
@@ -1707,13 +1552,11 @@ union MPPKR[59] {
 //
 union MPPKR[60] {
   
-  // Enum definitions.
-  
   // Bit field definition.
   struct {
     uint32_t MPPrivK : 8;
     uint32_t _reserved_end : 24;
-  } bits;          // Bit-field struct (auto-filling reserved gaps)
+  } bits;
   
   // Full 32-bit register value.
   uint32_t value;
@@ -1726,13 +1569,11 @@ union MPPKR[60] {
 //
 union MPPKR[61] {
   
-  // Enum definitions.
-  
   // Bit field definition.
   struct {
     uint32_t MPPrivK : 8;
     uint32_t _reserved_end : 24;
-  } bits;          // Bit-field struct (auto-filling reserved gaps)
+  } bits;
   
   // Full 32-bit register value.
   uint32_t value;
@@ -1745,13 +1586,11 @@ union MPPKR[61] {
 //
 union MPPKR[62] {
   
-  // Enum definitions.
-  
   // Bit field definition.
   struct {
     uint32_t MPPrivK : 8;
     uint32_t _reserved_end : 24;
-  } bits;          // Bit-field struct (auto-filling reserved gaps)
+  } bits;
   
   // Full 32-bit register value.
   uint32_t value;
@@ -1764,13 +1603,11 @@ union MPPKR[62] {
 //
 union MPPKR[63] {
   
-  // Enum definitions.
-  
   // Bit field definition.
   struct {
     uint32_t MPPrivK : 8;
     uint32_t _reserved_end : 24;
-  } bits;          // Bit-field struct (auto-filling reserved gaps)
+  } bits;
   
   // Full 32-bit register value.
   uint32_t value;
@@ -1784,13 +1621,11 @@ union MPPKR[63] {
 //
 union MPMR[0] {
   
-  // Enum definitions.
-  
   // Bit field definition.
   struct {
     uint32_t MPMSG : 8;
     uint32_t _reserved_end : 24;
-  } bits;          // Bit-field struct (auto-filling reserved gaps)
+  } bits;
   
   // Full 32-bit register value.
   uint32_t value;
@@ -1803,13 +1638,11 @@ union MPMR[0] {
 //
 union MPMR[1] {
   
-  // Enum definitions.
-  
   // Bit field definition.
   struct {
     uint32_t MPMSG : 8;
     uint32_t _reserved_end : 24;
-  } bits;          // Bit-field struct (auto-filling reserved gaps)
+  } bits;
   
   // Full 32-bit register value.
   uint32_t value;
@@ -1822,13 +1655,11 @@ union MPMR[1] {
 //
 union MPMR[2] {
   
-  // Enum definitions.
-  
   // Bit field definition.
   struct {
     uint32_t MPMSG : 8;
     uint32_t _reserved_end : 24;
-  } bits;          // Bit-field struct (auto-filling reserved gaps)
+  } bits;
   
   // Full 32-bit register value.
   uint32_t value;
@@ -1841,13 +1672,11 @@ union MPMR[2] {
 //
 union MPMR[3] {
   
-  // Enum definitions.
-  
   // Bit field definition.
   struct {
     uint32_t MPMSG : 8;
     uint32_t _reserved_end : 24;
-  } bits;          // Bit-field struct (auto-filling reserved gaps)
+  } bits;
   
   // Full 32-bit register value.
   uint32_t value;
@@ -1860,13 +1689,11 @@ union MPMR[3] {
 //
 union MPMR[4] {
   
-  // Enum definitions.
-  
   // Bit field definition.
   struct {
     uint32_t MPMSG : 8;
     uint32_t _reserved_end : 24;
-  } bits;          // Bit-field struct (auto-filling reserved gaps)
+  } bits;
   
   // Full 32-bit register value.
   uint32_t value;
@@ -1879,13 +1706,11 @@ union MPMR[4] {
 //
 union MPMR[5] {
   
-  // Enum definitions.
-  
   // Bit field definition.
   struct {
     uint32_t MPMSG : 8;
     uint32_t _reserved_end : 24;
-  } bits;          // Bit-field struct (auto-filling reserved gaps)
+  } bits;
   
   // Full 32-bit register value.
   uint32_t value;
@@ -1898,13 +1723,11 @@ union MPMR[5] {
 //
 union MPMR[6] {
   
-  // Enum definitions.
-  
   // Bit field definition.
   struct {
     uint32_t MPMSG : 8;
     uint32_t _reserved_end : 24;
-  } bits;          // Bit-field struct (auto-filling reserved gaps)
+  } bits;
   
   // Full 32-bit register value.
   uint32_t value;
@@ -1917,13 +1740,11 @@ union MPMR[6] {
 //
 union MPMR[7] {
   
-  // Enum definitions.
-  
   // Bit field definition.
   struct {
     uint32_t MPMSG : 8;
     uint32_t _reserved_end : 24;
-  } bits;          // Bit-field struct (auto-filling reserved gaps)
+  } bits;
   
   // Full 32-bit register value.
   uint32_t value;
@@ -1936,13 +1757,11 @@ union MPMR[7] {
 //
 union MPMR[8] {
   
-  // Enum definitions.
-  
   // Bit field definition.
   struct {
     uint32_t MPMSG : 8;
     uint32_t _reserved_end : 24;
-  } bits;          // Bit-field struct (auto-filling reserved gaps)
+  } bits;
   
   // Full 32-bit register value.
   uint32_t value;
@@ -1955,13 +1774,11 @@ union MPMR[8] {
 //
 union MPMR[9] {
   
-  // Enum definitions.
-  
   // Bit field definition.
   struct {
     uint32_t MPMSG : 8;
     uint32_t _reserved_end : 24;
-  } bits;          // Bit-field struct (auto-filling reserved gaps)
+  } bits;
   
   // Full 32-bit register value.
   uint32_t value;
@@ -1974,13 +1791,11 @@ union MPMR[9] {
 //
 union MPMR[10] {
   
-  // Enum definitions.
-  
   // Bit field definition.
   struct {
     uint32_t MPMSG : 8;
     uint32_t _reserved_end : 24;
-  } bits;          // Bit-field struct (auto-filling reserved gaps)
+  } bits;
   
   // Full 32-bit register value.
   uint32_t value;
@@ -1993,13 +1808,11 @@ union MPMR[10] {
 //
 union MPMR[11] {
   
-  // Enum definitions.
-  
   // Bit field definition.
   struct {
     uint32_t MPMSG : 8;
     uint32_t _reserved_end : 24;
-  } bits;          // Bit-field struct (auto-filling reserved gaps)
+  } bits;
   
   // Full 32-bit register value.
   uint32_t value;
@@ -2012,13 +1825,11 @@ union MPMR[11] {
 //
 union MPMR[12] {
   
-  // Enum definitions.
-  
   // Bit field definition.
   struct {
     uint32_t MPMSG : 8;
     uint32_t _reserved_end : 24;
-  } bits;          // Bit-field struct (auto-filling reserved gaps)
+  } bits;
   
   // Full 32-bit register value.
   uint32_t value;
@@ -2031,13 +1842,11 @@ union MPMR[12] {
 //
 union MPMR[13] {
   
-  // Enum definitions.
-  
   // Bit field definition.
   struct {
     uint32_t MPMSG : 8;
     uint32_t _reserved_end : 24;
-  } bits;          // Bit-field struct (auto-filling reserved gaps)
+  } bits;
   
   // Full 32-bit register value.
   uint32_t value;
@@ -2050,13 +1859,11 @@ union MPMR[13] {
 //
 union MPMR[14] {
   
-  // Enum definitions.
-  
   // Bit field definition.
   struct {
     uint32_t MPMSG : 8;
     uint32_t _reserved_end : 24;
-  } bits;          // Bit-field struct (auto-filling reserved gaps)
+  } bits;
   
   // Full 32-bit register value.
   uint32_t value;
@@ -2069,13 +1876,11 @@ union MPMR[14] {
 //
 union MPMR[15] {
   
-  // Enum definitions.
-  
   // Bit field definition.
   struct {
     uint32_t MPMSG : 8;
     uint32_t _reserved_end : 24;
-  } bits;          // Bit-field struct (auto-filling reserved gaps)
+  } bits;
   
   // Full 32-bit register value.
   uint32_t value;
@@ -2088,13 +1893,11 @@ union MPMR[15] {
 //
 union MPMR[16] {
   
-  // Enum definitions.
-  
   // Bit field definition.
   struct {
     uint32_t MPMSG : 8;
     uint32_t _reserved_end : 24;
-  } bits;          // Bit-field struct (auto-filling reserved gaps)
+  } bits;
   
   // Full 32-bit register value.
   uint32_t value;
@@ -2107,13 +1910,11 @@ union MPMR[16] {
 //
 union MPMR[17] {
   
-  // Enum definitions.
-  
   // Bit field definition.
   struct {
     uint32_t MPMSG : 8;
     uint32_t _reserved_end : 24;
-  } bits;          // Bit-field struct (auto-filling reserved gaps)
+  } bits;
   
   // Full 32-bit register value.
   uint32_t value;
@@ -2126,13 +1927,11 @@ union MPMR[17] {
 //
 union MPMR[18] {
   
-  // Enum definitions.
-  
   // Bit field definition.
   struct {
     uint32_t MPMSG : 8;
     uint32_t _reserved_end : 24;
-  } bits;          // Bit-field struct (auto-filling reserved gaps)
+  } bits;
   
   // Full 32-bit register value.
   uint32_t value;
@@ -2145,13 +1944,11 @@ union MPMR[18] {
 //
 union MPMR[19] {
   
-  // Enum definitions.
-  
   // Bit field definition.
   struct {
     uint32_t MPMSG : 8;
     uint32_t _reserved_end : 24;
-  } bits;          // Bit-field struct (auto-filling reserved gaps)
+  } bits;
   
   // Full 32-bit register value.
   uint32_t value;
@@ -2164,13 +1961,11 @@ union MPMR[19] {
 //
 union MPMR[20] {
   
-  // Enum definitions.
-  
   // Bit field definition.
   struct {
     uint32_t MPMSG : 8;
     uint32_t _reserved_end : 24;
-  } bits;          // Bit-field struct (auto-filling reserved gaps)
+  } bits;
   
   // Full 32-bit register value.
   uint32_t value;
@@ -2183,13 +1978,11 @@ union MPMR[20] {
 //
 union MPMR[21] {
   
-  // Enum definitions.
-  
   // Bit field definition.
   struct {
     uint32_t MPMSG : 8;
     uint32_t _reserved_end : 24;
-  } bits;          // Bit-field struct (auto-filling reserved gaps)
+  } bits;
   
   // Full 32-bit register value.
   uint32_t value;
@@ -2202,13 +1995,11 @@ union MPMR[21] {
 //
 union MPMR[22] {
   
-  // Enum definitions.
-  
   // Bit field definition.
   struct {
     uint32_t MPMSG : 8;
     uint32_t _reserved_end : 24;
-  } bits;          // Bit-field struct (auto-filling reserved gaps)
+  } bits;
   
   // Full 32-bit register value.
   uint32_t value;
@@ -2221,13 +2012,11 @@ union MPMR[22] {
 //
 union MPMR[23] {
   
-  // Enum definitions.
-  
   // Bit field definition.
   struct {
     uint32_t MPMSG : 8;
     uint32_t _reserved_end : 24;
-  } bits;          // Bit-field struct (auto-filling reserved gaps)
+  } bits;
   
   // Full 32-bit register value.
   uint32_t value;
@@ -2240,13 +2029,11 @@ union MPMR[23] {
 //
 union MPMR[24] {
   
-  // Enum definitions.
-  
   // Bit field definition.
   struct {
     uint32_t MPMSG : 8;
     uint32_t _reserved_end : 24;
-  } bits;          // Bit-field struct (auto-filling reserved gaps)
+  } bits;
   
   // Full 32-bit register value.
   uint32_t value;
@@ -2259,13 +2046,11 @@ union MPMR[24] {
 //
 union MPMR[25] {
   
-  // Enum definitions.
-  
   // Bit field definition.
   struct {
     uint32_t MPMSG : 8;
     uint32_t _reserved_end : 24;
-  } bits;          // Bit-field struct (auto-filling reserved gaps)
+  } bits;
   
   // Full 32-bit register value.
   uint32_t value;
@@ -2278,13 +2063,11 @@ union MPMR[25] {
 //
 union MPMR[26] {
   
-  // Enum definitions.
-  
   // Bit field definition.
   struct {
     uint32_t MPMSG : 8;
     uint32_t _reserved_end : 24;
-  } bits;          // Bit-field struct (auto-filling reserved gaps)
+  } bits;
   
   // Full 32-bit register value.
   uint32_t value;
@@ -2297,13 +2080,11 @@ union MPMR[26] {
 //
 union MPMR[27] {
   
-  // Enum definitions.
-  
   // Bit field definition.
   struct {
     uint32_t MPMSG : 8;
     uint32_t _reserved_end : 24;
-  } bits;          // Bit-field struct (auto-filling reserved gaps)
+  } bits;
   
   // Full 32-bit register value.
   uint32_t value;
@@ -2316,13 +2097,11 @@ union MPMR[27] {
 //
 union MPMR[28] {
   
-  // Enum definitions.
-  
   // Bit field definition.
   struct {
     uint32_t MPMSG : 8;
     uint32_t _reserved_end : 24;
-  } bits;          // Bit-field struct (auto-filling reserved gaps)
+  } bits;
   
   // Full 32-bit register value.
   uint32_t value;
@@ -2335,13 +2114,11 @@ union MPMR[28] {
 //
 union MPMR[29] {
   
-  // Enum definitions.
-  
   // Bit field definition.
   struct {
     uint32_t MPMSG : 8;
     uint32_t _reserved_end : 24;
-  } bits;          // Bit-field struct (auto-filling reserved gaps)
+  } bits;
   
   // Full 32-bit register value.
   uint32_t value;
@@ -2354,13 +2131,11 @@ union MPMR[29] {
 //
 union MPMR[30] {
   
-  // Enum definitions.
-  
   // Bit field definition.
   struct {
     uint32_t MPMSG : 8;
     uint32_t _reserved_end : 24;
-  } bits;          // Bit-field struct (auto-filling reserved gaps)
+  } bits;
   
   // Full 32-bit register value.
   uint32_t value;
@@ -2373,13 +2148,11 @@ union MPMR[30] {
 //
 union MPMR[31] {
   
-  // Enum definitions.
-  
   // Bit field definition.
   struct {
     uint32_t MPMSG : 8;
     uint32_t _reserved_end : 24;
-  } bits;          // Bit-field struct (auto-filling reserved gaps)
+  } bits;
   
   // Full 32-bit register value.
   uint32_t value;
@@ -2393,13 +2166,11 @@ union MPMR[31] {
 //
 union MPTESTR[0] {
   
-  // Enum definitions.
-  
   // Bit field definition.
   struct {
     uint32_t TEST_VALUE : 8;
     uint32_t _reserved_end : 24;
-  } bits;          // Bit-field struct (auto-filling reserved gaps)
+  } bits;
   
   // Full 32-bit register value.
   uint32_t value;
@@ -2412,13 +2183,11 @@ union MPTESTR[0] {
 //
 union MPTESTR[1] {
   
-  // Enum definitions.
-  
   // Bit field definition.
   struct {
     uint32_t TEST_VALUE : 8;
     uint32_t _reserved_end : 24;
-  } bits;          // Bit-field struct (auto-filling reserved gaps)
+  } bits;
   
   // Full 32-bit register value.
   uint32_t value;
@@ -2431,13 +2200,11 @@ union MPTESTR[1] {
 //
 union MPTESTR[2] {
   
-  // Enum definitions.
-  
   // Bit field definition.
   struct {
     uint32_t TEST_VALUE : 8;
     uint32_t _reserved_end : 24;
-  } bits;          // Bit-field struct (auto-filling reserved gaps)
+  } bits;
   
   // Full 32-bit register value.
   uint32_t value;
@@ -2450,13 +2217,11 @@ union MPTESTR[2] {
 //
 union MPTESTR[3] {
   
-  // Enum definitions.
-  
   // Bit field definition.
   struct {
     uint32_t TEST_VALUE : 8;
     uint32_t _reserved_end : 24;
-  } bits;          // Bit-field struct (auto-filling reserved gaps)
+  } bits;
   
   // Full 32-bit register value.
   uint32_t value;
@@ -2469,13 +2234,11 @@ union MPTESTR[3] {
 //
 union MPTESTR[4] {
   
-  // Enum definitions.
-  
   // Bit field definition.
   struct {
     uint32_t TEST_VALUE : 8;
     uint32_t _reserved_end : 24;
-  } bits;          // Bit-field struct (auto-filling reserved gaps)
+  } bits;
   
   // Full 32-bit register value.
   uint32_t value;
@@ -2488,13 +2251,11 @@ union MPTESTR[4] {
 //
 union MPTESTR[5] {
   
-  // Enum definitions.
-  
   // Bit field definition.
   struct {
     uint32_t TEST_VALUE : 8;
     uint32_t _reserved_end : 24;
-  } bits;          // Bit-field struct (auto-filling reserved gaps)
+  } bits;
   
   // Full 32-bit register value.
   uint32_t value;
@@ -2507,13 +2268,11 @@ union MPTESTR[5] {
 //
 union MPTESTR[6] {
   
-  // Enum definitions.
-  
   // Bit field definition.
   struct {
     uint32_t TEST_VALUE : 8;
     uint32_t _reserved_end : 24;
-  } bits;          // Bit-field struct (auto-filling reserved gaps)
+  } bits;
   
   // Full 32-bit register value.
   uint32_t value;
@@ -2526,13 +2285,11 @@ union MPTESTR[6] {
 //
 union MPTESTR[7] {
   
-  // Enum definitions.
-  
   // Bit field definition.
   struct {
     uint32_t TEST_VALUE : 8;
     uint32_t _reserved_end : 24;
-  } bits;          // Bit-field struct (auto-filling reserved gaps)
+  } bits;
   
   // Full 32-bit register value.
   uint32_t value;
@@ -2545,13 +2302,11 @@ union MPTESTR[7] {
 //
 union MPTESTR[8] {
   
-  // Enum definitions.
-  
   // Bit field definition.
   struct {
     uint32_t TEST_VALUE : 8;
     uint32_t _reserved_end : 24;
-  } bits;          // Bit-field struct (auto-filling reserved gaps)
+  } bits;
   
   // Full 32-bit register value.
   uint32_t value;
@@ -2564,13 +2319,11 @@ union MPTESTR[8] {
 //
 union MPTESTR[9] {
   
-  // Enum definitions.
-  
   // Bit field definition.
   struct {
     uint32_t TEST_VALUE : 8;
     uint32_t _reserved_end : 24;
-  } bits;          // Bit-field struct (auto-filling reserved gaps)
+  } bits;
   
   // Full 32-bit register value.
   uint32_t value;
@@ -2583,13 +2336,11 @@ union MPTESTR[9] {
 //
 union MPTESTR[10] {
   
-  // Enum definitions.
-  
   // Bit field definition.
   struct {
     uint32_t TEST_VALUE : 8;
     uint32_t _reserved_end : 24;
-  } bits;          // Bit-field struct (auto-filling reserved gaps)
+  } bits;
   
   // Full 32-bit register value.
   uint32_t value;
@@ -2602,13 +2353,11 @@ union MPTESTR[10] {
 //
 union MPTESTR[11] {
   
-  // Enum definitions.
-  
   // Bit field definition.
   struct {
     uint32_t TEST_VALUE : 8;
     uint32_t _reserved_end : 24;
-  } bits;          // Bit-field struct (auto-filling reserved gaps)
+  } bits;
   
   // Full 32-bit register value.
   uint32_t value;
@@ -2621,13 +2370,11 @@ union MPTESTR[11] {
 //
 union MPTESTR[12] {
   
-  // Enum definitions.
-  
   // Bit field definition.
   struct {
     uint32_t TEST_VALUE : 8;
     uint32_t _reserved_end : 24;
-  } bits;          // Bit-field struct (auto-filling reserved gaps)
+  } bits;
   
   // Full 32-bit register value.
   uint32_t value;
@@ -2640,13 +2387,11 @@ union MPTESTR[12] {
 //
 union MPTESTR[13] {
   
-  // Enum definitions.
-  
   // Bit field definition.
   struct {
     uint32_t TEST_VALUE : 8;
     uint32_t _reserved_end : 24;
-  } bits;          // Bit-field struct (auto-filling reserved gaps)
+  } bits;
   
   // Full 32-bit register value.
   uint32_t value;
@@ -2659,13 +2404,11 @@ union MPTESTR[13] {
 //
 union MPTESTR[14] {
   
-  // Enum definitions.
-  
   // Bit field definition.
   struct {
     uint32_t TEST_VALUE : 8;
     uint32_t _reserved_end : 24;
-  } bits;          // Bit-field struct (auto-filling reserved gaps)
+  } bits;
   
   // Full 32-bit register value.
   uint32_t value;
@@ -2678,13 +2421,11 @@ union MPTESTR[14] {
 //
 union MPTESTR[15] {
   
-  // Enum definitions.
-  
   // Bit field definition.
   struct {
     uint32_t TEST_VALUE : 8;
     uint32_t _reserved_end : 24;
-  } bits;          // Bit-field struct (auto-filling reserved gaps)
+  } bits;
   
   // Full 32-bit register value.
   uint32_t value;
@@ -2697,13 +2438,11 @@ union MPTESTR[15] {
 //
 union MPTESTR[16] {
   
-  // Enum definitions.
-  
   // Bit field definition.
   struct {
     uint32_t TEST_VALUE : 8;
     uint32_t _reserved_end : 24;
-  } bits;          // Bit-field struct (auto-filling reserved gaps)
+  } bits;
   
   // Full 32-bit register value.
   uint32_t value;
@@ -2716,13 +2455,11 @@ union MPTESTR[16] {
 //
 union MPTESTR[17] {
   
-  // Enum definitions.
-  
   // Bit field definition.
   struct {
     uint32_t TEST_VALUE : 8;
     uint32_t _reserved_end : 24;
-  } bits;          // Bit-field struct (auto-filling reserved gaps)
+  } bits;
   
   // Full 32-bit register value.
   uint32_t value;
@@ -2735,13 +2472,11 @@ union MPTESTR[17] {
 //
 union MPTESTR[18] {
   
-  // Enum definitions.
-  
   // Bit field definition.
   struct {
     uint32_t TEST_VALUE : 8;
     uint32_t _reserved_end : 24;
-  } bits;          // Bit-field struct (auto-filling reserved gaps)
+  } bits;
   
   // Full 32-bit register value.
   uint32_t value;
@@ -2754,13 +2489,11 @@ union MPTESTR[18] {
 //
 union MPTESTR[19] {
   
-  // Enum definitions.
-  
   // Bit field definition.
   struct {
     uint32_t TEST_VALUE : 8;
     uint32_t _reserved_end : 24;
-  } bits;          // Bit-field struct (auto-filling reserved gaps)
+  } bits;
   
   // Full 32-bit register value.
   uint32_t value;
@@ -2773,13 +2506,11 @@ union MPTESTR[19] {
 //
 union MPTESTR[20] {
   
-  // Enum definitions.
-  
   // Bit field definition.
   struct {
     uint32_t TEST_VALUE : 8;
     uint32_t _reserved_end : 24;
-  } bits;          // Bit-field struct (auto-filling reserved gaps)
+  } bits;
   
   // Full 32-bit register value.
   uint32_t value;
@@ -2792,13 +2523,11 @@ union MPTESTR[20] {
 //
 union MPTESTR[21] {
   
-  // Enum definitions.
-  
   // Bit field definition.
   struct {
     uint32_t TEST_VALUE : 8;
     uint32_t _reserved_end : 24;
-  } bits;          // Bit-field struct (auto-filling reserved gaps)
+  } bits;
   
   // Full 32-bit register value.
   uint32_t value;
@@ -2811,13 +2540,11 @@ union MPTESTR[21] {
 //
 union MPTESTR[22] {
   
-  // Enum definitions.
-  
   // Bit field definition.
   struct {
     uint32_t TEST_VALUE : 8;
     uint32_t _reserved_end : 24;
-  } bits;          // Bit-field struct (auto-filling reserved gaps)
+  } bits;
   
   // Full 32-bit register value.
   uint32_t value;
@@ -2830,13 +2557,11 @@ union MPTESTR[22] {
 //
 union MPTESTR[23] {
   
-  // Enum definitions.
-  
   // Bit field definition.
   struct {
     uint32_t TEST_VALUE : 8;
     uint32_t _reserved_end : 24;
-  } bits;          // Bit-field struct (auto-filling reserved gaps)
+  } bits;
   
   // Full 32-bit register value.
   uint32_t value;
@@ -2849,13 +2574,11 @@ union MPTESTR[23] {
 //
 union MPTESTR[24] {
   
-  // Enum definitions.
-  
   // Bit field definition.
   struct {
     uint32_t TEST_VALUE : 8;
     uint32_t _reserved_end : 24;
-  } bits;          // Bit-field struct (auto-filling reserved gaps)
+  } bits;
   
   // Full 32-bit register value.
   uint32_t value;
@@ -2868,13 +2591,11 @@ union MPTESTR[24] {
 //
 union MPTESTR[25] {
   
-  // Enum definitions.
-  
   // Bit field definition.
   struct {
     uint32_t TEST_VALUE : 8;
     uint32_t _reserved_end : 24;
-  } bits;          // Bit-field struct (auto-filling reserved gaps)
+  } bits;
   
   // Full 32-bit register value.
   uint32_t value;
@@ -2887,13 +2608,11 @@ union MPTESTR[25] {
 //
 union MPTESTR[26] {
   
-  // Enum definitions.
-  
   // Bit field definition.
   struct {
     uint32_t TEST_VALUE : 8;
     uint32_t _reserved_end : 24;
-  } bits;          // Bit-field struct (auto-filling reserved gaps)
+  } bits;
   
   // Full 32-bit register value.
   uint32_t value;
@@ -2906,13 +2625,11 @@ union MPTESTR[26] {
 //
 union MPTESTR[27] {
   
-  // Enum definitions.
-  
   // Bit field definition.
   struct {
     uint32_t TEST_VALUE : 8;
     uint32_t _reserved_end : 24;
-  } bits;          // Bit-field struct (auto-filling reserved gaps)
+  } bits;
   
   // Full 32-bit register value.
   uint32_t value;
@@ -2925,13 +2642,11 @@ union MPTESTR[27] {
 //
 union MPTESTR[28] {
   
-  // Enum definitions.
-  
   // Bit field definition.
   struct {
     uint32_t TEST_VALUE : 8;
     uint32_t _reserved_end : 24;
-  } bits;          // Bit-field struct (auto-filling reserved gaps)
+  } bits;
   
   // Full 32-bit register value.
   uint32_t value;
@@ -2944,13 +2659,11 @@ union MPTESTR[28] {
 //
 union MPTESTR[29] {
   
-  // Enum definitions.
-  
   // Bit field definition.
   struct {
     uint32_t TEST_VALUE : 8;
     uint32_t _reserved_end : 24;
-  } bits;          // Bit-field struct (auto-filling reserved gaps)
+  } bits;
   
   // Full 32-bit register value.
   uint32_t value;
@@ -2963,13 +2676,11 @@ union MPTESTR[29] {
 //
 union MPTESTR[30] {
   
-  // Enum definitions.
-  
   // Bit field definition.
   struct {
     uint32_t TEST_VALUE : 8;
     uint32_t _reserved_end : 24;
-  } bits;          // Bit-field struct (auto-filling reserved gaps)
+  } bits;
   
   // Full 32-bit register value.
   uint32_t value;
@@ -2982,13 +2693,11 @@ union MPTESTR[30] {
 //
 union MPTESTR[31] {
   
-  // Enum definitions.
-  
   // Bit field definition.
   struct {
     uint32_t TEST_VALUE : 8;
     uint32_t _reserved_end : 24;
-  } bits;          // Bit-field struct (auto-filling reserved gaps)
+  } bits;
   
   // Full 32-bit register value.
   uint32_t value;
@@ -3002,7 +2711,6 @@ union MPTESTR[31] {
 //
 union MPECC {
   
-  // Enum definitions.
   enum class eMP_SYNDROME : uint32_t {
     eKEYOK = 0, // The MP Key in the SFP passes the ECC check.
     eKEYBAD = 1, // The MP Key in the SFP fails the ECC check, and this is the ECC failure syndrome.
@@ -3015,6 +2723,7 @@ union MPECC {
     eKEYBAD = 8, // The MP Key in the SFP fails the ECC check, and this is the ECC failure syndrome.
     eKEYBAD = 9, // The MP Key in the SFP fails the ECC check, and this is the ECC failure syndrome.
   };
+  
   enum class eMP_ZERO : uint32_t {
     eNONZERO = 0, // The MP Key in the SFP has a non-zero value.
     eALLZERO = 1, // The MP Key in the SFP is all zeros (unprogrammed).
@@ -3027,7 +2736,7 @@ union MPECC {
     uint32_t _reserved_1 : 2;
     eMP_ZERO MP_ZERO : 1;
     uint32_t _reserved_end : 4;
-  } bits;          // Bit-field struct (auto-filling reserved gaps)
+  } bits;
   
   // Full 32-bit register value.
   uint32_t value;
@@ -3041,12 +2750,10 @@ union MPECC {
 //
 union JDKEKR[0] {
   
-  // Enum definitions.
-  
   // Bit field definition.
   struct {
     uint32_t JDKEK : 32;
-  } bits;          // Bit-field struct (auto-filling reserved gaps)
+  } bits;
   
   // Full 32-bit register value.
   uint32_t value;
@@ -3059,12 +2766,10 @@ union JDKEKR[0] {
 //
 union JDKEKR[1] {
   
-  // Enum definitions.
-  
   // Bit field definition.
   struct {
     uint32_t JDKEK : 32;
-  } bits;          // Bit-field struct (auto-filling reserved gaps)
+  } bits;
   
   // Full 32-bit register value.
   uint32_t value;
@@ -3077,12 +2782,10 @@ union JDKEKR[1] {
 //
 union JDKEKR[2] {
   
-  // Enum definitions.
-  
   // Bit field definition.
   struct {
     uint32_t JDKEK : 32;
-  } bits;          // Bit-field struct (auto-filling reserved gaps)
+  } bits;
   
   // Full 32-bit register value.
   uint32_t value;
@@ -3095,12 +2798,10 @@ union JDKEKR[2] {
 //
 union JDKEKR[3] {
   
-  // Enum definitions.
-  
   // Bit field definition.
   struct {
     uint32_t JDKEK : 32;
-  } bits;          // Bit-field struct (auto-filling reserved gaps)
+  } bits;
   
   // Full 32-bit register value.
   uint32_t value;
@@ -3113,12 +2814,10 @@ union JDKEKR[3] {
 //
 union JDKEKR[4] {
   
-  // Enum definitions.
-  
   // Bit field definition.
   struct {
     uint32_t JDKEK : 32;
-  } bits;          // Bit-field struct (auto-filling reserved gaps)
+  } bits;
   
   // Full 32-bit register value.
   uint32_t value;
@@ -3131,12 +2830,10 @@ union JDKEKR[4] {
 //
 union JDKEKR[5] {
   
-  // Enum definitions.
-  
   // Bit field definition.
   struct {
     uint32_t JDKEK : 32;
-  } bits;          // Bit-field struct (auto-filling reserved gaps)
+  } bits;
   
   // Full 32-bit register value.
   uint32_t value;
@@ -3149,12 +2846,10 @@ union JDKEKR[5] {
 //
 union JDKEKR[6] {
   
-  // Enum definitions.
-  
   // Bit field definition.
   struct {
     uint32_t JDKEK : 32;
-  } bits;          // Bit-field struct (auto-filling reserved gaps)
+  } bits;
   
   // Full 32-bit register value.
   uint32_t value;
@@ -3167,12 +2862,10 @@ union JDKEKR[6] {
 //
 union JDKEKR[7] {
   
-  // Enum definitions.
-  
   // Bit field definition.
   struct {
     uint32_t JDKEK : 32;
-  } bits;          // Bit-field struct (auto-filling reserved gaps)
+  } bits;
   
   // Full 32-bit register value.
   uint32_t value;
@@ -3186,12 +2879,10 @@ union JDKEKR[7] {
 //
 union TDKEKR[0] {
   
-  // Enum definitions.
-  
   // Bit field definition.
   struct {
     uint32_t TDKEK : 32;
-  } bits;          // Bit-field struct (auto-filling reserved gaps)
+  } bits;
   
   // Full 32-bit register value.
   uint32_t value;
@@ -3204,12 +2895,10 @@ union TDKEKR[0] {
 //
 union TDKEKR[1] {
   
-  // Enum definitions.
-  
   // Bit field definition.
   struct {
     uint32_t TDKEK : 32;
-  } bits;          // Bit-field struct (auto-filling reserved gaps)
+  } bits;
   
   // Full 32-bit register value.
   uint32_t value;
@@ -3222,12 +2911,10 @@ union TDKEKR[1] {
 //
 union TDKEKR[2] {
   
-  // Enum definitions.
-  
   // Bit field definition.
   struct {
     uint32_t TDKEK : 32;
-  } bits;          // Bit-field struct (auto-filling reserved gaps)
+  } bits;
   
   // Full 32-bit register value.
   uint32_t value;
@@ -3240,12 +2927,10 @@ union TDKEKR[2] {
 //
 union TDKEKR[3] {
   
-  // Enum definitions.
-  
   // Bit field definition.
   struct {
     uint32_t TDKEK : 32;
-  } bits;          // Bit-field struct (auto-filling reserved gaps)
+  } bits;
   
   // Full 32-bit register value.
   uint32_t value;
@@ -3258,12 +2943,10 @@ union TDKEKR[3] {
 //
 union TDKEKR[4] {
   
-  // Enum definitions.
-  
   // Bit field definition.
   struct {
     uint32_t TDKEK : 32;
-  } bits;          // Bit-field struct (auto-filling reserved gaps)
+  } bits;
   
   // Full 32-bit register value.
   uint32_t value;
@@ -3276,12 +2959,10 @@ union TDKEKR[4] {
 //
 union TDKEKR[5] {
   
-  // Enum definitions.
-  
   // Bit field definition.
   struct {
     uint32_t TDKEK : 32;
-  } bits;          // Bit-field struct (auto-filling reserved gaps)
+  } bits;
   
   // Full 32-bit register value.
   uint32_t value;
@@ -3294,12 +2975,10 @@ union TDKEKR[5] {
 //
 union TDKEKR[6] {
   
-  // Enum definitions.
-  
   // Bit field definition.
   struct {
     uint32_t TDKEK : 32;
-  } bits;          // Bit-field struct (auto-filling reserved gaps)
+  } bits;
   
   // Full 32-bit register value.
   uint32_t value;
@@ -3312,12 +2991,10 @@ union TDKEKR[6] {
 //
 union TDKEKR[7] {
   
-  // Enum definitions.
-  
   // Bit field definition.
   struct {
     uint32_t TDKEK : 32;
-  } bits;          // Bit-field struct (auto-filling reserved gaps)
+  } bits;
   
   // Full 32-bit register value.
   uint32_t value;
@@ -3331,12 +3008,10 @@ union TDKEKR[7] {
 //
 union TDSKR[0] {
   
-  // Enum definitions.
-  
   // Bit field definition.
   struct {
     uint32_t TDSK : 32;
-  } bits;          // Bit-field struct (auto-filling reserved gaps)
+  } bits;
   
   // Full 32-bit register value.
   uint32_t value;
@@ -3349,12 +3024,10 @@ union TDSKR[0] {
 //
 union TDSKR[1] {
   
-  // Enum definitions.
-  
   // Bit field definition.
   struct {
     uint32_t TDSK : 32;
-  } bits;          // Bit-field struct (auto-filling reserved gaps)
+  } bits;
   
   // Full 32-bit register value.
   uint32_t value;
@@ -3367,12 +3040,10 @@ union TDSKR[1] {
 //
 union TDSKR[2] {
   
-  // Enum definitions.
-  
   // Bit field definition.
   struct {
     uint32_t TDSK : 32;
-  } bits;          // Bit-field struct (auto-filling reserved gaps)
+  } bits;
   
   // Full 32-bit register value.
   uint32_t value;
@@ -3385,12 +3056,10 @@ union TDSKR[2] {
 //
 union TDSKR[3] {
   
-  // Enum definitions.
-  
   // Bit field definition.
   struct {
     uint32_t TDSK : 32;
-  } bits;          // Bit-field struct (auto-filling reserved gaps)
+  } bits;
   
   // Full 32-bit register value.
   uint32_t value;
@@ -3403,12 +3072,10 @@ union TDSKR[3] {
 //
 union TDSKR[4] {
   
-  // Enum definitions.
-  
   // Bit field definition.
   struct {
     uint32_t TDSK : 32;
-  } bits;          // Bit-field struct (auto-filling reserved gaps)
+  } bits;
   
   // Full 32-bit register value.
   uint32_t value;
@@ -3421,12 +3088,10 @@ union TDSKR[4] {
 //
 union TDSKR[5] {
   
-  // Enum definitions.
-  
   // Bit field definition.
   struct {
     uint32_t TDSK : 32;
-  } bits;          // Bit-field struct (auto-filling reserved gaps)
+  } bits;
   
   // Full 32-bit register value.
   uint32_t value;
@@ -3439,12 +3104,10 @@ union TDSKR[5] {
 //
 union TDSKR[6] {
   
-  // Enum definitions.
-  
   // Bit field definition.
   struct {
     uint32_t TDSK : 32;
-  } bits;          // Bit-field struct (auto-filling reserved gaps)
+  } bits;
   
   // Full 32-bit register value.
   uint32_t value;
@@ -3457,12 +3120,10 @@ union TDSKR[6] {
 //
 union TDSKR[7] {
   
-  // Enum definitions.
-  
   // Bit field definition.
   struct {
     uint32_t TDSK : 32;
-  } bits;          // Bit-field struct (auto-filling reserved gaps)
+  } bits;
   
   // Full 32-bit register value.
   uint32_t value;
@@ -3476,13 +3137,11 @@ union TDSKR[7] {
 //
 union SKNR {
   
-  // Enum definitions.
-  
   // Bit field definition.
   struct {
     uint32_t SK_NONCE_LS : 32;
     uint32_t SK_NONCE_MS : 15;
-  } bits;          // Bit-field struct (auto-filling reserved gaps)
+  } bits;
   
   // Full 32-bit register value.
   uint32_t value;
@@ -3496,8 +3155,6 @@ union SKNR {
 //
 union DMA_STA {
   
-  // Enum definitions.
-  
   // Bit field definition.
   struct {
     uint32_t DMA0_ETIF : 5;
@@ -3505,7 +3162,7 @@ union DMA_STA {
     uint32_t _reserved_2 : 1;
     uint32_t DMA0_IDLE : 1;
     uint32_t _reserved_end : 24;
-  } bits;          // Bit-field struct (auto-filling reserved gaps)
+  } bits;
   
   // Full 32-bit register value.
   uint32_t value;
@@ -3519,15 +3176,13 @@ union DMA_STA {
 //
 union DMA_X_AID_7_4_MAP {
   
-  // Enum definitions.
-  
   // Bit field definition.
   struct {
     uint32_t AID4_BID : 8;
     uint32_t AID5_BID : 8;
     uint32_t AID6_BID : 8;
     uint32_t AID7_BID : 8;
-  } bits;          // Bit-field struct (auto-filling reserved gaps)
+  } bits;
   
   // Full 32-bit register value.
   uint32_t value;
@@ -3541,15 +3196,13 @@ union DMA_X_AID_7_4_MAP {
 //
 union DMA_X_AID_3_0_MAP {
   
-  // Enum definitions.
-  
   // Bit field definition.
   struct {
     uint32_t AID0_BID : 8;
     uint32_t AID1_BID : 8;
     uint32_t AID2_BID : 8;
     uint32_t AID3_BID : 8;
-  } bits;          // Bit-field struct (auto-filling reserved gaps)
+  } bits;
   
   // Full 32-bit register value.
   uint32_t value;
@@ -3563,15 +3216,13 @@ union DMA_X_AID_3_0_MAP {
 //
 union DMA_X_AID_15_12_MAP {
   
-  // Enum definitions.
-  
   // Bit field definition.
   struct {
     uint32_t AID12_BID : 8;
     uint32_t AID13_BID : 8;
     uint32_t AID14_BID : 8;
     uint32_t AID15_BID : 8;
-  } bits;          // Bit-field struct (auto-filling reserved gaps)
+  } bits;
   
   // Full 32-bit register value.
   uint32_t value;
@@ -3585,15 +3236,13 @@ union DMA_X_AID_15_12_MAP {
 //
 union DMA_X_AID_11_8_MAP {
   
-  // Enum definitions.
-  
   // Bit field definition.
   struct {
     uint32_t AID8_BID : 8;
     uint32_t AID9_BID : 8;
     uint32_t AID10_BID : 8;
     uint32_t AID11_BID : 8;
-  } bits;          // Bit-field struct (auto-filling reserved gaps)
+  } bits;
   
   // Full 32-bit register value.
   uint32_t value;
@@ -3606,8 +3255,6 @@ union DMA_X_AID_11_8_MAP {
 // DMA_X AXI ID Map Enable Register
 //
 union DMA_X_AID_15_0_EN {
-  
-  // Enum definitions.
   
   // Bit field definition.
   struct {
@@ -3628,7 +3275,7 @@ union DMA_X_AID_15_0_EN {
     uint32_t AID14E : 1;
     uint32_t AID15E : 1;
     uint32_t _reserved_end : 16;
-  } bits;          // Bit-field struct (auto-filling reserved gaps)
+  } bits;
   
   // Full 32-bit register value.
   uint32_t value;
@@ -3642,8 +3289,6 @@ union DMA_X_AID_15_0_EN {
 //
 union DMA_X_ARTC_CTL {
   
-  // Enum definitions.
-  
   // Bit field definition.
   struct {
     uint32_t ART : 12;
@@ -3653,7 +3298,7 @@ union DMA_X_ARTC_CTL {
     uint32_t ARTT : 1;
     uint32_t ARCT : 1;
     uint32_t ARTCE : 1;
-  } bits;          // Bit-field struct (auto-filling reserved gaps)
+  } bits;
   
   // Full 32-bit register value.
   uint32_t value;
@@ -3667,13 +3312,11 @@ union DMA_X_ARTC_CTL {
 //
 union DMA_X_ARTC_LC {
   
-  // Enum definitions.
-  
   // Bit field definition.
   struct {
     uint32_t ARLC : 20;
     uint32_t _reserved_end : 12;
-  } bits;          // Bit-field struct (auto-filling reserved gaps)
+  } bits;
   
   // Full 32-bit register value.
   uint32_t value;
@@ -3687,13 +3330,11 @@ union DMA_X_ARTC_LC {
 //
 union DMA_X_ARTC_SC {
   
-  // Enum definitions.
-  
   // Bit field definition.
   struct {
     uint32_t ARSC : 20;
     uint32_t _reserved_end : 12;
-  } bits;          // Bit-field struct (auto-filling reserved gaps)
+  } bits;
   
   // Full 32-bit register value.
   uint32_t value;
@@ -3707,12 +3348,10 @@ union DMA_X_ARTC_SC {
 //
 union DMA_X_ARTC_LAT {
   
-  // Enum definitions.
-  
   // Bit field definition.
   struct {
     uint32_t SARL : 32;
-  } bits;          // Bit-field struct (auto-filling reserved gaps)
+  } bits;
   
   // Full 32-bit register value.
   uint32_t value;
@@ -3726,8 +3365,6 @@ union DMA_X_ARTC_LAT {
 //
 union DMA_X_AWTC_CTL {
   
-  // Enum definitions.
-  
   // Bit field definition.
   struct {
     uint32_t AWT : 12;
@@ -3737,7 +3374,7 @@ union DMA_X_AWTC_CTL {
     uint32_t AWTT : 1;
     uint32_t AWCT : 1;
     uint32_t AWTCE : 1;
-  } bits;          // Bit-field struct (auto-filling reserved gaps)
+  } bits;
   
   // Full 32-bit register value.
   uint32_t value;
@@ -3751,13 +3388,11 @@ union DMA_X_AWTC_CTL {
 //
 union DMA_X_AWTC_LC {
   
-  // Enum definitions.
-  
   // Bit field definition.
   struct {
     uint32_t AWLC : 20;
     uint32_t _reserved_end : 12;
-  } bits;          // Bit-field struct (auto-filling reserved gaps)
+  } bits;
   
   // Full 32-bit register value.
   uint32_t value;
@@ -3771,13 +3406,11 @@ union DMA_X_AWTC_LC {
 //
 union DMA_X_AWTC_SC {
   
-  // Enum definitions.
-  
   // Bit field definition.
   struct {
     uint32_t AWSC : 20;
     uint32_t _reserved_end : 12;
-  } bits;          // Bit-field struct (auto-filling reserved gaps)
+  } bits;
   
   // Full 32-bit register value.
   uint32_t value;
@@ -3791,12 +3424,10 @@ union DMA_X_AWTC_SC {
 //
 union DMA_X_AWTC_LAT {
   
-  // Enum definitions.
-  
   // Bit field definition.
   struct {
     uint32_t SAWL : 32;
-  } bits;          // Bit-field struct (auto-filling reserved gaps)
+  } bits;
   
   // Full 32-bit register value.
   uint32_t value;
@@ -3810,12 +3441,12 @@ union DMA_X_AWTC_LAT {
 //
 union RTMCTL {
   
-  // Enum definitions.
   enum class eSAMP_MODE : uint32_t {
     eVON_DATA_4_SHIFTER_N_CHECKER = 0, // use Von Neumann data into both Entropy shifter and Statistical Checker
     eRAW_DATA_4_SHIFTER_N_CHECKER = 1, // use raw data into both Entropy shifter and Statistical Checker
     eVON_4_SHIFTER_N_RAW_4_CHECKER = 2, // use Von Neumann data into Entropy shifter. Use raw data into Statistical Checker
   };
+  
   enum class eOSC_DIV : uint32_t {
     eOSC_NOT_DIVIDED = 0, // use ring oscillator with no divide
     eOSC_DIVIDE_BY_2 = 1, // use ring oscillator divided-by-2
@@ -3840,7 +3471,7 @@ union RTMCTL {
     uint32_t _reserved_12 : 2;
     uint32_t PRGM : 1;
     uint32_t _reserved_end : 15;
-  } bits;          // Bit-field struct (auto-filling reserved gaps)
+  } bits;
   
   // Full 32-bit register value.
   uint32_t value;
@@ -3854,15 +3485,13 @@ union RTMCTL {
 //
 union RTSCMISC {
   
-  // Enum definitions.
-  
   // Bit field definition.
   struct {
     uint32_t LRUN_MAX : 8;
     uint32_t _reserved_1 : 8;
     uint32_t RTY_CNT : 4;
     uint32_t _reserved_end : 12;
-  } bits;          // Bit-field struct (auto-filling reserved gaps)
+  } bits;
   
   // Full 32-bit register value.
   uint32_t value;
@@ -3876,13 +3505,11 @@ union RTSCMISC {
 //
 union RTPKRRNG {
   
-  // Enum definitions.
-  
   // Bit field definition.
   struct {
     uint32_t PKR_RNG : 16;
     uint32_t _reserved_end : 16;
-  } bits;          // Bit-field struct (auto-filling reserved gaps)
+  } bits;
   
   // Full 32-bit register value.
   uint32_t value;
@@ -3896,13 +3523,11 @@ union RTPKRRNG {
 //
 union RTPKRMAX {
   
-  // Enum definitions.
-  
   // Bit field definition.
   struct {
     uint32_t PKR_MAX : 24;
     uint32_t _reserved_end : 8;
-  } bits;          // Bit-field struct (auto-filling reserved gaps)
+  } bits;
   
   // Full 32-bit register value.
   uint32_t value;
@@ -3916,13 +3541,11 @@ union RTPKRMAX {
 //
 union RTPKRSQ {
   
-  // Enum definitions.
-  
   // Bit field definition.
   struct {
     uint32_t PKR_SQ : 24;
     uint32_t _reserved_end : 8;
-  } bits;          // Bit-field struct (auto-filling reserved gaps)
+  } bits;
   
   // Full 32-bit register value.
   uint32_t value;
@@ -3936,13 +3559,11 @@ union RTPKRSQ {
 //
 union RTSDCTL {
   
-  // Enum definitions.
-  
   // Bit field definition.
   struct {
     uint32_t SAMP_SIZE : 16;
     uint32_t ENT_DLY : 16;
-  } bits;          // Bit-field struct (auto-filling reserved gaps)
+  } bits;
   
   // Full 32-bit register value.
   uint32_t value;
@@ -3956,13 +3577,11 @@ union RTSDCTL {
 //
 union RTSBLIM {
   
-  // Enum definitions.
-  
   // Bit field definition.
   struct {
     uint32_t SB_LIM : 10;
     uint32_t _reserved_end : 22;
-  } bits;          // Bit-field struct (auto-filling reserved gaps)
+  } bits;
   
   // Full 32-bit register value.
   uint32_t value;
@@ -3976,13 +3595,11 @@ union RTSBLIM {
 //
 union RTTOTSAM {
   
-  // Enum definitions.
-  
   // Bit field definition.
   struct {
     uint32_t TOT_SAM : 20;
     uint32_t _reserved_end : 12;
-  } bits;          // Bit-field struct (auto-filling reserved gaps)
+  } bits;
   
   // Full 32-bit register value.
   uint32_t value;
@@ -3996,13 +3613,11 @@ union RTTOTSAM {
 //
 union RTFRQMIN {
   
-  // Enum definitions.
-  
   // Bit field definition.
   struct {
     uint32_t FRQ_MIN : 22;
     uint32_t _reserved_end : 10;
-  } bits;          // Bit-field struct (auto-filling reserved gaps)
+  } bits;
   
   // Full 32-bit register value.
   uint32_t value;
@@ -4016,13 +3631,11 @@ union RTFRQMIN {
 //
 union RTFRQCNT {
   
-  // Enum definitions.
-  
   // Bit field definition.
   struct {
     uint32_t FRQ_CNT : 22;
     uint32_t _reserved_end : 10;
-  } bits;          // Bit-field struct (auto-filling reserved gaps)
+  } bits;
   
   // Full 32-bit register value.
   uint32_t value;
@@ -4036,13 +3649,11 @@ union RTFRQCNT {
 //
 union RTFRQMAX {
   
-  // Enum definitions.
-  
   // Bit field definition.
   struct {
     uint32_t FRQ_MAX : 22;
     uint32_t _reserved_end : 10;
-  } bits;          // Bit-field struct (auto-filling reserved gaps)
+  } bits;
   
   // Full 32-bit register value.
   uint32_t value;
@@ -4056,13 +3667,11 @@ union RTFRQMAX {
 //
 union RTSCMC {
   
-  // Enum definitions.
-  
   // Bit field definition.
   struct {
     uint32_t MONO_CNT : 16;
     uint32_t _reserved_end : 16;
-  } bits;          // Bit-field struct (auto-filling reserved gaps)
+  } bits;
   
   // Full 32-bit register value.
   uint32_t value;
@@ -4076,13 +3685,11 @@ union RTSCMC {
 //
 union RTSCML {
   
-  // Enum definitions.
-  
   // Bit field definition.
   struct {
     uint32_t MONO_MAX : 16;
     uint32_t MONO_RNG : 16;
-  } bits;          // Bit-field struct (auto-filling reserved gaps)
+  } bits;
   
   // Full 32-bit register value.
   uint32_t value;
@@ -4096,15 +3703,13 @@ union RTSCML {
 //
 union RTSCR1C {
   
-  // Enum definitions.
-  
   // Bit field definition.
   struct {
     uint32_t R1_0_COUNT : 15;
     uint32_t _reserved_1 : 1;
     uint32_t R1_1_COUNT : 15;
     uint32_t _reserved_end : 1;
-  } bits;          // Bit-field struct (auto-filling reserved gaps)
+  } bits;
   
   // Full 32-bit register value.
   uint32_t value;
@@ -4118,15 +3723,13 @@ union RTSCR1C {
 //
 union RTSCR1L {
   
-  // Enum definitions.
-  
   // Bit field definition.
   struct {
     uint32_t RUN1_MAX : 15;
     uint32_t _reserved_1 : 1;
     uint32_t RUN1_RNG : 15;
     uint32_t _reserved_end : 1;
-  } bits;          // Bit-field struct (auto-filling reserved gaps)
+  } bits;
   
   // Full 32-bit register value.
   uint32_t value;
@@ -4140,15 +3743,13 @@ union RTSCR1L {
 //
 union RTSCR2C {
   
-  // Enum definitions.
-  
   // Bit field definition.
   struct {
     uint32_t R2_0_COUNT : 14;
     uint32_t _reserved_1 : 2;
     uint32_t R2_1_COUNT : 14;
     uint32_t _reserved_end : 2;
-  } bits;          // Bit-field struct (auto-filling reserved gaps)
+  } bits;
   
   // Full 32-bit register value.
   uint32_t value;
@@ -4162,15 +3763,13 @@ union RTSCR2C {
 //
 union RTSCR2L {
   
-  // Enum definitions.
-  
   // Bit field definition.
   struct {
     uint32_t RUN2_MAX : 14;
     uint32_t _reserved_1 : 2;
     uint32_t RUN2_RNG : 14;
     uint32_t _reserved_end : 2;
-  } bits;          // Bit-field struct (auto-filling reserved gaps)
+  } bits;
   
   // Full 32-bit register value.
   uint32_t value;
@@ -4184,15 +3783,13 @@ union RTSCR2L {
 //
 union RTSCR3C {
   
-  // Enum definitions.
-  
   // Bit field definition.
   struct {
     uint32_t R3_0_COUNT : 13;
     uint32_t _reserved_1 : 3;
     uint32_t R3_1_COUNT : 13;
     uint32_t _reserved_end : 3;
-  } bits;          // Bit-field struct (auto-filling reserved gaps)
+  } bits;
   
   // Full 32-bit register value.
   uint32_t value;
@@ -4206,15 +3803,13 @@ union RTSCR3C {
 //
 union RTSCR3L {
   
-  // Enum definitions.
-  
   // Bit field definition.
   struct {
     uint32_t RUN3_MAX : 13;
     uint32_t _reserved_1 : 3;
     uint32_t RUN3_RNG : 13;
     uint32_t _reserved_end : 3;
-  } bits;          // Bit-field struct (auto-filling reserved gaps)
+  } bits;
   
   // Full 32-bit register value.
   uint32_t value;
@@ -4228,15 +3823,13 @@ union RTSCR3L {
 //
 union RTSCR4C {
   
-  // Enum definitions.
-  
   // Bit field definition.
   struct {
     uint32_t R4_0_COUNT : 12;
     uint32_t _reserved_1 : 4;
     uint32_t R4_1_COUNT : 12;
     uint32_t _reserved_end : 4;
-  } bits;          // Bit-field struct (auto-filling reserved gaps)
+  } bits;
   
   // Full 32-bit register value.
   uint32_t value;
@@ -4250,15 +3843,13 @@ union RTSCR4C {
 //
 union RTSCR4L {
   
-  // Enum definitions.
-  
   // Bit field definition.
   struct {
     uint32_t RUN4_MAX : 12;
     uint32_t _reserved_1 : 4;
     uint32_t RUN4_RNG : 12;
     uint32_t _reserved_end : 4;
-  } bits;          // Bit-field struct (auto-filling reserved gaps)
+  } bits;
   
   // Full 32-bit register value.
   uint32_t value;
@@ -4272,15 +3863,13 @@ union RTSCR4L {
 //
 union RTSCR5C {
   
-  // Enum definitions.
-  
   // Bit field definition.
   struct {
     uint32_t R5_0_COUNT : 11;
     uint32_t _reserved_1 : 5;
     uint32_t R5_1_COUNT : 11;
     uint32_t _reserved_end : 5;
-  } bits;          // Bit-field struct (auto-filling reserved gaps)
+  } bits;
   
   // Full 32-bit register value.
   uint32_t value;
@@ -4294,15 +3883,13 @@ union RTSCR5C {
 //
 union RTSCR5L {
   
-  // Enum definitions.
-  
   // Bit field definition.
   struct {
     uint32_t RUN5_MAX : 11;
     uint32_t _reserved_1 : 5;
     uint32_t RUN5_RNG : 11;
     uint32_t _reserved_end : 5;
-  } bits;          // Bit-field struct (auto-filling reserved gaps)
+  } bits;
   
   // Full 32-bit register value.
   uint32_t value;
@@ -4316,15 +3903,13 @@ union RTSCR5L {
 //
 union RTSCR6PC {
   
-  // Enum definitions.
-  
   // Bit field definition.
   struct {
     uint32_t R6P_0_COUNT : 11;
     uint32_t _reserved_1 : 5;
     uint32_t R6P_1_COUNT : 11;
     uint32_t _reserved_end : 5;
-  } bits;          // Bit-field struct (auto-filling reserved gaps)
+  } bits;
   
   // Full 32-bit register value.
   uint32_t value;
@@ -4338,15 +3923,13 @@ union RTSCR6PC {
 //
 union RTSCR6PL {
   
-  // Enum definitions.
-  
   // Bit field definition.
   struct {
     uint32_t RUN6P_MAX : 11;
     uint32_t _reserved_1 : 5;
     uint32_t RUN6P_RNG : 11;
     uint32_t _reserved_end : 5;
-  } bits;          // Bit-field struct (auto-filling reserved gaps)
+  } bits;
   
   // Full 32-bit register value.
   uint32_t value;
@@ -4359,8 +3942,6 @@ union RTSCR6PL {
 // RNG TRNG Status Register
 //
 union RTSTATUS {
-  
-  // Enum definitions.
   
   // Bit field definition.
   struct {
@@ -4382,7 +3963,7 @@ union RTSTATUS {
     uint32_t FMBTF : 1;
     uint32_t RETRY_COUNT : 4;
     uint32_t _reserved_end : 12;
-  } bits;          // Bit-field struct (auto-filling reserved gaps)
+  } bits;
   
   // Full 32-bit register value.
   uint32_t value;
@@ -4396,12 +3977,10 @@ union RTSTATUS {
 //
 union RTENT[0] {
   
-  // Enum definitions.
-  
   // Bit field definition.
   struct {
     uint32_t ENT : 32;
-  } bits;          // Bit-field struct (auto-filling reserved gaps)
+  } bits;
   
   // Full 32-bit register value.
   uint32_t value;
@@ -4414,12 +3993,10 @@ union RTENT[0] {
 //
 union RTENT[1] {
   
-  // Enum definitions.
-  
   // Bit field definition.
   struct {
     uint32_t ENT : 32;
-  } bits;          // Bit-field struct (auto-filling reserved gaps)
+  } bits;
   
   // Full 32-bit register value.
   uint32_t value;
@@ -4432,12 +4009,10 @@ union RTENT[1] {
 //
 union RTENT[2] {
   
-  // Enum definitions.
-  
   // Bit field definition.
   struct {
     uint32_t ENT : 32;
-  } bits;          // Bit-field struct (auto-filling reserved gaps)
+  } bits;
   
   // Full 32-bit register value.
   uint32_t value;
@@ -4450,12 +4025,10 @@ union RTENT[2] {
 //
 union RTENT[3] {
   
-  // Enum definitions.
-  
   // Bit field definition.
   struct {
     uint32_t ENT : 32;
-  } bits;          // Bit-field struct (auto-filling reserved gaps)
+  } bits;
   
   // Full 32-bit register value.
   uint32_t value;
@@ -4468,12 +4041,10 @@ union RTENT[3] {
 //
 union RTENT[4] {
   
-  // Enum definitions.
-  
   // Bit field definition.
   struct {
     uint32_t ENT : 32;
-  } bits;          // Bit-field struct (auto-filling reserved gaps)
+  } bits;
   
   // Full 32-bit register value.
   uint32_t value;
@@ -4486,12 +4057,10 @@ union RTENT[4] {
 //
 union RTENT[5] {
   
-  // Enum definitions.
-  
   // Bit field definition.
   struct {
     uint32_t ENT : 32;
-  } bits;          // Bit-field struct (auto-filling reserved gaps)
+  } bits;
   
   // Full 32-bit register value.
   uint32_t value;
@@ -4504,12 +4073,10 @@ union RTENT[5] {
 //
 union RTENT[6] {
   
-  // Enum definitions.
-  
   // Bit field definition.
   struct {
     uint32_t ENT : 32;
-  } bits;          // Bit-field struct (auto-filling reserved gaps)
+  } bits;
   
   // Full 32-bit register value.
   uint32_t value;
@@ -4522,12 +4089,10 @@ union RTENT[6] {
 //
 union RTENT[7] {
   
-  // Enum definitions.
-  
   // Bit field definition.
   struct {
     uint32_t ENT : 32;
-  } bits;          // Bit-field struct (auto-filling reserved gaps)
+  } bits;
   
   // Full 32-bit register value.
   uint32_t value;
@@ -4540,12 +4105,10 @@ union RTENT[7] {
 //
 union RTENT[8] {
   
-  // Enum definitions.
-  
   // Bit field definition.
   struct {
     uint32_t ENT : 32;
-  } bits;          // Bit-field struct (auto-filling reserved gaps)
+  } bits;
   
   // Full 32-bit register value.
   uint32_t value;
@@ -4558,12 +4121,10 @@ union RTENT[8] {
 //
 union RTENT[9] {
   
-  // Enum definitions.
-  
   // Bit field definition.
   struct {
     uint32_t ENT : 32;
-  } bits;          // Bit-field struct (auto-filling reserved gaps)
+  } bits;
   
   // Full 32-bit register value.
   uint32_t value;
@@ -4576,12 +4137,10 @@ union RTENT[9] {
 //
 union RTENT[10] {
   
-  // Enum definitions.
-  
   // Bit field definition.
   struct {
     uint32_t ENT : 32;
-  } bits;          // Bit-field struct (auto-filling reserved gaps)
+  } bits;
   
   // Full 32-bit register value.
   uint32_t value;
@@ -4594,12 +4153,10 @@ union RTENT[10] {
 //
 union RTENT[11] {
   
-  // Enum definitions.
-  
   // Bit field definition.
   struct {
     uint32_t ENT : 32;
-  } bits;          // Bit-field struct (auto-filling reserved gaps)
+  } bits;
   
   // Full 32-bit register value.
   uint32_t value;
@@ -4612,12 +4169,10 @@ union RTENT[11] {
 //
 union RTENT[12] {
   
-  // Enum definitions.
-  
   // Bit field definition.
   struct {
     uint32_t ENT : 32;
-  } bits;          // Bit-field struct (auto-filling reserved gaps)
+  } bits;
   
   // Full 32-bit register value.
   uint32_t value;
@@ -4630,12 +4185,10 @@ union RTENT[12] {
 //
 union RTENT[13] {
   
-  // Enum definitions.
-  
   // Bit field definition.
   struct {
     uint32_t ENT : 32;
-  } bits;          // Bit-field struct (auto-filling reserved gaps)
+  } bits;
   
   // Full 32-bit register value.
   uint32_t value;
@@ -4648,12 +4201,10 @@ union RTENT[13] {
 //
 union RTENT[14] {
   
-  // Enum definitions.
-  
   // Bit field definition.
   struct {
     uint32_t ENT : 32;
-  } bits;          // Bit-field struct (auto-filling reserved gaps)
+  } bits;
   
   // Full 32-bit register value.
   uint32_t value;
@@ -4666,12 +4217,10 @@ union RTENT[14] {
 //
 union RTENT[15] {
   
-  // Enum definitions.
-  
   // Bit field definition.
   struct {
     uint32_t ENT : 32;
-  } bits;          // Bit-field struct (auto-filling reserved gaps)
+  } bits;
   
   // Full 32-bit register value.
   uint32_t value;
@@ -4685,13 +4234,11 @@ union RTENT[15] {
 //
 union RTPKRCNT10 {
   
-  // Enum definitions.
-  
   // Bit field definition.
   struct {
     uint32_t PKR_0_CNT : 16;
     uint32_t PKR_1_CNT : 16;
-  } bits;          // Bit-field struct (auto-filling reserved gaps)
+  } bits;
   
   // Full 32-bit register value.
   uint32_t value;
@@ -4705,13 +4252,11 @@ union RTPKRCNT10 {
 //
 union RTPKRCNT32 {
   
-  // Enum definitions.
-  
   // Bit field definition.
   struct {
     uint32_t PKR_2_CNT : 16;
     uint32_t PKR_3_CNT : 16;
-  } bits;          // Bit-field struct (auto-filling reserved gaps)
+  } bits;
   
   // Full 32-bit register value.
   uint32_t value;
@@ -4725,13 +4270,11 @@ union RTPKRCNT32 {
 //
 union RTPKRCNT54 {
   
-  // Enum definitions.
-  
   // Bit field definition.
   struct {
     uint32_t PKR_4_CNT : 16;
     uint32_t PKR_5_CNT : 16;
-  } bits;          // Bit-field struct (auto-filling reserved gaps)
+  } bits;
   
   // Full 32-bit register value.
   uint32_t value;
@@ -4745,13 +4288,11 @@ union RTPKRCNT54 {
 //
 union RTPKRCNT76 {
   
-  // Enum definitions.
-  
   // Bit field definition.
   struct {
     uint32_t PKR_6_CNT : 16;
     uint32_t PKR_7_CNT : 16;
-  } bits;          // Bit-field struct (auto-filling reserved gaps)
+  } bits;
   
   // Full 32-bit register value.
   uint32_t value;
@@ -4765,13 +4306,11 @@ union RTPKRCNT76 {
 //
 union RTPKRCNT98 {
   
-  // Enum definitions.
-  
   // Bit field definition.
   struct {
     uint32_t PKR_8_CNT : 16;
     uint32_t PKR_9_CNT : 16;
-  } bits;          // Bit-field struct (auto-filling reserved gaps)
+  } bits;
   
   // Full 32-bit register value.
   uint32_t value;
@@ -4785,13 +4324,11 @@ union RTPKRCNT98 {
 //
 union RTPKRCNTBA {
   
-  // Enum definitions.
-  
   // Bit field definition.
   struct {
     uint32_t PKR_A_CNT : 16;
     uint32_t PKR_B_CNT : 16;
-  } bits;          // Bit-field struct (auto-filling reserved gaps)
+  } bits;
   
   // Full 32-bit register value.
   uint32_t value;
@@ -4805,13 +4342,11 @@ union RTPKRCNTBA {
 //
 union RTPKRCNTDC {
   
-  // Enum definitions.
-  
   // Bit field definition.
   struct {
     uint32_t PKR_C_CNT : 16;
     uint32_t PKR_D_CNT : 16;
-  } bits;          // Bit-field struct (auto-filling reserved gaps)
+  } bits;
   
   // Full 32-bit register value.
   uint32_t value;
@@ -4825,13 +4360,11 @@ union RTPKRCNTDC {
 //
 union RTPKRCNTFE {
   
-  // Enum definitions.
-  
   // Bit field definition.
   struct {
     uint32_t PKR_E_CNT : 16;
     uint32_t PKR_F_CNT : 16;
-  } bits;          // Bit-field struct (auto-filling reserved gaps)
+  } bits;
   
   // Full 32-bit register value.
   uint32_t value;
@@ -4844,8 +4377,6 @@ union RTPKRCNTFE {
 // RNG DRNG Status Register
 //
 union RDSTA {
-  
-  // Enum definitions.
   
   // Bit field definition.
   struct {
@@ -4863,7 +4394,7 @@ union RDSTA {
     uint32_t _reserved_8 : 9;
     uint32_t SKVN : 1;
     uint32_t SKVT : 1;
-  } bits;          // Bit-field struct (auto-filling reserved gaps)
+  } bits;
   
   // Full 32-bit register value.
   uint32_t value;
@@ -4877,12 +4408,10 @@ union RDSTA {
 //
 union RDINT0 {
   
-  // Enum definitions.
-  
   // Bit field definition.
   struct {
     uint32_t RESINT0 : 32;
-  } bits;          // Bit-field struct (auto-filling reserved gaps)
+  } bits;
   
   // Full 32-bit register value.
   uint32_t value;
@@ -4896,12 +4425,10 @@ union RDINT0 {
 //
 union RDINT1 {
   
-  // Enum definitions.
-  
   // Bit field definition.
   struct {
     uint32_t RESINT1 : 32;
-  } bits;          // Bit-field struct (auto-filling reserved gaps)
+  } bits;
   
   // Full 32-bit register value.
   uint32_t value;
@@ -4915,8 +4442,6 @@ union RDINT1 {
 //
 union RDHCNTL {
   
-  // Enum definitions.
-  
   // Bit field definition.
   struct {
     uint32_t HD : 1;
@@ -4925,7 +4450,7 @@ union RDHCNTL {
     uint32_t HTM : 1;
     uint32_t HTC : 1;
     uint32_t _reserved_end : 27;
-  } bits;          // Bit-field struct (auto-filling reserved gaps)
+  } bits;
   
   // Full 32-bit register value.
   uint32_t value;
@@ -4939,12 +4464,10 @@ union RDHCNTL {
 //
 union RDHDIG {
   
-  // Enum definitions.
-  
   // Bit field definition.
   struct {
     uint32_t HASHMD : 32;
-  } bits;          // Bit-field struct (auto-filling reserved gaps)
+  } bits;
   
   // Full 32-bit register value.
   uint32_t value;
@@ -4958,12 +4481,10 @@ union RDHDIG {
 //
 union RDHBUF {
   
-  // Enum definitions.
-  
   // Bit field definition.
   struct {
     uint32_t HASHBUF : 32;
-  } bits;          // Bit-field struct (auto-filling reserved gaps)
+  } bits;
   
   // Full 32-bit register value.
   uint32_t value;
@@ -4977,13 +4498,11 @@ union RDHBUF {
 //
 union P0SDID_PG0 {
   
-  // Enum definitions.
-  
   // Bit field definition.
   struct {
     uint32_t SDID : 16;
     uint32_t _reserved_end : 16;
-  } bits;          // Bit-field struct (auto-filling reserved gaps)
+  } bits;
   
   // Full 32-bit register value.
   uint32_t value;
@@ -4997,51 +4516,61 @@ union P0SDID_PG0 {
 //
 union P0SMAPR_PG0 {
   
-  // Enum definitions.
   enum class eG1_READ : uint32_t {
     eG1_READ_PROHIB = 0, // Instruction fetches and reads are prohibited (except that Trusted Descriptor reads (if G1_TDO=1) and key-reads are always allowed, and exporting Secure Memory Blobs is allowed if G1_SMBLOB=1 or if done by a Trusted Descriptor and G1_TDO=1).
     eG1_READ_ALLOWED = 1, // Instruction fetches and reads are allowed (but exporting a Secure Memory Blob is prohibited if G1_SMBLOB=0 and the descriptor is not a Trusted Descriptor or if G1_TDO=0).
   };
+  
   enum class eG1_WRITE : uint32_t {
     eG1_WRITE_PROHIB = 0, // Writes are prohibited (except that Trusted Descriptor writes are allowed, and importing Secure Memory Blobs is allowed if G1_SMBLOB=1 or if done by a Trusted Descriptor and G1_TDO=1).
     eG1_WRITE_ALLOWED = 1, // Writes are allowed (but importing a Secure Memory Blob is prohibited if G1_SMBLOB=0 and the descriptor is not a Trusted Descriptor or if G1_TDO=0).
   };
+  
   enum class eG1_TDO : uint32_t {
     eG1_TD_PRIVILEGE_AS_JD = 0, // Trusted Descriptors have the same access privileges as Job Descriptors
     eG1_TD_OVERIDE_ALLOWED = 1, // Trusted Descriptors are allowed to override the other access permissions, i.e. they can export blobs from or import blobs to the partition and read from and write to the partition regardless of the G1_SMBLOB, G1_WRITE and G1_READ settings.
   };
+  
   enum class eG1_SMBLOB : uint32_t {
     eG1_SM_BLOB_EXPORT_IMPORT_PROHIB = 0, // Exporting or importing Secure Memory Blobs is prohibited, unless done via a Trusted Descriptor and G1_TDO=1.
     eG1_SM_B_EXPORT_IMPORT_ALLOWED = 1, // Exporting or importing Secure Memory Blobs is allowed, regardless of the G1_READ and G1_WRITE settings.
   };
+  
   enum class eG2_READ : uint32_t {
     eG2_READ_PROHIB = 0, // Instruction fetches and reads are prohibited (except that Trusted Descriptor reads (if G2_TDO=1) and key-reads are always allowed, and exporting Secure Memory Blobs is allowed if G2_SMBLOB=1 or if done by a Trusted Descriptor and G2_TDO=1).
     eG2_READ_ALLOWED = 1, // Instruction fetches and reads are allowed (but exporting a Secure Memory Blob is prohibited if G2_SMBLOB=0 and the descriptor is not a Trusted Descriptor or if G2_TDO=0).
   };
+  
   enum class eG2_WRITE : uint32_t {
     eG2_WRITE_PROHIB = 0, // Writes are prohibited (except that Trusted Descriptor writes are allowed, and importing Secure Memory Blobs is allowed if G2_SMBLOB=1 or if done by a Trusted Descriptor and G2_TDO=1).
     eG2_WRITE_ALLOWED = 1, // Writes are allowed (but importing a Secure Memory Blob is prohibited if G2_SMBLOB=0 and the descriptor is not a Trusted Descriptor or if G2_TDO=0).
   };
+  
   enum class eG2_TDO : uint32_t {
     eG2_TD_PRIVILEGE_AS_JD = 0, // Trusted Descriptors have the same access privileges as Job Descriptors
     eG2_TD_OVERIDE_ALLOWED = 1, // Trusted Descriptors are allowed to override the other access permissions, i.e. they can export blobs from or import blobs to the partition and read from and write to the partition regardless of the G2_SMBLOB, G2_WRITE and G2_READ settings.
   };
+  
   enum class eG2_SMBLOB : uint32_t {
     eG2_SM_BLOB_EXPORT_IMPORT_PROHIB = 0, // Exporting or importing Secure Memory Blobs is prohibited, unless done via a Trusted Descriptor and G2_TDO=1.
     eG2_SM_BLOB_EXPORT_IMPORT_ALLOWED = 1, // Exporting or importing Secure Memory Blobs is allowed, regardless of the G2_READ and G2_WRITE settings.
   };
+  
   enum class eSMAG_LCK : uint32_t {
     eSMAG_UNLOCKED = 0, // The SMAG2JR register and SMAG1JR register are unlocked. The partition owner can change any writable bits of these registers.
     eSMAG_LOCKED = 1, // The SMAG2JR register and SMAG1JR register are locked. The SMAG2JR and SMAG1JR registers cannot be changed until the partition is de-allocated or a POR occurs.
   };
+  
   enum class eSMAP_LCK : uint32_t {
     eSMAP_UNLOCKED = 0, // The SMAP register is unlocked. The partition owner can change any writable bits of the SMAP register.
     eSMAP_LOCKED = 1, // The SMAP register is locked. The SMAP_LCK, CSP and PSP bits and G1 and G2 permission bits of the SMAP register cannot be changed until the partition is de-allocated or a POR occurs. The PARTITION_KMOD value can still be changed. The SMAG_LCK bit can be changed to a 1, but cannot be changed to a 0.
   };
+  
   enum class ePSP : uint32_t {
     eNOT_DEALLOCATABLE = 0, // The partition and any of the pages allocated to the partition can be de-allocated.
     eDEALLOCATABLE = 1, // The partition cannot be de-allocated and the pages allocated to the partition cannot be de-allocated.
   };
+  
   enum class eCSP : uint32_t {
     eNOT_ZEROIZED = 0, // The pages allocated to the partition will not be zeroized when they are de-allocated or the partition is released or a security alarm occurs.
     eZEROIZED = 1, // The pages allocated to the partition will be zeroized when they are individually de-allocated or the partition is released or a security alarm occurs.
@@ -5063,7 +4592,7 @@ union P0SMAPR_PG0 {
     ePSP PSP : 1;
     eCSP CSP : 1;
     uint32_t PARTITION_KMOD : 16;
-  } bits;          // Bit-field struct (auto-filling reserved gaps)
+  } bits;
   
   // Full 32-bit register value.
   uint32_t value;
@@ -5077,8 +4606,6 @@ union P0SMAPR_PG0 {
 //
 union P0SMAG2_PG0 {
   
-  // Enum definitions.
-  
   // Bit field definition.
   struct {
     uint32_t Gx_ID00 : 1;
@@ -5113,7 +4640,7 @@ union P0SMAG2_PG0 {
     uint32_t Gx_ID29 : 1;
     uint32_t Gx_ID30 : 1;
     uint32_t Gx_ID31 : 1;
-  } bits;          // Bit-field struct (auto-filling reserved gaps)
+  } bits;
   
   // Full 32-bit register value.
   uint32_t value;
@@ -5127,8 +4654,6 @@ union P0SMAG2_PG0 {
 //
 union P0SMAG1_PG0 {
   
-  // Enum definitions.
-  
   // Bit field definition.
   struct {
     uint32_t Gx_ID00 : 1;
@@ -5163,7 +4688,7 @@ union P0SMAG1_PG0 {
     uint32_t Gx_ID29 : 1;
     uint32_t Gx_ID30 : 1;
     uint32_t Gx_ID31 : 1;
-  } bits;          // Bit-field struct (auto-filling reserved gaps)
+  } bits;
   
   // Full 32-bit register value.
   uint32_t value;
@@ -5177,13 +4702,11 @@ union P0SMAG1_PG0 {
 //
 union P1SDID_PG0 {
   
-  // Enum definitions.
-  
   // Bit field definition.
   struct {
     uint32_t SDID : 16;
     uint32_t _reserved_end : 16;
-  } bits;          // Bit-field struct (auto-filling reserved gaps)
+  } bits;
   
   // Full 32-bit register value.
   uint32_t value;
@@ -5197,51 +4720,61 @@ union P1SDID_PG0 {
 //
 union P1SMAPR_PG0 {
   
-  // Enum definitions.
   enum class eG1_READ : uint32_t {
     eG1_READ_PROHIB = 0, // Instruction fetches and reads are prohibited (except that Trusted Descriptor reads (if G1_TDO=1) and key-reads are always allowed, and exporting Secure Memory Blobs is allowed if G1_SMBLOB=1 or if done by a Trusted Descriptor and G1_TDO=1).
     eG1_READ_ALLOWED = 1, // Instruction fetches and reads are allowed (but exporting a Secure Memory Blob is prohibited if G1_SMBLOB=0 and the descriptor is not a Trusted Descriptor or if G1_TDO=0).
   };
+  
   enum class eG1_WRITE : uint32_t {
     eG1_WRITE_PROHIB = 0, // Writes are prohibited (except that Trusted Descriptor writes are allowed, and importing Secure Memory Blobs is allowed if G1_SMBLOB=1 or if done by a Trusted Descriptor and G1_TDO=1).
     eG1_WRITE_ALLOWED = 1, // Writes are allowed (but importing a Secure Memory Blob is prohibited if G1_SMBLOB=0 and the descriptor is not a Trusted Descriptor or if G1_TDO=0).
   };
+  
   enum class eG1_TDO : uint32_t {
     eG1_TD_PRIVILEGE_AS_JD = 0, // Trusted Descriptors have the same access privileges as Job Descriptors
     eG1_TD_OVERIDE_ALLOWED = 1, // Trusted Descriptors are allowed to override the other access permissions, i.e. they can export blobs from or import blobs to the partition and read from and write to the partition regardless of the G1_SMBLOB, G1_WRITE and G1_READ settings.
   };
+  
   enum class eG1_SMBLOB : uint32_t {
     eG1_SM_BLOB_EXPORT_IMPORT_PROHIB = 0, // Exporting or importing Secure Memory Blobs is prohibited, unless done via a Trusted Descriptor and G1_TDO=1.
     eG1_SM_B_EXPORT_IMPORT_ALLOWED = 1, // Exporting or importing Secure Memory Blobs is allowed, regardless of the G1_READ and G1_WRITE settings.
   };
+  
   enum class eG2_READ : uint32_t {
     eG2_READ_PROHIB = 0, // Instruction fetches and reads are prohibited (except that Trusted Descriptor reads (if G2_TDO=1) and key-reads are always allowed, and exporting Secure Memory Blobs is allowed if G2_SMBLOB=1 or if done by a Trusted Descriptor and G2_TDO=1).
     eG2_READ_ALLOWED = 1, // Instruction fetches and reads are allowed (but exporting a Secure Memory Blob is prohibited if G2_SMBLOB=0 and the descriptor is not a Trusted Descriptor or if G2_TDO=0).
   };
+  
   enum class eG2_WRITE : uint32_t {
     eG2_WRITE_PROHIB = 0, // Writes are prohibited (except that Trusted Descriptor writes are allowed, and importing Secure Memory Blobs is allowed if G2_SMBLOB=1 or if done by a Trusted Descriptor and G2_TDO=1).
     eG2_WRITE_ALLOWED = 1, // Writes are allowed (but importing a Secure Memory Blob is prohibited if G2_SMBLOB=0 and the descriptor is not a Trusted Descriptor or if G2_TDO=0).
   };
+  
   enum class eG2_TDO : uint32_t {
     eG2_TD_PRIVILEGE_AS_JD = 0, // Trusted Descriptors have the same access privileges as Job Descriptors
     eG2_TD_OVERIDE_ALLOWED = 1, // Trusted Descriptors are allowed to override the other access permissions, i.e. they can export blobs from or import blobs to the partition and read from and write to the partition regardless of the G2_SMBLOB, G2_WRITE and G2_READ settings.
   };
+  
   enum class eG2_SMBLOB : uint32_t {
     eG2_SM_BLOB_EXPORT_IMPORT_PROHIB = 0, // Exporting or importing Secure Memory Blobs is prohibited, unless done via a Trusted Descriptor and G2_TDO=1.
     eG2_SM_BLOB_EXPORT_IMPORT_ALLOWED = 1, // Exporting or importing Secure Memory Blobs is allowed, regardless of the G2_READ and G2_WRITE settings.
   };
+  
   enum class eSMAG_LCK : uint32_t {
     eSMAG_UNLOCKED = 0, // The SMAG2JR register and SMAG1JR register are unlocked. The partition owner can change any writable bits of these registers.
     eSMAG_LOCKED = 1, // The SMAG2JR register and SMAG1JR register are locked. The SMAG2JR and SMAG1JR registers cannot be changed until the partition is de-allocated or a POR occurs.
   };
+  
   enum class eSMAP_LCK : uint32_t {
     eSMAP_UNLOCKED = 0, // The SMAP register is unlocked. The partition owner can change any writable bits of the SMAP register.
     eSMAP_LOCKED = 1, // The SMAP register is locked. The SMAP_LCK, CSP and PSP bits and G1 and G2 permission bits of the SMAP register cannot be changed until the partition is de-allocated or a POR occurs. The PARTITION_KMOD value can still be changed. The SMAG_LCK bit can be changed to a 1, but cannot be changed to a 0.
   };
+  
   enum class ePSP : uint32_t {
     eNOT_DEALLOCATABLE = 0, // The partition and any of the pages allocated to the partition can be de-allocated.
     eDEALLOCATABLE = 1, // The partition cannot be de-allocated and the pages allocated to the partition cannot be de-allocated.
   };
+  
   enum class eCSP : uint32_t {
     eNOT_ZEROIZED = 0, // The pages allocated to the partition will not be zeroized when they are de-allocated or the partition is released or a security alarm occurs.
     eZEROIZED = 1, // The pages allocated to the partition will be zeroized when they are individually de-allocated or the partition is released or a security alarm occurs.
@@ -5263,7 +4796,7 @@ union P1SMAPR_PG0 {
     ePSP PSP : 1;
     eCSP CSP : 1;
     uint32_t PARTITION_KMOD : 16;
-  } bits;          // Bit-field struct (auto-filling reserved gaps)
+  } bits;
   
   // Full 32-bit register value.
   uint32_t value;
@@ -5277,8 +4810,6 @@ union P1SMAPR_PG0 {
 //
 union P1SMAG2_PG0 {
   
-  // Enum definitions.
-  
   // Bit field definition.
   struct {
     uint32_t Gx_ID00 : 1;
@@ -5313,7 +4844,7 @@ union P1SMAG2_PG0 {
     uint32_t Gx_ID29 : 1;
     uint32_t Gx_ID30 : 1;
     uint32_t Gx_ID31 : 1;
-  } bits;          // Bit-field struct (auto-filling reserved gaps)
+  } bits;
   
   // Full 32-bit register value.
   uint32_t value;
@@ -5327,8 +4858,6 @@ union P1SMAG2_PG0 {
 //
 union P1SMAG1_PG0 {
   
-  // Enum definitions.
-  
   // Bit field definition.
   struct {
     uint32_t Gx_ID00 : 1;
@@ -5363,7 +4892,7 @@ union P1SMAG1_PG0 {
     uint32_t Gx_ID29 : 1;
     uint32_t Gx_ID30 : 1;
     uint32_t Gx_ID31 : 1;
-  } bits;          // Bit-field struct (auto-filling reserved gaps)
+  } bits;
   
   // Full 32-bit register value.
   uint32_t value;
@@ -5377,13 +4906,11 @@ union P1SMAG1_PG0 {
 //
 union P2SDID_PG0 {
   
-  // Enum definitions.
-  
   // Bit field definition.
   struct {
     uint32_t SDID : 16;
     uint32_t _reserved_end : 16;
-  } bits;          // Bit-field struct (auto-filling reserved gaps)
+  } bits;
   
   // Full 32-bit register value.
   uint32_t value;
@@ -5397,51 +4924,61 @@ union P2SDID_PG0 {
 //
 union P2SMAPR_PG0 {
   
-  // Enum definitions.
   enum class eG1_READ : uint32_t {
     eG1_READ_PROHIB = 0, // Instruction fetches and reads are prohibited (except that Trusted Descriptor reads (if G1_TDO=1) and key-reads are always allowed, and exporting Secure Memory Blobs is allowed if G1_SMBLOB=1 or if done by a Trusted Descriptor and G1_TDO=1).
     eG1_READ_ALLOWED = 1, // Instruction fetches and reads are allowed (but exporting a Secure Memory Blob is prohibited if G1_SMBLOB=0 and the descriptor is not a Trusted Descriptor or if G1_TDO=0).
   };
+  
   enum class eG1_WRITE : uint32_t {
     eG1_WRITE_PROHIB = 0, // Writes are prohibited (except that Trusted Descriptor writes are allowed, and importing Secure Memory Blobs is allowed if G1_SMBLOB=1 or if done by a Trusted Descriptor and G1_TDO=1).
     eG1_WRITE_ALLOWED = 1, // Writes are allowed (but importing a Secure Memory Blob is prohibited if G1_SMBLOB=0 and the descriptor is not a Trusted Descriptor or if G1_TDO=0).
   };
+  
   enum class eG1_TDO : uint32_t {
     eG1_TD_PRIVILEGE_AS_JD = 0, // Trusted Descriptors have the same access privileges as Job Descriptors
     eG1_TD_OVERIDE_ALLOWED = 1, // Trusted Descriptors are allowed to override the other access permissions, i.e. they can export blobs from or import blobs to the partition and read from and write to the partition regardless of the G1_SMBLOB, G1_WRITE and G1_READ settings.
   };
+  
   enum class eG1_SMBLOB : uint32_t {
     eG1_SM_BLOB_EXPORT_IMPORT_PROHIB = 0, // Exporting or importing Secure Memory Blobs is prohibited, unless done via a Trusted Descriptor and G1_TDO=1.
     eG1_SM_B_EXPORT_IMPORT_ALLOWED = 1, // Exporting or importing Secure Memory Blobs is allowed, regardless of the G1_READ and G1_WRITE settings.
   };
+  
   enum class eG2_READ : uint32_t {
     eG2_READ_PROHIB = 0, // Instruction fetches and reads are prohibited (except that Trusted Descriptor reads (if G2_TDO=1) and key-reads are always allowed, and exporting Secure Memory Blobs is allowed if G2_SMBLOB=1 or if done by a Trusted Descriptor and G2_TDO=1).
     eG2_READ_ALLOWED = 1, // Instruction fetches and reads are allowed (but exporting a Secure Memory Blob is prohibited if G2_SMBLOB=0 and the descriptor is not a Trusted Descriptor or if G2_TDO=0).
   };
+  
   enum class eG2_WRITE : uint32_t {
     eG2_WRITE_PROHIB = 0, // Writes are prohibited (except that Trusted Descriptor writes are allowed, and importing Secure Memory Blobs is allowed if G2_SMBLOB=1 or if done by a Trusted Descriptor and G2_TDO=1).
     eG2_WRITE_ALLOWED = 1, // Writes are allowed (but importing a Secure Memory Blob is prohibited if G2_SMBLOB=0 and the descriptor is not a Trusted Descriptor or if G2_TDO=0).
   };
+  
   enum class eG2_TDO : uint32_t {
     eG2_TD_PRIVILEGE_AS_JD = 0, // Trusted Descriptors have the same access privileges as Job Descriptors
     eG2_TD_OVERIDE_ALLOWED = 1, // Trusted Descriptors are allowed to override the other access permissions, i.e. they can export blobs from or import blobs to the partition and read from and write to the partition regardless of the G2_SMBLOB, G2_WRITE and G2_READ settings.
   };
+  
   enum class eG2_SMBLOB : uint32_t {
     eG2_SM_BLOB_EXPORT_IMPORT_PROHIB = 0, // Exporting or importing Secure Memory Blobs is prohibited, unless done via a Trusted Descriptor and G2_TDO=1.
     eG2_SM_BLOB_EXPORT_IMPORT_ALLOWED = 1, // Exporting or importing Secure Memory Blobs is allowed, regardless of the G2_READ and G2_WRITE settings.
   };
+  
   enum class eSMAG_LCK : uint32_t {
     eSMAG_UNLOCKED = 0, // The SMAG2JR register and SMAG1JR register are unlocked. The partition owner can change any writable bits of these registers.
     eSMAG_LOCKED = 1, // The SMAG2JR register and SMAG1JR register are locked. The SMAG2JR and SMAG1JR registers cannot be changed until the partition is de-allocated or a POR occurs.
   };
+  
   enum class eSMAP_LCK : uint32_t {
     eSMAP_UNLOCKED = 0, // The SMAP register is unlocked. The partition owner can change any writable bits of the SMAP register.
     eSMAP_LOCKED = 1, // The SMAP register is locked. The SMAP_LCK, CSP and PSP bits and G1 and G2 permission bits of the SMAP register cannot be changed until the partition is de-allocated or a POR occurs. The PARTITION_KMOD value can still be changed. The SMAG_LCK bit can be changed to a 1, but cannot be changed to a 0.
   };
+  
   enum class ePSP : uint32_t {
     eNOT_DEALLOCATABLE = 0, // The partition and any of the pages allocated to the partition can be de-allocated.
     eDEALLOCATABLE = 1, // The partition cannot be de-allocated and the pages allocated to the partition cannot be de-allocated.
   };
+  
   enum class eCSP : uint32_t {
     eNOT_ZEROIZED = 0, // The pages allocated to the partition will not be zeroized when they are de-allocated or the partition is released or a security alarm occurs.
     eZEROIZED = 1, // The pages allocated to the partition will be zeroized when they are individually de-allocated or the partition is released or a security alarm occurs.
@@ -5463,7 +5000,7 @@ union P2SMAPR_PG0 {
     ePSP PSP : 1;
     eCSP CSP : 1;
     uint32_t PARTITION_KMOD : 16;
-  } bits;          // Bit-field struct (auto-filling reserved gaps)
+  } bits;
   
   // Full 32-bit register value.
   uint32_t value;
@@ -5477,8 +5014,6 @@ union P2SMAPR_PG0 {
 //
 union P2SMAG2_PG0 {
   
-  // Enum definitions.
-  
   // Bit field definition.
   struct {
     uint32_t Gx_ID00 : 1;
@@ -5513,7 +5048,7 @@ union P2SMAG2_PG0 {
     uint32_t Gx_ID29 : 1;
     uint32_t Gx_ID30 : 1;
     uint32_t Gx_ID31 : 1;
-  } bits;          // Bit-field struct (auto-filling reserved gaps)
+  } bits;
   
   // Full 32-bit register value.
   uint32_t value;
@@ -5527,8 +5062,6 @@ union P2SMAG2_PG0 {
 //
 union P2SMAG1_PG0 {
   
-  // Enum definitions.
-  
   // Bit field definition.
   struct {
     uint32_t Gx_ID00 : 1;
@@ -5563,7 +5096,7 @@ union P2SMAG1_PG0 {
     uint32_t Gx_ID29 : 1;
     uint32_t Gx_ID30 : 1;
     uint32_t Gx_ID31 : 1;
-  } bits;          // Bit-field struct (auto-filling reserved gaps)
+  } bits;
   
   // Full 32-bit register value.
   uint32_t value;
@@ -5577,13 +5110,11 @@ union P2SMAG1_PG0 {
 //
 union P3SDID_PG0 {
   
-  // Enum definitions.
-  
   // Bit field definition.
   struct {
     uint32_t SDID : 16;
     uint32_t _reserved_end : 16;
-  } bits;          // Bit-field struct (auto-filling reserved gaps)
+  } bits;
   
   // Full 32-bit register value.
   uint32_t value;
@@ -5597,51 +5128,61 @@ union P3SDID_PG0 {
 //
 union P3SMAPR_PG0 {
   
-  // Enum definitions.
   enum class eG1_READ : uint32_t {
     eG1_READ_PROHIB = 0, // Instruction fetches and reads are prohibited (except that Trusted Descriptor reads (if G1_TDO=1) and key-reads are always allowed, and exporting Secure Memory Blobs is allowed if G1_SMBLOB=1 or if done by a Trusted Descriptor and G1_TDO=1).
     eG1_READ_ALLOWED = 1, // Instruction fetches and reads are allowed (but exporting a Secure Memory Blob is prohibited if G1_SMBLOB=0 and the descriptor is not a Trusted Descriptor or if G1_TDO=0).
   };
+  
   enum class eG1_WRITE : uint32_t {
     eG1_WRITE_PROHIB = 0, // Writes are prohibited (except that Trusted Descriptor writes are allowed, and importing Secure Memory Blobs is allowed if G1_SMBLOB=1 or if done by a Trusted Descriptor and G1_TDO=1).
     eG1_WRITE_ALLOWED = 1, // Writes are allowed (but importing a Secure Memory Blob is prohibited if G1_SMBLOB=0 and the descriptor is not a Trusted Descriptor or if G1_TDO=0).
   };
+  
   enum class eG1_TDO : uint32_t {
     eG1_TD_PRIVILEGE_AS_JD = 0, // Trusted Descriptors have the same access privileges as Job Descriptors
     eG1_TD_OVERIDE_ALLOWED = 1, // Trusted Descriptors are allowed to override the other access permissions, i.e. they can export blobs from or import blobs to the partition and read from and write to the partition regardless of the G1_SMBLOB, G1_WRITE and G1_READ settings.
   };
+  
   enum class eG1_SMBLOB : uint32_t {
     eG1_SM_BLOB_EXPORT_IMPORT_PROHIB = 0, // Exporting or importing Secure Memory Blobs is prohibited, unless done via a Trusted Descriptor and G1_TDO=1.
     eG1_SM_B_EXPORT_IMPORT_ALLOWED = 1, // Exporting or importing Secure Memory Blobs is allowed, regardless of the G1_READ and G1_WRITE settings.
   };
+  
   enum class eG2_READ : uint32_t {
     eG2_READ_PROHIB = 0, // Instruction fetches and reads are prohibited (except that Trusted Descriptor reads (if G2_TDO=1) and key-reads are always allowed, and exporting Secure Memory Blobs is allowed if G2_SMBLOB=1 or if done by a Trusted Descriptor and G2_TDO=1).
     eG2_READ_ALLOWED = 1, // Instruction fetches and reads are allowed (but exporting a Secure Memory Blob is prohibited if G2_SMBLOB=0 and the descriptor is not a Trusted Descriptor or if G2_TDO=0).
   };
+  
   enum class eG2_WRITE : uint32_t {
     eG2_WRITE_PROHIB = 0, // Writes are prohibited (except that Trusted Descriptor writes are allowed, and importing Secure Memory Blobs is allowed if G2_SMBLOB=1 or if done by a Trusted Descriptor and G2_TDO=1).
     eG2_WRITE_ALLOWED = 1, // Writes are allowed (but importing a Secure Memory Blob is prohibited if G2_SMBLOB=0 and the descriptor is not a Trusted Descriptor or if G2_TDO=0).
   };
+  
   enum class eG2_TDO : uint32_t {
     eG2_TD_PRIVILEGE_AS_JD = 0, // Trusted Descriptors have the same access privileges as Job Descriptors
     eG2_TD_OVERIDE_ALLOWED = 1, // Trusted Descriptors are allowed to override the other access permissions, i.e. they can export blobs from or import blobs to the partition and read from and write to the partition regardless of the G2_SMBLOB, G2_WRITE and G2_READ settings.
   };
+  
   enum class eG2_SMBLOB : uint32_t {
     eG2_SM_BLOB_EXPORT_IMPORT_PROHIB = 0, // Exporting or importing Secure Memory Blobs is prohibited, unless done via a Trusted Descriptor and G2_TDO=1.
     eG2_SM_BLOB_EXPORT_IMPORT_ALLOWED = 1, // Exporting or importing Secure Memory Blobs is allowed, regardless of the G2_READ and G2_WRITE settings.
   };
+  
   enum class eSMAG_LCK : uint32_t {
     eSMAG_UNLOCKED = 0, // The SMAG2JR register and SMAG1JR register are unlocked. The partition owner can change any writable bits of these registers.
     eSMAG_LOCKED = 1, // The SMAG2JR register and SMAG1JR register are locked. The SMAG2JR and SMAG1JR registers cannot be changed until the partition is de-allocated or a POR occurs.
   };
+  
   enum class eSMAP_LCK : uint32_t {
     eSMAP_UNLOCKED = 0, // The SMAP register is unlocked. The partition owner can change any writable bits of the SMAP register.
     eSMAP_LOCKED = 1, // The SMAP register is locked. The SMAP_LCK, CSP and PSP bits and G1 and G2 permission bits of the SMAP register cannot be changed until the partition is de-allocated or a POR occurs. The PARTITION_KMOD value can still be changed. The SMAG_LCK bit can be changed to a 1, but cannot be changed to a 0.
   };
+  
   enum class ePSP : uint32_t {
     eNOT_DEALLOCATABLE = 0, // The partition and any of the pages allocated to the partition can be de-allocated.
     eDEALLOCATABLE = 1, // The partition cannot be de-allocated and the pages allocated to the partition cannot be de-allocated.
   };
+  
   enum class eCSP : uint32_t {
     eNOT_ZEROIZED = 0, // The pages allocated to the partition will not be zeroized when they are de-allocated or the partition is released or a security alarm occurs.
     eZEROIZED = 1, // The pages allocated to the partition will be zeroized when they are individually de-allocated or the partition is released or a security alarm occurs.
@@ -5663,7 +5204,7 @@ union P3SMAPR_PG0 {
     ePSP PSP : 1;
     eCSP CSP : 1;
     uint32_t PARTITION_KMOD : 16;
-  } bits;          // Bit-field struct (auto-filling reserved gaps)
+  } bits;
   
   // Full 32-bit register value.
   uint32_t value;
@@ -5677,8 +5218,6 @@ union P3SMAPR_PG0 {
 //
 union P3SMAG2_PG0 {
   
-  // Enum definitions.
-  
   // Bit field definition.
   struct {
     uint32_t Gx_ID00 : 1;
@@ -5713,7 +5252,7 @@ union P3SMAG2_PG0 {
     uint32_t Gx_ID29 : 1;
     uint32_t Gx_ID30 : 1;
     uint32_t Gx_ID31 : 1;
-  } bits;          // Bit-field struct (auto-filling reserved gaps)
+  } bits;
   
   // Full 32-bit register value.
   uint32_t value;
@@ -5727,8 +5266,6 @@ union P3SMAG2_PG0 {
 //
 union P3SMAG1_PG0 {
   
-  // Enum definitions.
-  
   // Bit field definition.
   struct {
     uint32_t Gx_ID00 : 1;
@@ -5763,7 +5300,7 @@ union P3SMAG1_PG0 {
     uint32_t Gx_ID29 : 1;
     uint32_t Gx_ID30 : 1;
     uint32_t Gx_ID31 : 1;
-  } bits;          // Bit-field struct (auto-filling reserved gaps)
+  } bits;
   
   // Full 32-bit register value.
   uint32_t value;
@@ -5777,13 +5314,11 @@ union P3SMAG1_PG0 {
 //
 union P4SDID_PG0 {
   
-  // Enum definitions.
-  
   // Bit field definition.
   struct {
     uint32_t SDID : 16;
     uint32_t _reserved_end : 16;
-  } bits;          // Bit-field struct (auto-filling reserved gaps)
+  } bits;
   
   // Full 32-bit register value.
   uint32_t value;
@@ -5797,51 +5332,61 @@ union P4SDID_PG0 {
 //
 union P4SMAPR_PG0 {
   
-  // Enum definitions.
   enum class eG1_READ : uint32_t {
     eG1_READ_PROHIB = 0, // Instruction fetches and reads are prohibited (except that Trusted Descriptor reads (if G1_TDO=1) and key-reads are always allowed, and exporting Secure Memory Blobs is allowed if G1_SMBLOB=1 or if done by a Trusted Descriptor and G1_TDO=1).
     eG1_READ_ALLOWED = 1, // Instruction fetches and reads are allowed (but exporting a Secure Memory Blob is prohibited if G1_SMBLOB=0 and the descriptor is not a Trusted Descriptor or if G1_TDO=0).
   };
+  
   enum class eG1_WRITE : uint32_t {
     eG1_WRITE_PROHIB = 0, // Writes are prohibited (except that Trusted Descriptor writes are allowed, and importing Secure Memory Blobs is allowed if G1_SMBLOB=1 or if done by a Trusted Descriptor and G1_TDO=1).
     eG1_WRITE_ALLOWED = 1, // Writes are allowed (but importing a Secure Memory Blob is prohibited if G1_SMBLOB=0 and the descriptor is not a Trusted Descriptor or if G1_TDO=0).
   };
+  
   enum class eG1_TDO : uint32_t {
     eG1_TD_PRIVILEGE_AS_JD = 0, // Trusted Descriptors have the same access privileges as Job Descriptors
     eG1_TD_OVERIDE_ALLOWED = 1, // Trusted Descriptors are allowed to override the other access permissions, i.e. they can export blobs from or import blobs to the partition and read from and write to the partition regardless of the G1_SMBLOB, G1_WRITE and G1_READ settings.
   };
+  
   enum class eG1_SMBLOB : uint32_t {
     eG1_SM_BLOB_EXPORT_IMPORT_PROHIB = 0, // Exporting or importing Secure Memory Blobs is prohibited, unless done via a Trusted Descriptor and G1_TDO=1.
     eG1_SM_B_EXPORT_IMPORT_ALLOWED = 1, // Exporting or importing Secure Memory Blobs is allowed, regardless of the G1_READ and G1_WRITE settings.
   };
+  
   enum class eG2_READ : uint32_t {
     eG2_READ_PROHIB = 0, // Instruction fetches and reads are prohibited (except that Trusted Descriptor reads (if G2_TDO=1) and key-reads are always allowed, and exporting Secure Memory Blobs is allowed if G2_SMBLOB=1 or if done by a Trusted Descriptor and G2_TDO=1).
     eG2_READ_ALLOWED = 1, // Instruction fetches and reads are allowed (but exporting a Secure Memory Blob is prohibited if G2_SMBLOB=0 and the descriptor is not a Trusted Descriptor or if G2_TDO=0).
   };
+  
   enum class eG2_WRITE : uint32_t {
     eG2_WRITE_PROHIB = 0, // Writes are prohibited (except that Trusted Descriptor writes are allowed, and importing Secure Memory Blobs is allowed if G2_SMBLOB=1 or if done by a Trusted Descriptor and G2_TDO=1).
     eG2_WRITE_ALLOWED = 1, // Writes are allowed (but importing a Secure Memory Blob is prohibited if G2_SMBLOB=0 and the descriptor is not a Trusted Descriptor or if G2_TDO=0).
   };
+  
   enum class eG2_TDO : uint32_t {
     eG2_TD_PRIVILEGE_AS_JD = 0, // Trusted Descriptors have the same access privileges as Job Descriptors
     eG2_TD_OVERIDE_ALLOWED = 1, // Trusted Descriptors are allowed to override the other access permissions, i.e. they can export blobs from or import blobs to the partition and read from and write to the partition regardless of the G2_SMBLOB, G2_WRITE and G2_READ settings.
   };
+  
   enum class eG2_SMBLOB : uint32_t {
     eG2_SM_BLOB_EXPORT_IMPORT_PROHIB = 0, // Exporting or importing Secure Memory Blobs is prohibited, unless done via a Trusted Descriptor and G2_TDO=1.
     eG2_SM_BLOB_EXPORT_IMPORT_ALLOWED = 1, // Exporting or importing Secure Memory Blobs is allowed, regardless of the G2_READ and G2_WRITE settings.
   };
+  
   enum class eSMAG_LCK : uint32_t {
     eSMAG_UNLOCKED = 0, // The SMAG2JR register and SMAG1JR register are unlocked. The partition owner can change any writable bits of these registers.
     eSMAG_LOCKED = 1, // The SMAG2JR register and SMAG1JR register are locked. The SMAG2JR and SMAG1JR registers cannot be changed until the partition is de-allocated or a POR occurs.
   };
+  
   enum class eSMAP_LCK : uint32_t {
     eSMAP_UNLOCKED = 0, // The SMAP register is unlocked. The partition owner can change any writable bits of the SMAP register.
     eSMAP_LOCKED = 1, // The SMAP register is locked. The SMAP_LCK, CSP and PSP bits and G1 and G2 permission bits of the SMAP register cannot be changed until the partition is de-allocated or a POR occurs. The PARTITION_KMOD value can still be changed. The SMAG_LCK bit can be changed to a 1, but cannot be changed to a 0.
   };
+  
   enum class ePSP : uint32_t {
     eNOT_DEALLOCATABLE = 0, // The partition and any of the pages allocated to the partition can be de-allocated.
     eDEALLOCATABLE = 1, // The partition cannot be de-allocated and the pages allocated to the partition cannot be de-allocated.
   };
+  
   enum class eCSP : uint32_t {
     eNOT_ZEROIZED = 0, // The pages allocated to the partition will not be zeroized when they are de-allocated or the partition is released or a security alarm occurs.
     eZEROIZED = 1, // The pages allocated to the partition will be zeroized when they are individually de-allocated or the partition is released or a security alarm occurs.
@@ -5863,7 +5408,7 @@ union P4SMAPR_PG0 {
     ePSP PSP : 1;
     eCSP CSP : 1;
     uint32_t PARTITION_KMOD : 16;
-  } bits;          // Bit-field struct (auto-filling reserved gaps)
+  } bits;
   
   // Full 32-bit register value.
   uint32_t value;
@@ -5877,8 +5422,6 @@ union P4SMAPR_PG0 {
 //
 union P4SMAG2_PG0 {
   
-  // Enum definitions.
-  
   // Bit field definition.
   struct {
     uint32_t Gx_ID00 : 1;
@@ -5913,7 +5456,7 @@ union P4SMAG2_PG0 {
     uint32_t Gx_ID29 : 1;
     uint32_t Gx_ID30 : 1;
     uint32_t Gx_ID31 : 1;
-  } bits;          // Bit-field struct (auto-filling reserved gaps)
+  } bits;
   
   // Full 32-bit register value.
   uint32_t value;
@@ -5927,8 +5470,6 @@ union P4SMAG2_PG0 {
 //
 union P4SMAG1_PG0 {
   
-  // Enum definitions.
-  
   // Bit field definition.
   struct {
     uint32_t Gx_ID00 : 1;
@@ -5963,7 +5504,7 @@ union P4SMAG1_PG0 {
     uint32_t Gx_ID29 : 1;
     uint32_t Gx_ID30 : 1;
     uint32_t Gx_ID31 : 1;
-  } bits;          // Bit-field struct (auto-filling reserved gaps)
+  } bits;
   
   // Full 32-bit register value.
   uint32_t value;
@@ -5977,13 +5518,11 @@ union P4SMAG1_PG0 {
 //
 union P5SDID_PG0 {
   
-  // Enum definitions.
-  
   // Bit field definition.
   struct {
     uint32_t SDID : 16;
     uint32_t _reserved_end : 16;
-  } bits;          // Bit-field struct (auto-filling reserved gaps)
+  } bits;
   
   // Full 32-bit register value.
   uint32_t value;
@@ -5997,51 +5536,61 @@ union P5SDID_PG0 {
 //
 union P5SMAPR_PG0 {
   
-  // Enum definitions.
   enum class eG1_READ : uint32_t {
     eG1_READ_PROHIB = 0, // Instruction fetches and reads are prohibited (except that Trusted Descriptor reads (if G1_TDO=1) and key-reads are always allowed, and exporting Secure Memory Blobs is allowed if G1_SMBLOB=1 or if done by a Trusted Descriptor and G1_TDO=1).
     eG1_READ_ALLOWED = 1, // Instruction fetches and reads are allowed (but exporting a Secure Memory Blob is prohibited if G1_SMBLOB=0 and the descriptor is not a Trusted Descriptor or if G1_TDO=0).
   };
+  
   enum class eG1_WRITE : uint32_t {
     eG1_WRITE_PROHIB = 0, // Writes are prohibited (except that Trusted Descriptor writes are allowed, and importing Secure Memory Blobs is allowed if G1_SMBLOB=1 or if done by a Trusted Descriptor and G1_TDO=1).
     eG1_WRITE_ALLOWED = 1, // Writes are allowed (but importing a Secure Memory Blob is prohibited if G1_SMBLOB=0 and the descriptor is not a Trusted Descriptor or if G1_TDO=0).
   };
+  
   enum class eG1_TDO : uint32_t {
     eG1_TD_PRIVILEGE_AS_JD = 0, // Trusted Descriptors have the same access privileges as Job Descriptors
     eG1_TD_OVERIDE_ALLOWED = 1, // Trusted Descriptors are allowed to override the other access permissions, i.e. they can export blobs from or import blobs to the partition and read from and write to the partition regardless of the G1_SMBLOB, G1_WRITE and G1_READ settings.
   };
+  
   enum class eG1_SMBLOB : uint32_t {
     eG1_SM_BLOB_EXPORT_IMPORT_PROHIB = 0, // Exporting or importing Secure Memory Blobs is prohibited, unless done via a Trusted Descriptor and G1_TDO=1.
     eG1_SM_B_EXPORT_IMPORT_ALLOWED = 1, // Exporting or importing Secure Memory Blobs is allowed, regardless of the G1_READ and G1_WRITE settings.
   };
+  
   enum class eG2_READ : uint32_t {
     eG2_READ_PROHIB = 0, // Instruction fetches and reads are prohibited (except that Trusted Descriptor reads (if G2_TDO=1) and key-reads are always allowed, and exporting Secure Memory Blobs is allowed if G2_SMBLOB=1 or if done by a Trusted Descriptor and G2_TDO=1).
     eG2_READ_ALLOWED = 1, // Instruction fetches and reads are allowed (but exporting a Secure Memory Blob is prohibited if G2_SMBLOB=0 and the descriptor is not a Trusted Descriptor or if G2_TDO=0).
   };
+  
   enum class eG2_WRITE : uint32_t {
     eG2_WRITE_PROHIB = 0, // Writes are prohibited (except that Trusted Descriptor writes are allowed, and importing Secure Memory Blobs is allowed if G2_SMBLOB=1 or if done by a Trusted Descriptor and G2_TDO=1).
     eG2_WRITE_ALLOWED = 1, // Writes are allowed (but importing a Secure Memory Blob is prohibited if G2_SMBLOB=0 and the descriptor is not a Trusted Descriptor or if G2_TDO=0).
   };
+  
   enum class eG2_TDO : uint32_t {
     eG2_TD_PRIVILEGE_AS_JD = 0, // Trusted Descriptors have the same access privileges as Job Descriptors
     eG2_TD_OVERIDE_ALLOWED = 1, // Trusted Descriptors are allowed to override the other access permissions, i.e. they can export blobs from or import blobs to the partition and read from and write to the partition regardless of the G2_SMBLOB, G2_WRITE and G2_READ settings.
   };
+  
   enum class eG2_SMBLOB : uint32_t {
     eG2_SM_BLOB_EXPORT_IMPORT_PROHIB = 0, // Exporting or importing Secure Memory Blobs is prohibited, unless done via a Trusted Descriptor and G2_TDO=1.
     eG2_SM_BLOB_EXPORT_IMPORT_ALLOWED = 1, // Exporting or importing Secure Memory Blobs is allowed, regardless of the G2_READ and G2_WRITE settings.
   };
+  
   enum class eSMAG_LCK : uint32_t {
     eSMAG_UNLOCKED = 0, // The SMAG2JR register and SMAG1JR register are unlocked. The partition owner can change any writable bits of these registers.
     eSMAG_LOCKED = 1, // The SMAG2JR register and SMAG1JR register are locked. The SMAG2JR and SMAG1JR registers cannot be changed until the partition is de-allocated or a POR occurs.
   };
+  
   enum class eSMAP_LCK : uint32_t {
     eSMAP_UNLOCKED = 0, // The SMAP register is unlocked. The partition owner can change any writable bits of the SMAP register.
     eSMAP_LOCKED = 1, // The SMAP register is locked. The SMAP_LCK, CSP and PSP bits and G1 and G2 permission bits of the SMAP register cannot be changed until the partition is de-allocated or a POR occurs. The PARTITION_KMOD value can still be changed. The SMAG_LCK bit can be changed to a 1, but cannot be changed to a 0.
   };
+  
   enum class ePSP : uint32_t {
     eNOT_DEALLOCATABLE = 0, // The partition and any of the pages allocated to the partition can be de-allocated.
     eDEALLOCATABLE = 1, // The partition cannot be de-allocated and the pages allocated to the partition cannot be de-allocated.
   };
+  
   enum class eCSP : uint32_t {
     eNOT_ZEROIZED = 0, // The pages allocated to the partition will not be zeroized when they are de-allocated or the partition is released or a security alarm occurs.
     eZEROIZED = 1, // The pages allocated to the partition will be zeroized when they are individually de-allocated or the partition is released or a security alarm occurs.
@@ -6063,7 +5612,7 @@ union P5SMAPR_PG0 {
     ePSP PSP : 1;
     eCSP CSP : 1;
     uint32_t PARTITION_KMOD : 16;
-  } bits;          // Bit-field struct (auto-filling reserved gaps)
+  } bits;
   
   // Full 32-bit register value.
   uint32_t value;
@@ -6077,8 +5626,6 @@ union P5SMAPR_PG0 {
 //
 union P5SMAG2_PG0 {
   
-  // Enum definitions.
-  
   // Bit field definition.
   struct {
     uint32_t Gx_ID00 : 1;
@@ -6113,7 +5660,7 @@ union P5SMAG2_PG0 {
     uint32_t Gx_ID29 : 1;
     uint32_t Gx_ID30 : 1;
     uint32_t Gx_ID31 : 1;
-  } bits;          // Bit-field struct (auto-filling reserved gaps)
+  } bits;
   
   // Full 32-bit register value.
   uint32_t value;
@@ -6127,8 +5674,6 @@ union P5SMAG2_PG0 {
 //
 union P5SMAG1_PG0 {
   
-  // Enum definitions.
-  
   // Bit field definition.
   struct {
     uint32_t Gx_ID00 : 1;
@@ -6163,7 +5708,7 @@ union P5SMAG1_PG0 {
     uint32_t Gx_ID29 : 1;
     uint32_t Gx_ID30 : 1;
     uint32_t Gx_ID31 : 1;
-  } bits;          // Bit-field struct (auto-filling reserved gaps)
+  } bits;
   
   // Full 32-bit register value.
   uint32_t value;
@@ -6177,13 +5722,11 @@ union P5SMAG1_PG0 {
 //
 union P6SDID_PG0 {
   
-  // Enum definitions.
-  
   // Bit field definition.
   struct {
     uint32_t SDID : 16;
     uint32_t _reserved_end : 16;
-  } bits;          // Bit-field struct (auto-filling reserved gaps)
+  } bits;
   
   // Full 32-bit register value.
   uint32_t value;
@@ -6197,51 +5740,61 @@ union P6SDID_PG0 {
 //
 union P6SMAPR_PG0 {
   
-  // Enum definitions.
   enum class eG1_READ : uint32_t {
     eG1_READ_PROHIB = 0, // Instruction fetches and reads are prohibited (except that Trusted Descriptor reads (if G1_TDO=1) and key-reads are always allowed, and exporting Secure Memory Blobs is allowed if G1_SMBLOB=1 or if done by a Trusted Descriptor and G1_TDO=1).
     eG1_READ_ALLOWED = 1, // Instruction fetches and reads are allowed (but exporting a Secure Memory Blob is prohibited if G1_SMBLOB=0 and the descriptor is not a Trusted Descriptor or if G1_TDO=0).
   };
+  
   enum class eG1_WRITE : uint32_t {
     eG1_WRITE_PROHIB = 0, // Writes are prohibited (except that Trusted Descriptor writes are allowed, and importing Secure Memory Blobs is allowed if G1_SMBLOB=1 or if done by a Trusted Descriptor and G1_TDO=1).
     eG1_WRITE_ALLOWED = 1, // Writes are allowed (but importing a Secure Memory Blob is prohibited if G1_SMBLOB=0 and the descriptor is not a Trusted Descriptor or if G1_TDO=0).
   };
+  
   enum class eG1_TDO : uint32_t {
     eG1_TD_PRIVILEGE_AS_JD = 0, // Trusted Descriptors have the same access privileges as Job Descriptors
     eG1_TD_OVERIDE_ALLOWED = 1, // Trusted Descriptors are allowed to override the other access permissions, i.e. they can export blobs from or import blobs to the partition and read from and write to the partition regardless of the G1_SMBLOB, G1_WRITE and G1_READ settings.
   };
+  
   enum class eG1_SMBLOB : uint32_t {
     eG1_SM_BLOB_EXPORT_IMPORT_PROHIB = 0, // Exporting or importing Secure Memory Blobs is prohibited, unless done via a Trusted Descriptor and G1_TDO=1.
     eG1_SM_B_EXPORT_IMPORT_ALLOWED = 1, // Exporting or importing Secure Memory Blobs is allowed, regardless of the G1_READ and G1_WRITE settings.
   };
+  
   enum class eG2_READ : uint32_t {
     eG2_READ_PROHIB = 0, // Instruction fetches and reads are prohibited (except that Trusted Descriptor reads (if G2_TDO=1) and key-reads are always allowed, and exporting Secure Memory Blobs is allowed if G2_SMBLOB=1 or if done by a Trusted Descriptor and G2_TDO=1).
     eG2_READ_ALLOWED = 1, // Instruction fetches and reads are allowed (but exporting a Secure Memory Blob is prohibited if G2_SMBLOB=0 and the descriptor is not a Trusted Descriptor or if G2_TDO=0).
   };
+  
   enum class eG2_WRITE : uint32_t {
     eG2_WRITE_PROHIB = 0, // Writes are prohibited (except that Trusted Descriptor writes are allowed, and importing Secure Memory Blobs is allowed if G2_SMBLOB=1 or if done by a Trusted Descriptor and G2_TDO=1).
     eG2_WRITE_ALLOWED = 1, // Writes are allowed (but importing a Secure Memory Blob is prohibited if G2_SMBLOB=0 and the descriptor is not a Trusted Descriptor or if G2_TDO=0).
   };
+  
   enum class eG2_TDO : uint32_t {
     eG2_TD_PRIVILEGE_AS_JD = 0, // Trusted Descriptors have the same access privileges as Job Descriptors
     eG2_TD_OVERIDE_ALLOWED = 1, // Trusted Descriptors are allowed to override the other access permissions, i.e. they can export blobs from or import blobs to the partition and read from and write to the partition regardless of the G2_SMBLOB, G2_WRITE and G2_READ settings.
   };
+  
   enum class eG2_SMBLOB : uint32_t {
     eG2_SM_BLOB_EXPORT_IMPORT_PROHIB = 0, // Exporting or importing Secure Memory Blobs is prohibited, unless done via a Trusted Descriptor and G2_TDO=1.
     eG2_SM_BLOB_EXPORT_IMPORT_ALLOWED = 1, // Exporting or importing Secure Memory Blobs is allowed, regardless of the G2_READ and G2_WRITE settings.
   };
+  
   enum class eSMAG_LCK : uint32_t {
     eSMAG_UNLOCKED = 0, // The SMAG2JR register and SMAG1JR register are unlocked. The partition owner can change any writable bits of these registers.
     eSMAG_LOCKED = 1, // The SMAG2JR register and SMAG1JR register are locked. The SMAG2JR and SMAG1JR registers cannot be changed until the partition is de-allocated or a POR occurs.
   };
+  
   enum class eSMAP_LCK : uint32_t {
     eSMAP_UNLOCKED = 0, // The SMAP register is unlocked. The partition owner can change any writable bits of the SMAP register.
     eSMAP_LOCKED = 1, // The SMAP register is locked. The SMAP_LCK, CSP and PSP bits and G1 and G2 permission bits of the SMAP register cannot be changed until the partition is de-allocated or a POR occurs. The PARTITION_KMOD value can still be changed. The SMAG_LCK bit can be changed to a 1, but cannot be changed to a 0.
   };
+  
   enum class ePSP : uint32_t {
     eNOT_DEALLOCATABLE = 0, // The partition and any of the pages allocated to the partition can be de-allocated.
     eDEALLOCATABLE = 1, // The partition cannot be de-allocated and the pages allocated to the partition cannot be de-allocated.
   };
+  
   enum class eCSP : uint32_t {
     eNOT_ZEROIZED = 0, // The pages allocated to the partition will not be zeroized when they are de-allocated or the partition is released or a security alarm occurs.
     eZEROIZED = 1, // The pages allocated to the partition will be zeroized when they are individually de-allocated or the partition is released or a security alarm occurs.
@@ -6263,7 +5816,7 @@ union P6SMAPR_PG0 {
     ePSP PSP : 1;
     eCSP CSP : 1;
     uint32_t PARTITION_KMOD : 16;
-  } bits;          // Bit-field struct (auto-filling reserved gaps)
+  } bits;
   
   // Full 32-bit register value.
   uint32_t value;
@@ -6277,8 +5830,6 @@ union P6SMAPR_PG0 {
 //
 union P6SMAG2_PG0 {
   
-  // Enum definitions.
-  
   // Bit field definition.
   struct {
     uint32_t Gx_ID00 : 1;
@@ -6313,7 +5864,7 @@ union P6SMAG2_PG0 {
     uint32_t Gx_ID29 : 1;
     uint32_t Gx_ID30 : 1;
     uint32_t Gx_ID31 : 1;
-  } bits;          // Bit-field struct (auto-filling reserved gaps)
+  } bits;
   
   // Full 32-bit register value.
   uint32_t value;
@@ -6327,8 +5878,6 @@ union P6SMAG2_PG0 {
 //
 union P6SMAG1_PG0 {
   
-  // Enum definitions.
-  
   // Bit field definition.
   struct {
     uint32_t Gx_ID00 : 1;
@@ -6363,7 +5912,7 @@ union P6SMAG1_PG0 {
     uint32_t Gx_ID29 : 1;
     uint32_t Gx_ID30 : 1;
     uint32_t Gx_ID31 : 1;
-  } bits;          // Bit-field struct (auto-filling reserved gaps)
+  } bits;
   
   // Full 32-bit register value.
   uint32_t value;
@@ -6377,13 +5926,11 @@ union P6SMAG1_PG0 {
 //
 union P7SDID_PG0 {
   
-  // Enum definitions.
-  
   // Bit field definition.
   struct {
     uint32_t SDID : 16;
     uint32_t _reserved_end : 16;
-  } bits;          // Bit-field struct (auto-filling reserved gaps)
+  } bits;
   
   // Full 32-bit register value.
   uint32_t value;
@@ -6397,51 +5944,61 @@ union P7SDID_PG0 {
 //
 union P7SMAPR_PG0 {
   
-  // Enum definitions.
   enum class eG1_READ : uint32_t {
     eG1_READ_PROHIB = 0, // Instruction fetches and reads are prohibited (except that Trusted Descriptor reads (if G1_TDO=1) and key-reads are always allowed, and exporting Secure Memory Blobs is allowed if G1_SMBLOB=1 or if done by a Trusted Descriptor and G1_TDO=1).
     eG1_READ_ALLOWED = 1, // Instruction fetches and reads are allowed (but exporting a Secure Memory Blob is prohibited if G1_SMBLOB=0 and the descriptor is not a Trusted Descriptor or if G1_TDO=0).
   };
+  
   enum class eG1_WRITE : uint32_t {
     eG1_WRITE_PROHIB = 0, // Writes are prohibited (except that Trusted Descriptor writes are allowed, and importing Secure Memory Blobs is allowed if G1_SMBLOB=1 or if done by a Trusted Descriptor and G1_TDO=1).
     eG1_WRITE_ALLOWED = 1, // Writes are allowed (but importing a Secure Memory Blob is prohibited if G1_SMBLOB=0 and the descriptor is not a Trusted Descriptor or if G1_TDO=0).
   };
+  
   enum class eG1_TDO : uint32_t {
     eG1_TD_PRIVILEGE_AS_JD = 0, // Trusted Descriptors have the same access privileges as Job Descriptors
     eG1_TD_OVERIDE_ALLOWED = 1, // Trusted Descriptors are allowed to override the other access permissions, i.e. they can export blobs from or import blobs to the partition and read from and write to the partition regardless of the G1_SMBLOB, G1_WRITE and G1_READ settings.
   };
+  
   enum class eG1_SMBLOB : uint32_t {
     eG1_SM_BLOB_EXPORT_IMPORT_PROHIB = 0, // Exporting or importing Secure Memory Blobs is prohibited, unless done via a Trusted Descriptor and G1_TDO=1.
     eG1_SM_B_EXPORT_IMPORT_ALLOWED = 1, // Exporting or importing Secure Memory Blobs is allowed, regardless of the G1_READ and G1_WRITE settings.
   };
+  
   enum class eG2_READ : uint32_t {
     eG2_READ_PROHIB = 0, // Instruction fetches and reads are prohibited (except that Trusted Descriptor reads (if G2_TDO=1) and key-reads are always allowed, and exporting Secure Memory Blobs is allowed if G2_SMBLOB=1 or if done by a Trusted Descriptor and G2_TDO=1).
     eG2_READ_ALLOWED = 1, // Instruction fetches and reads are allowed (but exporting a Secure Memory Blob is prohibited if G2_SMBLOB=0 and the descriptor is not a Trusted Descriptor or if G2_TDO=0).
   };
+  
   enum class eG2_WRITE : uint32_t {
     eG2_WRITE_PROHIB = 0, // Writes are prohibited (except that Trusted Descriptor writes are allowed, and importing Secure Memory Blobs is allowed if G2_SMBLOB=1 or if done by a Trusted Descriptor and G2_TDO=1).
     eG2_WRITE_ALLOWED = 1, // Writes are allowed (but importing a Secure Memory Blob is prohibited if G2_SMBLOB=0 and the descriptor is not a Trusted Descriptor or if G2_TDO=0).
   };
+  
   enum class eG2_TDO : uint32_t {
     eG2_TD_PRIVILEGE_AS_JD = 0, // Trusted Descriptors have the same access privileges as Job Descriptors
     eG2_TD_OVERIDE_ALLOWED = 1, // Trusted Descriptors are allowed to override the other access permissions, i.e. they can export blobs from or import blobs to the partition and read from and write to the partition regardless of the G2_SMBLOB, G2_WRITE and G2_READ settings.
   };
+  
   enum class eG2_SMBLOB : uint32_t {
     eG2_SM_BLOB_EXPORT_IMPORT_PROHIB = 0, // Exporting or importing Secure Memory Blobs is prohibited, unless done via a Trusted Descriptor and G2_TDO=1.
     eG2_SM_BLOB_EXPORT_IMPORT_ALLOWED = 1, // Exporting or importing Secure Memory Blobs is allowed, regardless of the G2_READ and G2_WRITE settings.
   };
+  
   enum class eSMAG_LCK : uint32_t {
     eSMAG_UNLOCKED = 0, // The SMAG2JR register and SMAG1JR register are unlocked. The partition owner can change any writable bits of these registers.
     eSMAG_LOCKED = 1, // The SMAG2JR register and SMAG1JR register are locked. The SMAG2JR and SMAG1JR registers cannot be changed until the partition is de-allocated or a POR occurs.
   };
+  
   enum class eSMAP_LCK : uint32_t {
     eSMAP_UNLOCKED = 0, // The SMAP register is unlocked. The partition owner can change any writable bits of the SMAP register.
     eSMAP_LOCKED = 1, // The SMAP register is locked. The SMAP_LCK, CSP and PSP bits and G1 and G2 permission bits of the SMAP register cannot be changed until the partition is de-allocated or a POR occurs. The PARTITION_KMOD value can still be changed. The SMAG_LCK bit can be changed to a 1, but cannot be changed to a 0.
   };
+  
   enum class ePSP : uint32_t {
     eNOT_DEALLOCATABLE = 0, // The partition and any of the pages allocated to the partition can be de-allocated.
     eDEALLOCATABLE = 1, // The partition cannot be de-allocated and the pages allocated to the partition cannot be de-allocated.
   };
+  
   enum class eCSP : uint32_t {
     eNOT_ZEROIZED = 0, // The pages allocated to the partition will not be zeroized when they are de-allocated or the partition is released or a security alarm occurs.
     eZEROIZED = 1, // The pages allocated to the partition will be zeroized when they are individually de-allocated or the partition is released or a security alarm occurs.
@@ -6463,7 +6020,7 @@ union P7SMAPR_PG0 {
     ePSP PSP : 1;
     eCSP CSP : 1;
     uint32_t PARTITION_KMOD : 16;
-  } bits;          // Bit-field struct (auto-filling reserved gaps)
+  } bits;
   
   // Full 32-bit register value.
   uint32_t value;
@@ -6477,8 +6034,6 @@ union P7SMAPR_PG0 {
 //
 union P7SMAG2_PG0 {
   
-  // Enum definitions.
-  
   // Bit field definition.
   struct {
     uint32_t Gx_ID00 : 1;
@@ -6513,7 +6068,7 @@ union P7SMAG2_PG0 {
     uint32_t Gx_ID29 : 1;
     uint32_t Gx_ID30 : 1;
     uint32_t Gx_ID31 : 1;
-  } bits;          // Bit-field struct (auto-filling reserved gaps)
+  } bits;
   
   // Full 32-bit register value.
   uint32_t value;
@@ -6527,8 +6082,6 @@ union P7SMAG2_PG0 {
 //
 union P7SMAG1_PG0 {
   
-  // Enum definitions.
-  
   // Bit field definition.
   struct {
     uint32_t Gx_ID00 : 1;
@@ -6563,7 +6116,7 @@ union P7SMAG1_PG0 {
     uint32_t Gx_ID29 : 1;
     uint32_t Gx_ID30 : 1;
     uint32_t Gx_ID31 : 1;
-  } bits;          // Bit-field struct (auto-filling reserved gaps)
+  } bits;
   
   // Full 32-bit register value.
   uint32_t value;
@@ -6577,13 +6130,11 @@ union P7SMAG1_PG0 {
 //
 union P8SDID_PG0 {
   
-  // Enum definitions.
-  
   // Bit field definition.
   struct {
     uint32_t SDID : 16;
     uint32_t _reserved_end : 16;
-  } bits;          // Bit-field struct (auto-filling reserved gaps)
+  } bits;
   
   // Full 32-bit register value.
   uint32_t value;
@@ -6597,51 +6148,61 @@ union P8SDID_PG0 {
 //
 union P8SMAPR_PG0 {
   
-  // Enum definitions.
   enum class eG1_READ : uint32_t {
     eG1_READ_PROHIB = 0, // Instruction fetches and reads are prohibited (except that Trusted Descriptor reads (if G1_TDO=1) and key-reads are always allowed, and exporting Secure Memory Blobs is allowed if G1_SMBLOB=1 or if done by a Trusted Descriptor and G1_TDO=1).
     eG1_READ_ALLOWED = 1, // Instruction fetches and reads are allowed (but exporting a Secure Memory Blob is prohibited if G1_SMBLOB=0 and the descriptor is not a Trusted Descriptor or if G1_TDO=0).
   };
+  
   enum class eG1_WRITE : uint32_t {
     eG1_WRITE_PROHIB = 0, // Writes are prohibited (except that Trusted Descriptor writes are allowed, and importing Secure Memory Blobs is allowed if G1_SMBLOB=1 or if done by a Trusted Descriptor and G1_TDO=1).
     eG1_WRITE_ALLOWED = 1, // Writes are allowed (but importing a Secure Memory Blob is prohibited if G1_SMBLOB=0 and the descriptor is not a Trusted Descriptor or if G1_TDO=0).
   };
+  
   enum class eG1_TDO : uint32_t {
     eG1_TD_PRIVILEGE_AS_JD = 0, // Trusted Descriptors have the same access privileges as Job Descriptors
     eG1_TD_OVERIDE_ALLOWED = 1, // Trusted Descriptors are allowed to override the other access permissions, i.e. they can export blobs from or import blobs to the partition and read from and write to the partition regardless of the G1_SMBLOB, G1_WRITE and G1_READ settings.
   };
+  
   enum class eG1_SMBLOB : uint32_t {
     eG1_SM_BLOB_EXPORT_IMPORT_PROHIB = 0, // Exporting or importing Secure Memory Blobs is prohibited, unless done via a Trusted Descriptor and G1_TDO=1.
     eG1_SM_B_EXPORT_IMPORT_ALLOWED = 1, // Exporting or importing Secure Memory Blobs is allowed, regardless of the G1_READ and G1_WRITE settings.
   };
+  
   enum class eG2_READ : uint32_t {
     eG2_READ_PROHIB = 0, // Instruction fetches and reads are prohibited (except that Trusted Descriptor reads (if G2_TDO=1) and key-reads are always allowed, and exporting Secure Memory Blobs is allowed if G2_SMBLOB=1 or if done by a Trusted Descriptor and G2_TDO=1).
     eG2_READ_ALLOWED = 1, // Instruction fetches and reads are allowed (but exporting a Secure Memory Blob is prohibited if G2_SMBLOB=0 and the descriptor is not a Trusted Descriptor or if G2_TDO=0).
   };
+  
   enum class eG2_WRITE : uint32_t {
     eG2_WRITE_PROHIB = 0, // Writes are prohibited (except that Trusted Descriptor writes are allowed, and importing Secure Memory Blobs is allowed if G2_SMBLOB=1 or if done by a Trusted Descriptor and G2_TDO=1).
     eG2_WRITE_ALLOWED = 1, // Writes are allowed (but importing a Secure Memory Blob is prohibited if G2_SMBLOB=0 and the descriptor is not a Trusted Descriptor or if G2_TDO=0).
   };
+  
   enum class eG2_TDO : uint32_t {
     eG2_TD_PRIVILEGE_AS_JD = 0, // Trusted Descriptors have the same access privileges as Job Descriptors
     eG2_TD_OVERIDE_ALLOWED = 1, // Trusted Descriptors are allowed to override the other access permissions, i.e. they can export blobs from or import blobs to the partition and read from and write to the partition regardless of the G2_SMBLOB, G2_WRITE and G2_READ settings.
   };
+  
   enum class eG2_SMBLOB : uint32_t {
     eG2_SM_BLOB_EXPORT_IMPORT_PROHIB = 0, // Exporting or importing Secure Memory Blobs is prohibited, unless done via a Trusted Descriptor and G2_TDO=1.
     eG2_SM_BLOB_EXPORT_IMPORT_ALLOWED = 1, // Exporting or importing Secure Memory Blobs is allowed, regardless of the G2_READ and G2_WRITE settings.
   };
+  
   enum class eSMAG_LCK : uint32_t {
     eSMAG_UNLOCKED = 0, // The SMAG2JR register and SMAG1JR register are unlocked. The partition owner can change any writable bits of these registers.
     eSMAG_LOCKED = 1, // The SMAG2JR register and SMAG1JR register are locked. The SMAG2JR and SMAG1JR registers cannot be changed until the partition is de-allocated or a POR occurs.
   };
+  
   enum class eSMAP_LCK : uint32_t {
     eSMAP_UNLOCKED = 0, // The SMAP register is unlocked. The partition owner can change any writable bits of the SMAP register.
     eSMAP_LOCKED = 1, // The SMAP register is locked. The SMAP_LCK, CSP and PSP bits and G1 and G2 permission bits of the SMAP register cannot be changed until the partition is de-allocated or a POR occurs. The PARTITION_KMOD value can still be changed. The SMAG_LCK bit can be changed to a 1, but cannot be changed to a 0.
   };
+  
   enum class ePSP : uint32_t {
     eNOT_DEALLOCATABLE = 0, // The partition and any of the pages allocated to the partition can be de-allocated.
     eDEALLOCATABLE = 1, // The partition cannot be de-allocated and the pages allocated to the partition cannot be de-allocated.
   };
+  
   enum class eCSP : uint32_t {
     eNOT_ZEROIZED = 0, // The pages allocated to the partition will not be zeroized when they are de-allocated or the partition is released or a security alarm occurs.
     eZEROIZED = 1, // The pages allocated to the partition will be zeroized when they are individually de-allocated or the partition is released or a security alarm occurs.
@@ -6663,7 +6224,7 @@ union P8SMAPR_PG0 {
     ePSP PSP : 1;
     eCSP CSP : 1;
     uint32_t PARTITION_KMOD : 16;
-  } bits;          // Bit-field struct (auto-filling reserved gaps)
+  } bits;
   
   // Full 32-bit register value.
   uint32_t value;
@@ -6677,8 +6238,6 @@ union P8SMAPR_PG0 {
 //
 union P8SMAG2_PG0 {
   
-  // Enum definitions.
-  
   // Bit field definition.
   struct {
     uint32_t Gx_ID00 : 1;
@@ -6713,7 +6272,7 @@ union P8SMAG2_PG0 {
     uint32_t Gx_ID29 : 1;
     uint32_t Gx_ID30 : 1;
     uint32_t Gx_ID31 : 1;
-  } bits;          // Bit-field struct (auto-filling reserved gaps)
+  } bits;
   
   // Full 32-bit register value.
   uint32_t value;
@@ -6727,8 +6286,6 @@ union P8SMAG2_PG0 {
 //
 union P8SMAG1_PG0 {
   
-  // Enum definitions.
-  
   // Bit field definition.
   struct {
     uint32_t Gx_ID00 : 1;
@@ -6763,7 +6320,7 @@ union P8SMAG1_PG0 {
     uint32_t Gx_ID29 : 1;
     uint32_t Gx_ID30 : 1;
     uint32_t Gx_ID31 : 1;
-  } bits;          // Bit-field struct (auto-filling reserved gaps)
+  } bits;
   
   // Full 32-bit register value.
   uint32_t value;
@@ -6777,13 +6334,11 @@ union P8SMAG1_PG0 {
 //
 union P9SDID_PG0 {
   
-  // Enum definitions.
-  
   // Bit field definition.
   struct {
     uint32_t SDID : 16;
     uint32_t _reserved_end : 16;
-  } bits;          // Bit-field struct (auto-filling reserved gaps)
+  } bits;
   
   // Full 32-bit register value.
   uint32_t value;
@@ -6797,51 +6352,61 @@ union P9SDID_PG0 {
 //
 union P9SMAPR_PG0 {
   
-  // Enum definitions.
   enum class eG1_READ : uint32_t {
     eG1_READ_PROHIB = 0, // Instruction fetches and reads are prohibited (except that Trusted Descriptor reads (if G1_TDO=1) and key-reads are always allowed, and exporting Secure Memory Blobs is allowed if G1_SMBLOB=1 or if done by a Trusted Descriptor and G1_TDO=1).
     eG1_READ_ALLOWED = 1, // Instruction fetches and reads are allowed (but exporting a Secure Memory Blob is prohibited if G1_SMBLOB=0 and the descriptor is not a Trusted Descriptor or if G1_TDO=0).
   };
+  
   enum class eG1_WRITE : uint32_t {
     eG1_WRITE_PROHIB = 0, // Writes are prohibited (except that Trusted Descriptor writes are allowed, and importing Secure Memory Blobs is allowed if G1_SMBLOB=1 or if done by a Trusted Descriptor and G1_TDO=1).
     eG1_WRITE_ALLOWED = 1, // Writes are allowed (but importing a Secure Memory Blob is prohibited if G1_SMBLOB=0 and the descriptor is not a Trusted Descriptor or if G1_TDO=0).
   };
+  
   enum class eG1_TDO : uint32_t {
     eG1_TD_PRIVILEGE_AS_JD = 0, // Trusted Descriptors have the same access privileges as Job Descriptors
     eG1_TD_OVERIDE_ALLOWED = 1, // Trusted Descriptors are allowed to override the other access permissions, i.e. they can export blobs from or import blobs to the partition and read from and write to the partition regardless of the G1_SMBLOB, G1_WRITE and G1_READ settings.
   };
+  
   enum class eG1_SMBLOB : uint32_t {
     eG1_SM_BLOB_EXPORT_IMPORT_PROHIB = 0, // Exporting or importing Secure Memory Blobs is prohibited, unless done via a Trusted Descriptor and G1_TDO=1.
     eG1_SM_B_EXPORT_IMPORT_ALLOWED = 1, // Exporting or importing Secure Memory Blobs is allowed, regardless of the G1_READ and G1_WRITE settings.
   };
+  
   enum class eG2_READ : uint32_t {
     eG2_READ_PROHIB = 0, // Instruction fetches and reads are prohibited (except that Trusted Descriptor reads (if G2_TDO=1) and key-reads are always allowed, and exporting Secure Memory Blobs is allowed if G2_SMBLOB=1 or if done by a Trusted Descriptor and G2_TDO=1).
     eG2_READ_ALLOWED = 1, // Instruction fetches and reads are allowed (but exporting a Secure Memory Blob is prohibited if G2_SMBLOB=0 and the descriptor is not a Trusted Descriptor or if G2_TDO=0).
   };
+  
   enum class eG2_WRITE : uint32_t {
     eG2_WRITE_PROHIB = 0, // Writes are prohibited (except that Trusted Descriptor writes are allowed, and importing Secure Memory Blobs is allowed if G2_SMBLOB=1 or if done by a Trusted Descriptor and G2_TDO=1).
     eG2_WRITE_ALLOWED = 1, // Writes are allowed (but importing a Secure Memory Blob is prohibited if G2_SMBLOB=0 and the descriptor is not a Trusted Descriptor or if G2_TDO=0).
   };
+  
   enum class eG2_TDO : uint32_t {
     eG2_TD_PRIVILEGE_AS_JD = 0, // Trusted Descriptors have the same access privileges as Job Descriptors
     eG2_TD_OVERIDE_ALLOWED = 1, // Trusted Descriptors are allowed to override the other access permissions, i.e. they can export blobs from or import blobs to the partition and read from and write to the partition regardless of the G2_SMBLOB, G2_WRITE and G2_READ settings.
   };
+  
   enum class eG2_SMBLOB : uint32_t {
     eG2_SM_BLOB_EXPORT_IMPORT_PROHIB = 0, // Exporting or importing Secure Memory Blobs is prohibited, unless done via a Trusted Descriptor and G2_TDO=1.
     eG2_SM_BLOB_EXPORT_IMPORT_ALLOWED = 1, // Exporting or importing Secure Memory Blobs is allowed, regardless of the G2_READ and G2_WRITE settings.
   };
+  
   enum class eSMAG_LCK : uint32_t {
     eSMAG_UNLOCKED = 0, // The SMAG2JR register and SMAG1JR register are unlocked. The partition owner can change any writable bits of these registers.
     eSMAG_LOCKED = 1, // The SMAG2JR register and SMAG1JR register are locked. The SMAG2JR and SMAG1JR registers cannot be changed until the partition is de-allocated or a POR occurs.
   };
+  
   enum class eSMAP_LCK : uint32_t {
     eSMAP_UNLOCKED = 0, // The SMAP register is unlocked. The partition owner can change any writable bits of the SMAP register.
     eSMAP_LOCKED = 1, // The SMAP register is locked. The SMAP_LCK, CSP and PSP bits and G1 and G2 permission bits of the SMAP register cannot be changed until the partition is de-allocated or a POR occurs. The PARTITION_KMOD value can still be changed. The SMAG_LCK bit can be changed to a 1, but cannot be changed to a 0.
   };
+  
   enum class ePSP : uint32_t {
     eNOT_DEALLOCATABLE = 0, // The partition and any of the pages allocated to the partition can be de-allocated.
     eDEALLOCATABLE = 1, // The partition cannot be de-allocated and the pages allocated to the partition cannot be de-allocated.
   };
+  
   enum class eCSP : uint32_t {
     eNOT_ZEROIZED = 0, // The pages allocated to the partition will not be zeroized when they are de-allocated or the partition is released or a security alarm occurs.
     eZEROIZED = 1, // The pages allocated to the partition will be zeroized when they are individually de-allocated or the partition is released or a security alarm occurs.
@@ -6863,7 +6428,7 @@ union P9SMAPR_PG0 {
     ePSP PSP : 1;
     eCSP CSP : 1;
     uint32_t PARTITION_KMOD : 16;
-  } bits;          // Bit-field struct (auto-filling reserved gaps)
+  } bits;
   
   // Full 32-bit register value.
   uint32_t value;
@@ -6877,8 +6442,6 @@ union P9SMAPR_PG0 {
 //
 union P9SMAG2_PG0 {
   
-  // Enum definitions.
-  
   // Bit field definition.
   struct {
     uint32_t Gx_ID00 : 1;
@@ -6913,7 +6476,7 @@ union P9SMAG2_PG0 {
     uint32_t Gx_ID29 : 1;
     uint32_t Gx_ID30 : 1;
     uint32_t Gx_ID31 : 1;
-  } bits;          // Bit-field struct (auto-filling reserved gaps)
+  } bits;
   
   // Full 32-bit register value.
   uint32_t value;
@@ -6927,8 +6490,6 @@ union P9SMAG2_PG0 {
 //
 union P9SMAG1_PG0 {
   
-  // Enum definitions.
-  
   // Bit field definition.
   struct {
     uint32_t Gx_ID00 : 1;
@@ -6963,7 +6524,7 @@ union P9SMAG1_PG0 {
     uint32_t Gx_ID29 : 1;
     uint32_t Gx_ID30 : 1;
     uint32_t Gx_ID31 : 1;
-  } bits;          // Bit-field struct (auto-filling reserved gaps)
+  } bits;
   
   // Full 32-bit register value.
   uint32_t value;
@@ -6977,13 +6538,11 @@ union P9SMAG1_PG0 {
 //
 union P10SDID_PG0 {
   
-  // Enum definitions.
-  
   // Bit field definition.
   struct {
     uint32_t SDID : 16;
     uint32_t _reserved_end : 16;
-  } bits;          // Bit-field struct (auto-filling reserved gaps)
+  } bits;
   
   // Full 32-bit register value.
   uint32_t value;
@@ -6997,51 +6556,61 @@ union P10SDID_PG0 {
 //
 union P10SMAPR_PG0 {
   
-  // Enum definitions.
   enum class eG1_READ : uint32_t {
     eG1_READ_PROHIB = 0, // Instruction fetches and reads are prohibited (except that Trusted Descriptor reads (if G1_TDO=1) and key-reads are always allowed, and exporting Secure Memory Blobs is allowed if G1_SMBLOB=1 or if done by a Trusted Descriptor and G1_TDO=1).
     eG1_READ_ALLOWED = 1, // Instruction fetches and reads are allowed (but exporting a Secure Memory Blob is prohibited if G1_SMBLOB=0 and the descriptor is not a Trusted Descriptor or if G1_TDO=0).
   };
+  
   enum class eG1_WRITE : uint32_t {
     eG1_WRITE_PROHIB = 0, // Writes are prohibited (except that Trusted Descriptor writes are allowed, and importing Secure Memory Blobs is allowed if G1_SMBLOB=1 or if done by a Trusted Descriptor and G1_TDO=1).
     eG1_WRITE_ALLOWED = 1, // Writes are allowed (but importing a Secure Memory Blob is prohibited if G1_SMBLOB=0 and the descriptor is not a Trusted Descriptor or if G1_TDO=0).
   };
+  
   enum class eG1_TDO : uint32_t {
     eG1_TD_PRIVILEGE_AS_JD = 0, // Trusted Descriptors have the same access privileges as Job Descriptors
     eG1_TD_OVERIDE_ALLOWED = 1, // Trusted Descriptors are allowed to override the other access permissions, i.e. they can export blobs from or import blobs to the partition and read from and write to the partition regardless of the G1_SMBLOB, G1_WRITE and G1_READ settings.
   };
+  
   enum class eG1_SMBLOB : uint32_t {
     eG1_SM_BLOB_EXPORT_IMPORT_PROHIB = 0, // Exporting or importing Secure Memory Blobs is prohibited, unless done via a Trusted Descriptor and G1_TDO=1.
     eG1_SM_B_EXPORT_IMPORT_ALLOWED = 1, // Exporting or importing Secure Memory Blobs is allowed, regardless of the G1_READ and G1_WRITE settings.
   };
+  
   enum class eG2_READ : uint32_t {
     eG2_READ_PROHIB = 0, // Instruction fetches and reads are prohibited (except that Trusted Descriptor reads (if G2_TDO=1) and key-reads are always allowed, and exporting Secure Memory Blobs is allowed if G2_SMBLOB=1 or if done by a Trusted Descriptor and G2_TDO=1).
     eG2_READ_ALLOWED = 1, // Instruction fetches and reads are allowed (but exporting a Secure Memory Blob is prohibited if G2_SMBLOB=0 and the descriptor is not a Trusted Descriptor or if G2_TDO=0).
   };
+  
   enum class eG2_WRITE : uint32_t {
     eG2_WRITE_PROHIB = 0, // Writes are prohibited (except that Trusted Descriptor writes are allowed, and importing Secure Memory Blobs is allowed if G2_SMBLOB=1 or if done by a Trusted Descriptor and G2_TDO=1).
     eG2_WRITE_ALLOWED = 1, // Writes are allowed (but importing a Secure Memory Blob is prohibited if G2_SMBLOB=0 and the descriptor is not a Trusted Descriptor or if G2_TDO=0).
   };
+  
   enum class eG2_TDO : uint32_t {
     eG2_TD_PRIVILEGE_AS_JD = 0, // Trusted Descriptors have the same access privileges as Job Descriptors
     eG2_TD_OVERIDE_ALLOWED = 1, // Trusted Descriptors are allowed to override the other access permissions, i.e. they can export blobs from or import blobs to the partition and read from and write to the partition regardless of the G2_SMBLOB, G2_WRITE and G2_READ settings.
   };
+  
   enum class eG2_SMBLOB : uint32_t {
     eG2_SM_BLOB_EXPORT_IMPORT_PROHIB = 0, // Exporting or importing Secure Memory Blobs is prohibited, unless done via a Trusted Descriptor and G2_TDO=1.
     eG2_SM_BLOB_EXPORT_IMPORT_ALLOWED = 1, // Exporting or importing Secure Memory Blobs is allowed, regardless of the G2_READ and G2_WRITE settings.
   };
+  
   enum class eSMAG_LCK : uint32_t {
     eSMAG_UNLOCKED = 0, // The SMAG2JR register and SMAG1JR register are unlocked. The partition owner can change any writable bits of these registers.
     eSMAG_LOCKED = 1, // The SMAG2JR register and SMAG1JR register are locked. The SMAG2JR and SMAG1JR registers cannot be changed until the partition is de-allocated or a POR occurs.
   };
+  
   enum class eSMAP_LCK : uint32_t {
     eSMAP_UNLOCKED = 0, // The SMAP register is unlocked. The partition owner can change any writable bits of the SMAP register.
     eSMAP_LOCKED = 1, // The SMAP register is locked. The SMAP_LCK, CSP and PSP bits and G1 and G2 permission bits of the SMAP register cannot be changed until the partition is de-allocated or a POR occurs. The PARTITION_KMOD value can still be changed. The SMAG_LCK bit can be changed to a 1, but cannot be changed to a 0.
   };
+  
   enum class ePSP : uint32_t {
     eNOT_DEALLOCATABLE = 0, // The partition and any of the pages allocated to the partition can be de-allocated.
     eDEALLOCATABLE = 1, // The partition cannot be de-allocated and the pages allocated to the partition cannot be de-allocated.
   };
+  
   enum class eCSP : uint32_t {
     eNOT_ZEROIZED = 0, // The pages allocated to the partition will not be zeroized when they are de-allocated or the partition is released or a security alarm occurs.
     eZEROIZED = 1, // The pages allocated to the partition will be zeroized when they are individually de-allocated or the partition is released or a security alarm occurs.
@@ -7063,7 +6632,7 @@ union P10SMAPR_PG0 {
     ePSP PSP : 1;
     eCSP CSP : 1;
     uint32_t PARTITION_KMOD : 16;
-  } bits;          // Bit-field struct (auto-filling reserved gaps)
+  } bits;
   
   // Full 32-bit register value.
   uint32_t value;
@@ -7077,8 +6646,6 @@ union P10SMAPR_PG0 {
 //
 union P10SMAG2_PG0 {
   
-  // Enum definitions.
-  
   // Bit field definition.
   struct {
     uint32_t Gx_ID00 : 1;
@@ -7113,7 +6680,7 @@ union P10SMAG2_PG0 {
     uint32_t Gx_ID29 : 1;
     uint32_t Gx_ID30 : 1;
     uint32_t Gx_ID31 : 1;
-  } bits;          // Bit-field struct (auto-filling reserved gaps)
+  } bits;
   
   // Full 32-bit register value.
   uint32_t value;
@@ -7127,8 +6694,6 @@ union P10SMAG2_PG0 {
 //
 union P10SMAG1_PG0 {
   
-  // Enum definitions.
-  
   // Bit field definition.
   struct {
     uint32_t Gx_ID00 : 1;
@@ -7163,7 +6728,7 @@ union P10SMAG1_PG0 {
     uint32_t Gx_ID29 : 1;
     uint32_t Gx_ID30 : 1;
     uint32_t Gx_ID31 : 1;
-  } bits;          // Bit-field struct (auto-filling reserved gaps)
+  } bits;
   
   // Full 32-bit register value.
   uint32_t value;
@@ -7177,13 +6742,11 @@ union P10SMAG1_PG0 {
 //
 union P11SDID_PG0 {
   
-  // Enum definitions.
-  
   // Bit field definition.
   struct {
     uint32_t SDID : 16;
     uint32_t _reserved_end : 16;
-  } bits;          // Bit-field struct (auto-filling reserved gaps)
+  } bits;
   
   // Full 32-bit register value.
   uint32_t value;
@@ -7197,51 +6760,61 @@ union P11SDID_PG0 {
 //
 union P11SMAPR_PG0 {
   
-  // Enum definitions.
   enum class eG1_READ : uint32_t {
     eG1_READ_PROHIB = 0, // Instruction fetches and reads are prohibited (except that Trusted Descriptor reads (if G1_TDO=1) and key-reads are always allowed, and exporting Secure Memory Blobs is allowed if G1_SMBLOB=1 or if done by a Trusted Descriptor and G1_TDO=1).
     eG1_READ_ALLOWED = 1, // Instruction fetches and reads are allowed (but exporting a Secure Memory Blob is prohibited if G1_SMBLOB=0 and the descriptor is not a Trusted Descriptor or if G1_TDO=0).
   };
+  
   enum class eG1_WRITE : uint32_t {
     eG1_WRITE_PROHIB = 0, // Writes are prohibited (except that Trusted Descriptor writes are allowed, and importing Secure Memory Blobs is allowed if G1_SMBLOB=1 or if done by a Trusted Descriptor and G1_TDO=1).
     eG1_WRITE_ALLOWED = 1, // Writes are allowed (but importing a Secure Memory Blob is prohibited if G1_SMBLOB=0 and the descriptor is not a Trusted Descriptor or if G1_TDO=0).
   };
+  
   enum class eG1_TDO : uint32_t {
     eG1_TD_PRIVILEGE_AS_JD = 0, // Trusted Descriptors have the same access privileges as Job Descriptors
     eG1_TD_OVERIDE_ALLOWED = 1, // Trusted Descriptors are allowed to override the other access permissions, i.e. they can export blobs from or import blobs to the partition and read from and write to the partition regardless of the G1_SMBLOB, G1_WRITE and G1_READ settings.
   };
+  
   enum class eG1_SMBLOB : uint32_t {
     eG1_SM_BLOB_EXPORT_IMPORT_PROHIB = 0, // Exporting or importing Secure Memory Blobs is prohibited, unless done via a Trusted Descriptor and G1_TDO=1.
     eG1_SM_B_EXPORT_IMPORT_ALLOWED = 1, // Exporting or importing Secure Memory Blobs is allowed, regardless of the G1_READ and G1_WRITE settings.
   };
+  
   enum class eG2_READ : uint32_t {
     eG2_READ_PROHIB = 0, // Instruction fetches and reads are prohibited (except that Trusted Descriptor reads (if G2_TDO=1) and key-reads are always allowed, and exporting Secure Memory Blobs is allowed if G2_SMBLOB=1 or if done by a Trusted Descriptor and G2_TDO=1).
     eG2_READ_ALLOWED = 1, // Instruction fetches and reads are allowed (but exporting a Secure Memory Blob is prohibited if G2_SMBLOB=0 and the descriptor is not a Trusted Descriptor or if G2_TDO=0).
   };
+  
   enum class eG2_WRITE : uint32_t {
     eG2_WRITE_PROHIB = 0, // Writes are prohibited (except that Trusted Descriptor writes are allowed, and importing Secure Memory Blobs is allowed if G2_SMBLOB=1 or if done by a Trusted Descriptor and G2_TDO=1).
     eG2_WRITE_ALLOWED = 1, // Writes are allowed (but importing a Secure Memory Blob is prohibited if G2_SMBLOB=0 and the descriptor is not a Trusted Descriptor or if G2_TDO=0).
   };
+  
   enum class eG2_TDO : uint32_t {
     eG2_TD_PRIVILEGE_AS_JD = 0, // Trusted Descriptors have the same access privileges as Job Descriptors
     eG2_TD_OVERIDE_ALLOWED = 1, // Trusted Descriptors are allowed to override the other access permissions, i.e. they can export blobs from or import blobs to the partition and read from and write to the partition regardless of the G2_SMBLOB, G2_WRITE and G2_READ settings.
   };
+  
   enum class eG2_SMBLOB : uint32_t {
     eG2_SM_BLOB_EXPORT_IMPORT_PROHIB = 0, // Exporting or importing Secure Memory Blobs is prohibited, unless done via a Trusted Descriptor and G2_TDO=1.
     eG2_SM_BLOB_EXPORT_IMPORT_ALLOWED = 1, // Exporting or importing Secure Memory Blobs is allowed, regardless of the G2_READ and G2_WRITE settings.
   };
+  
   enum class eSMAG_LCK : uint32_t {
     eSMAG_UNLOCKED = 0, // The SMAG2JR register and SMAG1JR register are unlocked. The partition owner can change any writable bits of these registers.
     eSMAG_LOCKED = 1, // The SMAG2JR register and SMAG1JR register are locked. The SMAG2JR and SMAG1JR registers cannot be changed until the partition is de-allocated or a POR occurs.
   };
+  
   enum class eSMAP_LCK : uint32_t {
     eSMAP_UNLOCKED = 0, // The SMAP register is unlocked. The partition owner can change any writable bits of the SMAP register.
     eSMAP_LOCKED = 1, // The SMAP register is locked. The SMAP_LCK, CSP and PSP bits and G1 and G2 permission bits of the SMAP register cannot be changed until the partition is de-allocated or a POR occurs. The PARTITION_KMOD value can still be changed. The SMAG_LCK bit can be changed to a 1, but cannot be changed to a 0.
   };
+  
   enum class ePSP : uint32_t {
     eNOT_DEALLOCATABLE = 0, // The partition and any of the pages allocated to the partition can be de-allocated.
     eDEALLOCATABLE = 1, // The partition cannot be de-allocated and the pages allocated to the partition cannot be de-allocated.
   };
+  
   enum class eCSP : uint32_t {
     eNOT_ZEROIZED = 0, // The pages allocated to the partition will not be zeroized when they are de-allocated or the partition is released or a security alarm occurs.
     eZEROIZED = 1, // The pages allocated to the partition will be zeroized when they are individually de-allocated or the partition is released or a security alarm occurs.
@@ -7263,7 +6836,7 @@ union P11SMAPR_PG0 {
     ePSP PSP : 1;
     eCSP CSP : 1;
     uint32_t PARTITION_KMOD : 16;
-  } bits;          // Bit-field struct (auto-filling reserved gaps)
+  } bits;
   
   // Full 32-bit register value.
   uint32_t value;
@@ -7277,8 +6850,6 @@ union P11SMAPR_PG0 {
 //
 union P11SMAG2_PG0 {
   
-  // Enum definitions.
-  
   // Bit field definition.
   struct {
     uint32_t Gx_ID00 : 1;
@@ -7313,7 +6884,7 @@ union P11SMAG2_PG0 {
     uint32_t Gx_ID29 : 1;
     uint32_t Gx_ID30 : 1;
     uint32_t Gx_ID31 : 1;
-  } bits;          // Bit-field struct (auto-filling reserved gaps)
+  } bits;
   
   // Full 32-bit register value.
   uint32_t value;
@@ -7327,8 +6898,6 @@ union P11SMAG2_PG0 {
 //
 union P11SMAG1_PG0 {
   
-  // Enum definitions.
-  
   // Bit field definition.
   struct {
     uint32_t Gx_ID00 : 1;
@@ -7363,7 +6932,7 @@ union P11SMAG1_PG0 {
     uint32_t Gx_ID29 : 1;
     uint32_t Gx_ID30 : 1;
     uint32_t Gx_ID31 : 1;
-  } bits;          // Bit-field struct (auto-filling reserved gaps)
+  } bits;
   
   // Full 32-bit register value.
   uint32_t value;
@@ -7377,13 +6946,11 @@ union P11SMAG1_PG0 {
 //
 union P12SDID_PG0 {
   
-  // Enum definitions.
-  
   // Bit field definition.
   struct {
     uint32_t SDID : 16;
     uint32_t _reserved_end : 16;
-  } bits;          // Bit-field struct (auto-filling reserved gaps)
+  } bits;
   
   // Full 32-bit register value.
   uint32_t value;
@@ -7397,51 +6964,61 @@ union P12SDID_PG0 {
 //
 union P12SMAPR_PG0 {
   
-  // Enum definitions.
   enum class eG1_READ : uint32_t {
     eG1_READ_PROHIB = 0, // Instruction fetches and reads are prohibited (except that Trusted Descriptor reads (if G1_TDO=1) and key-reads are always allowed, and exporting Secure Memory Blobs is allowed if G1_SMBLOB=1 or if done by a Trusted Descriptor and G1_TDO=1).
     eG1_READ_ALLOWED = 1, // Instruction fetches and reads are allowed (but exporting a Secure Memory Blob is prohibited if G1_SMBLOB=0 and the descriptor is not a Trusted Descriptor or if G1_TDO=0).
   };
+  
   enum class eG1_WRITE : uint32_t {
     eG1_WRITE_PROHIB = 0, // Writes are prohibited (except that Trusted Descriptor writes are allowed, and importing Secure Memory Blobs is allowed if G1_SMBLOB=1 or if done by a Trusted Descriptor and G1_TDO=1).
     eG1_WRITE_ALLOWED = 1, // Writes are allowed (but importing a Secure Memory Blob is prohibited if G1_SMBLOB=0 and the descriptor is not a Trusted Descriptor or if G1_TDO=0).
   };
+  
   enum class eG1_TDO : uint32_t {
     eG1_TD_PRIVILEGE_AS_JD = 0, // Trusted Descriptors have the same access privileges as Job Descriptors
     eG1_TD_OVERIDE_ALLOWED = 1, // Trusted Descriptors are allowed to override the other access permissions, i.e. they can export blobs from or import blobs to the partition and read from and write to the partition regardless of the G1_SMBLOB, G1_WRITE and G1_READ settings.
   };
+  
   enum class eG1_SMBLOB : uint32_t {
     eG1_SM_BLOB_EXPORT_IMPORT_PROHIB = 0, // Exporting or importing Secure Memory Blobs is prohibited, unless done via a Trusted Descriptor and G1_TDO=1.
     eG1_SM_B_EXPORT_IMPORT_ALLOWED = 1, // Exporting or importing Secure Memory Blobs is allowed, regardless of the G1_READ and G1_WRITE settings.
   };
+  
   enum class eG2_READ : uint32_t {
     eG2_READ_PROHIB = 0, // Instruction fetches and reads are prohibited (except that Trusted Descriptor reads (if G2_TDO=1) and key-reads are always allowed, and exporting Secure Memory Blobs is allowed if G2_SMBLOB=1 or if done by a Trusted Descriptor and G2_TDO=1).
     eG2_READ_ALLOWED = 1, // Instruction fetches and reads are allowed (but exporting a Secure Memory Blob is prohibited if G2_SMBLOB=0 and the descriptor is not a Trusted Descriptor or if G2_TDO=0).
   };
+  
   enum class eG2_WRITE : uint32_t {
     eG2_WRITE_PROHIB = 0, // Writes are prohibited (except that Trusted Descriptor writes are allowed, and importing Secure Memory Blobs is allowed if G2_SMBLOB=1 or if done by a Trusted Descriptor and G2_TDO=1).
     eG2_WRITE_ALLOWED = 1, // Writes are allowed (but importing a Secure Memory Blob is prohibited if G2_SMBLOB=0 and the descriptor is not a Trusted Descriptor or if G2_TDO=0).
   };
+  
   enum class eG2_TDO : uint32_t {
     eG2_TD_PRIVILEGE_AS_JD = 0, // Trusted Descriptors have the same access privileges as Job Descriptors
     eG2_TD_OVERIDE_ALLOWED = 1, // Trusted Descriptors are allowed to override the other access permissions, i.e. they can export blobs from or import blobs to the partition and read from and write to the partition regardless of the G2_SMBLOB, G2_WRITE and G2_READ settings.
   };
+  
   enum class eG2_SMBLOB : uint32_t {
     eG2_SM_BLOB_EXPORT_IMPORT_PROHIB = 0, // Exporting or importing Secure Memory Blobs is prohibited, unless done via a Trusted Descriptor and G2_TDO=1.
     eG2_SM_BLOB_EXPORT_IMPORT_ALLOWED = 1, // Exporting or importing Secure Memory Blobs is allowed, regardless of the G2_READ and G2_WRITE settings.
   };
+  
   enum class eSMAG_LCK : uint32_t {
     eSMAG_UNLOCKED = 0, // The SMAG2JR register and SMAG1JR register are unlocked. The partition owner can change any writable bits of these registers.
     eSMAG_LOCKED = 1, // The SMAG2JR register and SMAG1JR register are locked. The SMAG2JR and SMAG1JR registers cannot be changed until the partition is de-allocated or a POR occurs.
   };
+  
   enum class eSMAP_LCK : uint32_t {
     eSMAP_UNLOCKED = 0, // The SMAP register is unlocked. The partition owner can change any writable bits of the SMAP register.
     eSMAP_LOCKED = 1, // The SMAP register is locked. The SMAP_LCK, CSP and PSP bits and G1 and G2 permission bits of the SMAP register cannot be changed until the partition is de-allocated or a POR occurs. The PARTITION_KMOD value can still be changed. The SMAG_LCK bit can be changed to a 1, but cannot be changed to a 0.
   };
+  
   enum class ePSP : uint32_t {
     eNOT_DEALLOCATABLE = 0, // The partition and any of the pages allocated to the partition can be de-allocated.
     eDEALLOCATABLE = 1, // The partition cannot be de-allocated and the pages allocated to the partition cannot be de-allocated.
   };
+  
   enum class eCSP : uint32_t {
     eNOT_ZEROIZED = 0, // The pages allocated to the partition will not be zeroized when they are de-allocated or the partition is released or a security alarm occurs.
     eZEROIZED = 1, // The pages allocated to the partition will be zeroized when they are individually de-allocated or the partition is released or a security alarm occurs.
@@ -7463,7 +7040,7 @@ union P12SMAPR_PG0 {
     ePSP PSP : 1;
     eCSP CSP : 1;
     uint32_t PARTITION_KMOD : 16;
-  } bits;          // Bit-field struct (auto-filling reserved gaps)
+  } bits;
   
   // Full 32-bit register value.
   uint32_t value;
@@ -7477,8 +7054,6 @@ union P12SMAPR_PG0 {
 //
 union P12SMAG2_PG0 {
   
-  // Enum definitions.
-  
   // Bit field definition.
   struct {
     uint32_t Gx_ID00 : 1;
@@ -7513,7 +7088,7 @@ union P12SMAG2_PG0 {
     uint32_t Gx_ID29 : 1;
     uint32_t Gx_ID30 : 1;
     uint32_t Gx_ID31 : 1;
-  } bits;          // Bit-field struct (auto-filling reserved gaps)
+  } bits;
   
   // Full 32-bit register value.
   uint32_t value;
@@ -7527,8 +7102,6 @@ union P12SMAG2_PG0 {
 //
 union P12SMAG1_PG0 {
   
-  // Enum definitions.
-  
   // Bit field definition.
   struct {
     uint32_t Gx_ID00 : 1;
@@ -7563,7 +7136,7 @@ union P12SMAG1_PG0 {
     uint32_t Gx_ID29 : 1;
     uint32_t Gx_ID30 : 1;
     uint32_t Gx_ID31 : 1;
-  } bits;          // Bit-field struct (auto-filling reserved gaps)
+  } bits;
   
   // Full 32-bit register value.
   uint32_t value;
@@ -7577,13 +7150,11 @@ union P12SMAG1_PG0 {
 //
 union P13SDID_PG0 {
   
-  // Enum definitions.
-  
   // Bit field definition.
   struct {
     uint32_t SDID : 16;
     uint32_t _reserved_end : 16;
-  } bits;          // Bit-field struct (auto-filling reserved gaps)
+  } bits;
   
   // Full 32-bit register value.
   uint32_t value;
@@ -7597,51 +7168,61 @@ union P13SDID_PG0 {
 //
 union P13SMAPR_PG0 {
   
-  // Enum definitions.
   enum class eG1_READ : uint32_t {
     eG1_READ_PROHIB = 0, // Instruction fetches and reads are prohibited (except that Trusted Descriptor reads (if G1_TDO=1) and key-reads are always allowed, and exporting Secure Memory Blobs is allowed if G1_SMBLOB=1 or if done by a Trusted Descriptor and G1_TDO=1).
     eG1_READ_ALLOWED = 1, // Instruction fetches and reads are allowed (but exporting a Secure Memory Blob is prohibited if G1_SMBLOB=0 and the descriptor is not a Trusted Descriptor or if G1_TDO=0).
   };
+  
   enum class eG1_WRITE : uint32_t {
     eG1_WRITE_PROHIB = 0, // Writes are prohibited (except that Trusted Descriptor writes are allowed, and importing Secure Memory Blobs is allowed if G1_SMBLOB=1 or if done by a Trusted Descriptor and G1_TDO=1).
     eG1_WRITE_ALLOWED = 1, // Writes are allowed (but importing a Secure Memory Blob is prohibited if G1_SMBLOB=0 and the descriptor is not a Trusted Descriptor or if G1_TDO=0).
   };
+  
   enum class eG1_TDO : uint32_t {
     eG1_TD_PRIVILEGE_AS_JD = 0, // Trusted Descriptors have the same access privileges as Job Descriptors
     eG1_TD_OVERIDE_ALLOWED = 1, // Trusted Descriptors are allowed to override the other access permissions, i.e. they can export blobs from or import blobs to the partition and read from and write to the partition regardless of the G1_SMBLOB, G1_WRITE and G1_READ settings.
   };
+  
   enum class eG1_SMBLOB : uint32_t {
     eG1_SM_BLOB_EXPORT_IMPORT_PROHIB = 0, // Exporting or importing Secure Memory Blobs is prohibited, unless done via a Trusted Descriptor and G1_TDO=1.
     eG1_SM_B_EXPORT_IMPORT_ALLOWED = 1, // Exporting or importing Secure Memory Blobs is allowed, regardless of the G1_READ and G1_WRITE settings.
   };
+  
   enum class eG2_READ : uint32_t {
     eG2_READ_PROHIB = 0, // Instruction fetches and reads are prohibited (except that Trusted Descriptor reads (if G2_TDO=1) and key-reads are always allowed, and exporting Secure Memory Blobs is allowed if G2_SMBLOB=1 or if done by a Trusted Descriptor and G2_TDO=1).
     eG2_READ_ALLOWED = 1, // Instruction fetches and reads are allowed (but exporting a Secure Memory Blob is prohibited if G2_SMBLOB=0 and the descriptor is not a Trusted Descriptor or if G2_TDO=0).
   };
+  
   enum class eG2_WRITE : uint32_t {
     eG2_WRITE_PROHIB = 0, // Writes are prohibited (except that Trusted Descriptor writes are allowed, and importing Secure Memory Blobs is allowed if G2_SMBLOB=1 or if done by a Trusted Descriptor and G2_TDO=1).
     eG2_WRITE_ALLOWED = 1, // Writes are allowed (but importing a Secure Memory Blob is prohibited if G2_SMBLOB=0 and the descriptor is not a Trusted Descriptor or if G2_TDO=0).
   };
+  
   enum class eG2_TDO : uint32_t {
     eG2_TD_PRIVILEGE_AS_JD = 0, // Trusted Descriptors have the same access privileges as Job Descriptors
     eG2_TD_OVERIDE_ALLOWED = 1, // Trusted Descriptors are allowed to override the other access permissions, i.e. they can export blobs from or import blobs to the partition and read from and write to the partition regardless of the G2_SMBLOB, G2_WRITE and G2_READ settings.
   };
+  
   enum class eG2_SMBLOB : uint32_t {
     eG2_SM_BLOB_EXPORT_IMPORT_PROHIB = 0, // Exporting or importing Secure Memory Blobs is prohibited, unless done via a Trusted Descriptor and G2_TDO=1.
     eG2_SM_BLOB_EXPORT_IMPORT_ALLOWED = 1, // Exporting or importing Secure Memory Blobs is allowed, regardless of the G2_READ and G2_WRITE settings.
   };
+  
   enum class eSMAG_LCK : uint32_t {
     eSMAG_UNLOCKED = 0, // The SMAG2JR register and SMAG1JR register are unlocked. The partition owner can change any writable bits of these registers.
     eSMAG_LOCKED = 1, // The SMAG2JR register and SMAG1JR register are locked. The SMAG2JR and SMAG1JR registers cannot be changed until the partition is de-allocated or a POR occurs.
   };
+  
   enum class eSMAP_LCK : uint32_t {
     eSMAP_UNLOCKED = 0, // The SMAP register is unlocked. The partition owner can change any writable bits of the SMAP register.
     eSMAP_LOCKED = 1, // The SMAP register is locked. The SMAP_LCK, CSP and PSP bits and G1 and G2 permission bits of the SMAP register cannot be changed until the partition is de-allocated or a POR occurs. The PARTITION_KMOD value can still be changed. The SMAG_LCK bit can be changed to a 1, but cannot be changed to a 0.
   };
+  
   enum class ePSP : uint32_t {
     eNOT_DEALLOCATABLE = 0, // The partition and any of the pages allocated to the partition can be de-allocated.
     eDEALLOCATABLE = 1, // The partition cannot be de-allocated and the pages allocated to the partition cannot be de-allocated.
   };
+  
   enum class eCSP : uint32_t {
     eNOT_ZEROIZED = 0, // The pages allocated to the partition will not be zeroized when they are de-allocated or the partition is released or a security alarm occurs.
     eZEROIZED = 1, // The pages allocated to the partition will be zeroized when they are individually de-allocated or the partition is released or a security alarm occurs.
@@ -7663,7 +7244,7 @@ union P13SMAPR_PG0 {
     ePSP PSP : 1;
     eCSP CSP : 1;
     uint32_t PARTITION_KMOD : 16;
-  } bits;          // Bit-field struct (auto-filling reserved gaps)
+  } bits;
   
   // Full 32-bit register value.
   uint32_t value;
@@ -7677,8 +7258,6 @@ union P13SMAPR_PG0 {
 //
 union P13SMAG2_PG0 {
   
-  // Enum definitions.
-  
   // Bit field definition.
   struct {
     uint32_t Gx_ID00 : 1;
@@ -7713,7 +7292,7 @@ union P13SMAG2_PG0 {
     uint32_t Gx_ID29 : 1;
     uint32_t Gx_ID30 : 1;
     uint32_t Gx_ID31 : 1;
-  } bits;          // Bit-field struct (auto-filling reserved gaps)
+  } bits;
   
   // Full 32-bit register value.
   uint32_t value;
@@ -7727,8 +7306,6 @@ union P13SMAG2_PG0 {
 //
 union P13SMAG1_PG0 {
   
-  // Enum definitions.
-  
   // Bit field definition.
   struct {
     uint32_t Gx_ID00 : 1;
@@ -7763,7 +7340,7 @@ union P13SMAG1_PG0 {
     uint32_t Gx_ID29 : 1;
     uint32_t Gx_ID30 : 1;
     uint32_t Gx_ID31 : 1;
-  } bits;          // Bit-field struct (auto-filling reserved gaps)
+  } bits;
   
   // Full 32-bit register value.
   uint32_t value;
@@ -7777,13 +7354,11 @@ union P13SMAG1_PG0 {
 //
 union P14SDID_PG0 {
   
-  // Enum definitions.
-  
   // Bit field definition.
   struct {
     uint32_t SDID : 16;
     uint32_t _reserved_end : 16;
-  } bits;          // Bit-field struct (auto-filling reserved gaps)
+  } bits;
   
   // Full 32-bit register value.
   uint32_t value;
@@ -7797,51 +7372,61 @@ union P14SDID_PG0 {
 //
 union P14SMAPR_PG0 {
   
-  // Enum definitions.
   enum class eG1_READ : uint32_t {
     eG1_READ_PROHIB = 0, // Instruction fetches and reads are prohibited (except that Trusted Descriptor reads (if G1_TDO=1) and key-reads are always allowed, and exporting Secure Memory Blobs is allowed if G1_SMBLOB=1 or if done by a Trusted Descriptor and G1_TDO=1).
     eG1_READ_ALLOWED = 1, // Instruction fetches and reads are allowed (but exporting a Secure Memory Blob is prohibited if G1_SMBLOB=0 and the descriptor is not a Trusted Descriptor or if G1_TDO=0).
   };
+  
   enum class eG1_WRITE : uint32_t {
     eG1_WRITE_PROHIB = 0, // Writes are prohibited (except that Trusted Descriptor writes are allowed, and importing Secure Memory Blobs is allowed if G1_SMBLOB=1 or if done by a Trusted Descriptor and G1_TDO=1).
     eG1_WRITE_ALLOWED = 1, // Writes are allowed (but importing a Secure Memory Blob is prohibited if G1_SMBLOB=0 and the descriptor is not a Trusted Descriptor or if G1_TDO=0).
   };
+  
   enum class eG1_TDO : uint32_t {
     eG1_TD_PRIVILEGE_AS_JD = 0, // Trusted Descriptors have the same access privileges as Job Descriptors
     eG1_TD_OVERIDE_ALLOWED = 1, // Trusted Descriptors are allowed to override the other access permissions, i.e. they can export blobs from or import blobs to the partition and read from and write to the partition regardless of the G1_SMBLOB, G1_WRITE and G1_READ settings.
   };
+  
   enum class eG1_SMBLOB : uint32_t {
     eG1_SM_BLOB_EXPORT_IMPORT_PROHIB = 0, // Exporting or importing Secure Memory Blobs is prohibited, unless done via a Trusted Descriptor and G1_TDO=1.
     eG1_SM_B_EXPORT_IMPORT_ALLOWED = 1, // Exporting or importing Secure Memory Blobs is allowed, regardless of the G1_READ and G1_WRITE settings.
   };
+  
   enum class eG2_READ : uint32_t {
     eG2_READ_PROHIB = 0, // Instruction fetches and reads are prohibited (except that Trusted Descriptor reads (if G2_TDO=1) and key-reads are always allowed, and exporting Secure Memory Blobs is allowed if G2_SMBLOB=1 or if done by a Trusted Descriptor and G2_TDO=1).
     eG2_READ_ALLOWED = 1, // Instruction fetches and reads are allowed (but exporting a Secure Memory Blob is prohibited if G2_SMBLOB=0 and the descriptor is not a Trusted Descriptor or if G2_TDO=0).
   };
+  
   enum class eG2_WRITE : uint32_t {
     eG2_WRITE_PROHIB = 0, // Writes are prohibited (except that Trusted Descriptor writes are allowed, and importing Secure Memory Blobs is allowed if G2_SMBLOB=1 or if done by a Trusted Descriptor and G2_TDO=1).
     eG2_WRITE_ALLOWED = 1, // Writes are allowed (but importing a Secure Memory Blob is prohibited if G2_SMBLOB=0 and the descriptor is not a Trusted Descriptor or if G2_TDO=0).
   };
+  
   enum class eG2_TDO : uint32_t {
     eG2_TD_PRIVILEGE_AS_JD = 0, // Trusted Descriptors have the same access privileges as Job Descriptors
     eG2_TD_OVERIDE_ALLOWED = 1, // Trusted Descriptors are allowed to override the other access permissions, i.e. they can export blobs from or import blobs to the partition and read from and write to the partition regardless of the G2_SMBLOB, G2_WRITE and G2_READ settings.
   };
+  
   enum class eG2_SMBLOB : uint32_t {
     eG2_SM_BLOB_EXPORT_IMPORT_PROHIB = 0, // Exporting or importing Secure Memory Blobs is prohibited, unless done via a Trusted Descriptor and G2_TDO=1.
     eG2_SM_BLOB_EXPORT_IMPORT_ALLOWED = 1, // Exporting or importing Secure Memory Blobs is allowed, regardless of the G2_READ and G2_WRITE settings.
   };
+  
   enum class eSMAG_LCK : uint32_t {
     eSMAG_UNLOCKED = 0, // The SMAG2JR register and SMAG1JR register are unlocked. The partition owner can change any writable bits of these registers.
     eSMAG_LOCKED = 1, // The SMAG2JR register and SMAG1JR register are locked. The SMAG2JR and SMAG1JR registers cannot be changed until the partition is de-allocated or a POR occurs.
   };
+  
   enum class eSMAP_LCK : uint32_t {
     eSMAP_UNLOCKED = 0, // The SMAP register is unlocked. The partition owner can change any writable bits of the SMAP register.
     eSMAP_LOCKED = 1, // The SMAP register is locked. The SMAP_LCK, CSP and PSP bits and G1 and G2 permission bits of the SMAP register cannot be changed until the partition is de-allocated or a POR occurs. The PARTITION_KMOD value can still be changed. The SMAG_LCK bit can be changed to a 1, but cannot be changed to a 0.
   };
+  
   enum class ePSP : uint32_t {
     eNOT_DEALLOCATABLE = 0, // The partition and any of the pages allocated to the partition can be de-allocated.
     eDEALLOCATABLE = 1, // The partition cannot be de-allocated and the pages allocated to the partition cannot be de-allocated.
   };
+  
   enum class eCSP : uint32_t {
     eNOT_ZEROIZED = 0, // The pages allocated to the partition will not be zeroized when they are de-allocated or the partition is released or a security alarm occurs.
     eZEROIZED = 1, // The pages allocated to the partition will be zeroized when they are individually de-allocated or the partition is released or a security alarm occurs.
@@ -7863,7 +7448,7 @@ union P14SMAPR_PG0 {
     ePSP PSP : 1;
     eCSP CSP : 1;
     uint32_t PARTITION_KMOD : 16;
-  } bits;          // Bit-field struct (auto-filling reserved gaps)
+  } bits;
   
   // Full 32-bit register value.
   uint32_t value;
@@ -7877,8 +7462,6 @@ union P14SMAPR_PG0 {
 //
 union P14SMAG2_PG0 {
   
-  // Enum definitions.
-  
   // Bit field definition.
   struct {
     uint32_t Gx_ID00 : 1;
@@ -7913,7 +7496,7 @@ union P14SMAG2_PG0 {
     uint32_t Gx_ID29 : 1;
     uint32_t Gx_ID30 : 1;
     uint32_t Gx_ID31 : 1;
-  } bits;          // Bit-field struct (auto-filling reserved gaps)
+  } bits;
   
   // Full 32-bit register value.
   uint32_t value;
@@ -7927,8 +7510,6 @@ union P14SMAG2_PG0 {
 //
 union P14SMAG1_PG0 {
   
-  // Enum definitions.
-  
   // Bit field definition.
   struct {
     uint32_t Gx_ID00 : 1;
@@ -7963,7 +7544,7 @@ union P14SMAG1_PG0 {
     uint32_t Gx_ID29 : 1;
     uint32_t Gx_ID30 : 1;
     uint32_t Gx_ID31 : 1;
-  } bits;          // Bit-field struct (auto-filling reserved gaps)
+  } bits;
   
   // Full 32-bit register value.
   uint32_t value;
@@ -7977,13 +7558,11 @@ union P14SMAG1_PG0 {
 //
 union P15SDID_PG0 {
   
-  // Enum definitions.
-  
   // Bit field definition.
   struct {
     uint32_t SDID : 16;
     uint32_t _reserved_end : 16;
-  } bits;          // Bit-field struct (auto-filling reserved gaps)
+  } bits;
   
   // Full 32-bit register value.
   uint32_t value;
@@ -7997,51 +7576,61 @@ union P15SDID_PG0 {
 //
 union P15SMAPR_PG0 {
   
-  // Enum definitions.
   enum class eG1_READ : uint32_t {
     eG1_READ_PROHIB = 0, // Instruction fetches and reads are prohibited (except that Trusted Descriptor reads (if G1_TDO=1) and key-reads are always allowed, and exporting Secure Memory Blobs is allowed if G1_SMBLOB=1 or if done by a Trusted Descriptor and G1_TDO=1).
     eG1_READ_ALLOWED = 1, // Instruction fetches and reads are allowed (but exporting a Secure Memory Blob is prohibited if G1_SMBLOB=0 and the descriptor is not a Trusted Descriptor or if G1_TDO=0).
   };
+  
   enum class eG1_WRITE : uint32_t {
     eG1_WRITE_PROHIB = 0, // Writes are prohibited (except that Trusted Descriptor writes are allowed, and importing Secure Memory Blobs is allowed if G1_SMBLOB=1 or if done by a Trusted Descriptor and G1_TDO=1).
     eG1_WRITE_ALLOWED = 1, // Writes are allowed (but importing a Secure Memory Blob is prohibited if G1_SMBLOB=0 and the descriptor is not a Trusted Descriptor or if G1_TDO=0).
   };
+  
   enum class eG1_TDO : uint32_t {
     eG1_TD_PRIVILEGE_AS_JD = 0, // Trusted Descriptors have the same access privileges as Job Descriptors
     eG1_TD_OVERIDE_ALLOWED = 1, // Trusted Descriptors are allowed to override the other access permissions, i.e. they can export blobs from or import blobs to the partition and read from and write to the partition regardless of the G1_SMBLOB, G1_WRITE and G1_READ settings.
   };
+  
   enum class eG1_SMBLOB : uint32_t {
     eG1_SM_BLOB_EXPORT_IMPORT_PROHIB = 0, // Exporting or importing Secure Memory Blobs is prohibited, unless done via a Trusted Descriptor and G1_TDO=1.
     eG1_SM_B_EXPORT_IMPORT_ALLOWED = 1, // Exporting or importing Secure Memory Blobs is allowed, regardless of the G1_READ and G1_WRITE settings.
   };
+  
   enum class eG2_READ : uint32_t {
     eG2_READ_PROHIB = 0, // Instruction fetches and reads are prohibited (except that Trusted Descriptor reads (if G2_TDO=1) and key-reads are always allowed, and exporting Secure Memory Blobs is allowed if G2_SMBLOB=1 or if done by a Trusted Descriptor and G2_TDO=1).
     eG2_READ_ALLOWED = 1, // Instruction fetches and reads are allowed (but exporting a Secure Memory Blob is prohibited if G2_SMBLOB=0 and the descriptor is not a Trusted Descriptor or if G2_TDO=0).
   };
+  
   enum class eG2_WRITE : uint32_t {
     eG2_WRITE_PROHIB = 0, // Writes are prohibited (except that Trusted Descriptor writes are allowed, and importing Secure Memory Blobs is allowed if G2_SMBLOB=1 or if done by a Trusted Descriptor and G2_TDO=1).
     eG2_WRITE_ALLOWED = 1, // Writes are allowed (but importing a Secure Memory Blob is prohibited if G2_SMBLOB=0 and the descriptor is not a Trusted Descriptor or if G2_TDO=0).
   };
+  
   enum class eG2_TDO : uint32_t {
     eG2_TD_PRIVILEGE_AS_JD = 0, // Trusted Descriptors have the same access privileges as Job Descriptors
     eG2_TD_OVERIDE_ALLOWED = 1, // Trusted Descriptors are allowed to override the other access permissions, i.e. they can export blobs from or import blobs to the partition and read from and write to the partition regardless of the G2_SMBLOB, G2_WRITE and G2_READ settings.
   };
+  
   enum class eG2_SMBLOB : uint32_t {
     eG2_SM_BLOB_EXPORT_IMPORT_PROHIB = 0, // Exporting or importing Secure Memory Blobs is prohibited, unless done via a Trusted Descriptor and G2_TDO=1.
     eG2_SM_BLOB_EXPORT_IMPORT_ALLOWED = 1, // Exporting or importing Secure Memory Blobs is allowed, regardless of the G2_READ and G2_WRITE settings.
   };
+  
   enum class eSMAG_LCK : uint32_t {
     eSMAG_UNLOCKED = 0, // The SMAG2JR register and SMAG1JR register are unlocked. The partition owner can change any writable bits of these registers.
     eSMAG_LOCKED = 1, // The SMAG2JR register and SMAG1JR register are locked. The SMAG2JR and SMAG1JR registers cannot be changed until the partition is de-allocated or a POR occurs.
   };
+  
   enum class eSMAP_LCK : uint32_t {
     eSMAP_UNLOCKED = 0, // The SMAP register is unlocked. The partition owner can change any writable bits of the SMAP register.
     eSMAP_LOCKED = 1, // The SMAP register is locked. The SMAP_LCK, CSP and PSP bits and G1 and G2 permission bits of the SMAP register cannot be changed until the partition is de-allocated or a POR occurs. The PARTITION_KMOD value can still be changed. The SMAG_LCK bit can be changed to a 1, but cannot be changed to a 0.
   };
+  
   enum class ePSP : uint32_t {
     eNOT_DEALLOCATABLE = 0, // The partition and any of the pages allocated to the partition can be de-allocated.
     eDEALLOCATABLE = 1, // The partition cannot be de-allocated and the pages allocated to the partition cannot be de-allocated.
   };
+  
   enum class eCSP : uint32_t {
     eNOT_ZEROIZED = 0, // The pages allocated to the partition will not be zeroized when they are de-allocated or the partition is released or a security alarm occurs.
     eZEROIZED = 1, // The pages allocated to the partition will be zeroized when they are individually de-allocated or the partition is released or a security alarm occurs.
@@ -8063,7 +7652,7 @@ union P15SMAPR_PG0 {
     ePSP PSP : 1;
     eCSP CSP : 1;
     uint32_t PARTITION_KMOD : 16;
-  } bits;          // Bit-field struct (auto-filling reserved gaps)
+  } bits;
   
   // Full 32-bit register value.
   uint32_t value;
@@ -8077,8 +7666,6 @@ union P15SMAPR_PG0 {
 //
 union P15SMAG2_PG0 {
   
-  // Enum definitions.
-  
   // Bit field definition.
   struct {
     uint32_t Gx_ID00 : 1;
@@ -8113,7 +7700,7 @@ union P15SMAG2_PG0 {
     uint32_t Gx_ID29 : 1;
     uint32_t Gx_ID30 : 1;
     uint32_t Gx_ID31 : 1;
-  } bits;          // Bit-field struct (auto-filling reserved gaps)
+  } bits;
   
   // Full 32-bit register value.
   uint32_t value;
@@ -8127,8 +7714,6 @@ union P15SMAG2_PG0 {
 //
 union P15SMAG1_PG0 {
   
-  // Enum definitions.
-  
   // Bit field definition.
   struct {
     uint32_t Gx_ID00 : 1;
@@ -8163,7 +7748,7 @@ union P15SMAG1_PG0 {
     uint32_t Gx_ID29 : 1;
     uint32_t Gx_ID30 : 1;
     uint32_t Gx_ID31 : 1;
-  } bits;          // Bit-field struct (auto-filling reserved gaps)
+  } bits;
   
   // Full 32-bit register value.
   uint32_t value;
@@ -8177,8 +7762,6 @@ union P15SMAG1_PG0 {
 //
 union REIS {
   
-  // Enum definitions.
-  
   // Bit field definition.
   struct {
     uint32_t CWDE : 1;
@@ -8190,7 +7773,7 @@ union REIS {
     uint32_t JBAE2 : 1;
     uint32_t JBAE3 : 1;
     uint32_t _reserved_end : 4;
-  } bits;          // Bit-field struct (auto-filling reserved gaps)
+  } bits;
   
   // Full 32-bit register value.
   uint32_t value;
@@ -8204,8 +7787,6 @@ union REIS {
 //
 union REIE {
   
-  // Enum definitions.
-  
   // Bit field definition.
   struct {
     uint32_t CWDE : 1;
@@ -8217,7 +7798,7 @@ union REIE {
     uint32_t JBAE2 : 1;
     uint32_t JBAE3 : 1;
     uint32_t _reserved_end : 4;
-  } bits;          // Bit-field struct (auto-filling reserved gaps)
+  } bits;
   
   // Full 32-bit register value.
   uint32_t value;
@@ -8231,8 +7812,6 @@ union REIE {
 //
 union REIF {
   
-  // Enum definitions.
-  
   // Bit field definition.
   struct {
     uint32_t CWDE : 1;
@@ -8244,7 +7823,7 @@ union REIF {
     uint32_t JBAE2 : 1;
     uint32_t JBAE3 : 1;
     uint32_t _reserved_end : 4;
-  } bits;          // Bit-field struct (auto-filling reserved gaps)
+  } bits;
   
   // Full 32-bit register value.
   uint32_t value;
@@ -8258,27 +7837,31 @@ union REIF {
 //
 union REIH {
   
-  // Enum definitions.
   enum class eCWDE : uint32_t {
     eDONT_HALT = 0, // Don't halt CAAM if CAAM watchdog expired.
     eHALT = 1, // Halt CAAM if CAAM watchdog expired..
   };
+  
   enum class eRBAE : uint32_t {
     eDONT_HALT = 0, // Don't halt CAAM if RTIC-initiated job execution caused bus access error.
     eHALT = 1, // Halt CAAM if RTIC-initiated job execution caused bus access error.
   };
+  
   enum class eJBAE0 : uint32_t {
     eDONT_HALT = 0, // Don't halt CAAM if JR0-initiated job execution caused bus access error.
     eHALT = 1, // Halt CAAM if JR0-initiated job execution caused bus access error.
   };
+  
   enum class eJBAE1 : uint32_t {
     eDONT_HALT = 0, // Don't halt CAAM if JR1-initiated job execution caused bus access error.
     eHALT = 1, // Halt CAAM if JR1-initiated job execution caused bus access error.
   };
+  
   enum class eJBAE2 : uint32_t {
     eDONT_HALT = 0, // Don't halt CAAM if JR2-initiated job execution caused bus access error.
     eHALT = 1, // Halt CAAM if JR2-initiated job execution caused bus access error.
   };
+  
   enum class eJBAE3 : uint32_t {
     eDONT_HALT = 0, // Don't halt CAAM if JR3-initiated job execution caused bus access error.
     eHALT = 1, // Halt CAAM if JR3-initiated job execution caused bus access error.
@@ -8295,7 +7878,7 @@ union REIH {
     eJBAE2 JBAE2 : 1;
     eJBAE3 JBAE3 : 1;
     uint32_t _reserved_end : 4;
-  } bits;          // Bit-field struct (auto-filling reserved gaps)
+  } bits;
   
   // Full 32-bit register value.
   uint32_t value;
@@ -8309,13 +7892,11 @@ union REIH {
 //
 union SMWPJRR[0] {
   
-  // Enum definitions.
-  
   // Bit field definition.
   struct {
     uint32_t SMR_WP_JRa : 1;
     uint32_t _reserved_end : 31;
-  } bits;          // Bit-field struct (auto-filling reserved gaps)
+  } bits;
   
   // Full 32-bit register value.
   uint32_t value;
@@ -8328,13 +7909,11 @@ union SMWPJRR[0] {
 //
 union SMWPJRR[1] {
   
-  // Enum definitions.
-  
   // Bit field definition.
   struct {
     uint32_t SMR_WP_JRa : 1;
     uint32_t _reserved_end : 31;
-  } bits;          // Bit-field struct (auto-filling reserved gaps)
+  } bits;
   
   // Full 32-bit register value.
   uint32_t value;
@@ -8347,13 +7926,11 @@ union SMWPJRR[1] {
 //
 union SMWPJRR[2] {
   
-  // Enum definitions.
-  
   // Bit field definition.
   struct {
     uint32_t SMR_WP_JRa : 1;
     uint32_t _reserved_end : 31;
-  } bits;          // Bit-field struct (auto-filling reserved gaps)
+  } bits;
   
   // Full 32-bit register value.
   uint32_t value;
@@ -8366,13 +7943,11 @@ union SMWPJRR[2] {
 //
 union SMWPJRR[3] {
   
-  // Enum definitions.
-  
   // Bit field definition.
   struct {
     uint32_t SMR_WP_JRa : 1;
     uint32_t _reserved_end : 31;
-  } bits;          // Bit-field struct (auto-filling reserved gaps)
+  } bits;
   
   // Full 32-bit register value.
   uint32_t value;
@@ -8386,8 +7961,6 @@ union SMWPJRR[3] {
 //
 union SMCR_PG0 {
   
-  // Enum definitions.
-  
   // Bit field definition.
   struct {
     uint32_t CMD : 4;
@@ -8395,7 +7968,7 @@ union SMCR_PG0 {
     uint32_t PRTN : 4;
     uint32_t _reserved_2 : 4;
     uint32_t PAGE : 16;
-  } bits;          // Bit-field struct (auto-filling reserved gaps)
+  } bits;
   
   // Full 32-bit register value.
   uint32_t value;
@@ -8409,13 +7982,13 @@ union SMCR_PG0 {
 //
 union SMCSR_PG0 {
   
-  // Enum definitions.
   enum class ePO : uint32_t {
     eAVAILABLE = 0, // Available; Unowned: The entity that issued the inquiry may allocate this page to a partition. No zeroization is needed since it has already been cleared, therefore no interrupt should be expected.
     eNOT_PRESENT_OR_INITIALIZED = 1, // Page does not exist in this version or is not initialized yet.
     eUNAVAILABLE = 2, // Another entity owns the page. This page is unavailable to the issuer of the inquiry.
     eOWNED = 3, // Owned by the entity making the inquiry. The owner may de-allocate this page if its partition is not marked PSP. If the partition to which the page is allocated is designated as CSP, the page will be zeroized upon de-allocation.
   };
+  
   enum class eCERR : uint32_t {
     eNO_ERROR = 0, // No Error.
     eCMD_INCOMPLETE_ERROR = 1, // Command has not yet completed.
@@ -8433,7 +8006,7 @@ union SMCSR_PG0 {
     eCERR CERR : 2;
     uint32_t PAGE : 12;
     uint32_t _reserved_end : 4;
-  } bits;          // Bit-field struct (auto-filling reserved gaps)
+  } bits;
   
   // Full 32-bit register value.
   uint32_t value;
@@ -8447,12 +8020,10 @@ union SMCSR_PG0 {
 //
 union HT0_JD_ADDR {
   
-  // Enum definitions.
-  
   // Bit field definition.
   struct {
     uint32_t JD_ADDR : 36;
-  } bits;          // Bit-field struct (auto-filling reserved gaps)
+  } bits;
   
   // Full 32-bit register value.
   uint32_t value;
@@ -8466,12 +8037,10 @@ union HT0_JD_ADDR {
 //
 union HT0_SD_ADDR {
   
-  // Enum definitions.
-  
   // Bit field definition.
   struct {
     uint32_t SD_ADDR : 36;
-  } bits;          // Bit-field struct (auto-filling reserved gaps)
+  } bits;
   
   // Full 32-bit register value.
   uint32_t value;
@@ -8485,7 +8054,6 @@ union HT0_SD_ADDR {
 //
 union HT0_JQ_CTRL_MS {
   
-  // Enum definitions.
   enum class eSRC : uint32_t {
     eJR0 = 0, // Job Ring 0
     eJR1 = 1, // Job Ring 1
@@ -8493,19 +8061,23 @@ union HT0_JQ_CTRL_MS {
     eJR3 = 3, // Job Ring 3
     eRTIC = 4, // RTIC
   };
+  
   enum class eJDDS : uint32_t {
     eNON_SEQ_DID = 0, // Non-SEQ DID
     eSEQ_DID = 1, // SEQ DID
   };
+  
   enum class eHT_ERROR : uint32_t {
     eNO_ERROR = 0, // No error
     eJD_OR_SD_LENGTH_ERROR = 1, // Job Descriptor or Shared Descriptor length error
     eJD_OR_SD_READ_ERROR = 2, // AXI_error while reading a Job Ring Shared Descriptor or the remainder of a Job Ring Job Descriptor
   };
+  
   enum class eDWORD_SWAP : uint32_t {
     eSRC_IN_MS_LS_ORDER = 0, // DWords are in the order most-significant word, least-significant word.
     eSRC_IN_LS_MS_ORDER = 1, // DWords are in the order least-significant word, most-significant word.
   };
+  
   enum class eILE : uint32_t {
     eNO_BYTE_SWAP = 0, // No byte-swapping is performed for immediate data transferred to or from the Descriptor Buffer.
     eBYTE_SWAP = 1, // Byte-swapping is performed for immediate data transferred to or from the Descriptor Buffer.
@@ -8528,7 +8100,7 @@ union HT0_JQ_CTRL_MS {
     uint32_t FOUR : 1;
     uint32_t WHL : 1;
     uint32_t _reserved_end : 2;
-  } bits;          // Bit-field struct (auto-filling reserved gaps)
+  } bits;
   
   // Full 32-bit register value.
   uint32_t value;
@@ -8542,7 +8114,6 @@ union HT0_JQ_CTRL_MS {
 //
 union HT0_JQ_CTRL_LS {
   
-  // Enum definitions.
   enum class ePRIM_TZ : uint32_t {
     eNONSECUREWORLD = 0, // TrustZone NonSecureWorld
     eSECUREWORLD = 1, // TrustZone SecureWorld
@@ -8556,7 +8127,7 @@ union HT0_JQ_CTRL_LS {
     uint32_t OUT_DID : 4;
     uint32_t _reserved_4 : 1;
     uint32_t OUT_ICID : 11;
-  } bits;          // Bit-field struct (auto-filling reserved gaps)
+  } bits;
   
   // Full 32-bit register value.
   uint32_t value;
@@ -8570,15 +8141,13 @@ union HT0_JQ_CTRL_LS {
 //
 union HT0_STATUS {
   
-  // Enum definitions.
-  
   // Bit field definition.
   struct {
     uint32_t PEND_0 : 1;
     uint32_t _reserved_1 : 29;
     uint32_t IN_USE : 1;
     uint32_t BC : 1;
-  } bits;          // Bit-field struct (auto-filling reserved gaps)
+  } bits;
   
   // Full 32-bit register value.
   uint32_t value;
@@ -8592,15 +8161,13 @@ union HT0_STATUS {
 //
 union JQ_DEBUG_SEL {
   
-  // Enum definitions.
-  
   // Bit field definition.
   struct {
     uint32_t HT_SEL : 1;
     uint32_t _reserved_1 : 15;
     uint32_t JOB_ID : 3;
     uint32_t _reserved_end : 13;
-  } bits;          // Bit-field struct (auto-filling reserved gaps)
+  } bits;
   
   // Full 32-bit register value.
   uint32_t value;
@@ -8614,8 +8181,6 @@ union JQ_DEBUG_SEL {
 //
 union JRJIDU_LS {
   
-  // Enum definitions.
-  
   // Bit field definition.
   struct {
     uint32_t JID00 : 1;
@@ -8623,7 +8188,7 @@ union JRJIDU_LS {
     uint32_t JID02 : 1;
     uint32_t JID03 : 1;
     uint32_t _reserved_end : 28;
-  } bits;          // Bit-field struct (auto-filling reserved gaps)
+  } bits;
   
   // Full 32-bit register value.
   uint32_t value;
@@ -8637,13 +8202,11 @@ union JRJIDU_LS {
 //
 union JRJDJIFBC {
   
-  // Enum definitions.
-  
   // Bit field definition.
   struct {
     uint32_t _reserved_0 : 31;
     uint32_t BC : 1;
-  } bits;          // Bit-field struct (auto-filling reserved gaps)
+  } bits;
   
   // Full 32-bit register value.
   uint32_t value;
@@ -8657,13 +8220,11 @@ union JRJDJIFBC {
 //
 union JRJDJIF {
   
-  // Enum definitions.
-  
   // Bit field definition.
   struct {
     uint32_t JOB_ID_ENTRY : 3;
     uint32_t _reserved_end : 29;
-  } bits;          // Bit-field struct (auto-filling reserved gaps)
+  } bits;
   
   // Full 32-bit register value.
   uint32_t value;
@@ -8677,14 +8238,12 @@ union JRJDJIF {
 //
 union JRJDS1 {
   
-  // Enum definitions.
-  
   // Bit field definition.
   struct {
     uint32_t SRC : 2;
     uint32_t _reserved_1 : 29;
     uint32_t VALID : 1;
-  } bits;          // Bit-field struct (auto-filling reserved gaps)
+  } bits;
   
   // Full 32-bit register value.
   uint32_t value;
@@ -8698,12 +8257,10 @@ union JRJDS1 {
 //
 union JRJDDA {
   
-  // Enum definitions.
-  
   // Bit field definition.
   struct {
     uint32_t JD_ADDR : 36;
-  } bits;          // Bit-field struct (auto-filling reserved gaps)
+  } bits;
   
   // Full 32-bit register value.
   uint32_t value;
@@ -8717,8 +8274,6 @@ union JRJDDA {
 //
 union CRNR_MS {
   
-  // Enum definitions.
-  
   // Bit field definition.
   struct {
     uint32_t CRCRN : 4;
@@ -8728,7 +8283,7 @@ union CRNR_MS {
     uint32_t _reserved_4 : 8;
     uint32_t DECORN : 4;
     uint32_t JRRN : 4;
-  } bits;          // Bit-field struct (auto-filling reserved gaps)
+  } bits;
   
   // Full 32-bit register value.
   uint32_t value;
@@ -8742,7 +8297,6 @@ union CRNR_MS {
 //
 union CRNR_LS {
   
-  // Enum definitions.
   enum class ePKRN : uint32_t {
     ePKHA_SDV0 = 0, // PKHA-SDv1
     ePKHA_SDV1 = 1, // PKHA-SDv2
@@ -8760,7 +8314,7 @@ union CRNR_LS {
     uint32_t SNW8RN : 4;
     uint32_t KASRN : 4;
     ePKRN PKRN : 4;
-  } bits;          // Bit-field struct (auto-filling reserved gaps)
+  } bits;
   
   // Full 32-bit register value.
   uint32_t value;
@@ -8773,8 +8327,6 @@ union CRNR_LS {
 // Compile Time Parameters Register, most-significant half
 //
 union CTPR_MS {
-  
-  // Enum definitions.
   
   // Bit field definition.
   struct {
@@ -8802,7 +8354,7 @@ union CTPR_MS {
     uint32_t AXI_PRI : 1;
     uint32_t AXI_LIODN : 1;
     uint32_t AXI_PIPE_DEPTH : 4;
-  } bits;          // Bit-field struct (auto-filling reserved gaps)
+  } bits;
   
   // Full 32-bit register value.
   uint32_t value;
@@ -8816,63 +8368,76 @@ union CTPR_MS {
 //
 union CTPR_LS {
   
-  // Enum definitions.
   enum class eKG_DS : uint32_t {
     eKG_DS_PROTOCOL_ABSENT = 0, // CAAM does not implement specialized support for Public Key Generation and Digital Signatures.
     eKG_DS_PROTOCOL_EXISTS = 1, // CAAM implements specialized support for Public Key Generation and Digital Signatures.
   };
+  
   enum class eBLOB : uint32_t {
     eBLOB_PROTOCOL_ABSENT = 0, // CAAM does not implement specialized support for encapsulating and decapsulating cryptographic blobs.
     eBLOB_PROTOCOL_EXISTS = 1, // CAAM implements specialized support for encapsulating and decapsulating cryptographic blobs.
   };
+  
   enum class eWIFI : uint32_t {
     eWIFI_PROTOCOL_ABSENT = 0, // CAAM does not implement specialized support for the WIFI protocol.
     eWIFI_PROTOCOL_EXISTS = 1, // CAAM implements specialized support for the WIFI protocol.
   };
+  
   enum class eWIMAX : uint32_t {
     eWIMAX_PROTOCOL_ABSENT = 0, // CAAM does not implement specialized support for the WIMAX protocol.
     eWIMAX_PROTOCOL_EXISTS = 1, // CAAM implements specialized support for the WIMAX protocol.
   };
+  
   enum class eSRTP : uint32_t {
     eSRTP_PROTOCOL_ABSENT = 0, // CAAM does not implement specialized support for the SRTP protocol.
     eSRTP_PROTOCOL_EXISTS = 1, // CAAM implements specialized support for the SRTP protocol.
   };
+  
   enum class eIPSEC : uint32_t {
     eIPSEC_PROTOCOL_ABSENT = 0, // CAAM does not implement specialized support for the IPSEC protocol.
     eIPSEC_PROTOCOL_EXISTS = 1, // CAAM implements specialized support for the IPSEC protocol.
   };
+  
   enum class eIKE : uint32_t {
     eIKE_PROTOCOL_ABSENT = 0, // CAAM does not implement specialized support for the IKE protocol.
     eIKE_PROTOCOL_EXISTS = 1, // CAAM implements specialized support for the IKE protocol.
   };
+  
   enum class eSSL_TLS : uint32_t {
     eSSL_TLS_PROTOCOL_ABSENT = 0, // CAAM does not implement specialized support for the SSL and TLS protocols.
     eSSL_TLS_PROTOCOL_EXISTS = 1, // CAAM implements specialized support for the SSL and TLS protocols.
   };
+  
   enum class eTLS_PRF : uint32_t {
     eTLS_PRF_PROTOCOL_ABSENT = 0, // CAAM does not implement specialized support for the TLS protocol pseudo-random function.
     eTLS_PRF_PROTOCOL_EXISTS = 1, // CAAM implements specialized support for the TLS protocol pseudo-random function.
   };
+  
   enum class eMACSEC : uint32_t {
     eMACSEC_PROTOCOL_ABSENT = 0, // CAAM does not implement specialized support for the MACSEC protocol.
     eMACSEC_PROTOCOL_EXISTS = 1, // CAAM implements specialized support for the MACSEC protocol.
   };
+  
   enum class eRSA : uint32_t {
     eRSA_PROTOCOL_ABSENT = 0, // CAAM does not implement specialized support for RSA encrypt and decrypt operations.
     eRSA_PROTOCOL_EXISTS = 1, // CAAM implements specialized support for RSA encrypt and decrypt operations.
   };
+  
   enum class eP3G_LTE : uint32_t {
     eP3G_LTE_PROTOCOL_ABSENT = 0, // CAAM does not implement specialized support for 3G and LTE protocols.
     eP3G_LTE_PROTOCOL_EXISTS = 1, // CAAM implements specialized support for 3G and LTE protocols.
   };
+  
   enum class eDBL_CRC : uint32_t {
     eDBL_CRC_PROTOCOL_ABSENT = 0, // CAAM does not implement specialized support for Double CRC.
     eDBL_CRC_PROTOCOL_EXISTS = 1, // CAAM implements specialized support for Double CRC.
   };
+  
   enum class eMAN_PROT : uint32_t {
     eMAN_PROTOCOL_ABSENT = 0, // CAAM does not implement Manufacturing Protection functions.
     eMAN_PROTOCOL_EXISTS = 1, // CAAM implements Manufacturing Protection functions.
   };
+  
   enum class eDKP : uint32_t {
     eDERIVED_KEY_PROTOCOL_ABSENT = 0, // CAAM does not implement the Derived Key Protocol.
     eDERIVED_KEY_PROTOCOL_EXISTS = 1, // CAAM implements the Derived Key Protocol.
@@ -8896,7 +8461,7 @@ union CTPR_LS {
     eMAN_PROT MAN_PROT : 1;
     eDKP DKP : 1;
     uint32_t _reserved_end : 17;
-  } bits;          // Bit-field struct (auto-filling reserved gaps)
+  } bits;
   
   // Full 32-bit register value.
   uint32_t value;
@@ -8910,13 +8475,13 @@ union CTPR_LS {
 //
 union SMSTA {
   
-  // Enum definitions.
   enum class eSTATE : uint32_t {
     eRESET = 0, // Reset State
     eINIT = 1, // Initialize State
     eNORMAL = 2, // Normal State
     eFAIL = 3, // Fail State
   };
+  
   enum class eACCERR : uint32_t {
     eNO_ERROR = 0, // No error occurred
     ePAGE_NOT_ALLOCATED_ACCESS_ERROR = 1, // A bus transaction attempted to access a page in Secure Memory, but the page was not allocated to any partition.
@@ -8942,7 +8507,7 @@ union SMSTA {
     uint32_t PAGE : 11;
     uint32_t _reserved_6 : 1;
     uint32_t PART : 4;
-  } bits;          // Bit-field struct (auto-filling reserved gaps)
+  } bits;
   
   // Full 32-bit register value.
   uint32_t value;
@@ -8956,7 +8521,6 @@ union SMSTA {
 //
 union SMPO {
   
-  // Enum definitions.
   enum class ePO0 : uint32_t {
     eAVAILABLE = 0, // Available; Unowned. A Job Ring owner may claim partition 0 by writing to the appropriate SMAPJR register address alias. Note that the entire register will return all 0s if read by a entity that does not own the Job Ring associated with the SMPO address alias that was read.
     eNOT_PRESENT = 1, // Partition 0 does not exist in this version
@@ -8982,7 +8546,7 @@ union SMPO {
     uint32_t PO13 : 2;
     uint32_t PO14 : 2;
     uint32_t PO15 : 2;
-  } bits;          // Bit-field struct (auto-filling reserved gaps)
+  } bits;
   
   // Full 32-bit register value.
   uint32_t value;
@@ -8996,12 +8560,10 @@ union SMPO {
 //
 union FAR {
   
-  // Enum definitions.
-  
   // Bit field definition.
   struct {
     uint32_t FAR : 36;
-  } bits;          // Bit-field struct (auto-filling reserved gaps)
+  } bits;
   
   // Full 32-bit register value.
   uint32_t value;
@@ -9015,15 +8577,13 @@ union FAR {
 //
 union FADID {
   
-  // Enum definitions.
-  
   // Bit field definition.
   struct {
     uint32_t FDID : 4;
     uint32_t FNS : 1;
     uint32_t FICID : 11;
     uint32_t _reserved_end : 16;
-  } bits;          // Bit-field struct (auto-filling reserved gaps)
+  } bits;
   
   // Full 32-bit register value.
   uint32_t value;
@@ -9037,16 +8597,17 @@ union FADID {
 //
 union FADR {
   
-  // Enum definitions.
   enum class eTYP : uint32_t {
     eREAD = 0, // Read.
     eWRITE = 1, // Write.
   };
+  
   enum class eBLKID : uint32_t {
     eJQ = 4, // job queue controller Burst Buffer
     eJRN = 5, // One of the Job Rings (see JSRC field)
     eDECO0 = 8, // DECO0
   };
+  
   enum class eJSRC : uint32_t {
     eJR0 = 0, // Job Ring 0
     eJR1 = 1, // Job Ring 1
@@ -9054,30 +8615,37 @@ union FADR {
     eJR3 = 3, // Job Ring 3
     eRTIC = 4, // RTIC
   };
+  
   enum class eDTYP : uint32_t {
     eMSG_DATA = 0, // message data
     eCTL_DATA = 1, // control data
   };
+  
   enum class eFKMOD : uint32_t {
     eNOT = 0, // CAAM DMA was not attempting to read the key modifier from Secure Memory at the time that the DMA error occurred.
     eYES = 1, // CAAM DMA was attempting to read the key modifier from Secure Memory at the time that the DMA error occurred.
   };
+  
   enum class eFKEY : uint32_t {
     eNOT = 0, // CAAM DMA was not attempting to perform a key read from Secure Memory at the time of the DMA error.
     eYES = 1, // CAAM DMA was attempting to perform a key read from Secure Memory at the time of the DMA error.
   };
+  
   enum class eFTDSC : uint32_t {
     eNOT = 0, // CAAM DMA was not executing a Trusted Descriptor at the time of the DMA error.
     eYES = 1, // CAAM DMA was executing a Trusted Descriptor at the time of the DMA error.
   };
+  
   enum class eFBNDG : uint32_t {
     eNOT = 0, // CAAM DMA was not reading access permissions from a Secure Memory partition at the time of the DMA error.
     eYES = 1, // CAAM DMA was reading access permissions from a Secure Memory partition at the time of the DMA error.
   };
+  
   enum class eFNS : uint32_t {
     eYES = 0, // CAAM DMA was asserting ns=0 at the time of the DMA error.
     eNOT = 1, // CAAM DMA was asserting ns=1 at the time of the DMA error.
   };
+  
   enum class eFERR : uint32_t {
     eOKAY = 0, // OKAY - Normal Access
     eSLVERR = 2, // SLVERR - Slave Error
@@ -9100,7 +8668,7 @@ union FADR {
     eFNS FNS : 1;
     uint32_t _reserved_11 : 1;
     eFERR FERR : 2;
-  } bits;          // Bit-field struct (auto-filling reserved gaps)
+  } bits;
   
   // Full 32-bit register value.
   uint32_t value;
@@ -9114,13 +8682,13 @@ union FADR {
 //
 union CSTA {
   
-  // Enum definitions.
   enum class eMOO : uint32_t {
     eNON_SECURE = 0, // Non-Secure
     eSECURE = 1, // Secure
     eTRUSTED = 2, // Trusted
     eFAIL = 3, // Fail
   };
+  
   enum class ePLEND : uint32_t {
     eLITTLE = 0, // Platform default is Little Endian
     eBIG = 1, // Platform default is Big Endian
@@ -9135,7 +8703,7 @@ union CSTA {
     eMOO MOO : 2;
     ePLEND PLEND : 1;
     uint32_t _reserved_end : 21;
-  } bits;          // Bit-field struct (auto-filling reserved gaps)
+  } bits;
   
   // Full 32-bit register value.
   uint32_t value;
@@ -9149,8 +8717,6 @@ union CSTA {
 //
 union SMVID_MS {
   
-  // Enum definitions.
-  
   // Bit field definition.
   struct {
     uint32_t NPAG : 10;
@@ -9158,7 +8724,7 @@ union SMVID_MS {
     uint32_t NPRT : 4;
     uint32_t MAX_NPAG : 10;
     uint32_t _reserved_end : 6;
-  } bits;          // Bit-field struct (auto-filling reserved gaps)
+  } bits;
   
   // Full 32-bit register value.
   uint32_t value;
@@ -9172,15 +8738,13 @@ union SMVID_MS {
 //
 union SMVID_LS {
   
-  // Enum definitions.
-  
   // Bit field definition.
   struct {
     uint32_t SMNV : 8;
     uint32_t SMJV : 8;
     uint32_t PSIZ : 3;
     uint32_t _reserved_end : 13;
-  } bits;          // Bit-field struct (auto-filling reserved gaps)
+  } bits;
   
   // Full 32-bit register value.
   uint32_t value;
@@ -9194,11 +8758,11 @@ union SMVID_LS {
 //
 union RVID {
   
-  // Enum definitions.
   enum class eSHA_256 : uint32_t {
     eSHA256_ABSENT = 0, // RTIC cannot use the SHA-256 hashing algorithm.
     eSHA256_EXISTS = 1, // RTIC can use the SHA-256 hashing algorithm.
   };
+  
   enum class eSHA_512 : uint32_t {
     eSHA512_ABSENT = 0, // RTIC cannot use the SHA-512 hashing algorithm.
     eSHA512_EXISTS = 1, // RTIC can use the SHA-512 hashing algorithm.
@@ -9218,7 +8782,7 @@ union RVID {
     uint32_t MC : 1;
     uint32_t MD : 1;
     uint32_t _reserved_end : 4;
-  } bits;          // Bit-field struct (auto-filling reserved gaps)
+  } bits;
   
   // Full 32-bit register value.
   uint32_t value;
@@ -9232,15 +8796,13 @@ union RVID {
 //
 union CCBVID {
   
-  // Enum definitions.
-  
   // Bit field definition.
   struct {
     uint32_t AMNV : 8;
     uint32_t AMJV : 8;
     uint32_t _reserved_2 : 8;
     uint32_t CAAM_ERA : 8;
-  } bits;          // Bit-field struct (auto-filling reserved gaps)
+  } bits;
   
   // Full 32-bit register value.
   uint32_t value;
@@ -9254,8 +8816,6 @@ union CCBVID {
 //
 union CHAVID_MS {
   
-  // Enum definitions.
-  
   // Bit field definition.
   struct {
     uint32_t CRCVID : 4;
@@ -9265,7 +8825,7 @@ union CHAVID_MS {
     uint32_t _reserved_4 : 8;
     uint32_t DECOVID : 4;
     uint32_t JRVID : 4;
-  } bits;          // Bit-field struct (auto-filling reserved gaps)
+  } bits;
   
   // Full 32-bit register value.
   uint32_t value;
@@ -9279,21 +8839,23 @@ union CHAVID_MS {
 //
 union CHAVID_LS {
   
-  // Enum definitions.
   enum class eAESVID : uint32_t {
     eAESA_LP = 3, // Low-power AESA, implementing ECB, CBC, CBC-CS2, CFB128, OFB, CTR, CCM, CMAC, XCBC-MAC, and GCM modes
     eAESA_HP = 4, // High-performance AESA, implementing ECB, CBC, CBC-CS2, CFB128, OFB, CTR, CCM, CMAC, XCBC-MAC, CBCXCBC, CTRXCBC, XTS, and GCM modes
   };
+  
   enum class eMDVID : uint32_t {
     eMDHA_LP0 = 0, // Low-power MDHA, with SHA-1, SHA-256, SHA 224, MD5 and HMAC
     eMDHA_LP1 = 1, // Low-power MDHA, with SHA-1, SHA-256, SHA 224, SHA-512, SHA-512/224, SHA-512/256, SHA-384, MD5 and HMAC
     eMDHA_MP = 2, // Medium-performance MDHA, with SHA-1, SHA-256, SHA 224, SHA-512, SHA-512/224, SHA-512/256, SHA-384, MD5, HMAC & SMAC
     eMDHA_HP = 3, // High-performance MDHA, with SHA-1, SHA-256, SHA 224, SHA-512, SHA-512/224, SHA-512/256, SHA-384, MD5, HMAC & SMAC
   };
+  
   enum class eRNGVID : uint32_t {
     eRNGB = 2, // RNGB
     eRNG4 = 4, // RNG4
   };
+  
   enum class ePKVID : uint32_t {
     ePKHA_XT = 0, // PKHA-XT (32-bit); minimum modulus five bytes
     ePKHA_SD32 = 1, // PKHA-SD (32-bit)
@@ -9311,7 +8873,7 @@ union CHAVID_LS {
     uint32_t SNW8VID : 4;
     uint32_t KASVID : 4;
     ePKVID PKVID : 4;
-  } bits;          // Bit-field struct (auto-filling reserved gaps)
+  } bits;
   
   // Full 32-bit register value.
   uint32_t value;
@@ -9325,8 +8887,6 @@ union CHAVID_LS {
 //
 union CHANUM_MS {
   
-  // Enum definitions.
-  
   // Bit field definition.
   struct {
     uint32_t CRCNUM : 4;
@@ -9336,7 +8896,7 @@ union CHANUM_MS {
     uint32_t _reserved_4 : 8;
     uint32_t DECONUM : 4;
     uint32_t JRNUM : 4;
-  } bits;          // Bit-field struct (auto-filling reserved gaps)
+  } bits;
   
   // Full 32-bit register value.
   uint32_t value;
@@ -9350,8 +8910,6 @@ union CHANUM_MS {
 //
 union CHANUM_LS {
   
-  // Enum definitions.
-  
   // Bit field definition.
   struct {
     uint32_t AESNUM : 4;
@@ -9362,7 +8920,7 @@ union CHANUM_LS {
     uint32_t SNW8NUM : 4;
     uint32_t KASNUM : 4;
     uint32_t PKNUM : 4;
-  } bits;          // Bit-field struct (auto-filling reserved gaps)
+  } bits;
   
   // Full 32-bit register value.
   uint32_t value;
@@ -9376,14 +8934,12 @@ union CHANUM_LS {
 //
 union CAAMVID_MS {
   
-  // Enum definitions.
-  
   // Bit field definition.
   struct {
     uint32_t MIN_REV : 8;
     uint32_t MAJ_REV : 8;
     uint32_t IP_ID : 16;
-  } bits;          // Bit-field struct (auto-filling reserved gaps)
+  } bits;
   
   // Full 32-bit register value.
   uint32_t value;
@@ -9397,15 +8953,13 @@ union CAAMVID_MS {
 //
 union CAAMVID_LS {
   
-  // Enum definitions.
-  
   // Bit field definition.
   struct {
     uint32_t CONFIG_OPT : 8;
     uint32_t ECO_REV : 8;
     uint32_t INTG_OPT : 8;
     uint32_t COMPILE_OPT : 8;
-  } bits;          // Bit-field struct (auto-filling reserved gaps)
+  } bits;
   
   // Full 32-bit register value.
   uint32_t value;
@@ -9419,12 +8973,10 @@ union CAAMVID_LS {
 //
 union IRBAR_JR0 {
   
-  // Enum definitions.
-  
   // Bit field definition.
   struct {
     uint32_t IRBA : 36;
-  } bits;          // Bit-field struct (auto-filling reserved gaps)
+  } bits;
   
   // Full 32-bit register value.
   uint32_t value;
@@ -9438,13 +8990,11 @@ union IRBAR_JR0 {
 //
 union IRSR_JR0 {
   
-  // Enum definitions.
-  
   // Bit field definition.
   struct {
     uint32_t IRS : 10;
     uint32_t _reserved_end : 22;
-  } bits;          // Bit-field struct (auto-filling reserved gaps)
+  } bits;
   
   // Full 32-bit register value.
   uint32_t value;
@@ -9458,13 +9008,11 @@ union IRSR_JR0 {
 //
 union IRSAR_JR0 {
   
-  // Enum definitions.
-  
   // Bit field definition.
   struct {
     uint32_t IRSA : 10;
     uint32_t _reserved_end : 22;
-  } bits;          // Bit-field struct (auto-filling reserved gaps)
+  } bits;
   
   // Full 32-bit register value.
   uint32_t value;
@@ -9478,13 +9026,11 @@ union IRSAR_JR0 {
 //
 union IRJAR_JR0 {
   
-  // Enum definitions.
-  
   // Bit field definition.
   struct {
     uint32_t IRJA : 10;
     uint32_t _reserved_end : 22;
-  } bits;          // Bit-field struct (auto-filling reserved gaps)
+  } bits;
   
   // Full 32-bit register value.
   uint32_t value;
@@ -9498,12 +9044,10 @@ union IRJAR_JR0 {
 //
 union ORBAR_JR0 {
   
-  // Enum definitions.
-  
   // Bit field definition.
   struct {
     uint32_t ORBA : 36;
-  } bits;          // Bit-field struct (auto-filling reserved gaps)
+  } bits;
   
   // Full 32-bit register value.
   uint32_t value;
@@ -9517,13 +9061,11 @@ union ORBAR_JR0 {
 //
 union ORSR_JR0 {
   
-  // Enum definitions.
-  
   // Bit field definition.
   struct {
     uint32_t ORS : 10;
     uint32_t _reserved_end : 22;
-  } bits;          // Bit-field struct (auto-filling reserved gaps)
+  } bits;
   
   // Full 32-bit register value.
   uint32_t value;
@@ -9537,13 +9079,11 @@ union ORSR_JR0 {
 //
 union ORJRR_JR0 {
   
-  // Enum definitions.
-  
   // Bit field definition.
   struct {
     uint32_t ORJR : 10;
     uint32_t _reserved_end : 22;
-  } bits;          // Bit-field struct (auto-filling reserved gaps)
+  } bits;
   
   // Full 32-bit register value.
   uint32_t value;
@@ -9557,13 +9097,11 @@ union ORJRR_JR0 {
 //
 union ORSFR_JR0 {
   
-  // Enum definitions.
-  
   // Bit field definition.
   struct {
     uint32_t ORSF : 10;
     uint32_t _reserved_end : 22;
-  } bits;          // Bit-field struct (auto-filling reserved gaps)
+  } bits;
   
   // Full 32-bit register value.
   uint32_t value;
@@ -9577,7 +9115,6 @@ union ORSFR_JR0 {
 //
 union JRSTAR_JR0 {
   
-  // Enum definitions.
   enum class eSSRC : uint32_t {
     eNO_STATUS = 0, // No Status Source (No Error or Status Reported)
     eCCB_STATUS = 2, // CCB Status Source (CCB Error Reported)
@@ -9591,7 +9128,7 @@ union JRSTAR_JR0 {
   struct {
     uint32_t SSED : 28;
     eSSRC SSRC : 4;
-  } bits;          // Bit-field struct (auto-filling reserved gaps)
+  } bits;
   
   // Full 32-bit register value.
   uint32_t value;
@@ -9605,7 +9142,6 @@ union JRSTAR_JR0 {
 //
 union JRINTR_JR0 {
   
-  // Enum definitions.
   enum class eERR_TYPE : uint32_t {
     eOR_WR_ERR = 1, // Error writing status to Output Ring
     eBAD_IR_ADDR_ERR = 3, // Bad input ring base address (not on a 4-byte boundary).
@@ -9637,7 +9173,7 @@ union JRINTR_JR0 {
     uint32_t _reserved_6 : 3;
     uint32_t ERR_ORWI : 14;
     uint32_t _reserved_end : 2;
-  } bits;          // Bit-field struct (auto-filling reserved gaps)
+  } bits;
   
   // Full 32-bit register value.
   uint32_t value;
@@ -9651,8 +9187,6 @@ union JRINTR_JR0 {
 //
 union JRCFGR_JR0_MS {
   
-  // Enum definitions.
-  
   // Bit field definition.
   struct {
     uint32_t MBSI : 1;
@@ -9678,7 +9212,7 @@ union JRCFGR_JR0_MS {
     uint32_t FAIL_MODE : 1;
     uint32_t INCL_SEQ_OUT : 1;
     uint32_t _reserved_end : 1;
-  } bits;          // Bit-field struct (auto-filling reserved gaps)
+  } bits;
   
   // Full 32-bit register value.
   uint32_t value;
@@ -9692,11 +9226,11 @@ union JRCFGR_JR0_MS {
 //
 union JRCFGR_JR0_LS {
   
-  // Enum definitions.
   enum class eIMSK : uint32_t {
     eINTR_ENABLED = 0, // Interrupt enabled.
     eINTR_MASKED = 1, // Interrupt masked.
   };
+  
   enum class eICEN : uint32_t {
     eINTR_COAL_DISABLED = 0, // Interrupt coalescing is disabled. If the IMSK bit is cleared, an interrupt is asserted whenever a job is written to the output ring. ICDCT is ignored. Note that if software removes one or more jobs and clears the interrupt but the output rings slots full is still greater than 0 (ORSF > 0), then the interrupt will clear but reassert on the next clock cycle.
     eINTR_COAL_ENABLED = 1, // Interrupt coalescing is enabled. If the IMSK bit is cleared, an interrupt is asserted whenever the threshold number of frames is reached (ICDCT) or when the threshold timer expires (ICTT). Note that if software removes one or more jobs and clears the interrupt but the interrupt coalescing threshold is still met (ORSF >= ICDCT), then the interrupt will clear but reassert on the next clock cycle.
@@ -9709,7 +9243,7 @@ union JRCFGR_JR0_LS {
     uint32_t _reserved_2 : 6;
     uint32_t ICDCT : 8;
     uint32_t ICTT : 16;
-  } bits;          // Bit-field struct (auto-filling reserved gaps)
+  } bits;
   
   // Full 32-bit register value.
   uint32_t value;
@@ -9723,13 +9257,11 @@ union JRCFGR_JR0_LS {
 //
 union IRRIR_JR0 {
   
-  // Enum definitions.
-  
   // Bit field definition.
   struct {
     uint32_t IRRI : 13;
     uint32_t _reserved_end : 19;
-  } bits;          // Bit-field struct (auto-filling reserved gaps)
+  } bits;
   
   // Full 32-bit register value.
   uint32_t value;
@@ -9743,13 +9275,11 @@ union IRRIR_JR0 {
 //
 union ORWIR_JR0 {
   
-  // Enum definitions.
-  
   // Bit field definition.
   struct {
     uint32_t ORWI : 14;
     uint32_t _reserved_end : 18;
-  } bits;          // Bit-field struct (auto-filling reserved gaps)
+  } bits;
   
   // Full 32-bit register value.
   uint32_t value;
@@ -9763,14 +9293,12 @@ union ORWIR_JR0 {
 //
 union JRCR_JR0 {
   
-  // Enum definitions.
-  
   // Bit field definition.
   struct {
     uint32_t RESET : 1;
     uint32_t PARK : 1;
     uint32_t _reserved_end : 30;
-  } bits;          // Bit-field struct (auto-filling reserved gaps)
+  } bits;
   
   // Full 32-bit register value.
   uint32_t value;
@@ -9784,8 +9312,6 @@ union JRCR_JR0 {
 //
 union JR0AAV {
   
-  // Enum definitions.
-  
   // Bit field definition.
   struct {
     uint32_t V0 : 1;
@@ -9794,7 +9320,7 @@ union JR0AAV {
     uint32_t V3 : 1;
     uint32_t _reserved_4 : 27;
     uint32_t BC : 1;
-  } bits;          // Bit-field struct (auto-filling reserved gaps)
+  } bits;
   
   // Full 32-bit register value.
   uint32_t value;
@@ -9808,12 +9334,10 @@ union JR0AAV {
 //
 union JR0AAA0 {
   
-  // Enum definitions.
-  
   // Bit field definition.
   struct {
     uint32_t JD_ADDR : 36;
-  } bits;          // Bit-field struct (auto-filling reserved gaps)
+  } bits;
   
   // Full 32-bit register value.
   uint32_t value;
@@ -9827,12 +9351,10 @@ union JR0AAA0 {
 //
 union JR0AAA1 {
   
-  // Enum definitions.
-  
   // Bit field definition.
   struct {
     uint32_t JD_ADDR : 36;
-  } bits;          // Bit-field struct (auto-filling reserved gaps)
+  } bits;
   
   // Full 32-bit register value.
   uint32_t value;
@@ -9846,12 +9368,10 @@ union JR0AAA1 {
 //
 union JR0AAA2 {
   
-  // Enum definitions.
-  
   // Bit field definition.
   struct {
     uint32_t JD_ADDR : 36;
-  } bits;          // Bit-field struct (auto-filling reserved gaps)
+  } bits;
   
   // Full 32-bit register value.
   uint32_t value;
@@ -9865,12 +9385,10 @@ union JR0AAA2 {
 //
 union JR0AAA3 {
   
-  // Enum definitions.
-  
   // Bit field definition.
   struct {
     uint32_t JD_ADDR : 36;
-  } bits;          // Bit-field struct (auto-filling reserved gaps)
+  } bits;
   
   // Full 32-bit register value.
   uint32_t value;
@@ -9884,13 +9402,11 @@ union JR0AAA3 {
 //
 union P0SDID_JR0 {
   
-  // Enum definitions.
-  
   // Bit field definition.
   struct {
     uint32_t SDID : 16;
     uint32_t _reserved_end : 16;
-  } bits;          // Bit-field struct (auto-filling reserved gaps)
+  } bits;
   
   // Full 32-bit register value.
   uint32_t value;
@@ -9904,51 +9420,61 @@ union P0SDID_JR0 {
 //
 union P0SMAPR_JR0 {
   
-  // Enum definitions.
   enum class eG1_READ : uint32_t {
     eG1_READ_PROHIB = 0, // Instruction fetches and reads are prohibited (except that Trusted Descriptor reads (if G1_TDO=1) and key-reads are always allowed, and exporting Secure Memory Blobs is allowed if G1_SMBLOB=1 or if done by a Trusted Descriptor and G1_TDO=1).
     eG1_READ_ALLOWED = 1, // Instruction fetches and reads are allowed (but exporting a Secure Memory Blob is prohibited if G1_SMBLOB=0 and the descriptor is not a Trusted Descriptor or if G1_TDO=0).
   };
+  
   enum class eG1_WRITE : uint32_t {
     eG1_WRITE_PROHIB = 0, // Writes are prohibited (except that Trusted Descriptor writes are allowed, and importing Secure Memory Blobs is allowed if G1_SMBLOB=1 or if done by a Trusted Descriptor and G1_TDO=1).
     eG1_WRITE_ALLOWED = 1, // Writes are allowed (but importing a Secure Memory Blob is prohibited if G1_SMBLOB=0 and the descriptor is not a Trusted Descriptor or if G1_TDO=0).
   };
+  
   enum class eG1_TDO : uint32_t {
     eG1_TD_PRIVILEGE_AS_JD = 0, // Trusted Descriptors have the same access privileges as Job Descriptors
     eG1_TD_OVERIDE_ALLOWED = 1, // Trusted Descriptors are allowed to override the other access permissions, i.e. they can export blobs from or import blobs to the partition and read from and write to the partition regardless of the G1_SMBLOB, G1_WRITE and G1_READ settings.
   };
+  
   enum class eG1_SMBLOB : uint32_t {
     eG1_SM_BLOB_EXPORT_IMPORT_PROHIB = 0, // Exporting or importing Secure Memory Blobs is prohibited, unless done via a Trusted Descriptor and G1_TDO=1.
     eG1_SM_B_EXPORT_IMPORT_ALLOWED = 1, // Exporting or importing Secure Memory Blobs is allowed, regardless of the G1_READ and G1_WRITE settings.
   };
+  
   enum class eG2_READ : uint32_t {
     eG2_READ_PROHIB = 0, // Instruction fetches and reads are prohibited (except that Trusted Descriptor reads (if G2_TDO=1) and key-reads are always allowed, and exporting Secure Memory Blobs is allowed if G2_SMBLOB=1 or if done by a Trusted Descriptor and G2_TDO=1).
     eG2_READ_ALLOWED = 1, // Instruction fetches and reads are allowed (but exporting a Secure Memory Blob is prohibited if G2_SMBLOB=0 and the descriptor is not a Trusted Descriptor or if G2_TDO=0).
   };
+  
   enum class eG2_WRITE : uint32_t {
     eG2_WRITE_PROHIB = 0, // Writes are prohibited (except that Trusted Descriptor writes are allowed, and importing Secure Memory Blobs is allowed if G2_SMBLOB=1 or if done by a Trusted Descriptor and G2_TDO=1).
     eG2_WRITE_ALLOWED = 1, // Writes are allowed (but importing a Secure Memory Blob is prohibited if G2_SMBLOB=0 and the descriptor is not a Trusted Descriptor or if G2_TDO=0).
   };
+  
   enum class eG2_TDO : uint32_t {
     eG2_TD_PRIVILEGE_AS_JD = 0, // Trusted Descriptors have the same access privileges as Job Descriptors
     eG2_TD_OVERIDE_ALLOWED = 1, // Trusted Descriptors are allowed to override the other access permissions, i.e. they can export blobs from or import blobs to the partition and read from and write to the partition regardless of the G2_SMBLOB, G2_WRITE and G2_READ settings.
   };
+  
   enum class eG2_SMBLOB : uint32_t {
     eG2_SM_BLOB_EXPORT_IMPORT_PROHIB = 0, // Exporting or importing Secure Memory Blobs is prohibited, unless done via a Trusted Descriptor and G2_TDO=1.
     eG2_SM_BLOB_EXPORT_IMPORT_ALLOWED = 1, // Exporting or importing Secure Memory Blobs is allowed, regardless of the G2_READ and G2_WRITE settings.
   };
+  
   enum class eSMAG_LCK : uint32_t {
     eSMAG_UNLOCKED = 0, // The SMAG2JR register and SMAG1JR register are unlocked. The partition owner can change any writable bits of these registers.
     eSMAG_LOCKED = 1, // The SMAG2JR register and SMAG1JR register are locked. The SMAG2JR and SMAG1JR registers cannot be changed until the partition is de-allocated or a POR occurs.
   };
+  
   enum class eSMAP_LCK : uint32_t {
     eSMAP_UNLOCKED = 0, // The SMAP register is unlocked. The partition owner can change any writable bits of the SMAP register.
     eSMAP_LOCKED = 1, // The SMAP register is locked. The SMAP_LCK, CSP and PSP bits and G1 and G2 permission bits of the SMAP register cannot be changed until the partition is de-allocated or a POR occurs. The PARTITION_KMOD value can still be changed. The SMAG_LCK bit can be changed to a 1, but cannot be changed to a 0.
   };
+  
   enum class ePSP : uint32_t {
     eNOT_DEALLOCATABLE = 0, // The partition and any of the pages allocated to the partition can be de-allocated.
     eDEALLOCATABLE = 1, // The partition cannot be de-allocated and the pages allocated to the partition cannot be de-allocated.
   };
+  
   enum class eCSP : uint32_t {
     eNOT_ZEROIZED = 0, // The pages allocated to the partition will not be zeroized when they are de-allocated or the partition is released or a security alarm occurs.
     eZEROIZED = 1, // The pages allocated to the partition will be zeroized when they are individually de-allocated or the partition is released or a security alarm occurs.
@@ -9970,7 +9496,7 @@ union P0SMAPR_JR0 {
     ePSP PSP : 1;
     eCSP CSP : 1;
     uint32_t PARTITION_KMOD : 16;
-  } bits;          // Bit-field struct (auto-filling reserved gaps)
+  } bits;
   
   // Full 32-bit register value.
   uint32_t value;
@@ -9984,8 +9510,6 @@ union P0SMAPR_JR0 {
 //
 union P0SMAG2_JR0 {
   
-  // Enum definitions.
-  
   // Bit field definition.
   struct {
     uint32_t Gx_ID00 : 1;
@@ -10020,7 +9544,7 @@ union P0SMAG2_JR0 {
     uint32_t Gx_ID29 : 1;
     uint32_t Gx_ID30 : 1;
     uint32_t Gx_ID31 : 1;
-  } bits;          // Bit-field struct (auto-filling reserved gaps)
+  } bits;
   
   // Full 32-bit register value.
   uint32_t value;
@@ -10034,8 +9558,6 @@ union P0SMAG2_JR0 {
 //
 union P0SMAG1_JR0 {
   
-  // Enum definitions.
-  
   // Bit field definition.
   struct {
     uint32_t Gx_ID00 : 1;
@@ -10070,7 +9592,7 @@ union P0SMAG1_JR0 {
     uint32_t Gx_ID29 : 1;
     uint32_t Gx_ID30 : 1;
     uint32_t Gx_ID31 : 1;
-  } bits;          // Bit-field struct (auto-filling reserved gaps)
+  } bits;
   
   // Full 32-bit register value.
   uint32_t value;
@@ -10084,13 +9606,11 @@ union P0SMAG1_JR0 {
 //
 union P1SDID_JR0 {
   
-  // Enum definitions.
-  
   // Bit field definition.
   struct {
     uint32_t SDID : 16;
     uint32_t _reserved_end : 16;
-  } bits;          // Bit-field struct (auto-filling reserved gaps)
+  } bits;
   
   // Full 32-bit register value.
   uint32_t value;
@@ -10104,51 +9624,61 @@ union P1SDID_JR0 {
 //
 union P1SMAPR_JR0 {
   
-  // Enum definitions.
   enum class eG1_READ : uint32_t {
     eG1_READ_PROHIB = 0, // Instruction fetches and reads are prohibited (except that Trusted Descriptor reads (if G1_TDO=1) and key-reads are always allowed, and exporting Secure Memory Blobs is allowed if G1_SMBLOB=1 or if done by a Trusted Descriptor and G1_TDO=1).
     eG1_READ_ALLOWED = 1, // Instruction fetches and reads are allowed (but exporting a Secure Memory Blob is prohibited if G1_SMBLOB=0 and the descriptor is not a Trusted Descriptor or if G1_TDO=0).
   };
+  
   enum class eG1_WRITE : uint32_t {
     eG1_WRITE_PROHIB = 0, // Writes are prohibited (except that Trusted Descriptor writes are allowed, and importing Secure Memory Blobs is allowed if G1_SMBLOB=1 or if done by a Trusted Descriptor and G1_TDO=1).
     eG1_WRITE_ALLOWED = 1, // Writes are allowed (but importing a Secure Memory Blob is prohibited if G1_SMBLOB=0 and the descriptor is not a Trusted Descriptor or if G1_TDO=0).
   };
+  
   enum class eG1_TDO : uint32_t {
     eG1_TD_PRIVILEGE_AS_JD = 0, // Trusted Descriptors have the same access privileges as Job Descriptors
     eG1_TD_OVERIDE_ALLOWED = 1, // Trusted Descriptors are allowed to override the other access permissions, i.e. they can export blobs from or import blobs to the partition and read from and write to the partition regardless of the G1_SMBLOB, G1_WRITE and G1_READ settings.
   };
+  
   enum class eG1_SMBLOB : uint32_t {
     eG1_SM_BLOB_EXPORT_IMPORT_PROHIB = 0, // Exporting or importing Secure Memory Blobs is prohibited, unless done via a Trusted Descriptor and G1_TDO=1.
     eG1_SM_B_EXPORT_IMPORT_ALLOWED = 1, // Exporting or importing Secure Memory Blobs is allowed, regardless of the G1_READ and G1_WRITE settings.
   };
+  
   enum class eG2_READ : uint32_t {
     eG2_READ_PROHIB = 0, // Instruction fetches and reads are prohibited (except that Trusted Descriptor reads (if G2_TDO=1) and key-reads are always allowed, and exporting Secure Memory Blobs is allowed if G2_SMBLOB=1 or if done by a Trusted Descriptor and G2_TDO=1).
     eG2_READ_ALLOWED = 1, // Instruction fetches and reads are allowed (but exporting a Secure Memory Blob is prohibited if G2_SMBLOB=0 and the descriptor is not a Trusted Descriptor or if G2_TDO=0).
   };
+  
   enum class eG2_WRITE : uint32_t {
     eG2_WRITE_PROHIB = 0, // Writes are prohibited (except that Trusted Descriptor writes are allowed, and importing Secure Memory Blobs is allowed if G2_SMBLOB=1 or if done by a Trusted Descriptor and G2_TDO=1).
     eG2_WRITE_ALLOWED = 1, // Writes are allowed (but importing a Secure Memory Blob is prohibited if G2_SMBLOB=0 and the descriptor is not a Trusted Descriptor or if G2_TDO=0).
   };
+  
   enum class eG2_TDO : uint32_t {
     eG2_TD_PRIVILEGE_AS_JD = 0, // Trusted Descriptors have the same access privileges as Job Descriptors
     eG2_TD_OVERIDE_ALLOWED = 1, // Trusted Descriptors are allowed to override the other access permissions, i.e. they can export blobs from or import blobs to the partition and read from and write to the partition regardless of the G2_SMBLOB, G2_WRITE and G2_READ settings.
   };
+  
   enum class eG2_SMBLOB : uint32_t {
     eG2_SM_BLOB_EXPORT_IMPORT_PROHIB = 0, // Exporting or importing Secure Memory Blobs is prohibited, unless done via a Trusted Descriptor and G2_TDO=1.
     eG2_SM_BLOB_EXPORT_IMPORT_ALLOWED = 1, // Exporting or importing Secure Memory Blobs is allowed, regardless of the G2_READ and G2_WRITE settings.
   };
+  
   enum class eSMAG_LCK : uint32_t {
     eSMAG_UNLOCKED = 0, // The SMAG2JR register and SMAG1JR register are unlocked. The partition owner can change any writable bits of these registers.
     eSMAG_LOCKED = 1, // The SMAG2JR register and SMAG1JR register are locked. The SMAG2JR and SMAG1JR registers cannot be changed until the partition is de-allocated or a POR occurs.
   };
+  
   enum class eSMAP_LCK : uint32_t {
     eSMAP_UNLOCKED = 0, // The SMAP register is unlocked. The partition owner can change any writable bits of the SMAP register.
     eSMAP_LOCKED = 1, // The SMAP register is locked. The SMAP_LCK, CSP and PSP bits and G1 and G2 permission bits of the SMAP register cannot be changed until the partition is de-allocated or a POR occurs. The PARTITION_KMOD value can still be changed. The SMAG_LCK bit can be changed to a 1, but cannot be changed to a 0.
   };
+  
   enum class ePSP : uint32_t {
     eNOT_DEALLOCATABLE = 0, // The partition and any of the pages allocated to the partition can be de-allocated.
     eDEALLOCATABLE = 1, // The partition cannot be de-allocated and the pages allocated to the partition cannot be de-allocated.
   };
+  
   enum class eCSP : uint32_t {
     eNOT_ZEROIZED = 0, // The pages allocated to the partition will not be zeroized when they are de-allocated or the partition is released or a security alarm occurs.
     eZEROIZED = 1, // The pages allocated to the partition will be zeroized when they are individually de-allocated or the partition is released or a security alarm occurs.
@@ -10170,7 +9700,7 @@ union P1SMAPR_JR0 {
     ePSP PSP : 1;
     eCSP CSP : 1;
     uint32_t PARTITION_KMOD : 16;
-  } bits;          // Bit-field struct (auto-filling reserved gaps)
+  } bits;
   
   // Full 32-bit register value.
   uint32_t value;
@@ -10184,8 +9714,6 @@ union P1SMAPR_JR0 {
 //
 union P1SMAG2_JR0 {
   
-  // Enum definitions.
-  
   // Bit field definition.
   struct {
     uint32_t Gx_ID00 : 1;
@@ -10220,7 +9748,7 @@ union P1SMAG2_JR0 {
     uint32_t Gx_ID29 : 1;
     uint32_t Gx_ID30 : 1;
     uint32_t Gx_ID31 : 1;
-  } bits;          // Bit-field struct (auto-filling reserved gaps)
+  } bits;
   
   // Full 32-bit register value.
   uint32_t value;
@@ -10234,8 +9762,6 @@ union P1SMAG2_JR0 {
 //
 union P1SMAG1_JR0 {
   
-  // Enum definitions.
-  
   // Bit field definition.
   struct {
     uint32_t Gx_ID00 : 1;
@@ -10270,7 +9796,7 @@ union P1SMAG1_JR0 {
     uint32_t Gx_ID29 : 1;
     uint32_t Gx_ID30 : 1;
     uint32_t Gx_ID31 : 1;
-  } bits;          // Bit-field struct (auto-filling reserved gaps)
+  } bits;
   
   // Full 32-bit register value.
   uint32_t value;
@@ -10284,13 +9810,11 @@ union P1SMAG1_JR0 {
 //
 union P2SDID_JR0 {
   
-  // Enum definitions.
-  
   // Bit field definition.
   struct {
     uint32_t SDID : 16;
     uint32_t _reserved_end : 16;
-  } bits;          // Bit-field struct (auto-filling reserved gaps)
+  } bits;
   
   // Full 32-bit register value.
   uint32_t value;
@@ -10304,51 +9828,61 @@ union P2SDID_JR0 {
 //
 union P2SMAPR_JR0 {
   
-  // Enum definitions.
   enum class eG1_READ : uint32_t {
     eG1_READ_PROHIB = 0, // Instruction fetches and reads are prohibited (except that Trusted Descriptor reads (if G1_TDO=1) and key-reads are always allowed, and exporting Secure Memory Blobs is allowed if G1_SMBLOB=1 or if done by a Trusted Descriptor and G1_TDO=1).
     eG1_READ_ALLOWED = 1, // Instruction fetches and reads are allowed (but exporting a Secure Memory Blob is prohibited if G1_SMBLOB=0 and the descriptor is not a Trusted Descriptor or if G1_TDO=0).
   };
+  
   enum class eG1_WRITE : uint32_t {
     eG1_WRITE_PROHIB = 0, // Writes are prohibited (except that Trusted Descriptor writes are allowed, and importing Secure Memory Blobs is allowed if G1_SMBLOB=1 or if done by a Trusted Descriptor and G1_TDO=1).
     eG1_WRITE_ALLOWED = 1, // Writes are allowed (but importing a Secure Memory Blob is prohibited if G1_SMBLOB=0 and the descriptor is not a Trusted Descriptor or if G1_TDO=0).
   };
+  
   enum class eG1_TDO : uint32_t {
     eG1_TD_PRIVILEGE_AS_JD = 0, // Trusted Descriptors have the same access privileges as Job Descriptors
     eG1_TD_OVERIDE_ALLOWED = 1, // Trusted Descriptors are allowed to override the other access permissions, i.e. they can export blobs from or import blobs to the partition and read from and write to the partition regardless of the G1_SMBLOB, G1_WRITE and G1_READ settings.
   };
+  
   enum class eG1_SMBLOB : uint32_t {
     eG1_SM_BLOB_EXPORT_IMPORT_PROHIB = 0, // Exporting or importing Secure Memory Blobs is prohibited, unless done via a Trusted Descriptor and G1_TDO=1.
     eG1_SM_B_EXPORT_IMPORT_ALLOWED = 1, // Exporting or importing Secure Memory Blobs is allowed, regardless of the G1_READ and G1_WRITE settings.
   };
+  
   enum class eG2_READ : uint32_t {
     eG2_READ_PROHIB = 0, // Instruction fetches and reads are prohibited (except that Trusted Descriptor reads (if G2_TDO=1) and key-reads are always allowed, and exporting Secure Memory Blobs is allowed if G2_SMBLOB=1 or if done by a Trusted Descriptor and G2_TDO=1).
     eG2_READ_ALLOWED = 1, // Instruction fetches and reads are allowed (but exporting a Secure Memory Blob is prohibited if G2_SMBLOB=0 and the descriptor is not a Trusted Descriptor or if G2_TDO=0).
   };
+  
   enum class eG2_WRITE : uint32_t {
     eG2_WRITE_PROHIB = 0, // Writes are prohibited (except that Trusted Descriptor writes are allowed, and importing Secure Memory Blobs is allowed if G2_SMBLOB=1 or if done by a Trusted Descriptor and G2_TDO=1).
     eG2_WRITE_ALLOWED = 1, // Writes are allowed (but importing a Secure Memory Blob is prohibited if G2_SMBLOB=0 and the descriptor is not a Trusted Descriptor or if G2_TDO=0).
   };
+  
   enum class eG2_TDO : uint32_t {
     eG2_TD_PRIVILEGE_AS_JD = 0, // Trusted Descriptors have the same access privileges as Job Descriptors
     eG2_TD_OVERIDE_ALLOWED = 1, // Trusted Descriptors are allowed to override the other access permissions, i.e. they can export blobs from or import blobs to the partition and read from and write to the partition regardless of the G2_SMBLOB, G2_WRITE and G2_READ settings.
   };
+  
   enum class eG2_SMBLOB : uint32_t {
     eG2_SM_BLOB_EXPORT_IMPORT_PROHIB = 0, // Exporting or importing Secure Memory Blobs is prohibited, unless done via a Trusted Descriptor and G2_TDO=1.
     eG2_SM_BLOB_EXPORT_IMPORT_ALLOWED = 1, // Exporting or importing Secure Memory Blobs is allowed, regardless of the G2_READ and G2_WRITE settings.
   };
+  
   enum class eSMAG_LCK : uint32_t {
     eSMAG_UNLOCKED = 0, // The SMAG2JR register and SMAG1JR register are unlocked. The partition owner can change any writable bits of these registers.
     eSMAG_LOCKED = 1, // The SMAG2JR register and SMAG1JR register are locked. The SMAG2JR and SMAG1JR registers cannot be changed until the partition is de-allocated or a POR occurs.
   };
+  
   enum class eSMAP_LCK : uint32_t {
     eSMAP_UNLOCKED = 0, // The SMAP register is unlocked. The partition owner can change any writable bits of the SMAP register.
     eSMAP_LOCKED = 1, // The SMAP register is locked. The SMAP_LCK, CSP and PSP bits and G1 and G2 permission bits of the SMAP register cannot be changed until the partition is de-allocated or a POR occurs. The PARTITION_KMOD value can still be changed. The SMAG_LCK bit can be changed to a 1, but cannot be changed to a 0.
   };
+  
   enum class ePSP : uint32_t {
     eNOT_DEALLOCATABLE = 0, // The partition and any of the pages allocated to the partition can be de-allocated.
     eDEALLOCATABLE = 1, // The partition cannot be de-allocated and the pages allocated to the partition cannot be de-allocated.
   };
+  
   enum class eCSP : uint32_t {
     eNOT_ZEROIZED = 0, // The pages allocated to the partition will not be zeroized when they are de-allocated or the partition is released or a security alarm occurs.
     eZEROIZED = 1, // The pages allocated to the partition will be zeroized when they are individually de-allocated or the partition is released or a security alarm occurs.
@@ -10370,7 +9904,7 @@ union P2SMAPR_JR0 {
     ePSP PSP : 1;
     eCSP CSP : 1;
     uint32_t PARTITION_KMOD : 16;
-  } bits;          // Bit-field struct (auto-filling reserved gaps)
+  } bits;
   
   // Full 32-bit register value.
   uint32_t value;
@@ -10384,8 +9918,6 @@ union P2SMAPR_JR0 {
 //
 union P2SMAG2_JR0 {
   
-  // Enum definitions.
-  
   // Bit field definition.
   struct {
     uint32_t Gx_ID00 : 1;
@@ -10420,7 +9952,7 @@ union P2SMAG2_JR0 {
     uint32_t Gx_ID29 : 1;
     uint32_t Gx_ID30 : 1;
     uint32_t Gx_ID31 : 1;
-  } bits;          // Bit-field struct (auto-filling reserved gaps)
+  } bits;
   
   // Full 32-bit register value.
   uint32_t value;
@@ -10434,8 +9966,6 @@ union P2SMAG2_JR0 {
 //
 union P2SMAG1_JR0 {
   
-  // Enum definitions.
-  
   // Bit field definition.
   struct {
     uint32_t Gx_ID00 : 1;
@@ -10470,7 +10000,7 @@ union P2SMAG1_JR0 {
     uint32_t Gx_ID29 : 1;
     uint32_t Gx_ID30 : 1;
     uint32_t Gx_ID31 : 1;
-  } bits;          // Bit-field struct (auto-filling reserved gaps)
+  } bits;
   
   // Full 32-bit register value.
   uint32_t value;
@@ -10484,13 +10014,11 @@ union P2SMAG1_JR0 {
 //
 union P3SDID_JR0 {
   
-  // Enum definitions.
-  
   // Bit field definition.
   struct {
     uint32_t SDID : 16;
     uint32_t _reserved_end : 16;
-  } bits;          // Bit-field struct (auto-filling reserved gaps)
+  } bits;
   
   // Full 32-bit register value.
   uint32_t value;
@@ -10504,51 +10032,61 @@ union P3SDID_JR0 {
 //
 union P3SMAPR_JR0 {
   
-  // Enum definitions.
   enum class eG1_READ : uint32_t {
     eG1_READ_PROHIB = 0, // Instruction fetches and reads are prohibited (except that Trusted Descriptor reads (if G1_TDO=1) and key-reads are always allowed, and exporting Secure Memory Blobs is allowed if G1_SMBLOB=1 or if done by a Trusted Descriptor and G1_TDO=1).
     eG1_READ_ALLOWED = 1, // Instruction fetches and reads are allowed (but exporting a Secure Memory Blob is prohibited if G1_SMBLOB=0 and the descriptor is not a Trusted Descriptor or if G1_TDO=0).
   };
+  
   enum class eG1_WRITE : uint32_t {
     eG1_WRITE_PROHIB = 0, // Writes are prohibited (except that Trusted Descriptor writes are allowed, and importing Secure Memory Blobs is allowed if G1_SMBLOB=1 or if done by a Trusted Descriptor and G1_TDO=1).
     eG1_WRITE_ALLOWED = 1, // Writes are allowed (but importing a Secure Memory Blob is prohibited if G1_SMBLOB=0 and the descriptor is not a Trusted Descriptor or if G1_TDO=0).
   };
+  
   enum class eG1_TDO : uint32_t {
     eG1_TD_PRIVILEGE_AS_JD = 0, // Trusted Descriptors have the same access privileges as Job Descriptors
     eG1_TD_OVERIDE_ALLOWED = 1, // Trusted Descriptors are allowed to override the other access permissions, i.e. they can export blobs from or import blobs to the partition and read from and write to the partition regardless of the G1_SMBLOB, G1_WRITE and G1_READ settings.
   };
+  
   enum class eG1_SMBLOB : uint32_t {
     eG1_SM_BLOB_EXPORT_IMPORT_PROHIB = 0, // Exporting or importing Secure Memory Blobs is prohibited, unless done via a Trusted Descriptor and G1_TDO=1.
     eG1_SM_B_EXPORT_IMPORT_ALLOWED = 1, // Exporting or importing Secure Memory Blobs is allowed, regardless of the G1_READ and G1_WRITE settings.
   };
+  
   enum class eG2_READ : uint32_t {
     eG2_READ_PROHIB = 0, // Instruction fetches and reads are prohibited (except that Trusted Descriptor reads (if G2_TDO=1) and key-reads are always allowed, and exporting Secure Memory Blobs is allowed if G2_SMBLOB=1 or if done by a Trusted Descriptor and G2_TDO=1).
     eG2_READ_ALLOWED = 1, // Instruction fetches and reads are allowed (but exporting a Secure Memory Blob is prohibited if G2_SMBLOB=0 and the descriptor is not a Trusted Descriptor or if G2_TDO=0).
   };
+  
   enum class eG2_WRITE : uint32_t {
     eG2_WRITE_PROHIB = 0, // Writes are prohibited (except that Trusted Descriptor writes are allowed, and importing Secure Memory Blobs is allowed if G2_SMBLOB=1 or if done by a Trusted Descriptor and G2_TDO=1).
     eG2_WRITE_ALLOWED = 1, // Writes are allowed (but importing a Secure Memory Blob is prohibited if G2_SMBLOB=0 and the descriptor is not a Trusted Descriptor or if G2_TDO=0).
   };
+  
   enum class eG2_TDO : uint32_t {
     eG2_TD_PRIVILEGE_AS_JD = 0, // Trusted Descriptors have the same access privileges as Job Descriptors
     eG2_TD_OVERIDE_ALLOWED = 1, // Trusted Descriptors are allowed to override the other access permissions, i.e. they can export blobs from or import blobs to the partition and read from and write to the partition regardless of the G2_SMBLOB, G2_WRITE and G2_READ settings.
   };
+  
   enum class eG2_SMBLOB : uint32_t {
     eG2_SM_BLOB_EXPORT_IMPORT_PROHIB = 0, // Exporting or importing Secure Memory Blobs is prohibited, unless done via a Trusted Descriptor and G2_TDO=1.
     eG2_SM_BLOB_EXPORT_IMPORT_ALLOWED = 1, // Exporting or importing Secure Memory Blobs is allowed, regardless of the G2_READ and G2_WRITE settings.
   };
+  
   enum class eSMAG_LCK : uint32_t {
     eSMAG_UNLOCKED = 0, // The SMAG2JR register and SMAG1JR register are unlocked. The partition owner can change any writable bits of these registers.
     eSMAG_LOCKED = 1, // The SMAG2JR register and SMAG1JR register are locked. The SMAG2JR and SMAG1JR registers cannot be changed until the partition is de-allocated or a POR occurs.
   };
+  
   enum class eSMAP_LCK : uint32_t {
     eSMAP_UNLOCKED = 0, // The SMAP register is unlocked. The partition owner can change any writable bits of the SMAP register.
     eSMAP_LOCKED = 1, // The SMAP register is locked. The SMAP_LCK, CSP and PSP bits and G1 and G2 permission bits of the SMAP register cannot be changed until the partition is de-allocated or a POR occurs. The PARTITION_KMOD value can still be changed. The SMAG_LCK bit can be changed to a 1, but cannot be changed to a 0.
   };
+  
   enum class ePSP : uint32_t {
     eNOT_DEALLOCATABLE = 0, // The partition and any of the pages allocated to the partition can be de-allocated.
     eDEALLOCATABLE = 1, // The partition cannot be de-allocated and the pages allocated to the partition cannot be de-allocated.
   };
+  
   enum class eCSP : uint32_t {
     eNOT_ZEROIZED = 0, // The pages allocated to the partition will not be zeroized when they are de-allocated or the partition is released or a security alarm occurs.
     eZEROIZED = 1, // The pages allocated to the partition will be zeroized when they are individually de-allocated or the partition is released or a security alarm occurs.
@@ -10570,7 +10108,7 @@ union P3SMAPR_JR0 {
     ePSP PSP : 1;
     eCSP CSP : 1;
     uint32_t PARTITION_KMOD : 16;
-  } bits;          // Bit-field struct (auto-filling reserved gaps)
+  } bits;
   
   // Full 32-bit register value.
   uint32_t value;
@@ -10584,8 +10122,6 @@ union P3SMAPR_JR0 {
 //
 union P3SMAG2_JR0 {
   
-  // Enum definitions.
-  
   // Bit field definition.
   struct {
     uint32_t Gx_ID00 : 1;
@@ -10620,7 +10156,7 @@ union P3SMAG2_JR0 {
     uint32_t Gx_ID29 : 1;
     uint32_t Gx_ID30 : 1;
     uint32_t Gx_ID31 : 1;
-  } bits;          // Bit-field struct (auto-filling reserved gaps)
+  } bits;
   
   // Full 32-bit register value.
   uint32_t value;
@@ -10634,8 +10170,6 @@ union P3SMAG2_JR0 {
 //
 union P3SMAG1_JR0 {
   
-  // Enum definitions.
-  
   // Bit field definition.
   struct {
     uint32_t Gx_ID00 : 1;
@@ -10670,7 +10204,7 @@ union P3SMAG1_JR0 {
     uint32_t Gx_ID29 : 1;
     uint32_t Gx_ID30 : 1;
     uint32_t Gx_ID31 : 1;
-  } bits;          // Bit-field struct (auto-filling reserved gaps)
+  } bits;
   
   // Full 32-bit register value.
   uint32_t value;
@@ -10684,13 +10218,11 @@ union P3SMAG1_JR0 {
 //
 union P4SDID_JR0 {
   
-  // Enum definitions.
-  
   // Bit field definition.
   struct {
     uint32_t SDID : 16;
     uint32_t _reserved_end : 16;
-  } bits;          // Bit-field struct (auto-filling reserved gaps)
+  } bits;
   
   // Full 32-bit register value.
   uint32_t value;
@@ -10704,51 +10236,61 @@ union P4SDID_JR0 {
 //
 union P4SMAPR_JR0 {
   
-  // Enum definitions.
   enum class eG1_READ : uint32_t {
     eG1_READ_PROHIB = 0, // Instruction fetches and reads are prohibited (except that Trusted Descriptor reads (if G1_TDO=1) and key-reads are always allowed, and exporting Secure Memory Blobs is allowed if G1_SMBLOB=1 or if done by a Trusted Descriptor and G1_TDO=1).
     eG1_READ_ALLOWED = 1, // Instruction fetches and reads are allowed (but exporting a Secure Memory Blob is prohibited if G1_SMBLOB=0 and the descriptor is not a Trusted Descriptor or if G1_TDO=0).
   };
+  
   enum class eG1_WRITE : uint32_t {
     eG1_WRITE_PROHIB = 0, // Writes are prohibited (except that Trusted Descriptor writes are allowed, and importing Secure Memory Blobs is allowed if G1_SMBLOB=1 or if done by a Trusted Descriptor and G1_TDO=1).
     eG1_WRITE_ALLOWED = 1, // Writes are allowed (but importing a Secure Memory Blob is prohibited if G1_SMBLOB=0 and the descriptor is not a Trusted Descriptor or if G1_TDO=0).
   };
+  
   enum class eG1_TDO : uint32_t {
     eG1_TD_PRIVILEGE_AS_JD = 0, // Trusted Descriptors have the same access privileges as Job Descriptors
     eG1_TD_OVERIDE_ALLOWED = 1, // Trusted Descriptors are allowed to override the other access permissions, i.e. they can export blobs from or import blobs to the partition and read from and write to the partition regardless of the G1_SMBLOB, G1_WRITE and G1_READ settings.
   };
+  
   enum class eG1_SMBLOB : uint32_t {
     eG1_SM_BLOB_EXPORT_IMPORT_PROHIB = 0, // Exporting or importing Secure Memory Blobs is prohibited, unless done via a Trusted Descriptor and G1_TDO=1.
     eG1_SM_B_EXPORT_IMPORT_ALLOWED = 1, // Exporting or importing Secure Memory Blobs is allowed, regardless of the G1_READ and G1_WRITE settings.
   };
+  
   enum class eG2_READ : uint32_t {
     eG2_READ_PROHIB = 0, // Instruction fetches and reads are prohibited (except that Trusted Descriptor reads (if G2_TDO=1) and key-reads are always allowed, and exporting Secure Memory Blobs is allowed if G2_SMBLOB=1 or if done by a Trusted Descriptor and G2_TDO=1).
     eG2_READ_ALLOWED = 1, // Instruction fetches and reads are allowed (but exporting a Secure Memory Blob is prohibited if G2_SMBLOB=0 and the descriptor is not a Trusted Descriptor or if G2_TDO=0).
   };
+  
   enum class eG2_WRITE : uint32_t {
     eG2_WRITE_PROHIB = 0, // Writes are prohibited (except that Trusted Descriptor writes are allowed, and importing Secure Memory Blobs is allowed if G2_SMBLOB=1 or if done by a Trusted Descriptor and G2_TDO=1).
     eG2_WRITE_ALLOWED = 1, // Writes are allowed (but importing a Secure Memory Blob is prohibited if G2_SMBLOB=0 and the descriptor is not a Trusted Descriptor or if G2_TDO=0).
   };
+  
   enum class eG2_TDO : uint32_t {
     eG2_TD_PRIVILEGE_AS_JD = 0, // Trusted Descriptors have the same access privileges as Job Descriptors
     eG2_TD_OVERIDE_ALLOWED = 1, // Trusted Descriptors are allowed to override the other access permissions, i.e. they can export blobs from or import blobs to the partition and read from and write to the partition regardless of the G2_SMBLOB, G2_WRITE and G2_READ settings.
   };
+  
   enum class eG2_SMBLOB : uint32_t {
     eG2_SM_BLOB_EXPORT_IMPORT_PROHIB = 0, // Exporting or importing Secure Memory Blobs is prohibited, unless done via a Trusted Descriptor and G2_TDO=1.
     eG2_SM_BLOB_EXPORT_IMPORT_ALLOWED = 1, // Exporting or importing Secure Memory Blobs is allowed, regardless of the G2_READ and G2_WRITE settings.
   };
+  
   enum class eSMAG_LCK : uint32_t {
     eSMAG_UNLOCKED = 0, // The SMAG2JR register and SMAG1JR register are unlocked. The partition owner can change any writable bits of these registers.
     eSMAG_LOCKED = 1, // The SMAG2JR register and SMAG1JR register are locked. The SMAG2JR and SMAG1JR registers cannot be changed until the partition is de-allocated or a POR occurs.
   };
+  
   enum class eSMAP_LCK : uint32_t {
     eSMAP_UNLOCKED = 0, // The SMAP register is unlocked. The partition owner can change any writable bits of the SMAP register.
     eSMAP_LOCKED = 1, // The SMAP register is locked. The SMAP_LCK, CSP and PSP bits and G1 and G2 permission bits of the SMAP register cannot be changed until the partition is de-allocated or a POR occurs. The PARTITION_KMOD value can still be changed. The SMAG_LCK bit can be changed to a 1, but cannot be changed to a 0.
   };
+  
   enum class ePSP : uint32_t {
     eNOT_DEALLOCATABLE = 0, // The partition and any of the pages allocated to the partition can be de-allocated.
     eDEALLOCATABLE = 1, // The partition cannot be de-allocated and the pages allocated to the partition cannot be de-allocated.
   };
+  
   enum class eCSP : uint32_t {
     eNOT_ZEROIZED = 0, // The pages allocated to the partition will not be zeroized when they are de-allocated or the partition is released or a security alarm occurs.
     eZEROIZED = 1, // The pages allocated to the partition will be zeroized when they are individually de-allocated or the partition is released or a security alarm occurs.
@@ -10770,7 +10312,7 @@ union P4SMAPR_JR0 {
     ePSP PSP : 1;
     eCSP CSP : 1;
     uint32_t PARTITION_KMOD : 16;
-  } bits;          // Bit-field struct (auto-filling reserved gaps)
+  } bits;
   
   // Full 32-bit register value.
   uint32_t value;
@@ -10784,8 +10326,6 @@ union P4SMAPR_JR0 {
 //
 union P4SMAG2_JR0 {
   
-  // Enum definitions.
-  
   // Bit field definition.
   struct {
     uint32_t Gx_ID00 : 1;
@@ -10820,7 +10360,7 @@ union P4SMAG2_JR0 {
     uint32_t Gx_ID29 : 1;
     uint32_t Gx_ID30 : 1;
     uint32_t Gx_ID31 : 1;
-  } bits;          // Bit-field struct (auto-filling reserved gaps)
+  } bits;
   
   // Full 32-bit register value.
   uint32_t value;
@@ -10834,8 +10374,6 @@ union P4SMAG2_JR0 {
 //
 union P4SMAG1_JR0 {
   
-  // Enum definitions.
-  
   // Bit field definition.
   struct {
     uint32_t Gx_ID00 : 1;
@@ -10870,7 +10408,7 @@ union P4SMAG1_JR0 {
     uint32_t Gx_ID29 : 1;
     uint32_t Gx_ID30 : 1;
     uint32_t Gx_ID31 : 1;
-  } bits;          // Bit-field struct (auto-filling reserved gaps)
+  } bits;
   
   // Full 32-bit register value.
   uint32_t value;
@@ -10884,13 +10422,11 @@ union P4SMAG1_JR0 {
 //
 union P5SDID_JR0 {
   
-  // Enum definitions.
-  
   // Bit field definition.
   struct {
     uint32_t SDID : 16;
     uint32_t _reserved_end : 16;
-  } bits;          // Bit-field struct (auto-filling reserved gaps)
+  } bits;
   
   // Full 32-bit register value.
   uint32_t value;
@@ -10904,51 +10440,61 @@ union P5SDID_JR0 {
 //
 union P5SMAPR_JR0 {
   
-  // Enum definitions.
   enum class eG1_READ : uint32_t {
     eG1_READ_PROHIB = 0, // Instruction fetches and reads are prohibited (except that Trusted Descriptor reads (if G1_TDO=1) and key-reads are always allowed, and exporting Secure Memory Blobs is allowed if G1_SMBLOB=1 or if done by a Trusted Descriptor and G1_TDO=1).
     eG1_READ_ALLOWED = 1, // Instruction fetches and reads are allowed (but exporting a Secure Memory Blob is prohibited if G1_SMBLOB=0 and the descriptor is not a Trusted Descriptor or if G1_TDO=0).
   };
+  
   enum class eG1_WRITE : uint32_t {
     eG1_WRITE_PROHIB = 0, // Writes are prohibited (except that Trusted Descriptor writes are allowed, and importing Secure Memory Blobs is allowed if G1_SMBLOB=1 or if done by a Trusted Descriptor and G1_TDO=1).
     eG1_WRITE_ALLOWED = 1, // Writes are allowed (but importing a Secure Memory Blob is prohibited if G1_SMBLOB=0 and the descriptor is not a Trusted Descriptor or if G1_TDO=0).
   };
+  
   enum class eG1_TDO : uint32_t {
     eG1_TD_PRIVILEGE_AS_JD = 0, // Trusted Descriptors have the same access privileges as Job Descriptors
     eG1_TD_OVERIDE_ALLOWED = 1, // Trusted Descriptors are allowed to override the other access permissions, i.e. they can export blobs from or import blobs to the partition and read from and write to the partition regardless of the G1_SMBLOB, G1_WRITE and G1_READ settings.
   };
+  
   enum class eG1_SMBLOB : uint32_t {
     eG1_SM_BLOB_EXPORT_IMPORT_PROHIB = 0, // Exporting or importing Secure Memory Blobs is prohibited, unless done via a Trusted Descriptor and G1_TDO=1.
     eG1_SM_B_EXPORT_IMPORT_ALLOWED = 1, // Exporting or importing Secure Memory Blobs is allowed, regardless of the G1_READ and G1_WRITE settings.
   };
+  
   enum class eG2_READ : uint32_t {
     eG2_READ_PROHIB = 0, // Instruction fetches and reads are prohibited (except that Trusted Descriptor reads (if G2_TDO=1) and key-reads are always allowed, and exporting Secure Memory Blobs is allowed if G2_SMBLOB=1 or if done by a Trusted Descriptor and G2_TDO=1).
     eG2_READ_ALLOWED = 1, // Instruction fetches and reads are allowed (but exporting a Secure Memory Blob is prohibited if G2_SMBLOB=0 and the descriptor is not a Trusted Descriptor or if G2_TDO=0).
   };
+  
   enum class eG2_WRITE : uint32_t {
     eG2_WRITE_PROHIB = 0, // Writes are prohibited (except that Trusted Descriptor writes are allowed, and importing Secure Memory Blobs is allowed if G2_SMBLOB=1 or if done by a Trusted Descriptor and G2_TDO=1).
     eG2_WRITE_ALLOWED = 1, // Writes are allowed (but importing a Secure Memory Blob is prohibited if G2_SMBLOB=0 and the descriptor is not a Trusted Descriptor or if G2_TDO=0).
   };
+  
   enum class eG2_TDO : uint32_t {
     eG2_TD_PRIVILEGE_AS_JD = 0, // Trusted Descriptors have the same access privileges as Job Descriptors
     eG2_TD_OVERIDE_ALLOWED = 1, // Trusted Descriptors are allowed to override the other access permissions, i.e. they can export blobs from or import blobs to the partition and read from and write to the partition regardless of the G2_SMBLOB, G2_WRITE and G2_READ settings.
   };
+  
   enum class eG2_SMBLOB : uint32_t {
     eG2_SM_BLOB_EXPORT_IMPORT_PROHIB = 0, // Exporting or importing Secure Memory Blobs is prohibited, unless done via a Trusted Descriptor and G2_TDO=1.
     eG2_SM_BLOB_EXPORT_IMPORT_ALLOWED = 1, // Exporting or importing Secure Memory Blobs is allowed, regardless of the G2_READ and G2_WRITE settings.
   };
+  
   enum class eSMAG_LCK : uint32_t {
     eSMAG_UNLOCKED = 0, // The SMAG2JR register and SMAG1JR register are unlocked. The partition owner can change any writable bits of these registers.
     eSMAG_LOCKED = 1, // The SMAG2JR register and SMAG1JR register are locked. The SMAG2JR and SMAG1JR registers cannot be changed until the partition is de-allocated or a POR occurs.
   };
+  
   enum class eSMAP_LCK : uint32_t {
     eSMAP_UNLOCKED = 0, // The SMAP register is unlocked. The partition owner can change any writable bits of the SMAP register.
     eSMAP_LOCKED = 1, // The SMAP register is locked. The SMAP_LCK, CSP and PSP bits and G1 and G2 permission bits of the SMAP register cannot be changed until the partition is de-allocated or a POR occurs. The PARTITION_KMOD value can still be changed. The SMAG_LCK bit can be changed to a 1, but cannot be changed to a 0.
   };
+  
   enum class ePSP : uint32_t {
     eNOT_DEALLOCATABLE = 0, // The partition and any of the pages allocated to the partition can be de-allocated.
     eDEALLOCATABLE = 1, // The partition cannot be de-allocated and the pages allocated to the partition cannot be de-allocated.
   };
+  
   enum class eCSP : uint32_t {
     eNOT_ZEROIZED = 0, // The pages allocated to the partition will not be zeroized when they are de-allocated or the partition is released or a security alarm occurs.
     eZEROIZED = 1, // The pages allocated to the partition will be zeroized when they are individually de-allocated or the partition is released or a security alarm occurs.
@@ -10970,7 +10516,7 @@ union P5SMAPR_JR0 {
     ePSP PSP : 1;
     eCSP CSP : 1;
     uint32_t PARTITION_KMOD : 16;
-  } bits;          // Bit-field struct (auto-filling reserved gaps)
+  } bits;
   
   // Full 32-bit register value.
   uint32_t value;
@@ -10984,8 +10530,6 @@ union P5SMAPR_JR0 {
 //
 union P5SMAG2_JR0 {
   
-  // Enum definitions.
-  
   // Bit field definition.
   struct {
     uint32_t Gx_ID00 : 1;
@@ -11020,7 +10564,7 @@ union P5SMAG2_JR0 {
     uint32_t Gx_ID29 : 1;
     uint32_t Gx_ID30 : 1;
     uint32_t Gx_ID31 : 1;
-  } bits;          // Bit-field struct (auto-filling reserved gaps)
+  } bits;
   
   // Full 32-bit register value.
   uint32_t value;
@@ -11034,8 +10578,6 @@ union P5SMAG2_JR0 {
 //
 union P5SMAG1_JR0 {
   
-  // Enum definitions.
-  
   // Bit field definition.
   struct {
     uint32_t Gx_ID00 : 1;
@@ -11070,7 +10612,7 @@ union P5SMAG1_JR0 {
     uint32_t Gx_ID29 : 1;
     uint32_t Gx_ID30 : 1;
     uint32_t Gx_ID31 : 1;
-  } bits;          // Bit-field struct (auto-filling reserved gaps)
+  } bits;
   
   // Full 32-bit register value.
   uint32_t value;
@@ -11084,13 +10626,11 @@ union P5SMAG1_JR0 {
 //
 union P6SDID_JR0 {
   
-  // Enum definitions.
-  
   // Bit field definition.
   struct {
     uint32_t SDID : 16;
     uint32_t _reserved_end : 16;
-  } bits;          // Bit-field struct (auto-filling reserved gaps)
+  } bits;
   
   // Full 32-bit register value.
   uint32_t value;
@@ -11104,51 +10644,61 @@ union P6SDID_JR0 {
 //
 union P6SMAPR_JR0 {
   
-  // Enum definitions.
   enum class eG1_READ : uint32_t {
     eG1_READ_PROHIB = 0, // Instruction fetches and reads are prohibited (except that Trusted Descriptor reads (if G1_TDO=1) and key-reads are always allowed, and exporting Secure Memory Blobs is allowed if G1_SMBLOB=1 or if done by a Trusted Descriptor and G1_TDO=1).
     eG1_READ_ALLOWED = 1, // Instruction fetches and reads are allowed (but exporting a Secure Memory Blob is prohibited if G1_SMBLOB=0 and the descriptor is not a Trusted Descriptor or if G1_TDO=0).
   };
+  
   enum class eG1_WRITE : uint32_t {
     eG1_WRITE_PROHIB = 0, // Writes are prohibited (except that Trusted Descriptor writes are allowed, and importing Secure Memory Blobs is allowed if G1_SMBLOB=1 or if done by a Trusted Descriptor and G1_TDO=1).
     eG1_WRITE_ALLOWED = 1, // Writes are allowed (but importing a Secure Memory Blob is prohibited if G1_SMBLOB=0 and the descriptor is not a Trusted Descriptor or if G1_TDO=0).
   };
+  
   enum class eG1_TDO : uint32_t {
     eG1_TD_PRIVILEGE_AS_JD = 0, // Trusted Descriptors have the same access privileges as Job Descriptors
     eG1_TD_OVERIDE_ALLOWED = 1, // Trusted Descriptors are allowed to override the other access permissions, i.e. they can export blobs from or import blobs to the partition and read from and write to the partition regardless of the G1_SMBLOB, G1_WRITE and G1_READ settings.
   };
+  
   enum class eG1_SMBLOB : uint32_t {
     eG1_SM_BLOB_EXPORT_IMPORT_PROHIB = 0, // Exporting or importing Secure Memory Blobs is prohibited, unless done via a Trusted Descriptor and G1_TDO=1.
     eG1_SM_B_EXPORT_IMPORT_ALLOWED = 1, // Exporting or importing Secure Memory Blobs is allowed, regardless of the G1_READ and G1_WRITE settings.
   };
+  
   enum class eG2_READ : uint32_t {
     eG2_READ_PROHIB = 0, // Instruction fetches and reads are prohibited (except that Trusted Descriptor reads (if G2_TDO=1) and key-reads are always allowed, and exporting Secure Memory Blobs is allowed if G2_SMBLOB=1 or if done by a Trusted Descriptor and G2_TDO=1).
     eG2_READ_ALLOWED = 1, // Instruction fetches and reads are allowed (but exporting a Secure Memory Blob is prohibited if G2_SMBLOB=0 and the descriptor is not a Trusted Descriptor or if G2_TDO=0).
   };
+  
   enum class eG2_WRITE : uint32_t {
     eG2_WRITE_PROHIB = 0, // Writes are prohibited (except that Trusted Descriptor writes are allowed, and importing Secure Memory Blobs is allowed if G2_SMBLOB=1 or if done by a Trusted Descriptor and G2_TDO=1).
     eG2_WRITE_ALLOWED = 1, // Writes are allowed (but importing a Secure Memory Blob is prohibited if G2_SMBLOB=0 and the descriptor is not a Trusted Descriptor or if G2_TDO=0).
   };
+  
   enum class eG2_TDO : uint32_t {
     eG2_TD_PRIVILEGE_AS_JD = 0, // Trusted Descriptors have the same access privileges as Job Descriptors
     eG2_TD_OVERIDE_ALLOWED = 1, // Trusted Descriptors are allowed to override the other access permissions, i.e. they can export blobs from or import blobs to the partition and read from and write to the partition regardless of the G2_SMBLOB, G2_WRITE and G2_READ settings.
   };
+  
   enum class eG2_SMBLOB : uint32_t {
     eG2_SM_BLOB_EXPORT_IMPORT_PROHIB = 0, // Exporting or importing Secure Memory Blobs is prohibited, unless done via a Trusted Descriptor and G2_TDO=1.
     eG2_SM_BLOB_EXPORT_IMPORT_ALLOWED = 1, // Exporting or importing Secure Memory Blobs is allowed, regardless of the G2_READ and G2_WRITE settings.
   };
+  
   enum class eSMAG_LCK : uint32_t {
     eSMAG_UNLOCKED = 0, // The SMAG2JR register and SMAG1JR register are unlocked. The partition owner can change any writable bits of these registers.
     eSMAG_LOCKED = 1, // The SMAG2JR register and SMAG1JR register are locked. The SMAG2JR and SMAG1JR registers cannot be changed until the partition is de-allocated or a POR occurs.
   };
+  
   enum class eSMAP_LCK : uint32_t {
     eSMAP_UNLOCKED = 0, // The SMAP register is unlocked. The partition owner can change any writable bits of the SMAP register.
     eSMAP_LOCKED = 1, // The SMAP register is locked. The SMAP_LCK, CSP and PSP bits and G1 and G2 permission bits of the SMAP register cannot be changed until the partition is de-allocated or a POR occurs. The PARTITION_KMOD value can still be changed. The SMAG_LCK bit can be changed to a 1, but cannot be changed to a 0.
   };
+  
   enum class ePSP : uint32_t {
     eNOT_DEALLOCATABLE = 0, // The partition and any of the pages allocated to the partition can be de-allocated.
     eDEALLOCATABLE = 1, // The partition cannot be de-allocated and the pages allocated to the partition cannot be de-allocated.
   };
+  
   enum class eCSP : uint32_t {
     eNOT_ZEROIZED = 0, // The pages allocated to the partition will not be zeroized when they are de-allocated or the partition is released or a security alarm occurs.
     eZEROIZED = 1, // The pages allocated to the partition will be zeroized when they are individually de-allocated or the partition is released or a security alarm occurs.
@@ -11170,7 +10720,7 @@ union P6SMAPR_JR0 {
     ePSP PSP : 1;
     eCSP CSP : 1;
     uint32_t PARTITION_KMOD : 16;
-  } bits;          // Bit-field struct (auto-filling reserved gaps)
+  } bits;
   
   // Full 32-bit register value.
   uint32_t value;
@@ -11184,8 +10734,6 @@ union P6SMAPR_JR0 {
 //
 union P6SMAG2_JR0 {
   
-  // Enum definitions.
-  
   // Bit field definition.
   struct {
     uint32_t Gx_ID00 : 1;
@@ -11220,7 +10768,7 @@ union P6SMAG2_JR0 {
     uint32_t Gx_ID29 : 1;
     uint32_t Gx_ID30 : 1;
     uint32_t Gx_ID31 : 1;
-  } bits;          // Bit-field struct (auto-filling reserved gaps)
+  } bits;
   
   // Full 32-bit register value.
   uint32_t value;
@@ -11234,8 +10782,6 @@ union P6SMAG2_JR0 {
 //
 union P6SMAG1_JR0 {
   
-  // Enum definitions.
-  
   // Bit field definition.
   struct {
     uint32_t Gx_ID00 : 1;
@@ -11270,7 +10816,7 @@ union P6SMAG1_JR0 {
     uint32_t Gx_ID29 : 1;
     uint32_t Gx_ID30 : 1;
     uint32_t Gx_ID31 : 1;
-  } bits;          // Bit-field struct (auto-filling reserved gaps)
+  } bits;
   
   // Full 32-bit register value.
   uint32_t value;
@@ -11284,13 +10830,11 @@ union P6SMAG1_JR0 {
 //
 union P7SDID_JR0 {
   
-  // Enum definitions.
-  
   // Bit field definition.
   struct {
     uint32_t SDID : 16;
     uint32_t _reserved_end : 16;
-  } bits;          // Bit-field struct (auto-filling reserved gaps)
+  } bits;
   
   // Full 32-bit register value.
   uint32_t value;
@@ -11304,51 +10848,61 @@ union P7SDID_JR0 {
 //
 union P7SMAPR_JR0 {
   
-  // Enum definitions.
   enum class eG1_READ : uint32_t {
     eG1_READ_PROHIB = 0, // Instruction fetches and reads are prohibited (except that Trusted Descriptor reads (if G1_TDO=1) and key-reads are always allowed, and exporting Secure Memory Blobs is allowed if G1_SMBLOB=1 or if done by a Trusted Descriptor and G1_TDO=1).
     eG1_READ_ALLOWED = 1, // Instruction fetches and reads are allowed (but exporting a Secure Memory Blob is prohibited if G1_SMBLOB=0 and the descriptor is not a Trusted Descriptor or if G1_TDO=0).
   };
+  
   enum class eG1_WRITE : uint32_t {
     eG1_WRITE_PROHIB = 0, // Writes are prohibited (except that Trusted Descriptor writes are allowed, and importing Secure Memory Blobs is allowed if G1_SMBLOB=1 or if done by a Trusted Descriptor and G1_TDO=1).
     eG1_WRITE_ALLOWED = 1, // Writes are allowed (but importing a Secure Memory Blob is prohibited if G1_SMBLOB=0 and the descriptor is not a Trusted Descriptor or if G1_TDO=0).
   };
+  
   enum class eG1_TDO : uint32_t {
     eG1_TD_PRIVILEGE_AS_JD = 0, // Trusted Descriptors have the same access privileges as Job Descriptors
     eG1_TD_OVERIDE_ALLOWED = 1, // Trusted Descriptors are allowed to override the other access permissions, i.e. they can export blobs from or import blobs to the partition and read from and write to the partition regardless of the G1_SMBLOB, G1_WRITE and G1_READ settings.
   };
+  
   enum class eG1_SMBLOB : uint32_t {
     eG1_SM_BLOB_EXPORT_IMPORT_PROHIB = 0, // Exporting or importing Secure Memory Blobs is prohibited, unless done via a Trusted Descriptor and G1_TDO=1.
     eG1_SM_B_EXPORT_IMPORT_ALLOWED = 1, // Exporting or importing Secure Memory Blobs is allowed, regardless of the G1_READ and G1_WRITE settings.
   };
+  
   enum class eG2_READ : uint32_t {
     eG2_READ_PROHIB = 0, // Instruction fetches and reads are prohibited (except that Trusted Descriptor reads (if G2_TDO=1) and key-reads are always allowed, and exporting Secure Memory Blobs is allowed if G2_SMBLOB=1 or if done by a Trusted Descriptor and G2_TDO=1).
     eG2_READ_ALLOWED = 1, // Instruction fetches and reads are allowed (but exporting a Secure Memory Blob is prohibited if G2_SMBLOB=0 and the descriptor is not a Trusted Descriptor or if G2_TDO=0).
   };
+  
   enum class eG2_WRITE : uint32_t {
     eG2_WRITE_PROHIB = 0, // Writes are prohibited (except that Trusted Descriptor writes are allowed, and importing Secure Memory Blobs is allowed if G2_SMBLOB=1 or if done by a Trusted Descriptor and G2_TDO=1).
     eG2_WRITE_ALLOWED = 1, // Writes are allowed (but importing a Secure Memory Blob is prohibited if G2_SMBLOB=0 and the descriptor is not a Trusted Descriptor or if G2_TDO=0).
   };
+  
   enum class eG2_TDO : uint32_t {
     eG2_TD_PRIVILEGE_AS_JD = 0, // Trusted Descriptors have the same access privileges as Job Descriptors
     eG2_TD_OVERIDE_ALLOWED = 1, // Trusted Descriptors are allowed to override the other access permissions, i.e. they can export blobs from or import blobs to the partition and read from and write to the partition regardless of the G2_SMBLOB, G2_WRITE and G2_READ settings.
   };
+  
   enum class eG2_SMBLOB : uint32_t {
     eG2_SM_BLOB_EXPORT_IMPORT_PROHIB = 0, // Exporting or importing Secure Memory Blobs is prohibited, unless done via a Trusted Descriptor and G2_TDO=1.
     eG2_SM_BLOB_EXPORT_IMPORT_ALLOWED = 1, // Exporting or importing Secure Memory Blobs is allowed, regardless of the G2_READ and G2_WRITE settings.
   };
+  
   enum class eSMAG_LCK : uint32_t {
     eSMAG_UNLOCKED = 0, // The SMAG2JR register and SMAG1JR register are unlocked. The partition owner can change any writable bits of these registers.
     eSMAG_LOCKED = 1, // The SMAG2JR register and SMAG1JR register are locked. The SMAG2JR and SMAG1JR registers cannot be changed until the partition is de-allocated or a POR occurs.
   };
+  
   enum class eSMAP_LCK : uint32_t {
     eSMAP_UNLOCKED = 0, // The SMAP register is unlocked. The partition owner can change any writable bits of the SMAP register.
     eSMAP_LOCKED = 1, // The SMAP register is locked. The SMAP_LCK, CSP and PSP bits and G1 and G2 permission bits of the SMAP register cannot be changed until the partition is de-allocated or a POR occurs. The PARTITION_KMOD value can still be changed. The SMAG_LCK bit can be changed to a 1, but cannot be changed to a 0.
   };
+  
   enum class ePSP : uint32_t {
     eNOT_DEALLOCATABLE = 0, // The partition and any of the pages allocated to the partition can be de-allocated.
     eDEALLOCATABLE = 1, // The partition cannot be de-allocated and the pages allocated to the partition cannot be de-allocated.
   };
+  
   enum class eCSP : uint32_t {
     eNOT_ZEROIZED = 0, // The pages allocated to the partition will not be zeroized when they are de-allocated or the partition is released or a security alarm occurs.
     eZEROIZED = 1, // The pages allocated to the partition will be zeroized when they are individually de-allocated or the partition is released or a security alarm occurs.
@@ -11370,7 +10924,7 @@ union P7SMAPR_JR0 {
     ePSP PSP : 1;
     eCSP CSP : 1;
     uint32_t PARTITION_KMOD : 16;
-  } bits;          // Bit-field struct (auto-filling reserved gaps)
+  } bits;
   
   // Full 32-bit register value.
   uint32_t value;
@@ -11384,8 +10938,6 @@ union P7SMAPR_JR0 {
 //
 union P7SMAG2_JR0 {
   
-  // Enum definitions.
-  
   // Bit field definition.
   struct {
     uint32_t Gx_ID00 : 1;
@@ -11420,7 +10972,7 @@ union P7SMAG2_JR0 {
     uint32_t Gx_ID29 : 1;
     uint32_t Gx_ID30 : 1;
     uint32_t Gx_ID31 : 1;
-  } bits;          // Bit-field struct (auto-filling reserved gaps)
+  } bits;
   
   // Full 32-bit register value.
   uint32_t value;
@@ -11434,8 +10986,6 @@ union P7SMAG2_JR0 {
 //
 union P7SMAG1_JR0 {
   
-  // Enum definitions.
-  
   // Bit field definition.
   struct {
     uint32_t Gx_ID00 : 1;
@@ -11470,7 +11020,7 @@ union P7SMAG1_JR0 {
     uint32_t Gx_ID29 : 1;
     uint32_t Gx_ID30 : 1;
     uint32_t Gx_ID31 : 1;
-  } bits;          // Bit-field struct (auto-filling reserved gaps)
+  } bits;
   
   // Full 32-bit register value.
   uint32_t value;
@@ -11484,13 +11034,11 @@ union P7SMAG1_JR0 {
 //
 union P8SDID_JR0 {
   
-  // Enum definitions.
-  
   // Bit field definition.
   struct {
     uint32_t SDID : 16;
     uint32_t _reserved_end : 16;
-  } bits;          // Bit-field struct (auto-filling reserved gaps)
+  } bits;
   
   // Full 32-bit register value.
   uint32_t value;
@@ -11504,51 +11052,61 @@ union P8SDID_JR0 {
 //
 union P8SMAPR_JR0 {
   
-  // Enum definitions.
   enum class eG1_READ : uint32_t {
     eG1_READ_PROHIB = 0, // Instruction fetches and reads are prohibited (except that Trusted Descriptor reads (if G1_TDO=1) and key-reads are always allowed, and exporting Secure Memory Blobs is allowed if G1_SMBLOB=1 or if done by a Trusted Descriptor and G1_TDO=1).
     eG1_READ_ALLOWED = 1, // Instruction fetches and reads are allowed (but exporting a Secure Memory Blob is prohibited if G1_SMBLOB=0 and the descriptor is not a Trusted Descriptor or if G1_TDO=0).
   };
+  
   enum class eG1_WRITE : uint32_t {
     eG1_WRITE_PROHIB = 0, // Writes are prohibited (except that Trusted Descriptor writes are allowed, and importing Secure Memory Blobs is allowed if G1_SMBLOB=1 or if done by a Trusted Descriptor and G1_TDO=1).
     eG1_WRITE_ALLOWED = 1, // Writes are allowed (but importing a Secure Memory Blob is prohibited if G1_SMBLOB=0 and the descriptor is not a Trusted Descriptor or if G1_TDO=0).
   };
+  
   enum class eG1_TDO : uint32_t {
     eG1_TD_PRIVILEGE_AS_JD = 0, // Trusted Descriptors have the same access privileges as Job Descriptors
     eG1_TD_OVERIDE_ALLOWED = 1, // Trusted Descriptors are allowed to override the other access permissions, i.e. they can export blobs from or import blobs to the partition and read from and write to the partition regardless of the G1_SMBLOB, G1_WRITE and G1_READ settings.
   };
+  
   enum class eG1_SMBLOB : uint32_t {
     eG1_SM_BLOB_EXPORT_IMPORT_PROHIB = 0, // Exporting or importing Secure Memory Blobs is prohibited, unless done via a Trusted Descriptor and G1_TDO=1.
     eG1_SM_B_EXPORT_IMPORT_ALLOWED = 1, // Exporting or importing Secure Memory Blobs is allowed, regardless of the G1_READ and G1_WRITE settings.
   };
+  
   enum class eG2_READ : uint32_t {
     eG2_READ_PROHIB = 0, // Instruction fetches and reads are prohibited (except that Trusted Descriptor reads (if G2_TDO=1) and key-reads are always allowed, and exporting Secure Memory Blobs is allowed if G2_SMBLOB=1 or if done by a Trusted Descriptor and G2_TDO=1).
     eG2_READ_ALLOWED = 1, // Instruction fetches and reads are allowed (but exporting a Secure Memory Blob is prohibited if G2_SMBLOB=0 and the descriptor is not a Trusted Descriptor or if G2_TDO=0).
   };
+  
   enum class eG2_WRITE : uint32_t {
     eG2_WRITE_PROHIB = 0, // Writes are prohibited (except that Trusted Descriptor writes are allowed, and importing Secure Memory Blobs is allowed if G2_SMBLOB=1 or if done by a Trusted Descriptor and G2_TDO=1).
     eG2_WRITE_ALLOWED = 1, // Writes are allowed (but importing a Secure Memory Blob is prohibited if G2_SMBLOB=0 and the descriptor is not a Trusted Descriptor or if G2_TDO=0).
   };
+  
   enum class eG2_TDO : uint32_t {
     eG2_TD_PRIVILEGE_AS_JD = 0, // Trusted Descriptors have the same access privileges as Job Descriptors
     eG2_TD_OVERIDE_ALLOWED = 1, // Trusted Descriptors are allowed to override the other access permissions, i.e. they can export blobs from or import blobs to the partition and read from and write to the partition regardless of the G2_SMBLOB, G2_WRITE and G2_READ settings.
   };
+  
   enum class eG2_SMBLOB : uint32_t {
     eG2_SM_BLOB_EXPORT_IMPORT_PROHIB = 0, // Exporting or importing Secure Memory Blobs is prohibited, unless done via a Trusted Descriptor and G2_TDO=1.
     eG2_SM_BLOB_EXPORT_IMPORT_ALLOWED = 1, // Exporting or importing Secure Memory Blobs is allowed, regardless of the G2_READ and G2_WRITE settings.
   };
+  
   enum class eSMAG_LCK : uint32_t {
     eSMAG_UNLOCKED = 0, // The SMAG2JR register and SMAG1JR register are unlocked. The partition owner can change any writable bits of these registers.
     eSMAG_LOCKED = 1, // The SMAG2JR register and SMAG1JR register are locked. The SMAG2JR and SMAG1JR registers cannot be changed until the partition is de-allocated or a POR occurs.
   };
+  
   enum class eSMAP_LCK : uint32_t {
     eSMAP_UNLOCKED = 0, // The SMAP register is unlocked. The partition owner can change any writable bits of the SMAP register.
     eSMAP_LOCKED = 1, // The SMAP register is locked. The SMAP_LCK, CSP and PSP bits and G1 and G2 permission bits of the SMAP register cannot be changed until the partition is de-allocated or a POR occurs. The PARTITION_KMOD value can still be changed. The SMAG_LCK bit can be changed to a 1, but cannot be changed to a 0.
   };
+  
   enum class ePSP : uint32_t {
     eNOT_DEALLOCATABLE = 0, // The partition and any of the pages allocated to the partition can be de-allocated.
     eDEALLOCATABLE = 1, // The partition cannot be de-allocated and the pages allocated to the partition cannot be de-allocated.
   };
+  
   enum class eCSP : uint32_t {
     eNOT_ZEROIZED = 0, // The pages allocated to the partition will not be zeroized when they are de-allocated or the partition is released or a security alarm occurs.
     eZEROIZED = 1, // The pages allocated to the partition will be zeroized when they are individually de-allocated or the partition is released or a security alarm occurs.
@@ -11570,7 +11128,7 @@ union P8SMAPR_JR0 {
     ePSP PSP : 1;
     eCSP CSP : 1;
     uint32_t PARTITION_KMOD : 16;
-  } bits;          // Bit-field struct (auto-filling reserved gaps)
+  } bits;
   
   // Full 32-bit register value.
   uint32_t value;
@@ -11584,8 +11142,6 @@ union P8SMAPR_JR0 {
 //
 union P8SMAG2_JR0 {
   
-  // Enum definitions.
-  
   // Bit field definition.
   struct {
     uint32_t Gx_ID00 : 1;
@@ -11620,7 +11176,7 @@ union P8SMAG2_JR0 {
     uint32_t Gx_ID29 : 1;
     uint32_t Gx_ID30 : 1;
     uint32_t Gx_ID31 : 1;
-  } bits;          // Bit-field struct (auto-filling reserved gaps)
+  } bits;
   
   // Full 32-bit register value.
   uint32_t value;
@@ -11634,8 +11190,6 @@ union P8SMAG2_JR0 {
 //
 union P8SMAG1_JR0 {
   
-  // Enum definitions.
-  
   // Bit field definition.
   struct {
     uint32_t Gx_ID00 : 1;
@@ -11670,7 +11224,7 @@ union P8SMAG1_JR0 {
     uint32_t Gx_ID29 : 1;
     uint32_t Gx_ID30 : 1;
     uint32_t Gx_ID31 : 1;
-  } bits;          // Bit-field struct (auto-filling reserved gaps)
+  } bits;
   
   // Full 32-bit register value.
   uint32_t value;
@@ -11684,13 +11238,11 @@ union P8SMAG1_JR0 {
 //
 union P9SDID_JR0 {
   
-  // Enum definitions.
-  
   // Bit field definition.
   struct {
     uint32_t SDID : 16;
     uint32_t _reserved_end : 16;
-  } bits;          // Bit-field struct (auto-filling reserved gaps)
+  } bits;
   
   // Full 32-bit register value.
   uint32_t value;
@@ -11704,51 +11256,61 @@ union P9SDID_JR0 {
 //
 union P9SMAPR_JR0 {
   
-  // Enum definitions.
   enum class eG1_READ : uint32_t {
     eG1_READ_PROHIB = 0, // Instruction fetches and reads are prohibited (except that Trusted Descriptor reads (if G1_TDO=1) and key-reads are always allowed, and exporting Secure Memory Blobs is allowed if G1_SMBLOB=1 or if done by a Trusted Descriptor and G1_TDO=1).
     eG1_READ_ALLOWED = 1, // Instruction fetches and reads are allowed (but exporting a Secure Memory Blob is prohibited if G1_SMBLOB=0 and the descriptor is not a Trusted Descriptor or if G1_TDO=0).
   };
+  
   enum class eG1_WRITE : uint32_t {
     eG1_WRITE_PROHIB = 0, // Writes are prohibited (except that Trusted Descriptor writes are allowed, and importing Secure Memory Blobs is allowed if G1_SMBLOB=1 or if done by a Trusted Descriptor and G1_TDO=1).
     eG1_WRITE_ALLOWED = 1, // Writes are allowed (but importing a Secure Memory Blob is prohibited if G1_SMBLOB=0 and the descriptor is not a Trusted Descriptor or if G1_TDO=0).
   };
+  
   enum class eG1_TDO : uint32_t {
     eG1_TD_PRIVILEGE_AS_JD = 0, // Trusted Descriptors have the same access privileges as Job Descriptors
     eG1_TD_OVERIDE_ALLOWED = 1, // Trusted Descriptors are allowed to override the other access permissions, i.e. they can export blobs from or import blobs to the partition and read from and write to the partition regardless of the G1_SMBLOB, G1_WRITE and G1_READ settings.
   };
+  
   enum class eG1_SMBLOB : uint32_t {
     eG1_SM_BLOB_EXPORT_IMPORT_PROHIB = 0, // Exporting or importing Secure Memory Blobs is prohibited, unless done via a Trusted Descriptor and G1_TDO=1.
     eG1_SM_B_EXPORT_IMPORT_ALLOWED = 1, // Exporting or importing Secure Memory Blobs is allowed, regardless of the G1_READ and G1_WRITE settings.
   };
+  
   enum class eG2_READ : uint32_t {
     eG2_READ_PROHIB = 0, // Instruction fetches and reads are prohibited (except that Trusted Descriptor reads (if G2_TDO=1) and key-reads are always allowed, and exporting Secure Memory Blobs is allowed if G2_SMBLOB=1 or if done by a Trusted Descriptor and G2_TDO=1).
     eG2_READ_ALLOWED = 1, // Instruction fetches and reads are allowed (but exporting a Secure Memory Blob is prohibited if G2_SMBLOB=0 and the descriptor is not a Trusted Descriptor or if G2_TDO=0).
   };
+  
   enum class eG2_WRITE : uint32_t {
     eG2_WRITE_PROHIB = 0, // Writes are prohibited (except that Trusted Descriptor writes are allowed, and importing Secure Memory Blobs is allowed if G2_SMBLOB=1 or if done by a Trusted Descriptor and G2_TDO=1).
     eG2_WRITE_ALLOWED = 1, // Writes are allowed (but importing a Secure Memory Blob is prohibited if G2_SMBLOB=0 and the descriptor is not a Trusted Descriptor or if G2_TDO=0).
   };
+  
   enum class eG2_TDO : uint32_t {
     eG2_TD_PRIVILEGE_AS_JD = 0, // Trusted Descriptors have the same access privileges as Job Descriptors
     eG2_TD_OVERIDE_ALLOWED = 1, // Trusted Descriptors are allowed to override the other access permissions, i.e. they can export blobs from or import blobs to the partition and read from and write to the partition regardless of the G2_SMBLOB, G2_WRITE and G2_READ settings.
   };
+  
   enum class eG2_SMBLOB : uint32_t {
     eG2_SM_BLOB_EXPORT_IMPORT_PROHIB = 0, // Exporting or importing Secure Memory Blobs is prohibited, unless done via a Trusted Descriptor and G2_TDO=1.
     eG2_SM_BLOB_EXPORT_IMPORT_ALLOWED = 1, // Exporting or importing Secure Memory Blobs is allowed, regardless of the G2_READ and G2_WRITE settings.
   };
+  
   enum class eSMAG_LCK : uint32_t {
     eSMAG_UNLOCKED = 0, // The SMAG2JR register and SMAG1JR register are unlocked. The partition owner can change any writable bits of these registers.
     eSMAG_LOCKED = 1, // The SMAG2JR register and SMAG1JR register are locked. The SMAG2JR and SMAG1JR registers cannot be changed until the partition is de-allocated or a POR occurs.
   };
+  
   enum class eSMAP_LCK : uint32_t {
     eSMAP_UNLOCKED = 0, // The SMAP register is unlocked. The partition owner can change any writable bits of the SMAP register.
     eSMAP_LOCKED = 1, // The SMAP register is locked. The SMAP_LCK, CSP and PSP bits and G1 and G2 permission bits of the SMAP register cannot be changed until the partition is de-allocated or a POR occurs. The PARTITION_KMOD value can still be changed. The SMAG_LCK bit can be changed to a 1, but cannot be changed to a 0.
   };
+  
   enum class ePSP : uint32_t {
     eNOT_DEALLOCATABLE = 0, // The partition and any of the pages allocated to the partition can be de-allocated.
     eDEALLOCATABLE = 1, // The partition cannot be de-allocated and the pages allocated to the partition cannot be de-allocated.
   };
+  
   enum class eCSP : uint32_t {
     eNOT_ZEROIZED = 0, // The pages allocated to the partition will not be zeroized when they are de-allocated or the partition is released or a security alarm occurs.
     eZEROIZED = 1, // The pages allocated to the partition will be zeroized when they are individually de-allocated or the partition is released or a security alarm occurs.
@@ -11770,7 +11332,7 @@ union P9SMAPR_JR0 {
     ePSP PSP : 1;
     eCSP CSP : 1;
     uint32_t PARTITION_KMOD : 16;
-  } bits;          // Bit-field struct (auto-filling reserved gaps)
+  } bits;
   
   // Full 32-bit register value.
   uint32_t value;
@@ -11784,8 +11346,6 @@ union P9SMAPR_JR0 {
 //
 union P9SMAG2_JR0 {
   
-  // Enum definitions.
-  
   // Bit field definition.
   struct {
     uint32_t Gx_ID00 : 1;
@@ -11820,7 +11380,7 @@ union P9SMAG2_JR0 {
     uint32_t Gx_ID29 : 1;
     uint32_t Gx_ID30 : 1;
     uint32_t Gx_ID31 : 1;
-  } bits;          // Bit-field struct (auto-filling reserved gaps)
+  } bits;
   
   // Full 32-bit register value.
   uint32_t value;
@@ -11834,8 +11394,6 @@ union P9SMAG2_JR0 {
 //
 union P9SMAG1_JR0 {
   
-  // Enum definitions.
-  
   // Bit field definition.
   struct {
     uint32_t Gx_ID00 : 1;
@@ -11870,7 +11428,7 @@ union P9SMAG1_JR0 {
     uint32_t Gx_ID29 : 1;
     uint32_t Gx_ID30 : 1;
     uint32_t Gx_ID31 : 1;
-  } bits;          // Bit-field struct (auto-filling reserved gaps)
+  } bits;
   
   // Full 32-bit register value.
   uint32_t value;
@@ -11884,13 +11442,11 @@ union P9SMAG1_JR0 {
 //
 union P10SDID_JR0 {
   
-  // Enum definitions.
-  
   // Bit field definition.
   struct {
     uint32_t SDID : 16;
     uint32_t _reserved_end : 16;
-  } bits;          // Bit-field struct (auto-filling reserved gaps)
+  } bits;
   
   // Full 32-bit register value.
   uint32_t value;
@@ -11904,51 +11460,61 @@ union P10SDID_JR0 {
 //
 union P10SMAPR_JR0 {
   
-  // Enum definitions.
   enum class eG1_READ : uint32_t {
     eG1_READ_PROHIB = 0, // Instruction fetches and reads are prohibited (except that Trusted Descriptor reads (if G1_TDO=1) and key-reads are always allowed, and exporting Secure Memory Blobs is allowed if G1_SMBLOB=1 or if done by a Trusted Descriptor and G1_TDO=1).
     eG1_READ_ALLOWED = 1, // Instruction fetches and reads are allowed (but exporting a Secure Memory Blob is prohibited if G1_SMBLOB=0 and the descriptor is not a Trusted Descriptor or if G1_TDO=0).
   };
+  
   enum class eG1_WRITE : uint32_t {
     eG1_WRITE_PROHIB = 0, // Writes are prohibited (except that Trusted Descriptor writes are allowed, and importing Secure Memory Blobs is allowed if G1_SMBLOB=1 or if done by a Trusted Descriptor and G1_TDO=1).
     eG1_WRITE_ALLOWED = 1, // Writes are allowed (but importing a Secure Memory Blob is prohibited if G1_SMBLOB=0 and the descriptor is not a Trusted Descriptor or if G1_TDO=0).
   };
+  
   enum class eG1_TDO : uint32_t {
     eG1_TD_PRIVILEGE_AS_JD = 0, // Trusted Descriptors have the same access privileges as Job Descriptors
     eG1_TD_OVERIDE_ALLOWED = 1, // Trusted Descriptors are allowed to override the other access permissions, i.e. they can export blobs from or import blobs to the partition and read from and write to the partition regardless of the G1_SMBLOB, G1_WRITE and G1_READ settings.
   };
+  
   enum class eG1_SMBLOB : uint32_t {
     eG1_SM_BLOB_EXPORT_IMPORT_PROHIB = 0, // Exporting or importing Secure Memory Blobs is prohibited, unless done via a Trusted Descriptor and G1_TDO=1.
     eG1_SM_B_EXPORT_IMPORT_ALLOWED = 1, // Exporting or importing Secure Memory Blobs is allowed, regardless of the G1_READ and G1_WRITE settings.
   };
+  
   enum class eG2_READ : uint32_t {
     eG2_READ_PROHIB = 0, // Instruction fetches and reads are prohibited (except that Trusted Descriptor reads (if G2_TDO=1) and key-reads are always allowed, and exporting Secure Memory Blobs is allowed if G2_SMBLOB=1 or if done by a Trusted Descriptor and G2_TDO=1).
     eG2_READ_ALLOWED = 1, // Instruction fetches and reads are allowed (but exporting a Secure Memory Blob is prohibited if G2_SMBLOB=0 and the descriptor is not a Trusted Descriptor or if G2_TDO=0).
   };
+  
   enum class eG2_WRITE : uint32_t {
     eG2_WRITE_PROHIB = 0, // Writes are prohibited (except that Trusted Descriptor writes are allowed, and importing Secure Memory Blobs is allowed if G2_SMBLOB=1 or if done by a Trusted Descriptor and G2_TDO=1).
     eG2_WRITE_ALLOWED = 1, // Writes are allowed (but importing a Secure Memory Blob is prohibited if G2_SMBLOB=0 and the descriptor is not a Trusted Descriptor or if G2_TDO=0).
   };
+  
   enum class eG2_TDO : uint32_t {
     eG2_TD_PRIVILEGE_AS_JD = 0, // Trusted Descriptors have the same access privileges as Job Descriptors
     eG2_TD_OVERIDE_ALLOWED = 1, // Trusted Descriptors are allowed to override the other access permissions, i.e. they can export blobs from or import blobs to the partition and read from and write to the partition regardless of the G2_SMBLOB, G2_WRITE and G2_READ settings.
   };
+  
   enum class eG2_SMBLOB : uint32_t {
     eG2_SM_BLOB_EXPORT_IMPORT_PROHIB = 0, // Exporting or importing Secure Memory Blobs is prohibited, unless done via a Trusted Descriptor and G2_TDO=1.
     eG2_SM_BLOB_EXPORT_IMPORT_ALLOWED = 1, // Exporting or importing Secure Memory Blobs is allowed, regardless of the G2_READ and G2_WRITE settings.
   };
+  
   enum class eSMAG_LCK : uint32_t {
     eSMAG_UNLOCKED = 0, // The SMAG2JR register and SMAG1JR register are unlocked. The partition owner can change any writable bits of these registers.
     eSMAG_LOCKED = 1, // The SMAG2JR register and SMAG1JR register are locked. The SMAG2JR and SMAG1JR registers cannot be changed until the partition is de-allocated or a POR occurs.
   };
+  
   enum class eSMAP_LCK : uint32_t {
     eSMAP_UNLOCKED = 0, // The SMAP register is unlocked. The partition owner can change any writable bits of the SMAP register.
     eSMAP_LOCKED = 1, // The SMAP register is locked. The SMAP_LCK, CSP and PSP bits and G1 and G2 permission bits of the SMAP register cannot be changed until the partition is de-allocated or a POR occurs. The PARTITION_KMOD value can still be changed. The SMAG_LCK bit can be changed to a 1, but cannot be changed to a 0.
   };
+  
   enum class ePSP : uint32_t {
     eNOT_DEALLOCATABLE = 0, // The partition and any of the pages allocated to the partition can be de-allocated.
     eDEALLOCATABLE = 1, // The partition cannot be de-allocated and the pages allocated to the partition cannot be de-allocated.
   };
+  
   enum class eCSP : uint32_t {
     eNOT_ZEROIZED = 0, // The pages allocated to the partition will not be zeroized when they are de-allocated or the partition is released or a security alarm occurs.
     eZEROIZED = 1, // The pages allocated to the partition will be zeroized when they are individually de-allocated or the partition is released or a security alarm occurs.
@@ -11970,7 +11536,7 @@ union P10SMAPR_JR0 {
     ePSP PSP : 1;
     eCSP CSP : 1;
     uint32_t PARTITION_KMOD : 16;
-  } bits;          // Bit-field struct (auto-filling reserved gaps)
+  } bits;
   
   // Full 32-bit register value.
   uint32_t value;
@@ -11984,8 +11550,6 @@ union P10SMAPR_JR0 {
 //
 union P10SMAG2_JR0 {
   
-  // Enum definitions.
-  
   // Bit field definition.
   struct {
     uint32_t Gx_ID00 : 1;
@@ -12020,7 +11584,7 @@ union P10SMAG2_JR0 {
     uint32_t Gx_ID29 : 1;
     uint32_t Gx_ID30 : 1;
     uint32_t Gx_ID31 : 1;
-  } bits;          // Bit-field struct (auto-filling reserved gaps)
+  } bits;
   
   // Full 32-bit register value.
   uint32_t value;
@@ -12034,8 +11598,6 @@ union P10SMAG2_JR0 {
 //
 union P10SMAG1_JR0 {
   
-  // Enum definitions.
-  
   // Bit field definition.
   struct {
     uint32_t Gx_ID00 : 1;
@@ -12070,7 +11632,7 @@ union P10SMAG1_JR0 {
     uint32_t Gx_ID29 : 1;
     uint32_t Gx_ID30 : 1;
     uint32_t Gx_ID31 : 1;
-  } bits;          // Bit-field struct (auto-filling reserved gaps)
+  } bits;
   
   // Full 32-bit register value.
   uint32_t value;
@@ -12084,13 +11646,11 @@ union P10SMAG1_JR0 {
 //
 union P11SDID_JR0 {
   
-  // Enum definitions.
-  
   // Bit field definition.
   struct {
     uint32_t SDID : 16;
     uint32_t _reserved_end : 16;
-  } bits;          // Bit-field struct (auto-filling reserved gaps)
+  } bits;
   
   // Full 32-bit register value.
   uint32_t value;
@@ -12104,51 +11664,61 @@ union P11SDID_JR0 {
 //
 union P11SMAPR_JR0 {
   
-  // Enum definitions.
   enum class eG1_READ : uint32_t {
     eG1_READ_PROHIB = 0, // Instruction fetches and reads are prohibited (except that Trusted Descriptor reads (if G1_TDO=1) and key-reads are always allowed, and exporting Secure Memory Blobs is allowed if G1_SMBLOB=1 or if done by a Trusted Descriptor and G1_TDO=1).
     eG1_READ_ALLOWED = 1, // Instruction fetches and reads are allowed (but exporting a Secure Memory Blob is prohibited if G1_SMBLOB=0 and the descriptor is not a Trusted Descriptor or if G1_TDO=0).
   };
+  
   enum class eG1_WRITE : uint32_t {
     eG1_WRITE_PROHIB = 0, // Writes are prohibited (except that Trusted Descriptor writes are allowed, and importing Secure Memory Blobs is allowed if G1_SMBLOB=1 or if done by a Trusted Descriptor and G1_TDO=1).
     eG1_WRITE_ALLOWED = 1, // Writes are allowed (but importing a Secure Memory Blob is prohibited if G1_SMBLOB=0 and the descriptor is not a Trusted Descriptor or if G1_TDO=0).
   };
+  
   enum class eG1_TDO : uint32_t {
     eG1_TD_PRIVILEGE_AS_JD = 0, // Trusted Descriptors have the same access privileges as Job Descriptors
     eG1_TD_OVERIDE_ALLOWED = 1, // Trusted Descriptors are allowed to override the other access permissions, i.e. they can export blobs from or import blobs to the partition and read from and write to the partition regardless of the G1_SMBLOB, G1_WRITE and G1_READ settings.
   };
+  
   enum class eG1_SMBLOB : uint32_t {
     eG1_SM_BLOB_EXPORT_IMPORT_PROHIB = 0, // Exporting or importing Secure Memory Blobs is prohibited, unless done via a Trusted Descriptor and G1_TDO=1.
     eG1_SM_B_EXPORT_IMPORT_ALLOWED = 1, // Exporting or importing Secure Memory Blobs is allowed, regardless of the G1_READ and G1_WRITE settings.
   };
+  
   enum class eG2_READ : uint32_t {
     eG2_READ_PROHIB = 0, // Instruction fetches and reads are prohibited (except that Trusted Descriptor reads (if G2_TDO=1) and key-reads are always allowed, and exporting Secure Memory Blobs is allowed if G2_SMBLOB=1 or if done by a Trusted Descriptor and G2_TDO=1).
     eG2_READ_ALLOWED = 1, // Instruction fetches and reads are allowed (but exporting a Secure Memory Blob is prohibited if G2_SMBLOB=0 and the descriptor is not a Trusted Descriptor or if G2_TDO=0).
   };
+  
   enum class eG2_WRITE : uint32_t {
     eG2_WRITE_PROHIB = 0, // Writes are prohibited (except that Trusted Descriptor writes are allowed, and importing Secure Memory Blobs is allowed if G2_SMBLOB=1 or if done by a Trusted Descriptor and G2_TDO=1).
     eG2_WRITE_ALLOWED = 1, // Writes are allowed (but importing a Secure Memory Blob is prohibited if G2_SMBLOB=0 and the descriptor is not a Trusted Descriptor or if G2_TDO=0).
   };
+  
   enum class eG2_TDO : uint32_t {
     eG2_TD_PRIVILEGE_AS_JD = 0, // Trusted Descriptors have the same access privileges as Job Descriptors
     eG2_TD_OVERIDE_ALLOWED = 1, // Trusted Descriptors are allowed to override the other access permissions, i.e. they can export blobs from or import blobs to the partition and read from and write to the partition regardless of the G2_SMBLOB, G2_WRITE and G2_READ settings.
   };
+  
   enum class eG2_SMBLOB : uint32_t {
     eG2_SM_BLOB_EXPORT_IMPORT_PROHIB = 0, // Exporting or importing Secure Memory Blobs is prohibited, unless done via a Trusted Descriptor and G2_TDO=1.
     eG2_SM_BLOB_EXPORT_IMPORT_ALLOWED = 1, // Exporting or importing Secure Memory Blobs is allowed, regardless of the G2_READ and G2_WRITE settings.
   };
+  
   enum class eSMAG_LCK : uint32_t {
     eSMAG_UNLOCKED = 0, // The SMAG2JR register and SMAG1JR register are unlocked. The partition owner can change any writable bits of these registers.
     eSMAG_LOCKED = 1, // The SMAG2JR register and SMAG1JR register are locked. The SMAG2JR and SMAG1JR registers cannot be changed until the partition is de-allocated or a POR occurs.
   };
+  
   enum class eSMAP_LCK : uint32_t {
     eSMAP_UNLOCKED = 0, // The SMAP register is unlocked. The partition owner can change any writable bits of the SMAP register.
     eSMAP_LOCKED = 1, // The SMAP register is locked. The SMAP_LCK, CSP and PSP bits and G1 and G2 permission bits of the SMAP register cannot be changed until the partition is de-allocated or a POR occurs. The PARTITION_KMOD value can still be changed. The SMAG_LCK bit can be changed to a 1, but cannot be changed to a 0.
   };
+  
   enum class ePSP : uint32_t {
     eNOT_DEALLOCATABLE = 0, // The partition and any of the pages allocated to the partition can be de-allocated.
     eDEALLOCATABLE = 1, // The partition cannot be de-allocated and the pages allocated to the partition cannot be de-allocated.
   };
+  
   enum class eCSP : uint32_t {
     eNOT_ZEROIZED = 0, // The pages allocated to the partition will not be zeroized when they are de-allocated or the partition is released or a security alarm occurs.
     eZEROIZED = 1, // The pages allocated to the partition will be zeroized when they are individually de-allocated or the partition is released or a security alarm occurs.
@@ -12170,7 +11740,7 @@ union P11SMAPR_JR0 {
     ePSP PSP : 1;
     eCSP CSP : 1;
     uint32_t PARTITION_KMOD : 16;
-  } bits;          // Bit-field struct (auto-filling reserved gaps)
+  } bits;
   
   // Full 32-bit register value.
   uint32_t value;
@@ -12184,8 +11754,6 @@ union P11SMAPR_JR0 {
 //
 union P11SMAG2_JR0 {
   
-  // Enum definitions.
-  
   // Bit field definition.
   struct {
     uint32_t Gx_ID00 : 1;
@@ -12220,7 +11788,7 @@ union P11SMAG2_JR0 {
     uint32_t Gx_ID29 : 1;
     uint32_t Gx_ID30 : 1;
     uint32_t Gx_ID31 : 1;
-  } bits;          // Bit-field struct (auto-filling reserved gaps)
+  } bits;
   
   // Full 32-bit register value.
   uint32_t value;
@@ -12234,8 +11802,6 @@ union P11SMAG2_JR0 {
 //
 union P11SMAG1_JR0 {
   
-  // Enum definitions.
-  
   // Bit field definition.
   struct {
     uint32_t Gx_ID00 : 1;
@@ -12270,7 +11836,7 @@ union P11SMAG1_JR0 {
     uint32_t Gx_ID29 : 1;
     uint32_t Gx_ID30 : 1;
     uint32_t Gx_ID31 : 1;
-  } bits;          // Bit-field struct (auto-filling reserved gaps)
+  } bits;
   
   // Full 32-bit register value.
   uint32_t value;
@@ -12284,13 +11850,11 @@ union P11SMAG1_JR0 {
 //
 union P12SDID_JR0 {
   
-  // Enum definitions.
-  
   // Bit field definition.
   struct {
     uint32_t SDID : 16;
     uint32_t _reserved_end : 16;
-  } bits;          // Bit-field struct (auto-filling reserved gaps)
+  } bits;
   
   // Full 32-bit register value.
   uint32_t value;
@@ -12304,51 +11868,61 @@ union P12SDID_JR0 {
 //
 union P12SMAPR_JR0 {
   
-  // Enum definitions.
   enum class eG1_READ : uint32_t {
     eG1_READ_PROHIB = 0, // Instruction fetches and reads are prohibited (except that Trusted Descriptor reads (if G1_TDO=1) and key-reads are always allowed, and exporting Secure Memory Blobs is allowed if G1_SMBLOB=1 or if done by a Trusted Descriptor and G1_TDO=1).
     eG1_READ_ALLOWED = 1, // Instruction fetches and reads are allowed (but exporting a Secure Memory Blob is prohibited if G1_SMBLOB=0 and the descriptor is not a Trusted Descriptor or if G1_TDO=0).
   };
+  
   enum class eG1_WRITE : uint32_t {
     eG1_WRITE_PROHIB = 0, // Writes are prohibited (except that Trusted Descriptor writes are allowed, and importing Secure Memory Blobs is allowed if G1_SMBLOB=1 or if done by a Trusted Descriptor and G1_TDO=1).
     eG1_WRITE_ALLOWED = 1, // Writes are allowed (but importing a Secure Memory Blob is prohibited if G1_SMBLOB=0 and the descriptor is not a Trusted Descriptor or if G1_TDO=0).
   };
+  
   enum class eG1_TDO : uint32_t {
     eG1_TD_PRIVILEGE_AS_JD = 0, // Trusted Descriptors have the same access privileges as Job Descriptors
     eG1_TD_OVERIDE_ALLOWED = 1, // Trusted Descriptors are allowed to override the other access permissions, i.e. they can export blobs from or import blobs to the partition and read from and write to the partition regardless of the G1_SMBLOB, G1_WRITE and G1_READ settings.
   };
+  
   enum class eG1_SMBLOB : uint32_t {
     eG1_SM_BLOB_EXPORT_IMPORT_PROHIB = 0, // Exporting or importing Secure Memory Blobs is prohibited, unless done via a Trusted Descriptor and G1_TDO=1.
     eG1_SM_B_EXPORT_IMPORT_ALLOWED = 1, // Exporting or importing Secure Memory Blobs is allowed, regardless of the G1_READ and G1_WRITE settings.
   };
+  
   enum class eG2_READ : uint32_t {
     eG2_READ_PROHIB = 0, // Instruction fetches and reads are prohibited (except that Trusted Descriptor reads (if G2_TDO=1) and key-reads are always allowed, and exporting Secure Memory Blobs is allowed if G2_SMBLOB=1 or if done by a Trusted Descriptor and G2_TDO=1).
     eG2_READ_ALLOWED = 1, // Instruction fetches and reads are allowed (but exporting a Secure Memory Blob is prohibited if G2_SMBLOB=0 and the descriptor is not a Trusted Descriptor or if G2_TDO=0).
   };
+  
   enum class eG2_WRITE : uint32_t {
     eG2_WRITE_PROHIB = 0, // Writes are prohibited (except that Trusted Descriptor writes are allowed, and importing Secure Memory Blobs is allowed if G2_SMBLOB=1 or if done by a Trusted Descriptor and G2_TDO=1).
     eG2_WRITE_ALLOWED = 1, // Writes are allowed (but importing a Secure Memory Blob is prohibited if G2_SMBLOB=0 and the descriptor is not a Trusted Descriptor or if G2_TDO=0).
   };
+  
   enum class eG2_TDO : uint32_t {
     eG2_TD_PRIVILEGE_AS_JD = 0, // Trusted Descriptors have the same access privileges as Job Descriptors
     eG2_TD_OVERIDE_ALLOWED = 1, // Trusted Descriptors are allowed to override the other access permissions, i.e. they can export blobs from or import blobs to the partition and read from and write to the partition regardless of the G2_SMBLOB, G2_WRITE and G2_READ settings.
   };
+  
   enum class eG2_SMBLOB : uint32_t {
     eG2_SM_BLOB_EXPORT_IMPORT_PROHIB = 0, // Exporting or importing Secure Memory Blobs is prohibited, unless done via a Trusted Descriptor and G2_TDO=1.
     eG2_SM_BLOB_EXPORT_IMPORT_ALLOWED = 1, // Exporting or importing Secure Memory Blobs is allowed, regardless of the G2_READ and G2_WRITE settings.
   };
+  
   enum class eSMAG_LCK : uint32_t {
     eSMAG_UNLOCKED = 0, // The SMAG2JR register and SMAG1JR register are unlocked. The partition owner can change any writable bits of these registers.
     eSMAG_LOCKED = 1, // The SMAG2JR register and SMAG1JR register are locked. The SMAG2JR and SMAG1JR registers cannot be changed until the partition is de-allocated or a POR occurs.
   };
+  
   enum class eSMAP_LCK : uint32_t {
     eSMAP_UNLOCKED = 0, // The SMAP register is unlocked. The partition owner can change any writable bits of the SMAP register.
     eSMAP_LOCKED = 1, // The SMAP register is locked. The SMAP_LCK, CSP and PSP bits and G1 and G2 permission bits of the SMAP register cannot be changed until the partition is de-allocated or a POR occurs. The PARTITION_KMOD value can still be changed. The SMAG_LCK bit can be changed to a 1, but cannot be changed to a 0.
   };
+  
   enum class ePSP : uint32_t {
     eNOT_DEALLOCATABLE = 0, // The partition and any of the pages allocated to the partition can be de-allocated.
     eDEALLOCATABLE = 1, // The partition cannot be de-allocated and the pages allocated to the partition cannot be de-allocated.
   };
+  
   enum class eCSP : uint32_t {
     eNOT_ZEROIZED = 0, // The pages allocated to the partition will not be zeroized when they are de-allocated or the partition is released or a security alarm occurs.
     eZEROIZED = 1, // The pages allocated to the partition will be zeroized when they are individually de-allocated or the partition is released or a security alarm occurs.
@@ -12370,7 +11944,7 @@ union P12SMAPR_JR0 {
     ePSP PSP : 1;
     eCSP CSP : 1;
     uint32_t PARTITION_KMOD : 16;
-  } bits;          // Bit-field struct (auto-filling reserved gaps)
+  } bits;
   
   // Full 32-bit register value.
   uint32_t value;
@@ -12384,8 +11958,6 @@ union P12SMAPR_JR0 {
 //
 union P12SMAG2_JR0 {
   
-  // Enum definitions.
-  
   // Bit field definition.
   struct {
     uint32_t Gx_ID00 : 1;
@@ -12420,7 +11992,7 @@ union P12SMAG2_JR0 {
     uint32_t Gx_ID29 : 1;
     uint32_t Gx_ID30 : 1;
     uint32_t Gx_ID31 : 1;
-  } bits;          // Bit-field struct (auto-filling reserved gaps)
+  } bits;
   
   // Full 32-bit register value.
   uint32_t value;
@@ -12434,8 +12006,6 @@ union P12SMAG2_JR0 {
 //
 union P12SMAG1_JR0 {
   
-  // Enum definitions.
-  
   // Bit field definition.
   struct {
     uint32_t Gx_ID00 : 1;
@@ -12470,7 +12040,7 @@ union P12SMAG1_JR0 {
     uint32_t Gx_ID29 : 1;
     uint32_t Gx_ID30 : 1;
     uint32_t Gx_ID31 : 1;
-  } bits;          // Bit-field struct (auto-filling reserved gaps)
+  } bits;
   
   // Full 32-bit register value.
   uint32_t value;
@@ -12484,13 +12054,11 @@ union P12SMAG1_JR0 {
 //
 union P13SDID_JR0 {
   
-  // Enum definitions.
-  
   // Bit field definition.
   struct {
     uint32_t SDID : 16;
     uint32_t _reserved_end : 16;
-  } bits;          // Bit-field struct (auto-filling reserved gaps)
+  } bits;
   
   // Full 32-bit register value.
   uint32_t value;
@@ -12504,51 +12072,61 @@ union P13SDID_JR0 {
 //
 union P13SMAPR_JR0 {
   
-  // Enum definitions.
   enum class eG1_READ : uint32_t {
     eG1_READ_PROHIB = 0, // Instruction fetches and reads are prohibited (except that Trusted Descriptor reads (if G1_TDO=1) and key-reads are always allowed, and exporting Secure Memory Blobs is allowed if G1_SMBLOB=1 or if done by a Trusted Descriptor and G1_TDO=1).
     eG1_READ_ALLOWED = 1, // Instruction fetches and reads are allowed (but exporting a Secure Memory Blob is prohibited if G1_SMBLOB=0 and the descriptor is not a Trusted Descriptor or if G1_TDO=0).
   };
+  
   enum class eG1_WRITE : uint32_t {
     eG1_WRITE_PROHIB = 0, // Writes are prohibited (except that Trusted Descriptor writes are allowed, and importing Secure Memory Blobs is allowed if G1_SMBLOB=1 or if done by a Trusted Descriptor and G1_TDO=1).
     eG1_WRITE_ALLOWED = 1, // Writes are allowed (but importing a Secure Memory Blob is prohibited if G1_SMBLOB=0 and the descriptor is not a Trusted Descriptor or if G1_TDO=0).
   };
+  
   enum class eG1_TDO : uint32_t {
     eG1_TD_PRIVILEGE_AS_JD = 0, // Trusted Descriptors have the same access privileges as Job Descriptors
     eG1_TD_OVERIDE_ALLOWED = 1, // Trusted Descriptors are allowed to override the other access permissions, i.e. they can export blobs from or import blobs to the partition and read from and write to the partition regardless of the G1_SMBLOB, G1_WRITE and G1_READ settings.
   };
+  
   enum class eG1_SMBLOB : uint32_t {
     eG1_SM_BLOB_EXPORT_IMPORT_PROHIB = 0, // Exporting or importing Secure Memory Blobs is prohibited, unless done via a Trusted Descriptor and G1_TDO=1.
     eG1_SM_B_EXPORT_IMPORT_ALLOWED = 1, // Exporting or importing Secure Memory Blobs is allowed, regardless of the G1_READ and G1_WRITE settings.
   };
+  
   enum class eG2_READ : uint32_t {
     eG2_READ_PROHIB = 0, // Instruction fetches and reads are prohibited (except that Trusted Descriptor reads (if G2_TDO=1) and key-reads are always allowed, and exporting Secure Memory Blobs is allowed if G2_SMBLOB=1 or if done by a Trusted Descriptor and G2_TDO=1).
     eG2_READ_ALLOWED = 1, // Instruction fetches and reads are allowed (but exporting a Secure Memory Blob is prohibited if G2_SMBLOB=0 and the descriptor is not a Trusted Descriptor or if G2_TDO=0).
   };
+  
   enum class eG2_WRITE : uint32_t {
     eG2_WRITE_PROHIB = 0, // Writes are prohibited (except that Trusted Descriptor writes are allowed, and importing Secure Memory Blobs is allowed if G2_SMBLOB=1 or if done by a Trusted Descriptor and G2_TDO=1).
     eG2_WRITE_ALLOWED = 1, // Writes are allowed (but importing a Secure Memory Blob is prohibited if G2_SMBLOB=0 and the descriptor is not a Trusted Descriptor or if G2_TDO=0).
   };
+  
   enum class eG2_TDO : uint32_t {
     eG2_TD_PRIVILEGE_AS_JD = 0, // Trusted Descriptors have the same access privileges as Job Descriptors
     eG2_TD_OVERIDE_ALLOWED = 1, // Trusted Descriptors are allowed to override the other access permissions, i.e. they can export blobs from or import blobs to the partition and read from and write to the partition regardless of the G2_SMBLOB, G2_WRITE and G2_READ settings.
   };
+  
   enum class eG2_SMBLOB : uint32_t {
     eG2_SM_BLOB_EXPORT_IMPORT_PROHIB = 0, // Exporting or importing Secure Memory Blobs is prohibited, unless done via a Trusted Descriptor and G2_TDO=1.
     eG2_SM_BLOB_EXPORT_IMPORT_ALLOWED = 1, // Exporting or importing Secure Memory Blobs is allowed, regardless of the G2_READ and G2_WRITE settings.
   };
+  
   enum class eSMAG_LCK : uint32_t {
     eSMAG_UNLOCKED = 0, // The SMAG2JR register and SMAG1JR register are unlocked. The partition owner can change any writable bits of these registers.
     eSMAG_LOCKED = 1, // The SMAG2JR register and SMAG1JR register are locked. The SMAG2JR and SMAG1JR registers cannot be changed until the partition is de-allocated or a POR occurs.
   };
+  
   enum class eSMAP_LCK : uint32_t {
     eSMAP_UNLOCKED = 0, // The SMAP register is unlocked. The partition owner can change any writable bits of the SMAP register.
     eSMAP_LOCKED = 1, // The SMAP register is locked. The SMAP_LCK, CSP and PSP bits and G1 and G2 permission bits of the SMAP register cannot be changed until the partition is de-allocated or a POR occurs. The PARTITION_KMOD value can still be changed. The SMAG_LCK bit can be changed to a 1, but cannot be changed to a 0.
   };
+  
   enum class ePSP : uint32_t {
     eNOT_DEALLOCATABLE = 0, // The partition and any of the pages allocated to the partition can be de-allocated.
     eDEALLOCATABLE = 1, // The partition cannot be de-allocated and the pages allocated to the partition cannot be de-allocated.
   };
+  
   enum class eCSP : uint32_t {
     eNOT_ZEROIZED = 0, // The pages allocated to the partition will not be zeroized when they are de-allocated or the partition is released or a security alarm occurs.
     eZEROIZED = 1, // The pages allocated to the partition will be zeroized when they are individually de-allocated or the partition is released or a security alarm occurs.
@@ -12570,7 +12148,7 @@ union P13SMAPR_JR0 {
     ePSP PSP : 1;
     eCSP CSP : 1;
     uint32_t PARTITION_KMOD : 16;
-  } bits;          // Bit-field struct (auto-filling reserved gaps)
+  } bits;
   
   // Full 32-bit register value.
   uint32_t value;
@@ -12584,8 +12162,6 @@ union P13SMAPR_JR0 {
 //
 union P13SMAG2_JR0 {
   
-  // Enum definitions.
-  
   // Bit field definition.
   struct {
     uint32_t Gx_ID00 : 1;
@@ -12620,7 +12196,7 @@ union P13SMAG2_JR0 {
     uint32_t Gx_ID29 : 1;
     uint32_t Gx_ID30 : 1;
     uint32_t Gx_ID31 : 1;
-  } bits;          // Bit-field struct (auto-filling reserved gaps)
+  } bits;
   
   // Full 32-bit register value.
   uint32_t value;
@@ -12634,8 +12210,6 @@ union P13SMAG2_JR0 {
 //
 union P13SMAG1_JR0 {
   
-  // Enum definitions.
-  
   // Bit field definition.
   struct {
     uint32_t Gx_ID00 : 1;
@@ -12670,7 +12244,7 @@ union P13SMAG1_JR0 {
     uint32_t Gx_ID29 : 1;
     uint32_t Gx_ID30 : 1;
     uint32_t Gx_ID31 : 1;
-  } bits;          // Bit-field struct (auto-filling reserved gaps)
+  } bits;
   
   // Full 32-bit register value.
   uint32_t value;
@@ -12684,13 +12258,11 @@ union P13SMAG1_JR0 {
 //
 union P14SDID_JR0 {
   
-  // Enum definitions.
-  
   // Bit field definition.
   struct {
     uint32_t SDID : 16;
     uint32_t _reserved_end : 16;
-  } bits;          // Bit-field struct (auto-filling reserved gaps)
+  } bits;
   
   // Full 32-bit register value.
   uint32_t value;
@@ -12704,51 +12276,61 @@ union P14SDID_JR0 {
 //
 union P14SMAPR_JR0 {
   
-  // Enum definitions.
   enum class eG1_READ : uint32_t {
     eG1_READ_PROHIB = 0, // Instruction fetches and reads are prohibited (except that Trusted Descriptor reads (if G1_TDO=1) and key-reads are always allowed, and exporting Secure Memory Blobs is allowed if G1_SMBLOB=1 or if done by a Trusted Descriptor and G1_TDO=1).
     eG1_READ_ALLOWED = 1, // Instruction fetches and reads are allowed (but exporting a Secure Memory Blob is prohibited if G1_SMBLOB=0 and the descriptor is not a Trusted Descriptor or if G1_TDO=0).
   };
+  
   enum class eG1_WRITE : uint32_t {
     eG1_WRITE_PROHIB = 0, // Writes are prohibited (except that Trusted Descriptor writes are allowed, and importing Secure Memory Blobs is allowed if G1_SMBLOB=1 or if done by a Trusted Descriptor and G1_TDO=1).
     eG1_WRITE_ALLOWED = 1, // Writes are allowed (but importing a Secure Memory Blob is prohibited if G1_SMBLOB=0 and the descriptor is not a Trusted Descriptor or if G1_TDO=0).
   };
+  
   enum class eG1_TDO : uint32_t {
     eG1_TD_PRIVILEGE_AS_JD = 0, // Trusted Descriptors have the same access privileges as Job Descriptors
     eG1_TD_OVERIDE_ALLOWED = 1, // Trusted Descriptors are allowed to override the other access permissions, i.e. they can export blobs from or import blobs to the partition and read from and write to the partition regardless of the G1_SMBLOB, G1_WRITE and G1_READ settings.
   };
+  
   enum class eG1_SMBLOB : uint32_t {
     eG1_SM_BLOB_EXPORT_IMPORT_PROHIB = 0, // Exporting or importing Secure Memory Blobs is prohibited, unless done via a Trusted Descriptor and G1_TDO=1.
     eG1_SM_B_EXPORT_IMPORT_ALLOWED = 1, // Exporting or importing Secure Memory Blobs is allowed, regardless of the G1_READ and G1_WRITE settings.
   };
+  
   enum class eG2_READ : uint32_t {
     eG2_READ_PROHIB = 0, // Instruction fetches and reads are prohibited (except that Trusted Descriptor reads (if G2_TDO=1) and key-reads are always allowed, and exporting Secure Memory Blobs is allowed if G2_SMBLOB=1 or if done by a Trusted Descriptor and G2_TDO=1).
     eG2_READ_ALLOWED = 1, // Instruction fetches and reads are allowed (but exporting a Secure Memory Blob is prohibited if G2_SMBLOB=0 and the descriptor is not a Trusted Descriptor or if G2_TDO=0).
   };
+  
   enum class eG2_WRITE : uint32_t {
     eG2_WRITE_PROHIB = 0, // Writes are prohibited (except that Trusted Descriptor writes are allowed, and importing Secure Memory Blobs is allowed if G2_SMBLOB=1 or if done by a Trusted Descriptor and G2_TDO=1).
     eG2_WRITE_ALLOWED = 1, // Writes are allowed (but importing a Secure Memory Blob is prohibited if G2_SMBLOB=0 and the descriptor is not a Trusted Descriptor or if G2_TDO=0).
   };
+  
   enum class eG2_TDO : uint32_t {
     eG2_TD_PRIVILEGE_AS_JD = 0, // Trusted Descriptors have the same access privileges as Job Descriptors
     eG2_TD_OVERIDE_ALLOWED = 1, // Trusted Descriptors are allowed to override the other access permissions, i.e. they can export blobs from or import blobs to the partition and read from and write to the partition regardless of the G2_SMBLOB, G2_WRITE and G2_READ settings.
   };
+  
   enum class eG2_SMBLOB : uint32_t {
     eG2_SM_BLOB_EXPORT_IMPORT_PROHIB = 0, // Exporting or importing Secure Memory Blobs is prohibited, unless done via a Trusted Descriptor and G2_TDO=1.
     eG2_SM_BLOB_EXPORT_IMPORT_ALLOWED = 1, // Exporting or importing Secure Memory Blobs is allowed, regardless of the G2_READ and G2_WRITE settings.
   };
+  
   enum class eSMAG_LCK : uint32_t {
     eSMAG_UNLOCKED = 0, // The SMAG2JR register and SMAG1JR register are unlocked. The partition owner can change any writable bits of these registers.
     eSMAG_LOCKED = 1, // The SMAG2JR register and SMAG1JR register are locked. The SMAG2JR and SMAG1JR registers cannot be changed until the partition is de-allocated or a POR occurs.
   };
+  
   enum class eSMAP_LCK : uint32_t {
     eSMAP_UNLOCKED = 0, // The SMAP register is unlocked. The partition owner can change any writable bits of the SMAP register.
     eSMAP_LOCKED = 1, // The SMAP register is locked. The SMAP_LCK, CSP and PSP bits and G1 and G2 permission bits of the SMAP register cannot be changed until the partition is de-allocated or a POR occurs. The PARTITION_KMOD value can still be changed. The SMAG_LCK bit can be changed to a 1, but cannot be changed to a 0.
   };
+  
   enum class ePSP : uint32_t {
     eNOT_DEALLOCATABLE = 0, // The partition and any of the pages allocated to the partition can be de-allocated.
     eDEALLOCATABLE = 1, // The partition cannot be de-allocated and the pages allocated to the partition cannot be de-allocated.
   };
+  
   enum class eCSP : uint32_t {
     eNOT_ZEROIZED = 0, // The pages allocated to the partition will not be zeroized when they are de-allocated or the partition is released or a security alarm occurs.
     eZEROIZED = 1, // The pages allocated to the partition will be zeroized when they are individually de-allocated or the partition is released or a security alarm occurs.
@@ -12770,7 +12352,7 @@ union P14SMAPR_JR0 {
     ePSP PSP : 1;
     eCSP CSP : 1;
     uint32_t PARTITION_KMOD : 16;
-  } bits;          // Bit-field struct (auto-filling reserved gaps)
+  } bits;
   
   // Full 32-bit register value.
   uint32_t value;
@@ -12784,8 +12366,6 @@ union P14SMAPR_JR0 {
 //
 union P14SMAG2_JR0 {
   
-  // Enum definitions.
-  
   // Bit field definition.
   struct {
     uint32_t Gx_ID00 : 1;
@@ -12820,7 +12400,7 @@ union P14SMAG2_JR0 {
     uint32_t Gx_ID29 : 1;
     uint32_t Gx_ID30 : 1;
     uint32_t Gx_ID31 : 1;
-  } bits;          // Bit-field struct (auto-filling reserved gaps)
+  } bits;
   
   // Full 32-bit register value.
   uint32_t value;
@@ -12834,8 +12414,6 @@ union P14SMAG2_JR0 {
 //
 union P14SMAG1_JR0 {
   
-  // Enum definitions.
-  
   // Bit field definition.
   struct {
     uint32_t Gx_ID00 : 1;
@@ -12870,7 +12448,7 @@ union P14SMAG1_JR0 {
     uint32_t Gx_ID29 : 1;
     uint32_t Gx_ID30 : 1;
     uint32_t Gx_ID31 : 1;
-  } bits;          // Bit-field struct (auto-filling reserved gaps)
+  } bits;
   
   // Full 32-bit register value.
   uint32_t value;
@@ -12884,13 +12462,11 @@ union P14SMAG1_JR0 {
 //
 union P15SDID_JR0 {
   
-  // Enum definitions.
-  
   // Bit field definition.
   struct {
     uint32_t SDID : 16;
     uint32_t _reserved_end : 16;
-  } bits;          // Bit-field struct (auto-filling reserved gaps)
+  } bits;
   
   // Full 32-bit register value.
   uint32_t value;
@@ -12904,51 +12480,61 @@ union P15SDID_JR0 {
 //
 union P15SMAPR_JR0 {
   
-  // Enum definitions.
   enum class eG1_READ : uint32_t {
     eG1_READ_PROHIB = 0, // Instruction fetches and reads are prohibited (except that Trusted Descriptor reads (if G1_TDO=1) and key-reads are always allowed, and exporting Secure Memory Blobs is allowed if G1_SMBLOB=1 or if done by a Trusted Descriptor and G1_TDO=1).
     eG1_READ_ALLOWED = 1, // Instruction fetches and reads are allowed (but exporting a Secure Memory Blob is prohibited if G1_SMBLOB=0 and the descriptor is not a Trusted Descriptor or if G1_TDO=0).
   };
+  
   enum class eG1_WRITE : uint32_t {
     eG1_WRITE_PROHIB = 0, // Writes are prohibited (except that Trusted Descriptor writes are allowed, and importing Secure Memory Blobs is allowed if G1_SMBLOB=1 or if done by a Trusted Descriptor and G1_TDO=1).
     eG1_WRITE_ALLOWED = 1, // Writes are allowed (but importing a Secure Memory Blob is prohibited if G1_SMBLOB=0 and the descriptor is not a Trusted Descriptor or if G1_TDO=0).
   };
+  
   enum class eG1_TDO : uint32_t {
     eG1_TD_PRIVILEGE_AS_JD = 0, // Trusted Descriptors have the same access privileges as Job Descriptors
     eG1_TD_OVERIDE_ALLOWED = 1, // Trusted Descriptors are allowed to override the other access permissions, i.e. they can export blobs from or import blobs to the partition and read from and write to the partition regardless of the G1_SMBLOB, G1_WRITE and G1_READ settings.
   };
+  
   enum class eG1_SMBLOB : uint32_t {
     eG1_SM_BLOB_EXPORT_IMPORT_PROHIB = 0, // Exporting or importing Secure Memory Blobs is prohibited, unless done via a Trusted Descriptor and G1_TDO=1.
     eG1_SM_B_EXPORT_IMPORT_ALLOWED = 1, // Exporting or importing Secure Memory Blobs is allowed, regardless of the G1_READ and G1_WRITE settings.
   };
+  
   enum class eG2_READ : uint32_t {
     eG2_READ_PROHIB = 0, // Instruction fetches and reads are prohibited (except that Trusted Descriptor reads (if G2_TDO=1) and key-reads are always allowed, and exporting Secure Memory Blobs is allowed if G2_SMBLOB=1 or if done by a Trusted Descriptor and G2_TDO=1).
     eG2_READ_ALLOWED = 1, // Instruction fetches and reads are allowed (but exporting a Secure Memory Blob is prohibited if G2_SMBLOB=0 and the descriptor is not a Trusted Descriptor or if G2_TDO=0).
   };
+  
   enum class eG2_WRITE : uint32_t {
     eG2_WRITE_PROHIB = 0, // Writes are prohibited (except that Trusted Descriptor writes are allowed, and importing Secure Memory Blobs is allowed if G2_SMBLOB=1 or if done by a Trusted Descriptor and G2_TDO=1).
     eG2_WRITE_ALLOWED = 1, // Writes are allowed (but importing a Secure Memory Blob is prohibited if G2_SMBLOB=0 and the descriptor is not a Trusted Descriptor or if G2_TDO=0).
   };
+  
   enum class eG2_TDO : uint32_t {
     eG2_TD_PRIVILEGE_AS_JD = 0, // Trusted Descriptors have the same access privileges as Job Descriptors
     eG2_TD_OVERIDE_ALLOWED = 1, // Trusted Descriptors are allowed to override the other access permissions, i.e. they can export blobs from or import blobs to the partition and read from and write to the partition regardless of the G2_SMBLOB, G2_WRITE and G2_READ settings.
   };
+  
   enum class eG2_SMBLOB : uint32_t {
     eG2_SM_BLOB_EXPORT_IMPORT_PROHIB = 0, // Exporting or importing Secure Memory Blobs is prohibited, unless done via a Trusted Descriptor and G2_TDO=1.
     eG2_SM_BLOB_EXPORT_IMPORT_ALLOWED = 1, // Exporting or importing Secure Memory Blobs is allowed, regardless of the G2_READ and G2_WRITE settings.
   };
+  
   enum class eSMAG_LCK : uint32_t {
     eSMAG_UNLOCKED = 0, // The SMAG2JR register and SMAG1JR register are unlocked. The partition owner can change any writable bits of these registers.
     eSMAG_LOCKED = 1, // The SMAG2JR register and SMAG1JR register are locked. The SMAG2JR and SMAG1JR registers cannot be changed until the partition is de-allocated or a POR occurs.
   };
+  
   enum class eSMAP_LCK : uint32_t {
     eSMAP_UNLOCKED = 0, // The SMAP register is unlocked. The partition owner can change any writable bits of the SMAP register.
     eSMAP_LOCKED = 1, // The SMAP register is locked. The SMAP_LCK, CSP and PSP bits and G1 and G2 permission bits of the SMAP register cannot be changed until the partition is de-allocated or a POR occurs. The PARTITION_KMOD value can still be changed. The SMAG_LCK bit can be changed to a 1, but cannot be changed to a 0.
   };
+  
   enum class ePSP : uint32_t {
     eNOT_DEALLOCATABLE = 0, // The partition and any of the pages allocated to the partition can be de-allocated.
     eDEALLOCATABLE = 1, // The partition cannot be de-allocated and the pages allocated to the partition cannot be de-allocated.
   };
+  
   enum class eCSP : uint32_t {
     eNOT_ZEROIZED = 0, // The pages allocated to the partition will not be zeroized when they are de-allocated or the partition is released or a security alarm occurs.
     eZEROIZED = 1, // The pages allocated to the partition will be zeroized when they are individually de-allocated or the partition is released or a security alarm occurs.
@@ -12970,7 +12556,7 @@ union P15SMAPR_JR0 {
     ePSP PSP : 1;
     eCSP CSP : 1;
     uint32_t PARTITION_KMOD : 16;
-  } bits;          // Bit-field struct (auto-filling reserved gaps)
+  } bits;
   
   // Full 32-bit register value.
   uint32_t value;
@@ -12984,8 +12570,6 @@ union P15SMAPR_JR0 {
 //
 union P15SMAG2_JR0 {
   
-  // Enum definitions.
-  
   // Bit field definition.
   struct {
     uint32_t Gx_ID00 : 1;
@@ -13020,7 +12604,7 @@ union P15SMAG2_JR0 {
     uint32_t Gx_ID29 : 1;
     uint32_t Gx_ID30 : 1;
     uint32_t Gx_ID31 : 1;
-  } bits;          // Bit-field struct (auto-filling reserved gaps)
+  } bits;
   
   // Full 32-bit register value.
   uint32_t value;
@@ -13034,8 +12618,6 @@ union P15SMAG2_JR0 {
 //
 union P15SMAG1_JR0 {
   
-  // Enum definitions.
-  
   // Bit field definition.
   struct {
     uint32_t Gx_ID00 : 1;
@@ -13070,7 +12652,7 @@ union P15SMAG1_JR0 {
     uint32_t Gx_ID29 : 1;
     uint32_t Gx_ID30 : 1;
     uint32_t Gx_ID31 : 1;
-  } bits;          // Bit-field struct (auto-filling reserved gaps)
+  } bits;
   
   // Full 32-bit register value.
   uint32_t value;
@@ -13084,8 +12666,6 @@ union P15SMAG1_JR0 {
 //
 union SMCR_JR0 {
   
-  // Enum definitions.
-  
   // Bit field definition.
   struct {
     uint32_t CMD : 4;
@@ -13093,7 +12673,7 @@ union SMCR_JR0 {
     uint32_t PRTN : 4;
     uint32_t _reserved_2 : 4;
     uint32_t PAGE : 16;
-  } bits;          // Bit-field struct (auto-filling reserved gaps)
+  } bits;
   
   // Full 32-bit register value.
   uint32_t value;
@@ -13107,13 +12687,13 @@ union SMCR_JR0 {
 //
 union SMCSR_JR0 {
   
-  // Enum definitions.
   enum class ePO : uint32_t {
     eAVAILABLE = 0, // Available; Unowned: The entity that issued the inquiry may allocate this page to a partition. No zeroization is needed since it has already been cleared, therefore no interrupt should be expected.
     eNOT_PRESENT_OR_INITIALIZED = 1, // Page does not exist in this version or is not initialized yet.
     eUNAVAILABLE = 2, // Another entity owns the page. This page is unavailable to the issuer of the inquiry.
     eOWNED = 3, // Owned by the entity making the inquiry. The owner may de-allocate this page if its partition is not marked PSP. If the partition to which the page is allocated is designated as CSP, the page will be zeroized upon de-allocation.
   };
+  
   enum class eCERR : uint32_t {
     eNO_ERROR = 0, // No Error.
     eCMD_INCOMPLETE_ERROR = 1, // Command has not yet completed.
@@ -13131,7 +12711,7 @@ union SMCSR_JR0 {
     eCERR CERR : 2;
     uint32_t PAGE : 12;
     uint32_t _reserved_end : 4;
-  } bits;          // Bit-field struct (auto-filling reserved gaps)
+  } bits;
   
   // Full 32-bit register value.
   uint32_t value;
@@ -13145,15 +12725,13 @@ union SMCSR_JR0 {
 //
 union REIR0JR0 {
   
-  // Enum definitions.
-  
   // Bit field definition.
   struct {
     uint32_t _reserved_0 : 24;
     uint32_t TYPE : 2;
     uint32_t _reserved_1 : 5;
     uint32_t MISS : 1;
-  } bits;          // Bit-field struct (auto-filling reserved gaps)
+  } bits;
   
   // Full 32-bit register value.
   uint32_t value;
@@ -13167,12 +12745,10 @@ union REIR0JR0 {
 //
 union REIR2JR0 {
   
-  // Enum definitions.
-  
   // Bit field definition.
   struct {
     uint32_t ADDR : 36;
-  } bits;          // Bit-field struct (auto-filling reserved gaps)
+  } bits;
   
   // Full 32-bit register value.
   uint32_t value;
@@ -13186,8 +12762,6 @@ union REIR2JR0 {
 //
 union REIR4JR0 {
   
-  // Enum definitions.
-  
   // Bit field definition.
   struct {
     uint32_t ICID : 11;
@@ -13199,7 +12773,7 @@ union REIR4JR0 {
     uint32_t _reserved_5 : 4;
     uint32_t ERR : 2;
     uint32_t MIX : 2;
-  } bits;          // Bit-field struct (auto-filling reserved gaps)
+  } bits;
   
   // Full 32-bit register value.
   uint32_t value;
@@ -13213,8 +12787,6 @@ union REIR4JR0 {
 //
 union REIR5JR0 {
   
-  // Enum definitions.
-  
   // Bit field definition.
   struct {
     uint32_t _reserved_0 : 16;
@@ -13226,7 +12798,7 @@ union REIR5JR0 {
     uint32_t KEY : 1;
     uint32_t SMA : 1;
     uint32_t _reserved_end : 2;
-  } bits;          // Bit-field struct (auto-filling reserved gaps)
+  } bits;
   
   // Full 32-bit register value.
   uint32_t value;
@@ -13240,12 +12812,10 @@ union REIR5JR0 {
 //
 union IRBAR_JR1 {
   
-  // Enum definitions.
-  
   // Bit field definition.
   struct {
     uint32_t IRBA : 36;
-  } bits;          // Bit-field struct (auto-filling reserved gaps)
+  } bits;
   
   // Full 32-bit register value.
   uint32_t value;
@@ -13259,13 +12829,11 @@ union IRBAR_JR1 {
 //
 union IRSR_JR1 {
   
-  // Enum definitions.
-  
   // Bit field definition.
   struct {
     uint32_t IRS : 10;
     uint32_t _reserved_end : 22;
-  } bits;          // Bit-field struct (auto-filling reserved gaps)
+  } bits;
   
   // Full 32-bit register value.
   uint32_t value;
@@ -13279,13 +12847,11 @@ union IRSR_JR1 {
 //
 union IRSAR_JR1 {
   
-  // Enum definitions.
-  
   // Bit field definition.
   struct {
     uint32_t IRSA : 10;
     uint32_t _reserved_end : 22;
-  } bits;          // Bit-field struct (auto-filling reserved gaps)
+  } bits;
   
   // Full 32-bit register value.
   uint32_t value;
@@ -13299,13 +12865,11 @@ union IRSAR_JR1 {
 //
 union IRJAR_JR1 {
   
-  // Enum definitions.
-  
   // Bit field definition.
   struct {
     uint32_t IRJA : 10;
     uint32_t _reserved_end : 22;
-  } bits;          // Bit-field struct (auto-filling reserved gaps)
+  } bits;
   
   // Full 32-bit register value.
   uint32_t value;
@@ -13319,12 +12883,10 @@ union IRJAR_JR1 {
 //
 union ORBAR_JR1 {
   
-  // Enum definitions.
-  
   // Bit field definition.
   struct {
     uint32_t ORBA : 36;
-  } bits;          // Bit-field struct (auto-filling reserved gaps)
+  } bits;
   
   // Full 32-bit register value.
   uint32_t value;
@@ -13338,13 +12900,11 @@ union ORBAR_JR1 {
 //
 union ORSR_JR1 {
   
-  // Enum definitions.
-  
   // Bit field definition.
   struct {
     uint32_t ORS : 10;
     uint32_t _reserved_end : 22;
-  } bits;          // Bit-field struct (auto-filling reserved gaps)
+  } bits;
   
   // Full 32-bit register value.
   uint32_t value;
@@ -13358,13 +12918,11 @@ union ORSR_JR1 {
 //
 union ORJRR_JR1 {
   
-  // Enum definitions.
-  
   // Bit field definition.
   struct {
     uint32_t ORJR : 10;
     uint32_t _reserved_end : 22;
-  } bits;          // Bit-field struct (auto-filling reserved gaps)
+  } bits;
   
   // Full 32-bit register value.
   uint32_t value;
@@ -13378,13 +12936,11 @@ union ORJRR_JR1 {
 //
 union ORSFR_JR1 {
   
-  // Enum definitions.
-  
   // Bit field definition.
   struct {
     uint32_t ORSF : 10;
     uint32_t _reserved_end : 22;
-  } bits;          // Bit-field struct (auto-filling reserved gaps)
+  } bits;
   
   // Full 32-bit register value.
   uint32_t value;
@@ -13398,7 +12954,6 @@ union ORSFR_JR1 {
 //
 union JRSTAR_JR1 {
   
-  // Enum definitions.
   enum class eSSRC : uint32_t {
     eNO_STATUS = 0, // No Status Source (No Error or Status Reported)
     eCCB_STATUS = 2, // CCB Status Source (CCB Error Reported)
@@ -13412,7 +12967,7 @@ union JRSTAR_JR1 {
   struct {
     uint32_t SSED : 28;
     eSSRC SSRC : 4;
-  } bits;          // Bit-field struct (auto-filling reserved gaps)
+  } bits;
   
   // Full 32-bit register value.
   uint32_t value;
@@ -13426,7 +12981,6 @@ union JRSTAR_JR1 {
 //
 union JRINTR_JR1 {
   
-  // Enum definitions.
   enum class eERR_TYPE : uint32_t {
     eOR_WR_ERR = 1, // Error writing status to Output Ring
     eBAD_IR_ADDR_ERR = 3, // Bad input ring base address (not on a 4-byte boundary).
@@ -13458,7 +13012,7 @@ union JRINTR_JR1 {
     uint32_t _reserved_6 : 3;
     uint32_t ERR_ORWI : 14;
     uint32_t _reserved_end : 2;
-  } bits;          // Bit-field struct (auto-filling reserved gaps)
+  } bits;
   
   // Full 32-bit register value.
   uint32_t value;
@@ -13472,8 +13026,6 @@ union JRINTR_JR1 {
 //
 union JRCFGR_JR1_MS {
   
-  // Enum definitions.
-  
   // Bit field definition.
   struct {
     uint32_t MBSI : 1;
@@ -13499,7 +13051,7 @@ union JRCFGR_JR1_MS {
     uint32_t FAIL_MODE : 1;
     uint32_t INCL_SEQ_OUT : 1;
     uint32_t _reserved_end : 1;
-  } bits;          // Bit-field struct (auto-filling reserved gaps)
+  } bits;
   
   // Full 32-bit register value.
   uint32_t value;
@@ -13513,11 +13065,11 @@ union JRCFGR_JR1_MS {
 //
 union JRCFGR_JR1_LS {
   
-  // Enum definitions.
   enum class eIMSK : uint32_t {
     eINTR_ENABLED = 0, // Interrupt enabled.
     eINTR_MASKED = 1, // Interrupt masked.
   };
+  
   enum class eICEN : uint32_t {
     eINTR_COAL_DISABLED = 0, // Interrupt coalescing is disabled. If the IMSK bit is cleared, an interrupt is asserted whenever a job is written to the output ring. ICDCT is ignored. Note that if software removes one or more jobs and clears the interrupt but the output rings slots full is still greater than 0 (ORSF > 0), then the interrupt will clear but reassert on the next clock cycle.
     eINTR_COAL_ENABLED = 1, // Interrupt coalescing is enabled. If the IMSK bit is cleared, an interrupt is asserted whenever the threshold number of frames is reached (ICDCT) or when the threshold timer expires (ICTT). Note that if software removes one or more jobs and clears the interrupt but the interrupt coalescing threshold is still met (ORSF >= ICDCT), then the interrupt will clear but reassert on the next clock cycle.
@@ -13530,7 +13082,7 @@ union JRCFGR_JR1_LS {
     uint32_t _reserved_2 : 6;
     uint32_t ICDCT : 8;
     uint32_t ICTT : 16;
-  } bits;          // Bit-field struct (auto-filling reserved gaps)
+  } bits;
   
   // Full 32-bit register value.
   uint32_t value;
@@ -13544,13 +13096,11 @@ union JRCFGR_JR1_LS {
 //
 union IRRIR_JR1 {
   
-  // Enum definitions.
-  
   // Bit field definition.
   struct {
     uint32_t IRRI : 13;
     uint32_t _reserved_end : 19;
-  } bits;          // Bit-field struct (auto-filling reserved gaps)
+  } bits;
   
   // Full 32-bit register value.
   uint32_t value;
@@ -13564,13 +13114,11 @@ union IRRIR_JR1 {
 //
 union ORWIR_JR1 {
   
-  // Enum definitions.
-  
   // Bit field definition.
   struct {
     uint32_t ORWI : 14;
     uint32_t _reserved_end : 18;
-  } bits;          // Bit-field struct (auto-filling reserved gaps)
+  } bits;
   
   // Full 32-bit register value.
   uint32_t value;
@@ -13584,14 +13132,12 @@ union ORWIR_JR1 {
 //
 union JRCR_JR1 {
   
-  // Enum definitions.
-  
   // Bit field definition.
   struct {
     uint32_t RESET : 1;
     uint32_t PARK : 1;
     uint32_t _reserved_end : 30;
-  } bits;          // Bit-field struct (auto-filling reserved gaps)
+  } bits;
   
   // Full 32-bit register value.
   uint32_t value;
@@ -13605,8 +13151,6 @@ union JRCR_JR1 {
 //
 union JR1AAV {
   
-  // Enum definitions.
-  
   // Bit field definition.
   struct {
     uint32_t V0 : 1;
@@ -13615,7 +13159,7 @@ union JR1AAV {
     uint32_t V3 : 1;
     uint32_t _reserved_4 : 27;
     uint32_t BC : 1;
-  } bits;          // Bit-field struct (auto-filling reserved gaps)
+  } bits;
   
   // Full 32-bit register value.
   uint32_t value;
@@ -13629,12 +13173,10 @@ union JR1AAV {
 //
 union JR1AAA0 {
   
-  // Enum definitions.
-  
   // Bit field definition.
   struct {
     uint32_t JD_ADDR : 36;
-  } bits;          // Bit-field struct (auto-filling reserved gaps)
+  } bits;
   
   // Full 32-bit register value.
   uint32_t value;
@@ -13648,12 +13190,10 @@ union JR1AAA0 {
 //
 union JR1AAA1 {
   
-  // Enum definitions.
-  
   // Bit field definition.
   struct {
     uint32_t JD_ADDR : 36;
-  } bits;          // Bit-field struct (auto-filling reserved gaps)
+  } bits;
   
   // Full 32-bit register value.
   uint32_t value;
@@ -13667,12 +13207,10 @@ union JR1AAA1 {
 //
 union JR1AAA2 {
   
-  // Enum definitions.
-  
   // Bit field definition.
   struct {
     uint32_t JD_ADDR : 36;
-  } bits;          // Bit-field struct (auto-filling reserved gaps)
+  } bits;
   
   // Full 32-bit register value.
   uint32_t value;
@@ -13686,12 +13224,10 @@ union JR1AAA2 {
 //
 union JR1AAA3 {
   
-  // Enum definitions.
-  
   // Bit field definition.
   struct {
     uint32_t JD_ADDR : 36;
-  } bits;          // Bit-field struct (auto-filling reserved gaps)
+  } bits;
   
   // Full 32-bit register value.
   uint32_t value;
@@ -13705,13 +13241,11 @@ union JR1AAA3 {
 //
 union P0SDID_JR1 {
   
-  // Enum definitions.
-  
   // Bit field definition.
   struct {
     uint32_t SDID : 16;
     uint32_t _reserved_end : 16;
-  } bits;          // Bit-field struct (auto-filling reserved gaps)
+  } bits;
   
   // Full 32-bit register value.
   uint32_t value;
@@ -13725,51 +13259,61 @@ union P0SDID_JR1 {
 //
 union P0SMAPR_JR1 {
   
-  // Enum definitions.
   enum class eG1_READ : uint32_t {
     eG1_READ_PROHIB = 0, // Instruction fetches and reads are prohibited (except that Trusted Descriptor reads (if G1_TDO=1) and key-reads are always allowed, and exporting Secure Memory Blobs is allowed if G1_SMBLOB=1 or if done by a Trusted Descriptor and G1_TDO=1).
     eG1_READ_ALLOWED = 1, // Instruction fetches and reads are allowed (but exporting a Secure Memory Blob is prohibited if G1_SMBLOB=0 and the descriptor is not a Trusted Descriptor or if G1_TDO=0).
   };
+  
   enum class eG1_WRITE : uint32_t {
     eG1_WRITE_PROHIB = 0, // Writes are prohibited (except that Trusted Descriptor writes are allowed, and importing Secure Memory Blobs is allowed if G1_SMBLOB=1 or if done by a Trusted Descriptor and G1_TDO=1).
     eG1_WRITE_ALLOWED = 1, // Writes are allowed (but importing a Secure Memory Blob is prohibited if G1_SMBLOB=0 and the descriptor is not a Trusted Descriptor or if G1_TDO=0).
   };
+  
   enum class eG1_TDO : uint32_t {
     eG1_TD_PRIVILEGE_AS_JD = 0, // Trusted Descriptors have the same access privileges as Job Descriptors
     eG1_TD_OVERIDE_ALLOWED = 1, // Trusted Descriptors are allowed to override the other access permissions, i.e. they can export blobs from or import blobs to the partition and read from and write to the partition regardless of the G1_SMBLOB, G1_WRITE and G1_READ settings.
   };
+  
   enum class eG1_SMBLOB : uint32_t {
     eG1_SM_BLOB_EXPORT_IMPORT_PROHIB = 0, // Exporting or importing Secure Memory Blobs is prohibited, unless done via a Trusted Descriptor and G1_TDO=1.
     eG1_SM_B_EXPORT_IMPORT_ALLOWED = 1, // Exporting or importing Secure Memory Blobs is allowed, regardless of the G1_READ and G1_WRITE settings.
   };
+  
   enum class eG2_READ : uint32_t {
     eG2_READ_PROHIB = 0, // Instruction fetches and reads are prohibited (except that Trusted Descriptor reads (if G2_TDO=1) and key-reads are always allowed, and exporting Secure Memory Blobs is allowed if G2_SMBLOB=1 or if done by a Trusted Descriptor and G2_TDO=1).
     eG2_READ_ALLOWED = 1, // Instruction fetches and reads are allowed (but exporting a Secure Memory Blob is prohibited if G2_SMBLOB=0 and the descriptor is not a Trusted Descriptor or if G2_TDO=0).
   };
+  
   enum class eG2_WRITE : uint32_t {
     eG2_WRITE_PROHIB = 0, // Writes are prohibited (except that Trusted Descriptor writes are allowed, and importing Secure Memory Blobs is allowed if G2_SMBLOB=1 or if done by a Trusted Descriptor and G2_TDO=1).
     eG2_WRITE_ALLOWED = 1, // Writes are allowed (but importing a Secure Memory Blob is prohibited if G2_SMBLOB=0 and the descriptor is not a Trusted Descriptor or if G2_TDO=0).
   };
+  
   enum class eG2_TDO : uint32_t {
     eG2_TD_PRIVILEGE_AS_JD = 0, // Trusted Descriptors have the same access privileges as Job Descriptors
     eG2_TD_OVERIDE_ALLOWED = 1, // Trusted Descriptors are allowed to override the other access permissions, i.e. they can export blobs from or import blobs to the partition and read from and write to the partition regardless of the G2_SMBLOB, G2_WRITE and G2_READ settings.
   };
+  
   enum class eG2_SMBLOB : uint32_t {
     eG2_SM_BLOB_EXPORT_IMPORT_PROHIB = 0, // Exporting or importing Secure Memory Blobs is prohibited, unless done via a Trusted Descriptor and G2_TDO=1.
     eG2_SM_BLOB_EXPORT_IMPORT_ALLOWED = 1, // Exporting or importing Secure Memory Blobs is allowed, regardless of the G2_READ and G2_WRITE settings.
   };
+  
   enum class eSMAG_LCK : uint32_t {
     eSMAG_UNLOCKED = 0, // The SMAG2JR register and SMAG1JR register are unlocked. The partition owner can change any writable bits of these registers.
     eSMAG_LOCKED = 1, // The SMAG2JR register and SMAG1JR register are locked. The SMAG2JR and SMAG1JR registers cannot be changed until the partition is de-allocated or a POR occurs.
   };
+  
   enum class eSMAP_LCK : uint32_t {
     eSMAP_UNLOCKED = 0, // The SMAP register is unlocked. The partition owner can change any writable bits of the SMAP register.
     eSMAP_LOCKED = 1, // The SMAP register is locked. The SMAP_LCK, CSP and PSP bits and G1 and G2 permission bits of the SMAP register cannot be changed until the partition is de-allocated or a POR occurs. The PARTITION_KMOD value can still be changed. The SMAG_LCK bit can be changed to a 1, but cannot be changed to a 0.
   };
+  
   enum class ePSP : uint32_t {
     eNOT_DEALLOCATABLE = 0, // The partition and any of the pages allocated to the partition can be de-allocated.
     eDEALLOCATABLE = 1, // The partition cannot be de-allocated and the pages allocated to the partition cannot be de-allocated.
   };
+  
   enum class eCSP : uint32_t {
     eNOT_ZEROIZED = 0, // The pages allocated to the partition will not be zeroized when they are de-allocated or the partition is released or a security alarm occurs.
     eZEROIZED = 1, // The pages allocated to the partition will be zeroized when they are individually de-allocated or the partition is released or a security alarm occurs.
@@ -13791,7 +13335,7 @@ union P0SMAPR_JR1 {
     ePSP PSP : 1;
     eCSP CSP : 1;
     uint32_t PARTITION_KMOD : 16;
-  } bits;          // Bit-field struct (auto-filling reserved gaps)
+  } bits;
   
   // Full 32-bit register value.
   uint32_t value;
@@ -13805,8 +13349,6 @@ union P0SMAPR_JR1 {
 //
 union P0SMAG2_JR1 {
   
-  // Enum definitions.
-  
   // Bit field definition.
   struct {
     uint32_t Gx_ID00 : 1;
@@ -13841,7 +13383,7 @@ union P0SMAG2_JR1 {
     uint32_t Gx_ID29 : 1;
     uint32_t Gx_ID30 : 1;
     uint32_t Gx_ID31 : 1;
-  } bits;          // Bit-field struct (auto-filling reserved gaps)
+  } bits;
   
   // Full 32-bit register value.
   uint32_t value;
@@ -13855,8 +13397,6 @@ union P0SMAG2_JR1 {
 //
 union P0SMAG1_JR1 {
   
-  // Enum definitions.
-  
   // Bit field definition.
   struct {
     uint32_t Gx_ID00 : 1;
@@ -13891,7 +13431,7 @@ union P0SMAG1_JR1 {
     uint32_t Gx_ID29 : 1;
     uint32_t Gx_ID30 : 1;
     uint32_t Gx_ID31 : 1;
-  } bits;          // Bit-field struct (auto-filling reserved gaps)
+  } bits;
   
   // Full 32-bit register value.
   uint32_t value;
@@ -13905,13 +13445,11 @@ union P0SMAG1_JR1 {
 //
 union P1SDID_JR1 {
   
-  // Enum definitions.
-  
   // Bit field definition.
   struct {
     uint32_t SDID : 16;
     uint32_t _reserved_end : 16;
-  } bits;          // Bit-field struct (auto-filling reserved gaps)
+  } bits;
   
   // Full 32-bit register value.
   uint32_t value;
@@ -13925,51 +13463,61 @@ union P1SDID_JR1 {
 //
 union P1SMAPR_JR1 {
   
-  // Enum definitions.
   enum class eG1_READ : uint32_t {
     eG1_READ_PROHIB = 0, // Instruction fetches and reads are prohibited (except that Trusted Descriptor reads (if G1_TDO=1) and key-reads are always allowed, and exporting Secure Memory Blobs is allowed if G1_SMBLOB=1 or if done by a Trusted Descriptor and G1_TDO=1).
     eG1_READ_ALLOWED = 1, // Instruction fetches and reads are allowed (but exporting a Secure Memory Blob is prohibited if G1_SMBLOB=0 and the descriptor is not a Trusted Descriptor or if G1_TDO=0).
   };
+  
   enum class eG1_WRITE : uint32_t {
     eG1_WRITE_PROHIB = 0, // Writes are prohibited (except that Trusted Descriptor writes are allowed, and importing Secure Memory Blobs is allowed if G1_SMBLOB=1 or if done by a Trusted Descriptor and G1_TDO=1).
     eG1_WRITE_ALLOWED = 1, // Writes are allowed (but importing a Secure Memory Blob is prohibited if G1_SMBLOB=0 and the descriptor is not a Trusted Descriptor or if G1_TDO=0).
   };
+  
   enum class eG1_TDO : uint32_t {
     eG1_TD_PRIVILEGE_AS_JD = 0, // Trusted Descriptors have the same access privileges as Job Descriptors
     eG1_TD_OVERIDE_ALLOWED = 1, // Trusted Descriptors are allowed to override the other access permissions, i.e. they can export blobs from or import blobs to the partition and read from and write to the partition regardless of the G1_SMBLOB, G1_WRITE and G1_READ settings.
   };
+  
   enum class eG1_SMBLOB : uint32_t {
     eG1_SM_BLOB_EXPORT_IMPORT_PROHIB = 0, // Exporting or importing Secure Memory Blobs is prohibited, unless done via a Trusted Descriptor and G1_TDO=1.
     eG1_SM_B_EXPORT_IMPORT_ALLOWED = 1, // Exporting or importing Secure Memory Blobs is allowed, regardless of the G1_READ and G1_WRITE settings.
   };
+  
   enum class eG2_READ : uint32_t {
     eG2_READ_PROHIB = 0, // Instruction fetches and reads are prohibited (except that Trusted Descriptor reads (if G2_TDO=1) and key-reads are always allowed, and exporting Secure Memory Blobs is allowed if G2_SMBLOB=1 or if done by a Trusted Descriptor and G2_TDO=1).
     eG2_READ_ALLOWED = 1, // Instruction fetches and reads are allowed (but exporting a Secure Memory Blob is prohibited if G2_SMBLOB=0 and the descriptor is not a Trusted Descriptor or if G2_TDO=0).
   };
+  
   enum class eG2_WRITE : uint32_t {
     eG2_WRITE_PROHIB = 0, // Writes are prohibited (except that Trusted Descriptor writes are allowed, and importing Secure Memory Blobs is allowed if G2_SMBLOB=1 or if done by a Trusted Descriptor and G2_TDO=1).
     eG2_WRITE_ALLOWED = 1, // Writes are allowed (but importing a Secure Memory Blob is prohibited if G2_SMBLOB=0 and the descriptor is not a Trusted Descriptor or if G2_TDO=0).
   };
+  
   enum class eG2_TDO : uint32_t {
     eG2_TD_PRIVILEGE_AS_JD = 0, // Trusted Descriptors have the same access privileges as Job Descriptors
     eG2_TD_OVERIDE_ALLOWED = 1, // Trusted Descriptors are allowed to override the other access permissions, i.e. they can export blobs from or import blobs to the partition and read from and write to the partition regardless of the G2_SMBLOB, G2_WRITE and G2_READ settings.
   };
+  
   enum class eG2_SMBLOB : uint32_t {
     eG2_SM_BLOB_EXPORT_IMPORT_PROHIB = 0, // Exporting or importing Secure Memory Blobs is prohibited, unless done via a Trusted Descriptor and G2_TDO=1.
     eG2_SM_BLOB_EXPORT_IMPORT_ALLOWED = 1, // Exporting or importing Secure Memory Blobs is allowed, regardless of the G2_READ and G2_WRITE settings.
   };
+  
   enum class eSMAG_LCK : uint32_t {
     eSMAG_UNLOCKED = 0, // The SMAG2JR register and SMAG1JR register are unlocked. The partition owner can change any writable bits of these registers.
     eSMAG_LOCKED = 1, // The SMAG2JR register and SMAG1JR register are locked. The SMAG2JR and SMAG1JR registers cannot be changed until the partition is de-allocated or a POR occurs.
   };
+  
   enum class eSMAP_LCK : uint32_t {
     eSMAP_UNLOCKED = 0, // The SMAP register is unlocked. The partition owner can change any writable bits of the SMAP register.
     eSMAP_LOCKED = 1, // The SMAP register is locked. The SMAP_LCK, CSP and PSP bits and G1 and G2 permission bits of the SMAP register cannot be changed until the partition is de-allocated or a POR occurs. The PARTITION_KMOD value can still be changed. The SMAG_LCK bit can be changed to a 1, but cannot be changed to a 0.
   };
+  
   enum class ePSP : uint32_t {
     eNOT_DEALLOCATABLE = 0, // The partition and any of the pages allocated to the partition can be de-allocated.
     eDEALLOCATABLE = 1, // The partition cannot be de-allocated and the pages allocated to the partition cannot be de-allocated.
   };
+  
   enum class eCSP : uint32_t {
     eNOT_ZEROIZED = 0, // The pages allocated to the partition will not be zeroized when they are de-allocated or the partition is released or a security alarm occurs.
     eZEROIZED = 1, // The pages allocated to the partition will be zeroized when they are individually de-allocated or the partition is released or a security alarm occurs.
@@ -13991,7 +13539,7 @@ union P1SMAPR_JR1 {
     ePSP PSP : 1;
     eCSP CSP : 1;
     uint32_t PARTITION_KMOD : 16;
-  } bits;          // Bit-field struct (auto-filling reserved gaps)
+  } bits;
   
   // Full 32-bit register value.
   uint32_t value;
@@ -14005,8 +13553,6 @@ union P1SMAPR_JR1 {
 //
 union P1SMAG2_JR1 {
   
-  // Enum definitions.
-  
   // Bit field definition.
   struct {
     uint32_t Gx_ID00 : 1;
@@ -14041,7 +13587,7 @@ union P1SMAG2_JR1 {
     uint32_t Gx_ID29 : 1;
     uint32_t Gx_ID30 : 1;
     uint32_t Gx_ID31 : 1;
-  } bits;          // Bit-field struct (auto-filling reserved gaps)
+  } bits;
   
   // Full 32-bit register value.
   uint32_t value;
@@ -14055,8 +13601,6 @@ union P1SMAG2_JR1 {
 //
 union P1SMAG1_JR1 {
   
-  // Enum definitions.
-  
   // Bit field definition.
   struct {
     uint32_t Gx_ID00 : 1;
@@ -14091,7 +13635,7 @@ union P1SMAG1_JR1 {
     uint32_t Gx_ID29 : 1;
     uint32_t Gx_ID30 : 1;
     uint32_t Gx_ID31 : 1;
-  } bits;          // Bit-field struct (auto-filling reserved gaps)
+  } bits;
   
   // Full 32-bit register value.
   uint32_t value;
@@ -14105,13 +13649,11 @@ union P1SMAG1_JR1 {
 //
 union P2SDID_JR1 {
   
-  // Enum definitions.
-  
   // Bit field definition.
   struct {
     uint32_t SDID : 16;
     uint32_t _reserved_end : 16;
-  } bits;          // Bit-field struct (auto-filling reserved gaps)
+  } bits;
   
   // Full 32-bit register value.
   uint32_t value;
@@ -14125,51 +13667,61 @@ union P2SDID_JR1 {
 //
 union P2SMAPR_JR1 {
   
-  // Enum definitions.
   enum class eG1_READ : uint32_t {
     eG1_READ_PROHIB = 0, // Instruction fetches and reads are prohibited (except that Trusted Descriptor reads (if G1_TDO=1) and key-reads are always allowed, and exporting Secure Memory Blobs is allowed if G1_SMBLOB=1 or if done by a Trusted Descriptor and G1_TDO=1).
     eG1_READ_ALLOWED = 1, // Instruction fetches and reads are allowed (but exporting a Secure Memory Blob is prohibited if G1_SMBLOB=0 and the descriptor is not a Trusted Descriptor or if G1_TDO=0).
   };
+  
   enum class eG1_WRITE : uint32_t {
     eG1_WRITE_PROHIB = 0, // Writes are prohibited (except that Trusted Descriptor writes are allowed, and importing Secure Memory Blobs is allowed if G1_SMBLOB=1 or if done by a Trusted Descriptor and G1_TDO=1).
     eG1_WRITE_ALLOWED = 1, // Writes are allowed (but importing a Secure Memory Blob is prohibited if G1_SMBLOB=0 and the descriptor is not a Trusted Descriptor or if G1_TDO=0).
   };
+  
   enum class eG1_TDO : uint32_t {
     eG1_TD_PRIVILEGE_AS_JD = 0, // Trusted Descriptors have the same access privileges as Job Descriptors
     eG1_TD_OVERIDE_ALLOWED = 1, // Trusted Descriptors are allowed to override the other access permissions, i.e. they can export blobs from or import blobs to the partition and read from and write to the partition regardless of the G1_SMBLOB, G1_WRITE and G1_READ settings.
   };
+  
   enum class eG1_SMBLOB : uint32_t {
     eG1_SM_BLOB_EXPORT_IMPORT_PROHIB = 0, // Exporting or importing Secure Memory Blobs is prohibited, unless done via a Trusted Descriptor and G1_TDO=1.
     eG1_SM_B_EXPORT_IMPORT_ALLOWED = 1, // Exporting or importing Secure Memory Blobs is allowed, regardless of the G1_READ and G1_WRITE settings.
   };
+  
   enum class eG2_READ : uint32_t {
     eG2_READ_PROHIB = 0, // Instruction fetches and reads are prohibited (except that Trusted Descriptor reads (if G2_TDO=1) and key-reads are always allowed, and exporting Secure Memory Blobs is allowed if G2_SMBLOB=1 or if done by a Trusted Descriptor and G2_TDO=1).
     eG2_READ_ALLOWED = 1, // Instruction fetches and reads are allowed (but exporting a Secure Memory Blob is prohibited if G2_SMBLOB=0 and the descriptor is not a Trusted Descriptor or if G2_TDO=0).
   };
+  
   enum class eG2_WRITE : uint32_t {
     eG2_WRITE_PROHIB = 0, // Writes are prohibited (except that Trusted Descriptor writes are allowed, and importing Secure Memory Blobs is allowed if G2_SMBLOB=1 or if done by a Trusted Descriptor and G2_TDO=1).
     eG2_WRITE_ALLOWED = 1, // Writes are allowed (but importing a Secure Memory Blob is prohibited if G2_SMBLOB=0 and the descriptor is not a Trusted Descriptor or if G2_TDO=0).
   };
+  
   enum class eG2_TDO : uint32_t {
     eG2_TD_PRIVILEGE_AS_JD = 0, // Trusted Descriptors have the same access privileges as Job Descriptors
     eG2_TD_OVERIDE_ALLOWED = 1, // Trusted Descriptors are allowed to override the other access permissions, i.e. they can export blobs from or import blobs to the partition and read from and write to the partition regardless of the G2_SMBLOB, G2_WRITE and G2_READ settings.
   };
+  
   enum class eG2_SMBLOB : uint32_t {
     eG2_SM_BLOB_EXPORT_IMPORT_PROHIB = 0, // Exporting or importing Secure Memory Blobs is prohibited, unless done via a Trusted Descriptor and G2_TDO=1.
     eG2_SM_BLOB_EXPORT_IMPORT_ALLOWED = 1, // Exporting or importing Secure Memory Blobs is allowed, regardless of the G2_READ and G2_WRITE settings.
   };
+  
   enum class eSMAG_LCK : uint32_t {
     eSMAG_UNLOCKED = 0, // The SMAG2JR register and SMAG1JR register are unlocked. The partition owner can change any writable bits of these registers.
     eSMAG_LOCKED = 1, // The SMAG2JR register and SMAG1JR register are locked. The SMAG2JR and SMAG1JR registers cannot be changed until the partition is de-allocated or a POR occurs.
   };
+  
   enum class eSMAP_LCK : uint32_t {
     eSMAP_UNLOCKED = 0, // The SMAP register is unlocked. The partition owner can change any writable bits of the SMAP register.
     eSMAP_LOCKED = 1, // The SMAP register is locked. The SMAP_LCK, CSP and PSP bits and G1 and G2 permission bits of the SMAP register cannot be changed until the partition is de-allocated or a POR occurs. The PARTITION_KMOD value can still be changed. The SMAG_LCK bit can be changed to a 1, but cannot be changed to a 0.
   };
+  
   enum class ePSP : uint32_t {
     eNOT_DEALLOCATABLE = 0, // The partition and any of the pages allocated to the partition can be de-allocated.
     eDEALLOCATABLE = 1, // The partition cannot be de-allocated and the pages allocated to the partition cannot be de-allocated.
   };
+  
   enum class eCSP : uint32_t {
     eNOT_ZEROIZED = 0, // The pages allocated to the partition will not be zeroized when they are de-allocated or the partition is released or a security alarm occurs.
     eZEROIZED = 1, // The pages allocated to the partition will be zeroized when they are individually de-allocated or the partition is released or a security alarm occurs.
@@ -14191,7 +13743,7 @@ union P2SMAPR_JR1 {
     ePSP PSP : 1;
     eCSP CSP : 1;
     uint32_t PARTITION_KMOD : 16;
-  } bits;          // Bit-field struct (auto-filling reserved gaps)
+  } bits;
   
   // Full 32-bit register value.
   uint32_t value;
@@ -14205,8 +13757,6 @@ union P2SMAPR_JR1 {
 //
 union P2SMAG2_JR1 {
   
-  // Enum definitions.
-  
   // Bit field definition.
   struct {
     uint32_t Gx_ID00 : 1;
@@ -14241,7 +13791,7 @@ union P2SMAG2_JR1 {
     uint32_t Gx_ID29 : 1;
     uint32_t Gx_ID30 : 1;
     uint32_t Gx_ID31 : 1;
-  } bits;          // Bit-field struct (auto-filling reserved gaps)
+  } bits;
   
   // Full 32-bit register value.
   uint32_t value;
@@ -14255,8 +13805,6 @@ union P2SMAG2_JR1 {
 //
 union P2SMAG1_JR1 {
   
-  // Enum definitions.
-  
   // Bit field definition.
   struct {
     uint32_t Gx_ID00 : 1;
@@ -14291,7 +13839,7 @@ union P2SMAG1_JR1 {
     uint32_t Gx_ID29 : 1;
     uint32_t Gx_ID30 : 1;
     uint32_t Gx_ID31 : 1;
-  } bits;          // Bit-field struct (auto-filling reserved gaps)
+  } bits;
   
   // Full 32-bit register value.
   uint32_t value;
@@ -14305,13 +13853,11 @@ union P2SMAG1_JR1 {
 //
 union P3SDID_JR1 {
   
-  // Enum definitions.
-  
   // Bit field definition.
   struct {
     uint32_t SDID : 16;
     uint32_t _reserved_end : 16;
-  } bits;          // Bit-field struct (auto-filling reserved gaps)
+  } bits;
   
   // Full 32-bit register value.
   uint32_t value;
@@ -14325,51 +13871,61 @@ union P3SDID_JR1 {
 //
 union P3SMAPR_JR1 {
   
-  // Enum definitions.
   enum class eG1_READ : uint32_t {
     eG1_READ_PROHIB = 0, // Instruction fetches and reads are prohibited (except that Trusted Descriptor reads (if G1_TDO=1) and key-reads are always allowed, and exporting Secure Memory Blobs is allowed if G1_SMBLOB=1 or if done by a Trusted Descriptor and G1_TDO=1).
     eG1_READ_ALLOWED = 1, // Instruction fetches and reads are allowed (but exporting a Secure Memory Blob is prohibited if G1_SMBLOB=0 and the descriptor is not a Trusted Descriptor or if G1_TDO=0).
   };
+  
   enum class eG1_WRITE : uint32_t {
     eG1_WRITE_PROHIB = 0, // Writes are prohibited (except that Trusted Descriptor writes are allowed, and importing Secure Memory Blobs is allowed if G1_SMBLOB=1 or if done by a Trusted Descriptor and G1_TDO=1).
     eG1_WRITE_ALLOWED = 1, // Writes are allowed (but importing a Secure Memory Blob is prohibited if G1_SMBLOB=0 and the descriptor is not a Trusted Descriptor or if G1_TDO=0).
   };
+  
   enum class eG1_TDO : uint32_t {
     eG1_TD_PRIVILEGE_AS_JD = 0, // Trusted Descriptors have the same access privileges as Job Descriptors
     eG1_TD_OVERIDE_ALLOWED = 1, // Trusted Descriptors are allowed to override the other access permissions, i.e. they can export blobs from or import blobs to the partition and read from and write to the partition regardless of the G1_SMBLOB, G1_WRITE and G1_READ settings.
   };
+  
   enum class eG1_SMBLOB : uint32_t {
     eG1_SM_BLOB_EXPORT_IMPORT_PROHIB = 0, // Exporting or importing Secure Memory Blobs is prohibited, unless done via a Trusted Descriptor and G1_TDO=1.
     eG1_SM_B_EXPORT_IMPORT_ALLOWED = 1, // Exporting or importing Secure Memory Blobs is allowed, regardless of the G1_READ and G1_WRITE settings.
   };
+  
   enum class eG2_READ : uint32_t {
     eG2_READ_PROHIB = 0, // Instruction fetches and reads are prohibited (except that Trusted Descriptor reads (if G2_TDO=1) and key-reads are always allowed, and exporting Secure Memory Blobs is allowed if G2_SMBLOB=1 or if done by a Trusted Descriptor and G2_TDO=1).
     eG2_READ_ALLOWED = 1, // Instruction fetches and reads are allowed (but exporting a Secure Memory Blob is prohibited if G2_SMBLOB=0 and the descriptor is not a Trusted Descriptor or if G2_TDO=0).
   };
+  
   enum class eG2_WRITE : uint32_t {
     eG2_WRITE_PROHIB = 0, // Writes are prohibited (except that Trusted Descriptor writes are allowed, and importing Secure Memory Blobs is allowed if G2_SMBLOB=1 or if done by a Trusted Descriptor and G2_TDO=1).
     eG2_WRITE_ALLOWED = 1, // Writes are allowed (but importing a Secure Memory Blob is prohibited if G2_SMBLOB=0 and the descriptor is not a Trusted Descriptor or if G2_TDO=0).
   };
+  
   enum class eG2_TDO : uint32_t {
     eG2_TD_PRIVILEGE_AS_JD = 0, // Trusted Descriptors have the same access privileges as Job Descriptors
     eG2_TD_OVERIDE_ALLOWED = 1, // Trusted Descriptors are allowed to override the other access permissions, i.e. they can export blobs from or import blobs to the partition and read from and write to the partition regardless of the G2_SMBLOB, G2_WRITE and G2_READ settings.
   };
+  
   enum class eG2_SMBLOB : uint32_t {
     eG2_SM_BLOB_EXPORT_IMPORT_PROHIB = 0, // Exporting or importing Secure Memory Blobs is prohibited, unless done via a Trusted Descriptor and G2_TDO=1.
     eG2_SM_BLOB_EXPORT_IMPORT_ALLOWED = 1, // Exporting or importing Secure Memory Blobs is allowed, regardless of the G2_READ and G2_WRITE settings.
   };
+  
   enum class eSMAG_LCK : uint32_t {
     eSMAG_UNLOCKED = 0, // The SMAG2JR register and SMAG1JR register are unlocked. The partition owner can change any writable bits of these registers.
     eSMAG_LOCKED = 1, // The SMAG2JR register and SMAG1JR register are locked. The SMAG2JR and SMAG1JR registers cannot be changed until the partition is de-allocated or a POR occurs.
   };
+  
   enum class eSMAP_LCK : uint32_t {
     eSMAP_UNLOCKED = 0, // The SMAP register is unlocked. The partition owner can change any writable bits of the SMAP register.
     eSMAP_LOCKED = 1, // The SMAP register is locked. The SMAP_LCK, CSP and PSP bits and G1 and G2 permission bits of the SMAP register cannot be changed until the partition is de-allocated or a POR occurs. The PARTITION_KMOD value can still be changed. The SMAG_LCK bit can be changed to a 1, but cannot be changed to a 0.
   };
+  
   enum class ePSP : uint32_t {
     eNOT_DEALLOCATABLE = 0, // The partition and any of the pages allocated to the partition can be de-allocated.
     eDEALLOCATABLE = 1, // The partition cannot be de-allocated and the pages allocated to the partition cannot be de-allocated.
   };
+  
   enum class eCSP : uint32_t {
     eNOT_ZEROIZED = 0, // The pages allocated to the partition will not be zeroized when they are de-allocated or the partition is released or a security alarm occurs.
     eZEROIZED = 1, // The pages allocated to the partition will be zeroized when they are individually de-allocated or the partition is released or a security alarm occurs.
@@ -14391,7 +13947,7 @@ union P3SMAPR_JR1 {
     ePSP PSP : 1;
     eCSP CSP : 1;
     uint32_t PARTITION_KMOD : 16;
-  } bits;          // Bit-field struct (auto-filling reserved gaps)
+  } bits;
   
   // Full 32-bit register value.
   uint32_t value;
@@ -14405,8 +13961,6 @@ union P3SMAPR_JR1 {
 //
 union P3SMAG2_JR1 {
   
-  // Enum definitions.
-  
   // Bit field definition.
   struct {
     uint32_t Gx_ID00 : 1;
@@ -14441,7 +13995,7 @@ union P3SMAG2_JR1 {
     uint32_t Gx_ID29 : 1;
     uint32_t Gx_ID30 : 1;
     uint32_t Gx_ID31 : 1;
-  } bits;          // Bit-field struct (auto-filling reserved gaps)
+  } bits;
   
   // Full 32-bit register value.
   uint32_t value;
@@ -14455,8 +14009,6 @@ union P3SMAG2_JR1 {
 //
 union P3SMAG1_JR1 {
   
-  // Enum definitions.
-  
   // Bit field definition.
   struct {
     uint32_t Gx_ID00 : 1;
@@ -14491,7 +14043,7 @@ union P3SMAG1_JR1 {
     uint32_t Gx_ID29 : 1;
     uint32_t Gx_ID30 : 1;
     uint32_t Gx_ID31 : 1;
-  } bits;          // Bit-field struct (auto-filling reserved gaps)
+  } bits;
   
   // Full 32-bit register value.
   uint32_t value;
@@ -14505,13 +14057,11 @@ union P3SMAG1_JR1 {
 //
 union P4SDID_JR1 {
   
-  // Enum definitions.
-  
   // Bit field definition.
   struct {
     uint32_t SDID : 16;
     uint32_t _reserved_end : 16;
-  } bits;          // Bit-field struct (auto-filling reserved gaps)
+  } bits;
   
   // Full 32-bit register value.
   uint32_t value;
@@ -14525,51 +14075,61 @@ union P4SDID_JR1 {
 //
 union P4SMAPR_JR1 {
   
-  // Enum definitions.
   enum class eG1_READ : uint32_t {
     eG1_READ_PROHIB = 0, // Instruction fetches and reads are prohibited (except that Trusted Descriptor reads (if G1_TDO=1) and key-reads are always allowed, and exporting Secure Memory Blobs is allowed if G1_SMBLOB=1 or if done by a Trusted Descriptor and G1_TDO=1).
     eG1_READ_ALLOWED = 1, // Instruction fetches and reads are allowed (but exporting a Secure Memory Blob is prohibited if G1_SMBLOB=0 and the descriptor is not a Trusted Descriptor or if G1_TDO=0).
   };
+  
   enum class eG1_WRITE : uint32_t {
     eG1_WRITE_PROHIB = 0, // Writes are prohibited (except that Trusted Descriptor writes are allowed, and importing Secure Memory Blobs is allowed if G1_SMBLOB=1 or if done by a Trusted Descriptor and G1_TDO=1).
     eG1_WRITE_ALLOWED = 1, // Writes are allowed (but importing a Secure Memory Blob is prohibited if G1_SMBLOB=0 and the descriptor is not a Trusted Descriptor or if G1_TDO=0).
   };
+  
   enum class eG1_TDO : uint32_t {
     eG1_TD_PRIVILEGE_AS_JD = 0, // Trusted Descriptors have the same access privileges as Job Descriptors
     eG1_TD_OVERIDE_ALLOWED = 1, // Trusted Descriptors are allowed to override the other access permissions, i.e. they can export blobs from or import blobs to the partition and read from and write to the partition regardless of the G1_SMBLOB, G1_WRITE and G1_READ settings.
   };
+  
   enum class eG1_SMBLOB : uint32_t {
     eG1_SM_BLOB_EXPORT_IMPORT_PROHIB = 0, // Exporting or importing Secure Memory Blobs is prohibited, unless done via a Trusted Descriptor and G1_TDO=1.
     eG1_SM_B_EXPORT_IMPORT_ALLOWED = 1, // Exporting or importing Secure Memory Blobs is allowed, regardless of the G1_READ and G1_WRITE settings.
   };
+  
   enum class eG2_READ : uint32_t {
     eG2_READ_PROHIB = 0, // Instruction fetches and reads are prohibited (except that Trusted Descriptor reads (if G2_TDO=1) and key-reads are always allowed, and exporting Secure Memory Blobs is allowed if G2_SMBLOB=1 or if done by a Trusted Descriptor and G2_TDO=1).
     eG2_READ_ALLOWED = 1, // Instruction fetches and reads are allowed (but exporting a Secure Memory Blob is prohibited if G2_SMBLOB=0 and the descriptor is not a Trusted Descriptor or if G2_TDO=0).
   };
+  
   enum class eG2_WRITE : uint32_t {
     eG2_WRITE_PROHIB = 0, // Writes are prohibited (except that Trusted Descriptor writes are allowed, and importing Secure Memory Blobs is allowed if G2_SMBLOB=1 or if done by a Trusted Descriptor and G2_TDO=1).
     eG2_WRITE_ALLOWED = 1, // Writes are allowed (but importing a Secure Memory Blob is prohibited if G2_SMBLOB=0 and the descriptor is not a Trusted Descriptor or if G2_TDO=0).
   };
+  
   enum class eG2_TDO : uint32_t {
     eG2_TD_PRIVILEGE_AS_JD = 0, // Trusted Descriptors have the same access privileges as Job Descriptors
     eG2_TD_OVERIDE_ALLOWED = 1, // Trusted Descriptors are allowed to override the other access permissions, i.e. they can export blobs from or import blobs to the partition and read from and write to the partition regardless of the G2_SMBLOB, G2_WRITE and G2_READ settings.
   };
+  
   enum class eG2_SMBLOB : uint32_t {
     eG2_SM_BLOB_EXPORT_IMPORT_PROHIB = 0, // Exporting or importing Secure Memory Blobs is prohibited, unless done via a Trusted Descriptor and G2_TDO=1.
     eG2_SM_BLOB_EXPORT_IMPORT_ALLOWED = 1, // Exporting or importing Secure Memory Blobs is allowed, regardless of the G2_READ and G2_WRITE settings.
   };
+  
   enum class eSMAG_LCK : uint32_t {
     eSMAG_UNLOCKED = 0, // The SMAG2JR register and SMAG1JR register are unlocked. The partition owner can change any writable bits of these registers.
     eSMAG_LOCKED = 1, // The SMAG2JR register and SMAG1JR register are locked. The SMAG2JR and SMAG1JR registers cannot be changed until the partition is de-allocated or a POR occurs.
   };
+  
   enum class eSMAP_LCK : uint32_t {
     eSMAP_UNLOCKED = 0, // The SMAP register is unlocked. The partition owner can change any writable bits of the SMAP register.
     eSMAP_LOCKED = 1, // The SMAP register is locked. The SMAP_LCK, CSP and PSP bits and G1 and G2 permission bits of the SMAP register cannot be changed until the partition is de-allocated or a POR occurs. The PARTITION_KMOD value can still be changed. The SMAG_LCK bit can be changed to a 1, but cannot be changed to a 0.
   };
+  
   enum class ePSP : uint32_t {
     eNOT_DEALLOCATABLE = 0, // The partition and any of the pages allocated to the partition can be de-allocated.
     eDEALLOCATABLE = 1, // The partition cannot be de-allocated and the pages allocated to the partition cannot be de-allocated.
   };
+  
   enum class eCSP : uint32_t {
     eNOT_ZEROIZED = 0, // The pages allocated to the partition will not be zeroized when they are de-allocated or the partition is released or a security alarm occurs.
     eZEROIZED = 1, // The pages allocated to the partition will be zeroized when they are individually de-allocated or the partition is released or a security alarm occurs.
@@ -14591,7 +14151,7 @@ union P4SMAPR_JR1 {
     ePSP PSP : 1;
     eCSP CSP : 1;
     uint32_t PARTITION_KMOD : 16;
-  } bits;          // Bit-field struct (auto-filling reserved gaps)
+  } bits;
   
   // Full 32-bit register value.
   uint32_t value;
@@ -14605,8 +14165,6 @@ union P4SMAPR_JR1 {
 //
 union P4SMAG2_JR1 {
   
-  // Enum definitions.
-  
   // Bit field definition.
   struct {
     uint32_t Gx_ID00 : 1;
@@ -14641,7 +14199,7 @@ union P4SMAG2_JR1 {
     uint32_t Gx_ID29 : 1;
     uint32_t Gx_ID30 : 1;
     uint32_t Gx_ID31 : 1;
-  } bits;          // Bit-field struct (auto-filling reserved gaps)
+  } bits;
   
   // Full 32-bit register value.
   uint32_t value;
@@ -14655,8 +14213,6 @@ union P4SMAG2_JR1 {
 //
 union P4SMAG1_JR1 {
   
-  // Enum definitions.
-  
   // Bit field definition.
   struct {
     uint32_t Gx_ID00 : 1;
@@ -14691,7 +14247,7 @@ union P4SMAG1_JR1 {
     uint32_t Gx_ID29 : 1;
     uint32_t Gx_ID30 : 1;
     uint32_t Gx_ID31 : 1;
-  } bits;          // Bit-field struct (auto-filling reserved gaps)
+  } bits;
   
   // Full 32-bit register value.
   uint32_t value;
@@ -14705,13 +14261,11 @@ union P4SMAG1_JR1 {
 //
 union P5SDID_JR1 {
   
-  // Enum definitions.
-  
   // Bit field definition.
   struct {
     uint32_t SDID : 16;
     uint32_t _reserved_end : 16;
-  } bits;          // Bit-field struct (auto-filling reserved gaps)
+  } bits;
   
   // Full 32-bit register value.
   uint32_t value;
@@ -14725,51 +14279,61 @@ union P5SDID_JR1 {
 //
 union P5SMAPR_JR1 {
   
-  // Enum definitions.
   enum class eG1_READ : uint32_t {
     eG1_READ_PROHIB = 0, // Instruction fetches and reads are prohibited (except that Trusted Descriptor reads (if G1_TDO=1) and key-reads are always allowed, and exporting Secure Memory Blobs is allowed if G1_SMBLOB=1 or if done by a Trusted Descriptor and G1_TDO=1).
     eG1_READ_ALLOWED = 1, // Instruction fetches and reads are allowed (but exporting a Secure Memory Blob is prohibited if G1_SMBLOB=0 and the descriptor is not a Trusted Descriptor or if G1_TDO=0).
   };
+  
   enum class eG1_WRITE : uint32_t {
     eG1_WRITE_PROHIB = 0, // Writes are prohibited (except that Trusted Descriptor writes are allowed, and importing Secure Memory Blobs is allowed if G1_SMBLOB=1 or if done by a Trusted Descriptor and G1_TDO=1).
     eG1_WRITE_ALLOWED = 1, // Writes are allowed (but importing a Secure Memory Blob is prohibited if G1_SMBLOB=0 and the descriptor is not a Trusted Descriptor or if G1_TDO=0).
   };
+  
   enum class eG1_TDO : uint32_t {
     eG1_TD_PRIVILEGE_AS_JD = 0, // Trusted Descriptors have the same access privileges as Job Descriptors
     eG1_TD_OVERIDE_ALLOWED = 1, // Trusted Descriptors are allowed to override the other access permissions, i.e. they can export blobs from or import blobs to the partition and read from and write to the partition regardless of the G1_SMBLOB, G1_WRITE and G1_READ settings.
   };
+  
   enum class eG1_SMBLOB : uint32_t {
     eG1_SM_BLOB_EXPORT_IMPORT_PROHIB = 0, // Exporting or importing Secure Memory Blobs is prohibited, unless done via a Trusted Descriptor and G1_TDO=1.
     eG1_SM_B_EXPORT_IMPORT_ALLOWED = 1, // Exporting or importing Secure Memory Blobs is allowed, regardless of the G1_READ and G1_WRITE settings.
   };
+  
   enum class eG2_READ : uint32_t {
     eG2_READ_PROHIB = 0, // Instruction fetches and reads are prohibited (except that Trusted Descriptor reads (if G2_TDO=1) and key-reads are always allowed, and exporting Secure Memory Blobs is allowed if G2_SMBLOB=1 or if done by a Trusted Descriptor and G2_TDO=1).
     eG2_READ_ALLOWED = 1, // Instruction fetches and reads are allowed (but exporting a Secure Memory Blob is prohibited if G2_SMBLOB=0 and the descriptor is not a Trusted Descriptor or if G2_TDO=0).
   };
+  
   enum class eG2_WRITE : uint32_t {
     eG2_WRITE_PROHIB = 0, // Writes are prohibited (except that Trusted Descriptor writes are allowed, and importing Secure Memory Blobs is allowed if G2_SMBLOB=1 or if done by a Trusted Descriptor and G2_TDO=1).
     eG2_WRITE_ALLOWED = 1, // Writes are allowed (but importing a Secure Memory Blob is prohibited if G2_SMBLOB=0 and the descriptor is not a Trusted Descriptor or if G2_TDO=0).
   };
+  
   enum class eG2_TDO : uint32_t {
     eG2_TD_PRIVILEGE_AS_JD = 0, // Trusted Descriptors have the same access privileges as Job Descriptors
     eG2_TD_OVERIDE_ALLOWED = 1, // Trusted Descriptors are allowed to override the other access permissions, i.e. they can export blobs from or import blobs to the partition and read from and write to the partition regardless of the G2_SMBLOB, G2_WRITE and G2_READ settings.
   };
+  
   enum class eG2_SMBLOB : uint32_t {
     eG2_SM_BLOB_EXPORT_IMPORT_PROHIB = 0, // Exporting or importing Secure Memory Blobs is prohibited, unless done via a Trusted Descriptor and G2_TDO=1.
     eG2_SM_BLOB_EXPORT_IMPORT_ALLOWED = 1, // Exporting or importing Secure Memory Blobs is allowed, regardless of the G2_READ and G2_WRITE settings.
   };
+  
   enum class eSMAG_LCK : uint32_t {
     eSMAG_UNLOCKED = 0, // The SMAG2JR register and SMAG1JR register are unlocked. The partition owner can change any writable bits of these registers.
     eSMAG_LOCKED = 1, // The SMAG2JR register and SMAG1JR register are locked. The SMAG2JR and SMAG1JR registers cannot be changed until the partition is de-allocated or a POR occurs.
   };
+  
   enum class eSMAP_LCK : uint32_t {
     eSMAP_UNLOCKED = 0, // The SMAP register is unlocked. The partition owner can change any writable bits of the SMAP register.
     eSMAP_LOCKED = 1, // The SMAP register is locked. The SMAP_LCK, CSP and PSP bits and G1 and G2 permission bits of the SMAP register cannot be changed until the partition is de-allocated or a POR occurs. The PARTITION_KMOD value can still be changed. The SMAG_LCK bit can be changed to a 1, but cannot be changed to a 0.
   };
+  
   enum class ePSP : uint32_t {
     eNOT_DEALLOCATABLE = 0, // The partition and any of the pages allocated to the partition can be de-allocated.
     eDEALLOCATABLE = 1, // The partition cannot be de-allocated and the pages allocated to the partition cannot be de-allocated.
   };
+  
   enum class eCSP : uint32_t {
     eNOT_ZEROIZED = 0, // The pages allocated to the partition will not be zeroized when they are de-allocated or the partition is released or a security alarm occurs.
     eZEROIZED = 1, // The pages allocated to the partition will be zeroized when they are individually de-allocated or the partition is released or a security alarm occurs.
@@ -14791,7 +14355,7 @@ union P5SMAPR_JR1 {
     ePSP PSP : 1;
     eCSP CSP : 1;
     uint32_t PARTITION_KMOD : 16;
-  } bits;          // Bit-field struct (auto-filling reserved gaps)
+  } bits;
   
   // Full 32-bit register value.
   uint32_t value;
@@ -14805,8 +14369,6 @@ union P5SMAPR_JR1 {
 //
 union P5SMAG2_JR1 {
   
-  // Enum definitions.
-  
   // Bit field definition.
   struct {
     uint32_t Gx_ID00 : 1;
@@ -14841,7 +14403,7 @@ union P5SMAG2_JR1 {
     uint32_t Gx_ID29 : 1;
     uint32_t Gx_ID30 : 1;
     uint32_t Gx_ID31 : 1;
-  } bits;          // Bit-field struct (auto-filling reserved gaps)
+  } bits;
   
   // Full 32-bit register value.
   uint32_t value;
@@ -14855,8 +14417,6 @@ union P5SMAG2_JR1 {
 //
 union P5SMAG1_JR1 {
   
-  // Enum definitions.
-  
   // Bit field definition.
   struct {
     uint32_t Gx_ID00 : 1;
@@ -14891,7 +14451,7 @@ union P5SMAG1_JR1 {
     uint32_t Gx_ID29 : 1;
     uint32_t Gx_ID30 : 1;
     uint32_t Gx_ID31 : 1;
-  } bits;          // Bit-field struct (auto-filling reserved gaps)
+  } bits;
   
   // Full 32-bit register value.
   uint32_t value;
@@ -14905,13 +14465,11 @@ union P5SMAG1_JR1 {
 //
 union P6SDID_JR1 {
   
-  // Enum definitions.
-  
   // Bit field definition.
   struct {
     uint32_t SDID : 16;
     uint32_t _reserved_end : 16;
-  } bits;          // Bit-field struct (auto-filling reserved gaps)
+  } bits;
   
   // Full 32-bit register value.
   uint32_t value;
@@ -14925,51 +14483,61 @@ union P6SDID_JR1 {
 //
 union P6SMAPR_JR1 {
   
-  // Enum definitions.
   enum class eG1_READ : uint32_t {
     eG1_READ_PROHIB = 0, // Instruction fetches and reads are prohibited (except that Trusted Descriptor reads (if G1_TDO=1) and key-reads are always allowed, and exporting Secure Memory Blobs is allowed if G1_SMBLOB=1 or if done by a Trusted Descriptor and G1_TDO=1).
     eG1_READ_ALLOWED = 1, // Instruction fetches and reads are allowed (but exporting a Secure Memory Blob is prohibited if G1_SMBLOB=0 and the descriptor is not a Trusted Descriptor or if G1_TDO=0).
   };
+  
   enum class eG1_WRITE : uint32_t {
     eG1_WRITE_PROHIB = 0, // Writes are prohibited (except that Trusted Descriptor writes are allowed, and importing Secure Memory Blobs is allowed if G1_SMBLOB=1 or if done by a Trusted Descriptor and G1_TDO=1).
     eG1_WRITE_ALLOWED = 1, // Writes are allowed (but importing a Secure Memory Blob is prohibited if G1_SMBLOB=0 and the descriptor is not a Trusted Descriptor or if G1_TDO=0).
   };
+  
   enum class eG1_TDO : uint32_t {
     eG1_TD_PRIVILEGE_AS_JD = 0, // Trusted Descriptors have the same access privileges as Job Descriptors
     eG1_TD_OVERIDE_ALLOWED = 1, // Trusted Descriptors are allowed to override the other access permissions, i.e. they can export blobs from or import blobs to the partition and read from and write to the partition regardless of the G1_SMBLOB, G1_WRITE and G1_READ settings.
   };
+  
   enum class eG1_SMBLOB : uint32_t {
     eG1_SM_BLOB_EXPORT_IMPORT_PROHIB = 0, // Exporting or importing Secure Memory Blobs is prohibited, unless done via a Trusted Descriptor and G1_TDO=1.
     eG1_SM_B_EXPORT_IMPORT_ALLOWED = 1, // Exporting or importing Secure Memory Blobs is allowed, regardless of the G1_READ and G1_WRITE settings.
   };
+  
   enum class eG2_READ : uint32_t {
     eG2_READ_PROHIB = 0, // Instruction fetches and reads are prohibited (except that Trusted Descriptor reads (if G2_TDO=1) and key-reads are always allowed, and exporting Secure Memory Blobs is allowed if G2_SMBLOB=1 or if done by a Trusted Descriptor and G2_TDO=1).
     eG2_READ_ALLOWED = 1, // Instruction fetches and reads are allowed (but exporting a Secure Memory Blob is prohibited if G2_SMBLOB=0 and the descriptor is not a Trusted Descriptor or if G2_TDO=0).
   };
+  
   enum class eG2_WRITE : uint32_t {
     eG2_WRITE_PROHIB = 0, // Writes are prohibited (except that Trusted Descriptor writes are allowed, and importing Secure Memory Blobs is allowed if G2_SMBLOB=1 or if done by a Trusted Descriptor and G2_TDO=1).
     eG2_WRITE_ALLOWED = 1, // Writes are allowed (but importing a Secure Memory Blob is prohibited if G2_SMBLOB=0 and the descriptor is not a Trusted Descriptor or if G2_TDO=0).
   };
+  
   enum class eG2_TDO : uint32_t {
     eG2_TD_PRIVILEGE_AS_JD = 0, // Trusted Descriptors have the same access privileges as Job Descriptors
     eG2_TD_OVERIDE_ALLOWED = 1, // Trusted Descriptors are allowed to override the other access permissions, i.e. they can export blobs from or import blobs to the partition and read from and write to the partition regardless of the G2_SMBLOB, G2_WRITE and G2_READ settings.
   };
+  
   enum class eG2_SMBLOB : uint32_t {
     eG2_SM_BLOB_EXPORT_IMPORT_PROHIB = 0, // Exporting or importing Secure Memory Blobs is prohibited, unless done via a Trusted Descriptor and G2_TDO=1.
     eG2_SM_BLOB_EXPORT_IMPORT_ALLOWED = 1, // Exporting or importing Secure Memory Blobs is allowed, regardless of the G2_READ and G2_WRITE settings.
   };
+  
   enum class eSMAG_LCK : uint32_t {
     eSMAG_UNLOCKED = 0, // The SMAG2JR register and SMAG1JR register are unlocked. The partition owner can change any writable bits of these registers.
     eSMAG_LOCKED = 1, // The SMAG2JR register and SMAG1JR register are locked. The SMAG2JR and SMAG1JR registers cannot be changed until the partition is de-allocated or a POR occurs.
   };
+  
   enum class eSMAP_LCK : uint32_t {
     eSMAP_UNLOCKED = 0, // The SMAP register is unlocked. The partition owner can change any writable bits of the SMAP register.
     eSMAP_LOCKED = 1, // The SMAP register is locked. The SMAP_LCK, CSP and PSP bits and G1 and G2 permission bits of the SMAP register cannot be changed until the partition is de-allocated or a POR occurs. The PARTITION_KMOD value can still be changed. The SMAG_LCK bit can be changed to a 1, but cannot be changed to a 0.
   };
+  
   enum class ePSP : uint32_t {
     eNOT_DEALLOCATABLE = 0, // The partition and any of the pages allocated to the partition can be de-allocated.
     eDEALLOCATABLE = 1, // The partition cannot be de-allocated and the pages allocated to the partition cannot be de-allocated.
   };
+  
   enum class eCSP : uint32_t {
     eNOT_ZEROIZED = 0, // The pages allocated to the partition will not be zeroized when they are de-allocated or the partition is released or a security alarm occurs.
     eZEROIZED = 1, // The pages allocated to the partition will be zeroized when they are individually de-allocated or the partition is released or a security alarm occurs.
@@ -14991,7 +14559,7 @@ union P6SMAPR_JR1 {
     ePSP PSP : 1;
     eCSP CSP : 1;
     uint32_t PARTITION_KMOD : 16;
-  } bits;          // Bit-field struct (auto-filling reserved gaps)
+  } bits;
   
   // Full 32-bit register value.
   uint32_t value;
@@ -15005,8 +14573,6 @@ union P6SMAPR_JR1 {
 //
 union P6SMAG2_JR1 {
   
-  // Enum definitions.
-  
   // Bit field definition.
   struct {
     uint32_t Gx_ID00 : 1;
@@ -15041,7 +14607,7 @@ union P6SMAG2_JR1 {
     uint32_t Gx_ID29 : 1;
     uint32_t Gx_ID30 : 1;
     uint32_t Gx_ID31 : 1;
-  } bits;          // Bit-field struct (auto-filling reserved gaps)
+  } bits;
   
   // Full 32-bit register value.
   uint32_t value;
@@ -15055,8 +14621,6 @@ union P6SMAG2_JR1 {
 //
 union P6SMAG1_JR1 {
   
-  // Enum definitions.
-  
   // Bit field definition.
   struct {
     uint32_t Gx_ID00 : 1;
@@ -15091,7 +14655,7 @@ union P6SMAG1_JR1 {
     uint32_t Gx_ID29 : 1;
     uint32_t Gx_ID30 : 1;
     uint32_t Gx_ID31 : 1;
-  } bits;          // Bit-field struct (auto-filling reserved gaps)
+  } bits;
   
   // Full 32-bit register value.
   uint32_t value;
@@ -15105,13 +14669,11 @@ union P6SMAG1_JR1 {
 //
 union P7SDID_JR1 {
   
-  // Enum definitions.
-  
   // Bit field definition.
   struct {
     uint32_t SDID : 16;
     uint32_t _reserved_end : 16;
-  } bits;          // Bit-field struct (auto-filling reserved gaps)
+  } bits;
   
   // Full 32-bit register value.
   uint32_t value;
@@ -15125,51 +14687,61 @@ union P7SDID_JR1 {
 //
 union P7SMAPR_JR1 {
   
-  // Enum definitions.
   enum class eG1_READ : uint32_t {
     eG1_READ_PROHIB = 0, // Instruction fetches and reads are prohibited (except that Trusted Descriptor reads (if G1_TDO=1) and key-reads are always allowed, and exporting Secure Memory Blobs is allowed if G1_SMBLOB=1 or if done by a Trusted Descriptor and G1_TDO=1).
     eG1_READ_ALLOWED = 1, // Instruction fetches and reads are allowed (but exporting a Secure Memory Blob is prohibited if G1_SMBLOB=0 and the descriptor is not a Trusted Descriptor or if G1_TDO=0).
   };
+  
   enum class eG1_WRITE : uint32_t {
     eG1_WRITE_PROHIB = 0, // Writes are prohibited (except that Trusted Descriptor writes are allowed, and importing Secure Memory Blobs is allowed if G1_SMBLOB=1 or if done by a Trusted Descriptor and G1_TDO=1).
     eG1_WRITE_ALLOWED = 1, // Writes are allowed (but importing a Secure Memory Blob is prohibited if G1_SMBLOB=0 and the descriptor is not a Trusted Descriptor or if G1_TDO=0).
   };
+  
   enum class eG1_TDO : uint32_t {
     eG1_TD_PRIVILEGE_AS_JD = 0, // Trusted Descriptors have the same access privileges as Job Descriptors
     eG1_TD_OVERIDE_ALLOWED = 1, // Trusted Descriptors are allowed to override the other access permissions, i.e. they can export blobs from or import blobs to the partition and read from and write to the partition regardless of the G1_SMBLOB, G1_WRITE and G1_READ settings.
   };
+  
   enum class eG1_SMBLOB : uint32_t {
     eG1_SM_BLOB_EXPORT_IMPORT_PROHIB = 0, // Exporting or importing Secure Memory Blobs is prohibited, unless done via a Trusted Descriptor and G1_TDO=1.
     eG1_SM_B_EXPORT_IMPORT_ALLOWED = 1, // Exporting or importing Secure Memory Blobs is allowed, regardless of the G1_READ and G1_WRITE settings.
   };
+  
   enum class eG2_READ : uint32_t {
     eG2_READ_PROHIB = 0, // Instruction fetches and reads are prohibited (except that Trusted Descriptor reads (if G2_TDO=1) and key-reads are always allowed, and exporting Secure Memory Blobs is allowed if G2_SMBLOB=1 or if done by a Trusted Descriptor and G2_TDO=1).
     eG2_READ_ALLOWED = 1, // Instruction fetches and reads are allowed (but exporting a Secure Memory Blob is prohibited if G2_SMBLOB=0 and the descriptor is not a Trusted Descriptor or if G2_TDO=0).
   };
+  
   enum class eG2_WRITE : uint32_t {
     eG2_WRITE_PROHIB = 0, // Writes are prohibited (except that Trusted Descriptor writes are allowed, and importing Secure Memory Blobs is allowed if G2_SMBLOB=1 or if done by a Trusted Descriptor and G2_TDO=1).
     eG2_WRITE_ALLOWED = 1, // Writes are allowed (but importing a Secure Memory Blob is prohibited if G2_SMBLOB=0 and the descriptor is not a Trusted Descriptor or if G2_TDO=0).
   };
+  
   enum class eG2_TDO : uint32_t {
     eG2_TD_PRIVILEGE_AS_JD = 0, // Trusted Descriptors have the same access privileges as Job Descriptors
     eG2_TD_OVERIDE_ALLOWED = 1, // Trusted Descriptors are allowed to override the other access permissions, i.e. they can export blobs from or import blobs to the partition and read from and write to the partition regardless of the G2_SMBLOB, G2_WRITE and G2_READ settings.
   };
+  
   enum class eG2_SMBLOB : uint32_t {
     eG2_SM_BLOB_EXPORT_IMPORT_PROHIB = 0, // Exporting or importing Secure Memory Blobs is prohibited, unless done via a Trusted Descriptor and G2_TDO=1.
     eG2_SM_BLOB_EXPORT_IMPORT_ALLOWED = 1, // Exporting or importing Secure Memory Blobs is allowed, regardless of the G2_READ and G2_WRITE settings.
   };
+  
   enum class eSMAG_LCK : uint32_t {
     eSMAG_UNLOCKED = 0, // The SMAG2JR register and SMAG1JR register are unlocked. The partition owner can change any writable bits of these registers.
     eSMAG_LOCKED = 1, // The SMAG2JR register and SMAG1JR register are locked. The SMAG2JR and SMAG1JR registers cannot be changed until the partition is de-allocated or a POR occurs.
   };
+  
   enum class eSMAP_LCK : uint32_t {
     eSMAP_UNLOCKED = 0, // The SMAP register is unlocked. The partition owner can change any writable bits of the SMAP register.
     eSMAP_LOCKED = 1, // The SMAP register is locked. The SMAP_LCK, CSP and PSP bits and G1 and G2 permission bits of the SMAP register cannot be changed until the partition is de-allocated or a POR occurs. The PARTITION_KMOD value can still be changed. The SMAG_LCK bit can be changed to a 1, but cannot be changed to a 0.
   };
+  
   enum class ePSP : uint32_t {
     eNOT_DEALLOCATABLE = 0, // The partition and any of the pages allocated to the partition can be de-allocated.
     eDEALLOCATABLE = 1, // The partition cannot be de-allocated and the pages allocated to the partition cannot be de-allocated.
   };
+  
   enum class eCSP : uint32_t {
     eNOT_ZEROIZED = 0, // The pages allocated to the partition will not be zeroized when they are de-allocated or the partition is released or a security alarm occurs.
     eZEROIZED = 1, // The pages allocated to the partition will be zeroized when they are individually de-allocated or the partition is released or a security alarm occurs.
@@ -15191,7 +14763,7 @@ union P7SMAPR_JR1 {
     ePSP PSP : 1;
     eCSP CSP : 1;
     uint32_t PARTITION_KMOD : 16;
-  } bits;          // Bit-field struct (auto-filling reserved gaps)
+  } bits;
   
   // Full 32-bit register value.
   uint32_t value;
@@ -15205,8 +14777,6 @@ union P7SMAPR_JR1 {
 //
 union P7SMAG2_JR1 {
   
-  // Enum definitions.
-  
   // Bit field definition.
   struct {
     uint32_t Gx_ID00 : 1;
@@ -15241,7 +14811,7 @@ union P7SMAG2_JR1 {
     uint32_t Gx_ID29 : 1;
     uint32_t Gx_ID30 : 1;
     uint32_t Gx_ID31 : 1;
-  } bits;          // Bit-field struct (auto-filling reserved gaps)
+  } bits;
   
   // Full 32-bit register value.
   uint32_t value;
@@ -15255,8 +14825,6 @@ union P7SMAG2_JR1 {
 //
 union P7SMAG1_JR1 {
   
-  // Enum definitions.
-  
   // Bit field definition.
   struct {
     uint32_t Gx_ID00 : 1;
@@ -15291,7 +14859,7 @@ union P7SMAG1_JR1 {
     uint32_t Gx_ID29 : 1;
     uint32_t Gx_ID30 : 1;
     uint32_t Gx_ID31 : 1;
-  } bits;          // Bit-field struct (auto-filling reserved gaps)
+  } bits;
   
   // Full 32-bit register value.
   uint32_t value;
@@ -15305,13 +14873,11 @@ union P7SMAG1_JR1 {
 //
 union P8SDID_JR1 {
   
-  // Enum definitions.
-  
   // Bit field definition.
   struct {
     uint32_t SDID : 16;
     uint32_t _reserved_end : 16;
-  } bits;          // Bit-field struct (auto-filling reserved gaps)
+  } bits;
   
   // Full 32-bit register value.
   uint32_t value;
@@ -15325,51 +14891,61 @@ union P8SDID_JR1 {
 //
 union P8SMAPR_JR1 {
   
-  // Enum definitions.
   enum class eG1_READ : uint32_t {
     eG1_READ_PROHIB = 0, // Instruction fetches and reads are prohibited (except that Trusted Descriptor reads (if G1_TDO=1) and key-reads are always allowed, and exporting Secure Memory Blobs is allowed if G1_SMBLOB=1 or if done by a Trusted Descriptor and G1_TDO=1).
     eG1_READ_ALLOWED = 1, // Instruction fetches and reads are allowed (but exporting a Secure Memory Blob is prohibited if G1_SMBLOB=0 and the descriptor is not a Trusted Descriptor or if G1_TDO=0).
   };
+  
   enum class eG1_WRITE : uint32_t {
     eG1_WRITE_PROHIB = 0, // Writes are prohibited (except that Trusted Descriptor writes are allowed, and importing Secure Memory Blobs is allowed if G1_SMBLOB=1 or if done by a Trusted Descriptor and G1_TDO=1).
     eG1_WRITE_ALLOWED = 1, // Writes are allowed (but importing a Secure Memory Blob is prohibited if G1_SMBLOB=0 and the descriptor is not a Trusted Descriptor or if G1_TDO=0).
   };
+  
   enum class eG1_TDO : uint32_t {
     eG1_TD_PRIVILEGE_AS_JD = 0, // Trusted Descriptors have the same access privileges as Job Descriptors
     eG1_TD_OVERIDE_ALLOWED = 1, // Trusted Descriptors are allowed to override the other access permissions, i.e. they can export blobs from or import blobs to the partition and read from and write to the partition regardless of the G1_SMBLOB, G1_WRITE and G1_READ settings.
   };
+  
   enum class eG1_SMBLOB : uint32_t {
     eG1_SM_BLOB_EXPORT_IMPORT_PROHIB = 0, // Exporting or importing Secure Memory Blobs is prohibited, unless done via a Trusted Descriptor and G1_TDO=1.
     eG1_SM_B_EXPORT_IMPORT_ALLOWED = 1, // Exporting or importing Secure Memory Blobs is allowed, regardless of the G1_READ and G1_WRITE settings.
   };
+  
   enum class eG2_READ : uint32_t {
     eG2_READ_PROHIB = 0, // Instruction fetches and reads are prohibited (except that Trusted Descriptor reads (if G2_TDO=1) and key-reads are always allowed, and exporting Secure Memory Blobs is allowed if G2_SMBLOB=1 or if done by a Trusted Descriptor and G2_TDO=1).
     eG2_READ_ALLOWED = 1, // Instruction fetches and reads are allowed (but exporting a Secure Memory Blob is prohibited if G2_SMBLOB=0 and the descriptor is not a Trusted Descriptor or if G2_TDO=0).
   };
+  
   enum class eG2_WRITE : uint32_t {
     eG2_WRITE_PROHIB = 0, // Writes are prohibited (except that Trusted Descriptor writes are allowed, and importing Secure Memory Blobs is allowed if G2_SMBLOB=1 or if done by a Trusted Descriptor and G2_TDO=1).
     eG2_WRITE_ALLOWED = 1, // Writes are allowed (but importing a Secure Memory Blob is prohibited if G2_SMBLOB=0 and the descriptor is not a Trusted Descriptor or if G2_TDO=0).
   };
+  
   enum class eG2_TDO : uint32_t {
     eG2_TD_PRIVILEGE_AS_JD = 0, // Trusted Descriptors have the same access privileges as Job Descriptors
     eG2_TD_OVERIDE_ALLOWED = 1, // Trusted Descriptors are allowed to override the other access permissions, i.e. they can export blobs from or import blobs to the partition and read from and write to the partition regardless of the G2_SMBLOB, G2_WRITE and G2_READ settings.
   };
+  
   enum class eG2_SMBLOB : uint32_t {
     eG2_SM_BLOB_EXPORT_IMPORT_PROHIB = 0, // Exporting or importing Secure Memory Blobs is prohibited, unless done via a Trusted Descriptor and G2_TDO=1.
     eG2_SM_BLOB_EXPORT_IMPORT_ALLOWED = 1, // Exporting or importing Secure Memory Blobs is allowed, regardless of the G2_READ and G2_WRITE settings.
   };
+  
   enum class eSMAG_LCK : uint32_t {
     eSMAG_UNLOCKED = 0, // The SMAG2JR register and SMAG1JR register are unlocked. The partition owner can change any writable bits of these registers.
     eSMAG_LOCKED = 1, // The SMAG2JR register and SMAG1JR register are locked. The SMAG2JR and SMAG1JR registers cannot be changed until the partition is de-allocated or a POR occurs.
   };
+  
   enum class eSMAP_LCK : uint32_t {
     eSMAP_UNLOCKED = 0, // The SMAP register is unlocked. The partition owner can change any writable bits of the SMAP register.
     eSMAP_LOCKED = 1, // The SMAP register is locked. The SMAP_LCK, CSP and PSP bits and G1 and G2 permission bits of the SMAP register cannot be changed until the partition is de-allocated or a POR occurs. The PARTITION_KMOD value can still be changed. The SMAG_LCK bit can be changed to a 1, but cannot be changed to a 0.
   };
+  
   enum class ePSP : uint32_t {
     eNOT_DEALLOCATABLE = 0, // The partition and any of the pages allocated to the partition can be de-allocated.
     eDEALLOCATABLE = 1, // The partition cannot be de-allocated and the pages allocated to the partition cannot be de-allocated.
   };
+  
   enum class eCSP : uint32_t {
     eNOT_ZEROIZED = 0, // The pages allocated to the partition will not be zeroized when they are de-allocated or the partition is released or a security alarm occurs.
     eZEROIZED = 1, // The pages allocated to the partition will be zeroized when they are individually de-allocated or the partition is released or a security alarm occurs.
@@ -15391,7 +14967,7 @@ union P8SMAPR_JR1 {
     ePSP PSP : 1;
     eCSP CSP : 1;
     uint32_t PARTITION_KMOD : 16;
-  } bits;          // Bit-field struct (auto-filling reserved gaps)
+  } bits;
   
   // Full 32-bit register value.
   uint32_t value;
@@ -15405,8 +14981,6 @@ union P8SMAPR_JR1 {
 //
 union P8SMAG2_JR1 {
   
-  // Enum definitions.
-  
   // Bit field definition.
   struct {
     uint32_t Gx_ID00 : 1;
@@ -15441,7 +15015,7 @@ union P8SMAG2_JR1 {
     uint32_t Gx_ID29 : 1;
     uint32_t Gx_ID30 : 1;
     uint32_t Gx_ID31 : 1;
-  } bits;          // Bit-field struct (auto-filling reserved gaps)
+  } bits;
   
   // Full 32-bit register value.
   uint32_t value;
@@ -15455,8 +15029,6 @@ union P8SMAG2_JR1 {
 //
 union P8SMAG1_JR1 {
   
-  // Enum definitions.
-  
   // Bit field definition.
   struct {
     uint32_t Gx_ID00 : 1;
@@ -15491,7 +15063,7 @@ union P8SMAG1_JR1 {
     uint32_t Gx_ID29 : 1;
     uint32_t Gx_ID30 : 1;
     uint32_t Gx_ID31 : 1;
-  } bits;          // Bit-field struct (auto-filling reserved gaps)
+  } bits;
   
   // Full 32-bit register value.
   uint32_t value;
@@ -15505,13 +15077,11 @@ union P8SMAG1_JR1 {
 //
 union P9SDID_JR1 {
   
-  // Enum definitions.
-  
   // Bit field definition.
   struct {
     uint32_t SDID : 16;
     uint32_t _reserved_end : 16;
-  } bits;          // Bit-field struct (auto-filling reserved gaps)
+  } bits;
   
   // Full 32-bit register value.
   uint32_t value;
@@ -15525,51 +15095,61 @@ union P9SDID_JR1 {
 //
 union P9SMAPR_JR1 {
   
-  // Enum definitions.
   enum class eG1_READ : uint32_t {
     eG1_READ_PROHIB = 0, // Instruction fetches and reads are prohibited (except that Trusted Descriptor reads (if G1_TDO=1) and key-reads are always allowed, and exporting Secure Memory Blobs is allowed if G1_SMBLOB=1 or if done by a Trusted Descriptor and G1_TDO=1).
     eG1_READ_ALLOWED = 1, // Instruction fetches and reads are allowed (but exporting a Secure Memory Blob is prohibited if G1_SMBLOB=0 and the descriptor is not a Trusted Descriptor or if G1_TDO=0).
   };
+  
   enum class eG1_WRITE : uint32_t {
     eG1_WRITE_PROHIB = 0, // Writes are prohibited (except that Trusted Descriptor writes are allowed, and importing Secure Memory Blobs is allowed if G1_SMBLOB=1 or if done by a Trusted Descriptor and G1_TDO=1).
     eG1_WRITE_ALLOWED = 1, // Writes are allowed (but importing a Secure Memory Blob is prohibited if G1_SMBLOB=0 and the descriptor is not a Trusted Descriptor or if G1_TDO=0).
   };
+  
   enum class eG1_TDO : uint32_t {
     eG1_TD_PRIVILEGE_AS_JD = 0, // Trusted Descriptors have the same access privileges as Job Descriptors
     eG1_TD_OVERIDE_ALLOWED = 1, // Trusted Descriptors are allowed to override the other access permissions, i.e. they can export blobs from or import blobs to the partition and read from and write to the partition regardless of the G1_SMBLOB, G1_WRITE and G1_READ settings.
   };
+  
   enum class eG1_SMBLOB : uint32_t {
     eG1_SM_BLOB_EXPORT_IMPORT_PROHIB = 0, // Exporting or importing Secure Memory Blobs is prohibited, unless done via a Trusted Descriptor and G1_TDO=1.
     eG1_SM_B_EXPORT_IMPORT_ALLOWED = 1, // Exporting or importing Secure Memory Blobs is allowed, regardless of the G1_READ and G1_WRITE settings.
   };
+  
   enum class eG2_READ : uint32_t {
     eG2_READ_PROHIB = 0, // Instruction fetches and reads are prohibited (except that Trusted Descriptor reads (if G2_TDO=1) and key-reads are always allowed, and exporting Secure Memory Blobs is allowed if G2_SMBLOB=1 or if done by a Trusted Descriptor and G2_TDO=1).
     eG2_READ_ALLOWED = 1, // Instruction fetches and reads are allowed (but exporting a Secure Memory Blob is prohibited if G2_SMBLOB=0 and the descriptor is not a Trusted Descriptor or if G2_TDO=0).
   };
+  
   enum class eG2_WRITE : uint32_t {
     eG2_WRITE_PROHIB = 0, // Writes are prohibited (except that Trusted Descriptor writes are allowed, and importing Secure Memory Blobs is allowed if G2_SMBLOB=1 or if done by a Trusted Descriptor and G2_TDO=1).
     eG2_WRITE_ALLOWED = 1, // Writes are allowed (but importing a Secure Memory Blob is prohibited if G2_SMBLOB=0 and the descriptor is not a Trusted Descriptor or if G2_TDO=0).
   };
+  
   enum class eG2_TDO : uint32_t {
     eG2_TD_PRIVILEGE_AS_JD = 0, // Trusted Descriptors have the same access privileges as Job Descriptors
     eG2_TD_OVERIDE_ALLOWED = 1, // Trusted Descriptors are allowed to override the other access permissions, i.e. they can export blobs from or import blobs to the partition and read from and write to the partition regardless of the G2_SMBLOB, G2_WRITE and G2_READ settings.
   };
+  
   enum class eG2_SMBLOB : uint32_t {
     eG2_SM_BLOB_EXPORT_IMPORT_PROHIB = 0, // Exporting or importing Secure Memory Blobs is prohibited, unless done via a Trusted Descriptor and G2_TDO=1.
     eG2_SM_BLOB_EXPORT_IMPORT_ALLOWED = 1, // Exporting or importing Secure Memory Blobs is allowed, regardless of the G2_READ and G2_WRITE settings.
   };
+  
   enum class eSMAG_LCK : uint32_t {
     eSMAG_UNLOCKED = 0, // The SMAG2JR register and SMAG1JR register are unlocked. The partition owner can change any writable bits of these registers.
     eSMAG_LOCKED = 1, // The SMAG2JR register and SMAG1JR register are locked. The SMAG2JR and SMAG1JR registers cannot be changed until the partition is de-allocated or a POR occurs.
   };
+  
   enum class eSMAP_LCK : uint32_t {
     eSMAP_UNLOCKED = 0, // The SMAP register is unlocked. The partition owner can change any writable bits of the SMAP register.
     eSMAP_LOCKED = 1, // The SMAP register is locked. The SMAP_LCK, CSP and PSP bits and G1 and G2 permission bits of the SMAP register cannot be changed until the partition is de-allocated or a POR occurs. The PARTITION_KMOD value can still be changed. The SMAG_LCK bit can be changed to a 1, but cannot be changed to a 0.
   };
+  
   enum class ePSP : uint32_t {
     eNOT_DEALLOCATABLE = 0, // The partition and any of the pages allocated to the partition can be de-allocated.
     eDEALLOCATABLE = 1, // The partition cannot be de-allocated and the pages allocated to the partition cannot be de-allocated.
   };
+  
   enum class eCSP : uint32_t {
     eNOT_ZEROIZED = 0, // The pages allocated to the partition will not be zeroized when they are de-allocated or the partition is released or a security alarm occurs.
     eZEROIZED = 1, // The pages allocated to the partition will be zeroized when they are individually de-allocated or the partition is released or a security alarm occurs.
@@ -15591,7 +15171,7 @@ union P9SMAPR_JR1 {
     ePSP PSP : 1;
     eCSP CSP : 1;
     uint32_t PARTITION_KMOD : 16;
-  } bits;          // Bit-field struct (auto-filling reserved gaps)
+  } bits;
   
   // Full 32-bit register value.
   uint32_t value;
@@ -15605,8 +15185,6 @@ union P9SMAPR_JR1 {
 //
 union P9SMAG2_JR1 {
   
-  // Enum definitions.
-  
   // Bit field definition.
   struct {
     uint32_t Gx_ID00 : 1;
@@ -15641,7 +15219,7 @@ union P9SMAG2_JR1 {
     uint32_t Gx_ID29 : 1;
     uint32_t Gx_ID30 : 1;
     uint32_t Gx_ID31 : 1;
-  } bits;          // Bit-field struct (auto-filling reserved gaps)
+  } bits;
   
   // Full 32-bit register value.
   uint32_t value;
@@ -15655,8 +15233,6 @@ union P9SMAG2_JR1 {
 //
 union P9SMAG1_JR1 {
   
-  // Enum definitions.
-  
   // Bit field definition.
   struct {
     uint32_t Gx_ID00 : 1;
@@ -15691,7 +15267,7 @@ union P9SMAG1_JR1 {
     uint32_t Gx_ID29 : 1;
     uint32_t Gx_ID30 : 1;
     uint32_t Gx_ID31 : 1;
-  } bits;          // Bit-field struct (auto-filling reserved gaps)
+  } bits;
   
   // Full 32-bit register value.
   uint32_t value;
@@ -15705,13 +15281,11 @@ union P9SMAG1_JR1 {
 //
 union P10SDID_JR1 {
   
-  // Enum definitions.
-  
   // Bit field definition.
   struct {
     uint32_t SDID : 16;
     uint32_t _reserved_end : 16;
-  } bits;          // Bit-field struct (auto-filling reserved gaps)
+  } bits;
   
   // Full 32-bit register value.
   uint32_t value;
@@ -15725,51 +15299,61 @@ union P10SDID_JR1 {
 //
 union P10SMAPR_JR1 {
   
-  // Enum definitions.
   enum class eG1_READ : uint32_t {
     eG1_READ_PROHIB = 0, // Instruction fetches and reads are prohibited (except that Trusted Descriptor reads (if G1_TDO=1) and key-reads are always allowed, and exporting Secure Memory Blobs is allowed if G1_SMBLOB=1 or if done by a Trusted Descriptor and G1_TDO=1).
     eG1_READ_ALLOWED = 1, // Instruction fetches and reads are allowed (but exporting a Secure Memory Blob is prohibited if G1_SMBLOB=0 and the descriptor is not a Trusted Descriptor or if G1_TDO=0).
   };
+  
   enum class eG1_WRITE : uint32_t {
     eG1_WRITE_PROHIB = 0, // Writes are prohibited (except that Trusted Descriptor writes are allowed, and importing Secure Memory Blobs is allowed if G1_SMBLOB=1 or if done by a Trusted Descriptor and G1_TDO=1).
     eG1_WRITE_ALLOWED = 1, // Writes are allowed (but importing a Secure Memory Blob is prohibited if G1_SMBLOB=0 and the descriptor is not a Trusted Descriptor or if G1_TDO=0).
   };
+  
   enum class eG1_TDO : uint32_t {
     eG1_TD_PRIVILEGE_AS_JD = 0, // Trusted Descriptors have the same access privileges as Job Descriptors
     eG1_TD_OVERIDE_ALLOWED = 1, // Trusted Descriptors are allowed to override the other access permissions, i.e. they can export blobs from or import blobs to the partition and read from and write to the partition regardless of the G1_SMBLOB, G1_WRITE and G1_READ settings.
   };
+  
   enum class eG1_SMBLOB : uint32_t {
     eG1_SM_BLOB_EXPORT_IMPORT_PROHIB = 0, // Exporting or importing Secure Memory Blobs is prohibited, unless done via a Trusted Descriptor and G1_TDO=1.
     eG1_SM_B_EXPORT_IMPORT_ALLOWED = 1, // Exporting or importing Secure Memory Blobs is allowed, regardless of the G1_READ and G1_WRITE settings.
   };
+  
   enum class eG2_READ : uint32_t {
     eG2_READ_PROHIB = 0, // Instruction fetches and reads are prohibited (except that Trusted Descriptor reads (if G2_TDO=1) and key-reads are always allowed, and exporting Secure Memory Blobs is allowed if G2_SMBLOB=1 or if done by a Trusted Descriptor and G2_TDO=1).
     eG2_READ_ALLOWED = 1, // Instruction fetches and reads are allowed (but exporting a Secure Memory Blob is prohibited if G2_SMBLOB=0 and the descriptor is not a Trusted Descriptor or if G2_TDO=0).
   };
+  
   enum class eG2_WRITE : uint32_t {
     eG2_WRITE_PROHIB = 0, // Writes are prohibited (except that Trusted Descriptor writes are allowed, and importing Secure Memory Blobs is allowed if G2_SMBLOB=1 or if done by a Trusted Descriptor and G2_TDO=1).
     eG2_WRITE_ALLOWED = 1, // Writes are allowed (but importing a Secure Memory Blob is prohibited if G2_SMBLOB=0 and the descriptor is not a Trusted Descriptor or if G2_TDO=0).
   };
+  
   enum class eG2_TDO : uint32_t {
     eG2_TD_PRIVILEGE_AS_JD = 0, // Trusted Descriptors have the same access privileges as Job Descriptors
     eG2_TD_OVERIDE_ALLOWED = 1, // Trusted Descriptors are allowed to override the other access permissions, i.e. they can export blobs from or import blobs to the partition and read from and write to the partition regardless of the G2_SMBLOB, G2_WRITE and G2_READ settings.
   };
+  
   enum class eG2_SMBLOB : uint32_t {
     eG2_SM_BLOB_EXPORT_IMPORT_PROHIB = 0, // Exporting or importing Secure Memory Blobs is prohibited, unless done via a Trusted Descriptor and G2_TDO=1.
     eG2_SM_BLOB_EXPORT_IMPORT_ALLOWED = 1, // Exporting or importing Secure Memory Blobs is allowed, regardless of the G2_READ and G2_WRITE settings.
   };
+  
   enum class eSMAG_LCK : uint32_t {
     eSMAG_UNLOCKED = 0, // The SMAG2JR register and SMAG1JR register are unlocked. The partition owner can change any writable bits of these registers.
     eSMAG_LOCKED = 1, // The SMAG2JR register and SMAG1JR register are locked. The SMAG2JR and SMAG1JR registers cannot be changed until the partition is de-allocated or a POR occurs.
   };
+  
   enum class eSMAP_LCK : uint32_t {
     eSMAP_UNLOCKED = 0, // The SMAP register is unlocked. The partition owner can change any writable bits of the SMAP register.
     eSMAP_LOCKED = 1, // The SMAP register is locked. The SMAP_LCK, CSP and PSP bits and G1 and G2 permission bits of the SMAP register cannot be changed until the partition is de-allocated or a POR occurs. The PARTITION_KMOD value can still be changed. The SMAG_LCK bit can be changed to a 1, but cannot be changed to a 0.
   };
+  
   enum class ePSP : uint32_t {
     eNOT_DEALLOCATABLE = 0, // The partition and any of the pages allocated to the partition can be de-allocated.
     eDEALLOCATABLE = 1, // The partition cannot be de-allocated and the pages allocated to the partition cannot be de-allocated.
   };
+  
   enum class eCSP : uint32_t {
     eNOT_ZEROIZED = 0, // The pages allocated to the partition will not be zeroized when they are de-allocated or the partition is released or a security alarm occurs.
     eZEROIZED = 1, // The pages allocated to the partition will be zeroized when they are individually de-allocated or the partition is released or a security alarm occurs.
@@ -15791,7 +15375,7 @@ union P10SMAPR_JR1 {
     ePSP PSP : 1;
     eCSP CSP : 1;
     uint32_t PARTITION_KMOD : 16;
-  } bits;          // Bit-field struct (auto-filling reserved gaps)
+  } bits;
   
   // Full 32-bit register value.
   uint32_t value;
@@ -15805,8 +15389,6 @@ union P10SMAPR_JR1 {
 //
 union P10SMAG2_JR1 {
   
-  // Enum definitions.
-  
   // Bit field definition.
   struct {
     uint32_t Gx_ID00 : 1;
@@ -15841,7 +15423,7 @@ union P10SMAG2_JR1 {
     uint32_t Gx_ID29 : 1;
     uint32_t Gx_ID30 : 1;
     uint32_t Gx_ID31 : 1;
-  } bits;          // Bit-field struct (auto-filling reserved gaps)
+  } bits;
   
   // Full 32-bit register value.
   uint32_t value;
@@ -15855,8 +15437,6 @@ union P10SMAG2_JR1 {
 //
 union P10SMAG1_JR1 {
   
-  // Enum definitions.
-  
   // Bit field definition.
   struct {
     uint32_t Gx_ID00 : 1;
@@ -15891,7 +15471,7 @@ union P10SMAG1_JR1 {
     uint32_t Gx_ID29 : 1;
     uint32_t Gx_ID30 : 1;
     uint32_t Gx_ID31 : 1;
-  } bits;          // Bit-field struct (auto-filling reserved gaps)
+  } bits;
   
   // Full 32-bit register value.
   uint32_t value;
@@ -15905,13 +15485,11 @@ union P10SMAG1_JR1 {
 //
 union P11SDID_JR1 {
   
-  // Enum definitions.
-  
   // Bit field definition.
   struct {
     uint32_t SDID : 16;
     uint32_t _reserved_end : 16;
-  } bits;          // Bit-field struct (auto-filling reserved gaps)
+  } bits;
   
   // Full 32-bit register value.
   uint32_t value;
@@ -15925,51 +15503,61 @@ union P11SDID_JR1 {
 //
 union P11SMAPR_JR1 {
   
-  // Enum definitions.
   enum class eG1_READ : uint32_t {
     eG1_READ_PROHIB = 0, // Instruction fetches and reads are prohibited (except that Trusted Descriptor reads (if G1_TDO=1) and key-reads are always allowed, and exporting Secure Memory Blobs is allowed if G1_SMBLOB=1 or if done by a Trusted Descriptor and G1_TDO=1).
     eG1_READ_ALLOWED = 1, // Instruction fetches and reads are allowed (but exporting a Secure Memory Blob is prohibited if G1_SMBLOB=0 and the descriptor is not a Trusted Descriptor or if G1_TDO=0).
   };
+  
   enum class eG1_WRITE : uint32_t {
     eG1_WRITE_PROHIB = 0, // Writes are prohibited (except that Trusted Descriptor writes are allowed, and importing Secure Memory Blobs is allowed if G1_SMBLOB=1 or if done by a Trusted Descriptor and G1_TDO=1).
     eG1_WRITE_ALLOWED = 1, // Writes are allowed (but importing a Secure Memory Blob is prohibited if G1_SMBLOB=0 and the descriptor is not a Trusted Descriptor or if G1_TDO=0).
   };
+  
   enum class eG1_TDO : uint32_t {
     eG1_TD_PRIVILEGE_AS_JD = 0, // Trusted Descriptors have the same access privileges as Job Descriptors
     eG1_TD_OVERIDE_ALLOWED = 1, // Trusted Descriptors are allowed to override the other access permissions, i.e. they can export blobs from or import blobs to the partition and read from and write to the partition regardless of the G1_SMBLOB, G1_WRITE and G1_READ settings.
   };
+  
   enum class eG1_SMBLOB : uint32_t {
     eG1_SM_BLOB_EXPORT_IMPORT_PROHIB = 0, // Exporting or importing Secure Memory Blobs is prohibited, unless done via a Trusted Descriptor and G1_TDO=1.
     eG1_SM_B_EXPORT_IMPORT_ALLOWED = 1, // Exporting or importing Secure Memory Blobs is allowed, regardless of the G1_READ and G1_WRITE settings.
   };
+  
   enum class eG2_READ : uint32_t {
     eG2_READ_PROHIB = 0, // Instruction fetches and reads are prohibited (except that Trusted Descriptor reads (if G2_TDO=1) and key-reads are always allowed, and exporting Secure Memory Blobs is allowed if G2_SMBLOB=1 or if done by a Trusted Descriptor and G2_TDO=1).
     eG2_READ_ALLOWED = 1, // Instruction fetches and reads are allowed (but exporting a Secure Memory Blob is prohibited if G2_SMBLOB=0 and the descriptor is not a Trusted Descriptor or if G2_TDO=0).
   };
+  
   enum class eG2_WRITE : uint32_t {
     eG2_WRITE_PROHIB = 0, // Writes are prohibited (except that Trusted Descriptor writes are allowed, and importing Secure Memory Blobs is allowed if G2_SMBLOB=1 or if done by a Trusted Descriptor and G2_TDO=1).
     eG2_WRITE_ALLOWED = 1, // Writes are allowed (but importing a Secure Memory Blob is prohibited if G2_SMBLOB=0 and the descriptor is not a Trusted Descriptor or if G2_TDO=0).
   };
+  
   enum class eG2_TDO : uint32_t {
     eG2_TD_PRIVILEGE_AS_JD = 0, // Trusted Descriptors have the same access privileges as Job Descriptors
     eG2_TD_OVERIDE_ALLOWED = 1, // Trusted Descriptors are allowed to override the other access permissions, i.e. they can export blobs from or import blobs to the partition and read from and write to the partition regardless of the G2_SMBLOB, G2_WRITE and G2_READ settings.
   };
+  
   enum class eG2_SMBLOB : uint32_t {
     eG2_SM_BLOB_EXPORT_IMPORT_PROHIB = 0, // Exporting or importing Secure Memory Blobs is prohibited, unless done via a Trusted Descriptor and G2_TDO=1.
     eG2_SM_BLOB_EXPORT_IMPORT_ALLOWED = 1, // Exporting or importing Secure Memory Blobs is allowed, regardless of the G2_READ and G2_WRITE settings.
   };
+  
   enum class eSMAG_LCK : uint32_t {
     eSMAG_UNLOCKED = 0, // The SMAG2JR register and SMAG1JR register are unlocked. The partition owner can change any writable bits of these registers.
     eSMAG_LOCKED = 1, // The SMAG2JR register and SMAG1JR register are locked. The SMAG2JR and SMAG1JR registers cannot be changed until the partition is de-allocated or a POR occurs.
   };
+  
   enum class eSMAP_LCK : uint32_t {
     eSMAP_UNLOCKED = 0, // The SMAP register is unlocked. The partition owner can change any writable bits of the SMAP register.
     eSMAP_LOCKED = 1, // The SMAP register is locked. The SMAP_LCK, CSP and PSP bits and G1 and G2 permission bits of the SMAP register cannot be changed until the partition is de-allocated or a POR occurs. The PARTITION_KMOD value can still be changed. The SMAG_LCK bit can be changed to a 1, but cannot be changed to a 0.
   };
+  
   enum class ePSP : uint32_t {
     eNOT_DEALLOCATABLE = 0, // The partition and any of the pages allocated to the partition can be de-allocated.
     eDEALLOCATABLE = 1, // The partition cannot be de-allocated and the pages allocated to the partition cannot be de-allocated.
   };
+  
   enum class eCSP : uint32_t {
     eNOT_ZEROIZED = 0, // The pages allocated to the partition will not be zeroized when they are de-allocated or the partition is released or a security alarm occurs.
     eZEROIZED = 1, // The pages allocated to the partition will be zeroized when they are individually de-allocated or the partition is released or a security alarm occurs.
@@ -15991,7 +15579,7 @@ union P11SMAPR_JR1 {
     ePSP PSP : 1;
     eCSP CSP : 1;
     uint32_t PARTITION_KMOD : 16;
-  } bits;          // Bit-field struct (auto-filling reserved gaps)
+  } bits;
   
   // Full 32-bit register value.
   uint32_t value;
@@ -16005,8 +15593,6 @@ union P11SMAPR_JR1 {
 //
 union P11SMAG2_JR1 {
   
-  // Enum definitions.
-  
   // Bit field definition.
   struct {
     uint32_t Gx_ID00 : 1;
@@ -16041,7 +15627,7 @@ union P11SMAG2_JR1 {
     uint32_t Gx_ID29 : 1;
     uint32_t Gx_ID30 : 1;
     uint32_t Gx_ID31 : 1;
-  } bits;          // Bit-field struct (auto-filling reserved gaps)
+  } bits;
   
   // Full 32-bit register value.
   uint32_t value;
@@ -16055,8 +15641,6 @@ union P11SMAG2_JR1 {
 //
 union P11SMAG1_JR1 {
   
-  // Enum definitions.
-  
   // Bit field definition.
   struct {
     uint32_t Gx_ID00 : 1;
@@ -16091,7 +15675,7 @@ union P11SMAG1_JR1 {
     uint32_t Gx_ID29 : 1;
     uint32_t Gx_ID30 : 1;
     uint32_t Gx_ID31 : 1;
-  } bits;          // Bit-field struct (auto-filling reserved gaps)
+  } bits;
   
   // Full 32-bit register value.
   uint32_t value;
@@ -16105,13 +15689,11 @@ union P11SMAG1_JR1 {
 //
 union P12SDID_JR1 {
   
-  // Enum definitions.
-  
   // Bit field definition.
   struct {
     uint32_t SDID : 16;
     uint32_t _reserved_end : 16;
-  } bits;          // Bit-field struct (auto-filling reserved gaps)
+  } bits;
   
   // Full 32-bit register value.
   uint32_t value;
@@ -16125,51 +15707,61 @@ union P12SDID_JR1 {
 //
 union P12SMAPR_JR1 {
   
-  // Enum definitions.
   enum class eG1_READ : uint32_t {
     eG1_READ_PROHIB = 0, // Instruction fetches and reads are prohibited (except that Trusted Descriptor reads (if G1_TDO=1) and key-reads are always allowed, and exporting Secure Memory Blobs is allowed if G1_SMBLOB=1 or if done by a Trusted Descriptor and G1_TDO=1).
     eG1_READ_ALLOWED = 1, // Instruction fetches and reads are allowed (but exporting a Secure Memory Blob is prohibited if G1_SMBLOB=0 and the descriptor is not a Trusted Descriptor or if G1_TDO=0).
   };
+  
   enum class eG1_WRITE : uint32_t {
     eG1_WRITE_PROHIB = 0, // Writes are prohibited (except that Trusted Descriptor writes are allowed, and importing Secure Memory Blobs is allowed if G1_SMBLOB=1 or if done by a Trusted Descriptor and G1_TDO=1).
     eG1_WRITE_ALLOWED = 1, // Writes are allowed (but importing a Secure Memory Blob is prohibited if G1_SMBLOB=0 and the descriptor is not a Trusted Descriptor or if G1_TDO=0).
   };
+  
   enum class eG1_TDO : uint32_t {
     eG1_TD_PRIVILEGE_AS_JD = 0, // Trusted Descriptors have the same access privileges as Job Descriptors
     eG1_TD_OVERIDE_ALLOWED = 1, // Trusted Descriptors are allowed to override the other access permissions, i.e. they can export blobs from or import blobs to the partition and read from and write to the partition regardless of the G1_SMBLOB, G1_WRITE and G1_READ settings.
   };
+  
   enum class eG1_SMBLOB : uint32_t {
     eG1_SM_BLOB_EXPORT_IMPORT_PROHIB = 0, // Exporting or importing Secure Memory Blobs is prohibited, unless done via a Trusted Descriptor and G1_TDO=1.
     eG1_SM_B_EXPORT_IMPORT_ALLOWED = 1, // Exporting or importing Secure Memory Blobs is allowed, regardless of the G1_READ and G1_WRITE settings.
   };
+  
   enum class eG2_READ : uint32_t {
     eG2_READ_PROHIB = 0, // Instruction fetches and reads are prohibited (except that Trusted Descriptor reads (if G2_TDO=1) and key-reads are always allowed, and exporting Secure Memory Blobs is allowed if G2_SMBLOB=1 or if done by a Trusted Descriptor and G2_TDO=1).
     eG2_READ_ALLOWED = 1, // Instruction fetches and reads are allowed (but exporting a Secure Memory Blob is prohibited if G2_SMBLOB=0 and the descriptor is not a Trusted Descriptor or if G2_TDO=0).
   };
+  
   enum class eG2_WRITE : uint32_t {
     eG2_WRITE_PROHIB = 0, // Writes are prohibited (except that Trusted Descriptor writes are allowed, and importing Secure Memory Blobs is allowed if G2_SMBLOB=1 or if done by a Trusted Descriptor and G2_TDO=1).
     eG2_WRITE_ALLOWED = 1, // Writes are allowed (but importing a Secure Memory Blob is prohibited if G2_SMBLOB=0 and the descriptor is not a Trusted Descriptor or if G2_TDO=0).
   };
+  
   enum class eG2_TDO : uint32_t {
     eG2_TD_PRIVILEGE_AS_JD = 0, // Trusted Descriptors have the same access privileges as Job Descriptors
     eG2_TD_OVERIDE_ALLOWED = 1, // Trusted Descriptors are allowed to override the other access permissions, i.e. they can export blobs from or import blobs to the partition and read from and write to the partition regardless of the G2_SMBLOB, G2_WRITE and G2_READ settings.
   };
+  
   enum class eG2_SMBLOB : uint32_t {
     eG2_SM_BLOB_EXPORT_IMPORT_PROHIB = 0, // Exporting or importing Secure Memory Blobs is prohibited, unless done via a Trusted Descriptor and G2_TDO=1.
     eG2_SM_BLOB_EXPORT_IMPORT_ALLOWED = 1, // Exporting or importing Secure Memory Blobs is allowed, regardless of the G2_READ and G2_WRITE settings.
   };
+  
   enum class eSMAG_LCK : uint32_t {
     eSMAG_UNLOCKED = 0, // The SMAG2JR register and SMAG1JR register are unlocked. The partition owner can change any writable bits of these registers.
     eSMAG_LOCKED = 1, // The SMAG2JR register and SMAG1JR register are locked. The SMAG2JR and SMAG1JR registers cannot be changed until the partition is de-allocated or a POR occurs.
   };
+  
   enum class eSMAP_LCK : uint32_t {
     eSMAP_UNLOCKED = 0, // The SMAP register is unlocked. The partition owner can change any writable bits of the SMAP register.
     eSMAP_LOCKED = 1, // The SMAP register is locked. The SMAP_LCK, CSP and PSP bits and G1 and G2 permission bits of the SMAP register cannot be changed until the partition is de-allocated or a POR occurs. The PARTITION_KMOD value can still be changed. The SMAG_LCK bit can be changed to a 1, but cannot be changed to a 0.
   };
+  
   enum class ePSP : uint32_t {
     eNOT_DEALLOCATABLE = 0, // The partition and any of the pages allocated to the partition can be de-allocated.
     eDEALLOCATABLE = 1, // The partition cannot be de-allocated and the pages allocated to the partition cannot be de-allocated.
   };
+  
   enum class eCSP : uint32_t {
     eNOT_ZEROIZED = 0, // The pages allocated to the partition will not be zeroized when they are de-allocated or the partition is released or a security alarm occurs.
     eZEROIZED = 1, // The pages allocated to the partition will be zeroized when they are individually de-allocated or the partition is released or a security alarm occurs.
@@ -16191,7 +15783,7 @@ union P12SMAPR_JR1 {
     ePSP PSP : 1;
     eCSP CSP : 1;
     uint32_t PARTITION_KMOD : 16;
-  } bits;          // Bit-field struct (auto-filling reserved gaps)
+  } bits;
   
   // Full 32-bit register value.
   uint32_t value;
@@ -16205,8 +15797,6 @@ union P12SMAPR_JR1 {
 //
 union P12SMAG2_JR1 {
   
-  // Enum definitions.
-  
   // Bit field definition.
   struct {
     uint32_t Gx_ID00 : 1;
@@ -16241,7 +15831,7 @@ union P12SMAG2_JR1 {
     uint32_t Gx_ID29 : 1;
     uint32_t Gx_ID30 : 1;
     uint32_t Gx_ID31 : 1;
-  } bits;          // Bit-field struct (auto-filling reserved gaps)
+  } bits;
   
   // Full 32-bit register value.
   uint32_t value;
@@ -16255,8 +15845,6 @@ union P12SMAG2_JR1 {
 //
 union P12SMAG1_JR1 {
   
-  // Enum definitions.
-  
   // Bit field definition.
   struct {
     uint32_t Gx_ID00 : 1;
@@ -16291,7 +15879,7 @@ union P12SMAG1_JR1 {
     uint32_t Gx_ID29 : 1;
     uint32_t Gx_ID30 : 1;
     uint32_t Gx_ID31 : 1;
-  } bits;          // Bit-field struct (auto-filling reserved gaps)
+  } bits;
   
   // Full 32-bit register value.
   uint32_t value;
@@ -16305,13 +15893,11 @@ union P12SMAG1_JR1 {
 //
 union P13SDID_JR1 {
   
-  // Enum definitions.
-  
   // Bit field definition.
   struct {
     uint32_t SDID : 16;
     uint32_t _reserved_end : 16;
-  } bits;          // Bit-field struct (auto-filling reserved gaps)
+  } bits;
   
   // Full 32-bit register value.
   uint32_t value;
@@ -16325,51 +15911,61 @@ union P13SDID_JR1 {
 //
 union P13SMAPR_JR1 {
   
-  // Enum definitions.
   enum class eG1_READ : uint32_t {
     eG1_READ_PROHIB = 0, // Instruction fetches and reads are prohibited (except that Trusted Descriptor reads (if G1_TDO=1) and key-reads are always allowed, and exporting Secure Memory Blobs is allowed if G1_SMBLOB=1 or if done by a Trusted Descriptor and G1_TDO=1).
     eG1_READ_ALLOWED = 1, // Instruction fetches and reads are allowed (but exporting a Secure Memory Blob is prohibited if G1_SMBLOB=0 and the descriptor is not a Trusted Descriptor or if G1_TDO=0).
   };
+  
   enum class eG1_WRITE : uint32_t {
     eG1_WRITE_PROHIB = 0, // Writes are prohibited (except that Trusted Descriptor writes are allowed, and importing Secure Memory Blobs is allowed if G1_SMBLOB=1 or if done by a Trusted Descriptor and G1_TDO=1).
     eG1_WRITE_ALLOWED = 1, // Writes are allowed (but importing a Secure Memory Blob is prohibited if G1_SMBLOB=0 and the descriptor is not a Trusted Descriptor or if G1_TDO=0).
   };
+  
   enum class eG1_TDO : uint32_t {
     eG1_TD_PRIVILEGE_AS_JD = 0, // Trusted Descriptors have the same access privileges as Job Descriptors
     eG1_TD_OVERIDE_ALLOWED = 1, // Trusted Descriptors are allowed to override the other access permissions, i.e. they can export blobs from or import blobs to the partition and read from and write to the partition regardless of the G1_SMBLOB, G1_WRITE and G1_READ settings.
   };
+  
   enum class eG1_SMBLOB : uint32_t {
     eG1_SM_BLOB_EXPORT_IMPORT_PROHIB = 0, // Exporting or importing Secure Memory Blobs is prohibited, unless done via a Trusted Descriptor and G1_TDO=1.
     eG1_SM_B_EXPORT_IMPORT_ALLOWED = 1, // Exporting or importing Secure Memory Blobs is allowed, regardless of the G1_READ and G1_WRITE settings.
   };
+  
   enum class eG2_READ : uint32_t {
     eG2_READ_PROHIB = 0, // Instruction fetches and reads are prohibited (except that Trusted Descriptor reads (if G2_TDO=1) and key-reads are always allowed, and exporting Secure Memory Blobs is allowed if G2_SMBLOB=1 or if done by a Trusted Descriptor and G2_TDO=1).
     eG2_READ_ALLOWED = 1, // Instruction fetches and reads are allowed (but exporting a Secure Memory Blob is prohibited if G2_SMBLOB=0 and the descriptor is not a Trusted Descriptor or if G2_TDO=0).
   };
+  
   enum class eG2_WRITE : uint32_t {
     eG2_WRITE_PROHIB = 0, // Writes are prohibited (except that Trusted Descriptor writes are allowed, and importing Secure Memory Blobs is allowed if G2_SMBLOB=1 or if done by a Trusted Descriptor and G2_TDO=1).
     eG2_WRITE_ALLOWED = 1, // Writes are allowed (but importing a Secure Memory Blob is prohibited if G2_SMBLOB=0 and the descriptor is not a Trusted Descriptor or if G2_TDO=0).
   };
+  
   enum class eG2_TDO : uint32_t {
     eG2_TD_PRIVILEGE_AS_JD = 0, // Trusted Descriptors have the same access privileges as Job Descriptors
     eG2_TD_OVERIDE_ALLOWED = 1, // Trusted Descriptors are allowed to override the other access permissions, i.e. they can export blobs from or import blobs to the partition and read from and write to the partition regardless of the G2_SMBLOB, G2_WRITE and G2_READ settings.
   };
+  
   enum class eG2_SMBLOB : uint32_t {
     eG2_SM_BLOB_EXPORT_IMPORT_PROHIB = 0, // Exporting or importing Secure Memory Blobs is prohibited, unless done via a Trusted Descriptor and G2_TDO=1.
     eG2_SM_BLOB_EXPORT_IMPORT_ALLOWED = 1, // Exporting or importing Secure Memory Blobs is allowed, regardless of the G2_READ and G2_WRITE settings.
   };
+  
   enum class eSMAG_LCK : uint32_t {
     eSMAG_UNLOCKED = 0, // The SMAG2JR register and SMAG1JR register are unlocked. The partition owner can change any writable bits of these registers.
     eSMAG_LOCKED = 1, // The SMAG2JR register and SMAG1JR register are locked. The SMAG2JR and SMAG1JR registers cannot be changed until the partition is de-allocated or a POR occurs.
   };
+  
   enum class eSMAP_LCK : uint32_t {
     eSMAP_UNLOCKED = 0, // The SMAP register is unlocked. The partition owner can change any writable bits of the SMAP register.
     eSMAP_LOCKED = 1, // The SMAP register is locked. The SMAP_LCK, CSP and PSP bits and G1 and G2 permission bits of the SMAP register cannot be changed until the partition is de-allocated or a POR occurs. The PARTITION_KMOD value can still be changed. The SMAG_LCK bit can be changed to a 1, but cannot be changed to a 0.
   };
+  
   enum class ePSP : uint32_t {
     eNOT_DEALLOCATABLE = 0, // The partition and any of the pages allocated to the partition can be de-allocated.
     eDEALLOCATABLE = 1, // The partition cannot be de-allocated and the pages allocated to the partition cannot be de-allocated.
   };
+  
   enum class eCSP : uint32_t {
     eNOT_ZEROIZED = 0, // The pages allocated to the partition will not be zeroized when they are de-allocated or the partition is released or a security alarm occurs.
     eZEROIZED = 1, // The pages allocated to the partition will be zeroized when they are individually de-allocated or the partition is released or a security alarm occurs.
@@ -16391,7 +15987,7 @@ union P13SMAPR_JR1 {
     ePSP PSP : 1;
     eCSP CSP : 1;
     uint32_t PARTITION_KMOD : 16;
-  } bits;          // Bit-field struct (auto-filling reserved gaps)
+  } bits;
   
   // Full 32-bit register value.
   uint32_t value;
@@ -16405,8 +16001,6 @@ union P13SMAPR_JR1 {
 //
 union P13SMAG2_JR1 {
   
-  // Enum definitions.
-  
   // Bit field definition.
   struct {
     uint32_t Gx_ID00 : 1;
@@ -16441,7 +16035,7 @@ union P13SMAG2_JR1 {
     uint32_t Gx_ID29 : 1;
     uint32_t Gx_ID30 : 1;
     uint32_t Gx_ID31 : 1;
-  } bits;          // Bit-field struct (auto-filling reserved gaps)
+  } bits;
   
   // Full 32-bit register value.
   uint32_t value;
@@ -16455,8 +16049,6 @@ union P13SMAG2_JR1 {
 //
 union P13SMAG1_JR1 {
   
-  // Enum definitions.
-  
   // Bit field definition.
   struct {
     uint32_t Gx_ID00 : 1;
@@ -16491,7 +16083,7 @@ union P13SMAG1_JR1 {
     uint32_t Gx_ID29 : 1;
     uint32_t Gx_ID30 : 1;
     uint32_t Gx_ID31 : 1;
-  } bits;          // Bit-field struct (auto-filling reserved gaps)
+  } bits;
   
   // Full 32-bit register value.
   uint32_t value;
@@ -16505,13 +16097,11 @@ union P13SMAG1_JR1 {
 //
 union P14SDID_JR1 {
   
-  // Enum definitions.
-  
   // Bit field definition.
   struct {
     uint32_t SDID : 16;
     uint32_t _reserved_end : 16;
-  } bits;          // Bit-field struct (auto-filling reserved gaps)
+  } bits;
   
   // Full 32-bit register value.
   uint32_t value;
@@ -16525,51 +16115,61 @@ union P14SDID_JR1 {
 //
 union P14SMAPR_JR1 {
   
-  // Enum definitions.
   enum class eG1_READ : uint32_t {
     eG1_READ_PROHIB = 0, // Instruction fetches and reads are prohibited (except that Trusted Descriptor reads (if G1_TDO=1) and key-reads are always allowed, and exporting Secure Memory Blobs is allowed if G1_SMBLOB=1 or if done by a Trusted Descriptor and G1_TDO=1).
     eG1_READ_ALLOWED = 1, // Instruction fetches and reads are allowed (but exporting a Secure Memory Blob is prohibited if G1_SMBLOB=0 and the descriptor is not a Trusted Descriptor or if G1_TDO=0).
   };
+  
   enum class eG1_WRITE : uint32_t {
     eG1_WRITE_PROHIB = 0, // Writes are prohibited (except that Trusted Descriptor writes are allowed, and importing Secure Memory Blobs is allowed if G1_SMBLOB=1 or if done by a Trusted Descriptor and G1_TDO=1).
     eG1_WRITE_ALLOWED = 1, // Writes are allowed (but importing a Secure Memory Blob is prohibited if G1_SMBLOB=0 and the descriptor is not a Trusted Descriptor or if G1_TDO=0).
   };
+  
   enum class eG1_TDO : uint32_t {
     eG1_TD_PRIVILEGE_AS_JD = 0, // Trusted Descriptors have the same access privileges as Job Descriptors
     eG1_TD_OVERIDE_ALLOWED = 1, // Trusted Descriptors are allowed to override the other access permissions, i.e. they can export blobs from or import blobs to the partition and read from and write to the partition regardless of the G1_SMBLOB, G1_WRITE and G1_READ settings.
   };
+  
   enum class eG1_SMBLOB : uint32_t {
     eG1_SM_BLOB_EXPORT_IMPORT_PROHIB = 0, // Exporting or importing Secure Memory Blobs is prohibited, unless done via a Trusted Descriptor and G1_TDO=1.
     eG1_SM_B_EXPORT_IMPORT_ALLOWED = 1, // Exporting or importing Secure Memory Blobs is allowed, regardless of the G1_READ and G1_WRITE settings.
   };
+  
   enum class eG2_READ : uint32_t {
     eG2_READ_PROHIB = 0, // Instruction fetches and reads are prohibited (except that Trusted Descriptor reads (if G2_TDO=1) and key-reads are always allowed, and exporting Secure Memory Blobs is allowed if G2_SMBLOB=1 or if done by a Trusted Descriptor and G2_TDO=1).
     eG2_READ_ALLOWED = 1, // Instruction fetches and reads are allowed (but exporting a Secure Memory Blob is prohibited if G2_SMBLOB=0 and the descriptor is not a Trusted Descriptor or if G2_TDO=0).
   };
+  
   enum class eG2_WRITE : uint32_t {
     eG2_WRITE_PROHIB = 0, // Writes are prohibited (except that Trusted Descriptor writes are allowed, and importing Secure Memory Blobs is allowed if G2_SMBLOB=1 or if done by a Trusted Descriptor and G2_TDO=1).
     eG2_WRITE_ALLOWED = 1, // Writes are allowed (but importing a Secure Memory Blob is prohibited if G2_SMBLOB=0 and the descriptor is not a Trusted Descriptor or if G2_TDO=0).
   };
+  
   enum class eG2_TDO : uint32_t {
     eG2_TD_PRIVILEGE_AS_JD = 0, // Trusted Descriptors have the same access privileges as Job Descriptors
     eG2_TD_OVERIDE_ALLOWED = 1, // Trusted Descriptors are allowed to override the other access permissions, i.e. they can export blobs from or import blobs to the partition and read from and write to the partition regardless of the G2_SMBLOB, G2_WRITE and G2_READ settings.
   };
+  
   enum class eG2_SMBLOB : uint32_t {
     eG2_SM_BLOB_EXPORT_IMPORT_PROHIB = 0, // Exporting or importing Secure Memory Blobs is prohibited, unless done via a Trusted Descriptor and G2_TDO=1.
     eG2_SM_BLOB_EXPORT_IMPORT_ALLOWED = 1, // Exporting or importing Secure Memory Blobs is allowed, regardless of the G2_READ and G2_WRITE settings.
   };
+  
   enum class eSMAG_LCK : uint32_t {
     eSMAG_UNLOCKED = 0, // The SMAG2JR register and SMAG1JR register are unlocked. The partition owner can change any writable bits of these registers.
     eSMAG_LOCKED = 1, // The SMAG2JR register and SMAG1JR register are locked. The SMAG2JR and SMAG1JR registers cannot be changed until the partition is de-allocated or a POR occurs.
   };
+  
   enum class eSMAP_LCK : uint32_t {
     eSMAP_UNLOCKED = 0, // The SMAP register is unlocked. The partition owner can change any writable bits of the SMAP register.
     eSMAP_LOCKED = 1, // The SMAP register is locked. The SMAP_LCK, CSP and PSP bits and G1 and G2 permission bits of the SMAP register cannot be changed until the partition is de-allocated or a POR occurs. The PARTITION_KMOD value can still be changed. The SMAG_LCK bit can be changed to a 1, but cannot be changed to a 0.
   };
+  
   enum class ePSP : uint32_t {
     eNOT_DEALLOCATABLE = 0, // The partition and any of the pages allocated to the partition can be de-allocated.
     eDEALLOCATABLE = 1, // The partition cannot be de-allocated and the pages allocated to the partition cannot be de-allocated.
   };
+  
   enum class eCSP : uint32_t {
     eNOT_ZEROIZED = 0, // The pages allocated to the partition will not be zeroized when they are de-allocated or the partition is released or a security alarm occurs.
     eZEROIZED = 1, // The pages allocated to the partition will be zeroized when they are individually de-allocated or the partition is released or a security alarm occurs.
@@ -16591,7 +16191,7 @@ union P14SMAPR_JR1 {
     ePSP PSP : 1;
     eCSP CSP : 1;
     uint32_t PARTITION_KMOD : 16;
-  } bits;          // Bit-field struct (auto-filling reserved gaps)
+  } bits;
   
   // Full 32-bit register value.
   uint32_t value;
@@ -16605,8 +16205,6 @@ union P14SMAPR_JR1 {
 //
 union P14SMAG2_JR1 {
   
-  // Enum definitions.
-  
   // Bit field definition.
   struct {
     uint32_t Gx_ID00 : 1;
@@ -16641,7 +16239,7 @@ union P14SMAG2_JR1 {
     uint32_t Gx_ID29 : 1;
     uint32_t Gx_ID30 : 1;
     uint32_t Gx_ID31 : 1;
-  } bits;          // Bit-field struct (auto-filling reserved gaps)
+  } bits;
   
   // Full 32-bit register value.
   uint32_t value;
@@ -16655,8 +16253,6 @@ union P14SMAG2_JR1 {
 //
 union P14SMAG1_JR1 {
   
-  // Enum definitions.
-  
   // Bit field definition.
   struct {
     uint32_t Gx_ID00 : 1;
@@ -16691,7 +16287,7 @@ union P14SMAG1_JR1 {
     uint32_t Gx_ID29 : 1;
     uint32_t Gx_ID30 : 1;
     uint32_t Gx_ID31 : 1;
-  } bits;          // Bit-field struct (auto-filling reserved gaps)
+  } bits;
   
   // Full 32-bit register value.
   uint32_t value;
@@ -16705,13 +16301,11 @@ union P14SMAG1_JR1 {
 //
 union P15SDID_JR1 {
   
-  // Enum definitions.
-  
   // Bit field definition.
   struct {
     uint32_t SDID : 16;
     uint32_t _reserved_end : 16;
-  } bits;          // Bit-field struct (auto-filling reserved gaps)
+  } bits;
   
   // Full 32-bit register value.
   uint32_t value;
@@ -16725,51 +16319,61 @@ union P15SDID_JR1 {
 //
 union P15SMAPR_JR1 {
   
-  // Enum definitions.
   enum class eG1_READ : uint32_t {
     eG1_READ_PROHIB = 0, // Instruction fetches and reads are prohibited (except that Trusted Descriptor reads (if G1_TDO=1) and key-reads are always allowed, and exporting Secure Memory Blobs is allowed if G1_SMBLOB=1 or if done by a Trusted Descriptor and G1_TDO=1).
     eG1_READ_ALLOWED = 1, // Instruction fetches and reads are allowed (but exporting a Secure Memory Blob is prohibited if G1_SMBLOB=0 and the descriptor is not a Trusted Descriptor or if G1_TDO=0).
   };
+  
   enum class eG1_WRITE : uint32_t {
     eG1_WRITE_PROHIB = 0, // Writes are prohibited (except that Trusted Descriptor writes are allowed, and importing Secure Memory Blobs is allowed if G1_SMBLOB=1 or if done by a Trusted Descriptor and G1_TDO=1).
     eG1_WRITE_ALLOWED = 1, // Writes are allowed (but importing a Secure Memory Blob is prohibited if G1_SMBLOB=0 and the descriptor is not a Trusted Descriptor or if G1_TDO=0).
   };
+  
   enum class eG1_TDO : uint32_t {
     eG1_TD_PRIVILEGE_AS_JD = 0, // Trusted Descriptors have the same access privileges as Job Descriptors
     eG1_TD_OVERIDE_ALLOWED = 1, // Trusted Descriptors are allowed to override the other access permissions, i.e. they can export blobs from or import blobs to the partition and read from and write to the partition regardless of the G1_SMBLOB, G1_WRITE and G1_READ settings.
   };
+  
   enum class eG1_SMBLOB : uint32_t {
     eG1_SM_BLOB_EXPORT_IMPORT_PROHIB = 0, // Exporting or importing Secure Memory Blobs is prohibited, unless done via a Trusted Descriptor and G1_TDO=1.
     eG1_SM_B_EXPORT_IMPORT_ALLOWED = 1, // Exporting or importing Secure Memory Blobs is allowed, regardless of the G1_READ and G1_WRITE settings.
   };
+  
   enum class eG2_READ : uint32_t {
     eG2_READ_PROHIB = 0, // Instruction fetches and reads are prohibited (except that Trusted Descriptor reads (if G2_TDO=1) and key-reads are always allowed, and exporting Secure Memory Blobs is allowed if G2_SMBLOB=1 or if done by a Trusted Descriptor and G2_TDO=1).
     eG2_READ_ALLOWED = 1, // Instruction fetches and reads are allowed (but exporting a Secure Memory Blob is prohibited if G2_SMBLOB=0 and the descriptor is not a Trusted Descriptor or if G2_TDO=0).
   };
+  
   enum class eG2_WRITE : uint32_t {
     eG2_WRITE_PROHIB = 0, // Writes are prohibited (except that Trusted Descriptor writes are allowed, and importing Secure Memory Blobs is allowed if G2_SMBLOB=1 or if done by a Trusted Descriptor and G2_TDO=1).
     eG2_WRITE_ALLOWED = 1, // Writes are allowed (but importing a Secure Memory Blob is prohibited if G2_SMBLOB=0 and the descriptor is not a Trusted Descriptor or if G2_TDO=0).
   };
+  
   enum class eG2_TDO : uint32_t {
     eG2_TD_PRIVILEGE_AS_JD = 0, // Trusted Descriptors have the same access privileges as Job Descriptors
     eG2_TD_OVERIDE_ALLOWED = 1, // Trusted Descriptors are allowed to override the other access permissions, i.e. they can export blobs from or import blobs to the partition and read from and write to the partition regardless of the G2_SMBLOB, G2_WRITE and G2_READ settings.
   };
+  
   enum class eG2_SMBLOB : uint32_t {
     eG2_SM_BLOB_EXPORT_IMPORT_PROHIB = 0, // Exporting or importing Secure Memory Blobs is prohibited, unless done via a Trusted Descriptor and G2_TDO=1.
     eG2_SM_BLOB_EXPORT_IMPORT_ALLOWED = 1, // Exporting or importing Secure Memory Blobs is allowed, regardless of the G2_READ and G2_WRITE settings.
   };
+  
   enum class eSMAG_LCK : uint32_t {
     eSMAG_UNLOCKED = 0, // The SMAG2JR register and SMAG1JR register are unlocked. The partition owner can change any writable bits of these registers.
     eSMAG_LOCKED = 1, // The SMAG2JR register and SMAG1JR register are locked. The SMAG2JR and SMAG1JR registers cannot be changed until the partition is de-allocated or a POR occurs.
   };
+  
   enum class eSMAP_LCK : uint32_t {
     eSMAP_UNLOCKED = 0, // The SMAP register is unlocked. The partition owner can change any writable bits of the SMAP register.
     eSMAP_LOCKED = 1, // The SMAP register is locked. The SMAP_LCK, CSP and PSP bits and G1 and G2 permission bits of the SMAP register cannot be changed until the partition is de-allocated or a POR occurs. The PARTITION_KMOD value can still be changed. The SMAG_LCK bit can be changed to a 1, but cannot be changed to a 0.
   };
+  
   enum class ePSP : uint32_t {
     eNOT_DEALLOCATABLE = 0, // The partition and any of the pages allocated to the partition can be de-allocated.
     eDEALLOCATABLE = 1, // The partition cannot be de-allocated and the pages allocated to the partition cannot be de-allocated.
   };
+  
   enum class eCSP : uint32_t {
     eNOT_ZEROIZED = 0, // The pages allocated to the partition will not be zeroized when they are de-allocated or the partition is released or a security alarm occurs.
     eZEROIZED = 1, // The pages allocated to the partition will be zeroized when they are individually de-allocated or the partition is released or a security alarm occurs.
@@ -16791,7 +16395,7 @@ union P15SMAPR_JR1 {
     ePSP PSP : 1;
     eCSP CSP : 1;
     uint32_t PARTITION_KMOD : 16;
-  } bits;          // Bit-field struct (auto-filling reserved gaps)
+  } bits;
   
   // Full 32-bit register value.
   uint32_t value;
@@ -16805,8 +16409,6 @@ union P15SMAPR_JR1 {
 //
 union P15SMAG2_JR1 {
   
-  // Enum definitions.
-  
   // Bit field definition.
   struct {
     uint32_t Gx_ID00 : 1;
@@ -16841,7 +16443,7 @@ union P15SMAG2_JR1 {
     uint32_t Gx_ID29 : 1;
     uint32_t Gx_ID30 : 1;
     uint32_t Gx_ID31 : 1;
-  } bits;          // Bit-field struct (auto-filling reserved gaps)
+  } bits;
   
   // Full 32-bit register value.
   uint32_t value;
@@ -16855,8 +16457,6 @@ union P15SMAG2_JR1 {
 //
 union P15SMAG1_JR1 {
   
-  // Enum definitions.
-  
   // Bit field definition.
   struct {
     uint32_t Gx_ID00 : 1;
@@ -16891,7 +16491,7 @@ union P15SMAG1_JR1 {
     uint32_t Gx_ID29 : 1;
     uint32_t Gx_ID30 : 1;
     uint32_t Gx_ID31 : 1;
-  } bits;          // Bit-field struct (auto-filling reserved gaps)
+  } bits;
   
   // Full 32-bit register value.
   uint32_t value;
@@ -16905,8 +16505,6 @@ union P15SMAG1_JR1 {
 //
 union SMCR_JR1 {
   
-  // Enum definitions.
-  
   // Bit field definition.
   struct {
     uint32_t CMD : 4;
@@ -16914,7 +16512,7 @@ union SMCR_JR1 {
     uint32_t PRTN : 4;
     uint32_t _reserved_2 : 4;
     uint32_t PAGE : 16;
-  } bits;          // Bit-field struct (auto-filling reserved gaps)
+  } bits;
   
   // Full 32-bit register value.
   uint32_t value;
@@ -16928,13 +16526,13 @@ union SMCR_JR1 {
 //
 union SMCSR_JR1 {
   
-  // Enum definitions.
   enum class ePO : uint32_t {
     eAVAILABLE = 0, // Available; Unowned: The entity that issued the inquiry may allocate this page to a partition. No zeroization is needed since it has already been cleared, therefore no interrupt should be expected.
     eNOT_PRESENT_OR_INITIALIZED = 1, // Page does not exist in this version or is not initialized yet.
     eUNAVAILABLE = 2, // Another entity owns the page. This page is unavailable to the issuer of the inquiry.
     eOWNED = 3, // Owned by the entity making the inquiry. The owner may de-allocate this page if its partition is not marked PSP. If the partition to which the page is allocated is designated as CSP, the page will be zeroized upon de-allocation.
   };
+  
   enum class eCERR : uint32_t {
     eNO_ERROR = 0, // No Error.
     eCMD_INCOMPLETE_ERROR = 1, // Command has not yet completed.
@@ -16952,7 +16550,7 @@ union SMCSR_JR1 {
     eCERR CERR : 2;
     uint32_t PAGE : 12;
     uint32_t _reserved_end : 4;
-  } bits;          // Bit-field struct (auto-filling reserved gaps)
+  } bits;
   
   // Full 32-bit register value.
   uint32_t value;
@@ -16966,15 +16564,13 @@ union SMCSR_JR1 {
 //
 union REIR0JR1 {
   
-  // Enum definitions.
-  
   // Bit field definition.
   struct {
     uint32_t _reserved_0 : 24;
     uint32_t TYPE : 2;
     uint32_t _reserved_1 : 5;
     uint32_t MISS : 1;
-  } bits;          // Bit-field struct (auto-filling reserved gaps)
+  } bits;
   
   // Full 32-bit register value.
   uint32_t value;
@@ -16988,12 +16584,10 @@ union REIR0JR1 {
 //
 union REIR2JR1 {
   
-  // Enum definitions.
-  
   // Bit field definition.
   struct {
     uint32_t ADDR : 36;
-  } bits;          // Bit-field struct (auto-filling reserved gaps)
+  } bits;
   
   // Full 32-bit register value.
   uint32_t value;
@@ -17007,8 +16601,6 @@ union REIR2JR1 {
 //
 union REIR4JR1 {
   
-  // Enum definitions.
-  
   // Bit field definition.
   struct {
     uint32_t ICID : 11;
@@ -17020,7 +16612,7 @@ union REIR4JR1 {
     uint32_t _reserved_5 : 4;
     uint32_t ERR : 2;
     uint32_t MIX : 2;
-  } bits;          // Bit-field struct (auto-filling reserved gaps)
+  } bits;
   
   // Full 32-bit register value.
   uint32_t value;
@@ -17034,8 +16626,6 @@ union REIR4JR1 {
 //
 union REIR5JR1 {
   
-  // Enum definitions.
-  
   // Bit field definition.
   struct {
     uint32_t _reserved_0 : 16;
@@ -17047,7 +16637,7 @@ union REIR5JR1 {
     uint32_t KEY : 1;
     uint32_t SMA : 1;
     uint32_t _reserved_end : 2;
-  } bits;          // Bit-field struct (auto-filling reserved gaps)
+  } bits;
   
   // Full 32-bit register value.
   uint32_t value;
@@ -17061,12 +16651,10 @@ union REIR5JR1 {
 //
 union IRBAR_JR2 {
   
-  // Enum definitions.
-  
   // Bit field definition.
   struct {
     uint32_t IRBA : 36;
-  } bits;          // Bit-field struct (auto-filling reserved gaps)
+  } bits;
   
   // Full 32-bit register value.
   uint32_t value;
@@ -17080,13 +16668,11 @@ union IRBAR_JR2 {
 //
 union IRSR_JR2 {
   
-  // Enum definitions.
-  
   // Bit field definition.
   struct {
     uint32_t IRS : 10;
     uint32_t _reserved_end : 22;
-  } bits;          // Bit-field struct (auto-filling reserved gaps)
+  } bits;
   
   // Full 32-bit register value.
   uint32_t value;
@@ -17100,13 +16686,11 @@ union IRSR_JR2 {
 //
 union IRSAR_JR2 {
   
-  // Enum definitions.
-  
   // Bit field definition.
   struct {
     uint32_t IRSA : 10;
     uint32_t _reserved_end : 22;
-  } bits;          // Bit-field struct (auto-filling reserved gaps)
+  } bits;
   
   // Full 32-bit register value.
   uint32_t value;
@@ -17120,13 +16704,11 @@ union IRSAR_JR2 {
 //
 union IRJAR_JR2 {
   
-  // Enum definitions.
-  
   // Bit field definition.
   struct {
     uint32_t IRJA : 10;
     uint32_t _reserved_end : 22;
-  } bits;          // Bit-field struct (auto-filling reserved gaps)
+  } bits;
   
   // Full 32-bit register value.
   uint32_t value;
@@ -17140,12 +16722,10 @@ union IRJAR_JR2 {
 //
 union ORBAR_JR2 {
   
-  // Enum definitions.
-  
   // Bit field definition.
   struct {
     uint32_t ORBA : 36;
-  } bits;          // Bit-field struct (auto-filling reserved gaps)
+  } bits;
   
   // Full 32-bit register value.
   uint32_t value;
@@ -17159,13 +16739,11 @@ union ORBAR_JR2 {
 //
 union ORSR_JR2 {
   
-  // Enum definitions.
-  
   // Bit field definition.
   struct {
     uint32_t ORS : 10;
     uint32_t _reserved_end : 22;
-  } bits;          // Bit-field struct (auto-filling reserved gaps)
+  } bits;
   
   // Full 32-bit register value.
   uint32_t value;
@@ -17179,13 +16757,11 @@ union ORSR_JR2 {
 //
 union ORJRR_JR2 {
   
-  // Enum definitions.
-  
   // Bit field definition.
   struct {
     uint32_t ORJR : 10;
     uint32_t _reserved_end : 22;
-  } bits;          // Bit-field struct (auto-filling reserved gaps)
+  } bits;
   
   // Full 32-bit register value.
   uint32_t value;
@@ -17199,13 +16775,11 @@ union ORJRR_JR2 {
 //
 union ORSFR_JR2 {
   
-  // Enum definitions.
-  
   // Bit field definition.
   struct {
     uint32_t ORSF : 10;
     uint32_t _reserved_end : 22;
-  } bits;          // Bit-field struct (auto-filling reserved gaps)
+  } bits;
   
   // Full 32-bit register value.
   uint32_t value;
@@ -17219,7 +16793,6 @@ union ORSFR_JR2 {
 //
 union JRSTAR_JR2 {
   
-  // Enum definitions.
   enum class eSSRC : uint32_t {
     eNO_STATUS = 0, // No Status Source (No Error or Status Reported)
     eCCB_STATUS = 2, // CCB Status Source (CCB Error Reported)
@@ -17233,7 +16806,7 @@ union JRSTAR_JR2 {
   struct {
     uint32_t SSED : 28;
     eSSRC SSRC : 4;
-  } bits;          // Bit-field struct (auto-filling reserved gaps)
+  } bits;
   
   // Full 32-bit register value.
   uint32_t value;
@@ -17247,7 +16820,6 @@ union JRSTAR_JR2 {
 //
 union JRINTR_JR2 {
   
-  // Enum definitions.
   enum class eERR_TYPE : uint32_t {
     eOR_WR_ERR = 1, // Error writing status to Output Ring
     eBAD_IR_ADDR_ERR = 3, // Bad input ring base address (not on a 4-byte boundary).
@@ -17279,7 +16851,7 @@ union JRINTR_JR2 {
     uint32_t _reserved_6 : 3;
     uint32_t ERR_ORWI : 14;
     uint32_t _reserved_end : 2;
-  } bits;          // Bit-field struct (auto-filling reserved gaps)
+  } bits;
   
   // Full 32-bit register value.
   uint32_t value;
@@ -17293,8 +16865,6 @@ union JRINTR_JR2 {
 //
 union JRCFGR_JR2_MS {
   
-  // Enum definitions.
-  
   // Bit field definition.
   struct {
     uint32_t MBSI : 1;
@@ -17320,7 +16890,7 @@ union JRCFGR_JR2_MS {
     uint32_t FAIL_MODE : 1;
     uint32_t INCL_SEQ_OUT : 1;
     uint32_t _reserved_end : 1;
-  } bits;          // Bit-field struct (auto-filling reserved gaps)
+  } bits;
   
   // Full 32-bit register value.
   uint32_t value;
@@ -17334,11 +16904,11 @@ union JRCFGR_JR2_MS {
 //
 union JRCFGR_JR2_LS {
   
-  // Enum definitions.
   enum class eIMSK : uint32_t {
     eINTR_ENABLED = 0, // Interrupt enabled.
     eINTR_MASKED = 1, // Interrupt masked.
   };
+  
   enum class eICEN : uint32_t {
     eINTR_COAL_DISABLED = 0, // Interrupt coalescing is disabled. If the IMSK bit is cleared, an interrupt is asserted whenever a job is written to the output ring. ICDCT is ignored. Note that if software removes one or more jobs and clears the interrupt but the output rings slots full is still greater than 0 (ORSF > 0), then the interrupt will clear but reassert on the next clock cycle.
     eINTR_COAL_ENABLED = 1, // Interrupt coalescing is enabled. If the IMSK bit is cleared, an interrupt is asserted whenever the threshold number of frames is reached (ICDCT) or when the threshold timer expires (ICTT). Note that if software removes one or more jobs and clears the interrupt but the interrupt coalescing threshold is still met (ORSF >= ICDCT), then the interrupt will clear but reassert on the next clock cycle.
@@ -17351,7 +16921,7 @@ union JRCFGR_JR2_LS {
     uint32_t _reserved_2 : 6;
     uint32_t ICDCT : 8;
     uint32_t ICTT : 16;
-  } bits;          // Bit-field struct (auto-filling reserved gaps)
+  } bits;
   
   // Full 32-bit register value.
   uint32_t value;
@@ -17365,13 +16935,11 @@ union JRCFGR_JR2_LS {
 //
 union IRRIR_JR2 {
   
-  // Enum definitions.
-  
   // Bit field definition.
   struct {
     uint32_t IRRI : 13;
     uint32_t _reserved_end : 19;
-  } bits;          // Bit-field struct (auto-filling reserved gaps)
+  } bits;
   
   // Full 32-bit register value.
   uint32_t value;
@@ -17385,13 +16953,11 @@ union IRRIR_JR2 {
 //
 union ORWIR_JR2 {
   
-  // Enum definitions.
-  
   // Bit field definition.
   struct {
     uint32_t ORWI : 14;
     uint32_t _reserved_end : 18;
-  } bits;          // Bit-field struct (auto-filling reserved gaps)
+  } bits;
   
   // Full 32-bit register value.
   uint32_t value;
@@ -17405,14 +16971,12 @@ union ORWIR_JR2 {
 //
 union JRCR_JR2 {
   
-  // Enum definitions.
-  
   // Bit field definition.
   struct {
     uint32_t RESET : 1;
     uint32_t PARK : 1;
     uint32_t _reserved_end : 30;
-  } bits;          // Bit-field struct (auto-filling reserved gaps)
+  } bits;
   
   // Full 32-bit register value.
   uint32_t value;
@@ -17426,8 +16990,6 @@ union JRCR_JR2 {
 //
 union JR2AAV {
   
-  // Enum definitions.
-  
   // Bit field definition.
   struct {
     uint32_t V0 : 1;
@@ -17436,7 +16998,7 @@ union JR2AAV {
     uint32_t V3 : 1;
     uint32_t _reserved_4 : 27;
     uint32_t BC : 1;
-  } bits;          // Bit-field struct (auto-filling reserved gaps)
+  } bits;
   
   // Full 32-bit register value.
   uint32_t value;
@@ -17450,12 +17012,10 @@ union JR2AAV {
 //
 union JR2AAA0 {
   
-  // Enum definitions.
-  
   // Bit field definition.
   struct {
     uint32_t JD_ADDR : 36;
-  } bits;          // Bit-field struct (auto-filling reserved gaps)
+  } bits;
   
   // Full 32-bit register value.
   uint32_t value;
@@ -17469,12 +17029,10 @@ union JR2AAA0 {
 //
 union JR2AAA1 {
   
-  // Enum definitions.
-  
   // Bit field definition.
   struct {
     uint32_t JD_ADDR : 36;
-  } bits;          // Bit-field struct (auto-filling reserved gaps)
+  } bits;
   
   // Full 32-bit register value.
   uint32_t value;
@@ -17488,12 +17046,10 @@ union JR2AAA1 {
 //
 union JR2AAA2 {
   
-  // Enum definitions.
-  
   // Bit field definition.
   struct {
     uint32_t JD_ADDR : 36;
-  } bits;          // Bit-field struct (auto-filling reserved gaps)
+  } bits;
   
   // Full 32-bit register value.
   uint32_t value;
@@ -17507,12 +17063,10 @@ union JR2AAA2 {
 //
 union JR2AAA3 {
   
-  // Enum definitions.
-  
   // Bit field definition.
   struct {
     uint32_t JD_ADDR : 36;
-  } bits;          // Bit-field struct (auto-filling reserved gaps)
+  } bits;
   
   // Full 32-bit register value.
   uint32_t value;
@@ -17526,13 +17080,11 @@ union JR2AAA3 {
 //
 union P0SDID_JR2 {
   
-  // Enum definitions.
-  
   // Bit field definition.
   struct {
     uint32_t SDID : 16;
     uint32_t _reserved_end : 16;
-  } bits;          // Bit-field struct (auto-filling reserved gaps)
+  } bits;
   
   // Full 32-bit register value.
   uint32_t value;
@@ -17546,51 +17098,61 @@ union P0SDID_JR2 {
 //
 union P0SMAPR_JR2 {
   
-  // Enum definitions.
   enum class eG1_READ : uint32_t {
     eG1_READ_PROHIB = 0, // Instruction fetches and reads are prohibited (except that Trusted Descriptor reads (if G1_TDO=1) and key-reads are always allowed, and exporting Secure Memory Blobs is allowed if G1_SMBLOB=1 or if done by a Trusted Descriptor and G1_TDO=1).
     eG1_READ_ALLOWED = 1, // Instruction fetches and reads are allowed (but exporting a Secure Memory Blob is prohibited if G1_SMBLOB=0 and the descriptor is not a Trusted Descriptor or if G1_TDO=0).
   };
+  
   enum class eG1_WRITE : uint32_t {
     eG1_WRITE_PROHIB = 0, // Writes are prohibited (except that Trusted Descriptor writes are allowed, and importing Secure Memory Blobs is allowed if G1_SMBLOB=1 or if done by a Trusted Descriptor and G1_TDO=1).
     eG1_WRITE_ALLOWED = 1, // Writes are allowed (but importing a Secure Memory Blob is prohibited if G1_SMBLOB=0 and the descriptor is not a Trusted Descriptor or if G1_TDO=0).
   };
+  
   enum class eG1_TDO : uint32_t {
     eG1_TD_PRIVILEGE_AS_JD = 0, // Trusted Descriptors have the same access privileges as Job Descriptors
     eG1_TD_OVERIDE_ALLOWED = 1, // Trusted Descriptors are allowed to override the other access permissions, i.e. they can export blobs from or import blobs to the partition and read from and write to the partition regardless of the G1_SMBLOB, G1_WRITE and G1_READ settings.
   };
+  
   enum class eG1_SMBLOB : uint32_t {
     eG1_SM_BLOB_EXPORT_IMPORT_PROHIB = 0, // Exporting or importing Secure Memory Blobs is prohibited, unless done via a Trusted Descriptor and G1_TDO=1.
     eG1_SM_B_EXPORT_IMPORT_ALLOWED = 1, // Exporting or importing Secure Memory Blobs is allowed, regardless of the G1_READ and G1_WRITE settings.
   };
+  
   enum class eG2_READ : uint32_t {
     eG2_READ_PROHIB = 0, // Instruction fetches and reads are prohibited (except that Trusted Descriptor reads (if G2_TDO=1) and key-reads are always allowed, and exporting Secure Memory Blobs is allowed if G2_SMBLOB=1 or if done by a Trusted Descriptor and G2_TDO=1).
     eG2_READ_ALLOWED = 1, // Instruction fetches and reads are allowed (but exporting a Secure Memory Blob is prohibited if G2_SMBLOB=0 and the descriptor is not a Trusted Descriptor or if G2_TDO=0).
   };
+  
   enum class eG2_WRITE : uint32_t {
     eG2_WRITE_PROHIB = 0, // Writes are prohibited (except that Trusted Descriptor writes are allowed, and importing Secure Memory Blobs is allowed if G2_SMBLOB=1 or if done by a Trusted Descriptor and G2_TDO=1).
     eG2_WRITE_ALLOWED = 1, // Writes are allowed (but importing a Secure Memory Blob is prohibited if G2_SMBLOB=0 and the descriptor is not a Trusted Descriptor or if G2_TDO=0).
   };
+  
   enum class eG2_TDO : uint32_t {
     eG2_TD_PRIVILEGE_AS_JD = 0, // Trusted Descriptors have the same access privileges as Job Descriptors
     eG2_TD_OVERIDE_ALLOWED = 1, // Trusted Descriptors are allowed to override the other access permissions, i.e. they can export blobs from or import blobs to the partition and read from and write to the partition regardless of the G2_SMBLOB, G2_WRITE and G2_READ settings.
   };
+  
   enum class eG2_SMBLOB : uint32_t {
     eG2_SM_BLOB_EXPORT_IMPORT_PROHIB = 0, // Exporting or importing Secure Memory Blobs is prohibited, unless done via a Trusted Descriptor and G2_TDO=1.
     eG2_SM_BLOB_EXPORT_IMPORT_ALLOWED = 1, // Exporting or importing Secure Memory Blobs is allowed, regardless of the G2_READ and G2_WRITE settings.
   };
+  
   enum class eSMAG_LCK : uint32_t {
     eSMAG_UNLOCKED = 0, // The SMAG2JR register and SMAG1JR register are unlocked. The partition owner can change any writable bits of these registers.
     eSMAG_LOCKED = 1, // The SMAG2JR register and SMAG1JR register are locked. The SMAG2JR and SMAG1JR registers cannot be changed until the partition is de-allocated or a POR occurs.
   };
+  
   enum class eSMAP_LCK : uint32_t {
     eSMAP_UNLOCKED = 0, // The SMAP register is unlocked. The partition owner can change any writable bits of the SMAP register.
     eSMAP_LOCKED = 1, // The SMAP register is locked. The SMAP_LCK, CSP and PSP bits and G1 and G2 permission bits of the SMAP register cannot be changed until the partition is de-allocated or a POR occurs. The PARTITION_KMOD value can still be changed. The SMAG_LCK bit can be changed to a 1, but cannot be changed to a 0.
   };
+  
   enum class ePSP : uint32_t {
     eNOT_DEALLOCATABLE = 0, // The partition and any of the pages allocated to the partition can be de-allocated.
     eDEALLOCATABLE = 1, // The partition cannot be de-allocated and the pages allocated to the partition cannot be de-allocated.
   };
+  
   enum class eCSP : uint32_t {
     eNOT_ZEROIZED = 0, // The pages allocated to the partition will not be zeroized when they are de-allocated or the partition is released or a security alarm occurs.
     eZEROIZED = 1, // The pages allocated to the partition will be zeroized when they are individually de-allocated or the partition is released or a security alarm occurs.
@@ -17612,7 +17174,7 @@ union P0SMAPR_JR2 {
     ePSP PSP : 1;
     eCSP CSP : 1;
     uint32_t PARTITION_KMOD : 16;
-  } bits;          // Bit-field struct (auto-filling reserved gaps)
+  } bits;
   
   // Full 32-bit register value.
   uint32_t value;
@@ -17626,8 +17188,6 @@ union P0SMAPR_JR2 {
 //
 union P0SMAG2_JR2 {
   
-  // Enum definitions.
-  
   // Bit field definition.
   struct {
     uint32_t Gx_ID00 : 1;
@@ -17662,7 +17222,7 @@ union P0SMAG2_JR2 {
     uint32_t Gx_ID29 : 1;
     uint32_t Gx_ID30 : 1;
     uint32_t Gx_ID31 : 1;
-  } bits;          // Bit-field struct (auto-filling reserved gaps)
+  } bits;
   
   // Full 32-bit register value.
   uint32_t value;
@@ -17676,8 +17236,6 @@ union P0SMAG2_JR2 {
 //
 union P0SMAG1_JR2 {
   
-  // Enum definitions.
-  
   // Bit field definition.
   struct {
     uint32_t Gx_ID00 : 1;
@@ -17712,7 +17270,7 @@ union P0SMAG1_JR2 {
     uint32_t Gx_ID29 : 1;
     uint32_t Gx_ID30 : 1;
     uint32_t Gx_ID31 : 1;
-  } bits;          // Bit-field struct (auto-filling reserved gaps)
+  } bits;
   
   // Full 32-bit register value.
   uint32_t value;
@@ -17726,13 +17284,11 @@ union P0SMAG1_JR2 {
 //
 union P1SDID_JR2 {
   
-  // Enum definitions.
-  
   // Bit field definition.
   struct {
     uint32_t SDID : 16;
     uint32_t _reserved_end : 16;
-  } bits;          // Bit-field struct (auto-filling reserved gaps)
+  } bits;
   
   // Full 32-bit register value.
   uint32_t value;
@@ -17746,51 +17302,61 @@ union P1SDID_JR2 {
 //
 union P1SMAPR_JR2 {
   
-  // Enum definitions.
   enum class eG1_READ : uint32_t {
     eG1_READ_PROHIB = 0, // Instruction fetches and reads are prohibited (except that Trusted Descriptor reads (if G1_TDO=1) and key-reads are always allowed, and exporting Secure Memory Blobs is allowed if G1_SMBLOB=1 or if done by a Trusted Descriptor and G1_TDO=1).
     eG1_READ_ALLOWED = 1, // Instruction fetches and reads are allowed (but exporting a Secure Memory Blob is prohibited if G1_SMBLOB=0 and the descriptor is not a Trusted Descriptor or if G1_TDO=0).
   };
+  
   enum class eG1_WRITE : uint32_t {
     eG1_WRITE_PROHIB = 0, // Writes are prohibited (except that Trusted Descriptor writes are allowed, and importing Secure Memory Blobs is allowed if G1_SMBLOB=1 or if done by a Trusted Descriptor and G1_TDO=1).
     eG1_WRITE_ALLOWED = 1, // Writes are allowed (but importing a Secure Memory Blob is prohibited if G1_SMBLOB=0 and the descriptor is not a Trusted Descriptor or if G1_TDO=0).
   };
+  
   enum class eG1_TDO : uint32_t {
     eG1_TD_PRIVILEGE_AS_JD = 0, // Trusted Descriptors have the same access privileges as Job Descriptors
     eG1_TD_OVERIDE_ALLOWED = 1, // Trusted Descriptors are allowed to override the other access permissions, i.e. they can export blobs from or import blobs to the partition and read from and write to the partition regardless of the G1_SMBLOB, G1_WRITE and G1_READ settings.
   };
+  
   enum class eG1_SMBLOB : uint32_t {
     eG1_SM_BLOB_EXPORT_IMPORT_PROHIB = 0, // Exporting or importing Secure Memory Blobs is prohibited, unless done via a Trusted Descriptor and G1_TDO=1.
     eG1_SM_B_EXPORT_IMPORT_ALLOWED = 1, // Exporting or importing Secure Memory Blobs is allowed, regardless of the G1_READ and G1_WRITE settings.
   };
+  
   enum class eG2_READ : uint32_t {
     eG2_READ_PROHIB = 0, // Instruction fetches and reads are prohibited (except that Trusted Descriptor reads (if G2_TDO=1) and key-reads are always allowed, and exporting Secure Memory Blobs is allowed if G2_SMBLOB=1 or if done by a Trusted Descriptor and G2_TDO=1).
     eG2_READ_ALLOWED = 1, // Instruction fetches and reads are allowed (but exporting a Secure Memory Blob is prohibited if G2_SMBLOB=0 and the descriptor is not a Trusted Descriptor or if G2_TDO=0).
   };
+  
   enum class eG2_WRITE : uint32_t {
     eG2_WRITE_PROHIB = 0, // Writes are prohibited (except that Trusted Descriptor writes are allowed, and importing Secure Memory Blobs is allowed if G2_SMBLOB=1 or if done by a Trusted Descriptor and G2_TDO=1).
     eG2_WRITE_ALLOWED = 1, // Writes are allowed (but importing a Secure Memory Blob is prohibited if G2_SMBLOB=0 and the descriptor is not a Trusted Descriptor or if G2_TDO=0).
   };
+  
   enum class eG2_TDO : uint32_t {
     eG2_TD_PRIVILEGE_AS_JD = 0, // Trusted Descriptors have the same access privileges as Job Descriptors
     eG2_TD_OVERIDE_ALLOWED = 1, // Trusted Descriptors are allowed to override the other access permissions, i.e. they can export blobs from or import blobs to the partition and read from and write to the partition regardless of the G2_SMBLOB, G2_WRITE and G2_READ settings.
   };
+  
   enum class eG2_SMBLOB : uint32_t {
     eG2_SM_BLOB_EXPORT_IMPORT_PROHIB = 0, // Exporting or importing Secure Memory Blobs is prohibited, unless done via a Trusted Descriptor and G2_TDO=1.
     eG2_SM_BLOB_EXPORT_IMPORT_ALLOWED = 1, // Exporting or importing Secure Memory Blobs is allowed, regardless of the G2_READ and G2_WRITE settings.
   };
+  
   enum class eSMAG_LCK : uint32_t {
     eSMAG_UNLOCKED = 0, // The SMAG2JR register and SMAG1JR register are unlocked. The partition owner can change any writable bits of these registers.
     eSMAG_LOCKED = 1, // The SMAG2JR register and SMAG1JR register are locked. The SMAG2JR and SMAG1JR registers cannot be changed until the partition is de-allocated or a POR occurs.
   };
+  
   enum class eSMAP_LCK : uint32_t {
     eSMAP_UNLOCKED = 0, // The SMAP register is unlocked. The partition owner can change any writable bits of the SMAP register.
     eSMAP_LOCKED = 1, // The SMAP register is locked. The SMAP_LCK, CSP and PSP bits and G1 and G2 permission bits of the SMAP register cannot be changed until the partition is de-allocated or a POR occurs. The PARTITION_KMOD value can still be changed. The SMAG_LCK bit can be changed to a 1, but cannot be changed to a 0.
   };
+  
   enum class ePSP : uint32_t {
     eNOT_DEALLOCATABLE = 0, // The partition and any of the pages allocated to the partition can be de-allocated.
     eDEALLOCATABLE = 1, // The partition cannot be de-allocated and the pages allocated to the partition cannot be de-allocated.
   };
+  
   enum class eCSP : uint32_t {
     eNOT_ZEROIZED = 0, // The pages allocated to the partition will not be zeroized when they are de-allocated or the partition is released or a security alarm occurs.
     eZEROIZED = 1, // The pages allocated to the partition will be zeroized when they are individually de-allocated or the partition is released or a security alarm occurs.
@@ -17812,7 +17378,7 @@ union P1SMAPR_JR2 {
     ePSP PSP : 1;
     eCSP CSP : 1;
     uint32_t PARTITION_KMOD : 16;
-  } bits;          // Bit-field struct (auto-filling reserved gaps)
+  } bits;
   
   // Full 32-bit register value.
   uint32_t value;
@@ -17826,8 +17392,6 @@ union P1SMAPR_JR2 {
 //
 union P1SMAG2_JR2 {
   
-  // Enum definitions.
-  
   // Bit field definition.
   struct {
     uint32_t Gx_ID00 : 1;
@@ -17862,7 +17426,7 @@ union P1SMAG2_JR2 {
     uint32_t Gx_ID29 : 1;
     uint32_t Gx_ID30 : 1;
     uint32_t Gx_ID31 : 1;
-  } bits;          // Bit-field struct (auto-filling reserved gaps)
+  } bits;
   
   // Full 32-bit register value.
   uint32_t value;
@@ -17876,8 +17440,6 @@ union P1SMAG2_JR2 {
 //
 union P1SMAG1_JR2 {
   
-  // Enum definitions.
-  
   // Bit field definition.
   struct {
     uint32_t Gx_ID00 : 1;
@@ -17912,7 +17474,7 @@ union P1SMAG1_JR2 {
     uint32_t Gx_ID29 : 1;
     uint32_t Gx_ID30 : 1;
     uint32_t Gx_ID31 : 1;
-  } bits;          // Bit-field struct (auto-filling reserved gaps)
+  } bits;
   
   // Full 32-bit register value.
   uint32_t value;
@@ -17926,13 +17488,11 @@ union P1SMAG1_JR2 {
 //
 union P2SDID_JR2 {
   
-  // Enum definitions.
-  
   // Bit field definition.
   struct {
     uint32_t SDID : 16;
     uint32_t _reserved_end : 16;
-  } bits;          // Bit-field struct (auto-filling reserved gaps)
+  } bits;
   
   // Full 32-bit register value.
   uint32_t value;
@@ -17946,51 +17506,61 @@ union P2SDID_JR2 {
 //
 union P2SMAPR_JR2 {
   
-  // Enum definitions.
   enum class eG1_READ : uint32_t {
     eG1_READ_PROHIB = 0, // Instruction fetches and reads are prohibited (except that Trusted Descriptor reads (if G1_TDO=1) and key-reads are always allowed, and exporting Secure Memory Blobs is allowed if G1_SMBLOB=1 or if done by a Trusted Descriptor and G1_TDO=1).
     eG1_READ_ALLOWED = 1, // Instruction fetches and reads are allowed (but exporting a Secure Memory Blob is prohibited if G1_SMBLOB=0 and the descriptor is not a Trusted Descriptor or if G1_TDO=0).
   };
+  
   enum class eG1_WRITE : uint32_t {
     eG1_WRITE_PROHIB = 0, // Writes are prohibited (except that Trusted Descriptor writes are allowed, and importing Secure Memory Blobs is allowed if G1_SMBLOB=1 or if done by a Trusted Descriptor and G1_TDO=1).
     eG1_WRITE_ALLOWED = 1, // Writes are allowed (but importing a Secure Memory Blob is prohibited if G1_SMBLOB=0 and the descriptor is not a Trusted Descriptor or if G1_TDO=0).
   };
+  
   enum class eG1_TDO : uint32_t {
     eG1_TD_PRIVILEGE_AS_JD = 0, // Trusted Descriptors have the same access privileges as Job Descriptors
     eG1_TD_OVERIDE_ALLOWED = 1, // Trusted Descriptors are allowed to override the other access permissions, i.e. they can export blobs from or import blobs to the partition and read from and write to the partition regardless of the G1_SMBLOB, G1_WRITE and G1_READ settings.
   };
+  
   enum class eG1_SMBLOB : uint32_t {
     eG1_SM_BLOB_EXPORT_IMPORT_PROHIB = 0, // Exporting or importing Secure Memory Blobs is prohibited, unless done via a Trusted Descriptor and G1_TDO=1.
     eG1_SM_B_EXPORT_IMPORT_ALLOWED = 1, // Exporting or importing Secure Memory Blobs is allowed, regardless of the G1_READ and G1_WRITE settings.
   };
+  
   enum class eG2_READ : uint32_t {
     eG2_READ_PROHIB = 0, // Instruction fetches and reads are prohibited (except that Trusted Descriptor reads (if G2_TDO=1) and key-reads are always allowed, and exporting Secure Memory Blobs is allowed if G2_SMBLOB=1 or if done by a Trusted Descriptor and G2_TDO=1).
     eG2_READ_ALLOWED = 1, // Instruction fetches and reads are allowed (but exporting a Secure Memory Blob is prohibited if G2_SMBLOB=0 and the descriptor is not a Trusted Descriptor or if G2_TDO=0).
   };
+  
   enum class eG2_WRITE : uint32_t {
     eG2_WRITE_PROHIB = 0, // Writes are prohibited (except that Trusted Descriptor writes are allowed, and importing Secure Memory Blobs is allowed if G2_SMBLOB=1 or if done by a Trusted Descriptor and G2_TDO=1).
     eG2_WRITE_ALLOWED = 1, // Writes are allowed (but importing a Secure Memory Blob is prohibited if G2_SMBLOB=0 and the descriptor is not a Trusted Descriptor or if G2_TDO=0).
   };
+  
   enum class eG2_TDO : uint32_t {
     eG2_TD_PRIVILEGE_AS_JD = 0, // Trusted Descriptors have the same access privileges as Job Descriptors
     eG2_TD_OVERIDE_ALLOWED = 1, // Trusted Descriptors are allowed to override the other access permissions, i.e. they can export blobs from or import blobs to the partition and read from and write to the partition regardless of the G2_SMBLOB, G2_WRITE and G2_READ settings.
   };
+  
   enum class eG2_SMBLOB : uint32_t {
     eG2_SM_BLOB_EXPORT_IMPORT_PROHIB = 0, // Exporting or importing Secure Memory Blobs is prohibited, unless done via a Trusted Descriptor and G2_TDO=1.
     eG2_SM_BLOB_EXPORT_IMPORT_ALLOWED = 1, // Exporting or importing Secure Memory Blobs is allowed, regardless of the G2_READ and G2_WRITE settings.
   };
+  
   enum class eSMAG_LCK : uint32_t {
     eSMAG_UNLOCKED = 0, // The SMAG2JR register and SMAG1JR register are unlocked. The partition owner can change any writable bits of these registers.
     eSMAG_LOCKED = 1, // The SMAG2JR register and SMAG1JR register are locked. The SMAG2JR and SMAG1JR registers cannot be changed until the partition is de-allocated or a POR occurs.
   };
+  
   enum class eSMAP_LCK : uint32_t {
     eSMAP_UNLOCKED = 0, // The SMAP register is unlocked. The partition owner can change any writable bits of the SMAP register.
     eSMAP_LOCKED = 1, // The SMAP register is locked. The SMAP_LCK, CSP and PSP bits and G1 and G2 permission bits of the SMAP register cannot be changed until the partition is de-allocated or a POR occurs. The PARTITION_KMOD value can still be changed. The SMAG_LCK bit can be changed to a 1, but cannot be changed to a 0.
   };
+  
   enum class ePSP : uint32_t {
     eNOT_DEALLOCATABLE = 0, // The partition and any of the pages allocated to the partition can be de-allocated.
     eDEALLOCATABLE = 1, // The partition cannot be de-allocated and the pages allocated to the partition cannot be de-allocated.
   };
+  
   enum class eCSP : uint32_t {
     eNOT_ZEROIZED = 0, // The pages allocated to the partition will not be zeroized when they are de-allocated or the partition is released or a security alarm occurs.
     eZEROIZED = 1, // The pages allocated to the partition will be zeroized when they are individually de-allocated or the partition is released or a security alarm occurs.
@@ -18012,7 +17582,7 @@ union P2SMAPR_JR2 {
     ePSP PSP : 1;
     eCSP CSP : 1;
     uint32_t PARTITION_KMOD : 16;
-  } bits;          // Bit-field struct (auto-filling reserved gaps)
+  } bits;
   
   // Full 32-bit register value.
   uint32_t value;
@@ -18026,8 +17596,6 @@ union P2SMAPR_JR2 {
 //
 union P2SMAG2_JR2 {
   
-  // Enum definitions.
-  
   // Bit field definition.
   struct {
     uint32_t Gx_ID00 : 1;
@@ -18062,7 +17630,7 @@ union P2SMAG2_JR2 {
     uint32_t Gx_ID29 : 1;
     uint32_t Gx_ID30 : 1;
     uint32_t Gx_ID31 : 1;
-  } bits;          // Bit-field struct (auto-filling reserved gaps)
+  } bits;
   
   // Full 32-bit register value.
   uint32_t value;
@@ -18076,8 +17644,6 @@ union P2SMAG2_JR2 {
 //
 union P2SMAG1_JR2 {
   
-  // Enum definitions.
-  
   // Bit field definition.
   struct {
     uint32_t Gx_ID00 : 1;
@@ -18112,7 +17678,7 @@ union P2SMAG1_JR2 {
     uint32_t Gx_ID29 : 1;
     uint32_t Gx_ID30 : 1;
     uint32_t Gx_ID31 : 1;
-  } bits;          // Bit-field struct (auto-filling reserved gaps)
+  } bits;
   
   // Full 32-bit register value.
   uint32_t value;
@@ -18126,13 +17692,11 @@ union P2SMAG1_JR2 {
 //
 union P3SDID_JR2 {
   
-  // Enum definitions.
-  
   // Bit field definition.
   struct {
     uint32_t SDID : 16;
     uint32_t _reserved_end : 16;
-  } bits;          // Bit-field struct (auto-filling reserved gaps)
+  } bits;
   
   // Full 32-bit register value.
   uint32_t value;
@@ -18146,51 +17710,61 @@ union P3SDID_JR2 {
 //
 union P3SMAPR_JR2 {
   
-  // Enum definitions.
   enum class eG1_READ : uint32_t {
     eG1_READ_PROHIB = 0, // Instruction fetches and reads are prohibited (except that Trusted Descriptor reads (if G1_TDO=1) and key-reads are always allowed, and exporting Secure Memory Blobs is allowed if G1_SMBLOB=1 or if done by a Trusted Descriptor and G1_TDO=1).
     eG1_READ_ALLOWED = 1, // Instruction fetches and reads are allowed (but exporting a Secure Memory Blob is prohibited if G1_SMBLOB=0 and the descriptor is not a Trusted Descriptor or if G1_TDO=0).
   };
+  
   enum class eG1_WRITE : uint32_t {
     eG1_WRITE_PROHIB = 0, // Writes are prohibited (except that Trusted Descriptor writes are allowed, and importing Secure Memory Blobs is allowed if G1_SMBLOB=1 or if done by a Trusted Descriptor and G1_TDO=1).
     eG1_WRITE_ALLOWED = 1, // Writes are allowed (but importing a Secure Memory Blob is prohibited if G1_SMBLOB=0 and the descriptor is not a Trusted Descriptor or if G1_TDO=0).
   };
+  
   enum class eG1_TDO : uint32_t {
     eG1_TD_PRIVILEGE_AS_JD = 0, // Trusted Descriptors have the same access privileges as Job Descriptors
     eG1_TD_OVERIDE_ALLOWED = 1, // Trusted Descriptors are allowed to override the other access permissions, i.e. they can export blobs from or import blobs to the partition and read from and write to the partition regardless of the G1_SMBLOB, G1_WRITE and G1_READ settings.
   };
+  
   enum class eG1_SMBLOB : uint32_t {
     eG1_SM_BLOB_EXPORT_IMPORT_PROHIB = 0, // Exporting or importing Secure Memory Blobs is prohibited, unless done via a Trusted Descriptor and G1_TDO=1.
     eG1_SM_B_EXPORT_IMPORT_ALLOWED = 1, // Exporting or importing Secure Memory Blobs is allowed, regardless of the G1_READ and G1_WRITE settings.
   };
+  
   enum class eG2_READ : uint32_t {
     eG2_READ_PROHIB = 0, // Instruction fetches and reads are prohibited (except that Trusted Descriptor reads (if G2_TDO=1) and key-reads are always allowed, and exporting Secure Memory Blobs is allowed if G2_SMBLOB=1 or if done by a Trusted Descriptor and G2_TDO=1).
     eG2_READ_ALLOWED = 1, // Instruction fetches and reads are allowed (but exporting a Secure Memory Blob is prohibited if G2_SMBLOB=0 and the descriptor is not a Trusted Descriptor or if G2_TDO=0).
   };
+  
   enum class eG2_WRITE : uint32_t {
     eG2_WRITE_PROHIB = 0, // Writes are prohibited (except that Trusted Descriptor writes are allowed, and importing Secure Memory Blobs is allowed if G2_SMBLOB=1 or if done by a Trusted Descriptor and G2_TDO=1).
     eG2_WRITE_ALLOWED = 1, // Writes are allowed (but importing a Secure Memory Blob is prohibited if G2_SMBLOB=0 and the descriptor is not a Trusted Descriptor or if G2_TDO=0).
   };
+  
   enum class eG2_TDO : uint32_t {
     eG2_TD_PRIVILEGE_AS_JD = 0, // Trusted Descriptors have the same access privileges as Job Descriptors
     eG2_TD_OVERIDE_ALLOWED = 1, // Trusted Descriptors are allowed to override the other access permissions, i.e. they can export blobs from or import blobs to the partition and read from and write to the partition regardless of the G2_SMBLOB, G2_WRITE and G2_READ settings.
   };
+  
   enum class eG2_SMBLOB : uint32_t {
     eG2_SM_BLOB_EXPORT_IMPORT_PROHIB = 0, // Exporting or importing Secure Memory Blobs is prohibited, unless done via a Trusted Descriptor and G2_TDO=1.
     eG2_SM_BLOB_EXPORT_IMPORT_ALLOWED = 1, // Exporting or importing Secure Memory Blobs is allowed, regardless of the G2_READ and G2_WRITE settings.
   };
+  
   enum class eSMAG_LCK : uint32_t {
     eSMAG_UNLOCKED = 0, // The SMAG2JR register and SMAG1JR register are unlocked. The partition owner can change any writable bits of these registers.
     eSMAG_LOCKED = 1, // The SMAG2JR register and SMAG1JR register are locked. The SMAG2JR and SMAG1JR registers cannot be changed until the partition is de-allocated or a POR occurs.
   };
+  
   enum class eSMAP_LCK : uint32_t {
     eSMAP_UNLOCKED = 0, // The SMAP register is unlocked. The partition owner can change any writable bits of the SMAP register.
     eSMAP_LOCKED = 1, // The SMAP register is locked. The SMAP_LCK, CSP and PSP bits and G1 and G2 permission bits of the SMAP register cannot be changed until the partition is de-allocated or a POR occurs. The PARTITION_KMOD value can still be changed. The SMAG_LCK bit can be changed to a 1, but cannot be changed to a 0.
   };
+  
   enum class ePSP : uint32_t {
     eNOT_DEALLOCATABLE = 0, // The partition and any of the pages allocated to the partition can be de-allocated.
     eDEALLOCATABLE = 1, // The partition cannot be de-allocated and the pages allocated to the partition cannot be de-allocated.
   };
+  
   enum class eCSP : uint32_t {
     eNOT_ZEROIZED = 0, // The pages allocated to the partition will not be zeroized when they are de-allocated or the partition is released or a security alarm occurs.
     eZEROIZED = 1, // The pages allocated to the partition will be zeroized when they are individually de-allocated or the partition is released or a security alarm occurs.
@@ -18212,7 +17786,7 @@ union P3SMAPR_JR2 {
     ePSP PSP : 1;
     eCSP CSP : 1;
     uint32_t PARTITION_KMOD : 16;
-  } bits;          // Bit-field struct (auto-filling reserved gaps)
+  } bits;
   
   // Full 32-bit register value.
   uint32_t value;
@@ -18226,8 +17800,6 @@ union P3SMAPR_JR2 {
 //
 union P3SMAG2_JR2 {
   
-  // Enum definitions.
-  
   // Bit field definition.
   struct {
     uint32_t Gx_ID00 : 1;
@@ -18262,7 +17834,7 @@ union P3SMAG2_JR2 {
     uint32_t Gx_ID29 : 1;
     uint32_t Gx_ID30 : 1;
     uint32_t Gx_ID31 : 1;
-  } bits;          // Bit-field struct (auto-filling reserved gaps)
+  } bits;
   
   // Full 32-bit register value.
   uint32_t value;
@@ -18276,8 +17848,6 @@ union P3SMAG2_JR2 {
 //
 union P3SMAG1_JR2 {
   
-  // Enum definitions.
-  
   // Bit field definition.
   struct {
     uint32_t Gx_ID00 : 1;
@@ -18312,7 +17882,7 @@ union P3SMAG1_JR2 {
     uint32_t Gx_ID29 : 1;
     uint32_t Gx_ID30 : 1;
     uint32_t Gx_ID31 : 1;
-  } bits;          // Bit-field struct (auto-filling reserved gaps)
+  } bits;
   
   // Full 32-bit register value.
   uint32_t value;
@@ -18326,13 +17896,11 @@ union P3SMAG1_JR2 {
 //
 union P4SDID_JR2 {
   
-  // Enum definitions.
-  
   // Bit field definition.
   struct {
     uint32_t SDID : 16;
     uint32_t _reserved_end : 16;
-  } bits;          // Bit-field struct (auto-filling reserved gaps)
+  } bits;
   
   // Full 32-bit register value.
   uint32_t value;
@@ -18346,51 +17914,61 @@ union P4SDID_JR2 {
 //
 union P4SMAPR_JR2 {
   
-  // Enum definitions.
   enum class eG1_READ : uint32_t {
     eG1_READ_PROHIB = 0, // Instruction fetches and reads are prohibited (except that Trusted Descriptor reads (if G1_TDO=1) and key-reads are always allowed, and exporting Secure Memory Blobs is allowed if G1_SMBLOB=1 or if done by a Trusted Descriptor and G1_TDO=1).
     eG1_READ_ALLOWED = 1, // Instruction fetches and reads are allowed (but exporting a Secure Memory Blob is prohibited if G1_SMBLOB=0 and the descriptor is not a Trusted Descriptor or if G1_TDO=0).
   };
+  
   enum class eG1_WRITE : uint32_t {
     eG1_WRITE_PROHIB = 0, // Writes are prohibited (except that Trusted Descriptor writes are allowed, and importing Secure Memory Blobs is allowed if G1_SMBLOB=1 or if done by a Trusted Descriptor and G1_TDO=1).
     eG1_WRITE_ALLOWED = 1, // Writes are allowed (but importing a Secure Memory Blob is prohibited if G1_SMBLOB=0 and the descriptor is not a Trusted Descriptor or if G1_TDO=0).
   };
+  
   enum class eG1_TDO : uint32_t {
     eG1_TD_PRIVILEGE_AS_JD = 0, // Trusted Descriptors have the same access privileges as Job Descriptors
     eG1_TD_OVERIDE_ALLOWED = 1, // Trusted Descriptors are allowed to override the other access permissions, i.e. they can export blobs from or import blobs to the partition and read from and write to the partition regardless of the G1_SMBLOB, G1_WRITE and G1_READ settings.
   };
+  
   enum class eG1_SMBLOB : uint32_t {
     eG1_SM_BLOB_EXPORT_IMPORT_PROHIB = 0, // Exporting or importing Secure Memory Blobs is prohibited, unless done via a Trusted Descriptor and G1_TDO=1.
     eG1_SM_B_EXPORT_IMPORT_ALLOWED = 1, // Exporting or importing Secure Memory Blobs is allowed, regardless of the G1_READ and G1_WRITE settings.
   };
+  
   enum class eG2_READ : uint32_t {
     eG2_READ_PROHIB = 0, // Instruction fetches and reads are prohibited (except that Trusted Descriptor reads (if G2_TDO=1) and key-reads are always allowed, and exporting Secure Memory Blobs is allowed if G2_SMBLOB=1 or if done by a Trusted Descriptor and G2_TDO=1).
     eG2_READ_ALLOWED = 1, // Instruction fetches and reads are allowed (but exporting a Secure Memory Blob is prohibited if G2_SMBLOB=0 and the descriptor is not a Trusted Descriptor or if G2_TDO=0).
   };
+  
   enum class eG2_WRITE : uint32_t {
     eG2_WRITE_PROHIB = 0, // Writes are prohibited (except that Trusted Descriptor writes are allowed, and importing Secure Memory Blobs is allowed if G2_SMBLOB=1 or if done by a Trusted Descriptor and G2_TDO=1).
     eG2_WRITE_ALLOWED = 1, // Writes are allowed (but importing a Secure Memory Blob is prohibited if G2_SMBLOB=0 and the descriptor is not a Trusted Descriptor or if G2_TDO=0).
   };
+  
   enum class eG2_TDO : uint32_t {
     eG2_TD_PRIVILEGE_AS_JD = 0, // Trusted Descriptors have the same access privileges as Job Descriptors
     eG2_TD_OVERIDE_ALLOWED = 1, // Trusted Descriptors are allowed to override the other access permissions, i.e. they can export blobs from or import blobs to the partition and read from and write to the partition regardless of the G2_SMBLOB, G2_WRITE and G2_READ settings.
   };
+  
   enum class eG2_SMBLOB : uint32_t {
     eG2_SM_BLOB_EXPORT_IMPORT_PROHIB = 0, // Exporting or importing Secure Memory Blobs is prohibited, unless done via a Trusted Descriptor and G2_TDO=1.
     eG2_SM_BLOB_EXPORT_IMPORT_ALLOWED = 1, // Exporting or importing Secure Memory Blobs is allowed, regardless of the G2_READ and G2_WRITE settings.
   };
+  
   enum class eSMAG_LCK : uint32_t {
     eSMAG_UNLOCKED = 0, // The SMAG2JR register and SMAG1JR register are unlocked. The partition owner can change any writable bits of these registers.
     eSMAG_LOCKED = 1, // The SMAG2JR register and SMAG1JR register are locked. The SMAG2JR and SMAG1JR registers cannot be changed until the partition is de-allocated or a POR occurs.
   };
+  
   enum class eSMAP_LCK : uint32_t {
     eSMAP_UNLOCKED = 0, // The SMAP register is unlocked. The partition owner can change any writable bits of the SMAP register.
     eSMAP_LOCKED = 1, // The SMAP register is locked. The SMAP_LCK, CSP and PSP bits and G1 and G2 permission bits of the SMAP register cannot be changed until the partition is de-allocated or a POR occurs. The PARTITION_KMOD value can still be changed. The SMAG_LCK bit can be changed to a 1, but cannot be changed to a 0.
   };
+  
   enum class ePSP : uint32_t {
     eNOT_DEALLOCATABLE = 0, // The partition and any of the pages allocated to the partition can be de-allocated.
     eDEALLOCATABLE = 1, // The partition cannot be de-allocated and the pages allocated to the partition cannot be de-allocated.
   };
+  
   enum class eCSP : uint32_t {
     eNOT_ZEROIZED = 0, // The pages allocated to the partition will not be zeroized when they are de-allocated or the partition is released or a security alarm occurs.
     eZEROIZED = 1, // The pages allocated to the partition will be zeroized when they are individually de-allocated or the partition is released or a security alarm occurs.
@@ -18412,7 +17990,7 @@ union P4SMAPR_JR2 {
     ePSP PSP : 1;
     eCSP CSP : 1;
     uint32_t PARTITION_KMOD : 16;
-  } bits;          // Bit-field struct (auto-filling reserved gaps)
+  } bits;
   
   // Full 32-bit register value.
   uint32_t value;
@@ -18426,8 +18004,6 @@ union P4SMAPR_JR2 {
 //
 union P4SMAG2_JR2 {
   
-  // Enum definitions.
-  
   // Bit field definition.
   struct {
     uint32_t Gx_ID00 : 1;
@@ -18462,7 +18038,7 @@ union P4SMAG2_JR2 {
     uint32_t Gx_ID29 : 1;
     uint32_t Gx_ID30 : 1;
     uint32_t Gx_ID31 : 1;
-  } bits;          // Bit-field struct (auto-filling reserved gaps)
+  } bits;
   
   // Full 32-bit register value.
   uint32_t value;
@@ -18476,8 +18052,6 @@ union P4SMAG2_JR2 {
 //
 union P4SMAG1_JR2 {
   
-  // Enum definitions.
-  
   // Bit field definition.
   struct {
     uint32_t Gx_ID00 : 1;
@@ -18512,7 +18086,7 @@ union P4SMAG1_JR2 {
     uint32_t Gx_ID29 : 1;
     uint32_t Gx_ID30 : 1;
     uint32_t Gx_ID31 : 1;
-  } bits;          // Bit-field struct (auto-filling reserved gaps)
+  } bits;
   
   // Full 32-bit register value.
   uint32_t value;
@@ -18526,13 +18100,11 @@ union P4SMAG1_JR2 {
 //
 union P5SDID_JR2 {
   
-  // Enum definitions.
-  
   // Bit field definition.
   struct {
     uint32_t SDID : 16;
     uint32_t _reserved_end : 16;
-  } bits;          // Bit-field struct (auto-filling reserved gaps)
+  } bits;
   
   // Full 32-bit register value.
   uint32_t value;
@@ -18546,51 +18118,61 @@ union P5SDID_JR2 {
 //
 union P5SMAPR_JR2 {
   
-  // Enum definitions.
   enum class eG1_READ : uint32_t {
     eG1_READ_PROHIB = 0, // Instruction fetches and reads are prohibited (except that Trusted Descriptor reads (if G1_TDO=1) and key-reads are always allowed, and exporting Secure Memory Blobs is allowed if G1_SMBLOB=1 or if done by a Trusted Descriptor and G1_TDO=1).
     eG1_READ_ALLOWED = 1, // Instruction fetches and reads are allowed (but exporting a Secure Memory Blob is prohibited if G1_SMBLOB=0 and the descriptor is not a Trusted Descriptor or if G1_TDO=0).
   };
+  
   enum class eG1_WRITE : uint32_t {
     eG1_WRITE_PROHIB = 0, // Writes are prohibited (except that Trusted Descriptor writes are allowed, and importing Secure Memory Blobs is allowed if G1_SMBLOB=1 or if done by a Trusted Descriptor and G1_TDO=1).
     eG1_WRITE_ALLOWED = 1, // Writes are allowed (but importing a Secure Memory Blob is prohibited if G1_SMBLOB=0 and the descriptor is not a Trusted Descriptor or if G1_TDO=0).
   };
+  
   enum class eG1_TDO : uint32_t {
     eG1_TD_PRIVILEGE_AS_JD = 0, // Trusted Descriptors have the same access privileges as Job Descriptors
     eG1_TD_OVERIDE_ALLOWED = 1, // Trusted Descriptors are allowed to override the other access permissions, i.e. they can export blobs from or import blobs to the partition and read from and write to the partition regardless of the G1_SMBLOB, G1_WRITE and G1_READ settings.
   };
+  
   enum class eG1_SMBLOB : uint32_t {
     eG1_SM_BLOB_EXPORT_IMPORT_PROHIB = 0, // Exporting or importing Secure Memory Blobs is prohibited, unless done via a Trusted Descriptor and G1_TDO=1.
     eG1_SM_B_EXPORT_IMPORT_ALLOWED = 1, // Exporting or importing Secure Memory Blobs is allowed, regardless of the G1_READ and G1_WRITE settings.
   };
+  
   enum class eG2_READ : uint32_t {
     eG2_READ_PROHIB = 0, // Instruction fetches and reads are prohibited (except that Trusted Descriptor reads (if G2_TDO=1) and key-reads are always allowed, and exporting Secure Memory Blobs is allowed if G2_SMBLOB=1 or if done by a Trusted Descriptor and G2_TDO=1).
     eG2_READ_ALLOWED = 1, // Instruction fetches and reads are allowed (but exporting a Secure Memory Blob is prohibited if G2_SMBLOB=0 and the descriptor is not a Trusted Descriptor or if G2_TDO=0).
   };
+  
   enum class eG2_WRITE : uint32_t {
     eG2_WRITE_PROHIB = 0, // Writes are prohibited (except that Trusted Descriptor writes are allowed, and importing Secure Memory Blobs is allowed if G2_SMBLOB=1 or if done by a Trusted Descriptor and G2_TDO=1).
     eG2_WRITE_ALLOWED = 1, // Writes are allowed (but importing a Secure Memory Blob is prohibited if G2_SMBLOB=0 and the descriptor is not a Trusted Descriptor or if G2_TDO=0).
   };
+  
   enum class eG2_TDO : uint32_t {
     eG2_TD_PRIVILEGE_AS_JD = 0, // Trusted Descriptors have the same access privileges as Job Descriptors
     eG2_TD_OVERIDE_ALLOWED = 1, // Trusted Descriptors are allowed to override the other access permissions, i.e. they can export blobs from or import blobs to the partition and read from and write to the partition regardless of the G2_SMBLOB, G2_WRITE and G2_READ settings.
   };
+  
   enum class eG2_SMBLOB : uint32_t {
     eG2_SM_BLOB_EXPORT_IMPORT_PROHIB = 0, // Exporting or importing Secure Memory Blobs is prohibited, unless done via a Trusted Descriptor and G2_TDO=1.
     eG2_SM_BLOB_EXPORT_IMPORT_ALLOWED = 1, // Exporting or importing Secure Memory Blobs is allowed, regardless of the G2_READ and G2_WRITE settings.
   };
+  
   enum class eSMAG_LCK : uint32_t {
     eSMAG_UNLOCKED = 0, // The SMAG2JR register and SMAG1JR register are unlocked. The partition owner can change any writable bits of these registers.
     eSMAG_LOCKED = 1, // The SMAG2JR register and SMAG1JR register are locked. The SMAG2JR and SMAG1JR registers cannot be changed until the partition is de-allocated or a POR occurs.
   };
+  
   enum class eSMAP_LCK : uint32_t {
     eSMAP_UNLOCKED = 0, // The SMAP register is unlocked. The partition owner can change any writable bits of the SMAP register.
     eSMAP_LOCKED = 1, // The SMAP register is locked. The SMAP_LCK, CSP and PSP bits and G1 and G2 permission bits of the SMAP register cannot be changed until the partition is de-allocated or a POR occurs. The PARTITION_KMOD value can still be changed. The SMAG_LCK bit can be changed to a 1, but cannot be changed to a 0.
   };
+  
   enum class ePSP : uint32_t {
     eNOT_DEALLOCATABLE = 0, // The partition and any of the pages allocated to the partition can be de-allocated.
     eDEALLOCATABLE = 1, // The partition cannot be de-allocated and the pages allocated to the partition cannot be de-allocated.
   };
+  
   enum class eCSP : uint32_t {
     eNOT_ZEROIZED = 0, // The pages allocated to the partition will not be zeroized when they are de-allocated or the partition is released or a security alarm occurs.
     eZEROIZED = 1, // The pages allocated to the partition will be zeroized when they are individually de-allocated or the partition is released or a security alarm occurs.
@@ -18612,7 +18194,7 @@ union P5SMAPR_JR2 {
     ePSP PSP : 1;
     eCSP CSP : 1;
     uint32_t PARTITION_KMOD : 16;
-  } bits;          // Bit-field struct (auto-filling reserved gaps)
+  } bits;
   
   // Full 32-bit register value.
   uint32_t value;
@@ -18626,8 +18208,6 @@ union P5SMAPR_JR2 {
 //
 union P5SMAG2_JR2 {
   
-  // Enum definitions.
-  
   // Bit field definition.
   struct {
     uint32_t Gx_ID00 : 1;
@@ -18662,7 +18242,7 @@ union P5SMAG2_JR2 {
     uint32_t Gx_ID29 : 1;
     uint32_t Gx_ID30 : 1;
     uint32_t Gx_ID31 : 1;
-  } bits;          // Bit-field struct (auto-filling reserved gaps)
+  } bits;
   
   // Full 32-bit register value.
   uint32_t value;
@@ -18676,8 +18256,6 @@ union P5SMAG2_JR2 {
 //
 union P5SMAG1_JR2 {
   
-  // Enum definitions.
-  
   // Bit field definition.
   struct {
     uint32_t Gx_ID00 : 1;
@@ -18712,7 +18290,7 @@ union P5SMAG1_JR2 {
     uint32_t Gx_ID29 : 1;
     uint32_t Gx_ID30 : 1;
     uint32_t Gx_ID31 : 1;
-  } bits;          // Bit-field struct (auto-filling reserved gaps)
+  } bits;
   
   // Full 32-bit register value.
   uint32_t value;
@@ -18726,13 +18304,11 @@ union P5SMAG1_JR2 {
 //
 union P6SDID_JR2 {
   
-  // Enum definitions.
-  
   // Bit field definition.
   struct {
     uint32_t SDID : 16;
     uint32_t _reserved_end : 16;
-  } bits;          // Bit-field struct (auto-filling reserved gaps)
+  } bits;
   
   // Full 32-bit register value.
   uint32_t value;
@@ -18746,51 +18322,61 @@ union P6SDID_JR2 {
 //
 union P6SMAPR_JR2 {
   
-  // Enum definitions.
   enum class eG1_READ : uint32_t {
     eG1_READ_PROHIB = 0, // Instruction fetches and reads are prohibited (except that Trusted Descriptor reads (if G1_TDO=1) and key-reads are always allowed, and exporting Secure Memory Blobs is allowed if G1_SMBLOB=1 or if done by a Trusted Descriptor and G1_TDO=1).
     eG1_READ_ALLOWED = 1, // Instruction fetches and reads are allowed (but exporting a Secure Memory Blob is prohibited if G1_SMBLOB=0 and the descriptor is not a Trusted Descriptor or if G1_TDO=0).
   };
+  
   enum class eG1_WRITE : uint32_t {
     eG1_WRITE_PROHIB = 0, // Writes are prohibited (except that Trusted Descriptor writes are allowed, and importing Secure Memory Blobs is allowed if G1_SMBLOB=1 or if done by a Trusted Descriptor and G1_TDO=1).
     eG1_WRITE_ALLOWED = 1, // Writes are allowed (but importing a Secure Memory Blob is prohibited if G1_SMBLOB=0 and the descriptor is not a Trusted Descriptor or if G1_TDO=0).
   };
+  
   enum class eG1_TDO : uint32_t {
     eG1_TD_PRIVILEGE_AS_JD = 0, // Trusted Descriptors have the same access privileges as Job Descriptors
     eG1_TD_OVERIDE_ALLOWED = 1, // Trusted Descriptors are allowed to override the other access permissions, i.e. they can export blobs from or import blobs to the partition and read from and write to the partition regardless of the G1_SMBLOB, G1_WRITE and G1_READ settings.
   };
+  
   enum class eG1_SMBLOB : uint32_t {
     eG1_SM_BLOB_EXPORT_IMPORT_PROHIB = 0, // Exporting or importing Secure Memory Blobs is prohibited, unless done via a Trusted Descriptor and G1_TDO=1.
     eG1_SM_B_EXPORT_IMPORT_ALLOWED = 1, // Exporting or importing Secure Memory Blobs is allowed, regardless of the G1_READ and G1_WRITE settings.
   };
+  
   enum class eG2_READ : uint32_t {
     eG2_READ_PROHIB = 0, // Instruction fetches and reads are prohibited (except that Trusted Descriptor reads (if G2_TDO=1) and key-reads are always allowed, and exporting Secure Memory Blobs is allowed if G2_SMBLOB=1 or if done by a Trusted Descriptor and G2_TDO=1).
     eG2_READ_ALLOWED = 1, // Instruction fetches and reads are allowed (but exporting a Secure Memory Blob is prohibited if G2_SMBLOB=0 and the descriptor is not a Trusted Descriptor or if G2_TDO=0).
   };
+  
   enum class eG2_WRITE : uint32_t {
     eG2_WRITE_PROHIB = 0, // Writes are prohibited (except that Trusted Descriptor writes are allowed, and importing Secure Memory Blobs is allowed if G2_SMBLOB=1 or if done by a Trusted Descriptor and G2_TDO=1).
     eG2_WRITE_ALLOWED = 1, // Writes are allowed (but importing a Secure Memory Blob is prohibited if G2_SMBLOB=0 and the descriptor is not a Trusted Descriptor or if G2_TDO=0).
   };
+  
   enum class eG2_TDO : uint32_t {
     eG2_TD_PRIVILEGE_AS_JD = 0, // Trusted Descriptors have the same access privileges as Job Descriptors
     eG2_TD_OVERIDE_ALLOWED = 1, // Trusted Descriptors are allowed to override the other access permissions, i.e. they can export blobs from or import blobs to the partition and read from and write to the partition regardless of the G2_SMBLOB, G2_WRITE and G2_READ settings.
   };
+  
   enum class eG2_SMBLOB : uint32_t {
     eG2_SM_BLOB_EXPORT_IMPORT_PROHIB = 0, // Exporting or importing Secure Memory Blobs is prohibited, unless done via a Trusted Descriptor and G2_TDO=1.
     eG2_SM_BLOB_EXPORT_IMPORT_ALLOWED = 1, // Exporting or importing Secure Memory Blobs is allowed, regardless of the G2_READ and G2_WRITE settings.
   };
+  
   enum class eSMAG_LCK : uint32_t {
     eSMAG_UNLOCKED = 0, // The SMAG2JR register and SMAG1JR register are unlocked. The partition owner can change any writable bits of these registers.
     eSMAG_LOCKED = 1, // The SMAG2JR register and SMAG1JR register are locked. The SMAG2JR and SMAG1JR registers cannot be changed until the partition is de-allocated or a POR occurs.
   };
+  
   enum class eSMAP_LCK : uint32_t {
     eSMAP_UNLOCKED = 0, // The SMAP register is unlocked. The partition owner can change any writable bits of the SMAP register.
     eSMAP_LOCKED = 1, // The SMAP register is locked. The SMAP_LCK, CSP and PSP bits and G1 and G2 permission bits of the SMAP register cannot be changed until the partition is de-allocated or a POR occurs. The PARTITION_KMOD value can still be changed. The SMAG_LCK bit can be changed to a 1, but cannot be changed to a 0.
   };
+  
   enum class ePSP : uint32_t {
     eNOT_DEALLOCATABLE = 0, // The partition and any of the pages allocated to the partition can be de-allocated.
     eDEALLOCATABLE = 1, // The partition cannot be de-allocated and the pages allocated to the partition cannot be de-allocated.
   };
+  
   enum class eCSP : uint32_t {
     eNOT_ZEROIZED = 0, // The pages allocated to the partition will not be zeroized when they are de-allocated or the partition is released or a security alarm occurs.
     eZEROIZED = 1, // The pages allocated to the partition will be zeroized when they are individually de-allocated or the partition is released or a security alarm occurs.
@@ -18812,7 +18398,7 @@ union P6SMAPR_JR2 {
     ePSP PSP : 1;
     eCSP CSP : 1;
     uint32_t PARTITION_KMOD : 16;
-  } bits;          // Bit-field struct (auto-filling reserved gaps)
+  } bits;
   
   // Full 32-bit register value.
   uint32_t value;
@@ -18826,8 +18412,6 @@ union P6SMAPR_JR2 {
 //
 union P6SMAG2_JR2 {
   
-  // Enum definitions.
-  
   // Bit field definition.
   struct {
     uint32_t Gx_ID00 : 1;
@@ -18862,7 +18446,7 @@ union P6SMAG2_JR2 {
     uint32_t Gx_ID29 : 1;
     uint32_t Gx_ID30 : 1;
     uint32_t Gx_ID31 : 1;
-  } bits;          // Bit-field struct (auto-filling reserved gaps)
+  } bits;
   
   // Full 32-bit register value.
   uint32_t value;
@@ -18876,8 +18460,6 @@ union P6SMAG2_JR2 {
 //
 union P6SMAG1_JR2 {
   
-  // Enum definitions.
-  
   // Bit field definition.
   struct {
     uint32_t Gx_ID00 : 1;
@@ -18912,7 +18494,7 @@ union P6SMAG1_JR2 {
     uint32_t Gx_ID29 : 1;
     uint32_t Gx_ID30 : 1;
     uint32_t Gx_ID31 : 1;
-  } bits;          // Bit-field struct (auto-filling reserved gaps)
+  } bits;
   
   // Full 32-bit register value.
   uint32_t value;
@@ -18926,13 +18508,11 @@ union P6SMAG1_JR2 {
 //
 union P7SDID_JR2 {
   
-  // Enum definitions.
-  
   // Bit field definition.
   struct {
     uint32_t SDID : 16;
     uint32_t _reserved_end : 16;
-  } bits;          // Bit-field struct (auto-filling reserved gaps)
+  } bits;
   
   // Full 32-bit register value.
   uint32_t value;
@@ -18946,51 +18526,61 @@ union P7SDID_JR2 {
 //
 union P7SMAPR_JR2 {
   
-  // Enum definitions.
   enum class eG1_READ : uint32_t {
     eG1_READ_PROHIB = 0, // Instruction fetches and reads are prohibited (except that Trusted Descriptor reads (if G1_TDO=1) and key-reads are always allowed, and exporting Secure Memory Blobs is allowed if G1_SMBLOB=1 or if done by a Trusted Descriptor and G1_TDO=1).
     eG1_READ_ALLOWED = 1, // Instruction fetches and reads are allowed (but exporting a Secure Memory Blob is prohibited if G1_SMBLOB=0 and the descriptor is not a Trusted Descriptor or if G1_TDO=0).
   };
+  
   enum class eG1_WRITE : uint32_t {
     eG1_WRITE_PROHIB = 0, // Writes are prohibited (except that Trusted Descriptor writes are allowed, and importing Secure Memory Blobs is allowed if G1_SMBLOB=1 or if done by a Trusted Descriptor and G1_TDO=1).
     eG1_WRITE_ALLOWED = 1, // Writes are allowed (but importing a Secure Memory Blob is prohibited if G1_SMBLOB=0 and the descriptor is not a Trusted Descriptor or if G1_TDO=0).
   };
+  
   enum class eG1_TDO : uint32_t {
     eG1_TD_PRIVILEGE_AS_JD = 0, // Trusted Descriptors have the same access privileges as Job Descriptors
     eG1_TD_OVERIDE_ALLOWED = 1, // Trusted Descriptors are allowed to override the other access permissions, i.e. they can export blobs from or import blobs to the partition and read from and write to the partition regardless of the G1_SMBLOB, G1_WRITE and G1_READ settings.
   };
+  
   enum class eG1_SMBLOB : uint32_t {
     eG1_SM_BLOB_EXPORT_IMPORT_PROHIB = 0, // Exporting or importing Secure Memory Blobs is prohibited, unless done via a Trusted Descriptor and G1_TDO=1.
     eG1_SM_B_EXPORT_IMPORT_ALLOWED = 1, // Exporting or importing Secure Memory Blobs is allowed, regardless of the G1_READ and G1_WRITE settings.
   };
+  
   enum class eG2_READ : uint32_t {
     eG2_READ_PROHIB = 0, // Instruction fetches and reads are prohibited (except that Trusted Descriptor reads (if G2_TDO=1) and key-reads are always allowed, and exporting Secure Memory Blobs is allowed if G2_SMBLOB=1 or if done by a Trusted Descriptor and G2_TDO=1).
     eG2_READ_ALLOWED = 1, // Instruction fetches and reads are allowed (but exporting a Secure Memory Blob is prohibited if G2_SMBLOB=0 and the descriptor is not a Trusted Descriptor or if G2_TDO=0).
   };
+  
   enum class eG2_WRITE : uint32_t {
     eG2_WRITE_PROHIB = 0, // Writes are prohibited (except that Trusted Descriptor writes are allowed, and importing Secure Memory Blobs is allowed if G2_SMBLOB=1 or if done by a Trusted Descriptor and G2_TDO=1).
     eG2_WRITE_ALLOWED = 1, // Writes are allowed (but importing a Secure Memory Blob is prohibited if G2_SMBLOB=0 and the descriptor is not a Trusted Descriptor or if G2_TDO=0).
   };
+  
   enum class eG2_TDO : uint32_t {
     eG2_TD_PRIVILEGE_AS_JD = 0, // Trusted Descriptors have the same access privileges as Job Descriptors
     eG2_TD_OVERIDE_ALLOWED = 1, // Trusted Descriptors are allowed to override the other access permissions, i.e. they can export blobs from or import blobs to the partition and read from and write to the partition regardless of the G2_SMBLOB, G2_WRITE and G2_READ settings.
   };
+  
   enum class eG2_SMBLOB : uint32_t {
     eG2_SM_BLOB_EXPORT_IMPORT_PROHIB = 0, // Exporting or importing Secure Memory Blobs is prohibited, unless done via a Trusted Descriptor and G2_TDO=1.
     eG2_SM_BLOB_EXPORT_IMPORT_ALLOWED = 1, // Exporting or importing Secure Memory Blobs is allowed, regardless of the G2_READ and G2_WRITE settings.
   };
+  
   enum class eSMAG_LCK : uint32_t {
     eSMAG_UNLOCKED = 0, // The SMAG2JR register and SMAG1JR register are unlocked. The partition owner can change any writable bits of these registers.
     eSMAG_LOCKED = 1, // The SMAG2JR register and SMAG1JR register are locked. The SMAG2JR and SMAG1JR registers cannot be changed until the partition is de-allocated or a POR occurs.
   };
+  
   enum class eSMAP_LCK : uint32_t {
     eSMAP_UNLOCKED = 0, // The SMAP register is unlocked. The partition owner can change any writable bits of the SMAP register.
     eSMAP_LOCKED = 1, // The SMAP register is locked. The SMAP_LCK, CSP and PSP bits and G1 and G2 permission bits of the SMAP register cannot be changed until the partition is de-allocated or a POR occurs. The PARTITION_KMOD value can still be changed. The SMAG_LCK bit can be changed to a 1, but cannot be changed to a 0.
   };
+  
   enum class ePSP : uint32_t {
     eNOT_DEALLOCATABLE = 0, // The partition and any of the pages allocated to the partition can be de-allocated.
     eDEALLOCATABLE = 1, // The partition cannot be de-allocated and the pages allocated to the partition cannot be de-allocated.
   };
+  
   enum class eCSP : uint32_t {
     eNOT_ZEROIZED = 0, // The pages allocated to the partition will not be zeroized when they are de-allocated or the partition is released or a security alarm occurs.
     eZEROIZED = 1, // The pages allocated to the partition will be zeroized when they are individually de-allocated or the partition is released or a security alarm occurs.
@@ -19012,7 +18602,7 @@ union P7SMAPR_JR2 {
     ePSP PSP : 1;
     eCSP CSP : 1;
     uint32_t PARTITION_KMOD : 16;
-  } bits;          // Bit-field struct (auto-filling reserved gaps)
+  } bits;
   
   // Full 32-bit register value.
   uint32_t value;
@@ -19026,8 +18616,6 @@ union P7SMAPR_JR2 {
 //
 union P7SMAG2_JR2 {
   
-  // Enum definitions.
-  
   // Bit field definition.
   struct {
     uint32_t Gx_ID00 : 1;
@@ -19062,7 +18650,7 @@ union P7SMAG2_JR2 {
     uint32_t Gx_ID29 : 1;
     uint32_t Gx_ID30 : 1;
     uint32_t Gx_ID31 : 1;
-  } bits;          // Bit-field struct (auto-filling reserved gaps)
+  } bits;
   
   // Full 32-bit register value.
   uint32_t value;
@@ -19076,8 +18664,6 @@ union P7SMAG2_JR2 {
 //
 union P7SMAG1_JR2 {
   
-  // Enum definitions.
-  
   // Bit field definition.
   struct {
     uint32_t Gx_ID00 : 1;
@@ -19112,7 +18698,7 @@ union P7SMAG1_JR2 {
     uint32_t Gx_ID29 : 1;
     uint32_t Gx_ID30 : 1;
     uint32_t Gx_ID31 : 1;
-  } bits;          // Bit-field struct (auto-filling reserved gaps)
+  } bits;
   
   // Full 32-bit register value.
   uint32_t value;
@@ -19126,13 +18712,11 @@ union P7SMAG1_JR2 {
 //
 union P8SDID_JR2 {
   
-  // Enum definitions.
-  
   // Bit field definition.
   struct {
     uint32_t SDID : 16;
     uint32_t _reserved_end : 16;
-  } bits;          // Bit-field struct (auto-filling reserved gaps)
+  } bits;
   
   // Full 32-bit register value.
   uint32_t value;
@@ -19146,51 +18730,61 @@ union P8SDID_JR2 {
 //
 union P8SMAPR_JR2 {
   
-  // Enum definitions.
   enum class eG1_READ : uint32_t {
     eG1_READ_PROHIB = 0, // Instruction fetches and reads are prohibited (except that Trusted Descriptor reads (if G1_TDO=1) and key-reads are always allowed, and exporting Secure Memory Blobs is allowed if G1_SMBLOB=1 or if done by a Trusted Descriptor and G1_TDO=1).
     eG1_READ_ALLOWED = 1, // Instruction fetches and reads are allowed (but exporting a Secure Memory Blob is prohibited if G1_SMBLOB=0 and the descriptor is not a Trusted Descriptor or if G1_TDO=0).
   };
+  
   enum class eG1_WRITE : uint32_t {
     eG1_WRITE_PROHIB = 0, // Writes are prohibited (except that Trusted Descriptor writes are allowed, and importing Secure Memory Blobs is allowed if G1_SMBLOB=1 or if done by a Trusted Descriptor and G1_TDO=1).
     eG1_WRITE_ALLOWED = 1, // Writes are allowed (but importing a Secure Memory Blob is prohibited if G1_SMBLOB=0 and the descriptor is not a Trusted Descriptor or if G1_TDO=0).
   };
+  
   enum class eG1_TDO : uint32_t {
     eG1_TD_PRIVILEGE_AS_JD = 0, // Trusted Descriptors have the same access privileges as Job Descriptors
     eG1_TD_OVERIDE_ALLOWED = 1, // Trusted Descriptors are allowed to override the other access permissions, i.e. they can export blobs from or import blobs to the partition and read from and write to the partition regardless of the G1_SMBLOB, G1_WRITE and G1_READ settings.
   };
+  
   enum class eG1_SMBLOB : uint32_t {
     eG1_SM_BLOB_EXPORT_IMPORT_PROHIB = 0, // Exporting or importing Secure Memory Blobs is prohibited, unless done via a Trusted Descriptor and G1_TDO=1.
     eG1_SM_B_EXPORT_IMPORT_ALLOWED = 1, // Exporting or importing Secure Memory Blobs is allowed, regardless of the G1_READ and G1_WRITE settings.
   };
+  
   enum class eG2_READ : uint32_t {
     eG2_READ_PROHIB = 0, // Instruction fetches and reads are prohibited (except that Trusted Descriptor reads (if G2_TDO=1) and key-reads are always allowed, and exporting Secure Memory Blobs is allowed if G2_SMBLOB=1 or if done by a Trusted Descriptor and G2_TDO=1).
     eG2_READ_ALLOWED = 1, // Instruction fetches and reads are allowed (but exporting a Secure Memory Blob is prohibited if G2_SMBLOB=0 and the descriptor is not a Trusted Descriptor or if G2_TDO=0).
   };
+  
   enum class eG2_WRITE : uint32_t {
     eG2_WRITE_PROHIB = 0, // Writes are prohibited (except that Trusted Descriptor writes are allowed, and importing Secure Memory Blobs is allowed if G2_SMBLOB=1 or if done by a Trusted Descriptor and G2_TDO=1).
     eG2_WRITE_ALLOWED = 1, // Writes are allowed (but importing a Secure Memory Blob is prohibited if G2_SMBLOB=0 and the descriptor is not a Trusted Descriptor or if G2_TDO=0).
   };
+  
   enum class eG2_TDO : uint32_t {
     eG2_TD_PRIVILEGE_AS_JD = 0, // Trusted Descriptors have the same access privileges as Job Descriptors
     eG2_TD_OVERIDE_ALLOWED = 1, // Trusted Descriptors are allowed to override the other access permissions, i.e. they can export blobs from or import blobs to the partition and read from and write to the partition regardless of the G2_SMBLOB, G2_WRITE and G2_READ settings.
   };
+  
   enum class eG2_SMBLOB : uint32_t {
     eG2_SM_BLOB_EXPORT_IMPORT_PROHIB = 0, // Exporting or importing Secure Memory Blobs is prohibited, unless done via a Trusted Descriptor and G2_TDO=1.
     eG2_SM_BLOB_EXPORT_IMPORT_ALLOWED = 1, // Exporting or importing Secure Memory Blobs is allowed, regardless of the G2_READ and G2_WRITE settings.
   };
+  
   enum class eSMAG_LCK : uint32_t {
     eSMAG_UNLOCKED = 0, // The SMAG2JR register and SMAG1JR register are unlocked. The partition owner can change any writable bits of these registers.
     eSMAG_LOCKED = 1, // The SMAG2JR register and SMAG1JR register are locked. The SMAG2JR and SMAG1JR registers cannot be changed until the partition is de-allocated or a POR occurs.
   };
+  
   enum class eSMAP_LCK : uint32_t {
     eSMAP_UNLOCKED = 0, // The SMAP register is unlocked. The partition owner can change any writable bits of the SMAP register.
     eSMAP_LOCKED = 1, // The SMAP register is locked. The SMAP_LCK, CSP and PSP bits and G1 and G2 permission bits of the SMAP register cannot be changed until the partition is de-allocated or a POR occurs. The PARTITION_KMOD value can still be changed. The SMAG_LCK bit can be changed to a 1, but cannot be changed to a 0.
   };
+  
   enum class ePSP : uint32_t {
     eNOT_DEALLOCATABLE = 0, // The partition and any of the pages allocated to the partition can be de-allocated.
     eDEALLOCATABLE = 1, // The partition cannot be de-allocated and the pages allocated to the partition cannot be de-allocated.
   };
+  
   enum class eCSP : uint32_t {
     eNOT_ZEROIZED = 0, // The pages allocated to the partition will not be zeroized when they are de-allocated or the partition is released or a security alarm occurs.
     eZEROIZED = 1, // The pages allocated to the partition will be zeroized when they are individually de-allocated or the partition is released or a security alarm occurs.
@@ -19212,7 +18806,7 @@ union P8SMAPR_JR2 {
     ePSP PSP : 1;
     eCSP CSP : 1;
     uint32_t PARTITION_KMOD : 16;
-  } bits;          // Bit-field struct (auto-filling reserved gaps)
+  } bits;
   
   // Full 32-bit register value.
   uint32_t value;
@@ -19226,8 +18820,6 @@ union P8SMAPR_JR2 {
 //
 union P8SMAG2_JR2 {
   
-  // Enum definitions.
-  
   // Bit field definition.
   struct {
     uint32_t Gx_ID00 : 1;
@@ -19262,7 +18854,7 @@ union P8SMAG2_JR2 {
     uint32_t Gx_ID29 : 1;
     uint32_t Gx_ID30 : 1;
     uint32_t Gx_ID31 : 1;
-  } bits;          // Bit-field struct (auto-filling reserved gaps)
+  } bits;
   
   // Full 32-bit register value.
   uint32_t value;
@@ -19276,8 +18868,6 @@ union P8SMAG2_JR2 {
 //
 union P8SMAG1_JR2 {
   
-  // Enum definitions.
-  
   // Bit field definition.
   struct {
     uint32_t Gx_ID00 : 1;
@@ -19312,7 +18902,7 @@ union P8SMAG1_JR2 {
     uint32_t Gx_ID29 : 1;
     uint32_t Gx_ID30 : 1;
     uint32_t Gx_ID31 : 1;
-  } bits;          // Bit-field struct (auto-filling reserved gaps)
+  } bits;
   
   // Full 32-bit register value.
   uint32_t value;
@@ -19326,13 +18916,11 @@ union P8SMAG1_JR2 {
 //
 union P9SDID_JR2 {
   
-  // Enum definitions.
-  
   // Bit field definition.
   struct {
     uint32_t SDID : 16;
     uint32_t _reserved_end : 16;
-  } bits;          // Bit-field struct (auto-filling reserved gaps)
+  } bits;
   
   // Full 32-bit register value.
   uint32_t value;
@@ -19346,51 +18934,61 @@ union P9SDID_JR2 {
 //
 union P9SMAPR_JR2 {
   
-  // Enum definitions.
   enum class eG1_READ : uint32_t {
     eG1_READ_PROHIB = 0, // Instruction fetches and reads are prohibited (except that Trusted Descriptor reads (if G1_TDO=1) and key-reads are always allowed, and exporting Secure Memory Blobs is allowed if G1_SMBLOB=1 or if done by a Trusted Descriptor and G1_TDO=1).
     eG1_READ_ALLOWED = 1, // Instruction fetches and reads are allowed (but exporting a Secure Memory Blob is prohibited if G1_SMBLOB=0 and the descriptor is not a Trusted Descriptor or if G1_TDO=0).
   };
+  
   enum class eG1_WRITE : uint32_t {
     eG1_WRITE_PROHIB = 0, // Writes are prohibited (except that Trusted Descriptor writes are allowed, and importing Secure Memory Blobs is allowed if G1_SMBLOB=1 or if done by a Trusted Descriptor and G1_TDO=1).
     eG1_WRITE_ALLOWED = 1, // Writes are allowed (but importing a Secure Memory Blob is prohibited if G1_SMBLOB=0 and the descriptor is not a Trusted Descriptor or if G1_TDO=0).
   };
+  
   enum class eG1_TDO : uint32_t {
     eG1_TD_PRIVILEGE_AS_JD = 0, // Trusted Descriptors have the same access privileges as Job Descriptors
     eG1_TD_OVERIDE_ALLOWED = 1, // Trusted Descriptors are allowed to override the other access permissions, i.e. they can export blobs from or import blobs to the partition and read from and write to the partition regardless of the G1_SMBLOB, G1_WRITE and G1_READ settings.
   };
+  
   enum class eG1_SMBLOB : uint32_t {
     eG1_SM_BLOB_EXPORT_IMPORT_PROHIB = 0, // Exporting or importing Secure Memory Blobs is prohibited, unless done via a Trusted Descriptor and G1_TDO=1.
     eG1_SM_B_EXPORT_IMPORT_ALLOWED = 1, // Exporting or importing Secure Memory Blobs is allowed, regardless of the G1_READ and G1_WRITE settings.
   };
+  
   enum class eG2_READ : uint32_t {
     eG2_READ_PROHIB = 0, // Instruction fetches and reads are prohibited (except that Trusted Descriptor reads (if G2_TDO=1) and key-reads are always allowed, and exporting Secure Memory Blobs is allowed if G2_SMBLOB=1 or if done by a Trusted Descriptor and G2_TDO=1).
     eG2_READ_ALLOWED = 1, // Instruction fetches and reads are allowed (but exporting a Secure Memory Blob is prohibited if G2_SMBLOB=0 and the descriptor is not a Trusted Descriptor or if G2_TDO=0).
   };
+  
   enum class eG2_WRITE : uint32_t {
     eG2_WRITE_PROHIB = 0, // Writes are prohibited (except that Trusted Descriptor writes are allowed, and importing Secure Memory Blobs is allowed if G2_SMBLOB=1 or if done by a Trusted Descriptor and G2_TDO=1).
     eG2_WRITE_ALLOWED = 1, // Writes are allowed (but importing a Secure Memory Blob is prohibited if G2_SMBLOB=0 and the descriptor is not a Trusted Descriptor or if G2_TDO=0).
   };
+  
   enum class eG2_TDO : uint32_t {
     eG2_TD_PRIVILEGE_AS_JD = 0, // Trusted Descriptors have the same access privileges as Job Descriptors
     eG2_TD_OVERIDE_ALLOWED = 1, // Trusted Descriptors are allowed to override the other access permissions, i.e. they can export blobs from or import blobs to the partition and read from and write to the partition regardless of the G2_SMBLOB, G2_WRITE and G2_READ settings.
   };
+  
   enum class eG2_SMBLOB : uint32_t {
     eG2_SM_BLOB_EXPORT_IMPORT_PROHIB = 0, // Exporting or importing Secure Memory Blobs is prohibited, unless done via a Trusted Descriptor and G2_TDO=1.
     eG2_SM_BLOB_EXPORT_IMPORT_ALLOWED = 1, // Exporting or importing Secure Memory Blobs is allowed, regardless of the G2_READ and G2_WRITE settings.
   };
+  
   enum class eSMAG_LCK : uint32_t {
     eSMAG_UNLOCKED = 0, // The SMAG2JR register and SMAG1JR register are unlocked. The partition owner can change any writable bits of these registers.
     eSMAG_LOCKED = 1, // The SMAG2JR register and SMAG1JR register are locked. The SMAG2JR and SMAG1JR registers cannot be changed until the partition is de-allocated or a POR occurs.
   };
+  
   enum class eSMAP_LCK : uint32_t {
     eSMAP_UNLOCKED = 0, // The SMAP register is unlocked. The partition owner can change any writable bits of the SMAP register.
     eSMAP_LOCKED = 1, // The SMAP register is locked. The SMAP_LCK, CSP and PSP bits and G1 and G2 permission bits of the SMAP register cannot be changed until the partition is de-allocated or a POR occurs. The PARTITION_KMOD value can still be changed. The SMAG_LCK bit can be changed to a 1, but cannot be changed to a 0.
   };
+  
   enum class ePSP : uint32_t {
     eNOT_DEALLOCATABLE = 0, // The partition and any of the pages allocated to the partition can be de-allocated.
     eDEALLOCATABLE = 1, // The partition cannot be de-allocated and the pages allocated to the partition cannot be de-allocated.
   };
+  
   enum class eCSP : uint32_t {
     eNOT_ZEROIZED = 0, // The pages allocated to the partition will not be zeroized when they are de-allocated or the partition is released or a security alarm occurs.
     eZEROIZED = 1, // The pages allocated to the partition will be zeroized when they are individually de-allocated or the partition is released or a security alarm occurs.
@@ -19412,7 +19010,7 @@ union P9SMAPR_JR2 {
     ePSP PSP : 1;
     eCSP CSP : 1;
     uint32_t PARTITION_KMOD : 16;
-  } bits;          // Bit-field struct (auto-filling reserved gaps)
+  } bits;
   
   // Full 32-bit register value.
   uint32_t value;
@@ -19426,8 +19024,6 @@ union P9SMAPR_JR2 {
 //
 union P9SMAG2_JR2 {
   
-  // Enum definitions.
-  
   // Bit field definition.
   struct {
     uint32_t Gx_ID00 : 1;
@@ -19462,7 +19058,7 @@ union P9SMAG2_JR2 {
     uint32_t Gx_ID29 : 1;
     uint32_t Gx_ID30 : 1;
     uint32_t Gx_ID31 : 1;
-  } bits;          // Bit-field struct (auto-filling reserved gaps)
+  } bits;
   
   // Full 32-bit register value.
   uint32_t value;
@@ -19476,8 +19072,6 @@ union P9SMAG2_JR2 {
 //
 union P9SMAG1_JR2 {
   
-  // Enum definitions.
-  
   // Bit field definition.
   struct {
     uint32_t Gx_ID00 : 1;
@@ -19512,7 +19106,7 @@ union P9SMAG1_JR2 {
     uint32_t Gx_ID29 : 1;
     uint32_t Gx_ID30 : 1;
     uint32_t Gx_ID31 : 1;
-  } bits;          // Bit-field struct (auto-filling reserved gaps)
+  } bits;
   
   // Full 32-bit register value.
   uint32_t value;
@@ -19526,13 +19120,11 @@ union P9SMAG1_JR2 {
 //
 union P10SDID_JR2 {
   
-  // Enum definitions.
-  
   // Bit field definition.
   struct {
     uint32_t SDID : 16;
     uint32_t _reserved_end : 16;
-  } bits;          // Bit-field struct (auto-filling reserved gaps)
+  } bits;
   
   // Full 32-bit register value.
   uint32_t value;
@@ -19546,51 +19138,61 @@ union P10SDID_JR2 {
 //
 union P10SMAPR_JR2 {
   
-  // Enum definitions.
   enum class eG1_READ : uint32_t {
     eG1_READ_PROHIB = 0, // Instruction fetches and reads are prohibited (except that Trusted Descriptor reads (if G1_TDO=1) and key-reads are always allowed, and exporting Secure Memory Blobs is allowed if G1_SMBLOB=1 or if done by a Trusted Descriptor and G1_TDO=1).
     eG1_READ_ALLOWED = 1, // Instruction fetches and reads are allowed (but exporting a Secure Memory Blob is prohibited if G1_SMBLOB=0 and the descriptor is not a Trusted Descriptor or if G1_TDO=0).
   };
+  
   enum class eG1_WRITE : uint32_t {
     eG1_WRITE_PROHIB = 0, // Writes are prohibited (except that Trusted Descriptor writes are allowed, and importing Secure Memory Blobs is allowed if G1_SMBLOB=1 or if done by a Trusted Descriptor and G1_TDO=1).
     eG1_WRITE_ALLOWED = 1, // Writes are allowed (but importing a Secure Memory Blob is prohibited if G1_SMBLOB=0 and the descriptor is not a Trusted Descriptor or if G1_TDO=0).
   };
+  
   enum class eG1_TDO : uint32_t {
     eG1_TD_PRIVILEGE_AS_JD = 0, // Trusted Descriptors have the same access privileges as Job Descriptors
     eG1_TD_OVERIDE_ALLOWED = 1, // Trusted Descriptors are allowed to override the other access permissions, i.e. they can export blobs from or import blobs to the partition and read from and write to the partition regardless of the G1_SMBLOB, G1_WRITE and G1_READ settings.
   };
+  
   enum class eG1_SMBLOB : uint32_t {
     eG1_SM_BLOB_EXPORT_IMPORT_PROHIB = 0, // Exporting or importing Secure Memory Blobs is prohibited, unless done via a Trusted Descriptor and G1_TDO=1.
     eG1_SM_B_EXPORT_IMPORT_ALLOWED = 1, // Exporting or importing Secure Memory Blobs is allowed, regardless of the G1_READ and G1_WRITE settings.
   };
+  
   enum class eG2_READ : uint32_t {
     eG2_READ_PROHIB = 0, // Instruction fetches and reads are prohibited (except that Trusted Descriptor reads (if G2_TDO=1) and key-reads are always allowed, and exporting Secure Memory Blobs is allowed if G2_SMBLOB=1 or if done by a Trusted Descriptor and G2_TDO=1).
     eG2_READ_ALLOWED = 1, // Instruction fetches and reads are allowed (but exporting a Secure Memory Blob is prohibited if G2_SMBLOB=0 and the descriptor is not a Trusted Descriptor or if G2_TDO=0).
   };
+  
   enum class eG2_WRITE : uint32_t {
     eG2_WRITE_PROHIB = 0, // Writes are prohibited (except that Trusted Descriptor writes are allowed, and importing Secure Memory Blobs is allowed if G2_SMBLOB=1 or if done by a Trusted Descriptor and G2_TDO=1).
     eG2_WRITE_ALLOWED = 1, // Writes are allowed (but importing a Secure Memory Blob is prohibited if G2_SMBLOB=0 and the descriptor is not a Trusted Descriptor or if G2_TDO=0).
   };
+  
   enum class eG2_TDO : uint32_t {
     eG2_TD_PRIVILEGE_AS_JD = 0, // Trusted Descriptors have the same access privileges as Job Descriptors
     eG2_TD_OVERIDE_ALLOWED = 1, // Trusted Descriptors are allowed to override the other access permissions, i.e. they can export blobs from or import blobs to the partition and read from and write to the partition regardless of the G2_SMBLOB, G2_WRITE and G2_READ settings.
   };
+  
   enum class eG2_SMBLOB : uint32_t {
     eG2_SM_BLOB_EXPORT_IMPORT_PROHIB = 0, // Exporting or importing Secure Memory Blobs is prohibited, unless done via a Trusted Descriptor and G2_TDO=1.
     eG2_SM_BLOB_EXPORT_IMPORT_ALLOWED = 1, // Exporting or importing Secure Memory Blobs is allowed, regardless of the G2_READ and G2_WRITE settings.
   };
+  
   enum class eSMAG_LCK : uint32_t {
     eSMAG_UNLOCKED = 0, // The SMAG2JR register and SMAG1JR register are unlocked. The partition owner can change any writable bits of these registers.
     eSMAG_LOCKED = 1, // The SMAG2JR register and SMAG1JR register are locked. The SMAG2JR and SMAG1JR registers cannot be changed until the partition is de-allocated or a POR occurs.
   };
+  
   enum class eSMAP_LCK : uint32_t {
     eSMAP_UNLOCKED = 0, // The SMAP register is unlocked. The partition owner can change any writable bits of the SMAP register.
     eSMAP_LOCKED = 1, // The SMAP register is locked. The SMAP_LCK, CSP and PSP bits and G1 and G2 permission bits of the SMAP register cannot be changed until the partition is de-allocated or a POR occurs. The PARTITION_KMOD value can still be changed. The SMAG_LCK bit can be changed to a 1, but cannot be changed to a 0.
   };
+  
   enum class ePSP : uint32_t {
     eNOT_DEALLOCATABLE = 0, // The partition and any of the pages allocated to the partition can be de-allocated.
     eDEALLOCATABLE = 1, // The partition cannot be de-allocated and the pages allocated to the partition cannot be de-allocated.
   };
+  
   enum class eCSP : uint32_t {
     eNOT_ZEROIZED = 0, // The pages allocated to the partition will not be zeroized when they are de-allocated or the partition is released or a security alarm occurs.
     eZEROIZED = 1, // The pages allocated to the partition will be zeroized when they are individually de-allocated or the partition is released or a security alarm occurs.
@@ -19612,7 +19214,7 @@ union P10SMAPR_JR2 {
     ePSP PSP : 1;
     eCSP CSP : 1;
     uint32_t PARTITION_KMOD : 16;
-  } bits;          // Bit-field struct (auto-filling reserved gaps)
+  } bits;
   
   // Full 32-bit register value.
   uint32_t value;
@@ -19626,8 +19228,6 @@ union P10SMAPR_JR2 {
 //
 union P10SMAG2_JR2 {
   
-  // Enum definitions.
-  
   // Bit field definition.
   struct {
     uint32_t Gx_ID00 : 1;
@@ -19662,7 +19262,7 @@ union P10SMAG2_JR2 {
     uint32_t Gx_ID29 : 1;
     uint32_t Gx_ID30 : 1;
     uint32_t Gx_ID31 : 1;
-  } bits;          // Bit-field struct (auto-filling reserved gaps)
+  } bits;
   
   // Full 32-bit register value.
   uint32_t value;
@@ -19676,8 +19276,6 @@ union P10SMAG2_JR2 {
 //
 union P10SMAG1_JR2 {
   
-  // Enum definitions.
-  
   // Bit field definition.
   struct {
     uint32_t Gx_ID00 : 1;
@@ -19712,7 +19310,7 @@ union P10SMAG1_JR2 {
     uint32_t Gx_ID29 : 1;
     uint32_t Gx_ID30 : 1;
     uint32_t Gx_ID31 : 1;
-  } bits;          // Bit-field struct (auto-filling reserved gaps)
+  } bits;
   
   // Full 32-bit register value.
   uint32_t value;
@@ -19726,13 +19324,11 @@ union P10SMAG1_JR2 {
 //
 union P11SDID_JR2 {
   
-  // Enum definitions.
-  
   // Bit field definition.
   struct {
     uint32_t SDID : 16;
     uint32_t _reserved_end : 16;
-  } bits;          // Bit-field struct (auto-filling reserved gaps)
+  } bits;
   
   // Full 32-bit register value.
   uint32_t value;
@@ -19746,51 +19342,61 @@ union P11SDID_JR2 {
 //
 union P11SMAPR_JR2 {
   
-  // Enum definitions.
   enum class eG1_READ : uint32_t {
     eG1_READ_PROHIB = 0, // Instruction fetches and reads are prohibited (except that Trusted Descriptor reads (if G1_TDO=1) and key-reads are always allowed, and exporting Secure Memory Blobs is allowed if G1_SMBLOB=1 or if done by a Trusted Descriptor and G1_TDO=1).
     eG1_READ_ALLOWED = 1, // Instruction fetches and reads are allowed (but exporting a Secure Memory Blob is prohibited if G1_SMBLOB=0 and the descriptor is not a Trusted Descriptor or if G1_TDO=0).
   };
+  
   enum class eG1_WRITE : uint32_t {
     eG1_WRITE_PROHIB = 0, // Writes are prohibited (except that Trusted Descriptor writes are allowed, and importing Secure Memory Blobs is allowed if G1_SMBLOB=1 or if done by a Trusted Descriptor and G1_TDO=1).
     eG1_WRITE_ALLOWED = 1, // Writes are allowed (but importing a Secure Memory Blob is prohibited if G1_SMBLOB=0 and the descriptor is not a Trusted Descriptor or if G1_TDO=0).
   };
+  
   enum class eG1_TDO : uint32_t {
     eG1_TD_PRIVILEGE_AS_JD = 0, // Trusted Descriptors have the same access privileges as Job Descriptors
     eG1_TD_OVERIDE_ALLOWED = 1, // Trusted Descriptors are allowed to override the other access permissions, i.e. they can export blobs from or import blobs to the partition and read from and write to the partition regardless of the G1_SMBLOB, G1_WRITE and G1_READ settings.
   };
+  
   enum class eG1_SMBLOB : uint32_t {
     eG1_SM_BLOB_EXPORT_IMPORT_PROHIB = 0, // Exporting or importing Secure Memory Blobs is prohibited, unless done via a Trusted Descriptor and G1_TDO=1.
     eG1_SM_B_EXPORT_IMPORT_ALLOWED = 1, // Exporting or importing Secure Memory Blobs is allowed, regardless of the G1_READ and G1_WRITE settings.
   };
+  
   enum class eG2_READ : uint32_t {
     eG2_READ_PROHIB = 0, // Instruction fetches and reads are prohibited (except that Trusted Descriptor reads (if G2_TDO=1) and key-reads are always allowed, and exporting Secure Memory Blobs is allowed if G2_SMBLOB=1 or if done by a Trusted Descriptor and G2_TDO=1).
     eG2_READ_ALLOWED = 1, // Instruction fetches and reads are allowed (but exporting a Secure Memory Blob is prohibited if G2_SMBLOB=0 and the descriptor is not a Trusted Descriptor or if G2_TDO=0).
   };
+  
   enum class eG2_WRITE : uint32_t {
     eG2_WRITE_PROHIB = 0, // Writes are prohibited (except that Trusted Descriptor writes are allowed, and importing Secure Memory Blobs is allowed if G2_SMBLOB=1 or if done by a Trusted Descriptor and G2_TDO=1).
     eG2_WRITE_ALLOWED = 1, // Writes are allowed (but importing a Secure Memory Blob is prohibited if G2_SMBLOB=0 and the descriptor is not a Trusted Descriptor or if G2_TDO=0).
   };
+  
   enum class eG2_TDO : uint32_t {
     eG2_TD_PRIVILEGE_AS_JD = 0, // Trusted Descriptors have the same access privileges as Job Descriptors
     eG2_TD_OVERIDE_ALLOWED = 1, // Trusted Descriptors are allowed to override the other access permissions, i.e. they can export blobs from or import blobs to the partition and read from and write to the partition regardless of the G2_SMBLOB, G2_WRITE and G2_READ settings.
   };
+  
   enum class eG2_SMBLOB : uint32_t {
     eG2_SM_BLOB_EXPORT_IMPORT_PROHIB = 0, // Exporting or importing Secure Memory Blobs is prohibited, unless done via a Trusted Descriptor and G2_TDO=1.
     eG2_SM_BLOB_EXPORT_IMPORT_ALLOWED = 1, // Exporting or importing Secure Memory Blobs is allowed, regardless of the G2_READ and G2_WRITE settings.
   };
+  
   enum class eSMAG_LCK : uint32_t {
     eSMAG_UNLOCKED = 0, // The SMAG2JR register and SMAG1JR register are unlocked. The partition owner can change any writable bits of these registers.
     eSMAG_LOCKED = 1, // The SMAG2JR register and SMAG1JR register are locked. The SMAG2JR and SMAG1JR registers cannot be changed until the partition is de-allocated or a POR occurs.
   };
+  
   enum class eSMAP_LCK : uint32_t {
     eSMAP_UNLOCKED = 0, // The SMAP register is unlocked. The partition owner can change any writable bits of the SMAP register.
     eSMAP_LOCKED = 1, // The SMAP register is locked. The SMAP_LCK, CSP and PSP bits and G1 and G2 permission bits of the SMAP register cannot be changed until the partition is de-allocated or a POR occurs. The PARTITION_KMOD value can still be changed. The SMAG_LCK bit can be changed to a 1, but cannot be changed to a 0.
   };
+  
   enum class ePSP : uint32_t {
     eNOT_DEALLOCATABLE = 0, // The partition and any of the pages allocated to the partition can be de-allocated.
     eDEALLOCATABLE = 1, // The partition cannot be de-allocated and the pages allocated to the partition cannot be de-allocated.
   };
+  
   enum class eCSP : uint32_t {
     eNOT_ZEROIZED = 0, // The pages allocated to the partition will not be zeroized when they are de-allocated or the partition is released or a security alarm occurs.
     eZEROIZED = 1, // The pages allocated to the partition will be zeroized when they are individually de-allocated or the partition is released or a security alarm occurs.
@@ -19812,7 +19418,7 @@ union P11SMAPR_JR2 {
     ePSP PSP : 1;
     eCSP CSP : 1;
     uint32_t PARTITION_KMOD : 16;
-  } bits;          // Bit-field struct (auto-filling reserved gaps)
+  } bits;
   
   // Full 32-bit register value.
   uint32_t value;
@@ -19826,8 +19432,6 @@ union P11SMAPR_JR2 {
 //
 union P11SMAG2_JR2 {
   
-  // Enum definitions.
-  
   // Bit field definition.
   struct {
     uint32_t Gx_ID00 : 1;
@@ -19862,7 +19466,7 @@ union P11SMAG2_JR2 {
     uint32_t Gx_ID29 : 1;
     uint32_t Gx_ID30 : 1;
     uint32_t Gx_ID31 : 1;
-  } bits;          // Bit-field struct (auto-filling reserved gaps)
+  } bits;
   
   // Full 32-bit register value.
   uint32_t value;
@@ -19876,8 +19480,6 @@ union P11SMAG2_JR2 {
 //
 union P11SMAG1_JR2 {
   
-  // Enum definitions.
-  
   // Bit field definition.
   struct {
     uint32_t Gx_ID00 : 1;
@@ -19912,7 +19514,7 @@ union P11SMAG1_JR2 {
     uint32_t Gx_ID29 : 1;
     uint32_t Gx_ID30 : 1;
     uint32_t Gx_ID31 : 1;
-  } bits;          // Bit-field struct (auto-filling reserved gaps)
+  } bits;
   
   // Full 32-bit register value.
   uint32_t value;
@@ -19926,13 +19528,11 @@ union P11SMAG1_JR2 {
 //
 union P12SDID_JR2 {
   
-  // Enum definitions.
-  
   // Bit field definition.
   struct {
     uint32_t SDID : 16;
     uint32_t _reserved_end : 16;
-  } bits;          // Bit-field struct (auto-filling reserved gaps)
+  } bits;
   
   // Full 32-bit register value.
   uint32_t value;
@@ -19946,51 +19546,61 @@ union P12SDID_JR2 {
 //
 union P12SMAPR_JR2 {
   
-  // Enum definitions.
   enum class eG1_READ : uint32_t {
     eG1_READ_PROHIB = 0, // Instruction fetches and reads are prohibited (except that Trusted Descriptor reads (if G1_TDO=1) and key-reads are always allowed, and exporting Secure Memory Blobs is allowed if G1_SMBLOB=1 or if done by a Trusted Descriptor and G1_TDO=1).
     eG1_READ_ALLOWED = 1, // Instruction fetches and reads are allowed (but exporting a Secure Memory Blob is prohibited if G1_SMBLOB=0 and the descriptor is not a Trusted Descriptor or if G1_TDO=0).
   };
+  
   enum class eG1_WRITE : uint32_t {
     eG1_WRITE_PROHIB = 0, // Writes are prohibited (except that Trusted Descriptor writes are allowed, and importing Secure Memory Blobs is allowed if G1_SMBLOB=1 or if done by a Trusted Descriptor and G1_TDO=1).
     eG1_WRITE_ALLOWED = 1, // Writes are allowed (but importing a Secure Memory Blob is prohibited if G1_SMBLOB=0 and the descriptor is not a Trusted Descriptor or if G1_TDO=0).
   };
+  
   enum class eG1_TDO : uint32_t {
     eG1_TD_PRIVILEGE_AS_JD = 0, // Trusted Descriptors have the same access privileges as Job Descriptors
     eG1_TD_OVERIDE_ALLOWED = 1, // Trusted Descriptors are allowed to override the other access permissions, i.e. they can export blobs from or import blobs to the partition and read from and write to the partition regardless of the G1_SMBLOB, G1_WRITE and G1_READ settings.
   };
+  
   enum class eG1_SMBLOB : uint32_t {
     eG1_SM_BLOB_EXPORT_IMPORT_PROHIB = 0, // Exporting or importing Secure Memory Blobs is prohibited, unless done via a Trusted Descriptor and G1_TDO=1.
     eG1_SM_B_EXPORT_IMPORT_ALLOWED = 1, // Exporting or importing Secure Memory Blobs is allowed, regardless of the G1_READ and G1_WRITE settings.
   };
+  
   enum class eG2_READ : uint32_t {
     eG2_READ_PROHIB = 0, // Instruction fetches and reads are prohibited (except that Trusted Descriptor reads (if G2_TDO=1) and key-reads are always allowed, and exporting Secure Memory Blobs is allowed if G2_SMBLOB=1 or if done by a Trusted Descriptor and G2_TDO=1).
     eG2_READ_ALLOWED = 1, // Instruction fetches and reads are allowed (but exporting a Secure Memory Blob is prohibited if G2_SMBLOB=0 and the descriptor is not a Trusted Descriptor or if G2_TDO=0).
   };
+  
   enum class eG2_WRITE : uint32_t {
     eG2_WRITE_PROHIB = 0, // Writes are prohibited (except that Trusted Descriptor writes are allowed, and importing Secure Memory Blobs is allowed if G2_SMBLOB=1 or if done by a Trusted Descriptor and G2_TDO=1).
     eG2_WRITE_ALLOWED = 1, // Writes are allowed (but importing a Secure Memory Blob is prohibited if G2_SMBLOB=0 and the descriptor is not a Trusted Descriptor or if G2_TDO=0).
   };
+  
   enum class eG2_TDO : uint32_t {
     eG2_TD_PRIVILEGE_AS_JD = 0, // Trusted Descriptors have the same access privileges as Job Descriptors
     eG2_TD_OVERIDE_ALLOWED = 1, // Trusted Descriptors are allowed to override the other access permissions, i.e. they can export blobs from or import blobs to the partition and read from and write to the partition regardless of the G2_SMBLOB, G2_WRITE and G2_READ settings.
   };
+  
   enum class eG2_SMBLOB : uint32_t {
     eG2_SM_BLOB_EXPORT_IMPORT_PROHIB = 0, // Exporting or importing Secure Memory Blobs is prohibited, unless done via a Trusted Descriptor and G2_TDO=1.
     eG2_SM_BLOB_EXPORT_IMPORT_ALLOWED = 1, // Exporting or importing Secure Memory Blobs is allowed, regardless of the G2_READ and G2_WRITE settings.
   };
+  
   enum class eSMAG_LCK : uint32_t {
     eSMAG_UNLOCKED = 0, // The SMAG2JR register and SMAG1JR register are unlocked. The partition owner can change any writable bits of these registers.
     eSMAG_LOCKED = 1, // The SMAG2JR register and SMAG1JR register are locked. The SMAG2JR and SMAG1JR registers cannot be changed until the partition is de-allocated or a POR occurs.
   };
+  
   enum class eSMAP_LCK : uint32_t {
     eSMAP_UNLOCKED = 0, // The SMAP register is unlocked. The partition owner can change any writable bits of the SMAP register.
     eSMAP_LOCKED = 1, // The SMAP register is locked. The SMAP_LCK, CSP and PSP bits and G1 and G2 permission bits of the SMAP register cannot be changed until the partition is de-allocated or a POR occurs. The PARTITION_KMOD value can still be changed. The SMAG_LCK bit can be changed to a 1, but cannot be changed to a 0.
   };
+  
   enum class ePSP : uint32_t {
     eNOT_DEALLOCATABLE = 0, // The partition and any of the pages allocated to the partition can be de-allocated.
     eDEALLOCATABLE = 1, // The partition cannot be de-allocated and the pages allocated to the partition cannot be de-allocated.
   };
+  
   enum class eCSP : uint32_t {
     eNOT_ZEROIZED = 0, // The pages allocated to the partition will not be zeroized when they are de-allocated or the partition is released or a security alarm occurs.
     eZEROIZED = 1, // The pages allocated to the partition will be zeroized when they are individually de-allocated or the partition is released or a security alarm occurs.
@@ -20012,7 +19622,7 @@ union P12SMAPR_JR2 {
     ePSP PSP : 1;
     eCSP CSP : 1;
     uint32_t PARTITION_KMOD : 16;
-  } bits;          // Bit-field struct (auto-filling reserved gaps)
+  } bits;
   
   // Full 32-bit register value.
   uint32_t value;
@@ -20026,8 +19636,6 @@ union P12SMAPR_JR2 {
 //
 union P12SMAG2_JR2 {
   
-  // Enum definitions.
-  
   // Bit field definition.
   struct {
     uint32_t Gx_ID00 : 1;
@@ -20062,7 +19670,7 @@ union P12SMAG2_JR2 {
     uint32_t Gx_ID29 : 1;
     uint32_t Gx_ID30 : 1;
     uint32_t Gx_ID31 : 1;
-  } bits;          // Bit-field struct (auto-filling reserved gaps)
+  } bits;
   
   // Full 32-bit register value.
   uint32_t value;
@@ -20076,8 +19684,6 @@ union P12SMAG2_JR2 {
 //
 union P12SMAG1_JR2 {
   
-  // Enum definitions.
-  
   // Bit field definition.
   struct {
     uint32_t Gx_ID00 : 1;
@@ -20112,7 +19718,7 @@ union P12SMAG1_JR2 {
     uint32_t Gx_ID29 : 1;
     uint32_t Gx_ID30 : 1;
     uint32_t Gx_ID31 : 1;
-  } bits;          // Bit-field struct (auto-filling reserved gaps)
+  } bits;
   
   // Full 32-bit register value.
   uint32_t value;
@@ -20126,13 +19732,11 @@ union P12SMAG1_JR2 {
 //
 union P13SDID_JR2 {
   
-  // Enum definitions.
-  
   // Bit field definition.
   struct {
     uint32_t SDID : 16;
     uint32_t _reserved_end : 16;
-  } bits;          // Bit-field struct (auto-filling reserved gaps)
+  } bits;
   
   // Full 32-bit register value.
   uint32_t value;
@@ -20146,51 +19750,61 @@ union P13SDID_JR2 {
 //
 union P13SMAPR_JR2 {
   
-  // Enum definitions.
   enum class eG1_READ : uint32_t {
     eG1_READ_PROHIB = 0, // Instruction fetches and reads are prohibited (except that Trusted Descriptor reads (if G1_TDO=1) and key-reads are always allowed, and exporting Secure Memory Blobs is allowed if G1_SMBLOB=1 or if done by a Trusted Descriptor and G1_TDO=1).
     eG1_READ_ALLOWED = 1, // Instruction fetches and reads are allowed (but exporting a Secure Memory Blob is prohibited if G1_SMBLOB=0 and the descriptor is not a Trusted Descriptor or if G1_TDO=0).
   };
+  
   enum class eG1_WRITE : uint32_t {
     eG1_WRITE_PROHIB = 0, // Writes are prohibited (except that Trusted Descriptor writes are allowed, and importing Secure Memory Blobs is allowed if G1_SMBLOB=1 or if done by a Trusted Descriptor and G1_TDO=1).
     eG1_WRITE_ALLOWED = 1, // Writes are allowed (but importing a Secure Memory Blob is prohibited if G1_SMBLOB=0 and the descriptor is not a Trusted Descriptor or if G1_TDO=0).
   };
+  
   enum class eG1_TDO : uint32_t {
     eG1_TD_PRIVILEGE_AS_JD = 0, // Trusted Descriptors have the same access privileges as Job Descriptors
     eG1_TD_OVERIDE_ALLOWED = 1, // Trusted Descriptors are allowed to override the other access permissions, i.e. they can export blobs from or import blobs to the partition and read from and write to the partition regardless of the G1_SMBLOB, G1_WRITE and G1_READ settings.
   };
+  
   enum class eG1_SMBLOB : uint32_t {
     eG1_SM_BLOB_EXPORT_IMPORT_PROHIB = 0, // Exporting or importing Secure Memory Blobs is prohibited, unless done via a Trusted Descriptor and G1_TDO=1.
     eG1_SM_B_EXPORT_IMPORT_ALLOWED = 1, // Exporting or importing Secure Memory Blobs is allowed, regardless of the G1_READ and G1_WRITE settings.
   };
+  
   enum class eG2_READ : uint32_t {
     eG2_READ_PROHIB = 0, // Instruction fetches and reads are prohibited (except that Trusted Descriptor reads (if G2_TDO=1) and key-reads are always allowed, and exporting Secure Memory Blobs is allowed if G2_SMBLOB=1 or if done by a Trusted Descriptor and G2_TDO=1).
     eG2_READ_ALLOWED = 1, // Instruction fetches and reads are allowed (but exporting a Secure Memory Blob is prohibited if G2_SMBLOB=0 and the descriptor is not a Trusted Descriptor or if G2_TDO=0).
   };
+  
   enum class eG2_WRITE : uint32_t {
     eG2_WRITE_PROHIB = 0, // Writes are prohibited (except that Trusted Descriptor writes are allowed, and importing Secure Memory Blobs is allowed if G2_SMBLOB=1 or if done by a Trusted Descriptor and G2_TDO=1).
     eG2_WRITE_ALLOWED = 1, // Writes are allowed (but importing a Secure Memory Blob is prohibited if G2_SMBLOB=0 and the descriptor is not a Trusted Descriptor or if G2_TDO=0).
   };
+  
   enum class eG2_TDO : uint32_t {
     eG2_TD_PRIVILEGE_AS_JD = 0, // Trusted Descriptors have the same access privileges as Job Descriptors
     eG2_TD_OVERIDE_ALLOWED = 1, // Trusted Descriptors are allowed to override the other access permissions, i.e. they can export blobs from or import blobs to the partition and read from and write to the partition regardless of the G2_SMBLOB, G2_WRITE and G2_READ settings.
   };
+  
   enum class eG2_SMBLOB : uint32_t {
     eG2_SM_BLOB_EXPORT_IMPORT_PROHIB = 0, // Exporting or importing Secure Memory Blobs is prohibited, unless done via a Trusted Descriptor and G2_TDO=1.
     eG2_SM_BLOB_EXPORT_IMPORT_ALLOWED = 1, // Exporting or importing Secure Memory Blobs is allowed, regardless of the G2_READ and G2_WRITE settings.
   };
+  
   enum class eSMAG_LCK : uint32_t {
     eSMAG_UNLOCKED = 0, // The SMAG2JR register and SMAG1JR register are unlocked. The partition owner can change any writable bits of these registers.
     eSMAG_LOCKED = 1, // The SMAG2JR register and SMAG1JR register are locked. The SMAG2JR and SMAG1JR registers cannot be changed until the partition is de-allocated or a POR occurs.
   };
+  
   enum class eSMAP_LCK : uint32_t {
     eSMAP_UNLOCKED = 0, // The SMAP register is unlocked. The partition owner can change any writable bits of the SMAP register.
     eSMAP_LOCKED = 1, // The SMAP register is locked. The SMAP_LCK, CSP and PSP bits and G1 and G2 permission bits of the SMAP register cannot be changed until the partition is de-allocated or a POR occurs. The PARTITION_KMOD value can still be changed. The SMAG_LCK bit can be changed to a 1, but cannot be changed to a 0.
   };
+  
   enum class ePSP : uint32_t {
     eNOT_DEALLOCATABLE = 0, // The partition and any of the pages allocated to the partition can be de-allocated.
     eDEALLOCATABLE = 1, // The partition cannot be de-allocated and the pages allocated to the partition cannot be de-allocated.
   };
+  
   enum class eCSP : uint32_t {
     eNOT_ZEROIZED = 0, // The pages allocated to the partition will not be zeroized when they are de-allocated or the partition is released or a security alarm occurs.
     eZEROIZED = 1, // The pages allocated to the partition will be zeroized when they are individually de-allocated or the partition is released or a security alarm occurs.
@@ -20212,7 +19826,7 @@ union P13SMAPR_JR2 {
     ePSP PSP : 1;
     eCSP CSP : 1;
     uint32_t PARTITION_KMOD : 16;
-  } bits;          // Bit-field struct (auto-filling reserved gaps)
+  } bits;
   
   // Full 32-bit register value.
   uint32_t value;
@@ -20226,8 +19840,6 @@ union P13SMAPR_JR2 {
 //
 union P13SMAG2_JR2 {
   
-  // Enum definitions.
-  
   // Bit field definition.
   struct {
     uint32_t Gx_ID00 : 1;
@@ -20262,7 +19874,7 @@ union P13SMAG2_JR2 {
     uint32_t Gx_ID29 : 1;
     uint32_t Gx_ID30 : 1;
     uint32_t Gx_ID31 : 1;
-  } bits;          // Bit-field struct (auto-filling reserved gaps)
+  } bits;
   
   // Full 32-bit register value.
   uint32_t value;
@@ -20276,8 +19888,6 @@ union P13SMAG2_JR2 {
 //
 union P13SMAG1_JR2 {
   
-  // Enum definitions.
-  
   // Bit field definition.
   struct {
     uint32_t Gx_ID00 : 1;
@@ -20312,7 +19922,7 @@ union P13SMAG1_JR2 {
     uint32_t Gx_ID29 : 1;
     uint32_t Gx_ID30 : 1;
     uint32_t Gx_ID31 : 1;
-  } bits;          // Bit-field struct (auto-filling reserved gaps)
+  } bits;
   
   // Full 32-bit register value.
   uint32_t value;
@@ -20326,13 +19936,11 @@ union P13SMAG1_JR2 {
 //
 union P14SDID_JR2 {
   
-  // Enum definitions.
-  
   // Bit field definition.
   struct {
     uint32_t SDID : 16;
     uint32_t _reserved_end : 16;
-  } bits;          // Bit-field struct (auto-filling reserved gaps)
+  } bits;
   
   // Full 32-bit register value.
   uint32_t value;
@@ -20346,51 +19954,61 @@ union P14SDID_JR2 {
 //
 union P14SMAPR_JR2 {
   
-  // Enum definitions.
   enum class eG1_READ : uint32_t {
     eG1_READ_PROHIB = 0, // Instruction fetches and reads are prohibited (except that Trusted Descriptor reads (if G1_TDO=1) and key-reads are always allowed, and exporting Secure Memory Blobs is allowed if G1_SMBLOB=1 or if done by a Trusted Descriptor and G1_TDO=1).
     eG1_READ_ALLOWED = 1, // Instruction fetches and reads are allowed (but exporting a Secure Memory Blob is prohibited if G1_SMBLOB=0 and the descriptor is not a Trusted Descriptor or if G1_TDO=0).
   };
+  
   enum class eG1_WRITE : uint32_t {
     eG1_WRITE_PROHIB = 0, // Writes are prohibited (except that Trusted Descriptor writes are allowed, and importing Secure Memory Blobs is allowed if G1_SMBLOB=1 or if done by a Trusted Descriptor and G1_TDO=1).
     eG1_WRITE_ALLOWED = 1, // Writes are allowed (but importing a Secure Memory Blob is prohibited if G1_SMBLOB=0 and the descriptor is not a Trusted Descriptor or if G1_TDO=0).
   };
+  
   enum class eG1_TDO : uint32_t {
     eG1_TD_PRIVILEGE_AS_JD = 0, // Trusted Descriptors have the same access privileges as Job Descriptors
     eG1_TD_OVERIDE_ALLOWED = 1, // Trusted Descriptors are allowed to override the other access permissions, i.e. they can export blobs from or import blobs to the partition and read from and write to the partition regardless of the G1_SMBLOB, G1_WRITE and G1_READ settings.
   };
+  
   enum class eG1_SMBLOB : uint32_t {
     eG1_SM_BLOB_EXPORT_IMPORT_PROHIB = 0, // Exporting or importing Secure Memory Blobs is prohibited, unless done via a Trusted Descriptor and G1_TDO=1.
     eG1_SM_B_EXPORT_IMPORT_ALLOWED = 1, // Exporting or importing Secure Memory Blobs is allowed, regardless of the G1_READ and G1_WRITE settings.
   };
+  
   enum class eG2_READ : uint32_t {
     eG2_READ_PROHIB = 0, // Instruction fetches and reads are prohibited (except that Trusted Descriptor reads (if G2_TDO=1) and key-reads are always allowed, and exporting Secure Memory Blobs is allowed if G2_SMBLOB=1 or if done by a Trusted Descriptor and G2_TDO=1).
     eG2_READ_ALLOWED = 1, // Instruction fetches and reads are allowed (but exporting a Secure Memory Blob is prohibited if G2_SMBLOB=0 and the descriptor is not a Trusted Descriptor or if G2_TDO=0).
   };
+  
   enum class eG2_WRITE : uint32_t {
     eG2_WRITE_PROHIB = 0, // Writes are prohibited (except that Trusted Descriptor writes are allowed, and importing Secure Memory Blobs is allowed if G2_SMBLOB=1 or if done by a Trusted Descriptor and G2_TDO=1).
     eG2_WRITE_ALLOWED = 1, // Writes are allowed (but importing a Secure Memory Blob is prohibited if G2_SMBLOB=0 and the descriptor is not a Trusted Descriptor or if G2_TDO=0).
   };
+  
   enum class eG2_TDO : uint32_t {
     eG2_TD_PRIVILEGE_AS_JD = 0, // Trusted Descriptors have the same access privileges as Job Descriptors
     eG2_TD_OVERIDE_ALLOWED = 1, // Trusted Descriptors are allowed to override the other access permissions, i.e. they can export blobs from or import blobs to the partition and read from and write to the partition regardless of the G2_SMBLOB, G2_WRITE and G2_READ settings.
   };
+  
   enum class eG2_SMBLOB : uint32_t {
     eG2_SM_BLOB_EXPORT_IMPORT_PROHIB = 0, // Exporting or importing Secure Memory Blobs is prohibited, unless done via a Trusted Descriptor and G2_TDO=1.
     eG2_SM_BLOB_EXPORT_IMPORT_ALLOWED = 1, // Exporting or importing Secure Memory Blobs is allowed, regardless of the G2_READ and G2_WRITE settings.
   };
+  
   enum class eSMAG_LCK : uint32_t {
     eSMAG_UNLOCKED = 0, // The SMAG2JR register and SMAG1JR register are unlocked. The partition owner can change any writable bits of these registers.
     eSMAG_LOCKED = 1, // The SMAG2JR register and SMAG1JR register are locked. The SMAG2JR and SMAG1JR registers cannot be changed until the partition is de-allocated or a POR occurs.
   };
+  
   enum class eSMAP_LCK : uint32_t {
     eSMAP_UNLOCKED = 0, // The SMAP register is unlocked. The partition owner can change any writable bits of the SMAP register.
     eSMAP_LOCKED = 1, // The SMAP register is locked. The SMAP_LCK, CSP and PSP bits and G1 and G2 permission bits of the SMAP register cannot be changed until the partition is de-allocated or a POR occurs. The PARTITION_KMOD value can still be changed. The SMAG_LCK bit can be changed to a 1, but cannot be changed to a 0.
   };
+  
   enum class ePSP : uint32_t {
     eNOT_DEALLOCATABLE = 0, // The partition and any of the pages allocated to the partition can be de-allocated.
     eDEALLOCATABLE = 1, // The partition cannot be de-allocated and the pages allocated to the partition cannot be de-allocated.
   };
+  
   enum class eCSP : uint32_t {
     eNOT_ZEROIZED = 0, // The pages allocated to the partition will not be zeroized when they are de-allocated or the partition is released or a security alarm occurs.
     eZEROIZED = 1, // The pages allocated to the partition will be zeroized when they are individually de-allocated or the partition is released or a security alarm occurs.
@@ -20412,7 +20030,7 @@ union P14SMAPR_JR2 {
     ePSP PSP : 1;
     eCSP CSP : 1;
     uint32_t PARTITION_KMOD : 16;
-  } bits;          // Bit-field struct (auto-filling reserved gaps)
+  } bits;
   
   // Full 32-bit register value.
   uint32_t value;
@@ -20426,8 +20044,6 @@ union P14SMAPR_JR2 {
 //
 union P14SMAG2_JR2 {
   
-  // Enum definitions.
-  
   // Bit field definition.
   struct {
     uint32_t Gx_ID00 : 1;
@@ -20462,7 +20078,7 @@ union P14SMAG2_JR2 {
     uint32_t Gx_ID29 : 1;
     uint32_t Gx_ID30 : 1;
     uint32_t Gx_ID31 : 1;
-  } bits;          // Bit-field struct (auto-filling reserved gaps)
+  } bits;
   
   // Full 32-bit register value.
   uint32_t value;
@@ -20476,8 +20092,6 @@ union P14SMAG2_JR2 {
 //
 union P14SMAG1_JR2 {
   
-  // Enum definitions.
-  
   // Bit field definition.
   struct {
     uint32_t Gx_ID00 : 1;
@@ -20512,7 +20126,7 @@ union P14SMAG1_JR2 {
     uint32_t Gx_ID29 : 1;
     uint32_t Gx_ID30 : 1;
     uint32_t Gx_ID31 : 1;
-  } bits;          // Bit-field struct (auto-filling reserved gaps)
+  } bits;
   
   // Full 32-bit register value.
   uint32_t value;
@@ -20526,13 +20140,11 @@ union P14SMAG1_JR2 {
 //
 union P15SDID_JR2 {
   
-  // Enum definitions.
-  
   // Bit field definition.
   struct {
     uint32_t SDID : 16;
     uint32_t _reserved_end : 16;
-  } bits;          // Bit-field struct (auto-filling reserved gaps)
+  } bits;
   
   // Full 32-bit register value.
   uint32_t value;
@@ -20546,51 +20158,61 @@ union P15SDID_JR2 {
 //
 union P15SMAPR_JR2 {
   
-  // Enum definitions.
   enum class eG1_READ : uint32_t {
     eG1_READ_PROHIB = 0, // Instruction fetches and reads are prohibited (except that Trusted Descriptor reads (if G1_TDO=1) and key-reads are always allowed, and exporting Secure Memory Blobs is allowed if G1_SMBLOB=1 or if done by a Trusted Descriptor and G1_TDO=1).
     eG1_READ_ALLOWED = 1, // Instruction fetches and reads are allowed (but exporting a Secure Memory Blob is prohibited if G1_SMBLOB=0 and the descriptor is not a Trusted Descriptor or if G1_TDO=0).
   };
+  
   enum class eG1_WRITE : uint32_t {
     eG1_WRITE_PROHIB = 0, // Writes are prohibited (except that Trusted Descriptor writes are allowed, and importing Secure Memory Blobs is allowed if G1_SMBLOB=1 or if done by a Trusted Descriptor and G1_TDO=1).
     eG1_WRITE_ALLOWED = 1, // Writes are allowed (but importing a Secure Memory Blob is prohibited if G1_SMBLOB=0 and the descriptor is not a Trusted Descriptor or if G1_TDO=0).
   };
+  
   enum class eG1_TDO : uint32_t {
     eG1_TD_PRIVILEGE_AS_JD = 0, // Trusted Descriptors have the same access privileges as Job Descriptors
     eG1_TD_OVERIDE_ALLOWED = 1, // Trusted Descriptors are allowed to override the other access permissions, i.e. they can export blobs from or import blobs to the partition and read from and write to the partition regardless of the G1_SMBLOB, G1_WRITE and G1_READ settings.
   };
+  
   enum class eG1_SMBLOB : uint32_t {
     eG1_SM_BLOB_EXPORT_IMPORT_PROHIB = 0, // Exporting or importing Secure Memory Blobs is prohibited, unless done via a Trusted Descriptor and G1_TDO=1.
     eG1_SM_B_EXPORT_IMPORT_ALLOWED = 1, // Exporting or importing Secure Memory Blobs is allowed, regardless of the G1_READ and G1_WRITE settings.
   };
+  
   enum class eG2_READ : uint32_t {
     eG2_READ_PROHIB = 0, // Instruction fetches and reads are prohibited (except that Trusted Descriptor reads (if G2_TDO=1) and key-reads are always allowed, and exporting Secure Memory Blobs is allowed if G2_SMBLOB=1 or if done by a Trusted Descriptor and G2_TDO=1).
     eG2_READ_ALLOWED = 1, // Instruction fetches and reads are allowed (but exporting a Secure Memory Blob is prohibited if G2_SMBLOB=0 and the descriptor is not a Trusted Descriptor or if G2_TDO=0).
   };
+  
   enum class eG2_WRITE : uint32_t {
     eG2_WRITE_PROHIB = 0, // Writes are prohibited (except that Trusted Descriptor writes are allowed, and importing Secure Memory Blobs is allowed if G2_SMBLOB=1 or if done by a Trusted Descriptor and G2_TDO=1).
     eG2_WRITE_ALLOWED = 1, // Writes are allowed (but importing a Secure Memory Blob is prohibited if G2_SMBLOB=0 and the descriptor is not a Trusted Descriptor or if G2_TDO=0).
   };
+  
   enum class eG2_TDO : uint32_t {
     eG2_TD_PRIVILEGE_AS_JD = 0, // Trusted Descriptors have the same access privileges as Job Descriptors
     eG2_TD_OVERIDE_ALLOWED = 1, // Trusted Descriptors are allowed to override the other access permissions, i.e. they can export blobs from or import blobs to the partition and read from and write to the partition regardless of the G2_SMBLOB, G2_WRITE and G2_READ settings.
   };
+  
   enum class eG2_SMBLOB : uint32_t {
     eG2_SM_BLOB_EXPORT_IMPORT_PROHIB = 0, // Exporting or importing Secure Memory Blobs is prohibited, unless done via a Trusted Descriptor and G2_TDO=1.
     eG2_SM_BLOB_EXPORT_IMPORT_ALLOWED = 1, // Exporting or importing Secure Memory Blobs is allowed, regardless of the G2_READ and G2_WRITE settings.
   };
+  
   enum class eSMAG_LCK : uint32_t {
     eSMAG_UNLOCKED = 0, // The SMAG2JR register and SMAG1JR register are unlocked. The partition owner can change any writable bits of these registers.
     eSMAG_LOCKED = 1, // The SMAG2JR register and SMAG1JR register are locked. The SMAG2JR and SMAG1JR registers cannot be changed until the partition is de-allocated or a POR occurs.
   };
+  
   enum class eSMAP_LCK : uint32_t {
     eSMAP_UNLOCKED = 0, // The SMAP register is unlocked. The partition owner can change any writable bits of the SMAP register.
     eSMAP_LOCKED = 1, // The SMAP register is locked. The SMAP_LCK, CSP and PSP bits and G1 and G2 permission bits of the SMAP register cannot be changed until the partition is de-allocated or a POR occurs. The PARTITION_KMOD value can still be changed. The SMAG_LCK bit can be changed to a 1, but cannot be changed to a 0.
   };
+  
   enum class ePSP : uint32_t {
     eNOT_DEALLOCATABLE = 0, // The partition and any of the pages allocated to the partition can be de-allocated.
     eDEALLOCATABLE = 1, // The partition cannot be de-allocated and the pages allocated to the partition cannot be de-allocated.
   };
+  
   enum class eCSP : uint32_t {
     eNOT_ZEROIZED = 0, // The pages allocated to the partition will not be zeroized when they are de-allocated or the partition is released or a security alarm occurs.
     eZEROIZED = 1, // The pages allocated to the partition will be zeroized when they are individually de-allocated or the partition is released or a security alarm occurs.
@@ -20612,7 +20234,7 @@ union P15SMAPR_JR2 {
     ePSP PSP : 1;
     eCSP CSP : 1;
     uint32_t PARTITION_KMOD : 16;
-  } bits;          // Bit-field struct (auto-filling reserved gaps)
+  } bits;
   
   // Full 32-bit register value.
   uint32_t value;
@@ -20626,8 +20248,6 @@ union P15SMAPR_JR2 {
 //
 union P15SMAG2_JR2 {
   
-  // Enum definitions.
-  
   // Bit field definition.
   struct {
     uint32_t Gx_ID00 : 1;
@@ -20662,7 +20282,7 @@ union P15SMAG2_JR2 {
     uint32_t Gx_ID29 : 1;
     uint32_t Gx_ID30 : 1;
     uint32_t Gx_ID31 : 1;
-  } bits;          // Bit-field struct (auto-filling reserved gaps)
+  } bits;
   
   // Full 32-bit register value.
   uint32_t value;
@@ -20676,8 +20296,6 @@ union P15SMAG2_JR2 {
 //
 union P15SMAG1_JR2 {
   
-  // Enum definitions.
-  
   // Bit field definition.
   struct {
     uint32_t Gx_ID00 : 1;
@@ -20712,7 +20330,7 @@ union P15SMAG1_JR2 {
     uint32_t Gx_ID29 : 1;
     uint32_t Gx_ID30 : 1;
     uint32_t Gx_ID31 : 1;
-  } bits;          // Bit-field struct (auto-filling reserved gaps)
+  } bits;
   
   // Full 32-bit register value.
   uint32_t value;
@@ -20726,8 +20344,6 @@ union P15SMAG1_JR2 {
 //
 union SMCR_JR2 {
   
-  // Enum definitions.
-  
   // Bit field definition.
   struct {
     uint32_t CMD : 4;
@@ -20735,7 +20351,7 @@ union SMCR_JR2 {
     uint32_t PRTN : 4;
     uint32_t _reserved_2 : 4;
     uint32_t PAGE : 16;
-  } bits;          // Bit-field struct (auto-filling reserved gaps)
+  } bits;
   
   // Full 32-bit register value.
   uint32_t value;
@@ -20749,13 +20365,13 @@ union SMCR_JR2 {
 //
 union SMCSR_JR2 {
   
-  // Enum definitions.
   enum class ePO : uint32_t {
     eAVAILABLE = 0, // Available; Unowned: The entity that issued the inquiry may allocate this page to a partition. No zeroization is needed since it has already been cleared, therefore no interrupt should be expected.
     eNOT_PRESENT_OR_INITIALIZED = 1, // Page does not exist in this version or is not initialized yet.
     eUNAVAILABLE = 2, // Another entity owns the page. This page is unavailable to the issuer of the inquiry.
     eOWNED = 3, // Owned by the entity making the inquiry. The owner may de-allocate this page if its partition is not marked PSP. If the partition to which the page is allocated is designated as CSP, the page will be zeroized upon de-allocation.
   };
+  
   enum class eCERR : uint32_t {
     eNO_ERROR = 0, // No Error.
     eCMD_INCOMPLETE_ERROR = 1, // Command has not yet completed.
@@ -20773,7 +20389,7 @@ union SMCSR_JR2 {
     eCERR CERR : 2;
     uint32_t PAGE : 12;
     uint32_t _reserved_end : 4;
-  } bits;          // Bit-field struct (auto-filling reserved gaps)
+  } bits;
   
   // Full 32-bit register value.
   uint32_t value;
@@ -20787,15 +20403,13 @@ union SMCSR_JR2 {
 //
 union REIR0JR2 {
   
-  // Enum definitions.
-  
   // Bit field definition.
   struct {
     uint32_t _reserved_0 : 24;
     uint32_t TYPE : 2;
     uint32_t _reserved_1 : 5;
     uint32_t MISS : 1;
-  } bits;          // Bit-field struct (auto-filling reserved gaps)
+  } bits;
   
   // Full 32-bit register value.
   uint32_t value;
@@ -20809,12 +20423,10 @@ union REIR0JR2 {
 //
 union REIR2JR2 {
   
-  // Enum definitions.
-  
   // Bit field definition.
   struct {
     uint32_t ADDR : 36;
-  } bits;          // Bit-field struct (auto-filling reserved gaps)
+  } bits;
   
   // Full 32-bit register value.
   uint32_t value;
@@ -20828,8 +20440,6 @@ union REIR2JR2 {
 //
 union REIR4JR2 {
   
-  // Enum definitions.
-  
   // Bit field definition.
   struct {
     uint32_t ICID : 11;
@@ -20841,7 +20451,7 @@ union REIR4JR2 {
     uint32_t _reserved_5 : 4;
     uint32_t ERR : 2;
     uint32_t MIX : 2;
-  } bits;          // Bit-field struct (auto-filling reserved gaps)
+  } bits;
   
   // Full 32-bit register value.
   uint32_t value;
@@ -20855,8 +20465,6 @@ union REIR4JR2 {
 //
 union REIR5JR2 {
   
-  // Enum definitions.
-  
   // Bit field definition.
   struct {
     uint32_t _reserved_0 : 16;
@@ -20868,7 +20476,7 @@ union REIR5JR2 {
     uint32_t KEY : 1;
     uint32_t SMA : 1;
     uint32_t _reserved_end : 2;
-  } bits;          // Bit-field struct (auto-filling reserved gaps)
+  } bits;
   
   // Full 32-bit register value.
   uint32_t value;
@@ -20882,12 +20490,10 @@ union REIR5JR2 {
 //
 union IRBAR_JR3 {
   
-  // Enum definitions.
-  
   // Bit field definition.
   struct {
     uint32_t IRBA : 36;
-  } bits;          // Bit-field struct (auto-filling reserved gaps)
+  } bits;
   
   // Full 32-bit register value.
   uint32_t value;
@@ -20901,13 +20507,11 @@ union IRBAR_JR3 {
 //
 union IRSR_JR3 {
   
-  // Enum definitions.
-  
   // Bit field definition.
   struct {
     uint32_t IRS : 10;
     uint32_t _reserved_end : 22;
-  } bits;          // Bit-field struct (auto-filling reserved gaps)
+  } bits;
   
   // Full 32-bit register value.
   uint32_t value;
@@ -20921,13 +20525,11 @@ union IRSR_JR3 {
 //
 union IRSAR_JR3 {
   
-  // Enum definitions.
-  
   // Bit field definition.
   struct {
     uint32_t IRSA : 10;
     uint32_t _reserved_end : 22;
-  } bits;          // Bit-field struct (auto-filling reserved gaps)
+  } bits;
   
   // Full 32-bit register value.
   uint32_t value;
@@ -20941,13 +20543,11 @@ union IRSAR_JR3 {
 //
 union IRJAR_JR3 {
   
-  // Enum definitions.
-  
   // Bit field definition.
   struct {
     uint32_t IRJA : 10;
     uint32_t _reserved_end : 22;
-  } bits;          // Bit-field struct (auto-filling reserved gaps)
+  } bits;
   
   // Full 32-bit register value.
   uint32_t value;
@@ -20961,12 +20561,10 @@ union IRJAR_JR3 {
 //
 union ORBAR_JR3 {
   
-  // Enum definitions.
-  
   // Bit field definition.
   struct {
     uint32_t ORBA : 36;
-  } bits;          // Bit-field struct (auto-filling reserved gaps)
+  } bits;
   
   // Full 32-bit register value.
   uint32_t value;
@@ -20980,13 +20578,11 @@ union ORBAR_JR3 {
 //
 union ORSR_JR3 {
   
-  // Enum definitions.
-  
   // Bit field definition.
   struct {
     uint32_t ORS : 10;
     uint32_t _reserved_end : 22;
-  } bits;          // Bit-field struct (auto-filling reserved gaps)
+  } bits;
   
   // Full 32-bit register value.
   uint32_t value;
@@ -21000,13 +20596,11 @@ union ORSR_JR3 {
 //
 union ORJRR_JR3 {
   
-  // Enum definitions.
-  
   // Bit field definition.
   struct {
     uint32_t ORJR : 10;
     uint32_t _reserved_end : 22;
-  } bits;          // Bit-field struct (auto-filling reserved gaps)
+  } bits;
   
   // Full 32-bit register value.
   uint32_t value;
@@ -21020,13 +20614,11 @@ union ORJRR_JR3 {
 //
 union ORSFR_JR3 {
   
-  // Enum definitions.
-  
   // Bit field definition.
   struct {
     uint32_t ORSF : 10;
     uint32_t _reserved_end : 22;
-  } bits;          // Bit-field struct (auto-filling reserved gaps)
+  } bits;
   
   // Full 32-bit register value.
   uint32_t value;
@@ -21040,7 +20632,6 @@ union ORSFR_JR3 {
 //
 union JRSTAR_JR3 {
   
-  // Enum definitions.
   enum class eSSRC : uint32_t {
     eNO_STATUS = 0, // No Status Source (No Error or Status Reported)
     eCCB_STATUS = 2, // CCB Status Source (CCB Error Reported)
@@ -21054,7 +20645,7 @@ union JRSTAR_JR3 {
   struct {
     uint32_t SSED : 28;
     eSSRC SSRC : 4;
-  } bits;          // Bit-field struct (auto-filling reserved gaps)
+  } bits;
   
   // Full 32-bit register value.
   uint32_t value;
@@ -21068,7 +20659,6 @@ union JRSTAR_JR3 {
 //
 union JRINTR_JR3 {
   
-  // Enum definitions.
   enum class eERR_TYPE : uint32_t {
     eOR_WR_ERR = 1, // Error writing status to Output Ring
     eBAD_IR_ADDR_ERR = 3, // Bad input ring base address (not on a 4-byte boundary).
@@ -21100,7 +20690,7 @@ union JRINTR_JR3 {
     uint32_t _reserved_6 : 3;
     uint32_t ERR_ORWI : 14;
     uint32_t _reserved_end : 2;
-  } bits;          // Bit-field struct (auto-filling reserved gaps)
+  } bits;
   
   // Full 32-bit register value.
   uint32_t value;
@@ -21113,8 +20703,6 @@ union JRINTR_JR3 {
 // Job Ring Configuration Register for Job Ring 3, most-significant half
 //
 union JRCFGR_JR3_MS {
-  
-  // Enum definitions.
   
   // Bit field definition.
   struct {
@@ -21141,7 +20729,7 @@ union JRCFGR_JR3_MS {
     uint32_t FAIL_MODE : 1;
     uint32_t INCL_SEQ_OUT : 1;
     uint32_t _reserved_end : 1;
-  } bits;          // Bit-field struct (auto-filling reserved gaps)
+  } bits;
   
   // Full 32-bit register value.
   uint32_t value;
@@ -21155,11 +20743,11 @@ union JRCFGR_JR3_MS {
 //
 union JRCFGR_JR3_LS {
   
-  // Enum definitions.
   enum class eIMSK : uint32_t {
     eINTR_ENABLED = 0, // Interrupt enabled.
     eINTR_MASKED = 1, // Interrupt masked.
   };
+  
   enum class eICEN : uint32_t {
     eINTR_COAL_DISABLED = 0, // Interrupt coalescing is disabled. If the IMSK bit is cleared, an interrupt is asserted whenever a job is written to the output ring. ICDCT is ignored. Note that if software removes one or more jobs and clears the interrupt but the output rings slots full is still greater than 0 (ORSF > 0), then the interrupt will clear but reassert on the next clock cycle.
     eINTR_COAL_ENABLED = 1, // Interrupt coalescing is enabled. If the IMSK bit is cleared, an interrupt is asserted whenever the threshold number of frames is reached (ICDCT) or when the threshold timer expires (ICTT). Note that if software removes one or more jobs and clears the interrupt but the interrupt coalescing threshold is still met (ORSF >= ICDCT), then the interrupt will clear but reassert on the next clock cycle.
@@ -21172,7 +20760,7 @@ union JRCFGR_JR3_LS {
     uint32_t _reserved_2 : 6;
     uint32_t ICDCT : 8;
     uint32_t ICTT : 16;
-  } bits;          // Bit-field struct (auto-filling reserved gaps)
+  } bits;
   
   // Full 32-bit register value.
   uint32_t value;
@@ -21186,13 +20774,11 @@ union JRCFGR_JR3_LS {
 //
 union IRRIR_JR3 {
   
-  // Enum definitions.
-  
   // Bit field definition.
   struct {
     uint32_t IRRI : 13;
     uint32_t _reserved_end : 19;
-  } bits;          // Bit-field struct (auto-filling reserved gaps)
+  } bits;
   
   // Full 32-bit register value.
   uint32_t value;
@@ -21206,13 +20792,11 @@ union IRRIR_JR3 {
 //
 union ORWIR_JR3 {
   
-  // Enum definitions.
-  
   // Bit field definition.
   struct {
     uint32_t ORWI : 14;
     uint32_t _reserved_end : 18;
-  } bits;          // Bit-field struct (auto-filling reserved gaps)
+  } bits;
   
   // Full 32-bit register value.
   uint32_t value;
@@ -21226,14 +20810,12 @@ union ORWIR_JR3 {
 //
 union JRCR_JR3 {
   
-  // Enum definitions.
-  
   // Bit field definition.
   struct {
     uint32_t RESET : 1;
     uint32_t PARK : 1;
     uint32_t _reserved_end : 30;
-  } bits;          // Bit-field struct (auto-filling reserved gaps)
+  } bits;
   
   // Full 32-bit register value.
   uint32_t value;
@@ -21247,8 +20829,6 @@ union JRCR_JR3 {
 //
 union JR3AAV {
   
-  // Enum definitions.
-  
   // Bit field definition.
   struct {
     uint32_t V0 : 1;
@@ -21257,7 +20837,7 @@ union JR3AAV {
     uint32_t V3 : 1;
     uint32_t _reserved_4 : 27;
     uint32_t BC : 1;
-  } bits;          // Bit-field struct (auto-filling reserved gaps)
+  } bits;
   
   // Full 32-bit register value.
   uint32_t value;
@@ -21271,12 +20851,10 @@ union JR3AAV {
 //
 union JR3AAA0 {
   
-  // Enum definitions.
-  
   // Bit field definition.
   struct {
     uint32_t JD_ADDR : 36;
-  } bits;          // Bit-field struct (auto-filling reserved gaps)
+  } bits;
   
   // Full 32-bit register value.
   uint32_t value;
@@ -21290,12 +20868,10 @@ union JR3AAA0 {
 //
 union JR3AAA1 {
   
-  // Enum definitions.
-  
   // Bit field definition.
   struct {
     uint32_t JD_ADDR : 36;
-  } bits;          // Bit-field struct (auto-filling reserved gaps)
+  } bits;
   
   // Full 32-bit register value.
   uint32_t value;
@@ -21309,12 +20885,10 @@ union JR3AAA1 {
 //
 union JR3AAA2 {
   
-  // Enum definitions.
-  
   // Bit field definition.
   struct {
     uint32_t JD_ADDR : 36;
-  } bits;          // Bit-field struct (auto-filling reserved gaps)
+  } bits;
   
   // Full 32-bit register value.
   uint32_t value;
@@ -21328,12 +20902,10 @@ union JR3AAA2 {
 //
 union JR3AAA3 {
   
-  // Enum definitions.
-  
   // Bit field definition.
   struct {
     uint32_t JD_ADDR : 36;
-  } bits;          // Bit-field struct (auto-filling reserved gaps)
+  } bits;
   
   // Full 32-bit register value.
   uint32_t value;
@@ -21347,13 +20919,11 @@ union JR3AAA3 {
 //
 union P0SDID_JR3 {
   
-  // Enum definitions.
-  
   // Bit field definition.
   struct {
     uint32_t SDID : 16;
     uint32_t _reserved_end : 16;
-  } bits;          // Bit-field struct (auto-filling reserved gaps)
+  } bits;
   
   // Full 32-bit register value.
   uint32_t value;
@@ -21367,51 +20937,61 @@ union P0SDID_JR3 {
 //
 union P0SMAPR_JR3 {
   
-  // Enum definitions.
   enum class eG1_READ : uint32_t {
     eG1_READ_PROHIB = 0, // Instruction fetches and reads are prohibited (except that Trusted Descriptor reads (if G1_TDO=1) and key-reads are always allowed, and exporting Secure Memory Blobs is allowed if G1_SMBLOB=1 or if done by a Trusted Descriptor and G1_TDO=1).
     eG1_READ_ALLOWED = 1, // Instruction fetches and reads are allowed (but exporting a Secure Memory Blob is prohibited if G1_SMBLOB=0 and the descriptor is not a Trusted Descriptor or if G1_TDO=0).
   };
+  
   enum class eG1_WRITE : uint32_t {
     eG1_WRITE_PROHIB = 0, // Writes are prohibited (except that Trusted Descriptor writes are allowed, and importing Secure Memory Blobs is allowed if G1_SMBLOB=1 or if done by a Trusted Descriptor and G1_TDO=1).
     eG1_WRITE_ALLOWED = 1, // Writes are allowed (but importing a Secure Memory Blob is prohibited if G1_SMBLOB=0 and the descriptor is not a Trusted Descriptor or if G1_TDO=0).
   };
+  
   enum class eG1_TDO : uint32_t {
     eG1_TD_PRIVILEGE_AS_JD = 0, // Trusted Descriptors have the same access privileges as Job Descriptors
     eG1_TD_OVERIDE_ALLOWED = 1, // Trusted Descriptors are allowed to override the other access permissions, i.e. they can export blobs from or import blobs to the partition and read from and write to the partition regardless of the G1_SMBLOB, G1_WRITE and G1_READ settings.
   };
+  
   enum class eG1_SMBLOB : uint32_t {
     eG1_SM_BLOB_EXPORT_IMPORT_PROHIB = 0, // Exporting or importing Secure Memory Blobs is prohibited, unless done via a Trusted Descriptor and G1_TDO=1.
     eG1_SM_B_EXPORT_IMPORT_ALLOWED = 1, // Exporting or importing Secure Memory Blobs is allowed, regardless of the G1_READ and G1_WRITE settings.
   };
+  
   enum class eG2_READ : uint32_t {
     eG2_READ_PROHIB = 0, // Instruction fetches and reads are prohibited (except that Trusted Descriptor reads (if G2_TDO=1) and key-reads are always allowed, and exporting Secure Memory Blobs is allowed if G2_SMBLOB=1 or if done by a Trusted Descriptor and G2_TDO=1).
     eG2_READ_ALLOWED = 1, // Instruction fetches and reads are allowed (but exporting a Secure Memory Blob is prohibited if G2_SMBLOB=0 and the descriptor is not a Trusted Descriptor or if G2_TDO=0).
   };
+  
   enum class eG2_WRITE : uint32_t {
     eG2_WRITE_PROHIB = 0, // Writes are prohibited (except that Trusted Descriptor writes are allowed, and importing Secure Memory Blobs is allowed if G2_SMBLOB=1 or if done by a Trusted Descriptor and G2_TDO=1).
     eG2_WRITE_ALLOWED = 1, // Writes are allowed (but importing a Secure Memory Blob is prohibited if G2_SMBLOB=0 and the descriptor is not a Trusted Descriptor or if G2_TDO=0).
   };
+  
   enum class eG2_TDO : uint32_t {
     eG2_TD_PRIVILEGE_AS_JD = 0, // Trusted Descriptors have the same access privileges as Job Descriptors
     eG2_TD_OVERIDE_ALLOWED = 1, // Trusted Descriptors are allowed to override the other access permissions, i.e. they can export blobs from or import blobs to the partition and read from and write to the partition regardless of the G2_SMBLOB, G2_WRITE and G2_READ settings.
   };
+  
   enum class eG2_SMBLOB : uint32_t {
     eG2_SM_BLOB_EXPORT_IMPORT_PROHIB = 0, // Exporting or importing Secure Memory Blobs is prohibited, unless done via a Trusted Descriptor and G2_TDO=1.
     eG2_SM_BLOB_EXPORT_IMPORT_ALLOWED = 1, // Exporting or importing Secure Memory Blobs is allowed, regardless of the G2_READ and G2_WRITE settings.
   };
+  
   enum class eSMAG_LCK : uint32_t {
     eSMAG_UNLOCKED = 0, // The SMAG2JR register and SMAG1JR register are unlocked. The partition owner can change any writable bits of these registers.
     eSMAG_LOCKED = 1, // The SMAG2JR register and SMAG1JR register are locked. The SMAG2JR and SMAG1JR registers cannot be changed until the partition is de-allocated or a POR occurs.
   };
+  
   enum class eSMAP_LCK : uint32_t {
     eSMAP_UNLOCKED = 0, // The SMAP register is unlocked. The partition owner can change any writable bits of the SMAP register.
     eSMAP_LOCKED = 1, // The SMAP register is locked. The SMAP_LCK, CSP and PSP bits and G1 and G2 permission bits of the SMAP register cannot be changed until the partition is de-allocated or a POR occurs. The PARTITION_KMOD value can still be changed. The SMAG_LCK bit can be changed to a 1, but cannot be changed to a 0.
   };
+  
   enum class ePSP : uint32_t {
     eNOT_DEALLOCATABLE = 0, // The partition and any of the pages allocated to the partition can be de-allocated.
     eDEALLOCATABLE = 1, // The partition cannot be de-allocated and the pages allocated to the partition cannot be de-allocated.
   };
+  
   enum class eCSP : uint32_t {
     eNOT_ZEROIZED = 0, // The pages allocated to the partition will not be zeroized when they are de-allocated or the partition is released or a security alarm occurs.
     eZEROIZED = 1, // The pages allocated to the partition will be zeroized when they are individually de-allocated or the partition is released or a security alarm occurs.
@@ -21433,7 +21013,7 @@ union P0SMAPR_JR3 {
     ePSP PSP : 1;
     eCSP CSP : 1;
     uint32_t PARTITION_KMOD : 16;
-  } bits;          // Bit-field struct (auto-filling reserved gaps)
+  } bits;
   
   // Full 32-bit register value.
   uint32_t value;
@@ -21447,8 +21027,6 @@ union P0SMAPR_JR3 {
 //
 union P0SMAG2_JR3 {
   
-  // Enum definitions.
-  
   // Bit field definition.
   struct {
     uint32_t Gx_ID00 : 1;
@@ -21483,7 +21061,7 @@ union P0SMAG2_JR3 {
     uint32_t Gx_ID29 : 1;
     uint32_t Gx_ID30 : 1;
     uint32_t Gx_ID31 : 1;
-  } bits;          // Bit-field struct (auto-filling reserved gaps)
+  } bits;
   
   // Full 32-bit register value.
   uint32_t value;
@@ -21497,8 +21075,6 @@ union P0SMAG2_JR3 {
 //
 union P0SMAG1_JR3 {
   
-  // Enum definitions.
-  
   // Bit field definition.
   struct {
     uint32_t Gx_ID00 : 1;
@@ -21533,7 +21109,7 @@ union P0SMAG1_JR3 {
     uint32_t Gx_ID29 : 1;
     uint32_t Gx_ID30 : 1;
     uint32_t Gx_ID31 : 1;
-  } bits;          // Bit-field struct (auto-filling reserved gaps)
+  } bits;
   
   // Full 32-bit register value.
   uint32_t value;
@@ -21547,13 +21123,11 @@ union P0SMAG1_JR3 {
 //
 union P1SDID_JR3 {
   
-  // Enum definitions.
-  
   // Bit field definition.
   struct {
     uint32_t SDID : 16;
     uint32_t _reserved_end : 16;
-  } bits;          // Bit-field struct (auto-filling reserved gaps)
+  } bits;
   
   // Full 32-bit register value.
   uint32_t value;
@@ -21567,51 +21141,61 @@ union P1SDID_JR3 {
 //
 union P1SMAPR_JR3 {
   
-  // Enum definitions.
   enum class eG1_READ : uint32_t {
     eG1_READ_PROHIB = 0, // Instruction fetches and reads are prohibited (except that Trusted Descriptor reads (if G1_TDO=1) and key-reads are always allowed, and exporting Secure Memory Blobs is allowed if G1_SMBLOB=1 or if done by a Trusted Descriptor and G1_TDO=1).
     eG1_READ_ALLOWED = 1, // Instruction fetches and reads are allowed (but exporting a Secure Memory Blob is prohibited if G1_SMBLOB=0 and the descriptor is not a Trusted Descriptor or if G1_TDO=0).
   };
+  
   enum class eG1_WRITE : uint32_t {
     eG1_WRITE_PROHIB = 0, // Writes are prohibited (except that Trusted Descriptor writes are allowed, and importing Secure Memory Blobs is allowed if G1_SMBLOB=1 or if done by a Trusted Descriptor and G1_TDO=1).
     eG1_WRITE_ALLOWED = 1, // Writes are allowed (but importing a Secure Memory Blob is prohibited if G1_SMBLOB=0 and the descriptor is not a Trusted Descriptor or if G1_TDO=0).
   };
+  
   enum class eG1_TDO : uint32_t {
     eG1_TD_PRIVILEGE_AS_JD = 0, // Trusted Descriptors have the same access privileges as Job Descriptors
     eG1_TD_OVERIDE_ALLOWED = 1, // Trusted Descriptors are allowed to override the other access permissions, i.e. they can export blobs from or import blobs to the partition and read from and write to the partition regardless of the G1_SMBLOB, G1_WRITE and G1_READ settings.
   };
+  
   enum class eG1_SMBLOB : uint32_t {
     eG1_SM_BLOB_EXPORT_IMPORT_PROHIB = 0, // Exporting or importing Secure Memory Blobs is prohibited, unless done via a Trusted Descriptor and G1_TDO=1.
     eG1_SM_B_EXPORT_IMPORT_ALLOWED = 1, // Exporting or importing Secure Memory Blobs is allowed, regardless of the G1_READ and G1_WRITE settings.
   };
+  
   enum class eG2_READ : uint32_t {
     eG2_READ_PROHIB = 0, // Instruction fetches and reads are prohibited (except that Trusted Descriptor reads (if G2_TDO=1) and key-reads are always allowed, and exporting Secure Memory Blobs is allowed if G2_SMBLOB=1 or if done by a Trusted Descriptor and G2_TDO=1).
     eG2_READ_ALLOWED = 1, // Instruction fetches and reads are allowed (but exporting a Secure Memory Blob is prohibited if G2_SMBLOB=0 and the descriptor is not a Trusted Descriptor or if G2_TDO=0).
   };
+  
   enum class eG2_WRITE : uint32_t {
     eG2_WRITE_PROHIB = 0, // Writes are prohibited (except that Trusted Descriptor writes are allowed, and importing Secure Memory Blobs is allowed if G2_SMBLOB=1 or if done by a Trusted Descriptor and G2_TDO=1).
     eG2_WRITE_ALLOWED = 1, // Writes are allowed (but importing a Secure Memory Blob is prohibited if G2_SMBLOB=0 and the descriptor is not a Trusted Descriptor or if G2_TDO=0).
   };
+  
   enum class eG2_TDO : uint32_t {
     eG2_TD_PRIVILEGE_AS_JD = 0, // Trusted Descriptors have the same access privileges as Job Descriptors
     eG2_TD_OVERIDE_ALLOWED = 1, // Trusted Descriptors are allowed to override the other access permissions, i.e. they can export blobs from or import blobs to the partition and read from and write to the partition regardless of the G2_SMBLOB, G2_WRITE and G2_READ settings.
   };
+  
   enum class eG2_SMBLOB : uint32_t {
     eG2_SM_BLOB_EXPORT_IMPORT_PROHIB = 0, // Exporting or importing Secure Memory Blobs is prohibited, unless done via a Trusted Descriptor and G2_TDO=1.
     eG2_SM_BLOB_EXPORT_IMPORT_ALLOWED = 1, // Exporting or importing Secure Memory Blobs is allowed, regardless of the G2_READ and G2_WRITE settings.
   };
+  
   enum class eSMAG_LCK : uint32_t {
     eSMAG_UNLOCKED = 0, // The SMAG2JR register and SMAG1JR register are unlocked. The partition owner can change any writable bits of these registers.
     eSMAG_LOCKED = 1, // The SMAG2JR register and SMAG1JR register are locked. The SMAG2JR and SMAG1JR registers cannot be changed until the partition is de-allocated or a POR occurs.
   };
+  
   enum class eSMAP_LCK : uint32_t {
     eSMAP_UNLOCKED = 0, // The SMAP register is unlocked. The partition owner can change any writable bits of the SMAP register.
     eSMAP_LOCKED = 1, // The SMAP register is locked. The SMAP_LCK, CSP and PSP bits and G1 and G2 permission bits of the SMAP register cannot be changed until the partition is de-allocated or a POR occurs. The PARTITION_KMOD value can still be changed. The SMAG_LCK bit can be changed to a 1, but cannot be changed to a 0.
   };
+  
   enum class ePSP : uint32_t {
     eNOT_DEALLOCATABLE = 0, // The partition and any of the pages allocated to the partition can be de-allocated.
     eDEALLOCATABLE = 1, // The partition cannot be de-allocated and the pages allocated to the partition cannot be de-allocated.
   };
+  
   enum class eCSP : uint32_t {
     eNOT_ZEROIZED = 0, // The pages allocated to the partition will not be zeroized when they are de-allocated or the partition is released or a security alarm occurs.
     eZEROIZED = 1, // The pages allocated to the partition will be zeroized when they are individually de-allocated or the partition is released or a security alarm occurs.
@@ -21633,7 +21217,7 @@ union P1SMAPR_JR3 {
     ePSP PSP : 1;
     eCSP CSP : 1;
     uint32_t PARTITION_KMOD : 16;
-  } bits;          // Bit-field struct (auto-filling reserved gaps)
+  } bits;
   
   // Full 32-bit register value.
   uint32_t value;
@@ -21647,8 +21231,6 @@ union P1SMAPR_JR3 {
 //
 union P1SMAG2_JR3 {
   
-  // Enum definitions.
-  
   // Bit field definition.
   struct {
     uint32_t Gx_ID00 : 1;
@@ -21683,7 +21265,7 @@ union P1SMAG2_JR3 {
     uint32_t Gx_ID29 : 1;
     uint32_t Gx_ID30 : 1;
     uint32_t Gx_ID31 : 1;
-  } bits;          // Bit-field struct (auto-filling reserved gaps)
+  } bits;
   
   // Full 32-bit register value.
   uint32_t value;
@@ -21697,8 +21279,6 @@ union P1SMAG2_JR3 {
 //
 union P1SMAG1_JR3 {
   
-  // Enum definitions.
-  
   // Bit field definition.
   struct {
     uint32_t Gx_ID00 : 1;
@@ -21733,7 +21313,7 @@ union P1SMAG1_JR3 {
     uint32_t Gx_ID29 : 1;
     uint32_t Gx_ID30 : 1;
     uint32_t Gx_ID31 : 1;
-  } bits;          // Bit-field struct (auto-filling reserved gaps)
+  } bits;
   
   // Full 32-bit register value.
   uint32_t value;
@@ -21747,13 +21327,11 @@ union P1SMAG1_JR3 {
 //
 union P2SDID_JR3 {
   
-  // Enum definitions.
-  
   // Bit field definition.
   struct {
     uint32_t SDID : 16;
     uint32_t _reserved_end : 16;
-  } bits;          // Bit-field struct (auto-filling reserved gaps)
+  } bits;
   
   // Full 32-bit register value.
   uint32_t value;
@@ -21767,51 +21345,61 @@ union P2SDID_JR3 {
 //
 union P2SMAPR_JR3 {
   
-  // Enum definitions.
   enum class eG1_READ : uint32_t {
     eG1_READ_PROHIB = 0, // Instruction fetches and reads are prohibited (except that Trusted Descriptor reads (if G1_TDO=1) and key-reads are always allowed, and exporting Secure Memory Blobs is allowed if G1_SMBLOB=1 or if done by a Trusted Descriptor and G1_TDO=1).
     eG1_READ_ALLOWED = 1, // Instruction fetches and reads are allowed (but exporting a Secure Memory Blob is prohibited if G1_SMBLOB=0 and the descriptor is not a Trusted Descriptor or if G1_TDO=0).
   };
+  
   enum class eG1_WRITE : uint32_t {
     eG1_WRITE_PROHIB = 0, // Writes are prohibited (except that Trusted Descriptor writes are allowed, and importing Secure Memory Blobs is allowed if G1_SMBLOB=1 or if done by a Trusted Descriptor and G1_TDO=1).
     eG1_WRITE_ALLOWED = 1, // Writes are allowed (but importing a Secure Memory Blob is prohibited if G1_SMBLOB=0 and the descriptor is not a Trusted Descriptor or if G1_TDO=0).
   };
+  
   enum class eG1_TDO : uint32_t {
     eG1_TD_PRIVILEGE_AS_JD = 0, // Trusted Descriptors have the same access privileges as Job Descriptors
     eG1_TD_OVERIDE_ALLOWED = 1, // Trusted Descriptors are allowed to override the other access permissions, i.e. they can export blobs from or import blobs to the partition and read from and write to the partition regardless of the G1_SMBLOB, G1_WRITE and G1_READ settings.
   };
+  
   enum class eG1_SMBLOB : uint32_t {
     eG1_SM_BLOB_EXPORT_IMPORT_PROHIB = 0, // Exporting or importing Secure Memory Blobs is prohibited, unless done via a Trusted Descriptor and G1_TDO=1.
     eG1_SM_B_EXPORT_IMPORT_ALLOWED = 1, // Exporting or importing Secure Memory Blobs is allowed, regardless of the G1_READ and G1_WRITE settings.
   };
+  
   enum class eG2_READ : uint32_t {
     eG2_READ_PROHIB = 0, // Instruction fetches and reads are prohibited (except that Trusted Descriptor reads (if G2_TDO=1) and key-reads are always allowed, and exporting Secure Memory Blobs is allowed if G2_SMBLOB=1 or if done by a Trusted Descriptor and G2_TDO=1).
     eG2_READ_ALLOWED = 1, // Instruction fetches and reads are allowed (but exporting a Secure Memory Blob is prohibited if G2_SMBLOB=0 and the descriptor is not a Trusted Descriptor or if G2_TDO=0).
   };
+  
   enum class eG2_WRITE : uint32_t {
     eG2_WRITE_PROHIB = 0, // Writes are prohibited (except that Trusted Descriptor writes are allowed, and importing Secure Memory Blobs is allowed if G2_SMBLOB=1 or if done by a Trusted Descriptor and G2_TDO=1).
     eG2_WRITE_ALLOWED = 1, // Writes are allowed (but importing a Secure Memory Blob is prohibited if G2_SMBLOB=0 and the descriptor is not a Trusted Descriptor or if G2_TDO=0).
   };
+  
   enum class eG2_TDO : uint32_t {
     eG2_TD_PRIVILEGE_AS_JD = 0, // Trusted Descriptors have the same access privileges as Job Descriptors
     eG2_TD_OVERIDE_ALLOWED = 1, // Trusted Descriptors are allowed to override the other access permissions, i.e. they can export blobs from or import blobs to the partition and read from and write to the partition regardless of the G2_SMBLOB, G2_WRITE and G2_READ settings.
   };
+  
   enum class eG2_SMBLOB : uint32_t {
     eG2_SM_BLOB_EXPORT_IMPORT_PROHIB = 0, // Exporting or importing Secure Memory Blobs is prohibited, unless done via a Trusted Descriptor and G2_TDO=1.
     eG2_SM_BLOB_EXPORT_IMPORT_ALLOWED = 1, // Exporting or importing Secure Memory Blobs is allowed, regardless of the G2_READ and G2_WRITE settings.
   };
+  
   enum class eSMAG_LCK : uint32_t {
     eSMAG_UNLOCKED = 0, // The SMAG2JR register and SMAG1JR register are unlocked. The partition owner can change any writable bits of these registers.
     eSMAG_LOCKED = 1, // The SMAG2JR register and SMAG1JR register are locked. The SMAG2JR and SMAG1JR registers cannot be changed until the partition is de-allocated or a POR occurs.
   };
+  
   enum class eSMAP_LCK : uint32_t {
     eSMAP_UNLOCKED = 0, // The SMAP register is unlocked. The partition owner can change any writable bits of the SMAP register.
     eSMAP_LOCKED = 1, // The SMAP register is locked. The SMAP_LCK, CSP and PSP bits and G1 and G2 permission bits of the SMAP register cannot be changed until the partition is de-allocated or a POR occurs. The PARTITION_KMOD value can still be changed. The SMAG_LCK bit can be changed to a 1, but cannot be changed to a 0.
   };
+  
   enum class ePSP : uint32_t {
     eNOT_DEALLOCATABLE = 0, // The partition and any of the pages allocated to the partition can be de-allocated.
     eDEALLOCATABLE = 1, // The partition cannot be de-allocated and the pages allocated to the partition cannot be de-allocated.
   };
+  
   enum class eCSP : uint32_t {
     eNOT_ZEROIZED = 0, // The pages allocated to the partition will not be zeroized when they are de-allocated or the partition is released or a security alarm occurs.
     eZEROIZED = 1, // The pages allocated to the partition will be zeroized when they are individually de-allocated or the partition is released or a security alarm occurs.
@@ -21833,7 +21421,7 @@ union P2SMAPR_JR3 {
     ePSP PSP : 1;
     eCSP CSP : 1;
     uint32_t PARTITION_KMOD : 16;
-  } bits;          // Bit-field struct (auto-filling reserved gaps)
+  } bits;
   
   // Full 32-bit register value.
   uint32_t value;
@@ -21847,8 +21435,6 @@ union P2SMAPR_JR3 {
 //
 union P2SMAG2_JR3 {
   
-  // Enum definitions.
-  
   // Bit field definition.
   struct {
     uint32_t Gx_ID00 : 1;
@@ -21883,7 +21469,7 @@ union P2SMAG2_JR3 {
     uint32_t Gx_ID29 : 1;
     uint32_t Gx_ID30 : 1;
     uint32_t Gx_ID31 : 1;
-  } bits;          // Bit-field struct (auto-filling reserved gaps)
+  } bits;
   
   // Full 32-bit register value.
   uint32_t value;
@@ -21897,8 +21483,6 @@ union P2SMAG2_JR3 {
 //
 union P2SMAG1_JR3 {
   
-  // Enum definitions.
-  
   // Bit field definition.
   struct {
     uint32_t Gx_ID00 : 1;
@@ -21933,7 +21517,7 @@ union P2SMAG1_JR3 {
     uint32_t Gx_ID29 : 1;
     uint32_t Gx_ID30 : 1;
     uint32_t Gx_ID31 : 1;
-  } bits;          // Bit-field struct (auto-filling reserved gaps)
+  } bits;
   
   // Full 32-bit register value.
   uint32_t value;
@@ -21947,13 +21531,11 @@ union P2SMAG1_JR3 {
 //
 union P3SDID_JR3 {
   
-  // Enum definitions.
-  
   // Bit field definition.
   struct {
     uint32_t SDID : 16;
     uint32_t _reserved_end : 16;
-  } bits;          // Bit-field struct (auto-filling reserved gaps)
+  } bits;
   
   // Full 32-bit register value.
   uint32_t value;
@@ -21967,51 +21549,61 @@ union P3SDID_JR3 {
 //
 union P3SMAPR_JR3 {
   
-  // Enum definitions.
   enum class eG1_READ : uint32_t {
     eG1_READ_PROHIB = 0, // Instruction fetches and reads are prohibited (except that Trusted Descriptor reads (if G1_TDO=1) and key-reads are always allowed, and exporting Secure Memory Blobs is allowed if G1_SMBLOB=1 or if done by a Trusted Descriptor and G1_TDO=1).
     eG1_READ_ALLOWED = 1, // Instruction fetches and reads are allowed (but exporting a Secure Memory Blob is prohibited if G1_SMBLOB=0 and the descriptor is not a Trusted Descriptor or if G1_TDO=0).
   };
+  
   enum class eG1_WRITE : uint32_t {
     eG1_WRITE_PROHIB = 0, // Writes are prohibited (except that Trusted Descriptor writes are allowed, and importing Secure Memory Blobs is allowed if G1_SMBLOB=1 or if done by a Trusted Descriptor and G1_TDO=1).
     eG1_WRITE_ALLOWED = 1, // Writes are allowed (but importing a Secure Memory Blob is prohibited if G1_SMBLOB=0 and the descriptor is not a Trusted Descriptor or if G1_TDO=0).
   };
+  
   enum class eG1_TDO : uint32_t {
     eG1_TD_PRIVILEGE_AS_JD = 0, // Trusted Descriptors have the same access privileges as Job Descriptors
     eG1_TD_OVERIDE_ALLOWED = 1, // Trusted Descriptors are allowed to override the other access permissions, i.e. they can export blobs from or import blobs to the partition and read from and write to the partition regardless of the G1_SMBLOB, G1_WRITE and G1_READ settings.
   };
+  
   enum class eG1_SMBLOB : uint32_t {
     eG1_SM_BLOB_EXPORT_IMPORT_PROHIB = 0, // Exporting or importing Secure Memory Blobs is prohibited, unless done via a Trusted Descriptor and G1_TDO=1.
     eG1_SM_B_EXPORT_IMPORT_ALLOWED = 1, // Exporting or importing Secure Memory Blobs is allowed, regardless of the G1_READ and G1_WRITE settings.
   };
+  
   enum class eG2_READ : uint32_t {
     eG2_READ_PROHIB = 0, // Instruction fetches and reads are prohibited (except that Trusted Descriptor reads (if G2_TDO=1) and key-reads are always allowed, and exporting Secure Memory Blobs is allowed if G2_SMBLOB=1 or if done by a Trusted Descriptor and G2_TDO=1).
     eG2_READ_ALLOWED = 1, // Instruction fetches and reads are allowed (but exporting a Secure Memory Blob is prohibited if G2_SMBLOB=0 and the descriptor is not a Trusted Descriptor or if G2_TDO=0).
   };
+  
   enum class eG2_WRITE : uint32_t {
     eG2_WRITE_PROHIB = 0, // Writes are prohibited (except that Trusted Descriptor writes are allowed, and importing Secure Memory Blobs is allowed if G2_SMBLOB=1 or if done by a Trusted Descriptor and G2_TDO=1).
     eG2_WRITE_ALLOWED = 1, // Writes are allowed (but importing a Secure Memory Blob is prohibited if G2_SMBLOB=0 and the descriptor is not a Trusted Descriptor or if G2_TDO=0).
   };
+  
   enum class eG2_TDO : uint32_t {
     eG2_TD_PRIVILEGE_AS_JD = 0, // Trusted Descriptors have the same access privileges as Job Descriptors
     eG2_TD_OVERIDE_ALLOWED = 1, // Trusted Descriptors are allowed to override the other access permissions, i.e. they can export blobs from or import blobs to the partition and read from and write to the partition regardless of the G2_SMBLOB, G2_WRITE and G2_READ settings.
   };
+  
   enum class eG2_SMBLOB : uint32_t {
     eG2_SM_BLOB_EXPORT_IMPORT_PROHIB = 0, // Exporting or importing Secure Memory Blobs is prohibited, unless done via a Trusted Descriptor and G2_TDO=1.
     eG2_SM_BLOB_EXPORT_IMPORT_ALLOWED = 1, // Exporting or importing Secure Memory Blobs is allowed, regardless of the G2_READ and G2_WRITE settings.
   };
+  
   enum class eSMAG_LCK : uint32_t {
     eSMAG_UNLOCKED = 0, // The SMAG2JR register and SMAG1JR register are unlocked. The partition owner can change any writable bits of these registers.
     eSMAG_LOCKED = 1, // The SMAG2JR register and SMAG1JR register are locked. The SMAG2JR and SMAG1JR registers cannot be changed until the partition is de-allocated or a POR occurs.
   };
+  
   enum class eSMAP_LCK : uint32_t {
     eSMAP_UNLOCKED = 0, // The SMAP register is unlocked. The partition owner can change any writable bits of the SMAP register.
     eSMAP_LOCKED = 1, // The SMAP register is locked. The SMAP_LCK, CSP and PSP bits and G1 and G2 permission bits of the SMAP register cannot be changed until the partition is de-allocated or a POR occurs. The PARTITION_KMOD value can still be changed. The SMAG_LCK bit can be changed to a 1, but cannot be changed to a 0.
   };
+  
   enum class ePSP : uint32_t {
     eNOT_DEALLOCATABLE = 0, // The partition and any of the pages allocated to the partition can be de-allocated.
     eDEALLOCATABLE = 1, // The partition cannot be de-allocated and the pages allocated to the partition cannot be de-allocated.
   };
+  
   enum class eCSP : uint32_t {
     eNOT_ZEROIZED = 0, // The pages allocated to the partition will not be zeroized when they are de-allocated or the partition is released or a security alarm occurs.
     eZEROIZED = 1, // The pages allocated to the partition will be zeroized when they are individually de-allocated or the partition is released or a security alarm occurs.
@@ -22033,7 +21625,7 @@ union P3SMAPR_JR3 {
     ePSP PSP : 1;
     eCSP CSP : 1;
     uint32_t PARTITION_KMOD : 16;
-  } bits;          // Bit-field struct (auto-filling reserved gaps)
+  } bits;
   
   // Full 32-bit register value.
   uint32_t value;
@@ -22047,8 +21639,6 @@ union P3SMAPR_JR3 {
 //
 union P3SMAG2_JR3 {
   
-  // Enum definitions.
-  
   // Bit field definition.
   struct {
     uint32_t Gx_ID00 : 1;
@@ -22083,7 +21673,7 @@ union P3SMAG2_JR3 {
     uint32_t Gx_ID29 : 1;
     uint32_t Gx_ID30 : 1;
     uint32_t Gx_ID31 : 1;
-  } bits;          // Bit-field struct (auto-filling reserved gaps)
+  } bits;
   
   // Full 32-bit register value.
   uint32_t value;
@@ -22097,8 +21687,6 @@ union P3SMAG2_JR3 {
 //
 union P3SMAG1_JR3 {
   
-  // Enum definitions.
-  
   // Bit field definition.
   struct {
     uint32_t Gx_ID00 : 1;
@@ -22133,7 +21721,7 @@ union P3SMAG1_JR3 {
     uint32_t Gx_ID29 : 1;
     uint32_t Gx_ID30 : 1;
     uint32_t Gx_ID31 : 1;
-  } bits;          // Bit-field struct (auto-filling reserved gaps)
+  } bits;
   
   // Full 32-bit register value.
   uint32_t value;
@@ -22147,13 +21735,11 @@ union P3SMAG1_JR3 {
 //
 union P4SDID_JR3 {
   
-  // Enum definitions.
-  
   // Bit field definition.
   struct {
     uint32_t SDID : 16;
     uint32_t _reserved_end : 16;
-  } bits;          // Bit-field struct (auto-filling reserved gaps)
+  } bits;
   
   // Full 32-bit register value.
   uint32_t value;
@@ -22167,51 +21753,61 @@ union P4SDID_JR3 {
 //
 union P4SMAPR_JR3 {
   
-  // Enum definitions.
   enum class eG1_READ : uint32_t {
     eG1_READ_PROHIB = 0, // Instruction fetches and reads are prohibited (except that Trusted Descriptor reads (if G1_TDO=1) and key-reads are always allowed, and exporting Secure Memory Blobs is allowed if G1_SMBLOB=1 or if done by a Trusted Descriptor and G1_TDO=1).
     eG1_READ_ALLOWED = 1, // Instruction fetches and reads are allowed (but exporting a Secure Memory Blob is prohibited if G1_SMBLOB=0 and the descriptor is not a Trusted Descriptor or if G1_TDO=0).
   };
+  
   enum class eG1_WRITE : uint32_t {
     eG1_WRITE_PROHIB = 0, // Writes are prohibited (except that Trusted Descriptor writes are allowed, and importing Secure Memory Blobs is allowed if G1_SMBLOB=1 or if done by a Trusted Descriptor and G1_TDO=1).
     eG1_WRITE_ALLOWED = 1, // Writes are allowed (but importing a Secure Memory Blob is prohibited if G1_SMBLOB=0 and the descriptor is not a Trusted Descriptor or if G1_TDO=0).
   };
+  
   enum class eG1_TDO : uint32_t {
     eG1_TD_PRIVILEGE_AS_JD = 0, // Trusted Descriptors have the same access privileges as Job Descriptors
     eG1_TD_OVERIDE_ALLOWED = 1, // Trusted Descriptors are allowed to override the other access permissions, i.e. they can export blobs from or import blobs to the partition and read from and write to the partition regardless of the G1_SMBLOB, G1_WRITE and G1_READ settings.
   };
+  
   enum class eG1_SMBLOB : uint32_t {
     eG1_SM_BLOB_EXPORT_IMPORT_PROHIB = 0, // Exporting or importing Secure Memory Blobs is prohibited, unless done via a Trusted Descriptor and G1_TDO=1.
     eG1_SM_B_EXPORT_IMPORT_ALLOWED = 1, // Exporting or importing Secure Memory Blobs is allowed, regardless of the G1_READ and G1_WRITE settings.
   };
+  
   enum class eG2_READ : uint32_t {
     eG2_READ_PROHIB = 0, // Instruction fetches and reads are prohibited (except that Trusted Descriptor reads (if G2_TDO=1) and key-reads are always allowed, and exporting Secure Memory Blobs is allowed if G2_SMBLOB=1 or if done by a Trusted Descriptor and G2_TDO=1).
     eG2_READ_ALLOWED = 1, // Instruction fetches and reads are allowed (but exporting a Secure Memory Blob is prohibited if G2_SMBLOB=0 and the descriptor is not a Trusted Descriptor or if G2_TDO=0).
   };
+  
   enum class eG2_WRITE : uint32_t {
     eG2_WRITE_PROHIB = 0, // Writes are prohibited (except that Trusted Descriptor writes are allowed, and importing Secure Memory Blobs is allowed if G2_SMBLOB=1 or if done by a Trusted Descriptor and G2_TDO=1).
     eG2_WRITE_ALLOWED = 1, // Writes are allowed (but importing a Secure Memory Blob is prohibited if G2_SMBLOB=0 and the descriptor is not a Trusted Descriptor or if G2_TDO=0).
   };
+  
   enum class eG2_TDO : uint32_t {
     eG2_TD_PRIVILEGE_AS_JD = 0, // Trusted Descriptors have the same access privileges as Job Descriptors
     eG2_TD_OVERIDE_ALLOWED = 1, // Trusted Descriptors are allowed to override the other access permissions, i.e. they can export blobs from or import blobs to the partition and read from and write to the partition regardless of the G2_SMBLOB, G2_WRITE and G2_READ settings.
   };
+  
   enum class eG2_SMBLOB : uint32_t {
     eG2_SM_BLOB_EXPORT_IMPORT_PROHIB = 0, // Exporting or importing Secure Memory Blobs is prohibited, unless done via a Trusted Descriptor and G2_TDO=1.
     eG2_SM_BLOB_EXPORT_IMPORT_ALLOWED = 1, // Exporting or importing Secure Memory Blobs is allowed, regardless of the G2_READ and G2_WRITE settings.
   };
+  
   enum class eSMAG_LCK : uint32_t {
     eSMAG_UNLOCKED = 0, // The SMAG2JR register and SMAG1JR register are unlocked. The partition owner can change any writable bits of these registers.
     eSMAG_LOCKED = 1, // The SMAG2JR register and SMAG1JR register are locked. The SMAG2JR and SMAG1JR registers cannot be changed until the partition is de-allocated or a POR occurs.
   };
+  
   enum class eSMAP_LCK : uint32_t {
     eSMAP_UNLOCKED = 0, // The SMAP register is unlocked. The partition owner can change any writable bits of the SMAP register.
     eSMAP_LOCKED = 1, // The SMAP register is locked. The SMAP_LCK, CSP and PSP bits and G1 and G2 permission bits of the SMAP register cannot be changed until the partition is de-allocated or a POR occurs. The PARTITION_KMOD value can still be changed. The SMAG_LCK bit can be changed to a 1, but cannot be changed to a 0.
   };
+  
   enum class ePSP : uint32_t {
     eNOT_DEALLOCATABLE = 0, // The partition and any of the pages allocated to the partition can be de-allocated.
     eDEALLOCATABLE = 1, // The partition cannot be de-allocated and the pages allocated to the partition cannot be de-allocated.
   };
+  
   enum class eCSP : uint32_t {
     eNOT_ZEROIZED = 0, // The pages allocated to the partition will not be zeroized when they are de-allocated or the partition is released or a security alarm occurs.
     eZEROIZED = 1, // The pages allocated to the partition will be zeroized when they are individually de-allocated or the partition is released or a security alarm occurs.
@@ -22233,7 +21829,7 @@ union P4SMAPR_JR3 {
     ePSP PSP : 1;
     eCSP CSP : 1;
     uint32_t PARTITION_KMOD : 16;
-  } bits;          // Bit-field struct (auto-filling reserved gaps)
+  } bits;
   
   // Full 32-bit register value.
   uint32_t value;
@@ -22247,8 +21843,6 @@ union P4SMAPR_JR3 {
 //
 union P4SMAG2_JR3 {
   
-  // Enum definitions.
-  
   // Bit field definition.
   struct {
     uint32_t Gx_ID00 : 1;
@@ -22283,7 +21877,7 @@ union P4SMAG2_JR3 {
     uint32_t Gx_ID29 : 1;
     uint32_t Gx_ID30 : 1;
     uint32_t Gx_ID31 : 1;
-  } bits;          // Bit-field struct (auto-filling reserved gaps)
+  } bits;
   
   // Full 32-bit register value.
   uint32_t value;
@@ -22297,8 +21891,6 @@ union P4SMAG2_JR3 {
 //
 union P4SMAG1_JR3 {
   
-  // Enum definitions.
-  
   // Bit field definition.
   struct {
     uint32_t Gx_ID00 : 1;
@@ -22333,7 +21925,7 @@ union P4SMAG1_JR3 {
     uint32_t Gx_ID29 : 1;
     uint32_t Gx_ID30 : 1;
     uint32_t Gx_ID31 : 1;
-  } bits;          // Bit-field struct (auto-filling reserved gaps)
+  } bits;
   
   // Full 32-bit register value.
   uint32_t value;
@@ -22347,13 +21939,11 @@ union P4SMAG1_JR3 {
 //
 union P5SDID_JR3 {
   
-  // Enum definitions.
-  
   // Bit field definition.
   struct {
     uint32_t SDID : 16;
     uint32_t _reserved_end : 16;
-  } bits;          // Bit-field struct (auto-filling reserved gaps)
+  } bits;
   
   // Full 32-bit register value.
   uint32_t value;
@@ -22367,51 +21957,61 @@ union P5SDID_JR3 {
 //
 union P5SMAPR_JR3 {
   
-  // Enum definitions.
   enum class eG1_READ : uint32_t {
     eG1_READ_PROHIB = 0, // Instruction fetches and reads are prohibited (except that Trusted Descriptor reads (if G1_TDO=1) and key-reads are always allowed, and exporting Secure Memory Blobs is allowed if G1_SMBLOB=1 or if done by a Trusted Descriptor and G1_TDO=1).
     eG1_READ_ALLOWED = 1, // Instruction fetches and reads are allowed (but exporting a Secure Memory Blob is prohibited if G1_SMBLOB=0 and the descriptor is not a Trusted Descriptor or if G1_TDO=0).
   };
+  
   enum class eG1_WRITE : uint32_t {
     eG1_WRITE_PROHIB = 0, // Writes are prohibited (except that Trusted Descriptor writes are allowed, and importing Secure Memory Blobs is allowed if G1_SMBLOB=1 or if done by a Trusted Descriptor and G1_TDO=1).
     eG1_WRITE_ALLOWED = 1, // Writes are allowed (but importing a Secure Memory Blob is prohibited if G1_SMBLOB=0 and the descriptor is not a Trusted Descriptor or if G1_TDO=0).
   };
+  
   enum class eG1_TDO : uint32_t {
     eG1_TD_PRIVILEGE_AS_JD = 0, // Trusted Descriptors have the same access privileges as Job Descriptors
     eG1_TD_OVERIDE_ALLOWED = 1, // Trusted Descriptors are allowed to override the other access permissions, i.e. they can export blobs from or import blobs to the partition and read from and write to the partition regardless of the G1_SMBLOB, G1_WRITE and G1_READ settings.
   };
+  
   enum class eG1_SMBLOB : uint32_t {
     eG1_SM_BLOB_EXPORT_IMPORT_PROHIB = 0, // Exporting or importing Secure Memory Blobs is prohibited, unless done via a Trusted Descriptor and G1_TDO=1.
     eG1_SM_B_EXPORT_IMPORT_ALLOWED = 1, // Exporting or importing Secure Memory Blobs is allowed, regardless of the G1_READ and G1_WRITE settings.
   };
+  
   enum class eG2_READ : uint32_t {
     eG2_READ_PROHIB = 0, // Instruction fetches and reads are prohibited (except that Trusted Descriptor reads (if G2_TDO=1) and key-reads are always allowed, and exporting Secure Memory Blobs is allowed if G2_SMBLOB=1 or if done by a Trusted Descriptor and G2_TDO=1).
     eG2_READ_ALLOWED = 1, // Instruction fetches and reads are allowed (but exporting a Secure Memory Blob is prohibited if G2_SMBLOB=0 and the descriptor is not a Trusted Descriptor or if G2_TDO=0).
   };
+  
   enum class eG2_WRITE : uint32_t {
     eG2_WRITE_PROHIB = 0, // Writes are prohibited (except that Trusted Descriptor writes are allowed, and importing Secure Memory Blobs is allowed if G2_SMBLOB=1 or if done by a Trusted Descriptor and G2_TDO=1).
     eG2_WRITE_ALLOWED = 1, // Writes are allowed (but importing a Secure Memory Blob is prohibited if G2_SMBLOB=0 and the descriptor is not a Trusted Descriptor or if G2_TDO=0).
   };
+  
   enum class eG2_TDO : uint32_t {
     eG2_TD_PRIVILEGE_AS_JD = 0, // Trusted Descriptors have the same access privileges as Job Descriptors
     eG2_TD_OVERIDE_ALLOWED = 1, // Trusted Descriptors are allowed to override the other access permissions, i.e. they can export blobs from or import blobs to the partition and read from and write to the partition regardless of the G2_SMBLOB, G2_WRITE and G2_READ settings.
   };
+  
   enum class eG2_SMBLOB : uint32_t {
     eG2_SM_BLOB_EXPORT_IMPORT_PROHIB = 0, // Exporting or importing Secure Memory Blobs is prohibited, unless done via a Trusted Descriptor and G2_TDO=1.
     eG2_SM_BLOB_EXPORT_IMPORT_ALLOWED = 1, // Exporting or importing Secure Memory Blobs is allowed, regardless of the G2_READ and G2_WRITE settings.
   };
+  
   enum class eSMAG_LCK : uint32_t {
     eSMAG_UNLOCKED = 0, // The SMAG2JR register and SMAG1JR register are unlocked. The partition owner can change any writable bits of these registers.
     eSMAG_LOCKED = 1, // The SMAG2JR register and SMAG1JR register are locked. The SMAG2JR and SMAG1JR registers cannot be changed until the partition is de-allocated or a POR occurs.
   };
+  
   enum class eSMAP_LCK : uint32_t {
     eSMAP_UNLOCKED = 0, // The SMAP register is unlocked. The partition owner can change any writable bits of the SMAP register.
     eSMAP_LOCKED = 1, // The SMAP register is locked. The SMAP_LCK, CSP and PSP bits and G1 and G2 permission bits of the SMAP register cannot be changed until the partition is de-allocated or a POR occurs. The PARTITION_KMOD value can still be changed. The SMAG_LCK bit can be changed to a 1, but cannot be changed to a 0.
   };
+  
   enum class ePSP : uint32_t {
     eNOT_DEALLOCATABLE = 0, // The partition and any of the pages allocated to the partition can be de-allocated.
     eDEALLOCATABLE = 1, // The partition cannot be de-allocated and the pages allocated to the partition cannot be de-allocated.
   };
+  
   enum class eCSP : uint32_t {
     eNOT_ZEROIZED = 0, // The pages allocated to the partition will not be zeroized when they are de-allocated or the partition is released or a security alarm occurs.
     eZEROIZED = 1, // The pages allocated to the partition will be zeroized when they are individually de-allocated or the partition is released or a security alarm occurs.
@@ -22433,7 +22033,7 @@ union P5SMAPR_JR3 {
     ePSP PSP : 1;
     eCSP CSP : 1;
     uint32_t PARTITION_KMOD : 16;
-  } bits;          // Bit-field struct (auto-filling reserved gaps)
+  } bits;
   
   // Full 32-bit register value.
   uint32_t value;
@@ -22447,8 +22047,6 @@ union P5SMAPR_JR3 {
 //
 union P5SMAG2_JR3 {
   
-  // Enum definitions.
-  
   // Bit field definition.
   struct {
     uint32_t Gx_ID00 : 1;
@@ -22483,7 +22081,7 @@ union P5SMAG2_JR3 {
     uint32_t Gx_ID29 : 1;
     uint32_t Gx_ID30 : 1;
     uint32_t Gx_ID31 : 1;
-  } bits;          // Bit-field struct (auto-filling reserved gaps)
+  } bits;
   
   // Full 32-bit register value.
   uint32_t value;
@@ -22497,8 +22095,6 @@ union P5SMAG2_JR3 {
 //
 union P5SMAG1_JR3 {
   
-  // Enum definitions.
-  
   // Bit field definition.
   struct {
     uint32_t Gx_ID00 : 1;
@@ -22533,7 +22129,7 @@ union P5SMAG1_JR3 {
     uint32_t Gx_ID29 : 1;
     uint32_t Gx_ID30 : 1;
     uint32_t Gx_ID31 : 1;
-  } bits;          // Bit-field struct (auto-filling reserved gaps)
+  } bits;
   
   // Full 32-bit register value.
   uint32_t value;
@@ -22547,13 +22143,11 @@ union P5SMAG1_JR3 {
 //
 union P6SDID_JR3 {
   
-  // Enum definitions.
-  
   // Bit field definition.
   struct {
     uint32_t SDID : 16;
     uint32_t _reserved_end : 16;
-  } bits;          // Bit-field struct (auto-filling reserved gaps)
+  } bits;
   
   // Full 32-bit register value.
   uint32_t value;
@@ -22567,51 +22161,61 @@ union P6SDID_JR3 {
 //
 union P6SMAPR_JR3 {
   
-  // Enum definitions.
   enum class eG1_READ : uint32_t {
     eG1_READ_PROHIB = 0, // Instruction fetches and reads are prohibited (except that Trusted Descriptor reads (if G1_TDO=1) and key-reads are always allowed, and exporting Secure Memory Blobs is allowed if G1_SMBLOB=1 or if done by a Trusted Descriptor and G1_TDO=1).
     eG1_READ_ALLOWED = 1, // Instruction fetches and reads are allowed (but exporting a Secure Memory Blob is prohibited if G1_SMBLOB=0 and the descriptor is not a Trusted Descriptor or if G1_TDO=0).
   };
+  
   enum class eG1_WRITE : uint32_t {
     eG1_WRITE_PROHIB = 0, // Writes are prohibited (except that Trusted Descriptor writes are allowed, and importing Secure Memory Blobs is allowed if G1_SMBLOB=1 or if done by a Trusted Descriptor and G1_TDO=1).
     eG1_WRITE_ALLOWED = 1, // Writes are allowed (but importing a Secure Memory Blob is prohibited if G1_SMBLOB=0 and the descriptor is not a Trusted Descriptor or if G1_TDO=0).
   };
+  
   enum class eG1_TDO : uint32_t {
     eG1_TD_PRIVILEGE_AS_JD = 0, // Trusted Descriptors have the same access privileges as Job Descriptors
     eG1_TD_OVERIDE_ALLOWED = 1, // Trusted Descriptors are allowed to override the other access permissions, i.e. they can export blobs from or import blobs to the partition and read from and write to the partition regardless of the G1_SMBLOB, G1_WRITE and G1_READ settings.
   };
+  
   enum class eG1_SMBLOB : uint32_t {
     eG1_SM_BLOB_EXPORT_IMPORT_PROHIB = 0, // Exporting or importing Secure Memory Blobs is prohibited, unless done via a Trusted Descriptor and G1_TDO=1.
     eG1_SM_B_EXPORT_IMPORT_ALLOWED = 1, // Exporting or importing Secure Memory Blobs is allowed, regardless of the G1_READ and G1_WRITE settings.
   };
+  
   enum class eG2_READ : uint32_t {
     eG2_READ_PROHIB = 0, // Instruction fetches and reads are prohibited (except that Trusted Descriptor reads (if G2_TDO=1) and key-reads are always allowed, and exporting Secure Memory Blobs is allowed if G2_SMBLOB=1 or if done by a Trusted Descriptor and G2_TDO=1).
     eG2_READ_ALLOWED = 1, // Instruction fetches and reads are allowed (but exporting a Secure Memory Blob is prohibited if G2_SMBLOB=0 and the descriptor is not a Trusted Descriptor or if G2_TDO=0).
   };
+  
   enum class eG2_WRITE : uint32_t {
     eG2_WRITE_PROHIB = 0, // Writes are prohibited (except that Trusted Descriptor writes are allowed, and importing Secure Memory Blobs is allowed if G2_SMBLOB=1 or if done by a Trusted Descriptor and G2_TDO=1).
     eG2_WRITE_ALLOWED = 1, // Writes are allowed (but importing a Secure Memory Blob is prohibited if G2_SMBLOB=0 and the descriptor is not a Trusted Descriptor or if G2_TDO=0).
   };
+  
   enum class eG2_TDO : uint32_t {
     eG2_TD_PRIVILEGE_AS_JD = 0, // Trusted Descriptors have the same access privileges as Job Descriptors
     eG2_TD_OVERIDE_ALLOWED = 1, // Trusted Descriptors are allowed to override the other access permissions, i.e. they can export blobs from or import blobs to the partition and read from and write to the partition regardless of the G2_SMBLOB, G2_WRITE and G2_READ settings.
   };
+  
   enum class eG2_SMBLOB : uint32_t {
     eG2_SM_BLOB_EXPORT_IMPORT_PROHIB = 0, // Exporting or importing Secure Memory Blobs is prohibited, unless done via a Trusted Descriptor and G2_TDO=1.
     eG2_SM_BLOB_EXPORT_IMPORT_ALLOWED = 1, // Exporting or importing Secure Memory Blobs is allowed, regardless of the G2_READ and G2_WRITE settings.
   };
+  
   enum class eSMAG_LCK : uint32_t {
     eSMAG_UNLOCKED = 0, // The SMAG2JR register and SMAG1JR register are unlocked. The partition owner can change any writable bits of these registers.
     eSMAG_LOCKED = 1, // The SMAG2JR register and SMAG1JR register are locked. The SMAG2JR and SMAG1JR registers cannot be changed until the partition is de-allocated or a POR occurs.
   };
+  
   enum class eSMAP_LCK : uint32_t {
     eSMAP_UNLOCKED = 0, // The SMAP register is unlocked. The partition owner can change any writable bits of the SMAP register.
     eSMAP_LOCKED = 1, // The SMAP register is locked. The SMAP_LCK, CSP and PSP bits and G1 and G2 permission bits of the SMAP register cannot be changed until the partition is de-allocated or a POR occurs. The PARTITION_KMOD value can still be changed. The SMAG_LCK bit can be changed to a 1, but cannot be changed to a 0.
   };
+  
   enum class ePSP : uint32_t {
     eNOT_DEALLOCATABLE = 0, // The partition and any of the pages allocated to the partition can be de-allocated.
     eDEALLOCATABLE = 1, // The partition cannot be de-allocated and the pages allocated to the partition cannot be de-allocated.
   };
+  
   enum class eCSP : uint32_t {
     eNOT_ZEROIZED = 0, // The pages allocated to the partition will not be zeroized when they are de-allocated or the partition is released or a security alarm occurs.
     eZEROIZED = 1, // The pages allocated to the partition will be zeroized when they are individually de-allocated or the partition is released or a security alarm occurs.
@@ -22633,7 +22237,7 @@ union P6SMAPR_JR3 {
     ePSP PSP : 1;
     eCSP CSP : 1;
     uint32_t PARTITION_KMOD : 16;
-  } bits;          // Bit-field struct (auto-filling reserved gaps)
+  } bits;
   
   // Full 32-bit register value.
   uint32_t value;
@@ -22647,8 +22251,6 @@ union P6SMAPR_JR3 {
 //
 union P6SMAG2_JR3 {
   
-  // Enum definitions.
-  
   // Bit field definition.
   struct {
     uint32_t Gx_ID00 : 1;
@@ -22683,7 +22285,7 @@ union P6SMAG2_JR3 {
     uint32_t Gx_ID29 : 1;
     uint32_t Gx_ID30 : 1;
     uint32_t Gx_ID31 : 1;
-  } bits;          // Bit-field struct (auto-filling reserved gaps)
+  } bits;
   
   // Full 32-bit register value.
   uint32_t value;
@@ -22697,8 +22299,6 @@ union P6SMAG2_JR3 {
 //
 union P6SMAG1_JR3 {
   
-  // Enum definitions.
-  
   // Bit field definition.
   struct {
     uint32_t Gx_ID00 : 1;
@@ -22733,7 +22333,7 @@ union P6SMAG1_JR3 {
     uint32_t Gx_ID29 : 1;
     uint32_t Gx_ID30 : 1;
     uint32_t Gx_ID31 : 1;
-  } bits;          // Bit-field struct (auto-filling reserved gaps)
+  } bits;
   
   // Full 32-bit register value.
   uint32_t value;
@@ -22747,13 +22347,11 @@ union P6SMAG1_JR3 {
 //
 union P7SDID_JR3 {
   
-  // Enum definitions.
-  
   // Bit field definition.
   struct {
     uint32_t SDID : 16;
     uint32_t _reserved_end : 16;
-  } bits;          // Bit-field struct (auto-filling reserved gaps)
+  } bits;
   
   // Full 32-bit register value.
   uint32_t value;
@@ -22767,51 +22365,61 @@ union P7SDID_JR3 {
 //
 union P7SMAPR_JR3 {
   
-  // Enum definitions.
   enum class eG1_READ : uint32_t {
     eG1_READ_PROHIB = 0, // Instruction fetches and reads are prohibited (except that Trusted Descriptor reads (if G1_TDO=1) and key-reads are always allowed, and exporting Secure Memory Blobs is allowed if G1_SMBLOB=1 or if done by a Trusted Descriptor and G1_TDO=1).
     eG1_READ_ALLOWED = 1, // Instruction fetches and reads are allowed (but exporting a Secure Memory Blob is prohibited if G1_SMBLOB=0 and the descriptor is not a Trusted Descriptor or if G1_TDO=0).
   };
+  
   enum class eG1_WRITE : uint32_t {
     eG1_WRITE_PROHIB = 0, // Writes are prohibited (except that Trusted Descriptor writes are allowed, and importing Secure Memory Blobs is allowed if G1_SMBLOB=1 or if done by a Trusted Descriptor and G1_TDO=1).
     eG1_WRITE_ALLOWED = 1, // Writes are allowed (but importing a Secure Memory Blob is prohibited if G1_SMBLOB=0 and the descriptor is not a Trusted Descriptor or if G1_TDO=0).
   };
+  
   enum class eG1_TDO : uint32_t {
     eG1_TD_PRIVILEGE_AS_JD = 0, // Trusted Descriptors have the same access privileges as Job Descriptors
     eG1_TD_OVERIDE_ALLOWED = 1, // Trusted Descriptors are allowed to override the other access permissions, i.e. they can export blobs from or import blobs to the partition and read from and write to the partition regardless of the G1_SMBLOB, G1_WRITE and G1_READ settings.
   };
+  
   enum class eG1_SMBLOB : uint32_t {
     eG1_SM_BLOB_EXPORT_IMPORT_PROHIB = 0, // Exporting or importing Secure Memory Blobs is prohibited, unless done via a Trusted Descriptor and G1_TDO=1.
     eG1_SM_B_EXPORT_IMPORT_ALLOWED = 1, // Exporting or importing Secure Memory Blobs is allowed, regardless of the G1_READ and G1_WRITE settings.
   };
+  
   enum class eG2_READ : uint32_t {
     eG2_READ_PROHIB = 0, // Instruction fetches and reads are prohibited (except that Trusted Descriptor reads (if G2_TDO=1) and key-reads are always allowed, and exporting Secure Memory Blobs is allowed if G2_SMBLOB=1 or if done by a Trusted Descriptor and G2_TDO=1).
     eG2_READ_ALLOWED = 1, // Instruction fetches and reads are allowed (but exporting a Secure Memory Blob is prohibited if G2_SMBLOB=0 and the descriptor is not a Trusted Descriptor or if G2_TDO=0).
   };
+  
   enum class eG2_WRITE : uint32_t {
     eG2_WRITE_PROHIB = 0, // Writes are prohibited (except that Trusted Descriptor writes are allowed, and importing Secure Memory Blobs is allowed if G2_SMBLOB=1 or if done by a Trusted Descriptor and G2_TDO=1).
     eG2_WRITE_ALLOWED = 1, // Writes are allowed (but importing a Secure Memory Blob is prohibited if G2_SMBLOB=0 and the descriptor is not a Trusted Descriptor or if G2_TDO=0).
   };
+  
   enum class eG2_TDO : uint32_t {
     eG2_TD_PRIVILEGE_AS_JD = 0, // Trusted Descriptors have the same access privileges as Job Descriptors
     eG2_TD_OVERIDE_ALLOWED = 1, // Trusted Descriptors are allowed to override the other access permissions, i.e. they can export blobs from or import blobs to the partition and read from and write to the partition regardless of the G2_SMBLOB, G2_WRITE and G2_READ settings.
   };
+  
   enum class eG2_SMBLOB : uint32_t {
     eG2_SM_BLOB_EXPORT_IMPORT_PROHIB = 0, // Exporting or importing Secure Memory Blobs is prohibited, unless done via a Trusted Descriptor and G2_TDO=1.
     eG2_SM_BLOB_EXPORT_IMPORT_ALLOWED = 1, // Exporting or importing Secure Memory Blobs is allowed, regardless of the G2_READ and G2_WRITE settings.
   };
+  
   enum class eSMAG_LCK : uint32_t {
     eSMAG_UNLOCKED = 0, // The SMAG2JR register and SMAG1JR register are unlocked. The partition owner can change any writable bits of these registers.
     eSMAG_LOCKED = 1, // The SMAG2JR register and SMAG1JR register are locked. The SMAG2JR and SMAG1JR registers cannot be changed until the partition is de-allocated or a POR occurs.
   };
+  
   enum class eSMAP_LCK : uint32_t {
     eSMAP_UNLOCKED = 0, // The SMAP register is unlocked. The partition owner can change any writable bits of the SMAP register.
     eSMAP_LOCKED = 1, // The SMAP register is locked. The SMAP_LCK, CSP and PSP bits and G1 and G2 permission bits of the SMAP register cannot be changed until the partition is de-allocated or a POR occurs. The PARTITION_KMOD value can still be changed. The SMAG_LCK bit can be changed to a 1, but cannot be changed to a 0.
   };
+  
   enum class ePSP : uint32_t {
     eNOT_DEALLOCATABLE = 0, // The partition and any of the pages allocated to the partition can be de-allocated.
     eDEALLOCATABLE = 1, // The partition cannot be de-allocated and the pages allocated to the partition cannot be de-allocated.
   };
+  
   enum class eCSP : uint32_t {
     eNOT_ZEROIZED = 0, // The pages allocated to the partition will not be zeroized when they are de-allocated or the partition is released or a security alarm occurs.
     eZEROIZED = 1, // The pages allocated to the partition will be zeroized when they are individually de-allocated or the partition is released or a security alarm occurs.
@@ -22833,7 +22441,7 @@ union P7SMAPR_JR3 {
     ePSP PSP : 1;
     eCSP CSP : 1;
     uint32_t PARTITION_KMOD : 16;
-  } bits;          // Bit-field struct (auto-filling reserved gaps)
+  } bits;
   
   // Full 32-bit register value.
   uint32_t value;
@@ -22847,8 +22455,6 @@ union P7SMAPR_JR3 {
 //
 union P7SMAG2_JR3 {
   
-  // Enum definitions.
-  
   // Bit field definition.
   struct {
     uint32_t Gx_ID00 : 1;
@@ -22883,7 +22489,7 @@ union P7SMAG2_JR3 {
     uint32_t Gx_ID29 : 1;
     uint32_t Gx_ID30 : 1;
     uint32_t Gx_ID31 : 1;
-  } bits;          // Bit-field struct (auto-filling reserved gaps)
+  } bits;
   
   // Full 32-bit register value.
   uint32_t value;
@@ -22897,8 +22503,6 @@ union P7SMAG2_JR3 {
 //
 union P7SMAG1_JR3 {
   
-  // Enum definitions.
-  
   // Bit field definition.
   struct {
     uint32_t Gx_ID00 : 1;
@@ -22933,7 +22537,7 @@ union P7SMAG1_JR3 {
     uint32_t Gx_ID29 : 1;
     uint32_t Gx_ID30 : 1;
     uint32_t Gx_ID31 : 1;
-  } bits;          // Bit-field struct (auto-filling reserved gaps)
+  } bits;
   
   // Full 32-bit register value.
   uint32_t value;
@@ -22947,13 +22551,11 @@ union P7SMAG1_JR3 {
 //
 union P8SDID_JR3 {
   
-  // Enum definitions.
-  
   // Bit field definition.
   struct {
     uint32_t SDID : 16;
     uint32_t _reserved_end : 16;
-  } bits;          // Bit-field struct (auto-filling reserved gaps)
+  } bits;
   
   // Full 32-bit register value.
   uint32_t value;
@@ -22967,51 +22569,61 @@ union P8SDID_JR3 {
 //
 union P8SMAPR_JR3 {
   
-  // Enum definitions.
   enum class eG1_READ : uint32_t {
     eG1_READ_PROHIB = 0, // Instruction fetches and reads are prohibited (except that Trusted Descriptor reads (if G1_TDO=1) and key-reads are always allowed, and exporting Secure Memory Blobs is allowed if G1_SMBLOB=1 or if done by a Trusted Descriptor and G1_TDO=1).
     eG1_READ_ALLOWED = 1, // Instruction fetches and reads are allowed (but exporting a Secure Memory Blob is prohibited if G1_SMBLOB=0 and the descriptor is not a Trusted Descriptor or if G1_TDO=0).
   };
+  
   enum class eG1_WRITE : uint32_t {
     eG1_WRITE_PROHIB = 0, // Writes are prohibited (except that Trusted Descriptor writes are allowed, and importing Secure Memory Blobs is allowed if G1_SMBLOB=1 or if done by a Trusted Descriptor and G1_TDO=1).
     eG1_WRITE_ALLOWED = 1, // Writes are allowed (but importing a Secure Memory Blob is prohibited if G1_SMBLOB=0 and the descriptor is not a Trusted Descriptor or if G1_TDO=0).
   };
+  
   enum class eG1_TDO : uint32_t {
     eG1_TD_PRIVILEGE_AS_JD = 0, // Trusted Descriptors have the same access privileges as Job Descriptors
     eG1_TD_OVERIDE_ALLOWED = 1, // Trusted Descriptors are allowed to override the other access permissions, i.e. they can export blobs from or import blobs to the partition and read from and write to the partition regardless of the G1_SMBLOB, G1_WRITE and G1_READ settings.
   };
+  
   enum class eG1_SMBLOB : uint32_t {
     eG1_SM_BLOB_EXPORT_IMPORT_PROHIB = 0, // Exporting or importing Secure Memory Blobs is prohibited, unless done via a Trusted Descriptor and G1_TDO=1.
     eG1_SM_B_EXPORT_IMPORT_ALLOWED = 1, // Exporting or importing Secure Memory Blobs is allowed, regardless of the G1_READ and G1_WRITE settings.
   };
+  
   enum class eG2_READ : uint32_t {
     eG2_READ_PROHIB = 0, // Instruction fetches and reads are prohibited (except that Trusted Descriptor reads (if G2_TDO=1) and key-reads are always allowed, and exporting Secure Memory Blobs is allowed if G2_SMBLOB=1 or if done by a Trusted Descriptor and G2_TDO=1).
     eG2_READ_ALLOWED = 1, // Instruction fetches and reads are allowed (but exporting a Secure Memory Blob is prohibited if G2_SMBLOB=0 and the descriptor is not a Trusted Descriptor or if G2_TDO=0).
   };
+  
   enum class eG2_WRITE : uint32_t {
     eG2_WRITE_PROHIB = 0, // Writes are prohibited (except that Trusted Descriptor writes are allowed, and importing Secure Memory Blobs is allowed if G2_SMBLOB=1 or if done by a Trusted Descriptor and G2_TDO=1).
     eG2_WRITE_ALLOWED = 1, // Writes are allowed (but importing a Secure Memory Blob is prohibited if G2_SMBLOB=0 and the descriptor is not a Trusted Descriptor or if G2_TDO=0).
   };
+  
   enum class eG2_TDO : uint32_t {
     eG2_TD_PRIVILEGE_AS_JD = 0, // Trusted Descriptors have the same access privileges as Job Descriptors
     eG2_TD_OVERIDE_ALLOWED = 1, // Trusted Descriptors are allowed to override the other access permissions, i.e. they can export blobs from or import blobs to the partition and read from and write to the partition regardless of the G2_SMBLOB, G2_WRITE and G2_READ settings.
   };
+  
   enum class eG2_SMBLOB : uint32_t {
     eG2_SM_BLOB_EXPORT_IMPORT_PROHIB = 0, // Exporting or importing Secure Memory Blobs is prohibited, unless done via a Trusted Descriptor and G2_TDO=1.
     eG2_SM_BLOB_EXPORT_IMPORT_ALLOWED = 1, // Exporting or importing Secure Memory Blobs is allowed, regardless of the G2_READ and G2_WRITE settings.
   };
+  
   enum class eSMAG_LCK : uint32_t {
     eSMAG_UNLOCKED = 0, // The SMAG2JR register and SMAG1JR register are unlocked. The partition owner can change any writable bits of these registers.
     eSMAG_LOCKED = 1, // The SMAG2JR register and SMAG1JR register are locked. The SMAG2JR and SMAG1JR registers cannot be changed until the partition is de-allocated or a POR occurs.
   };
+  
   enum class eSMAP_LCK : uint32_t {
     eSMAP_UNLOCKED = 0, // The SMAP register is unlocked. The partition owner can change any writable bits of the SMAP register.
     eSMAP_LOCKED = 1, // The SMAP register is locked. The SMAP_LCK, CSP and PSP bits and G1 and G2 permission bits of the SMAP register cannot be changed until the partition is de-allocated or a POR occurs. The PARTITION_KMOD value can still be changed. The SMAG_LCK bit can be changed to a 1, but cannot be changed to a 0.
   };
+  
   enum class ePSP : uint32_t {
     eNOT_DEALLOCATABLE = 0, // The partition and any of the pages allocated to the partition can be de-allocated.
     eDEALLOCATABLE = 1, // The partition cannot be de-allocated and the pages allocated to the partition cannot be de-allocated.
   };
+  
   enum class eCSP : uint32_t {
     eNOT_ZEROIZED = 0, // The pages allocated to the partition will not be zeroized when they are de-allocated or the partition is released or a security alarm occurs.
     eZEROIZED = 1, // The pages allocated to the partition will be zeroized when they are individually de-allocated or the partition is released or a security alarm occurs.
@@ -23033,7 +22645,7 @@ union P8SMAPR_JR3 {
     ePSP PSP : 1;
     eCSP CSP : 1;
     uint32_t PARTITION_KMOD : 16;
-  } bits;          // Bit-field struct (auto-filling reserved gaps)
+  } bits;
   
   // Full 32-bit register value.
   uint32_t value;
@@ -23047,8 +22659,6 @@ union P8SMAPR_JR3 {
 //
 union P8SMAG2_JR3 {
   
-  // Enum definitions.
-  
   // Bit field definition.
   struct {
     uint32_t Gx_ID00 : 1;
@@ -23083,7 +22693,7 @@ union P8SMAG2_JR3 {
     uint32_t Gx_ID29 : 1;
     uint32_t Gx_ID30 : 1;
     uint32_t Gx_ID31 : 1;
-  } bits;          // Bit-field struct (auto-filling reserved gaps)
+  } bits;
   
   // Full 32-bit register value.
   uint32_t value;
@@ -23097,8 +22707,6 @@ union P8SMAG2_JR3 {
 //
 union P8SMAG1_JR3 {
   
-  // Enum definitions.
-  
   // Bit field definition.
   struct {
     uint32_t Gx_ID00 : 1;
@@ -23133,7 +22741,7 @@ union P8SMAG1_JR3 {
     uint32_t Gx_ID29 : 1;
     uint32_t Gx_ID30 : 1;
     uint32_t Gx_ID31 : 1;
-  } bits;          // Bit-field struct (auto-filling reserved gaps)
+  } bits;
   
   // Full 32-bit register value.
   uint32_t value;
@@ -23147,13 +22755,11 @@ union P8SMAG1_JR3 {
 //
 union P9SDID_JR3 {
   
-  // Enum definitions.
-  
   // Bit field definition.
   struct {
     uint32_t SDID : 16;
     uint32_t _reserved_end : 16;
-  } bits;          // Bit-field struct (auto-filling reserved gaps)
+  } bits;
   
   // Full 32-bit register value.
   uint32_t value;
@@ -23167,51 +22773,61 @@ union P9SDID_JR3 {
 //
 union P9SMAPR_JR3 {
   
-  // Enum definitions.
   enum class eG1_READ : uint32_t {
     eG1_READ_PROHIB = 0, // Instruction fetches and reads are prohibited (except that Trusted Descriptor reads (if G1_TDO=1) and key-reads are always allowed, and exporting Secure Memory Blobs is allowed if G1_SMBLOB=1 or if done by a Trusted Descriptor and G1_TDO=1).
     eG1_READ_ALLOWED = 1, // Instruction fetches and reads are allowed (but exporting a Secure Memory Blob is prohibited if G1_SMBLOB=0 and the descriptor is not a Trusted Descriptor or if G1_TDO=0).
   };
+  
   enum class eG1_WRITE : uint32_t {
     eG1_WRITE_PROHIB = 0, // Writes are prohibited (except that Trusted Descriptor writes are allowed, and importing Secure Memory Blobs is allowed if G1_SMBLOB=1 or if done by a Trusted Descriptor and G1_TDO=1).
     eG1_WRITE_ALLOWED = 1, // Writes are allowed (but importing a Secure Memory Blob is prohibited if G1_SMBLOB=0 and the descriptor is not a Trusted Descriptor or if G1_TDO=0).
   };
+  
   enum class eG1_TDO : uint32_t {
     eG1_TD_PRIVILEGE_AS_JD = 0, // Trusted Descriptors have the same access privileges as Job Descriptors
     eG1_TD_OVERIDE_ALLOWED = 1, // Trusted Descriptors are allowed to override the other access permissions, i.e. they can export blobs from or import blobs to the partition and read from and write to the partition regardless of the G1_SMBLOB, G1_WRITE and G1_READ settings.
   };
+  
   enum class eG1_SMBLOB : uint32_t {
     eG1_SM_BLOB_EXPORT_IMPORT_PROHIB = 0, // Exporting or importing Secure Memory Blobs is prohibited, unless done via a Trusted Descriptor and G1_TDO=1.
     eG1_SM_B_EXPORT_IMPORT_ALLOWED = 1, // Exporting or importing Secure Memory Blobs is allowed, regardless of the G1_READ and G1_WRITE settings.
   };
+  
   enum class eG2_READ : uint32_t {
     eG2_READ_PROHIB = 0, // Instruction fetches and reads are prohibited (except that Trusted Descriptor reads (if G2_TDO=1) and key-reads are always allowed, and exporting Secure Memory Blobs is allowed if G2_SMBLOB=1 or if done by a Trusted Descriptor and G2_TDO=1).
     eG2_READ_ALLOWED = 1, // Instruction fetches and reads are allowed (but exporting a Secure Memory Blob is prohibited if G2_SMBLOB=0 and the descriptor is not a Trusted Descriptor or if G2_TDO=0).
   };
+  
   enum class eG2_WRITE : uint32_t {
     eG2_WRITE_PROHIB = 0, // Writes are prohibited (except that Trusted Descriptor writes are allowed, and importing Secure Memory Blobs is allowed if G2_SMBLOB=1 or if done by a Trusted Descriptor and G2_TDO=1).
     eG2_WRITE_ALLOWED = 1, // Writes are allowed (but importing a Secure Memory Blob is prohibited if G2_SMBLOB=0 and the descriptor is not a Trusted Descriptor or if G2_TDO=0).
   };
+  
   enum class eG2_TDO : uint32_t {
     eG2_TD_PRIVILEGE_AS_JD = 0, // Trusted Descriptors have the same access privileges as Job Descriptors
     eG2_TD_OVERIDE_ALLOWED = 1, // Trusted Descriptors are allowed to override the other access permissions, i.e. they can export blobs from or import blobs to the partition and read from and write to the partition regardless of the G2_SMBLOB, G2_WRITE and G2_READ settings.
   };
+  
   enum class eG2_SMBLOB : uint32_t {
     eG2_SM_BLOB_EXPORT_IMPORT_PROHIB = 0, // Exporting or importing Secure Memory Blobs is prohibited, unless done via a Trusted Descriptor and G2_TDO=1.
     eG2_SM_BLOB_EXPORT_IMPORT_ALLOWED = 1, // Exporting or importing Secure Memory Blobs is allowed, regardless of the G2_READ and G2_WRITE settings.
   };
+  
   enum class eSMAG_LCK : uint32_t {
     eSMAG_UNLOCKED = 0, // The SMAG2JR register and SMAG1JR register are unlocked. The partition owner can change any writable bits of these registers.
     eSMAG_LOCKED = 1, // The SMAG2JR register and SMAG1JR register are locked. The SMAG2JR and SMAG1JR registers cannot be changed until the partition is de-allocated or a POR occurs.
   };
+  
   enum class eSMAP_LCK : uint32_t {
     eSMAP_UNLOCKED = 0, // The SMAP register is unlocked. The partition owner can change any writable bits of the SMAP register.
     eSMAP_LOCKED = 1, // The SMAP register is locked. The SMAP_LCK, CSP and PSP bits and G1 and G2 permission bits of the SMAP register cannot be changed until the partition is de-allocated or a POR occurs. The PARTITION_KMOD value can still be changed. The SMAG_LCK bit can be changed to a 1, but cannot be changed to a 0.
   };
+  
   enum class ePSP : uint32_t {
     eNOT_DEALLOCATABLE = 0, // The partition and any of the pages allocated to the partition can be de-allocated.
     eDEALLOCATABLE = 1, // The partition cannot be de-allocated and the pages allocated to the partition cannot be de-allocated.
   };
+  
   enum class eCSP : uint32_t {
     eNOT_ZEROIZED = 0, // The pages allocated to the partition will not be zeroized when they are de-allocated or the partition is released or a security alarm occurs.
     eZEROIZED = 1, // The pages allocated to the partition will be zeroized when they are individually de-allocated or the partition is released or a security alarm occurs.
@@ -23233,7 +22849,7 @@ union P9SMAPR_JR3 {
     ePSP PSP : 1;
     eCSP CSP : 1;
     uint32_t PARTITION_KMOD : 16;
-  } bits;          // Bit-field struct (auto-filling reserved gaps)
+  } bits;
   
   // Full 32-bit register value.
   uint32_t value;
@@ -23247,8 +22863,6 @@ union P9SMAPR_JR3 {
 //
 union P9SMAG2_JR3 {
   
-  // Enum definitions.
-  
   // Bit field definition.
   struct {
     uint32_t Gx_ID00 : 1;
@@ -23283,7 +22897,7 @@ union P9SMAG2_JR3 {
     uint32_t Gx_ID29 : 1;
     uint32_t Gx_ID30 : 1;
     uint32_t Gx_ID31 : 1;
-  } bits;          // Bit-field struct (auto-filling reserved gaps)
+  } bits;
   
   // Full 32-bit register value.
   uint32_t value;
@@ -23297,8 +22911,6 @@ union P9SMAG2_JR3 {
 //
 union P9SMAG1_JR3 {
   
-  // Enum definitions.
-  
   // Bit field definition.
   struct {
     uint32_t Gx_ID00 : 1;
@@ -23333,7 +22945,7 @@ union P9SMAG1_JR3 {
     uint32_t Gx_ID29 : 1;
     uint32_t Gx_ID30 : 1;
     uint32_t Gx_ID31 : 1;
-  } bits;          // Bit-field struct (auto-filling reserved gaps)
+  } bits;
   
   // Full 32-bit register value.
   uint32_t value;
@@ -23347,13 +22959,11 @@ union P9SMAG1_JR3 {
 //
 union P10SDID_JR3 {
   
-  // Enum definitions.
-  
   // Bit field definition.
   struct {
     uint32_t SDID : 16;
     uint32_t _reserved_end : 16;
-  } bits;          // Bit-field struct (auto-filling reserved gaps)
+  } bits;
   
   // Full 32-bit register value.
   uint32_t value;
@@ -23367,51 +22977,61 @@ union P10SDID_JR3 {
 //
 union P10SMAPR_JR3 {
   
-  // Enum definitions.
   enum class eG1_READ : uint32_t {
     eG1_READ_PROHIB = 0, // Instruction fetches and reads are prohibited (except that Trusted Descriptor reads (if G1_TDO=1) and key-reads are always allowed, and exporting Secure Memory Blobs is allowed if G1_SMBLOB=1 or if done by a Trusted Descriptor and G1_TDO=1).
     eG1_READ_ALLOWED = 1, // Instruction fetches and reads are allowed (but exporting a Secure Memory Blob is prohibited if G1_SMBLOB=0 and the descriptor is not a Trusted Descriptor or if G1_TDO=0).
   };
+  
   enum class eG1_WRITE : uint32_t {
     eG1_WRITE_PROHIB = 0, // Writes are prohibited (except that Trusted Descriptor writes are allowed, and importing Secure Memory Blobs is allowed if G1_SMBLOB=1 or if done by a Trusted Descriptor and G1_TDO=1).
     eG1_WRITE_ALLOWED = 1, // Writes are allowed (but importing a Secure Memory Blob is prohibited if G1_SMBLOB=0 and the descriptor is not a Trusted Descriptor or if G1_TDO=0).
   };
+  
   enum class eG1_TDO : uint32_t {
     eG1_TD_PRIVILEGE_AS_JD = 0, // Trusted Descriptors have the same access privileges as Job Descriptors
     eG1_TD_OVERIDE_ALLOWED = 1, // Trusted Descriptors are allowed to override the other access permissions, i.e. they can export blobs from or import blobs to the partition and read from and write to the partition regardless of the G1_SMBLOB, G1_WRITE and G1_READ settings.
   };
+  
   enum class eG1_SMBLOB : uint32_t {
     eG1_SM_BLOB_EXPORT_IMPORT_PROHIB = 0, // Exporting or importing Secure Memory Blobs is prohibited, unless done via a Trusted Descriptor and G1_TDO=1.
     eG1_SM_B_EXPORT_IMPORT_ALLOWED = 1, // Exporting or importing Secure Memory Blobs is allowed, regardless of the G1_READ and G1_WRITE settings.
   };
+  
   enum class eG2_READ : uint32_t {
     eG2_READ_PROHIB = 0, // Instruction fetches and reads are prohibited (except that Trusted Descriptor reads (if G2_TDO=1) and key-reads are always allowed, and exporting Secure Memory Blobs is allowed if G2_SMBLOB=1 or if done by a Trusted Descriptor and G2_TDO=1).
     eG2_READ_ALLOWED = 1, // Instruction fetches and reads are allowed (but exporting a Secure Memory Blob is prohibited if G2_SMBLOB=0 and the descriptor is not a Trusted Descriptor or if G2_TDO=0).
   };
+  
   enum class eG2_WRITE : uint32_t {
     eG2_WRITE_PROHIB = 0, // Writes are prohibited (except that Trusted Descriptor writes are allowed, and importing Secure Memory Blobs is allowed if G2_SMBLOB=1 or if done by a Trusted Descriptor and G2_TDO=1).
     eG2_WRITE_ALLOWED = 1, // Writes are allowed (but importing a Secure Memory Blob is prohibited if G2_SMBLOB=0 and the descriptor is not a Trusted Descriptor or if G2_TDO=0).
   };
+  
   enum class eG2_TDO : uint32_t {
     eG2_TD_PRIVILEGE_AS_JD = 0, // Trusted Descriptors have the same access privileges as Job Descriptors
     eG2_TD_OVERIDE_ALLOWED = 1, // Trusted Descriptors are allowed to override the other access permissions, i.e. they can export blobs from or import blobs to the partition and read from and write to the partition regardless of the G2_SMBLOB, G2_WRITE and G2_READ settings.
   };
+  
   enum class eG2_SMBLOB : uint32_t {
     eG2_SM_BLOB_EXPORT_IMPORT_PROHIB = 0, // Exporting or importing Secure Memory Blobs is prohibited, unless done via a Trusted Descriptor and G2_TDO=1.
     eG2_SM_BLOB_EXPORT_IMPORT_ALLOWED = 1, // Exporting or importing Secure Memory Blobs is allowed, regardless of the G2_READ and G2_WRITE settings.
   };
+  
   enum class eSMAG_LCK : uint32_t {
     eSMAG_UNLOCKED = 0, // The SMAG2JR register and SMAG1JR register are unlocked. The partition owner can change any writable bits of these registers.
     eSMAG_LOCKED = 1, // The SMAG2JR register and SMAG1JR register are locked. The SMAG2JR and SMAG1JR registers cannot be changed until the partition is de-allocated or a POR occurs.
   };
+  
   enum class eSMAP_LCK : uint32_t {
     eSMAP_UNLOCKED = 0, // The SMAP register is unlocked. The partition owner can change any writable bits of the SMAP register.
     eSMAP_LOCKED = 1, // The SMAP register is locked. The SMAP_LCK, CSP and PSP bits and G1 and G2 permission bits of the SMAP register cannot be changed until the partition is de-allocated or a POR occurs. The PARTITION_KMOD value can still be changed. The SMAG_LCK bit can be changed to a 1, but cannot be changed to a 0.
   };
+  
   enum class ePSP : uint32_t {
     eNOT_DEALLOCATABLE = 0, // The partition and any of the pages allocated to the partition can be de-allocated.
     eDEALLOCATABLE = 1, // The partition cannot be de-allocated and the pages allocated to the partition cannot be de-allocated.
   };
+  
   enum class eCSP : uint32_t {
     eNOT_ZEROIZED = 0, // The pages allocated to the partition will not be zeroized when they are de-allocated or the partition is released or a security alarm occurs.
     eZEROIZED = 1, // The pages allocated to the partition will be zeroized when they are individually de-allocated or the partition is released or a security alarm occurs.
@@ -23433,7 +23053,7 @@ union P10SMAPR_JR3 {
     ePSP PSP : 1;
     eCSP CSP : 1;
     uint32_t PARTITION_KMOD : 16;
-  } bits;          // Bit-field struct (auto-filling reserved gaps)
+  } bits;
   
   // Full 32-bit register value.
   uint32_t value;
@@ -23447,8 +23067,6 @@ union P10SMAPR_JR3 {
 //
 union P10SMAG2_JR3 {
   
-  // Enum definitions.
-  
   // Bit field definition.
   struct {
     uint32_t Gx_ID00 : 1;
@@ -23483,7 +23101,7 @@ union P10SMAG2_JR3 {
     uint32_t Gx_ID29 : 1;
     uint32_t Gx_ID30 : 1;
     uint32_t Gx_ID31 : 1;
-  } bits;          // Bit-field struct (auto-filling reserved gaps)
+  } bits;
   
   // Full 32-bit register value.
   uint32_t value;
@@ -23497,8 +23115,6 @@ union P10SMAG2_JR3 {
 //
 union P10SMAG1_JR3 {
   
-  // Enum definitions.
-  
   // Bit field definition.
   struct {
     uint32_t Gx_ID00 : 1;
@@ -23533,7 +23149,7 @@ union P10SMAG1_JR3 {
     uint32_t Gx_ID29 : 1;
     uint32_t Gx_ID30 : 1;
     uint32_t Gx_ID31 : 1;
-  } bits;          // Bit-field struct (auto-filling reserved gaps)
+  } bits;
   
   // Full 32-bit register value.
   uint32_t value;
@@ -23547,13 +23163,11 @@ union P10SMAG1_JR3 {
 //
 union P11SDID_JR3 {
   
-  // Enum definitions.
-  
   // Bit field definition.
   struct {
     uint32_t SDID : 16;
     uint32_t _reserved_end : 16;
-  } bits;          // Bit-field struct (auto-filling reserved gaps)
+  } bits;
   
   // Full 32-bit register value.
   uint32_t value;
@@ -23567,51 +23181,61 @@ union P11SDID_JR3 {
 //
 union P11SMAPR_JR3 {
   
-  // Enum definitions.
   enum class eG1_READ : uint32_t {
     eG1_READ_PROHIB = 0, // Instruction fetches and reads are prohibited (except that Trusted Descriptor reads (if G1_TDO=1) and key-reads are always allowed, and exporting Secure Memory Blobs is allowed if G1_SMBLOB=1 or if done by a Trusted Descriptor and G1_TDO=1).
     eG1_READ_ALLOWED = 1, // Instruction fetches and reads are allowed (but exporting a Secure Memory Blob is prohibited if G1_SMBLOB=0 and the descriptor is not a Trusted Descriptor or if G1_TDO=0).
   };
+  
   enum class eG1_WRITE : uint32_t {
     eG1_WRITE_PROHIB = 0, // Writes are prohibited (except that Trusted Descriptor writes are allowed, and importing Secure Memory Blobs is allowed if G1_SMBLOB=1 or if done by a Trusted Descriptor and G1_TDO=1).
     eG1_WRITE_ALLOWED = 1, // Writes are allowed (but importing a Secure Memory Blob is prohibited if G1_SMBLOB=0 and the descriptor is not a Trusted Descriptor or if G1_TDO=0).
   };
+  
   enum class eG1_TDO : uint32_t {
     eG1_TD_PRIVILEGE_AS_JD = 0, // Trusted Descriptors have the same access privileges as Job Descriptors
     eG1_TD_OVERIDE_ALLOWED = 1, // Trusted Descriptors are allowed to override the other access permissions, i.e. they can export blobs from or import blobs to the partition and read from and write to the partition regardless of the G1_SMBLOB, G1_WRITE and G1_READ settings.
   };
+  
   enum class eG1_SMBLOB : uint32_t {
     eG1_SM_BLOB_EXPORT_IMPORT_PROHIB = 0, // Exporting or importing Secure Memory Blobs is prohibited, unless done via a Trusted Descriptor and G1_TDO=1.
     eG1_SM_B_EXPORT_IMPORT_ALLOWED = 1, // Exporting or importing Secure Memory Blobs is allowed, regardless of the G1_READ and G1_WRITE settings.
   };
+  
   enum class eG2_READ : uint32_t {
     eG2_READ_PROHIB = 0, // Instruction fetches and reads are prohibited (except that Trusted Descriptor reads (if G2_TDO=1) and key-reads are always allowed, and exporting Secure Memory Blobs is allowed if G2_SMBLOB=1 or if done by a Trusted Descriptor and G2_TDO=1).
     eG2_READ_ALLOWED = 1, // Instruction fetches and reads are allowed (but exporting a Secure Memory Blob is prohibited if G2_SMBLOB=0 and the descriptor is not a Trusted Descriptor or if G2_TDO=0).
   };
+  
   enum class eG2_WRITE : uint32_t {
     eG2_WRITE_PROHIB = 0, // Writes are prohibited (except that Trusted Descriptor writes are allowed, and importing Secure Memory Blobs is allowed if G2_SMBLOB=1 or if done by a Trusted Descriptor and G2_TDO=1).
     eG2_WRITE_ALLOWED = 1, // Writes are allowed (but importing a Secure Memory Blob is prohibited if G2_SMBLOB=0 and the descriptor is not a Trusted Descriptor or if G2_TDO=0).
   };
+  
   enum class eG2_TDO : uint32_t {
     eG2_TD_PRIVILEGE_AS_JD = 0, // Trusted Descriptors have the same access privileges as Job Descriptors
     eG2_TD_OVERIDE_ALLOWED = 1, // Trusted Descriptors are allowed to override the other access permissions, i.e. they can export blobs from or import blobs to the partition and read from and write to the partition regardless of the G2_SMBLOB, G2_WRITE and G2_READ settings.
   };
+  
   enum class eG2_SMBLOB : uint32_t {
     eG2_SM_BLOB_EXPORT_IMPORT_PROHIB = 0, // Exporting or importing Secure Memory Blobs is prohibited, unless done via a Trusted Descriptor and G2_TDO=1.
     eG2_SM_BLOB_EXPORT_IMPORT_ALLOWED = 1, // Exporting or importing Secure Memory Blobs is allowed, regardless of the G2_READ and G2_WRITE settings.
   };
+  
   enum class eSMAG_LCK : uint32_t {
     eSMAG_UNLOCKED = 0, // The SMAG2JR register and SMAG1JR register are unlocked. The partition owner can change any writable bits of these registers.
     eSMAG_LOCKED = 1, // The SMAG2JR register and SMAG1JR register are locked. The SMAG2JR and SMAG1JR registers cannot be changed until the partition is de-allocated or a POR occurs.
   };
+  
   enum class eSMAP_LCK : uint32_t {
     eSMAP_UNLOCKED = 0, // The SMAP register is unlocked. The partition owner can change any writable bits of the SMAP register.
     eSMAP_LOCKED = 1, // The SMAP register is locked. The SMAP_LCK, CSP and PSP bits and G1 and G2 permission bits of the SMAP register cannot be changed until the partition is de-allocated or a POR occurs. The PARTITION_KMOD value can still be changed. The SMAG_LCK bit can be changed to a 1, but cannot be changed to a 0.
   };
+  
   enum class ePSP : uint32_t {
     eNOT_DEALLOCATABLE = 0, // The partition and any of the pages allocated to the partition can be de-allocated.
     eDEALLOCATABLE = 1, // The partition cannot be de-allocated and the pages allocated to the partition cannot be de-allocated.
   };
+  
   enum class eCSP : uint32_t {
     eNOT_ZEROIZED = 0, // The pages allocated to the partition will not be zeroized when they are de-allocated or the partition is released or a security alarm occurs.
     eZEROIZED = 1, // The pages allocated to the partition will be zeroized when they are individually de-allocated or the partition is released or a security alarm occurs.
@@ -23633,7 +23257,7 @@ union P11SMAPR_JR3 {
     ePSP PSP : 1;
     eCSP CSP : 1;
     uint32_t PARTITION_KMOD : 16;
-  } bits;          // Bit-field struct (auto-filling reserved gaps)
+  } bits;
   
   // Full 32-bit register value.
   uint32_t value;
@@ -23647,8 +23271,6 @@ union P11SMAPR_JR3 {
 //
 union P11SMAG2_JR3 {
   
-  // Enum definitions.
-  
   // Bit field definition.
   struct {
     uint32_t Gx_ID00 : 1;
@@ -23683,7 +23305,7 @@ union P11SMAG2_JR3 {
     uint32_t Gx_ID29 : 1;
     uint32_t Gx_ID30 : 1;
     uint32_t Gx_ID31 : 1;
-  } bits;          // Bit-field struct (auto-filling reserved gaps)
+  } bits;
   
   // Full 32-bit register value.
   uint32_t value;
@@ -23697,8 +23319,6 @@ union P11SMAG2_JR3 {
 //
 union P11SMAG1_JR3 {
   
-  // Enum definitions.
-  
   // Bit field definition.
   struct {
     uint32_t Gx_ID00 : 1;
@@ -23733,7 +23353,7 @@ union P11SMAG1_JR3 {
     uint32_t Gx_ID29 : 1;
     uint32_t Gx_ID30 : 1;
     uint32_t Gx_ID31 : 1;
-  } bits;          // Bit-field struct (auto-filling reserved gaps)
+  } bits;
   
   // Full 32-bit register value.
   uint32_t value;
@@ -23747,13 +23367,11 @@ union P11SMAG1_JR3 {
 //
 union P12SDID_JR3 {
   
-  // Enum definitions.
-  
   // Bit field definition.
   struct {
     uint32_t SDID : 16;
     uint32_t _reserved_end : 16;
-  } bits;          // Bit-field struct (auto-filling reserved gaps)
+  } bits;
   
   // Full 32-bit register value.
   uint32_t value;
@@ -23767,51 +23385,61 @@ union P12SDID_JR3 {
 //
 union P12SMAPR_JR3 {
   
-  // Enum definitions.
   enum class eG1_READ : uint32_t {
     eG1_READ_PROHIB = 0, // Instruction fetches and reads are prohibited (except that Trusted Descriptor reads (if G1_TDO=1) and key-reads are always allowed, and exporting Secure Memory Blobs is allowed if G1_SMBLOB=1 or if done by a Trusted Descriptor and G1_TDO=1).
     eG1_READ_ALLOWED = 1, // Instruction fetches and reads are allowed (but exporting a Secure Memory Blob is prohibited if G1_SMBLOB=0 and the descriptor is not a Trusted Descriptor or if G1_TDO=0).
   };
+  
   enum class eG1_WRITE : uint32_t {
     eG1_WRITE_PROHIB = 0, // Writes are prohibited (except that Trusted Descriptor writes are allowed, and importing Secure Memory Blobs is allowed if G1_SMBLOB=1 or if done by a Trusted Descriptor and G1_TDO=1).
     eG1_WRITE_ALLOWED = 1, // Writes are allowed (but importing a Secure Memory Blob is prohibited if G1_SMBLOB=0 and the descriptor is not a Trusted Descriptor or if G1_TDO=0).
   };
+  
   enum class eG1_TDO : uint32_t {
     eG1_TD_PRIVILEGE_AS_JD = 0, // Trusted Descriptors have the same access privileges as Job Descriptors
     eG1_TD_OVERIDE_ALLOWED = 1, // Trusted Descriptors are allowed to override the other access permissions, i.e. they can export blobs from or import blobs to the partition and read from and write to the partition regardless of the G1_SMBLOB, G1_WRITE and G1_READ settings.
   };
+  
   enum class eG1_SMBLOB : uint32_t {
     eG1_SM_BLOB_EXPORT_IMPORT_PROHIB = 0, // Exporting or importing Secure Memory Blobs is prohibited, unless done via a Trusted Descriptor and G1_TDO=1.
     eG1_SM_B_EXPORT_IMPORT_ALLOWED = 1, // Exporting or importing Secure Memory Blobs is allowed, regardless of the G1_READ and G1_WRITE settings.
   };
+  
   enum class eG2_READ : uint32_t {
     eG2_READ_PROHIB = 0, // Instruction fetches and reads are prohibited (except that Trusted Descriptor reads (if G2_TDO=1) and key-reads are always allowed, and exporting Secure Memory Blobs is allowed if G2_SMBLOB=1 or if done by a Trusted Descriptor and G2_TDO=1).
     eG2_READ_ALLOWED = 1, // Instruction fetches and reads are allowed (but exporting a Secure Memory Blob is prohibited if G2_SMBLOB=0 and the descriptor is not a Trusted Descriptor or if G2_TDO=0).
   };
+  
   enum class eG2_WRITE : uint32_t {
     eG2_WRITE_PROHIB = 0, // Writes are prohibited (except that Trusted Descriptor writes are allowed, and importing Secure Memory Blobs is allowed if G2_SMBLOB=1 or if done by a Trusted Descriptor and G2_TDO=1).
     eG2_WRITE_ALLOWED = 1, // Writes are allowed (but importing a Secure Memory Blob is prohibited if G2_SMBLOB=0 and the descriptor is not a Trusted Descriptor or if G2_TDO=0).
   };
+  
   enum class eG2_TDO : uint32_t {
     eG2_TD_PRIVILEGE_AS_JD = 0, // Trusted Descriptors have the same access privileges as Job Descriptors
     eG2_TD_OVERIDE_ALLOWED = 1, // Trusted Descriptors are allowed to override the other access permissions, i.e. they can export blobs from or import blobs to the partition and read from and write to the partition regardless of the G2_SMBLOB, G2_WRITE and G2_READ settings.
   };
+  
   enum class eG2_SMBLOB : uint32_t {
     eG2_SM_BLOB_EXPORT_IMPORT_PROHIB = 0, // Exporting or importing Secure Memory Blobs is prohibited, unless done via a Trusted Descriptor and G2_TDO=1.
     eG2_SM_BLOB_EXPORT_IMPORT_ALLOWED = 1, // Exporting or importing Secure Memory Blobs is allowed, regardless of the G2_READ and G2_WRITE settings.
   };
+  
   enum class eSMAG_LCK : uint32_t {
     eSMAG_UNLOCKED = 0, // The SMAG2JR register and SMAG1JR register are unlocked. The partition owner can change any writable bits of these registers.
     eSMAG_LOCKED = 1, // The SMAG2JR register and SMAG1JR register are locked. The SMAG2JR and SMAG1JR registers cannot be changed until the partition is de-allocated or a POR occurs.
   };
+  
   enum class eSMAP_LCK : uint32_t {
     eSMAP_UNLOCKED = 0, // The SMAP register is unlocked. The partition owner can change any writable bits of the SMAP register.
     eSMAP_LOCKED = 1, // The SMAP register is locked. The SMAP_LCK, CSP and PSP bits and G1 and G2 permission bits of the SMAP register cannot be changed until the partition is de-allocated or a POR occurs. The PARTITION_KMOD value can still be changed. The SMAG_LCK bit can be changed to a 1, but cannot be changed to a 0.
   };
+  
   enum class ePSP : uint32_t {
     eNOT_DEALLOCATABLE = 0, // The partition and any of the pages allocated to the partition can be de-allocated.
     eDEALLOCATABLE = 1, // The partition cannot be de-allocated and the pages allocated to the partition cannot be de-allocated.
   };
+  
   enum class eCSP : uint32_t {
     eNOT_ZEROIZED = 0, // The pages allocated to the partition will not be zeroized when they are de-allocated or the partition is released or a security alarm occurs.
     eZEROIZED = 1, // The pages allocated to the partition will be zeroized when they are individually de-allocated or the partition is released or a security alarm occurs.
@@ -23833,7 +23461,7 @@ union P12SMAPR_JR3 {
     ePSP PSP : 1;
     eCSP CSP : 1;
     uint32_t PARTITION_KMOD : 16;
-  } bits;          // Bit-field struct (auto-filling reserved gaps)
+  } bits;
   
   // Full 32-bit register value.
   uint32_t value;
@@ -23847,8 +23475,6 @@ union P12SMAPR_JR3 {
 //
 union P12SMAG2_JR3 {
   
-  // Enum definitions.
-  
   // Bit field definition.
   struct {
     uint32_t Gx_ID00 : 1;
@@ -23883,7 +23509,7 @@ union P12SMAG2_JR3 {
     uint32_t Gx_ID29 : 1;
     uint32_t Gx_ID30 : 1;
     uint32_t Gx_ID31 : 1;
-  } bits;          // Bit-field struct (auto-filling reserved gaps)
+  } bits;
   
   // Full 32-bit register value.
   uint32_t value;
@@ -23897,8 +23523,6 @@ union P12SMAG2_JR3 {
 //
 union P12SMAG1_JR3 {
   
-  // Enum definitions.
-  
   // Bit field definition.
   struct {
     uint32_t Gx_ID00 : 1;
@@ -23933,7 +23557,7 @@ union P12SMAG1_JR3 {
     uint32_t Gx_ID29 : 1;
     uint32_t Gx_ID30 : 1;
     uint32_t Gx_ID31 : 1;
-  } bits;          // Bit-field struct (auto-filling reserved gaps)
+  } bits;
   
   // Full 32-bit register value.
   uint32_t value;
@@ -23947,13 +23571,11 @@ union P12SMAG1_JR3 {
 //
 union P13SDID_JR3 {
   
-  // Enum definitions.
-  
   // Bit field definition.
   struct {
     uint32_t SDID : 16;
     uint32_t _reserved_end : 16;
-  } bits;          // Bit-field struct (auto-filling reserved gaps)
+  } bits;
   
   // Full 32-bit register value.
   uint32_t value;
@@ -23967,51 +23589,61 @@ union P13SDID_JR3 {
 //
 union P13SMAPR_JR3 {
   
-  // Enum definitions.
   enum class eG1_READ : uint32_t {
     eG1_READ_PROHIB = 0, // Instruction fetches and reads are prohibited (except that Trusted Descriptor reads (if G1_TDO=1) and key-reads are always allowed, and exporting Secure Memory Blobs is allowed if G1_SMBLOB=1 or if done by a Trusted Descriptor and G1_TDO=1).
     eG1_READ_ALLOWED = 1, // Instruction fetches and reads are allowed (but exporting a Secure Memory Blob is prohibited if G1_SMBLOB=0 and the descriptor is not a Trusted Descriptor or if G1_TDO=0).
   };
+  
   enum class eG1_WRITE : uint32_t {
     eG1_WRITE_PROHIB = 0, // Writes are prohibited (except that Trusted Descriptor writes are allowed, and importing Secure Memory Blobs is allowed if G1_SMBLOB=1 or if done by a Trusted Descriptor and G1_TDO=1).
     eG1_WRITE_ALLOWED = 1, // Writes are allowed (but importing a Secure Memory Blob is prohibited if G1_SMBLOB=0 and the descriptor is not a Trusted Descriptor or if G1_TDO=0).
   };
+  
   enum class eG1_TDO : uint32_t {
     eG1_TD_PRIVILEGE_AS_JD = 0, // Trusted Descriptors have the same access privileges as Job Descriptors
     eG1_TD_OVERIDE_ALLOWED = 1, // Trusted Descriptors are allowed to override the other access permissions, i.e. they can export blobs from or import blobs to the partition and read from and write to the partition regardless of the G1_SMBLOB, G1_WRITE and G1_READ settings.
   };
+  
   enum class eG1_SMBLOB : uint32_t {
     eG1_SM_BLOB_EXPORT_IMPORT_PROHIB = 0, // Exporting or importing Secure Memory Blobs is prohibited, unless done via a Trusted Descriptor and G1_TDO=1.
     eG1_SM_B_EXPORT_IMPORT_ALLOWED = 1, // Exporting or importing Secure Memory Blobs is allowed, regardless of the G1_READ and G1_WRITE settings.
   };
+  
   enum class eG2_READ : uint32_t {
     eG2_READ_PROHIB = 0, // Instruction fetches and reads are prohibited (except that Trusted Descriptor reads (if G2_TDO=1) and key-reads are always allowed, and exporting Secure Memory Blobs is allowed if G2_SMBLOB=1 or if done by a Trusted Descriptor and G2_TDO=1).
     eG2_READ_ALLOWED = 1, // Instruction fetches and reads are allowed (but exporting a Secure Memory Blob is prohibited if G2_SMBLOB=0 and the descriptor is not a Trusted Descriptor or if G2_TDO=0).
   };
+  
   enum class eG2_WRITE : uint32_t {
     eG2_WRITE_PROHIB = 0, // Writes are prohibited (except that Trusted Descriptor writes are allowed, and importing Secure Memory Blobs is allowed if G2_SMBLOB=1 or if done by a Trusted Descriptor and G2_TDO=1).
     eG2_WRITE_ALLOWED = 1, // Writes are allowed (but importing a Secure Memory Blob is prohibited if G2_SMBLOB=0 and the descriptor is not a Trusted Descriptor or if G2_TDO=0).
   };
+  
   enum class eG2_TDO : uint32_t {
     eG2_TD_PRIVILEGE_AS_JD = 0, // Trusted Descriptors have the same access privileges as Job Descriptors
     eG2_TD_OVERIDE_ALLOWED = 1, // Trusted Descriptors are allowed to override the other access permissions, i.e. they can export blobs from or import blobs to the partition and read from and write to the partition regardless of the G2_SMBLOB, G2_WRITE and G2_READ settings.
   };
+  
   enum class eG2_SMBLOB : uint32_t {
     eG2_SM_BLOB_EXPORT_IMPORT_PROHIB = 0, // Exporting or importing Secure Memory Blobs is prohibited, unless done via a Trusted Descriptor and G2_TDO=1.
     eG2_SM_BLOB_EXPORT_IMPORT_ALLOWED = 1, // Exporting or importing Secure Memory Blobs is allowed, regardless of the G2_READ and G2_WRITE settings.
   };
+  
   enum class eSMAG_LCK : uint32_t {
     eSMAG_UNLOCKED = 0, // The SMAG2JR register and SMAG1JR register are unlocked. The partition owner can change any writable bits of these registers.
     eSMAG_LOCKED = 1, // The SMAG2JR register and SMAG1JR register are locked. The SMAG2JR and SMAG1JR registers cannot be changed until the partition is de-allocated or a POR occurs.
   };
+  
   enum class eSMAP_LCK : uint32_t {
     eSMAP_UNLOCKED = 0, // The SMAP register is unlocked. The partition owner can change any writable bits of the SMAP register.
     eSMAP_LOCKED = 1, // The SMAP register is locked. The SMAP_LCK, CSP and PSP bits and G1 and G2 permission bits of the SMAP register cannot be changed until the partition is de-allocated or a POR occurs. The PARTITION_KMOD value can still be changed. The SMAG_LCK bit can be changed to a 1, but cannot be changed to a 0.
   };
+  
   enum class ePSP : uint32_t {
     eNOT_DEALLOCATABLE = 0, // The partition and any of the pages allocated to the partition can be de-allocated.
     eDEALLOCATABLE = 1, // The partition cannot be de-allocated and the pages allocated to the partition cannot be de-allocated.
   };
+  
   enum class eCSP : uint32_t {
     eNOT_ZEROIZED = 0, // The pages allocated to the partition will not be zeroized when they are de-allocated or the partition is released or a security alarm occurs.
     eZEROIZED = 1, // The pages allocated to the partition will be zeroized when they are individually de-allocated or the partition is released or a security alarm occurs.
@@ -24033,7 +23665,7 @@ union P13SMAPR_JR3 {
     ePSP PSP : 1;
     eCSP CSP : 1;
     uint32_t PARTITION_KMOD : 16;
-  } bits;          // Bit-field struct (auto-filling reserved gaps)
+  } bits;
   
   // Full 32-bit register value.
   uint32_t value;
@@ -24047,8 +23679,6 @@ union P13SMAPR_JR3 {
 //
 union P13SMAG2_JR3 {
   
-  // Enum definitions.
-  
   // Bit field definition.
   struct {
     uint32_t Gx_ID00 : 1;
@@ -24083,7 +23713,7 @@ union P13SMAG2_JR3 {
     uint32_t Gx_ID29 : 1;
     uint32_t Gx_ID30 : 1;
     uint32_t Gx_ID31 : 1;
-  } bits;          // Bit-field struct (auto-filling reserved gaps)
+  } bits;
   
   // Full 32-bit register value.
   uint32_t value;
@@ -24097,8 +23727,6 @@ union P13SMAG2_JR3 {
 //
 union P13SMAG1_JR3 {
   
-  // Enum definitions.
-  
   // Bit field definition.
   struct {
     uint32_t Gx_ID00 : 1;
@@ -24133,7 +23761,7 @@ union P13SMAG1_JR3 {
     uint32_t Gx_ID29 : 1;
     uint32_t Gx_ID30 : 1;
     uint32_t Gx_ID31 : 1;
-  } bits;          // Bit-field struct (auto-filling reserved gaps)
+  } bits;
   
   // Full 32-bit register value.
   uint32_t value;
@@ -24147,13 +23775,11 @@ union P13SMAG1_JR3 {
 //
 union P14SDID_JR3 {
   
-  // Enum definitions.
-  
   // Bit field definition.
   struct {
     uint32_t SDID : 16;
     uint32_t _reserved_end : 16;
-  } bits;          // Bit-field struct (auto-filling reserved gaps)
+  } bits;
   
   // Full 32-bit register value.
   uint32_t value;
@@ -24167,51 +23793,61 @@ union P14SDID_JR3 {
 //
 union P14SMAPR_JR3 {
   
-  // Enum definitions.
   enum class eG1_READ : uint32_t {
     eG1_READ_PROHIB = 0, // Instruction fetches and reads are prohibited (except that Trusted Descriptor reads (if G1_TDO=1) and key-reads are always allowed, and exporting Secure Memory Blobs is allowed if G1_SMBLOB=1 or if done by a Trusted Descriptor and G1_TDO=1).
     eG1_READ_ALLOWED = 1, // Instruction fetches and reads are allowed (but exporting a Secure Memory Blob is prohibited if G1_SMBLOB=0 and the descriptor is not a Trusted Descriptor or if G1_TDO=0).
   };
+  
   enum class eG1_WRITE : uint32_t {
     eG1_WRITE_PROHIB = 0, // Writes are prohibited (except that Trusted Descriptor writes are allowed, and importing Secure Memory Blobs is allowed if G1_SMBLOB=1 or if done by a Trusted Descriptor and G1_TDO=1).
     eG1_WRITE_ALLOWED = 1, // Writes are allowed (but importing a Secure Memory Blob is prohibited if G1_SMBLOB=0 and the descriptor is not a Trusted Descriptor or if G1_TDO=0).
   };
+  
   enum class eG1_TDO : uint32_t {
     eG1_TD_PRIVILEGE_AS_JD = 0, // Trusted Descriptors have the same access privileges as Job Descriptors
     eG1_TD_OVERIDE_ALLOWED = 1, // Trusted Descriptors are allowed to override the other access permissions, i.e. they can export blobs from or import blobs to the partition and read from and write to the partition regardless of the G1_SMBLOB, G1_WRITE and G1_READ settings.
   };
+  
   enum class eG1_SMBLOB : uint32_t {
     eG1_SM_BLOB_EXPORT_IMPORT_PROHIB = 0, // Exporting or importing Secure Memory Blobs is prohibited, unless done via a Trusted Descriptor and G1_TDO=1.
     eG1_SM_B_EXPORT_IMPORT_ALLOWED = 1, // Exporting or importing Secure Memory Blobs is allowed, regardless of the G1_READ and G1_WRITE settings.
   };
+  
   enum class eG2_READ : uint32_t {
     eG2_READ_PROHIB = 0, // Instruction fetches and reads are prohibited (except that Trusted Descriptor reads (if G2_TDO=1) and key-reads are always allowed, and exporting Secure Memory Blobs is allowed if G2_SMBLOB=1 or if done by a Trusted Descriptor and G2_TDO=1).
     eG2_READ_ALLOWED = 1, // Instruction fetches and reads are allowed (but exporting a Secure Memory Blob is prohibited if G2_SMBLOB=0 and the descriptor is not a Trusted Descriptor or if G2_TDO=0).
   };
+  
   enum class eG2_WRITE : uint32_t {
     eG2_WRITE_PROHIB = 0, // Writes are prohibited (except that Trusted Descriptor writes are allowed, and importing Secure Memory Blobs is allowed if G2_SMBLOB=1 or if done by a Trusted Descriptor and G2_TDO=1).
     eG2_WRITE_ALLOWED = 1, // Writes are allowed (but importing a Secure Memory Blob is prohibited if G2_SMBLOB=0 and the descriptor is not a Trusted Descriptor or if G2_TDO=0).
   };
+  
   enum class eG2_TDO : uint32_t {
     eG2_TD_PRIVILEGE_AS_JD = 0, // Trusted Descriptors have the same access privileges as Job Descriptors
     eG2_TD_OVERIDE_ALLOWED = 1, // Trusted Descriptors are allowed to override the other access permissions, i.e. they can export blobs from or import blobs to the partition and read from and write to the partition regardless of the G2_SMBLOB, G2_WRITE and G2_READ settings.
   };
+  
   enum class eG2_SMBLOB : uint32_t {
     eG2_SM_BLOB_EXPORT_IMPORT_PROHIB = 0, // Exporting or importing Secure Memory Blobs is prohibited, unless done via a Trusted Descriptor and G2_TDO=1.
     eG2_SM_BLOB_EXPORT_IMPORT_ALLOWED = 1, // Exporting or importing Secure Memory Blobs is allowed, regardless of the G2_READ and G2_WRITE settings.
   };
+  
   enum class eSMAG_LCK : uint32_t {
     eSMAG_UNLOCKED = 0, // The SMAG2JR register and SMAG1JR register are unlocked. The partition owner can change any writable bits of these registers.
     eSMAG_LOCKED = 1, // The SMAG2JR register and SMAG1JR register are locked. The SMAG2JR and SMAG1JR registers cannot be changed until the partition is de-allocated or a POR occurs.
   };
+  
   enum class eSMAP_LCK : uint32_t {
     eSMAP_UNLOCKED = 0, // The SMAP register is unlocked. The partition owner can change any writable bits of the SMAP register.
     eSMAP_LOCKED = 1, // The SMAP register is locked. The SMAP_LCK, CSP and PSP bits and G1 and G2 permission bits of the SMAP register cannot be changed until the partition is de-allocated or a POR occurs. The PARTITION_KMOD value can still be changed. The SMAG_LCK bit can be changed to a 1, but cannot be changed to a 0.
   };
+  
   enum class ePSP : uint32_t {
     eNOT_DEALLOCATABLE = 0, // The partition and any of the pages allocated to the partition can be de-allocated.
     eDEALLOCATABLE = 1, // The partition cannot be de-allocated and the pages allocated to the partition cannot be de-allocated.
   };
+  
   enum class eCSP : uint32_t {
     eNOT_ZEROIZED = 0, // The pages allocated to the partition will not be zeroized when they are de-allocated or the partition is released or a security alarm occurs.
     eZEROIZED = 1, // The pages allocated to the partition will be zeroized when they are individually de-allocated or the partition is released or a security alarm occurs.
@@ -24233,7 +23869,7 @@ union P14SMAPR_JR3 {
     ePSP PSP : 1;
     eCSP CSP : 1;
     uint32_t PARTITION_KMOD : 16;
-  } bits;          // Bit-field struct (auto-filling reserved gaps)
+  } bits;
   
   // Full 32-bit register value.
   uint32_t value;
@@ -24247,8 +23883,6 @@ union P14SMAPR_JR3 {
 //
 union P14SMAG2_JR3 {
   
-  // Enum definitions.
-  
   // Bit field definition.
   struct {
     uint32_t Gx_ID00 : 1;
@@ -24283,7 +23917,7 @@ union P14SMAG2_JR3 {
     uint32_t Gx_ID29 : 1;
     uint32_t Gx_ID30 : 1;
     uint32_t Gx_ID31 : 1;
-  } bits;          // Bit-field struct (auto-filling reserved gaps)
+  } bits;
   
   // Full 32-bit register value.
   uint32_t value;
@@ -24297,8 +23931,6 @@ union P14SMAG2_JR3 {
 //
 union P14SMAG1_JR3 {
   
-  // Enum definitions.
-  
   // Bit field definition.
   struct {
     uint32_t Gx_ID00 : 1;
@@ -24333,7 +23965,7 @@ union P14SMAG1_JR3 {
     uint32_t Gx_ID29 : 1;
     uint32_t Gx_ID30 : 1;
     uint32_t Gx_ID31 : 1;
-  } bits;          // Bit-field struct (auto-filling reserved gaps)
+  } bits;
   
   // Full 32-bit register value.
   uint32_t value;
@@ -24347,13 +23979,11 @@ union P14SMAG1_JR3 {
 //
 union P15SDID_JR3 {
   
-  // Enum definitions.
-  
   // Bit field definition.
   struct {
     uint32_t SDID : 16;
     uint32_t _reserved_end : 16;
-  } bits;          // Bit-field struct (auto-filling reserved gaps)
+  } bits;
   
   // Full 32-bit register value.
   uint32_t value;
@@ -24367,51 +23997,61 @@ union P15SDID_JR3 {
 //
 union P15SMAPR_JR3 {
   
-  // Enum definitions.
   enum class eG1_READ : uint32_t {
     eG1_READ_PROHIB = 0, // Instruction fetches and reads are prohibited (except that Trusted Descriptor reads (if G1_TDO=1) and key-reads are always allowed, and exporting Secure Memory Blobs is allowed if G1_SMBLOB=1 or if done by a Trusted Descriptor and G1_TDO=1).
     eG1_READ_ALLOWED = 1, // Instruction fetches and reads are allowed (but exporting a Secure Memory Blob is prohibited if G1_SMBLOB=0 and the descriptor is not a Trusted Descriptor or if G1_TDO=0).
   };
+  
   enum class eG1_WRITE : uint32_t {
     eG1_WRITE_PROHIB = 0, // Writes are prohibited (except that Trusted Descriptor writes are allowed, and importing Secure Memory Blobs is allowed if G1_SMBLOB=1 or if done by a Trusted Descriptor and G1_TDO=1).
     eG1_WRITE_ALLOWED = 1, // Writes are allowed (but importing a Secure Memory Blob is prohibited if G1_SMBLOB=0 and the descriptor is not a Trusted Descriptor or if G1_TDO=0).
   };
+  
   enum class eG1_TDO : uint32_t {
     eG1_TD_PRIVILEGE_AS_JD = 0, // Trusted Descriptors have the same access privileges as Job Descriptors
     eG1_TD_OVERIDE_ALLOWED = 1, // Trusted Descriptors are allowed to override the other access permissions, i.e. they can export blobs from or import blobs to the partition and read from and write to the partition regardless of the G1_SMBLOB, G1_WRITE and G1_READ settings.
   };
+  
   enum class eG1_SMBLOB : uint32_t {
     eG1_SM_BLOB_EXPORT_IMPORT_PROHIB = 0, // Exporting or importing Secure Memory Blobs is prohibited, unless done via a Trusted Descriptor and G1_TDO=1.
     eG1_SM_B_EXPORT_IMPORT_ALLOWED = 1, // Exporting or importing Secure Memory Blobs is allowed, regardless of the G1_READ and G1_WRITE settings.
   };
+  
   enum class eG2_READ : uint32_t {
     eG2_READ_PROHIB = 0, // Instruction fetches and reads are prohibited (except that Trusted Descriptor reads (if G2_TDO=1) and key-reads are always allowed, and exporting Secure Memory Blobs is allowed if G2_SMBLOB=1 or if done by a Trusted Descriptor and G2_TDO=1).
     eG2_READ_ALLOWED = 1, // Instruction fetches and reads are allowed (but exporting a Secure Memory Blob is prohibited if G2_SMBLOB=0 and the descriptor is not a Trusted Descriptor or if G2_TDO=0).
   };
+  
   enum class eG2_WRITE : uint32_t {
     eG2_WRITE_PROHIB = 0, // Writes are prohibited (except that Trusted Descriptor writes are allowed, and importing Secure Memory Blobs is allowed if G2_SMBLOB=1 or if done by a Trusted Descriptor and G2_TDO=1).
     eG2_WRITE_ALLOWED = 1, // Writes are allowed (but importing a Secure Memory Blob is prohibited if G2_SMBLOB=0 and the descriptor is not a Trusted Descriptor or if G2_TDO=0).
   };
+  
   enum class eG2_TDO : uint32_t {
     eG2_TD_PRIVILEGE_AS_JD = 0, // Trusted Descriptors have the same access privileges as Job Descriptors
     eG2_TD_OVERIDE_ALLOWED = 1, // Trusted Descriptors are allowed to override the other access permissions, i.e. they can export blobs from or import blobs to the partition and read from and write to the partition regardless of the G2_SMBLOB, G2_WRITE and G2_READ settings.
   };
+  
   enum class eG2_SMBLOB : uint32_t {
     eG2_SM_BLOB_EXPORT_IMPORT_PROHIB = 0, // Exporting or importing Secure Memory Blobs is prohibited, unless done via a Trusted Descriptor and G2_TDO=1.
     eG2_SM_BLOB_EXPORT_IMPORT_ALLOWED = 1, // Exporting or importing Secure Memory Blobs is allowed, regardless of the G2_READ and G2_WRITE settings.
   };
+  
   enum class eSMAG_LCK : uint32_t {
     eSMAG_UNLOCKED = 0, // The SMAG2JR register and SMAG1JR register are unlocked. The partition owner can change any writable bits of these registers.
     eSMAG_LOCKED = 1, // The SMAG2JR register and SMAG1JR register are locked. The SMAG2JR and SMAG1JR registers cannot be changed until the partition is de-allocated or a POR occurs.
   };
+  
   enum class eSMAP_LCK : uint32_t {
     eSMAP_UNLOCKED = 0, // The SMAP register is unlocked. The partition owner can change any writable bits of the SMAP register.
     eSMAP_LOCKED = 1, // The SMAP register is locked. The SMAP_LCK, CSP and PSP bits and G1 and G2 permission bits of the SMAP register cannot be changed until the partition is de-allocated or a POR occurs. The PARTITION_KMOD value can still be changed. The SMAG_LCK bit can be changed to a 1, but cannot be changed to a 0.
   };
+  
   enum class ePSP : uint32_t {
     eNOT_DEALLOCATABLE = 0, // The partition and any of the pages allocated to the partition can be de-allocated.
     eDEALLOCATABLE = 1, // The partition cannot be de-allocated and the pages allocated to the partition cannot be de-allocated.
   };
+  
   enum class eCSP : uint32_t {
     eNOT_ZEROIZED = 0, // The pages allocated to the partition will not be zeroized when they are de-allocated or the partition is released or a security alarm occurs.
     eZEROIZED = 1, // The pages allocated to the partition will be zeroized when they are individually de-allocated or the partition is released or a security alarm occurs.
@@ -24433,7 +24073,7 @@ union P15SMAPR_JR3 {
     ePSP PSP : 1;
     eCSP CSP : 1;
     uint32_t PARTITION_KMOD : 16;
-  } bits;          // Bit-field struct (auto-filling reserved gaps)
+  } bits;
   
   // Full 32-bit register value.
   uint32_t value;
@@ -24447,8 +24087,6 @@ union P15SMAPR_JR3 {
 //
 union P15SMAG2_JR3 {
   
-  // Enum definitions.
-  
   // Bit field definition.
   struct {
     uint32_t Gx_ID00 : 1;
@@ -24483,7 +24121,7 @@ union P15SMAG2_JR3 {
     uint32_t Gx_ID29 : 1;
     uint32_t Gx_ID30 : 1;
     uint32_t Gx_ID31 : 1;
-  } bits;          // Bit-field struct (auto-filling reserved gaps)
+  } bits;
   
   // Full 32-bit register value.
   uint32_t value;
@@ -24497,8 +24135,6 @@ union P15SMAG2_JR3 {
 //
 union P15SMAG1_JR3 {
   
-  // Enum definitions.
-  
   // Bit field definition.
   struct {
     uint32_t Gx_ID00 : 1;
@@ -24533,7 +24169,7 @@ union P15SMAG1_JR3 {
     uint32_t Gx_ID29 : 1;
     uint32_t Gx_ID30 : 1;
     uint32_t Gx_ID31 : 1;
-  } bits;          // Bit-field struct (auto-filling reserved gaps)
+  } bits;
   
   // Full 32-bit register value.
   uint32_t value;
@@ -24547,8 +24183,6 @@ union P15SMAG1_JR3 {
 //
 union SMCR_JR3 {
   
-  // Enum definitions.
-  
   // Bit field definition.
   struct {
     uint32_t CMD : 4;
@@ -24556,7 +24190,7 @@ union SMCR_JR3 {
     uint32_t PRTN : 4;
     uint32_t _reserved_2 : 4;
     uint32_t PAGE : 16;
-  } bits;          // Bit-field struct (auto-filling reserved gaps)
+  } bits;
   
   // Full 32-bit register value.
   uint32_t value;
@@ -24570,13 +24204,13 @@ union SMCR_JR3 {
 //
 union SMCSR_JR3 {
   
-  // Enum definitions.
   enum class ePO : uint32_t {
     eAVAILABLE = 0, // Available; Unowned: The entity that issued the inquiry may allocate this page to a partition. No zeroization is needed since it has already been cleared, therefore no interrupt should be expected.
     eNOT_PRESENT_OR_INITIALIZED = 1, // Page does not exist in this version or is not initialized yet.
     eUNAVAILABLE = 2, // Another entity owns the page. This page is unavailable to the issuer of the inquiry.
     eOWNED = 3, // Owned by the entity making the inquiry. The owner may de-allocate this page if its partition is not marked PSP. If the partition to which the page is allocated is designated as CSP, the page will be zeroized upon de-allocation.
   };
+  
   enum class eCERR : uint32_t {
     eNO_ERROR = 0, // No Error.
     eCMD_INCOMPLETE_ERROR = 1, // Command has not yet completed.
@@ -24594,7 +24228,7 @@ union SMCSR_JR3 {
     eCERR CERR : 2;
     uint32_t PAGE : 12;
     uint32_t _reserved_end : 4;
-  } bits;          // Bit-field struct (auto-filling reserved gaps)
+  } bits;
   
   // Full 32-bit register value.
   uint32_t value;
@@ -24608,15 +24242,13 @@ union SMCSR_JR3 {
 //
 union REIR0JR3 {
   
-  // Enum definitions.
-  
   // Bit field definition.
   struct {
     uint32_t _reserved_0 : 24;
     uint32_t TYPE : 2;
     uint32_t _reserved_1 : 5;
     uint32_t MISS : 1;
-  } bits;          // Bit-field struct (auto-filling reserved gaps)
+  } bits;
   
   // Full 32-bit register value.
   uint32_t value;
@@ -24630,12 +24262,10 @@ union REIR0JR3 {
 //
 union REIR2JR3 {
   
-  // Enum definitions.
-  
   // Bit field definition.
   struct {
     uint32_t ADDR : 36;
-  } bits;          // Bit-field struct (auto-filling reserved gaps)
+  } bits;
   
   // Full 32-bit register value.
   uint32_t value;
@@ -24649,8 +24279,6 @@ union REIR2JR3 {
 //
 union REIR4JR3 {
   
-  // Enum definitions.
-  
   // Bit field definition.
   struct {
     uint32_t ICID : 11;
@@ -24662,7 +24290,7 @@ union REIR4JR3 {
     uint32_t _reserved_5 : 4;
     uint32_t ERR : 2;
     uint32_t MIX : 2;
-  } bits;          // Bit-field struct (auto-filling reserved gaps)
+  } bits;
   
   // Full 32-bit register value.
   uint32_t value;
@@ -24676,8 +24304,6 @@ union REIR4JR3 {
 //
 union REIR5JR3 {
   
-  // Enum definitions.
-  
   // Bit field definition.
   struct {
     uint32_t _reserved_0 : 16;
@@ -24689,7 +24315,7 @@ union REIR5JR3 {
     uint32_t KEY : 1;
     uint32_t SMA : 1;
     uint32_t _reserved_end : 2;
-  } bits;          // Bit-field struct (auto-filling reserved gaps)
+  } bits;
   
   // Full 32-bit register value.
   uint32_t value;
@@ -24703,35 +24329,41 @@ union REIR5JR3 {
 //
 union RSTA {
   
-  // Enum definitions.
   enum class eBSY : uint32_t {
     eIDLE = 0, // RTIC Idle.
     eBUSY = 1, // RTIC Busy.
   };
+  
   enum class eHD : uint32_t {
     eBOOT_AUTH_DISABLED = 0, // Boot authentication disabled
     eBOOT_AUTH_ENABLED = 1, // Authenticate code/generate reference hash value. This bit cannot be modified during run-time checking mode.
   };
+  
   enum class eSV : uint32_t {
     eBLOCKS_AUTHENTICATED = 0, // Memory block contents authenticated.
     eBLOCKS_HASH_MISMATCH = 1, // Memory block hash doesn't match reference value.
   };
+  
   enum class eHE : uint32_t {
     eBLOCKS_AUTHENTICATED = 0, // Memory block contents authenticated.
     eBLOCKS_HASH_MISMATCH = 1, // Memory block hash doesn't match reference value.
   };
+  
   enum class eMIS : uint32_t {
     eVALID_OR_UNKNOWN = 0, // Memory Block X is valid or state unknown
     eCORRUPTED = 1, // Memory Block X has been corrupted
   };
+  
   enum class eAE : uint32_t {
     eADDR_VALID = 0, // All reads by RTIC were valid.
     eADDR_ERROR = 1, // An illegal address was accessed by the RTIC
   };
+  
   enum class eWE : uint32_t {
     eWATCHDOG_GOING = 0, // No RTIC Watchdog timer error has occurred.
     eWATCHDOG_ERROR = 1, // RTIC Watchdog timer has expired prior to completing a round of hashing.
   };
+  
   enum class eCS : uint32_t {
     eIDLE = 0, // Idle State
     eSINGLE_HASH = 1, // Single Hash State
@@ -24755,7 +24387,7 @@ union RSTA {
     uint32_t _reserved_10 : 5;
     eCS CS : 2;
     uint32_t _reserved_end : 5;
-  } bits;          // Bit-field struct (auto-filling reserved gaps)
+  } bits;
   
   // Full 32-bit register value.
   uint32_t value;
@@ -24769,19 +24401,21 @@ union RSTA {
 //
 union RCMD {
   
-  // Enum definitions.
   enum class eCINT : uint32_t {
     eKEEP_INTR = 0, // Do not clear interrupt
     eCLEAR_INTR = 1, // Clear interrupt. This bit cannot be modified during run-time checking mode
   };
+  
   enum class eHO : uint32_t {
     eBOOT_AUTH_DISABLED = 0, // Boot authentication disabled
     eBOOT_AUTH_ENABLED = 1, // Authenticate code/generate reference hash value. This bit cannot be modified during run-time checking mode.
   };
+  
   enum class eRTC : uint32_t {
     eDISABLED = 0, // Run-time checking disabled
     eCONTINOUS = 1, // Verify run-time memory blocks continually
   };
+  
   enum class eRTD : uint32_t {
     eENABLED = 0, // Allow Run Time Mode
     eDISABLED = 1, // Prevent Run Time Mode
@@ -24794,7 +24428,7 @@ union RCMD {
     eRTC RTC : 1;
     eRTD RTD : 1;
     uint32_t _reserved_end : 28;
-  } bits;          // Bit-field struct (auto-filling reserved gaps)
+  } bits;
   
   // Full 32-bit register value.
   uint32_t value;
@@ -24808,7 +24442,6 @@ union RCMD {
 //
 union RCTL {
   
-  // Enum definitions.
   enum class eIE : uint32_t {
     eDISABLED = 0, // Interrupts disabled
     eENABLED = 1, // Interrupts enabled
@@ -24824,7 +24457,7 @@ union RCTL {
     uint32_t RALG : 4;
     uint32_t RIDLE : 1;
     uint32_t _reserved_end : 11;
-  } bits;          // Bit-field struct (auto-filling reserved gaps)
+  } bits;
   
   // Full 32-bit register value.
   uint32_t value;
@@ -24838,13 +24471,11 @@ union RCTL {
 //
 union RTHR {
   
-  // Enum definitions.
-  
   // Bit field definition.
   struct {
     uint32_t RTHR : 16;
     uint32_t _reserved_end : 16;
-  } bits;          // Bit-field struct (auto-filling reserved gaps)
+  } bits;
   
   // Full 32-bit register value.
   uint32_t value;
@@ -24858,12 +24489,10 @@ union RTHR {
 //
 union RWDOG {
   
-  // Enum definitions.
-  
   // Bit field definition.
   struct {
     uint32_t RWDOG : 32;
-  } bits;          // Bit-field struct (auto-filling reserved gaps)
+  } bits;
   
   // Full 32-bit register value.
   uint32_t value;
@@ -24877,16 +24506,18 @@ union RWDOG {
 //
 union REND {
   
-  // Enum definitions.
   enum class eREPO : uint32_t {
     eBYTE_SWAP_BLOCK_A = 1, // Byte Swap Memory Block A
   };
+  
   enum class eRBS : uint32_t {
     eBYTE_SWAP_BLOCK_A = 1, // Byte Swap Memory Block A
   };
+  
   enum class eRHWS : uint32_t {
     eHALFWORD_SWAP_BLOCK_A = 1, // Half-Word Swap Memory Block A
   };
+  
   enum class eRWS : uint32_t {
     eWORD_SWAP_BLOCK_A = 1, // Word Swap Memory Block A
   };
@@ -24898,7 +24529,7 @@ union REND {
     eRHWS RHWS : 4;
     eRWS RWS : 4;
     uint32_t _reserved_end : 16;
-  } bits;          // Bit-field struct (auto-filling reserved gaps)
+  } bits;
   
   // Full 32-bit register value.
   uint32_t value;
@@ -24912,15 +24543,13 @@ union REND {
 //
 union REIR0RTIC {
   
-  // Enum definitions.
-  
   // Bit field definition.
   struct {
     uint32_t _reserved_0 : 24;
     uint32_t TYPE : 2;
     uint32_t _reserved_1 : 5;
     uint32_t MISS : 1;
-  } bits;          // Bit-field struct (auto-filling reserved gaps)
+  } bits;
   
   // Full 32-bit register value.
   uint32_t value;
@@ -24934,12 +24563,10 @@ union REIR0RTIC {
 //
 union REIR2RTIC {
   
-  // Enum definitions.
-  
   // Bit field definition.
   struct {
     uint32_t ADDR : 64;
-  } bits;          // Bit-field struct (auto-filling reserved gaps)
+  } bits;
   
   // Full 32-bit register value.
   uint32_t value;
@@ -24953,8 +24580,6 @@ union REIR2RTIC {
 //
 union REIR4RTIC {
   
-  // Enum definitions.
-  
   // Bit field definition.
   struct {
     uint32_t ICID : 11;
@@ -24966,7 +24591,7 @@ union REIR4RTIC {
     uint32_t _reserved_5 : 4;
     uint32_t ERR : 2;
     uint32_t MIX : 2;
-  } bits;          // Bit-field struct (auto-filling reserved gaps)
+  } bits;
   
   // Full 32-bit register value.
   uint32_t value;
@@ -24980,8 +24605,6 @@ union REIR4RTIC {
 //
 union REIR5RTIC {
   
-  // Enum definitions.
-  
   // Bit field definition.
   struct {
     uint32_t _reserved_0 : 16;
@@ -24990,7 +24613,7 @@ union REIR5RTIC {
     uint32_t SAFE : 1;
     uint32_t SMA : 1;
     uint32_t _reserved_end : 6;
-  } bits;          // Bit-field struct (auto-filling reserved gaps)
+  } bits;
   
   // Full 32-bit register value.
   uint32_t value;
@@ -25004,17 +24627,18 @@ union REIR5RTIC {
 //
 union C0C1MR {
   
-  // Enum definitions.
   enum class eENC : uint32_t {
     eDECRYPT = 0, // Decrypt.
     eENCRYPT = 1, // Encrypt.
   };
+  
   enum class eAS : uint32_t {
     eUPDATE = 0, // Update
     eINITIALIZE = 1, // Initialize
     eFINALIZE = 2, // Finalize
     eINIT_FINAL = 3, // Initialize/Finalize
   };
+  
   enum class eALG : uint32_t {
     eAES = 16, // AES
     eDES = 32, // DES
@@ -25031,7 +24655,7 @@ union C0C1MR {
     uint32_t _reserved_4 : 3;
     eALG ALG : 8;
     uint32_t _reserved_end : 8;
-  } bits;          // Bit-field struct (auto-filling reserved gaps)
+  } bits;
   
   // Full 32-bit register value.
   uint32_t value;
@@ -25045,15 +24669,13 @@ union C0C1MR {
 //
 union C0C1MR_PK {
   
-  // Enum definitions.
-  
   // Bit field definition.
   struct {
     uint32_t PKHA_MODE_LS : 12;
     uint32_t _reserved_1 : 4;
     uint32_t PKHA_MODE_MS : 4;
     uint32_t _reserved_end : 12;
-  } bits;          // Bit-field struct (auto-filling reserved gaps)
+  } bits;
   
   // Full 32-bit register value.
   uint32_t value;
@@ -25067,31 +24689,36 @@ union C0C1MR_PK {
 //
 union C0C1MR_RNG {
   
-  // Enum definitions.
   enum class eSH : uint32_t {
     eSH0 = 0, // State Handle 0
     eSH1 = 1, // State Handle 1
   };
+  
   enum class eNZB : uint32_t {
     eZERO_BYTES_OK = 0, // Generate random data with all-zero bytes permitted.
     eNO_ZERO_BYTES = 1, // Generate random data without any all-zero bytes.
   };
+  
   enum class eOBP : uint32_t {
     eNOT_ODD_BYTE_PARITY = 0, // No odd byte parity.
     eODD_BYTE_PARITY = 1, // Generate random data with odd byte parity.
   };
+  
   enum class ePS : uint32_t {
     eNO_PS_STRING = 0, // No personalization string is included.
     ePS_STRING_INCL = 1, // A personalization string is included.
   };
+  
   enum class eAI : uint32_t {
     eNO_ADDL_INPUT = 0, // No additional entropy input has been provided.
     eADDL_INPUT = 1, // Additional entropy input has been provided.
   };
+  
   enum class eSK : uint32_t {
     eRNG_DEST_SPECD_BY_FIFO_STORE = 0, // The destination for the RNG data is specified by the FIFO STORE command.
     eRNG_DATA_TO_KEKR = 1, // The RNG data will go to the JDKEKR, TDKEKR and DSKR.
   };
+  
   enum class eALG : uint32_t {
     eRNG = 80, // RNG
   };
@@ -25111,7 +24738,7 @@ union C0C1MR_RNG {
     uint32_t _reserved_9 : 3;
     eALG ALG : 8;
     uint32_t _reserved_end : 8;
-  } bits;          // Bit-field struct (auto-filling reserved gaps)
+  } bits;
   
   // Full 32-bit register value.
   uint32_t value;
@@ -25125,13 +24752,11 @@ union C0C1MR_RNG {
 //
 union C0C1KSR {
   
-  // Enum definitions.
-  
   // Bit field definition.
   struct {
     uint32_t C1KS : 7;
     uint32_t _reserved_end : 25;
-  } bits;          // Bit-field struct (auto-filling reserved gaps)
+  } bits;
   
   // Full 32-bit register value.
   uint32_t value;
@@ -25145,7 +24770,6 @@ union C0C1KSR {
 //
 union C0C1DSR {
   
-  // Enum definitions.
   enum class eC1CY : uint32_t {
     eNO_C1DS_CARRY = 0, // No carry out of the C1 Data Size Reg.
     eC1DS_CARRY = 1, // There was a carry out of the C1 Data Size Reg.
@@ -25157,7 +24781,7 @@ union C0C1DSR {
     eC1CY C1CY : 1;
     uint32_t _reserved_2 : 28;
     uint32_t NUMBITS : 3;
-  } bits;          // Bit-field struct (auto-filling reserved gaps)
+  } bits;
   
   // Full 32-bit register value.
   uint32_t value;
@@ -25171,13 +24795,11 @@ union C0C1DSR {
 //
 union C0C1ICVSR {
   
-  // Enum definitions.
-  
   // Bit field definition.
   struct {
     uint32_t C1ICVS : 5;
     uint32_t _reserved_end : 27;
-  } bits;          // Bit-field struct (auto-filling reserved gaps)
+  } bits;
   
   // Full 32-bit register value.
   uint32_t value;
@@ -25191,75 +24813,91 @@ union C0C1ICVSR {
 //
 union C0CCTRL {
   
-  // Enum definitions.
   enum class eCCB : uint32_t {
     eDO_NOT_CCB = 0, // Do Not Reset
     eRESET_CCB = 1, // Reset CCB
   };
+  
   enum class eAES : uint32_t {
     eDO_NOT_RESET_AESA = 0, // Do Not Reset
     eRESET_AESA = 1, // Reset AES Accelerator
   };
+  
   enum class eDES : uint32_t {
     eDO_NOT_RESET_DESA = 0, // Do Not Reset
     eRESET_DESA = 1, // Reset DES Accelerator
   };
+  
   enum class ePK : uint32_t {
     eDO_NOT_RESET_PKHA = 0, // Do Not Reset
     eRESET_PKHA = 1, // Reset Public Key Hardware Accelerator
   };
+  
   enum class eMD : uint32_t {
     eDO_NOT_RESET_MDHA = 0, // Do Not Reset
     eRESET_MDHA = 1, // Reset Message Digest Hardware Accelerator
   };
+  
   enum class eCRC : uint32_t {
     eDO_NOT_RESET_CRCA = 0, // Do Not Reset
     eRESET_CRCA = 1, // Reset CRC Accelerator
   };
+  
   enum class eRNG : uint32_t {
     eDO_NOT_RESET_RNG = 0, // Do Not Reset
     eRESET_RNG = 1, // Reset Random Number Generator Block.
   };
+  
   enum class eUA0 : uint32_t {
     eDONT_UNLOAD_PKHA_A0 = 0, // Don't unload the PKHA A0 Memory.
     eUNLOAD_PKHA_A0 = 1, // Unload the PKHA A0 Memory into OFIFO.
   };
+  
   enum class eUA1 : uint32_t {
     eDONT_UNLOAD_PKHA_A1 = 0, // Don't unload the PKHA A1 Memory.
     eUNLOAD_PKHA_A1 = 1, // Unload the PKHA A1 Memory into OFIFO.
   };
+  
   enum class eUA2 : uint32_t {
     eDONT_UNLOAD_PKHA_A2 = 0, // Don't unload the PKHA A2 Memory.
     eUNLOAD_PKHA_A2 = 1, // Unload the PKHA A2 Memory into OFIFO.
   };
+  
   enum class eUA3 : uint32_t {
     eDONT_UNLOAD_PKHA_A3 = 0, // Don't unload the PKHA A3 Memory.
     eUNLOAD_PKHA_A3 = 1, // Unload the PKHA A3 Memory into OFIFO.
   };
+  
   enum class eUB0 : uint32_t {
     eDONT_UNLOAD_PKHA_B0 = 0, // Don't unload the PKHA B0 Memory.
     eUNLOAD_PKHA_B0 = 1, // Unload the PKHA B0 Memory into OFIFO.
   };
+  
   enum class eUB1 : uint32_t {
     eDONT_UNLOAD_PKHA_B1 = 0, // Don't unload the PKHA B1 Memory.
     eUNLOAD_PKHA_B1 = 1, // Unload the PKHA B1 Memory into OFIFO.
   };
+  
   enum class eUB2 : uint32_t {
     eDONT_UNLOAD_PKHA_B2 = 0, // Don't unload the PKHA B2 Memory.
     eUNLOAD_PKHA_B2 = 1, // Unload the PKHA B2 Memory into OFIFO.
   };
+  
   enum class eUB3 : uint32_t {
     eDONT_UNLOAD_PKHA_B3 = 0, // Don't unload the PKHA B3 Memory.
     eUNLOAD_PKHA_B3 = 1, // Unload the PKHA B3 Memory into OFIFO.
   };
+  
   enum class eUN : uint32_t {
     eDONT_UNLOAD_PKHA_N = 0, // Don't unload the PKHA N Memory.
     eUNLOAD_PKHA_N = 1, // Unload the PKHA N Memory into OFIFO.
   };
+  
   enum class eUA : uint32_t {
     eDONT_UNLOAD_PKHA_A = 0, // Don't unload the PKHA A Memory.
     eUNLOAD_PKHA_A = 1, // Unload the PKHA A Memory into OFIFO.
   };
+  
   enum class eUB : uint32_t {
     eDONT_UNLOAD_PKHA_B = 0, // Don't unload the PKHA B Memory.
     eUNLOAD_PKHA_B = 1, // Unload the PKHA B Memory into OFIFO.
@@ -25289,7 +24927,7 @@ union C0CCTRL {
     eUA UA : 1;
     eUB UB : 1;
     uint32_t _reserved_end : 4;
-  } bits;          // Bit-field struct (auto-filling reserved gaps)
+  } bits;
   
   // Full 32-bit register value.
   uint32_t value;
@@ -25303,27 +24941,31 @@ union C0CCTRL {
 //
 union C0ICTL {
   
-  // Enum definitions.
   enum class eAEI : uint32_t {
     eNO_AESA_ERROR = 0, // No AESA error detected
     eAESA_ERROR = 1, // AESA error detected
   };
+  
   enum class eDEI : uint32_t {
     eNO_DESA_ERROR = 0, // No DESA error detected
     eDESA_ERROR = 1, // DESA error detected
   };
+  
   enum class ePEI : uint32_t {
     eNO_PKHA_ERROR = 0, // No PKHA error detected
     ePKHA_ERROR = 1, // PKHA error detected
   };
+  
   enum class eMEI : uint32_t {
     eNO_MDHA_ERROR = 0, // No MDHA error detected
     eMDHA_ERROR = 1, // MDHA error detected
   };
+  
   enum class eCEI : uint32_t {
     eNO_CRCA_ERROR = 0, // No CRCA error detected
     eCRCA_ERROR = 1, // CRCA error detected
   };
+  
   enum class eRNEI : uint32_t {
     eNO_RNG_ERROR = 0, // No RNG error detected
     eRNG_ERROR = 1, // RNG error detected
@@ -25348,7 +24990,7 @@ union C0ICTL {
     eCEI CEI : 1;
     eRNEI RNEI : 1;
     uint32_t _reserved_end : 6;
-  } bits;          // Bit-field struct (auto-filling reserved gaps)
+  } bits;
   
   // Full 32-bit register value.
   uint32_t value;
@@ -25362,83 +25004,101 @@ union C0ICTL {
 //
 union C0CWR {
   
-  // Enum definitions.
   enum class eC1M : uint32_t {
     eDONT_CLEAR_C1_MODE = 0, // Don't clear the Class 1 Mode Register.
     eCLEAR_C1_MODE = 1, // Clear the Class 1 Mode Register.
   };
+  
   enum class eC1DS : uint32_t {
     eDONT_CLEAR_C1_DATA_SIZE = 0, // Don't clear the Class 1 Data Size Register.
     eCLEAR_C1_DATA_SIZE = 1, // Clear the Class 1 Data Size Register.
   };
+  
   enum class eC1ICV : uint32_t {
     eDONT_CLEAR_C1_ICV_SIZE = 0, // Don't clear the Class 1 ICV Size Register.
     eCLEAR_C1_ICV_SIZE = 1, // Clear the Class 1 ICV Size Register.
   };
+  
   enum class eC1C : uint32_t {
     eDONT_CLEAR_C1_CTXR = 0, // Don't clear the Class 1 Context Register.
     eCLEAR_C1_CTXR = 1, // Clear the Class 1 Context Register.
   };
+  
   enum class eC1K : uint32_t {
     eDONT_CLEAR_C1_KEYR = 0, // Don't clear the Class 1 Key Register.
     eCLEAR_C1_KEYR = 1, // Clear the Class 1 Key Register.
   };
+  
   enum class eCPKA : uint32_t {
     eDONT_CLEAR_PKHA_A_SIZE = 0, // Don't clear the PKHA A Size Register.
     eCLEAR_PKHA_A_SIZE = 1, // Clear the PKHA A Size Register.
   };
+  
   enum class eCPKB : uint32_t {
     eDONT_CLEAR_PKHA_B_SIZE = 0, // Don't clear the PKHA B Size Register.
     eCLEAR_PKHA_B_SIZE = 1, // Clear the PKHA B Size Register.
   };
+  
   enum class eCPKN : uint32_t {
     eDONT_CLEAR_PKHA_N_SIZE = 0, // Don't clear the PKHA N Size Register.
     eCLEAR_PKHA_N_SIZE = 1, // Clear the PKHA N Size Register.
   };
+  
   enum class eCPKE : uint32_t {
     eDONT_CLEAR_PKHA_E_SIZE = 0, // Don't clear the PKHA E Size Register..
     eCLEAR_PKHA_E_SIZE = 1, // Clear the PKHA E Size Register.
   };
+  
   enum class eC2M : uint32_t {
     eDONT_CLEAR_C2_MODE = 0, // Don't clear the Class 2 Mode Register.
     eCLEAR_C2_MODE = 1, // Clear the Class 2 Mode Register.
   };
+  
   enum class eC2DS : uint32_t {
     eDONT_CLEAR_C2_DATA_SIZE = 0, // Don't clear the Class 2 Data Size Register.
     eCLEAR_C2_DATA_SIZE = 1, // Clear the Class 2 Data Size Register.
   };
+  
   enum class eC2C : uint32_t {
     eDONT_CLEAR_C2_CTXR = 0, // Don't clear the Class 2 Context Register.
     eCLEAR_C2_CTXR = 1, // Clear the Class 2 Context Register.
   };
+  
   enum class eC2K : uint32_t {
     eDONT_CLEAR_C2_KEYR = 0, // Don't clear the Class 2 Key Register.
     eCLEAR_C2_KEYR = 1, // Clear the Class 2 Key Register.
   };
+  
   enum class eCDS : uint32_t {
     eDONT_CLEAR_SD_SIGNAL = 0, // Don't clear the shared descriptor signal.
     eCLEAR_SD_SIGNAL = 1, // Clear the shared descriptor signal.
   };
+  
   enum class eC2D : uint32_t {
     eDONT_CLEAR_C2_DONE_INT = 0, // Don't clear the Class 2 done interrrupt.
     eCLEAR_C2_DONE_INT = 1, // Clear the Class 2 done interrrupt.
   };
+  
   enum class eC1D : uint32_t {
     eDONT_CLEAR_C1_DONE_INT = 0, // Don't clear the Class 1 done interrrupt.
     eCLEAR_C1_DONE_INT = 1, // Clear the Class 1 done interrrupt.
   };
+  
   enum class eC2RST : uint32_t {
     eDONT_RESET_C2_CHA = 0, // Don't reset the Class 2 CHA.
     eRESET_C2_CHA = 1, // Reset the Class 2 CHA.
   };
+  
   enum class eC1RST : uint32_t {
     eDONT_RESET_C1_CHA = 0, // Don't reset the Class 1 CHA.
     eRESET_C1_CHA = 1, // Reset the Class 1 CHA.
   };
+  
   enum class eCOF : uint32_t {
     eDONT_CLEAR_OFIFO = 0, // Don't clear the OFIFO.
     eCLEAR_OFIFO = 1, // Clear the OFIFO.
   };
+  
   enum class eCIF : uint32_t {
     eDONT_CLEAR_IFIFO = 0, // Don't clear the IFIFO.
     eCLEAR_IFIFO = 1, // Clear the IFIFO.
@@ -25472,7 +25132,7 @@ union C0CWR {
     eC1RST C1RST : 1;
     eCOF COF : 1;
     eCIF CIF : 1;
-  } bits;          // Bit-field struct (auto-filling reserved gaps)
+  } bits;
   
   // Full 32-bit register value.
   uint32_t value;
@@ -25486,7 +25146,6 @@ union C0CWR {
 //
 union C0CSTA_MS {
   
-  // Enum definitions.
   enum class eERRID1 : uint32_t {
     eMODE_ERROR = 1, // Mode Error
     eDATA_SIZE_ERROR = 2, // Data Size Error, including PKHA N Memory Size Error
@@ -25504,12 +25163,14 @@ union C0CSTA_MS {
     eINVALID_CHA_COMBO_ERROR = 14, // Invalid CHA combination was selected
     eINVALID_CHA_SELECTED_ERROR = 15, // Invalid CHA Selected
   };
+  
   enum class eCL1 : uint32_t {
     eAES = 1, // AES
     eDES = 2, // DES
     eRNG = 5, // RNG
     ePK = 8, // Public Key
   };
+  
   enum class eERRID2 : uint32_t {
     eMODE_ERROR = 1, // Mode Error
     eDATA_SIZE_ERROR = 2, // Data Size Error
@@ -25520,6 +25181,7 @@ union C0CSTA_MS {
     eINVALID_CHA_COMBO_ERROR = 14, // Invalid CHA combination was selected.
     eINVALID_CHA_SELECT_ERROR = 15, // Invalid CHA Selected
   };
+  
   enum class eCL2 : uint32_t {
     eMD = 4, // MD5, SHA-1, SHA-224, SHA-256, SHA-384, SHA-512 and SHA-512/224, SHA-512/256
     eCRC = 9, // CRC
@@ -25533,7 +25195,7 @@ union C0CSTA_MS {
     eERRID2 ERRID2 : 4;
     uint32_t _reserved_3 : 8;
     eCL2 CL2 : 4;
-  } bits;          // Bit-field struct (auto-filling reserved gaps)
+  } bits;
   
   // Full 32-bit register value.
   uint32_t value;
@@ -25547,55 +25209,66 @@ union C0CSTA_MS {
 //
 union C0CSTA_LS {
   
-  // Enum definitions.
   enum class eAB : uint32_t {
     eAESA_IDLE = 0, // AESA Idle
     eAESA_BUSY = 1, // AESA Busy
   };
+  
   enum class eDB : uint32_t {
     eDESA_IDLE = 0, // DESA Idle
     eDESA_BUSY = 1, // DESA Busy
   };
+  
   enum class ePB : uint32_t {
     ePKHA_IDLE = 0, // PKHA Idle
     ePKHA_BUSY = 1, // PKHA Busy
   };
+  
   enum class eMB : uint32_t {
     eMDHA_IDLE = 0, // MDHA Idle
     eMDHA_BUSY = 1, // MDHA Busy
   };
+  
   enum class eCB : uint32_t {
     eCRCA_IDLE = 0, // CRCA Idle
     eCRCA_BUSY = 1, // CRCA Busy
   };
+  
   enum class eRNB : uint32_t {
     eRNG_IDLE = 0, // RNG Idle
     eRNG_BUSY = 1, // RNG Busy
   };
+  
   enum class ePDI : uint32_t {
     eC1_NOT_DONE = 0, // Not Done
     eC1_DONE_INT = 1, // Done Interrupt
   };
+  
   enum class eSDI : uint32_t {
     eC2_NOT_DONE = 0, // Not Done
     eC2_DONE_INT = 1, // Done Interrupt
   };
+  
   enum class ePEI : uint32_t {
     eNO_C1_ERROR = 0, // No Error
     eC1_ERROR_INT = 1, // Error Interrupt
   };
+  
   enum class eSEI : uint32_t {
     eNO_C2_ERROR = 0, // No Error
     eC2_ERROR_INT = 1, // Error Interrupt
   };
+  
   enum class ePRM : uint32_t {
     eNOT_PRIME = 0, // The given number is NOT prime.
     ePROBABLY_PRIME = 1, // The given number is probably prime.
   };
+  
   enum class eGCD : uint32_t {
     eGCD_IS_NOT_1 = 0, // The greatest common divisor of two numbers is NOT one.
     eGCD_IS_1 = 1, // The greatest common divisor of two numbers is one.
   };
+  
   enum class ePIZ : uint32_t {
     ePK_RESULT_NONZERO = 0, // The result of a Public Key operation is not zero.
     ePK_RESULT_ZERO = 1, // The result of a Public Key operation is zero.
@@ -25622,7 +25295,7 @@ union C0CSTA_LS {
     eGCD GCD : 1;
     ePIZ PIZ : 1;
     uint32_t _reserved_end : 1;
-  } bits;          // Bit-field struct (auto-filling reserved gaps)
+  } bits;
   
   // Full 32-bit register value.
   uint32_t value;
@@ -25636,13 +25309,11 @@ union C0CSTA_LS {
 //
 union C0C1AADSZR {
   
-  // Enum definitions.
-  
   // Bit field definition.
   struct {
     uint32_t AASZ : 4;
     uint32_t _reserved_end : 28;
-  } bits;          // Bit-field struct (auto-filling reserved gaps)
+  } bits;
   
   // Full 32-bit register value.
   uint32_t value;
@@ -25656,13 +25327,11 @@ union C0C1AADSZR {
 //
 union C0C1IVSZR {
   
-  // Enum definitions.
-  
   // Bit field definition.
   struct {
     uint32_t IVSZ : 4;
     uint32_t _reserved_end : 28;
-  } bits;          // Bit-field struct (auto-filling reserved gaps)
+  } bits;
   
   // Full 32-bit register value.
   uint32_t value;
@@ -25676,13 +25345,11 @@ union C0C1IVSZR {
 //
 union C0PKASZR {
   
-  // Enum definitions.
-  
   // Bit field definition.
   struct {
     uint32_t PKASZ : 10;
     uint32_t _reserved_end : 22;
-  } bits;          // Bit-field struct (auto-filling reserved gaps)
+  } bits;
   
   // Full 32-bit register value.
   uint32_t value;
@@ -25696,13 +25363,11 @@ union C0PKASZR {
 //
 union C0PKBSZR {
   
-  // Enum definitions.
-  
   // Bit field definition.
   struct {
     uint32_t PKBSZ : 10;
     uint32_t _reserved_end : 22;
-  } bits;          // Bit-field struct (auto-filling reserved gaps)
+  } bits;
   
   // Full 32-bit register value.
   uint32_t value;
@@ -25716,13 +25381,11 @@ union C0PKBSZR {
 //
 union C0PKNSZR {
   
-  // Enum definitions.
-  
   // Bit field definition.
   struct {
     uint32_t PKNSZ : 10;
     uint32_t _reserved_end : 22;
-  } bits;          // Bit-field struct (auto-filling reserved gaps)
+  } bits;
   
   // Full 32-bit register value.
   uint32_t value;
@@ -25736,13 +25399,11 @@ union C0PKNSZR {
 //
 union C0PKESZR {
   
-  // Enum definitions.
-  
   // Bit field definition.
   struct {
     uint32_t PKESZ : 10;
     uint32_t _reserved_end : 22;
-  } bits;          // Bit-field struct (auto-filling reserved gaps)
+  } bits;
   
   // Full 32-bit register value.
   uint32_t value;
@@ -25756,12 +25417,10 @@ union C0PKESZR {
 //
 union C0C1CTXR0 {
   
-  // Enum definitions.
-  
   // Bit field definition.
   struct {
     uint32_t C1CTX : 32;
-  } bits;          // Bit-field struct (auto-filling reserved gaps)
+  } bits;
   
   // Full 32-bit register value.
   uint32_t value;
@@ -25775,12 +25434,10 @@ union C0C1CTXR0 {
 //
 union C0C1CTXR1 {
   
-  // Enum definitions.
-  
   // Bit field definition.
   struct {
     uint32_t C1CTX : 32;
-  } bits;          // Bit-field struct (auto-filling reserved gaps)
+  } bits;
   
   // Full 32-bit register value.
   uint32_t value;
@@ -25794,12 +25451,10 @@ union C0C1CTXR1 {
 //
 union C0C1CTXR2 {
   
-  // Enum definitions.
-  
   // Bit field definition.
   struct {
     uint32_t C1CTX : 32;
-  } bits;          // Bit-field struct (auto-filling reserved gaps)
+  } bits;
   
   // Full 32-bit register value.
   uint32_t value;
@@ -25813,12 +25468,10 @@ union C0C1CTXR2 {
 //
 union C0C1CTXR3 {
   
-  // Enum definitions.
-  
   // Bit field definition.
   struct {
     uint32_t C1CTX : 32;
-  } bits;          // Bit-field struct (auto-filling reserved gaps)
+  } bits;
   
   // Full 32-bit register value.
   uint32_t value;
@@ -25832,12 +25485,10 @@ union C0C1CTXR3 {
 //
 union C0C1CTXR4 {
   
-  // Enum definitions.
-  
   // Bit field definition.
   struct {
     uint32_t C1CTX : 32;
-  } bits;          // Bit-field struct (auto-filling reserved gaps)
+  } bits;
   
   // Full 32-bit register value.
   uint32_t value;
@@ -25851,12 +25502,10 @@ union C0C1CTXR4 {
 //
 union C0C1CTXR5 {
   
-  // Enum definitions.
-  
   // Bit field definition.
   struct {
     uint32_t C1CTX : 32;
-  } bits;          // Bit-field struct (auto-filling reserved gaps)
+  } bits;
   
   // Full 32-bit register value.
   uint32_t value;
@@ -25870,12 +25519,10 @@ union C0C1CTXR5 {
 //
 union C0C1CTXR6 {
   
-  // Enum definitions.
-  
   // Bit field definition.
   struct {
     uint32_t C1CTX : 32;
-  } bits;          // Bit-field struct (auto-filling reserved gaps)
+  } bits;
   
   // Full 32-bit register value.
   uint32_t value;
@@ -25889,12 +25536,10 @@ union C0C1CTXR6 {
 //
 union C0C1CTXR7 {
   
-  // Enum definitions.
-  
   // Bit field definition.
   struct {
     uint32_t C1CTX : 32;
-  } bits;          // Bit-field struct (auto-filling reserved gaps)
+  } bits;
   
   // Full 32-bit register value.
   uint32_t value;
@@ -25908,12 +25553,10 @@ union C0C1CTXR7 {
 //
 union C0C1CTXR8 {
   
-  // Enum definitions.
-  
   // Bit field definition.
   struct {
     uint32_t C1CTX : 32;
-  } bits;          // Bit-field struct (auto-filling reserved gaps)
+  } bits;
   
   // Full 32-bit register value.
   uint32_t value;
@@ -25927,12 +25570,10 @@ union C0C1CTXR8 {
 //
 union C0C1CTXR9 {
   
-  // Enum definitions.
-  
   // Bit field definition.
   struct {
     uint32_t C1CTX : 32;
-  } bits;          // Bit-field struct (auto-filling reserved gaps)
+  } bits;
   
   // Full 32-bit register value.
   uint32_t value;
@@ -25946,12 +25587,10 @@ union C0C1CTXR9 {
 //
 union C0C1CTXR10 {
   
-  // Enum definitions.
-  
   // Bit field definition.
   struct {
     uint32_t C1CTX : 32;
-  } bits;          // Bit-field struct (auto-filling reserved gaps)
+  } bits;
   
   // Full 32-bit register value.
   uint32_t value;
@@ -25965,12 +25604,10 @@ union C0C1CTXR10 {
 //
 union C0C1CTXR11 {
   
-  // Enum definitions.
-  
   // Bit field definition.
   struct {
     uint32_t C1CTX : 32;
-  } bits;          // Bit-field struct (auto-filling reserved gaps)
+  } bits;
   
   // Full 32-bit register value.
   uint32_t value;
@@ -25984,12 +25621,10 @@ union C0C1CTXR11 {
 //
 union C0C1CTXR12 {
   
-  // Enum definitions.
-  
   // Bit field definition.
   struct {
     uint32_t C1CTX : 32;
-  } bits;          // Bit-field struct (auto-filling reserved gaps)
+  } bits;
   
   // Full 32-bit register value.
   uint32_t value;
@@ -26003,12 +25638,10 @@ union C0C1CTXR12 {
 //
 union C0C1CTXR13 {
   
-  // Enum definitions.
-  
   // Bit field definition.
   struct {
     uint32_t C1CTX : 32;
-  } bits;          // Bit-field struct (auto-filling reserved gaps)
+  } bits;
   
   // Full 32-bit register value.
   uint32_t value;
@@ -26022,12 +25655,10 @@ union C0C1CTXR13 {
 //
 union C0C1CTXR14 {
   
-  // Enum definitions.
-  
   // Bit field definition.
   struct {
     uint32_t C1CTX : 32;
-  } bits;          // Bit-field struct (auto-filling reserved gaps)
+  } bits;
   
   // Full 32-bit register value.
   uint32_t value;
@@ -26041,12 +25672,10 @@ union C0C1CTXR14 {
 //
 union C0C1CTXR15 {
   
-  // Enum definitions.
-  
   // Bit field definition.
   struct {
     uint32_t C1CTX : 32;
-  } bits;          // Bit-field struct (auto-filling reserved gaps)
+  } bits;
   
   // Full 32-bit register value.
   uint32_t value;
@@ -26060,12 +25689,10 @@ union C0C1CTXR15 {
 //
 union C0C1KR0 {
   
-  // Enum definitions.
-  
   // Bit field definition.
   struct {
     uint32_t C1KEY : 32;
-  } bits;          // Bit-field struct (auto-filling reserved gaps)
+  } bits;
   
   // Full 32-bit register value.
   uint32_t value;
@@ -26079,12 +25706,10 @@ union C0C1KR0 {
 //
 union C0C1KR1 {
   
-  // Enum definitions.
-  
   // Bit field definition.
   struct {
     uint32_t C1KEY : 32;
-  } bits;          // Bit-field struct (auto-filling reserved gaps)
+  } bits;
   
   // Full 32-bit register value.
   uint32_t value;
@@ -26098,12 +25723,10 @@ union C0C1KR1 {
 //
 union C0C1KR2 {
   
-  // Enum definitions.
-  
   // Bit field definition.
   struct {
     uint32_t C1KEY : 32;
-  } bits;          // Bit-field struct (auto-filling reserved gaps)
+  } bits;
   
   // Full 32-bit register value.
   uint32_t value;
@@ -26117,12 +25740,10 @@ union C0C1KR2 {
 //
 union C0C1KR3 {
   
-  // Enum definitions.
-  
   // Bit field definition.
   struct {
     uint32_t C1KEY : 32;
-  } bits;          // Bit-field struct (auto-filling reserved gaps)
+  } bits;
   
   // Full 32-bit register value.
   uint32_t value;
@@ -26136,12 +25757,10 @@ union C0C1KR3 {
 //
 union C0C1KR4 {
   
-  // Enum definitions.
-  
   // Bit field definition.
   struct {
     uint32_t C1KEY : 32;
-  } bits;          // Bit-field struct (auto-filling reserved gaps)
+  } bits;
   
   // Full 32-bit register value.
   uint32_t value;
@@ -26155,12 +25774,10 @@ union C0C1KR4 {
 //
 union C0C1KR5 {
   
-  // Enum definitions.
-  
   // Bit field definition.
   struct {
     uint32_t C1KEY : 32;
-  } bits;          // Bit-field struct (auto-filling reserved gaps)
+  } bits;
   
   // Full 32-bit register value.
   uint32_t value;
@@ -26174,12 +25791,10 @@ union C0C1KR5 {
 //
 union C0C1KR6 {
   
-  // Enum definitions.
-  
   // Bit field definition.
   struct {
     uint32_t C1KEY : 32;
-  } bits;          // Bit-field struct (auto-filling reserved gaps)
+  } bits;
   
   // Full 32-bit register value.
   uint32_t value;
@@ -26193,12 +25808,10 @@ union C0C1KR6 {
 //
 union C0C1KR7 {
   
-  // Enum definitions.
-  
   // Bit field definition.
   struct {
     uint32_t C1KEY : 32;
-  } bits;          // Bit-field struct (auto-filling reserved gaps)
+  } bits;
   
   // Full 32-bit register value.
   uint32_t value;
@@ -26212,21 +25825,23 @@ union C0C1KR7 {
 //
 union C0C2MR {
   
-  // Enum definitions.
   enum class eAP : uint32_t {
     eAUTHENTICATE = 0, // Authenticate
     ePROTECT = 1, // Protect
   };
+  
   enum class eICV : uint32_t {
     eNO_COMPARISON = 0, // Don't compare the calculated ICV against a received ICV.
     eCOMPARISON = 1, // Compare the calculated ICV against a received ICV.
   };
+  
   enum class eAS : uint32_t {
     eUPDATE = 0, // Update.
     eINITIALIZE = 1, // Initialize.
     eFINALIZE = 2, // Finalize.
     eINITIALIZE_FINALIZE = 3, // Initialize/Finalize.
   };
+  
   enum class eALG : uint32_t {
     eMD5 = 64, // MD5
     eSHA_1 = 65, // SHA-1
@@ -26248,7 +25863,7 @@ union C0C2MR {
     uint32_t _reserved_4 : 3;
     eALG ALG : 8;
     uint32_t _reserved_end : 8;
-  } bits;          // Bit-field struct (auto-filling reserved gaps)
+  } bits;
   
   // Full 32-bit register value.
   uint32_t value;
@@ -26262,13 +25877,11 @@ union C0C2MR {
 //
 union C0C2KSR {
   
-  // Enum definitions.
-  
   // Bit field definition.
   struct {
     uint32_t C2KS : 8;
     uint32_t _reserved_end : 24;
-  } bits;          // Bit-field struct (auto-filling reserved gaps)
+  } bits;
   
   // Full 32-bit register value.
   uint32_t value;
@@ -26282,7 +25895,6 @@ union C0C2KSR {
 //
 union C0C2DSR {
   
-  // Enum definitions.
   enum class eC2CY : uint32_t {
     eNO_C2DS_CARRY = 0, // A write to the Class 2 Data Size Register did not cause a carry.
     eC2DS_CARRY = 1, // A write to the Class 2 Data Size Register caused a carry.
@@ -26294,7 +25906,7 @@ union C0C2DSR {
     eC2CY C2CY : 1;
     uint32_t _reserved_2 : 28;
     uint32_t NUMBITS : 3;
-  } bits;          // Bit-field struct (auto-filling reserved gaps)
+  } bits;
   
   // Full 32-bit register value.
   uint32_t value;
@@ -26308,13 +25920,11 @@ union C0C2DSR {
 //
 union C0C2ICVSZR {
   
-  // Enum definitions.
-  
   // Bit field definition.
   struct {
     uint32_t ICVSZ : 4;
     uint32_t _reserved_end : 28;
-  } bits;          // Bit-field struct (auto-filling reserved gaps)
+  } bits;
   
   // Full 32-bit register value.
   uint32_t value;
@@ -26328,12 +25938,10 @@ union C0C2ICVSZR {
 //
 union C0C2CTXR0 {
   
-  // Enum definitions.
-  
   // Bit field definition.
   struct {
     uint32_t C2CTXR : 32;
-  } bits;          // Bit-field struct (auto-filling reserved gaps)
+  } bits;
   
   // Full 32-bit register value.
   uint32_t value;
@@ -26347,12 +25955,10 @@ union C0C2CTXR0 {
 //
 union C0C2CTXR1 {
   
-  // Enum definitions.
-  
   // Bit field definition.
   struct {
     uint32_t C2CTXR : 32;
-  } bits;          // Bit-field struct (auto-filling reserved gaps)
+  } bits;
   
   // Full 32-bit register value.
   uint32_t value;
@@ -26366,12 +25972,10 @@ union C0C2CTXR1 {
 //
 union C0C2CTXR2 {
   
-  // Enum definitions.
-  
   // Bit field definition.
   struct {
     uint32_t C2CTXR : 32;
-  } bits;          // Bit-field struct (auto-filling reserved gaps)
+  } bits;
   
   // Full 32-bit register value.
   uint32_t value;
@@ -26385,12 +25989,10 @@ union C0C2CTXR2 {
 //
 union C0C2CTXR3 {
   
-  // Enum definitions.
-  
   // Bit field definition.
   struct {
     uint32_t C2CTXR : 32;
-  } bits;          // Bit-field struct (auto-filling reserved gaps)
+  } bits;
   
   // Full 32-bit register value.
   uint32_t value;
@@ -26404,12 +26006,10 @@ union C0C2CTXR3 {
 //
 union C0C2CTXR4 {
   
-  // Enum definitions.
-  
   // Bit field definition.
   struct {
     uint32_t C2CTXR : 32;
-  } bits;          // Bit-field struct (auto-filling reserved gaps)
+  } bits;
   
   // Full 32-bit register value.
   uint32_t value;
@@ -26423,12 +26023,10 @@ union C0C2CTXR4 {
 //
 union C0C2CTXR5 {
   
-  // Enum definitions.
-  
   // Bit field definition.
   struct {
     uint32_t C2CTXR : 32;
-  } bits;          // Bit-field struct (auto-filling reserved gaps)
+  } bits;
   
   // Full 32-bit register value.
   uint32_t value;
@@ -26442,12 +26040,10 @@ union C0C2CTXR5 {
 //
 union C0C2CTXR6 {
   
-  // Enum definitions.
-  
   // Bit field definition.
   struct {
     uint32_t C2CTXR : 32;
-  } bits;          // Bit-field struct (auto-filling reserved gaps)
+  } bits;
   
   // Full 32-bit register value.
   uint32_t value;
@@ -26461,12 +26057,10 @@ union C0C2CTXR6 {
 //
 union C0C2CTXR7 {
   
-  // Enum definitions.
-  
   // Bit field definition.
   struct {
     uint32_t C2CTXR : 32;
-  } bits;          // Bit-field struct (auto-filling reserved gaps)
+  } bits;
   
   // Full 32-bit register value.
   uint32_t value;
@@ -26480,12 +26074,10 @@ union C0C2CTXR7 {
 //
 union C0C2CTXR8 {
   
-  // Enum definitions.
-  
   // Bit field definition.
   struct {
     uint32_t C2CTXR : 32;
-  } bits;          // Bit-field struct (auto-filling reserved gaps)
+  } bits;
   
   // Full 32-bit register value.
   uint32_t value;
@@ -26499,12 +26091,10 @@ union C0C2CTXR8 {
 //
 union C0C2CTXR9 {
   
-  // Enum definitions.
-  
   // Bit field definition.
   struct {
     uint32_t C2CTXR : 32;
-  } bits;          // Bit-field struct (auto-filling reserved gaps)
+  } bits;
   
   // Full 32-bit register value.
   uint32_t value;
@@ -26518,12 +26108,10 @@ union C0C2CTXR9 {
 //
 union C0C2CTXR10 {
   
-  // Enum definitions.
-  
   // Bit field definition.
   struct {
     uint32_t C2CTXR : 32;
-  } bits;          // Bit-field struct (auto-filling reserved gaps)
+  } bits;
   
   // Full 32-bit register value.
   uint32_t value;
@@ -26537,12 +26125,10 @@ union C0C2CTXR10 {
 //
 union C0C2CTXR11 {
   
-  // Enum definitions.
-  
   // Bit field definition.
   struct {
     uint32_t C2CTXR : 32;
-  } bits;          // Bit-field struct (auto-filling reserved gaps)
+  } bits;
   
   // Full 32-bit register value.
   uint32_t value;
@@ -26556,12 +26142,10 @@ union C0C2CTXR11 {
 //
 union C0C2CTXR12 {
   
-  // Enum definitions.
-  
   // Bit field definition.
   struct {
     uint32_t C2CTXR : 32;
-  } bits;          // Bit-field struct (auto-filling reserved gaps)
+  } bits;
   
   // Full 32-bit register value.
   uint32_t value;
@@ -26575,12 +26159,10 @@ union C0C2CTXR12 {
 //
 union C0C2CTXR13 {
   
-  // Enum definitions.
-  
   // Bit field definition.
   struct {
     uint32_t C2CTXR : 32;
-  } bits;          // Bit-field struct (auto-filling reserved gaps)
+  } bits;
   
   // Full 32-bit register value.
   uint32_t value;
@@ -26594,12 +26176,10 @@ union C0C2CTXR13 {
 //
 union C0C2CTXR14 {
   
-  // Enum definitions.
-  
   // Bit field definition.
   struct {
     uint32_t C2CTXR : 32;
-  } bits;          // Bit-field struct (auto-filling reserved gaps)
+  } bits;
   
   // Full 32-bit register value.
   uint32_t value;
@@ -26613,12 +26193,10 @@ union C0C2CTXR14 {
 //
 union C0C2CTXR15 {
   
-  // Enum definitions.
-  
   // Bit field definition.
   struct {
     uint32_t C2CTXR : 32;
-  } bits;          // Bit-field struct (auto-filling reserved gaps)
+  } bits;
   
   // Full 32-bit register value.
   uint32_t value;
@@ -26632,12 +26210,10 @@ union C0C2CTXR15 {
 //
 union C0C2CTXR16 {
   
-  // Enum definitions.
-  
   // Bit field definition.
   struct {
     uint32_t C2CTXR : 32;
-  } bits;          // Bit-field struct (auto-filling reserved gaps)
+  } bits;
   
   // Full 32-bit register value.
   uint32_t value;
@@ -26651,12 +26227,10 @@ union C0C2CTXR16 {
 //
 union C0C2CTXR17 {
   
-  // Enum definitions.
-  
   // Bit field definition.
   struct {
     uint32_t C2CTXR : 32;
-  } bits;          // Bit-field struct (auto-filling reserved gaps)
+  } bits;
   
   // Full 32-bit register value.
   uint32_t value;
@@ -26670,12 +26244,10 @@ union C0C2CTXR17 {
 //
 union C0C2KEYR0 {
   
-  // Enum definitions.
-  
   // Bit field definition.
   struct {
     uint32_t C2KEY : 32;
-  } bits;          // Bit-field struct (auto-filling reserved gaps)
+  } bits;
   
   // Full 32-bit register value.
   uint32_t value;
@@ -26689,12 +26261,10 @@ union C0C2KEYR0 {
 //
 union C0C2KEYR1 {
   
-  // Enum definitions.
-  
   // Bit field definition.
   struct {
     uint32_t C2KEY : 32;
-  } bits;          // Bit-field struct (auto-filling reserved gaps)
+  } bits;
   
   // Full 32-bit register value.
   uint32_t value;
@@ -26708,12 +26278,10 @@ union C0C2KEYR1 {
 //
 union C0C2KEYR2 {
   
-  // Enum definitions.
-  
   // Bit field definition.
   struct {
     uint32_t C2KEY : 32;
-  } bits;          // Bit-field struct (auto-filling reserved gaps)
+  } bits;
   
   // Full 32-bit register value.
   uint32_t value;
@@ -26727,12 +26295,10 @@ union C0C2KEYR2 {
 //
 union C0C2KEYR3 {
   
-  // Enum definitions.
-  
   // Bit field definition.
   struct {
     uint32_t C2KEY : 32;
-  } bits;          // Bit-field struct (auto-filling reserved gaps)
+  } bits;
   
   // Full 32-bit register value.
   uint32_t value;
@@ -26746,12 +26312,10 @@ union C0C2KEYR3 {
 //
 union C0C2KEYR4 {
   
-  // Enum definitions.
-  
   // Bit field definition.
   struct {
     uint32_t C2KEY : 32;
-  } bits;          // Bit-field struct (auto-filling reserved gaps)
+  } bits;
   
   // Full 32-bit register value.
   uint32_t value;
@@ -26765,12 +26329,10 @@ union C0C2KEYR4 {
 //
 union C0C2KEYR5 {
   
-  // Enum definitions.
-  
   // Bit field definition.
   struct {
     uint32_t C2KEY : 32;
-  } bits;          // Bit-field struct (auto-filling reserved gaps)
+  } bits;
   
   // Full 32-bit register value.
   uint32_t value;
@@ -26784,12 +26346,10 @@ union C0C2KEYR5 {
 //
 union C0C2KEYR6 {
   
-  // Enum definitions.
-  
   // Bit field definition.
   struct {
     uint32_t C2KEY : 32;
-  } bits;          // Bit-field struct (auto-filling reserved gaps)
+  } bits;
   
   // Full 32-bit register value.
   uint32_t value;
@@ -26803,12 +26363,10 @@ union C0C2KEYR6 {
 //
 union C0C2KEYR7 {
   
-  // Enum definitions.
-  
   // Bit field definition.
   struct {
     uint32_t C2KEY : 32;
-  } bits;          // Bit-field struct (auto-filling reserved gaps)
+  } bits;
   
   // Full 32-bit register value.
   uint32_t value;
@@ -26822,12 +26380,10 @@ union C0C2KEYR7 {
 //
 union C0C2KEYR8 {
   
-  // Enum definitions.
-  
   // Bit field definition.
   struct {
     uint32_t C2KEY : 32;
-  } bits;          // Bit-field struct (auto-filling reserved gaps)
+  } bits;
   
   // Full 32-bit register value.
   uint32_t value;
@@ -26841,12 +26397,10 @@ union C0C2KEYR8 {
 //
 union C0C2KEYR9 {
   
-  // Enum definitions.
-  
   // Bit field definition.
   struct {
     uint32_t C2KEY : 32;
-  } bits;          // Bit-field struct (auto-filling reserved gaps)
+  } bits;
   
   // Full 32-bit register value.
   uint32_t value;
@@ -26860,12 +26414,10 @@ union C0C2KEYR9 {
 //
 union C0C2KEYR10 {
   
-  // Enum definitions.
-  
   // Bit field definition.
   struct {
     uint32_t C2KEY : 32;
-  } bits;          // Bit-field struct (auto-filling reserved gaps)
+  } bits;
   
   // Full 32-bit register value.
   uint32_t value;
@@ -26879,12 +26431,10 @@ union C0C2KEYR10 {
 //
 union C0C2KEYR11 {
   
-  // Enum definitions.
-  
   // Bit field definition.
   struct {
     uint32_t C2KEY : 32;
-  } bits;          // Bit-field struct (auto-filling reserved gaps)
+  } bits;
   
   // Full 32-bit register value.
   uint32_t value;
@@ -26898,12 +26448,10 @@ union C0C2KEYR11 {
 //
 union C0C2KEYR12 {
   
-  // Enum definitions.
-  
   // Bit field definition.
   struct {
     uint32_t C2KEY : 32;
-  } bits;          // Bit-field struct (auto-filling reserved gaps)
+  } bits;
   
   // Full 32-bit register value.
   uint32_t value;
@@ -26917,12 +26465,10 @@ union C0C2KEYR12 {
 //
 union C0C2KEYR13 {
   
-  // Enum definitions.
-  
   // Bit field definition.
   struct {
     uint32_t C2KEY : 32;
-  } bits;          // Bit-field struct (auto-filling reserved gaps)
+  } bits;
   
   // Full 32-bit register value.
   uint32_t value;
@@ -26936,12 +26482,10 @@ union C0C2KEYR13 {
 //
 union C0C2KEYR14 {
   
-  // Enum definitions.
-  
   // Bit field definition.
   struct {
     uint32_t C2KEY : 32;
-  } bits;          // Bit-field struct (auto-filling reserved gaps)
+  } bits;
   
   // Full 32-bit register value.
   uint32_t value;
@@ -26955,12 +26499,10 @@ union C0C2KEYR14 {
 //
 union C0C2KEYR15 {
   
-  // Enum definitions.
-  
   // Bit field definition.
   struct {
     uint32_t C2KEY : 32;
-  } bits;          // Bit-field struct (auto-filling reserved gaps)
+  } bits;
   
   // Full 32-bit register value.
   uint32_t value;
@@ -26974,12 +26516,10 @@ union C0C2KEYR15 {
 //
 union C0C2KEYR16 {
   
-  // Enum definitions.
-  
   // Bit field definition.
   struct {
     uint32_t C2KEY : 32;
-  } bits;          // Bit-field struct (auto-filling reserved gaps)
+  } bits;
   
   // Full 32-bit register value.
   uint32_t value;
@@ -26993,12 +26533,10 @@ union C0C2KEYR16 {
 //
 union C0C2KEYR17 {
   
-  // Enum definitions.
-  
   // Bit field definition.
   struct {
     uint32_t C2KEY : 32;
-  } bits;          // Bit-field struct (auto-filling reserved gaps)
+  } bits;
   
   // Full 32-bit register value.
   uint32_t value;
@@ -27012,12 +26550,10 @@ union C0C2KEYR17 {
 //
 union C0C2KEYR18 {
   
-  // Enum definitions.
-  
   // Bit field definition.
   struct {
     uint32_t C2KEY : 32;
-  } bits;          // Bit-field struct (auto-filling reserved gaps)
+  } bits;
   
   // Full 32-bit register value.
   uint32_t value;
@@ -27031,12 +26567,10 @@ union C0C2KEYR18 {
 //
 union C0C2KEYR19 {
   
-  // Enum definitions.
-  
   // Bit field definition.
   struct {
     uint32_t C2KEY : 32;
-  } bits;          // Bit-field struct (auto-filling reserved gaps)
+  } bits;
   
   // Full 32-bit register value.
   uint32_t value;
@@ -27050,12 +26584,10 @@ union C0C2KEYR19 {
 //
 union C0C2KEYR20 {
   
-  // Enum definitions.
-  
   // Bit field definition.
   struct {
     uint32_t C2KEY : 32;
-  } bits;          // Bit-field struct (auto-filling reserved gaps)
+  } bits;
   
   // Full 32-bit register value.
   uint32_t value;
@@ -27069,12 +26601,10 @@ union C0C2KEYR20 {
 //
 union C0C2KEYR21 {
   
-  // Enum definitions.
-  
   // Bit field definition.
   struct {
     uint32_t C2KEY : 32;
-  } bits;          // Bit-field struct (auto-filling reserved gaps)
+  } bits;
   
   // Full 32-bit register value.
   uint32_t value;
@@ -27088,12 +26618,10 @@ union C0C2KEYR21 {
 //
 union C0C2KEYR22 {
   
-  // Enum definitions.
-  
   // Bit field definition.
   struct {
     uint32_t C2KEY : 32;
-  } bits;          // Bit-field struct (auto-filling reserved gaps)
+  } bits;
   
   // Full 32-bit register value.
   uint32_t value;
@@ -27107,12 +26635,10 @@ union C0C2KEYR22 {
 //
 union C0C2KEYR23 {
   
-  // Enum definitions.
-  
   // Bit field definition.
   struct {
     uint32_t C2KEY : 32;
-  } bits;          // Bit-field struct (auto-filling reserved gaps)
+  } bits;
   
   // Full 32-bit register value.
   uint32_t value;
@@ -27126,12 +26652,10 @@ union C0C2KEYR23 {
 //
 union C0C2KEYR24 {
   
-  // Enum definitions.
-  
   // Bit field definition.
   struct {
     uint32_t C2KEY : 32;
-  } bits;          // Bit-field struct (auto-filling reserved gaps)
+  } bits;
   
   // Full 32-bit register value.
   uint32_t value;
@@ -27145,12 +26669,10 @@ union C0C2KEYR24 {
 //
 union C0C2KEYR25 {
   
-  // Enum definitions.
-  
   // Bit field definition.
   struct {
     uint32_t C2KEY : 32;
-  } bits;          // Bit-field struct (auto-filling reserved gaps)
+  } bits;
   
   // Full 32-bit register value.
   uint32_t value;
@@ -27164,12 +26686,10 @@ union C0C2KEYR25 {
 //
 union C0C2KEYR26 {
   
-  // Enum definitions.
-  
   // Bit field definition.
   struct {
     uint32_t C2KEY : 32;
-  } bits;          // Bit-field struct (auto-filling reserved gaps)
+  } bits;
   
   // Full 32-bit register value.
   uint32_t value;
@@ -27183,12 +26703,10 @@ union C0C2KEYR26 {
 //
 union C0C2KEYR27 {
   
-  // Enum definitions.
-  
   // Bit field definition.
   struct {
     uint32_t C2KEY : 32;
-  } bits;          // Bit-field struct (auto-filling reserved gaps)
+  } bits;
   
   // Full 32-bit register value.
   uint32_t value;
@@ -27202,12 +26720,10 @@ union C0C2KEYR27 {
 //
 union C0C2KEYR28 {
   
-  // Enum definitions.
-  
   // Bit field definition.
   struct {
     uint32_t C2KEY : 32;
-  } bits;          // Bit-field struct (auto-filling reserved gaps)
+  } bits;
   
   // Full 32-bit register value.
   uint32_t value;
@@ -27221,12 +26737,10 @@ union C0C2KEYR28 {
 //
 union C0C2KEYR29 {
   
-  // Enum definitions.
-  
   // Bit field definition.
   struct {
     uint32_t C2KEY : 32;
-  } bits;          // Bit-field struct (auto-filling reserved gaps)
+  } bits;
   
   // Full 32-bit register value.
   uint32_t value;
@@ -27240,12 +26754,10 @@ union C0C2KEYR29 {
 //
 union C0C2KEYR30 {
   
-  // Enum definitions.
-  
   // Bit field definition.
   struct {
     uint32_t C2KEY : 32;
-  } bits;          // Bit-field struct (auto-filling reserved gaps)
+  } bits;
   
   // Full 32-bit register value.
   uint32_t value;
@@ -27259,12 +26771,10 @@ union C0C2KEYR30 {
 //
 union C0C2KEYR31 {
   
-  // Enum definitions.
-  
   // Bit field definition.
   struct {
     uint32_t C2KEY : 32;
-  } bits;          // Bit-field struct (auto-filling reserved gaps)
+  } bits;
   
   // Full 32-bit register value.
   uint32_t value;
@@ -27278,15 +26788,13 @@ union C0C2KEYR31 {
 //
 union C0FIFOSTA {
   
-  // Enum definitions.
-  
   // Bit field definition.
   struct {
     uint32_t DECOOQHEAD : 8;
     uint32_t DMAOQHEAD : 8;
     uint32_t C2IQHEAD : 8;
     uint32_t C1IQHEAD : 8;
-  } bits;          // Bit-field struct (auto-filling reserved gaps)
+  } bits;
   
   // Full 32-bit register value.
   uint32_t value;
@@ -27300,31 +26808,36 @@ union C0FIFOSTA {
 //
 union C0NFIFO {
   
-  // Enum definitions.
   enum class eOC : uint32_t {
     ePOP_OFIFO_FINAL = 0, // Allow the final word to be popped from the Output Data FIFO.
     eDONT_POP_OFIFO_FINAL = 1, // Don't pop the final word from the Output Data FIFO.
   };
+  
   enum class eBND : uint32_t {
     eDONT_PAD = 0, // Don't pad.
     ePAD_TO_BOUNDARY = 1, // Pad to the next 16-byte boundary.
   };
+  
   enum class eFC1 : uint32_t {
     eDONT_FLUSH_C1 = 0, // Don't flush Class 1 data.
     eFLUSH_C1 = 1, // Flush Class 1 data.
   };
+  
   enum class eFC2 : uint32_t {
     eDONT_FLUSH_C2 = 0, // Don't flush Class 2 data.
     eFLUSH_C2 = 1, // Flush Class 2 data.
   };
+  
   enum class eLC1 : uint32_t {
     eNOT_LAST_C1 = 0, // This is not the last Class 1 data.
     eLAST_C1 = 1, // This is the last Class 1 data.
   };
+  
   enum class eLC2 : uint32_t {
     eNOT_LAST_C2 = 0, // This is not the last Class 2 data.
     eLAST_C2 = 1, // This is the last Class 2 data.
   };
+  
   enum class eDEST : uint32_t {
     eDECO = 0, // DECO Alignment Block. If DTYPE == Eh, data sent to the DECO Alignment Block is dropped. This is used to skip over input data. An error is generated if a DTYPE other than Eh (drop) or Fh (message) is used with the DECO Alignment Block destination.
     eCLASS_1 = 1, // Class 1.
@@ -27347,7 +26860,7 @@ union C0NFIFO {
     eLC1 LC1 : 1;
     eLC2 LC2 : 1;
     eDEST DEST : 2;
-  } bits;          // Bit-field struct (auto-filling reserved gaps)
+  } bits;
   
   // Full 32-bit register value.
   uint32_t value;
@@ -27361,19 +26874,21 @@ union C0NFIFO {
 //
 union C0NFIFO_2 {
   
-  // Enum definitions.
   enum class ePS : uint32_t {
     eFROM_PAD_BLOCK = 0, // C2 CHA snoops pad data from padding block.
     eFROM_OFIFO = 1, // C2 CHA snoops pad data from OFIFO.
   };
+  
   enum class eBM : uint32_t {
     eBOUND_PAD_NOT_MINUS_1 = 0, // When padding, pad to power-of-2 boundary.
     eBOUND_PAD_MINUS_1 = 1, // When padding, pad to power-of-2 boundary minus 1 byte.
   };
+  
   enum class ePR : uint32_t {
     eNO_PRED_RES = 0, // No prediction resistance.
     ePRED_RES = 1, // Prediction resistance.
   };
+  
   enum class ePTYPE : uint32_t {
     eALL_0 = 0, // All Zero.
     eRANDOM_NON_0 = 1, // Random with nonzero bytes.
@@ -27384,26 +26899,32 @@ union C0NFIFO_2 {
     eALL_NUMBER_OF_BYTES_MINUS_1 = 6, // N bytes of padding all containing the value N-1.
     eRANDOM_NON_0_LAST_BYTE_NUMBER_OF_BYTES = 7, // Random with nonzero bytes, with the last byte containing the value N-1.
   };
+  
   enum class eBND : uint32_t {
     eNO_PADDING = 0, // Don't add boundary padding.
     ePADDING = 1, // Add boundary padding.
   };
+  
   enum class eFC1 : uint32_t {
     eDONT_FLUSH_C1 = 0, // Don't flush the Class 1 data.
     eFLUSH_C1 = 1, // Flush the Class 1 data.
   };
+  
   enum class eFC2 : uint32_t {
     eDONT_FLUSH_C2 = 0, // Don't flush the Class 2 data.
     eFLUSH_C2 = 1, // Flush the Class 2 data.
   };
+  
   enum class eLC1 : uint32_t {
     eNOT_LC1_DATA = 0, // This is not the last Class 1 data.
     eLC1_DATA = 1, // This is the last Class 1 data.
   };
+  
   enum class eLC2 : uint32_t {
     eNOT_LC2_DATA = 0, // This is not the last Class 2 data.
     eLC2_DATA = 1, // This is the last Class 2 data.
   };
+  
   enum class eDEST : uint32_t {
     eDECO = 0, // DECO Alignment Block. If DTYPE is Eh, data sent to the DECO Alignment Block is dropped. This is used to skip over input data. An error is generated if a DTYPE other than Eh (drop) or Fh (message) is used with the DECO Alignment Block destination.
     eCLASS_1 = 1, // Class 1.
@@ -27428,7 +26949,7 @@ union C0NFIFO_2 {
     eLC1 LC1 : 1;
     eLC2 LC2 : 1;
     eDEST DEST : 2;
-  } bits;          // Bit-field struct (auto-filling reserved gaps)
+  } bits;
   
   // Full 32-bit register value.
   uint32_t value;
@@ -27442,12 +26963,10 @@ union C0NFIFO_2 {
 //
 union C0IFIFO {
   
-  // Enum definitions.
-  
   // Bit field definition.
   struct {
     uint32_t IFIFO : 32;
-  } bits;          // Bit-field struct (auto-filling reserved gaps)
+  } bits;
   
   // Full 32-bit register value.
   uint32_t value;
@@ -27461,12 +26980,10 @@ union C0IFIFO {
 //
 union C0OFIFO {
   
-  // Enum definitions.
-  
   // Bit field definition.
   struct {
     uint32_t OFIFO : 64;
-  } bits;          // Bit-field struct (auto-filling reserved gaps)
+  } bits;
   
   // Full 32-bit register value.
   uint32_t value;
@@ -27480,7 +26997,6 @@ union C0OFIFO {
 //
 union D0JQCR_MS {
   
-  // Enum definitions.
   enum class eSRC : uint32_t {
     eJR0 = 0, // Job Ring 0
     eJR1 = 1, // Job Ring 1
@@ -27488,34 +27004,42 @@ union D0JQCR_MS {
     eJR3 = 3, // Job Ring 3
     eRTIC = 4, // RTIC
   };
+  
   enum class eAMTD : uint32_t {
     eAMTD_NOT_SET = 0, // The Allowed Make Trusted Descriptor bit was NOT set.
     eAMTD_SET = 1, // The Allowed Make Trusted Descriptor bit was set.
   };
+  
   enum class eSOB : uint32_t {
     eSD_NOT_LOADED = 0, // Shared Descriptor has NOT been loaded.
     eSD_LOADED = 1, // Shared Descriptor HAS been loaded.
   };
+  
   enum class eDWS : uint32_t {
     eNO_DWS = 0, // Double Word Swap is NOT set.
     eDWS = 1, // Double Word Swap is set.
   };
+  
   enum class eILE : uint32_t {
     eNO_BYTE_SWAP = 0, // No byte-swapping is performed for immediate data transferred to or from the Descriptor Buffer.
     eBYTE_SWAP = 1, // Byte-swapping is performed for immediate data transferred to or from the Descriptor Buffer.
   };
+  
   enum class eFOUR : uint32_t {
     eNOT_FOUR_WORDS = 0, // DECO has not been given at least four words of the descriptor.
     eFOUR_WORDS = 1, // DECO has been given at least four words of the descriptor.
   };
+  
   enum class eWHL : uint32_t {
     eNOT_WHOLE_DESC = 0, // DECO has not been given the whole descriptor.
     eWHOLE_DESC = 1, // DECO has been given the whole descriptor.
   };
+  
   enum class eSING : uint32_t {
     eNOT_SINGLE_STEP_MODE = 0, // Do not tell DECO to execute the descriptor in single-step mode.
     eSINGLE_STEP_MODE = 1, // Tell DECO to execute the descriptor in single-step mode.
   };
+  
   enum class eSTEP : uint32_t {
     eDONT_STEP = 0, // DECO has not been told to execute the next command in the descriptor.
     eSTEP = 1, // DECO has been told to execute the next command in the descriptor.
@@ -27538,7 +27062,7 @@ union D0JQCR_MS {
     eWHL WHL : 1;
     eSING SING : 1;
     eSTEP STEP : 1;
-  } bits;          // Bit-field struct (auto-filling reserved gaps)
+  } bits;
   
   // Full 32-bit register value.
   uint32_t value;
@@ -27552,12 +27076,10 @@ union D0JQCR_MS {
 //
 union D0JQCR_LS {
   
-  // Enum definitions.
-  
   // Bit field definition.
   struct {
     uint32_t CMD : 32;
-  } bits;          // Bit-field struct (auto-filling reserved gaps)
+  } bits;
   
   // Full 32-bit register value.
   uint32_t value;
@@ -27571,12 +27093,10 @@ union D0JQCR_LS {
 //
 union D0DAR {
   
-  // Enum definitions.
-  
   // Bit field definition.
   struct {
     uint32_t DPTR : 36;
-  } bits;          // Bit-field struct (auto-filling reserved gaps)
+  } bits;
   
   // Full 32-bit register value.
   uint32_t value;
@@ -27590,11 +27110,11 @@ union D0DAR {
 //
 union D0OPSTA_MS {
   
-  // Enum definitions.
   enum class eNLJ : uint32_t {
     eORIGINAL_DESC = 0, // The original job descriptor running in this DECO has not caused another job descriptor to be executed.
     eNON_LOCAL_DECR = 1, // The original job descriptor running in this DECO has caused another job descriptor to be executed.
   };
+  
   enum class eSTATUS_TYPE : uint32_t {
     eNOT_AN_ERROR = 0, // no error
     eDMA_ERROR = 1, // DMA error
@@ -27611,7 +27131,7 @@ union D0OPSTA_MS {
     uint32_t _reserved_2 : 12;
     eNLJ NLJ : 1;
     eSTATUS_TYPE STATUS_TYPE : 4;
-  } bits;          // Bit-field struct (auto-filling reserved gaps)
+  } bits;
   
   // Full 32-bit register value.
   uint32_t value;
@@ -27625,12 +27145,10 @@ union D0OPSTA_MS {
 //
 union D0OPSTA_LS {
   
-  // Enum definitions.
-  
   // Bit field definition.
   struct {
     uint32_t OUT_CT : 32;
-  } bits;          // Bit-field struct (auto-filling reserved gaps)
+  } bits;
   
   // Full 32-bit register value.
   uint32_t value;
@@ -27644,15 +27162,13 @@ union D0OPSTA_LS {
 //
 union D0PDIDSR {
   
-  // Enum definitions.
-  
   // Bit field definition.
   struct {
     uint32_t PRIM_DID : 4;
     uint32_t _reserved_1 : 15;
     uint32_t PRIM_ICID : 11;
     uint32_t _reserved_end : 2;
-  } bits;          // Bit-field struct (auto-filling reserved gaps)
+  } bits;
   
   // Full 32-bit register value.
   uint32_t value;
@@ -27666,15 +27182,13 @@ union D0PDIDSR {
 //
 union D0ODIDSR {
   
-  // Enum definitions.
-  
   // Bit field definition.
   struct {
     uint32_t OUT_DID : 4;
     uint32_t _reserved_1 : 15;
     uint32_t OUT_ICID : 11;
     uint32_t _reserved_end : 2;
-  } bits;          // Bit-field struct (auto-filling reserved gaps)
+  } bits;
   
   // Full 32-bit register value.
   uint32_t value;
@@ -27688,12 +27202,10 @@ union D0ODIDSR {
 //
 union D0MTH0_MS {
   
-  // Enum definitions.
-  
   // Bit field definition.
   struct {
     uint32_t MATH_MS : 32;
-  } bits;          // Bit-field struct (auto-filling reserved gaps)
+  } bits;
   
   // Full 32-bit register value.
   uint32_t value;
@@ -27707,12 +27219,10 @@ union D0MTH0_MS {
 //
 union D0MTH0_LS {
   
-  // Enum definitions.
-  
   // Bit field definition.
   struct {
     uint32_t MATH_LS : 32;
-  } bits;          // Bit-field struct (auto-filling reserved gaps)
+  } bits;
   
   // Full 32-bit register value.
   uint32_t value;
@@ -27726,12 +27236,10 @@ union D0MTH0_LS {
 //
 union D0MTH1_MS {
   
-  // Enum definitions.
-  
   // Bit field definition.
   struct {
     uint32_t MATH_MS : 32;
-  } bits;          // Bit-field struct (auto-filling reserved gaps)
+  } bits;
   
   // Full 32-bit register value.
   uint32_t value;
@@ -27745,12 +27253,10 @@ union D0MTH1_MS {
 //
 union D0MTH1_LS {
   
-  // Enum definitions.
-  
   // Bit field definition.
   struct {
     uint32_t MATH_LS : 32;
-  } bits;          // Bit-field struct (auto-filling reserved gaps)
+  } bits;
   
   // Full 32-bit register value.
   uint32_t value;
@@ -27764,12 +27270,10 @@ union D0MTH1_LS {
 //
 union D0MTH2_MS {
   
-  // Enum definitions.
-  
   // Bit field definition.
   struct {
     uint32_t MATH_MS : 32;
-  } bits;          // Bit-field struct (auto-filling reserved gaps)
+  } bits;
   
   // Full 32-bit register value.
   uint32_t value;
@@ -27783,12 +27287,10 @@ union D0MTH2_MS {
 //
 union D0MTH2_LS {
   
-  // Enum definitions.
-  
   // Bit field definition.
   struct {
     uint32_t MATH_LS : 32;
-  } bits;          // Bit-field struct (auto-filling reserved gaps)
+  } bits;
   
   // Full 32-bit register value.
   uint32_t value;
@@ -27802,12 +27304,10 @@ union D0MTH2_LS {
 //
 union D0MTH3_MS {
   
-  // Enum definitions.
-  
   // Bit field definition.
   struct {
     uint32_t MATH_MS : 32;
-  } bits;          // Bit-field struct (auto-filling reserved gaps)
+  } bits;
   
   // Full 32-bit register value.
   uint32_t value;
@@ -27821,12 +27321,10 @@ union D0MTH3_MS {
 //
 union D0MTH3_LS {
   
-  // Enum definitions.
-  
   // Bit field definition.
   struct {
     uint32_t MATH_LS : 32;
-  } bits;          // Bit-field struct (auto-filling reserved gaps)
+  } bits;
   
   // Full 32-bit register value.
   uint32_t value;
@@ -27840,13 +27338,11 @@ union D0MTH3_LS {
 //
 union D0GTR0_0 {
   
-  // Enum definitions.
-  
   // Bit field definition.
   struct {
     uint32_t ADDRESS_POINTER : 4;
     uint32_t _reserved_end : 28;
-  } bits;          // Bit-field struct (auto-filling reserved gaps)
+  } bits;
   
   // Full 32-bit register value.
   uint32_t value;
@@ -27860,12 +27356,10 @@ union D0GTR0_0 {
 //
 union D0GTR0_1 {
   
-  // Enum definitions.
-  
   // Bit field definition.
   struct {
     uint32_t ADDRESS_POINTER : 32;
-  } bits;          // Bit-field struct (auto-filling reserved gaps)
+  } bits;
   
   // Full 32-bit register value.
   uint32_t value;
@@ -27879,11 +27373,11 @@ union D0GTR0_1 {
 //
 union D0GTR0_2 {
   
-  // Enum definitions.
   enum class eF : uint32_t {
     eNOT_LAST = 0, // This is not the last entry of the SGT.
     eLAST = 1, // This is the last entry of the SGT.
   };
+  
   enum class eE : uint32_t {
     eMEM_BUFFER = 0, // Address Pointer points to a memory buffer.
     eSGTE = 1, // Address Pointer points to a Scatter/Gather Table Entry.
@@ -27894,7 +27388,7 @@ union D0GTR0_2 {
     uint32_t Length : 30;
     eF F : 1;
     eE E : 1;
-  } bits;          // Bit-field struct (auto-filling reserved gaps)
+  } bits;
   
   // Full 32-bit register value.
   uint32_t value;
@@ -27908,13 +27402,11 @@ union D0GTR0_2 {
 //
 union D0GTR0_3 {
   
-  // Enum definitions.
-  
   // Bit field definition.
   struct {
     uint32_t Offset : 13;
     uint32_t _reserved_end : 19;
-  } bits;          // Bit-field struct (auto-filling reserved gaps)
+  } bits;
   
   // Full 32-bit register value.
   uint32_t value;
@@ -27928,13 +27420,11 @@ union D0GTR0_3 {
 //
 union D0STR0_0 {
   
-  // Enum definitions.
-  
   // Bit field definition.
   struct {
     uint32_t ADDRESS_POINTER : 4;
     uint32_t _reserved_end : 28;
-  } bits;          // Bit-field struct (auto-filling reserved gaps)
+  } bits;
   
   // Full 32-bit register value.
   uint32_t value;
@@ -27948,12 +27438,10 @@ union D0STR0_0 {
 //
 union D0STR0_1 {
   
-  // Enum definitions.
-  
   // Bit field definition.
   struct {
     uint32_t ADDRESS_POINTER : 32;
-  } bits;          // Bit-field struct (auto-filling reserved gaps)
+  } bits;
   
   // Full 32-bit register value.
   uint32_t value;
@@ -27967,11 +27455,11 @@ union D0STR0_1 {
 //
 union D0STR0_2 {
   
-  // Enum definitions.
   enum class eF : uint32_t {
     eNOT_LAST = 0, // This is not the last entry of the SGT.
     eLAST = 1, // This is the last entry of the SGT.
   };
+  
   enum class eE : uint32_t {
     eMEM_BUFFER = 0, // Address Pointer points to a memory buffer.
     eSGTE = 1, // Address Pointer points to a Scatter/Gather Table Entry.
@@ -27982,7 +27470,7 @@ union D0STR0_2 {
     uint32_t Length : 30;
     eF F : 1;
     eE E : 1;
-  } bits;          // Bit-field struct (auto-filling reserved gaps)
+  } bits;
   
   // Full 32-bit register value.
   uint32_t value;
@@ -27996,13 +27484,11 @@ union D0STR0_2 {
 //
 union D0STR0_3 {
   
-  // Enum definitions.
-  
   // Bit field definition.
   struct {
     uint32_t Offset : 13;
     uint32_t _reserved_end : 19;
-  } bits;          // Bit-field struct (auto-filling reserved gaps)
+  } bits;
   
   // Full 32-bit register value.
   uint32_t value;
@@ -28016,12 +27502,10 @@ union D0STR0_3 {
 //
 union D0DESB0 {
   
-  // Enum definitions.
-  
   // Bit field definition.
   struct {
     uint32_t DESBW : 32;
-  } bits;          // Bit-field struct (auto-filling reserved gaps)
+  } bits;
   
   // Full 32-bit register value.
   uint32_t value;
@@ -28035,12 +27519,10 @@ union D0DESB0 {
 //
 union D0DESB1 {
   
-  // Enum definitions.
-  
   // Bit field definition.
   struct {
     uint32_t DESBW : 32;
-  } bits;          // Bit-field struct (auto-filling reserved gaps)
+  } bits;
   
   // Full 32-bit register value.
   uint32_t value;
@@ -28054,12 +27536,10 @@ union D0DESB1 {
 //
 union D0DESB2 {
   
-  // Enum definitions.
-  
   // Bit field definition.
   struct {
     uint32_t DESBW : 32;
-  } bits;          // Bit-field struct (auto-filling reserved gaps)
+  } bits;
   
   // Full 32-bit register value.
   uint32_t value;
@@ -28073,12 +27553,10 @@ union D0DESB2 {
 //
 union D0DESB3 {
   
-  // Enum definitions.
-  
   // Bit field definition.
   struct {
     uint32_t DESBW : 32;
-  } bits;          // Bit-field struct (auto-filling reserved gaps)
+  } bits;
   
   // Full 32-bit register value.
   uint32_t value;
@@ -28092,12 +27570,10 @@ union D0DESB3 {
 //
 union D0DESB4 {
   
-  // Enum definitions.
-  
   // Bit field definition.
   struct {
     uint32_t DESBW : 32;
-  } bits;          // Bit-field struct (auto-filling reserved gaps)
+  } bits;
   
   // Full 32-bit register value.
   uint32_t value;
@@ -28111,12 +27587,10 @@ union D0DESB4 {
 //
 union D0DESB5 {
   
-  // Enum definitions.
-  
   // Bit field definition.
   struct {
     uint32_t DESBW : 32;
-  } bits;          // Bit-field struct (auto-filling reserved gaps)
+  } bits;
   
   // Full 32-bit register value.
   uint32_t value;
@@ -28130,12 +27604,10 @@ union D0DESB5 {
 //
 union D0DESB6 {
   
-  // Enum definitions.
-  
   // Bit field definition.
   struct {
     uint32_t DESBW : 32;
-  } bits;          // Bit-field struct (auto-filling reserved gaps)
+  } bits;
   
   // Full 32-bit register value.
   uint32_t value;
@@ -28149,12 +27621,10 @@ union D0DESB6 {
 //
 union D0DESB7 {
   
-  // Enum definitions.
-  
   // Bit field definition.
   struct {
     uint32_t DESBW : 32;
-  } bits;          // Bit-field struct (auto-filling reserved gaps)
+  } bits;
   
   // Full 32-bit register value.
   uint32_t value;
@@ -28168,12 +27638,10 @@ union D0DESB7 {
 //
 union D0DESB8 {
   
-  // Enum definitions.
-  
   // Bit field definition.
   struct {
     uint32_t DESBW : 32;
-  } bits;          // Bit-field struct (auto-filling reserved gaps)
+  } bits;
   
   // Full 32-bit register value.
   uint32_t value;
@@ -28187,12 +27655,10 @@ union D0DESB8 {
 //
 union D0DESB9 {
   
-  // Enum definitions.
-  
   // Bit field definition.
   struct {
     uint32_t DESBW : 32;
-  } bits;          // Bit-field struct (auto-filling reserved gaps)
+  } bits;
   
   // Full 32-bit register value.
   uint32_t value;
@@ -28206,12 +27672,10 @@ union D0DESB9 {
 //
 union D0DESB10 {
   
-  // Enum definitions.
-  
   // Bit field definition.
   struct {
     uint32_t DESBW : 32;
-  } bits;          // Bit-field struct (auto-filling reserved gaps)
+  } bits;
   
   // Full 32-bit register value.
   uint32_t value;
@@ -28225,12 +27689,10 @@ union D0DESB10 {
 //
 union D0DESB11 {
   
-  // Enum definitions.
-  
   // Bit field definition.
   struct {
     uint32_t DESBW : 32;
-  } bits;          // Bit-field struct (auto-filling reserved gaps)
+  } bits;
   
   // Full 32-bit register value.
   uint32_t value;
@@ -28244,12 +27706,10 @@ union D0DESB11 {
 //
 union D0DESB12 {
   
-  // Enum definitions.
-  
   // Bit field definition.
   struct {
     uint32_t DESBW : 32;
-  } bits;          // Bit-field struct (auto-filling reserved gaps)
+  } bits;
   
   // Full 32-bit register value.
   uint32_t value;
@@ -28263,12 +27723,10 @@ union D0DESB12 {
 //
 union D0DESB13 {
   
-  // Enum definitions.
-  
   // Bit field definition.
   struct {
     uint32_t DESBW : 32;
-  } bits;          // Bit-field struct (auto-filling reserved gaps)
+  } bits;
   
   // Full 32-bit register value.
   uint32_t value;
@@ -28282,12 +27740,10 @@ union D0DESB13 {
 //
 union D0DESB14 {
   
-  // Enum definitions.
-  
   // Bit field definition.
   struct {
     uint32_t DESBW : 32;
-  } bits;          // Bit-field struct (auto-filling reserved gaps)
+  } bits;
   
   // Full 32-bit register value.
   uint32_t value;
@@ -28301,12 +27757,10 @@ union D0DESB14 {
 //
 union D0DESB15 {
   
-  // Enum definitions.
-  
   // Bit field definition.
   struct {
     uint32_t DESBW : 32;
-  } bits;          // Bit-field struct (auto-filling reserved gaps)
+  } bits;
   
   // Full 32-bit register value.
   uint32_t value;
@@ -28320,12 +27774,10 @@ union D0DESB15 {
 //
 union D0DESB16 {
   
-  // Enum definitions.
-  
   // Bit field definition.
   struct {
     uint32_t DESBW : 32;
-  } bits;          // Bit-field struct (auto-filling reserved gaps)
+  } bits;
   
   // Full 32-bit register value.
   uint32_t value;
@@ -28339,12 +27791,10 @@ union D0DESB16 {
 //
 union D0DESB17 {
   
-  // Enum definitions.
-  
   // Bit field definition.
   struct {
     uint32_t DESBW : 32;
-  } bits;          // Bit-field struct (auto-filling reserved gaps)
+  } bits;
   
   // Full 32-bit register value.
   uint32_t value;
@@ -28358,12 +27808,10 @@ union D0DESB17 {
 //
 union D0DESB18 {
   
-  // Enum definitions.
-  
   // Bit field definition.
   struct {
     uint32_t DESBW : 32;
-  } bits;          // Bit-field struct (auto-filling reserved gaps)
+  } bits;
   
   // Full 32-bit register value.
   uint32_t value;
@@ -28377,12 +27825,10 @@ union D0DESB18 {
 //
 union D0DESB19 {
   
-  // Enum definitions.
-  
   // Bit field definition.
   struct {
     uint32_t DESBW : 32;
-  } bits;          // Bit-field struct (auto-filling reserved gaps)
+  } bits;
   
   // Full 32-bit register value.
   uint32_t value;
@@ -28396,12 +27842,10 @@ union D0DESB19 {
 //
 union D0DESB20 {
   
-  // Enum definitions.
-  
   // Bit field definition.
   struct {
     uint32_t DESBW : 32;
-  } bits;          // Bit-field struct (auto-filling reserved gaps)
+  } bits;
   
   // Full 32-bit register value.
   uint32_t value;
@@ -28415,12 +27859,10 @@ union D0DESB20 {
 //
 union D0DESB21 {
   
-  // Enum definitions.
-  
   // Bit field definition.
   struct {
     uint32_t DESBW : 32;
-  } bits;          // Bit-field struct (auto-filling reserved gaps)
+  } bits;
   
   // Full 32-bit register value.
   uint32_t value;
@@ -28434,12 +27876,10 @@ union D0DESB21 {
 //
 union D0DESB22 {
   
-  // Enum definitions.
-  
   // Bit field definition.
   struct {
     uint32_t DESBW : 32;
-  } bits;          // Bit-field struct (auto-filling reserved gaps)
+  } bits;
   
   // Full 32-bit register value.
   uint32_t value;
@@ -28453,12 +27893,10 @@ union D0DESB22 {
 //
 union D0DESB23 {
   
-  // Enum definitions.
-  
   // Bit field definition.
   struct {
     uint32_t DESBW : 32;
-  } bits;          // Bit-field struct (auto-filling reserved gaps)
+  } bits;
   
   // Full 32-bit register value.
   uint32_t value;
@@ -28472,12 +27910,10 @@ union D0DESB23 {
 //
 union D0DESB24 {
   
-  // Enum definitions.
-  
   // Bit field definition.
   struct {
     uint32_t DESBW : 32;
-  } bits;          // Bit-field struct (auto-filling reserved gaps)
+  } bits;
   
   // Full 32-bit register value.
   uint32_t value;
@@ -28491,12 +27927,10 @@ union D0DESB24 {
 //
 union D0DESB25 {
   
-  // Enum definitions.
-  
   // Bit field definition.
   struct {
     uint32_t DESBW : 32;
-  } bits;          // Bit-field struct (auto-filling reserved gaps)
+  } bits;
   
   // Full 32-bit register value.
   uint32_t value;
@@ -28510,12 +27944,10 @@ union D0DESB25 {
 //
 union D0DESB26 {
   
-  // Enum definitions.
-  
   // Bit field definition.
   struct {
     uint32_t DESBW : 32;
-  } bits;          // Bit-field struct (auto-filling reserved gaps)
+  } bits;
   
   // Full 32-bit register value.
   uint32_t value;
@@ -28529,12 +27961,10 @@ union D0DESB26 {
 //
 union D0DESB27 {
   
-  // Enum definitions.
-  
   // Bit field definition.
   struct {
     uint32_t DESBW : 32;
-  } bits;          // Bit-field struct (auto-filling reserved gaps)
+  } bits;
   
   // Full 32-bit register value.
   uint32_t value;
@@ -28548,12 +27978,10 @@ union D0DESB27 {
 //
 union D0DESB28 {
   
-  // Enum definitions.
-  
   // Bit field definition.
   struct {
     uint32_t DESBW : 32;
-  } bits;          // Bit-field struct (auto-filling reserved gaps)
+  } bits;
   
   // Full 32-bit register value.
   uint32_t value;
@@ -28567,12 +27995,10 @@ union D0DESB28 {
 //
 union D0DESB29 {
   
-  // Enum definitions.
-  
   // Bit field definition.
   struct {
     uint32_t DESBW : 32;
-  } bits;          // Bit-field struct (auto-filling reserved gaps)
+  } bits;
   
   // Full 32-bit register value.
   uint32_t value;
@@ -28586,12 +28012,10 @@ union D0DESB29 {
 //
 union D0DESB30 {
   
-  // Enum definitions.
-  
   // Bit field definition.
   struct {
     uint32_t DESBW : 32;
-  } bits;          // Bit-field struct (auto-filling reserved gaps)
+  } bits;
   
   // Full 32-bit register value.
   uint32_t value;
@@ -28605,12 +28029,10 @@ union D0DESB30 {
 //
 union D0DESB31 {
   
-  // Enum definitions.
-  
   // Bit field definition.
   struct {
     uint32_t DESBW : 32;
-  } bits;          // Bit-field struct (auto-filling reserved gaps)
+  } bits;
   
   // Full 32-bit register value.
   uint32_t value;
@@ -28624,12 +28046,10 @@ union D0DESB31 {
 //
 union D0DESB32 {
   
-  // Enum definitions.
-  
   // Bit field definition.
   struct {
     uint32_t DESBW : 32;
-  } bits;          // Bit-field struct (auto-filling reserved gaps)
+  } bits;
   
   // Full 32-bit register value.
   uint32_t value;
@@ -28643,12 +28063,10 @@ union D0DESB32 {
 //
 union D0DESB33 {
   
-  // Enum definitions.
-  
   // Bit field definition.
   struct {
     uint32_t DESBW : 32;
-  } bits;          // Bit-field struct (auto-filling reserved gaps)
+  } bits;
   
   // Full 32-bit register value.
   uint32_t value;
@@ -28662,12 +28080,10 @@ union D0DESB33 {
 //
 union D0DESB34 {
   
-  // Enum definitions.
-  
   // Bit field definition.
   struct {
     uint32_t DESBW : 32;
-  } bits;          // Bit-field struct (auto-filling reserved gaps)
+  } bits;
   
   // Full 32-bit register value.
   uint32_t value;
@@ -28681,12 +28097,10 @@ union D0DESB34 {
 //
 union D0DESB35 {
   
-  // Enum definitions.
-  
   // Bit field definition.
   struct {
     uint32_t DESBW : 32;
-  } bits;          // Bit-field struct (auto-filling reserved gaps)
+  } bits;
   
   // Full 32-bit register value.
   uint32_t value;
@@ -28700,12 +28114,10 @@ union D0DESB35 {
 //
 union D0DESB36 {
   
-  // Enum definitions.
-  
   // Bit field definition.
   struct {
     uint32_t DESBW : 32;
-  } bits;          // Bit-field struct (auto-filling reserved gaps)
+  } bits;
   
   // Full 32-bit register value.
   uint32_t value;
@@ -28719,12 +28131,10 @@ union D0DESB36 {
 //
 union D0DESB37 {
   
-  // Enum definitions.
-  
   // Bit field definition.
   struct {
     uint32_t DESBW : 32;
-  } bits;          // Bit-field struct (auto-filling reserved gaps)
+  } bits;
   
   // Full 32-bit register value.
   uint32_t value;
@@ -28738,12 +28148,10 @@ union D0DESB37 {
 //
 union D0DESB38 {
   
-  // Enum definitions.
-  
   // Bit field definition.
   struct {
     uint32_t DESBW : 32;
-  } bits;          // Bit-field struct (auto-filling reserved gaps)
+  } bits;
   
   // Full 32-bit register value.
   uint32_t value;
@@ -28757,12 +28165,10 @@ union D0DESB38 {
 //
 union D0DESB39 {
   
-  // Enum definitions.
-  
   // Bit field definition.
   struct {
     uint32_t DESBW : 32;
-  } bits;          // Bit-field struct (auto-filling reserved gaps)
+  } bits;
   
   // Full 32-bit register value.
   uint32_t value;
@@ -28776,12 +28182,10 @@ union D0DESB39 {
 //
 union D0DESB40 {
   
-  // Enum definitions.
-  
   // Bit field definition.
   struct {
     uint32_t DESBW : 32;
-  } bits;          // Bit-field struct (auto-filling reserved gaps)
+  } bits;
   
   // Full 32-bit register value.
   uint32_t value;
@@ -28795,12 +28199,10 @@ union D0DESB40 {
 //
 union D0DESB41 {
   
-  // Enum definitions.
-  
   // Bit field definition.
   struct {
     uint32_t DESBW : 32;
-  } bits;          // Bit-field struct (auto-filling reserved gaps)
+  } bits;
   
   // Full 32-bit register value.
   uint32_t value;
@@ -28814,12 +28216,10 @@ union D0DESB41 {
 //
 union D0DESB42 {
   
-  // Enum definitions.
-  
   // Bit field definition.
   struct {
     uint32_t DESBW : 32;
-  } bits;          // Bit-field struct (auto-filling reserved gaps)
+  } bits;
   
   // Full 32-bit register value.
   uint32_t value;
@@ -28833,12 +28233,10 @@ union D0DESB42 {
 //
 union D0DESB43 {
   
-  // Enum definitions.
-  
   // Bit field definition.
   struct {
     uint32_t DESBW : 32;
-  } bits;          // Bit-field struct (auto-filling reserved gaps)
+  } bits;
   
   // Full 32-bit register value.
   uint32_t value;
@@ -28852,12 +28250,10 @@ union D0DESB43 {
 //
 union D0DESB44 {
   
-  // Enum definitions.
-  
   // Bit field definition.
   struct {
     uint32_t DESBW : 32;
-  } bits;          // Bit-field struct (auto-filling reserved gaps)
+  } bits;
   
   // Full 32-bit register value.
   uint32_t value;
@@ -28871,12 +28267,10 @@ union D0DESB44 {
 //
 union D0DESB45 {
   
-  // Enum definitions.
-  
   // Bit field definition.
   struct {
     uint32_t DESBW : 32;
-  } bits;          // Bit-field struct (auto-filling reserved gaps)
+  } bits;
   
   // Full 32-bit register value.
   uint32_t value;
@@ -28890,12 +28284,10 @@ union D0DESB45 {
 //
 union D0DESB46 {
   
-  // Enum definitions.
-  
   // Bit field definition.
   struct {
     uint32_t DESBW : 32;
-  } bits;          // Bit-field struct (auto-filling reserved gaps)
+  } bits;
   
   // Full 32-bit register value.
   uint32_t value;
@@ -28909,12 +28301,10 @@ union D0DESB46 {
 //
 union D0DESB47 {
   
-  // Enum definitions.
-  
   // Bit field definition.
   struct {
     uint32_t DESBW : 32;
-  } bits;          // Bit-field struct (auto-filling reserved gaps)
+  } bits;
   
   // Full 32-bit register value.
   uint32_t value;
@@ -28928,12 +28318,10 @@ union D0DESB47 {
 //
 union D0DESB48 {
   
-  // Enum definitions.
-  
   // Bit field definition.
   struct {
     uint32_t DESBW : 32;
-  } bits;          // Bit-field struct (auto-filling reserved gaps)
+  } bits;
   
   // Full 32-bit register value.
   uint32_t value;
@@ -28947,12 +28335,10 @@ union D0DESB48 {
 //
 union D0DESB49 {
   
-  // Enum definitions.
-  
   // Bit field definition.
   struct {
     uint32_t DESBW : 32;
-  } bits;          // Bit-field struct (auto-filling reserved gaps)
+  } bits;
   
   // Full 32-bit register value.
   uint32_t value;
@@ -28966,12 +28352,10 @@ union D0DESB49 {
 //
 union D0DESB50 {
   
-  // Enum definitions.
-  
   // Bit field definition.
   struct {
     uint32_t DESBW : 32;
-  } bits;          // Bit-field struct (auto-filling reserved gaps)
+  } bits;
   
   // Full 32-bit register value.
   uint32_t value;
@@ -28985,12 +28369,10 @@ union D0DESB50 {
 //
 union D0DESB51 {
   
-  // Enum definitions.
-  
   // Bit field definition.
   struct {
     uint32_t DESBW : 32;
-  } bits;          // Bit-field struct (auto-filling reserved gaps)
+  } bits;
   
   // Full 32-bit register value.
   uint32_t value;
@@ -29004,12 +28386,10 @@ union D0DESB51 {
 //
 union D0DESB52 {
   
-  // Enum definitions.
-  
   // Bit field definition.
   struct {
     uint32_t DESBW : 32;
-  } bits;          // Bit-field struct (auto-filling reserved gaps)
+  } bits;
   
   // Full 32-bit register value.
   uint32_t value;
@@ -29023,12 +28403,10 @@ union D0DESB52 {
 //
 union D0DESB53 {
   
-  // Enum definitions.
-  
   // Bit field definition.
   struct {
     uint32_t DESBW : 32;
-  } bits;          // Bit-field struct (auto-filling reserved gaps)
+  } bits;
   
   // Full 32-bit register value.
   uint32_t value;
@@ -29042,12 +28420,10 @@ union D0DESB53 {
 //
 union D0DESB54 {
   
-  // Enum definitions.
-  
   // Bit field definition.
   struct {
     uint32_t DESBW : 32;
-  } bits;          // Bit-field struct (auto-filling reserved gaps)
+  } bits;
   
   // Full 32-bit register value.
   uint32_t value;
@@ -29061,12 +28437,10 @@ union D0DESB54 {
 //
 union D0DESB55 {
   
-  // Enum definitions.
-  
   // Bit field definition.
   struct {
     uint32_t DESBW : 32;
-  } bits;          // Bit-field struct (auto-filling reserved gaps)
+  } bits;
   
   // Full 32-bit register value.
   uint32_t value;
@@ -29080,12 +28454,10 @@ union D0DESB55 {
 //
 union D0DESB56 {
   
-  // Enum definitions.
-  
   // Bit field definition.
   struct {
     uint32_t DESBW : 32;
-  } bits;          // Bit-field struct (auto-filling reserved gaps)
+  } bits;
   
   // Full 32-bit register value.
   uint32_t value;
@@ -29099,12 +28471,10 @@ union D0DESB56 {
 //
 union D0DESB57 {
   
-  // Enum definitions.
-  
   // Bit field definition.
   struct {
     uint32_t DESBW : 32;
-  } bits;          // Bit-field struct (auto-filling reserved gaps)
+  } bits;
   
   // Full 32-bit register value.
   uint32_t value;
@@ -29118,12 +28488,10 @@ union D0DESB57 {
 //
 union D0DESB58 {
   
-  // Enum definitions.
-  
   // Bit field definition.
   struct {
     uint32_t DESBW : 32;
-  } bits;          // Bit-field struct (auto-filling reserved gaps)
+  } bits;
   
   // Full 32-bit register value.
   uint32_t value;
@@ -29137,12 +28505,10 @@ union D0DESB58 {
 //
 union D0DESB59 {
   
-  // Enum definitions.
-  
   // Bit field definition.
   struct {
     uint32_t DESBW : 32;
-  } bits;          // Bit-field struct (auto-filling reserved gaps)
+  } bits;
   
   // Full 32-bit register value.
   uint32_t value;
@@ -29156,12 +28522,10 @@ union D0DESB59 {
 //
 union D0DESB60 {
   
-  // Enum definitions.
-  
   // Bit field definition.
   struct {
     uint32_t DESBW : 32;
-  } bits;          // Bit-field struct (auto-filling reserved gaps)
+  } bits;
   
   // Full 32-bit register value.
   uint32_t value;
@@ -29175,12 +28539,10 @@ union D0DESB60 {
 //
 union D0DESB61 {
   
-  // Enum definitions.
-  
   // Bit field definition.
   struct {
     uint32_t DESBW : 32;
-  } bits;          // Bit-field struct (auto-filling reserved gaps)
+  } bits;
   
   // Full 32-bit register value.
   uint32_t value;
@@ -29194,12 +28556,10 @@ union D0DESB61 {
 //
 union D0DESB62 {
   
-  // Enum definitions.
-  
   // Bit field definition.
   struct {
     uint32_t DESBW : 32;
-  } bits;          // Bit-field struct (auto-filling reserved gaps)
+  } bits;
   
   // Full 32-bit register value.
   uint32_t value;
@@ -29213,12 +28573,10 @@ union D0DESB62 {
 //
 union D0DESB63 {
   
-  // Enum definitions.
-  
   // Bit field definition.
   struct {
     uint32_t DESBW : 32;
-  } bits;          // Bit-field struct (auto-filling reserved gaps)
+  } bits;
   
   // Full 32-bit register value.
   uint32_t value;
@@ -29232,7 +28590,6 @@ union D0DESB63 {
 //
 union D0DJR {
   
-  // Enum definitions.
   enum class eSRC : uint32_t {
     eJR0 = 0, // Job Ring 0
     eJR1 = 1, // Job Ring 1
@@ -29240,38 +28597,47 @@ union D0DJR {
     eJR3 = 3, // Job Ring 3
     eRTIC = 4, // RTIC
   };
+  
   enum class eJDDS : uint32_t {
     eNON_SEQ_DID = 0, // Non-SEQ DID
     eSEQ_DID = 1, // SEQ DID
   };
+  
   enum class eAMTD : uint32_t {
     eAMTD_NOT_SET = 0, // The Allowed Make Trusted Descriptor bit was NOT set.
     eAMTD_SET = 1, // The Allowed Make Trusted Descriptor bit was set.
   };
+  
   enum class eGSD : uint32_t {
     eDID_NOT_GET_SD = 0, // Shared Descriptor was NOT obtained from another DECO.
     eGOT_SD = 1, // Shared Descriptor was obtained from another DECO.
   };
+  
   enum class eDWS : uint32_t {
     eNO_DWS = 0, // Double Word Swap is NOT set.
     eDWS = 1, // Double Word Swap is set.
   };
+  
   enum class eILE : uint32_t {
     eNO_BYTE_SWAP = 0, // No byte-swapping is performed for immediate data transferred to or from the Descriptor Buffer.
     eBYTE_SWAP = 1, // Byte-swapping is performed for immediate data transferred to or from the Descriptor Buffer.
   };
+  
   enum class eFOUR : uint32_t {
     eNOT_FOUR_WORDS = 0, // DECO has not been given at least four words of the descriptor.
     eFOUR_WORDS = 1, // DECO has been given at least four words of the descriptor.
   };
+  
   enum class eWHL : uint32_t {
     eNOT_WHOLE_DESC = 0, // DECO has not been given the whole descriptor.
     eWHOLE_DESC = 1, // DECO has been given the whole descriptor.
   };
+  
   enum class eSING : uint32_t {
     eNOT_SINGLE_STEP_MODE = 0, // DECO has not been told to execute the descriptor in single-step mode.
     eSINGLE_STEP_MODE = 1, // DECO has been told to execute the descriptor in single-step mode.
   };
+  
   enum class eSTEP : uint32_t {
     eDONT_STEP = 0, // DECO has not been told to execute the next command in the descriptor.
     eSTEP = 1, // DECO has been told to execute the next command in the descriptor.
@@ -29295,7 +28661,7 @@ union D0DJR {
     eWHL WHL : 1;
     eSING SING : 1;
     eSTEP STEP : 1;
-  } bits;          // Bit-field struct (auto-filling reserved gaps)
+  } bits;
   
   // Full 32-bit register value.
   uint32_t value;
@@ -29309,45 +28675,53 @@ union D0DJR {
 //
 union D0DDR {
   
-  // Enum definitions.
   enum class eCT : uint32_t {
     eNOT_CHECKING = 0, // This DECO is NOTcurrently generating the signature of a Trusted Descriptor.
     eCHECKING = 1, // This DECO is currently generating the signature of a Trusted Descriptor.
   };
+  
   enum class eBRB : uint32_t {
     eNOT_BUSY = 0, // The READ machine in the Burster is not busy.
     eBUSY = 1, // The READ machine in the Burster is busy.
   };
+  
   enum class eBWB : uint32_t {
     eNOT_BUSY = 0, // The WRITE machine in the Burster is not busy.
     eBUSY = 1, // The WRITE machine in the Burster is busy.
   };
+  
   enum class eNC : uint32_t {
     eCMD_EXEC = 0, // This DECO is currently executing a command.
     eNO_CMD_EXEC = 1, // This DECO is not currently executing a command.
   };
+  
   enum class eNLJ : uint32_t {
     eORIGINAL_DESC = 0, // The original job descriptor running in this DECO has not caused another job descriptor to be executed.
     eNON_LOCAL_DECR = 1, // The original job descriptor running in this DECO has caused another job descriptor to be executed.
   };
+  
   enum class ePTCL_RUN : uint32_t {
     eNOT_RUNNING = 0, // No protocol is running in this DECO.
     eRUNNING = 1, // A protocol is running in this DECO.
   };
+  
   enum class eNSEQLSEL : uint32_t {
     eSEQ_DID = 1, // SEQ DID
     eNONSEQ_DID = 2, // Non-SEQ DID
     eTRUSTED_DID = 3, // Trusted DID
   };
+  
   enum class eSEQLSEL : uint32_t {
     eSEQ_DID = 1, // SEQ DID
     eNONSEQ_DID = 2, // Non-SEQ DID
     eTRUSTED_DID = 3, // Trusted DID
   };
+  
   enum class eSD : uint32_t {
     eNO_SD_RCVD = 0, // This DECO has not received a shared descriptor from another DECO.
     eSD_RCVD = 1, // This DECO has received a shared descriptor from another DECO.
   };
+  
   enum class eVALID : uint32_t {
     eNO_DESC_RUNNING = 0, // No descriptor is currently running in this DECO.
     eDESC_RUNNING = 1, // There is currently a descriptor running in this DECO.
@@ -29372,7 +28746,7 @@ union D0DDR {
     uint32_t TRCT : 2;
     eSD SD : 1;
     eVALID VALID : 1;
-  } bits;          // Bit-field struct (auto-filling reserved gaps)
+  } bits;
   
   // Full 32-bit register value.
   uint32_t value;
@@ -29386,12 +28760,10 @@ union D0DDR {
 //
 union D0DJP {
   
-  // Enum definitions.
-  
   // Bit field definition.
   struct {
     uint32_t JDPTR : 36;
-  } bits;          // Bit-field struct (auto-filling reserved gaps)
+  } bits;
   
   // Full 32-bit register value.
   uint32_t value;
@@ -29405,12 +28777,10 @@ union D0DJP {
 //
 union D0SDP {
   
-  // Enum definitions.
-  
   // Bit field definition.
   struct {
     uint32_t SDPTR : 36;
-  } bits;          // Bit-field struct (auto-filling reserved gaps)
+  } bits;
   
   // Full 32-bit register value.
   uint32_t value;
@@ -29424,7 +28794,6 @@ union D0SDP {
 //
 union D0DDR_MS {
   
-  // Enum definitions.
   enum class ePRIM_TZ : uint32_t {
     eNONSECUREWORLD = 0, // TrustZone NonSecureWorld
     eSECUREWORLD = 1, // TrustZone SecureWorld
@@ -29438,7 +28807,7 @@ union D0DDR_MS {
     uint32_t OUT_DID : 4;
     uint32_t _reserved_4 : 1;
     uint32_t OUT_ICID : 11;
-  } bits;          // Bit-field struct (auto-filling reserved gaps)
+  } bits;
   
   // Full 32-bit register value.
   uint32_t value;
@@ -29452,15 +28821,13 @@ union D0DDR_MS {
 //
 union D0DDR_LS {
   
-  // Enum definitions.
-  
   // Bit field definition.
   struct {
     uint32_t OUT_DID : 4;
     uint32_t _reserved_1 : 15;
     uint32_t OUT_ICID : 11;
     uint32_t _reserved_end : 2;
-  } bits;          // Bit-field struct (auto-filling reserved gaps)
+  } bits;
   
   // Full 32-bit register value.
   uint32_t value;
@@ -29474,12 +28841,10 @@ union D0DDR_LS {
 //
 union SOL0 {
   
-  // Enum definitions.
-  
   // Bit field definition.
   struct {
     uint32_t SOL : 32;
-  } bits;          // Bit-field struct (auto-filling reserved gaps)
+  } bits;
   
   // Full 32-bit register value.
   uint32_t value;
@@ -29493,12 +28858,10 @@ union SOL0 {
 //
 union VSOL0 {
   
-  // Enum definitions.
-  
   // Bit field definition.
   struct {
     uint32_t VSOL : 32;
-  } bits;          // Bit-field struct (auto-filling reserved gaps)
+  } bits;
   
   // Full 32-bit register value.
   uint32_t value;
@@ -29512,12 +28875,10 @@ union VSOL0 {
 //
 union SIL0 {
   
-  // Enum definitions.
-  
   // Bit field definition.
   struct {
     uint32_t SIL : 32;
-  } bits;          // Bit-field struct (auto-filling reserved gaps)
+  } bits;
   
   // Full 32-bit register value.
   uint32_t value;
@@ -29531,12 +28892,10 @@ union SIL0 {
 //
 union VSIL0 {
   
-  // Enum definitions.
-  
   // Bit field definition.
   struct {
     uint32_t VSIL : 32;
-  } bits;          // Bit-field struct (auto-filling reserved gaps)
+  } bits;
   
   // Full 32-bit register value.
   uint32_t value;
@@ -29550,12 +28909,10 @@ union VSIL0 {
 //
 union D0POVRD {
   
-  // Enum definitions.
-  
   // Bit field definition.
   struct {
     uint32_t DPOVRD : 32;
-  } bits;          // Bit-field struct (auto-filling reserved gaps)
+  } bits;
   
   // Full 32-bit register value.
   uint32_t value;
@@ -29569,12 +28926,10 @@ union D0POVRD {
 //
 union UVSOL0 {
   
-  // Enum definitions.
-  
   // Bit field definition.
   struct {
     uint32_t UVSOL : 32;
-  } bits;          // Bit-field struct (auto-filling reserved gaps)
+  } bits;
   
   // Full 32-bit register value.
   uint32_t value;
@@ -29588,12 +28943,10 @@ union UVSOL0 {
 //
 union UVSIL0 {
   
-  // Enum definitions.
-  
   // Bit field definition.
   struct {
     uint32_t UVSIL : 32;
-  } bits;          // Bit-field struct (auto-filling reserved gaps)
+  } bits;
   
   // Full 32-bit register value.
   uint32_t value;

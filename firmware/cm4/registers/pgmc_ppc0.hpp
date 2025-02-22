@@ -15,8 +15,6 @@ namespace nPGMC_PPC0 {
 //
 union PPC_AUTHEN_CTRL {
   
-  // Enum definitions.
-  
   // Bit field definition.
   struct {
     uint32_t USER : 1;
@@ -29,7 +27,7 @@ union PPC_AUTHEN_CTRL {
     uint32_t _reserved_5 : 7;
     uint32_t LOCK_CFG : 1;
     uint32_t _reserved_end : 11;
-  } bits;          // Bit-field struct (auto-filling reserved gaps)
+  } bits;
   
   // Full 32-bit register value.
   uint32_t value;
@@ -43,12 +41,12 @@ union PPC_AUTHEN_CTRL {
 //
 union PPC_MODE {
   
-  // Enum definitions.
   enum class eCTRL_MODE : uint32_t {
     eCTRL_MODE_0 = 0, // Not affected by any low power mode
     eCTRL_MODE_1 = 1, // Controlled by CPU power mode of the domain
     eCTRL_MODE_2 = 2, // Controlled by Setpoint and system standby
   };
+  
   enum class eDOMAIN_ASSIGN : uint32_t {
     ed0 = 0, // Domain 0
     ed1 = 1, // Domain 1
@@ -62,7 +60,7 @@ union PPC_MODE {
     uint32_t _reserved_1 : 2;
     eDOMAIN_ASSIGN DOMAIN_ASSIGN : 2;
     uint32_t _reserved_end : 26;
-  } bits;          // Bit-field struct (auto-filling reserved gaps)
+  } bits;
   
   // Full 32-bit register value.
   uint32_t value;
@@ -76,8 +74,6 @@ union PPC_MODE {
 //
 union PPC_STBY_CM_CTRL {
   
-  // Enum definitions.
-  
   // Bit field definition.
   struct {
     uint32_t _reserved_0 : 1;
@@ -88,7 +84,7 @@ union PPC_STBY_CM_CTRL {
     uint32_t STBY_ON_SOFT : 1;
     uint32_t STBY_OFF_SOFT : 1;
     uint32_t _reserved_end : 22;
-  } bits;          // Bit-field struct (auto-filling reserved gaps)
+  } bits;
   
   // Full 32-bit register value.
   uint32_t value;
@@ -102,13 +98,11 @@ union PPC_STBY_CM_CTRL {
 //
 union PPC_STBY_SP_CTRL {
   
-  // Enum definitions.
-  
   // Bit field definition.
   struct {
     uint32_t STBY_ON_AT_SP_ACTIVE : 16;
     uint32_t STBY_ON_AT_SP_SLEEP : 16;
-  } bits;          // Bit-field struct (auto-filling reserved gaps)
+  } bits;
   
   // Full 32-bit register value.
   uint32_t value;

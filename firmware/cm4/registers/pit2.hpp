@@ -15,11 +15,11 @@ namespace nPIT2 {
 //
 union MCR {
   
-  // Enum definitions.
   enum class eFRZ : uint32_t {
     et000001 = 0, // Timers continue to run in Debug mode.
     et0000011 = 1, // Timers are stopped in Debug mode.
   };
+  
   enum class eMDIS : uint32_t {
     et0301 = 0, // Clock for standard PIT timers is enabled.
     et00000111 = 1, // Clock for standard PIT timers is disabled.
@@ -30,7 +30,7 @@ union MCR {
     eFRZ FRZ : 1;
     eMDIS MDIS : 1;
     uint32_t _reserved_end : 30;
-  } bits;          // Bit-field struct (auto-filling reserved gaps)
+  } bits;
   
   // Full 32-bit register value.
   uint32_t value;
@@ -44,12 +44,10 @@ union MCR {
 //
 union LTMR64H {
   
-  // Enum definitions.
-  
   // Bit field definition.
   struct {
     uint32_t LTH : 32;
-  } bits;          // Bit-field struct (auto-filling reserved gaps)
+  } bits;
   
   // Full 32-bit register value.
   uint32_t value;
@@ -63,12 +61,10 @@ union LTMR64H {
 //
 union LTMR64L {
   
-  // Enum definitions.
-  
   // Bit field definition.
   struct {
     uint32_t LTL : 32;
-  } bits;          // Bit-field struct (auto-filling reserved gaps)
+  } bits;
   
   // Full 32-bit register value.
   uint32_t value;

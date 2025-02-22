@@ -15,37 +15,43 @@ namespace nANADIG_PLL {
 //
 union ARM_PLL_CTRL {
   
-  // Enum definitions.
   enum class eHOLD_RING_OFF : uint32_t {
     eNORMAL = 0, // Normal operation
     eENABLE = 1, // Initialize PLL start up
   };
+  
   enum class ePOWERUP : uint32_t {
     ePDOWN = 0, // Power down the PLL
     ePUP = 1, // Power Up the PLL
   };
+  
   enum class eENABLE_CLK : uint32_t {
     eDISABLE = 0, // Disable the clock
     eENABLE = 1, // Enable the clock
   };
+  
   enum class ePOST_DIV_SEL : uint32_t {
     eDIV2 = 0, // Divide by 2
     eDIV4 = 1, // Divide by 4
     eDIV8 = 2, // Divide by 8
     eDIV1 = 3, // Divide by 1
   };
+  
   enum class eBYPASS : uint32_t {
     eFUNC = 0, // Function mode
     eBYPASS = 1, // Bypass Mode
   };
+  
   enum class eARM_PLL_STABLE : uint32_t {
     eDISABLE = 0, // ARM PLL is not stable
     eENABLE = 1, // ARM PLL is stable
   };
+  
   enum class eARM_PLL_GATE : uint32_t {
     eDISABLE = 0, // Clock is not gated
     eENABLE = 1, // Clock is gated
   };
+  
   enum class eARM_PLL_CONTROL_MODE : uint32_t {
     eSW = 0, // Software Mode (Default)
     eGPC = 1, // GPC Mode
@@ -64,7 +70,7 @@ union ARM_PLL_CTRL {
     eARM_PLL_STABLE ARM_PLL_STABLE : 1;
     eARM_PLL_GATE ARM_PLL_GATE : 1;
     eARM_PLL_CONTROL_MODE ARM_PLL_CONTROL_MODE : 1;
-  } bits;          // Bit-field struct (auto-filling reserved gaps)
+  } bits;
   
   // Full 32-bit register value.
   uint32_t value;
@@ -78,31 +84,36 @@ union ARM_PLL_CTRL {
 //
 union SYS_PLL3_CTRL {
   
-  // Enum definitions.
   enum class eHOLD_RING_OFF : uint32_t {
     eNORMAL = 0, // Normal operation
     eENABLE = 1, // Initialize PLL start up
   };
+  
   enum class eENABLE_CLK : uint32_t {
     eDISABLE = 0, // Disable the clock
     eENABLE = 1, // Enable the clock
   };
+  
   enum class eBYPASS : uint32_t {
     eFUNC = 0, // Function mode
     eBYPASS = 1, // Bypass Mode
   };
+  
   enum class ePOWERUP : uint32_t {
     ePDOWN = 0, // Power down the PLL
     ePUP = 1, // Power Up the PLL
   };
+  
   enum class eSYS_PLL3_DIV2_CONTROL_MODE : uint32_t {
     eSW = 0, // Software Mode (Default)
     eGPC = 1, // GPC Mode
   };
+  
   enum class eSYS_PLL3_GATE : uint32_t {
     eDISABLE = 0, // Clock is not gated
     eENABLE = 1, // Clock is gated
   };
+  
   enum class eSYS_PLL3_CONTROL_MODE : uint32_t {
     eSW = 0, // Software Mode (Default)
     eGPC = 1, // GPC Mode
@@ -126,7 +137,7 @@ union SYS_PLL3_CTRL {
     uint32_t SYS_PLL3_STABLE : 1;
     eSYS_PLL3_GATE SYS_PLL3_GATE : 1;
     eSYS_PLL3_CONTROL_MODE SYS_PLL3_CONTROL_MODE : 1;
-  } bits;          // Bit-field struct (auto-filling reserved gaps)
+  } bits;
   
   // Full 32-bit register value.
   uint32_t value;
@@ -140,19 +151,21 @@ union SYS_PLL3_CTRL {
 //
 union SYS_PLL3_UPDATE {
   
-  // Enum definitions.
   enum class ePFD0_CONTROL_MODE : uint32_t {
     eSW = 0, // Software Mode (Default)
     eGPC = 1, // GPC Mode
   };
+  
   enum class ePFD1_CONTROL_MODE : uint32_t {
     eSW = 0, // Software Mode (Default)
     eGPC = 1, // GPC Mode
   };
+  
   enum class ePDF2_CONTROL_MODE : uint32_t {
     eSW = 0, // Software Mode (Default)
     eGPC = 1, // GPC Mode
   };
+  
   enum class ePFD3_CONTROL_MODE : uint32_t {
     eSW = 0, // Software Mode (Default)
     eGPC = 1, // GPC Mode
@@ -170,7 +183,7 @@ union SYS_PLL3_UPDATE {
     ePDF2_CONTROL_MODE PDF2_CONTROL_MODE : 1;
     ePFD3_CONTROL_MODE PFD3_CONTROL_MODE : 1;
     uint32_t _reserved_end : 23;
-  } bits;          // Bit-field struct (auto-filling reserved gaps)
+  } bits;
   
   // Full 32-bit register value.
   uint32_t value;
@@ -184,19 +197,21 @@ union SYS_PLL3_UPDATE {
 //
 union SYS_PLL3_PFD {
   
-  // Enum definitions.
   enum class ePFD0_DIV1_CLKGATE : uint32_t {
     eON = 0, // ref_pfd0 fractional divider clock is enabled
     eOFF = 1, // Fractional divider clock (reference ref_pfd0) is off (power savings
   };
+  
   enum class ePFD1_DIV1_CLKGATE : uint32_t {
     eON = 0, // ref_pfd1 fractional divider clock is enabled
     eOFF = 1, // Fractional divider clock (reference ref_pfd1) is off (power savings)
   };
+  
   enum class ePFD2_DIV1_CLKGATE : uint32_t {
     eON = 0, // ref_pfd2 fractional divider clock is enabled
     eOFF = 1, // Fractional divider clock (reference ref_pfd2) is off (power savings)
   };
+  
   enum class ePFD3_DIV1_CLKGATE : uint32_t {
     eON = 0, // ref_pfd3 fractional divider clock is enabled
     eOFF = 1, // Fractional divider clock (reference ref_pfd3) is off (power savings)
@@ -216,7 +231,7 @@ union SYS_PLL3_PFD {
     uint32_t PFD3_FRAC : 6;
     uint32_t PFD3_STABLE : 1;
     ePFD3_DIV1_CLKGATE PFD3_DIV1_CLKGATE : 1;
-  } bits;          // Bit-field struct (auto-filling reserved gaps)
+  } bits;
   
   // Full 32-bit register value.
   uint32_t value;
@@ -230,31 +245,36 @@ union SYS_PLL3_PFD {
 //
 union SYS_PLL2_CTRL {
   
-  // Enum definitions.
   enum class eHOLD_RING_OFF : uint32_t {
     eNORMAL = 0, // Normal operation
     eENABLE = 1, // Initialize PLL start up
   };
+  
   enum class eENABLE_CLK : uint32_t {
     eDISABLE = 0, // Disable the clock
     eENABLE = 1, // Enable the clock
   };
+  
   enum class eBYPASS : uint32_t {
     eFUNC = 0, // Function mode
     eBYPASS = 1, // Bypass Mode
   };
+  
   enum class eDITHER_ENABLE : uint32_t {
     eDISABLE = 0, // Disable Dither
     eENABLE = 1, // Enable Dither
   };
+  
   enum class ePOWERUP : uint32_t {
     ePDOWN = 0, // Power down the PLL
     ePUP = 1, // Power Up the PLL
   };
+  
   enum class eSYS_PLL2_GATE : uint32_t {
     eDISABLE = 0, // Clock is not gated
     eENABLE = 1, // Clock is gated
   };
+  
   enum class eSYS_PLL2_CONTROL_MODE : uint32_t {
     eSW = 0, // Software Mode (Default)
     eGPC = 1, // GPC Mode
@@ -279,7 +299,7 @@ union SYS_PLL2_CTRL {
     uint32_t SYS_PLL2_STABLE : 1;
     eSYS_PLL2_GATE SYS_PLL2_GATE : 1;
     eSYS_PLL2_CONTROL_MODE SYS_PLL2_CONTROL_MODE : 1;
-  } bits;          // Bit-field struct (auto-filling reserved gaps)
+  } bits;
   
   // Full 32-bit register value.
   uint32_t value;
@@ -293,19 +313,21 @@ union SYS_PLL2_CTRL {
 //
 union SYS_PLL2_UPDATE {
   
-  // Enum definitions.
   enum class ePFD0_CONTROL_MODE : uint32_t {
     eSW = 0, // Software Mode (Default)
     eGPC = 1, // GPC Mode
   };
+  
   enum class ePFD1_CONTROL_MODE : uint32_t {
     eSW = 0, // Software Mode (Default)
     eGPC = 1, // GPC Mode
   };
+  
   enum class ePFD2_CONTROL_MODE : uint32_t {
     eSW = 0, // Software Mode (Default)
     eGPC = 1, // GPC Mode
   };
+  
   enum class ePFD3_CONTROL_MODE : uint32_t {
     eSW = 0, // Software Mode (Default)
     eGPC = 1, // GPC Mode
@@ -323,7 +345,7 @@ union SYS_PLL2_UPDATE {
     ePFD2_CONTROL_MODE PFD2_CONTROL_MODE : 1;
     ePFD3_CONTROL_MODE PFD3_CONTROL_MODE : 1;
     uint32_t _reserved_end : 23;
-  } bits;          // Bit-field struct (auto-filling reserved gaps)
+  } bits;
   
   // Full 32-bit register value.
   uint32_t value;
@@ -337,7 +359,6 @@ union SYS_PLL2_UPDATE {
 //
 union SYS_PLL2_SS {
   
-  // Enum definitions.
   enum class eENABLE : uint32_t {
     eDISABLE = 0, // Disable Spread Spectrum
     eENABLE = 1, // Enable Spread Spectrum
@@ -348,7 +369,7 @@ union SYS_PLL2_SS {
     uint32_t STEP : 15;
     eENABLE ENABLE : 1;
     uint32_t STOP : 16;
-  } bits;          // Bit-field struct (auto-filling reserved gaps)
+  } bits;
   
   // Full 32-bit register value.
   uint32_t value;
@@ -361,8 +382,6 @@ union SYS_PLL2_SS {
 // SYS_PLL2_PFD_REGISTER
 //
 union SYS_PLL2_PFD {
-  
-  // Enum definitions.
   
   // Bit field definition.
   struct {
@@ -378,7 +397,7 @@ union SYS_PLL2_PFD {
     uint32_t PFD3_FRAC : 6;
     uint32_t PFD3_STABLE : 1;
     uint32_t PFD3_DIV1_CLKGATE : 1;
-  } bits;          // Bit-field struct (auto-filling reserved gaps)
+  } bits;
   
   // Full 32-bit register value.
   uint32_t value;
@@ -392,13 +411,11 @@ union SYS_PLL2_PFD {
 //
 union SYS_PLL2_MFD {
   
-  // Enum definitions.
-  
   // Bit field definition.
   struct {
     uint32_t MFD : 30;
     uint32_t _reserved_end : 2;
-  } bits;          // Bit-field struct (auto-filling reserved gaps)
+  } bits;
   
   // Full 32-bit register value.
   uint32_t value;
@@ -412,7 +429,6 @@ union SYS_PLL2_MFD {
 //
 union SYS_PLL1_SS {
   
-  // Enum definitions.
   enum class eENABLE : uint32_t {
     eDISABLE = 0, // Disable Spread Spectrum
     eENABLE = 1, // Enable Spread Spectrum
@@ -423,7 +439,7 @@ union SYS_PLL1_SS {
     uint32_t STEP : 15;
     eENABLE ENABLE : 1;
     uint32_t STOP : 16;
-  } bits;          // Bit-field struct (auto-filling reserved gaps)
+  } bits;
   
   // Full 32-bit register value.
   uint32_t value;
@@ -437,19 +453,21 @@ union SYS_PLL1_SS {
 //
 union SYS_PLL1_CTRL {
   
-  // Enum definitions.
   enum class eSYS_PLL1_GATE : uint32_t {
     eNOGATE = 0, // No gate
     eGATED = 1, // Gate the output
   };
+  
   enum class eSYS_PLL1_DIV5_CONTROL_MODE : uint32_t {
     eSW = 0, // Software Mode (Default)
     eGPC = 1, // GPC Mode
   };
+  
   enum class eSYS_PLL1_DIV2_CONTROL_MODE : uint32_t {
     eSW = 0, // Software Mode (Default)
     eGPC = 1, // GPC Mode
   };
+  
   enum class eSYS_PLL1_CONTROL_MODE : uint32_t {
     eSW = 0, // Software Mode (Default)
     eGPC = 1, // GPC Mode
@@ -468,7 +486,7 @@ union SYS_PLL1_CTRL {
     uint32_t SYS_PLL1_STABLE : 1;
     uint32_t SYS_PLL1_AI_BUSY : 1;
     eSYS_PLL1_CONTROL_MODE SYS_PLL1_CONTROL_MODE : 1;
-  } bits;          // Bit-field struct (auto-filling reserved gaps)
+  } bits;
   
   // Full 32-bit register value.
   uint32_t value;
@@ -482,13 +500,11 @@ union SYS_PLL1_CTRL {
 //
 union SYS_PLL1_DENOMINATOR {
   
-  // Enum definitions.
-  
   // Bit field definition.
   struct {
     uint32_t DENOM : 30;
     uint32_t _reserved_end : 2;
-  } bits;          // Bit-field struct (auto-filling reserved gaps)
+  } bits;
   
   // Full 32-bit register value.
   uint32_t value;
@@ -502,13 +518,11 @@ union SYS_PLL1_DENOMINATOR {
 //
 union SYS_PLL1_NUMERATOR {
   
-  // Enum definitions.
-  
   // Bit field definition.
   struct {
     uint32_t NUM : 30;
     uint32_t _reserved_end : 2;
-  } bits;          // Bit-field struct (auto-filling reserved gaps)
+  } bits;
   
   // Full 32-bit register value.
   uint32_t value;
@@ -522,13 +536,11 @@ union SYS_PLL1_NUMERATOR {
 //
 union SYS_PLL1_DIV_SELECT {
   
-  // Enum definitions.
-  
   // Bit field definition.
   struct {
     uint32_t DIV_SELECT : 7;
     uint32_t _reserved_end : 25;
-  } bits;          // Bit-field struct (auto-filling reserved gaps)
+  } bits;
   
   // Full 32-bit register value.
   uint32_t value;
@@ -542,11 +554,11 @@ union SYS_PLL1_DIV_SELECT {
 //
 union PLL_AUDIO_CTRL {
   
-  // Enum definitions.
   enum class ePLL_AUDIO_GATE : uint32_t {
     eNOGATE = 0, // No gate
     eGATED = 1, // Gate the output
   };
+  
   enum class ePLL_AUDIO_CONTROL_MODE : uint32_t {
     eSW = 0, // Software Mode (Default)
     eGPC = 1, // GPC Mode
@@ -561,7 +573,7 @@ union PLL_AUDIO_CTRL {
     uint32_t PLL_AUDIO_STABLE : 1;
     uint32_t PLL_AUDIO_AI_BUSY : 1;
     ePLL_AUDIO_CONTROL_MODE PLL_AUDIO_CONTROL_MODE : 1;
-  } bits;          // Bit-field struct (auto-filling reserved gaps)
+  } bits;
   
   // Full 32-bit register value.
   uint32_t value;
@@ -575,7 +587,6 @@ union PLL_AUDIO_CTRL {
 //
 union PLL_AUDIO_SS {
   
-  // Enum definitions.
   enum class eENABLE : uint32_t {
     eDISABLE = 0, // Disable Spread Spectrum
     eENABLE = 1, // Enable Spread Spectrum
@@ -586,7 +597,7 @@ union PLL_AUDIO_SS {
     uint32_t STEP : 15;
     eENABLE ENABLE : 1;
     uint32_t STOP : 16;
-  } bits;          // Bit-field struct (auto-filling reserved gaps)
+  } bits;
   
   // Full 32-bit register value.
   uint32_t value;
@@ -600,13 +611,11 @@ union PLL_AUDIO_SS {
 //
 union PLL_AUDIO_DENOMINATOR {
   
-  // Enum definitions.
-  
   // Bit field definition.
   struct {
     uint32_t DENOM : 30;
     uint32_t _reserved_end : 2;
-  } bits;          // Bit-field struct (auto-filling reserved gaps)
+  } bits;
   
   // Full 32-bit register value.
   uint32_t value;
@@ -620,13 +629,11 @@ union PLL_AUDIO_DENOMINATOR {
 //
 union PLL_AUDIO_NUMERATOR {
   
-  // Enum definitions.
-  
   // Bit field definition.
   struct {
     uint32_t NUM : 30;
     uint32_t _reserved_end : 2;
-  } bits;          // Bit-field struct (auto-filling reserved gaps)
+  } bits;
   
   // Full 32-bit register value.
   uint32_t value;
@@ -640,13 +647,11 @@ union PLL_AUDIO_NUMERATOR {
 //
 union PLL_AUDIO_DIV_SELECT {
   
-  // Enum definitions.
-  
   // Bit field definition.
   struct {
     uint32_t PLL_AUDIO_DIV_SELECT : 7;
     uint32_t _reserved_end : 25;
-  } bits;          // Bit-field struct (auto-filling reserved gaps)
+  } bits;
   
   // Full 32-bit register value.
   uint32_t value;
@@ -660,11 +665,11 @@ union PLL_AUDIO_DIV_SELECT {
 //
 union PLL_VIDEO_CTRL {
   
-  // Enum definitions.
   enum class ePLL_VIDEO_GATE : uint32_t {
     eNOGATE = 0, // No gate
     eGATED = 1, // Gate the output
   };
+  
   enum class ePLL_VIDEO_CONTROL_MODE : uint32_t {
     eSW = 0, // Software Mode (Default)
     eGPC = 1, // GPC Mode
@@ -681,7 +686,7 @@ union PLL_VIDEO_CTRL {
     uint32_t PLL_VIDEO_STABLE : 1;
     uint32_t PLL_VIDEO_AI_BUSY : 1;
     ePLL_VIDEO_CONTROL_MODE PLL_VIDEO_CONTROL_MODE : 1;
-  } bits;          // Bit-field struct (auto-filling reserved gaps)
+  } bits;
   
   // Full 32-bit register value.
   uint32_t value;
@@ -695,7 +700,6 @@ union PLL_VIDEO_CTRL {
 //
 union PLL_VIDEO_SS {
   
-  // Enum definitions.
   enum class eENABLE : uint32_t {
     eDISABLE = 0, // Disable Spread Spectrum
     eENABLE = 1, // Enable Spread Spectrum
@@ -706,7 +710,7 @@ union PLL_VIDEO_SS {
     uint32_t STEP : 15;
     eENABLE ENABLE : 1;
     uint32_t STOP : 16;
-  } bits;          // Bit-field struct (auto-filling reserved gaps)
+  } bits;
   
   // Full 32-bit register value.
   uint32_t value;
@@ -720,13 +724,11 @@ union PLL_VIDEO_SS {
 //
 union PLL_VIDEO_DENOMINATOR {
   
-  // Enum definitions.
-  
   // Bit field definition.
   struct {
     uint32_t DENOM : 30;
     uint32_t _reserved_end : 2;
-  } bits;          // Bit-field struct (auto-filling reserved gaps)
+  } bits;
   
   // Full 32-bit register value.
   uint32_t value;
@@ -740,13 +742,11 @@ union PLL_VIDEO_DENOMINATOR {
 //
 union PLL_VIDEO_NUMERATOR {
   
-  // Enum definitions.
-  
   // Bit field definition.
   struct {
     uint32_t NUM : 30;
     uint32_t _reserved_end : 2;
-  } bits;          // Bit-field struct (auto-filling reserved gaps)
+  } bits;
   
   // Full 32-bit register value.
   uint32_t value;
@@ -760,13 +760,11 @@ union PLL_VIDEO_NUMERATOR {
 //
 union PLL_VIDEO_DIV_SELECT {
   
-  // Enum definitions.
-  
   // Bit field definition.
   struct {
     uint32_t DIV_SELECT : 7;
     uint32_t _reserved_end : 25;
-  } bits;          // Bit-field struct (auto-filling reserved gaps)
+  } bits;
   
   // Full 32-bit register value.
   uint32_t value;

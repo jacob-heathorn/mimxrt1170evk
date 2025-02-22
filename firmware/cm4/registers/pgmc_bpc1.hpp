@@ -15,11 +15,11 @@ namespace nPGMC_BPC1 {
 //
 union BPC_AUTHEN_CTRL {
   
-  // Enum definitions.
   enum class eUSER : uint32_t {
     eUSER_0 = 0, // Allow only privilege mode to access basic power control registers
     eUSER_1 = 1, // Allow both privilege and user mode to access basic power control registers
   };
+  
   enum class eNONSECURE : uint32_t {
     eNONSECURE_0 = 0, // Allow only secure mode to access basic power control registers
     eNONSECURE_1 = 1, // Allow both secure and non-secure mode to access basic power control registers
@@ -37,7 +37,7 @@ union BPC_AUTHEN_CTRL {
     uint32_t _reserved_5 : 7;
     uint32_t LOCK_CFG : 1;
     uint32_t _reserved_end : 11;
-  } bits;          // Bit-field struct (auto-filling reserved gaps)
+  } bits;
   
   // Full 32-bit register value.
   uint32_t value;
@@ -51,12 +51,12 @@ union BPC_AUTHEN_CTRL {
 //
 union BPC_MODE {
   
-  // Enum definitions.
   enum class eCTRL_MODE : uint32_t {
     eCTRL_MODE_0 = 0, // Not affected by any low power mode
     eCTRL_MODE_1 = 1, // Controlled by CPU power mode of the domain
     eCTRL_MODE_2 = 2, // Controlled by Setpoint
   };
+  
   enum class eDOMAIN_ASSIGN : uint32_t {
     ed0 = 0, // Domain 0
     ed1 = 1, // Domain 1
@@ -70,7 +70,7 @@ union BPC_MODE {
     uint32_t _reserved_1 : 2;
     eDOMAIN_ASSIGN DOMAIN_ASSIGN : 2;
     uint32_t _reserved_end : 26;
-  } bits;          // Bit-field struct (auto-filling reserved gaps)
+  } bits;
   
   // Full 32-bit register value.
   uint32_t value;
@@ -83,8 +83,6 @@ union BPC_MODE {
 // BPC power control
 //
 union BPC_POWER_CTRL {
-  
-  // Enum definitions.
   
   // Bit field definition.
   struct {
@@ -99,7 +97,7 @@ union BPC_POWER_CTRL {
     uint32_t ISO_OFF_SOFT : 1;
     uint32_t _reserved_7 : 4;
     uint32_t PWR_OFF_AT_SP : 16;
-  } bits;          // Bit-field struct (auto-filling reserved gaps)
+  } bits;
   
   // Full 32-bit register value.
   uint32_t value;
@@ -113,13 +111,11 @@ union BPC_POWER_CTRL {
 //
 union BPC_FLAG {
   
-  // Enum definitions.
-  
   // Bit field definition.
   struct {
     uint32_t PDN_FLAG : 1;
     uint32_t _reserved_end : 31;
-  } bits;          // Bit-field struct (auto-filling reserved gaps)
+  } bits;
   
   // Full 32-bit register value.
   uint32_t value;
@@ -133,8 +129,6 @@ union BPC_FLAG {
 //
 union BPC_SSAR_SAVE_CTRL {
   
-  // Enum definitions.
-  
   // Bit field definition.
   struct {
     uint32_t SAVE_AT_RUN : 1;
@@ -143,7 +137,7 @@ union BPC_SSAR_SAVE_CTRL {
     uint32_t SAVE_AT_SUSPEND : 1;
     uint32_t _reserved_4 : 12;
     uint32_t SAVE_AT_SP : 16;
-  } bits;          // Bit-field struct (auto-filling reserved gaps)
+  } bits;
   
   // Full 32-bit register value.
   uint32_t value;
@@ -157,14 +151,12 @@ union BPC_SSAR_SAVE_CTRL {
 //
 union BPC_SSAR_RESTORE_CTRL {
   
-  // Enum definitions.
-  
   // Bit field definition.
   struct {
     uint32_t RESTORE_AT_RUN : 1;
     uint32_t _reserved_1 : 15;
     uint32_t RESTORE_AT_SP : 16;
-  } bits;          // Bit-field struct (auto-filling reserved gaps)
+  } bits;
   
   // Full 32-bit register value.
   uint32_t value;

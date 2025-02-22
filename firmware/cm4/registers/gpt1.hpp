@@ -15,31 +15,36 @@ namespace nGPT1 {
 //
 union CR {
   
-  // Enum definitions.
   enum class eEN : uint32_t {
     eDISABLE = 0, // Disable
     eENABLE = 1, // Enable
   };
+  
   enum class eENMOD : uint32_t {
     eRESUME_COUNT = 0, // Restart counting from their frozen values after GPT is enabled (EN=1).
     eZERO_COUNT = 1, // Reset counting from 0 after GPT is enabled (EN=1).
   };
+  
   enum class eDBGEN : uint32_t {
     eDEBUG_DIS = 0, // Disable in Debug mode
     eDEBUG_EN = 1, // Enable in Debug mode
   };
+  
   enum class eWAITEN : uint32_t {
     eWAIT_DIS = 0, // Disable in Wait mode
     eWAIT_EN = 1, // Enable in Wait mode
   };
+  
   enum class eDOZEEN : uint32_t {
     eDOZE_DIS = 0, // Disable in Doze mode
     eDOZE_EN = 1, // Enable in Doze mode
   };
+  
   enum class eSTOPEN : uint32_t {
     eSTOP_DIS = 0, // Disable in Stop mode
     eSTOP_EN = 1, // Enable in Stop mode
   };
+  
   enum class eCLKSRC : uint32_t {
     eNO_CLOCK = 0, // No clock
     eCLOCK_001 = 1, // Peripheral Clock (ipg_clk)
@@ -48,30 +53,36 @@ union CR {
     eCLOCK_100 = 4, // Low Frequency Reference Clock (ipg_clk_32k)
     eCLOCK_101 = 5, // Oscillator as Reference Clock (ipg_clk_16M)
   };
+  
   enum class eFRR : uint32_t {
     eRESTART = 0, // Restart mode. After a compare event, the counter resets to 0x0000_0000 and resumes counting.
     eFREE_RUN = 1, // Free-Run mode. After a compare event, the counter continues counting until 0xFFFF_FFFF and then rolls over to 0.
   };
+  
   enum class eEN_24M : uint32_t {
     eDISABLE = 0, // Disable
     eENABLE = 1, // Enable
   };
+  
   enum class eSWR : uint32_t {
     eNOT_SWRESET = 0, // GPT is not in software reset state
     eSWRESET = 1, // GPT is in software reset state
   };
+  
   enum class eIM1 : uint32_t {
     eDISABLED = 0, // Capture disabled
     eRISING = 1, // Capture on rising edge only
     eFALLING = 2, // Capture on falling edge only
     eBOTH = 3, // Capture on both edges
   };
+  
   enum class eIM2 : uint32_t {
     eDISABLED = 0, // Capture disabled
     eRISING = 1, // Capture on rising edge only
     eFALLING = 2, // Capture on falling edge only
     eBOTH = 3, // Capture on both edges
   };
+  
   enum class eOM1 : uint32_t {
     eDISABLED = 0, // Output disabled. No response on pin.
     eTOGGLE = 1, // Toggle output pin
@@ -79,6 +90,7 @@ union CR {
     eSET = 3, // Set output pin
     ePULSE = 4, // Generate a low pulse that is one input clock cycle wide on the output pin. When OMn is first programmed as 1xx, the output pin is set to one immediately on the next input clock (if it was not one already). "Input clock" here refers to the clock selected by the CLKSRC field of this register.
   };
+  
   enum class eOM2 : uint32_t {
     eDISABLED = 0, // Output disabled. No response on pin.
     eTOGGLE = 1, // Toggle output pin
@@ -86,6 +98,7 @@ union CR {
     eSET = 3, // Set output pin
     ePULSE = 4, // Generate a low pulse that is one input clock cycle wide on the output pin. When OMn is first programmed as 1xx, the output pin is set to one immediately on the next input clock (if it was not one already). "Input clock" here refers to the clock selected by the CLKSRC field of this register.
   };
+  
   enum class eOM3 : uint32_t {
     eDISABLED = 0, // Output disabled. No response on pin.
     eTOGGLE = 1, // Toggle output pin
@@ -93,14 +106,17 @@ union CR {
     eSET = 3, // Set output pin
     ePULSE = 4, // Generate a low pulse that is one input clock cycle wide on the output pin. When OMn is first programmed as 1xx, the output pin is set to one immediately on the next input clock (if it was not one already). "Input clock" here refers to the clock selected by the CLKSRC field of this register.
   };
+  
   enum class eFO1 : uint32_t {
     eNO_FORCE = 0, // No effect
     eFORCE = 1, // Trigger the programmed response on the pin
   };
+  
   enum class eFO2 : uint32_t {
     eNO_FORCE = 0, // No effect
     eFORCE = 1, // Trigger the programmed response on the pin
   };
+  
   enum class eFO3 : uint32_t {
     eNO_FORCE = 0, // No effect
     eFORCE = 1, // Trigger the programmed response on the pin
@@ -127,7 +143,7 @@ union CR {
     eFO1 FO1 : 1;
     eFO2 FO2 : 1;
     eFO3 FO3 : 1;
-  } bits;          // Bit-field struct (auto-filling reserved gaps)
+  } bits;
   
   // Full 32-bit register value.
   uint32_t value;
@@ -141,12 +157,12 @@ union CR {
 //
 union PR {
   
-  // Enum definitions.
   enum class ePRESCALER : uint32_t {
     eDIV_BY_1 = 0, // Divide by 1
     eDIV_BY_2 = 1, // Divide by 2
     eDIV_BY_4096 = 4095, // Divide by 4096
   };
+  
   enum class ePRESCALER24M : uint32_t {
     eDIV_BY_1 = 0, // Divide by 1
     eDIV_BY_2 = 1, // Divide by 2
@@ -158,7 +174,7 @@ union PR {
     ePRESCALER PRESCALER : 12;
     ePRESCALER24M PRESCALER24M : 4;
     uint32_t _reserved_end : 16;
-  } bits;          // Bit-field struct (auto-filling reserved gaps)
+  } bits;
   
   // Full 32-bit register value.
   uint32_t value;
@@ -172,27 +188,31 @@ union PR {
 //
 union SR {
   
-  // Enum definitions.
   enum class eOF1 : uint32_t {
     eNO_EVENT = 0, // Compare event has not occurred.
     eEVENT = 1, // Compare event has occurred.
   };
+  
   enum class eOF2 : uint32_t {
     eNO_EVENT = 0, // Compare event has not occurred.
     eEVENT = 1, // Compare event has occurred.
   };
+  
   enum class eOF3 : uint32_t {
     eNO_EVENT = 0, // Compare event has not occurred.
     eEVENT = 1, // Compare event has occurred.
   };
+  
   enum class eIF1 : uint32_t {
     eNO_EVENT = 0, // Capture event has not occurred.
     eEVENT = 1, // Capture event has occurred.
   };
+  
   enum class eIF2 : uint32_t {
     eNO_EVENT = 0, // Capture event has not occurred.
     eEVENT = 1, // Capture event has occurred.
   };
+  
   enum class eROV : uint32_t {
     eNO_ROLLOVER = 0, // Rollover has not occurred.
     eROLLOVER = 1, // Rollover has occurred.
@@ -207,7 +227,7 @@ union SR {
     eIF2 IF2 : 1;
     eROV ROV : 1;
     uint32_t _reserved_end : 26;
-  } bits;          // Bit-field struct (auto-filling reserved gaps)
+  } bits;
   
   // Full 32-bit register value.
   uint32_t value;
@@ -221,27 +241,31 @@ union SR {
 //
 union IR {
   
-  // Enum definitions.
   enum class eOF1IE : uint32_t {
     eDISABLE = 0, // Disable
     eENABLE = 1, // Enable
   };
+  
   enum class eOF2IE : uint32_t {
     eDISABLE = 0, // Disable
     eENABLE = 1, // Enable
   };
+  
   enum class eOF3IE : uint32_t {
     eDISABLE = 0, // Disable
     eENABLE = 1, // Enable
   };
+  
   enum class eIF1IE : uint32_t {
     eDISABLE = 0, // Disable
     eENABLE = 1, // Enable
   };
+  
   enum class eIF2IE : uint32_t {
     eDISABLE = 0, // Disable
     eENABLE = 1, // Enable
   };
+  
   enum class eROVIE : uint32_t {
     eDISABLE = 0, // Disable
     eENABLE = 1, // Enable
@@ -256,7 +280,7 @@ union IR {
     eIF2IE IF2IE : 1;
     eROVIE ROVIE : 1;
     uint32_t _reserved_end : 26;
-  } bits;          // Bit-field struct (auto-filling reserved gaps)
+  } bits;
   
   // Full 32-bit register value.
   uint32_t value;
@@ -270,12 +294,10 @@ union IR {
 //
 union OCR1 {
   
-  // Enum definitions.
-  
   // Bit field definition.
   struct {
     uint32_t COMP : 32;
-  } bits;          // Bit-field struct (auto-filling reserved gaps)
+  } bits;
   
   // Full 32-bit register value.
   uint32_t value;
@@ -288,12 +310,10 @@ union OCR1 {
 //
 union OCR2 {
   
-  // Enum definitions.
-  
   // Bit field definition.
   struct {
     uint32_t COMP : 32;
-  } bits;          // Bit-field struct (auto-filling reserved gaps)
+  } bits;
   
   // Full 32-bit register value.
   uint32_t value;
@@ -306,12 +326,10 @@ union OCR2 {
 //
 union OCR3 {
   
-  // Enum definitions.
-  
   // Bit field definition.
   struct {
     uint32_t COMP : 32;
-  } bits;          // Bit-field struct (auto-filling reserved gaps)
+  } bits;
   
   // Full 32-bit register value.
   uint32_t value;
@@ -325,12 +343,10 @@ union OCR3 {
 //
 union ICR1 {
   
-  // Enum definitions.
-  
   // Bit field definition.
   struct {
     uint32_t CAPT : 32;
-  } bits;          // Bit-field struct (auto-filling reserved gaps)
+  } bits;
   
   // Full 32-bit register value.
   uint32_t value;
@@ -343,12 +359,10 @@ union ICR1 {
 //
 union ICR2 {
   
-  // Enum definitions.
-  
   // Bit field definition.
   struct {
     uint32_t CAPT : 32;
-  } bits;          // Bit-field struct (auto-filling reserved gaps)
+  } bits;
   
   // Full 32-bit register value.
   uint32_t value;
@@ -362,12 +376,10 @@ union ICR2 {
 //
 union CNT {
   
-  // Enum definitions.
-  
   // Bit field definition.
   struct {
     uint32_t COUNT : 32;
-  } bits;          // Bit-field struct (auto-filling reserved gaps)
+  } bits;
   
   // Full 32-bit register value.
   uint32_t value;

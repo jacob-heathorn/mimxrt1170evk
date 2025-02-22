@@ -15,11 +15,11 @@ namespace nANADIG_LDO_SNVS {
 //
 union PMU_LDO_LPSR_ANA {
   
-  // Enum definitions.
   enum class eLPSR_ANA_CONTROL_MODE : uint32_t {
     esw = 0, // SW Control
     ehw = 1, // HW Control
   };
+  
   enum class eTRACK_MODE_EN : uint32_t {
     eNORMAL = 0, // Normal use
     eSWITCH = 1, // Switch preparation
@@ -40,7 +40,7 @@ union PMU_LDO_LPSR_ANA {
     eTRACK_MODE_EN TRACK_MODE_EN : 1;
     uint32_t PULL_DOWN_20UA_EN : 1;
     uint32_t _reserved_end : 11;
-  } bits;          // Bit-field struct (auto-filling reserved gaps)
+  } bits;
   
   // Full 32-bit register value.
   uint32_t value;
@@ -54,13 +54,11 @@ union PMU_LDO_LPSR_ANA {
 //
 union PMU_LDO_LPSR_DIG_2 {
   
-  // Enum definitions.
-  
   // Bit field definition.
   struct {
     uint32_t VOLTAGE_STEP_INC : 2;
     uint32_t _reserved_end : 30;
-  } bits;          // Bit-field struct (auto-filling reserved gaps)
+  } bits;
   
   // Full 32-bit register value.
   uint32_t value;
@@ -74,11 +72,11 @@ union PMU_LDO_LPSR_DIG_2 {
 //
 union PMU_LDO_LPSR_DIG {
   
-  // Enum definitions.
   enum class eLPSR_DIG_CONTROL_MODE : uint32_t {
     esw = 0, // SW Control
     ehw = 1, // HW Control
   };
+  
   enum class eVOLTAGE_SELECT : uint32_t {
     ebitval0 = 0, // Stable Voltage (range)
     ebitval1 = 1, // Stable Voltage (range)
@@ -127,7 +125,7 @@ union PMU_LDO_LPSR_DIG {
     uint32_t _reserved_5 : 1;
     eVOLTAGE_SELECT VOLTAGE_SELECT : 5;
     uint32_t _reserved_end : 7;
-  } bits;          // Bit-field struct (auto-filling reserved gaps)
+  } bits;
   
   // Full 32-bit register value.
   uint32_t value;

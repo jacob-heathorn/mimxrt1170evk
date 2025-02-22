@@ -15,59 +15,71 @@ namespace nASRC {
 //
 union ASRCTR {
   
-  // Enum definitions.
   enum class eASRCEN : uint32_t {
     edisabled = 0, // operation of ASRC disabled
     eenabled = 1, // operation ASRC is enabled
   };
+  
   enum class eASREA : uint32_t {
     edisabled = 0, // operation of conversion A is disabled
     eenabled = 1, // operation of conversion A is enabled
   };
+  
   enum class eASREB : uint32_t {
     edisabled = 0, // operation of conversion B is disabled
     eenabled = 1, // operation of conversion B is enabled
   };
+  
   enum class eASREC : uint32_t {
     edisabled = 0, // operation of conversion C is disabled
     eenabled = 1, // operation of conversion C is enabled
   };
+  
   enum class eSRST : uint32_t {
     ecleared = 0, // ASRC Software reset cleared
     ereset = 1, // ASRC Software reset generated. NOTE: This is a self-clear bit
   };
+  
   enum class eIDRA : uint32_t {
     eidra_measured = 0, // ASRC internal measured ratio is used
     eidra_ideal = 1, // Ideal ratio from the interface register ASRIDRHA, ASRIDRLA is used
   };
+  
   enum class eUSRA : uint32_t {
     euse_ratio_no = 0, // Do not use ratio as the input to ASRC for pair A
     euse_ratio = 1, // Use ratio as the input to ASRC for pair A
   };
+  
   enum class eIDRB : uint32_t {
     eidra_measured = 0, // ASRC internal measured ratio is used
     eidra_ideal = 1, // Ideal ratio from the interface register ASRIDRHB, ASRIDRLB is used
   };
+  
   enum class eUSRB : uint32_t {
     euse_ratio_no = 0, // Do not use ratio as the input to ASRC for pair B
     euse_ratio = 1, // Use ratio as the input to ASRC for pair B
   };
+  
   enum class eIDRC : uint32_t {
     eidra_measured = 0, // ASRC internal measured ratio is used
     eidra_ideal = 1, // Ideal ratio from the interface register ASRIDRHC, ASRIDRLC is used
   };
+  
   enum class eUSRC : uint32_t {
     euse_ratio_no = 0, // Do not use ratio as the input to ASRC for pair C
     euse_ratio = 1, // Use ratio as the input to ASRC for pair C
   };
+  
   enum class eATSA : uint32_t {
     eno_auto_select = 0, // Pair A does not automatically update its pre-processing and post-processing options
     eauto_select = 1, // Pair A automatically updates its pre-processing and post-processing options
   };
+  
   enum class eATSB : uint32_t {
     eno_auto_select = 0, // Pair B does not automatically update its pre-processing and post-processing options
     eauto_select = 1, // Pair B automatically updates its pre-processing and post-processing options
   };
+  
   enum class eATSC : uint32_t {
     eno_auto_select = 0, // Pair C does not automatically update its pre-processing and post-processing options
     eauto_select = 1, // Pair C automatically updates its pre-processing and post-processing options
@@ -92,7 +104,7 @@ union ASRCTR {
     eATSB ATSB : 1;
     eATSC ATSC : 1;
     uint32_t _reserved_end : 9;
-  } bits;          // Bit-field struct (auto-filling reserved gaps)
+  } bits;
   
   // Full 32-bit register value.
   uint32_t value;
@@ -106,35 +118,41 @@ union ASRCTR {
 //
 union ASRIER {
   
-  // Enum definitions.
   enum class eADIEA : uint32_t {
     edisabled = 0, // interrupt disabled
     eenabled = 1, // interrupt enabled
   };
+  
   enum class eADIEB : uint32_t {
     edisabled = 0, // interrupt disabled
     eenabled = 1, // interrupt enabled
   };
+  
   enum class eADIEC : uint32_t {
     edisabled = 0, // interrupt disabled
     eenabled = 1, // interrupt enabled
   };
+  
   enum class eADOEA : uint32_t {
     edisabled = 0, // interrupt disabled
     eenabled = 1, // interrupt enabled
   };
+  
   enum class eADOEB : uint32_t {
     edisabled = 0, // interrupt disabled
     eenabled = 1, // interrupt enabled
   };
+  
   enum class eADOEC : uint32_t {
     edisabled = 0, // interrupt disabled
     eenabled = 1, // interrupt enabled
   };
+  
   enum class eAOLIE : uint32_t {
     edisabled = 0, // interrupt disabled
     eenabled = 1, // interrupt enabled
   };
+  
   enum class eAFPWE : uint32_t {
     edisabled = 0, // interrupt disabled
     eenabled = 1, // interrupt enabled
@@ -151,7 +169,7 @@ union ASRIER {
     eAOLIE AOLIE : 1;
     eAFPWE AFPWE : 1;
     uint32_t _reserved_end : 24;
-  } bits;          // Bit-field struct (auto-filling reserved gaps)
+  } bits;
   
   // Full 32-bit register value.
   uint32_t value;
@@ -165,7 +183,6 @@ union ASRIER {
 //
 union ASRCNCR {
   
-  // Enum definitions.
   enum class eANCA : uint32_t {
     ezero_chan = 0, // 0 channels in A (Pair A is disabled)
     eone_chan = 1, // 1 channel in A
@@ -184,6 +201,7 @@ union ASRCNCR {
     enot_used = 14, // Should not be used.
     enot_used = 15, // Should not be used.
   };
+  
   enum class eANCB : uint32_t {
     ezero_chan = 0, // 0 channels in B (Pair B is disabled)
     eone_chan = 1, // 1 channel in B
@@ -202,6 +220,7 @@ union ASRCNCR {
     enot_used = 14, // Should not be used.
     enot_used = 15, // Should not be used.
   };
+  
   enum class eANCC : uint32_t {
     ezero_chan = 0, // 0 channels in C (Pair C is disabled)
     eone_chan = 1, // 1 channel in C
@@ -227,7 +246,7 @@ union ASRCNCR {
     eANCB ANCB : 4;
     eANCC ANCC : 4;
     uint32_t _reserved_end : 20;
-  } bits;          // Bit-field struct (auto-filling reserved gaps)
+  } bits;
   
   // Full 32-bit register value.
   uint32_t value;
@@ -241,60 +260,70 @@ union ASRCNCR {
 //
 union ASRCFG {
   
-  // Enum definitions.
   enum class ePREMODA : uint32_t {
     eupsamp_2 = 0, // Select Upsampling-by-2
     edirect_connect = 1, // Select Direct-Connection
     edownsamp_2 = 2, // Select Downsampling-by-2
     epassthru = 3, // Select passthrough mode. In this case, POSTMODA[1:0] have no use.
   };
+  
   enum class ePOSTMODA : uint32_t {
     eupsamp_2 = 0, // Select Upsampling-by-2
     edirect_connect = 1, // Select Direct-Connection
     edownsamp_2 = 2, // Select Downsampling-by-2
   };
+  
   enum class ePREMODB : uint32_t {
     eupsamp_2 = 0, // Select Upsampling-by-2
     edirect_connect = 1, // Select Direct-Connection
     edownsamp_2 = 2, // Select Downsampling-by-2
     epassthru = 3, // Select passthrough mode. In this case, POSTMODB[1:0] have no use.
   };
+  
   enum class ePOSTMODB : uint32_t {
     eupsamp_2 = 0, // Select Upsampling-by-2
     edirect_connect = 1, // Select Direct-Connection
     edownsamp_2 = 2, // Select Downsampling-by-2
   };
+  
   enum class ePREMODC : uint32_t {
     eupsamp_2 = 0, // Select Upsampling-by-2
     edirect_connect = 1, // Select Direct-Connection
     edownsamp_2 = 2, // Select Downsampling-by-2
     epassthru = 3, // Select passthrough mode. In this case, POSTMODC[1:0] have no use.
   };
+  
   enum class ePOSTMODC : uint32_t {
     eupsamp_2 = 0, // Select Upsampling-by-2 as defined in Signal Processing Flow.
     edirect_connect = 1, // Select Direct-Connection as defined in Signal Processing Flow.
     edownsamp_2 = 2, // Select Downsampling-by-2 as defined in Signal Processing Flow.
   };
+  
   enum class eNDPRA : uint32_t {
     euse_default = 0, // Use default parameters for RAM-stored parameters. Override any parameters already in RAM.
     enot_default = 1, // Don't use default parameters for RAM-stored parameters. Use the parameters already stored in RAM.
   };
+  
   enum class eNDPRB : uint32_t {
     euse_default = 0, // Use default parameters for RAM-stored parameters. Override any parameters already in RAM.
     enot_default = 1, // Don't use default parameters for RAM-stored parameter. Use the parameters already stored in RAM.
   };
+  
   enum class eNDPRC : uint32_t {
     euse_default = 0, // Use default parameters for RAM-stored parameters. Override any parameters already in RAM.
     enot_default = 1, // Don't use default parameters for RAM-stored parameters. Use the parameters already stored in RAM.
   };
+  
   enum class eINIRQA : uint32_t {
     einit_notserved = 0, // Initialization for Conversion Pair A not served
     einit_served = 1, // Initialization for Conversion Pair A served
   };
+  
   enum class eINIRQB : uint32_t {
     einit_notserved = 0, // Initialization for Conversion Pair B not served
     einit_served = 1, // Initialization for Conversion Pair B served
   };
+  
   enum class eINIRQC : uint32_t {
     einit_notserved = 0, // Initialization for Conversion Pair C not served
     einit_served = 1, // Initialization for Conversion Pair C served
@@ -316,7 +345,7 @@ union ASRCFG {
     eINIRQB INIRQB : 1;
     eINIRQC INIRQC : 1;
     uint32_t _reserved_end : 8;
-  } bits;          // Bit-field struct (auto-filling reserved gaps)
+  } bits;
   
   // Full 32-bit register value.
   uint32_t value;
@@ -330,7 +359,6 @@ union ASRCFG {
 //
 union ASRCSR {
   
-  // Enum definitions.
   enum class eAICSA : uint32_t {
     ebitclk0 = 0, // bit clock 0
     ebitclk1 = 1, // bit clock 1
@@ -349,6 +377,7 @@ union ASRCSR {
     ebitclke = 14, // bit clock E
     eclk_disabled = 15, // clock disabled, connected to zero
   };
+  
   enum class eAICSB : uint32_t {
     ebitclk0 = 0, // bit clock 0
     ebitclk1 = 1, // bit clock 1
@@ -367,6 +396,7 @@ union ASRCSR {
     ebitclke = 14, // bit clock E
     eclk_disabled = 15, // clock disabled, connected to zero
   };
+  
   enum class eAICSC : uint32_t {
     ebitclk0 = 0, // bit clock 0
     ebitclk1 = 1, // bit clock 1
@@ -385,6 +415,7 @@ union ASRCSR {
     ebitclke = 14, // bit clock E
     eclk_disabled = 15, // clock disabled, connected to zero
   };
+  
   enum class eAOCSA : uint32_t {
     ebitclk0 = 0, // bit clock 0
     ebitclk1 = 1, // bit clock 1
@@ -403,6 +434,7 @@ union ASRCSR {
     ebitclke = 14, // bit clock E
     eclk_disabled = 15, // clock disabled, connected to zero
   };
+  
   enum class eAOCSB : uint32_t {
     ebitclk0 = 0, // bit clock 0
     ebitclk1 = 1, // bit clock 1
@@ -421,6 +453,7 @@ union ASRCSR {
     ebitclke = 14, // bit clock E
     eclk_disabled = 15, // clock disabled, connected to zero
   };
+  
   enum class eAOCSC : uint32_t {
     ebitclk0 = 0, // bit clock 0
     ebitclk1 = 1, // bit clock 1
@@ -449,7 +482,7 @@ union ASRCSR {
     eAOCSB AOCSB : 4;
     eAOCSC AOCSC : 4;
     uint32_t _reserved_end : 8;
-  } bits;          // Bit-field struct (auto-filling reserved gaps)
+  } bits;
   
   // Full 32-bit register value.
   uint32_t value;
@@ -463,8 +496,6 @@ union ASRCSR {
 //
 union ASRCDR1 {
   
-  // Enum definitions.
-  
   // Bit field definition.
   struct {
     uint32_t AICPA : 3;
@@ -476,7 +507,7 @@ union ASRCDR1 {
     uint32_t AOCPB : 3;
     uint32_t AOCDB : 3;
     uint32_t _reserved_end : 8;
-  } bits;          // Bit-field struct (auto-filling reserved gaps)
+  } bits;
   
   // Full 32-bit register value.
   uint32_t value;
@@ -490,8 +521,6 @@ union ASRCDR1 {
 //
 union ASRCDR2 {
   
-  // Enum definitions.
-  
   // Bit field definition.
   struct {
     uint32_t AICPC : 3;
@@ -499,7 +528,7 @@ union ASRCDR2 {
     uint32_t AOCPC : 3;
     uint32_t AOCDC : 3;
     uint32_t _reserved_end : 20;
-  } bits;          // Bit-field struct (auto-filling reserved gaps)
+  } bits;
   
   // Full 32-bit register value.
   uint32_t value;
@@ -513,91 +542,111 @@ union ASRCDR2 {
 //
 union ASRSTR {
   
-  // Enum definitions.
   enum class eAIDEA : uint32_t {
     ethresh_met = 0, // The threshold has been met and no data input A interrupt is generated
     elessthan_thresh = 1, // When AIDEA is set, the ASRC generates data input A interrupt request to the processor if ASRIER[AIDEA] = 1
   };
+  
   enum class eAIDEB : uint32_t {
     ethresh_met = 0, // The threshold has been met and no data input B interrupt is generated
     elessthan_thresh = 1, // When AIDEB is set, the ASRC generates data input B interrupt request to the processor if ASRIER[AIDEB] = 1
   };
+  
   enum class eAIDEC : uint32_t {
     ethresh_met = 0, // The threshold has been met and no data input C interrupt is generated
     elessthan_thresh = 1, // When AIDEC is set, the ASRC generates data input C interrupt request to the processor if ASRIER[AIDEC] = 1
   };
+  
   enum class eAODFA : uint32_t {
     ethresh_notmet = 0, // The threshold has not yet been met and no data output A interrupt is generated
     egreaterthan_thresh = 1, // When AODFA is set, the ASRC generates data output A interrupt request to the processor if ASRIER[ADOEA] = 1
   };
+  
   enum class eAODFB : uint32_t {
     ethresh_notmet = 0, // The threshold has not yet been met and no data output B interrupt is generated
     egreaterthan_thresh = 1, // When AODFB is set, the ASRC generates data output B interrupt request to the processor if ASRIER[ADOEB] = 1
   };
+  
   enum class eAODFC : uint32_t {
     ethresh_notmet = 0, // The threshold has not yet been met and no data output C interrupt is generated
     egreaterthan_thresh = 1, // When AODFC is set, the ASRC generates data output C interrupt request to the processor if ASRIER[ADOEC] = 1
   };
+  
   enum class eAOLE : uint32_t {
     etask_ok = 0, // No overload
     etoo_high = 1, // Task rate is too high
   };
+  
   enum class eFPWT : uint32_t {
     eno_waitstate = 0, // ASRC is not in wait state
     ewaitstate = 1, // ASRC is in wait state
   };
+  
   enum class eAIDUA : uint32_t {
     eno_underflow = 0, // No Underflow in Input data buffer A
     eunderflow = 1, // Underflow in Input data buffer A
   };
+  
   enum class eAIDUB : uint32_t {
     eno_underflow = 0, // No Underflow in Input data buffer B
     eunderflow = 1, // Underflow in Input data buffer B
   };
+  
   enum class eAIDUC : uint32_t {
     eno_underflow = 0, // No Underflow in Input data buffer C
     eunderflow = 1, // Underflow in Input data buffer C
   };
+  
   enum class eAODOA : uint32_t {
     eno_overflow = 0, // No Overflow in Output data buffer A
     eoverflow = 1, // Overflow in Output data buffer A
   };
+  
   enum class eAODOB : uint32_t {
     eno_overflow = 0, // No Overflow in Output data buffer B
     eoverflow = 1, // Overflow in Output data buffer B
   };
+  
   enum class eAODOC : uint32_t {
     eno_overflow = 0, // No Overflow in Output data buffer C
     eoverflow = 1, // Overflow in Output data buffer C
   };
+  
   enum class eAIOLA : uint32_t {
     eno_overload = 0, // Pair A input task is not oveloaded
     eoverload = 1, // Pair A input task is oveloaded
   };
+  
   enum class eAIOLB : uint32_t {
     eno_overload = 0, // Pair B input task is not oveloaded
     eoverload = 1, // Pair B input task is oveloaded
   };
+  
   enum class eAIOLC : uint32_t {
     eno_overload = 0, // Pair C input task is not oveloaded
     eoverload = 1, // Pair C input task is oveloaded
   };
+  
   enum class eAOOLA : uint32_t {
     eno_overload = 0, // Pair A output task is not oveloaded
     eoverload = 1, // Pair A output task is oveloaded
   };
+  
   enum class eAOOLB : uint32_t {
     eno_overload = 0, // Pair B output task is not oveloaded
     eoverload = 1, // Pair B output task is oveloaded
   };
+  
   enum class eAOOLC : uint32_t {
     eno_overload = 0, // Pair C output task is not oveloaded
     eoverload = 1, // Pair C output task is oveloaded
   };
+  
   enum class eATQOL : uint32_t {
     eno_overload = 0, // Task queue FIFO logic is not oveloaded
     eoverload = 1, // Task queue FIFO logic is oveloaded
   };
+  
   enum class eDSLCNT : uint32_t {
     edslcnt_proc = 0, // New DSL counter information is in the process of storage into the internal ASRC FIFO
     edslcnt_stored = 1, // New DSL counter information is stored in the internal ASRC FIFO
@@ -628,7 +677,7 @@ union ASRSTR {
     eATQOL ATQOL : 1;
     eDSLCNT DSLCNT : 1;
     uint32_t _reserved_end : 10;
-  } bits;          // Bit-field struct (auto-filling reserved gaps)
+  } bits;
   
   // Full 32-bit register value.
   uint32_t value;
@@ -642,13 +691,11 @@ union ASRSTR {
 //
 union ASRPM1 {
   
-  // Enum definitions.
-  
   // Bit field definition.
   struct {
     uint32_t PARAMETER_VALUE : 24;
     uint32_t _reserved_end : 8;
-  } bits;          // Bit-field struct (auto-filling reserved gaps)
+  } bits;
   
   // Full 32-bit register value.
   uint32_t value;
@@ -661,13 +708,11 @@ union ASRPM1 {
 //
 union ASRPM2 {
   
-  // Enum definitions.
-  
   // Bit field definition.
   struct {
     uint32_t PARAMETER_VALUE : 24;
     uint32_t _reserved_end : 8;
-  } bits;          // Bit-field struct (auto-filling reserved gaps)
+  } bits;
   
   // Full 32-bit register value.
   uint32_t value;
@@ -680,13 +725,11 @@ union ASRPM2 {
 //
 union ASRPM3 {
   
-  // Enum definitions.
-  
   // Bit field definition.
   struct {
     uint32_t PARAMETER_VALUE : 24;
     uint32_t _reserved_end : 8;
-  } bits;          // Bit-field struct (auto-filling reserved gaps)
+  } bits;
   
   // Full 32-bit register value.
   uint32_t value;
@@ -699,13 +742,11 @@ union ASRPM3 {
 //
 union ASRPM4 {
   
-  // Enum definitions.
-  
   // Bit field definition.
   struct {
     uint32_t PARAMETER_VALUE : 24;
     uint32_t _reserved_end : 8;
-  } bits;          // Bit-field struct (auto-filling reserved gaps)
+  } bits;
   
   // Full 32-bit register value.
   uint32_t value;
@@ -718,13 +759,11 @@ union ASRPM4 {
 //
 union ASRPM5 {
   
-  // Enum definitions.
-  
   // Bit field definition.
   struct {
     uint32_t PARAMETER_VALUE : 24;
     uint32_t _reserved_end : 8;
-  } bits;          // Bit-field struct (auto-filling reserved gaps)
+  } bits;
   
   // Full 32-bit register value.
   uint32_t value;
@@ -738,15 +777,13 @@ union ASRPM5 {
 //
 union ASRTFR1 {
   
-  // Enum definitions.
-  
   // Bit field definition.
   struct {
     uint32_t _reserved_0 : 6;
     uint32_t TF_BASE : 7;
     uint32_t TF_FILL : 7;
     uint32_t _reserved_end : 12;
-  } bits;          // Bit-field struct (auto-filling reserved gaps)
+  } bits;
   
   // Full 32-bit register value.
   uint32_t value;
@@ -760,8 +797,6 @@ union ASRTFR1 {
 //
 union ASRCCR {
   
-  // Enum definitions.
-  
   // Bit field definition.
   struct {
     uint32_t ACIA : 4;
@@ -771,7 +806,7 @@ union ASRCCR {
     uint32_t ACOB : 4;
     uint32_t ACOC : 4;
     uint32_t _reserved_end : 8;
-  } bits;          // Bit-field struct (auto-filling reserved gaps)
+  } bits;
   
   // Full 32-bit register value.
   uint32_t value;
@@ -785,13 +820,11 @@ union ASRCCR {
 //
 union ASRDIA {
   
-  // Enum definitions.
-  
   // Bit field definition.
   struct {
     uint32_t DATA : 24;
     uint32_t _reserved_end : 8;
-  } bits;          // Bit-field struct (auto-filling reserved gaps)
+  } bits;
   
   // Full 32-bit register value.
   uint32_t value;
@@ -805,13 +838,11 @@ union ASRDIA {
 //
 union ASRDOA {
   
-  // Enum definitions.
-  
   // Bit field definition.
   struct {
     uint32_t DATA : 24;
     uint32_t _reserved_end : 8;
-  } bits;          // Bit-field struct (auto-filling reserved gaps)
+  } bits;
   
   // Full 32-bit register value.
   uint32_t value;
@@ -825,13 +856,11 @@ union ASRDOA {
 //
 union ASRDIB {
   
-  // Enum definitions.
-  
   // Bit field definition.
   struct {
     uint32_t DATA : 24;
     uint32_t _reserved_end : 8;
-  } bits;          // Bit-field struct (auto-filling reserved gaps)
+  } bits;
   
   // Full 32-bit register value.
   uint32_t value;
@@ -845,13 +874,11 @@ union ASRDIB {
 //
 union ASRDOB {
   
-  // Enum definitions.
-  
   // Bit field definition.
   struct {
     uint32_t DATA : 24;
     uint32_t _reserved_end : 8;
-  } bits;          // Bit-field struct (auto-filling reserved gaps)
+  } bits;
   
   // Full 32-bit register value.
   uint32_t value;
@@ -865,13 +892,11 @@ union ASRDOB {
 //
 union ASRDIC {
   
-  // Enum definitions.
-  
   // Bit field definition.
   struct {
     uint32_t DATA : 24;
     uint32_t _reserved_end : 8;
-  } bits;          // Bit-field struct (auto-filling reserved gaps)
+  } bits;
   
   // Full 32-bit register value.
   uint32_t value;
@@ -885,13 +910,11 @@ union ASRDIC {
 //
 union ASRDOC {
   
-  // Enum definitions.
-  
   // Bit field definition.
   struct {
     uint32_t DATA : 24;
     uint32_t _reserved_end : 8;
-  } bits;          // Bit-field struct (auto-filling reserved gaps)
+  } bits;
   
   // Full 32-bit register value.
   uint32_t value;
@@ -905,13 +928,11 @@ union ASRDOC {
 //
 union ASRIDRHA {
   
-  // Enum definitions.
-  
   // Bit field definition.
   struct {
     uint32_t IDRATIOA_H : 8;
     uint32_t _reserved_end : 24;
-  } bits;          // Bit-field struct (auto-filling reserved gaps)
+  } bits;
   
   // Full 32-bit register value.
   uint32_t value;
@@ -925,13 +946,11 @@ union ASRIDRHA {
 //
 union ASRIDRLA {
   
-  // Enum definitions.
-  
   // Bit field definition.
   struct {
     uint32_t IDRATIOA_L : 24;
     uint32_t _reserved_end : 8;
-  } bits;          // Bit-field struct (auto-filling reserved gaps)
+  } bits;
   
   // Full 32-bit register value.
   uint32_t value;
@@ -945,13 +964,11 @@ union ASRIDRLA {
 //
 union ASRIDRHB {
   
-  // Enum definitions.
-  
   // Bit field definition.
   struct {
     uint32_t IDRATIOB_H : 8;
     uint32_t _reserved_end : 24;
-  } bits;          // Bit-field struct (auto-filling reserved gaps)
+  } bits;
   
   // Full 32-bit register value.
   uint32_t value;
@@ -965,13 +982,11 @@ union ASRIDRHB {
 //
 union ASRIDRLB {
   
-  // Enum definitions.
-  
   // Bit field definition.
   struct {
     uint32_t IDRATIOB_L : 24;
     uint32_t _reserved_end : 8;
-  } bits;          // Bit-field struct (auto-filling reserved gaps)
+  } bits;
   
   // Full 32-bit register value.
   uint32_t value;
@@ -985,13 +1000,11 @@ union ASRIDRLB {
 //
 union ASRIDRHC {
   
-  // Enum definitions.
-  
   // Bit field definition.
   struct {
     uint32_t IDRATIOC_H : 8;
     uint32_t _reserved_end : 24;
-  } bits;          // Bit-field struct (auto-filling reserved gaps)
+  } bits;
   
   // Full 32-bit register value.
   uint32_t value;
@@ -1005,13 +1018,11 @@ union ASRIDRHC {
 //
 union ASRIDRLC {
   
-  // Enum definitions.
-  
   // Bit field definition.
   struct {
     uint32_t IDRATIOC_L : 24;
     uint32_t _reserved_end : 8;
-  } bits;          // Bit-field struct (auto-filling reserved gaps)
+  } bits;
   
   // Full 32-bit register value.
   uint32_t value;
@@ -1025,13 +1036,11 @@ union ASRIDRLC {
 //
 union ASR76K {
   
-  // Enum definitions.
-  
   // Bit field definition.
   struct {
     uint32_t ASR76K : 17;
     uint32_t _reserved_end : 15;
-  } bits;          // Bit-field struct (auto-filling reserved gaps)
+  } bits;
   
   // Full 32-bit register value.
   uint32_t value;
@@ -1045,13 +1054,11 @@ union ASR76K {
 //
 union ASR56K {
   
-  // Enum definitions.
-  
   // Bit field definition.
   struct {
     uint32_t ASR56K : 17;
     uint32_t _reserved_end : 15;
-  } bits;          // Bit-field struct (auto-filling reserved gaps)
+  } bits;
   
   // Full 32-bit register value.
   uint32_t value;
@@ -1065,27 +1072,31 @@ union ASR56K {
 //
 union ASRMCRA {
   
-  // Enum definitions.
   enum class eRSYNOFA : uint32_t {
     eno_resync = 0, // Do not touch ASRCCR[ACOA]
     eresync = 1, // Force ASRCCR[ACOA]=0
   };
+  
   enum class eRSYNIFA : uint32_t {
     eno_resync = 0, // Do not touch ASRCCR[ACIA]
     eresync = 1, // Force ASRCCR[ACIA]=0
   };
+  
   enum class eBYPASSPOLYA : uint32_t {
     eno_bypass = 0, // Don't bypass polyphase filtering.
     ebypass = 1, // Bypass polyphase filtering.
   };
+  
   enum class eBUFSTALLA : uint32_t {
     eno_stall = 0, // Don't stall Pair A conversion even in case of near empty/full FIFO conditions.
     estall = 1, // Stall Pair A conversion in case of near empty/full FIFO conditions.
   };
+  
   enum class eEXTTHRSHA : uint32_t {
     euse_default_thresh = 0, // Use default thresholds.
     euse_ext_thresh = 1, // Use external defined thresholds.
   };
+  
   enum class eZEROBUFA : uint32_t {
     ezero_buf = 0, // Zeroize the buffer
     edo_not_zero_buf = 1, // Don't zeroize the buffer
@@ -1104,7 +1115,7 @@ union ASRMCRA {
     eEXTTHRSHA EXTTHRSHA : 1;
     eZEROBUFA ZEROBUFA : 1;
     uint32_t _reserved_end : 8;
-  } bits;          // Bit-field struct (auto-filling reserved gaps)
+  } bits;
   
   // Full 32-bit register value.
   uint32_t value;
@@ -1118,11 +1129,11 @@ union ASRMCRA {
 //
 union ASRFSTA {
   
-  // Enum definitions.
   enum class eIAEA : uint32_t {
     enot_near_empty = 0, // Input FIFO is not near empty for Pair A
     enear_empty = 1, // Input FIFO is near empty for Pair A
   };
+  
   enum class eOAFA : uint32_t {
     enot_near_full = 0, // Output FIFO is not near full for Pair A
     enear_full = 1, // Output FIFO is near full for Pair A
@@ -1137,7 +1148,7 @@ union ASRFSTA {
     uint32_t _reserved_3 : 4;
     eOAFA OAFA : 1;
     uint32_t _reserved_end : 8;
-  } bits;          // Bit-field struct (auto-filling reserved gaps)
+  } bits;
   
   // Full 32-bit register value.
   uint32_t value;
@@ -1151,27 +1162,31 @@ union ASRFSTA {
 //
 union ASRMCRB {
   
-  // Enum definitions.
   enum class eRSYNOFB : uint32_t {
     eno_resync = 0, // Do not touch ASRCCR[ACOB]
     eresync = 1, // Force ASRCCR[ACOB]=0
   };
+  
   enum class eRSYNIFB : uint32_t {
     eno_resync = 0, // Do not touch ASRCCR[ACIB]
     eresync = 1, // Force ASRCCR[ACIB]=0
   };
+  
   enum class eBYPASSPOLYB : uint32_t {
     eno_bypass = 0, // Don't bypass polyphase filtering.
     ebypass = 1, // Bypass polyphase filtering.
   };
+  
   enum class eBUFSTALLB : uint32_t {
     eno_stall = 0, // Don't stall Pair B conversion even in case of near empty/full FIFO conditions.
     estall = 1, // Stall Pair B conversion in case of near empty/full FIFO conditions.
   };
+  
   enum class eEXTTHRSHB : uint32_t {
     euse_default_thresh = 0, // Use default thresholds.
     euse_ext_thresh = 1, // Use external defined thresholds.
   };
+  
   enum class eZEROBUFB : uint32_t {
     ezero_buf = 0, // Zeroize the buffer
     edo_not_zero_buf = 1, // Don't zeroize the buffer
@@ -1190,7 +1205,7 @@ union ASRMCRB {
     eEXTTHRSHB EXTTHRSHB : 1;
     eZEROBUFB ZEROBUFB : 1;
     uint32_t _reserved_end : 8;
-  } bits;          // Bit-field struct (auto-filling reserved gaps)
+  } bits;
   
   // Full 32-bit register value.
   uint32_t value;
@@ -1204,11 +1219,11 @@ union ASRMCRB {
 //
 union ASRFSTB {
   
-  // Enum definitions.
   enum class eIAEB : uint32_t {
     enot_near_empty = 0, // Input FIFO is not near empty for Pair B
     enear_empty = 1, // Input FIFO is near empty for Pair B
   };
+  
   enum class eOAFB : uint32_t {
     enot_near_full = 0, // Output FIFO is not near full for Pair B
     enear_full = 1, // Output FIFO is near full for Pair B
@@ -1223,7 +1238,7 @@ union ASRFSTB {
     uint32_t _reserved_3 : 4;
     eOAFB OAFB : 1;
     uint32_t _reserved_end : 8;
-  } bits;          // Bit-field struct (auto-filling reserved gaps)
+  } bits;
   
   // Full 32-bit register value.
   uint32_t value;
@@ -1237,27 +1252,31 @@ union ASRFSTB {
 //
 union ASRMCRC {
   
-  // Enum definitions.
   enum class eRSYNOFC : uint32_t {
     eno_resync = 0, // Do not touch ASRCCR[ACOC]
     eresync = 1, // Force ASRCCR[ACOC]=0
   };
+  
   enum class eRSYNIFC : uint32_t {
     eno_resync = 0, // Do not touch ASRCCR[ACIC]
     eresync = 1, // Force ASRCCR[ACIC]=0
   };
+  
   enum class eBYPASSPOLYC : uint32_t {
     eno_bypass = 0, // Don't bypass polyphase filtering.
     ebypass = 1, // Bypass polyphase filtering.
   };
+  
   enum class eBUFSTALLC : uint32_t {
     eno_stall = 0, // Don't stall Pair C conversion even in case of near empty/full FIFO conditions.
     estall = 1, // Stall Pair C conversion in case of near empty/full FIFO conditions.
   };
+  
   enum class eEXTTHRSHC : uint32_t {
     euse_default_thresh = 0, // Use default thresholds.
     euse_ext_thresh = 1, // Use external defined thresholds.
   };
+  
   enum class eZEROBUFC : uint32_t {
     ezero_buf = 0, // Zeroize the buffer
     edo_not_zero_buf = 1, // Don't zeroize the buffer
@@ -1276,7 +1295,7 @@ union ASRMCRC {
     eEXTTHRSHC EXTTHRSHC : 1;
     eZEROBUFC ZEROBUFC : 1;
     uint32_t _reserved_end : 8;
-  } bits;          // Bit-field struct (auto-filling reserved gaps)
+  } bits;
   
   // Full 32-bit register value.
   uint32_t value;
@@ -1290,11 +1309,11 @@ union ASRMCRC {
 //
 union ASRFSTC {
   
-  // Enum definitions.
   enum class eIAEC : uint32_t {
     enot_near_empty = 0, // Input FIFO is not near empty for Pair C
     enear_empty = 1, // Input FIFO is near empty for Pair C
   };
+  
   enum class eOAFC : uint32_t {
     enot_near_full = 0, // Output FIFO is not near full for Pair C
     enear_full = 1, // Output FIFO is near full for Pair C
@@ -1309,7 +1328,7 @@ union ASRFSTC {
     uint32_t _reserved_3 : 4;
     eOAFC OAFC : 1;
     uint32_t _reserved_end : 8;
-  } bits;          // Bit-field struct (auto-filling reserved gaps)
+  } bits;
   
   // Full 32-bit register value.
   uint32_t value;
@@ -1323,23 +1342,26 @@ union ASRFSTC {
 //
 union ASRMCR1A {
   
-  // Enum definitions.
   enum class eOW16 : uint32_t {
     eout_24bit = 0, // 24-bit output data.
     eout_16bit = 1, // 16-bit output data
   };
+  
   enum class eOSGN : uint32_t {
     eno_sign_ext = 0, // No sign extension.
     esign_ext = 1, // Sign extension.
   };
+  
   enum class eOMSB : uint32_t {
     elsb_aligned = 0, // LSB aligned.
     emsb_aligned = 1, // MSB aligned.
   };
+  
   enum class eIMSB : uint32_t {
     elsb_aligned = 0, // LSB aligned.
     emsb_aligned = 1, // MSB aligned.
   };
+  
   enum class eIWD : uint32_t {
     eaudiodata_24bit = 0, // 24-bit audio data.
     eaudiodata_16bit = 1, // 16-bit audio data.
@@ -1355,7 +1377,7 @@ union ASRMCR1A {
     eIMSB IMSB : 1;
     eIWD IWD : 2;
     uint32_t _reserved_end : 21;
-  } bits;          // Bit-field struct (auto-filling reserved gaps)
+  } bits;
   
   // Full 32-bit register value.
   uint32_t value;
@@ -1368,23 +1390,26 @@ union ASRMCR1A {
 //
 union ASRMCR1B {
   
-  // Enum definitions.
   enum class eOW16 : uint32_t {
     eout_24bit = 0, // 24-bit output data.
     eout_16bit = 1, // 16-bit output data
   };
+  
   enum class eOSGN : uint32_t {
     eno_sign_ext = 0, // No sign extension.
     esign_ext = 1, // Sign extension.
   };
+  
   enum class eOMSB : uint32_t {
     elsb_aligned = 0, // LSB aligned.
     emsb_aligned = 1, // MSB aligned.
   };
+  
   enum class eIMSB : uint32_t {
     elsb_aligned = 0, // LSB aligned.
     emsb_aligned = 1, // MSB aligned.
   };
+  
   enum class eIWD : uint32_t {
     eaudiodata_24bit = 0, // 24-bit audio data.
     eaudiodata_16bit = 1, // 16-bit audio data.
@@ -1400,7 +1425,7 @@ union ASRMCR1B {
     eIMSB IMSB : 1;
     eIWD IWD : 2;
     uint32_t _reserved_end : 21;
-  } bits;          // Bit-field struct (auto-filling reserved gaps)
+  } bits;
   
   // Full 32-bit register value.
   uint32_t value;
@@ -1413,23 +1438,26 @@ union ASRMCR1B {
 //
 union ASRMCR1C {
   
-  // Enum definitions.
   enum class eOW16 : uint32_t {
     eout_24bit = 0, // 24-bit output data.
     eout_16bit = 1, // 16-bit output data
   };
+  
   enum class eOSGN : uint32_t {
     eno_sign_ext = 0, // No sign extension.
     esign_ext = 1, // Sign extension.
   };
+  
   enum class eOMSB : uint32_t {
     elsb_aligned = 0, // LSB aligned.
     emsb_aligned = 1, // MSB aligned.
   };
+  
   enum class eIMSB : uint32_t {
     elsb_aligned = 0, // LSB aligned.
     emsb_aligned = 1, // MSB aligned.
   };
+  
   enum class eIWD : uint32_t {
     eaudiodata_24bit = 0, // 24-bit audio data.
     eaudiodata_16bit = 1, // 16-bit audio data.
@@ -1445,7 +1473,7 @@ union ASRMCR1C {
     eIMSB IMSB : 1;
     eIWD IWD : 2;
     uint32_t _reserved_end : 21;
-  } bits;          // Bit-field struct (auto-filling reserved gaps)
+  } bits;
   
   // Full 32-bit register value.
   uint32_t value;

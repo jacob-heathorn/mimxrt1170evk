@@ -15,7 +15,6 @@ namespace nRDC_SEMAPHORE2 {
 //
 union RDC_SEMAPHORE2_GATE0 {
   
-  // Enum definitions.
   enum class eGTFSM : uint32_t {
     eGTFSM_0 = 0, // The gate is unlocked (free).
     eGTFSM_1 = 1, // The gate has been locked by processor with master_index = 0.
@@ -34,6 +33,7 @@ union RDC_SEMAPHORE2_GATE0 {
     eGTFSM_14 = 14, // The gate has been locked by processor with master_index = 13.
     eGTFSM_15 = 15, // The gate has been locked by processor with master_index = 14.
   };
+  
   enum class eLDOM : uint32_t {
     eLDOM_0 = 0, // The gate is locked by domain 0. (True if the field GTFSM does not equal to 0000.)
     eLDOM_1 = 1, // The gate has been locked by domain 1.
@@ -44,7 +44,7 @@ union RDC_SEMAPHORE2_GATE0 {
     eGTFSM GTFSM : 4;
     eLDOM LDOM : 2;
     uint32_t _reserved_end : 26;
-  } bits;          // Bit-field struct (auto-filling reserved gaps)
+  } bits;
   
   // Full 32-bit register value.
   uint32_t value;
@@ -57,7 +57,6 @@ union RDC_SEMAPHORE2_GATE0 {
 //
 union RDC_SEMAPHORE2_GATE1 {
   
-  // Enum definitions.
   enum class eGTFSM : uint32_t {
     eGTFSM_0 = 0, // The gate is unlocked (free).
     eGTFSM_1 = 1, // The gate has been locked by processor with master_index = 0.
@@ -76,6 +75,7 @@ union RDC_SEMAPHORE2_GATE1 {
     eGTFSM_14 = 14, // The gate has been locked by processor with master_index = 13.
     eGTFSM_15 = 15, // The gate has been locked by processor with master_index = 14.
   };
+  
   enum class eLDOM : uint32_t {
     eLDOM_0 = 0, // The gate is locked by domain 0. (True if the field GTFSM does not equal to 0000.)
     eLDOM_1 = 1, // The gate has been locked by domain 1.
@@ -86,7 +86,7 @@ union RDC_SEMAPHORE2_GATE1 {
     eGTFSM GTFSM : 4;
     eLDOM LDOM : 2;
     uint32_t _reserved_end : 26;
-  } bits;          // Bit-field struct (auto-filling reserved gaps)
+  } bits;
   
   // Full 32-bit register value.
   uint32_t value;
@@ -99,7 +99,6 @@ union RDC_SEMAPHORE2_GATE1 {
 //
 union RDC_SEMAPHORE2_GATE2 {
   
-  // Enum definitions.
   enum class eGTFSM : uint32_t {
     eGTFSM_0 = 0, // The gate is unlocked (free).
     eGTFSM_1 = 1, // The gate has been locked by processor with master_index = 0.
@@ -118,6 +117,7 @@ union RDC_SEMAPHORE2_GATE2 {
     eGTFSM_14 = 14, // The gate has been locked by processor with master_index = 13.
     eGTFSM_15 = 15, // The gate has been locked by processor with master_index = 14.
   };
+  
   enum class eLDOM : uint32_t {
     eLDOM_0 = 0, // The gate is locked by domain 0. (True if the field GTFSM does not equal to 0000.)
     eLDOM_1 = 1, // The gate has been locked by domain 1.
@@ -128,7 +128,7 @@ union RDC_SEMAPHORE2_GATE2 {
     eGTFSM GTFSM : 4;
     eLDOM LDOM : 2;
     uint32_t _reserved_end : 26;
-  } bits;          // Bit-field struct (auto-filling reserved gaps)
+  } bits;
   
   // Full 32-bit register value.
   uint32_t value;
@@ -141,7 +141,6 @@ union RDC_SEMAPHORE2_GATE2 {
 //
 union RDC_SEMAPHORE2_GATE3 {
   
-  // Enum definitions.
   enum class eGTFSM : uint32_t {
     eGTFSM_0 = 0, // The gate is unlocked (free).
     eGTFSM_1 = 1, // The gate has been locked by processor with master_index = 0.
@@ -160,6 +159,7 @@ union RDC_SEMAPHORE2_GATE3 {
     eGTFSM_14 = 14, // The gate has been locked by processor with master_index = 13.
     eGTFSM_15 = 15, // The gate has been locked by processor with master_index = 14.
   };
+  
   enum class eLDOM : uint32_t {
     eLDOM_0 = 0, // The gate is locked by domain 0. (True if the field GTFSM does not equal to 0000.)
     eLDOM_1 = 1, // The gate has been locked by domain 1.
@@ -170,7 +170,7 @@ union RDC_SEMAPHORE2_GATE3 {
     eGTFSM GTFSM : 4;
     eLDOM LDOM : 2;
     uint32_t _reserved_end : 26;
-  } bits;          // Bit-field struct (auto-filling reserved gaps)
+  } bits;
   
   // Full 32-bit register value.
   uint32_t value;
@@ -183,7 +183,6 @@ union RDC_SEMAPHORE2_GATE3 {
 //
 union RDC_SEMAPHORE2_GATE4 {
   
-  // Enum definitions.
   enum class eGTFSM : uint32_t {
     eGTFSM_0 = 0, // The gate is unlocked (free).
     eGTFSM_1 = 1, // The gate has been locked by processor with master_index = 0.
@@ -202,6 +201,7 @@ union RDC_SEMAPHORE2_GATE4 {
     eGTFSM_14 = 14, // The gate has been locked by processor with master_index = 13.
     eGTFSM_15 = 15, // The gate has been locked by processor with master_index = 14.
   };
+  
   enum class eLDOM : uint32_t {
     eLDOM_0 = 0, // The gate is locked by domain 0. (True if the field GTFSM does not equal to 0000.)
     eLDOM_1 = 1, // The gate has been locked by domain 1.
@@ -212,7 +212,7 @@ union RDC_SEMAPHORE2_GATE4 {
     eGTFSM GTFSM : 4;
     eLDOM LDOM : 2;
     uint32_t _reserved_end : 26;
-  } bits;          // Bit-field struct (auto-filling reserved gaps)
+  } bits;
   
   // Full 32-bit register value.
   uint32_t value;
@@ -225,7 +225,6 @@ union RDC_SEMAPHORE2_GATE4 {
 //
 union RDC_SEMAPHORE2_GATE5 {
   
-  // Enum definitions.
   enum class eGTFSM : uint32_t {
     eGTFSM_0 = 0, // The gate is unlocked (free).
     eGTFSM_1 = 1, // The gate has been locked by processor with master_index = 0.
@@ -244,6 +243,7 @@ union RDC_SEMAPHORE2_GATE5 {
     eGTFSM_14 = 14, // The gate has been locked by processor with master_index = 13.
     eGTFSM_15 = 15, // The gate has been locked by processor with master_index = 14.
   };
+  
   enum class eLDOM : uint32_t {
     eLDOM_0 = 0, // The gate is locked by domain 0. (True if the field GTFSM does not equal to 0000.)
     eLDOM_1 = 1, // The gate has been locked by domain 1.
@@ -254,7 +254,7 @@ union RDC_SEMAPHORE2_GATE5 {
     eGTFSM GTFSM : 4;
     eLDOM LDOM : 2;
     uint32_t _reserved_end : 26;
-  } bits;          // Bit-field struct (auto-filling reserved gaps)
+  } bits;
   
   // Full 32-bit register value.
   uint32_t value;
@@ -267,7 +267,6 @@ union RDC_SEMAPHORE2_GATE5 {
 //
 union RDC_SEMAPHORE2_GATE6 {
   
-  // Enum definitions.
   enum class eGTFSM : uint32_t {
     eGTFSM_0 = 0, // The gate is unlocked (free).
     eGTFSM_1 = 1, // The gate has been locked by processor with master_index = 0.
@@ -286,6 +285,7 @@ union RDC_SEMAPHORE2_GATE6 {
     eGTFSM_14 = 14, // The gate has been locked by processor with master_index = 13.
     eGTFSM_15 = 15, // The gate has been locked by processor with master_index = 14.
   };
+  
   enum class eLDOM : uint32_t {
     eLDOM_0 = 0, // The gate is locked by domain 0. (True if the field GTFSM does not equal to 0000.)
     eLDOM_1 = 1, // The gate has been locked by domain 1.
@@ -296,7 +296,7 @@ union RDC_SEMAPHORE2_GATE6 {
     eGTFSM GTFSM : 4;
     eLDOM LDOM : 2;
     uint32_t _reserved_end : 26;
-  } bits;          // Bit-field struct (auto-filling reserved gaps)
+  } bits;
   
   // Full 32-bit register value.
   uint32_t value;
@@ -309,7 +309,6 @@ union RDC_SEMAPHORE2_GATE6 {
 //
 union RDC_SEMAPHORE2_GATE7 {
   
-  // Enum definitions.
   enum class eGTFSM : uint32_t {
     eGTFSM_0 = 0, // The gate is unlocked (free).
     eGTFSM_1 = 1, // The gate has been locked by processor with master_index = 0.
@@ -328,6 +327,7 @@ union RDC_SEMAPHORE2_GATE7 {
     eGTFSM_14 = 14, // The gate has been locked by processor with master_index = 13.
     eGTFSM_15 = 15, // The gate has been locked by processor with master_index = 14.
   };
+  
   enum class eLDOM : uint32_t {
     eLDOM_0 = 0, // The gate is locked by domain 0. (True if the field GTFSM does not equal to 0000.)
     eLDOM_1 = 1, // The gate has been locked by domain 1.
@@ -338,7 +338,7 @@ union RDC_SEMAPHORE2_GATE7 {
     eGTFSM GTFSM : 4;
     eLDOM LDOM : 2;
     uint32_t _reserved_end : 26;
-  } bits;          // Bit-field struct (auto-filling reserved gaps)
+  } bits;
   
   // Full 32-bit register value.
   uint32_t value;
@@ -351,7 +351,6 @@ union RDC_SEMAPHORE2_GATE7 {
 //
 union RDC_SEMAPHORE2_GATE8 {
   
-  // Enum definitions.
   enum class eGTFSM : uint32_t {
     eGTFSM_0 = 0, // The gate is unlocked (free).
     eGTFSM_1 = 1, // The gate has been locked by processor with master_index = 0.
@@ -370,6 +369,7 @@ union RDC_SEMAPHORE2_GATE8 {
     eGTFSM_14 = 14, // The gate has been locked by processor with master_index = 13.
     eGTFSM_15 = 15, // The gate has been locked by processor with master_index = 14.
   };
+  
   enum class eLDOM : uint32_t {
     eLDOM_0 = 0, // The gate is locked by domain 0. (True if the field GTFSM does not equal to 0000.)
     eLDOM_1 = 1, // The gate has been locked by domain 1.
@@ -380,7 +380,7 @@ union RDC_SEMAPHORE2_GATE8 {
     eGTFSM GTFSM : 4;
     eLDOM LDOM : 2;
     uint32_t _reserved_end : 26;
-  } bits;          // Bit-field struct (auto-filling reserved gaps)
+  } bits;
   
   // Full 32-bit register value.
   uint32_t value;
@@ -393,7 +393,6 @@ union RDC_SEMAPHORE2_GATE8 {
 //
 union RDC_SEMAPHORE2_GATE9 {
   
-  // Enum definitions.
   enum class eGTFSM : uint32_t {
     eGTFSM_0 = 0, // The gate is unlocked (free).
     eGTFSM_1 = 1, // The gate has been locked by processor with master_index = 0.
@@ -412,6 +411,7 @@ union RDC_SEMAPHORE2_GATE9 {
     eGTFSM_14 = 14, // The gate has been locked by processor with master_index = 13.
     eGTFSM_15 = 15, // The gate has been locked by processor with master_index = 14.
   };
+  
   enum class eLDOM : uint32_t {
     eLDOM_0 = 0, // The gate is locked by domain 0. (True if the field GTFSM does not equal to 0000.)
     eLDOM_1 = 1, // The gate has been locked by domain 1.
@@ -422,7 +422,7 @@ union RDC_SEMAPHORE2_GATE9 {
     eGTFSM GTFSM : 4;
     eLDOM LDOM : 2;
     uint32_t _reserved_end : 26;
-  } bits;          // Bit-field struct (auto-filling reserved gaps)
+  } bits;
   
   // Full 32-bit register value.
   uint32_t value;
@@ -435,7 +435,6 @@ union RDC_SEMAPHORE2_GATE9 {
 //
 union RDC_SEMAPHORE2_GATE10 {
   
-  // Enum definitions.
   enum class eGTFSM : uint32_t {
     eGTFSM_0 = 0, // The gate is unlocked (free).
     eGTFSM_1 = 1, // The gate has been locked by processor with master_index = 0.
@@ -454,6 +453,7 @@ union RDC_SEMAPHORE2_GATE10 {
     eGTFSM_14 = 14, // The gate has been locked by processor with master_index = 13.
     eGTFSM_15 = 15, // The gate has been locked by processor with master_index = 14.
   };
+  
   enum class eLDOM : uint32_t {
     eLDOM_0 = 0, // The gate is locked by domain 0. (True if the field GTFSM does not equal to 0000.)
     eLDOM_1 = 1, // The gate has been locked by domain 1.
@@ -464,7 +464,7 @@ union RDC_SEMAPHORE2_GATE10 {
     eGTFSM GTFSM : 4;
     eLDOM LDOM : 2;
     uint32_t _reserved_end : 26;
-  } bits;          // Bit-field struct (auto-filling reserved gaps)
+  } bits;
   
   // Full 32-bit register value.
   uint32_t value;
@@ -477,7 +477,6 @@ union RDC_SEMAPHORE2_GATE10 {
 //
 union RDC_SEMAPHORE2_GATE11 {
   
-  // Enum definitions.
   enum class eGTFSM : uint32_t {
     eGTFSM_0 = 0, // The gate is unlocked (free).
     eGTFSM_1 = 1, // The gate has been locked by processor with master_index = 0.
@@ -496,6 +495,7 @@ union RDC_SEMAPHORE2_GATE11 {
     eGTFSM_14 = 14, // The gate has been locked by processor with master_index = 13.
     eGTFSM_15 = 15, // The gate has been locked by processor with master_index = 14.
   };
+  
   enum class eLDOM : uint32_t {
     eLDOM_0 = 0, // The gate is locked by domain 0. (True if the field GTFSM does not equal to 0000.)
     eLDOM_1 = 1, // The gate has been locked by domain 1.
@@ -506,7 +506,7 @@ union RDC_SEMAPHORE2_GATE11 {
     eGTFSM GTFSM : 4;
     eLDOM LDOM : 2;
     uint32_t _reserved_end : 26;
-  } bits;          // Bit-field struct (auto-filling reserved gaps)
+  } bits;
   
   // Full 32-bit register value.
   uint32_t value;
@@ -519,7 +519,6 @@ union RDC_SEMAPHORE2_GATE11 {
 //
 union RDC_SEMAPHORE2_GATE12 {
   
-  // Enum definitions.
   enum class eGTFSM : uint32_t {
     eGTFSM_0 = 0, // The gate is unlocked (free).
     eGTFSM_1 = 1, // The gate has been locked by processor with master_index = 0.
@@ -538,6 +537,7 @@ union RDC_SEMAPHORE2_GATE12 {
     eGTFSM_14 = 14, // The gate has been locked by processor with master_index = 13.
     eGTFSM_15 = 15, // The gate has been locked by processor with master_index = 14.
   };
+  
   enum class eLDOM : uint32_t {
     eLDOM_0 = 0, // The gate is locked by domain 0. (True if the field GTFSM does not equal to 0000.)
     eLDOM_1 = 1, // The gate has been locked by domain 1.
@@ -548,7 +548,7 @@ union RDC_SEMAPHORE2_GATE12 {
     eGTFSM GTFSM : 4;
     eLDOM LDOM : 2;
     uint32_t _reserved_end : 26;
-  } bits;          // Bit-field struct (auto-filling reserved gaps)
+  } bits;
   
   // Full 32-bit register value.
   uint32_t value;
@@ -561,7 +561,6 @@ union RDC_SEMAPHORE2_GATE12 {
 //
 union RDC_SEMAPHORE2_GATE13 {
   
-  // Enum definitions.
   enum class eGTFSM : uint32_t {
     eGTFSM_0 = 0, // The gate is unlocked (free).
     eGTFSM_1 = 1, // The gate has been locked by processor with master_index = 0.
@@ -580,6 +579,7 @@ union RDC_SEMAPHORE2_GATE13 {
     eGTFSM_14 = 14, // The gate has been locked by processor with master_index = 13.
     eGTFSM_15 = 15, // The gate has been locked by processor with master_index = 14.
   };
+  
   enum class eLDOM : uint32_t {
     eLDOM_0 = 0, // The gate is locked by domain 0. (True if the field GTFSM does not equal to 0000.)
     eLDOM_1 = 1, // The gate has been locked by domain 1.
@@ -590,7 +590,7 @@ union RDC_SEMAPHORE2_GATE13 {
     eGTFSM GTFSM : 4;
     eLDOM LDOM : 2;
     uint32_t _reserved_end : 26;
-  } bits;          // Bit-field struct (auto-filling reserved gaps)
+  } bits;
   
   // Full 32-bit register value.
   uint32_t value;
@@ -603,7 +603,6 @@ union RDC_SEMAPHORE2_GATE13 {
 //
 union RDC_SEMAPHORE2_GATE14 {
   
-  // Enum definitions.
   enum class eGTFSM : uint32_t {
     eGTFSM_0 = 0, // The gate is unlocked (free).
     eGTFSM_1 = 1, // The gate has been locked by processor with master_index = 0.
@@ -622,6 +621,7 @@ union RDC_SEMAPHORE2_GATE14 {
     eGTFSM_14 = 14, // The gate has been locked by processor with master_index = 13.
     eGTFSM_15 = 15, // The gate has been locked by processor with master_index = 14.
   };
+  
   enum class eLDOM : uint32_t {
     eLDOM_0 = 0, // The gate is locked by domain 0. (True if the field GTFSM does not equal to 0000.)
     eLDOM_1 = 1, // The gate has been locked by domain 1.
@@ -632,7 +632,7 @@ union RDC_SEMAPHORE2_GATE14 {
     eGTFSM GTFSM : 4;
     eLDOM LDOM : 2;
     uint32_t _reserved_end : 26;
-  } bits;          // Bit-field struct (auto-filling reserved gaps)
+  } bits;
   
   // Full 32-bit register value.
   uint32_t value;
@@ -645,7 +645,6 @@ union RDC_SEMAPHORE2_GATE14 {
 //
 union RDC_SEMAPHORE2_GATE15 {
   
-  // Enum definitions.
   enum class eGTFSM : uint32_t {
     eGTFSM_0 = 0, // The gate is unlocked (free).
     eGTFSM_1 = 1, // The gate has been locked by processor with master_index = 0.
@@ -664,6 +663,7 @@ union RDC_SEMAPHORE2_GATE15 {
     eGTFSM_14 = 14, // The gate has been locked by processor with master_index = 13.
     eGTFSM_15 = 15, // The gate has been locked by processor with master_index = 14.
   };
+  
   enum class eLDOM : uint32_t {
     eLDOM_0 = 0, // The gate is locked by domain 0. (True if the field GTFSM does not equal to 0000.)
     eLDOM_1 = 1, // The gate has been locked by domain 1.
@@ -674,7 +674,7 @@ union RDC_SEMAPHORE2_GATE15 {
     eGTFSM GTFSM : 4;
     eLDOM LDOM : 2;
     uint32_t _reserved_end : 26;
-  } bits;          // Bit-field struct (auto-filling reserved gaps)
+  } bits;
   
   // Full 32-bit register value.
   uint32_t value;
@@ -687,7 +687,6 @@ union RDC_SEMAPHORE2_GATE15 {
 //
 union RDC_SEMAPHORE2_GATE16 {
   
-  // Enum definitions.
   enum class eGTFSM : uint32_t {
     eGTFSM_0 = 0, // The gate is unlocked (free).
     eGTFSM_1 = 1, // The gate has been locked by processor with master_index = 0.
@@ -706,6 +705,7 @@ union RDC_SEMAPHORE2_GATE16 {
     eGTFSM_14 = 14, // The gate has been locked by processor with master_index = 13.
     eGTFSM_15 = 15, // The gate has been locked by processor with master_index = 14.
   };
+  
   enum class eLDOM : uint32_t {
     eLDOM_0 = 0, // The gate is locked by domain 0. (True if the field GTFSM does not equal to 0000.)
     eLDOM_1 = 1, // The gate has been locked by domain 1.
@@ -716,7 +716,7 @@ union RDC_SEMAPHORE2_GATE16 {
     eGTFSM GTFSM : 4;
     eLDOM LDOM : 2;
     uint32_t _reserved_end : 26;
-  } bits;          // Bit-field struct (auto-filling reserved gaps)
+  } bits;
   
   // Full 32-bit register value.
   uint32_t value;
@@ -729,7 +729,6 @@ union RDC_SEMAPHORE2_GATE16 {
 //
 union RDC_SEMAPHORE2_GATE17 {
   
-  // Enum definitions.
   enum class eGTFSM : uint32_t {
     eGTFSM_0 = 0, // The gate is unlocked (free).
     eGTFSM_1 = 1, // The gate has been locked by processor with master_index = 0.
@@ -748,6 +747,7 @@ union RDC_SEMAPHORE2_GATE17 {
     eGTFSM_14 = 14, // The gate has been locked by processor with master_index = 13.
     eGTFSM_15 = 15, // The gate has been locked by processor with master_index = 14.
   };
+  
   enum class eLDOM : uint32_t {
     eLDOM_0 = 0, // The gate is locked by domain 0. (True if the field GTFSM does not equal to 0000.)
     eLDOM_1 = 1, // The gate has been locked by domain 1.
@@ -758,7 +758,7 @@ union RDC_SEMAPHORE2_GATE17 {
     eGTFSM GTFSM : 4;
     eLDOM LDOM : 2;
     uint32_t _reserved_end : 26;
-  } bits;          // Bit-field struct (auto-filling reserved gaps)
+  } bits;
   
   // Full 32-bit register value.
   uint32_t value;
@@ -771,7 +771,6 @@ union RDC_SEMAPHORE2_GATE17 {
 //
 union RDC_SEMAPHORE2_GATE18 {
   
-  // Enum definitions.
   enum class eGTFSM : uint32_t {
     eGTFSM_0 = 0, // The gate is unlocked (free).
     eGTFSM_1 = 1, // The gate has been locked by processor with master_index = 0.
@@ -790,6 +789,7 @@ union RDC_SEMAPHORE2_GATE18 {
     eGTFSM_14 = 14, // The gate has been locked by processor with master_index = 13.
     eGTFSM_15 = 15, // The gate has been locked by processor with master_index = 14.
   };
+  
   enum class eLDOM : uint32_t {
     eLDOM_0 = 0, // The gate is locked by domain 0. (True if the field GTFSM does not equal to 0000.)
     eLDOM_1 = 1, // The gate has been locked by domain 1.
@@ -800,7 +800,7 @@ union RDC_SEMAPHORE2_GATE18 {
     eGTFSM GTFSM : 4;
     eLDOM LDOM : 2;
     uint32_t _reserved_end : 26;
-  } bits;          // Bit-field struct (auto-filling reserved gaps)
+  } bits;
   
   // Full 32-bit register value.
   uint32_t value;
@@ -813,7 +813,6 @@ union RDC_SEMAPHORE2_GATE18 {
 //
 union RDC_SEMAPHORE2_GATE19 {
   
-  // Enum definitions.
   enum class eGTFSM : uint32_t {
     eGTFSM_0 = 0, // The gate is unlocked (free).
     eGTFSM_1 = 1, // The gate has been locked by processor with master_index = 0.
@@ -832,6 +831,7 @@ union RDC_SEMAPHORE2_GATE19 {
     eGTFSM_14 = 14, // The gate has been locked by processor with master_index = 13.
     eGTFSM_15 = 15, // The gate has been locked by processor with master_index = 14.
   };
+  
   enum class eLDOM : uint32_t {
     eLDOM_0 = 0, // The gate is locked by domain 0. (True if the field GTFSM does not equal to 0000.)
     eLDOM_1 = 1, // The gate has been locked by domain 1.
@@ -842,7 +842,7 @@ union RDC_SEMAPHORE2_GATE19 {
     eGTFSM GTFSM : 4;
     eLDOM LDOM : 2;
     uint32_t _reserved_end : 26;
-  } bits;          // Bit-field struct (auto-filling reserved gaps)
+  } bits;
   
   // Full 32-bit register value.
   uint32_t value;
@@ -855,7 +855,6 @@ union RDC_SEMAPHORE2_GATE19 {
 //
 union RDC_SEMAPHORE2_GATE20 {
   
-  // Enum definitions.
   enum class eGTFSM : uint32_t {
     eGTFSM_0 = 0, // The gate is unlocked (free).
     eGTFSM_1 = 1, // The gate has been locked by processor with master_index = 0.
@@ -874,6 +873,7 @@ union RDC_SEMAPHORE2_GATE20 {
     eGTFSM_14 = 14, // The gate has been locked by processor with master_index = 13.
     eGTFSM_15 = 15, // The gate has been locked by processor with master_index = 14.
   };
+  
   enum class eLDOM : uint32_t {
     eLDOM_0 = 0, // The gate is locked by domain 0. (True if the field GTFSM does not equal to 0000.)
     eLDOM_1 = 1, // The gate has been locked by domain 1.
@@ -884,7 +884,7 @@ union RDC_SEMAPHORE2_GATE20 {
     eGTFSM GTFSM : 4;
     eLDOM LDOM : 2;
     uint32_t _reserved_end : 26;
-  } bits;          // Bit-field struct (auto-filling reserved gaps)
+  } bits;
   
   // Full 32-bit register value.
   uint32_t value;
@@ -897,7 +897,6 @@ union RDC_SEMAPHORE2_GATE20 {
 //
 union RDC_SEMAPHORE2_GATE21 {
   
-  // Enum definitions.
   enum class eGTFSM : uint32_t {
     eGTFSM_0 = 0, // The gate is unlocked (free).
     eGTFSM_1 = 1, // The gate has been locked by processor with master_index = 0.
@@ -916,6 +915,7 @@ union RDC_SEMAPHORE2_GATE21 {
     eGTFSM_14 = 14, // The gate has been locked by processor with master_index = 13.
     eGTFSM_15 = 15, // The gate has been locked by processor with master_index = 14.
   };
+  
   enum class eLDOM : uint32_t {
     eLDOM_0 = 0, // The gate is locked by domain 0. (True if the field GTFSM does not equal to 0000.)
     eLDOM_1 = 1, // The gate has been locked by domain 1.
@@ -926,7 +926,7 @@ union RDC_SEMAPHORE2_GATE21 {
     eGTFSM GTFSM : 4;
     eLDOM LDOM : 2;
     uint32_t _reserved_end : 26;
-  } bits;          // Bit-field struct (auto-filling reserved gaps)
+  } bits;
   
   // Full 32-bit register value.
   uint32_t value;
@@ -939,7 +939,6 @@ union RDC_SEMAPHORE2_GATE21 {
 //
 union RDC_SEMAPHORE2_GATE22 {
   
-  // Enum definitions.
   enum class eGTFSM : uint32_t {
     eGTFSM_0 = 0, // The gate is unlocked (free).
     eGTFSM_1 = 1, // The gate has been locked by processor with master_index = 0.
@@ -958,6 +957,7 @@ union RDC_SEMAPHORE2_GATE22 {
     eGTFSM_14 = 14, // The gate has been locked by processor with master_index = 13.
     eGTFSM_15 = 15, // The gate has been locked by processor with master_index = 14.
   };
+  
   enum class eLDOM : uint32_t {
     eLDOM_0 = 0, // The gate is locked by domain 0. (True if the field GTFSM does not equal to 0000.)
     eLDOM_1 = 1, // The gate has been locked by domain 1.
@@ -968,7 +968,7 @@ union RDC_SEMAPHORE2_GATE22 {
     eGTFSM GTFSM : 4;
     eLDOM LDOM : 2;
     uint32_t _reserved_end : 26;
-  } bits;          // Bit-field struct (auto-filling reserved gaps)
+  } bits;
   
   // Full 32-bit register value.
   uint32_t value;
@@ -981,7 +981,6 @@ union RDC_SEMAPHORE2_GATE22 {
 //
 union RDC_SEMAPHORE2_GATE23 {
   
-  // Enum definitions.
   enum class eGTFSM : uint32_t {
     eGTFSM_0 = 0, // The gate is unlocked (free).
     eGTFSM_1 = 1, // The gate has been locked by processor with master_index = 0.
@@ -1000,6 +999,7 @@ union RDC_SEMAPHORE2_GATE23 {
     eGTFSM_14 = 14, // The gate has been locked by processor with master_index = 13.
     eGTFSM_15 = 15, // The gate has been locked by processor with master_index = 14.
   };
+  
   enum class eLDOM : uint32_t {
     eLDOM_0 = 0, // The gate is locked by domain 0. (True if the field GTFSM does not equal to 0000.)
     eLDOM_1 = 1, // The gate has been locked by domain 1.
@@ -1010,7 +1010,7 @@ union RDC_SEMAPHORE2_GATE23 {
     eGTFSM GTFSM : 4;
     eLDOM LDOM : 2;
     uint32_t _reserved_end : 26;
-  } bits;          // Bit-field struct (auto-filling reserved gaps)
+  } bits;
   
   // Full 32-bit register value.
   uint32_t value;
@@ -1023,7 +1023,6 @@ union RDC_SEMAPHORE2_GATE23 {
 //
 union RDC_SEMAPHORE2_GATE24 {
   
-  // Enum definitions.
   enum class eGTFSM : uint32_t {
     eGTFSM_0 = 0, // The gate is unlocked (free).
     eGTFSM_1 = 1, // The gate has been locked by processor with master_index = 0.
@@ -1042,6 +1041,7 @@ union RDC_SEMAPHORE2_GATE24 {
     eGTFSM_14 = 14, // The gate has been locked by processor with master_index = 13.
     eGTFSM_15 = 15, // The gate has been locked by processor with master_index = 14.
   };
+  
   enum class eLDOM : uint32_t {
     eLDOM_0 = 0, // The gate is locked by domain 0. (True if the field GTFSM does not equal to 0000.)
     eLDOM_1 = 1, // The gate has been locked by domain 1.
@@ -1052,7 +1052,7 @@ union RDC_SEMAPHORE2_GATE24 {
     eGTFSM GTFSM : 4;
     eLDOM LDOM : 2;
     uint32_t _reserved_end : 26;
-  } bits;          // Bit-field struct (auto-filling reserved gaps)
+  } bits;
   
   // Full 32-bit register value.
   uint32_t value;
@@ -1065,7 +1065,6 @@ union RDC_SEMAPHORE2_GATE24 {
 //
 union RDC_SEMAPHORE2_GATE25 {
   
-  // Enum definitions.
   enum class eGTFSM : uint32_t {
     eGTFSM_0 = 0, // The gate is unlocked (free).
     eGTFSM_1 = 1, // The gate has been locked by processor with master_index = 0.
@@ -1084,6 +1083,7 @@ union RDC_SEMAPHORE2_GATE25 {
     eGTFSM_14 = 14, // The gate has been locked by processor with master_index = 13.
     eGTFSM_15 = 15, // The gate has been locked by processor with master_index = 14.
   };
+  
   enum class eLDOM : uint32_t {
     eLDOM_0 = 0, // The gate is locked by domain 0. (True if the field GTFSM does not equal to 0000.)
     eLDOM_1 = 1, // The gate has been locked by domain 1.
@@ -1094,7 +1094,7 @@ union RDC_SEMAPHORE2_GATE25 {
     eGTFSM GTFSM : 4;
     eLDOM LDOM : 2;
     uint32_t _reserved_end : 26;
-  } bits;          // Bit-field struct (auto-filling reserved gaps)
+  } bits;
   
   // Full 32-bit register value.
   uint32_t value;
@@ -1107,7 +1107,6 @@ union RDC_SEMAPHORE2_GATE25 {
 //
 union RDC_SEMAPHORE2_GATE26 {
   
-  // Enum definitions.
   enum class eGTFSM : uint32_t {
     eGTFSM_0 = 0, // The gate is unlocked (free).
     eGTFSM_1 = 1, // The gate has been locked by processor with master_index = 0.
@@ -1126,6 +1125,7 @@ union RDC_SEMAPHORE2_GATE26 {
     eGTFSM_14 = 14, // The gate has been locked by processor with master_index = 13.
     eGTFSM_15 = 15, // The gate has been locked by processor with master_index = 14.
   };
+  
   enum class eLDOM : uint32_t {
     eLDOM_0 = 0, // The gate is locked by domain 0. (True if the field GTFSM does not equal to 0000.)
     eLDOM_1 = 1, // The gate has been locked by domain 1.
@@ -1136,7 +1136,7 @@ union RDC_SEMAPHORE2_GATE26 {
     eGTFSM GTFSM : 4;
     eLDOM LDOM : 2;
     uint32_t _reserved_end : 26;
-  } bits;          // Bit-field struct (auto-filling reserved gaps)
+  } bits;
   
   // Full 32-bit register value.
   uint32_t value;
@@ -1149,7 +1149,6 @@ union RDC_SEMAPHORE2_GATE26 {
 //
 union RDC_SEMAPHORE2_GATE27 {
   
-  // Enum definitions.
   enum class eGTFSM : uint32_t {
     eGTFSM_0 = 0, // The gate is unlocked (free).
     eGTFSM_1 = 1, // The gate has been locked by processor with master_index = 0.
@@ -1168,6 +1167,7 @@ union RDC_SEMAPHORE2_GATE27 {
     eGTFSM_14 = 14, // The gate has been locked by processor with master_index = 13.
     eGTFSM_15 = 15, // The gate has been locked by processor with master_index = 14.
   };
+  
   enum class eLDOM : uint32_t {
     eLDOM_0 = 0, // The gate is locked by domain 0. (True if the field GTFSM does not equal to 0000.)
     eLDOM_1 = 1, // The gate has been locked by domain 1.
@@ -1178,7 +1178,7 @@ union RDC_SEMAPHORE2_GATE27 {
     eGTFSM GTFSM : 4;
     eLDOM LDOM : 2;
     uint32_t _reserved_end : 26;
-  } bits;          // Bit-field struct (auto-filling reserved gaps)
+  } bits;
   
   // Full 32-bit register value.
   uint32_t value;
@@ -1191,7 +1191,6 @@ union RDC_SEMAPHORE2_GATE27 {
 //
 union RDC_SEMAPHORE2_GATE28 {
   
-  // Enum definitions.
   enum class eGTFSM : uint32_t {
     eGTFSM_0 = 0, // The gate is unlocked (free).
     eGTFSM_1 = 1, // The gate has been locked by processor with master_index = 0.
@@ -1210,6 +1209,7 @@ union RDC_SEMAPHORE2_GATE28 {
     eGTFSM_14 = 14, // The gate has been locked by processor with master_index = 13.
     eGTFSM_15 = 15, // The gate has been locked by processor with master_index = 14.
   };
+  
   enum class eLDOM : uint32_t {
     eLDOM_0 = 0, // The gate is locked by domain 0. (True if the field GTFSM does not equal to 0000.)
     eLDOM_1 = 1, // The gate has been locked by domain 1.
@@ -1220,7 +1220,7 @@ union RDC_SEMAPHORE2_GATE28 {
     eGTFSM GTFSM : 4;
     eLDOM LDOM : 2;
     uint32_t _reserved_end : 26;
-  } bits;          // Bit-field struct (auto-filling reserved gaps)
+  } bits;
   
   // Full 32-bit register value.
   uint32_t value;
@@ -1233,7 +1233,6 @@ union RDC_SEMAPHORE2_GATE28 {
 //
 union RDC_SEMAPHORE2_GATE29 {
   
-  // Enum definitions.
   enum class eGTFSM : uint32_t {
     eGTFSM_0 = 0, // The gate is unlocked (free).
     eGTFSM_1 = 1, // The gate has been locked by processor with master_index = 0.
@@ -1252,6 +1251,7 @@ union RDC_SEMAPHORE2_GATE29 {
     eGTFSM_14 = 14, // The gate has been locked by processor with master_index = 13.
     eGTFSM_15 = 15, // The gate has been locked by processor with master_index = 14.
   };
+  
   enum class eLDOM : uint32_t {
     eLDOM_0 = 0, // The gate is locked by domain 0. (True if the field GTFSM does not equal to 0000.)
     eLDOM_1 = 1, // The gate has been locked by domain 1.
@@ -1262,7 +1262,7 @@ union RDC_SEMAPHORE2_GATE29 {
     eGTFSM GTFSM : 4;
     eLDOM LDOM : 2;
     uint32_t _reserved_end : 26;
-  } bits;          // Bit-field struct (auto-filling reserved gaps)
+  } bits;
   
   // Full 32-bit register value.
   uint32_t value;
@@ -1275,7 +1275,6 @@ union RDC_SEMAPHORE2_GATE29 {
 //
 union RDC_SEMAPHORE2_GATE30 {
   
-  // Enum definitions.
   enum class eGTFSM : uint32_t {
     eGTFSM_0 = 0, // The gate is unlocked (free).
     eGTFSM_1 = 1, // The gate has been locked by processor with master_index = 0.
@@ -1294,6 +1293,7 @@ union RDC_SEMAPHORE2_GATE30 {
     eGTFSM_14 = 14, // The gate has been locked by processor with master_index = 13.
     eGTFSM_15 = 15, // The gate has been locked by processor with master_index = 14.
   };
+  
   enum class eLDOM : uint32_t {
     eLDOM_0 = 0, // The gate is locked by domain 0. (True if the field GTFSM does not equal to 0000.)
     eLDOM_1 = 1, // The gate has been locked by domain 1.
@@ -1304,7 +1304,7 @@ union RDC_SEMAPHORE2_GATE30 {
     eGTFSM GTFSM : 4;
     eLDOM LDOM : 2;
     uint32_t _reserved_end : 26;
-  } bits;          // Bit-field struct (auto-filling reserved gaps)
+  } bits;
   
   // Full 32-bit register value.
   uint32_t value;
@@ -1317,7 +1317,6 @@ union RDC_SEMAPHORE2_GATE30 {
 //
 union RDC_SEMAPHORE2_GATE31 {
   
-  // Enum definitions.
   enum class eGTFSM : uint32_t {
     eGTFSM_0 = 0, // The gate is unlocked (free).
     eGTFSM_1 = 1, // The gate has been locked by processor with master_index = 0.
@@ -1336,6 +1335,7 @@ union RDC_SEMAPHORE2_GATE31 {
     eGTFSM_14 = 14, // The gate has been locked by processor with master_index = 13.
     eGTFSM_15 = 15, // The gate has been locked by processor with master_index = 14.
   };
+  
   enum class eLDOM : uint32_t {
     eLDOM_0 = 0, // The gate is locked by domain 0. (True if the field GTFSM does not equal to 0000.)
     eLDOM_1 = 1, // The gate has been locked by domain 1.
@@ -1346,7 +1346,7 @@ union RDC_SEMAPHORE2_GATE31 {
     eGTFSM GTFSM : 4;
     eLDOM LDOM : 2;
     uint32_t _reserved_end : 26;
-  } bits;          // Bit-field struct (auto-filling reserved gaps)
+  } bits;
   
   // Full 32-bit register value.
   uint32_t value;
@@ -1359,7 +1359,6 @@ union RDC_SEMAPHORE2_GATE31 {
 //
 union RDC_SEMAPHORE2_GATE32 {
   
-  // Enum definitions.
   enum class eGTFSM : uint32_t {
     eGTFSM_0 = 0, // The gate is unlocked (free).
     eGTFSM_1 = 1, // The gate has been locked by processor with master_index = 0.
@@ -1378,6 +1377,7 @@ union RDC_SEMAPHORE2_GATE32 {
     eGTFSM_14 = 14, // The gate has been locked by processor with master_index = 13.
     eGTFSM_15 = 15, // The gate has been locked by processor with master_index = 14.
   };
+  
   enum class eLDOM : uint32_t {
     eLDOM_0 = 0, // The gate is locked by domain 0. (True if the field GTFSM does not equal to 0000.)
     eLDOM_1 = 1, // The gate has been locked by domain 1.
@@ -1388,7 +1388,7 @@ union RDC_SEMAPHORE2_GATE32 {
     eGTFSM GTFSM : 4;
     eLDOM LDOM : 2;
     uint32_t _reserved_end : 26;
-  } bits;          // Bit-field struct (auto-filling reserved gaps)
+  } bits;
   
   // Full 32-bit register value.
   uint32_t value;
@@ -1401,7 +1401,6 @@ union RDC_SEMAPHORE2_GATE32 {
 //
 union RDC_SEMAPHORE2_GATE33 {
   
-  // Enum definitions.
   enum class eGTFSM : uint32_t {
     eGTFSM_0 = 0, // The gate is unlocked (free).
     eGTFSM_1 = 1, // The gate has been locked by processor with master_index = 0.
@@ -1420,6 +1419,7 @@ union RDC_SEMAPHORE2_GATE33 {
     eGTFSM_14 = 14, // The gate has been locked by processor with master_index = 13.
     eGTFSM_15 = 15, // The gate has been locked by processor with master_index = 14.
   };
+  
   enum class eLDOM : uint32_t {
     eLDOM_0 = 0, // The gate is locked by domain 0. (True if the field GTFSM does not equal to 0000.)
     eLDOM_1 = 1, // The gate has been locked by domain 1.
@@ -1430,7 +1430,7 @@ union RDC_SEMAPHORE2_GATE33 {
     eGTFSM GTFSM : 4;
     eLDOM LDOM : 2;
     uint32_t _reserved_end : 26;
-  } bits;          // Bit-field struct (auto-filling reserved gaps)
+  } bits;
   
   // Full 32-bit register value.
   uint32_t value;
@@ -1443,7 +1443,6 @@ union RDC_SEMAPHORE2_GATE33 {
 //
 union RDC_SEMAPHORE2_GATE34 {
   
-  // Enum definitions.
   enum class eGTFSM : uint32_t {
     eGTFSM_0 = 0, // The gate is unlocked (free).
     eGTFSM_1 = 1, // The gate has been locked by processor with master_index = 0.
@@ -1462,6 +1461,7 @@ union RDC_SEMAPHORE2_GATE34 {
     eGTFSM_14 = 14, // The gate has been locked by processor with master_index = 13.
     eGTFSM_15 = 15, // The gate has been locked by processor with master_index = 14.
   };
+  
   enum class eLDOM : uint32_t {
     eLDOM_0 = 0, // The gate is locked by domain 0. (True if the field GTFSM does not equal to 0000.)
     eLDOM_1 = 1, // The gate has been locked by domain 1.
@@ -1472,7 +1472,7 @@ union RDC_SEMAPHORE2_GATE34 {
     eGTFSM GTFSM : 4;
     eLDOM LDOM : 2;
     uint32_t _reserved_end : 26;
-  } bits;          // Bit-field struct (auto-filling reserved gaps)
+  } bits;
   
   // Full 32-bit register value.
   uint32_t value;
@@ -1485,7 +1485,6 @@ union RDC_SEMAPHORE2_GATE34 {
 //
 union RDC_SEMAPHORE2_GATE35 {
   
-  // Enum definitions.
   enum class eGTFSM : uint32_t {
     eGTFSM_0 = 0, // The gate is unlocked (free).
     eGTFSM_1 = 1, // The gate has been locked by processor with master_index = 0.
@@ -1504,6 +1503,7 @@ union RDC_SEMAPHORE2_GATE35 {
     eGTFSM_14 = 14, // The gate has been locked by processor with master_index = 13.
     eGTFSM_15 = 15, // The gate has been locked by processor with master_index = 14.
   };
+  
   enum class eLDOM : uint32_t {
     eLDOM_0 = 0, // The gate is locked by domain 0. (True if the field GTFSM does not equal to 0000.)
     eLDOM_1 = 1, // The gate has been locked by domain 1.
@@ -1514,7 +1514,7 @@ union RDC_SEMAPHORE2_GATE35 {
     eGTFSM GTFSM : 4;
     eLDOM LDOM : 2;
     uint32_t _reserved_end : 26;
-  } bits;          // Bit-field struct (auto-filling reserved gaps)
+  } bits;
   
   // Full 32-bit register value.
   uint32_t value;
@@ -1527,7 +1527,6 @@ union RDC_SEMAPHORE2_GATE35 {
 //
 union RDC_SEMAPHORE2_GATE36 {
   
-  // Enum definitions.
   enum class eGTFSM : uint32_t {
     eGTFSM_0 = 0, // The gate is unlocked (free).
     eGTFSM_1 = 1, // The gate has been locked by processor with master_index = 0.
@@ -1546,6 +1545,7 @@ union RDC_SEMAPHORE2_GATE36 {
     eGTFSM_14 = 14, // The gate has been locked by processor with master_index = 13.
     eGTFSM_15 = 15, // The gate has been locked by processor with master_index = 14.
   };
+  
   enum class eLDOM : uint32_t {
     eLDOM_0 = 0, // The gate is locked by domain 0. (True if the field GTFSM does not equal to 0000.)
     eLDOM_1 = 1, // The gate has been locked by domain 1.
@@ -1556,7 +1556,7 @@ union RDC_SEMAPHORE2_GATE36 {
     eGTFSM GTFSM : 4;
     eLDOM LDOM : 2;
     uint32_t _reserved_end : 26;
-  } bits;          // Bit-field struct (auto-filling reserved gaps)
+  } bits;
   
   // Full 32-bit register value.
   uint32_t value;
@@ -1569,7 +1569,6 @@ union RDC_SEMAPHORE2_GATE36 {
 //
 union RDC_SEMAPHORE2_GATE37 {
   
-  // Enum definitions.
   enum class eGTFSM : uint32_t {
     eGTFSM_0 = 0, // The gate is unlocked (free).
     eGTFSM_1 = 1, // The gate has been locked by processor with master_index = 0.
@@ -1588,6 +1587,7 @@ union RDC_SEMAPHORE2_GATE37 {
     eGTFSM_14 = 14, // The gate has been locked by processor with master_index = 13.
     eGTFSM_15 = 15, // The gate has been locked by processor with master_index = 14.
   };
+  
   enum class eLDOM : uint32_t {
     eLDOM_0 = 0, // The gate is locked by domain 0. (True if the field GTFSM does not equal to 0000.)
     eLDOM_1 = 1, // The gate has been locked by domain 1.
@@ -1598,7 +1598,7 @@ union RDC_SEMAPHORE2_GATE37 {
     eGTFSM GTFSM : 4;
     eLDOM LDOM : 2;
     uint32_t _reserved_end : 26;
-  } bits;          // Bit-field struct (auto-filling reserved gaps)
+  } bits;
   
   // Full 32-bit register value.
   uint32_t value;
@@ -1611,7 +1611,6 @@ union RDC_SEMAPHORE2_GATE37 {
 //
 union RDC_SEMAPHORE2_GATE38 {
   
-  // Enum definitions.
   enum class eGTFSM : uint32_t {
     eGTFSM_0 = 0, // The gate is unlocked (free).
     eGTFSM_1 = 1, // The gate has been locked by processor with master_index = 0.
@@ -1630,6 +1629,7 @@ union RDC_SEMAPHORE2_GATE38 {
     eGTFSM_14 = 14, // The gate has been locked by processor with master_index = 13.
     eGTFSM_15 = 15, // The gate has been locked by processor with master_index = 14.
   };
+  
   enum class eLDOM : uint32_t {
     eLDOM_0 = 0, // The gate is locked by domain 0. (True if the field GTFSM does not equal to 0000.)
     eLDOM_1 = 1, // The gate has been locked by domain 1.
@@ -1640,7 +1640,7 @@ union RDC_SEMAPHORE2_GATE38 {
     eGTFSM GTFSM : 4;
     eLDOM LDOM : 2;
     uint32_t _reserved_end : 26;
-  } bits;          // Bit-field struct (auto-filling reserved gaps)
+  } bits;
   
   // Full 32-bit register value.
   uint32_t value;
@@ -1653,7 +1653,6 @@ union RDC_SEMAPHORE2_GATE38 {
 //
 union RDC_SEMAPHORE2_GATE39 {
   
-  // Enum definitions.
   enum class eGTFSM : uint32_t {
     eGTFSM_0 = 0, // The gate is unlocked (free).
     eGTFSM_1 = 1, // The gate has been locked by processor with master_index = 0.
@@ -1672,6 +1671,7 @@ union RDC_SEMAPHORE2_GATE39 {
     eGTFSM_14 = 14, // The gate has been locked by processor with master_index = 13.
     eGTFSM_15 = 15, // The gate has been locked by processor with master_index = 14.
   };
+  
   enum class eLDOM : uint32_t {
     eLDOM_0 = 0, // The gate is locked by domain 0. (True if the field GTFSM does not equal to 0000.)
     eLDOM_1 = 1, // The gate has been locked by domain 1.
@@ -1682,7 +1682,7 @@ union RDC_SEMAPHORE2_GATE39 {
     eGTFSM GTFSM : 4;
     eLDOM LDOM : 2;
     uint32_t _reserved_end : 26;
-  } bits;          // Bit-field struct (auto-filling reserved gaps)
+  } bits;
   
   // Full 32-bit register value.
   uint32_t value;
@@ -1695,7 +1695,6 @@ union RDC_SEMAPHORE2_GATE39 {
 //
 union RDC_SEMAPHORE2_GATE40 {
   
-  // Enum definitions.
   enum class eGTFSM : uint32_t {
     eGTFSM_0 = 0, // The gate is unlocked (free).
     eGTFSM_1 = 1, // The gate has been locked by processor with master_index = 0.
@@ -1714,6 +1713,7 @@ union RDC_SEMAPHORE2_GATE40 {
     eGTFSM_14 = 14, // The gate has been locked by processor with master_index = 13.
     eGTFSM_15 = 15, // The gate has been locked by processor with master_index = 14.
   };
+  
   enum class eLDOM : uint32_t {
     eLDOM_0 = 0, // The gate is locked by domain 0. (True if the field GTFSM does not equal to 0000.)
     eLDOM_1 = 1, // The gate has been locked by domain 1.
@@ -1724,7 +1724,7 @@ union RDC_SEMAPHORE2_GATE40 {
     eGTFSM GTFSM : 4;
     eLDOM LDOM : 2;
     uint32_t _reserved_end : 26;
-  } bits;          // Bit-field struct (auto-filling reserved gaps)
+  } bits;
   
   // Full 32-bit register value.
   uint32_t value;
@@ -1737,7 +1737,6 @@ union RDC_SEMAPHORE2_GATE40 {
 //
 union RDC_SEMAPHORE2_GATE41 {
   
-  // Enum definitions.
   enum class eGTFSM : uint32_t {
     eGTFSM_0 = 0, // The gate is unlocked (free).
     eGTFSM_1 = 1, // The gate has been locked by processor with master_index = 0.
@@ -1756,6 +1755,7 @@ union RDC_SEMAPHORE2_GATE41 {
     eGTFSM_14 = 14, // The gate has been locked by processor with master_index = 13.
     eGTFSM_15 = 15, // The gate has been locked by processor with master_index = 14.
   };
+  
   enum class eLDOM : uint32_t {
     eLDOM_0 = 0, // The gate is locked by domain 0. (True if the field GTFSM does not equal to 0000.)
     eLDOM_1 = 1, // The gate has been locked by domain 1.
@@ -1766,7 +1766,7 @@ union RDC_SEMAPHORE2_GATE41 {
     eGTFSM GTFSM : 4;
     eLDOM LDOM : 2;
     uint32_t _reserved_end : 26;
-  } bits;          // Bit-field struct (auto-filling reserved gaps)
+  } bits;
   
   // Full 32-bit register value.
   uint32_t value;
@@ -1779,7 +1779,6 @@ union RDC_SEMAPHORE2_GATE41 {
 //
 union RDC_SEMAPHORE2_GATE42 {
   
-  // Enum definitions.
   enum class eGTFSM : uint32_t {
     eGTFSM_0 = 0, // The gate is unlocked (free).
     eGTFSM_1 = 1, // The gate has been locked by processor with master_index = 0.
@@ -1798,6 +1797,7 @@ union RDC_SEMAPHORE2_GATE42 {
     eGTFSM_14 = 14, // The gate has been locked by processor with master_index = 13.
     eGTFSM_15 = 15, // The gate has been locked by processor with master_index = 14.
   };
+  
   enum class eLDOM : uint32_t {
     eLDOM_0 = 0, // The gate is locked by domain 0. (True if the field GTFSM does not equal to 0000.)
     eLDOM_1 = 1, // The gate has been locked by domain 1.
@@ -1808,7 +1808,7 @@ union RDC_SEMAPHORE2_GATE42 {
     eGTFSM GTFSM : 4;
     eLDOM LDOM : 2;
     uint32_t _reserved_end : 26;
-  } bits;          // Bit-field struct (auto-filling reserved gaps)
+  } bits;
   
   // Full 32-bit register value.
   uint32_t value;
@@ -1821,7 +1821,6 @@ union RDC_SEMAPHORE2_GATE42 {
 //
 union RDC_SEMAPHORE2_GATE43 {
   
-  // Enum definitions.
   enum class eGTFSM : uint32_t {
     eGTFSM_0 = 0, // The gate is unlocked (free).
     eGTFSM_1 = 1, // The gate has been locked by processor with master_index = 0.
@@ -1840,6 +1839,7 @@ union RDC_SEMAPHORE2_GATE43 {
     eGTFSM_14 = 14, // The gate has been locked by processor with master_index = 13.
     eGTFSM_15 = 15, // The gate has been locked by processor with master_index = 14.
   };
+  
   enum class eLDOM : uint32_t {
     eLDOM_0 = 0, // The gate is locked by domain 0. (True if the field GTFSM does not equal to 0000.)
     eLDOM_1 = 1, // The gate has been locked by domain 1.
@@ -1850,7 +1850,7 @@ union RDC_SEMAPHORE2_GATE43 {
     eGTFSM GTFSM : 4;
     eLDOM LDOM : 2;
     uint32_t _reserved_end : 26;
-  } bits;          // Bit-field struct (auto-filling reserved gaps)
+  } bits;
   
   // Full 32-bit register value.
   uint32_t value;
@@ -1863,7 +1863,6 @@ union RDC_SEMAPHORE2_GATE43 {
 //
 union RDC_SEMAPHORE2_GATE44 {
   
-  // Enum definitions.
   enum class eGTFSM : uint32_t {
     eGTFSM_0 = 0, // The gate is unlocked (free).
     eGTFSM_1 = 1, // The gate has been locked by processor with master_index = 0.
@@ -1882,6 +1881,7 @@ union RDC_SEMAPHORE2_GATE44 {
     eGTFSM_14 = 14, // The gate has been locked by processor with master_index = 13.
     eGTFSM_15 = 15, // The gate has been locked by processor with master_index = 14.
   };
+  
   enum class eLDOM : uint32_t {
     eLDOM_0 = 0, // The gate is locked by domain 0. (True if the field GTFSM does not equal to 0000.)
     eLDOM_1 = 1, // The gate has been locked by domain 1.
@@ -1892,7 +1892,7 @@ union RDC_SEMAPHORE2_GATE44 {
     eGTFSM GTFSM : 4;
     eLDOM LDOM : 2;
     uint32_t _reserved_end : 26;
-  } bits;          // Bit-field struct (auto-filling reserved gaps)
+  } bits;
   
   // Full 32-bit register value.
   uint32_t value;
@@ -1905,7 +1905,6 @@ union RDC_SEMAPHORE2_GATE44 {
 //
 union RDC_SEMAPHORE2_GATE45 {
   
-  // Enum definitions.
   enum class eGTFSM : uint32_t {
     eGTFSM_0 = 0, // The gate is unlocked (free).
     eGTFSM_1 = 1, // The gate has been locked by processor with master_index = 0.
@@ -1924,6 +1923,7 @@ union RDC_SEMAPHORE2_GATE45 {
     eGTFSM_14 = 14, // The gate has been locked by processor with master_index = 13.
     eGTFSM_15 = 15, // The gate has been locked by processor with master_index = 14.
   };
+  
   enum class eLDOM : uint32_t {
     eLDOM_0 = 0, // The gate is locked by domain 0. (True if the field GTFSM does not equal to 0000.)
     eLDOM_1 = 1, // The gate has been locked by domain 1.
@@ -1934,7 +1934,7 @@ union RDC_SEMAPHORE2_GATE45 {
     eGTFSM GTFSM : 4;
     eLDOM LDOM : 2;
     uint32_t _reserved_end : 26;
-  } bits;          // Bit-field struct (auto-filling reserved gaps)
+  } bits;
   
   // Full 32-bit register value.
   uint32_t value;
@@ -1947,7 +1947,6 @@ union RDC_SEMAPHORE2_GATE45 {
 //
 union RDC_SEMAPHORE2_GATE46 {
   
-  // Enum definitions.
   enum class eGTFSM : uint32_t {
     eGTFSM_0 = 0, // The gate is unlocked (free).
     eGTFSM_1 = 1, // The gate has been locked by processor with master_index = 0.
@@ -1966,6 +1965,7 @@ union RDC_SEMAPHORE2_GATE46 {
     eGTFSM_14 = 14, // The gate has been locked by processor with master_index = 13.
     eGTFSM_15 = 15, // The gate has been locked by processor with master_index = 14.
   };
+  
   enum class eLDOM : uint32_t {
     eLDOM_0 = 0, // The gate is locked by domain 0. (True if the field GTFSM does not equal to 0000.)
     eLDOM_1 = 1, // The gate has been locked by domain 1.
@@ -1976,7 +1976,7 @@ union RDC_SEMAPHORE2_GATE46 {
     eGTFSM GTFSM : 4;
     eLDOM LDOM : 2;
     uint32_t _reserved_end : 26;
-  } bits;          // Bit-field struct (auto-filling reserved gaps)
+  } bits;
   
   // Full 32-bit register value.
   uint32_t value;
@@ -1989,7 +1989,6 @@ union RDC_SEMAPHORE2_GATE46 {
 //
 union RDC_SEMAPHORE2_GATE47 {
   
-  // Enum definitions.
   enum class eGTFSM : uint32_t {
     eGTFSM_0 = 0, // The gate is unlocked (free).
     eGTFSM_1 = 1, // The gate has been locked by processor with master_index = 0.
@@ -2008,6 +2007,7 @@ union RDC_SEMAPHORE2_GATE47 {
     eGTFSM_14 = 14, // The gate has been locked by processor with master_index = 13.
     eGTFSM_15 = 15, // The gate has been locked by processor with master_index = 14.
   };
+  
   enum class eLDOM : uint32_t {
     eLDOM_0 = 0, // The gate is locked by domain 0. (True if the field GTFSM does not equal to 0000.)
     eLDOM_1 = 1, // The gate has been locked by domain 1.
@@ -2018,7 +2018,7 @@ union RDC_SEMAPHORE2_GATE47 {
     eGTFSM GTFSM : 4;
     eLDOM LDOM : 2;
     uint32_t _reserved_end : 26;
-  } bits;          // Bit-field struct (auto-filling reserved gaps)
+  } bits;
   
   // Full 32-bit register value.
   uint32_t value;
@@ -2031,7 +2031,6 @@ union RDC_SEMAPHORE2_GATE47 {
 //
 union RDC_SEMAPHORE2_GATE48 {
   
-  // Enum definitions.
   enum class eGTFSM : uint32_t {
     eGTFSM_0 = 0, // The gate is unlocked (free).
     eGTFSM_1 = 1, // The gate has been locked by processor with master_index = 0.
@@ -2050,6 +2049,7 @@ union RDC_SEMAPHORE2_GATE48 {
     eGTFSM_14 = 14, // The gate has been locked by processor with master_index = 13.
     eGTFSM_15 = 15, // The gate has been locked by processor with master_index = 14.
   };
+  
   enum class eLDOM : uint32_t {
     eLDOM_0 = 0, // The gate is locked by domain 0. (True if the field GTFSM does not equal to 0000.)
     eLDOM_1 = 1, // The gate has been locked by domain 1.
@@ -2060,7 +2060,7 @@ union RDC_SEMAPHORE2_GATE48 {
     eGTFSM GTFSM : 4;
     eLDOM LDOM : 2;
     uint32_t _reserved_end : 26;
-  } bits;          // Bit-field struct (auto-filling reserved gaps)
+  } bits;
   
   // Full 32-bit register value.
   uint32_t value;
@@ -2073,7 +2073,6 @@ union RDC_SEMAPHORE2_GATE48 {
 //
 union RDC_SEMAPHORE2_GATE49 {
   
-  // Enum definitions.
   enum class eGTFSM : uint32_t {
     eGTFSM_0 = 0, // The gate is unlocked (free).
     eGTFSM_1 = 1, // The gate has been locked by processor with master_index = 0.
@@ -2092,6 +2091,7 @@ union RDC_SEMAPHORE2_GATE49 {
     eGTFSM_14 = 14, // The gate has been locked by processor with master_index = 13.
     eGTFSM_15 = 15, // The gate has been locked by processor with master_index = 14.
   };
+  
   enum class eLDOM : uint32_t {
     eLDOM_0 = 0, // The gate is locked by domain 0. (True if the field GTFSM does not equal to 0000.)
     eLDOM_1 = 1, // The gate has been locked by domain 1.
@@ -2102,7 +2102,7 @@ union RDC_SEMAPHORE2_GATE49 {
     eGTFSM GTFSM : 4;
     eLDOM LDOM : 2;
     uint32_t _reserved_end : 26;
-  } bits;          // Bit-field struct (auto-filling reserved gaps)
+  } bits;
   
   // Full 32-bit register value.
   uint32_t value;
@@ -2115,7 +2115,6 @@ union RDC_SEMAPHORE2_GATE49 {
 //
 union RDC_SEMAPHORE2_GATE50 {
   
-  // Enum definitions.
   enum class eGTFSM : uint32_t {
     eGTFSM_0 = 0, // The gate is unlocked (free).
     eGTFSM_1 = 1, // The gate has been locked by processor with master_index = 0.
@@ -2134,6 +2133,7 @@ union RDC_SEMAPHORE2_GATE50 {
     eGTFSM_14 = 14, // The gate has been locked by processor with master_index = 13.
     eGTFSM_15 = 15, // The gate has been locked by processor with master_index = 14.
   };
+  
   enum class eLDOM : uint32_t {
     eLDOM_0 = 0, // The gate is locked by domain 0. (True if the field GTFSM does not equal to 0000.)
     eLDOM_1 = 1, // The gate has been locked by domain 1.
@@ -2144,7 +2144,7 @@ union RDC_SEMAPHORE2_GATE50 {
     eGTFSM GTFSM : 4;
     eLDOM LDOM : 2;
     uint32_t _reserved_end : 26;
-  } bits;          // Bit-field struct (auto-filling reserved gaps)
+  } bits;
   
   // Full 32-bit register value.
   uint32_t value;
@@ -2157,7 +2157,6 @@ union RDC_SEMAPHORE2_GATE50 {
 //
 union RDC_SEMAPHORE2_GATE51 {
   
-  // Enum definitions.
   enum class eGTFSM : uint32_t {
     eGTFSM_0 = 0, // The gate is unlocked (free).
     eGTFSM_1 = 1, // The gate has been locked by processor with master_index = 0.
@@ -2176,6 +2175,7 @@ union RDC_SEMAPHORE2_GATE51 {
     eGTFSM_14 = 14, // The gate has been locked by processor with master_index = 13.
     eGTFSM_15 = 15, // The gate has been locked by processor with master_index = 14.
   };
+  
   enum class eLDOM : uint32_t {
     eLDOM_0 = 0, // The gate is locked by domain 0. (True if the field GTFSM does not equal to 0000.)
     eLDOM_1 = 1, // The gate has been locked by domain 1.
@@ -2186,7 +2186,7 @@ union RDC_SEMAPHORE2_GATE51 {
     eGTFSM GTFSM : 4;
     eLDOM LDOM : 2;
     uint32_t _reserved_end : 26;
-  } bits;          // Bit-field struct (auto-filling reserved gaps)
+  } bits;
   
   // Full 32-bit register value.
   uint32_t value;
@@ -2199,7 +2199,6 @@ union RDC_SEMAPHORE2_GATE51 {
 //
 union RDC_SEMAPHORE2_GATE52 {
   
-  // Enum definitions.
   enum class eGTFSM : uint32_t {
     eGTFSM_0 = 0, // The gate is unlocked (free).
     eGTFSM_1 = 1, // The gate has been locked by processor with master_index = 0.
@@ -2218,6 +2217,7 @@ union RDC_SEMAPHORE2_GATE52 {
     eGTFSM_14 = 14, // The gate has been locked by processor with master_index = 13.
     eGTFSM_15 = 15, // The gate has been locked by processor with master_index = 14.
   };
+  
   enum class eLDOM : uint32_t {
     eLDOM_0 = 0, // The gate is locked by domain 0. (True if the field GTFSM does not equal to 0000.)
     eLDOM_1 = 1, // The gate has been locked by domain 1.
@@ -2228,7 +2228,7 @@ union RDC_SEMAPHORE2_GATE52 {
     eGTFSM GTFSM : 4;
     eLDOM LDOM : 2;
     uint32_t _reserved_end : 26;
-  } bits;          // Bit-field struct (auto-filling reserved gaps)
+  } bits;
   
   // Full 32-bit register value.
   uint32_t value;
@@ -2241,7 +2241,6 @@ union RDC_SEMAPHORE2_GATE52 {
 //
 union RDC_SEMAPHORE2_GATE53 {
   
-  // Enum definitions.
   enum class eGTFSM : uint32_t {
     eGTFSM_0 = 0, // The gate is unlocked (free).
     eGTFSM_1 = 1, // The gate has been locked by processor with master_index = 0.
@@ -2260,6 +2259,7 @@ union RDC_SEMAPHORE2_GATE53 {
     eGTFSM_14 = 14, // The gate has been locked by processor with master_index = 13.
     eGTFSM_15 = 15, // The gate has been locked by processor with master_index = 14.
   };
+  
   enum class eLDOM : uint32_t {
     eLDOM_0 = 0, // The gate is locked by domain 0. (True if the field GTFSM does not equal to 0000.)
     eLDOM_1 = 1, // The gate has been locked by domain 1.
@@ -2270,7 +2270,7 @@ union RDC_SEMAPHORE2_GATE53 {
     eGTFSM GTFSM : 4;
     eLDOM LDOM : 2;
     uint32_t _reserved_end : 26;
-  } bits;          // Bit-field struct (auto-filling reserved gaps)
+  } bits;
   
   // Full 32-bit register value.
   uint32_t value;
@@ -2283,7 +2283,6 @@ union RDC_SEMAPHORE2_GATE53 {
 //
 union RDC_SEMAPHORE2_GATE54 {
   
-  // Enum definitions.
   enum class eGTFSM : uint32_t {
     eGTFSM_0 = 0, // The gate is unlocked (free).
     eGTFSM_1 = 1, // The gate has been locked by processor with master_index = 0.
@@ -2302,6 +2301,7 @@ union RDC_SEMAPHORE2_GATE54 {
     eGTFSM_14 = 14, // The gate has been locked by processor with master_index = 13.
     eGTFSM_15 = 15, // The gate has been locked by processor with master_index = 14.
   };
+  
   enum class eLDOM : uint32_t {
     eLDOM_0 = 0, // The gate is locked by domain 0. (True if the field GTFSM does not equal to 0000.)
     eLDOM_1 = 1, // The gate has been locked by domain 1.
@@ -2312,7 +2312,7 @@ union RDC_SEMAPHORE2_GATE54 {
     eGTFSM GTFSM : 4;
     eLDOM LDOM : 2;
     uint32_t _reserved_end : 26;
-  } bits;          // Bit-field struct (auto-filling reserved gaps)
+  } bits;
   
   // Full 32-bit register value.
   uint32_t value;
@@ -2325,7 +2325,6 @@ union RDC_SEMAPHORE2_GATE54 {
 //
 union RDC_SEMAPHORE2_GATE55 {
   
-  // Enum definitions.
   enum class eGTFSM : uint32_t {
     eGTFSM_0 = 0, // The gate is unlocked (free).
     eGTFSM_1 = 1, // The gate has been locked by processor with master_index = 0.
@@ -2344,6 +2343,7 @@ union RDC_SEMAPHORE2_GATE55 {
     eGTFSM_14 = 14, // The gate has been locked by processor with master_index = 13.
     eGTFSM_15 = 15, // The gate has been locked by processor with master_index = 14.
   };
+  
   enum class eLDOM : uint32_t {
     eLDOM_0 = 0, // The gate is locked by domain 0. (True if the field GTFSM does not equal to 0000.)
     eLDOM_1 = 1, // The gate has been locked by domain 1.
@@ -2354,7 +2354,7 @@ union RDC_SEMAPHORE2_GATE55 {
     eGTFSM GTFSM : 4;
     eLDOM LDOM : 2;
     uint32_t _reserved_end : 26;
-  } bits;          // Bit-field struct (auto-filling reserved gaps)
+  } bits;
   
   // Full 32-bit register value.
   uint32_t value;
@@ -2367,7 +2367,6 @@ union RDC_SEMAPHORE2_GATE55 {
 //
 union RDC_SEMAPHORE2_GATE56 {
   
-  // Enum definitions.
   enum class eGTFSM : uint32_t {
     eGTFSM_0 = 0, // The gate is unlocked (free).
     eGTFSM_1 = 1, // The gate has been locked by processor with master_index = 0.
@@ -2386,6 +2385,7 @@ union RDC_SEMAPHORE2_GATE56 {
     eGTFSM_14 = 14, // The gate has been locked by processor with master_index = 13.
     eGTFSM_15 = 15, // The gate has been locked by processor with master_index = 14.
   };
+  
   enum class eLDOM : uint32_t {
     eLDOM_0 = 0, // The gate is locked by domain 0. (True if the field GTFSM does not equal to 0000.)
     eLDOM_1 = 1, // The gate has been locked by domain 1.
@@ -2396,7 +2396,7 @@ union RDC_SEMAPHORE2_GATE56 {
     eGTFSM GTFSM : 4;
     eLDOM LDOM : 2;
     uint32_t _reserved_end : 26;
-  } bits;          // Bit-field struct (auto-filling reserved gaps)
+  } bits;
   
   // Full 32-bit register value.
   uint32_t value;
@@ -2409,7 +2409,6 @@ union RDC_SEMAPHORE2_GATE56 {
 //
 union RDC_SEMAPHORE2_GATE57 {
   
-  // Enum definitions.
   enum class eGTFSM : uint32_t {
     eGTFSM_0 = 0, // The gate is unlocked (free).
     eGTFSM_1 = 1, // The gate has been locked by processor with master_index = 0.
@@ -2428,6 +2427,7 @@ union RDC_SEMAPHORE2_GATE57 {
     eGTFSM_14 = 14, // The gate has been locked by processor with master_index = 13.
     eGTFSM_15 = 15, // The gate has been locked by processor with master_index = 14.
   };
+  
   enum class eLDOM : uint32_t {
     eLDOM_0 = 0, // The gate is locked by domain 0. (True if the field GTFSM does not equal to 0000.)
     eLDOM_1 = 1, // The gate has been locked by domain 1.
@@ -2438,7 +2438,7 @@ union RDC_SEMAPHORE2_GATE57 {
     eGTFSM GTFSM : 4;
     eLDOM LDOM : 2;
     uint32_t _reserved_end : 26;
-  } bits;          // Bit-field struct (auto-filling reserved gaps)
+  } bits;
   
   // Full 32-bit register value.
   uint32_t value;
@@ -2451,7 +2451,6 @@ union RDC_SEMAPHORE2_GATE57 {
 //
 union RDC_SEMAPHORE2_GATE58 {
   
-  // Enum definitions.
   enum class eGTFSM : uint32_t {
     eGTFSM_0 = 0, // The gate is unlocked (free).
     eGTFSM_1 = 1, // The gate has been locked by processor with master_index = 0.
@@ -2470,6 +2469,7 @@ union RDC_SEMAPHORE2_GATE58 {
     eGTFSM_14 = 14, // The gate has been locked by processor with master_index = 13.
     eGTFSM_15 = 15, // The gate has been locked by processor with master_index = 14.
   };
+  
   enum class eLDOM : uint32_t {
     eLDOM_0 = 0, // The gate is locked by domain 0. (True if the field GTFSM does not equal to 0000.)
     eLDOM_1 = 1, // The gate has been locked by domain 1.
@@ -2480,7 +2480,7 @@ union RDC_SEMAPHORE2_GATE58 {
     eGTFSM GTFSM : 4;
     eLDOM LDOM : 2;
     uint32_t _reserved_end : 26;
-  } bits;          // Bit-field struct (auto-filling reserved gaps)
+  } bits;
   
   // Full 32-bit register value.
   uint32_t value;
@@ -2493,7 +2493,6 @@ union RDC_SEMAPHORE2_GATE58 {
 //
 union RDC_SEMAPHORE2_GATE59 {
   
-  // Enum definitions.
   enum class eGTFSM : uint32_t {
     eGTFSM_0 = 0, // The gate is unlocked (free).
     eGTFSM_1 = 1, // The gate has been locked by processor with master_index = 0.
@@ -2512,6 +2511,7 @@ union RDC_SEMAPHORE2_GATE59 {
     eGTFSM_14 = 14, // The gate has been locked by processor with master_index = 13.
     eGTFSM_15 = 15, // The gate has been locked by processor with master_index = 14.
   };
+  
   enum class eLDOM : uint32_t {
     eLDOM_0 = 0, // The gate is locked by domain 0. (True if the field GTFSM does not equal to 0000.)
     eLDOM_1 = 1, // The gate has been locked by domain 1.
@@ -2522,7 +2522,7 @@ union RDC_SEMAPHORE2_GATE59 {
     eGTFSM GTFSM : 4;
     eLDOM LDOM : 2;
     uint32_t _reserved_end : 26;
-  } bits;          // Bit-field struct (auto-filling reserved gaps)
+  } bits;
   
   // Full 32-bit register value.
   uint32_t value;
@@ -2535,7 +2535,6 @@ union RDC_SEMAPHORE2_GATE59 {
 //
 union RDC_SEMAPHORE2_GATE60 {
   
-  // Enum definitions.
   enum class eGTFSM : uint32_t {
     eGTFSM_0 = 0, // The gate is unlocked (free).
     eGTFSM_1 = 1, // The gate has been locked by processor with master_index = 0.
@@ -2554,6 +2553,7 @@ union RDC_SEMAPHORE2_GATE60 {
     eGTFSM_14 = 14, // The gate has been locked by processor with master_index = 13.
     eGTFSM_15 = 15, // The gate has been locked by processor with master_index = 14.
   };
+  
   enum class eLDOM : uint32_t {
     eLDOM_0 = 0, // The gate is locked by domain 0. (True if the field GTFSM does not equal to 0000.)
     eLDOM_1 = 1, // The gate has been locked by domain 1.
@@ -2564,7 +2564,7 @@ union RDC_SEMAPHORE2_GATE60 {
     eGTFSM GTFSM : 4;
     eLDOM LDOM : 2;
     uint32_t _reserved_end : 26;
-  } bits;          // Bit-field struct (auto-filling reserved gaps)
+  } bits;
   
   // Full 32-bit register value.
   uint32_t value;
@@ -2577,7 +2577,6 @@ union RDC_SEMAPHORE2_GATE60 {
 //
 union RDC_SEMAPHORE2_GATE61 {
   
-  // Enum definitions.
   enum class eGTFSM : uint32_t {
     eGTFSM_0 = 0, // The gate is unlocked (free).
     eGTFSM_1 = 1, // The gate has been locked by processor with master_index = 0.
@@ -2596,6 +2595,7 @@ union RDC_SEMAPHORE2_GATE61 {
     eGTFSM_14 = 14, // The gate has been locked by processor with master_index = 13.
     eGTFSM_15 = 15, // The gate has been locked by processor with master_index = 14.
   };
+  
   enum class eLDOM : uint32_t {
     eLDOM_0 = 0, // The gate is locked by domain 0. (True if the field GTFSM does not equal to 0000.)
     eLDOM_1 = 1, // The gate has been locked by domain 1.
@@ -2606,7 +2606,7 @@ union RDC_SEMAPHORE2_GATE61 {
     eGTFSM GTFSM : 4;
     eLDOM LDOM : 2;
     uint32_t _reserved_end : 26;
-  } bits;          // Bit-field struct (auto-filling reserved gaps)
+  } bits;
   
   // Full 32-bit register value.
   uint32_t value;
@@ -2619,7 +2619,6 @@ union RDC_SEMAPHORE2_GATE61 {
 //
 union RDC_SEMAPHORE2_GATE62 {
   
-  // Enum definitions.
   enum class eGTFSM : uint32_t {
     eGTFSM_0 = 0, // The gate is unlocked (free).
     eGTFSM_1 = 1, // The gate has been locked by processor with master_index = 0.
@@ -2638,6 +2637,7 @@ union RDC_SEMAPHORE2_GATE62 {
     eGTFSM_14 = 14, // The gate has been locked by processor with master_index = 13.
     eGTFSM_15 = 15, // The gate has been locked by processor with master_index = 14.
   };
+  
   enum class eLDOM : uint32_t {
     eLDOM_0 = 0, // The gate is locked by domain 0. (True if the field GTFSM does not equal to 0000.)
     eLDOM_1 = 1, // The gate has been locked by domain 1.
@@ -2648,7 +2648,7 @@ union RDC_SEMAPHORE2_GATE62 {
     eGTFSM GTFSM : 4;
     eLDOM LDOM : 2;
     uint32_t _reserved_end : 26;
-  } bits;          // Bit-field struct (auto-filling reserved gaps)
+  } bits;
   
   // Full 32-bit register value.
   uint32_t value;
@@ -2661,7 +2661,6 @@ union RDC_SEMAPHORE2_GATE62 {
 //
 union RDC_SEMAPHORE2_GATE63 {
   
-  // Enum definitions.
   enum class eGTFSM : uint32_t {
     eGTFSM_0 = 0, // The gate is unlocked (free).
     eGTFSM_1 = 1, // The gate has been locked by processor with master_index = 0.
@@ -2680,6 +2679,7 @@ union RDC_SEMAPHORE2_GATE63 {
     eGTFSM_14 = 14, // The gate has been locked by processor with master_index = 13.
     eGTFSM_15 = 15, // The gate has been locked by processor with master_index = 14.
   };
+  
   enum class eLDOM : uint32_t {
     eLDOM_0 = 0, // The gate is locked by domain 0. (True if the field GTFSM does not equal to 0000.)
     eLDOM_1 = 1, // The gate has been locked by domain 1.
@@ -2690,7 +2690,7 @@ union RDC_SEMAPHORE2_GATE63 {
     eGTFSM GTFSM : 4;
     eLDOM LDOM : 2;
     uint32_t _reserved_end : 26;
-  } bits;          // Bit-field struct (auto-filling reserved gaps)
+  } bits;
   
   // Full 32-bit register value.
   uint32_t value;
@@ -2704,7 +2704,6 @@ union RDC_SEMAPHORE2_GATE63 {
 //
 union RDC_SEMAPHORE2_RSTGT_R {
   
-  // Enum definitions.
   enum class eRSTGSM : uint32_t {
     eRSTGSM_0 = 0, // Idle, waiting for the first data pattern write.
     eRSTGSM_1 = 1, // Waiting for the second data pattern write.
@@ -2719,7 +2718,7 @@ union RDC_SEMAPHORE2_RSTGT_R {
     uint32_t _reserved_2 : 2;
     uint32_t RSTGTN : 8;
     uint32_t _reserved_end : 16;
-  } bits;          // Bit-field struct (auto-filling reserved gaps)
+  } bits;
   
   // Full 32-bit register value.
   uint32_t value;
@@ -2733,14 +2732,12 @@ union RDC_SEMAPHORE2_RSTGT_R {
 //
 union RDC_SEMAPHORE2_RSTGT_W {
   
-  // Enum definitions.
-  
   // Bit field definition.
   struct {
     uint32_t RSTGDP : 8;
     uint32_t RSTGTN : 8;
     uint32_t _reserved_end : 16;
-  } bits;          // Bit-field struct (auto-filling reserved gaps)
+  } bits;
   
   // Full 32-bit register value.
   uint32_t value;

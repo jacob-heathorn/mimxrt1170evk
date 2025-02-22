@@ -15,7 +15,6 @@ namespace nDSI_HOST {
 //
 union CFG_NUM_LANES {
   
-  // Enum definitions.
   enum class eNUM_LANES : uint32_t {
     eNUM_LANES_0 = 0, // 1 lane
     eNUM_LANES_1 = 1, // 2 lanes
@@ -25,7 +24,7 @@ union CFG_NUM_LANES {
   struct {
     eNUM_LANES NUM_LANES : 2;
     uint32_t _reserved_end : 30;
-  } bits;          // Bit-field struct (auto-filling reserved gaps)
+  } bits;
   
   // Full 32-bit register value.
   uint32_t value;
@@ -39,7 +38,6 @@ union CFG_NUM_LANES {
 //
 union CFG_NONCONTINUOUS_CLK {
   
-  // Enum definitions.
   enum class eCLK_MODE : uint32_t {
     eCLK_MODE_0 = 0, // Continuous high speed clock
     eCLK_MODE_1 = 1, // Non-Continuous high speed clock
@@ -49,7 +47,7 @@ union CFG_NONCONTINUOUS_CLK {
   struct {
     eCLK_MODE CLK_MODE : 1;
     uint32_t _reserved_end : 31;
-  } bits;          // Bit-field struct (auto-filling reserved gaps)
+  } bits;
   
   // Full 32-bit register value.
   uint32_t value;
@@ -63,13 +61,11 @@ union CFG_NONCONTINUOUS_CLK {
 //
 union CFG_T_PRE {
   
-  // Enum definitions.
-  
   // Bit field definition.
   struct {
     uint32_t NUM_PERIODS : 8;
     uint32_t _reserved_end : 24;
-  } bits;          // Bit-field struct (auto-filling reserved gaps)
+  } bits;
   
   // Full 32-bit register value.
   uint32_t value;
@@ -83,13 +79,11 @@ union CFG_T_PRE {
 //
 union CFG_T_POST {
   
-  // Enum definitions.
-  
   // Bit field definition.
   struct {
     uint32_t NUM_PERIODS : 8;
     uint32_t _reserved_end : 24;
-  } bits;          // Bit-field struct (auto-filling reserved gaps)
+  } bits;
   
   // Full 32-bit register value.
   uint32_t value;
@@ -103,13 +97,11 @@ union CFG_T_POST {
 //
 union CFG_TX_GAP {
   
-  // Enum definitions.
-  
   // Bit field definition.
   struct {
     uint32_t NUM_PERIODS : 8;
     uint32_t _reserved_end : 24;
-  } bits;          // Bit-field struct (auto-filling reserved gaps)
+  } bits;
   
   // Full 32-bit register value.
   uint32_t value;
@@ -123,7 +115,6 @@ union CFG_TX_GAP {
 //
 union CFG_AUTOINSERT_EOTP {
   
-  // Enum definitions.
   enum class eAUTOINSERT : uint32_t {
     eNOT_AUTO = 0, // EoTp is not automatically inserted
     eAUTO = 1, // EoTp is automatically inserted
@@ -133,7 +124,7 @@ union CFG_AUTOINSERT_EOTP {
   struct {
     eAUTOINSERT AUTOINSERT : 1;
     uint32_t _reserved_end : 31;
-  } bits;          // Bit-field struct (auto-filling reserved gaps)
+  } bits;
   
   // Full 32-bit register value.
   uint32_t value;
@@ -147,13 +138,11 @@ union CFG_AUTOINSERT_EOTP {
 //
 union CFG_EXTRA_CMDS_AFTER_EOTP {
   
-  // Enum definitions.
-  
   // Bit field definition.
   struct {
     uint32_t EXTRA_EOTP : 8;
     uint32_t _reserved_end : 24;
-  } bits;          // Bit-field struct (auto-filling reserved gaps)
+  } bits;
   
   // Full 32-bit register value.
   uint32_t value;
@@ -167,13 +156,11 @@ union CFG_EXTRA_CMDS_AFTER_EOTP {
 //
 union CFG_HTX_TO_COUNT {
   
-  // Enum definitions.
-  
   // Bit field definition.
   struct {
     uint32_t COUNT : 24;
     uint32_t _reserved_end : 8;
-  } bits;          // Bit-field struct (auto-filling reserved gaps)
+  } bits;
   
   // Full 32-bit register value.
   uint32_t value;
@@ -187,13 +174,11 @@ union CFG_HTX_TO_COUNT {
 //
 union CFG_LRX_H_TO_COUNT {
   
-  // Enum definitions.
-  
   // Bit field definition.
   struct {
     uint32_t COUNT : 24;
     uint32_t _reserved_end : 8;
-  } bits;          // Bit-field struct (auto-filling reserved gaps)
+  } bits;
   
   // Full 32-bit register value.
   uint32_t value;
@@ -207,13 +192,11 @@ union CFG_LRX_H_TO_COUNT {
 //
 union CFG_BTA_H_TO_COUNT {
   
-  // Enum definitions.
-  
   // Bit field definition.
   struct {
     uint32_t COUNT : 24;
     uint32_t _reserved_end : 8;
-  } bits;          // Bit-field struct (auto-filling reserved gaps)
+  } bits;
   
   // Full 32-bit register value.
   uint32_t value;
@@ -227,13 +210,11 @@ union CFG_BTA_H_TO_COUNT {
 //
 union CFG_TWAKEUP {
   
-  // Enum definitions.
-  
   // Bit field definition.
   struct {
     uint32_t NUM_PERIODS : 19;
     uint32_t _reserved_end : 13;
-  } bits;          // Bit-field struct (auto-filling reserved gaps)
+  } bits;
   
   // Full 32-bit register value.
   uint32_t value;
@@ -247,12 +228,10 @@ union CFG_TWAKEUP {
 //
 union CFG_STATUS_OUT {
   
-  // Enum definitions.
-  
   // Bit field definition.
   struct {
     uint32_t STATUS : 32;
-  } bits;          // Bit-field struct (auto-filling reserved gaps)
+  } bits;
   
   // Full 32-bit register value.
   uint32_t value;
@@ -266,13 +245,11 @@ union CFG_STATUS_OUT {
 //
 union RX_ERROR_STATUS {
   
-  // Enum definitions.
-  
   // Bit field definition.
   struct {
     uint32_t STATUS : 11;
     uint32_t _reserved_end : 21;
-  } bits;          // Bit-field struct (auto-filling reserved gaps)
+  } bits;
   
   // Full 32-bit register value.
   uint32_t value;

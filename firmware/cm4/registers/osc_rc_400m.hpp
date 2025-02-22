@@ -15,14 +15,12 @@ namespace nOSC_RC_400M {
 //
 union CTRL0 {
   
-  // Enum definitions.
-  
   // Bit field definition.
   struct {
     uint32_t _reserved_0 : 24;
     uint32_t REF_CLK_DIV : 6;
     uint32_t _reserved_end : 2;
-  } bits;          // Bit-field struct (auto-filling reserved gaps)
+  } bits;
   
   // Full 32-bit register value.
   uint32_t value;
@@ -36,14 +34,12 @@ union CTRL0 {
 //
 union CTRL0_SET {
   
-  // Enum definitions.
-  
   // Bit field definition.
   struct {
     uint32_t _reserved_0 : 24;
     uint32_t REF_CLK_DIV : 6;
     uint32_t _reserved_end : 2;
-  } bits;          // Bit-field struct (auto-filling reserved gaps)
+  } bits;
   
   // Full 32-bit register value.
   uint32_t value;
@@ -57,14 +53,12 @@ union CTRL0_SET {
 //
 union CTRL0_CLR {
   
-  // Enum definitions.
-  
   // Bit field definition.
   struct {
     uint32_t _reserved_0 : 24;
     uint32_t REF_CLK_DIV : 6;
     uint32_t _reserved_end : 2;
-  } bits;          // Bit-field struct (auto-filling reserved gaps)
+  } bits;
   
   // Full 32-bit register value.
   uint32_t value;
@@ -78,14 +72,12 @@ union CTRL0_CLR {
 //
 union CTRL0_TOG {
   
-  // Enum definitions.
-  
   // Bit field definition.
   struct {
     uint32_t _reserved_0 : 24;
     uint32_t REF_CLK_DIV : 6;
     uint32_t _reserved_end : 2;
-  } bits;          // Bit-field struct (auto-filling reserved gaps)
+  } bits;
   
   // Full 32-bit register value.
   uint32_t value;
@@ -99,8 +91,6 @@ union CTRL0_TOG {
 //
 union CTRL1 {
   
-  // Enum definitions.
-  
   // Bit field definition.
   struct {
     uint32_t HYST_MINUS : 4;
@@ -108,7 +98,7 @@ union CTRL1 {
     uint32_t HYST_PLUS : 4;
     uint32_t _reserved_2 : 4;
     uint32_t TARGET_COUNT : 16;
-  } bits;          // Bit-field struct (auto-filling reserved gaps)
+  } bits;
   
   // Full 32-bit register value.
   uint32_t value;
@@ -122,8 +112,6 @@ union CTRL1 {
 //
 union CTRL1_SET {
   
-  // Enum definitions.
-  
   // Bit field definition.
   struct {
     uint32_t HYST_MINUS : 4;
@@ -131,7 +119,7 @@ union CTRL1_SET {
     uint32_t HYST_PLUS : 4;
     uint32_t _reserved_2 : 4;
     uint32_t TARGET_COUNT : 16;
-  } bits;          // Bit-field struct (auto-filling reserved gaps)
+  } bits;
   
   // Full 32-bit register value.
   uint32_t value;
@@ -145,8 +133,6 @@ union CTRL1_SET {
 //
 union CTRL1_CLR {
   
-  // Enum definitions.
-  
   // Bit field definition.
   struct {
     uint32_t HYST_MINUS : 4;
@@ -154,7 +140,7 @@ union CTRL1_CLR {
     uint32_t HYST_PLUS : 4;
     uint32_t _reserved_2 : 4;
     uint32_t TARGET_COUNT : 16;
-  } bits;          // Bit-field struct (auto-filling reserved gaps)
+  } bits;
   
   // Full 32-bit register value.
   uint32_t value;
@@ -168,8 +154,6 @@ union CTRL1_CLR {
 //
 union CTRL1_TOG {
   
-  // Enum definitions.
-  
   // Bit field definition.
   struct {
     uint32_t HYST_MINUS : 4;
@@ -177,7 +161,7 @@ union CTRL1_TOG {
     uint32_t HYST_PLUS : 4;
     uint32_t _reserved_2 : 4;
     uint32_t TARGET_COUNT : 16;
-  } bits;          // Bit-field struct (auto-filling reserved gaps)
+  } bits;
   
   // Full 32-bit register value.
   uint32_t value;
@@ -191,15 +175,16 @@ union CTRL1_TOG {
 //
 union CTRL2 {
   
-  // Enum definitions.
   enum class eTUNE_BYP : uint32_t {
     eTUNE_BYP_0 = 0, // Use the output of tuning logic to run the oscillator
     eTUNE_BYP_1 = 1, // Bypass the tuning logic and use the programmed OSC_TUNE_VAL to run the oscillator
   };
+  
   enum class eTUNE_EN : uint32_t {
     eTUNE_EN_0 = 0, // Freezes the tuning at the current tuned value. Oscillator runs at the frozen tuning value
     eTUNE_EN_1 = 1, // Unfreezes and continues the tuning operation
   };
+  
   enum class eTUNE_START : uint32_t {
     eTUNE_START_0 = 0, // Stop tuning and reset the tuning logic. Oscillator runs using programmed OSC_TUNE_VAL
     eTUNE_START_1 = 1, // Start tuning
@@ -215,7 +200,7 @@ union CTRL2 {
     eTUNE_START TUNE_START : 1;
     uint32_t _reserved_3 : 9;
     uint32_t OSC_TUNE_VAL : 8;
-  } bits;          // Bit-field struct (auto-filling reserved gaps)
+  } bits;
   
   // Full 32-bit register value.
   uint32_t value;
@@ -229,8 +214,6 @@ union CTRL2 {
 //
 union CTRL2_SET {
   
-  // Enum definitions.
-  
   // Bit field definition.
   struct {
     uint32_t _reserved_0 : 10;
@@ -241,7 +224,7 @@ union CTRL2_SET {
     uint32_t TUNE_START : 1;
     uint32_t _reserved_3 : 9;
     uint32_t OSC_TUNE_VAL : 8;
-  } bits;          // Bit-field struct (auto-filling reserved gaps)
+  } bits;
   
   // Full 32-bit register value.
   uint32_t value;
@@ -255,8 +238,6 @@ union CTRL2_SET {
 //
 union CTRL2_CLR {
   
-  // Enum definitions.
-  
   // Bit field definition.
   struct {
     uint32_t _reserved_0 : 10;
@@ -267,7 +248,7 @@ union CTRL2_CLR {
     uint32_t TUNE_START : 1;
     uint32_t _reserved_3 : 9;
     uint32_t OSC_TUNE_VAL : 8;
-  } bits;          // Bit-field struct (auto-filling reserved gaps)
+  } bits;
   
   // Full 32-bit register value.
   uint32_t value;
@@ -281,8 +262,6 @@ union CTRL2_CLR {
 //
 union CTRL2_TOG {
   
-  // Enum definitions.
-  
   // Bit field definition.
   struct {
     uint32_t _reserved_0 : 10;
@@ -293,7 +272,7 @@ union CTRL2_TOG {
     uint32_t TUNE_START : 1;
     uint32_t _reserved_3 : 9;
     uint32_t OSC_TUNE_VAL : 8;
-  } bits;          // Bit-field struct (auto-filling reserved gaps)
+  } bits;
   
   // Full 32-bit register value.
   uint32_t value;
@@ -307,15 +286,16 @@ union CTRL2_TOG {
 //
 union CTRL3 {
   
-  // Enum definitions.
   enum class eCLR_ERR : uint32_t {
     eCLR_ERR_0 = 0, // No effect
     eCLR_ERR_1 = 1, // Clears the error flag CLK1M_ERR in status register STAT0
   };
+  
   enum class eEN_1M_CLK : uint32_t {
     eEN_1M_CLK_0 = 0, // Enable the output (clk_1m_out)
     eEN_1M_CLK_1 = 1, // Disable the output (clk_1m_out)
   };
+  
   enum class eMUX_1M_CLK : uint32_t {
     eMUX_1M_CLK_0 = 0, // Select free-running 1MHz to be put out on clk_1m_out
     eMUX_1M_CLK_1 = 1, // Select locked 1MHz to be put out on clk_1m_out
@@ -330,7 +310,7 @@ union CTRL3 {
     eMUX_1M_CLK MUX_1M_CLK : 1;
     uint32_t _reserved_3 : 5;
     uint32_t COUNT_1M_CLK : 16;
-  } bits;          // Bit-field struct (auto-filling reserved gaps)
+  } bits;
   
   // Full 32-bit register value.
   uint32_t value;
@@ -344,8 +324,6 @@ union CTRL3 {
 //
 union CTRL3_SET {
   
-  // Enum definitions.
-  
   // Bit field definition.
   struct {
     uint32_t CLR_ERR : 1;
@@ -355,7 +333,7 @@ union CTRL3_SET {
     uint32_t MUX_1M_CLK : 1;
     uint32_t _reserved_3 : 5;
     uint32_t COUNT_1M_CLK : 16;
-  } bits;          // Bit-field struct (auto-filling reserved gaps)
+  } bits;
   
   // Full 32-bit register value.
   uint32_t value;
@@ -369,8 +347,6 @@ union CTRL3_SET {
 //
 union CTRL3_CLR {
   
-  // Enum definitions.
-  
   // Bit field definition.
   struct {
     uint32_t CLR_ERR : 1;
@@ -380,7 +356,7 @@ union CTRL3_CLR {
     uint32_t MUX_1M_CLK : 1;
     uint32_t _reserved_3 : 5;
     uint32_t COUNT_1M_CLK : 16;
-  } bits;          // Bit-field struct (auto-filling reserved gaps)
+  } bits;
   
   // Full 32-bit register value.
   uint32_t value;
@@ -394,8 +370,6 @@ union CTRL3_CLR {
 //
 union CTRL3_TOG {
   
-  // Enum definitions.
-  
   // Bit field definition.
   struct {
     uint32_t CLR_ERR : 1;
@@ -405,7 +379,7 @@ union CTRL3_TOG {
     uint32_t MUX_1M_CLK : 1;
     uint32_t _reserved_3 : 5;
     uint32_t COUNT_1M_CLK : 16;
-  } bits;          // Bit-field struct (auto-filling reserved gaps)
+  } bits;
   
   // Full 32-bit register value.
   uint32_t value;
@@ -419,7 +393,6 @@ union CTRL3_TOG {
 //
 union STAT0 {
   
-  // Enum definitions.
   enum class eCLK1M_ERR : uint32_t {
     eCLK1M_ERR_0 = 0, // No effect
     eCLK1M_ERR_1 = 1, // The count value has been reached within one divided ref_clk period
@@ -429,7 +402,7 @@ union STAT0 {
   struct {
     eCLK1M_ERR CLK1M_ERR : 1;
     uint32_t _reserved_end : 31;
-  } bits;          // Bit-field struct (auto-filling reserved gaps)
+  } bits;
   
   // Full 32-bit register value.
   uint32_t value;
@@ -443,13 +416,11 @@ union STAT0 {
 //
 union STAT0_SET {
   
-  // Enum definitions.
-  
   // Bit field definition.
   struct {
     uint32_t CLK1M_ERR : 1;
     uint32_t _reserved_end : 31;
-  } bits;          // Bit-field struct (auto-filling reserved gaps)
+  } bits;
   
   // Full 32-bit register value.
   uint32_t value;
@@ -463,13 +434,11 @@ union STAT0_SET {
 //
 union STAT0_CLR {
   
-  // Enum definitions.
-  
   // Bit field definition.
   struct {
     uint32_t CLK1M_ERR : 1;
     uint32_t _reserved_end : 31;
-  } bits;          // Bit-field struct (auto-filling reserved gaps)
+  } bits;
   
   // Full 32-bit register value.
   uint32_t value;
@@ -483,13 +452,11 @@ union STAT0_CLR {
 //
 union STAT0_TOG {
   
-  // Enum definitions.
-  
   // Bit field definition.
   struct {
     uint32_t CLK1M_ERR : 1;
     uint32_t _reserved_end : 31;
-  } bits;          // Bit-field struct (auto-filling reserved gaps)
+  } bits;
   
   // Full 32-bit register value.
   uint32_t value;
@@ -503,13 +470,11 @@ union STAT0_TOG {
 //
 union STAT1 {
   
-  // Enum definitions.
-  
   // Bit field definition.
   struct {
     uint32_t _reserved_0 : 16;
     uint32_t CURR_COUNT_VAL : 16;
-  } bits;          // Bit-field struct (auto-filling reserved gaps)
+  } bits;
   
   // Full 32-bit register value.
   uint32_t value;
@@ -523,13 +488,11 @@ union STAT1 {
 //
 union STAT1_SET {
   
-  // Enum definitions.
-  
   // Bit field definition.
   struct {
     uint32_t _reserved_0 : 16;
     uint32_t CURR_COUNT_VAL : 16;
-  } bits;          // Bit-field struct (auto-filling reserved gaps)
+  } bits;
   
   // Full 32-bit register value.
   uint32_t value;
@@ -543,13 +506,11 @@ union STAT1_SET {
 //
 union STAT1_CLR {
   
-  // Enum definitions.
-  
   // Bit field definition.
   struct {
     uint32_t _reserved_0 : 16;
     uint32_t CURR_COUNT_VAL : 16;
-  } bits;          // Bit-field struct (auto-filling reserved gaps)
+  } bits;
   
   // Full 32-bit register value.
   uint32_t value;
@@ -563,13 +524,11 @@ union STAT1_CLR {
 //
 union STAT1_TOG {
   
-  // Enum definitions.
-  
   // Bit field definition.
   struct {
     uint32_t _reserved_0 : 16;
     uint32_t CURR_COUNT_VAL : 16;
-  } bits;          // Bit-field struct (auto-filling reserved gaps)
+  } bits;
   
   // Full 32-bit register value.
   uint32_t value;
@@ -583,13 +542,11 @@ union STAT1_TOG {
 //
 union STAT2 {
   
-  // Enum definitions.
-  
   // Bit field definition.
   struct {
     uint32_t _reserved_0 : 24;
     uint32_t CURR_OSC_TUNE_VAL : 8;
-  } bits;          // Bit-field struct (auto-filling reserved gaps)
+  } bits;
   
   // Full 32-bit register value.
   uint32_t value;
@@ -603,13 +560,11 @@ union STAT2 {
 //
 union STAT2_SET {
   
-  // Enum definitions.
-  
   // Bit field definition.
   struct {
     uint32_t _reserved_0 : 24;
     uint32_t CURR_OSC_TUNE_VAL : 8;
-  } bits;          // Bit-field struct (auto-filling reserved gaps)
+  } bits;
   
   // Full 32-bit register value.
   uint32_t value;
@@ -623,13 +578,11 @@ union STAT2_SET {
 //
 union STAT2_CLR {
   
-  // Enum definitions.
-  
   // Bit field definition.
   struct {
     uint32_t _reserved_0 : 24;
     uint32_t CURR_OSC_TUNE_VAL : 8;
-  } bits;          // Bit-field struct (auto-filling reserved gaps)
+  } bits;
   
   // Full 32-bit register value.
   uint32_t value;
@@ -643,13 +596,11 @@ union STAT2_CLR {
 //
 union STAT2_TOG {
   
-  // Enum definitions.
-  
   // Bit field definition.
   struct {
     uint32_t _reserved_0 : 24;
     uint32_t CURR_OSC_TUNE_VAL : 8;
-  } bits;          // Bit-field struct (auto-filling reserved gaps)
+  } bits;
   
   // Full 32-bit register value.
   uint32_t value;

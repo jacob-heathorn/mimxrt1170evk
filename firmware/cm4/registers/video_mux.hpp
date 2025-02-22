@@ -15,19 +15,21 @@ namespace nVIDEO_MUX {
 //
 union VID_MUX_CTRL {
   
-  // Enum definitions.
   enum class eCSI_SEL : uint32_t {
     ePARALLEL_CSI = 0, // CSI sensor data is from Parallel CSI
     eMIPI_CSI = 1, // CSI sensor data is from MIPI CSI
   };
+  
   enum class eLCDIF2_SEL : uint32_t {
     ePARALLEL_CSI = 0, // LCDIFv2 sensor data is from Parallel CSI
     eMIPI_CSI = 1, // LCDIFv2 sensor data is from MIPI CSI
   };
+  
   enum class eMIPI_DSI_SEL : uint32_t {
     ePARALLEL_CSI = 0, // MIPI DSI video data is from eLCDIF
     eMIPI_CSI = 1, // MIPI DSI video data is from LCDIFv2
   };
+  
   enum class ePARA_LCD_SEL : uint32_t {
     ePARALLEL_CSI = 0, // Parallel LCDIF video data is from eLCDIF
     eMIPI_CSI = 1, // Parallel LCDIF video data is from LCDIFv2
@@ -40,7 +42,7 @@ union VID_MUX_CTRL {
     eMIPI_DSI_SEL MIPI_DSI_SEL : 1;
     ePARA_LCD_SEL PARA_LCD_SEL : 1;
     uint32_t _reserved_end : 28;
-  } bits;          // Bit-field struct (auto-filling reserved gaps)
+  } bits;
   
   // Full 32-bit register value.
   uint32_t value;
@@ -54,8 +56,6 @@ union VID_MUX_CTRL {
 //
 union VID_MUX_CTRL_SET {
   
-  // Enum definitions.
-  
   // Bit field definition.
   struct {
     uint32_t CSI_SEL : 1;
@@ -63,7 +63,7 @@ union VID_MUX_CTRL_SET {
     uint32_t MIPI_DSI_SEL : 1;
     uint32_t PARA_LCD_SEL : 1;
     uint32_t _reserved_end : 28;
-  } bits;          // Bit-field struct (auto-filling reserved gaps)
+  } bits;
   
   // Full 32-bit register value.
   uint32_t value;
@@ -77,8 +77,6 @@ union VID_MUX_CTRL_SET {
 //
 union VID_MUX_CTRL_CLR {
   
-  // Enum definitions.
-  
   // Bit field definition.
   struct {
     uint32_t CSI_SEL : 1;
@@ -86,7 +84,7 @@ union VID_MUX_CTRL_CLR {
     uint32_t MIPI_DSI_SEL : 1;
     uint32_t PARA_LCD_SEL : 1;
     uint32_t _reserved_end : 28;
-  } bits;          // Bit-field struct (auto-filling reserved gaps)
+  } bits;
   
   // Full 32-bit register value.
   uint32_t value;
@@ -100,8 +98,6 @@ union VID_MUX_CTRL_CLR {
 //
 union VID_MUX_CTRL_TOG {
   
-  // Enum definitions.
-  
   // Bit field definition.
   struct {
     uint32_t CSI_SEL : 1;
@@ -109,7 +105,7 @@ union VID_MUX_CTRL_TOG {
     uint32_t MIPI_DSI_SEL : 1;
     uint32_t PARA_LCD_SEL : 1;
     uint32_t _reserved_end : 28;
-  } bits;          // Bit-field struct (auto-filling reserved gaps)
+  } bits;
   
   // Full 32-bit register value.
   uint32_t value;
@@ -123,23 +119,26 @@ union VID_MUX_CTRL_TOG {
 //
 union PLM_CTRL {
   
-  // Enum definitions.
   enum class eENABLE : uint32_t {
     eNO_ACTIVE = 0, // No active HSYNC and VSYNC output
     eACTIVE = 1, // Active HSYNC and VSYNC output
   };
+  
   enum class eVSYNC_OVERRIDE : uint32_t {
     eDEASSERT = 0, // VSYNC is not asserted
     eASSERT = 1, // VSYNC is asserted
   };
+  
   enum class eHSYNC_OVERRIDE : uint32_t {
     eDEASSERT = 0, // HSYNC is not asserted
     eASSERT = 1, // HSYNC is asserted
   };
+  
   enum class eVALID_OVERRIDE : uint32_t {
     eASSERT = 0, // HSYNC and VSYNC is asserted
     eDEASSERT = 1, // HSYNC and VSYNC is not asserted
   };
+  
   enum class ePOLARITY : uint32_t {
     eKEEP = 0, // Keep the current polarity of HSYNC and VSYNC
     eINVERT = 1, // Invert the polarity of HSYNC and VSYNC
@@ -153,7 +152,7 @@ union PLM_CTRL {
     eVALID_OVERRIDE VALID_OVERRIDE : 1;
     ePOLARITY POLARITY : 1;
     uint32_t _reserved_end : 27;
-  } bits;          // Bit-field struct (auto-filling reserved gaps)
+  } bits;
   
   // Full 32-bit register value.
   uint32_t value;
@@ -167,8 +166,6 @@ union PLM_CTRL {
 //
 union PLM_CTRL_SET {
   
-  // Enum definitions.
-  
   // Bit field definition.
   struct {
     uint32_t ENABLE : 1;
@@ -177,7 +174,7 @@ union PLM_CTRL_SET {
     uint32_t VALID_OVERRIDE : 1;
     uint32_t POLARITY : 1;
     uint32_t _reserved_end : 27;
-  } bits;          // Bit-field struct (auto-filling reserved gaps)
+  } bits;
   
   // Full 32-bit register value.
   uint32_t value;
@@ -191,8 +188,6 @@ union PLM_CTRL_SET {
 //
 union PLM_CTRL_CLR {
   
-  // Enum definitions.
-  
   // Bit field definition.
   struct {
     uint32_t ENABLE : 1;
@@ -201,7 +196,7 @@ union PLM_CTRL_CLR {
     uint32_t VALID_OVERRIDE : 1;
     uint32_t POLARITY : 1;
     uint32_t _reserved_end : 27;
-  } bits;          // Bit-field struct (auto-filling reserved gaps)
+  } bits;
   
   // Full 32-bit register value.
   uint32_t value;
@@ -215,8 +210,6 @@ union PLM_CTRL_CLR {
 //
 union PLM_CTRL_TOG {
   
-  // Enum definitions.
-  
   // Bit field definition.
   struct {
     uint32_t ENABLE : 1;
@@ -225,7 +218,7 @@ union PLM_CTRL_TOG {
     uint32_t VALID_OVERRIDE : 1;
     uint32_t POLARITY : 1;
     uint32_t _reserved_end : 27;
-  } bits;          // Bit-field struct (auto-filling reserved gaps)
+  } bits;
   
   // Full 32-bit register value.
   uint32_t value;
@@ -239,7 +232,6 @@ union PLM_CTRL_TOG {
 //
 union YUV420_CTRL {
   
-  // Enum definitions.
   enum class eFST_LN_DATA_TYPE : uint32_t {
     eODD = 0, // Odd (default)
     eEVEN = 1, // Even
@@ -249,7 +241,7 @@ union YUV420_CTRL {
   struct {
     eFST_LN_DATA_TYPE FST_LN_DATA_TYPE : 1;
     uint32_t _reserved_end : 31;
-  } bits;          // Bit-field struct (auto-filling reserved gaps)
+  } bits;
   
   // Full 32-bit register value.
   uint32_t value;
@@ -263,13 +255,11 @@ union YUV420_CTRL {
 //
 union YUV420_CTRL_SET {
   
-  // Enum definitions.
-  
   // Bit field definition.
   struct {
     uint32_t FST_LN_DATA_TYPE : 1;
     uint32_t _reserved_end : 31;
-  } bits;          // Bit-field struct (auto-filling reserved gaps)
+  } bits;
   
   // Full 32-bit register value.
   uint32_t value;
@@ -283,13 +273,11 @@ union YUV420_CTRL_SET {
 //
 union YUV420_CTRL_CLR {
   
-  // Enum definitions.
-  
   // Bit field definition.
   struct {
     uint32_t FST_LN_DATA_TYPE : 1;
     uint32_t _reserved_end : 31;
-  } bits;          // Bit-field struct (auto-filling reserved gaps)
+  } bits;
   
   // Full 32-bit register value.
   uint32_t value;
@@ -303,13 +291,11 @@ union YUV420_CTRL_CLR {
 //
 union YUV420_CTRL_TOG {
   
-  // Enum definitions.
-  
   // Bit field definition.
   struct {
     uint32_t FST_LN_DATA_TYPE : 1;
     uint32_t _reserved_end : 31;
-  } bits;          // Bit-field struct (auto-filling reserved gaps)
+  } bits;
   
   // Full 32-bit register value.
   uint32_t value;
@@ -323,13 +309,11 @@ union YUV420_CTRL_TOG {
 //
 union CFG_DT_DISABLE {
   
-  // Enum definitions.
-  
   // Bit field definition.
   struct {
     uint32_t CFG_DT_DISABLE : 24;
     uint32_t _reserved_end : 8;
-  } bits;          // Bit-field struct (auto-filling reserved gaps)
+  } bits;
   
   // Full 32-bit register value.
   uint32_t value;
@@ -343,13 +327,11 @@ union CFG_DT_DISABLE {
 //
 union CFG_DT_DISABLE_SET {
   
-  // Enum definitions.
-  
   // Bit field definition.
   struct {
     uint32_t CFG_DT_DISABLE : 24;
     uint32_t _reserved_end : 8;
-  } bits;          // Bit-field struct (auto-filling reserved gaps)
+  } bits;
   
   // Full 32-bit register value.
   uint32_t value;
@@ -363,13 +345,11 @@ union CFG_DT_DISABLE_SET {
 //
 union CFG_DT_DISABLE_CLR {
   
-  // Enum definitions.
-  
   // Bit field definition.
   struct {
     uint32_t CFG_DT_DISABLE : 24;
     uint32_t _reserved_end : 8;
-  } bits;          // Bit-field struct (auto-filling reserved gaps)
+  } bits;
   
   // Full 32-bit register value.
   uint32_t value;
@@ -383,13 +363,11 @@ union CFG_DT_DISABLE_CLR {
 //
 union CFG_DT_DISABLE_TOG {
   
-  // Enum definitions.
-  
   // Bit field definition.
   struct {
     uint32_t CFG_DT_DISABLE : 24;
     uint32_t _reserved_end : 8;
-  } bits;          // Bit-field struct (auto-filling reserved gaps)
+  } bits;
   
   // Full 32-bit register value.
   uint32_t value;
@@ -403,11 +381,11 @@ union CFG_DT_DISABLE_TOG {
 //
 union MIPI_DSI_CTRL {
   
-  // Enum definitions.
   enum class eDPI_SD : uint32_t {
     eNO = 0, // No effect
     eSENDCMD = 1, // Send shutdown command
   };
+  
   enum class eDPI_CM : uint32_t {
     eNORMAL = 0, // Normal Mode
     eLOWCLR = 1, // Low-color mode
@@ -418,7 +396,7 @@ union MIPI_DSI_CTRL {
     eDPI_SD DPI_SD : 1;
     eDPI_CM DPI_CM : 1;
     uint32_t _reserved_end : 30;
-  } bits;          // Bit-field struct (auto-filling reserved gaps)
+  } bits;
   
   // Full 32-bit register value.
   uint32_t value;
@@ -432,14 +410,12 @@ union MIPI_DSI_CTRL {
 //
 union MIPI_DSI_CTRL_SET {
   
-  // Enum definitions.
-  
   // Bit field definition.
   struct {
     uint32_t DPI_SD : 1;
     uint32_t DPI_CM : 1;
     uint32_t _reserved_end : 30;
-  } bits;          // Bit-field struct (auto-filling reserved gaps)
+  } bits;
   
   // Full 32-bit register value.
   uint32_t value;
@@ -453,14 +429,12 @@ union MIPI_DSI_CTRL_SET {
 //
 union MIPI_DSI_CTRL_CLR {
   
-  // Enum definitions.
-  
   // Bit field definition.
   struct {
     uint32_t DPI_SD : 1;
     uint32_t DPI_CM : 1;
     uint32_t _reserved_end : 30;
-  } bits;          // Bit-field struct (auto-filling reserved gaps)
+  } bits;
   
   // Full 32-bit register value.
   uint32_t value;
@@ -474,14 +448,12 @@ union MIPI_DSI_CTRL_CLR {
 //
 union MIPI_DSI_CTRL_TOG {
   
-  // Enum definitions.
-  
   // Bit field definition.
   struct {
     uint32_t DPI_SD : 1;
     uint32_t DPI_CM : 1;
     uint32_t _reserved_end : 30;
-  } bits;          // Bit-field struct (auto-filling reserved gaps)
+  } bits;
   
   // Full 32-bit register value.
   uint32_t value;

@@ -15,67 +15,81 @@ namespace nMECC2 {
 //
 union ERR_STATUS {
   
-  // Enum definitions.
   enum class eSINGLE_ERR0 : uint32_t {
     eSINGLE_ERR0_0 = 0, // Single bit error does not happen on OCRAM bank0.
     eSINGLE_ERR0_1 = 1, // Single bit error happens on OCRAM bank0.
   };
+  
   enum class eSINGLE_ERR1 : uint32_t {
     eSINGLE_ERR1_0 = 0, // Single bit error does not happen on OCRAM bank1.
     eSINGLE_ERR1_1 = 1, // Single bit error happens on OCRAM bank1.
   };
+  
   enum class eSINGLE_ERR2 : uint32_t {
     eSINGLE_ERR2_0 = 0, // Single bit error does not happen on OCRAM bank2.
     eSINGLE_ERR2_1 = 1, // Single bit error happens on OCRAM bank2.
   };
+  
   enum class eSINGLE_ERR3 : uint32_t {
     eSINGLE_ERR3_0 = 0, // Single bit error does not happen on OCRAM bank3.
     eSINGLE_ERR3_1 = 1, // Single bit error happens on OCRAM bank3.
   };
+  
   enum class eMULTI_ERR0 : uint32_t {
     eMULTI_ERR0_0 = 0, // Multiple bits error does not happen on OCRAM bank0.
     eMULTI_ERR0_1 = 1, // Multiple bits error happens on OCRAM bank0.
   };
+  
   enum class eMULTI_ERR1 : uint32_t {
     eMULTI_ERR1_0 = 0, // Multiple bits error does not happen on OCRAM bank1.
     eMULTI_ERR1_1 = 1, // Multiple bits error happens on OCRAM bank1.
   };
+  
   enum class eMULTI_ERR2 : uint32_t {
     eMULTI_ERR2_0 = 0, // Multiple bits error does not happen on OCRAM bank2.
     eMULTI_ERR2_1 = 1, // Multiple bits error happens on OCRAM bank2.
   };
+  
   enum class eMULTI_ERR3 : uint32_t {
     eMULTI_ERR3_0 = 0, // Multiple bits error does not happen on OCRAM bank3.
     eMULTI_ERR3_1 = 1, // Multiple bits error happens on OCRAM bank3.
   };
+  
   enum class eSTRB_ERR0 : uint32_t {
     eSTRB_ERR0_0 = 0, // AXI strobe error does not happen on OCRAM bank0.
     eSTRB_ERR0_1 = 1, // AXI strobe error happens on OCRAM bank0.
   };
+  
   enum class eSTRB_ERR1 : uint32_t {
     eSTRB_ERR1_0 = 0, // AXI strobe error does not happen on OCRAM bank1.
     eSTRB_ERR1_1 = 1, // AXI strobe error happens on OCRAM bank1.
   };
+  
   enum class eSTRB_ERR2 : uint32_t {
     eSTRB_ERR2_0 = 0, // AXI strobe error does not happen on OCRAM bank2.
     eSTRB_ERR2_1 = 1, // AXI strobe error happens on OCRAM bank2.
   };
+  
   enum class eSTRB_ERR3 : uint32_t {
     eSTRB_ERR3_0 = 0, // AXI strobe error does not happen on OCRAM bank3.
     eSTRB_ERR3_1 = 1, // AXI strobe error happens on OCRAM bank3.
   };
+  
   enum class eADDR_ERR0 : uint32_t {
     eADDR_ERR0_0 = 0, // OCRAM access error does not happen on OCRAM bank0.
     eADDR_ERR0_1 = 1, // OCRAM access error happens on OCRAM bank0.
   };
+  
   enum class eADDR_ERR1 : uint32_t {
     eADDR_ERR1_0 = 0, // OCRAM access error does not happen on OCRAM bank1.
     eADDR_ERR1_1 = 1, // OCRAM access error happens on OCRAM bank1.
   };
+  
   enum class eADDR_ERR2 : uint32_t {
     eADDR_ERR2_0 = 0, // OCRAM access error does not happen on OCRAM bank2.
     eADDR_ERR2_1 = 1, // OCRAM access error happens on OCRAM bank2.
   };
+  
   enum class eADDR_ERR3 : uint32_t {
     eADDR_ERR3_0 = 0, // OCRAM access error does not happen on OCRAM bank3.
     eADDR_ERR3_1 = 1, // OCRAM access error happens on OCRAM bank3.
@@ -100,7 +114,7 @@ union ERR_STATUS {
     eADDR_ERR2 ADDR_ERR2 : 1;
     eADDR_ERR3 ADDR_ERR3 : 1;
     uint32_t _reserved_end : 16;
-  } bits;          // Bit-field struct (auto-filling reserved gaps)
+  } bits;
   
   // Full 32-bit register value.
   uint32_t value;
@@ -114,67 +128,81 @@ union ERR_STATUS {
 //
 union ERR_STAT_EN {
   
-  // Enum definitions.
   enum class eSINGLE_ERR0_STAT_EN : uint32_t {
     eSINGLE_ERR0_STAT_EN_0 = 0, // Disabled
     eSINGLE_ERR0_STAT_EN_1 = 1, // Enabled
   };
+  
   enum class eSINGLE_ERR1_STAT_EN : uint32_t {
     eSINGLE_ERR1_STAT_EN_0 = 0, // Disabled
     eSINGLE_ERR1_STAT_EN_1 = 1, // Enabled
   };
+  
   enum class eSINGLE_ERR2_STAT_EN : uint32_t {
     eSINGLE_ERR2_STAT_EN_0 = 0, // Disabled
     eSINGLE_ERR2_STAT_EN_1 = 1, // Enabled
   };
+  
   enum class eSINGLE_ERR3_STAT_EN : uint32_t {
     eSINGLE_ERR3_STAT_EN_0 = 0, // Disabled
     eSINGLE_ERR3_STAT_EN_1 = 1, // Enabled
   };
+  
   enum class eMULTI_ERR0_STAT_EN : uint32_t {
     eMULTI_ERR0_STAT_EN_0 = 0, // Disabled
     eMULTI_ERR0_STAT_EN_1 = 1, // Enabled
   };
+  
   enum class eMULTI_ERR1_STAT_EN : uint32_t {
     eMULTI_ERR1_STAT_EN_0 = 0, // Disabled
     eMULTI_ERR1_STAT_EN_1 = 1, // Enabled
   };
+  
   enum class eMULTI_ERR2_STAT_EN : uint32_t {
     eMULTI_ERR2_STAT_EN_0 = 0, // Disabled
     eMULTI_ERR2_STAT_EN_1 = 1, // Enabled
   };
+  
   enum class eMULTI_ERR3_STAT_EN : uint32_t {
     eMULTI_ERR3_STAT_EN_0 = 0, // Disabled
     eMULTI_ERR3_STAT_EN_1 = 1, // Enabled
   };
+  
   enum class eSTRB_ERR0_STAT_EN : uint32_t {
     eSTRB_ERR0_STAT_EN_0 = 0, // Disabled
     eSTRB_ERR0_STAT_EN_1 = 1, // Enabled
   };
+  
   enum class eSTRB_ERR1_STAT_EN : uint32_t {
     eSTRB_ERR1_STAT_EN_0 = 0, // Disabled
     eSTRB_ERR1_STAT_EN_1 = 1, // Enabled
   };
+  
   enum class eSTRB_ERR2_STAT_EN : uint32_t {
     eSTRB_ERR2_STAT_EN_0 = 0, // Disabled
     eSTRB_ERR2_STAT_EN_1 = 1, // Enabled
   };
+  
   enum class eSTRB_ERR3_STAT_EN : uint32_t {
     eSTRB_ERR3_STAT_EN_0 = 0, // Disabled
     eSTRB_ERR3_STAT_EN_1 = 1, // Enabled
   };
+  
   enum class eADDR_ERR0_STAT_EN : uint32_t {
     eADDR_ERR0_STAT_EN_0 = 0, // Disabled
     eADDR_ERR0_STAT_EN_1 = 1, // Enabled
   };
+  
   enum class eADDR_ERR1_STAT_EN : uint32_t {
     eADDR_ERR1_STAT_EN_0 = 0, // Disabled
     eADDR_ERR1_STAT_EN_1 = 1, // Enabled
   };
+  
   enum class eADDR_ERR2_STAT_EN : uint32_t {
     eADDR_ERR2_STAT_EN_0 = 0, // Disabled
     eADDR_ERR2_STAT_EN_1 = 1, // Enabled
   };
+  
   enum class eADDR_ERR3_STAT_EN : uint32_t {
     eADDR_ERR3_STAT_EN_0 = 0, // Disabled
     eADDR_ERR3_STAT_EN_1 = 1, // Enabled
@@ -199,7 +227,7 @@ union ERR_STAT_EN {
     eADDR_ERR2_STAT_EN ADDR_ERR2_STAT_EN : 1;
     eADDR_ERR3_STAT_EN ADDR_ERR3_STAT_EN : 1;
     uint32_t _reserved_end : 16;
-  } bits;          // Bit-field struct (auto-filling reserved gaps)
+  } bits;
   
   // Full 32-bit register value.
   uint32_t value;
@@ -213,67 +241,81 @@ union ERR_STAT_EN {
 //
 union ERR_SIG_EN {
   
-  // Enum definitions.
   enum class eSINGLE_ERR0_SIG_EN : uint32_t {
     eSINGLE_ERR0_SIG_EN_0 = 0, // Disabled
     eSINGLE_ERR0_SIG_EN_1 = 1, // Enabled
   };
+  
   enum class eSINGLE_ERR1_SIG_EN : uint32_t {
     eSINGLE_ERR1_SIG_EN_0 = 0, // Disabled
     eSINGLE_ERR1_SIG_EN_1 = 1, // Enabled
   };
+  
   enum class eSINGLE_ERR2_SIG_EN : uint32_t {
     eSINGLE_ERR2_SIG_EN_0 = 0, // Disabled
     eSINGLE_ERR2_SIG_EN_1 = 1, // Enabled
   };
+  
   enum class eSINGLE_ERR3_SIG_EN : uint32_t {
     eSINGLE_ERR3_SIG_EN_0 = 0, // Disabled
     eSINGLE_ERR3_SIG_EN_1 = 1, // Enabled
   };
+  
   enum class eMULTI_ERR0_SIG_EN : uint32_t {
     eMULTI_ERR0_SIG_EN_0 = 0, // Disabled
     eMULTI_ERR0_SIG_EN_1 = 1, // Enabled
   };
+  
   enum class eMULTI_ERR1_SIG_EN : uint32_t {
     eMULTI_ERR1_SIG_EN_0 = 0, // Disabled
     eMULTI_ERR1_SIG_EN_1 = 1, // Enabled
   };
+  
   enum class eMULTI_ERR2_SIG_EN : uint32_t {
     eMULTI_ERR2_SIG_EN_0 = 0, // Disabled
     eMULTI_ERR2_SIG_EN_1 = 1, // Enabled
   };
+  
   enum class eMULTI_ERR3_SIG_EN : uint32_t {
     eMULTI_ERR3_SIG_EN_0 = 0, // Disabled
     eMULTI_ERR3_SIG_EN_1 = 1, // Enabled
   };
+  
   enum class eSTRB_ERR0_SIG_EN : uint32_t {
     eSTRB_ERR0_SIG_EN_0 = 0, // Disabled
     eSTRB_ERR0_SIG_EN_1 = 1, // Enabled
   };
+  
   enum class eSTRB_ERR1_SIG_EN : uint32_t {
     eSTRB_ERR1_SIG_EN_0 = 0, // Disabled
     eSTRB_ERR1_SIG_EN_1 = 1, // Enabled
   };
+  
   enum class eSTRB_ERR2_SIG_EN : uint32_t {
     eSTRB_ERR2_SIG_EN_0 = 0, // Disabled
     eSTRB_ERR2_SIG_EN_1 = 1, // Enabled
   };
+  
   enum class eSTRB_ERR3_SIG_EN : uint32_t {
     eSTRB_ERR3_SIG_EN_0 = 0, // Disabled
     eSTRB_ERR3_SIG_EN_1 = 1, // Enabled
   };
+  
   enum class eADDR_ERR0_SIG_EN : uint32_t {
     eADDR_ERR0_SIG_EN_0 = 0, // Disabled
     eADDR_ERR0_SIG_EN_1 = 1, // Enabled
   };
+  
   enum class eADDR_ERR1_SIG_EN : uint32_t {
     eADDR_ERR1_SIG_EN_0 = 0, // Disabled
     eADDR_ERR1_SIG_EN_1 = 1, // Enabled
   };
+  
   enum class eADDR_ERR2_SIG_EN : uint32_t {
     eADDR_ERR2_SIG_EN_0 = 0, // Disabled
     eADDR_ERR2_SIG_EN_1 = 1, // Enabled
   };
+  
   enum class eADDR_ERR3_SIG_EN : uint32_t {
     eADDR_ERR3_SIG_EN_0 = 0, // Disabled
     eADDR_ERR3_SIG_EN_1 = 1, // Enabled
@@ -298,7 +340,7 @@ union ERR_SIG_EN {
     eADDR_ERR2_SIG_EN ADDR_ERR2_SIG_EN : 1;
     eADDR_ERR3_SIG_EN ADDR_ERR3_SIG_EN : 1;
     uint32_t _reserved_end : 16;
-  } bits;          // Bit-field struct (auto-filling reserved gaps)
+  } bits;
   
   // Full 32-bit register value.
   uint32_t value;
@@ -312,12 +354,10 @@ union ERR_SIG_EN {
 //
 union ERR_DATA_INJ_LOW0 {
   
-  // Enum definitions.
-  
   // Bit field definition.
   struct {
     uint32_t ERR_DATA_INJ : 32;
-  } bits;          // Bit-field struct (auto-filling reserved gaps)
+  } bits;
   
   // Full 32-bit register value.
   uint32_t value;
@@ -331,12 +371,10 @@ union ERR_DATA_INJ_LOW0 {
 //
 union ERR_DATA_INJ_HIGH0 {
   
-  // Enum definitions.
-  
   // Bit field definition.
   struct {
     uint32_t ERR_DATA_INJ : 32;
-  } bits;          // Bit-field struct (auto-filling reserved gaps)
+  } bits;
   
   // Full 32-bit register value.
   uint32_t value;
@@ -350,13 +388,11 @@ union ERR_DATA_INJ_HIGH0 {
 //
 union ERR_ECC_INJ0 {
   
-  // Enum definitions.
-  
   // Bit field definition.
   struct {
     uint32_t ERR_ECC_INJ : 8;
     uint32_t _reserved_end : 24;
-  } bits;          // Bit-field struct (auto-filling reserved gaps)
+  } bits;
   
   // Full 32-bit register value.
   uint32_t value;
@@ -370,12 +406,10 @@ union ERR_ECC_INJ0 {
 //
 union ERR_DATA_INJ_LOW1 {
   
-  // Enum definitions.
-  
   // Bit field definition.
   struct {
     uint32_t ERR_DATA_INJ : 32;
-  } bits;          // Bit-field struct (auto-filling reserved gaps)
+  } bits;
   
   // Full 32-bit register value.
   uint32_t value;
@@ -389,12 +423,10 @@ union ERR_DATA_INJ_LOW1 {
 //
 union ERR_DATA_INJ_HIGH1 {
   
-  // Enum definitions.
-  
   // Bit field definition.
   struct {
     uint32_t ERR_DATA_INJ : 32;
-  } bits;          // Bit-field struct (auto-filling reserved gaps)
+  } bits;
   
   // Full 32-bit register value.
   uint32_t value;
@@ -408,13 +440,11 @@ union ERR_DATA_INJ_HIGH1 {
 //
 union ERR_ECC_INJ1 {
   
-  // Enum definitions.
-  
   // Bit field definition.
   struct {
     uint32_t ERR_ECC_INJ : 8;
     uint32_t _reserved_end : 24;
-  } bits;          // Bit-field struct (auto-filling reserved gaps)
+  } bits;
   
   // Full 32-bit register value.
   uint32_t value;
@@ -428,12 +458,10 @@ union ERR_ECC_INJ1 {
 //
 union ERR_DATA_INJ_LOW2 {
   
-  // Enum definitions.
-  
   // Bit field definition.
   struct {
     uint32_t ERR_DATA_INJ : 32;
-  } bits;          // Bit-field struct (auto-filling reserved gaps)
+  } bits;
   
   // Full 32-bit register value.
   uint32_t value;
@@ -447,12 +475,10 @@ union ERR_DATA_INJ_LOW2 {
 //
 union ERR_DATA_INJ_HIGH2 {
   
-  // Enum definitions.
-  
   // Bit field definition.
   struct {
     uint32_t ERR_DATA_INJ : 32;
-  } bits;          // Bit-field struct (auto-filling reserved gaps)
+  } bits;
   
   // Full 32-bit register value.
   uint32_t value;
@@ -466,13 +492,11 @@ union ERR_DATA_INJ_HIGH2 {
 //
 union ERR_ECC_INJ2 {
   
-  // Enum definitions.
-  
   // Bit field definition.
   struct {
     uint32_t ERR_ECC_INJ : 8;
     uint32_t _reserved_end : 24;
-  } bits;          // Bit-field struct (auto-filling reserved gaps)
+  } bits;
   
   // Full 32-bit register value.
   uint32_t value;
@@ -486,12 +510,10 @@ union ERR_ECC_INJ2 {
 //
 union ERR_DATA_INJ_LOW3 {
   
-  // Enum definitions.
-  
   // Bit field definition.
   struct {
     uint32_t ERR_DATA_INJ : 32;
-  } bits;          // Bit-field struct (auto-filling reserved gaps)
+  } bits;
   
   // Full 32-bit register value.
   uint32_t value;
@@ -505,12 +527,10 @@ union ERR_DATA_INJ_LOW3 {
 //
 union ERR_DATA_INJ_HIGH3 {
   
-  // Enum definitions.
-  
   // Bit field definition.
   struct {
     uint32_t ERR_DATA_INJ : 32;
-  } bits;          // Bit-field struct (auto-filling reserved gaps)
+  } bits;
   
   // Full 32-bit register value.
   uint32_t value;
@@ -524,13 +544,11 @@ union ERR_DATA_INJ_HIGH3 {
 //
 union ERR_ECC_INJ3 {
   
-  // Enum definitions.
-  
   // Bit field definition.
   struct {
     uint32_t ERR_ECC_INJ : 8;
     uint32_t _reserved_end : 24;
-  } bits;          // Bit-field struct (auto-filling reserved gaps)
+  } bits;
   
   // Full 32-bit register value.
   uint32_t value;
@@ -544,14 +562,12 @@ union ERR_ECC_INJ3 {
 //
 union SINGLE_ERR_ADDR_ECC0 {
   
-  // Enum definitions.
-  
   // Bit field definition.
   struct {
     uint32_t SINGLE_ERR_ECC : 8;
     uint32_t SINGLE_ERR_ADDR : 19;
     uint32_t _reserved_end : 5;
-  } bits;          // Bit-field struct (auto-filling reserved gaps)
+  } bits;
   
   // Full 32-bit register value.
   uint32_t value;
@@ -565,12 +581,10 @@ union SINGLE_ERR_ADDR_ECC0 {
 //
 union SINGLE_ERR_DATA_LOW0 {
   
-  // Enum definitions.
-  
   // Bit field definition.
   struct {
     uint32_t SINGLE_ERR_DATA : 32;
-  } bits;          // Bit-field struct (auto-filling reserved gaps)
+  } bits;
   
   // Full 32-bit register value.
   uint32_t value;
@@ -584,12 +598,10 @@ union SINGLE_ERR_DATA_LOW0 {
 //
 union SINGLE_ERR_DATA_HIGH0 {
   
-  // Enum definitions.
-  
   // Bit field definition.
   struct {
     uint32_t SINGLE_ERR_DATA : 32;
-  } bits;          // Bit-field struct (auto-filling reserved gaps)
+  } bits;
   
   // Full 32-bit register value.
   uint32_t value;
@@ -603,12 +615,10 @@ union SINGLE_ERR_DATA_HIGH0 {
 //
 union SINGLE_ERR_POS_LOW0 {
   
-  // Enum definitions.
-  
   // Bit field definition.
   struct {
     uint32_t SINGLE_ERR_POS : 32;
-  } bits;          // Bit-field struct (auto-filling reserved gaps)
+  } bits;
   
   // Full 32-bit register value.
   uint32_t value;
@@ -622,12 +632,10 @@ union SINGLE_ERR_POS_LOW0 {
 //
 union SINGLE_ERR_POS_HIGH0 {
   
-  // Enum definitions.
-  
   // Bit field definition.
   struct {
     uint32_t SINGLE_ERR_POS : 32;
-  } bits;          // Bit-field struct (auto-filling reserved gaps)
+  } bits;
   
   // Full 32-bit register value.
   uint32_t value;
@@ -641,14 +649,12 @@ union SINGLE_ERR_POS_HIGH0 {
 //
 union SINGLE_ERR_ADDR_ECC1 {
   
-  // Enum definitions.
-  
   // Bit field definition.
   struct {
     uint32_t SINGLE_ERR_ECC : 8;
     uint32_t SINGLE_ERR_ADDR : 19;
     uint32_t _reserved_end : 5;
-  } bits;          // Bit-field struct (auto-filling reserved gaps)
+  } bits;
   
   // Full 32-bit register value.
   uint32_t value;
@@ -662,12 +668,10 @@ union SINGLE_ERR_ADDR_ECC1 {
 //
 union SINGLE_ERR_DATA_LOW1 {
   
-  // Enum definitions.
-  
   // Bit field definition.
   struct {
     uint32_t SINGLE_ERR_DATA : 32;
-  } bits;          // Bit-field struct (auto-filling reserved gaps)
+  } bits;
   
   // Full 32-bit register value.
   uint32_t value;
@@ -681,12 +685,10 @@ union SINGLE_ERR_DATA_LOW1 {
 //
 union SINGLE_ERR_DATA_HIGH1 {
   
-  // Enum definitions.
-  
   // Bit field definition.
   struct {
     uint32_t SINGLE_ERR_DATA : 32;
-  } bits;          // Bit-field struct (auto-filling reserved gaps)
+  } bits;
   
   // Full 32-bit register value.
   uint32_t value;
@@ -700,12 +702,10 @@ union SINGLE_ERR_DATA_HIGH1 {
 //
 union SINGLE_ERR_POS_LOW1 {
   
-  // Enum definitions.
-  
   // Bit field definition.
   struct {
     uint32_t SINGLE_ERR_POS : 32;
-  } bits;          // Bit-field struct (auto-filling reserved gaps)
+  } bits;
   
   // Full 32-bit register value.
   uint32_t value;
@@ -719,12 +719,10 @@ union SINGLE_ERR_POS_LOW1 {
 //
 union SINGLE_ERR_POS_HIGH1 {
   
-  // Enum definitions.
-  
   // Bit field definition.
   struct {
     uint32_t SINGLE_ERR_POS : 32;
-  } bits;          // Bit-field struct (auto-filling reserved gaps)
+  } bits;
   
   // Full 32-bit register value.
   uint32_t value;
@@ -738,14 +736,12 @@ union SINGLE_ERR_POS_HIGH1 {
 //
 union SINGLE_ERR_ADDR_ECC2 {
   
-  // Enum definitions.
-  
   // Bit field definition.
   struct {
     uint32_t SINGLE_ERR_ECC : 8;
     uint32_t SINGLE_ERR_ADDR : 19;
     uint32_t _reserved_end : 5;
-  } bits;          // Bit-field struct (auto-filling reserved gaps)
+  } bits;
   
   // Full 32-bit register value.
   uint32_t value;
@@ -759,12 +755,10 @@ union SINGLE_ERR_ADDR_ECC2 {
 //
 union SINGLE_ERR_DATA_LOW2 {
   
-  // Enum definitions.
-  
   // Bit field definition.
   struct {
     uint32_t SINGLE_ERR_DATA : 32;
-  } bits;          // Bit-field struct (auto-filling reserved gaps)
+  } bits;
   
   // Full 32-bit register value.
   uint32_t value;
@@ -778,12 +772,10 @@ union SINGLE_ERR_DATA_LOW2 {
 //
 union SINGLE_ERR_DATA_HIGH2 {
   
-  // Enum definitions.
-  
   // Bit field definition.
   struct {
     uint32_t SINGLE_ERR_DATA : 32;
-  } bits;          // Bit-field struct (auto-filling reserved gaps)
+  } bits;
   
   // Full 32-bit register value.
   uint32_t value;
@@ -797,12 +789,10 @@ union SINGLE_ERR_DATA_HIGH2 {
 //
 union SINGLE_ERR_POS_LOW2 {
   
-  // Enum definitions.
-  
   // Bit field definition.
   struct {
     uint32_t SINGLE_ERR_POS : 32;
-  } bits;          // Bit-field struct (auto-filling reserved gaps)
+  } bits;
   
   // Full 32-bit register value.
   uint32_t value;
@@ -816,12 +806,10 @@ union SINGLE_ERR_POS_LOW2 {
 //
 union SINGLE_ERR_POS_HIGH2 {
   
-  // Enum definitions.
-  
   // Bit field definition.
   struct {
     uint32_t SINGLE_ERR_POS : 32;
-  } bits;          // Bit-field struct (auto-filling reserved gaps)
+  } bits;
   
   // Full 32-bit register value.
   uint32_t value;
@@ -835,14 +823,12 @@ union SINGLE_ERR_POS_HIGH2 {
 //
 union SINGLE_ERR_ADDR_ECC3 {
   
-  // Enum definitions.
-  
   // Bit field definition.
   struct {
     uint32_t SINGLE_ERR_ECC : 8;
     uint32_t SINGLE_ERR_ADDR : 19;
     uint32_t _reserved_end : 5;
-  } bits;          // Bit-field struct (auto-filling reserved gaps)
+  } bits;
   
   // Full 32-bit register value.
   uint32_t value;
@@ -856,12 +842,10 @@ union SINGLE_ERR_ADDR_ECC3 {
 //
 union SINGLE_ERR_DATA_LOW3 {
   
-  // Enum definitions.
-  
   // Bit field definition.
   struct {
     uint32_t SINGLE_ERR_DATA : 32;
-  } bits;          // Bit-field struct (auto-filling reserved gaps)
+  } bits;
   
   // Full 32-bit register value.
   uint32_t value;
@@ -875,12 +859,10 @@ union SINGLE_ERR_DATA_LOW3 {
 //
 union SINGLE_ERR_DATA_HIGH3 {
   
-  // Enum definitions.
-  
   // Bit field definition.
   struct {
     uint32_t SINGLE_ERR_DATA : 32;
-  } bits;          // Bit-field struct (auto-filling reserved gaps)
+  } bits;
   
   // Full 32-bit register value.
   uint32_t value;
@@ -894,12 +876,10 @@ union SINGLE_ERR_DATA_HIGH3 {
 //
 union SINGLE_ERR_POS_LOW3 {
   
-  // Enum definitions.
-  
   // Bit field definition.
   struct {
     uint32_t SINGLE_ERR_POS : 32;
-  } bits;          // Bit-field struct (auto-filling reserved gaps)
+  } bits;
   
   // Full 32-bit register value.
   uint32_t value;
@@ -913,12 +893,10 @@ union SINGLE_ERR_POS_LOW3 {
 //
 union SINGLE_ERR_POS_HIGH3 {
   
-  // Enum definitions.
-  
   // Bit field definition.
   struct {
     uint32_t SINGLE_ERR_POS : 32;
-  } bits;          // Bit-field struct (auto-filling reserved gaps)
+  } bits;
   
   // Full 32-bit register value.
   uint32_t value;
@@ -932,14 +910,12 @@ union SINGLE_ERR_POS_HIGH3 {
 //
 union MULTI_ERR_ADDR_ECC0 {
   
-  // Enum definitions.
-  
   // Bit field definition.
   struct {
     uint32_t MULTI_ERR_ECC : 8;
     uint32_t MULTI_ERR_ADDR : 19;
     uint32_t _reserved_end : 5;
-  } bits;          // Bit-field struct (auto-filling reserved gaps)
+  } bits;
   
   // Full 32-bit register value.
   uint32_t value;
@@ -953,12 +929,10 @@ union MULTI_ERR_ADDR_ECC0 {
 //
 union MULTI_ERR_DATA_LOW0 {
   
-  // Enum definitions.
-  
   // Bit field definition.
   struct {
     uint32_t MULTI_ERR_DATA : 32;
-  } bits;          // Bit-field struct (auto-filling reserved gaps)
+  } bits;
   
   // Full 32-bit register value.
   uint32_t value;
@@ -972,12 +946,10 @@ union MULTI_ERR_DATA_LOW0 {
 //
 union MULTI_ERR_DATA_HIGH0 {
   
-  // Enum definitions.
-  
   // Bit field definition.
   struct {
     uint32_t MULTI_ERR_DATA : 32;
-  } bits;          // Bit-field struct (auto-filling reserved gaps)
+  } bits;
   
   // Full 32-bit register value.
   uint32_t value;
@@ -991,14 +963,12 @@ union MULTI_ERR_DATA_HIGH0 {
 //
 union MULTI_ERR_ADDR_ECC1 {
   
-  // Enum definitions.
-  
   // Bit field definition.
   struct {
     uint32_t MULTI_ERR_ECC : 8;
     uint32_t MULTI_ERR_ADDR : 19;
     uint32_t _reserved_end : 5;
-  } bits;          // Bit-field struct (auto-filling reserved gaps)
+  } bits;
   
   // Full 32-bit register value.
   uint32_t value;
@@ -1012,12 +982,10 @@ union MULTI_ERR_ADDR_ECC1 {
 //
 union MULTI_ERR_DATA_LOW1 {
   
-  // Enum definitions.
-  
   // Bit field definition.
   struct {
     uint32_t MULTI_ERR_DATA : 32;
-  } bits;          // Bit-field struct (auto-filling reserved gaps)
+  } bits;
   
   // Full 32-bit register value.
   uint32_t value;
@@ -1031,12 +999,10 @@ union MULTI_ERR_DATA_LOW1 {
 //
 union MULTI_ERR_DATA_HIGH1 {
   
-  // Enum definitions.
-  
   // Bit field definition.
   struct {
     uint32_t MULTI_ERR_DATA : 32;
-  } bits;          // Bit-field struct (auto-filling reserved gaps)
+  } bits;
   
   // Full 32-bit register value.
   uint32_t value;
@@ -1050,14 +1016,12 @@ union MULTI_ERR_DATA_HIGH1 {
 //
 union MULTI_ERR_ADDR_ECC2 {
   
-  // Enum definitions.
-  
   // Bit field definition.
   struct {
     uint32_t MULTI_ERR_ECC : 8;
     uint32_t MULTI_ERR_ADDR : 19;
     uint32_t _reserved_end : 5;
-  } bits;          // Bit-field struct (auto-filling reserved gaps)
+  } bits;
   
   // Full 32-bit register value.
   uint32_t value;
@@ -1071,12 +1035,10 @@ union MULTI_ERR_ADDR_ECC2 {
 //
 union MULTI_ERR_DATA_LOW2 {
   
-  // Enum definitions.
-  
   // Bit field definition.
   struct {
     uint32_t MULTI_ERR_DATA : 32;
-  } bits;          // Bit-field struct (auto-filling reserved gaps)
+  } bits;
   
   // Full 32-bit register value.
   uint32_t value;
@@ -1090,12 +1052,10 @@ union MULTI_ERR_DATA_LOW2 {
 //
 union MULTI_ERR_DATA_HIGH2 {
   
-  // Enum definitions.
-  
   // Bit field definition.
   struct {
     uint32_t MULTI_ERR_DATA : 32;
-  } bits;          // Bit-field struct (auto-filling reserved gaps)
+  } bits;
   
   // Full 32-bit register value.
   uint32_t value;
@@ -1109,14 +1069,12 @@ union MULTI_ERR_DATA_HIGH2 {
 //
 union MULTI_ERR_ADDR_ECC3 {
   
-  // Enum definitions.
-  
   // Bit field definition.
   struct {
     uint32_t MULTI_ERR_ECC : 8;
     uint32_t MULTI_ERR_ADDR : 19;
     uint32_t _reserved_end : 5;
-  } bits;          // Bit-field struct (auto-filling reserved gaps)
+  } bits;
   
   // Full 32-bit register value.
   uint32_t value;
@@ -1130,12 +1088,10 @@ union MULTI_ERR_ADDR_ECC3 {
 //
 union MULTI_ERR_DATA_LOW3 {
   
-  // Enum definitions.
-  
   // Bit field definition.
   struct {
     uint32_t MULTI_ERR_DATA : 32;
-  } bits;          // Bit-field struct (auto-filling reserved gaps)
+  } bits;
   
   // Full 32-bit register value.
   uint32_t value;
@@ -1149,12 +1105,10 @@ union MULTI_ERR_DATA_LOW3 {
 //
 union MULTI_ERR_DATA_HIGH3 {
   
-  // Enum definitions.
-  
   // Bit field definition.
   struct {
     uint32_t MULTI_ERR_DATA : 32;
-  } bits;          // Bit-field struct (auto-filling reserved gaps)
+  } bits;
   
   // Full 32-bit register value.
   uint32_t value;
@@ -1168,23 +1122,26 @@ union MULTI_ERR_DATA_HIGH3 {
 //
 union PIPE_ECC_EN {
   
-  // Enum definitions.
   enum class eREAD_DATA_WAIT_EN : uint32_t {
     eREAD_DATA_WAIT_EN_0 = 0, // Disable.
     eREAD_DATA_WAIT_EN_1 = 1, // Enable.
   };
+  
   enum class eREAD_ADDR_PIPE_EN : uint32_t {
     eREAD_ADDR_PIPE_EN_0 = 0, // Disable.
     eREAD_ADDR_PIPE_EN_1 = 1, // Enable.
   };
+  
   enum class eWRITE_DATA_PIPE_EN : uint32_t {
     eWRITE_DATA_PIPE_EN_0 = 0, // Disable.
     eWRITE_DATA_PIPE_EN_1 = 1, // Enable.
   };
+  
   enum class eWRITE_ADDR_PIPE_EN : uint32_t {
     eWRITE_ADDR_PIPE_EN_0 = 0, // Disable.
     eWRITE_ADDR_PIPE_EN_1 = 1, // Enable.
   };
+  
   enum class eECC_EN : uint32_t {
     eECC_EN_0 = 0, // Disable.
     eECC_EN_1 = 1, // Enable.
@@ -1198,7 +1155,7 @@ union PIPE_ECC_EN {
     eWRITE_ADDR_PIPE_EN WRITE_ADDR_PIPE_EN : 1;
     eECC_EN ECC_EN : 1;
     uint32_t _reserved_end : 27;
-  } bits;          // Bit-field struct (auto-filling reserved gaps)
+  } bits;
   
   // Full 32-bit register value.
   uint32_t value;
@@ -1212,19 +1169,21 @@ union PIPE_ECC_EN {
 //
 union PENDING_STAT {
   
-  // Enum definitions.
   enum class eREAD_DATA_WAIT_PENDING : uint32_t {
     eREAD_DATA_WAIT_PENDING_0 = 0, // No update pending status for READ_DATA_WAIT_EN.
     eREAD_DATA_WAIT_PENDING_1 = 1, // When READ_DATA_WAIT_EN register bit is changed, this register bit will be set until the new setup becomes valid in the controller.
   };
+  
   enum class eREAD_ADDR_PIPE_PENDING : uint32_t {
     eREAD_ADDR_PIPE_PENDING_0 = 0, // No update pending status for READ_ADDR_PIPE_EN.
     eREAD_ADDR_PIPE_PENDING_1 = 1, // When READ_ADDR_PIPE_EN register bit is changed, this register bit will be set until the new setup becomes valid in the controller.
   };
+  
   enum class eWRITE_DATA_PIPE_PENDING : uint32_t {
     eWRITE_DATA_PIPE_PENDING_0 = 0, // No update pending status for WRITE_DATA_PIPE_EN.
     eWRITE_DATA_PIPE_PENDING_1 = 1, // When WRITE_DATA_PIPE_EN register bit is changed, this register bit will be set until the new setup becomes valid in the controller.
   };
+  
   enum class eWRITE_ADDR_PIPE_PENDING : uint32_t {
     eWRITE_ADDR_PIPE_PENDING_0 = 0, // No update pending status for WRITE_ADDR_PIPE_EN.
     eWRITE_ADDR_PIPE_PENDING_1 = 1, // When WRITE_ADDR_PIPE_EN register bit is changed, this register bit will be set until the new setup becomes valid in the controller.
@@ -1237,7 +1196,7 @@ union PENDING_STAT {
     eWRITE_DATA_PIPE_PENDING WRITE_DATA_PIPE_PENDING : 1;
     eWRITE_ADDR_PIPE_PENDING WRITE_ADDR_PIPE_PENDING : 1;
     uint32_t _reserved_end : 28;
-  } bits;          // Bit-field struct (auto-filling reserved gaps)
+  } bits;
   
   // Full 32-bit register value.
   uint32_t value;
