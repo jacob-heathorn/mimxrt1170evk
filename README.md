@@ -43,7 +43,11 @@
 cmake --workflow --preset cm4-debug && cmake --workflow --preset cm7-debug && \
 rip -f0 cm7-debug:hello-world-cm7 && \
 rip -d0 cm7-debug:hello-world-cm7 -d1 cm4-debug:hello-world-cm4
-````
+```
+
+# Serial Terminal
+device: `/dev/ttyACM0`
+baud: `115200`
 
 
 # Problems Debugging
@@ -55,3 +59,4 @@ pkill LinkServer
 Unplug/Replug usb
 
 Reboot device
+

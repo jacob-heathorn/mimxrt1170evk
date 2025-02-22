@@ -57,9 +57,9 @@ void BOARD_InitPins(void) {
 //   IOMUXC_SetPinMux(
 //       IOMUXC_GPIO_AD_04_GPIO9_IO03,           /* GPIO_AD_04 is configured as GPIO9_IO03 */
 //       0U);                                    /* Software Input On Field: Input Path is determined by functionality */
-  IOMUXC_SetPinMux(
-      IOMUXC_GPIO_AD_24_LPUART1_TXD,          /* GPIO_AD_24 is configured as LPUART1_TXD */
-      0U);                                    /* Software Input On Field: Input Path is determined by functionality */
+  // IOMUXC_SetPinMux(
+  //     IOMUXC_GPIO_AD_24_LPUART1_TXD,          /* GPIO_AD_24 is configured as LPUART1_TXD */
+  //     0U);                                    /* Software Input On Field: Input Path is determined by functionality */
   IOMUXC_SetPinMux(
       IOMUXC_GPIO_AD_25_LPUART1_RXD,          /* GPIO_AD_25 is configured as LPUART1_RXD */
       1U);                                    /* Software Input On Field: Force input path of pad GPIO_AD_25 */
