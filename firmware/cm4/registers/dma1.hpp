@@ -4,7 +4,7 @@
 #include <stdint.h>
 #include <cstring>
 
-// // DMA
+// DMA
 //
 // NOTE: This file was generated from the forge CMSIS-svd wrapper tool.
 
@@ -76,12 +76,12 @@ union CR {
     eCLM CLM : 1;
     eEMLM EMLM : 1;
     uint32_t GRP0PRI : 1;
-    uint32_t _reserved_8 : 1;
+    uint32_t _reserved_1 : 1;
     uint32_t GRP1PRI : 1;
-    uint32_t _reserved_9 : 5;
+    uint32_t _reserved_2 : 5;
     eECX ECX : 1;
     eCX CX : 1;
-    uint32_t _reserved_11 : 6;
+    uint32_t _reserved_3 : 6;
     uint32_t VERSION : 7;
     eACTIVE ACTIVE : 1;
   } bits;
@@ -169,11 +169,11 @@ union ES {
     eSOE SOE : 1;
     eSAE SAE : 1;
     uint32_t ERRCHN : 5;
-    uint32_t _reserved_9 : 1;
+    uint32_t _reserved_0 : 1;
     eCPE CPE : 1;
     eGPE GPE : 1;
     eECX ECX : 1;
-    uint32_t _reserved_12 : 14;
+    uint32_t _reserved_1 : 14;
     eVLD VLD : 1;
   } bits;
   
@@ -618,10 +618,10 @@ union CEEI {
   // Bit field definition.
   struct {
     uint32_t CEEI : 5;
-    uint32_t _reserved_1 : 1;
+    uint32_t _reserved_0 : 1;
     eCAEE CAEE : 1;
     eNOP NOP : 1;
-    uint32_t _reserved_end : 24;
+    uint32_t _reserved_1 : 24;
   } bits;
   
   // Full 32-bit register value.
@@ -649,10 +649,10 @@ union SEEI {
   // Bit field definition.
   struct {
     uint32_t SEEI : 5;
-    uint32_t _reserved_1 : 1;
+    uint32_t _reserved_0 : 1;
     eSAEE SAEE : 1;
     eNOP NOP : 1;
-    uint32_t _reserved_end : 24;
+    uint32_t _reserved_1 : 24;
   } bits;
   
   // Full 32-bit register value.
@@ -680,10 +680,10 @@ union CERQ {
   // Bit field definition.
   struct {
     uint32_t CERQ : 5;
-    uint32_t _reserved_1 : 1;
+    uint32_t _reserved_0 : 1;
     eCAER CAER : 1;
     eNOP NOP : 1;
-    uint32_t _reserved_end : 24;
+    uint32_t _reserved_1 : 24;
   } bits;
   
   // Full 32-bit register value.
@@ -711,10 +711,10 @@ union SERQ {
   // Bit field definition.
   struct {
     uint32_t SERQ : 5;
-    uint32_t _reserved_1 : 1;
+    uint32_t _reserved_0 : 1;
     eSAER SAER : 1;
     eNOP NOP : 1;
-    uint32_t _reserved_end : 24;
+    uint32_t _reserved_1 : 24;
   } bits;
   
   // Full 32-bit register value.
@@ -742,10 +742,10 @@ union CDNE {
   // Bit field definition.
   struct {
     uint32_t CDNE : 5;
-    uint32_t _reserved_1 : 1;
+    uint32_t _reserved_0 : 1;
     eCADN CADN : 1;
     eNOP NOP : 1;
-    uint32_t _reserved_end : 24;
+    uint32_t _reserved_1 : 24;
   } bits;
   
   // Full 32-bit register value.
@@ -773,10 +773,10 @@ union SSRT {
   // Bit field definition.
   struct {
     uint32_t SSRT : 5;
-    uint32_t _reserved_1 : 1;
+    uint32_t _reserved_0 : 1;
     eSAST SAST : 1;
     eNOP NOP : 1;
-    uint32_t _reserved_end : 24;
+    uint32_t _reserved_1 : 24;
   } bits;
   
   // Full 32-bit register value.
@@ -804,10 +804,10 @@ union CERR {
   // Bit field definition.
   struct {
     uint32_t CERR : 5;
-    uint32_t _reserved_1 : 1;
+    uint32_t _reserved_0 : 1;
     eCAEI CAEI : 1;
     eNOP NOP : 1;
-    uint32_t _reserved_end : 24;
+    uint32_t _reserved_1 : 24;
   } bits;
   
   // Full 32-bit register value.
@@ -835,10 +835,10 @@ union CINT {
   // Bit field definition.
   struct {
     uint32_t CINT : 5;
-    uint32_t _reserved_1 : 1;
+    uint32_t _reserved_0 : 1;
     eCAIR CAIR : 1;
     eNOP NOP : 1;
-    uint32_t _reserved_end : 24;
+    uint32_t _reserved_1 : 24;
   } bits;
   
   // Full 32-bit register value.
@@ -1701,7 +1701,7 @@ union DCHPRI3 {
     uint32_t GRPPRI : 2;
     eDPA DPA : 1;
     eECP ECP : 1;
-    uint32_t _reserved_end : 24;
+    uint32_t _reserved_0 : 24;
   } bits;
   
   // Full 32-bit register value.
@@ -1732,7 +1732,7 @@ union DCHPRI2 {
     uint32_t GRPPRI : 2;
     eDPA DPA : 1;
     eECP ECP : 1;
-    uint32_t _reserved_end : 24;
+    uint32_t _reserved_0 : 24;
   } bits;
   
   // Full 32-bit register value.
@@ -1763,7 +1763,7 @@ union DCHPRI1 {
     uint32_t GRPPRI : 2;
     eDPA DPA : 1;
     eECP ECP : 1;
-    uint32_t _reserved_end : 24;
+    uint32_t _reserved_0 : 24;
   } bits;
   
   // Full 32-bit register value.
@@ -1794,7 +1794,7 @@ union DCHPRI0 {
     uint32_t GRPPRI : 2;
     eDPA DPA : 1;
     eECP ECP : 1;
-    uint32_t _reserved_end : 24;
+    uint32_t _reserved_0 : 24;
   } bits;
   
   // Full 32-bit register value.
@@ -1825,7 +1825,7 @@ union DCHPRI7 {
     uint32_t GRPPRI : 2;
     eDPA DPA : 1;
     eECP ECP : 1;
-    uint32_t _reserved_end : 24;
+    uint32_t _reserved_0 : 24;
   } bits;
   
   // Full 32-bit register value.
@@ -1856,7 +1856,7 @@ union DCHPRI6 {
     uint32_t GRPPRI : 2;
     eDPA DPA : 1;
     eECP ECP : 1;
-    uint32_t _reserved_end : 24;
+    uint32_t _reserved_0 : 24;
   } bits;
   
   // Full 32-bit register value.
@@ -1887,7 +1887,7 @@ union DCHPRI5 {
     uint32_t GRPPRI : 2;
     eDPA DPA : 1;
     eECP ECP : 1;
-    uint32_t _reserved_end : 24;
+    uint32_t _reserved_0 : 24;
   } bits;
   
   // Full 32-bit register value.
@@ -1918,7 +1918,7 @@ union DCHPRI4 {
     uint32_t GRPPRI : 2;
     eDPA DPA : 1;
     eECP ECP : 1;
-    uint32_t _reserved_end : 24;
+    uint32_t _reserved_0 : 24;
   } bits;
   
   // Full 32-bit register value.
@@ -1949,7 +1949,7 @@ union DCHPRI11 {
     uint32_t GRPPRI : 2;
     eDPA DPA : 1;
     eECP ECP : 1;
-    uint32_t _reserved_end : 24;
+    uint32_t _reserved_0 : 24;
   } bits;
   
   // Full 32-bit register value.
@@ -1980,7 +1980,7 @@ union DCHPRI10 {
     uint32_t GRPPRI : 2;
     eDPA DPA : 1;
     eECP ECP : 1;
-    uint32_t _reserved_end : 24;
+    uint32_t _reserved_0 : 24;
   } bits;
   
   // Full 32-bit register value.
@@ -2011,7 +2011,7 @@ union DCHPRI9 {
     uint32_t GRPPRI : 2;
     eDPA DPA : 1;
     eECP ECP : 1;
-    uint32_t _reserved_end : 24;
+    uint32_t _reserved_0 : 24;
   } bits;
   
   // Full 32-bit register value.
@@ -2042,7 +2042,7 @@ union DCHPRI8 {
     uint32_t GRPPRI : 2;
     eDPA DPA : 1;
     eECP ECP : 1;
-    uint32_t _reserved_end : 24;
+    uint32_t _reserved_0 : 24;
   } bits;
   
   // Full 32-bit register value.
@@ -2073,7 +2073,7 @@ union DCHPRI15 {
     uint32_t GRPPRI : 2;
     eDPA DPA : 1;
     eECP ECP : 1;
-    uint32_t _reserved_end : 24;
+    uint32_t _reserved_0 : 24;
   } bits;
   
   // Full 32-bit register value.
@@ -2104,7 +2104,7 @@ union DCHPRI14 {
     uint32_t GRPPRI : 2;
     eDPA DPA : 1;
     eECP ECP : 1;
-    uint32_t _reserved_end : 24;
+    uint32_t _reserved_0 : 24;
   } bits;
   
   // Full 32-bit register value.
@@ -2135,7 +2135,7 @@ union DCHPRI13 {
     uint32_t GRPPRI : 2;
     eDPA DPA : 1;
     eECP ECP : 1;
-    uint32_t _reserved_end : 24;
+    uint32_t _reserved_0 : 24;
   } bits;
   
   // Full 32-bit register value.
@@ -2166,7 +2166,7 @@ union DCHPRI12 {
     uint32_t GRPPRI : 2;
     eDPA DPA : 1;
     eECP ECP : 1;
-    uint32_t _reserved_end : 24;
+    uint32_t _reserved_0 : 24;
   } bits;
   
   // Full 32-bit register value.
@@ -2197,7 +2197,7 @@ union DCHPRI19 {
     uint32_t GRPPRI : 2;
     eDPA DPA : 1;
     eECP ECP : 1;
-    uint32_t _reserved_end : 24;
+    uint32_t _reserved_0 : 24;
   } bits;
   
   // Full 32-bit register value.
@@ -2228,7 +2228,7 @@ union DCHPRI18 {
     uint32_t GRPPRI : 2;
     eDPA DPA : 1;
     eECP ECP : 1;
-    uint32_t _reserved_end : 24;
+    uint32_t _reserved_0 : 24;
   } bits;
   
   // Full 32-bit register value.
@@ -2259,7 +2259,7 @@ union DCHPRI17 {
     uint32_t GRPPRI : 2;
     eDPA DPA : 1;
     eECP ECP : 1;
-    uint32_t _reserved_end : 24;
+    uint32_t _reserved_0 : 24;
   } bits;
   
   // Full 32-bit register value.
@@ -2290,7 +2290,7 @@ union DCHPRI16 {
     uint32_t GRPPRI : 2;
     eDPA DPA : 1;
     eECP ECP : 1;
-    uint32_t _reserved_end : 24;
+    uint32_t _reserved_0 : 24;
   } bits;
   
   // Full 32-bit register value.
@@ -2321,7 +2321,7 @@ union DCHPRI23 {
     uint32_t GRPPRI : 2;
     eDPA DPA : 1;
     eECP ECP : 1;
-    uint32_t _reserved_end : 24;
+    uint32_t _reserved_0 : 24;
   } bits;
   
   // Full 32-bit register value.
@@ -2352,7 +2352,7 @@ union DCHPRI22 {
     uint32_t GRPPRI : 2;
     eDPA DPA : 1;
     eECP ECP : 1;
-    uint32_t _reserved_end : 24;
+    uint32_t _reserved_0 : 24;
   } bits;
   
   // Full 32-bit register value.
@@ -2383,7 +2383,7 @@ union DCHPRI21 {
     uint32_t GRPPRI : 2;
     eDPA DPA : 1;
     eECP ECP : 1;
-    uint32_t _reserved_end : 24;
+    uint32_t _reserved_0 : 24;
   } bits;
   
   // Full 32-bit register value.
@@ -2414,7 +2414,7 @@ union DCHPRI20 {
     uint32_t GRPPRI : 2;
     eDPA DPA : 1;
     eECP ECP : 1;
-    uint32_t _reserved_end : 24;
+    uint32_t _reserved_0 : 24;
   } bits;
   
   // Full 32-bit register value.
@@ -2445,7 +2445,7 @@ union DCHPRI27 {
     uint32_t GRPPRI : 2;
     eDPA DPA : 1;
     eECP ECP : 1;
-    uint32_t _reserved_end : 24;
+    uint32_t _reserved_0 : 24;
   } bits;
   
   // Full 32-bit register value.
@@ -2476,7 +2476,7 @@ union DCHPRI26 {
     uint32_t GRPPRI : 2;
     eDPA DPA : 1;
     eECP ECP : 1;
-    uint32_t _reserved_end : 24;
+    uint32_t _reserved_0 : 24;
   } bits;
   
   // Full 32-bit register value.
@@ -2507,7 +2507,7 @@ union DCHPRI25 {
     uint32_t GRPPRI : 2;
     eDPA DPA : 1;
     eECP ECP : 1;
-    uint32_t _reserved_end : 24;
+    uint32_t _reserved_0 : 24;
   } bits;
   
   // Full 32-bit register value.
@@ -2538,7 +2538,7 @@ union DCHPRI24 {
     uint32_t GRPPRI : 2;
     eDPA DPA : 1;
     eECP ECP : 1;
-    uint32_t _reserved_end : 24;
+    uint32_t _reserved_0 : 24;
   } bits;
   
   // Full 32-bit register value.
@@ -2569,7 +2569,7 @@ union DCHPRI31 {
     uint32_t GRPPRI : 2;
     eDPA DPA : 1;
     eECP ECP : 1;
-    uint32_t _reserved_end : 24;
+    uint32_t _reserved_0 : 24;
   } bits;
   
   // Full 32-bit register value.
@@ -2600,7 +2600,7 @@ union DCHPRI30 {
     uint32_t GRPPRI : 2;
     eDPA DPA : 1;
     eECP ECP : 1;
-    uint32_t _reserved_end : 24;
+    uint32_t _reserved_0 : 24;
   } bits;
   
   // Full 32-bit register value.
@@ -2631,7 +2631,7 @@ union DCHPRI29 {
     uint32_t GRPPRI : 2;
     eDPA DPA : 1;
     eECP ECP : 1;
-    uint32_t _reserved_end : 24;
+    uint32_t _reserved_0 : 24;
   } bits;
   
   // Full 32-bit register value.
@@ -2662,7 +2662,7 @@ union DCHPRI28 {
     uint32_t GRPPRI : 2;
     eDPA DPA : 1;
     eECP ECP : 1;
-    uint32_t _reserved_end : 24;
+    uint32_t _reserved_0 : 24;
   } bits;
   
   // Full 32-bit register value.
@@ -2697,7 +2697,7 @@ union TCD0_SOFF {
   // Bit field definition.
   struct {
     uint32_t SOFF : 16;
-    uint32_t _reserved_end : 16;
+    uint32_t _reserved_0 : 16;
   } bits;
   
   // Full 32-bit register value.
@@ -2739,7 +2739,7 @@ union TCD0_ATTR {
     uint32_t DMOD : 5;
     eSSIZE SSIZE : 3;
     eSMOD SMOD : 5;
-    uint32_t _reserved_end : 16;
+    uint32_t _reserved_0 : 16;
   } bits;
   
   // Full 32-bit register value.
@@ -2867,7 +2867,7 @@ union TCD0_DOFF {
   // Bit field definition.
   struct {
     uint32_t DOFF : 16;
-    uint32_t _reserved_end : 16;
+    uint32_t _reserved_0 : 16;
   } bits;
   
   // Full 32-bit register value.
@@ -2891,7 +2891,7 @@ union TCD0_CITER_ELINKNO {
   struct {
     uint32_t CITER : 15;
     eELINK ELINK : 1;
-    uint32_t _reserved_end : 16;
+    uint32_t _reserved_0 : 16;
   } bits;
   
   // Full 32-bit register value.
@@ -2915,9 +2915,9 @@ union TCD0_CITER_ELINKYES {
   struct {
     uint32_t CITER : 9;
     uint32_t LINKCH : 5;
-    uint32_t _reserved_2 : 1;
+    uint32_t _reserved_0 : 1;
     eELINK ELINK : 1;
-    uint32_t _reserved_end : 16;
+    uint32_t _reserved_1 : 16;
   } bits;
   
   // Full 32-bit register value.
@@ -2996,9 +2996,9 @@ union TCD0_CSR {
     uint32_t ACTIVE : 1;
     uint32_t DONE : 1;
     uint32_t MAJORLINKCH : 5;
-    uint32_t _reserved_9 : 1;
+    uint32_t _reserved_0 : 1;
     eBWC BWC : 2;
-    uint32_t _reserved_end : 16;
+    uint32_t _reserved_1 : 16;
   } bits;
   
   // Full 32-bit register value.
@@ -3022,7 +3022,7 @@ union TCD0_BITER_ELINKNO {
   struct {
     uint32_t BITER : 15;
     eELINK ELINK : 1;
-    uint32_t _reserved_end : 16;
+    uint32_t _reserved_0 : 16;
   } bits;
   
   // Full 32-bit register value.
@@ -3046,9 +3046,9 @@ union TCD0_BITER_ELINKYES {
   struct {
     uint32_t BITER : 9;
     uint32_t LINKCH : 5;
-    uint32_t _reserved_2 : 1;
+    uint32_t _reserved_0 : 1;
     eELINK ELINK : 1;
-    uint32_t _reserved_end : 16;
+    uint32_t _reserved_1 : 16;
   } bits;
   
   // Full 32-bit register value.
@@ -3083,7 +3083,7 @@ union TCD1_SOFF {
   // Bit field definition.
   struct {
     uint32_t SOFF : 16;
-    uint32_t _reserved_end : 16;
+    uint32_t _reserved_0 : 16;
   } bits;
   
   // Full 32-bit register value.
@@ -3125,7 +3125,7 @@ union TCD1_ATTR {
     uint32_t DMOD : 5;
     eSSIZE SSIZE : 3;
     eSMOD SMOD : 5;
-    uint32_t _reserved_end : 16;
+    uint32_t _reserved_0 : 16;
   } bits;
   
   // Full 32-bit register value.
@@ -3253,7 +3253,7 @@ union TCD1_DOFF {
   // Bit field definition.
   struct {
     uint32_t DOFF : 16;
-    uint32_t _reserved_end : 16;
+    uint32_t _reserved_0 : 16;
   } bits;
   
   // Full 32-bit register value.
@@ -3277,7 +3277,7 @@ union TCD1_CITER_ELINKNO {
   struct {
     uint32_t CITER : 15;
     eELINK ELINK : 1;
-    uint32_t _reserved_end : 16;
+    uint32_t _reserved_0 : 16;
   } bits;
   
   // Full 32-bit register value.
@@ -3301,9 +3301,9 @@ union TCD1_CITER_ELINKYES {
   struct {
     uint32_t CITER : 9;
     uint32_t LINKCH : 5;
-    uint32_t _reserved_2 : 1;
+    uint32_t _reserved_0 : 1;
     eELINK ELINK : 1;
-    uint32_t _reserved_end : 16;
+    uint32_t _reserved_1 : 16;
   } bits;
   
   // Full 32-bit register value.
@@ -3382,9 +3382,9 @@ union TCD1_CSR {
     uint32_t ACTIVE : 1;
     uint32_t DONE : 1;
     uint32_t MAJORLINKCH : 5;
-    uint32_t _reserved_9 : 1;
+    uint32_t _reserved_0 : 1;
     eBWC BWC : 2;
-    uint32_t _reserved_end : 16;
+    uint32_t _reserved_1 : 16;
   } bits;
   
   // Full 32-bit register value.
@@ -3408,7 +3408,7 @@ union TCD1_BITER_ELINKNO {
   struct {
     uint32_t BITER : 15;
     eELINK ELINK : 1;
-    uint32_t _reserved_end : 16;
+    uint32_t _reserved_0 : 16;
   } bits;
   
   // Full 32-bit register value.
@@ -3432,9 +3432,9 @@ union TCD1_BITER_ELINKYES {
   struct {
     uint32_t BITER : 9;
     uint32_t LINKCH : 5;
-    uint32_t _reserved_2 : 1;
+    uint32_t _reserved_0 : 1;
     eELINK ELINK : 1;
-    uint32_t _reserved_end : 16;
+    uint32_t _reserved_1 : 16;
   } bits;
   
   // Full 32-bit register value.
@@ -3469,7 +3469,7 @@ union TCD2_SOFF {
   // Bit field definition.
   struct {
     uint32_t SOFF : 16;
-    uint32_t _reserved_end : 16;
+    uint32_t _reserved_0 : 16;
   } bits;
   
   // Full 32-bit register value.
@@ -3511,7 +3511,7 @@ union TCD2_ATTR {
     uint32_t DMOD : 5;
     eSSIZE SSIZE : 3;
     eSMOD SMOD : 5;
-    uint32_t _reserved_end : 16;
+    uint32_t _reserved_0 : 16;
   } bits;
   
   // Full 32-bit register value.
@@ -3639,7 +3639,7 @@ union TCD2_DOFF {
   // Bit field definition.
   struct {
     uint32_t DOFF : 16;
-    uint32_t _reserved_end : 16;
+    uint32_t _reserved_0 : 16;
   } bits;
   
   // Full 32-bit register value.
@@ -3663,7 +3663,7 @@ union TCD2_CITER_ELINKNO {
   struct {
     uint32_t CITER : 15;
     eELINK ELINK : 1;
-    uint32_t _reserved_end : 16;
+    uint32_t _reserved_0 : 16;
   } bits;
   
   // Full 32-bit register value.
@@ -3687,9 +3687,9 @@ union TCD2_CITER_ELINKYES {
   struct {
     uint32_t CITER : 9;
     uint32_t LINKCH : 5;
-    uint32_t _reserved_2 : 1;
+    uint32_t _reserved_0 : 1;
     eELINK ELINK : 1;
-    uint32_t _reserved_end : 16;
+    uint32_t _reserved_1 : 16;
   } bits;
   
   // Full 32-bit register value.
@@ -3768,9 +3768,9 @@ union TCD2_CSR {
     uint32_t ACTIVE : 1;
     uint32_t DONE : 1;
     uint32_t MAJORLINKCH : 5;
-    uint32_t _reserved_9 : 1;
+    uint32_t _reserved_0 : 1;
     eBWC BWC : 2;
-    uint32_t _reserved_end : 16;
+    uint32_t _reserved_1 : 16;
   } bits;
   
   // Full 32-bit register value.
@@ -3794,7 +3794,7 @@ union TCD2_BITER_ELINKNO {
   struct {
     uint32_t BITER : 15;
     eELINK ELINK : 1;
-    uint32_t _reserved_end : 16;
+    uint32_t _reserved_0 : 16;
   } bits;
   
   // Full 32-bit register value.
@@ -3818,9 +3818,9 @@ union TCD2_BITER_ELINKYES {
   struct {
     uint32_t BITER : 9;
     uint32_t LINKCH : 5;
-    uint32_t _reserved_2 : 1;
+    uint32_t _reserved_0 : 1;
     eELINK ELINK : 1;
-    uint32_t _reserved_end : 16;
+    uint32_t _reserved_1 : 16;
   } bits;
   
   // Full 32-bit register value.
@@ -3855,7 +3855,7 @@ union TCD3_SOFF {
   // Bit field definition.
   struct {
     uint32_t SOFF : 16;
-    uint32_t _reserved_end : 16;
+    uint32_t _reserved_0 : 16;
   } bits;
   
   // Full 32-bit register value.
@@ -3897,7 +3897,7 @@ union TCD3_ATTR {
     uint32_t DMOD : 5;
     eSSIZE SSIZE : 3;
     eSMOD SMOD : 5;
-    uint32_t _reserved_end : 16;
+    uint32_t _reserved_0 : 16;
   } bits;
   
   // Full 32-bit register value.
@@ -4025,7 +4025,7 @@ union TCD3_DOFF {
   // Bit field definition.
   struct {
     uint32_t DOFF : 16;
-    uint32_t _reserved_end : 16;
+    uint32_t _reserved_0 : 16;
   } bits;
   
   // Full 32-bit register value.
@@ -4049,7 +4049,7 @@ union TCD3_CITER_ELINKNO {
   struct {
     uint32_t CITER : 15;
     eELINK ELINK : 1;
-    uint32_t _reserved_end : 16;
+    uint32_t _reserved_0 : 16;
   } bits;
   
   // Full 32-bit register value.
@@ -4073,9 +4073,9 @@ union TCD3_CITER_ELINKYES {
   struct {
     uint32_t CITER : 9;
     uint32_t LINKCH : 5;
-    uint32_t _reserved_2 : 1;
+    uint32_t _reserved_0 : 1;
     eELINK ELINK : 1;
-    uint32_t _reserved_end : 16;
+    uint32_t _reserved_1 : 16;
   } bits;
   
   // Full 32-bit register value.
@@ -4154,9 +4154,9 @@ union TCD3_CSR {
     uint32_t ACTIVE : 1;
     uint32_t DONE : 1;
     uint32_t MAJORLINKCH : 5;
-    uint32_t _reserved_9 : 1;
+    uint32_t _reserved_0 : 1;
     eBWC BWC : 2;
-    uint32_t _reserved_end : 16;
+    uint32_t _reserved_1 : 16;
   } bits;
   
   // Full 32-bit register value.
@@ -4180,7 +4180,7 @@ union TCD3_BITER_ELINKNO {
   struct {
     uint32_t BITER : 15;
     eELINK ELINK : 1;
-    uint32_t _reserved_end : 16;
+    uint32_t _reserved_0 : 16;
   } bits;
   
   // Full 32-bit register value.
@@ -4204,9 +4204,9 @@ union TCD3_BITER_ELINKYES {
   struct {
     uint32_t BITER : 9;
     uint32_t LINKCH : 5;
-    uint32_t _reserved_2 : 1;
+    uint32_t _reserved_0 : 1;
     eELINK ELINK : 1;
-    uint32_t _reserved_end : 16;
+    uint32_t _reserved_1 : 16;
   } bits;
   
   // Full 32-bit register value.
@@ -4241,7 +4241,7 @@ union TCD4_SOFF {
   // Bit field definition.
   struct {
     uint32_t SOFF : 16;
-    uint32_t _reserved_end : 16;
+    uint32_t _reserved_0 : 16;
   } bits;
   
   // Full 32-bit register value.
@@ -4283,7 +4283,7 @@ union TCD4_ATTR {
     uint32_t DMOD : 5;
     eSSIZE SSIZE : 3;
     eSMOD SMOD : 5;
-    uint32_t _reserved_end : 16;
+    uint32_t _reserved_0 : 16;
   } bits;
   
   // Full 32-bit register value.
@@ -4411,7 +4411,7 @@ union TCD4_DOFF {
   // Bit field definition.
   struct {
     uint32_t DOFF : 16;
-    uint32_t _reserved_end : 16;
+    uint32_t _reserved_0 : 16;
   } bits;
   
   // Full 32-bit register value.
@@ -4435,7 +4435,7 @@ union TCD4_CITER_ELINKNO {
   struct {
     uint32_t CITER : 15;
     eELINK ELINK : 1;
-    uint32_t _reserved_end : 16;
+    uint32_t _reserved_0 : 16;
   } bits;
   
   // Full 32-bit register value.
@@ -4459,9 +4459,9 @@ union TCD4_CITER_ELINKYES {
   struct {
     uint32_t CITER : 9;
     uint32_t LINKCH : 5;
-    uint32_t _reserved_2 : 1;
+    uint32_t _reserved_0 : 1;
     eELINK ELINK : 1;
-    uint32_t _reserved_end : 16;
+    uint32_t _reserved_1 : 16;
   } bits;
   
   // Full 32-bit register value.
@@ -4540,9 +4540,9 @@ union TCD4_CSR {
     uint32_t ACTIVE : 1;
     uint32_t DONE : 1;
     uint32_t MAJORLINKCH : 5;
-    uint32_t _reserved_9 : 1;
+    uint32_t _reserved_0 : 1;
     eBWC BWC : 2;
-    uint32_t _reserved_end : 16;
+    uint32_t _reserved_1 : 16;
   } bits;
   
   // Full 32-bit register value.
@@ -4566,7 +4566,7 @@ union TCD4_BITER_ELINKNO {
   struct {
     uint32_t BITER : 15;
     eELINK ELINK : 1;
-    uint32_t _reserved_end : 16;
+    uint32_t _reserved_0 : 16;
   } bits;
   
   // Full 32-bit register value.
@@ -4590,9 +4590,9 @@ union TCD4_BITER_ELINKYES {
   struct {
     uint32_t BITER : 9;
     uint32_t LINKCH : 5;
-    uint32_t _reserved_2 : 1;
+    uint32_t _reserved_0 : 1;
     eELINK ELINK : 1;
-    uint32_t _reserved_end : 16;
+    uint32_t _reserved_1 : 16;
   } bits;
   
   // Full 32-bit register value.
@@ -4627,7 +4627,7 @@ union TCD5_SOFF {
   // Bit field definition.
   struct {
     uint32_t SOFF : 16;
-    uint32_t _reserved_end : 16;
+    uint32_t _reserved_0 : 16;
   } bits;
   
   // Full 32-bit register value.
@@ -4669,7 +4669,7 @@ union TCD5_ATTR {
     uint32_t DMOD : 5;
     eSSIZE SSIZE : 3;
     eSMOD SMOD : 5;
-    uint32_t _reserved_end : 16;
+    uint32_t _reserved_0 : 16;
   } bits;
   
   // Full 32-bit register value.
@@ -4797,7 +4797,7 @@ union TCD5_DOFF {
   // Bit field definition.
   struct {
     uint32_t DOFF : 16;
-    uint32_t _reserved_end : 16;
+    uint32_t _reserved_0 : 16;
   } bits;
   
   // Full 32-bit register value.
@@ -4821,7 +4821,7 @@ union TCD5_CITER_ELINKNO {
   struct {
     uint32_t CITER : 15;
     eELINK ELINK : 1;
-    uint32_t _reserved_end : 16;
+    uint32_t _reserved_0 : 16;
   } bits;
   
   // Full 32-bit register value.
@@ -4845,9 +4845,9 @@ union TCD5_CITER_ELINKYES {
   struct {
     uint32_t CITER : 9;
     uint32_t LINKCH : 5;
-    uint32_t _reserved_2 : 1;
+    uint32_t _reserved_0 : 1;
     eELINK ELINK : 1;
-    uint32_t _reserved_end : 16;
+    uint32_t _reserved_1 : 16;
   } bits;
   
   // Full 32-bit register value.
@@ -4926,9 +4926,9 @@ union TCD5_CSR {
     uint32_t ACTIVE : 1;
     uint32_t DONE : 1;
     uint32_t MAJORLINKCH : 5;
-    uint32_t _reserved_9 : 1;
+    uint32_t _reserved_0 : 1;
     eBWC BWC : 2;
-    uint32_t _reserved_end : 16;
+    uint32_t _reserved_1 : 16;
   } bits;
   
   // Full 32-bit register value.
@@ -4952,7 +4952,7 @@ union TCD5_BITER_ELINKNO {
   struct {
     uint32_t BITER : 15;
     eELINK ELINK : 1;
-    uint32_t _reserved_end : 16;
+    uint32_t _reserved_0 : 16;
   } bits;
   
   // Full 32-bit register value.
@@ -4976,9 +4976,9 @@ union TCD5_BITER_ELINKYES {
   struct {
     uint32_t BITER : 9;
     uint32_t LINKCH : 5;
-    uint32_t _reserved_2 : 1;
+    uint32_t _reserved_0 : 1;
     eELINK ELINK : 1;
-    uint32_t _reserved_end : 16;
+    uint32_t _reserved_1 : 16;
   } bits;
   
   // Full 32-bit register value.
@@ -5013,7 +5013,7 @@ union TCD6_SOFF {
   // Bit field definition.
   struct {
     uint32_t SOFF : 16;
-    uint32_t _reserved_end : 16;
+    uint32_t _reserved_0 : 16;
   } bits;
   
   // Full 32-bit register value.
@@ -5055,7 +5055,7 @@ union TCD6_ATTR {
     uint32_t DMOD : 5;
     eSSIZE SSIZE : 3;
     eSMOD SMOD : 5;
-    uint32_t _reserved_end : 16;
+    uint32_t _reserved_0 : 16;
   } bits;
   
   // Full 32-bit register value.
@@ -5183,7 +5183,7 @@ union TCD6_DOFF {
   // Bit field definition.
   struct {
     uint32_t DOFF : 16;
-    uint32_t _reserved_end : 16;
+    uint32_t _reserved_0 : 16;
   } bits;
   
   // Full 32-bit register value.
@@ -5207,7 +5207,7 @@ union TCD6_CITER_ELINKNO {
   struct {
     uint32_t CITER : 15;
     eELINK ELINK : 1;
-    uint32_t _reserved_end : 16;
+    uint32_t _reserved_0 : 16;
   } bits;
   
   // Full 32-bit register value.
@@ -5231,9 +5231,9 @@ union TCD6_CITER_ELINKYES {
   struct {
     uint32_t CITER : 9;
     uint32_t LINKCH : 5;
-    uint32_t _reserved_2 : 1;
+    uint32_t _reserved_0 : 1;
     eELINK ELINK : 1;
-    uint32_t _reserved_end : 16;
+    uint32_t _reserved_1 : 16;
   } bits;
   
   // Full 32-bit register value.
@@ -5312,9 +5312,9 @@ union TCD6_CSR {
     uint32_t ACTIVE : 1;
     uint32_t DONE : 1;
     uint32_t MAJORLINKCH : 5;
-    uint32_t _reserved_9 : 1;
+    uint32_t _reserved_0 : 1;
     eBWC BWC : 2;
-    uint32_t _reserved_end : 16;
+    uint32_t _reserved_1 : 16;
   } bits;
   
   // Full 32-bit register value.
@@ -5338,7 +5338,7 @@ union TCD6_BITER_ELINKNO {
   struct {
     uint32_t BITER : 15;
     eELINK ELINK : 1;
-    uint32_t _reserved_end : 16;
+    uint32_t _reserved_0 : 16;
   } bits;
   
   // Full 32-bit register value.
@@ -5362,9 +5362,9 @@ union TCD6_BITER_ELINKYES {
   struct {
     uint32_t BITER : 9;
     uint32_t LINKCH : 5;
-    uint32_t _reserved_2 : 1;
+    uint32_t _reserved_0 : 1;
     eELINK ELINK : 1;
-    uint32_t _reserved_end : 16;
+    uint32_t _reserved_1 : 16;
   } bits;
   
   // Full 32-bit register value.
@@ -5399,7 +5399,7 @@ union TCD7_SOFF {
   // Bit field definition.
   struct {
     uint32_t SOFF : 16;
-    uint32_t _reserved_end : 16;
+    uint32_t _reserved_0 : 16;
   } bits;
   
   // Full 32-bit register value.
@@ -5441,7 +5441,7 @@ union TCD7_ATTR {
     uint32_t DMOD : 5;
     eSSIZE SSIZE : 3;
     eSMOD SMOD : 5;
-    uint32_t _reserved_end : 16;
+    uint32_t _reserved_0 : 16;
   } bits;
   
   // Full 32-bit register value.
@@ -5569,7 +5569,7 @@ union TCD7_DOFF {
   // Bit field definition.
   struct {
     uint32_t DOFF : 16;
-    uint32_t _reserved_end : 16;
+    uint32_t _reserved_0 : 16;
   } bits;
   
   // Full 32-bit register value.
@@ -5593,7 +5593,7 @@ union TCD7_CITER_ELINKNO {
   struct {
     uint32_t CITER : 15;
     eELINK ELINK : 1;
-    uint32_t _reserved_end : 16;
+    uint32_t _reserved_0 : 16;
   } bits;
   
   // Full 32-bit register value.
@@ -5617,9 +5617,9 @@ union TCD7_CITER_ELINKYES {
   struct {
     uint32_t CITER : 9;
     uint32_t LINKCH : 5;
-    uint32_t _reserved_2 : 1;
+    uint32_t _reserved_0 : 1;
     eELINK ELINK : 1;
-    uint32_t _reserved_end : 16;
+    uint32_t _reserved_1 : 16;
   } bits;
   
   // Full 32-bit register value.
@@ -5698,9 +5698,9 @@ union TCD7_CSR {
     uint32_t ACTIVE : 1;
     uint32_t DONE : 1;
     uint32_t MAJORLINKCH : 5;
-    uint32_t _reserved_9 : 1;
+    uint32_t _reserved_0 : 1;
     eBWC BWC : 2;
-    uint32_t _reserved_end : 16;
+    uint32_t _reserved_1 : 16;
   } bits;
   
   // Full 32-bit register value.
@@ -5724,7 +5724,7 @@ union TCD7_BITER_ELINKNO {
   struct {
     uint32_t BITER : 15;
     eELINK ELINK : 1;
-    uint32_t _reserved_end : 16;
+    uint32_t _reserved_0 : 16;
   } bits;
   
   // Full 32-bit register value.
@@ -5748,9 +5748,9 @@ union TCD7_BITER_ELINKYES {
   struct {
     uint32_t BITER : 9;
     uint32_t LINKCH : 5;
-    uint32_t _reserved_2 : 1;
+    uint32_t _reserved_0 : 1;
     eELINK ELINK : 1;
-    uint32_t _reserved_end : 16;
+    uint32_t _reserved_1 : 16;
   } bits;
   
   // Full 32-bit register value.
@@ -5785,7 +5785,7 @@ union TCD8_SOFF {
   // Bit field definition.
   struct {
     uint32_t SOFF : 16;
-    uint32_t _reserved_end : 16;
+    uint32_t _reserved_0 : 16;
   } bits;
   
   // Full 32-bit register value.
@@ -5827,7 +5827,7 @@ union TCD8_ATTR {
     uint32_t DMOD : 5;
     eSSIZE SSIZE : 3;
     eSMOD SMOD : 5;
-    uint32_t _reserved_end : 16;
+    uint32_t _reserved_0 : 16;
   } bits;
   
   // Full 32-bit register value.
@@ -5955,7 +5955,7 @@ union TCD8_DOFF {
   // Bit field definition.
   struct {
     uint32_t DOFF : 16;
-    uint32_t _reserved_end : 16;
+    uint32_t _reserved_0 : 16;
   } bits;
   
   // Full 32-bit register value.
@@ -5979,7 +5979,7 @@ union TCD8_CITER_ELINKNO {
   struct {
     uint32_t CITER : 15;
     eELINK ELINK : 1;
-    uint32_t _reserved_end : 16;
+    uint32_t _reserved_0 : 16;
   } bits;
   
   // Full 32-bit register value.
@@ -6003,9 +6003,9 @@ union TCD8_CITER_ELINKYES {
   struct {
     uint32_t CITER : 9;
     uint32_t LINKCH : 5;
-    uint32_t _reserved_2 : 1;
+    uint32_t _reserved_0 : 1;
     eELINK ELINK : 1;
-    uint32_t _reserved_end : 16;
+    uint32_t _reserved_1 : 16;
   } bits;
   
   // Full 32-bit register value.
@@ -6084,9 +6084,9 @@ union TCD8_CSR {
     uint32_t ACTIVE : 1;
     uint32_t DONE : 1;
     uint32_t MAJORLINKCH : 5;
-    uint32_t _reserved_9 : 1;
+    uint32_t _reserved_0 : 1;
     eBWC BWC : 2;
-    uint32_t _reserved_end : 16;
+    uint32_t _reserved_1 : 16;
   } bits;
   
   // Full 32-bit register value.
@@ -6110,7 +6110,7 @@ union TCD8_BITER_ELINKNO {
   struct {
     uint32_t BITER : 15;
     eELINK ELINK : 1;
-    uint32_t _reserved_end : 16;
+    uint32_t _reserved_0 : 16;
   } bits;
   
   // Full 32-bit register value.
@@ -6134,9 +6134,9 @@ union TCD8_BITER_ELINKYES {
   struct {
     uint32_t BITER : 9;
     uint32_t LINKCH : 5;
-    uint32_t _reserved_2 : 1;
+    uint32_t _reserved_0 : 1;
     eELINK ELINK : 1;
-    uint32_t _reserved_end : 16;
+    uint32_t _reserved_1 : 16;
   } bits;
   
   // Full 32-bit register value.
@@ -6171,7 +6171,7 @@ union TCD9_SOFF {
   // Bit field definition.
   struct {
     uint32_t SOFF : 16;
-    uint32_t _reserved_end : 16;
+    uint32_t _reserved_0 : 16;
   } bits;
   
   // Full 32-bit register value.
@@ -6213,7 +6213,7 @@ union TCD9_ATTR {
     uint32_t DMOD : 5;
     eSSIZE SSIZE : 3;
     eSMOD SMOD : 5;
-    uint32_t _reserved_end : 16;
+    uint32_t _reserved_0 : 16;
   } bits;
   
   // Full 32-bit register value.
@@ -6341,7 +6341,7 @@ union TCD9_DOFF {
   // Bit field definition.
   struct {
     uint32_t DOFF : 16;
-    uint32_t _reserved_end : 16;
+    uint32_t _reserved_0 : 16;
   } bits;
   
   // Full 32-bit register value.
@@ -6365,7 +6365,7 @@ union TCD9_CITER_ELINKNO {
   struct {
     uint32_t CITER : 15;
     eELINK ELINK : 1;
-    uint32_t _reserved_end : 16;
+    uint32_t _reserved_0 : 16;
   } bits;
   
   // Full 32-bit register value.
@@ -6389,9 +6389,9 @@ union TCD9_CITER_ELINKYES {
   struct {
     uint32_t CITER : 9;
     uint32_t LINKCH : 5;
-    uint32_t _reserved_2 : 1;
+    uint32_t _reserved_0 : 1;
     eELINK ELINK : 1;
-    uint32_t _reserved_end : 16;
+    uint32_t _reserved_1 : 16;
   } bits;
   
   // Full 32-bit register value.
@@ -6470,9 +6470,9 @@ union TCD9_CSR {
     uint32_t ACTIVE : 1;
     uint32_t DONE : 1;
     uint32_t MAJORLINKCH : 5;
-    uint32_t _reserved_9 : 1;
+    uint32_t _reserved_0 : 1;
     eBWC BWC : 2;
-    uint32_t _reserved_end : 16;
+    uint32_t _reserved_1 : 16;
   } bits;
   
   // Full 32-bit register value.
@@ -6496,7 +6496,7 @@ union TCD9_BITER_ELINKNO {
   struct {
     uint32_t BITER : 15;
     eELINK ELINK : 1;
-    uint32_t _reserved_end : 16;
+    uint32_t _reserved_0 : 16;
   } bits;
   
   // Full 32-bit register value.
@@ -6520,9 +6520,9 @@ union TCD9_BITER_ELINKYES {
   struct {
     uint32_t BITER : 9;
     uint32_t LINKCH : 5;
-    uint32_t _reserved_2 : 1;
+    uint32_t _reserved_0 : 1;
     eELINK ELINK : 1;
-    uint32_t _reserved_end : 16;
+    uint32_t _reserved_1 : 16;
   } bits;
   
   // Full 32-bit register value.
@@ -6557,7 +6557,7 @@ union TCD10_SOFF {
   // Bit field definition.
   struct {
     uint32_t SOFF : 16;
-    uint32_t _reserved_end : 16;
+    uint32_t _reserved_0 : 16;
   } bits;
   
   // Full 32-bit register value.
@@ -6599,7 +6599,7 @@ union TCD10_ATTR {
     uint32_t DMOD : 5;
     eSSIZE SSIZE : 3;
     eSMOD SMOD : 5;
-    uint32_t _reserved_end : 16;
+    uint32_t _reserved_0 : 16;
   } bits;
   
   // Full 32-bit register value.
@@ -6727,7 +6727,7 @@ union TCD10_DOFF {
   // Bit field definition.
   struct {
     uint32_t DOFF : 16;
-    uint32_t _reserved_end : 16;
+    uint32_t _reserved_0 : 16;
   } bits;
   
   // Full 32-bit register value.
@@ -6751,7 +6751,7 @@ union TCD10_CITER_ELINKNO {
   struct {
     uint32_t CITER : 15;
     eELINK ELINK : 1;
-    uint32_t _reserved_end : 16;
+    uint32_t _reserved_0 : 16;
   } bits;
   
   // Full 32-bit register value.
@@ -6775,9 +6775,9 @@ union TCD10_CITER_ELINKYES {
   struct {
     uint32_t CITER : 9;
     uint32_t LINKCH : 5;
-    uint32_t _reserved_2 : 1;
+    uint32_t _reserved_0 : 1;
     eELINK ELINK : 1;
-    uint32_t _reserved_end : 16;
+    uint32_t _reserved_1 : 16;
   } bits;
   
   // Full 32-bit register value.
@@ -6856,9 +6856,9 @@ union TCD10_CSR {
     uint32_t ACTIVE : 1;
     uint32_t DONE : 1;
     uint32_t MAJORLINKCH : 5;
-    uint32_t _reserved_9 : 1;
+    uint32_t _reserved_0 : 1;
     eBWC BWC : 2;
-    uint32_t _reserved_end : 16;
+    uint32_t _reserved_1 : 16;
   } bits;
   
   // Full 32-bit register value.
@@ -6882,7 +6882,7 @@ union TCD10_BITER_ELINKNO {
   struct {
     uint32_t BITER : 15;
     eELINK ELINK : 1;
-    uint32_t _reserved_end : 16;
+    uint32_t _reserved_0 : 16;
   } bits;
   
   // Full 32-bit register value.
@@ -6906,9 +6906,9 @@ union TCD10_BITER_ELINKYES {
   struct {
     uint32_t BITER : 9;
     uint32_t LINKCH : 5;
-    uint32_t _reserved_2 : 1;
+    uint32_t _reserved_0 : 1;
     eELINK ELINK : 1;
-    uint32_t _reserved_end : 16;
+    uint32_t _reserved_1 : 16;
   } bits;
   
   // Full 32-bit register value.
@@ -6943,7 +6943,7 @@ union TCD11_SOFF {
   // Bit field definition.
   struct {
     uint32_t SOFF : 16;
-    uint32_t _reserved_end : 16;
+    uint32_t _reserved_0 : 16;
   } bits;
   
   // Full 32-bit register value.
@@ -6985,7 +6985,7 @@ union TCD11_ATTR {
     uint32_t DMOD : 5;
     eSSIZE SSIZE : 3;
     eSMOD SMOD : 5;
-    uint32_t _reserved_end : 16;
+    uint32_t _reserved_0 : 16;
   } bits;
   
   // Full 32-bit register value.
@@ -7113,7 +7113,7 @@ union TCD11_DOFF {
   // Bit field definition.
   struct {
     uint32_t DOFF : 16;
-    uint32_t _reserved_end : 16;
+    uint32_t _reserved_0 : 16;
   } bits;
   
   // Full 32-bit register value.
@@ -7137,7 +7137,7 @@ union TCD11_CITER_ELINKNO {
   struct {
     uint32_t CITER : 15;
     eELINK ELINK : 1;
-    uint32_t _reserved_end : 16;
+    uint32_t _reserved_0 : 16;
   } bits;
   
   // Full 32-bit register value.
@@ -7161,9 +7161,9 @@ union TCD11_CITER_ELINKYES {
   struct {
     uint32_t CITER : 9;
     uint32_t LINKCH : 5;
-    uint32_t _reserved_2 : 1;
+    uint32_t _reserved_0 : 1;
     eELINK ELINK : 1;
-    uint32_t _reserved_end : 16;
+    uint32_t _reserved_1 : 16;
   } bits;
   
   // Full 32-bit register value.
@@ -7242,9 +7242,9 @@ union TCD11_CSR {
     uint32_t ACTIVE : 1;
     uint32_t DONE : 1;
     uint32_t MAJORLINKCH : 5;
-    uint32_t _reserved_9 : 1;
+    uint32_t _reserved_0 : 1;
     eBWC BWC : 2;
-    uint32_t _reserved_end : 16;
+    uint32_t _reserved_1 : 16;
   } bits;
   
   // Full 32-bit register value.
@@ -7268,7 +7268,7 @@ union TCD11_BITER_ELINKNO {
   struct {
     uint32_t BITER : 15;
     eELINK ELINK : 1;
-    uint32_t _reserved_end : 16;
+    uint32_t _reserved_0 : 16;
   } bits;
   
   // Full 32-bit register value.
@@ -7292,9 +7292,9 @@ union TCD11_BITER_ELINKYES {
   struct {
     uint32_t BITER : 9;
     uint32_t LINKCH : 5;
-    uint32_t _reserved_2 : 1;
+    uint32_t _reserved_0 : 1;
     eELINK ELINK : 1;
-    uint32_t _reserved_end : 16;
+    uint32_t _reserved_1 : 16;
   } bits;
   
   // Full 32-bit register value.
@@ -7329,7 +7329,7 @@ union TCD12_SOFF {
   // Bit field definition.
   struct {
     uint32_t SOFF : 16;
-    uint32_t _reserved_end : 16;
+    uint32_t _reserved_0 : 16;
   } bits;
   
   // Full 32-bit register value.
@@ -7371,7 +7371,7 @@ union TCD12_ATTR {
     uint32_t DMOD : 5;
     eSSIZE SSIZE : 3;
     eSMOD SMOD : 5;
-    uint32_t _reserved_end : 16;
+    uint32_t _reserved_0 : 16;
   } bits;
   
   // Full 32-bit register value.
@@ -7499,7 +7499,7 @@ union TCD12_DOFF {
   // Bit field definition.
   struct {
     uint32_t DOFF : 16;
-    uint32_t _reserved_end : 16;
+    uint32_t _reserved_0 : 16;
   } bits;
   
   // Full 32-bit register value.
@@ -7523,7 +7523,7 @@ union TCD12_CITER_ELINKNO {
   struct {
     uint32_t CITER : 15;
     eELINK ELINK : 1;
-    uint32_t _reserved_end : 16;
+    uint32_t _reserved_0 : 16;
   } bits;
   
   // Full 32-bit register value.
@@ -7547,9 +7547,9 @@ union TCD12_CITER_ELINKYES {
   struct {
     uint32_t CITER : 9;
     uint32_t LINKCH : 5;
-    uint32_t _reserved_2 : 1;
+    uint32_t _reserved_0 : 1;
     eELINK ELINK : 1;
-    uint32_t _reserved_end : 16;
+    uint32_t _reserved_1 : 16;
   } bits;
   
   // Full 32-bit register value.
@@ -7628,9 +7628,9 @@ union TCD12_CSR {
     uint32_t ACTIVE : 1;
     uint32_t DONE : 1;
     uint32_t MAJORLINKCH : 5;
-    uint32_t _reserved_9 : 1;
+    uint32_t _reserved_0 : 1;
     eBWC BWC : 2;
-    uint32_t _reserved_end : 16;
+    uint32_t _reserved_1 : 16;
   } bits;
   
   // Full 32-bit register value.
@@ -7654,7 +7654,7 @@ union TCD12_BITER_ELINKNO {
   struct {
     uint32_t BITER : 15;
     eELINK ELINK : 1;
-    uint32_t _reserved_end : 16;
+    uint32_t _reserved_0 : 16;
   } bits;
   
   // Full 32-bit register value.
@@ -7678,9 +7678,9 @@ union TCD12_BITER_ELINKYES {
   struct {
     uint32_t BITER : 9;
     uint32_t LINKCH : 5;
-    uint32_t _reserved_2 : 1;
+    uint32_t _reserved_0 : 1;
     eELINK ELINK : 1;
-    uint32_t _reserved_end : 16;
+    uint32_t _reserved_1 : 16;
   } bits;
   
   // Full 32-bit register value.
@@ -7715,7 +7715,7 @@ union TCD13_SOFF {
   // Bit field definition.
   struct {
     uint32_t SOFF : 16;
-    uint32_t _reserved_end : 16;
+    uint32_t _reserved_0 : 16;
   } bits;
   
   // Full 32-bit register value.
@@ -7757,7 +7757,7 @@ union TCD13_ATTR {
     uint32_t DMOD : 5;
     eSSIZE SSIZE : 3;
     eSMOD SMOD : 5;
-    uint32_t _reserved_end : 16;
+    uint32_t _reserved_0 : 16;
   } bits;
   
   // Full 32-bit register value.
@@ -7885,7 +7885,7 @@ union TCD13_DOFF {
   // Bit field definition.
   struct {
     uint32_t DOFF : 16;
-    uint32_t _reserved_end : 16;
+    uint32_t _reserved_0 : 16;
   } bits;
   
   // Full 32-bit register value.
@@ -7909,7 +7909,7 @@ union TCD13_CITER_ELINKNO {
   struct {
     uint32_t CITER : 15;
     eELINK ELINK : 1;
-    uint32_t _reserved_end : 16;
+    uint32_t _reserved_0 : 16;
   } bits;
   
   // Full 32-bit register value.
@@ -7933,9 +7933,9 @@ union TCD13_CITER_ELINKYES {
   struct {
     uint32_t CITER : 9;
     uint32_t LINKCH : 5;
-    uint32_t _reserved_2 : 1;
+    uint32_t _reserved_0 : 1;
     eELINK ELINK : 1;
-    uint32_t _reserved_end : 16;
+    uint32_t _reserved_1 : 16;
   } bits;
   
   // Full 32-bit register value.
@@ -8014,9 +8014,9 @@ union TCD13_CSR {
     uint32_t ACTIVE : 1;
     uint32_t DONE : 1;
     uint32_t MAJORLINKCH : 5;
-    uint32_t _reserved_9 : 1;
+    uint32_t _reserved_0 : 1;
     eBWC BWC : 2;
-    uint32_t _reserved_end : 16;
+    uint32_t _reserved_1 : 16;
   } bits;
   
   // Full 32-bit register value.
@@ -8040,7 +8040,7 @@ union TCD13_BITER_ELINKNO {
   struct {
     uint32_t BITER : 15;
     eELINK ELINK : 1;
-    uint32_t _reserved_end : 16;
+    uint32_t _reserved_0 : 16;
   } bits;
   
   // Full 32-bit register value.
@@ -8064,9 +8064,9 @@ union TCD13_BITER_ELINKYES {
   struct {
     uint32_t BITER : 9;
     uint32_t LINKCH : 5;
-    uint32_t _reserved_2 : 1;
+    uint32_t _reserved_0 : 1;
     eELINK ELINK : 1;
-    uint32_t _reserved_end : 16;
+    uint32_t _reserved_1 : 16;
   } bits;
   
   // Full 32-bit register value.
@@ -8101,7 +8101,7 @@ union TCD14_SOFF {
   // Bit field definition.
   struct {
     uint32_t SOFF : 16;
-    uint32_t _reserved_end : 16;
+    uint32_t _reserved_0 : 16;
   } bits;
   
   // Full 32-bit register value.
@@ -8143,7 +8143,7 @@ union TCD14_ATTR {
     uint32_t DMOD : 5;
     eSSIZE SSIZE : 3;
     eSMOD SMOD : 5;
-    uint32_t _reserved_end : 16;
+    uint32_t _reserved_0 : 16;
   } bits;
   
   // Full 32-bit register value.
@@ -8271,7 +8271,7 @@ union TCD14_DOFF {
   // Bit field definition.
   struct {
     uint32_t DOFF : 16;
-    uint32_t _reserved_end : 16;
+    uint32_t _reserved_0 : 16;
   } bits;
   
   // Full 32-bit register value.
@@ -8295,7 +8295,7 @@ union TCD14_CITER_ELINKNO {
   struct {
     uint32_t CITER : 15;
     eELINK ELINK : 1;
-    uint32_t _reserved_end : 16;
+    uint32_t _reserved_0 : 16;
   } bits;
   
   // Full 32-bit register value.
@@ -8319,9 +8319,9 @@ union TCD14_CITER_ELINKYES {
   struct {
     uint32_t CITER : 9;
     uint32_t LINKCH : 5;
-    uint32_t _reserved_2 : 1;
+    uint32_t _reserved_0 : 1;
     eELINK ELINK : 1;
-    uint32_t _reserved_end : 16;
+    uint32_t _reserved_1 : 16;
   } bits;
   
   // Full 32-bit register value.
@@ -8400,9 +8400,9 @@ union TCD14_CSR {
     uint32_t ACTIVE : 1;
     uint32_t DONE : 1;
     uint32_t MAJORLINKCH : 5;
-    uint32_t _reserved_9 : 1;
+    uint32_t _reserved_0 : 1;
     eBWC BWC : 2;
-    uint32_t _reserved_end : 16;
+    uint32_t _reserved_1 : 16;
   } bits;
   
   // Full 32-bit register value.
@@ -8426,7 +8426,7 @@ union TCD14_BITER_ELINKNO {
   struct {
     uint32_t BITER : 15;
     eELINK ELINK : 1;
-    uint32_t _reserved_end : 16;
+    uint32_t _reserved_0 : 16;
   } bits;
   
   // Full 32-bit register value.
@@ -8450,9 +8450,9 @@ union TCD14_BITER_ELINKYES {
   struct {
     uint32_t BITER : 9;
     uint32_t LINKCH : 5;
-    uint32_t _reserved_2 : 1;
+    uint32_t _reserved_0 : 1;
     eELINK ELINK : 1;
-    uint32_t _reserved_end : 16;
+    uint32_t _reserved_1 : 16;
   } bits;
   
   // Full 32-bit register value.
@@ -8487,7 +8487,7 @@ union TCD15_SOFF {
   // Bit field definition.
   struct {
     uint32_t SOFF : 16;
-    uint32_t _reserved_end : 16;
+    uint32_t _reserved_0 : 16;
   } bits;
   
   // Full 32-bit register value.
@@ -8529,7 +8529,7 @@ union TCD15_ATTR {
     uint32_t DMOD : 5;
     eSSIZE SSIZE : 3;
     eSMOD SMOD : 5;
-    uint32_t _reserved_end : 16;
+    uint32_t _reserved_0 : 16;
   } bits;
   
   // Full 32-bit register value.
@@ -8657,7 +8657,7 @@ union TCD15_DOFF {
   // Bit field definition.
   struct {
     uint32_t DOFF : 16;
-    uint32_t _reserved_end : 16;
+    uint32_t _reserved_0 : 16;
   } bits;
   
   // Full 32-bit register value.
@@ -8681,7 +8681,7 @@ union TCD15_CITER_ELINKNO {
   struct {
     uint32_t CITER : 15;
     eELINK ELINK : 1;
-    uint32_t _reserved_end : 16;
+    uint32_t _reserved_0 : 16;
   } bits;
   
   // Full 32-bit register value.
@@ -8705,9 +8705,9 @@ union TCD15_CITER_ELINKYES {
   struct {
     uint32_t CITER : 9;
     uint32_t LINKCH : 5;
-    uint32_t _reserved_2 : 1;
+    uint32_t _reserved_0 : 1;
     eELINK ELINK : 1;
-    uint32_t _reserved_end : 16;
+    uint32_t _reserved_1 : 16;
   } bits;
   
   // Full 32-bit register value.
@@ -8786,9 +8786,9 @@ union TCD15_CSR {
     uint32_t ACTIVE : 1;
     uint32_t DONE : 1;
     uint32_t MAJORLINKCH : 5;
-    uint32_t _reserved_9 : 1;
+    uint32_t _reserved_0 : 1;
     eBWC BWC : 2;
-    uint32_t _reserved_end : 16;
+    uint32_t _reserved_1 : 16;
   } bits;
   
   // Full 32-bit register value.
@@ -8812,7 +8812,7 @@ union TCD15_BITER_ELINKNO {
   struct {
     uint32_t BITER : 15;
     eELINK ELINK : 1;
-    uint32_t _reserved_end : 16;
+    uint32_t _reserved_0 : 16;
   } bits;
   
   // Full 32-bit register value.
@@ -8836,9 +8836,9 @@ union TCD15_BITER_ELINKYES {
   struct {
     uint32_t BITER : 9;
     uint32_t LINKCH : 5;
-    uint32_t _reserved_2 : 1;
+    uint32_t _reserved_0 : 1;
     eELINK ELINK : 1;
-    uint32_t _reserved_end : 16;
+    uint32_t _reserved_1 : 16;
   } bits;
   
   // Full 32-bit register value.
@@ -8873,7 +8873,7 @@ union TCD16_SOFF {
   // Bit field definition.
   struct {
     uint32_t SOFF : 16;
-    uint32_t _reserved_end : 16;
+    uint32_t _reserved_0 : 16;
   } bits;
   
   // Full 32-bit register value.
@@ -8915,7 +8915,7 @@ union TCD16_ATTR {
     uint32_t DMOD : 5;
     eSSIZE SSIZE : 3;
     eSMOD SMOD : 5;
-    uint32_t _reserved_end : 16;
+    uint32_t _reserved_0 : 16;
   } bits;
   
   // Full 32-bit register value.
@@ -9043,7 +9043,7 @@ union TCD16_DOFF {
   // Bit field definition.
   struct {
     uint32_t DOFF : 16;
-    uint32_t _reserved_end : 16;
+    uint32_t _reserved_0 : 16;
   } bits;
   
   // Full 32-bit register value.
@@ -9067,7 +9067,7 @@ union TCD16_CITER_ELINKNO {
   struct {
     uint32_t CITER : 15;
     eELINK ELINK : 1;
-    uint32_t _reserved_end : 16;
+    uint32_t _reserved_0 : 16;
   } bits;
   
   // Full 32-bit register value.
@@ -9091,9 +9091,9 @@ union TCD16_CITER_ELINKYES {
   struct {
     uint32_t CITER : 9;
     uint32_t LINKCH : 5;
-    uint32_t _reserved_2 : 1;
+    uint32_t _reserved_0 : 1;
     eELINK ELINK : 1;
-    uint32_t _reserved_end : 16;
+    uint32_t _reserved_1 : 16;
   } bits;
   
   // Full 32-bit register value.
@@ -9172,9 +9172,9 @@ union TCD16_CSR {
     uint32_t ACTIVE : 1;
     uint32_t DONE : 1;
     uint32_t MAJORLINKCH : 5;
-    uint32_t _reserved_9 : 1;
+    uint32_t _reserved_0 : 1;
     eBWC BWC : 2;
-    uint32_t _reserved_end : 16;
+    uint32_t _reserved_1 : 16;
   } bits;
   
   // Full 32-bit register value.
@@ -9198,7 +9198,7 @@ union TCD16_BITER_ELINKNO {
   struct {
     uint32_t BITER : 15;
     eELINK ELINK : 1;
-    uint32_t _reserved_end : 16;
+    uint32_t _reserved_0 : 16;
   } bits;
   
   // Full 32-bit register value.
@@ -9222,9 +9222,9 @@ union TCD16_BITER_ELINKYES {
   struct {
     uint32_t BITER : 9;
     uint32_t LINKCH : 5;
-    uint32_t _reserved_2 : 1;
+    uint32_t _reserved_0 : 1;
     eELINK ELINK : 1;
-    uint32_t _reserved_end : 16;
+    uint32_t _reserved_1 : 16;
   } bits;
   
   // Full 32-bit register value.
@@ -9259,7 +9259,7 @@ union TCD17_SOFF {
   // Bit field definition.
   struct {
     uint32_t SOFF : 16;
-    uint32_t _reserved_end : 16;
+    uint32_t _reserved_0 : 16;
   } bits;
   
   // Full 32-bit register value.
@@ -9301,7 +9301,7 @@ union TCD17_ATTR {
     uint32_t DMOD : 5;
     eSSIZE SSIZE : 3;
     eSMOD SMOD : 5;
-    uint32_t _reserved_end : 16;
+    uint32_t _reserved_0 : 16;
   } bits;
   
   // Full 32-bit register value.
@@ -9429,7 +9429,7 @@ union TCD17_DOFF {
   // Bit field definition.
   struct {
     uint32_t DOFF : 16;
-    uint32_t _reserved_end : 16;
+    uint32_t _reserved_0 : 16;
   } bits;
   
   // Full 32-bit register value.
@@ -9453,7 +9453,7 @@ union TCD17_CITER_ELINKNO {
   struct {
     uint32_t CITER : 15;
     eELINK ELINK : 1;
-    uint32_t _reserved_end : 16;
+    uint32_t _reserved_0 : 16;
   } bits;
   
   // Full 32-bit register value.
@@ -9477,9 +9477,9 @@ union TCD17_CITER_ELINKYES {
   struct {
     uint32_t CITER : 9;
     uint32_t LINKCH : 5;
-    uint32_t _reserved_2 : 1;
+    uint32_t _reserved_0 : 1;
     eELINK ELINK : 1;
-    uint32_t _reserved_end : 16;
+    uint32_t _reserved_1 : 16;
   } bits;
   
   // Full 32-bit register value.
@@ -9558,9 +9558,9 @@ union TCD17_CSR {
     uint32_t ACTIVE : 1;
     uint32_t DONE : 1;
     uint32_t MAJORLINKCH : 5;
-    uint32_t _reserved_9 : 1;
+    uint32_t _reserved_0 : 1;
     eBWC BWC : 2;
-    uint32_t _reserved_end : 16;
+    uint32_t _reserved_1 : 16;
   } bits;
   
   // Full 32-bit register value.
@@ -9584,7 +9584,7 @@ union TCD17_BITER_ELINKNO {
   struct {
     uint32_t BITER : 15;
     eELINK ELINK : 1;
-    uint32_t _reserved_end : 16;
+    uint32_t _reserved_0 : 16;
   } bits;
   
   // Full 32-bit register value.
@@ -9608,9 +9608,9 @@ union TCD17_BITER_ELINKYES {
   struct {
     uint32_t BITER : 9;
     uint32_t LINKCH : 5;
-    uint32_t _reserved_2 : 1;
+    uint32_t _reserved_0 : 1;
     eELINK ELINK : 1;
-    uint32_t _reserved_end : 16;
+    uint32_t _reserved_1 : 16;
   } bits;
   
   // Full 32-bit register value.
@@ -9645,7 +9645,7 @@ union TCD18_SOFF {
   // Bit field definition.
   struct {
     uint32_t SOFF : 16;
-    uint32_t _reserved_end : 16;
+    uint32_t _reserved_0 : 16;
   } bits;
   
   // Full 32-bit register value.
@@ -9687,7 +9687,7 @@ union TCD18_ATTR {
     uint32_t DMOD : 5;
     eSSIZE SSIZE : 3;
     eSMOD SMOD : 5;
-    uint32_t _reserved_end : 16;
+    uint32_t _reserved_0 : 16;
   } bits;
   
   // Full 32-bit register value.
@@ -9815,7 +9815,7 @@ union TCD18_DOFF {
   // Bit field definition.
   struct {
     uint32_t DOFF : 16;
-    uint32_t _reserved_end : 16;
+    uint32_t _reserved_0 : 16;
   } bits;
   
   // Full 32-bit register value.
@@ -9839,7 +9839,7 @@ union TCD18_CITER_ELINKNO {
   struct {
     uint32_t CITER : 15;
     eELINK ELINK : 1;
-    uint32_t _reserved_end : 16;
+    uint32_t _reserved_0 : 16;
   } bits;
   
   // Full 32-bit register value.
@@ -9863,9 +9863,9 @@ union TCD18_CITER_ELINKYES {
   struct {
     uint32_t CITER : 9;
     uint32_t LINKCH : 5;
-    uint32_t _reserved_2 : 1;
+    uint32_t _reserved_0 : 1;
     eELINK ELINK : 1;
-    uint32_t _reserved_end : 16;
+    uint32_t _reserved_1 : 16;
   } bits;
   
   // Full 32-bit register value.
@@ -9944,9 +9944,9 @@ union TCD18_CSR {
     uint32_t ACTIVE : 1;
     uint32_t DONE : 1;
     uint32_t MAJORLINKCH : 5;
-    uint32_t _reserved_9 : 1;
+    uint32_t _reserved_0 : 1;
     eBWC BWC : 2;
-    uint32_t _reserved_end : 16;
+    uint32_t _reserved_1 : 16;
   } bits;
   
   // Full 32-bit register value.
@@ -9970,7 +9970,7 @@ union TCD18_BITER_ELINKNO {
   struct {
     uint32_t BITER : 15;
     eELINK ELINK : 1;
-    uint32_t _reserved_end : 16;
+    uint32_t _reserved_0 : 16;
   } bits;
   
   // Full 32-bit register value.
@@ -9994,9 +9994,9 @@ union TCD18_BITER_ELINKYES {
   struct {
     uint32_t BITER : 9;
     uint32_t LINKCH : 5;
-    uint32_t _reserved_2 : 1;
+    uint32_t _reserved_0 : 1;
     eELINK ELINK : 1;
-    uint32_t _reserved_end : 16;
+    uint32_t _reserved_1 : 16;
   } bits;
   
   // Full 32-bit register value.
@@ -10031,7 +10031,7 @@ union TCD19_SOFF {
   // Bit field definition.
   struct {
     uint32_t SOFF : 16;
-    uint32_t _reserved_end : 16;
+    uint32_t _reserved_0 : 16;
   } bits;
   
   // Full 32-bit register value.
@@ -10073,7 +10073,7 @@ union TCD19_ATTR {
     uint32_t DMOD : 5;
     eSSIZE SSIZE : 3;
     eSMOD SMOD : 5;
-    uint32_t _reserved_end : 16;
+    uint32_t _reserved_0 : 16;
   } bits;
   
   // Full 32-bit register value.
@@ -10201,7 +10201,7 @@ union TCD19_DOFF {
   // Bit field definition.
   struct {
     uint32_t DOFF : 16;
-    uint32_t _reserved_end : 16;
+    uint32_t _reserved_0 : 16;
   } bits;
   
   // Full 32-bit register value.
@@ -10225,7 +10225,7 @@ union TCD19_CITER_ELINKNO {
   struct {
     uint32_t CITER : 15;
     eELINK ELINK : 1;
-    uint32_t _reserved_end : 16;
+    uint32_t _reserved_0 : 16;
   } bits;
   
   // Full 32-bit register value.
@@ -10249,9 +10249,9 @@ union TCD19_CITER_ELINKYES {
   struct {
     uint32_t CITER : 9;
     uint32_t LINKCH : 5;
-    uint32_t _reserved_2 : 1;
+    uint32_t _reserved_0 : 1;
     eELINK ELINK : 1;
-    uint32_t _reserved_end : 16;
+    uint32_t _reserved_1 : 16;
   } bits;
   
   // Full 32-bit register value.
@@ -10330,9 +10330,9 @@ union TCD19_CSR {
     uint32_t ACTIVE : 1;
     uint32_t DONE : 1;
     uint32_t MAJORLINKCH : 5;
-    uint32_t _reserved_9 : 1;
+    uint32_t _reserved_0 : 1;
     eBWC BWC : 2;
-    uint32_t _reserved_end : 16;
+    uint32_t _reserved_1 : 16;
   } bits;
   
   // Full 32-bit register value.
@@ -10356,7 +10356,7 @@ union TCD19_BITER_ELINKNO {
   struct {
     uint32_t BITER : 15;
     eELINK ELINK : 1;
-    uint32_t _reserved_end : 16;
+    uint32_t _reserved_0 : 16;
   } bits;
   
   // Full 32-bit register value.
@@ -10380,9 +10380,9 @@ union TCD19_BITER_ELINKYES {
   struct {
     uint32_t BITER : 9;
     uint32_t LINKCH : 5;
-    uint32_t _reserved_2 : 1;
+    uint32_t _reserved_0 : 1;
     eELINK ELINK : 1;
-    uint32_t _reserved_end : 16;
+    uint32_t _reserved_1 : 16;
   } bits;
   
   // Full 32-bit register value.
@@ -10417,7 +10417,7 @@ union TCD20_SOFF {
   // Bit field definition.
   struct {
     uint32_t SOFF : 16;
-    uint32_t _reserved_end : 16;
+    uint32_t _reserved_0 : 16;
   } bits;
   
   // Full 32-bit register value.
@@ -10459,7 +10459,7 @@ union TCD20_ATTR {
     uint32_t DMOD : 5;
     eSSIZE SSIZE : 3;
     eSMOD SMOD : 5;
-    uint32_t _reserved_end : 16;
+    uint32_t _reserved_0 : 16;
   } bits;
   
   // Full 32-bit register value.
@@ -10587,7 +10587,7 @@ union TCD20_DOFF {
   // Bit field definition.
   struct {
     uint32_t DOFF : 16;
-    uint32_t _reserved_end : 16;
+    uint32_t _reserved_0 : 16;
   } bits;
   
   // Full 32-bit register value.
@@ -10611,7 +10611,7 @@ union TCD20_CITER_ELINKNO {
   struct {
     uint32_t CITER : 15;
     eELINK ELINK : 1;
-    uint32_t _reserved_end : 16;
+    uint32_t _reserved_0 : 16;
   } bits;
   
   // Full 32-bit register value.
@@ -10635,9 +10635,9 @@ union TCD20_CITER_ELINKYES {
   struct {
     uint32_t CITER : 9;
     uint32_t LINKCH : 5;
-    uint32_t _reserved_2 : 1;
+    uint32_t _reserved_0 : 1;
     eELINK ELINK : 1;
-    uint32_t _reserved_end : 16;
+    uint32_t _reserved_1 : 16;
   } bits;
   
   // Full 32-bit register value.
@@ -10716,9 +10716,9 @@ union TCD20_CSR {
     uint32_t ACTIVE : 1;
     uint32_t DONE : 1;
     uint32_t MAJORLINKCH : 5;
-    uint32_t _reserved_9 : 1;
+    uint32_t _reserved_0 : 1;
     eBWC BWC : 2;
-    uint32_t _reserved_end : 16;
+    uint32_t _reserved_1 : 16;
   } bits;
   
   // Full 32-bit register value.
@@ -10742,7 +10742,7 @@ union TCD20_BITER_ELINKNO {
   struct {
     uint32_t BITER : 15;
     eELINK ELINK : 1;
-    uint32_t _reserved_end : 16;
+    uint32_t _reserved_0 : 16;
   } bits;
   
   // Full 32-bit register value.
@@ -10766,9 +10766,9 @@ union TCD20_BITER_ELINKYES {
   struct {
     uint32_t BITER : 9;
     uint32_t LINKCH : 5;
-    uint32_t _reserved_2 : 1;
+    uint32_t _reserved_0 : 1;
     eELINK ELINK : 1;
-    uint32_t _reserved_end : 16;
+    uint32_t _reserved_1 : 16;
   } bits;
   
   // Full 32-bit register value.
@@ -10803,7 +10803,7 @@ union TCD21_SOFF {
   // Bit field definition.
   struct {
     uint32_t SOFF : 16;
-    uint32_t _reserved_end : 16;
+    uint32_t _reserved_0 : 16;
   } bits;
   
   // Full 32-bit register value.
@@ -10845,7 +10845,7 @@ union TCD21_ATTR {
     uint32_t DMOD : 5;
     eSSIZE SSIZE : 3;
     eSMOD SMOD : 5;
-    uint32_t _reserved_end : 16;
+    uint32_t _reserved_0 : 16;
   } bits;
   
   // Full 32-bit register value.
@@ -10973,7 +10973,7 @@ union TCD21_DOFF {
   // Bit field definition.
   struct {
     uint32_t DOFF : 16;
-    uint32_t _reserved_end : 16;
+    uint32_t _reserved_0 : 16;
   } bits;
   
   // Full 32-bit register value.
@@ -10997,7 +10997,7 @@ union TCD21_CITER_ELINKNO {
   struct {
     uint32_t CITER : 15;
     eELINK ELINK : 1;
-    uint32_t _reserved_end : 16;
+    uint32_t _reserved_0 : 16;
   } bits;
   
   // Full 32-bit register value.
@@ -11021,9 +11021,9 @@ union TCD21_CITER_ELINKYES {
   struct {
     uint32_t CITER : 9;
     uint32_t LINKCH : 5;
-    uint32_t _reserved_2 : 1;
+    uint32_t _reserved_0 : 1;
     eELINK ELINK : 1;
-    uint32_t _reserved_end : 16;
+    uint32_t _reserved_1 : 16;
   } bits;
   
   // Full 32-bit register value.
@@ -11102,9 +11102,9 @@ union TCD21_CSR {
     uint32_t ACTIVE : 1;
     uint32_t DONE : 1;
     uint32_t MAJORLINKCH : 5;
-    uint32_t _reserved_9 : 1;
+    uint32_t _reserved_0 : 1;
     eBWC BWC : 2;
-    uint32_t _reserved_end : 16;
+    uint32_t _reserved_1 : 16;
   } bits;
   
   // Full 32-bit register value.
@@ -11128,7 +11128,7 @@ union TCD21_BITER_ELINKNO {
   struct {
     uint32_t BITER : 15;
     eELINK ELINK : 1;
-    uint32_t _reserved_end : 16;
+    uint32_t _reserved_0 : 16;
   } bits;
   
   // Full 32-bit register value.
@@ -11152,9 +11152,9 @@ union TCD21_BITER_ELINKYES {
   struct {
     uint32_t BITER : 9;
     uint32_t LINKCH : 5;
-    uint32_t _reserved_2 : 1;
+    uint32_t _reserved_0 : 1;
     eELINK ELINK : 1;
-    uint32_t _reserved_end : 16;
+    uint32_t _reserved_1 : 16;
   } bits;
   
   // Full 32-bit register value.
@@ -11189,7 +11189,7 @@ union TCD22_SOFF {
   // Bit field definition.
   struct {
     uint32_t SOFF : 16;
-    uint32_t _reserved_end : 16;
+    uint32_t _reserved_0 : 16;
   } bits;
   
   // Full 32-bit register value.
@@ -11231,7 +11231,7 @@ union TCD22_ATTR {
     uint32_t DMOD : 5;
     eSSIZE SSIZE : 3;
     eSMOD SMOD : 5;
-    uint32_t _reserved_end : 16;
+    uint32_t _reserved_0 : 16;
   } bits;
   
   // Full 32-bit register value.
@@ -11359,7 +11359,7 @@ union TCD22_DOFF {
   // Bit field definition.
   struct {
     uint32_t DOFF : 16;
-    uint32_t _reserved_end : 16;
+    uint32_t _reserved_0 : 16;
   } bits;
   
   // Full 32-bit register value.
@@ -11383,7 +11383,7 @@ union TCD22_CITER_ELINKNO {
   struct {
     uint32_t CITER : 15;
     eELINK ELINK : 1;
-    uint32_t _reserved_end : 16;
+    uint32_t _reserved_0 : 16;
   } bits;
   
   // Full 32-bit register value.
@@ -11407,9 +11407,9 @@ union TCD22_CITER_ELINKYES {
   struct {
     uint32_t CITER : 9;
     uint32_t LINKCH : 5;
-    uint32_t _reserved_2 : 1;
+    uint32_t _reserved_0 : 1;
     eELINK ELINK : 1;
-    uint32_t _reserved_end : 16;
+    uint32_t _reserved_1 : 16;
   } bits;
   
   // Full 32-bit register value.
@@ -11488,9 +11488,9 @@ union TCD22_CSR {
     uint32_t ACTIVE : 1;
     uint32_t DONE : 1;
     uint32_t MAJORLINKCH : 5;
-    uint32_t _reserved_9 : 1;
+    uint32_t _reserved_0 : 1;
     eBWC BWC : 2;
-    uint32_t _reserved_end : 16;
+    uint32_t _reserved_1 : 16;
   } bits;
   
   // Full 32-bit register value.
@@ -11514,7 +11514,7 @@ union TCD22_BITER_ELINKNO {
   struct {
     uint32_t BITER : 15;
     eELINK ELINK : 1;
-    uint32_t _reserved_end : 16;
+    uint32_t _reserved_0 : 16;
   } bits;
   
   // Full 32-bit register value.
@@ -11538,9 +11538,9 @@ union TCD22_BITER_ELINKYES {
   struct {
     uint32_t BITER : 9;
     uint32_t LINKCH : 5;
-    uint32_t _reserved_2 : 1;
+    uint32_t _reserved_0 : 1;
     eELINK ELINK : 1;
-    uint32_t _reserved_end : 16;
+    uint32_t _reserved_1 : 16;
   } bits;
   
   // Full 32-bit register value.
@@ -11575,7 +11575,7 @@ union TCD23_SOFF {
   // Bit field definition.
   struct {
     uint32_t SOFF : 16;
-    uint32_t _reserved_end : 16;
+    uint32_t _reserved_0 : 16;
   } bits;
   
   // Full 32-bit register value.
@@ -11617,7 +11617,7 @@ union TCD23_ATTR {
     uint32_t DMOD : 5;
     eSSIZE SSIZE : 3;
     eSMOD SMOD : 5;
-    uint32_t _reserved_end : 16;
+    uint32_t _reserved_0 : 16;
   } bits;
   
   // Full 32-bit register value.
@@ -11745,7 +11745,7 @@ union TCD23_DOFF {
   // Bit field definition.
   struct {
     uint32_t DOFF : 16;
-    uint32_t _reserved_end : 16;
+    uint32_t _reserved_0 : 16;
   } bits;
   
   // Full 32-bit register value.
@@ -11769,7 +11769,7 @@ union TCD23_CITER_ELINKNO {
   struct {
     uint32_t CITER : 15;
     eELINK ELINK : 1;
-    uint32_t _reserved_end : 16;
+    uint32_t _reserved_0 : 16;
   } bits;
   
   // Full 32-bit register value.
@@ -11793,9 +11793,9 @@ union TCD23_CITER_ELINKYES {
   struct {
     uint32_t CITER : 9;
     uint32_t LINKCH : 5;
-    uint32_t _reserved_2 : 1;
+    uint32_t _reserved_0 : 1;
     eELINK ELINK : 1;
-    uint32_t _reserved_end : 16;
+    uint32_t _reserved_1 : 16;
   } bits;
   
   // Full 32-bit register value.
@@ -11874,9 +11874,9 @@ union TCD23_CSR {
     uint32_t ACTIVE : 1;
     uint32_t DONE : 1;
     uint32_t MAJORLINKCH : 5;
-    uint32_t _reserved_9 : 1;
+    uint32_t _reserved_0 : 1;
     eBWC BWC : 2;
-    uint32_t _reserved_end : 16;
+    uint32_t _reserved_1 : 16;
   } bits;
   
   // Full 32-bit register value.
@@ -11900,7 +11900,7 @@ union TCD23_BITER_ELINKNO {
   struct {
     uint32_t BITER : 15;
     eELINK ELINK : 1;
-    uint32_t _reserved_end : 16;
+    uint32_t _reserved_0 : 16;
   } bits;
   
   // Full 32-bit register value.
@@ -11924,9 +11924,9 @@ union TCD23_BITER_ELINKYES {
   struct {
     uint32_t BITER : 9;
     uint32_t LINKCH : 5;
-    uint32_t _reserved_2 : 1;
+    uint32_t _reserved_0 : 1;
     eELINK ELINK : 1;
-    uint32_t _reserved_end : 16;
+    uint32_t _reserved_1 : 16;
   } bits;
   
   // Full 32-bit register value.
@@ -11961,7 +11961,7 @@ union TCD24_SOFF {
   // Bit field definition.
   struct {
     uint32_t SOFF : 16;
-    uint32_t _reserved_end : 16;
+    uint32_t _reserved_0 : 16;
   } bits;
   
   // Full 32-bit register value.
@@ -12003,7 +12003,7 @@ union TCD24_ATTR {
     uint32_t DMOD : 5;
     eSSIZE SSIZE : 3;
     eSMOD SMOD : 5;
-    uint32_t _reserved_end : 16;
+    uint32_t _reserved_0 : 16;
   } bits;
   
   // Full 32-bit register value.
@@ -12131,7 +12131,7 @@ union TCD24_DOFF {
   // Bit field definition.
   struct {
     uint32_t DOFF : 16;
-    uint32_t _reserved_end : 16;
+    uint32_t _reserved_0 : 16;
   } bits;
   
   // Full 32-bit register value.
@@ -12155,7 +12155,7 @@ union TCD24_CITER_ELINKNO {
   struct {
     uint32_t CITER : 15;
     eELINK ELINK : 1;
-    uint32_t _reserved_end : 16;
+    uint32_t _reserved_0 : 16;
   } bits;
   
   // Full 32-bit register value.
@@ -12179,9 +12179,9 @@ union TCD24_CITER_ELINKYES {
   struct {
     uint32_t CITER : 9;
     uint32_t LINKCH : 5;
-    uint32_t _reserved_2 : 1;
+    uint32_t _reserved_0 : 1;
     eELINK ELINK : 1;
-    uint32_t _reserved_end : 16;
+    uint32_t _reserved_1 : 16;
   } bits;
   
   // Full 32-bit register value.
@@ -12260,9 +12260,9 @@ union TCD24_CSR {
     uint32_t ACTIVE : 1;
     uint32_t DONE : 1;
     uint32_t MAJORLINKCH : 5;
-    uint32_t _reserved_9 : 1;
+    uint32_t _reserved_0 : 1;
     eBWC BWC : 2;
-    uint32_t _reserved_end : 16;
+    uint32_t _reserved_1 : 16;
   } bits;
   
   // Full 32-bit register value.
@@ -12286,7 +12286,7 @@ union TCD24_BITER_ELINKNO {
   struct {
     uint32_t BITER : 15;
     eELINK ELINK : 1;
-    uint32_t _reserved_end : 16;
+    uint32_t _reserved_0 : 16;
   } bits;
   
   // Full 32-bit register value.
@@ -12310,9 +12310,9 @@ union TCD24_BITER_ELINKYES {
   struct {
     uint32_t BITER : 9;
     uint32_t LINKCH : 5;
-    uint32_t _reserved_2 : 1;
+    uint32_t _reserved_0 : 1;
     eELINK ELINK : 1;
-    uint32_t _reserved_end : 16;
+    uint32_t _reserved_1 : 16;
   } bits;
   
   // Full 32-bit register value.
@@ -12347,7 +12347,7 @@ union TCD25_SOFF {
   // Bit field definition.
   struct {
     uint32_t SOFF : 16;
-    uint32_t _reserved_end : 16;
+    uint32_t _reserved_0 : 16;
   } bits;
   
   // Full 32-bit register value.
@@ -12389,7 +12389,7 @@ union TCD25_ATTR {
     uint32_t DMOD : 5;
     eSSIZE SSIZE : 3;
     eSMOD SMOD : 5;
-    uint32_t _reserved_end : 16;
+    uint32_t _reserved_0 : 16;
   } bits;
   
   // Full 32-bit register value.
@@ -12517,7 +12517,7 @@ union TCD25_DOFF {
   // Bit field definition.
   struct {
     uint32_t DOFF : 16;
-    uint32_t _reserved_end : 16;
+    uint32_t _reserved_0 : 16;
   } bits;
   
   // Full 32-bit register value.
@@ -12541,7 +12541,7 @@ union TCD25_CITER_ELINKNO {
   struct {
     uint32_t CITER : 15;
     eELINK ELINK : 1;
-    uint32_t _reserved_end : 16;
+    uint32_t _reserved_0 : 16;
   } bits;
   
   // Full 32-bit register value.
@@ -12565,9 +12565,9 @@ union TCD25_CITER_ELINKYES {
   struct {
     uint32_t CITER : 9;
     uint32_t LINKCH : 5;
-    uint32_t _reserved_2 : 1;
+    uint32_t _reserved_0 : 1;
     eELINK ELINK : 1;
-    uint32_t _reserved_end : 16;
+    uint32_t _reserved_1 : 16;
   } bits;
   
   // Full 32-bit register value.
@@ -12646,9 +12646,9 @@ union TCD25_CSR {
     uint32_t ACTIVE : 1;
     uint32_t DONE : 1;
     uint32_t MAJORLINKCH : 5;
-    uint32_t _reserved_9 : 1;
+    uint32_t _reserved_0 : 1;
     eBWC BWC : 2;
-    uint32_t _reserved_end : 16;
+    uint32_t _reserved_1 : 16;
   } bits;
   
   // Full 32-bit register value.
@@ -12672,7 +12672,7 @@ union TCD25_BITER_ELINKNO {
   struct {
     uint32_t BITER : 15;
     eELINK ELINK : 1;
-    uint32_t _reserved_end : 16;
+    uint32_t _reserved_0 : 16;
   } bits;
   
   // Full 32-bit register value.
@@ -12696,9 +12696,9 @@ union TCD25_BITER_ELINKYES {
   struct {
     uint32_t BITER : 9;
     uint32_t LINKCH : 5;
-    uint32_t _reserved_2 : 1;
+    uint32_t _reserved_0 : 1;
     eELINK ELINK : 1;
-    uint32_t _reserved_end : 16;
+    uint32_t _reserved_1 : 16;
   } bits;
   
   // Full 32-bit register value.
@@ -12733,7 +12733,7 @@ union TCD26_SOFF {
   // Bit field definition.
   struct {
     uint32_t SOFF : 16;
-    uint32_t _reserved_end : 16;
+    uint32_t _reserved_0 : 16;
   } bits;
   
   // Full 32-bit register value.
@@ -12775,7 +12775,7 @@ union TCD26_ATTR {
     uint32_t DMOD : 5;
     eSSIZE SSIZE : 3;
     eSMOD SMOD : 5;
-    uint32_t _reserved_end : 16;
+    uint32_t _reserved_0 : 16;
   } bits;
   
   // Full 32-bit register value.
@@ -12903,7 +12903,7 @@ union TCD26_DOFF {
   // Bit field definition.
   struct {
     uint32_t DOFF : 16;
-    uint32_t _reserved_end : 16;
+    uint32_t _reserved_0 : 16;
   } bits;
   
   // Full 32-bit register value.
@@ -12927,7 +12927,7 @@ union TCD26_CITER_ELINKNO {
   struct {
     uint32_t CITER : 15;
     eELINK ELINK : 1;
-    uint32_t _reserved_end : 16;
+    uint32_t _reserved_0 : 16;
   } bits;
   
   // Full 32-bit register value.
@@ -12951,9 +12951,9 @@ union TCD26_CITER_ELINKYES {
   struct {
     uint32_t CITER : 9;
     uint32_t LINKCH : 5;
-    uint32_t _reserved_2 : 1;
+    uint32_t _reserved_0 : 1;
     eELINK ELINK : 1;
-    uint32_t _reserved_end : 16;
+    uint32_t _reserved_1 : 16;
   } bits;
   
   // Full 32-bit register value.
@@ -13032,9 +13032,9 @@ union TCD26_CSR {
     uint32_t ACTIVE : 1;
     uint32_t DONE : 1;
     uint32_t MAJORLINKCH : 5;
-    uint32_t _reserved_9 : 1;
+    uint32_t _reserved_0 : 1;
     eBWC BWC : 2;
-    uint32_t _reserved_end : 16;
+    uint32_t _reserved_1 : 16;
   } bits;
   
   // Full 32-bit register value.
@@ -13058,7 +13058,7 @@ union TCD26_BITER_ELINKNO {
   struct {
     uint32_t BITER : 15;
     eELINK ELINK : 1;
-    uint32_t _reserved_end : 16;
+    uint32_t _reserved_0 : 16;
   } bits;
   
   // Full 32-bit register value.
@@ -13082,9 +13082,9 @@ union TCD26_BITER_ELINKYES {
   struct {
     uint32_t BITER : 9;
     uint32_t LINKCH : 5;
-    uint32_t _reserved_2 : 1;
+    uint32_t _reserved_0 : 1;
     eELINK ELINK : 1;
-    uint32_t _reserved_end : 16;
+    uint32_t _reserved_1 : 16;
   } bits;
   
   // Full 32-bit register value.
@@ -13119,7 +13119,7 @@ union TCD27_SOFF {
   // Bit field definition.
   struct {
     uint32_t SOFF : 16;
-    uint32_t _reserved_end : 16;
+    uint32_t _reserved_0 : 16;
   } bits;
   
   // Full 32-bit register value.
@@ -13161,7 +13161,7 @@ union TCD27_ATTR {
     uint32_t DMOD : 5;
     eSSIZE SSIZE : 3;
     eSMOD SMOD : 5;
-    uint32_t _reserved_end : 16;
+    uint32_t _reserved_0 : 16;
   } bits;
   
   // Full 32-bit register value.
@@ -13289,7 +13289,7 @@ union TCD27_DOFF {
   // Bit field definition.
   struct {
     uint32_t DOFF : 16;
-    uint32_t _reserved_end : 16;
+    uint32_t _reserved_0 : 16;
   } bits;
   
   // Full 32-bit register value.
@@ -13313,7 +13313,7 @@ union TCD27_CITER_ELINKNO {
   struct {
     uint32_t CITER : 15;
     eELINK ELINK : 1;
-    uint32_t _reserved_end : 16;
+    uint32_t _reserved_0 : 16;
   } bits;
   
   // Full 32-bit register value.
@@ -13337,9 +13337,9 @@ union TCD27_CITER_ELINKYES {
   struct {
     uint32_t CITER : 9;
     uint32_t LINKCH : 5;
-    uint32_t _reserved_2 : 1;
+    uint32_t _reserved_0 : 1;
     eELINK ELINK : 1;
-    uint32_t _reserved_end : 16;
+    uint32_t _reserved_1 : 16;
   } bits;
   
   // Full 32-bit register value.
@@ -13418,9 +13418,9 @@ union TCD27_CSR {
     uint32_t ACTIVE : 1;
     uint32_t DONE : 1;
     uint32_t MAJORLINKCH : 5;
-    uint32_t _reserved_9 : 1;
+    uint32_t _reserved_0 : 1;
     eBWC BWC : 2;
-    uint32_t _reserved_end : 16;
+    uint32_t _reserved_1 : 16;
   } bits;
   
   // Full 32-bit register value.
@@ -13444,7 +13444,7 @@ union TCD27_BITER_ELINKNO {
   struct {
     uint32_t BITER : 15;
     eELINK ELINK : 1;
-    uint32_t _reserved_end : 16;
+    uint32_t _reserved_0 : 16;
   } bits;
   
   // Full 32-bit register value.
@@ -13468,9 +13468,9 @@ union TCD27_BITER_ELINKYES {
   struct {
     uint32_t BITER : 9;
     uint32_t LINKCH : 5;
-    uint32_t _reserved_2 : 1;
+    uint32_t _reserved_0 : 1;
     eELINK ELINK : 1;
-    uint32_t _reserved_end : 16;
+    uint32_t _reserved_1 : 16;
   } bits;
   
   // Full 32-bit register value.
@@ -13505,7 +13505,7 @@ union TCD28_SOFF {
   // Bit field definition.
   struct {
     uint32_t SOFF : 16;
-    uint32_t _reserved_end : 16;
+    uint32_t _reserved_0 : 16;
   } bits;
   
   // Full 32-bit register value.
@@ -13547,7 +13547,7 @@ union TCD28_ATTR {
     uint32_t DMOD : 5;
     eSSIZE SSIZE : 3;
     eSMOD SMOD : 5;
-    uint32_t _reserved_end : 16;
+    uint32_t _reserved_0 : 16;
   } bits;
   
   // Full 32-bit register value.
@@ -13675,7 +13675,7 @@ union TCD28_DOFF {
   // Bit field definition.
   struct {
     uint32_t DOFF : 16;
-    uint32_t _reserved_end : 16;
+    uint32_t _reserved_0 : 16;
   } bits;
   
   // Full 32-bit register value.
@@ -13699,7 +13699,7 @@ union TCD28_CITER_ELINKNO {
   struct {
     uint32_t CITER : 15;
     eELINK ELINK : 1;
-    uint32_t _reserved_end : 16;
+    uint32_t _reserved_0 : 16;
   } bits;
   
   // Full 32-bit register value.
@@ -13723,9 +13723,9 @@ union TCD28_CITER_ELINKYES {
   struct {
     uint32_t CITER : 9;
     uint32_t LINKCH : 5;
-    uint32_t _reserved_2 : 1;
+    uint32_t _reserved_0 : 1;
     eELINK ELINK : 1;
-    uint32_t _reserved_end : 16;
+    uint32_t _reserved_1 : 16;
   } bits;
   
   // Full 32-bit register value.
@@ -13804,9 +13804,9 @@ union TCD28_CSR {
     uint32_t ACTIVE : 1;
     uint32_t DONE : 1;
     uint32_t MAJORLINKCH : 5;
-    uint32_t _reserved_9 : 1;
+    uint32_t _reserved_0 : 1;
     eBWC BWC : 2;
-    uint32_t _reserved_end : 16;
+    uint32_t _reserved_1 : 16;
   } bits;
   
   // Full 32-bit register value.
@@ -13830,7 +13830,7 @@ union TCD28_BITER_ELINKNO {
   struct {
     uint32_t BITER : 15;
     eELINK ELINK : 1;
-    uint32_t _reserved_end : 16;
+    uint32_t _reserved_0 : 16;
   } bits;
   
   // Full 32-bit register value.
@@ -13854,9 +13854,9 @@ union TCD28_BITER_ELINKYES {
   struct {
     uint32_t BITER : 9;
     uint32_t LINKCH : 5;
-    uint32_t _reserved_2 : 1;
+    uint32_t _reserved_0 : 1;
     eELINK ELINK : 1;
-    uint32_t _reserved_end : 16;
+    uint32_t _reserved_1 : 16;
   } bits;
   
   // Full 32-bit register value.
@@ -13891,7 +13891,7 @@ union TCD29_SOFF {
   // Bit field definition.
   struct {
     uint32_t SOFF : 16;
-    uint32_t _reserved_end : 16;
+    uint32_t _reserved_0 : 16;
   } bits;
   
   // Full 32-bit register value.
@@ -13933,7 +13933,7 @@ union TCD29_ATTR {
     uint32_t DMOD : 5;
     eSSIZE SSIZE : 3;
     eSMOD SMOD : 5;
-    uint32_t _reserved_end : 16;
+    uint32_t _reserved_0 : 16;
   } bits;
   
   // Full 32-bit register value.
@@ -14061,7 +14061,7 @@ union TCD29_DOFF {
   // Bit field definition.
   struct {
     uint32_t DOFF : 16;
-    uint32_t _reserved_end : 16;
+    uint32_t _reserved_0 : 16;
   } bits;
   
   // Full 32-bit register value.
@@ -14085,7 +14085,7 @@ union TCD29_CITER_ELINKNO {
   struct {
     uint32_t CITER : 15;
     eELINK ELINK : 1;
-    uint32_t _reserved_end : 16;
+    uint32_t _reserved_0 : 16;
   } bits;
   
   // Full 32-bit register value.
@@ -14109,9 +14109,9 @@ union TCD29_CITER_ELINKYES {
   struct {
     uint32_t CITER : 9;
     uint32_t LINKCH : 5;
-    uint32_t _reserved_2 : 1;
+    uint32_t _reserved_0 : 1;
     eELINK ELINK : 1;
-    uint32_t _reserved_end : 16;
+    uint32_t _reserved_1 : 16;
   } bits;
   
   // Full 32-bit register value.
@@ -14190,9 +14190,9 @@ union TCD29_CSR {
     uint32_t ACTIVE : 1;
     uint32_t DONE : 1;
     uint32_t MAJORLINKCH : 5;
-    uint32_t _reserved_9 : 1;
+    uint32_t _reserved_0 : 1;
     eBWC BWC : 2;
-    uint32_t _reserved_end : 16;
+    uint32_t _reserved_1 : 16;
   } bits;
   
   // Full 32-bit register value.
@@ -14216,7 +14216,7 @@ union TCD29_BITER_ELINKNO {
   struct {
     uint32_t BITER : 15;
     eELINK ELINK : 1;
-    uint32_t _reserved_end : 16;
+    uint32_t _reserved_0 : 16;
   } bits;
   
   // Full 32-bit register value.
@@ -14240,9 +14240,9 @@ union TCD29_BITER_ELINKYES {
   struct {
     uint32_t BITER : 9;
     uint32_t LINKCH : 5;
-    uint32_t _reserved_2 : 1;
+    uint32_t _reserved_0 : 1;
     eELINK ELINK : 1;
-    uint32_t _reserved_end : 16;
+    uint32_t _reserved_1 : 16;
   } bits;
   
   // Full 32-bit register value.
@@ -14277,7 +14277,7 @@ union TCD30_SOFF {
   // Bit field definition.
   struct {
     uint32_t SOFF : 16;
-    uint32_t _reserved_end : 16;
+    uint32_t _reserved_0 : 16;
   } bits;
   
   // Full 32-bit register value.
@@ -14319,7 +14319,7 @@ union TCD30_ATTR {
     uint32_t DMOD : 5;
     eSSIZE SSIZE : 3;
     eSMOD SMOD : 5;
-    uint32_t _reserved_end : 16;
+    uint32_t _reserved_0 : 16;
   } bits;
   
   // Full 32-bit register value.
@@ -14447,7 +14447,7 @@ union TCD30_DOFF {
   // Bit field definition.
   struct {
     uint32_t DOFF : 16;
-    uint32_t _reserved_end : 16;
+    uint32_t _reserved_0 : 16;
   } bits;
   
   // Full 32-bit register value.
@@ -14471,7 +14471,7 @@ union TCD30_CITER_ELINKNO {
   struct {
     uint32_t CITER : 15;
     eELINK ELINK : 1;
-    uint32_t _reserved_end : 16;
+    uint32_t _reserved_0 : 16;
   } bits;
   
   // Full 32-bit register value.
@@ -14495,9 +14495,9 @@ union TCD30_CITER_ELINKYES {
   struct {
     uint32_t CITER : 9;
     uint32_t LINKCH : 5;
-    uint32_t _reserved_2 : 1;
+    uint32_t _reserved_0 : 1;
     eELINK ELINK : 1;
-    uint32_t _reserved_end : 16;
+    uint32_t _reserved_1 : 16;
   } bits;
   
   // Full 32-bit register value.
@@ -14576,9 +14576,9 @@ union TCD30_CSR {
     uint32_t ACTIVE : 1;
     uint32_t DONE : 1;
     uint32_t MAJORLINKCH : 5;
-    uint32_t _reserved_9 : 1;
+    uint32_t _reserved_0 : 1;
     eBWC BWC : 2;
-    uint32_t _reserved_end : 16;
+    uint32_t _reserved_1 : 16;
   } bits;
   
   // Full 32-bit register value.
@@ -14602,7 +14602,7 @@ union TCD30_BITER_ELINKNO {
   struct {
     uint32_t BITER : 15;
     eELINK ELINK : 1;
-    uint32_t _reserved_end : 16;
+    uint32_t _reserved_0 : 16;
   } bits;
   
   // Full 32-bit register value.
@@ -14626,9 +14626,9 @@ union TCD30_BITER_ELINKYES {
   struct {
     uint32_t BITER : 9;
     uint32_t LINKCH : 5;
-    uint32_t _reserved_2 : 1;
+    uint32_t _reserved_0 : 1;
     eELINK ELINK : 1;
-    uint32_t _reserved_end : 16;
+    uint32_t _reserved_1 : 16;
   } bits;
   
   // Full 32-bit register value.
@@ -14663,7 +14663,7 @@ union TCD31_SOFF {
   // Bit field definition.
   struct {
     uint32_t SOFF : 16;
-    uint32_t _reserved_end : 16;
+    uint32_t _reserved_0 : 16;
   } bits;
   
   // Full 32-bit register value.
@@ -14705,7 +14705,7 @@ union TCD31_ATTR {
     uint32_t DMOD : 5;
     eSSIZE SSIZE : 3;
     eSMOD SMOD : 5;
-    uint32_t _reserved_end : 16;
+    uint32_t _reserved_0 : 16;
   } bits;
   
   // Full 32-bit register value.
@@ -14833,7 +14833,7 @@ union TCD31_DOFF {
   // Bit field definition.
   struct {
     uint32_t DOFF : 16;
-    uint32_t _reserved_end : 16;
+    uint32_t _reserved_0 : 16;
   } bits;
   
   // Full 32-bit register value.
@@ -14857,7 +14857,7 @@ union TCD31_CITER_ELINKNO {
   struct {
     uint32_t CITER : 15;
     eELINK ELINK : 1;
-    uint32_t _reserved_end : 16;
+    uint32_t _reserved_0 : 16;
   } bits;
   
   // Full 32-bit register value.
@@ -14881,9 +14881,9 @@ union TCD31_CITER_ELINKYES {
   struct {
     uint32_t CITER : 9;
     uint32_t LINKCH : 5;
-    uint32_t _reserved_2 : 1;
+    uint32_t _reserved_0 : 1;
     eELINK ELINK : 1;
-    uint32_t _reserved_end : 16;
+    uint32_t _reserved_1 : 16;
   } bits;
   
   // Full 32-bit register value.
@@ -14962,9 +14962,9 @@ union TCD31_CSR {
     uint32_t ACTIVE : 1;
     uint32_t DONE : 1;
     uint32_t MAJORLINKCH : 5;
-    uint32_t _reserved_9 : 1;
+    uint32_t _reserved_0 : 1;
     eBWC BWC : 2;
-    uint32_t _reserved_end : 16;
+    uint32_t _reserved_1 : 16;
   } bits;
   
   // Full 32-bit register value.
@@ -14988,7 +14988,7 @@ union TCD31_BITER_ELINKNO {
   struct {
     uint32_t BITER : 15;
     eELINK ELINK : 1;
-    uint32_t _reserved_end : 16;
+    uint32_t _reserved_0 : 16;
   } bits;
   
   // Full 32-bit register value.
@@ -15012,9 +15012,9 @@ union TCD31_BITER_ELINKYES {
   struct {
     uint32_t BITER : 9;
     uint32_t LINKCH : 5;
-    uint32_t _reserved_2 : 1;
+    uint32_t _reserved_0 : 1;
     eELINK ELINK : 1;
-    uint32_t _reserved_end : 16;
+    uint32_t _reserved_1 : 16;
   } bits;
   
   // Full 32-bit register value.

@@ -4,7 +4,7 @@
 #include <stdint.h>
 #include <cstring>
 
-// // DCIC
+// DCIC
 //
 // NOTE: This file was generated from the forge CMSIS-svd wrapper tool.
 
@@ -43,12 +43,12 @@ union DCIC2_DCICC {
   // Bit field definition.
   struct {
     eIC_EN IC_EN : 1;
-    uint32_t _reserved_1 : 3;
+    uint32_t _reserved_0 : 3;
     eDE_POL DE_POL : 1;
     eHSYNC_POL HSYNC_POL : 1;
     eVSYNC_POL VSYNC_POL : 1;
     eCLK_POL CLK_POL : 1;
-    uint32_t _reserved_end : 24;
+    uint32_t _reserved_1 : 24;
   } bits;
   
   // Full 32-bit register value.
@@ -87,11 +87,11 @@ union DCIC2_DCICIC {
   struct {
     eEI_MASK EI_MASK : 1;
     eFI_MASK FI_MASK : 1;
-    uint32_t _reserved_2 : 1;
+    uint32_t _reserved_0 : 1;
     eFREEZE_MASK FREEZE_MASK : 1;
-    uint32_t _reserved_3 : 12;
+    uint32_t _reserved_1 : 12;
     eEXT_SIG_EN EXT_SIG_EN : 1;
-    uint32_t _reserved_end : 15;
+    uint32_t _reserved_2 : 15;
   } bits;
   
   // Full 32-bit register value.
@@ -126,7 +126,7 @@ union DCIC2_DCICS {
     eROI_MATCH_STAT ROI_MATCH_STAT : 16;
     eEI_STAT EI_STAT : 1;
     eFI_STAT FI_STAT : 1;
-    uint32_t _reserved_end : 14;
+    uint32_t _reserved_0 : 14;
   } bits;
   
   // Full 32-bit register value.
@@ -154,9 +154,9 @@ union DCIC2_DCICRC1 {
   // Bit field definition.
   struct {
     uint32_t START_OFFSET_X : 13;
-    uint32_t _reserved_1 : 3;
+    uint32_t _reserved_0 : 3;
     uint32_t START_OFFSET_Y : 12;
-    uint32_t _reserved_2 : 2;
+    uint32_t _reserved_1 : 2;
     eROI_FREEZE ROI_FREEZE : 1;
     eROI_EN ROI_EN : 1;
   } bits;
@@ -185,9 +185,9 @@ union DCIC2_DCICRC2 {
   // Bit field definition.
   struct {
     uint32_t START_OFFSET_X : 13;
-    uint32_t _reserved_1 : 3;
+    uint32_t _reserved_0 : 3;
     uint32_t START_OFFSET_Y : 12;
-    uint32_t _reserved_2 : 2;
+    uint32_t _reserved_1 : 2;
     eROI_FREEZE ROI_FREEZE : 1;
     eROI_EN ROI_EN : 1;
   } bits;
@@ -216,9 +216,9 @@ union DCIC2_DCICRC3 {
   // Bit field definition.
   struct {
     uint32_t START_OFFSET_X : 13;
-    uint32_t _reserved_1 : 3;
+    uint32_t _reserved_0 : 3;
     uint32_t START_OFFSET_Y : 12;
-    uint32_t _reserved_2 : 2;
+    uint32_t _reserved_1 : 2;
     eROI_FREEZE ROI_FREEZE : 1;
     eROI_EN ROI_EN : 1;
   } bits;
@@ -247,9 +247,9 @@ union DCIC2_DCICRC4 {
   // Bit field definition.
   struct {
     uint32_t START_OFFSET_X : 13;
-    uint32_t _reserved_1 : 3;
+    uint32_t _reserved_0 : 3;
     uint32_t START_OFFSET_Y : 12;
-    uint32_t _reserved_2 : 2;
+    uint32_t _reserved_1 : 2;
     eROI_FREEZE ROI_FREEZE : 1;
     eROI_EN ROI_EN : 1;
   } bits;
@@ -278,9 +278,9 @@ union DCIC2_DCICRC5 {
   // Bit field definition.
   struct {
     uint32_t START_OFFSET_X : 13;
-    uint32_t _reserved_1 : 3;
+    uint32_t _reserved_0 : 3;
     uint32_t START_OFFSET_Y : 12;
-    uint32_t _reserved_2 : 2;
+    uint32_t _reserved_1 : 2;
     eROI_FREEZE ROI_FREEZE : 1;
     eROI_EN ROI_EN : 1;
   } bits;
@@ -309,9 +309,9 @@ union DCIC2_DCICRC6 {
   // Bit field definition.
   struct {
     uint32_t START_OFFSET_X : 13;
-    uint32_t _reserved_1 : 3;
+    uint32_t _reserved_0 : 3;
     uint32_t START_OFFSET_Y : 12;
-    uint32_t _reserved_2 : 2;
+    uint32_t _reserved_1 : 2;
     eROI_FREEZE ROI_FREEZE : 1;
     eROI_EN ROI_EN : 1;
   } bits;
@@ -340,9 +340,9 @@ union DCIC2_DCICRC7 {
   // Bit field definition.
   struct {
     uint32_t START_OFFSET_X : 13;
-    uint32_t _reserved_1 : 3;
+    uint32_t _reserved_0 : 3;
     uint32_t START_OFFSET_Y : 12;
-    uint32_t _reserved_2 : 2;
+    uint32_t _reserved_1 : 2;
     eROI_FREEZE ROI_FREEZE : 1;
     eROI_EN ROI_EN : 1;
   } bits;
@@ -371,9 +371,9 @@ union DCIC2_DCICRC8 {
   // Bit field definition.
   struct {
     uint32_t START_OFFSET_X : 13;
-    uint32_t _reserved_1 : 3;
+    uint32_t _reserved_0 : 3;
     uint32_t START_OFFSET_Y : 12;
-    uint32_t _reserved_2 : 2;
+    uint32_t _reserved_1 : 2;
     eROI_FREEZE ROI_FREEZE : 1;
     eROI_EN ROI_EN : 1;
   } bits;
@@ -402,9 +402,9 @@ union DCIC2_DCICRC9 {
   // Bit field definition.
   struct {
     uint32_t START_OFFSET_X : 13;
-    uint32_t _reserved_1 : 3;
+    uint32_t _reserved_0 : 3;
     uint32_t START_OFFSET_Y : 12;
-    uint32_t _reserved_2 : 2;
+    uint32_t _reserved_1 : 2;
     eROI_FREEZE ROI_FREEZE : 1;
     eROI_EN ROI_EN : 1;
   } bits;
@@ -433,9 +433,9 @@ union DCIC2_DCICRC10 {
   // Bit field definition.
   struct {
     uint32_t START_OFFSET_X : 13;
-    uint32_t _reserved_1 : 3;
+    uint32_t _reserved_0 : 3;
     uint32_t START_OFFSET_Y : 12;
-    uint32_t _reserved_2 : 2;
+    uint32_t _reserved_1 : 2;
     eROI_FREEZE ROI_FREEZE : 1;
     eROI_EN ROI_EN : 1;
   } bits;
@@ -464,9 +464,9 @@ union DCIC2_DCICRC11 {
   // Bit field definition.
   struct {
     uint32_t START_OFFSET_X : 13;
-    uint32_t _reserved_1 : 3;
+    uint32_t _reserved_0 : 3;
     uint32_t START_OFFSET_Y : 12;
-    uint32_t _reserved_2 : 2;
+    uint32_t _reserved_1 : 2;
     eROI_FREEZE ROI_FREEZE : 1;
     eROI_EN ROI_EN : 1;
   } bits;
@@ -495,9 +495,9 @@ union DCIC2_DCICRC12 {
   // Bit field definition.
   struct {
     uint32_t START_OFFSET_X : 13;
-    uint32_t _reserved_1 : 3;
+    uint32_t _reserved_0 : 3;
     uint32_t START_OFFSET_Y : 12;
-    uint32_t _reserved_2 : 2;
+    uint32_t _reserved_1 : 2;
     eROI_FREEZE ROI_FREEZE : 1;
     eROI_EN ROI_EN : 1;
   } bits;
@@ -526,9 +526,9 @@ union DCIC2_DCICRC13 {
   // Bit field definition.
   struct {
     uint32_t START_OFFSET_X : 13;
-    uint32_t _reserved_1 : 3;
+    uint32_t _reserved_0 : 3;
     uint32_t START_OFFSET_Y : 12;
-    uint32_t _reserved_2 : 2;
+    uint32_t _reserved_1 : 2;
     eROI_FREEZE ROI_FREEZE : 1;
     eROI_EN ROI_EN : 1;
   } bits;
@@ -557,9 +557,9 @@ union DCIC2_DCICRC14 {
   // Bit field definition.
   struct {
     uint32_t START_OFFSET_X : 13;
-    uint32_t _reserved_1 : 3;
+    uint32_t _reserved_0 : 3;
     uint32_t START_OFFSET_Y : 12;
-    uint32_t _reserved_2 : 2;
+    uint32_t _reserved_1 : 2;
     eROI_FREEZE ROI_FREEZE : 1;
     eROI_EN ROI_EN : 1;
   } bits;
@@ -588,9 +588,9 @@ union DCIC2_DCICRC15 {
   // Bit field definition.
   struct {
     uint32_t START_OFFSET_X : 13;
-    uint32_t _reserved_1 : 3;
+    uint32_t _reserved_0 : 3;
     uint32_t START_OFFSET_Y : 12;
-    uint32_t _reserved_2 : 2;
+    uint32_t _reserved_1 : 2;
     eROI_FREEZE ROI_FREEZE : 1;
     eROI_EN ROI_EN : 1;
   } bits;
@@ -619,9 +619,9 @@ union DCIC2_DCICRC16 {
   // Bit field definition.
   struct {
     uint32_t START_OFFSET_X : 13;
-    uint32_t _reserved_1 : 3;
+    uint32_t _reserved_0 : 3;
     uint32_t START_OFFSET_Y : 12;
-    uint32_t _reserved_2 : 2;
+    uint32_t _reserved_1 : 2;
     eROI_FREEZE ROI_FREEZE : 1;
     eROI_EN ROI_EN : 1;
   } bits;
@@ -641,9 +641,9 @@ union DCIC2_DCICRS1 {
   // Bit field definition.
   struct {
     uint32_t END_OFFSET_X : 13;
-    uint32_t _reserved_1 : 3;
+    uint32_t _reserved_0 : 3;
     uint32_t END_OFFSET_Y : 12;
-    uint32_t _reserved_end : 4;
+    uint32_t _reserved_1 : 4;
   } bits;
   
   // Full 32-bit register value.
@@ -660,9 +660,9 @@ union DCIC2_DCICRS2 {
   // Bit field definition.
   struct {
     uint32_t END_OFFSET_X : 13;
-    uint32_t _reserved_1 : 3;
+    uint32_t _reserved_0 : 3;
     uint32_t END_OFFSET_Y : 12;
-    uint32_t _reserved_end : 4;
+    uint32_t _reserved_1 : 4;
   } bits;
   
   // Full 32-bit register value.
@@ -679,9 +679,9 @@ union DCIC2_DCICRS3 {
   // Bit field definition.
   struct {
     uint32_t END_OFFSET_X : 13;
-    uint32_t _reserved_1 : 3;
+    uint32_t _reserved_0 : 3;
     uint32_t END_OFFSET_Y : 12;
-    uint32_t _reserved_end : 4;
+    uint32_t _reserved_1 : 4;
   } bits;
   
   // Full 32-bit register value.
@@ -698,9 +698,9 @@ union DCIC2_DCICRS4 {
   // Bit field definition.
   struct {
     uint32_t END_OFFSET_X : 13;
-    uint32_t _reserved_1 : 3;
+    uint32_t _reserved_0 : 3;
     uint32_t END_OFFSET_Y : 12;
-    uint32_t _reserved_end : 4;
+    uint32_t _reserved_1 : 4;
   } bits;
   
   // Full 32-bit register value.
@@ -717,9 +717,9 @@ union DCIC2_DCICRS5 {
   // Bit field definition.
   struct {
     uint32_t END_OFFSET_X : 13;
-    uint32_t _reserved_1 : 3;
+    uint32_t _reserved_0 : 3;
     uint32_t END_OFFSET_Y : 12;
-    uint32_t _reserved_end : 4;
+    uint32_t _reserved_1 : 4;
   } bits;
   
   // Full 32-bit register value.
@@ -736,9 +736,9 @@ union DCIC2_DCICRS6 {
   // Bit field definition.
   struct {
     uint32_t END_OFFSET_X : 13;
-    uint32_t _reserved_1 : 3;
+    uint32_t _reserved_0 : 3;
     uint32_t END_OFFSET_Y : 12;
-    uint32_t _reserved_end : 4;
+    uint32_t _reserved_1 : 4;
   } bits;
   
   // Full 32-bit register value.
@@ -755,9 +755,9 @@ union DCIC2_DCICRS7 {
   // Bit field definition.
   struct {
     uint32_t END_OFFSET_X : 13;
-    uint32_t _reserved_1 : 3;
+    uint32_t _reserved_0 : 3;
     uint32_t END_OFFSET_Y : 12;
-    uint32_t _reserved_end : 4;
+    uint32_t _reserved_1 : 4;
   } bits;
   
   // Full 32-bit register value.
@@ -774,9 +774,9 @@ union DCIC2_DCICRS8 {
   // Bit field definition.
   struct {
     uint32_t END_OFFSET_X : 13;
-    uint32_t _reserved_1 : 3;
+    uint32_t _reserved_0 : 3;
     uint32_t END_OFFSET_Y : 12;
-    uint32_t _reserved_end : 4;
+    uint32_t _reserved_1 : 4;
   } bits;
   
   // Full 32-bit register value.
@@ -793,9 +793,9 @@ union DCIC2_DCICRS9 {
   // Bit field definition.
   struct {
     uint32_t END_OFFSET_X : 13;
-    uint32_t _reserved_1 : 3;
+    uint32_t _reserved_0 : 3;
     uint32_t END_OFFSET_Y : 12;
-    uint32_t _reserved_end : 4;
+    uint32_t _reserved_1 : 4;
   } bits;
   
   // Full 32-bit register value.
@@ -812,9 +812,9 @@ union DCIC2_DCICRS10 {
   // Bit field definition.
   struct {
     uint32_t END_OFFSET_X : 13;
-    uint32_t _reserved_1 : 3;
+    uint32_t _reserved_0 : 3;
     uint32_t END_OFFSET_Y : 12;
-    uint32_t _reserved_end : 4;
+    uint32_t _reserved_1 : 4;
   } bits;
   
   // Full 32-bit register value.
@@ -831,9 +831,9 @@ union DCIC2_DCICRS11 {
   // Bit field definition.
   struct {
     uint32_t END_OFFSET_X : 13;
-    uint32_t _reserved_1 : 3;
+    uint32_t _reserved_0 : 3;
     uint32_t END_OFFSET_Y : 12;
-    uint32_t _reserved_end : 4;
+    uint32_t _reserved_1 : 4;
   } bits;
   
   // Full 32-bit register value.
@@ -850,9 +850,9 @@ union DCIC2_DCICRS12 {
   // Bit field definition.
   struct {
     uint32_t END_OFFSET_X : 13;
-    uint32_t _reserved_1 : 3;
+    uint32_t _reserved_0 : 3;
     uint32_t END_OFFSET_Y : 12;
-    uint32_t _reserved_end : 4;
+    uint32_t _reserved_1 : 4;
   } bits;
   
   // Full 32-bit register value.
@@ -869,9 +869,9 @@ union DCIC2_DCICRS13 {
   // Bit field definition.
   struct {
     uint32_t END_OFFSET_X : 13;
-    uint32_t _reserved_1 : 3;
+    uint32_t _reserved_0 : 3;
     uint32_t END_OFFSET_Y : 12;
-    uint32_t _reserved_end : 4;
+    uint32_t _reserved_1 : 4;
   } bits;
   
   // Full 32-bit register value.
@@ -888,9 +888,9 @@ union DCIC2_DCICRS14 {
   // Bit field definition.
   struct {
     uint32_t END_OFFSET_X : 13;
-    uint32_t _reserved_1 : 3;
+    uint32_t _reserved_0 : 3;
     uint32_t END_OFFSET_Y : 12;
-    uint32_t _reserved_end : 4;
+    uint32_t _reserved_1 : 4;
   } bits;
   
   // Full 32-bit register value.
@@ -907,9 +907,9 @@ union DCIC2_DCICRS15 {
   // Bit field definition.
   struct {
     uint32_t END_OFFSET_X : 13;
-    uint32_t _reserved_1 : 3;
+    uint32_t _reserved_0 : 3;
     uint32_t END_OFFSET_Y : 12;
-    uint32_t _reserved_end : 4;
+    uint32_t _reserved_1 : 4;
   } bits;
   
   // Full 32-bit register value.
@@ -926,9 +926,9 @@ union DCIC2_DCICRS16 {
   // Bit field definition.
   struct {
     uint32_t END_OFFSET_X : 13;
-    uint32_t _reserved_1 : 3;
+    uint32_t _reserved_0 : 3;
     uint32_t END_OFFSET_Y : 12;
-    uint32_t _reserved_end : 4;
+    uint32_t _reserved_1 : 4;
   } bits;
   
   // Full 32-bit register value.

@@ -4,7 +4,7 @@
 #include <stdint.h>
 #include <cstring>
 
-// // GPC_SP
+// GPC_SP
 //
 // NOTE: This file was generated from the forge CMSIS-svd wrapper tool.
 
@@ -29,14 +29,14 @@ union SP_AUTHEN_CTRL {
   struct {
     eUSER USER : 1;
     eNONSECURE NONSECURE : 1;
-    uint32_t _reserved_2 : 2;
+    uint32_t _reserved_0 : 2;
     uint32_t LOCK_SETTING : 1;
-    uint32_t _reserved_3 : 3;
+    uint32_t _reserved_1 : 3;
     uint32_t WHITE_LIST : 4;
     uint32_t LOCK_LIST : 1;
-    uint32_t _reserved_5 : 7;
+    uint32_t _reserved_2 : 7;
     uint32_t LOCK_CFG : 1;
-    uint32_t _reserved_end : 11;
+    uint32_t _reserved_3 : 11;
   } bits;
   
   // Full 32-bit register value.
@@ -55,7 +55,7 @@ union SP_INT_CTRL {
   struct {
     uint32_t NO_ALLOWED_SP_INT_EN : 1;
     uint32_t NO_ALLOWED_SP_INT : 1;
-    uint32_t _reserved_end : 30;
+    uint32_t _reserved_0 : 30;
   } bits;
   
   // Full 32-bit register value.
@@ -100,7 +100,7 @@ union SP_SYS_STAT {
     uint32_t SYS_SP_TARGET : 4;
     uint32_t SYS_SP_CURRENT : 4;
     uint32_t SYS_SP_PREVIOUS : 4;
-    uint32_t _reserved_end : 4;
+    uint32_t _reserved_0 : 4;
   } bits;
   
   // Full 32-bit register value.
@@ -118,7 +118,7 @@ union SP_ROSC_CTRL {
   // Bit field definition.
   struct {
     uint32_t SP_ALLOW_ROSC_OFF : 16;
-    uint32_t _reserved_end : 16;
+    uint32_t _reserved_0 : 16;
   } bits;
   
   // Full 32-bit register value.
@@ -191,9 +191,9 @@ union SP_SSAR_SAVE_CTRL {
   // Bit field definition.
   struct {
     uint32_t STEP_CNT : 16;
-    uint32_t _reserved_1 : 12;
+    uint32_t _reserved_0 : 12;
     eCNT_MODE CNT_MODE : 2;
-    uint32_t _reserved_2 : 1;
+    uint32_t _reserved_1 : 1;
     uint32_t DISABLE : 1;
   } bits;
   
@@ -219,9 +219,9 @@ union SP_LPCG_OFF_CTRL {
   // Bit field definition.
   struct {
     uint32_t STEP_CNT : 16;
-    uint32_t _reserved_1 : 12;
+    uint32_t _reserved_0 : 12;
     eCNT_MODE CNT_MODE : 2;
-    uint32_t _reserved_2 : 1;
+    uint32_t _reserved_1 : 1;
     uint32_t DISABLE : 1;
   } bits;
   
@@ -247,9 +247,9 @@ union SP_GROUP_DOWN_CTRL {
   // Bit field definition.
   struct {
     uint32_t STEP_CNT : 16;
-    uint32_t _reserved_1 : 12;
+    uint32_t _reserved_0 : 12;
     eCNT_MODE CNT_MODE : 2;
-    uint32_t _reserved_2 : 1;
+    uint32_t _reserved_1 : 1;
     uint32_t DISABLE : 1;
   } bits;
   
@@ -275,9 +275,9 @@ union SP_ROOT_DOWN_CTRL {
   // Bit field definition.
   struct {
     uint32_t STEP_CNT : 16;
-    uint32_t _reserved_1 : 12;
+    uint32_t _reserved_0 : 12;
     eCNT_MODE CNT_MODE : 2;
-    uint32_t _reserved_2 : 1;
+    uint32_t _reserved_1 : 1;
     uint32_t DISABLE : 1;
   } bits;
   
@@ -303,9 +303,9 @@ union SP_PLL_OFF_CTRL {
   // Bit field definition.
   struct {
     uint32_t STEP_CNT : 16;
-    uint32_t _reserved_1 : 12;
+    uint32_t _reserved_0 : 12;
     eCNT_MODE CNT_MODE : 2;
-    uint32_t _reserved_2 : 1;
+    uint32_t _reserved_1 : 1;
     uint32_t DISABLE : 1;
   } bits;
   
@@ -331,9 +331,9 @@ union SP_ISO_ON_CTRL {
   // Bit field definition.
   struct {
     uint32_t STEP_CNT : 16;
-    uint32_t _reserved_1 : 12;
+    uint32_t _reserved_0 : 12;
     eCNT_MODE CNT_MODE : 2;
-    uint32_t _reserved_2 : 1;
+    uint32_t _reserved_1 : 1;
     uint32_t DISABLE : 1;
   } bits;
   
@@ -359,9 +359,9 @@ union SP_RESET_EARLY_CTRL {
   // Bit field definition.
   struct {
     uint32_t STEP_CNT : 16;
-    uint32_t _reserved_1 : 12;
+    uint32_t _reserved_0 : 12;
     eCNT_MODE CNT_MODE : 2;
-    uint32_t _reserved_2 : 1;
+    uint32_t _reserved_1 : 1;
     uint32_t DISABLE : 1;
   } bits;
   
@@ -387,9 +387,9 @@ union SP_POWER_OFF_CTRL {
   // Bit field definition.
   struct {
     uint32_t STEP_CNT : 16;
-    uint32_t _reserved_1 : 12;
+    uint32_t _reserved_0 : 12;
     eCNT_MODE CNT_MODE : 2;
-    uint32_t _reserved_2 : 1;
+    uint32_t _reserved_1 : 1;
     uint32_t DISABLE : 1;
   } bits;
   
@@ -415,9 +415,9 @@ union SP_BIAS_OFF_CTRL {
   // Bit field definition.
   struct {
     uint32_t STEP_CNT : 16;
-    uint32_t _reserved_1 : 12;
+    uint32_t _reserved_0 : 12;
     eCNT_MODE CNT_MODE : 2;
-    uint32_t _reserved_2 : 1;
+    uint32_t _reserved_1 : 1;
     uint32_t DISABLE : 1;
   } bits;
   
@@ -443,9 +443,9 @@ union SP_BG_PLDO_OFF_CTRL {
   // Bit field definition.
   struct {
     uint32_t STEP_CNT : 16;
-    uint32_t _reserved_1 : 12;
+    uint32_t _reserved_0 : 12;
     eCNT_MODE CNT_MODE : 2;
-    uint32_t _reserved_2 : 1;
+    uint32_t _reserved_1 : 1;
     uint32_t DISABLE : 1;
   } bits;
   
@@ -471,9 +471,9 @@ union SP_LDO_PRE_CTRL {
   // Bit field definition.
   struct {
     uint32_t STEP_CNT : 16;
-    uint32_t _reserved_1 : 12;
+    uint32_t _reserved_0 : 12;
     eCNT_MODE CNT_MODE : 2;
-    uint32_t _reserved_2 : 1;
+    uint32_t _reserved_1 : 1;
     uint32_t DISABLE : 1;
   } bits;
   
@@ -499,9 +499,9 @@ union SP_DCDC_DOWN_CTRL {
   // Bit field definition.
   struct {
     uint32_t STEP_CNT : 16;
-    uint32_t _reserved_1 : 12;
+    uint32_t _reserved_0 : 12;
     eCNT_MODE CNT_MODE : 2;
-    uint32_t _reserved_2 : 1;
+    uint32_t _reserved_1 : 1;
     uint32_t DISABLE : 1;
   } bits;
   
@@ -527,9 +527,9 @@ union SP_DCDC_UP_CTRL {
   // Bit field definition.
   struct {
     uint32_t STEP_CNT : 16;
-    uint32_t _reserved_1 : 12;
+    uint32_t _reserved_0 : 12;
     eCNT_MODE CNT_MODE : 2;
-    uint32_t _reserved_2 : 1;
+    uint32_t _reserved_1 : 1;
     uint32_t DISABLE : 1;
   } bits;
   
@@ -555,9 +555,9 @@ union SP_LDO_POST_CTRL {
   // Bit field definition.
   struct {
     uint32_t STEP_CNT : 16;
-    uint32_t _reserved_1 : 12;
+    uint32_t _reserved_0 : 12;
     eCNT_MODE CNT_MODE : 2;
-    uint32_t _reserved_2 : 1;
+    uint32_t _reserved_1 : 1;
     uint32_t DISABLE : 1;
   } bits;
   
@@ -583,9 +583,9 @@ union SP_BG_PLDO_ON_CTRL {
   // Bit field definition.
   struct {
     uint32_t STEP_CNT : 16;
-    uint32_t _reserved_1 : 12;
+    uint32_t _reserved_0 : 12;
     eCNT_MODE CNT_MODE : 2;
-    uint32_t _reserved_2 : 1;
+    uint32_t _reserved_1 : 1;
     uint32_t DISABLE : 1;
   } bits;
   
@@ -611,9 +611,9 @@ union SP_BIAS_ON_CTRL {
   // Bit field definition.
   struct {
     uint32_t STEP_CNT : 16;
-    uint32_t _reserved_1 : 12;
+    uint32_t _reserved_0 : 12;
     eCNT_MODE CNT_MODE : 2;
-    uint32_t _reserved_2 : 1;
+    uint32_t _reserved_1 : 1;
     uint32_t DISABLE : 1;
   } bits;
   
@@ -639,9 +639,9 @@ union SP_POWER_ON_CTRL {
   // Bit field definition.
   struct {
     uint32_t STEP_CNT : 16;
-    uint32_t _reserved_1 : 12;
+    uint32_t _reserved_0 : 12;
     eCNT_MODE CNT_MODE : 2;
-    uint32_t _reserved_2 : 1;
+    uint32_t _reserved_1 : 1;
     uint32_t DISABLE : 1;
   } bits;
   
@@ -667,9 +667,9 @@ union SP_RESET_LATE_CTRL {
   // Bit field definition.
   struct {
     uint32_t STEP_CNT : 16;
-    uint32_t _reserved_1 : 12;
+    uint32_t _reserved_0 : 12;
     eCNT_MODE CNT_MODE : 2;
-    uint32_t _reserved_2 : 1;
+    uint32_t _reserved_1 : 1;
     uint32_t DISABLE : 1;
   } bits;
   
@@ -695,9 +695,9 @@ union SP_ISO_OFF_CTRL {
   // Bit field definition.
   struct {
     uint32_t STEP_CNT : 16;
-    uint32_t _reserved_1 : 12;
+    uint32_t _reserved_0 : 12;
     eCNT_MODE CNT_MODE : 2;
-    uint32_t _reserved_2 : 1;
+    uint32_t _reserved_1 : 1;
     uint32_t DISABLE : 1;
   } bits;
   
@@ -723,9 +723,9 @@ union SP_PLL_ON_CTRL {
   // Bit field definition.
   struct {
     uint32_t STEP_CNT : 16;
-    uint32_t _reserved_1 : 12;
+    uint32_t _reserved_0 : 12;
     eCNT_MODE CNT_MODE : 2;
-    uint32_t _reserved_2 : 1;
+    uint32_t _reserved_1 : 1;
     uint32_t DISABLE : 1;
   } bits;
   
@@ -751,9 +751,9 @@ union SP_ROOT_UP_CTRL {
   // Bit field definition.
   struct {
     uint32_t STEP_CNT : 16;
-    uint32_t _reserved_1 : 12;
+    uint32_t _reserved_0 : 12;
     eCNT_MODE CNT_MODE : 2;
-    uint32_t _reserved_2 : 1;
+    uint32_t _reserved_1 : 1;
     uint32_t DISABLE : 1;
   } bits;
   
@@ -779,9 +779,9 @@ union SP_GROUP_UP_CTRL {
   // Bit field definition.
   struct {
     uint32_t STEP_CNT : 16;
-    uint32_t _reserved_1 : 12;
+    uint32_t _reserved_0 : 12;
     eCNT_MODE CNT_MODE : 2;
-    uint32_t _reserved_2 : 1;
+    uint32_t _reserved_1 : 1;
     uint32_t DISABLE : 1;
   } bits;
   
@@ -807,9 +807,9 @@ union SP_LPCG_ON_CTRL {
   // Bit field definition.
   struct {
     uint32_t STEP_CNT : 16;
-    uint32_t _reserved_1 : 12;
+    uint32_t _reserved_0 : 12;
     eCNT_MODE CNT_MODE : 2;
-    uint32_t _reserved_2 : 1;
+    uint32_t _reserved_1 : 1;
     uint32_t DISABLE : 1;
   } bits;
   
@@ -835,9 +835,9 @@ union SP_SSAR_RESTORE_CTRL {
   // Bit field definition.
   struct {
     uint32_t STEP_CNT : 16;
-    uint32_t _reserved_1 : 12;
+    uint32_t _reserved_0 : 12;
     eCNT_MODE CNT_MODE : 2;
-    uint32_t _reserved_2 : 1;
+    uint32_t _reserved_1 : 1;
     uint32_t DISABLE : 1;
   } bits;
   

@@ -4,7 +4,7 @@
 #include <stdint.h>
 #include <cstring>
 
-// // LCDIF Register Reference Index
+// LCDIF Register Reference Index
 //
 // NOTE: This file was generated from the forge CMSIS-svd wrapper tool.
 
@@ -64,22 +64,22 @@ union LCDIF_CTRL {
     eDATA_FORMAT_24_BIT DATA_FORMAT_24_BIT : 1;
     eDATA_FORMAT_18_BIT DATA_FORMAT_18_BIT : 1;
     uint32_t DATA_FORMAT_16_BIT : 1;
-    uint32_t _reserved_4 : 1;
+    uint32_t _reserved_0 : 1;
     uint32_t MASTER : 1;
     uint32_t ENABLE_PXP_HANDSHAKE : 1;
-    uint32_t _reserved_6 : 1;
+    uint32_t _reserved_1 : 1;
     eWORD_LENGTH WORD_LENGTH : 2;
     eLCD_DATABUS_WIDTH LCD_DATABUS_WIDTH : 2;
     eCSC_DATA_SWIZZLE CSC_DATA_SWIZZLE : 2;
     eINPUT_DATA_SWIZZLE INPUT_DATA_SWIZZLE : 2;
-    uint32_t _reserved_10 : 1;
+    uint32_t _reserved_2 : 1;
     uint32_t DOTCLK_MODE : 1;
-    uint32_t _reserved_11 : 1;
+    uint32_t _reserved_3 : 1;
     uint32_t BYPASS_COUNT : 1;
-    uint32_t _reserved_12 : 1;
+    uint32_t _reserved_4 : 1;
     uint32_t SHIFT_NUM_BITS : 5;
     eDATA_SHIFT_DIR DATA_SHIFT_DIR : 1;
-    uint32_t _reserved_14 : 3;
+    uint32_t _reserved_5 : 3;
     uint32_t CLKGATE : 1;
     uint32_t SFTRST : 1;
   } bits;
@@ -145,22 +145,22 @@ union LCDIF_CTRL_SET {
     eDATA_FORMAT_24_BIT DATA_FORMAT_24_BIT : 1;
     eDATA_FORMAT_18_BIT DATA_FORMAT_18_BIT : 1;
     uint32_t DATA_FORMAT_16_BIT : 1;
-    uint32_t _reserved_4 : 1;
+    uint32_t _reserved_0 : 1;
     uint32_t MASTER : 1;
     uint32_t ENABLE_PXP_HANDSHAKE : 1;
-    uint32_t _reserved_6 : 1;
+    uint32_t _reserved_1 : 1;
     eWORD_LENGTH WORD_LENGTH : 2;
     eLCD_DATABUS_WIDTH LCD_DATABUS_WIDTH : 2;
     eCSC_DATA_SWIZZLE CSC_DATA_SWIZZLE : 2;
     eINPUT_DATA_SWIZZLE INPUT_DATA_SWIZZLE : 2;
-    uint32_t _reserved_10 : 1;
+    uint32_t _reserved_2 : 1;
     uint32_t DOTCLK_MODE : 1;
-    uint32_t _reserved_11 : 1;
+    uint32_t _reserved_3 : 1;
     uint32_t BYPASS_COUNT : 1;
-    uint32_t _reserved_12 : 1;
+    uint32_t _reserved_4 : 1;
     uint32_t SHIFT_NUM_BITS : 5;
     eDATA_SHIFT_DIR DATA_SHIFT_DIR : 1;
-    uint32_t _reserved_14 : 3;
+    uint32_t _reserved_5 : 3;
     uint32_t CLKGATE : 1;
     uint32_t SFTRST : 1;
   } bits;
@@ -226,22 +226,22 @@ union LCDIF_CTRL_CLR {
     eDATA_FORMAT_24_BIT DATA_FORMAT_24_BIT : 1;
     eDATA_FORMAT_18_BIT DATA_FORMAT_18_BIT : 1;
     uint32_t DATA_FORMAT_16_BIT : 1;
-    uint32_t _reserved_4 : 1;
+    uint32_t _reserved_0 : 1;
     uint32_t MASTER : 1;
     uint32_t ENABLE_PXP_HANDSHAKE : 1;
-    uint32_t _reserved_6 : 1;
+    uint32_t _reserved_1 : 1;
     eWORD_LENGTH WORD_LENGTH : 2;
     eLCD_DATABUS_WIDTH LCD_DATABUS_WIDTH : 2;
     eCSC_DATA_SWIZZLE CSC_DATA_SWIZZLE : 2;
     eINPUT_DATA_SWIZZLE INPUT_DATA_SWIZZLE : 2;
-    uint32_t _reserved_10 : 1;
+    uint32_t _reserved_2 : 1;
     uint32_t DOTCLK_MODE : 1;
-    uint32_t _reserved_11 : 1;
+    uint32_t _reserved_3 : 1;
     uint32_t BYPASS_COUNT : 1;
-    uint32_t _reserved_12 : 1;
+    uint32_t _reserved_4 : 1;
     uint32_t SHIFT_NUM_BITS : 5;
     eDATA_SHIFT_DIR DATA_SHIFT_DIR : 1;
-    uint32_t _reserved_14 : 3;
+    uint32_t _reserved_5 : 3;
     uint32_t CLKGATE : 1;
     uint32_t SFTRST : 1;
   } bits;
@@ -307,22 +307,22 @@ union LCDIF_CTRL_TOG {
     eDATA_FORMAT_24_BIT DATA_FORMAT_24_BIT : 1;
     eDATA_FORMAT_18_BIT DATA_FORMAT_18_BIT : 1;
     uint32_t DATA_FORMAT_16_BIT : 1;
-    uint32_t _reserved_4 : 1;
+    uint32_t _reserved_0 : 1;
     uint32_t MASTER : 1;
     uint32_t ENABLE_PXP_HANDSHAKE : 1;
-    uint32_t _reserved_6 : 1;
+    uint32_t _reserved_1 : 1;
     eWORD_LENGTH WORD_LENGTH : 2;
     eLCD_DATABUS_WIDTH LCD_DATABUS_WIDTH : 2;
     eCSC_DATA_SWIZZLE CSC_DATA_SWIZZLE : 2;
     eINPUT_DATA_SWIZZLE INPUT_DATA_SWIZZLE : 2;
-    uint32_t _reserved_10 : 1;
+    uint32_t _reserved_2 : 1;
     uint32_t DOTCLK_MODE : 1;
-    uint32_t _reserved_11 : 1;
+    uint32_t _reserved_3 : 1;
     uint32_t BYPASS_COUNT : 1;
-    uint32_t _reserved_12 : 1;
+    uint32_t _reserved_4 : 1;
     uint32_t SHIFT_NUM_BITS : 5;
     eDATA_SHIFT_DIR DATA_SHIFT_DIR : 1;
-    uint32_t _reserved_14 : 3;
+    uint32_t _reserved_5 : 3;
     uint32_t CLKGATE : 1;
     uint32_t SFTRST : 1;
   } bits;
@@ -383,7 +383,7 @@ union LCDIF_CTRL1 {
     uint32_t RECOVER_ON_UNDERFLOW : 1;
     eBM_ERROR_IRQ BM_ERROR_IRQ : 1;
     uint32_t BM_ERROR_IRQ_EN : 1;
-    uint32_t _reserved_16 : 3;
+    uint32_t _reserved_1 : 3;
     uint32_t CS_OUT_SELECT : 1;
     uint32_t IMAGE_DATA_SELECT : 1;
   } bits;
@@ -444,7 +444,7 @@ union LCDIF_CTRL1_SET {
     uint32_t RECOVER_ON_UNDERFLOW : 1;
     eBM_ERROR_IRQ BM_ERROR_IRQ : 1;
     uint32_t BM_ERROR_IRQ_EN : 1;
-    uint32_t _reserved_16 : 3;
+    uint32_t _reserved_1 : 3;
     uint32_t CS_OUT_SELECT : 1;
     uint32_t IMAGE_DATA_SELECT : 1;
   } bits;
@@ -505,7 +505,7 @@ union LCDIF_CTRL1_CLR {
     uint32_t RECOVER_ON_UNDERFLOW : 1;
     eBM_ERROR_IRQ BM_ERROR_IRQ : 1;
     uint32_t BM_ERROR_IRQ_EN : 1;
-    uint32_t _reserved_16 : 3;
+    uint32_t _reserved_1 : 3;
     uint32_t CS_OUT_SELECT : 1;
     uint32_t IMAGE_DATA_SELECT : 1;
   } bits;
@@ -566,7 +566,7 @@ union LCDIF_CTRL1_TOG {
     uint32_t RECOVER_ON_UNDERFLOW : 1;
     eBM_ERROR_IRQ BM_ERROR_IRQ : 1;
     uint32_t BM_ERROR_IRQ_EN : 1;
-    uint32_t _reserved_16 : 3;
+    uint32_t _reserved_1 : 3;
     uint32_t CS_OUT_SELECT : 1;
     uint32_t IMAGE_DATA_SELECT : 1;
   } bits;
@@ -618,7 +618,7 @@ union LCDIF_CTRL2 {
     uint32_t _reserved_2 : 1;
     uint32_t BURST_LEN_8 : 1;
     eOUTSTANDING_REQS OUTSTANDING_REQS : 3;
-    uint32_t _reserved_end : 8;
+    uint32_t _reserved_3 : 8;
   } bits;
   
   // Full 32-bit register value.
@@ -668,7 +668,7 @@ union LCDIF_CTRL2_SET {
     uint32_t _reserved_2 : 1;
     uint32_t BURST_LEN_8 : 1;
     eOUTSTANDING_REQS OUTSTANDING_REQS : 3;
-    uint32_t _reserved_end : 8;
+    uint32_t _reserved_3 : 8;
   } bits;
   
   // Full 32-bit register value.
@@ -718,7 +718,7 @@ union LCDIF_CTRL2_CLR {
     uint32_t _reserved_2 : 1;
     uint32_t BURST_LEN_8 : 1;
     eOUTSTANDING_REQS OUTSTANDING_REQS : 3;
-    uint32_t _reserved_end : 8;
+    uint32_t _reserved_3 : 8;
   } bits;
   
   // Full 32-bit register value.
@@ -768,7 +768,7 @@ union LCDIF_CTRL2_TOG {
     uint32_t _reserved_2 : 1;
     uint32_t BURST_LEN_8 : 1;
     eOUTSTANDING_REQS OUTSTANDING_REQS : 3;
-    uint32_t _reserved_end : 8;
+    uint32_t _reserved_3 : 8;
   } bits;
   
   // Full 32-bit register value.
@@ -847,14 +847,14 @@ union LCDIF_VDCTRL0 {
     uint32_t HALF_LINE : 1;
     uint32_t VSYNC_PULSE_WIDTH_UNIT : 1;
     uint32_t VSYNC_PERIOD_UNIT : 1;
-    uint32_t _reserved_5 : 2;
+    uint32_t _reserved_0 : 2;
     uint32_t ENABLE_POL : 1;
     uint32_t DOTCLK_POL : 1;
     uint32_t HSYNC_POL : 1;
     uint32_t VSYNC_POL : 1;
     uint32_t ENABLE_PRESENT : 1;
     eVSYNC_OEB VSYNC_OEB : 1;
-    uint32_t _reserved_end : 2;
+    uint32_t _reserved_1 : 2;
   } bits;
   
   // Full 32-bit register value.
@@ -881,14 +881,14 @@ union LCDIF_VDCTRL0_SET {
     uint32_t HALF_LINE : 1;
     uint32_t VSYNC_PULSE_WIDTH_UNIT : 1;
     uint32_t VSYNC_PERIOD_UNIT : 1;
-    uint32_t _reserved_5 : 2;
+    uint32_t _reserved_0 : 2;
     uint32_t ENABLE_POL : 1;
     uint32_t DOTCLK_POL : 1;
     uint32_t HSYNC_POL : 1;
     uint32_t VSYNC_POL : 1;
     uint32_t ENABLE_PRESENT : 1;
     eVSYNC_OEB VSYNC_OEB : 1;
-    uint32_t _reserved_end : 2;
+    uint32_t _reserved_1 : 2;
   } bits;
   
   // Full 32-bit register value.
@@ -915,14 +915,14 @@ union LCDIF_VDCTRL0_CLR {
     uint32_t HALF_LINE : 1;
     uint32_t VSYNC_PULSE_WIDTH_UNIT : 1;
     uint32_t VSYNC_PERIOD_UNIT : 1;
-    uint32_t _reserved_5 : 2;
+    uint32_t _reserved_0 : 2;
     uint32_t ENABLE_POL : 1;
     uint32_t DOTCLK_POL : 1;
     uint32_t HSYNC_POL : 1;
     uint32_t VSYNC_POL : 1;
     uint32_t ENABLE_PRESENT : 1;
     eVSYNC_OEB VSYNC_OEB : 1;
-    uint32_t _reserved_end : 2;
+    uint32_t _reserved_1 : 2;
   } bits;
   
   // Full 32-bit register value.
@@ -949,14 +949,14 @@ union LCDIF_VDCTRL0_TOG {
     uint32_t HALF_LINE : 1;
     uint32_t VSYNC_PULSE_WIDTH_UNIT : 1;
     uint32_t VSYNC_PERIOD_UNIT : 1;
-    uint32_t _reserved_5 : 2;
+    uint32_t _reserved_0 : 2;
     uint32_t ENABLE_POL : 1;
     uint32_t DOTCLK_POL : 1;
     uint32_t HSYNC_POL : 1;
     uint32_t VSYNC_POL : 1;
     uint32_t ENABLE_PRESENT : 1;
     eVSYNC_OEB VSYNC_OEB : 1;
-    uint32_t _reserved_end : 2;
+    uint32_t _reserved_1 : 2;
   } bits;
   
   // Full 32-bit register value.
@@ -1012,7 +1012,7 @@ union LCDIF_VDCTRL3 {
     uint32_t HORIZONTAL_WAIT_CNT : 12;
     uint32_t VSYNC_ONLY : 1;
     uint32_t MUX_SYNC_SIGNALS : 1;
-    uint32_t _reserved_end : 2;
+    uint32_t _reserved_0 : 2;
   } bits;
   
   // Full 32-bit register value.
@@ -1031,7 +1031,7 @@ union LCDIF_VDCTRL4 {
   struct {
     uint32_t DOTCLK_H_VALID_DATA_CNT : 18;
     uint32_t SYNC_SIGNALS_ON : 1;
-    uint32_t _reserved_2 : 10;
+    uint32_t _reserved_0 : 10;
     uint32_t DOTCLK_DLY_SEL : 3;
   } bits;
   
@@ -1084,7 +1084,7 @@ union LCDIF_STAT {
   // Bit field definition.
   struct {
     uint32_t LFIFO_COUNT : 9;
-    uint32_t _reserved_1 : 17;
+    uint32_t _reserved_0 : 17;
     uint32_t TXFIFO_EMPTY : 1;
     uint32_t TXFIFO_FULL : 1;
     uint32_t LFIFO_EMPTY : 1;
@@ -1109,7 +1109,7 @@ union LCDIF_THRES {
   struct {
     uint32_t _reserved_0 : 16;
     uint32_t FASTCLOCK : 9;
-    uint32_t _reserved_end : 7;
+    uint32_t _reserved_1 : 7;
   } bits;
   
   // Full 32-bit register value.
@@ -1127,9 +1127,9 @@ union LCDIF_PIGEONCTRL0 {
   // Bit field definition.
   struct {
     uint32_t FD_PERIOD : 12;
-    uint32_t _reserved_1 : 4;
+    uint32_t _reserved_0 : 4;
     uint32_t LD_PERIOD : 12;
-    uint32_t _reserved_end : 4;
+    uint32_t _reserved_1 : 4;
   } bits;
   
   // Full 32-bit register value.
@@ -1147,9 +1147,9 @@ union LCDIF_PIGEONCTRL0_SET {
   // Bit field definition.
   struct {
     uint32_t FD_PERIOD : 12;
-    uint32_t _reserved_1 : 4;
+    uint32_t _reserved_0 : 4;
     uint32_t LD_PERIOD : 12;
-    uint32_t _reserved_end : 4;
+    uint32_t _reserved_1 : 4;
   } bits;
   
   // Full 32-bit register value.
@@ -1167,9 +1167,9 @@ union LCDIF_PIGEONCTRL0_CLR {
   // Bit field definition.
   struct {
     uint32_t FD_PERIOD : 12;
-    uint32_t _reserved_1 : 4;
+    uint32_t _reserved_0 : 4;
     uint32_t LD_PERIOD : 12;
-    uint32_t _reserved_end : 4;
+    uint32_t _reserved_1 : 4;
   } bits;
   
   // Full 32-bit register value.
@@ -1187,9 +1187,9 @@ union LCDIF_PIGEONCTRL0_TOG {
   // Bit field definition.
   struct {
     uint32_t FD_PERIOD : 12;
-    uint32_t _reserved_1 : 4;
+    uint32_t _reserved_0 : 4;
     uint32_t LD_PERIOD : 12;
-    uint32_t _reserved_end : 4;
+    uint32_t _reserved_1 : 4;
   } bits;
   
   // Full 32-bit register value.
@@ -1207,9 +1207,9 @@ union LCDIF_PIGEONCTRL1 {
   // Bit field definition.
   struct {
     uint32_t FRAME_CNT_PERIOD : 12;
-    uint32_t _reserved_1 : 4;
+    uint32_t _reserved_0 : 4;
     uint32_t FRAME_CNT_CYCLES : 12;
-    uint32_t _reserved_end : 4;
+    uint32_t _reserved_1 : 4;
   } bits;
   
   // Full 32-bit register value.
@@ -1227,9 +1227,9 @@ union LCDIF_PIGEONCTRL1_SET {
   // Bit field definition.
   struct {
     uint32_t FRAME_CNT_PERIOD : 12;
-    uint32_t _reserved_1 : 4;
+    uint32_t _reserved_0 : 4;
     uint32_t FRAME_CNT_CYCLES : 12;
-    uint32_t _reserved_end : 4;
+    uint32_t _reserved_1 : 4;
   } bits;
   
   // Full 32-bit register value.
@@ -1247,9 +1247,9 @@ union LCDIF_PIGEONCTRL1_CLR {
   // Bit field definition.
   struct {
     uint32_t FRAME_CNT_PERIOD : 12;
-    uint32_t _reserved_1 : 4;
+    uint32_t _reserved_0 : 4;
     uint32_t FRAME_CNT_CYCLES : 12;
-    uint32_t _reserved_end : 4;
+    uint32_t _reserved_1 : 4;
   } bits;
   
   // Full 32-bit register value.
@@ -1267,9 +1267,9 @@ union LCDIF_PIGEONCTRL1_TOG {
   // Bit field definition.
   struct {
     uint32_t FRAME_CNT_PERIOD : 12;
-    uint32_t _reserved_1 : 4;
+    uint32_t _reserved_0 : 4;
     uint32_t FRAME_CNT_CYCLES : 12;
-    uint32_t _reserved_end : 4;
+    uint32_t _reserved_1 : 4;
   } bits;
   
   // Full 32-bit register value.
@@ -1288,7 +1288,7 @@ union LCDIF_PIGEONCTRL2 {
   struct {
     uint32_t PIGEON_DATA_EN : 1;
     uint32_t PIGEON_CLK_GATE : 1;
-    uint32_t _reserved_end : 30;
+    uint32_t _reserved_0 : 30;
   } bits;
   
   // Full 32-bit register value.
@@ -1307,7 +1307,7 @@ union LCDIF_PIGEONCTRL2_SET {
   struct {
     uint32_t PIGEON_DATA_EN : 1;
     uint32_t PIGEON_CLK_GATE : 1;
-    uint32_t _reserved_end : 30;
+    uint32_t _reserved_0 : 30;
   } bits;
   
   // Full 32-bit register value.
@@ -1326,7 +1326,7 @@ union LCDIF_PIGEONCTRL2_CLR {
   struct {
     uint32_t PIGEON_DATA_EN : 1;
     uint32_t PIGEON_CLK_GATE : 1;
-    uint32_t _reserved_end : 30;
+    uint32_t _reserved_0 : 30;
   } bits;
   
   // Full 32-bit register value.
@@ -1345,7 +1345,7 @@ union LCDIF_PIGEONCTRL2_TOG {
   struct {
     uint32_t PIGEON_DATA_EN : 1;
     uint32_t PIGEON_CLK_GATE : 1;
-    uint32_t _reserved_end : 30;
+    uint32_t _reserved_0 : 30;
   } bits;
   
   // Full 32-bit register value.
@@ -1458,7 +1458,7 @@ union LCDIF_PIGEON_0_2 {
   struct {
     eSIG_LOGIC SIG_LOGIC : 4;
     eSIG_ANOTHER SIG_ANOTHER : 5;
-    uint32_t _reserved_end : 23;
+    uint32_t _reserved_0 : 23;
   } bits;
   
   // Full 32-bit register value.
@@ -1571,7 +1571,7 @@ union LCDIF_PIGEON_1_2 {
   struct {
     eSIG_LOGIC SIG_LOGIC : 4;
     eSIG_ANOTHER SIG_ANOTHER : 5;
-    uint32_t _reserved_end : 23;
+    uint32_t _reserved_0 : 23;
   } bits;
   
   // Full 32-bit register value.
@@ -1684,7 +1684,7 @@ union LCDIF_PIGEON_2_2 {
   struct {
     eSIG_LOGIC SIG_LOGIC : 4;
     eSIG_ANOTHER SIG_ANOTHER : 5;
-    uint32_t _reserved_end : 23;
+    uint32_t _reserved_0 : 23;
   } bits;
   
   // Full 32-bit register value.
@@ -1797,7 +1797,7 @@ union LCDIF_PIGEON_3_2 {
   struct {
     eSIG_LOGIC SIG_LOGIC : 4;
     eSIG_ANOTHER SIG_ANOTHER : 5;
-    uint32_t _reserved_end : 23;
+    uint32_t _reserved_0 : 23;
   } bits;
   
   // Full 32-bit register value.
@@ -1910,7 +1910,7 @@ union LCDIF_PIGEON_4_2 {
   struct {
     eSIG_LOGIC SIG_LOGIC : 4;
     eSIG_ANOTHER SIG_ANOTHER : 5;
-    uint32_t _reserved_end : 23;
+    uint32_t _reserved_0 : 23;
   } bits;
   
   // Full 32-bit register value.
@@ -2023,7 +2023,7 @@ union LCDIF_PIGEON_5_2 {
   struct {
     eSIG_LOGIC SIG_LOGIC : 4;
     eSIG_ANOTHER SIG_ANOTHER : 5;
-    uint32_t _reserved_end : 23;
+    uint32_t _reserved_0 : 23;
   } bits;
   
   // Full 32-bit register value.
@@ -2136,7 +2136,7 @@ union LCDIF_PIGEON_6_2 {
   struct {
     eSIG_LOGIC SIG_LOGIC : 4;
     eSIG_ANOTHER SIG_ANOTHER : 5;
-    uint32_t _reserved_end : 23;
+    uint32_t _reserved_0 : 23;
   } bits;
   
   // Full 32-bit register value.
@@ -2249,7 +2249,7 @@ union LCDIF_PIGEON_7_2 {
   struct {
     eSIG_LOGIC SIG_LOGIC : 4;
     eSIG_ANOTHER SIG_ANOTHER : 5;
-    uint32_t _reserved_end : 23;
+    uint32_t _reserved_0 : 23;
   } bits;
   
   // Full 32-bit register value.
@@ -2362,7 +2362,7 @@ union LCDIF_PIGEON_8_2 {
   struct {
     eSIG_LOGIC SIG_LOGIC : 4;
     eSIG_ANOTHER SIG_ANOTHER : 5;
-    uint32_t _reserved_end : 23;
+    uint32_t _reserved_0 : 23;
   } bits;
   
   // Full 32-bit register value.
@@ -2475,7 +2475,7 @@ union LCDIF_PIGEON_9_2 {
   struct {
     eSIG_LOGIC SIG_LOGIC : 4;
     eSIG_ANOTHER SIG_ANOTHER : 5;
-    uint32_t _reserved_end : 23;
+    uint32_t _reserved_0 : 23;
   } bits;
   
   // Full 32-bit register value.
@@ -2588,7 +2588,7 @@ union LCDIF_PIGEON_10_2 {
   struct {
     eSIG_LOGIC SIG_LOGIC : 4;
     eSIG_ANOTHER SIG_ANOTHER : 5;
-    uint32_t _reserved_end : 23;
+    uint32_t _reserved_0 : 23;
   } bits;
   
   // Full 32-bit register value.
@@ -2701,7 +2701,7 @@ union LCDIF_PIGEON_11_2 {
   struct {
     eSIG_LOGIC SIG_LOGIC : 4;
     eSIG_ANOTHER SIG_ANOTHER : 5;
-    uint32_t _reserved_end : 23;
+    uint32_t _reserved_0 : 23;
   } bits;
   
   // Full 32-bit register value.
@@ -2719,7 +2719,7 @@ union LCDIF_LUT_CTRL {
   // Bit field definition.
   struct {
     uint32_t LUT_BYPASS : 1;
-    uint32_t _reserved_end : 31;
+    uint32_t _reserved_0 : 31;
   } bits;
   
   // Full 32-bit register value.
@@ -2737,7 +2737,7 @@ union LCDIF_LUT0_ADDR {
   // Bit field definition.
   struct {
     uint32_t ADDR : 8;
-    uint32_t _reserved_end : 24;
+    uint32_t _reserved_0 : 24;
   } bits;
   
   // Full 32-bit register value.
@@ -2772,7 +2772,7 @@ union LCDIF_LUT1_ADDR {
   // Bit field definition.
   struct {
     uint32_t ADDR : 8;
-    uint32_t _reserved_end : 24;
+    uint32_t _reserved_0 : 24;
   } bits;
   
   // Full 32-bit register value.

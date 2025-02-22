@@ -4,7 +4,7 @@
 #include <stdint.h>
 #include <cstring>
 
-// // no description available
+// no description available
 //
 // NOTE: This file was generated from the forge CMSIS-svd wrapper tool.
 
@@ -22,7 +22,7 @@ union CTRL0 {
     uint32_t REFTOP_PWDVBGUP : 1;
     uint32_t REFTOP_LOWPOWER : 1;
     uint32_t REFTOP_SELFBIASOFF : 1;
-    uint32_t _reserved_end : 27;
+    uint32_t _reserved_0 : 27;
   } bits;
   
   // Full 32-bit register value.
@@ -44,7 +44,7 @@ union CTRL0_SET {
     uint32_t REFTOP_PWDVBGUP : 1;
     uint32_t REFTOP_LOWPOWER : 1;
     uint32_t REFTOP_SELFBIASOFF : 1;
-    uint32_t _reserved_end : 27;
+    uint32_t _reserved_0 : 27;
   } bits;
   
   // Full 32-bit register value.
@@ -66,7 +66,7 @@ union CTRL0_CLR {
     uint32_t REFTOP_PWDVBGUP : 1;
     uint32_t REFTOP_LOWPOWER : 1;
     uint32_t REFTOP_SELFBIASOFF : 1;
-    uint32_t _reserved_end : 27;
+    uint32_t _reserved_0 : 27;
   } bits;
   
   // Full 32-bit register value.
@@ -88,7 +88,7 @@ union CTRL0_TOG {
     uint32_t REFTOP_PWDVBGUP : 1;
     uint32_t REFTOP_LOWPOWER : 1;
     uint32_t REFTOP_SELFBIASOFF : 1;
-    uint32_t _reserved_end : 27;
+    uint32_t _reserved_0 : 27;
   } bits;
   
   // Full 32-bit register value.
@@ -109,7 +109,7 @@ union STAT0 {
     uint32_t VDD1_PORB : 1;
     uint32_t VDD2_PORB : 1;
     uint32_t VDD3_PORB : 1;
-    uint32_t _reserved_end : 28;
+    uint32_t _reserved_0 : 28;
   } bits;
   
   // Full 32-bit register value.
@@ -130,7 +130,7 @@ union STAT0_SET {
     uint32_t VDD1_PORB : 1;
     uint32_t VDD2_PORB : 1;
     uint32_t VDD3_PORB : 1;
-    uint32_t _reserved_end : 28;
+    uint32_t _reserved_0 : 28;
   } bits;
   
   // Full 32-bit register value.
@@ -151,7 +151,7 @@ union STAT0_CLR {
     uint32_t VDD1_PORB : 1;
     uint32_t VDD2_PORB : 1;
     uint32_t VDD3_PORB : 1;
-    uint32_t _reserved_end : 28;
+    uint32_t _reserved_0 : 28;
   } bits;
   
   // Full 32-bit register value.
@@ -172,7 +172,7 @@ union STAT0_TOG {
     uint32_t VDD1_PORB : 1;
     uint32_t VDD2_PORB : 1;
     uint32_t VDD3_PORB : 1;
-    uint32_t _reserved_end : 28;
+    uint32_t _reserved_0 : 28;
   } bits;
   
   // Full 32-bit register value.

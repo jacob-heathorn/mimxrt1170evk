@@ -4,7 +4,7 @@
 #include <stdint.h>
 #include <cstring>
 
-// // ADC_ETC
+// ADC_ETC
 //
 // NOTE: This file was generated from the forge CMSIS-svd wrapper tool.
 
@@ -36,11 +36,11 @@ union CTRL {
   // Bit field definition.
   struct {
     eTRIG_ENABLE TRIG_ENABLE : 8;
-    uint32_t _reserved_1 : 8;
+    uint32_t _reserved_0 : 8;
     uint32_t PRE_DIVIDER : 8;
-    uint32_t _reserved_2 : 5;
+    uint32_t _reserved_1 : 5;
     eDMA_MODE_SEL DMA_MODE_SEL : 1;
-    uint32_t _reserved_3 : 1;
+    uint32_t _reserved_2 : 1;
     eSOFTRST SOFTRST : 1;
   } bits;
   
@@ -146,7 +146,7 @@ union DONE0_1_IRQ {
     eTRIG5_DONE0 TRIG5_DONE0 : 1;
     eTRIG6_DONE0 TRIG6_DONE0 : 1;
     eTRIG7_DONE0 TRIG7_DONE0 : 1;
-    uint32_t _reserved_8 : 8;
+    uint32_t _reserved_0 : 8;
     eTRIG0_DONE1 TRIG0_DONE1 : 1;
     eTRIG1_DONE1 TRIG1_DONE1 : 1;
     eTRIG2_DONE1 TRIG2_DONE1 : 1;
@@ -155,7 +155,7 @@ union DONE0_1_IRQ {
     eTRIG5_DONE1 TRIG5_DONE1 : 1;
     eTRIG6_DONE1 TRIG6_DONE1 : 1;
     eTRIG7_DONE1 TRIG7_DONE1 : 1;
-    uint32_t _reserved_end : 8;
+    uint32_t _reserved_1 : 8;
   } bits;
   
   // Full 32-bit register value.
@@ -316,7 +316,7 @@ union DONE2_3_ERR_IRQ {
     eTRIG5_ERR TRIG5_ERR : 1;
     eTRIG6_ERR TRIG6_ERR : 1;
     eTRIG7_ERR TRIG7_ERR : 1;
-    uint32_t _reserved_end : 8;
+    uint32_t _reserved_0 : 8;
   } bits;
   
   // Full 32-bit register value.
@@ -421,7 +421,7 @@ union DMA_CTRL {
     eTRIG5_ENABLE TRIG5_ENABLE : 1;
     eTRIG6_ENABLE TRIG6_ENABLE : 1;
     eTRIG7_ENABLE TRIG7_ENABLE : 1;
-    uint32_t _reserved_8 : 8;
+    uint32_t _reserved_0 : 8;
     eTRIG0_REQ TRIG0_REQ : 1;
     eTRIG1_REQ TRIG1_REQ : 1;
     eTRIG2_REQ TRIG2_REQ : 1;
@@ -430,7 +430,7 @@ union DMA_CTRL {
     eTRIG5_REQ TRIG5_REQ : 1;
     eTRIG6_REQ TRIG6_REQ : 1;
     eTRIG7_REQ TRIG7_REQ : 1;
-    uint32_t _reserved_end : 8;
+    uint32_t _reserved_1 : 8;
   } bits;
   
   // Full 32-bit register value.
@@ -479,15 +479,15 @@ union TRIG0_CTRL {
   // Bit field definition.
   struct {
     eSW_TRIG SW_TRIG : 1;
-    uint32_t _reserved_1 : 3;
+    uint32_t _reserved_0 : 3;
     eTRIG_MODE TRIG_MODE : 1;
-    uint32_t _reserved_2 : 3;
+    uint32_t _reserved_1 : 3;
     eTRIG_CHAIN TRIG_CHAIN : 3;
-    uint32_t _reserved_3 : 1;
+    uint32_t _reserved_2 : 1;
     uint32_t TRIG_PRIORITY : 3;
-    uint32_t _reserved_4 : 1;
+    uint32_t _reserved_3 : 1;
     eSYNC_MODE SYNC_MODE : 1;
-    uint32_t _reserved_5 : 7;
+    uint32_t _reserved_4 : 7;
     eCHAINx_DONE CHAINx_DONE : 8;
   } bits;
   
@@ -1012,9 +1012,9 @@ union TRIG0_RESULT_1_0 {
   // Bit field definition.
   struct {
     uint32_t DATA0 : 12;
-    uint32_t _reserved_1 : 4;
+    uint32_t _reserved_0 : 4;
     uint32_t DATA1 : 12;
-    uint32_t _reserved_end : 4;
+    uint32_t _reserved_1 : 4;
   } bits;
   
   // Full 32-bit register value.
@@ -1032,9 +1032,9 @@ union TRIG0_RESULT_3_2 {
   // Bit field definition.
   struct {
     uint32_t DATA2 : 12;
-    uint32_t _reserved_1 : 4;
+    uint32_t _reserved_0 : 4;
     uint32_t DATA3 : 12;
-    uint32_t _reserved_end : 4;
+    uint32_t _reserved_1 : 4;
   } bits;
   
   // Full 32-bit register value.
@@ -1052,9 +1052,9 @@ union TRIG0_RESULT_5_4 {
   // Bit field definition.
   struct {
     uint32_t DATA4 : 12;
-    uint32_t _reserved_1 : 4;
+    uint32_t _reserved_0 : 4;
     uint32_t DATA5 : 12;
-    uint32_t _reserved_end : 4;
+    uint32_t _reserved_1 : 4;
   } bits;
   
   // Full 32-bit register value.
@@ -1072,9 +1072,9 @@ union TRIG0_RESULT_7_6 {
   // Bit field definition.
   struct {
     uint32_t DATA6 : 12;
-    uint32_t _reserved_1 : 4;
+    uint32_t _reserved_0 : 4;
     uint32_t DATA7 : 12;
-    uint32_t _reserved_end : 4;
+    uint32_t _reserved_1 : 4;
   } bits;
   
   // Full 32-bit register value.
@@ -1123,15 +1123,15 @@ union TRIG1_CTRL {
   // Bit field definition.
   struct {
     eSW_TRIG SW_TRIG : 1;
-    uint32_t _reserved_1 : 3;
+    uint32_t _reserved_0 : 3;
     eTRIG_MODE TRIG_MODE : 1;
-    uint32_t _reserved_2 : 3;
+    uint32_t _reserved_1 : 3;
     eTRIG_CHAIN TRIG_CHAIN : 3;
-    uint32_t _reserved_3 : 1;
+    uint32_t _reserved_2 : 1;
     uint32_t TRIG_PRIORITY : 3;
-    uint32_t _reserved_4 : 1;
+    uint32_t _reserved_3 : 1;
     eSYNC_MODE SYNC_MODE : 1;
-    uint32_t _reserved_5 : 7;
+    uint32_t _reserved_4 : 7;
     eCHAINx_DONE CHAINx_DONE : 8;
   } bits;
   
@@ -1656,9 +1656,9 @@ union TRIG1_RESULT_1_0 {
   // Bit field definition.
   struct {
     uint32_t DATA0 : 12;
-    uint32_t _reserved_1 : 4;
+    uint32_t _reserved_0 : 4;
     uint32_t DATA1 : 12;
-    uint32_t _reserved_end : 4;
+    uint32_t _reserved_1 : 4;
   } bits;
   
   // Full 32-bit register value.
@@ -1676,9 +1676,9 @@ union TRIG1_RESULT_3_2 {
   // Bit field definition.
   struct {
     uint32_t DATA2 : 12;
-    uint32_t _reserved_1 : 4;
+    uint32_t _reserved_0 : 4;
     uint32_t DATA3 : 12;
-    uint32_t _reserved_end : 4;
+    uint32_t _reserved_1 : 4;
   } bits;
   
   // Full 32-bit register value.
@@ -1696,9 +1696,9 @@ union TRIG1_RESULT_5_4 {
   // Bit field definition.
   struct {
     uint32_t DATA4 : 12;
-    uint32_t _reserved_1 : 4;
+    uint32_t _reserved_0 : 4;
     uint32_t DATA5 : 12;
-    uint32_t _reserved_end : 4;
+    uint32_t _reserved_1 : 4;
   } bits;
   
   // Full 32-bit register value.
@@ -1716,9 +1716,9 @@ union TRIG1_RESULT_7_6 {
   // Bit field definition.
   struct {
     uint32_t DATA6 : 12;
-    uint32_t _reserved_1 : 4;
+    uint32_t _reserved_0 : 4;
     uint32_t DATA7 : 12;
-    uint32_t _reserved_end : 4;
+    uint32_t _reserved_1 : 4;
   } bits;
   
   // Full 32-bit register value.
@@ -1767,15 +1767,15 @@ union TRIG2_CTRL {
   // Bit field definition.
   struct {
     eSW_TRIG SW_TRIG : 1;
-    uint32_t _reserved_1 : 3;
+    uint32_t _reserved_0 : 3;
     eTRIG_MODE TRIG_MODE : 1;
-    uint32_t _reserved_2 : 3;
+    uint32_t _reserved_1 : 3;
     eTRIG_CHAIN TRIG_CHAIN : 3;
-    uint32_t _reserved_3 : 1;
+    uint32_t _reserved_2 : 1;
     uint32_t TRIG_PRIORITY : 3;
-    uint32_t _reserved_4 : 1;
+    uint32_t _reserved_3 : 1;
     eSYNC_MODE SYNC_MODE : 1;
-    uint32_t _reserved_5 : 7;
+    uint32_t _reserved_4 : 7;
     eCHAINx_DONE CHAINx_DONE : 8;
   } bits;
   
@@ -2300,9 +2300,9 @@ union TRIG2_RESULT_1_0 {
   // Bit field definition.
   struct {
     uint32_t DATA0 : 12;
-    uint32_t _reserved_1 : 4;
+    uint32_t _reserved_0 : 4;
     uint32_t DATA1 : 12;
-    uint32_t _reserved_end : 4;
+    uint32_t _reserved_1 : 4;
   } bits;
   
   // Full 32-bit register value.
@@ -2320,9 +2320,9 @@ union TRIG2_RESULT_3_2 {
   // Bit field definition.
   struct {
     uint32_t DATA2 : 12;
-    uint32_t _reserved_1 : 4;
+    uint32_t _reserved_0 : 4;
     uint32_t DATA3 : 12;
-    uint32_t _reserved_end : 4;
+    uint32_t _reserved_1 : 4;
   } bits;
   
   // Full 32-bit register value.
@@ -2340,9 +2340,9 @@ union TRIG2_RESULT_5_4 {
   // Bit field definition.
   struct {
     uint32_t DATA4 : 12;
-    uint32_t _reserved_1 : 4;
+    uint32_t _reserved_0 : 4;
     uint32_t DATA5 : 12;
-    uint32_t _reserved_end : 4;
+    uint32_t _reserved_1 : 4;
   } bits;
   
   // Full 32-bit register value.
@@ -2360,9 +2360,9 @@ union TRIG2_RESULT_7_6 {
   // Bit field definition.
   struct {
     uint32_t DATA6 : 12;
-    uint32_t _reserved_1 : 4;
+    uint32_t _reserved_0 : 4;
     uint32_t DATA7 : 12;
-    uint32_t _reserved_end : 4;
+    uint32_t _reserved_1 : 4;
   } bits;
   
   // Full 32-bit register value.
@@ -2411,15 +2411,15 @@ union TRIG3_CTRL {
   // Bit field definition.
   struct {
     eSW_TRIG SW_TRIG : 1;
-    uint32_t _reserved_1 : 3;
+    uint32_t _reserved_0 : 3;
     eTRIG_MODE TRIG_MODE : 1;
-    uint32_t _reserved_2 : 3;
+    uint32_t _reserved_1 : 3;
     eTRIG_CHAIN TRIG_CHAIN : 3;
-    uint32_t _reserved_3 : 1;
+    uint32_t _reserved_2 : 1;
     uint32_t TRIG_PRIORITY : 3;
-    uint32_t _reserved_4 : 1;
+    uint32_t _reserved_3 : 1;
     eSYNC_MODE SYNC_MODE : 1;
-    uint32_t _reserved_5 : 7;
+    uint32_t _reserved_4 : 7;
     eCHAINx_DONE CHAINx_DONE : 8;
   } bits;
   
@@ -2944,9 +2944,9 @@ union TRIG3_RESULT_1_0 {
   // Bit field definition.
   struct {
     uint32_t DATA0 : 12;
-    uint32_t _reserved_1 : 4;
+    uint32_t _reserved_0 : 4;
     uint32_t DATA1 : 12;
-    uint32_t _reserved_end : 4;
+    uint32_t _reserved_1 : 4;
   } bits;
   
   // Full 32-bit register value.
@@ -2964,9 +2964,9 @@ union TRIG3_RESULT_3_2 {
   // Bit field definition.
   struct {
     uint32_t DATA2 : 12;
-    uint32_t _reserved_1 : 4;
+    uint32_t _reserved_0 : 4;
     uint32_t DATA3 : 12;
-    uint32_t _reserved_end : 4;
+    uint32_t _reserved_1 : 4;
   } bits;
   
   // Full 32-bit register value.
@@ -2984,9 +2984,9 @@ union TRIG3_RESULT_5_4 {
   // Bit field definition.
   struct {
     uint32_t DATA4 : 12;
-    uint32_t _reserved_1 : 4;
+    uint32_t _reserved_0 : 4;
     uint32_t DATA5 : 12;
-    uint32_t _reserved_end : 4;
+    uint32_t _reserved_1 : 4;
   } bits;
   
   // Full 32-bit register value.
@@ -3004,9 +3004,9 @@ union TRIG3_RESULT_7_6 {
   // Bit field definition.
   struct {
     uint32_t DATA6 : 12;
-    uint32_t _reserved_1 : 4;
+    uint32_t _reserved_0 : 4;
     uint32_t DATA7 : 12;
-    uint32_t _reserved_end : 4;
+    uint32_t _reserved_1 : 4;
   } bits;
   
   // Full 32-bit register value.
@@ -3055,15 +3055,15 @@ union TRIG4_CTRL {
   // Bit field definition.
   struct {
     eSW_TRIG SW_TRIG : 1;
-    uint32_t _reserved_1 : 3;
+    uint32_t _reserved_0 : 3;
     eTRIG_MODE TRIG_MODE : 1;
-    uint32_t _reserved_2 : 3;
+    uint32_t _reserved_1 : 3;
     eTRIG_CHAIN TRIG_CHAIN : 3;
-    uint32_t _reserved_3 : 1;
+    uint32_t _reserved_2 : 1;
     uint32_t TRIG_PRIORITY : 3;
-    uint32_t _reserved_4 : 1;
+    uint32_t _reserved_3 : 1;
     eSYNC_MODE SYNC_MODE : 1;
-    uint32_t _reserved_5 : 7;
+    uint32_t _reserved_4 : 7;
     eCHAINx_DONE CHAINx_DONE : 8;
   } bits;
   
@@ -3588,9 +3588,9 @@ union TRIG4_RESULT_1_0 {
   // Bit field definition.
   struct {
     uint32_t DATA0 : 12;
-    uint32_t _reserved_1 : 4;
+    uint32_t _reserved_0 : 4;
     uint32_t DATA1 : 12;
-    uint32_t _reserved_end : 4;
+    uint32_t _reserved_1 : 4;
   } bits;
   
   // Full 32-bit register value.
@@ -3608,9 +3608,9 @@ union TRIG4_RESULT_3_2 {
   // Bit field definition.
   struct {
     uint32_t DATA2 : 12;
-    uint32_t _reserved_1 : 4;
+    uint32_t _reserved_0 : 4;
     uint32_t DATA3 : 12;
-    uint32_t _reserved_end : 4;
+    uint32_t _reserved_1 : 4;
   } bits;
   
   // Full 32-bit register value.
@@ -3628,9 +3628,9 @@ union TRIG4_RESULT_5_4 {
   // Bit field definition.
   struct {
     uint32_t DATA4 : 12;
-    uint32_t _reserved_1 : 4;
+    uint32_t _reserved_0 : 4;
     uint32_t DATA5 : 12;
-    uint32_t _reserved_end : 4;
+    uint32_t _reserved_1 : 4;
   } bits;
   
   // Full 32-bit register value.
@@ -3648,9 +3648,9 @@ union TRIG4_RESULT_7_6 {
   // Bit field definition.
   struct {
     uint32_t DATA6 : 12;
-    uint32_t _reserved_1 : 4;
+    uint32_t _reserved_0 : 4;
     uint32_t DATA7 : 12;
-    uint32_t _reserved_end : 4;
+    uint32_t _reserved_1 : 4;
   } bits;
   
   // Full 32-bit register value.
@@ -3699,15 +3699,15 @@ union TRIG5_CTRL {
   // Bit field definition.
   struct {
     eSW_TRIG SW_TRIG : 1;
-    uint32_t _reserved_1 : 3;
+    uint32_t _reserved_0 : 3;
     eTRIG_MODE TRIG_MODE : 1;
-    uint32_t _reserved_2 : 3;
+    uint32_t _reserved_1 : 3;
     eTRIG_CHAIN TRIG_CHAIN : 3;
-    uint32_t _reserved_3 : 1;
+    uint32_t _reserved_2 : 1;
     uint32_t TRIG_PRIORITY : 3;
-    uint32_t _reserved_4 : 1;
+    uint32_t _reserved_3 : 1;
     eSYNC_MODE SYNC_MODE : 1;
-    uint32_t _reserved_5 : 7;
+    uint32_t _reserved_4 : 7;
     eCHAINx_DONE CHAINx_DONE : 8;
   } bits;
   
@@ -4232,9 +4232,9 @@ union TRIG5_RESULT_1_0 {
   // Bit field definition.
   struct {
     uint32_t DATA0 : 12;
-    uint32_t _reserved_1 : 4;
+    uint32_t _reserved_0 : 4;
     uint32_t DATA1 : 12;
-    uint32_t _reserved_end : 4;
+    uint32_t _reserved_1 : 4;
   } bits;
   
   // Full 32-bit register value.
@@ -4252,9 +4252,9 @@ union TRIG5_RESULT_3_2 {
   // Bit field definition.
   struct {
     uint32_t DATA2 : 12;
-    uint32_t _reserved_1 : 4;
+    uint32_t _reserved_0 : 4;
     uint32_t DATA3 : 12;
-    uint32_t _reserved_end : 4;
+    uint32_t _reserved_1 : 4;
   } bits;
   
   // Full 32-bit register value.
@@ -4272,9 +4272,9 @@ union TRIG5_RESULT_5_4 {
   // Bit field definition.
   struct {
     uint32_t DATA4 : 12;
-    uint32_t _reserved_1 : 4;
+    uint32_t _reserved_0 : 4;
     uint32_t DATA5 : 12;
-    uint32_t _reserved_end : 4;
+    uint32_t _reserved_1 : 4;
   } bits;
   
   // Full 32-bit register value.
@@ -4292,9 +4292,9 @@ union TRIG5_RESULT_7_6 {
   // Bit field definition.
   struct {
     uint32_t DATA6 : 12;
-    uint32_t _reserved_1 : 4;
+    uint32_t _reserved_0 : 4;
     uint32_t DATA7 : 12;
-    uint32_t _reserved_end : 4;
+    uint32_t _reserved_1 : 4;
   } bits;
   
   // Full 32-bit register value.
@@ -4343,15 +4343,15 @@ union TRIG6_CTRL {
   // Bit field definition.
   struct {
     eSW_TRIG SW_TRIG : 1;
-    uint32_t _reserved_1 : 3;
+    uint32_t _reserved_0 : 3;
     eTRIG_MODE TRIG_MODE : 1;
-    uint32_t _reserved_2 : 3;
+    uint32_t _reserved_1 : 3;
     eTRIG_CHAIN TRIG_CHAIN : 3;
-    uint32_t _reserved_3 : 1;
+    uint32_t _reserved_2 : 1;
     uint32_t TRIG_PRIORITY : 3;
-    uint32_t _reserved_4 : 1;
+    uint32_t _reserved_3 : 1;
     eSYNC_MODE SYNC_MODE : 1;
-    uint32_t _reserved_5 : 7;
+    uint32_t _reserved_4 : 7;
     eCHAINx_DONE CHAINx_DONE : 8;
   } bits;
   
@@ -4876,9 +4876,9 @@ union TRIG6_RESULT_1_0 {
   // Bit field definition.
   struct {
     uint32_t DATA0 : 12;
-    uint32_t _reserved_1 : 4;
+    uint32_t _reserved_0 : 4;
     uint32_t DATA1 : 12;
-    uint32_t _reserved_end : 4;
+    uint32_t _reserved_1 : 4;
   } bits;
   
   // Full 32-bit register value.
@@ -4896,9 +4896,9 @@ union TRIG6_RESULT_3_2 {
   // Bit field definition.
   struct {
     uint32_t DATA2 : 12;
-    uint32_t _reserved_1 : 4;
+    uint32_t _reserved_0 : 4;
     uint32_t DATA3 : 12;
-    uint32_t _reserved_end : 4;
+    uint32_t _reserved_1 : 4;
   } bits;
   
   // Full 32-bit register value.
@@ -4916,9 +4916,9 @@ union TRIG6_RESULT_5_4 {
   // Bit field definition.
   struct {
     uint32_t DATA4 : 12;
-    uint32_t _reserved_1 : 4;
+    uint32_t _reserved_0 : 4;
     uint32_t DATA5 : 12;
-    uint32_t _reserved_end : 4;
+    uint32_t _reserved_1 : 4;
   } bits;
   
   // Full 32-bit register value.
@@ -4936,9 +4936,9 @@ union TRIG6_RESULT_7_6 {
   // Bit field definition.
   struct {
     uint32_t DATA6 : 12;
-    uint32_t _reserved_1 : 4;
+    uint32_t _reserved_0 : 4;
     uint32_t DATA7 : 12;
-    uint32_t _reserved_end : 4;
+    uint32_t _reserved_1 : 4;
   } bits;
   
   // Full 32-bit register value.
@@ -4987,15 +4987,15 @@ union TRIG7_CTRL {
   // Bit field definition.
   struct {
     eSW_TRIG SW_TRIG : 1;
-    uint32_t _reserved_1 : 3;
+    uint32_t _reserved_0 : 3;
     eTRIG_MODE TRIG_MODE : 1;
-    uint32_t _reserved_2 : 3;
+    uint32_t _reserved_1 : 3;
     eTRIG_CHAIN TRIG_CHAIN : 3;
-    uint32_t _reserved_3 : 1;
+    uint32_t _reserved_2 : 1;
     uint32_t TRIG_PRIORITY : 3;
-    uint32_t _reserved_4 : 1;
+    uint32_t _reserved_3 : 1;
     eSYNC_MODE SYNC_MODE : 1;
-    uint32_t _reserved_5 : 7;
+    uint32_t _reserved_4 : 7;
     eCHAINx_DONE CHAINx_DONE : 8;
   } bits;
   
@@ -5520,9 +5520,9 @@ union TRIG7_RESULT_1_0 {
   // Bit field definition.
   struct {
     uint32_t DATA0 : 12;
-    uint32_t _reserved_1 : 4;
+    uint32_t _reserved_0 : 4;
     uint32_t DATA1 : 12;
-    uint32_t _reserved_end : 4;
+    uint32_t _reserved_1 : 4;
   } bits;
   
   // Full 32-bit register value.
@@ -5540,9 +5540,9 @@ union TRIG7_RESULT_3_2 {
   // Bit field definition.
   struct {
     uint32_t DATA2 : 12;
-    uint32_t _reserved_1 : 4;
+    uint32_t _reserved_0 : 4;
     uint32_t DATA3 : 12;
-    uint32_t _reserved_end : 4;
+    uint32_t _reserved_1 : 4;
   } bits;
   
   // Full 32-bit register value.
@@ -5560,9 +5560,9 @@ union TRIG7_RESULT_5_4 {
   // Bit field definition.
   struct {
     uint32_t DATA4 : 12;
-    uint32_t _reserved_1 : 4;
+    uint32_t _reserved_0 : 4;
     uint32_t DATA5 : 12;
-    uint32_t _reserved_end : 4;
+    uint32_t _reserved_1 : 4;
   } bits;
   
   // Full 32-bit register value.
@@ -5580,9 +5580,9 @@ union TRIG7_RESULT_7_6 {
   // Bit field definition.
   struct {
     uint32_t DATA6 : 12;
-    uint32_t _reserved_1 : 4;
+    uint32_t _reserved_0 : 4;
     uint32_t DATA7 : 12;
-    uint32_t _reserved_end : 4;
+    uint32_t _reserved_1 : 4;
   } bits;
   
   // Full 32-bit register value.

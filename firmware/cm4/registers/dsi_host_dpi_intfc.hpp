@@ -4,7 +4,7 @@
 #include <stdint.h>
 #include <cstring>
 
-// // DSI Host DPI Interface
+// DSI Host DPI Interface
 //
 // NOTE: This file was generated from the forge CMSIS-svd wrapper tool.
 
@@ -18,7 +18,7 @@ union PIXEL_PAYLOAD_SIZE {
   // Bit field definition.
   struct {
     uint32_t PAYLOAD_SIZE : 16;
-    uint32_t _reserved_end : 16;
+    uint32_t _reserved_0 : 16;
   } bits;
   
   // Full 32-bit register value.
@@ -36,7 +36,7 @@ union PIXEL_FIFO_SEND_LEVEL {
   // Bit field definition.
   struct {
     uint32_t FIFO_SEND_LEVEL : 16;
-    uint32_t _reserved_end : 16;
+    uint32_t _reserved_0 : 16;
   } bits;
   
   // Full 32-bit register value.
@@ -63,7 +63,7 @@ union INTERFACE_COLOR_CODING {
   // Bit field definition.
   struct {
     eRGB_CONFIG RGB_CONFIG : 3;
-    uint32_t _reserved_end : 29;
+    uint32_t _reserved_0 : 29;
   } bits;
   
   // Full 32-bit register value.
@@ -88,7 +88,7 @@ union PIXEL_FORMAT {
   // Bit field definition.
   struct {
     ePIXEL_FORMAT PIXEL_FORMAT : 2;
-    uint32_t _reserved_end : 30;
+    uint32_t _reserved_0 : 30;
   } bits;
   
   // Full 32-bit register value.
@@ -111,7 +111,7 @@ union VSYNC_POLARITY {
   // Bit field definition.
   struct {
     eVSYNC_POLARITY VSYNC_POLARITY : 1;
-    uint32_t _reserved_end : 31;
+    uint32_t _reserved_0 : 31;
   } bits;
   
   // Full 32-bit register value.
@@ -134,7 +134,7 @@ union HSYNC_POLARITY {
   // Bit field definition.
   struct {
     eHSYNC_POLARITY HSYNC_POLARITY : 1;
-    uint32_t _reserved_end : 31;
+    uint32_t _reserved_0 : 31;
   } bits;
   
   // Full 32-bit register value.
@@ -158,7 +158,7 @@ union VIDEO_MODE {
   // Bit field definition.
   struct {
     eVIDEO_MODE VIDEO_MODE : 2;
-    uint32_t _reserved_end : 30;
+    uint32_t _reserved_0 : 30;
   } bits;
   
   // Full 32-bit register value.
@@ -176,7 +176,7 @@ union HFP {
   // Bit field definition.
   struct {
     uint32_t PAYLOAD_SIZE : 16;
-    uint32_t _reserved_end : 16;
+    uint32_t _reserved_0 : 16;
   } bits;
   
   // Full 32-bit register value.
@@ -194,7 +194,7 @@ union HBP {
   // Bit field definition.
   struct {
     uint32_t PAYLOAD_SIZE : 16;
-    uint32_t _reserved_end : 16;
+    uint32_t _reserved_0 : 16;
   } bits;
   
   // Full 32-bit register value.
@@ -212,7 +212,7 @@ union HSA {
   // Bit field definition.
   struct {
     uint32_t PAYLOAD_SIZE : 16;
-    uint32_t _reserved_end : 16;
+    uint32_t _reserved_0 : 16;
   } bits;
   
   // Full 32-bit register value.
@@ -235,7 +235,7 @@ union ENABLE_MULT_PKTS {
   // Bit field definition.
   struct {
     eENABLE_MULT_PKTS ENABLE_MULT_PKTS : 1;
-    uint32_t _reserved_end : 31;
+    uint32_t _reserved_0 : 31;
   } bits;
   
   // Full 32-bit register value.
@@ -253,7 +253,7 @@ union VBP {
   // Bit field definition.
   struct {
     uint32_t NUM_LINES : 8;
-    uint32_t _reserved_end : 24;
+    uint32_t _reserved_0 : 24;
   } bits;
   
   // Full 32-bit register value.
@@ -271,7 +271,7 @@ union VFP {
   // Bit field definition.
   struct {
     uint32_t NUM_LINES : 8;
-    uint32_t _reserved_end : 24;
+    uint32_t _reserved_0 : 24;
   } bits;
   
   // Full 32-bit register value.
@@ -294,7 +294,7 @@ union BLLP_MODE {
   // Bit field definition.
   struct {
     eLP LP : 1;
-    uint32_t _reserved_end : 31;
+    uint32_t _reserved_0 : 31;
   } bits;
   
   // Full 32-bit register value.
@@ -317,7 +317,7 @@ union USE_NULL_PKT_BLLP {
   // Bit field definition.
   struct {
     eNULL NULL : 1;
-    uint32_t _reserved_end : 31;
+    uint32_t _reserved_0 : 31;
   } bits;
   
   // Full 32-bit register value.
@@ -335,7 +335,7 @@ union VACTIVE {
   // Bit field definition.
   struct {
     uint32_t NUM_LINES : 14;
-    uint32_t _reserved_end : 18;
+    uint32_t _reserved_0 : 18;
   } bits;
   
   // Full 32-bit register value.

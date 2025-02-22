@@ -4,7 +4,7 @@
 #include <stdint.h>
 #include <cstring>
 
-// // SEMA42
+// SEMA42
 //
 // NOTE: This file was generated from the forge CMSIS-svd wrapper tool.
 
@@ -43,7 +43,7 @@ union RDC_SEMAPHORE2_GATE0 {
   struct {
     eGTFSM GTFSM : 4;
     eLDOM LDOM : 2;
-    uint32_t _reserved_end : 26;
+    uint32_t _reserved_0 : 26;
   } bits;
   
   // Full 32-bit register value.
@@ -85,7 +85,7 @@ union RDC_SEMAPHORE2_GATE1 {
   struct {
     eGTFSM GTFSM : 4;
     eLDOM LDOM : 2;
-    uint32_t _reserved_end : 26;
+    uint32_t _reserved_0 : 26;
   } bits;
   
   // Full 32-bit register value.
@@ -127,7 +127,7 @@ union RDC_SEMAPHORE2_GATE2 {
   struct {
     eGTFSM GTFSM : 4;
     eLDOM LDOM : 2;
-    uint32_t _reserved_end : 26;
+    uint32_t _reserved_0 : 26;
   } bits;
   
   // Full 32-bit register value.
@@ -169,7 +169,7 @@ union RDC_SEMAPHORE2_GATE3 {
   struct {
     eGTFSM GTFSM : 4;
     eLDOM LDOM : 2;
-    uint32_t _reserved_end : 26;
+    uint32_t _reserved_0 : 26;
   } bits;
   
   // Full 32-bit register value.
@@ -211,7 +211,7 @@ union RDC_SEMAPHORE2_GATE4 {
   struct {
     eGTFSM GTFSM : 4;
     eLDOM LDOM : 2;
-    uint32_t _reserved_end : 26;
+    uint32_t _reserved_0 : 26;
   } bits;
   
   // Full 32-bit register value.
@@ -253,7 +253,7 @@ union RDC_SEMAPHORE2_GATE5 {
   struct {
     eGTFSM GTFSM : 4;
     eLDOM LDOM : 2;
-    uint32_t _reserved_end : 26;
+    uint32_t _reserved_0 : 26;
   } bits;
   
   // Full 32-bit register value.
@@ -295,7 +295,7 @@ union RDC_SEMAPHORE2_GATE6 {
   struct {
     eGTFSM GTFSM : 4;
     eLDOM LDOM : 2;
-    uint32_t _reserved_end : 26;
+    uint32_t _reserved_0 : 26;
   } bits;
   
   // Full 32-bit register value.
@@ -337,7 +337,7 @@ union RDC_SEMAPHORE2_GATE7 {
   struct {
     eGTFSM GTFSM : 4;
     eLDOM LDOM : 2;
-    uint32_t _reserved_end : 26;
+    uint32_t _reserved_0 : 26;
   } bits;
   
   // Full 32-bit register value.
@@ -379,7 +379,7 @@ union RDC_SEMAPHORE2_GATE8 {
   struct {
     eGTFSM GTFSM : 4;
     eLDOM LDOM : 2;
-    uint32_t _reserved_end : 26;
+    uint32_t _reserved_0 : 26;
   } bits;
   
   // Full 32-bit register value.
@@ -421,7 +421,7 @@ union RDC_SEMAPHORE2_GATE9 {
   struct {
     eGTFSM GTFSM : 4;
     eLDOM LDOM : 2;
-    uint32_t _reserved_end : 26;
+    uint32_t _reserved_0 : 26;
   } bits;
   
   // Full 32-bit register value.
@@ -463,7 +463,7 @@ union RDC_SEMAPHORE2_GATE10 {
   struct {
     eGTFSM GTFSM : 4;
     eLDOM LDOM : 2;
-    uint32_t _reserved_end : 26;
+    uint32_t _reserved_0 : 26;
   } bits;
   
   // Full 32-bit register value.
@@ -505,7 +505,7 @@ union RDC_SEMAPHORE2_GATE11 {
   struct {
     eGTFSM GTFSM : 4;
     eLDOM LDOM : 2;
-    uint32_t _reserved_end : 26;
+    uint32_t _reserved_0 : 26;
   } bits;
   
   // Full 32-bit register value.
@@ -547,7 +547,7 @@ union RDC_SEMAPHORE2_GATE12 {
   struct {
     eGTFSM GTFSM : 4;
     eLDOM LDOM : 2;
-    uint32_t _reserved_end : 26;
+    uint32_t _reserved_0 : 26;
   } bits;
   
   // Full 32-bit register value.
@@ -589,7 +589,7 @@ union RDC_SEMAPHORE2_GATE13 {
   struct {
     eGTFSM GTFSM : 4;
     eLDOM LDOM : 2;
-    uint32_t _reserved_end : 26;
+    uint32_t _reserved_0 : 26;
   } bits;
   
   // Full 32-bit register value.
@@ -631,7 +631,7 @@ union RDC_SEMAPHORE2_GATE14 {
   struct {
     eGTFSM GTFSM : 4;
     eLDOM LDOM : 2;
-    uint32_t _reserved_end : 26;
+    uint32_t _reserved_0 : 26;
   } bits;
   
   // Full 32-bit register value.
@@ -673,7 +673,7 @@ union RDC_SEMAPHORE2_GATE15 {
   struct {
     eGTFSM GTFSM : 4;
     eLDOM LDOM : 2;
-    uint32_t _reserved_end : 26;
+    uint32_t _reserved_0 : 26;
   } bits;
   
   // Full 32-bit register value.
@@ -715,7 +715,7 @@ union RDC_SEMAPHORE2_GATE16 {
   struct {
     eGTFSM GTFSM : 4;
     eLDOM LDOM : 2;
-    uint32_t _reserved_end : 26;
+    uint32_t _reserved_0 : 26;
   } bits;
   
   // Full 32-bit register value.
@@ -757,7 +757,7 @@ union RDC_SEMAPHORE2_GATE17 {
   struct {
     eGTFSM GTFSM : 4;
     eLDOM LDOM : 2;
-    uint32_t _reserved_end : 26;
+    uint32_t _reserved_0 : 26;
   } bits;
   
   // Full 32-bit register value.
@@ -799,7 +799,7 @@ union RDC_SEMAPHORE2_GATE18 {
   struct {
     eGTFSM GTFSM : 4;
     eLDOM LDOM : 2;
-    uint32_t _reserved_end : 26;
+    uint32_t _reserved_0 : 26;
   } bits;
   
   // Full 32-bit register value.
@@ -841,7 +841,7 @@ union RDC_SEMAPHORE2_GATE19 {
   struct {
     eGTFSM GTFSM : 4;
     eLDOM LDOM : 2;
-    uint32_t _reserved_end : 26;
+    uint32_t _reserved_0 : 26;
   } bits;
   
   // Full 32-bit register value.
@@ -883,7 +883,7 @@ union RDC_SEMAPHORE2_GATE20 {
   struct {
     eGTFSM GTFSM : 4;
     eLDOM LDOM : 2;
-    uint32_t _reserved_end : 26;
+    uint32_t _reserved_0 : 26;
   } bits;
   
   // Full 32-bit register value.
@@ -925,7 +925,7 @@ union RDC_SEMAPHORE2_GATE21 {
   struct {
     eGTFSM GTFSM : 4;
     eLDOM LDOM : 2;
-    uint32_t _reserved_end : 26;
+    uint32_t _reserved_0 : 26;
   } bits;
   
   // Full 32-bit register value.
@@ -967,7 +967,7 @@ union RDC_SEMAPHORE2_GATE22 {
   struct {
     eGTFSM GTFSM : 4;
     eLDOM LDOM : 2;
-    uint32_t _reserved_end : 26;
+    uint32_t _reserved_0 : 26;
   } bits;
   
   // Full 32-bit register value.
@@ -1009,7 +1009,7 @@ union RDC_SEMAPHORE2_GATE23 {
   struct {
     eGTFSM GTFSM : 4;
     eLDOM LDOM : 2;
-    uint32_t _reserved_end : 26;
+    uint32_t _reserved_0 : 26;
   } bits;
   
   // Full 32-bit register value.
@@ -1051,7 +1051,7 @@ union RDC_SEMAPHORE2_GATE24 {
   struct {
     eGTFSM GTFSM : 4;
     eLDOM LDOM : 2;
-    uint32_t _reserved_end : 26;
+    uint32_t _reserved_0 : 26;
   } bits;
   
   // Full 32-bit register value.
@@ -1093,7 +1093,7 @@ union RDC_SEMAPHORE2_GATE25 {
   struct {
     eGTFSM GTFSM : 4;
     eLDOM LDOM : 2;
-    uint32_t _reserved_end : 26;
+    uint32_t _reserved_0 : 26;
   } bits;
   
   // Full 32-bit register value.
@@ -1135,7 +1135,7 @@ union RDC_SEMAPHORE2_GATE26 {
   struct {
     eGTFSM GTFSM : 4;
     eLDOM LDOM : 2;
-    uint32_t _reserved_end : 26;
+    uint32_t _reserved_0 : 26;
   } bits;
   
   // Full 32-bit register value.
@@ -1177,7 +1177,7 @@ union RDC_SEMAPHORE2_GATE27 {
   struct {
     eGTFSM GTFSM : 4;
     eLDOM LDOM : 2;
-    uint32_t _reserved_end : 26;
+    uint32_t _reserved_0 : 26;
   } bits;
   
   // Full 32-bit register value.
@@ -1219,7 +1219,7 @@ union RDC_SEMAPHORE2_GATE28 {
   struct {
     eGTFSM GTFSM : 4;
     eLDOM LDOM : 2;
-    uint32_t _reserved_end : 26;
+    uint32_t _reserved_0 : 26;
   } bits;
   
   // Full 32-bit register value.
@@ -1261,7 +1261,7 @@ union RDC_SEMAPHORE2_GATE29 {
   struct {
     eGTFSM GTFSM : 4;
     eLDOM LDOM : 2;
-    uint32_t _reserved_end : 26;
+    uint32_t _reserved_0 : 26;
   } bits;
   
   // Full 32-bit register value.
@@ -1303,7 +1303,7 @@ union RDC_SEMAPHORE2_GATE30 {
   struct {
     eGTFSM GTFSM : 4;
     eLDOM LDOM : 2;
-    uint32_t _reserved_end : 26;
+    uint32_t _reserved_0 : 26;
   } bits;
   
   // Full 32-bit register value.
@@ -1345,7 +1345,7 @@ union RDC_SEMAPHORE2_GATE31 {
   struct {
     eGTFSM GTFSM : 4;
     eLDOM LDOM : 2;
-    uint32_t _reserved_end : 26;
+    uint32_t _reserved_0 : 26;
   } bits;
   
   // Full 32-bit register value.
@@ -1387,7 +1387,7 @@ union RDC_SEMAPHORE2_GATE32 {
   struct {
     eGTFSM GTFSM : 4;
     eLDOM LDOM : 2;
-    uint32_t _reserved_end : 26;
+    uint32_t _reserved_0 : 26;
   } bits;
   
   // Full 32-bit register value.
@@ -1429,7 +1429,7 @@ union RDC_SEMAPHORE2_GATE33 {
   struct {
     eGTFSM GTFSM : 4;
     eLDOM LDOM : 2;
-    uint32_t _reserved_end : 26;
+    uint32_t _reserved_0 : 26;
   } bits;
   
   // Full 32-bit register value.
@@ -1471,7 +1471,7 @@ union RDC_SEMAPHORE2_GATE34 {
   struct {
     eGTFSM GTFSM : 4;
     eLDOM LDOM : 2;
-    uint32_t _reserved_end : 26;
+    uint32_t _reserved_0 : 26;
   } bits;
   
   // Full 32-bit register value.
@@ -1513,7 +1513,7 @@ union RDC_SEMAPHORE2_GATE35 {
   struct {
     eGTFSM GTFSM : 4;
     eLDOM LDOM : 2;
-    uint32_t _reserved_end : 26;
+    uint32_t _reserved_0 : 26;
   } bits;
   
   // Full 32-bit register value.
@@ -1555,7 +1555,7 @@ union RDC_SEMAPHORE2_GATE36 {
   struct {
     eGTFSM GTFSM : 4;
     eLDOM LDOM : 2;
-    uint32_t _reserved_end : 26;
+    uint32_t _reserved_0 : 26;
   } bits;
   
   // Full 32-bit register value.
@@ -1597,7 +1597,7 @@ union RDC_SEMAPHORE2_GATE37 {
   struct {
     eGTFSM GTFSM : 4;
     eLDOM LDOM : 2;
-    uint32_t _reserved_end : 26;
+    uint32_t _reserved_0 : 26;
   } bits;
   
   // Full 32-bit register value.
@@ -1639,7 +1639,7 @@ union RDC_SEMAPHORE2_GATE38 {
   struct {
     eGTFSM GTFSM : 4;
     eLDOM LDOM : 2;
-    uint32_t _reserved_end : 26;
+    uint32_t _reserved_0 : 26;
   } bits;
   
   // Full 32-bit register value.
@@ -1681,7 +1681,7 @@ union RDC_SEMAPHORE2_GATE39 {
   struct {
     eGTFSM GTFSM : 4;
     eLDOM LDOM : 2;
-    uint32_t _reserved_end : 26;
+    uint32_t _reserved_0 : 26;
   } bits;
   
   // Full 32-bit register value.
@@ -1723,7 +1723,7 @@ union RDC_SEMAPHORE2_GATE40 {
   struct {
     eGTFSM GTFSM : 4;
     eLDOM LDOM : 2;
-    uint32_t _reserved_end : 26;
+    uint32_t _reserved_0 : 26;
   } bits;
   
   // Full 32-bit register value.
@@ -1765,7 +1765,7 @@ union RDC_SEMAPHORE2_GATE41 {
   struct {
     eGTFSM GTFSM : 4;
     eLDOM LDOM : 2;
-    uint32_t _reserved_end : 26;
+    uint32_t _reserved_0 : 26;
   } bits;
   
   // Full 32-bit register value.
@@ -1807,7 +1807,7 @@ union RDC_SEMAPHORE2_GATE42 {
   struct {
     eGTFSM GTFSM : 4;
     eLDOM LDOM : 2;
-    uint32_t _reserved_end : 26;
+    uint32_t _reserved_0 : 26;
   } bits;
   
   // Full 32-bit register value.
@@ -1849,7 +1849,7 @@ union RDC_SEMAPHORE2_GATE43 {
   struct {
     eGTFSM GTFSM : 4;
     eLDOM LDOM : 2;
-    uint32_t _reserved_end : 26;
+    uint32_t _reserved_0 : 26;
   } bits;
   
   // Full 32-bit register value.
@@ -1891,7 +1891,7 @@ union RDC_SEMAPHORE2_GATE44 {
   struct {
     eGTFSM GTFSM : 4;
     eLDOM LDOM : 2;
-    uint32_t _reserved_end : 26;
+    uint32_t _reserved_0 : 26;
   } bits;
   
   // Full 32-bit register value.
@@ -1933,7 +1933,7 @@ union RDC_SEMAPHORE2_GATE45 {
   struct {
     eGTFSM GTFSM : 4;
     eLDOM LDOM : 2;
-    uint32_t _reserved_end : 26;
+    uint32_t _reserved_0 : 26;
   } bits;
   
   // Full 32-bit register value.
@@ -1975,7 +1975,7 @@ union RDC_SEMAPHORE2_GATE46 {
   struct {
     eGTFSM GTFSM : 4;
     eLDOM LDOM : 2;
-    uint32_t _reserved_end : 26;
+    uint32_t _reserved_0 : 26;
   } bits;
   
   // Full 32-bit register value.
@@ -2017,7 +2017,7 @@ union RDC_SEMAPHORE2_GATE47 {
   struct {
     eGTFSM GTFSM : 4;
     eLDOM LDOM : 2;
-    uint32_t _reserved_end : 26;
+    uint32_t _reserved_0 : 26;
   } bits;
   
   // Full 32-bit register value.
@@ -2059,7 +2059,7 @@ union RDC_SEMAPHORE2_GATE48 {
   struct {
     eGTFSM GTFSM : 4;
     eLDOM LDOM : 2;
-    uint32_t _reserved_end : 26;
+    uint32_t _reserved_0 : 26;
   } bits;
   
   // Full 32-bit register value.
@@ -2101,7 +2101,7 @@ union RDC_SEMAPHORE2_GATE49 {
   struct {
     eGTFSM GTFSM : 4;
     eLDOM LDOM : 2;
-    uint32_t _reserved_end : 26;
+    uint32_t _reserved_0 : 26;
   } bits;
   
   // Full 32-bit register value.
@@ -2143,7 +2143,7 @@ union RDC_SEMAPHORE2_GATE50 {
   struct {
     eGTFSM GTFSM : 4;
     eLDOM LDOM : 2;
-    uint32_t _reserved_end : 26;
+    uint32_t _reserved_0 : 26;
   } bits;
   
   // Full 32-bit register value.
@@ -2185,7 +2185,7 @@ union RDC_SEMAPHORE2_GATE51 {
   struct {
     eGTFSM GTFSM : 4;
     eLDOM LDOM : 2;
-    uint32_t _reserved_end : 26;
+    uint32_t _reserved_0 : 26;
   } bits;
   
   // Full 32-bit register value.
@@ -2227,7 +2227,7 @@ union RDC_SEMAPHORE2_GATE52 {
   struct {
     eGTFSM GTFSM : 4;
     eLDOM LDOM : 2;
-    uint32_t _reserved_end : 26;
+    uint32_t _reserved_0 : 26;
   } bits;
   
   // Full 32-bit register value.
@@ -2269,7 +2269,7 @@ union RDC_SEMAPHORE2_GATE53 {
   struct {
     eGTFSM GTFSM : 4;
     eLDOM LDOM : 2;
-    uint32_t _reserved_end : 26;
+    uint32_t _reserved_0 : 26;
   } bits;
   
   // Full 32-bit register value.
@@ -2311,7 +2311,7 @@ union RDC_SEMAPHORE2_GATE54 {
   struct {
     eGTFSM GTFSM : 4;
     eLDOM LDOM : 2;
-    uint32_t _reserved_end : 26;
+    uint32_t _reserved_0 : 26;
   } bits;
   
   // Full 32-bit register value.
@@ -2353,7 +2353,7 @@ union RDC_SEMAPHORE2_GATE55 {
   struct {
     eGTFSM GTFSM : 4;
     eLDOM LDOM : 2;
-    uint32_t _reserved_end : 26;
+    uint32_t _reserved_0 : 26;
   } bits;
   
   // Full 32-bit register value.
@@ -2395,7 +2395,7 @@ union RDC_SEMAPHORE2_GATE56 {
   struct {
     eGTFSM GTFSM : 4;
     eLDOM LDOM : 2;
-    uint32_t _reserved_end : 26;
+    uint32_t _reserved_0 : 26;
   } bits;
   
   // Full 32-bit register value.
@@ -2437,7 +2437,7 @@ union RDC_SEMAPHORE2_GATE57 {
   struct {
     eGTFSM GTFSM : 4;
     eLDOM LDOM : 2;
-    uint32_t _reserved_end : 26;
+    uint32_t _reserved_0 : 26;
   } bits;
   
   // Full 32-bit register value.
@@ -2479,7 +2479,7 @@ union RDC_SEMAPHORE2_GATE58 {
   struct {
     eGTFSM GTFSM : 4;
     eLDOM LDOM : 2;
-    uint32_t _reserved_end : 26;
+    uint32_t _reserved_0 : 26;
   } bits;
   
   // Full 32-bit register value.
@@ -2521,7 +2521,7 @@ union RDC_SEMAPHORE2_GATE59 {
   struct {
     eGTFSM GTFSM : 4;
     eLDOM LDOM : 2;
-    uint32_t _reserved_end : 26;
+    uint32_t _reserved_0 : 26;
   } bits;
   
   // Full 32-bit register value.
@@ -2563,7 +2563,7 @@ union RDC_SEMAPHORE2_GATE60 {
   struct {
     eGTFSM GTFSM : 4;
     eLDOM LDOM : 2;
-    uint32_t _reserved_end : 26;
+    uint32_t _reserved_0 : 26;
   } bits;
   
   // Full 32-bit register value.
@@ -2605,7 +2605,7 @@ union RDC_SEMAPHORE2_GATE61 {
   struct {
     eGTFSM GTFSM : 4;
     eLDOM LDOM : 2;
-    uint32_t _reserved_end : 26;
+    uint32_t _reserved_0 : 26;
   } bits;
   
   // Full 32-bit register value.
@@ -2647,7 +2647,7 @@ union RDC_SEMAPHORE2_GATE62 {
   struct {
     eGTFSM GTFSM : 4;
     eLDOM LDOM : 2;
-    uint32_t _reserved_end : 26;
+    uint32_t _reserved_0 : 26;
   } bits;
   
   // Full 32-bit register value.
@@ -2689,7 +2689,7 @@ union RDC_SEMAPHORE2_GATE63 {
   struct {
     eGTFSM GTFSM : 4;
     eLDOM LDOM : 2;
-    uint32_t _reserved_end : 26;
+    uint32_t _reserved_0 : 26;
   } bits;
   
   // Full 32-bit register value.
@@ -2715,9 +2715,9 @@ union RDC_SEMAPHORE2_RSTGT_R {
   struct {
     uint32_t RSTGMS : 4;
     eRSTGSM RSTGSM : 2;
-    uint32_t _reserved_2 : 2;
+    uint32_t _reserved_0 : 2;
     uint32_t RSTGTN : 8;
-    uint32_t _reserved_end : 16;
+    uint32_t _reserved_1 : 16;
   } bits;
   
   // Full 32-bit register value.
@@ -2736,7 +2736,7 @@ union RDC_SEMAPHORE2_RSTGT_W {
   struct {
     uint32_t RSTGDP : 8;
     uint32_t RSTGTN : 8;
-    uint32_t _reserved_end : 16;
+    uint32_t _reserved_0 : 16;
   } bits;
   
   // Full 32-bit register value.

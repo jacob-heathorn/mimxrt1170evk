@@ -4,7 +4,7 @@
 #include <stdint.h>
 #include <cstring>
 
-// // IEE
+// IEE
 //
 // NOTE: This file was generated from the forge CMSIS-svd wrapper tool.
 
@@ -95,15 +95,15 @@ union GCFG {
     eRL5 RL5 : 1;
     eRL6 RL6 : 1;
     eRL7 RL7 : 1;
-    uint32_t _reserved_8 : 8;
+    uint32_t _reserved_0 : 8;
     eTME TME : 1;
     eTMD TMD : 1;
-    uint32_t _reserved_10 : 7;
+    uint32_t _reserved_1 : 7;
     eKEY_RD_DIS KEY_RD_DIS : 1;
-    uint32_t _reserved_11 : 2;
+    uint32_t _reserved_2 : 2;
     eMON_EN MON_EN : 1;
     eCLR_MON CLR_MON : 1;
-    uint32_t _reserved_13 : 1;
+    uint32_t _reserved_3 : 1;
     eRST RST : 1;
   } bits;
   
@@ -132,9 +132,9 @@ union STA {
   // Bit field definition.
   struct {
     eDSR DSR : 1;
-    uint32_t _reserved_1 : 3;
+    uint32_t _reserved_0 : 3;
     eAFD AFD : 1;
-    uint32_t _reserved_end : 27;
+    uint32_t _reserved_1 : 27;
   } bits;
   
   // Full 32-bit register value.
@@ -181,9 +181,9 @@ union TSTMD {
     eTMENCR TMENCR : 1;
     eTMCONT TMCONT : 1;
     eTMDONE TMDONE : 1;
-    uint32_t _reserved_5 : 3;
+    uint32_t _reserved_0 : 3;
     uint32_t TMLEN : 4;
-    uint32_t _reserved_end : 20;
+    uint32_t _reserved_1 : 20;
   } bits;
   
   // Full 32-bit register value.
@@ -236,9 +236,9 @@ union PC_M_LT {
   // Bit field definition.
   struct {
     uint32_t MW_LT : 12;
-    uint32_t _reserved_1 : 4;
+    uint32_t _reserved_0 : 4;
     uint32_t MR_LT : 12;
-    uint32_t _reserved_end : 4;
+    uint32_t _reserved_1 : 4;
   } bits;
   
   // Full 32-bit register value.
@@ -375,7 +375,7 @@ union PC_SR_TBC_U {
   // Bit field definition.
   struct {
     uint32_t SR_TBC : 16;
-    uint32_t _reserved_end : 16;
+    uint32_t _reserved_0 : 16;
   } bits;
   
   // Full 32-bit register value.
@@ -410,7 +410,7 @@ union PC_SW_TBC_U {
   // Bit field definition.
   struct {
     uint32_t SW_TBC : 16;
-    uint32_t _reserved_end : 16;
+    uint32_t _reserved_0 : 16;
   } bits;
   
   // Full 32-bit register value.
@@ -445,7 +445,7 @@ union PC_MR_TBC_U {
   // Bit field definition.
   struct {
     uint32_t MR_TBC : 16;
-    uint32_t _reserved_end : 16;
+    uint32_t _reserved_0 : 16;
   } bits;
   
   // Full 32-bit register value.
@@ -481,7 +481,7 @@ union PC_MW_TBC_U {
   // Bit field definition.
   struct {
     uint32_t MW_TBC : 16;
-    uint32_t _reserved_end : 16;
+    uint32_t _reserved_0 : 16;
   } bits;
   
   // Full 32-bit register value.
@@ -589,7 +589,7 @@ union PC_SR_TLAT_U {
   // Bit field definition.
   struct {
     uint32_t SR_TLAT : 16;
-    uint32_t _reserved_end : 16;
+    uint32_t _reserved_0 : 16;
   } bits;
   
   // Full 32-bit register value.
@@ -624,7 +624,7 @@ union PC_SW_TLAT_U {
   // Bit field definition.
   struct {
     uint32_t SW_TLAT : 16;
-    uint32_t _reserved_end : 16;
+    uint32_t _reserved_0 : 16;
   } bits;
   
   // Full 32-bit register value.
@@ -659,7 +659,7 @@ union PC_MR_TLAT_U {
   // Bit field definition.
   struct {
     uint32_t MR_TLAT : 16;
-    uint32_t _reserved_end : 16;
+    uint32_t _reserved_0 : 16;
   } bits;
   
   // Full 32-bit register value.
@@ -694,7 +694,7 @@ union PC_MW_TLAT_U {
   // Bit field definition.
   struct {
     uint32_t MW_TLAT : 16;
-    uint32_t _reserved_end : 16;
+    uint32_t _reserved_0 : 16;
   } bits;
   
   // Full 32-bit register value.
@@ -729,7 +729,7 @@ union PC_SR_TNRT_U {
   // Bit field definition.
   struct {
     uint32_t SR_TNRT : 16;
-    uint32_t _reserved_end : 16;
+    uint32_t _reserved_0 : 16;
   } bits;
   
   // Full 32-bit register value.
@@ -764,7 +764,7 @@ union PC_SW_TNRT_U {
   // Bit field definition.
   struct {
     uint32_t SW_TNRT : 16;
-    uint32_t _reserved_end : 16;
+    uint32_t _reserved_0 : 16;
   } bits;
   
   // Full 32-bit register value.
@@ -819,7 +819,7 @@ union AESVID {
   struct {
     uint32_t AESRN : 4;
     uint32_t AESVID : 4;
-    uint32_t _reserved_end : 24;
+    uint32_t _reserved_0 : 24;
   } bits;
   
   // Full 32-bit register value.

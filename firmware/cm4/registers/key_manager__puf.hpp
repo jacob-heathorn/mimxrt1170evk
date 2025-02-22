@@ -4,7 +4,7 @@
 #include <stdint.h>
 #include <cstring>
 
-// // PUF
+// PUF
 //
 // NOTE: This file was generated from the forge CMSIS-svd wrapper tool.
 
@@ -52,9 +52,9 @@ union CTRL {
     eSTART START : 1;
     eGENERATEKEY GENERATEKEY : 1;
     eSETKEY SETKEY : 1;
-    uint32_t _reserved_5 : 1;
+    uint32_t _reserved_0 : 1;
     eGETKEY GETKEY : 1;
-    uint32_t _reserved_end : 25;
+    uint32_t _reserved_1 : 25;
   } bits;
   
   // Full 32-bit register value.
@@ -91,7 +91,7 @@ union KEYINDEX {
   // Bit field definition.
   struct {
     eKEYIDX KEYIDX : 4;
-    uint32_t _reserved_end : 28;
+    uint32_t _reserved_0 : 28;
   } bits;
   
   // Full 32-bit register value.
@@ -176,7 +176,7 @@ union KEYSIZE {
   // Bit field definition.
   struct {
     eKEYSIZE KEYSIZE : 6;
-    uint32_t _reserved_end : 26;
+    uint32_t _reserved_0 : 26;
   } bits;
   
   // Full 32-bit register value.
@@ -231,12 +231,12 @@ union STAT {
     eBUSY BUSY : 1;
     eSUCCESS SUCCESS : 1;
     eERROR ERROR : 1;
-    uint32_t _reserved_3 : 1;
+    uint32_t _reserved_0 : 1;
     eKEYINREQ KEYINREQ : 1;
     eKEYOUTAVAIL KEYOUTAVAIL : 1;
     eCODEINREQ CODEINREQ : 1;
     eCODEOUTAVAIL CODEOUTAVAIL : 1;
-    uint32_t _reserved_end : 24;
+    uint32_t _reserved_1 : 24;
   } bits;
   
   // Full 32-bit register value.
@@ -277,7 +277,7 @@ union ALLOW {
     eALLOWSTART ALLOWSTART : 1;
     eALLOWSETKEY ALLOWSETKEY : 1;
     eALLOWGETKEY ALLOWGETKEY : 1;
-    uint32_t _reserved_end : 28;
+    uint32_t _reserved_0 : 28;
   } bits;
   
   // Full 32-bit register value.
@@ -385,7 +385,7 @@ union IFSTAT {
   // Bit field definition.
   struct {
     eERROR ERROR : 1;
-    uint32_t _reserved_end : 31;
+    uint32_t _reserved_0 : 31;
   } bits;
   
   // Full 32-bit register value.
@@ -457,12 +457,12 @@ union INTEN {
     eREADYEN READYEN : 1;
     eSUCCESSEN SUCCESSEN : 1;
     eERROREN ERROREN : 1;
-    uint32_t _reserved_3 : 1;
+    uint32_t _reserved_0 : 1;
     eKEYINREQEN KEYINREQEN : 1;
     eKEYOUTAVAILEN KEYOUTAVAILEN : 1;
     eCODEINREQEN CODEINREQEN : 1;
     eCODEOUTAVAILEN CODEOUTAVAILEN : 1;
-    uint32_t _reserved_end : 24;
+    uint32_t _reserved_1 : 24;
   } bits;
   
   // Full 32-bit register value.
@@ -517,12 +517,12 @@ union INTSTAT {
     eREADY READY : 1;
     eSUCCESS SUCCESS : 1;
     eERROR ERROR : 1;
-    uint32_t _reserved_3 : 1;
+    uint32_t _reserved_0 : 1;
     eKEYINREQ KEYINREQ : 1;
     eKEYOUTAVAIL KEYOUTAVAIL : 1;
     eCODEINREQ CODEINREQ : 1;
     eCODEOUTAVAIL CODEOUTAVAIL : 1;
-    uint32_t _reserved_end : 24;
+    uint32_t _reserved_1 : 24;
   } bits;
   
   // Full 32-bit register value.
@@ -555,11 +555,11 @@ union PWRCTRL {
   // Bit field definition.
   struct {
     eRAM_ON RAM_ON : 1;
-    uint32_t _reserved_1 : 1;
+    uint32_t _reserved_0 : 1;
     eCK_DIS CK_DIS : 1;
     eRAM_INITN RAM_INITN : 1;
     uint32_t RAM_PSW : 4;
-    uint32_t _reserved_end : 24;
+    uint32_t _reserved_1 : 24;
   } bits;
   
   // Full 32-bit register value.
@@ -588,7 +588,7 @@ union CFG {
   struct {
     ePUF_BLOCK_SET_KEY PUF_BLOCK_SET_KEY : 1;
     ePUF_BLOCK_ENROLL PUF_BLOCK_ENROLL : 1;
-    uint32_t _reserved_end : 30;
+    uint32_t _reserved_0 : 30;
   } bits;
   
   // Full 32-bit register value.
@@ -621,7 +621,7 @@ union KEYLOCK {
   struct {
     eLOCK0 LOCK0 : 2;
     eLOCK1 LOCK1 : 2;
-    uint32_t _reserved_end : 28;
+    uint32_t _reserved_0 : 28;
   } bits;
   
   // Full 32-bit register value.
@@ -654,7 +654,7 @@ union KEYENABLE {
   struct {
     eENABLE0 ENABLE0 : 2;
     eENABLE1 ENABLE1 : 2;
-    uint32_t _reserved_end : 28;
+    uint32_t _reserved_0 : 28;
   } bits;
   
   // Full 32-bit register value.
@@ -687,7 +687,7 @@ union KEYRESET {
   struct {
     eRESET0 RESET0 : 2;
     eRESET1 RESET1 : 2;
-    uint32_t _reserved_end : 28;
+    uint32_t _reserved_0 : 28;
   } bits;
   
   // Full 32-bit register value.
@@ -836,7 +836,7 @@ union IDXBLK_SHIFT {
   struct {
     uint32_t IND_KEY0 : 4;
     uint32_t IND_KEY1 : 4;
-    uint32_t _reserved_end : 24;
+    uint32_t _reserved_0 : 24;
   } bits;
   
   // Full 32-bit register value.

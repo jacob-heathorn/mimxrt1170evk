@@ -4,7 +4,7 @@
 #include <stdint.h>
 #include <cstring>
 
-// // IOMUXC SNVS
+// IOMUXC SNVS
 //
 // NOTE: This file was generated from the forge CMSIS-svd wrapper tool.
 
@@ -28,9 +28,9 @@ union SW_MUX_CTL_PAD_WAKEUP_DIG {
   // Bit field definition.
   struct {
     eMUX_MODE MUX_MODE : 3;
-    uint32_t _reserved_1 : 1;
+    uint32_t _reserved_0 : 1;
     eSION SION : 1;
-    uint32_t _reserved_end : 27;
+    uint32_t _reserved_1 : 27;
   } bits;
   
   // Full 32-bit register value.
@@ -58,9 +58,9 @@ union SW_MUX_CTL_PAD_PMIC_ON_REQ_DIG {
   // Bit field definition.
   struct {
     eMUX_MODE MUX_MODE : 3;
-    uint32_t _reserved_1 : 1;
+    uint32_t _reserved_0 : 1;
     eSION SION : 1;
-    uint32_t _reserved_end : 27;
+    uint32_t _reserved_1 : 27;
   } bits;
   
   // Full 32-bit register value.
@@ -88,9 +88,9 @@ union SW_MUX_CTL_PAD_PMIC_STBY_REQ_DIG {
   // Bit field definition.
   struct {
     eMUX_MODE MUX_MODE : 3;
-    uint32_t _reserved_1 : 1;
+    uint32_t _reserved_0 : 1;
     eSION SION : 1;
-    uint32_t _reserved_end : 27;
+    uint32_t _reserved_1 : 27;
   } bits;
   
   // Full 32-bit register value.
@@ -118,9 +118,9 @@ union SW_MUX_CTL_PAD_GPIO_SNVS_00_DIG {
   // Bit field definition.
   struct {
     eMUX_MODE MUX_MODE : 3;
-    uint32_t _reserved_1 : 1;
+    uint32_t _reserved_0 : 1;
     eSION SION : 1;
-    uint32_t _reserved_end : 27;
+    uint32_t _reserved_1 : 27;
   } bits;
   
   // Full 32-bit register value.
@@ -148,9 +148,9 @@ union SW_MUX_CTL_PAD_GPIO_SNVS_01_DIG {
   // Bit field definition.
   struct {
     eMUX_MODE MUX_MODE : 3;
-    uint32_t _reserved_1 : 1;
+    uint32_t _reserved_0 : 1;
     eSION SION : 1;
-    uint32_t _reserved_end : 27;
+    uint32_t _reserved_1 : 27;
   } bits;
   
   // Full 32-bit register value.
@@ -178,9 +178,9 @@ union SW_MUX_CTL_PAD_GPIO_SNVS_02_DIG {
   // Bit field definition.
   struct {
     eMUX_MODE MUX_MODE : 3;
-    uint32_t _reserved_1 : 1;
+    uint32_t _reserved_0 : 1;
     eSION SION : 1;
-    uint32_t _reserved_end : 27;
+    uint32_t _reserved_1 : 27;
   } bits;
   
   // Full 32-bit register value.
@@ -208,9 +208,9 @@ union SW_MUX_CTL_PAD_GPIO_SNVS_03_DIG {
   // Bit field definition.
   struct {
     eMUX_MODE MUX_MODE : 3;
-    uint32_t _reserved_1 : 1;
+    uint32_t _reserved_0 : 1;
     eSION SION : 1;
-    uint32_t _reserved_end : 27;
+    uint32_t _reserved_1 : 27;
   } bits;
   
   // Full 32-bit register value.
@@ -238,9 +238,9 @@ union SW_MUX_CTL_PAD_GPIO_SNVS_04_DIG {
   // Bit field definition.
   struct {
     eMUX_MODE MUX_MODE : 3;
-    uint32_t _reserved_1 : 1;
+    uint32_t _reserved_0 : 1;
     eSION SION : 1;
-    uint32_t _reserved_end : 27;
+    uint32_t _reserved_1 : 27;
   } bits;
   
   // Full 32-bit register value.
@@ -268,9 +268,9 @@ union SW_MUX_CTL_PAD_GPIO_SNVS_05_DIG {
   // Bit field definition.
   struct {
     eMUX_MODE MUX_MODE : 3;
-    uint32_t _reserved_1 : 1;
+    uint32_t _reserved_0 : 1;
     eSION SION : 1;
-    uint32_t _reserved_end : 27;
+    uint32_t _reserved_1 : 27;
   } bits;
   
   // Full 32-bit register value.
@@ -298,9 +298,9 @@ union SW_MUX_CTL_PAD_GPIO_SNVS_06_DIG {
   // Bit field definition.
   struct {
     eMUX_MODE MUX_MODE : 3;
-    uint32_t _reserved_1 : 1;
+    uint32_t _reserved_0 : 1;
     eSION SION : 1;
-    uint32_t _reserved_end : 27;
+    uint32_t _reserved_1 : 27;
   } bits;
   
   // Full 32-bit register value.
@@ -328,9 +328,9 @@ union SW_MUX_CTL_PAD_GPIO_SNVS_07_DIG {
   // Bit field definition.
   struct {
     eMUX_MODE MUX_MODE : 3;
-    uint32_t _reserved_1 : 1;
+    uint32_t _reserved_0 : 1;
     eSION SION : 1;
-    uint32_t _reserved_end : 27;
+    uint32_t _reserved_1 : 27;
   } bits;
   
   // Full 32-bit register value.
@@ -358,9 +358,9 @@ union SW_MUX_CTL_PAD_GPIO_SNVS_08_DIG {
   // Bit field definition.
   struct {
     eMUX_MODE MUX_MODE : 3;
-    uint32_t _reserved_1 : 1;
+    uint32_t _reserved_0 : 1;
     eSION SION : 1;
-    uint32_t _reserved_end : 27;
+    uint32_t _reserved_1 : 27;
   } bits;
   
   // Full 32-bit register value.
@@ -388,9 +388,9 @@ union SW_MUX_CTL_PAD_GPIO_SNVS_09_DIG {
   // Bit field definition.
   struct {
     eMUX_MODE MUX_MODE : 3;
-    uint32_t _reserved_1 : 1;
+    uint32_t _reserved_0 : 1;
     eSION SION : 1;
-    uint32_t _reserved_end : 27;
+    uint32_t _reserved_1 : 27;
   } bits;
   
   // Full 32-bit register value.
@@ -445,7 +445,7 @@ union SW_PAD_CTL_PAD_TEST_MODE_DIG {
     eDSE DSE : 1;
     ePUE PUE : 1;
     ePUS PUS : 1;
-    uint32_t _reserved_4 : 24;
+    uint32_t _reserved_0 : 24;
     eDWP DWP : 2;
     eDWP_LOCK DWP_LOCK : 2;
   } bits;
@@ -502,7 +502,7 @@ union SW_PAD_CTL_PAD_POR_B_DIG {
     eDSE DSE : 1;
     ePUE PUE : 1;
     ePUS PUS : 1;
-    uint32_t _reserved_4 : 24;
+    uint32_t _reserved_0 : 24;
     eDWP DWP : 2;
     eDWP_LOCK DWP_LOCK : 2;
   } bits;
@@ -559,7 +559,7 @@ union SW_PAD_CTL_PAD_ONOFF_DIG {
     eDSE DSE : 1;
     ePUE PUE : 1;
     ePUS PUS : 1;
-    uint32_t _reserved_4 : 24;
+    uint32_t _reserved_0 : 24;
     eDWP DWP : 2;
     eDWP_LOCK DWP_LOCK : 2;
   } bits;
@@ -621,9 +621,9 @@ union SW_PAD_CTL_PAD_WAKEUP_DIG {
     eDSE DSE : 1;
     ePUE PUE : 1;
     ePUS PUS : 1;
-    uint32_t _reserved_4 : 2;
+    uint32_t _reserved_0 : 2;
     eODE_SNVS ODE_SNVS : 1;
-    uint32_t _reserved_5 : 21;
+    uint32_t _reserved_1 : 21;
     eDWP DWP : 2;
     eDWP_LOCK DWP_LOCK : 2;
   } bits;
@@ -685,9 +685,9 @@ union SW_PAD_CTL_PAD_PMIC_ON_REQ_DIG {
     eDSE DSE : 1;
     ePUE PUE : 1;
     ePUS PUS : 1;
-    uint32_t _reserved_4 : 2;
+    uint32_t _reserved_0 : 2;
     eODE_SNVS ODE_SNVS : 1;
-    uint32_t _reserved_5 : 21;
+    uint32_t _reserved_1 : 21;
     eDWP DWP : 2;
     eDWP_LOCK DWP_LOCK : 2;
   } bits;
@@ -749,9 +749,9 @@ union SW_PAD_CTL_PAD_PMIC_STBY_REQ_DIG {
     eDSE DSE : 1;
     ePUE PUE : 1;
     ePUS PUS : 1;
-    uint32_t _reserved_4 : 2;
+    uint32_t _reserved_0 : 2;
     eODE_SNVS ODE_SNVS : 1;
-    uint32_t _reserved_5 : 21;
+    uint32_t _reserved_1 : 21;
     eDWP DWP : 2;
     eDWP_LOCK DWP_LOCK : 2;
   } bits;
@@ -813,9 +813,9 @@ union SW_PAD_CTL_PAD_GPIO_SNVS_00_DIG {
     eDSE DSE : 1;
     ePUE PUE : 1;
     ePUS PUS : 1;
-    uint32_t _reserved_4 : 2;
+    uint32_t _reserved_0 : 2;
     eODE_SNVS ODE_SNVS : 1;
-    uint32_t _reserved_5 : 21;
+    uint32_t _reserved_1 : 21;
     eDWP DWP : 2;
     eDWP_LOCK DWP_LOCK : 2;
   } bits;
@@ -877,9 +877,9 @@ union SW_PAD_CTL_PAD_GPIO_SNVS_01_DIG {
     eDSE DSE : 1;
     ePUE PUE : 1;
     ePUS PUS : 1;
-    uint32_t _reserved_4 : 2;
+    uint32_t _reserved_0 : 2;
     eODE_SNVS ODE_SNVS : 1;
-    uint32_t _reserved_5 : 21;
+    uint32_t _reserved_1 : 21;
     eDWP DWP : 2;
     eDWP_LOCK DWP_LOCK : 2;
   } bits;
@@ -941,9 +941,9 @@ union SW_PAD_CTL_PAD_GPIO_SNVS_02_DIG {
     eDSE DSE : 1;
     ePUE PUE : 1;
     ePUS PUS : 1;
-    uint32_t _reserved_4 : 2;
+    uint32_t _reserved_0 : 2;
     eODE_SNVS ODE_SNVS : 1;
-    uint32_t _reserved_5 : 21;
+    uint32_t _reserved_1 : 21;
     eDWP DWP : 2;
     eDWP_LOCK DWP_LOCK : 2;
   } bits;
@@ -1005,9 +1005,9 @@ union SW_PAD_CTL_PAD_GPIO_SNVS_03_DIG {
     eDSE DSE : 1;
     ePUE PUE : 1;
     ePUS PUS : 1;
-    uint32_t _reserved_4 : 2;
+    uint32_t _reserved_0 : 2;
     eODE_SNVS ODE_SNVS : 1;
-    uint32_t _reserved_5 : 21;
+    uint32_t _reserved_1 : 21;
     eDWP DWP : 2;
     eDWP_LOCK DWP_LOCK : 2;
   } bits;
@@ -1069,9 +1069,9 @@ union SW_PAD_CTL_PAD_GPIO_SNVS_04_DIG {
     eDSE DSE : 1;
     ePUE PUE : 1;
     ePUS PUS : 1;
-    uint32_t _reserved_4 : 2;
+    uint32_t _reserved_0 : 2;
     eODE_SNVS ODE_SNVS : 1;
-    uint32_t _reserved_5 : 21;
+    uint32_t _reserved_1 : 21;
     eDWP DWP : 2;
     eDWP_LOCK DWP_LOCK : 2;
   } bits;
@@ -1133,9 +1133,9 @@ union SW_PAD_CTL_PAD_GPIO_SNVS_05_DIG {
     eDSE DSE : 1;
     ePUE PUE : 1;
     ePUS PUS : 1;
-    uint32_t _reserved_4 : 2;
+    uint32_t _reserved_0 : 2;
     eODE_SNVS ODE_SNVS : 1;
-    uint32_t _reserved_5 : 21;
+    uint32_t _reserved_1 : 21;
     eDWP DWP : 2;
     eDWP_LOCK DWP_LOCK : 2;
   } bits;
@@ -1197,9 +1197,9 @@ union SW_PAD_CTL_PAD_GPIO_SNVS_06_DIG {
     eDSE DSE : 1;
     ePUE PUE : 1;
     ePUS PUS : 1;
-    uint32_t _reserved_4 : 2;
+    uint32_t _reserved_0 : 2;
     eODE_SNVS ODE_SNVS : 1;
-    uint32_t _reserved_5 : 21;
+    uint32_t _reserved_1 : 21;
     eDWP DWP : 2;
     eDWP_LOCK DWP_LOCK : 2;
   } bits;
@@ -1261,9 +1261,9 @@ union SW_PAD_CTL_PAD_GPIO_SNVS_07_DIG {
     eDSE DSE : 1;
     ePUE PUE : 1;
     ePUS PUS : 1;
-    uint32_t _reserved_4 : 2;
+    uint32_t _reserved_0 : 2;
     eODE_SNVS ODE_SNVS : 1;
-    uint32_t _reserved_5 : 21;
+    uint32_t _reserved_1 : 21;
     eDWP DWP : 2;
     eDWP_LOCK DWP_LOCK : 2;
   } bits;
@@ -1325,9 +1325,9 @@ union SW_PAD_CTL_PAD_GPIO_SNVS_08_DIG {
     eDSE DSE : 1;
     ePUE PUE : 1;
     ePUS PUS : 1;
-    uint32_t _reserved_4 : 2;
+    uint32_t _reserved_0 : 2;
     eODE_SNVS ODE_SNVS : 1;
-    uint32_t _reserved_5 : 21;
+    uint32_t _reserved_1 : 21;
     eDWP DWP : 2;
     eDWP_LOCK DWP_LOCK : 2;
   } bits;
@@ -1389,9 +1389,9 @@ union SW_PAD_CTL_PAD_GPIO_SNVS_09_DIG {
     eDSE DSE : 1;
     ePUE PUE : 1;
     ePUS PUS : 1;
-    uint32_t _reserved_4 : 2;
+    uint32_t _reserved_0 : 2;
     eODE_SNVS ODE_SNVS : 1;
-    uint32_t _reserved_5 : 21;
+    uint32_t _reserved_1 : 21;
     eDWP DWP : 2;
     eDWP_LOCK DWP_LOCK : 2;
   } bits;

@@ -4,7 +4,7 @@
 #include <stdint.h>
 #include <cstring>
 
-// // no description available
+// no description available
 //
 // NOTE: This file was generated from the forge CMSIS-svd wrapper tool.
 
@@ -23,7 +23,7 @@ union CFG_NUM_LANES {
   // Bit field definition.
   struct {
     eCFG_NUM_LANES CFG_NUM_LANES : 2;
-    uint32_t _reserved_end : 30;
+    uint32_t _reserved_0 : 30;
   } bits;
   
   // Full 32-bit register value.
@@ -41,7 +41,7 @@ union CFG_DISABLE_DATA_LANES {
   // Bit field definition.
   struct {
     uint32_t CFG_DISABLE_DATA_LANES : 4;
-    uint32_t _reserved_end : 28;
+    uint32_t _reserved_0 : 28;
   } bits;
   
   // Full 32-bit register value.
@@ -59,7 +59,7 @@ union BIT_ERR {
   // Bit field definition.
   struct {
     uint32_t BIT_ERR : 10;
-    uint32_t _reserved_end : 22;
+    uint32_t _reserved_0 : 22;
   } bits;
   
   // Full 32-bit register value.
@@ -77,7 +77,7 @@ union IRQ_STATUS {
   // Bit field definition.
   struct {
     uint32_t IRQ_STATUS : 9;
-    uint32_t _reserved_end : 23;
+    uint32_t _reserved_0 : 23;
   } bits;
   
   // Full 32-bit register value.
@@ -95,7 +95,7 @@ union IRQ_MASK {
   // Bit field definition.
   struct {
     uint32_t IRQ_MASK : 9;
-    uint32_t _reserved_end : 23;
+    uint32_t _reserved_0 : 23;
   } bits;
   
   // Full 32-bit register value.
@@ -113,7 +113,7 @@ union ULPS_STATUS {
   // Bit field definition.
   struct {
     uint32_t STATUS : 10;
-    uint32_t _reserved_end : 22;
+    uint32_t _reserved_0 : 22;
   } bits;
   
   // Full 32-bit register value.
@@ -131,7 +131,7 @@ union PPI_ERRSOT_HS {
   // Bit field definition.
   struct {
     uint32_t STATUS : 4;
-    uint32_t _reserved_end : 28;
+    uint32_t _reserved_0 : 28;
   } bits;
   
   // Full 32-bit register value.
@@ -149,7 +149,7 @@ union PPI_ERRSOTSYNC_HS {
   // Bit field definition.
   struct {
     uint32_t STATUS : 4;
-    uint32_t _reserved_end : 28;
+    uint32_t _reserved_0 : 28;
   } bits;
   
   // Full 32-bit register value.
@@ -167,7 +167,7 @@ union PPI_ERRESC {
   // Bit field definition.
   struct {
     uint32_t STATUS : 4;
-    uint32_t _reserved_end : 28;
+    uint32_t _reserved_0 : 28;
   } bits;
   
   // Full 32-bit register value.
@@ -185,7 +185,7 @@ union PPI_ERRSYNCESC {
   // Bit field definition.
   struct {
     uint32_t STATUS : 4;
-    uint32_t _reserved_end : 28;
+    uint32_t _reserved_0 : 28;
   } bits;
   
   // Full 32-bit register value.
@@ -203,7 +203,7 @@ union PPI_ERRCONTROL {
   // Bit field definition.
   struct {
     uint32_t STATUS : 4;
-    uint32_t _reserved_end : 28;
+    uint32_t _reserved_0 : 28;
   } bits;
   
   // Full 32-bit register value.
@@ -223,17 +223,17 @@ union CFG_DISABLE_PAYLOAD_0 {
     uint32_t DIS_PAYLOAD_NULL : 1;
     uint32_t DIS_PAYLOAD_BLANK : 1;
     uint32_t DIS_PAYLOAD_EMBEDDED : 1;
-    uint32_t _reserved_3 : 7;
+    uint32_t _reserved_0 : 7;
     uint32_t DIS_PAYLOAD_YUV420 : 1;
-    uint32_t _reserved_4 : 3;
+    uint32_t _reserved_1 : 3;
     uint32_t DIS_PAYLOAD_YUV422_8BIT : 1;
-    uint32_t _reserved_5 : 1;
+    uint32_t _reserved_2 : 1;
     uint32_t DIS_PAYLOAD_RGB444 : 1;
     uint32_t DIS_PAYLOAD_RGB555 : 1;
     uint32_t DIS_PAYLOAD_RGB565 : 1;
     uint32_t DIS_PAYLOAD_RGB666 : 1;
     uint32_t DIS_PAYLOAD_RGB888 : 1;
-    uint32_t _reserved_end : 11;
+    uint32_t _reserved_3 : 11;
   } bits;
   
   // Full 32-bit register value.
@@ -258,9 +258,9 @@ union CFG_DISABLE_PAYLOAD_1 {
     uint32_t DIS_PAYLOAD_UDEF_35 : 1;
     uint32_t DIS_PAYLOAD_UDEF_36 : 1;
     uint32_t DIS_PAYLOAD_UDEF_37 : 1;
-    uint32_t _reserved_8 : 8;
+    uint32_t _reserved_0 : 8;
     uint32_t DIS_PAYLOAD_UNSUPPORTED : 1;
-    uint32_t _reserved_end : 15;
+    uint32_t _reserved_1 : 15;
   } bits;
   
   // Full 32-bit register value.
@@ -278,7 +278,7 @@ union CFG_IGNORE_VC {
   // Bit field definition.
   struct {
     uint32_t IGNORE_VC : 1;
-    uint32_t _reserved_end : 31;
+    uint32_t _reserved_0 : 31;
   } bits;
   
   // Full 32-bit register value.
@@ -296,7 +296,7 @@ union CFG_VID_VC {
   // Bit field definition.
   struct {
     uint32_t VID_VC : 2;
-    uint32_t _reserved_end : 30;
+    uint32_t _reserved_0 : 30;
   } bits;
   
   // Full 32-bit register value.
@@ -314,7 +314,7 @@ union CFG_VID_P_FIFO_SEND_LEVEL {
   // Bit field definition.
   struct {
     uint32_t SEND_LEVEL : 16;
-    uint32_t _reserved_end : 16;
+    uint32_t _reserved_0 : 16;
   } bits;
   
   // Full 32-bit register value.
@@ -332,7 +332,7 @@ union CFG_VID_VSYNC {
   // Bit field definition.
   struct {
     uint32_t WIDTH : 8;
-    uint32_t _reserved_end : 24;
+    uint32_t _reserved_0 : 24;
   } bits;
   
   // Full 32-bit register value.
@@ -350,7 +350,7 @@ union CFG_VID_HSYNC_FP {
   // Bit field definition.
   struct {
     uint32_t DELAY_CTL : 8;
-    uint32_t _reserved_end : 24;
+    uint32_t _reserved_0 : 24;
   } bits;
   
   // Full 32-bit register value.
@@ -368,7 +368,7 @@ union CFG_VID_HSYNC {
   // Bit field definition.
   struct {
     uint32_t WIDTH : 8;
-    uint32_t _reserved_end : 24;
+    uint32_t _reserved_0 : 24;
   } bits;
   
   // Full 32-bit register value.
@@ -386,7 +386,7 @@ union CFG_VID_HSYNC_BP {
   // Bit field definition.
   struct {
     uint32_t DELAY_CTL : 8;
-    uint32_t _reserved_end : 24;
+    uint32_t _reserved_0 : 24;
   } bits;
   
   // Full 32-bit register value.

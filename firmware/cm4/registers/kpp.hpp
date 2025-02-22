@@ -4,7 +4,7 @@
 #include <stdint.h>
 #include <cstring>
 
-// // KPP
+// KPP
 //
 // NOTE: This file was generated from the forge CMSIS-svd wrapper tool.
 
@@ -29,7 +29,7 @@ union KPCR {
   struct {
     eKRE KRE : 8;
     eKCO KCO : 8;
-    uint32_t _reserved_end : 16;
+    uint32_t _reserved_0 : 16;
   } bits;
   
   // Full 32-bit register value.
@@ -80,10 +80,10 @@ union KPSR {
     eKPKR KPKR : 1;
     eKDSC KDSC : 1;
     eKRSS KRSS : 1;
-    uint32_t _reserved_4 : 4;
+    uint32_t _reserved_0 : 4;
     eKDIE KDIE : 1;
     eKRIE KRIE : 1;
-    uint32_t _reserved_end : 22;
+    uint32_t _reserved_1 : 22;
   } bits;
   
   // Full 32-bit register value.
@@ -112,7 +112,7 @@ union KDDR {
   struct {
     eKRDD KRDD : 8;
     eKCDD KCDD : 8;
-    uint32_t _reserved_end : 16;
+    uint32_t _reserved_0 : 16;
   } bits;
   
   // Full 32-bit register value.
@@ -131,7 +131,7 @@ union KPDR {
   struct {
     uint32_t KRD : 8;
     uint32_t KCD : 8;
-    uint32_t _reserved_end : 16;
+    uint32_t _reserved_0 : 16;
   } bits;
   
   // Full 32-bit register value.

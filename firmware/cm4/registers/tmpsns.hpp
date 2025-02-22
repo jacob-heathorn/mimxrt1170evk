@@ -4,7 +4,7 @@
 #include <stdint.h>
 #include <cstring>
 
-// // Temperature Sensor Memory Map
+// Temperature Sensor Memory Map
 //
 // NOTE: This file was generated from the forge CMSIS-svd wrapper tool.
 
@@ -22,11 +22,11 @@ union CTRL0 {
   // Bit field definition.
   struct {
     uint32_t SLOPE_CAL : 6;
-    uint32_t _reserved_1 : 2;
+    uint32_t _reserved_0 : 2;
     eV_SEL V_SEL : 2;
-    uint32_t _reserved_2 : 2;
+    uint32_t _reserved_1 : 2;
     uint32_t IBIAS_TRIM : 4;
-    uint32_t _reserved_end : 16;
+    uint32_t _reserved_2 : 16;
   } bits;
   
   // Full 32-bit register value.
@@ -44,11 +44,11 @@ union CTRL0_SET {
   // Bit field definition.
   struct {
     uint32_t SLOPE_CAL : 6;
-    uint32_t _reserved_1 : 2;
+    uint32_t _reserved_0 : 2;
     uint32_t V_SEL : 2;
-    uint32_t _reserved_2 : 2;
+    uint32_t _reserved_1 : 2;
     uint32_t IBIAS_TRIM : 4;
-    uint32_t _reserved_end : 16;
+    uint32_t _reserved_2 : 16;
   } bits;
   
   // Full 32-bit register value.
@@ -66,11 +66,11 @@ union CTRL0_CLR {
   // Bit field definition.
   struct {
     uint32_t SLOPE_CAL : 6;
-    uint32_t _reserved_1 : 2;
+    uint32_t _reserved_0 : 2;
     uint32_t V_SEL : 2;
-    uint32_t _reserved_2 : 2;
+    uint32_t _reserved_1 : 2;
     uint32_t IBIAS_TRIM : 4;
-    uint32_t _reserved_end : 16;
+    uint32_t _reserved_2 : 16;
   } bits;
   
   // Full 32-bit register value.
@@ -88,11 +88,11 @@ union CTRL0_TOG {
   // Bit field definition.
   struct {
     uint32_t SLOPE_CAL : 6;
-    uint32_t _reserved_1 : 2;
+    uint32_t _reserved_0 : 2;
     uint32_t V_SEL : 2;
-    uint32_t _reserved_2 : 2;
+    uint32_t _reserved_1 : 2;
     uint32_t IBIAS_TRIM : 4;
-    uint32_t _reserved_end : 16;
+    uint32_t _reserved_2 : 16;
   } bits;
   
   // Full 32-bit register value.
@@ -162,7 +162,7 @@ union CTRL1 {
     eLOW_TEMP_IE LOW_TEMP_IE : 1;
     eHIGH_TEMP_IE HIGH_TEMP_IE : 1;
     ePANIC_TEMP_IE PANIC_TEMP_IE : 1;
-    uint32_t _reserved_5 : 2;
+    uint32_t _reserved_0 : 2;
     eSTART START : 1;
     ePWD PWD : 1;
     uint32_t RFU : 7;
@@ -188,7 +188,7 @@ union CTRL1_SET {
     uint32_t LOW_TEMP_IE : 1;
     uint32_t HIGH_TEMP_IE : 1;
     uint32_t PANIC_TEMP_IE : 1;
-    uint32_t _reserved_5 : 2;
+    uint32_t _reserved_0 : 2;
     uint32_t START : 1;
     uint32_t PWD : 1;
     uint32_t RFU : 7;
@@ -214,7 +214,7 @@ union CTRL1_CLR {
     uint32_t LOW_TEMP_IE : 1;
     uint32_t HIGH_TEMP_IE : 1;
     uint32_t PANIC_TEMP_IE : 1;
-    uint32_t _reserved_5 : 2;
+    uint32_t _reserved_0 : 2;
     uint32_t START : 1;
     uint32_t PWD : 1;
     uint32_t RFU : 7;
@@ -240,7 +240,7 @@ union CTRL1_TOG {
     uint32_t LOW_TEMP_IE : 1;
     uint32_t HIGH_TEMP_IE : 1;
     uint32_t PANIC_TEMP_IE : 1;
-    uint32_t _reserved_5 : 2;
+    uint32_t _reserved_0 : 2;
     uint32_t START : 1;
     uint32_t PWD : 1;
     uint32_t RFU : 7;
@@ -262,9 +262,9 @@ union RANGE0 {
   // Bit field definition.
   struct {
     uint32_t LOW_TEMP_VAL : 12;
-    uint32_t _reserved_1 : 4;
+    uint32_t _reserved_0 : 4;
     uint32_t HIGH_TEMP_VAL : 12;
-    uint32_t _reserved_end : 4;
+    uint32_t _reserved_1 : 4;
   } bits;
   
   // Full 32-bit register value.
@@ -282,9 +282,9 @@ union RANGE0_SET {
   // Bit field definition.
   struct {
     uint32_t LOW_TEMP_VAL : 12;
-    uint32_t _reserved_1 : 4;
+    uint32_t _reserved_0 : 4;
     uint32_t HIGH_TEMP_VAL : 12;
-    uint32_t _reserved_end : 4;
+    uint32_t _reserved_1 : 4;
   } bits;
   
   // Full 32-bit register value.
@@ -302,9 +302,9 @@ union RANGE0_CLR {
   // Bit field definition.
   struct {
     uint32_t LOW_TEMP_VAL : 12;
-    uint32_t _reserved_1 : 4;
+    uint32_t _reserved_0 : 4;
     uint32_t HIGH_TEMP_VAL : 12;
-    uint32_t _reserved_end : 4;
+    uint32_t _reserved_1 : 4;
   } bits;
   
   // Full 32-bit register value.
@@ -322,9 +322,9 @@ union RANGE0_TOG {
   // Bit field definition.
   struct {
     uint32_t LOW_TEMP_VAL : 12;
-    uint32_t _reserved_1 : 4;
+    uint32_t _reserved_0 : 4;
     uint32_t HIGH_TEMP_VAL : 12;
-    uint32_t _reserved_end : 4;
+    uint32_t _reserved_1 : 4;
   } bits;
   
   // Full 32-bit register value.
@@ -342,7 +342,7 @@ union RANGE1 {
   // Bit field definition.
   struct {
     uint32_t PANIC_TEMP_VAL : 12;
-    uint32_t _reserved_end : 20;
+    uint32_t _reserved_0 : 20;
   } bits;
   
   // Full 32-bit register value.
@@ -360,7 +360,7 @@ union RANGE1_SET {
   // Bit field definition.
   struct {
     uint32_t PANIC_TEMP_VAL : 12;
-    uint32_t _reserved_end : 20;
+    uint32_t _reserved_0 : 20;
   } bits;
   
   // Full 32-bit register value.
@@ -378,7 +378,7 @@ union RANGE1_CLR {
   // Bit field definition.
   struct {
     uint32_t PANIC_TEMP_VAL : 12;
-    uint32_t _reserved_end : 20;
+    uint32_t _reserved_0 : 20;
   } bits;
   
   // Full 32-bit register value.
@@ -396,7 +396,7 @@ union RANGE1_TOG {
   // Bit field definition.
   struct {
     uint32_t PANIC_TEMP_VAL : 12;
-    uint32_t _reserved_end : 20;
+    uint32_t _reserved_0 : 20;
   } bits;
   
   // Full 32-bit register value.
@@ -434,12 +434,12 @@ union STATUS0 {
   // Bit field definition.
   struct {
     uint32_t TEMP_VAL : 12;
-    uint32_t _reserved_1 : 4;
+    uint32_t _reserved_0 : 4;
     eFINISH FINISH : 1;
     eLOW_TEMP LOW_TEMP : 1;
     eHIGH_TEMP HIGH_TEMP : 1;
     ePANIC_TEMP PANIC_TEMP : 1;
-    uint32_t _reserved_end : 12;
+    uint32_t _reserved_1 : 12;
   } bits;
   
   // Full 32-bit register value.

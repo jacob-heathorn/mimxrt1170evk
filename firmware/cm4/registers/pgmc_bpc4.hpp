@@ -4,7 +4,7 @@
 #include <stdint.h>
 #include <cstring>
 
-// // PGMC_BPC
+// PGMC_BPC
 //
 // NOTE: This file was generated from the forge CMSIS-svd wrapper tool.
 
@@ -29,14 +29,14 @@ union BPC_AUTHEN_CTRL {
   struct {
     eUSER USER : 1;
     eNONSECURE NONSECURE : 1;
-    uint32_t _reserved_2 : 2;
+    uint32_t _reserved_0 : 2;
     uint32_t LOCK_SETTING : 1;
-    uint32_t _reserved_3 : 3;
+    uint32_t _reserved_1 : 3;
     uint32_t WHITE_LIST : 4;
     uint32_t LOCK_LIST : 1;
-    uint32_t _reserved_5 : 7;
+    uint32_t _reserved_2 : 7;
     uint32_t LOCK_CFG : 1;
-    uint32_t _reserved_end : 11;
+    uint32_t _reserved_3 : 11;
   } bits;
   
   // Full 32-bit register value.
@@ -67,9 +67,9 @@ union BPC_MODE {
   // Bit field definition.
   struct {
     eCTRL_MODE CTRL_MODE : 2;
-    uint32_t _reserved_1 : 2;
+    uint32_t _reserved_0 : 2;
     eDOMAIN_ASSIGN DOMAIN_ASSIGN : 2;
-    uint32_t _reserved_end : 26;
+    uint32_t _reserved_1 : 26;
   } bits;
   
   // Full 32-bit register value.
@@ -90,12 +90,12 @@ union BPC_POWER_CTRL {
     uint32_t PWR_OFF_AT_WAIT : 1;
     uint32_t PWR_OFF_AT_STOP : 1;
     uint32_t PWR_OFF_AT_SUSPEND : 1;
-    uint32_t _reserved_3 : 4;
+    uint32_t _reserved_1 : 4;
     uint32_t ISO_ON_SOFT : 1;
     uint32_t PSW_OFF_SOFT : 1;
     uint32_t PSW_ON_SOFT : 1;
     uint32_t ISO_OFF_SOFT : 1;
-    uint32_t _reserved_7 : 4;
+    uint32_t _reserved_2 : 4;
     uint32_t PWR_OFF_AT_SP : 16;
   } bits;
   
@@ -114,7 +114,7 @@ union BPC_FLAG {
   // Bit field definition.
   struct {
     uint32_t PDN_FLAG : 1;
-    uint32_t _reserved_end : 31;
+    uint32_t _reserved_0 : 31;
   } bits;
   
   // Full 32-bit register value.
@@ -135,7 +135,7 @@ union BPC_SSAR_SAVE_CTRL {
     uint32_t SAVE_AT_WAIT : 1;
     uint32_t SAVE_AT_STOP : 1;
     uint32_t SAVE_AT_SUSPEND : 1;
-    uint32_t _reserved_4 : 12;
+    uint32_t _reserved_0 : 12;
     uint32_t SAVE_AT_SP : 16;
   } bits;
   
@@ -154,7 +154,7 @@ union BPC_SSAR_RESTORE_CTRL {
   // Bit field definition.
   struct {
     uint32_t RESTORE_AT_RUN : 1;
-    uint32_t _reserved_1 : 15;
+    uint32_t _reserved_0 : 15;
     uint32_t RESTORE_AT_SP : 16;
   } bits;
   

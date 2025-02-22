@@ -4,7 +4,7 @@
 #include <stdint.h>
 #include <cstring>
 
-// // CAU
+// CAU
 //
 // NOTE: This file was generated from the forge CMSIS-svd wrapper tool.
 
@@ -34,7 +34,7 @@ union CASR {
   struct {
     eIC IC : 1;
     eDPE DPE : 1;
-    uint32_t _reserved_2 : 26;
+    uint32_t _reserved_0 : 26;
     eVER VER : 4;
   } bits;
   

@@ -4,7 +4,7 @@
 #include <stdint.h>
 #include <cstring>
 
-// // DSI HOST APB PKT Interface
+// DSI HOST APB PKT Interface
 //
 // NOTE: This file was generated from the forge CMSIS-svd wrapper tool.
 
@@ -35,7 +35,7 @@ union PKT_CONTROL {
   // Bit field definition.
   struct {
     uint32_t CTRL : 27;
-    uint32_t _reserved_end : 5;
+    uint32_t _reserved_0 : 5;
   } bits;
   
   // Full 32-bit register value.
@@ -58,7 +58,7 @@ union SEND_PACKET {
   // Bit field definition.
   struct {
     eTX_SEND TX_SEND : 1;
-    uint32_t _reserved_end : 31;
+    uint32_t _reserved_0 : 31;
   } bits;
   
   // Full 32-bit register value.
@@ -76,7 +76,7 @@ union PKT_STATUS {
   // Bit field definition.
   struct {
     uint32_t STATUS : 9;
-    uint32_t _reserved_end : 23;
+    uint32_t _reserved_0 : 23;
   } bits;
   
   // Full 32-bit register value.
@@ -94,7 +94,7 @@ union PKT_FIFO_WR_LEVEL {
   // Bit field definition.
   struct {
     uint32_t WR : 16;
-    uint32_t _reserved_end : 16;
+    uint32_t _reserved_0 : 16;
   } bits;
   
   // Full 32-bit register value.
@@ -112,7 +112,7 @@ union PKT_FIFO_RD_LEVEL {
   // Bit field definition.
   struct {
     uint32_t RD : 16;
-    uint32_t _reserved_end : 16;
+    uint32_t _reserved_0 : 16;
   } bits;
   
   // Full 32-bit register value.
@@ -147,7 +147,7 @@ union PKT_RX_PKT_HEADER {
   // Bit field definition.
   struct {
     uint32_t HEADER : 24;
-    uint32_t _reserved_end : 8;
+    uint32_t _reserved_0 : 8;
   } bits;
   
   // Full 32-bit register value.
@@ -182,7 +182,7 @@ union IRQ_STATUS2 {
   // Bit field definition.
   struct {
     uint32_t STATUS2 : 3;
-    uint32_t _reserved_end : 29;
+    uint32_t _reserved_0 : 29;
   } bits;
   
   // Full 32-bit register value.
@@ -217,7 +217,7 @@ union IRQ_MASK2 {
   // Bit field definition.
   struct {
     uint32_t MASK2 : 3;
-    uint32_t _reserved_end : 29;
+    uint32_t _reserved_0 : 29;
   } bits;
   
   // Full 32-bit register value.

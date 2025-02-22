@@ -4,7 +4,7 @@
 #include <stdint.h>
 #include <cstring>
 
-// // IOMUXC LPSR
+// IOMUXC LPSR
 //
 // NOTE: This file was generated from the forge CMSIS-svd wrapper tool.
 
@@ -35,7 +35,7 @@ union SW_MUX_CTL_PAD_GPIO_LPSR_00 {
   struct {
     eMUX_MODE MUX_MODE : 4;
     eSION SION : 1;
-    uint32_t _reserved_end : 27;
+    uint32_t _reserved_0 : 27;
   } bits;
   
   // Full 32-bit register value.
@@ -69,7 +69,7 @@ union SW_MUX_CTL_PAD_GPIO_LPSR_01 {
   struct {
     eMUX_MODE MUX_MODE : 4;
     eSION SION : 1;
-    uint32_t _reserved_end : 27;
+    uint32_t _reserved_0 : 27;
   } bits;
   
   // Full 32-bit register value.
@@ -102,7 +102,7 @@ union SW_MUX_CTL_PAD_GPIO_LPSR_02 {
   struct {
     eMUX_MODE MUX_MODE : 4;
     eSION SION : 1;
-    uint32_t _reserved_end : 27;
+    uint32_t _reserved_0 : 27;
   } bits;
   
   // Full 32-bit register value.
@@ -135,7 +135,7 @@ union SW_MUX_CTL_PAD_GPIO_LPSR_03 {
   struct {
     eMUX_MODE MUX_MODE : 4;
     eSION SION : 1;
-    uint32_t _reserved_end : 27;
+    uint32_t _reserved_0 : 27;
   } bits;
   
   // Full 32-bit register value.
@@ -169,7 +169,7 @@ union SW_MUX_CTL_PAD_GPIO_LPSR_04 {
   struct {
     eMUX_MODE MUX_MODE : 4;
     eSION SION : 1;
-    uint32_t _reserved_end : 27;
+    uint32_t _reserved_0 : 27;
   } bits;
   
   // Full 32-bit register value.
@@ -204,7 +204,7 @@ union SW_MUX_CTL_PAD_GPIO_LPSR_05 {
   struct {
     eMUX_MODE MUX_MODE : 4;
     eSION SION : 1;
-    uint32_t _reserved_end : 27;
+    uint32_t _reserved_0 : 27;
   } bits;
   
   // Full 32-bit register value.
@@ -240,7 +240,7 @@ union SW_MUX_CTL_PAD_GPIO_LPSR_06 {
   struct {
     eMUX_MODE MUX_MODE : 4;
     eSION SION : 1;
-    uint32_t _reserved_end : 27;
+    uint32_t _reserved_0 : 27;
   } bits;
   
   // Full 32-bit register value.
@@ -276,7 +276,7 @@ union SW_MUX_CTL_PAD_GPIO_LPSR_07 {
   struct {
     eMUX_MODE MUX_MODE : 4;
     eSION SION : 1;
-    uint32_t _reserved_end : 27;
+    uint32_t _reserved_0 : 27;
   } bits;
   
   // Full 32-bit register value.
@@ -313,7 +313,7 @@ union SW_MUX_CTL_PAD_GPIO_LPSR_08 {
   struct {
     eMUX_MODE MUX_MODE : 4;
     eSION SION : 1;
-    uint32_t _reserved_end : 27;
+    uint32_t _reserved_0 : 27;
   } bits;
   
   // Full 32-bit register value.
@@ -349,7 +349,7 @@ union SW_MUX_CTL_PAD_GPIO_LPSR_09 {
   struct {
     eMUX_MODE MUX_MODE : 4;
     eSION SION : 1;
-    uint32_t _reserved_end : 27;
+    uint32_t _reserved_0 : 27;
   } bits;
   
   // Full 32-bit register value.
@@ -386,7 +386,7 @@ union SW_MUX_CTL_PAD_GPIO_LPSR_10 {
   struct {
     eMUX_MODE MUX_MODE : 4;
     eSION SION : 1;
-    uint32_t _reserved_end : 27;
+    uint32_t _reserved_0 : 27;
   } bits;
   
   // Full 32-bit register value.
@@ -423,7 +423,7 @@ union SW_MUX_CTL_PAD_GPIO_LPSR_11 {
   struct {
     eMUX_MODE MUX_MODE : 4;
     eSION SION : 1;
-    uint32_t _reserved_end : 27;
+    uint32_t _reserved_0 : 27;
   } bits;
   
   // Full 32-bit register value.
@@ -459,7 +459,7 @@ union SW_MUX_CTL_PAD_GPIO_LPSR_12 {
   struct {
     eMUX_MODE MUX_MODE : 4;
     eSION SION : 1;
-    uint32_t _reserved_end : 27;
+    uint32_t _reserved_0 : 27;
   } bits;
   
   // Full 32-bit register value.
@@ -493,7 +493,7 @@ union SW_MUX_CTL_PAD_GPIO_LPSR_13 {
   struct {
     eMUX_MODE MUX_MODE : 4;
     eSION SION : 1;
-    uint32_t _reserved_end : 27;
+    uint32_t _reserved_0 : 27;
   } bits;
   
   // Full 32-bit register value.
@@ -527,7 +527,7 @@ union SW_MUX_CTL_PAD_GPIO_LPSR_14 {
   struct {
     eMUX_MODE MUX_MODE : 4;
     eSION SION : 1;
-    uint32_t _reserved_end : 27;
+    uint32_t _reserved_0 : 27;
   } bits;
   
   // Full 32-bit register value.
@@ -561,7 +561,7 @@ union SW_MUX_CTL_PAD_GPIO_LPSR_15 {
   struct {
     eMUX_MODE MUX_MODE : 4;
     eSION SION : 1;
-    uint32_t _reserved_end : 27;
+    uint32_t _reserved_0 : 27;
   } bits;
   
   // Full 32-bit register value.
@@ -621,9 +621,9 @@ union SW_PAD_CTL_PAD_GPIO_LPSR_00 {
     eDSE DSE : 1;
     ePUE PUE : 1;
     ePUS PUS : 1;
-    uint32_t _reserved_4 : 1;
+    uint32_t _reserved_0 : 1;
     eODE_LPSR ODE_LPSR : 1;
-    uint32_t _reserved_5 : 22;
+    uint32_t _reserved_1 : 22;
     eDWP DWP : 2;
     eDWP_LOCK DWP_LOCK : 2;
   } bits;
@@ -685,9 +685,9 @@ union SW_PAD_CTL_PAD_GPIO_LPSR_01 {
     eDSE DSE : 1;
     ePUE PUE : 1;
     ePUS PUS : 1;
-    uint32_t _reserved_4 : 1;
+    uint32_t _reserved_0 : 1;
     eODE_LPSR ODE_LPSR : 1;
-    uint32_t _reserved_5 : 22;
+    uint32_t _reserved_1 : 22;
     eDWP DWP : 2;
     eDWP_LOCK DWP_LOCK : 2;
   } bits;
@@ -749,9 +749,9 @@ union SW_PAD_CTL_PAD_GPIO_LPSR_02 {
     eDSE DSE : 1;
     ePUE PUE : 1;
     ePUS PUS : 1;
-    uint32_t _reserved_4 : 1;
+    uint32_t _reserved_0 : 1;
     eODE_LPSR ODE_LPSR : 1;
-    uint32_t _reserved_5 : 22;
+    uint32_t _reserved_1 : 22;
     eDWP DWP : 2;
     eDWP_LOCK DWP_LOCK : 2;
   } bits;
@@ -813,9 +813,9 @@ union SW_PAD_CTL_PAD_GPIO_LPSR_03 {
     eDSE DSE : 1;
     ePUE PUE : 1;
     ePUS PUS : 1;
-    uint32_t _reserved_4 : 1;
+    uint32_t _reserved_0 : 1;
     eODE_LPSR ODE_LPSR : 1;
-    uint32_t _reserved_5 : 22;
+    uint32_t _reserved_1 : 22;
     eDWP DWP : 2;
     eDWP_LOCK DWP_LOCK : 2;
   } bits;
@@ -877,9 +877,9 @@ union SW_PAD_CTL_PAD_GPIO_LPSR_04 {
     eDSE DSE : 1;
     ePUE PUE : 1;
     ePUS PUS : 1;
-    uint32_t _reserved_4 : 1;
+    uint32_t _reserved_0 : 1;
     eODE_LPSR ODE_LPSR : 1;
-    uint32_t _reserved_5 : 22;
+    uint32_t _reserved_1 : 22;
     eDWP DWP : 2;
     eDWP_LOCK DWP_LOCK : 2;
   } bits;
@@ -941,9 +941,9 @@ union SW_PAD_CTL_PAD_GPIO_LPSR_05 {
     eDSE DSE : 1;
     ePUE PUE : 1;
     ePUS PUS : 1;
-    uint32_t _reserved_4 : 1;
+    uint32_t _reserved_0 : 1;
     eODE_LPSR ODE_LPSR : 1;
-    uint32_t _reserved_5 : 22;
+    uint32_t _reserved_1 : 22;
     eDWP DWP : 2;
     eDWP_LOCK DWP_LOCK : 2;
   } bits;
@@ -1005,9 +1005,9 @@ union SW_PAD_CTL_PAD_GPIO_LPSR_06 {
     eDSE DSE : 1;
     ePUE PUE : 1;
     ePUS PUS : 1;
-    uint32_t _reserved_4 : 1;
+    uint32_t _reserved_0 : 1;
     eODE_LPSR ODE_LPSR : 1;
-    uint32_t _reserved_5 : 22;
+    uint32_t _reserved_1 : 22;
     eDWP DWP : 2;
     eDWP_LOCK DWP_LOCK : 2;
   } bits;
@@ -1069,9 +1069,9 @@ union SW_PAD_CTL_PAD_GPIO_LPSR_07 {
     eDSE DSE : 1;
     ePUE PUE : 1;
     ePUS PUS : 1;
-    uint32_t _reserved_4 : 1;
+    uint32_t _reserved_0 : 1;
     eODE_LPSR ODE_LPSR : 1;
-    uint32_t _reserved_5 : 22;
+    uint32_t _reserved_1 : 22;
     eDWP DWP : 2;
     eDWP_LOCK DWP_LOCK : 2;
   } bits;
@@ -1133,9 +1133,9 @@ union SW_PAD_CTL_PAD_GPIO_LPSR_08 {
     eDSE DSE : 1;
     ePUE PUE : 1;
     ePUS PUS : 1;
-    uint32_t _reserved_4 : 1;
+    uint32_t _reserved_0 : 1;
     eODE_LPSR ODE_LPSR : 1;
-    uint32_t _reserved_5 : 22;
+    uint32_t _reserved_1 : 22;
     eDWP DWP : 2;
     eDWP_LOCK DWP_LOCK : 2;
   } bits;
@@ -1197,9 +1197,9 @@ union SW_PAD_CTL_PAD_GPIO_LPSR_09 {
     eDSE DSE : 1;
     ePUE PUE : 1;
     ePUS PUS : 1;
-    uint32_t _reserved_4 : 1;
+    uint32_t _reserved_0 : 1;
     eODE_LPSR ODE_LPSR : 1;
-    uint32_t _reserved_5 : 22;
+    uint32_t _reserved_1 : 22;
     eDWP DWP : 2;
     eDWP_LOCK DWP_LOCK : 2;
   } bits;
@@ -1261,9 +1261,9 @@ union SW_PAD_CTL_PAD_GPIO_LPSR_10 {
     eDSE DSE : 1;
     ePUE PUE : 1;
     ePUS PUS : 1;
-    uint32_t _reserved_4 : 1;
+    uint32_t _reserved_0 : 1;
     eODE_LPSR ODE_LPSR : 1;
-    uint32_t _reserved_5 : 22;
+    uint32_t _reserved_1 : 22;
     eDWP DWP : 2;
     eDWP_LOCK DWP_LOCK : 2;
   } bits;
@@ -1325,9 +1325,9 @@ union SW_PAD_CTL_PAD_GPIO_LPSR_11 {
     eDSE DSE : 1;
     ePUE PUE : 1;
     ePUS PUS : 1;
-    uint32_t _reserved_4 : 1;
+    uint32_t _reserved_0 : 1;
     eODE_LPSR ODE_LPSR : 1;
-    uint32_t _reserved_5 : 22;
+    uint32_t _reserved_1 : 22;
     eDWP DWP : 2;
     eDWP_LOCK DWP_LOCK : 2;
   } bits;
@@ -1389,9 +1389,9 @@ union SW_PAD_CTL_PAD_GPIO_LPSR_12 {
     eDSE DSE : 1;
     ePUE PUE : 1;
     ePUS PUS : 1;
-    uint32_t _reserved_4 : 1;
+    uint32_t _reserved_0 : 1;
     eODE_LPSR ODE_LPSR : 1;
-    uint32_t _reserved_5 : 22;
+    uint32_t _reserved_1 : 22;
     eDWP DWP : 2;
     eDWP_LOCK DWP_LOCK : 2;
   } bits;
@@ -1453,9 +1453,9 @@ union SW_PAD_CTL_PAD_GPIO_LPSR_13 {
     eDSE DSE : 1;
     ePUE PUE : 1;
     ePUS PUS : 1;
-    uint32_t _reserved_4 : 1;
+    uint32_t _reserved_0 : 1;
     eODE_LPSR ODE_LPSR : 1;
-    uint32_t _reserved_5 : 22;
+    uint32_t _reserved_1 : 22;
     eDWP DWP : 2;
     eDWP_LOCK DWP_LOCK : 2;
   } bits;
@@ -1517,9 +1517,9 @@ union SW_PAD_CTL_PAD_GPIO_LPSR_14 {
     eDSE DSE : 1;
     ePUE PUE : 1;
     ePUS PUS : 1;
-    uint32_t _reserved_4 : 1;
+    uint32_t _reserved_0 : 1;
     eODE_LPSR ODE_LPSR : 1;
-    uint32_t _reserved_5 : 22;
+    uint32_t _reserved_1 : 22;
     eDWP DWP : 2;
     eDWP_LOCK DWP_LOCK : 2;
   } bits;
@@ -1581,9 +1581,9 @@ union SW_PAD_CTL_PAD_GPIO_LPSR_15 {
     eDSE DSE : 1;
     ePUE PUE : 1;
     ePUS PUS : 1;
-    uint32_t _reserved_4 : 1;
+    uint32_t _reserved_0 : 1;
     eODE_LPSR ODE_LPSR : 1;
-    uint32_t _reserved_5 : 22;
+    uint32_t _reserved_1 : 22;
     eDWP DWP : 2;
     eDWP_LOCK DWP_LOCK : 2;
   } bits;
@@ -1609,7 +1609,7 @@ union CAN3_IPP_IND_CANRX_SELECT_INPUT {
   // Bit field definition.
   struct {
     eDAISY DAISY : 2;
-    uint32_t _reserved_end : 30;
+    uint32_t _reserved_0 : 30;
   } bits;
   
   // Full 32-bit register value.
@@ -1632,7 +1632,7 @@ union LPI2C5_IPP_IND_LPI2C_SCL_SELECT_INPUT {
   // Bit field definition.
   struct {
     eDAISY DAISY : 1;
-    uint32_t _reserved_end : 31;
+    uint32_t _reserved_0 : 31;
   } bits;
   
   // Full 32-bit register value.
@@ -1655,7 +1655,7 @@ union LPI2C5_IPP_IND_LPI2C_SDA_SELECT_INPUT {
   // Bit field definition.
   struct {
     eDAISY DAISY : 1;
-    uint32_t _reserved_end : 31;
+    uint32_t _reserved_0 : 31;
   } bits;
   
   // Full 32-bit register value.
@@ -1678,7 +1678,7 @@ union LPI2C6_IPP_IND_LPI2C_SCL_SELECT_INPUT {
   // Bit field definition.
   struct {
     eDAISY DAISY : 1;
-    uint32_t _reserved_end : 31;
+    uint32_t _reserved_0 : 31;
   } bits;
   
   // Full 32-bit register value.
@@ -1701,7 +1701,7 @@ union LPI2C6_IPP_IND_LPI2C_SDA_SELECT_INPUT {
   // Bit field definition.
   struct {
     eDAISY DAISY : 1;
-    uint32_t _reserved_end : 31;
+    uint32_t _reserved_0 : 31;
   } bits;
   
   // Full 32-bit register value.
@@ -1724,7 +1724,7 @@ union LPSPI5_IPP_IND_LPSPI_PCS_SELECT_INPUT_0 {
   // Bit field definition.
   struct {
     eDAISY DAISY : 1;
-    uint32_t _reserved_end : 31;
+    uint32_t _reserved_0 : 31;
   } bits;
   
   // Full 32-bit register value.
@@ -1747,7 +1747,7 @@ union LPSPI5_IPP_IND_LPSPI_SCK_SELECT_INPUT {
   // Bit field definition.
   struct {
     eDAISY DAISY : 1;
-    uint32_t _reserved_end : 31;
+    uint32_t _reserved_0 : 31;
   } bits;
   
   // Full 32-bit register value.
@@ -1770,7 +1770,7 @@ union LPSPI5_IPP_IND_LPSPI_SDI_SELECT_INPUT {
   // Bit field definition.
   struct {
     eDAISY DAISY : 1;
-    uint32_t _reserved_end : 31;
+    uint32_t _reserved_0 : 31;
   } bits;
   
   // Full 32-bit register value.
@@ -1793,7 +1793,7 @@ union LPSPI5_IPP_IND_LPSPI_SDO_SELECT_INPUT {
   // Bit field definition.
   struct {
     eDAISY DAISY : 1;
-    uint32_t _reserved_end : 31;
+    uint32_t _reserved_0 : 31;
   } bits;
   
   // Full 32-bit register value.
@@ -1816,7 +1816,7 @@ union LPUART11_IPP_IND_LPUART_RXD_SELECT_INPUT {
   // Bit field definition.
   struct {
     eDAISY DAISY : 1;
-    uint32_t _reserved_end : 31;
+    uint32_t _reserved_0 : 31;
   } bits;
   
   // Full 32-bit register value.
@@ -1839,7 +1839,7 @@ union LPUART11_IPP_IND_LPUART_TXD_SELECT_INPUT {
   // Bit field definition.
   struct {
     eDAISY DAISY : 1;
-    uint32_t _reserved_end : 31;
+    uint32_t _reserved_0 : 31;
   } bits;
   
   // Full 32-bit register value.
@@ -1863,7 +1863,7 @@ union LPUART12_IPP_IND_LPUART_RXD_SELECT_INPUT {
   // Bit field definition.
   struct {
     eDAISY DAISY : 2;
-    uint32_t _reserved_end : 30;
+    uint32_t _reserved_0 : 30;
   } bits;
   
   // Full 32-bit register value.
@@ -1887,7 +1887,7 @@ union LPUART12_IPP_IND_LPUART_TXD_SELECT_INPUT {
   // Bit field definition.
   struct {
     eDAISY DAISY : 2;
-    uint32_t _reserved_end : 30;
+    uint32_t _reserved_0 : 30;
   } bits;
   
   // Full 32-bit register value.
@@ -1910,7 +1910,7 @@ union MIC_IPP_IND_MIC_PDM_BITSTREAM_SELECT_INPUT_0 {
   // Bit field definition.
   struct {
     eDAISY DAISY : 1;
-    uint32_t _reserved_end : 31;
+    uint32_t _reserved_0 : 31;
   } bits;
   
   // Full 32-bit register value.
@@ -1933,7 +1933,7 @@ union MIC_IPP_IND_MIC_PDM_BITSTREAM_SELECT_INPUT_1 {
   // Bit field definition.
   struct {
     eDAISY DAISY : 1;
-    uint32_t _reserved_end : 31;
+    uint32_t _reserved_0 : 31;
   } bits;
   
   // Full 32-bit register value.
@@ -1956,7 +1956,7 @@ union MIC_IPP_IND_MIC_PDM_BITSTREAM_SELECT_INPUT_2 {
   // Bit field definition.
   struct {
     eDAISY DAISY : 1;
-    uint32_t _reserved_end : 31;
+    uint32_t _reserved_0 : 31;
   } bits;
   
   // Full 32-bit register value.
@@ -1979,7 +1979,7 @@ union MIC_IPP_IND_MIC_PDM_BITSTREAM_SELECT_INPUT_3 {
   // Bit field definition.
   struct {
     eDAISY DAISY : 1;
-    uint32_t _reserved_end : 31;
+    uint32_t _reserved_0 : 31;
   } bits;
   
   // Full 32-bit register value.
@@ -2002,7 +2002,7 @@ union NMI_GLUE_IPP_IND_NMI_SELECT_INPUT {
   // Bit field definition.
   struct {
     eDAISY DAISY : 1;
-    uint32_t _reserved_end : 31;
+    uint32_t _reserved_0 : 31;
   } bits;
   
   // Full 32-bit register value.
@@ -2025,7 +2025,7 @@ union SAI4_IPG_CLK_SAI_MCLK_SELECT_INPUT {
   // Bit field definition.
   struct {
     eDAISY DAISY : 1;
-    uint32_t _reserved_end : 31;
+    uint32_t _reserved_0 : 31;
   } bits;
   
   // Full 32-bit register value.
@@ -2048,7 +2048,7 @@ union SAI4_IPP_IND_SAI_RXBCLK_SELECT_INPUT {
   // Bit field definition.
   struct {
     eDAISY DAISY : 1;
-    uint32_t _reserved_end : 31;
+    uint32_t _reserved_0 : 31;
   } bits;
   
   // Full 32-bit register value.
@@ -2071,7 +2071,7 @@ union SAI4_IPP_IND_SAI_RXDATA_SELECT_INPUT_0 {
   // Bit field definition.
   struct {
     eDAISY DAISY : 1;
-    uint32_t _reserved_end : 31;
+    uint32_t _reserved_0 : 31;
   } bits;
   
   // Full 32-bit register value.
@@ -2094,7 +2094,7 @@ union SAI4_IPP_IND_SAI_RXSYNC_SELECT_INPUT {
   // Bit field definition.
   struct {
     eDAISY DAISY : 1;
-    uint32_t _reserved_end : 31;
+    uint32_t _reserved_0 : 31;
   } bits;
   
   // Full 32-bit register value.
@@ -2117,7 +2117,7 @@ union SAI4_IPP_IND_SAI_TXBCLK_SELECT_INPUT {
   // Bit field definition.
   struct {
     eDAISY DAISY : 1;
-    uint32_t _reserved_end : 31;
+    uint32_t _reserved_0 : 31;
   } bits;
   
   // Full 32-bit register value.
@@ -2140,7 +2140,7 @@ union SAI4_IPP_IND_SAI_TXSYNC_SELECT_INPUT {
   // Bit field definition.
   struct {
     eDAISY DAISY : 1;
-    uint32_t _reserved_end : 31;
+    uint32_t _reserved_0 : 31;
   } bits;
   
   // Full 32-bit register value.

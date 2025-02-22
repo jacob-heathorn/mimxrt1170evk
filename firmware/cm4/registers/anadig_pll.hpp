@@ -4,7 +4,7 @@
 #include <stdint.h>
 #include <cstring>
 
-// // MX6RT_ANADIG_REGISTER
+// MX6RT_ANADIG_REGISTER
 //
 // NOTE: This file was generated from the forge CMSIS-svd wrapper tool.
 
@@ -60,13 +60,13 @@ union ARM_PLL_CTRL {
   // Bit field definition.
   struct {
     uint32_t DIV_SELECT : 8;
-    uint32_t _reserved_1 : 4;
+    uint32_t _reserved_0 : 4;
     eHOLD_RING_OFF HOLD_RING_OFF : 1;
     ePOWERUP POWERUP : 1;
     eENABLE_CLK ENABLE_CLK : 1;
     ePOST_DIV_SEL POST_DIV_SEL : 2;
     eBYPASS BYPASS : 1;
-    uint32_t _reserved_6 : 11;
+    uint32_t _reserved_1 : 11;
     eARM_PLL_STABLE ARM_PLL_STABLE : 1;
     eARM_PLL_GATE ARM_PLL_GATE : 1;
     eARM_PLL_CONTROL_MODE ARM_PLL_CONTROL_MODE : 1;
@@ -124,15 +124,15 @@ union SYS_PLL3_CTRL {
     uint32_t _reserved_0 : 3;
     uint32_t SYS_PLL3_DIV2 : 1;
     uint32_t PLL_REG_EN : 1;
-    uint32_t _reserved_2 : 6;
+    uint32_t _reserved_1 : 6;
     eHOLD_RING_OFF HOLD_RING_OFF : 1;
-    uint32_t _reserved_3 : 1;
+    uint32_t _reserved_2 : 1;
     eENABLE_CLK ENABLE_CLK : 1;
-    uint32_t _reserved_4 : 2;
+    uint32_t _reserved_3 : 2;
     eBYPASS BYPASS : 1;
-    uint32_t _reserved_5 : 4;
+    uint32_t _reserved_4 : 4;
     ePOWERUP POWERUP : 1;
-    uint32_t _reserved_6 : 6;
+    uint32_t _reserved_5 : 6;
     eSYS_PLL3_DIV2_CONTROL_MODE SYS_PLL3_DIV2_CONTROL_MODE : 1;
     uint32_t SYS_PLL3_STABLE : 1;
     eSYS_PLL3_GATE SYS_PLL3_GATE : 1;
@@ -182,7 +182,7 @@ union SYS_PLL3_UPDATE {
     ePFD1_CONTROL_MODE PFD1_CONTROL_MODE : 1;
     ePDF2_CONTROL_MODE PDF2_CONTROL_MODE : 1;
     ePFD3_CONTROL_MODE PFD3_CONTROL_MODE : 1;
-    uint32_t _reserved_end : 23;
+    uint32_t _reserved_1 : 23;
   } bits;
   
   // Full 32-bit register value.
@@ -293,9 +293,9 @@ union SYS_PLL2_CTRL {
     eDITHER_ENABLE DITHER_ENABLE : 1;
     uint32_t PFD_OFFSET_EN : 1;
     uint32_t PLL_DDR_OVERRIDE : 1;
-    uint32_t _reserved_7 : 3;
+    uint32_t _reserved_4 : 3;
     ePOWERUP POWERUP : 1;
-    uint32_t _reserved_8 : 5;
+    uint32_t _reserved_5 : 5;
     uint32_t SYS_PLL2_STABLE : 1;
     eSYS_PLL2_GATE SYS_PLL2_GATE : 1;
     eSYS_PLL2_CONTROL_MODE SYS_PLL2_CONTROL_MODE : 1;
@@ -344,7 +344,7 @@ union SYS_PLL2_UPDATE {
     ePFD1_CONTROL_MODE PFD1_CONTROL_MODE : 1;
     ePFD2_CONTROL_MODE PFD2_CONTROL_MODE : 1;
     ePFD3_CONTROL_MODE PFD3_CONTROL_MODE : 1;
-    uint32_t _reserved_end : 23;
+    uint32_t _reserved_1 : 23;
   } bits;
   
   // Full 32-bit register value.
@@ -414,7 +414,7 @@ union SYS_PLL2_MFD {
   // Bit field definition.
   struct {
     uint32_t MFD : 30;
-    uint32_t _reserved_end : 2;
+    uint32_t _reserved_0 : 2;
   } bits;
   
   // Full 32-bit register value.
@@ -478,7 +478,7 @@ union SYS_PLL1_CTRL {
     uint32_t _reserved_0 : 13;
     uint32_t ENABLE_CLK : 1;
     eSYS_PLL1_GATE SYS_PLL1_GATE : 1;
-    uint32_t _reserved_2 : 10;
+    uint32_t _reserved_1 : 10;
     uint32_t SYS_PLL1_DIV2 : 1;
     uint32_t SYS_PLL1_DIV5 : 1;
     eSYS_PLL1_DIV5_CONTROL_MODE SYS_PLL1_DIV5_CONTROL_MODE : 1;
@@ -503,7 +503,7 @@ union SYS_PLL1_DENOMINATOR {
   // Bit field definition.
   struct {
     uint32_t DENOM : 30;
-    uint32_t _reserved_end : 2;
+    uint32_t _reserved_0 : 2;
   } bits;
   
   // Full 32-bit register value.
@@ -521,7 +521,7 @@ union SYS_PLL1_NUMERATOR {
   // Bit field definition.
   struct {
     uint32_t NUM : 30;
-    uint32_t _reserved_end : 2;
+    uint32_t _reserved_0 : 2;
   } bits;
   
   // Full 32-bit register value.
@@ -539,7 +539,7 @@ union SYS_PLL1_DIV_SELECT {
   // Bit field definition.
   struct {
     uint32_t DIV_SELECT : 7;
-    uint32_t _reserved_end : 25;
+    uint32_t _reserved_0 : 25;
   } bits;
   
   // Full 32-bit register value.
@@ -569,7 +569,7 @@ union PLL_AUDIO_CTRL {
     uint32_t _reserved_0 : 13;
     uint32_t ENABLE_CLK : 1;
     ePLL_AUDIO_GATE PLL_AUDIO_GATE : 1;
-    uint32_t _reserved_2 : 14;
+    uint32_t _reserved_1 : 14;
     uint32_t PLL_AUDIO_STABLE : 1;
     uint32_t PLL_AUDIO_AI_BUSY : 1;
     ePLL_AUDIO_CONTROL_MODE PLL_AUDIO_CONTROL_MODE : 1;
@@ -614,7 +614,7 @@ union PLL_AUDIO_DENOMINATOR {
   // Bit field definition.
   struct {
     uint32_t DENOM : 30;
-    uint32_t _reserved_end : 2;
+    uint32_t _reserved_0 : 2;
   } bits;
   
   // Full 32-bit register value.
@@ -632,7 +632,7 @@ union PLL_AUDIO_NUMERATOR {
   // Bit field definition.
   struct {
     uint32_t NUM : 30;
-    uint32_t _reserved_end : 2;
+    uint32_t _reserved_0 : 2;
   } bits;
   
   // Full 32-bit register value.
@@ -650,7 +650,7 @@ union PLL_AUDIO_DIV_SELECT {
   // Bit field definition.
   struct {
     uint32_t PLL_AUDIO_DIV_SELECT : 7;
-    uint32_t _reserved_end : 25;
+    uint32_t _reserved_0 : 25;
   } bits;
   
   // Full 32-bit register value.
@@ -680,9 +680,9 @@ union PLL_VIDEO_CTRL {
     uint32_t _reserved_0 : 13;
     uint32_t ENABLE_CLK : 1;
     ePLL_VIDEO_GATE PLL_VIDEO_GATE : 1;
-    uint32_t _reserved_2 : 9;
+    uint32_t _reserved_1 : 9;
     uint32_t PLL_VIDEO_COUNTER_CLR : 1;
-    uint32_t _reserved_3 : 4;
+    uint32_t _reserved_2 : 4;
     uint32_t PLL_VIDEO_STABLE : 1;
     uint32_t PLL_VIDEO_AI_BUSY : 1;
     ePLL_VIDEO_CONTROL_MODE PLL_VIDEO_CONTROL_MODE : 1;
@@ -727,7 +727,7 @@ union PLL_VIDEO_DENOMINATOR {
   // Bit field definition.
   struct {
     uint32_t DENOM : 30;
-    uint32_t _reserved_end : 2;
+    uint32_t _reserved_0 : 2;
   } bits;
   
   // Full 32-bit register value.
@@ -745,7 +745,7 @@ union PLL_VIDEO_NUMERATOR {
   // Bit field definition.
   struct {
     uint32_t NUM : 30;
-    uint32_t _reserved_end : 2;
+    uint32_t _reserved_0 : 2;
   } bits;
   
   // Full 32-bit register value.
@@ -763,7 +763,7 @@ union PLL_VIDEO_DIV_SELECT {
   // Bit field definition.
   struct {
     uint32_t DIV_SELECT : 7;
-    uint32_t _reserved_end : 25;
+    uint32_t _reserved_0 : 25;
   } bits;
   
   // Full 32-bit register value.

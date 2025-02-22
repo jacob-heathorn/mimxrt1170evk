@@ -4,7 +4,7 @@
 #include <stdint.h>
 #include <cstring>
 
-// // IPS_Semaphores
+// IPS_Semaphores
 //
 // NOTE: This file was generated from the forge CMSIS-svd wrapper tool.
 
@@ -25,7 +25,7 @@ union SEMA4_Gate0 {
   // Bit field definition.
   struct {
     eGTFSM GTFSM : 2;
-    uint32_t _reserved_end : 30;
+    uint32_t _reserved_0 : 30;
   } bits;
   
   // Full 32-bit register value.
@@ -49,7 +49,7 @@ union SEMA4_Gate1 {
   // Bit field definition.
   struct {
     eGTFSM GTFSM : 2;
-    uint32_t _reserved_end : 30;
+    uint32_t _reserved_0 : 30;
   } bits;
   
   // Full 32-bit register value.
@@ -73,7 +73,7 @@ union SEMA4_Gate2 {
   // Bit field definition.
   struct {
     eGTFSM GTFSM : 2;
-    uint32_t _reserved_end : 30;
+    uint32_t _reserved_0 : 30;
   } bits;
   
   // Full 32-bit register value.
@@ -97,7 +97,7 @@ union SEMA4_Gate3 {
   // Bit field definition.
   struct {
     eGTFSM GTFSM : 2;
-    uint32_t _reserved_end : 30;
+    uint32_t _reserved_0 : 30;
   } bits;
   
   // Full 32-bit register value.
@@ -121,7 +121,7 @@ union SEMA4_Gate4 {
   // Bit field definition.
   struct {
     eGTFSM GTFSM : 2;
-    uint32_t _reserved_end : 30;
+    uint32_t _reserved_0 : 30;
   } bits;
   
   // Full 32-bit register value.
@@ -145,7 +145,7 @@ union SEMA4_Gate5 {
   // Bit field definition.
   struct {
     eGTFSM GTFSM : 2;
-    uint32_t _reserved_end : 30;
+    uint32_t _reserved_0 : 30;
   } bits;
   
   // Full 32-bit register value.
@@ -169,7 +169,7 @@ union SEMA4_Gate6 {
   // Bit field definition.
   struct {
     eGTFSM GTFSM : 2;
-    uint32_t _reserved_end : 30;
+    uint32_t _reserved_0 : 30;
   } bits;
   
   // Full 32-bit register value.
@@ -193,7 +193,7 @@ union SEMA4_Gate7 {
   // Bit field definition.
   struct {
     eGTFSM GTFSM : 2;
-    uint32_t _reserved_end : 30;
+    uint32_t _reserved_0 : 30;
   } bits;
   
   // Full 32-bit register value.
@@ -217,7 +217,7 @@ union SEMA4_Gate8 {
   // Bit field definition.
   struct {
     eGTFSM GTFSM : 2;
-    uint32_t _reserved_end : 30;
+    uint32_t _reserved_0 : 30;
   } bits;
   
   // Full 32-bit register value.
@@ -241,7 +241,7 @@ union SEMA4_Gate9 {
   // Bit field definition.
   struct {
     eGTFSM GTFSM : 2;
-    uint32_t _reserved_end : 30;
+    uint32_t _reserved_0 : 30;
   } bits;
   
   // Full 32-bit register value.
@@ -265,7 +265,7 @@ union SEMA4_Gate10 {
   // Bit field definition.
   struct {
     eGTFSM GTFSM : 2;
-    uint32_t _reserved_end : 30;
+    uint32_t _reserved_0 : 30;
   } bits;
   
   // Full 32-bit register value.
@@ -289,7 +289,7 @@ union SEMA4_Gate11 {
   // Bit field definition.
   struct {
     eGTFSM GTFSM : 2;
-    uint32_t _reserved_end : 30;
+    uint32_t _reserved_0 : 30;
   } bits;
   
   // Full 32-bit register value.
@@ -313,7 +313,7 @@ union SEMA4_Gate12 {
   // Bit field definition.
   struct {
     eGTFSM GTFSM : 2;
-    uint32_t _reserved_end : 30;
+    uint32_t _reserved_0 : 30;
   } bits;
   
   // Full 32-bit register value.
@@ -337,7 +337,7 @@ union SEMA4_Gate13 {
   // Bit field definition.
   struct {
     eGTFSM GTFSM : 2;
-    uint32_t _reserved_end : 30;
+    uint32_t _reserved_0 : 30;
   } bits;
   
   // Full 32-bit register value.
@@ -361,7 +361,7 @@ union SEMA4_Gate14 {
   // Bit field definition.
   struct {
     eGTFSM GTFSM : 2;
-    uint32_t _reserved_end : 30;
+    uint32_t _reserved_0 : 30;
   } bits;
   
   // Full 32-bit register value.
@@ -385,7 +385,7 @@ union SEMA4_Gate15 {
   // Bit field definition.
   struct {
     eGTFSM GTFSM : 2;
-    uint32_t _reserved_end : 30;
+    uint32_t _reserved_0 : 30;
   } bits;
   
   // Full 32-bit register value.
@@ -498,7 +498,7 @@ union SEMA4_CP0INE {
     eINE10 INE10 : 1;
     eINE9 INE9 : 1;
     eINE8 INE8 : 1;
-    uint32_t _reserved_end : 16;
+    uint32_t _reserved_0 : 16;
   } bits;
   
   // Full 32-bit register value.
@@ -610,7 +610,7 @@ union SEMA4_CP1INE {
     eINE10 INE10 : 1;
     eINE9 INE9 : 1;
     eINE8 INE8 : 1;
-    uint32_t _reserved_end : 16;
+    uint32_t _reserved_0 : 16;
   } bits;
   
   // Full 32-bit register value.
@@ -643,7 +643,7 @@ union SEMA4_CP0NTF {
     uint32_t GN10 : 1;
     uint32_t GN9 : 1;
     uint32_t GN8 : 1;
-    uint32_t _reserved_end : 16;
+    uint32_t _reserved_0 : 16;
   } bits;
   
   // Full 32-bit register value.
@@ -675,7 +675,7 @@ union SEMA4_CP1NTF {
     uint32_t GN10 : 1;
     uint32_t GN9 : 1;
     uint32_t GN8 : 1;
-    uint32_t _reserved_end : 16;
+    uint32_t _reserved_0 : 16;
   } bits;
   
   // Full 32-bit register value.
@@ -694,7 +694,7 @@ union SEMA4_RSTGT {
   struct {
     uint32_t RSTGSM_RSTGMS_RSTGDP : 8;
     uint32_t RSTGTN : 8;
-    uint32_t _reserved_end : 16;
+    uint32_t _reserved_0 : 16;
   } bits;
   
   // Full 32-bit register value.
@@ -713,7 +713,7 @@ union SEMA4_RSTNTF {
   struct {
     uint32_t RSTNSM_RSTNMS_RSTNDP : 8;
     uint32_t RSTNTN : 8;
-    uint32_t _reserved_end : 16;
+    uint32_t _reserved_0 : 16;
   } bits;
   
   // Full 32-bit register value.

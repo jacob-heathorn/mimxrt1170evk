@@ -4,7 +4,7 @@
 #include <stdint.h>
 #include <cstring>
 
-// // Core Platform Miscellaneous Control Module
+// Core Platform Miscellaneous Control Module
 //
 // NOTE: This file was generated from the forge CMSIS-svd wrapper tool.
 
@@ -18,7 +18,7 @@ union MCM_PLREV {
   // Bit field definition.
   struct {
     uint32_t PLREV : 16;
-    uint32_t _reserved_end : 16;
+    uint32_t _reserved_0 : 16;
   } bits;
   
   // Full 32-bit register value.
@@ -40,7 +40,7 @@ union MCM_PCT {
   // Bit field definition.
   struct {
     ePCT PCT : 16;
-    uint32_t _reserved_end : 16;
+    uint32_t _reserved_0 : 16;
   } bits;
   
   // Full 32-bit register value.
@@ -61,7 +61,7 @@ union MCM_MEMCFG {
     uint32_t TCRAMUSZ : 4;
     uint32_t _reserved_1 : 2;
     uint32_t TCRAMLSZ : 4;
-    uint32_t _reserved_end : 20;
+    uint32_t _reserved_2 : 20;
   } bits;
   
   // Full 32-bit register value.
@@ -84,7 +84,7 @@ union MCM_PLASC {
   // Bit field definition.
   struct {
     eASC ASC : 8;
-    uint32_t _reserved_end : 24;
+    uint32_t _reserved_0 : 24;
   } bits;
   
   // Full 32-bit register value.
@@ -107,7 +107,7 @@ union MCM_PLAMC {
   // Bit field definition.
   struct {
     eAMC AMC : 8;
-    uint32_t _reserved_end : 24;
+    uint32_t _reserved_0 : 24;
   } bits;
   
   // Full 32-bit register value.
@@ -145,13 +145,13 @@ union MCM_CR {
   struct {
     uint32_t STATUS : 9;
     eCBRR CBRR : 1;
-    uint32_t _reserved_2 : 14;
+    uint32_t _reserved_0 : 14;
     eSTCMAP STCMAP : 2;
     uint32_t STCMWP : 1;
-    uint32_t _reserved_4 : 1;
+    uint32_t _reserved_1 : 1;
     eCTCMAP CTCMAP : 2;
     uint32_t CTCMWP : 1;
-    uint32_t _reserved_end : 1;
+    uint32_t _reserved_2 : 1;
   } bits;
   
   // Full 32-bit register value.
@@ -246,17 +246,17 @@ union MCM_ISCR {
     eFOFC FOFC : 1;
     eFUFC FUFC : 1;
     eFIXC FIXC : 1;
-    uint32_t _reserved_6 : 2;
+    uint32_t _reserved_2 : 2;
     eFIDC FIDC : 1;
-    uint32_t _reserved_7 : 4;
+    uint32_t _reserved_3 : 4;
     eCWBEE CWBEE : 1;
-    uint32_t _reserved_8 : 3;
+    uint32_t _reserved_4 : 3;
     eFIOCE FIOCE : 1;
     eFDZCE FDZCE : 1;
     eFOFCE FOFCE : 1;
     eFUFCE FUFCE : 1;
     eFIXCE FIXCE : 1;
-    uint32_t _reserved_13 : 2;
+    uint32_t _reserved_5 : 2;
     eFIDCE FIDCE : 1;
   } bits;
   
@@ -319,12 +319,12 @@ union MCM_FATR {
   struct {
     eBEDA BEDA : 1;
     eBEMD BEMD : 1;
-    uint32_t _reserved_2 : 2;
+    uint32_t _reserved_0 : 2;
     eBESZ BESZ : 2;
-    uint32_t _reserved_3 : 1;
+    uint32_t _reserved_1 : 1;
     eBEWT BEWT : 1;
     uint32_t BEMN : 4;
-    uint32_t _reserved_5 : 19;
+    uint32_t _reserved_2 : 19;
     eBEOVR BEOVR : 1;
   } bits;
   
@@ -413,14 +413,14 @@ union MCM_LMDR0 {
   struct {
     uint32_t CF0 : 4;
     uint32_t CF1 : 4;
-    uint32_t _reserved_2 : 5;
+    uint32_t _reserved_0 : 5;
     eMT MT : 3;
     eRO RO : 1;
     eDPW DPW : 3;
     eWY WY : 4;
     eLMSZ LMSZ : 4;
     eLMSZH LMSZH : 1;
-    uint32_t _reserved_8 : 2;
+    uint32_t _reserved_1 : 2;
     eV V : 1;
   } bits;
   
@@ -491,14 +491,14 @@ union MCM_LMDR1 {
   struct {
     uint32_t CF0 : 4;
     uint32_t CF1 : 4;
-    uint32_t _reserved_2 : 5;
+    uint32_t _reserved_0 : 5;
     eMT MT : 3;
     eRO RO : 1;
     eDPW DPW : 3;
     eWY WY : 4;
     eLMSZ LMSZ : 4;
     eLMSZH LMSZH : 1;
-    uint32_t _reserved_8 : 2;
+    uint32_t _reserved_1 : 2;
     eV V : 1;
   } bits;
   
@@ -569,14 +569,14 @@ union MCM_LMDR2 {
   struct {
     uint32_t CF0 : 4;
     uint32_t CF1 : 4;
-    uint32_t _reserved_2 : 5;
+    uint32_t _reserved_0 : 5;
     eMT MT : 3;
     eRO RO : 1;
     eDPW DPW : 3;
     eWY WY : 4;
     eLMSZ LMSZ : 4;
     eLMSZH LMSZH : 1;
-    uint32_t _reserved_8 : 2;
+    uint32_t _reserved_1 : 2;
     eV V : 1;
   } bits;
   
@@ -647,14 +647,14 @@ union MCM_LMDR3 {
   struct {
     uint32_t CF0 : 4;
     uint32_t CF1 : 4;
-    uint32_t _reserved_2 : 5;
+    uint32_t _reserved_0 : 5;
     eMT MT : 3;
     eRO RO : 1;
     eDPW DPW : 3;
     eWY WY : 4;
     eLMSZ LMSZ : 4;
     eLMSZH LMSZH : 1;
-    uint32_t _reserved_8 : 2;
+    uint32_t _reserved_1 : 2;
     eV V : 1;
   } bits;
   
@@ -704,13 +704,13 @@ union MCM_LMPECR {
   struct {
     eERNCR ERNCR : 1;
     eERNCI ERNCI : 1;
-    uint32_t _reserved_2 : 6;
+    uint32_t _reserved_0 : 6;
     eER1BR ER1BR : 1;
     eER1BI ER1BI : 1;
-    uint32_t _reserved_4 : 10;
+    uint32_t _reserved_1 : 10;
     eECPR ECPR : 1;
     eECPI ECPI : 1;
-    uint32_t _reserved_end : 10;
+    uint32_t _reserved_2 : 10;
   } bits;
   
   // Full 32-bit register value.
@@ -731,7 +731,7 @@ union MCM_LMPEIR {
     uint32_t E1B : 8;
     uint32_t PE : 8;
     uint32_t PEELOC : 5;
-    uint32_t _reserved_4 : 2;
+    uint32_t _reserved_0 : 2;
     uint32_t V : 1;
   } bits;
   
@@ -770,9 +770,9 @@ union MCM_LMFATR {
     uint32_t PEFSIZE : 3;
     uint32_t PEFW : 1;
     uint32_t PEFMST : 8;
-    uint32_t _reserved_4 : 8;
+    uint32_t _reserved_0 : 8;
     uint32_t WORDID : 1;
-    uint32_t _reserved_5 : 6;
+    uint32_t _reserved_1 : 6;
     uint32_t OVR : 1;
   } bits;
   

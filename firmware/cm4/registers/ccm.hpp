@@ -4,7 +4,7 @@
 #include <stdint.h>
 #include <cstring>
 
-// // CCM
+// CCM
 //
 // NOTE: This file was generated from the forge CMSIS-svd wrapper tool.
 
@@ -23,10 +23,10 @@ union CLOCK_GROUP0_CONTROL {
   // Bit field definition.
   struct {
     uint32_t DIV0 : 4;
-    uint32_t _reserved_1 : 12;
+    uint32_t _reserved_0 : 12;
     uint32_t RSTDIV : 8;
     eOFF OFF : 1;
-    uint32_t _reserved_end : 7;
+    uint32_t _reserved_1 : 7;
   } bits;
   
   // Full 32-bit register value.
@@ -44,10 +44,10 @@ union CLOCK_GROUP0_CONTROL_SET {
   // Bit field definition.
   struct {
     uint32_t DIV0 : 4;
-    uint32_t _reserved_1 : 12;
+    uint32_t _reserved_0 : 12;
     uint32_t RSTDIV : 8;
     uint32_t OFF : 1;
-    uint32_t _reserved_end : 7;
+    uint32_t _reserved_1 : 7;
   } bits;
   
   // Full 32-bit register value.
@@ -65,10 +65,10 @@ union CLOCK_GROUP0_CONTROL_CLR {
   // Bit field definition.
   struct {
     uint32_t DIV0 : 4;
-    uint32_t _reserved_1 : 12;
+    uint32_t _reserved_0 : 12;
     uint32_t RSTDIV : 8;
     uint32_t OFF : 1;
-    uint32_t _reserved_end : 7;
+    uint32_t _reserved_1 : 7;
   } bits;
   
   // Full 32-bit register value.
@@ -86,10 +86,10 @@ union CLOCK_GROUP0_CONTROL_TOG {
   // Bit field definition.
   struct {
     uint32_t DIV0 : 4;
-    uint32_t _reserved_1 : 12;
+    uint32_t _reserved_0 : 12;
     uint32_t RSTDIV : 8;
     uint32_t OFF : 1;
-    uint32_t _reserved_end : 7;
+    uint32_t _reserved_1 : 7;
   } bits;
   
   // Full 32-bit register value.
@@ -137,10 +137,10 @@ union CLOCK_GROUP0_STATUS0 {
   // Bit field definition.
   struct {
     uint32_t DIV0 : 4;
-    uint32_t _reserved_1 : 12;
+    uint32_t _reserved_0 : 12;
     uint32_t RSTDIV : 8;
     eOFF OFF : 1;
-    uint32_t _reserved_3 : 2;
+    uint32_t _reserved_1 : 2;
     ePOWERDOWN POWERDOWN : 1;
     eSLICE_BUSY SLICE_BUSY : 1;
     eUPDATE_FORWARD UPDATE_FORWARD : 1;
@@ -189,7 +189,7 @@ union CLOCK_GROUP0_STATUS1 {
     eDOWN_DONE DOWN_DONE : 1;
     eUP_REQUEST UP_REQUEST : 1;
     eUP_DONE UP_DONE : 1;
-    uint32_t _reserved_end : 4;
+    uint32_t _reserved_1 : 4;
   } bits;
   
   // Full 32-bit register value.
@@ -213,7 +213,7 @@ union CLOCK_GROUP0_CONFIG {
   struct {
     uint32_t _reserved_0 : 4;
     eSETPOINT_PRESENT SETPOINT_PRESENT : 1;
-    uint32_t _reserved_end : 27;
+    uint32_t _reserved_1 : 27;
   } bits;
   
   // Full 32-bit register value.
@@ -262,17 +262,17 @@ union CLOCK_GROUP0_AUTHEN {
   struct {
     eTZ_USER TZ_USER : 1;
     eTZ_NS TZ_NS : 1;
-    uint32_t _reserved_2 : 2;
+    uint32_t _reserved_0 : 2;
     eLOCK_TZ LOCK_TZ : 1;
-    uint32_t _reserved_3 : 3;
+    uint32_t _reserved_1 : 3;
     uint32_t WHITE_LIST : 4;
     eLOCK_LIST LOCK_LIST : 1;
-    uint32_t _reserved_5 : 3;
+    uint32_t _reserved_2 : 3;
     eDOMAIN_MODE DOMAIN_MODE : 1;
     uint32_t SETPOINT_MODE : 1;
-    uint32_t _reserved_7 : 2;
+    uint32_t _reserved_3 : 2;
     eLOCK_MODE LOCK_MODE : 1;
-    uint32_t _reserved_end : 11;
+    uint32_t _reserved_4 : 11;
   } bits;
   
   // Full 32-bit register value.
@@ -291,17 +291,17 @@ union CLOCK_GROUP0_AUTHEN_SET {
   struct {
     uint32_t TZ_USER : 1;
     uint32_t TZ_NS : 1;
-    uint32_t _reserved_2 : 2;
+    uint32_t _reserved_0 : 2;
     uint32_t LOCK_TZ : 1;
-    uint32_t _reserved_3 : 3;
+    uint32_t _reserved_1 : 3;
     uint32_t WHITE_LIST : 4;
     uint32_t LOCK_LIST : 1;
-    uint32_t _reserved_5 : 3;
+    uint32_t _reserved_2 : 3;
     uint32_t DOMAIN_MODE : 1;
     uint32_t SETPOINT_MODE : 1;
-    uint32_t _reserved_7 : 2;
+    uint32_t _reserved_3 : 2;
     uint32_t LOCK_MODE : 1;
-    uint32_t _reserved_end : 11;
+    uint32_t _reserved_4 : 11;
   } bits;
   
   // Full 32-bit register value.
@@ -320,17 +320,17 @@ union CLOCK_GROUP0_AUTHEN_CLR {
   struct {
     uint32_t TZ_USER : 1;
     uint32_t TZ_NS : 1;
-    uint32_t _reserved_2 : 2;
+    uint32_t _reserved_0 : 2;
     uint32_t LOCK_TZ : 1;
-    uint32_t _reserved_3 : 3;
+    uint32_t _reserved_1 : 3;
     uint32_t WHITE_LIST : 4;
     uint32_t LOCK_LIST : 1;
-    uint32_t _reserved_5 : 3;
+    uint32_t _reserved_2 : 3;
     uint32_t DOMAIN_MODE : 1;
     uint32_t SETPOINT_MODE : 1;
-    uint32_t _reserved_7 : 2;
+    uint32_t _reserved_3 : 2;
     uint32_t LOCK_MODE : 1;
-    uint32_t _reserved_end : 11;
+    uint32_t _reserved_4 : 11;
   } bits;
   
   // Full 32-bit register value.
@@ -349,17 +349,17 @@ union CLOCK_GROUP0_AUTHEN_TOG {
   struct {
     uint32_t TZ_USER : 1;
     uint32_t TZ_NS : 1;
-    uint32_t _reserved_2 : 2;
+    uint32_t _reserved_0 : 2;
     uint32_t LOCK_TZ : 1;
-    uint32_t _reserved_3 : 3;
+    uint32_t _reserved_1 : 3;
     uint32_t WHITE_LIST : 4;
     uint32_t LOCK_LIST : 1;
-    uint32_t _reserved_5 : 3;
+    uint32_t _reserved_2 : 3;
     uint32_t DOMAIN_MODE : 1;
     uint32_t SETPOINT_MODE : 1;
-    uint32_t _reserved_7 : 2;
+    uint32_t _reserved_3 : 2;
     uint32_t LOCK_MODE : 1;
-    uint32_t _reserved_end : 11;
+    uint32_t _reserved_4 : 11;
   } bits;
   
   // Full 32-bit register value.
@@ -390,10 +390,10 @@ union CLOCK_GROUP0_SETPOINT0 {
   // Bit field definition.
   struct {
     eDIV0 DIV0 : 4;
-    uint32_t _reserved_1 : 12;
+    uint32_t _reserved_0 : 12;
     uint32_t RSTDIV : 8;
     eOFF OFF : 1;
-    uint32_t _reserved_3 : 3;
+    uint32_t _reserved_1 : 3;
     uint32_t GRADE : 4;
   } bits;
   
@@ -425,10 +425,10 @@ union CLOCK_GROUP0_SETPOINT1 {
   // Bit field definition.
   struct {
     eDIV0 DIV0 : 4;
-    uint32_t _reserved_1 : 12;
+    uint32_t _reserved_0 : 12;
     uint32_t RSTDIV : 8;
     eOFF OFF : 1;
-    uint32_t _reserved_3 : 3;
+    uint32_t _reserved_1 : 3;
     uint32_t GRADE : 4;
   } bits;
   
@@ -460,10 +460,10 @@ union CLOCK_GROUP0_SETPOINT2 {
   // Bit field definition.
   struct {
     eDIV0 DIV0 : 4;
-    uint32_t _reserved_1 : 12;
+    uint32_t _reserved_0 : 12;
     uint32_t RSTDIV : 8;
     eOFF OFF : 1;
-    uint32_t _reserved_3 : 3;
+    uint32_t _reserved_1 : 3;
     uint32_t GRADE : 4;
   } bits;
   
@@ -495,10 +495,10 @@ union CLOCK_GROUP0_SETPOINT3 {
   // Bit field definition.
   struct {
     eDIV0 DIV0 : 4;
-    uint32_t _reserved_1 : 12;
+    uint32_t _reserved_0 : 12;
     uint32_t RSTDIV : 8;
     eOFF OFF : 1;
-    uint32_t _reserved_3 : 3;
+    uint32_t _reserved_1 : 3;
     uint32_t GRADE : 4;
   } bits;
   
@@ -530,10 +530,10 @@ union CLOCK_GROUP0_SETPOINT4 {
   // Bit field definition.
   struct {
     eDIV0 DIV0 : 4;
-    uint32_t _reserved_1 : 12;
+    uint32_t _reserved_0 : 12;
     uint32_t RSTDIV : 8;
     eOFF OFF : 1;
-    uint32_t _reserved_3 : 3;
+    uint32_t _reserved_1 : 3;
     uint32_t GRADE : 4;
   } bits;
   
@@ -565,10 +565,10 @@ union CLOCK_GROUP0_SETPOINT5 {
   // Bit field definition.
   struct {
     eDIV0 DIV0 : 4;
-    uint32_t _reserved_1 : 12;
+    uint32_t _reserved_0 : 12;
     uint32_t RSTDIV : 8;
     eOFF OFF : 1;
-    uint32_t _reserved_3 : 3;
+    uint32_t _reserved_1 : 3;
     uint32_t GRADE : 4;
   } bits;
   
@@ -600,10 +600,10 @@ union CLOCK_GROUP0_SETPOINT6 {
   // Bit field definition.
   struct {
     eDIV0 DIV0 : 4;
-    uint32_t _reserved_1 : 12;
+    uint32_t _reserved_0 : 12;
     uint32_t RSTDIV : 8;
     eOFF OFF : 1;
-    uint32_t _reserved_3 : 3;
+    uint32_t _reserved_1 : 3;
     uint32_t GRADE : 4;
   } bits;
   
@@ -635,10 +635,10 @@ union CLOCK_GROUP0_SETPOINT7 {
   // Bit field definition.
   struct {
     eDIV0 DIV0 : 4;
-    uint32_t _reserved_1 : 12;
+    uint32_t _reserved_0 : 12;
     uint32_t RSTDIV : 8;
     eOFF OFF : 1;
-    uint32_t _reserved_3 : 3;
+    uint32_t _reserved_1 : 3;
     uint32_t GRADE : 4;
   } bits;
   
@@ -670,10 +670,10 @@ union CLOCK_GROUP0_SETPOINT8 {
   // Bit field definition.
   struct {
     eDIV0 DIV0 : 4;
-    uint32_t _reserved_1 : 12;
+    uint32_t _reserved_0 : 12;
     uint32_t RSTDIV : 8;
     eOFF OFF : 1;
-    uint32_t _reserved_3 : 3;
+    uint32_t _reserved_1 : 3;
     uint32_t GRADE : 4;
   } bits;
   
@@ -705,10 +705,10 @@ union CLOCK_GROUP0_SETPOINT9 {
   // Bit field definition.
   struct {
     eDIV0 DIV0 : 4;
-    uint32_t _reserved_1 : 12;
+    uint32_t _reserved_0 : 12;
     uint32_t RSTDIV : 8;
     eOFF OFF : 1;
-    uint32_t _reserved_3 : 3;
+    uint32_t _reserved_1 : 3;
     uint32_t GRADE : 4;
   } bits;
   
@@ -740,10 +740,10 @@ union CLOCK_GROUP0_SETPOINT10 {
   // Bit field definition.
   struct {
     eDIV0 DIV0 : 4;
-    uint32_t _reserved_1 : 12;
+    uint32_t _reserved_0 : 12;
     uint32_t RSTDIV : 8;
     eOFF OFF : 1;
-    uint32_t _reserved_3 : 3;
+    uint32_t _reserved_1 : 3;
     uint32_t GRADE : 4;
   } bits;
   
@@ -775,10 +775,10 @@ union CLOCK_GROUP0_SETPOINT11 {
   // Bit field definition.
   struct {
     eDIV0 DIV0 : 4;
-    uint32_t _reserved_1 : 12;
+    uint32_t _reserved_0 : 12;
     uint32_t RSTDIV : 8;
     eOFF OFF : 1;
-    uint32_t _reserved_3 : 3;
+    uint32_t _reserved_1 : 3;
     uint32_t GRADE : 4;
   } bits;
   
@@ -810,10 +810,10 @@ union CLOCK_GROUP0_SETPOINT12 {
   // Bit field definition.
   struct {
     eDIV0 DIV0 : 4;
-    uint32_t _reserved_1 : 12;
+    uint32_t _reserved_0 : 12;
     uint32_t RSTDIV : 8;
     eOFF OFF : 1;
-    uint32_t _reserved_3 : 3;
+    uint32_t _reserved_1 : 3;
     uint32_t GRADE : 4;
   } bits;
   
@@ -845,10 +845,10 @@ union CLOCK_GROUP0_SETPOINT13 {
   // Bit field definition.
   struct {
     eDIV0 DIV0 : 4;
-    uint32_t _reserved_1 : 12;
+    uint32_t _reserved_0 : 12;
     uint32_t RSTDIV : 8;
     eOFF OFF : 1;
-    uint32_t _reserved_3 : 3;
+    uint32_t _reserved_1 : 3;
     uint32_t GRADE : 4;
   } bits;
   
@@ -880,10 +880,10 @@ union CLOCK_GROUP0_SETPOINT14 {
   // Bit field definition.
   struct {
     eDIV0 DIV0 : 4;
-    uint32_t _reserved_1 : 12;
+    uint32_t _reserved_0 : 12;
     uint32_t RSTDIV : 8;
     eOFF OFF : 1;
-    uint32_t _reserved_3 : 3;
+    uint32_t _reserved_1 : 3;
     uint32_t GRADE : 4;
   } bits;
   
@@ -915,10 +915,10 @@ union CLOCK_GROUP0_SETPOINT15 {
   // Bit field definition.
   struct {
     eDIV0 DIV0 : 4;
-    uint32_t _reserved_1 : 12;
+    uint32_t _reserved_0 : 12;
     uint32_t RSTDIV : 8;
     eOFF OFF : 1;
-    uint32_t _reserved_3 : 3;
+    uint32_t _reserved_1 : 3;
     uint32_t GRADE : 4;
   } bits;
   
@@ -942,10 +942,10 @@ union CLOCK_GROUP1_CONTROL {
   // Bit field definition.
   struct {
     uint32_t DIV0 : 4;
-    uint32_t _reserved_1 : 12;
+    uint32_t _reserved_0 : 12;
     uint32_t RSTDIV : 8;
     eOFF OFF : 1;
-    uint32_t _reserved_end : 7;
+    uint32_t _reserved_1 : 7;
   } bits;
   
   // Full 32-bit register value.
@@ -963,10 +963,10 @@ union CLOCK_GROUP1_CONTROL_SET {
   // Bit field definition.
   struct {
     uint32_t DIV0 : 4;
-    uint32_t _reserved_1 : 12;
+    uint32_t _reserved_0 : 12;
     uint32_t RSTDIV : 8;
     uint32_t OFF : 1;
-    uint32_t _reserved_end : 7;
+    uint32_t _reserved_1 : 7;
   } bits;
   
   // Full 32-bit register value.
@@ -984,10 +984,10 @@ union CLOCK_GROUP1_CONTROL_CLR {
   // Bit field definition.
   struct {
     uint32_t DIV0 : 4;
-    uint32_t _reserved_1 : 12;
+    uint32_t _reserved_0 : 12;
     uint32_t RSTDIV : 8;
     uint32_t OFF : 1;
-    uint32_t _reserved_end : 7;
+    uint32_t _reserved_1 : 7;
   } bits;
   
   // Full 32-bit register value.
@@ -1005,10 +1005,10 @@ union CLOCK_GROUP1_CONTROL_TOG {
   // Bit field definition.
   struct {
     uint32_t DIV0 : 4;
-    uint32_t _reserved_1 : 12;
+    uint32_t _reserved_0 : 12;
     uint32_t RSTDIV : 8;
     uint32_t OFF : 1;
-    uint32_t _reserved_end : 7;
+    uint32_t _reserved_1 : 7;
   } bits;
   
   // Full 32-bit register value.
@@ -1056,10 +1056,10 @@ union CLOCK_GROUP1_STATUS0 {
   // Bit field definition.
   struct {
     uint32_t DIV0 : 4;
-    uint32_t _reserved_1 : 12;
+    uint32_t _reserved_0 : 12;
     uint32_t RSTDIV : 8;
     eOFF OFF : 1;
-    uint32_t _reserved_3 : 2;
+    uint32_t _reserved_1 : 2;
     ePOWERDOWN POWERDOWN : 1;
     eSLICE_BUSY SLICE_BUSY : 1;
     eUPDATE_FORWARD UPDATE_FORWARD : 1;
@@ -1108,7 +1108,7 @@ union CLOCK_GROUP1_STATUS1 {
     eDOWN_DONE DOWN_DONE : 1;
     eUP_REQUEST UP_REQUEST : 1;
     eUP_DONE UP_DONE : 1;
-    uint32_t _reserved_end : 4;
+    uint32_t _reserved_1 : 4;
   } bits;
   
   // Full 32-bit register value.
@@ -1132,7 +1132,7 @@ union CLOCK_GROUP1_CONFIG {
   struct {
     uint32_t _reserved_0 : 4;
     eSETPOINT_PRESENT SETPOINT_PRESENT : 1;
-    uint32_t _reserved_end : 27;
+    uint32_t _reserved_1 : 27;
   } bits;
   
   // Full 32-bit register value.
@@ -1181,17 +1181,17 @@ union CLOCK_GROUP1_AUTHEN {
   struct {
     eTZ_USER TZ_USER : 1;
     eTZ_NS TZ_NS : 1;
-    uint32_t _reserved_2 : 2;
+    uint32_t _reserved_0 : 2;
     eLOCK_TZ LOCK_TZ : 1;
-    uint32_t _reserved_3 : 3;
+    uint32_t _reserved_1 : 3;
     uint32_t WHITE_LIST : 4;
     eLOCK_LIST LOCK_LIST : 1;
-    uint32_t _reserved_5 : 3;
+    uint32_t _reserved_2 : 3;
     eDOMAIN_MODE DOMAIN_MODE : 1;
     uint32_t SETPOINT_MODE : 1;
-    uint32_t _reserved_7 : 2;
+    uint32_t _reserved_3 : 2;
     eLOCK_MODE LOCK_MODE : 1;
-    uint32_t _reserved_end : 11;
+    uint32_t _reserved_4 : 11;
   } bits;
   
   // Full 32-bit register value.
@@ -1210,17 +1210,17 @@ union CLOCK_GROUP1_AUTHEN_SET {
   struct {
     uint32_t TZ_USER : 1;
     uint32_t TZ_NS : 1;
-    uint32_t _reserved_2 : 2;
+    uint32_t _reserved_0 : 2;
     uint32_t LOCK_TZ : 1;
-    uint32_t _reserved_3 : 3;
+    uint32_t _reserved_1 : 3;
     uint32_t WHITE_LIST : 4;
     uint32_t LOCK_LIST : 1;
-    uint32_t _reserved_5 : 3;
+    uint32_t _reserved_2 : 3;
     uint32_t DOMAIN_MODE : 1;
     uint32_t SETPOINT_MODE : 1;
-    uint32_t _reserved_7 : 2;
+    uint32_t _reserved_3 : 2;
     uint32_t LOCK_MODE : 1;
-    uint32_t _reserved_end : 11;
+    uint32_t _reserved_4 : 11;
   } bits;
   
   // Full 32-bit register value.
@@ -1239,17 +1239,17 @@ union CLOCK_GROUP1_AUTHEN_CLR {
   struct {
     uint32_t TZ_USER : 1;
     uint32_t TZ_NS : 1;
-    uint32_t _reserved_2 : 2;
+    uint32_t _reserved_0 : 2;
     uint32_t LOCK_TZ : 1;
-    uint32_t _reserved_3 : 3;
+    uint32_t _reserved_1 : 3;
     uint32_t WHITE_LIST : 4;
     uint32_t LOCK_LIST : 1;
-    uint32_t _reserved_5 : 3;
+    uint32_t _reserved_2 : 3;
     uint32_t DOMAIN_MODE : 1;
     uint32_t SETPOINT_MODE : 1;
-    uint32_t _reserved_7 : 2;
+    uint32_t _reserved_3 : 2;
     uint32_t LOCK_MODE : 1;
-    uint32_t _reserved_end : 11;
+    uint32_t _reserved_4 : 11;
   } bits;
   
   // Full 32-bit register value.
@@ -1268,17 +1268,17 @@ union CLOCK_GROUP1_AUTHEN_TOG {
   struct {
     uint32_t TZ_USER : 1;
     uint32_t TZ_NS : 1;
-    uint32_t _reserved_2 : 2;
+    uint32_t _reserved_0 : 2;
     uint32_t LOCK_TZ : 1;
-    uint32_t _reserved_3 : 3;
+    uint32_t _reserved_1 : 3;
     uint32_t WHITE_LIST : 4;
     uint32_t LOCK_LIST : 1;
-    uint32_t _reserved_5 : 3;
+    uint32_t _reserved_2 : 3;
     uint32_t DOMAIN_MODE : 1;
     uint32_t SETPOINT_MODE : 1;
-    uint32_t _reserved_7 : 2;
+    uint32_t _reserved_3 : 2;
     uint32_t LOCK_MODE : 1;
-    uint32_t _reserved_end : 11;
+    uint32_t _reserved_4 : 11;
   } bits;
   
   // Full 32-bit register value.
@@ -1309,10 +1309,10 @@ union CLOCK_GROUP1_SETPOINT0 {
   // Bit field definition.
   struct {
     eDIV0 DIV0 : 4;
-    uint32_t _reserved_1 : 12;
+    uint32_t _reserved_0 : 12;
     uint32_t RSTDIV : 8;
     eOFF OFF : 1;
-    uint32_t _reserved_3 : 3;
+    uint32_t _reserved_1 : 3;
     uint32_t GRADE : 4;
   } bits;
   
@@ -1344,10 +1344,10 @@ union CLOCK_GROUP1_SETPOINT1 {
   // Bit field definition.
   struct {
     eDIV0 DIV0 : 4;
-    uint32_t _reserved_1 : 12;
+    uint32_t _reserved_0 : 12;
     uint32_t RSTDIV : 8;
     eOFF OFF : 1;
-    uint32_t _reserved_3 : 3;
+    uint32_t _reserved_1 : 3;
     uint32_t GRADE : 4;
   } bits;
   
@@ -1379,10 +1379,10 @@ union CLOCK_GROUP1_SETPOINT2 {
   // Bit field definition.
   struct {
     eDIV0 DIV0 : 4;
-    uint32_t _reserved_1 : 12;
+    uint32_t _reserved_0 : 12;
     uint32_t RSTDIV : 8;
     eOFF OFF : 1;
-    uint32_t _reserved_3 : 3;
+    uint32_t _reserved_1 : 3;
     uint32_t GRADE : 4;
   } bits;
   
@@ -1414,10 +1414,10 @@ union CLOCK_GROUP1_SETPOINT3 {
   // Bit field definition.
   struct {
     eDIV0 DIV0 : 4;
-    uint32_t _reserved_1 : 12;
+    uint32_t _reserved_0 : 12;
     uint32_t RSTDIV : 8;
     eOFF OFF : 1;
-    uint32_t _reserved_3 : 3;
+    uint32_t _reserved_1 : 3;
     uint32_t GRADE : 4;
   } bits;
   
@@ -1449,10 +1449,10 @@ union CLOCK_GROUP1_SETPOINT4 {
   // Bit field definition.
   struct {
     eDIV0 DIV0 : 4;
-    uint32_t _reserved_1 : 12;
+    uint32_t _reserved_0 : 12;
     uint32_t RSTDIV : 8;
     eOFF OFF : 1;
-    uint32_t _reserved_3 : 3;
+    uint32_t _reserved_1 : 3;
     uint32_t GRADE : 4;
   } bits;
   
@@ -1484,10 +1484,10 @@ union CLOCK_GROUP1_SETPOINT5 {
   // Bit field definition.
   struct {
     eDIV0 DIV0 : 4;
-    uint32_t _reserved_1 : 12;
+    uint32_t _reserved_0 : 12;
     uint32_t RSTDIV : 8;
     eOFF OFF : 1;
-    uint32_t _reserved_3 : 3;
+    uint32_t _reserved_1 : 3;
     uint32_t GRADE : 4;
   } bits;
   
@@ -1519,10 +1519,10 @@ union CLOCK_GROUP1_SETPOINT6 {
   // Bit field definition.
   struct {
     eDIV0 DIV0 : 4;
-    uint32_t _reserved_1 : 12;
+    uint32_t _reserved_0 : 12;
     uint32_t RSTDIV : 8;
     eOFF OFF : 1;
-    uint32_t _reserved_3 : 3;
+    uint32_t _reserved_1 : 3;
     uint32_t GRADE : 4;
   } bits;
   
@@ -1554,10 +1554,10 @@ union CLOCK_GROUP1_SETPOINT7 {
   // Bit field definition.
   struct {
     eDIV0 DIV0 : 4;
-    uint32_t _reserved_1 : 12;
+    uint32_t _reserved_0 : 12;
     uint32_t RSTDIV : 8;
     eOFF OFF : 1;
-    uint32_t _reserved_3 : 3;
+    uint32_t _reserved_1 : 3;
     uint32_t GRADE : 4;
   } bits;
   
@@ -1589,10 +1589,10 @@ union CLOCK_GROUP1_SETPOINT8 {
   // Bit field definition.
   struct {
     eDIV0 DIV0 : 4;
-    uint32_t _reserved_1 : 12;
+    uint32_t _reserved_0 : 12;
     uint32_t RSTDIV : 8;
     eOFF OFF : 1;
-    uint32_t _reserved_3 : 3;
+    uint32_t _reserved_1 : 3;
     uint32_t GRADE : 4;
   } bits;
   
@@ -1624,10 +1624,10 @@ union CLOCK_GROUP1_SETPOINT9 {
   // Bit field definition.
   struct {
     eDIV0 DIV0 : 4;
-    uint32_t _reserved_1 : 12;
+    uint32_t _reserved_0 : 12;
     uint32_t RSTDIV : 8;
     eOFF OFF : 1;
-    uint32_t _reserved_3 : 3;
+    uint32_t _reserved_1 : 3;
     uint32_t GRADE : 4;
   } bits;
   
@@ -1659,10 +1659,10 @@ union CLOCK_GROUP1_SETPOINT10 {
   // Bit field definition.
   struct {
     eDIV0 DIV0 : 4;
-    uint32_t _reserved_1 : 12;
+    uint32_t _reserved_0 : 12;
     uint32_t RSTDIV : 8;
     eOFF OFF : 1;
-    uint32_t _reserved_3 : 3;
+    uint32_t _reserved_1 : 3;
     uint32_t GRADE : 4;
   } bits;
   
@@ -1694,10 +1694,10 @@ union CLOCK_GROUP1_SETPOINT11 {
   // Bit field definition.
   struct {
     eDIV0 DIV0 : 4;
-    uint32_t _reserved_1 : 12;
+    uint32_t _reserved_0 : 12;
     uint32_t RSTDIV : 8;
     eOFF OFF : 1;
-    uint32_t _reserved_3 : 3;
+    uint32_t _reserved_1 : 3;
     uint32_t GRADE : 4;
   } bits;
   
@@ -1729,10 +1729,10 @@ union CLOCK_GROUP1_SETPOINT12 {
   // Bit field definition.
   struct {
     eDIV0 DIV0 : 4;
-    uint32_t _reserved_1 : 12;
+    uint32_t _reserved_0 : 12;
     uint32_t RSTDIV : 8;
     eOFF OFF : 1;
-    uint32_t _reserved_3 : 3;
+    uint32_t _reserved_1 : 3;
     uint32_t GRADE : 4;
   } bits;
   
@@ -1764,10 +1764,10 @@ union CLOCK_GROUP1_SETPOINT13 {
   // Bit field definition.
   struct {
     eDIV0 DIV0 : 4;
-    uint32_t _reserved_1 : 12;
+    uint32_t _reserved_0 : 12;
     uint32_t RSTDIV : 8;
     eOFF OFF : 1;
-    uint32_t _reserved_3 : 3;
+    uint32_t _reserved_1 : 3;
     uint32_t GRADE : 4;
   } bits;
   
@@ -1799,10 +1799,10 @@ union CLOCK_GROUP1_SETPOINT14 {
   // Bit field definition.
   struct {
     eDIV0 DIV0 : 4;
-    uint32_t _reserved_1 : 12;
+    uint32_t _reserved_0 : 12;
     uint32_t RSTDIV : 8;
     eOFF OFF : 1;
-    uint32_t _reserved_3 : 3;
+    uint32_t _reserved_1 : 3;
     uint32_t GRADE : 4;
   } bits;
   
@@ -1834,10 +1834,10 @@ union CLOCK_GROUP1_SETPOINT15 {
   // Bit field definition.
   struct {
     eDIV0 DIV0 : 4;
-    uint32_t _reserved_1 : 12;
+    uint32_t _reserved_0 : 12;
     uint32_t RSTDIV : 8;
     eOFF OFF : 1;
-    uint32_t _reserved_3 : 3;
+    uint32_t _reserved_1 : 3;
     uint32_t GRADE : 4;
   } bits;
   
@@ -1960,16 +1960,16 @@ union GPR_PRIVATE1_AUTHEN {
   struct {
     eTZ_USER TZ_USER : 1;
     eTZ_NS TZ_NS : 1;
-    uint32_t _reserved_2 : 2;
+    uint32_t _reserved_0 : 2;
     eLOCK_TZ LOCK_TZ : 1;
-    uint32_t _reserved_3 : 3;
+    uint32_t _reserved_1 : 3;
     eWHITE_LIST WHITE_LIST : 4;
     eLOCK_LIST LOCK_LIST : 1;
-    uint32_t _reserved_5 : 3;
+    uint32_t _reserved_2 : 3;
     eDOMAIN_MODE DOMAIN_MODE : 1;
-    uint32_t _reserved_6 : 3;
+    uint32_t _reserved_3 : 3;
     eLOCK_MODE LOCK_MODE : 1;
-    uint32_t _reserved_end : 11;
+    uint32_t _reserved_4 : 11;
   } bits;
   
   // Full 32-bit register value.
@@ -1988,16 +1988,16 @@ union GPR_PRIVATE1_AUTHEN_SET {
   struct {
     uint32_t TZ_USER : 1;
     uint32_t TZ_NS : 1;
-    uint32_t _reserved_2 : 2;
+    uint32_t _reserved_0 : 2;
     uint32_t LOCK_TZ : 1;
-    uint32_t _reserved_3 : 3;
+    uint32_t _reserved_1 : 3;
     uint32_t WHITE_LIST : 4;
     uint32_t LOCK_LIST : 1;
-    uint32_t _reserved_5 : 3;
+    uint32_t _reserved_2 : 3;
     uint32_t DOMAIN_MODE : 1;
-    uint32_t _reserved_6 : 3;
+    uint32_t _reserved_3 : 3;
     uint32_t LOCK_MODE : 1;
-    uint32_t _reserved_end : 11;
+    uint32_t _reserved_4 : 11;
   } bits;
   
   // Full 32-bit register value.
@@ -2016,16 +2016,16 @@ union GPR_PRIVATE1_AUTHEN_CLR {
   struct {
     uint32_t TZ_USER : 1;
     uint32_t TZ_NS : 1;
-    uint32_t _reserved_2 : 2;
+    uint32_t _reserved_0 : 2;
     uint32_t LOCK_TZ : 1;
-    uint32_t _reserved_3 : 3;
+    uint32_t _reserved_1 : 3;
     uint32_t WHITE_LIST : 4;
     uint32_t LOCK_LIST : 1;
-    uint32_t _reserved_5 : 3;
+    uint32_t _reserved_2 : 3;
     uint32_t DOMAIN_MODE : 1;
-    uint32_t _reserved_6 : 3;
+    uint32_t _reserved_3 : 3;
     uint32_t LOCK_MODE : 1;
-    uint32_t _reserved_end : 11;
+    uint32_t _reserved_4 : 11;
   } bits;
   
   // Full 32-bit register value.
@@ -2044,16 +2044,16 @@ union GPR_PRIVATE1_AUTHEN_TOG {
   struct {
     uint32_t TZ_USER : 1;
     uint32_t TZ_NS : 1;
-    uint32_t _reserved_2 : 2;
+    uint32_t _reserved_0 : 2;
     uint32_t LOCK_TZ : 1;
-    uint32_t _reserved_3 : 3;
+    uint32_t _reserved_1 : 3;
     uint32_t WHITE_LIST : 4;
     uint32_t LOCK_LIST : 1;
-    uint32_t _reserved_5 : 3;
+    uint32_t _reserved_2 : 3;
     uint32_t DOMAIN_MODE : 1;
-    uint32_t _reserved_6 : 3;
+    uint32_t _reserved_3 : 3;
     uint32_t LOCK_MODE : 1;
-    uint32_t _reserved_end : 11;
+    uint32_t _reserved_4 : 11;
   } bits;
   
   // Full 32-bit register value.
@@ -2175,16 +2175,16 @@ union GPR_PRIVATE2_AUTHEN {
   struct {
     eTZ_USER TZ_USER : 1;
     eTZ_NS TZ_NS : 1;
-    uint32_t _reserved_2 : 2;
+    uint32_t _reserved_0 : 2;
     eLOCK_TZ LOCK_TZ : 1;
-    uint32_t _reserved_3 : 3;
+    uint32_t _reserved_1 : 3;
     eWHITE_LIST WHITE_LIST : 4;
     eLOCK_LIST LOCK_LIST : 1;
-    uint32_t _reserved_5 : 3;
+    uint32_t _reserved_2 : 3;
     eDOMAIN_MODE DOMAIN_MODE : 1;
-    uint32_t _reserved_6 : 3;
+    uint32_t _reserved_3 : 3;
     eLOCK_MODE LOCK_MODE : 1;
-    uint32_t _reserved_end : 11;
+    uint32_t _reserved_4 : 11;
   } bits;
   
   // Full 32-bit register value.
@@ -2203,16 +2203,16 @@ union GPR_PRIVATE2_AUTHEN_SET {
   struct {
     uint32_t TZ_USER : 1;
     uint32_t TZ_NS : 1;
-    uint32_t _reserved_2 : 2;
+    uint32_t _reserved_0 : 2;
     uint32_t LOCK_TZ : 1;
-    uint32_t _reserved_3 : 3;
+    uint32_t _reserved_1 : 3;
     uint32_t WHITE_LIST : 4;
     uint32_t LOCK_LIST : 1;
-    uint32_t _reserved_5 : 3;
+    uint32_t _reserved_2 : 3;
     uint32_t DOMAIN_MODE : 1;
-    uint32_t _reserved_6 : 3;
+    uint32_t _reserved_3 : 3;
     uint32_t LOCK_MODE : 1;
-    uint32_t _reserved_end : 11;
+    uint32_t _reserved_4 : 11;
   } bits;
   
   // Full 32-bit register value.
@@ -2231,16 +2231,16 @@ union GPR_PRIVATE2_AUTHEN_CLR {
   struct {
     uint32_t TZ_USER : 1;
     uint32_t TZ_NS : 1;
-    uint32_t _reserved_2 : 2;
+    uint32_t _reserved_0 : 2;
     uint32_t LOCK_TZ : 1;
-    uint32_t _reserved_3 : 3;
+    uint32_t _reserved_1 : 3;
     uint32_t WHITE_LIST : 4;
     uint32_t LOCK_LIST : 1;
-    uint32_t _reserved_5 : 3;
+    uint32_t _reserved_2 : 3;
     uint32_t DOMAIN_MODE : 1;
-    uint32_t _reserved_6 : 3;
+    uint32_t _reserved_3 : 3;
     uint32_t LOCK_MODE : 1;
-    uint32_t _reserved_end : 11;
+    uint32_t _reserved_4 : 11;
   } bits;
   
   // Full 32-bit register value.
@@ -2259,16 +2259,16 @@ union GPR_PRIVATE2_AUTHEN_TOG {
   struct {
     uint32_t TZ_USER : 1;
     uint32_t TZ_NS : 1;
-    uint32_t _reserved_2 : 2;
+    uint32_t _reserved_0 : 2;
     uint32_t LOCK_TZ : 1;
-    uint32_t _reserved_3 : 3;
+    uint32_t _reserved_1 : 3;
     uint32_t WHITE_LIST : 4;
     uint32_t LOCK_LIST : 1;
-    uint32_t _reserved_5 : 3;
+    uint32_t _reserved_2 : 3;
     uint32_t DOMAIN_MODE : 1;
-    uint32_t _reserved_6 : 3;
+    uint32_t _reserved_3 : 3;
     uint32_t LOCK_MODE : 1;
-    uint32_t _reserved_end : 11;
+    uint32_t _reserved_4 : 11;
   } bits;
   
   // Full 32-bit register value.
@@ -2390,16 +2390,16 @@ union GPR_PRIVATE3_AUTHEN {
   struct {
     eTZ_USER TZ_USER : 1;
     eTZ_NS TZ_NS : 1;
-    uint32_t _reserved_2 : 2;
+    uint32_t _reserved_0 : 2;
     eLOCK_TZ LOCK_TZ : 1;
-    uint32_t _reserved_3 : 3;
+    uint32_t _reserved_1 : 3;
     eWHITE_LIST WHITE_LIST : 4;
     eLOCK_LIST LOCK_LIST : 1;
-    uint32_t _reserved_5 : 3;
+    uint32_t _reserved_2 : 3;
     eDOMAIN_MODE DOMAIN_MODE : 1;
-    uint32_t _reserved_6 : 3;
+    uint32_t _reserved_3 : 3;
     eLOCK_MODE LOCK_MODE : 1;
-    uint32_t _reserved_end : 11;
+    uint32_t _reserved_4 : 11;
   } bits;
   
   // Full 32-bit register value.
@@ -2418,16 +2418,16 @@ union GPR_PRIVATE3_AUTHEN_SET {
   struct {
     uint32_t TZ_USER : 1;
     uint32_t TZ_NS : 1;
-    uint32_t _reserved_2 : 2;
+    uint32_t _reserved_0 : 2;
     uint32_t LOCK_TZ : 1;
-    uint32_t _reserved_3 : 3;
+    uint32_t _reserved_1 : 3;
     uint32_t WHITE_LIST : 4;
     uint32_t LOCK_LIST : 1;
-    uint32_t _reserved_5 : 3;
+    uint32_t _reserved_2 : 3;
     uint32_t DOMAIN_MODE : 1;
-    uint32_t _reserved_6 : 3;
+    uint32_t _reserved_3 : 3;
     uint32_t LOCK_MODE : 1;
-    uint32_t _reserved_end : 11;
+    uint32_t _reserved_4 : 11;
   } bits;
   
   // Full 32-bit register value.
@@ -2446,16 +2446,16 @@ union GPR_PRIVATE3_AUTHEN_CLR {
   struct {
     uint32_t TZ_USER : 1;
     uint32_t TZ_NS : 1;
-    uint32_t _reserved_2 : 2;
+    uint32_t _reserved_0 : 2;
     uint32_t LOCK_TZ : 1;
-    uint32_t _reserved_3 : 3;
+    uint32_t _reserved_1 : 3;
     uint32_t WHITE_LIST : 4;
     uint32_t LOCK_LIST : 1;
-    uint32_t _reserved_5 : 3;
+    uint32_t _reserved_2 : 3;
     uint32_t DOMAIN_MODE : 1;
-    uint32_t _reserved_6 : 3;
+    uint32_t _reserved_3 : 3;
     uint32_t LOCK_MODE : 1;
-    uint32_t _reserved_end : 11;
+    uint32_t _reserved_4 : 11;
   } bits;
   
   // Full 32-bit register value.
@@ -2474,16 +2474,16 @@ union GPR_PRIVATE3_AUTHEN_TOG {
   struct {
     uint32_t TZ_USER : 1;
     uint32_t TZ_NS : 1;
-    uint32_t _reserved_2 : 2;
+    uint32_t _reserved_0 : 2;
     uint32_t LOCK_TZ : 1;
-    uint32_t _reserved_3 : 3;
+    uint32_t _reserved_1 : 3;
     uint32_t WHITE_LIST : 4;
     uint32_t LOCK_LIST : 1;
-    uint32_t _reserved_5 : 3;
+    uint32_t _reserved_2 : 3;
     uint32_t DOMAIN_MODE : 1;
-    uint32_t _reserved_6 : 3;
+    uint32_t _reserved_3 : 3;
     uint32_t LOCK_MODE : 1;
-    uint32_t _reserved_end : 11;
+    uint32_t _reserved_4 : 11;
   } bits;
   
   // Full 32-bit register value.
@@ -2605,16 +2605,16 @@ union GPR_PRIVATE4_AUTHEN {
   struct {
     eTZ_USER TZ_USER : 1;
     eTZ_NS TZ_NS : 1;
-    uint32_t _reserved_2 : 2;
+    uint32_t _reserved_0 : 2;
     eLOCK_TZ LOCK_TZ : 1;
-    uint32_t _reserved_3 : 3;
+    uint32_t _reserved_1 : 3;
     eWHITE_LIST WHITE_LIST : 4;
     eLOCK_LIST LOCK_LIST : 1;
-    uint32_t _reserved_5 : 3;
+    uint32_t _reserved_2 : 3;
     eDOMAIN_MODE DOMAIN_MODE : 1;
-    uint32_t _reserved_6 : 3;
+    uint32_t _reserved_3 : 3;
     eLOCK_MODE LOCK_MODE : 1;
-    uint32_t _reserved_end : 11;
+    uint32_t _reserved_4 : 11;
   } bits;
   
   // Full 32-bit register value.
@@ -2633,16 +2633,16 @@ union GPR_PRIVATE4_AUTHEN_SET {
   struct {
     uint32_t TZ_USER : 1;
     uint32_t TZ_NS : 1;
-    uint32_t _reserved_2 : 2;
+    uint32_t _reserved_0 : 2;
     uint32_t LOCK_TZ : 1;
-    uint32_t _reserved_3 : 3;
+    uint32_t _reserved_1 : 3;
     uint32_t WHITE_LIST : 4;
     uint32_t LOCK_LIST : 1;
-    uint32_t _reserved_5 : 3;
+    uint32_t _reserved_2 : 3;
     uint32_t DOMAIN_MODE : 1;
-    uint32_t _reserved_6 : 3;
+    uint32_t _reserved_3 : 3;
     uint32_t LOCK_MODE : 1;
-    uint32_t _reserved_end : 11;
+    uint32_t _reserved_4 : 11;
   } bits;
   
   // Full 32-bit register value.
@@ -2661,16 +2661,16 @@ union GPR_PRIVATE4_AUTHEN_CLR {
   struct {
     uint32_t TZ_USER : 1;
     uint32_t TZ_NS : 1;
-    uint32_t _reserved_2 : 2;
+    uint32_t _reserved_0 : 2;
     uint32_t LOCK_TZ : 1;
-    uint32_t _reserved_3 : 3;
+    uint32_t _reserved_1 : 3;
     uint32_t WHITE_LIST : 4;
     uint32_t LOCK_LIST : 1;
-    uint32_t _reserved_5 : 3;
+    uint32_t _reserved_2 : 3;
     uint32_t DOMAIN_MODE : 1;
-    uint32_t _reserved_6 : 3;
+    uint32_t _reserved_3 : 3;
     uint32_t LOCK_MODE : 1;
-    uint32_t _reserved_end : 11;
+    uint32_t _reserved_4 : 11;
   } bits;
   
   // Full 32-bit register value.
@@ -2689,16 +2689,16 @@ union GPR_PRIVATE4_AUTHEN_TOG {
   struct {
     uint32_t TZ_USER : 1;
     uint32_t TZ_NS : 1;
-    uint32_t _reserved_2 : 2;
+    uint32_t _reserved_0 : 2;
     uint32_t LOCK_TZ : 1;
-    uint32_t _reserved_3 : 3;
+    uint32_t _reserved_1 : 3;
     uint32_t WHITE_LIST : 4;
     uint32_t LOCK_LIST : 1;
-    uint32_t _reserved_5 : 3;
+    uint32_t _reserved_2 : 3;
     uint32_t DOMAIN_MODE : 1;
-    uint32_t _reserved_6 : 3;
+    uint32_t _reserved_3 : 3;
     uint32_t LOCK_MODE : 1;
-    uint32_t _reserved_end : 11;
+    uint32_t _reserved_4 : 11;
   } bits;
   
   // Full 32-bit register value.
@@ -2820,16 +2820,16 @@ union GPR_PRIVATE5_AUTHEN {
   struct {
     eTZ_USER TZ_USER : 1;
     eTZ_NS TZ_NS : 1;
-    uint32_t _reserved_2 : 2;
+    uint32_t _reserved_0 : 2;
     eLOCK_TZ LOCK_TZ : 1;
-    uint32_t _reserved_3 : 3;
+    uint32_t _reserved_1 : 3;
     eWHITE_LIST WHITE_LIST : 4;
     eLOCK_LIST LOCK_LIST : 1;
-    uint32_t _reserved_5 : 3;
+    uint32_t _reserved_2 : 3;
     eDOMAIN_MODE DOMAIN_MODE : 1;
-    uint32_t _reserved_6 : 3;
+    uint32_t _reserved_3 : 3;
     eLOCK_MODE LOCK_MODE : 1;
-    uint32_t _reserved_end : 11;
+    uint32_t _reserved_4 : 11;
   } bits;
   
   // Full 32-bit register value.
@@ -2848,16 +2848,16 @@ union GPR_PRIVATE5_AUTHEN_SET {
   struct {
     uint32_t TZ_USER : 1;
     uint32_t TZ_NS : 1;
-    uint32_t _reserved_2 : 2;
+    uint32_t _reserved_0 : 2;
     uint32_t LOCK_TZ : 1;
-    uint32_t _reserved_3 : 3;
+    uint32_t _reserved_1 : 3;
     uint32_t WHITE_LIST : 4;
     uint32_t LOCK_LIST : 1;
-    uint32_t _reserved_5 : 3;
+    uint32_t _reserved_2 : 3;
     uint32_t DOMAIN_MODE : 1;
-    uint32_t _reserved_6 : 3;
+    uint32_t _reserved_3 : 3;
     uint32_t LOCK_MODE : 1;
-    uint32_t _reserved_end : 11;
+    uint32_t _reserved_4 : 11;
   } bits;
   
   // Full 32-bit register value.
@@ -2876,16 +2876,16 @@ union GPR_PRIVATE5_AUTHEN_CLR {
   struct {
     uint32_t TZ_USER : 1;
     uint32_t TZ_NS : 1;
-    uint32_t _reserved_2 : 2;
+    uint32_t _reserved_0 : 2;
     uint32_t LOCK_TZ : 1;
-    uint32_t _reserved_3 : 3;
+    uint32_t _reserved_1 : 3;
     uint32_t WHITE_LIST : 4;
     uint32_t LOCK_LIST : 1;
-    uint32_t _reserved_5 : 3;
+    uint32_t _reserved_2 : 3;
     uint32_t DOMAIN_MODE : 1;
-    uint32_t _reserved_6 : 3;
+    uint32_t _reserved_3 : 3;
     uint32_t LOCK_MODE : 1;
-    uint32_t _reserved_end : 11;
+    uint32_t _reserved_4 : 11;
   } bits;
   
   // Full 32-bit register value.
@@ -2904,16 +2904,16 @@ union GPR_PRIVATE5_AUTHEN_TOG {
   struct {
     uint32_t TZ_USER : 1;
     uint32_t TZ_NS : 1;
-    uint32_t _reserved_2 : 2;
+    uint32_t _reserved_0 : 2;
     uint32_t LOCK_TZ : 1;
-    uint32_t _reserved_3 : 3;
+    uint32_t _reserved_1 : 3;
     uint32_t WHITE_LIST : 4;
     uint32_t LOCK_LIST : 1;
-    uint32_t _reserved_5 : 3;
+    uint32_t _reserved_2 : 3;
     uint32_t DOMAIN_MODE : 1;
-    uint32_t _reserved_6 : 3;
+    uint32_t _reserved_3 : 3;
     uint32_t LOCK_MODE : 1;
-    uint32_t _reserved_end : 11;
+    uint32_t _reserved_4 : 11;
   } bits;
   
   // Full 32-bit register value.
@@ -3035,16 +3035,16 @@ union GPR_PRIVATE6_AUTHEN {
   struct {
     eTZ_USER TZ_USER : 1;
     eTZ_NS TZ_NS : 1;
-    uint32_t _reserved_2 : 2;
+    uint32_t _reserved_0 : 2;
     eLOCK_TZ LOCK_TZ : 1;
-    uint32_t _reserved_3 : 3;
+    uint32_t _reserved_1 : 3;
     eWHITE_LIST WHITE_LIST : 4;
     eLOCK_LIST LOCK_LIST : 1;
-    uint32_t _reserved_5 : 3;
+    uint32_t _reserved_2 : 3;
     eDOMAIN_MODE DOMAIN_MODE : 1;
-    uint32_t _reserved_6 : 3;
+    uint32_t _reserved_3 : 3;
     eLOCK_MODE LOCK_MODE : 1;
-    uint32_t _reserved_end : 11;
+    uint32_t _reserved_4 : 11;
   } bits;
   
   // Full 32-bit register value.
@@ -3063,16 +3063,16 @@ union GPR_PRIVATE6_AUTHEN_SET {
   struct {
     uint32_t TZ_USER : 1;
     uint32_t TZ_NS : 1;
-    uint32_t _reserved_2 : 2;
+    uint32_t _reserved_0 : 2;
     uint32_t LOCK_TZ : 1;
-    uint32_t _reserved_3 : 3;
+    uint32_t _reserved_1 : 3;
     uint32_t WHITE_LIST : 4;
     uint32_t LOCK_LIST : 1;
-    uint32_t _reserved_5 : 3;
+    uint32_t _reserved_2 : 3;
     uint32_t DOMAIN_MODE : 1;
-    uint32_t _reserved_6 : 3;
+    uint32_t _reserved_3 : 3;
     uint32_t LOCK_MODE : 1;
-    uint32_t _reserved_end : 11;
+    uint32_t _reserved_4 : 11;
   } bits;
   
   // Full 32-bit register value.
@@ -3091,16 +3091,16 @@ union GPR_PRIVATE6_AUTHEN_CLR {
   struct {
     uint32_t TZ_USER : 1;
     uint32_t TZ_NS : 1;
-    uint32_t _reserved_2 : 2;
+    uint32_t _reserved_0 : 2;
     uint32_t LOCK_TZ : 1;
-    uint32_t _reserved_3 : 3;
+    uint32_t _reserved_1 : 3;
     uint32_t WHITE_LIST : 4;
     uint32_t LOCK_LIST : 1;
-    uint32_t _reserved_5 : 3;
+    uint32_t _reserved_2 : 3;
     uint32_t DOMAIN_MODE : 1;
-    uint32_t _reserved_6 : 3;
+    uint32_t _reserved_3 : 3;
     uint32_t LOCK_MODE : 1;
-    uint32_t _reserved_end : 11;
+    uint32_t _reserved_4 : 11;
   } bits;
   
   // Full 32-bit register value.
@@ -3119,16 +3119,16 @@ union GPR_PRIVATE6_AUTHEN_TOG {
   struct {
     uint32_t TZ_USER : 1;
     uint32_t TZ_NS : 1;
-    uint32_t _reserved_2 : 2;
+    uint32_t _reserved_0 : 2;
     uint32_t LOCK_TZ : 1;
-    uint32_t _reserved_3 : 3;
+    uint32_t _reserved_1 : 3;
     uint32_t WHITE_LIST : 4;
     uint32_t LOCK_LIST : 1;
-    uint32_t _reserved_5 : 3;
+    uint32_t _reserved_2 : 3;
     uint32_t DOMAIN_MODE : 1;
-    uint32_t _reserved_6 : 3;
+    uint32_t _reserved_3 : 3;
     uint32_t LOCK_MODE : 1;
-    uint32_t _reserved_end : 11;
+    uint32_t _reserved_4 : 11;
   } bits;
   
   // Full 32-bit register value.
@@ -3250,16 +3250,16 @@ union GPR_PRIVATE7_AUTHEN {
   struct {
     eTZ_USER TZ_USER : 1;
     eTZ_NS TZ_NS : 1;
-    uint32_t _reserved_2 : 2;
+    uint32_t _reserved_0 : 2;
     eLOCK_TZ LOCK_TZ : 1;
-    uint32_t _reserved_3 : 3;
+    uint32_t _reserved_1 : 3;
     eWHITE_LIST WHITE_LIST : 4;
     eLOCK_LIST LOCK_LIST : 1;
-    uint32_t _reserved_5 : 3;
+    uint32_t _reserved_2 : 3;
     eDOMAIN_MODE DOMAIN_MODE : 1;
-    uint32_t _reserved_6 : 3;
+    uint32_t _reserved_3 : 3;
     eLOCK_MODE LOCK_MODE : 1;
-    uint32_t _reserved_end : 11;
+    uint32_t _reserved_4 : 11;
   } bits;
   
   // Full 32-bit register value.
@@ -3278,16 +3278,16 @@ union GPR_PRIVATE7_AUTHEN_SET {
   struct {
     uint32_t TZ_USER : 1;
     uint32_t TZ_NS : 1;
-    uint32_t _reserved_2 : 2;
+    uint32_t _reserved_0 : 2;
     uint32_t LOCK_TZ : 1;
-    uint32_t _reserved_3 : 3;
+    uint32_t _reserved_1 : 3;
     uint32_t WHITE_LIST : 4;
     uint32_t LOCK_LIST : 1;
-    uint32_t _reserved_5 : 3;
+    uint32_t _reserved_2 : 3;
     uint32_t DOMAIN_MODE : 1;
-    uint32_t _reserved_6 : 3;
+    uint32_t _reserved_3 : 3;
     uint32_t LOCK_MODE : 1;
-    uint32_t _reserved_end : 11;
+    uint32_t _reserved_4 : 11;
   } bits;
   
   // Full 32-bit register value.
@@ -3306,16 +3306,16 @@ union GPR_PRIVATE7_AUTHEN_CLR {
   struct {
     uint32_t TZ_USER : 1;
     uint32_t TZ_NS : 1;
-    uint32_t _reserved_2 : 2;
+    uint32_t _reserved_0 : 2;
     uint32_t LOCK_TZ : 1;
-    uint32_t _reserved_3 : 3;
+    uint32_t _reserved_1 : 3;
     uint32_t WHITE_LIST : 4;
     uint32_t LOCK_LIST : 1;
-    uint32_t _reserved_5 : 3;
+    uint32_t _reserved_2 : 3;
     uint32_t DOMAIN_MODE : 1;
-    uint32_t _reserved_6 : 3;
+    uint32_t _reserved_3 : 3;
     uint32_t LOCK_MODE : 1;
-    uint32_t _reserved_end : 11;
+    uint32_t _reserved_4 : 11;
   } bits;
   
   // Full 32-bit register value.
@@ -3334,16 +3334,16 @@ union GPR_PRIVATE7_AUTHEN_TOG {
   struct {
     uint32_t TZ_USER : 1;
     uint32_t TZ_NS : 1;
-    uint32_t _reserved_2 : 2;
+    uint32_t _reserved_0 : 2;
     uint32_t LOCK_TZ : 1;
-    uint32_t _reserved_3 : 3;
+    uint32_t _reserved_1 : 3;
     uint32_t WHITE_LIST : 4;
     uint32_t LOCK_LIST : 1;
-    uint32_t _reserved_5 : 3;
+    uint32_t _reserved_2 : 3;
     uint32_t DOMAIN_MODE : 1;
-    uint32_t _reserved_6 : 3;
+    uint32_t _reserved_3 : 3;
     uint32_t LOCK_MODE : 1;
-    uint32_t _reserved_end : 11;
+    uint32_t _reserved_4 : 11;
   } bits;
   
   // Full 32-bit register value.
@@ -3366,7 +3366,7 @@ union LPCG0_DIRECT {
   // Bit field definition.
   struct {
     eON ON : 1;
-    uint32_t _reserved_end : 31;
+    uint32_t _reserved_0 : 31;
   } bits;
   
   // Full 32-bit register value.
@@ -3424,15 +3424,15 @@ union LPCG0_DOMAIN {
   // Bit field definition.
   struct {
     eLEVEL LEVEL : 3;
-    uint32_t _reserved_1 : 13;
+    uint32_t _reserved_0 : 13;
     eLEVEL0 LEVEL0 : 3;
-    uint32_t _reserved_2 : 1;
+    uint32_t _reserved_1 : 1;
     eLEVEL1 LEVEL1 : 3;
-    uint32_t _reserved_3 : 1;
+    uint32_t _reserved_2 : 1;
     eLEVEL2 LEVEL2 : 3;
-    uint32_t _reserved_4 : 1;
+    uint32_t _reserved_3 : 1;
     eLEVEL3 LEVEL3 : 3;
-    uint32_t _reserved_end : 1;
+    uint32_t _reserved_4 : 1;
   } bits;
   
   // Full 32-bit register value.
@@ -3493,10 +3493,10 @@ union LPCG0_STATUS0 {
   // Bit field definition.
   struct {
     eON ON : 1;
-    uint32_t _reserved_1 : 7;
+    uint32_t _reserved_0 : 7;
     eACTIVE_DOMAIN ACTIVE_DOMAIN : 4;
     eDOMAIN_ENABLE DOMAIN_ENABLE : 4;
-    uint32_t _reserved_end : 16;
+    uint32_t _reserved_1 : 16;
   } bits;
   
   // Full 32-bit register value.
@@ -3619,7 +3619,7 @@ union LPCG0_STATUS1 {
     eSETPOINT_OFF_DONE SETPOINT_OFF_DONE : 1;
     eSETPOINT_ON_REQUEST SETPOINT_ON_REQUEST : 1;
     eSETPOINT_ON_DONE SETPOINT_ON_DONE : 1;
-    uint32_t _reserved_end : 4;
+    uint32_t _reserved_0 : 4;
   } bits;
   
   // Full 32-bit register value.
@@ -3643,7 +3643,7 @@ union LPCG0_CONFIG {
   struct {
     uint32_t _reserved_0 : 4;
     eSETPOINT_PRESENT SETPOINT_PRESENT : 1;
-    uint32_t _reserved_end : 27;
+    uint32_t _reserved_1 : 27;
   } bits;
   
   // Full 32-bit register value.
@@ -3702,18 +3702,18 @@ union LPCG0_AUTHEN {
   struct {
     eTZ_USER TZ_USER : 1;
     eTZ_NS TZ_NS : 1;
-    uint32_t _reserved_2 : 2;
+    uint32_t _reserved_0 : 2;
     eLOCK_TZ LOCK_TZ : 1;
-    uint32_t _reserved_3 : 3;
+    uint32_t _reserved_1 : 3;
     uint32_t WHITE_LIST : 4;
     eLOCK_LIST LOCK_LIST : 1;
-    uint32_t _reserved_5 : 3;
+    uint32_t _reserved_2 : 3;
     eDOMAIN_MODE DOMAIN_MODE : 1;
     eSETPOINT_MODE SETPOINT_MODE : 1;
     eCPULPM CPULPM : 1;
-    uint32_t _reserved_8 : 1;
+    uint32_t _reserved_3 : 1;
     eLOCK_MODE LOCK_MODE : 1;
-    uint32_t _reserved_end : 11;
+    uint32_t _reserved_4 : 11;
   } bits;
   
   // Full 32-bit register value.
@@ -3736,7 +3736,7 @@ union LPCG1_DIRECT {
   // Bit field definition.
   struct {
     eON ON : 1;
-    uint32_t _reserved_end : 31;
+    uint32_t _reserved_0 : 31;
   } bits;
   
   // Full 32-bit register value.
@@ -3794,15 +3794,15 @@ union LPCG1_DOMAIN {
   // Bit field definition.
   struct {
     eLEVEL LEVEL : 3;
-    uint32_t _reserved_1 : 13;
+    uint32_t _reserved_0 : 13;
     eLEVEL0 LEVEL0 : 3;
-    uint32_t _reserved_2 : 1;
+    uint32_t _reserved_1 : 1;
     eLEVEL1 LEVEL1 : 3;
-    uint32_t _reserved_3 : 1;
+    uint32_t _reserved_2 : 1;
     eLEVEL2 LEVEL2 : 3;
-    uint32_t _reserved_4 : 1;
+    uint32_t _reserved_3 : 1;
     eLEVEL3 LEVEL3 : 3;
-    uint32_t _reserved_end : 1;
+    uint32_t _reserved_4 : 1;
   } bits;
   
   // Full 32-bit register value.
@@ -3863,10 +3863,10 @@ union LPCG1_STATUS0 {
   // Bit field definition.
   struct {
     eON ON : 1;
-    uint32_t _reserved_1 : 7;
+    uint32_t _reserved_0 : 7;
     eACTIVE_DOMAIN ACTIVE_DOMAIN : 4;
     eDOMAIN_ENABLE DOMAIN_ENABLE : 4;
-    uint32_t _reserved_end : 16;
+    uint32_t _reserved_1 : 16;
   } bits;
   
   // Full 32-bit register value.
@@ -3989,7 +3989,7 @@ union LPCG1_STATUS1 {
     eSETPOINT_OFF_DONE SETPOINT_OFF_DONE : 1;
     eSETPOINT_ON_REQUEST SETPOINT_ON_REQUEST : 1;
     eSETPOINT_ON_DONE SETPOINT_ON_DONE : 1;
-    uint32_t _reserved_end : 4;
+    uint32_t _reserved_0 : 4;
   } bits;
   
   // Full 32-bit register value.
@@ -4013,7 +4013,7 @@ union LPCG1_CONFIG {
   struct {
     uint32_t _reserved_0 : 4;
     eSETPOINT_PRESENT SETPOINT_PRESENT : 1;
-    uint32_t _reserved_end : 27;
+    uint32_t _reserved_1 : 27;
   } bits;
   
   // Full 32-bit register value.
@@ -4072,18 +4072,18 @@ union LPCG1_AUTHEN {
   struct {
     eTZ_USER TZ_USER : 1;
     eTZ_NS TZ_NS : 1;
-    uint32_t _reserved_2 : 2;
+    uint32_t _reserved_0 : 2;
     eLOCK_TZ LOCK_TZ : 1;
-    uint32_t _reserved_3 : 3;
+    uint32_t _reserved_1 : 3;
     uint32_t WHITE_LIST : 4;
     eLOCK_LIST LOCK_LIST : 1;
-    uint32_t _reserved_5 : 3;
+    uint32_t _reserved_2 : 3;
     eDOMAIN_MODE DOMAIN_MODE : 1;
     eSETPOINT_MODE SETPOINT_MODE : 1;
     eCPULPM CPULPM : 1;
-    uint32_t _reserved_8 : 1;
+    uint32_t _reserved_3 : 1;
     eLOCK_MODE LOCK_MODE : 1;
-    uint32_t _reserved_end : 11;
+    uint32_t _reserved_4 : 11;
   } bits;
   
   // Full 32-bit register value.
@@ -4106,7 +4106,7 @@ union LPCG2_DIRECT {
   // Bit field definition.
   struct {
     eON ON : 1;
-    uint32_t _reserved_end : 31;
+    uint32_t _reserved_0 : 31;
   } bits;
   
   // Full 32-bit register value.
@@ -4164,15 +4164,15 @@ union LPCG2_DOMAIN {
   // Bit field definition.
   struct {
     eLEVEL LEVEL : 3;
-    uint32_t _reserved_1 : 13;
+    uint32_t _reserved_0 : 13;
     eLEVEL0 LEVEL0 : 3;
-    uint32_t _reserved_2 : 1;
+    uint32_t _reserved_1 : 1;
     eLEVEL1 LEVEL1 : 3;
-    uint32_t _reserved_3 : 1;
+    uint32_t _reserved_2 : 1;
     eLEVEL2 LEVEL2 : 3;
-    uint32_t _reserved_4 : 1;
+    uint32_t _reserved_3 : 1;
     eLEVEL3 LEVEL3 : 3;
-    uint32_t _reserved_end : 1;
+    uint32_t _reserved_4 : 1;
   } bits;
   
   // Full 32-bit register value.
@@ -4251,10 +4251,10 @@ union LPCG2_STATUS0 {
   // Bit field definition.
   struct {
     eON ON : 1;
-    uint32_t _reserved_1 : 7;
+    uint32_t _reserved_0 : 7;
     eACTIVE_DOMAIN ACTIVE_DOMAIN : 4;
     eDOMAIN_ENABLE DOMAIN_ENABLE : 4;
-    uint32_t _reserved_end : 16;
+    uint32_t _reserved_1 : 16;
   } bits;
   
   // Full 32-bit register value.
@@ -4377,7 +4377,7 @@ union LPCG2_STATUS1 {
     eSETPOINT_OFF_DONE SETPOINT_OFF_DONE : 1;
     eSETPOINT_ON_REQUEST SETPOINT_ON_REQUEST : 1;
     eSETPOINT_ON_DONE SETPOINT_ON_DONE : 1;
-    uint32_t _reserved_end : 4;
+    uint32_t _reserved_0 : 4;
   } bits;
   
   // Full 32-bit register value.
@@ -4401,7 +4401,7 @@ union LPCG2_CONFIG {
   struct {
     uint32_t _reserved_0 : 4;
     eSETPOINT_PRESENT SETPOINT_PRESENT : 1;
-    uint32_t _reserved_end : 27;
+    uint32_t _reserved_1 : 27;
   } bits;
   
   // Full 32-bit register value.
@@ -4460,18 +4460,18 @@ union LPCG2_AUTHEN {
   struct {
     eTZ_USER TZ_USER : 1;
     eTZ_NS TZ_NS : 1;
-    uint32_t _reserved_2 : 2;
+    uint32_t _reserved_0 : 2;
     eLOCK_TZ LOCK_TZ : 1;
-    uint32_t _reserved_3 : 3;
+    uint32_t _reserved_1 : 3;
     uint32_t WHITE_LIST : 4;
     eLOCK_LIST LOCK_LIST : 1;
-    uint32_t _reserved_5 : 3;
+    uint32_t _reserved_2 : 3;
     eDOMAIN_MODE DOMAIN_MODE : 1;
     eSETPOINT_MODE SETPOINT_MODE : 1;
     eCPULPM CPULPM : 1;
-    uint32_t _reserved_8 : 1;
+    uint32_t _reserved_3 : 1;
     eLOCK_MODE LOCK_MODE : 1;
-    uint32_t _reserved_end : 11;
+    uint32_t _reserved_4 : 11;
   } bits;
   
   // Full 32-bit register value.
@@ -4494,7 +4494,7 @@ union LPCG3_DIRECT {
   // Bit field definition.
   struct {
     eON ON : 1;
-    uint32_t _reserved_end : 31;
+    uint32_t _reserved_0 : 31;
   } bits;
   
   // Full 32-bit register value.
@@ -4552,15 +4552,15 @@ union LPCG3_DOMAIN {
   // Bit field definition.
   struct {
     eLEVEL LEVEL : 3;
-    uint32_t _reserved_1 : 13;
+    uint32_t _reserved_0 : 13;
     eLEVEL0 LEVEL0 : 3;
-    uint32_t _reserved_2 : 1;
+    uint32_t _reserved_1 : 1;
     eLEVEL1 LEVEL1 : 3;
-    uint32_t _reserved_3 : 1;
+    uint32_t _reserved_2 : 1;
     eLEVEL2 LEVEL2 : 3;
-    uint32_t _reserved_4 : 1;
+    uint32_t _reserved_3 : 1;
     eLEVEL3 LEVEL3 : 3;
-    uint32_t _reserved_end : 1;
+    uint32_t _reserved_4 : 1;
   } bits;
   
   // Full 32-bit register value.
@@ -4639,10 +4639,10 @@ union LPCG3_STATUS0 {
   // Bit field definition.
   struct {
     eON ON : 1;
-    uint32_t _reserved_1 : 7;
+    uint32_t _reserved_0 : 7;
     eACTIVE_DOMAIN ACTIVE_DOMAIN : 4;
     eDOMAIN_ENABLE DOMAIN_ENABLE : 4;
-    uint32_t _reserved_end : 16;
+    uint32_t _reserved_1 : 16;
   } bits;
   
   // Full 32-bit register value.
@@ -4765,7 +4765,7 @@ union LPCG3_STATUS1 {
     eSETPOINT_OFF_DONE SETPOINT_OFF_DONE : 1;
     eSETPOINT_ON_REQUEST SETPOINT_ON_REQUEST : 1;
     eSETPOINT_ON_DONE SETPOINT_ON_DONE : 1;
-    uint32_t _reserved_end : 4;
+    uint32_t _reserved_0 : 4;
   } bits;
   
   // Full 32-bit register value.
@@ -4789,7 +4789,7 @@ union LPCG3_CONFIG {
   struct {
     uint32_t _reserved_0 : 4;
     eSETPOINT_PRESENT SETPOINT_PRESENT : 1;
-    uint32_t _reserved_end : 27;
+    uint32_t _reserved_1 : 27;
   } bits;
   
   // Full 32-bit register value.
@@ -4848,18 +4848,18 @@ union LPCG3_AUTHEN {
   struct {
     eTZ_USER TZ_USER : 1;
     eTZ_NS TZ_NS : 1;
-    uint32_t _reserved_2 : 2;
+    uint32_t _reserved_0 : 2;
     eLOCK_TZ LOCK_TZ : 1;
-    uint32_t _reserved_3 : 3;
+    uint32_t _reserved_1 : 3;
     uint32_t WHITE_LIST : 4;
     eLOCK_LIST LOCK_LIST : 1;
-    uint32_t _reserved_5 : 3;
+    uint32_t _reserved_2 : 3;
     eDOMAIN_MODE DOMAIN_MODE : 1;
     eSETPOINT_MODE SETPOINT_MODE : 1;
     eCPULPM CPULPM : 1;
-    uint32_t _reserved_8 : 1;
+    uint32_t _reserved_3 : 1;
     eLOCK_MODE LOCK_MODE : 1;
-    uint32_t _reserved_end : 11;
+    uint32_t _reserved_4 : 11;
   } bits;
   
   // Full 32-bit register value.
@@ -4882,7 +4882,7 @@ union LPCG4_DIRECT {
   // Bit field definition.
   struct {
     eON ON : 1;
-    uint32_t _reserved_end : 31;
+    uint32_t _reserved_0 : 31;
   } bits;
   
   // Full 32-bit register value.
@@ -4940,15 +4940,15 @@ union LPCG4_DOMAIN {
   // Bit field definition.
   struct {
     eLEVEL LEVEL : 3;
-    uint32_t _reserved_1 : 13;
+    uint32_t _reserved_0 : 13;
     eLEVEL0 LEVEL0 : 3;
-    uint32_t _reserved_2 : 1;
+    uint32_t _reserved_1 : 1;
     eLEVEL1 LEVEL1 : 3;
-    uint32_t _reserved_3 : 1;
+    uint32_t _reserved_2 : 1;
     eLEVEL2 LEVEL2 : 3;
-    uint32_t _reserved_4 : 1;
+    uint32_t _reserved_3 : 1;
     eLEVEL3 LEVEL3 : 3;
-    uint32_t _reserved_end : 1;
+    uint32_t _reserved_4 : 1;
   } bits;
   
   // Full 32-bit register value.
@@ -5027,10 +5027,10 @@ union LPCG4_STATUS0 {
   // Bit field definition.
   struct {
     eON ON : 1;
-    uint32_t _reserved_1 : 7;
+    uint32_t _reserved_0 : 7;
     eACTIVE_DOMAIN ACTIVE_DOMAIN : 4;
     eDOMAIN_ENABLE DOMAIN_ENABLE : 4;
-    uint32_t _reserved_end : 16;
+    uint32_t _reserved_1 : 16;
   } bits;
   
   // Full 32-bit register value.
@@ -5153,7 +5153,7 @@ union LPCG4_STATUS1 {
     eSETPOINT_OFF_DONE SETPOINT_OFF_DONE : 1;
     eSETPOINT_ON_REQUEST SETPOINT_ON_REQUEST : 1;
     eSETPOINT_ON_DONE SETPOINT_ON_DONE : 1;
-    uint32_t _reserved_end : 4;
+    uint32_t _reserved_0 : 4;
   } bits;
   
   // Full 32-bit register value.
@@ -5177,7 +5177,7 @@ union LPCG4_CONFIG {
   struct {
     uint32_t _reserved_0 : 4;
     eSETPOINT_PRESENT SETPOINT_PRESENT : 1;
-    uint32_t _reserved_end : 27;
+    uint32_t _reserved_1 : 27;
   } bits;
   
   // Full 32-bit register value.
@@ -5236,18 +5236,18 @@ union LPCG4_AUTHEN {
   struct {
     eTZ_USER TZ_USER : 1;
     eTZ_NS TZ_NS : 1;
-    uint32_t _reserved_2 : 2;
+    uint32_t _reserved_0 : 2;
     eLOCK_TZ LOCK_TZ : 1;
-    uint32_t _reserved_3 : 3;
+    uint32_t _reserved_1 : 3;
     uint32_t WHITE_LIST : 4;
     eLOCK_LIST LOCK_LIST : 1;
-    uint32_t _reserved_5 : 3;
+    uint32_t _reserved_2 : 3;
     eDOMAIN_MODE DOMAIN_MODE : 1;
     eSETPOINT_MODE SETPOINT_MODE : 1;
     eCPULPM CPULPM : 1;
-    uint32_t _reserved_8 : 1;
+    uint32_t _reserved_3 : 1;
     eLOCK_MODE LOCK_MODE : 1;
-    uint32_t _reserved_end : 11;
+    uint32_t _reserved_4 : 11;
   } bits;
   
   // Full 32-bit register value.
@@ -5270,7 +5270,7 @@ union LPCG5_DIRECT {
   // Bit field definition.
   struct {
     eON ON : 1;
-    uint32_t _reserved_end : 31;
+    uint32_t _reserved_0 : 31;
   } bits;
   
   // Full 32-bit register value.
@@ -5328,15 +5328,15 @@ union LPCG5_DOMAIN {
   // Bit field definition.
   struct {
     eLEVEL LEVEL : 3;
-    uint32_t _reserved_1 : 13;
+    uint32_t _reserved_0 : 13;
     eLEVEL0 LEVEL0 : 3;
-    uint32_t _reserved_2 : 1;
+    uint32_t _reserved_1 : 1;
     eLEVEL1 LEVEL1 : 3;
-    uint32_t _reserved_3 : 1;
+    uint32_t _reserved_2 : 1;
     eLEVEL2 LEVEL2 : 3;
-    uint32_t _reserved_4 : 1;
+    uint32_t _reserved_3 : 1;
     eLEVEL3 LEVEL3 : 3;
-    uint32_t _reserved_end : 1;
+    uint32_t _reserved_4 : 1;
   } bits;
   
   // Full 32-bit register value.
@@ -5415,10 +5415,10 @@ union LPCG5_STATUS0 {
   // Bit field definition.
   struct {
     eON ON : 1;
-    uint32_t _reserved_1 : 7;
+    uint32_t _reserved_0 : 7;
     eACTIVE_DOMAIN ACTIVE_DOMAIN : 4;
     eDOMAIN_ENABLE DOMAIN_ENABLE : 4;
-    uint32_t _reserved_end : 16;
+    uint32_t _reserved_1 : 16;
   } bits;
   
   // Full 32-bit register value.
@@ -5541,7 +5541,7 @@ union LPCG5_STATUS1 {
     eSETPOINT_OFF_DONE SETPOINT_OFF_DONE : 1;
     eSETPOINT_ON_REQUEST SETPOINT_ON_REQUEST : 1;
     eSETPOINT_ON_DONE SETPOINT_ON_DONE : 1;
-    uint32_t _reserved_end : 4;
+    uint32_t _reserved_0 : 4;
   } bits;
   
   // Full 32-bit register value.
@@ -5565,7 +5565,7 @@ union LPCG5_CONFIG {
   struct {
     uint32_t _reserved_0 : 4;
     eSETPOINT_PRESENT SETPOINT_PRESENT : 1;
-    uint32_t _reserved_end : 27;
+    uint32_t _reserved_1 : 27;
   } bits;
   
   // Full 32-bit register value.
@@ -5624,18 +5624,18 @@ union LPCG5_AUTHEN {
   struct {
     eTZ_USER TZ_USER : 1;
     eTZ_NS TZ_NS : 1;
-    uint32_t _reserved_2 : 2;
+    uint32_t _reserved_0 : 2;
     eLOCK_TZ LOCK_TZ : 1;
-    uint32_t _reserved_3 : 3;
+    uint32_t _reserved_1 : 3;
     uint32_t WHITE_LIST : 4;
     eLOCK_LIST LOCK_LIST : 1;
-    uint32_t _reserved_5 : 3;
+    uint32_t _reserved_2 : 3;
     eDOMAIN_MODE DOMAIN_MODE : 1;
     eSETPOINT_MODE SETPOINT_MODE : 1;
     eCPULPM CPULPM : 1;
-    uint32_t _reserved_8 : 1;
+    uint32_t _reserved_3 : 1;
     eLOCK_MODE LOCK_MODE : 1;
-    uint32_t _reserved_end : 11;
+    uint32_t _reserved_4 : 11;
   } bits;
   
   // Full 32-bit register value.
@@ -5658,7 +5658,7 @@ union LPCG6_DIRECT {
   // Bit field definition.
   struct {
     eON ON : 1;
-    uint32_t _reserved_end : 31;
+    uint32_t _reserved_0 : 31;
   } bits;
   
   // Full 32-bit register value.
@@ -5716,15 +5716,15 @@ union LPCG6_DOMAIN {
   // Bit field definition.
   struct {
     eLEVEL LEVEL : 3;
-    uint32_t _reserved_1 : 13;
+    uint32_t _reserved_0 : 13;
     eLEVEL0 LEVEL0 : 3;
-    uint32_t _reserved_2 : 1;
+    uint32_t _reserved_1 : 1;
     eLEVEL1 LEVEL1 : 3;
-    uint32_t _reserved_3 : 1;
+    uint32_t _reserved_2 : 1;
     eLEVEL2 LEVEL2 : 3;
-    uint32_t _reserved_4 : 1;
+    uint32_t _reserved_3 : 1;
     eLEVEL3 LEVEL3 : 3;
-    uint32_t _reserved_end : 1;
+    uint32_t _reserved_4 : 1;
   } bits;
   
   // Full 32-bit register value.
@@ -5803,10 +5803,10 @@ union LPCG6_STATUS0 {
   // Bit field definition.
   struct {
     eON ON : 1;
-    uint32_t _reserved_1 : 7;
+    uint32_t _reserved_0 : 7;
     eACTIVE_DOMAIN ACTIVE_DOMAIN : 4;
     eDOMAIN_ENABLE DOMAIN_ENABLE : 4;
-    uint32_t _reserved_end : 16;
+    uint32_t _reserved_1 : 16;
   } bits;
   
   // Full 32-bit register value.
@@ -5929,7 +5929,7 @@ union LPCG6_STATUS1 {
     eSETPOINT_OFF_DONE SETPOINT_OFF_DONE : 1;
     eSETPOINT_ON_REQUEST SETPOINT_ON_REQUEST : 1;
     eSETPOINT_ON_DONE SETPOINT_ON_DONE : 1;
-    uint32_t _reserved_end : 4;
+    uint32_t _reserved_0 : 4;
   } bits;
   
   // Full 32-bit register value.
@@ -5953,7 +5953,7 @@ union LPCG6_CONFIG {
   struct {
     uint32_t _reserved_0 : 4;
     eSETPOINT_PRESENT SETPOINT_PRESENT : 1;
-    uint32_t _reserved_end : 27;
+    uint32_t _reserved_1 : 27;
   } bits;
   
   // Full 32-bit register value.
@@ -6012,18 +6012,18 @@ union LPCG6_AUTHEN {
   struct {
     eTZ_USER TZ_USER : 1;
     eTZ_NS TZ_NS : 1;
-    uint32_t _reserved_2 : 2;
+    uint32_t _reserved_0 : 2;
     eLOCK_TZ LOCK_TZ : 1;
-    uint32_t _reserved_3 : 3;
+    uint32_t _reserved_1 : 3;
     uint32_t WHITE_LIST : 4;
     eLOCK_LIST LOCK_LIST : 1;
-    uint32_t _reserved_5 : 3;
+    uint32_t _reserved_2 : 3;
     eDOMAIN_MODE DOMAIN_MODE : 1;
     eSETPOINT_MODE SETPOINT_MODE : 1;
     eCPULPM CPULPM : 1;
-    uint32_t _reserved_8 : 1;
+    uint32_t _reserved_3 : 1;
     eLOCK_MODE LOCK_MODE : 1;
-    uint32_t _reserved_end : 11;
+    uint32_t _reserved_4 : 11;
   } bits;
   
   // Full 32-bit register value.
@@ -6046,7 +6046,7 @@ union LPCG7_DIRECT {
   // Bit field definition.
   struct {
     eON ON : 1;
-    uint32_t _reserved_end : 31;
+    uint32_t _reserved_0 : 31;
   } bits;
   
   // Full 32-bit register value.
@@ -6104,15 +6104,15 @@ union LPCG7_DOMAIN {
   // Bit field definition.
   struct {
     eLEVEL LEVEL : 3;
-    uint32_t _reserved_1 : 13;
+    uint32_t _reserved_0 : 13;
     eLEVEL0 LEVEL0 : 3;
-    uint32_t _reserved_2 : 1;
+    uint32_t _reserved_1 : 1;
     eLEVEL1 LEVEL1 : 3;
-    uint32_t _reserved_3 : 1;
+    uint32_t _reserved_2 : 1;
     eLEVEL2 LEVEL2 : 3;
-    uint32_t _reserved_4 : 1;
+    uint32_t _reserved_3 : 1;
     eLEVEL3 LEVEL3 : 3;
-    uint32_t _reserved_end : 1;
+    uint32_t _reserved_4 : 1;
   } bits;
   
   // Full 32-bit register value.
@@ -6191,10 +6191,10 @@ union LPCG7_STATUS0 {
   // Bit field definition.
   struct {
     eON ON : 1;
-    uint32_t _reserved_1 : 7;
+    uint32_t _reserved_0 : 7;
     eACTIVE_DOMAIN ACTIVE_DOMAIN : 4;
     eDOMAIN_ENABLE DOMAIN_ENABLE : 4;
-    uint32_t _reserved_end : 16;
+    uint32_t _reserved_1 : 16;
   } bits;
   
   // Full 32-bit register value.
@@ -6317,7 +6317,7 @@ union LPCG7_STATUS1 {
     eSETPOINT_OFF_DONE SETPOINT_OFF_DONE : 1;
     eSETPOINT_ON_REQUEST SETPOINT_ON_REQUEST : 1;
     eSETPOINT_ON_DONE SETPOINT_ON_DONE : 1;
-    uint32_t _reserved_end : 4;
+    uint32_t _reserved_0 : 4;
   } bits;
   
   // Full 32-bit register value.
@@ -6341,7 +6341,7 @@ union LPCG7_CONFIG {
   struct {
     uint32_t _reserved_0 : 4;
     eSETPOINT_PRESENT SETPOINT_PRESENT : 1;
-    uint32_t _reserved_end : 27;
+    uint32_t _reserved_1 : 27;
   } bits;
   
   // Full 32-bit register value.
@@ -6400,18 +6400,18 @@ union LPCG7_AUTHEN {
   struct {
     eTZ_USER TZ_USER : 1;
     eTZ_NS TZ_NS : 1;
-    uint32_t _reserved_2 : 2;
+    uint32_t _reserved_0 : 2;
     eLOCK_TZ LOCK_TZ : 1;
-    uint32_t _reserved_3 : 3;
+    uint32_t _reserved_1 : 3;
     uint32_t WHITE_LIST : 4;
     eLOCK_LIST LOCK_LIST : 1;
-    uint32_t _reserved_5 : 3;
+    uint32_t _reserved_2 : 3;
     eDOMAIN_MODE DOMAIN_MODE : 1;
     eSETPOINT_MODE SETPOINT_MODE : 1;
     eCPULPM CPULPM : 1;
-    uint32_t _reserved_8 : 1;
+    uint32_t _reserved_3 : 1;
     eLOCK_MODE LOCK_MODE : 1;
-    uint32_t _reserved_end : 11;
+    uint32_t _reserved_4 : 11;
   } bits;
   
   // Full 32-bit register value.
@@ -6434,7 +6434,7 @@ union LPCG8_DIRECT {
   // Bit field definition.
   struct {
     eON ON : 1;
-    uint32_t _reserved_end : 31;
+    uint32_t _reserved_0 : 31;
   } bits;
   
   // Full 32-bit register value.
@@ -6492,15 +6492,15 @@ union LPCG8_DOMAIN {
   // Bit field definition.
   struct {
     eLEVEL LEVEL : 3;
-    uint32_t _reserved_1 : 13;
+    uint32_t _reserved_0 : 13;
     eLEVEL0 LEVEL0 : 3;
-    uint32_t _reserved_2 : 1;
+    uint32_t _reserved_1 : 1;
     eLEVEL1 LEVEL1 : 3;
-    uint32_t _reserved_3 : 1;
+    uint32_t _reserved_2 : 1;
     eLEVEL2 LEVEL2 : 3;
-    uint32_t _reserved_4 : 1;
+    uint32_t _reserved_3 : 1;
     eLEVEL3 LEVEL3 : 3;
-    uint32_t _reserved_end : 1;
+    uint32_t _reserved_4 : 1;
   } bits;
   
   // Full 32-bit register value.
@@ -6579,10 +6579,10 @@ union LPCG8_STATUS0 {
   // Bit field definition.
   struct {
     eON ON : 1;
-    uint32_t _reserved_1 : 7;
+    uint32_t _reserved_0 : 7;
     eACTIVE_DOMAIN ACTIVE_DOMAIN : 4;
     eDOMAIN_ENABLE DOMAIN_ENABLE : 4;
-    uint32_t _reserved_end : 16;
+    uint32_t _reserved_1 : 16;
   } bits;
   
   // Full 32-bit register value.
@@ -6705,7 +6705,7 @@ union LPCG8_STATUS1 {
     eSETPOINT_OFF_DONE SETPOINT_OFF_DONE : 1;
     eSETPOINT_ON_REQUEST SETPOINT_ON_REQUEST : 1;
     eSETPOINT_ON_DONE SETPOINT_ON_DONE : 1;
-    uint32_t _reserved_end : 4;
+    uint32_t _reserved_0 : 4;
   } bits;
   
   // Full 32-bit register value.
@@ -6729,7 +6729,7 @@ union LPCG8_CONFIG {
   struct {
     uint32_t _reserved_0 : 4;
     eSETPOINT_PRESENT SETPOINT_PRESENT : 1;
-    uint32_t _reserved_end : 27;
+    uint32_t _reserved_1 : 27;
   } bits;
   
   // Full 32-bit register value.
@@ -6788,18 +6788,18 @@ union LPCG8_AUTHEN {
   struct {
     eTZ_USER TZ_USER : 1;
     eTZ_NS TZ_NS : 1;
-    uint32_t _reserved_2 : 2;
+    uint32_t _reserved_0 : 2;
     eLOCK_TZ LOCK_TZ : 1;
-    uint32_t _reserved_3 : 3;
+    uint32_t _reserved_1 : 3;
     uint32_t WHITE_LIST : 4;
     eLOCK_LIST LOCK_LIST : 1;
-    uint32_t _reserved_5 : 3;
+    uint32_t _reserved_2 : 3;
     eDOMAIN_MODE DOMAIN_MODE : 1;
     eSETPOINT_MODE SETPOINT_MODE : 1;
     eCPULPM CPULPM : 1;
-    uint32_t _reserved_8 : 1;
+    uint32_t _reserved_3 : 1;
     eLOCK_MODE LOCK_MODE : 1;
-    uint32_t _reserved_end : 11;
+    uint32_t _reserved_4 : 11;
   } bits;
   
   // Full 32-bit register value.
@@ -6822,7 +6822,7 @@ union LPCG9_DIRECT {
   // Bit field definition.
   struct {
     eON ON : 1;
-    uint32_t _reserved_end : 31;
+    uint32_t _reserved_0 : 31;
   } bits;
   
   // Full 32-bit register value.
@@ -6880,15 +6880,15 @@ union LPCG9_DOMAIN {
   // Bit field definition.
   struct {
     eLEVEL LEVEL : 3;
-    uint32_t _reserved_1 : 13;
+    uint32_t _reserved_0 : 13;
     eLEVEL0 LEVEL0 : 3;
-    uint32_t _reserved_2 : 1;
+    uint32_t _reserved_1 : 1;
     eLEVEL1 LEVEL1 : 3;
-    uint32_t _reserved_3 : 1;
+    uint32_t _reserved_2 : 1;
     eLEVEL2 LEVEL2 : 3;
-    uint32_t _reserved_4 : 1;
+    uint32_t _reserved_3 : 1;
     eLEVEL3 LEVEL3 : 3;
-    uint32_t _reserved_end : 1;
+    uint32_t _reserved_4 : 1;
   } bits;
   
   // Full 32-bit register value.
@@ -6967,10 +6967,10 @@ union LPCG9_STATUS0 {
   // Bit field definition.
   struct {
     eON ON : 1;
-    uint32_t _reserved_1 : 7;
+    uint32_t _reserved_0 : 7;
     eACTIVE_DOMAIN ACTIVE_DOMAIN : 4;
     eDOMAIN_ENABLE DOMAIN_ENABLE : 4;
-    uint32_t _reserved_end : 16;
+    uint32_t _reserved_1 : 16;
   } bits;
   
   // Full 32-bit register value.
@@ -7093,7 +7093,7 @@ union LPCG9_STATUS1 {
     eSETPOINT_OFF_DONE SETPOINT_OFF_DONE : 1;
     eSETPOINT_ON_REQUEST SETPOINT_ON_REQUEST : 1;
     eSETPOINT_ON_DONE SETPOINT_ON_DONE : 1;
-    uint32_t _reserved_end : 4;
+    uint32_t _reserved_0 : 4;
   } bits;
   
   // Full 32-bit register value.
@@ -7117,7 +7117,7 @@ union LPCG9_CONFIG {
   struct {
     uint32_t _reserved_0 : 4;
     eSETPOINT_PRESENT SETPOINT_PRESENT : 1;
-    uint32_t _reserved_end : 27;
+    uint32_t _reserved_1 : 27;
   } bits;
   
   // Full 32-bit register value.
@@ -7176,18 +7176,18 @@ union LPCG9_AUTHEN {
   struct {
     eTZ_USER TZ_USER : 1;
     eTZ_NS TZ_NS : 1;
-    uint32_t _reserved_2 : 2;
+    uint32_t _reserved_0 : 2;
     eLOCK_TZ LOCK_TZ : 1;
-    uint32_t _reserved_3 : 3;
+    uint32_t _reserved_1 : 3;
     uint32_t WHITE_LIST : 4;
     eLOCK_LIST LOCK_LIST : 1;
-    uint32_t _reserved_5 : 3;
+    uint32_t _reserved_2 : 3;
     eDOMAIN_MODE DOMAIN_MODE : 1;
     eSETPOINT_MODE SETPOINT_MODE : 1;
     eCPULPM CPULPM : 1;
-    uint32_t _reserved_8 : 1;
+    uint32_t _reserved_3 : 1;
     eLOCK_MODE LOCK_MODE : 1;
-    uint32_t _reserved_end : 11;
+    uint32_t _reserved_4 : 11;
   } bits;
   
   // Full 32-bit register value.
@@ -7210,7 +7210,7 @@ union LPCG10_DIRECT {
   // Bit field definition.
   struct {
     eON ON : 1;
-    uint32_t _reserved_end : 31;
+    uint32_t _reserved_0 : 31;
   } bits;
   
   // Full 32-bit register value.
@@ -7268,15 +7268,15 @@ union LPCG10_DOMAIN {
   // Bit field definition.
   struct {
     eLEVEL LEVEL : 3;
-    uint32_t _reserved_1 : 13;
+    uint32_t _reserved_0 : 13;
     eLEVEL0 LEVEL0 : 3;
-    uint32_t _reserved_2 : 1;
+    uint32_t _reserved_1 : 1;
     eLEVEL1 LEVEL1 : 3;
-    uint32_t _reserved_3 : 1;
+    uint32_t _reserved_2 : 1;
     eLEVEL2 LEVEL2 : 3;
-    uint32_t _reserved_4 : 1;
+    uint32_t _reserved_3 : 1;
     eLEVEL3 LEVEL3 : 3;
-    uint32_t _reserved_end : 1;
+    uint32_t _reserved_4 : 1;
   } bits;
   
   // Full 32-bit register value.
@@ -7355,10 +7355,10 @@ union LPCG10_STATUS0 {
   // Bit field definition.
   struct {
     eON ON : 1;
-    uint32_t _reserved_1 : 7;
+    uint32_t _reserved_0 : 7;
     eACTIVE_DOMAIN ACTIVE_DOMAIN : 4;
     eDOMAIN_ENABLE DOMAIN_ENABLE : 4;
-    uint32_t _reserved_end : 16;
+    uint32_t _reserved_1 : 16;
   } bits;
   
   // Full 32-bit register value.
@@ -7481,7 +7481,7 @@ union LPCG10_STATUS1 {
     eSETPOINT_OFF_DONE SETPOINT_OFF_DONE : 1;
     eSETPOINT_ON_REQUEST SETPOINT_ON_REQUEST : 1;
     eSETPOINT_ON_DONE SETPOINT_ON_DONE : 1;
-    uint32_t _reserved_end : 4;
+    uint32_t _reserved_0 : 4;
   } bits;
   
   // Full 32-bit register value.
@@ -7505,7 +7505,7 @@ union LPCG10_CONFIG {
   struct {
     uint32_t _reserved_0 : 4;
     eSETPOINT_PRESENT SETPOINT_PRESENT : 1;
-    uint32_t _reserved_end : 27;
+    uint32_t _reserved_1 : 27;
   } bits;
   
   // Full 32-bit register value.
@@ -7564,18 +7564,18 @@ union LPCG10_AUTHEN {
   struct {
     eTZ_USER TZ_USER : 1;
     eTZ_NS TZ_NS : 1;
-    uint32_t _reserved_2 : 2;
+    uint32_t _reserved_0 : 2;
     eLOCK_TZ LOCK_TZ : 1;
-    uint32_t _reserved_3 : 3;
+    uint32_t _reserved_1 : 3;
     uint32_t WHITE_LIST : 4;
     eLOCK_LIST LOCK_LIST : 1;
-    uint32_t _reserved_5 : 3;
+    uint32_t _reserved_2 : 3;
     eDOMAIN_MODE DOMAIN_MODE : 1;
     eSETPOINT_MODE SETPOINT_MODE : 1;
     eCPULPM CPULPM : 1;
-    uint32_t _reserved_8 : 1;
+    uint32_t _reserved_3 : 1;
     eLOCK_MODE LOCK_MODE : 1;
-    uint32_t _reserved_end : 11;
+    uint32_t _reserved_4 : 11;
   } bits;
   
   // Full 32-bit register value.
@@ -7598,7 +7598,7 @@ union LPCG11_DIRECT {
   // Bit field definition.
   struct {
     eON ON : 1;
-    uint32_t _reserved_end : 31;
+    uint32_t _reserved_0 : 31;
   } bits;
   
   // Full 32-bit register value.
@@ -7656,15 +7656,15 @@ union LPCG11_DOMAIN {
   // Bit field definition.
   struct {
     eLEVEL LEVEL : 3;
-    uint32_t _reserved_1 : 13;
+    uint32_t _reserved_0 : 13;
     eLEVEL0 LEVEL0 : 3;
-    uint32_t _reserved_2 : 1;
+    uint32_t _reserved_1 : 1;
     eLEVEL1 LEVEL1 : 3;
-    uint32_t _reserved_3 : 1;
+    uint32_t _reserved_2 : 1;
     eLEVEL2 LEVEL2 : 3;
-    uint32_t _reserved_4 : 1;
+    uint32_t _reserved_3 : 1;
     eLEVEL3 LEVEL3 : 3;
-    uint32_t _reserved_end : 1;
+    uint32_t _reserved_4 : 1;
   } bits;
   
   // Full 32-bit register value.
@@ -7743,10 +7743,10 @@ union LPCG11_STATUS0 {
   // Bit field definition.
   struct {
     eON ON : 1;
-    uint32_t _reserved_1 : 7;
+    uint32_t _reserved_0 : 7;
     eACTIVE_DOMAIN ACTIVE_DOMAIN : 4;
     eDOMAIN_ENABLE DOMAIN_ENABLE : 4;
-    uint32_t _reserved_end : 16;
+    uint32_t _reserved_1 : 16;
   } bits;
   
   // Full 32-bit register value.
@@ -7869,7 +7869,7 @@ union LPCG11_STATUS1 {
     eSETPOINT_OFF_DONE SETPOINT_OFF_DONE : 1;
     eSETPOINT_ON_REQUEST SETPOINT_ON_REQUEST : 1;
     eSETPOINT_ON_DONE SETPOINT_ON_DONE : 1;
-    uint32_t _reserved_end : 4;
+    uint32_t _reserved_0 : 4;
   } bits;
   
   // Full 32-bit register value.
@@ -7893,7 +7893,7 @@ union LPCG11_CONFIG {
   struct {
     uint32_t _reserved_0 : 4;
     eSETPOINT_PRESENT SETPOINT_PRESENT : 1;
-    uint32_t _reserved_end : 27;
+    uint32_t _reserved_1 : 27;
   } bits;
   
   // Full 32-bit register value.
@@ -7952,18 +7952,18 @@ union LPCG11_AUTHEN {
   struct {
     eTZ_USER TZ_USER : 1;
     eTZ_NS TZ_NS : 1;
-    uint32_t _reserved_2 : 2;
+    uint32_t _reserved_0 : 2;
     eLOCK_TZ LOCK_TZ : 1;
-    uint32_t _reserved_3 : 3;
+    uint32_t _reserved_1 : 3;
     uint32_t WHITE_LIST : 4;
     eLOCK_LIST LOCK_LIST : 1;
-    uint32_t _reserved_5 : 3;
+    uint32_t _reserved_2 : 3;
     eDOMAIN_MODE DOMAIN_MODE : 1;
     eSETPOINT_MODE SETPOINT_MODE : 1;
     eCPULPM CPULPM : 1;
-    uint32_t _reserved_8 : 1;
+    uint32_t _reserved_3 : 1;
     eLOCK_MODE LOCK_MODE : 1;
-    uint32_t _reserved_end : 11;
+    uint32_t _reserved_4 : 11;
   } bits;
   
   // Full 32-bit register value.
@@ -7986,7 +7986,7 @@ union LPCG12_DIRECT {
   // Bit field definition.
   struct {
     eON ON : 1;
-    uint32_t _reserved_end : 31;
+    uint32_t _reserved_0 : 31;
   } bits;
   
   // Full 32-bit register value.
@@ -8044,15 +8044,15 @@ union LPCG12_DOMAIN {
   // Bit field definition.
   struct {
     eLEVEL LEVEL : 3;
-    uint32_t _reserved_1 : 13;
+    uint32_t _reserved_0 : 13;
     eLEVEL0 LEVEL0 : 3;
-    uint32_t _reserved_2 : 1;
+    uint32_t _reserved_1 : 1;
     eLEVEL1 LEVEL1 : 3;
-    uint32_t _reserved_3 : 1;
+    uint32_t _reserved_2 : 1;
     eLEVEL2 LEVEL2 : 3;
-    uint32_t _reserved_4 : 1;
+    uint32_t _reserved_3 : 1;
     eLEVEL3 LEVEL3 : 3;
-    uint32_t _reserved_end : 1;
+    uint32_t _reserved_4 : 1;
   } bits;
   
   // Full 32-bit register value.
@@ -8131,10 +8131,10 @@ union LPCG12_STATUS0 {
   // Bit field definition.
   struct {
     eON ON : 1;
-    uint32_t _reserved_1 : 7;
+    uint32_t _reserved_0 : 7;
     eACTIVE_DOMAIN ACTIVE_DOMAIN : 4;
     eDOMAIN_ENABLE DOMAIN_ENABLE : 4;
-    uint32_t _reserved_end : 16;
+    uint32_t _reserved_1 : 16;
   } bits;
   
   // Full 32-bit register value.
@@ -8257,7 +8257,7 @@ union LPCG12_STATUS1 {
     eSETPOINT_OFF_DONE SETPOINT_OFF_DONE : 1;
     eSETPOINT_ON_REQUEST SETPOINT_ON_REQUEST : 1;
     eSETPOINT_ON_DONE SETPOINT_ON_DONE : 1;
-    uint32_t _reserved_end : 4;
+    uint32_t _reserved_0 : 4;
   } bits;
   
   // Full 32-bit register value.
@@ -8281,7 +8281,7 @@ union LPCG12_CONFIG {
   struct {
     uint32_t _reserved_0 : 4;
     eSETPOINT_PRESENT SETPOINT_PRESENT : 1;
-    uint32_t _reserved_end : 27;
+    uint32_t _reserved_1 : 27;
   } bits;
   
   // Full 32-bit register value.
@@ -8340,18 +8340,18 @@ union LPCG12_AUTHEN {
   struct {
     eTZ_USER TZ_USER : 1;
     eTZ_NS TZ_NS : 1;
-    uint32_t _reserved_2 : 2;
+    uint32_t _reserved_0 : 2;
     eLOCK_TZ LOCK_TZ : 1;
-    uint32_t _reserved_3 : 3;
+    uint32_t _reserved_1 : 3;
     uint32_t WHITE_LIST : 4;
     eLOCK_LIST LOCK_LIST : 1;
-    uint32_t _reserved_5 : 3;
+    uint32_t _reserved_2 : 3;
     eDOMAIN_MODE DOMAIN_MODE : 1;
     eSETPOINT_MODE SETPOINT_MODE : 1;
     eCPULPM CPULPM : 1;
-    uint32_t _reserved_8 : 1;
+    uint32_t _reserved_3 : 1;
     eLOCK_MODE LOCK_MODE : 1;
-    uint32_t _reserved_end : 11;
+    uint32_t _reserved_4 : 11;
   } bits;
   
   // Full 32-bit register value.
@@ -8374,7 +8374,7 @@ union LPCG13_DIRECT {
   // Bit field definition.
   struct {
     eON ON : 1;
-    uint32_t _reserved_end : 31;
+    uint32_t _reserved_0 : 31;
   } bits;
   
   // Full 32-bit register value.
@@ -8432,15 +8432,15 @@ union LPCG13_DOMAIN {
   // Bit field definition.
   struct {
     eLEVEL LEVEL : 3;
-    uint32_t _reserved_1 : 13;
+    uint32_t _reserved_0 : 13;
     eLEVEL0 LEVEL0 : 3;
-    uint32_t _reserved_2 : 1;
+    uint32_t _reserved_1 : 1;
     eLEVEL1 LEVEL1 : 3;
-    uint32_t _reserved_3 : 1;
+    uint32_t _reserved_2 : 1;
     eLEVEL2 LEVEL2 : 3;
-    uint32_t _reserved_4 : 1;
+    uint32_t _reserved_3 : 1;
     eLEVEL3 LEVEL3 : 3;
-    uint32_t _reserved_end : 1;
+    uint32_t _reserved_4 : 1;
   } bits;
   
   // Full 32-bit register value.
@@ -8501,10 +8501,10 @@ union LPCG13_STATUS0 {
   // Bit field definition.
   struct {
     eON ON : 1;
-    uint32_t _reserved_1 : 7;
+    uint32_t _reserved_0 : 7;
     eACTIVE_DOMAIN ACTIVE_DOMAIN : 4;
     eDOMAIN_ENABLE DOMAIN_ENABLE : 4;
-    uint32_t _reserved_end : 16;
+    uint32_t _reserved_1 : 16;
   } bits;
   
   // Full 32-bit register value.
@@ -8627,7 +8627,7 @@ union LPCG13_STATUS1 {
     eSETPOINT_OFF_DONE SETPOINT_OFF_DONE : 1;
     eSETPOINT_ON_REQUEST SETPOINT_ON_REQUEST : 1;
     eSETPOINT_ON_DONE SETPOINT_ON_DONE : 1;
-    uint32_t _reserved_end : 4;
+    uint32_t _reserved_0 : 4;
   } bits;
   
   // Full 32-bit register value.
@@ -8651,7 +8651,7 @@ union LPCG13_CONFIG {
   struct {
     uint32_t _reserved_0 : 4;
     eSETPOINT_PRESENT SETPOINT_PRESENT : 1;
-    uint32_t _reserved_end : 27;
+    uint32_t _reserved_1 : 27;
   } bits;
   
   // Full 32-bit register value.
@@ -8710,18 +8710,18 @@ union LPCG13_AUTHEN {
   struct {
     eTZ_USER TZ_USER : 1;
     eTZ_NS TZ_NS : 1;
-    uint32_t _reserved_2 : 2;
+    uint32_t _reserved_0 : 2;
     eLOCK_TZ LOCK_TZ : 1;
-    uint32_t _reserved_3 : 3;
+    uint32_t _reserved_1 : 3;
     uint32_t WHITE_LIST : 4;
     eLOCK_LIST LOCK_LIST : 1;
-    uint32_t _reserved_5 : 3;
+    uint32_t _reserved_2 : 3;
     eDOMAIN_MODE DOMAIN_MODE : 1;
     eSETPOINT_MODE SETPOINT_MODE : 1;
     eCPULPM CPULPM : 1;
-    uint32_t _reserved_8 : 1;
+    uint32_t _reserved_3 : 1;
     eLOCK_MODE LOCK_MODE : 1;
-    uint32_t _reserved_end : 11;
+    uint32_t _reserved_4 : 11;
   } bits;
   
   // Full 32-bit register value.
@@ -8744,7 +8744,7 @@ union LPCG14_DIRECT {
   // Bit field definition.
   struct {
     eON ON : 1;
-    uint32_t _reserved_end : 31;
+    uint32_t _reserved_0 : 31;
   } bits;
   
   // Full 32-bit register value.
@@ -8802,15 +8802,15 @@ union LPCG14_DOMAIN {
   // Bit field definition.
   struct {
     eLEVEL LEVEL : 3;
-    uint32_t _reserved_1 : 13;
+    uint32_t _reserved_0 : 13;
     eLEVEL0 LEVEL0 : 3;
-    uint32_t _reserved_2 : 1;
+    uint32_t _reserved_1 : 1;
     eLEVEL1 LEVEL1 : 3;
-    uint32_t _reserved_3 : 1;
+    uint32_t _reserved_2 : 1;
     eLEVEL2 LEVEL2 : 3;
-    uint32_t _reserved_4 : 1;
+    uint32_t _reserved_3 : 1;
     eLEVEL3 LEVEL3 : 3;
-    uint32_t _reserved_end : 1;
+    uint32_t _reserved_4 : 1;
   } bits;
   
   // Full 32-bit register value.
@@ -8889,10 +8889,10 @@ union LPCG14_STATUS0 {
   // Bit field definition.
   struct {
     eON ON : 1;
-    uint32_t _reserved_1 : 7;
+    uint32_t _reserved_0 : 7;
     eACTIVE_DOMAIN ACTIVE_DOMAIN : 4;
     eDOMAIN_ENABLE DOMAIN_ENABLE : 4;
-    uint32_t _reserved_end : 16;
+    uint32_t _reserved_1 : 16;
   } bits;
   
   // Full 32-bit register value.
@@ -9015,7 +9015,7 @@ union LPCG14_STATUS1 {
     eSETPOINT_OFF_DONE SETPOINT_OFF_DONE : 1;
     eSETPOINT_ON_REQUEST SETPOINT_ON_REQUEST : 1;
     eSETPOINT_ON_DONE SETPOINT_ON_DONE : 1;
-    uint32_t _reserved_end : 4;
+    uint32_t _reserved_0 : 4;
   } bits;
   
   // Full 32-bit register value.
@@ -9039,7 +9039,7 @@ union LPCG14_CONFIG {
   struct {
     uint32_t _reserved_0 : 4;
     eSETPOINT_PRESENT SETPOINT_PRESENT : 1;
-    uint32_t _reserved_end : 27;
+    uint32_t _reserved_1 : 27;
   } bits;
   
   // Full 32-bit register value.
@@ -9098,18 +9098,18 @@ union LPCG14_AUTHEN {
   struct {
     eTZ_USER TZ_USER : 1;
     eTZ_NS TZ_NS : 1;
-    uint32_t _reserved_2 : 2;
+    uint32_t _reserved_0 : 2;
     eLOCK_TZ LOCK_TZ : 1;
-    uint32_t _reserved_3 : 3;
+    uint32_t _reserved_1 : 3;
     uint32_t WHITE_LIST : 4;
     eLOCK_LIST LOCK_LIST : 1;
-    uint32_t _reserved_5 : 3;
+    uint32_t _reserved_2 : 3;
     eDOMAIN_MODE DOMAIN_MODE : 1;
     eSETPOINT_MODE SETPOINT_MODE : 1;
     eCPULPM CPULPM : 1;
-    uint32_t _reserved_8 : 1;
+    uint32_t _reserved_3 : 1;
     eLOCK_MODE LOCK_MODE : 1;
-    uint32_t _reserved_end : 11;
+    uint32_t _reserved_4 : 11;
   } bits;
   
   // Full 32-bit register value.
@@ -9132,7 +9132,7 @@ union LPCG15_DIRECT {
   // Bit field definition.
   struct {
     eON ON : 1;
-    uint32_t _reserved_end : 31;
+    uint32_t _reserved_0 : 31;
   } bits;
   
   // Full 32-bit register value.
@@ -9190,15 +9190,15 @@ union LPCG15_DOMAIN {
   // Bit field definition.
   struct {
     eLEVEL LEVEL : 3;
-    uint32_t _reserved_1 : 13;
+    uint32_t _reserved_0 : 13;
     eLEVEL0 LEVEL0 : 3;
-    uint32_t _reserved_2 : 1;
+    uint32_t _reserved_1 : 1;
     eLEVEL1 LEVEL1 : 3;
-    uint32_t _reserved_3 : 1;
+    uint32_t _reserved_2 : 1;
     eLEVEL2 LEVEL2 : 3;
-    uint32_t _reserved_4 : 1;
+    uint32_t _reserved_3 : 1;
     eLEVEL3 LEVEL3 : 3;
-    uint32_t _reserved_end : 1;
+    uint32_t _reserved_4 : 1;
   } bits;
   
   // Full 32-bit register value.
@@ -9277,10 +9277,10 @@ union LPCG15_STATUS0 {
   // Bit field definition.
   struct {
     eON ON : 1;
-    uint32_t _reserved_1 : 7;
+    uint32_t _reserved_0 : 7;
     eACTIVE_DOMAIN ACTIVE_DOMAIN : 4;
     eDOMAIN_ENABLE DOMAIN_ENABLE : 4;
-    uint32_t _reserved_end : 16;
+    uint32_t _reserved_1 : 16;
   } bits;
   
   // Full 32-bit register value.
@@ -9403,7 +9403,7 @@ union LPCG15_STATUS1 {
     eSETPOINT_OFF_DONE SETPOINT_OFF_DONE : 1;
     eSETPOINT_ON_REQUEST SETPOINT_ON_REQUEST : 1;
     eSETPOINT_ON_DONE SETPOINT_ON_DONE : 1;
-    uint32_t _reserved_end : 4;
+    uint32_t _reserved_0 : 4;
   } bits;
   
   // Full 32-bit register value.
@@ -9427,7 +9427,7 @@ union LPCG15_CONFIG {
   struct {
     uint32_t _reserved_0 : 4;
     eSETPOINT_PRESENT SETPOINT_PRESENT : 1;
-    uint32_t _reserved_end : 27;
+    uint32_t _reserved_1 : 27;
   } bits;
   
   // Full 32-bit register value.
@@ -9486,18 +9486,18 @@ union LPCG15_AUTHEN {
   struct {
     eTZ_USER TZ_USER : 1;
     eTZ_NS TZ_NS : 1;
-    uint32_t _reserved_2 : 2;
+    uint32_t _reserved_0 : 2;
     eLOCK_TZ LOCK_TZ : 1;
-    uint32_t _reserved_3 : 3;
+    uint32_t _reserved_1 : 3;
     uint32_t WHITE_LIST : 4;
     eLOCK_LIST LOCK_LIST : 1;
-    uint32_t _reserved_5 : 3;
+    uint32_t _reserved_2 : 3;
     eDOMAIN_MODE DOMAIN_MODE : 1;
     eSETPOINT_MODE SETPOINT_MODE : 1;
     eCPULPM CPULPM : 1;
-    uint32_t _reserved_8 : 1;
+    uint32_t _reserved_3 : 1;
     eLOCK_MODE LOCK_MODE : 1;
-    uint32_t _reserved_end : 11;
+    uint32_t _reserved_4 : 11;
   } bits;
   
   // Full 32-bit register value.
@@ -9520,7 +9520,7 @@ union LPCG16_DIRECT {
   // Bit field definition.
   struct {
     eON ON : 1;
-    uint32_t _reserved_end : 31;
+    uint32_t _reserved_0 : 31;
   } bits;
   
   // Full 32-bit register value.
@@ -9578,15 +9578,15 @@ union LPCG16_DOMAIN {
   // Bit field definition.
   struct {
     eLEVEL LEVEL : 3;
-    uint32_t _reserved_1 : 13;
+    uint32_t _reserved_0 : 13;
     eLEVEL0 LEVEL0 : 3;
-    uint32_t _reserved_2 : 1;
+    uint32_t _reserved_1 : 1;
     eLEVEL1 LEVEL1 : 3;
-    uint32_t _reserved_3 : 1;
+    uint32_t _reserved_2 : 1;
     eLEVEL2 LEVEL2 : 3;
-    uint32_t _reserved_4 : 1;
+    uint32_t _reserved_3 : 1;
     eLEVEL3 LEVEL3 : 3;
-    uint32_t _reserved_end : 1;
+    uint32_t _reserved_4 : 1;
   } bits;
   
   // Full 32-bit register value.
@@ -9665,10 +9665,10 @@ union LPCG16_STATUS0 {
   // Bit field definition.
   struct {
     eON ON : 1;
-    uint32_t _reserved_1 : 7;
+    uint32_t _reserved_0 : 7;
     eACTIVE_DOMAIN ACTIVE_DOMAIN : 4;
     eDOMAIN_ENABLE DOMAIN_ENABLE : 4;
-    uint32_t _reserved_end : 16;
+    uint32_t _reserved_1 : 16;
   } bits;
   
   // Full 32-bit register value.
@@ -9791,7 +9791,7 @@ union LPCG16_STATUS1 {
     eSETPOINT_OFF_DONE SETPOINT_OFF_DONE : 1;
     eSETPOINT_ON_REQUEST SETPOINT_ON_REQUEST : 1;
     eSETPOINT_ON_DONE SETPOINT_ON_DONE : 1;
-    uint32_t _reserved_end : 4;
+    uint32_t _reserved_0 : 4;
   } bits;
   
   // Full 32-bit register value.
@@ -9815,7 +9815,7 @@ union LPCG16_CONFIG {
   struct {
     uint32_t _reserved_0 : 4;
     eSETPOINT_PRESENT SETPOINT_PRESENT : 1;
-    uint32_t _reserved_end : 27;
+    uint32_t _reserved_1 : 27;
   } bits;
   
   // Full 32-bit register value.
@@ -9874,18 +9874,18 @@ union LPCG16_AUTHEN {
   struct {
     eTZ_USER TZ_USER : 1;
     eTZ_NS TZ_NS : 1;
-    uint32_t _reserved_2 : 2;
+    uint32_t _reserved_0 : 2;
     eLOCK_TZ LOCK_TZ : 1;
-    uint32_t _reserved_3 : 3;
+    uint32_t _reserved_1 : 3;
     uint32_t WHITE_LIST : 4;
     eLOCK_LIST LOCK_LIST : 1;
-    uint32_t _reserved_5 : 3;
+    uint32_t _reserved_2 : 3;
     eDOMAIN_MODE DOMAIN_MODE : 1;
     eSETPOINT_MODE SETPOINT_MODE : 1;
     eCPULPM CPULPM : 1;
-    uint32_t _reserved_8 : 1;
+    uint32_t _reserved_3 : 1;
     eLOCK_MODE LOCK_MODE : 1;
-    uint32_t _reserved_end : 11;
+    uint32_t _reserved_4 : 11;
   } bits;
   
   // Full 32-bit register value.
@@ -9908,7 +9908,7 @@ union LPCG17_DIRECT {
   // Bit field definition.
   struct {
     eON ON : 1;
-    uint32_t _reserved_end : 31;
+    uint32_t _reserved_0 : 31;
   } bits;
   
   // Full 32-bit register value.
@@ -9966,15 +9966,15 @@ union LPCG17_DOMAIN {
   // Bit field definition.
   struct {
     eLEVEL LEVEL : 3;
-    uint32_t _reserved_1 : 13;
+    uint32_t _reserved_0 : 13;
     eLEVEL0 LEVEL0 : 3;
-    uint32_t _reserved_2 : 1;
+    uint32_t _reserved_1 : 1;
     eLEVEL1 LEVEL1 : 3;
-    uint32_t _reserved_3 : 1;
+    uint32_t _reserved_2 : 1;
     eLEVEL2 LEVEL2 : 3;
-    uint32_t _reserved_4 : 1;
+    uint32_t _reserved_3 : 1;
     eLEVEL3 LEVEL3 : 3;
-    uint32_t _reserved_end : 1;
+    uint32_t _reserved_4 : 1;
   } bits;
   
   // Full 32-bit register value.
@@ -10053,10 +10053,10 @@ union LPCG17_STATUS0 {
   // Bit field definition.
   struct {
     eON ON : 1;
-    uint32_t _reserved_1 : 7;
+    uint32_t _reserved_0 : 7;
     eACTIVE_DOMAIN ACTIVE_DOMAIN : 4;
     eDOMAIN_ENABLE DOMAIN_ENABLE : 4;
-    uint32_t _reserved_end : 16;
+    uint32_t _reserved_1 : 16;
   } bits;
   
   // Full 32-bit register value.
@@ -10179,7 +10179,7 @@ union LPCG17_STATUS1 {
     eSETPOINT_OFF_DONE SETPOINT_OFF_DONE : 1;
     eSETPOINT_ON_REQUEST SETPOINT_ON_REQUEST : 1;
     eSETPOINT_ON_DONE SETPOINT_ON_DONE : 1;
-    uint32_t _reserved_end : 4;
+    uint32_t _reserved_0 : 4;
   } bits;
   
   // Full 32-bit register value.
@@ -10203,7 +10203,7 @@ union LPCG17_CONFIG {
   struct {
     uint32_t _reserved_0 : 4;
     eSETPOINT_PRESENT SETPOINT_PRESENT : 1;
-    uint32_t _reserved_end : 27;
+    uint32_t _reserved_1 : 27;
   } bits;
   
   // Full 32-bit register value.
@@ -10262,18 +10262,18 @@ union LPCG17_AUTHEN {
   struct {
     eTZ_USER TZ_USER : 1;
     eTZ_NS TZ_NS : 1;
-    uint32_t _reserved_2 : 2;
+    uint32_t _reserved_0 : 2;
     eLOCK_TZ LOCK_TZ : 1;
-    uint32_t _reserved_3 : 3;
+    uint32_t _reserved_1 : 3;
     uint32_t WHITE_LIST : 4;
     eLOCK_LIST LOCK_LIST : 1;
-    uint32_t _reserved_5 : 3;
+    uint32_t _reserved_2 : 3;
     eDOMAIN_MODE DOMAIN_MODE : 1;
     eSETPOINT_MODE SETPOINT_MODE : 1;
     eCPULPM CPULPM : 1;
-    uint32_t _reserved_8 : 1;
+    uint32_t _reserved_3 : 1;
     eLOCK_MODE LOCK_MODE : 1;
-    uint32_t _reserved_end : 11;
+    uint32_t _reserved_4 : 11;
   } bits;
   
   // Full 32-bit register value.
@@ -10296,7 +10296,7 @@ union LPCG18_DIRECT {
   // Bit field definition.
   struct {
     eON ON : 1;
-    uint32_t _reserved_end : 31;
+    uint32_t _reserved_0 : 31;
   } bits;
   
   // Full 32-bit register value.
@@ -10354,15 +10354,15 @@ union LPCG18_DOMAIN {
   // Bit field definition.
   struct {
     eLEVEL LEVEL : 3;
-    uint32_t _reserved_1 : 13;
+    uint32_t _reserved_0 : 13;
     eLEVEL0 LEVEL0 : 3;
-    uint32_t _reserved_2 : 1;
+    uint32_t _reserved_1 : 1;
     eLEVEL1 LEVEL1 : 3;
-    uint32_t _reserved_3 : 1;
+    uint32_t _reserved_2 : 1;
     eLEVEL2 LEVEL2 : 3;
-    uint32_t _reserved_4 : 1;
+    uint32_t _reserved_3 : 1;
     eLEVEL3 LEVEL3 : 3;
-    uint32_t _reserved_end : 1;
+    uint32_t _reserved_4 : 1;
   } bits;
   
   // Full 32-bit register value.
@@ -10441,10 +10441,10 @@ union LPCG18_STATUS0 {
   // Bit field definition.
   struct {
     eON ON : 1;
-    uint32_t _reserved_1 : 7;
+    uint32_t _reserved_0 : 7;
     eACTIVE_DOMAIN ACTIVE_DOMAIN : 4;
     eDOMAIN_ENABLE DOMAIN_ENABLE : 4;
-    uint32_t _reserved_end : 16;
+    uint32_t _reserved_1 : 16;
   } bits;
   
   // Full 32-bit register value.
@@ -10567,7 +10567,7 @@ union LPCG18_STATUS1 {
     eSETPOINT_OFF_DONE SETPOINT_OFF_DONE : 1;
     eSETPOINT_ON_REQUEST SETPOINT_ON_REQUEST : 1;
     eSETPOINT_ON_DONE SETPOINT_ON_DONE : 1;
-    uint32_t _reserved_end : 4;
+    uint32_t _reserved_0 : 4;
   } bits;
   
   // Full 32-bit register value.
@@ -10591,7 +10591,7 @@ union LPCG18_CONFIG {
   struct {
     uint32_t _reserved_0 : 4;
     eSETPOINT_PRESENT SETPOINT_PRESENT : 1;
-    uint32_t _reserved_end : 27;
+    uint32_t _reserved_1 : 27;
   } bits;
   
   // Full 32-bit register value.
@@ -10650,18 +10650,18 @@ union LPCG18_AUTHEN {
   struct {
     eTZ_USER TZ_USER : 1;
     eTZ_NS TZ_NS : 1;
-    uint32_t _reserved_2 : 2;
+    uint32_t _reserved_0 : 2;
     eLOCK_TZ LOCK_TZ : 1;
-    uint32_t _reserved_3 : 3;
+    uint32_t _reserved_1 : 3;
     uint32_t WHITE_LIST : 4;
     eLOCK_LIST LOCK_LIST : 1;
-    uint32_t _reserved_5 : 3;
+    uint32_t _reserved_2 : 3;
     eDOMAIN_MODE DOMAIN_MODE : 1;
     eSETPOINT_MODE SETPOINT_MODE : 1;
     eCPULPM CPULPM : 1;
-    uint32_t _reserved_8 : 1;
+    uint32_t _reserved_3 : 1;
     eLOCK_MODE LOCK_MODE : 1;
-    uint32_t _reserved_end : 11;
+    uint32_t _reserved_4 : 11;
   } bits;
   
   // Full 32-bit register value.
@@ -10684,7 +10684,7 @@ union LPCG19_DIRECT {
   // Bit field definition.
   struct {
     eON ON : 1;
-    uint32_t _reserved_end : 31;
+    uint32_t _reserved_0 : 31;
   } bits;
   
   // Full 32-bit register value.
@@ -10742,15 +10742,15 @@ union LPCG19_DOMAIN {
   // Bit field definition.
   struct {
     eLEVEL LEVEL : 3;
-    uint32_t _reserved_1 : 13;
+    uint32_t _reserved_0 : 13;
     eLEVEL0 LEVEL0 : 3;
-    uint32_t _reserved_2 : 1;
+    uint32_t _reserved_1 : 1;
     eLEVEL1 LEVEL1 : 3;
-    uint32_t _reserved_3 : 1;
+    uint32_t _reserved_2 : 1;
     eLEVEL2 LEVEL2 : 3;
-    uint32_t _reserved_4 : 1;
+    uint32_t _reserved_3 : 1;
     eLEVEL3 LEVEL3 : 3;
-    uint32_t _reserved_end : 1;
+    uint32_t _reserved_4 : 1;
   } bits;
   
   // Full 32-bit register value.
@@ -10829,10 +10829,10 @@ union LPCG19_STATUS0 {
   // Bit field definition.
   struct {
     eON ON : 1;
-    uint32_t _reserved_1 : 7;
+    uint32_t _reserved_0 : 7;
     eACTIVE_DOMAIN ACTIVE_DOMAIN : 4;
     eDOMAIN_ENABLE DOMAIN_ENABLE : 4;
-    uint32_t _reserved_end : 16;
+    uint32_t _reserved_1 : 16;
   } bits;
   
   // Full 32-bit register value.
@@ -10955,7 +10955,7 @@ union LPCG19_STATUS1 {
     eSETPOINT_OFF_DONE SETPOINT_OFF_DONE : 1;
     eSETPOINT_ON_REQUEST SETPOINT_ON_REQUEST : 1;
     eSETPOINT_ON_DONE SETPOINT_ON_DONE : 1;
-    uint32_t _reserved_end : 4;
+    uint32_t _reserved_0 : 4;
   } bits;
   
   // Full 32-bit register value.
@@ -10979,7 +10979,7 @@ union LPCG19_CONFIG {
   struct {
     uint32_t _reserved_0 : 4;
     eSETPOINT_PRESENT SETPOINT_PRESENT : 1;
-    uint32_t _reserved_end : 27;
+    uint32_t _reserved_1 : 27;
   } bits;
   
   // Full 32-bit register value.
@@ -11038,18 +11038,18 @@ union LPCG19_AUTHEN {
   struct {
     eTZ_USER TZ_USER : 1;
     eTZ_NS TZ_NS : 1;
-    uint32_t _reserved_2 : 2;
+    uint32_t _reserved_0 : 2;
     eLOCK_TZ LOCK_TZ : 1;
-    uint32_t _reserved_3 : 3;
+    uint32_t _reserved_1 : 3;
     uint32_t WHITE_LIST : 4;
     eLOCK_LIST LOCK_LIST : 1;
-    uint32_t _reserved_5 : 3;
+    uint32_t _reserved_2 : 3;
     eDOMAIN_MODE DOMAIN_MODE : 1;
     eSETPOINT_MODE SETPOINT_MODE : 1;
     eCPULPM CPULPM : 1;
-    uint32_t _reserved_8 : 1;
+    uint32_t _reserved_3 : 1;
     eLOCK_MODE LOCK_MODE : 1;
-    uint32_t _reserved_end : 11;
+    uint32_t _reserved_4 : 11;
   } bits;
   
   // Full 32-bit register value.
@@ -11072,7 +11072,7 @@ union LPCG20_DIRECT {
   // Bit field definition.
   struct {
     eON ON : 1;
-    uint32_t _reserved_end : 31;
+    uint32_t _reserved_0 : 31;
   } bits;
   
   // Full 32-bit register value.
@@ -11130,15 +11130,15 @@ union LPCG20_DOMAIN {
   // Bit field definition.
   struct {
     eLEVEL LEVEL : 3;
-    uint32_t _reserved_1 : 13;
+    uint32_t _reserved_0 : 13;
     eLEVEL0 LEVEL0 : 3;
-    uint32_t _reserved_2 : 1;
+    uint32_t _reserved_1 : 1;
     eLEVEL1 LEVEL1 : 3;
-    uint32_t _reserved_3 : 1;
+    uint32_t _reserved_2 : 1;
     eLEVEL2 LEVEL2 : 3;
-    uint32_t _reserved_4 : 1;
+    uint32_t _reserved_3 : 1;
     eLEVEL3 LEVEL3 : 3;
-    uint32_t _reserved_end : 1;
+    uint32_t _reserved_4 : 1;
   } bits;
   
   // Full 32-bit register value.
@@ -11199,10 +11199,10 @@ union LPCG20_STATUS0 {
   // Bit field definition.
   struct {
     eON ON : 1;
-    uint32_t _reserved_1 : 7;
+    uint32_t _reserved_0 : 7;
     eACTIVE_DOMAIN ACTIVE_DOMAIN : 4;
     eDOMAIN_ENABLE DOMAIN_ENABLE : 4;
-    uint32_t _reserved_end : 16;
+    uint32_t _reserved_1 : 16;
   } bits;
   
   // Full 32-bit register value.
@@ -11325,7 +11325,7 @@ union LPCG20_STATUS1 {
     eSETPOINT_OFF_DONE SETPOINT_OFF_DONE : 1;
     eSETPOINT_ON_REQUEST SETPOINT_ON_REQUEST : 1;
     eSETPOINT_ON_DONE SETPOINT_ON_DONE : 1;
-    uint32_t _reserved_end : 4;
+    uint32_t _reserved_0 : 4;
   } bits;
   
   // Full 32-bit register value.
@@ -11349,7 +11349,7 @@ union LPCG20_CONFIG {
   struct {
     uint32_t _reserved_0 : 4;
     eSETPOINT_PRESENT SETPOINT_PRESENT : 1;
-    uint32_t _reserved_end : 27;
+    uint32_t _reserved_1 : 27;
   } bits;
   
   // Full 32-bit register value.
@@ -11408,18 +11408,18 @@ union LPCG20_AUTHEN {
   struct {
     eTZ_USER TZ_USER : 1;
     eTZ_NS TZ_NS : 1;
-    uint32_t _reserved_2 : 2;
+    uint32_t _reserved_0 : 2;
     eLOCK_TZ LOCK_TZ : 1;
-    uint32_t _reserved_3 : 3;
+    uint32_t _reserved_1 : 3;
     uint32_t WHITE_LIST : 4;
     eLOCK_LIST LOCK_LIST : 1;
-    uint32_t _reserved_5 : 3;
+    uint32_t _reserved_2 : 3;
     eDOMAIN_MODE DOMAIN_MODE : 1;
     eSETPOINT_MODE SETPOINT_MODE : 1;
     eCPULPM CPULPM : 1;
-    uint32_t _reserved_8 : 1;
+    uint32_t _reserved_3 : 1;
     eLOCK_MODE LOCK_MODE : 1;
-    uint32_t _reserved_end : 11;
+    uint32_t _reserved_4 : 11;
   } bits;
   
   // Full 32-bit register value.
@@ -11442,7 +11442,7 @@ union LPCG21_DIRECT {
   // Bit field definition.
   struct {
     eON ON : 1;
-    uint32_t _reserved_end : 31;
+    uint32_t _reserved_0 : 31;
   } bits;
   
   // Full 32-bit register value.
@@ -11500,15 +11500,15 @@ union LPCG21_DOMAIN {
   // Bit field definition.
   struct {
     eLEVEL LEVEL : 3;
-    uint32_t _reserved_1 : 13;
+    uint32_t _reserved_0 : 13;
     eLEVEL0 LEVEL0 : 3;
-    uint32_t _reserved_2 : 1;
+    uint32_t _reserved_1 : 1;
     eLEVEL1 LEVEL1 : 3;
-    uint32_t _reserved_3 : 1;
+    uint32_t _reserved_2 : 1;
     eLEVEL2 LEVEL2 : 3;
-    uint32_t _reserved_4 : 1;
+    uint32_t _reserved_3 : 1;
     eLEVEL3 LEVEL3 : 3;
-    uint32_t _reserved_end : 1;
+    uint32_t _reserved_4 : 1;
   } bits;
   
   // Full 32-bit register value.
@@ -11569,10 +11569,10 @@ union LPCG21_STATUS0 {
   // Bit field definition.
   struct {
     eON ON : 1;
-    uint32_t _reserved_1 : 7;
+    uint32_t _reserved_0 : 7;
     eACTIVE_DOMAIN ACTIVE_DOMAIN : 4;
     eDOMAIN_ENABLE DOMAIN_ENABLE : 4;
-    uint32_t _reserved_end : 16;
+    uint32_t _reserved_1 : 16;
   } bits;
   
   // Full 32-bit register value.
@@ -11695,7 +11695,7 @@ union LPCG21_STATUS1 {
     eSETPOINT_OFF_DONE SETPOINT_OFF_DONE : 1;
     eSETPOINT_ON_REQUEST SETPOINT_ON_REQUEST : 1;
     eSETPOINT_ON_DONE SETPOINT_ON_DONE : 1;
-    uint32_t _reserved_end : 4;
+    uint32_t _reserved_0 : 4;
   } bits;
   
   // Full 32-bit register value.
@@ -11719,7 +11719,7 @@ union LPCG21_CONFIG {
   struct {
     uint32_t _reserved_0 : 4;
     eSETPOINT_PRESENT SETPOINT_PRESENT : 1;
-    uint32_t _reserved_end : 27;
+    uint32_t _reserved_1 : 27;
   } bits;
   
   // Full 32-bit register value.
@@ -11778,18 +11778,18 @@ union LPCG21_AUTHEN {
   struct {
     eTZ_USER TZ_USER : 1;
     eTZ_NS TZ_NS : 1;
-    uint32_t _reserved_2 : 2;
+    uint32_t _reserved_0 : 2;
     eLOCK_TZ LOCK_TZ : 1;
-    uint32_t _reserved_3 : 3;
+    uint32_t _reserved_1 : 3;
     uint32_t WHITE_LIST : 4;
     eLOCK_LIST LOCK_LIST : 1;
-    uint32_t _reserved_5 : 3;
+    uint32_t _reserved_2 : 3;
     eDOMAIN_MODE DOMAIN_MODE : 1;
     eSETPOINT_MODE SETPOINT_MODE : 1;
     eCPULPM CPULPM : 1;
-    uint32_t _reserved_8 : 1;
+    uint32_t _reserved_3 : 1;
     eLOCK_MODE LOCK_MODE : 1;
-    uint32_t _reserved_end : 11;
+    uint32_t _reserved_4 : 11;
   } bits;
   
   // Full 32-bit register value.
@@ -11812,7 +11812,7 @@ union LPCG22_DIRECT {
   // Bit field definition.
   struct {
     eON ON : 1;
-    uint32_t _reserved_end : 31;
+    uint32_t _reserved_0 : 31;
   } bits;
   
   // Full 32-bit register value.
@@ -11870,15 +11870,15 @@ union LPCG22_DOMAIN {
   // Bit field definition.
   struct {
     eLEVEL LEVEL : 3;
-    uint32_t _reserved_1 : 13;
+    uint32_t _reserved_0 : 13;
     eLEVEL0 LEVEL0 : 3;
-    uint32_t _reserved_2 : 1;
+    uint32_t _reserved_1 : 1;
     eLEVEL1 LEVEL1 : 3;
-    uint32_t _reserved_3 : 1;
+    uint32_t _reserved_2 : 1;
     eLEVEL2 LEVEL2 : 3;
-    uint32_t _reserved_4 : 1;
+    uint32_t _reserved_3 : 1;
     eLEVEL3 LEVEL3 : 3;
-    uint32_t _reserved_end : 1;
+    uint32_t _reserved_4 : 1;
   } bits;
   
   // Full 32-bit register value.
@@ -11939,10 +11939,10 @@ union LPCG22_STATUS0 {
   // Bit field definition.
   struct {
     eON ON : 1;
-    uint32_t _reserved_1 : 7;
+    uint32_t _reserved_0 : 7;
     eACTIVE_DOMAIN ACTIVE_DOMAIN : 4;
     eDOMAIN_ENABLE DOMAIN_ENABLE : 4;
-    uint32_t _reserved_end : 16;
+    uint32_t _reserved_1 : 16;
   } bits;
   
   // Full 32-bit register value.
@@ -12065,7 +12065,7 @@ union LPCG22_STATUS1 {
     eSETPOINT_OFF_DONE SETPOINT_OFF_DONE : 1;
     eSETPOINT_ON_REQUEST SETPOINT_ON_REQUEST : 1;
     eSETPOINT_ON_DONE SETPOINT_ON_DONE : 1;
-    uint32_t _reserved_end : 4;
+    uint32_t _reserved_0 : 4;
   } bits;
   
   // Full 32-bit register value.
@@ -12089,7 +12089,7 @@ union LPCG22_CONFIG {
   struct {
     uint32_t _reserved_0 : 4;
     eSETPOINT_PRESENT SETPOINT_PRESENT : 1;
-    uint32_t _reserved_end : 27;
+    uint32_t _reserved_1 : 27;
   } bits;
   
   // Full 32-bit register value.
@@ -12148,18 +12148,18 @@ union LPCG22_AUTHEN {
   struct {
     eTZ_USER TZ_USER : 1;
     eTZ_NS TZ_NS : 1;
-    uint32_t _reserved_2 : 2;
+    uint32_t _reserved_0 : 2;
     eLOCK_TZ LOCK_TZ : 1;
-    uint32_t _reserved_3 : 3;
+    uint32_t _reserved_1 : 3;
     uint32_t WHITE_LIST : 4;
     eLOCK_LIST LOCK_LIST : 1;
-    uint32_t _reserved_5 : 3;
+    uint32_t _reserved_2 : 3;
     eDOMAIN_MODE DOMAIN_MODE : 1;
     eSETPOINT_MODE SETPOINT_MODE : 1;
     eCPULPM CPULPM : 1;
-    uint32_t _reserved_8 : 1;
+    uint32_t _reserved_3 : 1;
     eLOCK_MODE LOCK_MODE : 1;
-    uint32_t _reserved_end : 11;
+    uint32_t _reserved_4 : 11;
   } bits;
   
   // Full 32-bit register value.
@@ -12182,7 +12182,7 @@ union LPCG23_DIRECT {
   // Bit field definition.
   struct {
     eON ON : 1;
-    uint32_t _reserved_end : 31;
+    uint32_t _reserved_0 : 31;
   } bits;
   
   // Full 32-bit register value.
@@ -12240,15 +12240,15 @@ union LPCG23_DOMAIN {
   // Bit field definition.
   struct {
     eLEVEL LEVEL : 3;
-    uint32_t _reserved_1 : 13;
+    uint32_t _reserved_0 : 13;
     eLEVEL0 LEVEL0 : 3;
-    uint32_t _reserved_2 : 1;
+    uint32_t _reserved_1 : 1;
     eLEVEL1 LEVEL1 : 3;
-    uint32_t _reserved_3 : 1;
+    uint32_t _reserved_2 : 1;
     eLEVEL2 LEVEL2 : 3;
-    uint32_t _reserved_4 : 1;
+    uint32_t _reserved_3 : 1;
     eLEVEL3 LEVEL3 : 3;
-    uint32_t _reserved_end : 1;
+    uint32_t _reserved_4 : 1;
   } bits;
   
   // Full 32-bit register value.
@@ -12309,10 +12309,10 @@ union LPCG23_STATUS0 {
   // Bit field definition.
   struct {
     eON ON : 1;
-    uint32_t _reserved_1 : 7;
+    uint32_t _reserved_0 : 7;
     eACTIVE_DOMAIN ACTIVE_DOMAIN : 4;
     eDOMAIN_ENABLE DOMAIN_ENABLE : 4;
-    uint32_t _reserved_end : 16;
+    uint32_t _reserved_1 : 16;
   } bits;
   
   // Full 32-bit register value.
@@ -12435,7 +12435,7 @@ union LPCG23_STATUS1 {
     eSETPOINT_OFF_DONE SETPOINT_OFF_DONE : 1;
     eSETPOINT_ON_REQUEST SETPOINT_ON_REQUEST : 1;
     eSETPOINT_ON_DONE SETPOINT_ON_DONE : 1;
-    uint32_t _reserved_end : 4;
+    uint32_t _reserved_0 : 4;
   } bits;
   
   // Full 32-bit register value.
@@ -12459,7 +12459,7 @@ union LPCG23_CONFIG {
   struct {
     uint32_t _reserved_0 : 4;
     eSETPOINT_PRESENT SETPOINT_PRESENT : 1;
-    uint32_t _reserved_end : 27;
+    uint32_t _reserved_1 : 27;
   } bits;
   
   // Full 32-bit register value.
@@ -12518,18 +12518,18 @@ union LPCG23_AUTHEN {
   struct {
     eTZ_USER TZ_USER : 1;
     eTZ_NS TZ_NS : 1;
-    uint32_t _reserved_2 : 2;
+    uint32_t _reserved_0 : 2;
     eLOCK_TZ LOCK_TZ : 1;
-    uint32_t _reserved_3 : 3;
+    uint32_t _reserved_1 : 3;
     uint32_t WHITE_LIST : 4;
     eLOCK_LIST LOCK_LIST : 1;
-    uint32_t _reserved_5 : 3;
+    uint32_t _reserved_2 : 3;
     eDOMAIN_MODE DOMAIN_MODE : 1;
     eSETPOINT_MODE SETPOINT_MODE : 1;
     eCPULPM CPULPM : 1;
-    uint32_t _reserved_8 : 1;
+    uint32_t _reserved_3 : 1;
     eLOCK_MODE LOCK_MODE : 1;
-    uint32_t _reserved_end : 11;
+    uint32_t _reserved_4 : 11;
   } bits;
   
   // Full 32-bit register value.
@@ -12552,7 +12552,7 @@ union LPCG24_DIRECT {
   // Bit field definition.
   struct {
     eON ON : 1;
-    uint32_t _reserved_end : 31;
+    uint32_t _reserved_0 : 31;
   } bits;
   
   // Full 32-bit register value.
@@ -12610,15 +12610,15 @@ union LPCG24_DOMAIN {
   // Bit field definition.
   struct {
     eLEVEL LEVEL : 3;
-    uint32_t _reserved_1 : 13;
+    uint32_t _reserved_0 : 13;
     eLEVEL0 LEVEL0 : 3;
-    uint32_t _reserved_2 : 1;
+    uint32_t _reserved_1 : 1;
     eLEVEL1 LEVEL1 : 3;
-    uint32_t _reserved_3 : 1;
+    uint32_t _reserved_2 : 1;
     eLEVEL2 LEVEL2 : 3;
-    uint32_t _reserved_4 : 1;
+    uint32_t _reserved_3 : 1;
     eLEVEL3 LEVEL3 : 3;
-    uint32_t _reserved_end : 1;
+    uint32_t _reserved_4 : 1;
   } bits;
   
   // Full 32-bit register value.
@@ -12697,10 +12697,10 @@ union LPCG24_STATUS0 {
   // Bit field definition.
   struct {
     eON ON : 1;
-    uint32_t _reserved_1 : 7;
+    uint32_t _reserved_0 : 7;
     eACTIVE_DOMAIN ACTIVE_DOMAIN : 4;
     eDOMAIN_ENABLE DOMAIN_ENABLE : 4;
-    uint32_t _reserved_end : 16;
+    uint32_t _reserved_1 : 16;
   } bits;
   
   // Full 32-bit register value.
@@ -12823,7 +12823,7 @@ union LPCG24_STATUS1 {
     eSETPOINT_OFF_DONE SETPOINT_OFF_DONE : 1;
     eSETPOINT_ON_REQUEST SETPOINT_ON_REQUEST : 1;
     eSETPOINT_ON_DONE SETPOINT_ON_DONE : 1;
-    uint32_t _reserved_end : 4;
+    uint32_t _reserved_0 : 4;
   } bits;
   
   // Full 32-bit register value.
@@ -12847,7 +12847,7 @@ union LPCG24_CONFIG {
   struct {
     uint32_t _reserved_0 : 4;
     eSETPOINT_PRESENT SETPOINT_PRESENT : 1;
-    uint32_t _reserved_end : 27;
+    uint32_t _reserved_1 : 27;
   } bits;
   
   // Full 32-bit register value.
@@ -12906,18 +12906,18 @@ union LPCG24_AUTHEN {
   struct {
     eTZ_USER TZ_USER : 1;
     eTZ_NS TZ_NS : 1;
-    uint32_t _reserved_2 : 2;
+    uint32_t _reserved_0 : 2;
     eLOCK_TZ LOCK_TZ : 1;
-    uint32_t _reserved_3 : 3;
+    uint32_t _reserved_1 : 3;
     uint32_t WHITE_LIST : 4;
     eLOCK_LIST LOCK_LIST : 1;
-    uint32_t _reserved_5 : 3;
+    uint32_t _reserved_2 : 3;
     eDOMAIN_MODE DOMAIN_MODE : 1;
     eSETPOINT_MODE SETPOINT_MODE : 1;
     eCPULPM CPULPM : 1;
-    uint32_t _reserved_8 : 1;
+    uint32_t _reserved_3 : 1;
     eLOCK_MODE LOCK_MODE : 1;
-    uint32_t _reserved_end : 11;
+    uint32_t _reserved_4 : 11;
   } bits;
   
   // Full 32-bit register value.
@@ -12940,7 +12940,7 @@ union LPCG25_DIRECT {
   // Bit field definition.
   struct {
     eON ON : 1;
-    uint32_t _reserved_end : 31;
+    uint32_t _reserved_0 : 31;
   } bits;
   
   // Full 32-bit register value.
@@ -12998,15 +12998,15 @@ union LPCG25_DOMAIN {
   // Bit field definition.
   struct {
     eLEVEL LEVEL : 3;
-    uint32_t _reserved_1 : 13;
+    uint32_t _reserved_0 : 13;
     eLEVEL0 LEVEL0 : 3;
-    uint32_t _reserved_2 : 1;
+    uint32_t _reserved_1 : 1;
     eLEVEL1 LEVEL1 : 3;
-    uint32_t _reserved_3 : 1;
+    uint32_t _reserved_2 : 1;
     eLEVEL2 LEVEL2 : 3;
-    uint32_t _reserved_4 : 1;
+    uint32_t _reserved_3 : 1;
     eLEVEL3 LEVEL3 : 3;
-    uint32_t _reserved_end : 1;
+    uint32_t _reserved_4 : 1;
   } bits;
   
   // Full 32-bit register value.
@@ -13085,10 +13085,10 @@ union LPCG25_STATUS0 {
   // Bit field definition.
   struct {
     eON ON : 1;
-    uint32_t _reserved_1 : 7;
+    uint32_t _reserved_0 : 7;
     eACTIVE_DOMAIN ACTIVE_DOMAIN : 4;
     eDOMAIN_ENABLE DOMAIN_ENABLE : 4;
-    uint32_t _reserved_end : 16;
+    uint32_t _reserved_1 : 16;
   } bits;
   
   // Full 32-bit register value.
@@ -13211,7 +13211,7 @@ union LPCG25_STATUS1 {
     eSETPOINT_OFF_DONE SETPOINT_OFF_DONE : 1;
     eSETPOINT_ON_REQUEST SETPOINT_ON_REQUEST : 1;
     eSETPOINT_ON_DONE SETPOINT_ON_DONE : 1;
-    uint32_t _reserved_end : 4;
+    uint32_t _reserved_0 : 4;
   } bits;
   
   // Full 32-bit register value.
@@ -13235,7 +13235,7 @@ union LPCG25_CONFIG {
   struct {
     uint32_t _reserved_0 : 4;
     eSETPOINT_PRESENT SETPOINT_PRESENT : 1;
-    uint32_t _reserved_end : 27;
+    uint32_t _reserved_1 : 27;
   } bits;
   
   // Full 32-bit register value.
@@ -13294,18 +13294,18 @@ union LPCG25_AUTHEN {
   struct {
     eTZ_USER TZ_USER : 1;
     eTZ_NS TZ_NS : 1;
-    uint32_t _reserved_2 : 2;
+    uint32_t _reserved_0 : 2;
     eLOCK_TZ LOCK_TZ : 1;
-    uint32_t _reserved_3 : 3;
+    uint32_t _reserved_1 : 3;
     uint32_t WHITE_LIST : 4;
     eLOCK_LIST LOCK_LIST : 1;
-    uint32_t _reserved_5 : 3;
+    uint32_t _reserved_2 : 3;
     eDOMAIN_MODE DOMAIN_MODE : 1;
     eSETPOINT_MODE SETPOINT_MODE : 1;
     eCPULPM CPULPM : 1;
-    uint32_t _reserved_8 : 1;
+    uint32_t _reserved_3 : 1;
     eLOCK_MODE LOCK_MODE : 1;
-    uint32_t _reserved_end : 11;
+    uint32_t _reserved_4 : 11;
   } bits;
   
   // Full 32-bit register value.
@@ -13328,7 +13328,7 @@ union LPCG26_DIRECT {
   // Bit field definition.
   struct {
     eON ON : 1;
-    uint32_t _reserved_end : 31;
+    uint32_t _reserved_0 : 31;
   } bits;
   
   // Full 32-bit register value.
@@ -13386,15 +13386,15 @@ union LPCG26_DOMAIN {
   // Bit field definition.
   struct {
     eLEVEL LEVEL : 3;
-    uint32_t _reserved_1 : 13;
+    uint32_t _reserved_0 : 13;
     eLEVEL0 LEVEL0 : 3;
-    uint32_t _reserved_2 : 1;
+    uint32_t _reserved_1 : 1;
     eLEVEL1 LEVEL1 : 3;
-    uint32_t _reserved_3 : 1;
+    uint32_t _reserved_2 : 1;
     eLEVEL2 LEVEL2 : 3;
-    uint32_t _reserved_4 : 1;
+    uint32_t _reserved_3 : 1;
     eLEVEL3 LEVEL3 : 3;
-    uint32_t _reserved_end : 1;
+    uint32_t _reserved_4 : 1;
   } bits;
   
   // Full 32-bit register value.
@@ -13473,10 +13473,10 @@ union LPCG26_STATUS0 {
   // Bit field definition.
   struct {
     eON ON : 1;
-    uint32_t _reserved_1 : 7;
+    uint32_t _reserved_0 : 7;
     eACTIVE_DOMAIN ACTIVE_DOMAIN : 4;
     eDOMAIN_ENABLE DOMAIN_ENABLE : 4;
-    uint32_t _reserved_end : 16;
+    uint32_t _reserved_1 : 16;
   } bits;
   
   // Full 32-bit register value.
@@ -13599,7 +13599,7 @@ union LPCG26_STATUS1 {
     eSETPOINT_OFF_DONE SETPOINT_OFF_DONE : 1;
     eSETPOINT_ON_REQUEST SETPOINT_ON_REQUEST : 1;
     eSETPOINT_ON_DONE SETPOINT_ON_DONE : 1;
-    uint32_t _reserved_end : 4;
+    uint32_t _reserved_0 : 4;
   } bits;
   
   // Full 32-bit register value.
@@ -13623,7 +13623,7 @@ union LPCG26_CONFIG {
   struct {
     uint32_t _reserved_0 : 4;
     eSETPOINT_PRESENT SETPOINT_PRESENT : 1;
-    uint32_t _reserved_end : 27;
+    uint32_t _reserved_1 : 27;
   } bits;
   
   // Full 32-bit register value.
@@ -13682,18 +13682,18 @@ union LPCG26_AUTHEN {
   struct {
     eTZ_USER TZ_USER : 1;
     eTZ_NS TZ_NS : 1;
-    uint32_t _reserved_2 : 2;
+    uint32_t _reserved_0 : 2;
     eLOCK_TZ LOCK_TZ : 1;
-    uint32_t _reserved_3 : 3;
+    uint32_t _reserved_1 : 3;
     uint32_t WHITE_LIST : 4;
     eLOCK_LIST LOCK_LIST : 1;
-    uint32_t _reserved_5 : 3;
+    uint32_t _reserved_2 : 3;
     eDOMAIN_MODE DOMAIN_MODE : 1;
     eSETPOINT_MODE SETPOINT_MODE : 1;
     eCPULPM CPULPM : 1;
-    uint32_t _reserved_8 : 1;
+    uint32_t _reserved_3 : 1;
     eLOCK_MODE LOCK_MODE : 1;
-    uint32_t _reserved_end : 11;
+    uint32_t _reserved_4 : 11;
   } bits;
   
   // Full 32-bit register value.
@@ -13716,7 +13716,7 @@ union LPCG27_DIRECT {
   // Bit field definition.
   struct {
     eON ON : 1;
-    uint32_t _reserved_end : 31;
+    uint32_t _reserved_0 : 31;
   } bits;
   
   // Full 32-bit register value.
@@ -13774,15 +13774,15 @@ union LPCG27_DOMAIN {
   // Bit field definition.
   struct {
     eLEVEL LEVEL : 3;
-    uint32_t _reserved_1 : 13;
+    uint32_t _reserved_0 : 13;
     eLEVEL0 LEVEL0 : 3;
-    uint32_t _reserved_2 : 1;
+    uint32_t _reserved_1 : 1;
     eLEVEL1 LEVEL1 : 3;
-    uint32_t _reserved_3 : 1;
+    uint32_t _reserved_2 : 1;
     eLEVEL2 LEVEL2 : 3;
-    uint32_t _reserved_4 : 1;
+    uint32_t _reserved_3 : 1;
     eLEVEL3 LEVEL3 : 3;
-    uint32_t _reserved_end : 1;
+    uint32_t _reserved_4 : 1;
   } bits;
   
   // Full 32-bit register value.
@@ -13861,10 +13861,10 @@ union LPCG27_STATUS0 {
   // Bit field definition.
   struct {
     eON ON : 1;
-    uint32_t _reserved_1 : 7;
+    uint32_t _reserved_0 : 7;
     eACTIVE_DOMAIN ACTIVE_DOMAIN : 4;
     eDOMAIN_ENABLE DOMAIN_ENABLE : 4;
-    uint32_t _reserved_end : 16;
+    uint32_t _reserved_1 : 16;
   } bits;
   
   // Full 32-bit register value.
@@ -13987,7 +13987,7 @@ union LPCG27_STATUS1 {
     eSETPOINT_OFF_DONE SETPOINT_OFF_DONE : 1;
     eSETPOINT_ON_REQUEST SETPOINT_ON_REQUEST : 1;
     eSETPOINT_ON_DONE SETPOINT_ON_DONE : 1;
-    uint32_t _reserved_end : 4;
+    uint32_t _reserved_0 : 4;
   } bits;
   
   // Full 32-bit register value.
@@ -14011,7 +14011,7 @@ union LPCG27_CONFIG {
   struct {
     uint32_t _reserved_0 : 4;
     eSETPOINT_PRESENT SETPOINT_PRESENT : 1;
-    uint32_t _reserved_end : 27;
+    uint32_t _reserved_1 : 27;
   } bits;
   
   // Full 32-bit register value.
@@ -14070,18 +14070,18 @@ union LPCG27_AUTHEN {
   struct {
     eTZ_USER TZ_USER : 1;
     eTZ_NS TZ_NS : 1;
-    uint32_t _reserved_2 : 2;
+    uint32_t _reserved_0 : 2;
     eLOCK_TZ LOCK_TZ : 1;
-    uint32_t _reserved_3 : 3;
+    uint32_t _reserved_1 : 3;
     uint32_t WHITE_LIST : 4;
     eLOCK_LIST LOCK_LIST : 1;
-    uint32_t _reserved_5 : 3;
+    uint32_t _reserved_2 : 3;
     eDOMAIN_MODE DOMAIN_MODE : 1;
     eSETPOINT_MODE SETPOINT_MODE : 1;
     eCPULPM CPULPM : 1;
-    uint32_t _reserved_8 : 1;
+    uint32_t _reserved_3 : 1;
     eLOCK_MODE LOCK_MODE : 1;
-    uint32_t _reserved_end : 11;
+    uint32_t _reserved_4 : 11;
   } bits;
   
   // Full 32-bit register value.
@@ -14104,7 +14104,7 @@ union LPCG28_DIRECT {
   // Bit field definition.
   struct {
     eON ON : 1;
-    uint32_t _reserved_end : 31;
+    uint32_t _reserved_0 : 31;
   } bits;
   
   // Full 32-bit register value.
@@ -14162,15 +14162,15 @@ union LPCG28_DOMAIN {
   // Bit field definition.
   struct {
     eLEVEL LEVEL : 3;
-    uint32_t _reserved_1 : 13;
+    uint32_t _reserved_0 : 13;
     eLEVEL0 LEVEL0 : 3;
-    uint32_t _reserved_2 : 1;
+    uint32_t _reserved_1 : 1;
     eLEVEL1 LEVEL1 : 3;
-    uint32_t _reserved_3 : 1;
+    uint32_t _reserved_2 : 1;
     eLEVEL2 LEVEL2 : 3;
-    uint32_t _reserved_4 : 1;
+    uint32_t _reserved_3 : 1;
     eLEVEL3 LEVEL3 : 3;
-    uint32_t _reserved_end : 1;
+    uint32_t _reserved_4 : 1;
   } bits;
   
   // Full 32-bit register value.
@@ -14249,10 +14249,10 @@ union LPCG28_STATUS0 {
   // Bit field definition.
   struct {
     eON ON : 1;
-    uint32_t _reserved_1 : 7;
+    uint32_t _reserved_0 : 7;
     eACTIVE_DOMAIN ACTIVE_DOMAIN : 4;
     eDOMAIN_ENABLE DOMAIN_ENABLE : 4;
-    uint32_t _reserved_end : 16;
+    uint32_t _reserved_1 : 16;
   } bits;
   
   // Full 32-bit register value.
@@ -14375,7 +14375,7 @@ union LPCG28_STATUS1 {
     eSETPOINT_OFF_DONE SETPOINT_OFF_DONE : 1;
     eSETPOINT_ON_REQUEST SETPOINT_ON_REQUEST : 1;
     eSETPOINT_ON_DONE SETPOINT_ON_DONE : 1;
-    uint32_t _reserved_end : 4;
+    uint32_t _reserved_0 : 4;
   } bits;
   
   // Full 32-bit register value.
@@ -14399,7 +14399,7 @@ union LPCG28_CONFIG {
   struct {
     uint32_t _reserved_0 : 4;
     eSETPOINT_PRESENT SETPOINT_PRESENT : 1;
-    uint32_t _reserved_end : 27;
+    uint32_t _reserved_1 : 27;
   } bits;
   
   // Full 32-bit register value.
@@ -14458,18 +14458,18 @@ union LPCG28_AUTHEN {
   struct {
     eTZ_USER TZ_USER : 1;
     eTZ_NS TZ_NS : 1;
-    uint32_t _reserved_2 : 2;
+    uint32_t _reserved_0 : 2;
     eLOCK_TZ LOCK_TZ : 1;
-    uint32_t _reserved_3 : 3;
+    uint32_t _reserved_1 : 3;
     uint32_t WHITE_LIST : 4;
     eLOCK_LIST LOCK_LIST : 1;
-    uint32_t _reserved_5 : 3;
+    uint32_t _reserved_2 : 3;
     eDOMAIN_MODE DOMAIN_MODE : 1;
     eSETPOINT_MODE SETPOINT_MODE : 1;
     eCPULPM CPULPM : 1;
-    uint32_t _reserved_8 : 1;
+    uint32_t _reserved_3 : 1;
     eLOCK_MODE LOCK_MODE : 1;
-    uint32_t _reserved_end : 11;
+    uint32_t _reserved_4 : 11;
   } bits;
   
   // Full 32-bit register value.
@@ -14492,7 +14492,7 @@ union LPCG29_DIRECT {
   // Bit field definition.
   struct {
     eON ON : 1;
-    uint32_t _reserved_end : 31;
+    uint32_t _reserved_0 : 31;
   } bits;
   
   // Full 32-bit register value.
@@ -14550,15 +14550,15 @@ union LPCG29_DOMAIN {
   // Bit field definition.
   struct {
     eLEVEL LEVEL : 3;
-    uint32_t _reserved_1 : 13;
+    uint32_t _reserved_0 : 13;
     eLEVEL0 LEVEL0 : 3;
-    uint32_t _reserved_2 : 1;
+    uint32_t _reserved_1 : 1;
     eLEVEL1 LEVEL1 : 3;
-    uint32_t _reserved_3 : 1;
+    uint32_t _reserved_2 : 1;
     eLEVEL2 LEVEL2 : 3;
-    uint32_t _reserved_4 : 1;
+    uint32_t _reserved_3 : 1;
     eLEVEL3 LEVEL3 : 3;
-    uint32_t _reserved_end : 1;
+    uint32_t _reserved_4 : 1;
   } bits;
   
   // Full 32-bit register value.
@@ -14637,10 +14637,10 @@ union LPCG29_STATUS0 {
   // Bit field definition.
   struct {
     eON ON : 1;
-    uint32_t _reserved_1 : 7;
+    uint32_t _reserved_0 : 7;
     eACTIVE_DOMAIN ACTIVE_DOMAIN : 4;
     eDOMAIN_ENABLE DOMAIN_ENABLE : 4;
-    uint32_t _reserved_end : 16;
+    uint32_t _reserved_1 : 16;
   } bits;
   
   // Full 32-bit register value.
@@ -14763,7 +14763,7 @@ union LPCG29_STATUS1 {
     eSETPOINT_OFF_DONE SETPOINT_OFF_DONE : 1;
     eSETPOINT_ON_REQUEST SETPOINT_ON_REQUEST : 1;
     eSETPOINT_ON_DONE SETPOINT_ON_DONE : 1;
-    uint32_t _reserved_end : 4;
+    uint32_t _reserved_0 : 4;
   } bits;
   
   // Full 32-bit register value.
@@ -14787,7 +14787,7 @@ union LPCG29_CONFIG {
   struct {
     uint32_t _reserved_0 : 4;
     eSETPOINT_PRESENT SETPOINT_PRESENT : 1;
-    uint32_t _reserved_end : 27;
+    uint32_t _reserved_1 : 27;
   } bits;
   
   // Full 32-bit register value.
@@ -14846,18 +14846,18 @@ union LPCG29_AUTHEN {
   struct {
     eTZ_USER TZ_USER : 1;
     eTZ_NS TZ_NS : 1;
-    uint32_t _reserved_2 : 2;
+    uint32_t _reserved_0 : 2;
     eLOCK_TZ LOCK_TZ : 1;
-    uint32_t _reserved_3 : 3;
+    uint32_t _reserved_1 : 3;
     uint32_t WHITE_LIST : 4;
     eLOCK_LIST LOCK_LIST : 1;
-    uint32_t _reserved_5 : 3;
+    uint32_t _reserved_2 : 3;
     eDOMAIN_MODE DOMAIN_MODE : 1;
     eSETPOINT_MODE SETPOINT_MODE : 1;
     eCPULPM CPULPM : 1;
-    uint32_t _reserved_8 : 1;
+    uint32_t _reserved_3 : 1;
     eLOCK_MODE LOCK_MODE : 1;
-    uint32_t _reserved_end : 11;
+    uint32_t _reserved_4 : 11;
   } bits;
   
   // Full 32-bit register value.
@@ -14880,7 +14880,7 @@ union LPCG30_DIRECT {
   // Bit field definition.
   struct {
     eON ON : 1;
-    uint32_t _reserved_end : 31;
+    uint32_t _reserved_0 : 31;
   } bits;
   
   // Full 32-bit register value.
@@ -14938,15 +14938,15 @@ union LPCG30_DOMAIN {
   // Bit field definition.
   struct {
     eLEVEL LEVEL : 3;
-    uint32_t _reserved_1 : 13;
+    uint32_t _reserved_0 : 13;
     eLEVEL0 LEVEL0 : 3;
-    uint32_t _reserved_2 : 1;
+    uint32_t _reserved_1 : 1;
     eLEVEL1 LEVEL1 : 3;
-    uint32_t _reserved_3 : 1;
+    uint32_t _reserved_2 : 1;
     eLEVEL2 LEVEL2 : 3;
-    uint32_t _reserved_4 : 1;
+    uint32_t _reserved_3 : 1;
     eLEVEL3 LEVEL3 : 3;
-    uint32_t _reserved_end : 1;
+    uint32_t _reserved_4 : 1;
   } bits;
   
   // Full 32-bit register value.
@@ -15025,10 +15025,10 @@ union LPCG30_STATUS0 {
   // Bit field definition.
   struct {
     eON ON : 1;
-    uint32_t _reserved_1 : 7;
+    uint32_t _reserved_0 : 7;
     eACTIVE_DOMAIN ACTIVE_DOMAIN : 4;
     eDOMAIN_ENABLE DOMAIN_ENABLE : 4;
-    uint32_t _reserved_end : 16;
+    uint32_t _reserved_1 : 16;
   } bits;
   
   // Full 32-bit register value.
@@ -15151,7 +15151,7 @@ union LPCG30_STATUS1 {
     eSETPOINT_OFF_DONE SETPOINT_OFF_DONE : 1;
     eSETPOINT_ON_REQUEST SETPOINT_ON_REQUEST : 1;
     eSETPOINT_ON_DONE SETPOINT_ON_DONE : 1;
-    uint32_t _reserved_end : 4;
+    uint32_t _reserved_0 : 4;
   } bits;
   
   // Full 32-bit register value.
@@ -15175,7 +15175,7 @@ union LPCG30_CONFIG {
   struct {
     uint32_t _reserved_0 : 4;
     eSETPOINT_PRESENT SETPOINT_PRESENT : 1;
-    uint32_t _reserved_end : 27;
+    uint32_t _reserved_1 : 27;
   } bits;
   
   // Full 32-bit register value.
@@ -15234,18 +15234,18 @@ union LPCG30_AUTHEN {
   struct {
     eTZ_USER TZ_USER : 1;
     eTZ_NS TZ_NS : 1;
-    uint32_t _reserved_2 : 2;
+    uint32_t _reserved_0 : 2;
     eLOCK_TZ LOCK_TZ : 1;
-    uint32_t _reserved_3 : 3;
+    uint32_t _reserved_1 : 3;
     uint32_t WHITE_LIST : 4;
     eLOCK_LIST LOCK_LIST : 1;
-    uint32_t _reserved_5 : 3;
+    uint32_t _reserved_2 : 3;
     eDOMAIN_MODE DOMAIN_MODE : 1;
     eSETPOINT_MODE SETPOINT_MODE : 1;
     eCPULPM CPULPM : 1;
-    uint32_t _reserved_8 : 1;
+    uint32_t _reserved_3 : 1;
     eLOCK_MODE LOCK_MODE : 1;
-    uint32_t _reserved_end : 11;
+    uint32_t _reserved_4 : 11;
   } bits;
   
   // Full 32-bit register value.
@@ -15268,7 +15268,7 @@ union LPCG31_DIRECT {
   // Bit field definition.
   struct {
     eON ON : 1;
-    uint32_t _reserved_end : 31;
+    uint32_t _reserved_0 : 31;
   } bits;
   
   // Full 32-bit register value.
@@ -15326,15 +15326,15 @@ union LPCG31_DOMAIN {
   // Bit field definition.
   struct {
     eLEVEL LEVEL : 3;
-    uint32_t _reserved_1 : 13;
+    uint32_t _reserved_0 : 13;
     eLEVEL0 LEVEL0 : 3;
-    uint32_t _reserved_2 : 1;
+    uint32_t _reserved_1 : 1;
     eLEVEL1 LEVEL1 : 3;
-    uint32_t _reserved_3 : 1;
+    uint32_t _reserved_2 : 1;
     eLEVEL2 LEVEL2 : 3;
-    uint32_t _reserved_4 : 1;
+    uint32_t _reserved_3 : 1;
     eLEVEL3 LEVEL3 : 3;
-    uint32_t _reserved_end : 1;
+    uint32_t _reserved_4 : 1;
   } bits;
   
   // Full 32-bit register value.
@@ -15413,10 +15413,10 @@ union LPCG31_STATUS0 {
   // Bit field definition.
   struct {
     eON ON : 1;
-    uint32_t _reserved_1 : 7;
+    uint32_t _reserved_0 : 7;
     eACTIVE_DOMAIN ACTIVE_DOMAIN : 4;
     eDOMAIN_ENABLE DOMAIN_ENABLE : 4;
-    uint32_t _reserved_end : 16;
+    uint32_t _reserved_1 : 16;
   } bits;
   
   // Full 32-bit register value.
@@ -15539,7 +15539,7 @@ union LPCG31_STATUS1 {
     eSETPOINT_OFF_DONE SETPOINT_OFF_DONE : 1;
     eSETPOINT_ON_REQUEST SETPOINT_ON_REQUEST : 1;
     eSETPOINT_ON_DONE SETPOINT_ON_DONE : 1;
-    uint32_t _reserved_end : 4;
+    uint32_t _reserved_0 : 4;
   } bits;
   
   // Full 32-bit register value.
@@ -15563,7 +15563,7 @@ union LPCG31_CONFIG {
   struct {
     uint32_t _reserved_0 : 4;
     eSETPOINT_PRESENT SETPOINT_PRESENT : 1;
-    uint32_t _reserved_end : 27;
+    uint32_t _reserved_1 : 27;
   } bits;
   
   // Full 32-bit register value.
@@ -15622,18 +15622,18 @@ union LPCG31_AUTHEN {
   struct {
     eTZ_USER TZ_USER : 1;
     eTZ_NS TZ_NS : 1;
-    uint32_t _reserved_2 : 2;
+    uint32_t _reserved_0 : 2;
     eLOCK_TZ LOCK_TZ : 1;
-    uint32_t _reserved_3 : 3;
+    uint32_t _reserved_1 : 3;
     uint32_t WHITE_LIST : 4;
     eLOCK_LIST LOCK_LIST : 1;
-    uint32_t _reserved_5 : 3;
+    uint32_t _reserved_2 : 3;
     eDOMAIN_MODE DOMAIN_MODE : 1;
     eSETPOINT_MODE SETPOINT_MODE : 1;
     eCPULPM CPULPM : 1;
-    uint32_t _reserved_8 : 1;
+    uint32_t _reserved_3 : 1;
     eLOCK_MODE LOCK_MODE : 1;
-    uint32_t _reserved_end : 11;
+    uint32_t _reserved_4 : 11;
   } bits;
   
   // Full 32-bit register value.
@@ -15656,7 +15656,7 @@ union LPCG32_DIRECT {
   // Bit field definition.
   struct {
     eON ON : 1;
-    uint32_t _reserved_end : 31;
+    uint32_t _reserved_0 : 31;
   } bits;
   
   // Full 32-bit register value.
@@ -15714,15 +15714,15 @@ union LPCG32_DOMAIN {
   // Bit field definition.
   struct {
     eLEVEL LEVEL : 3;
-    uint32_t _reserved_1 : 13;
+    uint32_t _reserved_0 : 13;
     eLEVEL0 LEVEL0 : 3;
-    uint32_t _reserved_2 : 1;
+    uint32_t _reserved_1 : 1;
     eLEVEL1 LEVEL1 : 3;
-    uint32_t _reserved_3 : 1;
+    uint32_t _reserved_2 : 1;
     eLEVEL2 LEVEL2 : 3;
-    uint32_t _reserved_4 : 1;
+    uint32_t _reserved_3 : 1;
     eLEVEL3 LEVEL3 : 3;
-    uint32_t _reserved_end : 1;
+    uint32_t _reserved_4 : 1;
   } bits;
   
   // Full 32-bit register value.
@@ -15801,10 +15801,10 @@ union LPCG32_STATUS0 {
   // Bit field definition.
   struct {
     eON ON : 1;
-    uint32_t _reserved_1 : 7;
+    uint32_t _reserved_0 : 7;
     eACTIVE_DOMAIN ACTIVE_DOMAIN : 4;
     eDOMAIN_ENABLE DOMAIN_ENABLE : 4;
-    uint32_t _reserved_end : 16;
+    uint32_t _reserved_1 : 16;
   } bits;
   
   // Full 32-bit register value.
@@ -15927,7 +15927,7 @@ union LPCG32_STATUS1 {
     eSETPOINT_OFF_DONE SETPOINT_OFF_DONE : 1;
     eSETPOINT_ON_REQUEST SETPOINT_ON_REQUEST : 1;
     eSETPOINT_ON_DONE SETPOINT_ON_DONE : 1;
-    uint32_t _reserved_end : 4;
+    uint32_t _reserved_0 : 4;
   } bits;
   
   // Full 32-bit register value.
@@ -15951,7 +15951,7 @@ union LPCG32_CONFIG {
   struct {
     uint32_t _reserved_0 : 4;
     eSETPOINT_PRESENT SETPOINT_PRESENT : 1;
-    uint32_t _reserved_end : 27;
+    uint32_t _reserved_1 : 27;
   } bits;
   
   // Full 32-bit register value.
@@ -16010,18 +16010,18 @@ union LPCG32_AUTHEN {
   struct {
     eTZ_USER TZ_USER : 1;
     eTZ_NS TZ_NS : 1;
-    uint32_t _reserved_2 : 2;
+    uint32_t _reserved_0 : 2;
     eLOCK_TZ LOCK_TZ : 1;
-    uint32_t _reserved_3 : 3;
+    uint32_t _reserved_1 : 3;
     uint32_t WHITE_LIST : 4;
     eLOCK_LIST LOCK_LIST : 1;
-    uint32_t _reserved_5 : 3;
+    uint32_t _reserved_2 : 3;
     eDOMAIN_MODE DOMAIN_MODE : 1;
     eSETPOINT_MODE SETPOINT_MODE : 1;
     eCPULPM CPULPM : 1;
-    uint32_t _reserved_8 : 1;
+    uint32_t _reserved_3 : 1;
     eLOCK_MODE LOCK_MODE : 1;
-    uint32_t _reserved_end : 11;
+    uint32_t _reserved_4 : 11;
   } bits;
   
   // Full 32-bit register value.
@@ -16044,7 +16044,7 @@ union LPCG33_DIRECT {
   // Bit field definition.
   struct {
     eON ON : 1;
-    uint32_t _reserved_end : 31;
+    uint32_t _reserved_0 : 31;
   } bits;
   
   // Full 32-bit register value.
@@ -16102,15 +16102,15 @@ union LPCG33_DOMAIN {
   // Bit field definition.
   struct {
     eLEVEL LEVEL : 3;
-    uint32_t _reserved_1 : 13;
+    uint32_t _reserved_0 : 13;
     eLEVEL0 LEVEL0 : 3;
-    uint32_t _reserved_2 : 1;
+    uint32_t _reserved_1 : 1;
     eLEVEL1 LEVEL1 : 3;
-    uint32_t _reserved_3 : 1;
+    uint32_t _reserved_2 : 1;
     eLEVEL2 LEVEL2 : 3;
-    uint32_t _reserved_4 : 1;
+    uint32_t _reserved_3 : 1;
     eLEVEL3 LEVEL3 : 3;
-    uint32_t _reserved_end : 1;
+    uint32_t _reserved_4 : 1;
   } bits;
   
   // Full 32-bit register value.
@@ -16189,10 +16189,10 @@ union LPCG33_STATUS0 {
   // Bit field definition.
   struct {
     eON ON : 1;
-    uint32_t _reserved_1 : 7;
+    uint32_t _reserved_0 : 7;
     eACTIVE_DOMAIN ACTIVE_DOMAIN : 4;
     eDOMAIN_ENABLE DOMAIN_ENABLE : 4;
-    uint32_t _reserved_end : 16;
+    uint32_t _reserved_1 : 16;
   } bits;
   
   // Full 32-bit register value.
@@ -16315,7 +16315,7 @@ union LPCG33_STATUS1 {
     eSETPOINT_OFF_DONE SETPOINT_OFF_DONE : 1;
     eSETPOINT_ON_REQUEST SETPOINT_ON_REQUEST : 1;
     eSETPOINT_ON_DONE SETPOINT_ON_DONE : 1;
-    uint32_t _reserved_end : 4;
+    uint32_t _reserved_0 : 4;
   } bits;
   
   // Full 32-bit register value.
@@ -16339,7 +16339,7 @@ union LPCG33_CONFIG {
   struct {
     uint32_t _reserved_0 : 4;
     eSETPOINT_PRESENT SETPOINT_PRESENT : 1;
-    uint32_t _reserved_end : 27;
+    uint32_t _reserved_1 : 27;
   } bits;
   
   // Full 32-bit register value.
@@ -16398,18 +16398,18 @@ union LPCG33_AUTHEN {
   struct {
     eTZ_USER TZ_USER : 1;
     eTZ_NS TZ_NS : 1;
-    uint32_t _reserved_2 : 2;
+    uint32_t _reserved_0 : 2;
     eLOCK_TZ LOCK_TZ : 1;
-    uint32_t _reserved_3 : 3;
+    uint32_t _reserved_1 : 3;
     uint32_t WHITE_LIST : 4;
     eLOCK_LIST LOCK_LIST : 1;
-    uint32_t _reserved_5 : 3;
+    uint32_t _reserved_2 : 3;
     eDOMAIN_MODE DOMAIN_MODE : 1;
     eSETPOINT_MODE SETPOINT_MODE : 1;
     eCPULPM CPULPM : 1;
-    uint32_t _reserved_8 : 1;
+    uint32_t _reserved_3 : 1;
     eLOCK_MODE LOCK_MODE : 1;
-    uint32_t _reserved_end : 11;
+    uint32_t _reserved_4 : 11;
   } bits;
   
   // Full 32-bit register value.
@@ -16432,7 +16432,7 @@ union LPCG34_DIRECT {
   // Bit field definition.
   struct {
     eON ON : 1;
-    uint32_t _reserved_end : 31;
+    uint32_t _reserved_0 : 31;
   } bits;
   
   // Full 32-bit register value.
@@ -16490,15 +16490,15 @@ union LPCG34_DOMAIN {
   // Bit field definition.
   struct {
     eLEVEL LEVEL : 3;
-    uint32_t _reserved_1 : 13;
+    uint32_t _reserved_0 : 13;
     eLEVEL0 LEVEL0 : 3;
-    uint32_t _reserved_2 : 1;
+    uint32_t _reserved_1 : 1;
     eLEVEL1 LEVEL1 : 3;
-    uint32_t _reserved_3 : 1;
+    uint32_t _reserved_2 : 1;
     eLEVEL2 LEVEL2 : 3;
-    uint32_t _reserved_4 : 1;
+    uint32_t _reserved_3 : 1;
     eLEVEL3 LEVEL3 : 3;
-    uint32_t _reserved_end : 1;
+    uint32_t _reserved_4 : 1;
   } bits;
   
   // Full 32-bit register value.
@@ -16577,10 +16577,10 @@ union LPCG34_STATUS0 {
   // Bit field definition.
   struct {
     eON ON : 1;
-    uint32_t _reserved_1 : 7;
+    uint32_t _reserved_0 : 7;
     eACTIVE_DOMAIN ACTIVE_DOMAIN : 4;
     eDOMAIN_ENABLE DOMAIN_ENABLE : 4;
-    uint32_t _reserved_end : 16;
+    uint32_t _reserved_1 : 16;
   } bits;
   
   // Full 32-bit register value.
@@ -16703,7 +16703,7 @@ union LPCG34_STATUS1 {
     eSETPOINT_OFF_DONE SETPOINT_OFF_DONE : 1;
     eSETPOINT_ON_REQUEST SETPOINT_ON_REQUEST : 1;
     eSETPOINT_ON_DONE SETPOINT_ON_DONE : 1;
-    uint32_t _reserved_end : 4;
+    uint32_t _reserved_0 : 4;
   } bits;
   
   // Full 32-bit register value.
@@ -16727,7 +16727,7 @@ union LPCG34_CONFIG {
   struct {
     uint32_t _reserved_0 : 4;
     eSETPOINT_PRESENT SETPOINT_PRESENT : 1;
-    uint32_t _reserved_end : 27;
+    uint32_t _reserved_1 : 27;
   } bits;
   
   // Full 32-bit register value.
@@ -16786,18 +16786,18 @@ union LPCG34_AUTHEN {
   struct {
     eTZ_USER TZ_USER : 1;
     eTZ_NS TZ_NS : 1;
-    uint32_t _reserved_2 : 2;
+    uint32_t _reserved_0 : 2;
     eLOCK_TZ LOCK_TZ : 1;
-    uint32_t _reserved_3 : 3;
+    uint32_t _reserved_1 : 3;
     uint32_t WHITE_LIST : 4;
     eLOCK_LIST LOCK_LIST : 1;
-    uint32_t _reserved_5 : 3;
+    uint32_t _reserved_2 : 3;
     eDOMAIN_MODE DOMAIN_MODE : 1;
     eSETPOINT_MODE SETPOINT_MODE : 1;
     eCPULPM CPULPM : 1;
-    uint32_t _reserved_8 : 1;
+    uint32_t _reserved_3 : 1;
     eLOCK_MODE LOCK_MODE : 1;
-    uint32_t _reserved_end : 11;
+    uint32_t _reserved_4 : 11;
   } bits;
   
   // Full 32-bit register value.
@@ -16820,7 +16820,7 @@ union LPCG35_DIRECT {
   // Bit field definition.
   struct {
     eON ON : 1;
-    uint32_t _reserved_end : 31;
+    uint32_t _reserved_0 : 31;
   } bits;
   
   // Full 32-bit register value.
@@ -16878,15 +16878,15 @@ union LPCG35_DOMAIN {
   // Bit field definition.
   struct {
     eLEVEL LEVEL : 3;
-    uint32_t _reserved_1 : 13;
+    uint32_t _reserved_0 : 13;
     eLEVEL0 LEVEL0 : 3;
-    uint32_t _reserved_2 : 1;
+    uint32_t _reserved_1 : 1;
     eLEVEL1 LEVEL1 : 3;
-    uint32_t _reserved_3 : 1;
+    uint32_t _reserved_2 : 1;
     eLEVEL2 LEVEL2 : 3;
-    uint32_t _reserved_4 : 1;
+    uint32_t _reserved_3 : 1;
     eLEVEL3 LEVEL3 : 3;
-    uint32_t _reserved_end : 1;
+    uint32_t _reserved_4 : 1;
   } bits;
   
   // Full 32-bit register value.
@@ -16965,10 +16965,10 @@ union LPCG35_STATUS0 {
   // Bit field definition.
   struct {
     eON ON : 1;
-    uint32_t _reserved_1 : 7;
+    uint32_t _reserved_0 : 7;
     eACTIVE_DOMAIN ACTIVE_DOMAIN : 4;
     eDOMAIN_ENABLE DOMAIN_ENABLE : 4;
-    uint32_t _reserved_end : 16;
+    uint32_t _reserved_1 : 16;
   } bits;
   
   // Full 32-bit register value.
@@ -17091,7 +17091,7 @@ union LPCG35_STATUS1 {
     eSETPOINT_OFF_DONE SETPOINT_OFF_DONE : 1;
     eSETPOINT_ON_REQUEST SETPOINT_ON_REQUEST : 1;
     eSETPOINT_ON_DONE SETPOINT_ON_DONE : 1;
-    uint32_t _reserved_end : 4;
+    uint32_t _reserved_0 : 4;
   } bits;
   
   // Full 32-bit register value.
@@ -17115,7 +17115,7 @@ union LPCG35_CONFIG {
   struct {
     uint32_t _reserved_0 : 4;
     eSETPOINT_PRESENT SETPOINT_PRESENT : 1;
-    uint32_t _reserved_end : 27;
+    uint32_t _reserved_1 : 27;
   } bits;
   
   // Full 32-bit register value.
@@ -17174,18 +17174,18 @@ union LPCG35_AUTHEN {
   struct {
     eTZ_USER TZ_USER : 1;
     eTZ_NS TZ_NS : 1;
-    uint32_t _reserved_2 : 2;
+    uint32_t _reserved_0 : 2;
     eLOCK_TZ LOCK_TZ : 1;
-    uint32_t _reserved_3 : 3;
+    uint32_t _reserved_1 : 3;
     uint32_t WHITE_LIST : 4;
     eLOCK_LIST LOCK_LIST : 1;
-    uint32_t _reserved_5 : 3;
+    uint32_t _reserved_2 : 3;
     eDOMAIN_MODE DOMAIN_MODE : 1;
     eSETPOINT_MODE SETPOINT_MODE : 1;
     eCPULPM CPULPM : 1;
-    uint32_t _reserved_8 : 1;
+    uint32_t _reserved_3 : 1;
     eLOCK_MODE LOCK_MODE : 1;
-    uint32_t _reserved_end : 11;
+    uint32_t _reserved_4 : 11;
   } bits;
   
   // Full 32-bit register value.
@@ -17208,7 +17208,7 @@ union LPCG36_DIRECT {
   // Bit field definition.
   struct {
     eON ON : 1;
-    uint32_t _reserved_end : 31;
+    uint32_t _reserved_0 : 31;
   } bits;
   
   // Full 32-bit register value.
@@ -17266,15 +17266,15 @@ union LPCG36_DOMAIN {
   // Bit field definition.
   struct {
     eLEVEL LEVEL : 3;
-    uint32_t _reserved_1 : 13;
+    uint32_t _reserved_0 : 13;
     eLEVEL0 LEVEL0 : 3;
-    uint32_t _reserved_2 : 1;
+    uint32_t _reserved_1 : 1;
     eLEVEL1 LEVEL1 : 3;
-    uint32_t _reserved_3 : 1;
+    uint32_t _reserved_2 : 1;
     eLEVEL2 LEVEL2 : 3;
-    uint32_t _reserved_4 : 1;
+    uint32_t _reserved_3 : 1;
     eLEVEL3 LEVEL3 : 3;
-    uint32_t _reserved_end : 1;
+    uint32_t _reserved_4 : 1;
   } bits;
   
   // Full 32-bit register value.
@@ -17353,10 +17353,10 @@ union LPCG36_STATUS0 {
   // Bit field definition.
   struct {
     eON ON : 1;
-    uint32_t _reserved_1 : 7;
+    uint32_t _reserved_0 : 7;
     eACTIVE_DOMAIN ACTIVE_DOMAIN : 4;
     eDOMAIN_ENABLE DOMAIN_ENABLE : 4;
-    uint32_t _reserved_end : 16;
+    uint32_t _reserved_1 : 16;
   } bits;
   
   // Full 32-bit register value.
@@ -17479,7 +17479,7 @@ union LPCG36_STATUS1 {
     eSETPOINT_OFF_DONE SETPOINT_OFF_DONE : 1;
     eSETPOINT_ON_REQUEST SETPOINT_ON_REQUEST : 1;
     eSETPOINT_ON_DONE SETPOINT_ON_DONE : 1;
-    uint32_t _reserved_end : 4;
+    uint32_t _reserved_0 : 4;
   } bits;
   
   // Full 32-bit register value.
@@ -17503,7 +17503,7 @@ union LPCG36_CONFIG {
   struct {
     uint32_t _reserved_0 : 4;
     eSETPOINT_PRESENT SETPOINT_PRESENT : 1;
-    uint32_t _reserved_end : 27;
+    uint32_t _reserved_1 : 27;
   } bits;
   
   // Full 32-bit register value.
@@ -17562,18 +17562,18 @@ union LPCG36_AUTHEN {
   struct {
     eTZ_USER TZ_USER : 1;
     eTZ_NS TZ_NS : 1;
-    uint32_t _reserved_2 : 2;
+    uint32_t _reserved_0 : 2;
     eLOCK_TZ LOCK_TZ : 1;
-    uint32_t _reserved_3 : 3;
+    uint32_t _reserved_1 : 3;
     uint32_t WHITE_LIST : 4;
     eLOCK_LIST LOCK_LIST : 1;
-    uint32_t _reserved_5 : 3;
+    uint32_t _reserved_2 : 3;
     eDOMAIN_MODE DOMAIN_MODE : 1;
     eSETPOINT_MODE SETPOINT_MODE : 1;
     eCPULPM CPULPM : 1;
-    uint32_t _reserved_8 : 1;
+    uint32_t _reserved_3 : 1;
     eLOCK_MODE LOCK_MODE : 1;
-    uint32_t _reserved_end : 11;
+    uint32_t _reserved_4 : 11;
   } bits;
   
   // Full 32-bit register value.
@@ -17596,7 +17596,7 @@ union LPCG37_DIRECT {
   // Bit field definition.
   struct {
     eON ON : 1;
-    uint32_t _reserved_end : 31;
+    uint32_t _reserved_0 : 31;
   } bits;
   
   // Full 32-bit register value.
@@ -17654,15 +17654,15 @@ union LPCG37_DOMAIN {
   // Bit field definition.
   struct {
     eLEVEL LEVEL : 3;
-    uint32_t _reserved_1 : 13;
+    uint32_t _reserved_0 : 13;
     eLEVEL0 LEVEL0 : 3;
-    uint32_t _reserved_2 : 1;
+    uint32_t _reserved_1 : 1;
     eLEVEL1 LEVEL1 : 3;
-    uint32_t _reserved_3 : 1;
+    uint32_t _reserved_2 : 1;
     eLEVEL2 LEVEL2 : 3;
-    uint32_t _reserved_4 : 1;
+    uint32_t _reserved_3 : 1;
     eLEVEL3 LEVEL3 : 3;
-    uint32_t _reserved_end : 1;
+    uint32_t _reserved_4 : 1;
   } bits;
   
   // Full 32-bit register value.
@@ -17741,10 +17741,10 @@ union LPCG37_STATUS0 {
   // Bit field definition.
   struct {
     eON ON : 1;
-    uint32_t _reserved_1 : 7;
+    uint32_t _reserved_0 : 7;
     eACTIVE_DOMAIN ACTIVE_DOMAIN : 4;
     eDOMAIN_ENABLE DOMAIN_ENABLE : 4;
-    uint32_t _reserved_end : 16;
+    uint32_t _reserved_1 : 16;
   } bits;
   
   // Full 32-bit register value.
@@ -17867,7 +17867,7 @@ union LPCG37_STATUS1 {
     eSETPOINT_OFF_DONE SETPOINT_OFF_DONE : 1;
     eSETPOINT_ON_REQUEST SETPOINT_ON_REQUEST : 1;
     eSETPOINT_ON_DONE SETPOINT_ON_DONE : 1;
-    uint32_t _reserved_end : 4;
+    uint32_t _reserved_0 : 4;
   } bits;
   
   // Full 32-bit register value.
@@ -17891,7 +17891,7 @@ union LPCG37_CONFIG {
   struct {
     uint32_t _reserved_0 : 4;
     eSETPOINT_PRESENT SETPOINT_PRESENT : 1;
-    uint32_t _reserved_end : 27;
+    uint32_t _reserved_1 : 27;
   } bits;
   
   // Full 32-bit register value.
@@ -17950,18 +17950,18 @@ union LPCG37_AUTHEN {
   struct {
     eTZ_USER TZ_USER : 1;
     eTZ_NS TZ_NS : 1;
-    uint32_t _reserved_2 : 2;
+    uint32_t _reserved_0 : 2;
     eLOCK_TZ LOCK_TZ : 1;
-    uint32_t _reserved_3 : 3;
+    uint32_t _reserved_1 : 3;
     uint32_t WHITE_LIST : 4;
     eLOCK_LIST LOCK_LIST : 1;
-    uint32_t _reserved_5 : 3;
+    uint32_t _reserved_2 : 3;
     eDOMAIN_MODE DOMAIN_MODE : 1;
     eSETPOINT_MODE SETPOINT_MODE : 1;
     eCPULPM CPULPM : 1;
-    uint32_t _reserved_8 : 1;
+    uint32_t _reserved_3 : 1;
     eLOCK_MODE LOCK_MODE : 1;
-    uint32_t _reserved_end : 11;
+    uint32_t _reserved_4 : 11;
   } bits;
   
   // Full 32-bit register value.
@@ -17984,7 +17984,7 @@ union LPCG38_DIRECT {
   // Bit field definition.
   struct {
     eON ON : 1;
-    uint32_t _reserved_end : 31;
+    uint32_t _reserved_0 : 31;
   } bits;
   
   // Full 32-bit register value.
@@ -18042,15 +18042,15 @@ union LPCG38_DOMAIN {
   // Bit field definition.
   struct {
     eLEVEL LEVEL : 3;
-    uint32_t _reserved_1 : 13;
+    uint32_t _reserved_0 : 13;
     eLEVEL0 LEVEL0 : 3;
-    uint32_t _reserved_2 : 1;
+    uint32_t _reserved_1 : 1;
     eLEVEL1 LEVEL1 : 3;
-    uint32_t _reserved_3 : 1;
+    uint32_t _reserved_2 : 1;
     eLEVEL2 LEVEL2 : 3;
-    uint32_t _reserved_4 : 1;
+    uint32_t _reserved_3 : 1;
     eLEVEL3 LEVEL3 : 3;
-    uint32_t _reserved_end : 1;
+    uint32_t _reserved_4 : 1;
   } bits;
   
   // Full 32-bit register value.
@@ -18129,10 +18129,10 @@ union LPCG38_STATUS0 {
   // Bit field definition.
   struct {
     eON ON : 1;
-    uint32_t _reserved_1 : 7;
+    uint32_t _reserved_0 : 7;
     eACTIVE_DOMAIN ACTIVE_DOMAIN : 4;
     eDOMAIN_ENABLE DOMAIN_ENABLE : 4;
-    uint32_t _reserved_end : 16;
+    uint32_t _reserved_1 : 16;
   } bits;
   
   // Full 32-bit register value.
@@ -18255,7 +18255,7 @@ union LPCG38_STATUS1 {
     eSETPOINT_OFF_DONE SETPOINT_OFF_DONE : 1;
     eSETPOINT_ON_REQUEST SETPOINT_ON_REQUEST : 1;
     eSETPOINT_ON_DONE SETPOINT_ON_DONE : 1;
-    uint32_t _reserved_end : 4;
+    uint32_t _reserved_0 : 4;
   } bits;
   
   // Full 32-bit register value.
@@ -18279,7 +18279,7 @@ union LPCG38_CONFIG {
   struct {
     uint32_t _reserved_0 : 4;
     eSETPOINT_PRESENT SETPOINT_PRESENT : 1;
-    uint32_t _reserved_end : 27;
+    uint32_t _reserved_1 : 27;
   } bits;
   
   // Full 32-bit register value.
@@ -18338,18 +18338,18 @@ union LPCG38_AUTHEN {
   struct {
     eTZ_USER TZ_USER : 1;
     eTZ_NS TZ_NS : 1;
-    uint32_t _reserved_2 : 2;
+    uint32_t _reserved_0 : 2;
     eLOCK_TZ LOCK_TZ : 1;
-    uint32_t _reserved_3 : 3;
+    uint32_t _reserved_1 : 3;
     uint32_t WHITE_LIST : 4;
     eLOCK_LIST LOCK_LIST : 1;
-    uint32_t _reserved_5 : 3;
+    uint32_t _reserved_2 : 3;
     eDOMAIN_MODE DOMAIN_MODE : 1;
     eSETPOINT_MODE SETPOINT_MODE : 1;
     eCPULPM CPULPM : 1;
-    uint32_t _reserved_8 : 1;
+    uint32_t _reserved_3 : 1;
     eLOCK_MODE LOCK_MODE : 1;
-    uint32_t _reserved_end : 11;
+    uint32_t _reserved_4 : 11;
   } bits;
   
   // Full 32-bit register value.
@@ -18372,7 +18372,7 @@ union LPCG39_DIRECT {
   // Bit field definition.
   struct {
     eON ON : 1;
-    uint32_t _reserved_end : 31;
+    uint32_t _reserved_0 : 31;
   } bits;
   
   // Full 32-bit register value.
@@ -18430,15 +18430,15 @@ union LPCG39_DOMAIN {
   // Bit field definition.
   struct {
     eLEVEL LEVEL : 3;
-    uint32_t _reserved_1 : 13;
+    uint32_t _reserved_0 : 13;
     eLEVEL0 LEVEL0 : 3;
-    uint32_t _reserved_2 : 1;
+    uint32_t _reserved_1 : 1;
     eLEVEL1 LEVEL1 : 3;
-    uint32_t _reserved_3 : 1;
+    uint32_t _reserved_2 : 1;
     eLEVEL2 LEVEL2 : 3;
-    uint32_t _reserved_4 : 1;
+    uint32_t _reserved_3 : 1;
     eLEVEL3 LEVEL3 : 3;
-    uint32_t _reserved_end : 1;
+    uint32_t _reserved_4 : 1;
   } bits;
   
   // Full 32-bit register value.
@@ -18517,10 +18517,10 @@ union LPCG39_STATUS0 {
   // Bit field definition.
   struct {
     eON ON : 1;
-    uint32_t _reserved_1 : 7;
+    uint32_t _reserved_0 : 7;
     eACTIVE_DOMAIN ACTIVE_DOMAIN : 4;
     eDOMAIN_ENABLE DOMAIN_ENABLE : 4;
-    uint32_t _reserved_end : 16;
+    uint32_t _reserved_1 : 16;
   } bits;
   
   // Full 32-bit register value.
@@ -18643,7 +18643,7 @@ union LPCG39_STATUS1 {
     eSETPOINT_OFF_DONE SETPOINT_OFF_DONE : 1;
     eSETPOINT_ON_REQUEST SETPOINT_ON_REQUEST : 1;
     eSETPOINT_ON_DONE SETPOINT_ON_DONE : 1;
-    uint32_t _reserved_end : 4;
+    uint32_t _reserved_0 : 4;
   } bits;
   
   // Full 32-bit register value.
@@ -18667,7 +18667,7 @@ union LPCG39_CONFIG {
   struct {
     uint32_t _reserved_0 : 4;
     eSETPOINT_PRESENT SETPOINT_PRESENT : 1;
-    uint32_t _reserved_end : 27;
+    uint32_t _reserved_1 : 27;
   } bits;
   
   // Full 32-bit register value.
@@ -18726,18 +18726,18 @@ union LPCG39_AUTHEN {
   struct {
     eTZ_USER TZ_USER : 1;
     eTZ_NS TZ_NS : 1;
-    uint32_t _reserved_2 : 2;
+    uint32_t _reserved_0 : 2;
     eLOCK_TZ LOCK_TZ : 1;
-    uint32_t _reserved_3 : 3;
+    uint32_t _reserved_1 : 3;
     uint32_t WHITE_LIST : 4;
     eLOCK_LIST LOCK_LIST : 1;
-    uint32_t _reserved_5 : 3;
+    uint32_t _reserved_2 : 3;
     eDOMAIN_MODE DOMAIN_MODE : 1;
     eSETPOINT_MODE SETPOINT_MODE : 1;
     eCPULPM CPULPM : 1;
-    uint32_t _reserved_8 : 1;
+    uint32_t _reserved_3 : 1;
     eLOCK_MODE LOCK_MODE : 1;
-    uint32_t _reserved_end : 11;
+    uint32_t _reserved_4 : 11;
   } bits;
   
   // Full 32-bit register value.
@@ -18760,7 +18760,7 @@ union LPCG40_DIRECT {
   // Bit field definition.
   struct {
     eON ON : 1;
-    uint32_t _reserved_end : 31;
+    uint32_t _reserved_0 : 31;
   } bits;
   
   // Full 32-bit register value.
@@ -18818,15 +18818,15 @@ union LPCG40_DOMAIN {
   // Bit field definition.
   struct {
     eLEVEL LEVEL : 3;
-    uint32_t _reserved_1 : 13;
+    uint32_t _reserved_0 : 13;
     eLEVEL0 LEVEL0 : 3;
-    uint32_t _reserved_2 : 1;
+    uint32_t _reserved_1 : 1;
     eLEVEL1 LEVEL1 : 3;
-    uint32_t _reserved_3 : 1;
+    uint32_t _reserved_2 : 1;
     eLEVEL2 LEVEL2 : 3;
-    uint32_t _reserved_4 : 1;
+    uint32_t _reserved_3 : 1;
     eLEVEL3 LEVEL3 : 3;
-    uint32_t _reserved_end : 1;
+    uint32_t _reserved_4 : 1;
   } bits;
   
   // Full 32-bit register value.
@@ -18905,10 +18905,10 @@ union LPCG40_STATUS0 {
   // Bit field definition.
   struct {
     eON ON : 1;
-    uint32_t _reserved_1 : 7;
+    uint32_t _reserved_0 : 7;
     eACTIVE_DOMAIN ACTIVE_DOMAIN : 4;
     eDOMAIN_ENABLE DOMAIN_ENABLE : 4;
-    uint32_t _reserved_end : 16;
+    uint32_t _reserved_1 : 16;
   } bits;
   
   // Full 32-bit register value.
@@ -19031,7 +19031,7 @@ union LPCG40_STATUS1 {
     eSETPOINT_OFF_DONE SETPOINT_OFF_DONE : 1;
     eSETPOINT_ON_REQUEST SETPOINT_ON_REQUEST : 1;
     eSETPOINT_ON_DONE SETPOINT_ON_DONE : 1;
-    uint32_t _reserved_end : 4;
+    uint32_t _reserved_0 : 4;
   } bits;
   
   // Full 32-bit register value.
@@ -19055,7 +19055,7 @@ union LPCG40_CONFIG {
   struct {
     uint32_t _reserved_0 : 4;
     eSETPOINT_PRESENT SETPOINT_PRESENT : 1;
-    uint32_t _reserved_end : 27;
+    uint32_t _reserved_1 : 27;
   } bits;
   
   // Full 32-bit register value.
@@ -19114,18 +19114,18 @@ union LPCG40_AUTHEN {
   struct {
     eTZ_USER TZ_USER : 1;
     eTZ_NS TZ_NS : 1;
-    uint32_t _reserved_2 : 2;
+    uint32_t _reserved_0 : 2;
     eLOCK_TZ LOCK_TZ : 1;
-    uint32_t _reserved_3 : 3;
+    uint32_t _reserved_1 : 3;
     uint32_t WHITE_LIST : 4;
     eLOCK_LIST LOCK_LIST : 1;
-    uint32_t _reserved_5 : 3;
+    uint32_t _reserved_2 : 3;
     eDOMAIN_MODE DOMAIN_MODE : 1;
     eSETPOINT_MODE SETPOINT_MODE : 1;
     eCPULPM CPULPM : 1;
-    uint32_t _reserved_8 : 1;
+    uint32_t _reserved_3 : 1;
     eLOCK_MODE LOCK_MODE : 1;
-    uint32_t _reserved_end : 11;
+    uint32_t _reserved_4 : 11;
   } bits;
   
   // Full 32-bit register value.
@@ -19148,7 +19148,7 @@ union LPCG41_DIRECT {
   // Bit field definition.
   struct {
     eON ON : 1;
-    uint32_t _reserved_end : 31;
+    uint32_t _reserved_0 : 31;
   } bits;
   
   // Full 32-bit register value.
@@ -19206,15 +19206,15 @@ union LPCG41_DOMAIN {
   // Bit field definition.
   struct {
     eLEVEL LEVEL : 3;
-    uint32_t _reserved_1 : 13;
+    uint32_t _reserved_0 : 13;
     eLEVEL0 LEVEL0 : 3;
-    uint32_t _reserved_2 : 1;
+    uint32_t _reserved_1 : 1;
     eLEVEL1 LEVEL1 : 3;
-    uint32_t _reserved_3 : 1;
+    uint32_t _reserved_2 : 1;
     eLEVEL2 LEVEL2 : 3;
-    uint32_t _reserved_4 : 1;
+    uint32_t _reserved_3 : 1;
     eLEVEL3 LEVEL3 : 3;
-    uint32_t _reserved_end : 1;
+    uint32_t _reserved_4 : 1;
   } bits;
   
   // Full 32-bit register value.
@@ -19275,10 +19275,10 @@ union LPCG41_STATUS0 {
   // Bit field definition.
   struct {
     eON ON : 1;
-    uint32_t _reserved_1 : 7;
+    uint32_t _reserved_0 : 7;
     eACTIVE_DOMAIN ACTIVE_DOMAIN : 4;
     eDOMAIN_ENABLE DOMAIN_ENABLE : 4;
-    uint32_t _reserved_end : 16;
+    uint32_t _reserved_1 : 16;
   } bits;
   
   // Full 32-bit register value.
@@ -19401,7 +19401,7 @@ union LPCG41_STATUS1 {
     eSETPOINT_OFF_DONE SETPOINT_OFF_DONE : 1;
     eSETPOINT_ON_REQUEST SETPOINT_ON_REQUEST : 1;
     eSETPOINT_ON_DONE SETPOINT_ON_DONE : 1;
-    uint32_t _reserved_end : 4;
+    uint32_t _reserved_0 : 4;
   } bits;
   
   // Full 32-bit register value.
@@ -19425,7 +19425,7 @@ union LPCG41_CONFIG {
   struct {
     uint32_t _reserved_0 : 4;
     eSETPOINT_PRESENT SETPOINT_PRESENT : 1;
-    uint32_t _reserved_end : 27;
+    uint32_t _reserved_1 : 27;
   } bits;
   
   // Full 32-bit register value.
@@ -19484,18 +19484,18 @@ union LPCG41_AUTHEN {
   struct {
     eTZ_USER TZ_USER : 1;
     eTZ_NS TZ_NS : 1;
-    uint32_t _reserved_2 : 2;
+    uint32_t _reserved_0 : 2;
     eLOCK_TZ LOCK_TZ : 1;
-    uint32_t _reserved_3 : 3;
+    uint32_t _reserved_1 : 3;
     uint32_t WHITE_LIST : 4;
     eLOCK_LIST LOCK_LIST : 1;
-    uint32_t _reserved_5 : 3;
+    uint32_t _reserved_2 : 3;
     eDOMAIN_MODE DOMAIN_MODE : 1;
     eSETPOINT_MODE SETPOINT_MODE : 1;
     eCPULPM CPULPM : 1;
-    uint32_t _reserved_8 : 1;
+    uint32_t _reserved_3 : 1;
     eLOCK_MODE LOCK_MODE : 1;
-    uint32_t _reserved_end : 11;
+    uint32_t _reserved_4 : 11;
   } bits;
   
   // Full 32-bit register value.
@@ -19518,7 +19518,7 @@ union LPCG42_DIRECT {
   // Bit field definition.
   struct {
     eON ON : 1;
-    uint32_t _reserved_end : 31;
+    uint32_t _reserved_0 : 31;
   } bits;
   
   // Full 32-bit register value.
@@ -19576,15 +19576,15 @@ union LPCG42_DOMAIN {
   // Bit field definition.
   struct {
     eLEVEL LEVEL : 3;
-    uint32_t _reserved_1 : 13;
+    uint32_t _reserved_0 : 13;
     eLEVEL0 LEVEL0 : 3;
-    uint32_t _reserved_2 : 1;
+    uint32_t _reserved_1 : 1;
     eLEVEL1 LEVEL1 : 3;
-    uint32_t _reserved_3 : 1;
+    uint32_t _reserved_2 : 1;
     eLEVEL2 LEVEL2 : 3;
-    uint32_t _reserved_4 : 1;
+    uint32_t _reserved_3 : 1;
     eLEVEL3 LEVEL3 : 3;
-    uint32_t _reserved_end : 1;
+    uint32_t _reserved_4 : 1;
   } bits;
   
   // Full 32-bit register value.
@@ -19645,10 +19645,10 @@ union LPCG42_STATUS0 {
   // Bit field definition.
   struct {
     eON ON : 1;
-    uint32_t _reserved_1 : 7;
+    uint32_t _reserved_0 : 7;
     eACTIVE_DOMAIN ACTIVE_DOMAIN : 4;
     eDOMAIN_ENABLE DOMAIN_ENABLE : 4;
-    uint32_t _reserved_end : 16;
+    uint32_t _reserved_1 : 16;
   } bits;
   
   // Full 32-bit register value.
@@ -19771,7 +19771,7 @@ union LPCG42_STATUS1 {
     eSETPOINT_OFF_DONE SETPOINT_OFF_DONE : 1;
     eSETPOINT_ON_REQUEST SETPOINT_ON_REQUEST : 1;
     eSETPOINT_ON_DONE SETPOINT_ON_DONE : 1;
-    uint32_t _reserved_end : 4;
+    uint32_t _reserved_0 : 4;
   } bits;
   
   // Full 32-bit register value.
@@ -19795,7 +19795,7 @@ union LPCG42_CONFIG {
   struct {
     uint32_t _reserved_0 : 4;
     eSETPOINT_PRESENT SETPOINT_PRESENT : 1;
-    uint32_t _reserved_end : 27;
+    uint32_t _reserved_1 : 27;
   } bits;
   
   // Full 32-bit register value.
@@ -19854,18 +19854,18 @@ union LPCG42_AUTHEN {
   struct {
     eTZ_USER TZ_USER : 1;
     eTZ_NS TZ_NS : 1;
-    uint32_t _reserved_2 : 2;
+    uint32_t _reserved_0 : 2;
     eLOCK_TZ LOCK_TZ : 1;
-    uint32_t _reserved_3 : 3;
+    uint32_t _reserved_1 : 3;
     uint32_t WHITE_LIST : 4;
     eLOCK_LIST LOCK_LIST : 1;
-    uint32_t _reserved_5 : 3;
+    uint32_t _reserved_2 : 3;
     eDOMAIN_MODE DOMAIN_MODE : 1;
     eSETPOINT_MODE SETPOINT_MODE : 1;
     eCPULPM CPULPM : 1;
-    uint32_t _reserved_8 : 1;
+    uint32_t _reserved_3 : 1;
     eLOCK_MODE LOCK_MODE : 1;
-    uint32_t _reserved_end : 11;
+    uint32_t _reserved_4 : 11;
   } bits;
   
   // Full 32-bit register value.
@@ -19888,7 +19888,7 @@ union LPCG43_DIRECT {
   // Bit field definition.
   struct {
     eON ON : 1;
-    uint32_t _reserved_end : 31;
+    uint32_t _reserved_0 : 31;
   } bits;
   
   // Full 32-bit register value.
@@ -19946,15 +19946,15 @@ union LPCG43_DOMAIN {
   // Bit field definition.
   struct {
     eLEVEL LEVEL : 3;
-    uint32_t _reserved_1 : 13;
+    uint32_t _reserved_0 : 13;
     eLEVEL0 LEVEL0 : 3;
-    uint32_t _reserved_2 : 1;
+    uint32_t _reserved_1 : 1;
     eLEVEL1 LEVEL1 : 3;
-    uint32_t _reserved_3 : 1;
+    uint32_t _reserved_2 : 1;
     eLEVEL2 LEVEL2 : 3;
-    uint32_t _reserved_4 : 1;
+    uint32_t _reserved_3 : 1;
     eLEVEL3 LEVEL3 : 3;
-    uint32_t _reserved_end : 1;
+    uint32_t _reserved_4 : 1;
   } bits;
   
   // Full 32-bit register value.
@@ -20033,10 +20033,10 @@ union LPCG43_STATUS0 {
   // Bit field definition.
   struct {
     eON ON : 1;
-    uint32_t _reserved_1 : 7;
+    uint32_t _reserved_0 : 7;
     eACTIVE_DOMAIN ACTIVE_DOMAIN : 4;
     eDOMAIN_ENABLE DOMAIN_ENABLE : 4;
-    uint32_t _reserved_end : 16;
+    uint32_t _reserved_1 : 16;
   } bits;
   
   // Full 32-bit register value.
@@ -20159,7 +20159,7 @@ union LPCG43_STATUS1 {
     eSETPOINT_OFF_DONE SETPOINT_OFF_DONE : 1;
     eSETPOINT_ON_REQUEST SETPOINT_ON_REQUEST : 1;
     eSETPOINT_ON_DONE SETPOINT_ON_DONE : 1;
-    uint32_t _reserved_end : 4;
+    uint32_t _reserved_0 : 4;
   } bits;
   
   // Full 32-bit register value.
@@ -20183,7 +20183,7 @@ union LPCG43_CONFIG {
   struct {
     uint32_t _reserved_0 : 4;
     eSETPOINT_PRESENT SETPOINT_PRESENT : 1;
-    uint32_t _reserved_end : 27;
+    uint32_t _reserved_1 : 27;
   } bits;
   
   // Full 32-bit register value.
@@ -20242,18 +20242,18 @@ union LPCG43_AUTHEN {
   struct {
     eTZ_USER TZ_USER : 1;
     eTZ_NS TZ_NS : 1;
-    uint32_t _reserved_2 : 2;
+    uint32_t _reserved_0 : 2;
     eLOCK_TZ LOCK_TZ : 1;
-    uint32_t _reserved_3 : 3;
+    uint32_t _reserved_1 : 3;
     uint32_t WHITE_LIST : 4;
     eLOCK_LIST LOCK_LIST : 1;
-    uint32_t _reserved_5 : 3;
+    uint32_t _reserved_2 : 3;
     eDOMAIN_MODE DOMAIN_MODE : 1;
     eSETPOINT_MODE SETPOINT_MODE : 1;
     eCPULPM CPULPM : 1;
-    uint32_t _reserved_8 : 1;
+    uint32_t _reserved_3 : 1;
     eLOCK_MODE LOCK_MODE : 1;
-    uint32_t _reserved_end : 11;
+    uint32_t _reserved_4 : 11;
   } bits;
   
   // Full 32-bit register value.
@@ -20276,7 +20276,7 @@ union LPCG44_DIRECT {
   // Bit field definition.
   struct {
     eON ON : 1;
-    uint32_t _reserved_end : 31;
+    uint32_t _reserved_0 : 31;
   } bits;
   
   // Full 32-bit register value.
@@ -20334,15 +20334,15 @@ union LPCG44_DOMAIN {
   // Bit field definition.
   struct {
     eLEVEL LEVEL : 3;
-    uint32_t _reserved_1 : 13;
+    uint32_t _reserved_0 : 13;
     eLEVEL0 LEVEL0 : 3;
-    uint32_t _reserved_2 : 1;
+    uint32_t _reserved_1 : 1;
     eLEVEL1 LEVEL1 : 3;
-    uint32_t _reserved_3 : 1;
+    uint32_t _reserved_2 : 1;
     eLEVEL2 LEVEL2 : 3;
-    uint32_t _reserved_4 : 1;
+    uint32_t _reserved_3 : 1;
     eLEVEL3 LEVEL3 : 3;
-    uint32_t _reserved_end : 1;
+    uint32_t _reserved_4 : 1;
   } bits;
   
   // Full 32-bit register value.
@@ -20421,10 +20421,10 @@ union LPCG44_STATUS0 {
   // Bit field definition.
   struct {
     eON ON : 1;
-    uint32_t _reserved_1 : 7;
+    uint32_t _reserved_0 : 7;
     eACTIVE_DOMAIN ACTIVE_DOMAIN : 4;
     eDOMAIN_ENABLE DOMAIN_ENABLE : 4;
-    uint32_t _reserved_end : 16;
+    uint32_t _reserved_1 : 16;
   } bits;
   
   // Full 32-bit register value.
@@ -20547,7 +20547,7 @@ union LPCG44_STATUS1 {
     eSETPOINT_OFF_DONE SETPOINT_OFF_DONE : 1;
     eSETPOINT_ON_REQUEST SETPOINT_ON_REQUEST : 1;
     eSETPOINT_ON_DONE SETPOINT_ON_DONE : 1;
-    uint32_t _reserved_end : 4;
+    uint32_t _reserved_0 : 4;
   } bits;
   
   // Full 32-bit register value.
@@ -20571,7 +20571,7 @@ union LPCG44_CONFIG {
   struct {
     uint32_t _reserved_0 : 4;
     eSETPOINT_PRESENT SETPOINT_PRESENT : 1;
-    uint32_t _reserved_end : 27;
+    uint32_t _reserved_1 : 27;
   } bits;
   
   // Full 32-bit register value.
@@ -20630,18 +20630,18 @@ union LPCG44_AUTHEN {
   struct {
     eTZ_USER TZ_USER : 1;
     eTZ_NS TZ_NS : 1;
-    uint32_t _reserved_2 : 2;
+    uint32_t _reserved_0 : 2;
     eLOCK_TZ LOCK_TZ : 1;
-    uint32_t _reserved_3 : 3;
+    uint32_t _reserved_1 : 3;
     uint32_t WHITE_LIST : 4;
     eLOCK_LIST LOCK_LIST : 1;
-    uint32_t _reserved_5 : 3;
+    uint32_t _reserved_2 : 3;
     eDOMAIN_MODE DOMAIN_MODE : 1;
     eSETPOINT_MODE SETPOINT_MODE : 1;
     eCPULPM CPULPM : 1;
-    uint32_t _reserved_8 : 1;
+    uint32_t _reserved_3 : 1;
     eLOCK_MODE LOCK_MODE : 1;
-    uint32_t _reserved_end : 11;
+    uint32_t _reserved_4 : 11;
   } bits;
   
   // Full 32-bit register value.
@@ -20664,7 +20664,7 @@ union LPCG45_DIRECT {
   // Bit field definition.
   struct {
     eON ON : 1;
-    uint32_t _reserved_end : 31;
+    uint32_t _reserved_0 : 31;
   } bits;
   
   // Full 32-bit register value.
@@ -20722,15 +20722,15 @@ union LPCG45_DOMAIN {
   // Bit field definition.
   struct {
     eLEVEL LEVEL : 3;
-    uint32_t _reserved_1 : 13;
+    uint32_t _reserved_0 : 13;
     eLEVEL0 LEVEL0 : 3;
-    uint32_t _reserved_2 : 1;
+    uint32_t _reserved_1 : 1;
     eLEVEL1 LEVEL1 : 3;
-    uint32_t _reserved_3 : 1;
+    uint32_t _reserved_2 : 1;
     eLEVEL2 LEVEL2 : 3;
-    uint32_t _reserved_4 : 1;
+    uint32_t _reserved_3 : 1;
     eLEVEL3 LEVEL3 : 3;
-    uint32_t _reserved_end : 1;
+    uint32_t _reserved_4 : 1;
   } bits;
   
   // Full 32-bit register value.
@@ -20809,10 +20809,10 @@ union LPCG45_STATUS0 {
   // Bit field definition.
   struct {
     eON ON : 1;
-    uint32_t _reserved_1 : 7;
+    uint32_t _reserved_0 : 7;
     eACTIVE_DOMAIN ACTIVE_DOMAIN : 4;
     eDOMAIN_ENABLE DOMAIN_ENABLE : 4;
-    uint32_t _reserved_end : 16;
+    uint32_t _reserved_1 : 16;
   } bits;
   
   // Full 32-bit register value.
@@ -20935,7 +20935,7 @@ union LPCG45_STATUS1 {
     eSETPOINT_OFF_DONE SETPOINT_OFF_DONE : 1;
     eSETPOINT_ON_REQUEST SETPOINT_ON_REQUEST : 1;
     eSETPOINT_ON_DONE SETPOINT_ON_DONE : 1;
-    uint32_t _reserved_end : 4;
+    uint32_t _reserved_0 : 4;
   } bits;
   
   // Full 32-bit register value.
@@ -20959,7 +20959,7 @@ union LPCG45_CONFIG {
   struct {
     uint32_t _reserved_0 : 4;
     eSETPOINT_PRESENT SETPOINT_PRESENT : 1;
-    uint32_t _reserved_end : 27;
+    uint32_t _reserved_1 : 27;
   } bits;
   
   // Full 32-bit register value.
@@ -21018,18 +21018,18 @@ union LPCG45_AUTHEN {
   struct {
     eTZ_USER TZ_USER : 1;
     eTZ_NS TZ_NS : 1;
-    uint32_t _reserved_2 : 2;
+    uint32_t _reserved_0 : 2;
     eLOCK_TZ LOCK_TZ : 1;
-    uint32_t _reserved_3 : 3;
+    uint32_t _reserved_1 : 3;
     uint32_t WHITE_LIST : 4;
     eLOCK_LIST LOCK_LIST : 1;
-    uint32_t _reserved_5 : 3;
+    uint32_t _reserved_2 : 3;
     eDOMAIN_MODE DOMAIN_MODE : 1;
     eSETPOINT_MODE SETPOINT_MODE : 1;
     eCPULPM CPULPM : 1;
-    uint32_t _reserved_8 : 1;
+    uint32_t _reserved_3 : 1;
     eLOCK_MODE LOCK_MODE : 1;
-    uint32_t _reserved_end : 11;
+    uint32_t _reserved_4 : 11;
   } bits;
   
   // Full 32-bit register value.
@@ -21052,7 +21052,7 @@ union LPCG46_DIRECT {
   // Bit field definition.
   struct {
     eON ON : 1;
-    uint32_t _reserved_end : 31;
+    uint32_t _reserved_0 : 31;
   } bits;
   
   // Full 32-bit register value.
@@ -21110,15 +21110,15 @@ union LPCG46_DOMAIN {
   // Bit field definition.
   struct {
     eLEVEL LEVEL : 3;
-    uint32_t _reserved_1 : 13;
+    uint32_t _reserved_0 : 13;
     eLEVEL0 LEVEL0 : 3;
-    uint32_t _reserved_2 : 1;
+    uint32_t _reserved_1 : 1;
     eLEVEL1 LEVEL1 : 3;
-    uint32_t _reserved_3 : 1;
+    uint32_t _reserved_2 : 1;
     eLEVEL2 LEVEL2 : 3;
-    uint32_t _reserved_4 : 1;
+    uint32_t _reserved_3 : 1;
     eLEVEL3 LEVEL3 : 3;
-    uint32_t _reserved_end : 1;
+    uint32_t _reserved_4 : 1;
   } bits;
   
   // Full 32-bit register value.
@@ -21197,10 +21197,10 @@ union LPCG46_STATUS0 {
   // Bit field definition.
   struct {
     eON ON : 1;
-    uint32_t _reserved_1 : 7;
+    uint32_t _reserved_0 : 7;
     eACTIVE_DOMAIN ACTIVE_DOMAIN : 4;
     eDOMAIN_ENABLE DOMAIN_ENABLE : 4;
-    uint32_t _reserved_end : 16;
+    uint32_t _reserved_1 : 16;
   } bits;
   
   // Full 32-bit register value.
@@ -21323,7 +21323,7 @@ union LPCG46_STATUS1 {
     eSETPOINT_OFF_DONE SETPOINT_OFF_DONE : 1;
     eSETPOINT_ON_REQUEST SETPOINT_ON_REQUEST : 1;
     eSETPOINT_ON_DONE SETPOINT_ON_DONE : 1;
-    uint32_t _reserved_end : 4;
+    uint32_t _reserved_0 : 4;
   } bits;
   
   // Full 32-bit register value.
@@ -21347,7 +21347,7 @@ union LPCG46_CONFIG {
   struct {
     uint32_t _reserved_0 : 4;
     eSETPOINT_PRESENT SETPOINT_PRESENT : 1;
-    uint32_t _reserved_end : 27;
+    uint32_t _reserved_1 : 27;
   } bits;
   
   // Full 32-bit register value.
@@ -21406,18 +21406,18 @@ union LPCG46_AUTHEN {
   struct {
     eTZ_USER TZ_USER : 1;
     eTZ_NS TZ_NS : 1;
-    uint32_t _reserved_2 : 2;
+    uint32_t _reserved_0 : 2;
     eLOCK_TZ LOCK_TZ : 1;
-    uint32_t _reserved_3 : 3;
+    uint32_t _reserved_1 : 3;
     uint32_t WHITE_LIST : 4;
     eLOCK_LIST LOCK_LIST : 1;
-    uint32_t _reserved_5 : 3;
+    uint32_t _reserved_2 : 3;
     eDOMAIN_MODE DOMAIN_MODE : 1;
     eSETPOINT_MODE SETPOINT_MODE : 1;
     eCPULPM CPULPM : 1;
-    uint32_t _reserved_8 : 1;
+    uint32_t _reserved_3 : 1;
     eLOCK_MODE LOCK_MODE : 1;
-    uint32_t _reserved_end : 11;
+    uint32_t _reserved_4 : 11;
   } bits;
   
   // Full 32-bit register value.
@@ -21440,7 +21440,7 @@ union LPCG47_DIRECT {
   // Bit field definition.
   struct {
     eON ON : 1;
-    uint32_t _reserved_end : 31;
+    uint32_t _reserved_0 : 31;
   } bits;
   
   // Full 32-bit register value.
@@ -21498,15 +21498,15 @@ union LPCG47_DOMAIN {
   // Bit field definition.
   struct {
     eLEVEL LEVEL : 3;
-    uint32_t _reserved_1 : 13;
+    uint32_t _reserved_0 : 13;
     eLEVEL0 LEVEL0 : 3;
-    uint32_t _reserved_2 : 1;
+    uint32_t _reserved_1 : 1;
     eLEVEL1 LEVEL1 : 3;
-    uint32_t _reserved_3 : 1;
+    uint32_t _reserved_2 : 1;
     eLEVEL2 LEVEL2 : 3;
-    uint32_t _reserved_4 : 1;
+    uint32_t _reserved_3 : 1;
     eLEVEL3 LEVEL3 : 3;
-    uint32_t _reserved_end : 1;
+    uint32_t _reserved_4 : 1;
   } bits;
   
   // Full 32-bit register value.
@@ -21585,10 +21585,10 @@ union LPCG47_STATUS0 {
   // Bit field definition.
   struct {
     eON ON : 1;
-    uint32_t _reserved_1 : 7;
+    uint32_t _reserved_0 : 7;
     eACTIVE_DOMAIN ACTIVE_DOMAIN : 4;
     eDOMAIN_ENABLE DOMAIN_ENABLE : 4;
-    uint32_t _reserved_end : 16;
+    uint32_t _reserved_1 : 16;
   } bits;
   
   // Full 32-bit register value.
@@ -21711,7 +21711,7 @@ union LPCG47_STATUS1 {
     eSETPOINT_OFF_DONE SETPOINT_OFF_DONE : 1;
     eSETPOINT_ON_REQUEST SETPOINT_ON_REQUEST : 1;
     eSETPOINT_ON_DONE SETPOINT_ON_DONE : 1;
-    uint32_t _reserved_end : 4;
+    uint32_t _reserved_0 : 4;
   } bits;
   
   // Full 32-bit register value.
@@ -21735,7 +21735,7 @@ union LPCG47_CONFIG {
   struct {
     uint32_t _reserved_0 : 4;
     eSETPOINT_PRESENT SETPOINT_PRESENT : 1;
-    uint32_t _reserved_end : 27;
+    uint32_t _reserved_1 : 27;
   } bits;
   
   // Full 32-bit register value.
@@ -21794,18 +21794,18 @@ union LPCG47_AUTHEN {
   struct {
     eTZ_USER TZ_USER : 1;
     eTZ_NS TZ_NS : 1;
-    uint32_t _reserved_2 : 2;
+    uint32_t _reserved_0 : 2;
     eLOCK_TZ LOCK_TZ : 1;
-    uint32_t _reserved_3 : 3;
+    uint32_t _reserved_1 : 3;
     uint32_t WHITE_LIST : 4;
     eLOCK_LIST LOCK_LIST : 1;
-    uint32_t _reserved_5 : 3;
+    uint32_t _reserved_2 : 3;
     eDOMAIN_MODE DOMAIN_MODE : 1;
     eSETPOINT_MODE SETPOINT_MODE : 1;
     eCPULPM CPULPM : 1;
-    uint32_t _reserved_8 : 1;
+    uint32_t _reserved_3 : 1;
     eLOCK_MODE LOCK_MODE : 1;
-    uint32_t _reserved_end : 11;
+    uint32_t _reserved_4 : 11;
   } bits;
   
   // Full 32-bit register value.
@@ -21828,7 +21828,7 @@ union LPCG48_DIRECT {
   // Bit field definition.
   struct {
     eON ON : 1;
-    uint32_t _reserved_end : 31;
+    uint32_t _reserved_0 : 31;
   } bits;
   
   // Full 32-bit register value.
@@ -21886,15 +21886,15 @@ union LPCG48_DOMAIN {
   // Bit field definition.
   struct {
     eLEVEL LEVEL : 3;
-    uint32_t _reserved_1 : 13;
+    uint32_t _reserved_0 : 13;
     eLEVEL0 LEVEL0 : 3;
-    uint32_t _reserved_2 : 1;
+    uint32_t _reserved_1 : 1;
     eLEVEL1 LEVEL1 : 3;
-    uint32_t _reserved_3 : 1;
+    uint32_t _reserved_2 : 1;
     eLEVEL2 LEVEL2 : 3;
-    uint32_t _reserved_4 : 1;
+    uint32_t _reserved_3 : 1;
     eLEVEL3 LEVEL3 : 3;
-    uint32_t _reserved_end : 1;
+    uint32_t _reserved_4 : 1;
   } bits;
   
   // Full 32-bit register value.
@@ -21973,10 +21973,10 @@ union LPCG48_STATUS0 {
   // Bit field definition.
   struct {
     eON ON : 1;
-    uint32_t _reserved_1 : 7;
+    uint32_t _reserved_0 : 7;
     eACTIVE_DOMAIN ACTIVE_DOMAIN : 4;
     eDOMAIN_ENABLE DOMAIN_ENABLE : 4;
-    uint32_t _reserved_end : 16;
+    uint32_t _reserved_1 : 16;
   } bits;
   
   // Full 32-bit register value.
@@ -22099,7 +22099,7 @@ union LPCG48_STATUS1 {
     eSETPOINT_OFF_DONE SETPOINT_OFF_DONE : 1;
     eSETPOINT_ON_REQUEST SETPOINT_ON_REQUEST : 1;
     eSETPOINT_ON_DONE SETPOINT_ON_DONE : 1;
-    uint32_t _reserved_end : 4;
+    uint32_t _reserved_0 : 4;
   } bits;
   
   // Full 32-bit register value.
@@ -22123,7 +22123,7 @@ union LPCG48_CONFIG {
   struct {
     uint32_t _reserved_0 : 4;
     eSETPOINT_PRESENT SETPOINT_PRESENT : 1;
-    uint32_t _reserved_end : 27;
+    uint32_t _reserved_1 : 27;
   } bits;
   
   // Full 32-bit register value.
@@ -22182,18 +22182,18 @@ union LPCG48_AUTHEN {
   struct {
     eTZ_USER TZ_USER : 1;
     eTZ_NS TZ_NS : 1;
-    uint32_t _reserved_2 : 2;
+    uint32_t _reserved_0 : 2;
     eLOCK_TZ LOCK_TZ : 1;
-    uint32_t _reserved_3 : 3;
+    uint32_t _reserved_1 : 3;
     uint32_t WHITE_LIST : 4;
     eLOCK_LIST LOCK_LIST : 1;
-    uint32_t _reserved_5 : 3;
+    uint32_t _reserved_2 : 3;
     eDOMAIN_MODE DOMAIN_MODE : 1;
     eSETPOINT_MODE SETPOINT_MODE : 1;
     eCPULPM CPULPM : 1;
-    uint32_t _reserved_8 : 1;
+    uint32_t _reserved_3 : 1;
     eLOCK_MODE LOCK_MODE : 1;
-    uint32_t _reserved_end : 11;
+    uint32_t _reserved_4 : 11;
   } bits;
   
   // Full 32-bit register value.
@@ -22216,7 +22216,7 @@ union LPCG49_DIRECT {
   // Bit field definition.
   struct {
     eON ON : 1;
-    uint32_t _reserved_end : 31;
+    uint32_t _reserved_0 : 31;
   } bits;
   
   // Full 32-bit register value.
@@ -22274,15 +22274,15 @@ union LPCG49_DOMAIN {
   // Bit field definition.
   struct {
     eLEVEL LEVEL : 3;
-    uint32_t _reserved_1 : 13;
+    uint32_t _reserved_0 : 13;
     eLEVEL0 LEVEL0 : 3;
-    uint32_t _reserved_2 : 1;
+    uint32_t _reserved_1 : 1;
     eLEVEL1 LEVEL1 : 3;
-    uint32_t _reserved_3 : 1;
+    uint32_t _reserved_2 : 1;
     eLEVEL2 LEVEL2 : 3;
-    uint32_t _reserved_4 : 1;
+    uint32_t _reserved_3 : 1;
     eLEVEL3 LEVEL3 : 3;
-    uint32_t _reserved_end : 1;
+    uint32_t _reserved_4 : 1;
   } bits;
   
   // Full 32-bit register value.
@@ -22343,10 +22343,10 @@ union LPCG49_STATUS0 {
   // Bit field definition.
   struct {
     eON ON : 1;
-    uint32_t _reserved_1 : 7;
+    uint32_t _reserved_0 : 7;
     eACTIVE_DOMAIN ACTIVE_DOMAIN : 4;
     eDOMAIN_ENABLE DOMAIN_ENABLE : 4;
-    uint32_t _reserved_end : 16;
+    uint32_t _reserved_1 : 16;
   } bits;
   
   // Full 32-bit register value.
@@ -22469,7 +22469,7 @@ union LPCG49_STATUS1 {
     eSETPOINT_OFF_DONE SETPOINT_OFF_DONE : 1;
     eSETPOINT_ON_REQUEST SETPOINT_ON_REQUEST : 1;
     eSETPOINT_ON_DONE SETPOINT_ON_DONE : 1;
-    uint32_t _reserved_end : 4;
+    uint32_t _reserved_0 : 4;
   } bits;
   
   // Full 32-bit register value.
@@ -22493,7 +22493,7 @@ union LPCG49_CONFIG {
   struct {
     uint32_t _reserved_0 : 4;
     eSETPOINT_PRESENT SETPOINT_PRESENT : 1;
-    uint32_t _reserved_end : 27;
+    uint32_t _reserved_1 : 27;
   } bits;
   
   // Full 32-bit register value.
@@ -22552,18 +22552,18 @@ union LPCG49_AUTHEN {
   struct {
     eTZ_USER TZ_USER : 1;
     eTZ_NS TZ_NS : 1;
-    uint32_t _reserved_2 : 2;
+    uint32_t _reserved_0 : 2;
     eLOCK_TZ LOCK_TZ : 1;
-    uint32_t _reserved_3 : 3;
+    uint32_t _reserved_1 : 3;
     uint32_t WHITE_LIST : 4;
     eLOCK_LIST LOCK_LIST : 1;
-    uint32_t _reserved_5 : 3;
+    uint32_t _reserved_2 : 3;
     eDOMAIN_MODE DOMAIN_MODE : 1;
     eSETPOINT_MODE SETPOINT_MODE : 1;
     eCPULPM CPULPM : 1;
-    uint32_t _reserved_8 : 1;
+    uint32_t _reserved_3 : 1;
     eLOCK_MODE LOCK_MODE : 1;
-    uint32_t _reserved_end : 11;
+    uint32_t _reserved_4 : 11;
   } bits;
   
   // Full 32-bit register value.
@@ -22586,7 +22586,7 @@ union LPCG50_DIRECT {
   // Bit field definition.
   struct {
     eON ON : 1;
-    uint32_t _reserved_end : 31;
+    uint32_t _reserved_0 : 31;
   } bits;
   
   // Full 32-bit register value.
@@ -22644,15 +22644,15 @@ union LPCG50_DOMAIN {
   // Bit field definition.
   struct {
     eLEVEL LEVEL : 3;
-    uint32_t _reserved_1 : 13;
+    uint32_t _reserved_0 : 13;
     eLEVEL0 LEVEL0 : 3;
-    uint32_t _reserved_2 : 1;
+    uint32_t _reserved_1 : 1;
     eLEVEL1 LEVEL1 : 3;
-    uint32_t _reserved_3 : 1;
+    uint32_t _reserved_2 : 1;
     eLEVEL2 LEVEL2 : 3;
-    uint32_t _reserved_4 : 1;
+    uint32_t _reserved_3 : 1;
     eLEVEL3 LEVEL3 : 3;
-    uint32_t _reserved_end : 1;
+    uint32_t _reserved_4 : 1;
   } bits;
   
   // Full 32-bit register value.
@@ -22713,10 +22713,10 @@ union LPCG50_STATUS0 {
   // Bit field definition.
   struct {
     eON ON : 1;
-    uint32_t _reserved_1 : 7;
+    uint32_t _reserved_0 : 7;
     eACTIVE_DOMAIN ACTIVE_DOMAIN : 4;
     eDOMAIN_ENABLE DOMAIN_ENABLE : 4;
-    uint32_t _reserved_end : 16;
+    uint32_t _reserved_1 : 16;
   } bits;
   
   // Full 32-bit register value.
@@ -22839,7 +22839,7 @@ union LPCG50_STATUS1 {
     eSETPOINT_OFF_DONE SETPOINT_OFF_DONE : 1;
     eSETPOINT_ON_REQUEST SETPOINT_ON_REQUEST : 1;
     eSETPOINT_ON_DONE SETPOINT_ON_DONE : 1;
-    uint32_t _reserved_end : 4;
+    uint32_t _reserved_0 : 4;
   } bits;
   
   // Full 32-bit register value.
@@ -22863,7 +22863,7 @@ union LPCG50_CONFIG {
   struct {
     uint32_t _reserved_0 : 4;
     eSETPOINT_PRESENT SETPOINT_PRESENT : 1;
-    uint32_t _reserved_end : 27;
+    uint32_t _reserved_1 : 27;
   } bits;
   
   // Full 32-bit register value.
@@ -22922,18 +22922,18 @@ union LPCG50_AUTHEN {
   struct {
     eTZ_USER TZ_USER : 1;
     eTZ_NS TZ_NS : 1;
-    uint32_t _reserved_2 : 2;
+    uint32_t _reserved_0 : 2;
     eLOCK_TZ LOCK_TZ : 1;
-    uint32_t _reserved_3 : 3;
+    uint32_t _reserved_1 : 3;
     uint32_t WHITE_LIST : 4;
     eLOCK_LIST LOCK_LIST : 1;
-    uint32_t _reserved_5 : 3;
+    uint32_t _reserved_2 : 3;
     eDOMAIN_MODE DOMAIN_MODE : 1;
     eSETPOINT_MODE SETPOINT_MODE : 1;
     eCPULPM CPULPM : 1;
-    uint32_t _reserved_8 : 1;
+    uint32_t _reserved_3 : 1;
     eLOCK_MODE LOCK_MODE : 1;
-    uint32_t _reserved_end : 11;
+    uint32_t _reserved_4 : 11;
   } bits;
   
   // Full 32-bit register value.
@@ -22956,7 +22956,7 @@ union LPCG51_DIRECT {
   // Bit field definition.
   struct {
     eON ON : 1;
-    uint32_t _reserved_end : 31;
+    uint32_t _reserved_0 : 31;
   } bits;
   
   // Full 32-bit register value.
@@ -23014,15 +23014,15 @@ union LPCG51_DOMAIN {
   // Bit field definition.
   struct {
     eLEVEL LEVEL : 3;
-    uint32_t _reserved_1 : 13;
+    uint32_t _reserved_0 : 13;
     eLEVEL0 LEVEL0 : 3;
-    uint32_t _reserved_2 : 1;
+    uint32_t _reserved_1 : 1;
     eLEVEL1 LEVEL1 : 3;
-    uint32_t _reserved_3 : 1;
+    uint32_t _reserved_2 : 1;
     eLEVEL2 LEVEL2 : 3;
-    uint32_t _reserved_4 : 1;
+    uint32_t _reserved_3 : 1;
     eLEVEL3 LEVEL3 : 3;
-    uint32_t _reserved_end : 1;
+    uint32_t _reserved_4 : 1;
   } bits;
   
   // Full 32-bit register value.
@@ -23083,10 +23083,10 @@ union LPCG51_STATUS0 {
   // Bit field definition.
   struct {
     eON ON : 1;
-    uint32_t _reserved_1 : 7;
+    uint32_t _reserved_0 : 7;
     eACTIVE_DOMAIN ACTIVE_DOMAIN : 4;
     eDOMAIN_ENABLE DOMAIN_ENABLE : 4;
-    uint32_t _reserved_end : 16;
+    uint32_t _reserved_1 : 16;
   } bits;
   
   // Full 32-bit register value.
@@ -23209,7 +23209,7 @@ union LPCG51_STATUS1 {
     eSETPOINT_OFF_DONE SETPOINT_OFF_DONE : 1;
     eSETPOINT_ON_REQUEST SETPOINT_ON_REQUEST : 1;
     eSETPOINT_ON_DONE SETPOINT_ON_DONE : 1;
-    uint32_t _reserved_end : 4;
+    uint32_t _reserved_0 : 4;
   } bits;
   
   // Full 32-bit register value.
@@ -23233,7 +23233,7 @@ union LPCG51_CONFIG {
   struct {
     uint32_t _reserved_0 : 4;
     eSETPOINT_PRESENT SETPOINT_PRESENT : 1;
-    uint32_t _reserved_end : 27;
+    uint32_t _reserved_1 : 27;
   } bits;
   
   // Full 32-bit register value.
@@ -23292,18 +23292,18 @@ union LPCG51_AUTHEN {
   struct {
     eTZ_USER TZ_USER : 1;
     eTZ_NS TZ_NS : 1;
-    uint32_t _reserved_2 : 2;
+    uint32_t _reserved_0 : 2;
     eLOCK_TZ LOCK_TZ : 1;
-    uint32_t _reserved_3 : 3;
+    uint32_t _reserved_1 : 3;
     uint32_t WHITE_LIST : 4;
     eLOCK_LIST LOCK_LIST : 1;
-    uint32_t _reserved_5 : 3;
+    uint32_t _reserved_2 : 3;
     eDOMAIN_MODE DOMAIN_MODE : 1;
     eSETPOINT_MODE SETPOINT_MODE : 1;
     eCPULPM CPULPM : 1;
-    uint32_t _reserved_8 : 1;
+    uint32_t _reserved_3 : 1;
     eLOCK_MODE LOCK_MODE : 1;
-    uint32_t _reserved_end : 11;
+    uint32_t _reserved_4 : 11;
   } bits;
   
   // Full 32-bit register value.
@@ -23326,7 +23326,7 @@ union LPCG52_DIRECT {
   // Bit field definition.
   struct {
     eON ON : 1;
-    uint32_t _reserved_end : 31;
+    uint32_t _reserved_0 : 31;
   } bits;
   
   // Full 32-bit register value.
@@ -23384,15 +23384,15 @@ union LPCG52_DOMAIN {
   // Bit field definition.
   struct {
     eLEVEL LEVEL : 3;
-    uint32_t _reserved_1 : 13;
+    uint32_t _reserved_0 : 13;
     eLEVEL0 LEVEL0 : 3;
-    uint32_t _reserved_2 : 1;
+    uint32_t _reserved_1 : 1;
     eLEVEL1 LEVEL1 : 3;
-    uint32_t _reserved_3 : 1;
+    uint32_t _reserved_2 : 1;
     eLEVEL2 LEVEL2 : 3;
-    uint32_t _reserved_4 : 1;
+    uint32_t _reserved_3 : 1;
     eLEVEL3 LEVEL3 : 3;
-    uint32_t _reserved_end : 1;
+    uint32_t _reserved_4 : 1;
   } bits;
   
   // Full 32-bit register value.
@@ -23453,10 +23453,10 @@ union LPCG52_STATUS0 {
   // Bit field definition.
   struct {
     eON ON : 1;
-    uint32_t _reserved_1 : 7;
+    uint32_t _reserved_0 : 7;
     eACTIVE_DOMAIN ACTIVE_DOMAIN : 4;
     eDOMAIN_ENABLE DOMAIN_ENABLE : 4;
-    uint32_t _reserved_end : 16;
+    uint32_t _reserved_1 : 16;
   } bits;
   
   // Full 32-bit register value.
@@ -23579,7 +23579,7 @@ union LPCG52_STATUS1 {
     eSETPOINT_OFF_DONE SETPOINT_OFF_DONE : 1;
     eSETPOINT_ON_REQUEST SETPOINT_ON_REQUEST : 1;
     eSETPOINT_ON_DONE SETPOINT_ON_DONE : 1;
-    uint32_t _reserved_end : 4;
+    uint32_t _reserved_0 : 4;
   } bits;
   
   // Full 32-bit register value.
@@ -23603,7 +23603,7 @@ union LPCG52_CONFIG {
   struct {
     uint32_t _reserved_0 : 4;
     eSETPOINT_PRESENT SETPOINT_PRESENT : 1;
-    uint32_t _reserved_end : 27;
+    uint32_t _reserved_1 : 27;
   } bits;
   
   // Full 32-bit register value.
@@ -23662,18 +23662,18 @@ union LPCG52_AUTHEN {
   struct {
     eTZ_USER TZ_USER : 1;
     eTZ_NS TZ_NS : 1;
-    uint32_t _reserved_2 : 2;
+    uint32_t _reserved_0 : 2;
     eLOCK_TZ LOCK_TZ : 1;
-    uint32_t _reserved_3 : 3;
+    uint32_t _reserved_1 : 3;
     uint32_t WHITE_LIST : 4;
     eLOCK_LIST LOCK_LIST : 1;
-    uint32_t _reserved_5 : 3;
+    uint32_t _reserved_2 : 3;
     eDOMAIN_MODE DOMAIN_MODE : 1;
     eSETPOINT_MODE SETPOINT_MODE : 1;
     eCPULPM CPULPM : 1;
-    uint32_t _reserved_8 : 1;
+    uint32_t _reserved_3 : 1;
     eLOCK_MODE LOCK_MODE : 1;
-    uint32_t _reserved_end : 11;
+    uint32_t _reserved_4 : 11;
   } bits;
   
   // Full 32-bit register value.
@@ -23696,7 +23696,7 @@ union LPCG53_DIRECT {
   // Bit field definition.
   struct {
     eON ON : 1;
-    uint32_t _reserved_end : 31;
+    uint32_t _reserved_0 : 31;
   } bits;
   
   // Full 32-bit register value.
@@ -23754,15 +23754,15 @@ union LPCG53_DOMAIN {
   // Bit field definition.
   struct {
     eLEVEL LEVEL : 3;
-    uint32_t _reserved_1 : 13;
+    uint32_t _reserved_0 : 13;
     eLEVEL0 LEVEL0 : 3;
-    uint32_t _reserved_2 : 1;
+    uint32_t _reserved_1 : 1;
     eLEVEL1 LEVEL1 : 3;
-    uint32_t _reserved_3 : 1;
+    uint32_t _reserved_2 : 1;
     eLEVEL2 LEVEL2 : 3;
-    uint32_t _reserved_4 : 1;
+    uint32_t _reserved_3 : 1;
     eLEVEL3 LEVEL3 : 3;
-    uint32_t _reserved_end : 1;
+    uint32_t _reserved_4 : 1;
   } bits;
   
   // Full 32-bit register value.
@@ -23823,10 +23823,10 @@ union LPCG53_STATUS0 {
   // Bit field definition.
   struct {
     eON ON : 1;
-    uint32_t _reserved_1 : 7;
+    uint32_t _reserved_0 : 7;
     eACTIVE_DOMAIN ACTIVE_DOMAIN : 4;
     eDOMAIN_ENABLE DOMAIN_ENABLE : 4;
-    uint32_t _reserved_end : 16;
+    uint32_t _reserved_1 : 16;
   } bits;
   
   // Full 32-bit register value.
@@ -23949,7 +23949,7 @@ union LPCG53_STATUS1 {
     eSETPOINT_OFF_DONE SETPOINT_OFF_DONE : 1;
     eSETPOINT_ON_REQUEST SETPOINT_ON_REQUEST : 1;
     eSETPOINT_ON_DONE SETPOINT_ON_DONE : 1;
-    uint32_t _reserved_end : 4;
+    uint32_t _reserved_0 : 4;
   } bits;
   
   // Full 32-bit register value.
@@ -23973,7 +23973,7 @@ union LPCG53_CONFIG {
   struct {
     uint32_t _reserved_0 : 4;
     eSETPOINT_PRESENT SETPOINT_PRESENT : 1;
-    uint32_t _reserved_end : 27;
+    uint32_t _reserved_1 : 27;
   } bits;
   
   // Full 32-bit register value.
@@ -24032,18 +24032,18 @@ union LPCG53_AUTHEN {
   struct {
     eTZ_USER TZ_USER : 1;
     eTZ_NS TZ_NS : 1;
-    uint32_t _reserved_2 : 2;
+    uint32_t _reserved_0 : 2;
     eLOCK_TZ LOCK_TZ : 1;
-    uint32_t _reserved_3 : 3;
+    uint32_t _reserved_1 : 3;
     uint32_t WHITE_LIST : 4;
     eLOCK_LIST LOCK_LIST : 1;
-    uint32_t _reserved_5 : 3;
+    uint32_t _reserved_2 : 3;
     eDOMAIN_MODE DOMAIN_MODE : 1;
     eSETPOINT_MODE SETPOINT_MODE : 1;
     eCPULPM CPULPM : 1;
-    uint32_t _reserved_8 : 1;
+    uint32_t _reserved_3 : 1;
     eLOCK_MODE LOCK_MODE : 1;
-    uint32_t _reserved_end : 11;
+    uint32_t _reserved_4 : 11;
   } bits;
   
   // Full 32-bit register value.
@@ -24066,7 +24066,7 @@ union LPCG54_DIRECT {
   // Bit field definition.
   struct {
     eON ON : 1;
-    uint32_t _reserved_end : 31;
+    uint32_t _reserved_0 : 31;
   } bits;
   
   // Full 32-bit register value.
@@ -24124,15 +24124,15 @@ union LPCG54_DOMAIN {
   // Bit field definition.
   struct {
     eLEVEL LEVEL : 3;
-    uint32_t _reserved_1 : 13;
+    uint32_t _reserved_0 : 13;
     eLEVEL0 LEVEL0 : 3;
-    uint32_t _reserved_2 : 1;
+    uint32_t _reserved_1 : 1;
     eLEVEL1 LEVEL1 : 3;
-    uint32_t _reserved_3 : 1;
+    uint32_t _reserved_2 : 1;
     eLEVEL2 LEVEL2 : 3;
-    uint32_t _reserved_4 : 1;
+    uint32_t _reserved_3 : 1;
     eLEVEL3 LEVEL3 : 3;
-    uint32_t _reserved_end : 1;
+    uint32_t _reserved_4 : 1;
   } bits;
   
   // Full 32-bit register value.
@@ -24193,10 +24193,10 @@ union LPCG54_STATUS0 {
   // Bit field definition.
   struct {
     eON ON : 1;
-    uint32_t _reserved_1 : 7;
+    uint32_t _reserved_0 : 7;
     eACTIVE_DOMAIN ACTIVE_DOMAIN : 4;
     eDOMAIN_ENABLE DOMAIN_ENABLE : 4;
-    uint32_t _reserved_end : 16;
+    uint32_t _reserved_1 : 16;
   } bits;
   
   // Full 32-bit register value.
@@ -24319,7 +24319,7 @@ union LPCG54_STATUS1 {
     eSETPOINT_OFF_DONE SETPOINT_OFF_DONE : 1;
     eSETPOINT_ON_REQUEST SETPOINT_ON_REQUEST : 1;
     eSETPOINT_ON_DONE SETPOINT_ON_DONE : 1;
-    uint32_t _reserved_end : 4;
+    uint32_t _reserved_0 : 4;
   } bits;
   
   // Full 32-bit register value.
@@ -24343,7 +24343,7 @@ union LPCG54_CONFIG {
   struct {
     uint32_t _reserved_0 : 4;
     eSETPOINT_PRESENT SETPOINT_PRESENT : 1;
-    uint32_t _reserved_end : 27;
+    uint32_t _reserved_1 : 27;
   } bits;
   
   // Full 32-bit register value.
@@ -24402,18 +24402,18 @@ union LPCG54_AUTHEN {
   struct {
     eTZ_USER TZ_USER : 1;
     eTZ_NS TZ_NS : 1;
-    uint32_t _reserved_2 : 2;
+    uint32_t _reserved_0 : 2;
     eLOCK_TZ LOCK_TZ : 1;
-    uint32_t _reserved_3 : 3;
+    uint32_t _reserved_1 : 3;
     uint32_t WHITE_LIST : 4;
     eLOCK_LIST LOCK_LIST : 1;
-    uint32_t _reserved_5 : 3;
+    uint32_t _reserved_2 : 3;
     eDOMAIN_MODE DOMAIN_MODE : 1;
     eSETPOINT_MODE SETPOINT_MODE : 1;
     eCPULPM CPULPM : 1;
-    uint32_t _reserved_8 : 1;
+    uint32_t _reserved_3 : 1;
     eLOCK_MODE LOCK_MODE : 1;
-    uint32_t _reserved_end : 11;
+    uint32_t _reserved_4 : 11;
   } bits;
   
   // Full 32-bit register value.
@@ -24436,7 +24436,7 @@ union LPCG55_DIRECT {
   // Bit field definition.
   struct {
     eON ON : 1;
-    uint32_t _reserved_end : 31;
+    uint32_t _reserved_0 : 31;
   } bits;
   
   // Full 32-bit register value.
@@ -24494,15 +24494,15 @@ union LPCG55_DOMAIN {
   // Bit field definition.
   struct {
     eLEVEL LEVEL : 3;
-    uint32_t _reserved_1 : 13;
+    uint32_t _reserved_0 : 13;
     eLEVEL0 LEVEL0 : 3;
-    uint32_t _reserved_2 : 1;
+    uint32_t _reserved_1 : 1;
     eLEVEL1 LEVEL1 : 3;
-    uint32_t _reserved_3 : 1;
+    uint32_t _reserved_2 : 1;
     eLEVEL2 LEVEL2 : 3;
-    uint32_t _reserved_4 : 1;
+    uint32_t _reserved_3 : 1;
     eLEVEL3 LEVEL3 : 3;
-    uint32_t _reserved_end : 1;
+    uint32_t _reserved_4 : 1;
   } bits;
   
   // Full 32-bit register value.
@@ -24563,10 +24563,10 @@ union LPCG55_STATUS0 {
   // Bit field definition.
   struct {
     eON ON : 1;
-    uint32_t _reserved_1 : 7;
+    uint32_t _reserved_0 : 7;
     eACTIVE_DOMAIN ACTIVE_DOMAIN : 4;
     eDOMAIN_ENABLE DOMAIN_ENABLE : 4;
-    uint32_t _reserved_end : 16;
+    uint32_t _reserved_1 : 16;
   } bits;
   
   // Full 32-bit register value.
@@ -24689,7 +24689,7 @@ union LPCG55_STATUS1 {
     eSETPOINT_OFF_DONE SETPOINT_OFF_DONE : 1;
     eSETPOINT_ON_REQUEST SETPOINT_ON_REQUEST : 1;
     eSETPOINT_ON_DONE SETPOINT_ON_DONE : 1;
-    uint32_t _reserved_end : 4;
+    uint32_t _reserved_0 : 4;
   } bits;
   
   // Full 32-bit register value.
@@ -24713,7 +24713,7 @@ union LPCG55_CONFIG {
   struct {
     uint32_t _reserved_0 : 4;
     eSETPOINT_PRESENT SETPOINT_PRESENT : 1;
-    uint32_t _reserved_end : 27;
+    uint32_t _reserved_1 : 27;
   } bits;
   
   // Full 32-bit register value.
@@ -24772,18 +24772,18 @@ union LPCG55_AUTHEN {
   struct {
     eTZ_USER TZ_USER : 1;
     eTZ_NS TZ_NS : 1;
-    uint32_t _reserved_2 : 2;
+    uint32_t _reserved_0 : 2;
     eLOCK_TZ LOCK_TZ : 1;
-    uint32_t _reserved_3 : 3;
+    uint32_t _reserved_1 : 3;
     uint32_t WHITE_LIST : 4;
     eLOCK_LIST LOCK_LIST : 1;
-    uint32_t _reserved_5 : 3;
+    uint32_t _reserved_2 : 3;
     eDOMAIN_MODE DOMAIN_MODE : 1;
     eSETPOINT_MODE SETPOINT_MODE : 1;
     eCPULPM CPULPM : 1;
-    uint32_t _reserved_8 : 1;
+    uint32_t _reserved_3 : 1;
     eLOCK_MODE LOCK_MODE : 1;
-    uint32_t _reserved_end : 11;
+    uint32_t _reserved_4 : 11;
   } bits;
   
   // Full 32-bit register value.
@@ -24806,7 +24806,7 @@ union LPCG56_DIRECT {
   // Bit field definition.
   struct {
     eON ON : 1;
-    uint32_t _reserved_end : 31;
+    uint32_t _reserved_0 : 31;
   } bits;
   
   // Full 32-bit register value.
@@ -24864,15 +24864,15 @@ union LPCG56_DOMAIN {
   // Bit field definition.
   struct {
     eLEVEL LEVEL : 3;
-    uint32_t _reserved_1 : 13;
+    uint32_t _reserved_0 : 13;
     eLEVEL0 LEVEL0 : 3;
-    uint32_t _reserved_2 : 1;
+    uint32_t _reserved_1 : 1;
     eLEVEL1 LEVEL1 : 3;
-    uint32_t _reserved_3 : 1;
+    uint32_t _reserved_2 : 1;
     eLEVEL2 LEVEL2 : 3;
-    uint32_t _reserved_4 : 1;
+    uint32_t _reserved_3 : 1;
     eLEVEL3 LEVEL3 : 3;
-    uint32_t _reserved_end : 1;
+    uint32_t _reserved_4 : 1;
   } bits;
   
   // Full 32-bit register value.
@@ -24933,10 +24933,10 @@ union LPCG56_STATUS0 {
   // Bit field definition.
   struct {
     eON ON : 1;
-    uint32_t _reserved_1 : 7;
+    uint32_t _reserved_0 : 7;
     eACTIVE_DOMAIN ACTIVE_DOMAIN : 4;
     eDOMAIN_ENABLE DOMAIN_ENABLE : 4;
-    uint32_t _reserved_end : 16;
+    uint32_t _reserved_1 : 16;
   } bits;
   
   // Full 32-bit register value.
@@ -25059,7 +25059,7 @@ union LPCG56_STATUS1 {
     eSETPOINT_OFF_DONE SETPOINT_OFF_DONE : 1;
     eSETPOINT_ON_REQUEST SETPOINT_ON_REQUEST : 1;
     eSETPOINT_ON_DONE SETPOINT_ON_DONE : 1;
-    uint32_t _reserved_end : 4;
+    uint32_t _reserved_0 : 4;
   } bits;
   
   // Full 32-bit register value.
@@ -25083,7 +25083,7 @@ union LPCG56_CONFIG {
   struct {
     uint32_t _reserved_0 : 4;
     eSETPOINT_PRESENT SETPOINT_PRESENT : 1;
-    uint32_t _reserved_end : 27;
+    uint32_t _reserved_1 : 27;
   } bits;
   
   // Full 32-bit register value.
@@ -25142,18 +25142,18 @@ union LPCG56_AUTHEN {
   struct {
     eTZ_USER TZ_USER : 1;
     eTZ_NS TZ_NS : 1;
-    uint32_t _reserved_2 : 2;
+    uint32_t _reserved_0 : 2;
     eLOCK_TZ LOCK_TZ : 1;
-    uint32_t _reserved_3 : 3;
+    uint32_t _reserved_1 : 3;
     uint32_t WHITE_LIST : 4;
     eLOCK_LIST LOCK_LIST : 1;
-    uint32_t _reserved_5 : 3;
+    uint32_t _reserved_2 : 3;
     eDOMAIN_MODE DOMAIN_MODE : 1;
     eSETPOINT_MODE SETPOINT_MODE : 1;
     eCPULPM CPULPM : 1;
-    uint32_t _reserved_8 : 1;
+    uint32_t _reserved_3 : 1;
     eLOCK_MODE LOCK_MODE : 1;
-    uint32_t _reserved_end : 11;
+    uint32_t _reserved_4 : 11;
   } bits;
   
   // Full 32-bit register value.
@@ -25176,7 +25176,7 @@ union LPCG57_DIRECT {
   // Bit field definition.
   struct {
     eON ON : 1;
-    uint32_t _reserved_end : 31;
+    uint32_t _reserved_0 : 31;
   } bits;
   
   // Full 32-bit register value.
@@ -25234,15 +25234,15 @@ union LPCG57_DOMAIN {
   // Bit field definition.
   struct {
     eLEVEL LEVEL : 3;
-    uint32_t _reserved_1 : 13;
+    uint32_t _reserved_0 : 13;
     eLEVEL0 LEVEL0 : 3;
-    uint32_t _reserved_2 : 1;
+    uint32_t _reserved_1 : 1;
     eLEVEL1 LEVEL1 : 3;
-    uint32_t _reserved_3 : 1;
+    uint32_t _reserved_2 : 1;
     eLEVEL2 LEVEL2 : 3;
-    uint32_t _reserved_4 : 1;
+    uint32_t _reserved_3 : 1;
     eLEVEL3 LEVEL3 : 3;
-    uint32_t _reserved_end : 1;
+    uint32_t _reserved_4 : 1;
   } bits;
   
   // Full 32-bit register value.
@@ -25303,10 +25303,10 @@ union LPCG57_STATUS0 {
   // Bit field definition.
   struct {
     eON ON : 1;
-    uint32_t _reserved_1 : 7;
+    uint32_t _reserved_0 : 7;
     eACTIVE_DOMAIN ACTIVE_DOMAIN : 4;
     eDOMAIN_ENABLE DOMAIN_ENABLE : 4;
-    uint32_t _reserved_end : 16;
+    uint32_t _reserved_1 : 16;
   } bits;
   
   // Full 32-bit register value.
@@ -25429,7 +25429,7 @@ union LPCG57_STATUS1 {
     eSETPOINT_OFF_DONE SETPOINT_OFF_DONE : 1;
     eSETPOINT_ON_REQUEST SETPOINT_ON_REQUEST : 1;
     eSETPOINT_ON_DONE SETPOINT_ON_DONE : 1;
-    uint32_t _reserved_end : 4;
+    uint32_t _reserved_0 : 4;
   } bits;
   
   // Full 32-bit register value.
@@ -25453,7 +25453,7 @@ union LPCG57_CONFIG {
   struct {
     uint32_t _reserved_0 : 4;
     eSETPOINT_PRESENT SETPOINT_PRESENT : 1;
-    uint32_t _reserved_end : 27;
+    uint32_t _reserved_1 : 27;
   } bits;
   
   // Full 32-bit register value.
@@ -25512,18 +25512,18 @@ union LPCG57_AUTHEN {
   struct {
     eTZ_USER TZ_USER : 1;
     eTZ_NS TZ_NS : 1;
-    uint32_t _reserved_2 : 2;
+    uint32_t _reserved_0 : 2;
     eLOCK_TZ LOCK_TZ : 1;
-    uint32_t _reserved_3 : 3;
+    uint32_t _reserved_1 : 3;
     uint32_t WHITE_LIST : 4;
     eLOCK_LIST LOCK_LIST : 1;
-    uint32_t _reserved_5 : 3;
+    uint32_t _reserved_2 : 3;
     eDOMAIN_MODE DOMAIN_MODE : 1;
     eSETPOINT_MODE SETPOINT_MODE : 1;
     eCPULPM CPULPM : 1;
-    uint32_t _reserved_8 : 1;
+    uint32_t _reserved_3 : 1;
     eLOCK_MODE LOCK_MODE : 1;
-    uint32_t _reserved_end : 11;
+    uint32_t _reserved_4 : 11;
   } bits;
   
   // Full 32-bit register value.
@@ -25546,7 +25546,7 @@ union LPCG58_DIRECT {
   // Bit field definition.
   struct {
     eON ON : 1;
-    uint32_t _reserved_end : 31;
+    uint32_t _reserved_0 : 31;
   } bits;
   
   // Full 32-bit register value.
@@ -25604,15 +25604,15 @@ union LPCG58_DOMAIN {
   // Bit field definition.
   struct {
     eLEVEL LEVEL : 3;
-    uint32_t _reserved_1 : 13;
+    uint32_t _reserved_0 : 13;
     eLEVEL0 LEVEL0 : 3;
-    uint32_t _reserved_2 : 1;
+    uint32_t _reserved_1 : 1;
     eLEVEL1 LEVEL1 : 3;
-    uint32_t _reserved_3 : 1;
+    uint32_t _reserved_2 : 1;
     eLEVEL2 LEVEL2 : 3;
-    uint32_t _reserved_4 : 1;
+    uint32_t _reserved_3 : 1;
     eLEVEL3 LEVEL3 : 3;
-    uint32_t _reserved_end : 1;
+    uint32_t _reserved_4 : 1;
   } bits;
   
   // Full 32-bit register value.
@@ -25673,10 +25673,10 @@ union LPCG58_STATUS0 {
   // Bit field definition.
   struct {
     eON ON : 1;
-    uint32_t _reserved_1 : 7;
+    uint32_t _reserved_0 : 7;
     eACTIVE_DOMAIN ACTIVE_DOMAIN : 4;
     eDOMAIN_ENABLE DOMAIN_ENABLE : 4;
-    uint32_t _reserved_end : 16;
+    uint32_t _reserved_1 : 16;
   } bits;
   
   // Full 32-bit register value.
@@ -25799,7 +25799,7 @@ union LPCG58_STATUS1 {
     eSETPOINT_OFF_DONE SETPOINT_OFF_DONE : 1;
     eSETPOINT_ON_REQUEST SETPOINT_ON_REQUEST : 1;
     eSETPOINT_ON_DONE SETPOINT_ON_DONE : 1;
-    uint32_t _reserved_end : 4;
+    uint32_t _reserved_0 : 4;
   } bits;
   
   // Full 32-bit register value.
@@ -25823,7 +25823,7 @@ union LPCG58_CONFIG {
   struct {
     uint32_t _reserved_0 : 4;
     eSETPOINT_PRESENT SETPOINT_PRESENT : 1;
-    uint32_t _reserved_end : 27;
+    uint32_t _reserved_1 : 27;
   } bits;
   
   // Full 32-bit register value.
@@ -25882,18 +25882,18 @@ union LPCG58_AUTHEN {
   struct {
     eTZ_USER TZ_USER : 1;
     eTZ_NS TZ_NS : 1;
-    uint32_t _reserved_2 : 2;
+    uint32_t _reserved_0 : 2;
     eLOCK_TZ LOCK_TZ : 1;
-    uint32_t _reserved_3 : 3;
+    uint32_t _reserved_1 : 3;
     uint32_t WHITE_LIST : 4;
     eLOCK_LIST LOCK_LIST : 1;
-    uint32_t _reserved_5 : 3;
+    uint32_t _reserved_2 : 3;
     eDOMAIN_MODE DOMAIN_MODE : 1;
     eSETPOINT_MODE SETPOINT_MODE : 1;
     eCPULPM CPULPM : 1;
-    uint32_t _reserved_8 : 1;
+    uint32_t _reserved_3 : 1;
     eLOCK_MODE LOCK_MODE : 1;
-    uint32_t _reserved_end : 11;
+    uint32_t _reserved_4 : 11;
   } bits;
   
   // Full 32-bit register value.
@@ -25916,7 +25916,7 @@ union LPCG59_DIRECT {
   // Bit field definition.
   struct {
     eON ON : 1;
-    uint32_t _reserved_end : 31;
+    uint32_t _reserved_0 : 31;
   } bits;
   
   // Full 32-bit register value.
@@ -25974,15 +25974,15 @@ union LPCG59_DOMAIN {
   // Bit field definition.
   struct {
     eLEVEL LEVEL : 3;
-    uint32_t _reserved_1 : 13;
+    uint32_t _reserved_0 : 13;
     eLEVEL0 LEVEL0 : 3;
-    uint32_t _reserved_2 : 1;
+    uint32_t _reserved_1 : 1;
     eLEVEL1 LEVEL1 : 3;
-    uint32_t _reserved_3 : 1;
+    uint32_t _reserved_2 : 1;
     eLEVEL2 LEVEL2 : 3;
-    uint32_t _reserved_4 : 1;
+    uint32_t _reserved_3 : 1;
     eLEVEL3 LEVEL3 : 3;
-    uint32_t _reserved_end : 1;
+    uint32_t _reserved_4 : 1;
   } bits;
   
   // Full 32-bit register value.
@@ -26043,10 +26043,10 @@ union LPCG59_STATUS0 {
   // Bit field definition.
   struct {
     eON ON : 1;
-    uint32_t _reserved_1 : 7;
+    uint32_t _reserved_0 : 7;
     eACTIVE_DOMAIN ACTIVE_DOMAIN : 4;
     eDOMAIN_ENABLE DOMAIN_ENABLE : 4;
-    uint32_t _reserved_end : 16;
+    uint32_t _reserved_1 : 16;
   } bits;
   
   // Full 32-bit register value.
@@ -26169,7 +26169,7 @@ union LPCG59_STATUS1 {
     eSETPOINT_OFF_DONE SETPOINT_OFF_DONE : 1;
     eSETPOINT_ON_REQUEST SETPOINT_ON_REQUEST : 1;
     eSETPOINT_ON_DONE SETPOINT_ON_DONE : 1;
-    uint32_t _reserved_end : 4;
+    uint32_t _reserved_0 : 4;
   } bits;
   
   // Full 32-bit register value.
@@ -26193,7 +26193,7 @@ union LPCG59_CONFIG {
   struct {
     uint32_t _reserved_0 : 4;
     eSETPOINT_PRESENT SETPOINT_PRESENT : 1;
-    uint32_t _reserved_end : 27;
+    uint32_t _reserved_1 : 27;
   } bits;
   
   // Full 32-bit register value.
@@ -26252,18 +26252,18 @@ union LPCG59_AUTHEN {
   struct {
     eTZ_USER TZ_USER : 1;
     eTZ_NS TZ_NS : 1;
-    uint32_t _reserved_2 : 2;
+    uint32_t _reserved_0 : 2;
     eLOCK_TZ LOCK_TZ : 1;
-    uint32_t _reserved_3 : 3;
+    uint32_t _reserved_1 : 3;
     uint32_t WHITE_LIST : 4;
     eLOCK_LIST LOCK_LIST : 1;
-    uint32_t _reserved_5 : 3;
+    uint32_t _reserved_2 : 3;
     eDOMAIN_MODE DOMAIN_MODE : 1;
     eSETPOINT_MODE SETPOINT_MODE : 1;
     eCPULPM CPULPM : 1;
-    uint32_t _reserved_8 : 1;
+    uint32_t _reserved_3 : 1;
     eLOCK_MODE LOCK_MODE : 1;
-    uint32_t _reserved_end : 11;
+    uint32_t _reserved_4 : 11;
   } bits;
   
   // Full 32-bit register value.
@@ -26286,7 +26286,7 @@ union LPCG60_DIRECT {
   // Bit field definition.
   struct {
     eON ON : 1;
-    uint32_t _reserved_end : 31;
+    uint32_t _reserved_0 : 31;
   } bits;
   
   // Full 32-bit register value.
@@ -26344,15 +26344,15 @@ union LPCG60_DOMAIN {
   // Bit field definition.
   struct {
     eLEVEL LEVEL : 3;
-    uint32_t _reserved_1 : 13;
+    uint32_t _reserved_0 : 13;
     eLEVEL0 LEVEL0 : 3;
-    uint32_t _reserved_2 : 1;
+    uint32_t _reserved_1 : 1;
     eLEVEL1 LEVEL1 : 3;
-    uint32_t _reserved_3 : 1;
+    uint32_t _reserved_2 : 1;
     eLEVEL2 LEVEL2 : 3;
-    uint32_t _reserved_4 : 1;
+    uint32_t _reserved_3 : 1;
     eLEVEL3 LEVEL3 : 3;
-    uint32_t _reserved_end : 1;
+    uint32_t _reserved_4 : 1;
   } bits;
   
   // Full 32-bit register value.
@@ -26413,10 +26413,10 @@ union LPCG60_STATUS0 {
   // Bit field definition.
   struct {
     eON ON : 1;
-    uint32_t _reserved_1 : 7;
+    uint32_t _reserved_0 : 7;
     eACTIVE_DOMAIN ACTIVE_DOMAIN : 4;
     eDOMAIN_ENABLE DOMAIN_ENABLE : 4;
-    uint32_t _reserved_end : 16;
+    uint32_t _reserved_1 : 16;
   } bits;
   
   // Full 32-bit register value.
@@ -26539,7 +26539,7 @@ union LPCG60_STATUS1 {
     eSETPOINT_OFF_DONE SETPOINT_OFF_DONE : 1;
     eSETPOINT_ON_REQUEST SETPOINT_ON_REQUEST : 1;
     eSETPOINT_ON_DONE SETPOINT_ON_DONE : 1;
-    uint32_t _reserved_end : 4;
+    uint32_t _reserved_0 : 4;
   } bits;
   
   // Full 32-bit register value.
@@ -26563,7 +26563,7 @@ union LPCG60_CONFIG {
   struct {
     uint32_t _reserved_0 : 4;
     eSETPOINT_PRESENT SETPOINT_PRESENT : 1;
-    uint32_t _reserved_end : 27;
+    uint32_t _reserved_1 : 27;
   } bits;
   
   // Full 32-bit register value.
@@ -26622,18 +26622,18 @@ union LPCG60_AUTHEN {
   struct {
     eTZ_USER TZ_USER : 1;
     eTZ_NS TZ_NS : 1;
-    uint32_t _reserved_2 : 2;
+    uint32_t _reserved_0 : 2;
     eLOCK_TZ LOCK_TZ : 1;
-    uint32_t _reserved_3 : 3;
+    uint32_t _reserved_1 : 3;
     uint32_t WHITE_LIST : 4;
     eLOCK_LIST LOCK_LIST : 1;
-    uint32_t _reserved_5 : 3;
+    uint32_t _reserved_2 : 3;
     eDOMAIN_MODE DOMAIN_MODE : 1;
     eSETPOINT_MODE SETPOINT_MODE : 1;
     eCPULPM CPULPM : 1;
-    uint32_t _reserved_8 : 1;
+    uint32_t _reserved_3 : 1;
     eLOCK_MODE LOCK_MODE : 1;
-    uint32_t _reserved_end : 11;
+    uint32_t _reserved_4 : 11;
   } bits;
   
   // Full 32-bit register value.
@@ -26656,7 +26656,7 @@ union LPCG61_DIRECT {
   // Bit field definition.
   struct {
     eON ON : 1;
-    uint32_t _reserved_end : 31;
+    uint32_t _reserved_0 : 31;
   } bits;
   
   // Full 32-bit register value.
@@ -26714,15 +26714,15 @@ union LPCG61_DOMAIN {
   // Bit field definition.
   struct {
     eLEVEL LEVEL : 3;
-    uint32_t _reserved_1 : 13;
+    uint32_t _reserved_0 : 13;
     eLEVEL0 LEVEL0 : 3;
-    uint32_t _reserved_2 : 1;
+    uint32_t _reserved_1 : 1;
     eLEVEL1 LEVEL1 : 3;
-    uint32_t _reserved_3 : 1;
+    uint32_t _reserved_2 : 1;
     eLEVEL2 LEVEL2 : 3;
-    uint32_t _reserved_4 : 1;
+    uint32_t _reserved_3 : 1;
     eLEVEL3 LEVEL3 : 3;
-    uint32_t _reserved_end : 1;
+    uint32_t _reserved_4 : 1;
   } bits;
   
   // Full 32-bit register value.
@@ -26783,10 +26783,10 @@ union LPCG61_STATUS0 {
   // Bit field definition.
   struct {
     eON ON : 1;
-    uint32_t _reserved_1 : 7;
+    uint32_t _reserved_0 : 7;
     eACTIVE_DOMAIN ACTIVE_DOMAIN : 4;
     eDOMAIN_ENABLE DOMAIN_ENABLE : 4;
-    uint32_t _reserved_end : 16;
+    uint32_t _reserved_1 : 16;
   } bits;
   
   // Full 32-bit register value.
@@ -26909,7 +26909,7 @@ union LPCG61_STATUS1 {
     eSETPOINT_OFF_DONE SETPOINT_OFF_DONE : 1;
     eSETPOINT_ON_REQUEST SETPOINT_ON_REQUEST : 1;
     eSETPOINT_ON_DONE SETPOINT_ON_DONE : 1;
-    uint32_t _reserved_end : 4;
+    uint32_t _reserved_0 : 4;
   } bits;
   
   // Full 32-bit register value.
@@ -26933,7 +26933,7 @@ union LPCG61_CONFIG {
   struct {
     uint32_t _reserved_0 : 4;
     eSETPOINT_PRESENT SETPOINT_PRESENT : 1;
-    uint32_t _reserved_end : 27;
+    uint32_t _reserved_1 : 27;
   } bits;
   
   // Full 32-bit register value.
@@ -26992,18 +26992,18 @@ union LPCG61_AUTHEN {
   struct {
     eTZ_USER TZ_USER : 1;
     eTZ_NS TZ_NS : 1;
-    uint32_t _reserved_2 : 2;
+    uint32_t _reserved_0 : 2;
     eLOCK_TZ LOCK_TZ : 1;
-    uint32_t _reserved_3 : 3;
+    uint32_t _reserved_1 : 3;
     uint32_t WHITE_LIST : 4;
     eLOCK_LIST LOCK_LIST : 1;
-    uint32_t _reserved_5 : 3;
+    uint32_t _reserved_2 : 3;
     eDOMAIN_MODE DOMAIN_MODE : 1;
     eSETPOINT_MODE SETPOINT_MODE : 1;
     eCPULPM CPULPM : 1;
-    uint32_t _reserved_8 : 1;
+    uint32_t _reserved_3 : 1;
     eLOCK_MODE LOCK_MODE : 1;
-    uint32_t _reserved_end : 11;
+    uint32_t _reserved_4 : 11;
   } bits;
   
   // Full 32-bit register value.
@@ -27026,7 +27026,7 @@ union LPCG62_DIRECT {
   // Bit field definition.
   struct {
     eON ON : 1;
-    uint32_t _reserved_end : 31;
+    uint32_t _reserved_0 : 31;
   } bits;
   
   // Full 32-bit register value.
@@ -27084,15 +27084,15 @@ union LPCG62_DOMAIN {
   // Bit field definition.
   struct {
     eLEVEL LEVEL : 3;
-    uint32_t _reserved_1 : 13;
+    uint32_t _reserved_0 : 13;
     eLEVEL0 LEVEL0 : 3;
-    uint32_t _reserved_2 : 1;
+    uint32_t _reserved_1 : 1;
     eLEVEL1 LEVEL1 : 3;
-    uint32_t _reserved_3 : 1;
+    uint32_t _reserved_2 : 1;
     eLEVEL2 LEVEL2 : 3;
-    uint32_t _reserved_4 : 1;
+    uint32_t _reserved_3 : 1;
     eLEVEL3 LEVEL3 : 3;
-    uint32_t _reserved_end : 1;
+    uint32_t _reserved_4 : 1;
   } bits;
   
   // Full 32-bit register value.
@@ -27153,10 +27153,10 @@ union LPCG62_STATUS0 {
   // Bit field definition.
   struct {
     eON ON : 1;
-    uint32_t _reserved_1 : 7;
+    uint32_t _reserved_0 : 7;
     eACTIVE_DOMAIN ACTIVE_DOMAIN : 4;
     eDOMAIN_ENABLE DOMAIN_ENABLE : 4;
-    uint32_t _reserved_end : 16;
+    uint32_t _reserved_1 : 16;
   } bits;
   
   // Full 32-bit register value.
@@ -27279,7 +27279,7 @@ union LPCG62_STATUS1 {
     eSETPOINT_OFF_DONE SETPOINT_OFF_DONE : 1;
     eSETPOINT_ON_REQUEST SETPOINT_ON_REQUEST : 1;
     eSETPOINT_ON_DONE SETPOINT_ON_DONE : 1;
-    uint32_t _reserved_end : 4;
+    uint32_t _reserved_0 : 4;
   } bits;
   
   // Full 32-bit register value.
@@ -27303,7 +27303,7 @@ union LPCG62_CONFIG {
   struct {
     uint32_t _reserved_0 : 4;
     eSETPOINT_PRESENT SETPOINT_PRESENT : 1;
-    uint32_t _reserved_end : 27;
+    uint32_t _reserved_1 : 27;
   } bits;
   
   // Full 32-bit register value.
@@ -27362,18 +27362,18 @@ union LPCG62_AUTHEN {
   struct {
     eTZ_USER TZ_USER : 1;
     eTZ_NS TZ_NS : 1;
-    uint32_t _reserved_2 : 2;
+    uint32_t _reserved_0 : 2;
     eLOCK_TZ LOCK_TZ : 1;
-    uint32_t _reserved_3 : 3;
+    uint32_t _reserved_1 : 3;
     uint32_t WHITE_LIST : 4;
     eLOCK_LIST LOCK_LIST : 1;
-    uint32_t _reserved_5 : 3;
+    uint32_t _reserved_2 : 3;
     eDOMAIN_MODE DOMAIN_MODE : 1;
     eSETPOINT_MODE SETPOINT_MODE : 1;
     eCPULPM CPULPM : 1;
-    uint32_t _reserved_8 : 1;
+    uint32_t _reserved_3 : 1;
     eLOCK_MODE LOCK_MODE : 1;
-    uint32_t _reserved_end : 11;
+    uint32_t _reserved_4 : 11;
   } bits;
   
   // Full 32-bit register value.
@@ -27396,7 +27396,7 @@ union LPCG63_DIRECT {
   // Bit field definition.
   struct {
     eON ON : 1;
-    uint32_t _reserved_end : 31;
+    uint32_t _reserved_0 : 31;
   } bits;
   
   // Full 32-bit register value.
@@ -27454,15 +27454,15 @@ union LPCG63_DOMAIN {
   // Bit field definition.
   struct {
     eLEVEL LEVEL : 3;
-    uint32_t _reserved_1 : 13;
+    uint32_t _reserved_0 : 13;
     eLEVEL0 LEVEL0 : 3;
-    uint32_t _reserved_2 : 1;
+    uint32_t _reserved_1 : 1;
     eLEVEL1 LEVEL1 : 3;
-    uint32_t _reserved_3 : 1;
+    uint32_t _reserved_2 : 1;
     eLEVEL2 LEVEL2 : 3;
-    uint32_t _reserved_4 : 1;
+    uint32_t _reserved_3 : 1;
     eLEVEL3 LEVEL3 : 3;
-    uint32_t _reserved_end : 1;
+    uint32_t _reserved_4 : 1;
   } bits;
   
   // Full 32-bit register value.
@@ -27523,10 +27523,10 @@ union LPCG63_STATUS0 {
   // Bit field definition.
   struct {
     eON ON : 1;
-    uint32_t _reserved_1 : 7;
+    uint32_t _reserved_0 : 7;
     eACTIVE_DOMAIN ACTIVE_DOMAIN : 4;
     eDOMAIN_ENABLE DOMAIN_ENABLE : 4;
-    uint32_t _reserved_end : 16;
+    uint32_t _reserved_1 : 16;
   } bits;
   
   // Full 32-bit register value.
@@ -27649,7 +27649,7 @@ union LPCG63_STATUS1 {
     eSETPOINT_OFF_DONE SETPOINT_OFF_DONE : 1;
     eSETPOINT_ON_REQUEST SETPOINT_ON_REQUEST : 1;
     eSETPOINT_ON_DONE SETPOINT_ON_DONE : 1;
-    uint32_t _reserved_end : 4;
+    uint32_t _reserved_0 : 4;
   } bits;
   
   // Full 32-bit register value.
@@ -27673,7 +27673,7 @@ union LPCG63_CONFIG {
   struct {
     uint32_t _reserved_0 : 4;
     eSETPOINT_PRESENT SETPOINT_PRESENT : 1;
-    uint32_t _reserved_end : 27;
+    uint32_t _reserved_1 : 27;
   } bits;
   
   // Full 32-bit register value.
@@ -27732,18 +27732,18 @@ union LPCG63_AUTHEN {
   struct {
     eTZ_USER TZ_USER : 1;
     eTZ_NS TZ_NS : 1;
-    uint32_t _reserved_2 : 2;
+    uint32_t _reserved_0 : 2;
     eLOCK_TZ LOCK_TZ : 1;
-    uint32_t _reserved_3 : 3;
+    uint32_t _reserved_1 : 3;
     uint32_t WHITE_LIST : 4;
     eLOCK_LIST LOCK_LIST : 1;
-    uint32_t _reserved_5 : 3;
+    uint32_t _reserved_2 : 3;
     eDOMAIN_MODE DOMAIN_MODE : 1;
     eSETPOINT_MODE SETPOINT_MODE : 1;
     eCPULPM CPULPM : 1;
-    uint32_t _reserved_8 : 1;
+    uint32_t _reserved_3 : 1;
     eLOCK_MODE LOCK_MODE : 1;
-    uint32_t _reserved_end : 11;
+    uint32_t _reserved_4 : 11;
   } bits;
   
   // Full 32-bit register value.
@@ -27766,7 +27766,7 @@ union LPCG64_DIRECT {
   // Bit field definition.
   struct {
     eON ON : 1;
-    uint32_t _reserved_end : 31;
+    uint32_t _reserved_0 : 31;
   } bits;
   
   // Full 32-bit register value.
@@ -27824,15 +27824,15 @@ union LPCG64_DOMAIN {
   // Bit field definition.
   struct {
     eLEVEL LEVEL : 3;
-    uint32_t _reserved_1 : 13;
+    uint32_t _reserved_0 : 13;
     eLEVEL0 LEVEL0 : 3;
-    uint32_t _reserved_2 : 1;
+    uint32_t _reserved_1 : 1;
     eLEVEL1 LEVEL1 : 3;
-    uint32_t _reserved_3 : 1;
+    uint32_t _reserved_2 : 1;
     eLEVEL2 LEVEL2 : 3;
-    uint32_t _reserved_4 : 1;
+    uint32_t _reserved_3 : 1;
     eLEVEL3 LEVEL3 : 3;
-    uint32_t _reserved_end : 1;
+    uint32_t _reserved_4 : 1;
   } bits;
   
   // Full 32-bit register value.
@@ -27893,10 +27893,10 @@ union LPCG64_STATUS0 {
   // Bit field definition.
   struct {
     eON ON : 1;
-    uint32_t _reserved_1 : 7;
+    uint32_t _reserved_0 : 7;
     eACTIVE_DOMAIN ACTIVE_DOMAIN : 4;
     eDOMAIN_ENABLE DOMAIN_ENABLE : 4;
-    uint32_t _reserved_end : 16;
+    uint32_t _reserved_1 : 16;
   } bits;
   
   // Full 32-bit register value.
@@ -28019,7 +28019,7 @@ union LPCG64_STATUS1 {
     eSETPOINT_OFF_DONE SETPOINT_OFF_DONE : 1;
     eSETPOINT_ON_REQUEST SETPOINT_ON_REQUEST : 1;
     eSETPOINT_ON_DONE SETPOINT_ON_DONE : 1;
-    uint32_t _reserved_end : 4;
+    uint32_t _reserved_0 : 4;
   } bits;
   
   // Full 32-bit register value.
@@ -28043,7 +28043,7 @@ union LPCG64_CONFIG {
   struct {
     uint32_t _reserved_0 : 4;
     eSETPOINT_PRESENT SETPOINT_PRESENT : 1;
-    uint32_t _reserved_end : 27;
+    uint32_t _reserved_1 : 27;
   } bits;
   
   // Full 32-bit register value.
@@ -28102,18 +28102,18 @@ union LPCG64_AUTHEN {
   struct {
     eTZ_USER TZ_USER : 1;
     eTZ_NS TZ_NS : 1;
-    uint32_t _reserved_2 : 2;
+    uint32_t _reserved_0 : 2;
     eLOCK_TZ LOCK_TZ : 1;
-    uint32_t _reserved_3 : 3;
+    uint32_t _reserved_1 : 3;
     uint32_t WHITE_LIST : 4;
     eLOCK_LIST LOCK_LIST : 1;
-    uint32_t _reserved_5 : 3;
+    uint32_t _reserved_2 : 3;
     eDOMAIN_MODE DOMAIN_MODE : 1;
     eSETPOINT_MODE SETPOINT_MODE : 1;
     eCPULPM CPULPM : 1;
-    uint32_t _reserved_8 : 1;
+    uint32_t _reserved_3 : 1;
     eLOCK_MODE LOCK_MODE : 1;
-    uint32_t _reserved_end : 11;
+    uint32_t _reserved_4 : 11;
   } bits;
   
   // Full 32-bit register value.
@@ -28136,7 +28136,7 @@ union LPCG65_DIRECT {
   // Bit field definition.
   struct {
     eON ON : 1;
-    uint32_t _reserved_end : 31;
+    uint32_t _reserved_0 : 31;
   } bits;
   
   // Full 32-bit register value.
@@ -28194,15 +28194,15 @@ union LPCG65_DOMAIN {
   // Bit field definition.
   struct {
     eLEVEL LEVEL : 3;
-    uint32_t _reserved_1 : 13;
+    uint32_t _reserved_0 : 13;
     eLEVEL0 LEVEL0 : 3;
-    uint32_t _reserved_2 : 1;
+    uint32_t _reserved_1 : 1;
     eLEVEL1 LEVEL1 : 3;
-    uint32_t _reserved_3 : 1;
+    uint32_t _reserved_2 : 1;
     eLEVEL2 LEVEL2 : 3;
-    uint32_t _reserved_4 : 1;
+    uint32_t _reserved_3 : 1;
     eLEVEL3 LEVEL3 : 3;
-    uint32_t _reserved_end : 1;
+    uint32_t _reserved_4 : 1;
   } bits;
   
   // Full 32-bit register value.
@@ -28263,10 +28263,10 @@ union LPCG65_STATUS0 {
   // Bit field definition.
   struct {
     eON ON : 1;
-    uint32_t _reserved_1 : 7;
+    uint32_t _reserved_0 : 7;
     eACTIVE_DOMAIN ACTIVE_DOMAIN : 4;
     eDOMAIN_ENABLE DOMAIN_ENABLE : 4;
-    uint32_t _reserved_end : 16;
+    uint32_t _reserved_1 : 16;
   } bits;
   
   // Full 32-bit register value.
@@ -28389,7 +28389,7 @@ union LPCG65_STATUS1 {
     eSETPOINT_OFF_DONE SETPOINT_OFF_DONE : 1;
     eSETPOINT_ON_REQUEST SETPOINT_ON_REQUEST : 1;
     eSETPOINT_ON_DONE SETPOINT_ON_DONE : 1;
-    uint32_t _reserved_end : 4;
+    uint32_t _reserved_0 : 4;
   } bits;
   
   // Full 32-bit register value.
@@ -28413,7 +28413,7 @@ union LPCG65_CONFIG {
   struct {
     uint32_t _reserved_0 : 4;
     eSETPOINT_PRESENT SETPOINT_PRESENT : 1;
-    uint32_t _reserved_end : 27;
+    uint32_t _reserved_1 : 27;
   } bits;
   
   // Full 32-bit register value.
@@ -28472,18 +28472,18 @@ union LPCG65_AUTHEN {
   struct {
     eTZ_USER TZ_USER : 1;
     eTZ_NS TZ_NS : 1;
-    uint32_t _reserved_2 : 2;
+    uint32_t _reserved_0 : 2;
     eLOCK_TZ LOCK_TZ : 1;
-    uint32_t _reserved_3 : 3;
+    uint32_t _reserved_1 : 3;
     uint32_t WHITE_LIST : 4;
     eLOCK_LIST LOCK_LIST : 1;
-    uint32_t _reserved_5 : 3;
+    uint32_t _reserved_2 : 3;
     eDOMAIN_MODE DOMAIN_MODE : 1;
     eSETPOINT_MODE SETPOINT_MODE : 1;
     eCPULPM CPULPM : 1;
-    uint32_t _reserved_8 : 1;
+    uint32_t _reserved_3 : 1;
     eLOCK_MODE LOCK_MODE : 1;
-    uint32_t _reserved_end : 11;
+    uint32_t _reserved_4 : 11;
   } bits;
   
   // Full 32-bit register value.
@@ -28506,7 +28506,7 @@ union LPCG66_DIRECT {
   // Bit field definition.
   struct {
     eON ON : 1;
-    uint32_t _reserved_end : 31;
+    uint32_t _reserved_0 : 31;
   } bits;
   
   // Full 32-bit register value.
@@ -28564,15 +28564,15 @@ union LPCG66_DOMAIN {
   // Bit field definition.
   struct {
     eLEVEL LEVEL : 3;
-    uint32_t _reserved_1 : 13;
+    uint32_t _reserved_0 : 13;
     eLEVEL0 LEVEL0 : 3;
-    uint32_t _reserved_2 : 1;
+    uint32_t _reserved_1 : 1;
     eLEVEL1 LEVEL1 : 3;
-    uint32_t _reserved_3 : 1;
+    uint32_t _reserved_2 : 1;
     eLEVEL2 LEVEL2 : 3;
-    uint32_t _reserved_4 : 1;
+    uint32_t _reserved_3 : 1;
     eLEVEL3 LEVEL3 : 3;
-    uint32_t _reserved_end : 1;
+    uint32_t _reserved_4 : 1;
   } bits;
   
   // Full 32-bit register value.
@@ -28633,10 +28633,10 @@ union LPCG66_STATUS0 {
   // Bit field definition.
   struct {
     eON ON : 1;
-    uint32_t _reserved_1 : 7;
+    uint32_t _reserved_0 : 7;
     eACTIVE_DOMAIN ACTIVE_DOMAIN : 4;
     eDOMAIN_ENABLE DOMAIN_ENABLE : 4;
-    uint32_t _reserved_end : 16;
+    uint32_t _reserved_1 : 16;
   } bits;
   
   // Full 32-bit register value.
@@ -28759,7 +28759,7 @@ union LPCG66_STATUS1 {
     eSETPOINT_OFF_DONE SETPOINT_OFF_DONE : 1;
     eSETPOINT_ON_REQUEST SETPOINT_ON_REQUEST : 1;
     eSETPOINT_ON_DONE SETPOINT_ON_DONE : 1;
-    uint32_t _reserved_end : 4;
+    uint32_t _reserved_0 : 4;
   } bits;
   
   // Full 32-bit register value.
@@ -28783,7 +28783,7 @@ union LPCG66_CONFIG {
   struct {
     uint32_t _reserved_0 : 4;
     eSETPOINT_PRESENT SETPOINT_PRESENT : 1;
-    uint32_t _reserved_end : 27;
+    uint32_t _reserved_1 : 27;
   } bits;
   
   // Full 32-bit register value.
@@ -28842,18 +28842,18 @@ union LPCG66_AUTHEN {
   struct {
     eTZ_USER TZ_USER : 1;
     eTZ_NS TZ_NS : 1;
-    uint32_t _reserved_2 : 2;
+    uint32_t _reserved_0 : 2;
     eLOCK_TZ LOCK_TZ : 1;
-    uint32_t _reserved_3 : 3;
+    uint32_t _reserved_1 : 3;
     uint32_t WHITE_LIST : 4;
     eLOCK_LIST LOCK_LIST : 1;
-    uint32_t _reserved_5 : 3;
+    uint32_t _reserved_2 : 3;
     eDOMAIN_MODE DOMAIN_MODE : 1;
     eSETPOINT_MODE SETPOINT_MODE : 1;
     eCPULPM CPULPM : 1;
-    uint32_t _reserved_8 : 1;
+    uint32_t _reserved_3 : 1;
     eLOCK_MODE LOCK_MODE : 1;
-    uint32_t _reserved_end : 11;
+    uint32_t _reserved_4 : 11;
   } bits;
   
   // Full 32-bit register value.
@@ -28876,7 +28876,7 @@ union LPCG67_DIRECT {
   // Bit field definition.
   struct {
     eON ON : 1;
-    uint32_t _reserved_end : 31;
+    uint32_t _reserved_0 : 31;
   } bits;
   
   // Full 32-bit register value.
@@ -28934,15 +28934,15 @@ union LPCG67_DOMAIN {
   // Bit field definition.
   struct {
     eLEVEL LEVEL : 3;
-    uint32_t _reserved_1 : 13;
+    uint32_t _reserved_0 : 13;
     eLEVEL0 LEVEL0 : 3;
-    uint32_t _reserved_2 : 1;
+    uint32_t _reserved_1 : 1;
     eLEVEL1 LEVEL1 : 3;
-    uint32_t _reserved_3 : 1;
+    uint32_t _reserved_2 : 1;
     eLEVEL2 LEVEL2 : 3;
-    uint32_t _reserved_4 : 1;
+    uint32_t _reserved_3 : 1;
     eLEVEL3 LEVEL3 : 3;
-    uint32_t _reserved_end : 1;
+    uint32_t _reserved_4 : 1;
   } bits;
   
   // Full 32-bit register value.
@@ -29003,10 +29003,10 @@ union LPCG67_STATUS0 {
   // Bit field definition.
   struct {
     eON ON : 1;
-    uint32_t _reserved_1 : 7;
+    uint32_t _reserved_0 : 7;
     eACTIVE_DOMAIN ACTIVE_DOMAIN : 4;
     eDOMAIN_ENABLE DOMAIN_ENABLE : 4;
-    uint32_t _reserved_end : 16;
+    uint32_t _reserved_1 : 16;
   } bits;
   
   // Full 32-bit register value.
@@ -29129,7 +29129,7 @@ union LPCG67_STATUS1 {
     eSETPOINT_OFF_DONE SETPOINT_OFF_DONE : 1;
     eSETPOINT_ON_REQUEST SETPOINT_ON_REQUEST : 1;
     eSETPOINT_ON_DONE SETPOINT_ON_DONE : 1;
-    uint32_t _reserved_end : 4;
+    uint32_t _reserved_0 : 4;
   } bits;
   
   // Full 32-bit register value.
@@ -29153,7 +29153,7 @@ union LPCG67_CONFIG {
   struct {
     uint32_t _reserved_0 : 4;
     eSETPOINT_PRESENT SETPOINT_PRESENT : 1;
-    uint32_t _reserved_end : 27;
+    uint32_t _reserved_1 : 27;
   } bits;
   
   // Full 32-bit register value.
@@ -29212,18 +29212,18 @@ union LPCG67_AUTHEN {
   struct {
     eTZ_USER TZ_USER : 1;
     eTZ_NS TZ_NS : 1;
-    uint32_t _reserved_2 : 2;
+    uint32_t _reserved_0 : 2;
     eLOCK_TZ LOCK_TZ : 1;
-    uint32_t _reserved_3 : 3;
+    uint32_t _reserved_1 : 3;
     uint32_t WHITE_LIST : 4;
     eLOCK_LIST LOCK_LIST : 1;
-    uint32_t _reserved_5 : 3;
+    uint32_t _reserved_2 : 3;
     eDOMAIN_MODE DOMAIN_MODE : 1;
     eSETPOINT_MODE SETPOINT_MODE : 1;
     eCPULPM CPULPM : 1;
-    uint32_t _reserved_8 : 1;
+    uint32_t _reserved_3 : 1;
     eLOCK_MODE LOCK_MODE : 1;
-    uint32_t _reserved_end : 11;
+    uint32_t _reserved_4 : 11;
   } bits;
   
   // Full 32-bit register value.
@@ -29246,7 +29246,7 @@ union LPCG68_DIRECT {
   // Bit field definition.
   struct {
     eON ON : 1;
-    uint32_t _reserved_end : 31;
+    uint32_t _reserved_0 : 31;
   } bits;
   
   // Full 32-bit register value.
@@ -29304,15 +29304,15 @@ union LPCG68_DOMAIN {
   // Bit field definition.
   struct {
     eLEVEL LEVEL : 3;
-    uint32_t _reserved_1 : 13;
+    uint32_t _reserved_0 : 13;
     eLEVEL0 LEVEL0 : 3;
-    uint32_t _reserved_2 : 1;
+    uint32_t _reserved_1 : 1;
     eLEVEL1 LEVEL1 : 3;
-    uint32_t _reserved_3 : 1;
+    uint32_t _reserved_2 : 1;
     eLEVEL2 LEVEL2 : 3;
-    uint32_t _reserved_4 : 1;
+    uint32_t _reserved_3 : 1;
     eLEVEL3 LEVEL3 : 3;
-    uint32_t _reserved_end : 1;
+    uint32_t _reserved_4 : 1;
   } bits;
   
   // Full 32-bit register value.
@@ -29373,10 +29373,10 @@ union LPCG68_STATUS0 {
   // Bit field definition.
   struct {
     eON ON : 1;
-    uint32_t _reserved_1 : 7;
+    uint32_t _reserved_0 : 7;
     eACTIVE_DOMAIN ACTIVE_DOMAIN : 4;
     eDOMAIN_ENABLE DOMAIN_ENABLE : 4;
-    uint32_t _reserved_end : 16;
+    uint32_t _reserved_1 : 16;
   } bits;
   
   // Full 32-bit register value.
@@ -29499,7 +29499,7 @@ union LPCG68_STATUS1 {
     eSETPOINT_OFF_DONE SETPOINT_OFF_DONE : 1;
     eSETPOINT_ON_REQUEST SETPOINT_ON_REQUEST : 1;
     eSETPOINT_ON_DONE SETPOINT_ON_DONE : 1;
-    uint32_t _reserved_end : 4;
+    uint32_t _reserved_0 : 4;
   } bits;
   
   // Full 32-bit register value.
@@ -29523,7 +29523,7 @@ union LPCG68_CONFIG {
   struct {
     uint32_t _reserved_0 : 4;
     eSETPOINT_PRESENT SETPOINT_PRESENT : 1;
-    uint32_t _reserved_end : 27;
+    uint32_t _reserved_1 : 27;
   } bits;
   
   // Full 32-bit register value.
@@ -29582,18 +29582,18 @@ union LPCG68_AUTHEN {
   struct {
     eTZ_USER TZ_USER : 1;
     eTZ_NS TZ_NS : 1;
-    uint32_t _reserved_2 : 2;
+    uint32_t _reserved_0 : 2;
     eLOCK_TZ LOCK_TZ : 1;
-    uint32_t _reserved_3 : 3;
+    uint32_t _reserved_1 : 3;
     uint32_t WHITE_LIST : 4;
     eLOCK_LIST LOCK_LIST : 1;
-    uint32_t _reserved_5 : 3;
+    uint32_t _reserved_2 : 3;
     eDOMAIN_MODE DOMAIN_MODE : 1;
     eSETPOINT_MODE SETPOINT_MODE : 1;
     eCPULPM CPULPM : 1;
-    uint32_t _reserved_8 : 1;
+    uint32_t _reserved_3 : 1;
     eLOCK_MODE LOCK_MODE : 1;
-    uint32_t _reserved_end : 11;
+    uint32_t _reserved_4 : 11;
   } bits;
   
   // Full 32-bit register value.
@@ -29616,7 +29616,7 @@ union LPCG69_DIRECT {
   // Bit field definition.
   struct {
     eON ON : 1;
-    uint32_t _reserved_end : 31;
+    uint32_t _reserved_0 : 31;
   } bits;
   
   // Full 32-bit register value.
@@ -29674,15 +29674,15 @@ union LPCG69_DOMAIN {
   // Bit field definition.
   struct {
     eLEVEL LEVEL : 3;
-    uint32_t _reserved_1 : 13;
+    uint32_t _reserved_0 : 13;
     eLEVEL0 LEVEL0 : 3;
-    uint32_t _reserved_2 : 1;
+    uint32_t _reserved_1 : 1;
     eLEVEL1 LEVEL1 : 3;
-    uint32_t _reserved_3 : 1;
+    uint32_t _reserved_2 : 1;
     eLEVEL2 LEVEL2 : 3;
-    uint32_t _reserved_4 : 1;
+    uint32_t _reserved_3 : 1;
     eLEVEL3 LEVEL3 : 3;
-    uint32_t _reserved_end : 1;
+    uint32_t _reserved_4 : 1;
   } bits;
   
   // Full 32-bit register value.
@@ -29743,10 +29743,10 @@ union LPCG69_STATUS0 {
   // Bit field definition.
   struct {
     eON ON : 1;
-    uint32_t _reserved_1 : 7;
+    uint32_t _reserved_0 : 7;
     eACTIVE_DOMAIN ACTIVE_DOMAIN : 4;
     eDOMAIN_ENABLE DOMAIN_ENABLE : 4;
-    uint32_t _reserved_end : 16;
+    uint32_t _reserved_1 : 16;
   } bits;
   
   // Full 32-bit register value.
@@ -29869,7 +29869,7 @@ union LPCG69_STATUS1 {
     eSETPOINT_OFF_DONE SETPOINT_OFF_DONE : 1;
     eSETPOINT_ON_REQUEST SETPOINT_ON_REQUEST : 1;
     eSETPOINT_ON_DONE SETPOINT_ON_DONE : 1;
-    uint32_t _reserved_end : 4;
+    uint32_t _reserved_0 : 4;
   } bits;
   
   // Full 32-bit register value.
@@ -29893,7 +29893,7 @@ union LPCG69_CONFIG {
   struct {
     uint32_t _reserved_0 : 4;
     eSETPOINT_PRESENT SETPOINT_PRESENT : 1;
-    uint32_t _reserved_end : 27;
+    uint32_t _reserved_1 : 27;
   } bits;
   
   // Full 32-bit register value.
@@ -29952,18 +29952,18 @@ union LPCG69_AUTHEN {
   struct {
     eTZ_USER TZ_USER : 1;
     eTZ_NS TZ_NS : 1;
-    uint32_t _reserved_2 : 2;
+    uint32_t _reserved_0 : 2;
     eLOCK_TZ LOCK_TZ : 1;
-    uint32_t _reserved_3 : 3;
+    uint32_t _reserved_1 : 3;
     uint32_t WHITE_LIST : 4;
     eLOCK_LIST LOCK_LIST : 1;
-    uint32_t _reserved_5 : 3;
+    uint32_t _reserved_2 : 3;
     eDOMAIN_MODE DOMAIN_MODE : 1;
     eSETPOINT_MODE SETPOINT_MODE : 1;
     eCPULPM CPULPM : 1;
-    uint32_t _reserved_8 : 1;
+    uint32_t _reserved_3 : 1;
     eLOCK_MODE LOCK_MODE : 1;
-    uint32_t _reserved_end : 11;
+    uint32_t _reserved_4 : 11;
   } bits;
   
   // Full 32-bit register value.
@@ -29986,7 +29986,7 @@ union LPCG70_DIRECT {
   // Bit field definition.
   struct {
     eON ON : 1;
-    uint32_t _reserved_end : 31;
+    uint32_t _reserved_0 : 31;
   } bits;
   
   // Full 32-bit register value.
@@ -30044,15 +30044,15 @@ union LPCG70_DOMAIN {
   // Bit field definition.
   struct {
     eLEVEL LEVEL : 3;
-    uint32_t _reserved_1 : 13;
+    uint32_t _reserved_0 : 13;
     eLEVEL0 LEVEL0 : 3;
-    uint32_t _reserved_2 : 1;
+    uint32_t _reserved_1 : 1;
     eLEVEL1 LEVEL1 : 3;
-    uint32_t _reserved_3 : 1;
+    uint32_t _reserved_2 : 1;
     eLEVEL2 LEVEL2 : 3;
-    uint32_t _reserved_4 : 1;
+    uint32_t _reserved_3 : 1;
     eLEVEL3 LEVEL3 : 3;
-    uint32_t _reserved_end : 1;
+    uint32_t _reserved_4 : 1;
   } bits;
   
   // Full 32-bit register value.
@@ -30113,10 +30113,10 @@ union LPCG70_STATUS0 {
   // Bit field definition.
   struct {
     eON ON : 1;
-    uint32_t _reserved_1 : 7;
+    uint32_t _reserved_0 : 7;
     eACTIVE_DOMAIN ACTIVE_DOMAIN : 4;
     eDOMAIN_ENABLE DOMAIN_ENABLE : 4;
-    uint32_t _reserved_end : 16;
+    uint32_t _reserved_1 : 16;
   } bits;
   
   // Full 32-bit register value.
@@ -30239,7 +30239,7 @@ union LPCG70_STATUS1 {
     eSETPOINT_OFF_DONE SETPOINT_OFF_DONE : 1;
     eSETPOINT_ON_REQUEST SETPOINT_ON_REQUEST : 1;
     eSETPOINT_ON_DONE SETPOINT_ON_DONE : 1;
-    uint32_t _reserved_end : 4;
+    uint32_t _reserved_0 : 4;
   } bits;
   
   // Full 32-bit register value.
@@ -30263,7 +30263,7 @@ union LPCG70_CONFIG {
   struct {
     uint32_t _reserved_0 : 4;
     eSETPOINT_PRESENT SETPOINT_PRESENT : 1;
-    uint32_t _reserved_end : 27;
+    uint32_t _reserved_1 : 27;
   } bits;
   
   // Full 32-bit register value.
@@ -30322,18 +30322,18 @@ union LPCG70_AUTHEN {
   struct {
     eTZ_USER TZ_USER : 1;
     eTZ_NS TZ_NS : 1;
-    uint32_t _reserved_2 : 2;
+    uint32_t _reserved_0 : 2;
     eLOCK_TZ LOCK_TZ : 1;
-    uint32_t _reserved_3 : 3;
+    uint32_t _reserved_1 : 3;
     uint32_t WHITE_LIST : 4;
     eLOCK_LIST LOCK_LIST : 1;
-    uint32_t _reserved_5 : 3;
+    uint32_t _reserved_2 : 3;
     eDOMAIN_MODE DOMAIN_MODE : 1;
     eSETPOINT_MODE SETPOINT_MODE : 1;
     eCPULPM CPULPM : 1;
-    uint32_t _reserved_8 : 1;
+    uint32_t _reserved_3 : 1;
     eLOCK_MODE LOCK_MODE : 1;
-    uint32_t _reserved_end : 11;
+    uint32_t _reserved_4 : 11;
   } bits;
   
   // Full 32-bit register value.
@@ -30356,7 +30356,7 @@ union LPCG71_DIRECT {
   // Bit field definition.
   struct {
     eON ON : 1;
-    uint32_t _reserved_end : 31;
+    uint32_t _reserved_0 : 31;
   } bits;
   
   // Full 32-bit register value.
@@ -30414,15 +30414,15 @@ union LPCG71_DOMAIN {
   // Bit field definition.
   struct {
     eLEVEL LEVEL : 3;
-    uint32_t _reserved_1 : 13;
+    uint32_t _reserved_0 : 13;
     eLEVEL0 LEVEL0 : 3;
-    uint32_t _reserved_2 : 1;
+    uint32_t _reserved_1 : 1;
     eLEVEL1 LEVEL1 : 3;
-    uint32_t _reserved_3 : 1;
+    uint32_t _reserved_2 : 1;
     eLEVEL2 LEVEL2 : 3;
-    uint32_t _reserved_4 : 1;
+    uint32_t _reserved_3 : 1;
     eLEVEL3 LEVEL3 : 3;
-    uint32_t _reserved_end : 1;
+    uint32_t _reserved_4 : 1;
   } bits;
   
   // Full 32-bit register value.
@@ -30483,10 +30483,10 @@ union LPCG71_STATUS0 {
   // Bit field definition.
   struct {
     eON ON : 1;
-    uint32_t _reserved_1 : 7;
+    uint32_t _reserved_0 : 7;
     eACTIVE_DOMAIN ACTIVE_DOMAIN : 4;
     eDOMAIN_ENABLE DOMAIN_ENABLE : 4;
-    uint32_t _reserved_end : 16;
+    uint32_t _reserved_1 : 16;
   } bits;
   
   // Full 32-bit register value.
@@ -30609,7 +30609,7 @@ union LPCG71_STATUS1 {
     eSETPOINT_OFF_DONE SETPOINT_OFF_DONE : 1;
     eSETPOINT_ON_REQUEST SETPOINT_ON_REQUEST : 1;
     eSETPOINT_ON_DONE SETPOINT_ON_DONE : 1;
-    uint32_t _reserved_end : 4;
+    uint32_t _reserved_0 : 4;
   } bits;
   
   // Full 32-bit register value.
@@ -30633,7 +30633,7 @@ union LPCG71_CONFIG {
   struct {
     uint32_t _reserved_0 : 4;
     eSETPOINT_PRESENT SETPOINT_PRESENT : 1;
-    uint32_t _reserved_end : 27;
+    uint32_t _reserved_1 : 27;
   } bits;
   
   // Full 32-bit register value.
@@ -30692,18 +30692,18 @@ union LPCG71_AUTHEN {
   struct {
     eTZ_USER TZ_USER : 1;
     eTZ_NS TZ_NS : 1;
-    uint32_t _reserved_2 : 2;
+    uint32_t _reserved_0 : 2;
     eLOCK_TZ LOCK_TZ : 1;
-    uint32_t _reserved_3 : 3;
+    uint32_t _reserved_1 : 3;
     uint32_t WHITE_LIST : 4;
     eLOCK_LIST LOCK_LIST : 1;
-    uint32_t _reserved_5 : 3;
+    uint32_t _reserved_2 : 3;
     eDOMAIN_MODE DOMAIN_MODE : 1;
     eSETPOINT_MODE SETPOINT_MODE : 1;
     eCPULPM CPULPM : 1;
-    uint32_t _reserved_8 : 1;
+    uint32_t _reserved_3 : 1;
     eLOCK_MODE LOCK_MODE : 1;
-    uint32_t _reserved_end : 11;
+    uint32_t _reserved_4 : 11;
   } bits;
   
   // Full 32-bit register value.
@@ -30726,7 +30726,7 @@ union LPCG72_DIRECT {
   // Bit field definition.
   struct {
     eON ON : 1;
-    uint32_t _reserved_end : 31;
+    uint32_t _reserved_0 : 31;
   } bits;
   
   // Full 32-bit register value.
@@ -30784,15 +30784,15 @@ union LPCG72_DOMAIN {
   // Bit field definition.
   struct {
     eLEVEL LEVEL : 3;
-    uint32_t _reserved_1 : 13;
+    uint32_t _reserved_0 : 13;
     eLEVEL0 LEVEL0 : 3;
-    uint32_t _reserved_2 : 1;
+    uint32_t _reserved_1 : 1;
     eLEVEL1 LEVEL1 : 3;
-    uint32_t _reserved_3 : 1;
+    uint32_t _reserved_2 : 1;
     eLEVEL2 LEVEL2 : 3;
-    uint32_t _reserved_4 : 1;
+    uint32_t _reserved_3 : 1;
     eLEVEL3 LEVEL3 : 3;
-    uint32_t _reserved_end : 1;
+    uint32_t _reserved_4 : 1;
   } bits;
   
   // Full 32-bit register value.
@@ -30853,10 +30853,10 @@ union LPCG72_STATUS0 {
   // Bit field definition.
   struct {
     eON ON : 1;
-    uint32_t _reserved_1 : 7;
+    uint32_t _reserved_0 : 7;
     eACTIVE_DOMAIN ACTIVE_DOMAIN : 4;
     eDOMAIN_ENABLE DOMAIN_ENABLE : 4;
-    uint32_t _reserved_end : 16;
+    uint32_t _reserved_1 : 16;
   } bits;
   
   // Full 32-bit register value.
@@ -30979,7 +30979,7 @@ union LPCG72_STATUS1 {
     eSETPOINT_OFF_DONE SETPOINT_OFF_DONE : 1;
     eSETPOINT_ON_REQUEST SETPOINT_ON_REQUEST : 1;
     eSETPOINT_ON_DONE SETPOINT_ON_DONE : 1;
-    uint32_t _reserved_end : 4;
+    uint32_t _reserved_0 : 4;
   } bits;
   
   // Full 32-bit register value.
@@ -31003,7 +31003,7 @@ union LPCG72_CONFIG {
   struct {
     uint32_t _reserved_0 : 4;
     eSETPOINT_PRESENT SETPOINT_PRESENT : 1;
-    uint32_t _reserved_end : 27;
+    uint32_t _reserved_1 : 27;
   } bits;
   
   // Full 32-bit register value.
@@ -31062,18 +31062,18 @@ union LPCG72_AUTHEN {
   struct {
     eTZ_USER TZ_USER : 1;
     eTZ_NS TZ_NS : 1;
-    uint32_t _reserved_2 : 2;
+    uint32_t _reserved_0 : 2;
     eLOCK_TZ LOCK_TZ : 1;
-    uint32_t _reserved_3 : 3;
+    uint32_t _reserved_1 : 3;
     uint32_t WHITE_LIST : 4;
     eLOCK_LIST LOCK_LIST : 1;
-    uint32_t _reserved_5 : 3;
+    uint32_t _reserved_2 : 3;
     eDOMAIN_MODE DOMAIN_MODE : 1;
     eSETPOINT_MODE SETPOINT_MODE : 1;
     eCPULPM CPULPM : 1;
-    uint32_t _reserved_8 : 1;
+    uint32_t _reserved_3 : 1;
     eLOCK_MODE LOCK_MODE : 1;
-    uint32_t _reserved_end : 11;
+    uint32_t _reserved_4 : 11;
   } bits;
   
   // Full 32-bit register value.
@@ -31096,7 +31096,7 @@ union LPCG73_DIRECT {
   // Bit field definition.
   struct {
     eON ON : 1;
-    uint32_t _reserved_end : 31;
+    uint32_t _reserved_0 : 31;
   } bits;
   
   // Full 32-bit register value.
@@ -31154,15 +31154,15 @@ union LPCG73_DOMAIN {
   // Bit field definition.
   struct {
     eLEVEL LEVEL : 3;
-    uint32_t _reserved_1 : 13;
+    uint32_t _reserved_0 : 13;
     eLEVEL0 LEVEL0 : 3;
-    uint32_t _reserved_2 : 1;
+    uint32_t _reserved_1 : 1;
     eLEVEL1 LEVEL1 : 3;
-    uint32_t _reserved_3 : 1;
+    uint32_t _reserved_2 : 1;
     eLEVEL2 LEVEL2 : 3;
-    uint32_t _reserved_4 : 1;
+    uint32_t _reserved_3 : 1;
     eLEVEL3 LEVEL3 : 3;
-    uint32_t _reserved_end : 1;
+    uint32_t _reserved_4 : 1;
   } bits;
   
   // Full 32-bit register value.
@@ -31223,10 +31223,10 @@ union LPCG73_STATUS0 {
   // Bit field definition.
   struct {
     eON ON : 1;
-    uint32_t _reserved_1 : 7;
+    uint32_t _reserved_0 : 7;
     eACTIVE_DOMAIN ACTIVE_DOMAIN : 4;
     eDOMAIN_ENABLE DOMAIN_ENABLE : 4;
-    uint32_t _reserved_end : 16;
+    uint32_t _reserved_1 : 16;
   } bits;
   
   // Full 32-bit register value.
@@ -31349,7 +31349,7 @@ union LPCG73_STATUS1 {
     eSETPOINT_OFF_DONE SETPOINT_OFF_DONE : 1;
     eSETPOINT_ON_REQUEST SETPOINT_ON_REQUEST : 1;
     eSETPOINT_ON_DONE SETPOINT_ON_DONE : 1;
-    uint32_t _reserved_end : 4;
+    uint32_t _reserved_0 : 4;
   } bits;
   
   // Full 32-bit register value.
@@ -31373,7 +31373,7 @@ union LPCG73_CONFIG {
   struct {
     uint32_t _reserved_0 : 4;
     eSETPOINT_PRESENT SETPOINT_PRESENT : 1;
-    uint32_t _reserved_end : 27;
+    uint32_t _reserved_1 : 27;
   } bits;
   
   // Full 32-bit register value.
@@ -31432,18 +31432,18 @@ union LPCG73_AUTHEN {
   struct {
     eTZ_USER TZ_USER : 1;
     eTZ_NS TZ_NS : 1;
-    uint32_t _reserved_2 : 2;
+    uint32_t _reserved_0 : 2;
     eLOCK_TZ LOCK_TZ : 1;
-    uint32_t _reserved_3 : 3;
+    uint32_t _reserved_1 : 3;
     uint32_t WHITE_LIST : 4;
     eLOCK_LIST LOCK_LIST : 1;
-    uint32_t _reserved_5 : 3;
+    uint32_t _reserved_2 : 3;
     eDOMAIN_MODE DOMAIN_MODE : 1;
     eSETPOINT_MODE SETPOINT_MODE : 1;
     eCPULPM CPULPM : 1;
-    uint32_t _reserved_8 : 1;
+    uint32_t _reserved_3 : 1;
     eLOCK_MODE LOCK_MODE : 1;
-    uint32_t _reserved_end : 11;
+    uint32_t _reserved_4 : 11;
   } bits;
   
   // Full 32-bit register value.
@@ -31466,7 +31466,7 @@ union LPCG74_DIRECT {
   // Bit field definition.
   struct {
     eON ON : 1;
-    uint32_t _reserved_end : 31;
+    uint32_t _reserved_0 : 31;
   } bits;
   
   // Full 32-bit register value.
@@ -31524,15 +31524,15 @@ union LPCG74_DOMAIN {
   // Bit field definition.
   struct {
     eLEVEL LEVEL : 3;
-    uint32_t _reserved_1 : 13;
+    uint32_t _reserved_0 : 13;
     eLEVEL0 LEVEL0 : 3;
-    uint32_t _reserved_2 : 1;
+    uint32_t _reserved_1 : 1;
     eLEVEL1 LEVEL1 : 3;
-    uint32_t _reserved_3 : 1;
+    uint32_t _reserved_2 : 1;
     eLEVEL2 LEVEL2 : 3;
-    uint32_t _reserved_4 : 1;
+    uint32_t _reserved_3 : 1;
     eLEVEL3 LEVEL3 : 3;
-    uint32_t _reserved_end : 1;
+    uint32_t _reserved_4 : 1;
   } bits;
   
   // Full 32-bit register value.
@@ -31593,10 +31593,10 @@ union LPCG74_STATUS0 {
   // Bit field definition.
   struct {
     eON ON : 1;
-    uint32_t _reserved_1 : 7;
+    uint32_t _reserved_0 : 7;
     eACTIVE_DOMAIN ACTIVE_DOMAIN : 4;
     eDOMAIN_ENABLE DOMAIN_ENABLE : 4;
-    uint32_t _reserved_end : 16;
+    uint32_t _reserved_1 : 16;
   } bits;
   
   // Full 32-bit register value.
@@ -31719,7 +31719,7 @@ union LPCG74_STATUS1 {
     eSETPOINT_OFF_DONE SETPOINT_OFF_DONE : 1;
     eSETPOINT_ON_REQUEST SETPOINT_ON_REQUEST : 1;
     eSETPOINT_ON_DONE SETPOINT_ON_DONE : 1;
-    uint32_t _reserved_end : 4;
+    uint32_t _reserved_0 : 4;
   } bits;
   
   // Full 32-bit register value.
@@ -31743,7 +31743,7 @@ union LPCG74_CONFIG {
   struct {
     uint32_t _reserved_0 : 4;
     eSETPOINT_PRESENT SETPOINT_PRESENT : 1;
-    uint32_t _reserved_end : 27;
+    uint32_t _reserved_1 : 27;
   } bits;
   
   // Full 32-bit register value.
@@ -31802,18 +31802,18 @@ union LPCG74_AUTHEN {
   struct {
     eTZ_USER TZ_USER : 1;
     eTZ_NS TZ_NS : 1;
-    uint32_t _reserved_2 : 2;
+    uint32_t _reserved_0 : 2;
     eLOCK_TZ LOCK_TZ : 1;
-    uint32_t _reserved_3 : 3;
+    uint32_t _reserved_1 : 3;
     uint32_t WHITE_LIST : 4;
     eLOCK_LIST LOCK_LIST : 1;
-    uint32_t _reserved_5 : 3;
+    uint32_t _reserved_2 : 3;
     eDOMAIN_MODE DOMAIN_MODE : 1;
     eSETPOINT_MODE SETPOINT_MODE : 1;
     eCPULPM CPULPM : 1;
-    uint32_t _reserved_8 : 1;
+    uint32_t _reserved_3 : 1;
     eLOCK_MODE LOCK_MODE : 1;
-    uint32_t _reserved_end : 11;
+    uint32_t _reserved_4 : 11;
   } bits;
   
   // Full 32-bit register value.
@@ -31836,7 +31836,7 @@ union LPCG75_DIRECT {
   // Bit field definition.
   struct {
     eON ON : 1;
-    uint32_t _reserved_end : 31;
+    uint32_t _reserved_0 : 31;
   } bits;
   
   // Full 32-bit register value.
@@ -31894,15 +31894,15 @@ union LPCG75_DOMAIN {
   // Bit field definition.
   struct {
     eLEVEL LEVEL : 3;
-    uint32_t _reserved_1 : 13;
+    uint32_t _reserved_0 : 13;
     eLEVEL0 LEVEL0 : 3;
-    uint32_t _reserved_2 : 1;
+    uint32_t _reserved_1 : 1;
     eLEVEL1 LEVEL1 : 3;
-    uint32_t _reserved_3 : 1;
+    uint32_t _reserved_2 : 1;
     eLEVEL2 LEVEL2 : 3;
-    uint32_t _reserved_4 : 1;
+    uint32_t _reserved_3 : 1;
     eLEVEL3 LEVEL3 : 3;
-    uint32_t _reserved_end : 1;
+    uint32_t _reserved_4 : 1;
   } bits;
   
   // Full 32-bit register value.
@@ -31963,10 +31963,10 @@ union LPCG75_STATUS0 {
   // Bit field definition.
   struct {
     eON ON : 1;
-    uint32_t _reserved_1 : 7;
+    uint32_t _reserved_0 : 7;
     eACTIVE_DOMAIN ACTIVE_DOMAIN : 4;
     eDOMAIN_ENABLE DOMAIN_ENABLE : 4;
-    uint32_t _reserved_end : 16;
+    uint32_t _reserved_1 : 16;
   } bits;
   
   // Full 32-bit register value.
@@ -32089,7 +32089,7 @@ union LPCG75_STATUS1 {
     eSETPOINT_OFF_DONE SETPOINT_OFF_DONE : 1;
     eSETPOINT_ON_REQUEST SETPOINT_ON_REQUEST : 1;
     eSETPOINT_ON_DONE SETPOINT_ON_DONE : 1;
-    uint32_t _reserved_end : 4;
+    uint32_t _reserved_0 : 4;
   } bits;
   
   // Full 32-bit register value.
@@ -32113,7 +32113,7 @@ union LPCG75_CONFIG {
   struct {
     uint32_t _reserved_0 : 4;
     eSETPOINT_PRESENT SETPOINT_PRESENT : 1;
-    uint32_t _reserved_end : 27;
+    uint32_t _reserved_1 : 27;
   } bits;
   
   // Full 32-bit register value.
@@ -32172,18 +32172,18 @@ union LPCG75_AUTHEN {
   struct {
     eTZ_USER TZ_USER : 1;
     eTZ_NS TZ_NS : 1;
-    uint32_t _reserved_2 : 2;
+    uint32_t _reserved_0 : 2;
     eLOCK_TZ LOCK_TZ : 1;
-    uint32_t _reserved_3 : 3;
+    uint32_t _reserved_1 : 3;
     uint32_t WHITE_LIST : 4;
     eLOCK_LIST LOCK_LIST : 1;
-    uint32_t _reserved_5 : 3;
+    uint32_t _reserved_2 : 3;
     eDOMAIN_MODE DOMAIN_MODE : 1;
     eSETPOINT_MODE SETPOINT_MODE : 1;
     eCPULPM CPULPM : 1;
-    uint32_t _reserved_8 : 1;
+    uint32_t _reserved_3 : 1;
     eLOCK_MODE LOCK_MODE : 1;
-    uint32_t _reserved_end : 11;
+    uint32_t _reserved_4 : 11;
   } bits;
   
   // Full 32-bit register value.
@@ -32206,7 +32206,7 @@ union LPCG76_DIRECT {
   // Bit field definition.
   struct {
     eON ON : 1;
-    uint32_t _reserved_end : 31;
+    uint32_t _reserved_0 : 31;
   } bits;
   
   // Full 32-bit register value.
@@ -32264,15 +32264,15 @@ union LPCG76_DOMAIN {
   // Bit field definition.
   struct {
     eLEVEL LEVEL : 3;
-    uint32_t _reserved_1 : 13;
+    uint32_t _reserved_0 : 13;
     eLEVEL0 LEVEL0 : 3;
-    uint32_t _reserved_2 : 1;
+    uint32_t _reserved_1 : 1;
     eLEVEL1 LEVEL1 : 3;
-    uint32_t _reserved_3 : 1;
+    uint32_t _reserved_2 : 1;
     eLEVEL2 LEVEL2 : 3;
-    uint32_t _reserved_4 : 1;
+    uint32_t _reserved_3 : 1;
     eLEVEL3 LEVEL3 : 3;
-    uint32_t _reserved_end : 1;
+    uint32_t _reserved_4 : 1;
   } bits;
   
   // Full 32-bit register value.
@@ -32333,10 +32333,10 @@ union LPCG76_STATUS0 {
   // Bit field definition.
   struct {
     eON ON : 1;
-    uint32_t _reserved_1 : 7;
+    uint32_t _reserved_0 : 7;
     eACTIVE_DOMAIN ACTIVE_DOMAIN : 4;
     eDOMAIN_ENABLE DOMAIN_ENABLE : 4;
-    uint32_t _reserved_end : 16;
+    uint32_t _reserved_1 : 16;
   } bits;
   
   // Full 32-bit register value.
@@ -32459,7 +32459,7 @@ union LPCG76_STATUS1 {
     eSETPOINT_OFF_DONE SETPOINT_OFF_DONE : 1;
     eSETPOINT_ON_REQUEST SETPOINT_ON_REQUEST : 1;
     eSETPOINT_ON_DONE SETPOINT_ON_DONE : 1;
-    uint32_t _reserved_end : 4;
+    uint32_t _reserved_0 : 4;
   } bits;
   
   // Full 32-bit register value.
@@ -32483,7 +32483,7 @@ union LPCG76_CONFIG {
   struct {
     uint32_t _reserved_0 : 4;
     eSETPOINT_PRESENT SETPOINT_PRESENT : 1;
-    uint32_t _reserved_end : 27;
+    uint32_t _reserved_1 : 27;
   } bits;
   
   // Full 32-bit register value.
@@ -32542,18 +32542,18 @@ union LPCG76_AUTHEN {
   struct {
     eTZ_USER TZ_USER : 1;
     eTZ_NS TZ_NS : 1;
-    uint32_t _reserved_2 : 2;
+    uint32_t _reserved_0 : 2;
     eLOCK_TZ LOCK_TZ : 1;
-    uint32_t _reserved_3 : 3;
+    uint32_t _reserved_1 : 3;
     uint32_t WHITE_LIST : 4;
     eLOCK_LIST LOCK_LIST : 1;
-    uint32_t _reserved_5 : 3;
+    uint32_t _reserved_2 : 3;
     eDOMAIN_MODE DOMAIN_MODE : 1;
     eSETPOINT_MODE SETPOINT_MODE : 1;
     eCPULPM CPULPM : 1;
-    uint32_t _reserved_8 : 1;
+    uint32_t _reserved_3 : 1;
     eLOCK_MODE LOCK_MODE : 1;
-    uint32_t _reserved_end : 11;
+    uint32_t _reserved_4 : 11;
   } bits;
   
   // Full 32-bit register value.
@@ -32576,7 +32576,7 @@ union LPCG77_DIRECT {
   // Bit field definition.
   struct {
     eON ON : 1;
-    uint32_t _reserved_end : 31;
+    uint32_t _reserved_0 : 31;
   } bits;
   
   // Full 32-bit register value.
@@ -32634,15 +32634,15 @@ union LPCG77_DOMAIN {
   // Bit field definition.
   struct {
     eLEVEL LEVEL : 3;
-    uint32_t _reserved_1 : 13;
+    uint32_t _reserved_0 : 13;
     eLEVEL0 LEVEL0 : 3;
-    uint32_t _reserved_2 : 1;
+    uint32_t _reserved_1 : 1;
     eLEVEL1 LEVEL1 : 3;
-    uint32_t _reserved_3 : 1;
+    uint32_t _reserved_2 : 1;
     eLEVEL2 LEVEL2 : 3;
-    uint32_t _reserved_4 : 1;
+    uint32_t _reserved_3 : 1;
     eLEVEL3 LEVEL3 : 3;
-    uint32_t _reserved_end : 1;
+    uint32_t _reserved_4 : 1;
   } bits;
   
   // Full 32-bit register value.
@@ -32703,10 +32703,10 @@ union LPCG77_STATUS0 {
   // Bit field definition.
   struct {
     eON ON : 1;
-    uint32_t _reserved_1 : 7;
+    uint32_t _reserved_0 : 7;
     eACTIVE_DOMAIN ACTIVE_DOMAIN : 4;
     eDOMAIN_ENABLE DOMAIN_ENABLE : 4;
-    uint32_t _reserved_end : 16;
+    uint32_t _reserved_1 : 16;
   } bits;
   
   // Full 32-bit register value.
@@ -32829,7 +32829,7 @@ union LPCG77_STATUS1 {
     eSETPOINT_OFF_DONE SETPOINT_OFF_DONE : 1;
     eSETPOINT_ON_REQUEST SETPOINT_ON_REQUEST : 1;
     eSETPOINT_ON_DONE SETPOINT_ON_DONE : 1;
-    uint32_t _reserved_end : 4;
+    uint32_t _reserved_0 : 4;
   } bits;
   
   // Full 32-bit register value.
@@ -32853,7 +32853,7 @@ union LPCG77_CONFIG {
   struct {
     uint32_t _reserved_0 : 4;
     eSETPOINT_PRESENT SETPOINT_PRESENT : 1;
-    uint32_t _reserved_end : 27;
+    uint32_t _reserved_1 : 27;
   } bits;
   
   // Full 32-bit register value.
@@ -32912,18 +32912,18 @@ union LPCG77_AUTHEN {
   struct {
     eTZ_USER TZ_USER : 1;
     eTZ_NS TZ_NS : 1;
-    uint32_t _reserved_2 : 2;
+    uint32_t _reserved_0 : 2;
     eLOCK_TZ LOCK_TZ : 1;
-    uint32_t _reserved_3 : 3;
+    uint32_t _reserved_1 : 3;
     uint32_t WHITE_LIST : 4;
     eLOCK_LIST LOCK_LIST : 1;
-    uint32_t _reserved_5 : 3;
+    uint32_t _reserved_2 : 3;
     eDOMAIN_MODE DOMAIN_MODE : 1;
     eSETPOINT_MODE SETPOINT_MODE : 1;
     eCPULPM CPULPM : 1;
-    uint32_t _reserved_8 : 1;
+    uint32_t _reserved_3 : 1;
     eLOCK_MODE LOCK_MODE : 1;
-    uint32_t _reserved_end : 11;
+    uint32_t _reserved_4 : 11;
   } bits;
   
   // Full 32-bit register value.
@@ -32946,7 +32946,7 @@ union LPCG78_DIRECT {
   // Bit field definition.
   struct {
     eON ON : 1;
-    uint32_t _reserved_end : 31;
+    uint32_t _reserved_0 : 31;
   } bits;
   
   // Full 32-bit register value.
@@ -33004,15 +33004,15 @@ union LPCG78_DOMAIN {
   // Bit field definition.
   struct {
     eLEVEL LEVEL : 3;
-    uint32_t _reserved_1 : 13;
+    uint32_t _reserved_0 : 13;
     eLEVEL0 LEVEL0 : 3;
-    uint32_t _reserved_2 : 1;
+    uint32_t _reserved_1 : 1;
     eLEVEL1 LEVEL1 : 3;
-    uint32_t _reserved_3 : 1;
+    uint32_t _reserved_2 : 1;
     eLEVEL2 LEVEL2 : 3;
-    uint32_t _reserved_4 : 1;
+    uint32_t _reserved_3 : 1;
     eLEVEL3 LEVEL3 : 3;
-    uint32_t _reserved_end : 1;
+    uint32_t _reserved_4 : 1;
   } bits;
   
   // Full 32-bit register value.
@@ -33073,10 +33073,10 @@ union LPCG78_STATUS0 {
   // Bit field definition.
   struct {
     eON ON : 1;
-    uint32_t _reserved_1 : 7;
+    uint32_t _reserved_0 : 7;
     eACTIVE_DOMAIN ACTIVE_DOMAIN : 4;
     eDOMAIN_ENABLE DOMAIN_ENABLE : 4;
-    uint32_t _reserved_end : 16;
+    uint32_t _reserved_1 : 16;
   } bits;
   
   // Full 32-bit register value.
@@ -33199,7 +33199,7 @@ union LPCG78_STATUS1 {
     eSETPOINT_OFF_DONE SETPOINT_OFF_DONE : 1;
     eSETPOINT_ON_REQUEST SETPOINT_ON_REQUEST : 1;
     eSETPOINT_ON_DONE SETPOINT_ON_DONE : 1;
-    uint32_t _reserved_end : 4;
+    uint32_t _reserved_0 : 4;
   } bits;
   
   // Full 32-bit register value.
@@ -33223,7 +33223,7 @@ union LPCG78_CONFIG {
   struct {
     uint32_t _reserved_0 : 4;
     eSETPOINT_PRESENT SETPOINT_PRESENT : 1;
-    uint32_t _reserved_end : 27;
+    uint32_t _reserved_1 : 27;
   } bits;
   
   // Full 32-bit register value.
@@ -33282,18 +33282,18 @@ union LPCG78_AUTHEN {
   struct {
     eTZ_USER TZ_USER : 1;
     eTZ_NS TZ_NS : 1;
-    uint32_t _reserved_2 : 2;
+    uint32_t _reserved_0 : 2;
     eLOCK_TZ LOCK_TZ : 1;
-    uint32_t _reserved_3 : 3;
+    uint32_t _reserved_1 : 3;
     uint32_t WHITE_LIST : 4;
     eLOCK_LIST LOCK_LIST : 1;
-    uint32_t _reserved_5 : 3;
+    uint32_t _reserved_2 : 3;
     eDOMAIN_MODE DOMAIN_MODE : 1;
     eSETPOINT_MODE SETPOINT_MODE : 1;
     eCPULPM CPULPM : 1;
-    uint32_t _reserved_8 : 1;
+    uint32_t _reserved_3 : 1;
     eLOCK_MODE LOCK_MODE : 1;
-    uint32_t _reserved_end : 11;
+    uint32_t _reserved_4 : 11;
   } bits;
   
   // Full 32-bit register value.
@@ -33316,7 +33316,7 @@ union LPCG79_DIRECT {
   // Bit field definition.
   struct {
     eON ON : 1;
-    uint32_t _reserved_end : 31;
+    uint32_t _reserved_0 : 31;
   } bits;
   
   // Full 32-bit register value.
@@ -33374,15 +33374,15 @@ union LPCG79_DOMAIN {
   // Bit field definition.
   struct {
     eLEVEL LEVEL : 3;
-    uint32_t _reserved_1 : 13;
+    uint32_t _reserved_0 : 13;
     eLEVEL0 LEVEL0 : 3;
-    uint32_t _reserved_2 : 1;
+    uint32_t _reserved_1 : 1;
     eLEVEL1 LEVEL1 : 3;
-    uint32_t _reserved_3 : 1;
+    uint32_t _reserved_2 : 1;
     eLEVEL2 LEVEL2 : 3;
-    uint32_t _reserved_4 : 1;
+    uint32_t _reserved_3 : 1;
     eLEVEL3 LEVEL3 : 3;
-    uint32_t _reserved_end : 1;
+    uint32_t _reserved_4 : 1;
   } bits;
   
   // Full 32-bit register value.
@@ -33443,10 +33443,10 @@ union LPCG79_STATUS0 {
   // Bit field definition.
   struct {
     eON ON : 1;
-    uint32_t _reserved_1 : 7;
+    uint32_t _reserved_0 : 7;
     eACTIVE_DOMAIN ACTIVE_DOMAIN : 4;
     eDOMAIN_ENABLE DOMAIN_ENABLE : 4;
-    uint32_t _reserved_end : 16;
+    uint32_t _reserved_1 : 16;
   } bits;
   
   // Full 32-bit register value.
@@ -33569,7 +33569,7 @@ union LPCG79_STATUS1 {
     eSETPOINT_OFF_DONE SETPOINT_OFF_DONE : 1;
     eSETPOINT_ON_REQUEST SETPOINT_ON_REQUEST : 1;
     eSETPOINT_ON_DONE SETPOINT_ON_DONE : 1;
-    uint32_t _reserved_end : 4;
+    uint32_t _reserved_0 : 4;
   } bits;
   
   // Full 32-bit register value.
@@ -33593,7 +33593,7 @@ union LPCG79_CONFIG {
   struct {
     uint32_t _reserved_0 : 4;
     eSETPOINT_PRESENT SETPOINT_PRESENT : 1;
-    uint32_t _reserved_end : 27;
+    uint32_t _reserved_1 : 27;
   } bits;
   
   // Full 32-bit register value.
@@ -33652,18 +33652,18 @@ union LPCG79_AUTHEN {
   struct {
     eTZ_USER TZ_USER : 1;
     eTZ_NS TZ_NS : 1;
-    uint32_t _reserved_2 : 2;
+    uint32_t _reserved_0 : 2;
     eLOCK_TZ LOCK_TZ : 1;
-    uint32_t _reserved_3 : 3;
+    uint32_t _reserved_1 : 3;
     uint32_t WHITE_LIST : 4;
     eLOCK_LIST LOCK_LIST : 1;
-    uint32_t _reserved_5 : 3;
+    uint32_t _reserved_2 : 3;
     eDOMAIN_MODE DOMAIN_MODE : 1;
     eSETPOINT_MODE SETPOINT_MODE : 1;
     eCPULPM CPULPM : 1;
-    uint32_t _reserved_8 : 1;
+    uint32_t _reserved_3 : 1;
     eLOCK_MODE LOCK_MODE : 1;
-    uint32_t _reserved_end : 11;
+    uint32_t _reserved_4 : 11;
   } bits;
   
   // Full 32-bit register value.
@@ -33686,7 +33686,7 @@ union LPCG80_DIRECT {
   // Bit field definition.
   struct {
     eON ON : 1;
-    uint32_t _reserved_end : 31;
+    uint32_t _reserved_0 : 31;
   } bits;
   
   // Full 32-bit register value.
@@ -33744,15 +33744,15 @@ union LPCG80_DOMAIN {
   // Bit field definition.
   struct {
     eLEVEL LEVEL : 3;
-    uint32_t _reserved_1 : 13;
+    uint32_t _reserved_0 : 13;
     eLEVEL0 LEVEL0 : 3;
-    uint32_t _reserved_2 : 1;
+    uint32_t _reserved_1 : 1;
     eLEVEL1 LEVEL1 : 3;
-    uint32_t _reserved_3 : 1;
+    uint32_t _reserved_2 : 1;
     eLEVEL2 LEVEL2 : 3;
-    uint32_t _reserved_4 : 1;
+    uint32_t _reserved_3 : 1;
     eLEVEL3 LEVEL3 : 3;
-    uint32_t _reserved_end : 1;
+    uint32_t _reserved_4 : 1;
   } bits;
   
   // Full 32-bit register value.
@@ -33813,10 +33813,10 @@ union LPCG80_STATUS0 {
   // Bit field definition.
   struct {
     eON ON : 1;
-    uint32_t _reserved_1 : 7;
+    uint32_t _reserved_0 : 7;
     eACTIVE_DOMAIN ACTIVE_DOMAIN : 4;
     eDOMAIN_ENABLE DOMAIN_ENABLE : 4;
-    uint32_t _reserved_end : 16;
+    uint32_t _reserved_1 : 16;
   } bits;
   
   // Full 32-bit register value.
@@ -33939,7 +33939,7 @@ union LPCG80_STATUS1 {
     eSETPOINT_OFF_DONE SETPOINT_OFF_DONE : 1;
     eSETPOINT_ON_REQUEST SETPOINT_ON_REQUEST : 1;
     eSETPOINT_ON_DONE SETPOINT_ON_DONE : 1;
-    uint32_t _reserved_end : 4;
+    uint32_t _reserved_0 : 4;
   } bits;
   
   // Full 32-bit register value.
@@ -33963,7 +33963,7 @@ union LPCG80_CONFIG {
   struct {
     uint32_t _reserved_0 : 4;
     eSETPOINT_PRESENT SETPOINT_PRESENT : 1;
-    uint32_t _reserved_end : 27;
+    uint32_t _reserved_1 : 27;
   } bits;
   
   // Full 32-bit register value.
@@ -34022,18 +34022,18 @@ union LPCG80_AUTHEN {
   struct {
     eTZ_USER TZ_USER : 1;
     eTZ_NS TZ_NS : 1;
-    uint32_t _reserved_2 : 2;
+    uint32_t _reserved_0 : 2;
     eLOCK_TZ LOCK_TZ : 1;
-    uint32_t _reserved_3 : 3;
+    uint32_t _reserved_1 : 3;
     uint32_t WHITE_LIST : 4;
     eLOCK_LIST LOCK_LIST : 1;
-    uint32_t _reserved_5 : 3;
+    uint32_t _reserved_2 : 3;
     eDOMAIN_MODE DOMAIN_MODE : 1;
     eSETPOINT_MODE SETPOINT_MODE : 1;
     eCPULPM CPULPM : 1;
-    uint32_t _reserved_8 : 1;
+    uint32_t _reserved_3 : 1;
     eLOCK_MODE LOCK_MODE : 1;
-    uint32_t _reserved_end : 11;
+    uint32_t _reserved_4 : 11;
   } bits;
   
   // Full 32-bit register value.
@@ -34056,7 +34056,7 @@ union LPCG81_DIRECT {
   // Bit field definition.
   struct {
     eON ON : 1;
-    uint32_t _reserved_end : 31;
+    uint32_t _reserved_0 : 31;
   } bits;
   
   // Full 32-bit register value.
@@ -34114,15 +34114,15 @@ union LPCG81_DOMAIN {
   // Bit field definition.
   struct {
     eLEVEL LEVEL : 3;
-    uint32_t _reserved_1 : 13;
+    uint32_t _reserved_0 : 13;
     eLEVEL0 LEVEL0 : 3;
-    uint32_t _reserved_2 : 1;
+    uint32_t _reserved_1 : 1;
     eLEVEL1 LEVEL1 : 3;
-    uint32_t _reserved_3 : 1;
+    uint32_t _reserved_2 : 1;
     eLEVEL2 LEVEL2 : 3;
-    uint32_t _reserved_4 : 1;
+    uint32_t _reserved_3 : 1;
     eLEVEL3 LEVEL3 : 3;
-    uint32_t _reserved_end : 1;
+    uint32_t _reserved_4 : 1;
   } bits;
   
   // Full 32-bit register value.
@@ -34183,10 +34183,10 @@ union LPCG81_STATUS0 {
   // Bit field definition.
   struct {
     eON ON : 1;
-    uint32_t _reserved_1 : 7;
+    uint32_t _reserved_0 : 7;
     eACTIVE_DOMAIN ACTIVE_DOMAIN : 4;
     eDOMAIN_ENABLE DOMAIN_ENABLE : 4;
-    uint32_t _reserved_end : 16;
+    uint32_t _reserved_1 : 16;
   } bits;
   
   // Full 32-bit register value.
@@ -34309,7 +34309,7 @@ union LPCG81_STATUS1 {
     eSETPOINT_OFF_DONE SETPOINT_OFF_DONE : 1;
     eSETPOINT_ON_REQUEST SETPOINT_ON_REQUEST : 1;
     eSETPOINT_ON_DONE SETPOINT_ON_DONE : 1;
-    uint32_t _reserved_end : 4;
+    uint32_t _reserved_0 : 4;
   } bits;
   
   // Full 32-bit register value.
@@ -34333,7 +34333,7 @@ union LPCG81_CONFIG {
   struct {
     uint32_t _reserved_0 : 4;
     eSETPOINT_PRESENT SETPOINT_PRESENT : 1;
-    uint32_t _reserved_end : 27;
+    uint32_t _reserved_1 : 27;
   } bits;
   
   // Full 32-bit register value.
@@ -34392,18 +34392,18 @@ union LPCG81_AUTHEN {
   struct {
     eTZ_USER TZ_USER : 1;
     eTZ_NS TZ_NS : 1;
-    uint32_t _reserved_2 : 2;
+    uint32_t _reserved_0 : 2;
     eLOCK_TZ LOCK_TZ : 1;
-    uint32_t _reserved_3 : 3;
+    uint32_t _reserved_1 : 3;
     uint32_t WHITE_LIST : 4;
     eLOCK_LIST LOCK_LIST : 1;
-    uint32_t _reserved_5 : 3;
+    uint32_t _reserved_2 : 3;
     eDOMAIN_MODE DOMAIN_MODE : 1;
     eSETPOINT_MODE SETPOINT_MODE : 1;
     eCPULPM CPULPM : 1;
-    uint32_t _reserved_8 : 1;
+    uint32_t _reserved_3 : 1;
     eLOCK_MODE LOCK_MODE : 1;
-    uint32_t _reserved_end : 11;
+    uint32_t _reserved_4 : 11;
   } bits;
   
   // Full 32-bit register value.
@@ -34426,7 +34426,7 @@ union LPCG82_DIRECT {
   // Bit field definition.
   struct {
     eON ON : 1;
-    uint32_t _reserved_end : 31;
+    uint32_t _reserved_0 : 31;
   } bits;
   
   // Full 32-bit register value.
@@ -34484,15 +34484,15 @@ union LPCG82_DOMAIN {
   // Bit field definition.
   struct {
     eLEVEL LEVEL : 3;
-    uint32_t _reserved_1 : 13;
+    uint32_t _reserved_0 : 13;
     eLEVEL0 LEVEL0 : 3;
-    uint32_t _reserved_2 : 1;
+    uint32_t _reserved_1 : 1;
     eLEVEL1 LEVEL1 : 3;
-    uint32_t _reserved_3 : 1;
+    uint32_t _reserved_2 : 1;
     eLEVEL2 LEVEL2 : 3;
-    uint32_t _reserved_4 : 1;
+    uint32_t _reserved_3 : 1;
     eLEVEL3 LEVEL3 : 3;
-    uint32_t _reserved_end : 1;
+    uint32_t _reserved_4 : 1;
   } bits;
   
   // Full 32-bit register value.
@@ -34553,10 +34553,10 @@ union LPCG82_STATUS0 {
   // Bit field definition.
   struct {
     eON ON : 1;
-    uint32_t _reserved_1 : 7;
+    uint32_t _reserved_0 : 7;
     eACTIVE_DOMAIN ACTIVE_DOMAIN : 4;
     eDOMAIN_ENABLE DOMAIN_ENABLE : 4;
-    uint32_t _reserved_end : 16;
+    uint32_t _reserved_1 : 16;
   } bits;
   
   // Full 32-bit register value.
@@ -34679,7 +34679,7 @@ union LPCG82_STATUS1 {
     eSETPOINT_OFF_DONE SETPOINT_OFF_DONE : 1;
     eSETPOINT_ON_REQUEST SETPOINT_ON_REQUEST : 1;
     eSETPOINT_ON_DONE SETPOINT_ON_DONE : 1;
-    uint32_t _reserved_end : 4;
+    uint32_t _reserved_0 : 4;
   } bits;
   
   // Full 32-bit register value.
@@ -34703,7 +34703,7 @@ union LPCG82_CONFIG {
   struct {
     uint32_t _reserved_0 : 4;
     eSETPOINT_PRESENT SETPOINT_PRESENT : 1;
-    uint32_t _reserved_end : 27;
+    uint32_t _reserved_1 : 27;
   } bits;
   
   // Full 32-bit register value.
@@ -34762,18 +34762,18 @@ union LPCG82_AUTHEN {
   struct {
     eTZ_USER TZ_USER : 1;
     eTZ_NS TZ_NS : 1;
-    uint32_t _reserved_2 : 2;
+    uint32_t _reserved_0 : 2;
     eLOCK_TZ LOCK_TZ : 1;
-    uint32_t _reserved_3 : 3;
+    uint32_t _reserved_1 : 3;
     uint32_t WHITE_LIST : 4;
     eLOCK_LIST LOCK_LIST : 1;
-    uint32_t _reserved_5 : 3;
+    uint32_t _reserved_2 : 3;
     eDOMAIN_MODE DOMAIN_MODE : 1;
     eSETPOINT_MODE SETPOINT_MODE : 1;
     eCPULPM CPULPM : 1;
-    uint32_t _reserved_8 : 1;
+    uint32_t _reserved_3 : 1;
     eLOCK_MODE LOCK_MODE : 1;
-    uint32_t _reserved_end : 11;
+    uint32_t _reserved_4 : 11;
   } bits;
   
   // Full 32-bit register value.
@@ -34796,7 +34796,7 @@ union LPCG83_DIRECT {
   // Bit field definition.
   struct {
     eON ON : 1;
-    uint32_t _reserved_end : 31;
+    uint32_t _reserved_0 : 31;
   } bits;
   
   // Full 32-bit register value.
@@ -34854,15 +34854,15 @@ union LPCG83_DOMAIN {
   // Bit field definition.
   struct {
     eLEVEL LEVEL : 3;
-    uint32_t _reserved_1 : 13;
+    uint32_t _reserved_0 : 13;
     eLEVEL0 LEVEL0 : 3;
-    uint32_t _reserved_2 : 1;
+    uint32_t _reserved_1 : 1;
     eLEVEL1 LEVEL1 : 3;
-    uint32_t _reserved_3 : 1;
+    uint32_t _reserved_2 : 1;
     eLEVEL2 LEVEL2 : 3;
-    uint32_t _reserved_4 : 1;
+    uint32_t _reserved_3 : 1;
     eLEVEL3 LEVEL3 : 3;
-    uint32_t _reserved_end : 1;
+    uint32_t _reserved_4 : 1;
   } bits;
   
   // Full 32-bit register value.
@@ -34923,10 +34923,10 @@ union LPCG83_STATUS0 {
   // Bit field definition.
   struct {
     eON ON : 1;
-    uint32_t _reserved_1 : 7;
+    uint32_t _reserved_0 : 7;
     eACTIVE_DOMAIN ACTIVE_DOMAIN : 4;
     eDOMAIN_ENABLE DOMAIN_ENABLE : 4;
-    uint32_t _reserved_end : 16;
+    uint32_t _reserved_1 : 16;
   } bits;
   
   // Full 32-bit register value.
@@ -35049,7 +35049,7 @@ union LPCG83_STATUS1 {
     eSETPOINT_OFF_DONE SETPOINT_OFF_DONE : 1;
     eSETPOINT_ON_REQUEST SETPOINT_ON_REQUEST : 1;
     eSETPOINT_ON_DONE SETPOINT_ON_DONE : 1;
-    uint32_t _reserved_end : 4;
+    uint32_t _reserved_0 : 4;
   } bits;
   
   // Full 32-bit register value.
@@ -35073,7 +35073,7 @@ union LPCG83_CONFIG {
   struct {
     uint32_t _reserved_0 : 4;
     eSETPOINT_PRESENT SETPOINT_PRESENT : 1;
-    uint32_t _reserved_end : 27;
+    uint32_t _reserved_1 : 27;
   } bits;
   
   // Full 32-bit register value.
@@ -35132,18 +35132,18 @@ union LPCG83_AUTHEN {
   struct {
     eTZ_USER TZ_USER : 1;
     eTZ_NS TZ_NS : 1;
-    uint32_t _reserved_2 : 2;
+    uint32_t _reserved_0 : 2;
     eLOCK_TZ LOCK_TZ : 1;
-    uint32_t _reserved_3 : 3;
+    uint32_t _reserved_1 : 3;
     uint32_t WHITE_LIST : 4;
     eLOCK_LIST LOCK_LIST : 1;
-    uint32_t _reserved_5 : 3;
+    uint32_t _reserved_2 : 3;
     eDOMAIN_MODE DOMAIN_MODE : 1;
     eSETPOINT_MODE SETPOINT_MODE : 1;
     eCPULPM CPULPM : 1;
-    uint32_t _reserved_8 : 1;
+    uint32_t _reserved_3 : 1;
     eLOCK_MODE LOCK_MODE : 1;
-    uint32_t _reserved_end : 11;
+    uint32_t _reserved_4 : 11;
   } bits;
   
   // Full 32-bit register value.
@@ -35166,7 +35166,7 @@ union LPCG84_DIRECT {
   // Bit field definition.
   struct {
     eON ON : 1;
-    uint32_t _reserved_end : 31;
+    uint32_t _reserved_0 : 31;
   } bits;
   
   // Full 32-bit register value.
@@ -35224,15 +35224,15 @@ union LPCG84_DOMAIN {
   // Bit field definition.
   struct {
     eLEVEL LEVEL : 3;
-    uint32_t _reserved_1 : 13;
+    uint32_t _reserved_0 : 13;
     eLEVEL0 LEVEL0 : 3;
-    uint32_t _reserved_2 : 1;
+    uint32_t _reserved_1 : 1;
     eLEVEL1 LEVEL1 : 3;
-    uint32_t _reserved_3 : 1;
+    uint32_t _reserved_2 : 1;
     eLEVEL2 LEVEL2 : 3;
-    uint32_t _reserved_4 : 1;
+    uint32_t _reserved_3 : 1;
     eLEVEL3 LEVEL3 : 3;
-    uint32_t _reserved_end : 1;
+    uint32_t _reserved_4 : 1;
   } bits;
   
   // Full 32-bit register value.
@@ -35293,10 +35293,10 @@ union LPCG84_STATUS0 {
   // Bit field definition.
   struct {
     eON ON : 1;
-    uint32_t _reserved_1 : 7;
+    uint32_t _reserved_0 : 7;
     eACTIVE_DOMAIN ACTIVE_DOMAIN : 4;
     eDOMAIN_ENABLE DOMAIN_ENABLE : 4;
-    uint32_t _reserved_end : 16;
+    uint32_t _reserved_1 : 16;
   } bits;
   
   // Full 32-bit register value.
@@ -35419,7 +35419,7 @@ union LPCG84_STATUS1 {
     eSETPOINT_OFF_DONE SETPOINT_OFF_DONE : 1;
     eSETPOINT_ON_REQUEST SETPOINT_ON_REQUEST : 1;
     eSETPOINT_ON_DONE SETPOINT_ON_DONE : 1;
-    uint32_t _reserved_end : 4;
+    uint32_t _reserved_0 : 4;
   } bits;
   
   // Full 32-bit register value.
@@ -35443,7 +35443,7 @@ union LPCG84_CONFIG {
   struct {
     uint32_t _reserved_0 : 4;
     eSETPOINT_PRESENT SETPOINT_PRESENT : 1;
-    uint32_t _reserved_end : 27;
+    uint32_t _reserved_1 : 27;
   } bits;
   
   // Full 32-bit register value.
@@ -35502,18 +35502,18 @@ union LPCG84_AUTHEN {
   struct {
     eTZ_USER TZ_USER : 1;
     eTZ_NS TZ_NS : 1;
-    uint32_t _reserved_2 : 2;
+    uint32_t _reserved_0 : 2;
     eLOCK_TZ LOCK_TZ : 1;
-    uint32_t _reserved_3 : 3;
+    uint32_t _reserved_1 : 3;
     uint32_t WHITE_LIST : 4;
     eLOCK_LIST LOCK_LIST : 1;
-    uint32_t _reserved_5 : 3;
+    uint32_t _reserved_2 : 3;
     eDOMAIN_MODE DOMAIN_MODE : 1;
     eSETPOINT_MODE SETPOINT_MODE : 1;
     eCPULPM CPULPM : 1;
-    uint32_t _reserved_8 : 1;
+    uint32_t _reserved_3 : 1;
     eLOCK_MODE LOCK_MODE : 1;
-    uint32_t _reserved_end : 11;
+    uint32_t _reserved_4 : 11;
   } bits;
   
   // Full 32-bit register value.
@@ -35536,7 +35536,7 @@ union LPCG85_DIRECT {
   // Bit field definition.
   struct {
     eON ON : 1;
-    uint32_t _reserved_end : 31;
+    uint32_t _reserved_0 : 31;
   } bits;
   
   // Full 32-bit register value.
@@ -35594,15 +35594,15 @@ union LPCG85_DOMAIN {
   // Bit field definition.
   struct {
     eLEVEL LEVEL : 3;
-    uint32_t _reserved_1 : 13;
+    uint32_t _reserved_0 : 13;
     eLEVEL0 LEVEL0 : 3;
-    uint32_t _reserved_2 : 1;
+    uint32_t _reserved_1 : 1;
     eLEVEL1 LEVEL1 : 3;
-    uint32_t _reserved_3 : 1;
+    uint32_t _reserved_2 : 1;
     eLEVEL2 LEVEL2 : 3;
-    uint32_t _reserved_4 : 1;
+    uint32_t _reserved_3 : 1;
     eLEVEL3 LEVEL3 : 3;
-    uint32_t _reserved_end : 1;
+    uint32_t _reserved_4 : 1;
   } bits;
   
   // Full 32-bit register value.
@@ -35663,10 +35663,10 @@ union LPCG85_STATUS0 {
   // Bit field definition.
   struct {
     eON ON : 1;
-    uint32_t _reserved_1 : 7;
+    uint32_t _reserved_0 : 7;
     eACTIVE_DOMAIN ACTIVE_DOMAIN : 4;
     eDOMAIN_ENABLE DOMAIN_ENABLE : 4;
-    uint32_t _reserved_end : 16;
+    uint32_t _reserved_1 : 16;
   } bits;
   
   // Full 32-bit register value.
@@ -35789,7 +35789,7 @@ union LPCG85_STATUS1 {
     eSETPOINT_OFF_DONE SETPOINT_OFF_DONE : 1;
     eSETPOINT_ON_REQUEST SETPOINT_ON_REQUEST : 1;
     eSETPOINT_ON_DONE SETPOINT_ON_DONE : 1;
-    uint32_t _reserved_end : 4;
+    uint32_t _reserved_0 : 4;
   } bits;
   
   // Full 32-bit register value.
@@ -35813,7 +35813,7 @@ union LPCG85_CONFIG {
   struct {
     uint32_t _reserved_0 : 4;
     eSETPOINT_PRESENT SETPOINT_PRESENT : 1;
-    uint32_t _reserved_end : 27;
+    uint32_t _reserved_1 : 27;
   } bits;
   
   // Full 32-bit register value.
@@ -35872,18 +35872,18 @@ union LPCG85_AUTHEN {
   struct {
     eTZ_USER TZ_USER : 1;
     eTZ_NS TZ_NS : 1;
-    uint32_t _reserved_2 : 2;
+    uint32_t _reserved_0 : 2;
     eLOCK_TZ LOCK_TZ : 1;
-    uint32_t _reserved_3 : 3;
+    uint32_t _reserved_1 : 3;
     uint32_t WHITE_LIST : 4;
     eLOCK_LIST LOCK_LIST : 1;
-    uint32_t _reserved_5 : 3;
+    uint32_t _reserved_2 : 3;
     eDOMAIN_MODE DOMAIN_MODE : 1;
     eSETPOINT_MODE SETPOINT_MODE : 1;
     eCPULPM CPULPM : 1;
-    uint32_t _reserved_8 : 1;
+    uint32_t _reserved_3 : 1;
     eLOCK_MODE LOCK_MODE : 1;
-    uint32_t _reserved_end : 11;
+    uint32_t _reserved_4 : 11;
   } bits;
   
   // Full 32-bit register value.
@@ -35906,7 +35906,7 @@ union LPCG86_DIRECT {
   // Bit field definition.
   struct {
     eON ON : 1;
-    uint32_t _reserved_end : 31;
+    uint32_t _reserved_0 : 31;
   } bits;
   
   // Full 32-bit register value.
@@ -35964,15 +35964,15 @@ union LPCG86_DOMAIN {
   // Bit field definition.
   struct {
     eLEVEL LEVEL : 3;
-    uint32_t _reserved_1 : 13;
+    uint32_t _reserved_0 : 13;
     eLEVEL0 LEVEL0 : 3;
-    uint32_t _reserved_2 : 1;
+    uint32_t _reserved_1 : 1;
     eLEVEL1 LEVEL1 : 3;
-    uint32_t _reserved_3 : 1;
+    uint32_t _reserved_2 : 1;
     eLEVEL2 LEVEL2 : 3;
-    uint32_t _reserved_4 : 1;
+    uint32_t _reserved_3 : 1;
     eLEVEL3 LEVEL3 : 3;
-    uint32_t _reserved_end : 1;
+    uint32_t _reserved_4 : 1;
   } bits;
   
   // Full 32-bit register value.
@@ -36033,10 +36033,10 @@ union LPCG86_STATUS0 {
   // Bit field definition.
   struct {
     eON ON : 1;
-    uint32_t _reserved_1 : 7;
+    uint32_t _reserved_0 : 7;
     eACTIVE_DOMAIN ACTIVE_DOMAIN : 4;
     eDOMAIN_ENABLE DOMAIN_ENABLE : 4;
-    uint32_t _reserved_end : 16;
+    uint32_t _reserved_1 : 16;
   } bits;
   
   // Full 32-bit register value.
@@ -36159,7 +36159,7 @@ union LPCG86_STATUS1 {
     eSETPOINT_OFF_DONE SETPOINT_OFF_DONE : 1;
     eSETPOINT_ON_REQUEST SETPOINT_ON_REQUEST : 1;
     eSETPOINT_ON_DONE SETPOINT_ON_DONE : 1;
-    uint32_t _reserved_end : 4;
+    uint32_t _reserved_0 : 4;
   } bits;
   
   // Full 32-bit register value.
@@ -36183,7 +36183,7 @@ union LPCG86_CONFIG {
   struct {
     uint32_t _reserved_0 : 4;
     eSETPOINT_PRESENT SETPOINT_PRESENT : 1;
-    uint32_t _reserved_end : 27;
+    uint32_t _reserved_1 : 27;
   } bits;
   
   // Full 32-bit register value.
@@ -36242,18 +36242,18 @@ union LPCG86_AUTHEN {
   struct {
     eTZ_USER TZ_USER : 1;
     eTZ_NS TZ_NS : 1;
-    uint32_t _reserved_2 : 2;
+    uint32_t _reserved_0 : 2;
     eLOCK_TZ LOCK_TZ : 1;
-    uint32_t _reserved_3 : 3;
+    uint32_t _reserved_1 : 3;
     uint32_t WHITE_LIST : 4;
     eLOCK_LIST LOCK_LIST : 1;
-    uint32_t _reserved_5 : 3;
+    uint32_t _reserved_2 : 3;
     eDOMAIN_MODE DOMAIN_MODE : 1;
     eSETPOINT_MODE SETPOINT_MODE : 1;
     eCPULPM CPULPM : 1;
-    uint32_t _reserved_8 : 1;
+    uint32_t _reserved_3 : 1;
     eLOCK_MODE LOCK_MODE : 1;
-    uint32_t _reserved_end : 11;
+    uint32_t _reserved_4 : 11;
   } bits;
   
   // Full 32-bit register value.
@@ -36276,7 +36276,7 @@ union LPCG87_DIRECT {
   // Bit field definition.
   struct {
     eON ON : 1;
-    uint32_t _reserved_end : 31;
+    uint32_t _reserved_0 : 31;
   } bits;
   
   // Full 32-bit register value.
@@ -36334,15 +36334,15 @@ union LPCG87_DOMAIN {
   // Bit field definition.
   struct {
     eLEVEL LEVEL : 3;
-    uint32_t _reserved_1 : 13;
+    uint32_t _reserved_0 : 13;
     eLEVEL0 LEVEL0 : 3;
-    uint32_t _reserved_2 : 1;
+    uint32_t _reserved_1 : 1;
     eLEVEL1 LEVEL1 : 3;
-    uint32_t _reserved_3 : 1;
+    uint32_t _reserved_2 : 1;
     eLEVEL2 LEVEL2 : 3;
-    uint32_t _reserved_4 : 1;
+    uint32_t _reserved_3 : 1;
     eLEVEL3 LEVEL3 : 3;
-    uint32_t _reserved_end : 1;
+    uint32_t _reserved_4 : 1;
   } bits;
   
   // Full 32-bit register value.
@@ -36403,10 +36403,10 @@ union LPCG87_STATUS0 {
   // Bit field definition.
   struct {
     eON ON : 1;
-    uint32_t _reserved_1 : 7;
+    uint32_t _reserved_0 : 7;
     eACTIVE_DOMAIN ACTIVE_DOMAIN : 4;
     eDOMAIN_ENABLE DOMAIN_ENABLE : 4;
-    uint32_t _reserved_end : 16;
+    uint32_t _reserved_1 : 16;
   } bits;
   
   // Full 32-bit register value.
@@ -36529,7 +36529,7 @@ union LPCG87_STATUS1 {
     eSETPOINT_OFF_DONE SETPOINT_OFF_DONE : 1;
     eSETPOINT_ON_REQUEST SETPOINT_ON_REQUEST : 1;
     eSETPOINT_ON_DONE SETPOINT_ON_DONE : 1;
-    uint32_t _reserved_end : 4;
+    uint32_t _reserved_0 : 4;
   } bits;
   
   // Full 32-bit register value.
@@ -36553,7 +36553,7 @@ union LPCG87_CONFIG {
   struct {
     uint32_t _reserved_0 : 4;
     eSETPOINT_PRESENT SETPOINT_PRESENT : 1;
-    uint32_t _reserved_end : 27;
+    uint32_t _reserved_1 : 27;
   } bits;
   
   // Full 32-bit register value.
@@ -36612,18 +36612,18 @@ union LPCG87_AUTHEN {
   struct {
     eTZ_USER TZ_USER : 1;
     eTZ_NS TZ_NS : 1;
-    uint32_t _reserved_2 : 2;
+    uint32_t _reserved_0 : 2;
     eLOCK_TZ LOCK_TZ : 1;
-    uint32_t _reserved_3 : 3;
+    uint32_t _reserved_1 : 3;
     uint32_t WHITE_LIST : 4;
     eLOCK_LIST LOCK_LIST : 1;
-    uint32_t _reserved_5 : 3;
+    uint32_t _reserved_2 : 3;
     eDOMAIN_MODE DOMAIN_MODE : 1;
     eSETPOINT_MODE SETPOINT_MODE : 1;
     eCPULPM CPULPM : 1;
-    uint32_t _reserved_8 : 1;
+    uint32_t _reserved_3 : 1;
     eLOCK_MODE LOCK_MODE : 1;
-    uint32_t _reserved_end : 11;
+    uint32_t _reserved_4 : 11;
   } bits;
   
   // Full 32-bit register value.
@@ -36646,7 +36646,7 @@ union LPCG88_DIRECT {
   // Bit field definition.
   struct {
     eON ON : 1;
-    uint32_t _reserved_end : 31;
+    uint32_t _reserved_0 : 31;
   } bits;
   
   // Full 32-bit register value.
@@ -36704,15 +36704,15 @@ union LPCG88_DOMAIN {
   // Bit field definition.
   struct {
     eLEVEL LEVEL : 3;
-    uint32_t _reserved_1 : 13;
+    uint32_t _reserved_0 : 13;
     eLEVEL0 LEVEL0 : 3;
-    uint32_t _reserved_2 : 1;
+    uint32_t _reserved_1 : 1;
     eLEVEL1 LEVEL1 : 3;
-    uint32_t _reserved_3 : 1;
+    uint32_t _reserved_2 : 1;
     eLEVEL2 LEVEL2 : 3;
-    uint32_t _reserved_4 : 1;
+    uint32_t _reserved_3 : 1;
     eLEVEL3 LEVEL3 : 3;
-    uint32_t _reserved_end : 1;
+    uint32_t _reserved_4 : 1;
   } bits;
   
   // Full 32-bit register value.
@@ -36773,10 +36773,10 @@ union LPCG88_STATUS0 {
   // Bit field definition.
   struct {
     eON ON : 1;
-    uint32_t _reserved_1 : 7;
+    uint32_t _reserved_0 : 7;
     eACTIVE_DOMAIN ACTIVE_DOMAIN : 4;
     eDOMAIN_ENABLE DOMAIN_ENABLE : 4;
-    uint32_t _reserved_end : 16;
+    uint32_t _reserved_1 : 16;
   } bits;
   
   // Full 32-bit register value.
@@ -36899,7 +36899,7 @@ union LPCG88_STATUS1 {
     eSETPOINT_OFF_DONE SETPOINT_OFF_DONE : 1;
     eSETPOINT_ON_REQUEST SETPOINT_ON_REQUEST : 1;
     eSETPOINT_ON_DONE SETPOINT_ON_DONE : 1;
-    uint32_t _reserved_end : 4;
+    uint32_t _reserved_0 : 4;
   } bits;
   
   // Full 32-bit register value.
@@ -36923,7 +36923,7 @@ union LPCG88_CONFIG {
   struct {
     uint32_t _reserved_0 : 4;
     eSETPOINT_PRESENT SETPOINT_PRESENT : 1;
-    uint32_t _reserved_end : 27;
+    uint32_t _reserved_1 : 27;
   } bits;
   
   // Full 32-bit register value.
@@ -36982,18 +36982,18 @@ union LPCG88_AUTHEN {
   struct {
     eTZ_USER TZ_USER : 1;
     eTZ_NS TZ_NS : 1;
-    uint32_t _reserved_2 : 2;
+    uint32_t _reserved_0 : 2;
     eLOCK_TZ LOCK_TZ : 1;
-    uint32_t _reserved_3 : 3;
+    uint32_t _reserved_1 : 3;
     uint32_t WHITE_LIST : 4;
     eLOCK_LIST LOCK_LIST : 1;
-    uint32_t _reserved_5 : 3;
+    uint32_t _reserved_2 : 3;
     eDOMAIN_MODE DOMAIN_MODE : 1;
     eSETPOINT_MODE SETPOINT_MODE : 1;
     eCPULPM CPULPM : 1;
-    uint32_t _reserved_8 : 1;
+    uint32_t _reserved_3 : 1;
     eLOCK_MODE LOCK_MODE : 1;
-    uint32_t _reserved_end : 11;
+    uint32_t _reserved_4 : 11;
   } bits;
   
   // Full 32-bit register value.
@@ -37016,7 +37016,7 @@ union LPCG89_DIRECT {
   // Bit field definition.
   struct {
     eON ON : 1;
-    uint32_t _reserved_end : 31;
+    uint32_t _reserved_0 : 31;
   } bits;
   
   // Full 32-bit register value.
@@ -37074,15 +37074,15 @@ union LPCG89_DOMAIN {
   // Bit field definition.
   struct {
     eLEVEL LEVEL : 3;
-    uint32_t _reserved_1 : 13;
+    uint32_t _reserved_0 : 13;
     eLEVEL0 LEVEL0 : 3;
-    uint32_t _reserved_2 : 1;
+    uint32_t _reserved_1 : 1;
     eLEVEL1 LEVEL1 : 3;
-    uint32_t _reserved_3 : 1;
+    uint32_t _reserved_2 : 1;
     eLEVEL2 LEVEL2 : 3;
-    uint32_t _reserved_4 : 1;
+    uint32_t _reserved_3 : 1;
     eLEVEL3 LEVEL3 : 3;
-    uint32_t _reserved_end : 1;
+    uint32_t _reserved_4 : 1;
   } bits;
   
   // Full 32-bit register value.
@@ -37143,10 +37143,10 @@ union LPCG89_STATUS0 {
   // Bit field definition.
   struct {
     eON ON : 1;
-    uint32_t _reserved_1 : 7;
+    uint32_t _reserved_0 : 7;
     eACTIVE_DOMAIN ACTIVE_DOMAIN : 4;
     eDOMAIN_ENABLE DOMAIN_ENABLE : 4;
-    uint32_t _reserved_end : 16;
+    uint32_t _reserved_1 : 16;
   } bits;
   
   // Full 32-bit register value.
@@ -37269,7 +37269,7 @@ union LPCG89_STATUS1 {
     eSETPOINT_OFF_DONE SETPOINT_OFF_DONE : 1;
     eSETPOINT_ON_REQUEST SETPOINT_ON_REQUEST : 1;
     eSETPOINT_ON_DONE SETPOINT_ON_DONE : 1;
-    uint32_t _reserved_end : 4;
+    uint32_t _reserved_0 : 4;
   } bits;
   
   // Full 32-bit register value.
@@ -37293,7 +37293,7 @@ union LPCG89_CONFIG {
   struct {
     uint32_t _reserved_0 : 4;
     eSETPOINT_PRESENT SETPOINT_PRESENT : 1;
-    uint32_t _reserved_end : 27;
+    uint32_t _reserved_1 : 27;
   } bits;
   
   // Full 32-bit register value.
@@ -37352,18 +37352,18 @@ union LPCG89_AUTHEN {
   struct {
     eTZ_USER TZ_USER : 1;
     eTZ_NS TZ_NS : 1;
-    uint32_t _reserved_2 : 2;
+    uint32_t _reserved_0 : 2;
     eLOCK_TZ LOCK_TZ : 1;
-    uint32_t _reserved_3 : 3;
+    uint32_t _reserved_1 : 3;
     uint32_t WHITE_LIST : 4;
     eLOCK_LIST LOCK_LIST : 1;
-    uint32_t _reserved_5 : 3;
+    uint32_t _reserved_2 : 3;
     eDOMAIN_MODE DOMAIN_MODE : 1;
     eSETPOINT_MODE SETPOINT_MODE : 1;
     eCPULPM CPULPM : 1;
-    uint32_t _reserved_8 : 1;
+    uint32_t _reserved_3 : 1;
     eLOCK_MODE LOCK_MODE : 1;
-    uint32_t _reserved_end : 11;
+    uint32_t _reserved_4 : 11;
   } bits;
   
   // Full 32-bit register value.
@@ -37386,7 +37386,7 @@ union LPCG90_DIRECT {
   // Bit field definition.
   struct {
     eON ON : 1;
-    uint32_t _reserved_end : 31;
+    uint32_t _reserved_0 : 31;
   } bits;
   
   // Full 32-bit register value.
@@ -37444,15 +37444,15 @@ union LPCG90_DOMAIN {
   // Bit field definition.
   struct {
     eLEVEL LEVEL : 3;
-    uint32_t _reserved_1 : 13;
+    uint32_t _reserved_0 : 13;
     eLEVEL0 LEVEL0 : 3;
-    uint32_t _reserved_2 : 1;
+    uint32_t _reserved_1 : 1;
     eLEVEL1 LEVEL1 : 3;
-    uint32_t _reserved_3 : 1;
+    uint32_t _reserved_2 : 1;
     eLEVEL2 LEVEL2 : 3;
-    uint32_t _reserved_4 : 1;
+    uint32_t _reserved_3 : 1;
     eLEVEL3 LEVEL3 : 3;
-    uint32_t _reserved_end : 1;
+    uint32_t _reserved_4 : 1;
   } bits;
   
   // Full 32-bit register value.
@@ -37513,10 +37513,10 @@ union LPCG90_STATUS0 {
   // Bit field definition.
   struct {
     eON ON : 1;
-    uint32_t _reserved_1 : 7;
+    uint32_t _reserved_0 : 7;
     eACTIVE_DOMAIN ACTIVE_DOMAIN : 4;
     eDOMAIN_ENABLE DOMAIN_ENABLE : 4;
-    uint32_t _reserved_end : 16;
+    uint32_t _reserved_1 : 16;
   } bits;
   
   // Full 32-bit register value.
@@ -37639,7 +37639,7 @@ union LPCG90_STATUS1 {
     eSETPOINT_OFF_DONE SETPOINT_OFF_DONE : 1;
     eSETPOINT_ON_REQUEST SETPOINT_ON_REQUEST : 1;
     eSETPOINT_ON_DONE SETPOINT_ON_DONE : 1;
-    uint32_t _reserved_end : 4;
+    uint32_t _reserved_0 : 4;
   } bits;
   
   // Full 32-bit register value.
@@ -37663,7 +37663,7 @@ union LPCG90_CONFIG {
   struct {
     uint32_t _reserved_0 : 4;
     eSETPOINT_PRESENT SETPOINT_PRESENT : 1;
-    uint32_t _reserved_end : 27;
+    uint32_t _reserved_1 : 27;
   } bits;
   
   // Full 32-bit register value.
@@ -37722,18 +37722,18 @@ union LPCG90_AUTHEN {
   struct {
     eTZ_USER TZ_USER : 1;
     eTZ_NS TZ_NS : 1;
-    uint32_t _reserved_2 : 2;
+    uint32_t _reserved_0 : 2;
     eLOCK_TZ LOCK_TZ : 1;
-    uint32_t _reserved_3 : 3;
+    uint32_t _reserved_1 : 3;
     uint32_t WHITE_LIST : 4;
     eLOCK_LIST LOCK_LIST : 1;
-    uint32_t _reserved_5 : 3;
+    uint32_t _reserved_2 : 3;
     eDOMAIN_MODE DOMAIN_MODE : 1;
     eSETPOINT_MODE SETPOINT_MODE : 1;
     eCPULPM CPULPM : 1;
-    uint32_t _reserved_8 : 1;
+    uint32_t _reserved_3 : 1;
     eLOCK_MODE LOCK_MODE : 1;
-    uint32_t _reserved_end : 11;
+    uint32_t _reserved_4 : 11;
   } bits;
   
   // Full 32-bit register value.
@@ -37756,7 +37756,7 @@ union LPCG91_DIRECT {
   // Bit field definition.
   struct {
     eON ON : 1;
-    uint32_t _reserved_end : 31;
+    uint32_t _reserved_0 : 31;
   } bits;
   
   // Full 32-bit register value.
@@ -37814,15 +37814,15 @@ union LPCG91_DOMAIN {
   // Bit field definition.
   struct {
     eLEVEL LEVEL : 3;
-    uint32_t _reserved_1 : 13;
+    uint32_t _reserved_0 : 13;
     eLEVEL0 LEVEL0 : 3;
-    uint32_t _reserved_2 : 1;
+    uint32_t _reserved_1 : 1;
     eLEVEL1 LEVEL1 : 3;
-    uint32_t _reserved_3 : 1;
+    uint32_t _reserved_2 : 1;
     eLEVEL2 LEVEL2 : 3;
-    uint32_t _reserved_4 : 1;
+    uint32_t _reserved_3 : 1;
     eLEVEL3 LEVEL3 : 3;
-    uint32_t _reserved_end : 1;
+    uint32_t _reserved_4 : 1;
   } bits;
   
   // Full 32-bit register value.
@@ -37883,10 +37883,10 @@ union LPCG91_STATUS0 {
   // Bit field definition.
   struct {
     eON ON : 1;
-    uint32_t _reserved_1 : 7;
+    uint32_t _reserved_0 : 7;
     eACTIVE_DOMAIN ACTIVE_DOMAIN : 4;
     eDOMAIN_ENABLE DOMAIN_ENABLE : 4;
-    uint32_t _reserved_end : 16;
+    uint32_t _reserved_1 : 16;
   } bits;
   
   // Full 32-bit register value.
@@ -38009,7 +38009,7 @@ union LPCG91_STATUS1 {
     eSETPOINT_OFF_DONE SETPOINT_OFF_DONE : 1;
     eSETPOINT_ON_REQUEST SETPOINT_ON_REQUEST : 1;
     eSETPOINT_ON_DONE SETPOINT_ON_DONE : 1;
-    uint32_t _reserved_end : 4;
+    uint32_t _reserved_0 : 4;
   } bits;
   
   // Full 32-bit register value.
@@ -38033,7 +38033,7 @@ union LPCG91_CONFIG {
   struct {
     uint32_t _reserved_0 : 4;
     eSETPOINT_PRESENT SETPOINT_PRESENT : 1;
-    uint32_t _reserved_end : 27;
+    uint32_t _reserved_1 : 27;
   } bits;
   
   // Full 32-bit register value.
@@ -38092,18 +38092,18 @@ union LPCG91_AUTHEN {
   struct {
     eTZ_USER TZ_USER : 1;
     eTZ_NS TZ_NS : 1;
-    uint32_t _reserved_2 : 2;
+    uint32_t _reserved_0 : 2;
     eLOCK_TZ LOCK_TZ : 1;
-    uint32_t _reserved_3 : 3;
+    uint32_t _reserved_1 : 3;
     uint32_t WHITE_LIST : 4;
     eLOCK_LIST LOCK_LIST : 1;
-    uint32_t _reserved_5 : 3;
+    uint32_t _reserved_2 : 3;
     eDOMAIN_MODE DOMAIN_MODE : 1;
     eSETPOINT_MODE SETPOINT_MODE : 1;
     eCPULPM CPULPM : 1;
-    uint32_t _reserved_8 : 1;
+    uint32_t _reserved_3 : 1;
     eLOCK_MODE LOCK_MODE : 1;
-    uint32_t _reserved_end : 11;
+    uint32_t _reserved_4 : 11;
   } bits;
   
   // Full 32-bit register value.
@@ -38126,7 +38126,7 @@ union LPCG92_DIRECT {
   // Bit field definition.
   struct {
     eON ON : 1;
-    uint32_t _reserved_end : 31;
+    uint32_t _reserved_0 : 31;
   } bits;
   
   // Full 32-bit register value.
@@ -38184,15 +38184,15 @@ union LPCG92_DOMAIN {
   // Bit field definition.
   struct {
     eLEVEL LEVEL : 3;
-    uint32_t _reserved_1 : 13;
+    uint32_t _reserved_0 : 13;
     eLEVEL0 LEVEL0 : 3;
-    uint32_t _reserved_2 : 1;
+    uint32_t _reserved_1 : 1;
     eLEVEL1 LEVEL1 : 3;
-    uint32_t _reserved_3 : 1;
+    uint32_t _reserved_2 : 1;
     eLEVEL2 LEVEL2 : 3;
-    uint32_t _reserved_4 : 1;
+    uint32_t _reserved_3 : 1;
     eLEVEL3 LEVEL3 : 3;
-    uint32_t _reserved_end : 1;
+    uint32_t _reserved_4 : 1;
   } bits;
   
   // Full 32-bit register value.
@@ -38253,10 +38253,10 @@ union LPCG92_STATUS0 {
   // Bit field definition.
   struct {
     eON ON : 1;
-    uint32_t _reserved_1 : 7;
+    uint32_t _reserved_0 : 7;
     eACTIVE_DOMAIN ACTIVE_DOMAIN : 4;
     eDOMAIN_ENABLE DOMAIN_ENABLE : 4;
-    uint32_t _reserved_end : 16;
+    uint32_t _reserved_1 : 16;
   } bits;
   
   // Full 32-bit register value.
@@ -38379,7 +38379,7 @@ union LPCG92_STATUS1 {
     eSETPOINT_OFF_DONE SETPOINT_OFF_DONE : 1;
     eSETPOINT_ON_REQUEST SETPOINT_ON_REQUEST : 1;
     eSETPOINT_ON_DONE SETPOINT_ON_DONE : 1;
-    uint32_t _reserved_end : 4;
+    uint32_t _reserved_0 : 4;
   } bits;
   
   // Full 32-bit register value.
@@ -38403,7 +38403,7 @@ union LPCG92_CONFIG {
   struct {
     uint32_t _reserved_0 : 4;
     eSETPOINT_PRESENT SETPOINT_PRESENT : 1;
-    uint32_t _reserved_end : 27;
+    uint32_t _reserved_1 : 27;
   } bits;
   
   // Full 32-bit register value.
@@ -38462,18 +38462,18 @@ union LPCG92_AUTHEN {
   struct {
     eTZ_USER TZ_USER : 1;
     eTZ_NS TZ_NS : 1;
-    uint32_t _reserved_2 : 2;
+    uint32_t _reserved_0 : 2;
     eLOCK_TZ LOCK_TZ : 1;
-    uint32_t _reserved_3 : 3;
+    uint32_t _reserved_1 : 3;
     uint32_t WHITE_LIST : 4;
     eLOCK_LIST LOCK_LIST : 1;
-    uint32_t _reserved_5 : 3;
+    uint32_t _reserved_2 : 3;
     eDOMAIN_MODE DOMAIN_MODE : 1;
     eSETPOINT_MODE SETPOINT_MODE : 1;
     eCPULPM CPULPM : 1;
-    uint32_t _reserved_8 : 1;
+    uint32_t _reserved_3 : 1;
     eLOCK_MODE LOCK_MODE : 1;
-    uint32_t _reserved_end : 11;
+    uint32_t _reserved_4 : 11;
   } bits;
   
   // Full 32-bit register value.
@@ -38496,7 +38496,7 @@ union LPCG93_DIRECT {
   // Bit field definition.
   struct {
     eON ON : 1;
-    uint32_t _reserved_end : 31;
+    uint32_t _reserved_0 : 31;
   } bits;
   
   // Full 32-bit register value.
@@ -38554,15 +38554,15 @@ union LPCG93_DOMAIN {
   // Bit field definition.
   struct {
     eLEVEL LEVEL : 3;
-    uint32_t _reserved_1 : 13;
+    uint32_t _reserved_0 : 13;
     eLEVEL0 LEVEL0 : 3;
-    uint32_t _reserved_2 : 1;
+    uint32_t _reserved_1 : 1;
     eLEVEL1 LEVEL1 : 3;
-    uint32_t _reserved_3 : 1;
+    uint32_t _reserved_2 : 1;
     eLEVEL2 LEVEL2 : 3;
-    uint32_t _reserved_4 : 1;
+    uint32_t _reserved_3 : 1;
     eLEVEL3 LEVEL3 : 3;
-    uint32_t _reserved_end : 1;
+    uint32_t _reserved_4 : 1;
   } bits;
   
   // Full 32-bit register value.
@@ -38623,10 +38623,10 @@ union LPCG93_STATUS0 {
   // Bit field definition.
   struct {
     eON ON : 1;
-    uint32_t _reserved_1 : 7;
+    uint32_t _reserved_0 : 7;
     eACTIVE_DOMAIN ACTIVE_DOMAIN : 4;
     eDOMAIN_ENABLE DOMAIN_ENABLE : 4;
-    uint32_t _reserved_end : 16;
+    uint32_t _reserved_1 : 16;
   } bits;
   
   // Full 32-bit register value.
@@ -38749,7 +38749,7 @@ union LPCG93_STATUS1 {
     eSETPOINT_OFF_DONE SETPOINT_OFF_DONE : 1;
     eSETPOINT_ON_REQUEST SETPOINT_ON_REQUEST : 1;
     eSETPOINT_ON_DONE SETPOINT_ON_DONE : 1;
-    uint32_t _reserved_end : 4;
+    uint32_t _reserved_0 : 4;
   } bits;
   
   // Full 32-bit register value.
@@ -38773,7 +38773,7 @@ union LPCG93_CONFIG {
   struct {
     uint32_t _reserved_0 : 4;
     eSETPOINT_PRESENT SETPOINT_PRESENT : 1;
-    uint32_t _reserved_end : 27;
+    uint32_t _reserved_1 : 27;
   } bits;
   
   // Full 32-bit register value.
@@ -38832,18 +38832,18 @@ union LPCG93_AUTHEN {
   struct {
     eTZ_USER TZ_USER : 1;
     eTZ_NS TZ_NS : 1;
-    uint32_t _reserved_2 : 2;
+    uint32_t _reserved_0 : 2;
     eLOCK_TZ LOCK_TZ : 1;
-    uint32_t _reserved_3 : 3;
+    uint32_t _reserved_1 : 3;
     uint32_t WHITE_LIST : 4;
     eLOCK_LIST LOCK_LIST : 1;
-    uint32_t _reserved_5 : 3;
+    uint32_t _reserved_2 : 3;
     eDOMAIN_MODE DOMAIN_MODE : 1;
     eSETPOINT_MODE SETPOINT_MODE : 1;
     eCPULPM CPULPM : 1;
-    uint32_t _reserved_8 : 1;
+    uint32_t _reserved_3 : 1;
     eLOCK_MODE LOCK_MODE : 1;
-    uint32_t _reserved_end : 11;
+    uint32_t _reserved_4 : 11;
   } bits;
   
   // Full 32-bit register value.
@@ -38866,7 +38866,7 @@ union LPCG94_DIRECT {
   // Bit field definition.
   struct {
     eON ON : 1;
-    uint32_t _reserved_end : 31;
+    uint32_t _reserved_0 : 31;
   } bits;
   
   // Full 32-bit register value.
@@ -38924,15 +38924,15 @@ union LPCG94_DOMAIN {
   // Bit field definition.
   struct {
     eLEVEL LEVEL : 3;
-    uint32_t _reserved_1 : 13;
+    uint32_t _reserved_0 : 13;
     eLEVEL0 LEVEL0 : 3;
-    uint32_t _reserved_2 : 1;
+    uint32_t _reserved_1 : 1;
     eLEVEL1 LEVEL1 : 3;
-    uint32_t _reserved_3 : 1;
+    uint32_t _reserved_2 : 1;
     eLEVEL2 LEVEL2 : 3;
-    uint32_t _reserved_4 : 1;
+    uint32_t _reserved_3 : 1;
     eLEVEL3 LEVEL3 : 3;
-    uint32_t _reserved_end : 1;
+    uint32_t _reserved_4 : 1;
   } bits;
   
   // Full 32-bit register value.
@@ -38993,10 +38993,10 @@ union LPCG94_STATUS0 {
   // Bit field definition.
   struct {
     eON ON : 1;
-    uint32_t _reserved_1 : 7;
+    uint32_t _reserved_0 : 7;
     eACTIVE_DOMAIN ACTIVE_DOMAIN : 4;
     eDOMAIN_ENABLE DOMAIN_ENABLE : 4;
-    uint32_t _reserved_end : 16;
+    uint32_t _reserved_1 : 16;
   } bits;
   
   // Full 32-bit register value.
@@ -39119,7 +39119,7 @@ union LPCG94_STATUS1 {
     eSETPOINT_OFF_DONE SETPOINT_OFF_DONE : 1;
     eSETPOINT_ON_REQUEST SETPOINT_ON_REQUEST : 1;
     eSETPOINT_ON_DONE SETPOINT_ON_DONE : 1;
-    uint32_t _reserved_end : 4;
+    uint32_t _reserved_0 : 4;
   } bits;
   
   // Full 32-bit register value.
@@ -39143,7 +39143,7 @@ union LPCG94_CONFIG {
   struct {
     uint32_t _reserved_0 : 4;
     eSETPOINT_PRESENT SETPOINT_PRESENT : 1;
-    uint32_t _reserved_end : 27;
+    uint32_t _reserved_1 : 27;
   } bits;
   
   // Full 32-bit register value.
@@ -39202,18 +39202,18 @@ union LPCG94_AUTHEN {
   struct {
     eTZ_USER TZ_USER : 1;
     eTZ_NS TZ_NS : 1;
-    uint32_t _reserved_2 : 2;
+    uint32_t _reserved_0 : 2;
     eLOCK_TZ LOCK_TZ : 1;
-    uint32_t _reserved_3 : 3;
+    uint32_t _reserved_1 : 3;
     uint32_t WHITE_LIST : 4;
     eLOCK_LIST LOCK_LIST : 1;
-    uint32_t _reserved_5 : 3;
+    uint32_t _reserved_2 : 3;
     eDOMAIN_MODE DOMAIN_MODE : 1;
     eSETPOINT_MODE SETPOINT_MODE : 1;
     eCPULPM CPULPM : 1;
-    uint32_t _reserved_8 : 1;
+    uint32_t _reserved_3 : 1;
     eLOCK_MODE LOCK_MODE : 1;
-    uint32_t _reserved_end : 11;
+    uint32_t _reserved_4 : 11;
   } bits;
   
   // Full 32-bit register value.
@@ -39236,7 +39236,7 @@ union LPCG95_DIRECT {
   // Bit field definition.
   struct {
     eON ON : 1;
-    uint32_t _reserved_end : 31;
+    uint32_t _reserved_0 : 31;
   } bits;
   
   // Full 32-bit register value.
@@ -39294,15 +39294,15 @@ union LPCG95_DOMAIN {
   // Bit field definition.
   struct {
     eLEVEL LEVEL : 3;
-    uint32_t _reserved_1 : 13;
+    uint32_t _reserved_0 : 13;
     eLEVEL0 LEVEL0 : 3;
-    uint32_t _reserved_2 : 1;
+    uint32_t _reserved_1 : 1;
     eLEVEL1 LEVEL1 : 3;
-    uint32_t _reserved_3 : 1;
+    uint32_t _reserved_2 : 1;
     eLEVEL2 LEVEL2 : 3;
-    uint32_t _reserved_4 : 1;
+    uint32_t _reserved_3 : 1;
     eLEVEL3 LEVEL3 : 3;
-    uint32_t _reserved_end : 1;
+    uint32_t _reserved_4 : 1;
   } bits;
   
   // Full 32-bit register value.
@@ -39363,10 +39363,10 @@ union LPCG95_STATUS0 {
   // Bit field definition.
   struct {
     eON ON : 1;
-    uint32_t _reserved_1 : 7;
+    uint32_t _reserved_0 : 7;
     eACTIVE_DOMAIN ACTIVE_DOMAIN : 4;
     eDOMAIN_ENABLE DOMAIN_ENABLE : 4;
-    uint32_t _reserved_end : 16;
+    uint32_t _reserved_1 : 16;
   } bits;
   
   // Full 32-bit register value.
@@ -39489,7 +39489,7 @@ union LPCG95_STATUS1 {
     eSETPOINT_OFF_DONE SETPOINT_OFF_DONE : 1;
     eSETPOINT_ON_REQUEST SETPOINT_ON_REQUEST : 1;
     eSETPOINT_ON_DONE SETPOINT_ON_DONE : 1;
-    uint32_t _reserved_end : 4;
+    uint32_t _reserved_0 : 4;
   } bits;
   
   // Full 32-bit register value.
@@ -39513,7 +39513,7 @@ union LPCG95_CONFIG {
   struct {
     uint32_t _reserved_0 : 4;
     eSETPOINT_PRESENT SETPOINT_PRESENT : 1;
-    uint32_t _reserved_end : 27;
+    uint32_t _reserved_1 : 27;
   } bits;
   
   // Full 32-bit register value.
@@ -39572,18 +39572,18 @@ union LPCG95_AUTHEN {
   struct {
     eTZ_USER TZ_USER : 1;
     eTZ_NS TZ_NS : 1;
-    uint32_t _reserved_2 : 2;
+    uint32_t _reserved_0 : 2;
     eLOCK_TZ LOCK_TZ : 1;
-    uint32_t _reserved_3 : 3;
+    uint32_t _reserved_1 : 3;
     uint32_t WHITE_LIST : 4;
     eLOCK_LIST LOCK_LIST : 1;
-    uint32_t _reserved_5 : 3;
+    uint32_t _reserved_2 : 3;
     eDOMAIN_MODE DOMAIN_MODE : 1;
     eSETPOINT_MODE SETPOINT_MODE : 1;
     eCPULPM CPULPM : 1;
-    uint32_t _reserved_8 : 1;
+    uint32_t _reserved_3 : 1;
     eLOCK_MODE LOCK_MODE : 1;
-    uint32_t _reserved_end : 11;
+    uint32_t _reserved_4 : 11;
   } bits;
   
   // Full 32-bit register value.
@@ -39606,7 +39606,7 @@ union LPCG96_DIRECT {
   // Bit field definition.
   struct {
     eON ON : 1;
-    uint32_t _reserved_end : 31;
+    uint32_t _reserved_0 : 31;
   } bits;
   
   // Full 32-bit register value.
@@ -39664,15 +39664,15 @@ union LPCG96_DOMAIN {
   // Bit field definition.
   struct {
     eLEVEL LEVEL : 3;
-    uint32_t _reserved_1 : 13;
+    uint32_t _reserved_0 : 13;
     eLEVEL0 LEVEL0 : 3;
-    uint32_t _reserved_2 : 1;
+    uint32_t _reserved_1 : 1;
     eLEVEL1 LEVEL1 : 3;
-    uint32_t _reserved_3 : 1;
+    uint32_t _reserved_2 : 1;
     eLEVEL2 LEVEL2 : 3;
-    uint32_t _reserved_4 : 1;
+    uint32_t _reserved_3 : 1;
     eLEVEL3 LEVEL3 : 3;
-    uint32_t _reserved_end : 1;
+    uint32_t _reserved_4 : 1;
   } bits;
   
   // Full 32-bit register value.
@@ -39733,10 +39733,10 @@ union LPCG96_STATUS0 {
   // Bit field definition.
   struct {
     eON ON : 1;
-    uint32_t _reserved_1 : 7;
+    uint32_t _reserved_0 : 7;
     eACTIVE_DOMAIN ACTIVE_DOMAIN : 4;
     eDOMAIN_ENABLE DOMAIN_ENABLE : 4;
-    uint32_t _reserved_end : 16;
+    uint32_t _reserved_1 : 16;
   } bits;
   
   // Full 32-bit register value.
@@ -39859,7 +39859,7 @@ union LPCG96_STATUS1 {
     eSETPOINT_OFF_DONE SETPOINT_OFF_DONE : 1;
     eSETPOINT_ON_REQUEST SETPOINT_ON_REQUEST : 1;
     eSETPOINT_ON_DONE SETPOINT_ON_DONE : 1;
-    uint32_t _reserved_end : 4;
+    uint32_t _reserved_0 : 4;
   } bits;
   
   // Full 32-bit register value.
@@ -39883,7 +39883,7 @@ union LPCG96_CONFIG {
   struct {
     uint32_t _reserved_0 : 4;
     eSETPOINT_PRESENT SETPOINT_PRESENT : 1;
-    uint32_t _reserved_end : 27;
+    uint32_t _reserved_1 : 27;
   } bits;
   
   // Full 32-bit register value.
@@ -39942,18 +39942,18 @@ union LPCG96_AUTHEN {
   struct {
     eTZ_USER TZ_USER : 1;
     eTZ_NS TZ_NS : 1;
-    uint32_t _reserved_2 : 2;
+    uint32_t _reserved_0 : 2;
     eLOCK_TZ LOCK_TZ : 1;
-    uint32_t _reserved_3 : 3;
+    uint32_t _reserved_1 : 3;
     uint32_t WHITE_LIST : 4;
     eLOCK_LIST LOCK_LIST : 1;
-    uint32_t _reserved_5 : 3;
+    uint32_t _reserved_2 : 3;
     eDOMAIN_MODE DOMAIN_MODE : 1;
     eSETPOINT_MODE SETPOINT_MODE : 1;
     eCPULPM CPULPM : 1;
-    uint32_t _reserved_8 : 1;
+    uint32_t _reserved_3 : 1;
     eLOCK_MODE LOCK_MODE : 1;
-    uint32_t _reserved_end : 11;
+    uint32_t _reserved_4 : 11;
   } bits;
   
   // Full 32-bit register value.
@@ -39976,7 +39976,7 @@ union LPCG97_DIRECT {
   // Bit field definition.
   struct {
     eON ON : 1;
-    uint32_t _reserved_end : 31;
+    uint32_t _reserved_0 : 31;
   } bits;
   
   // Full 32-bit register value.
@@ -40034,15 +40034,15 @@ union LPCG97_DOMAIN {
   // Bit field definition.
   struct {
     eLEVEL LEVEL : 3;
-    uint32_t _reserved_1 : 13;
+    uint32_t _reserved_0 : 13;
     eLEVEL0 LEVEL0 : 3;
-    uint32_t _reserved_2 : 1;
+    uint32_t _reserved_1 : 1;
     eLEVEL1 LEVEL1 : 3;
-    uint32_t _reserved_3 : 1;
+    uint32_t _reserved_2 : 1;
     eLEVEL2 LEVEL2 : 3;
-    uint32_t _reserved_4 : 1;
+    uint32_t _reserved_3 : 1;
     eLEVEL3 LEVEL3 : 3;
-    uint32_t _reserved_end : 1;
+    uint32_t _reserved_4 : 1;
   } bits;
   
   // Full 32-bit register value.
@@ -40103,10 +40103,10 @@ union LPCG97_STATUS0 {
   // Bit field definition.
   struct {
     eON ON : 1;
-    uint32_t _reserved_1 : 7;
+    uint32_t _reserved_0 : 7;
     eACTIVE_DOMAIN ACTIVE_DOMAIN : 4;
     eDOMAIN_ENABLE DOMAIN_ENABLE : 4;
-    uint32_t _reserved_end : 16;
+    uint32_t _reserved_1 : 16;
   } bits;
   
   // Full 32-bit register value.
@@ -40229,7 +40229,7 @@ union LPCG97_STATUS1 {
     eSETPOINT_OFF_DONE SETPOINT_OFF_DONE : 1;
     eSETPOINT_ON_REQUEST SETPOINT_ON_REQUEST : 1;
     eSETPOINT_ON_DONE SETPOINT_ON_DONE : 1;
-    uint32_t _reserved_end : 4;
+    uint32_t _reserved_0 : 4;
   } bits;
   
   // Full 32-bit register value.
@@ -40253,7 +40253,7 @@ union LPCG97_CONFIG {
   struct {
     uint32_t _reserved_0 : 4;
     eSETPOINT_PRESENT SETPOINT_PRESENT : 1;
-    uint32_t _reserved_end : 27;
+    uint32_t _reserved_1 : 27;
   } bits;
   
   // Full 32-bit register value.
@@ -40312,18 +40312,18 @@ union LPCG97_AUTHEN {
   struct {
     eTZ_USER TZ_USER : 1;
     eTZ_NS TZ_NS : 1;
-    uint32_t _reserved_2 : 2;
+    uint32_t _reserved_0 : 2;
     eLOCK_TZ LOCK_TZ : 1;
-    uint32_t _reserved_3 : 3;
+    uint32_t _reserved_1 : 3;
     uint32_t WHITE_LIST : 4;
     eLOCK_LIST LOCK_LIST : 1;
-    uint32_t _reserved_5 : 3;
+    uint32_t _reserved_2 : 3;
     eDOMAIN_MODE DOMAIN_MODE : 1;
     eSETPOINT_MODE SETPOINT_MODE : 1;
     eCPULPM CPULPM : 1;
-    uint32_t _reserved_8 : 1;
+    uint32_t _reserved_3 : 1;
     eLOCK_MODE LOCK_MODE : 1;
-    uint32_t _reserved_end : 11;
+    uint32_t _reserved_4 : 11;
   } bits;
   
   // Full 32-bit register value.
@@ -40346,7 +40346,7 @@ union LPCG98_DIRECT {
   // Bit field definition.
   struct {
     eON ON : 1;
-    uint32_t _reserved_end : 31;
+    uint32_t _reserved_0 : 31;
   } bits;
   
   // Full 32-bit register value.
@@ -40404,15 +40404,15 @@ union LPCG98_DOMAIN {
   // Bit field definition.
   struct {
     eLEVEL LEVEL : 3;
-    uint32_t _reserved_1 : 13;
+    uint32_t _reserved_0 : 13;
     eLEVEL0 LEVEL0 : 3;
-    uint32_t _reserved_2 : 1;
+    uint32_t _reserved_1 : 1;
     eLEVEL1 LEVEL1 : 3;
-    uint32_t _reserved_3 : 1;
+    uint32_t _reserved_2 : 1;
     eLEVEL2 LEVEL2 : 3;
-    uint32_t _reserved_4 : 1;
+    uint32_t _reserved_3 : 1;
     eLEVEL3 LEVEL3 : 3;
-    uint32_t _reserved_end : 1;
+    uint32_t _reserved_4 : 1;
   } bits;
   
   // Full 32-bit register value.
@@ -40473,10 +40473,10 @@ union LPCG98_STATUS0 {
   // Bit field definition.
   struct {
     eON ON : 1;
-    uint32_t _reserved_1 : 7;
+    uint32_t _reserved_0 : 7;
     eACTIVE_DOMAIN ACTIVE_DOMAIN : 4;
     eDOMAIN_ENABLE DOMAIN_ENABLE : 4;
-    uint32_t _reserved_end : 16;
+    uint32_t _reserved_1 : 16;
   } bits;
   
   // Full 32-bit register value.
@@ -40599,7 +40599,7 @@ union LPCG98_STATUS1 {
     eSETPOINT_OFF_DONE SETPOINT_OFF_DONE : 1;
     eSETPOINT_ON_REQUEST SETPOINT_ON_REQUEST : 1;
     eSETPOINT_ON_DONE SETPOINT_ON_DONE : 1;
-    uint32_t _reserved_end : 4;
+    uint32_t _reserved_0 : 4;
   } bits;
   
   // Full 32-bit register value.
@@ -40623,7 +40623,7 @@ union LPCG98_CONFIG {
   struct {
     uint32_t _reserved_0 : 4;
     eSETPOINT_PRESENT SETPOINT_PRESENT : 1;
-    uint32_t _reserved_end : 27;
+    uint32_t _reserved_1 : 27;
   } bits;
   
   // Full 32-bit register value.
@@ -40682,18 +40682,18 @@ union LPCG98_AUTHEN {
   struct {
     eTZ_USER TZ_USER : 1;
     eTZ_NS TZ_NS : 1;
-    uint32_t _reserved_2 : 2;
+    uint32_t _reserved_0 : 2;
     eLOCK_TZ LOCK_TZ : 1;
-    uint32_t _reserved_3 : 3;
+    uint32_t _reserved_1 : 3;
     uint32_t WHITE_LIST : 4;
     eLOCK_LIST LOCK_LIST : 1;
-    uint32_t _reserved_5 : 3;
+    uint32_t _reserved_2 : 3;
     eDOMAIN_MODE DOMAIN_MODE : 1;
     eSETPOINT_MODE SETPOINT_MODE : 1;
     eCPULPM CPULPM : 1;
-    uint32_t _reserved_8 : 1;
+    uint32_t _reserved_3 : 1;
     eLOCK_MODE LOCK_MODE : 1;
-    uint32_t _reserved_end : 11;
+    uint32_t _reserved_4 : 11;
   } bits;
   
   // Full 32-bit register value.
@@ -40716,7 +40716,7 @@ union LPCG99_DIRECT {
   // Bit field definition.
   struct {
     eON ON : 1;
-    uint32_t _reserved_end : 31;
+    uint32_t _reserved_0 : 31;
   } bits;
   
   // Full 32-bit register value.
@@ -40774,15 +40774,15 @@ union LPCG99_DOMAIN {
   // Bit field definition.
   struct {
     eLEVEL LEVEL : 3;
-    uint32_t _reserved_1 : 13;
+    uint32_t _reserved_0 : 13;
     eLEVEL0 LEVEL0 : 3;
-    uint32_t _reserved_2 : 1;
+    uint32_t _reserved_1 : 1;
     eLEVEL1 LEVEL1 : 3;
-    uint32_t _reserved_3 : 1;
+    uint32_t _reserved_2 : 1;
     eLEVEL2 LEVEL2 : 3;
-    uint32_t _reserved_4 : 1;
+    uint32_t _reserved_3 : 1;
     eLEVEL3 LEVEL3 : 3;
-    uint32_t _reserved_end : 1;
+    uint32_t _reserved_4 : 1;
   } bits;
   
   // Full 32-bit register value.
@@ -40843,10 +40843,10 @@ union LPCG99_STATUS0 {
   // Bit field definition.
   struct {
     eON ON : 1;
-    uint32_t _reserved_1 : 7;
+    uint32_t _reserved_0 : 7;
     eACTIVE_DOMAIN ACTIVE_DOMAIN : 4;
     eDOMAIN_ENABLE DOMAIN_ENABLE : 4;
-    uint32_t _reserved_end : 16;
+    uint32_t _reserved_1 : 16;
   } bits;
   
   // Full 32-bit register value.
@@ -40969,7 +40969,7 @@ union LPCG99_STATUS1 {
     eSETPOINT_OFF_DONE SETPOINT_OFF_DONE : 1;
     eSETPOINT_ON_REQUEST SETPOINT_ON_REQUEST : 1;
     eSETPOINT_ON_DONE SETPOINT_ON_DONE : 1;
-    uint32_t _reserved_end : 4;
+    uint32_t _reserved_0 : 4;
   } bits;
   
   // Full 32-bit register value.
@@ -40993,7 +40993,7 @@ union LPCG99_CONFIG {
   struct {
     uint32_t _reserved_0 : 4;
     eSETPOINT_PRESENT SETPOINT_PRESENT : 1;
-    uint32_t _reserved_end : 27;
+    uint32_t _reserved_1 : 27;
   } bits;
   
   // Full 32-bit register value.
@@ -41052,18 +41052,18 @@ union LPCG99_AUTHEN {
   struct {
     eTZ_USER TZ_USER : 1;
     eTZ_NS TZ_NS : 1;
-    uint32_t _reserved_2 : 2;
+    uint32_t _reserved_0 : 2;
     eLOCK_TZ LOCK_TZ : 1;
-    uint32_t _reserved_3 : 3;
+    uint32_t _reserved_1 : 3;
     uint32_t WHITE_LIST : 4;
     eLOCK_LIST LOCK_LIST : 1;
-    uint32_t _reserved_5 : 3;
+    uint32_t _reserved_2 : 3;
     eDOMAIN_MODE DOMAIN_MODE : 1;
     eSETPOINT_MODE SETPOINT_MODE : 1;
     eCPULPM CPULPM : 1;
-    uint32_t _reserved_8 : 1;
+    uint32_t _reserved_3 : 1;
     eLOCK_MODE LOCK_MODE : 1;
-    uint32_t _reserved_end : 11;
+    uint32_t _reserved_4 : 11;
   } bits;
   
   // Full 32-bit register value.
@@ -41086,7 +41086,7 @@ union LPCG100_DIRECT {
   // Bit field definition.
   struct {
     eON ON : 1;
-    uint32_t _reserved_end : 31;
+    uint32_t _reserved_0 : 31;
   } bits;
   
   // Full 32-bit register value.
@@ -41144,15 +41144,15 @@ union LPCG100_DOMAIN {
   // Bit field definition.
   struct {
     eLEVEL LEVEL : 3;
-    uint32_t _reserved_1 : 13;
+    uint32_t _reserved_0 : 13;
     eLEVEL0 LEVEL0 : 3;
-    uint32_t _reserved_2 : 1;
+    uint32_t _reserved_1 : 1;
     eLEVEL1 LEVEL1 : 3;
-    uint32_t _reserved_3 : 1;
+    uint32_t _reserved_2 : 1;
     eLEVEL2 LEVEL2 : 3;
-    uint32_t _reserved_4 : 1;
+    uint32_t _reserved_3 : 1;
     eLEVEL3 LEVEL3 : 3;
-    uint32_t _reserved_end : 1;
+    uint32_t _reserved_4 : 1;
   } bits;
   
   // Full 32-bit register value.
@@ -41213,10 +41213,10 @@ union LPCG100_STATUS0 {
   // Bit field definition.
   struct {
     eON ON : 1;
-    uint32_t _reserved_1 : 7;
+    uint32_t _reserved_0 : 7;
     eACTIVE_DOMAIN ACTIVE_DOMAIN : 4;
     eDOMAIN_ENABLE DOMAIN_ENABLE : 4;
-    uint32_t _reserved_end : 16;
+    uint32_t _reserved_1 : 16;
   } bits;
   
   // Full 32-bit register value.
@@ -41339,7 +41339,7 @@ union LPCG100_STATUS1 {
     eSETPOINT_OFF_DONE SETPOINT_OFF_DONE : 1;
     eSETPOINT_ON_REQUEST SETPOINT_ON_REQUEST : 1;
     eSETPOINT_ON_DONE SETPOINT_ON_DONE : 1;
-    uint32_t _reserved_end : 4;
+    uint32_t _reserved_0 : 4;
   } bits;
   
   // Full 32-bit register value.
@@ -41363,7 +41363,7 @@ union LPCG100_CONFIG {
   struct {
     uint32_t _reserved_0 : 4;
     eSETPOINT_PRESENT SETPOINT_PRESENT : 1;
-    uint32_t _reserved_end : 27;
+    uint32_t _reserved_1 : 27;
   } bits;
   
   // Full 32-bit register value.
@@ -41422,18 +41422,18 @@ union LPCG100_AUTHEN {
   struct {
     eTZ_USER TZ_USER : 1;
     eTZ_NS TZ_NS : 1;
-    uint32_t _reserved_2 : 2;
+    uint32_t _reserved_0 : 2;
     eLOCK_TZ LOCK_TZ : 1;
-    uint32_t _reserved_3 : 3;
+    uint32_t _reserved_1 : 3;
     uint32_t WHITE_LIST : 4;
     eLOCK_LIST LOCK_LIST : 1;
-    uint32_t _reserved_5 : 3;
+    uint32_t _reserved_2 : 3;
     eDOMAIN_MODE DOMAIN_MODE : 1;
     eSETPOINT_MODE SETPOINT_MODE : 1;
     eCPULPM CPULPM : 1;
-    uint32_t _reserved_8 : 1;
+    uint32_t _reserved_3 : 1;
     eLOCK_MODE LOCK_MODE : 1;
-    uint32_t _reserved_end : 11;
+    uint32_t _reserved_4 : 11;
   } bits;
   
   // Full 32-bit register value.
@@ -41456,7 +41456,7 @@ union LPCG101_DIRECT {
   // Bit field definition.
   struct {
     eON ON : 1;
-    uint32_t _reserved_end : 31;
+    uint32_t _reserved_0 : 31;
   } bits;
   
   // Full 32-bit register value.
@@ -41514,15 +41514,15 @@ union LPCG101_DOMAIN {
   // Bit field definition.
   struct {
     eLEVEL LEVEL : 3;
-    uint32_t _reserved_1 : 13;
+    uint32_t _reserved_0 : 13;
     eLEVEL0 LEVEL0 : 3;
-    uint32_t _reserved_2 : 1;
+    uint32_t _reserved_1 : 1;
     eLEVEL1 LEVEL1 : 3;
-    uint32_t _reserved_3 : 1;
+    uint32_t _reserved_2 : 1;
     eLEVEL2 LEVEL2 : 3;
-    uint32_t _reserved_4 : 1;
+    uint32_t _reserved_3 : 1;
     eLEVEL3 LEVEL3 : 3;
-    uint32_t _reserved_end : 1;
+    uint32_t _reserved_4 : 1;
   } bits;
   
   // Full 32-bit register value.
@@ -41583,10 +41583,10 @@ union LPCG101_STATUS0 {
   // Bit field definition.
   struct {
     eON ON : 1;
-    uint32_t _reserved_1 : 7;
+    uint32_t _reserved_0 : 7;
     eACTIVE_DOMAIN ACTIVE_DOMAIN : 4;
     eDOMAIN_ENABLE DOMAIN_ENABLE : 4;
-    uint32_t _reserved_end : 16;
+    uint32_t _reserved_1 : 16;
   } bits;
   
   // Full 32-bit register value.
@@ -41709,7 +41709,7 @@ union LPCG101_STATUS1 {
     eSETPOINT_OFF_DONE SETPOINT_OFF_DONE : 1;
     eSETPOINT_ON_REQUEST SETPOINT_ON_REQUEST : 1;
     eSETPOINT_ON_DONE SETPOINT_ON_DONE : 1;
-    uint32_t _reserved_end : 4;
+    uint32_t _reserved_0 : 4;
   } bits;
   
   // Full 32-bit register value.
@@ -41733,7 +41733,7 @@ union LPCG101_CONFIG {
   struct {
     uint32_t _reserved_0 : 4;
     eSETPOINT_PRESENT SETPOINT_PRESENT : 1;
-    uint32_t _reserved_end : 27;
+    uint32_t _reserved_1 : 27;
   } bits;
   
   // Full 32-bit register value.
@@ -41792,18 +41792,18 @@ union LPCG101_AUTHEN {
   struct {
     eTZ_USER TZ_USER : 1;
     eTZ_NS TZ_NS : 1;
-    uint32_t _reserved_2 : 2;
+    uint32_t _reserved_0 : 2;
     eLOCK_TZ LOCK_TZ : 1;
-    uint32_t _reserved_3 : 3;
+    uint32_t _reserved_1 : 3;
     uint32_t WHITE_LIST : 4;
     eLOCK_LIST LOCK_LIST : 1;
-    uint32_t _reserved_5 : 3;
+    uint32_t _reserved_2 : 3;
     eDOMAIN_MODE DOMAIN_MODE : 1;
     eSETPOINT_MODE SETPOINT_MODE : 1;
     eCPULPM CPULPM : 1;
-    uint32_t _reserved_8 : 1;
+    uint32_t _reserved_3 : 1;
     eLOCK_MODE LOCK_MODE : 1;
-    uint32_t _reserved_end : 11;
+    uint32_t _reserved_4 : 11;
   } bits;
   
   // Full 32-bit register value.
@@ -41826,7 +41826,7 @@ union LPCG102_DIRECT {
   // Bit field definition.
   struct {
     eON ON : 1;
-    uint32_t _reserved_end : 31;
+    uint32_t _reserved_0 : 31;
   } bits;
   
   // Full 32-bit register value.
@@ -41884,15 +41884,15 @@ union LPCG102_DOMAIN {
   // Bit field definition.
   struct {
     eLEVEL LEVEL : 3;
-    uint32_t _reserved_1 : 13;
+    uint32_t _reserved_0 : 13;
     eLEVEL0 LEVEL0 : 3;
-    uint32_t _reserved_2 : 1;
+    uint32_t _reserved_1 : 1;
     eLEVEL1 LEVEL1 : 3;
-    uint32_t _reserved_3 : 1;
+    uint32_t _reserved_2 : 1;
     eLEVEL2 LEVEL2 : 3;
-    uint32_t _reserved_4 : 1;
+    uint32_t _reserved_3 : 1;
     eLEVEL3 LEVEL3 : 3;
-    uint32_t _reserved_end : 1;
+    uint32_t _reserved_4 : 1;
   } bits;
   
   // Full 32-bit register value.
@@ -41953,10 +41953,10 @@ union LPCG102_STATUS0 {
   // Bit field definition.
   struct {
     eON ON : 1;
-    uint32_t _reserved_1 : 7;
+    uint32_t _reserved_0 : 7;
     eACTIVE_DOMAIN ACTIVE_DOMAIN : 4;
     eDOMAIN_ENABLE DOMAIN_ENABLE : 4;
-    uint32_t _reserved_end : 16;
+    uint32_t _reserved_1 : 16;
   } bits;
   
   // Full 32-bit register value.
@@ -42079,7 +42079,7 @@ union LPCG102_STATUS1 {
     eSETPOINT_OFF_DONE SETPOINT_OFF_DONE : 1;
     eSETPOINT_ON_REQUEST SETPOINT_ON_REQUEST : 1;
     eSETPOINT_ON_DONE SETPOINT_ON_DONE : 1;
-    uint32_t _reserved_end : 4;
+    uint32_t _reserved_0 : 4;
   } bits;
   
   // Full 32-bit register value.
@@ -42103,7 +42103,7 @@ union LPCG102_CONFIG {
   struct {
     uint32_t _reserved_0 : 4;
     eSETPOINT_PRESENT SETPOINT_PRESENT : 1;
-    uint32_t _reserved_end : 27;
+    uint32_t _reserved_1 : 27;
   } bits;
   
   // Full 32-bit register value.
@@ -42162,18 +42162,18 @@ union LPCG102_AUTHEN {
   struct {
     eTZ_USER TZ_USER : 1;
     eTZ_NS TZ_NS : 1;
-    uint32_t _reserved_2 : 2;
+    uint32_t _reserved_0 : 2;
     eLOCK_TZ LOCK_TZ : 1;
-    uint32_t _reserved_3 : 3;
+    uint32_t _reserved_1 : 3;
     uint32_t WHITE_LIST : 4;
     eLOCK_LIST LOCK_LIST : 1;
-    uint32_t _reserved_5 : 3;
+    uint32_t _reserved_2 : 3;
     eDOMAIN_MODE DOMAIN_MODE : 1;
     eSETPOINT_MODE SETPOINT_MODE : 1;
     eCPULPM CPULPM : 1;
-    uint32_t _reserved_8 : 1;
+    uint32_t _reserved_3 : 1;
     eLOCK_MODE LOCK_MODE : 1;
-    uint32_t _reserved_end : 11;
+    uint32_t _reserved_4 : 11;
   } bits;
   
   // Full 32-bit register value.
@@ -42196,7 +42196,7 @@ union LPCG103_DIRECT {
   // Bit field definition.
   struct {
     eON ON : 1;
-    uint32_t _reserved_end : 31;
+    uint32_t _reserved_0 : 31;
   } bits;
   
   // Full 32-bit register value.
@@ -42254,15 +42254,15 @@ union LPCG103_DOMAIN {
   // Bit field definition.
   struct {
     eLEVEL LEVEL : 3;
-    uint32_t _reserved_1 : 13;
+    uint32_t _reserved_0 : 13;
     eLEVEL0 LEVEL0 : 3;
-    uint32_t _reserved_2 : 1;
+    uint32_t _reserved_1 : 1;
     eLEVEL1 LEVEL1 : 3;
-    uint32_t _reserved_3 : 1;
+    uint32_t _reserved_2 : 1;
     eLEVEL2 LEVEL2 : 3;
-    uint32_t _reserved_4 : 1;
+    uint32_t _reserved_3 : 1;
     eLEVEL3 LEVEL3 : 3;
-    uint32_t _reserved_end : 1;
+    uint32_t _reserved_4 : 1;
   } bits;
   
   // Full 32-bit register value.
@@ -42323,10 +42323,10 @@ union LPCG103_STATUS0 {
   // Bit field definition.
   struct {
     eON ON : 1;
-    uint32_t _reserved_1 : 7;
+    uint32_t _reserved_0 : 7;
     eACTIVE_DOMAIN ACTIVE_DOMAIN : 4;
     eDOMAIN_ENABLE DOMAIN_ENABLE : 4;
-    uint32_t _reserved_end : 16;
+    uint32_t _reserved_1 : 16;
   } bits;
   
   // Full 32-bit register value.
@@ -42449,7 +42449,7 @@ union LPCG103_STATUS1 {
     eSETPOINT_OFF_DONE SETPOINT_OFF_DONE : 1;
     eSETPOINT_ON_REQUEST SETPOINT_ON_REQUEST : 1;
     eSETPOINT_ON_DONE SETPOINT_ON_DONE : 1;
-    uint32_t _reserved_end : 4;
+    uint32_t _reserved_0 : 4;
   } bits;
   
   // Full 32-bit register value.
@@ -42473,7 +42473,7 @@ union LPCG103_CONFIG {
   struct {
     uint32_t _reserved_0 : 4;
     eSETPOINT_PRESENT SETPOINT_PRESENT : 1;
-    uint32_t _reserved_end : 27;
+    uint32_t _reserved_1 : 27;
   } bits;
   
   // Full 32-bit register value.
@@ -42532,18 +42532,18 @@ union LPCG103_AUTHEN {
   struct {
     eTZ_USER TZ_USER : 1;
     eTZ_NS TZ_NS : 1;
-    uint32_t _reserved_2 : 2;
+    uint32_t _reserved_0 : 2;
     eLOCK_TZ LOCK_TZ : 1;
-    uint32_t _reserved_3 : 3;
+    uint32_t _reserved_1 : 3;
     uint32_t WHITE_LIST : 4;
     eLOCK_LIST LOCK_LIST : 1;
-    uint32_t _reserved_5 : 3;
+    uint32_t _reserved_2 : 3;
     eDOMAIN_MODE DOMAIN_MODE : 1;
     eSETPOINT_MODE SETPOINT_MODE : 1;
     eCPULPM CPULPM : 1;
-    uint32_t _reserved_8 : 1;
+    uint32_t _reserved_3 : 1;
     eLOCK_MODE LOCK_MODE : 1;
-    uint32_t _reserved_end : 11;
+    uint32_t _reserved_4 : 11;
   } bits;
   
   // Full 32-bit register value.
@@ -42566,7 +42566,7 @@ union LPCG104_DIRECT {
   // Bit field definition.
   struct {
     eON ON : 1;
-    uint32_t _reserved_end : 31;
+    uint32_t _reserved_0 : 31;
   } bits;
   
   // Full 32-bit register value.
@@ -42624,15 +42624,15 @@ union LPCG104_DOMAIN {
   // Bit field definition.
   struct {
     eLEVEL LEVEL : 3;
-    uint32_t _reserved_1 : 13;
+    uint32_t _reserved_0 : 13;
     eLEVEL0 LEVEL0 : 3;
-    uint32_t _reserved_2 : 1;
+    uint32_t _reserved_1 : 1;
     eLEVEL1 LEVEL1 : 3;
-    uint32_t _reserved_3 : 1;
+    uint32_t _reserved_2 : 1;
     eLEVEL2 LEVEL2 : 3;
-    uint32_t _reserved_4 : 1;
+    uint32_t _reserved_3 : 1;
     eLEVEL3 LEVEL3 : 3;
-    uint32_t _reserved_end : 1;
+    uint32_t _reserved_4 : 1;
   } bits;
   
   // Full 32-bit register value.
@@ -42693,10 +42693,10 @@ union LPCG104_STATUS0 {
   // Bit field definition.
   struct {
     eON ON : 1;
-    uint32_t _reserved_1 : 7;
+    uint32_t _reserved_0 : 7;
     eACTIVE_DOMAIN ACTIVE_DOMAIN : 4;
     eDOMAIN_ENABLE DOMAIN_ENABLE : 4;
-    uint32_t _reserved_end : 16;
+    uint32_t _reserved_1 : 16;
   } bits;
   
   // Full 32-bit register value.
@@ -42819,7 +42819,7 @@ union LPCG104_STATUS1 {
     eSETPOINT_OFF_DONE SETPOINT_OFF_DONE : 1;
     eSETPOINT_ON_REQUEST SETPOINT_ON_REQUEST : 1;
     eSETPOINT_ON_DONE SETPOINT_ON_DONE : 1;
-    uint32_t _reserved_end : 4;
+    uint32_t _reserved_0 : 4;
   } bits;
   
   // Full 32-bit register value.
@@ -42843,7 +42843,7 @@ union LPCG104_CONFIG {
   struct {
     uint32_t _reserved_0 : 4;
     eSETPOINT_PRESENT SETPOINT_PRESENT : 1;
-    uint32_t _reserved_end : 27;
+    uint32_t _reserved_1 : 27;
   } bits;
   
   // Full 32-bit register value.
@@ -42902,18 +42902,18 @@ union LPCG104_AUTHEN {
   struct {
     eTZ_USER TZ_USER : 1;
     eTZ_NS TZ_NS : 1;
-    uint32_t _reserved_2 : 2;
+    uint32_t _reserved_0 : 2;
     eLOCK_TZ LOCK_TZ : 1;
-    uint32_t _reserved_3 : 3;
+    uint32_t _reserved_1 : 3;
     uint32_t WHITE_LIST : 4;
     eLOCK_LIST LOCK_LIST : 1;
-    uint32_t _reserved_5 : 3;
+    uint32_t _reserved_2 : 3;
     eDOMAIN_MODE DOMAIN_MODE : 1;
     eSETPOINT_MODE SETPOINT_MODE : 1;
     eCPULPM CPULPM : 1;
-    uint32_t _reserved_8 : 1;
+    uint32_t _reserved_3 : 1;
     eLOCK_MODE LOCK_MODE : 1;
-    uint32_t _reserved_end : 11;
+    uint32_t _reserved_4 : 11;
   } bits;
   
   // Full 32-bit register value.
@@ -42936,7 +42936,7 @@ union LPCG105_DIRECT {
   // Bit field definition.
   struct {
     eON ON : 1;
-    uint32_t _reserved_end : 31;
+    uint32_t _reserved_0 : 31;
   } bits;
   
   // Full 32-bit register value.
@@ -42994,15 +42994,15 @@ union LPCG105_DOMAIN {
   // Bit field definition.
   struct {
     eLEVEL LEVEL : 3;
-    uint32_t _reserved_1 : 13;
+    uint32_t _reserved_0 : 13;
     eLEVEL0 LEVEL0 : 3;
-    uint32_t _reserved_2 : 1;
+    uint32_t _reserved_1 : 1;
     eLEVEL1 LEVEL1 : 3;
-    uint32_t _reserved_3 : 1;
+    uint32_t _reserved_2 : 1;
     eLEVEL2 LEVEL2 : 3;
-    uint32_t _reserved_4 : 1;
+    uint32_t _reserved_3 : 1;
     eLEVEL3 LEVEL3 : 3;
-    uint32_t _reserved_end : 1;
+    uint32_t _reserved_4 : 1;
   } bits;
   
   // Full 32-bit register value.
@@ -43063,10 +43063,10 @@ union LPCG105_STATUS0 {
   // Bit field definition.
   struct {
     eON ON : 1;
-    uint32_t _reserved_1 : 7;
+    uint32_t _reserved_0 : 7;
     eACTIVE_DOMAIN ACTIVE_DOMAIN : 4;
     eDOMAIN_ENABLE DOMAIN_ENABLE : 4;
-    uint32_t _reserved_end : 16;
+    uint32_t _reserved_1 : 16;
   } bits;
   
   // Full 32-bit register value.
@@ -43189,7 +43189,7 @@ union LPCG105_STATUS1 {
     eSETPOINT_OFF_DONE SETPOINT_OFF_DONE : 1;
     eSETPOINT_ON_REQUEST SETPOINT_ON_REQUEST : 1;
     eSETPOINT_ON_DONE SETPOINT_ON_DONE : 1;
-    uint32_t _reserved_end : 4;
+    uint32_t _reserved_0 : 4;
   } bits;
   
   // Full 32-bit register value.
@@ -43213,7 +43213,7 @@ union LPCG105_CONFIG {
   struct {
     uint32_t _reserved_0 : 4;
     eSETPOINT_PRESENT SETPOINT_PRESENT : 1;
-    uint32_t _reserved_end : 27;
+    uint32_t _reserved_1 : 27;
   } bits;
   
   // Full 32-bit register value.
@@ -43272,18 +43272,18 @@ union LPCG105_AUTHEN {
   struct {
     eTZ_USER TZ_USER : 1;
     eTZ_NS TZ_NS : 1;
-    uint32_t _reserved_2 : 2;
+    uint32_t _reserved_0 : 2;
     eLOCK_TZ LOCK_TZ : 1;
-    uint32_t _reserved_3 : 3;
+    uint32_t _reserved_1 : 3;
     uint32_t WHITE_LIST : 4;
     eLOCK_LIST LOCK_LIST : 1;
-    uint32_t _reserved_5 : 3;
+    uint32_t _reserved_2 : 3;
     eDOMAIN_MODE DOMAIN_MODE : 1;
     eSETPOINT_MODE SETPOINT_MODE : 1;
     eCPULPM CPULPM : 1;
-    uint32_t _reserved_8 : 1;
+    uint32_t _reserved_3 : 1;
     eLOCK_MODE LOCK_MODE : 1;
-    uint32_t _reserved_end : 11;
+    uint32_t _reserved_4 : 11;
   } bits;
   
   // Full 32-bit register value.
@@ -43306,7 +43306,7 @@ union LPCG106_DIRECT {
   // Bit field definition.
   struct {
     eON ON : 1;
-    uint32_t _reserved_end : 31;
+    uint32_t _reserved_0 : 31;
   } bits;
   
   // Full 32-bit register value.
@@ -43364,15 +43364,15 @@ union LPCG106_DOMAIN {
   // Bit field definition.
   struct {
     eLEVEL LEVEL : 3;
-    uint32_t _reserved_1 : 13;
+    uint32_t _reserved_0 : 13;
     eLEVEL0 LEVEL0 : 3;
-    uint32_t _reserved_2 : 1;
+    uint32_t _reserved_1 : 1;
     eLEVEL1 LEVEL1 : 3;
-    uint32_t _reserved_3 : 1;
+    uint32_t _reserved_2 : 1;
     eLEVEL2 LEVEL2 : 3;
-    uint32_t _reserved_4 : 1;
+    uint32_t _reserved_3 : 1;
     eLEVEL3 LEVEL3 : 3;
-    uint32_t _reserved_end : 1;
+    uint32_t _reserved_4 : 1;
   } bits;
   
   // Full 32-bit register value.
@@ -43433,10 +43433,10 @@ union LPCG106_STATUS0 {
   // Bit field definition.
   struct {
     eON ON : 1;
-    uint32_t _reserved_1 : 7;
+    uint32_t _reserved_0 : 7;
     eACTIVE_DOMAIN ACTIVE_DOMAIN : 4;
     eDOMAIN_ENABLE DOMAIN_ENABLE : 4;
-    uint32_t _reserved_end : 16;
+    uint32_t _reserved_1 : 16;
   } bits;
   
   // Full 32-bit register value.
@@ -43559,7 +43559,7 @@ union LPCG106_STATUS1 {
     eSETPOINT_OFF_DONE SETPOINT_OFF_DONE : 1;
     eSETPOINT_ON_REQUEST SETPOINT_ON_REQUEST : 1;
     eSETPOINT_ON_DONE SETPOINT_ON_DONE : 1;
-    uint32_t _reserved_end : 4;
+    uint32_t _reserved_0 : 4;
   } bits;
   
   // Full 32-bit register value.
@@ -43583,7 +43583,7 @@ union LPCG106_CONFIG {
   struct {
     uint32_t _reserved_0 : 4;
     eSETPOINT_PRESENT SETPOINT_PRESENT : 1;
-    uint32_t _reserved_end : 27;
+    uint32_t _reserved_1 : 27;
   } bits;
   
   // Full 32-bit register value.
@@ -43642,18 +43642,18 @@ union LPCG106_AUTHEN {
   struct {
     eTZ_USER TZ_USER : 1;
     eTZ_NS TZ_NS : 1;
-    uint32_t _reserved_2 : 2;
+    uint32_t _reserved_0 : 2;
     eLOCK_TZ LOCK_TZ : 1;
-    uint32_t _reserved_3 : 3;
+    uint32_t _reserved_1 : 3;
     uint32_t WHITE_LIST : 4;
     eLOCK_LIST LOCK_LIST : 1;
-    uint32_t _reserved_5 : 3;
+    uint32_t _reserved_2 : 3;
     eDOMAIN_MODE DOMAIN_MODE : 1;
     eSETPOINT_MODE SETPOINT_MODE : 1;
     eCPULPM CPULPM : 1;
-    uint32_t _reserved_8 : 1;
+    uint32_t _reserved_3 : 1;
     eLOCK_MODE LOCK_MODE : 1;
-    uint32_t _reserved_end : 11;
+    uint32_t _reserved_4 : 11;
   } bits;
   
   // Full 32-bit register value.
@@ -43676,7 +43676,7 @@ union LPCG107_DIRECT {
   // Bit field definition.
   struct {
     eON ON : 1;
-    uint32_t _reserved_end : 31;
+    uint32_t _reserved_0 : 31;
   } bits;
   
   // Full 32-bit register value.
@@ -43734,15 +43734,15 @@ union LPCG107_DOMAIN {
   // Bit field definition.
   struct {
     eLEVEL LEVEL : 3;
-    uint32_t _reserved_1 : 13;
+    uint32_t _reserved_0 : 13;
     eLEVEL0 LEVEL0 : 3;
-    uint32_t _reserved_2 : 1;
+    uint32_t _reserved_1 : 1;
     eLEVEL1 LEVEL1 : 3;
-    uint32_t _reserved_3 : 1;
+    uint32_t _reserved_2 : 1;
     eLEVEL2 LEVEL2 : 3;
-    uint32_t _reserved_4 : 1;
+    uint32_t _reserved_3 : 1;
     eLEVEL3 LEVEL3 : 3;
-    uint32_t _reserved_end : 1;
+    uint32_t _reserved_4 : 1;
   } bits;
   
   // Full 32-bit register value.
@@ -43803,10 +43803,10 @@ union LPCG107_STATUS0 {
   // Bit field definition.
   struct {
     eON ON : 1;
-    uint32_t _reserved_1 : 7;
+    uint32_t _reserved_0 : 7;
     eACTIVE_DOMAIN ACTIVE_DOMAIN : 4;
     eDOMAIN_ENABLE DOMAIN_ENABLE : 4;
-    uint32_t _reserved_end : 16;
+    uint32_t _reserved_1 : 16;
   } bits;
   
   // Full 32-bit register value.
@@ -43929,7 +43929,7 @@ union LPCG107_STATUS1 {
     eSETPOINT_OFF_DONE SETPOINT_OFF_DONE : 1;
     eSETPOINT_ON_REQUEST SETPOINT_ON_REQUEST : 1;
     eSETPOINT_ON_DONE SETPOINT_ON_DONE : 1;
-    uint32_t _reserved_end : 4;
+    uint32_t _reserved_0 : 4;
   } bits;
   
   // Full 32-bit register value.
@@ -43953,7 +43953,7 @@ union LPCG107_CONFIG {
   struct {
     uint32_t _reserved_0 : 4;
     eSETPOINT_PRESENT SETPOINT_PRESENT : 1;
-    uint32_t _reserved_end : 27;
+    uint32_t _reserved_1 : 27;
   } bits;
   
   // Full 32-bit register value.
@@ -44012,18 +44012,18 @@ union LPCG107_AUTHEN {
   struct {
     eTZ_USER TZ_USER : 1;
     eTZ_NS TZ_NS : 1;
-    uint32_t _reserved_2 : 2;
+    uint32_t _reserved_0 : 2;
     eLOCK_TZ LOCK_TZ : 1;
-    uint32_t _reserved_3 : 3;
+    uint32_t _reserved_1 : 3;
     uint32_t WHITE_LIST : 4;
     eLOCK_LIST LOCK_LIST : 1;
-    uint32_t _reserved_5 : 3;
+    uint32_t _reserved_2 : 3;
     eDOMAIN_MODE DOMAIN_MODE : 1;
     eSETPOINT_MODE SETPOINT_MODE : 1;
     eCPULPM CPULPM : 1;
-    uint32_t _reserved_8 : 1;
+    uint32_t _reserved_3 : 1;
     eLOCK_MODE LOCK_MODE : 1;
-    uint32_t _reserved_end : 11;
+    uint32_t _reserved_4 : 11;
   } bits;
   
   // Full 32-bit register value.
@@ -44046,7 +44046,7 @@ union LPCG108_DIRECT {
   // Bit field definition.
   struct {
     eON ON : 1;
-    uint32_t _reserved_end : 31;
+    uint32_t _reserved_0 : 31;
   } bits;
   
   // Full 32-bit register value.
@@ -44104,15 +44104,15 @@ union LPCG108_DOMAIN {
   // Bit field definition.
   struct {
     eLEVEL LEVEL : 3;
-    uint32_t _reserved_1 : 13;
+    uint32_t _reserved_0 : 13;
     eLEVEL0 LEVEL0 : 3;
-    uint32_t _reserved_2 : 1;
+    uint32_t _reserved_1 : 1;
     eLEVEL1 LEVEL1 : 3;
-    uint32_t _reserved_3 : 1;
+    uint32_t _reserved_2 : 1;
     eLEVEL2 LEVEL2 : 3;
-    uint32_t _reserved_4 : 1;
+    uint32_t _reserved_3 : 1;
     eLEVEL3 LEVEL3 : 3;
-    uint32_t _reserved_end : 1;
+    uint32_t _reserved_4 : 1;
   } bits;
   
   // Full 32-bit register value.
@@ -44173,10 +44173,10 @@ union LPCG108_STATUS0 {
   // Bit field definition.
   struct {
     eON ON : 1;
-    uint32_t _reserved_1 : 7;
+    uint32_t _reserved_0 : 7;
     eACTIVE_DOMAIN ACTIVE_DOMAIN : 4;
     eDOMAIN_ENABLE DOMAIN_ENABLE : 4;
-    uint32_t _reserved_end : 16;
+    uint32_t _reserved_1 : 16;
   } bits;
   
   // Full 32-bit register value.
@@ -44299,7 +44299,7 @@ union LPCG108_STATUS1 {
     eSETPOINT_OFF_DONE SETPOINT_OFF_DONE : 1;
     eSETPOINT_ON_REQUEST SETPOINT_ON_REQUEST : 1;
     eSETPOINT_ON_DONE SETPOINT_ON_DONE : 1;
-    uint32_t _reserved_end : 4;
+    uint32_t _reserved_0 : 4;
   } bits;
   
   // Full 32-bit register value.
@@ -44323,7 +44323,7 @@ union LPCG108_CONFIG {
   struct {
     uint32_t _reserved_0 : 4;
     eSETPOINT_PRESENT SETPOINT_PRESENT : 1;
-    uint32_t _reserved_end : 27;
+    uint32_t _reserved_1 : 27;
   } bits;
   
   // Full 32-bit register value.
@@ -44382,18 +44382,18 @@ union LPCG108_AUTHEN {
   struct {
     eTZ_USER TZ_USER : 1;
     eTZ_NS TZ_NS : 1;
-    uint32_t _reserved_2 : 2;
+    uint32_t _reserved_0 : 2;
     eLOCK_TZ LOCK_TZ : 1;
-    uint32_t _reserved_3 : 3;
+    uint32_t _reserved_1 : 3;
     uint32_t WHITE_LIST : 4;
     eLOCK_LIST LOCK_LIST : 1;
-    uint32_t _reserved_5 : 3;
+    uint32_t _reserved_2 : 3;
     eDOMAIN_MODE DOMAIN_MODE : 1;
     eSETPOINT_MODE SETPOINT_MODE : 1;
     eCPULPM CPULPM : 1;
-    uint32_t _reserved_8 : 1;
+    uint32_t _reserved_3 : 1;
     eLOCK_MODE LOCK_MODE : 1;
-    uint32_t _reserved_end : 11;
+    uint32_t _reserved_4 : 11;
   } bits;
   
   // Full 32-bit register value.
@@ -44416,7 +44416,7 @@ union LPCG109_DIRECT {
   // Bit field definition.
   struct {
     eON ON : 1;
-    uint32_t _reserved_end : 31;
+    uint32_t _reserved_0 : 31;
   } bits;
   
   // Full 32-bit register value.
@@ -44474,15 +44474,15 @@ union LPCG109_DOMAIN {
   // Bit field definition.
   struct {
     eLEVEL LEVEL : 3;
-    uint32_t _reserved_1 : 13;
+    uint32_t _reserved_0 : 13;
     eLEVEL0 LEVEL0 : 3;
-    uint32_t _reserved_2 : 1;
+    uint32_t _reserved_1 : 1;
     eLEVEL1 LEVEL1 : 3;
-    uint32_t _reserved_3 : 1;
+    uint32_t _reserved_2 : 1;
     eLEVEL2 LEVEL2 : 3;
-    uint32_t _reserved_4 : 1;
+    uint32_t _reserved_3 : 1;
     eLEVEL3 LEVEL3 : 3;
-    uint32_t _reserved_end : 1;
+    uint32_t _reserved_4 : 1;
   } bits;
   
   // Full 32-bit register value.
@@ -44543,10 +44543,10 @@ union LPCG109_STATUS0 {
   // Bit field definition.
   struct {
     eON ON : 1;
-    uint32_t _reserved_1 : 7;
+    uint32_t _reserved_0 : 7;
     eACTIVE_DOMAIN ACTIVE_DOMAIN : 4;
     eDOMAIN_ENABLE DOMAIN_ENABLE : 4;
-    uint32_t _reserved_end : 16;
+    uint32_t _reserved_1 : 16;
   } bits;
   
   // Full 32-bit register value.
@@ -44669,7 +44669,7 @@ union LPCG109_STATUS1 {
     eSETPOINT_OFF_DONE SETPOINT_OFF_DONE : 1;
     eSETPOINT_ON_REQUEST SETPOINT_ON_REQUEST : 1;
     eSETPOINT_ON_DONE SETPOINT_ON_DONE : 1;
-    uint32_t _reserved_end : 4;
+    uint32_t _reserved_0 : 4;
   } bits;
   
   // Full 32-bit register value.
@@ -44693,7 +44693,7 @@ union LPCG109_CONFIG {
   struct {
     uint32_t _reserved_0 : 4;
     eSETPOINT_PRESENT SETPOINT_PRESENT : 1;
-    uint32_t _reserved_end : 27;
+    uint32_t _reserved_1 : 27;
   } bits;
   
   // Full 32-bit register value.
@@ -44752,18 +44752,18 @@ union LPCG109_AUTHEN {
   struct {
     eTZ_USER TZ_USER : 1;
     eTZ_NS TZ_NS : 1;
-    uint32_t _reserved_2 : 2;
+    uint32_t _reserved_0 : 2;
     eLOCK_TZ LOCK_TZ : 1;
-    uint32_t _reserved_3 : 3;
+    uint32_t _reserved_1 : 3;
     uint32_t WHITE_LIST : 4;
     eLOCK_LIST LOCK_LIST : 1;
-    uint32_t _reserved_5 : 3;
+    uint32_t _reserved_2 : 3;
     eDOMAIN_MODE DOMAIN_MODE : 1;
     eSETPOINT_MODE SETPOINT_MODE : 1;
     eCPULPM CPULPM : 1;
-    uint32_t _reserved_8 : 1;
+    uint32_t _reserved_3 : 1;
     eLOCK_MODE LOCK_MODE : 1;
-    uint32_t _reserved_end : 11;
+    uint32_t _reserved_4 : 11;
   } bits;
   
   // Full 32-bit register value.
@@ -44786,7 +44786,7 @@ union LPCG110_DIRECT {
   // Bit field definition.
   struct {
     eON ON : 1;
-    uint32_t _reserved_end : 31;
+    uint32_t _reserved_0 : 31;
   } bits;
   
   // Full 32-bit register value.
@@ -44844,15 +44844,15 @@ union LPCG110_DOMAIN {
   // Bit field definition.
   struct {
     eLEVEL LEVEL : 3;
-    uint32_t _reserved_1 : 13;
+    uint32_t _reserved_0 : 13;
     eLEVEL0 LEVEL0 : 3;
-    uint32_t _reserved_2 : 1;
+    uint32_t _reserved_1 : 1;
     eLEVEL1 LEVEL1 : 3;
-    uint32_t _reserved_3 : 1;
+    uint32_t _reserved_2 : 1;
     eLEVEL2 LEVEL2 : 3;
-    uint32_t _reserved_4 : 1;
+    uint32_t _reserved_3 : 1;
     eLEVEL3 LEVEL3 : 3;
-    uint32_t _reserved_end : 1;
+    uint32_t _reserved_4 : 1;
   } bits;
   
   // Full 32-bit register value.
@@ -44913,10 +44913,10 @@ union LPCG110_STATUS0 {
   // Bit field definition.
   struct {
     eON ON : 1;
-    uint32_t _reserved_1 : 7;
+    uint32_t _reserved_0 : 7;
     eACTIVE_DOMAIN ACTIVE_DOMAIN : 4;
     eDOMAIN_ENABLE DOMAIN_ENABLE : 4;
-    uint32_t _reserved_end : 16;
+    uint32_t _reserved_1 : 16;
   } bits;
   
   // Full 32-bit register value.
@@ -45039,7 +45039,7 @@ union LPCG110_STATUS1 {
     eSETPOINT_OFF_DONE SETPOINT_OFF_DONE : 1;
     eSETPOINT_ON_REQUEST SETPOINT_ON_REQUEST : 1;
     eSETPOINT_ON_DONE SETPOINT_ON_DONE : 1;
-    uint32_t _reserved_end : 4;
+    uint32_t _reserved_0 : 4;
   } bits;
   
   // Full 32-bit register value.
@@ -45063,7 +45063,7 @@ union LPCG110_CONFIG {
   struct {
     uint32_t _reserved_0 : 4;
     eSETPOINT_PRESENT SETPOINT_PRESENT : 1;
-    uint32_t _reserved_end : 27;
+    uint32_t _reserved_1 : 27;
   } bits;
   
   // Full 32-bit register value.
@@ -45122,18 +45122,18 @@ union LPCG110_AUTHEN {
   struct {
     eTZ_USER TZ_USER : 1;
     eTZ_NS TZ_NS : 1;
-    uint32_t _reserved_2 : 2;
+    uint32_t _reserved_0 : 2;
     eLOCK_TZ LOCK_TZ : 1;
-    uint32_t _reserved_3 : 3;
+    uint32_t _reserved_1 : 3;
     uint32_t WHITE_LIST : 4;
     eLOCK_LIST LOCK_LIST : 1;
-    uint32_t _reserved_5 : 3;
+    uint32_t _reserved_2 : 3;
     eDOMAIN_MODE DOMAIN_MODE : 1;
     eSETPOINT_MODE SETPOINT_MODE : 1;
     eCPULPM CPULPM : 1;
-    uint32_t _reserved_8 : 1;
+    uint32_t _reserved_3 : 1;
     eLOCK_MODE LOCK_MODE : 1;
-    uint32_t _reserved_end : 11;
+    uint32_t _reserved_4 : 11;
   } bits;
   
   // Full 32-bit register value.
@@ -45156,7 +45156,7 @@ union LPCG111_DIRECT {
   // Bit field definition.
   struct {
     eON ON : 1;
-    uint32_t _reserved_end : 31;
+    uint32_t _reserved_0 : 31;
   } bits;
   
   // Full 32-bit register value.
@@ -45214,15 +45214,15 @@ union LPCG111_DOMAIN {
   // Bit field definition.
   struct {
     eLEVEL LEVEL : 3;
-    uint32_t _reserved_1 : 13;
+    uint32_t _reserved_0 : 13;
     eLEVEL0 LEVEL0 : 3;
-    uint32_t _reserved_2 : 1;
+    uint32_t _reserved_1 : 1;
     eLEVEL1 LEVEL1 : 3;
-    uint32_t _reserved_3 : 1;
+    uint32_t _reserved_2 : 1;
     eLEVEL2 LEVEL2 : 3;
-    uint32_t _reserved_4 : 1;
+    uint32_t _reserved_3 : 1;
     eLEVEL3 LEVEL3 : 3;
-    uint32_t _reserved_end : 1;
+    uint32_t _reserved_4 : 1;
   } bits;
   
   // Full 32-bit register value.
@@ -45283,10 +45283,10 @@ union LPCG111_STATUS0 {
   // Bit field definition.
   struct {
     eON ON : 1;
-    uint32_t _reserved_1 : 7;
+    uint32_t _reserved_0 : 7;
     eACTIVE_DOMAIN ACTIVE_DOMAIN : 4;
     eDOMAIN_ENABLE DOMAIN_ENABLE : 4;
-    uint32_t _reserved_end : 16;
+    uint32_t _reserved_1 : 16;
   } bits;
   
   // Full 32-bit register value.
@@ -45409,7 +45409,7 @@ union LPCG111_STATUS1 {
     eSETPOINT_OFF_DONE SETPOINT_OFF_DONE : 1;
     eSETPOINT_ON_REQUEST SETPOINT_ON_REQUEST : 1;
     eSETPOINT_ON_DONE SETPOINT_ON_DONE : 1;
-    uint32_t _reserved_end : 4;
+    uint32_t _reserved_0 : 4;
   } bits;
   
   // Full 32-bit register value.
@@ -45433,7 +45433,7 @@ union LPCG111_CONFIG {
   struct {
     uint32_t _reserved_0 : 4;
     eSETPOINT_PRESENT SETPOINT_PRESENT : 1;
-    uint32_t _reserved_end : 27;
+    uint32_t _reserved_1 : 27;
   } bits;
   
   // Full 32-bit register value.
@@ -45492,18 +45492,18 @@ union LPCG111_AUTHEN {
   struct {
     eTZ_USER TZ_USER : 1;
     eTZ_NS TZ_NS : 1;
-    uint32_t _reserved_2 : 2;
+    uint32_t _reserved_0 : 2;
     eLOCK_TZ LOCK_TZ : 1;
-    uint32_t _reserved_3 : 3;
+    uint32_t _reserved_1 : 3;
     uint32_t WHITE_LIST : 4;
     eLOCK_LIST LOCK_LIST : 1;
-    uint32_t _reserved_5 : 3;
+    uint32_t _reserved_2 : 3;
     eDOMAIN_MODE DOMAIN_MODE : 1;
     eSETPOINT_MODE SETPOINT_MODE : 1;
     eCPULPM CPULPM : 1;
-    uint32_t _reserved_8 : 1;
+    uint32_t _reserved_3 : 1;
     eLOCK_MODE LOCK_MODE : 1;
-    uint32_t _reserved_end : 11;
+    uint32_t _reserved_4 : 11;
   } bits;
   
   // Full 32-bit register value.
@@ -45526,7 +45526,7 @@ union LPCG112_DIRECT {
   // Bit field definition.
   struct {
     eON ON : 1;
-    uint32_t _reserved_end : 31;
+    uint32_t _reserved_0 : 31;
   } bits;
   
   // Full 32-bit register value.
@@ -45584,15 +45584,15 @@ union LPCG112_DOMAIN {
   // Bit field definition.
   struct {
     eLEVEL LEVEL : 3;
-    uint32_t _reserved_1 : 13;
+    uint32_t _reserved_0 : 13;
     eLEVEL0 LEVEL0 : 3;
-    uint32_t _reserved_2 : 1;
+    uint32_t _reserved_1 : 1;
     eLEVEL1 LEVEL1 : 3;
-    uint32_t _reserved_3 : 1;
+    uint32_t _reserved_2 : 1;
     eLEVEL2 LEVEL2 : 3;
-    uint32_t _reserved_4 : 1;
+    uint32_t _reserved_3 : 1;
     eLEVEL3 LEVEL3 : 3;
-    uint32_t _reserved_end : 1;
+    uint32_t _reserved_4 : 1;
   } bits;
   
   // Full 32-bit register value.
@@ -45653,10 +45653,10 @@ union LPCG112_STATUS0 {
   // Bit field definition.
   struct {
     eON ON : 1;
-    uint32_t _reserved_1 : 7;
+    uint32_t _reserved_0 : 7;
     eACTIVE_DOMAIN ACTIVE_DOMAIN : 4;
     eDOMAIN_ENABLE DOMAIN_ENABLE : 4;
-    uint32_t _reserved_end : 16;
+    uint32_t _reserved_1 : 16;
   } bits;
   
   // Full 32-bit register value.
@@ -45779,7 +45779,7 @@ union LPCG112_STATUS1 {
     eSETPOINT_OFF_DONE SETPOINT_OFF_DONE : 1;
     eSETPOINT_ON_REQUEST SETPOINT_ON_REQUEST : 1;
     eSETPOINT_ON_DONE SETPOINT_ON_DONE : 1;
-    uint32_t _reserved_end : 4;
+    uint32_t _reserved_0 : 4;
   } bits;
   
   // Full 32-bit register value.
@@ -45803,7 +45803,7 @@ union LPCG112_CONFIG {
   struct {
     uint32_t _reserved_0 : 4;
     eSETPOINT_PRESENT SETPOINT_PRESENT : 1;
-    uint32_t _reserved_end : 27;
+    uint32_t _reserved_1 : 27;
   } bits;
   
   // Full 32-bit register value.
@@ -45862,18 +45862,18 @@ union LPCG112_AUTHEN {
   struct {
     eTZ_USER TZ_USER : 1;
     eTZ_NS TZ_NS : 1;
-    uint32_t _reserved_2 : 2;
+    uint32_t _reserved_0 : 2;
     eLOCK_TZ LOCK_TZ : 1;
-    uint32_t _reserved_3 : 3;
+    uint32_t _reserved_1 : 3;
     uint32_t WHITE_LIST : 4;
     eLOCK_LIST LOCK_LIST : 1;
-    uint32_t _reserved_5 : 3;
+    uint32_t _reserved_2 : 3;
     eDOMAIN_MODE DOMAIN_MODE : 1;
     eSETPOINT_MODE SETPOINT_MODE : 1;
     eCPULPM CPULPM : 1;
-    uint32_t _reserved_8 : 1;
+    uint32_t _reserved_3 : 1;
     eLOCK_MODE LOCK_MODE : 1;
-    uint32_t _reserved_end : 11;
+    uint32_t _reserved_4 : 11;
   } bits;
   
   // Full 32-bit register value.
@@ -45896,7 +45896,7 @@ union LPCG113_DIRECT {
   // Bit field definition.
   struct {
     eON ON : 1;
-    uint32_t _reserved_end : 31;
+    uint32_t _reserved_0 : 31;
   } bits;
   
   // Full 32-bit register value.
@@ -45954,15 +45954,15 @@ union LPCG113_DOMAIN {
   // Bit field definition.
   struct {
     eLEVEL LEVEL : 3;
-    uint32_t _reserved_1 : 13;
+    uint32_t _reserved_0 : 13;
     eLEVEL0 LEVEL0 : 3;
-    uint32_t _reserved_2 : 1;
+    uint32_t _reserved_1 : 1;
     eLEVEL1 LEVEL1 : 3;
-    uint32_t _reserved_3 : 1;
+    uint32_t _reserved_2 : 1;
     eLEVEL2 LEVEL2 : 3;
-    uint32_t _reserved_4 : 1;
+    uint32_t _reserved_3 : 1;
     eLEVEL3 LEVEL3 : 3;
-    uint32_t _reserved_end : 1;
+    uint32_t _reserved_4 : 1;
   } bits;
   
   // Full 32-bit register value.
@@ -46023,10 +46023,10 @@ union LPCG113_STATUS0 {
   // Bit field definition.
   struct {
     eON ON : 1;
-    uint32_t _reserved_1 : 7;
+    uint32_t _reserved_0 : 7;
     eACTIVE_DOMAIN ACTIVE_DOMAIN : 4;
     eDOMAIN_ENABLE DOMAIN_ENABLE : 4;
-    uint32_t _reserved_end : 16;
+    uint32_t _reserved_1 : 16;
   } bits;
   
   // Full 32-bit register value.
@@ -46149,7 +46149,7 @@ union LPCG113_STATUS1 {
     eSETPOINT_OFF_DONE SETPOINT_OFF_DONE : 1;
     eSETPOINT_ON_REQUEST SETPOINT_ON_REQUEST : 1;
     eSETPOINT_ON_DONE SETPOINT_ON_DONE : 1;
-    uint32_t _reserved_end : 4;
+    uint32_t _reserved_0 : 4;
   } bits;
   
   // Full 32-bit register value.
@@ -46173,7 +46173,7 @@ union LPCG113_CONFIG {
   struct {
     uint32_t _reserved_0 : 4;
     eSETPOINT_PRESENT SETPOINT_PRESENT : 1;
-    uint32_t _reserved_end : 27;
+    uint32_t _reserved_1 : 27;
   } bits;
   
   // Full 32-bit register value.
@@ -46232,18 +46232,18 @@ union LPCG113_AUTHEN {
   struct {
     eTZ_USER TZ_USER : 1;
     eTZ_NS TZ_NS : 1;
-    uint32_t _reserved_2 : 2;
+    uint32_t _reserved_0 : 2;
     eLOCK_TZ LOCK_TZ : 1;
-    uint32_t _reserved_3 : 3;
+    uint32_t _reserved_1 : 3;
     uint32_t WHITE_LIST : 4;
     eLOCK_LIST LOCK_LIST : 1;
-    uint32_t _reserved_5 : 3;
+    uint32_t _reserved_2 : 3;
     eDOMAIN_MODE DOMAIN_MODE : 1;
     eSETPOINT_MODE SETPOINT_MODE : 1;
     eCPULPM CPULPM : 1;
-    uint32_t _reserved_8 : 1;
+    uint32_t _reserved_3 : 1;
     eLOCK_MODE LOCK_MODE : 1;
-    uint32_t _reserved_end : 11;
+    uint32_t _reserved_4 : 11;
   } bits;
   
   // Full 32-bit register value.
@@ -46266,7 +46266,7 @@ union LPCG114_DIRECT {
   // Bit field definition.
   struct {
     eON ON : 1;
-    uint32_t _reserved_end : 31;
+    uint32_t _reserved_0 : 31;
   } bits;
   
   // Full 32-bit register value.
@@ -46324,15 +46324,15 @@ union LPCG114_DOMAIN {
   // Bit field definition.
   struct {
     eLEVEL LEVEL : 3;
-    uint32_t _reserved_1 : 13;
+    uint32_t _reserved_0 : 13;
     eLEVEL0 LEVEL0 : 3;
-    uint32_t _reserved_2 : 1;
+    uint32_t _reserved_1 : 1;
     eLEVEL1 LEVEL1 : 3;
-    uint32_t _reserved_3 : 1;
+    uint32_t _reserved_2 : 1;
     eLEVEL2 LEVEL2 : 3;
-    uint32_t _reserved_4 : 1;
+    uint32_t _reserved_3 : 1;
     eLEVEL3 LEVEL3 : 3;
-    uint32_t _reserved_end : 1;
+    uint32_t _reserved_4 : 1;
   } bits;
   
   // Full 32-bit register value.
@@ -46393,10 +46393,10 @@ union LPCG114_STATUS0 {
   // Bit field definition.
   struct {
     eON ON : 1;
-    uint32_t _reserved_1 : 7;
+    uint32_t _reserved_0 : 7;
     eACTIVE_DOMAIN ACTIVE_DOMAIN : 4;
     eDOMAIN_ENABLE DOMAIN_ENABLE : 4;
-    uint32_t _reserved_end : 16;
+    uint32_t _reserved_1 : 16;
   } bits;
   
   // Full 32-bit register value.
@@ -46519,7 +46519,7 @@ union LPCG114_STATUS1 {
     eSETPOINT_OFF_DONE SETPOINT_OFF_DONE : 1;
     eSETPOINT_ON_REQUEST SETPOINT_ON_REQUEST : 1;
     eSETPOINT_ON_DONE SETPOINT_ON_DONE : 1;
-    uint32_t _reserved_end : 4;
+    uint32_t _reserved_0 : 4;
   } bits;
   
   // Full 32-bit register value.
@@ -46543,7 +46543,7 @@ union LPCG114_CONFIG {
   struct {
     uint32_t _reserved_0 : 4;
     eSETPOINT_PRESENT SETPOINT_PRESENT : 1;
-    uint32_t _reserved_end : 27;
+    uint32_t _reserved_1 : 27;
   } bits;
   
   // Full 32-bit register value.
@@ -46602,18 +46602,18 @@ union LPCG114_AUTHEN {
   struct {
     eTZ_USER TZ_USER : 1;
     eTZ_NS TZ_NS : 1;
-    uint32_t _reserved_2 : 2;
+    uint32_t _reserved_0 : 2;
     eLOCK_TZ LOCK_TZ : 1;
-    uint32_t _reserved_3 : 3;
+    uint32_t _reserved_1 : 3;
     uint32_t WHITE_LIST : 4;
     eLOCK_LIST LOCK_LIST : 1;
-    uint32_t _reserved_5 : 3;
+    uint32_t _reserved_2 : 3;
     eDOMAIN_MODE DOMAIN_MODE : 1;
     eSETPOINT_MODE SETPOINT_MODE : 1;
     eCPULPM CPULPM : 1;
-    uint32_t _reserved_8 : 1;
+    uint32_t _reserved_3 : 1;
     eLOCK_MODE LOCK_MODE : 1;
-    uint32_t _reserved_end : 11;
+    uint32_t _reserved_4 : 11;
   } bits;
   
   // Full 32-bit register value.
@@ -46636,7 +46636,7 @@ union LPCG115_DIRECT {
   // Bit field definition.
   struct {
     eON ON : 1;
-    uint32_t _reserved_end : 31;
+    uint32_t _reserved_0 : 31;
   } bits;
   
   // Full 32-bit register value.
@@ -46694,15 +46694,15 @@ union LPCG115_DOMAIN {
   // Bit field definition.
   struct {
     eLEVEL LEVEL : 3;
-    uint32_t _reserved_1 : 13;
+    uint32_t _reserved_0 : 13;
     eLEVEL0 LEVEL0 : 3;
-    uint32_t _reserved_2 : 1;
+    uint32_t _reserved_1 : 1;
     eLEVEL1 LEVEL1 : 3;
-    uint32_t _reserved_3 : 1;
+    uint32_t _reserved_2 : 1;
     eLEVEL2 LEVEL2 : 3;
-    uint32_t _reserved_4 : 1;
+    uint32_t _reserved_3 : 1;
     eLEVEL3 LEVEL3 : 3;
-    uint32_t _reserved_end : 1;
+    uint32_t _reserved_4 : 1;
   } bits;
   
   // Full 32-bit register value.
@@ -46763,10 +46763,10 @@ union LPCG115_STATUS0 {
   // Bit field definition.
   struct {
     eON ON : 1;
-    uint32_t _reserved_1 : 7;
+    uint32_t _reserved_0 : 7;
     eACTIVE_DOMAIN ACTIVE_DOMAIN : 4;
     eDOMAIN_ENABLE DOMAIN_ENABLE : 4;
-    uint32_t _reserved_end : 16;
+    uint32_t _reserved_1 : 16;
   } bits;
   
   // Full 32-bit register value.
@@ -46889,7 +46889,7 @@ union LPCG115_STATUS1 {
     eSETPOINT_OFF_DONE SETPOINT_OFF_DONE : 1;
     eSETPOINT_ON_REQUEST SETPOINT_ON_REQUEST : 1;
     eSETPOINT_ON_DONE SETPOINT_ON_DONE : 1;
-    uint32_t _reserved_end : 4;
+    uint32_t _reserved_0 : 4;
   } bits;
   
   // Full 32-bit register value.
@@ -46913,7 +46913,7 @@ union LPCG115_CONFIG {
   struct {
     uint32_t _reserved_0 : 4;
     eSETPOINT_PRESENT SETPOINT_PRESENT : 1;
-    uint32_t _reserved_end : 27;
+    uint32_t _reserved_1 : 27;
   } bits;
   
   // Full 32-bit register value.
@@ -46972,18 +46972,18 @@ union LPCG115_AUTHEN {
   struct {
     eTZ_USER TZ_USER : 1;
     eTZ_NS TZ_NS : 1;
-    uint32_t _reserved_2 : 2;
+    uint32_t _reserved_0 : 2;
     eLOCK_TZ LOCK_TZ : 1;
-    uint32_t _reserved_3 : 3;
+    uint32_t _reserved_1 : 3;
     uint32_t WHITE_LIST : 4;
     eLOCK_LIST LOCK_LIST : 1;
-    uint32_t _reserved_5 : 3;
+    uint32_t _reserved_2 : 3;
     eDOMAIN_MODE DOMAIN_MODE : 1;
     eSETPOINT_MODE SETPOINT_MODE : 1;
     eCPULPM CPULPM : 1;
-    uint32_t _reserved_8 : 1;
+    uint32_t _reserved_3 : 1;
     eLOCK_MODE LOCK_MODE : 1;
-    uint32_t _reserved_end : 11;
+    uint32_t _reserved_4 : 11;
   } bits;
   
   // Full 32-bit register value.
@@ -47006,7 +47006,7 @@ union LPCG116_DIRECT {
   // Bit field definition.
   struct {
     eON ON : 1;
-    uint32_t _reserved_end : 31;
+    uint32_t _reserved_0 : 31;
   } bits;
   
   // Full 32-bit register value.
@@ -47064,15 +47064,15 @@ union LPCG116_DOMAIN {
   // Bit field definition.
   struct {
     eLEVEL LEVEL : 3;
-    uint32_t _reserved_1 : 13;
+    uint32_t _reserved_0 : 13;
     eLEVEL0 LEVEL0 : 3;
-    uint32_t _reserved_2 : 1;
+    uint32_t _reserved_1 : 1;
     eLEVEL1 LEVEL1 : 3;
-    uint32_t _reserved_3 : 1;
+    uint32_t _reserved_2 : 1;
     eLEVEL2 LEVEL2 : 3;
-    uint32_t _reserved_4 : 1;
+    uint32_t _reserved_3 : 1;
     eLEVEL3 LEVEL3 : 3;
-    uint32_t _reserved_end : 1;
+    uint32_t _reserved_4 : 1;
   } bits;
   
   // Full 32-bit register value.
@@ -47133,10 +47133,10 @@ union LPCG116_STATUS0 {
   // Bit field definition.
   struct {
     eON ON : 1;
-    uint32_t _reserved_1 : 7;
+    uint32_t _reserved_0 : 7;
     eACTIVE_DOMAIN ACTIVE_DOMAIN : 4;
     eDOMAIN_ENABLE DOMAIN_ENABLE : 4;
-    uint32_t _reserved_end : 16;
+    uint32_t _reserved_1 : 16;
   } bits;
   
   // Full 32-bit register value.
@@ -47259,7 +47259,7 @@ union LPCG116_STATUS1 {
     eSETPOINT_OFF_DONE SETPOINT_OFF_DONE : 1;
     eSETPOINT_ON_REQUEST SETPOINT_ON_REQUEST : 1;
     eSETPOINT_ON_DONE SETPOINT_ON_DONE : 1;
-    uint32_t _reserved_end : 4;
+    uint32_t _reserved_0 : 4;
   } bits;
   
   // Full 32-bit register value.
@@ -47283,7 +47283,7 @@ union LPCG116_CONFIG {
   struct {
     uint32_t _reserved_0 : 4;
     eSETPOINT_PRESENT SETPOINT_PRESENT : 1;
-    uint32_t _reserved_end : 27;
+    uint32_t _reserved_1 : 27;
   } bits;
   
   // Full 32-bit register value.
@@ -47342,18 +47342,18 @@ union LPCG116_AUTHEN {
   struct {
     eTZ_USER TZ_USER : 1;
     eTZ_NS TZ_NS : 1;
-    uint32_t _reserved_2 : 2;
+    uint32_t _reserved_0 : 2;
     eLOCK_TZ LOCK_TZ : 1;
-    uint32_t _reserved_3 : 3;
+    uint32_t _reserved_1 : 3;
     uint32_t WHITE_LIST : 4;
     eLOCK_LIST LOCK_LIST : 1;
-    uint32_t _reserved_5 : 3;
+    uint32_t _reserved_2 : 3;
     eDOMAIN_MODE DOMAIN_MODE : 1;
     eSETPOINT_MODE SETPOINT_MODE : 1;
     eCPULPM CPULPM : 1;
-    uint32_t _reserved_8 : 1;
+    uint32_t _reserved_3 : 1;
     eLOCK_MODE LOCK_MODE : 1;
-    uint32_t _reserved_end : 11;
+    uint32_t _reserved_4 : 11;
   } bits;
   
   // Full 32-bit register value.
@@ -47376,7 +47376,7 @@ union LPCG117_DIRECT {
   // Bit field definition.
   struct {
     eON ON : 1;
-    uint32_t _reserved_end : 31;
+    uint32_t _reserved_0 : 31;
   } bits;
   
   // Full 32-bit register value.
@@ -47434,15 +47434,15 @@ union LPCG117_DOMAIN {
   // Bit field definition.
   struct {
     eLEVEL LEVEL : 3;
-    uint32_t _reserved_1 : 13;
+    uint32_t _reserved_0 : 13;
     eLEVEL0 LEVEL0 : 3;
-    uint32_t _reserved_2 : 1;
+    uint32_t _reserved_1 : 1;
     eLEVEL1 LEVEL1 : 3;
-    uint32_t _reserved_3 : 1;
+    uint32_t _reserved_2 : 1;
     eLEVEL2 LEVEL2 : 3;
-    uint32_t _reserved_4 : 1;
+    uint32_t _reserved_3 : 1;
     eLEVEL3 LEVEL3 : 3;
-    uint32_t _reserved_end : 1;
+    uint32_t _reserved_4 : 1;
   } bits;
   
   // Full 32-bit register value.
@@ -47503,10 +47503,10 @@ union LPCG117_STATUS0 {
   // Bit field definition.
   struct {
     eON ON : 1;
-    uint32_t _reserved_1 : 7;
+    uint32_t _reserved_0 : 7;
     eACTIVE_DOMAIN ACTIVE_DOMAIN : 4;
     eDOMAIN_ENABLE DOMAIN_ENABLE : 4;
-    uint32_t _reserved_end : 16;
+    uint32_t _reserved_1 : 16;
   } bits;
   
   // Full 32-bit register value.
@@ -47629,7 +47629,7 @@ union LPCG117_STATUS1 {
     eSETPOINT_OFF_DONE SETPOINT_OFF_DONE : 1;
     eSETPOINT_ON_REQUEST SETPOINT_ON_REQUEST : 1;
     eSETPOINT_ON_DONE SETPOINT_ON_DONE : 1;
-    uint32_t _reserved_end : 4;
+    uint32_t _reserved_0 : 4;
   } bits;
   
   // Full 32-bit register value.
@@ -47653,7 +47653,7 @@ union LPCG117_CONFIG {
   struct {
     uint32_t _reserved_0 : 4;
     eSETPOINT_PRESENT SETPOINT_PRESENT : 1;
-    uint32_t _reserved_end : 27;
+    uint32_t _reserved_1 : 27;
   } bits;
   
   // Full 32-bit register value.
@@ -47712,18 +47712,18 @@ union LPCG117_AUTHEN {
   struct {
     eTZ_USER TZ_USER : 1;
     eTZ_NS TZ_NS : 1;
-    uint32_t _reserved_2 : 2;
+    uint32_t _reserved_0 : 2;
     eLOCK_TZ LOCK_TZ : 1;
-    uint32_t _reserved_3 : 3;
+    uint32_t _reserved_1 : 3;
     uint32_t WHITE_LIST : 4;
     eLOCK_LIST LOCK_LIST : 1;
-    uint32_t _reserved_5 : 3;
+    uint32_t _reserved_2 : 3;
     eDOMAIN_MODE DOMAIN_MODE : 1;
     eSETPOINT_MODE SETPOINT_MODE : 1;
     eCPULPM CPULPM : 1;
-    uint32_t _reserved_8 : 1;
+    uint32_t _reserved_3 : 1;
     eLOCK_MODE LOCK_MODE : 1;
-    uint32_t _reserved_end : 11;
+    uint32_t _reserved_4 : 11;
   } bits;
   
   // Full 32-bit register value.
@@ -47746,7 +47746,7 @@ union LPCG118_DIRECT {
   // Bit field definition.
   struct {
     eON ON : 1;
-    uint32_t _reserved_end : 31;
+    uint32_t _reserved_0 : 31;
   } bits;
   
   // Full 32-bit register value.
@@ -47804,15 +47804,15 @@ union LPCG118_DOMAIN {
   // Bit field definition.
   struct {
     eLEVEL LEVEL : 3;
-    uint32_t _reserved_1 : 13;
+    uint32_t _reserved_0 : 13;
     eLEVEL0 LEVEL0 : 3;
-    uint32_t _reserved_2 : 1;
+    uint32_t _reserved_1 : 1;
     eLEVEL1 LEVEL1 : 3;
-    uint32_t _reserved_3 : 1;
+    uint32_t _reserved_2 : 1;
     eLEVEL2 LEVEL2 : 3;
-    uint32_t _reserved_4 : 1;
+    uint32_t _reserved_3 : 1;
     eLEVEL3 LEVEL3 : 3;
-    uint32_t _reserved_end : 1;
+    uint32_t _reserved_4 : 1;
   } bits;
   
   // Full 32-bit register value.
@@ -47873,10 +47873,10 @@ union LPCG118_STATUS0 {
   // Bit field definition.
   struct {
     eON ON : 1;
-    uint32_t _reserved_1 : 7;
+    uint32_t _reserved_0 : 7;
     eACTIVE_DOMAIN ACTIVE_DOMAIN : 4;
     eDOMAIN_ENABLE DOMAIN_ENABLE : 4;
-    uint32_t _reserved_end : 16;
+    uint32_t _reserved_1 : 16;
   } bits;
   
   // Full 32-bit register value.
@@ -47999,7 +47999,7 @@ union LPCG118_STATUS1 {
     eSETPOINT_OFF_DONE SETPOINT_OFF_DONE : 1;
     eSETPOINT_ON_REQUEST SETPOINT_ON_REQUEST : 1;
     eSETPOINT_ON_DONE SETPOINT_ON_DONE : 1;
-    uint32_t _reserved_end : 4;
+    uint32_t _reserved_0 : 4;
   } bits;
   
   // Full 32-bit register value.
@@ -48023,7 +48023,7 @@ union LPCG118_CONFIG {
   struct {
     uint32_t _reserved_0 : 4;
     eSETPOINT_PRESENT SETPOINT_PRESENT : 1;
-    uint32_t _reserved_end : 27;
+    uint32_t _reserved_1 : 27;
   } bits;
   
   // Full 32-bit register value.
@@ -48082,18 +48082,18 @@ union LPCG118_AUTHEN {
   struct {
     eTZ_USER TZ_USER : 1;
     eTZ_NS TZ_NS : 1;
-    uint32_t _reserved_2 : 2;
+    uint32_t _reserved_0 : 2;
     eLOCK_TZ LOCK_TZ : 1;
-    uint32_t _reserved_3 : 3;
+    uint32_t _reserved_1 : 3;
     uint32_t WHITE_LIST : 4;
     eLOCK_LIST LOCK_LIST : 1;
-    uint32_t _reserved_5 : 3;
+    uint32_t _reserved_2 : 3;
     eDOMAIN_MODE DOMAIN_MODE : 1;
     eSETPOINT_MODE SETPOINT_MODE : 1;
     eCPULPM CPULPM : 1;
-    uint32_t _reserved_8 : 1;
+    uint32_t _reserved_3 : 1;
     eLOCK_MODE LOCK_MODE : 1;
-    uint32_t _reserved_end : 11;
+    uint32_t _reserved_4 : 11;
   } bits;
   
   // Full 32-bit register value.
@@ -48116,7 +48116,7 @@ union LPCG119_DIRECT {
   // Bit field definition.
   struct {
     eON ON : 1;
-    uint32_t _reserved_end : 31;
+    uint32_t _reserved_0 : 31;
   } bits;
   
   // Full 32-bit register value.
@@ -48174,15 +48174,15 @@ union LPCG119_DOMAIN {
   // Bit field definition.
   struct {
     eLEVEL LEVEL : 3;
-    uint32_t _reserved_1 : 13;
+    uint32_t _reserved_0 : 13;
     eLEVEL0 LEVEL0 : 3;
-    uint32_t _reserved_2 : 1;
+    uint32_t _reserved_1 : 1;
     eLEVEL1 LEVEL1 : 3;
-    uint32_t _reserved_3 : 1;
+    uint32_t _reserved_2 : 1;
     eLEVEL2 LEVEL2 : 3;
-    uint32_t _reserved_4 : 1;
+    uint32_t _reserved_3 : 1;
     eLEVEL3 LEVEL3 : 3;
-    uint32_t _reserved_end : 1;
+    uint32_t _reserved_4 : 1;
   } bits;
   
   // Full 32-bit register value.
@@ -48243,10 +48243,10 @@ union LPCG119_STATUS0 {
   // Bit field definition.
   struct {
     eON ON : 1;
-    uint32_t _reserved_1 : 7;
+    uint32_t _reserved_0 : 7;
     eACTIVE_DOMAIN ACTIVE_DOMAIN : 4;
     eDOMAIN_ENABLE DOMAIN_ENABLE : 4;
-    uint32_t _reserved_end : 16;
+    uint32_t _reserved_1 : 16;
   } bits;
   
   // Full 32-bit register value.
@@ -48369,7 +48369,7 @@ union LPCG119_STATUS1 {
     eSETPOINT_OFF_DONE SETPOINT_OFF_DONE : 1;
     eSETPOINT_ON_REQUEST SETPOINT_ON_REQUEST : 1;
     eSETPOINT_ON_DONE SETPOINT_ON_DONE : 1;
-    uint32_t _reserved_end : 4;
+    uint32_t _reserved_0 : 4;
   } bits;
   
   // Full 32-bit register value.
@@ -48393,7 +48393,7 @@ union LPCG119_CONFIG {
   struct {
     uint32_t _reserved_0 : 4;
     eSETPOINT_PRESENT SETPOINT_PRESENT : 1;
-    uint32_t _reserved_end : 27;
+    uint32_t _reserved_1 : 27;
   } bits;
   
   // Full 32-bit register value.
@@ -48452,18 +48452,18 @@ union LPCG119_AUTHEN {
   struct {
     eTZ_USER TZ_USER : 1;
     eTZ_NS TZ_NS : 1;
-    uint32_t _reserved_2 : 2;
+    uint32_t _reserved_0 : 2;
     eLOCK_TZ LOCK_TZ : 1;
-    uint32_t _reserved_3 : 3;
+    uint32_t _reserved_1 : 3;
     uint32_t WHITE_LIST : 4;
     eLOCK_LIST LOCK_LIST : 1;
-    uint32_t _reserved_5 : 3;
+    uint32_t _reserved_2 : 3;
     eDOMAIN_MODE DOMAIN_MODE : 1;
     eSETPOINT_MODE SETPOINT_MODE : 1;
     eCPULPM CPULPM : 1;
-    uint32_t _reserved_8 : 1;
+    uint32_t _reserved_3 : 1;
     eLOCK_MODE LOCK_MODE : 1;
-    uint32_t _reserved_end : 11;
+    uint32_t _reserved_4 : 11;
   } bits;
   
   // Full 32-bit register value.
@@ -48486,7 +48486,7 @@ union LPCG120_DIRECT {
   // Bit field definition.
   struct {
     eON ON : 1;
-    uint32_t _reserved_end : 31;
+    uint32_t _reserved_0 : 31;
   } bits;
   
   // Full 32-bit register value.
@@ -48544,15 +48544,15 @@ union LPCG120_DOMAIN {
   // Bit field definition.
   struct {
     eLEVEL LEVEL : 3;
-    uint32_t _reserved_1 : 13;
+    uint32_t _reserved_0 : 13;
     eLEVEL0 LEVEL0 : 3;
-    uint32_t _reserved_2 : 1;
+    uint32_t _reserved_1 : 1;
     eLEVEL1 LEVEL1 : 3;
-    uint32_t _reserved_3 : 1;
+    uint32_t _reserved_2 : 1;
     eLEVEL2 LEVEL2 : 3;
-    uint32_t _reserved_4 : 1;
+    uint32_t _reserved_3 : 1;
     eLEVEL3 LEVEL3 : 3;
-    uint32_t _reserved_end : 1;
+    uint32_t _reserved_4 : 1;
   } bits;
   
   // Full 32-bit register value.
@@ -48613,10 +48613,10 @@ union LPCG120_STATUS0 {
   // Bit field definition.
   struct {
     eON ON : 1;
-    uint32_t _reserved_1 : 7;
+    uint32_t _reserved_0 : 7;
     eACTIVE_DOMAIN ACTIVE_DOMAIN : 4;
     eDOMAIN_ENABLE DOMAIN_ENABLE : 4;
-    uint32_t _reserved_end : 16;
+    uint32_t _reserved_1 : 16;
   } bits;
   
   // Full 32-bit register value.
@@ -48739,7 +48739,7 @@ union LPCG120_STATUS1 {
     eSETPOINT_OFF_DONE SETPOINT_OFF_DONE : 1;
     eSETPOINT_ON_REQUEST SETPOINT_ON_REQUEST : 1;
     eSETPOINT_ON_DONE SETPOINT_ON_DONE : 1;
-    uint32_t _reserved_end : 4;
+    uint32_t _reserved_0 : 4;
   } bits;
   
   // Full 32-bit register value.
@@ -48763,7 +48763,7 @@ union LPCG120_CONFIG {
   struct {
     uint32_t _reserved_0 : 4;
     eSETPOINT_PRESENT SETPOINT_PRESENT : 1;
-    uint32_t _reserved_end : 27;
+    uint32_t _reserved_1 : 27;
   } bits;
   
   // Full 32-bit register value.
@@ -48822,18 +48822,18 @@ union LPCG120_AUTHEN {
   struct {
     eTZ_USER TZ_USER : 1;
     eTZ_NS TZ_NS : 1;
-    uint32_t _reserved_2 : 2;
+    uint32_t _reserved_0 : 2;
     eLOCK_TZ LOCK_TZ : 1;
-    uint32_t _reserved_3 : 3;
+    uint32_t _reserved_1 : 3;
     uint32_t WHITE_LIST : 4;
     eLOCK_LIST LOCK_LIST : 1;
-    uint32_t _reserved_5 : 3;
+    uint32_t _reserved_2 : 3;
     eDOMAIN_MODE DOMAIN_MODE : 1;
     eSETPOINT_MODE SETPOINT_MODE : 1;
     eCPULPM CPULPM : 1;
-    uint32_t _reserved_8 : 1;
+    uint32_t _reserved_3 : 1;
     eLOCK_MODE LOCK_MODE : 1;
-    uint32_t _reserved_end : 11;
+    uint32_t _reserved_4 : 11;
   } bits;
   
   // Full 32-bit register value.
@@ -48856,7 +48856,7 @@ union LPCG121_DIRECT {
   // Bit field definition.
   struct {
     eON ON : 1;
-    uint32_t _reserved_end : 31;
+    uint32_t _reserved_0 : 31;
   } bits;
   
   // Full 32-bit register value.
@@ -48914,15 +48914,15 @@ union LPCG121_DOMAIN {
   // Bit field definition.
   struct {
     eLEVEL LEVEL : 3;
-    uint32_t _reserved_1 : 13;
+    uint32_t _reserved_0 : 13;
     eLEVEL0 LEVEL0 : 3;
-    uint32_t _reserved_2 : 1;
+    uint32_t _reserved_1 : 1;
     eLEVEL1 LEVEL1 : 3;
-    uint32_t _reserved_3 : 1;
+    uint32_t _reserved_2 : 1;
     eLEVEL2 LEVEL2 : 3;
-    uint32_t _reserved_4 : 1;
+    uint32_t _reserved_3 : 1;
     eLEVEL3 LEVEL3 : 3;
-    uint32_t _reserved_end : 1;
+    uint32_t _reserved_4 : 1;
   } bits;
   
   // Full 32-bit register value.
@@ -48983,10 +48983,10 @@ union LPCG121_STATUS0 {
   // Bit field definition.
   struct {
     eON ON : 1;
-    uint32_t _reserved_1 : 7;
+    uint32_t _reserved_0 : 7;
     eACTIVE_DOMAIN ACTIVE_DOMAIN : 4;
     eDOMAIN_ENABLE DOMAIN_ENABLE : 4;
-    uint32_t _reserved_end : 16;
+    uint32_t _reserved_1 : 16;
   } bits;
   
   // Full 32-bit register value.
@@ -49109,7 +49109,7 @@ union LPCG121_STATUS1 {
     eSETPOINT_OFF_DONE SETPOINT_OFF_DONE : 1;
     eSETPOINT_ON_REQUEST SETPOINT_ON_REQUEST : 1;
     eSETPOINT_ON_DONE SETPOINT_ON_DONE : 1;
-    uint32_t _reserved_end : 4;
+    uint32_t _reserved_0 : 4;
   } bits;
   
   // Full 32-bit register value.
@@ -49133,7 +49133,7 @@ union LPCG121_CONFIG {
   struct {
     uint32_t _reserved_0 : 4;
     eSETPOINT_PRESENT SETPOINT_PRESENT : 1;
-    uint32_t _reserved_end : 27;
+    uint32_t _reserved_1 : 27;
   } bits;
   
   // Full 32-bit register value.
@@ -49192,18 +49192,18 @@ union LPCG121_AUTHEN {
   struct {
     eTZ_USER TZ_USER : 1;
     eTZ_NS TZ_NS : 1;
-    uint32_t _reserved_2 : 2;
+    uint32_t _reserved_0 : 2;
     eLOCK_TZ LOCK_TZ : 1;
-    uint32_t _reserved_3 : 3;
+    uint32_t _reserved_1 : 3;
     uint32_t WHITE_LIST : 4;
     eLOCK_LIST LOCK_LIST : 1;
-    uint32_t _reserved_5 : 3;
+    uint32_t _reserved_2 : 3;
     eDOMAIN_MODE DOMAIN_MODE : 1;
     eSETPOINT_MODE SETPOINT_MODE : 1;
     eCPULPM CPULPM : 1;
-    uint32_t _reserved_8 : 1;
+    uint32_t _reserved_3 : 1;
     eLOCK_MODE LOCK_MODE : 1;
-    uint32_t _reserved_end : 11;
+    uint32_t _reserved_4 : 11;
   } bits;
   
   // Full 32-bit register value.
@@ -49226,7 +49226,7 @@ union LPCG122_DIRECT {
   // Bit field definition.
   struct {
     eON ON : 1;
-    uint32_t _reserved_end : 31;
+    uint32_t _reserved_0 : 31;
   } bits;
   
   // Full 32-bit register value.
@@ -49284,15 +49284,15 @@ union LPCG122_DOMAIN {
   // Bit field definition.
   struct {
     eLEVEL LEVEL : 3;
-    uint32_t _reserved_1 : 13;
+    uint32_t _reserved_0 : 13;
     eLEVEL0 LEVEL0 : 3;
-    uint32_t _reserved_2 : 1;
+    uint32_t _reserved_1 : 1;
     eLEVEL1 LEVEL1 : 3;
-    uint32_t _reserved_3 : 1;
+    uint32_t _reserved_2 : 1;
     eLEVEL2 LEVEL2 : 3;
-    uint32_t _reserved_4 : 1;
+    uint32_t _reserved_3 : 1;
     eLEVEL3 LEVEL3 : 3;
-    uint32_t _reserved_end : 1;
+    uint32_t _reserved_4 : 1;
   } bits;
   
   // Full 32-bit register value.
@@ -49353,10 +49353,10 @@ union LPCG122_STATUS0 {
   // Bit field definition.
   struct {
     eON ON : 1;
-    uint32_t _reserved_1 : 7;
+    uint32_t _reserved_0 : 7;
     eACTIVE_DOMAIN ACTIVE_DOMAIN : 4;
     eDOMAIN_ENABLE DOMAIN_ENABLE : 4;
-    uint32_t _reserved_end : 16;
+    uint32_t _reserved_1 : 16;
   } bits;
   
   // Full 32-bit register value.
@@ -49479,7 +49479,7 @@ union LPCG122_STATUS1 {
     eSETPOINT_OFF_DONE SETPOINT_OFF_DONE : 1;
     eSETPOINT_ON_REQUEST SETPOINT_ON_REQUEST : 1;
     eSETPOINT_ON_DONE SETPOINT_ON_DONE : 1;
-    uint32_t _reserved_end : 4;
+    uint32_t _reserved_0 : 4;
   } bits;
   
   // Full 32-bit register value.
@@ -49503,7 +49503,7 @@ union LPCG122_CONFIG {
   struct {
     uint32_t _reserved_0 : 4;
     eSETPOINT_PRESENT SETPOINT_PRESENT : 1;
-    uint32_t _reserved_end : 27;
+    uint32_t _reserved_1 : 27;
   } bits;
   
   // Full 32-bit register value.
@@ -49562,18 +49562,18 @@ union LPCG122_AUTHEN {
   struct {
     eTZ_USER TZ_USER : 1;
     eTZ_NS TZ_NS : 1;
-    uint32_t _reserved_2 : 2;
+    uint32_t _reserved_0 : 2;
     eLOCK_TZ LOCK_TZ : 1;
-    uint32_t _reserved_3 : 3;
+    uint32_t _reserved_1 : 3;
     uint32_t WHITE_LIST : 4;
     eLOCK_LIST LOCK_LIST : 1;
-    uint32_t _reserved_5 : 3;
+    uint32_t _reserved_2 : 3;
     eDOMAIN_MODE DOMAIN_MODE : 1;
     eSETPOINT_MODE SETPOINT_MODE : 1;
     eCPULPM CPULPM : 1;
-    uint32_t _reserved_8 : 1;
+    uint32_t _reserved_3 : 1;
     eLOCK_MODE LOCK_MODE : 1;
-    uint32_t _reserved_end : 11;
+    uint32_t _reserved_4 : 11;
   } bits;
   
   // Full 32-bit register value.
@@ -49596,7 +49596,7 @@ union LPCG123_DIRECT {
   // Bit field definition.
   struct {
     eON ON : 1;
-    uint32_t _reserved_end : 31;
+    uint32_t _reserved_0 : 31;
   } bits;
   
   // Full 32-bit register value.
@@ -49654,15 +49654,15 @@ union LPCG123_DOMAIN {
   // Bit field definition.
   struct {
     eLEVEL LEVEL : 3;
-    uint32_t _reserved_1 : 13;
+    uint32_t _reserved_0 : 13;
     eLEVEL0 LEVEL0 : 3;
-    uint32_t _reserved_2 : 1;
+    uint32_t _reserved_1 : 1;
     eLEVEL1 LEVEL1 : 3;
-    uint32_t _reserved_3 : 1;
+    uint32_t _reserved_2 : 1;
     eLEVEL2 LEVEL2 : 3;
-    uint32_t _reserved_4 : 1;
+    uint32_t _reserved_3 : 1;
     eLEVEL3 LEVEL3 : 3;
-    uint32_t _reserved_end : 1;
+    uint32_t _reserved_4 : 1;
   } bits;
   
   // Full 32-bit register value.
@@ -49723,10 +49723,10 @@ union LPCG123_STATUS0 {
   // Bit field definition.
   struct {
     eON ON : 1;
-    uint32_t _reserved_1 : 7;
+    uint32_t _reserved_0 : 7;
     eACTIVE_DOMAIN ACTIVE_DOMAIN : 4;
     eDOMAIN_ENABLE DOMAIN_ENABLE : 4;
-    uint32_t _reserved_end : 16;
+    uint32_t _reserved_1 : 16;
   } bits;
   
   // Full 32-bit register value.
@@ -49849,7 +49849,7 @@ union LPCG123_STATUS1 {
     eSETPOINT_OFF_DONE SETPOINT_OFF_DONE : 1;
     eSETPOINT_ON_REQUEST SETPOINT_ON_REQUEST : 1;
     eSETPOINT_ON_DONE SETPOINT_ON_DONE : 1;
-    uint32_t _reserved_end : 4;
+    uint32_t _reserved_0 : 4;
   } bits;
   
   // Full 32-bit register value.
@@ -49873,7 +49873,7 @@ union LPCG123_CONFIG {
   struct {
     uint32_t _reserved_0 : 4;
     eSETPOINT_PRESENT SETPOINT_PRESENT : 1;
-    uint32_t _reserved_end : 27;
+    uint32_t _reserved_1 : 27;
   } bits;
   
   // Full 32-bit register value.
@@ -49932,18 +49932,18 @@ union LPCG123_AUTHEN {
   struct {
     eTZ_USER TZ_USER : 1;
     eTZ_NS TZ_NS : 1;
-    uint32_t _reserved_2 : 2;
+    uint32_t _reserved_0 : 2;
     eLOCK_TZ LOCK_TZ : 1;
-    uint32_t _reserved_3 : 3;
+    uint32_t _reserved_1 : 3;
     uint32_t WHITE_LIST : 4;
     eLOCK_LIST LOCK_LIST : 1;
-    uint32_t _reserved_5 : 3;
+    uint32_t _reserved_2 : 3;
     eDOMAIN_MODE DOMAIN_MODE : 1;
     eSETPOINT_MODE SETPOINT_MODE : 1;
     eCPULPM CPULPM : 1;
-    uint32_t _reserved_8 : 1;
+    uint32_t _reserved_3 : 1;
     eLOCK_MODE LOCK_MODE : 1;
-    uint32_t _reserved_end : 11;
+    uint32_t _reserved_4 : 11;
   } bits;
   
   // Full 32-bit register value.
@@ -49966,7 +49966,7 @@ union LPCG124_DIRECT {
   // Bit field definition.
   struct {
     eON ON : 1;
-    uint32_t _reserved_end : 31;
+    uint32_t _reserved_0 : 31;
   } bits;
   
   // Full 32-bit register value.
@@ -50024,15 +50024,15 @@ union LPCG124_DOMAIN {
   // Bit field definition.
   struct {
     eLEVEL LEVEL : 3;
-    uint32_t _reserved_1 : 13;
+    uint32_t _reserved_0 : 13;
     eLEVEL0 LEVEL0 : 3;
-    uint32_t _reserved_2 : 1;
+    uint32_t _reserved_1 : 1;
     eLEVEL1 LEVEL1 : 3;
-    uint32_t _reserved_3 : 1;
+    uint32_t _reserved_2 : 1;
     eLEVEL2 LEVEL2 : 3;
-    uint32_t _reserved_4 : 1;
+    uint32_t _reserved_3 : 1;
     eLEVEL3 LEVEL3 : 3;
-    uint32_t _reserved_end : 1;
+    uint32_t _reserved_4 : 1;
   } bits;
   
   // Full 32-bit register value.
@@ -50093,10 +50093,10 @@ union LPCG124_STATUS0 {
   // Bit field definition.
   struct {
     eON ON : 1;
-    uint32_t _reserved_1 : 7;
+    uint32_t _reserved_0 : 7;
     eACTIVE_DOMAIN ACTIVE_DOMAIN : 4;
     eDOMAIN_ENABLE DOMAIN_ENABLE : 4;
-    uint32_t _reserved_end : 16;
+    uint32_t _reserved_1 : 16;
   } bits;
   
   // Full 32-bit register value.
@@ -50219,7 +50219,7 @@ union LPCG124_STATUS1 {
     eSETPOINT_OFF_DONE SETPOINT_OFF_DONE : 1;
     eSETPOINT_ON_REQUEST SETPOINT_ON_REQUEST : 1;
     eSETPOINT_ON_DONE SETPOINT_ON_DONE : 1;
-    uint32_t _reserved_end : 4;
+    uint32_t _reserved_0 : 4;
   } bits;
   
   // Full 32-bit register value.
@@ -50243,7 +50243,7 @@ union LPCG124_CONFIG {
   struct {
     uint32_t _reserved_0 : 4;
     eSETPOINT_PRESENT SETPOINT_PRESENT : 1;
-    uint32_t _reserved_end : 27;
+    uint32_t _reserved_1 : 27;
   } bits;
   
   // Full 32-bit register value.
@@ -50302,18 +50302,18 @@ union LPCG124_AUTHEN {
   struct {
     eTZ_USER TZ_USER : 1;
     eTZ_NS TZ_NS : 1;
-    uint32_t _reserved_2 : 2;
+    uint32_t _reserved_0 : 2;
     eLOCK_TZ LOCK_TZ : 1;
-    uint32_t _reserved_3 : 3;
+    uint32_t _reserved_1 : 3;
     uint32_t WHITE_LIST : 4;
     eLOCK_LIST LOCK_LIST : 1;
-    uint32_t _reserved_5 : 3;
+    uint32_t _reserved_2 : 3;
     eDOMAIN_MODE DOMAIN_MODE : 1;
     eSETPOINT_MODE SETPOINT_MODE : 1;
     eCPULPM CPULPM : 1;
-    uint32_t _reserved_8 : 1;
+    uint32_t _reserved_3 : 1;
     eLOCK_MODE LOCK_MODE : 1;
-    uint32_t _reserved_end : 11;
+    uint32_t _reserved_4 : 11;
   } bits;
   
   // Full 32-bit register value.
@@ -50336,7 +50336,7 @@ union LPCG125_DIRECT {
   // Bit field definition.
   struct {
     eON ON : 1;
-    uint32_t _reserved_end : 31;
+    uint32_t _reserved_0 : 31;
   } bits;
   
   // Full 32-bit register value.
@@ -50394,15 +50394,15 @@ union LPCG125_DOMAIN {
   // Bit field definition.
   struct {
     eLEVEL LEVEL : 3;
-    uint32_t _reserved_1 : 13;
+    uint32_t _reserved_0 : 13;
     eLEVEL0 LEVEL0 : 3;
-    uint32_t _reserved_2 : 1;
+    uint32_t _reserved_1 : 1;
     eLEVEL1 LEVEL1 : 3;
-    uint32_t _reserved_3 : 1;
+    uint32_t _reserved_2 : 1;
     eLEVEL2 LEVEL2 : 3;
-    uint32_t _reserved_4 : 1;
+    uint32_t _reserved_3 : 1;
     eLEVEL3 LEVEL3 : 3;
-    uint32_t _reserved_end : 1;
+    uint32_t _reserved_4 : 1;
   } bits;
   
   // Full 32-bit register value.
@@ -50463,10 +50463,10 @@ union LPCG125_STATUS0 {
   // Bit field definition.
   struct {
     eON ON : 1;
-    uint32_t _reserved_1 : 7;
+    uint32_t _reserved_0 : 7;
     eACTIVE_DOMAIN ACTIVE_DOMAIN : 4;
     eDOMAIN_ENABLE DOMAIN_ENABLE : 4;
-    uint32_t _reserved_end : 16;
+    uint32_t _reserved_1 : 16;
   } bits;
   
   // Full 32-bit register value.
@@ -50589,7 +50589,7 @@ union LPCG125_STATUS1 {
     eSETPOINT_OFF_DONE SETPOINT_OFF_DONE : 1;
     eSETPOINT_ON_REQUEST SETPOINT_ON_REQUEST : 1;
     eSETPOINT_ON_DONE SETPOINT_ON_DONE : 1;
-    uint32_t _reserved_end : 4;
+    uint32_t _reserved_0 : 4;
   } bits;
   
   // Full 32-bit register value.
@@ -50613,7 +50613,7 @@ union LPCG125_CONFIG {
   struct {
     uint32_t _reserved_0 : 4;
     eSETPOINT_PRESENT SETPOINT_PRESENT : 1;
-    uint32_t _reserved_end : 27;
+    uint32_t _reserved_1 : 27;
   } bits;
   
   // Full 32-bit register value.
@@ -50672,18 +50672,18 @@ union LPCG125_AUTHEN {
   struct {
     eTZ_USER TZ_USER : 1;
     eTZ_NS TZ_NS : 1;
-    uint32_t _reserved_2 : 2;
+    uint32_t _reserved_0 : 2;
     eLOCK_TZ LOCK_TZ : 1;
-    uint32_t _reserved_3 : 3;
+    uint32_t _reserved_1 : 3;
     uint32_t WHITE_LIST : 4;
     eLOCK_LIST LOCK_LIST : 1;
-    uint32_t _reserved_5 : 3;
+    uint32_t _reserved_2 : 3;
     eDOMAIN_MODE DOMAIN_MODE : 1;
     eSETPOINT_MODE SETPOINT_MODE : 1;
     eCPULPM CPULPM : 1;
-    uint32_t _reserved_8 : 1;
+    uint32_t _reserved_3 : 1;
     eLOCK_MODE LOCK_MODE : 1;
-    uint32_t _reserved_end : 11;
+    uint32_t _reserved_4 : 11;
   } bits;
   
   // Full 32-bit register value.
@@ -50706,7 +50706,7 @@ union LPCG126_DIRECT {
   // Bit field definition.
   struct {
     eON ON : 1;
-    uint32_t _reserved_end : 31;
+    uint32_t _reserved_0 : 31;
   } bits;
   
   // Full 32-bit register value.
@@ -50764,15 +50764,15 @@ union LPCG126_DOMAIN {
   // Bit field definition.
   struct {
     eLEVEL LEVEL : 3;
-    uint32_t _reserved_1 : 13;
+    uint32_t _reserved_0 : 13;
     eLEVEL0 LEVEL0 : 3;
-    uint32_t _reserved_2 : 1;
+    uint32_t _reserved_1 : 1;
     eLEVEL1 LEVEL1 : 3;
-    uint32_t _reserved_3 : 1;
+    uint32_t _reserved_2 : 1;
     eLEVEL2 LEVEL2 : 3;
-    uint32_t _reserved_4 : 1;
+    uint32_t _reserved_3 : 1;
     eLEVEL3 LEVEL3 : 3;
-    uint32_t _reserved_end : 1;
+    uint32_t _reserved_4 : 1;
   } bits;
   
   // Full 32-bit register value.
@@ -50833,10 +50833,10 @@ union LPCG126_STATUS0 {
   // Bit field definition.
   struct {
     eON ON : 1;
-    uint32_t _reserved_1 : 7;
+    uint32_t _reserved_0 : 7;
     eACTIVE_DOMAIN ACTIVE_DOMAIN : 4;
     eDOMAIN_ENABLE DOMAIN_ENABLE : 4;
-    uint32_t _reserved_end : 16;
+    uint32_t _reserved_1 : 16;
   } bits;
   
   // Full 32-bit register value.
@@ -50959,7 +50959,7 @@ union LPCG126_STATUS1 {
     eSETPOINT_OFF_DONE SETPOINT_OFF_DONE : 1;
     eSETPOINT_ON_REQUEST SETPOINT_ON_REQUEST : 1;
     eSETPOINT_ON_DONE SETPOINT_ON_DONE : 1;
-    uint32_t _reserved_end : 4;
+    uint32_t _reserved_0 : 4;
   } bits;
   
   // Full 32-bit register value.
@@ -50983,7 +50983,7 @@ union LPCG126_CONFIG {
   struct {
     uint32_t _reserved_0 : 4;
     eSETPOINT_PRESENT SETPOINT_PRESENT : 1;
-    uint32_t _reserved_end : 27;
+    uint32_t _reserved_1 : 27;
   } bits;
   
   // Full 32-bit register value.
@@ -51042,18 +51042,18 @@ union LPCG126_AUTHEN {
   struct {
     eTZ_USER TZ_USER : 1;
     eTZ_NS TZ_NS : 1;
-    uint32_t _reserved_2 : 2;
+    uint32_t _reserved_0 : 2;
     eLOCK_TZ LOCK_TZ : 1;
-    uint32_t _reserved_3 : 3;
+    uint32_t _reserved_1 : 3;
     uint32_t WHITE_LIST : 4;
     eLOCK_LIST LOCK_LIST : 1;
-    uint32_t _reserved_5 : 3;
+    uint32_t _reserved_2 : 3;
     eDOMAIN_MODE DOMAIN_MODE : 1;
     eSETPOINT_MODE SETPOINT_MODE : 1;
     eCPULPM CPULPM : 1;
-    uint32_t _reserved_8 : 1;
+    uint32_t _reserved_3 : 1;
     eLOCK_MODE LOCK_MODE : 1;
-    uint32_t _reserved_end : 11;
+    uint32_t _reserved_4 : 11;
   } bits;
   
   // Full 32-bit register value.
@@ -51076,7 +51076,7 @@ union LPCG127_DIRECT {
   // Bit field definition.
   struct {
     eON ON : 1;
-    uint32_t _reserved_end : 31;
+    uint32_t _reserved_0 : 31;
   } bits;
   
   // Full 32-bit register value.
@@ -51134,15 +51134,15 @@ union LPCG127_DOMAIN {
   // Bit field definition.
   struct {
     eLEVEL LEVEL : 3;
-    uint32_t _reserved_1 : 13;
+    uint32_t _reserved_0 : 13;
     eLEVEL0 LEVEL0 : 3;
-    uint32_t _reserved_2 : 1;
+    uint32_t _reserved_1 : 1;
     eLEVEL1 LEVEL1 : 3;
-    uint32_t _reserved_3 : 1;
+    uint32_t _reserved_2 : 1;
     eLEVEL2 LEVEL2 : 3;
-    uint32_t _reserved_4 : 1;
+    uint32_t _reserved_3 : 1;
     eLEVEL3 LEVEL3 : 3;
-    uint32_t _reserved_end : 1;
+    uint32_t _reserved_4 : 1;
   } bits;
   
   // Full 32-bit register value.
@@ -51203,10 +51203,10 @@ union LPCG127_STATUS0 {
   // Bit field definition.
   struct {
     eON ON : 1;
-    uint32_t _reserved_1 : 7;
+    uint32_t _reserved_0 : 7;
     eACTIVE_DOMAIN ACTIVE_DOMAIN : 4;
     eDOMAIN_ENABLE DOMAIN_ENABLE : 4;
-    uint32_t _reserved_end : 16;
+    uint32_t _reserved_1 : 16;
   } bits;
   
   // Full 32-bit register value.
@@ -51329,7 +51329,7 @@ union LPCG127_STATUS1 {
     eSETPOINT_OFF_DONE SETPOINT_OFF_DONE : 1;
     eSETPOINT_ON_REQUEST SETPOINT_ON_REQUEST : 1;
     eSETPOINT_ON_DONE SETPOINT_ON_DONE : 1;
-    uint32_t _reserved_end : 4;
+    uint32_t _reserved_0 : 4;
   } bits;
   
   // Full 32-bit register value.
@@ -51353,7 +51353,7 @@ union LPCG127_CONFIG {
   struct {
     uint32_t _reserved_0 : 4;
     eSETPOINT_PRESENT SETPOINT_PRESENT : 1;
-    uint32_t _reserved_end : 27;
+    uint32_t _reserved_1 : 27;
   } bits;
   
   // Full 32-bit register value.
@@ -51412,18 +51412,18 @@ union LPCG127_AUTHEN {
   struct {
     eTZ_USER TZ_USER : 1;
     eTZ_NS TZ_NS : 1;
-    uint32_t _reserved_2 : 2;
+    uint32_t _reserved_0 : 2;
     eLOCK_TZ LOCK_TZ : 1;
-    uint32_t _reserved_3 : 3;
+    uint32_t _reserved_1 : 3;
     uint32_t WHITE_LIST : 4;
     eLOCK_LIST LOCK_LIST : 1;
-    uint32_t _reserved_5 : 3;
+    uint32_t _reserved_2 : 3;
     eDOMAIN_MODE DOMAIN_MODE : 1;
     eSETPOINT_MODE SETPOINT_MODE : 1;
     eCPULPM CPULPM : 1;
-    uint32_t _reserved_8 : 1;
+    uint32_t _reserved_3 : 1;
     eLOCK_MODE LOCK_MODE : 1;
-    uint32_t _reserved_end : 11;
+    uint32_t _reserved_4 : 11;
   } bits;
   
   // Full 32-bit register value.
@@ -51446,7 +51446,7 @@ union LPCG128_DIRECT {
   // Bit field definition.
   struct {
     eON ON : 1;
-    uint32_t _reserved_end : 31;
+    uint32_t _reserved_0 : 31;
   } bits;
   
   // Full 32-bit register value.
@@ -51504,15 +51504,15 @@ union LPCG128_DOMAIN {
   // Bit field definition.
   struct {
     eLEVEL LEVEL : 3;
-    uint32_t _reserved_1 : 13;
+    uint32_t _reserved_0 : 13;
     eLEVEL0 LEVEL0 : 3;
-    uint32_t _reserved_2 : 1;
+    uint32_t _reserved_1 : 1;
     eLEVEL1 LEVEL1 : 3;
-    uint32_t _reserved_3 : 1;
+    uint32_t _reserved_2 : 1;
     eLEVEL2 LEVEL2 : 3;
-    uint32_t _reserved_4 : 1;
+    uint32_t _reserved_3 : 1;
     eLEVEL3 LEVEL3 : 3;
-    uint32_t _reserved_end : 1;
+    uint32_t _reserved_4 : 1;
   } bits;
   
   // Full 32-bit register value.
@@ -51573,10 +51573,10 @@ union LPCG128_STATUS0 {
   // Bit field definition.
   struct {
     eON ON : 1;
-    uint32_t _reserved_1 : 7;
+    uint32_t _reserved_0 : 7;
     eACTIVE_DOMAIN ACTIVE_DOMAIN : 4;
     eDOMAIN_ENABLE DOMAIN_ENABLE : 4;
-    uint32_t _reserved_end : 16;
+    uint32_t _reserved_1 : 16;
   } bits;
   
   // Full 32-bit register value.
@@ -51699,7 +51699,7 @@ union LPCG128_STATUS1 {
     eSETPOINT_OFF_DONE SETPOINT_OFF_DONE : 1;
     eSETPOINT_ON_REQUEST SETPOINT_ON_REQUEST : 1;
     eSETPOINT_ON_DONE SETPOINT_ON_DONE : 1;
-    uint32_t _reserved_end : 4;
+    uint32_t _reserved_0 : 4;
   } bits;
   
   // Full 32-bit register value.
@@ -51723,7 +51723,7 @@ union LPCG128_CONFIG {
   struct {
     uint32_t _reserved_0 : 4;
     eSETPOINT_PRESENT SETPOINT_PRESENT : 1;
-    uint32_t _reserved_end : 27;
+    uint32_t _reserved_1 : 27;
   } bits;
   
   // Full 32-bit register value.
@@ -51782,18 +51782,18 @@ union LPCG128_AUTHEN {
   struct {
     eTZ_USER TZ_USER : 1;
     eTZ_NS TZ_NS : 1;
-    uint32_t _reserved_2 : 2;
+    uint32_t _reserved_0 : 2;
     eLOCK_TZ LOCK_TZ : 1;
-    uint32_t _reserved_3 : 3;
+    uint32_t _reserved_1 : 3;
     uint32_t WHITE_LIST : 4;
     eLOCK_LIST LOCK_LIST : 1;
-    uint32_t _reserved_5 : 3;
+    uint32_t _reserved_2 : 3;
     eDOMAIN_MODE DOMAIN_MODE : 1;
     eSETPOINT_MODE SETPOINT_MODE : 1;
     eCPULPM CPULPM : 1;
-    uint32_t _reserved_8 : 1;
+    uint32_t _reserved_3 : 1;
     eLOCK_MODE LOCK_MODE : 1;
-    uint32_t _reserved_end : 11;
+    uint32_t _reserved_4 : 11;
   } bits;
   
   // Full 32-bit register value.
@@ -51816,7 +51816,7 @@ union LPCG129_DIRECT {
   // Bit field definition.
   struct {
     eON ON : 1;
-    uint32_t _reserved_end : 31;
+    uint32_t _reserved_0 : 31;
   } bits;
   
   // Full 32-bit register value.
@@ -51874,15 +51874,15 @@ union LPCG129_DOMAIN {
   // Bit field definition.
   struct {
     eLEVEL LEVEL : 3;
-    uint32_t _reserved_1 : 13;
+    uint32_t _reserved_0 : 13;
     eLEVEL0 LEVEL0 : 3;
-    uint32_t _reserved_2 : 1;
+    uint32_t _reserved_1 : 1;
     eLEVEL1 LEVEL1 : 3;
-    uint32_t _reserved_3 : 1;
+    uint32_t _reserved_2 : 1;
     eLEVEL2 LEVEL2 : 3;
-    uint32_t _reserved_4 : 1;
+    uint32_t _reserved_3 : 1;
     eLEVEL3 LEVEL3 : 3;
-    uint32_t _reserved_end : 1;
+    uint32_t _reserved_4 : 1;
   } bits;
   
   // Full 32-bit register value.
@@ -51943,10 +51943,10 @@ union LPCG129_STATUS0 {
   // Bit field definition.
   struct {
     eON ON : 1;
-    uint32_t _reserved_1 : 7;
+    uint32_t _reserved_0 : 7;
     eACTIVE_DOMAIN ACTIVE_DOMAIN : 4;
     eDOMAIN_ENABLE DOMAIN_ENABLE : 4;
-    uint32_t _reserved_end : 16;
+    uint32_t _reserved_1 : 16;
   } bits;
   
   // Full 32-bit register value.
@@ -52069,7 +52069,7 @@ union LPCG129_STATUS1 {
     eSETPOINT_OFF_DONE SETPOINT_OFF_DONE : 1;
     eSETPOINT_ON_REQUEST SETPOINT_ON_REQUEST : 1;
     eSETPOINT_ON_DONE SETPOINT_ON_DONE : 1;
-    uint32_t _reserved_end : 4;
+    uint32_t _reserved_0 : 4;
   } bits;
   
   // Full 32-bit register value.
@@ -52093,7 +52093,7 @@ union LPCG129_CONFIG {
   struct {
     uint32_t _reserved_0 : 4;
     eSETPOINT_PRESENT SETPOINT_PRESENT : 1;
-    uint32_t _reserved_end : 27;
+    uint32_t _reserved_1 : 27;
   } bits;
   
   // Full 32-bit register value.
@@ -52152,18 +52152,18 @@ union LPCG129_AUTHEN {
   struct {
     eTZ_USER TZ_USER : 1;
     eTZ_NS TZ_NS : 1;
-    uint32_t _reserved_2 : 2;
+    uint32_t _reserved_0 : 2;
     eLOCK_TZ LOCK_TZ : 1;
-    uint32_t _reserved_3 : 3;
+    uint32_t _reserved_1 : 3;
     uint32_t WHITE_LIST : 4;
     eLOCK_LIST LOCK_LIST : 1;
-    uint32_t _reserved_5 : 3;
+    uint32_t _reserved_2 : 3;
     eDOMAIN_MODE DOMAIN_MODE : 1;
     eSETPOINT_MODE SETPOINT_MODE : 1;
     eCPULPM CPULPM : 1;
-    uint32_t _reserved_8 : 1;
+    uint32_t _reserved_3 : 1;
     eLOCK_MODE LOCK_MODE : 1;
-    uint32_t _reserved_end : 11;
+    uint32_t _reserved_4 : 11;
   } bits;
   
   // Full 32-bit register value.
@@ -52186,7 +52186,7 @@ union LPCG130_DIRECT {
   // Bit field definition.
   struct {
     eON ON : 1;
-    uint32_t _reserved_end : 31;
+    uint32_t _reserved_0 : 31;
   } bits;
   
   // Full 32-bit register value.
@@ -52244,15 +52244,15 @@ union LPCG130_DOMAIN {
   // Bit field definition.
   struct {
     eLEVEL LEVEL : 3;
-    uint32_t _reserved_1 : 13;
+    uint32_t _reserved_0 : 13;
     eLEVEL0 LEVEL0 : 3;
-    uint32_t _reserved_2 : 1;
+    uint32_t _reserved_1 : 1;
     eLEVEL1 LEVEL1 : 3;
-    uint32_t _reserved_3 : 1;
+    uint32_t _reserved_2 : 1;
     eLEVEL2 LEVEL2 : 3;
-    uint32_t _reserved_4 : 1;
+    uint32_t _reserved_3 : 1;
     eLEVEL3 LEVEL3 : 3;
-    uint32_t _reserved_end : 1;
+    uint32_t _reserved_4 : 1;
   } bits;
   
   // Full 32-bit register value.
@@ -52313,10 +52313,10 @@ union LPCG130_STATUS0 {
   // Bit field definition.
   struct {
     eON ON : 1;
-    uint32_t _reserved_1 : 7;
+    uint32_t _reserved_0 : 7;
     eACTIVE_DOMAIN ACTIVE_DOMAIN : 4;
     eDOMAIN_ENABLE DOMAIN_ENABLE : 4;
-    uint32_t _reserved_end : 16;
+    uint32_t _reserved_1 : 16;
   } bits;
   
   // Full 32-bit register value.
@@ -52439,7 +52439,7 @@ union LPCG130_STATUS1 {
     eSETPOINT_OFF_DONE SETPOINT_OFF_DONE : 1;
     eSETPOINT_ON_REQUEST SETPOINT_ON_REQUEST : 1;
     eSETPOINT_ON_DONE SETPOINT_ON_DONE : 1;
-    uint32_t _reserved_end : 4;
+    uint32_t _reserved_0 : 4;
   } bits;
   
   // Full 32-bit register value.
@@ -52463,7 +52463,7 @@ union LPCG130_CONFIG {
   struct {
     uint32_t _reserved_0 : 4;
     eSETPOINT_PRESENT SETPOINT_PRESENT : 1;
-    uint32_t _reserved_end : 27;
+    uint32_t _reserved_1 : 27;
   } bits;
   
   // Full 32-bit register value.
@@ -52522,18 +52522,18 @@ union LPCG130_AUTHEN {
   struct {
     eTZ_USER TZ_USER : 1;
     eTZ_NS TZ_NS : 1;
-    uint32_t _reserved_2 : 2;
+    uint32_t _reserved_0 : 2;
     eLOCK_TZ LOCK_TZ : 1;
-    uint32_t _reserved_3 : 3;
+    uint32_t _reserved_1 : 3;
     uint32_t WHITE_LIST : 4;
     eLOCK_LIST LOCK_LIST : 1;
-    uint32_t _reserved_5 : 3;
+    uint32_t _reserved_2 : 3;
     eDOMAIN_MODE DOMAIN_MODE : 1;
     eSETPOINT_MODE SETPOINT_MODE : 1;
     eCPULPM CPULPM : 1;
-    uint32_t _reserved_8 : 1;
+    uint32_t _reserved_3 : 1;
     eLOCK_MODE LOCK_MODE : 1;
-    uint32_t _reserved_end : 11;
+    uint32_t _reserved_4 : 11;
   } bits;
   
   // Full 32-bit register value.
@@ -52556,7 +52556,7 @@ union LPCG131_DIRECT {
   // Bit field definition.
   struct {
     eON ON : 1;
-    uint32_t _reserved_end : 31;
+    uint32_t _reserved_0 : 31;
   } bits;
   
   // Full 32-bit register value.
@@ -52614,15 +52614,15 @@ union LPCG131_DOMAIN {
   // Bit field definition.
   struct {
     eLEVEL LEVEL : 3;
-    uint32_t _reserved_1 : 13;
+    uint32_t _reserved_0 : 13;
     eLEVEL0 LEVEL0 : 3;
-    uint32_t _reserved_2 : 1;
+    uint32_t _reserved_1 : 1;
     eLEVEL1 LEVEL1 : 3;
-    uint32_t _reserved_3 : 1;
+    uint32_t _reserved_2 : 1;
     eLEVEL2 LEVEL2 : 3;
-    uint32_t _reserved_4 : 1;
+    uint32_t _reserved_3 : 1;
     eLEVEL3 LEVEL3 : 3;
-    uint32_t _reserved_end : 1;
+    uint32_t _reserved_4 : 1;
   } bits;
   
   // Full 32-bit register value.
@@ -52683,10 +52683,10 @@ union LPCG131_STATUS0 {
   // Bit field definition.
   struct {
     eON ON : 1;
-    uint32_t _reserved_1 : 7;
+    uint32_t _reserved_0 : 7;
     eACTIVE_DOMAIN ACTIVE_DOMAIN : 4;
     eDOMAIN_ENABLE DOMAIN_ENABLE : 4;
-    uint32_t _reserved_end : 16;
+    uint32_t _reserved_1 : 16;
   } bits;
   
   // Full 32-bit register value.
@@ -52809,7 +52809,7 @@ union LPCG131_STATUS1 {
     eSETPOINT_OFF_DONE SETPOINT_OFF_DONE : 1;
     eSETPOINT_ON_REQUEST SETPOINT_ON_REQUEST : 1;
     eSETPOINT_ON_DONE SETPOINT_ON_DONE : 1;
-    uint32_t _reserved_end : 4;
+    uint32_t _reserved_0 : 4;
   } bits;
   
   // Full 32-bit register value.
@@ -52833,7 +52833,7 @@ union LPCG131_CONFIG {
   struct {
     uint32_t _reserved_0 : 4;
     eSETPOINT_PRESENT SETPOINT_PRESENT : 1;
-    uint32_t _reserved_end : 27;
+    uint32_t _reserved_1 : 27;
   } bits;
   
   // Full 32-bit register value.
@@ -52892,18 +52892,18 @@ union LPCG131_AUTHEN {
   struct {
     eTZ_USER TZ_USER : 1;
     eTZ_NS TZ_NS : 1;
-    uint32_t _reserved_2 : 2;
+    uint32_t _reserved_0 : 2;
     eLOCK_TZ LOCK_TZ : 1;
-    uint32_t _reserved_3 : 3;
+    uint32_t _reserved_1 : 3;
     uint32_t WHITE_LIST : 4;
     eLOCK_LIST LOCK_LIST : 1;
-    uint32_t _reserved_5 : 3;
+    uint32_t _reserved_2 : 3;
     eDOMAIN_MODE DOMAIN_MODE : 1;
     eSETPOINT_MODE SETPOINT_MODE : 1;
     eCPULPM CPULPM : 1;
-    uint32_t _reserved_8 : 1;
+    uint32_t _reserved_3 : 1;
     eLOCK_MODE LOCK_MODE : 1;
-    uint32_t _reserved_end : 11;
+    uint32_t _reserved_4 : 11;
   } bits;
   
   // Full 32-bit register value.
@@ -52926,7 +52926,7 @@ union LPCG132_DIRECT {
   // Bit field definition.
   struct {
     eON ON : 1;
-    uint32_t _reserved_end : 31;
+    uint32_t _reserved_0 : 31;
   } bits;
   
   // Full 32-bit register value.
@@ -52984,15 +52984,15 @@ union LPCG132_DOMAIN {
   // Bit field definition.
   struct {
     eLEVEL LEVEL : 3;
-    uint32_t _reserved_1 : 13;
+    uint32_t _reserved_0 : 13;
     eLEVEL0 LEVEL0 : 3;
-    uint32_t _reserved_2 : 1;
+    uint32_t _reserved_1 : 1;
     eLEVEL1 LEVEL1 : 3;
-    uint32_t _reserved_3 : 1;
+    uint32_t _reserved_2 : 1;
     eLEVEL2 LEVEL2 : 3;
-    uint32_t _reserved_4 : 1;
+    uint32_t _reserved_3 : 1;
     eLEVEL3 LEVEL3 : 3;
-    uint32_t _reserved_end : 1;
+    uint32_t _reserved_4 : 1;
   } bits;
   
   // Full 32-bit register value.
@@ -53053,10 +53053,10 @@ union LPCG132_STATUS0 {
   // Bit field definition.
   struct {
     eON ON : 1;
-    uint32_t _reserved_1 : 7;
+    uint32_t _reserved_0 : 7;
     eACTIVE_DOMAIN ACTIVE_DOMAIN : 4;
     eDOMAIN_ENABLE DOMAIN_ENABLE : 4;
-    uint32_t _reserved_end : 16;
+    uint32_t _reserved_1 : 16;
   } bits;
   
   // Full 32-bit register value.
@@ -53179,7 +53179,7 @@ union LPCG132_STATUS1 {
     eSETPOINT_OFF_DONE SETPOINT_OFF_DONE : 1;
     eSETPOINT_ON_REQUEST SETPOINT_ON_REQUEST : 1;
     eSETPOINT_ON_DONE SETPOINT_ON_DONE : 1;
-    uint32_t _reserved_end : 4;
+    uint32_t _reserved_0 : 4;
   } bits;
   
   // Full 32-bit register value.
@@ -53203,7 +53203,7 @@ union LPCG132_CONFIG {
   struct {
     uint32_t _reserved_0 : 4;
     eSETPOINT_PRESENT SETPOINT_PRESENT : 1;
-    uint32_t _reserved_end : 27;
+    uint32_t _reserved_1 : 27;
   } bits;
   
   // Full 32-bit register value.
@@ -53262,18 +53262,18 @@ union LPCG132_AUTHEN {
   struct {
     eTZ_USER TZ_USER : 1;
     eTZ_NS TZ_NS : 1;
-    uint32_t _reserved_2 : 2;
+    uint32_t _reserved_0 : 2;
     eLOCK_TZ LOCK_TZ : 1;
-    uint32_t _reserved_3 : 3;
+    uint32_t _reserved_1 : 3;
     uint32_t WHITE_LIST : 4;
     eLOCK_LIST LOCK_LIST : 1;
-    uint32_t _reserved_5 : 3;
+    uint32_t _reserved_2 : 3;
     eDOMAIN_MODE DOMAIN_MODE : 1;
     eSETPOINT_MODE SETPOINT_MODE : 1;
     eCPULPM CPULPM : 1;
-    uint32_t _reserved_8 : 1;
+    uint32_t _reserved_3 : 1;
     eLOCK_MODE LOCK_MODE : 1;
-    uint32_t _reserved_end : 11;
+    uint32_t _reserved_4 : 11;
   } bits;
   
   // Full 32-bit register value.
@@ -53296,7 +53296,7 @@ union LPCG133_DIRECT {
   // Bit field definition.
   struct {
     eON ON : 1;
-    uint32_t _reserved_end : 31;
+    uint32_t _reserved_0 : 31;
   } bits;
   
   // Full 32-bit register value.
@@ -53354,15 +53354,15 @@ union LPCG133_DOMAIN {
   // Bit field definition.
   struct {
     eLEVEL LEVEL : 3;
-    uint32_t _reserved_1 : 13;
+    uint32_t _reserved_0 : 13;
     eLEVEL0 LEVEL0 : 3;
-    uint32_t _reserved_2 : 1;
+    uint32_t _reserved_1 : 1;
     eLEVEL1 LEVEL1 : 3;
-    uint32_t _reserved_3 : 1;
+    uint32_t _reserved_2 : 1;
     eLEVEL2 LEVEL2 : 3;
-    uint32_t _reserved_4 : 1;
+    uint32_t _reserved_3 : 1;
     eLEVEL3 LEVEL3 : 3;
-    uint32_t _reserved_end : 1;
+    uint32_t _reserved_4 : 1;
   } bits;
   
   // Full 32-bit register value.
@@ -53423,10 +53423,10 @@ union LPCG133_STATUS0 {
   // Bit field definition.
   struct {
     eON ON : 1;
-    uint32_t _reserved_1 : 7;
+    uint32_t _reserved_0 : 7;
     eACTIVE_DOMAIN ACTIVE_DOMAIN : 4;
     eDOMAIN_ENABLE DOMAIN_ENABLE : 4;
-    uint32_t _reserved_end : 16;
+    uint32_t _reserved_1 : 16;
   } bits;
   
   // Full 32-bit register value.
@@ -53549,7 +53549,7 @@ union LPCG133_STATUS1 {
     eSETPOINT_OFF_DONE SETPOINT_OFF_DONE : 1;
     eSETPOINT_ON_REQUEST SETPOINT_ON_REQUEST : 1;
     eSETPOINT_ON_DONE SETPOINT_ON_DONE : 1;
-    uint32_t _reserved_end : 4;
+    uint32_t _reserved_0 : 4;
   } bits;
   
   // Full 32-bit register value.
@@ -53573,7 +53573,7 @@ union LPCG133_CONFIG {
   struct {
     uint32_t _reserved_0 : 4;
     eSETPOINT_PRESENT SETPOINT_PRESENT : 1;
-    uint32_t _reserved_end : 27;
+    uint32_t _reserved_1 : 27;
   } bits;
   
   // Full 32-bit register value.
@@ -53632,18 +53632,18 @@ union LPCG133_AUTHEN {
   struct {
     eTZ_USER TZ_USER : 1;
     eTZ_NS TZ_NS : 1;
-    uint32_t _reserved_2 : 2;
+    uint32_t _reserved_0 : 2;
     eLOCK_TZ LOCK_TZ : 1;
-    uint32_t _reserved_3 : 3;
+    uint32_t _reserved_1 : 3;
     uint32_t WHITE_LIST : 4;
     eLOCK_LIST LOCK_LIST : 1;
-    uint32_t _reserved_5 : 3;
+    uint32_t _reserved_2 : 3;
     eDOMAIN_MODE DOMAIN_MODE : 1;
     eSETPOINT_MODE SETPOINT_MODE : 1;
     eCPULPM CPULPM : 1;
-    uint32_t _reserved_8 : 1;
+    uint32_t _reserved_3 : 1;
     eLOCK_MODE LOCK_MODE : 1;
-    uint32_t _reserved_end : 11;
+    uint32_t _reserved_4 : 11;
   } bits;
   
   // Full 32-bit register value.
@@ -53666,7 +53666,7 @@ union LPCG134_DIRECT {
   // Bit field definition.
   struct {
     eON ON : 1;
-    uint32_t _reserved_end : 31;
+    uint32_t _reserved_0 : 31;
   } bits;
   
   // Full 32-bit register value.
@@ -53724,15 +53724,15 @@ union LPCG134_DOMAIN {
   // Bit field definition.
   struct {
     eLEVEL LEVEL : 3;
-    uint32_t _reserved_1 : 13;
+    uint32_t _reserved_0 : 13;
     eLEVEL0 LEVEL0 : 3;
-    uint32_t _reserved_2 : 1;
+    uint32_t _reserved_1 : 1;
     eLEVEL1 LEVEL1 : 3;
-    uint32_t _reserved_3 : 1;
+    uint32_t _reserved_2 : 1;
     eLEVEL2 LEVEL2 : 3;
-    uint32_t _reserved_4 : 1;
+    uint32_t _reserved_3 : 1;
     eLEVEL3 LEVEL3 : 3;
-    uint32_t _reserved_end : 1;
+    uint32_t _reserved_4 : 1;
   } bits;
   
   // Full 32-bit register value.
@@ -53793,10 +53793,10 @@ union LPCG134_STATUS0 {
   // Bit field definition.
   struct {
     eON ON : 1;
-    uint32_t _reserved_1 : 7;
+    uint32_t _reserved_0 : 7;
     eACTIVE_DOMAIN ACTIVE_DOMAIN : 4;
     eDOMAIN_ENABLE DOMAIN_ENABLE : 4;
-    uint32_t _reserved_end : 16;
+    uint32_t _reserved_1 : 16;
   } bits;
   
   // Full 32-bit register value.
@@ -53919,7 +53919,7 @@ union LPCG134_STATUS1 {
     eSETPOINT_OFF_DONE SETPOINT_OFF_DONE : 1;
     eSETPOINT_ON_REQUEST SETPOINT_ON_REQUEST : 1;
     eSETPOINT_ON_DONE SETPOINT_ON_DONE : 1;
-    uint32_t _reserved_end : 4;
+    uint32_t _reserved_0 : 4;
   } bits;
   
   // Full 32-bit register value.
@@ -53943,7 +53943,7 @@ union LPCG134_CONFIG {
   struct {
     uint32_t _reserved_0 : 4;
     eSETPOINT_PRESENT SETPOINT_PRESENT : 1;
-    uint32_t _reserved_end : 27;
+    uint32_t _reserved_1 : 27;
   } bits;
   
   // Full 32-bit register value.
@@ -54002,18 +54002,18 @@ union LPCG134_AUTHEN {
   struct {
     eTZ_USER TZ_USER : 1;
     eTZ_NS TZ_NS : 1;
-    uint32_t _reserved_2 : 2;
+    uint32_t _reserved_0 : 2;
     eLOCK_TZ LOCK_TZ : 1;
-    uint32_t _reserved_3 : 3;
+    uint32_t _reserved_1 : 3;
     uint32_t WHITE_LIST : 4;
     eLOCK_LIST LOCK_LIST : 1;
-    uint32_t _reserved_5 : 3;
+    uint32_t _reserved_2 : 3;
     eDOMAIN_MODE DOMAIN_MODE : 1;
     eSETPOINT_MODE SETPOINT_MODE : 1;
     eCPULPM CPULPM : 1;
-    uint32_t _reserved_8 : 1;
+    uint32_t _reserved_3 : 1;
     eLOCK_MODE LOCK_MODE : 1;
-    uint32_t _reserved_end : 11;
+    uint32_t _reserved_4 : 11;
   } bits;
   
   // Full 32-bit register value.
@@ -54036,7 +54036,7 @@ union LPCG135_DIRECT {
   // Bit field definition.
   struct {
     eON ON : 1;
-    uint32_t _reserved_end : 31;
+    uint32_t _reserved_0 : 31;
   } bits;
   
   // Full 32-bit register value.
@@ -54094,15 +54094,15 @@ union LPCG135_DOMAIN {
   // Bit field definition.
   struct {
     eLEVEL LEVEL : 3;
-    uint32_t _reserved_1 : 13;
+    uint32_t _reserved_0 : 13;
     eLEVEL0 LEVEL0 : 3;
-    uint32_t _reserved_2 : 1;
+    uint32_t _reserved_1 : 1;
     eLEVEL1 LEVEL1 : 3;
-    uint32_t _reserved_3 : 1;
+    uint32_t _reserved_2 : 1;
     eLEVEL2 LEVEL2 : 3;
-    uint32_t _reserved_4 : 1;
+    uint32_t _reserved_3 : 1;
     eLEVEL3 LEVEL3 : 3;
-    uint32_t _reserved_end : 1;
+    uint32_t _reserved_4 : 1;
   } bits;
   
   // Full 32-bit register value.
@@ -54163,10 +54163,10 @@ union LPCG135_STATUS0 {
   // Bit field definition.
   struct {
     eON ON : 1;
-    uint32_t _reserved_1 : 7;
+    uint32_t _reserved_0 : 7;
     eACTIVE_DOMAIN ACTIVE_DOMAIN : 4;
     eDOMAIN_ENABLE DOMAIN_ENABLE : 4;
-    uint32_t _reserved_end : 16;
+    uint32_t _reserved_1 : 16;
   } bits;
   
   // Full 32-bit register value.
@@ -54289,7 +54289,7 @@ union LPCG135_STATUS1 {
     eSETPOINT_OFF_DONE SETPOINT_OFF_DONE : 1;
     eSETPOINT_ON_REQUEST SETPOINT_ON_REQUEST : 1;
     eSETPOINT_ON_DONE SETPOINT_ON_DONE : 1;
-    uint32_t _reserved_end : 4;
+    uint32_t _reserved_0 : 4;
   } bits;
   
   // Full 32-bit register value.
@@ -54313,7 +54313,7 @@ union LPCG135_CONFIG {
   struct {
     uint32_t _reserved_0 : 4;
     eSETPOINT_PRESENT SETPOINT_PRESENT : 1;
-    uint32_t _reserved_end : 27;
+    uint32_t _reserved_1 : 27;
   } bits;
   
   // Full 32-bit register value.
@@ -54372,18 +54372,18 @@ union LPCG135_AUTHEN {
   struct {
     eTZ_USER TZ_USER : 1;
     eTZ_NS TZ_NS : 1;
-    uint32_t _reserved_2 : 2;
+    uint32_t _reserved_0 : 2;
     eLOCK_TZ LOCK_TZ : 1;
-    uint32_t _reserved_3 : 3;
+    uint32_t _reserved_1 : 3;
     uint32_t WHITE_LIST : 4;
     eLOCK_LIST LOCK_LIST : 1;
-    uint32_t _reserved_5 : 3;
+    uint32_t _reserved_2 : 3;
     eDOMAIN_MODE DOMAIN_MODE : 1;
     eSETPOINT_MODE SETPOINT_MODE : 1;
     eCPULPM CPULPM : 1;
-    uint32_t _reserved_8 : 1;
+    uint32_t _reserved_3 : 1;
     eLOCK_MODE LOCK_MODE : 1;
-    uint32_t _reserved_end : 11;
+    uint32_t _reserved_4 : 11;
   } bits;
   
   // Full 32-bit register value.
@@ -54406,7 +54406,7 @@ union LPCG136_DIRECT {
   // Bit field definition.
   struct {
     eON ON : 1;
-    uint32_t _reserved_end : 31;
+    uint32_t _reserved_0 : 31;
   } bits;
   
   // Full 32-bit register value.
@@ -54464,15 +54464,15 @@ union LPCG136_DOMAIN {
   // Bit field definition.
   struct {
     eLEVEL LEVEL : 3;
-    uint32_t _reserved_1 : 13;
+    uint32_t _reserved_0 : 13;
     eLEVEL0 LEVEL0 : 3;
-    uint32_t _reserved_2 : 1;
+    uint32_t _reserved_1 : 1;
     eLEVEL1 LEVEL1 : 3;
-    uint32_t _reserved_3 : 1;
+    uint32_t _reserved_2 : 1;
     eLEVEL2 LEVEL2 : 3;
-    uint32_t _reserved_4 : 1;
+    uint32_t _reserved_3 : 1;
     eLEVEL3 LEVEL3 : 3;
-    uint32_t _reserved_end : 1;
+    uint32_t _reserved_4 : 1;
   } bits;
   
   // Full 32-bit register value.
@@ -54533,10 +54533,10 @@ union LPCG136_STATUS0 {
   // Bit field definition.
   struct {
     eON ON : 1;
-    uint32_t _reserved_1 : 7;
+    uint32_t _reserved_0 : 7;
     eACTIVE_DOMAIN ACTIVE_DOMAIN : 4;
     eDOMAIN_ENABLE DOMAIN_ENABLE : 4;
-    uint32_t _reserved_end : 16;
+    uint32_t _reserved_1 : 16;
   } bits;
   
   // Full 32-bit register value.
@@ -54659,7 +54659,7 @@ union LPCG136_STATUS1 {
     eSETPOINT_OFF_DONE SETPOINT_OFF_DONE : 1;
     eSETPOINT_ON_REQUEST SETPOINT_ON_REQUEST : 1;
     eSETPOINT_ON_DONE SETPOINT_ON_DONE : 1;
-    uint32_t _reserved_end : 4;
+    uint32_t _reserved_0 : 4;
   } bits;
   
   // Full 32-bit register value.
@@ -54683,7 +54683,7 @@ union LPCG136_CONFIG {
   struct {
     uint32_t _reserved_0 : 4;
     eSETPOINT_PRESENT SETPOINT_PRESENT : 1;
-    uint32_t _reserved_end : 27;
+    uint32_t _reserved_1 : 27;
   } bits;
   
   // Full 32-bit register value.
@@ -54742,18 +54742,18 @@ union LPCG136_AUTHEN {
   struct {
     eTZ_USER TZ_USER : 1;
     eTZ_NS TZ_NS : 1;
-    uint32_t _reserved_2 : 2;
+    uint32_t _reserved_0 : 2;
     eLOCK_TZ LOCK_TZ : 1;
-    uint32_t _reserved_3 : 3;
+    uint32_t _reserved_1 : 3;
     uint32_t WHITE_LIST : 4;
     eLOCK_LIST LOCK_LIST : 1;
-    uint32_t _reserved_5 : 3;
+    uint32_t _reserved_2 : 3;
     eDOMAIN_MODE DOMAIN_MODE : 1;
     eSETPOINT_MODE SETPOINT_MODE : 1;
     eCPULPM CPULPM : 1;
-    uint32_t _reserved_8 : 1;
+    uint32_t _reserved_3 : 1;
     eLOCK_MODE LOCK_MODE : 1;
-    uint32_t _reserved_end : 11;
+    uint32_t _reserved_4 : 11;
   } bits;
   
   // Full 32-bit register value.
@@ -54776,7 +54776,7 @@ union LPCG137_DIRECT {
   // Bit field definition.
   struct {
     eON ON : 1;
-    uint32_t _reserved_end : 31;
+    uint32_t _reserved_0 : 31;
   } bits;
   
   // Full 32-bit register value.
@@ -54834,15 +54834,15 @@ union LPCG137_DOMAIN {
   // Bit field definition.
   struct {
     eLEVEL LEVEL : 3;
-    uint32_t _reserved_1 : 13;
+    uint32_t _reserved_0 : 13;
     eLEVEL0 LEVEL0 : 3;
-    uint32_t _reserved_2 : 1;
+    uint32_t _reserved_1 : 1;
     eLEVEL1 LEVEL1 : 3;
-    uint32_t _reserved_3 : 1;
+    uint32_t _reserved_2 : 1;
     eLEVEL2 LEVEL2 : 3;
-    uint32_t _reserved_4 : 1;
+    uint32_t _reserved_3 : 1;
     eLEVEL3 LEVEL3 : 3;
-    uint32_t _reserved_end : 1;
+    uint32_t _reserved_4 : 1;
   } bits;
   
   // Full 32-bit register value.
@@ -54903,10 +54903,10 @@ union LPCG137_STATUS0 {
   // Bit field definition.
   struct {
     eON ON : 1;
-    uint32_t _reserved_1 : 7;
+    uint32_t _reserved_0 : 7;
     eACTIVE_DOMAIN ACTIVE_DOMAIN : 4;
     eDOMAIN_ENABLE DOMAIN_ENABLE : 4;
-    uint32_t _reserved_end : 16;
+    uint32_t _reserved_1 : 16;
   } bits;
   
   // Full 32-bit register value.
@@ -55029,7 +55029,7 @@ union LPCG137_STATUS1 {
     eSETPOINT_OFF_DONE SETPOINT_OFF_DONE : 1;
     eSETPOINT_ON_REQUEST SETPOINT_ON_REQUEST : 1;
     eSETPOINT_ON_DONE SETPOINT_ON_DONE : 1;
-    uint32_t _reserved_end : 4;
+    uint32_t _reserved_0 : 4;
   } bits;
   
   // Full 32-bit register value.
@@ -55053,7 +55053,7 @@ union LPCG137_CONFIG {
   struct {
     uint32_t _reserved_0 : 4;
     eSETPOINT_PRESENT SETPOINT_PRESENT : 1;
-    uint32_t _reserved_end : 27;
+    uint32_t _reserved_1 : 27;
   } bits;
   
   // Full 32-bit register value.
@@ -55112,18 +55112,18 @@ union LPCG137_AUTHEN {
   struct {
     eTZ_USER TZ_USER : 1;
     eTZ_NS TZ_NS : 1;
-    uint32_t _reserved_2 : 2;
+    uint32_t _reserved_0 : 2;
     eLOCK_TZ LOCK_TZ : 1;
-    uint32_t _reserved_3 : 3;
+    uint32_t _reserved_1 : 3;
     uint32_t WHITE_LIST : 4;
     eLOCK_LIST LOCK_LIST : 1;
-    uint32_t _reserved_5 : 3;
+    uint32_t _reserved_2 : 3;
     eDOMAIN_MODE DOMAIN_MODE : 1;
     eSETPOINT_MODE SETPOINT_MODE : 1;
     eCPULPM CPULPM : 1;
-    uint32_t _reserved_8 : 1;
+    uint32_t _reserved_3 : 1;
     eLOCK_MODE LOCK_MODE : 1;
-    uint32_t _reserved_end : 11;
+    uint32_t _reserved_4 : 11;
   } bits;
   
   // Full 32-bit register value.

@@ -4,7 +4,7 @@
 #include <stdint.h>
 #include <cstring>
 
-// // PDM
+// PDM
 //
 // NOTE: This file was generated from the forge CMSIS-svd wrapper tool.
 
@@ -61,7 +61,7 @@ union CTRL_1 {
     uint32_t CH5EN : 1;
     uint32_t CH6EN : 1;
     uint32_t CH7EN : 1;
-    uint32_t _reserved_8 : 15;
+    uint32_t _reserved_0 : 15;
     eERREN ERREN : 1;
     eDISEL DISEL : 2;
     eDBGE DBGE : 1;
@@ -96,11 +96,11 @@ union CTRL_2 {
   // Bit field definition.
   struct {
     uint32_t CLKDIV : 8;
-    uint32_t _reserved_1 : 8;
+    uint32_t _reserved_0 : 8;
     uint32_t CICOSR : 4;
-    uint32_t _reserved_2 : 5;
+    uint32_t _reserved_1 : 5;
     eQSEL QSEL : 3;
-    uint32_t _reserved_end : 4;
+    uint32_t _reserved_2 : 4;
   } bits;
   
   // Full 32-bit register value.
@@ -180,7 +180,7 @@ union STAT {
     eCH5F CH5F : 1;
     eCH6F CH6F : 1;
     eCH7F CH7F : 1;
-    uint32_t _reserved_8 : 21;
+    uint32_t _reserved_0 : 21;
     eLOWFREQF LOWFREQF : 1;
     eFIR_RDY FIR_RDY : 1;
     eBSY_FIL BSY_FIL : 1;
@@ -201,7 +201,7 @@ union FIFO_CTRL {
   // Bit field definition.
   struct {
     uint32_t FIFOWMK : 3;
-    uint32_t _reserved_end : 29;
+    uint32_t _reserved_0 : 29;
   } bits;
   
   // Full 32-bit register value.
@@ -314,7 +314,7 @@ union FIFO_STAT {
     eFIFOUND5 FIFOUND5 : 1;
     eFIFOUND6 FIFOUND6 : 1;
     eFIFOUND7 FIFOUND7 : 1;
-    uint32_t _reserved_end : 16;
+    uint32_t _reserved_0 : 16;
   } bits;
   
   // Full 32-bit register value.
@@ -524,7 +524,7 @@ union DC_CTRL {
     eDCCONFIG5 DCCONFIG5 : 2;
     eDCCONFIG6 DCCONFIG6 : 2;
     eDCCONFIG7 DCCONFIG7 : 2;
-    uint32_t _reserved_end : 16;
+    uint32_t _reserved_0 : 16;
   } bits;
   
   // Full 32-bit register value.
@@ -653,7 +653,7 @@ union RANGE_STAT {
     eRANGEOVF5 RANGEOVF5 : 1;
     eRANGEOVF6 RANGEOVF6 : 1;
     eRANGEOVF7 RANGEOVF7 : 1;
-    uint32_t _reserved_8 : 8;
+    uint32_t _reserved_0 : 8;
     eRANGEUNF0 RANGEUNF0 : 1;
     eRANGEUNF1 RANGEUNF1 : 1;
     eRANGEUNF2 RANGEUNF2 : 1;
@@ -662,7 +662,7 @@ union RANGE_STAT {
     eRANGEUNF5 RANGEUNF5 : 1;
     eRANGEUNF6 RANGEUNF6 : 1;
     eRANGEUNF7 RANGEUNF7 : 1;
-    uint32_t _reserved_end : 8;
+    uint32_t _reserved_1 : 8;
   } bits;
   
   // Full 32-bit register value.
@@ -704,13 +704,13 @@ union VAD0_CTRL_1 {
     eVADIE VADIE : 1;
     eVADERIE VADERIE : 1;
     eVADST10 VADST10 : 1;
-    uint32_t _reserved_5 : 3;
+    uint32_t _reserved_0 : 3;
     uint32_t VADINITT : 5;
-    uint32_t _reserved_6 : 3;
+    uint32_t _reserved_1 : 3;
     uint32_t VADCICOSR : 4;
-    uint32_t _reserved_7 : 4;
+    uint32_t _reserved_2 : 4;
     uint32_t VADCHSEL : 3;
-    uint32_t _reserved_end : 5;
+    uint32_t _reserved_3 : 5;
   } bits;
   
   // Full 32-bit register value.
@@ -750,13 +750,13 @@ union VAD0_CTRL_2 {
   // Bit field definition.
   struct {
     eVADHPF VADHPF : 2;
-    uint32_t _reserved_1 : 6;
+    uint32_t _reserved_0 : 6;
     uint32_t VADINPGAIN : 4;
-    uint32_t _reserved_2 : 4;
+    uint32_t _reserved_1 : 4;
     uint32_t VADFRAMET : 6;
-    uint32_t _reserved_3 : 6;
+    uint32_t _reserved_2 : 6;
     eVADFOUTDIS VADFOUTDIS : 1;
-    uint32_t _reserved_4 : 1;
+    uint32_t _reserved_3 : 1;
     eVADPREFEN VADPREFEN : 1;
     eVADFRENDIS VADFRENDIS : 1;
   } bits;
@@ -796,10 +796,10 @@ union VAD0_STAT {
   // Bit field definition.
   struct {
     eVADIF VADIF : 1;
-    uint32_t _reserved_1 : 14;
+    uint32_t _reserved_0 : 14;
     eVADEF VADEF : 1;
     eVADINSATF VADINSATF : 1;
-    uint32_t _reserved_3 : 14;
+    uint32_t _reserved_1 : 14;
     eVADINITF VADINITF : 1;
   } bits;
   
@@ -828,7 +828,7 @@ union VAD0_SCONFIG {
   // Bit field definition.
   struct {
     uint32_t VADSGAIN : 4;
-    uint32_t _reserved_1 : 26;
+    uint32_t _reserved_0 : 26;
     eVADSMAXEN VADSMAXEN : 1;
     eVADSFILEN VADSFILEN : 1;
   } bits;
@@ -868,9 +868,9 @@ union VAD0_NCONFIG {
   // Bit field definition.
   struct {
     uint32_t VADNGAIN : 4;
-    uint32_t _reserved_1 : 4;
+    uint32_t _reserved_0 : 4;
     uint32_t VADNFILADJ : 5;
-    uint32_t _reserved_2 : 15;
+    uint32_t _reserved_1 : 15;
     eVADNOREN VADNOREN : 1;
     eVADNDECEN VADNDECEN : 1;
     eVADNMINEN VADNMINEN : 1;
@@ -892,7 +892,7 @@ union VAD0_NDATA {
   // Bit field definition.
   struct {
     uint32_t VADNDATA : 16;
-    uint32_t _reserved_end : 16;
+    uint32_t _reserved_0 : 16;
   } bits;
   
   // Full 32-bit register value.
@@ -925,15 +925,15 @@ union VAD0_ZCD {
   // Bit field definition.
   struct {
     eVADZCDEN VADZCDEN : 1;
-    uint32_t _reserved_1 : 1;
+    uint32_t _reserved_0 : 1;
     eVADZCDAUTO VADZCDAUTO : 1;
-    uint32_t _reserved_2 : 1;
+    uint32_t _reserved_1 : 1;
     eVADZCDAND VADZCDAND : 1;
-    uint32_t _reserved_3 : 3;
+    uint32_t _reserved_2 : 3;
     uint32_t VADZCDADJ : 4;
-    uint32_t _reserved_4 : 4;
+    uint32_t _reserved_3 : 4;
     uint32_t VADZCDTH : 10;
-    uint32_t _reserved_end : 6;
+    uint32_t _reserved_4 : 6;
   } bits;
   
   // Full 32-bit register value.

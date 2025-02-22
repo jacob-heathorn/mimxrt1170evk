@@ -4,7 +4,7 @@
 #include <stdint.h>
 #include <cstring>
 
-// // MX6RT_ANADIG_REGISTER
+// MX6RT_ANADIG_REGISTER
 //
 // NOTE: This file was generated from the forge CMSIS-svd wrapper tool.
 
@@ -24,11 +24,11 @@ union PMU_LDO_PLL {
   struct {
     uint32_t LDO_PLL_ENABLE : 1;
     eLDO_PLL_CONTROL_MODE LDO_PLL_CONTROL_MODE : 1;
-    uint32_t _reserved_2 : 14;
+    uint32_t _reserved_0 : 14;
     uint32_t LDO_PLL_AI_TOGGLE : 1;
-    uint32_t _reserved_3 : 13;
+    uint32_t _reserved_1 : 13;
     uint32_t LDO_PLL_AI_BUSY : 1;
-    uint32_t _reserved_end : 1;
+    uint32_t _reserved_2 : 1;
   } bits;
   
   // Full 32-bit register value.
@@ -51,9 +51,9 @@ union PMU_BIAS_CTRL {
   // Bit field definition.
   struct {
     uint32_t WB_CFG_1P8 : 13;
-    uint32_t _reserved_1 : 1;
+    uint32_t _reserved_0 : 1;
     eWB_VDD_SEL_1P8 WB_VDD_SEL_1P8 : 1;
-    uint32_t _reserved_end : 17;
+    uint32_t _reserved_1 : 17;
   } bits;
   
   // Full 32-bit register value.
@@ -120,7 +120,7 @@ union PMU_BIAS_CTRL2 {
     uint32_t WB_EN : 1;
     uint32_t WB_TST_DIG_OUT : 1;
     uint32_t WB_OK : 1;
-    uint32_t _reserved_end : 5;
+    uint32_t _reserved_1 : 5;
   } bits;
   
   // Full 32-bit register value.
@@ -147,7 +147,7 @@ union PMU_REF_CTRL {
     uint32_t REF_ENABLE : 1;
     eREF_CONTROL_MODE REF_CONTROL_MODE : 1;
     uint32_t EN_PLL_VOL_REF_BUFFER : 1;
-    uint32_t _reserved_end : 27;
+    uint32_t _reserved_0 : 27;
   } bits;
   
   // Full 32-bit register value.
@@ -166,7 +166,7 @@ union PMU_POWER_DETECT_CTRL {
   struct {
     uint32_t _reserved_0 : 8;
     uint32_t CKGB_LPSR1P0 : 1;
-    uint32_t _reserved_end : 23;
+    uint32_t _reserved_1 : 23;
   } bits;
   
   // Full 32-bit register value.
@@ -279,7 +279,7 @@ union LDO_PLL_ENABLE_SP {
     eON_OFF_SETPOINT13 ON_OFF_SETPOINT13 : 1;
     eON_OFF_SETPOINT14 ON_OFF_SETPOINT14 : 1;
     eON_OFF_SETPOINT15 ON_OFF_SETPOINT15 : 1;
-    uint32_t _reserved_end : 16;
+    uint32_t _reserved_0 : 16;
   } bits;
   
   // Full 32-bit register value.
@@ -392,7 +392,7 @@ union LDO_LPSR_ANA_ENABLE_SP {
     eON_OFF_SETPOINT13 ON_OFF_SETPOINT13 : 1;
     eON_OFF_SETPOINT14 ON_OFF_SETPOINT14 : 1;
     eON_OFF_SETPOINT15 ON_OFF_SETPOINT15 : 1;
-    uint32_t _reserved_end : 16;
+    uint32_t _reserved_0 : 16;
   } bits;
   
   // Full 32-bit register value.
@@ -505,7 +505,7 @@ union LDO_LPSR_ANA_LP_MODE_SP {
     eLP_MODE_SETPONIT13 LP_MODE_SETPONIT13 : 1;
     eLP_MODE_SETPONIT14 LP_MODE_SETPONIT14 : 1;
     eLP_MODE_SETPONIT15 LP_MODE_SETPONIT15 : 1;
-    uint32_t _reserved_end : 16;
+    uint32_t _reserved_0 : 16;
   } bits;
   
   // Full 32-bit register value.
@@ -618,7 +618,7 @@ union LDO_LPSR_ANA_TRACKING_EN_SP {
     eTRACKING_EN_SETPOINT13 TRACKING_EN_SETPOINT13 : 1;
     eTRACKING_EN_SETPOINT14 TRACKING_EN_SETPOINT14 : 1;
     eTRACKING_EN_SETPOINT15 TRACKING_EN_SETPOINT15 : 1;
-    uint32_t _reserved_end : 16;
+    uint32_t _reserved_0 : 16;
   } bits;
   
   // Full 32-bit register value.
@@ -731,7 +731,7 @@ union LDO_LPSR_ANA_BYPASS_EN_SP {
     eBYPASS_EN_SETPOINT13 BYPASS_EN_SETPOINT13 : 1;
     eBYPASS_EN_SETPOINT14 BYPASS_EN_SETPOINT14 : 1;
     eBYPASS_EN_SETPOINT15 BYPASS_EN_SETPOINT15 : 1;
-    uint32_t _reserved_end : 16;
+    uint32_t _reserved_0 : 16;
   } bits;
   
   // Full 32-bit register value.
@@ -844,7 +844,7 @@ union LDO_LPSR_ANA_STBY_EN_SP {
     eSTBY_EN_SETPOINT13 STBY_EN_SETPOINT13 : 1;
     eSTBY_EN_SETPOINT14 STBY_EN_SETPOINT14 : 1;
     eSTBY_EN_SETPOINT15 STBY_EN_SETPOINT15 : 1;
-    uint32_t _reserved_end : 16;
+    uint32_t _reserved_0 : 16;
   } bits;
   
   // Full 32-bit register value.
@@ -957,7 +957,7 @@ union LDO_LPSR_DIG_ENABLE_SP {
     eON_OFF_SETPOINT13 ON_OFF_SETPOINT13 : 1;
     eON_OFF_SETPOINT14 ON_OFF_SETPOINT14 : 1;
     eON_OFF_SETPOINT15 ON_OFF_SETPOINT15 : 1;
-    uint32_t _reserved_end : 16;
+    uint32_t _reserved_0 : 16;
   } bits;
   
   // Full 32-bit register value.
@@ -1150,7 +1150,7 @@ union LDO_LPSR_DIG_LP_MODE_SP {
     eLP_MODE_SETPOINT13 LP_MODE_SETPOINT13 : 1;
     eLP_MODE_SETPOINT14 LP_MODE_SETPOINT14 : 1;
     eLP_MODE_SETPOINT15 LP_MODE_SETPOINT15 : 1;
-    uint32_t _reserved_end : 16;
+    uint32_t _reserved_0 : 16;
   } bits;
   
   // Full 32-bit register value.
@@ -1263,7 +1263,7 @@ union LDO_LPSR_DIG_TRACKING_EN_SP {
     eTRACKING_EN_SETPOINT13 TRACKING_EN_SETPOINT13 : 1;
     eTRACKING_EN_SETPOINT14 TRACKING_EN_SETPOINT14 : 1;
     eTRACKING_EN_SETPOINT15 TRACKING_EN_SETPOINT15 : 1;
-    uint32_t _reserved_end : 16;
+    uint32_t _reserved_0 : 16;
   } bits;
   
   // Full 32-bit register value.
@@ -1376,7 +1376,7 @@ union LDO_LPSR_DIG_BYPASS_EN_SP {
     eBYPASS_EN_SETPOINT13 BYPASS_EN_SETPOINT13 : 1;
     eBYPASS_EN_SETPOINT14 BYPASS_EN_SETPOINT14 : 1;
     eBYPASS_EN_SETPOINT15 BYPASS_EN_SETPOINT15 : 1;
-    uint32_t _reserved_end : 16;
+    uint32_t _reserved_0 : 16;
   } bits;
   
   // Full 32-bit register value.
@@ -1489,7 +1489,7 @@ union LDO_LPSR_DIG_STBY_EN_SP {
     eSTBY_EN_SETPOINT13 STBY_EN_SETPOINT13 : 1;
     eSTBY_EN_SETPOINT14 STBY_EN_SETPOINT14 : 1;
     eSTBY_EN_SETPOINT15 STBY_EN_SETPOINT15 : 1;
-    uint32_t _reserved_end : 16;
+    uint32_t _reserved_0 : 16;
   } bits;
   
   // Full 32-bit register value.
@@ -1602,7 +1602,7 @@ union BANDGAP_ENABLE_SP {
     eON_OFF_SETPOINT13 ON_OFF_SETPOINT13 : 1;
     eON_OFF_SETPOINT14 ON_OFF_SETPOINT14 : 1;
     eON_OFF_SETPOINT15 ON_OFF_SETPOINT15 : 1;
-    uint32_t _reserved_end : 16;
+    uint32_t _reserved_0 : 16;
   } bits;
   
   // Full 32-bit register value.
@@ -1715,7 +1715,7 @@ union FBB_M7_ENABLE_SP {
     eON_OFF_SETPOINT13 ON_OFF_SETPOINT13 : 1;
     eON_OFF_SETPOINT14 ON_OFF_SETPOINT14 : 1;
     eON_OFF_SETPOINT15 ON_OFF_SETPOINT15 : 1;
-    uint32_t _reserved_end : 16;
+    uint32_t _reserved_0 : 16;
   } bits;
   
   // Full 32-bit register value.
@@ -1828,7 +1828,7 @@ union RBB_SOC_ENABLE_SP {
     eON_OFF_SETPOINT13 ON_OFF_SETPOINT13 : 1;
     eON_OFF_SETPOINT14 ON_OFF_SETPOINT14 : 1;
     eON_OFF_SETPOINT15 ON_OFF_SETPOINT15 : 1;
-    uint32_t _reserved_end : 16;
+    uint32_t _reserved_0 : 16;
   } bits;
   
   // Full 32-bit register value.
@@ -1941,7 +1941,7 @@ union RBB_LPSR_ENABLE_SP {
     eON_OFF_SETPOINT13 ON_OFF_SETPOINT13 : 1;
     eON_OFF_SETPOINT14 ON_OFF_SETPOINT14 : 1;
     eON_OFF_SETPOINT15 ON_OFF_SETPOINT15 : 1;
-    uint32_t _reserved_end : 16;
+    uint32_t _reserved_0 : 16;
   } bits;
   
   // Full 32-bit register value.
@@ -2054,7 +2054,7 @@ union BANDGAP_STBY_EN_SP {
     eSTBY_EN_SETPOINT13 STBY_EN_SETPOINT13 : 1;
     eSTBY_EN_SETPOINT14 STBY_EN_SETPOINT14 : 1;
     eSTBY_EN_SETPOINT15 STBY_EN_SETPOINT15 : 1;
-    uint32_t _reserved_end : 16;
+    uint32_t _reserved_0 : 16;
   } bits;
   
   // Full 32-bit register value.
@@ -2167,7 +2167,7 @@ union PLL_LDO_STBY_EN_SP {
     eSTBY_EN_SETPOINT13 STBY_EN_SETPOINT13 : 1;
     eSTBY_EN_SETPOINT14 STBY_EN_SETPOINT14 : 1;
     eSTBY_EN_SETPOINT15 STBY_EN_SETPOINT15 : 1;
-    uint32_t _reserved_end : 16;
+    uint32_t _reserved_0 : 16;
   } bits;
   
   // Full 32-bit register value.
@@ -2280,7 +2280,7 @@ union FBB_M7_STBY_EN_SP {
     eSTBY_EN_SETPOINT13 STBY_EN_SETPOINT13 : 1;
     eSTBY_EN_SETPOINT14 STBY_EN_SETPOINT14 : 1;
     eSTBY_EN_SETPOINT15 STBY_EN_SETPOINT15 : 1;
-    uint32_t _reserved_end : 16;
+    uint32_t _reserved_0 : 16;
   } bits;
   
   // Full 32-bit register value.
@@ -2393,7 +2393,7 @@ union RBB_SOC_STBY_EN_SP {
     eSTBY_EN_SETPOINT13 STBY_EN_SETPOINT13 : 1;
     eSTBY_EN_SETPOINT14 STBY_EN_SETPOINT14 : 1;
     eSTBY_EN_SETPOINT15 STBY_EN_SETPOINT15 : 1;
-    uint32_t _reserved_end : 16;
+    uint32_t _reserved_0 : 16;
   } bits;
   
   // Full 32-bit register value.
@@ -2506,7 +2506,7 @@ union RBB_LPSR_STBY_EN_SP {
     eSTBY_EN_SETPOINT13 STBY_EN_SETPOINT13 : 1;
     eSTBY_EN_SETPOINT14 STBY_EN_SETPOINT14 : 1;
     eSTBY_EN_SETPOINT15 STBY_EN_SETPOINT15 : 1;
-    uint32_t _reserved_end : 16;
+    uint32_t _reserved_0 : 16;
   } bits;
   
   // Full 32-bit register value.
@@ -2527,7 +2527,7 @@ union FBB_M7_CONFIGURE {
     uint32_t WB_CFG_NW : 4;
     uint32_t OSCILLATOR_BITS : 3;
     uint32_t REGULATOR_STRENGTH : 3;
-    uint32_t _reserved_end : 18;
+    uint32_t _reserved_0 : 18;
   } bits;
   
   // Full 32-bit register value.
@@ -2548,7 +2548,7 @@ union RBB_LPSR_CONFIGURE {
     uint32_t WB_CFG_NW : 4;
     uint32_t OSCILLATOR_BITS : 3;
     uint32_t REGULATOR_STRENGTH : 3;
-    uint32_t _reserved_end : 18;
+    uint32_t _reserved_0 : 18;
   } bits;
   
   // Full 32-bit register value.
@@ -2569,7 +2569,7 @@ union RBB_SOC_CONFIGURE {
     uint32_t WB_CFG_NW : 4;
     uint32_t OSCILLATOR_BITS : 3;
     uint32_t REGULATOR_STRENGTH : 3;
-    uint32_t _reserved_end : 18;
+    uint32_t _reserved_0 : 18;
   } bits;
   
   // Full 32-bit register value.
@@ -2589,7 +2589,7 @@ union REFTOP_OTP_TRIM_VALUE {
     uint32_t REFTOP_IBZTCADJ : 3;
     uint32_t REFTOP_VBGADJ : 3;
     uint32_t REFTOP_TRIM_EN : 1;
-    uint32_t _reserved_end : 25;
+    uint32_t _reserved_0 : 25;
   } bits;
   
   // Full 32-bit register value.
@@ -2608,7 +2608,7 @@ union LPSR_1P8_LDO_OTP_TRIM_VALUE {
   struct {
     uint32_t LPSR_LDO_1P8_TRIM : 2;
     uint32_t LPSR_LDO_1P8_TRIM_EN : 1;
-    uint32_t _reserved_end : 29;
+    uint32_t _reserved_0 : 29;
   } bits;
   
   // Full 32-bit register value.

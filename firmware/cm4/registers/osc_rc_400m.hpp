@@ -4,7 +4,7 @@
 #include <stdint.h>
 #include <cstring>
 
-// // no description available
+// no description available
 //
 // NOTE: This file was generated from the forge CMSIS-svd wrapper tool.
 
@@ -19,7 +19,7 @@ union CTRL0 {
   struct {
     uint32_t _reserved_0 : 24;
     uint32_t REF_CLK_DIV : 6;
-    uint32_t _reserved_end : 2;
+    uint32_t _reserved_1 : 2;
   } bits;
   
   // Full 32-bit register value.
@@ -38,7 +38,7 @@ union CTRL0_SET {
   struct {
     uint32_t _reserved_0 : 24;
     uint32_t REF_CLK_DIV : 6;
-    uint32_t _reserved_end : 2;
+    uint32_t _reserved_1 : 2;
   } bits;
   
   // Full 32-bit register value.
@@ -57,7 +57,7 @@ union CTRL0_CLR {
   struct {
     uint32_t _reserved_0 : 24;
     uint32_t REF_CLK_DIV : 6;
-    uint32_t _reserved_end : 2;
+    uint32_t _reserved_1 : 2;
   } bits;
   
   // Full 32-bit register value.
@@ -76,7 +76,7 @@ union CTRL0_TOG {
   struct {
     uint32_t _reserved_0 : 24;
     uint32_t REF_CLK_DIV : 6;
-    uint32_t _reserved_end : 2;
+    uint32_t _reserved_1 : 2;
   } bits;
   
   // Full 32-bit register value.
@@ -94,9 +94,9 @@ union CTRL1 {
   // Bit field definition.
   struct {
     uint32_t HYST_MINUS : 4;
-    uint32_t _reserved_1 : 4;
+    uint32_t _reserved_0 : 4;
     uint32_t HYST_PLUS : 4;
-    uint32_t _reserved_2 : 4;
+    uint32_t _reserved_1 : 4;
     uint32_t TARGET_COUNT : 16;
   } bits;
   
@@ -115,9 +115,9 @@ union CTRL1_SET {
   // Bit field definition.
   struct {
     uint32_t HYST_MINUS : 4;
-    uint32_t _reserved_1 : 4;
+    uint32_t _reserved_0 : 4;
     uint32_t HYST_PLUS : 4;
-    uint32_t _reserved_2 : 4;
+    uint32_t _reserved_1 : 4;
     uint32_t TARGET_COUNT : 16;
   } bits;
   
@@ -136,9 +136,9 @@ union CTRL1_CLR {
   // Bit field definition.
   struct {
     uint32_t HYST_MINUS : 4;
-    uint32_t _reserved_1 : 4;
+    uint32_t _reserved_0 : 4;
     uint32_t HYST_PLUS : 4;
-    uint32_t _reserved_2 : 4;
+    uint32_t _reserved_1 : 4;
     uint32_t TARGET_COUNT : 16;
   } bits;
   
@@ -157,9 +157,9 @@ union CTRL1_TOG {
   // Bit field definition.
   struct {
     uint32_t HYST_MINUS : 4;
-    uint32_t _reserved_1 : 4;
+    uint32_t _reserved_0 : 4;
     uint32_t HYST_PLUS : 4;
-    uint32_t _reserved_2 : 4;
+    uint32_t _reserved_1 : 4;
     uint32_t TARGET_COUNT : 16;
   } bits;
   
@@ -304,11 +304,11 @@ union CTRL3 {
   // Bit field definition.
   struct {
     eCLR_ERR CLR_ERR : 1;
-    uint32_t _reserved_1 : 7;
+    uint32_t _reserved_0 : 7;
     eEN_1M_CLK EN_1M_CLK : 1;
-    uint32_t _reserved_2 : 1;
+    uint32_t _reserved_1 : 1;
     eMUX_1M_CLK MUX_1M_CLK : 1;
-    uint32_t _reserved_3 : 5;
+    uint32_t _reserved_2 : 5;
     uint32_t COUNT_1M_CLK : 16;
   } bits;
   
@@ -327,11 +327,11 @@ union CTRL3_SET {
   // Bit field definition.
   struct {
     uint32_t CLR_ERR : 1;
-    uint32_t _reserved_1 : 7;
+    uint32_t _reserved_0 : 7;
     uint32_t EN_1M_CLK : 1;
-    uint32_t _reserved_2 : 1;
+    uint32_t _reserved_1 : 1;
     uint32_t MUX_1M_CLK : 1;
-    uint32_t _reserved_3 : 5;
+    uint32_t _reserved_2 : 5;
     uint32_t COUNT_1M_CLK : 16;
   } bits;
   
@@ -350,11 +350,11 @@ union CTRL3_CLR {
   // Bit field definition.
   struct {
     uint32_t CLR_ERR : 1;
-    uint32_t _reserved_1 : 7;
+    uint32_t _reserved_0 : 7;
     uint32_t EN_1M_CLK : 1;
-    uint32_t _reserved_2 : 1;
+    uint32_t _reserved_1 : 1;
     uint32_t MUX_1M_CLK : 1;
-    uint32_t _reserved_3 : 5;
+    uint32_t _reserved_2 : 5;
     uint32_t COUNT_1M_CLK : 16;
   } bits;
   
@@ -373,11 +373,11 @@ union CTRL3_TOG {
   // Bit field definition.
   struct {
     uint32_t CLR_ERR : 1;
-    uint32_t _reserved_1 : 7;
+    uint32_t _reserved_0 : 7;
     uint32_t EN_1M_CLK : 1;
-    uint32_t _reserved_2 : 1;
+    uint32_t _reserved_1 : 1;
     uint32_t MUX_1M_CLK : 1;
-    uint32_t _reserved_3 : 5;
+    uint32_t _reserved_2 : 5;
     uint32_t COUNT_1M_CLK : 16;
   } bits;
   
@@ -401,7 +401,7 @@ union STAT0 {
   // Bit field definition.
   struct {
     eCLK1M_ERR CLK1M_ERR : 1;
-    uint32_t _reserved_end : 31;
+    uint32_t _reserved_0 : 31;
   } bits;
   
   // Full 32-bit register value.
@@ -419,7 +419,7 @@ union STAT0_SET {
   // Bit field definition.
   struct {
     uint32_t CLK1M_ERR : 1;
-    uint32_t _reserved_end : 31;
+    uint32_t _reserved_0 : 31;
   } bits;
   
   // Full 32-bit register value.
@@ -437,7 +437,7 @@ union STAT0_CLR {
   // Bit field definition.
   struct {
     uint32_t CLK1M_ERR : 1;
-    uint32_t _reserved_end : 31;
+    uint32_t _reserved_0 : 31;
   } bits;
   
   // Full 32-bit register value.
@@ -455,7 +455,7 @@ union STAT0_TOG {
   // Bit field definition.
   struct {
     uint32_t CLK1M_ERR : 1;
-    uint32_t _reserved_end : 31;
+    uint32_t _reserved_0 : 31;
   } bits;
   
   // Full 32-bit register value.

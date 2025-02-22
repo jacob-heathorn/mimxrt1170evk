@@ -4,7 +4,7 @@
 #include <stdint.h>
 #include <cstring>
 
-// // VIDEO_MUX
+// VIDEO_MUX
 //
 // NOTE: This file was generated from the forge CMSIS-svd wrapper tool.
 
@@ -41,7 +41,7 @@ union VID_MUX_CTRL {
     eLCDIF2_SEL LCDIF2_SEL : 1;
     eMIPI_DSI_SEL MIPI_DSI_SEL : 1;
     ePARA_LCD_SEL PARA_LCD_SEL : 1;
-    uint32_t _reserved_end : 28;
+    uint32_t _reserved_0 : 28;
   } bits;
   
   // Full 32-bit register value.
@@ -62,7 +62,7 @@ union VID_MUX_CTRL_SET {
     uint32_t LCDIF2_SEL : 1;
     uint32_t MIPI_DSI_SEL : 1;
     uint32_t PARA_LCD_SEL : 1;
-    uint32_t _reserved_end : 28;
+    uint32_t _reserved_0 : 28;
   } bits;
   
   // Full 32-bit register value.
@@ -83,7 +83,7 @@ union VID_MUX_CTRL_CLR {
     uint32_t LCDIF2_SEL : 1;
     uint32_t MIPI_DSI_SEL : 1;
     uint32_t PARA_LCD_SEL : 1;
-    uint32_t _reserved_end : 28;
+    uint32_t _reserved_0 : 28;
   } bits;
   
   // Full 32-bit register value.
@@ -104,7 +104,7 @@ union VID_MUX_CTRL_TOG {
     uint32_t LCDIF2_SEL : 1;
     uint32_t MIPI_DSI_SEL : 1;
     uint32_t PARA_LCD_SEL : 1;
-    uint32_t _reserved_end : 28;
+    uint32_t _reserved_0 : 28;
   } bits;
   
   // Full 32-bit register value.
@@ -151,7 +151,7 @@ union PLM_CTRL {
     eHSYNC_OVERRIDE HSYNC_OVERRIDE : 1;
     eVALID_OVERRIDE VALID_OVERRIDE : 1;
     ePOLARITY POLARITY : 1;
-    uint32_t _reserved_end : 27;
+    uint32_t _reserved_0 : 27;
   } bits;
   
   // Full 32-bit register value.
@@ -173,7 +173,7 @@ union PLM_CTRL_SET {
     uint32_t HSYNC_OVERRIDE : 1;
     uint32_t VALID_OVERRIDE : 1;
     uint32_t POLARITY : 1;
-    uint32_t _reserved_end : 27;
+    uint32_t _reserved_0 : 27;
   } bits;
   
   // Full 32-bit register value.
@@ -195,7 +195,7 @@ union PLM_CTRL_CLR {
     uint32_t HSYNC_OVERRIDE : 1;
     uint32_t VALID_OVERRIDE : 1;
     uint32_t POLARITY : 1;
-    uint32_t _reserved_end : 27;
+    uint32_t _reserved_0 : 27;
   } bits;
   
   // Full 32-bit register value.
@@ -217,7 +217,7 @@ union PLM_CTRL_TOG {
     uint32_t HSYNC_OVERRIDE : 1;
     uint32_t VALID_OVERRIDE : 1;
     uint32_t POLARITY : 1;
-    uint32_t _reserved_end : 27;
+    uint32_t _reserved_0 : 27;
   } bits;
   
   // Full 32-bit register value.
@@ -240,7 +240,7 @@ union YUV420_CTRL {
   // Bit field definition.
   struct {
     eFST_LN_DATA_TYPE FST_LN_DATA_TYPE : 1;
-    uint32_t _reserved_end : 31;
+    uint32_t _reserved_0 : 31;
   } bits;
   
   // Full 32-bit register value.
@@ -258,7 +258,7 @@ union YUV420_CTRL_SET {
   // Bit field definition.
   struct {
     uint32_t FST_LN_DATA_TYPE : 1;
-    uint32_t _reserved_end : 31;
+    uint32_t _reserved_0 : 31;
   } bits;
   
   // Full 32-bit register value.
@@ -276,7 +276,7 @@ union YUV420_CTRL_CLR {
   // Bit field definition.
   struct {
     uint32_t FST_LN_DATA_TYPE : 1;
-    uint32_t _reserved_end : 31;
+    uint32_t _reserved_0 : 31;
   } bits;
   
   // Full 32-bit register value.
@@ -294,7 +294,7 @@ union YUV420_CTRL_TOG {
   // Bit field definition.
   struct {
     uint32_t FST_LN_DATA_TYPE : 1;
-    uint32_t _reserved_end : 31;
+    uint32_t _reserved_0 : 31;
   } bits;
   
   // Full 32-bit register value.
@@ -312,7 +312,7 @@ union CFG_DT_DISABLE {
   // Bit field definition.
   struct {
     uint32_t CFG_DT_DISABLE : 24;
-    uint32_t _reserved_end : 8;
+    uint32_t _reserved_0 : 8;
   } bits;
   
   // Full 32-bit register value.
@@ -330,7 +330,7 @@ union CFG_DT_DISABLE_SET {
   // Bit field definition.
   struct {
     uint32_t CFG_DT_DISABLE : 24;
-    uint32_t _reserved_end : 8;
+    uint32_t _reserved_0 : 8;
   } bits;
   
   // Full 32-bit register value.
@@ -348,7 +348,7 @@ union CFG_DT_DISABLE_CLR {
   // Bit field definition.
   struct {
     uint32_t CFG_DT_DISABLE : 24;
-    uint32_t _reserved_end : 8;
+    uint32_t _reserved_0 : 8;
   } bits;
   
   // Full 32-bit register value.
@@ -366,7 +366,7 @@ union CFG_DT_DISABLE_TOG {
   // Bit field definition.
   struct {
     uint32_t CFG_DT_DISABLE : 24;
-    uint32_t _reserved_end : 8;
+    uint32_t _reserved_0 : 8;
   } bits;
   
   // Full 32-bit register value.
@@ -395,7 +395,7 @@ union MIPI_DSI_CTRL {
   struct {
     eDPI_SD DPI_SD : 1;
     eDPI_CM DPI_CM : 1;
-    uint32_t _reserved_end : 30;
+    uint32_t _reserved_0 : 30;
   } bits;
   
   // Full 32-bit register value.
@@ -414,7 +414,7 @@ union MIPI_DSI_CTRL_SET {
   struct {
     uint32_t DPI_SD : 1;
     uint32_t DPI_CM : 1;
-    uint32_t _reserved_end : 30;
+    uint32_t _reserved_0 : 30;
   } bits;
   
   // Full 32-bit register value.
@@ -433,7 +433,7 @@ union MIPI_DSI_CTRL_CLR {
   struct {
     uint32_t DPI_SD : 1;
     uint32_t DPI_CM : 1;
-    uint32_t _reserved_end : 30;
+    uint32_t _reserved_0 : 30;
   } bits;
   
   // Full 32-bit register value.
@@ -452,7 +452,7 @@ union MIPI_DSI_CTRL_TOG {
   struct {
     uint32_t DPI_SD : 1;
     uint32_t DPI_CM : 1;
-    uint32_t _reserved_end : 30;
+    uint32_t _reserved_0 : 30;
   } bits;
   
   // Full 32-bit register value.

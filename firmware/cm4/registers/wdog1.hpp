@@ -4,7 +4,7 @@
 #include <stdint.h>
 #include <cstring>
 
-// // WDOG
+// WDOG
 //
 // NOTE: This file was generated from the forge CMSIS-svd wrapper tool.
 
@@ -74,7 +74,7 @@ union WCR {
     eSRE SRE : 1;
     eWDW WDW : 1;
     eWT WT : 8;
-    uint32_t _reserved_end : 16;
+    uint32_t _reserved_0 : 16;
   } bits;
   
   // Full 32-bit register value.
@@ -97,7 +97,7 @@ union WSR {
   // Bit field definition.
   struct {
     eWSR WSR : 16;
-    uint32_t _reserved_end : 16;
+    uint32_t _reserved_0 : 16;
   } bits;
   
   // Full 32-bit register value.
@@ -131,9 +131,9 @@ union WRSR {
   struct {
     eSFTW SFTW : 1;
     eTOUT TOUT : 1;
-    uint32_t _reserved_2 : 2;
+    uint32_t _reserved_0 : 2;
     ePOR POR : 1;
-    uint32_t _reserved_end : 27;
+    uint32_t _reserved_1 : 27;
   } bits;
   
   // Full 32-bit register value.
@@ -168,10 +168,10 @@ union WICR {
   // Bit field definition.
   struct {
     eWICT WICT : 8;
-    uint32_t _reserved_1 : 6;
+    uint32_t _reserved_0 : 6;
     eWTIS WTIS : 1;
     eWIE WIE : 1;
-    uint32_t _reserved_end : 16;
+    uint32_t _reserved_1 : 16;
   } bits;
   
   // Full 32-bit register value.
@@ -194,7 +194,7 @@ union WMCR {
   // Bit field definition.
   struct {
     ePDE PDE : 1;
-    uint32_t _reserved_end : 31;
+    uint32_t _reserved_0 : 31;
   } bits;
   
   // Full 32-bit register value.

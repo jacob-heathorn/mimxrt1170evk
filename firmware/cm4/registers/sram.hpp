@@ -4,7 +4,7 @@
 #include <stdint.h>
 #include <cstring>
 
-// // Secure RAM
+// Secure RAM
 //
 // NOTE: This file was generated from the forge CMSIS-svd wrapper tool.
 
@@ -42,9 +42,9 @@ union CTRL {
     uint32_t PWR_EN : 4;
     eTAMPER_BLOCK_EN TAMPER_BLOCK_EN : 1;
     eTAMPER_PWR_OFF_EN TAMPER_PWR_OFF_EN : 1;
-    uint32_t _reserved_5 : 8;
+    uint32_t _reserved_0 : 8;
     uint32_t LOCK_BIT : 8;
-    uint32_t _reserved_end : 8;
+    uint32_t _reserved_1 : 8;
   } bits;
   
   // Full 32-bit register value.

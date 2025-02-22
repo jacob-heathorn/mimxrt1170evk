@@ -4,7 +4,7 @@
 #include <stdint.h>
 #include <cstring>
 
-// // OTFAD
+// OTFAD
 //
 // NOTE: This file was generated from the forge CMSIS-svd wrapper tool.
 
@@ -58,9 +58,9 @@ union CR {
     eFLDM FLDM : 1;
     eKBSE KBSE : 1;
     eKBPE KBPE : 1;
-    uint32_t _reserved_4 : 1;
+    uint32_t _reserved_2 : 1;
     eRRAE RRAE : 1;
-    uint32_t _reserved_5 : 22;
+    uint32_t _reserved_3 : 22;
     eSKBP SKBP : 1;
     eGE GE : 1;
   } bits;
@@ -159,12 +159,12 @@ union SR {
     eCTXER1 CTXER1 : 1;
     eCTXER2 CTXER2 : 1;
     eCTXER3 CTXER3 : 1;
-    uint32_t _reserved_8 : 4;
+    uint32_t _reserved_0 : 4;
     eCTXIE0 CTXIE0 : 1;
     eCTXIE1 CTXIE1 : 1;
     eCTXIE2 CTXIE2 : 1;
     eCTXIE3 CTXIE3 : 1;
-    uint32_t _reserved_12 : 4;
+    uint32_t _reserved_1 : 4;
     uint32_t HRL : 4;
     eRRAM RRAM : 1;
     eGEM GEM : 1;

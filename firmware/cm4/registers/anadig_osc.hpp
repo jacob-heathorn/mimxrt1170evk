@@ -4,7 +4,7 @@
 #include <stdint.h>
 #include <cstring>
 
-// // MX6RT_ANADIG_REGISTER
+// MX6RT_ANADIG_REGISTER
 //
 // NOTE: This file was generated from the forge CMSIS-svd wrapper tool.
 
@@ -100,9 +100,9 @@ union OSC_24M_CTRL {
     eLP_EN LP_EN : 1;
     eOSC_COMP_MODE OSC_COMP_MODE : 1;
     eOSC_EN OSC_EN : 1;
-    uint32_t _reserved_5 : 2;
+    uint32_t _reserved_0 : 2;
     eOSC_24M_GATE OSC_24M_GATE : 1;
-    uint32_t _reserved_6 : 22;
+    uint32_t _reserved_1 : 22;
     eOSC_24M_STABLE OSC_24M_STABLE : 1;
     eOSC_24M_CONTROL_MODE OSC_24M_CONTROL_MODE : 1;
   } bits;
@@ -156,7 +156,7 @@ union OSC_400M_CTRL1 {
   struct {
     ePWD PWD : 1;
     eCLKGATE_400MEG CLKGATE_400MEG : 1;
-    uint32_t _reserved_2 : 29;
+    uint32_t _reserved_0 : 29;
     eRC_400M_CONTROL_MODE RC_400M_CONTROL_MODE : 1;
   } bits;
   
@@ -185,9 +185,9 @@ union OSC_400M_CTRL2 {
   // Bit field definition.
   struct {
     eENABLE_CLK ENABLE_CLK : 1;
-    uint32_t _reserved_1 : 9;
+    uint32_t _reserved_0 : 9;
     eTUNE_BYP TUNE_BYP : 1;
-    uint32_t _reserved_2 : 13;
+    uint32_t _reserved_1 : 13;
     uint32_t OSC_TUNE_VAL : 8;
   } bits;
   

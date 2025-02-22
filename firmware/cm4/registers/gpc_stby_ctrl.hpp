@@ -4,7 +4,7 @@
 #include <stdint.h>
 #include <cstring>
 
-// // GPC_STBY
+// GPC_STBY
 //
 // NOTE: This file was generated from the forge CMSIS-svd wrapper tool.
 
@@ -19,7 +19,7 @@ union STBY_AUTHEN_CTRL {
   struct {
     uint32_t _reserved_0 : 20;
     uint32_t LOCK_CFG : 1;
-    uint32_t _reserved_end : 11;
+    uint32_t _reserved_1 : 11;
   } bits;
   
   // Full 32-bit register value.
@@ -40,7 +40,7 @@ union STBY_MISC {
     uint32_t FORCE_CPU1_STBY : 1;
     uint32_t FORCE_CPU2_STBY : 1;
     uint32_t FORCE_CPU3_STBY : 1;
-    uint32_t _reserved_end : 28;
+    uint32_t _reserved_0 : 28;
   } bits;
   
   // Full 32-bit register value.
@@ -65,9 +65,9 @@ union STBY_LPCG_IN_CTRL {
   // Bit field definition.
   struct {
     uint32_t STEP_CNT : 16;
-    uint32_t _reserved_1 : 12;
+    uint32_t _reserved_0 : 12;
     eCNT_MODE CNT_MODE : 2;
-    uint32_t _reserved_2 : 1;
+    uint32_t _reserved_1 : 1;
     uint32_t DISABLE : 1;
   } bits;
   
@@ -93,9 +93,9 @@ union STBY_PLL_IN_CTRL {
   // Bit field definition.
   struct {
     uint32_t STEP_CNT : 16;
-    uint32_t _reserved_1 : 12;
+    uint32_t _reserved_0 : 12;
     eCNT_MODE CNT_MODE : 2;
-    uint32_t _reserved_2 : 1;
+    uint32_t _reserved_1 : 1;
     uint32_t DISABLE : 1;
   } bits;
   
@@ -121,9 +121,9 @@ union STBY_BIAS_IN_CTRL {
   // Bit field definition.
   struct {
     uint32_t STEP_CNT : 16;
-    uint32_t _reserved_1 : 12;
+    uint32_t _reserved_0 : 12;
     eCNT_MODE CNT_MODE : 2;
-    uint32_t _reserved_2 : 1;
+    uint32_t _reserved_1 : 1;
     uint32_t DISABLE : 1;
   } bits;
   
@@ -149,9 +149,9 @@ union STBY_PLDO_IN_CTRL {
   // Bit field definition.
   struct {
     uint32_t STEP_CNT : 16;
-    uint32_t _reserved_1 : 12;
+    uint32_t _reserved_0 : 12;
     eCNT_MODE CNT_MODE : 2;
-    uint32_t _reserved_2 : 1;
+    uint32_t _reserved_1 : 1;
     uint32_t DISABLE : 1;
   } bits;
   
@@ -177,9 +177,9 @@ union STBY_BANDGAP_IN_CTRL {
   // Bit field definition.
   struct {
     uint32_t STEP_CNT : 16;
-    uint32_t _reserved_1 : 12;
+    uint32_t _reserved_0 : 12;
     eCNT_MODE CNT_MODE : 2;
-    uint32_t _reserved_2 : 1;
+    uint32_t _reserved_1 : 1;
     uint32_t DISABLE : 1;
   } bits;
   
@@ -205,9 +205,9 @@ union STBY_LDO_IN_CTRL {
   // Bit field definition.
   struct {
     uint32_t STEP_CNT : 16;
-    uint32_t _reserved_1 : 12;
+    uint32_t _reserved_0 : 12;
     eCNT_MODE CNT_MODE : 2;
-    uint32_t _reserved_2 : 1;
+    uint32_t _reserved_1 : 1;
     uint32_t DISABLE : 1;
   } bits;
   
@@ -233,9 +233,9 @@ union STBY_DCDC_IN_CTRL {
   // Bit field definition.
   struct {
     uint32_t STEP_CNT : 16;
-    uint32_t _reserved_1 : 12;
+    uint32_t _reserved_0 : 12;
     eCNT_MODE CNT_MODE : 2;
-    uint32_t _reserved_2 : 1;
+    uint32_t _reserved_1 : 1;
     uint32_t DISABLE : 1;
   } bits;
   
@@ -261,9 +261,9 @@ union STBY_PMIC_IN_CTRL {
   // Bit field definition.
   struct {
     uint32_t STEP_CNT : 16;
-    uint32_t _reserved_1 : 12;
+    uint32_t _reserved_0 : 12;
     eCNT_MODE CNT_MODE : 2;
-    uint32_t _reserved_2 : 1;
+    uint32_t _reserved_1 : 1;
     uint32_t DISABLE : 1;
   } bits;
   
@@ -289,9 +289,9 @@ union STBY_PMIC_OUT_CTRL {
   // Bit field definition.
   struct {
     uint32_t STEP_CNT : 16;
-    uint32_t _reserved_1 : 12;
+    uint32_t _reserved_0 : 12;
     eCNT_MODE CNT_MODE : 2;
-    uint32_t _reserved_2 : 1;
+    uint32_t _reserved_1 : 1;
     uint32_t DISABLE : 1;
   } bits;
   
@@ -317,9 +317,9 @@ union STBY_DCDC_OUT_CTRL {
   // Bit field definition.
   struct {
     uint32_t STEP_CNT : 16;
-    uint32_t _reserved_1 : 12;
+    uint32_t _reserved_0 : 12;
     eCNT_MODE CNT_MODE : 2;
-    uint32_t _reserved_2 : 1;
+    uint32_t _reserved_1 : 1;
     uint32_t DISABLE : 1;
   } bits;
   
@@ -345,9 +345,9 @@ union STBY_LDO_OUT_CTRL {
   // Bit field definition.
   struct {
     uint32_t STEP_CNT : 16;
-    uint32_t _reserved_1 : 12;
+    uint32_t _reserved_0 : 12;
     eCNT_MODE CNT_MODE : 2;
-    uint32_t _reserved_2 : 1;
+    uint32_t _reserved_1 : 1;
     uint32_t DISABLE : 1;
   } bits;
   
@@ -373,9 +373,9 @@ union STBY_BANDGAP_OUT_CTRL {
   // Bit field definition.
   struct {
     uint32_t STEP_CNT : 16;
-    uint32_t _reserved_1 : 12;
+    uint32_t _reserved_0 : 12;
     eCNT_MODE CNT_MODE : 2;
-    uint32_t _reserved_2 : 1;
+    uint32_t _reserved_1 : 1;
     uint32_t DISABLE : 1;
   } bits;
   
@@ -401,9 +401,9 @@ union STBY_PLDO_OUT_CTRL {
   // Bit field definition.
   struct {
     uint32_t STEP_CNT : 16;
-    uint32_t _reserved_1 : 12;
+    uint32_t _reserved_0 : 12;
     eCNT_MODE CNT_MODE : 2;
-    uint32_t _reserved_2 : 1;
+    uint32_t _reserved_1 : 1;
     uint32_t DISABLE : 1;
   } bits;
   
@@ -429,9 +429,9 @@ union STBY_BIAS_OUT_CTRL {
   // Bit field definition.
   struct {
     uint32_t STEP_CNT : 16;
-    uint32_t _reserved_1 : 12;
+    uint32_t _reserved_0 : 12;
     eCNT_MODE CNT_MODE : 2;
-    uint32_t _reserved_2 : 1;
+    uint32_t _reserved_1 : 1;
     uint32_t DISABLE : 1;
   } bits;
   
@@ -457,9 +457,9 @@ union STBY_PLL_OUT_CTRL {
   // Bit field definition.
   struct {
     uint32_t STEP_CNT : 16;
-    uint32_t _reserved_1 : 12;
+    uint32_t _reserved_0 : 12;
     eCNT_MODE CNT_MODE : 2;
-    uint32_t _reserved_2 : 1;
+    uint32_t _reserved_1 : 1;
     uint32_t DISABLE : 1;
   } bits;
   
@@ -485,9 +485,9 @@ union STBY_LPCG_OUT_CTRL {
   // Bit field definition.
   struct {
     uint32_t STEP_CNT : 16;
-    uint32_t _reserved_1 : 12;
+    uint32_t _reserved_0 : 12;
     eCNT_MODE CNT_MODE : 2;
-    uint32_t _reserved_2 : 1;
+    uint32_t _reserved_1 : 1;
     uint32_t DISABLE : 1;
   } bits;
   

@@ -4,7 +4,7 @@
 #include <stdint.h>
 #include <cstring>
 
-// // Fractional PLL
+// Fractional PLL
 //
 // NOTE: This file was generated from the forge CMSIS-svd wrapper tool.
 
@@ -62,22 +62,22 @@ union CTRL0 {
   // Bit field definition.
   struct {
     uint32_t DIV_SELECT : 7;
-    uint32_t _reserved_1 : 1;
+    uint32_t _reserved_0 : 1;
     eENABLE_ALT ENABLE_ALT : 1;
-    uint32_t _reserved_2 : 4;
+    uint32_t _reserved_1 : 4;
     eHOLD_RING_OFF HOLD_RING_OFF : 1;
     ePOWERUP POWERUP : 1;
     eENABLE ENABLE : 1;
     eBYPASS BYPASS : 1;
     eDITHER_EN DITHER_EN : 1;
-    uint32_t _reserved_7 : 1;
+    uint32_t _reserved_2 : 1;
     uint32_t BIAS_TRIM : 3;
     uint32_t PLL_REG_EN : 1;
-    uint32_t _reserved_9 : 2;
+    uint32_t _reserved_3 : 2;
     ePOST_DIV_SEL POST_DIV_SEL : 3;
-    uint32_t _reserved_10 : 1;
+    uint32_t _reserved_4 : 1;
     eBIAS_SELECT BIAS_SELECT : 1;
-    uint32_t _reserved_end : 2;
+    uint32_t _reserved_5 : 2;
   } bits;
   
   // Full 32-bit register value.
@@ -95,22 +95,22 @@ union CTRL0_SET {
   // Bit field definition.
   struct {
     uint32_t DIV_SELECT : 7;
-    uint32_t _reserved_1 : 1;
+    uint32_t _reserved_0 : 1;
     uint32_t ENABLE_ALT : 1;
-    uint32_t _reserved_2 : 4;
+    uint32_t _reserved_1 : 4;
     uint32_t HOLD_RING_OFF : 1;
     uint32_t POWERUP : 1;
     uint32_t ENABLE : 1;
     uint32_t BYPASS : 1;
     uint32_t DITHER_EN : 1;
-    uint32_t _reserved_7 : 1;
+    uint32_t _reserved_2 : 1;
     uint32_t BIAS_TRIM : 3;
     uint32_t PLL_REG_EN : 1;
-    uint32_t _reserved_9 : 2;
+    uint32_t _reserved_3 : 2;
     uint32_t POST_DIV_SEL : 3;
-    uint32_t _reserved_10 : 1;
+    uint32_t _reserved_4 : 1;
     uint32_t BIAS_SELECT : 1;
-    uint32_t _reserved_end : 2;
+    uint32_t _reserved_5 : 2;
   } bits;
   
   // Full 32-bit register value.
@@ -128,22 +128,22 @@ union CTRL0_CLR {
   // Bit field definition.
   struct {
     uint32_t DIV_SELECT : 7;
-    uint32_t _reserved_1 : 1;
+    uint32_t _reserved_0 : 1;
     uint32_t ENABLE_ALT : 1;
-    uint32_t _reserved_2 : 4;
+    uint32_t _reserved_1 : 4;
     uint32_t HOLD_RING_OFF : 1;
     uint32_t POWERUP : 1;
     uint32_t ENABLE : 1;
     uint32_t BYPASS : 1;
     uint32_t DITHER_EN : 1;
-    uint32_t _reserved_7 : 1;
+    uint32_t _reserved_2 : 1;
     uint32_t BIAS_TRIM : 3;
     uint32_t PLL_REG_EN : 1;
-    uint32_t _reserved_9 : 2;
+    uint32_t _reserved_3 : 2;
     uint32_t POST_DIV_SEL : 3;
-    uint32_t _reserved_10 : 1;
+    uint32_t _reserved_4 : 1;
     uint32_t BIAS_SELECT : 1;
-    uint32_t _reserved_end : 2;
+    uint32_t _reserved_5 : 2;
   } bits;
   
   // Full 32-bit register value.
@@ -161,22 +161,22 @@ union CTRL0_TOG {
   // Bit field definition.
   struct {
     uint32_t DIV_SELECT : 7;
-    uint32_t _reserved_1 : 1;
+    uint32_t _reserved_0 : 1;
     uint32_t ENABLE_ALT : 1;
-    uint32_t _reserved_2 : 4;
+    uint32_t _reserved_1 : 4;
     uint32_t HOLD_RING_OFF : 1;
     uint32_t POWERUP : 1;
     uint32_t ENABLE : 1;
     uint32_t BYPASS : 1;
     uint32_t DITHER_EN : 1;
-    uint32_t _reserved_7 : 1;
+    uint32_t _reserved_2 : 1;
     uint32_t BIAS_TRIM : 3;
     uint32_t PLL_REG_EN : 1;
-    uint32_t _reserved_9 : 2;
+    uint32_t _reserved_3 : 2;
     uint32_t POST_DIV_SEL : 3;
-    uint32_t _reserved_10 : 1;
+    uint32_t _reserved_4 : 1;
     uint32_t BIAS_SELECT : 1;
-    uint32_t _reserved_end : 2;
+    uint32_t _reserved_5 : 2;
   } bits;
   
   // Full 32-bit register value.
@@ -270,7 +270,7 @@ union NUMERATOR {
   // Bit field definition.
   struct {
     uint32_t NUM : 30;
-    uint32_t _reserved_end : 2;
+    uint32_t _reserved_0 : 2;
   } bits;
   
   // Full 32-bit register value.
@@ -288,7 +288,7 @@ union NUMERATOR_SET {
   // Bit field definition.
   struct {
     uint32_t NUM : 30;
-    uint32_t _reserved_end : 2;
+    uint32_t _reserved_0 : 2;
   } bits;
   
   // Full 32-bit register value.
@@ -306,7 +306,7 @@ union NUMERATOR_CLR {
   // Bit field definition.
   struct {
     uint32_t NUM : 30;
-    uint32_t _reserved_end : 2;
+    uint32_t _reserved_0 : 2;
   } bits;
   
   // Full 32-bit register value.
@@ -324,7 +324,7 @@ union NUMERATOR_TOG {
   // Bit field definition.
   struct {
     uint32_t NUM : 30;
-    uint32_t _reserved_end : 2;
+    uint32_t _reserved_0 : 2;
   } bits;
   
   // Full 32-bit register value.
@@ -342,7 +342,7 @@ union DENOMINATOR {
   // Bit field definition.
   struct {
     uint32_t DENOM : 30;
-    uint32_t _reserved_end : 2;
+    uint32_t _reserved_0 : 2;
   } bits;
   
   // Full 32-bit register value.
@@ -360,7 +360,7 @@ union DENOMINATOR_SET {
   // Bit field definition.
   struct {
     uint32_t DENOM : 30;
-    uint32_t _reserved_end : 2;
+    uint32_t _reserved_0 : 2;
   } bits;
   
   // Full 32-bit register value.
@@ -378,7 +378,7 @@ union DENOMINATOR_CLR {
   // Bit field definition.
   struct {
     uint32_t DENOM : 30;
-    uint32_t _reserved_end : 2;
+    uint32_t _reserved_0 : 2;
   } bits;
   
   // Full 32-bit register value.
@@ -396,7 +396,7 @@ union DENOMINATOR_TOG {
   // Bit field definition.
   struct {
     uint32_t DENOM : 30;
-    uint32_t _reserved_end : 2;
+    uint32_t _reserved_0 : 2;
   } bits;
   
   // Full 32-bit register value.

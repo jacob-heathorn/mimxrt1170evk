@@ -4,7 +4,7 @@
 #include <stdint.h>
 #include <cstring>
 
-// // MUB
+// MUB
 //
 // NOTE: This file was generated from the forge CMSIS-svd wrapper tool.
 
@@ -189,12 +189,12 @@ union SR {
   // Bit field definition.
   struct {
     eFn Fn : 3;
-    uint32_t _reserved_1 : 1;
+    uint32_t _reserved_0 : 1;
     eEP EP : 1;
-    uint32_t _reserved_2 : 2;
+    uint32_t _reserved_1 : 2;
     eRS RS : 1;
     eFUP FUP : 1;
-    uint32_t _reserved_4 : 11;
+    uint32_t _reserved_2 : 11;
     eTEn TEn : 4;
     eRFn RFn : 4;
     eGIPn GIPn : 4;
@@ -240,7 +240,7 @@ union CR {
   // Bit field definition.
   struct {
     eFn Fn : 3;
-    uint32_t _reserved_1 : 13;
+    uint32_t _reserved_0 : 13;
     eGIRn GIRn : 4;
     eTIEn TIEn : 4;
     eRIEn RIEn : 4;

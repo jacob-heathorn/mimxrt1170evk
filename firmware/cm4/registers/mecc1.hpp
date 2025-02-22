@@ -4,7 +4,7 @@
 #include <stdint.h>
 #include <cstring>
 
-// // MECC64
+// MECC64
 //
 // NOTE: This file was generated from the forge CMSIS-svd wrapper tool.
 
@@ -113,7 +113,7 @@ union ERR_STATUS {
     eADDR_ERR1 ADDR_ERR1 : 1;
     eADDR_ERR2 ADDR_ERR2 : 1;
     eADDR_ERR3 ADDR_ERR3 : 1;
-    uint32_t _reserved_end : 16;
+    uint32_t _reserved_0 : 16;
   } bits;
   
   // Full 32-bit register value.
@@ -226,7 +226,7 @@ union ERR_STAT_EN {
     eADDR_ERR1_STAT_EN ADDR_ERR1_STAT_EN : 1;
     eADDR_ERR2_STAT_EN ADDR_ERR2_STAT_EN : 1;
     eADDR_ERR3_STAT_EN ADDR_ERR3_STAT_EN : 1;
-    uint32_t _reserved_end : 16;
+    uint32_t _reserved_0 : 16;
   } bits;
   
   // Full 32-bit register value.
@@ -339,7 +339,7 @@ union ERR_SIG_EN {
     eADDR_ERR1_SIG_EN ADDR_ERR1_SIG_EN : 1;
     eADDR_ERR2_SIG_EN ADDR_ERR2_SIG_EN : 1;
     eADDR_ERR3_SIG_EN ADDR_ERR3_SIG_EN : 1;
-    uint32_t _reserved_end : 16;
+    uint32_t _reserved_0 : 16;
   } bits;
   
   // Full 32-bit register value.
@@ -391,7 +391,7 @@ union ERR_ECC_INJ0 {
   // Bit field definition.
   struct {
     uint32_t ERR_ECC_INJ : 8;
-    uint32_t _reserved_end : 24;
+    uint32_t _reserved_0 : 24;
   } bits;
   
   // Full 32-bit register value.
@@ -443,7 +443,7 @@ union ERR_ECC_INJ1 {
   // Bit field definition.
   struct {
     uint32_t ERR_ECC_INJ : 8;
-    uint32_t _reserved_end : 24;
+    uint32_t _reserved_0 : 24;
   } bits;
   
   // Full 32-bit register value.
@@ -495,7 +495,7 @@ union ERR_ECC_INJ2 {
   // Bit field definition.
   struct {
     uint32_t ERR_ECC_INJ : 8;
-    uint32_t _reserved_end : 24;
+    uint32_t _reserved_0 : 24;
   } bits;
   
   // Full 32-bit register value.
@@ -547,7 +547,7 @@ union ERR_ECC_INJ3 {
   // Bit field definition.
   struct {
     uint32_t ERR_ECC_INJ : 8;
-    uint32_t _reserved_end : 24;
+    uint32_t _reserved_0 : 24;
   } bits;
   
   // Full 32-bit register value.
@@ -566,7 +566,7 @@ union SINGLE_ERR_ADDR_ECC0 {
   struct {
     uint32_t SINGLE_ERR_ECC : 8;
     uint32_t SINGLE_ERR_ADDR : 19;
-    uint32_t _reserved_end : 5;
+    uint32_t _reserved_0 : 5;
   } bits;
   
   // Full 32-bit register value.
@@ -653,7 +653,7 @@ union SINGLE_ERR_ADDR_ECC1 {
   struct {
     uint32_t SINGLE_ERR_ECC : 8;
     uint32_t SINGLE_ERR_ADDR : 19;
-    uint32_t _reserved_end : 5;
+    uint32_t _reserved_0 : 5;
   } bits;
   
   // Full 32-bit register value.
@@ -740,7 +740,7 @@ union SINGLE_ERR_ADDR_ECC2 {
   struct {
     uint32_t SINGLE_ERR_ECC : 8;
     uint32_t SINGLE_ERR_ADDR : 19;
-    uint32_t _reserved_end : 5;
+    uint32_t _reserved_0 : 5;
   } bits;
   
   // Full 32-bit register value.
@@ -827,7 +827,7 @@ union SINGLE_ERR_ADDR_ECC3 {
   struct {
     uint32_t SINGLE_ERR_ECC : 8;
     uint32_t SINGLE_ERR_ADDR : 19;
-    uint32_t _reserved_end : 5;
+    uint32_t _reserved_0 : 5;
   } bits;
   
   // Full 32-bit register value.
@@ -914,7 +914,7 @@ union MULTI_ERR_ADDR_ECC0 {
   struct {
     uint32_t MULTI_ERR_ECC : 8;
     uint32_t MULTI_ERR_ADDR : 19;
-    uint32_t _reserved_end : 5;
+    uint32_t _reserved_0 : 5;
   } bits;
   
   // Full 32-bit register value.
@@ -967,7 +967,7 @@ union MULTI_ERR_ADDR_ECC1 {
   struct {
     uint32_t MULTI_ERR_ECC : 8;
     uint32_t MULTI_ERR_ADDR : 19;
-    uint32_t _reserved_end : 5;
+    uint32_t _reserved_0 : 5;
   } bits;
   
   // Full 32-bit register value.
@@ -1020,7 +1020,7 @@ union MULTI_ERR_ADDR_ECC2 {
   struct {
     uint32_t MULTI_ERR_ECC : 8;
     uint32_t MULTI_ERR_ADDR : 19;
-    uint32_t _reserved_end : 5;
+    uint32_t _reserved_0 : 5;
   } bits;
   
   // Full 32-bit register value.
@@ -1073,7 +1073,7 @@ union MULTI_ERR_ADDR_ECC3 {
   struct {
     uint32_t MULTI_ERR_ECC : 8;
     uint32_t MULTI_ERR_ADDR : 19;
-    uint32_t _reserved_end : 5;
+    uint32_t _reserved_0 : 5;
   } bits;
   
   // Full 32-bit register value.
@@ -1154,7 +1154,7 @@ union PIPE_ECC_EN {
     eWRITE_DATA_PIPE_EN WRITE_DATA_PIPE_EN : 1;
     eWRITE_ADDR_PIPE_EN WRITE_ADDR_PIPE_EN : 1;
     eECC_EN ECC_EN : 1;
-    uint32_t _reserved_end : 27;
+    uint32_t _reserved_0 : 27;
   } bits;
   
   // Full 32-bit register value.
@@ -1195,7 +1195,7 @@ union PENDING_STAT {
     eREAD_ADDR_PIPE_PENDING READ_ADDR_PIPE_PENDING : 1;
     eWRITE_DATA_PIPE_PENDING WRITE_DATA_PIPE_PENDING : 1;
     eWRITE_ADDR_PIPE_PENDING WRITE_ADDR_PIPE_PENDING : 1;
-    uint32_t _reserved_end : 28;
+    uint32_t _reserved_0 : 28;
   } bits;
   
   // Full 32-bit register value.

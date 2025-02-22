@@ -4,7 +4,7 @@
 #include <stdint.h>
 #include <cstring>
 
-// // RDC
+// RDC
 //
 // NOTE: This file was generated from the forge CMSIS-svd wrapper tool.
 
@@ -21,7 +21,7 @@ union RDC_VIR {
     uint32_t NMSTR : 8;
     uint32_t NPER : 8;
     uint32_t NRGN : 8;
-    uint32_t _reserved_end : 4;
+    uint32_t _reserved_0 : 4;
   } bits;
   
   // Full 32-bit register value.
@@ -44,9 +44,9 @@ union RDC_STAT {
   // Bit field definition.
   struct {
     uint32_t DID : 4;
-    uint32_t _reserved_1 : 4;
+    uint32_t _reserved_0 : 4;
     ePDS PDS : 1;
-    uint32_t _reserved_end : 23;
+    uint32_t _reserved_1 : 23;
   } bits;
   
   // Full 32-bit register value.
@@ -69,7 +69,7 @@ union RDC_INTCTRL {
   // Bit field definition.
   struct {
     eRCI_EN RCI_EN : 1;
-    uint32_t _reserved_end : 31;
+    uint32_t _reserved_0 : 31;
   } bits;
   
   // Full 32-bit register value.
@@ -92,7 +92,7 @@ union RDC_INTSTAT {
   // Bit field definition.
   struct {
     eINT INT : 1;
-    uint32_t _reserved_end : 31;
+    uint32_t _reserved_0 : 31;
   } bits;
   
   // Full 32-bit register value.
@@ -120,7 +120,7 @@ union RDC_MDA0 {
   // Bit field definition.
   struct {
     eDID DID : 2;
-    uint32_t _reserved_1 : 29;
+    uint32_t _reserved_0 : 29;
     eLCK LCK : 1;
   } bits;
   
@@ -148,7 +148,7 @@ union RDC_MDA1 {
   // Bit field definition.
   struct {
     eDID DID : 2;
-    uint32_t _reserved_1 : 29;
+    uint32_t _reserved_0 : 29;
     eLCK LCK : 1;
   } bits;
   
@@ -176,7 +176,7 @@ union RDC_MDA2 {
   // Bit field definition.
   struct {
     eDID DID : 2;
-    uint32_t _reserved_1 : 29;
+    uint32_t _reserved_0 : 29;
     eLCK LCK : 1;
   } bits;
   
@@ -204,7 +204,7 @@ union RDC_MDA3 {
   // Bit field definition.
   struct {
     eDID DID : 2;
-    uint32_t _reserved_1 : 29;
+    uint32_t _reserved_0 : 29;
     eLCK LCK : 1;
   } bits;
   
@@ -232,7 +232,7 @@ union RDC_MDA4 {
   // Bit field definition.
   struct {
     eDID DID : 2;
-    uint32_t _reserved_1 : 29;
+    uint32_t _reserved_0 : 29;
     eLCK LCK : 1;
   } bits;
   
@@ -260,7 +260,7 @@ union RDC_MDA5 {
   // Bit field definition.
   struct {
     eDID DID : 2;
-    uint32_t _reserved_1 : 29;
+    uint32_t _reserved_0 : 29;
     eLCK LCK : 1;
   } bits;
   
@@ -288,7 +288,7 @@ union RDC_MDA6 {
   // Bit field definition.
   struct {
     eDID DID : 2;
-    uint32_t _reserved_1 : 29;
+    uint32_t _reserved_0 : 29;
     eLCK LCK : 1;
   } bits;
   
@@ -316,7 +316,7 @@ union RDC_MDA7 {
   // Bit field definition.
   struct {
     eDID DID : 2;
-    uint32_t _reserved_1 : 29;
+    uint32_t _reserved_0 : 29;
     eLCK LCK : 1;
   } bits;
   
@@ -344,7 +344,7 @@ union RDC_MDA8 {
   // Bit field definition.
   struct {
     eDID DID : 2;
-    uint32_t _reserved_1 : 29;
+    uint32_t _reserved_0 : 29;
     eLCK LCK : 1;
   } bits;
   
@@ -372,7 +372,7 @@ union RDC_MDA9 {
   // Bit field definition.
   struct {
     eDID DID : 2;
-    uint32_t _reserved_1 : 29;
+    uint32_t _reserved_0 : 29;
     eLCK LCK : 1;
   } bits;
   
@@ -400,7 +400,7 @@ union RDC_MDA10 {
   // Bit field definition.
   struct {
     eDID DID : 2;
-    uint32_t _reserved_1 : 29;
+    uint32_t _reserved_0 : 29;
     eLCK LCK : 1;
   } bits;
   
@@ -428,7 +428,7 @@ union RDC_MDA11 {
   // Bit field definition.
   struct {
     eDID DID : 2;
-    uint32_t _reserved_1 : 29;
+    uint32_t _reserved_0 : 29;
     eLCK LCK : 1;
   } bits;
   
@@ -480,7 +480,7 @@ union RDC_PDAP0 {
     eD0R D0R : 1;
     eD1W D1W : 1;
     eD1R D1R : 1;
-    uint32_t _reserved_4 : 26;
+    uint32_t _reserved_0 : 26;
     eSREQ SREQ : 1;
     eLCK LCK : 1;
   } bits;
@@ -532,7 +532,7 @@ union RDC_PDAP1 {
     eD0R D0R : 1;
     eD1W D1W : 1;
     eD1R D1R : 1;
-    uint32_t _reserved_4 : 26;
+    uint32_t _reserved_0 : 26;
     eSREQ SREQ : 1;
     eLCK LCK : 1;
   } bits;
@@ -584,7 +584,7 @@ union RDC_PDAP2 {
     eD0R D0R : 1;
     eD1W D1W : 1;
     eD1R D1R : 1;
-    uint32_t _reserved_4 : 26;
+    uint32_t _reserved_0 : 26;
     eSREQ SREQ : 1;
     eLCK LCK : 1;
   } bits;
@@ -636,7 +636,7 @@ union RDC_PDAP3 {
     eD0R D0R : 1;
     eD1W D1W : 1;
     eD1R D1R : 1;
-    uint32_t _reserved_4 : 26;
+    uint32_t _reserved_0 : 26;
     eSREQ SREQ : 1;
     eLCK LCK : 1;
   } bits;
@@ -688,7 +688,7 @@ union RDC_PDAP4 {
     eD0R D0R : 1;
     eD1W D1W : 1;
     eD1R D1R : 1;
-    uint32_t _reserved_4 : 26;
+    uint32_t _reserved_0 : 26;
     eSREQ SREQ : 1;
     eLCK LCK : 1;
   } bits;
@@ -740,7 +740,7 @@ union RDC_PDAP5 {
     eD0R D0R : 1;
     eD1W D1W : 1;
     eD1R D1R : 1;
-    uint32_t _reserved_4 : 26;
+    uint32_t _reserved_0 : 26;
     eSREQ SREQ : 1;
     eLCK LCK : 1;
   } bits;
@@ -792,7 +792,7 @@ union RDC_PDAP6 {
     eD0R D0R : 1;
     eD1W D1W : 1;
     eD1R D1R : 1;
-    uint32_t _reserved_4 : 26;
+    uint32_t _reserved_0 : 26;
     eSREQ SREQ : 1;
     eLCK LCK : 1;
   } bits;
@@ -844,7 +844,7 @@ union RDC_PDAP7 {
     eD0R D0R : 1;
     eD1W D1W : 1;
     eD1R D1R : 1;
-    uint32_t _reserved_4 : 26;
+    uint32_t _reserved_0 : 26;
     eSREQ SREQ : 1;
     eLCK LCK : 1;
   } bits;
@@ -896,7 +896,7 @@ union RDC_PDAP8 {
     eD0R D0R : 1;
     eD1W D1W : 1;
     eD1R D1R : 1;
-    uint32_t _reserved_4 : 26;
+    uint32_t _reserved_0 : 26;
     eSREQ SREQ : 1;
     eLCK LCK : 1;
   } bits;
@@ -948,7 +948,7 @@ union RDC_PDAP9 {
     eD0R D0R : 1;
     eD1W D1W : 1;
     eD1R D1R : 1;
-    uint32_t _reserved_4 : 26;
+    uint32_t _reserved_0 : 26;
     eSREQ SREQ : 1;
     eLCK LCK : 1;
   } bits;
@@ -1000,7 +1000,7 @@ union RDC_PDAP10 {
     eD0R D0R : 1;
     eD1W D1W : 1;
     eD1R D1R : 1;
-    uint32_t _reserved_4 : 26;
+    uint32_t _reserved_0 : 26;
     eSREQ SREQ : 1;
     eLCK LCK : 1;
   } bits;
@@ -1052,7 +1052,7 @@ union RDC_PDAP11 {
     eD0R D0R : 1;
     eD1W D1W : 1;
     eD1R D1R : 1;
-    uint32_t _reserved_4 : 26;
+    uint32_t _reserved_0 : 26;
     eSREQ SREQ : 1;
     eLCK LCK : 1;
   } bits;
@@ -1104,7 +1104,7 @@ union RDC_PDAP12 {
     eD0R D0R : 1;
     eD1W D1W : 1;
     eD1R D1R : 1;
-    uint32_t _reserved_4 : 26;
+    uint32_t _reserved_0 : 26;
     eSREQ SREQ : 1;
     eLCK LCK : 1;
   } bits;
@@ -1156,7 +1156,7 @@ union RDC_PDAP13 {
     eD0R D0R : 1;
     eD1W D1W : 1;
     eD1R D1R : 1;
-    uint32_t _reserved_4 : 26;
+    uint32_t _reserved_0 : 26;
     eSREQ SREQ : 1;
     eLCK LCK : 1;
   } bits;
@@ -1208,7 +1208,7 @@ union RDC_PDAP14 {
     eD0R D0R : 1;
     eD1W D1W : 1;
     eD1R D1R : 1;
-    uint32_t _reserved_4 : 26;
+    uint32_t _reserved_0 : 26;
     eSREQ SREQ : 1;
     eLCK LCK : 1;
   } bits;
@@ -1260,7 +1260,7 @@ union RDC_PDAP15 {
     eD0R D0R : 1;
     eD1W D1W : 1;
     eD1R D1R : 1;
-    uint32_t _reserved_4 : 26;
+    uint32_t _reserved_0 : 26;
     eSREQ SREQ : 1;
     eLCK LCK : 1;
   } bits;
@@ -1312,7 +1312,7 @@ union RDC_PDAP16 {
     eD0R D0R : 1;
     eD1W D1W : 1;
     eD1R D1R : 1;
-    uint32_t _reserved_4 : 26;
+    uint32_t _reserved_0 : 26;
     eSREQ SREQ : 1;
     eLCK LCK : 1;
   } bits;
@@ -1364,7 +1364,7 @@ union RDC_PDAP17 {
     eD0R D0R : 1;
     eD1W D1W : 1;
     eD1R D1R : 1;
-    uint32_t _reserved_4 : 26;
+    uint32_t _reserved_0 : 26;
     eSREQ SREQ : 1;
     eLCK LCK : 1;
   } bits;
@@ -1416,7 +1416,7 @@ union RDC_PDAP18 {
     eD0R D0R : 1;
     eD1W D1W : 1;
     eD1R D1R : 1;
-    uint32_t _reserved_4 : 26;
+    uint32_t _reserved_0 : 26;
     eSREQ SREQ : 1;
     eLCK LCK : 1;
   } bits;
@@ -1468,7 +1468,7 @@ union RDC_PDAP19 {
     eD0R D0R : 1;
     eD1W D1W : 1;
     eD1R D1R : 1;
-    uint32_t _reserved_4 : 26;
+    uint32_t _reserved_0 : 26;
     eSREQ SREQ : 1;
     eLCK LCK : 1;
   } bits;
@@ -1520,7 +1520,7 @@ union RDC_PDAP20 {
     eD0R D0R : 1;
     eD1W D1W : 1;
     eD1R D1R : 1;
-    uint32_t _reserved_4 : 26;
+    uint32_t _reserved_0 : 26;
     eSREQ SREQ : 1;
     eLCK LCK : 1;
   } bits;
@@ -1572,7 +1572,7 @@ union RDC_PDAP21 {
     eD0R D0R : 1;
     eD1W D1W : 1;
     eD1R D1R : 1;
-    uint32_t _reserved_4 : 26;
+    uint32_t _reserved_0 : 26;
     eSREQ SREQ : 1;
     eLCK LCK : 1;
   } bits;
@@ -1624,7 +1624,7 @@ union RDC_PDAP22 {
     eD0R D0R : 1;
     eD1W D1W : 1;
     eD1R D1R : 1;
-    uint32_t _reserved_4 : 26;
+    uint32_t _reserved_0 : 26;
     eSREQ SREQ : 1;
     eLCK LCK : 1;
   } bits;
@@ -1676,7 +1676,7 @@ union RDC_PDAP23 {
     eD0R D0R : 1;
     eD1W D1W : 1;
     eD1R D1R : 1;
-    uint32_t _reserved_4 : 26;
+    uint32_t _reserved_0 : 26;
     eSREQ SREQ : 1;
     eLCK LCK : 1;
   } bits;
@@ -1728,7 +1728,7 @@ union RDC_PDAP24 {
     eD0R D0R : 1;
     eD1W D1W : 1;
     eD1R D1R : 1;
-    uint32_t _reserved_4 : 26;
+    uint32_t _reserved_0 : 26;
     eSREQ SREQ : 1;
     eLCK LCK : 1;
   } bits;
@@ -1780,7 +1780,7 @@ union RDC_PDAP25 {
     eD0R D0R : 1;
     eD1W D1W : 1;
     eD1R D1R : 1;
-    uint32_t _reserved_4 : 26;
+    uint32_t _reserved_0 : 26;
     eSREQ SREQ : 1;
     eLCK LCK : 1;
   } bits;
@@ -1832,7 +1832,7 @@ union RDC_PDAP26 {
     eD0R D0R : 1;
     eD1W D1W : 1;
     eD1R D1R : 1;
-    uint32_t _reserved_4 : 26;
+    uint32_t _reserved_0 : 26;
     eSREQ SREQ : 1;
     eLCK LCK : 1;
   } bits;
@@ -1884,7 +1884,7 @@ union RDC_PDAP27 {
     eD0R D0R : 1;
     eD1W D1W : 1;
     eD1R D1R : 1;
-    uint32_t _reserved_4 : 26;
+    uint32_t _reserved_0 : 26;
     eSREQ SREQ : 1;
     eLCK LCK : 1;
   } bits;
@@ -1936,7 +1936,7 @@ union RDC_PDAP28 {
     eD0R D0R : 1;
     eD1W D1W : 1;
     eD1R D1R : 1;
-    uint32_t _reserved_4 : 26;
+    uint32_t _reserved_0 : 26;
     eSREQ SREQ : 1;
     eLCK LCK : 1;
   } bits;
@@ -1988,7 +1988,7 @@ union RDC_PDAP29 {
     eD0R D0R : 1;
     eD1W D1W : 1;
     eD1R D1R : 1;
-    uint32_t _reserved_4 : 26;
+    uint32_t _reserved_0 : 26;
     eSREQ SREQ : 1;
     eLCK LCK : 1;
   } bits;
@@ -2040,7 +2040,7 @@ union RDC_PDAP30 {
     eD0R D0R : 1;
     eD1W D1W : 1;
     eD1R D1R : 1;
-    uint32_t _reserved_4 : 26;
+    uint32_t _reserved_0 : 26;
     eSREQ SREQ : 1;
     eLCK LCK : 1;
   } bits;
@@ -2092,7 +2092,7 @@ union RDC_PDAP31 {
     eD0R D0R : 1;
     eD1W D1W : 1;
     eD1R D1R : 1;
-    uint32_t _reserved_4 : 26;
+    uint32_t _reserved_0 : 26;
     eSREQ SREQ : 1;
     eLCK LCK : 1;
   } bits;
@@ -2144,7 +2144,7 @@ union RDC_PDAP32 {
     eD0R D0R : 1;
     eD1W D1W : 1;
     eD1R D1R : 1;
-    uint32_t _reserved_4 : 26;
+    uint32_t _reserved_0 : 26;
     eSREQ SREQ : 1;
     eLCK LCK : 1;
   } bits;
@@ -2196,7 +2196,7 @@ union RDC_PDAP33 {
     eD0R D0R : 1;
     eD1W D1W : 1;
     eD1R D1R : 1;
-    uint32_t _reserved_4 : 26;
+    uint32_t _reserved_0 : 26;
     eSREQ SREQ : 1;
     eLCK LCK : 1;
   } bits;
@@ -2248,7 +2248,7 @@ union RDC_PDAP34 {
     eD0R D0R : 1;
     eD1W D1W : 1;
     eD1R D1R : 1;
-    uint32_t _reserved_4 : 26;
+    uint32_t _reserved_0 : 26;
     eSREQ SREQ : 1;
     eLCK LCK : 1;
   } bits;
@@ -2300,7 +2300,7 @@ union RDC_PDAP35 {
     eD0R D0R : 1;
     eD1W D1W : 1;
     eD1R D1R : 1;
-    uint32_t _reserved_4 : 26;
+    uint32_t _reserved_0 : 26;
     eSREQ SREQ : 1;
     eLCK LCK : 1;
   } bits;
@@ -2352,7 +2352,7 @@ union RDC_PDAP36 {
     eD0R D0R : 1;
     eD1W D1W : 1;
     eD1R D1R : 1;
-    uint32_t _reserved_4 : 26;
+    uint32_t _reserved_0 : 26;
     eSREQ SREQ : 1;
     eLCK LCK : 1;
   } bits;
@@ -2404,7 +2404,7 @@ union RDC_PDAP37 {
     eD0R D0R : 1;
     eD1W D1W : 1;
     eD1R D1R : 1;
-    uint32_t _reserved_4 : 26;
+    uint32_t _reserved_0 : 26;
     eSREQ SREQ : 1;
     eLCK LCK : 1;
   } bits;
@@ -2456,7 +2456,7 @@ union RDC_PDAP38 {
     eD0R D0R : 1;
     eD1W D1W : 1;
     eD1R D1R : 1;
-    uint32_t _reserved_4 : 26;
+    uint32_t _reserved_0 : 26;
     eSREQ SREQ : 1;
     eLCK LCK : 1;
   } bits;
@@ -2508,7 +2508,7 @@ union RDC_PDAP39 {
     eD0R D0R : 1;
     eD1W D1W : 1;
     eD1R D1R : 1;
-    uint32_t _reserved_4 : 26;
+    uint32_t _reserved_0 : 26;
     eSREQ SREQ : 1;
     eLCK LCK : 1;
   } bits;
@@ -2560,7 +2560,7 @@ union RDC_PDAP40 {
     eD0R D0R : 1;
     eD1W D1W : 1;
     eD1R D1R : 1;
-    uint32_t _reserved_4 : 26;
+    uint32_t _reserved_0 : 26;
     eSREQ SREQ : 1;
     eLCK LCK : 1;
   } bits;
@@ -2612,7 +2612,7 @@ union RDC_PDAP41 {
     eD0R D0R : 1;
     eD1W D1W : 1;
     eD1R D1R : 1;
-    uint32_t _reserved_4 : 26;
+    uint32_t _reserved_0 : 26;
     eSREQ SREQ : 1;
     eLCK LCK : 1;
   } bits;
@@ -2664,7 +2664,7 @@ union RDC_PDAP42 {
     eD0R D0R : 1;
     eD1W D1W : 1;
     eD1R D1R : 1;
-    uint32_t _reserved_4 : 26;
+    uint32_t _reserved_0 : 26;
     eSREQ SREQ : 1;
     eLCK LCK : 1;
   } bits;
@@ -2716,7 +2716,7 @@ union RDC_PDAP43 {
     eD0R D0R : 1;
     eD1W D1W : 1;
     eD1R D1R : 1;
-    uint32_t _reserved_4 : 26;
+    uint32_t _reserved_0 : 26;
     eSREQ SREQ : 1;
     eLCK LCK : 1;
   } bits;
@@ -2768,7 +2768,7 @@ union RDC_PDAP44 {
     eD0R D0R : 1;
     eD1W D1W : 1;
     eD1R D1R : 1;
-    uint32_t _reserved_4 : 26;
+    uint32_t _reserved_0 : 26;
     eSREQ SREQ : 1;
     eLCK LCK : 1;
   } bits;
@@ -2820,7 +2820,7 @@ union RDC_PDAP45 {
     eD0R D0R : 1;
     eD1W D1W : 1;
     eD1R D1R : 1;
-    uint32_t _reserved_4 : 26;
+    uint32_t _reserved_0 : 26;
     eSREQ SREQ : 1;
     eLCK LCK : 1;
   } bits;
@@ -2872,7 +2872,7 @@ union RDC_PDAP46 {
     eD0R D0R : 1;
     eD1W D1W : 1;
     eD1R D1R : 1;
-    uint32_t _reserved_4 : 26;
+    uint32_t _reserved_0 : 26;
     eSREQ SREQ : 1;
     eLCK LCK : 1;
   } bits;
@@ -2924,7 +2924,7 @@ union RDC_PDAP47 {
     eD0R D0R : 1;
     eD1W D1W : 1;
     eD1R D1R : 1;
-    uint32_t _reserved_4 : 26;
+    uint32_t _reserved_0 : 26;
     eSREQ SREQ : 1;
     eLCK LCK : 1;
   } bits;
@@ -2976,7 +2976,7 @@ union RDC_PDAP48 {
     eD0R D0R : 1;
     eD1W D1W : 1;
     eD1R D1R : 1;
-    uint32_t _reserved_4 : 26;
+    uint32_t _reserved_0 : 26;
     eSREQ SREQ : 1;
     eLCK LCK : 1;
   } bits;
@@ -3028,7 +3028,7 @@ union RDC_PDAP49 {
     eD0R D0R : 1;
     eD1W D1W : 1;
     eD1R D1R : 1;
-    uint32_t _reserved_4 : 26;
+    uint32_t _reserved_0 : 26;
     eSREQ SREQ : 1;
     eLCK LCK : 1;
   } bits;
@@ -3080,7 +3080,7 @@ union RDC_PDAP50 {
     eD0R D0R : 1;
     eD1W D1W : 1;
     eD1R D1R : 1;
-    uint32_t _reserved_4 : 26;
+    uint32_t _reserved_0 : 26;
     eSREQ SREQ : 1;
     eLCK LCK : 1;
   } bits;
@@ -3132,7 +3132,7 @@ union RDC_PDAP51 {
     eD0R D0R : 1;
     eD1W D1W : 1;
     eD1R D1R : 1;
-    uint32_t _reserved_4 : 26;
+    uint32_t _reserved_0 : 26;
     eSREQ SREQ : 1;
     eLCK LCK : 1;
   } bits;
@@ -3184,7 +3184,7 @@ union RDC_PDAP52 {
     eD0R D0R : 1;
     eD1W D1W : 1;
     eD1R D1R : 1;
-    uint32_t _reserved_4 : 26;
+    uint32_t _reserved_0 : 26;
     eSREQ SREQ : 1;
     eLCK LCK : 1;
   } bits;
@@ -3236,7 +3236,7 @@ union RDC_PDAP53 {
     eD0R D0R : 1;
     eD1W D1W : 1;
     eD1R D1R : 1;
-    uint32_t _reserved_4 : 26;
+    uint32_t _reserved_0 : 26;
     eSREQ SREQ : 1;
     eLCK LCK : 1;
   } bits;
@@ -3288,7 +3288,7 @@ union RDC_PDAP54 {
     eD0R D0R : 1;
     eD1W D1W : 1;
     eD1R D1R : 1;
-    uint32_t _reserved_4 : 26;
+    uint32_t _reserved_0 : 26;
     eSREQ SREQ : 1;
     eLCK LCK : 1;
   } bits;
@@ -3340,7 +3340,7 @@ union RDC_PDAP55 {
     eD0R D0R : 1;
     eD1W D1W : 1;
     eD1R D1R : 1;
-    uint32_t _reserved_4 : 26;
+    uint32_t _reserved_0 : 26;
     eSREQ SREQ : 1;
     eLCK LCK : 1;
   } bits;
@@ -3392,7 +3392,7 @@ union RDC_PDAP56 {
     eD0R D0R : 1;
     eD1W D1W : 1;
     eD1R D1R : 1;
-    uint32_t _reserved_4 : 26;
+    uint32_t _reserved_0 : 26;
     eSREQ SREQ : 1;
     eLCK LCK : 1;
   } bits;
@@ -3444,7 +3444,7 @@ union RDC_PDAP57 {
     eD0R D0R : 1;
     eD1W D1W : 1;
     eD1R D1R : 1;
-    uint32_t _reserved_4 : 26;
+    uint32_t _reserved_0 : 26;
     eSREQ SREQ : 1;
     eLCK LCK : 1;
   } bits;
@@ -3496,7 +3496,7 @@ union RDC_PDAP58 {
     eD0R D0R : 1;
     eD1W D1W : 1;
     eD1R D1R : 1;
-    uint32_t _reserved_4 : 26;
+    uint32_t _reserved_0 : 26;
     eSREQ SREQ : 1;
     eLCK LCK : 1;
   } bits;
@@ -3548,7 +3548,7 @@ union RDC_PDAP59 {
     eD0R D0R : 1;
     eD1W D1W : 1;
     eD1R D1R : 1;
-    uint32_t _reserved_4 : 26;
+    uint32_t _reserved_0 : 26;
     eSREQ SREQ : 1;
     eLCK LCK : 1;
   } bits;
@@ -3600,7 +3600,7 @@ union RDC_PDAP60 {
     eD0R D0R : 1;
     eD1W D1W : 1;
     eD1R D1R : 1;
-    uint32_t _reserved_4 : 26;
+    uint32_t _reserved_0 : 26;
     eSREQ SREQ : 1;
     eLCK LCK : 1;
   } bits;
@@ -3652,7 +3652,7 @@ union RDC_PDAP61 {
     eD0R D0R : 1;
     eD1W D1W : 1;
     eD1R D1R : 1;
-    uint32_t _reserved_4 : 26;
+    uint32_t _reserved_0 : 26;
     eSREQ SREQ : 1;
     eLCK LCK : 1;
   } bits;
@@ -3704,7 +3704,7 @@ union RDC_PDAP62 {
     eD0R D0R : 1;
     eD1W D1W : 1;
     eD1R D1R : 1;
-    uint32_t _reserved_4 : 26;
+    uint32_t _reserved_0 : 26;
     eSREQ SREQ : 1;
     eLCK LCK : 1;
   } bits;
@@ -3756,7 +3756,7 @@ union RDC_PDAP63 {
     eD0R D0R : 1;
     eD1W D1W : 1;
     eD1R D1R : 1;
-    uint32_t _reserved_4 : 26;
+    uint32_t _reserved_0 : 26;
     eSREQ SREQ : 1;
     eLCK LCK : 1;
   } bits;
@@ -3808,7 +3808,7 @@ union RDC_PDAP64 {
     eD0R D0R : 1;
     eD1W D1W : 1;
     eD1R D1R : 1;
-    uint32_t _reserved_4 : 26;
+    uint32_t _reserved_0 : 26;
     eSREQ SREQ : 1;
     eLCK LCK : 1;
   } bits;
@@ -3860,7 +3860,7 @@ union RDC_PDAP65 {
     eD0R D0R : 1;
     eD1W D1W : 1;
     eD1R D1R : 1;
-    uint32_t _reserved_4 : 26;
+    uint32_t _reserved_0 : 26;
     eSREQ SREQ : 1;
     eLCK LCK : 1;
   } bits;
@@ -3912,7 +3912,7 @@ union RDC_PDAP66 {
     eD0R D0R : 1;
     eD1W D1W : 1;
     eD1R D1R : 1;
-    uint32_t _reserved_4 : 26;
+    uint32_t _reserved_0 : 26;
     eSREQ SREQ : 1;
     eLCK LCK : 1;
   } bits;
@@ -3964,7 +3964,7 @@ union RDC_PDAP67 {
     eD0R D0R : 1;
     eD1W D1W : 1;
     eD1R D1R : 1;
-    uint32_t _reserved_4 : 26;
+    uint32_t _reserved_0 : 26;
     eSREQ SREQ : 1;
     eLCK LCK : 1;
   } bits;
@@ -4016,7 +4016,7 @@ union RDC_PDAP68 {
     eD0R D0R : 1;
     eD1W D1W : 1;
     eD1R D1R : 1;
-    uint32_t _reserved_4 : 26;
+    uint32_t _reserved_0 : 26;
     eSREQ SREQ : 1;
     eLCK LCK : 1;
   } bits;
@@ -4068,7 +4068,7 @@ union RDC_PDAP69 {
     eD0R D0R : 1;
     eD1W D1W : 1;
     eD1R D1R : 1;
-    uint32_t _reserved_4 : 26;
+    uint32_t _reserved_0 : 26;
     eSREQ SREQ : 1;
     eLCK LCK : 1;
   } bits;
@@ -4120,7 +4120,7 @@ union RDC_PDAP70 {
     eD0R D0R : 1;
     eD1W D1W : 1;
     eD1R D1R : 1;
-    uint32_t _reserved_4 : 26;
+    uint32_t _reserved_0 : 26;
     eSREQ SREQ : 1;
     eLCK LCK : 1;
   } bits;
@@ -4172,7 +4172,7 @@ union RDC_PDAP71 {
     eD0R D0R : 1;
     eD1W D1W : 1;
     eD1R D1R : 1;
-    uint32_t _reserved_4 : 26;
+    uint32_t _reserved_0 : 26;
     eSREQ SREQ : 1;
     eLCK LCK : 1;
   } bits;
@@ -4224,7 +4224,7 @@ union RDC_PDAP72 {
     eD0R D0R : 1;
     eD1W D1W : 1;
     eD1R D1R : 1;
-    uint32_t _reserved_4 : 26;
+    uint32_t _reserved_0 : 26;
     eSREQ SREQ : 1;
     eLCK LCK : 1;
   } bits;
@@ -4276,7 +4276,7 @@ union RDC_PDAP73 {
     eD0R D0R : 1;
     eD1W D1W : 1;
     eD1R D1R : 1;
-    uint32_t _reserved_4 : 26;
+    uint32_t _reserved_0 : 26;
     eSREQ SREQ : 1;
     eLCK LCK : 1;
   } bits;
@@ -4328,7 +4328,7 @@ union RDC_PDAP74 {
     eD0R D0R : 1;
     eD1W D1W : 1;
     eD1R D1R : 1;
-    uint32_t _reserved_4 : 26;
+    uint32_t _reserved_0 : 26;
     eSREQ SREQ : 1;
     eLCK LCK : 1;
   } bits;
@@ -4380,7 +4380,7 @@ union RDC_PDAP75 {
     eD0R D0R : 1;
     eD1W D1W : 1;
     eD1R D1R : 1;
-    uint32_t _reserved_4 : 26;
+    uint32_t _reserved_0 : 26;
     eSREQ SREQ : 1;
     eLCK LCK : 1;
   } bits;
@@ -4432,7 +4432,7 @@ union RDC_PDAP76 {
     eD0R D0R : 1;
     eD1W D1W : 1;
     eD1R D1R : 1;
-    uint32_t _reserved_4 : 26;
+    uint32_t _reserved_0 : 26;
     eSREQ SREQ : 1;
     eLCK LCK : 1;
   } bits;
@@ -4484,7 +4484,7 @@ union RDC_PDAP77 {
     eD0R D0R : 1;
     eD1W D1W : 1;
     eD1R D1R : 1;
-    uint32_t _reserved_4 : 26;
+    uint32_t _reserved_0 : 26;
     eSREQ SREQ : 1;
     eLCK LCK : 1;
   } bits;
@@ -4536,7 +4536,7 @@ union RDC_PDAP78 {
     eD0R D0R : 1;
     eD1W D1W : 1;
     eD1R D1R : 1;
-    uint32_t _reserved_4 : 26;
+    uint32_t _reserved_0 : 26;
     eSREQ SREQ : 1;
     eLCK LCK : 1;
   } bits;
@@ -4588,7 +4588,7 @@ union RDC_PDAP79 {
     eD0R D0R : 1;
     eD1W D1W : 1;
     eD1R D1R : 1;
-    uint32_t _reserved_4 : 26;
+    uint32_t _reserved_0 : 26;
     eSREQ SREQ : 1;
     eLCK LCK : 1;
   } bits;
@@ -4640,7 +4640,7 @@ union RDC_PDAP80 {
     eD0R D0R : 1;
     eD1W D1W : 1;
     eD1R D1R : 1;
-    uint32_t _reserved_4 : 26;
+    uint32_t _reserved_0 : 26;
     eSREQ SREQ : 1;
     eLCK LCK : 1;
   } bits;
@@ -4692,7 +4692,7 @@ union RDC_PDAP81 {
     eD0R D0R : 1;
     eD1W D1W : 1;
     eD1R D1R : 1;
-    uint32_t _reserved_4 : 26;
+    uint32_t _reserved_0 : 26;
     eSREQ SREQ : 1;
     eLCK LCK : 1;
   } bits;
@@ -4744,7 +4744,7 @@ union RDC_PDAP82 {
     eD0R D0R : 1;
     eD1W D1W : 1;
     eD1R D1R : 1;
-    uint32_t _reserved_4 : 26;
+    uint32_t _reserved_0 : 26;
     eSREQ SREQ : 1;
     eLCK LCK : 1;
   } bits;
@@ -4796,7 +4796,7 @@ union RDC_PDAP83 {
     eD0R D0R : 1;
     eD1W D1W : 1;
     eD1R D1R : 1;
-    uint32_t _reserved_4 : 26;
+    uint32_t _reserved_0 : 26;
     eSREQ SREQ : 1;
     eLCK LCK : 1;
   } bits;
@@ -4848,7 +4848,7 @@ union RDC_PDAP84 {
     eD0R D0R : 1;
     eD1W D1W : 1;
     eD1R D1R : 1;
-    uint32_t _reserved_4 : 26;
+    uint32_t _reserved_0 : 26;
     eSREQ SREQ : 1;
     eLCK LCK : 1;
   } bits;
@@ -4900,7 +4900,7 @@ union RDC_PDAP85 {
     eD0R D0R : 1;
     eD1W D1W : 1;
     eD1R D1R : 1;
-    uint32_t _reserved_4 : 26;
+    uint32_t _reserved_0 : 26;
     eSREQ SREQ : 1;
     eLCK LCK : 1;
   } bits;
@@ -4952,7 +4952,7 @@ union RDC_PDAP86 {
     eD0R D0R : 1;
     eD1W D1W : 1;
     eD1R D1R : 1;
-    uint32_t _reserved_4 : 26;
+    uint32_t _reserved_0 : 26;
     eSREQ SREQ : 1;
     eLCK LCK : 1;
   } bits;
@@ -5004,7 +5004,7 @@ union RDC_PDAP87 {
     eD0R D0R : 1;
     eD1W D1W : 1;
     eD1R D1R : 1;
-    uint32_t _reserved_4 : 26;
+    uint32_t _reserved_0 : 26;
     eSREQ SREQ : 1;
     eLCK LCK : 1;
   } bits;
@@ -5056,7 +5056,7 @@ union RDC_PDAP88 {
     eD0R D0R : 1;
     eD1W D1W : 1;
     eD1R D1R : 1;
-    uint32_t _reserved_4 : 26;
+    uint32_t _reserved_0 : 26;
     eSREQ SREQ : 1;
     eLCK LCK : 1;
   } bits;
@@ -5108,7 +5108,7 @@ union RDC_PDAP89 {
     eD0R D0R : 1;
     eD1W D1W : 1;
     eD1R D1R : 1;
-    uint32_t _reserved_4 : 26;
+    uint32_t _reserved_0 : 26;
     eSREQ SREQ : 1;
     eLCK LCK : 1;
   } bits;
@@ -5160,7 +5160,7 @@ union RDC_PDAP90 {
     eD0R D0R : 1;
     eD1W D1W : 1;
     eD1R D1R : 1;
-    uint32_t _reserved_4 : 26;
+    uint32_t _reserved_0 : 26;
     eSREQ SREQ : 1;
     eLCK LCK : 1;
   } bits;
@@ -5212,7 +5212,7 @@ union RDC_PDAP91 {
     eD0R D0R : 1;
     eD1W D1W : 1;
     eD1R D1R : 1;
-    uint32_t _reserved_4 : 26;
+    uint32_t _reserved_0 : 26;
     eSREQ SREQ : 1;
     eLCK LCK : 1;
   } bits;
@@ -5264,7 +5264,7 @@ union RDC_PDAP92 {
     eD0R D0R : 1;
     eD1W D1W : 1;
     eD1R D1R : 1;
-    uint32_t _reserved_4 : 26;
+    uint32_t _reserved_0 : 26;
     eSREQ SREQ : 1;
     eLCK LCK : 1;
   } bits;
@@ -5316,7 +5316,7 @@ union RDC_PDAP93 {
     eD0R D0R : 1;
     eD1W D1W : 1;
     eD1R D1R : 1;
-    uint32_t _reserved_4 : 26;
+    uint32_t _reserved_0 : 26;
     eSREQ SREQ : 1;
     eLCK LCK : 1;
   } bits;
@@ -5368,7 +5368,7 @@ union RDC_PDAP94 {
     eD0R D0R : 1;
     eD1W D1W : 1;
     eD1R D1R : 1;
-    uint32_t _reserved_4 : 26;
+    uint32_t _reserved_0 : 26;
     eSREQ SREQ : 1;
     eLCK LCK : 1;
   } bits;
@@ -5420,7 +5420,7 @@ union RDC_PDAP95 {
     eD0R D0R : 1;
     eD1W D1W : 1;
     eD1R D1R : 1;
-    uint32_t _reserved_4 : 26;
+    uint32_t _reserved_0 : 26;
     eSREQ SREQ : 1;
     eLCK LCK : 1;
   } bits;
@@ -5472,7 +5472,7 @@ union RDC_PDAP96 {
     eD0R D0R : 1;
     eD1W D1W : 1;
     eD1R D1R : 1;
-    uint32_t _reserved_4 : 26;
+    uint32_t _reserved_0 : 26;
     eSREQ SREQ : 1;
     eLCK LCK : 1;
   } bits;
@@ -5524,7 +5524,7 @@ union RDC_PDAP97 {
     eD0R D0R : 1;
     eD1W D1W : 1;
     eD1R D1R : 1;
-    uint32_t _reserved_4 : 26;
+    uint32_t _reserved_0 : 26;
     eSREQ SREQ : 1;
     eLCK LCK : 1;
   } bits;
@@ -5576,7 +5576,7 @@ union RDC_PDAP98 {
     eD0R D0R : 1;
     eD1W D1W : 1;
     eD1R D1R : 1;
-    uint32_t _reserved_4 : 26;
+    uint32_t _reserved_0 : 26;
     eSREQ SREQ : 1;
     eLCK LCK : 1;
   } bits;
@@ -5628,7 +5628,7 @@ union RDC_PDAP99 {
     eD0R D0R : 1;
     eD1W D1W : 1;
     eD1R D1R : 1;
-    uint32_t _reserved_4 : 26;
+    uint32_t _reserved_0 : 26;
     eSREQ SREQ : 1;
     eLCK LCK : 1;
   } bits;
@@ -5680,7 +5680,7 @@ union RDC_PDAP100 {
     eD0R D0R : 1;
     eD1W D1W : 1;
     eD1R D1R : 1;
-    uint32_t _reserved_4 : 26;
+    uint32_t _reserved_0 : 26;
     eSREQ SREQ : 1;
     eLCK LCK : 1;
   } bits;
@@ -5732,7 +5732,7 @@ union RDC_PDAP101 {
     eD0R D0R : 1;
     eD1W D1W : 1;
     eD1R D1R : 1;
-    uint32_t _reserved_4 : 26;
+    uint32_t _reserved_0 : 26;
     eSREQ SREQ : 1;
     eLCK LCK : 1;
   } bits;
@@ -5784,7 +5784,7 @@ union RDC_PDAP102 {
     eD0R D0R : 1;
     eD1W D1W : 1;
     eD1R D1R : 1;
-    uint32_t _reserved_4 : 26;
+    uint32_t _reserved_0 : 26;
     eSREQ SREQ : 1;
     eLCK LCK : 1;
   } bits;
@@ -5836,7 +5836,7 @@ union RDC_PDAP103 {
     eD0R D0R : 1;
     eD1W D1W : 1;
     eD1R D1R : 1;
-    uint32_t _reserved_4 : 26;
+    uint32_t _reserved_0 : 26;
     eSREQ SREQ : 1;
     eLCK LCK : 1;
   } bits;
@@ -5888,7 +5888,7 @@ union RDC_PDAP104 {
     eD0R D0R : 1;
     eD1W D1W : 1;
     eD1R D1R : 1;
-    uint32_t _reserved_4 : 26;
+    uint32_t _reserved_0 : 26;
     eSREQ SREQ : 1;
     eLCK LCK : 1;
   } bits;
@@ -5940,7 +5940,7 @@ union RDC_PDAP105 {
     eD0R D0R : 1;
     eD1W D1W : 1;
     eD1R D1R : 1;
-    uint32_t _reserved_4 : 26;
+    uint32_t _reserved_0 : 26;
     eSREQ SREQ : 1;
     eLCK LCK : 1;
   } bits;
@@ -5992,7 +5992,7 @@ union RDC_PDAP106 {
     eD0R D0R : 1;
     eD1W D1W : 1;
     eD1R D1R : 1;
-    uint32_t _reserved_4 : 26;
+    uint32_t _reserved_0 : 26;
     eSREQ SREQ : 1;
     eLCK LCK : 1;
   } bits;
@@ -6044,7 +6044,7 @@ union RDC_PDAP107 {
     eD0R D0R : 1;
     eD1W D1W : 1;
     eD1R D1R : 1;
-    uint32_t _reserved_4 : 26;
+    uint32_t _reserved_0 : 26;
     eSREQ SREQ : 1;
     eLCK LCK : 1;
   } bits;
@@ -6096,7 +6096,7 @@ union RDC_PDAP108 {
     eD0R D0R : 1;
     eD1W D1W : 1;
     eD1R D1R : 1;
-    uint32_t _reserved_4 : 26;
+    uint32_t _reserved_0 : 26;
     eSREQ SREQ : 1;
     eLCK LCK : 1;
   } bits;
@@ -6148,7 +6148,7 @@ union RDC_PDAP109 {
     eD0R D0R : 1;
     eD1W D1W : 1;
     eD1R D1R : 1;
-    uint32_t _reserved_4 : 26;
+    uint32_t _reserved_0 : 26;
     eSREQ SREQ : 1;
     eLCK LCK : 1;
   } bits;
@@ -6200,7 +6200,7 @@ union RDC_PDAP110 {
     eD0R D0R : 1;
     eD1W D1W : 1;
     eD1R D1R : 1;
-    uint32_t _reserved_4 : 26;
+    uint32_t _reserved_0 : 26;
     eSREQ SREQ : 1;
     eLCK LCK : 1;
   } bits;
@@ -6252,7 +6252,7 @@ union RDC_PDAP111 {
     eD0R D0R : 1;
     eD1W D1W : 1;
     eD1R D1R : 1;
-    uint32_t _reserved_4 : 26;
+    uint32_t _reserved_0 : 26;
     eSREQ SREQ : 1;
     eLCK LCK : 1;
   } bits;
@@ -6304,7 +6304,7 @@ union RDC_PDAP112 {
     eD0R D0R : 1;
     eD1W D1W : 1;
     eD1R D1R : 1;
-    uint32_t _reserved_4 : 26;
+    uint32_t _reserved_0 : 26;
     eSREQ SREQ : 1;
     eLCK LCK : 1;
   } bits;
@@ -6356,7 +6356,7 @@ union RDC_PDAP113 {
     eD0R D0R : 1;
     eD1W D1W : 1;
     eD1R D1R : 1;
-    uint32_t _reserved_4 : 26;
+    uint32_t _reserved_0 : 26;
     eSREQ SREQ : 1;
     eLCK LCK : 1;
   } bits;
@@ -6408,7 +6408,7 @@ union RDC_PDAP114 {
     eD0R D0R : 1;
     eD1W D1W : 1;
     eD1R D1R : 1;
-    uint32_t _reserved_4 : 26;
+    uint32_t _reserved_0 : 26;
     eSREQ SREQ : 1;
     eLCK LCK : 1;
   } bits;
@@ -6460,7 +6460,7 @@ union RDC_PDAP115 {
     eD0R D0R : 1;
     eD1W D1W : 1;
     eD1R D1R : 1;
-    uint32_t _reserved_4 : 26;
+    uint32_t _reserved_0 : 26;
     eSREQ SREQ : 1;
     eLCK LCK : 1;
   } bits;
@@ -6512,7 +6512,7 @@ union RDC_PDAP116 {
     eD0R D0R : 1;
     eD1W D1W : 1;
     eD1R D1R : 1;
-    uint32_t _reserved_4 : 26;
+    uint32_t _reserved_0 : 26;
     eSREQ SREQ : 1;
     eLCK LCK : 1;
   } bits;
@@ -6564,7 +6564,7 @@ union RDC_PDAP117 {
     eD0R D0R : 1;
     eD1W D1W : 1;
     eD1R D1R : 1;
-    uint32_t _reserved_4 : 26;
+    uint32_t _reserved_0 : 26;
     eSREQ SREQ : 1;
     eLCK LCK : 1;
   } bits;
@@ -6616,7 +6616,7 @@ union RDC_PDAP118 {
     eD0R D0R : 1;
     eD1W D1W : 1;
     eD1R D1R : 1;
-    uint32_t _reserved_4 : 26;
+    uint32_t _reserved_0 : 26;
     eSREQ SREQ : 1;
     eLCK LCK : 1;
   } bits;
@@ -6668,7 +6668,7 @@ union RDC_PDAP119 {
     eD0R D0R : 1;
     eD1W D1W : 1;
     eD1R D1R : 1;
-    uint32_t _reserved_4 : 26;
+    uint32_t _reserved_0 : 26;
     eSREQ SREQ : 1;
     eLCK LCK : 1;
   } bits;
@@ -6720,7 +6720,7 @@ union RDC_PDAP120 {
     eD0R D0R : 1;
     eD1W D1W : 1;
     eD1R D1R : 1;
-    uint32_t _reserved_4 : 26;
+    uint32_t _reserved_0 : 26;
     eSREQ SREQ : 1;
     eLCK LCK : 1;
   } bits;
@@ -6772,7 +6772,7 @@ union RDC_PDAP121 {
     eD0R D0R : 1;
     eD1W D1W : 1;
     eD1R D1R : 1;
-    uint32_t _reserved_4 : 26;
+    uint32_t _reserved_0 : 26;
     eSREQ SREQ : 1;
     eLCK LCK : 1;
   } bits;
@@ -6824,7 +6824,7 @@ union RDC_PDAP122 {
     eD0R D0R : 1;
     eD1W D1W : 1;
     eD1R D1R : 1;
-    uint32_t _reserved_4 : 26;
+    uint32_t _reserved_0 : 26;
     eSREQ SREQ : 1;
     eLCK LCK : 1;
   } bits;
@@ -6876,7 +6876,7 @@ union RDC_PDAP123 {
     eD0R D0R : 1;
     eD1W D1W : 1;
     eD1R D1R : 1;
-    uint32_t _reserved_4 : 26;
+    uint32_t _reserved_0 : 26;
     eSREQ SREQ : 1;
     eLCK LCK : 1;
   } bits;
@@ -6928,7 +6928,7 @@ union RDC_PDAP124 {
     eD0R D0R : 1;
     eD1W D1W : 1;
     eD1R D1R : 1;
-    uint32_t _reserved_4 : 26;
+    uint32_t _reserved_0 : 26;
     eSREQ SREQ : 1;
     eLCK LCK : 1;
   } bits;
@@ -6980,7 +6980,7 @@ union RDC_PDAP125 {
     eD0R D0R : 1;
     eD1W D1W : 1;
     eD1R D1R : 1;
-    uint32_t _reserved_4 : 26;
+    uint32_t _reserved_0 : 26;
     eSREQ SREQ : 1;
     eLCK LCK : 1;
   } bits;
@@ -7032,7 +7032,7 @@ union RDC_PDAP126 {
     eD0R D0R : 1;
     eD1W D1W : 1;
     eD1R D1R : 1;
-    uint32_t _reserved_4 : 26;
+    uint32_t _reserved_0 : 26;
     eSREQ SREQ : 1;
     eLCK LCK : 1;
   } bits;
@@ -7084,7 +7084,7 @@ union RDC_PDAP127 {
     eD0R D0R : 1;
     eD1W D1W : 1;
     eD1R D1R : 1;
-    uint32_t _reserved_4 : 26;
+    uint32_t _reserved_0 : 26;
     eSREQ SREQ : 1;
     eLCK LCK : 1;
   } bits;
@@ -9145,7 +9145,7 @@ union RDC_MRC0 {
     eD0R D0R : 1;
     eD1W D1W : 1;
     eD1R D1R : 1;
-    uint32_t _reserved_4 : 26;
+    uint32_t _reserved_0 : 26;
     eENA ENA : 1;
     eLCK LCK : 1;
   } bits;
@@ -9197,7 +9197,7 @@ union RDC_MRC1 {
     eD0R D0R : 1;
     eD1W D1W : 1;
     eD1R D1R : 1;
-    uint32_t _reserved_4 : 26;
+    uint32_t _reserved_0 : 26;
     eENA ENA : 1;
     eLCK LCK : 1;
   } bits;
@@ -9249,7 +9249,7 @@ union RDC_MRC2 {
     eD0R D0R : 1;
     eD1W D1W : 1;
     eD1R D1R : 1;
-    uint32_t _reserved_4 : 26;
+    uint32_t _reserved_0 : 26;
     eENA ENA : 1;
     eLCK LCK : 1;
   } bits;
@@ -9301,7 +9301,7 @@ union RDC_MRC3 {
     eD0R D0R : 1;
     eD1W D1W : 1;
     eD1R D1R : 1;
-    uint32_t _reserved_4 : 26;
+    uint32_t _reserved_0 : 26;
     eENA ENA : 1;
     eLCK LCK : 1;
   } bits;
@@ -9353,7 +9353,7 @@ union RDC_MRC4 {
     eD0R D0R : 1;
     eD1W D1W : 1;
     eD1R D1R : 1;
-    uint32_t _reserved_4 : 26;
+    uint32_t _reserved_0 : 26;
     eENA ENA : 1;
     eLCK LCK : 1;
   } bits;
@@ -9405,7 +9405,7 @@ union RDC_MRC5 {
     eD0R D0R : 1;
     eD1W D1W : 1;
     eD1R D1R : 1;
-    uint32_t _reserved_4 : 26;
+    uint32_t _reserved_0 : 26;
     eENA ENA : 1;
     eLCK LCK : 1;
   } bits;
@@ -9457,7 +9457,7 @@ union RDC_MRC6 {
     eD0R D0R : 1;
     eD1W D1W : 1;
     eD1R D1R : 1;
-    uint32_t _reserved_4 : 26;
+    uint32_t _reserved_0 : 26;
     eENA ENA : 1;
     eLCK LCK : 1;
   } bits;
@@ -9509,7 +9509,7 @@ union RDC_MRC7 {
     eD0R D0R : 1;
     eD1W D1W : 1;
     eD1R D1R : 1;
-    uint32_t _reserved_4 : 26;
+    uint32_t _reserved_0 : 26;
     eENA ENA : 1;
     eLCK LCK : 1;
   } bits;
@@ -9561,7 +9561,7 @@ union RDC_MRC8 {
     eD0R D0R : 1;
     eD1W D1W : 1;
     eD1R D1R : 1;
-    uint32_t _reserved_4 : 26;
+    uint32_t _reserved_0 : 26;
     eENA ENA : 1;
     eLCK LCK : 1;
   } bits;
@@ -9613,7 +9613,7 @@ union RDC_MRC9 {
     eD0R D0R : 1;
     eD1W D1W : 1;
     eD1R D1R : 1;
-    uint32_t _reserved_4 : 26;
+    uint32_t _reserved_0 : 26;
     eENA ENA : 1;
     eLCK LCK : 1;
   } bits;
@@ -9665,7 +9665,7 @@ union RDC_MRC10 {
     eD0R D0R : 1;
     eD1W D1W : 1;
     eD1R D1R : 1;
-    uint32_t _reserved_4 : 26;
+    uint32_t _reserved_0 : 26;
     eENA ENA : 1;
     eLCK LCK : 1;
   } bits;
@@ -9717,7 +9717,7 @@ union RDC_MRC11 {
     eD0R D0R : 1;
     eD1W D1W : 1;
     eD1R D1R : 1;
-    uint32_t _reserved_4 : 26;
+    uint32_t _reserved_0 : 26;
     eENA ENA : 1;
     eLCK LCK : 1;
   } bits;
@@ -9769,7 +9769,7 @@ union RDC_MRC12 {
     eD0R D0R : 1;
     eD1W D1W : 1;
     eD1R D1R : 1;
-    uint32_t _reserved_4 : 26;
+    uint32_t _reserved_0 : 26;
     eENA ENA : 1;
     eLCK LCK : 1;
   } bits;
@@ -9821,7 +9821,7 @@ union RDC_MRC13 {
     eD0R D0R : 1;
     eD1W D1W : 1;
     eD1R D1R : 1;
-    uint32_t _reserved_4 : 26;
+    uint32_t _reserved_0 : 26;
     eENA ENA : 1;
     eLCK LCK : 1;
   } bits;
@@ -9873,7 +9873,7 @@ union RDC_MRC14 {
     eD0R D0R : 1;
     eD1W D1W : 1;
     eD1R D1R : 1;
-    uint32_t _reserved_4 : 26;
+    uint32_t _reserved_0 : 26;
     eENA ENA : 1;
     eLCK LCK : 1;
   } bits;
@@ -9925,7 +9925,7 @@ union RDC_MRC15 {
     eD0R D0R : 1;
     eD1W D1W : 1;
     eD1R D1R : 1;
-    uint32_t _reserved_4 : 26;
+    uint32_t _reserved_0 : 26;
     eENA ENA : 1;
     eLCK LCK : 1;
   } bits;
@@ -9977,7 +9977,7 @@ union RDC_MRC16 {
     eD0R D0R : 1;
     eD1W D1W : 1;
     eD1R D1R : 1;
-    uint32_t _reserved_4 : 26;
+    uint32_t _reserved_0 : 26;
     eENA ENA : 1;
     eLCK LCK : 1;
   } bits;
@@ -10029,7 +10029,7 @@ union RDC_MRC17 {
     eD0R D0R : 1;
     eD1W D1W : 1;
     eD1R D1R : 1;
-    uint32_t _reserved_4 : 26;
+    uint32_t _reserved_0 : 26;
     eENA ENA : 1;
     eLCK LCK : 1;
   } bits;
@@ -10081,7 +10081,7 @@ union RDC_MRC18 {
     eD0R D0R : 1;
     eD1W D1W : 1;
     eD1R D1R : 1;
-    uint32_t _reserved_4 : 26;
+    uint32_t _reserved_0 : 26;
     eENA ENA : 1;
     eLCK LCK : 1;
   } bits;
@@ -10133,7 +10133,7 @@ union RDC_MRC19 {
     eD0R D0R : 1;
     eD1W D1W : 1;
     eD1R D1R : 1;
-    uint32_t _reserved_4 : 26;
+    uint32_t _reserved_0 : 26;
     eENA ENA : 1;
     eLCK LCK : 1;
   } bits;
@@ -10185,7 +10185,7 @@ union RDC_MRC20 {
     eD0R D0R : 1;
     eD1W D1W : 1;
     eD1R D1R : 1;
-    uint32_t _reserved_4 : 26;
+    uint32_t _reserved_0 : 26;
     eENA ENA : 1;
     eLCK LCK : 1;
   } bits;
@@ -10237,7 +10237,7 @@ union RDC_MRC21 {
     eD0R D0R : 1;
     eD1W D1W : 1;
     eD1R D1R : 1;
-    uint32_t _reserved_4 : 26;
+    uint32_t _reserved_0 : 26;
     eENA ENA : 1;
     eLCK LCK : 1;
   } bits;
@@ -10289,7 +10289,7 @@ union RDC_MRC22 {
     eD0R D0R : 1;
     eD1W D1W : 1;
     eD1R D1R : 1;
-    uint32_t _reserved_4 : 26;
+    uint32_t _reserved_0 : 26;
     eENA ENA : 1;
     eLCK LCK : 1;
   } bits;
@@ -10341,7 +10341,7 @@ union RDC_MRC23 {
     eD0R D0R : 1;
     eD1W D1W : 1;
     eD1R D1R : 1;
-    uint32_t _reserved_4 : 26;
+    uint32_t _reserved_0 : 26;
     eENA ENA : 1;
     eLCK LCK : 1;
   } bits;
@@ -10393,7 +10393,7 @@ union RDC_MRC24 {
     eD0R D0R : 1;
     eD1W D1W : 1;
     eD1R D1R : 1;
-    uint32_t _reserved_4 : 26;
+    uint32_t _reserved_0 : 26;
     eENA ENA : 1;
     eLCK LCK : 1;
   } bits;
@@ -10445,7 +10445,7 @@ union RDC_MRC25 {
     eD0R D0R : 1;
     eD1W D1W : 1;
     eD1R D1R : 1;
-    uint32_t _reserved_4 : 26;
+    uint32_t _reserved_0 : 26;
     eENA ENA : 1;
     eLCK LCK : 1;
   } bits;
@@ -10497,7 +10497,7 @@ union RDC_MRC26 {
     eD0R D0R : 1;
     eD1W D1W : 1;
     eD1R D1R : 1;
-    uint32_t _reserved_4 : 26;
+    uint32_t _reserved_0 : 26;
     eENA ENA : 1;
     eLCK LCK : 1;
   } bits;
@@ -10549,7 +10549,7 @@ union RDC_MRC27 {
     eD0R D0R : 1;
     eD1W D1W : 1;
     eD1R D1R : 1;
-    uint32_t _reserved_4 : 26;
+    uint32_t _reserved_0 : 26;
     eENA ENA : 1;
     eLCK LCK : 1;
   } bits;
@@ -10601,7 +10601,7 @@ union RDC_MRC28 {
     eD0R D0R : 1;
     eD1W D1W : 1;
     eD1R D1R : 1;
-    uint32_t _reserved_4 : 26;
+    uint32_t _reserved_0 : 26;
     eENA ENA : 1;
     eLCK LCK : 1;
   } bits;
@@ -10653,7 +10653,7 @@ union RDC_MRC29 {
     eD0R D0R : 1;
     eD1W D1W : 1;
     eD1R D1R : 1;
-    uint32_t _reserved_4 : 26;
+    uint32_t _reserved_0 : 26;
     eENA ENA : 1;
     eLCK LCK : 1;
   } bits;
@@ -10705,7 +10705,7 @@ union RDC_MRC30 {
     eD0R D0R : 1;
     eD1W D1W : 1;
     eD1R D1R : 1;
-    uint32_t _reserved_4 : 26;
+    uint32_t _reserved_0 : 26;
     eENA ENA : 1;
     eLCK LCK : 1;
   } bits;
@@ -10757,7 +10757,7 @@ union RDC_MRC31 {
     eD0R D0R : 1;
     eD1W D1W : 1;
     eD1R D1R : 1;
-    uint32_t _reserved_4 : 26;
+    uint32_t _reserved_0 : 26;
     eENA ENA : 1;
     eLCK LCK : 1;
   } bits;
@@ -10809,7 +10809,7 @@ union RDC_MRC32 {
     eD0R D0R : 1;
     eD1W D1W : 1;
     eD1R D1R : 1;
-    uint32_t _reserved_4 : 26;
+    uint32_t _reserved_0 : 26;
     eENA ENA : 1;
     eLCK LCK : 1;
   } bits;
@@ -10861,7 +10861,7 @@ union RDC_MRC33 {
     eD0R D0R : 1;
     eD1W D1W : 1;
     eD1R D1R : 1;
-    uint32_t _reserved_4 : 26;
+    uint32_t _reserved_0 : 26;
     eENA ENA : 1;
     eLCK LCK : 1;
   } bits;
@@ -10913,7 +10913,7 @@ union RDC_MRC34 {
     eD0R D0R : 1;
     eD1W D1W : 1;
     eD1R D1R : 1;
-    uint32_t _reserved_4 : 26;
+    uint32_t _reserved_0 : 26;
     eENA ENA : 1;
     eLCK LCK : 1;
   } bits;
@@ -10965,7 +10965,7 @@ union RDC_MRC35 {
     eD0R D0R : 1;
     eD1W D1W : 1;
     eD1R D1R : 1;
-    uint32_t _reserved_4 : 26;
+    uint32_t _reserved_0 : 26;
     eENA ENA : 1;
     eLCK LCK : 1;
   } bits;
@@ -11017,7 +11017,7 @@ union RDC_MRC36 {
     eD0R D0R : 1;
     eD1W D1W : 1;
     eD1R D1R : 1;
-    uint32_t _reserved_4 : 26;
+    uint32_t _reserved_0 : 26;
     eENA ENA : 1;
     eLCK LCK : 1;
   } bits;
@@ -11069,7 +11069,7 @@ union RDC_MRC37 {
     eD0R D0R : 1;
     eD1W D1W : 1;
     eD1R D1R : 1;
-    uint32_t _reserved_4 : 26;
+    uint32_t _reserved_0 : 26;
     eENA ENA : 1;
     eLCK LCK : 1;
   } bits;
@@ -11121,7 +11121,7 @@ union RDC_MRC38 {
     eD0R D0R : 1;
     eD1W D1W : 1;
     eD1R D1R : 1;
-    uint32_t _reserved_4 : 26;
+    uint32_t _reserved_0 : 26;
     eENA ENA : 1;
     eLCK LCK : 1;
   } bits;
@@ -11173,7 +11173,7 @@ union RDC_MRC39 {
     eD0R D0R : 1;
     eD1W D1W : 1;
     eD1R D1R : 1;
-    uint32_t _reserved_4 : 26;
+    uint32_t _reserved_0 : 26;
     eENA ENA : 1;
     eLCK LCK : 1;
   } bits;
@@ -11225,7 +11225,7 @@ union RDC_MRC40 {
     eD0R D0R : 1;
     eD1W D1W : 1;
     eD1R D1R : 1;
-    uint32_t _reserved_4 : 26;
+    uint32_t _reserved_0 : 26;
     eENA ENA : 1;
     eLCK LCK : 1;
   } bits;
@@ -11277,7 +11277,7 @@ union RDC_MRC41 {
     eD0R D0R : 1;
     eD1W D1W : 1;
     eD1R D1R : 1;
-    uint32_t _reserved_4 : 26;
+    uint32_t _reserved_0 : 26;
     eENA ENA : 1;
     eLCK LCK : 1;
   } bits;
@@ -11329,7 +11329,7 @@ union RDC_MRC42 {
     eD0R D0R : 1;
     eD1W D1W : 1;
     eD1R D1R : 1;
-    uint32_t _reserved_4 : 26;
+    uint32_t _reserved_0 : 26;
     eENA ENA : 1;
     eLCK LCK : 1;
   } bits;
@@ -11381,7 +11381,7 @@ union RDC_MRC43 {
     eD0R D0R : 1;
     eD1W D1W : 1;
     eD1R D1R : 1;
-    uint32_t _reserved_4 : 26;
+    uint32_t _reserved_0 : 26;
     eENA ENA : 1;
     eLCK LCK : 1;
   } bits;
@@ -11433,7 +11433,7 @@ union RDC_MRC44 {
     eD0R D0R : 1;
     eD1W D1W : 1;
     eD1R D1R : 1;
-    uint32_t _reserved_4 : 26;
+    uint32_t _reserved_0 : 26;
     eENA ENA : 1;
     eLCK LCK : 1;
   } bits;
@@ -11485,7 +11485,7 @@ union RDC_MRC45 {
     eD0R D0R : 1;
     eD1W D1W : 1;
     eD1R D1R : 1;
-    uint32_t _reserved_4 : 26;
+    uint32_t _reserved_0 : 26;
     eENA ENA : 1;
     eLCK LCK : 1;
   } bits;
@@ -11537,7 +11537,7 @@ union RDC_MRC46 {
     eD0R D0R : 1;
     eD1W D1W : 1;
     eD1R D1R : 1;
-    uint32_t _reserved_4 : 26;
+    uint32_t _reserved_0 : 26;
     eENA ENA : 1;
     eLCK LCK : 1;
   } bits;
@@ -11589,7 +11589,7 @@ union RDC_MRC47 {
     eD0R D0R : 1;
     eD1W D1W : 1;
     eD1R D1R : 1;
-    uint32_t _reserved_4 : 26;
+    uint32_t _reserved_0 : 26;
     eENA ENA : 1;
     eLCK LCK : 1;
   } bits;
@@ -11641,7 +11641,7 @@ union RDC_MRC48 {
     eD0R D0R : 1;
     eD1W D1W : 1;
     eD1R D1R : 1;
-    uint32_t _reserved_4 : 26;
+    uint32_t _reserved_0 : 26;
     eENA ENA : 1;
     eLCK LCK : 1;
   } bits;
@@ -11693,7 +11693,7 @@ union RDC_MRC49 {
     eD0R D0R : 1;
     eD1W D1W : 1;
     eD1R D1R : 1;
-    uint32_t _reserved_4 : 26;
+    uint32_t _reserved_0 : 26;
     eENA ENA : 1;
     eLCK LCK : 1;
   } bits;
@@ -11745,7 +11745,7 @@ union RDC_MRC50 {
     eD0R D0R : 1;
     eD1W D1W : 1;
     eD1R D1R : 1;
-    uint32_t _reserved_4 : 26;
+    uint32_t _reserved_0 : 26;
     eENA ENA : 1;
     eLCK LCK : 1;
   } bits;
@@ -11797,7 +11797,7 @@ union RDC_MRC51 {
     eD0R D0R : 1;
     eD1W D1W : 1;
     eD1R D1R : 1;
-    uint32_t _reserved_4 : 26;
+    uint32_t _reserved_0 : 26;
     eENA ENA : 1;
     eLCK LCK : 1;
   } bits;
@@ -11849,7 +11849,7 @@ union RDC_MRC52 {
     eD0R D0R : 1;
     eD1W D1W : 1;
     eD1R D1R : 1;
-    uint32_t _reserved_4 : 26;
+    uint32_t _reserved_0 : 26;
     eENA ENA : 1;
     eLCK LCK : 1;
   } bits;
@@ -11901,7 +11901,7 @@ union RDC_MRC53 {
     eD0R D0R : 1;
     eD1W D1W : 1;
     eD1R D1R : 1;
-    uint32_t _reserved_4 : 26;
+    uint32_t _reserved_0 : 26;
     eENA ENA : 1;
     eLCK LCK : 1;
   } bits;
@@ -11953,7 +11953,7 @@ union RDC_MRC54 {
     eD0R D0R : 1;
     eD1W D1W : 1;
     eD1R D1R : 1;
-    uint32_t _reserved_4 : 26;
+    uint32_t _reserved_0 : 26;
     eENA ENA : 1;
     eLCK LCK : 1;
   } bits;
@@ -12005,7 +12005,7 @@ union RDC_MRC55 {
     eD0R D0R : 1;
     eD1W D1W : 1;
     eD1R D1R : 1;
-    uint32_t _reserved_4 : 26;
+    uint32_t _reserved_0 : 26;
     eENA ENA : 1;
     eLCK LCK : 1;
   } bits;
@@ -12057,7 +12057,7 @@ union RDC_MRC56 {
     eD0R D0R : 1;
     eD1W D1W : 1;
     eD1R D1R : 1;
-    uint32_t _reserved_4 : 26;
+    uint32_t _reserved_0 : 26;
     eENA ENA : 1;
     eLCK LCK : 1;
   } bits;
@@ -12109,7 +12109,7 @@ union RDC_MRC57 {
     eD0R D0R : 1;
     eD1W D1W : 1;
     eD1R D1R : 1;
-    uint32_t _reserved_4 : 26;
+    uint32_t _reserved_0 : 26;
     eENA ENA : 1;
     eLCK LCK : 1;
   } bits;
@@ -12161,7 +12161,7 @@ union RDC_MRC58 {
     eD0R D0R : 1;
     eD1W D1W : 1;
     eD1R D1R : 1;
-    uint32_t _reserved_4 : 26;
+    uint32_t _reserved_0 : 26;
     eENA ENA : 1;
     eLCK LCK : 1;
   } bits;
@@ -12186,7 +12186,7 @@ union RDC_MRVS0 {
   // Bit field definition.
   struct {
     eVDID VDID : 2;
-    uint32_t _reserved_1 : 2;
+    uint32_t _reserved_0 : 2;
     uint32_t AD : 1;
     uint32_t VADR : 27;
   } bits;
@@ -12210,7 +12210,7 @@ union RDC_MRVS1 {
   // Bit field definition.
   struct {
     eVDID VDID : 2;
-    uint32_t _reserved_1 : 2;
+    uint32_t _reserved_0 : 2;
     uint32_t AD : 1;
     uint32_t VADR : 27;
   } bits;
@@ -12234,7 +12234,7 @@ union RDC_MRVS2 {
   // Bit field definition.
   struct {
     eVDID VDID : 2;
-    uint32_t _reserved_1 : 2;
+    uint32_t _reserved_0 : 2;
     uint32_t AD : 1;
     uint32_t VADR : 27;
   } bits;
@@ -12258,7 +12258,7 @@ union RDC_MRVS3 {
   // Bit field definition.
   struct {
     eVDID VDID : 2;
-    uint32_t _reserved_1 : 2;
+    uint32_t _reserved_0 : 2;
     uint32_t AD : 1;
     uint32_t VADR : 27;
   } bits;
@@ -12282,7 +12282,7 @@ union RDC_MRVS4 {
   // Bit field definition.
   struct {
     eVDID VDID : 2;
-    uint32_t _reserved_1 : 2;
+    uint32_t _reserved_0 : 2;
     uint32_t AD : 1;
     uint32_t VADR : 27;
   } bits;
@@ -12306,7 +12306,7 @@ union RDC_MRVS5 {
   // Bit field definition.
   struct {
     eVDID VDID : 2;
-    uint32_t _reserved_1 : 2;
+    uint32_t _reserved_0 : 2;
     uint32_t AD : 1;
     uint32_t VADR : 27;
   } bits;
@@ -12330,7 +12330,7 @@ union RDC_MRVS6 {
   // Bit field definition.
   struct {
     eVDID VDID : 2;
-    uint32_t _reserved_1 : 2;
+    uint32_t _reserved_0 : 2;
     uint32_t AD : 1;
     uint32_t VADR : 27;
   } bits;
@@ -12354,7 +12354,7 @@ union RDC_MRVS7 {
   // Bit field definition.
   struct {
     eVDID VDID : 2;
-    uint32_t _reserved_1 : 2;
+    uint32_t _reserved_0 : 2;
     uint32_t AD : 1;
     uint32_t VADR : 27;
   } bits;
@@ -12378,7 +12378,7 @@ union RDC_MRVS8 {
   // Bit field definition.
   struct {
     eVDID VDID : 2;
-    uint32_t _reserved_1 : 2;
+    uint32_t _reserved_0 : 2;
     uint32_t AD : 1;
     uint32_t VADR : 27;
   } bits;
@@ -12402,7 +12402,7 @@ union RDC_MRVS9 {
   // Bit field definition.
   struct {
     eVDID VDID : 2;
-    uint32_t _reserved_1 : 2;
+    uint32_t _reserved_0 : 2;
     uint32_t AD : 1;
     uint32_t VADR : 27;
   } bits;
@@ -12426,7 +12426,7 @@ union RDC_MRVS10 {
   // Bit field definition.
   struct {
     eVDID VDID : 2;
-    uint32_t _reserved_1 : 2;
+    uint32_t _reserved_0 : 2;
     uint32_t AD : 1;
     uint32_t VADR : 27;
   } bits;
@@ -12450,7 +12450,7 @@ union RDC_MRVS11 {
   // Bit field definition.
   struct {
     eVDID VDID : 2;
-    uint32_t _reserved_1 : 2;
+    uint32_t _reserved_0 : 2;
     uint32_t AD : 1;
     uint32_t VADR : 27;
   } bits;
@@ -12474,7 +12474,7 @@ union RDC_MRVS12 {
   // Bit field definition.
   struct {
     eVDID VDID : 2;
-    uint32_t _reserved_1 : 2;
+    uint32_t _reserved_0 : 2;
     uint32_t AD : 1;
     uint32_t VADR : 27;
   } bits;
@@ -12498,7 +12498,7 @@ union RDC_MRVS13 {
   // Bit field definition.
   struct {
     eVDID VDID : 2;
-    uint32_t _reserved_1 : 2;
+    uint32_t _reserved_0 : 2;
     uint32_t AD : 1;
     uint32_t VADR : 27;
   } bits;
@@ -12522,7 +12522,7 @@ union RDC_MRVS14 {
   // Bit field definition.
   struct {
     eVDID VDID : 2;
-    uint32_t _reserved_1 : 2;
+    uint32_t _reserved_0 : 2;
     uint32_t AD : 1;
     uint32_t VADR : 27;
   } bits;
@@ -12546,7 +12546,7 @@ union RDC_MRVS15 {
   // Bit field definition.
   struct {
     eVDID VDID : 2;
-    uint32_t _reserved_1 : 2;
+    uint32_t _reserved_0 : 2;
     uint32_t AD : 1;
     uint32_t VADR : 27;
   } bits;
@@ -12570,7 +12570,7 @@ union RDC_MRVS16 {
   // Bit field definition.
   struct {
     eVDID VDID : 2;
-    uint32_t _reserved_1 : 2;
+    uint32_t _reserved_0 : 2;
     uint32_t AD : 1;
     uint32_t VADR : 27;
   } bits;
@@ -12594,7 +12594,7 @@ union RDC_MRVS17 {
   // Bit field definition.
   struct {
     eVDID VDID : 2;
-    uint32_t _reserved_1 : 2;
+    uint32_t _reserved_0 : 2;
     uint32_t AD : 1;
     uint32_t VADR : 27;
   } bits;
@@ -12618,7 +12618,7 @@ union RDC_MRVS18 {
   // Bit field definition.
   struct {
     eVDID VDID : 2;
-    uint32_t _reserved_1 : 2;
+    uint32_t _reserved_0 : 2;
     uint32_t AD : 1;
     uint32_t VADR : 27;
   } bits;
@@ -12642,7 +12642,7 @@ union RDC_MRVS19 {
   // Bit field definition.
   struct {
     eVDID VDID : 2;
-    uint32_t _reserved_1 : 2;
+    uint32_t _reserved_0 : 2;
     uint32_t AD : 1;
     uint32_t VADR : 27;
   } bits;
@@ -12666,7 +12666,7 @@ union RDC_MRVS20 {
   // Bit field definition.
   struct {
     eVDID VDID : 2;
-    uint32_t _reserved_1 : 2;
+    uint32_t _reserved_0 : 2;
     uint32_t AD : 1;
     uint32_t VADR : 27;
   } bits;
@@ -12690,7 +12690,7 @@ union RDC_MRVS21 {
   // Bit field definition.
   struct {
     eVDID VDID : 2;
-    uint32_t _reserved_1 : 2;
+    uint32_t _reserved_0 : 2;
     uint32_t AD : 1;
     uint32_t VADR : 27;
   } bits;
@@ -12714,7 +12714,7 @@ union RDC_MRVS22 {
   // Bit field definition.
   struct {
     eVDID VDID : 2;
-    uint32_t _reserved_1 : 2;
+    uint32_t _reserved_0 : 2;
     uint32_t AD : 1;
     uint32_t VADR : 27;
   } bits;
@@ -12738,7 +12738,7 @@ union RDC_MRVS23 {
   // Bit field definition.
   struct {
     eVDID VDID : 2;
-    uint32_t _reserved_1 : 2;
+    uint32_t _reserved_0 : 2;
     uint32_t AD : 1;
     uint32_t VADR : 27;
   } bits;
@@ -12762,7 +12762,7 @@ union RDC_MRVS24 {
   // Bit field definition.
   struct {
     eVDID VDID : 2;
-    uint32_t _reserved_1 : 2;
+    uint32_t _reserved_0 : 2;
     uint32_t AD : 1;
     uint32_t VADR : 27;
   } bits;
@@ -12786,7 +12786,7 @@ union RDC_MRVS25 {
   // Bit field definition.
   struct {
     eVDID VDID : 2;
-    uint32_t _reserved_1 : 2;
+    uint32_t _reserved_0 : 2;
     uint32_t AD : 1;
     uint32_t VADR : 27;
   } bits;
@@ -12810,7 +12810,7 @@ union RDC_MRVS26 {
   // Bit field definition.
   struct {
     eVDID VDID : 2;
-    uint32_t _reserved_1 : 2;
+    uint32_t _reserved_0 : 2;
     uint32_t AD : 1;
     uint32_t VADR : 27;
   } bits;
@@ -12834,7 +12834,7 @@ union RDC_MRVS27 {
   // Bit field definition.
   struct {
     eVDID VDID : 2;
-    uint32_t _reserved_1 : 2;
+    uint32_t _reserved_0 : 2;
     uint32_t AD : 1;
     uint32_t VADR : 27;
   } bits;
@@ -12858,7 +12858,7 @@ union RDC_MRVS28 {
   // Bit field definition.
   struct {
     eVDID VDID : 2;
-    uint32_t _reserved_1 : 2;
+    uint32_t _reserved_0 : 2;
     uint32_t AD : 1;
     uint32_t VADR : 27;
   } bits;
@@ -12882,7 +12882,7 @@ union RDC_MRVS29 {
   // Bit field definition.
   struct {
     eVDID VDID : 2;
-    uint32_t _reserved_1 : 2;
+    uint32_t _reserved_0 : 2;
     uint32_t AD : 1;
     uint32_t VADR : 27;
   } bits;
@@ -12906,7 +12906,7 @@ union RDC_MRVS30 {
   // Bit field definition.
   struct {
     eVDID VDID : 2;
-    uint32_t _reserved_1 : 2;
+    uint32_t _reserved_0 : 2;
     uint32_t AD : 1;
     uint32_t VADR : 27;
   } bits;
@@ -12930,7 +12930,7 @@ union RDC_MRVS31 {
   // Bit field definition.
   struct {
     eVDID VDID : 2;
-    uint32_t _reserved_1 : 2;
+    uint32_t _reserved_0 : 2;
     uint32_t AD : 1;
     uint32_t VADR : 27;
   } bits;
@@ -12954,7 +12954,7 @@ union RDC_MRVS32 {
   // Bit field definition.
   struct {
     eVDID VDID : 2;
-    uint32_t _reserved_1 : 2;
+    uint32_t _reserved_0 : 2;
     uint32_t AD : 1;
     uint32_t VADR : 27;
   } bits;
@@ -12978,7 +12978,7 @@ union RDC_MRVS33 {
   // Bit field definition.
   struct {
     eVDID VDID : 2;
-    uint32_t _reserved_1 : 2;
+    uint32_t _reserved_0 : 2;
     uint32_t AD : 1;
     uint32_t VADR : 27;
   } bits;
@@ -13002,7 +13002,7 @@ union RDC_MRVS34 {
   // Bit field definition.
   struct {
     eVDID VDID : 2;
-    uint32_t _reserved_1 : 2;
+    uint32_t _reserved_0 : 2;
     uint32_t AD : 1;
     uint32_t VADR : 27;
   } bits;
@@ -13026,7 +13026,7 @@ union RDC_MRVS35 {
   // Bit field definition.
   struct {
     eVDID VDID : 2;
-    uint32_t _reserved_1 : 2;
+    uint32_t _reserved_0 : 2;
     uint32_t AD : 1;
     uint32_t VADR : 27;
   } bits;
@@ -13050,7 +13050,7 @@ union RDC_MRVS36 {
   // Bit field definition.
   struct {
     eVDID VDID : 2;
-    uint32_t _reserved_1 : 2;
+    uint32_t _reserved_0 : 2;
     uint32_t AD : 1;
     uint32_t VADR : 27;
   } bits;
@@ -13074,7 +13074,7 @@ union RDC_MRVS37 {
   // Bit field definition.
   struct {
     eVDID VDID : 2;
-    uint32_t _reserved_1 : 2;
+    uint32_t _reserved_0 : 2;
     uint32_t AD : 1;
     uint32_t VADR : 27;
   } bits;
@@ -13098,7 +13098,7 @@ union RDC_MRVS38 {
   // Bit field definition.
   struct {
     eVDID VDID : 2;
-    uint32_t _reserved_1 : 2;
+    uint32_t _reserved_0 : 2;
     uint32_t AD : 1;
     uint32_t VADR : 27;
   } bits;
@@ -13122,7 +13122,7 @@ union RDC_MRVS39 {
   // Bit field definition.
   struct {
     eVDID VDID : 2;
-    uint32_t _reserved_1 : 2;
+    uint32_t _reserved_0 : 2;
     uint32_t AD : 1;
     uint32_t VADR : 27;
   } bits;
@@ -13146,7 +13146,7 @@ union RDC_MRVS40 {
   // Bit field definition.
   struct {
     eVDID VDID : 2;
-    uint32_t _reserved_1 : 2;
+    uint32_t _reserved_0 : 2;
     uint32_t AD : 1;
     uint32_t VADR : 27;
   } bits;
@@ -13170,7 +13170,7 @@ union RDC_MRVS41 {
   // Bit field definition.
   struct {
     eVDID VDID : 2;
-    uint32_t _reserved_1 : 2;
+    uint32_t _reserved_0 : 2;
     uint32_t AD : 1;
     uint32_t VADR : 27;
   } bits;
@@ -13194,7 +13194,7 @@ union RDC_MRVS42 {
   // Bit field definition.
   struct {
     eVDID VDID : 2;
-    uint32_t _reserved_1 : 2;
+    uint32_t _reserved_0 : 2;
     uint32_t AD : 1;
     uint32_t VADR : 27;
   } bits;
@@ -13218,7 +13218,7 @@ union RDC_MRVS43 {
   // Bit field definition.
   struct {
     eVDID VDID : 2;
-    uint32_t _reserved_1 : 2;
+    uint32_t _reserved_0 : 2;
     uint32_t AD : 1;
     uint32_t VADR : 27;
   } bits;
@@ -13242,7 +13242,7 @@ union RDC_MRVS44 {
   // Bit field definition.
   struct {
     eVDID VDID : 2;
-    uint32_t _reserved_1 : 2;
+    uint32_t _reserved_0 : 2;
     uint32_t AD : 1;
     uint32_t VADR : 27;
   } bits;
@@ -13266,7 +13266,7 @@ union RDC_MRVS45 {
   // Bit field definition.
   struct {
     eVDID VDID : 2;
-    uint32_t _reserved_1 : 2;
+    uint32_t _reserved_0 : 2;
     uint32_t AD : 1;
     uint32_t VADR : 27;
   } bits;
@@ -13290,7 +13290,7 @@ union RDC_MRVS46 {
   // Bit field definition.
   struct {
     eVDID VDID : 2;
-    uint32_t _reserved_1 : 2;
+    uint32_t _reserved_0 : 2;
     uint32_t AD : 1;
     uint32_t VADR : 27;
   } bits;
@@ -13314,7 +13314,7 @@ union RDC_MRVS47 {
   // Bit field definition.
   struct {
     eVDID VDID : 2;
-    uint32_t _reserved_1 : 2;
+    uint32_t _reserved_0 : 2;
     uint32_t AD : 1;
     uint32_t VADR : 27;
   } bits;
@@ -13338,7 +13338,7 @@ union RDC_MRVS48 {
   // Bit field definition.
   struct {
     eVDID VDID : 2;
-    uint32_t _reserved_1 : 2;
+    uint32_t _reserved_0 : 2;
     uint32_t AD : 1;
     uint32_t VADR : 27;
   } bits;
@@ -13362,7 +13362,7 @@ union RDC_MRVS49 {
   // Bit field definition.
   struct {
     eVDID VDID : 2;
-    uint32_t _reserved_1 : 2;
+    uint32_t _reserved_0 : 2;
     uint32_t AD : 1;
     uint32_t VADR : 27;
   } bits;
@@ -13386,7 +13386,7 @@ union RDC_MRVS50 {
   // Bit field definition.
   struct {
     eVDID VDID : 2;
-    uint32_t _reserved_1 : 2;
+    uint32_t _reserved_0 : 2;
     uint32_t AD : 1;
     uint32_t VADR : 27;
   } bits;
@@ -13410,7 +13410,7 @@ union RDC_MRVS51 {
   // Bit field definition.
   struct {
     eVDID VDID : 2;
-    uint32_t _reserved_1 : 2;
+    uint32_t _reserved_0 : 2;
     uint32_t AD : 1;
     uint32_t VADR : 27;
   } bits;
@@ -13434,7 +13434,7 @@ union RDC_MRVS52 {
   // Bit field definition.
   struct {
     eVDID VDID : 2;
-    uint32_t _reserved_1 : 2;
+    uint32_t _reserved_0 : 2;
     uint32_t AD : 1;
     uint32_t VADR : 27;
   } bits;
@@ -13458,7 +13458,7 @@ union RDC_MRVS53 {
   // Bit field definition.
   struct {
     eVDID VDID : 2;
-    uint32_t _reserved_1 : 2;
+    uint32_t _reserved_0 : 2;
     uint32_t AD : 1;
     uint32_t VADR : 27;
   } bits;
@@ -13482,7 +13482,7 @@ union RDC_MRVS54 {
   // Bit field definition.
   struct {
     eVDID VDID : 2;
-    uint32_t _reserved_1 : 2;
+    uint32_t _reserved_0 : 2;
     uint32_t AD : 1;
     uint32_t VADR : 27;
   } bits;
@@ -13506,7 +13506,7 @@ union RDC_MRVS55 {
   // Bit field definition.
   struct {
     eVDID VDID : 2;
-    uint32_t _reserved_1 : 2;
+    uint32_t _reserved_0 : 2;
     uint32_t AD : 1;
     uint32_t VADR : 27;
   } bits;
@@ -13530,7 +13530,7 @@ union RDC_MRVS56 {
   // Bit field definition.
   struct {
     eVDID VDID : 2;
-    uint32_t _reserved_1 : 2;
+    uint32_t _reserved_0 : 2;
     uint32_t AD : 1;
     uint32_t VADR : 27;
   } bits;
@@ -13554,7 +13554,7 @@ union RDC_MRVS57 {
   // Bit field definition.
   struct {
     eVDID VDID : 2;
-    uint32_t _reserved_1 : 2;
+    uint32_t _reserved_0 : 2;
     uint32_t AD : 1;
     uint32_t VADR : 27;
   } bits;
@@ -13578,7 +13578,7 @@ union RDC_MRVS58 {
   // Bit field definition.
   struct {
     eVDID VDID : 2;
-    uint32_t _reserved_1 : 2;
+    uint32_t _reserved_0 : 2;
     uint32_t AD : 1;
     uint32_t VADR : 27;
   } bits;

@@ -4,7 +4,7 @@
 #include <stdint.h>
 #include <cstring>
 
-// // Nested Vectored Interrupt Controller
+// Nested Vectored Interrupt Controller
 //
 // NOTE: This file was generated from the forge CMSIS-svd wrapper tool.
 
@@ -359,7 +359,7 @@ union NVICIP0 {
   struct {
     uint32_t _reserved_0 : 4;
     uint32_t PRI0 : 4;
-    uint32_t _reserved_end : 24;
+    uint32_t _reserved_1 : 24;
   } bits;
   
   // Full 32-bit register value.
@@ -378,7 +378,7 @@ union NVICIP1 {
   struct {
     uint32_t _reserved_0 : 4;
     uint32_t PRI1 : 4;
-    uint32_t _reserved_end : 24;
+    uint32_t _reserved_1 : 24;
   } bits;
   
   // Full 32-bit register value.
@@ -397,7 +397,7 @@ union NVICIP2 {
   struct {
     uint32_t _reserved_0 : 4;
     uint32_t PRI2 : 4;
-    uint32_t _reserved_end : 24;
+    uint32_t _reserved_1 : 24;
   } bits;
   
   // Full 32-bit register value.
@@ -416,7 +416,7 @@ union NVICIP3 {
   struct {
     uint32_t _reserved_0 : 4;
     uint32_t PRI3 : 4;
-    uint32_t _reserved_end : 24;
+    uint32_t _reserved_1 : 24;
   } bits;
   
   // Full 32-bit register value.
@@ -435,7 +435,7 @@ union NVICIP4 {
   struct {
     uint32_t _reserved_0 : 4;
     uint32_t PRI4 : 4;
-    uint32_t _reserved_end : 24;
+    uint32_t _reserved_1 : 24;
   } bits;
   
   // Full 32-bit register value.
@@ -454,7 +454,7 @@ union NVICIP5 {
   struct {
     uint32_t _reserved_0 : 4;
     uint32_t PRI5 : 4;
-    uint32_t _reserved_end : 24;
+    uint32_t _reserved_1 : 24;
   } bits;
   
   // Full 32-bit register value.
@@ -473,7 +473,7 @@ union NVICIP6 {
   struct {
     uint32_t _reserved_0 : 4;
     uint32_t PRI6 : 4;
-    uint32_t _reserved_end : 24;
+    uint32_t _reserved_1 : 24;
   } bits;
   
   // Full 32-bit register value.
@@ -492,7 +492,7 @@ union NVICIP7 {
   struct {
     uint32_t _reserved_0 : 4;
     uint32_t PRI7 : 4;
-    uint32_t _reserved_end : 24;
+    uint32_t _reserved_1 : 24;
   } bits;
   
   // Full 32-bit register value.
@@ -511,7 +511,7 @@ union NVICIP8 {
   struct {
     uint32_t _reserved_0 : 4;
     uint32_t PRI8 : 4;
-    uint32_t _reserved_end : 24;
+    uint32_t _reserved_1 : 24;
   } bits;
   
   // Full 32-bit register value.
@@ -530,7 +530,7 @@ union NVICIP9 {
   struct {
     uint32_t _reserved_0 : 4;
     uint32_t PRI9 : 4;
-    uint32_t _reserved_end : 24;
+    uint32_t _reserved_1 : 24;
   } bits;
   
   // Full 32-bit register value.
@@ -549,7 +549,7 @@ union NVICIP10 {
   struct {
     uint32_t _reserved_0 : 4;
     uint32_t PRI10 : 4;
-    uint32_t _reserved_end : 24;
+    uint32_t _reserved_1 : 24;
   } bits;
   
   // Full 32-bit register value.
@@ -568,7 +568,7 @@ union NVICIP11 {
   struct {
     uint32_t _reserved_0 : 4;
     uint32_t PRI11 : 4;
-    uint32_t _reserved_end : 24;
+    uint32_t _reserved_1 : 24;
   } bits;
   
   // Full 32-bit register value.
@@ -587,7 +587,7 @@ union NVICIP12 {
   struct {
     uint32_t _reserved_0 : 4;
     uint32_t PRI12 : 4;
-    uint32_t _reserved_end : 24;
+    uint32_t _reserved_1 : 24;
   } bits;
   
   // Full 32-bit register value.
@@ -606,7 +606,7 @@ union NVICIP13 {
   struct {
     uint32_t _reserved_0 : 4;
     uint32_t PRI13 : 4;
-    uint32_t _reserved_end : 24;
+    uint32_t _reserved_1 : 24;
   } bits;
   
   // Full 32-bit register value.
@@ -625,7 +625,7 @@ union NVICIP14 {
   struct {
     uint32_t _reserved_0 : 4;
     uint32_t PRI14 : 4;
-    uint32_t _reserved_end : 24;
+    uint32_t _reserved_1 : 24;
   } bits;
   
   // Full 32-bit register value.
@@ -644,7 +644,7 @@ union NVICIP15 {
   struct {
     uint32_t _reserved_0 : 4;
     uint32_t PRI15 : 4;
-    uint32_t _reserved_end : 24;
+    uint32_t _reserved_1 : 24;
   } bits;
   
   // Full 32-bit register value.
@@ -663,7 +663,7 @@ union NVICIP16 {
   struct {
     uint32_t _reserved_0 : 4;
     uint32_t PRI16 : 4;
-    uint32_t _reserved_end : 24;
+    uint32_t _reserved_1 : 24;
   } bits;
   
   // Full 32-bit register value.
@@ -682,7 +682,7 @@ union NVICIP17 {
   struct {
     uint32_t _reserved_0 : 4;
     uint32_t PRI17 : 4;
-    uint32_t _reserved_end : 24;
+    uint32_t _reserved_1 : 24;
   } bits;
   
   // Full 32-bit register value.
@@ -701,7 +701,7 @@ union NVICIP18 {
   struct {
     uint32_t _reserved_0 : 4;
     uint32_t PRI18 : 4;
-    uint32_t _reserved_end : 24;
+    uint32_t _reserved_1 : 24;
   } bits;
   
   // Full 32-bit register value.
@@ -720,7 +720,7 @@ union NVICIP19 {
   struct {
     uint32_t _reserved_0 : 4;
     uint32_t PRI19 : 4;
-    uint32_t _reserved_end : 24;
+    uint32_t _reserved_1 : 24;
   } bits;
   
   // Full 32-bit register value.
@@ -739,7 +739,7 @@ union NVICIP20 {
   struct {
     uint32_t _reserved_0 : 4;
     uint32_t PRI20 : 4;
-    uint32_t _reserved_end : 24;
+    uint32_t _reserved_1 : 24;
   } bits;
   
   // Full 32-bit register value.
@@ -758,7 +758,7 @@ union NVICIP21 {
   struct {
     uint32_t _reserved_0 : 4;
     uint32_t PRI21 : 4;
-    uint32_t _reserved_end : 24;
+    uint32_t _reserved_1 : 24;
   } bits;
   
   // Full 32-bit register value.
@@ -777,7 +777,7 @@ union NVICIP22 {
   struct {
     uint32_t _reserved_0 : 4;
     uint32_t PRI22 : 4;
-    uint32_t _reserved_end : 24;
+    uint32_t _reserved_1 : 24;
   } bits;
   
   // Full 32-bit register value.
@@ -796,7 +796,7 @@ union NVICIP23 {
   struct {
     uint32_t _reserved_0 : 4;
     uint32_t PRI23 : 4;
-    uint32_t _reserved_end : 24;
+    uint32_t _reserved_1 : 24;
   } bits;
   
   // Full 32-bit register value.
@@ -815,7 +815,7 @@ union NVICIP24 {
   struct {
     uint32_t _reserved_0 : 4;
     uint32_t PRI24 : 4;
-    uint32_t _reserved_end : 24;
+    uint32_t _reserved_1 : 24;
   } bits;
   
   // Full 32-bit register value.
@@ -834,7 +834,7 @@ union NVICIP25 {
   struct {
     uint32_t _reserved_0 : 4;
     uint32_t PRI25 : 4;
-    uint32_t _reserved_end : 24;
+    uint32_t _reserved_1 : 24;
   } bits;
   
   // Full 32-bit register value.
@@ -853,7 +853,7 @@ union NVICIP26 {
   struct {
     uint32_t _reserved_0 : 4;
     uint32_t PRI26 : 4;
-    uint32_t _reserved_end : 24;
+    uint32_t _reserved_1 : 24;
   } bits;
   
   // Full 32-bit register value.
@@ -872,7 +872,7 @@ union NVICIP27 {
   struct {
     uint32_t _reserved_0 : 4;
     uint32_t PRI27 : 4;
-    uint32_t _reserved_end : 24;
+    uint32_t _reserved_1 : 24;
   } bits;
   
   // Full 32-bit register value.
@@ -891,7 +891,7 @@ union NVICIP28 {
   struct {
     uint32_t _reserved_0 : 4;
     uint32_t PRI28 : 4;
-    uint32_t _reserved_end : 24;
+    uint32_t _reserved_1 : 24;
   } bits;
   
   // Full 32-bit register value.
@@ -910,7 +910,7 @@ union NVICIP29 {
   struct {
     uint32_t _reserved_0 : 4;
     uint32_t PRI29 : 4;
-    uint32_t _reserved_end : 24;
+    uint32_t _reserved_1 : 24;
   } bits;
   
   // Full 32-bit register value.
@@ -929,7 +929,7 @@ union NVICIP30 {
   struct {
     uint32_t _reserved_0 : 4;
     uint32_t PRI30 : 4;
-    uint32_t _reserved_end : 24;
+    uint32_t _reserved_1 : 24;
   } bits;
   
   // Full 32-bit register value.
@@ -948,7 +948,7 @@ union NVICIP31 {
   struct {
     uint32_t _reserved_0 : 4;
     uint32_t PRI31 : 4;
-    uint32_t _reserved_end : 24;
+    uint32_t _reserved_1 : 24;
   } bits;
   
   // Full 32-bit register value.
@@ -967,7 +967,7 @@ union NVICIP32 {
   struct {
     uint32_t _reserved_0 : 4;
     uint32_t PRI32 : 4;
-    uint32_t _reserved_end : 24;
+    uint32_t _reserved_1 : 24;
   } bits;
   
   // Full 32-bit register value.
@@ -986,7 +986,7 @@ union NVICIP33 {
   struct {
     uint32_t _reserved_0 : 4;
     uint32_t PRI33 : 4;
-    uint32_t _reserved_end : 24;
+    uint32_t _reserved_1 : 24;
   } bits;
   
   // Full 32-bit register value.
@@ -1005,7 +1005,7 @@ union NVICIP34 {
   struct {
     uint32_t _reserved_0 : 4;
     uint32_t PRI34 : 4;
-    uint32_t _reserved_end : 24;
+    uint32_t _reserved_1 : 24;
   } bits;
   
   // Full 32-bit register value.
@@ -1024,7 +1024,7 @@ union NVICIP35 {
   struct {
     uint32_t _reserved_0 : 4;
     uint32_t PRI35 : 4;
-    uint32_t _reserved_end : 24;
+    uint32_t _reserved_1 : 24;
   } bits;
   
   // Full 32-bit register value.
@@ -1043,7 +1043,7 @@ union NVICIP36 {
   struct {
     uint32_t _reserved_0 : 4;
     uint32_t PRI36 : 4;
-    uint32_t _reserved_end : 24;
+    uint32_t _reserved_1 : 24;
   } bits;
   
   // Full 32-bit register value.
@@ -1062,7 +1062,7 @@ union NVICIP37 {
   struct {
     uint32_t _reserved_0 : 4;
     uint32_t PRI37 : 4;
-    uint32_t _reserved_end : 24;
+    uint32_t _reserved_1 : 24;
   } bits;
   
   // Full 32-bit register value.
@@ -1081,7 +1081,7 @@ union NVICIP38 {
   struct {
     uint32_t _reserved_0 : 4;
     uint32_t PRI38 : 4;
-    uint32_t _reserved_end : 24;
+    uint32_t _reserved_1 : 24;
   } bits;
   
   // Full 32-bit register value.
@@ -1100,7 +1100,7 @@ union NVICIP39 {
   struct {
     uint32_t _reserved_0 : 4;
     uint32_t PRI39 : 4;
-    uint32_t _reserved_end : 24;
+    uint32_t _reserved_1 : 24;
   } bits;
   
   // Full 32-bit register value.
@@ -1119,7 +1119,7 @@ union NVICIP40 {
   struct {
     uint32_t _reserved_0 : 4;
     uint32_t PRI40 : 4;
-    uint32_t _reserved_end : 24;
+    uint32_t _reserved_1 : 24;
   } bits;
   
   // Full 32-bit register value.
@@ -1138,7 +1138,7 @@ union NVICIP41 {
   struct {
     uint32_t _reserved_0 : 4;
     uint32_t PRI41 : 4;
-    uint32_t _reserved_end : 24;
+    uint32_t _reserved_1 : 24;
   } bits;
   
   // Full 32-bit register value.
@@ -1157,7 +1157,7 @@ union NVICIP42 {
   struct {
     uint32_t _reserved_0 : 4;
     uint32_t PRI42 : 4;
-    uint32_t _reserved_end : 24;
+    uint32_t _reserved_1 : 24;
   } bits;
   
   // Full 32-bit register value.
@@ -1176,7 +1176,7 @@ union NVICIP43 {
   struct {
     uint32_t _reserved_0 : 4;
     uint32_t PRI43 : 4;
-    uint32_t _reserved_end : 24;
+    uint32_t _reserved_1 : 24;
   } bits;
   
   // Full 32-bit register value.
@@ -1195,7 +1195,7 @@ union NVICIP44 {
   struct {
     uint32_t _reserved_0 : 4;
     uint32_t PRI44 : 4;
-    uint32_t _reserved_end : 24;
+    uint32_t _reserved_1 : 24;
   } bits;
   
   // Full 32-bit register value.
@@ -1214,7 +1214,7 @@ union NVICIP45 {
   struct {
     uint32_t _reserved_0 : 4;
     uint32_t PRI45 : 4;
-    uint32_t _reserved_end : 24;
+    uint32_t _reserved_1 : 24;
   } bits;
   
   // Full 32-bit register value.
@@ -1233,7 +1233,7 @@ union NVICIP46 {
   struct {
     uint32_t _reserved_0 : 4;
     uint32_t PRI46 : 4;
-    uint32_t _reserved_end : 24;
+    uint32_t _reserved_1 : 24;
   } bits;
   
   // Full 32-bit register value.
@@ -1252,7 +1252,7 @@ union NVICIP47 {
   struct {
     uint32_t _reserved_0 : 4;
     uint32_t PRI47 : 4;
-    uint32_t _reserved_end : 24;
+    uint32_t _reserved_1 : 24;
   } bits;
   
   // Full 32-bit register value.
@@ -1271,7 +1271,7 @@ union NVICIP48 {
   struct {
     uint32_t _reserved_0 : 4;
     uint32_t PRI48 : 4;
-    uint32_t _reserved_end : 24;
+    uint32_t _reserved_1 : 24;
   } bits;
   
   // Full 32-bit register value.
@@ -1290,7 +1290,7 @@ union NVICIP49 {
   struct {
     uint32_t _reserved_0 : 4;
     uint32_t PRI49 : 4;
-    uint32_t _reserved_end : 24;
+    uint32_t _reserved_1 : 24;
   } bits;
   
   // Full 32-bit register value.
@@ -1309,7 +1309,7 @@ union NVICIP50 {
   struct {
     uint32_t _reserved_0 : 4;
     uint32_t PRI50 : 4;
-    uint32_t _reserved_end : 24;
+    uint32_t _reserved_1 : 24;
   } bits;
   
   // Full 32-bit register value.
@@ -1328,7 +1328,7 @@ union NVICIP51 {
   struct {
     uint32_t _reserved_0 : 4;
     uint32_t PRI51 : 4;
-    uint32_t _reserved_end : 24;
+    uint32_t _reserved_1 : 24;
   } bits;
   
   // Full 32-bit register value.
@@ -1347,7 +1347,7 @@ union NVICIP52 {
   struct {
     uint32_t _reserved_0 : 4;
     uint32_t PRI52 : 4;
-    uint32_t _reserved_end : 24;
+    uint32_t _reserved_1 : 24;
   } bits;
   
   // Full 32-bit register value.
@@ -1366,7 +1366,7 @@ union NVICIP53 {
   struct {
     uint32_t _reserved_0 : 4;
     uint32_t PRI53 : 4;
-    uint32_t _reserved_end : 24;
+    uint32_t _reserved_1 : 24;
   } bits;
   
   // Full 32-bit register value.
@@ -1385,7 +1385,7 @@ union NVICIP54 {
   struct {
     uint32_t _reserved_0 : 4;
     uint32_t PRI54 : 4;
-    uint32_t _reserved_end : 24;
+    uint32_t _reserved_1 : 24;
   } bits;
   
   // Full 32-bit register value.
@@ -1404,7 +1404,7 @@ union NVICIP55 {
   struct {
     uint32_t _reserved_0 : 4;
     uint32_t PRI55 : 4;
-    uint32_t _reserved_end : 24;
+    uint32_t _reserved_1 : 24;
   } bits;
   
   // Full 32-bit register value.
@@ -1423,7 +1423,7 @@ union NVICIP56 {
   struct {
     uint32_t _reserved_0 : 4;
     uint32_t PRI56 : 4;
-    uint32_t _reserved_end : 24;
+    uint32_t _reserved_1 : 24;
   } bits;
   
   // Full 32-bit register value.
@@ -1442,7 +1442,7 @@ union NVICIP57 {
   struct {
     uint32_t _reserved_0 : 4;
     uint32_t PRI57 : 4;
-    uint32_t _reserved_end : 24;
+    uint32_t _reserved_1 : 24;
   } bits;
   
   // Full 32-bit register value.
@@ -1461,7 +1461,7 @@ union NVICIP58 {
   struct {
     uint32_t _reserved_0 : 4;
     uint32_t PRI58 : 4;
-    uint32_t _reserved_end : 24;
+    uint32_t _reserved_1 : 24;
   } bits;
   
   // Full 32-bit register value.
@@ -1480,7 +1480,7 @@ union NVICIP59 {
   struct {
     uint32_t _reserved_0 : 4;
     uint32_t PRI59 : 4;
-    uint32_t _reserved_end : 24;
+    uint32_t _reserved_1 : 24;
   } bits;
   
   // Full 32-bit register value.
@@ -1499,7 +1499,7 @@ union NVICIP60 {
   struct {
     uint32_t _reserved_0 : 4;
     uint32_t PRI60 : 4;
-    uint32_t _reserved_end : 24;
+    uint32_t _reserved_1 : 24;
   } bits;
   
   // Full 32-bit register value.
@@ -1518,7 +1518,7 @@ union NVICIP61 {
   struct {
     uint32_t _reserved_0 : 4;
     uint32_t PRI61 : 4;
-    uint32_t _reserved_end : 24;
+    uint32_t _reserved_1 : 24;
   } bits;
   
   // Full 32-bit register value.
@@ -1537,7 +1537,7 @@ union NVICIP62 {
   struct {
     uint32_t _reserved_0 : 4;
     uint32_t PRI62 : 4;
-    uint32_t _reserved_end : 24;
+    uint32_t _reserved_1 : 24;
   } bits;
   
   // Full 32-bit register value.
@@ -1556,7 +1556,7 @@ union NVICIP63 {
   struct {
     uint32_t _reserved_0 : 4;
     uint32_t PRI63 : 4;
-    uint32_t _reserved_end : 24;
+    uint32_t _reserved_1 : 24;
   } bits;
   
   // Full 32-bit register value.
@@ -1575,7 +1575,7 @@ union NVICIP64 {
   struct {
     uint32_t _reserved_0 : 4;
     uint32_t PRI64 : 4;
-    uint32_t _reserved_end : 24;
+    uint32_t _reserved_1 : 24;
   } bits;
   
   // Full 32-bit register value.
@@ -1594,7 +1594,7 @@ union NVICIP65 {
   struct {
     uint32_t _reserved_0 : 4;
     uint32_t PRI65 : 4;
-    uint32_t _reserved_end : 24;
+    uint32_t _reserved_1 : 24;
   } bits;
   
   // Full 32-bit register value.
@@ -1613,7 +1613,7 @@ union NVICIP66 {
   struct {
     uint32_t _reserved_0 : 4;
     uint32_t PRI66 : 4;
-    uint32_t _reserved_end : 24;
+    uint32_t _reserved_1 : 24;
   } bits;
   
   // Full 32-bit register value.
@@ -1632,7 +1632,7 @@ union NVICIP67 {
   struct {
     uint32_t _reserved_0 : 4;
     uint32_t PRI67 : 4;
-    uint32_t _reserved_end : 24;
+    uint32_t _reserved_1 : 24;
   } bits;
   
   // Full 32-bit register value.
@@ -1651,7 +1651,7 @@ union NVICIP68 {
   struct {
     uint32_t _reserved_0 : 4;
     uint32_t PRI68 : 4;
-    uint32_t _reserved_end : 24;
+    uint32_t _reserved_1 : 24;
   } bits;
   
   // Full 32-bit register value.
@@ -1670,7 +1670,7 @@ union NVICIP69 {
   struct {
     uint32_t _reserved_0 : 4;
     uint32_t PRI69 : 4;
-    uint32_t _reserved_end : 24;
+    uint32_t _reserved_1 : 24;
   } bits;
   
   // Full 32-bit register value.
@@ -1689,7 +1689,7 @@ union NVICIP70 {
   struct {
     uint32_t _reserved_0 : 4;
     uint32_t PRI70 : 4;
-    uint32_t _reserved_end : 24;
+    uint32_t _reserved_1 : 24;
   } bits;
   
   // Full 32-bit register value.
@@ -1708,7 +1708,7 @@ union NVICIP71 {
   struct {
     uint32_t _reserved_0 : 4;
     uint32_t PRI71 : 4;
-    uint32_t _reserved_end : 24;
+    uint32_t _reserved_1 : 24;
   } bits;
   
   // Full 32-bit register value.
@@ -1727,7 +1727,7 @@ union NVICIP72 {
   struct {
     uint32_t _reserved_0 : 4;
     uint32_t PRI72 : 4;
-    uint32_t _reserved_end : 24;
+    uint32_t _reserved_1 : 24;
   } bits;
   
   // Full 32-bit register value.
@@ -1746,7 +1746,7 @@ union NVICIP73 {
   struct {
     uint32_t _reserved_0 : 4;
     uint32_t PRI73 : 4;
-    uint32_t _reserved_end : 24;
+    uint32_t _reserved_1 : 24;
   } bits;
   
   // Full 32-bit register value.
@@ -1765,7 +1765,7 @@ union NVICIP74 {
   struct {
     uint32_t _reserved_0 : 4;
     uint32_t PRI74 : 4;
-    uint32_t _reserved_end : 24;
+    uint32_t _reserved_1 : 24;
   } bits;
   
   // Full 32-bit register value.
@@ -1784,7 +1784,7 @@ union NVICIP75 {
   struct {
     uint32_t _reserved_0 : 4;
     uint32_t PRI75 : 4;
-    uint32_t _reserved_end : 24;
+    uint32_t _reserved_1 : 24;
   } bits;
   
   // Full 32-bit register value.
@@ -1803,7 +1803,7 @@ union NVICIP76 {
   struct {
     uint32_t _reserved_0 : 4;
     uint32_t PRI76 : 4;
-    uint32_t _reserved_end : 24;
+    uint32_t _reserved_1 : 24;
   } bits;
   
   // Full 32-bit register value.
@@ -1822,7 +1822,7 @@ union NVICIP77 {
   struct {
     uint32_t _reserved_0 : 4;
     uint32_t PRI77 : 4;
-    uint32_t _reserved_end : 24;
+    uint32_t _reserved_1 : 24;
   } bits;
   
   // Full 32-bit register value.
@@ -1841,7 +1841,7 @@ union NVICIP78 {
   struct {
     uint32_t _reserved_0 : 4;
     uint32_t PRI78 : 4;
-    uint32_t _reserved_end : 24;
+    uint32_t _reserved_1 : 24;
   } bits;
   
   // Full 32-bit register value.
@@ -1860,7 +1860,7 @@ union NVICIP79 {
   struct {
     uint32_t _reserved_0 : 4;
     uint32_t PRI79 : 4;
-    uint32_t _reserved_end : 24;
+    uint32_t _reserved_1 : 24;
   } bits;
   
   // Full 32-bit register value.
@@ -1879,7 +1879,7 @@ union NVICIP80 {
   struct {
     uint32_t _reserved_0 : 4;
     uint32_t PRI80 : 4;
-    uint32_t _reserved_end : 24;
+    uint32_t _reserved_1 : 24;
   } bits;
   
   // Full 32-bit register value.
@@ -1898,7 +1898,7 @@ union NVICIP81 {
   struct {
     uint32_t _reserved_0 : 4;
     uint32_t PRI81 : 4;
-    uint32_t _reserved_end : 24;
+    uint32_t _reserved_1 : 24;
   } bits;
   
   // Full 32-bit register value.
@@ -1917,7 +1917,7 @@ union NVICIP82 {
   struct {
     uint32_t _reserved_0 : 4;
     uint32_t PRI82 : 4;
-    uint32_t _reserved_end : 24;
+    uint32_t _reserved_1 : 24;
   } bits;
   
   // Full 32-bit register value.
@@ -1936,7 +1936,7 @@ union NVICIP83 {
   struct {
     uint32_t _reserved_0 : 4;
     uint32_t PRI83 : 4;
-    uint32_t _reserved_end : 24;
+    uint32_t _reserved_1 : 24;
   } bits;
   
   // Full 32-bit register value.
@@ -1955,7 +1955,7 @@ union NVICIP84 {
   struct {
     uint32_t _reserved_0 : 4;
     uint32_t PRI84 : 4;
-    uint32_t _reserved_end : 24;
+    uint32_t _reserved_1 : 24;
   } bits;
   
   // Full 32-bit register value.
@@ -1974,7 +1974,7 @@ union NVICIP85 {
   struct {
     uint32_t _reserved_0 : 4;
     uint32_t PRI85 : 4;
-    uint32_t _reserved_end : 24;
+    uint32_t _reserved_1 : 24;
   } bits;
   
   // Full 32-bit register value.
@@ -1993,7 +1993,7 @@ union NVICIP86 {
   struct {
     uint32_t _reserved_0 : 4;
     uint32_t PRI86 : 4;
-    uint32_t _reserved_end : 24;
+    uint32_t _reserved_1 : 24;
   } bits;
   
   // Full 32-bit register value.
@@ -2012,7 +2012,7 @@ union NVICIP87 {
   struct {
     uint32_t _reserved_0 : 4;
     uint32_t PRI87 : 4;
-    uint32_t _reserved_end : 24;
+    uint32_t _reserved_1 : 24;
   } bits;
   
   // Full 32-bit register value.
@@ -2031,7 +2031,7 @@ union NVICIP88 {
   struct {
     uint32_t _reserved_0 : 4;
     uint32_t PRI88 : 4;
-    uint32_t _reserved_end : 24;
+    uint32_t _reserved_1 : 24;
   } bits;
   
   // Full 32-bit register value.
@@ -2050,7 +2050,7 @@ union NVICIP89 {
   struct {
     uint32_t _reserved_0 : 4;
     uint32_t PRI89 : 4;
-    uint32_t _reserved_end : 24;
+    uint32_t _reserved_1 : 24;
   } bits;
   
   // Full 32-bit register value.
@@ -2069,7 +2069,7 @@ union NVICIP90 {
   struct {
     uint32_t _reserved_0 : 4;
     uint32_t PRI90 : 4;
-    uint32_t _reserved_end : 24;
+    uint32_t _reserved_1 : 24;
   } bits;
   
   // Full 32-bit register value.
@@ -2088,7 +2088,7 @@ union NVICIP91 {
   struct {
     uint32_t _reserved_0 : 4;
     uint32_t PRI91 : 4;
-    uint32_t _reserved_end : 24;
+    uint32_t _reserved_1 : 24;
   } bits;
   
   // Full 32-bit register value.
@@ -2107,7 +2107,7 @@ union NVICIP92 {
   struct {
     uint32_t _reserved_0 : 4;
     uint32_t PRI92 : 4;
-    uint32_t _reserved_end : 24;
+    uint32_t _reserved_1 : 24;
   } bits;
   
   // Full 32-bit register value.
@@ -2126,7 +2126,7 @@ union NVICIP93 {
   struct {
     uint32_t _reserved_0 : 4;
     uint32_t PRI93 : 4;
-    uint32_t _reserved_end : 24;
+    uint32_t _reserved_1 : 24;
   } bits;
   
   // Full 32-bit register value.
@@ -2145,7 +2145,7 @@ union NVICIP94 {
   struct {
     uint32_t _reserved_0 : 4;
     uint32_t PRI94 : 4;
-    uint32_t _reserved_end : 24;
+    uint32_t _reserved_1 : 24;
   } bits;
   
   // Full 32-bit register value.
@@ -2164,7 +2164,7 @@ union NVICIP95 {
   struct {
     uint32_t _reserved_0 : 4;
     uint32_t PRI95 : 4;
-    uint32_t _reserved_end : 24;
+    uint32_t _reserved_1 : 24;
   } bits;
   
   // Full 32-bit register value.
@@ -2183,7 +2183,7 @@ union NVICIP96 {
   struct {
     uint32_t _reserved_0 : 4;
     uint32_t PRI96 : 4;
-    uint32_t _reserved_end : 24;
+    uint32_t _reserved_1 : 24;
   } bits;
   
   // Full 32-bit register value.
@@ -2202,7 +2202,7 @@ union NVICIP97 {
   struct {
     uint32_t _reserved_0 : 4;
     uint32_t PRI97 : 4;
-    uint32_t _reserved_end : 24;
+    uint32_t _reserved_1 : 24;
   } bits;
   
   // Full 32-bit register value.
@@ -2221,7 +2221,7 @@ union NVICIP98 {
   struct {
     uint32_t _reserved_0 : 4;
     uint32_t PRI98 : 4;
-    uint32_t _reserved_end : 24;
+    uint32_t _reserved_1 : 24;
   } bits;
   
   // Full 32-bit register value.
@@ -2240,7 +2240,7 @@ union NVICIP99 {
   struct {
     uint32_t _reserved_0 : 4;
     uint32_t PRI99 : 4;
-    uint32_t _reserved_end : 24;
+    uint32_t _reserved_1 : 24;
   } bits;
   
   // Full 32-bit register value.
@@ -2259,7 +2259,7 @@ union NVICIP100 {
   struct {
     uint32_t _reserved_0 : 4;
     uint32_t PRI100 : 4;
-    uint32_t _reserved_end : 24;
+    uint32_t _reserved_1 : 24;
   } bits;
   
   // Full 32-bit register value.
@@ -2278,7 +2278,7 @@ union NVICIP101 {
   struct {
     uint32_t _reserved_0 : 4;
     uint32_t PRI101 : 4;
-    uint32_t _reserved_end : 24;
+    uint32_t _reserved_1 : 24;
   } bits;
   
   // Full 32-bit register value.
@@ -2297,7 +2297,7 @@ union NVICIP102 {
   struct {
     uint32_t _reserved_0 : 4;
     uint32_t PRI102 : 4;
-    uint32_t _reserved_end : 24;
+    uint32_t _reserved_1 : 24;
   } bits;
   
   // Full 32-bit register value.
@@ -2316,7 +2316,7 @@ union NVICIP103 {
   struct {
     uint32_t _reserved_0 : 4;
     uint32_t PRI103 : 4;
-    uint32_t _reserved_end : 24;
+    uint32_t _reserved_1 : 24;
   } bits;
   
   // Full 32-bit register value.
@@ -2335,7 +2335,7 @@ union NVICIP104 {
   struct {
     uint32_t _reserved_0 : 4;
     uint32_t PRI104 : 4;
-    uint32_t _reserved_end : 24;
+    uint32_t _reserved_1 : 24;
   } bits;
   
   // Full 32-bit register value.
@@ -2354,7 +2354,7 @@ union NVICIP105 {
   struct {
     uint32_t _reserved_0 : 4;
     uint32_t PRI105 : 4;
-    uint32_t _reserved_end : 24;
+    uint32_t _reserved_1 : 24;
   } bits;
   
   // Full 32-bit register value.
@@ -2372,7 +2372,7 @@ union NVICSTIR {
   // Bit field definition.
   struct {
     uint32_t INTID : 9;
-    uint32_t _reserved_end : 23;
+    uint32_t _reserved_0 : 23;
   } bits;
   
   // Full 32-bit register value.

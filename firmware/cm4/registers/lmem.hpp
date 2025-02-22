@@ -4,7 +4,7 @@
 #include <stdint.h>
 #include <cstring>
 
-// // LMEM
+// LMEM
 //
 // NOTE: This file was generated from the forge CMSIS-svd wrapper tool.
 
@@ -66,12 +66,12 @@ union PCCCR {
     eENWRBUF ENWRBUF : 1;
     ePCCR2 PCCR2 : 1;
     ePCCR3 PCCR3 : 1;
-    uint32_t _reserved_4 : 20;
+    uint32_t _reserved_0 : 20;
     eINVW0 INVW0 : 1;
     ePUSHW0 PUSHW0 : 1;
     eINVW1 INVW1 : 1;
     ePUSHW1 PUSHW1 : 1;
-    uint32_t _reserved_8 : 3;
+    uint32_t _reserved_1 : 3;
     eGO GO : 1;
   } bits;
   
@@ -122,20 +122,20 @@ union PCCLCR {
   // Bit field definition.
   struct {
     eLGO LGO : 1;
-    uint32_t _reserved_1 : 1;
+    uint32_t _reserved_0 : 1;
     uint32_t CACHEADDR : 12;
     eWSEL WSEL : 1;
-    uint32_t _reserved_3 : 1;
+    uint32_t _reserved_1 : 1;
     eTDSEL TDSEL : 1;
-    uint32_t _reserved_4 : 3;
+    uint32_t _reserved_2 : 3;
     uint32_t LCIVB : 1;
     uint32_t LCIMB : 1;
     uint32_t LCWAY : 1;
-    uint32_t _reserved_7 : 1;
+    uint32_t _reserved_3 : 1;
     eLCMD LCMD : 2;
     eLADSEL LADSEL : 1;
     eLACC LACC : 1;
-    uint32_t _reserved_end : 4;
+    uint32_t _reserved_4 : 4;
   } bits;
   
   // Full 32-bit register value.
@@ -241,12 +241,12 @@ union PSCCR {
     eENWRBUF ENWRBUF : 1;
     ePSCR2 PSCR2 : 1;
     ePSCR3 PSCR3 : 1;
-    uint32_t _reserved_4 : 20;
+    uint32_t _reserved_0 : 20;
     eINVW0 INVW0 : 1;
     ePUSHW0 PUSHW0 : 1;
     eINVW1 INVW1 : 1;
     ePUSHW1 PUSHW1 : 1;
-    uint32_t _reserved_8 : 3;
+    uint32_t _reserved_1 : 3;
     eGO GO : 1;
   } bits;
   
@@ -297,20 +297,20 @@ union PSCLCR {
   // Bit field definition.
   struct {
     eLGO LGO : 1;
-    uint32_t _reserved_1 : 1;
+    uint32_t _reserved_0 : 1;
     uint32_t CACHEADDR : 12;
     eWSEL WSEL : 1;
-    uint32_t _reserved_3 : 1;
+    uint32_t _reserved_1 : 1;
     eTDSEL TDSEL : 1;
-    uint32_t _reserved_4 : 3;
+    uint32_t _reserved_2 : 3;
     uint32_t LCIVB : 1;
     uint32_t LCIMB : 1;
     uint32_t LCWAY : 1;
-    uint32_t _reserved_7 : 1;
+    uint32_t _reserved_3 : 1;
     eLCMD LCMD : 2;
     eLADSEL LADSEL : 1;
     eLACC LACC : 1;
-    uint32_t _reserved_end : 4;
+    uint32_t _reserved_4 : 4;
   } bits;
   
   // Full 32-bit register value.

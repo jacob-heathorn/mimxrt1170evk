@@ -4,7 +4,7 @@
 #include <stdint.h>
 #include <cstring>
 
-// // CMP
+// CMP
 //
 // NOTE: This file was generated from the forge CMSIS-svd wrapper tool.
 
@@ -137,15 +137,15 @@ union C0 {
   // Bit field definition.
   struct {
     eHYSTCTR HYSTCTR : 2;
-    uint32_t _reserved_1 : 2;
+    uint32_t _reserved_0 : 2;
     eFILTER_CNT FILTER_CNT : 3;
-    uint32_t _reserved_2 : 1;
+    uint32_t _reserved_1 : 1;
     eEN EN : 1;
     eOPE OPE : 1;
     eCOS COS : 1;
     eINVT INVT : 1;
     ePMODE PMODE : 1;
-    uint32_t _reserved_7 : 1;
+    uint32_t _reserved_2 : 1;
     eWE WE : 1;
     eSE SE : 1;
     uint32_t FPR : 8;
@@ -154,7 +154,7 @@ union C0 {
     eCFR CFR : 1;
     eIEF IEF : 1;
     eIER IER : 1;
-    uint32_t _reserved_15 : 1;
+    uint32_t _reserved_3 : 1;
     eDMAEN DMAEN : 1;
     eLINKEN LINKEN : 1;
   } bits;
@@ -214,18 +214,18 @@ union C1 {
     eDMODE DMODE : 1;
     eVRSEL VRSEL : 1;
     eDACEN DACEN : 1;
-    uint32_t _reserved_4 : 5;
+    uint32_t _reserved_0 : 5;
     uint32_t CHN0 : 1;
     uint32_t CHN1 : 1;
     uint32_t CHN2 : 1;
     uint32_t CHN3 : 1;
     uint32_t CHN4 : 1;
     uint32_t CHN5 : 1;
-    uint32_t _reserved_10 : 2;
+    uint32_t _reserved_1 : 2;
     eMSEL MSEL : 3;
-    uint32_t _reserved_11 : 1;
+    uint32_t _reserved_2 : 1;
     ePSEL PSEL : 3;
-    uint32_t _reserved_end : 1;
+    uint32_t _reserved_3 : 1;
   } bits;
   
   // Full 32-bit register value.
@@ -270,7 +270,7 @@ union C2 {
   // Bit field definition.
   struct {
     uint32_t ACOn : 6;
-    uint32_t _reserved_1 : 2;
+    uint32_t _reserved_0 : 2;
     uint32_t INITMOD : 6;
     eNSAM NSAM : 2;
     uint32_t CH0F : 1;
@@ -279,12 +279,12 @@ union C2 {
     uint32_t CH3F : 1;
     uint32_t CH4F : 1;
     uint32_t CH5F : 1;
-    uint32_t _reserved_9 : 3;
+    uint32_t _reserved_1 : 3;
     eFXMXCH FXMXCH : 3;
-    uint32_t _reserved_10 : 1;
+    uint32_t _reserved_2 : 1;
     eFXMP FXMP : 1;
     eRRIE RRIE : 1;
-    uint32_t _reserved_end : 1;
+    uint32_t _reserved_3 : 1;
   } bits;
   
   // Full 32-bit register value.
@@ -368,7 +368,7 @@ union C3 {
     eNCHCTEN NCHCTEN : 1;
     uint32_t _reserved_6 : 3;
     ePCHCTEN PCHCTEN : 1;
-    uint32_t _reserved_end : 3;
+    uint32_t _reserved_7 : 3;
   } bits;
   
   // Full 32-bit register value.

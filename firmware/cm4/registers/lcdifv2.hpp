@@ -4,7 +4,7 @@
 #include <stdint.h>
 #include <cstring>
 
-// // LCDIF_V2
+// LCDIF_V2
 //
 // NOTE: This file was generated from the forge CMSIS-svd wrapper tool.
 
@@ -52,7 +52,7 @@ union CTRL {
     eINV_DE INV_DE : 1;
     eINV_PXCK INV_PXCK : 1;
     eNEG NEG : 1;
-    uint32_t _reserved_5 : 26;
+    uint32_t _reserved_0 : 26;
     eSW_RESET SW_RESET : 1;
   } bits;
   
@@ -75,7 +75,7 @@ union CTRL_SET {
     uint32_t INV_DE : 1;
     uint32_t INV_PXCK : 1;
     uint32_t NEG : 1;
-    uint32_t _reserved_5 : 26;
+    uint32_t _reserved_0 : 26;
     uint32_t SW_RESET : 1;
   } bits;
   
@@ -98,7 +98,7 @@ union CTRL_CLR {
     uint32_t INV_DE : 1;
     uint32_t INV_PXCK : 1;
     uint32_t NEG : 1;
-    uint32_t _reserved_5 : 26;
+    uint32_t _reserved_0 : 26;
     uint32_t SW_RESET : 1;
   } bits;
   
@@ -121,7 +121,7 @@ union CTRL_TOG {
     uint32_t INV_DE : 1;
     uint32_t INV_PXCK : 1;
     uint32_t NEG : 1;
-    uint32_t _reserved_5 : 26;
+    uint32_t _reserved_0 : 26;
     uint32_t SW_RESET : 1;
   } bits;
   
@@ -165,7 +165,7 @@ union DISP_PARA {
     uint32_t BGND_R : 8;
     eDISP_MODE DISP_MODE : 2;
     eLINE_PATTERN LINE_PATTERN : 3;
-    uint32_t _reserved_5 : 2;
+    uint32_t _reserved_0 : 2;
     eDISP_ON DISP_ON : 1;
   } bits;
   
@@ -184,9 +184,9 @@ union DISP_SIZE {
   // Bit field definition.
   struct {
     uint32_t DELTA_X : 12;
-    uint32_t _reserved_1 : 4;
+    uint32_t _reserved_0 : 4;
     uint32_t DELTA_Y : 12;
-    uint32_t _reserved_end : 4;
+    uint32_t _reserved_1 : 4;
   } bits;
   
   // Full 32-bit register value.
@@ -204,11 +204,11 @@ union HSYN_PARA {
   // Bit field definition.
   struct {
     uint32_t FP_H : 9;
-    uint32_t _reserved_1 : 2;
+    uint32_t _reserved_0 : 2;
     uint32_t PW_H : 9;
-    uint32_t _reserved_2 : 2;
+    uint32_t _reserved_1 : 2;
     uint32_t BP_H : 9;
-    uint32_t _reserved_end : 1;
+    uint32_t _reserved_2 : 1;
   } bits;
   
   // Full 32-bit register value.
@@ -226,11 +226,11 @@ union VSYN_PARA {
   // Bit field definition.
   struct {
     uint32_t FP_V : 9;
-    uint32_t _reserved_1 : 2;
+    uint32_t _reserved_0 : 2;
     uint32_t PW_V : 9;
-    uint32_t _reserved_2 : 2;
+    uint32_t _reserved_1 : 2;
     uint32_t BP_V : 9;
-    uint32_t _reserved_end : 1;
+    uint32_t _reserved_2 : 1;
   } bits;
   
   // Full 32-bit register value.
@@ -265,7 +265,7 @@ union INT_STATUS_D0 {
     eVSYNC VSYNC : 1;
     eUNDERRUN UNDERRUN : 1;
     eVS_BLANK VS_BLANK : 1;
-    uint32_t _reserved_3 : 5;
+    uint32_t _reserved_0 : 5;
     uint32_t DMA_ERR : 8;
     uint32_t DMA_DONE : 8;
     uint32_t FIFO_EMPTY : 8;
@@ -303,7 +303,7 @@ union INT_ENABLE_D0 {
     eVSYNC_EN VSYNC_EN : 1;
     eUNDERRUN_EN UNDERRUN_EN : 1;
     eVS_BLANK_EN VS_BLANK_EN : 1;
-    uint32_t _reserved_3 : 5;
+    uint32_t _reserved_0 : 5;
     uint32_t DMA_ERR_EN : 8;
     uint32_t DMA_DONE_EN : 8;
     uint32_t FIFO_EMPTY_EN : 8;
@@ -326,7 +326,7 @@ union INT_STATUS_D1 {
     uint32_t VSYNC : 1;
     uint32_t UNDERRUN : 1;
     uint32_t VS_BLANK : 1;
-    uint32_t _reserved_3 : 5;
+    uint32_t _reserved_0 : 5;
     uint32_t DMA_ERR : 8;
     uint32_t DMA_DONE : 8;
     uint32_t FIFO_EMPTY : 8;
@@ -349,7 +349,7 @@ union INT_ENABLE_D1 {
     uint32_t VSYNC_EN : 1;
     uint32_t UNDERRUN_EN : 1;
     uint32_t VS_BLANK_EN : 1;
-    uint32_t _reserved_3 : 5;
+    uint32_t _reserved_0 : 5;
     uint32_t DMA_ERR_EN : 8;
     uint32_t DMA_DONE_EN : 8;
     uint32_t FIFO_EMPTY_EN : 8;
@@ -414,7 +414,7 @@ union PDI_PARA {
     eINV_PDI_DE INV_PDI_DE : 1;
     eINV_PDI_PXCK INV_PDI_PXCK : 1;
     eMODE MODE : 4;
-    uint32_t _reserved_5 : 22;
+    uint32_t _reserved_0 : 22;
     ePDI_SEL PDI_SEL : 1;
     ePDI_EN PDI_EN : 1;
   } bits;
@@ -434,9 +434,9 @@ union CTRLDESCL0_1 {
   // Bit field definition.
   struct {
     uint32_t WIDTH : 12;
-    uint32_t _reserved_1 : 4;
+    uint32_t _reserved_0 : 4;
     uint32_t HEIGHT : 12;
-    uint32_t _reserved_end : 4;
+    uint32_t _reserved_1 : 4;
   } bits;
   
   // Full 32-bit register value.
@@ -454,9 +454,9 @@ union CTRLDESCL0_2 {
   // Bit field definition.
   struct {
     uint32_t POSX : 12;
-    uint32_t _reserved_1 : 4;
+    uint32_t _reserved_0 : 4;
     uint32_t POSY : 12;
-    uint32_t _reserved_end : 4;
+    uint32_t _reserved_1 : 4;
   } bits;
   
   // Full 32-bit register value.
@@ -474,7 +474,7 @@ union CTRLDESCL0_3 {
   // Bit field definition.
   struct {
     uint32_t PITCH : 16;
-    uint32_t _reserved_end : 16;
+    uint32_t _reserved_0 : 16;
   } bits;
   
   // Full 32-bit register value.
@@ -571,17 +571,17 @@ union CTRLDESCL0_5 {
   // Bit field definition.
   struct {
     eAB_MODE AB_MODE : 2;
-    uint32_t _reserved_1 : 2;
+    uint32_t _reserved_0 : 2;
     ePD_FACTOR_MODE PD_FACTOR_MODE : 2;
     ePD_GLOBAL_ALPHA_MODE PD_GLOBAL_ALPHA_MODE : 2;
     ePD_ALPHA_MODE PD_ALPHA_MODE : 1;
     ePD_COLOR_MODE PD_COLOR_MODE : 1;
-    uint32_t _reserved_5 : 4;
+    uint32_t _reserved_1 : 4;
     eYUV_FORMAT YUV_FORMAT : 2;
     uint32_t GLOBAL_ALPHA : 8;
     eBPP BPP : 4;
     eSAFETY_EN SAFETY_EN : 1;
-    uint32_t _reserved_9 : 1;
+    uint32_t _reserved_2 : 1;
     uint32_t SHADOW_LOAD_EN : 1;
     eEN EN : 1;
   } bits;
@@ -603,7 +603,7 @@ union CTRLDESCL0_6 {
     uint32_t BCLR_B : 8;
     uint32_t BCLR_G : 8;
     uint32_t BCLR_R : 8;
-    uint32_t _reserved_end : 8;
+    uint32_t _reserved_0 : 8;
   } bits;
   
   // Full 32-bit register value.
@@ -633,7 +633,7 @@ union CSC0_COEF0 {
     uint32_t Y_OFFSET : 9;
     uint32_t UV_OFFSET : 9;
     uint32_t C0 : 11;
-    uint32_t _reserved_3 : 1;
+    uint32_t _reserved_0 : 1;
     eENABLE ENABLE : 1;
     eYCBCR_MODE YCBCR_MODE : 1;
   } bits;
@@ -653,9 +653,9 @@ union CSC0_COEF1 {
   // Bit field definition.
   struct {
     uint32_t C4 : 11;
-    uint32_t _reserved_1 : 5;
+    uint32_t _reserved_0 : 5;
     uint32_t C1 : 11;
-    uint32_t _reserved_end : 5;
+    uint32_t _reserved_1 : 5;
   } bits;
   
   // Full 32-bit register value.
@@ -673,9 +673,9 @@ union CSC0_COEF2 {
   // Bit field definition.
   struct {
     uint32_t C3 : 11;
-    uint32_t _reserved_1 : 5;
+    uint32_t _reserved_0 : 5;
     uint32_t C2 : 11;
-    uint32_t _reserved_end : 5;
+    uint32_t _reserved_1 : 5;
   } bits;
   
   // Full 32-bit register value.
@@ -693,9 +693,9 @@ union CTRLDESCL1_1 {
   // Bit field definition.
   struct {
     uint32_t WIDTH : 12;
-    uint32_t _reserved_1 : 4;
+    uint32_t _reserved_0 : 4;
     uint32_t HEIGHT : 12;
-    uint32_t _reserved_end : 4;
+    uint32_t _reserved_1 : 4;
   } bits;
   
   // Full 32-bit register value.
@@ -713,9 +713,9 @@ union CTRLDESCL1_2 {
   // Bit field definition.
   struct {
     uint32_t POSX : 12;
-    uint32_t _reserved_1 : 4;
+    uint32_t _reserved_0 : 4;
     uint32_t POSY : 12;
-    uint32_t _reserved_end : 4;
+    uint32_t _reserved_1 : 4;
   } bits;
   
   // Full 32-bit register value.
@@ -733,7 +733,7 @@ union CTRLDESCL1_3 {
   // Bit field definition.
   struct {
     uint32_t PITCH : 16;
-    uint32_t _reserved_end : 16;
+    uint32_t _reserved_0 : 16;
   } bits;
   
   // Full 32-bit register value.
@@ -830,17 +830,17 @@ union CTRLDESCL1_5 {
   // Bit field definition.
   struct {
     eAB_MODE AB_MODE : 2;
-    uint32_t _reserved_1 : 2;
+    uint32_t _reserved_0 : 2;
     ePD_FACTOR_MODE PD_FACTOR_MODE : 2;
     ePD_GLOBAL_ALPHA_MODE PD_GLOBAL_ALPHA_MODE : 2;
     ePD_ALPHA_MODE PD_ALPHA_MODE : 1;
     ePD_COLOR_MODE PD_COLOR_MODE : 1;
-    uint32_t _reserved_5 : 4;
+    uint32_t _reserved_1 : 4;
     eYUV_FORMAT YUV_FORMAT : 2;
     uint32_t GLOBAL_ALPHA : 8;
     eBPP BPP : 4;
     eSAFETY_EN SAFETY_EN : 1;
-    uint32_t _reserved_9 : 1;
+    uint32_t _reserved_2 : 1;
     uint32_t SHADOW_LOAD_EN : 1;
     eEN EN : 1;
   } bits;
@@ -862,7 +862,7 @@ union CTRLDESCL1_6 {
     uint32_t BCLR_B : 8;
     uint32_t BCLR_G : 8;
     uint32_t BCLR_R : 8;
-    uint32_t _reserved_end : 8;
+    uint32_t _reserved_0 : 8;
   } bits;
   
   // Full 32-bit register value.
@@ -892,7 +892,7 @@ union CSC1_COEF0 {
     uint32_t Y_OFFSET : 9;
     uint32_t UV_OFFSET : 9;
     uint32_t C0 : 11;
-    uint32_t _reserved_3 : 1;
+    uint32_t _reserved_0 : 1;
     eENABLE ENABLE : 1;
     eYCBCR_MODE YCBCR_MODE : 1;
   } bits;
@@ -912,9 +912,9 @@ union CSC1_COEF1 {
   // Bit field definition.
   struct {
     uint32_t C4 : 11;
-    uint32_t _reserved_1 : 5;
+    uint32_t _reserved_0 : 5;
     uint32_t C1 : 11;
-    uint32_t _reserved_end : 5;
+    uint32_t _reserved_1 : 5;
   } bits;
   
   // Full 32-bit register value.
@@ -932,9 +932,9 @@ union CSC1_COEF2 {
   // Bit field definition.
   struct {
     uint32_t C3 : 11;
-    uint32_t _reserved_1 : 5;
+    uint32_t _reserved_0 : 5;
     uint32_t C2 : 11;
-    uint32_t _reserved_end : 5;
+    uint32_t _reserved_1 : 5;
   } bits;
   
   // Full 32-bit register value.
@@ -952,9 +952,9 @@ union CTRLDESCL2_1 {
   // Bit field definition.
   struct {
     uint32_t WIDTH : 12;
-    uint32_t _reserved_1 : 4;
+    uint32_t _reserved_0 : 4;
     uint32_t HEIGHT : 12;
-    uint32_t _reserved_end : 4;
+    uint32_t _reserved_1 : 4;
   } bits;
   
   // Full 32-bit register value.
@@ -972,9 +972,9 @@ union CTRLDESCL2_2 {
   // Bit field definition.
   struct {
     uint32_t POSX : 12;
-    uint32_t _reserved_1 : 4;
+    uint32_t _reserved_0 : 4;
     uint32_t POSY : 12;
-    uint32_t _reserved_end : 4;
+    uint32_t _reserved_1 : 4;
   } bits;
   
   // Full 32-bit register value.
@@ -992,7 +992,7 @@ union CTRLDESCL2_3 {
   // Bit field definition.
   struct {
     uint32_t PITCH : 16;
-    uint32_t _reserved_end : 16;
+    uint32_t _reserved_0 : 16;
   } bits;
   
   // Full 32-bit register value.
@@ -1089,17 +1089,17 @@ union CTRLDESCL2_5 {
   // Bit field definition.
   struct {
     eAB_MODE AB_MODE : 2;
-    uint32_t _reserved_1 : 2;
+    uint32_t _reserved_0 : 2;
     ePD_FACTOR_MODE PD_FACTOR_MODE : 2;
     ePD_GLOBAL_ALPHA_MODE PD_GLOBAL_ALPHA_MODE : 2;
     ePD_ALPHA_MODE PD_ALPHA_MODE : 1;
     ePD_COLOR_MODE PD_COLOR_MODE : 1;
-    uint32_t _reserved_5 : 4;
+    uint32_t _reserved_1 : 4;
     eYUV_FORMAT YUV_FORMAT : 2;
     uint32_t GLOBAL_ALPHA : 8;
     eBPP BPP : 4;
     eSAFETY_EN SAFETY_EN : 1;
-    uint32_t _reserved_9 : 1;
+    uint32_t _reserved_2 : 1;
     uint32_t SHADOW_LOAD_EN : 1;
     eEN EN : 1;
   } bits;
@@ -1121,7 +1121,7 @@ union CTRLDESCL2_6 {
     uint32_t BCLR_B : 8;
     uint32_t BCLR_G : 8;
     uint32_t BCLR_R : 8;
-    uint32_t _reserved_end : 8;
+    uint32_t _reserved_0 : 8;
   } bits;
   
   // Full 32-bit register value.
@@ -1139,9 +1139,9 @@ union CTRLDESCL3_1 {
   // Bit field definition.
   struct {
     uint32_t WIDTH : 12;
-    uint32_t _reserved_1 : 4;
+    uint32_t _reserved_0 : 4;
     uint32_t HEIGHT : 12;
-    uint32_t _reserved_end : 4;
+    uint32_t _reserved_1 : 4;
   } bits;
   
   // Full 32-bit register value.
@@ -1159,9 +1159,9 @@ union CTRLDESCL3_2 {
   // Bit field definition.
   struct {
     uint32_t POSX : 12;
-    uint32_t _reserved_1 : 4;
+    uint32_t _reserved_0 : 4;
     uint32_t POSY : 12;
-    uint32_t _reserved_end : 4;
+    uint32_t _reserved_1 : 4;
   } bits;
   
   // Full 32-bit register value.
@@ -1179,7 +1179,7 @@ union CTRLDESCL3_3 {
   // Bit field definition.
   struct {
     uint32_t PITCH : 16;
-    uint32_t _reserved_end : 16;
+    uint32_t _reserved_0 : 16;
   } bits;
   
   // Full 32-bit register value.
@@ -1276,17 +1276,17 @@ union CTRLDESCL3_5 {
   // Bit field definition.
   struct {
     eAB_MODE AB_MODE : 2;
-    uint32_t _reserved_1 : 2;
+    uint32_t _reserved_0 : 2;
     ePD_FACTOR_MODE PD_FACTOR_MODE : 2;
     ePD_GLOBAL_ALPHA_MODE PD_GLOBAL_ALPHA_MODE : 2;
     ePD_ALPHA_MODE PD_ALPHA_MODE : 1;
     ePD_COLOR_MODE PD_COLOR_MODE : 1;
-    uint32_t _reserved_5 : 4;
+    uint32_t _reserved_1 : 4;
     eYUV_FORMAT YUV_FORMAT : 2;
     uint32_t GLOBAL_ALPHA : 8;
     eBPP BPP : 4;
     eSAFETY_EN SAFETY_EN : 1;
-    uint32_t _reserved_9 : 1;
+    uint32_t _reserved_2 : 1;
     uint32_t SHADOW_LOAD_EN : 1;
     eEN EN : 1;
   } bits;
@@ -1308,7 +1308,7 @@ union CTRLDESCL3_6 {
     uint32_t BCLR_B : 8;
     uint32_t BCLR_G : 8;
     uint32_t BCLR_R : 8;
-    uint32_t _reserved_end : 8;
+    uint32_t _reserved_0 : 8;
   } bits;
   
   // Full 32-bit register value.
@@ -1326,9 +1326,9 @@ union CTRLDESCL4_1 {
   // Bit field definition.
   struct {
     uint32_t WIDTH : 12;
-    uint32_t _reserved_1 : 4;
+    uint32_t _reserved_0 : 4;
     uint32_t HEIGHT : 12;
-    uint32_t _reserved_end : 4;
+    uint32_t _reserved_1 : 4;
   } bits;
   
   // Full 32-bit register value.
@@ -1346,9 +1346,9 @@ union CTRLDESCL4_2 {
   // Bit field definition.
   struct {
     uint32_t POSX : 12;
-    uint32_t _reserved_1 : 4;
+    uint32_t _reserved_0 : 4;
     uint32_t POSY : 12;
-    uint32_t _reserved_end : 4;
+    uint32_t _reserved_1 : 4;
   } bits;
   
   // Full 32-bit register value.
@@ -1366,7 +1366,7 @@ union CTRLDESCL4_3 {
   // Bit field definition.
   struct {
     uint32_t PITCH : 16;
-    uint32_t _reserved_end : 16;
+    uint32_t _reserved_0 : 16;
   } bits;
   
   // Full 32-bit register value.
@@ -1463,17 +1463,17 @@ union CTRLDESCL4_5 {
   // Bit field definition.
   struct {
     eAB_MODE AB_MODE : 2;
-    uint32_t _reserved_1 : 2;
+    uint32_t _reserved_0 : 2;
     ePD_FACTOR_MODE PD_FACTOR_MODE : 2;
     ePD_GLOBAL_ALPHA_MODE PD_GLOBAL_ALPHA_MODE : 2;
     ePD_ALPHA_MODE PD_ALPHA_MODE : 1;
     ePD_COLOR_MODE PD_COLOR_MODE : 1;
-    uint32_t _reserved_5 : 4;
+    uint32_t _reserved_1 : 4;
     eYUV_FORMAT YUV_FORMAT : 2;
     uint32_t GLOBAL_ALPHA : 8;
     eBPP BPP : 4;
     eSAFETY_EN SAFETY_EN : 1;
-    uint32_t _reserved_9 : 1;
+    uint32_t _reserved_2 : 1;
     uint32_t SHADOW_LOAD_EN : 1;
     eEN EN : 1;
   } bits;
@@ -1495,7 +1495,7 @@ union CTRLDESCL4_6 {
     uint32_t BCLR_B : 8;
     uint32_t BCLR_G : 8;
     uint32_t BCLR_R : 8;
-    uint32_t _reserved_end : 8;
+    uint32_t _reserved_0 : 8;
   } bits;
   
   // Full 32-bit register value.
@@ -1513,9 +1513,9 @@ union CTRLDESCL5_1 {
   // Bit field definition.
   struct {
     uint32_t WIDTH : 12;
-    uint32_t _reserved_1 : 4;
+    uint32_t _reserved_0 : 4;
     uint32_t HEIGHT : 12;
-    uint32_t _reserved_end : 4;
+    uint32_t _reserved_1 : 4;
   } bits;
   
   // Full 32-bit register value.
@@ -1533,9 +1533,9 @@ union CTRLDESCL5_2 {
   // Bit field definition.
   struct {
     uint32_t POSX : 12;
-    uint32_t _reserved_1 : 4;
+    uint32_t _reserved_0 : 4;
     uint32_t POSY : 12;
-    uint32_t _reserved_end : 4;
+    uint32_t _reserved_1 : 4;
   } bits;
   
   // Full 32-bit register value.
@@ -1553,7 +1553,7 @@ union CTRLDESCL5_3 {
   // Bit field definition.
   struct {
     uint32_t PITCH : 16;
-    uint32_t _reserved_end : 16;
+    uint32_t _reserved_0 : 16;
   } bits;
   
   // Full 32-bit register value.
@@ -1650,17 +1650,17 @@ union CTRLDESCL5_5 {
   // Bit field definition.
   struct {
     eAB_MODE AB_MODE : 2;
-    uint32_t _reserved_1 : 2;
+    uint32_t _reserved_0 : 2;
     ePD_FACTOR_MODE PD_FACTOR_MODE : 2;
     ePD_GLOBAL_ALPHA_MODE PD_GLOBAL_ALPHA_MODE : 2;
     ePD_ALPHA_MODE PD_ALPHA_MODE : 1;
     ePD_COLOR_MODE PD_COLOR_MODE : 1;
-    uint32_t _reserved_5 : 4;
+    uint32_t _reserved_1 : 4;
     eYUV_FORMAT YUV_FORMAT : 2;
     uint32_t GLOBAL_ALPHA : 8;
     eBPP BPP : 4;
     eSAFETY_EN SAFETY_EN : 1;
-    uint32_t _reserved_9 : 1;
+    uint32_t _reserved_2 : 1;
     uint32_t SHADOW_LOAD_EN : 1;
     eEN EN : 1;
   } bits;
@@ -1682,7 +1682,7 @@ union CTRLDESCL5_6 {
     uint32_t BCLR_B : 8;
     uint32_t BCLR_G : 8;
     uint32_t BCLR_R : 8;
-    uint32_t _reserved_end : 8;
+    uint32_t _reserved_0 : 8;
   } bits;
   
   // Full 32-bit register value.
@@ -1700,9 +1700,9 @@ union CTRLDESCL6_1 {
   // Bit field definition.
   struct {
     uint32_t WIDTH : 12;
-    uint32_t _reserved_1 : 4;
+    uint32_t _reserved_0 : 4;
     uint32_t HEIGHT : 12;
-    uint32_t _reserved_end : 4;
+    uint32_t _reserved_1 : 4;
   } bits;
   
   // Full 32-bit register value.
@@ -1720,9 +1720,9 @@ union CTRLDESCL6_2 {
   // Bit field definition.
   struct {
     uint32_t POSX : 12;
-    uint32_t _reserved_1 : 4;
+    uint32_t _reserved_0 : 4;
     uint32_t POSY : 12;
-    uint32_t _reserved_end : 4;
+    uint32_t _reserved_1 : 4;
   } bits;
   
   // Full 32-bit register value.
@@ -1740,7 +1740,7 @@ union CTRLDESCL6_3 {
   // Bit field definition.
   struct {
     uint32_t PITCH : 16;
-    uint32_t _reserved_end : 16;
+    uint32_t _reserved_0 : 16;
   } bits;
   
   // Full 32-bit register value.
@@ -1837,17 +1837,17 @@ union CTRLDESCL6_5 {
   // Bit field definition.
   struct {
     eAB_MODE AB_MODE : 2;
-    uint32_t _reserved_1 : 2;
+    uint32_t _reserved_0 : 2;
     ePD_FACTOR_MODE PD_FACTOR_MODE : 2;
     ePD_GLOBAL_ALPHA_MODE PD_GLOBAL_ALPHA_MODE : 2;
     ePD_ALPHA_MODE PD_ALPHA_MODE : 1;
     ePD_COLOR_MODE PD_COLOR_MODE : 1;
-    uint32_t _reserved_5 : 4;
+    uint32_t _reserved_1 : 4;
     eYUV_FORMAT YUV_FORMAT : 2;
     uint32_t GLOBAL_ALPHA : 8;
     eBPP BPP : 4;
     eSAFETY_EN SAFETY_EN : 1;
-    uint32_t _reserved_9 : 1;
+    uint32_t _reserved_2 : 1;
     uint32_t SHADOW_LOAD_EN : 1;
     eEN EN : 1;
   } bits;
@@ -1869,7 +1869,7 @@ union CTRLDESCL6_6 {
     uint32_t BCLR_B : 8;
     uint32_t BCLR_G : 8;
     uint32_t BCLR_R : 8;
-    uint32_t _reserved_end : 8;
+    uint32_t _reserved_0 : 8;
   } bits;
   
   // Full 32-bit register value.
@@ -1887,9 +1887,9 @@ union CTRLDESCL7_1 {
   // Bit field definition.
   struct {
     uint32_t WIDTH : 12;
-    uint32_t _reserved_1 : 4;
+    uint32_t _reserved_0 : 4;
     uint32_t HEIGHT : 12;
-    uint32_t _reserved_end : 4;
+    uint32_t _reserved_1 : 4;
   } bits;
   
   // Full 32-bit register value.
@@ -1907,9 +1907,9 @@ union CTRLDESCL7_2 {
   // Bit field definition.
   struct {
     uint32_t POSX : 12;
-    uint32_t _reserved_1 : 4;
+    uint32_t _reserved_0 : 4;
     uint32_t POSY : 12;
-    uint32_t _reserved_end : 4;
+    uint32_t _reserved_1 : 4;
   } bits;
   
   // Full 32-bit register value.
@@ -1927,7 +1927,7 @@ union CTRLDESCL7_3 {
   // Bit field definition.
   struct {
     uint32_t PITCH : 16;
-    uint32_t _reserved_end : 16;
+    uint32_t _reserved_0 : 16;
   } bits;
   
   // Full 32-bit register value.
@@ -2024,17 +2024,17 @@ union CTRLDESCL7_5 {
   // Bit field definition.
   struct {
     eAB_MODE AB_MODE : 2;
-    uint32_t _reserved_1 : 2;
+    uint32_t _reserved_0 : 2;
     ePD_FACTOR_MODE PD_FACTOR_MODE : 2;
     ePD_GLOBAL_ALPHA_MODE PD_GLOBAL_ALPHA_MODE : 2;
     ePD_ALPHA_MODE PD_ALPHA_MODE : 1;
     ePD_COLOR_MODE PD_COLOR_MODE : 1;
-    uint32_t _reserved_5 : 4;
+    uint32_t _reserved_1 : 4;
     eYUV_FORMAT YUV_FORMAT : 2;
     uint32_t GLOBAL_ALPHA : 8;
     eBPP BPP : 4;
     eSAFETY_EN SAFETY_EN : 1;
-    uint32_t _reserved_9 : 1;
+    uint32_t _reserved_2 : 1;
     uint32_t SHADOW_LOAD_EN : 1;
     eEN EN : 1;
   } bits;
@@ -2056,7 +2056,7 @@ union CTRLDESCL7_6 {
     uint32_t BCLR_B : 8;
     uint32_t BCLR_G : 8;
     uint32_t BCLR_R : 8;
-    uint32_t _reserved_end : 8;
+    uint32_t _reserved_0 : 8;
   } bits;
   
   // Full 32-bit register value.
@@ -2074,9 +2074,9 @@ union CLUT_LOAD {
   // Bit field definition.
   struct {
     uint32_t CLUT_UPDATE_EN : 1;
-    uint32_t _reserved_1 : 3;
+    uint32_t _reserved_0 : 3;
     uint32_t SEL_CLUT_NUM : 3;
-    uint32_t _reserved_end : 25;
+    uint32_t _reserved_1 : 25;
   } bits;
   
   // Full 32-bit register value.

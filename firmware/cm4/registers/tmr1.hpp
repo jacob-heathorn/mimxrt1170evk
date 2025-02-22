@@ -4,7 +4,7 @@
 #include <stdint.h>
 #include <cstring>
 
-// // TMR
+// TMR
 //
 // NOTE: This file was generated from the forge CMSIS-svd wrapper tool.
 
@@ -18,7 +18,7 @@ union COMP10 {
   // Bit field definition.
   struct {
     uint32_t COMPARISON_1 : 16;
-    uint32_t _reserved_end : 16;
+    uint32_t _reserved_0 : 16;
   } bits;
   
   // Full 32-bit register value.
@@ -36,7 +36,7 @@ union COMP20 {
   // Bit field definition.
   struct {
     uint32_t COMPARISON_2 : 16;
-    uint32_t _reserved_end : 16;
+    uint32_t _reserved_0 : 16;
   } bits;
   
   // Full 32-bit register value.
@@ -54,7 +54,7 @@ union CAPT0 {
   // Bit field definition.
   struct {
     uint32_t CAPTURE : 16;
-    uint32_t _reserved_end : 16;
+    uint32_t _reserved_0 : 16;
   } bits;
   
   // Full 32-bit register value.
@@ -72,7 +72,7 @@ union LOAD0 {
   // Bit field definition.
   struct {
     uint32_t LOAD : 16;
-    uint32_t _reserved_end : 16;
+    uint32_t _reserved_0 : 16;
   } bits;
   
   // Full 32-bit register value.
@@ -90,7 +90,7 @@ union HOLD0 {
   // Bit field definition.
   struct {
     uint32_t HOLD : 16;
-    uint32_t _reserved_end : 16;
+    uint32_t _reserved_0 : 16;
   } bits;
   
   // Full 32-bit register value.
@@ -108,7 +108,7 @@ union CNTR0 {
   // Bit field definition.
   struct {
     uint32_t COUNTER : 16;
-    uint32_t _reserved_end : 16;
+    uint32_t _reserved_0 : 16;
   } bits;
   
   // Full 32-bit register value.
@@ -201,7 +201,7 @@ union CTRL0 {
     eSCS SCS : 2;
     ePCS PCS : 4;
     eCM CM : 3;
-    uint32_t _reserved_end : 16;
+    uint32_t _reserved_0 : 16;
   } bits;
   
   // Full 32-bit register value.
@@ -250,7 +250,7 @@ union SCTRL0 {
     uint32_t TOF : 1;
     uint32_t TCFIE : 1;
     uint32_t TCF : 1;
-    uint32_t _reserved_end : 16;
+    uint32_t _reserved_0 : 16;
   } bits;
   
   // Full 32-bit register value.
@@ -268,7 +268,7 @@ union CMPLD10 {
   // Bit field definition.
   struct {
     uint32_t COMPARATOR_LOAD_1 : 16;
-    uint32_t _reserved_end : 16;
+    uint32_t _reserved_0 : 16;
   } bits;
   
   // Full 32-bit register value.
@@ -286,7 +286,7 @@ union CMPLD20 {
   // Bit field definition.
   struct {
     uint32_t COMPARATOR_LOAD_2 : 16;
-    uint32_t _reserved_end : 16;
+    uint32_t _reserved_0 : 16;
   } bits;
   
   // Full 32-bit register value.
@@ -353,14 +353,14 @@ union CSCTRL0 {
     uint32_t TCF2 : 1;
     uint32_t TCF1EN : 1;
     uint32_t TCF2EN : 1;
-    uint32_t _reserved_6 : 1;
+    uint32_t _reserved_0 : 1;
     eUP UP : 1;
     eTCI TCI : 1;
     eROC ROC : 1;
     eALT_LOAD ALT_LOAD : 1;
     eFAULT FAULT : 1;
     eDBG_EN DBG_EN : 2;
-    uint32_t _reserved_end : 16;
+    uint32_t _reserved_1 : 16;
   } bits;
   
   // Full 32-bit register value.
@@ -379,7 +379,7 @@ union FILT0 {
   struct {
     uint32_t FILT_PER : 8;
     uint32_t FILT_CNT : 3;
-    uint32_t _reserved_end : 21;
+    uint32_t _reserved_0 : 21;
   } bits;
   
   // Full 32-bit register value.
@@ -399,7 +399,7 @@ union DMA0 {
     uint32_t IEFDE : 1;
     uint32_t CMPLD1DE : 1;
     uint32_t CMPLD2DE : 1;
-    uint32_t _reserved_end : 29;
+    uint32_t _reserved_0 : 29;
   } bits;
   
   // Full 32-bit register value.
@@ -422,7 +422,7 @@ union ENBL {
   // Bit field definition.
   struct {
     eENBL ENBL : 4;
-    uint32_t _reserved_end : 28;
+    uint32_t _reserved_0 : 28;
   } bits;
   
   // Full 32-bit register value.
@@ -440,7 +440,7 @@ union COMP11 {
   // Bit field definition.
   struct {
     uint32_t COMPARISON_1 : 16;
-    uint32_t _reserved_end : 16;
+    uint32_t _reserved_0 : 16;
   } bits;
   
   // Full 32-bit register value.
@@ -458,7 +458,7 @@ union COMP21 {
   // Bit field definition.
   struct {
     uint32_t COMPARISON_2 : 16;
-    uint32_t _reserved_end : 16;
+    uint32_t _reserved_0 : 16;
   } bits;
   
   // Full 32-bit register value.
@@ -476,7 +476,7 @@ union CAPT1 {
   // Bit field definition.
   struct {
     uint32_t CAPTURE : 16;
-    uint32_t _reserved_end : 16;
+    uint32_t _reserved_0 : 16;
   } bits;
   
   // Full 32-bit register value.
@@ -494,7 +494,7 @@ union LOAD1 {
   // Bit field definition.
   struct {
     uint32_t LOAD : 16;
-    uint32_t _reserved_end : 16;
+    uint32_t _reserved_0 : 16;
   } bits;
   
   // Full 32-bit register value.
@@ -512,7 +512,7 @@ union HOLD1 {
   // Bit field definition.
   struct {
     uint32_t HOLD : 16;
-    uint32_t _reserved_end : 16;
+    uint32_t _reserved_0 : 16;
   } bits;
   
   // Full 32-bit register value.
@@ -530,7 +530,7 @@ union CNTR1 {
   // Bit field definition.
   struct {
     uint32_t COUNTER : 16;
-    uint32_t _reserved_end : 16;
+    uint32_t _reserved_0 : 16;
   } bits;
   
   // Full 32-bit register value.
@@ -623,7 +623,7 @@ union CTRL1 {
     eSCS SCS : 2;
     ePCS PCS : 4;
     eCM CM : 3;
-    uint32_t _reserved_end : 16;
+    uint32_t _reserved_0 : 16;
   } bits;
   
   // Full 32-bit register value.
@@ -672,7 +672,7 @@ union SCTRL1 {
     uint32_t TOF : 1;
     uint32_t TCFIE : 1;
     uint32_t TCF : 1;
-    uint32_t _reserved_end : 16;
+    uint32_t _reserved_0 : 16;
   } bits;
   
   // Full 32-bit register value.
@@ -690,7 +690,7 @@ union CMPLD11 {
   // Bit field definition.
   struct {
     uint32_t COMPARATOR_LOAD_1 : 16;
-    uint32_t _reserved_end : 16;
+    uint32_t _reserved_0 : 16;
   } bits;
   
   // Full 32-bit register value.
@@ -708,7 +708,7 @@ union CMPLD21 {
   // Bit field definition.
   struct {
     uint32_t COMPARATOR_LOAD_2 : 16;
-    uint32_t _reserved_end : 16;
+    uint32_t _reserved_0 : 16;
   } bits;
   
   // Full 32-bit register value.
@@ -775,14 +775,14 @@ union CSCTRL1 {
     uint32_t TCF2 : 1;
     uint32_t TCF1EN : 1;
     uint32_t TCF2EN : 1;
-    uint32_t _reserved_6 : 1;
+    uint32_t _reserved_0 : 1;
     eUP UP : 1;
     eTCI TCI : 1;
     eROC ROC : 1;
     eALT_LOAD ALT_LOAD : 1;
     eFAULT FAULT : 1;
     eDBG_EN DBG_EN : 2;
-    uint32_t _reserved_end : 16;
+    uint32_t _reserved_1 : 16;
   } bits;
   
   // Full 32-bit register value.
@@ -801,7 +801,7 @@ union FILT1 {
   struct {
     uint32_t FILT_PER : 8;
     uint32_t FILT_CNT : 3;
-    uint32_t _reserved_end : 21;
+    uint32_t _reserved_0 : 21;
   } bits;
   
   // Full 32-bit register value.
@@ -821,7 +821,7 @@ union DMA1 {
     uint32_t IEFDE : 1;
     uint32_t CMPLD1DE : 1;
     uint32_t CMPLD2DE : 1;
-    uint32_t _reserved_end : 29;
+    uint32_t _reserved_0 : 29;
   } bits;
   
   // Full 32-bit register value.
@@ -839,7 +839,7 @@ union COMP12 {
   // Bit field definition.
   struct {
     uint32_t COMPARISON_1 : 16;
-    uint32_t _reserved_end : 16;
+    uint32_t _reserved_0 : 16;
   } bits;
   
   // Full 32-bit register value.
@@ -857,7 +857,7 @@ union COMP22 {
   // Bit field definition.
   struct {
     uint32_t COMPARISON_2 : 16;
-    uint32_t _reserved_end : 16;
+    uint32_t _reserved_0 : 16;
   } bits;
   
   // Full 32-bit register value.
@@ -875,7 +875,7 @@ union CAPT2 {
   // Bit field definition.
   struct {
     uint32_t CAPTURE : 16;
-    uint32_t _reserved_end : 16;
+    uint32_t _reserved_0 : 16;
   } bits;
   
   // Full 32-bit register value.
@@ -893,7 +893,7 @@ union LOAD2 {
   // Bit field definition.
   struct {
     uint32_t LOAD : 16;
-    uint32_t _reserved_end : 16;
+    uint32_t _reserved_0 : 16;
   } bits;
   
   // Full 32-bit register value.
@@ -911,7 +911,7 @@ union HOLD2 {
   // Bit field definition.
   struct {
     uint32_t HOLD : 16;
-    uint32_t _reserved_end : 16;
+    uint32_t _reserved_0 : 16;
   } bits;
   
   // Full 32-bit register value.
@@ -929,7 +929,7 @@ union CNTR2 {
   // Bit field definition.
   struct {
     uint32_t COUNTER : 16;
-    uint32_t _reserved_end : 16;
+    uint32_t _reserved_0 : 16;
   } bits;
   
   // Full 32-bit register value.
@@ -1022,7 +1022,7 @@ union CTRL2 {
     eSCS SCS : 2;
     ePCS PCS : 4;
     eCM CM : 3;
-    uint32_t _reserved_end : 16;
+    uint32_t _reserved_0 : 16;
   } bits;
   
   // Full 32-bit register value.
@@ -1071,7 +1071,7 @@ union SCTRL2 {
     uint32_t TOF : 1;
     uint32_t TCFIE : 1;
     uint32_t TCF : 1;
-    uint32_t _reserved_end : 16;
+    uint32_t _reserved_0 : 16;
   } bits;
   
   // Full 32-bit register value.
@@ -1089,7 +1089,7 @@ union CMPLD12 {
   // Bit field definition.
   struct {
     uint32_t COMPARATOR_LOAD_1 : 16;
-    uint32_t _reserved_end : 16;
+    uint32_t _reserved_0 : 16;
   } bits;
   
   // Full 32-bit register value.
@@ -1107,7 +1107,7 @@ union CMPLD22 {
   // Bit field definition.
   struct {
     uint32_t COMPARATOR_LOAD_2 : 16;
-    uint32_t _reserved_end : 16;
+    uint32_t _reserved_0 : 16;
   } bits;
   
   // Full 32-bit register value.
@@ -1174,14 +1174,14 @@ union CSCTRL2 {
     uint32_t TCF2 : 1;
     uint32_t TCF1EN : 1;
     uint32_t TCF2EN : 1;
-    uint32_t _reserved_6 : 1;
+    uint32_t _reserved_0 : 1;
     eUP UP : 1;
     eTCI TCI : 1;
     eROC ROC : 1;
     eALT_LOAD ALT_LOAD : 1;
     eFAULT FAULT : 1;
     eDBG_EN DBG_EN : 2;
-    uint32_t _reserved_end : 16;
+    uint32_t _reserved_1 : 16;
   } bits;
   
   // Full 32-bit register value.
@@ -1200,7 +1200,7 @@ union FILT2 {
   struct {
     uint32_t FILT_PER : 8;
     uint32_t FILT_CNT : 3;
-    uint32_t _reserved_end : 21;
+    uint32_t _reserved_0 : 21;
   } bits;
   
   // Full 32-bit register value.
@@ -1220,7 +1220,7 @@ union DMA2 {
     uint32_t IEFDE : 1;
     uint32_t CMPLD1DE : 1;
     uint32_t CMPLD2DE : 1;
-    uint32_t _reserved_end : 29;
+    uint32_t _reserved_0 : 29;
   } bits;
   
   // Full 32-bit register value.
@@ -1238,7 +1238,7 @@ union COMP13 {
   // Bit field definition.
   struct {
     uint32_t COMPARISON_1 : 16;
-    uint32_t _reserved_end : 16;
+    uint32_t _reserved_0 : 16;
   } bits;
   
   // Full 32-bit register value.
@@ -1256,7 +1256,7 @@ union COMP23 {
   // Bit field definition.
   struct {
     uint32_t COMPARISON_2 : 16;
-    uint32_t _reserved_end : 16;
+    uint32_t _reserved_0 : 16;
   } bits;
   
   // Full 32-bit register value.
@@ -1274,7 +1274,7 @@ union CAPT3 {
   // Bit field definition.
   struct {
     uint32_t CAPTURE : 16;
-    uint32_t _reserved_end : 16;
+    uint32_t _reserved_0 : 16;
   } bits;
   
   // Full 32-bit register value.
@@ -1292,7 +1292,7 @@ union LOAD3 {
   // Bit field definition.
   struct {
     uint32_t LOAD : 16;
-    uint32_t _reserved_end : 16;
+    uint32_t _reserved_0 : 16;
   } bits;
   
   // Full 32-bit register value.
@@ -1310,7 +1310,7 @@ union HOLD3 {
   // Bit field definition.
   struct {
     uint32_t HOLD : 16;
-    uint32_t _reserved_end : 16;
+    uint32_t _reserved_0 : 16;
   } bits;
   
   // Full 32-bit register value.
@@ -1328,7 +1328,7 @@ union CNTR3 {
   // Bit field definition.
   struct {
     uint32_t COUNTER : 16;
-    uint32_t _reserved_end : 16;
+    uint32_t _reserved_0 : 16;
   } bits;
   
   // Full 32-bit register value.
@@ -1421,7 +1421,7 @@ union CTRL3 {
     eSCS SCS : 2;
     ePCS PCS : 4;
     eCM CM : 3;
-    uint32_t _reserved_end : 16;
+    uint32_t _reserved_0 : 16;
   } bits;
   
   // Full 32-bit register value.
@@ -1470,7 +1470,7 @@ union SCTRL3 {
     uint32_t TOF : 1;
     uint32_t TCFIE : 1;
     uint32_t TCF : 1;
-    uint32_t _reserved_end : 16;
+    uint32_t _reserved_0 : 16;
   } bits;
   
   // Full 32-bit register value.
@@ -1488,7 +1488,7 @@ union CMPLD13 {
   // Bit field definition.
   struct {
     uint32_t COMPARATOR_LOAD_1 : 16;
-    uint32_t _reserved_end : 16;
+    uint32_t _reserved_0 : 16;
   } bits;
   
   // Full 32-bit register value.
@@ -1506,7 +1506,7 @@ union CMPLD23 {
   // Bit field definition.
   struct {
     uint32_t COMPARATOR_LOAD_2 : 16;
-    uint32_t _reserved_end : 16;
+    uint32_t _reserved_0 : 16;
   } bits;
   
   // Full 32-bit register value.
@@ -1573,14 +1573,14 @@ union CSCTRL3 {
     uint32_t TCF2 : 1;
     uint32_t TCF1EN : 1;
     uint32_t TCF2EN : 1;
-    uint32_t _reserved_6 : 1;
+    uint32_t _reserved_0 : 1;
     eUP UP : 1;
     eTCI TCI : 1;
     eROC ROC : 1;
     eALT_LOAD ALT_LOAD : 1;
     eFAULT FAULT : 1;
     eDBG_EN DBG_EN : 2;
-    uint32_t _reserved_end : 16;
+    uint32_t _reserved_1 : 16;
   } bits;
   
   // Full 32-bit register value.
@@ -1599,7 +1599,7 @@ union FILT3 {
   struct {
     uint32_t FILT_PER : 8;
     uint32_t FILT_CNT : 3;
-    uint32_t _reserved_end : 21;
+    uint32_t _reserved_0 : 21;
   } bits;
   
   // Full 32-bit register value.
@@ -1619,7 +1619,7 @@ union DMA3 {
     uint32_t IEFDE : 1;
     uint32_t CMPLD1DE : 1;
     uint32_t CMPLD2DE : 1;
-    uint32_t _reserved_end : 29;
+    uint32_t _reserved_0 : 29;
   } bits;
   
   // Full 32-bit register value.

@@ -4,7 +4,7 @@
 #include <stdint.h>
 #include <cstring>
 
-// // USBDCD
+// USBDCD
 //
 // NOTE: This file was generated from the forge CMSIS-svd wrapper tool.
 
@@ -48,15 +48,15 @@ union CONTROL {
   // Bit field definition.
   struct {
     eIACK IACK : 1;
-    uint32_t _reserved_1 : 7;
+    uint32_t _reserved_0 : 7;
     eIF IF : 1;
-    uint32_t _reserved_2 : 7;
+    uint32_t _reserved_1 : 7;
     eIE IE : 1;
     eBC12 BC12 : 1;
-    uint32_t _reserved_4 : 6;
+    uint32_t _reserved_2 : 6;
     eSTART START : 1;
     eSR SR : 1;
-    uint32_t _reserved_end : 6;
+    uint32_t _reserved_3 : 6;
   } bits;
   
   // Full 32-bit register value.
@@ -79,9 +79,9 @@ union CLOCK {
   // Bit field definition.
   struct {
     eCLOCK_UNIT CLOCK_UNIT : 1;
-    uint32_t _reserved_1 : 1;
+    uint32_t _reserved_0 : 1;
     uint32_t CLOCK_SPEED : 10;
-    uint32_t _reserved_end : 20;
+    uint32_t _reserved_1 : 20;
   } bits;
   
   // Full 32-bit register value.
@@ -133,7 +133,7 @@ union STATUS {
     eERR ERR : 1;
     eTO TO : 1;
     eACTIVE ACTIVE : 1;
-    uint32_t _reserved_end : 9;
+    uint32_t _reserved_1 : 9;
   } bits;
   
   // Full 32-bit register value.
@@ -156,7 +156,7 @@ union SIGNAL_OVERRIDE {
   // Bit field definition.
   struct {
     ePS PS : 2;
-    uint32_t _reserved_end : 30;
+    uint32_t _reserved_0 : 30;
   } bits;
   
   // Full 32-bit register value.
@@ -187,9 +187,9 @@ union TIMER0 {
   // Bit field definition.
   struct {
     uint32_t TUNITCON : 12;
-    uint32_t _reserved_1 : 4;
+    uint32_t _reserved_0 : 4;
     eTSEQ_INIT TSEQ_INIT : 10;
-    uint32_t _reserved_end : 6;
+    uint32_t _reserved_1 : 6;
   } bits;
   
   // Full 32-bit register value.
@@ -233,9 +233,9 @@ union TIMER1 {
   // Bit field definition.
   struct {
     eTVDPSRC_ON TVDPSRC_ON : 10;
-    uint32_t _reserved_1 : 6;
+    uint32_t _reserved_0 : 6;
     eTDCD_DBNC TDCD_DBNC : 10;
-    uint32_t _reserved_end : 6;
+    uint32_t _reserved_1 : 6;
   } bits;
   
   // Full 32-bit register value.
@@ -279,9 +279,9 @@ union TIMER2_BC11 {
   // Bit field definition.
   struct {
     eCHECK_DM CHECK_DM : 4;
-    uint32_t _reserved_1 : 12;
+    uint32_t _reserved_0 : 12;
     eTVDPSRC_CON TVDPSRC_CON : 10;
-    uint32_t _reserved_end : 6;
+    uint32_t _reserved_1 : 6;
   } bits;
   
   // Full 32-bit register value.
@@ -325,9 +325,9 @@ union TIMER2_BC12 {
   // Bit field definition.
   struct {
     eTVDMSRC_ON TVDMSRC_ON : 10;
-    uint32_t _reserved_1 : 6;
+    uint32_t _reserved_0 : 6;
     eTWAIT_AFTER_PRD TWAIT_AFTER_PRD : 10;
-    uint32_t _reserved_end : 6;
+    uint32_t _reserved_1 : 6;
   } bits;
   
   // Full 32-bit register value.

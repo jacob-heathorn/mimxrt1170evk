@@ -4,7 +4,7 @@
 #include <stdint.h>
 #include <cstring>
 
-// // CSI
+// CSI
 //
 // NOTE: This file was generated from the forge CMSIS-svd wrapper tool.
 
@@ -146,11 +146,11 @@ union CSI_CR1 {
     uint32_t CLR_STATFIFO : 1;
     ePACK_DIR PACK_DIR : 1;
     eFCC FCC : 1;
-    uint32_t _reserved_9 : 1;
+    uint32_t _reserved_0 : 1;
     eCCIR_EN CCIR_EN : 1;
     eHSYNC_POL HSYNC_POL : 1;
     eHISTOGRAM_CALC_DONE_IE HISTOGRAM_CALC_DONE_IE : 1;
-    uint32_t _reserved_12 : 3;
+    uint32_t _reserved_1 : 3;
     eSOF_INTEN SOF_INTEN : 1;
     eSOF_POL SOF_POL : 1;
     eRXFF_INTEN RXFF_INTEN : 1;
@@ -158,12 +158,12 @@ union CSI_CR1 {
     eFB2_DMA_DONE_INTEN FB2_DMA_DONE_INTEN : 1;
     eSTATFF_INTEN STATFF_INTEN : 1;
     eSFF_DMA_DONE_INTEN SFF_DMA_DONE_INTEN : 1;
-    uint32_t _reserved_19 : 1;
+    uint32_t _reserved_2 : 1;
     eRF_OR_INTEN RF_OR_INTEN : 1;
     eSF_OR_INTEN SF_OR_INTEN : 1;
     eCOF_INT_EN COF_INT_EN : 1;
     eVIDEO_MODE VIDEO_MODE : 1;
-    uint32_t _reserved_23 : 1;
+    uint32_t _reserved_3 : 1;
     eEOF_INT_EN EOF_INT_EN : 1;
     eEXT_VSYNC EXT_VSYNC : 1;
     eSWAP16_EN SWAP16_EN : 1;
@@ -258,11 +258,11 @@ union CSI_CR2 {
     eVSC VSC : 8;
     eLVRM LVRM : 3;
     eBTS BTS : 2;
-    uint32_t _reserved_4 : 2;
+    uint32_t _reserved_0 : 2;
     eSCE SCE : 1;
     eAFS AFS : 2;
     eDRM DRM : 1;
-    uint32_t _reserved_7 : 1;
+    uint32_t _reserved_1 : 1;
     eDMA_BURST_TYPE_SFF DMA_BURST_TYPE_SFF : 2;
     eDMA_BURST_TYPE_RFF DMA_BURST_TYPE_RFF : 2;
   } bits;
@@ -417,7 +417,7 @@ union CSI_RXCNT {
   // Bit field definition.
   struct {
     uint32_t RXCNT : 22;
-    uint32_t _reserved_end : 10;
+    uint32_t _reserved_0 : 10;
   } bits;
   
   // Full 32-bit register value.
@@ -517,9 +517,9 @@ union CSI_SR {
     eDRDY DRDY : 1;
     eECC_INT ECC_INT : 1;
     eHISTOGRAM_CALC_DONE_INT HISTOGRAM_CALC_DONE_INT : 1;
-    uint32_t _reserved_3 : 4;
+    uint32_t _reserved_0 : 4;
     eHRESP_ERR_INT HRESP_ERR_INT : 1;
-    uint32_t _reserved_4 : 5;
+    uint32_t _reserved_1 : 5;
     eCOF_INT COF_INT : 1;
     eF1_INT F1_INT : 1;
     eF2_INT F2_INT : 1;
@@ -530,13 +530,13 @@ union CSI_SR {
     eDMA_TSF_DONE_FB2 DMA_TSF_DONE_FB2 : 1;
     eSTATFF_INT STATFF_INT : 1;
     eDMA_TSF_DONE_SFF DMA_TSF_DONE_SFF : 1;
-    uint32_t _reserved_14 : 1;
+    uint32_t _reserved_2 : 1;
     eRF_OR_INT RF_OR_INT : 1;
     eSF_OR_INT SF_OR_INT : 1;
     uint32_t DMA_FIELD1_DONE : 1;
     uint32_t DMA_FIELD0_DONE : 1;
     uint32_t BASEADDR_CHHANGE_ERROR : 1;
-    uint32_t _reserved_end : 3;
+    uint32_t _reserved_3 : 3;
   } bits;
   
   // Full 32-bit register value.
@@ -733,14 +733,14 @@ union CSI_CR18 {
     eLAST_DMA_REQ_SEL LAST_DMA_REQ_SEL : 1;
     eBASEADDR_CHANGE_ERROR_IE BASEADDR_CHANGE_ERROR_IE : 1;
     eRGB888A_FORMAT_SEL RGB888A_FORMAT_SEL : 1;
-    uint32_t _reserved_11 : 1;
+    uint32_t _reserved_0 : 1;
     uint32_t AHB_HPROT : 4;
-    uint32_t _reserved_12 : 2;
+    uint32_t _reserved_1 : 2;
     eMASK_OPTION MASK_OPTION : 2;
     eMIPI_DOUBLE_CMPNT MIPI_DOUBLE_CMPNT : 1;
     uint32_t MIPI_YU_SWAP : 1;
     eDATA_FROM_MIPI DATA_FROM_MIPI : 1;
-    uint32_t _reserved_16 : 1;
+    uint32_t _reserved_2 : 1;
     uint32_t LINE_STRIDE_EN : 1;
     uint32_t MIPI_DATA_FORMAT : 6;
     uint32_t CSI_ENABLE : 1;
@@ -761,7 +761,7 @@ union CSI_CR19 {
   // Bit field definition.
   struct {
     uint32_t DMA_RFIFO_HIGHEST_FIFO_LEVEL : 8;
-    uint32_t _reserved_end : 24;
+    uint32_t _reserved_0 : 24;
   } bits;
   
   // Full 32-bit register value.
@@ -816,7 +816,7 @@ union CSI_CR20 {
     eBINARY_EN BINARY_EN : 1;
     eQR_DATA_FORMAT QR_DATA_FORMAT : 3;
     eBIG_END BIG_END : 1;
-    uint32_t _reserved_4 : 16;
+    uint32_t _reserved_0 : 16;
     e_10BIT_NEW_EN _10BIT_NEW_EN : 1;
     eHISTOGRAM_EN HISTOGRAM_EN : 1;
     eQRCODE_EN QRCODE_EN : 1;
@@ -837,7 +837,7 @@ union CSI_CR21 {
   // Bit field definition.
   struct {
     uint32_t PIXEL_COUNTERS : 24;
-    uint32_t _reserved_end : 8;
+    uint32_t _reserved_0 : 8;
   } bits;
   
   // Full 32-bit register value.
@@ -854,7 +854,7 @@ union CSI_CR22 {
   // Bit field definition.
   struct {
     uint32_t PIXEL_COUNTERS : 24;
-    uint32_t _reserved_end : 8;
+    uint32_t _reserved_0 : 8;
   } bits;
   
   // Full 32-bit register value.
@@ -871,7 +871,7 @@ union CSI_CR23 {
   // Bit field definition.
   struct {
     uint32_t PIXEL_COUNTERS : 24;
-    uint32_t _reserved_end : 8;
+    uint32_t _reserved_0 : 8;
   } bits;
   
   // Full 32-bit register value.
@@ -888,7 +888,7 @@ union CSI_CR24 {
   // Bit field definition.
   struct {
     uint32_t PIXEL_COUNTERS : 24;
-    uint32_t _reserved_end : 8;
+    uint32_t _reserved_0 : 8;
   } bits;
   
   // Full 32-bit register value.
@@ -905,7 +905,7 @@ union CSI_CR25 {
   // Bit field definition.
   struct {
     uint32_t PIXEL_COUNTERS : 24;
-    uint32_t _reserved_end : 8;
+    uint32_t _reserved_0 : 8;
   } bits;
   
   // Full 32-bit register value.
@@ -922,7 +922,7 @@ union CSI_CR26 {
   // Bit field definition.
   struct {
     uint32_t PIXEL_COUNTERS : 24;
-    uint32_t _reserved_end : 8;
+    uint32_t _reserved_0 : 8;
   } bits;
   
   // Full 32-bit register value.
@@ -939,7 +939,7 @@ union CSI_CR27 {
   // Bit field definition.
   struct {
     uint32_t PIXEL_COUNTERS : 24;
-    uint32_t _reserved_end : 8;
+    uint32_t _reserved_0 : 8;
   } bits;
   
   // Full 32-bit register value.
@@ -956,7 +956,7 @@ union CSI_CR28 {
   // Bit field definition.
   struct {
     uint32_t PIXEL_COUNTERS : 24;
-    uint32_t _reserved_end : 8;
+    uint32_t _reserved_0 : 8;
   } bits;
   
   // Full 32-bit register value.
@@ -973,7 +973,7 @@ union CSI_CR29 {
   // Bit field definition.
   struct {
     uint32_t PIXEL_COUNTERS : 24;
-    uint32_t _reserved_end : 8;
+    uint32_t _reserved_0 : 8;
   } bits;
   
   // Full 32-bit register value.
@@ -990,7 +990,7 @@ union CSI_CR30 {
   // Bit field definition.
   struct {
     uint32_t PIXEL_COUNTERS : 24;
-    uint32_t _reserved_end : 8;
+    uint32_t _reserved_0 : 8;
   } bits;
   
   // Full 32-bit register value.
@@ -1007,7 +1007,7 @@ union CSI_CR31 {
   // Bit field definition.
   struct {
     uint32_t PIXEL_COUNTERS : 24;
-    uint32_t _reserved_end : 8;
+    uint32_t _reserved_0 : 8;
   } bits;
   
   // Full 32-bit register value.
@@ -1024,7 +1024,7 @@ union CSI_CR32 {
   // Bit field definition.
   struct {
     uint32_t PIXEL_COUNTERS : 24;
-    uint32_t _reserved_end : 8;
+    uint32_t _reserved_0 : 8;
   } bits;
   
   // Full 32-bit register value.
@@ -1041,7 +1041,7 @@ union CSI_CR33 {
   // Bit field definition.
   struct {
     uint32_t PIXEL_COUNTERS : 24;
-    uint32_t _reserved_end : 8;
+    uint32_t _reserved_0 : 8;
   } bits;
   
   // Full 32-bit register value.
@@ -1058,7 +1058,7 @@ union CSI_CR34 {
   // Bit field definition.
   struct {
     uint32_t PIXEL_COUNTERS : 24;
-    uint32_t _reserved_end : 8;
+    uint32_t _reserved_0 : 8;
   } bits;
   
   // Full 32-bit register value.
@@ -1075,7 +1075,7 @@ union CSI_CR35 {
   // Bit field definition.
   struct {
     uint32_t PIXEL_COUNTERS : 24;
-    uint32_t _reserved_end : 8;
+    uint32_t _reserved_0 : 8;
   } bits;
   
   // Full 32-bit register value.
@@ -1092,7 +1092,7 @@ union CSI_CR36 {
   // Bit field definition.
   struct {
     uint32_t PIXEL_COUNTERS : 24;
-    uint32_t _reserved_end : 8;
+    uint32_t _reserved_0 : 8;
   } bits;
   
   // Full 32-bit register value.
@@ -1109,7 +1109,7 @@ union CSI_CR37 {
   // Bit field definition.
   struct {
     uint32_t PIXEL_COUNTERS : 24;
-    uint32_t _reserved_end : 8;
+    uint32_t _reserved_0 : 8;
   } bits;
   
   // Full 32-bit register value.
@@ -1126,7 +1126,7 @@ union CSI_CR38 {
   // Bit field definition.
   struct {
     uint32_t PIXEL_COUNTERS : 24;
-    uint32_t _reserved_end : 8;
+    uint32_t _reserved_0 : 8;
   } bits;
   
   // Full 32-bit register value.
@@ -1143,7 +1143,7 @@ union CSI_CR39 {
   // Bit field definition.
   struct {
     uint32_t PIXEL_COUNTERS : 24;
-    uint32_t _reserved_end : 8;
+    uint32_t _reserved_0 : 8;
   } bits;
   
   // Full 32-bit register value.
@@ -1160,7 +1160,7 @@ union CSI_CR40 {
   // Bit field definition.
   struct {
     uint32_t PIXEL_COUNTERS : 24;
-    uint32_t _reserved_end : 8;
+    uint32_t _reserved_0 : 8;
   } bits;
   
   // Full 32-bit register value.
@@ -1177,7 +1177,7 @@ union CSI_CR41 {
   // Bit field definition.
   struct {
     uint32_t PIXEL_COUNTERS : 24;
-    uint32_t _reserved_end : 8;
+    uint32_t _reserved_0 : 8;
   } bits;
   
   // Full 32-bit register value.
@@ -1194,7 +1194,7 @@ union CSI_CR42 {
   // Bit field definition.
   struct {
     uint32_t PIXEL_COUNTERS : 24;
-    uint32_t _reserved_end : 8;
+    uint32_t _reserved_0 : 8;
   } bits;
   
   // Full 32-bit register value.
@@ -1211,7 +1211,7 @@ union CSI_CR43 {
   // Bit field definition.
   struct {
     uint32_t PIXEL_COUNTERS : 24;
-    uint32_t _reserved_end : 8;
+    uint32_t _reserved_0 : 8;
   } bits;
   
   // Full 32-bit register value.
@@ -1228,7 +1228,7 @@ union CSI_CR44 {
   // Bit field definition.
   struct {
     uint32_t PIXEL_COUNTERS : 24;
-    uint32_t _reserved_end : 8;
+    uint32_t _reserved_0 : 8;
   } bits;
   
   // Full 32-bit register value.
@@ -1245,7 +1245,7 @@ union CSI_CR45 {
   // Bit field definition.
   struct {
     uint32_t PIXEL_COUNTERS : 24;
-    uint32_t _reserved_end : 8;
+    uint32_t _reserved_0 : 8;
   } bits;
   
   // Full 32-bit register value.
@@ -1262,7 +1262,7 @@ union CSI_CR46 {
   // Bit field definition.
   struct {
     uint32_t PIXEL_COUNTERS : 24;
-    uint32_t _reserved_end : 8;
+    uint32_t _reserved_0 : 8;
   } bits;
   
   // Full 32-bit register value.
@@ -1279,7 +1279,7 @@ union CSI_CR47 {
   // Bit field definition.
   struct {
     uint32_t PIXEL_COUNTERS : 24;
-    uint32_t _reserved_end : 8;
+    uint32_t _reserved_0 : 8;
   } bits;
   
   // Full 32-bit register value.
@@ -1296,7 +1296,7 @@ union CSI_CR48 {
   // Bit field definition.
   struct {
     uint32_t PIXEL_COUNTERS : 24;
-    uint32_t _reserved_end : 8;
+    uint32_t _reserved_0 : 8;
   } bits;
   
   // Full 32-bit register value.
@@ -1313,7 +1313,7 @@ union CSI_CR49 {
   // Bit field definition.
   struct {
     uint32_t PIXEL_COUNTERS : 24;
-    uint32_t _reserved_end : 8;
+    uint32_t _reserved_0 : 8;
   } bits;
   
   // Full 32-bit register value.
@@ -1330,7 +1330,7 @@ union CSI_CR50 {
   // Bit field definition.
   struct {
     uint32_t PIXEL_COUNTERS : 24;
-    uint32_t _reserved_end : 8;
+    uint32_t _reserved_0 : 8;
   } bits;
   
   // Full 32-bit register value.
@@ -1347,7 +1347,7 @@ union CSI_CR51 {
   // Bit field definition.
   struct {
     uint32_t PIXEL_COUNTERS : 24;
-    uint32_t _reserved_end : 8;
+    uint32_t _reserved_0 : 8;
   } bits;
   
   // Full 32-bit register value.
@@ -1364,7 +1364,7 @@ union CSI_CR52 {
   // Bit field definition.
   struct {
     uint32_t PIXEL_COUNTERS : 24;
-    uint32_t _reserved_end : 8;
+    uint32_t _reserved_0 : 8;
   } bits;
   
   // Full 32-bit register value.
@@ -1381,7 +1381,7 @@ union CSI_CR53 {
   // Bit field definition.
   struct {
     uint32_t PIXEL_COUNTERS : 24;
-    uint32_t _reserved_end : 8;
+    uint32_t _reserved_0 : 8;
   } bits;
   
   // Full 32-bit register value.
@@ -1398,7 +1398,7 @@ union CSI_CR54 {
   // Bit field definition.
   struct {
     uint32_t PIXEL_COUNTERS : 24;
-    uint32_t _reserved_end : 8;
+    uint32_t _reserved_0 : 8;
   } bits;
   
   // Full 32-bit register value.
@@ -1415,7 +1415,7 @@ union CSI_CR55 {
   // Bit field definition.
   struct {
     uint32_t PIXEL_COUNTERS : 24;
-    uint32_t _reserved_end : 8;
+    uint32_t _reserved_0 : 8;
   } bits;
   
   // Full 32-bit register value.
@@ -1432,7 +1432,7 @@ union CSI_CR56 {
   // Bit field definition.
   struct {
     uint32_t PIXEL_COUNTERS : 24;
-    uint32_t _reserved_end : 8;
+    uint32_t _reserved_0 : 8;
   } bits;
   
   // Full 32-bit register value.
@@ -1449,7 +1449,7 @@ union CSI_CR57 {
   // Bit field definition.
   struct {
     uint32_t PIXEL_COUNTERS : 24;
-    uint32_t _reserved_end : 8;
+    uint32_t _reserved_0 : 8;
   } bits;
   
   // Full 32-bit register value.
@@ -1466,7 +1466,7 @@ union CSI_CR58 {
   // Bit field definition.
   struct {
     uint32_t PIXEL_COUNTERS : 24;
-    uint32_t _reserved_end : 8;
+    uint32_t _reserved_0 : 8;
   } bits;
   
   // Full 32-bit register value.
@@ -1483,7 +1483,7 @@ union CSI_CR59 {
   // Bit field definition.
   struct {
     uint32_t PIXEL_COUNTERS : 24;
-    uint32_t _reserved_end : 8;
+    uint32_t _reserved_0 : 8;
   } bits;
   
   // Full 32-bit register value.
@@ -1500,7 +1500,7 @@ union CSI_CR60 {
   // Bit field definition.
   struct {
     uint32_t PIXEL_COUNTERS : 24;
-    uint32_t _reserved_end : 8;
+    uint32_t _reserved_0 : 8;
   } bits;
   
   // Full 32-bit register value.
@@ -1517,7 +1517,7 @@ union CSI_CR61 {
   // Bit field definition.
   struct {
     uint32_t PIXEL_COUNTERS : 24;
-    uint32_t _reserved_end : 8;
+    uint32_t _reserved_0 : 8;
   } bits;
   
   // Full 32-bit register value.
@@ -1534,7 +1534,7 @@ union CSI_CR62 {
   // Bit field definition.
   struct {
     uint32_t PIXEL_COUNTERS : 24;
-    uint32_t _reserved_end : 8;
+    uint32_t _reserved_0 : 8;
   } bits;
   
   // Full 32-bit register value.
@@ -1551,7 +1551,7 @@ union CSI_CR63 {
   // Bit field definition.
   struct {
     uint32_t PIXEL_COUNTERS : 24;
-    uint32_t _reserved_end : 8;
+    uint32_t _reserved_0 : 8;
   } bits;
   
   // Full 32-bit register value.
@@ -1568,7 +1568,7 @@ union CSI_CR64 {
   // Bit field definition.
   struct {
     uint32_t PIXEL_COUNTERS : 24;
-    uint32_t _reserved_end : 8;
+    uint32_t _reserved_0 : 8;
   } bits;
   
   // Full 32-bit register value.
@@ -1585,7 +1585,7 @@ union CSI_CR65 {
   // Bit field definition.
   struct {
     uint32_t PIXEL_COUNTERS : 24;
-    uint32_t _reserved_end : 8;
+    uint32_t _reserved_0 : 8;
   } bits;
   
   // Full 32-bit register value.
@@ -1602,7 +1602,7 @@ union CSI_CR66 {
   // Bit field definition.
   struct {
     uint32_t PIXEL_COUNTERS : 24;
-    uint32_t _reserved_end : 8;
+    uint32_t _reserved_0 : 8;
   } bits;
   
   // Full 32-bit register value.
@@ -1619,7 +1619,7 @@ union CSI_CR67 {
   // Bit field definition.
   struct {
     uint32_t PIXEL_COUNTERS : 24;
-    uint32_t _reserved_end : 8;
+    uint32_t _reserved_0 : 8;
   } bits;
   
   // Full 32-bit register value.
@@ -1636,7 +1636,7 @@ union CSI_CR68 {
   // Bit field definition.
   struct {
     uint32_t PIXEL_COUNTERS : 24;
-    uint32_t _reserved_end : 8;
+    uint32_t _reserved_0 : 8;
   } bits;
   
   // Full 32-bit register value.
@@ -1653,7 +1653,7 @@ union CSI_CR69 {
   // Bit field definition.
   struct {
     uint32_t PIXEL_COUNTERS : 24;
-    uint32_t _reserved_end : 8;
+    uint32_t _reserved_0 : 8;
   } bits;
   
   // Full 32-bit register value.
@@ -1670,7 +1670,7 @@ union CSI_CR70 {
   // Bit field definition.
   struct {
     uint32_t PIXEL_COUNTERS : 24;
-    uint32_t _reserved_end : 8;
+    uint32_t _reserved_0 : 8;
   } bits;
   
   // Full 32-bit register value.
@@ -1687,7 +1687,7 @@ union CSI_CR71 {
   // Bit field definition.
   struct {
     uint32_t PIXEL_COUNTERS : 24;
-    uint32_t _reserved_end : 8;
+    uint32_t _reserved_0 : 8;
   } bits;
   
   // Full 32-bit register value.
@@ -1704,7 +1704,7 @@ union CSI_CR72 {
   // Bit field definition.
   struct {
     uint32_t PIXEL_COUNTERS : 24;
-    uint32_t _reserved_end : 8;
+    uint32_t _reserved_0 : 8;
   } bits;
   
   // Full 32-bit register value.
@@ -1721,7 +1721,7 @@ union CSI_CR73 {
   // Bit field definition.
   struct {
     uint32_t PIXEL_COUNTERS : 24;
-    uint32_t _reserved_end : 8;
+    uint32_t _reserved_0 : 8;
   } bits;
   
   // Full 32-bit register value.
@@ -1738,7 +1738,7 @@ union CSI_CR74 {
   // Bit field definition.
   struct {
     uint32_t PIXEL_COUNTERS : 24;
-    uint32_t _reserved_end : 8;
+    uint32_t _reserved_0 : 8;
   } bits;
   
   // Full 32-bit register value.
@@ -1755,7 +1755,7 @@ union CSI_CR75 {
   // Bit field definition.
   struct {
     uint32_t PIXEL_COUNTERS : 24;
-    uint32_t _reserved_end : 8;
+    uint32_t _reserved_0 : 8;
   } bits;
   
   // Full 32-bit register value.
@@ -1772,7 +1772,7 @@ union CSI_CR76 {
   // Bit field definition.
   struct {
     uint32_t PIXEL_COUNTERS : 24;
-    uint32_t _reserved_end : 8;
+    uint32_t _reserved_0 : 8;
   } bits;
   
   // Full 32-bit register value.
@@ -1789,7 +1789,7 @@ union CSI_CR77 {
   // Bit field definition.
   struct {
     uint32_t PIXEL_COUNTERS : 24;
-    uint32_t _reserved_end : 8;
+    uint32_t _reserved_0 : 8;
   } bits;
   
   // Full 32-bit register value.
@@ -1806,7 +1806,7 @@ union CSI_CR78 {
   // Bit field definition.
   struct {
     uint32_t PIXEL_COUNTERS : 24;
-    uint32_t _reserved_end : 8;
+    uint32_t _reserved_0 : 8;
   } bits;
   
   // Full 32-bit register value.
@@ -1823,7 +1823,7 @@ union CSI_CR79 {
   // Bit field definition.
   struct {
     uint32_t PIXEL_COUNTERS : 24;
-    uint32_t _reserved_end : 8;
+    uint32_t _reserved_0 : 8;
   } bits;
   
   // Full 32-bit register value.
@@ -1840,7 +1840,7 @@ union CSI_CR80 {
   // Bit field definition.
   struct {
     uint32_t PIXEL_COUNTERS : 24;
-    uint32_t _reserved_end : 8;
+    uint32_t _reserved_0 : 8;
   } bits;
   
   // Full 32-bit register value.
@@ -1857,7 +1857,7 @@ union CSI_CR81 {
   // Bit field definition.
   struct {
     uint32_t PIXEL_COUNTERS : 24;
-    uint32_t _reserved_end : 8;
+    uint32_t _reserved_0 : 8;
   } bits;
   
   // Full 32-bit register value.
@@ -1874,7 +1874,7 @@ union CSI_CR82 {
   // Bit field definition.
   struct {
     uint32_t PIXEL_COUNTERS : 24;
-    uint32_t _reserved_end : 8;
+    uint32_t _reserved_0 : 8;
   } bits;
   
   // Full 32-bit register value.
@@ -1891,7 +1891,7 @@ union CSI_CR83 {
   // Bit field definition.
   struct {
     uint32_t PIXEL_COUNTERS : 24;
-    uint32_t _reserved_end : 8;
+    uint32_t _reserved_0 : 8;
   } bits;
   
   // Full 32-bit register value.
@@ -1908,7 +1908,7 @@ union CSI_CR84 {
   // Bit field definition.
   struct {
     uint32_t PIXEL_COUNTERS : 24;
-    uint32_t _reserved_end : 8;
+    uint32_t _reserved_0 : 8;
   } bits;
   
   // Full 32-bit register value.
@@ -1925,7 +1925,7 @@ union CSI_CR85 {
   // Bit field definition.
   struct {
     uint32_t PIXEL_COUNTERS : 24;
-    uint32_t _reserved_end : 8;
+    uint32_t _reserved_0 : 8;
   } bits;
   
   // Full 32-bit register value.
@@ -1942,7 +1942,7 @@ union CSI_CR86 {
   // Bit field definition.
   struct {
     uint32_t PIXEL_COUNTERS : 24;
-    uint32_t _reserved_end : 8;
+    uint32_t _reserved_0 : 8;
   } bits;
   
   // Full 32-bit register value.
@@ -1959,7 +1959,7 @@ union CSI_CR87 {
   // Bit field definition.
   struct {
     uint32_t PIXEL_COUNTERS : 24;
-    uint32_t _reserved_end : 8;
+    uint32_t _reserved_0 : 8;
   } bits;
   
   // Full 32-bit register value.
@@ -1976,7 +1976,7 @@ union CSI_CR88 {
   // Bit field definition.
   struct {
     uint32_t PIXEL_COUNTERS : 24;
-    uint32_t _reserved_end : 8;
+    uint32_t _reserved_0 : 8;
   } bits;
   
   // Full 32-bit register value.
@@ -1993,7 +1993,7 @@ union CSI_CR89 {
   // Bit field definition.
   struct {
     uint32_t PIXEL_COUNTERS : 24;
-    uint32_t _reserved_end : 8;
+    uint32_t _reserved_0 : 8;
   } bits;
   
   // Full 32-bit register value.
@@ -2010,7 +2010,7 @@ union CSI_CR90 {
   // Bit field definition.
   struct {
     uint32_t PIXEL_COUNTERS : 24;
-    uint32_t _reserved_end : 8;
+    uint32_t _reserved_0 : 8;
   } bits;
   
   // Full 32-bit register value.
@@ -2027,7 +2027,7 @@ union CSI_CR91 {
   // Bit field definition.
   struct {
     uint32_t PIXEL_COUNTERS : 24;
-    uint32_t _reserved_end : 8;
+    uint32_t _reserved_0 : 8;
   } bits;
   
   // Full 32-bit register value.
@@ -2044,7 +2044,7 @@ union CSI_CR92 {
   // Bit field definition.
   struct {
     uint32_t PIXEL_COUNTERS : 24;
-    uint32_t _reserved_end : 8;
+    uint32_t _reserved_0 : 8;
   } bits;
   
   // Full 32-bit register value.
@@ -2061,7 +2061,7 @@ union CSI_CR93 {
   // Bit field definition.
   struct {
     uint32_t PIXEL_COUNTERS : 24;
-    uint32_t _reserved_end : 8;
+    uint32_t _reserved_0 : 8;
   } bits;
   
   // Full 32-bit register value.
@@ -2078,7 +2078,7 @@ union CSI_CR94 {
   // Bit field definition.
   struct {
     uint32_t PIXEL_COUNTERS : 24;
-    uint32_t _reserved_end : 8;
+    uint32_t _reserved_0 : 8;
   } bits;
   
   // Full 32-bit register value.
@@ -2095,7 +2095,7 @@ union CSI_CR95 {
   // Bit field definition.
   struct {
     uint32_t PIXEL_COUNTERS : 24;
-    uint32_t _reserved_end : 8;
+    uint32_t _reserved_0 : 8;
   } bits;
   
   // Full 32-bit register value.
@@ -2112,7 +2112,7 @@ union CSI_CR96 {
   // Bit field definition.
   struct {
     uint32_t PIXEL_COUNTERS : 24;
-    uint32_t _reserved_end : 8;
+    uint32_t _reserved_0 : 8;
   } bits;
   
   // Full 32-bit register value.
@@ -2129,7 +2129,7 @@ union CSI_CR97 {
   // Bit field definition.
   struct {
     uint32_t PIXEL_COUNTERS : 24;
-    uint32_t _reserved_end : 8;
+    uint32_t _reserved_0 : 8;
   } bits;
   
   // Full 32-bit register value.
@@ -2146,7 +2146,7 @@ union CSI_CR98 {
   // Bit field definition.
   struct {
     uint32_t PIXEL_COUNTERS : 24;
-    uint32_t _reserved_end : 8;
+    uint32_t _reserved_0 : 8;
   } bits;
   
   // Full 32-bit register value.
@@ -2163,7 +2163,7 @@ union CSI_CR99 {
   // Bit field definition.
   struct {
     uint32_t PIXEL_COUNTERS : 24;
-    uint32_t _reserved_end : 8;
+    uint32_t _reserved_0 : 8;
   } bits;
   
   // Full 32-bit register value.
@@ -2180,7 +2180,7 @@ union CSI_CR100 {
   // Bit field definition.
   struct {
     uint32_t PIXEL_COUNTERS : 24;
-    uint32_t _reserved_end : 8;
+    uint32_t _reserved_0 : 8;
   } bits;
   
   // Full 32-bit register value.
@@ -2197,7 +2197,7 @@ union CSI_CR101 {
   // Bit field definition.
   struct {
     uint32_t PIXEL_COUNTERS : 24;
-    uint32_t _reserved_end : 8;
+    uint32_t _reserved_0 : 8;
   } bits;
   
   // Full 32-bit register value.
@@ -2214,7 +2214,7 @@ union CSI_CR102 {
   // Bit field definition.
   struct {
     uint32_t PIXEL_COUNTERS : 24;
-    uint32_t _reserved_end : 8;
+    uint32_t _reserved_0 : 8;
   } bits;
   
   // Full 32-bit register value.
@@ -2231,7 +2231,7 @@ union CSI_CR103 {
   // Bit field definition.
   struct {
     uint32_t PIXEL_COUNTERS : 24;
-    uint32_t _reserved_end : 8;
+    uint32_t _reserved_0 : 8;
   } bits;
   
   // Full 32-bit register value.
@@ -2248,7 +2248,7 @@ union CSI_CR104 {
   // Bit field definition.
   struct {
     uint32_t PIXEL_COUNTERS : 24;
-    uint32_t _reserved_end : 8;
+    uint32_t _reserved_0 : 8;
   } bits;
   
   // Full 32-bit register value.
@@ -2265,7 +2265,7 @@ union CSI_CR105 {
   // Bit field definition.
   struct {
     uint32_t PIXEL_COUNTERS : 24;
-    uint32_t _reserved_end : 8;
+    uint32_t _reserved_0 : 8;
   } bits;
   
   // Full 32-bit register value.
@@ -2282,7 +2282,7 @@ union CSI_CR106 {
   // Bit field definition.
   struct {
     uint32_t PIXEL_COUNTERS : 24;
-    uint32_t _reserved_end : 8;
+    uint32_t _reserved_0 : 8;
   } bits;
   
   // Full 32-bit register value.
@@ -2299,7 +2299,7 @@ union CSI_CR107 {
   // Bit field definition.
   struct {
     uint32_t PIXEL_COUNTERS : 24;
-    uint32_t _reserved_end : 8;
+    uint32_t _reserved_0 : 8;
   } bits;
   
   // Full 32-bit register value.
@@ -2316,7 +2316,7 @@ union CSI_CR108 {
   // Bit field definition.
   struct {
     uint32_t PIXEL_COUNTERS : 24;
-    uint32_t _reserved_end : 8;
+    uint32_t _reserved_0 : 8;
   } bits;
   
   // Full 32-bit register value.
@@ -2333,7 +2333,7 @@ union CSI_CR109 {
   // Bit field definition.
   struct {
     uint32_t PIXEL_COUNTERS : 24;
-    uint32_t _reserved_end : 8;
+    uint32_t _reserved_0 : 8;
   } bits;
   
   // Full 32-bit register value.
@@ -2350,7 +2350,7 @@ union CSI_CR110 {
   // Bit field definition.
   struct {
     uint32_t PIXEL_COUNTERS : 24;
-    uint32_t _reserved_end : 8;
+    uint32_t _reserved_0 : 8;
   } bits;
   
   // Full 32-bit register value.
@@ -2367,7 +2367,7 @@ union CSI_CR111 {
   // Bit field definition.
   struct {
     uint32_t PIXEL_COUNTERS : 24;
-    uint32_t _reserved_end : 8;
+    uint32_t _reserved_0 : 8;
   } bits;
   
   // Full 32-bit register value.
@@ -2384,7 +2384,7 @@ union CSI_CR112 {
   // Bit field definition.
   struct {
     uint32_t PIXEL_COUNTERS : 24;
-    uint32_t _reserved_end : 8;
+    uint32_t _reserved_0 : 8;
   } bits;
   
   // Full 32-bit register value.
@@ -2401,7 +2401,7 @@ union CSI_CR113 {
   // Bit field definition.
   struct {
     uint32_t PIXEL_COUNTERS : 24;
-    uint32_t _reserved_end : 8;
+    uint32_t _reserved_0 : 8;
   } bits;
   
   // Full 32-bit register value.
@@ -2418,7 +2418,7 @@ union CSI_CR114 {
   // Bit field definition.
   struct {
     uint32_t PIXEL_COUNTERS : 24;
-    uint32_t _reserved_end : 8;
+    uint32_t _reserved_0 : 8;
   } bits;
   
   // Full 32-bit register value.
@@ -2435,7 +2435,7 @@ union CSI_CR115 {
   // Bit field definition.
   struct {
     uint32_t PIXEL_COUNTERS : 24;
-    uint32_t _reserved_end : 8;
+    uint32_t _reserved_0 : 8;
   } bits;
   
   // Full 32-bit register value.
@@ -2452,7 +2452,7 @@ union CSI_CR116 {
   // Bit field definition.
   struct {
     uint32_t PIXEL_COUNTERS : 24;
-    uint32_t _reserved_end : 8;
+    uint32_t _reserved_0 : 8;
   } bits;
   
   // Full 32-bit register value.
@@ -2469,7 +2469,7 @@ union CSI_CR117 {
   // Bit field definition.
   struct {
     uint32_t PIXEL_COUNTERS : 24;
-    uint32_t _reserved_end : 8;
+    uint32_t _reserved_0 : 8;
   } bits;
   
   // Full 32-bit register value.
@@ -2486,7 +2486,7 @@ union CSI_CR118 {
   // Bit field definition.
   struct {
     uint32_t PIXEL_COUNTERS : 24;
-    uint32_t _reserved_end : 8;
+    uint32_t _reserved_0 : 8;
   } bits;
   
   // Full 32-bit register value.
@@ -2503,7 +2503,7 @@ union CSI_CR119 {
   // Bit field definition.
   struct {
     uint32_t PIXEL_COUNTERS : 24;
-    uint32_t _reserved_end : 8;
+    uint32_t _reserved_0 : 8;
   } bits;
   
   // Full 32-bit register value.
@@ -2520,7 +2520,7 @@ union CSI_CR120 {
   // Bit field definition.
   struct {
     uint32_t PIXEL_COUNTERS : 24;
-    uint32_t _reserved_end : 8;
+    uint32_t _reserved_0 : 8;
   } bits;
   
   // Full 32-bit register value.
@@ -2537,7 +2537,7 @@ union CSI_CR121 {
   // Bit field definition.
   struct {
     uint32_t PIXEL_COUNTERS : 24;
-    uint32_t _reserved_end : 8;
+    uint32_t _reserved_0 : 8;
   } bits;
   
   // Full 32-bit register value.
@@ -2554,7 +2554,7 @@ union CSI_CR122 {
   // Bit field definition.
   struct {
     uint32_t PIXEL_COUNTERS : 24;
-    uint32_t _reserved_end : 8;
+    uint32_t _reserved_0 : 8;
   } bits;
   
   // Full 32-bit register value.
@@ -2571,7 +2571,7 @@ union CSI_CR123 {
   // Bit field definition.
   struct {
     uint32_t PIXEL_COUNTERS : 24;
-    uint32_t _reserved_end : 8;
+    uint32_t _reserved_0 : 8;
   } bits;
   
   // Full 32-bit register value.
@@ -2588,7 +2588,7 @@ union CSI_CR124 {
   // Bit field definition.
   struct {
     uint32_t PIXEL_COUNTERS : 24;
-    uint32_t _reserved_end : 8;
+    uint32_t _reserved_0 : 8;
   } bits;
   
   // Full 32-bit register value.
@@ -2605,7 +2605,7 @@ union CSI_CR125 {
   // Bit field definition.
   struct {
     uint32_t PIXEL_COUNTERS : 24;
-    uint32_t _reserved_end : 8;
+    uint32_t _reserved_0 : 8;
   } bits;
   
   // Full 32-bit register value.
@@ -2622,7 +2622,7 @@ union CSI_CR126 {
   // Bit field definition.
   struct {
     uint32_t PIXEL_COUNTERS : 24;
-    uint32_t _reserved_end : 8;
+    uint32_t _reserved_0 : 8;
   } bits;
   
   // Full 32-bit register value.
@@ -2639,7 +2639,7 @@ union CSI_CR127 {
   // Bit field definition.
   struct {
     uint32_t PIXEL_COUNTERS : 24;
-    uint32_t _reserved_end : 8;
+    uint32_t _reserved_0 : 8;
   } bits;
   
   // Full 32-bit register value.
@@ -2656,7 +2656,7 @@ union CSI_CR128 {
   // Bit field definition.
   struct {
     uint32_t PIXEL_COUNTERS : 24;
-    uint32_t _reserved_end : 8;
+    uint32_t _reserved_0 : 8;
   } bits;
   
   // Full 32-bit register value.
@@ -2673,7 +2673,7 @@ union CSI_CR129 {
   // Bit field definition.
   struct {
     uint32_t PIXEL_COUNTERS : 24;
-    uint32_t _reserved_end : 8;
+    uint32_t _reserved_0 : 8;
   } bits;
   
   // Full 32-bit register value.
@@ -2690,7 +2690,7 @@ union CSI_CR130 {
   // Bit field definition.
   struct {
     uint32_t PIXEL_COUNTERS : 24;
-    uint32_t _reserved_end : 8;
+    uint32_t _reserved_0 : 8;
   } bits;
   
   // Full 32-bit register value.
@@ -2707,7 +2707,7 @@ union CSI_CR131 {
   // Bit field definition.
   struct {
     uint32_t PIXEL_COUNTERS : 24;
-    uint32_t _reserved_end : 8;
+    uint32_t _reserved_0 : 8;
   } bits;
   
   // Full 32-bit register value.
@@ -2724,7 +2724,7 @@ union CSI_CR132 {
   // Bit field definition.
   struct {
     uint32_t PIXEL_COUNTERS : 24;
-    uint32_t _reserved_end : 8;
+    uint32_t _reserved_0 : 8;
   } bits;
   
   // Full 32-bit register value.
@@ -2741,7 +2741,7 @@ union CSI_CR133 {
   // Bit field definition.
   struct {
     uint32_t PIXEL_COUNTERS : 24;
-    uint32_t _reserved_end : 8;
+    uint32_t _reserved_0 : 8;
   } bits;
   
   // Full 32-bit register value.
@@ -2758,7 +2758,7 @@ union CSI_CR134 {
   // Bit field definition.
   struct {
     uint32_t PIXEL_COUNTERS : 24;
-    uint32_t _reserved_end : 8;
+    uint32_t _reserved_0 : 8;
   } bits;
   
   // Full 32-bit register value.
@@ -2775,7 +2775,7 @@ union CSI_CR135 {
   // Bit field definition.
   struct {
     uint32_t PIXEL_COUNTERS : 24;
-    uint32_t _reserved_end : 8;
+    uint32_t _reserved_0 : 8;
   } bits;
   
   // Full 32-bit register value.
@@ -2792,7 +2792,7 @@ union CSI_CR136 {
   // Bit field definition.
   struct {
     uint32_t PIXEL_COUNTERS : 24;
-    uint32_t _reserved_end : 8;
+    uint32_t _reserved_0 : 8;
   } bits;
   
   // Full 32-bit register value.
@@ -2809,7 +2809,7 @@ union CSI_CR137 {
   // Bit field definition.
   struct {
     uint32_t PIXEL_COUNTERS : 24;
-    uint32_t _reserved_end : 8;
+    uint32_t _reserved_0 : 8;
   } bits;
   
   // Full 32-bit register value.
@@ -2826,7 +2826,7 @@ union CSI_CR138 {
   // Bit field definition.
   struct {
     uint32_t PIXEL_COUNTERS : 24;
-    uint32_t _reserved_end : 8;
+    uint32_t _reserved_0 : 8;
   } bits;
   
   // Full 32-bit register value.
@@ -2843,7 +2843,7 @@ union CSI_CR139 {
   // Bit field definition.
   struct {
     uint32_t PIXEL_COUNTERS : 24;
-    uint32_t _reserved_end : 8;
+    uint32_t _reserved_0 : 8;
   } bits;
   
   // Full 32-bit register value.
@@ -2860,7 +2860,7 @@ union CSI_CR140 {
   // Bit field definition.
   struct {
     uint32_t PIXEL_COUNTERS : 24;
-    uint32_t _reserved_end : 8;
+    uint32_t _reserved_0 : 8;
   } bits;
   
   // Full 32-bit register value.
@@ -2877,7 +2877,7 @@ union CSI_CR141 {
   // Bit field definition.
   struct {
     uint32_t PIXEL_COUNTERS : 24;
-    uint32_t _reserved_end : 8;
+    uint32_t _reserved_0 : 8;
   } bits;
   
   // Full 32-bit register value.
@@ -2894,7 +2894,7 @@ union CSI_CR142 {
   // Bit field definition.
   struct {
     uint32_t PIXEL_COUNTERS : 24;
-    uint32_t _reserved_end : 8;
+    uint32_t _reserved_0 : 8;
   } bits;
   
   // Full 32-bit register value.
@@ -2911,7 +2911,7 @@ union CSI_CR143 {
   // Bit field definition.
   struct {
     uint32_t PIXEL_COUNTERS : 24;
-    uint32_t _reserved_end : 8;
+    uint32_t _reserved_0 : 8;
   } bits;
   
   // Full 32-bit register value.
@@ -2928,7 +2928,7 @@ union CSI_CR144 {
   // Bit field definition.
   struct {
     uint32_t PIXEL_COUNTERS : 24;
-    uint32_t _reserved_end : 8;
+    uint32_t _reserved_0 : 8;
   } bits;
   
   // Full 32-bit register value.
@@ -2945,7 +2945,7 @@ union CSI_CR145 {
   // Bit field definition.
   struct {
     uint32_t PIXEL_COUNTERS : 24;
-    uint32_t _reserved_end : 8;
+    uint32_t _reserved_0 : 8;
   } bits;
   
   // Full 32-bit register value.
@@ -2962,7 +2962,7 @@ union CSI_CR146 {
   // Bit field definition.
   struct {
     uint32_t PIXEL_COUNTERS : 24;
-    uint32_t _reserved_end : 8;
+    uint32_t _reserved_0 : 8;
   } bits;
   
   // Full 32-bit register value.
@@ -2979,7 +2979,7 @@ union CSI_CR147 {
   // Bit field definition.
   struct {
     uint32_t PIXEL_COUNTERS : 24;
-    uint32_t _reserved_end : 8;
+    uint32_t _reserved_0 : 8;
   } bits;
   
   // Full 32-bit register value.
@@ -2996,7 +2996,7 @@ union CSI_CR148 {
   // Bit field definition.
   struct {
     uint32_t PIXEL_COUNTERS : 24;
-    uint32_t _reserved_end : 8;
+    uint32_t _reserved_0 : 8;
   } bits;
   
   // Full 32-bit register value.
@@ -3013,7 +3013,7 @@ union CSI_CR149 {
   // Bit field definition.
   struct {
     uint32_t PIXEL_COUNTERS : 24;
-    uint32_t _reserved_end : 8;
+    uint32_t _reserved_0 : 8;
   } bits;
   
   // Full 32-bit register value.
@@ -3030,7 +3030,7 @@ union CSI_CR150 {
   // Bit field definition.
   struct {
     uint32_t PIXEL_COUNTERS : 24;
-    uint32_t _reserved_end : 8;
+    uint32_t _reserved_0 : 8;
   } bits;
   
   // Full 32-bit register value.
@@ -3047,7 +3047,7 @@ union CSI_CR151 {
   // Bit field definition.
   struct {
     uint32_t PIXEL_COUNTERS : 24;
-    uint32_t _reserved_end : 8;
+    uint32_t _reserved_0 : 8;
   } bits;
   
   // Full 32-bit register value.
@@ -3064,7 +3064,7 @@ union CSI_CR152 {
   // Bit field definition.
   struct {
     uint32_t PIXEL_COUNTERS : 24;
-    uint32_t _reserved_end : 8;
+    uint32_t _reserved_0 : 8;
   } bits;
   
   // Full 32-bit register value.
@@ -3081,7 +3081,7 @@ union CSI_CR153 {
   // Bit field definition.
   struct {
     uint32_t PIXEL_COUNTERS : 24;
-    uint32_t _reserved_end : 8;
+    uint32_t _reserved_0 : 8;
   } bits;
   
   // Full 32-bit register value.
@@ -3098,7 +3098,7 @@ union CSI_CR154 {
   // Bit field definition.
   struct {
     uint32_t PIXEL_COUNTERS : 24;
-    uint32_t _reserved_end : 8;
+    uint32_t _reserved_0 : 8;
   } bits;
   
   // Full 32-bit register value.
@@ -3115,7 +3115,7 @@ union CSI_CR155 {
   // Bit field definition.
   struct {
     uint32_t PIXEL_COUNTERS : 24;
-    uint32_t _reserved_end : 8;
+    uint32_t _reserved_0 : 8;
   } bits;
   
   // Full 32-bit register value.
@@ -3132,7 +3132,7 @@ union CSI_CR156 {
   // Bit field definition.
   struct {
     uint32_t PIXEL_COUNTERS : 24;
-    uint32_t _reserved_end : 8;
+    uint32_t _reserved_0 : 8;
   } bits;
   
   // Full 32-bit register value.
@@ -3149,7 +3149,7 @@ union CSI_CR157 {
   // Bit field definition.
   struct {
     uint32_t PIXEL_COUNTERS : 24;
-    uint32_t _reserved_end : 8;
+    uint32_t _reserved_0 : 8;
   } bits;
   
   // Full 32-bit register value.
@@ -3166,7 +3166,7 @@ union CSI_CR158 {
   // Bit field definition.
   struct {
     uint32_t PIXEL_COUNTERS : 24;
-    uint32_t _reserved_end : 8;
+    uint32_t _reserved_0 : 8;
   } bits;
   
   // Full 32-bit register value.
@@ -3183,7 +3183,7 @@ union CSI_CR159 {
   // Bit field definition.
   struct {
     uint32_t PIXEL_COUNTERS : 24;
-    uint32_t _reserved_end : 8;
+    uint32_t _reserved_0 : 8;
   } bits;
   
   // Full 32-bit register value.
@@ -3200,7 +3200,7 @@ union CSI_CR160 {
   // Bit field definition.
   struct {
     uint32_t PIXEL_COUNTERS : 24;
-    uint32_t _reserved_end : 8;
+    uint32_t _reserved_0 : 8;
   } bits;
   
   // Full 32-bit register value.
@@ -3217,7 +3217,7 @@ union CSI_CR161 {
   // Bit field definition.
   struct {
     uint32_t PIXEL_COUNTERS : 24;
-    uint32_t _reserved_end : 8;
+    uint32_t _reserved_0 : 8;
   } bits;
   
   // Full 32-bit register value.
@@ -3234,7 +3234,7 @@ union CSI_CR162 {
   // Bit field definition.
   struct {
     uint32_t PIXEL_COUNTERS : 24;
-    uint32_t _reserved_end : 8;
+    uint32_t _reserved_0 : 8;
   } bits;
   
   // Full 32-bit register value.
@@ -3251,7 +3251,7 @@ union CSI_CR163 {
   // Bit field definition.
   struct {
     uint32_t PIXEL_COUNTERS : 24;
-    uint32_t _reserved_end : 8;
+    uint32_t _reserved_0 : 8;
   } bits;
   
   // Full 32-bit register value.
@@ -3268,7 +3268,7 @@ union CSI_CR164 {
   // Bit field definition.
   struct {
     uint32_t PIXEL_COUNTERS : 24;
-    uint32_t _reserved_end : 8;
+    uint32_t _reserved_0 : 8;
   } bits;
   
   // Full 32-bit register value.
@@ -3285,7 +3285,7 @@ union CSI_CR165 {
   // Bit field definition.
   struct {
     uint32_t PIXEL_COUNTERS : 24;
-    uint32_t _reserved_end : 8;
+    uint32_t _reserved_0 : 8;
   } bits;
   
   // Full 32-bit register value.
@@ -3302,7 +3302,7 @@ union CSI_CR166 {
   // Bit field definition.
   struct {
     uint32_t PIXEL_COUNTERS : 24;
-    uint32_t _reserved_end : 8;
+    uint32_t _reserved_0 : 8;
   } bits;
   
   // Full 32-bit register value.
@@ -3319,7 +3319,7 @@ union CSI_CR167 {
   // Bit field definition.
   struct {
     uint32_t PIXEL_COUNTERS : 24;
-    uint32_t _reserved_end : 8;
+    uint32_t _reserved_0 : 8;
   } bits;
   
   // Full 32-bit register value.
@@ -3336,7 +3336,7 @@ union CSI_CR168 {
   // Bit field definition.
   struct {
     uint32_t PIXEL_COUNTERS : 24;
-    uint32_t _reserved_end : 8;
+    uint32_t _reserved_0 : 8;
   } bits;
   
   // Full 32-bit register value.
@@ -3353,7 +3353,7 @@ union CSI_CR169 {
   // Bit field definition.
   struct {
     uint32_t PIXEL_COUNTERS : 24;
-    uint32_t _reserved_end : 8;
+    uint32_t _reserved_0 : 8;
   } bits;
   
   // Full 32-bit register value.
@@ -3370,7 +3370,7 @@ union CSI_CR170 {
   // Bit field definition.
   struct {
     uint32_t PIXEL_COUNTERS : 24;
-    uint32_t _reserved_end : 8;
+    uint32_t _reserved_0 : 8;
   } bits;
   
   // Full 32-bit register value.
@@ -3387,7 +3387,7 @@ union CSI_CR171 {
   // Bit field definition.
   struct {
     uint32_t PIXEL_COUNTERS : 24;
-    uint32_t _reserved_end : 8;
+    uint32_t _reserved_0 : 8;
   } bits;
   
   // Full 32-bit register value.
@@ -3404,7 +3404,7 @@ union CSI_CR172 {
   // Bit field definition.
   struct {
     uint32_t PIXEL_COUNTERS : 24;
-    uint32_t _reserved_end : 8;
+    uint32_t _reserved_0 : 8;
   } bits;
   
   // Full 32-bit register value.
@@ -3421,7 +3421,7 @@ union CSI_CR173 {
   // Bit field definition.
   struct {
     uint32_t PIXEL_COUNTERS : 24;
-    uint32_t _reserved_end : 8;
+    uint32_t _reserved_0 : 8;
   } bits;
   
   // Full 32-bit register value.
@@ -3438,7 +3438,7 @@ union CSI_CR174 {
   // Bit field definition.
   struct {
     uint32_t PIXEL_COUNTERS : 24;
-    uint32_t _reserved_end : 8;
+    uint32_t _reserved_0 : 8;
   } bits;
   
   // Full 32-bit register value.
@@ -3455,7 +3455,7 @@ union CSI_CR175 {
   // Bit field definition.
   struct {
     uint32_t PIXEL_COUNTERS : 24;
-    uint32_t _reserved_end : 8;
+    uint32_t _reserved_0 : 8;
   } bits;
   
   // Full 32-bit register value.
@@ -3472,7 +3472,7 @@ union CSI_CR176 {
   // Bit field definition.
   struct {
     uint32_t PIXEL_COUNTERS : 24;
-    uint32_t _reserved_end : 8;
+    uint32_t _reserved_0 : 8;
   } bits;
   
   // Full 32-bit register value.
@@ -3489,7 +3489,7 @@ union CSI_CR177 {
   // Bit field definition.
   struct {
     uint32_t PIXEL_COUNTERS : 24;
-    uint32_t _reserved_end : 8;
+    uint32_t _reserved_0 : 8;
   } bits;
   
   // Full 32-bit register value.
@@ -3506,7 +3506,7 @@ union CSI_CR178 {
   // Bit field definition.
   struct {
     uint32_t PIXEL_COUNTERS : 24;
-    uint32_t _reserved_end : 8;
+    uint32_t _reserved_0 : 8;
   } bits;
   
   // Full 32-bit register value.
@@ -3523,7 +3523,7 @@ union CSI_CR179 {
   // Bit field definition.
   struct {
     uint32_t PIXEL_COUNTERS : 24;
-    uint32_t _reserved_end : 8;
+    uint32_t _reserved_0 : 8;
   } bits;
   
   // Full 32-bit register value.
@@ -3540,7 +3540,7 @@ union CSI_CR180 {
   // Bit field definition.
   struct {
     uint32_t PIXEL_COUNTERS : 24;
-    uint32_t _reserved_end : 8;
+    uint32_t _reserved_0 : 8;
   } bits;
   
   // Full 32-bit register value.
@@ -3557,7 +3557,7 @@ union CSI_CR181 {
   // Bit field definition.
   struct {
     uint32_t PIXEL_COUNTERS : 24;
-    uint32_t _reserved_end : 8;
+    uint32_t _reserved_0 : 8;
   } bits;
   
   // Full 32-bit register value.
@@ -3574,7 +3574,7 @@ union CSI_CR182 {
   // Bit field definition.
   struct {
     uint32_t PIXEL_COUNTERS : 24;
-    uint32_t _reserved_end : 8;
+    uint32_t _reserved_0 : 8;
   } bits;
   
   // Full 32-bit register value.
@@ -3591,7 +3591,7 @@ union CSI_CR183 {
   // Bit field definition.
   struct {
     uint32_t PIXEL_COUNTERS : 24;
-    uint32_t _reserved_end : 8;
+    uint32_t _reserved_0 : 8;
   } bits;
   
   // Full 32-bit register value.
@@ -3608,7 +3608,7 @@ union CSI_CR184 {
   // Bit field definition.
   struct {
     uint32_t PIXEL_COUNTERS : 24;
-    uint32_t _reserved_end : 8;
+    uint32_t _reserved_0 : 8;
   } bits;
   
   // Full 32-bit register value.
@@ -3625,7 +3625,7 @@ union CSI_CR185 {
   // Bit field definition.
   struct {
     uint32_t PIXEL_COUNTERS : 24;
-    uint32_t _reserved_end : 8;
+    uint32_t _reserved_0 : 8;
   } bits;
   
   // Full 32-bit register value.
@@ -3642,7 +3642,7 @@ union CSI_CR186 {
   // Bit field definition.
   struct {
     uint32_t PIXEL_COUNTERS : 24;
-    uint32_t _reserved_end : 8;
+    uint32_t _reserved_0 : 8;
   } bits;
   
   // Full 32-bit register value.
@@ -3659,7 +3659,7 @@ union CSI_CR187 {
   // Bit field definition.
   struct {
     uint32_t PIXEL_COUNTERS : 24;
-    uint32_t _reserved_end : 8;
+    uint32_t _reserved_0 : 8;
   } bits;
   
   // Full 32-bit register value.
@@ -3676,7 +3676,7 @@ union CSI_CR188 {
   // Bit field definition.
   struct {
     uint32_t PIXEL_COUNTERS : 24;
-    uint32_t _reserved_end : 8;
+    uint32_t _reserved_0 : 8;
   } bits;
   
   // Full 32-bit register value.
@@ -3693,7 +3693,7 @@ union CSI_CR189 {
   // Bit field definition.
   struct {
     uint32_t PIXEL_COUNTERS : 24;
-    uint32_t _reserved_end : 8;
+    uint32_t _reserved_0 : 8;
   } bits;
   
   // Full 32-bit register value.
@@ -3710,7 +3710,7 @@ union CSI_CR190 {
   // Bit field definition.
   struct {
     uint32_t PIXEL_COUNTERS : 24;
-    uint32_t _reserved_end : 8;
+    uint32_t _reserved_0 : 8;
   } bits;
   
   // Full 32-bit register value.
@@ -3727,7 +3727,7 @@ union CSI_CR191 {
   // Bit field definition.
   struct {
     uint32_t PIXEL_COUNTERS : 24;
-    uint32_t _reserved_end : 8;
+    uint32_t _reserved_0 : 8;
   } bits;
   
   // Full 32-bit register value.
@@ -3744,7 +3744,7 @@ union CSI_CR192 {
   // Bit field definition.
   struct {
     uint32_t PIXEL_COUNTERS : 24;
-    uint32_t _reserved_end : 8;
+    uint32_t _reserved_0 : 8;
   } bits;
   
   // Full 32-bit register value.
@@ -3761,7 +3761,7 @@ union CSI_CR193 {
   // Bit field definition.
   struct {
     uint32_t PIXEL_COUNTERS : 24;
-    uint32_t _reserved_end : 8;
+    uint32_t _reserved_0 : 8;
   } bits;
   
   // Full 32-bit register value.
@@ -3778,7 +3778,7 @@ union CSI_CR194 {
   // Bit field definition.
   struct {
     uint32_t PIXEL_COUNTERS : 24;
-    uint32_t _reserved_end : 8;
+    uint32_t _reserved_0 : 8;
   } bits;
   
   // Full 32-bit register value.
@@ -3795,7 +3795,7 @@ union CSI_CR195 {
   // Bit field definition.
   struct {
     uint32_t PIXEL_COUNTERS : 24;
-    uint32_t _reserved_end : 8;
+    uint32_t _reserved_0 : 8;
   } bits;
   
   // Full 32-bit register value.
@@ -3812,7 +3812,7 @@ union CSI_CR196 {
   // Bit field definition.
   struct {
     uint32_t PIXEL_COUNTERS : 24;
-    uint32_t _reserved_end : 8;
+    uint32_t _reserved_0 : 8;
   } bits;
   
   // Full 32-bit register value.
@@ -3829,7 +3829,7 @@ union CSI_CR197 {
   // Bit field definition.
   struct {
     uint32_t PIXEL_COUNTERS : 24;
-    uint32_t _reserved_end : 8;
+    uint32_t _reserved_0 : 8;
   } bits;
   
   // Full 32-bit register value.
@@ -3846,7 +3846,7 @@ union CSI_CR198 {
   // Bit field definition.
   struct {
     uint32_t PIXEL_COUNTERS : 24;
-    uint32_t _reserved_end : 8;
+    uint32_t _reserved_0 : 8;
   } bits;
   
   // Full 32-bit register value.
@@ -3863,7 +3863,7 @@ union CSI_CR199 {
   // Bit field definition.
   struct {
     uint32_t PIXEL_COUNTERS : 24;
-    uint32_t _reserved_end : 8;
+    uint32_t _reserved_0 : 8;
   } bits;
   
   // Full 32-bit register value.
@@ -3880,7 +3880,7 @@ union CSI_CR200 {
   // Bit field definition.
   struct {
     uint32_t PIXEL_COUNTERS : 24;
-    uint32_t _reserved_end : 8;
+    uint32_t _reserved_0 : 8;
   } bits;
   
   // Full 32-bit register value.
@@ -3897,7 +3897,7 @@ union CSI_CR201 {
   // Bit field definition.
   struct {
     uint32_t PIXEL_COUNTERS : 24;
-    uint32_t _reserved_end : 8;
+    uint32_t _reserved_0 : 8;
   } bits;
   
   // Full 32-bit register value.
@@ -3914,7 +3914,7 @@ union CSI_CR202 {
   // Bit field definition.
   struct {
     uint32_t PIXEL_COUNTERS : 24;
-    uint32_t _reserved_end : 8;
+    uint32_t _reserved_0 : 8;
   } bits;
   
   // Full 32-bit register value.
@@ -3931,7 +3931,7 @@ union CSI_CR203 {
   // Bit field definition.
   struct {
     uint32_t PIXEL_COUNTERS : 24;
-    uint32_t _reserved_end : 8;
+    uint32_t _reserved_0 : 8;
   } bits;
   
   // Full 32-bit register value.
@@ -3948,7 +3948,7 @@ union CSI_CR204 {
   // Bit field definition.
   struct {
     uint32_t PIXEL_COUNTERS : 24;
-    uint32_t _reserved_end : 8;
+    uint32_t _reserved_0 : 8;
   } bits;
   
   // Full 32-bit register value.
@@ -3965,7 +3965,7 @@ union CSI_CR205 {
   // Bit field definition.
   struct {
     uint32_t PIXEL_COUNTERS : 24;
-    uint32_t _reserved_end : 8;
+    uint32_t _reserved_0 : 8;
   } bits;
   
   // Full 32-bit register value.
@@ -3982,7 +3982,7 @@ union CSI_CR206 {
   // Bit field definition.
   struct {
     uint32_t PIXEL_COUNTERS : 24;
-    uint32_t _reserved_end : 8;
+    uint32_t _reserved_0 : 8;
   } bits;
   
   // Full 32-bit register value.
@@ -3999,7 +3999,7 @@ union CSI_CR207 {
   // Bit field definition.
   struct {
     uint32_t PIXEL_COUNTERS : 24;
-    uint32_t _reserved_end : 8;
+    uint32_t _reserved_0 : 8;
   } bits;
   
   // Full 32-bit register value.
@@ -4016,7 +4016,7 @@ union CSI_CR208 {
   // Bit field definition.
   struct {
     uint32_t PIXEL_COUNTERS : 24;
-    uint32_t _reserved_end : 8;
+    uint32_t _reserved_0 : 8;
   } bits;
   
   // Full 32-bit register value.
@@ -4033,7 +4033,7 @@ union CSI_CR209 {
   // Bit field definition.
   struct {
     uint32_t PIXEL_COUNTERS : 24;
-    uint32_t _reserved_end : 8;
+    uint32_t _reserved_0 : 8;
   } bits;
   
   // Full 32-bit register value.
@@ -4050,7 +4050,7 @@ union CSI_CR210 {
   // Bit field definition.
   struct {
     uint32_t PIXEL_COUNTERS : 24;
-    uint32_t _reserved_end : 8;
+    uint32_t _reserved_0 : 8;
   } bits;
   
   // Full 32-bit register value.
@@ -4067,7 +4067,7 @@ union CSI_CR211 {
   // Bit field definition.
   struct {
     uint32_t PIXEL_COUNTERS : 24;
-    uint32_t _reserved_end : 8;
+    uint32_t _reserved_0 : 8;
   } bits;
   
   // Full 32-bit register value.
@@ -4084,7 +4084,7 @@ union CSI_CR212 {
   // Bit field definition.
   struct {
     uint32_t PIXEL_COUNTERS : 24;
-    uint32_t _reserved_end : 8;
+    uint32_t _reserved_0 : 8;
   } bits;
   
   // Full 32-bit register value.
@@ -4101,7 +4101,7 @@ union CSI_CR213 {
   // Bit field definition.
   struct {
     uint32_t PIXEL_COUNTERS : 24;
-    uint32_t _reserved_end : 8;
+    uint32_t _reserved_0 : 8;
   } bits;
   
   // Full 32-bit register value.
@@ -4118,7 +4118,7 @@ union CSI_CR214 {
   // Bit field definition.
   struct {
     uint32_t PIXEL_COUNTERS : 24;
-    uint32_t _reserved_end : 8;
+    uint32_t _reserved_0 : 8;
   } bits;
   
   // Full 32-bit register value.
@@ -4135,7 +4135,7 @@ union CSI_CR215 {
   // Bit field definition.
   struct {
     uint32_t PIXEL_COUNTERS : 24;
-    uint32_t _reserved_end : 8;
+    uint32_t _reserved_0 : 8;
   } bits;
   
   // Full 32-bit register value.
@@ -4152,7 +4152,7 @@ union CSI_CR216 {
   // Bit field definition.
   struct {
     uint32_t PIXEL_COUNTERS : 24;
-    uint32_t _reserved_end : 8;
+    uint32_t _reserved_0 : 8;
   } bits;
   
   // Full 32-bit register value.
@@ -4169,7 +4169,7 @@ union CSI_CR217 {
   // Bit field definition.
   struct {
     uint32_t PIXEL_COUNTERS : 24;
-    uint32_t _reserved_end : 8;
+    uint32_t _reserved_0 : 8;
   } bits;
   
   // Full 32-bit register value.
@@ -4186,7 +4186,7 @@ union CSI_CR218 {
   // Bit field definition.
   struct {
     uint32_t PIXEL_COUNTERS : 24;
-    uint32_t _reserved_end : 8;
+    uint32_t _reserved_0 : 8;
   } bits;
   
   // Full 32-bit register value.
@@ -4203,7 +4203,7 @@ union CSI_CR219 {
   // Bit field definition.
   struct {
     uint32_t PIXEL_COUNTERS : 24;
-    uint32_t _reserved_end : 8;
+    uint32_t _reserved_0 : 8;
   } bits;
   
   // Full 32-bit register value.
@@ -4220,7 +4220,7 @@ union CSI_CR220 {
   // Bit field definition.
   struct {
     uint32_t PIXEL_COUNTERS : 24;
-    uint32_t _reserved_end : 8;
+    uint32_t _reserved_0 : 8;
   } bits;
   
   // Full 32-bit register value.
@@ -4237,7 +4237,7 @@ union CSI_CR221 {
   // Bit field definition.
   struct {
     uint32_t PIXEL_COUNTERS : 24;
-    uint32_t _reserved_end : 8;
+    uint32_t _reserved_0 : 8;
   } bits;
   
   // Full 32-bit register value.
@@ -4254,7 +4254,7 @@ union CSI_CR222 {
   // Bit field definition.
   struct {
     uint32_t PIXEL_COUNTERS : 24;
-    uint32_t _reserved_end : 8;
+    uint32_t _reserved_0 : 8;
   } bits;
   
   // Full 32-bit register value.
@@ -4271,7 +4271,7 @@ union CSI_CR223 {
   // Bit field definition.
   struct {
     uint32_t PIXEL_COUNTERS : 24;
-    uint32_t _reserved_end : 8;
+    uint32_t _reserved_0 : 8;
   } bits;
   
   // Full 32-bit register value.
@@ -4288,7 +4288,7 @@ union CSI_CR224 {
   // Bit field definition.
   struct {
     uint32_t PIXEL_COUNTERS : 24;
-    uint32_t _reserved_end : 8;
+    uint32_t _reserved_0 : 8;
   } bits;
   
   // Full 32-bit register value.
@@ -4305,7 +4305,7 @@ union CSI_CR225 {
   // Bit field definition.
   struct {
     uint32_t PIXEL_COUNTERS : 24;
-    uint32_t _reserved_end : 8;
+    uint32_t _reserved_0 : 8;
   } bits;
   
   // Full 32-bit register value.
@@ -4322,7 +4322,7 @@ union CSI_CR226 {
   // Bit field definition.
   struct {
     uint32_t PIXEL_COUNTERS : 24;
-    uint32_t _reserved_end : 8;
+    uint32_t _reserved_0 : 8;
   } bits;
   
   // Full 32-bit register value.
@@ -4339,7 +4339,7 @@ union CSI_CR227 {
   // Bit field definition.
   struct {
     uint32_t PIXEL_COUNTERS : 24;
-    uint32_t _reserved_end : 8;
+    uint32_t _reserved_0 : 8;
   } bits;
   
   // Full 32-bit register value.
@@ -4356,7 +4356,7 @@ union CSI_CR228 {
   // Bit field definition.
   struct {
     uint32_t PIXEL_COUNTERS : 24;
-    uint32_t _reserved_end : 8;
+    uint32_t _reserved_0 : 8;
   } bits;
   
   // Full 32-bit register value.
@@ -4373,7 +4373,7 @@ union CSI_CR229 {
   // Bit field definition.
   struct {
     uint32_t PIXEL_COUNTERS : 24;
-    uint32_t _reserved_end : 8;
+    uint32_t _reserved_0 : 8;
   } bits;
   
   // Full 32-bit register value.
@@ -4390,7 +4390,7 @@ union CSI_CR230 {
   // Bit field definition.
   struct {
     uint32_t PIXEL_COUNTERS : 24;
-    uint32_t _reserved_end : 8;
+    uint32_t _reserved_0 : 8;
   } bits;
   
   // Full 32-bit register value.
@@ -4407,7 +4407,7 @@ union CSI_CR231 {
   // Bit field definition.
   struct {
     uint32_t PIXEL_COUNTERS : 24;
-    uint32_t _reserved_end : 8;
+    uint32_t _reserved_0 : 8;
   } bits;
   
   // Full 32-bit register value.
@@ -4424,7 +4424,7 @@ union CSI_CR232 {
   // Bit field definition.
   struct {
     uint32_t PIXEL_COUNTERS : 24;
-    uint32_t _reserved_end : 8;
+    uint32_t _reserved_0 : 8;
   } bits;
   
   // Full 32-bit register value.
@@ -4441,7 +4441,7 @@ union CSI_CR233 {
   // Bit field definition.
   struct {
     uint32_t PIXEL_COUNTERS : 24;
-    uint32_t _reserved_end : 8;
+    uint32_t _reserved_0 : 8;
   } bits;
   
   // Full 32-bit register value.
@@ -4458,7 +4458,7 @@ union CSI_CR234 {
   // Bit field definition.
   struct {
     uint32_t PIXEL_COUNTERS : 24;
-    uint32_t _reserved_end : 8;
+    uint32_t _reserved_0 : 8;
   } bits;
   
   // Full 32-bit register value.
@@ -4475,7 +4475,7 @@ union CSI_CR235 {
   // Bit field definition.
   struct {
     uint32_t PIXEL_COUNTERS : 24;
-    uint32_t _reserved_end : 8;
+    uint32_t _reserved_0 : 8;
   } bits;
   
   // Full 32-bit register value.
@@ -4492,7 +4492,7 @@ union CSI_CR236 {
   // Bit field definition.
   struct {
     uint32_t PIXEL_COUNTERS : 24;
-    uint32_t _reserved_end : 8;
+    uint32_t _reserved_0 : 8;
   } bits;
   
   // Full 32-bit register value.
@@ -4509,7 +4509,7 @@ union CSI_CR237 {
   // Bit field definition.
   struct {
     uint32_t PIXEL_COUNTERS : 24;
-    uint32_t _reserved_end : 8;
+    uint32_t _reserved_0 : 8;
   } bits;
   
   // Full 32-bit register value.
@@ -4526,7 +4526,7 @@ union CSI_CR238 {
   // Bit field definition.
   struct {
     uint32_t PIXEL_COUNTERS : 24;
-    uint32_t _reserved_end : 8;
+    uint32_t _reserved_0 : 8;
   } bits;
   
   // Full 32-bit register value.
@@ -4543,7 +4543,7 @@ union CSI_CR239 {
   // Bit field definition.
   struct {
     uint32_t PIXEL_COUNTERS : 24;
-    uint32_t _reserved_end : 8;
+    uint32_t _reserved_0 : 8;
   } bits;
   
   // Full 32-bit register value.
@@ -4560,7 +4560,7 @@ union CSI_CR240 {
   // Bit field definition.
   struct {
     uint32_t PIXEL_COUNTERS : 24;
-    uint32_t _reserved_end : 8;
+    uint32_t _reserved_0 : 8;
   } bits;
   
   // Full 32-bit register value.
@@ -4577,7 +4577,7 @@ union CSI_CR241 {
   // Bit field definition.
   struct {
     uint32_t PIXEL_COUNTERS : 24;
-    uint32_t _reserved_end : 8;
+    uint32_t _reserved_0 : 8;
   } bits;
   
   // Full 32-bit register value.
@@ -4594,7 +4594,7 @@ union CSI_CR242 {
   // Bit field definition.
   struct {
     uint32_t PIXEL_COUNTERS : 24;
-    uint32_t _reserved_end : 8;
+    uint32_t _reserved_0 : 8;
   } bits;
   
   // Full 32-bit register value.
@@ -4611,7 +4611,7 @@ union CSI_CR243 {
   // Bit field definition.
   struct {
     uint32_t PIXEL_COUNTERS : 24;
-    uint32_t _reserved_end : 8;
+    uint32_t _reserved_0 : 8;
   } bits;
   
   // Full 32-bit register value.
@@ -4628,7 +4628,7 @@ union CSI_CR244 {
   // Bit field definition.
   struct {
     uint32_t PIXEL_COUNTERS : 24;
-    uint32_t _reserved_end : 8;
+    uint32_t _reserved_0 : 8;
   } bits;
   
   // Full 32-bit register value.
@@ -4645,7 +4645,7 @@ union CSI_CR245 {
   // Bit field definition.
   struct {
     uint32_t PIXEL_COUNTERS : 24;
-    uint32_t _reserved_end : 8;
+    uint32_t _reserved_0 : 8;
   } bits;
   
   // Full 32-bit register value.
@@ -4662,7 +4662,7 @@ union CSI_CR246 {
   // Bit field definition.
   struct {
     uint32_t PIXEL_COUNTERS : 24;
-    uint32_t _reserved_end : 8;
+    uint32_t _reserved_0 : 8;
   } bits;
   
   // Full 32-bit register value.
@@ -4679,7 +4679,7 @@ union CSI_CR247 {
   // Bit field definition.
   struct {
     uint32_t PIXEL_COUNTERS : 24;
-    uint32_t _reserved_end : 8;
+    uint32_t _reserved_0 : 8;
   } bits;
   
   // Full 32-bit register value.
@@ -4696,7 +4696,7 @@ union CSI_CR248 {
   // Bit field definition.
   struct {
     uint32_t PIXEL_COUNTERS : 24;
-    uint32_t _reserved_end : 8;
+    uint32_t _reserved_0 : 8;
   } bits;
   
   // Full 32-bit register value.
@@ -4713,7 +4713,7 @@ union CSI_CR249 {
   // Bit field definition.
   struct {
     uint32_t PIXEL_COUNTERS : 24;
-    uint32_t _reserved_end : 8;
+    uint32_t _reserved_0 : 8;
   } bits;
   
   // Full 32-bit register value.
@@ -4730,7 +4730,7 @@ union CSI_CR250 {
   // Bit field definition.
   struct {
     uint32_t PIXEL_COUNTERS : 24;
-    uint32_t _reserved_end : 8;
+    uint32_t _reserved_0 : 8;
   } bits;
   
   // Full 32-bit register value.
@@ -4747,7 +4747,7 @@ union CSI_CR251 {
   // Bit field definition.
   struct {
     uint32_t PIXEL_COUNTERS : 24;
-    uint32_t _reserved_end : 8;
+    uint32_t _reserved_0 : 8;
   } bits;
   
   // Full 32-bit register value.
@@ -4764,7 +4764,7 @@ union CSI_CR252 {
   // Bit field definition.
   struct {
     uint32_t PIXEL_COUNTERS : 24;
-    uint32_t _reserved_end : 8;
+    uint32_t _reserved_0 : 8;
   } bits;
   
   // Full 32-bit register value.
@@ -4781,7 +4781,7 @@ union CSI_CR253 {
   // Bit field definition.
   struct {
     uint32_t PIXEL_COUNTERS : 24;
-    uint32_t _reserved_end : 8;
+    uint32_t _reserved_0 : 8;
   } bits;
   
   // Full 32-bit register value.
@@ -4798,7 +4798,7 @@ union CSI_CR254 {
   // Bit field definition.
   struct {
     uint32_t PIXEL_COUNTERS : 24;
-    uint32_t _reserved_end : 8;
+    uint32_t _reserved_0 : 8;
   } bits;
   
   // Full 32-bit register value.
@@ -4815,7 +4815,7 @@ union CSI_CR255 {
   // Bit field definition.
   struct {
     uint32_t PIXEL_COUNTERS : 24;
-    uint32_t _reserved_end : 8;
+    uint32_t _reserved_0 : 8;
   } bits;
   
   // Full 32-bit register value.
@@ -4832,7 +4832,7 @@ union CSI_CR256 {
   // Bit field definition.
   struct {
     uint32_t PIXEL_COUNTERS : 24;
-    uint32_t _reserved_end : 8;
+    uint32_t _reserved_0 : 8;
   } bits;
   
   // Full 32-bit register value.
@@ -4849,7 +4849,7 @@ union CSI_CR257 {
   // Bit field definition.
   struct {
     uint32_t PIXEL_COUNTERS : 24;
-    uint32_t _reserved_end : 8;
+    uint32_t _reserved_0 : 8;
   } bits;
   
   // Full 32-bit register value.
@@ -4866,7 +4866,7 @@ union CSI_CR258 {
   // Bit field definition.
   struct {
     uint32_t PIXEL_COUNTERS : 24;
-    uint32_t _reserved_end : 8;
+    uint32_t _reserved_0 : 8;
   } bits;
   
   // Full 32-bit register value.
@@ -4883,7 +4883,7 @@ union CSI_CR259 {
   // Bit field definition.
   struct {
     uint32_t PIXEL_COUNTERS : 24;
-    uint32_t _reserved_end : 8;
+    uint32_t _reserved_0 : 8;
   } bits;
   
   // Full 32-bit register value.
@@ -4900,7 +4900,7 @@ union CSI_CR260 {
   // Bit field definition.
   struct {
     uint32_t PIXEL_COUNTERS : 24;
-    uint32_t _reserved_end : 8;
+    uint32_t _reserved_0 : 8;
   } bits;
   
   // Full 32-bit register value.
@@ -4917,7 +4917,7 @@ union CSI_CR261 {
   // Bit field definition.
   struct {
     uint32_t PIXEL_COUNTERS : 24;
-    uint32_t _reserved_end : 8;
+    uint32_t _reserved_0 : 8;
   } bits;
   
   // Full 32-bit register value.
@@ -4934,7 +4934,7 @@ union CSI_CR262 {
   // Bit field definition.
   struct {
     uint32_t PIXEL_COUNTERS : 24;
-    uint32_t _reserved_end : 8;
+    uint32_t _reserved_0 : 8;
   } bits;
   
   // Full 32-bit register value.
@@ -4951,7 +4951,7 @@ union CSI_CR263 {
   // Bit field definition.
   struct {
     uint32_t PIXEL_COUNTERS : 24;
-    uint32_t _reserved_end : 8;
+    uint32_t _reserved_0 : 8;
   } bits;
   
   // Full 32-bit register value.
@@ -4968,7 +4968,7 @@ union CSI_CR264 {
   // Bit field definition.
   struct {
     uint32_t PIXEL_COUNTERS : 24;
-    uint32_t _reserved_end : 8;
+    uint32_t _reserved_0 : 8;
   } bits;
   
   // Full 32-bit register value.
@@ -4985,7 +4985,7 @@ union CSI_CR265 {
   // Bit field definition.
   struct {
     uint32_t PIXEL_COUNTERS : 24;
-    uint32_t _reserved_end : 8;
+    uint32_t _reserved_0 : 8;
   } bits;
   
   // Full 32-bit register value.
@@ -5002,7 +5002,7 @@ union CSI_CR266 {
   // Bit field definition.
   struct {
     uint32_t PIXEL_COUNTERS : 24;
-    uint32_t _reserved_end : 8;
+    uint32_t _reserved_0 : 8;
   } bits;
   
   // Full 32-bit register value.
@@ -5019,7 +5019,7 @@ union CSI_CR267 {
   // Bit field definition.
   struct {
     uint32_t PIXEL_COUNTERS : 24;
-    uint32_t _reserved_end : 8;
+    uint32_t _reserved_0 : 8;
   } bits;
   
   // Full 32-bit register value.
@@ -5036,7 +5036,7 @@ union CSI_CR268 {
   // Bit field definition.
   struct {
     uint32_t PIXEL_COUNTERS : 24;
-    uint32_t _reserved_end : 8;
+    uint32_t _reserved_0 : 8;
   } bits;
   
   // Full 32-bit register value.
@@ -5053,7 +5053,7 @@ union CSI_CR269 {
   // Bit field definition.
   struct {
     uint32_t PIXEL_COUNTERS : 24;
-    uint32_t _reserved_end : 8;
+    uint32_t _reserved_0 : 8;
   } bits;
   
   // Full 32-bit register value.
@@ -5070,7 +5070,7 @@ union CSI_CR270 {
   // Bit field definition.
   struct {
     uint32_t PIXEL_COUNTERS : 24;
-    uint32_t _reserved_end : 8;
+    uint32_t _reserved_0 : 8;
   } bits;
   
   // Full 32-bit register value.
@@ -5087,7 +5087,7 @@ union CSI_CR271 {
   // Bit field definition.
   struct {
     uint32_t PIXEL_COUNTERS : 24;
-    uint32_t _reserved_end : 8;
+    uint32_t _reserved_0 : 8;
   } bits;
   
   // Full 32-bit register value.
@@ -5104,7 +5104,7 @@ union CSI_CR272 {
   // Bit field definition.
   struct {
     uint32_t PIXEL_COUNTERS : 24;
-    uint32_t _reserved_end : 8;
+    uint32_t _reserved_0 : 8;
   } bits;
   
   // Full 32-bit register value.
@@ -5121,7 +5121,7 @@ union CSI_CR273 {
   // Bit field definition.
   struct {
     uint32_t PIXEL_COUNTERS : 24;
-    uint32_t _reserved_end : 8;
+    uint32_t _reserved_0 : 8;
   } bits;
   
   // Full 32-bit register value.
@@ -5138,7 +5138,7 @@ union CSI_CR274 {
   // Bit field definition.
   struct {
     uint32_t PIXEL_COUNTERS : 24;
-    uint32_t _reserved_end : 8;
+    uint32_t _reserved_0 : 8;
   } bits;
   
   // Full 32-bit register value.
@@ -5155,7 +5155,7 @@ union CSI_CR275 {
   // Bit field definition.
   struct {
     uint32_t PIXEL_COUNTERS : 24;
-    uint32_t _reserved_end : 8;
+    uint32_t _reserved_0 : 8;
   } bits;
   
   // Full 32-bit register value.
@@ -5172,7 +5172,7 @@ union CSI_CR276 {
   // Bit field definition.
   struct {
     uint32_t PIXEL_COUNTERS : 24;
-    uint32_t _reserved_end : 8;
+    uint32_t _reserved_0 : 8;
   } bits;
   
   // Full 32-bit register value.

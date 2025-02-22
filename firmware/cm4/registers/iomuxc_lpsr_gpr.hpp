@@ -4,7 +4,7 @@
 #include <stdint.h>
 #include <cstring>
 
-// // IOMUXC LPSR GPR
+// IOMUXC LPSR GPR
 //
 // NOTE: This file was generated from the forge CMSIS-svd wrapper tool.
 
@@ -67,7 +67,7 @@ union GPR1 {
   // Bit field definition.
   struct {
     uint32_t CM4_INIT_VTOR_HIGH : 16;
-    uint32_t _reserved_1 : 12;
+    uint32_t _reserved_0 : 12;
     eDWP DWP : 2;
     eDWP_LOCK DWP_LOCK : 2;
   } bits;
@@ -92,7 +92,7 @@ union GPR2 {
   // Bit field definition.
   struct {
     eLOCK LOCK : 1;
-    uint32_t _reserved_1 : 2;
+    uint32_t _reserved_0 : 2;
     uint32_t APC_AC_R0_BOT : 29;
   } bits;
   
@@ -116,7 +116,7 @@ union GPR3 {
   // Bit field definition.
   struct {
     eLOCK LOCK : 1;
-    uint32_t _reserved_1 : 2;
+    uint32_t _reserved_0 : 2;
     uint32_t APC_AC_R0_TOP : 29;
   } bits;
   
@@ -140,7 +140,7 @@ union GPR4 {
   // Bit field definition.
   struct {
     eLOCK LOCK : 1;
-    uint32_t _reserved_1 : 2;
+    uint32_t _reserved_0 : 2;
     uint32_t APC_AC_R1_BOT : 29;
   } bits;
   
@@ -164,7 +164,7 @@ union GPR5 {
   // Bit field definition.
   struct {
     eLOCK LOCK : 1;
-    uint32_t _reserved_1 : 2;
+    uint32_t _reserved_0 : 2;
     uint32_t APC_AC_R1_TOP : 29;
   } bits;
   
@@ -188,7 +188,7 @@ union GPR6 {
   // Bit field definition.
   struct {
     eLOCK LOCK : 1;
-    uint32_t _reserved_1 : 2;
+    uint32_t _reserved_0 : 2;
     uint32_t APC_AC_R2_BOT : 29;
   } bits;
   
@@ -212,7 +212,7 @@ union GPR7 {
   // Bit field definition.
   struct {
     eLOCK LOCK : 1;
-    uint32_t _reserved_1 : 2;
+    uint32_t _reserved_0 : 2;
     uint32_t APC_AC_R2_TOP : 29;
   } bits;
   
@@ -236,7 +236,7 @@ union GPR8 {
   // Bit field definition.
   struct {
     eLOCK LOCK : 1;
-    uint32_t _reserved_1 : 2;
+    uint32_t _reserved_0 : 2;
     uint32_t APC_AC_R3_BOT : 29;
   } bits;
   
@@ -260,7 +260,7 @@ union GPR9 {
   // Bit field definition.
   struct {
     eLOCK LOCK : 1;
-    uint32_t _reserved_1 : 2;
+    uint32_t _reserved_0 : 2;
     uint32_t APC_AC_R3_TOP : 29;
   } bits;
   
@@ -284,7 +284,7 @@ union GPR10 {
   // Bit field definition.
   struct {
     eLOCK LOCK : 1;
-    uint32_t _reserved_1 : 2;
+    uint32_t _reserved_0 : 2;
     uint32_t APC_AC_R4_BOT : 29;
   } bits;
   
@@ -308,7 +308,7 @@ union GPR11 {
   // Bit field definition.
   struct {
     eLOCK LOCK : 1;
-    uint32_t _reserved_1 : 2;
+    uint32_t _reserved_0 : 2;
     uint32_t APC_AC_R4_TOP : 29;
   } bits;
   
@@ -332,7 +332,7 @@ union GPR12 {
   // Bit field definition.
   struct {
     eLOCK LOCK : 1;
-    uint32_t _reserved_1 : 2;
+    uint32_t _reserved_0 : 2;
     uint32_t APC_AC_R5_BOT : 29;
   } bits;
   
@@ -356,7 +356,7 @@ union GPR13 {
   // Bit field definition.
   struct {
     eLOCK LOCK : 1;
-    uint32_t _reserved_1 : 2;
+    uint32_t _reserved_0 : 2;
     uint32_t APC_AC_R5_TOP : 29;
   } bits;
   
@@ -380,7 +380,7 @@ union GPR14 {
   // Bit field definition.
   struct {
     eLOCK LOCK : 1;
-    uint32_t _reserved_1 : 2;
+    uint32_t _reserved_0 : 2;
     uint32_t APC_AC_R6_BOT : 29;
   } bits;
   
@@ -404,7 +404,7 @@ union GPR15 {
   // Bit field definition.
   struct {
     eLOCK LOCK : 1;
-    uint32_t _reserved_1 : 2;
+    uint32_t _reserved_0 : 2;
     uint32_t APC_AC_R6_TOP : 29;
   } bits;
   
@@ -428,7 +428,7 @@ union GPR16 {
   // Bit field definition.
   struct {
     eLOCK LOCK : 1;
-    uint32_t _reserved_1 : 2;
+    uint32_t _reserved_0 : 2;
     uint32_t APC_AC_R7_BOT : 29;
   } bits;
   
@@ -452,7 +452,7 @@ union GPR17 {
   // Bit field definition.
   struct {
     eLOCK LOCK : 1;
-    uint32_t _reserved_1 : 2;
+    uint32_t _reserved_0 : 2;
     uint32_t APC_AC_R7_TOP : 29;
   } bits;
   
@@ -658,7 +658,7 @@ union GPR25 {
     uint32_t _reserved_0 : 4;
     eAPC_R7_ENCRYPT_ENABLE APC_R7_ENCRYPT_ENABLE : 1;
     eAPC_VALID APC_VALID : 1;
-    uint32_t _reserved_2 : 10;
+    uint32_t _reserved_1 : 10;
     uint32_t LOCK : 16;
   } bits;
   
@@ -725,10 +725,10 @@ union GPR33 {
   // Bit field definition.
   struct {
     uint32_t M4_NMI_CLEAR : 1;
-    uint32_t _reserved_1 : 7;
+    uint32_t _reserved_0 : 7;
     uint32_t USBPHY1_WAKEUP_IRQ_CLEAR : 1;
     uint32_t USBPHY2_WAKEUP_IRQ_CLEAR : 1;
-    uint32_t _reserved_3 : 18;
+    uint32_t _reserved_1 : 18;
     eDWP DWP : 2;
     eDWP_LOCK DWP_LOCK : 2;
   } bits;
@@ -787,9 +787,9 @@ union GPR34 {
     eM7_NMI_MASK M7_NMI_MASK : 1;
     eM4_NMI_MASK M4_NMI_MASK : 1;
     eM4_GPC_SLEEP_SEL M4_GPC_SLEEP_SEL : 1;
-    uint32_t _reserved_5 : 5;
+    uint32_t _reserved_1 : 5;
     eSEC_ERR_RESP SEC_ERR_RESP : 1;
-    uint32_t _reserved_6 : 16;
+    uint32_t _reserved_2 : 16;
     eDWP DWP : 2;
     eDWP_LOCK DWP_LOCK : 2;
   } bits;
@@ -966,7 +966,7 @@ union GPR35 {
     eCAN2_STOP_REQ CAN2_STOP_REQ : 1;
     eCAN3_IPG_DOZE CAN3_IPG_DOZE : 1;
     eCAN3_STOP_REQ CAN3_STOP_REQ : 1;
-    uint32_t _reserved_14 : 1;
+    uint32_t _reserved_0 : 1;
     eEDMA_STOP_REQ EDMA_STOP_REQ : 1;
     eEDMA_LPSR_STOP_REQ EDMA_LPSR_STOP_REQ : 1;
     eENET_IPG_DOZE ENET_IPG_DOZE : 1;
@@ -979,7 +979,7 @@ union GPR35 {
     eFLEXSPI1_STOP_REQ FLEXSPI1_STOP_REQ : 1;
     eFLEXSPI2_IPG_DOZE FLEXSPI2_IPG_DOZE : 1;
     eFLEXSPI2_STOP_REQ FLEXSPI2_STOP_REQ : 1;
-    uint32_t _reserved_26 : 1;
+    uint32_t _reserved_1 : 1;
     eDWP DWP : 2;
     eDWP_LOCK DWP_LOCK : 2;
   } bits;
@@ -1174,7 +1174,7 @@ union GPR36 {
     eLPSPI1_IPG_DOZE LPSPI1_IPG_DOZE : 1;
     eLPSPI1_STOP_REQ LPSPI1_STOP_REQ : 1;
     eLPSPI1_IPG_STOP_MODE LPSPI1_IPG_STOP_MODE : 1;
-    uint32_t _reserved_27 : 1;
+    uint32_t _reserved_0 : 1;
     eDWP DWP : 2;
     eDWP_LOCK DWP_LOCK : 2;
   } bits;
@@ -1369,7 +1369,7 @@ union GPR37 {
     eLPUART4_IPG_DOZE LPUART4_IPG_DOZE : 1;
     eLPUART4_STOP_REQ LPUART4_STOP_REQ : 1;
     eLPUART4_IPG_STOP_MODE LPUART4_IPG_STOP_MODE : 1;
-    uint32_t _reserved_27 : 1;
+    uint32_t _reserved_0 : 1;
     eDWP DWP : 2;
     eDWP_LOCK DWP_LOCK : 2;
   } bits;
@@ -1564,7 +1564,7 @@ union GPR38 {
     eMIC_IPG_DOZE MIC_IPG_DOZE : 1;
     eMIC_STOP_REQ MIC_STOP_REQ : 1;
     eMIC_IPG_STOP_MODE MIC_IPG_STOP_MODE : 1;
-    uint32_t _reserved_27 : 1;
+    uint32_t _reserved_0 : 1;
     eDWP DWP : 2;
     eDWP_LOCK DWP_LOCK : 2;
   } bits;
@@ -1700,7 +1700,7 @@ union GPR39 {
     eFLEXIO1_STOP_REQ_PER FLEXIO1_STOP_REQ_PER : 1;
     eFLEXIO2_STOP_REQ_BUS FLEXIO2_STOP_REQ_BUS : 1;
     eFLEXIO2_STOP_REQ_PER FLEXIO2_STOP_REQ_PER : 1;
-    uint32_t _reserved_17 : 10;
+    uint32_t _reserved_1 : 10;
     eDWP DWP : 2;
     eDWP_LOCK DWP_LOCK : 2;
   } bits;
@@ -1784,9 +1784,9 @@ union GPR41 {
     uint32_t FLEXIO1_STOP_ACK_PER : 1;
     uint32_t FLEXIO2_STOP_ACK_BUS : 1;
     uint32_t FLEXIO2_STOP_ACK_PER : 1;
-    uint32_t _reserved_17 : 7;
+    uint32_t _reserved_0 : 7;
     uint32_t ROM_READ_LOCKED : 1;
-    uint32_t _reserved_end : 7;
+    uint32_t _reserved_1 : 7;
   } bits;
   
   // Full 32-bit register value.

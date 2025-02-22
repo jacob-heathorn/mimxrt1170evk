@@ -4,7 +4,7 @@
 #include <stdint.h>
 #include <cstring>
 
-// // Crossbar Switch
+// Crossbar Switch
 //
 // NOTE: This file was generated from the forge CMSIS-svd wrapper tool.
 
@@ -18,9 +18,9 @@ union XBARB3_SEL0 {
   // Bit field definition.
   struct {
     uint32_t SEL0 : 7;
-    uint32_t _reserved_1 : 1;
+    uint32_t _reserved_0 : 1;
     uint32_t SEL1 : 7;
-    uint32_t _reserved_end : 17;
+    uint32_t _reserved_1 : 17;
   } bits;
   
   // Full 32-bit register value.
@@ -38,9 +38,9 @@ union XBARB3_SEL1 {
   // Bit field definition.
   struct {
     uint32_t SEL2 : 7;
-    uint32_t _reserved_1 : 1;
+    uint32_t _reserved_0 : 1;
     uint32_t SEL3 : 7;
-    uint32_t _reserved_end : 17;
+    uint32_t _reserved_1 : 17;
   } bits;
   
   // Full 32-bit register value.
@@ -58,9 +58,9 @@ union XBARB3_SEL2 {
   // Bit field definition.
   struct {
     uint32_t SEL4 : 7;
-    uint32_t _reserved_1 : 1;
+    uint32_t _reserved_0 : 1;
     uint32_t SEL5 : 7;
-    uint32_t _reserved_end : 17;
+    uint32_t _reserved_1 : 17;
   } bits;
   
   // Full 32-bit register value.
@@ -78,9 +78,9 @@ union XBARB3_SEL3 {
   // Bit field definition.
   struct {
     uint32_t SEL6 : 7;
-    uint32_t _reserved_1 : 1;
+    uint32_t _reserved_0 : 1;
     uint32_t SEL7 : 7;
-    uint32_t _reserved_end : 17;
+    uint32_t _reserved_1 : 17;
   } bits;
   
   // Full 32-bit register value.
@@ -98,9 +98,9 @@ union XBARB3_SEL4 {
   // Bit field definition.
   struct {
     uint32_t SEL8 : 7;
-    uint32_t _reserved_1 : 1;
+    uint32_t _reserved_0 : 1;
     uint32_t SEL9 : 7;
-    uint32_t _reserved_end : 17;
+    uint32_t _reserved_1 : 17;
   } bits;
   
   // Full 32-bit register value.
@@ -118,9 +118,9 @@ union XBARB3_SEL5 {
   // Bit field definition.
   struct {
     uint32_t SEL10 : 7;
-    uint32_t _reserved_1 : 1;
+    uint32_t _reserved_0 : 1;
     uint32_t SEL11 : 7;
-    uint32_t _reserved_end : 17;
+    uint32_t _reserved_1 : 17;
   } bits;
   
   // Full 32-bit register value.
@@ -138,9 +138,9 @@ union XBARB3_SEL6 {
   // Bit field definition.
   struct {
     uint32_t SEL12 : 7;
-    uint32_t _reserved_1 : 1;
+    uint32_t _reserved_0 : 1;
     uint32_t SEL13 : 7;
-    uint32_t _reserved_end : 17;
+    uint32_t _reserved_1 : 17;
   } bits;
   
   // Full 32-bit register value.
@@ -158,9 +158,9 @@ union XBARB3_SEL7 {
   // Bit field definition.
   struct {
     uint32_t SEL14 : 7;
-    uint32_t _reserved_1 : 1;
+    uint32_t _reserved_0 : 1;
     uint32_t SEL15 : 7;
-    uint32_t _reserved_end : 17;
+    uint32_t _reserved_1 : 17;
   } bits;
   
   // Full 32-bit register value.

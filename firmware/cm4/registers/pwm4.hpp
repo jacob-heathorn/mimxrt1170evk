@@ -4,7 +4,7 @@
 #include <stdint.h>
 #include <cstring>
 
-// // PWM
+// PWM
 //
 // NOTE: This file was generated from the forge CMSIS-svd wrapper tool.
 
@@ -35,7 +35,7 @@ union OUTEN {
     ePWMX_EN PWMX_EN : 4;
     ePWMB_EN PWMB_EN : 4;
     ePWMA_EN PWMA_EN : 4;
-    uint32_t _reserved_end : 20;
+    uint32_t _reserved_0 : 20;
   } bits;
   
   // Full 32-bit register value.
@@ -70,7 +70,7 @@ union MASK {
     eMASKX MASKX : 4;
     eMASKB MASKB : 4;
     eMASKA MASKA : 4;
-    uint32_t _reserved_end : 20;
+    uint32_t _reserved_0 : 20;
   } bits;
   
   // Full 32-bit register value.
@@ -135,7 +135,7 @@ union SWCOUT {
     eSM2OUT23 SM2OUT23 : 1;
     eSM3OUT45 SM3OUT45 : 1;
     eSM3OUT23 SM3OUT23 : 1;
-    uint32_t _reserved_end : 24;
+    uint32_t _reserved_0 : 24;
   } bits;
   
   // Full 32-bit register value.
@@ -216,7 +216,7 @@ union DTSRCSEL {
     eSM2SEL23 SM2SEL23 : 2;
     eSM3SEL45 SM3SEL45 : 2;
     eSM3SEL23 SM3SEL23 : 2;
-    uint32_t _reserved_end : 16;
+    uint32_t _reserved_0 : 16;
   } bits;
   
   // Full 32-bit register value.
@@ -252,7 +252,7 @@ union MCTRL {
     uint32_t CLDOK : 4;
     eRUN RUN : 4;
     eIPOL IPOL : 4;
-    uint32_t _reserved_end : 16;
+    uint32_t _reserved_0 : 16;
   } bits;
   
   // Full 32-bit register value.
@@ -277,7 +277,7 @@ union MCTRL2 {
   // Bit field definition.
   struct {
     eMONPLL MONPLL : 2;
-    uint32_t _reserved_end : 30;
+    uint32_t _reserved_0 : 30;
   } bits;
   
   // Full 32-bit register value.
@@ -318,7 +318,7 @@ union FCTRL0 {
     eFSAFE FSAFE : 4;
     eFAUTO FAUTO : 4;
     eFLVL FLVL : 4;
-    uint32_t _reserved_end : 16;
+    uint32_t _reserved_0 : 16;
   } bits;
   
   // Full 32-bit register value.
@@ -354,7 +354,7 @@ union FSTS0 {
     eFFULL FFULL : 4;
     uint32_t FFPIN : 4;
     eFHALF FHALF : 4;
-    uint32_t _reserved_end : 16;
+    uint32_t _reserved_0 : 16;
   } bits;
   
   // Full 32-bit register value.
@@ -378,9 +378,9 @@ union FFILT0 {
   struct {
     uint32_t FILT_PER : 8;
     uint32_t FILT_CNT : 3;
-    uint32_t _reserved_2 : 4;
+    uint32_t _reserved_0 : 4;
     eGSTR GSTR : 1;
-    uint32_t _reserved_end : 16;
+    uint32_t _reserved_1 : 16;
   } bits;
   
   // Full 32-bit register value.
@@ -403,7 +403,7 @@ union FTST0 {
   // Bit field definition.
   struct {
     eFTEST FTEST : 1;
-    uint32_t _reserved_end : 31;
+    uint32_t _reserved_0 : 31;
   } bits;
   
   // Full 32-bit register value.
@@ -426,7 +426,7 @@ union FCTRL20 {
   // Bit field definition.
   struct {
     eNOCOMB NOCOMB : 4;
-    uint32_t _reserved_end : 28;
+    uint32_t _reserved_0 : 28;
   } bits;
   
   // Full 32-bit register value.

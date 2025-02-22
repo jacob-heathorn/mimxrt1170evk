@@ -4,7 +4,7 @@
 #include <stdint.h>
 #include <cstring>
 
-// // SSARC Registers
+// SSARC Registers
 //
 // NOTE: This file was generated from the forge CMSIS-svd wrapper tool.
 
@@ -31,7 +31,7 @@ union DESC_CTRL0_0 {
     uint32_t END : 10;
     eSV_ORDER SV_ORDER : 1;
     eRT_ORDER RT_ORDER : 1;
-    uint32_t _reserved_end : 10;
+    uint32_t _reserved_0 : 10;
   } bits;
   
   // Full 32-bit register value.
@@ -91,7 +91,7 @@ union DESC_CTRL1_0 {
   struct {
     eSW_TRIG_SV SW_TRIG_SV : 1;
     eSW_TRIG_RT SW_TRIG_RT : 1;
-    uint32_t _reserved_2 : 2;
+    uint32_t _reserved_0 : 2;
     ePOWER_DOMAIN POWER_DOMAIN : 3;
     eGP_EN GP_EN : 1;
     uint32_t SV_PRIORITY : 4;
@@ -100,7 +100,7 @@ union DESC_CTRL1_0 {
     eRL RL : 1;
     eWL WL : 1;
     eDL DL : 1;
-    uint32_t _reserved_end : 11;
+    uint32_t _reserved_1 : 11;
   } bits;
   
   // Full 32-bit register value.
@@ -165,7 +165,7 @@ union DESC_CTRL0_1 {
     uint32_t END : 10;
     eSV_ORDER SV_ORDER : 1;
     eRT_ORDER RT_ORDER : 1;
-    uint32_t _reserved_end : 10;
+    uint32_t _reserved_0 : 10;
   } bits;
   
   // Full 32-bit register value.
@@ -225,7 +225,7 @@ union DESC_CTRL1_1 {
   struct {
     eSW_TRIG_SV SW_TRIG_SV : 1;
     eSW_TRIG_RT SW_TRIG_RT : 1;
-    uint32_t _reserved_2 : 2;
+    uint32_t _reserved_0 : 2;
     ePOWER_DOMAIN POWER_DOMAIN : 3;
     eGP_EN GP_EN : 1;
     uint32_t SV_PRIORITY : 4;
@@ -234,7 +234,7 @@ union DESC_CTRL1_1 {
     eRL RL : 1;
     eWL WL : 1;
     eDL DL : 1;
-    uint32_t _reserved_end : 11;
+    uint32_t _reserved_1 : 11;
   } bits;
   
   // Full 32-bit register value.
@@ -299,7 +299,7 @@ union DESC_CTRL0_2 {
     uint32_t END : 10;
     eSV_ORDER SV_ORDER : 1;
     eRT_ORDER RT_ORDER : 1;
-    uint32_t _reserved_end : 10;
+    uint32_t _reserved_0 : 10;
   } bits;
   
   // Full 32-bit register value.
@@ -359,7 +359,7 @@ union DESC_CTRL1_2 {
   struct {
     eSW_TRIG_SV SW_TRIG_SV : 1;
     eSW_TRIG_RT SW_TRIG_RT : 1;
-    uint32_t _reserved_2 : 2;
+    uint32_t _reserved_0 : 2;
     ePOWER_DOMAIN POWER_DOMAIN : 3;
     eGP_EN GP_EN : 1;
     uint32_t SV_PRIORITY : 4;
@@ -368,7 +368,7 @@ union DESC_CTRL1_2 {
     eRL RL : 1;
     eWL WL : 1;
     eDL DL : 1;
-    uint32_t _reserved_end : 11;
+    uint32_t _reserved_1 : 11;
   } bits;
   
   // Full 32-bit register value.
@@ -433,7 +433,7 @@ union DESC_CTRL0_3 {
     uint32_t END : 10;
     eSV_ORDER SV_ORDER : 1;
     eRT_ORDER RT_ORDER : 1;
-    uint32_t _reserved_end : 10;
+    uint32_t _reserved_0 : 10;
   } bits;
   
   // Full 32-bit register value.
@@ -493,7 +493,7 @@ union DESC_CTRL1_3 {
   struct {
     eSW_TRIG_SV SW_TRIG_SV : 1;
     eSW_TRIG_RT SW_TRIG_RT : 1;
-    uint32_t _reserved_2 : 2;
+    uint32_t _reserved_0 : 2;
     ePOWER_DOMAIN POWER_DOMAIN : 3;
     eGP_EN GP_EN : 1;
     uint32_t SV_PRIORITY : 4;
@@ -502,7 +502,7 @@ union DESC_CTRL1_3 {
     eRL RL : 1;
     eWL WL : 1;
     eDL DL : 1;
-    uint32_t _reserved_end : 11;
+    uint32_t _reserved_1 : 11;
   } bits;
   
   // Full 32-bit register value.
@@ -567,7 +567,7 @@ union DESC_CTRL0_4 {
     uint32_t END : 10;
     eSV_ORDER SV_ORDER : 1;
     eRT_ORDER RT_ORDER : 1;
-    uint32_t _reserved_end : 10;
+    uint32_t _reserved_0 : 10;
   } bits;
   
   // Full 32-bit register value.
@@ -627,7 +627,7 @@ union DESC_CTRL1_4 {
   struct {
     eSW_TRIG_SV SW_TRIG_SV : 1;
     eSW_TRIG_RT SW_TRIG_RT : 1;
-    uint32_t _reserved_2 : 2;
+    uint32_t _reserved_0 : 2;
     ePOWER_DOMAIN POWER_DOMAIN : 3;
     eGP_EN GP_EN : 1;
     uint32_t SV_PRIORITY : 4;
@@ -636,7 +636,7 @@ union DESC_CTRL1_4 {
     eRL RL : 1;
     eWL WL : 1;
     eDL DL : 1;
-    uint32_t _reserved_end : 11;
+    uint32_t _reserved_1 : 11;
   } bits;
   
   // Full 32-bit register value.
@@ -701,7 +701,7 @@ union DESC_CTRL0_5 {
     uint32_t END : 10;
     eSV_ORDER SV_ORDER : 1;
     eRT_ORDER RT_ORDER : 1;
-    uint32_t _reserved_end : 10;
+    uint32_t _reserved_0 : 10;
   } bits;
   
   // Full 32-bit register value.
@@ -761,7 +761,7 @@ union DESC_CTRL1_5 {
   struct {
     eSW_TRIG_SV SW_TRIG_SV : 1;
     eSW_TRIG_RT SW_TRIG_RT : 1;
-    uint32_t _reserved_2 : 2;
+    uint32_t _reserved_0 : 2;
     ePOWER_DOMAIN POWER_DOMAIN : 3;
     eGP_EN GP_EN : 1;
     uint32_t SV_PRIORITY : 4;
@@ -770,7 +770,7 @@ union DESC_CTRL1_5 {
     eRL RL : 1;
     eWL WL : 1;
     eDL DL : 1;
-    uint32_t _reserved_end : 11;
+    uint32_t _reserved_1 : 11;
   } bits;
   
   // Full 32-bit register value.
@@ -835,7 +835,7 @@ union DESC_CTRL0_6 {
     uint32_t END : 10;
     eSV_ORDER SV_ORDER : 1;
     eRT_ORDER RT_ORDER : 1;
-    uint32_t _reserved_end : 10;
+    uint32_t _reserved_0 : 10;
   } bits;
   
   // Full 32-bit register value.
@@ -895,7 +895,7 @@ union DESC_CTRL1_6 {
   struct {
     eSW_TRIG_SV SW_TRIG_SV : 1;
     eSW_TRIG_RT SW_TRIG_RT : 1;
-    uint32_t _reserved_2 : 2;
+    uint32_t _reserved_0 : 2;
     ePOWER_DOMAIN POWER_DOMAIN : 3;
     eGP_EN GP_EN : 1;
     uint32_t SV_PRIORITY : 4;
@@ -904,7 +904,7 @@ union DESC_CTRL1_6 {
     eRL RL : 1;
     eWL WL : 1;
     eDL DL : 1;
-    uint32_t _reserved_end : 11;
+    uint32_t _reserved_1 : 11;
   } bits;
   
   // Full 32-bit register value.
@@ -969,7 +969,7 @@ union DESC_CTRL0_7 {
     uint32_t END : 10;
     eSV_ORDER SV_ORDER : 1;
     eRT_ORDER RT_ORDER : 1;
-    uint32_t _reserved_end : 10;
+    uint32_t _reserved_0 : 10;
   } bits;
   
   // Full 32-bit register value.
@@ -1029,7 +1029,7 @@ union DESC_CTRL1_7 {
   struct {
     eSW_TRIG_SV SW_TRIG_SV : 1;
     eSW_TRIG_RT SW_TRIG_RT : 1;
-    uint32_t _reserved_2 : 2;
+    uint32_t _reserved_0 : 2;
     ePOWER_DOMAIN POWER_DOMAIN : 3;
     eGP_EN GP_EN : 1;
     uint32_t SV_PRIORITY : 4;
@@ -1038,7 +1038,7 @@ union DESC_CTRL1_7 {
     eRL RL : 1;
     eWL WL : 1;
     eDL DL : 1;
-    uint32_t _reserved_end : 11;
+    uint32_t _reserved_1 : 11;
   } bits;
   
   // Full 32-bit register value.
@@ -1103,7 +1103,7 @@ union DESC_CTRL0_8 {
     uint32_t END : 10;
     eSV_ORDER SV_ORDER : 1;
     eRT_ORDER RT_ORDER : 1;
-    uint32_t _reserved_end : 10;
+    uint32_t _reserved_0 : 10;
   } bits;
   
   // Full 32-bit register value.
@@ -1163,7 +1163,7 @@ union DESC_CTRL1_8 {
   struct {
     eSW_TRIG_SV SW_TRIG_SV : 1;
     eSW_TRIG_RT SW_TRIG_RT : 1;
-    uint32_t _reserved_2 : 2;
+    uint32_t _reserved_0 : 2;
     ePOWER_DOMAIN POWER_DOMAIN : 3;
     eGP_EN GP_EN : 1;
     uint32_t SV_PRIORITY : 4;
@@ -1172,7 +1172,7 @@ union DESC_CTRL1_8 {
     eRL RL : 1;
     eWL WL : 1;
     eDL DL : 1;
-    uint32_t _reserved_end : 11;
+    uint32_t _reserved_1 : 11;
   } bits;
   
   // Full 32-bit register value.
@@ -1237,7 +1237,7 @@ union DESC_CTRL0_9 {
     uint32_t END : 10;
     eSV_ORDER SV_ORDER : 1;
     eRT_ORDER RT_ORDER : 1;
-    uint32_t _reserved_end : 10;
+    uint32_t _reserved_0 : 10;
   } bits;
   
   // Full 32-bit register value.
@@ -1297,7 +1297,7 @@ union DESC_CTRL1_9 {
   struct {
     eSW_TRIG_SV SW_TRIG_SV : 1;
     eSW_TRIG_RT SW_TRIG_RT : 1;
-    uint32_t _reserved_2 : 2;
+    uint32_t _reserved_0 : 2;
     ePOWER_DOMAIN POWER_DOMAIN : 3;
     eGP_EN GP_EN : 1;
     uint32_t SV_PRIORITY : 4;
@@ -1306,7 +1306,7 @@ union DESC_CTRL1_9 {
     eRL RL : 1;
     eWL WL : 1;
     eDL DL : 1;
-    uint32_t _reserved_end : 11;
+    uint32_t _reserved_1 : 11;
   } bits;
   
   // Full 32-bit register value.
@@ -1371,7 +1371,7 @@ union DESC_CTRL0_10 {
     uint32_t END : 10;
     eSV_ORDER SV_ORDER : 1;
     eRT_ORDER RT_ORDER : 1;
-    uint32_t _reserved_end : 10;
+    uint32_t _reserved_0 : 10;
   } bits;
   
   // Full 32-bit register value.
@@ -1431,7 +1431,7 @@ union DESC_CTRL1_10 {
   struct {
     eSW_TRIG_SV SW_TRIG_SV : 1;
     eSW_TRIG_RT SW_TRIG_RT : 1;
-    uint32_t _reserved_2 : 2;
+    uint32_t _reserved_0 : 2;
     ePOWER_DOMAIN POWER_DOMAIN : 3;
     eGP_EN GP_EN : 1;
     uint32_t SV_PRIORITY : 4;
@@ -1440,7 +1440,7 @@ union DESC_CTRL1_10 {
     eRL RL : 1;
     eWL WL : 1;
     eDL DL : 1;
-    uint32_t _reserved_end : 11;
+    uint32_t _reserved_1 : 11;
   } bits;
   
   // Full 32-bit register value.
@@ -1505,7 +1505,7 @@ union DESC_CTRL0_11 {
     uint32_t END : 10;
     eSV_ORDER SV_ORDER : 1;
     eRT_ORDER RT_ORDER : 1;
-    uint32_t _reserved_end : 10;
+    uint32_t _reserved_0 : 10;
   } bits;
   
   // Full 32-bit register value.
@@ -1565,7 +1565,7 @@ union DESC_CTRL1_11 {
   struct {
     eSW_TRIG_SV SW_TRIG_SV : 1;
     eSW_TRIG_RT SW_TRIG_RT : 1;
-    uint32_t _reserved_2 : 2;
+    uint32_t _reserved_0 : 2;
     ePOWER_DOMAIN POWER_DOMAIN : 3;
     eGP_EN GP_EN : 1;
     uint32_t SV_PRIORITY : 4;
@@ -1574,7 +1574,7 @@ union DESC_CTRL1_11 {
     eRL RL : 1;
     eWL WL : 1;
     eDL DL : 1;
-    uint32_t _reserved_end : 11;
+    uint32_t _reserved_1 : 11;
   } bits;
   
   // Full 32-bit register value.
@@ -1639,7 +1639,7 @@ union DESC_CTRL0_12 {
     uint32_t END : 10;
     eSV_ORDER SV_ORDER : 1;
     eRT_ORDER RT_ORDER : 1;
-    uint32_t _reserved_end : 10;
+    uint32_t _reserved_0 : 10;
   } bits;
   
   // Full 32-bit register value.
@@ -1699,7 +1699,7 @@ union DESC_CTRL1_12 {
   struct {
     eSW_TRIG_SV SW_TRIG_SV : 1;
     eSW_TRIG_RT SW_TRIG_RT : 1;
-    uint32_t _reserved_2 : 2;
+    uint32_t _reserved_0 : 2;
     ePOWER_DOMAIN POWER_DOMAIN : 3;
     eGP_EN GP_EN : 1;
     uint32_t SV_PRIORITY : 4;
@@ -1708,7 +1708,7 @@ union DESC_CTRL1_12 {
     eRL RL : 1;
     eWL WL : 1;
     eDL DL : 1;
-    uint32_t _reserved_end : 11;
+    uint32_t _reserved_1 : 11;
   } bits;
   
   // Full 32-bit register value.
@@ -1773,7 +1773,7 @@ union DESC_CTRL0_13 {
     uint32_t END : 10;
     eSV_ORDER SV_ORDER : 1;
     eRT_ORDER RT_ORDER : 1;
-    uint32_t _reserved_end : 10;
+    uint32_t _reserved_0 : 10;
   } bits;
   
   // Full 32-bit register value.
@@ -1833,7 +1833,7 @@ union DESC_CTRL1_13 {
   struct {
     eSW_TRIG_SV SW_TRIG_SV : 1;
     eSW_TRIG_RT SW_TRIG_RT : 1;
-    uint32_t _reserved_2 : 2;
+    uint32_t _reserved_0 : 2;
     ePOWER_DOMAIN POWER_DOMAIN : 3;
     eGP_EN GP_EN : 1;
     uint32_t SV_PRIORITY : 4;
@@ -1842,7 +1842,7 @@ union DESC_CTRL1_13 {
     eRL RL : 1;
     eWL WL : 1;
     eDL DL : 1;
-    uint32_t _reserved_end : 11;
+    uint32_t _reserved_1 : 11;
   } bits;
   
   // Full 32-bit register value.
@@ -1907,7 +1907,7 @@ union DESC_CTRL0_14 {
     uint32_t END : 10;
     eSV_ORDER SV_ORDER : 1;
     eRT_ORDER RT_ORDER : 1;
-    uint32_t _reserved_end : 10;
+    uint32_t _reserved_0 : 10;
   } bits;
   
   // Full 32-bit register value.
@@ -1967,7 +1967,7 @@ union DESC_CTRL1_14 {
   struct {
     eSW_TRIG_SV SW_TRIG_SV : 1;
     eSW_TRIG_RT SW_TRIG_RT : 1;
-    uint32_t _reserved_2 : 2;
+    uint32_t _reserved_0 : 2;
     ePOWER_DOMAIN POWER_DOMAIN : 3;
     eGP_EN GP_EN : 1;
     uint32_t SV_PRIORITY : 4;
@@ -1976,7 +1976,7 @@ union DESC_CTRL1_14 {
     eRL RL : 1;
     eWL WL : 1;
     eDL DL : 1;
-    uint32_t _reserved_end : 11;
+    uint32_t _reserved_1 : 11;
   } bits;
   
   // Full 32-bit register value.
@@ -2041,7 +2041,7 @@ union DESC_CTRL0_15 {
     uint32_t END : 10;
     eSV_ORDER SV_ORDER : 1;
     eRT_ORDER RT_ORDER : 1;
-    uint32_t _reserved_end : 10;
+    uint32_t _reserved_0 : 10;
   } bits;
   
   // Full 32-bit register value.
@@ -2101,7 +2101,7 @@ union DESC_CTRL1_15 {
   struct {
     eSW_TRIG_SV SW_TRIG_SV : 1;
     eSW_TRIG_RT SW_TRIG_RT : 1;
-    uint32_t _reserved_2 : 2;
+    uint32_t _reserved_0 : 2;
     ePOWER_DOMAIN POWER_DOMAIN : 3;
     eGP_EN GP_EN : 1;
     uint32_t SV_PRIORITY : 4;
@@ -2110,7 +2110,7 @@ union DESC_CTRL1_15 {
     eRL RL : 1;
     eWL WL : 1;
     eDL DL : 1;
-    uint32_t _reserved_end : 11;
+    uint32_t _reserved_1 : 11;
   } bits;
   
   // Full 32-bit register value.
@@ -2213,7 +2213,7 @@ union INT_STATUS {
   struct {
     uint32_t ERR_INDEX : 10;
     uint32_t AHB_RESP : 2;
-    uint32_t _reserved_2 : 15;
+    uint32_t _reserved_0 : 15;
     eGROUP_CONFLICT GROUP_CONFLICT : 1;
     eTIMEOUT TIMEOUT : 1;
     eSW_REQ_DONE SW_REQ_DONE : 1;

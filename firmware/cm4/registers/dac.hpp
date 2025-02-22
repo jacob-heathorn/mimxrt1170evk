@@ -4,7 +4,7 @@
 #include <stdint.h>
 #include <cstring>
 
-// // DAC
+// DAC
 //
 // NOTE: This file was generated from the forge CMSIS-svd wrapper tool.
 
@@ -55,7 +55,7 @@ union PARAM {
   // Bit field definition.
   struct {
     eFIFOSZ FIFOSZ : 3;
-    uint32_t _reserved_end : 29;
+    uint32_t _reserved_0 : 29;
   } bits;
   
   // Full 32-bit register value.
@@ -73,7 +73,7 @@ union DATA {
   // Bit field definition.
   struct {
     uint32_t DATA0 : 12;
-    uint32_t _reserved_end : 20;
+    uint32_t _reserved_0 : 20;
   } bits;
   
   // Full 32-bit register value.
@@ -180,11 +180,11 @@ union CR {
     eWMF WMF : 1;
     eUDFF UDFF : 1;
     eOVFF OVFF : 1;
-    uint32_t _reserved_5 : 3;
+    uint32_t _reserved_0 : 3;
     eFULLIE FULLIE : 1;
     eEMPTIE EMPTIE : 1;
     eWTMIE WTMIE : 1;
-    uint32_t _reserved_8 : 1;
+    uint32_t _reserved_1 : 1;
     eSWTRG SWTRG : 1;
     eTRGSEL TRGSEL : 1;
     eDACRFS DACRFS : 1;
@@ -192,7 +192,7 @@ union CR {
     eFIFOEN FIFOEN : 1;
     eSWMD SWMD : 1;
     eUVIE UVIE : 1;
-    uint32_t _reserved_15 : 2;
+    uint32_t _reserved_2 : 2;
     eFIFORST FIFORST : 1;
     uint32_t SWRST : 1;
     eDMAEN DMAEN : 1;
@@ -214,9 +214,9 @@ union PTR {
   // Bit field definition.
   struct {
     uint32_t DACWFP : 8;
-    uint32_t _reserved_1 : 8;
+    uint32_t _reserved_0 : 8;
     uint32_t DACRFP : 8;
-    uint32_t _reserved_end : 8;
+    uint32_t _reserved_1 : 8;
   } bits;
   
   // Full 32-bit register value.
@@ -275,7 +275,7 @@ union CR2 {
     eIREF2 IREF2 : 1;
     eIREF1 IREF1 : 1;
     eIREF IREF : 1;
-    uint32_t _reserved_end : 25;
+    uint32_t _reserved_0 : 25;
   } bits;
   
   // Full 32-bit register value.

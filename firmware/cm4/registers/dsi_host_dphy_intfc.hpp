@@ -4,7 +4,7 @@
 #include <stdint.h>
 #include <cstring>
 
-// // DSI HOST DPHY INTFC
+// DSI HOST DPHY INTFC
 //
 // NOTE: This file was generated from the forge CMSIS-svd wrapper tool.
 
@@ -23,7 +23,7 @@ union PD_TX {
   // Bit field definition.
   struct {
     ePD_TX PD_TX : 1;
-    uint32_t _reserved_end : 31;
+    uint32_t _reserved_0 : 31;
   } bits;
   
   // Full 32-bit register value.
@@ -41,7 +41,7 @@ union M_PRG_HS_PREPARE {
   // Bit field definition.
   struct {
     uint32_t M_PRG_HS_PREPARE : 2;
-    uint32_t _reserved_end : 30;
+    uint32_t _reserved_0 : 30;
   } bits;
   
   // Full 32-bit register value.
@@ -59,7 +59,7 @@ union MC_PRG_HS_PREPARE {
   // Bit field definition.
   struct {
     uint32_t MC_PRG_HS_PREPARE : 1;
-    uint32_t _reserved_end : 31;
+    uint32_t _reserved_0 : 31;
   } bits;
   
   // Full 32-bit register value.
@@ -77,7 +77,7 @@ union M_PRG_HS_ZERO {
   // Bit field definition.
   struct {
     uint32_t M_PRG_HS_ZERO : 5;
-    uint32_t _reserved_end : 27;
+    uint32_t _reserved_0 : 27;
   } bits;
   
   // Full 32-bit register value.
@@ -95,7 +95,7 @@ union MC_PRG_HS_ZERO {
   // Bit field definition.
   struct {
     uint32_t MC_PRG_HS_ZERO : 6;
-    uint32_t _reserved_end : 26;
+    uint32_t _reserved_0 : 26;
   } bits;
   
   // Full 32-bit register value.
@@ -113,7 +113,7 @@ union M_PRG_HS_TRAIL {
   // Bit field definition.
   struct {
     uint32_t M_PRG_HS_TRAIL : 4;
-    uint32_t _reserved_end : 28;
+    uint32_t _reserved_0 : 28;
   } bits;
   
   // Full 32-bit register value.
@@ -131,7 +131,7 @@ union MC_PRG_HS_TRAIL {
   // Bit field definition.
   struct {
     uint32_t MC_PRG_HS_TRAIL : 4;
-    uint32_t _reserved_end : 28;
+    uint32_t _reserved_0 : 28;
   } bits;
   
   // Full 32-bit register value.
@@ -154,7 +154,7 @@ union PD_PLL {
   // Bit field definition.
   struct {
     ePD_PLL PD_PLL : 1;
-    uint32_t _reserved_end : 31;
+    uint32_t _reserved_0 : 31;
   } bits;
   
   // Full 32-bit register value.
@@ -172,7 +172,7 @@ union TST {
   // Bit field definition.
   struct {
     uint32_t TST : 6;
-    uint32_t _reserved_end : 26;
+    uint32_t _reserved_0 : 26;
   } bits;
   
   // Full 32-bit register value.
@@ -190,7 +190,7 @@ union CN {
   // Bit field definition.
   struct {
     uint32_t CN : 5;
-    uint32_t _reserved_end : 27;
+    uint32_t _reserved_0 : 27;
   } bits;
   
   // Full 32-bit register value.
@@ -208,7 +208,7 @@ union CM {
   // Bit field definition.
   struct {
     uint32_t CM : 8;
-    uint32_t _reserved_end : 24;
+    uint32_t _reserved_0 : 24;
   } bits;
   
   // Full 32-bit register value.
@@ -233,7 +233,7 @@ union CO {
   // Bit field definition.
   struct {
     eCO CO : 2;
-    uint32_t _reserved_end : 30;
+    uint32_t _reserved_0 : 30;
   } bits;
   
   // Full 32-bit register value.
@@ -256,7 +256,7 @@ union LOCK {
   // Bit field definition.
   struct {
     eLOCK LOCK : 1;
-    uint32_t _reserved_end : 31;
+    uint32_t _reserved_0 : 31;
   } bits;
   
   // Full 32-bit register value.
@@ -279,7 +279,7 @@ union LOCK_BYP {
   // Bit field definition.
   struct {
     eLOCK_BYP LOCK_BYP : 1;
-    uint32_t _reserved_end : 31;
+    uint32_t _reserved_0 : 31;
   } bits;
   
   // Full 32-bit register value.
@@ -304,7 +304,7 @@ union TX_RCAL {
   // Bit field definition.
   struct {
     eTX_RCAL TX_RCAL : 2;
-    uint32_t _reserved_end : 30;
+    uint32_t _reserved_0 : 30;
   } bits;
   
   // Full 32-bit register value.
@@ -327,7 +327,7 @@ union AUTO_PD_EN {
   // Bit field definition.
   struct {
     eAUTO_PD_EN AUTO_PD_EN : 1;
-    uint32_t _reserved_end : 31;
+    uint32_t _reserved_0 : 31;
   } bits;
   
   // Full 32-bit register value.
@@ -345,7 +345,7 @@ union RXLPRP {
   // Bit field definition.
   struct {
     uint32_t RXLPRP : 2;
-    uint32_t _reserved_end : 30;
+    uint32_t _reserved_0 : 30;
   } bits;
   
   // Full 32-bit register value.
@@ -370,7 +370,7 @@ union RXCDRP {
   // Bit field definition.
   struct {
     eRXCDRP RXCDRP : 2;
-    uint32_t _reserved_end : 30;
+    uint32_t _reserved_0 : 30;
   } bits;
   
   // Full 32-bit register value.

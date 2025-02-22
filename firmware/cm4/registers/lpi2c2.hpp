@@ -4,7 +4,7 @@
 #include <stdint.h>
 #include <cstring>
 
-// // LPI2C
+// LPI2C
 //
 // NOTE: This file was generated from the forge CMSIS-svd wrapper tool.
 
@@ -42,9 +42,9 @@ union PARAM {
   // Bit field definition.
   struct {
     uint32_t MTXFIFO : 4;
-    uint32_t _reserved_1 : 4;
+    uint32_t _reserved_0 : 4;
     uint32_t MRXFIFO : 4;
-    uint32_t _reserved_end : 20;
+    uint32_t _reserved_1 : 20;
   } bits;
   
   // Full 32-bit register value.
@@ -95,10 +95,10 @@ union MCR {
     eRST RST : 1;
     eDOZEN DOZEN : 1;
     eDBGEN DBGEN : 1;
-    uint32_t _reserved_4 : 4;
+    uint32_t _reserved_0 : 4;
     eRTF RTF : 1;
     eRRF RRF : 1;
-    uint32_t _reserved_end : 22;
+    uint32_t _reserved_1 : 22;
   } bits;
   
   // Full 32-bit register value.
@@ -172,7 +172,7 @@ union MSR {
   struct {
     eTDF TDF : 1;
     eRDF RDF : 1;
-    uint32_t _reserved_2 : 6;
+    uint32_t _reserved_0 : 6;
     eEPF EPF : 1;
     eSDF SDF : 1;
     eNDF NDF : 1;
@@ -180,10 +180,10 @@ union MSR {
     eFEF FEF : 1;
     ePLTF PLTF : 1;
     eDMF DMF : 1;
-    uint32_t _reserved_9 : 9;
+    uint32_t _reserved_1 : 9;
     eMBF MBF : 1;
     eBBF BBF : 1;
-    uint32_t _reserved_end : 6;
+    uint32_t _reserved_2 : 6;
   } bits;
   
   // Full 32-bit register value.
@@ -247,7 +247,7 @@ union MIER {
   struct {
     eTDIE TDIE : 1;
     eRDIE RDIE : 1;
-    uint32_t _reserved_2 : 6;
+    uint32_t _reserved_0 : 6;
     eEPIE EPIE : 1;
     eSDIE SDIE : 1;
     eNDIE NDIE : 1;
@@ -255,7 +255,7 @@ union MIER {
     eFEIE FEIE : 1;
     ePLTIE PLTIE : 1;
     eDMIE DMIE : 1;
-    uint32_t _reserved_end : 17;
+    uint32_t _reserved_1 : 17;
   } bits;
   
   // Full 32-bit register value.
@@ -284,7 +284,7 @@ union MDER {
   struct {
     eTDDE TDDE : 1;
     eRDDE RDDE : 1;
-    uint32_t _reserved_end : 30;
+    uint32_t _reserved_0 : 30;
   } bits;
   
   // Full 32-bit register value.
@@ -329,10 +329,10 @@ union MCFGR0 {
     eHREN HREN : 1;
     eHRPOL HRPOL : 1;
     eHRSEL HRSEL : 1;
-    uint32_t _reserved_3 : 5;
+    uint32_t _reserved_0 : 5;
     eCIRFIFO CIRFIFO : 1;
     eRDMO RDMO : 1;
-    uint32_t _reserved_end : 22;
+    uint32_t _reserved_1 : 22;
   } bits;
   
   // Full 32-bit register value.
@@ -397,15 +397,15 @@ union MCFGR1 {
   // Bit field definition.
   struct {
     ePRESCALE PRESCALE : 3;
-    uint32_t _reserved_1 : 5;
+    uint32_t _reserved_0 : 5;
     eAUTOSTOP AUTOSTOP : 1;
     eIGNACK IGNACK : 1;
     eTIMECFG TIMECFG : 1;
-    uint32_t _reserved_4 : 5;
+    uint32_t _reserved_1 : 5;
     eMATCFG MATCFG : 3;
-    uint32_t _reserved_5 : 5;
+    uint32_t _reserved_2 : 5;
     ePINCFG PINCFG : 3;
-    uint32_t _reserved_end : 5;
+    uint32_t _reserved_3 : 5;
   } bits;
   
   // Full 32-bit register value.
@@ -423,11 +423,11 @@ union MCFGR2 {
   // Bit field definition.
   struct {
     uint32_t BUSIDLE : 12;
-    uint32_t _reserved_1 : 4;
+    uint32_t _reserved_0 : 4;
     uint32_t FILTSCL : 4;
-    uint32_t _reserved_2 : 4;
+    uint32_t _reserved_1 : 4;
     uint32_t FILTSDA : 4;
-    uint32_t _reserved_end : 4;
+    uint32_t _reserved_2 : 4;
   } bits;
   
   // Full 32-bit register value.
@@ -446,7 +446,7 @@ union MCFGR3 {
   struct {
     uint32_t _reserved_0 : 8;
     uint32_t PINLOW : 12;
-    uint32_t _reserved_end : 12;
+    uint32_t _reserved_1 : 12;
   } bits;
   
   // Full 32-bit register value.
@@ -464,9 +464,9 @@ union MDMR {
   // Bit field definition.
   struct {
     uint32_t MATCH0 : 8;
-    uint32_t _reserved_1 : 8;
+    uint32_t _reserved_0 : 8;
     uint32_t MATCH1 : 8;
-    uint32_t _reserved_end : 8;
+    uint32_t _reserved_1 : 8;
   } bits;
   
   // Full 32-bit register value.
@@ -484,13 +484,13 @@ union MCCR0 {
   // Bit field definition.
   struct {
     uint32_t CLKLO : 6;
-    uint32_t _reserved_1 : 2;
+    uint32_t _reserved_0 : 2;
     uint32_t CLKHI : 6;
-    uint32_t _reserved_2 : 2;
+    uint32_t _reserved_1 : 2;
     uint32_t SETHOLD : 6;
-    uint32_t _reserved_3 : 2;
+    uint32_t _reserved_2 : 2;
     uint32_t DATAVD : 6;
-    uint32_t _reserved_end : 2;
+    uint32_t _reserved_3 : 2;
   } bits;
   
   // Full 32-bit register value.
@@ -508,13 +508,13 @@ union MCCR1 {
   // Bit field definition.
   struct {
     uint32_t CLKLO : 6;
-    uint32_t _reserved_1 : 2;
+    uint32_t _reserved_0 : 2;
     uint32_t CLKHI : 6;
-    uint32_t _reserved_2 : 2;
+    uint32_t _reserved_1 : 2;
     uint32_t SETHOLD : 6;
-    uint32_t _reserved_3 : 2;
+    uint32_t _reserved_2 : 2;
     uint32_t DATAVD : 6;
-    uint32_t _reserved_end : 2;
+    uint32_t _reserved_3 : 2;
   } bits;
   
   // Full 32-bit register value.
@@ -532,9 +532,9 @@ union MFCR {
   // Bit field definition.
   struct {
     uint32_t TXWATER : 2;
-    uint32_t _reserved_1 : 14;
+    uint32_t _reserved_0 : 14;
     uint32_t RXWATER : 2;
-    uint32_t _reserved_end : 14;
+    uint32_t _reserved_1 : 14;
   } bits;
   
   // Full 32-bit register value.
@@ -552,9 +552,9 @@ union MFSR {
   // Bit field definition.
   struct {
     uint32_t TXCOUNT : 3;
-    uint32_t _reserved_1 : 13;
+    uint32_t _reserved_0 : 13;
     uint32_t RXCOUNT : 3;
-    uint32_t _reserved_end : 13;
+    uint32_t _reserved_1 : 13;
   } bits;
   
   // Full 32-bit register value.
@@ -584,7 +584,7 @@ union MTDR {
   struct {
     uint32_t DATA : 8;
     eCMD CMD : 3;
-    uint32_t _reserved_end : 21;
+    uint32_t _reserved_0 : 21;
   } bits;
   
   // Full 32-bit register value.
@@ -607,9 +607,9 @@ union MRDR {
   // Bit field definition.
   struct {
     uint32_t DATA : 8;
-    uint32_t _reserved_1 : 6;
+    uint32_t _reserved_0 : 6;
     eRXEMPTY RXEMPTY : 1;
-    uint32_t _reserved_end : 17;
+    uint32_t _reserved_1 : 17;
   } bits;
   
   // Full 32-bit register value.
@@ -658,13 +658,13 @@ union SCR {
   struct {
     eSEN SEN : 1;
     eRST RST : 1;
-    uint32_t _reserved_2 : 2;
+    uint32_t _reserved_0 : 2;
     eFILTEN FILTEN : 1;
     eFILTDZ FILTDZ : 1;
-    uint32_t _reserved_4 : 2;
+    uint32_t _reserved_1 : 2;
     eRTF RTF : 1;
     eRRF RRF : 1;
-    uint32_t _reserved_end : 22;
+    uint32_t _reserved_2 : 22;
   } bits;
   
   // Full 32-bit register value.
@@ -755,7 +755,7 @@ union SSR {
     eRDF RDF : 1;
     eAVF AVF : 1;
     eTAF TAF : 1;
-    uint32_t _reserved_4 : 4;
+    uint32_t _reserved_0 : 4;
     eRSF RSF : 1;
     eSDF SDF : 1;
     eBEF BEF : 1;
@@ -764,10 +764,10 @@ union SSR {
     eAM1F AM1F : 1;
     eGCF GCF : 1;
     eSARF SARF : 1;
-    uint32_t _reserved_12 : 8;
+    uint32_t _reserved_1 : 8;
     eSBF SBF : 1;
     eBBF BBF : 1;
-    uint32_t _reserved_end : 6;
+    uint32_t _reserved_2 : 6;
   } bits;
   
   // Full 32-bit register value.
@@ -848,7 +848,7 @@ union SIER {
     eRDIE RDIE : 1;
     eAVIE AVIE : 1;
     eTAIE TAIE : 1;
-    uint32_t _reserved_4 : 4;
+    uint32_t _reserved_0 : 4;
     eRSIE RSIE : 1;
     eSDIE SDIE : 1;
     eBEIE BEIE : 1;
@@ -857,7 +857,7 @@ union SIER {
     eAM1IE AM1IE : 1;
     eGCIE GCIE : 1;
     eSARIE SARIE : 1;
-    uint32_t _reserved_end : 16;
+    uint32_t _reserved_1 : 16;
   } bits;
   
   // Full 32-bit register value.
@@ -892,7 +892,7 @@ union SDER {
     eTDDE TDDE : 1;
     eRDDE RDDE : 1;
     eAVDE AVDE : 1;
-    uint32_t _reserved_end : 29;
+    uint32_t _reserved_0 : 29;
   } bits;
   
   // Full 32-bit register value.
@@ -974,16 +974,16 @@ union SCFGR1 {
     eRXSTALL RXSTALL : 1;
     eTXDSTALL TXDSTALL : 1;
     eACKSTALL ACKSTALL : 1;
-    uint32_t _reserved_4 : 4;
+    uint32_t _reserved_0 : 4;
     eGCEN GCEN : 1;
     eSAEN SAEN : 1;
     eTXCFG TXCFG : 1;
     eRXCFG RXCFG : 1;
     eIGNACK IGNACK : 1;
     eHSMEN HSMEN : 1;
-    uint32_t _reserved_10 : 2;
+    uint32_t _reserved_1 : 2;
     eADDRCFG ADDRCFG : 3;
-    uint32_t _reserved_end : 13;
+    uint32_t _reserved_2 : 13;
   } bits;
   
   // Full 32-bit register value.
@@ -1001,13 +1001,13 @@ union SCFGR2 {
   // Bit field definition.
   struct {
     uint32_t CLKHOLD : 4;
-    uint32_t _reserved_1 : 4;
+    uint32_t _reserved_0 : 4;
     uint32_t DATAVD : 6;
-    uint32_t _reserved_2 : 2;
+    uint32_t _reserved_1 : 2;
     uint32_t FILTSCL : 4;
-    uint32_t _reserved_3 : 4;
+    uint32_t _reserved_2 : 4;
     uint32_t FILTSDA : 4;
-    uint32_t _reserved_end : 4;
+    uint32_t _reserved_3 : 4;
   } bits;
   
   // Full 32-bit register value.
@@ -1028,7 +1028,7 @@ union SAMR {
     uint32_t ADDR0 : 10;
     uint32_t _reserved_1 : 6;
     uint32_t ADDR1 : 10;
-    uint32_t _reserved_end : 5;
+    uint32_t _reserved_2 : 5;
   } bits;
   
   // Full 32-bit register value.
@@ -1051,9 +1051,9 @@ union SASR {
   // Bit field definition.
   struct {
     uint32_t RADDR : 11;
-    uint32_t _reserved_1 : 3;
+    uint32_t _reserved_0 : 3;
     eANV ANV : 1;
-    uint32_t _reserved_end : 17;
+    uint32_t _reserved_1 : 17;
   } bits;
   
   // Full 32-bit register value.
@@ -1076,7 +1076,7 @@ union STAR {
   // Bit field definition.
   struct {
     eTXNACK TXNACK : 1;
-    uint32_t _reserved_end : 31;
+    uint32_t _reserved_0 : 31;
   } bits;
   
   // Full 32-bit register value.
@@ -1094,7 +1094,7 @@ union STDR {
   // Bit field definition.
   struct {
     uint32_t DATA : 8;
-    uint32_t _reserved_end : 24;
+    uint32_t _reserved_0 : 24;
   } bits;
   
   // Full 32-bit register value.
@@ -1122,10 +1122,10 @@ union SRDR {
   // Bit field definition.
   struct {
     uint32_t DATA : 8;
-    uint32_t _reserved_1 : 6;
+    uint32_t _reserved_0 : 6;
     eRXEMPTY RXEMPTY : 1;
     eSOF SOF : 1;
-    uint32_t _reserved_end : 16;
+    uint32_t _reserved_1 : 16;
   } bits;
   
   // Full 32-bit register value.

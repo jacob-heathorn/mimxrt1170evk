@@ -4,7 +4,7 @@
 #include <stdint.h>
 #include <cstring>
 
-// // CAAM
+// CAAM
 //
 // NOTE: This file was generated from the forge CMSIS-svd wrapper tool.
 
@@ -28,16 +28,16 @@ union MCFGR {
   // Bit field definition.
   struct {
     eNORMAL_BURST NORMAL_BURST : 1;
-    uint32_t _reserved_1 : 1;
+    uint32_t _reserved_0 : 1;
     uint32_t LARGE_BURST : 1;
-    uint32_t _reserved_2 : 1;
+    uint32_t _reserved_1 : 1;
     uint32_t AXIPIPE : 4;
     uint32_t AWCACHE : 4;
     uint32_t ARCACHE : 4;
     ePS PS : 1;
-    uint32_t _reserved_6 : 2;
+    uint32_t _reserved_2 : 2;
     uint32_t DWT : 1;
-    uint32_t _reserved_7 : 7;
+    uint32_t _reserved_3 : 7;
     uint32_t WRHD : 1;
     uint32_t DMA_RST : 1;
     uint32_t WDF : 1;
@@ -60,7 +60,7 @@ union PAGE0_SDID {
   // Bit field definition.
   struct {
     uint32_t SDID : 15;
-    uint32_t _reserved_end : 17;
+    uint32_t _reserved_0 : 17;
   } bits;
   
   // Full 32-bit register value.
@@ -95,13 +95,13 @@ union SCFGR {
   // Bit field definition.
   struct {
     ePRIBLOB PRIBLOB : 2;
-    uint32_t _reserved_1 : 7;
+    uint32_t _reserved_0 : 7;
     eRNGSH0 RNGSH0 : 1;
-    uint32_t _reserved_2 : 1;
+    uint32_t _reserved_1 : 1;
     uint32_t LCK_TRNG : 1;
-    uint32_t _reserved_3 : 3;
+    uint32_t _reserved_2 : 3;
     eVIRT_EN VIRT_EN : 1;
-    uint32_t _reserved_4 : 10;
+    uint32_t _reserved_3 : 10;
     uint32_t MPMRL : 1;
     uint32_t MPPKRC : 1;
     uint32_t MPCURVE : 4;
@@ -124,7 +124,7 @@ union DEBUGCTL {
     uint32_t _reserved_0 : 16;
     uint32_t STOP : 1;
     uint32_t STOP_ACK : 1;
-    uint32_t _reserved_end : 14;
+    uint32_t _reserved_1 : 14;
   } bits;
   
   // Full 32-bit register value.
@@ -165,7 +165,7 @@ union JRSTARTR {
     eStart_JR1 Start_JR1 : 1;
     eStart_JR2 Start_JR2 : 1;
     eStart_JR3 Start_JR3 : 1;
-    uint32_t _reserved_end : 28;
+    uint32_t _reserved_0 : 28;
   } bits;
   
   // Full 32-bit register value.
@@ -184,7 +184,7 @@ union RTIC_OWN {
   struct {
     uint32_t ROWN_DID : 4;
     uint32_t ROWN_TZ : 1;
-    uint32_t _reserved_2 : 26;
+    uint32_t _reserved_0 : 26;
     uint32_t LCK : 1;
   } bits;
   
@@ -203,7 +203,7 @@ union DECORSR {
   // Bit field definition.
   struct {
     uint32_t JR : 2;
-    uint32_t _reserved_1 : 29;
+    uint32_t _reserved_0 : 29;
     uint32_t VALID : 1;
   } bits;
   
@@ -222,9 +222,9 @@ union DECORR {
   // Bit field definition.
   struct {
     uint32_t RQD0 : 1;
-    uint32_t _reserved_1 : 15;
+    uint32_t _reserved_0 : 15;
     uint32_t DEN0 : 1;
-    uint32_t _reserved_end : 15;
+    uint32_t _reserved_1 : 15;
   } bits;
   
   // Full 32-bit register value.
@@ -243,7 +243,7 @@ union DECO0DID_MS {
   struct {
     uint32_t DPRIM_DID : 4;
     uint32_t D_NS : 1;
-    uint32_t _reserved_2 : 26;
+    uint32_t _reserved_0 : 26;
     uint32_t LCK : 1;
   } bits;
   
@@ -263,10 +263,10 @@ union DECO0DID_LS {
   struct {
     uint32_t DSEQ_DID : 4;
     uint32_t DSEQ_NS : 1;
-    uint32_t _reserved_2 : 11;
+    uint32_t _reserved_0 : 11;
     uint32_t DNSEQ_DID : 4;
     uint32_t DNONSEQ_NS : 1;
-    uint32_t _reserved_end : 11;
+    uint32_t _reserved_1 : 11;
   } bits;
   
   // Full 32-bit register value.
@@ -284,7 +284,7 @@ union DAR {
   // Bit field definition.
   struct {
     uint32_t NYA0 : 1;
-    uint32_t _reserved_end : 31;
+    uint32_t _reserved_0 : 31;
   } bits;
   
   // Full 32-bit register value.
@@ -302,7 +302,7 @@ union DRR {
   // Bit field definition.
   struct {
     uint32_t RST0 : 1;
-    uint32_t _reserved_end : 31;
+    uint32_t _reserved_0 : 31;
   } bits;
   
   // Full 32-bit register value.
@@ -320,7 +320,7 @@ union PBSL {
   // Bit field definition.
   struct {
     uint32_t PBSL : 7;
-    uint32_t _reserved_end : 25;
+    uint32_t _reserved_0 : 25;
   } bits;
   
   // Full 32-bit register value.
@@ -433,7 +433,7 @@ union DMA0_AID_ENB {
     uint32_t AID13E : 1;
     uint32_t AID14E : 1;
     uint32_t AID15E : 1;
-    uint32_t _reserved_end : 16;
+    uint32_t _reserved_0 : 16;
   } bits;
   
   // Full 32-bit register value.
@@ -451,9 +451,9 @@ union DMA0_ARD_TC {
   // Bit field definition.
   struct {
     uint32_t ARSC : 20;
-    uint32_t _reserved_1 : 4;
+    uint32_t _reserved_0 : 4;
     uint32_t ARLC : 20;
-    uint32_t _reserved_2 : 4;
+    uint32_t _reserved_1 : 4;
     uint32_t ARL : 12;
     uint32_t ARTL : 1;
     uint32_t ARTT : 1;
@@ -493,11 +493,11 @@ union DMA0_AWR_TC {
   // Bit field definition.
   struct {
     uint32_t AWSC : 20;
-    uint32_t _reserved_1 : 4;
+    uint32_t _reserved_0 : 4;
     uint32_t AWLC : 20;
-    uint32_t _reserved_2 : 4;
+    uint32_t _reserved_1 : 4;
     uint32_t AWL : 12;
-    uint32_t _reserved_3 : 1;
+    uint32_t _reserved_2 : 1;
     uint32_t AWTT : 1;
     uint32_t AWCT : 1;
     uint32_t AWTCE : 1;
@@ -535,7 +535,7 @@ union MPPKR[0] {
   // Bit field definition.
   struct {
     uint32_t MPPrivK : 8;
-    uint32_t _reserved_end : 24;
+    uint32_t _reserved_0 : 24;
   } bits;
   
   // Full 32-bit register value.
@@ -552,7 +552,7 @@ union MPPKR[1] {
   // Bit field definition.
   struct {
     uint32_t MPPrivK : 8;
-    uint32_t _reserved_end : 24;
+    uint32_t _reserved_0 : 24;
   } bits;
   
   // Full 32-bit register value.
@@ -569,7 +569,7 @@ union MPPKR[2] {
   // Bit field definition.
   struct {
     uint32_t MPPrivK : 8;
-    uint32_t _reserved_end : 24;
+    uint32_t _reserved_0 : 24;
   } bits;
   
   // Full 32-bit register value.
@@ -586,7 +586,7 @@ union MPPKR[3] {
   // Bit field definition.
   struct {
     uint32_t MPPrivK : 8;
-    uint32_t _reserved_end : 24;
+    uint32_t _reserved_0 : 24;
   } bits;
   
   // Full 32-bit register value.
@@ -603,7 +603,7 @@ union MPPKR[4] {
   // Bit field definition.
   struct {
     uint32_t MPPrivK : 8;
-    uint32_t _reserved_end : 24;
+    uint32_t _reserved_0 : 24;
   } bits;
   
   // Full 32-bit register value.
@@ -620,7 +620,7 @@ union MPPKR[5] {
   // Bit field definition.
   struct {
     uint32_t MPPrivK : 8;
-    uint32_t _reserved_end : 24;
+    uint32_t _reserved_0 : 24;
   } bits;
   
   // Full 32-bit register value.
@@ -637,7 +637,7 @@ union MPPKR[6] {
   // Bit field definition.
   struct {
     uint32_t MPPrivK : 8;
-    uint32_t _reserved_end : 24;
+    uint32_t _reserved_0 : 24;
   } bits;
   
   // Full 32-bit register value.
@@ -654,7 +654,7 @@ union MPPKR[7] {
   // Bit field definition.
   struct {
     uint32_t MPPrivK : 8;
-    uint32_t _reserved_end : 24;
+    uint32_t _reserved_0 : 24;
   } bits;
   
   // Full 32-bit register value.
@@ -671,7 +671,7 @@ union MPPKR[8] {
   // Bit field definition.
   struct {
     uint32_t MPPrivK : 8;
-    uint32_t _reserved_end : 24;
+    uint32_t _reserved_0 : 24;
   } bits;
   
   // Full 32-bit register value.
@@ -688,7 +688,7 @@ union MPPKR[9] {
   // Bit field definition.
   struct {
     uint32_t MPPrivK : 8;
-    uint32_t _reserved_end : 24;
+    uint32_t _reserved_0 : 24;
   } bits;
   
   // Full 32-bit register value.
@@ -705,7 +705,7 @@ union MPPKR[10] {
   // Bit field definition.
   struct {
     uint32_t MPPrivK : 8;
-    uint32_t _reserved_end : 24;
+    uint32_t _reserved_0 : 24;
   } bits;
   
   // Full 32-bit register value.
@@ -722,7 +722,7 @@ union MPPKR[11] {
   // Bit field definition.
   struct {
     uint32_t MPPrivK : 8;
-    uint32_t _reserved_end : 24;
+    uint32_t _reserved_0 : 24;
   } bits;
   
   // Full 32-bit register value.
@@ -739,7 +739,7 @@ union MPPKR[12] {
   // Bit field definition.
   struct {
     uint32_t MPPrivK : 8;
-    uint32_t _reserved_end : 24;
+    uint32_t _reserved_0 : 24;
   } bits;
   
   // Full 32-bit register value.
@@ -756,7 +756,7 @@ union MPPKR[13] {
   // Bit field definition.
   struct {
     uint32_t MPPrivK : 8;
-    uint32_t _reserved_end : 24;
+    uint32_t _reserved_0 : 24;
   } bits;
   
   // Full 32-bit register value.
@@ -773,7 +773,7 @@ union MPPKR[14] {
   // Bit field definition.
   struct {
     uint32_t MPPrivK : 8;
-    uint32_t _reserved_end : 24;
+    uint32_t _reserved_0 : 24;
   } bits;
   
   // Full 32-bit register value.
@@ -790,7 +790,7 @@ union MPPKR[15] {
   // Bit field definition.
   struct {
     uint32_t MPPrivK : 8;
-    uint32_t _reserved_end : 24;
+    uint32_t _reserved_0 : 24;
   } bits;
   
   // Full 32-bit register value.
@@ -807,7 +807,7 @@ union MPPKR[16] {
   // Bit field definition.
   struct {
     uint32_t MPPrivK : 8;
-    uint32_t _reserved_end : 24;
+    uint32_t _reserved_0 : 24;
   } bits;
   
   // Full 32-bit register value.
@@ -824,7 +824,7 @@ union MPPKR[17] {
   // Bit field definition.
   struct {
     uint32_t MPPrivK : 8;
-    uint32_t _reserved_end : 24;
+    uint32_t _reserved_0 : 24;
   } bits;
   
   // Full 32-bit register value.
@@ -841,7 +841,7 @@ union MPPKR[18] {
   // Bit field definition.
   struct {
     uint32_t MPPrivK : 8;
-    uint32_t _reserved_end : 24;
+    uint32_t _reserved_0 : 24;
   } bits;
   
   // Full 32-bit register value.
@@ -858,7 +858,7 @@ union MPPKR[19] {
   // Bit field definition.
   struct {
     uint32_t MPPrivK : 8;
-    uint32_t _reserved_end : 24;
+    uint32_t _reserved_0 : 24;
   } bits;
   
   // Full 32-bit register value.
@@ -875,7 +875,7 @@ union MPPKR[20] {
   // Bit field definition.
   struct {
     uint32_t MPPrivK : 8;
-    uint32_t _reserved_end : 24;
+    uint32_t _reserved_0 : 24;
   } bits;
   
   // Full 32-bit register value.
@@ -892,7 +892,7 @@ union MPPKR[21] {
   // Bit field definition.
   struct {
     uint32_t MPPrivK : 8;
-    uint32_t _reserved_end : 24;
+    uint32_t _reserved_0 : 24;
   } bits;
   
   // Full 32-bit register value.
@@ -909,7 +909,7 @@ union MPPKR[22] {
   // Bit field definition.
   struct {
     uint32_t MPPrivK : 8;
-    uint32_t _reserved_end : 24;
+    uint32_t _reserved_0 : 24;
   } bits;
   
   // Full 32-bit register value.
@@ -926,7 +926,7 @@ union MPPKR[23] {
   // Bit field definition.
   struct {
     uint32_t MPPrivK : 8;
-    uint32_t _reserved_end : 24;
+    uint32_t _reserved_0 : 24;
   } bits;
   
   // Full 32-bit register value.
@@ -943,7 +943,7 @@ union MPPKR[24] {
   // Bit field definition.
   struct {
     uint32_t MPPrivK : 8;
-    uint32_t _reserved_end : 24;
+    uint32_t _reserved_0 : 24;
   } bits;
   
   // Full 32-bit register value.
@@ -960,7 +960,7 @@ union MPPKR[25] {
   // Bit field definition.
   struct {
     uint32_t MPPrivK : 8;
-    uint32_t _reserved_end : 24;
+    uint32_t _reserved_0 : 24;
   } bits;
   
   // Full 32-bit register value.
@@ -977,7 +977,7 @@ union MPPKR[26] {
   // Bit field definition.
   struct {
     uint32_t MPPrivK : 8;
-    uint32_t _reserved_end : 24;
+    uint32_t _reserved_0 : 24;
   } bits;
   
   // Full 32-bit register value.
@@ -994,7 +994,7 @@ union MPPKR[27] {
   // Bit field definition.
   struct {
     uint32_t MPPrivK : 8;
-    uint32_t _reserved_end : 24;
+    uint32_t _reserved_0 : 24;
   } bits;
   
   // Full 32-bit register value.
@@ -1011,7 +1011,7 @@ union MPPKR[28] {
   // Bit field definition.
   struct {
     uint32_t MPPrivK : 8;
-    uint32_t _reserved_end : 24;
+    uint32_t _reserved_0 : 24;
   } bits;
   
   // Full 32-bit register value.
@@ -1028,7 +1028,7 @@ union MPPKR[29] {
   // Bit field definition.
   struct {
     uint32_t MPPrivK : 8;
-    uint32_t _reserved_end : 24;
+    uint32_t _reserved_0 : 24;
   } bits;
   
   // Full 32-bit register value.
@@ -1045,7 +1045,7 @@ union MPPKR[30] {
   // Bit field definition.
   struct {
     uint32_t MPPrivK : 8;
-    uint32_t _reserved_end : 24;
+    uint32_t _reserved_0 : 24;
   } bits;
   
   // Full 32-bit register value.
@@ -1062,7 +1062,7 @@ union MPPKR[31] {
   // Bit field definition.
   struct {
     uint32_t MPPrivK : 8;
-    uint32_t _reserved_end : 24;
+    uint32_t _reserved_0 : 24;
   } bits;
   
   // Full 32-bit register value.
@@ -1079,7 +1079,7 @@ union MPPKR[32] {
   // Bit field definition.
   struct {
     uint32_t MPPrivK : 8;
-    uint32_t _reserved_end : 24;
+    uint32_t _reserved_0 : 24;
   } bits;
   
   // Full 32-bit register value.
@@ -1096,7 +1096,7 @@ union MPPKR[33] {
   // Bit field definition.
   struct {
     uint32_t MPPrivK : 8;
-    uint32_t _reserved_end : 24;
+    uint32_t _reserved_0 : 24;
   } bits;
   
   // Full 32-bit register value.
@@ -1113,7 +1113,7 @@ union MPPKR[34] {
   // Bit field definition.
   struct {
     uint32_t MPPrivK : 8;
-    uint32_t _reserved_end : 24;
+    uint32_t _reserved_0 : 24;
   } bits;
   
   // Full 32-bit register value.
@@ -1130,7 +1130,7 @@ union MPPKR[35] {
   // Bit field definition.
   struct {
     uint32_t MPPrivK : 8;
-    uint32_t _reserved_end : 24;
+    uint32_t _reserved_0 : 24;
   } bits;
   
   // Full 32-bit register value.
@@ -1147,7 +1147,7 @@ union MPPKR[36] {
   // Bit field definition.
   struct {
     uint32_t MPPrivK : 8;
-    uint32_t _reserved_end : 24;
+    uint32_t _reserved_0 : 24;
   } bits;
   
   // Full 32-bit register value.
@@ -1164,7 +1164,7 @@ union MPPKR[37] {
   // Bit field definition.
   struct {
     uint32_t MPPrivK : 8;
-    uint32_t _reserved_end : 24;
+    uint32_t _reserved_0 : 24;
   } bits;
   
   // Full 32-bit register value.
@@ -1181,7 +1181,7 @@ union MPPKR[38] {
   // Bit field definition.
   struct {
     uint32_t MPPrivK : 8;
-    uint32_t _reserved_end : 24;
+    uint32_t _reserved_0 : 24;
   } bits;
   
   // Full 32-bit register value.
@@ -1198,7 +1198,7 @@ union MPPKR[39] {
   // Bit field definition.
   struct {
     uint32_t MPPrivK : 8;
-    uint32_t _reserved_end : 24;
+    uint32_t _reserved_0 : 24;
   } bits;
   
   // Full 32-bit register value.
@@ -1215,7 +1215,7 @@ union MPPKR[40] {
   // Bit field definition.
   struct {
     uint32_t MPPrivK : 8;
-    uint32_t _reserved_end : 24;
+    uint32_t _reserved_0 : 24;
   } bits;
   
   // Full 32-bit register value.
@@ -1232,7 +1232,7 @@ union MPPKR[41] {
   // Bit field definition.
   struct {
     uint32_t MPPrivK : 8;
-    uint32_t _reserved_end : 24;
+    uint32_t _reserved_0 : 24;
   } bits;
   
   // Full 32-bit register value.
@@ -1249,7 +1249,7 @@ union MPPKR[42] {
   // Bit field definition.
   struct {
     uint32_t MPPrivK : 8;
-    uint32_t _reserved_end : 24;
+    uint32_t _reserved_0 : 24;
   } bits;
   
   // Full 32-bit register value.
@@ -1266,7 +1266,7 @@ union MPPKR[43] {
   // Bit field definition.
   struct {
     uint32_t MPPrivK : 8;
-    uint32_t _reserved_end : 24;
+    uint32_t _reserved_0 : 24;
   } bits;
   
   // Full 32-bit register value.
@@ -1283,7 +1283,7 @@ union MPPKR[44] {
   // Bit field definition.
   struct {
     uint32_t MPPrivK : 8;
-    uint32_t _reserved_end : 24;
+    uint32_t _reserved_0 : 24;
   } bits;
   
   // Full 32-bit register value.
@@ -1300,7 +1300,7 @@ union MPPKR[45] {
   // Bit field definition.
   struct {
     uint32_t MPPrivK : 8;
-    uint32_t _reserved_end : 24;
+    uint32_t _reserved_0 : 24;
   } bits;
   
   // Full 32-bit register value.
@@ -1317,7 +1317,7 @@ union MPPKR[46] {
   // Bit field definition.
   struct {
     uint32_t MPPrivK : 8;
-    uint32_t _reserved_end : 24;
+    uint32_t _reserved_0 : 24;
   } bits;
   
   // Full 32-bit register value.
@@ -1334,7 +1334,7 @@ union MPPKR[47] {
   // Bit field definition.
   struct {
     uint32_t MPPrivK : 8;
-    uint32_t _reserved_end : 24;
+    uint32_t _reserved_0 : 24;
   } bits;
   
   // Full 32-bit register value.
@@ -1351,7 +1351,7 @@ union MPPKR[48] {
   // Bit field definition.
   struct {
     uint32_t MPPrivK : 8;
-    uint32_t _reserved_end : 24;
+    uint32_t _reserved_0 : 24;
   } bits;
   
   // Full 32-bit register value.
@@ -1368,7 +1368,7 @@ union MPPKR[49] {
   // Bit field definition.
   struct {
     uint32_t MPPrivK : 8;
-    uint32_t _reserved_end : 24;
+    uint32_t _reserved_0 : 24;
   } bits;
   
   // Full 32-bit register value.
@@ -1385,7 +1385,7 @@ union MPPKR[50] {
   // Bit field definition.
   struct {
     uint32_t MPPrivK : 8;
-    uint32_t _reserved_end : 24;
+    uint32_t _reserved_0 : 24;
   } bits;
   
   // Full 32-bit register value.
@@ -1402,7 +1402,7 @@ union MPPKR[51] {
   // Bit field definition.
   struct {
     uint32_t MPPrivK : 8;
-    uint32_t _reserved_end : 24;
+    uint32_t _reserved_0 : 24;
   } bits;
   
   // Full 32-bit register value.
@@ -1419,7 +1419,7 @@ union MPPKR[52] {
   // Bit field definition.
   struct {
     uint32_t MPPrivK : 8;
-    uint32_t _reserved_end : 24;
+    uint32_t _reserved_0 : 24;
   } bits;
   
   // Full 32-bit register value.
@@ -1436,7 +1436,7 @@ union MPPKR[53] {
   // Bit field definition.
   struct {
     uint32_t MPPrivK : 8;
-    uint32_t _reserved_end : 24;
+    uint32_t _reserved_0 : 24;
   } bits;
   
   // Full 32-bit register value.
@@ -1453,7 +1453,7 @@ union MPPKR[54] {
   // Bit field definition.
   struct {
     uint32_t MPPrivK : 8;
-    uint32_t _reserved_end : 24;
+    uint32_t _reserved_0 : 24;
   } bits;
   
   // Full 32-bit register value.
@@ -1470,7 +1470,7 @@ union MPPKR[55] {
   // Bit field definition.
   struct {
     uint32_t MPPrivK : 8;
-    uint32_t _reserved_end : 24;
+    uint32_t _reserved_0 : 24;
   } bits;
   
   // Full 32-bit register value.
@@ -1487,7 +1487,7 @@ union MPPKR[56] {
   // Bit field definition.
   struct {
     uint32_t MPPrivK : 8;
-    uint32_t _reserved_end : 24;
+    uint32_t _reserved_0 : 24;
   } bits;
   
   // Full 32-bit register value.
@@ -1504,7 +1504,7 @@ union MPPKR[57] {
   // Bit field definition.
   struct {
     uint32_t MPPrivK : 8;
-    uint32_t _reserved_end : 24;
+    uint32_t _reserved_0 : 24;
   } bits;
   
   // Full 32-bit register value.
@@ -1521,7 +1521,7 @@ union MPPKR[58] {
   // Bit field definition.
   struct {
     uint32_t MPPrivK : 8;
-    uint32_t _reserved_end : 24;
+    uint32_t _reserved_0 : 24;
   } bits;
   
   // Full 32-bit register value.
@@ -1538,7 +1538,7 @@ union MPPKR[59] {
   // Bit field definition.
   struct {
     uint32_t MPPrivK : 8;
-    uint32_t _reserved_end : 24;
+    uint32_t _reserved_0 : 24;
   } bits;
   
   // Full 32-bit register value.
@@ -1555,7 +1555,7 @@ union MPPKR[60] {
   // Bit field definition.
   struct {
     uint32_t MPPrivK : 8;
-    uint32_t _reserved_end : 24;
+    uint32_t _reserved_0 : 24;
   } bits;
   
   // Full 32-bit register value.
@@ -1572,7 +1572,7 @@ union MPPKR[61] {
   // Bit field definition.
   struct {
     uint32_t MPPrivK : 8;
-    uint32_t _reserved_end : 24;
+    uint32_t _reserved_0 : 24;
   } bits;
   
   // Full 32-bit register value.
@@ -1589,7 +1589,7 @@ union MPPKR[62] {
   // Bit field definition.
   struct {
     uint32_t MPPrivK : 8;
-    uint32_t _reserved_end : 24;
+    uint32_t _reserved_0 : 24;
   } bits;
   
   // Full 32-bit register value.
@@ -1606,7 +1606,7 @@ union MPPKR[63] {
   // Bit field definition.
   struct {
     uint32_t MPPrivK : 8;
-    uint32_t _reserved_end : 24;
+    uint32_t _reserved_0 : 24;
   } bits;
   
   // Full 32-bit register value.
@@ -1624,7 +1624,7 @@ union MPMR[0] {
   // Bit field definition.
   struct {
     uint32_t MPMSG : 8;
-    uint32_t _reserved_end : 24;
+    uint32_t _reserved_0 : 24;
   } bits;
   
   // Full 32-bit register value.
@@ -1641,7 +1641,7 @@ union MPMR[1] {
   // Bit field definition.
   struct {
     uint32_t MPMSG : 8;
-    uint32_t _reserved_end : 24;
+    uint32_t _reserved_0 : 24;
   } bits;
   
   // Full 32-bit register value.
@@ -1658,7 +1658,7 @@ union MPMR[2] {
   // Bit field definition.
   struct {
     uint32_t MPMSG : 8;
-    uint32_t _reserved_end : 24;
+    uint32_t _reserved_0 : 24;
   } bits;
   
   // Full 32-bit register value.
@@ -1675,7 +1675,7 @@ union MPMR[3] {
   // Bit field definition.
   struct {
     uint32_t MPMSG : 8;
-    uint32_t _reserved_end : 24;
+    uint32_t _reserved_0 : 24;
   } bits;
   
   // Full 32-bit register value.
@@ -1692,7 +1692,7 @@ union MPMR[4] {
   // Bit field definition.
   struct {
     uint32_t MPMSG : 8;
-    uint32_t _reserved_end : 24;
+    uint32_t _reserved_0 : 24;
   } bits;
   
   // Full 32-bit register value.
@@ -1709,7 +1709,7 @@ union MPMR[5] {
   // Bit field definition.
   struct {
     uint32_t MPMSG : 8;
-    uint32_t _reserved_end : 24;
+    uint32_t _reserved_0 : 24;
   } bits;
   
   // Full 32-bit register value.
@@ -1726,7 +1726,7 @@ union MPMR[6] {
   // Bit field definition.
   struct {
     uint32_t MPMSG : 8;
-    uint32_t _reserved_end : 24;
+    uint32_t _reserved_0 : 24;
   } bits;
   
   // Full 32-bit register value.
@@ -1743,7 +1743,7 @@ union MPMR[7] {
   // Bit field definition.
   struct {
     uint32_t MPMSG : 8;
-    uint32_t _reserved_end : 24;
+    uint32_t _reserved_0 : 24;
   } bits;
   
   // Full 32-bit register value.
@@ -1760,7 +1760,7 @@ union MPMR[8] {
   // Bit field definition.
   struct {
     uint32_t MPMSG : 8;
-    uint32_t _reserved_end : 24;
+    uint32_t _reserved_0 : 24;
   } bits;
   
   // Full 32-bit register value.
@@ -1777,7 +1777,7 @@ union MPMR[9] {
   // Bit field definition.
   struct {
     uint32_t MPMSG : 8;
-    uint32_t _reserved_end : 24;
+    uint32_t _reserved_0 : 24;
   } bits;
   
   // Full 32-bit register value.
@@ -1794,7 +1794,7 @@ union MPMR[10] {
   // Bit field definition.
   struct {
     uint32_t MPMSG : 8;
-    uint32_t _reserved_end : 24;
+    uint32_t _reserved_0 : 24;
   } bits;
   
   // Full 32-bit register value.
@@ -1811,7 +1811,7 @@ union MPMR[11] {
   // Bit field definition.
   struct {
     uint32_t MPMSG : 8;
-    uint32_t _reserved_end : 24;
+    uint32_t _reserved_0 : 24;
   } bits;
   
   // Full 32-bit register value.
@@ -1828,7 +1828,7 @@ union MPMR[12] {
   // Bit field definition.
   struct {
     uint32_t MPMSG : 8;
-    uint32_t _reserved_end : 24;
+    uint32_t _reserved_0 : 24;
   } bits;
   
   // Full 32-bit register value.
@@ -1845,7 +1845,7 @@ union MPMR[13] {
   // Bit field definition.
   struct {
     uint32_t MPMSG : 8;
-    uint32_t _reserved_end : 24;
+    uint32_t _reserved_0 : 24;
   } bits;
   
   // Full 32-bit register value.
@@ -1862,7 +1862,7 @@ union MPMR[14] {
   // Bit field definition.
   struct {
     uint32_t MPMSG : 8;
-    uint32_t _reserved_end : 24;
+    uint32_t _reserved_0 : 24;
   } bits;
   
   // Full 32-bit register value.
@@ -1879,7 +1879,7 @@ union MPMR[15] {
   // Bit field definition.
   struct {
     uint32_t MPMSG : 8;
-    uint32_t _reserved_end : 24;
+    uint32_t _reserved_0 : 24;
   } bits;
   
   // Full 32-bit register value.
@@ -1896,7 +1896,7 @@ union MPMR[16] {
   // Bit field definition.
   struct {
     uint32_t MPMSG : 8;
-    uint32_t _reserved_end : 24;
+    uint32_t _reserved_0 : 24;
   } bits;
   
   // Full 32-bit register value.
@@ -1913,7 +1913,7 @@ union MPMR[17] {
   // Bit field definition.
   struct {
     uint32_t MPMSG : 8;
-    uint32_t _reserved_end : 24;
+    uint32_t _reserved_0 : 24;
   } bits;
   
   // Full 32-bit register value.
@@ -1930,7 +1930,7 @@ union MPMR[18] {
   // Bit field definition.
   struct {
     uint32_t MPMSG : 8;
-    uint32_t _reserved_end : 24;
+    uint32_t _reserved_0 : 24;
   } bits;
   
   // Full 32-bit register value.
@@ -1947,7 +1947,7 @@ union MPMR[19] {
   // Bit field definition.
   struct {
     uint32_t MPMSG : 8;
-    uint32_t _reserved_end : 24;
+    uint32_t _reserved_0 : 24;
   } bits;
   
   // Full 32-bit register value.
@@ -1964,7 +1964,7 @@ union MPMR[20] {
   // Bit field definition.
   struct {
     uint32_t MPMSG : 8;
-    uint32_t _reserved_end : 24;
+    uint32_t _reserved_0 : 24;
   } bits;
   
   // Full 32-bit register value.
@@ -1981,7 +1981,7 @@ union MPMR[21] {
   // Bit field definition.
   struct {
     uint32_t MPMSG : 8;
-    uint32_t _reserved_end : 24;
+    uint32_t _reserved_0 : 24;
   } bits;
   
   // Full 32-bit register value.
@@ -1998,7 +1998,7 @@ union MPMR[22] {
   // Bit field definition.
   struct {
     uint32_t MPMSG : 8;
-    uint32_t _reserved_end : 24;
+    uint32_t _reserved_0 : 24;
   } bits;
   
   // Full 32-bit register value.
@@ -2015,7 +2015,7 @@ union MPMR[23] {
   // Bit field definition.
   struct {
     uint32_t MPMSG : 8;
-    uint32_t _reserved_end : 24;
+    uint32_t _reserved_0 : 24;
   } bits;
   
   // Full 32-bit register value.
@@ -2032,7 +2032,7 @@ union MPMR[24] {
   // Bit field definition.
   struct {
     uint32_t MPMSG : 8;
-    uint32_t _reserved_end : 24;
+    uint32_t _reserved_0 : 24;
   } bits;
   
   // Full 32-bit register value.
@@ -2049,7 +2049,7 @@ union MPMR[25] {
   // Bit field definition.
   struct {
     uint32_t MPMSG : 8;
-    uint32_t _reserved_end : 24;
+    uint32_t _reserved_0 : 24;
   } bits;
   
   // Full 32-bit register value.
@@ -2066,7 +2066,7 @@ union MPMR[26] {
   // Bit field definition.
   struct {
     uint32_t MPMSG : 8;
-    uint32_t _reserved_end : 24;
+    uint32_t _reserved_0 : 24;
   } bits;
   
   // Full 32-bit register value.
@@ -2083,7 +2083,7 @@ union MPMR[27] {
   // Bit field definition.
   struct {
     uint32_t MPMSG : 8;
-    uint32_t _reserved_end : 24;
+    uint32_t _reserved_0 : 24;
   } bits;
   
   // Full 32-bit register value.
@@ -2100,7 +2100,7 @@ union MPMR[28] {
   // Bit field definition.
   struct {
     uint32_t MPMSG : 8;
-    uint32_t _reserved_end : 24;
+    uint32_t _reserved_0 : 24;
   } bits;
   
   // Full 32-bit register value.
@@ -2117,7 +2117,7 @@ union MPMR[29] {
   // Bit field definition.
   struct {
     uint32_t MPMSG : 8;
-    uint32_t _reserved_end : 24;
+    uint32_t _reserved_0 : 24;
   } bits;
   
   // Full 32-bit register value.
@@ -2134,7 +2134,7 @@ union MPMR[30] {
   // Bit field definition.
   struct {
     uint32_t MPMSG : 8;
-    uint32_t _reserved_end : 24;
+    uint32_t _reserved_0 : 24;
   } bits;
   
   // Full 32-bit register value.
@@ -2151,7 +2151,7 @@ union MPMR[31] {
   // Bit field definition.
   struct {
     uint32_t MPMSG : 8;
-    uint32_t _reserved_end : 24;
+    uint32_t _reserved_0 : 24;
   } bits;
   
   // Full 32-bit register value.
@@ -2169,7 +2169,7 @@ union MPTESTR[0] {
   // Bit field definition.
   struct {
     uint32_t TEST_VALUE : 8;
-    uint32_t _reserved_end : 24;
+    uint32_t _reserved_0 : 24;
   } bits;
   
   // Full 32-bit register value.
@@ -2186,7 +2186,7 @@ union MPTESTR[1] {
   // Bit field definition.
   struct {
     uint32_t TEST_VALUE : 8;
-    uint32_t _reserved_end : 24;
+    uint32_t _reserved_0 : 24;
   } bits;
   
   // Full 32-bit register value.
@@ -2203,7 +2203,7 @@ union MPTESTR[2] {
   // Bit field definition.
   struct {
     uint32_t TEST_VALUE : 8;
-    uint32_t _reserved_end : 24;
+    uint32_t _reserved_0 : 24;
   } bits;
   
   // Full 32-bit register value.
@@ -2220,7 +2220,7 @@ union MPTESTR[3] {
   // Bit field definition.
   struct {
     uint32_t TEST_VALUE : 8;
-    uint32_t _reserved_end : 24;
+    uint32_t _reserved_0 : 24;
   } bits;
   
   // Full 32-bit register value.
@@ -2237,7 +2237,7 @@ union MPTESTR[4] {
   // Bit field definition.
   struct {
     uint32_t TEST_VALUE : 8;
-    uint32_t _reserved_end : 24;
+    uint32_t _reserved_0 : 24;
   } bits;
   
   // Full 32-bit register value.
@@ -2254,7 +2254,7 @@ union MPTESTR[5] {
   // Bit field definition.
   struct {
     uint32_t TEST_VALUE : 8;
-    uint32_t _reserved_end : 24;
+    uint32_t _reserved_0 : 24;
   } bits;
   
   // Full 32-bit register value.
@@ -2271,7 +2271,7 @@ union MPTESTR[6] {
   // Bit field definition.
   struct {
     uint32_t TEST_VALUE : 8;
-    uint32_t _reserved_end : 24;
+    uint32_t _reserved_0 : 24;
   } bits;
   
   // Full 32-bit register value.
@@ -2288,7 +2288,7 @@ union MPTESTR[7] {
   // Bit field definition.
   struct {
     uint32_t TEST_VALUE : 8;
-    uint32_t _reserved_end : 24;
+    uint32_t _reserved_0 : 24;
   } bits;
   
   // Full 32-bit register value.
@@ -2305,7 +2305,7 @@ union MPTESTR[8] {
   // Bit field definition.
   struct {
     uint32_t TEST_VALUE : 8;
-    uint32_t _reserved_end : 24;
+    uint32_t _reserved_0 : 24;
   } bits;
   
   // Full 32-bit register value.
@@ -2322,7 +2322,7 @@ union MPTESTR[9] {
   // Bit field definition.
   struct {
     uint32_t TEST_VALUE : 8;
-    uint32_t _reserved_end : 24;
+    uint32_t _reserved_0 : 24;
   } bits;
   
   // Full 32-bit register value.
@@ -2339,7 +2339,7 @@ union MPTESTR[10] {
   // Bit field definition.
   struct {
     uint32_t TEST_VALUE : 8;
-    uint32_t _reserved_end : 24;
+    uint32_t _reserved_0 : 24;
   } bits;
   
   // Full 32-bit register value.
@@ -2356,7 +2356,7 @@ union MPTESTR[11] {
   // Bit field definition.
   struct {
     uint32_t TEST_VALUE : 8;
-    uint32_t _reserved_end : 24;
+    uint32_t _reserved_0 : 24;
   } bits;
   
   // Full 32-bit register value.
@@ -2373,7 +2373,7 @@ union MPTESTR[12] {
   // Bit field definition.
   struct {
     uint32_t TEST_VALUE : 8;
-    uint32_t _reserved_end : 24;
+    uint32_t _reserved_0 : 24;
   } bits;
   
   // Full 32-bit register value.
@@ -2390,7 +2390,7 @@ union MPTESTR[13] {
   // Bit field definition.
   struct {
     uint32_t TEST_VALUE : 8;
-    uint32_t _reserved_end : 24;
+    uint32_t _reserved_0 : 24;
   } bits;
   
   // Full 32-bit register value.
@@ -2407,7 +2407,7 @@ union MPTESTR[14] {
   // Bit field definition.
   struct {
     uint32_t TEST_VALUE : 8;
-    uint32_t _reserved_end : 24;
+    uint32_t _reserved_0 : 24;
   } bits;
   
   // Full 32-bit register value.
@@ -2424,7 +2424,7 @@ union MPTESTR[15] {
   // Bit field definition.
   struct {
     uint32_t TEST_VALUE : 8;
-    uint32_t _reserved_end : 24;
+    uint32_t _reserved_0 : 24;
   } bits;
   
   // Full 32-bit register value.
@@ -2441,7 +2441,7 @@ union MPTESTR[16] {
   // Bit field definition.
   struct {
     uint32_t TEST_VALUE : 8;
-    uint32_t _reserved_end : 24;
+    uint32_t _reserved_0 : 24;
   } bits;
   
   // Full 32-bit register value.
@@ -2458,7 +2458,7 @@ union MPTESTR[17] {
   // Bit field definition.
   struct {
     uint32_t TEST_VALUE : 8;
-    uint32_t _reserved_end : 24;
+    uint32_t _reserved_0 : 24;
   } bits;
   
   // Full 32-bit register value.
@@ -2475,7 +2475,7 @@ union MPTESTR[18] {
   // Bit field definition.
   struct {
     uint32_t TEST_VALUE : 8;
-    uint32_t _reserved_end : 24;
+    uint32_t _reserved_0 : 24;
   } bits;
   
   // Full 32-bit register value.
@@ -2492,7 +2492,7 @@ union MPTESTR[19] {
   // Bit field definition.
   struct {
     uint32_t TEST_VALUE : 8;
-    uint32_t _reserved_end : 24;
+    uint32_t _reserved_0 : 24;
   } bits;
   
   // Full 32-bit register value.
@@ -2509,7 +2509,7 @@ union MPTESTR[20] {
   // Bit field definition.
   struct {
     uint32_t TEST_VALUE : 8;
-    uint32_t _reserved_end : 24;
+    uint32_t _reserved_0 : 24;
   } bits;
   
   // Full 32-bit register value.
@@ -2526,7 +2526,7 @@ union MPTESTR[21] {
   // Bit field definition.
   struct {
     uint32_t TEST_VALUE : 8;
-    uint32_t _reserved_end : 24;
+    uint32_t _reserved_0 : 24;
   } bits;
   
   // Full 32-bit register value.
@@ -2543,7 +2543,7 @@ union MPTESTR[22] {
   // Bit field definition.
   struct {
     uint32_t TEST_VALUE : 8;
-    uint32_t _reserved_end : 24;
+    uint32_t _reserved_0 : 24;
   } bits;
   
   // Full 32-bit register value.
@@ -2560,7 +2560,7 @@ union MPTESTR[23] {
   // Bit field definition.
   struct {
     uint32_t TEST_VALUE : 8;
-    uint32_t _reserved_end : 24;
+    uint32_t _reserved_0 : 24;
   } bits;
   
   // Full 32-bit register value.
@@ -2577,7 +2577,7 @@ union MPTESTR[24] {
   // Bit field definition.
   struct {
     uint32_t TEST_VALUE : 8;
-    uint32_t _reserved_end : 24;
+    uint32_t _reserved_0 : 24;
   } bits;
   
   // Full 32-bit register value.
@@ -2594,7 +2594,7 @@ union MPTESTR[25] {
   // Bit field definition.
   struct {
     uint32_t TEST_VALUE : 8;
-    uint32_t _reserved_end : 24;
+    uint32_t _reserved_0 : 24;
   } bits;
   
   // Full 32-bit register value.
@@ -2611,7 +2611,7 @@ union MPTESTR[26] {
   // Bit field definition.
   struct {
     uint32_t TEST_VALUE : 8;
-    uint32_t _reserved_end : 24;
+    uint32_t _reserved_0 : 24;
   } bits;
   
   // Full 32-bit register value.
@@ -2628,7 +2628,7 @@ union MPTESTR[27] {
   // Bit field definition.
   struct {
     uint32_t TEST_VALUE : 8;
-    uint32_t _reserved_end : 24;
+    uint32_t _reserved_0 : 24;
   } bits;
   
   // Full 32-bit register value.
@@ -2645,7 +2645,7 @@ union MPTESTR[28] {
   // Bit field definition.
   struct {
     uint32_t TEST_VALUE : 8;
-    uint32_t _reserved_end : 24;
+    uint32_t _reserved_0 : 24;
   } bits;
   
   // Full 32-bit register value.
@@ -2662,7 +2662,7 @@ union MPTESTR[29] {
   // Bit field definition.
   struct {
     uint32_t TEST_VALUE : 8;
-    uint32_t _reserved_end : 24;
+    uint32_t _reserved_0 : 24;
   } bits;
   
   // Full 32-bit register value.
@@ -2679,7 +2679,7 @@ union MPTESTR[30] {
   // Bit field definition.
   struct {
     uint32_t TEST_VALUE : 8;
-    uint32_t _reserved_end : 24;
+    uint32_t _reserved_0 : 24;
   } bits;
   
   // Full 32-bit register value.
@@ -2696,7 +2696,7 @@ union MPTESTR[31] {
   // Bit field definition.
   struct {
     uint32_t TEST_VALUE : 8;
-    uint32_t _reserved_end : 24;
+    uint32_t _reserved_0 : 24;
   } bits;
   
   // Full 32-bit register value.
@@ -2735,7 +2735,7 @@ union MPECC {
     eMP_SYNDROME MP_SYNDROME : 9;
     uint32_t _reserved_1 : 2;
     eMP_ZERO MP_ZERO : 1;
-    uint32_t _reserved_end : 4;
+    uint32_t _reserved_2 : 4;
   } bits;
   
   // Full 32-bit register value.
@@ -3159,9 +3159,9 @@ union DMA_STA {
   struct {
     uint32_t DMA0_ETIF : 5;
     uint32_t DMA0_ITIF : 1;
-    uint32_t _reserved_2 : 1;
+    uint32_t _reserved_0 : 1;
     uint32_t DMA0_IDLE : 1;
-    uint32_t _reserved_end : 24;
+    uint32_t _reserved_1 : 24;
   } bits;
   
   // Full 32-bit register value.
@@ -3274,7 +3274,7 @@ union DMA_X_AID_15_0_EN {
     uint32_t AID13E : 1;
     uint32_t AID14E : 1;
     uint32_t AID15E : 1;
-    uint32_t _reserved_end : 16;
+    uint32_t _reserved_0 : 16;
   } bits;
   
   // Full 32-bit register value.
@@ -3292,7 +3292,7 @@ union DMA_X_ARTC_CTL {
   // Bit field definition.
   struct {
     uint32_t ART : 12;
-    uint32_t _reserved_1 : 4;
+    uint32_t _reserved_0 : 4;
     uint32_t ARL : 12;
     uint32_t ARTL : 1;
     uint32_t ARTT : 1;
@@ -3315,7 +3315,7 @@ union DMA_X_ARTC_LC {
   // Bit field definition.
   struct {
     uint32_t ARLC : 20;
-    uint32_t _reserved_end : 12;
+    uint32_t _reserved_0 : 12;
   } bits;
   
   // Full 32-bit register value.
@@ -3333,7 +3333,7 @@ union DMA_X_ARTC_SC {
   // Bit field definition.
   struct {
     uint32_t ARSC : 20;
-    uint32_t _reserved_end : 12;
+    uint32_t _reserved_0 : 12;
   } bits;
   
   // Full 32-bit register value.
@@ -3368,9 +3368,9 @@ union DMA_X_AWTC_CTL {
   // Bit field definition.
   struct {
     uint32_t AWT : 12;
-    uint32_t _reserved_1 : 4;
+    uint32_t _reserved_0 : 4;
     uint32_t AWL : 12;
-    uint32_t _reserved_2 : 1;
+    uint32_t _reserved_1 : 1;
     uint32_t AWTT : 1;
     uint32_t AWCT : 1;
     uint32_t AWTCE : 1;
@@ -3391,7 +3391,7 @@ union DMA_X_AWTC_LC {
   // Bit field definition.
   struct {
     uint32_t AWLC : 20;
-    uint32_t _reserved_end : 12;
+    uint32_t _reserved_0 : 12;
   } bits;
   
   // Full 32-bit register value.
@@ -3409,7 +3409,7 @@ union DMA_X_AWTC_SC {
   // Bit field definition.
   struct {
     uint32_t AWSC : 20;
-    uint32_t _reserved_end : 12;
+    uint32_t _reserved_0 : 12;
   } bits;
   
   // Full 32-bit register value.
@@ -3468,9 +3468,9 @@ union RTMCTL {
     uint32_t TST_OUT : 1;
     uint32_t ERR : 1;
     uint32_t TSTOP_OK : 1;
-    uint32_t _reserved_12 : 2;
+    uint32_t _reserved_0 : 2;
     uint32_t PRGM : 1;
-    uint32_t _reserved_end : 15;
+    uint32_t _reserved_1 : 15;
   } bits;
   
   // Full 32-bit register value.
@@ -3488,9 +3488,9 @@ union RTSCMISC {
   // Bit field definition.
   struct {
     uint32_t LRUN_MAX : 8;
-    uint32_t _reserved_1 : 8;
+    uint32_t _reserved_0 : 8;
     uint32_t RTY_CNT : 4;
-    uint32_t _reserved_end : 12;
+    uint32_t _reserved_1 : 12;
   } bits;
   
   // Full 32-bit register value.
@@ -3508,7 +3508,7 @@ union RTPKRRNG {
   // Bit field definition.
   struct {
     uint32_t PKR_RNG : 16;
-    uint32_t _reserved_end : 16;
+    uint32_t _reserved_0 : 16;
   } bits;
   
   // Full 32-bit register value.
@@ -3526,7 +3526,7 @@ union RTPKRMAX {
   // Bit field definition.
   struct {
     uint32_t PKR_MAX : 24;
-    uint32_t _reserved_end : 8;
+    uint32_t _reserved_0 : 8;
   } bits;
   
   // Full 32-bit register value.
@@ -3544,7 +3544,7 @@ union RTPKRSQ {
   // Bit field definition.
   struct {
     uint32_t PKR_SQ : 24;
-    uint32_t _reserved_end : 8;
+    uint32_t _reserved_0 : 8;
   } bits;
   
   // Full 32-bit register value.
@@ -3580,7 +3580,7 @@ union RTSBLIM {
   // Bit field definition.
   struct {
     uint32_t SB_LIM : 10;
-    uint32_t _reserved_end : 22;
+    uint32_t _reserved_0 : 22;
   } bits;
   
   // Full 32-bit register value.
@@ -3598,7 +3598,7 @@ union RTTOTSAM {
   // Bit field definition.
   struct {
     uint32_t TOT_SAM : 20;
-    uint32_t _reserved_end : 12;
+    uint32_t _reserved_0 : 12;
   } bits;
   
   // Full 32-bit register value.
@@ -3616,7 +3616,7 @@ union RTFRQMIN {
   // Bit field definition.
   struct {
     uint32_t FRQ_MIN : 22;
-    uint32_t _reserved_end : 10;
+    uint32_t _reserved_0 : 10;
   } bits;
   
   // Full 32-bit register value.
@@ -3634,7 +3634,7 @@ union RTFRQCNT {
   // Bit field definition.
   struct {
     uint32_t FRQ_CNT : 22;
-    uint32_t _reserved_end : 10;
+    uint32_t _reserved_0 : 10;
   } bits;
   
   // Full 32-bit register value.
@@ -3652,7 +3652,7 @@ union RTFRQMAX {
   // Bit field definition.
   struct {
     uint32_t FRQ_MAX : 22;
-    uint32_t _reserved_end : 10;
+    uint32_t _reserved_0 : 10;
   } bits;
   
   // Full 32-bit register value.
@@ -3670,7 +3670,7 @@ union RTSCMC {
   // Bit field definition.
   struct {
     uint32_t MONO_CNT : 16;
-    uint32_t _reserved_end : 16;
+    uint32_t _reserved_0 : 16;
   } bits;
   
   // Full 32-bit register value.
@@ -3706,9 +3706,9 @@ union RTSCR1C {
   // Bit field definition.
   struct {
     uint32_t R1_0_COUNT : 15;
-    uint32_t _reserved_1 : 1;
+    uint32_t _reserved_0 : 1;
     uint32_t R1_1_COUNT : 15;
-    uint32_t _reserved_end : 1;
+    uint32_t _reserved_1 : 1;
   } bits;
   
   // Full 32-bit register value.
@@ -3726,9 +3726,9 @@ union RTSCR1L {
   // Bit field definition.
   struct {
     uint32_t RUN1_MAX : 15;
-    uint32_t _reserved_1 : 1;
+    uint32_t _reserved_0 : 1;
     uint32_t RUN1_RNG : 15;
-    uint32_t _reserved_end : 1;
+    uint32_t _reserved_1 : 1;
   } bits;
   
   // Full 32-bit register value.
@@ -3746,9 +3746,9 @@ union RTSCR2C {
   // Bit field definition.
   struct {
     uint32_t R2_0_COUNT : 14;
-    uint32_t _reserved_1 : 2;
+    uint32_t _reserved_0 : 2;
     uint32_t R2_1_COUNT : 14;
-    uint32_t _reserved_end : 2;
+    uint32_t _reserved_1 : 2;
   } bits;
   
   // Full 32-bit register value.
@@ -3766,9 +3766,9 @@ union RTSCR2L {
   // Bit field definition.
   struct {
     uint32_t RUN2_MAX : 14;
-    uint32_t _reserved_1 : 2;
+    uint32_t _reserved_0 : 2;
     uint32_t RUN2_RNG : 14;
-    uint32_t _reserved_end : 2;
+    uint32_t _reserved_1 : 2;
   } bits;
   
   // Full 32-bit register value.
@@ -3786,9 +3786,9 @@ union RTSCR3C {
   // Bit field definition.
   struct {
     uint32_t R3_0_COUNT : 13;
-    uint32_t _reserved_1 : 3;
+    uint32_t _reserved_0 : 3;
     uint32_t R3_1_COUNT : 13;
-    uint32_t _reserved_end : 3;
+    uint32_t _reserved_1 : 3;
   } bits;
   
   // Full 32-bit register value.
@@ -3806,9 +3806,9 @@ union RTSCR3L {
   // Bit field definition.
   struct {
     uint32_t RUN3_MAX : 13;
-    uint32_t _reserved_1 : 3;
+    uint32_t _reserved_0 : 3;
     uint32_t RUN3_RNG : 13;
-    uint32_t _reserved_end : 3;
+    uint32_t _reserved_1 : 3;
   } bits;
   
   // Full 32-bit register value.
@@ -3826,9 +3826,9 @@ union RTSCR4C {
   // Bit field definition.
   struct {
     uint32_t R4_0_COUNT : 12;
-    uint32_t _reserved_1 : 4;
+    uint32_t _reserved_0 : 4;
     uint32_t R4_1_COUNT : 12;
-    uint32_t _reserved_end : 4;
+    uint32_t _reserved_1 : 4;
   } bits;
   
   // Full 32-bit register value.
@@ -3846,9 +3846,9 @@ union RTSCR4L {
   // Bit field definition.
   struct {
     uint32_t RUN4_MAX : 12;
-    uint32_t _reserved_1 : 4;
+    uint32_t _reserved_0 : 4;
     uint32_t RUN4_RNG : 12;
-    uint32_t _reserved_end : 4;
+    uint32_t _reserved_1 : 4;
   } bits;
   
   // Full 32-bit register value.
@@ -3866,9 +3866,9 @@ union RTSCR5C {
   // Bit field definition.
   struct {
     uint32_t R5_0_COUNT : 11;
-    uint32_t _reserved_1 : 5;
+    uint32_t _reserved_0 : 5;
     uint32_t R5_1_COUNT : 11;
-    uint32_t _reserved_end : 5;
+    uint32_t _reserved_1 : 5;
   } bits;
   
   // Full 32-bit register value.
@@ -3886,9 +3886,9 @@ union RTSCR5L {
   // Bit field definition.
   struct {
     uint32_t RUN5_MAX : 11;
-    uint32_t _reserved_1 : 5;
+    uint32_t _reserved_0 : 5;
     uint32_t RUN5_RNG : 11;
-    uint32_t _reserved_end : 5;
+    uint32_t _reserved_1 : 5;
   } bits;
   
   // Full 32-bit register value.
@@ -3906,9 +3906,9 @@ union RTSCR6PC {
   // Bit field definition.
   struct {
     uint32_t R6P_0_COUNT : 11;
-    uint32_t _reserved_1 : 5;
+    uint32_t _reserved_0 : 5;
     uint32_t R6P_1_COUNT : 11;
-    uint32_t _reserved_end : 5;
+    uint32_t _reserved_1 : 5;
   } bits;
   
   // Full 32-bit register value.
@@ -3926,9 +3926,9 @@ union RTSCR6PL {
   // Bit field definition.
   struct {
     uint32_t RUN6P_MAX : 11;
-    uint32_t _reserved_1 : 5;
+    uint32_t _reserved_0 : 5;
     uint32_t RUN6P_RNG : 11;
-    uint32_t _reserved_end : 5;
+    uint32_t _reserved_1 : 5;
   } bits;
   
   // Full 32-bit register value.
@@ -3962,7 +3962,7 @@ union RTSTATUS {
     uint32_t FPTF : 1;
     uint32_t FMBTF : 1;
     uint32_t RETRY_COUNT : 4;
-    uint32_t _reserved_end : 12;
+    uint32_t _reserved_0 : 12;
   } bits;
   
   // Full 32-bit register value.
@@ -4382,16 +4382,16 @@ union RDSTA {
   struct {
     uint32_t IF0 : 1;
     uint32_t IF1 : 1;
-    uint32_t _reserved_2 : 2;
+    uint32_t _reserved_0 : 2;
     uint32_t PR0 : 1;
     uint32_t PR1 : 1;
-    uint32_t _reserved_4 : 2;
+    uint32_t _reserved_1 : 2;
     uint32_t TF0 : 1;
     uint32_t TF1 : 1;
-    uint32_t _reserved_6 : 6;
+    uint32_t _reserved_2 : 6;
     uint32_t ERRCODE : 4;
     uint32_t CE : 1;
-    uint32_t _reserved_8 : 9;
+    uint32_t _reserved_3 : 9;
     uint32_t SKVN : 1;
     uint32_t SKVT : 1;
   } bits;
@@ -4449,7 +4449,7 @@ union RDHCNTL {
     uint32_t HI : 1;
     uint32_t HTM : 1;
     uint32_t HTC : 1;
-    uint32_t _reserved_end : 27;
+    uint32_t _reserved_0 : 27;
   } bits;
   
   // Full 32-bit register value.
@@ -4501,7 +4501,7 @@ union P0SDID_PG0 {
   // Bit field definition.
   struct {
     uint32_t SDID : 16;
-    uint32_t _reserved_end : 16;
+    uint32_t _reserved_0 : 16;
   } bits;
   
   // Full 32-bit register value.
@@ -4586,7 +4586,7 @@ union P0SMAPR_PG0 {
     eG2_WRITE G2_WRITE : 1;
     eG2_TDO G2_TDO : 1;
     eG2_SMBLOB G2_SMBLOB : 1;
-    uint32_t _reserved_8 : 4;
+    uint32_t _reserved_0 : 4;
     eSMAG_LCK SMAG_LCK : 1;
     eSMAP_LCK SMAP_LCK : 1;
     ePSP PSP : 1;
@@ -4705,7 +4705,7 @@ union P1SDID_PG0 {
   // Bit field definition.
   struct {
     uint32_t SDID : 16;
-    uint32_t _reserved_end : 16;
+    uint32_t _reserved_0 : 16;
   } bits;
   
   // Full 32-bit register value.
@@ -4790,7 +4790,7 @@ union P1SMAPR_PG0 {
     eG2_WRITE G2_WRITE : 1;
     eG2_TDO G2_TDO : 1;
     eG2_SMBLOB G2_SMBLOB : 1;
-    uint32_t _reserved_8 : 4;
+    uint32_t _reserved_0 : 4;
     eSMAG_LCK SMAG_LCK : 1;
     eSMAP_LCK SMAP_LCK : 1;
     ePSP PSP : 1;
@@ -4909,7 +4909,7 @@ union P2SDID_PG0 {
   // Bit field definition.
   struct {
     uint32_t SDID : 16;
-    uint32_t _reserved_end : 16;
+    uint32_t _reserved_0 : 16;
   } bits;
   
   // Full 32-bit register value.
@@ -4994,7 +4994,7 @@ union P2SMAPR_PG0 {
     eG2_WRITE G2_WRITE : 1;
     eG2_TDO G2_TDO : 1;
     eG2_SMBLOB G2_SMBLOB : 1;
-    uint32_t _reserved_8 : 4;
+    uint32_t _reserved_0 : 4;
     eSMAG_LCK SMAG_LCK : 1;
     eSMAP_LCK SMAP_LCK : 1;
     ePSP PSP : 1;
@@ -5113,7 +5113,7 @@ union P3SDID_PG0 {
   // Bit field definition.
   struct {
     uint32_t SDID : 16;
-    uint32_t _reserved_end : 16;
+    uint32_t _reserved_0 : 16;
   } bits;
   
   // Full 32-bit register value.
@@ -5198,7 +5198,7 @@ union P3SMAPR_PG0 {
     eG2_WRITE G2_WRITE : 1;
     eG2_TDO G2_TDO : 1;
     eG2_SMBLOB G2_SMBLOB : 1;
-    uint32_t _reserved_8 : 4;
+    uint32_t _reserved_0 : 4;
     eSMAG_LCK SMAG_LCK : 1;
     eSMAP_LCK SMAP_LCK : 1;
     ePSP PSP : 1;
@@ -5317,7 +5317,7 @@ union P4SDID_PG0 {
   // Bit field definition.
   struct {
     uint32_t SDID : 16;
-    uint32_t _reserved_end : 16;
+    uint32_t _reserved_0 : 16;
   } bits;
   
   // Full 32-bit register value.
@@ -5402,7 +5402,7 @@ union P4SMAPR_PG0 {
     eG2_WRITE G2_WRITE : 1;
     eG2_TDO G2_TDO : 1;
     eG2_SMBLOB G2_SMBLOB : 1;
-    uint32_t _reserved_8 : 4;
+    uint32_t _reserved_0 : 4;
     eSMAG_LCK SMAG_LCK : 1;
     eSMAP_LCK SMAP_LCK : 1;
     ePSP PSP : 1;
@@ -5521,7 +5521,7 @@ union P5SDID_PG0 {
   // Bit field definition.
   struct {
     uint32_t SDID : 16;
-    uint32_t _reserved_end : 16;
+    uint32_t _reserved_0 : 16;
   } bits;
   
   // Full 32-bit register value.
@@ -5606,7 +5606,7 @@ union P5SMAPR_PG0 {
     eG2_WRITE G2_WRITE : 1;
     eG2_TDO G2_TDO : 1;
     eG2_SMBLOB G2_SMBLOB : 1;
-    uint32_t _reserved_8 : 4;
+    uint32_t _reserved_0 : 4;
     eSMAG_LCK SMAG_LCK : 1;
     eSMAP_LCK SMAP_LCK : 1;
     ePSP PSP : 1;
@@ -5725,7 +5725,7 @@ union P6SDID_PG0 {
   // Bit field definition.
   struct {
     uint32_t SDID : 16;
-    uint32_t _reserved_end : 16;
+    uint32_t _reserved_0 : 16;
   } bits;
   
   // Full 32-bit register value.
@@ -5810,7 +5810,7 @@ union P6SMAPR_PG0 {
     eG2_WRITE G2_WRITE : 1;
     eG2_TDO G2_TDO : 1;
     eG2_SMBLOB G2_SMBLOB : 1;
-    uint32_t _reserved_8 : 4;
+    uint32_t _reserved_0 : 4;
     eSMAG_LCK SMAG_LCK : 1;
     eSMAP_LCK SMAP_LCK : 1;
     ePSP PSP : 1;
@@ -5929,7 +5929,7 @@ union P7SDID_PG0 {
   // Bit field definition.
   struct {
     uint32_t SDID : 16;
-    uint32_t _reserved_end : 16;
+    uint32_t _reserved_0 : 16;
   } bits;
   
   // Full 32-bit register value.
@@ -6014,7 +6014,7 @@ union P7SMAPR_PG0 {
     eG2_WRITE G2_WRITE : 1;
     eG2_TDO G2_TDO : 1;
     eG2_SMBLOB G2_SMBLOB : 1;
-    uint32_t _reserved_8 : 4;
+    uint32_t _reserved_0 : 4;
     eSMAG_LCK SMAG_LCK : 1;
     eSMAP_LCK SMAP_LCK : 1;
     ePSP PSP : 1;
@@ -6133,7 +6133,7 @@ union P8SDID_PG0 {
   // Bit field definition.
   struct {
     uint32_t SDID : 16;
-    uint32_t _reserved_end : 16;
+    uint32_t _reserved_0 : 16;
   } bits;
   
   // Full 32-bit register value.
@@ -6218,7 +6218,7 @@ union P8SMAPR_PG0 {
     eG2_WRITE G2_WRITE : 1;
     eG2_TDO G2_TDO : 1;
     eG2_SMBLOB G2_SMBLOB : 1;
-    uint32_t _reserved_8 : 4;
+    uint32_t _reserved_0 : 4;
     eSMAG_LCK SMAG_LCK : 1;
     eSMAP_LCK SMAP_LCK : 1;
     ePSP PSP : 1;
@@ -6337,7 +6337,7 @@ union P9SDID_PG0 {
   // Bit field definition.
   struct {
     uint32_t SDID : 16;
-    uint32_t _reserved_end : 16;
+    uint32_t _reserved_0 : 16;
   } bits;
   
   // Full 32-bit register value.
@@ -6422,7 +6422,7 @@ union P9SMAPR_PG0 {
     eG2_WRITE G2_WRITE : 1;
     eG2_TDO G2_TDO : 1;
     eG2_SMBLOB G2_SMBLOB : 1;
-    uint32_t _reserved_8 : 4;
+    uint32_t _reserved_0 : 4;
     eSMAG_LCK SMAG_LCK : 1;
     eSMAP_LCK SMAP_LCK : 1;
     ePSP PSP : 1;
@@ -6541,7 +6541,7 @@ union P10SDID_PG0 {
   // Bit field definition.
   struct {
     uint32_t SDID : 16;
-    uint32_t _reserved_end : 16;
+    uint32_t _reserved_0 : 16;
   } bits;
   
   // Full 32-bit register value.
@@ -6626,7 +6626,7 @@ union P10SMAPR_PG0 {
     eG2_WRITE G2_WRITE : 1;
     eG2_TDO G2_TDO : 1;
     eG2_SMBLOB G2_SMBLOB : 1;
-    uint32_t _reserved_8 : 4;
+    uint32_t _reserved_0 : 4;
     eSMAG_LCK SMAG_LCK : 1;
     eSMAP_LCK SMAP_LCK : 1;
     ePSP PSP : 1;
@@ -6745,7 +6745,7 @@ union P11SDID_PG0 {
   // Bit field definition.
   struct {
     uint32_t SDID : 16;
-    uint32_t _reserved_end : 16;
+    uint32_t _reserved_0 : 16;
   } bits;
   
   // Full 32-bit register value.
@@ -6830,7 +6830,7 @@ union P11SMAPR_PG0 {
     eG2_WRITE G2_WRITE : 1;
     eG2_TDO G2_TDO : 1;
     eG2_SMBLOB G2_SMBLOB : 1;
-    uint32_t _reserved_8 : 4;
+    uint32_t _reserved_0 : 4;
     eSMAG_LCK SMAG_LCK : 1;
     eSMAP_LCK SMAP_LCK : 1;
     ePSP PSP : 1;
@@ -6949,7 +6949,7 @@ union P12SDID_PG0 {
   // Bit field definition.
   struct {
     uint32_t SDID : 16;
-    uint32_t _reserved_end : 16;
+    uint32_t _reserved_0 : 16;
   } bits;
   
   // Full 32-bit register value.
@@ -7034,7 +7034,7 @@ union P12SMAPR_PG0 {
     eG2_WRITE G2_WRITE : 1;
     eG2_TDO G2_TDO : 1;
     eG2_SMBLOB G2_SMBLOB : 1;
-    uint32_t _reserved_8 : 4;
+    uint32_t _reserved_0 : 4;
     eSMAG_LCK SMAG_LCK : 1;
     eSMAP_LCK SMAP_LCK : 1;
     ePSP PSP : 1;
@@ -7153,7 +7153,7 @@ union P13SDID_PG0 {
   // Bit field definition.
   struct {
     uint32_t SDID : 16;
-    uint32_t _reserved_end : 16;
+    uint32_t _reserved_0 : 16;
   } bits;
   
   // Full 32-bit register value.
@@ -7238,7 +7238,7 @@ union P13SMAPR_PG0 {
     eG2_WRITE G2_WRITE : 1;
     eG2_TDO G2_TDO : 1;
     eG2_SMBLOB G2_SMBLOB : 1;
-    uint32_t _reserved_8 : 4;
+    uint32_t _reserved_0 : 4;
     eSMAG_LCK SMAG_LCK : 1;
     eSMAP_LCK SMAP_LCK : 1;
     ePSP PSP : 1;
@@ -7357,7 +7357,7 @@ union P14SDID_PG0 {
   // Bit field definition.
   struct {
     uint32_t SDID : 16;
-    uint32_t _reserved_end : 16;
+    uint32_t _reserved_0 : 16;
   } bits;
   
   // Full 32-bit register value.
@@ -7442,7 +7442,7 @@ union P14SMAPR_PG0 {
     eG2_WRITE G2_WRITE : 1;
     eG2_TDO G2_TDO : 1;
     eG2_SMBLOB G2_SMBLOB : 1;
-    uint32_t _reserved_8 : 4;
+    uint32_t _reserved_0 : 4;
     eSMAG_LCK SMAG_LCK : 1;
     eSMAP_LCK SMAP_LCK : 1;
     ePSP PSP : 1;
@@ -7561,7 +7561,7 @@ union P15SDID_PG0 {
   // Bit field definition.
   struct {
     uint32_t SDID : 16;
-    uint32_t _reserved_end : 16;
+    uint32_t _reserved_0 : 16;
   } bits;
   
   // Full 32-bit register value.
@@ -7646,7 +7646,7 @@ union P15SMAPR_PG0 {
     eG2_WRITE G2_WRITE : 1;
     eG2_TDO G2_TDO : 1;
     eG2_SMBLOB G2_SMBLOB : 1;
-    uint32_t _reserved_8 : 4;
+    uint32_t _reserved_0 : 4;
     eSMAG_LCK SMAG_LCK : 1;
     eSMAP_LCK SMAP_LCK : 1;
     ePSP PSP : 1;
@@ -7765,14 +7765,14 @@ union REIS {
   // Bit field definition.
   struct {
     uint32_t CWDE : 1;
-    uint32_t _reserved_1 : 15;
+    uint32_t _reserved_0 : 15;
     uint32_t RBAE : 1;
-    uint32_t _reserved_2 : 7;
+    uint32_t _reserved_1 : 7;
     uint32_t JBAE0 : 1;
     uint32_t JBAE1 : 1;
     uint32_t JBAE2 : 1;
     uint32_t JBAE3 : 1;
-    uint32_t _reserved_end : 4;
+    uint32_t _reserved_2 : 4;
   } bits;
   
   // Full 32-bit register value.
@@ -7790,14 +7790,14 @@ union REIE {
   // Bit field definition.
   struct {
     uint32_t CWDE : 1;
-    uint32_t _reserved_1 : 15;
+    uint32_t _reserved_0 : 15;
     uint32_t RBAE : 1;
-    uint32_t _reserved_2 : 7;
+    uint32_t _reserved_1 : 7;
     uint32_t JBAE0 : 1;
     uint32_t JBAE1 : 1;
     uint32_t JBAE2 : 1;
     uint32_t JBAE3 : 1;
-    uint32_t _reserved_end : 4;
+    uint32_t _reserved_2 : 4;
   } bits;
   
   // Full 32-bit register value.
@@ -7815,14 +7815,14 @@ union REIF {
   // Bit field definition.
   struct {
     uint32_t CWDE : 1;
-    uint32_t _reserved_1 : 15;
+    uint32_t _reserved_0 : 15;
     uint32_t RBAE : 1;
-    uint32_t _reserved_2 : 7;
+    uint32_t _reserved_1 : 7;
     uint32_t JBAE0 : 1;
     uint32_t JBAE1 : 1;
     uint32_t JBAE2 : 1;
     uint32_t JBAE3 : 1;
-    uint32_t _reserved_end : 4;
+    uint32_t _reserved_2 : 4;
   } bits;
   
   // Full 32-bit register value.
@@ -7870,14 +7870,14 @@ union REIH {
   // Bit field definition.
   struct {
     eCWDE CWDE : 1;
-    uint32_t _reserved_1 : 15;
+    uint32_t _reserved_0 : 15;
     eRBAE RBAE : 1;
-    uint32_t _reserved_2 : 7;
+    uint32_t _reserved_1 : 7;
     eJBAE0 JBAE0 : 1;
     eJBAE1 JBAE1 : 1;
     eJBAE2 JBAE2 : 1;
     eJBAE3 JBAE3 : 1;
-    uint32_t _reserved_end : 4;
+    uint32_t _reserved_2 : 4;
   } bits;
   
   // Full 32-bit register value.
@@ -7895,7 +7895,7 @@ union SMWPJRR[0] {
   // Bit field definition.
   struct {
     uint32_t SMR_WP_JRa : 1;
-    uint32_t _reserved_end : 31;
+    uint32_t _reserved_0 : 31;
   } bits;
   
   // Full 32-bit register value.
@@ -7912,7 +7912,7 @@ union SMWPJRR[1] {
   // Bit field definition.
   struct {
     uint32_t SMR_WP_JRa : 1;
-    uint32_t _reserved_end : 31;
+    uint32_t _reserved_0 : 31;
   } bits;
   
   // Full 32-bit register value.
@@ -7929,7 +7929,7 @@ union SMWPJRR[2] {
   // Bit field definition.
   struct {
     uint32_t SMR_WP_JRa : 1;
-    uint32_t _reserved_end : 31;
+    uint32_t _reserved_0 : 31;
   } bits;
   
   // Full 32-bit register value.
@@ -7946,7 +7946,7 @@ union SMWPJRR[3] {
   // Bit field definition.
   struct {
     uint32_t SMR_WP_JRa : 1;
-    uint32_t _reserved_end : 31;
+    uint32_t _reserved_0 : 31;
   } bits;
   
   // Full 32-bit register value.
@@ -7964,9 +7964,9 @@ union SMCR_PG0 {
   // Bit field definition.
   struct {
     uint32_t CMD : 4;
-    uint32_t _reserved_1 : 4;
+    uint32_t _reserved_0 : 4;
     uint32_t PRTN : 4;
-    uint32_t _reserved_2 : 4;
+    uint32_t _reserved_1 : 4;
     uint32_t PAGE : 16;
   } bits;
   
@@ -7999,13 +7999,13 @@ union SMCSR_PG0 {
   // Bit field definition.
   struct {
     uint32_t PRTN : 4;
-    uint32_t _reserved_1 : 2;
+    uint32_t _reserved_0 : 2;
     ePO PO : 2;
-    uint32_t _reserved_2 : 4;
+    uint32_t _reserved_1 : 4;
     uint32_t AERR : 2;
     eCERR CERR : 2;
     uint32_t PAGE : 12;
-    uint32_t _reserved_end : 4;
+    uint32_t _reserved_2 : 4;
   } bits;
   
   // Full 32-bit register value.
@@ -8086,20 +8086,20 @@ union HT0_JQ_CTRL_MS {
   // Bit field definition.
   struct {
     uint32_t ID : 3;
-    uint32_t _reserved_1 : 5;
+    uint32_t _reserved_0 : 5;
     eSRC SRC : 3;
-    uint32_t _reserved_2 : 3;
+    uint32_t _reserved_1 : 3;
     eJDDS JDDS : 1;
     uint32_t AMTD : 1;
     uint32_t SOB : 1;
     eHT_ERROR HT_ERROR : 2;
     eDWORD_SWAP DWORD_SWAP : 1;
-    uint32_t _reserved_7 : 2;
+    uint32_t _reserved_2 : 2;
     uint32_t SHR_FROM : 5;
     eILE ILE : 1;
     uint32_t FOUR : 1;
     uint32_t WHL : 1;
-    uint32_t _reserved_end : 2;
+    uint32_t _reserved_3 : 2;
   } bits;
   
   // Full 32-bit register value.
@@ -8125,7 +8125,7 @@ union HT0_JQ_CTRL_LS {
     ePRIM_TZ PRIM_TZ : 1;
     uint32_t PRIM_ICID : 11;
     uint32_t OUT_DID : 4;
-    uint32_t _reserved_4 : 1;
+    uint32_t _reserved_0 : 1;
     uint32_t OUT_ICID : 11;
   } bits;
   
@@ -8144,7 +8144,7 @@ union HT0_STATUS {
   // Bit field definition.
   struct {
     uint32_t PEND_0 : 1;
-    uint32_t _reserved_1 : 29;
+    uint32_t _reserved_0 : 29;
     uint32_t IN_USE : 1;
     uint32_t BC : 1;
   } bits;
@@ -8164,9 +8164,9 @@ union JQ_DEBUG_SEL {
   // Bit field definition.
   struct {
     uint32_t HT_SEL : 1;
-    uint32_t _reserved_1 : 15;
+    uint32_t _reserved_0 : 15;
     uint32_t JOB_ID : 3;
-    uint32_t _reserved_end : 13;
+    uint32_t _reserved_1 : 13;
   } bits;
   
   // Full 32-bit register value.
@@ -8187,7 +8187,7 @@ union JRJIDU_LS {
     uint32_t JID01 : 1;
     uint32_t JID02 : 1;
     uint32_t JID03 : 1;
-    uint32_t _reserved_end : 28;
+    uint32_t _reserved_0 : 28;
   } bits;
   
   // Full 32-bit register value.
@@ -8223,7 +8223,7 @@ union JRJDJIF {
   // Bit field definition.
   struct {
     uint32_t JOB_ID_ENTRY : 3;
-    uint32_t _reserved_end : 29;
+    uint32_t _reserved_0 : 29;
   } bits;
   
   // Full 32-bit register value.
@@ -8241,7 +8241,7 @@ union JRJDS1 {
   // Bit field definition.
   struct {
     uint32_t SRC : 2;
-    uint32_t _reserved_1 : 29;
+    uint32_t _reserved_0 : 29;
     uint32_t VALID : 1;
   } bits;
   
@@ -8280,7 +8280,7 @@ union CRNR_MS {
     uint32_t SNW9RN : 4;
     uint32_t ZERN : 4;
     uint32_t ZARN : 4;
-    uint32_t _reserved_4 : 8;
+    uint32_t _reserved_0 : 8;
     uint32_t DECORN : 4;
     uint32_t JRRN : 4;
   } bits;
@@ -8308,7 +8308,7 @@ union CRNR_LS {
   struct {
     uint32_t AESRN : 4;
     uint32_t DESRN : 4;
-    uint32_t _reserved_2 : 4;
+    uint32_t _reserved_0 : 4;
     uint32_t MDRN : 4;
     uint32_t RNGRN : 4;
     uint32_t SNW8RN : 4;
@@ -8332,22 +8332,22 @@ union CTPR_MS {
   struct {
     uint32_t VIRT_EN_INCL : 1;
     uint32_t VIRT_EN_POR_VALUE : 1;
-    uint32_t _reserved_2 : 2;
+    uint32_t _reserved_0 : 2;
     uint32_t REG_PG_SIZE : 1;
-    uint32_t _reserved_3 : 3;
+    uint32_t _reserved_1 : 3;
     uint32_t RNG_I : 3;
     uint32_t AI_INCL : 1;
-    uint32_t _reserved_5 : 1;
+    uint32_t _reserved_2 : 1;
     uint32_t DPAA2 : 1;
     uint32_t IP_CLK : 1;
-    uint32_t _reserved_7 : 1;
+    uint32_t _reserved_3 : 1;
     uint32_t MCFG_BURST : 1;
     uint32_t MCFG_PS : 1;
     uint32_t SG8 : 1;
     uint32_t PM_EVT_BUS : 1;
     uint32_t DECO_WD : 1;
     uint32_t PC : 1;
-    uint32_t _reserved_13 : 1;
+    uint32_t _reserved_4 : 1;
     uint32_t C1C2 : 1;
     uint32_t ACC_CTL : 1;
     uint32_t QI : 1;
@@ -8460,7 +8460,7 @@ union CTPR_LS {
     eDBL_CRC DBL_CRC : 1;
     eMAN_PROT MAN_PROT : 1;
     eDKP DKP : 1;
-    uint32_t _reserved_end : 17;
+    uint32_t _reserved_0 : 17;
   } bits;
   
   // Full 32-bit register value.
@@ -8502,10 +8502,10 @@ union SMSTA {
     eACCERR ACCERR : 4;
     uint32_t DID : 4;
     uint32_t NS : 1;
-    uint32_t _reserved_4 : 2;
+    uint32_t _reserved_0 : 2;
     uint32_t SMR_WP : 1;
     uint32_t PAGE : 11;
-    uint32_t _reserved_6 : 1;
+    uint32_t _reserved_1 : 1;
     uint32_t PART : 4;
   } bits;
   
@@ -8582,7 +8582,7 @@ union FADID {
     uint32_t FDID : 4;
     uint32_t FNS : 1;
     uint32_t FICID : 11;
-    uint32_t _reserved_end : 16;
+    uint32_t _reserved_0 : 16;
   } bits;
   
   // Full 32-bit register value.
@@ -8660,13 +8660,13 @@ union FADR {
     eJSRC JSRC : 3;
     eDTYP DTYP : 1;
     uint32_t FSZ_EXT : 3;
-    uint32_t _reserved_6 : 5;
+    uint32_t _reserved_0 : 5;
     eFKMOD FKMOD : 1;
     eFKEY FKEY : 1;
     eFTDSC FTDSC : 1;
     eFBNDG FBNDG : 1;
     eFNS FNS : 1;
-    uint32_t _reserved_11 : 1;
+    uint32_t _reserved_1 : 1;
     eFERR FERR : 2;
   } bits;
   
@@ -8699,10 +8699,10 @@ union CSTA {
     uint32_t BSY : 1;
     uint32_t IDLE : 1;
     uint32_t TRNG_IDLE : 1;
-    uint32_t _reserved_3 : 5;
+    uint32_t _reserved_0 : 5;
     eMOO MOO : 2;
     ePLEND PLEND : 1;
-    uint32_t _reserved_end : 21;
+    uint32_t _reserved_1 : 21;
   } bits;
   
   // Full 32-bit register value.
@@ -8720,10 +8720,10 @@ union SMVID_MS {
   // Bit field definition.
   struct {
     uint32_t NPAG : 10;
-    uint32_t _reserved_1 : 2;
+    uint32_t _reserved_0 : 2;
     uint32_t NPRT : 4;
     uint32_t MAX_NPAG : 10;
-    uint32_t _reserved_end : 6;
+    uint32_t _reserved_1 : 6;
   } bits;
   
   // Full 32-bit register value.
@@ -8743,7 +8743,7 @@ union SMVID_LS {
     uint32_t SMNV : 8;
     uint32_t SMJV : 8;
     uint32_t PSIZ : 3;
-    uint32_t _reserved_end : 13;
+    uint32_t _reserved_0 : 13;
   } bits;
   
   // Full 32-bit register value.
@@ -8772,16 +8772,16 @@ union RVID {
   struct {
     uint32_t RMNV : 8;
     uint32_t RMJV : 8;
-    uint32_t _reserved_2 : 1;
+    uint32_t _reserved_0 : 1;
     eSHA_256 SHA_256 : 1;
-    uint32_t _reserved_3 : 1;
+    uint32_t _reserved_1 : 1;
     eSHA_512 SHA_512 : 1;
-    uint32_t _reserved_4 : 4;
+    uint32_t _reserved_2 : 4;
     uint32_t MA : 1;
     uint32_t MB : 1;
     uint32_t MC : 1;
     uint32_t MD : 1;
-    uint32_t _reserved_end : 4;
+    uint32_t _reserved_3 : 4;
   } bits;
   
   // Full 32-bit register value.
@@ -8800,7 +8800,7 @@ union CCBVID {
   struct {
     uint32_t AMNV : 8;
     uint32_t AMJV : 8;
-    uint32_t _reserved_2 : 8;
+    uint32_t _reserved_0 : 8;
     uint32_t CAAM_ERA : 8;
   } bits;
   
@@ -8822,7 +8822,7 @@ union CHAVID_MS {
     uint32_t SNW9VID : 4;
     uint32_t ZEVID : 4;
     uint32_t ZAVID : 4;
-    uint32_t _reserved_4 : 8;
+    uint32_t _reserved_0 : 8;
     uint32_t DECOVID : 4;
     uint32_t JRVID : 4;
   } bits;
@@ -8867,7 +8867,7 @@ union CHAVID_LS {
   struct {
     eAESVID AESVID : 4;
     uint32_t DESVID : 4;
-    uint32_t _reserved_2 : 4;
+    uint32_t _reserved_0 : 4;
     eMDVID MDVID : 4;
     eRNGVID RNGVID : 4;
     uint32_t SNW8VID : 4;
@@ -8893,7 +8893,7 @@ union CHANUM_MS {
     uint32_t SNW9NUM : 4;
     uint32_t ZENUM : 4;
     uint32_t ZANUM : 4;
-    uint32_t _reserved_4 : 8;
+    uint32_t _reserved_0 : 8;
     uint32_t DECONUM : 4;
     uint32_t JRNUM : 4;
   } bits;
@@ -8993,7 +8993,7 @@ union IRSR_JR0 {
   // Bit field definition.
   struct {
     uint32_t IRS : 10;
-    uint32_t _reserved_end : 22;
+    uint32_t _reserved_0 : 22;
   } bits;
   
   // Full 32-bit register value.
@@ -9011,7 +9011,7 @@ union IRSAR_JR0 {
   // Bit field definition.
   struct {
     uint32_t IRSA : 10;
-    uint32_t _reserved_end : 22;
+    uint32_t _reserved_0 : 22;
   } bits;
   
   // Full 32-bit register value.
@@ -9029,7 +9029,7 @@ union IRJAR_JR0 {
   // Bit field definition.
   struct {
     uint32_t IRJA : 10;
-    uint32_t _reserved_end : 22;
+    uint32_t _reserved_0 : 22;
   } bits;
   
   // Full 32-bit register value.
@@ -9064,7 +9064,7 @@ union ORSR_JR0 {
   // Bit field definition.
   struct {
     uint32_t ORS : 10;
-    uint32_t _reserved_end : 22;
+    uint32_t _reserved_0 : 22;
   } bits;
   
   // Full 32-bit register value.
@@ -9082,7 +9082,7 @@ union ORJRR_JR0 {
   // Bit field definition.
   struct {
     uint32_t ORJR : 10;
-    uint32_t _reserved_end : 22;
+    uint32_t _reserved_0 : 22;
   } bits;
   
   // Full 32-bit register value.
@@ -9100,7 +9100,7 @@ union ORSFR_JR0 {
   // Bit field definition.
   struct {
     uint32_t ORSF : 10;
-    uint32_t _reserved_end : 22;
+    uint32_t _reserved_0 : 22;
   } bits;
   
   // Full 32-bit register value.
@@ -9168,11 +9168,11 @@ union JRINTR_JR0 {
     uint32_t HALT : 2;
     uint32_t ENTER_FAIL : 1;
     uint32_t EXIT_FAIL : 1;
-    uint32_t _reserved_5 : 2;
+    uint32_t _reserved_0 : 2;
     eERR_TYPE ERR_TYPE : 5;
-    uint32_t _reserved_6 : 3;
+    uint32_t _reserved_1 : 3;
     uint32_t ERR_ORWI : 14;
-    uint32_t _reserved_end : 2;
+    uint32_t _reserved_2 : 2;
   } bits;
   
   // Full 32-bit register value.
@@ -9192,26 +9192,26 @@ union JRCFGR_JR0_MS {
     uint32_t MBSI : 1;
     uint32_t MHWSI : 1;
     uint32_t MWSI : 1;
-    uint32_t _reserved_3 : 1;
+    uint32_t _reserved_0 : 1;
     uint32_t CBSI : 1;
     uint32_t CHWSI : 1;
     uint32_t CWSI : 1;
-    uint32_t _reserved_6 : 1;
+    uint32_t _reserved_1 : 1;
     uint32_t MBSO : 1;
     uint32_t MHWSO : 1;
     uint32_t MWSO : 1;
-    uint32_t _reserved_9 : 1;
+    uint32_t _reserved_2 : 1;
     uint32_t CBSO : 1;
     uint32_t CHWSO : 1;
     uint32_t CWSO : 1;
-    uint32_t _reserved_12 : 1;
+    uint32_t _reserved_3 : 1;
     uint32_t DMBS : 1;
     uint32_t PEO : 1;
     uint32_t DWSO : 1;
-    uint32_t _reserved_15 : 10;
+    uint32_t _reserved_4 : 10;
     uint32_t FAIL_MODE : 1;
     uint32_t INCL_SEQ_OUT : 1;
-    uint32_t _reserved_end : 1;
+    uint32_t _reserved_5 : 1;
   } bits;
   
   // Full 32-bit register value.
@@ -9240,7 +9240,7 @@ union JRCFGR_JR0_LS {
   struct {
     eIMSK IMSK : 1;
     eICEN ICEN : 1;
-    uint32_t _reserved_2 : 6;
+    uint32_t _reserved_0 : 6;
     uint32_t ICDCT : 8;
     uint32_t ICTT : 16;
   } bits;
@@ -9260,7 +9260,7 @@ union IRRIR_JR0 {
   // Bit field definition.
   struct {
     uint32_t IRRI : 13;
-    uint32_t _reserved_end : 19;
+    uint32_t _reserved_0 : 19;
   } bits;
   
   // Full 32-bit register value.
@@ -9278,7 +9278,7 @@ union ORWIR_JR0 {
   // Bit field definition.
   struct {
     uint32_t ORWI : 14;
-    uint32_t _reserved_end : 18;
+    uint32_t _reserved_0 : 18;
   } bits;
   
   // Full 32-bit register value.
@@ -9297,7 +9297,7 @@ union JRCR_JR0 {
   struct {
     uint32_t RESET : 1;
     uint32_t PARK : 1;
-    uint32_t _reserved_end : 30;
+    uint32_t _reserved_0 : 30;
   } bits;
   
   // Full 32-bit register value.
@@ -9318,7 +9318,7 @@ union JR0AAV {
     uint32_t V1 : 1;
     uint32_t V2 : 1;
     uint32_t V3 : 1;
-    uint32_t _reserved_4 : 27;
+    uint32_t _reserved_0 : 27;
     uint32_t BC : 1;
   } bits;
   
@@ -9405,7 +9405,7 @@ union P0SDID_JR0 {
   // Bit field definition.
   struct {
     uint32_t SDID : 16;
-    uint32_t _reserved_end : 16;
+    uint32_t _reserved_0 : 16;
   } bits;
   
   // Full 32-bit register value.
@@ -9490,7 +9490,7 @@ union P0SMAPR_JR0 {
     eG2_WRITE G2_WRITE : 1;
     eG2_TDO G2_TDO : 1;
     eG2_SMBLOB G2_SMBLOB : 1;
-    uint32_t _reserved_8 : 4;
+    uint32_t _reserved_0 : 4;
     eSMAG_LCK SMAG_LCK : 1;
     eSMAP_LCK SMAP_LCK : 1;
     ePSP PSP : 1;
@@ -9609,7 +9609,7 @@ union P1SDID_JR0 {
   // Bit field definition.
   struct {
     uint32_t SDID : 16;
-    uint32_t _reserved_end : 16;
+    uint32_t _reserved_0 : 16;
   } bits;
   
   // Full 32-bit register value.
@@ -9694,7 +9694,7 @@ union P1SMAPR_JR0 {
     eG2_WRITE G2_WRITE : 1;
     eG2_TDO G2_TDO : 1;
     eG2_SMBLOB G2_SMBLOB : 1;
-    uint32_t _reserved_8 : 4;
+    uint32_t _reserved_0 : 4;
     eSMAG_LCK SMAG_LCK : 1;
     eSMAP_LCK SMAP_LCK : 1;
     ePSP PSP : 1;
@@ -9813,7 +9813,7 @@ union P2SDID_JR0 {
   // Bit field definition.
   struct {
     uint32_t SDID : 16;
-    uint32_t _reserved_end : 16;
+    uint32_t _reserved_0 : 16;
   } bits;
   
   // Full 32-bit register value.
@@ -9898,7 +9898,7 @@ union P2SMAPR_JR0 {
     eG2_WRITE G2_WRITE : 1;
     eG2_TDO G2_TDO : 1;
     eG2_SMBLOB G2_SMBLOB : 1;
-    uint32_t _reserved_8 : 4;
+    uint32_t _reserved_0 : 4;
     eSMAG_LCK SMAG_LCK : 1;
     eSMAP_LCK SMAP_LCK : 1;
     ePSP PSP : 1;
@@ -10017,7 +10017,7 @@ union P3SDID_JR0 {
   // Bit field definition.
   struct {
     uint32_t SDID : 16;
-    uint32_t _reserved_end : 16;
+    uint32_t _reserved_0 : 16;
   } bits;
   
   // Full 32-bit register value.
@@ -10102,7 +10102,7 @@ union P3SMAPR_JR0 {
     eG2_WRITE G2_WRITE : 1;
     eG2_TDO G2_TDO : 1;
     eG2_SMBLOB G2_SMBLOB : 1;
-    uint32_t _reserved_8 : 4;
+    uint32_t _reserved_0 : 4;
     eSMAG_LCK SMAG_LCK : 1;
     eSMAP_LCK SMAP_LCK : 1;
     ePSP PSP : 1;
@@ -10221,7 +10221,7 @@ union P4SDID_JR0 {
   // Bit field definition.
   struct {
     uint32_t SDID : 16;
-    uint32_t _reserved_end : 16;
+    uint32_t _reserved_0 : 16;
   } bits;
   
   // Full 32-bit register value.
@@ -10306,7 +10306,7 @@ union P4SMAPR_JR0 {
     eG2_WRITE G2_WRITE : 1;
     eG2_TDO G2_TDO : 1;
     eG2_SMBLOB G2_SMBLOB : 1;
-    uint32_t _reserved_8 : 4;
+    uint32_t _reserved_0 : 4;
     eSMAG_LCK SMAG_LCK : 1;
     eSMAP_LCK SMAP_LCK : 1;
     ePSP PSP : 1;
@@ -10425,7 +10425,7 @@ union P5SDID_JR0 {
   // Bit field definition.
   struct {
     uint32_t SDID : 16;
-    uint32_t _reserved_end : 16;
+    uint32_t _reserved_0 : 16;
   } bits;
   
   // Full 32-bit register value.
@@ -10510,7 +10510,7 @@ union P5SMAPR_JR0 {
     eG2_WRITE G2_WRITE : 1;
     eG2_TDO G2_TDO : 1;
     eG2_SMBLOB G2_SMBLOB : 1;
-    uint32_t _reserved_8 : 4;
+    uint32_t _reserved_0 : 4;
     eSMAG_LCK SMAG_LCK : 1;
     eSMAP_LCK SMAP_LCK : 1;
     ePSP PSP : 1;
@@ -10629,7 +10629,7 @@ union P6SDID_JR0 {
   // Bit field definition.
   struct {
     uint32_t SDID : 16;
-    uint32_t _reserved_end : 16;
+    uint32_t _reserved_0 : 16;
   } bits;
   
   // Full 32-bit register value.
@@ -10714,7 +10714,7 @@ union P6SMAPR_JR0 {
     eG2_WRITE G2_WRITE : 1;
     eG2_TDO G2_TDO : 1;
     eG2_SMBLOB G2_SMBLOB : 1;
-    uint32_t _reserved_8 : 4;
+    uint32_t _reserved_0 : 4;
     eSMAG_LCK SMAG_LCK : 1;
     eSMAP_LCK SMAP_LCK : 1;
     ePSP PSP : 1;
@@ -10833,7 +10833,7 @@ union P7SDID_JR0 {
   // Bit field definition.
   struct {
     uint32_t SDID : 16;
-    uint32_t _reserved_end : 16;
+    uint32_t _reserved_0 : 16;
   } bits;
   
   // Full 32-bit register value.
@@ -10918,7 +10918,7 @@ union P7SMAPR_JR0 {
     eG2_WRITE G2_WRITE : 1;
     eG2_TDO G2_TDO : 1;
     eG2_SMBLOB G2_SMBLOB : 1;
-    uint32_t _reserved_8 : 4;
+    uint32_t _reserved_0 : 4;
     eSMAG_LCK SMAG_LCK : 1;
     eSMAP_LCK SMAP_LCK : 1;
     ePSP PSP : 1;
@@ -11037,7 +11037,7 @@ union P8SDID_JR0 {
   // Bit field definition.
   struct {
     uint32_t SDID : 16;
-    uint32_t _reserved_end : 16;
+    uint32_t _reserved_0 : 16;
   } bits;
   
   // Full 32-bit register value.
@@ -11122,7 +11122,7 @@ union P8SMAPR_JR0 {
     eG2_WRITE G2_WRITE : 1;
     eG2_TDO G2_TDO : 1;
     eG2_SMBLOB G2_SMBLOB : 1;
-    uint32_t _reserved_8 : 4;
+    uint32_t _reserved_0 : 4;
     eSMAG_LCK SMAG_LCK : 1;
     eSMAP_LCK SMAP_LCK : 1;
     ePSP PSP : 1;
@@ -11241,7 +11241,7 @@ union P9SDID_JR0 {
   // Bit field definition.
   struct {
     uint32_t SDID : 16;
-    uint32_t _reserved_end : 16;
+    uint32_t _reserved_0 : 16;
   } bits;
   
   // Full 32-bit register value.
@@ -11326,7 +11326,7 @@ union P9SMAPR_JR0 {
     eG2_WRITE G2_WRITE : 1;
     eG2_TDO G2_TDO : 1;
     eG2_SMBLOB G2_SMBLOB : 1;
-    uint32_t _reserved_8 : 4;
+    uint32_t _reserved_0 : 4;
     eSMAG_LCK SMAG_LCK : 1;
     eSMAP_LCK SMAP_LCK : 1;
     ePSP PSP : 1;
@@ -11445,7 +11445,7 @@ union P10SDID_JR0 {
   // Bit field definition.
   struct {
     uint32_t SDID : 16;
-    uint32_t _reserved_end : 16;
+    uint32_t _reserved_0 : 16;
   } bits;
   
   // Full 32-bit register value.
@@ -11530,7 +11530,7 @@ union P10SMAPR_JR0 {
     eG2_WRITE G2_WRITE : 1;
     eG2_TDO G2_TDO : 1;
     eG2_SMBLOB G2_SMBLOB : 1;
-    uint32_t _reserved_8 : 4;
+    uint32_t _reserved_0 : 4;
     eSMAG_LCK SMAG_LCK : 1;
     eSMAP_LCK SMAP_LCK : 1;
     ePSP PSP : 1;
@@ -11649,7 +11649,7 @@ union P11SDID_JR0 {
   // Bit field definition.
   struct {
     uint32_t SDID : 16;
-    uint32_t _reserved_end : 16;
+    uint32_t _reserved_0 : 16;
   } bits;
   
   // Full 32-bit register value.
@@ -11734,7 +11734,7 @@ union P11SMAPR_JR0 {
     eG2_WRITE G2_WRITE : 1;
     eG2_TDO G2_TDO : 1;
     eG2_SMBLOB G2_SMBLOB : 1;
-    uint32_t _reserved_8 : 4;
+    uint32_t _reserved_0 : 4;
     eSMAG_LCK SMAG_LCK : 1;
     eSMAP_LCK SMAP_LCK : 1;
     ePSP PSP : 1;
@@ -11853,7 +11853,7 @@ union P12SDID_JR0 {
   // Bit field definition.
   struct {
     uint32_t SDID : 16;
-    uint32_t _reserved_end : 16;
+    uint32_t _reserved_0 : 16;
   } bits;
   
   // Full 32-bit register value.
@@ -11938,7 +11938,7 @@ union P12SMAPR_JR0 {
     eG2_WRITE G2_WRITE : 1;
     eG2_TDO G2_TDO : 1;
     eG2_SMBLOB G2_SMBLOB : 1;
-    uint32_t _reserved_8 : 4;
+    uint32_t _reserved_0 : 4;
     eSMAG_LCK SMAG_LCK : 1;
     eSMAP_LCK SMAP_LCK : 1;
     ePSP PSP : 1;
@@ -12057,7 +12057,7 @@ union P13SDID_JR0 {
   // Bit field definition.
   struct {
     uint32_t SDID : 16;
-    uint32_t _reserved_end : 16;
+    uint32_t _reserved_0 : 16;
   } bits;
   
   // Full 32-bit register value.
@@ -12142,7 +12142,7 @@ union P13SMAPR_JR0 {
     eG2_WRITE G2_WRITE : 1;
     eG2_TDO G2_TDO : 1;
     eG2_SMBLOB G2_SMBLOB : 1;
-    uint32_t _reserved_8 : 4;
+    uint32_t _reserved_0 : 4;
     eSMAG_LCK SMAG_LCK : 1;
     eSMAP_LCK SMAP_LCK : 1;
     ePSP PSP : 1;
@@ -12261,7 +12261,7 @@ union P14SDID_JR0 {
   // Bit field definition.
   struct {
     uint32_t SDID : 16;
-    uint32_t _reserved_end : 16;
+    uint32_t _reserved_0 : 16;
   } bits;
   
   // Full 32-bit register value.
@@ -12346,7 +12346,7 @@ union P14SMAPR_JR0 {
     eG2_WRITE G2_WRITE : 1;
     eG2_TDO G2_TDO : 1;
     eG2_SMBLOB G2_SMBLOB : 1;
-    uint32_t _reserved_8 : 4;
+    uint32_t _reserved_0 : 4;
     eSMAG_LCK SMAG_LCK : 1;
     eSMAP_LCK SMAP_LCK : 1;
     ePSP PSP : 1;
@@ -12465,7 +12465,7 @@ union P15SDID_JR0 {
   // Bit field definition.
   struct {
     uint32_t SDID : 16;
-    uint32_t _reserved_end : 16;
+    uint32_t _reserved_0 : 16;
   } bits;
   
   // Full 32-bit register value.
@@ -12550,7 +12550,7 @@ union P15SMAPR_JR0 {
     eG2_WRITE G2_WRITE : 1;
     eG2_TDO G2_TDO : 1;
     eG2_SMBLOB G2_SMBLOB : 1;
-    uint32_t _reserved_8 : 4;
+    uint32_t _reserved_0 : 4;
     eSMAG_LCK SMAG_LCK : 1;
     eSMAP_LCK SMAP_LCK : 1;
     ePSP PSP : 1;
@@ -12669,9 +12669,9 @@ union SMCR_JR0 {
   // Bit field definition.
   struct {
     uint32_t CMD : 4;
-    uint32_t _reserved_1 : 4;
+    uint32_t _reserved_0 : 4;
     uint32_t PRTN : 4;
-    uint32_t _reserved_2 : 4;
+    uint32_t _reserved_1 : 4;
     uint32_t PAGE : 16;
   } bits;
   
@@ -12704,13 +12704,13 @@ union SMCSR_JR0 {
   // Bit field definition.
   struct {
     uint32_t PRTN : 4;
-    uint32_t _reserved_1 : 2;
+    uint32_t _reserved_0 : 2;
     ePO PO : 2;
-    uint32_t _reserved_2 : 4;
+    uint32_t _reserved_1 : 4;
     uint32_t AERR : 2;
     eCERR CERR : 2;
     uint32_t PAGE : 12;
-    uint32_t _reserved_end : 4;
+    uint32_t _reserved_2 : 4;
   } bits;
   
   // Full 32-bit register value.
@@ -12766,11 +12766,11 @@ union REIR4JR0 {
   struct {
     uint32_t ICID : 11;
     uint32_t DID : 4;
-    uint32_t _reserved_2 : 1;
+    uint32_t _reserved_0 : 1;
     uint32_t AXCACHE : 4;
     uint32_t AXPROT : 3;
     uint32_t RWB : 1;
-    uint32_t _reserved_5 : 4;
+    uint32_t _reserved_1 : 4;
     uint32_t ERR : 2;
     uint32_t MIX : 2;
   } bits;
@@ -12797,7 +12797,7 @@ union REIR5JR0 {
     uint32_t KMOD : 1;
     uint32_t KEY : 1;
     uint32_t SMA : 1;
-    uint32_t _reserved_end : 2;
+    uint32_t _reserved_2 : 2;
   } bits;
   
   // Full 32-bit register value.
@@ -12832,7 +12832,7 @@ union IRSR_JR1 {
   // Bit field definition.
   struct {
     uint32_t IRS : 10;
-    uint32_t _reserved_end : 22;
+    uint32_t _reserved_0 : 22;
   } bits;
   
   // Full 32-bit register value.
@@ -12850,7 +12850,7 @@ union IRSAR_JR1 {
   // Bit field definition.
   struct {
     uint32_t IRSA : 10;
-    uint32_t _reserved_end : 22;
+    uint32_t _reserved_0 : 22;
   } bits;
   
   // Full 32-bit register value.
@@ -12868,7 +12868,7 @@ union IRJAR_JR1 {
   // Bit field definition.
   struct {
     uint32_t IRJA : 10;
-    uint32_t _reserved_end : 22;
+    uint32_t _reserved_0 : 22;
   } bits;
   
   // Full 32-bit register value.
@@ -12903,7 +12903,7 @@ union ORSR_JR1 {
   // Bit field definition.
   struct {
     uint32_t ORS : 10;
-    uint32_t _reserved_end : 22;
+    uint32_t _reserved_0 : 22;
   } bits;
   
   // Full 32-bit register value.
@@ -12921,7 +12921,7 @@ union ORJRR_JR1 {
   // Bit field definition.
   struct {
     uint32_t ORJR : 10;
-    uint32_t _reserved_end : 22;
+    uint32_t _reserved_0 : 22;
   } bits;
   
   // Full 32-bit register value.
@@ -12939,7 +12939,7 @@ union ORSFR_JR1 {
   // Bit field definition.
   struct {
     uint32_t ORSF : 10;
-    uint32_t _reserved_end : 22;
+    uint32_t _reserved_0 : 22;
   } bits;
   
   // Full 32-bit register value.
@@ -13007,11 +13007,11 @@ union JRINTR_JR1 {
     uint32_t HALT : 2;
     uint32_t ENTER_FAIL : 1;
     uint32_t EXIT_FAIL : 1;
-    uint32_t _reserved_5 : 2;
+    uint32_t _reserved_0 : 2;
     eERR_TYPE ERR_TYPE : 5;
-    uint32_t _reserved_6 : 3;
+    uint32_t _reserved_1 : 3;
     uint32_t ERR_ORWI : 14;
-    uint32_t _reserved_end : 2;
+    uint32_t _reserved_2 : 2;
   } bits;
   
   // Full 32-bit register value.
@@ -13031,26 +13031,26 @@ union JRCFGR_JR1_MS {
     uint32_t MBSI : 1;
     uint32_t MHWSI : 1;
     uint32_t MWSI : 1;
-    uint32_t _reserved_3 : 1;
+    uint32_t _reserved_0 : 1;
     uint32_t CBSI : 1;
     uint32_t CHWSI : 1;
     uint32_t CWSI : 1;
-    uint32_t _reserved_6 : 1;
+    uint32_t _reserved_1 : 1;
     uint32_t MBSO : 1;
     uint32_t MHWSO : 1;
     uint32_t MWSO : 1;
-    uint32_t _reserved_9 : 1;
+    uint32_t _reserved_2 : 1;
     uint32_t CBSO : 1;
     uint32_t CHWSO : 1;
     uint32_t CWSO : 1;
-    uint32_t _reserved_12 : 1;
+    uint32_t _reserved_3 : 1;
     uint32_t DMBS : 1;
     uint32_t PEO : 1;
     uint32_t DWSO : 1;
-    uint32_t _reserved_15 : 10;
+    uint32_t _reserved_4 : 10;
     uint32_t FAIL_MODE : 1;
     uint32_t INCL_SEQ_OUT : 1;
-    uint32_t _reserved_end : 1;
+    uint32_t _reserved_5 : 1;
   } bits;
   
   // Full 32-bit register value.
@@ -13079,7 +13079,7 @@ union JRCFGR_JR1_LS {
   struct {
     eIMSK IMSK : 1;
     eICEN ICEN : 1;
-    uint32_t _reserved_2 : 6;
+    uint32_t _reserved_0 : 6;
     uint32_t ICDCT : 8;
     uint32_t ICTT : 16;
   } bits;
@@ -13099,7 +13099,7 @@ union IRRIR_JR1 {
   // Bit field definition.
   struct {
     uint32_t IRRI : 13;
-    uint32_t _reserved_end : 19;
+    uint32_t _reserved_0 : 19;
   } bits;
   
   // Full 32-bit register value.
@@ -13117,7 +13117,7 @@ union ORWIR_JR1 {
   // Bit field definition.
   struct {
     uint32_t ORWI : 14;
-    uint32_t _reserved_end : 18;
+    uint32_t _reserved_0 : 18;
   } bits;
   
   // Full 32-bit register value.
@@ -13136,7 +13136,7 @@ union JRCR_JR1 {
   struct {
     uint32_t RESET : 1;
     uint32_t PARK : 1;
-    uint32_t _reserved_end : 30;
+    uint32_t _reserved_0 : 30;
   } bits;
   
   // Full 32-bit register value.
@@ -13157,7 +13157,7 @@ union JR1AAV {
     uint32_t V1 : 1;
     uint32_t V2 : 1;
     uint32_t V3 : 1;
-    uint32_t _reserved_4 : 27;
+    uint32_t _reserved_0 : 27;
     uint32_t BC : 1;
   } bits;
   
@@ -13244,7 +13244,7 @@ union P0SDID_JR1 {
   // Bit field definition.
   struct {
     uint32_t SDID : 16;
-    uint32_t _reserved_end : 16;
+    uint32_t _reserved_0 : 16;
   } bits;
   
   // Full 32-bit register value.
@@ -13329,7 +13329,7 @@ union P0SMAPR_JR1 {
     eG2_WRITE G2_WRITE : 1;
     eG2_TDO G2_TDO : 1;
     eG2_SMBLOB G2_SMBLOB : 1;
-    uint32_t _reserved_8 : 4;
+    uint32_t _reserved_0 : 4;
     eSMAG_LCK SMAG_LCK : 1;
     eSMAP_LCK SMAP_LCK : 1;
     ePSP PSP : 1;
@@ -13448,7 +13448,7 @@ union P1SDID_JR1 {
   // Bit field definition.
   struct {
     uint32_t SDID : 16;
-    uint32_t _reserved_end : 16;
+    uint32_t _reserved_0 : 16;
   } bits;
   
   // Full 32-bit register value.
@@ -13533,7 +13533,7 @@ union P1SMAPR_JR1 {
     eG2_WRITE G2_WRITE : 1;
     eG2_TDO G2_TDO : 1;
     eG2_SMBLOB G2_SMBLOB : 1;
-    uint32_t _reserved_8 : 4;
+    uint32_t _reserved_0 : 4;
     eSMAG_LCK SMAG_LCK : 1;
     eSMAP_LCK SMAP_LCK : 1;
     ePSP PSP : 1;
@@ -13652,7 +13652,7 @@ union P2SDID_JR1 {
   // Bit field definition.
   struct {
     uint32_t SDID : 16;
-    uint32_t _reserved_end : 16;
+    uint32_t _reserved_0 : 16;
   } bits;
   
   // Full 32-bit register value.
@@ -13737,7 +13737,7 @@ union P2SMAPR_JR1 {
     eG2_WRITE G2_WRITE : 1;
     eG2_TDO G2_TDO : 1;
     eG2_SMBLOB G2_SMBLOB : 1;
-    uint32_t _reserved_8 : 4;
+    uint32_t _reserved_0 : 4;
     eSMAG_LCK SMAG_LCK : 1;
     eSMAP_LCK SMAP_LCK : 1;
     ePSP PSP : 1;
@@ -13856,7 +13856,7 @@ union P3SDID_JR1 {
   // Bit field definition.
   struct {
     uint32_t SDID : 16;
-    uint32_t _reserved_end : 16;
+    uint32_t _reserved_0 : 16;
   } bits;
   
   // Full 32-bit register value.
@@ -13941,7 +13941,7 @@ union P3SMAPR_JR1 {
     eG2_WRITE G2_WRITE : 1;
     eG2_TDO G2_TDO : 1;
     eG2_SMBLOB G2_SMBLOB : 1;
-    uint32_t _reserved_8 : 4;
+    uint32_t _reserved_0 : 4;
     eSMAG_LCK SMAG_LCK : 1;
     eSMAP_LCK SMAP_LCK : 1;
     ePSP PSP : 1;
@@ -14060,7 +14060,7 @@ union P4SDID_JR1 {
   // Bit field definition.
   struct {
     uint32_t SDID : 16;
-    uint32_t _reserved_end : 16;
+    uint32_t _reserved_0 : 16;
   } bits;
   
   // Full 32-bit register value.
@@ -14145,7 +14145,7 @@ union P4SMAPR_JR1 {
     eG2_WRITE G2_WRITE : 1;
     eG2_TDO G2_TDO : 1;
     eG2_SMBLOB G2_SMBLOB : 1;
-    uint32_t _reserved_8 : 4;
+    uint32_t _reserved_0 : 4;
     eSMAG_LCK SMAG_LCK : 1;
     eSMAP_LCK SMAP_LCK : 1;
     ePSP PSP : 1;
@@ -14264,7 +14264,7 @@ union P5SDID_JR1 {
   // Bit field definition.
   struct {
     uint32_t SDID : 16;
-    uint32_t _reserved_end : 16;
+    uint32_t _reserved_0 : 16;
   } bits;
   
   // Full 32-bit register value.
@@ -14349,7 +14349,7 @@ union P5SMAPR_JR1 {
     eG2_WRITE G2_WRITE : 1;
     eG2_TDO G2_TDO : 1;
     eG2_SMBLOB G2_SMBLOB : 1;
-    uint32_t _reserved_8 : 4;
+    uint32_t _reserved_0 : 4;
     eSMAG_LCK SMAG_LCK : 1;
     eSMAP_LCK SMAP_LCK : 1;
     ePSP PSP : 1;
@@ -14468,7 +14468,7 @@ union P6SDID_JR1 {
   // Bit field definition.
   struct {
     uint32_t SDID : 16;
-    uint32_t _reserved_end : 16;
+    uint32_t _reserved_0 : 16;
   } bits;
   
   // Full 32-bit register value.
@@ -14553,7 +14553,7 @@ union P6SMAPR_JR1 {
     eG2_WRITE G2_WRITE : 1;
     eG2_TDO G2_TDO : 1;
     eG2_SMBLOB G2_SMBLOB : 1;
-    uint32_t _reserved_8 : 4;
+    uint32_t _reserved_0 : 4;
     eSMAG_LCK SMAG_LCK : 1;
     eSMAP_LCK SMAP_LCK : 1;
     ePSP PSP : 1;
@@ -14672,7 +14672,7 @@ union P7SDID_JR1 {
   // Bit field definition.
   struct {
     uint32_t SDID : 16;
-    uint32_t _reserved_end : 16;
+    uint32_t _reserved_0 : 16;
   } bits;
   
   // Full 32-bit register value.
@@ -14757,7 +14757,7 @@ union P7SMAPR_JR1 {
     eG2_WRITE G2_WRITE : 1;
     eG2_TDO G2_TDO : 1;
     eG2_SMBLOB G2_SMBLOB : 1;
-    uint32_t _reserved_8 : 4;
+    uint32_t _reserved_0 : 4;
     eSMAG_LCK SMAG_LCK : 1;
     eSMAP_LCK SMAP_LCK : 1;
     ePSP PSP : 1;
@@ -14876,7 +14876,7 @@ union P8SDID_JR1 {
   // Bit field definition.
   struct {
     uint32_t SDID : 16;
-    uint32_t _reserved_end : 16;
+    uint32_t _reserved_0 : 16;
   } bits;
   
   // Full 32-bit register value.
@@ -14961,7 +14961,7 @@ union P8SMAPR_JR1 {
     eG2_WRITE G2_WRITE : 1;
     eG2_TDO G2_TDO : 1;
     eG2_SMBLOB G2_SMBLOB : 1;
-    uint32_t _reserved_8 : 4;
+    uint32_t _reserved_0 : 4;
     eSMAG_LCK SMAG_LCK : 1;
     eSMAP_LCK SMAP_LCK : 1;
     ePSP PSP : 1;
@@ -15080,7 +15080,7 @@ union P9SDID_JR1 {
   // Bit field definition.
   struct {
     uint32_t SDID : 16;
-    uint32_t _reserved_end : 16;
+    uint32_t _reserved_0 : 16;
   } bits;
   
   // Full 32-bit register value.
@@ -15165,7 +15165,7 @@ union P9SMAPR_JR1 {
     eG2_WRITE G2_WRITE : 1;
     eG2_TDO G2_TDO : 1;
     eG2_SMBLOB G2_SMBLOB : 1;
-    uint32_t _reserved_8 : 4;
+    uint32_t _reserved_0 : 4;
     eSMAG_LCK SMAG_LCK : 1;
     eSMAP_LCK SMAP_LCK : 1;
     ePSP PSP : 1;
@@ -15284,7 +15284,7 @@ union P10SDID_JR1 {
   // Bit field definition.
   struct {
     uint32_t SDID : 16;
-    uint32_t _reserved_end : 16;
+    uint32_t _reserved_0 : 16;
   } bits;
   
   // Full 32-bit register value.
@@ -15369,7 +15369,7 @@ union P10SMAPR_JR1 {
     eG2_WRITE G2_WRITE : 1;
     eG2_TDO G2_TDO : 1;
     eG2_SMBLOB G2_SMBLOB : 1;
-    uint32_t _reserved_8 : 4;
+    uint32_t _reserved_0 : 4;
     eSMAG_LCK SMAG_LCK : 1;
     eSMAP_LCK SMAP_LCK : 1;
     ePSP PSP : 1;
@@ -15488,7 +15488,7 @@ union P11SDID_JR1 {
   // Bit field definition.
   struct {
     uint32_t SDID : 16;
-    uint32_t _reserved_end : 16;
+    uint32_t _reserved_0 : 16;
   } bits;
   
   // Full 32-bit register value.
@@ -15573,7 +15573,7 @@ union P11SMAPR_JR1 {
     eG2_WRITE G2_WRITE : 1;
     eG2_TDO G2_TDO : 1;
     eG2_SMBLOB G2_SMBLOB : 1;
-    uint32_t _reserved_8 : 4;
+    uint32_t _reserved_0 : 4;
     eSMAG_LCK SMAG_LCK : 1;
     eSMAP_LCK SMAP_LCK : 1;
     ePSP PSP : 1;
@@ -15692,7 +15692,7 @@ union P12SDID_JR1 {
   // Bit field definition.
   struct {
     uint32_t SDID : 16;
-    uint32_t _reserved_end : 16;
+    uint32_t _reserved_0 : 16;
   } bits;
   
   // Full 32-bit register value.
@@ -15777,7 +15777,7 @@ union P12SMAPR_JR1 {
     eG2_WRITE G2_WRITE : 1;
     eG2_TDO G2_TDO : 1;
     eG2_SMBLOB G2_SMBLOB : 1;
-    uint32_t _reserved_8 : 4;
+    uint32_t _reserved_0 : 4;
     eSMAG_LCK SMAG_LCK : 1;
     eSMAP_LCK SMAP_LCK : 1;
     ePSP PSP : 1;
@@ -15896,7 +15896,7 @@ union P13SDID_JR1 {
   // Bit field definition.
   struct {
     uint32_t SDID : 16;
-    uint32_t _reserved_end : 16;
+    uint32_t _reserved_0 : 16;
   } bits;
   
   // Full 32-bit register value.
@@ -15981,7 +15981,7 @@ union P13SMAPR_JR1 {
     eG2_WRITE G2_WRITE : 1;
     eG2_TDO G2_TDO : 1;
     eG2_SMBLOB G2_SMBLOB : 1;
-    uint32_t _reserved_8 : 4;
+    uint32_t _reserved_0 : 4;
     eSMAG_LCK SMAG_LCK : 1;
     eSMAP_LCK SMAP_LCK : 1;
     ePSP PSP : 1;
@@ -16100,7 +16100,7 @@ union P14SDID_JR1 {
   // Bit field definition.
   struct {
     uint32_t SDID : 16;
-    uint32_t _reserved_end : 16;
+    uint32_t _reserved_0 : 16;
   } bits;
   
   // Full 32-bit register value.
@@ -16185,7 +16185,7 @@ union P14SMAPR_JR1 {
     eG2_WRITE G2_WRITE : 1;
     eG2_TDO G2_TDO : 1;
     eG2_SMBLOB G2_SMBLOB : 1;
-    uint32_t _reserved_8 : 4;
+    uint32_t _reserved_0 : 4;
     eSMAG_LCK SMAG_LCK : 1;
     eSMAP_LCK SMAP_LCK : 1;
     ePSP PSP : 1;
@@ -16304,7 +16304,7 @@ union P15SDID_JR1 {
   // Bit field definition.
   struct {
     uint32_t SDID : 16;
-    uint32_t _reserved_end : 16;
+    uint32_t _reserved_0 : 16;
   } bits;
   
   // Full 32-bit register value.
@@ -16389,7 +16389,7 @@ union P15SMAPR_JR1 {
     eG2_WRITE G2_WRITE : 1;
     eG2_TDO G2_TDO : 1;
     eG2_SMBLOB G2_SMBLOB : 1;
-    uint32_t _reserved_8 : 4;
+    uint32_t _reserved_0 : 4;
     eSMAG_LCK SMAG_LCK : 1;
     eSMAP_LCK SMAP_LCK : 1;
     ePSP PSP : 1;
@@ -16508,9 +16508,9 @@ union SMCR_JR1 {
   // Bit field definition.
   struct {
     uint32_t CMD : 4;
-    uint32_t _reserved_1 : 4;
+    uint32_t _reserved_0 : 4;
     uint32_t PRTN : 4;
-    uint32_t _reserved_2 : 4;
+    uint32_t _reserved_1 : 4;
     uint32_t PAGE : 16;
   } bits;
   
@@ -16543,13 +16543,13 @@ union SMCSR_JR1 {
   // Bit field definition.
   struct {
     uint32_t PRTN : 4;
-    uint32_t _reserved_1 : 2;
+    uint32_t _reserved_0 : 2;
     ePO PO : 2;
-    uint32_t _reserved_2 : 4;
+    uint32_t _reserved_1 : 4;
     uint32_t AERR : 2;
     eCERR CERR : 2;
     uint32_t PAGE : 12;
-    uint32_t _reserved_end : 4;
+    uint32_t _reserved_2 : 4;
   } bits;
   
   // Full 32-bit register value.
@@ -16605,11 +16605,11 @@ union REIR4JR1 {
   struct {
     uint32_t ICID : 11;
     uint32_t DID : 4;
-    uint32_t _reserved_2 : 1;
+    uint32_t _reserved_0 : 1;
     uint32_t AXCACHE : 4;
     uint32_t AXPROT : 3;
     uint32_t RWB : 1;
-    uint32_t _reserved_5 : 4;
+    uint32_t _reserved_1 : 4;
     uint32_t ERR : 2;
     uint32_t MIX : 2;
   } bits;
@@ -16636,7 +16636,7 @@ union REIR5JR1 {
     uint32_t KMOD : 1;
     uint32_t KEY : 1;
     uint32_t SMA : 1;
-    uint32_t _reserved_end : 2;
+    uint32_t _reserved_2 : 2;
   } bits;
   
   // Full 32-bit register value.
@@ -16671,7 +16671,7 @@ union IRSR_JR2 {
   // Bit field definition.
   struct {
     uint32_t IRS : 10;
-    uint32_t _reserved_end : 22;
+    uint32_t _reserved_0 : 22;
   } bits;
   
   // Full 32-bit register value.
@@ -16689,7 +16689,7 @@ union IRSAR_JR2 {
   // Bit field definition.
   struct {
     uint32_t IRSA : 10;
-    uint32_t _reserved_end : 22;
+    uint32_t _reserved_0 : 22;
   } bits;
   
   // Full 32-bit register value.
@@ -16707,7 +16707,7 @@ union IRJAR_JR2 {
   // Bit field definition.
   struct {
     uint32_t IRJA : 10;
-    uint32_t _reserved_end : 22;
+    uint32_t _reserved_0 : 22;
   } bits;
   
   // Full 32-bit register value.
@@ -16742,7 +16742,7 @@ union ORSR_JR2 {
   // Bit field definition.
   struct {
     uint32_t ORS : 10;
-    uint32_t _reserved_end : 22;
+    uint32_t _reserved_0 : 22;
   } bits;
   
   // Full 32-bit register value.
@@ -16760,7 +16760,7 @@ union ORJRR_JR2 {
   // Bit field definition.
   struct {
     uint32_t ORJR : 10;
-    uint32_t _reserved_end : 22;
+    uint32_t _reserved_0 : 22;
   } bits;
   
   // Full 32-bit register value.
@@ -16778,7 +16778,7 @@ union ORSFR_JR2 {
   // Bit field definition.
   struct {
     uint32_t ORSF : 10;
-    uint32_t _reserved_end : 22;
+    uint32_t _reserved_0 : 22;
   } bits;
   
   // Full 32-bit register value.
@@ -16846,11 +16846,11 @@ union JRINTR_JR2 {
     uint32_t HALT : 2;
     uint32_t ENTER_FAIL : 1;
     uint32_t EXIT_FAIL : 1;
-    uint32_t _reserved_5 : 2;
+    uint32_t _reserved_0 : 2;
     eERR_TYPE ERR_TYPE : 5;
-    uint32_t _reserved_6 : 3;
+    uint32_t _reserved_1 : 3;
     uint32_t ERR_ORWI : 14;
-    uint32_t _reserved_end : 2;
+    uint32_t _reserved_2 : 2;
   } bits;
   
   // Full 32-bit register value.
@@ -16870,26 +16870,26 @@ union JRCFGR_JR2_MS {
     uint32_t MBSI : 1;
     uint32_t MHWSI : 1;
     uint32_t MWSI : 1;
-    uint32_t _reserved_3 : 1;
+    uint32_t _reserved_0 : 1;
     uint32_t CBSI : 1;
     uint32_t CHWSI : 1;
     uint32_t CWSI : 1;
-    uint32_t _reserved_6 : 1;
+    uint32_t _reserved_1 : 1;
     uint32_t MBSO : 1;
     uint32_t MHWSO : 1;
     uint32_t MWSO : 1;
-    uint32_t _reserved_9 : 1;
+    uint32_t _reserved_2 : 1;
     uint32_t CBSO : 1;
     uint32_t CHWSO : 1;
     uint32_t CWSO : 1;
-    uint32_t _reserved_12 : 1;
+    uint32_t _reserved_3 : 1;
     uint32_t DMBS : 1;
     uint32_t PEO : 1;
     uint32_t DWSO : 1;
-    uint32_t _reserved_15 : 10;
+    uint32_t _reserved_4 : 10;
     uint32_t FAIL_MODE : 1;
     uint32_t INCL_SEQ_OUT : 1;
-    uint32_t _reserved_end : 1;
+    uint32_t _reserved_5 : 1;
   } bits;
   
   // Full 32-bit register value.
@@ -16918,7 +16918,7 @@ union JRCFGR_JR2_LS {
   struct {
     eIMSK IMSK : 1;
     eICEN ICEN : 1;
-    uint32_t _reserved_2 : 6;
+    uint32_t _reserved_0 : 6;
     uint32_t ICDCT : 8;
     uint32_t ICTT : 16;
   } bits;
@@ -16938,7 +16938,7 @@ union IRRIR_JR2 {
   // Bit field definition.
   struct {
     uint32_t IRRI : 13;
-    uint32_t _reserved_end : 19;
+    uint32_t _reserved_0 : 19;
   } bits;
   
   // Full 32-bit register value.
@@ -16956,7 +16956,7 @@ union ORWIR_JR2 {
   // Bit field definition.
   struct {
     uint32_t ORWI : 14;
-    uint32_t _reserved_end : 18;
+    uint32_t _reserved_0 : 18;
   } bits;
   
   // Full 32-bit register value.
@@ -16975,7 +16975,7 @@ union JRCR_JR2 {
   struct {
     uint32_t RESET : 1;
     uint32_t PARK : 1;
-    uint32_t _reserved_end : 30;
+    uint32_t _reserved_0 : 30;
   } bits;
   
   // Full 32-bit register value.
@@ -16996,7 +16996,7 @@ union JR2AAV {
     uint32_t V1 : 1;
     uint32_t V2 : 1;
     uint32_t V3 : 1;
-    uint32_t _reserved_4 : 27;
+    uint32_t _reserved_0 : 27;
     uint32_t BC : 1;
   } bits;
   
@@ -17083,7 +17083,7 @@ union P0SDID_JR2 {
   // Bit field definition.
   struct {
     uint32_t SDID : 16;
-    uint32_t _reserved_end : 16;
+    uint32_t _reserved_0 : 16;
   } bits;
   
   // Full 32-bit register value.
@@ -17168,7 +17168,7 @@ union P0SMAPR_JR2 {
     eG2_WRITE G2_WRITE : 1;
     eG2_TDO G2_TDO : 1;
     eG2_SMBLOB G2_SMBLOB : 1;
-    uint32_t _reserved_8 : 4;
+    uint32_t _reserved_0 : 4;
     eSMAG_LCK SMAG_LCK : 1;
     eSMAP_LCK SMAP_LCK : 1;
     ePSP PSP : 1;
@@ -17287,7 +17287,7 @@ union P1SDID_JR2 {
   // Bit field definition.
   struct {
     uint32_t SDID : 16;
-    uint32_t _reserved_end : 16;
+    uint32_t _reserved_0 : 16;
   } bits;
   
   // Full 32-bit register value.
@@ -17372,7 +17372,7 @@ union P1SMAPR_JR2 {
     eG2_WRITE G2_WRITE : 1;
     eG2_TDO G2_TDO : 1;
     eG2_SMBLOB G2_SMBLOB : 1;
-    uint32_t _reserved_8 : 4;
+    uint32_t _reserved_0 : 4;
     eSMAG_LCK SMAG_LCK : 1;
     eSMAP_LCK SMAP_LCK : 1;
     ePSP PSP : 1;
@@ -17491,7 +17491,7 @@ union P2SDID_JR2 {
   // Bit field definition.
   struct {
     uint32_t SDID : 16;
-    uint32_t _reserved_end : 16;
+    uint32_t _reserved_0 : 16;
   } bits;
   
   // Full 32-bit register value.
@@ -17576,7 +17576,7 @@ union P2SMAPR_JR2 {
     eG2_WRITE G2_WRITE : 1;
     eG2_TDO G2_TDO : 1;
     eG2_SMBLOB G2_SMBLOB : 1;
-    uint32_t _reserved_8 : 4;
+    uint32_t _reserved_0 : 4;
     eSMAG_LCK SMAG_LCK : 1;
     eSMAP_LCK SMAP_LCK : 1;
     ePSP PSP : 1;
@@ -17695,7 +17695,7 @@ union P3SDID_JR2 {
   // Bit field definition.
   struct {
     uint32_t SDID : 16;
-    uint32_t _reserved_end : 16;
+    uint32_t _reserved_0 : 16;
   } bits;
   
   // Full 32-bit register value.
@@ -17780,7 +17780,7 @@ union P3SMAPR_JR2 {
     eG2_WRITE G2_WRITE : 1;
     eG2_TDO G2_TDO : 1;
     eG2_SMBLOB G2_SMBLOB : 1;
-    uint32_t _reserved_8 : 4;
+    uint32_t _reserved_0 : 4;
     eSMAG_LCK SMAG_LCK : 1;
     eSMAP_LCK SMAP_LCK : 1;
     ePSP PSP : 1;
@@ -17899,7 +17899,7 @@ union P4SDID_JR2 {
   // Bit field definition.
   struct {
     uint32_t SDID : 16;
-    uint32_t _reserved_end : 16;
+    uint32_t _reserved_0 : 16;
   } bits;
   
   // Full 32-bit register value.
@@ -17984,7 +17984,7 @@ union P4SMAPR_JR2 {
     eG2_WRITE G2_WRITE : 1;
     eG2_TDO G2_TDO : 1;
     eG2_SMBLOB G2_SMBLOB : 1;
-    uint32_t _reserved_8 : 4;
+    uint32_t _reserved_0 : 4;
     eSMAG_LCK SMAG_LCK : 1;
     eSMAP_LCK SMAP_LCK : 1;
     ePSP PSP : 1;
@@ -18103,7 +18103,7 @@ union P5SDID_JR2 {
   // Bit field definition.
   struct {
     uint32_t SDID : 16;
-    uint32_t _reserved_end : 16;
+    uint32_t _reserved_0 : 16;
   } bits;
   
   // Full 32-bit register value.
@@ -18188,7 +18188,7 @@ union P5SMAPR_JR2 {
     eG2_WRITE G2_WRITE : 1;
     eG2_TDO G2_TDO : 1;
     eG2_SMBLOB G2_SMBLOB : 1;
-    uint32_t _reserved_8 : 4;
+    uint32_t _reserved_0 : 4;
     eSMAG_LCK SMAG_LCK : 1;
     eSMAP_LCK SMAP_LCK : 1;
     ePSP PSP : 1;
@@ -18307,7 +18307,7 @@ union P6SDID_JR2 {
   // Bit field definition.
   struct {
     uint32_t SDID : 16;
-    uint32_t _reserved_end : 16;
+    uint32_t _reserved_0 : 16;
   } bits;
   
   // Full 32-bit register value.
@@ -18392,7 +18392,7 @@ union P6SMAPR_JR2 {
     eG2_WRITE G2_WRITE : 1;
     eG2_TDO G2_TDO : 1;
     eG2_SMBLOB G2_SMBLOB : 1;
-    uint32_t _reserved_8 : 4;
+    uint32_t _reserved_0 : 4;
     eSMAG_LCK SMAG_LCK : 1;
     eSMAP_LCK SMAP_LCK : 1;
     ePSP PSP : 1;
@@ -18511,7 +18511,7 @@ union P7SDID_JR2 {
   // Bit field definition.
   struct {
     uint32_t SDID : 16;
-    uint32_t _reserved_end : 16;
+    uint32_t _reserved_0 : 16;
   } bits;
   
   // Full 32-bit register value.
@@ -18596,7 +18596,7 @@ union P7SMAPR_JR2 {
     eG2_WRITE G2_WRITE : 1;
     eG2_TDO G2_TDO : 1;
     eG2_SMBLOB G2_SMBLOB : 1;
-    uint32_t _reserved_8 : 4;
+    uint32_t _reserved_0 : 4;
     eSMAG_LCK SMAG_LCK : 1;
     eSMAP_LCK SMAP_LCK : 1;
     ePSP PSP : 1;
@@ -18715,7 +18715,7 @@ union P8SDID_JR2 {
   // Bit field definition.
   struct {
     uint32_t SDID : 16;
-    uint32_t _reserved_end : 16;
+    uint32_t _reserved_0 : 16;
   } bits;
   
   // Full 32-bit register value.
@@ -18800,7 +18800,7 @@ union P8SMAPR_JR2 {
     eG2_WRITE G2_WRITE : 1;
     eG2_TDO G2_TDO : 1;
     eG2_SMBLOB G2_SMBLOB : 1;
-    uint32_t _reserved_8 : 4;
+    uint32_t _reserved_0 : 4;
     eSMAG_LCK SMAG_LCK : 1;
     eSMAP_LCK SMAP_LCK : 1;
     ePSP PSP : 1;
@@ -18919,7 +18919,7 @@ union P9SDID_JR2 {
   // Bit field definition.
   struct {
     uint32_t SDID : 16;
-    uint32_t _reserved_end : 16;
+    uint32_t _reserved_0 : 16;
   } bits;
   
   // Full 32-bit register value.
@@ -19004,7 +19004,7 @@ union P9SMAPR_JR2 {
     eG2_WRITE G2_WRITE : 1;
     eG2_TDO G2_TDO : 1;
     eG2_SMBLOB G2_SMBLOB : 1;
-    uint32_t _reserved_8 : 4;
+    uint32_t _reserved_0 : 4;
     eSMAG_LCK SMAG_LCK : 1;
     eSMAP_LCK SMAP_LCK : 1;
     ePSP PSP : 1;
@@ -19123,7 +19123,7 @@ union P10SDID_JR2 {
   // Bit field definition.
   struct {
     uint32_t SDID : 16;
-    uint32_t _reserved_end : 16;
+    uint32_t _reserved_0 : 16;
   } bits;
   
   // Full 32-bit register value.
@@ -19208,7 +19208,7 @@ union P10SMAPR_JR2 {
     eG2_WRITE G2_WRITE : 1;
     eG2_TDO G2_TDO : 1;
     eG2_SMBLOB G2_SMBLOB : 1;
-    uint32_t _reserved_8 : 4;
+    uint32_t _reserved_0 : 4;
     eSMAG_LCK SMAG_LCK : 1;
     eSMAP_LCK SMAP_LCK : 1;
     ePSP PSP : 1;
@@ -19327,7 +19327,7 @@ union P11SDID_JR2 {
   // Bit field definition.
   struct {
     uint32_t SDID : 16;
-    uint32_t _reserved_end : 16;
+    uint32_t _reserved_0 : 16;
   } bits;
   
   // Full 32-bit register value.
@@ -19412,7 +19412,7 @@ union P11SMAPR_JR2 {
     eG2_WRITE G2_WRITE : 1;
     eG2_TDO G2_TDO : 1;
     eG2_SMBLOB G2_SMBLOB : 1;
-    uint32_t _reserved_8 : 4;
+    uint32_t _reserved_0 : 4;
     eSMAG_LCK SMAG_LCK : 1;
     eSMAP_LCK SMAP_LCK : 1;
     ePSP PSP : 1;
@@ -19531,7 +19531,7 @@ union P12SDID_JR2 {
   // Bit field definition.
   struct {
     uint32_t SDID : 16;
-    uint32_t _reserved_end : 16;
+    uint32_t _reserved_0 : 16;
   } bits;
   
   // Full 32-bit register value.
@@ -19616,7 +19616,7 @@ union P12SMAPR_JR2 {
     eG2_WRITE G2_WRITE : 1;
     eG2_TDO G2_TDO : 1;
     eG2_SMBLOB G2_SMBLOB : 1;
-    uint32_t _reserved_8 : 4;
+    uint32_t _reserved_0 : 4;
     eSMAG_LCK SMAG_LCK : 1;
     eSMAP_LCK SMAP_LCK : 1;
     ePSP PSP : 1;
@@ -19735,7 +19735,7 @@ union P13SDID_JR2 {
   // Bit field definition.
   struct {
     uint32_t SDID : 16;
-    uint32_t _reserved_end : 16;
+    uint32_t _reserved_0 : 16;
   } bits;
   
   // Full 32-bit register value.
@@ -19820,7 +19820,7 @@ union P13SMAPR_JR2 {
     eG2_WRITE G2_WRITE : 1;
     eG2_TDO G2_TDO : 1;
     eG2_SMBLOB G2_SMBLOB : 1;
-    uint32_t _reserved_8 : 4;
+    uint32_t _reserved_0 : 4;
     eSMAG_LCK SMAG_LCK : 1;
     eSMAP_LCK SMAP_LCK : 1;
     ePSP PSP : 1;
@@ -19939,7 +19939,7 @@ union P14SDID_JR2 {
   // Bit field definition.
   struct {
     uint32_t SDID : 16;
-    uint32_t _reserved_end : 16;
+    uint32_t _reserved_0 : 16;
   } bits;
   
   // Full 32-bit register value.
@@ -20024,7 +20024,7 @@ union P14SMAPR_JR2 {
     eG2_WRITE G2_WRITE : 1;
     eG2_TDO G2_TDO : 1;
     eG2_SMBLOB G2_SMBLOB : 1;
-    uint32_t _reserved_8 : 4;
+    uint32_t _reserved_0 : 4;
     eSMAG_LCK SMAG_LCK : 1;
     eSMAP_LCK SMAP_LCK : 1;
     ePSP PSP : 1;
@@ -20143,7 +20143,7 @@ union P15SDID_JR2 {
   // Bit field definition.
   struct {
     uint32_t SDID : 16;
-    uint32_t _reserved_end : 16;
+    uint32_t _reserved_0 : 16;
   } bits;
   
   // Full 32-bit register value.
@@ -20228,7 +20228,7 @@ union P15SMAPR_JR2 {
     eG2_WRITE G2_WRITE : 1;
     eG2_TDO G2_TDO : 1;
     eG2_SMBLOB G2_SMBLOB : 1;
-    uint32_t _reserved_8 : 4;
+    uint32_t _reserved_0 : 4;
     eSMAG_LCK SMAG_LCK : 1;
     eSMAP_LCK SMAP_LCK : 1;
     ePSP PSP : 1;
@@ -20347,9 +20347,9 @@ union SMCR_JR2 {
   // Bit field definition.
   struct {
     uint32_t CMD : 4;
-    uint32_t _reserved_1 : 4;
+    uint32_t _reserved_0 : 4;
     uint32_t PRTN : 4;
-    uint32_t _reserved_2 : 4;
+    uint32_t _reserved_1 : 4;
     uint32_t PAGE : 16;
   } bits;
   
@@ -20382,13 +20382,13 @@ union SMCSR_JR2 {
   // Bit field definition.
   struct {
     uint32_t PRTN : 4;
-    uint32_t _reserved_1 : 2;
+    uint32_t _reserved_0 : 2;
     ePO PO : 2;
-    uint32_t _reserved_2 : 4;
+    uint32_t _reserved_1 : 4;
     uint32_t AERR : 2;
     eCERR CERR : 2;
     uint32_t PAGE : 12;
-    uint32_t _reserved_end : 4;
+    uint32_t _reserved_2 : 4;
   } bits;
   
   // Full 32-bit register value.
@@ -20444,11 +20444,11 @@ union REIR4JR2 {
   struct {
     uint32_t ICID : 11;
     uint32_t DID : 4;
-    uint32_t _reserved_2 : 1;
+    uint32_t _reserved_0 : 1;
     uint32_t AXCACHE : 4;
     uint32_t AXPROT : 3;
     uint32_t RWB : 1;
-    uint32_t _reserved_5 : 4;
+    uint32_t _reserved_1 : 4;
     uint32_t ERR : 2;
     uint32_t MIX : 2;
   } bits;
@@ -20475,7 +20475,7 @@ union REIR5JR2 {
     uint32_t KMOD : 1;
     uint32_t KEY : 1;
     uint32_t SMA : 1;
-    uint32_t _reserved_end : 2;
+    uint32_t _reserved_2 : 2;
   } bits;
   
   // Full 32-bit register value.
@@ -20510,7 +20510,7 @@ union IRSR_JR3 {
   // Bit field definition.
   struct {
     uint32_t IRS : 10;
-    uint32_t _reserved_end : 22;
+    uint32_t _reserved_0 : 22;
   } bits;
   
   // Full 32-bit register value.
@@ -20528,7 +20528,7 @@ union IRSAR_JR3 {
   // Bit field definition.
   struct {
     uint32_t IRSA : 10;
-    uint32_t _reserved_end : 22;
+    uint32_t _reserved_0 : 22;
   } bits;
   
   // Full 32-bit register value.
@@ -20546,7 +20546,7 @@ union IRJAR_JR3 {
   // Bit field definition.
   struct {
     uint32_t IRJA : 10;
-    uint32_t _reserved_end : 22;
+    uint32_t _reserved_0 : 22;
   } bits;
   
   // Full 32-bit register value.
@@ -20581,7 +20581,7 @@ union ORSR_JR3 {
   // Bit field definition.
   struct {
     uint32_t ORS : 10;
-    uint32_t _reserved_end : 22;
+    uint32_t _reserved_0 : 22;
   } bits;
   
   // Full 32-bit register value.
@@ -20599,7 +20599,7 @@ union ORJRR_JR3 {
   // Bit field definition.
   struct {
     uint32_t ORJR : 10;
-    uint32_t _reserved_end : 22;
+    uint32_t _reserved_0 : 22;
   } bits;
   
   // Full 32-bit register value.
@@ -20617,7 +20617,7 @@ union ORSFR_JR3 {
   // Bit field definition.
   struct {
     uint32_t ORSF : 10;
-    uint32_t _reserved_end : 22;
+    uint32_t _reserved_0 : 22;
   } bits;
   
   // Full 32-bit register value.
@@ -20685,11 +20685,11 @@ union JRINTR_JR3 {
     uint32_t HALT : 2;
     uint32_t ENTER_FAIL : 1;
     uint32_t EXIT_FAIL : 1;
-    uint32_t _reserved_5 : 2;
+    uint32_t _reserved_0 : 2;
     eERR_TYPE ERR_TYPE : 5;
-    uint32_t _reserved_6 : 3;
+    uint32_t _reserved_1 : 3;
     uint32_t ERR_ORWI : 14;
-    uint32_t _reserved_end : 2;
+    uint32_t _reserved_2 : 2;
   } bits;
   
   // Full 32-bit register value.
@@ -20709,26 +20709,26 @@ union JRCFGR_JR3_MS {
     uint32_t MBSI : 1;
     uint32_t MHWSI : 1;
     uint32_t MWSI : 1;
-    uint32_t _reserved_3 : 1;
+    uint32_t _reserved_0 : 1;
     uint32_t CBSI : 1;
     uint32_t CHWSI : 1;
     uint32_t CWSI : 1;
-    uint32_t _reserved_6 : 1;
+    uint32_t _reserved_1 : 1;
     uint32_t MBSO : 1;
     uint32_t MHWSO : 1;
     uint32_t MWSO : 1;
-    uint32_t _reserved_9 : 1;
+    uint32_t _reserved_2 : 1;
     uint32_t CBSO : 1;
     uint32_t CHWSO : 1;
     uint32_t CWSO : 1;
-    uint32_t _reserved_12 : 1;
+    uint32_t _reserved_3 : 1;
     uint32_t DMBS : 1;
     uint32_t PEO : 1;
     uint32_t DWSO : 1;
-    uint32_t _reserved_15 : 10;
+    uint32_t _reserved_4 : 10;
     uint32_t FAIL_MODE : 1;
     uint32_t INCL_SEQ_OUT : 1;
-    uint32_t _reserved_end : 1;
+    uint32_t _reserved_5 : 1;
   } bits;
   
   // Full 32-bit register value.
@@ -20757,7 +20757,7 @@ union JRCFGR_JR3_LS {
   struct {
     eIMSK IMSK : 1;
     eICEN ICEN : 1;
-    uint32_t _reserved_2 : 6;
+    uint32_t _reserved_0 : 6;
     uint32_t ICDCT : 8;
     uint32_t ICTT : 16;
   } bits;
@@ -20777,7 +20777,7 @@ union IRRIR_JR3 {
   // Bit field definition.
   struct {
     uint32_t IRRI : 13;
-    uint32_t _reserved_end : 19;
+    uint32_t _reserved_0 : 19;
   } bits;
   
   // Full 32-bit register value.
@@ -20795,7 +20795,7 @@ union ORWIR_JR3 {
   // Bit field definition.
   struct {
     uint32_t ORWI : 14;
-    uint32_t _reserved_end : 18;
+    uint32_t _reserved_0 : 18;
   } bits;
   
   // Full 32-bit register value.
@@ -20814,7 +20814,7 @@ union JRCR_JR3 {
   struct {
     uint32_t RESET : 1;
     uint32_t PARK : 1;
-    uint32_t _reserved_end : 30;
+    uint32_t _reserved_0 : 30;
   } bits;
   
   // Full 32-bit register value.
@@ -20835,7 +20835,7 @@ union JR3AAV {
     uint32_t V1 : 1;
     uint32_t V2 : 1;
     uint32_t V3 : 1;
-    uint32_t _reserved_4 : 27;
+    uint32_t _reserved_0 : 27;
     uint32_t BC : 1;
   } bits;
   
@@ -20922,7 +20922,7 @@ union P0SDID_JR3 {
   // Bit field definition.
   struct {
     uint32_t SDID : 16;
-    uint32_t _reserved_end : 16;
+    uint32_t _reserved_0 : 16;
   } bits;
   
   // Full 32-bit register value.
@@ -21007,7 +21007,7 @@ union P0SMAPR_JR3 {
     eG2_WRITE G2_WRITE : 1;
     eG2_TDO G2_TDO : 1;
     eG2_SMBLOB G2_SMBLOB : 1;
-    uint32_t _reserved_8 : 4;
+    uint32_t _reserved_0 : 4;
     eSMAG_LCK SMAG_LCK : 1;
     eSMAP_LCK SMAP_LCK : 1;
     ePSP PSP : 1;
@@ -21126,7 +21126,7 @@ union P1SDID_JR3 {
   // Bit field definition.
   struct {
     uint32_t SDID : 16;
-    uint32_t _reserved_end : 16;
+    uint32_t _reserved_0 : 16;
   } bits;
   
   // Full 32-bit register value.
@@ -21211,7 +21211,7 @@ union P1SMAPR_JR3 {
     eG2_WRITE G2_WRITE : 1;
     eG2_TDO G2_TDO : 1;
     eG2_SMBLOB G2_SMBLOB : 1;
-    uint32_t _reserved_8 : 4;
+    uint32_t _reserved_0 : 4;
     eSMAG_LCK SMAG_LCK : 1;
     eSMAP_LCK SMAP_LCK : 1;
     ePSP PSP : 1;
@@ -21330,7 +21330,7 @@ union P2SDID_JR3 {
   // Bit field definition.
   struct {
     uint32_t SDID : 16;
-    uint32_t _reserved_end : 16;
+    uint32_t _reserved_0 : 16;
   } bits;
   
   // Full 32-bit register value.
@@ -21415,7 +21415,7 @@ union P2SMAPR_JR3 {
     eG2_WRITE G2_WRITE : 1;
     eG2_TDO G2_TDO : 1;
     eG2_SMBLOB G2_SMBLOB : 1;
-    uint32_t _reserved_8 : 4;
+    uint32_t _reserved_0 : 4;
     eSMAG_LCK SMAG_LCK : 1;
     eSMAP_LCK SMAP_LCK : 1;
     ePSP PSP : 1;
@@ -21534,7 +21534,7 @@ union P3SDID_JR3 {
   // Bit field definition.
   struct {
     uint32_t SDID : 16;
-    uint32_t _reserved_end : 16;
+    uint32_t _reserved_0 : 16;
   } bits;
   
   // Full 32-bit register value.
@@ -21619,7 +21619,7 @@ union P3SMAPR_JR3 {
     eG2_WRITE G2_WRITE : 1;
     eG2_TDO G2_TDO : 1;
     eG2_SMBLOB G2_SMBLOB : 1;
-    uint32_t _reserved_8 : 4;
+    uint32_t _reserved_0 : 4;
     eSMAG_LCK SMAG_LCK : 1;
     eSMAP_LCK SMAP_LCK : 1;
     ePSP PSP : 1;
@@ -21738,7 +21738,7 @@ union P4SDID_JR3 {
   // Bit field definition.
   struct {
     uint32_t SDID : 16;
-    uint32_t _reserved_end : 16;
+    uint32_t _reserved_0 : 16;
   } bits;
   
   // Full 32-bit register value.
@@ -21823,7 +21823,7 @@ union P4SMAPR_JR3 {
     eG2_WRITE G2_WRITE : 1;
     eG2_TDO G2_TDO : 1;
     eG2_SMBLOB G2_SMBLOB : 1;
-    uint32_t _reserved_8 : 4;
+    uint32_t _reserved_0 : 4;
     eSMAG_LCK SMAG_LCK : 1;
     eSMAP_LCK SMAP_LCK : 1;
     ePSP PSP : 1;
@@ -21942,7 +21942,7 @@ union P5SDID_JR3 {
   // Bit field definition.
   struct {
     uint32_t SDID : 16;
-    uint32_t _reserved_end : 16;
+    uint32_t _reserved_0 : 16;
   } bits;
   
   // Full 32-bit register value.
@@ -22027,7 +22027,7 @@ union P5SMAPR_JR3 {
     eG2_WRITE G2_WRITE : 1;
     eG2_TDO G2_TDO : 1;
     eG2_SMBLOB G2_SMBLOB : 1;
-    uint32_t _reserved_8 : 4;
+    uint32_t _reserved_0 : 4;
     eSMAG_LCK SMAG_LCK : 1;
     eSMAP_LCK SMAP_LCK : 1;
     ePSP PSP : 1;
@@ -22146,7 +22146,7 @@ union P6SDID_JR3 {
   // Bit field definition.
   struct {
     uint32_t SDID : 16;
-    uint32_t _reserved_end : 16;
+    uint32_t _reserved_0 : 16;
   } bits;
   
   // Full 32-bit register value.
@@ -22231,7 +22231,7 @@ union P6SMAPR_JR3 {
     eG2_WRITE G2_WRITE : 1;
     eG2_TDO G2_TDO : 1;
     eG2_SMBLOB G2_SMBLOB : 1;
-    uint32_t _reserved_8 : 4;
+    uint32_t _reserved_0 : 4;
     eSMAG_LCK SMAG_LCK : 1;
     eSMAP_LCK SMAP_LCK : 1;
     ePSP PSP : 1;
@@ -22350,7 +22350,7 @@ union P7SDID_JR3 {
   // Bit field definition.
   struct {
     uint32_t SDID : 16;
-    uint32_t _reserved_end : 16;
+    uint32_t _reserved_0 : 16;
   } bits;
   
   // Full 32-bit register value.
@@ -22435,7 +22435,7 @@ union P7SMAPR_JR3 {
     eG2_WRITE G2_WRITE : 1;
     eG2_TDO G2_TDO : 1;
     eG2_SMBLOB G2_SMBLOB : 1;
-    uint32_t _reserved_8 : 4;
+    uint32_t _reserved_0 : 4;
     eSMAG_LCK SMAG_LCK : 1;
     eSMAP_LCK SMAP_LCK : 1;
     ePSP PSP : 1;
@@ -22554,7 +22554,7 @@ union P8SDID_JR3 {
   // Bit field definition.
   struct {
     uint32_t SDID : 16;
-    uint32_t _reserved_end : 16;
+    uint32_t _reserved_0 : 16;
   } bits;
   
   // Full 32-bit register value.
@@ -22639,7 +22639,7 @@ union P8SMAPR_JR3 {
     eG2_WRITE G2_WRITE : 1;
     eG2_TDO G2_TDO : 1;
     eG2_SMBLOB G2_SMBLOB : 1;
-    uint32_t _reserved_8 : 4;
+    uint32_t _reserved_0 : 4;
     eSMAG_LCK SMAG_LCK : 1;
     eSMAP_LCK SMAP_LCK : 1;
     ePSP PSP : 1;
@@ -22758,7 +22758,7 @@ union P9SDID_JR3 {
   // Bit field definition.
   struct {
     uint32_t SDID : 16;
-    uint32_t _reserved_end : 16;
+    uint32_t _reserved_0 : 16;
   } bits;
   
   // Full 32-bit register value.
@@ -22843,7 +22843,7 @@ union P9SMAPR_JR3 {
     eG2_WRITE G2_WRITE : 1;
     eG2_TDO G2_TDO : 1;
     eG2_SMBLOB G2_SMBLOB : 1;
-    uint32_t _reserved_8 : 4;
+    uint32_t _reserved_0 : 4;
     eSMAG_LCK SMAG_LCK : 1;
     eSMAP_LCK SMAP_LCK : 1;
     ePSP PSP : 1;
@@ -22962,7 +22962,7 @@ union P10SDID_JR3 {
   // Bit field definition.
   struct {
     uint32_t SDID : 16;
-    uint32_t _reserved_end : 16;
+    uint32_t _reserved_0 : 16;
   } bits;
   
   // Full 32-bit register value.
@@ -23047,7 +23047,7 @@ union P10SMAPR_JR3 {
     eG2_WRITE G2_WRITE : 1;
     eG2_TDO G2_TDO : 1;
     eG2_SMBLOB G2_SMBLOB : 1;
-    uint32_t _reserved_8 : 4;
+    uint32_t _reserved_0 : 4;
     eSMAG_LCK SMAG_LCK : 1;
     eSMAP_LCK SMAP_LCK : 1;
     ePSP PSP : 1;
@@ -23166,7 +23166,7 @@ union P11SDID_JR3 {
   // Bit field definition.
   struct {
     uint32_t SDID : 16;
-    uint32_t _reserved_end : 16;
+    uint32_t _reserved_0 : 16;
   } bits;
   
   // Full 32-bit register value.
@@ -23251,7 +23251,7 @@ union P11SMAPR_JR3 {
     eG2_WRITE G2_WRITE : 1;
     eG2_TDO G2_TDO : 1;
     eG2_SMBLOB G2_SMBLOB : 1;
-    uint32_t _reserved_8 : 4;
+    uint32_t _reserved_0 : 4;
     eSMAG_LCK SMAG_LCK : 1;
     eSMAP_LCK SMAP_LCK : 1;
     ePSP PSP : 1;
@@ -23370,7 +23370,7 @@ union P12SDID_JR3 {
   // Bit field definition.
   struct {
     uint32_t SDID : 16;
-    uint32_t _reserved_end : 16;
+    uint32_t _reserved_0 : 16;
   } bits;
   
   // Full 32-bit register value.
@@ -23455,7 +23455,7 @@ union P12SMAPR_JR3 {
     eG2_WRITE G2_WRITE : 1;
     eG2_TDO G2_TDO : 1;
     eG2_SMBLOB G2_SMBLOB : 1;
-    uint32_t _reserved_8 : 4;
+    uint32_t _reserved_0 : 4;
     eSMAG_LCK SMAG_LCK : 1;
     eSMAP_LCK SMAP_LCK : 1;
     ePSP PSP : 1;
@@ -23574,7 +23574,7 @@ union P13SDID_JR3 {
   // Bit field definition.
   struct {
     uint32_t SDID : 16;
-    uint32_t _reserved_end : 16;
+    uint32_t _reserved_0 : 16;
   } bits;
   
   // Full 32-bit register value.
@@ -23659,7 +23659,7 @@ union P13SMAPR_JR3 {
     eG2_WRITE G2_WRITE : 1;
     eG2_TDO G2_TDO : 1;
     eG2_SMBLOB G2_SMBLOB : 1;
-    uint32_t _reserved_8 : 4;
+    uint32_t _reserved_0 : 4;
     eSMAG_LCK SMAG_LCK : 1;
     eSMAP_LCK SMAP_LCK : 1;
     ePSP PSP : 1;
@@ -23778,7 +23778,7 @@ union P14SDID_JR3 {
   // Bit field definition.
   struct {
     uint32_t SDID : 16;
-    uint32_t _reserved_end : 16;
+    uint32_t _reserved_0 : 16;
   } bits;
   
   // Full 32-bit register value.
@@ -23863,7 +23863,7 @@ union P14SMAPR_JR3 {
     eG2_WRITE G2_WRITE : 1;
     eG2_TDO G2_TDO : 1;
     eG2_SMBLOB G2_SMBLOB : 1;
-    uint32_t _reserved_8 : 4;
+    uint32_t _reserved_0 : 4;
     eSMAG_LCK SMAG_LCK : 1;
     eSMAP_LCK SMAP_LCK : 1;
     ePSP PSP : 1;
@@ -23982,7 +23982,7 @@ union P15SDID_JR3 {
   // Bit field definition.
   struct {
     uint32_t SDID : 16;
-    uint32_t _reserved_end : 16;
+    uint32_t _reserved_0 : 16;
   } bits;
   
   // Full 32-bit register value.
@@ -24067,7 +24067,7 @@ union P15SMAPR_JR3 {
     eG2_WRITE G2_WRITE : 1;
     eG2_TDO G2_TDO : 1;
     eG2_SMBLOB G2_SMBLOB : 1;
-    uint32_t _reserved_8 : 4;
+    uint32_t _reserved_0 : 4;
     eSMAG_LCK SMAG_LCK : 1;
     eSMAP_LCK SMAP_LCK : 1;
     ePSP PSP : 1;
@@ -24186,9 +24186,9 @@ union SMCR_JR3 {
   // Bit field definition.
   struct {
     uint32_t CMD : 4;
-    uint32_t _reserved_1 : 4;
+    uint32_t _reserved_0 : 4;
     uint32_t PRTN : 4;
-    uint32_t _reserved_2 : 4;
+    uint32_t _reserved_1 : 4;
     uint32_t PAGE : 16;
   } bits;
   
@@ -24221,13 +24221,13 @@ union SMCSR_JR3 {
   // Bit field definition.
   struct {
     uint32_t PRTN : 4;
-    uint32_t _reserved_1 : 2;
+    uint32_t _reserved_0 : 2;
     ePO PO : 2;
-    uint32_t _reserved_2 : 4;
+    uint32_t _reserved_1 : 4;
     uint32_t AERR : 2;
     eCERR CERR : 2;
     uint32_t PAGE : 12;
-    uint32_t _reserved_end : 4;
+    uint32_t _reserved_2 : 4;
   } bits;
   
   // Full 32-bit register value.
@@ -24283,11 +24283,11 @@ union REIR4JR3 {
   struct {
     uint32_t ICID : 11;
     uint32_t DID : 4;
-    uint32_t _reserved_2 : 1;
+    uint32_t _reserved_0 : 1;
     uint32_t AXCACHE : 4;
     uint32_t AXPROT : 3;
     uint32_t RWB : 1;
-    uint32_t _reserved_5 : 4;
+    uint32_t _reserved_1 : 4;
     uint32_t ERR : 2;
     uint32_t MIX : 2;
   } bits;
@@ -24314,7 +24314,7 @@ union REIR5JR3 {
     uint32_t KMOD : 1;
     uint32_t KEY : 1;
     uint32_t SMA : 1;
-    uint32_t _reserved_end : 2;
+    uint32_t _reserved_2 : 2;
   } bits;
   
   // Full 32-bit register value.
@@ -24379,14 +24379,14 @@ union RSTA {
     eHE HE : 1;
     eMIS MIS : 4;
     eAE AE : 4;
-    uint32_t _reserved_6 : 4;
+    uint32_t _reserved_0 : 4;
     eWE WE : 1;
     uint32_t ABH : 1;
     uint32_t HOD : 1;
     uint32_t RTD : 1;
-    uint32_t _reserved_10 : 5;
+    uint32_t _reserved_1 : 5;
     eCS CS : 2;
-    uint32_t _reserved_end : 5;
+    uint32_t _reserved_2 : 5;
   } bits;
   
   // Full 32-bit register value.
@@ -24427,7 +24427,7 @@ union RCMD {
     eHO HO : 1;
     eRTC RTC : 1;
     eRTD RTD : 1;
-    uint32_t _reserved_end : 28;
+    uint32_t _reserved_0 : 28;
   } bits;
   
   // Full 32-bit register value.
@@ -24456,7 +24456,7 @@ union RCTL {
     uint32_t RTMU : 4;
     uint32_t RALG : 4;
     uint32_t RIDLE : 1;
-    uint32_t _reserved_end : 11;
+    uint32_t _reserved_0 : 11;
   } bits;
   
   // Full 32-bit register value.
@@ -24474,7 +24474,7 @@ union RTHR {
   // Bit field definition.
   struct {
     uint32_t RTHR : 16;
-    uint32_t _reserved_end : 16;
+    uint32_t _reserved_0 : 16;
   } bits;
   
   // Full 32-bit register value.
@@ -24528,7 +24528,7 @@ union REND {
     eRBS RBS : 4;
     eRHWS RHWS : 4;
     eRWS RWS : 4;
-    uint32_t _reserved_end : 16;
+    uint32_t _reserved_0 : 16;
   } bits;
   
   // Full 32-bit register value.
@@ -24584,11 +24584,11 @@ union REIR4RTIC {
   struct {
     uint32_t ICID : 11;
     uint32_t DID : 4;
-    uint32_t _reserved_2 : 1;
+    uint32_t _reserved_0 : 1;
     uint32_t AXCACHE : 4;
     uint32_t AXPROT : 3;
     uint32_t RWB : 1;
-    uint32_t _reserved_5 : 4;
+    uint32_t _reserved_1 : 4;
     uint32_t ERR : 2;
     uint32_t MIX : 2;
   } bits;
@@ -24612,7 +24612,7 @@ union REIR5RTIC {
     uint32_t _reserved_1 : 4;
     uint32_t SAFE : 1;
     uint32_t SMA : 1;
-    uint32_t _reserved_end : 6;
+    uint32_t _reserved_2 : 6;
   } bits;
   
   // Full 32-bit register value.
@@ -24652,9 +24652,9 @@ union C0C1MR {
     uint32_t ICV_TEST : 1;
     eAS AS : 2;
     uint32_t AAI : 9;
-    uint32_t _reserved_4 : 3;
+    uint32_t _reserved_0 : 3;
     eALG ALG : 8;
-    uint32_t _reserved_end : 8;
+    uint32_t _reserved_1 : 8;
   } bits;
   
   // Full 32-bit register value.
@@ -24672,9 +24672,9 @@ union C0C1MR_PK {
   // Bit field definition.
   struct {
     uint32_t PKHA_MODE_LS : 12;
-    uint32_t _reserved_1 : 4;
+    uint32_t _reserved_0 : 4;
     uint32_t PKHA_MODE_MS : 4;
-    uint32_t _reserved_end : 12;
+    uint32_t _reserved_1 : 12;
   } bits;
   
   // Full 32-bit register value.
@@ -24729,15 +24729,15 @@ union C0C1MR_RNG {
     uint32_t PR : 1;
     uint32_t AS : 2;
     eSH SH : 2;
-    uint32_t _reserved_4 : 2;
+    uint32_t _reserved_0 : 2;
     eNZB NZB : 1;
     eOBP OBP : 1;
     ePS PS : 1;
     eAI AI : 1;
     eSK SK : 1;
-    uint32_t _reserved_9 : 3;
+    uint32_t _reserved_1 : 3;
     eALG ALG : 8;
-    uint32_t _reserved_end : 8;
+    uint32_t _reserved_2 : 8;
   } bits;
   
   // Full 32-bit register value.
@@ -24755,7 +24755,7 @@ union C0C1KSR {
   // Bit field definition.
   struct {
     uint32_t C1KS : 7;
-    uint32_t _reserved_end : 25;
+    uint32_t _reserved_0 : 25;
   } bits;
   
   // Full 32-bit register value.
@@ -24779,7 +24779,7 @@ union C0C1DSR {
   struct {
     uint32_t C1DS : 32;
     eC1CY C1CY : 1;
-    uint32_t _reserved_2 : 28;
+    uint32_t _reserved_0 : 28;
     uint32_t NUMBITS : 3;
   } bits;
   
@@ -24798,7 +24798,7 @@ union C0C1ICVSR {
   // Bit field definition.
   struct {
     uint32_t C1ICVS : 5;
-    uint32_t _reserved_end : 27;
+    uint32_t _reserved_0 : 27;
   } bits;
   
   // Full 32-bit register value.
@@ -24908,12 +24908,12 @@ union C0CCTRL {
     eCCB CCB : 1;
     eAES AES : 1;
     eDES DES : 1;
-    uint32_t _reserved_3 : 3;
+    uint32_t _reserved_0 : 3;
     ePK PK : 1;
     eMD MD : 1;
     eCRC CRC : 1;
     eRNG RNG : 1;
-    uint32_t _reserved_7 : 6;
+    uint32_t _reserved_1 : 6;
     eUA0 UA0 : 1;
     eUA1 UA1 : 1;
     eUA2 UA2 : 1;
@@ -24923,10 +24923,10 @@ union C0CCTRL {
     eUB2 UB2 : 1;
     eUB3 UB3 : 1;
     eUN UN : 1;
-    uint32_t _reserved_16 : 1;
+    uint32_t _reserved_2 : 1;
     eUA UA : 1;
     eUB UB : 1;
-    uint32_t _reserved_end : 4;
+    uint32_t _reserved_3 : 4;
   } bits;
   
   // Full 32-bit register value.
@@ -24976,20 +24976,20 @@ union C0ICTL {
     uint32_t _reserved_0 : 1;
     uint32_t ADI : 1;
     uint32_t DDI : 1;
-    uint32_t _reserved_2 : 3;
+    uint32_t _reserved_1 : 3;
     uint32_t PDI : 1;
     uint32_t MDI : 1;
     uint32_t CDI : 1;
     uint32_t RNDI : 1;
-    uint32_t _reserved_6 : 7;
+    uint32_t _reserved_2 : 7;
     eAEI AEI : 1;
     eDEI DEI : 1;
-    uint32_t _reserved_8 : 3;
+    uint32_t _reserved_3 : 3;
     ePEI PEI : 1;
     eMEI MEI : 1;
     eCEI CEI : 1;
     eRNEI RNEI : 1;
-    uint32_t _reserved_end : 6;
+    uint32_t _reserved_4 : 6;
   } bits;
   
   // Full 32-bit register value.
@@ -25107,24 +25107,24 @@ union C0CWR {
   // Bit field definition.
   struct {
     eC1M C1M : 1;
-    uint32_t _reserved_1 : 1;
+    uint32_t _reserved_0 : 1;
     eC1DS C1DS : 1;
     eC1ICV C1ICV : 1;
-    uint32_t _reserved_3 : 1;
+    uint32_t _reserved_1 : 1;
     eC1C C1C : 1;
     eC1K C1K : 1;
-    uint32_t _reserved_5 : 5;
+    uint32_t _reserved_2 : 5;
     eCPKA CPKA : 1;
     eCPKB CPKB : 1;
     eCPKN CPKN : 1;
     eCPKE CPKE : 1;
     eC2M C2M : 1;
-    uint32_t _reserved_10 : 1;
+    uint32_t _reserved_3 : 1;
     eC2DS C2DS : 1;
-    uint32_t _reserved_11 : 2;
+    uint32_t _reserved_4 : 2;
     eC2C C2C : 1;
     eC2K C2K : 1;
-    uint32_t _reserved_13 : 2;
+    uint32_t _reserved_5 : 2;
     eCDS CDS : 1;
     eC2D C2D : 1;
     eC1D C1D : 1;
@@ -25190,10 +25190,10 @@ union C0CSTA_MS {
   // Bit field definition.
   struct {
     eERRID1 ERRID1 : 4;
-    uint32_t _reserved_1 : 8;
+    uint32_t _reserved_0 : 8;
     eCL1 CL1 : 4;
     eERRID2 ERRID2 : 4;
-    uint32_t _reserved_3 : 8;
+    uint32_t _reserved_1 : 8;
     eCL2 CL2 : 4;
   } bits;
   
@@ -25279,22 +25279,22 @@ union C0CSTA_LS {
     uint32_t _reserved_0 : 1;
     eAB AB : 1;
     eDB DB : 1;
-    uint32_t _reserved_2 : 3;
+    uint32_t _reserved_1 : 3;
     ePB PB : 1;
     eMB MB : 1;
     eCB CB : 1;
     eRNB RNB : 1;
-    uint32_t _reserved_6 : 6;
+    uint32_t _reserved_2 : 6;
     ePDI PDI : 1;
     eSDI SDI : 1;
-    uint32_t _reserved_8 : 2;
+    uint32_t _reserved_3 : 2;
     ePEI PEI : 1;
     eSEI SEI : 1;
-    uint32_t _reserved_10 : 6;
+    uint32_t _reserved_4 : 6;
     ePRM PRM : 1;
     eGCD GCD : 1;
     ePIZ PIZ : 1;
-    uint32_t _reserved_end : 1;
+    uint32_t _reserved_5 : 1;
   } bits;
   
   // Full 32-bit register value.
@@ -25312,7 +25312,7 @@ union C0C1AADSZR {
   // Bit field definition.
   struct {
     uint32_t AASZ : 4;
-    uint32_t _reserved_end : 28;
+    uint32_t _reserved_0 : 28;
   } bits;
   
   // Full 32-bit register value.
@@ -25330,7 +25330,7 @@ union C0C1IVSZR {
   // Bit field definition.
   struct {
     uint32_t IVSZ : 4;
-    uint32_t _reserved_end : 28;
+    uint32_t _reserved_0 : 28;
   } bits;
   
   // Full 32-bit register value.
@@ -25348,7 +25348,7 @@ union C0PKASZR {
   // Bit field definition.
   struct {
     uint32_t PKASZ : 10;
-    uint32_t _reserved_end : 22;
+    uint32_t _reserved_0 : 22;
   } bits;
   
   // Full 32-bit register value.
@@ -25366,7 +25366,7 @@ union C0PKBSZR {
   // Bit field definition.
   struct {
     uint32_t PKBSZ : 10;
-    uint32_t _reserved_end : 22;
+    uint32_t _reserved_0 : 22;
   } bits;
   
   // Full 32-bit register value.
@@ -25384,7 +25384,7 @@ union C0PKNSZR {
   // Bit field definition.
   struct {
     uint32_t PKNSZ : 10;
-    uint32_t _reserved_end : 22;
+    uint32_t _reserved_0 : 22;
   } bits;
   
   // Full 32-bit register value.
@@ -25402,7 +25402,7 @@ union C0PKESZR {
   // Bit field definition.
   struct {
     uint32_t PKESZ : 10;
-    uint32_t _reserved_end : 22;
+    uint32_t _reserved_0 : 22;
   } bits;
   
   // Full 32-bit register value.
@@ -25860,9 +25860,9 @@ union C0C2MR {
     eICV ICV : 1;
     eAS AS : 2;
     uint32_t AAI : 9;
-    uint32_t _reserved_4 : 3;
+    uint32_t _reserved_0 : 3;
     eALG ALG : 8;
-    uint32_t _reserved_end : 8;
+    uint32_t _reserved_1 : 8;
   } bits;
   
   // Full 32-bit register value.
@@ -25880,7 +25880,7 @@ union C0C2KSR {
   // Bit field definition.
   struct {
     uint32_t C2KS : 8;
-    uint32_t _reserved_end : 24;
+    uint32_t _reserved_0 : 24;
   } bits;
   
   // Full 32-bit register value.
@@ -25904,7 +25904,7 @@ union C0C2DSR {
   struct {
     uint32_t C2DS : 32;
     eC2CY C2CY : 1;
-    uint32_t _reserved_2 : 28;
+    uint32_t _reserved_0 : 28;
     uint32_t NUMBITS : 3;
   } bits;
   
@@ -25923,7 +25923,7 @@ union C0C2ICVSZR {
   // Bit field definition.
   struct {
     uint32_t ICVSZ : 4;
-    uint32_t _reserved_end : 28;
+    uint32_t _reserved_0 : 28;
   } bits;
   
   // Full 32-bit register value.
@@ -26848,7 +26848,7 @@ union C0NFIFO {
   // Bit field definition.
   struct {
     uint32_t DL : 12;
-    uint32_t _reserved_1 : 2;
+    uint32_t _reserved_0 : 2;
     uint32_t AST : 1;
     eOC OC : 1;
     uint32_t PTYPE : 3;
@@ -26935,10 +26935,10 @@ union C0NFIFO_2 {
   // Bit field definition.
   struct {
     uint32_t PL : 7;
-    uint32_t _reserved_1 : 3;
+    uint32_t _reserved_0 : 3;
     ePS PS : 1;
     eBM BM : 1;
-    uint32_t _reserved_3 : 3;
+    uint32_t _reserved_1 : 3;
     ePR PR : 1;
     ePTYPE PTYPE : 3;
     eBND BND : 1;
@@ -27048,14 +27048,14 @@ union D0JQCR_MS {
   // Bit field definition.
   struct {
     uint32_t ID : 3;
-    uint32_t _reserved_1 : 5;
+    uint32_t _reserved_0 : 5;
     eSRC SRC : 3;
-    uint32_t _reserved_2 : 4;
+    uint32_t _reserved_1 : 4;
     eAMTD AMTD : 1;
     eSOB SOB : 1;
-    uint32_t _reserved_4 : 2;
+    uint32_t _reserved_2 : 2;
     eDWS DWS : 1;
-    uint32_t _reserved_5 : 4;
+    uint32_t _reserved_3 : 4;
     uint32_t SHR_FROM : 3;
     eILE ILE : 1;
     eFOUR FOUR : 1;
@@ -27128,7 +27128,7 @@ union D0OPSTA_MS {
   struct {
     uint32_t STATUS : 8;
     uint32_t COMMAND_INDEX : 7;
-    uint32_t _reserved_2 : 12;
+    uint32_t _reserved_0 : 12;
     eNLJ NLJ : 1;
     eSTATUS_TYPE STATUS_TYPE : 4;
   } bits;
@@ -27165,9 +27165,9 @@ union D0PDIDSR {
   // Bit field definition.
   struct {
     uint32_t PRIM_DID : 4;
-    uint32_t _reserved_1 : 15;
+    uint32_t _reserved_0 : 15;
     uint32_t PRIM_ICID : 11;
-    uint32_t _reserved_end : 2;
+    uint32_t _reserved_1 : 2;
   } bits;
   
   // Full 32-bit register value.
@@ -27185,9 +27185,9 @@ union D0ODIDSR {
   // Bit field definition.
   struct {
     uint32_t OUT_DID : 4;
-    uint32_t _reserved_1 : 15;
+    uint32_t _reserved_0 : 15;
     uint32_t OUT_ICID : 11;
-    uint32_t _reserved_end : 2;
+    uint32_t _reserved_1 : 2;
   } bits;
   
   // Full 32-bit register value.
@@ -27341,7 +27341,7 @@ union D0GTR0_0 {
   // Bit field definition.
   struct {
     uint32_t ADDRESS_POINTER : 4;
-    uint32_t _reserved_end : 28;
+    uint32_t _reserved_0 : 28;
   } bits;
   
   // Full 32-bit register value.
@@ -27405,7 +27405,7 @@ union D0GTR0_3 {
   // Bit field definition.
   struct {
     uint32_t Offset : 13;
-    uint32_t _reserved_end : 19;
+    uint32_t _reserved_0 : 19;
   } bits;
   
   // Full 32-bit register value.
@@ -27423,7 +27423,7 @@ union D0STR0_0 {
   // Bit field definition.
   struct {
     uint32_t ADDRESS_POINTER : 4;
-    uint32_t _reserved_end : 28;
+    uint32_t _reserved_0 : 28;
   } bits;
   
   // Full 32-bit register value.
@@ -27487,7 +27487,7 @@ union D0STR0_3 {
   // Bit field definition.
   struct {
     uint32_t Offset : 13;
-    uint32_t _reserved_end : 19;
+    uint32_t _reserved_0 : 19;
   } bits;
   
   // Full 32-bit register value.
@@ -28646,15 +28646,15 @@ union D0DJR {
   // Bit field definition.
   struct {
     uint32_t ID : 3;
-    uint32_t _reserved_1 : 5;
+    uint32_t _reserved_0 : 5;
     eSRC SRC : 3;
-    uint32_t _reserved_2 : 3;
+    uint32_t _reserved_1 : 3;
     eJDDS JDDS : 1;
     eAMTD AMTD : 1;
     eGSD GSD : 1;
-    uint32_t _reserved_5 : 2;
+    uint32_t _reserved_2 : 2;
     eDWS DWS : 1;
-    uint32_t _reserved_6 : 4;
+    uint32_t _reserved_3 : 4;
     uint32_t SHR_FROM : 3;
     eILE ILE : 1;
     eFOUR FOUR : 1;
@@ -28805,7 +28805,7 @@ union D0DDR_MS {
     ePRIM_TZ PRIM_TZ : 1;
     uint32_t PRIM_ICID : 11;
     uint32_t OUT_DID : 4;
-    uint32_t _reserved_4 : 1;
+    uint32_t _reserved_0 : 1;
     uint32_t OUT_ICID : 11;
   } bits;
   
@@ -28824,9 +28824,9 @@ union D0DDR_LS {
   // Bit field definition.
   struct {
     uint32_t OUT_DID : 4;
-    uint32_t _reserved_1 : 15;
+    uint32_t _reserved_0 : 15;
     uint32_t OUT_ICID : 11;
-    uint32_t _reserved_end : 2;
+    uint32_t _reserved_1 : 2;
   } bits;
   
   // Full 32-bit register value.

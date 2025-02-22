@@ -4,7 +4,7 @@
 #include <stdint.h>
 #include <cstring>
 
-// // SPDIF
+// SPDIF
 //
 // NOTE: This file was generated from the forge CMSIS-svd wrapper tool.
 
@@ -95,7 +95,7 @@ union SCR {
     eTxFIFO_Ctrl TxFIFO_Ctrl : 2;
     uint32_t soft_reset : 1;
     uint32_t LOW_POWER : 1;
-    uint32_t _reserved_9 : 1;
+    uint32_t _reserved_0 : 1;
     eTxFIFOEmpty_Sel TxFIFOEmpty_Sel : 2;
     eTxAutoSync TxAutoSync : 1;
     eRxAutoSync RxAutoSync : 1;
@@ -103,7 +103,7 @@ union SCR {
     eRxFIFO_Rst RxFIFO_Rst : 1;
     eRxFIFO_Off_On RxFIFO_Off_On : 1;
     eRxFIFO_Ctrl RxFIFO_Ctrl : 1;
-    uint32_t _reserved_end : 8;
+    uint32_t _reserved_1 : 8;
   } bits;
   
   // Full 32-bit register value.
@@ -127,7 +127,7 @@ union SRCD {
   struct {
     uint32_t _reserved_0 : 1;
     eUSyncMode USyncMode : 1;
-    uint32_t _reserved_end : 30;
+    uint32_t _reserved_1 : 30;
   } bits;
   
   // Full 32-bit register value.
@@ -167,7 +167,7 @@ union SRPC {
     eGainSel GainSel : 3;
     uint32_t LOCK : 1;
     eClkSrc_Sel ClkSrc_Sel : 4;
-    uint32_t _reserved_end : 21;
+    uint32_t _reserved_1 : 21;
   } bits;
   
   // Full 32-bit register value.
@@ -195,7 +195,7 @@ union SIE {
     uint32_t QRxFul : 1;
     uint32_t URxOv : 1;
     uint32_t URxFul : 1;
-    uint32_t _reserved_11 : 3;
+    uint32_t _reserved_0 : 3;
     uint32_t BitErr : 1;
     uint32_t SymErr : 1;
     uint32_t ValNoGood : 1;
@@ -203,7 +203,7 @@ union SIE {
     uint32_t TxResyn : 1;
     uint32_t TxUnOv : 1;
     uint32_t Lock : 1;
-    uint32_t _reserved_end : 11;
+    uint32_t _reserved_1 : 11;
   } bits;
   
   // Full 32-bit register value.
@@ -227,9 +227,9 @@ union SIC {
     uint32_t UQErr : 1;
     uint32_t UQSync : 1;
     uint32_t QRxOv : 1;
-    uint32_t _reserved_6 : 1;
+    uint32_t _reserved_1 : 1;
     uint32_t URxOv : 1;
-    uint32_t _reserved_7 : 4;
+    uint32_t _reserved_2 : 4;
     uint32_t BitErr : 1;
     uint32_t SymErr : 1;
     uint32_t ValNoGood : 1;
@@ -237,7 +237,7 @@ union SIC {
     uint32_t TxResyn : 1;
     uint32_t TxUnOv : 1;
     uint32_t Lock : 1;
-    uint32_t _reserved_end : 11;
+    uint32_t _reserved_3 : 11;
   } bits;
   
   // Full 32-bit register value.
@@ -265,7 +265,7 @@ union SIS {
     uint32_t QRxFul : 1;
     uint32_t URxOv : 1;
     uint32_t URxFul : 1;
-    uint32_t _reserved_11 : 3;
+    uint32_t _reserved_0 : 3;
     uint32_t BitErr : 1;
     uint32_t SymErr : 1;
     uint32_t ValNoGood : 1;
@@ -273,7 +273,7 @@ union SIS {
     uint32_t TxResyn : 1;
     uint32_t TxUnOv : 1;
     uint32_t Lock : 1;
-    uint32_t _reserved_end : 11;
+    uint32_t _reserved_1 : 11;
   } bits;
   
   // Full 32-bit register value.
@@ -291,7 +291,7 @@ union SRL {
   // Bit field definition.
   struct {
     uint32_t RxDataLeft : 24;
-    uint32_t _reserved_end : 8;
+    uint32_t _reserved_0 : 8;
   } bits;
   
   // Full 32-bit register value.
@@ -309,7 +309,7 @@ union SRR {
   // Bit field definition.
   struct {
     uint32_t RxDataRight : 24;
-    uint32_t _reserved_end : 8;
+    uint32_t _reserved_0 : 8;
   } bits;
   
   // Full 32-bit register value.
@@ -327,7 +327,7 @@ union SRCSH {
   // Bit field definition.
   struct {
     uint32_t RxCChannel_h : 24;
-    uint32_t _reserved_end : 8;
+    uint32_t _reserved_0 : 8;
   } bits;
   
   // Full 32-bit register value.
@@ -345,7 +345,7 @@ union SRCSL {
   // Bit field definition.
   struct {
     uint32_t RxCChannel_l : 24;
-    uint32_t _reserved_end : 8;
+    uint32_t _reserved_0 : 8;
   } bits;
   
   // Full 32-bit register value.
@@ -363,7 +363,7 @@ union SRU {
   // Bit field definition.
   struct {
     uint32_t RxUChannel : 24;
-    uint32_t _reserved_end : 8;
+    uint32_t _reserved_0 : 8;
   } bits;
   
   // Full 32-bit register value.
@@ -381,7 +381,7 @@ union SRQ {
   // Bit field definition.
   struct {
     uint32_t RxQChannel : 24;
-    uint32_t _reserved_end : 8;
+    uint32_t _reserved_0 : 8;
   } bits;
   
   // Full 32-bit register value.
@@ -399,7 +399,7 @@ union STL {
   // Bit field definition.
   struct {
     uint32_t TxDataLeft : 24;
-    uint32_t _reserved_end : 8;
+    uint32_t _reserved_0 : 8;
   } bits;
   
   // Full 32-bit register value.
@@ -417,7 +417,7 @@ union STR {
   // Bit field definition.
   struct {
     uint32_t TxDataRight : 24;
-    uint32_t _reserved_end : 8;
+    uint32_t _reserved_0 : 8;
   } bits;
   
   // Full 32-bit register value.
@@ -435,7 +435,7 @@ union STCSCH {
   // Bit field definition.
   struct {
     uint32_t TxCChannelCons_h : 24;
-    uint32_t _reserved_end : 8;
+    uint32_t _reserved_0 : 8;
   } bits;
   
   // Full 32-bit register value.
@@ -453,7 +453,7 @@ union STCSCL {
   // Bit field definition.
   struct {
     uint32_t TxCChannelCons_l : 24;
-    uint32_t _reserved_end : 8;
+    uint32_t _reserved_0 : 8;
   } bits;
   
   // Full 32-bit register value.
@@ -471,7 +471,7 @@ union SRFM {
   // Bit field definition.
   struct {
     uint32_t FreqMeas : 24;
-    uint32_t _reserved_end : 8;
+    uint32_t _reserved_0 : 8;
   } bits;
   
   // Full 32-bit register value.
@@ -516,7 +516,7 @@ union STC {
     etx_all_clk_en tx_all_clk_en : 1;
     eTxClk_Source TxClk_Source : 3;
     eSYSCLK_DF SYSCLK_DF : 9;
-    uint32_t _reserved_end : 12;
+    uint32_t _reserved_0 : 12;
   } bits;
   
   // Full 32-bit register value.

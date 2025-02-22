@@ -4,7 +4,7 @@
 #include <stdint.h>
 #include <cstring>
 
-// // Crossbar Switch
+// Crossbar Switch
 //
 // NOTE: This file was generated from the forge CMSIS-svd wrapper tool.
 
@@ -19,7 +19,7 @@ union XBARA1_SEL0 {
   struct {
     uint32_t SEL0 : 8;
     uint32_t SEL1 : 8;
-    uint32_t _reserved_end : 16;
+    uint32_t _reserved_0 : 16;
   } bits;
   
   // Full 32-bit register value.
@@ -38,7 +38,7 @@ union XBARA1_SEL1 {
   struct {
     uint32_t SEL2 : 8;
     uint32_t SEL3 : 8;
-    uint32_t _reserved_end : 16;
+    uint32_t _reserved_0 : 16;
   } bits;
   
   // Full 32-bit register value.
@@ -57,7 +57,7 @@ union XBARA1_SEL2 {
   struct {
     uint32_t SEL4 : 8;
     uint32_t SEL5 : 8;
-    uint32_t _reserved_end : 16;
+    uint32_t _reserved_0 : 16;
   } bits;
   
   // Full 32-bit register value.
@@ -76,7 +76,7 @@ union XBARA1_SEL3 {
   struct {
     uint32_t SEL6 : 8;
     uint32_t SEL7 : 8;
-    uint32_t _reserved_end : 16;
+    uint32_t _reserved_0 : 16;
   } bits;
   
   // Full 32-bit register value.
@@ -95,7 +95,7 @@ union XBARA1_SEL4 {
   struct {
     uint32_t SEL8 : 8;
     uint32_t SEL9 : 8;
-    uint32_t _reserved_end : 16;
+    uint32_t _reserved_0 : 16;
   } bits;
   
   // Full 32-bit register value.
@@ -114,7 +114,7 @@ union XBARA1_SEL5 {
   struct {
     uint32_t SEL10 : 8;
     uint32_t SEL11 : 8;
-    uint32_t _reserved_end : 16;
+    uint32_t _reserved_0 : 16;
   } bits;
   
   // Full 32-bit register value.
@@ -133,7 +133,7 @@ union XBARA1_SEL6 {
   struct {
     uint32_t SEL12 : 8;
     uint32_t SEL13 : 8;
-    uint32_t _reserved_end : 16;
+    uint32_t _reserved_0 : 16;
   } bits;
   
   // Full 32-bit register value.
@@ -152,7 +152,7 @@ union XBARA1_SEL7 {
   struct {
     uint32_t SEL14 : 8;
     uint32_t SEL15 : 8;
-    uint32_t _reserved_end : 16;
+    uint32_t _reserved_0 : 16;
   } bits;
   
   // Full 32-bit register value.
@@ -171,7 +171,7 @@ union XBARA1_SEL8 {
   struct {
     uint32_t SEL16 : 8;
     uint32_t SEL17 : 8;
-    uint32_t _reserved_end : 16;
+    uint32_t _reserved_0 : 16;
   } bits;
   
   // Full 32-bit register value.
@@ -190,7 +190,7 @@ union XBARA1_SEL9 {
   struct {
     uint32_t SEL18 : 8;
     uint32_t SEL19 : 8;
-    uint32_t _reserved_end : 16;
+    uint32_t _reserved_0 : 16;
   } bits;
   
   // Full 32-bit register value.
@@ -209,7 +209,7 @@ union XBARA1_SEL10 {
   struct {
     uint32_t SEL20 : 8;
     uint32_t SEL21 : 8;
-    uint32_t _reserved_end : 16;
+    uint32_t _reserved_0 : 16;
   } bits;
   
   // Full 32-bit register value.
@@ -228,7 +228,7 @@ union XBARA1_SEL11 {
   struct {
     uint32_t SEL22 : 8;
     uint32_t SEL23 : 8;
-    uint32_t _reserved_end : 16;
+    uint32_t _reserved_0 : 16;
   } bits;
   
   // Full 32-bit register value.
@@ -247,7 +247,7 @@ union XBARA1_SEL12 {
   struct {
     uint32_t SEL24 : 8;
     uint32_t SEL25 : 8;
-    uint32_t _reserved_end : 16;
+    uint32_t _reserved_0 : 16;
   } bits;
   
   // Full 32-bit register value.
@@ -266,7 +266,7 @@ union XBARA1_SEL13 {
   struct {
     uint32_t SEL26 : 8;
     uint32_t SEL27 : 8;
-    uint32_t _reserved_end : 16;
+    uint32_t _reserved_0 : 16;
   } bits;
   
   // Full 32-bit register value.
@@ -285,7 +285,7 @@ union XBARA1_SEL14 {
   struct {
     uint32_t SEL28 : 8;
     uint32_t SEL29 : 8;
-    uint32_t _reserved_end : 16;
+    uint32_t _reserved_0 : 16;
   } bits;
   
   // Full 32-bit register value.
@@ -304,7 +304,7 @@ union XBARA1_SEL15 {
   struct {
     uint32_t SEL30 : 8;
     uint32_t SEL31 : 8;
-    uint32_t _reserved_end : 16;
+    uint32_t _reserved_0 : 16;
   } bits;
   
   // Full 32-bit register value.
@@ -323,7 +323,7 @@ union XBARA1_SEL16 {
   struct {
     uint32_t SEL32 : 8;
     uint32_t SEL33 : 8;
-    uint32_t _reserved_end : 16;
+    uint32_t _reserved_0 : 16;
   } bits;
   
   // Full 32-bit register value.
@@ -342,7 +342,7 @@ union XBARA1_SEL17 {
   struct {
     uint32_t SEL34 : 8;
     uint32_t SEL35 : 8;
-    uint32_t _reserved_end : 16;
+    uint32_t _reserved_0 : 16;
   } bits;
   
   // Full 32-bit register value.
@@ -361,7 +361,7 @@ union XBARA1_SEL18 {
   struct {
     uint32_t SEL36 : 8;
     uint32_t SEL37 : 8;
-    uint32_t _reserved_end : 16;
+    uint32_t _reserved_0 : 16;
   } bits;
   
   // Full 32-bit register value.
@@ -380,7 +380,7 @@ union XBARA1_SEL19 {
   struct {
     uint32_t SEL38 : 8;
     uint32_t SEL39 : 8;
-    uint32_t _reserved_end : 16;
+    uint32_t _reserved_0 : 16;
   } bits;
   
   // Full 32-bit register value.
@@ -399,7 +399,7 @@ union XBARA1_SEL20 {
   struct {
     uint32_t SEL40 : 8;
     uint32_t SEL41 : 8;
-    uint32_t _reserved_end : 16;
+    uint32_t _reserved_0 : 16;
   } bits;
   
   // Full 32-bit register value.
@@ -418,7 +418,7 @@ union XBARA1_SEL21 {
   struct {
     uint32_t SEL42 : 8;
     uint32_t SEL43 : 8;
-    uint32_t _reserved_end : 16;
+    uint32_t _reserved_0 : 16;
   } bits;
   
   // Full 32-bit register value.
@@ -437,7 +437,7 @@ union XBARA1_SEL22 {
   struct {
     uint32_t SEL44 : 8;
     uint32_t SEL45 : 8;
-    uint32_t _reserved_end : 16;
+    uint32_t _reserved_0 : 16;
   } bits;
   
   // Full 32-bit register value.
@@ -456,7 +456,7 @@ union XBARA1_SEL23 {
   struct {
     uint32_t SEL46 : 8;
     uint32_t SEL47 : 8;
-    uint32_t _reserved_end : 16;
+    uint32_t _reserved_0 : 16;
   } bits;
   
   // Full 32-bit register value.
@@ -475,7 +475,7 @@ union XBARA1_SEL24 {
   struct {
     uint32_t SEL48 : 8;
     uint32_t SEL49 : 8;
-    uint32_t _reserved_end : 16;
+    uint32_t _reserved_0 : 16;
   } bits;
   
   // Full 32-bit register value.
@@ -494,7 +494,7 @@ union XBARA1_SEL25 {
   struct {
     uint32_t SEL50 : 8;
     uint32_t SEL51 : 8;
-    uint32_t _reserved_end : 16;
+    uint32_t _reserved_0 : 16;
   } bits;
   
   // Full 32-bit register value.
@@ -513,7 +513,7 @@ union XBARA1_SEL26 {
   struct {
     uint32_t SEL52 : 8;
     uint32_t SEL53 : 8;
-    uint32_t _reserved_end : 16;
+    uint32_t _reserved_0 : 16;
   } bits;
   
   // Full 32-bit register value.
@@ -532,7 +532,7 @@ union XBARA1_SEL27 {
   struct {
     uint32_t SEL54 : 8;
     uint32_t SEL55 : 8;
-    uint32_t _reserved_end : 16;
+    uint32_t _reserved_0 : 16;
   } bits;
   
   // Full 32-bit register value.
@@ -551,7 +551,7 @@ union XBARA1_SEL28 {
   struct {
     uint32_t SEL56 : 8;
     uint32_t SEL57 : 8;
-    uint32_t _reserved_end : 16;
+    uint32_t _reserved_0 : 16;
   } bits;
   
   // Full 32-bit register value.
@@ -570,7 +570,7 @@ union XBARA1_SEL29 {
   struct {
     uint32_t SEL58 : 8;
     uint32_t SEL59 : 8;
-    uint32_t _reserved_end : 16;
+    uint32_t _reserved_0 : 16;
   } bits;
   
   // Full 32-bit register value.
@@ -589,7 +589,7 @@ union XBARA1_SEL30 {
   struct {
     uint32_t SEL60 : 8;
     uint32_t SEL61 : 8;
-    uint32_t _reserved_end : 16;
+    uint32_t _reserved_0 : 16;
   } bits;
   
   // Full 32-bit register value.
@@ -608,7 +608,7 @@ union XBARA1_SEL31 {
   struct {
     uint32_t SEL62 : 8;
     uint32_t SEL63 : 8;
-    uint32_t _reserved_end : 16;
+    uint32_t _reserved_0 : 16;
   } bits;
   
   // Full 32-bit register value.
@@ -627,7 +627,7 @@ union XBARA1_SEL32 {
   struct {
     uint32_t SEL64 : 8;
     uint32_t SEL65 : 8;
-    uint32_t _reserved_end : 16;
+    uint32_t _reserved_0 : 16;
   } bits;
   
   // Full 32-bit register value.
@@ -646,7 +646,7 @@ union XBARA1_SEL33 {
   struct {
     uint32_t SEL66 : 8;
     uint32_t SEL67 : 8;
-    uint32_t _reserved_end : 16;
+    uint32_t _reserved_0 : 16;
   } bits;
   
   // Full 32-bit register value.
@@ -665,7 +665,7 @@ union XBARA1_SEL34 {
   struct {
     uint32_t SEL68 : 8;
     uint32_t SEL69 : 8;
-    uint32_t _reserved_end : 16;
+    uint32_t _reserved_0 : 16;
   } bits;
   
   // Full 32-bit register value.
@@ -684,7 +684,7 @@ union XBARA1_SEL35 {
   struct {
     uint32_t SEL70 : 8;
     uint32_t SEL71 : 8;
-    uint32_t _reserved_end : 16;
+    uint32_t _reserved_0 : 16;
   } bits;
   
   // Full 32-bit register value.
@@ -703,7 +703,7 @@ union XBARA1_SEL36 {
   struct {
     uint32_t SEL72 : 8;
     uint32_t SEL73 : 8;
-    uint32_t _reserved_end : 16;
+    uint32_t _reserved_0 : 16;
   } bits;
   
   // Full 32-bit register value.
@@ -722,7 +722,7 @@ union XBARA1_SEL37 {
   struct {
     uint32_t SEL74 : 8;
     uint32_t SEL75 : 8;
-    uint32_t _reserved_end : 16;
+    uint32_t _reserved_0 : 16;
   } bits;
   
   // Full 32-bit register value.
@@ -741,7 +741,7 @@ union XBARA1_SEL38 {
   struct {
     uint32_t SEL76 : 8;
     uint32_t SEL77 : 8;
-    uint32_t _reserved_end : 16;
+    uint32_t _reserved_0 : 16;
   } bits;
   
   // Full 32-bit register value.
@@ -760,7 +760,7 @@ union XBARA1_SEL39 {
   struct {
     uint32_t SEL78 : 8;
     uint32_t SEL79 : 8;
-    uint32_t _reserved_end : 16;
+    uint32_t _reserved_0 : 16;
   } bits;
   
   // Full 32-bit register value.
@@ -779,7 +779,7 @@ union XBARA1_SEL40 {
   struct {
     uint32_t SEL80 : 8;
     uint32_t SEL81 : 8;
-    uint32_t _reserved_end : 16;
+    uint32_t _reserved_0 : 16;
   } bits;
   
   // Full 32-bit register value.
@@ -798,7 +798,7 @@ union XBARA1_SEL41 {
   struct {
     uint32_t SEL82 : 8;
     uint32_t SEL83 : 8;
-    uint32_t _reserved_end : 16;
+    uint32_t _reserved_0 : 16;
   } bits;
   
   // Full 32-bit register value.
@@ -817,7 +817,7 @@ union XBARA1_SEL42 {
   struct {
     uint32_t SEL84 : 8;
     uint32_t SEL85 : 8;
-    uint32_t _reserved_end : 16;
+    uint32_t _reserved_0 : 16;
   } bits;
   
   // Full 32-bit register value.
@@ -836,7 +836,7 @@ union XBARA1_SEL43 {
   struct {
     uint32_t SEL86 : 8;
     uint32_t SEL87 : 8;
-    uint32_t _reserved_end : 16;
+    uint32_t _reserved_0 : 16;
   } bits;
   
   // Full 32-bit register value.
@@ -855,7 +855,7 @@ union XBARA1_SEL44 {
   struct {
     uint32_t SEL88 : 8;
     uint32_t SEL89 : 8;
-    uint32_t _reserved_end : 16;
+    uint32_t _reserved_0 : 16;
   } bits;
   
   // Full 32-bit register value.
@@ -874,7 +874,7 @@ union XBARA1_SEL45 {
   struct {
     uint32_t SEL90 : 8;
     uint32_t SEL91 : 8;
-    uint32_t _reserved_end : 16;
+    uint32_t _reserved_0 : 16;
   } bits;
   
   // Full 32-bit register value.
@@ -893,7 +893,7 @@ union XBARA1_SEL46 {
   struct {
     uint32_t SEL92 : 8;
     uint32_t SEL93 : 8;
-    uint32_t _reserved_end : 16;
+    uint32_t _reserved_0 : 16;
   } bits;
   
   // Full 32-bit register value.
@@ -912,7 +912,7 @@ union XBARA1_SEL47 {
   struct {
     uint32_t SEL94 : 8;
     uint32_t SEL95 : 8;
-    uint32_t _reserved_end : 16;
+    uint32_t _reserved_0 : 16;
   } bits;
   
   // Full 32-bit register value.
@@ -931,7 +931,7 @@ union XBARA1_SEL48 {
   struct {
     uint32_t SEL96 : 8;
     uint32_t SEL97 : 8;
-    uint32_t _reserved_end : 16;
+    uint32_t _reserved_0 : 16;
   } bits;
   
   // Full 32-bit register value.
@@ -950,7 +950,7 @@ union XBARA1_SEL49 {
   struct {
     uint32_t SEL98 : 8;
     uint32_t SEL99 : 8;
-    uint32_t _reserved_end : 16;
+    uint32_t _reserved_0 : 16;
   } bits;
   
   // Full 32-bit register value.
@@ -969,7 +969,7 @@ union XBARA1_SEL50 {
   struct {
     uint32_t SEL100 : 8;
     uint32_t SEL101 : 8;
-    uint32_t _reserved_end : 16;
+    uint32_t _reserved_0 : 16;
   } bits;
   
   // Full 32-bit register value.
@@ -988,7 +988,7 @@ union XBARA1_SEL51 {
   struct {
     uint32_t SEL102 : 8;
     uint32_t SEL103 : 8;
-    uint32_t _reserved_end : 16;
+    uint32_t _reserved_0 : 16;
   } bits;
   
   // Full 32-bit register value.
@@ -1007,7 +1007,7 @@ union XBARA1_SEL52 {
   struct {
     uint32_t SEL104 : 8;
     uint32_t SEL105 : 8;
-    uint32_t _reserved_end : 16;
+    uint32_t _reserved_0 : 16;
   } bits;
   
   // Full 32-bit register value.
@@ -1026,7 +1026,7 @@ union XBARA1_SEL53 {
   struct {
     uint32_t SEL106 : 8;
     uint32_t SEL107 : 8;
-    uint32_t _reserved_end : 16;
+    uint32_t _reserved_0 : 16;
   } bits;
   
   // Full 32-bit register value.
@@ -1045,7 +1045,7 @@ union XBARA1_SEL54 {
   struct {
     uint32_t SEL108 : 8;
     uint32_t SEL109 : 8;
-    uint32_t _reserved_end : 16;
+    uint32_t _reserved_0 : 16;
   } bits;
   
   // Full 32-bit register value.
@@ -1064,7 +1064,7 @@ union XBARA1_SEL55 {
   struct {
     uint32_t SEL110 : 8;
     uint32_t SEL111 : 8;
-    uint32_t _reserved_end : 16;
+    uint32_t _reserved_0 : 16;
   } bits;
   
   // Full 32-bit register value.
@@ -1083,7 +1083,7 @@ union XBARA1_SEL56 {
   struct {
     uint32_t SEL112 : 8;
     uint32_t SEL113 : 8;
-    uint32_t _reserved_end : 16;
+    uint32_t _reserved_0 : 16;
   } bits;
   
   // Full 32-bit register value.
@@ -1102,7 +1102,7 @@ union XBARA1_SEL57 {
   struct {
     uint32_t SEL114 : 8;
     uint32_t SEL115 : 8;
-    uint32_t _reserved_end : 16;
+    uint32_t _reserved_0 : 16;
   } bits;
   
   // Full 32-bit register value.
@@ -1121,7 +1121,7 @@ union XBARA1_SEL58 {
   struct {
     uint32_t SEL116 : 8;
     uint32_t SEL117 : 8;
-    uint32_t _reserved_end : 16;
+    uint32_t _reserved_0 : 16;
   } bits;
   
   // Full 32-bit register value.
@@ -1140,7 +1140,7 @@ union XBARA1_SEL59 {
   struct {
     uint32_t SEL118 : 8;
     uint32_t SEL119 : 8;
-    uint32_t _reserved_end : 16;
+    uint32_t _reserved_0 : 16;
   } bits;
   
   // Full 32-bit register value.
@@ -1159,7 +1159,7 @@ union XBARA1_SEL60 {
   struct {
     uint32_t SEL120 : 8;
     uint32_t SEL121 : 8;
-    uint32_t _reserved_end : 16;
+    uint32_t _reserved_0 : 16;
   } bits;
   
   // Full 32-bit register value.
@@ -1178,7 +1178,7 @@ union XBARA1_SEL61 {
   struct {
     uint32_t SEL122 : 8;
     uint32_t SEL123 : 8;
-    uint32_t _reserved_end : 16;
+    uint32_t _reserved_0 : 16;
   } bits;
   
   // Full 32-bit register value.
@@ -1197,7 +1197,7 @@ union XBARA1_SEL62 {
   struct {
     uint32_t SEL124 : 8;
     uint32_t SEL125 : 8;
-    uint32_t _reserved_end : 16;
+    uint32_t _reserved_0 : 16;
   } bits;
   
   // Full 32-bit register value.
@@ -1216,7 +1216,7 @@ union XBARA1_SEL63 {
   struct {
     uint32_t SEL126 : 8;
     uint32_t SEL127 : 8;
-    uint32_t _reserved_end : 16;
+    uint32_t _reserved_0 : 16;
   } bits;
   
   // Full 32-bit register value.
@@ -1235,7 +1235,7 @@ union XBARA1_SEL64 {
   struct {
     uint32_t SEL128 : 8;
     uint32_t SEL129 : 8;
-    uint32_t _reserved_end : 16;
+    uint32_t _reserved_0 : 16;
   } bits;
   
   // Full 32-bit register value.
@@ -1254,7 +1254,7 @@ union XBARA1_SEL65 {
   struct {
     uint32_t SEL130 : 8;
     uint32_t SEL131 : 8;
-    uint32_t _reserved_end : 16;
+    uint32_t _reserved_0 : 16;
   } bits;
   
   // Full 32-bit register value.
@@ -1273,7 +1273,7 @@ union XBARA1_SEL66 {
   struct {
     uint32_t SEL132 : 8;
     uint32_t SEL133 : 8;
-    uint32_t _reserved_end : 16;
+    uint32_t _reserved_0 : 16;
   } bits;
   
   // Full 32-bit register value.
@@ -1292,7 +1292,7 @@ union XBARA1_SEL67 {
   struct {
     uint32_t SEL134 : 8;
     uint32_t SEL135 : 8;
-    uint32_t _reserved_end : 16;
+    uint32_t _reserved_0 : 16;
   } bits;
   
   // Full 32-bit register value.
@@ -1311,7 +1311,7 @@ union XBARA1_SEL68 {
   struct {
     uint32_t SEL136 : 8;
     uint32_t SEL137 : 8;
-    uint32_t _reserved_end : 16;
+    uint32_t _reserved_0 : 16;
   } bits;
   
   // Full 32-bit register value.
@@ -1330,7 +1330,7 @@ union XBARA1_SEL69 {
   struct {
     uint32_t SEL138 : 8;
     uint32_t SEL139 : 8;
-    uint32_t _reserved_end : 16;
+    uint32_t _reserved_0 : 16;
   } bits;
   
   // Full 32-bit register value.
@@ -1349,7 +1349,7 @@ union XBARA1_SEL70 {
   struct {
     uint32_t SEL140 : 8;
     uint32_t SEL141 : 8;
-    uint32_t _reserved_end : 16;
+    uint32_t _reserved_0 : 16;
   } bits;
   
   // Full 32-bit register value.
@@ -1368,7 +1368,7 @@ union XBARA1_SEL71 {
   struct {
     uint32_t SEL142 : 8;
     uint32_t SEL143 : 8;
-    uint32_t _reserved_end : 16;
+    uint32_t _reserved_0 : 16;
   } bits;
   
   // Full 32-bit register value.
@@ -1387,7 +1387,7 @@ union XBARA1_SEL72 {
   struct {
     uint32_t SEL144 : 8;
     uint32_t SEL145 : 8;
-    uint32_t _reserved_end : 16;
+    uint32_t _reserved_0 : 16;
   } bits;
   
   // Full 32-bit register value.
@@ -1406,7 +1406,7 @@ union XBARA1_SEL73 {
   struct {
     uint32_t SEL146 : 8;
     uint32_t SEL147 : 8;
-    uint32_t _reserved_end : 16;
+    uint32_t _reserved_0 : 16;
   } bits;
   
   // Full 32-bit register value.
@@ -1425,7 +1425,7 @@ union XBARA1_SEL74 {
   struct {
     uint32_t SEL148 : 8;
     uint32_t SEL149 : 8;
-    uint32_t _reserved_end : 16;
+    uint32_t _reserved_0 : 16;
   } bits;
   
   // Full 32-bit register value.
@@ -1444,7 +1444,7 @@ union XBARA1_SEL75 {
   struct {
     uint32_t SEL150 : 8;
     uint32_t SEL151 : 8;
-    uint32_t _reserved_end : 16;
+    uint32_t _reserved_0 : 16;
   } bits;
   
   // Full 32-bit register value.
@@ -1463,7 +1463,7 @@ union XBARA1_SEL76 {
   struct {
     uint32_t SEL152 : 8;
     uint32_t SEL153 : 8;
-    uint32_t _reserved_end : 16;
+    uint32_t _reserved_0 : 16;
   } bits;
   
   // Full 32-bit register value.
@@ -1482,7 +1482,7 @@ union XBARA1_SEL77 {
   struct {
     uint32_t SEL154 : 8;
     uint32_t SEL155 : 8;
-    uint32_t _reserved_end : 16;
+    uint32_t _reserved_0 : 16;
   } bits;
   
   // Full 32-bit register value.
@@ -1501,7 +1501,7 @@ union XBARA1_SEL78 {
   struct {
     uint32_t SEL156 : 8;
     uint32_t SEL157 : 8;
-    uint32_t _reserved_end : 16;
+    uint32_t _reserved_0 : 16;
   } bits;
   
   // Full 32-bit register value.
@@ -1520,7 +1520,7 @@ union XBARA1_SEL79 {
   struct {
     uint32_t SEL158 : 8;
     uint32_t SEL159 : 8;
-    uint32_t _reserved_end : 16;
+    uint32_t _reserved_0 : 16;
   } bits;
   
   // Full 32-bit register value.
@@ -1539,7 +1539,7 @@ union XBARA1_SEL80 {
   struct {
     uint32_t SEL160 : 8;
     uint32_t SEL161 : 8;
-    uint32_t _reserved_end : 16;
+    uint32_t _reserved_0 : 16;
   } bits;
   
   // Full 32-bit register value.
@@ -1558,7 +1558,7 @@ union XBARA1_SEL81 {
   struct {
     uint32_t SEL162 : 8;
     uint32_t SEL163 : 8;
-    uint32_t _reserved_end : 16;
+    uint32_t _reserved_0 : 16;
   } bits;
   
   // Full 32-bit register value.
@@ -1577,7 +1577,7 @@ union XBARA1_SEL82 {
   struct {
     uint32_t SEL164 : 8;
     uint32_t SEL165 : 8;
-    uint32_t _reserved_end : 16;
+    uint32_t _reserved_0 : 16;
   } bits;
   
   // Full 32-bit register value.
@@ -1596,7 +1596,7 @@ union XBARA1_SEL83 {
   struct {
     uint32_t SEL166 : 8;
     uint32_t SEL167 : 8;
-    uint32_t _reserved_end : 16;
+    uint32_t _reserved_0 : 16;
   } bits;
   
   // Full 32-bit register value.
@@ -1615,7 +1615,7 @@ union XBARA1_SEL84 {
   struct {
     uint32_t SEL168 : 8;
     uint32_t SEL169 : 8;
-    uint32_t _reserved_end : 16;
+    uint32_t _reserved_0 : 16;
   } bits;
   
   // Full 32-bit register value.
@@ -1634,7 +1634,7 @@ union XBARA1_SEL85 {
   struct {
     uint32_t SEL170 : 8;
     uint32_t SEL171 : 8;
-    uint32_t _reserved_end : 16;
+    uint32_t _reserved_0 : 16;
   } bits;
   
   // Full 32-bit register value.
@@ -1653,7 +1653,7 @@ union XBARA1_SEL86 {
   struct {
     uint32_t SEL172 : 8;
     uint32_t SEL173 : 8;
-    uint32_t _reserved_end : 16;
+    uint32_t _reserved_0 : 16;
   } bits;
   
   // Full 32-bit register value.
@@ -1672,7 +1672,7 @@ union XBARA1_SEL87 {
   struct {
     uint32_t SEL174 : 8;
     uint32_t SEL175 : 8;
-    uint32_t _reserved_end : 16;
+    uint32_t _reserved_0 : 16;
   } bits;
   
   // Full 32-bit register value.
@@ -1737,12 +1737,12 @@ union XBARA1_CTRL0 {
     eIEN0 IEN0 : 1;
     eEDGE0 EDGE0 : 2;
     eSTS0 STS0 : 1;
-    uint32_t _reserved_4 : 3;
+    uint32_t _reserved_0 : 3;
     eDEN1 DEN1 : 1;
     eIEN1 IEN1 : 1;
     eEDGE1 EDGE1 : 2;
     eSTS1 STS1 : 1;
-    uint32_t _reserved_end : 19;
+    uint32_t _reserved_1 : 19;
   } bits;
   
   // Full 32-bit register value.
@@ -1807,12 +1807,12 @@ union XBARA1_CTRL1 {
     eIEN2 IEN2 : 1;
     eEDGE2 EDGE2 : 2;
     eSTS2 STS2 : 1;
-    uint32_t _reserved_4 : 3;
+    uint32_t _reserved_0 : 3;
     eDEN3 DEN3 : 1;
     eIEN3 IEN3 : 1;
     eEDGE3 EDGE3 : 2;
     eSTS3 STS3 : 1;
-    uint32_t _reserved_end : 19;
+    uint32_t _reserved_1 : 19;
   } bits;
   
   // Full 32-bit register value.

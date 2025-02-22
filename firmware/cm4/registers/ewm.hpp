@@ -4,7 +4,7 @@
 #include <stdint.h>
 #include <cstring>
 
-// // EWM
+// EWM
 //
 // NOTE: This file was generated from the forge CMSIS-svd wrapper tool.
 
@@ -41,7 +41,7 @@ union CTRL {
     eASSIN ASSIN : 1;
     eINEN INEN : 1;
     eINTEN INTEN : 1;
-    uint32_t _reserved_end : 28;
+    uint32_t _reserved_0 : 28;
   } bits;
   
   // Full 32-bit register value.
@@ -59,7 +59,7 @@ union SERV {
   // Bit field definition.
   struct {
     uint32_t SERVICE : 8;
-    uint32_t _reserved_end : 24;
+    uint32_t _reserved_0 : 24;
   } bits;
   
   // Full 32-bit register value.
@@ -77,7 +77,7 @@ union CMPL {
   // Bit field definition.
   struct {
     uint32_t COMPAREL : 8;
-    uint32_t _reserved_end : 24;
+    uint32_t _reserved_0 : 24;
   } bits;
   
   // Full 32-bit register value.
@@ -95,7 +95,7 @@ union CMPH {
   // Bit field definition.
   struct {
     uint32_t COMPAREH : 8;
-    uint32_t _reserved_end : 24;
+    uint32_t _reserved_0 : 24;
   } bits;
   
   // Full 32-bit register value.
@@ -113,7 +113,7 @@ union CLKCTRL {
   // Bit field definition.
   struct {
     uint32_t CLKSEL : 2;
-    uint32_t _reserved_end : 30;
+    uint32_t _reserved_0 : 30;
   } bits;
   
   // Full 32-bit register value.
@@ -131,7 +131,7 @@ union CLKPRESCALER {
   // Bit field definition.
   struct {
     uint32_t CLK_DIV : 8;
-    uint32_t _reserved_end : 24;
+    uint32_t _reserved_0 : 24;
   } bits;
   
   // Full 32-bit register value.

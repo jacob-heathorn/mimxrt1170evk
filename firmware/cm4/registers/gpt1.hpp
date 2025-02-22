@@ -4,7 +4,7 @@
 #include <stdint.h>
 #include <cstring>
 
-// // GPT
+// GPT
 //
 // NOTE: This file was generated from the forge CMSIS-svd wrapper tool.
 
@@ -133,7 +133,7 @@ union CR {
     eCLKSRC CLKSRC : 3;
     eFRR FRR : 1;
     eEN_24M EN_24M : 1;
-    uint32_t _reserved_9 : 4;
+    uint32_t _reserved_0 : 4;
     eSWR SWR : 1;
     eIM1 IM1 : 2;
     eIM2 IM2 : 2;
@@ -173,7 +173,7 @@ union PR {
   struct {
     ePRESCALER PRESCALER : 12;
     ePRESCALER24M PRESCALER24M : 4;
-    uint32_t _reserved_end : 16;
+    uint32_t _reserved_0 : 16;
   } bits;
   
   // Full 32-bit register value.
@@ -226,7 +226,7 @@ union SR {
     eIF1 IF1 : 1;
     eIF2 IF2 : 1;
     eROV ROV : 1;
-    uint32_t _reserved_end : 26;
+    uint32_t _reserved_0 : 26;
   } bits;
   
   // Full 32-bit register value.
@@ -279,7 +279,7 @@ union IR {
     eIF1IE IF1IE : 1;
     eIF2IE IF2IE : 1;
     eROVIE ROVIE : 1;
-    uint32_t _reserved_end : 26;
+    uint32_t _reserved_0 : 26;
   } bits;
   
   // Full 32-bit register value.

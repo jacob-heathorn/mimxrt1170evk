@@ -4,7 +4,7 @@
 #include <stdint.h>
 #include <cstring>
 
-// // PGMC_CPC
+// PGMC_CPC
 //
 // NOTE: This file was generated from the forge CMSIS-svd wrapper tool.
 
@@ -19,14 +19,14 @@ union CPC_AUTHEN_CTRL {
   struct {
     uint32_t USER : 1;
     uint32_t NONSECURE : 1;
-    uint32_t _reserved_2 : 2;
+    uint32_t _reserved_0 : 2;
     uint32_t LOCK_SETTING : 1;
-    uint32_t _reserved_3 : 3;
+    uint32_t _reserved_1 : 3;
     uint32_t WHITE_LIST : 4;
     uint32_t LOCK_LIST : 1;
-    uint32_t _reserved_5 : 7;
+    uint32_t _reserved_2 : 7;
     uint32_t LOCK_CFG : 1;
-    uint32_t _reserved_end : 11;
+    uint32_t _reserved_3 : 11;
   } bits;
   
   // Full 32-bit register value.
@@ -49,7 +49,7 @@ union CPC_CORE_MODE {
   // Bit field definition.
   struct {
     eCTRL_MODE CTRL_MODE : 2;
-    uint32_t _reserved_end : 30;
+    uint32_t _reserved_0 : 30;
   } bits;
   
   // Full 32-bit register value.
@@ -70,12 +70,12 @@ union CPC_CORE_POWER_CTRL {
     uint32_t PWR_OFF_AT_WAIT : 1;
     uint32_t PWR_OFF_AT_STOP : 1;
     uint32_t PWR_OFF_AT_SUSPEND : 1;
-    uint32_t _reserved_3 : 4;
+    uint32_t _reserved_1 : 4;
     uint32_t ISO_ON_SOFT : 1;
     uint32_t PSW_OFF_SOFT : 1;
     uint32_t PSW_ON_SOFT : 1;
     uint32_t ISO_OFF_SOFT : 1;
-    uint32_t _reserved_end : 20;
+    uint32_t _reserved_2 : 20;
   } bits;
   
   // Full 32-bit register value.
@@ -93,7 +93,7 @@ union CPC_FLAG {
   // Bit field definition.
   struct {
     uint32_t CORE_PDN_FLAG : 1;
-    uint32_t _reserved_end : 31;
+    uint32_t _reserved_0 : 31;
   } bits;
   
   // Full 32-bit register value.
@@ -117,7 +117,7 @@ union CPC_CACHE_MODE {
   // Bit field definition.
   struct {
     eCTRL_MODE CTRL_MODE : 2;
-    uint32_t _reserved_end : 30;
+    uint32_t _reserved_0 : 30;
   } bits;
   
   // Full 32-bit register value.
@@ -139,7 +139,7 @@ union CPC_CACHE_CM_CTRL {
     uint32_t MLPL_AT_STOP : 4;
     uint32_t MLPL_AT_SUSPEND : 4;
     uint32_t MLPL_SOFT : 1;
-    uint32_t _reserved_end : 15;
+    uint32_t _reserved_0 : 15;
   } bits;
   
   // Full 32-bit register value.
@@ -211,7 +211,7 @@ union CPC_LMEM_MODE {
   // Bit field definition.
   struct {
     eCTRL_MODE CTRL_MODE : 2;
-    uint32_t _reserved_end : 30;
+    uint32_t _reserved_0 : 30;
   } bits;
   
   // Full 32-bit register value.
@@ -233,7 +233,7 @@ union CPC_LMEM_CM_CTRL {
     uint32_t MLPL_AT_STOP : 4;
     uint32_t MLPL_AT_SUSPEND : 4;
     uint32_t MLPL_SOFT : 1;
-    uint32_t _reserved_end : 15;
+    uint32_t _reserved_0 : 15;
   } bits;
   
   // Full 32-bit register value.

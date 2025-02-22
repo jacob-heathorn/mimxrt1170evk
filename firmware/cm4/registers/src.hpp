@@ -4,7 +4,7 @@
 #include <stdint.h>
 #include <cstring>
 
-// // SRC
+// SRC
 //
 // NOTE: This file was generated from the forge CMSIS-svd wrapper tool.
 
@@ -29,7 +29,7 @@ union SCR {
   struct {
     eBT_RELEASE_M4 BT_RELEASE_M4 : 1;
     eBT_RELEASE_M7 BT_RELEASE_M7 : 1;
-    uint32_t _reserved_end : 30;
+    uint32_t _reserved_0 : 30;
   } bits;
   
   // Full 32-bit register value.
@@ -112,7 +112,7 @@ union SRMR {
     eCSU_RESET_MODE CSU_RESET_MODE : 2;
     eJTAGSW_RESET_MODE JTAGSW_RESET_MODE : 2;
     eOVERVOLT_RESET_MODE OVERVOLT_RESET_MODE : 2;
-    uint32_t _reserved_end : 10;
+    uint32_t _reserved_0 : 10;
   } bits;
   
   // Full 32-bit register value.
@@ -150,11 +150,11 @@ union SBMR2 {
   // Bit field definition.
   struct {
     uint32_t SEC_CONFIG : 2;
-    uint32_t _reserved_1 : 2;
+    uint32_t _reserved_0 : 2;
     uint32_t BT_FUSE_SEL : 1;
-    uint32_t _reserved_2 : 19;
+    uint32_t _reserved_1 : 19;
     uint32_t BMOD : 2;
-    uint32_t _reserved_end : 6;
+    uint32_t _reserved_2 : 6;
   } bits;
   
   // Full 32-bit register value.
@@ -336,7 +336,7 @@ union SRSR {
     eM4_LOCKUP_M7 M4_LOCKUP_M7 : 1;
     eOVERVOLT_RST_M7 OVERVOLT_RST_M7 : 1;
     eCDOG_RST_M7 CDOG_RST_M7 : 1;
-    uint32_t _reserved_15 : 1;
+    uint32_t _reserved_0 : 1;
     eIPP_RESET_B_M4 IPP_RESET_B_M4 : 1;
     eM4_REQUEST_M4 M4_REQUEST_M4 : 1;
     eM4_LOCKUP_M4 M4_LOCKUP_M4 : 1;
@@ -352,7 +352,7 @@ union SRSR {
     eM7_LOCKUP_M4 M7_LOCKUP_M4 : 1;
     eOVERVOLT_RST_M4 OVERVOLT_RST_M4 : 1;
     eCDOG_RST_M4 CDOG_RST_M4 : 1;
-    uint32_t _reserved_end : 1;
+    uint32_t _reserved_1 : 1;
   } bits;
   
   // Full 32-bit register value.
@@ -702,17 +702,17 @@ union AUTHEN_MEGA {
   struct {
     eDOMAIN_MODE DOMAIN_MODE : 1;
     eSETPOINT_MODE SETPOINT_MODE : 1;
-    uint32_t _reserved_2 : 5;
+    uint32_t _reserved_0 : 5;
     uint32_t LOCK_MODE : 1;
     uint32_t ASSIGN_LIST : 4;
-    uint32_t _reserved_4 : 3;
+    uint32_t _reserved_1 : 3;
     uint32_t LOCK_ASSIGN : 1;
     uint32_t WHITE_LIST : 4;
-    uint32_t _reserved_6 : 3;
+    uint32_t _reserved_2 : 3;
     uint32_t LOCK_LIST : 1;
     uint32_t USER : 1;
     uint32_t NONSECURE : 1;
-    uint32_t _reserved_9 : 5;
+    uint32_t _reserved_3 : 5;
     uint32_t LOCK_SETTING : 1;
   } bits;
   
@@ -736,7 +736,7 @@ union CTRL_MEGA {
   // Bit field definition.
   struct {
     eSW_RESET SW_RESET : 1;
-    uint32_t _reserved_end : 31;
+    uint32_t _reserved_0 : 31;
   } bits;
   
   // Full 32-bit register value.
@@ -849,7 +849,7 @@ union SETPOINT_MEGA {
     eSETPOINT13 SETPOINT13 : 1;
     eSETPOINT14 SETPOINT14 : 1;
     eSETPOINT15 SETPOINT15 : 1;
-    uint32_t _reserved_end : 16;
+    uint32_t _reserved_0 : 16;
   } bits;
   
   // Full 32-bit register value.
@@ -914,7 +914,7 @@ union DOMAIN_MEGA {
     eCPU1_WAIT CPU1_WAIT : 1;
     eCPU1_STOP CPU1_STOP : 1;
     eCPU1_SUSP CPU1_SUSP : 1;
-    uint32_t _reserved_end : 24;
+    uint32_t _reserved_0 : 24;
   } bits;
   
   // Full 32-bit register value.
@@ -947,10 +947,10 @@ union STAT_MEGA {
   // Bit field definition.
   struct {
     eUNDER_RST UNDER_RST : 1;
-    uint32_t _reserved_1 : 1;
+    uint32_t _reserved_0 : 1;
     eRST_BY_HW RST_BY_HW : 1;
     eRST_BY_SW RST_BY_SW : 1;
-    uint32_t _reserved_end : 28;
+    uint32_t _reserved_1 : 28;
   } bits;
   
   // Full 32-bit register value.
@@ -979,17 +979,17 @@ union AUTHEN_DISPLAY {
   struct {
     eDOMAIN_MODE DOMAIN_MODE : 1;
     eSETPOINT_MODE SETPOINT_MODE : 1;
-    uint32_t _reserved_2 : 5;
+    uint32_t _reserved_0 : 5;
     uint32_t LOCK_MODE : 1;
     uint32_t ASSIGN_LIST : 4;
-    uint32_t _reserved_4 : 3;
+    uint32_t _reserved_1 : 3;
     uint32_t LOCK_ASSIGN : 1;
     uint32_t WHITE_LIST : 4;
-    uint32_t _reserved_6 : 3;
+    uint32_t _reserved_2 : 3;
     uint32_t LOCK_LIST : 1;
     uint32_t USER : 1;
     uint32_t NONSECURE : 1;
-    uint32_t _reserved_9 : 5;
+    uint32_t _reserved_3 : 5;
     uint32_t LOCK_SETTING : 1;
   } bits;
   
@@ -1013,7 +1013,7 @@ union CTRL_DISPLAY {
   // Bit field definition.
   struct {
     eSW_RESET SW_RESET : 1;
-    uint32_t _reserved_end : 31;
+    uint32_t _reserved_0 : 31;
   } bits;
   
   // Full 32-bit register value.
@@ -1126,7 +1126,7 @@ union SETPOINT_DISPLAY {
     eSETPOINT13 SETPOINT13 : 1;
     eSETPOINT14 SETPOINT14 : 1;
     eSETPOINT15 SETPOINT15 : 1;
-    uint32_t _reserved_end : 16;
+    uint32_t _reserved_0 : 16;
   } bits;
   
   // Full 32-bit register value.
@@ -1191,7 +1191,7 @@ union DOMAIN_DISPLAY {
     eCPU1_WAIT CPU1_WAIT : 1;
     eCPU1_STOP CPU1_STOP : 1;
     eCPU1_SUSP CPU1_SUSP : 1;
-    uint32_t _reserved_end : 24;
+    uint32_t _reserved_0 : 24;
   } bits;
   
   // Full 32-bit register value.
@@ -1224,10 +1224,10 @@ union STAT_DISPLAY {
   // Bit field definition.
   struct {
     eUNDER_RST UNDER_RST : 1;
-    uint32_t _reserved_1 : 1;
+    uint32_t _reserved_0 : 1;
     eRST_BY_HW RST_BY_HW : 1;
     eRST_BY_SW RST_BY_SW : 1;
-    uint32_t _reserved_end : 28;
+    uint32_t _reserved_1 : 28;
   } bits;
   
   // Full 32-bit register value.
@@ -1256,17 +1256,17 @@ union AUTHEN_WAKEUP {
   struct {
     eDOMAIN_MODE DOMAIN_MODE : 1;
     eSETPOINT_MODE SETPOINT_MODE : 1;
-    uint32_t _reserved_2 : 5;
+    uint32_t _reserved_0 : 5;
     uint32_t LOCK_MODE : 1;
     uint32_t ASSIGN_LIST : 4;
-    uint32_t _reserved_4 : 3;
+    uint32_t _reserved_1 : 3;
     uint32_t LOCK_ASSIGN : 1;
     uint32_t WHITE_LIST : 4;
-    uint32_t _reserved_6 : 3;
+    uint32_t _reserved_2 : 3;
     uint32_t LOCK_LIST : 1;
     uint32_t USER : 1;
     uint32_t NONSECURE : 1;
-    uint32_t _reserved_9 : 5;
+    uint32_t _reserved_3 : 5;
     uint32_t LOCK_SETTING : 1;
   } bits;
   
@@ -1290,7 +1290,7 @@ union CTRL_WAKEUP {
   // Bit field definition.
   struct {
     eSW_RESET SW_RESET : 1;
-    uint32_t _reserved_end : 31;
+    uint32_t _reserved_0 : 31;
   } bits;
   
   // Full 32-bit register value.
@@ -1403,7 +1403,7 @@ union SETPOINT_WAKEUP {
     eSETPOINT13 SETPOINT13 : 1;
     eSETPOINT14 SETPOINT14 : 1;
     eSETPOINT15 SETPOINT15 : 1;
-    uint32_t _reserved_end : 16;
+    uint32_t _reserved_0 : 16;
   } bits;
   
   // Full 32-bit register value.
@@ -1468,7 +1468,7 @@ union DOMAIN_WAKEUP {
     eCPU1_WAIT CPU1_WAIT : 1;
     eCPU1_STOP CPU1_STOP : 1;
     eCPU1_SUSP CPU1_SUSP : 1;
-    uint32_t _reserved_end : 24;
+    uint32_t _reserved_0 : 24;
   } bits;
   
   // Full 32-bit register value.
@@ -1501,10 +1501,10 @@ union STAT_WAKEUP {
   // Bit field definition.
   struct {
     eUNDER_RST UNDER_RST : 1;
-    uint32_t _reserved_1 : 1;
+    uint32_t _reserved_0 : 1;
     eRST_BY_HW RST_BY_HW : 1;
     eRST_BY_SW RST_BY_SW : 1;
-    uint32_t _reserved_end : 28;
+    uint32_t _reserved_1 : 28;
   } bits;
   
   // Full 32-bit register value.
@@ -1533,17 +1533,17 @@ union AUTHEN_M4CORE {
   struct {
     eDOMAIN_MODE DOMAIN_MODE : 1;
     eSETPOINT_MODE SETPOINT_MODE : 1;
-    uint32_t _reserved_2 : 5;
+    uint32_t _reserved_0 : 5;
     uint32_t LOCK_MODE : 1;
     uint32_t ASSIGN_LIST : 4;
-    uint32_t _reserved_4 : 3;
+    uint32_t _reserved_1 : 3;
     uint32_t LOCK_ASSIGN : 1;
     uint32_t WHITE_LIST : 4;
-    uint32_t _reserved_6 : 3;
+    uint32_t _reserved_2 : 3;
     uint32_t LOCK_LIST : 1;
     uint32_t USER : 1;
     uint32_t NONSECURE : 1;
-    uint32_t _reserved_9 : 5;
+    uint32_t _reserved_3 : 5;
     uint32_t LOCK_SETTING : 1;
   } bits;
   
@@ -1567,7 +1567,7 @@ union CTRL_M4CORE {
   // Bit field definition.
   struct {
     eSW_RESET SW_RESET : 1;
-    uint32_t _reserved_end : 31;
+    uint32_t _reserved_0 : 31;
   } bits;
   
   // Full 32-bit register value.
@@ -1680,7 +1680,7 @@ union SETPOINT_M4CORE {
     eSETPOINT13 SETPOINT13 : 1;
     eSETPOINT14 SETPOINT14 : 1;
     eSETPOINT15 SETPOINT15 : 1;
-    uint32_t _reserved_end : 16;
+    uint32_t _reserved_0 : 16;
   } bits;
   
   // Full 32-bit register value.
@@ -1745,7 +1745,7 @@ union DOMAIN_M4CORE {
     eCPU1_WAIT CPU1_WAIT : 1;
     eCPU1_STOP CPU1_STOP : 1;
     eCPU1_SUSP CPU1_SUSP : 1;
-    uint32_t _reserved_end : 24;
+    uint32_t _reserved_0 : 24;
   } bits;
   
   // Full 32-bit register value.
@@ -1778,10 +1778,10 @@ union STAT_M4CORE {
   // Bit field definition.
   struct {
     eUNDER_RST UNDER_RST : 1;
-    uint32_t _reserved_1 : 1;
+    uint32_t _reserved_0 : 1;
     eRST_BY_HW RST_BY_HW : 1;
     eRST_BY_SW RST_BY_SW : 1;
-    uint32_t _reserved_end : 28;
+    uint32_t _reserved_1 : 28;
   } bits;
   
   // Full 32-bit register value.
@@ -1810,17 +1810,17 @@ union AUTHEN_M7CORE {
   struct {
     eDOMAIN_MODE DOMAIN_MODE : 1;
     eSETPOINT_MODE SETPOINT_MODE : 1;
-    uint32_t _reserved_2 : 5;
+    uint32_t _reserved_0 : 5;
     uint32_t LOCK_MODE : 1;
     uint32_t ASSIGN_LIST : 4;
-    uint32_t _reserved_4 : 3;
+    uint32_t _reserved_1 : 3;
     uint32_t LOCK_ASSIGN : 1;
     uint32_t WHITE_LIST : 4;
-    uint32_t _reserved_6 : 3;
+    uint32_t _reserved_2 : 3;
     uint32_t LOCK_LIST : 1;
     uint32_t USER : 1;
     uint32_t NONSECURE : 1;
-    uint32_t _reserved_9 : 5;
+    uint32_t _reserved_3 : 5;
     uint32_t LOCK_SETTING : 1;
   } bits;
   
@@ -1844,7 +1844,7 @@ union CTRL_M7CORE {
   // Bit field definition.
   struct {
     eSW_RESET SW_RESET : 1;
-    uint32_t _reserved_end : 31;
+    uint32_t _reserved_0 : 31;
   } bits;
   
   // Full 32-bit register value.
@@ -1957,7 +1957,7 @@ union SETPOINT_M7CORE {
     eSETPOINT13 SETPOINT13 : 1;
     eSETPOINT14 SETPOINT14 : 1;
     eSETPOINT15 SETPOINT15 : 1;
-    uint32_t _reserved_end : 16;
+    uint32_t _reserved_0 : 16;
   } bits;
   
   // Full 32-bit register value.
@@ -2022,7 +2022,7 @@ union DOMAIN_M7CORE {
     eCPU1_WAIT CPU1_WAIT : 1;
     eCPU1_STOP CPU1_STOP : 1;
     eCPU1_SUSP CPU1_SUSP : 1;
-    uint32_t _reserved_end : 24;
+    uint32_t _reserved_0 : 24;
   } bits;
   
   // Full 32-bit register value.
@@ -2055,10 +2055,10 @@ union STAT_M7CORE {
   // Bit field definition.
   struct {
     eUNDER_RST UNDER_RST : 1;
-    uint32_t _reserved_1 : 1;
+    uint32_t _reserved_0 : 1;
     eRST_BY_HW RST_BY_HW : 1;
     eRST_BY_SW RST_BY_SW : 1;
-    uint32_t _reserved_end : 28;
+    uint32_t _reserved_1 : 28;
   } bits;
   
   // Full 32-bit register value.
@@ -2087,17 +2087,17 @@ union AUTHEN_M4DEBUG {
   struct {
     eDOMAIN_MODE DOMAIN_MODE : 1;
     eSETPOINT_MODE SETPOINT_MODE : 1;
-    uint32_t _reserved_2 : 5;
+    uint32_t _reserved_0 : 5;
     uint32_t LOCK_MODE : 1;
     uint32_t ASSIGN_LIST : 4;
-    uint32_t _reserved_4 : 3;
+    uint32_t _reserved_1 : 3;
     uint32_t LOCK_ASSIGN : 1;
     uint32_t WHITE_LIST : 4;
-    uint32_t _reserved_6 : 3;
+    uint32_t _reserved_2 : 3;
     uint32_t LOCK_LIST : 1;
     uint32_t USER : 1;
     uint32_t NONSECURE : 1;
-    uint32_t _reserved_9 : 5;
+    uint32_t _reserved_3 : 5;
     uint32_t LOCK_SETTING : 1;
   } bits;
   
@@ -2121,7 +2121,7 @@ union CTRL_M4DEBUG {
   // Bit field definition.
   struct {
     eSW_RESET SW_RESET : 1;
-    uint32_t _reserved_end : 31;
+    uint32_t _reserved_0 : 31;
   } bits;
   
   // Full 32-bit register value.
@@ -2234,7 +2234,7 @@ union SETPOINT_M4DEBUG {
     eSETPOINT13 SETPOINT13 : 1;
     eSETPOINT14 SETPOINT14 : 1;
     eSETPOINT15 SETPOINT15 : 1;
-    uint32_t _reserved_end : 16;
+    uint32_t _reserved_0 : 16;
   } bits;
   
   // Full 32-bit register value.
@@ -2299,7 +2299,7 @@ union DOMAIN_M4DEBUG {
     eCPU1_WAIT CPU1_WAIT : 1;
     eCPU1_STOP CPU1_STOP : 1;
     eCPU1_SUSP CPU1_SUSP : 1;
-    uint32_t _reserved_end : 24;
+    uint32_t _reserved_0 : 24;
   } bits;
   
   // Full 32-bit register value.
@@ -2332,10 +2332,10 @@ union STAT_M4DEBUG {
   // Bit field definition.
   struct {
     eUNDER_RST UNDER_RST : 1;
-    uint32_t _reserved_1 : 1;
+    uint32_t _reserved_0 : 1;
     eRST_BY_HW RST_BY_HW : 1;
     eRST_BY_SW RST_BY_SW : 1;
-    uint32_t _reserved_end : 28;
+    uint32_t _reserved_1 : 28;
   } bits;
   
   // Full 32-bit register value.
@@ -2364,17 +2364,17 @@ union AUTHEN_M7DEBUG {
   struct {
     eDOMAIN_MODE DOMAIN_MODE : 1;
     eSETPOINT_MODE SETPOINT_MODE : 1;
-    uint32_t _reserved_2 : 5;
+    uint32_t _reserved_0 : 5;
     uint32_t LOCK_MODE : 1;
     uint32_t ASSIGN_LIST : 4;
-    uint32_t _reserved_4 : 3;
+    uint32_t _reserved_1 : 3;
     uint32_t LOCK_ASSIGN : 1;
     uint32_t WHITE_LIST : 4;
-    uint32_t _reserved_6 : 3;
+    uint32_t _reserved_2 : 3;
     uint32_t LOCK_LIST : 1;
     uint32_t USER : 1;
     uint32_t NONSECURE : 1;
-    uint32_t _reserved_9 : 5;
+    uint32_t _reserved_3 : 5;
     uint32_t LOCK_SETTING : 1;
   } bits;
   
@@ -2398,7 +2398,7 @@ union CTRL_M7DEBUG {
   // Bit field definition.
   struct {
     eSW_RESET SW_RESET : 1;
-    uint32_t _reserved_end : 31;
+    uint32_t _reserved_0 : 31;
   } bits;
   
   // Full 32-bit register value.
@@ -2511,7 +2511,7 @@ union SETPOINT_M7DEBUG {
     eSETPOINT13 SETPOINT13 : 1;
     eSETPOINT14 SETPOINT14 : 1;
     eSETPOINT15 SETPOINT15 : 1;
-    uint32_t _reserved_end : 16;
+    uint32_t _reserved_0 : 16;
   } bits;
   
   // Full 32-bit register value.
@@ -2576,7 +2576,7 @@ union DOMAIN_M7DEBUG {
     eCPU1_WAIT CPU1_WAIT : 1;
     eCPU1_STOP CPU1_STOP : 1;
     eCPU1_SUSP CPU1_SUSP : 1;
-    uint32_t _reserved_end : 24;
+    uint32_t _reserved_0 : 24;
   } bits;
   
   // Full 32-bit register value.
@@ -2609,10 +2609,10 @@ union STAT_M7DEBUG {
   // Bit field definition.
   struct {
     eUNDER_RST UNDER_RST : 1;
-    uint32_t _reserved_1 : 1;
+    uint32_t _reserved_0 : 1;
     eRST_BY_HW RST_BY_HW : 1;
     eRST_BY_SW RST_BY_SW : 1;
-    uint32_t _reserved_end : 28;
+    uint32_t _reserved_1 : 28;
   } bits;
   
   // Full 32-bit register value.
@@ -2641,17 +2641,17 @@ union AUTHEN_USBPHY1 {
   struct {
     eDOMAIN_MODE DOMAIN_MODE : 1;
     eSETPOINT_MODE SETPOINT_MODE : 1;
-    uint32_t _reserved_2 : 5;
+    uint32_t _reserved_0 : 5;
     uint32_t LOCK_MODE : 1;
     uint32_t ASSIGN_LIST : 4;
-    uint32_t _reserved_4 : 3;
+    uint32_t _reserved_1 : 3;
     uint32_t LOCK_ASSIGN : 1;
     uint32_t WHITE_LIST : 4;
-    uint32_t _reserved_6 : 3;
+    uint32_t _reserved_2 : 3;
     uint32_t LOCK_LIST : 1;
     uint32_t USER : 1;
     uint32_t NONSECURE : 1;
-    uint32_t _reserved_9 : 5;
+    uint32_t _reserved_3 : 5;
     uint32_t LOCK_SETTING : 1;
   } bits;
   
@@ -2675,7 +2675,7 @@ union CTRL_USBPHY1 {
   // Bit field definition.
   struct {
     eSW_RESET SW_RESET : 1;
-    uint32_t _reserved_end : 31;
+    uint32_t _reserved_0 : 31;
   } bits;
   
   // Full 32-bit register value.
@@ -2788,7 +2788,7 @@ union SETPOINT_USBPHY1 {
     eSETPOINT13 SETPOINT13 : 1;
     eSETPOINT14 SETPOINT14 : 1;
     eSETPOINT15 SETPOINT15 : 1;
-    uint32_t _reserved_end : 16;
+    uint32_t _reserved_0 : 16;
   } bits;
   
   // Full 32-bit register value.
@@ -2853,7 +2853,7 @@ union DOMAIN_USBPHY1 {
     eCPU1_WAIT CPU1_WAIT : 1;
     eCPU1_STOP CPU1_STOP : 1;
     eCPU1_SUSP CPU1_SUSP : 1;
-    uint32_t _reserved_end : 24;
+    uint32_t _reserved_0 : 24;
   } bits;
   
   // Full 32-bit register value.
@@ -2886,10 +2886,10 @@ union STAT_USBPHY1 {
   // Bit field definition.
   struct {
     eUNDER_RST UNDER_RST : 1;
-    uint32_t _reserved_1 : 1;
+    uint32_t _reserved_0 : 1;
     eRST_BY_HW RST_BY_HW : 1;
     eRST_BY_SW RST_BY_SW : 1;
-    uint32_t _reserved_end : 28;
+    uint32_t _reserved_1 : 28;
   } bits;
   
   // Full 32-bit register value.
@@ -2918,17 +2918,17 @@ union AUTHEN_USBPHY2 {
   struct {
     eDOMAIN_MODE DOMAIN_MODE : 1;
     eSETPOINT_MODE SETPOINT_MODE : 1;
-    uint32_t _reserved_2 : 5;
+    uint32_t _reserved_0 : 5;
     uint32_t LOCK_MODE : 1;
     uint32_t ASSIGN_LIST : 4;
-    uint32_t _reserved_4 : 3;
+    uint32_t _reserved_1 : 3;
     uint32_t LOCK_ASSIGN : 1;
     uint32_t WHITE_LIST : 4;
-    uint32_t _reserved_6 : 3;
+    uint32_t _reserved_2 : 3;
     uint32_t LOCK_LIST : 1;
     uint32_t USER : 1;
     uint32_t NONSECURE : 1;
-    uint32_t _reserved_9 : 5;
+    uint32_t _reserved_3 : 5;
     uint32_t LOCK_SETTING : 1;
   } bits;
   
@@ -2952,7 +2952,7 @@ union CTRL_USBPHY2 {
   // Bit field definition.
   struct {
     eSW_RESET SW_RESET : 1;
-    uint32_t _reserved_end : 31;
+    uint32_t _reserved_0 : 31;
   } bits;
   
   // Full 32-bit register value.
@@ -3065,7 +3065,7 @@ union SETPOINT_USBPHY2 {
     eSETPOINT13 SETPOINT13 : 1;
     eSETPOINT14 SETPOINT14 : 1;
     eSETPOINT15 SETPOINT15 : 1;
-    uint32_t _reserved_end : 16;
+    uint32_t _reserved_0 : 16;
   } bits;
   
   // Full 32-bit register value.
@@ -3130,7 +3130,7 @@ union DOMAIN_USBPHY2 {
     eCPU1_WAIT CPU1_WAIT : 1;
     eCPU1_STOP CPU1_STOP : 1;
     eCPU1_SUSP CPU1_SUSP : 1;
-    uint32_t _reserved_end : 24;
+    uint32_t _reserved_0 : 24;
   } bits;
   
   // Full 32-bit register value.
@@ -3163,10 +3163,10 @@ union STAT_USBPHY2 {
   // Bit field definition.
   struct {
     eUNDER_RST UNDER_RST : 1;
-    uint32_t _reserved_1 : 1;
+    uint32_t _reserved_0 : 1;
     eRST_BY_HW RST_BY_HW : 1;
     eRST_BY_SW RST_BY_SW : 1;
-    uint32_t _reserved_end : 28;
+    uint32_t _reserved_1 : 28;
   } bits;
   
   // Full 32-bit register value.

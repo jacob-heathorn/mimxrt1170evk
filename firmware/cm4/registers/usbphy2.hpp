@@ -4,7 +4,7 @@
 #include <stdint.h>
 #include <cstring>
 
-// // USBPHY
+// USBPHY
 //
 // NOTE: This file was generated from the forge CMSIS-svd wrapper tool.
 
@@ -56,12 +56,12 @@ union PWD {
     eTXPWDFS TXPWDFS : 1;
     eTXPWDIBIAS TXPWDIBIAS : 1;
     eTXPWDV2I TXPWDV2I : 1;
-    uint32_t _reserved_3 : 4;
+    uint32_t _reserved_1 : 4;
     eRXPWDENV RXPWDENV : 1;
     eRXPWD1PT1 RXPWD1PT1 : 1;
     eRXPWDDIFF RXPWDDIFF : 1;
     eRXPWDRX RXPWDRX : 1;
-    uint32_t _reserved_end : 11;
+    uint32_t _reserved_2 : 11;
   } bits;
   
   // Full 32-bit register value.
@@ -82,12 +82,12 @@ union PWD_SET {
     uint32_t TXPWDFS : 1;
     uint32_t TXPWDIBIAS : 1;
     uint32_t TXPWDV2I : 1;
-    uint32_t _reserved_3 : 4;
+    uint32_t _reserved_1 : 4;
     uint32_t RXPWDENV : 1;
     uint32_t RXPWD1PT1 : 1;
     uint32_t RXPWDDIFF : 1;
     uint32_t RXPWDRX : 1;
-    uint32_t _reserved_end : 11;
+    uint32_t _reserved_2 : 11;
   } bits;
   
   // Full 32-bit register value.
@@ -108,12 +108,12 @@ union PWD_CLR {
     uint32_t TXPWDFS : 1;
     uint32_t TXPWDIBIAS : 1;
     uint32_t TXPWDV2I : 1;
-    uint32_t _reserved_3 : 4;
+    uint32_t _reserved_1 : 4;
     uint32_t RXPWDENV : 1;
     uint32_t RXPWD1PT1 : 1;
     uint32_t RXPWDDIFF : 1;
     uint32_t RXPWDRX : 1;
-    uint32_t _reserved_end : 11;
+    uint32_t _reserved_2 : 11;
   } bits;
   
   // Full 32-bit register value.
@@ -134,12 +134,12 @@ union PWD_TOG {
     uint32_t TXPWDFS : 1;
     uint32_t TXPWDIBIAS : 1;
     uint32_t TXPWDV2I : 1;
-    uint32_t _reserved_3 : 4;
+    uint32_t _reserved_1 : 4;
     uint32_t RXPWDENV : 1;
     uint32_t RXPWD1PT1 : 1;
     uint32_t RXPWDDIFF : 1;
     uint32_t RXPWDRX : 1;
-    uint32_t _reserved_end : 11;
+    uint32_t _reserved_2 : 11;
   } bits;
   
   // Full 32-bit register value.
@@ -163,11 +163,11 @@ union TX {
   // Bit field definition.
   struct {
     eD_CAL D_CAL : 4;
-    uint32_t _reserved_1 : 4;
+    uint32_t _reserved_0 : 4;
     uint32_t TXCAL45DN : 4;
-    uint32_t _reserved_2 : 4;
+    uint32_t _reserved_1 : 4;
     uint32_t TXCAL45DP : 4;
-    uint32_t _reserved_end : 12;
+    uint32_t _reserved_2 : 12;
   } bits;
   
   // Full 32-bit register value.
@@ -185,11 +185,11 @@ union TX_SET {
   // Bit field definition.
   struct {
     uint32_t D_CAL : 4;
-    uint32_t _reserved_1 : 4;
+    uint32_t _reserved_0 : 4;
     uint32_t TXCAL45DN : 4;
-    uint32_t _reserved_2 : 4;
+    uint32_t _reserved_1 : 4;
     uint32_t TXCAL45DP : 4;
-    uint32_t _reserved_end : 12;
+    uint32_t _reserved_2 : 12;
   } bits;
   
   // Full 32-bit register value.
@@ -207,11 +207,11 @@ union TX_CLR {
   // Bit field definition.
   struct {
     uint32_t D_CAL : 4;
-    uint32_t _reserved_1 : 4;
+    uint32_t _reserved_0 : 4;
     uint32_t TXCAL45DN : 4;
-    uint32_t _reserved_2 : 4;
+    uint32_t _reserved_1 : 4;
     uint32_t TXCAL45DP : 4;
-    uint32_t _reserved_end : 12;
+    uint32_t _reserved_2 : 12;
   } bits;
   
   // Full 32-bit register value.
@@ -229,11 +229,11 @@ union TX_TOG {
   // Bit field definition.
   struct {
     uint32_t D_CAL : 4;
-    uint32_t _reserved_1 : 4;
+    uint32_t _reserved_0 : 4;
     uint32_t TXCAL45DN : 4;
-    uint32_t _reserved_2 : 4;
+    uint32_t _reserved_1 : 4;
     uint32_t TXCAL45DP : 4;
-    uint32_t _reserved_end : 12;
+    uint32_t _reserved_2 : 12;
   } bits;
   
   // Full 32-bit register value.
@@ -270,11 +270,11 @@ union RX {
   // Bit field definition.
   struct {
     eENVADJ ENVADJ : 3;
-    uint32_t _reserved_1 : 1;
+    uint32_t _reserved_0 : 1;
     eDISCONADJ DISCONADJ : 3;
-    uint32_t _reserved_2 : 15;
+    uint32_t _reserved_1 : 15;
     eRXDBYPASS RXDBYPASS : 1;
-    uint32_t _reserved_end : 9;
+    uint32_t _reserved_2 : 9;
   } bits;
   
   // Full 32-bit register value.
@@ -292,11 +292,11 @@ union RX_SET {
   // Bit field definition.
   struct {
     uint32_t ENVADJ : 3;
-    uint32_t _reserved_1 : 1;
+    uint32_t _reserved_0 : 1;
     uint32_t DISCONADJ : 3;
-    uint32_t _reserved_2 : 15;
+    uint32_t _reserved_1 : 15;
     uint32_t RXDBYPASS : 1;
-    uint32_t _reserved_end : 9;
+    uint32_t _reserved_2 : 9;
   } bits;
   
   // Full 32-bit register value.
@@ -314,11 +314,11 @@ union RX_CLR {
   // Bit field definition.
   struct {
     uint32_t ENVADJ : 3;
-    uint32_t _reserved_1 : 1;
+    uint32_t _reserved_0 : 1;
     uint32_t DISCONADJ : 3;
-    uint32_t _reserved_2 : 15;
+    uint32_t _reserved_1 : 15;
     uint32_t RXDBYPASS : 1;
-    uint32_t _reserved_end : 9;
+    uint32_t _reserved_2 : 9;
   } bits;
   
   // Full 32-bit register value.
@@ -336,11 +336,11 @@ union RX_TOG {
   // Bit field definition.
   struct {
     uint32_t ENVADJ : 3;
-    uint32_t _reserved_1 : 1;
+    uint32_t _reserved_0 : 1;
     uint32_t DISCONADJ : 3;
-    uint32_t _reserved_2 : 15;
+    uint32_t _reserved_1 : 15;
     uint32_t RXDBYPASS : 1;
-    uint32_t _reserved_end : 9;
+    uint32_t _reserved_2 : 9;
   } bits;
   
   // Full 32-bit register value.
@@ -375,7 +375,7 @@ union CTRL {
     uint32_t RESUME_IRQ : 1;
     uint32_t ENIRQDEVPLUGIN : 1;
     uint32_t DEVPLUGIN_IRQ : 1;
-    uint32_t _reserved_13 : 1;
+    uint32_t _reserved_0 : 1;
     uint32_t ENUTMILEVEL2 : 1;
     uint32_t ENUTMILEVEL3 : 1;
     uint32_t ENIRQWAKEUP : 1;
@@ -387,7 +387,7 @@ union CTRL {
     uint32_t ENIDCHG_WKUP : 1;
     uint32_t ENVBUSCHG_WKUP : 1;
     uint32_t FSDLL_RST_EN : 1;
-    uint32_t _reserved_24 : 2;
+    uint32_t _reserved_1 : 2;
     uint32_t OTG_ID_VALUE : 1;
     uint32_t HOST_FORCE_LS_SE0 : 1;
     uint32_t UTMI_SUSPENDM : 1;
@@ -422,7 +422,7 @@ union CTRL_SET {
     uint32_t RESUME_IRQ : 1;
     uint32_t ENIRQDEVPLUGIN : 1;
     uint32_t DEVPLUGIN_IRQ : 1;
-    uint32_t _reserved_13 : 1;
+    uint32_t _reserved_0 : 1;
     uint32_t ENUTMILEVEL2 : 1;
     uint32_t ENUTMILEVEL3 : 1;
     uint32_t ENIRQWAKEUP : 1;
@@ -434,7 +434,7 @@ union CTRL_SET {
     uint32_t ENIDCHG_WKUP : 1;
     uint32_t ENVBUSCHG_WKUP : 1;
     uint32_t FSDLL_RST_EN : 1;
-    uint32_t _reserved_24 : 2;
+    uint32_t _reserved_1 : 2;
     uint32_t OTG_ID_VALUE : 1;
     uint32_t HOST_FORCE_LS_SE0 : 1;
     uint32_t UTMI_SUSPENDM : 1;
@@ -469,7 +469,7 @@ union CTRL_CLR {
     uint32_t RESUME_IRQ : 1;
     uint32_t ENIRQDEVPLUGIN : 1;
     uint32_t DEVPLUGIN_IRQ : 1;
-    uint32_t _reserved_13 : 1;
+    uint32_t _reserved_0 : 1;
     uint32_t ENUTMILEVEL2 : 1;
     uint32_t ENUTMILEVEL3 : 1;
     uint32_t ENIRQWAKEUP : 1;
@@ -481,7 +481,7 @@ union CTRL_CLR {
     uint32_t ENIDCHG_WKUP : 1;
     uint32_t ENVBUSCHG_WKUP : 1;
     uint32_t FSDLL_RST_EN : 1;
-    uint32_t _reserved_24 : 2;
+    uint32_t _reserved_1 : 2;
     uint32_t OTG_ID_VALUE : 1;
     uint32_t HOST_FORCE_LS_SE0 : 1;
     uint32_t UTMI_SUSPENDM : 1;
@@ -516,7 +516,7 @@ union CTRL_TOG {
     uint32_t RESUME_IRQ : 1;
     uint32_t ENIRQDEVPLUGIN : 1;
     uint32_t DEVPLUGIN_IRQ : 1;
-    uint32_t _reserved_13 : 1;
+    uint32_t _reserved_0 : 1;
     uint32_t ENUTMILEVEL2 : 1;
     uint32_t ENUTMILEVEL3 : 1;
     uint32_t ENIRQWAKEUP : 1;
@@ -528,7 +528,7 @@ union CTRL_TOG {
     uint32_t ENIDCHG_WKUP : 1;
     uint32_t ENVBUSCHG_WKUP : 1;
     uint32_t FSDLL_RST_EN : 1;
-    uint32_t _reserved_24 : 2;
+    uint32_t _reserved_1 : 2;
     uint32_t OTG_ID_VALUE : 1;
     uint32_t HOST_FORCE_LS_SE0 : 1;
     uint32_t UTMI_SUSPENDM : 1;
@@ -568,7 +568,7 @@ union STATUS {
     uint32_t OTGID_STATUS : 1;
     uint32_t _reserved_3 : 1;
     uint32_t RESUME_STATUS : 1;
-    uint32_t _reserved_end : 21;
+    uint32_t _reserved_4 : 21;
   } bits;
   
   // Full 32-bit register value.
@@ -589,17 +589,17 @@ union DEBUG {
     uint32_t DEBUG_INTERFACE_HOLD : 1;
     uint32_t HSTPULLDOWN : 2;
     uint32_t ENHSTPULLDOWN : 2;
-    uint32_t _reserved_4 : 2;
+    uint32_t _reserved_0 : 2;
     uint32_t TX2RXCOUNT : 4;
     uint32_t ENTX2RXCOUNT : 1;
-    uint32_t _reserved_6 : 3;
+    uint32_t _reserved_1 : 3;
     uint32_t SQUELCHRESETCOUNT : 5;
-    uint32_t _reserved_7 : 3;
+    uint32_t _reserved_2 : 3;
     uint32_t ENSQUELCHRESET : 1;
     uint32_t SQUELCHRESETLENGTH : 4;
     uint32_t HOST_RESUME_DEBUG : 1;
     uint32_t CLKGATE : 1;
-    uint32_t _reserved_end : 1;
+    uint32_t _reserved_3 : 1;
   } bits;
   
   // Full 32-bit register value.
@@ -620,17 +620,17 @@ union DEBUG_SET {
     uint32_t DEBUG_INTERFACE_HOLD : 1;
     uint32_t HSTPULLDOWN : 2;
     uint32_t ENHSTPULLDOWN : 2;
-    uint32_t _reserved_4 : 2;
+    uint32_t _reserved_0 : 2;
     uint32_t TX2RXCOUNT : 4;
     uint32_t ENTX2RXCOUNT : 1;
-    uint32_t _reserved_6 : 3;
+    uint32_t _reserved_1 : 3;
     uint32_t SQUELCHRESETCOUNT : 5;
-    uint32_t _reserved_7 : 3;
+    uint32_t _reserved_2 : 3;
     uint32_t ENSQUELCHRESET : 1;
     uint32_t SQUELCHRESETLENGTH : 4;
     uint32_t HOST_RESUME_DEBUG : 1;
     uint32_t CLKGATE : 1;
-    uint32_t _reserved_end : 1;
+    uint32_t _reserved_3 : 1;
   } bits;
   
   // Full 32-bit register value.
@@ -651,17 +651,17 @@ union DEBUG_CLR {
     uint32_t DEBUG_INTERFACE_HOLD : 1;
     uint32_t HSTPULLDOWN : 2;
     uint32_t ENHSTPULLDOWN : 2;
-    uint32_t _reserved_4 : 2;
+    uint32_t _reserved_0 : 2;
     uint32_t TX2RXCOUNT : 4;
     uint32_t ENTX2RXCOUNT : 1;
-    uint32_t _reserved_6 : 3;
+    uint32_t _reserved_1 : 3;
     uint32_t SQUELCHRESETCOUNT : 5;
-    uint32_t _reserved_7 : 3;
+    uint32_t _reserved_2 : 3;
     uint32_t ENSQUELCHRESET : 1;
     uint32_t SQUELCHRESETLENGTH : 4;
     uint32_t HOST_RESUME_DEBUG : 1;
     uint32_t CLKGATE : 1;
-    uint32_t _reserved_end : 1;
+    uint32_t _reserved_3 : 1;
   } bits;
   
   // Full 32-bit register value.
@@ -682,17 +682,17 @@ union DEBUG_TOG {
     uint32_t DEBUG_INTERFACE_HOLD : 1;
     uint32_t HSTPULLDOWN : 2;
     uint32_t ENHSTPULLDOWN : 2;
-    uint32_t _reserved_4 : 2;
+    uint32_t _reserved_0 : 2;
     uint32_t TX2RXCOUNT : 4;
     uint32_t ENTX2RXCOUNT : 1;
-    uint32_t _reserved_6 : 3;
+    uint32_t _reserved_1 : 3;
     uint32_t SQUELCHRESETCOUNT : 5;
-    uint32_t _reserved_7 : 3;
+    uint32_t _reserved_2 : 3;
     uint32_t ENSQUELCHRESET : 1;
     uint32_t SQUELCHRESETLENGTH : 4;
     uint32_t HOST_RESUME_DEBUG : 1;
     uint32_t CLKGATE : 1;
-    uint32_t _reserved_end : 1;
+    uint32_t _reserved_3 : 1;
   } bits;
   
   // Full 32-bit register value.
@@ -742,7 +742,7 @@ union DEBUG1 {
     uint32_t USB2_REFBIAS_LOWPWR : 1;
     uint32_t USB2_REFBIAS_VBGADJ : 3;
     uint32_t USB2_REFBIAS_TST : 2;
-    uint32_t _reserved_end : 9;
+    uint32_t _reserved_1 : 9;
   } bits;
   
   // Full 32-bit register value.
@@ -766,7 +766,7 @@ union DEBUG1_SET {
     uint32_t USB2_REFBIAS_LOWPWR : 1;
     uint32_t USB2_REFBIAS_VBGADJ : 3;
     uint32_t USB2_REFBIAS_TST : 2;
-    uint32_t _reserved_end : 9;
+    uint32_t _reserved_1 : 9;
   } bits;
   
   // Full 32-bit register value.
@@ -790,7 +790,7 @@ union DEBUG1_CLR {
     uint32_t USB2_REFBIAS_LOWPWR : 1;
     uint32_t USB2_REFBIAS_VBGADJ : 3;
     uint32_t USB2_REFBIAS_TST : 2;
-    uint32_t _reserved_end : 9;
+    uint32_t _reserved_1 : 9;
   } bits;
   
   // Full 32-bit register value.
@@ -814,7 +814,7 @@ union DEBUG1_TOG {
     uint32_t USB2_REFBIAS_LOWPWR : 1;
     uint32_t USB2_REFBIAS_VBGADJ : 3;
     uint32_t USB2_REFBIAS_TST : 2;
-    uint32_t _reserved_end : 9;
+    uint32_t _reserved_1 : 9;
   } bits;
   
   // Full 32-bit register value.
@@ -878,14 +878,14 @@ union PLL_SIC {
     uint32_t _reserved_2 : 5;
     uint32_t PLL_POWER : 1;
     uint32_t PLL_ENABLE : 1;
-    uint32_t _reserved_4 : 2;
+    uint32_t _reserved_3 : 2;
     uint32_t PLL_BYPASS : 1;
-    uint32_t _reserved_5 : 2;
+    uint32_t _reserved_4 : 2;
     eREFBIAS_PWD_SEL REFBIAS_PWD_SEL : 1;
     uint32_t REFBIAS_PWD : 1;
     uint32_t PLL_REG_ENABLE : 1;
     ePLL_DIV_SEL PLL_DIV_SEL : 3;
-    uint32_t _reserved_9 : 6;
+    uint32_t _reserved_5 : 6;
     ePLL_LOCK PLL_LOCK : 1;
   } bits;
   
@@ -910,14 +910,14 @@ union PLL_SIC_SET {
     uint32_t _reserved_2 : 5;
     uint32_t PLL_POWER : 1;
     uint32_t PLL_ENABLE : 1;
-    uint32_t _reserved_4 : 2;
+    uint32_t _reserved_3 : 2;
     uint32_t PLL_BYPASS : 1;
-    uint32_t _reserved_5 : 2;
+    uint32_t _reserved_4 : 2;
     uint32_t REFBIAS_PWD_SEL : 1;
     uint32_t REFBIAS_PWD : 1;
     uint32_t PLL_REG_ENABLE : 1;
     uint32_t PLL_DIV_SEL : 3;
-    uint32_t _reserved_9 : 6;
+    uint32_t _reserved_5 : 6;
     uint32_t PLL_LOCK : 1;
   } bits;
   
@@ -942,14 +942,14 @@ union PLL_SIC_CLR {
     uint32_t _reserved_2 : 5;
     uint32_t PLL_POWER : 1;
     uint32_t PLL_ENABLE : 1;
-    uint32_t _reserved_4 : 2;
+    uint32_t _reserved_3 : 2;
     uint32_t PLL_BYPASS : 1;
-    uint32_t _reserved_5 : 2;
+    uint32_t _reserved_4 : 2;
     uint32_t REFBIAS_PWD_SEL : 1;
     uint32_t REFBIAS_PWD : 1;
     uint32_t PLL_REG_ENABLE : 1;
     uint32_t PLL_DIV_SEL : 3;
-    uint32_t _reserved_9 : 6;
+    uint32_t _reserved_5 : 6;
     uint32_t PLL_LOCK : 1;
   } bits;
   
@@ -974,14 +974,14 @@ union PLL_SIC_TOG {
     uint32_t _reserved_2 : 5;
     uint32_t PLL_POWER : 1;
     uint32_t PLL_ENABLE : 1;
-    uint32_t _reserved_4 : 2;
+    uint32_t _reserved_3 : 2;
     uint32_t PLL_BYPASS : 1;
-    uint32_t _reserved_5 : 2;
+    uint32_t _reserved_4 : 2;
     uint32_t REFBIAS_PWD_SEL : 1;
     uint32_t REFBIAS_PWD : 1;
     uint32_t PLL_REG_ENABLE : 1;
     uint32_t PLL_DIV_SEL : 3;
-    uint32_t _reserved_9 : 6;
+    uint32_t _reserved_5 : 6;
     uint32_t PLL_LOCK : 1;
   } bits;
   
@@ -1057,13 +1057,13 @@ union USB1_VBUS_DETECT {
     eVBUS_SOURCE_SEL VBUS_SOURCE_SEL : 2;
     uint32_t ID_OVERRIDE_EN : 1;
     uint32_t ID_OVERRIDE : 1;
-    uint32_t _reserved_10 : 5;
+    uint32_t _reserved_0 : 5;
     eVBUSVALID_TO_SESSVALID VBUSVALID_TO_SESSVALID : 1;
-    uint32_t _reserved_11 : 1;
+    uint32_t _reserved_1 : 1;
     ePWRUP_CMPS PWRUP_CMPS : 3;
-    uint32_t _reserved_12 : 3;
+    uint32_t _reserved_2 : 3;
     eDISCHARGE_VBUS DISCHARGE_VBUS : 1;
-    uint32_t _reserved_13 : 4;
+    uint32_t _reserved_3 : 4;
     eEN_CHARGER_RESISTOR EN_CHARGER_RESISTOR : 1;
   } bits;
   
@@ -1091,13 +1091,13 @@ union USB1_VBUS_DETECT_SET {
     uint32_t VBUS_SOURCE_SEL : 2;
     uint32_t ID_OVERRIDE_EN : 1;
     uint32_t ID_OVERRIDE : 1;
-    uint32_t _reserved_10 : 5;
+    uint32_t _reserved_0 : 5;
     uint32_t VBUSVALID_TO_SESSVALID : 1;
-    uint32_t _reserved_11 : 1;
+    uint32_t _reserved_1 : 1;
     uint32_t PWRUP_CMPS : 3;
-    uint32_t _reserved_12 : 3;
+    uint32_t _reserved_2 : 3;
     uint32_t DISCHARGE_VBUS : 1;
-    uint32_t _reserved_13 : 4;
+    uint32_t _reserved_3 : 4;
     uint32_t EN_CHARGER_RESISTOR : 1;
   } bits;
   
@@ -1125,13 +1125,13 @@ union USB1_VBUS_DETECT_CLR {
     uint32_t VBUS_SOURCE_SEL : 2;
     uint32_t ID_OVERRIDE_EN : 1;
     uint32_t ID_OVERRIDE : 1;
-    uint32_t _reserved_10 : 5;
+    uint32_t _reserved_0 : 5;
     uint32_t VBUSVALID_TO_SESSVALID : 1;
-    uint32_t _reserved_11 : 1;
+    uint32_t _reserved_1 : 1;
     uint32_t PWRUP_CMPS : 3;
-    uint32_t _reserved_12 : 3;
+    uint32_t _reserved_2 : 3;
     uint32_t DISCHARGE_VBUS : 1;
-    uint32_t _reserved_13 : 4;
+    uint32_t _reserved_3 : 4;
     uint32_t EN_CHARGER_RESISTOR : 1;
   } bits;
   
@@ -1159,13 +1159,13 @@ union USB1_VBUS_DETECT_TOG {
     uint32_t VBUS_SOURCE_SEL : 2;
     uint32_t ID_OVERRIDE_EN : 1;
     uint32_t ID_OVERRIDE : 1;
-    uint32_t _reserved_10 : 5;
+    uint32_t _reserved_0 : 5;
     uint32_t VBUSVALID_TO_SESSVALID : 1;
-    uint32_t _reserved_11 : 1;
+    uint32_t _reserved_1 : 1;
     uint32_t PWRUP_CMPS : 3;
-    uint32_t _reserved_12 : 3;
+    uint32_t _reserved_2 : 3;
     uint32_t DISCHARGE_VBUS : 1;
-    uint32_t _reserved_13 : 4;
+    uint32_t _reserved_3 : 4;
     uint32_t EN_CHARGER_RESISTOR : 1;
   } bits;
   
@@ -1213,7 +1213,7 @@ union USB1_VBUS_DET_STAT {
     eAVALID AVALID : 1;
     eVBUS_VALID VBUS_VALID : 1;
     eVBUS_VALID_3V VBUS_VALID_3V : 1;
-    uint32_t _reserved_end : 27;
+    uint32_t _reserved_0 : 27;
   } bits;
   
   // Full 32-bit register value.
@@ -1239,7 +1239,7 @@ union USB1_CHRG_DETECT {
     uint32_t PULLUP_DP : 1;
     uint32_t _reserved_1 : 20;
     eBGR_BIAS BGR_BIAS : 1;
-    uint32_t _reserved_end : 8;
+    uint32_t _reserved_2 : 8;
   } bits;
   
   // Full 32-bit register value.
@@ -1260,7 +1260,7 @@ union USB1_CHRG_DETECT_SET {
     uint32_t PULLUP_DP : 1;
     uint32_t _reserved_1 : 20;
     uint32_t BGR_BIAS : 1;
-    uint32_t _reserved_end : 8;
+    uint32_t _reserved_2 : 8;
   } bits;
   
   // Full 32-bit register value.
@@ -1281,7 +1281,7 @@ union USB1_CHRG_DETECT_CLR {
     uint32_t PULLUP_DP : 1;
     uint32_t _reserved_1 : 20;
     uint32_t BGR_BIAS : 1;
-    uint32_t _reserved_end : 8;
+    uint32_t _reserved_2 : 8;
   } bits;
   
   // Full 32-bit register value.
@@ -1302,7 +1302,7 @@ union USB1_CHRG_DETECT_TOG {
     uint32_t PULLUP_DP : 1;
     uint32_t _reserved_1 : 20;
     uint32_t BGR_BIAS : 1;
-    uint32_t _reserved_end : 8;
+    uint32_t _reserved_2 : 8;
   } bits;
   
   // Full 32-bit register value.
@@ -1349,7 +1349,7 @@ union USB1_CHRG_DET_STAT {
     eDN_STATE DN_STATE : 1;
     eDP_STATE DP_STATE : 1;
     eSECDET_DCP SECDET_DCP : 1;
-    uint32_t _reserved_end : 27;
+    uint32_t _reserved_0 : 27;
   } bits;
   
   // Full 32-bit register value.
@@ -1373,7 +1373,7 @@ union ANACTRL {
   struct {
     uint32_t _reserved_0 : 10;
     eDEV_PULLDOWN DEV_PULLDOWN : 1;
-    uint32_t _reserved_end : 21;
+    uint32_t _reserved_1 : 21;
   } bits;
   
   // Full 32-bit register value.
@@ -1392,7 +1392,7 @@ union ANACTRL_SET {
   struct {
     uint32_t _reserved_0 : 10;
     uint32_t DEV_PULLDOWN : 1;
-    uint32_t _reserved_end : 21;
+    uint32_t _reserved_1 : 21;
   } bits;
   
   // Full 32-bit register value.
@@ -1411,7 +1411,7 @@ union ANACTRL_CLR {
   struct {
     uint32_t _reserved_0 : 10;
     uint32_t DEV_PULLDOWN : 1;
-    uint32_t _reserved_end : 21;
+    uint32_t _reserved_1 : 21;
   } bits;
   
   // Full 32-bit register value.
@@ -1430,7 +1430,7 @@ union ANACTRL_TOG {
   struct {
     uint32_t _reserved_0 : 10;
     uint32_t DEV_PULLDOWN : 1;
-    uint32_t _reserved_end : 21;
+    uint32_t _reserved_1 : 21;
   } bits;
   
   // Full 32-bit register value.
@@ -1456,10 +1456,10 @@ union USB1_LOOPBACK {
     uint32_t TSTI_TX_HIZ : 1;
     uint32_t UTMO_DIG_TST0 : 1;
     uint32_t UTMO_DIG_TST1 : 1;
-    uint32_t _reserved_9 : 6;
+    uint32_t _reserved_0 : 6;
     uint32_t TSTI_HSFS_MODE_EN : 1;
     uint32_t TSTPKT : 8;
-    uint32_t _reserved_end : 8;
+    uint32_t _reserved_1 : 8;
   } bits;
   
   // Full 32-bit register value.
@@ -1485,10 +1485,10 @@ union USB1_LOOPBACK_SET {
     uint32_t TSTI_TX_HIZ : 1;
     uint32_t UTMO_DIG_TST0 : 1;
     uint32_t UTMO_DIG_TST1 : 1;
-    uint32_t _reserved_9 : 6;
+    uint32_t _reserved_0 : 6;
     uint32_t TSTI_HSFS_MODE_EN : 1;
     uint32_t TSTPKT : 8;
-    uint32_t _reserved_end : 8;
+    uint32_t _reserved_1 : 8;
   } bits;
   
   // Full 32-bit register value.
@@ -1514,10 +1514,10 @@ union USB1_LOOPBACK_CLR {
     uint32_t TSTI_TX_HIZ : 1;
     uint32_t UTMO_DIG_TST0 : 1;
     uint32_t UTMO_DIG_TST1 : 1;
-    uint32_t _reserved_9 : 6;
+    uint32_t _reserved_0 : 6;
     uint32_t TSTI_HSFS_MODE_EN : 1;
     uint32_t TSTPKT : 8;
-    uint32_t _reserved_end : 8;
+    uint32_t _reserved_1 : 8;
   } bits;
   
   // Full 32-bit register value.
@@ -1543,10 +1543,10 @@ union USB1_LOOPBACK_TOG {
     uint32_t TSTI_TX_HIZ : 1;
     uint32_t UTMO_DIG_TST0 : 1;
     uint32_t UTMO_DIG_TST1 : 1;
-    uint32_t _reserved_9 : 6;
+    uint32_t _reserved_0 : 6;
     uint32_t TSTI_HSFS_MODE_EN : 1;
     uint32_t TSTPKT : 8;
-    uint32_t _reserved_end : 8;
+    uint32_t _reserved_1 : 8;
   } bits;
   
   // Full 32-bit register value.
@@ -1642,7 +1642,7 @@ union TRIM_OVERRIDE_EN {
     uint32_t TRIM_TX_CAL45DN_OVERRIDE : 1;
     uint32_t TRIM_REFBIAS_VBGADJ_OVERRIDE : 1;
     uint32_t TRIM_REFBIAS_TST_OVERRIDE : 1;
-    uint32_t _reserved_7 : 3;
+    uint32_t _reserved_0 : 3;
     uint32_t TRIM_USB2_REFBIAS_VBGADJ : 3;
     uint32_t TRIM_USB2_REFBIAS_TST : 2;
     uint32_t TRIM_PLL_CTRL0_DIV_SEL : 3;
@@ -1673,7 +1673,7 @@ union TRIM_OVERRIDE_EN_SET {
     uint32_t TRIM_TX_CAL45DN_OVERRIDE : 1;
     uint32_t TRIM_REFBIAS_VBGADJ_OVERRIDE : 1;
     uint32_t TRIM_REFBIAS_TST_OVERRIDE : 1;
-    uint32_t _reserved_7 : 3;
+    uint32_t _reserved_0 : 3;
     uint32_t TRIM_USB2_REFBIAS_VBGADJ : 3;
     uint32_t TRIM_USB2_REFBIAS_TST : 2;
     uint32_t TRIM_PLL_CTRL0_DIV_SEL : 3;
@@ -1704,7 +1704,7 @@ union TRIM_OVERRIDE_EN_CLR {
     uint32_t TRIM_TX_CAL45DN_OVERRIDE : 1;
     uint32_t TRIM_REFBIAS_VBGADJ_OVERRIDE : 1;
     uint32_t TRIM_REFBIAS_TST_OVERRIDE : 1;
-    uint32_t _reserved_7 : 3;
+    uint32_t _reserved_0 : 3;
     uint32_t TRIM_USB2_REFBIAS_VBGADJ : 3;
     uint32_t TRIM_USB2_REFBIAS_TST : 2;
     uint32_t TRIM_PLL_CTRL0_DIV_SEL : 3;
@@ -1735,7 +1735,7 @@ union TRIM_OVERRIDE_EN_TOG {
     uint32_t TRIM_TX_CAL45DN_OVERRIDE : 1;
     uint32_t TRIM_REFBIAS_VBGADJ_OVERRIDE : 1;
     uint32_t TRIM_REFBIAS_TST_OVERRIDE : 1;
-    uint32_t _reserved_7 : 3;
+    uint32_t _reserved_0 : 3;
     uint32_t TRIM_USB2_REFBIAS_VBGADJ : 3;
     uint32_t TRIM_USB2_REFBIAS_TST : 2;
     uint32_t TRIM_PLL_CTRL0_DIV_SEL : 3;

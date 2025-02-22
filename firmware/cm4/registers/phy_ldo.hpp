@@ -4,7 +4,7 @@
 #include <stdint.h>
 #include <cstring>
 
-// // no description available
+// no description available
 //
 // NOTE: This file was generated from the forge CMSIS-svd wrapper tool.
 
@@ -31,11 +31,11 @@ union CTRL0 {
     uint32_t LINREG_EN : 1;
     eLINREG_PWRUPLOAD_DIS LINREG_PWRUPLOAD_DIS : 1;
     uint32_t LINREG_ILIMIT_EN : 1;
-    uint32_t _reserved_3 : 1;
+    uint32_t _reserved_0 : 1;
     eLINREG_OUTPUT_TRG LINREG_OUTPUT_TRG : 5;
-    uint32_t _reserved_4 : 6;
+    uint32_t _reserved_1 : 6;
     uint32_t LINREG_PHY_ISO_B : 1;
-    uint32_t _reserved_end : 16;
+    uint32_t _reserved_2 : 16;
   } bits;
   
   // Full 32-bit register value.
@@ -55,11 +55,11 @@ union CTRL0_SET {
     uint32_t LINREG_EN : 1;
     uint32_t LINREG_PWRUPLOAD_DIS : 1;
     uint32_t LINREG_ILIMIT_EN : 1;
-    uint32_t _reserved_3 : 1;
+    uint32_t _reserved_0 : 1;
     uint32_t LINREG_OUTPUT_TRG : 5;
-    uint32_t _reserved_4 : 6;
+    uint32_t _reserved_1 : 6;
     uint32_t LINREG_PHY_ISO_B : 1;
-    uint32_t _reserved_end : 16;
+    uint32_t _reserved_2 : 16;
   } bits;
   
   // Full 32-bit register value.
@@ -79,11 +79,11 @@ union CTRL0_CLR {
     uint32_t LINREG_EN : 1;
     uint32_t LINREG_PWRUPLOAD_DIS : 1;
     uint32_t LINREG_ILIMIT_EN : 1;
-    uint32_t _reserved_3 : 1;
+    uint32_t _reserved_0 : 1;
     uint32_t LINREG_OUTPUT_TRG : 5;
-    uint32_t _reserved_4 : 6;
+    uint32_t _reserved_1 : 6;
     uint32_t LINREG_PHY_ISO_B : 1;
-    uint32_t _reserved_end : 16;
+    uint32_t _reserved_2 : 16;
   } bits;
   
   // Full 32-bit register value.
@@ -103,11 +103,11 @@ union CTRL0_TOG {
     uint32_t LINREG_EN : 1;
     uint32_t LINREG_PWRUPLOAD_DIS : 1;
     uint32_t LINREG_ILIMIT_EN : 1;
-    uint32_t _reserved_3 : 1;
+    uint32_t _reserved_0 : 1;
     uint32_t LINREG_OUTPUT_TRG : 5;
-    uint32_t _reserved_4 : 6;
+    uint32_t _reserved_1 : 6;
     uint32_t LINREG_PHY_ISO_B : 1;
-    uint32_t _reserved_end : 16;
+    uint32_t _reserved_2 : 16;
   } bits;
   
   // Full 32-bit register value.
@@ -125,7 +125,7 @@ union STAT0 {
   // Bit field definition.
   struct {
     uint32_t LINREG_STAT : 4;
-    uint32_t _reserved_end : 28;
+    uint32_t _reserved_0 : 28;
   } bits;
   
   // Full 32-bit register value.
@@ -143,7 +143,7 @@ union STAT0_SET {
   // Bit field definition.
   struct {
     uint32_t LINREG_STAT : 4;
-    uint32_t _reserved_end : 28;
+    uint32_t _reserved_0 : 28;
   } bits;
   
   // Full 32-bit register value.
@@ -161,7 +161,7 @@ union STAT0_CLR {
   // Bit field definition.
   struct {
     uint32_t LINREG_STAT : 4;
-    uint32_t _reserved_end : 28;
+    uint32_t _reserved_0 : 28;
   } bits;
   
   // Full 32-bit register value.
@@ -179,7 +179,7 @@ union STAT0_TOG {
   // Bit field definition.
   struct {
     uint32_t LINREG_STAT : 4;
-    uint32_t _reserved_end : 28;
+    uint32_t _reserved_0 : 28;
   } bits;
   
   // Full 32-bit register value.

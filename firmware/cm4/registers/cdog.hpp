@@ -4,7 +4,7 @@
 #include <stdint.h>
 #include <cstring>
 
-// // CDOG
+// CDOG
 //
 // NOTE: This file was generated from the forge CMSIS-svd wrapper tool.
 
@@ -74,7 +74,7 @@ union CONTROL {
     eCONTROL_CTRL CONTROL_CTRL : 3;
     eSTATE_CTRL STATE_CTRL : 3;
     eADDRESS_CTRL ADDRESS_CTRL : 3;
-    uint32_t _reserved_7 : 8;
+    uint32_t _reserved_0 : 8;
     eIRQ_PAUSE IRQ_PAUSE : 2;
     eDEBUG_HALT_CTRL DEBUG_HALT_CTRL : 2;
   } bits;
@@ -147,7 +147,7 @@ union STATUS {
     uint32_t NUMTOF : 8;
     uint32_t NUMMISCOMPF : 8;
     uint32_t NUMILSEQF : 8;
-    uint32_t _reserved_3 : 4;
+    uint32_t _reserved_0 : 4;
     uint32_t CURST : 4;
   } bits;
   
@@ -168,7 +168,7 @@ union STATUS2 {
     uint32_t NUMCNTF : 8;
     uint32_t NUMILLSTF : 8;
     uint32_t NUMILLA : 8;
-    uint32_t _reserved_end : 8;
+    uint32_t _reserved_0 : 8;
   } bits;
   
   // Full 32-bit register value.
@@ -226,9 +226,9 @@ union FLAGS {
     eCNT_FLAG CNT_FLAG : 1;
     eSTATE_FLAG STATE_FLAG : 1;
     eADDR_FLAG ADDR_FLAG : 1;
-    uint32_t _reserved_6 : 10;
+    uint32_t _reserved_0 : 10;
     ePOR_FLAG POR_FLAG : 1;
-    uint32_t _reserved_end : 15;
+    uint32_t _reserved_1 : 15;
   } bits;
   
   // Full 32-bit register value.

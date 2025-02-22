@@ -4,7 +4,7 @@
 #include <stdint.h>
 #include <cstring>
 
-// // uSDHC
+// uSDHC
 //
 // NOTE: This file was generated from the forge CMSIS-svd wrapper tool.
 
@@ -54,7 +54,7 @@ union BLK_ATT {
   // Bit field definition.
   struct {
     eBLKSIZE BLKSIZE : 13;
-    uint32_t _reserved_1 : 3;
+    uint32_t _reserved_0 : 3;
     eBLKCNT BLKCNT : 16;
   } bits;
   
@@ -126,7 +126,7 @@ union CMD_XFR_TYP {
     eDPSEL DPSEL : 1;
     eCMDTYP CMDTYP : 2;
     uint32_t CMDINX : 6;
-    uint32_t _reserved_end : 2;
+    uint32_t _reserved_2 : 2;
   } bits;
   
   // Full 32-bit register value.
@@ -337,13 +337,13 @@ union PRES_STATE {
     eBWEN BWEN : 1;
     eBREN BREN : 1;
     eRTR RTR : 1;
-    uint32_t _reserved_13 : 2;
+    uint32_t _reserved_0 : 2;
     eTSCD TSCD : 1;
     eCINST CINST : 1;
-    uint32_t _reserved_15 : 1;
+    uint32_t _reserved_1 : 1;
     eCDPL CDPL : 1;
     eWPSPL WPSPL : 1;
-    uint32_t _reserved_17 : 3;
+    uint32_t _reserved_2 : 3;
     uint32_t CLSL : 1;
     eDLSL DLSL : 8;
   } bits;
@@ -442,19 +442,19 @@ union PROT_CTRL {
     eCDTL CDTL : 1;
     eCDSS CDSS : 1;
     eDMASEL DMASEL : 2;
-    uint32_t _reserved_6 : 6;
+    uint32_t _reserved_1 : 6;
     eSABGREQ SABGREQ : 1;
     eCREQ CREQ : 1;
     eRWCTL RWCTL : 1;
     eIABG IABG : 1;
     uint32_t RD_DONE_NO_8CLK : 1;
-    uint32_t _reserved_11 : 3;
+    uint32_t _reserved_2 : 3;
     eWECINT WECINT : 1;
     eWECINS WECINS : 1;
     eWECRM WECRM : 1;
-    uint32_t _reserved_14 : 3;
+    uint32_t _reserved_3 : 3;
     eNON_EXACT_BLK_RD NON_EXACT_BLK_RD : 1;
-    uint32_t _reserved_end : 1;
+    uint32_t _reserved_4 : 1;
   } bits;
   
   // Full 32-bit register value.
@@ -516,14 +516,14 @@ union SYS_CTRL {
     eDVS DVS : 4;
     uint32_t SDCLKFS : 8;
     eDTOCV DTOCV : 4;
-    uint32_t _reserved_3 : 3;
+    uint32_t _reserved_1 : 3;
     uint32_t IPP_RST_N : 1;
     eRSTA RSTA : 1;
     eRSTC RSTC : 1;
     eRSTD RSTD : 1;
     uint32_t INITA : 1;
     uint32_t RSTT : 1;
-    uint32_t _reserved_end : 3;
+    uint32_t _reserved_2 : 3;
   } bits;
   
   // Full 32-bit register value.
@@ -644,11 +644,11 @@ union INT_STATUS {
     eCINS CINS : 1;
     eCRM CRM : 1;
     eCINT CINT : 1;
-    uint32_t _reserved_9 : 3;
+    uint32_t _reserved_0 : 3;
     eRTE RTE : 1;
-    uint32_t _reserved_10 : 1;
+    uint32_t _reserved_1 : 1;
     uint32_t TP : 1;
-    uint32_t _reserved_11 : 1;
+    uint32_t _reserved_2 : 1;
     eCTOE CTOE : 1;
     eCCE CCE : 1;
     eCEBE CEBE : 1;
@@ -656,13 +656,13 @@ union INT_STATUS {
     eDTOE DTOE : 1;
     eDCE DCE : 1;
     eDEBE DEBE : 1;
-    uint32_t _reserved_18 : 1;
+    uint32_t _reserved_3 : 1;
     eAC12E AC12E : 1;
-    uint32_t _reserved_19 : 1;
+    uint32_t _reserved_4 : 1;
     uint32_t TNE : 1;
-    uint32_t _reserved_20 : 1;
+    uint32_t _reserved_5 : 1;
     eDMAE DMAE : 1;
-    uint32_t _reserved_end : 3;
+    uint32_t _reserved_6 : 3;
   } bits;
   
   // Full 32-bit register value.
@@ -793,11 +793,11 @@ union INT_STATUS_EN {
     eCINSSEN CINSSEN : 1;
     eCRMSEN CRMSEN : 1;
     eCINTSEN CINTSEN : 1;
-    uint32_t _reserved_9 : 3;
+    uint32_t _reserved_0 : 3;
     eRTESEN RTESEN : 1;
-    uint32_t _reserved_10 : 1;
+    uint32_t _reserved_1 : 1;
     eTPSEN TPSEN : 1;
-    uint32_t _reserved_11 : 1;
+    uint32_t _reserved_2 : 1;
     eCTOESEN CTOESEN : 1;
     eCCESEN CCESEN : 1;
     eCEBESEN CEBESEN : 1;
@@ -805,13 +805,13 @@ union INT_STATUS_EN {
     eDTOESEN DTOESEN : 1;
     eDCESEN DCESEN : 1;
     eDEBESEN DEBESEN : 1;
-    uint32_t _reserved_18 : 1;
+    uint32_t _reserved_3 : 1;
     eAC12ESEN AC12ESEN : 1;
-    uint32_t _reserved_19 : 1;
+    uint32_t _reserved_4 : 1;
     eTNESEN TNESEN : 1;
-    uint32_t _reserved_20 : 1;
+    uint32_t _reserved_5 : 1;
     eDMAESEN DMAESEN : 1;
-    uint32_t _reserved_end : 3;
+    uint32_t _reserved_6 : 3;
   } bits;
   
   // Full 32-bit register value.
@@ -942,11 +942,11 @@ union INT_SIGNAL_EN {
     eCINSIEN CINSIEN : 1;
     eCRMIEN CRMIEN : 1;
     eCINTIEN CINTIEN : 1;
-    uint32_t _reserved_9 : 3;
+    uint32_t _reserved_0 : 3;
     eRTEIEN RTEIEN : 1;
-    uint32_t _reserved_10 : 1;
+    uint32_t _reserved_1 : 1;
     eTPIEN TPIEN : 1;
-    uint32_t _reserved_11 : 1;
+    uint32_t _reserved_2 : 1;
     eCTOEIEN CTOEIEN : 1;
     eCCEIEN CCEIEN : 1;
     eCEBEIEN CEBEIEN : 1;
@@ -954,13 +954,13 @@ union INT_SIGNAL_EN {
     eDTOEIEN DTOEIEN : 1;
     eDCEIEN DCEIEN : 1;
     eDEBEIEN DEBEIEN : 1;
-    uint32_t _reserved_18 : 1;
+    uint32_t _reserved_3 : 1;
     eAC12EIEN AC12EIEN : 1;
-    uint32_t _reserved_19 : 1;
+    uint32_t _reserved_4 : 1;
     eTNEIEN TNEIEN : 1;
-    uint32_t _reserved_20 : 1;
+    uint32_t _reserved_5 : 1;
     eDMAEIEN DMAEIEN : 1;
-    uint32_t _reserved_end : 3;
+    uint32_t _reserved_6 : 3;
   } bits;
   
   // Full 32-bit register value.
@@ -1022,12 +1022,12 @@ union AUTOCMD12_ERR_STATUS {
     eAC12EBE AC12EBE : 1;
     eAC12CE AC12CE : 1;
     eAC12IE AC12IE : 1;
-    uint32_t _reserved_5 : 2;
+    uint32_t _reserved_0 : 2;
     eCNIBAC12E CNIBAC12E : 1;
-    uint32_t _reserved_6 : 14;
+    uint32_t _reserved_1 : 14;
     eEXECUTE_TUNING EXECUTE_TUNING : 1;
     eSMP_CLK_SEL SMP_CLK_SEL : 1;
-    uint32_t _reserved_end : 8;
+    uint32_t _reserved_2 : 8;
   } bits;
   
   // Full 32-bit register value.
@@ -1094,11 +1094,11 @@ union HOST_CTRL_CAP {
     uint32_t SDR50_SUPPORT : 1;
     uint32_t SDR104_SUPPORT : 1;
     uint32_t DDR50_SUPPORT : 1;
-    uint32_t _reserved_3 : 10;
+    uint32_t _reserved_0 : 10;
     eUSE_TUNING_SDR50 USE_TUNING_SDR50 : 1;
-    uint32_t _reserved_4 : 2;
+    uint32_t _reserved_1 : 2;
     eMBL MBL : 3;
-    uint32_t _reserved_5 : 1;
+    uint32_t _reserved_2 : 1;
     eADMAS ADMAS : 1;
     eHSS HSS : 1;
     eDMAS DMAS : 1;
@@ -1106,7 +1106,7 @@ union HOST_CTRL_CAP {
     eVS33 VS33 : 1;
     eVS30 VS30 : 1;
     eVS18 VS18 : 1;
-    uint32_t _reserved_end : 5;
+    uint32_t _reserved_3 : 5;
   } bits;
   
   // Full 32-bit register value.
@@ -1124,9 +1124,9 @@ union WTMK_LVL {
   // Bit field definition.
   struct {
     uint32_t RD_WML : 8;
-    uint32_t _reserved_1 : 8;
+    uint32_t _reserved_0 : 8;
     uint32_t WR_WML : 8;
-    uint32_t _reserved_end : 8;
+    uint32_t _reserved_1 : 8;
   } bits;
   
   // Full 32-bit register value.
@@ -1196,13 +1196,13 @@ union MIX_CTRL {
     eMSBSEL MSBSEL : 1;
     uint32_t NIBBLE_POS : 1;
     uint32_t AC23EN : 1;
-    uint32_t _reserved_8 : 14;
+    uint32_t _reserved_0 : 14;
     eEXE_TUNE EXE_TUNE : 1;
     eSMP_CLK_SEL SMP_CLK_SEL : 1;
     eAUTO_TUNE_EN AUTO_TUNE_EN : 1;
     eFBCLK_SEL FBCLK_SEL : 1;
     uint32_t HS400_MODE : 1;
-    uint32_t _reserved_end : 5;
+    uint32_t _reserved_1 : 5;
   } bits;
   
   // Full 32-bit register value.
@@ -1224,9 +1224,9 @@ union FORCE_EVENT {
     uint32_t FEVTAC12CE : 1;
     uint32_t FEVTAC12EBE : 1;
     uint32_t FEVTAC12IE : 1;
-    uint32_t _reserved_5 : 2;
+    uint32_t _reserved_0 : 2;
     uint32_t FEVTCNIBAC12E : 1;
-    uint32_t _reserved_6 : 8;
+    uint32_t _reserved_1 : 8;
     uint32_t FEVTCTOE : 1;
     uint32_t FEVTCCE : 1;
     uint32_t FEVTCEBE : 1;
@@ -1234,13 +1234,13 @@ union FORCE_EVENT {
     uint32_t FEVTDTOE : 1;
     uint32_t FEVTDCE : 1;
     uint32_t FEVTDEBE : 1;
-    uint32_t _reserved_13 : 1;
+    uint32_t _reserved_2 : 1;
     uint32_t FEVTAC12E : 1;
-    uint32_t _reserved_14 : 1;
+    uint32_t _reserved_3 : 1;
     uint32_t FEVTTNE : 1;
-    uint32_t _reserved_15 : 1;
+    uint32_t _reserved_4 : 1;
     uint32_t FEVTDMAE : 1;
-    uint32_t _reserved_16 : 2;
+    uint32_t _reserved_5 : 2;
     uint32_t FEVTCINT : 1;
   } bits;
   
@@ -1271,7 +1271,7 @@ union ADMA_ERR_STATUS {
     uint32_t ADMAES : 2;
     eADMALME ADMALME : 1;
     eADMADCE ADMADCE : 1;
-    uint32_t _reserved_end : 28;
+    uint32_t _reserved_0 : 28;
   } bits;
   
   // Full 32-bit register value.
@@ -1314,7 +1314,7 @@ union DLL_CTRL {
     uint32_t DLL_CTRL_SLV_OVERRIDE : 1;
     uint32_t DLL_CTRL_SLV_OVERRIDE_VAL : 7;
     uint32_t DLL_CTRL_SLV_DLY_TARGET1 : 3;
-    uint32_t _reserved_8 : 1;
+    uint32_t _reserved_0 : 1;
     uint32_t DLL_CTRL_SLV_UPDATE_INT : 8;
     uint32_t DLL_CTRL_REF_UPDATE_INT : 4;
   } bits;
@@ -1337,7 +1337,7 @@ union DLL_STATUS {
     uint32_t DLL_STS_REF_LOCK : 1;
     uint32_t DLL_STS_SLV_SEL : 7;
     uint32_t DLL_STS_REF_SEL : 7;
-    uint32_t _reserved_end : 16;
+    uint32_t _reserved_0 : 16;
   } bits;
   
   // Full 32-bit register value.
@@ -1385,7 +1385,7 @@ union STROBE_DLL_CTRL {
     uint32_t STROBE_DLL_CTRL_GATE_UPDATE : 1;
     uint32_t STROBE_DLL_CTRL_SLV_OVERRIDE : 1;
     uint32_t STROBE_DLL_CTRL_SLV_OVERRIDE_VAL : 7;
-    uint32_t _reserved_7 : 4;
+    uint32_t _reserved_0 : 4;
     uint32_t STROBE_DLL_CTRL_SLV_UPDATE_INT : 8;
     uint32_t STROBE_DLL_CTRL_REF_UPDATE_INT : 4;
   } bits;
@@ -1408,7 +1408,7 @@ union STROBE_DLL_STATUS {
     uint32_t STROBE_DLL_STS_REF_LOCK : 1;
     uint32_t STROBE_DLL_STS_SLV_SEL : 7;
     uint32_t STROBE_DLL_STS_REF_SEL : 7;
-    uint32_t _reserved_end : 16;
+    uint32_t _reserved_0 : 16;
   } bits;
   
   // Full 32-bit register value.
@@ -1459,11 +1459,11 @@ union VEND_SPEC {
     eVSELECT VSELECT : 1;
     eCONFLICT_CHK_EN CONFLICT_CHK_EN : 1;
     eAC12_WR_CHKBUSY_EN AC12_WR_CHKBUSY_EN : 1;
-    uint32_t _reserved_3 : 4;
+    uint32_t _reserved_1 : 4;
     eFRC_SDCLK_ON FRC_SDCLK_ON : 1;
-    uint32_t _reserved_4 : 6;
+    uint32_t _reserved_2 : 6;
     eCRC_CHK_DIS CRC_CHK_DIS : 1;
-    uint32_t _reserved_5 : 15;
+    uint32_t _reserved_3 : 15;
     eCMD_BYTE_EN CMD_BYTE_EN : 1;
   } bits;
   
@@ -1520,7 +1520,7 @@ union MMC_BOOT {
     eBOOT_EN BOOT_EN : 1;
     uint32_t AUTO_SABG_EN : 1;
     eDISABLE_TIME_OUT DISABLE_TIME_OUT : 1;
-    uint32_t _reserved_6 : 7;
+    uint32_t _reserved_0 : 7;
     uint32_t BOOT_BLK_CNT : 16;
   } bits;
   
@@ -1558,11 +1558,11 @@ union VEND_SPEC2 {
     uint32_t TUNING_8bit_EN : 1;
     uint32_t TUNING_1bit_EN : 1;
     eTUNING_CMD_EN TUNING_CMD_EN : 1;
-    uint32_t _reserved_4 : 3;
+    uint32_t _reserved_1 : 3;
     uint32_t HS400_WR_CLK_STOP_EN : 1;
     uint32_t HS400_RD_CLK_STOP_EN : 1;
     eACMD23_ARGU2_EN ACMD23_ARGU2_EN : 1;
-    uint32_t _reserved_end : 19;
+    uint32_t _reserved_2 : 19;
   } bits;
   
   // Full 32-bit register value.
@@ -1583,11 +1583,11 @@ union TUNING_CTRL {
     uint32_t DIS_CMD_CHK_FOR_STD_TUNING : 1;
     uint32_t TUNING_COUNTER : 8;
     uint32_t TUNING_STEP : 3;
-    uint32_t _reserved_4 : 1;
+    uint32_t _reserved_0 : 1;
     uint32_t TUNING_WINDOW : 3;
-    uint32_t _reserved_5 : 1;
+    uint32_t _reserved_1 : 1;
     uint32_t STD_TUNING_EN : 1;
-    uint32_t _reserved_end : 7;
+    uint32_t _reserved_2 : 7;
   } bits;
   
   // Full 32-bit register value.

@@ -4,7 +4,7 @@
 #include <stdint.h>
 #include <cstring>
 
-// // XECC
+// XECC
 //
 // NOTE: This file was generated from the forge CMSIS-svd wrapper tool.
 
@@ -41,7 +41,7 @@ union ECC_CTRL {
     eWECC_EN WECC_EN : 1;
     eRECC_EN RECC_EN : 1;
     eSWAP_EN SWAP_EN : 1;
-    uint32_t _reserved_end : 28;
+    uint32_t _reserved_0 : 28;
   } bits;
   
   // Full 32-bit register value.

@@ -4,7 +4,7 @@
 #include <stdint.h>
 #include <cstring>
 
-// // KEYMGR
+// KEYMGR
 //
 // NOTE: This file was generated from the forge CMSIS-svd wrapper tool.
 
@@ -28,9 +28,9 @@ union MASTER_KEY_CTRL {
   // Bit field definition.
   struct {
     eSELECT SELECT : 1;
-    uint32_t _reserved_1 : 15;
+    uint32_t _reserved_0 : 15;
     eLOCK LOCK : 1;
-    uint32_t _reserved_end : 15;
+    uint32_t _reserved_1 : 15;
   } bits;
   
   // Full 32-bit register value.
@@ -58,9 +58,9 @@ union OTFAD1_KEY_CTRL {
   // Bit field definition.
   struct {
     eSELECT SELECT : 1;
-    uint32_t _reserved_1 : 15;
+    uint32_t _reserved_0 : 15;
     eLOCK LOCK : 1;
-    uint32_t _reserved_end : 15;
+    uint32_t _reserved_1 : 15;
   } bits;
   
   // Full 32-bit register value.
@@ -88,9 +88,9 @@ union OTFAD2_KEY_CTRL {
   // Bit field definition.
   struct {
     eSELECT SELECT : 1;
-    uint32_t _reserved_1 : 15;
+    uint32_t _reserved_0 : 15;
     eLOCK LOCK : 1;
-    uint32_t _reserved_end : 15;
+    uint32_t _reserved_1 : 15;
   } bits;
   
   // Full 32-bit register value.
@@ -113,7 +113,7 @@ union IEE_KEY_CTRL {
   // Bit field definition.
   struct {
     eRELOAD RELOAD : 1;
-    uint32_t _reserved_end : 31;
+    uint32_t _reserved_0 : 31;
   } bits;
   
   // Full 32-bit register value.
@@ -136,7 +136,7 @@ union PUF_KEY_CTRL {
   // Bit field definition.
   struct {
     eLOCK LOCK : 1;
-    uint32_t _reserved_end : 31;
+    uint32_t _reserved_0 : 31;
   } bits;
   
   // Full 32-bit register value.
@@ -174,11 +174,11 @@ union SLOT0_CTRL {
   // Bit field definition.
   struct {
     uint32_t WHITE_LIST : 4;
-    uint32_t _reserved_1 : 11;
+    uint32_t _reserved_0 : 11;
     eLOCK_LIST LOCK_LIST : 1;
     eTZ_NS TZ_NS : 1;
     eTZ_USER TZ_USER : 1;
-    uint32_t _reserved_4 : 13;
+    uint32_t _reserved_1 : 13;
     eLOCK_CONTROL LOCK_CONTROL : 1;
   } bits;
   
@@ -217,11 +217,11 @@ union SLOT1_CTRL {
   // Bit field definition.
   struct {
     uint32_t WHITE_LIST : 4;
-    uint32_t _reserved_1 : 11;
+    uint32_t _reserved_0 : 11;
     eLOCK_LIST LOCK_LIST : 1;
     eTZ_NS TZ_NS : 1;
     eTZ_USER TZ_USER : 1;
-    uint32_t _reserved_4 : 13;
+    uint32_t _reserved_1 : 13;
     eLOCK_CONTROL LOCK_CONTROL : 1;
   } bits;
   
@@ -260,11 +260,11 @@ union SLOT2_CTRL {
   // Bit field definition.
   struct {
     uint32_t WHITE_LIST : 4;
-    uint32_t _reserved_1 : 11;
+    uint32_t _reserved_0 : 11;
     eLOCK_LIST LOCK_LIST : 1;
     eTZ_NS TZ_NS : 1;
     eTZ_USER TZ_USER : 1;
-    uint32_t _reserved_4 : 13;
+    uint32_t _reserved_1 : 13;
     eLOCK_CONTROL LOCK_CONTROL : 1;
   } bits;
   
@@ -303,11 +303,11 @@ union SLOT3_CTRL {
   // Bit field definition.
   struct {
     uint32_t WHITE_LIST : 4;
-    uint32_t _reserved_1 : 11;
+    uint32_t _reserved_0 : 11;
     eLOCK_LIST LOCK_LIST : 1;
     eTZ_NS TZ_NS : 1;
     eTZ_USER TZ_USER : 1;
-    uint32_t _reserved_4 : 13;
+    uint32_t _reserved_1 : 13;
     eLOCK_CONTROL LOCK_CONTROL : 1;
   } bits;
   
@@ -346,11 +346,11 @@ union SLOT4_CTRL {
   // Bit field definition.
   struct {
     uint32_t WHITE_LIST : 4;
-    uint32_t _reserved_1 : 11;
+    uint32_t _reserved_0 : 11;
     eLOCK_LIST LOCK_LIST : 1;
     eTZ_NS TZ_NS : 1;
     eTZ_USER TZ_USER : 1;
-    uint32_t _reserved_4 : 13;
+    uint32_t _reserved_1 : 13;
     eLOCK_CONTROL LOCK_CONTROL : 1;
   } bits;
   

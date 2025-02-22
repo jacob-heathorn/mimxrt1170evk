@@ -4,7 +4,7 @@
 #include <stdint.h>
 #include <cstring>
 
-// // IOMUXC SNVS GPR
+// IOMUXC SNVS GPR
 //
 // NOTE: This file was generated from the forge CMSIS-svd wrapper tool.
 
@@ -587,13 +587,13 @@ union GPR33 {
     uint32_t _reserved_0 : 1;
     eDCDC_STATUS_CAPT_CLR DCDC_STATUS_CAPT_CLR : 1;
     eSNVS_BYPASS_EN SNVS_BYPASS_EN : 1;
-    uint32_t _reserved_2 : 13;
+    uint32_t _reserved_1 : 13;
     eDCDC_IN_LOW_VOL DCDC_IN_LOW_VOL : 1;
     eDCDC_OVER_CUR DCDC_OVER_CUR : 1;
     eDCDC_OVER_VOL DCDC_OVER_VOL : 1;
     eDCDC_STS_DC_OK DCDC_STS_DC_OK : 1;
     eSNVS_XTAL_CLK_OK SNVS_XTAL_CLK_OK : 1;
-    uint32_t _reserved_end : 11;
+    uint32_t _reserved_2 : 11;
   } bits;
   
   // Full 32-bit register value.
@@ -647,15 +647,15 @@ union GPR34 {
     eLOCK LOCK : 1;
     eSNVS_CORE_VOLT_DET_TRIM_SEL SNVS_CORE_VOLT_DET_TRIM_SEL : 1;
     uint32_t SNVS_CORE_VOLT_DET_TRIM : 2;
-    uint32_t _reserved_3 : 3;
+    uint32_t _reserved_0 : 3;
     eSNVS_CLK_DET_TRIM_SEL SNVS_CLK_DET_TRIM_SEL : 1;
     uint32_t SNVS_CLK_DET_TRIM : 8;
     eSNVS_CLK_DET_OFFSET_HIGH SNVS_CLK_DET_OFFSET_HIGH : 2;
     eSNVS_CLK_DET_OFFSET_LOW SNVS_CLK_DET_OFFSET_LOW : 2;
-    uint32_t _reserved_7 : 3;
+    uint32_t _reserved_1 : 3;
     eSNVS_CAP_TRIM_SEL SNVS_CAP_TRIM_SEL : 1;
     uint32_t SNVS_OSC_CAP_TRIM : 4;
-    uint32_t _reserved_end : 4;
+    uint32_t _reserved_2 : 4;
   } bits;
   
   // Full 32-bit register value.
@@ -702,10 +702,10 @@ union GPR35 {
   // Bit field definition.
   struct {
     eLOCK LOCK : 1;
-    uint32_t _reserved_1 : 2;
+    uint32_t _reserved_0 : 2;
     eSNVS_VOLT_DET_TRIM_SEL SNVS_VOLT_DET_TRIM_SEL : 1;
     uint32_t SNVS_VOLT_DET_TRIM : 8;
-    uint32_t _reserved_3 : 3;
+    uint32_t _reserved_1 : 3;
     eSNVS_TEMP_DET_TRIM_SEL SNVS_TEMP_DET_TRIM_SEL : 1;
     uint32_t SNVS_TEMP_DET_TRIM : 12;
     eSNVS_TEMP_DET_OFFSET_HIGH SNVS_TEMP_DET_OFFSET_HIGH : 2;
@@ -794,7 +794,7 @@ union GPR37 {
     eLOCK LOCK : 1;
     uint32_t SNVS_TAMPER_PUE : 10;
     uint32_t SNVS_TAMPER_PUS : 10;
-    uint32_t _reserved_end : 11;
+    uint32_t _reserved_0 : 11;
   } bits;
   
   // Full 32-bit register value.

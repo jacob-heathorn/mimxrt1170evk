@@ -4,7 +4,7 @@
 #include <stdint.h>
 #include <cstring>
 
-// // USBNC
+// USBNC
 //
 // NOTE: This file was generated from the forge CMSIS-svd wrapper tool.
 
@@ -72,14 +72,14 @@ union CTRL1 {
     eOVER_CUR_POL OVER_CUR_POL : 1;
     ePWR_POL PWR_POL : 1;
     eWIE WIE : 1;
-    uint32_t _reserved_4 : 3;
+    uint32_t _reserved_1 : 3;
     eWKUP_SW_EN WKUP_SW_EN : 1;
     eWKUP_SW WKUP_SW : 1;
     eWKUP_ID_EN WKUP_ID_EN : 1;
     eWKUP_VBUS_EN WKUP_VBUS_EN : 1;
-    uint32_t _reserved_8 : 11;
+    uint32_t _reserved_2 : 11;
     eWKUP_DPDM_EN WKUP_DPDM_EN : 1;
-    uint32_t _reserved_9 : 1;
+    uint32_t _reserved_3 : 1;
     eWIR WIR : 1;
   } bits;
   
@@ -119,7 +119,7 @@ union CTRL2 {
     eVBUS_SOURCE_SEL VBUS_SOURCE_SEL : 2;
     eAUTURESUME_EN AUTURESUME_EN : 1;
     eLOWSPEED_EN LOWSPEED_EN : 1;
-    uint32_t _reserved_3 : 27;
+    uint32_t _reserved_0 : 27;
     eUTMI_CLK_VLD UTMI_CLK_VLD : 1;
   } bits;
   
@@ -155,7 +155,7 @@ union HSIC_CTRL {
     uint32_t _reserved_0 : 11;
     eHSIC_CLK_ON HSIC_CLK_ON : 1;
     eHSIC_EN HSIC_EN : 1;
-    uint32_t _reserved_2 : 18;
+    uint32_t _reserved_1 : 18;
     eCLK_VLD CLK_VLD : 1;
   } bits;
   

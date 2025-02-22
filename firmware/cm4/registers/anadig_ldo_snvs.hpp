@@ -4,7 +4,7 @@
 #include <stdint.h>
 #include <cstring>
 
-// // MX6RT_ANADIG_REGISTER
+// MX6RT_ANADIG_REGISTER
 //
 // NOTE: This file was generated from the forge CMSIS-svd wrapper tool.
 
@@ -28,18 +28,18 @@ union PMU_LDO_LPSR_ANA {
   // Bit field definition.
   struct {
     uint32_t REG_LP_EN : 1;
-    uint32_t _reserved_1 : 1;
+    uint32_t _reserved_0 : 1;
     uint32_t REG_DISABLE : 1;
     uint32_t PULL_DOWN_2MA_EN : 1;
     eLPSR_ANA_CONTROL_MODE LPSR_ANA_CONTROL_MODE : 1;
     uint32_t BYPASS_MODE_EN : 1;
     uint32_t STANDBY_EN : 1;
-    uint32_t _reserved_6 : 1;
+    uint32_t _reserved_1 : 1;
     uint32_t ALWAYS_4MA_PULLDOWN_EN : 1;
-    uint32_t _reserved_7 : 10;
+    uint32_t _reserved_2 : 10;
     eTRACK_MODE_EN TRACK_MODE_EN : 1;
     uint32_t PULL_DOWN_20UA_EN : 1;
-    uint32_t _reserved_end : 11;
+    uint32_t _reserved_3 : 11;
   } bits;
   
   // Full 32-bit register value.
@@ -57,7 +57,7 @@ union PMU_LDO_LPSR_DIG_2 {
   // Bit field definition.
   struct {
     uint32_t VOLTAGE_STEP_INC : 2;
-    uint32_t _reserved_end : 30;
+    uint32_t _reserved_0 : 30;
   } bits;
   
   // Full 32-bit register value.
@@ -119,12 +119,12 @@ union PMU_LDO_LPSR_DIG {
     uint32_t _reserved_1 : 2;
     eLPSR_DIG_CONTROL_MODE LPSR_DIG_CONTROL_MODE : 1;
     uint32_t STANDBY_EN : 1;
-    uint32_t _reserved_3 : 10;
+    uint32_t _reserved_2 : 10;
     uint32_t TRACKING_MODE : 1;
     uint32_t BYPASS_MODE : 1;
-    uint32_t _reserved_5 : 1;
+    uint32_t _reserved_3 : 1;
     eVOLTAGE_SELECT VOLTAGE_SELECT : 5;
-    uint32_t _reserved_end : 7;
+    uint32_t _reserved_4 : 7;
   } bits;
   
   // Full 32-bit register value.

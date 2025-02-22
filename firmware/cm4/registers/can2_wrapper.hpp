@@ -4,7 +4,7 @@
 #include <stdint.h>
 #include <cstring>
 
-// // FlexCAN wrapper
+// FlexCAN wrapper
 //
 // NOTE: This file was generated from the forge CMSIS-svd wrapper tool.
 
@@ -18,7 +18,7 @@ union GFWR {
   // Bit field definition.
   struct {
     uint32_t GFWR : 8;
-    uint32_t _reserved_end : 24;
+    uint32_t _reserved_0 : 24;
   } bits;
   
   // Full 32-bit register value.

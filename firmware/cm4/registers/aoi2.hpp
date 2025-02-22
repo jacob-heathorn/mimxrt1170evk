@@ -4,7 +4,7 @@
 #include <stdint.h>
 #include <cstring>
 
-// // AOI
+// AOI
 //
 // NOTE: This file was generated from the forge CMSIS-svd wrapper tool.
 
@@ -81,7 +81,7 @@ union BFCRT010 {
     ePT0_CC PT0_CC : 2;
     ePT0_BC PT0_BC : 2;
     ePT0_AC PT0_AC : 2;
-    uint32_t _reserved_end : 16;
+    uint32_t _reserved_0 : 16;
   } bits;
   
   // Full 32-bit register value.
@@ -162,7 +162,7 @@ union BFCRT230 {
     ePT2_CC PT2_CC : 2;
     ePT2_BC PT2_BC : 2;
     ePT2_AC PT2_AC : 2;
-    uint32_t _reserved_end : 16;
+    uint32_t _reserved_0 : 16;
   } bits;
   
   // Full 32-bit register value.
@@ -243,7 +243,7 @@ union BFCRT011 {
     ePT0_CC PT0_CC : 2;
     ePT0_BC PT0_BC : 2;
     ePT0_AC PT0_AC : 2;
-    uint32_t _reserved_end : 16;
+    uint32_t _reserved_0 : 16;
   } bits;
   
   // Full 32-bit register value.
@@ -324,7 +324,7 @@ union BFCRT231 {
     ePT2_CC PT2_CC : 2;
     ePT2_BC PT2_BC : 2;
     ePT2_AC PT2_AC : 2;
-    uint32_t _reserved_end : 16;
+    uint32_t _reserved_0 : 16;
   } bits;
   
   // Full 32-bit register value.
@@ -405,7 +405,7 @@ union BFCRT012 {
     ePT0_CC PT0_CC : 2;
     ePT0_BC PT0_BC : 2;
     ePT0_AC PT0_AC : 2;
-    uint32_t _reserved_end : 16;
+    uint32_t _reserved_0 : 16;
   } bits;
   
   // Full 32-bit register value.
@@ -486,7 +486,7 @@ union BFCRT232 {
     ePT2_CC PT2_CC : 2;
     ePT2_BC PT2_BC : 2;
     ePT2_AC PT2_AC : 2;
-    uint32_t _reserved_end : 16;
+    uint32_t _reserved_0 : 16;
   } bits;
   
   // Full 32-bit register value.
@@ -567,7 +567,7 @@ union BFCRT013 {
     ePT0_CC PT0_CC : 2;
     ePT0_BC PT0_BC : 2;
     ePT0_AC PT0_AC : 2;
-    uint32_t _reserved_end : 16;
+    uint32_t _reserved_0 : 16;
   } bits;
   
   // Full 32-bit register value.
@@ -648,7 +648,7 @@ union BFCRT233 {
     ePT2_CC PT2_CC : 2;
     ePT2_BC PT2_BC : 2;
     ePT2_AC PT2_AC : 2;
-    uint32_t _reserved_end : 16;
+    uint32_t _reserved_0 : 16;
   } bits;
   
   // Full 32-bit register value.

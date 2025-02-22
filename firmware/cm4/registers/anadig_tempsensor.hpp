@@ -4,7 +4,7 @@
 #include <stdint.h>
 #include <cstring>
 
-// // MX6RT_ANADIG_REGISTER
+// MX6RT_ANADIG_REGISTER
 //
 // NOTE: This file was generated from the forge CMSIS-svd wrapper tool.
 
@@ -20,7 +20,7 @@ union TEMPSENSOR {
     uint32_t _reserved_0 : 15;
     uint32_t TEMPSNS_AI_TOGGLE : 1;
     uint32_t TEMPSNS_AI_BUSY : 1;
-    uint32_t _reserved_end : 15;
+    uint32_t _reserved_1 : 15;
   } bits;
   
   // Full 32-bit register value.
@@ -39,7 +39,7 @@ union TEMPSNS_OTP_TRIM_VALUE {
   struct {
     uint32_t _reserved_0 : 10;
     uint32_t TEMPSNS_TEMP_VAL : 12;
-    uint32_t _reserved_end : 10;
+    uint32_t _reserved_1 : 10;
   } bits;
   
   // Full 32-bit register value.

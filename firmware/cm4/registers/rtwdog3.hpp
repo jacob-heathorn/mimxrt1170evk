@@ -4,7 +4,7 @@
 #include <stdint.h>
 #include <cstring>
 
-// // WDOG
+// WDOG
 //
 // NOTE: This file was generated from the forge CMSIS-svd wrapper tool.
 
@@ -98,7 +98,7 @@ union CS {
     eCMD32EN CMD32EN : 1;
     eFLG FLG : 1;
     eWIN WIN : 1;
-    uint32_t _reserved_end : 16;
+    uint32_t _reserved_0 : 16;
   } bits;
   
   // Full 32-bit register value.
@@ -117,7 +117,7 @@ union CNT {
   struct {
     uint32_t CNTLOW : 8;
     uint32_t CNTHIGH : 8;
-    uint32_t _reserved_end : 16;
+    uint32_t _reserved_0 : 16;
   } bits;
   
   // Full 32-bit register value.
@@ -136,7 +136,7 @@ union TOVAL {
   struct {
     uint32_t TOVALLOW : 8;
     uint32_t TOVALHIGH : 8;
-    uint32_t _reserved_end : 16;
+    uint32_t _reserved_0 : 16;
   } bits;
   
   // Full 32-bit register value.
@@ -155,7 +155,7 @@ union WIN {
   struct {
     uint32_t WINLOW : 8;
     uint32_t WINHIGH : 8;
-    uint32_t _reserved_end : 16;
+    uint32_t _reserved_0 : 16;
   } bits;
   
   // Full 32-bit register value.

@@ -4,7 +4,7 @@
 #include <stdint.h>
 #include <cstring>
 
-// // DSI HOST
+// DSI HOST
 //
 // NOTE: This file was generated from the forge CMSIS-svd wrapper tool.
 
@@ -23,7 +23,7 @@ union CFG_NUM_LANES {
   // Bit field definition.
   struct {
     eNUM_LANES NUM_LANES : 2;
-    uint32_t _reserved_end : 30;
+    uint32_t _reserved_0 : 30;
   } bits;
   
   // Full 32-bit register value.
@@ -46,7 +46,7 @@ union CFG_NONCONTINUOUS_CLK {
   // Bit field definition.
   struct {
     eCLK_MODE CLK_MODE : 1;
-    uint32_t _reserved_end : 31;
+    uint32_t _reserved_0 : 31;
   } bits;
   
   // Full 32-bit register value.
@@ -64,7 +64,7 @@ union CFG_T_PRE {
   // Bit field definition.
   struct {
     uint32_t NUM_PERIODS : 8;
-    uint32_t _reserved_end : 24;
+    uint32_t _reserved_0 : 24;
   } bits;
   
   // Full 32-bit register value.
@@ -82,7 +82,7 @@ union CFG_T_POST {
   // Bit field definition.
   struct {
     uint32_t NUM_PERIODS : 8;
-    uint32_t _reserved_end : 24;
+    uint32_t _reserved_0 : 24;
   } bits;
   
   // Full 32-bit register value.
@@ -100,7 +100,7 @@ union CFG_TX_GAP {
   // Bit field definition.
   struct {
     uint32_t NUM_PERIODS : 8;
-    uint32_t _reserved_end : 24;
+    uint32_t _reserved_0 : 24;
   } bits;
   
   // Full 32-bit register value.
@@ -123,7 +123,7 @@ union CFG_AUTOINSERT_EOTP {
   // Bit field definition.
   struct {
     eAUTOINSERT AUTOINSERT : 1;
-    uint32_t _reserved_end : 31;
+    uint32_t _reserved_0 : 31;
   } bits;
   
   // Full 32-bit register value.
@@ -141,7 +141,7 @@ union CFG_EXTRA_CMDS_AFTER_EOTP {
   // Bit field definition.
   struct {
     uint32_t EXTRA_EOTP : 8;
-    uint32_t _reserved_end : 24;
+    uint32_t _reserved_0 : 24;
   } bits;
   
   // Full 32-bit register value.
@@ -159,7 +159,7 @@ union CFG_HTX_TO_COUNT {
   // Bit field definition.
   struct {
     uint32_t COUNT : 24;
-    uint32_t _reserved_end : 8;
+    uint32_t _reserved_0 : 8;
   } bits;
   
   // Full 32-bit register value.
@@ -177,7 +177,7 @@ union CFG_LRX_H_TO_COUNT {
   // Bit field definition.
   struct {
     uint32_t COUNT : 24;
-    uint32_t _reserved_end : 8;
+    uint32_t _reserved_0 : 8;
   } bits;
   
   // Full 32-bit register value.
@@ -195,7 +195,7 @@ union CFG_BTA_H_TO_COUNT {
   // Bit field definition.
   struct {
     uint32_t COUNT : 24;
-    uint32_t _reserved_end : 8;
+    uint32_t _reserved_0 : 8;
   } bits;
   
   // Full 32-bit register value.
@@ -213,7 +213,7 @@ union CFG_TWAKEUP {
   // Bit field definition.
   struct {
     uint32_t NUM_PERIODS : 19;
-    uint32_t _reserved_end : 13;
+    uint32_t _reserved_0 : 13;
   } bits;
   
   // Full 32-bit register value.
@@ -248,7 +248,7 @@ union RX_ERROR_STATUS {
   // Bit field definition.
   struct {
     uint32_t STATUS : 11;
-    uint32_t _reserved_end : 21;
+    uint32_t _reserved_0 : 21;
   } bits;
   
   // Full 32-bit register value.

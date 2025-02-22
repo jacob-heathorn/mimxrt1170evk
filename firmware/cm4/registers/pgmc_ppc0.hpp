@@ -4,7 +4,7 @@
 #include <stdint.h>
 #include <cstring>
 
-// // PGMC_PPC
+// PGMC_PPC
 //
 // NOTE: This file was generated from the forge CMSIS-svd wrapper tool.
 
@@ -19,14 +19,14 @@ union PPC_AUTHEN_CTRL {
   struct {
     uint32_t USER : 1;
     uint32_t NONSECURE : 1;
-    uint32_t _reserved_2 : 2;
+    uint32_t _reserved_0 : 2;
     uint32_t LOCK_SETTING : 1;
-    uint32_t _reserved_3 : 3;
+    uint32_t _reserved_1 : 3;
     uint32_t WHITE_LIST : 4;
     uint32_t LOCK_LIST : 1;
-    uint32_t _reserved_5 : 7;
+    uint32_t _reserved_2 : 7;
     uint32_t LOCK_CFG : 1;
-    uint32_t _reserved_end : 11;
+    uint32_t _reserved_3 : 11;
   } bits;
   
   // Full 32-bit register value.
@@ -57,9 +57,9 @@ union PPC_MODE {
   // Bit field definition.
   struct {
     eCTRL_MODE CTRL_MODE : 2;
-    uint32_t _reserved_1 : 2;
+    uint32_t _reserved_0 : 2;
     eDOMAIN_ASSIGN DOMAIN_ASSIGN : 2;
-    uint32_t _reserved_end : 26;
+    uint32_t _reserved_1 : 26;
   } bits;
   
   // Full 32-bit register value.
@@ -80,10 +80,10 @@ union PPC_STBY_CM_CTRL {
     uint32_t STBY_ON_AT_WAIT : 1;
     uint32_t STBY_ON_AT_STOP : 1;
     uint32_t STBY_ON_AT_SUSPEND : 1;
-    uint32_t _reserved_3 : 4;
+    uint32_t _reserved_1 : 4;
     uint32_t STBY_ON_SOFT : 1;
     uint32_t STBY_OFF_SOFT : 1;
-    uint32_t _reserved_end : 22;
+    uint32_t _reserved_2 : 22;
   } bits;
   
   // Full 32-bit register value.

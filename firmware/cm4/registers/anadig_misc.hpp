@@ -4,7 +4,7 @@
 #include <stdint.h>
 #include <cstring>
 
-// // MX6RT_ANADIG_REGISTER
+// MX6RT_ANADIG_REGISTER
 //
 // NOTE: This file was generated from the forge CMSIS-svd wrapper tool.
 
@@ -35,9 +35,9 @@ union VDDSOC_AI_CTRL {
   // Bit field definition.
   struct {
     uint32_t VDDSOC_AI_ADDR : 8;
-    uint32_t _reserved_1 : 8;
+    uint32_t _reserved_0 : 8;
     uint32_t VDDSOC_AIRWB : 1;
-    uint32_t _reserved_end : 15;
+    uint32_t _reserved_1 : 15;
   } bits;
   
   // Full 32-bit register value.
@@ -91,9 +91,9 @@ union VDDSOC2PLL_AI_CTRL_1G {
     uint32_t VDDSOC2PLL_AIADDR_1G : 8;
     uint32_t VDDSOC2PLL_AITOGGLE_1G : 1;
     uint32_t VDDSOC2PLL_AITOGGLE_DONE_1G : 1;
-    uint32_t _reserved_3 : 6;
+    uint32_t _reserved_0 : 6;
     uint32_t VDDSOC2PLL_AIRWB_1G : 1;
-    uint32_t _reserved_end : 15;
+    uint32_t _reserved_1 : 15;
   } bits;
   
   // Full 32-bit register value.
@@ -147,9 +147,9 @@ union VDDSOC2PLL_AI_CTRL_AUDIO {
     uint32_t VDDSOC2PLL_AI_ADDR_AUDIO : 8;
     uint32_t VDDSOC2PLL_AITOGGLE_AUDIO : 1;
     uint32_t VDDSOC2PLL_AITOGGLE_DONE_AUDIO : 1;
-    uint32_t _reserved_3 : 6;
+    uint32_t _reserved_0 : 6;
     uint32_t VDDSOC2PLL_AIRWB_AUDIO : 1;
-    uint32_t _reserved_end : 15;
+    uint32_t _reserved_1 : 15;
   } bits;
   
   // Full 32-bit register value.
@@ -203,9 +203,9 @@ union VDDSOC2PLL_AI_CTRL_VIDEO {
     uint32_t VDDSOC2PLL_AIADDR_VIDEO : 8;
     uint32_t VDDSOC2PLL_AITOGGLE_VIDEO : 1;
     uint32_t VDDSOC2PLL_AITOGGLE_DONE_VIDEO : 1;
-    uint32_t _reserved_3 : 6;
+    uint32_t _reserved_0 : 6;
     uint32_t VDDSOC2PLL_AIRWB_VIDEO : 1;
-    uint32_t _reserved_end : 15;
+    uint32_t _reserved_1 : 15;
   } bits;
   
   // Full 32-bit register value.
@@ -257,9 +257,9 @@ union VDDLPSR_AI_CTRL {
   // Bit field definition.
   struct {
     uint32_t VDDLPSR_AI_ADDR : 8;
-    uint32_t _reserved_1 : 8;
+    uint32_t _reserved_0 : 8;
     uint32_t VDDLPSR_AIRWB : 1;
-    uint32_t _reserved_end : 15;
+    uint32_t _reserved_1 : 15;
   } bits;
   
   // Full 32-bit register value.
@@ -330,9 +330,9 @@ union VDDLPSR_AI400M_CTRL {
     uint32_t VDDLPSR_AI400M_ADDR : 8;
     uint32_t VDDLPSR_AITOGGLE_400M : 1;
     uint32_t VDDLPSR_AITOGGLE_DONE_400M : 1;
-    uint32_t _reserved_3 : 6;
+    uint32_t _reserved_0 : 6;
     uint32_t VDDLPSR_AI400M_RWB : 1;
-    uint32_t _reserved_end : 15;
+    uint32_t _reserved_1 : 15;
   } bits;
   
   // Full 32-bit register value.

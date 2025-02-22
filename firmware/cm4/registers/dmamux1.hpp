@@ -4,7 +4,7 @@
 #include <stdint.h>
 #include <cstring>
 
-// // DMAMUX
+// DMAMUX
 //
 // NOTE: This file was generated from the forge CMSIS-svd wrapper tool.
 
@@ -33,7 +33,7 @@ union CHCFG[0] {
   // Bit field definition.
   struct {
     uint32_t SOURCE : 8;
-    uint32_t _reserved_1 : 21;
+    uint32_t _reserved_0 : 21;
     eA_ON A_ON : 1;
     eTRIG TRIG : 1;
     eENBL ENBL : 1;
@@ -68,7 +68,7 @@ union CHCFG[1] {
   // Bit field definition.
   struct {
     uint32_t SOURCE : 8;
-    uint32_t _reserved_1 : 21;
+    uint32_t _reserved_0 : 21;
     eA_ON A_ON : 1;
     eTRIG TRIG : 1;
     eENBL ENBL : 1;
@@ -103,7 +103,7 @@ union CHCFG[2] {
   // Bit field definition.
   struct {
     uint32_t SOURCE : 8;
-    uint32_t _reserved_1 : 21;
+    uint32_t _reserved_0 : 21;
     eA_ON A_ON : 1;
     eTRIG TRIG : 1;
     eENBL ENBL : 1;
@@ -138,7 +138,7 @@ union CHCFG[3] {
   // Bit field definition.
   struct {
     uint32_t SOURCE : 8;
-    uint32_t _reserved_1 : 21;
+    uint32_t _reserved_0 : 21;
     eA_ON A_ON : 1;
     eTRIG TRIG : 1;
     eENBL ENBL : 1;
@@ -173,7 +173,7 @@ union CHCFG[4] {
   // Bit field definition.
   struct {
     uint32_t SOURCE : 8;
-    uint32_t _reserved_1 : 21;
+    uint32_t _reserved_0 : 21;
     eA_ON A_ON : 1;
     eTRIG TRIG : 1;
     eENBL ENBL : 1;
@@ -208,7 +208,7 @@ union CHCFG[5] {
   // Bit field definition.
   struct {
     uint32_t SOURCE : 8;
-    uint32_t _reserved_1 : 21;
+    uint32_t _reserved_0 : 21;
     eA_ON A_ON : 1;
     eTRIG TRIG : 1;
     eENBL ENBL : 1;
@@ -243,7 +243,7 @@ union CHCFG[6] {
   // Bit field definition.
   struct {
     uint32_t SOURCE : 8;
-    uint32_t _reserved_1 : 21;
+    uint32_t _reserved_0 : 21;
     eA_ON A_ON : 1;
     eTRIG TRIG : 1;
     eENBL ENBL : 1;
@@ -278,7 +278,7 @@ union CHCFG[7] {
   // Bit field definition.
   struct {
     uint32_t SOURCE : 8;
-    uint32_t _reserved_1 : 21;
+    uint32_t _reserved_0 : 21;
     eA_ON A_ON : 1;
     eTRIG TRIG : 1;
     eENBL ENBL : 1;
@@ -313,7 +313,7 @@ union CHCFG[8] {
   // Bit field definition.
   struct {
     uint32_t SOURCE : 8;
-    uint32_t _reserved_1 : 21;
+    uint32_t _reserved_0 : 21;
     eA_ON A_ON : 1;
     eTRIG TRIG : 1;
     eENBL ENBL : 1;
@@ -348,7 +348,7 @@ union CHCFG[9] {
   // Bit field definition.
   struct {
     uint32_t SOURCE : 8;
-    uint32_t _reserved_1 : 21;
+    uint32_t _reserved_0 : 21;
     eA_ON A_ON : 1;
     eTRIG TRIG : 1;
     eENBL ENBL : 1;
@@ -383,7 +383,7 @@ union CHCFG[10] {
   // Bit field definition.
   struct {
     uint32_t SOURCE : 8;
-    uint32_t _reserved_1 : 21;
+    uint32_t _reserved_0 : 21;
     eA_ON A_ON : 1;
     eTRIG TRIG : 1;
     eENBL ENBL : 1;
@@ -418,7 +418,7 @@ union CHCFG[11] {
   // Bit field definition.
   struct {
     uint32_t SOURCE : 8;
-    uint32_t _reserved_1 : 21;
+    uint32_t _reserved_0 : 21;
     eA_ON A_ON : 1;
     eTRIG TRIG : 1;
     eENBL ENBL : 1;
@@ -453,7 +453,7 @@ union CHCFG[12] {
   // Bit field definition.
   struct {
     uint32_t SOURCE : 8;
-    uint32_t _reserved_1 : 21;
+    uint32_t _reserved_0 : 21;
     eA_ON A_ON : 1;
     eTRIG TRIG : 1;
     eENBL ENBL : 1;
@@ -488,7 +488,7 @@ union CHCFG[13] {
   // Bit field definition.
   struct {
     uint32_t SOURCE : 8;
-    uint32_t _reserved_1 : 21;
+    uint32_t _reserved_0 : 21;
     eA_ON A_ON : 1;
     eTRIG TRIG : 1;
     eENBL ENBL : 1;
@@ -523,7 +523,7 @@ union CHCFG[14] {
   // Bit field definition.
   struct {
     uint32_t SOURCE : 8;
-    uint32_t _reserved_1 : 21;
+    uint32_t _reserved_0 : 21;
     eA_ON A_ON : 1;
     eTRIG TRIG : 1;
     eENBL ENBL : 1;
@@ -558,7 +558,7 @@ union CHCFG[15] {
   // Bit field definition.
   struct {
     uint32_t SOURCE : 8;
-    uint32_t _reserved_1 : 21;
+    uint32_t _reserved_0 : 21;
     eA_ON A_ON : 1;
     eTRIG TRIG : 1;
     eENBL ENBL : 1;
@@ -593,7 +593,7 @@ union CHCFG[16] {
   // Bit field definition.
   struct {
     uint32_t SOURCE : 8;
-    uint32_t _reserved_1 : 21;
+    uint32_t _reserved_0 : 21;
     eA_ON A_ON : 1;
     eTRIG TRIG : 1;
     eENBL ENBL : 1;
@@ -628,7 +628,7 @@ union CHCFG[17] {
   // Bit field definition.
   struct {
     uint32_t SOURCE : 8;
-    uint32_t _reserved_1 : 21;
+    uint32_t _reserved_0 : 21;
     eA_ON A_ON : 1;
     eTRIG TRIG : 1;
     eENBL ENBL : 1;
@@ -663,7 +663,7 @@ union CHCFG[18] {
   // Bit field definition.
   struct {
     uint32_t SOURCE : 8;
-    uint32_t _reserved_1 : 21;
+    uint32_t _reserved_0 : 21;
     eA_ON A_ON : 1;
     eTRIG TRIG : 1;
     eENBL ENBL : 1;
@@ -698,7 +698,7 @@ union CHCFG[19] {
   // Bit field definition.
   struct {
     uint32_t SOURCE : 8;
-    uint32_t _reserved_1 : 21;
+    uint32_t _reserved_0 : 21;
     eA_ON A_ON : 1;
     eTRIG TRIG : 1;
     eENBL ENBL : 1;
@@ -733,7 +733,7 @@ union CHCFG[20] {
   // Bit field definition.
   struct {
     uint32_t SOURCE : 8;
-    uint32_t _reserved_1 : 21;
+    uint32_t _reserved_0 : 21;
     eA_ON A_ON : 1;
     eTRIG TRIG : 1;
     eENBL ENBL : 1;
@@ -768,7 +768,7 @@ union CHCFG[21] {
   // Bit field definition.
   struct {
     uint32_t SOURCE : 8;
-    uint32_t _reserved_1 : 21;
+    uint32_t _reserved_0 : 21;
     eA_ON A_ON : 1;
     eTRIG TRIG : 1;
     eENBL ENBL : 1;
@@ -803,7 +803,7 @@ union CHCFG[22] {
   // Bit field definition.
   struct {
     uint32_t SOURCE : 8;
-    uint32_t _reserved_1 : 21;
+    uint32_t _reserved_0 : 21;
     eA_ON A_ON : 1;
     eTRIG TRIG : 1;
     eENBL ENBL : 1;
@@ -838,7 +838,7 @@ union CHCFG[23] {
   // Bit field definition.
   struct {
     uint32_t SOURCE : 8;
-    uint32_t _reserved_1 : 21;
+    uint32_t _reserved_0 : 21;
     eA_ON A_ON : 1;
     eTRIG TRIG : 1;
     eENBL ENBL : 1;
@@ -873,7 +873,7 @@ union CHCFG[24] {
   // Bit field definition.
   struct {
     uint32_t SOURCE : 8;
-    uint32_t _reserved_1 : 21;
+    uint32_t _reserved_0 : 21;
     eA_ON A_ON : 1;
     eTRIG TRIG : 1;
     eENBL ENBL : 1;
@@ -908,7 +908,7 @@ union CHCFG[25] {
   // Bit field definition.
   struct {
     uint32_t SOURCE : 8;
-    uint32_t _reserved_1 : 21;
+    uint32_t _reserved_0 : 21;
     eA_ON A_ON : 1;
     eTRIG TRIG : 1;
     eENBL ENBL : 1;
@@ -943,7 +943,7 @@ union CHCFG[26] {
   // Bit field definition.
   struct {
     uint32_t SOURCE : 8;
-    uint32_t _reserved_1 : 21;
+    uint32_t _reserved_0 : 21;
     eA_ON A_ON : 1;
     eTRIG TRIG : 1;
     eENBL ENBL : 1;
@@ -978,7 +978,7 @@ union CHCFG[27] {
   // Bit field definition.
   struct {
     uint32_t SOURCE : 8;
-    uint32_t _reserved_1 : 21;
+    uint32_t _reserved_0 : 21;
     eA_ON A_ON : 1;
     eTRIG TRIG : 1;
     eENBL ENBL : 1;
@@ -1013,7 +1013,7 @@ union CHCFG[28] {
   // Bit field definition.
   struct {
     uint32_t SOURCE : 8;
-    uint32_t _reserved_1 : 21;
+    uint32_t _reserved_0 : 21;
     eA_ON A_ON : 1;
     eTRIG TRIG : 1;
     eENBL ENBL : 1;
@@ -1048,7 +1048,7 @@ union CHCFG[29] {
   // Bit field definition.
   struct {
     uint32_t SOURCE : 8;
-    uint32_t _reserved_1 : 21;
+    uint32_t _reserved_0 : 21;
     eA_ON A_ON : 1;
     eTRIG TRIG : 1;
     eENBL ENBL : 1;
@@ -1083,7 +1083,7 @@ union CHCFG[30] {
   // Bit field definition.
   struct {
     uint32_t SOURCE : 8;
-    uint32_t _reserved_1 : 21;
+    uint32_t _reserved_0 : 21;
     eA_ON A_ON : 1;
     eTRIG TRIG : 1;
     eENBL ENBL : 1;
@@ -1118,7 +1118,7 @@ union CHCFG[31] {
   // Bit field definition.
   struct {
     uint32_t SOURCE : 8;
-    uint32_t _reserved_1 : 21;
+    uint32_t _reserved_0 : 21;
     eA_ON A_ON : 1;
     eTRIG TRIG : 1;
     eENBL ENBL : 1;

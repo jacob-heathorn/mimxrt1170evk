@@ -4,7 +4,7 @@
 #include <stdint.h>
 #include <cstring>
 
-// // GPC_CPU
+// GPC_CPU
 //
 // NOTE: This file was generated from the forge CMSIS-svd wrapper tool.
 
@@ -29,14 +29,14 @@ union CM_AUTHEN_CTRL {
   struct {
     eUSER USER : 1;
     eNONSECURE NONSECURE : 1;
-    uint32_t _reserved_2 : 2;
+    uint32_t _reserved_0 : 2;
     uint32_t LOCK_SETTING : 1;
-    uint32_t _reserved_3 : 3;
+    uint32_t _reserved_1 : 3;
     uint32_t WHITE_LIST : 4;
     uint32_t LOCK_LIST : 1;
-    uint32_t _reserved_5 : 7;
+    uint32_t _reserved_2 : 7;
     uint32_t LOCK_CFG : 1;
-    uint32_t _reserved_end : 11;
+    uint32_t _reserved_3 : 11;
   } bits;
   
   // Full 32-bit register value.
@@ -71,11 +71,11 @@ union CM_INT_CTRL {
     eSP_REQ_NOT_ALLOWED_SLEEP_INT_EN SP_REQ_NOT_ALLOWED_SLEEP_INT_EN : 1;
     eSP_REQ_NOT_ALLOWED_WAKEUP_INT_EN SP_REQ_NOT_ALLOWED_WAKEUP_INT_EN : 1;
     eSP_REQ_NOT_ALLOWED_SOFT_INT_EN SP_REQ_NOT_ALLOWED_SOFT_INT_EN : 1;
-    uint32_t _reserved_3 : 13;
+    uint32_t _reserved_0 : 13;
     uint32_t SP_REQ_NOT_ALLOWED_SLEEP_INT : 1;
     uint32_t SP_REQ_NOT_ALLOWED_WAKEUP_INT : 1;
     uint32_t SP_REQ_NOT_ALLOWED_SOFT_INT : 1;
-    uint32_t _reserved_end : 13;
+    uint32_t _reserved_1 : 13;
   } bits;
   
   // Full 32-bit register value.
@@ -105,9 +105,9 @@ union CM_MISC {
     eNMI_STAT NMI_STAT : 1;
     eSLEEP_HOLD_EN SLEEP_HOLD_EN : 1;
     uint32_t SLEEP_HOLD_STAT : 1;
-    uint32_t _reserved_3 : 1;
+    uint32_t _reserved_0 : 1;
     uint32_t MASTER_CPU : 1;
-    uint32_t _reserved_end : 27;
+    uint32_t _reserved_1 : 27;
   } bits;
   
   // Full 32-bit register value.
@@ -137,9 +137,9 @@ union CM_MODE_CTRL {
   // Bit field definition.
   struct {
     eCPU_MODE_TARGET CPU_MODE_TARGET : 2;
-    uint32_t _reserved_1 : 2;
+    uint32_t _reserved_0 : 2;
     eWFE_EN WFE_EN : 1;
-    uint32_t _reserved_end : 27;
+    uint32_t _reserved_1 : 27;
   } bits;
   
   // Full 32-bit register value.
@@ -172,7 +172,7 @@ union CM_MODE_STAT {
   struct {
     eCPU_MODE_CURRENT CPU_MODE_CURRENT : 2;
     eCPU_MODE_PREVIOUS CPU_MODE_PREVIOUS : 2;
-    uint32_t _reserved_end : 28;
+    uint32_t _reserved_0 : 28;
   } bits;
   
   // Full 32-bit register value.
@@ -331,7 +331,7 @@ union CM_NON_IRQ_WAKEUP_MASK {
   struct {
     eEVENT_WAKEUP_MASK EVENT_WAKEUP_MASK : 1;
     uint32_t DEBUG_WAKEUP_MASK : 1;
-    uint32_t _reserved_end : 30;
+    uint32_t _reserved_0 : 30;
   } bits;
   
   // Full 32-bit register value.
@@ -530,7 +530,7 @@ union CM_NON_IRQ_WAKEUP_STAT {
   struct {
     eEVENT_WAKEUP_STAT EVENT_WAKEUP_STAT : 1;
     uint32_t DEBUG_WAKEUP_STAT : 1;
-    uint32_t _reserved_end : 30;
+    uint32_t _reserved_0 : 30;
   } bits;
   
   // Full 32-bit register value.
@@ -555,9 +555,9 @@ union CM_SLEEP_SSAR_CTRL {
   // Bit field definition.
   struct {
     uint32_t STEP_CNT : 16;
-    uint32_t _reserved_1 : 12;
+    uint32_t _reserved_0 : 12;
     eCNT_MODE CNT_MODE : 2;
-    uint32_t _reserved_2 : 1;
+    uint32_t _reserved_1 : 1;
     uint32_t DISABLE : 1;
   } bits;
   
@@ -583,9 +583,9 @@ union CM_SLEEP_LPCG_CTRL {
   // Bit field definition.
   struct {
     uint32_t STEP_CNT : 16;
-    uint32_t _reserved_1 : 12;
+    uint32_t _reserved_0 : 12;
     eCNT_MODE CNT_MODE : 2;
-    uint32_t _reserved_2 : 1;
+    uint32_t _reserved_1 : 1;
     uint32_t DISABLE : 1;
   } bits;
   
@@ -611,9 +611,9 @@ union CM_SLEEP_PLL_CTRL {
   // Bit field definition.
   struct {
     uint32_t STEP_CNT : 16;
-    uint32_t _reserved_1 : 12;
+    uint32_t _reserved_0 : 12;
     eCNT_MODE CNT_MODE : 2;
-    uint32_t _reserved_2 : 1;
+    uint32_t _reserved_1 : 1;
     uint32_t DISABLE : 1;
   } bits;
   
@@ -639,9 +639,9 @@ union CM_SLEEP_ISO_CTRL {
   // Bit field definition.
   struct {
     uint32_t STEP_CNT : 16;
-    uint32_t _reserved_1 : 12;
+    uint32_t _reserved_0 : 12;
     eCNT_MODE CNT_MODE : 2;
-    uint32_t _reserved_2 : 1;
+    uint32_t _reserved_1 : 1;
     uint32_t DISABLE : 1;
   } bits;
   
@@ -667,9 +667,9 @@ union CM_SLEEP_RESET_CTRL {
   // Bit field definition.
   struct {
     uint32_t STEP_CNT : 16;
-    uint32_t _reserved_1 : 12;
+    uint32_t _reserved_0 : 12;
     eCNT_MODE CNT_MODE : 2;
-    uint32_t _reserved_2 : 1;
+    uint32_t _reserved_1 : 1;
     uint32_t DISABLE : 1;
   } bits;
   
@@ -695,9 +695,9 @@ union CM_SLEEP_POWER_CTRL {
   // Bit field definition.
   struct {
     uint32_t STEP_CNT : 16;
-    uint32_t _reserved_1 : 12;
+    uint32_t _reserved_0 : 12;
     eCNT_MODE CNT_MODE : 2;
-    uint32_t _reserved_2 : 1;
+    uint32_t _reserved_1 : 1;
     uint32_t DISABLE : 1;
   } bits;
   
@@ -723,9 +723,9 @@ union CM_WAKEUP_POWER_CTRL {
   // Bit field definition.
   struct {
     uint32_t STEP_CNT : 16;
-    uint32_t _reserved_1 : 12;
+    uint32_t _reserved_0 : 12;
     eCNT_MODE CNT_MODE : 2;
-    uint32_t _reserved_2 : 1;
+    uint32_t _reserved_1 : 1;
     uint32_t DISABLE : 1;
   } bits;
   
@@ -751,9 +751,9 @@ union CM_WAKEUP_RESET_CTRL {
   // Bit field definition.
   struct {
     uint32_t STEP_CNT : 16;
-    uint32_t _reserved_1 : 12;
+    uint32_t _reserved_0 : 12;
     eCNT_MODE CNT_MODE : 2;
-    uint32_t _reserved_2 : 1;
+    uint32_t _reserved_1 : 1;
     uint32_t DISABLE : 1;
   } bits;
   
@@ -779,9 +779,9 @@ union CM_WAKEUP_ISO_CTRL {
   // Bit field definition.
   struct {
     uint32_t STEP_CNT : 16;
-    uint32_t _reserved_1 : 12;
+    uint32_t _reserved_0 : 12;
     eCNT_MODE CNT_MODE : 2;
-    uint32_t _reserved_2 : 1;
+    uint32_t _reserved_1 : 1;
     uint32_t DISABLE : 1;
   } bits;
   
@@ -807,9 +807,9 @@ union CM_WAKEUP_PLL_CTRL {
   // Bit field definition.
   struct {
     uint32_t STEP_CNT : 16;
-    uint32_t _reserved_1 : 12;
+    uint32_t _reserved_0 : 12;
     eCNT_MODE CNT_MODE : 2;
-    uint32_t _reserved_2 : 1;
+    uint32_t _reserved_1 : 1;
     uint32_t DISABLE : 1;
   } bits;
   
@@ -835,9 +835,9 @@ union CM_WAKEUP_LPCG_CTRL {
   // Bit field definition.
   struct {
     uint32_t STEP_CNT : 16;
-    uint32_t _reserved_1 : 12;
+    uint32_t _reserved_0 : 12;
     eCNT_MODE CNT_MODE : 2;
-    uint32_t _reserved_2 : 1;
+    uint32_t _reserved_1 : 1;
     uint32_t DISABLE : 1;
   } bits;
   
@@ -863,9 +863,9 @@ union CM_WAKEUP_SSAR_CTRL {
   // Bit field definition.
   struct {
     uint32_t STEP_CNT : 16;
-    uint32_t _reserved_1 : 12;
+    uint32_t _reserved_0 : 12;
     eCNT_MODE CNT_MODE : 2;
-    uint32_t _reserved_2 : 1;
+    uint32_t _reserved_1 : 1;
     uint32_t DISABLE : 1;
   } bits;
   
@@ -895,7 +895,7 @@ union CM_SP_CTRL {
     uint32_t CPU_SP_WAKEUP_EN : 1;
     uint32_t CPU_SP_WAKEUP : 4;
     eCPU_SP_WAKEUP_SEL CPU_SP_WAKEUP_SEL : 1;
-    uint32_t _reserved_end : 16;
+    uint32_t _reserved_0 : 16;
   } bits;
   
   // Full 32-bit register value.
@@ -915,7 +915,7 @@ union CM_SP_STAT {
     uint32_t CPU_SP_CURRENT : 4;
     uint32_t CPU_SP_PREVIOUS : 4;
     uint32_t CPU_SP_TARGET : 4;
-    uint32_t _reserved_end : 20;
+    uint32_t _reserved_0 : 20;
   } bits;
   
   // Full 32-bit register value.
@@ -933,7 +933,7 @@ union CM_RUN_MODE_MAPPING {
   // Bit field definition.
   struct {
     uint32_t CPU_RUN_MODE_MAPPING : 16;
-    uint32_t _reserved_end : 16;
+    uint32_t _reserved_0 : 16;
   } bits;
   
   // Full 32-bit register value.
@@ -951,7 +951,7 @@ union CM_WAIT_MODE_MAPPING {
   // Bit field definition.
   struct {
     uint32_t CPU_WAIT_MODE_MAPPING : 16;
-    uint32_t _reserved_end : 16;
+    uint32_t _reserved_0 : 16;
   } bits;
   
   // Full 32-bit register value.
@@ -969,7 +969,7 @@ union CM_STOP_MODE_MAPPING {
   // Bit field definition.
   struct {
     uint32_t CPU_STOP_MODE_MAPPING : 16;
-    uint32_t _reserved_end : 16;
+    uint32_t _reserved_0 : 16;
   } bits;
   
   // Full 32-bit register value.
@@ -987,7 +987,7 @@ union CM_SUSPEND_MODE_MAPPING {
   // Bit field definition.
   struct {
     uint32_t CPU_SUSPEND_MODE_MAPPING : 16;
-    uint32_t _reserved_end : 16;
+    uint32_t _reserved_0 : 16;
   } bits;
   
   // Full 32-bit register value.
@@ -1005,7 +1005,7 @@ union CM_SP0_MAPPING {
   // Bit field definition.
   struct {
     uint32_t CPU_SP0_MAPPING : 16;
-    uint32_t _reserved_end : 16;
+    uint32_t _reserved_0 : 16;
   } bits;
   
   // Full 32-bit register value.
@@ -1023,7 +1023,7 @@ union CM_SP1_MAPPING {
   // Bit field definition.
   struct {
     uint32_t CPU_SP1_MAPPING : 16;
-    uint32_t _reserved_end : 16;
+    uint32_t _reserved_0 : 16;
   } bits;
   
   // Full 32-bit register value.
@@ -1041,7 +1041,7 @@ union CM_SP2_MAPPING {
   // Bit field definition.
   struct {
     uint32_t CPU_SP2_MAPPING : 16;
-    uint32_t _reserved_end : 16;
+    uint32_t _reserved_0 : 16;
   } bits;
   
   // Full 32-bit register value.
@@ -1059,7 +1059,7 @@ union CM_SP3_MAPPING {
   // Bit field definition.
   struct {
     uint32_t CPU_SP3_MAPPING : 16;
-    uint32_t _reserved_end : 16;
+    uint32_t _reserved_0 : 16;
   } bits;
   
   // Full 32-bit register value.
@@ -1077,7 +1077,7 @@ union CM_SP4_MAPPING {
   // Bit field definition.
   struct {
     uint32_t CPU_SP4_MAPPING : 16;
-    uint32_t _reserved_end : 16;
+    uint32_t _reserved_0 : 16;
   } bits;
   
   // Full 32-bit register value.
@@ -1095,7 +1095,7 @@ union CM_SP5_MAPPING {
   // Bit field definition.
   struct {
     uint32_t CPU_SP5_MAPPING : 16;
-    uint32_t _reserved_end : 16;
+    uint32_t _reserved_0 : 16;
   } bits;
   
   // Full 32-bit register value.
@@ -1113,7 +1113,7 @@ union CM_SP6_MAPPING {
   // Bit field definition.
   struct {
     uint32_t CPU_SP6_MAPPING : 16;
-    uint32_t _reserved_end : 16;
+    uint32_t _reserved_0 : 16;
   } bits;
   
   // Full 32-bit register value.
@@ -1131,7 +1131,7 @@ union CM_SP7_MAPPING {
   // Bit field definition.
   struct {
     uint32_t CPU_SP7_MAPPING : 16;
-    uint32_t _reserved_end : 16;
+    uint32_t _reserved_0 : 16;
   } bits;
   
   // Full 32-bit register value.
@@ -1149,7 +1149,7 @@ union CM_SP8_MAPPING {
   // Bit field definition.
   struct {
     uint32_t CPU_SP8_MAPPING : 16;
-    uint32_t _reserved_end : 16;
+    uint32_t _reserved_0 : 16;
   } bits;
   
   // Full 32-bit register value.
@@ -1167,7 +1167,7 @@ union CM_SP9_MAPPING {
   // Bit field definition.
   struct {
     uint32_t CPU_SP9_MAPPING : 16;
-    uint32_t _reserved_end : 16;
+    uint32_t _reserved_0 : 16;
   } bits;
   
   // Full 32-bit register value.
@@ -1185,7 +1185,7 @@ union CM_SP10_MAPPING {
   // Bit field definition.
   struct {
     uint32_t CPU_SP10_MAPPING : 16;
-    uint32_t _reserved_end : 16;
+    uint32_t _reserved_0 : 16;
   } bits;
   
   // Full 32-bit register value.
@@ -1203,7 +1203,7 @@ union CM_SP11_MAPPING {
   // Bit field definition.
   struct {
     uint32_t CPU_SP11_MAPPING : 16;
-    uint32_t _reserved_end : 16;
+    uint32_t _reserved_0 : 16;
   } bits;
   
   // Full 32-bit register value.
@@ -1221,7 +1221,7 @@ union CM_SP12_MAPPING {
   // Bit field definition.
   struct {
     uint32_t CPU_SP12_MAPPING : 16;
-    uint32_t _reserved_end : 16;
+    uint32_t _reserved_0 : 16;
   } bits;
   
   // Full 32-bit register value.
@@ -1239,7 +1239,7 @@ union CM_SP13_MAPPING {
   // Bit field definition.
   struct {
     uint32_t CPU_SP13_MAPPING : 16;
-    uint32_t _reserved_end : 16;
+    uint32_t _reserved_0 : 16;
   } bits;
   
   // Full 32-bit register value.
@@ -1257,7 +1257,7 @@ union CM_SP14_MAPPING {
   // Bit field definition.
   struct {
     uint32_t CPU_SP14_MAPPING : 16;
-    uint32_t _reserved_end : 16;
+    uint32_t _reserved_0 : 16;
   } bits;
   
   // Full 32-bit register value.
@@ -1275,7 +1275,7 @@ union CM_SP15_MAPPING {
   // Bit field definition.
   struct {
     uint32_t CPU_SP15_MAPPING : 16;
-    uint32_t _reserved_end : 16;
+    uint32_t _reserved_0 : 16;
   } bits;
   
   // Full 32-bit register value.
@@ -1295,10 +1295,10 @@ union CM_STBY_CTRL {
     uint32_t STBY_WAIT : 1;
     uint32_t STBY_STOP : 1;
     uint32_t STBY_SUSPEND : 1;
-    uint32_t _reserved_3 : 13;
+    uint32_t _reserved_0 : 13;
     uint32_t STBY_SLEEP_BUSY : 1;
     uint32_t STBY_WAKEUP_BUSY : 1;
-    uint32_t _reserved_end : 14;
+    uint32_t _reserved_1 : 14;
   } bits;
   
   // Full 32-bit register value.

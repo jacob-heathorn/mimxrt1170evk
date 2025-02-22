@@ -4,7 +4,7 @@
 #include <stdint.h>
 #include <cstring>
 
-// // PXP v2.0 Register Reference Index
+// PXP v2.0 Register Reference Index
 //
 // NOTE: This file was generated from the forge CMSIS-svd wrapper tool.
 
@@ -72,18 +72,18 @@ union PXP_CTRL {
     eENABLE ENABLE : 1;
     eIRQ_ENABLE IRQ_ENABLE : 1;
     eNEXT_IRQ_ENABLE NEXT_IRQ_ENABLE : 1;
-    uint32_t _reserved_3 : 1;
+    uint32_t _reserved_0 : 1;
     uint32_t ENABLE_LCD_HANDSHAKE : 1;
-    uint32_t _reserved_4 : 3;
+    uint32_t _reserved_1 : 3;
     eROTATE ROTATE : 2;
     eHFLIP HFLIP : 1;
     eVFLIP VFLIP : 1;
-    uint32_t _reserved_7 : 10;
+    uint32_t _reserved_2 : 10;
     uint32_t ROT_POS : 1;
     eBLOCK_SIZE BLOCK_SIZE : 1;
-    uint32_t _reserved_9 : 4;
+    uint32_t _reserved_3 : 4;
     eEN_REPEAT EN_REPEAT : 1;
-    uint32_t _reserved_10 : 1;
+    uint32_t _reserved_4 : 1;
     eCLKGATE CLKGATE : 1;
     eSFTRST SFTRST : 1;
   } bits;
@@ -157,18 +157,18 @@ union PXP_CTRL_SET {
     eENABLE ENABLE : 1;
     eIRQ_ENABLE IRQ_ENABLE : 1;
     eNEXT_IRQ_ENABLE NEXT_IRQ_ENABLE : 1;
-    uint32_t _reserved_3 : 1;
+    uint32_t _reserved_0 : 1;
     uint32_t ENABLE_LCD_HANDSHAKE : 1;
-    uint32_t _reserved_4 : 3;
+    uint32_t _reserved_1 : 3;
     eROTATE ROTATE : 2;
     eHFLIP HFLIP : 1;
     eVFLIP VFLIP : 1;
-    uint32_t _reserved_7 : 10;
+    uint32_t _reserved_2 : 10;
     uint32_t ROT_POS : 1;
     eBLOCK_SIZE BLOCK_SIZE : 1;
-    uint32_t _reserved_9 : 4;
+    uint32_t _reserved_3 : 4;
     eEN_REPEAT EN_REPEAT : 1;
-    uint32_t _reserved_10 : 1;
+    uint32_t _reserved_4 : 1;
     eCLKGATE CLKGATE : 1;
     eSFTRST SFTRST : 1;
   } bits;
@@ -242,18 +242,18 @@ union PXP_CTRL_CLR {
     eENABLE ENABLE : 1;
     eIRQ_ENABLE IRQ_ENABLE : 1;
     eNEXT_IRQ_ENABLE NEXT_IRQ_ENABLE : 1;
-    uint32_t _reserved_3 : 1;
+    uint32_t _reserved_0 : 1;
     uint32_t ENABLE_LCD_HANDSHAKE : 1;
-    uint32_t _reserved_4 : 3;
+    uint32_t _reserved_1 : 3;
     eROTATE ROTATE : 2;
     eHFLIP HFLIP : 1;
     eVFLIP VFLIP : 1;
-    uint32_t _reserved_7 : 10;
+    uint32_t _reserved_2 : 10;
     uint32_t ROT_POS : 1;
     eBLOCK_SIZE BLOCK_SIZE : 1;
-    uint32_t _reserved_9 : 4;
+    uint32_t _reserved_3 : 4;
     eEN_REPEAT EN_REPEAT : 1;
-    uint32_t _reserved_10 : 1;
+    uint32_t _reserved_4 : 1;
     eCLKGATE CLKGATE : 1;
     eSFTRST SFTRST : 1;
   } bits;
@@ -327,18 +327,18 @@ union PXP_CTRL_TOG {
     eENABLE ENABLE : 1;
     eIRQ_ENABLE IRQ_ENABLE : 1;
     eNEXT_IRQ_ENABLE NEXT_IRQ_ENABLE : 1;
-    uint32_t _reserved_3 : 1;
+    uint32_t _reserved_0 : 1;
     uint32_t ENABLE_LCD_HANDSHAKE : 1;
-    uint32_t _reserved_4 : 3;
+    uint32_t _reserved_1 : 3;
     eROTATE ROTATE : 2;
     eHFLIP HFLIP : 1;
     eVFLIP VFLIP : 1;
-    uint32_t _reserved_7 : 10;
+    uint32_t _reserved_2 : 10;
     uint32_t ROT_POS : 1;
     eBLOCK_SIZE BLOCK_SIZE : 1;
-    uint32_t _reserved_9 : 4;
+    uint32_t _reserved_3 : 4;
     eEN_REPEAT EN_REPEAT : 1;
-    uint32_t _reserved_10 : 1;
+    uint32_t _reserved_4 : 1;
     eCLKGATE CLKGATE : 1;
     eSFTRST SFTRST : 1;
   } bits;
@@ -383,7 +383,7 @@ union PXP_STAT {
     uint32_t NEXT_IRQ : 1;
     uint32_t AXI_ERROR_ID : 4;
     eLUT_DMA_LOAD_DONE_IRQ LUT_DMA_LOAD_DONE_IRQ : 1;
-    uint32_t _reserved_6 : 7;
+    uint32_t _reserved_0 : 7;
     uint32_t BLOCKY : 8;
     uint32_t BLOCKX : 8;
   } bits;
@@ -428,7 +428,7 @@ union PXP_STAT_SET {
     uint32_t NEXT_IRQ : 1;
     uint32_t AXI_ERROR_ID : 4;
     eLUT_DMA_LOAD_DONE_IRQ LUT_DMA_LOAD_DONE_IRQ : 1;
-    uint32_t _reserved_6 : 7;
+    uint32_t _reserved_0 : 7;
     uint32_t BLOCKY : 8;
     uint32_t BLOCKX : 8;
   } bits;
@@ -473,7 +473,7 @@ union PXP_STAT_CLR {
     uint32_t NEXT_IRQ : 1;
     uint32_t AXI_ERROR_ID : 4;
     eLUT_DMA_LOAD_DONE_IRQ LUT_DMA_LOAD_DONE_IRQ : 1;
-    uint32_t _reserved_6 : 7;
+    uint32_t _reserved_0 : 7;
     uint32_t BLOCKY : 8;
     uint32_t BLOCKX : 8;
   } bits;
@@ -518,7 +518,7 @@ union PXP_STAT_TOG {
     uint32_t NEXT_IRQ : 1;
     uint32_t AXI_ERROR_ID : 4;
     eLUT_DMA_LOAD_DONE_IRQ LUT_DMA_LOAD_DONE_IRQ : 1;
-    uint32_t _reserved_6 : 7;
+    uint32_t _reserved_0 : 7;
     uint32_t BLOCKY : 8;
     uint32_t BLOCKX : 8;
   } bits;
@@ -570,9 +570,9 @@ union PXP_OUT_CTRL {
   // Bit field definition.
   struct {
     eFORMAT FORMAT : 5;
-    uint32_t _reserved_1 : 3;
+    uint32_t _reserved_0 : 3;
     eINTERLACED_OUTPUT INTERLACED_OUTPUT : 2;
-    uint32_t _reserved_2 : 13;
+    uint32_t _reserved_1 : 13;
     eALPHA_OUTPUT ALPHA_OUTPUT : 1;
     uint32_t ALPHA : 8;
   } bits;
@@ -624,9 +624,9 @@ union PXP_OUT_CTRL_SET {
   // Bit field definition.
   struct {
     eFORMAT FORMAT : 5;
-    uint32_t _reserved_1 : 3;
+    uint32_t _reserved_0 : 3;
     eINTERLACED_OUTPUT INTERLACED_OUTPUT : 2;
-    uint32_t _reserved_2 : 13;
+    uint32_t _reserved_1 : 13;
     eALPHA_OUTPUT ALPHA_OUTPUT : 1;
     uint32_t ALPHA : 8;
   } bits;
@@ -678,9 +678,9 @@ union PXP_OUT_CTRL_CLR {
   // Bit field definition.
   struct {
     eFORMAT FORMAT : 5;
-    uint32_t _reserved_1 : 3;
+    uint32_t _reserved_0 : 3;
     eINTERLACED_OUTPUT INTERLACED_OUTPUT : 2;
-    uint32_t _reserved_2 : 13;
+    uint32_t _reserved_1 : 13;
     eALPHA_OUTPUT ALPHA_OUTPUT : 1;
     uint32_t ALPHA : 8;
   } bits;
@@ -732,9 +732,9 @@ union PXP_OUT_CTRL_TOG {
   // Bit field definition.
   struct {
     eFORMAT FORMAT : 5;
-    uint32_t _reserved_1 : 3;
+    uint32_t _reserved_0 : 3;
     eINTERLACED_OUTPUT INTERLACED_OUTPUT : 2;
-    uint32_t _reserved_2 : 13;
+    uint32_t _reserved_1 : 13;
     eALPHA_OUTPUT ALPHA_OUTPUT : 1;
     uint32_t ALPHA : 8;
   } bits;
@@ -788,7 +788,7 @@ union PXP_OUT_PITCH {
   // Bit field definition.
   struct {
     uint32_t PITCH : 16;
-    uint32_t _reserved_end : 16;
+    uint32_t _reserved_0 : 16;
   } bits;
   
   // Full 32-bit register value.
@@ -806,9 +806,9 @@ union PXP_OUT_LRC {
   // Bit field definition.
   struct {
     uint32_t Y : 14;
-    uint32_t _reserved_1 : 2;
+    uint32_t _reserved_0 : 2;
     uint32_t X : 14;
-    uint32_t _reserved_end : 2;
+    uint32_t _reserved_1 : 2;
   } bits;
   
   // Full 32-bit register value.
@@ -826,9 +826,9 @@ union PXP_OUT_PS_ULC {
   // Bit field definition.
   struct {
     uint32_t Y : 14;
-    uint32_t _reserved_1 : 2;
+    uint32_t _reserved_0 : 2;
     uint32_t X : 14;
-    uint32_t _reserved_end : 2;
+    uint32_t _reserved_1 : 2;
   } bits;
   
   // Full 32-bit register value.
@@ -846,9 +846,9 @@ union PXP_OUT_PS_LRC {
   // Bit field definition.
   struct {
     uint32_t Y : 14;
-    uint32_t _reserved_1 : 2;
+    uint32_t _reserved_0 : 2;
     uint32_t X : 14;
-    uint32_t _reserved_end : 2;
+    uint32_t _reserved_1 : 2;
   } bits;
   
   // Full 32-bit register value.
@@ -866,9 +866,9 @@ union PXP_OUT_AS_ULC {
   // Bit field definition.
   struct {
     uint32_t Y : 14;
-    uint32_t _reserved_1 : 2;
+    uint32_t _reserved_0 : 2;
     uint32_t X : 14;
-    uint32_t _reserved_end : 2;
+    uint32_t _reserved_1 : 2;
   } bits;
   
   // Full 32-bit register value.
@@ -886,9 +886,9 @@ union PXP_OUT_AS_LRC {
   // Bit field definition.
   struct {
     uint32_t Y : 14;
-    uint32_t _reserved_1 : 2;
+    uint32_t _reserved_0 : 2;
     uint32_t X : 14;
-    uint32_t _reserved_end : 2;
+    uint32_t _reserved_1 : 2;
   } bits;
   
   // Full 32-bit register value.
@@ -947,10 +947,10 @@ union PXP_PS_CTRL {
   struct {
     eFORMAT FORMAT : 6;
     eWB_SWAP WB_SWAP : 1;
-    uint32_t _reserved_2 : 1;
+    uint32_t _reserved_0 : 1;
     eDECY DECY : 2;
     eDECX DECX : 2;
-    uint32_t _reserved_end : 20;
+    uint32_t _reserved_1 : 20;
   } bits;
   
   // Full 32-bit register value.
@@ -1009,10 +1009,10 @@ union PXP_PS_CTRL_SET {
   struct {
     eFORMAT FORMAT : 6;
     eWB_SWAP WB_SWAP : 1;
-    uint32_t _reserved_2 : 1;
+    uint32_t _reserved_0 : 1;
     eDECY DECY : 2;
     eDECX DECX : 2;
-    uint32_t _reserved_end : 20;
+    uint32_t _reserved_1 : 20;
   } bits;
   
   // Full 32-bit register value.
@@ -1071,10 +1071,10 @@ union PXP_PS_CTRL_CLR {
   struct {
     eFORMAT FORMAT : 6;
     eWB_SWAP WB_SWAP : 1;
-    uint32_t _reserved_2 : 1;
+    uint32_t _reserved_0 : 1;
     eDECY DECY : 2;
     eDECX DECX : 2;
-    uint32_t _reserved_end : 20;
+    uint32_t _reserved_1 : 20;
   } bits;
   
   // Full 32-bit register value.
@@ -1133,10 +1133,10 @@ union PXP_PS_CTRL_TOG {
   struct {
     eFORMAT FORMAT : 6;
     eWB_SWAP WB_SWAP : 1;
-    uint32_t _reserved_2 : 1;
+    uint32_t _reserved_0 : 1;
     eDECY DECY : 2;
     eDECX DECX : 2;
-    uint32_t _reserved_end : 20;
+    uint32_t _reserved_1 : 20;
   } bits;
   
   // Full 32-bit register value.
@@ -1205,7 +1205,7 @@ union PXP_PS_PITCH {
   // Bit field definition.
   struct {
     uint32_t PITCH : 16;
-    uint32_t _reserved_end : 16;
+    uint32_t _reserved_0 : 16;
   } bits;
   
   // Full 32-bit register value.
@@ -1223,7 +1223,7 @@ union PXP_PS_BACKGROUND {
   // Bit field definition.
   struct {
     uint32_t COLOR : 24;
-    uint32_t _reserved_end : 8;
+    uint32_t _reserved_0 : 8;
   } bits;
   
   // Full 32-bit register value.
@@ -1241,9 +1241,9 @@ union PXP_PS_SCALE {
   // Bit field definition.
   struct {
     uint32_t XSCALE : 15;
-    uint32_t _reserved_1 : 1;
+    uint32_t _reserved_0 : 1;
     uint32_t YSCALE : 15;
-    uint32_t _reserved_end : 1;
+    uint32_t _reserved_1 : 1;
   } bits;
   
   // Full 32-bit register value.
@@ -1261,9 +1261,9 @@ union PXP_PS_OFFSET {
   // Bit field definition.
   struct {
     uint32_t XOFFSET : 12;
-    uint32_t _reserved_1 : 4;
+    uint32_t _reserved_0 : 4;
     uint32_t YOFFSET : 12;
-    uint32_t _reserved_end : 4;
+    uint32_t _reserved_1 : 4;
   } bits;
   
   // Full 32-bit register value.
@@ -1281,7 +1281,7 @@ union PXP_PS_CLRKEYLOW {
   // Bit field definition.
   struct {
     uint32_t PIXEL : 24;
-    uint32_t _reserved_end : 8;
+    uint32_t _reserved_0 : 8;
   } bits;
   
   // Full 32-bit register value.
@@ -1299,7 +1299,7 @@ union PXP_PS_CLRKEYHIGH {
   // Bit field definition.
   struct {
     uint32_t PIXEL : 24;
-    uint32_t _reserved_end : 8;
+    uint32_t _reserved_0 : 8;
   } bits;
   
   // Full 32-bit register value.
@@ -1368,7 +1368,7 @@ union PXP_AS_CTRL {
     uint32_t ALPHA : 8;
     eROP ROP : 4;
     eALPHA_INVERT ALPHA_INVERT : 1;
-    uint32_t _reserved_end : 11;
+    uint32_t _reserved_1 : 11;
   } bits;
   
   // Full 32-bit register value.
@@ -1403,7 +1403,7 @@ union PXP_AS_PITCH {
   // Bit field definition.
   struct {
     uint32_t PITCH : 16;
-    uint32_t _reserved_end : 16;
+    uint32_t _reserved_0 : 16;
   } bits;
   
   // Full 32-bit register value.
@@ -1421,7 +1421,7 @@ union PXP_AS_CLRKEYLOW {
   // Bit field definition.
   struct {
     uint32_t PIXEL : 24;
-    uint32_t _reserved_end : 8;
+    uint32_t _reserved_0 : 8;
   } bits;
   
   // Full 32-bit register value.
@@ -1439,7 +1439,7 @@ union PXP_AS_CLRKEYHIGH {
   // Bit field definition.
   struct {
     uint32_t PIXEL : 24;
-    uint32_t _reserved_end : 8;
+    uint32_t _reserved_0 : 8;
   } bits;
   
   // Full 32-bit register value.
@@ -1464,7 +1464,7 @@ union PXP_CSC1_COEF0 {
     uint32_t Y_OFFSET : 9;
     uint32_t UV_OFFSET : 9;
     uint32_t C0 : 11;
-    uint32_t _reserved_3 : 1;
+    uint32_t _reserved_0 : 1;
     uint32_t BYPASS : 1;
     eYCBCR_MODE YCBCR_MODE : 1;
   } bits;
@@ -1484,9 +1484,9 @@ union PXP_CSC1_COEF1 {
   // Bit field definition.
   struct {
     uint32_t C4 : 11;
-    uint32_t _reserved_1 : 5;
+    uint32_t _reserved_0 : 5;
     uint32_t C1 : 11;
-    uint32_t _reserved_end : 5;
+    uint32_t _reserved_1 : 5;
   } bits;
   
   // Full 32-bit register value.
@@ -1504,9 +1504,9 @@ union PXP_CSC1_COEF2 {
   // Bit field definition.
   struct {
     uint32_t C3 : 11;
-    uint32_t _reserved_1 : 5;
+    uint32_t _reserved_0 : 5;
     uint32_t C2 : 11;
-    uint32_t _reserved_end : 5;
+    uint32_t _reserved_1 : 5;
   } bits;
   
   // Full 32-bit register value.
@@ -1532,7 +1532,7 @@ union PXP_POWER {
   struct {
     uint32_t _reserved_0 : 9;
     eROT_MEM_LP_STATE ROT_MEM_LP_STATE : 3;
-    uint32_t _reserved_end : 20;
+    uint32_t _reserved_1 : 20;
   } bits;
   
   // Full 32-bit register value.
@@ -1550,7 +1550,7 @@ union PXP_NEXT {
   // Bit field definition.
   struct {
     uint32_t ENABLED : 1;
-    uint32_t _reserved_1 : 1;
+    uint32_t _reserved_0 : 1;
     uint32_t POINTER : 30;
   } bits;
   
@@ -1626,12 +1626,12 @@ union PXP_PORTER_DUFF_CTRL {
     eS0_GLOBAL_ALPHA_MODE S0_GLOBAL_ALPHA_MODE : 2;
     eS0_ALPHA_MODE S0_ALPHA_MODE : 1;
     eS0_COLOR_MODE S0_COLOR_MODE : 1;
-    uint32_t _reserved_5 : 1;
+    uint32_t _reserved_0 : 1;
     eS1_S0_FACTOR_MODE S1_S0_FACTOR_MODE : 2;
     eS1_GLOBAL_ALPHA_MODE S1_GLOBAL_ALPHA_MODE : 2;
     eS1_ALPHA_MODE S1_ALPHA_MODE : 1;
     eS1_COLOR_MODE S1_COLOR_MODE : 1;
-    uint32_t _reserved_9 : 2;
+    uint32_t _reserved_1 : 2;
     uint32_t S0_GLOBAL_ALPHA : 8;
     uint32_t S1_GLOBAL_ALPHA : 8;
   } bits;

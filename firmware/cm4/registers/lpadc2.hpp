@@ -4,7 +4,7 @@
 #include <stdint.h>
 #include <cstring>
 
-// // LPADC
+// LPADC
 //
 // NOTE: This file was generated from the forge CMSIS-svd wrapper tool.
 
@@ -55,14 +55,14 @@ union VERID {
   struct {
     eRES RES : 1;
     eDIFFEN DIFFEN : 1;
-    uint32_t _reserved_2 : 1;
+    uint32_t _reserved_0 : 1;
     eMVI MVI : 1;
     eCSW CSW : 3;
-    uint32_t _reserved_4 : 1;
+    uint32_t _reserved_1 : 1;
     eVR1RNGI VR1RNGI : 1;
     eIADCKI IADCKI : 1;
     eCALOFSI CALOFSI : 1;
-    uint32_t _reserved_7 : 5;
+    uint32_t _reserved_2 : 5;
     uint32_t MINOR : 8;
     uint32_t MAJOR : 8;
   } bits;
@@ -147,9 +147,9 @@ union CTRL {
     eRST RST : 1;
     eDOZEN DOZEN : 1;
     eTRIG_SRC TRIG_SRC : 2;
-    uint32_t _reserved_4 : 3;
+    uint32_t _reserved_0 : 3;
     eRSTFIFO RSTFIFO : 1;
-    uint32_t _reserved_end : 23;
+    uint32_t _reserved_1 : 23;
   } bits;
   
   // Full 32-bit register value.
@@ -207,13 +207,13 @@ union STAT {
   struct {
     eRDY RDY : 1;
     eFOF FOF : 1;
-    uint32_t _reserved_2 : 6;
+    uint32_t _reserved_0 : 6;
     eADC_ACTIVE ADC_ACTIVE : 1;
-    uint32_t _reserved_3 : 7;
+    uint32_t _reserved_1 : 7;
     eTRGACT TRGACT : 3;
-    uint32_t _reserved_4 : 5;
+    uint32_t _reserved_2 : 5;
     eCMDACT CMDACT : 4;
-    uint32_t _reserved_end : 4;
+    uint32_t _reserved_3 : 4;
   } bits;
   
   // Full 32-bit register value.
@@ -242,7 +242,7 @@ union IE {
   struct {
     eFWMIE FWMIE : 1;
     eFOFIE FOFIE : 1;
-    uint32_t _reserved_end : 30;
+    uint32_t _reserved_0 : 30;
   } bits;
   
   // Full 32-bit register value.
@@ -265,7 +265,7 @@ union DE {
   // Bit field definition.
   struct {
     eFWMDE FWMDE : 1;
-    uint32_t _reserved_end : 31;
+    uint32_t _reserved_0 : 31;
   } bits;
   
   // Full 32-bit register value.
@@ -306,14 +306,14 @@ union CFG {
   // Bit field definition.
   struct {
     eTPRICTRL TPRICTRL : 1;
-    uint32_t _reserved_1 : 3;
+    uint32_t _reserved_0 : 3;
     ePWRSEL PWRSEL : 2;
     eREFSEL REFSEL : 2;
-    uint32_t _reserved_3 : 8;
+    uint32_t _reserved_1 : 8;
     uint32_t PUDLY : 8;
-    uint32_t _reserved_4 : 4;
+    uint32_t _reserved_2 : 4;
     ePWREN PWREN : 1;
-    uint32_t _reserved_end : 3;
+    uint32_t _reserved_3 : 3;
   } bits;
   
   // Full 32-bit register value.
@@ -336,7 +336,7 @@ union PAUSE {
   // Bit field definition.
   struct {
     uint32_t PAUSEDLY : 9;
-    uint32_t _reserved_1 : 22;
+    uint32_t _reserved_0 : 22;
     ePAUSEEN PAUSEEN : 1;
   } bits;
   
@@ -383,9 +383,9 @@ union FCTRL {
   // Bit field definition.
   struct {
     eFCOUNT FCOUNT : 5;
-    uint32_t _reserved_1 : 11;
+    uint32_t _reserved_0 : 11;
     eFWMARK FWMARK : 4;
-    uint32_t _reserved_end : 12;
+    uint32_t _reserved_1 : 12;
   } bits;
   
   // Full 32-bit register value.
@@ -450,7 +450,7 @@ union SWTRIG {
     eSWT5 SWT5 : 1;
     eSWT6 SWT6 : 1;
     eSWT7 SWT7 : 1;
-    uint32_t _reserved_end : 24;
+    uint32_t _reserved_0 : 24;
   } bits;
   
   // Full 32-bit register value.
@@ -504,13 +504,13 @@ union TCTRL[0] {
   struct {
     eHTEN HTEN : 1;
     eCMD_SEL CMD_SEL : 1;
-    uint32_t _reserved_2 : 6;
+    uint32_t _reserved_0 : 6;
     eTPRI TPRI : 3;
-    uint32_t _reserved_3 : 5;
+    uint32_t _reserved_1 : 5;
     uint32_t TDLY : 4;
-    uint32_t _reserved_4 : 4;
+    uint32_t _reserved_2 : 4;
     eTCMD TCMD : 4;
-    uint32_t _reserved_end : 4;
+    uint32_t _reserved_3 : 4;
   } bits;
   
   // Full 32-bit register value.
@@ -563,13 +563,13 @@ union TCTRL[1] {
   struct {
     eHTEN HTEN : 1;
     eCMD_SEL CMD_SEL : 1;
-    uint32_t _reserved_2 : 6;
+    uint32_t _reserved_0 : 6;
     eTPRI TPRI : 3;
-    uint32_t _reserved_3 : 5;
+    uint32_t _reserved_1 : 5;
     uint32_t TDLY : 4;
-    uint32_t _reserved_4 : 4;
+    uint32_t _reserved_2 : 4;
     eTCMD TCMD : 4;
-    uint32_t _reserved_end : 4;
+    uint32_t _reserved_3 : 4;
   } bits;
   
   // Full 32-bit register value.
@@ -622,13 +622,13 @@ union TCTRL[2] {
   struct {
     eHTEN HTEN : 1;
     eCMD_SEL CMD_SEL : 1;
-    uint32_t _reserved_2 : 6;
+    uint32_t _reserved_0 : 6;
     eTPRI TPRI : 3;
-    uint32_t _reserved_3 : 5;
+    uint32_t _reserved_1 : 5;
     uint32_t TDLY : 4;
-    uint32_t _reserved_4 : 4;
+    uint32_t _reserved_2 : 4;
     eTCMD TCMD : 4;
-    uint32_t _reserved_end : 4;
+    uint32_t _reserved_3 : 4;
   } bits;
   
   // Full 32-bit register value.
@@ -681,13 +681,13 @@ union TCTRL[3] {
   struct {
     eHTEN HTEN : 1;
     eCMD_SEL CMD_SEL : 1;
-    uint32_t _reserved_2 : 6;
+    uint32_t _reserved_0 : 6;
     eTPRI TPRI : 3;
-    uint32_t _reserved_3 : 5;
+    uint32_t _reserved_1 : 5;
     uint32_t TDLY : 4;
-    uint32_t _reserved_4 : 4;
+    uint32_t _reserved_2 : 4;
     eTCMD TCMD : 4;
-    uint32_t _reserved_end : 4;
+    uint32_t _reserved_3 : 4;
   } bits;
   
   // Full 32-bit register value.
@@ -740,13 +740,13 @@ union TCTRL[4] {
   struct {
     eHTEN HTEN : 1;
     eCMD_SEL CMD_SEL : 1;
-    uint32_t _reserved_2 : 6;
+    uint32_t _reserved_0 : 6;
     eTPRI TPRI : 3;
-    uint32_t _reserved_3 : 5;
+    uint32_t _reserved_1 : 5;
     uint32_t TDLY : 4;
-    uint32_t _reserved_4 : 4;
+    uint32_t _reserved_2 : 4;
     eTCMD TCMD : 4;
-    uint32_t _reserved_end : 4;
+    uint32_t _reserved_3 : 4;
   } bits;
   
   // Full 32-bit register value.
@@ -799,13 +799,13 @@ union TCTRL[5] {
   struct {
     eHTEN HTEN : 1;
     eCMD_SEL CMD_SEL : 1;
-    uint32_t _reserved_2 : 6;
+    uint32_t _reserved_0 : 6;
     eTPRI TPRI : 3;
-    uint32_t _reserved_3 : 5;
+    uint32_t _reserved_1 : 5;
     uint32_t TDLY : 4;
-    uint32_t _reserved_4 : 4;
+    uint32_t _reserved_2 : 4;
     eTCMD TCMD : 4;
-    uint32_t _reserved_end : 4;
+    uint32_t _reserved_3 : 4;
   } bits;
   
   // Full 32-bit register value.
@@ -858,13 +858,13 @@ union TCTRL[6] {
   struct {
     eHTEN HTEN : 1;
     eCMD_SEL CMD_SEL : 1;
-    uint32_t _reserved_2 : 6;
+    uint32_t _reserved_0 : 6;
     eTPRI TPRI : 3;
-    uint32_t _reserved_3 : 5;
+    uint32_t _reserved_1 : 5;
     uint32_t TDLY : 4;
-    uint32_t _reserved_4 : 4;
+    uint32_t _reserved_2 : 4;
     eTCMD TCMD : 4;
-    uint32_t _reserved_end : 4;
+    uint32_t _reserved_3 : 4;
   } bits;
   
   // Full 32-bit register value.
@@ -917,13 +917,13 @@ union TCTRL[7] {
   struct {
     eHTEN HTEN : 1;
     eCMD_SEL CMD_SEL : 1;
-    uint32_t _reserved_2 : 6;
+    uint32_t _reserved_0 : 6;
     eTPRI TPRI : 3;
-    uint32_t _reserved_3 : 5;
+    uint32_t _reserved_1 : 5;
     uint32_t TDLY : 4;
-    uint32_t _reserved_4 : 4;
+    uint32_t _reserved_2 : 4;
     eTCMD TCMD : 4;
-    uint32_t _reserved_end : 4;
+    uint32_t _reserved_3 : 4;
   } bits;
   
   // Full 32-bit register value.
@@ -973,9 +973,9 @@ union CMDL1 {
     eADCH ADCH : 5;
     eABSEL ABSEL : 1;
     eDIFF DIFF : 1;
-    uint32_t _reserved_3 : 6;
+    uint32_t _reserved_0 : 6;
     eCSCALE CSCALE : 1;
-    uint32_t _reserved_end : 18;
+    uint32_t _reserved_1 : 18;
   } bits;
   
   // Full 32-bit register value.
@@ -1054,16 +1054,16 @@ union CMDH1 {
   // Bit field definition.
   struct {
     eCMPEN CMPEN : 2;
-    uint32_t _reserved_1 : 5;
+    uint32_t _reserved_0 : 5;
     eLWI LWI : 1;
     eSTS STS : 3;
-    uint32_t _reserved_3 : 1;
+    uint32_t _reserved_1 : 1;
     eAVGS AVGS : 3;
-    uint32_t _reserved_4 : 1;
+    uint32_t _reserved_2 : 1;
     eLOOP LOOP : 4;
-    uint32_t _reserved_5 : 4;
+    uint32_t _reserved_3 : 4;
     eNEXT NEXT : 4;
-    uint32_t _reserved_end : 4;
+    uint32_t _reserved_4 : 4;
   } bits;
   
   // Full 32-bit register value.
@@ -1113,9 +1113,9 @@ union CMDL2 {
     eADCH ADCH : 5;
     eABSEL ABSEL : 1;
     eDIFF DIFF : 1;
-    uint32_t _reserved_3 : 6;
+    uint32_t _reserved_0 : 6;
     eCSCALE CSCALE : 1;
-    uint32_t _reserved_end : 18;
+    uint32_t _reserved_1 : 18;
   } bits;
   
   // Full 32-bit register value.
@@ -1194,16 +1194,16 @@ union CMDH2 {
   // Bit field definition.
   struct {
     eCMPEN CMPEN : 2;
-    uint32_t _reserved_1 : 5;
+    uint32_t _reserved_0 : 5;
     eLWI LWI : 1;
     eSTS STS : 3;
-    uint32_t _reserved_3 : 1;
+    uint32_t _reserved_1 : 1;
     eAVGS AVGS : 3;
-    uint32_t _reserved_4 : 1;
+    uint32_t _reserved_2 : 1;
     eLOOP LOOP : 4;
-    uint32_t _reserved_5 : 4;
+    uint32_t _reserved_3 : 4;
     eNEXT NEXT : 4;
-    uint32_t _reserved_end : 4;
+    uint32_t _reserved_4 : 4;
   } bits;
   
   // Full 32-bit register value.
@@ -1253,9 +1253,9 @@ union CMDL3 {
     eADCH ADCH : 5;
     eABSEL ABSEL : 1;
     eDIFF DIFF : 1;
-    uint32_t _reserved_3 : 6;
+    uint32_t _reserved_0 : 6;
     eCSCALE CSCALE : 1;
-    uint32_t _reserved_end : 18;
+    uint32_t _reserved_1 : 18;
   } bits;
   
   // Full 32-bit register value.
@@ -1334,16 +1334,16 @@ union CMDH3 {
   // Bit field definition.
   struct {
     eCMPEN CMPEN : 2;
-    uint32_t _reserved_1 : 5;
+    uint32_t _reserved_0 : 5;
     eLWI LWI : 1;
     eSTS STS : 3;
-    uint32_t _reserved_3 : 1;
+    uint32_t _reserved_1 : 1;
     eAVGS AVGS : 3;
-    uint32_t _reserved_4 : 1;
+    uint32_t _reserved_2 : 1;
     eLOOP LOOP : 4;
-    uint32_t _reserved_5 : 4;
+    uint32_t _reserved_3 : 4;
     eNEXT NEXT : 4;
-    uint32_t _reserved_end : 4;
+    uint32_t _reserved_4 : 4;
   } bits;
   
   // Full 32-bit register value.
@@ -1393,9 +1393,9 @@ union CMDL4 {
     eADCH ADCH : 5;
     eABSEL ABSEL : 1;
     eDIFF DIFF : 1;
-    uint32_t _reserved_3 : 6;
+    uint32_t _reserved_0 : 6;
     eCSCALE CSCALE : 1;
-    uint32_t _reserved_end : 18;
+    uint32_t _reserved_1 : 18;
   } bits;
   
   // Full 32-bit register value.
@@ -1474,16 +1474,16 @@ union CMDH4 {
   // Bit field definition.
   struct {
     eCMPEN CMPEN : 2;
-    uint32_t _reserved_1 : 5;
+    uint32_t _reserved_0 : 5;
     eLWI LWI : 1;
     eSTS STS : 3;
-    uint32_t _reserved_3 : 1;
+    uint32_t _reserved_1 : 1;
     eAVGS AVGS : 3;
-    uint32_t _reserved_4 : 1;
+    uint32_t _reserved_2 : 1;
     eLOOP LOOP : 4;
-    uint32_t _reserved_5 : 4;
+    uint32_t _reserved_3 : 4;
     eNEXT NEXT : 4;
-    uint32_t _reserved_end : 4;
+    uint32_t _reserved_4 : 4;
   } bits;
   
   // Full 32-bit register value.
@@ -1533,9 +1533,9 @@ union CMDL5 {
     eADCH ADCH : 5;
     eABSEL ABSEL : 1;
     eDIFF DIFF : 1;
-    uint32_t _reserved_3 : 6;
+    uint32_t _reserved_0 : 6;
     eCSCALE CSCALE : 1;
-    uint32_t _reserved_end : 18;
+    uint32_t _reserved_1 : 18;
   } bits;
   
   // Full 32-bit register value.
@@ -1610,13 +1610,13 @@ union CMDH5 {
     uint32_t _reserved_0 : 7;
     eLWI LWI : 1;
     eSTS STS : 3;
-    uint32_t _reserved_2 : 1;
+    uint32_t _reserved_1 : 1;
     eAVGS AVGS : 3;
-    uint32_t _reserved_3 : 1;
+    uint32_t _reserved_2 : 1;
     eLOOP LOOP : 4;
-    uint32_t _reserved_4 : 4;
+    uint32_t _reserved_3 : 4;
     eNEXT NEXT : 4;
-    uint32_t _reserved_end : 4;
+    uint32_t _reserved_4 : 4;
   } bits;
   
   // Full 32-bit register value.
@@ -1666,9 +1666,9 @@ union CMDL6 {
     eADCH ADCH : 5;
     eABSEL ABSEL : 1;
     eDIFF DIFF : 1;
-    uint32_t _reserved_3 : 6;
+    uint32_t _reserved_0 : 6;
     eCSCALE CSCALE : 1;
-    uint32_t _reserved_end : 18;
+    uint32_t _reserved_1 : 18;
   } bits;
   
   // Full 32-bit register value.
@@ -1743,13 +1743,13 @@ union CMDH6 {
     uint32_t _reserved_0 : 7;
     eLWI LWI : 1;
     eSTS STS : 3;
-    uint32_t _reserved_2 : 1;
+    uint32_t _reserved_1 : 1;
     eAVGS AVGS : 3;
-    uint32_t _reserved_3 : 1;
+    uint32_t _reserved_2 : 1;
     eLOOP LOOP : 4;
-    uint32_t _reserved_4 : 4;
+    uint32_t _reserved_3 : 4;
     eNEXT NEXT : 4;
-    uint32_t _reserved_end : 4;
+    uint32_t _reserved_4 : 4;
   } bits;
   
   // Full 32-bit register value.
@@ -1799,9 +1799,9 @@ union CMDL7 {
     eADCH ADCH : 5;
     eABSEL ABSEL : 1;
     eDIFF DIFF : 1;
-    uint32_t _reserved_3 : 6;
+    uint32_t _reserved_0 : 6;
     eCSCALE CSCALE : 1;
-    uint32_t _reserved_end : 18;
+    uint32_t _reserved_1 : 18;
   } bits;
   
   // Full 32-bit register value.
@@ -1876,13 +1876,13 @@ union CMDH7 {
     uint32_t _reserved_0 : 7;
     eLWI LWI : 1;
     eSTS STS : 3;
-    uint32_t _reserved_2 : 1;
+    uint32_t _reserved_1 : 1;
     eAVGS AVGS : 3;
-    uint32_t _reserved_3 : 1;
+    uint32_t _reserved_2 : 1;
     eLOOP LOOP : 4;
-    uint32_t _reserved_4 : 4;
+    uint32_t _reserved_3 : 4;
     eNEXT NEXT : 4;
-    uint32_t _reserved_end : 4;
+    uint32_t _reserved_4 : 4;
   } bits;
   
   // Full 32-bit register value.
@@ -1932,9 +1932,9 @@ union CMDL8 {
     eADCH ADCH : 5;
     eABSEL ABSEL : 1;
     eDIFF DIFF : 1;
-    uint32_t _reserved_3 : 6;
+    uint32_t _reserved_0 : 6;
     eCSCALE CSCALE : 1;
-    uint32_t _reserved_end : 18;
+    uint32_t _reserved_1 : 18;
   } bits;
   
   // Full 32-bit register value.
@@ -2009,13 +2009,13 @@ union CMDH8 {
     uint32_t _reserved_0 : 7;
     eLWI LWI : 1;
     eSTS STS : 3;
-    uint32_t _reserved_2 : 1;
+    uint32_t _reserved_1 : 1;
     eAVGS AVGS : 3;
-    uint32_t _reserved_3 : 1;
+    uint32_t _reserved_2 : 1;
     eLOOP LOOP : 4;
-    uint32_t _reserved_4 : 4;
+    uint32_t _reserved_3 : 4;
     eNEXT NEXT : 4;
-    uint32_t _reserved_end : 4;
+    uint32_t _reserved_4 : 4;
   } bits;
   
   // Full 32-bit register value.
@@ -2065,9 +2065,9 @@ union CMDL9 {
     eADCH ADCH : 5;
     eABSEL ABSEL : 1;
     eDIFF DIFF : 1;
-    uint32_t _reserved_3 : 6;
+    uint32_t _reserved_0 : 6;
     eCSCALE CSCALE : 1;
-    uint32_t _reserved_end : 18;
+    uint32_t _reserved_1 : 18;
   } bits;
   
   // Full 32-bit register value.
@@ -2142,13 +2142,13 @@ union CMDH9 {
     uint32_t _reserved_0 : 7;
     eLWI LWI : 1;
     eSTS STS : 3;
-    uint32_t _reserved_2 : 1;
+    uint32_t _reserved_1 : 1;
     eAVGS AVGS : 3;
-    uint32_t _reserved_3 : 1;
+    uint32_t _reserved_2 : 1;
     eLOOP LOOP : 4;
-    uint32_t _reserved_4 : 4;
+    uint32_t _reserved_3 : 4;
     eNEXT NEXT : 4;
-    uint32_t _reserved_end : 4;
+    uint32_t _reserved_4 : 4;
   } bits;
   
   // Full 32-bit register value.
@@ -2198,9 +2198,9 @@ union CMDL10 {
     eADCH ADCH : 5;
     eABSEL ABSEL : 1;
     eDIFF DIFF : 1;
-    uint32_t _reserved_3 : 6;
+    uint32_t _reserved_0 : 6;
     eCSCALE CSCALE : 1;
-    uint32_t _reserved_end : 18;
+    uint32_t _reserved_1 : 18;
   } bits;
   
   // Full 32-bit register value.
@@ -2275,13 +2275,13 @@ union CMDH10 {
     uint32_t _reserved_0 : 7;
     eLWI LWI : 1;
     eSTS STS : 3;
-    uint32_t _reserved_2 : 1;
+    uint32_t _reserved_1 : 1;
     eAVGS AVGS : 3;
-    uint32_t _reserved_3 : 1;
+    uint32_t _reserved_2 : 1;
     eLOOP LOOP : 4;
-    uint32_t _reserved_4 : 4;
+    uint32_t _reserved_3 : 4;
     eNEXT NEXT : 4;
-    uint32_t _reserved_end : 4;
+    uint32_t _reserved_4 : 4;
   } bits;
   
   // Full 32-bit register value.
@@ -2331,9 +2331,9 @@ union CMDL11 {
     eADCH ADCH : 5;
     eABSEL ABSEL : 1;
     eDIFF DIFF : 1;
-    uint32_t _reserved_3 : 6;
+    uint32_t _reserved_0 : 6;
     eCSCALE CSCALE : 1;
-    uint32_t _reserved_end : 18;
+    uint32_t _reserved_1 : 18;
   } bits;
   
   // Full 32-bit register value.
@@ -2408,13 +2408,13 @@ union CMDH11 {
     uint32_t _reserved_0 : 7;
     eLWI LWI : 1;
     eSTS STS : 3;
-    uint32_t _reserved_2 : 1;
+    uint32_t _reserved_1 : 1;
     eAVGS AVGS : 3;
-    uint32_t _reserved_3 : 1;
+    uint32_t _reserved_2 : 1;
     eLOOP LOOP : 4;
-    uint32_t _reserved_4 : 4;
+    uint32_t _reserved_3 : 4;
     eNEXT NEXT : 4;
-    uint32_t _reserved_end : 4;
+    uint32_t _reserved_4 : 4;
   } bits;
   
   // Full 32-bit register value.
@@ -2464,9 +2464,9 @@ union CMDL12 {
     eADCH ADCH : 5;
     eABSEL ABSEL : 1;
     eDIFF DIFF : 1;
-    uint32_t _reserved_3 : 6;
+    uint32_t _reserved_0 : 6;
     eCSCALE CSCALE : 1;
-    uint32_t _reserved_end : 18;
+    uint32_t _reserved_1 : 18;
   } bits;
   
   // Full 32-bit register value.
@@ -2541,13 +2541,13 @@ union CMDH12 {
     uint32_t _reserved_0 : 7;
     eLWI LWI : 1;
     eSTS STS : 3;
-    uint32_t _reserved_2 : 1;
+    uint32_t _reserved_1 : 1;
     eAVGS AVGS : 3;
-    uint32_t _reserved_3 : 1;
+    uint32_t _reserved_2 : 1;
     eLOOP LOOP : 4;
-    uint32_t _reserved_4 : 4;
+    uint32_t _reserved_3 : 4;
     eNEXT NEXT : 4;
-    uint32_t _reserved_end : 4;
+    uint32_t _reserved_4 : 4;
   } bits;
   
   // Full 32-bit register value.
@@ -2597,9 +2597,9 @@ union CMDL13 {
     eADCH ADCH : 5;
     eABSEL ABSEL : 1;
     eDIFF DIFF : 1;
-    uint32_t _reserved_3 : 6;
+    uint32_t _reserved_0 : 6;
     eCSCALE CSCALE : 1;
-    uint32_t _reserved_end : 18;
+    uint32_t _reserved_1 : 18;
   } bits;
   
   // Full 32-bit register value.
@@ -2674,13 +2674,13 @@ union CMDH13 {
     uint32_t _reserved_0 : 7;
     eLWI LWI : 1;
     eSTS STS : 3;
-    uint32_t _reserved_2 : 1;
+    uint32_t _reserved_1 : 1;
     eAVGS AVGS : 3;
-    uint32_t _reserved_3 : 1;
+    uint32_t _reserved_2 : 1;
     eLOOP LOOP : 4;
-    uint32_t _reserved_4 : 4;
+    uint32_t _reserved_3 : 4;
     eNEXT NEXT : 4;
-    uint32_t _reserved_end : 4;
+    uint32_t _reserved_4 : 4;
   } bits;
   
   // Full 32-bit register value.
@@ -2730,9 +2730,9 @@ union CMDL14 {
     eADCH ADCH : 5;
     eABSEL ABSEL : 1;
     eDIFF DIFF : 1;
-    uint32_t _reserved_3 : 6;
+    uint32_t _reserved_0 : 6;
     eCSCALE CSCALE : 1;
-    uint32_t _reserved_end : 18;
+    uint32_t _reserved_1 : 18;
   } bits;
   
   // Full 32-bit register value.
@@ -2807,13 +2807,13 @@ union CMDH14 {
     uint32_t _reserved_0 : 7;
     eLWI LWI : 1;
     eSTS STS : 3;
-    uint32_t _reserved_2 : 1;
+    uint32_t _reserved_1 : 1;
     eAVGS AVGS : 3;
-    uint32_t _reserved_3 : 1;
+    uint32_t _reserved_2 : 1;
     eLOOP LOOP : 4;
-    uint32_t _reserved_4 : 4;
+    uint32_t _reserved_3 : 4;
     eNEXT NEXT : 4;
-    uint32_t _reserved_end : 4;
+    uint32_t _reserved_4 : 4;
   } bits;
   
   // Full 32-bit register value.
@@ -2863,9 +2863,9 @@ union CMDL15 {
     eADCH ADCH : 5;
     eABSEL ABSEL : 1;
     eDIFF DIFF : 1;
-    uint32_t _reserved_3 : 6;
+    uint32_t _reserved_0 : 6;
     eCSCALE CSCALE : 1;
-    uint32_t _reserved_end : 18;
+    uint32_t _reserved_1 : 18;
   } bits;
   
   // Full 32-bit register value.
@@ -2940,13 +2940,13 @@ union CMDH15 {
     uint32_t _reserved_0 : 7;
     eLWI LWI : 1;
     eSTS STS : 3;
-    uint32_t _reserved_2 : 1;
+    uint32_t _reserved_1 : 1;
     eAVGS AVGS : 3;
-    uint32_t _reserved_3 : 1;
+    uint32_t _reserved_2 : 1;
     eLOOP LOOP : 4;
-    uint32_t _reserved_4 : 4;
+    uint32_t _reserved_3 : 4;
     eNEXT NEXT : 4;
-    uint32_t _reserved_end : 4;
+    uint32_t _reserved_4 : 4;
   } bits;
   
   // Full 32-bit register value.
@@ -3078,10 +3078,10 @@ union RESFIFO {
   struct {
     uint32_t D : 16;
     eTSRC TSRC : 3;
-    uint32_t _reserved_2 : 1;
+    uint32_t _reserved_0 : 1;
     eLOOPCNT LOOPCNT : 4;
     eCMDSRC CMDSRC : 4;
-    uint32_t _reserved_4 : 3;
+    uint32_t _reserved_1 : 3;
     eVALID VALID : 1;
   } bits;
   

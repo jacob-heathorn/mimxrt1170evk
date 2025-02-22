@@ -4,7 +4,7 @@
 #include <stdint.h>
 #include <cstring>
 
-// // ENET_QOS
+// ENET_QOS
 //
 // NOTE: This file was generated from the forge CMSIS-svd wrapper tool.
 
@@ -154,7 +154,7 @@ union MAC_CONFIGURATION {
     ePRELEN PRELEN : 2;
     eDC DC : 1;
     eBL BL : 2;
-    uint32_t _reserved_5 : 1;
+    uint32_t _reserved_0 : 1;
     eDR DR : 1;
     eDCRS DCRS : 1;
     eDO DO : 1;
@@ -174,7 +174,7 @@ union MAC_CONFIGURATION {
     eIPG IPG : 3;
     eIPC IPC : 1;
     eSARC SARC : 3;
-    uint32_t _reserved_end : 1;
+    uint32_t _reserved_1 : 1;
   } bits;
   
   // Full 32-bit register value.
@@ -217,15 +217,15 @@ union MAC_EXT_CONFIGURATION {
   // Bit field definition.
   struct {
     uint32_t GPSL : 14;
-    uint32_t _reserved_1 : 2;
+    uint32_t _reserved_0 : 2;
     eDCRCC DCRCC : 1;
     eSPEN SPEN : 1;
     eUSP USP : 1;
     ePDC PDC : 1;
-    uint32_t _reserved_5 : 4;
+    uint32_t _reserved_1 : 4;
     eEIPGEN EIPGEN : 1;
     uint32_t EIPG : 5;
-    uint32_t _reserved_end : 2;
+    uint32_t _reserved_2 : 2;
   } bits;
   
   // Full 32-bit register value.
@@ -324,12 +324,12 @@ union MAC_PACKET_FILTER {
     eSAIF SAIF : 1;
     eSAF SAF : 1;
     eHPF HPF : 1;
-    uint32_t _reserved_10 : 5;
+    uint32_t _reserved_0 : 5;
     eVTFE VTFE : 1;
-    uint32_t _reserved_11 : 3;
+    uint32_t _reserved_1 : 3;
     eIPFE IPFE : 1;
     eDNTU DNTU : 1;
-    uint32_t _reserved_13 : 9;
+    uint32_t _reserved_2 : 9;
     eRA RA : 1;
   } bits;
   
@@ -371,9 +371,9 @@ union MAC_WATCHDOG_TIMEOUT {
   // Bit field definition.
   struct {
     eWTO WTO : 4;
-    uint32_t _reserved_1 : 4;
+    uint32_t _reserved_0 : 4;
     ePWE PWE : 1;
-    uint32_t _reserved_end : 23;
+    uint32_t _reserved_1 : 23;
   } bits;
   
   // Full 32-bit register value.
@@ -486,18 +486,18 @@ union MAC_VLAN_TAG_CTRL {
     eOB OB : 1;
     eCT CT : 1;
     uint32_t OFS : 5;
-    uint32_t _reserved_3 : 10;
+    uint32_t _reserved_0 : 10;
     eVTIM VTIM : 1;
     eESVL ESVL : 1;
-    uint32_t _reserved_5 : 2;
+    uint32_t _reserved_1 : 2;
     eEVLS EVLS : 2;
-    uint32_t _reserved_6 : 1;
+    uint32_t _reserved_2 : 1;
     eEVLRXS EVLRXS : 1;
     eVTHM VTHM : 1;
     eEDVLP EDVLP : 1;
     eERIVLT ERIVLT : 1;
     eEIVLS EIVLS : 2;
-    uint32_t _reserved_11 : 1;
+    uint32_t _reserved_3 : 1;
     eEIVLRXS EIVLRXS : 1;
   } bits;
   
@@ -551,10 +551,10 @@ union MAC_VLAN_TAG_DATA {
     eDOVLTC DOVLTC : 1;
     eERSVLM ERSVLM : 1;
     eERIVLT ERIVLT : 1;
-    uint32_t _reserved_6 : 3;
+    uint32_t _reserved_0 : 3;
     eDMACHEN DMACHEN : 1;
     uint32_t DMACHN : 3;
-    uint32_t _reserved_end : 4;
+    uint32_t _reserved_1 : 4;
   } bits;
   
   // Full 32-bit register value.
@@ -572,7 +572,7 @@ union MAC_VLAN_HASH_TABLE {
   // Bit field definition.
   struct {
     uint32_t VLHT : 16;
-    uint32_t _reserved_end : 16;
+    uint32_t _reserved_0 : 16;
   } bits;
   
   // Full 32-bit register value.
@@ -632,9 +632,9 @@ union MAC_VLAN_INCL {
     eCSVL CSVL : 1;
     eVLTI VLTI : 1;
     eCBTI CBTI : 1;
-    uint32_t _reserved_6 : 2;
+    uint32_t _reserved_0 : 2;
     uint32_t ADDR : 3;
-    uint32_t _reserved_7 : 3;
+    uint32_t _reserved_1 : 3;
     eRDWR RDWR : 1;
     eBUSY BUSY : 1;
   } bits;
@@ -680,7 +680,7 @@ union MAC_INNER_VLAN_INCL {
     eVLP VLP : 1;
     eCSVL CSVL : 1;
     eVLTI VLTI : 1;
-    uint32_t _reserved_end : 11;
+    uint32_t _reserved_0 : 11;
   } bits;
   
   // Full 32-bit register value.
@@ -723,10 +723,10 @@ union MAC_Q0_TX_FLOW_CTRL {
   struct {
     eFCB_BPA FCB_BPA : 1;
     eTFE TFE : 1;
-    uint32_t _reserved_2 : 2;
+    uint32_t _reserved_0 : 2;
     ePLT PLT : 3;
     eDZPQ DZPQ : 1;
-    uint32_t _reserved_4 : 8;
+    uint32_t _reserved_1 : 8;
     uint32_t PT : 16;
   } bits;
   
@@ -770,10 +770,10 @@ union MAC_Q1_TX_FLOW_CTRL {
   struct {
     eFCB_BPA FCB_BPA : 1;
     eTFE TFE : 1;
-    uint32_t _reserved_2 : 2;
+    uint32_t _reserved_0 : 2;
     ePLT PLT : 3;
     eDZPQ DZPQ : 1;
-    uint32_t _reserved_4 : 8;
+    uint32_t _reserved_1 : 8;
     uint32_t PT : 16;
   } bits;
   
@@ -817,10 +817,10 @@ union MAC_Q2_TX_FLOW_CTRL {
   struct {
     eFCB_BPA FCB_BPA : 1;
     eTFE TFE : 1;
-    uint32_t _reserved_2 : 2;
+    uint32_t _reserved_0 : 2;
     ePLT PLT : 3;
     eDZPQ DZPQ : 1;
-    uint32_t _reserved_4 : 8;
+    uint32_t _reserved_1 : 8;
     uint32_t PT : 16;
   } bits;
   
@@ -864,10 +864,10 @@ union MAC_Q3_TX_FLOW_CTRL {
   struct {
     eFCB_BPA FCB_BPA : 1;
     eTFE TFE : 1;
-    uint32_t _reserved_2 : 2;
+    uint32_t _reserved_0 : 2;
     ePLT PLT : 3;
     eDZPQ DZPQ : 1;
-    uint32_t _reserved_4 : 8;
+    uint32_t _reserved_1 : 8;
     uint32_t PT : 16;
   } bits;
   
@@ -911,10 +911,10 @@ union MAC_Q4_TX_FLOW_CTRL {
   struct {
     eFCB_BPA FCB_BPA : 1;
     eTFE TFE : 1;
-    uint32_t _reserved_2 : 2;
+    uint32_t _reserved_0 : 2;
     ePLT PLT : 3;
     eDZPQ DZPQ : 1;
-    uint32_t _reserved_4 : 8;
+    uint32_t _reserved_1 : 8;
     uint32_t PT : 16;
   } bits;
   
@@ -949,9 +949,9 @@ union MAC_RX_FLOW_CTRL {
   struct {
     eRFE RFE : 1;
     eUP UP : 1;
-    uint32_t _reserved_2 : 6;
+    uint32_t _reserved_0 : 6;
     ePFCE PFCE : 1;
-    uint32_t _reserved_end : 23;
+    uint32_t _reserved_1 : 23;
   } bits;
   
   // Full 32-bit register value.
@@ -985,13 +985,13 @@ union MAC_RXQ_CTRL4 {
   struct {
     eUFFQE UFFQE : 1;
     uint32_t UFFQ : 3;
-    uint32_t _reserved_2 : 4;
+    uint32_t _reserved_0 : 4;
     eMFFQE MFFQE : 1;
     uint32_t MFFQ : 3;
-    uint32_t _reserved_4 : 4;
+    uint32_t _reserved_1 : 4;
     eVFFQE VFFQE : 1;
     uint32_t VFFQ : 3;
-    uint32_t _reserved_end : 12;
+    uint32_t _reserved_2 : 12;
   } bits;
   
   // Full 32-bit register value.
@@ -1029,7 +1029,7 @@ union MAC_TXQ_PRTY_MAP1 {
   // Bit field definition.
   struct {
     uint32_t PSTQ4 : 8;
-    uint32_t _reserved_end : 24;
+    uint32_t _reserved_0 : 24;
   } bits;
   
   // Full 32-bit register value.
@@ -1081,7 +1081,7 @@ union MAC_RXQ_CTRL0 {
     eRXQ2EN RXQ2EN : 2;
     eRXQ3EN RXQ3EN : 2;
     eRXQ4EN RXQ4EN : 2;
-    uint32_t _reserved_end : 22;
+    uint32_t _reserved_0 : 22;
   } bits;
   
   // Full 32-bit register value.
@@ -1149,20 +1149,20 @@ union MAC_RXQ_CTRL1 {
   // Bit field definition.
   struct {
     eAVCPQ AVCPQ : 3;
-    uint32_t _reserved_1 : 1;
+    uint32_t _reserved_0 : 1;
     ePTPQ PTPQ : 3;
-    uint32_t _reserved_2 : 1;
+    uint32_t _reserved_1 : 1;
     eDCBCPQ DCBCPQ : 3;
-    uint32_t _reserved_3 : 1;
+    uint32_t _reserved_2 : 1;
     eUPQ UPQ : 3;
-    uint32_t _reserved_4 : 1;
+    uint32_t _reserved_3 : 1;
     eMCBCQ MCBCQ : 3;
-    uint32_t _reserved_5 : 1;
+    uint32_t _reserved_4 : 1;
     eMCBCQEN MCBCQEN : 1;
     eTACPQE TACPQE : 1;
     uint32_t TPQC : 2;
     uint32_t FPRQ : 3;
-    uint32_t _reserved_end : 5;
+    uint32_t _reserved_5 : 5;
   } bits;
   
   // Full 32-bit register value.
@@ -1200,7 +1200,7 @@ union MAC_RXQ_CTRL3 {
   // Bit field definition.
   struct {
     uint32_t PSRQ4 : 8;
-    uint32_t _reserved_end : 24;
+    uint32_t _reserved_0 : 24;
   } bits;
   
   // Full 32-bit register value.
@@ -1293,11 +1293,11 @@ union MAC_INTERRUPT_STATUS {
   // Bit field definition.
   struct {
     eRGSMIIIS RGSMIIIS : 1;
-    uint32_t _reserved_1 : 2;
+    uint32_t _reserved_0 : 2;
     ePHYIS PHYIS : 1;
     ePMTIS PMTIS : 1;
     eLPIIS LPIIS : 1;
-    uint32_t _reserved_4 : 2;
+    uint32_t _reserved_1 : 2;
     eMMCIS MMCIS : 1;
     eMMCRXIS MMCRXIS : 1;
     eMMCTXIS MMCTXIS : 1;
@@ -1305,12 +1305,12 @@ union MAC_INTERRUPT_STATUS {
     eTSIS TSIS : 1;
     eTXSTSIS TXSTSIS : 1;
     eRXSTSIS RXSTSIS : 1;
-    uint32_t _reserved_11 : 2;
+    uint32_t _reserved_2 : 2;
     eFPEIS FPEIS : 1;
     eMDIOIS MDIOIS : 1;
     eMFTIS MFTIS : 1;
     eMFRIS MFRIS : 1;
-    uint32_t _reserved_end : 11;
+    uint32_t _reserved_3 : 11;
   } bits;
   
   // Full 32-bit register value.
@@ -1373,18 +1373,18 @@ union MAC_INTERRUPT_ENABLE {
   // Bit field definition.
   struct {
     eRGSMIIIE RGSMIIIE : 1;
-    uint32_t _reserved_1 : 2;
+    uint32_t _reserved_0 : 2;
     ePHYIE PHYIE : 1;
     ePMTIE PMTIE : 1;
     eLPIIE LPIIE : 1;
-    uint32_t _reserved_4 : 6;
+    uint32_t _reserved_1 : 6;
     eTSIE TSIE : 1;
     eTXSTSIE TXSTSIE : 1;
     eRXSTSIE RXSTSIE : 1;
-    uint32_t _reserved_7 : 2;
+    uint32_t _reserved_2 : 2;
     eFPEIE FPEIE : 1;
     eMDIOIE MDIOIE : 1;
-    uint32_t _reserved_end : 13;
+    uint32_t _reserved_3 : 13;
   } bits;
   
   // Full 32-bit register value.
@@ -1442,9 +1442,9 @@ union MAC_RX_TX_STATUS {
     eEXDEF EXDEF : 1;
     eLCOL LCOL : 1;
     eEXCOL EXCOL : 1;
-    uint32_t _reserved_6 : 2;
+    uint32_t _reserved_0 : 2;
     eRWT RWT : 1;
-    uint32_t _reserved_end : 23;
+    uint32_t _reserved_1 : 23;
   } bits;
   
   // Full 32-bit register value.
@@ -1504,15 +1504,15 @@ union MAC_PMT_CONTROL_STATUS {
     ePWRDWN PWRDWN : 1;
     eMGKPKTEN MGKPKTEN : 1;
     eRWKPKTEN RWKPKTEN : 1;
-    uint32_t _reserved_3 : 2;
+    uint32_t _reserved_0 : 2;
     eMGKPRCVD MGKPRCVD : 1;
     eRWKPRCVD RWKPRCVD : 1;
-    uint32_t _reserved_5 : 2;
+    uint32_t _reserved_1 : 2;
     eGLBLUCAST GLBLUCAST : 1;
     eRWKPFE RWKPFE : 1;
-    uint32_t _reserved_7 : 13;
+    uint32_t _reserved_2 : 13;
     uint32_t RWKPTR : 5;
-    uint32_t _reserved_8 : 2;
+    uint32_t _reserved_3 : 2;
     eRWKFILTRST RWKFILTRST : 1;
   } bits;
   
@@ -1611,17 +1611,17 @@ union MAC_LPI_CONTROL_STATUS {
     eTLPIEX TLPIEX : 1;
     eRLPIEN RLPIEN : 1;
     eRLPIEX RLPIEX : 1;
-    uint32_t _reserved_4 : 4;
+    uint32_t _reserved_0 : 4;
     eTLPIST TLPIST : 1;
     eRLPIST RLPIST : 1;
-    uint32_t _reserved_6 : 6;
+    uint32_t _reserved_1 : 6;
     eLPIEN LPIEN : 1;
     ePLS PLS : 1;
     ePLSEN PLSEN : 1;
     eLPITXA LPITXA : 1;
     eLPIATE LPIATE : 1;
     eLPITCSE LPITCSE : 1;
-    uint32_t _reserved_end : 10;
+    uint32_t _reserved_2 : 10;
   } bits;
   
   // Full 32-bit register value.
@@ -1640,7 +1640,7 @@ union MAC_LPI_TIMERS_CONTROL {
   struct {
     uint32_t TWT : 16;
     uint32_t LST : 10;
-    uint32_t _reserved_end : 6;
+    uint32_t _reserved_0 : 6;
   } bits;
   
   // Full 32-bit register value.
@@ -1659,7 +1659,7 @@ union MAC_LPI_ENTRY_TIMER {
   struct {
     uint32_t _reserved_0 : 3;
     uint32_t LPIET : 17;
-    uint32_t _reserved_end : 12;
+    uint32_t _reserved_1 : 12;
   } bits;
   
   // Full 32-bit register value.
@@ -1677,7 +1677,7 @@ union MAC_ONEUS_TIC_COUNTER {
   // Bit field definition.
   struct {
     uint32_t TIC_1US_CNTR : 12;
-    uint32_t _reserved_end : 20;
+    uint32_t _reserved_0 : 20;
   } bits;
   
   // Full 32-bit register value.
@@ -1722,11 +1722,11 @@ union MAC_PHYIF_CONTROL_STATUS {
   struct {
     eTC TC : 1;
     eLUD LUD : 1;
-    uint32_t _reserved_2 : 14;
+    uint32_t _reserved_0 : 14;
     eLNKMOD LNKMOD : 1;
     eLNKSPEED LNKSPEED : 2;
     eLNKSTS LNKSTS : 1;
-    uint32_t _reserved_end : 12;
+    uint32_t _reserved_1 : 12;
   } bits;
   
   // Full 32-bit register value.
@@ -1745,7 +1745,7 @@ union MAC_VERSION {
   struct {
     uint32_t SNPSVER : 8;
     uint32_t USERVER : 8;
-    uint32_t _reserved_end : 16;
+    uint32_t _reserved_0 : 16;
   } bits;
   
   // Full 32-bit register value.
@@ -1781,10 +1781,10 @@ union MAC_DEBUG {
   struct {
     eRPESTS RPESTS : 1;
     uint32_t RFCFCSTS : 2;
-    uint32_t _reserved_2 : 13;
+    uint32_t _reserved_0 : 13;
     eTPESTS TPESTS : 1;
     eTFCSTS TFCSTS : 2;
-    uint32_t _reserved_end : 13;
+    uint32_t _reserved_1 : 13;
   } bits;
   
   // Full 32-bit register value.
@@ -1913,20 +1913,20 @@ union MAC_HW_FEATURE0 {
     eMGKSEL MGKSEL : 1;
     eMMCSEL MMCSEL : 1;
     eARPOFFSEL ARPOFFSEL : 1;
-    uint32_t _reserved_10 : 2;
+    uint32_t _reserved_0 : 2;
     eTSSEL TSSEL : 1;
     eEEESEL EEESEL : 1;
     eTXCOESEL TXCOESEL : 1;
-    uint32_t _reserved_13 : 1;
+    uint32_t _reserved_1 : 1;
     eRXCOESEL RXCOESEL : 1;
-    uint32_t _reserved_14 : 1;
+    uint32_t _reserved_2 : 1;
     uint32_t ADDMACADRSEL : 5;
     eMACADR32SEL MACADR32SEL : 1;
     eMACADR64SEL MACADR64SEL : 1;
     eTSSTSSEL TSSTSSEL : 2;
     eSAVLANINS SAVLANINS : 1;
     eACTPHYSEL ACTPHYSEL : 3;
-    uint32_t _reserved_end : 1;
+    uint32_t _reserved_3 : 1;
   } bits;
   
   // Full 32-bit register value.
@@ -2065,12 +2065,12 @@ union MAC_HW_FEATURE1 {
     eDBGMEMA DBGMEMA : 1;
     eAVSEL AVSEL : 1;
     eRAVSEL RAVSEL : 1;
-    uint32_t _reserved_13 : 1;
+    uint32_t _reserved_0 : 1;
     ePOUOST POUOST : 1;
     eHASHTBLSZ HASHTBLSZ : 2;
-    uint32_t _reserved_15 : 1;
+    uint32_t _reserved_1 : 1;
     eL3L4FNUM L3L4FNUM : 4;
-    uint32_t _reserved_end : 1;
+    uint32_t _reserved_2 : 1;
   } bits;
   
   // Full 32-bit register value.
@@ -2136,17 +2136,17 @@ union MAC_HW_FEATURE2 {
   // Bit field definition.
   struct {
     eRXQCNT RXQCNT : 4;
-    uint32_t _reserved_1 : 2;
+    uint32_t _reserved_0 : 2;
     eTXQCNT TXQCNT : 4;
-    uint32_t _reserved_2 : 2;
+    uint32_t _reserved_1 : 2;
     eRXCHCNT RXCHCNT : 4;
-    uint32_t _reserved_3 : 2;
+    uint32_t _reserved_2 : 2;
     eTXCHCNT TXCHCNT : 4;
-    uint32_t _reserved_4 : 2;
+    uint32_t _reserved_3 : 2;
     ePPSOUTNUM PPSOUTNUM : 3;
-    uint32_t _reserved_5 : 1;
+    uint32_t _reserved_4 : 1;
     eAUXSNAPNUM AUXSNAPNUM : 3;
-    uint32_t _reserved_end : 1;
+    uint32_t _reserved_5 : 1;
   } bits;
   
   // Full 32-bit register value.
@@ -2243,23 +2243,23 @@ union MAC_HW_FEATURE3 {
   // Bit field definition.
   struct {
     eNRVF NRVF : 3;
-    uint32_t _reserved_1 : 1;
+    uint32_t _reserved_0 : 1;
     eCBTISEL CBTISEL : 1;
     eDVLAN DVLAN : 1;
-    uint32_t _reserved_3 : 3;
+    uint32_t _reserved_1 : 3;
     ePDUPSEL PDUPSEL : 1;
     eFRPSEL FRPSEL : 1;
     eFRPBS FRPBS : 2;
     eFRPES FRPES : 2;
-    uint32_t _reserved_7 : 1;
+    uint32_t _reserved_2 : 1;
     eESTSEL ESTSEL : 1;
     eESTDEP ESTDEP : 3;
     eESTWID ESTWID : 2;
-    uint32_t _reserved_10 : 4;
+    uint32_t _reserved_3 : 4;
     eFPESEL FPESEL : 1;
     eTBSSEL TBSSEL : 1;
     eASP ASP : 2;
-    uint32_t _reserved_end : 2;
+    uint32_t _reserved_4 : 2;
   } bits;
   
   // Full 32-bit register value.
@@ -2316,15 +2316,15 @@ union MAC_MDIO_ADDRESS {
     eGOC_0 GOC_0 : 1;
     eGOC_1 GOC_1 : 1;
     eSKAP SKAP : 1;
-    uint32_t _reserved_5 : 3;
+    uint32_t _reserved_0 : 3;
     uint32_t CR : 4;
     uint32_t NTC : 3;
-    uint32_t _reserved_7 : 1;
+    uint32_t _reserved_1 : 1;
     uint32_t RDA : 5;
     uint32_t PA : 5;
     eBTB BTB : 1;
     ePSE PSE : 1;
-    uint32_t _reserved_end : 4;
+    uint32_t _reserved_2 : 4;
   } bits;
   
   // Full 32-bit register value.
@@ -2365,7 +2365,7 @@ union MAC_CSR_SW_CTRL {
   // Bit field definition.
   struct {
     eRCWE RCWE : 1;
-    uint32_t _reserved_end : 31;
+    uint32_t _reserved_0 : 31;
   } bits;
   
   // Full 32-bit register value.
@@ -2421,12 +2421,12 @@ union MAC_FPE_CTRL_STS {
     eSVER SVER : 1;
     eSRSP SRSP : 1;
     uint32_t S1_SET_0 : 1;
-    uint32_t _reserved_4 : 12;
+    uint32_t _reserved_0 : 12;
     eRVER RVER : 1;
     eRRSP RRSP : 1;
     eTVER TVER : 1;
     eTRSP TRSP : 1;
-    uint32_t _reserved_end : 12;
+    uint32_t _reserved_1 : 12;
   } bits;
   
   // Full 32-bit register value.
@@ -2484,7 +2484,7 @@ union MAC_ADDRESS0_HIGH {
   struct {
     uint32_t ADDRHI : 16;
     uint32_t DCS : 5;
-    uint32_t _reserved_2 : 10;
+    uint32_t _reserved_0 : 10;
     eAE AE : 1;
   } bits;
   
@@ -2531,7 +2531,7 @@ union MAC_ADDRESS1_HIGH {
   struct {
     uint32_t ADDRHI : 16;
     uint32_t DCS : 5;
-    uint32_t _reserved_2 : 3;
+    uint32_t _reserved_0 : 3;
     uint32_t MBC : 6;
     eSA SA : 1;
     eAE AE : 1;
@@ -2580,7 +2580,7 @@ union MAC_ADDRESS2_HIGH {
   struct {
     uint32_t ADDRHI : 16;
     uint32_t DCS : 5;
-    uint32_t _reserved_2 : 3;
+    uint32_t _reserved_0 : 3;
     uint32_t MBC : 6;
     eSA SA : 1;
     eAE AE : 1;
@@ -2629,7 +2629,7 @@ union MAC_ADDRESS3_HIGH {
   struct {
     uint32_t ADDRHI : 16;
     uint32_t DCS : 5;
-    uint32_t _reserved_2 : 3;
+    uint32_t _reserved_0 : 3;
     uint32_t MBC : 6;
     eSA SA : 1;
     eAE AE : 1;
@@ -2678,7 +2678,7 @@ union MAC_ADDRESS4_HIGH {
   struct {
     uint32_t ADDRHI : 16;
     uint32_t DCS : 5;
-    uint32_t _reserved_2 : 3;
+    uint32_t _reserved_0 : 3;
     uint32_t MBC : 6;
     eSA SA : 1;
     eAE AE : 1;
@@ -2727,7 +2727,7 @@ union MAC_ADDRESS5_HIGH {
   struct {
     uint32_t ADDRHI : 16;
     uint32_t DCS : 5;
-    uint32_t _reserved_2 : 3;
+    uint32_t _reserved_0 : 3;
     uint32_t MBC : 6;
     eSA SA : 1;
     eAE AE : 1;
@@ -2776,7 +2776,7 @@ union MAC_ADDRESS6_HIGH {
   struct {
     uint32_t ADDRHI : 16;
     uint32_t DCS : 5;
-    uint32_t _reserved_2 : 3;
+    uint32_t _reserved_0 : 3;
     uint32_t MBC : 6;
     eSA SA : 1;
     eAE AE : 1;
@@ -2825,7 +2825,7 @@ union MAC_ADDRESS7_HIGH {
   struct {
     uint32_t ADDRHI : 16;
     uint32_t DCS : 5;
-    uint32_t _reserved_2 : 3;
+    uint32_t _reserved_0 : 3;
     uint32_t MBC : 6;
     eSA SA : 1;
     eAE AE : 1;
@@ -2874,7 +2874,7 @@ union MAC_ADDRESS8_HIGH {
   struct {
     uint32_t ADDRHI : 16;
     uint32_t DCS : 5;
-    uint32_t _reserved_2 : 3;
+    uint32_t _reserved_0 : 3;
     uint32_t MBC : 6;
     eSA SA : 1;
     eAE AE : 1;
@@ -2923,7 +2923,7 @@ union MAC_ADDRESS9_HIGH {
   struct {
     uint32_t ADDRHI : 16;
     uint32_t DCS : 5;
-    uint32_t _reserved_2 : 3;
+    uint32_t _reserved_0 : 3;
     uint32_t MBC : 6;
     eSA SA : 1;
     eAE AE : 1;
@@ -2972,7 +2972,7 @@ union MAC_ADDRESS10_HIGH {
   struct {
     uint32_t ADDRHI : 16;
     uint32_t DCS : 5;
-    uint32_t _reserved_2 : 3;
+    uint32_t _reserved_0 : 3;
     uint32_t MBC : 6;
     eSA SA : 1;
     eAE AE : 1;
@@ -3021,7 +3021,7 @@ union MAC_ADDRESS11_HIGH {
   struct {
     uint32_t ADDRHI : 16;
     uint32_t DCS : 5;
-    uint32_t _reserved_2 : 3;
+    uint32_t _reserved_0 : 3;
     uint32_t MBC : 6;
     eSA SA : 1;
     eAE AE : 1;
@@ -3070,7 +3070,7 @@ union MAC_ADDRESS12_HIGH {
   struct {
     uint32_t ADDRHI : 16;
     uint32_t DCS : 5;
-    uint32_t _reserved_2 : 3;
+    uint32_t _reserved_0 : 3;
     uint32_t MBC : 6;
     eSA SA : 1;
     eAE AE : 1;
@@ -3119,7 +3119,7 @@ union MAC_ADDRESS13_HIGH {
   struct {
     uint32_t ADDRHI : 16;
     uint32_t DCS : 5;
-    uint32_t _reserved_2 : 3;
+    uint32_t _reserved_0 : 3;
     uint32_t MBC : 6;
     eSA SA : 1;
     eAE AE : 1;
@@ -3168,7 +3168,7 @@ union MAC_ADDRESS14_HIGH {
   struct {
     uint32_t ADDRHI : 16;
     uint32_t DCS : 5;
-    uint32_t _reserved_2 : 3;
+    uint32_t _reserved_0 : 3;
     uint32_t MBC : 6;
     eSA SA : 1;
     eAE AE : 1;
@@ -3217,7 +3217,7 @@ union MAC_ADDRESS15_HIGH {
   struct {
     uint32_t ADDRHI : 16;
     uint32_t DCS : 5;
-    uint32_t _reserved_2 : 3;
+    uint32_t _reserved_0 : 3;
     uint32_t MBC : 6;
     eSA SA : 1;
     eAE AE : 1;
@@ -3266,7 +3266,7 @@ union MAC_ADDRESS16_HIGH {
   struct {
     uint32_t ADDRHI : 16;
     uint32_t DCS : 5;
-    uint32_t _reserved_2 : 3;
+    uint32_t _reserved_0 : 3;
     uint32_t MBC : 6;
     eSA SA : 1;
     eAE AE : 1;
@@ -3315,7 +3315,7 @@ union MAC_ADDRESS17_HIGH {
   struct {
     uint32_t ADDRHI : 16;
     uint32_t DCS : 5;
-    uint32_t _reserved_2 : 3;
+    uint32_t _reserved_0 : 3;
     uint32_t MBC : 6;
     eSA SA : 1;
     eAE AE : 1;
@@ -3364,7 +3364,7 @@ union MAC_ADDRESS18_HIGH {
   struct {
     uint32_t ADDRHI : 16;
     uint32_t DCS : 5;
-    uint32_t _reserved_2 : 3;
+    uint32_t _reserved_0 : 3;
     uint32_t MBC : 6;
     eSA SA : 1;
     eAE AE : 1;
@@ -3413,7 +3413,7 @@ union MAC_ADDRESS19_HIGH {
   struct {
     uint32_t ADDRHI : 16;
     uint32_t DCS : 5;
-    uint32_t _reserved_2 : 3;
+    uint32_t _reserved_0 : 3;
     uint32_t MBC : 6;
     eSA SA : 1;
     eAE AE : 1;
@@ -3462,7 +3462,7 @@ union MAC_ADDRESS20_HIGH {
   struct {
     uint32_t ADDRHI : 16;
     uint32_t DCS : 5;
-    uint32_t _reserved_2 : 3;
+    uint32_t _reserved_0 : 3;
     uint32_t MBC : 6;
     eSA SA : 1;
     eAE AE : 1;
@@ -3511,7 +3511,7 @@ union MAC_ADDRESS21_HIGH {
   struct {
     uint32_t ADDRHI : 16;
     uint32_t DCS : 5;
-    uint32_t _reserved_2 : 3;
+    uint32_t _reserved_0 : 3;
     uint32_t MBC : 6;
     eSA SA : 1;
     eAE AE : 1;
@@ -3560,7 +3560,7 @@ union MAC_ADDRESS22_HIGH {
   struct {
     uint32_t ADDRHI : 16;
     uint32_t DCS : 5;
-    uint32_t _reserved_2 : 3;
+    uint32_t _reserved_0 : 3;
     uint32_t MBC : 6;
     eSA SA : 1;
     eAE AE : 1;
@@ -3609,7 +3609,7 @@ union MAC_ADDRESS23_HIGH {
   struct {
     uint32_t ADDRHI : 16;
     uint32_t DCS : 5;
-    uint32_t _reserved_2 : 3;
+    uint32_t _reserved_0 : 3;
     uint32_t MBC : 6;
     eSA SA : 1;
     eAE AE : 1;
@@ -3658,7 +3658,7 @@ union MAC_ADDRESS24_HIGH {
   struct {
     uint32_t ADDRHI : 16;
     uint32_t DCS : 5;
-    uint32_t _reserved_2 : 3;
+    uint32_t _reserved_0 : 3;
     uint32_t MBC : 6;
     eSA SA : 1;
     eAE AE : 1;
@@ -3707,7 +3707,7 @@ union MAC_ADDRESS25_HIGH {
   struct {
     uint32_t ADDRHI : 16;
     uint32_t DCS : 5;
-    uint32_t _reserved_2 : 3;
+    uint32_t _reserved_0 : 3;
     uint32_t MBC : 6;
     eSA SA : 1;
     eAE AE : 1;
@@ -3756,7 +3756,7 @@ union MAC_ADDRESS26_HIGH {
   struct {
     uint32_t ADDRHI : 16;
     uint32_t DCS : 5;
-    uint32_t _reserved_2 : 3;
+    uint32_t _reserved_0 : 3;
     uint32_t MBC : 6;
     eSA SA : 1;
     eAE AE : 1;
@@ -3805,7 +3805,7 @@ union MAC_ADDRESS27_HIGH {
   struct {
     uint32_t ADDRHI : 16;
     uint32_t DCS : 5;
-    uint32_t _reserved_2 : 3;
+    uint32_t _reserved_0 : 3;
     uint32_t MBC : 6;
     eSA SA : 1;
     eAE AE : 1;
@@ -3854,7 +3854,7 @@ union MAC_ADDRESS28_HIGH {
   struct {
     uint32_t ADDRHI : 16;
     uint32_t DCS : 5;
-    uint32_t _reserved_2 : 3;
+    uint32_t _reserved_0 : 3;
     uint32_t MBC : 6;
     eSA SA : 1;
     eAE AE : 1;
@@ -3903,7 +3903,7 @@ union MAC_ADDRESS29_HIGH {
   struct {
     uint32_t ADDRHI : 16;
     uint32_t DCS : 5;
-    uint32_t _reserved_2 : 3;
+    uint32_t _reserved_0 : 3;
     uint32_t MBC : 6;
     eSA SA : 1;
     eAE AE : 1;
@@ -3952,7 +3952,7 @@ union MAC_ADDRESS30_HIGH {
   struct {
     uint32_t ADDRHI : 16;
     uint32_t DCS : 5;
-    uint32_t _reserved_2 : 3;
+    uint32_t _reserved_0 : 3;
     uint32_t MBC : 6;
     eSA SA : 1;
     eAE AE : 1;
@@ -4001,7 +4001,7 @@ union MAC_ADDRESS31_HIGH {
   struct {
     uint32_t ADDRHI : 16;
     uint32_t DCS : 5;
-    uint32_t _reserved_2 : 3;
+    uint32_t _reserved_0 : 3;
     uint32_t MBC : 6;
     eSA SA : 1;
     eAE AE : 1;
@@ -4045,7 +4045,7 @@ union MAC_ADDRESS32_HIGH {
   struct {
     uint32_t ADDRHI : 16;
     uint32_t DCS : 3;
-    uint32_t _reserved_2 : 12;
+    uint32_t _reserved_0 : 12;
     eAE AE : 1;
   } bits;
   
@@ -4087,7 +4087,7 @@ union MAC_ADDRESS33_HIGH {
   struct {
     uint32_t ADDRHI : 16;
     uint32_t DCS : 3;
-    uint32_t _reserved_2 : 12;
+    uint32_t _reserved_0 : 12;
     eAE AE : 1;
   } bits;
   
@@ -4129,7 +4129,7 @@ union MAC_ADDRESS34_HIGH {
   struct {
     uint32_t ADDRHI : 16;
     uint32_t DCS : 3;
-    uint32_t _reserved_2 : 12;
+    uint32_t _reserved_0 : 12;
     eAE AE : 1;
   } bits;
   
@@ -4171,7 +4171,7 @@ union MAC_ADDRESS35_HIGH {
   struct {
     uint32_t ADDRHI : 16;
     uint32_t DCS : 3;
-    uint32_t _reserved_2 : 12;
+    uint32_t _reserved_0 : 12;
     eAE AE : 1;
   } bits;
   
@@ -4213,7 +4213,7 @@ union MAC_ADDRESS36_HIGH {
   struct {
     uint32_t ADDRHI : 16;
     uint32_t DCS : 3;
-    uint32_t _reserved_2 : 12;
+    uint32_t _reserved_0 : 12;
     eAE AE : 1;
   } bits;
   
@@ -4255,7 +4255,7 @@ union MAC_ADDRESS37_HIGH {
   struct {
     uint32_t ADDRHI : 16;
     uint32_t DCS : 3;
-    uint32_t _reserved_2 : 12;
+    uint32_t _reserved_0 : 12;
     eAE AE : 1;
   } bits;
   
@@ -4297,7 +4297,7 @@ union MAC_ADDRESS38_HIGH {
   struct {
     uint32_t ADDRHI : 16;
     uint32_t DCS : 3;
-    uint32_t _reserved_2 : 12;
+    uint32_t _reserved_0 : 12;
     eAE AE : 1;
   } bits;
   
@@ -4339,7 +4339,7 @@ union MAC_ADDRESS39_HIGH {
   struct {
     uint32_t ADDRHI : 16;
     uint32_t DCS : 3;
-    uint32_t _reserved_2 : 12;
+    uint32_t _reserved_0 : 12;
     eAE AE : 1;
   } bits;
   
@@ -4381,7 +4381,7 @@ union MAC_ADDRESS40_HIGH {
   struct {
     uint32_t ADDRHI : 16;
     uint32_t DCS : 3;
-    uint32_t _reserved_2 : 12;
+    uint32_t _reserved_0 : 12;
     eAE AE : 1;
   } bits;
   
@@ -4423,7 +4423,7 @@ union MAC_ADDRESS41_HIGH {
   struct {
     uint32_t ADDRHI : 16;
     uint32_t DCS : 3;
-    uint32_t _reserved_2 : 12;
+    uint32_t _reserved_0 : 12;
     eAE AE : 1;
   } bits;
   
@@ -4465,7 +4465,7 @@ union MAC_ADDRESS42_HIGH {
   struct {
     uint32_t ADDRHI : 16;
     uint32_t DCS : 3;
-    uint32_t _reserved_2 : 12;
+    uint32_t _reserved_0 : 12;
     eAE AE : 1;
   } bits;
   
@@ -4507,7 +4507,7 @@ union MAC_ADDRESS43_HIGH {
   struct {
     uint32_t ADDRHI : 16;
     uint32_t DCS : 3;
-    uint32_t _reserved_2 : 12;
+    uint32_t _reserved_0 : 12;
     eAE AE : 1;
   } bits;
   
@@ -4549,7 +4549,7 @@ union MAC_ADDRESS44_HIGH {
   struct {
     uint32_t ADDRHI : 16;
     uint32_t DCS : 3;
-    uint32_t _reserved_2 : 12;
+    uint32_t _reserved_0 : 12;
     eAE AE : 1;
   } bits;
   
@@ -4591,7 +4591,7 @@ union MAC_ADDRESS45_HIGH {
   struct {
     uint32_t ADDRHI : 16;
     uint32_t DCS : 3;
-    uint32_t _reserved_2 : 12;
+    uint32_t _reserved_0 : 12;
     eAE AE : 1;
   } bits;
   
@@ -4633,7 +4633,7 @@ union MAC_ADDRESS46_HIGH {
   struct {
     uint32_t ADDRHI : 16;
     uint32_t DCS : 3;
-    uint32_t _reserved_2 : 12;
+    uint32_t _reserved_0 : 12;
     eAE AE : 1;
   } bits;
   
@@ -4675,7 +4675,7 @@ union MAC_ADDRESS47_HIGH {
   struct {
     uint32_t ADDRHI : 16;
     uint32_t DCS : 3;
-    uint32_t _reserved_2 : 12;
+    uint32_t _reserved_0 : 12;
     eAE AE : 1;
   } bits;
   
@@ -4717,7 +4717,7 @@ union MAC_ADDRESS48_HIGH {
   struct {
     uint32_t ADDRHI : 16;
     uint32_t DCS : 3;
-    uint32_t _reserved_2 : 12;
+    uint32_t _reserved_0 : 12;
     eAE AE : 1;
   } bits;
   
@@ -4759,7 +4759,7 @@ union MAC_ADDRESS49_HIGH {
   struct {
     uint32_t ADDRHI : 16;
     uint32_t DCS : 3;
-    uint32_t _reserved_2 : 12;
+    uint32_t _reserved_0 : 12;
     eAE AE : 1;
   } bits;
   
@@ -4801,7 +4801,7 @@ union MAC_ADDRESS50_HIGH {
   struct {
     uint32_t ADDRHI : 16;
     uint32_t DCS : 3;
-    uint32_t _reserved_2 : 12;
+    uint32_t _reserved_0 : 12;
     eAE AE : 1;
   } bits;
   
@@ -4843,7 +4843,7 @@ union MAC_ADDRESS51_HIGH {
   struct {
     uint32_t ADDRHI : 16;
     uint32_t DCS : 3;
-    uint32_t _reserved_2 : 12;
+    uint32_t _reserved_0 : 12;
     eAE AE : 1;
   } bits;
   
@@ -4885,7 +4885,7 @@ union MAC_ADDRESS52_HIGH {
   struct {
     uint32_t ADDRHI : 16;
     uint32_t DCS : 3;
-    uint32_t _reserved_2 : 12;
+    uint32_t _reserved_0 : 12;
     eAE AE : 1;
   } bits;
   
@@ -4927,7 +4927,7 @@ union MAC_ADDRESS53_HIGH {
   struct {
     uint32_t ADDRHI : 16;
     uint32_t DCS : 3;
-    uint32_t _reserved_2 : 12;
+    uint32_t _reserved_0 : 12;
     eAE AE : 1;
   } bits;
   
@@ -4969,7 +4969,7 @@ union MAC_ADDRESS54_HIGH {
   struct {
     uint32_t ADDRHI : 16;
     uint32_t DCS : 3;
-    uint32_t _reserved_2 : 12;
+    uint32_t _reserved_0 : 12;
     eAE AE : 1;
   } bits;
   
@@ -5011,7 +5011,7 @@ union MAC_ADDRESS55_HIGH {
   struct {
     uint32_t ADDRHI : 16;
     uint32_t DCS : 3;
-    uint32_t _reserved_2 : 12;
+    uint32_t _reserved_0 : 12;
     eAE AE : 1;
   } bits;
   
@@ -5053,7 +5053,7 @@ union MAC_ADDRESS56_HIGH {
   struct {
     uint32_t ADDRHI : 16;
     uint32_t DCS : 3;
-    uint32_t _reserved_2 : 12;
+    uint32_t _reserved_0 : 12;
     eAE AE : 1;
   } bits;
   
@@ -5095,7 +5095,7 @@ union MAC_ADDRESS57_HIGH {
   struct {
     uint32_t ADDRHI : 16;
     uint32_t DCS : 3;
-    uint32_t _reserved_2 : 12;
+    uint32_t _reserved_0 : 12;
     eAE AE : 1;
   } bits;
   
@@ -5137,7 +5137,7 @@ union MAC_ADDRESS58_HIGH {
   struct {
     uint32_t ADDRHI : 16;
     uint32_t DCS : 3;
-    uint32_t _reserved_2 : 12;
+    uint32_t _reserved_0 : 12;
     eAE AE : 1;
   } bits;
   
@@ -5179,7 +5179,7 @@ union MAC_ADDRESS59_HIGH {
   struct {
     uint32_t ADDRHI : 16;
     uint32_t DCS : 3;
-    uint32_t _reserved_2 : 12;
+    uint32_t _reserved_0 : 12;
     eAE AE : 1;
   } bits;
   
@@ -5221,7 +5221,7 @@ union MAC_ADDRESS60_HIGH {
   struct {
     uint32_t ADDRHI : 16;
     uint32_t DCS : 3;
-    uint32_t _reserved_2 : 12;
+    uint32_t _reserved_0 : 12;
     eAE AE : 1;
   } bits;
   
@@ -5263,7 +5263,7 @@ union MAC_ADDRESS61_HIGH {
   struct {
     uint32_t ADDRHI : 16;
     uint32_t DCS : 3;
-    uint32_t _reserved_2 : 12;
+    uint32_t _reserved_0 : 12;
     eAE AE : 1;
   } bits;
   
@@ -5305,7 +5305,7 @@ union MAC_ADDRESS62_HIGH {
   struct {
     uint32_t ADDRHI : 16;
     uint32_t DCS : 3;
-    uint32_t _reserved_2 : 12;
+    uint32_t _reserved_0 : 12;
     eAE AE : 1;
   } bits;
   
@@ -5347,7 +5347,7 @@ union MAC_ADDRESS63_HIGH {
   struct {
     uint32_t ADDRHI : 16;
     uint32_t DCS : 3;
-    uint32_t _reserved_2 : 12;
+    uint32_t _reserved_0 : 12;
     eAE AE : 1;
   } bits;
   
@@ -5423,9 +5423,9 @@ union MAC_MMC_CONTROL {
     eCNTFREEZ CNTFREEZ : 1;
     eCNTPRST CNTPRST : 1;
     eCNTPRSTLVL CNTPRSTLVL : 1;
-    uint32_t _reserved_6 : 2;
+    uint32_t _reserved_0 : 2;
     eUCDBC UCDBC : 1;
-    uint32_t _reserved_end : 23;
+    uint32_t _reserved_1 : 23;
   } bits;
   
   // Full 32-bit register value.
@@ -5610,7 +5610,7 @@ union MAC_MMC_RX_INTERRUPT {
     eRXCTRLPIS RXCTRLPIS : 1;
     eRXLPIUSCIS RXLPIUSCIS : 1;
     eRXLPITRCIS RXLPITRCIS : 1;
-    uint32_t _reserved_end : 4;
+    uint32_t _reserved_0 : 4;
   } bits;
   
   // Full 32-bit register value.
@@ -5795,7 +5795,7 @@ union MAC_MMC_TX_INTERRUPT {
     eTXOSIZEGPIS TXOSIZEGPIS : 1;
     eTXLPIUSCIS TXLPIUSCIS : 1;
     eTXLPITRCIS TXLPITRCIS : 1;
-    uint32_t _reserved_end : 4;
+    uint32_t _reserved_0 : 4;
   } bits;
   
   // Full 32-bit register value.
@@ -5980,7 +5980,7 @@ union MAC_MMC_RX_INTERRUPT_MASK {
     eRXCTRLPIM RXCTRLPIM : 1;
     eRXLPIUSCIM RXLPIUSCIM : 1;
     eRXLPITRCIM RXLPITRCIM : 1;
-    uint32_t _reserved_end : 4;
+    uint32_t _reserved_0 : 4;
   } bits;
   
   // Full 32-bit register value.
@@ -6165,7 +6165,7 @@ union MAC_MMC_TX_INTERRUPT_MASK {
     eTXOSIZEGPIM TXOSIZEGPIM : 1;
     eTXLPIUSCIM TXLPIUSCIM : 1;
     eTXLPITRCIM TXLPITRCIM : 1;
-    uint32_t _reserved_end : 4;
+    uint32_t _reserved_0 : 4;
   } bits;
   
   // Full 32-bit register value.
@@ -7288,7 +7288,7 @@ union MAC_MMC_IPC_RX_INTERRUPT_MASK {
     eRXTCPERPIM RXTCPERPIM : 1;
     eRXICMPGPIM RXICMPGPIM : 1;
     eRXICMPERPIM RXICMPERPIM : 1;
-    uint32_t _reserved_14 : 2;
+    uint32_t _reserved_0 : 2;
     eRXIPV4GOIM RXIPV4GOIM : 1;
     eRXIPV4HEROIM RXIPV4HEROIM : 1;
     eRXIPV4NOPAYOIM RXIPV4NOPAYOIM : 1;
@@ -7303,7 +7303,7 @@ union MAC_MMC_IPC_RX_INTERRUPT_MASK {
     eRXTCPEROIM RXTCPEROIM : 1;
     eRXICMPGOIM RXICMPGOIM : 1;
     eRXICMPEROIM RXICMPEROIM : 1;
-    uint32_t _reserved_end : 2;
+    uint32_t _reserved_1 : 2;
   } bits;
   
   // Full 32-bit register value.
@@ -7474,7 +7474,7 @@ union MAC_MMC_IPC_RX_INTERRUPT {
     eRXTCPERPIS RXTCPERPIS : 1;
     eRXICMPGPIS RXICMPGPIS : 1;
     eRXICMPERPIS RXICMPERPIS : 1;
-    uint32_t _reserved_14 : 2;
+    uint32_t _reserved_0 : 2;
     eRXIPV4GOIS RXIPV4GOIS : 1;
     eRXIPV4HEROIS RXIPV4HEROIS : 1;
     eRXIPV4NOPAYOIS RXIPV4NOPAYOIS : 1;
@@ -7489,7 +7489,7 @@ union MAC_MMC_IPC_RX_INTERRUPT {
     eRXTCPEROIS RXTCPEROIS : 1;
     eRXICMPGOIS RXICMPGOIS : 1;
     eRXICMPEROIS RXICMPEROIS : 1;
-    uint32_t _reserved_end : 2;
+    uint32_t _reserved_1 : 2;
   } bits;
   
   // Full 32-bit register value.
@@ -7994,7 +7994,7 @@ union MAC_MMC_FPE_TX_INTERRUPT {
   struct {
     eFCIS FCIS : 1;
     eHRCIS HRCIS : 1;
-    uint32_t _reserved_end : 30;
+    uint32_t _reserved_0 : 30;
   } bits;
   
   // Full 32-bit register value.
@@ -8023,7 +8023,7 @@ union MAC_MMC_FPE_TX_INTERRUPT_MASK {
   struct {
     eFCIM FCIM : 1;
     eHRCIM HRCIM : 1;
-    uint32_t _reserved_end : 30;
+    uint32_t _reserved_0 : 30;
   } bits;
   
   // Full 32-bit register value.
@@ -8098,7 +8098,7 @@ union MAC_MMC_FPE_RX_INTERRUPT {
     ePSECIS PSECIS : 1;
     ePAOCIS PAOCIS : 1;
     eFCIS FCIS : 1;
-    uint32_t _reserved_end : 28;
+    uint32_t _reserved_0 : 28;
   } bits;
   
   // Full 32-bit register value.
@@ -8139,7 +8139,7 @@ union MAC_MMC_FPE_RX_INTERRUPT_MASK {
     ePSECIM PSECIM : 1;
     ePAOCIM PAOCIM : 1;
     eFCIM FCIM : 1;
-    uint32_t _reserved_end : 28;
+    uint32_t _reserved_0 : 28;
   } bits;
   
   // Full 32-bit register value.
@@ -8280,7 +8280,7 @@ union MAC_L3_L4_CONTROL0 {
   // Bit field definition.
   struct {
     eL3PEN0 L3PEN0 : 1;
-    uint32_t _reserved_1 : 1;
+    uint32_t _reserved_0 : 1;
     eL3SAM0 L3SAM0 : 1;
     eL3SAIM0 L3SAIM0 : 1;
     eL3DAM0 L3DAM0 : 1;
@@ -8288,16 +8288,16 @@ union MAC_L3_L4_CONTROL0 {
     uint32_t L3HSBM0 : 5;
     uint32_t L3HDBM0 : 5;
     eL4PEN0 L4PEN0 : 1;
-    uint32_t _reserved_8 : 1;
+    uint32_t _reserved_1 : 1;
     eL4SPM0 L4SPM0 : 1;
     eL4SPIM0 L4SPIM0 : 1;
     eL4DPM0 L4DPM0 : 1;
     eL4DPIM0 L4DPIM0 : 1;
-    uint32_t _reserved_12 : 2;
+    uint32_t _reserved_2 : 2;
     uint32_t DMCHN0 : 3;
-    uint32_t _reserved_13 : 1;
+    uint32_t _reserved_3 : 1;
     eDMCHEN0 DMCHEN0 : 1;
-    uint32_t _reserved_end : 3;
+    uint32_t _reserved_4 : 3;
   } bits;
   
   // Full 32-bit register value.
@@ -8456,7 +8456,7 @@ union MAC_L3_L4_CONTROL1 {
   // Bit field definition.
   struct {
     eL3PEN1 L3PEN1 : 1;
-    uint32_t _reserved_1 : 1;
+    uint32_t _reserved_0 : 1;
     eL3SAM1 L3SAM1 : 1;
     eL3SAIM1 L3SAIM1 : 1;
     eL3DAM1 L3DAM1 : 1;
@@ -8464,16 +8464,16 @@ union MAC_L3_L4_CONTROL1 {
     uint32_t L3HSBM1 : 5;
     uint32_t L3HDBM1 : 5;
     eL4PEN1 L4PEN1 : 1;
-    uint32_t _reserved_8 : 1;
+    uint32_t _reserved_1 : 1;
     eL4SPM1 L4SPM1 : 1;
     eL4SPIM1 L4SPIM1 : 1;
     eL4DPM1 L4DPM1 : 1;
     eL4DPIM1 L4DPIM1 : 1;
-    uint32_t _reserved_12 : 2;
+    uint32_t _reserved_2 : 2;
     uint32_t DMCHN1 : 3;
-    uint32_t _reserved_13 : 1;
+    uint32_t _reserved_3 : 1;
     eDMCHEN1 DMCHEN1 : 1;
-    uint32_t _reserved_end : 3;
+    uint32_t _reserved_4 : 3;
   } bits;
   
   // Full 32-bit register value.
@@ -8632,7 +8632,7 @@ union MAC_L3_L4_CONTROL2 {
   // Bit field definition.
   struct {
     eL3PEN2 L3PEN2 : 1;
-    uint32_t _reserved_1 : 1;
+    uint32_t _reserved_0 : 1;
     eL3SAM2 L3SAM2 : 1;
     eL3SAIM2 L3SAIM2 : 1;
     eL3DAM2 L3DAM2 : 1;
@@ -8640,16 +8640,16 @@ union MAC_L3_L4_CONTROL2 {
     uint32_t L3HSBM2 : 5;
     uint32_t L3HDBM2 : 5;
     eL4PEN2 L4PEN2 : 1;
-    uint32_t _reserved_8 : 1;
+    uint32_t _reserved_1 : 1;
     eL4SPM2 L4SPM2 : 1;
     eL4SPIM2 L4SPIM2 : 1;
     eL4DPM2 L4DPM2 : 1;
     eL4DPIM2 L4DPIM2 : 1;
-    uint32_t _reserved_12 : 2;
+    uint32_t _reserved_2 : 2;
     uint32_t DMCHN2 : 3;
-    uint32_t _reserved_13 : 1;
+    uint32_t _reserved_3 : 1;
     eDMCHEN2 DMCHEN2 : 1;
-    uint32_t _reserved_end : 3;
+    uint32_t _reserved_4 : 3;
   } bits;
   
   // Full 32-bit register value.
@@ -8808,7 +8808,7 @@ union MAC_L3_L4_CONTROL3 {
   // Bit field definition.
   struct {
     eL3PEN3 L3PEN3 : 1;
-    uint32_t _reserved_1 : 1;
+    uint32_t _reserved_0 : 1;
     eL3SAM3 L3SAM3 : 1;
     eL3SAIM3 L3SAIM3 : 1;
     eL3DAM3 L3DAM3 : 1;
@@ -8816,16 +8816,16 @@ union MAC_L3_L4_CONTROL3 {
     uint32_t L3HSBM3 : 5;
     uint32_t L3HDBM3 : 5;
     eL4PEN3 L4PEN3 : 1;
-    uint32_t _reserved_8 : 1;
+    uint32_t _reserved_1 : 1;
     eL4SPM3 L4SPM3 : 1;
     eL4SPIM3 L4SPIM3 : 1;
     eL4DPM3 L4DPM3 : 1;
     eL4DPIM3 L4DPIM3 : 1;
-    uint32_t _reserved_12 : 2;
+    uint32_t _reserved_2 : 2;
     uint32_t DMCHN3 : 3;
-    uint32_t _reserved_13 : 1;
+    uint32_t _reserved_3 : 1;
     eDMCHEN3 DMCHEN3 : 1;
-    uint32_t _reserved_end : 3;
+    uint32_t _reserved_4 : 3;
   } bits;
   
   // Full 32-bit register value.
@@ -8984,7 +8984,7 @@ union MAC_L3_L4_CONTROL4 {
   // Bit field definition.
   struct {
     eL3PEN4 L3PEN4 : 1;
-    uint32_t _reserved_1 : 1;
+    uint32_t _reserved_0 : 1;
     eL3SAM4 L3SAM4 : 1;
     eL3SAIM4 L3SAIM4 : 1;
     eL3DAM4 L3DAM4 : 1;
@@ -8992,16 +8992,16 @@ union MAC_L3_L4_CONTROL4 {
     uint32_t L3HSBM4 : 5;
     uint32_t L3HDBM4 : 5;
     eL4PEN4 L4PEN4 : 1;
-    uint32_t _reserved_8 : 1;
+    uint32_t _reserved_1 : 1;
     eL4SPM4 L4SPM4 : 1;
     eL4SPIM4 L4SPIM4 : 1;
     eL4DPM4 L4DPM4 : 1;
     eL4DPIM4 L4DPIM4 : 1;
-    uint32_t _reserved_12 : 2;
+    uint32_t _reserved_2 : 2;
     uint32_t DMCHN4 : 3;
-    uint32_t _reserved_13 : 1;
+    uint32_t _reserved_3 : 1;
     eDMCHEN4 DMCHEN4 : 1;
-    uint32_t _reserved_end : 3;
+    uint32_t _reserved_4 : 3;
   } bits;
   
   // Full 32-bit register value.
@@ -9160,7 +9160,7 @@ union MAC_L3_L4_CONTROL5 {
   // Bit field definition.
   struct {
     eL3PEN5 L3PEN5 : 1;
-    uint32_t _reserved_1 : 1;
+    uint32_t _reserved_0 : 1;
     eL3SAM5 L3SAM5 : 1;
     eL3SAIM5 L3SAIM5 : 1;
     eL3DAM5 L3DAM5 : 1;
@@ -9168,16 +9168,16 @@ union MAC_L3_L4_CONTROL5 {
     uint32_t L3HSBM5 : 5;
     uint32_t L3HDBM5 : 5;
     eL4PEN5 L4PEN5 : 1;
-    uint32_t _reserved_8 : 1;
+    uint32_t _reserved_1 : 1;
     eL4SPM5 L4SPM5 : 1;
     eL4SPIM5 L4SPIM5 : 1;
     eL4DPM5 L4DPM5 : 1;
     eL4DPIM5 L4DPIM5 : 1;
-    uint32_t _reserved_12 : 2;
+    uint32_t _reserved_2 : 2;
     uint32_t DMCHN5 : 3;
-    uint32_t _reserved_13 : 1;
+    uint32_t _reserved_3 : 1;
     eDMCHEN5 DMCHEN5 : 1;
-    uint32_t _reserved_end : 3;
+    uint32_t _reserved_4 : 3;
   } bits;
   
   // Full 32-bit register value.
@@ -9336,7 +9336,7 @@ union MAC_L3_L4_CONTROL6 {
   // Bit field definition.
   struct {
     eL3PEN6 L3PEN6 : 1;
-    uint32_t _reserved_1 : 1;
+    uint32_t _reserved_0 : 1;
     eL3SAM6 L3SAM6 : 1;
     eL3SAIM6 L3SAIM6 : 1;
     eL3DAM6 L3DAM6 : 1;
@@ -9344,16 +9344,16 @@ union MAC_L3_L4_CONTROL6 {
     uint32_t L3HSBM6 : 5;
     uint32_t L3HDBM6 : 5;
     eL4PEN6 L4PEN6 : 1;
-    uint32_t _reserved_8 : 1;
+    uint32_t _reserved_1 : 1;
     eL4SPM6 L4SPM6 : 1;
     eL4SPIM6 L4SPIM6 : 1;
     eL4DPM6 L4DPM6 : 1;
     eL4DPIM6 L4DPIM6 : 1;
-    uint32_t _reserved_12 : 2;
+    uint32_t _reserved_2 : 2;
     uint32_t DMCHN6 : 3;
-    uint32_t _reserved_13 : 1;
+    uint32_t _reserved_3 : 1;
     eDMCHEN6 DMCHEN6 : 1;
-    uint32_t _reserved_end : 3;
+    uint32_t _reserved_4 : 3;
   } bits;
   
   // Full 32-bit register value.
@@ -9512,7 +9512,7 @@ union MAC_L3_L4_CONTROL7 {
   // Bit field definition.
   struct {
     eL3PEN7 L3PEN7 : 1;
-    uint32_t _reserved_1 : 1;
+    uint32_t _reserved_0 : 1;
     eL3SAM7 L3SAM7 : 1;
     eL3SAIM7 L3SAIM7 : 1;
     eL3DAM7 L3DAM7 : 1;
@@ -9520,16 +9520,16 @@ union MAC_L3_L4_CONTROL7 {
     uint32_t L3HSBM7 : 5;
     uint32_t L3HDBM7 : 5;
     eL4PEN7 L4PEN7 : 1;
-    uint32_t _reserved_8 : 1;
+    uint32_t _reserved_1 : 1;
     eL4SPM7 L4SPM7 : 1;
     eL4SPIM7 L4SPIM7 : 1;
     eL4DPM7 L4DPM7 : 1;
     eL4DPIM7 L4DPIM7 : 1;
-    uint32_t _reserved_12 : 2;
+    uint32_t _reserved_2 : 2;
     uint32_t DMCHN7 : 3;
-    uint32_t _reserved_13 : 1;
+    uint32_t _reserved_3 : 1;
     eDMCHEN7 DMCHEN7 : 1;
-    uint32_t _reserved_end : 3;
+    uint32_t _reserved_4 : 3;
   } bits;
   
   // Full 32-bit register value.
@@ -9731,10 +9731,10 @@ union MAC_TIMESTAMP_CONTROL {
     eTSCFUPDT TSCFUPDT : 1;
     eTSINIT TSINIT : 1;
     eTSUPDT TSUPDT : 1;
-    uint32_t _reserved_4 : 1;
+    uint32_t _reserved_0 : 1;
     eTSADDREG TSADDREG : 1;
     ePTGE PTGE : 1;
-    uint32_t _reserved_6 : 1;
+    uint32_t _reserved_1 : 1;
     eTSENALL TSENALL : 1;
     eTSCTRLSSR TSCTRLSSR : 1;
     eTSVER2ENA TSVER2ENA : 1;
@@ -9747,11 +9747,11 @@ union MAC_TIMESTAMP_CONTROL {
     eTSENMACADDR TSENMACADDR : 1;
     eCSC CSC : 1;
     eESTI ESTI : 1;
-    uint32_t _reserved_18 : 3;
+    uint32_t _reserved_2 : 3;
     eTXTSSTSM TXTSSTSM : 1;
-    uint32_t _reserved_19 : 3;
+    uint32_t _reserved_3 : 3;
     eAV8021ASMEN AV8021ASMEN : 1;
-    uint32_t _reserved_end : 3;
+    uint32_t _reserved_4 : 3;
   } bits;
   
   // Full 32-bit register value.
@@ -9771,7 +9771,7 @@ union MAC_SUB_SECOND_INCREMENT {
     uint32_t _reserved_0 : 8;
     uint32_t SNSINC : 8;
     uint32_t SSINC : 8;
-    uint32_t _reserved_end : 8;
+    uint32_t _reserved_1 : 8;
   } bits;
   
   // Full 32-bit register value.
@@ -9806,7 +9806,7 @@ union MAC_SYSTEM_TIME_NANOSECONDS {
   // Bit field definition.
   struct {
     uint32_t TSSS : 31;
-    uint32_t _reserved_end : 1;
+    uint32_t _reserved_0 : 1;
   } bits;
   
   // Full 32-bit register value.
@@ -9881,7 +9881,7 @@ union MAC_SYSTEM_TIME_HIGHER_WORD_SECONDS {
   // Bit field definition.
   struct {
     uint32_t TSHWR : 16;
-    uint32_t _reserved_end : 16;
+    uint32_t _reserved_0 : 16;
   } bits;
   
   // Full 32-bit register value.
@@ -9968,13 +9968,13 @@ union MAC_TIMESTAMP_STATUS {
     eTSTRGTERR2 TSTRGTERR2 : 1;
     eTSTARGT3 TSTARGT3 : 1;
     eTSTRGTERR3 TSTRGTERR3 : 1;
-    uint32_t _reserved_10 : 5;
+    uint32_t _reserved_0 : 5;
     eTXTSSIS TXTSSIS : 1;
     uint32_t ATSSTN : 4;
-    uint32_t _reserved_12 : 4;
+    uint32_t _reserved_1 : 4;
     eATSSTM ATSSTM : 1;
     uint32_t ATSNS : 5;
-    uint32_t _reserved_end : 2;
+    uint32_t _reserved_2 : 2;
   } bits;
   
   // Full 32-bit register value.
@@ -10057,12 +10057,12 @@ union MAC_AUXILIARY_CONTROL {
   // Bit field definition.
   struct {
     eATSFC ATSFC : 1;
-    uint32_t _reserved_1 : 3;
+    uint32_t _reserved_0 : 3;
     eATSEN0 ATSEN0 : 1;
     eATSEN1 ATSEN1 : 1;
     eATSEN2 ATSEN2 : 1;
     eATSEN3 ATSEN3 : 1;
-    uint32_t _reserved_end : 24;
+    uint32_t _reserved_1 : 24;
   } bits;
   
   // Full 32-bit register value.
@@ -10080,7 +10080,7 @@ union MAC_AUXILIARY_TIMESTAMP_NANOSECONDS {
   // Bit field definition.
   struct {
     uint32_t AUXTSLO : 31;
-    uint32_t _reserved_end : 1;
+    uint32_t _reserved_0 : 1;
   } bits;
   
   // Full 32-bit register value.
@@ -10184,7 +10184,7 @@ union MAC_TIMESTAMP_INGRESS_CORR_SUBNANOSEC {
   struct {
     uint32_t _reserved_0 : 8;
     uint32_t TSICSNS : 8;
-    uint32_t _reserved_end : 16;
+    uint32_t _reserved_1 : 16;
   } bits;
   
   // Full 32-bit register value.
@@ -10203,7 +10203,7 @@ union MAC_TIMESTAMP_EGRESS_CORR_SUBNANOSEC {
   struct {
     uint32_t _reserved_0 : 8;
     uint32_t TSECSNS : 8;
-    uint32_t _reserved_end : 16;
+    uint32_t _reserved_1 : 16;
   } bits;
   
   // Full 32-bit register value.
@@ -10223,7 +10223,7 @@ union MAC_TIMESTAMP_INGRESS_LATENCY {
     uint32_t _reserved_0 : 8;
     uint32_t ITLSNS : 8;
     uint32_t ITLNS : 12;
-    uint32_t _reserved_end : 4;
+    uint32_t _reserved_1 : 4;
   } bits;
   
   // Full 32-bit register value.
@@ -10243,7 +10243,7 @@ union MAC_TIMESTAMP_EGRESS_LATENCY {
     uint32_t _reserved_0 : 8;
     uint32_t ETLSNS : 8;
     uint32_t ETLNS : 12;
-    uint32_t _reserved_end : 4;
+    uint32_t _reserved_1 : 4;
   } bits;
   
   // Full 32-bit register value.
@@ -10309,15 +10309,15 @@ union MAC_PPS_CONTROL {
     eTRGTMODSEL0 TRGTMODSEL0 : 2;
     eMCGREN0 MCGREN0 : 1;
     uint32_t PPSCMD1 : 4;
-    uint32_t _reserved_5 : 1;
+    uint32_t _reserved_0 : 1;
     eTRGTMODSEL1 TRGTMODSEL1 : 2;
     eMCGREN1 MCGREN1 : 1;
     uint32_t PPSCMD2 : 4;
-    uint32_t _reserved_8 : 1;
+    uint32_t _reserved_1 : 1;
     eTRGTMODSEL2 TRGTMODSEL2 : 2;
     eMCGREN2 MCGREN2 : 1;
     uint32_t PPSCMD3 : 4;
-    uint32_t _reserved_11 : 1;
+    uint32_t _reserved_2 : 1;
     eTRGTMODSEL3 TRGTMODSEL3 : 2;
     uint32_t MCGREN3 : 1;
   } bits;
@@ -10670,13 +10670,13 @@ union MAC_PTO_CONTROL {
     ePTOEN PTOEN : 1;
     eASYNCEN ASYNCEN : 1;
     eAPDREQEN APDREQEN : 1;
-    uint32_t _reserved_3 : 1;
+    uint32_t _reserved_0 : 1;
     eASYNCTRIG ASYNCTRIG : 1;
     eAPDREQTRIG APDREQTRIG : 1;
     eDRRDIS DRRDIS : 1;
     ePDRDIS PDRDIS : 1;
     uint32_t DN : 8;
-    uint32_t _reserved_end : 16;
+    uint32_t _reserved_1 : 16;
   } bits;
   
   // Full 32-bit register value.
@@ -10728,7 +10728,7 @@ union MAC_SOURCE_PORT_IDENTITY2 {
   // Bit field definition.
   struct {
     uint32_t SPI2 : 16;
-    uint32_t _reserved_end : 16;
+    uint32_t _reserved_0 : 16;
   } bits;
   
   // Full 32-bit register value.
@@ -10756,7 +10756,7 @@ union MAC_LOG_MESSAGE_INTERVAL {
   struct {
     uint32_t LSI : 8;
     eDRSYNCR DRSYNCR : 3;
-    uint32_t _reserved_2 : 13;
+    uint32_t _reserved_0 : 13;
     uint32_t LMPDRI : 8;
   } bits;
   
@@ -10809,14 +10809,14 @@ union MTL_OPERATION_MODE {
     uint32_t _reserved_0 : 1;
     eDTXSTS DTXSTS : 1;
     eRAA RAA : 1;
-    uint32_t _reserved_2 : 2;
+    uint32_t _reserved_1 : 2;
     eSCHALG SCHALG : 2;
-    uint32_t _reserved_3 : 1;
+    uint32_t _reserved_2 : 1;
     eCNTPRST CNTPRST : 1;
     eCNTCLR CNTCLR : 1;
-    uint32_t _reserved_5 : 5;
+    uint32_t _reserved_3 : 5;
     eFRPE FRPE : 1;
-    uint32_t _reserved_end : 16;
+    uint32_t _reserved_4 : 16;
   } bits;
   
   // Full 32-bit register value.
@@ -10897,9 +10897,9 @@ union MTL_DBG_CTL {
     eFDBGEN FDBGEN : 1;
     eDBGMOD DBGMOD : 1;
     eBYTEEN BYTEEN : 2;
-    uint32_t _reserved_3 : 1;
+    uint32_t _reserved_0 : 1;
     ePKTSTATE PKTSTATE : 2;
-    uint32_t _reserved_4 : 1;
+    uint32_t _reserved_1 : 1;
     eRSTALL RSTALL : 1;
     eRSTSEL RSTSEL : 1;
     eFIFORDEN FIFORDEN : 1;
@@ -10907,7 +10907,7 @@ union MTL_DBG_CTL {
     eFIFOSEL FIFOSEL : 2;
     ePKTIE PKTIE : 1;
     eSTSIE STSIE : 1;
-    uint32_t _reserved_end : 16;
+    uint32_t _reserved_2 : 16;
   } bits;
   
   // Full 32-bit register value.
@@ -10956,10 +10956,10 @@ union MTL_DBG_STS {
     eFIFOBUSY FIFOBUSY : 1;
     ePKTSTATE PKTSTATE : 2;
     eBYTEEN BYTEEN : 2;
-    uint32_t _reserved_3 : 3;
+    uint32_t _reserved_0 : 3;
     ePKTI PKTI : 1;
     eSTSI STSI : 1;
-    uint32_t _reserved_5 : 5;
+    uint32_t _reserved_1 : 5;
     uint32_t LOCR : 17;
   } bits;
   
@@ -11039,12 +11039,12 @@ union MTL_INTERRUPT_STATUS {
     eQ2IS Q2IS : 1;
     eQ3IS Q3IS : 1;
     eQ4IS Q4IS : 1;
-    uint32_t _reserved_5 : 12;
+    uint32_t _reserved_0 : 12;
     eDBGIS DBGIS : 1;
     eESTIS ESTIS : 1;
-    uint32_t _reserved_7 : 4;
+    uint32_t _reserved_1 : 4;
     eMTLPIS MTLPIS : 1;
-    uint32_t _reserved_end : 8;
+    uint32_t _reserved_2 : 8;
   } bits;
   
   // Full 32-bit register value.
@@ -11082,21 +11082,21 @@ union MTL_RXQ_DMA_MAP0 {
   // Bit field definition.
   struct {
     uint32_t Q0MDMACH : 3;
-    uint32_t _reserved_1 : 1;
+    uint32_t _reserved_0 : 1;
     eQ0DDMACH Q0DDMACH : 1;
-    uint32_t _reserved_2 : 3;
+    uint32_t _reserved_1 : 3;
     uint32_t Q1MDMACH : 3;
-    uint32_t _reserved_3 : 1;
+    uint32_t _reserved_2 : 1;
     eQ1DDMACH Q1DDMACH : 1;
-    uint32_t _reserved_4 : 3;
+    uint32_t _reserved_3 : 3;
     uint32_t Q2MDMACH : 3;
-    uint32_t _reserved_5 : 1;
+    uint32_t _reserved_4 : 1;
     eQ2DDMACH Q2DDMACH : 1;
-    uint32_t _reserved_6 : 3;
+    uint32_t _reserved_5 : 3;
     uint32_t Q3MDMACH : 3;
-    uint32_t _reserved_7 : 1;
+    uint32_t _reserved_6 : 1;
     eQ3DDMACH Q3DDMACH : 1;
-    uint32_t _reserved_end : 3;
+    uint32_t _reserved_7 : 3;
   } bits;
   
   // Full 32-bit register value.
@@ -11119,9 +11119,9 @@ union MTL_RXQ_DMA_MAP1 {
   // Bit field definition.
   struct {
     uint32_t Q4MDMACH : 3;
-    uint32_t _reserved_1 : 1;
+    uint32_t _reserved_0 : 1;
     eQ4DDMACH Q4DDMACH : 1;
-    uint32_t _reserved_end : 27;
+    uint32_t _reserved_1 : 27;
   } bits;
   
   // Full 32-bit register value.
@@ -11150,9 +11150,9 @@ union MTL_TBS_CTRL {
   struct {
     eESTM ESTM : 1;
     eLEOV LEOV : 1;
-    uint32_t _reserved_2 : 2;
+    uint32_t _reserved_0 : 2;
     uint32_t LEGOS : 3;
-    uint32_t _reserved_3 : 1;
+    uint32_t _reserved_1 : 1;
     uint32_t LEOS : 24;
   } bits;
   
@@ -11199,12 +11199,12 @@ union MTL_EST_CONTROL {
   struct {
     eEEST EEST : 1;
     eSSWL SSWL : 1;
-    uint32_t _reserved_2 : 2;
+    uint32_t _reserved_0 : 2;
     eDDBF DDBF : 1;
     eDFBS DFBS : 1;
     eLCSE LCSE : 2;
     uint32_t TILS : 3;
-    uint32_t _reserved_6 : 1;
+    uint32_t _reserved_1 : 1;
     uint32_t CTOV : 12;
     uint32_t PTOV : 8;
   } bits;
@@ -11258,12 +11258,12 @@ union MTL_EST_STATUS {
     eHLBF HLBF : 1;
     eHLBS HLBS : 1;
     eCGCE CGCE : 1;
-    uint32_t _reserved_5 : 2;
+    uint32_t _reserved_0 : 2;
     eSWOL SWOL : 1;
     uint32_t BTRL : 4;
-    uint32_t _reserved_7 : 4;
+    uint32_t _reserved_1 : 4;
     uint32_t CGSN : 4;
-    uint32_t _reserved_end : 12;
+    uint32_t _reserved_2 : 12;
   } bits;
   
   // Full 32-bit register value.
@@ -11281,7 +11281,7 @@ union MTL_EST_SCH_ERROR {
   // Bit field definition.
   struct {
     uint32_t SEQN : 5;
-    uint32_t _reserved_end : 27;
+    uint32_t _reserved_0 : 27;
   } bits;
   
   // Full 32-bit register value.
@@ -11299,7 +11299,7 @@ union MTL_EST_FRM_SIZE_ERROR {
   // Bit field definition.
   struct {
     uint32_t FEQN : 5;
-    uint32_t _reserved_end : 27;
+    uint32_t _reserved_0 : 27;
   } bits;
   
   // Full 32-bit register value.
@@ -11317,9 +11317,9 @@ union MTL_EST_FRM_SIZE_CAPTURE {
   // Bit field definition.
   struct {
     uint32_t HBFS : 15;
-    uint32_t _reserved_1 : 1;
+    uint32_t _reserved_0 : 1;
     uint32_t HBFQ : 3;
-    uint32_t _reserved_end : 13;
+    uint32_t _reserved_1 : 13;
   } bits;
   
   // Full 32-bit register value.
@@ -11366,7 +11366,7 @@ union MTL_EST_INTR_ENABLE {
     eIEHF IEHF : 1;
     eIEHS IEHS : 1;
     eCGCE CGCE : 1;
-    uint32_t _reserved_end : 27;
+    uint32_t _reserved_0 : 27;
   } bits;
   
   // Full 32-bit register value.
@@ -11428,16 +11428,16 @@ union MTL_EST_GCL_CONTROL {
     eSRWO SRWO : 1;
     eR1W0 R1W0 : 1;
     eGCRR GCRR : 1;
-    uint32_t _reserved_3 : 1;
+    uint32_t _reserved_0 : 1;
     eDBGM DBGM : 1;
     eDBGB DBGB : 1;
-    uint32_t _reserved_5 : 2;
+    uint32_t _reserved_1 : 2;
     uint32_t ADDR : 9;
-    uint32_t _reserved_6 : 3;
+    uint32_t _reserved_2 : 3;
     eERR0 ERR0 : 1;
     eESTEIEE ESTEIEE : 1;
     eESTEIEC ESTEIEC : 2;
-    uint32_t _reserved_end : 8;
+    uint32_t _reserved_3 : 8;
   } bits;
   
   // Full 32-bit register value.
@@ -11477,11 +11477,11 @@ union MTL_FPE_CTRL_STS {
   // Bit field definition.
   struct {
     uint32_t AFSZ : 2;
-    uint32_t _reserved_1 : 6;
+    uint32_t _reserved_0 : 6;
     uint32_t PEC : 5;
-    uint32_t _reserved_2 : 15;
+    uint32_t _reserved_1 : 15;
     eHRS HRS : 1;
-    uint32_t _reserved_end : 3;
+    uint32_t _reserved_2 : 3;
   } bits;
   
   // Full 32-bit register value.
@@ -11522,9 +11522,9 @@ union MTL_RXP_CONTROL_STATUS {
   // Bit field definition.
   struct {
     uint32_t NVE : 8;
-    uint32_t _reserved_1 : 8;
+    uint32_t _reserved_0 : 8;
     uint32_t NPE : 8;
-    uint32_t _reserved_2 : 7;
+    uint32_t _reserved_1 : 7;
     eRXPI RXPI : 1;
   } bits;
   
@@ -11586,12 +11586,12 @@ union MTL_RXP_INTERRUPT_CONTROL_STATUS {
     eNPEOVIS NPEOVIS : 1;
     eFOOVIS FOOVIS : 1;
     ePDRFIS PDRFIS : 1;
-    uint32_t _reserved_4 : 12;
+    uint32_t _reserved_0 : 12;
     eNVEOVIE NVEOVIE : 1;
     eNPEOVIE NPEOVIE : 1;
     eFOOVIE FOOVIE : 1;
     ePDRFIE PDRFIE : 1;
-    uint32_t _reserved_end : 12;
+    uint32_t _reserved_1 : 12;
   } bits;
   
   // Full 32-bit register value.
@@ -11665,9 +11665,9 @@ union MTL_RXP_INDIRECT_ACC_CONTROL_STATUS {
   // Bit field definition.
   struct {
     uint32_t ADDR : 10;
-    uint32_t _reserved_1 : 6;
+    uint32_t _reserved_0 : 6;
     eWRRDN WRRDN : 1;
-    uint32_t _reserved_2 : 14;
+    uint32_t _reserved_1 : 14;
     eSTARTBUSY STARTBUSY : 1;
   } bits;
   
@@ -11733,9 +11733,9 @@ union MTL_TXQ0_OPERATION_MODE {
     eTSF TSF : 1;
     eTXQEN TXQEN : 2;
     eTTC TTC : 3;
-    uint32_t _reserved_4 : 9;
+    uint32_t _reserved_0 : 9;
     uint32_t TQS : 5;
-    uint32_t _reserved_end : 11;
+    uint32_t _reserved_1 : 11;
   } bits;
   
   // Full 32-bit register value.
@@ -11759,7 +11759,7 @@ union MTL_TXQ0_UNDERFLOW {
   struct {
     uint32_t UFFRMCNT : 11;
     eUFCNTOVF UFCNTOVF : 1;
-    uint32_t _reserved_end : 20;
+    uint32_t _reserved_0 : 20;
   } bits;
   
   // Full 32-bit register value.
@@ -11808,11 +11808,11 @@ union MTL_TXQ0_DEBUG {
     eTWCSTS TWCSTS : 1;
     eTXQSTS TXQSTS : 1;
     eTXSTSFSTS TXSTSFSTS : 1;
-    uint32_t _reserved_5 : 10;
+    uint32_t _reserved_0 : 10;
     uint32_t PTXQ : 3;
-    uint32_t _reserved_6 : 1;
+    uint32_t _reserved_1 : 1;
     uint32_t STXSTSF : 3;
-    uint32_t _reserved_end : 9;
+    uint32_t _reserved_2 : 9;
   } bits;
   
   // Full 32-bit register value.
@@ -11830,7 +11830,7 @@ union MTL_TXQ0_ETS_STATUS {
   // Bit field definition.
   struct {
     uint32_t ABS : 24;
-    uint32_t _reserved_end : 8;
+    uint32_t _reserved_0 : 8;
   } bits;
   
   // Full 32-bit register value.
@@ -11848,7 +11848,7 @@ union MTL_TXQ0_QUANTUM_WEIGHT {
   // Bit field definition.
   struct {
     uint32_t ISCQW : 21;
-    uint32_t _reserved_end : 11;
+    uint32_t _reserved_0 : 11;
   } bits;
   
   // Full 32-bit register value.
@@ -11897,14 +11897,14 @@ union MTL_Q0_INTERRUPT_CONTROL_STATUS {
   struct {
     eTXUNFIS TXUNFIS : 1;
     eABPSIS ABPSIS : 1;
-    uint32_t _reserved_2 : 6;
+    uint32_t _reserved_0 : 6;
     eTXUIE TXUIE : 1;
     eABPSIE ABPSIE : 1;
-    uint32_t _reserved_4 : 6;
+    uint32_t _reserved_1 : 6;
     eRXOVFIS RXOVFIS : 1;
-    uint32_t _reserved_5 : 7;
+    uint32_t _reserved_2 : 7;
     eRXOIE RXOIE : 1;
-    uint32_t _reserved_end : 7;
+    uint32_t _reserved_3 : 7;
   } bits;
   
   // Full 32-bit register value.
@@ -11954,18 +11954,18 @@ union MTL_RXQ0_OPERATION_MODE {
   // Bit field definition.
   struct {
     eRTC RTC : 2;
-    uint32_t _reserved_1 : 1;
+    uint32_t _reserved_0 : 1;
     eFUP FUP : 1;
     eFEP FEP : 1;
     eRSF RSF : 1;
     eDIS_TCP_EF DIS_TCP_EF : 1;
     eEHFC EHFC : 1;
     uint32_t RFA : 4;
-    uint32_t _reserved_7 : 2;
+    uint32_t _reserved_1 : 2;
     uint32_t RFD : 4;
-    uint32_t _reserved_8 : 2;
+    uint32_t _reserved_2 : 2;
     uint32_t RQS : 5;
-    uint32_t _reserved_end : 7;
+    uint32_t _reserved_3 : 7;
   } bits;
   
   // Full 32-bit register value.
@@ -11994,10 +11994,10 @@ union MTL_RXQ0_MISSED_PACKET_OVERFLOW_CNT {
   struct {
     uint32_t OVFPKTCNT : 11;
     eOVFCNTOVF OVFCNTOVF : 1;
-    uint32_t _reserved_2 : 4;
+    uint32_t _reserved_0 : 4;
     uint32_t MISPKTCNT : 11;
     eMISCNTOVF MISCNTOVF : 1;
-    uint32_t _reserved_end : 4;
+    uint32_t _reserved_1 : 4;
   } bits;
   
   // Full 32-bit register value.
@@ -12035,11 +12035,11 @@ union MTL_RXQ0_DEBUG {
   struct {
     eRWCSTS RWCSTS : 1;
     eRRCSTS RRCSTS : 2;
-    uint32_t _reserved_2 : 1;
+    uint32_t _reserved_0 : 1;
     eRXQSTS RXQSTS : 2;
-    uint32_t _reserved_3 : 10;
+    uint32_t _reserved_1 : 10;
     uint32_t PRXQ : 14;
-    uint32_t _reserved_end : 2;
+    uint32_t _reserved_2 : 2;
   } bits;
   
   // Full 32-bit register value.
@@ -12063,7 +12063,7 @@ union MTL_RXQ0_CONTROL {
   struct {
     uint32_t RXQ_WEGT : 3;
     eRXQ_FRM_ARBIT RXQ_FRM_ARBIT : 1;
-    uint32_t _reserved_end : 28;
+    uint32_t _reserved_0 : 28;
   } bits;
   
   // Full 32-bit register value.
@@ -12111,9 +12111,9 @@ union MTL_TXQ1_OPERATION_MODE {
     eTSF TSF : 1;
     eTXQEN TXQEN : 2;
     eTTC TTC : 3;
-    uint32_t _reserved_4 : 9;
+    uint32_t _reserved_0 : 9;
     uint32_t TQS : 5;
-    uint32_t _reserved_end : 11;
+    uint32_t _reserved_1 : 11;
   } bits;
   
   // Full 32-bit register value.
@@ -12137,7 +12137,7 @@ union MTL_TXQ1_UNDERFLOW {
   struct {
     uint32_t UFFRMCNT : 11;
     eUFCNTOVF UFCNTOVF : 1;
-    uint32_t _reserved_end : 20;
+    uint32_t _reserved_0 : 20;
   } bits;
   
   // Full 32-bit register value.
@@ -12186,11 +12186,11 @@ union MTL_TXQ1_DEBUG {
     eTWCSTS TWCSTS : 1;
     eTXQSTS TXQSTS : 1;
     eTXSTSFSTS TXSTSFSTS : 1;
-    uint32_t _reserved_5 : 10;
+    uint32_t _reserved_0 : 10;
     uint32_t PTXQ : 3;
-    uint32_t _reserved_6 : 1;
+    uint32_t _reserved_1 : 1;
     uint32_t STXSTSF : 3;
-    uint32_t _reserved_end : 9;
+    uint32_t _reserved_2 : 9;
   } bits;
   
   // Full 32-bit register value.
@@ -12229,7 +12229,7 @@ union MTL_TXQ1_ETS_CONTROL {
     eAVALG AVALG : 1;
     eCC CC : 1;
     eSLC SLC : 3;
-    uint32_t _reserved_end : 25;
+    uint32_t _reserved_1 : 25;
   } bits;
   
   // Full 32-bit register value.
@@ -12247,7 +12247,7 @@ union MTL_TXQ1_ETS_STATUS {
   // Bit field definition.
   struct {
     uint32_t ABS : 24;
-    uint32_t _reserved_end : 8;
+    uint32_t _reserved_0 : 8;
   } bits;
   
   // Full 32-bit register value.
@@ -12265,7 +12265,7 @@ union MTL_TXQ1_QUANTUM_WEIGHT {
   // Bit field definition.
   struct {
     uint32_t ISCQW : 21;
-    uint32_t _reserved_end : 11;
+    uint32_t _reserved_0 : 11;
   } bits;
   
   // Full 32-bit register value.
@@ -12283,7 +12283,7 @@ union MTL_TXQ1_SENDSLOPECREDIT {
   // Bit field definition.
   struct {
     uint32_t SSC : 14;
-    uint32_t _reserved_end : 18;
+    uint32_t _reserved_0 : 18;
   } bits;
   
   // Full 32-bit register value.
@@ -12301,7 +12301,7 @@ union MTL_TXQ1_HICREDIT {
   // Bit field definition.
   struct {
     uint32_t HC : 29;
-    uint32_t _reserved_end : 3;
+    uint32_t _reserved_0 : 3;
   } bits;
   
   // Full 32-bit register value.
@@ -12319,7 +12319,7 @@ union MTL_TXQ1_LOCREDIT {
   // Bit field definition.
   struct {
     uint32_t LC : 29;
-    uint32_t _reserved_end : 3;
+    uint32_t _reserved_0 : 3;
   } bits;
   
   // Full 32-bit register value.
@@ -12368,14 +12368,14 @@ union MTL_Q1_INTERRUPT_CONTROL_STATUS {
   struct {
     eTXUNFIS TXUNFIS : 1;
     eABPSIS ABPSIS : 1;
-    uint32_t _reserved_2 : 6;
+    uint32_t _reserved_0 : 6;
     eTXUIE TXUIE : 1;
     eABPSIE ABPSIE : 1;
-    uint32_t _reserved_4 : 6;
+    uint32_t _reserved_1 : 6;
     eRXOVFIS RXOVFIS : 1;
-    uint32_t _reserved_5 : 7;
+    uint32_t _reserved_2 : 7;
     eRXOIE RXOIE : 1;
-    uint32_t _reserved_end : 7;
+    uint32_t _reserved_3 : 7;
   } bits;
   
   // Full 32-bit register value.
@@ -12425,18 +12425,18 @@ union MTL_RXQ1_OPERATION_MODE {
   // Bit field definition.
   struct {
     eRTC RTC : 2;
-    uint32_t _reserved_1 : 1;
+    uint32_t _reserved_0 : 1;
     eFUP FUP : 1;
     eFEP FEP : 1;
     eRSF RSF : 1;
     eDIS_TCP_EF DIS_TCP_EF : 1;
     eEHFC EHFC : 1;
     uint32_t RFA : 4;
-    uint32_t _reserved_7 : 2;
+    uint32_t _reserved_1 : 2;
     uint32_t RFD : 4;
-    uint32_t _reserved_8 : 2;
+    uint32_t _reserved_2 : 2;
     uint32_t RQS : 5;
-    uint32_t _reserved_end : 7;
+    uint32_t _reserved_3 : 7;
   } bits;
   
   // Full 32-bit register value.
@@ -12465,10 +12465,10 @@ union MTL_RXQ1_MISSED_PACKET_OVERFLOW_CNT {
   struct {
     uint32_t OVFPKTCNT : 11;
     eOVFCNTOVF OVFCNTOVF : 1;
-    uint32_t _reserved_2 : 4;
+    uint32_t _reserved_0 : 4;
     uint32_t MISPKTCNT : 11;
     eMISCNTOVF MISCNTOVF : 1;
-    uint32_t _reserved_end : 4;
+    uint32_t _reserved_1 : 4;
   } bits;
   
   // Full 32-bit register value.
@@ -12506,11 +12506,11 @@ union MTL_RXQ1_DEBUG {
   struct {
     eRWCSTS RWCSTS : 1;
     eRRCSTS RRCSTS : 2;
-    uint32_t _reserved_2 : 1;
+    uint32_t _reserved_0 : 1;
     eRXQSTS RXQSTS : 2;
-    uint32_t _reserved_3 : 10;
+    uint32_t _reserved_1 : 10;
     uint32_t PRXQ : 14;
-    uint32_t _reserved_end : 2;
+    uint32_t _reserved_2 : 2;
   } bits;
   
   // Full 32-bit register value.
@@ -12534,7 +12534,7 @@ union MTL_RXQ1_CONTROL {
   struct {
     uint32_t RXQ_WEGT : 3;
     eRXQ_FRM_ARBIT RXQ_FRM_ARBIT : 1;
-    uint32_t _reserved_end : 28;
+    uint32_t _reserved_0 : 28;
   } bits;
   
   // Full 32-bit register value.
@@ -12582,9 +12582,9 @@ union MTL_TXQ2_OPERATION_MODE {
     eTSF TSF : 1;
     eTXQEN TXQEN : 2;
     eTTC TTC : 3;
-    uint32_t _reserved_4 : 9;
+    uint32_t _reserved_0 : 9;
     uint32_t TQS : 5;
-    uint32_t _reserved_end : 11;
+    uint32_t _reserved_1 : 11;
   } bits;
   
   // Full 32-bit register value.
@@ -12608,7 +12608,7 @@ union MTL_TXQ2_UNDERFLOW {
   struct {
     uint32_t UFFRMCNT : 11;
     eUFCNTOVF UFCNTOVF : 1;
-    uint32_t _reserved_end : 20;
+    uint32_t _reserved_0 : 20;
   } bits;
   
   // Full 32-bit register value.
@@ -12657,11 +12657,11 @@ union MTL_TXQ2_DEBUG {
     eTWCSTS TWCSTS : 1;
     eTXQSTS TXQSTS : 1;
     eTXSTSFSTS TXSTSFSTS : 1;
-    uint32_t _reserved_5 : 10;
+    uint32_t _reserved_0 : 10;
     uint32_t PTXQ : 3;
-    uint32_t _reserved_6 : 1;
+    uint32_t _reserved_1 : 1;
     uint32_t STXSTSF : 3;
-    uint32_t _reserved_end : 9;
+    uint32_t _reserved_2 : 9;
   } bits;
   
   // Full 32-bit register value.
@@ -12700,7 +12700,7 @@ union MTL_TXQ2_ETS_CONTROL {
     eAVALG AVALG : 1;
     eCC CC : 1;
     eSLC SLC : 3;
-    uint32_t _reserved_end : 25;
+    uint32_t _reserved_1 : 25;
   } bits;
   
   // Full 32-bit register value.
@@ -12718,7 +12718,7 @@ union MTL_TXQ2_ETS_STATUS {
   // Bit field definition.
   struct {
     uint32_t ABS : 24;
-    uint32_t _reserved_end : 8;
+    uint32_t _reserved_0 : 8;
   } bits;
   
   // Full 32-bit register value.
@@ -12736,7 +12736,7 @@ union MTL_TXQ2_QUANTUM_WEIGHT {
   // Bit field definition.
   struct {
     uint32_t ISCQW : 21;
-    uint32_t _reserved_end : 11;
+    uint32_t _reserved_0 : 11;
   } bits;
   
   // Full 32-bit register value.
@@ -12754,7 +12754,7 @@ union MTL_TXQ2_SENDSLOPECREDIT {
   // Bit field definition.
   struct {
     uint32_t SSC : 14;
-    uint32_t _reserved_end : 18;
+    uint32_t _reserved_0 : 18;
   } bits;
   
   // Full 32-bit register value.
@@ -12772,7 +12772,7 @@ union MTL_TXQ2_HICREDIT {
   // Bit field definition.
   struct {
     uint32_t HC : 29;
-    uint32_t _reserved_end : 3;
+    uint32_t _reserved_0 : 3;
   } bits;
   
   // Full 32-bit register value.
@@ -12790,7 +12790,7 @@ union MTL_TXQ2_LOCREDIT {
   // Bit field definition.
   struct {
     uint32_t LC : 29;
-    uint32_t _reserved_end : 3;
+    uint32_t _reserved_0 : 3;
   } bits;
   
   // Full 32-bit register value.
@@ -12839,14 +12839,14 @@ union MTL_Q2_INTERRUPT_CONTROL_STATUS {
   struct {
     eTXUNFIS TXUNFIS : 1;
     eABPSIS ABPSIS : 1;
-    uint32_t _reserved_2 : 6;
+    uint32_t _reserved_0 : 6;
     eTXUIE TXUIE : 1;
     eABPSIE ABPSIE : 1;
-    uint32_t _reserved_4 : 6;
+    uint32_t _reserved_1 : 6;
     eRXOVFIS RXOVFIS : 1;
-    uint32_t _reserved_5 : 7;
+    uint32_t _reserved_2 : 7;
     eRXOIE RXOIE : 1;
-    uint32_t _reserved_end : 7;
+    uint32_t _reserved_3 : 7;
   } bits;
   
   // Full 32-bit register value.
@@ -12896,18 +12896,18 @@ union MTL_RXQ2_OPERATION_MODE {
   // Bit field definition.
   struct {
     eRTC RTC : 2;
-    uint32_t _reserved_1 : 1;
+    uint32_t _reserved_0 : 1;
     eFUP FUP : 1;
     eFEP FEP : 1;
     eRSF RSF : 1;
     eDIS_TCP_EF DIS_TCP_EF : 1;
     eEHFC EHFC : 1;
     uint32_t RFA : 4;
-    uint32_t _reserved_7 : 2;
+    uint32_t _reserved_1 : 2;
     uint32_t RFD : 4;
-    uint32_t _reserved_8 : 2;
+    uint32_t _reserved_2 : 2;
     uint32_t RQS : 5;
-    uint32_t _reserved_end : 7;
+    uint32_t _reserved_3 : 7;
   } bits;
   
   // Full 32-bit register value.
@@ -12936,10 +12936,10 @@ union MTL_RXQ2_MISSED_PACKET_OVERFLOW_CNT {
   struct {
     uint32_t OVFPKTCNT : 11;
     eOVFCNTOVF OVFCNTOVF : 1;
-    uint32_t _reserved_2 : 4;
+    uint32_t _reserved_0 : 4;
     uint32_t MISPKTCNT : 11;
     eMISCNTOVF MISCNTOVF : 1;
-    uint32_t _reserved_end : 4;
+    uint32_t _reserved_1 : 4;
   } bits;
   
   // Full 32-bit register value.
@@ -12977,11 +12977,11 @@ union MTL_RXQ2_DEBUG {
   struct {
     eRWCSTS RWCSTS : 1;
     eRRCSTS RRCSTS : 2;
-    uint32_t _reserved_2 : 1;
+    uint32_t _reserved_0 : 1;
     eRXQSTS RXQSTS : 2;
-    uint32_t _reserved_3 : 10;
+    uint32_t _reserved_1 : 10;
     uint32_t PRXQ : 14;
-    uint32_t _reserved_end : 2;
+    uint32_t _reserved_2 : 2;
   } bits;
   
   // Full 32-bit register value.
@@ -13005,7 +13005,7 @@ union MTL_RXQ2_CONTROL {
   struct {
     uint32_t RXQ_WEGT : 3;
     eRXQ_FRM_ARBIT RXQ_FRM_ARBIT : 1;
-    uint32_t _reserved_end : 28;
+    uint32_t _reserved_0 : 28;
   } bits;
   
   // Full 32-bit register value.
@@ -13053,9 +13053,9 @@ union MTL_TXQ3_OPERATION_MODE {
     eTSF TSF : 1;
     eTXQEN TXQEN : 2;
     eTTC TTC : 3;
-    uint32_t _reserved_4 : 9;
+    uint32_t _reserved_0 : 9;
     uint32_t TQS : 5;
-    uint32_t _reserved_end : 11;
+    uint32_t _reserved_1 : 11;
   } bits;
   
   // Full 32-bit register value.
@@ -13079,7 +13079,7 @@ union MTL_TXQ3_UNDERFLOW {
   struct {
     uint32_t UFFRMCNT : 11;
     eUFCNTOVF UFCNTOVF : 1;
-    uint32_t _reserved_end : 20;
+    uint32_t _reserved_0 : 20;
   } bits;
   
   // Full 32-bit register value.
@@ -13128,11 +13128,11 @@ union MTL_TXQ3_DEBUG {
     eTWCSTS TWCSTS : 1;
     eTXQSTS TXQSTS : 1;
     eTXSTSFSTS TXSTSFSTS : 1;
-    uint32_t _reserved_5 : 10;
+    uint32_t _reserved_0 : 10;
     uint32_t PTXQ : 3;
-    uint32_t _reserved_6 : 1;
+    uint32_t _reserved_1 : 1;
     uint32_t STXSTSF : 3;
-    uint32_t _reserved_end : 9;
+    uint32_t _reserved_2 : 9;
   } bits;
   
   // Full 32-bit register value.
@@ -13171,7 +13171,7 @@ union MTL_TXQ3_ETS_CONTROL {
     eAVALG AVALG : 1;
     eCC CC : 1;
     eSLC SLC : 3;
-    uint32_t _reserved_end : 25;
+    uint32_t _reserved_1 : 25;
   } bits;
   
   // Full 32-bit register value.
@@ -13189,7 +13189,7 @@ union MTL_TXQ3_ETS_STATUS {
   // Bit field definition.
   struct {
     uint32_t ABS : 24;
-    uint32_t _reserved_end : 8;
+    uint32_t _reserved_0 : 8;
   } bits;
   
   // Full 32-bit register value.
@@ -13207,7 +13207,7 @@ union MTL_TXQ3_QUANTUM_WEIGHT {
   // Bit field definition.
   struct {
     uint32_t ISCQW : 21;
-    uint32_t _reserved_end : 11;
+    uint32_t _reserved_0 : 11;
   } bits;
   
   // Full 32-bit register value.
@@ -13225,7 +13225,7 @@ union MTL_TXQ3_SENDSLOPECREDIT {
   // Bit field definition.
   struct {
     uint32_t SSC : 14;
-    uint32_t _reserved_end : 18;
+    uint32_t _reserved_0 : 18;
   } bits;
   
   // Full 32-bit register value.
@@ -13243,7 +13243,7 @@ union MTL_TXQ3_HICREDIT {
   // Bit field definition.
   struct {
     uint32_t HC : 29;
-    uint32_t _reserved_end : 3;
+    uint32_t _reserved_0 : 3;
   } bits;
   
   // Full 32-bit register value.
@@ -13261,7 +13261,7 @@ union MTL_TXQ3_LOCREDIT {
   // Bit field definition.
   struct {
     uint32_t LC : 29;
-    uint32_t _reserved_end : 3;
+    uint32_t _reserved_0 : 3;
   } bits;
   
   // Full 32-bit register value.
@@ -13310,14 +13310,14 @@ union MTL_Q3_INTERRUPT_CONTROL_STATUS {
   struct {
     eTXUNFIS TXUNFIS : 1;
     eABPSIS ABPSIS : 1;
-    uint32_t _reserved_2 : 6;
+    uint32_t _reserved_0 : 6;
     eTXUIE TXUIE : 1;
     eABPSIE ABPSIE : 1;
-    uint32_t _reserved_4 : 6;
+    uint32_t _reserved_1 : 6;
     eRXOVFIS RXOVFIS : 1;
-    uint32_t _reserved_5 : 7;
+    uint32_t _reserved_2 : 7;
     eRXOIE RXOIE : 1;
-    uint32_t _reserved_end : 7;
+    uint32_t _reserved_3 : 7;
   } bits;
   
   // Full 32-bit register value.
@@ -13367,18 +13367,18 @@ union MTL_RXQ3_OPERATION_MODE {
   // Bit field definition.
   struct {
     eRTC RTC : 2;
-    uint32_t _reserved_1 : 1;
+    uint32_t _reserved_0 : 1;
     eFUP FUP : 1;
     eFEP FEP : 1;
     eRSF RSF : 1;
     eDIS_TCP_EF DIS_TCP_EF : 1;
     eEHFC EHFC : 1;
     uint32_t RFA : 4;
-    uint32_t _reserved_7 : 2;
+    uint32_t _reserved_1 : 2;
     uint32_t RFD : 4;
-    uint32_t _reserved_8 : 2;
+    uint32_t _reserved_2 : 2;
     uint32_t RQS : 5;
-    uint32_t _reserved_end : 7;
+    uint32_t _reserved_3 : 7;
   } bits;
   
   // Full 32-bit register value.
@@ -13407,10 +13407,10 @@ union MTL_RXQ3_MISSED_PACKET_OVERFLOW_CNT {
   struct {
     uint32_t OVFPKTCNT : 11;
     eOVFCNTOVF OVFCNTOVF : 1;
-    uint32_t _reserved_2 : 4;
+    uint32_t _reserved_0 : 4;
     uint32_t MISPKTCNT : 11;
     eMISCNTOVF MISCNTOVF : 1;
-    uint32_t _reserved_end : 4;
+    uint32_t _reserved_1 : 4;
   } bits;
   
   // Full 32-bit register value.
@@ -13448,11 +13448,11 @@ union MTL_RXQ3_DEBUG {
   struct {
     eRWCSTS RWCSTS : 1;
     eRRCSTS RRCSTS : 2;
-    uint32_t _reserved_2 : 1;
+    uint32_t _reserved_0 : 1;
     eRXQSTS RXQSTS : 2;
-    uint32_t _reserved_3 : 10;
+    uint32_t _reserved_1 : 10;
     uint32_t PRXQ : 14;
-    uint32_t _reserved_end : 2;
+    uint32_t _reserved_2 : 2;
   } bits;
   
   // Full 32-bit register value.
@@ -13476,7 +13476,7 @@ union MTL_RXQ3_CONTROL {
   struct {
     uint32_t RXQ_WEGT : 3;
     eRXQ_FRM_ARBIT RXQ_FRM_ARBIT : 1;
-    uint32_t _reserved_end : 28;
+    uint32_t _reserved_0 : 28;
   } bits;
   
   // Full 32-bit register value.
@@ -13524,9 +13524,9 @@ union MTL_TXQ4_OPERATION_MODE {
     eTSF TSF : 1;
     eTXQEN TXQEN : 2;
     eTTC TTC : 3;
-    uint32_t _reserved_4 : 9;
+    uint32_t _reserved_0 : 9;
     uint32_t TQS : 5;
-    uint32_t _reserved_end : 11;
+    uint32_t _reserved_1 : 11;
   } bits;
   
   // Full 32-bit register value.
@@ -13550,7 +13550,7 @@ union MTL_TXQ4_UNDERFLOW {
   struct {
     uint32_t UFFRMCNT : 11;
     eUFCNTOVF UFCNTOVF : 1;
-    uint32_t _reserved_end : 20;
+    uint32_t _reserved_0 : 20;
   } bits;
   
   // Full 32-bit register value.
@@ -13599,11 +13599,11 @@ union MTL_TXQ4_DEBUG {
     eTWCSTS TWCSTS : 1;
     eTXQSTS TXQSTS : 1;
     eTXSTSFSTS TXSTSFSTS : 1;
-    uint32_t _reserved_5 : 10;
+    uint32_t _reserved_0 : 10;
     uint32_t PTXQ : 3;
-    uint32_t _reserved_6 : 1;
+    uint32_t _reserved_1 : 1;
     uint32_t STXSTSF : 3;
-    uint32_t _reserved_end : 9;
+    uint32_t _reserved_2 : 9;
   } bits;
   
   // Full 32-bit register value.
@@ -13642,7 +13642,7 @@ union MTL_TXQ4_ETS_CONTROL {
     eAVALG AVALG : 1;
     eCC CC : 1;
     eSLC SLC : 3;
-    uint32_t _reserved_end : 25;
+    uint32_t _reserved_1 : 25;
   } bits;
   
   // Full 32-bit register value.
@@ -13660,7 +13660,7 @@ union MTL_TXQ4_ETS_STATUS {
   // Bit field definition.
   struct {
     uint32_t ABS : 24;
-    uint32_t _reserved_end : 8;
+    uint32_t _reserved_0 : 8;
   } bits;
   
   // Full 32-bit register value.
@@ -13678,7 +13678,7 @@ union MTL_TXQ4_QUANTUM_WEIGHT {
   // Bit field definition.
   struct {
     uint32_t ISCQW : 21;
-    uint32_t _reserved_end : 11;
+    uint32_t _reserved_0 : 11;
   } bits;
   
   // Full 32-bit register value.
@@ -13696,7 +13696,7 @@ union MTL_TXQ4_SENDSLOPECREDIT {
   // Bit field definition.
   struct {
     uint32_t SSC : 14;
-    uint32_t _reserved_end : 18;
+    uint32_t _reserved_0 : 18;
   } bits;
   
   // Full 32-bit register value.
@@ -13714,7 +13714,7 @@ union MTL_TXQ4_HICREDIT {
   // Bit field definition.
   struct {
     uint32_t HC : 29;
-    uint32_t _reserved_end : 3;
+    uint32_t _reserved_0 : 3;
   } bits;
   
   // Full 32-bit register value.
@@ -13732,7 +13732,7 @@ union MTL_TXQ4_LOCREDIT {
   // Bit field definition.
   struct {
     uint32_t LC : 29;
-    uint32_t _reserved_end : 3;
+    uint32_t _reserved_0 : 3;
   } bits;
   
   // Full 32-bit register value.
@@ -13781,14 +13781,14 @@ union MTL_Q4_INTERRUPT_CONTROL_STATUS {
   struct {
     eTXUNFIS TXUNFIS : 1;
     eABPSIS ABPSIS : 1;
-    uint32_t _reserved_2 : 6;
+    uint32_t _reserved_0 : 6;
     eTXUIE TXUIE : 1;
     eABPSIE ABPSIE : 1;
-    uint32_t _reserved_4 : 6;
+    uint32_t _reserved_1 : 6;
     eRXOVFIS RXOVFIS : 1;
-    uint32_t _reserved_5 : 7;
+    uint32_t _reserved_2 : 7;
     eRXOIE RXOIE : 1;
-    uint32_t _reserved_end : 7;
+    uint32_t _reserved_3 : 7;
   } bits;
   
   // Full 32-bit register value.
@@ -13838,18 +13838,18 @@ union MTL_RXQ4_OPERATION_MODE {
   // Bit field definition.
   struct {
     eRTC RTC : 2;
-    uint32_t _reserved_1 : 1;
+    uint32_t _reserved_0 : 1;
     eFUP FUP : 1;
     eFEP FEP : 1;
     eRSF RSF : 1;
     eDIS_TCP_EF DIS_TCP_EF : 1;
     eEHFC EHFC : 1;
     uint32_t RFA : 4;
-    uint32_t _reserved_7 : 2;
+    uint32_t _reserved_1 : 2;
     uint32_t RFD : 4;
-    uint32_t _reserved_8 : 2;
+    uint32_t _reserved_2 : 2;
     uint32_t RQS : 5;
-    uint32_t _reserved_end : 7;
+    uint32_t _reserved_3 : 7;
   } bits;
   
   // Full 32-bit register value.
@@ -13878,10 +13878,10 @@ union MTL_RXQ4_MISSED_PACKET_OVERFLOW_CNT {
   struct {
     uint32_t OVFPKTCNT : 11;
     eOVFCNTOVF OVFCNTOVF : 1;
-    uint32_t _reserved_2 : 4;
+    uint32_t _reserved_0 : 4;
     uint32_t MISPKTCNT : 11;
     eMISCNTOVF MISCNTOVF : 1;
-    uint32_t _reserved_end : 4;
+    uint32_t _reserved_1 : 4;
   } bits;
   
   // Full 32-bit register value.
@@ -13919,11 +13919,11 @@ union MTL_RXQ4_DEBUG {
   struct {
     eRWCSTS RWCSTS : 1;
     eRRCSTS RRCSTS : 2;
-    uint32_t _reserved_2 : 1;
+    uint32_t _reserved_0 : 1;
     eRXQSTS RXQSTS : 2;
-    uint32_t _reserved_3 : 10;
+    uint32_t _reserved_1 : 10;
     uint32_t PRXQ : 14;
-    uint32_t _reserved_end : 2;
+    uint32_t _reserved_2 : 2;
   } bits;
   
   // Full 32-bit register value.
@@ -13947,7 +13947,7 @@ union MTL_RXQ4_CONTROL {
   struct {
     uint32_t RXQ_WEGT : 3;
     eRXQ_FRM_ARBIT RXQ_FRM_ARBIT : 1;
-    uint32_t _reserved_end : 28;
+    uint32_t _reserved_0 : 28;
   } bits;
   
   // Full 32-bit register value.
@@ -13981,11 +13981,11 @@ union DMA_MODE {
   // Bit field definition.
   struct {
     eSWR SWR : 1;
-    uint32_t _reserved_1 : 7;
+    uint32_t _reserved_0 : 7;
     eDSPW DSPW : 1;
-    uint32_t _reserved_2 : 7;
+    uint32_t _reserved_1 : 7;
     eINTM INTM : 2;
-    uint32_t _reserved_end : 14;
+    uint32_t _reserved_2 : 14;
   } bits;
   
   // Full 32-bit register value.
@@ -14051,16 +14051,16 @@ union DMA_SYSBUS_MODE {
     eBLEN4 BLEN4 : 1;
     eBLEN8 BLEN8 : 1;
     eBLEN16 BLEN16 : 1;
-    uint32_t _reserved_4 : 6;
+    uint32_t _reserved_0 : 6;
     eAALE AALE : 1;
-    uint32_t _reserved_5 : 1;
+    uint32_t _reserved_1 : 1;
     eAAL AAL : 1;
     eONEKBBE ONEKBBE : 1;
-    uint32_t _reserved_7 : 2;
+    uint32_t _reserved_2 : 2;
     uint32_t RD_OSR_LMT : 4;
-    uint32_t _reserved_8 : 4;
+    uint32_t _reserved_3 : 4;
     uint32_t WR_OSR_LMT : 4;
-    uint32_t _reserved_9 : 2;
+    uint32_t _reserved_4 : 2;
     eLPI_XIT_PKT LPI_XIT_PKT : 1;
     eEN_LPI EN_LPI : 1;
   } bits;
@@ -14119,10 +14119,10 @@ union DMA_INTERRUPT_STATUS {
     eDC2IS DC2IS : 1;
     eDC3IS DC3IS : 1;
     eDC4IS DC4IS : 1;
-    uint32_t _reserved_5 : 11;
+    uint32_t _reserved_0 : 11;
     eMTLIS MTLIS : 1;
     eMACIS MACIS : 1;
-    uint32_t _reserved_end : 14;
+    uint32_t _reserved_1 : 14;
   } bits;
   
   // Full 32-bit register value.
@@ -14211,7 +14211,7 @@ union DMA_DEBUG_STATUS0 {
   struct {
     eAXWHSTS AXWHSTS : 1;
     eAXRHSTS AXRHSTS : 1;
-    uint32_t _reserved_2 : 6;
+    uint32_t _reserved_0 : 6;
     eRPS0 RPS0 : 4;
     eTPS0 TPS0 : 4;
     eRPS1 RPS1 : 4;
@@ -14278,7 +14278,7 @@ union DMA_DEBUG_STATUS1 {
     eTPS3 TPS3 : 4;
     eRPS4 RPS4 : 4;
     eTPS4 TPS4 : 4;
-    uint32_t _reserved_end : 16;
+    uint32_t _reserved_0 : 16;
   } bits;
   
   // Full 32-bit register value.
@@ -14296,7 +14296,7 @@ union DMA_AXI_LPI_ENTRY_INTERVAL {
   // Bit field definition.
   struct {
     uint32_t LPIEI : 4;
-    uint32_t _reserved_end : 28;
+    uint32_t _reserved_0 : 28;
   } bits;
   
   // Full 32-bit register value.
@@ -14319,9 +14319,9 @@ union DMA_TBS_CTRL {
   // Bit field definition.
   struct {
     eFTOV FTOV : 1;
-    uint32_t _reserved_1 : 3;
+    uint32_t _reserved_0 : 3;
     uint32_t FGOS : 3;
-    uint32_t _reserved_2 : 1;
+    uint32_t _reserved_1 : 1;
     uint32_t FTOS : 24;
   } bits;
   
@@ -14348,7 +14348,7 @@ union DMA_CH0_CONTROL {
     ePBLx8 PBLx8 : 1;
     uint32_t _reserved_1 : 1;
     uint32_t DSL : 3;
-    uint32_t _reserved_end : 11;
+    uint32_t _reserved_2 : 11;
   } bits;
   
   // Full 32-bit register value.
@@ -14386,14 +14386,14 @@ union DMA_CH0_TX_CONTROL {
   // Bit field definition.
   struct {
     eST ST : 1;
-    uint32_t _reserved_1 : 3;
+    uint32_t _reserved_0 : 3;
     eOSF OSF : 1;
-    uint32_t _reserved_2 : 10;
+    uint32_t _reserved_1 : 10;
     eIPBL IPBL : 1;
     uint32_t TxPBL : 6;
-    uint32_t _reserved_4 : 6;
+    uint32_t _reserved_2 : 6;
     eEDSE EDSE : 1;
-    uint32_t _reserved_end : 3;
+    uint32_t _reserved_3 : 3;
   } bits;
   
   // Full 32-bit register value.
@@ -14423,9 +14423,9 @@ union DMA_CH0_RX_CONTROL {
     eSR SR : 1;
     uint32_t RBSZ_x_0 : 3;
     uint32_t RBSZ_13_y : 11;
-    uint32_t _reserved_3 : 1;
+    uint32_t _reserved_0 : 1;
     uint32_t RxPBL : 6;
-    uint32_t _reserved_4 : 9;
+    uint32_t _reserved_1 : 9;
     eRPF RPF : 1;
   } bits;
   
@@ -14516,7 +14516,7 @@ union DMA_CH0_TXDESC_RING_LENGTH {
   // Bit field definition.
   struct {
     uint32_t TDRL : 10;
-    uint32_t _reserved_end : 22;
+    uint32_t _reserved_0 : 22;
   } bits;
   
   // Full 32-bit register value.
@@ -14534,7 +14534,7 @@ union DMA_CH0_RXDESC_RING_LENGTH {
   // Bit field definition.
   struct {
     uint32_t RDRL : 10;
-    uint32_t _reserved_end : 22;
+    uint32_t _reserved_0 : 22;
   } bits;
   
   // Full 32-bit register value.
@@ -14619,7 +14619,7 @@ union DMA_CH0_INTERRUPT_ENABLE {
     eTIE TIE : 1;
     eTXSE TXSE : 1;
     eTBUE TBUE : 1;
-    uint32_t _reserved_3 : 3;
+    uint32_t _reserved_0 : 3;
     eRIE RIE : 1;
     eRBUE RBUE : 1;
     eRSE RSE : 1;
@@ -14630,7 +14630,7 @@ union DMA_CH0_INTERRUPT_ENABLE {
     eCDEE CDEE : 1;
     eAIE AIE : 1;
     eNIE NIE : 1;
-    uint32_t _reserved_end : 16;
+    uint32_t _reserved_1 : 16;
   } bits;
   
   // Full 32-bit register value.
@@ -14648,9 +14648,9 @@ union DMA_CH0_RX_INTERRUPT_WATCHDOG_TIMER {
   // Bit field definition.
   struct {
     uint32_t RWT : 8;
-    uint32_t _reserved_1 : 8;
+    uint32_t _reserved_0 : 8;
     uint32_t RWTU : 2;
-    uint32_t _reserved_end : 14;
+    uint32_t _reserved_1 : 14;
   } bits;
   
   // Full 32-bit register value.
@@ -14679,10 +14679,10 @@ union DMA_CH0_SLOT_FUNCTION_CONTROL_STATUS {
   struct {
     eESC ESC : 1;
     eASC ASC : 1;
-    uint32_t _reserved_2 : 2;
+    uint32_t _reserved_0 : 2;
     uint32_t SIV : 12;
     uint32_t RSN : 4;
-    uint32_t _reserved_end : 12;
+    uint32_t _reserved_1 : 12;
   } bits;
   
   // Full 32-bit register value.
@@ -14835,7 +14835,7 @@ union DMA_CH0_STATUS {
     eTI TI : 1;
     eTPS TPS : 1;
     eTBU TBU : 1;
-    uint32_t _reserved_3 : 3;
+    uint32_t _reserved_0 : 3;
     eRI RI : 1;
     eRBU RBU : 1;
     eRPS RPS : 1;
@@ -14848,7 +14848,7 @@ union DMA_CH0_STATUS {
     eNIS NIS : 1;
     uint32_t TEB : 3;
     uint32_t REB : 3;
-    uint32_t _reserved_end : 10;
+    uint32_t _reserved_1 : 10;
   } bits;
   
   // Full 32-bit register value.
@@ -14871,9 +14871,9 @@ union DMA_CH0_MISS_FRAME_CNT {
   // Bit field definition.
   struct {
     uint32_t MFC : 11;
-    uint32_t _reserved_1 : 4;
+    uint32_t _reserved_0 : 4;
     eMFCO MFCO : 1;
-    uint32_t _reserved_end : 16;
+    uint32_t _reserved_1 : 16;
   } bits;
   
   // Full 32-bit register value.
@@ -14914,7 +14914,7 @@ union DMA_CH0_RX_ERI_CNT {
   // Bit field definition.
   struct {
     uint32_t ECNT : 12;
-    uint32_t _reserved_end : 20;
+    uint32_t _reserved_0 : 20;
   } bits;
   
   // Full 32-bit register value.
@@ -14940,7 +14940,7 @@ union DMA_CH1_CONTROL {
     ePBLx8 PBLx8 : 1;
     uint32_t _reserved_1 : 1;
     uint32_t DSL : 3;
-    uint32_t _reserved_end : 11;
+    uint32_t _reserved_2 : 11;
   } bits;
   
   // Full 32-bit register value.
@@ -14978,14 +14978,14 @@ union DMA_CH1_TX_CONTROL {
   // Bit field definition.
   struct {
     eST ST : 1;
-    uint32_t _reserved_1 : 3;
+    uint32_t _reserved_0 : 3;
     eOSF OSF : 1;
-    uint32_t _reserved_2 : 10;
+    uint32_t _reserved_1 : 10;
     eIPBL IPBL : 1;
     uint32_t TxPBL : 6;
-    uint32_t _reserved_4 : 6;
+    uint32_t _reserved_2 : 6;
     eEDSE EDSE : 1;
-    uint32_t _reserved_end : 3;
+    uint32_t _reserved_3 : 3;
   } bits;
   
   // Full 32-bit register value.
@@ -15015,9 +15015,9 @@ union DMA_CH1_RX_CONTROL {
     eSR SR : 1;
     uint32_t RBSZ_x_0 : 3;
     uint32_t RBSZ_13_y : 11;
-    uint32_t _reserved_3 : 1;
+    uint32_t _reserved_0 : 1;
     uint32_t RxPBL : 6;
-    uint32_t _reserved_4 : 9;
+    uint32_t _reserved_1 : 9;
     eRPF RPF : 1;
   } bits;
   
@@ -15108,7 +15108,7 @@ union DMA_CH1_TXDESC_RING_LENGTH {
   // Bit field definition.
   struct {
     uint32_t TDRL : 10;
-    uint32_t _reserved_end : 22;
+    uint32_t _reserved_0 : 22;
   } bits;
   
   // Full 32-bit register value.
@@ -15126,7 +15126,7 @@ union DMA_CH1_RXDESC_RING_LENGTH {
   // Bit field definition.
   struct {
     uint32_t RDRL : 10;
-    uint32_t _reserved_end : 22;
+    uint32_t _reserved_0 : 22;
   } bits;
   
   // Full 32-bit register value.
@@ -15211,7 +15211,7 @@ union DMA_CH1_INTERRUPT_ENABLE {
     eTIE TIE : 1;
     eTXSE TXSE : 1;
     eTBUE TBUE : 1;
-    uint32_t _reserved_3 : 3;
+    uint32_t _reserved_0 : 3;
     eRIE RIE : 1;
     eRBUE RBUE : 1;
     eRSE RSE : 1;
@@ -15222,7 +15222,7 @@ union DMA_CH1_INTERRUPT_ENABLE {
     eCDEE CDEE : 1;
     eAIE AIE : 1;
     eNIE NIE : 1;
-    uint32_t _reserved_end : 16;
+    uint32_t _reserved_1 : 16;
   } bits;
   
   // Full 32-bit register value.
@@ -15240,9 +15240,9 @@ union DMA_CH1_RX_INTERRUPT_WATCHDOG_TIMER {
   // Bit field definition.
   struct {
     uint32_t RWT : 8;
-    uint32_t _reserved_1 : 8;
+    uint32_t _reserved_0 : 8;
     uint32_t RWTU : 2;
-    uint32_t _reserved_end : 14;
+    uint32_t _reserved_1 : 14;
   } bits;
   
   // Full 32-bit register value.
@@ -15271,10 +15271,10 @@ union DMA_CH1_SLOT_FUNCTION_CONTROL_STATUS {
   struct {
     eESC ESC : 1;
     eASC ASC : 1;
-    uint32_t _reserved_2 : 2;
+    uint32_t _reserved_0 : 2;
     uint32_t SIV : 12;
     uint32_t RSN : 4;
-    uint32_t _reserved_end : 12;
+    uint32_t _reserved_1 : 12;
   } bits;
   
   // Full 32-bit register value.
@@ -15427,7 +15427,7 @@ union DMA_CH1_STATUS {
     eTI TI : 1;
     eTPS TPS : 1;
     eTBU TBU : 1;
-    uint32_t _reserved_3 : 3;
+    uint32_t _reserved_0 : 3;
     eRI RI : 1;
     eRBU RBU : 1;
     eRPS RPS : 1;
@@ -15440,7 +15440,7 @@ union DMA_CH1_STATUS {
     eNIS NIS : 1;
     uint32_t TEB : 3;
     uint32_t REB : 3;
-    uint32_t _reserved_end : 10;
+    uint32_t _reserved_1 : 10;
   } bits;
   
   // Full 32-bit register value.
@@ -15463,9 +15463,9 @@ union DMA_CH1_MISS_FRAME_CNT {
   // Bit field definition.
   struct {
     uint32_t MFC : 11;
-    uint32_t _reserved_1 : 4;
+    uint32_t _reserved_0 : 4;
     eMFCO MFCO : 1;
-    uint32_t _reserved_end : 16;
+    uint32_t _reserved_1 : 16;
   } bits;
   
   // Full 32-bit register value.
@@ -15506,7 +15506,7 @@ union DMA_CH1_RX_ERI_CNT {
   // Bit field definition.
   struct {
     uint32_t ECNT : 12;
-    uint32_t _reserved_end : 20;
+    uint32_t _reserved_0 : 20;
   } bits;
   
   // Full 32-bit register value.
@@ -15532,7 +15532,7 @@ union DMA_CH2_CONTROL {
     ePBLx8 PBLx8 : 1;
     uint32_t _reserved_1 : 1;
     uint32_t DSL : 3;
-    uint32_t _reserved_end : 11;
+    uint32_t _reserved_2 : 11;
   } bits;
   
   // Full 32-bit register value.
@@ -15570,14 +15570,14 @@ union DMA_CH2_TX_CONTROL {
   // Bit field definition.
   struct {
     eST ST : 1;
-    uint32_t _reserved_1 : 3;
+    uint32_t _reserved_0 : 3;
     eOSF OSF : 1;
-    uint32_t _reserved_2 : 10;
+    uint32_t _reserved_1 : 10;
     eIPBL IPBL : 1;
     uint32_t TxPBL : 6;
-    uint32_t _reserved_4 : 6;
+    uint32_t _reserved_2 : 6;
     eEDSE EDSE : 1;
-    uint32_t _reserved_end : 3;
+    uint32_t _reserved_3 : 3;
   } bits;
   
   // Full 32-bit register value.
@@ -15607,9 +15607,9 @@ union DMA_CH2_RX_CONTROL {
     eSR SR : 1;
     uint32_t RBSZ_x_0 : 3;
     uint32_t RBSZ_13_y : 11;
-    uint32_t _reserved_3 : 1;
+    uint32_t _reserved_0 : 1;
     uint32_t RxPBL : 6;
-    uint32_t _reserved_4 : 9;
+    uint32_t _reserved_1 : 9;
     eRPF RPF : 1;
   } bits;
   
@@ -15700,7 +15700,7 @@ union DMA_CH2_TXDESC_RING_LENGTH {
   // Bit field definition.
   struct {
     uint32_t TDRL : 10;
-    uint32_t _reserved_end : 22;
+    uint32_t _reserved_0 : 22;
   } bits;
   
   // Full 32-bit register value.
@@ -15718,7 +15718,7 @@ union DMA_CH2_RXDESC_RING_LENGTH {
   // Bit field definition.
   struct {
     uint32_t RDRL : 10;
-    uint32_t _reserved_end : 22;
+    uint32_t _reserved_0 : 22;
   } bits;
   
   // Full 32-bit register value.
@@ -15803,7 +15803,7 @@ union DMA_CH2_INTERRUPT_ENABLE {
     eTIE TIE : 1;
     eTXSE TXSE : 1;
     eTBUE TBUE : 1;
-    uint32_t _reserved_3 : 3;
+    uint32_t _reserved_0 : 3;
     eRIE RIE : 1;
     eRBUE RBUE : 1;
     eRSE RSE : 1;
@@ -15814,7 +15814,7 @@ union DMA_CH2_INTERRUPT_ENABLE {
     eCDEE CDEE : 1;
     eAIE AIE : 1;
     eNIE NIE : 1;
-    uint32_t _reserved_end : 16;
+    uint32_t _reserved_1 : 16;
   } bits;
   
   // Full 32-bit register value.
@@ -15832,9 +15832,9 @@ union DMA_CH2_RX_INTERRUPT_WATCHDOG_TIMER {
   // Bit field definition.
   struct {
     uint32_t RWT : 8;
-    uint32_t _reserved_1 : 8;
+    uint32_t _reserved_0 : 8;
     uint32_t RWTU : 2;
-    uint32_t _reserved_end : 14;
+    uint32_t _reserved_1 : 14;
   } bits;
   
   // Full 32-bit register value.
@@ -15863,10 +15863,10 @@ union DMA_CH2_SLOT_FUNCTION_CONTROL_STATUS {
   struct {
     eESC ESC : 1;
     eASC ASC : 1;
-    uint32_t _reserved_2 : 2;
+    uint32_t _reserved_0 : 2;
     uint32_t SIV : 12;
     uint32_t RSN : 4;
-    uint32_t _reserved_end : 12;
+    uint32_t _reserved_1 : 12;
   } bits;
   
   // Full 32-bit register value.
@@ -16019,7 +16019,7 @@ union DMA_CH2_STATUS {
     eTI TI : 1;
     eTPS TPS : 1;
     eTBU TBU : 1;
-    uint32_t _reserved_3 : 3;
+    uint32_t _reserved_0 : 3;
     eRI RI : 1;
     eRBU RBU : 1;
     eRPS RPS : 1;
@@ -16032,7 +16032,7 @@ union DMA_CH2_STATUS {
     eNIS NIS : 1;
     uint32_t TEB : 3;
     uint32_t REB : 3;
-    uint32_t _reserved_end : 10;
+    uint32_t _reserved_1 : 10;
   } bits;
   
   // Full 32-bit register value.
@@ -16055,9 +16055,9 @@ union DMA_CH2_MISS_FRAME_CNT {
   // Bit field definition.
   struct {
     uint32_t MFC : 11;
-    uint32_t _reserved_1 : 4;
+    uint32_t _reserved_0 : 4;
     eMFCO MFCO : 1;
-    uint32_t _reserved_end : 16;
+    uint32_t _reserved_1 : 16;
   } bits;
   
   // Full 32-bit register value.
@@ -16098,7 +16098,7 @@ union DMA_CH2_RX_ERI_CNT {
   // Bit field definition.
   struct {
     uint32_t ECNT : 12;
-    uint32_t _reserved_end : 20;
+    uint32_t _reserved_0 : 20;
   } bits;
   
   // Full 32-bit register value.
@@ -16124,7 +16124,7 @@ union DMA_CH3_CONTROL {
     ePBLx8 PBLx8 : 1;
     uint32_t _reserved_1 : 1;
     uint32_t DSL : 3;
-    uint32_t _reserved_end : 11;
+    uint32_t _reserved_2 : 11;
   } bits;
   
   // Full 32-bit register value.
@@ -16162,14 +16162,14 @@ union DMA_CH3_TX_CONTROL {
   // Bit field definition.
   struct {
     eST ST : 1;
-    uint32_t _reserved_1 : 3;
+    uint32_t _reserved_0 : 3;
     eOSF OSF : 1;
-    uint32_t _reserved_2 : 10;
+    uint32_t _reserved_1 : 10;
     eIPBL IPBL : 1;
     uint32_t TxPBL : 6;
-    uint32_t _reserved_4 : 6;
+    uint32_t _reserved_2 : 6;
     eEDSE EDSE : 1;
-    uint32_t _reserved_end : 3;
+    uint32_t _reserved_3 : 3;
   } bits;
   
   // Full 32-bit register value.
@@ -16199,9 +16199,9 @@ union DMA_CH3_RX_CONTROL {
     eSR SR : 1;
     uint32_t RBSZ_x_0 : 3;
     uint32_t RBSZ_13_y : 11;
-    uint32_t _reserved_3 : 1;
+    uint32_t _reserved_0 : 1;
     uint32_t RxPBL : 6;
-    uint32_t _reserved_4 : 9;
+    uint32_t _reserved_1 : 9;
     eRPF RPF : 1;
   } bits;
   
@@ -16292,7 +16292,7 @@ union DMA_CH3_TXDESC_RING_LENGTH {
   // Bit field definition.
   struct {
     uint32_t TDRL : 10;
-    uint32_t _reserved_end : 22;
+    uint32_t _reserved_0 : 22;
   } bits;
   
   // Full 32-bit register value.
@@ -16310,7 +16310,7 @@ union DMA_CH3_RXDESC_RING_LENGTH {
   // Bit field definition.
   struct {
     uint32_t RDRL : 10;
-    uint32_t _reserved_end : 22;
+    uint32_t _reserved_0 : 22;
   } bits;
   
   // Full 32-bit register value.
@@ -16395,7 +16395,7 @@ union DMA_CH3_INTERRUPT_ENABLE {
     eTIE TIE : 1;
     eTXSE TXSE : 1;
     eTBUE TBUE : 1;
-    uint32_t _reserved_3 : 3;
+    uint32_t _reserved_0 : 3;
     eRIE RIE : 1;
     eRBUE RBUE : 1;
     eRSE RSE : 1;
@@ -16406,7 +16406,7 @@ union DMA_CH3_INTERRUPT_ENABLE {
     eCDEE CDEE : 1;
     eAIE AIE : 1;
     eNIE NIE : 1;
-    uint32_t _reserved_end : 16;
+    uint32_t _reserved_1 : 16;
   } bits;
   
   // Full 32-bit register value.
@@ -16424,9 +16424,9 @@ union DMA_CH3_RX_INTERRUPT_WATCHDOG_TIMER {
   // Bit field definition.
   struct {
     uint32_t RWT : 8;
-    uint32_t _reserved_1 : 8;
+    uint32_t _reserved_0 : 8;
     uint32_t RWTU : 2;
-    uint32_t _reserved_end : 14;
+    uint32_t _reserved_1 : 14;
   } bits;
   
   // Full 32-bit register value.
@@ -16455,10 +16455,10 @@ union DMA_CH3_SLOT_FUNCTION_CONTROL_STATUS {
   struct {
     eESC ESC : 1;
     eASC ASC : 1;
-    uint32_t _reserved_2 : 2;
+    uint32_t _reserved_0 : 2;
     uint32_t SIV : 12;
     uint32_t RSN : 4;
-    uint32_t _reserved_end : 12;
+    uint32_t _reserved_1 : 12;
   } bits;
   
   // Full 32-bit register value.
@@ -16611,7 +16611,7 @@ union DMA_CH3_STATUS {
     eTI TI : 1;
     eTPS TPS : 1;
     eTBU TBU : 1;
-    uint32_t _reserved_3 : 3;
+    uint32_t _reserved_0 : 3;
     eRI RI : 1;
     eRBU RBU : 1;
     eRPS RPS : 1;
@@ -16624,7 +16624,7 @@ union DMA_CH3_STATUS {
     eNIS NIS : 1;
     uint32_t TEB : 3;
     uint32_t REB : 3;
-    uint32_t _reserved_end : 10;
+    uint32_t _reserved_1 : 10;
   } bits;
   
   // Full 32-bit register value.
@@ -16647,9 +16647,9 @@ union DMA_CH3_MISS_FRAME_CNT {
   // Bit field definition.
   struct {
     uint32_t MFC : 11;
-    uint32_t _reserved_1 : 4;
+    uint32_t _reserved_0 : 4;
     eMFCO MFCO : 1;
-    uint32_t _reserved_end : 16;
+    uint32_t _reserved_1 : 16;
   } bits;
   
   // Full 32-bit register value.
@@ -16690,7 +16690,7 @@ union DMA_CH3_RX_ERI_CNT {
   // Bit field definition.
   struct {
     uint32_t ECNT : 12;
-    uint32_t _reserved_end : 20;
+    uint32_t _reserved_0 : 20;
   } bits;
   
   // Full 32-bit register value.
@@ -16716,7 +16716,7 @@ union DMA_CH4_CONTROL {
     ePBLx8 PBLx8 : 1;
     uint32_t _reserved_1 : 1;
     uint32_t DSL : 3;
-    uint32_t _reserved_end : 11;
+    uint32_t _reserved_2 : 11;
   } bits;
   
   // Full 32-bit register value.
@@ -16754,14 +16754,14 @@ union DMA_CH4_TX_CONTROL {
   // Bit field definition.
   struct {
     eST ST : 1;
-    uint32_t _reserved_1 : 3;
+    uint32_t _reserved_0 : 3;
     eOSF OSF : 1;
-    uint32_t _reserved_2 : 10;
+    uint32_t _reserved_1 : 10;
     eIPBL IPBL : 1;
     uint32_t TxPBL : 6;
-    uint32_t _reserved_4 : 6;
+    uint32_t _reserved_2 : 6;
     eEDSE EDSE : 1;
-    uint32_t _reserved_end : 3;
+    uint32_t _reserved_3 : 3;
   } bits;
   
   // Full 32-bit register value.
@@ -16791,9 +16791,9 @@ union DMA_CH4_RX_CONTROL {
     eSR SR : 1;
     uint32_t RBSZ_x_0 : 3;
     uint32_t RBSZ_13_y : 11;
-    uint32_t _reserved_3 : 1;
+    uint32_t _reserved_0 : 1;
     uint32_t RxPBL : 6;
-    uint32_t _reserved_4 : 9;
+    uint32_t _reserved_1 : 9;
     eRPF RPF : 1;
   } bits;
   
@@ -16884,7 +16884,7 @@ union DMA_CH4_TXDESC_RING_LENGTH {
   // Bit field definition.
   struct {
     uint32_t TDRL : 10;
-    uint32_t _reserved_end : 22;
+    uint32_t _reserved_0 : 22;
   } bits;
   
   // Full 32-bit register value.
@@ -16902,7 +16902,7 @@ union DMA_CH4_RXDESC_RING_LENGTH {
   // Bit field definition.
   struct {
     uint32_t RDRL : 10;
-    uint32_t _reserved_end : 22;
+    uint32_t _reserved_0 : 22;
   } bits;
   
   // Full 32-bit register value.
@@ -16987,7 +16987,7 @@ union DMA_CH4_INTERRUPT_ENABLE {
     eTIE TIE : 1;
     eTXSE TXSE : 1;
     eTBUE TBUE : 1;
-    uint32_t _reserved_3 : 3;
+    uint32_t _reserved_0 : 3;
     eRIE RIE : 1;
     eRBUE RBUE : 1;
     eRSE RSE : 1;
@@ -16998,7 +16998,7 @@ union DMA_CH4_INTERRUPT_ENABLE {
     eCDEE CDEE : 1;
     eAIE AIE : 1;
     eNIE NIE : 1;
-    uint32_t _reserved_end : 16;
+    uint32_t _reserved_1 : 16;
   } bits;
   
   // Full 32-bit register value.
@@ -17016,9 +17016,9 @@ union DMA_CH4_RX_INTERRUPT_WATCHDOG_TIMER {
   // Bit field definition.
   struct {
     uint32_t RWT : 8;
-    uint32_t _reserved_1 : 8;
+    uint32_t _reserved_0 : 8;
     uint32_t RWTU : 2;
-    uint32_t _reserved_end : 14;
+    uint32_t _reserved_1 : 14;
   } bits;
   
   // Full 32-bit register value.
@@ -17047,10 +17047,10 @@ union DMA_CH4_SLOT_FUNCTION_CONTROL_STATUS {
   struct {
     eESC ESC : 1;
     eASC ASC : 1;
-    uint32_t _reserved_2 : 2;
+    uint32_t _reserved_0 : 2;
     uint32_t SIV : 12;
     uint32_t RSN : 4;
-    uint32_t _reserved_end : 12;
+    uint32_t _reserved_1 : 12;
   } bits;
   
   // Full 32-bit register value.
@@ -17203,7 +17203,7 @@ union DMA_CH4_STATUS {
     eTI TI : 1;
     eTPS TPS : 1;
     eTBU TBU : 1;
-    uint32_t _reserved_3 : 3;
+    uint32_t _reserved_0 : 3;
     eRI RI : 1;
     eRBU RBU : 1;
     eRPS RPS : 1;
@@ -17216,7 +17216,7 @@ union DMA_CH4_STATUS {
     eNIS NIS : 1;
     uint32_t TEB : 3;
     uint32_t REB : 3;
-    uint32_t _reserved_end : 10;
+    uint32_t _reserved_1 : 10;
   } bits;
   
   // Full 32-bit register value.
@@ -17239,9 +17239,9 @@ union DMA_CH4_MISS_FRAME_CNT {
   // Bit field definition.
   struct {
     uint32_t MFC : 11;
-    uint32_t _reserved_1 : 4;
+    uint32_t _reserved_0 : 4;
     eMFCO MFCO : 1;
-    uint32_t _reserved_end : 16;
+    uint32_t _reserved_1 : 16;
   } bits;
   
   // Full 32-bit register value.
@@ -17282,7 +17282,7 @@ union DMA_CH4_RX_ERI_CNT {
   // Bit field definition.
   struct {
     uint32_t ECNT : 12;
-    uint32_t _reserved_end : 20;
+    uint32_t _reserved_0 : 20;
   } bits;
   
   // Full 32-bit register value.

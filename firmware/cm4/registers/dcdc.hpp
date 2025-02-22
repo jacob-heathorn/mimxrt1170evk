@@ -4,7 +4,7 @@
 #include <stdint.h>
 #include <cstring>
 
-// // DCDC
+// DCDC
 //
 // NOTE: This file was generated from the forge CMSIS-svd wrapper tool.
 
@@ -61,7 +61,7 @@ union CTRL0 {
     eSTBY_LP_MODE_EN STBY_LP_MODE_EN : 1;
     eENABLE_DCDC_CNT ENABLE_DCDC_CNT : 1;
     eTRIM_HOLD TRIM_HOLD : 1;
-    uint32_t _reserved_7 : 12;
+    uint32_t _reserved_0 : 12;
     uint32_t DEBUG_BITS : 12;
     eCONTROL_MODE CONTROL_MODE : 1;
   } bits;
@@ -105,13 +105,13 @@ union CTRL1 {
   // Bit field definition.
   struct {
     eVDD1P8CTRL_TRG VDD1P8CTRL_TRG : 5;
-    uint32_t _reserved_1 : 3;
+    uint32_t _reserved_0 : 3;
     eVDD1P0CTRL_TRG VDD1P0CTRL_TRG : 5;
-    uint32_t _reserved_2 : 3;
+    uint32_t _reserved_1 : 3;
     eVDD1P8CTRL_STBY_TRG VDD1P8CTRL_STBY_TRG : 5;
-    uint32_t _reserved_3 : 3;
+    uint32_t _reserved_2 : 3;
     eVDD1P0CTRL_STBY_TRG VDD1P0CTRL_STBY_TRG : 5;
-    uint32_t _reserved_end : 3;
+    uint32_t _reserved_3 : 3;
   } bits;
   
   // Full 32-bit register value.
@@ -205,19 +205,19 @@ union REG0 {
     ePWD_CUR_SNS_CMP PWD_CUR_SNS_CMP : 1;
     uint32_t CUR_SNS_THRSH : 3;
     ePWD_OVERCUR_DET PWD_OVERCUR_DET : 1;
-    uint32_t _reserved_7 : 2;
+    uint32_t _reserved_0 : 2;
     ePWD_CMP_DCDC_IN_DET PWD_CMP_DCDC_IN_DET : 1;
-    uint32_t _reserved_8 : 4;
+    uint32_t _reserved_1 : 4;
     ePWD_HIGH_VDD1P8_DET PWD_HIGH_VDD1P8_DET : 1;
     ePWD_HIGH_VDD1P0_DET PWD_HIGH_VDD1P0_DET : 1;
-    uint32_t _reserved_10 : 3;
+    uint32_t _reserved_2 : 3;
     eLP_HIGH_HYS LP_HIGH_HYS : 1;
-    uint32_t _reserved_11 : 4;
+    uint32_t _reserved_3 : 4;
     ePWD_CMP_OFFSET PWD_CMP_OFFSET : 1;
     eXTALOK_DISABLE XTALOK_DISABLE : 1;
-    uint32_t _reserved_13 : 1;
+    uint32_t _reserved_4 : 1;
     eXTAL_24M_OK XTAL_24M_OK : 1;
-    uint32_t _reserved_14 : 1;
+    uint32_t _reserved_5 : 1;
     eSTS_DC_OK STS_DC_OK : 1;
   } bits;
   
@@ -271,15 +271,15 @@ union REG1 {
     uint32_t _reserved_0 : 3;
     eDM_CTRL DM_CTRL : 1;
     eRLOAD_REG_EN_LPSR RLOAD_REG_EN_LPSR : 1;
-    uint32_t _reserved_2 : 1;
+    uint32_t _reserved_1 : 1;
     eVBG_TRIM VBG_TRIM : 5;
     eLP_CMP_ISRC_SEL LP_CMP_ISRC_SEL : 2;
-    uint32_t _reserved_4 : 14;
+    uint32_t _reserved_2 : 14;
     uint32_t LOOPCTRL_CM_HST_THRESH : 1;
     uint32_t LOOPCTRL_DF_HST_THRESH : 1;
     eLOOPCTRL_EN_CM_HYST LOOPCTRL_EN_CM_HYST : 1;
     eLOOPCTRL_EN_DF_HYST LOOPCTRL_EN_DF_HYST : 1;
-    uint32_t _reserved_end : 1;
+    uint32_t _reserved_3 : 1;
   } bits;
   
   // Full 32-bit register value.
@@ -302,14 +302,14 @@ union REG2 {
     uint32_t LOOPCTRL_EN_RCSCALE : 3;
     uint32_t LOOPCTRL_RCSCALE_THRSH : 1;
     uint32_t LOOPCTRL_HYST_SIGN : 1;
-    uint32_t _reserved_6 : 1;
+    uint32_t _reserved_0 : 1;
     uint32_t BATTMONITOR_EN_BATADJ : 1;
     uint32_t BATTMONITOR_BATT_VAL : 10;
-    uint32_t _reserved_8 : 2;
+    uint32_t _reserved_1 : 2;
     uint32_t DCM_SET_CTRL : 1;
-    uint32_t _reserved_9 : 1;
+    uint32_t _reserved_2 : 1;
     uint32_t LOOPCTRL_TOGGLE_DIF : 1;
-    uint32_t _reserved_end : 1;
+    uint32_t _reserved_3 : 1;
   } bits;
   
   // Full 32-bit register value.
@@ -384,13 +384,13 @@ union REG3 {
     eDOUBLE_IBIAS_CMP_LP_LPSR DOUBLE_IBIAS_CMP_LP_LPSR : 1;
     uint32_t REG_FBK_SEL : 2;
     eMINPWR_DC_HALFCLK MINPWR_DC_HALFCLK : 1;
-    uint32_t _reserved_10 : 1;
+    uint32_t _reserved_1 : 1;
     uint32_t MINPWR_HALF_FETS : 1;
     uint32_t MISC_DELAY_TIMING : 1;
-    uint32_t _reserved_12 : 1;
+    uint32_t _reserved_2 : 1;
     eVDD1P0CTRL_DISABLE_STEP VDD1P0CTRL_DISABLE_STEP : 1;
     eVDD1P8CTRL_DISABLE_STEP VDD1P8CTRL_DISABLE_STEP : 1;
-    uint32_t _reserved_end : 1;
+    uint32_t _reserved_3 : 1;
   } bits;
   
   // Full 32-bit register value.
@@ -408,7 +408,7 @@ union REG4 {
   // Bit field definition.
   struct {
     uint32_t ENABLE_SP : 16;
-    uint32_t _reserved_end : 16;
+    uint32_t _reserved_0 : 16;
   } bits;
   
   // Full 32-bit register value.
@@ -426,7 +426,7 @@ union REG5 {
   // Bit field definition.
   struct {
     uint32_t DIG_EN_SP : 16;
-    uint32_t _reserved_end : 16;
+    uint32_t _reserved_0 : 16;
   } bits;
   
   // Full 32-bit register value.
@@ -444,7 +444,7 @@ union REG6 {
   // Bit field definition.
   struct {
     uint32_t LP_MODE_SP : 16;
-    uint32_t _reserved_end : 16;
+    uint32_t _reserved_0 : 16;
   } bits;
   
   // Full 32-bit register value.
@@ -462,7 +462,7 @@ union REG7 {
   // Bit field definition.
   struct {
     uint32_t STBY_EN_SP : 16;
-    uint32_t _reserved_end : 16;
+    uint32_t _reserved_0 : 16;
   } bits;
   
   // Full 32-bit register value.
@@ -480,7 +480,7 @@ union REG7P {
   // Bit field definition.
   struct {
     uint32_t STBY_LP_MODE_SP : 16;
-    uint32_t _reserved_end : 16;
+    uint32_t _reserved_0 : 16;
   } bits;
   
   // Full 32-bit register value.

@@ -4,7 +4,7 @@
 #include <stdint.h>
 #include <cstring>
 
-// // IPS Domain
+// IPS Domain
 //
 // NOTE: This file was generated from the forge CMSIS-svd wrapper tool.
 

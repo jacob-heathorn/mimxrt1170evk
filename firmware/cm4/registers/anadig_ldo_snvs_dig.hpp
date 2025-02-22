@@ -4,7 +4,7 @@
 #include <stdint.h>
 #include <cstring>
 
-// // MX6RT_ANADIG_REGISTER
+// MX6RT_ANADIG_REGISTER
 //
 // NOTE: This file was generated from the forge CMSIS-svd wrapper tool.
 
@@ -20,7 +20,7 @@ union PMU_LDO_SNVS_DIG {
     uint32_t REG_LP_EN : 1;
     uint32_t TEST_OVERRIDE : 1;
     uint32_t REG_EN : 1;
-    uint32_t _reserved_end : 29;
+    uint32_t _reserved_0 : 29;
   } bits;
   
   // Full 32-bit register value.

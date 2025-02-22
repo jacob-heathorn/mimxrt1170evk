@@ -4,7 +4,7 @@
 #include <stdint.h>
 #include <cstring>
 
-// // XRDC2
+// XRDC2
 //
 // NOTE: This file was generated from the forge CMSIS-svd wrapper tool.
 
@@ -36,9 +36,9 @@ union MCR {
   struct {
     eGVLDM GVLDM : 1;
     eGVLDC GVLDC : 1;
-    uint32_t _reserved_2 : 2;
+    uint32_t _reserved_0 : 2;
     eGCL GCL : 2;
-    uint32_t _reserved_end : 26;
+    uint32_t _reserved_1 : 26;
   } bits;
   
   // Full 32-bit register value.
@@ -58,7 +58,7 @@ union SR {
     uint32_t DIN : 4;
     uint32_t HRL : 4;
     uint32_t GCLO : 4;
-    uint32_t _reserved_end : 20;
+    uint32_t _reserved_0 : 20;
   } bits;
   
   // Full 32-bit register value.

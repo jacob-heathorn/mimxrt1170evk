@@ -4,7 +4,7 @@
 #include <stdint.h>
 #include <cstring>
 
-// // SNVS
+// SNVS
 //
 // NOTE: This file was generated from the forge CMSIS-svd wrapper tool.
 
@@ -117,17 +117,17 @@ union HPLR {
     eLPTGFCR_SL LPTGFCR_SL : 1;
     eLPSECR_SL LPSECR_SL : 1;
     eMKS_SL MKS_SL : 1;
-    uint32_t _reserved_10 : 6;
+    uint32_t _reserved_0 : 6;
     eHPSVCR_L HPSVCR_L : 1;
     eHPSICR_L HPSICR_L : 1;
     eHAC_L HAC_L : 1;
-    uint32_t _reserved_13 : 5;
+    uint32_t _reserved_1 : 5;
     eAT1_SL AT1_SL : 1;
     eAT2_SL AT2_SL : 1;
     eAT3_SL AT3_SL : 1;
     eAT4_SL AT4_SL : 1;
     eAT5_SL AT5_SL : 1;
-    uint32_t _reserved_end : 3;
+    uint32_t _reserved_2 : 3;
   } bits;
   
   // Full 32-bit register value.
@@ -192,22 +192,22 @@ union HPCOMR {
     uint32_t SSM_ST : 1;
     eSSM_ST_DIS SSM_ST_DIS : 1;
     eSSM_SFNS_DIS SSM_SFNS_DIS : 1;
-    uint32_t _reserved_3 : 1;
+    uint32_t _reserved_0 : 1;
     eLP_SWR LP_SWR : 1;
     eLP_SWR_DIS LP_SWR_DIS : 1;
-    uint32_t _reserved_5 : 2;
+    uint32_t _reserved_1 : 2;
     uint32_t SW_SV : 1;
     uint32_t SW_FSV : 1;
     uint32_t SW_LPSV : 1;
-    uint32_t _reserved_8 : 1;
+    uint32_t _reserved_2 : 1;
     ePROG_ZMK PROG_ZMK : 1;
     eMKS_EN MKS_EN : 1;
-    uint32_t _reserved_10 : 2;
+    uint32_t _reserved_3 : 2;
     eHAC_EN HAC_EN : 1;
     eHAC_LOAD HAC_LOAD : 1;
     eHAC_CLEAR HAC_CLEAR : 1;
     uint32_t HAC_STOP : 1;
-    uint32_t _reserved_14 : 11;
+    uint32_t _reserved_4 : 11;
     uint32_t NPSWA_EN : 1;
   } bits;
   
@@ -291,14 +291,14 @@ union HPCR {
     ePI_EN PI_EN : 1;
     ePI_FREQ PI_FREQ : 4;
     eHPCALB_EN HPCALB_EN : 1;
-    uint32_t _reserved_6 : 1;
+    uint32_t _reserved_0 : 1;
     eHPCALB_VAL HPCALB_VAL : 5;
-    uint32_t _reserved_7 : 1;
+    uint32_t _reserved_1 : 1;
     eHP_TS HP_TS : 1;
-    uint32_t _reserved_8 : 7;
+    uint32_t _reserved_2 : 7;
     uint32_t BTN_CONFIG : 3;
     uint32_t BTN_MASK : 1;
-    uint32_t _reserved_end : 4;
+    uint32_t _reserved_3 : 4;
   } bits;
   
   // Full 32-bit register value.
@@ -348,10 +348,10 @@ union HPSICR {
     eCAAM_EN CAAM_EN : 1;
     eJTAGC_EN JTAGC_EN : 1;
     eWDOG2_EN WDOG2_EN : 1;
-    uint32_t _reserved_3 : 1;
+    uint32_t _reserved_0 : 1;
     eSRC_EN SRC_EN : 1;
     eOCOTP_EN OCOTP_EN : 1;
-    uint32_t _reserved_5 : 25;
+    uint32_t _reserved_1 : 25;
     eLPSVI_EN LPSVI_EN : 1;
   } bits;
   
@@ -404,10 +404,10 @@ union HPSVCR {
     eCAAM_CFG CAAM_CFG : 1;
     eJTAGC_CFG JTAGC_CFG : 1;
     eWDOG2_CFG WDOG2_CFG : 1;
-    uint32_t _reserved_3 : 1;
+    uint32_t _reserved_0 : 1;
     eSRC_CFG SRC_CFG : 1;
     eOCOTP_CFG OCOTP_CFG : 2;
-    uint32_t _reserved_5 : 23;
+    uint32_t _reserved_1 : 23;
     eLPSV_CFG LPSV_CFG : 2;
   } bits;
   
@@ -465,17 +465,17 @@ union HPSR {
   struct {
     eHPTA HPTA : 1;
     ePI PI : 1;
-    uint32_t _reserved_2 : 2;
+    uint32_t _reserved_0 : 2;
     uint32_t LPDIS : 1;
-    uint32_t _reserved_3 : 1;
+    uint32_t _reserved_1 : 1;
     uint32_t BTN : 1;
     uint32_t BI : 1;
     eSSM_STATE SSM_STATE : 4;
     eSYS_SECURITY_CFG SYS_SECURITY_CFG : 3;
     uint32_t SYS_SECURE_BOOT : 1;
-    uint32_t _reserved_8 : 11;
+    uint32_t _reserved_2 : 11;
     eOTPMK_ZERO OTPMK_ZERO : 1;
-    uint32_t _reserved_9 : 3;
+    uint32_t _reserved_3 : 3;
     eZMK_ZERO ZMK_ZERO : 1;
   } bits;
   
@@ -526,17 +526,17 @@ union HPSVSR {
     eCAAM CAAM : 1;
     eJTAGC JTAGC : 1;
     eWDOG2 WDOG2 : 1;
-    uint32_t _reserved_3 : 1;
+    uint32_t _reserved_0 : 1;
     eSRC SRC : 1;
     eOCOTP OCOTP : 1;
-    uint32_t _reserved_5 : 7;
+    uint32_t _reserved_1 : 7;
     uint32_t SW_SV : 1;
     uint32_t SW_FSV : 1;
     uint32_t SW_LPSV : 1;
     uint32_t ZMK_SYNDROME : 9;
-    uint32_t _reserved_9 : 2;
+    uint32_t _reserved_2 : 2;
     eZMK_ECC_FAIL ZMK_ECC_FAIL : 1;
-    uint32_t _reserved_10 : 3;
+    uint32_t _reserved_3 : 3;
     uint32_t LP_SEC_VIO : 1;
   } bits;
   
@@ -589,7 +589,7 @@ union HPRTCMR {
   // Bit field definition.
   struct {
     uint32_t RTC : 15;
-    uint32_t _reserved_end : 17;
+    uint32_t _reserved_0 : 17;
   } bits;
   
   // Full 32-bit register value.
@@ -624,7 +624,7 @@ union HPTAMR {
   // Bit field definition.
   struct {
     uint32_t HPTA_MS : 15;
-    uint32_t _reserved_end : 17;
+    uint32_t _reserved_0 : 17;
   } bits;
   
   // Full 32-bit register value.
@@ -743,13 +743,13 @@ union LPLR {
     eLPTGFCR_HL LPTGFCR_HL : 1;
     eLPSECR_HL LPSECR_HL : 1;
     eMKS_HL MKS_HL : 1;
-    uint32_t _reserved_10 : 14;
+    uint32_t _reserved_0 : 14;
     eAT1_HL AT1_HL : 1;
     eAT2_HL AT2_HL : 1;
     eAT3_HL AT3_HL : 1;
     eAT4_HL AT4_HL : 1;
     eAT5_HL AT5_HL : 1;
-    uint32_t _reserved_end : 3;
+    uint32_t _reserved_1 : 3;
   } bits;
   
   // Full 32-bit register value.
@@ -821,16 +821,16 @@ union LPCR {
     eTOP TOP : 1;
     uint32_t LVD_EN : 1;
     eLPCALB_EN LPCALB_EN : 1;
-    uint32_t _reserved_9 : 1;
+    uint32_t _reserved_0 : 1;
     eLPCALB_VAL LPCALB_VAL : 5;
-    uint32_t _reserved_10 : 1;
+    uint32_t _reserved_1 : 1;
     uint32_t BTN_PRESS_TIME : 2;
     uint32_t DEBOUNCE : 2;
     uint32_t ON_TIME : 2;
     uint32_t PK_EN : 1;
     uint32_t PK_OVERRIDE : 1;
     uint32_t GPR_Z_DIS : 1;
-    uint32_t _reserved_end : 7;
+    uint32_t _reserved_2 : 7;
   } bits;
   
   // Full 32-bit register value.
@@ -872,9 +872,9 @@ union LPMKCR {
     eZMK_HWP ZMK_HWP : 1;
     eZMK_VAL ZMK_VAL : 1;
     eZMK_ECC_EN ZMK_ECC_EN : 1;
-    uint32_t _reserved_4 : 2;
+    uint32_t _reserved_0 : 2;
     uint32_t ZMK_ECC_VALUE : 9;
-    uint32_t _reserved_end : 16;
+    uint32_t _reserved_1 : 16;
   } bits;
   
   // Full 32-bit register value.
@@ -919,10 +919,10 @@ union LPSVCR {
     eCAAM_EN CAAM_EN : 1;
     eJTAGC_EN JTAGC_EN : 1;
     eWDOG2_EN WDOG2_EN : 1;
-    uint32_t _reserved_3 : 1;
+    uint32_t _reserved_0 : 1;
     eSRC_EN SRC_EN : 1;
     eOCOTP_EN OCOTP_EN : 1;
-    uint32_t _reserved_end : 26;
+    uint32_t _reserved_1 : 26;
   } bits;
   
   // Full 32-bit register value.
@@ -955,9 +955,9 @@ union LPTGFCR {
   // Bit field definition.
   struct {
     uint32_t WMTGF : 5;
-    uint32_t _reserved_1 : 2;
+    uint32_t _reserved_0 : 2;
     eWMTGF_EN WMTGF_EN : 1;
-    uint32_t _reserved_2 : 8;
+    uint32_t _reserved_1 : 8;
     uint32_t ETGF1 : 7;
     eETGF1_EN ETGF1_EN : 1;
     uint32_t ETGF2 : 7;
@@ -1041,7 +1041,7 @@ union LPTDCR {
     uint32_t _reserved_0 : 1;
     eSRTCR_EN SRTCR_EN : 1;
     eMCR_EN MCR_EN : 1;
-    uint32_t _reserved_2 : 1;
+    uint32_t _reserved_1 : 1;
     eCT_EN CT_EN : 1;
     eTT_EN TT_EN : 1;
     eVT_EN VT_EN : 1;
@@ -1051,17 +1051,17 @@ union LPTDCR {
     eET2_EN ET2_EN : 1;
     eET1P ET1P : 1;
     eET2P ET2P : 1;
-    uint32_t _reserved_11 : 1;
+    uint32_t _reserved_2 : 1;
     uint32_t PFD_OBSERV : 1;
     uint32_t POR_OBSERV : 1;
     uint32_t LTDC : 3;
-    uint32_t _reserved_14 : 1;
+    uint32_t _reserved_3 : 1;
     uint32_t HTDC : 3;
-    uint32_t _reserved_15 : 1;
+    uint32_t _reserved_4 : 1;
     uint32_t VRC : 3;
-    uint32_t _reserved_16 : 1;
+    uint32_t _reserved_5 : 1;
     eOSCB OSCB : 1;
-    uint32_t _reserved_end : 3;
+    uint32_t _reserved_6 : 3;
   } bits;
   
   // Full 32-bit register value.
@@ -1169,11 +1169,11 @@ union LPSR {
     eWMT2D WMT2D : 1;
     eET1D ET1D : 1;
     eET2D ET2D : 1;
-    uint32_t _reserved_11 : 5;
+    uint32_t _reserved_0 : 5;
     eESVD ESVD : 1;
     eEO EO : 1;
     eSPOF SPOF : 1;
-    uint32_t _reserved_14 : 11;
+    uint32_t _reserved_1 : 11;
     eLPNS LPNS : 1;
     eLPS LPS : 1;
   } bits;
@@ -1193,7 +1193,7 @@ union LPSRTCMR {
   // Bit field definition.
   struct {
     uint32_t SRTC : 15;
-    uint32_t _reserved_end : 17;
+    uint32_t _reserved_0 : 17;
   } bits;
   
   // Full 32-bit register value.
@@ -1595,7 +1595,7 @@ union LPTDC2R {
     eET8_EN ET8_EN : 1;
     eET9_EN ET9_EN : 1;
     eET10_EN ET10_EN : 1;
-    uint32_t _reserved_8 : 8;
+    uint32_t _reserved_0 : 8;
     eET3P ET3P : 1;
     eET4P ET4P : 1;
     eET5P ET5P : 1;
@@ -1604,7 +1604,7 @@ union LPTDC2R {
     eET8P ET8P : 1;
     eET9P ET9P : 1;
     eET10P ET10P : 1;
-    uint32_t _reserved_end : 8;
+    uint32_t _reserved_1 : 8;
   } bits;
   
   // Full 32-bit register value.
@@ -1669,7 +1669,7 @@ union LPTDSR {
     eET8D ET8D : 1;
     eET9D ET9D : 1;
     eET10D ET10D : 1;
-    uint32_t _reserved_end : 24;
+    uint32_t _reserved_0 : 24;
   } bits;
   
   // Full 32-bit register value.
@@ -1919,13 +1919,13 @@ union LPATCTLR {
     eAT3_EN AT3_EN : 1;
     eAT4_EN AT4_EN : 1;
     eAT5_EN AT5_EN : 1;
-    uint32_t _reserved_5 : 11;
+    uint32_t _reserved_0 : 11;
     eAT1_PAD_EN AT1_PAD_EN : 1;
     eAT2_PAD_EN AT2_PAD_EN : 1;
     eAT3_PAD_EN AT3_PAD_EN : 1;
     eAT4_PAD_EN AT4_PAD_EN : 1;
     eAT5_PAD_EN AT5_PAD_EN : 1;
-    uint32_t _reserved_end : 11;
+    uint32_t _reserved_1 : 11;
   } bits;
   
   // Full 32-bit register value.
@@ -1943,15 +1943,15 @@ union LPATCLKR {
   // Bit field definition.
   struct {
     uint32_t AT1_CLK_CTL : 2;
-    uint32_t _reserved_1 : 2;
+    uint32_t _reserved_0 : 2;
     uint32_t AT2_CLK_CTL : 2;
-    uint32_t _reserved_2 : 2;
+    uint32_t _reserved_1 : 2;
     uint32_t AT3_CLK_CTL : 2;
-    uint32_t _reserved_3 : 2;
+    uint32_t _reserved_2 : 2;
     uint32_t AT4_CLK_CTL : 2;
-    uint32_t _reserved_4 : 2;
+    uint32_t _reserved_3 : 2;
     uint32_t AT5_CLK_CTL : 2;
-    uint32_t _reserved_end : 14;
+    uint32_t _reserved_4 : 14;
   } bits;
   
   // Full 32-bit register value.
@@ -1969,21 +1969,21 @@ union LPATRC1R {
   // Bit field definition.
   struct {
     uint32_t ET1RCTL : 3;
-    uint32_t _reserved_1 : 1;
+    uint32_t _reserved_0 : 1;
     uint32_t ET2RCTL : 3;
-    uint32_t _reserved_2 : 1;
+    uint32_t _reserved_1 : 1;
     uint32_t ET3RCTL : 3;
-    uint32_t _reserved_3 : 1;
+    uint32_t _reserved_2 : 1;
     uint32_t ET4RCTL : 3;
-    uint32_t _reserved_4 : 1;
+    uint32_t _reserved_3 : 1;
     uint32_t ET5RCTL : 3;
-    uint32_t _reserved_5 : 1;
+    uint32_t _reserved_4 : 1;
     uint32_t ET6RCTL : 3;
-    uint32_t _reserved_6 : 1;
+    uint32_t _reserved_5 : 1;
     uint32_t ET7RCTL : 3;
-    uint32_t _reserved_7 : 1;
+    uint32_t _reserved_6 : 1;
     uint32_t ET8RCTL : 3;
-    uint32_t _reserved_end : 1;
+    uint32_t _reserved_7 : 1;
   } bits;
   
   // Full 32-bit register value.
@@ -2001,9 +2001,9 @@ union LPATRC2R {
   // Bit field definition.
   struct {
     uint32_t ET9RCTL : 3;
-    uint32_t _reserved_1 : 1;
+    uint32_t _reserved_0 : 1;
     uint32_t ET10RCTL : 3;
-    uint32_t _reserved_end : 25;
+    uint32_t _reserved_1 : 25;
   } bits;
   
   // Full 32-bit register value.

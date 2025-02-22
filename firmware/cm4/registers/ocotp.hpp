@@ -4,7 +4,7 @@
 #include <stdint.h>
 #include <cstring>
 
-// // no description available
+// no description available
 //
 // NOTE: This file was generated from the forge CMSIS-svd wrapper tool.
 
@@ -315,7 +315,7 @@ union CTRL {
     eBUSY BUSY : 1;
     eERROR ERROR : 1;
     eRELOAD_SHADOWS RELOAD_SHADOWS : 1;
-    uint32_t _reserved_4 : 2;
+    uint32_t _reserved_0 : 2;
     eWORDLOCK WORDLOCK : 1;
     eWR_UNLOCK WR_UNLOCK : 16;
   } bits;
@@ -338,7 +338,7 @@ union CTRL_SET {
     uint32_t BUSY : 1;
     uint32_t ERROR : 1;
     uint32_t RELOAD_SHADOWS : 1;
-    uint32_t _reserved_4 : 2;
+    uint32_t _reserved_0 : 2;
     uint32_t WORDLOCK : 1;
     uint32_t WR_UNLOCK : 16;
   } bits;
@@ -361,7 +361,7 @@ union CTRL_CLR {
     uint32_t BUSY : 1;
     uint32_t ERROR : 1;
     uint32_t RELOAD_SHADOWS : 1;
-    uint32_t _reserved_4 : 2;
+    uint32_t _reserved_0 : 2;
     uint32_t WORDLOCK : 1;
     uint32_t WR_UNLOCK : 16;
   } bits;
@@ -384,7 +384,7 @@ union CTRL_TOG {
     uint32_t BUSY : 1;
     uint32_t ERROR : 1;
     uint32_t RELOAD_SHADOWS : 1;
-    uint32_t _reserved_4 : 2;
+    uint32_t _reserved_0 : 2;
     uint32_t WORDLOCK : 1;
     uint32_t WR_UNLOCK : 16;
   } bits;
@@ -409,7 +409,7 @@ union PDN {
   // Bit field definition.
   struct {
     ePDN PDN : 1;
-    uint32_t _reserved_end : 31;
+    uint32_t _reserved_0 : 31;
   } bits;
   
   // Full 32-bit register value.
@@ -469,7 +469,7 @@ union READ_CTRL {
     eREAD_FUSE_CNTR READ_FUSE_CNTR : 2;
     eREAD_FUSE_DONE_INTR_ENA READ_FUSE_DONE_INTR_ENA : 1;
     eREAD_FUSE_ERROR_INTR_ENA READ_FUSE_ERROR_INTR_ENA : 1;
-    uint32_t _reserved_end : 27;
+    uint32_t _reserved_0 : 27;
   } bits;
   
   // Full 32-bit register value.
@@ -508,7 +508,7 @@ union OUT_STATUS {
     uint32_t DED1 : 1;
     uint32_t DED2 : 1;
     uint32_t DED3 : 1;
-    uint32_t _reserved_end : 4;
+    uint32_t _reserved_1 : 4;
   } bits;
   
   // Full 32-bit register value.
@@ -542,7 +542,7 @@ union OUT_STATUS_SET {
     uint32_t DED1 : 1;
     uint32_t DED2 : 1;
     uint32_t DED3 : 1;
-    uint32_t _reserved_end : 4;
+    uint32_t _reserved_1 : 4;
   } bits;
   
   // Full 32-bit register value.
@@ -576,7 +576,7 @@ union OUT_STATUS_CLR {
     uint32_t DED1 : 1;
     uint32_t DED2 : 1;
     uint32_t DED3 : 1;
-    uint32_t _reserved_end : 4;
+    uint32_t _reserved_1 : 4;
   } bits;
   
   // Full 32-bit register value.
@@ -610,7 +610,7 @@ union OUT_STATUS_TOG {
     uint32_t DED1 : 1;
     uint32_t DED2 : 1;
     uint32_t DED3 : 1;
-    uint32_t _reserved_end : 4;
+    uint32_t _reserved_1 : 4;
   } bits;
   
   // Full 32-bit register value.
@@ -749,7 +749,7 @@ union LOCKED0 {
   // Bit field definition.
   struct {
     uint32_t LOCKED : 16;
-    uint32_t _reserved_end : 16;
+    uint32_t _reserved_0 : 16;
   } bits;
   
   // Full 32-bit register value.

@@ -4,7 +4,7 @@
 #include <stdint.h>
 #include <cstring>
 
-// // LPUART
+// LPUART
 //
 // NOTE: This file was generated from the forge CMSIS-svd wrapper tool.
 
@@ -43,7 +43,7 @@ union PARAM {
   struct {
     uint32_t TXFIFO : 8;
     uint32_t RXFIFO : 8;
-    uint32_t _reserved_end : 16;
+    uint32_t _reserved_0 : 16;
   } bits;
   
   // Full 32-bit register value.
@@ -67,7 +67,7 @@ union GLOBAL {
   struct {
     uint32_t _reserved_0 : 1;
     eRST RST : 1;
-    uint32_t _reserved_end : 30;
+    uint32_t _reserved_1 : 30;
   } bits;
   
   // Full 32-bit register value.
@@ -92,7 +92,7 @@ union PINCFG {
   // Bit field definition.
   struct {
     eTRGSEL TRGSEL : 2;
-    uint32_t _reserved_end : 30;
+    uint32_t _reserved_0 : 30;
   } bits;
   
   // Full 32-bit register value.
@@ -206,9 +206,9 @@ union BAUD {
     eRESYNCDIS RESYNCDIS : 1;
     eBOTHEDGE BOTHEDGE : 1;
     eMATCFG MATCFG : 2;
-    uint32_t _reserved_7 : 1;
+    uint32_t _reserved_0 : 1;
     eRDMAE RDMAE : 1;
-    uint32_t _reserved_8 : 1;
+    uint32_t _reserved_1 : 1;
     eTDMAE TDMAE : 1;
     eOSR OSR : 5;
     eM10 M10 : 1;
@@ -501,7 +501,7 @@ union CTRL {
     eLOOPS LOOPS : 1;
     eIDLECFG IDLECFG : 3;
     eM7 M7 : 1;
-    uint32_t _reserved_10 : 2;
+    uint32_t _reserved_0 : 2;
     eMA2IE MA2IE : 1;
     eMA1IE MA1IE : 1;
     eSBK SBK : 1;
@@ -571,13 +571,13 @@ union DATA {
     uint32_t R7T7 : 1;
     uint32_t R8T8 : 1;
     uint32_t R9T9 : 1;
-    uint32_t _reserved_10 : 1;
+    uint32_t _reserved_0 : 1;
     eIDLINE IDLINE : 1;
     eRXEMPT RXEMPT : 1;
     eFRETSC FRETSC : 1;
     ePARITYE PARITYE : 1;
     eNOISY NOISY : 1;
-    uint32_t _reserved_end : 16;
+    uint32_t _reserved_1 : 16;
   } bits;
   
   // Full 32-bit register value.
@@ -595,9 +595,9 @@ union MATCH {
   // Bit field definition.
   struct {
     uint32_t MA1 : 10;
-    uint32_t _reserved_1 : 6;
+    uint32_t _reserved_0 : 6;
     uint32_t MA2 : 10;
-    uint32_t _reserved_end : 6;
+    uint32_t _reserved_1 : 6;
   } bits;
   
   // Full 32-bit register value.
@@ -662,12 +662,12 @@ union MODIR {
     eRXRTSE RXRTSE : 1;
     eTXCTSC TXCTSC : 1;
     eTXCTSSRC TXCTSSRC : 1;
-    uint32_t _reserved_6 : 2;
+    uint32_t _reserved_0 : 2;
     uint32_t RTSWATER : 2;
-    uint32_t _reserved_7 : 6;
+    uint32_t _reserved_1 : 6;
     eTNP TNP : 2;
     eIREN IREN : 1;
-    uint32_t _reserved_end : 13;
+    uint32_t _reserved_2 : 13;
   } bits;
   
   // Full 32-bit register value.
@@ -774,15 +774,15 @@ union FIFO {
     eRXUFE RXUFE : 1;
     eTXOFE TXOFE : 1;
     eRXIDEN RXIDEN : 3;
-    uint32_t _reserved_7 : 1;
+    uint32_t _reserved_0 : 1;
     eRXFLUSH RXFLUSH : 1;
     eTXFLUSH TXFLUSH : 1;
     eRXUF RXUF : 1;
     eTXOF TXOF : 1;
-    uint32_t _reserved_11 : 4;
+    uint32_t _reserved_1 : 4;
     eRXEMPT RXEMPT : 1;
     eTXEMPT TXEMPT : 1;
-    uint32_t _reserved_end : 8;
+    uint32_t _reserved_2 : 8;
   } bits;
   
   // Full 32-bit register value.
@@ -800,13 +800,13 @@ union WATER {
   // Bit field definition.
   struct {
     uint32_t TXWATER : 2;
-    uint32_t _reserved_1 : 6;
+    uint32_t _reserved_0 : 6;
     uint32_t TXCOUNT : 3;
-    uint32_t _reserved_2 : 5;
+    uint32_t _reserved_1 : 5;
     uint32_t RXWATER : 2;
-    uint32_t _reserved_3 : 6;
+    uint32_t _reserved_2 : 6;
     uint32_t RXCOUNT : 3;
-    uint32_t _reserved_end : 5;
+    uint32_t _reserved_3 : 5;
   } bits;
   
   // Full 32-bit register value.

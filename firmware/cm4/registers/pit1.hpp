@@ -4,7 +4,7 @@
 #include <stdint.h>
 #include <cstring>
 
-// // PIT
+// PIT
 //
 // NOTE: This file was generated from the forge CMSIS-svd wrapper tool.
 
@@ -29,7 +29,7 @@ union MCR {
   struct {
     eFRZ FRZ : 1;
     eMDIS MDIS : 1;
-    uint32_t _reserved_end : 30;
+    uint32_t _reserved_0 : 30;
   } bits;
   
   // Full 32-bit register value.
