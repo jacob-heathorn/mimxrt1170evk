@@ -4,8 +4,6 @@
 #include <stdint.h>
 #include <cstring>
 
-#include "register32.hpp"
-
 // // IOMUXC GPR
 //
 // NOTE: This file was generated from the forge CMSIS-svd wrapper tool.
