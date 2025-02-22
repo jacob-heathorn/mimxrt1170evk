@@ -17,13 +17,13 @@ namespace nIOMUXC_GPR {
 //
 union GPR0 {
   
+  // Enum definitions.
   enum class eDWP : uint32_t {
       eforbid_none = 0, // Both cores are allowed
       eforbid_CM7 = 1, // CM7 is forbidden
       eforbid_CM4 = 2, // CM4 is forbidden
       eforbid_both = 3, // Both cores are forbidden
   };
-  
   enum class eDWP_LOCK : uint32_t {
       elock_none = 0, // Neither of DWP bits is locked
       elock_low = 1, // The lower DWP bit is locked
@@ -31,7 +31,7 @@ union GPR0 {
       elock_both = 3, // Both DWP bits are locked
   };
   
-
+  // Bit field definition.
   struct {
     uint32_t SAI1_MCLK1_SEL : 3;
     uint32_t SAI1_MCLK2_SEL : 3;
@@ -42,28 +42,25 @@ union GPR0 {
     eDWP_LOCK DWP_LOCK : 2;
   } bits;          // Bit-field struct (auto-filling reserved gaps)
   
-  uint32_t value;  // Full 32-bit register access
+  // Full 32-bit register value.
+  uint32_t value;
 
   GPR0() = delete;
-
-  static inline volatile GPR0 &Instance() {
-    return *reinterpret_cast<volatile GPR0*>(0x400E4000);
-  }
-
   inline void Reset() volatile { this->value = 0x00000018; }
+  static inline volatile GPR0 &Instance() { return *reinterpret_cast<volatile GPR0*>(0x400E4000); }
 };
 
 // GPR1 General Purpose Register
 //
 union GPR1 {
   
+  // Enum definitions.
   enum class eDWP : uint32_t {
       eforbid_none = 0, // Both cores are allowed
       eforbid_CM7 = 1, // CM7 is forbidden
       eforbid_CM4 = 2, // CM4 is forbidden
       eforbid_both = 3, // Both cores are forbidden
   };
-  
   enum class eDWP_LOCK : uint32_t {
       elock_none = 0, // Neither of DWP bits is locked
       elock_low = 1, // The lower DWP bit is locked
@@ -71,7 +68,7 @@ union GPR1 {
       elock_both = 3, // Both DWP bits are locked
   };
   
-
+  // Bit field definition.
   struct {
     uint32_t SAI2_MCLK3_SEL : 2;
     uint32_t _reserved_1 : 6;
@@ -81,28 +78,25 @@ union GPR1 {
     eDWP_LOCK DWP_LOCK : 2;
   } bits;          // Bit-field struct (auto-filling reserved gaps)
   
-  uint32_t value;  // Full 32-bit register access
+  // Full 32-bit register value.
+  uint32_t value;
 
   GPR1() = delete;
-
-  static inline volatile GPR1 &Instance() {
-    return *reinterpret_cast<volatile GPR1*>(0x400E4004);
-  }
-
   inline void Reset() volatile { this->value = 0x00000000; }
+  static inline volatile GPR1 &Instance() { return *reinterpret_cast<volatile GPR1*>(0x400E4004); }
 };
 
 // GPR2 General Purpose Register
 //
 union GPR2 {
   
+  // Enum definitions.
   enum class eDWP : uint32_t {
       eforbid_none = 0, // Both cores are allowed
       eforbid_CM7 = 1, // CM7 is forbidden
       eforbid_CM4 = 2, // CM4 is forbidden
       eforbid_both = 3, // Both cores are forbidden
   };
-  
   enum class eDWP_LOCK : uint32_t {
       elock_none = 0, // Neither of DWP bits is locked
       elock_low = 1, // The lower DWP bit is locked
@@ -110,7 +104,7 @@ union GPR2 {
       elock_both = 3, // Both DWP bits are locked
   };
   
-
+  // Bit field definition.
   struct {
     uint32_t SAI3_MCLK3_SEL : 2;
     uint32_t _reserved_1 : 6;
@@ -121,28 +115,25 @@ union GPR2 {
     eDWP_LOCK DWP_LOCK : 2;
   } bits;          // Bit-field struct (auto-filling reserved gaps)
   
-  uint32_t value;  // Full 32-bit register access
+  // Full 32-bit register value.
+  uint32_t value;
 
   GPR2() = delete;
-
-  static inline volatile GPR2 &Instance() {
-    return *reinterpret_cast<volatile GPR2*>(0x400E4008);
-  }
-
   inline void Reset() volatile { this->value = 0x00000000; }
+  static inline volatile GPR2 &Instance() { return *reinterpret_cast<volatile GPR2*>(0x400E4008); }
 };
 
 // GPR3 General Purpose Register
 //
 union GPR3 {
   
+  // Enum definitions.
   enum class eDWP : uint32_t {
       eforbid_none = 0, // Both cores are allowed
       eforbid_CM7 = 1, // CM7 is forbidden
       eforbid_CM4 = 2, // CM4 is forbidden
       eforbid_both = 3, // Both cores are forbidden
   };
-  
   enum class eDWP_LOCK : uint32_t {
       elock_none = 0, // Neither of DWP bits is locked
       elock_low = 1, // The lower DWP bit is locked
@@ -150,7 +141,7 @@ union GPR3 {
       elock_both = 3, // Both DWP bits are locked
   };
   
-
+  // Bit field definition.
   struct {
     uint32_t MQS_CLK_DIV : 8;
     uint32_t MQS_SW_RST : 1;
@@ -161,28 +152,25 @@ union GPR3 {
     eDWP_LOCK DWP_LOCK : 2;
   } bits;          // Bit-field struct (auto-filling reserved gaps)
   
-  uint32_t value;  // Full 32-bit register access
+  // Full 32-bit register value.
+  uint32_t value;
 
   GPR3() = delete;
-
-  static inline volatile GPR3 &Instance() {
-    return *reinterpret_cast<volatile GPR3*>(0x400E400C);
-  }
-
   inline void Reset() volatile { this->value = 0x00000000; }
+  static inline volatile GPR3 &Instance() { return *reinterpret_cast<volatile GPR3*>(0x400E400C); }
 };
 
 // GPR4 General Purpose Register
 //
 union GPR4 {
   
+  // Enum definitions.
   enum class eDWP : uint32_t {
       eforbid_none = 0, // Both cores are allowed
       eforbid_CM7 = 1, // CM7 is forbidden
       eforbid_CM4 = 2, // CM4 is forbidden
       eforbid_both = 3, // Both cores are forbidden
   };
-  
   enum class eDWP_LOCK : uint32_t {
       elock_none = 0, // Neither of DWP bits is locked
       elock_low = 1, // The lower DWP bit is locked
@@ -190,7 +178,7 @@ union GPR4 {
       elock_both = 3, // Both DWP bits are locked
   };
   
-
+  // Bit field definition.
   struct {
     uint32_t ENET_TX_CLK_SEL : 1;
     uint32_t ENET_REF_CLK_DIR : 1;
@@ -201,28 +189,25 @@ union GPR4 {
     eDWP_LOCK DWP_LOCK : 2;
   } bits;          // Bit-field struct (auto-filling reserved gaps)
   
-  uint32_t value;  // Full 32-bit register access
+  // Full 32-bit register value.
+  uint32_t value;
 
   GPR4() = delete;
-
-  static inline volatile GPR4 &Instance() {
-    return *reinterpret_cast<volatile GPR4*>(0x400E4010);
-  }
-
   inline void Reset() volatile { this->value = 0x00000000; }
+  static inline volatile GPR4 &Instance() { return *reinterpret_cast<volatile GPR4*>(0x400E4010); }
 };
 
 // GPR5 General Purpose Register
 //
 union GPR5 {
   
+  // Enum definitions.
   enum class eDWP : uint32_t {
       eforbid_none = 0, // Both cores are allowed
       eforbid_CM7 = 1, // CM7 is forbidden
       eforbid_CM4 = 2, // CM4 is forbidden
       eforbid_both = 3, // Both cores are forbidden
   };
-  
   enum class eDWP_LOCK : uint32_t {
       elock_none = 0, // Neither of DWP bits is locked
       elock_low = 1, // The lower DWP bit is locked
@@ -230,7 +215,7 @@ union GPR5 {
       elock_both = 3, // Both DWP bits are locked
   };
   
-
+  // Bit field definition.
   struct {
     uint32_t ENET1G_TX_CLK_SEL : 1;
     uint32_t ENET1G_REF_CLK_DIR : 1;
@@ -242,28 +227,25 @@ union GPR5 {
     eDWP_LOCK DWP_LOCK : 2;
   } bits;          // Bit-field struct (auto-filling reserved gaps)
   
-  uint32_t value;  // Full 32-bit register access
+  // Full 32-bit register value.
+  uint32_t value;
 
   GPR5() = delete;
-
-  static inline volatile GPR5 &Instance() {
-    return *reinterpret_cast<volatile GPR5*>(0x400E4014);
-  }
-
   inline void Reset() volatile { this->value = 0x00000000; }
+  static inline volatile GPR5 &Instance() { return *reinterpret_cast<volatile GPR5*>(0x400E4014); }
 };
 
 // GPR6 General Purpose Register
 //
 union GPR6 {
   
+  // Enum definitions.
   enum class eDWP : uint32_t {
       eforbid_none = 0, // Both cores are allowed
       eforbid_CM7 = 1, // CM7 is forbidden
       eforbid_CM4 = 2, // CM4 is forbidden
       eforbid_both = 3, // Both cores are forbidden
   };
-  
   enum class eDWP_LOCK : uint32_t {
       elock_none = 0, // Neither of DWP bits is locked
       elock_low = 1, // The lower DWP bit is locked
@@ -271,7 +253,7 @@ union GPR6 {
       elock_both = 3, // Both DWP bits are locked
   };
   
-
+  // Bit field definition.
   struct {
     uint32_t ENET_QOS_REF_CLK_DIR : 1;
     uint32_t ENET_QOS_RGMII_EN : 1;
@@ -284,28 +266,25 @@ union GPR6 {
     eDWP_LOCK DWP_LOCK : 2;
   } bits;          // Bit-field struct (auto-filling reserved gaps)
   
-  uint32_t value;  // Full 32-bit register access
+  // Full 32-bit register value.
+  uint32_t value;
 
   GPR6() = delete;
-
-  static inline volatile GPR6 &Instance() {
-    return *reinterpret_cast<volatile GPR6*>(0x400E4018);
-  }
-
   inline void Reset() volatile { this->value = 0x00000000; }
+  static inline volatile GPR6 &Instance() { return *reinterpret_cast<volatile GPR6*>(0x400E4018); }
 };
 
 // GPR7 General Purpose Register
 //
 union GPR7 {
   
+  // Enum definitions.
   enum class eDWP : uint32_t {
       eforbid_none = 0, // Both cores are allowed
       eforbid_CM7 = 1, // CM7 is forbidden
       eforbid_CM4 = 2, // CM4 is forbidden
       eforbid_both = 3, // Both cores are forbidden
   };
-  
   enum class eDWP_LOCK : uint32_t {
       elock_none = 0, // Neither of DWP bits is locked
       elock_low = 1, // The lower DWP bit is locked
@@ -313,7 +292,7 @@ union GPR7 {
       elock_both = 3, // Both DWP bits are locked
   };
   
-
+  // Bit field definition.
   struct {
     uint32_t GINT : 1;
     uint32_t _reserved_1 : 27;
@@ -321,28 +300,25 @@ union GPR7 {
     eDWP_LOCK DWP_LOCK : 2;
   } bits;          // Bit-field struct (auto-filling reserved gaps)
   
-  uint32_t value;  // Full 32-bit register access
+  // Full 32-bit register value.
+  uint32_t value;
 
   GPR7() = delete;
-
-  static inline volatile GPR7 &Instance() {
-    return *reinterpret_cast<volatile GPR7*>(0x400E401C);
-  }
-
   inline void Reset() volatile { this->value = 0x00000000; }
+  static inline volatile GPR7 &Instance() { return *reinterpret_cast<volatile GPR7*>(0x400E401C); }
 };
 
 // GPR8 General Purpose Register
 //
 union GPR8 {
   
+  // Enum definitions.
   enum class eDWP : uint32_t {
       eforbid_none = 0, // Both cores are allowed
       eforbid_CM7 = 1, // CM7 is forbidden
       eforbid_CM4 = 2, // CM4 is forbidden
       eforbid_both = 3, // Both cores are forbidden
   };
-  
   enum class eDWP_LOCK : uint32_t {
       elock_none = 0, // Neither of DWP bits is locked
       elock_low = 1, // The lower DWP bit is locked
@@ -350,7 +326,7 @@ union GPR8 {
       elock_both = 3, // Both DWP bits are locked
   };
   
-
+  // Bit field definition.
   struct {
     uint32_t WDOG1_MASK : 1;
     uint32_t _reserved_1 : 27;
@@ -358,28 +334,25 @@ union GPR8 {
     eDWP_LOCK DWP_LOCK : 2;
   } bits;          // Bit-field struct (auto-filling reserved gaps)
   
-  uint32_t value;  // Full 32-bit register access
+  // Full 32-bit register value.
+  uint32_t value;
 
   GPR8() = delete;
-
-  static inline volatile GPR8 &Instance() {
-    return *reinterpret_cast<volatile GPR8*>(0x400E4020);
-  }
-
   inline void Reset() volatile { this->value = 0x00000000; }
+  static inline volatile GPR8 &Instance() { return *reinterpret_cast<volatile GPR8*>(0x400E4020); }
 };
 
 // GPR9 General Purpose Register
 //
 union GPR9 {
   
+  // Enum definitions.
   enum class eDWP : uint32_t {
       eforbid_none = 0, // Both cores are allowed
       eforbid_CM7 = 1, // CM7 is forbidden
       eforbid_CM4 = 2, // CM4 is forbidden
       eforbid_both = 3, // Both cores are forbidden
   };
-  
   enum class eDWP_LOCK : uint32_t {
       elock_none = 0, // Neither of DWP bits is locked
       elock_low = 1, // The lower DWP bit is locked
@@ -387,7 +360,7 @@ union GPR9 {
       elock_both = 3, // Both DWP bits are locked
   };
   
-
+  // Bit field definition.
   struct {
     uint32_t WDOG2_MASK : 1;
     uint32_t _reserved_1 : 27;
@@ -395,28 +368,25 @@ union GPR9 {
     eDWP_LOCK DWP_LOCK : 2;
   } bits;          // Bit-field struct (auto-filling reserved gaps)
   
-  uint32_t value;  // Full 32-bit register access
+  // Full 32-bit register value.
+  uint32_t value;
 
   GPR9() = delete;
-
-  static inline volatile GPR9 &Instance() {
-    return *reinterpret_cast<volatile GPR9*>(0x400E4024);
-  }
-
   inline void Reset() volatile { this->value = 0x00000000; }
+  static inline volatile GPR9 &Instance() { return *reinterpret_cast<volatile GPR9*>(0x400E4024); }
 };
 
 // GPR10 General Purpose Register
 //
 union GPR10 {
   
+  // Enum definitions.
   enum class eDWP : uint32_t {
       eforbid_none = 0, // Both cores are allowed
       eforbid_CM7 = 1, // CM7 is forbidden
       eforbid_CM4 = 2, // CM4 is forbidden
       eforbid_both = 3, // Both cores are forbidden
   };
-  
   enum class eDWP_LOCK : uint32_t {
       elock_none = 0, // Neither of DWP bits is locked
       elock_low = 1, // The lower DWP bit is locked
@@ -424,35 +394,32 @@ union GPR10 {
       elock_both = 3, // Both DWP bits are locked
   };
   
-
+  // Bit field definition.
   struct {
     uint32_t _reserved_0 : 28;
     eDWP DWP : 2;
     eDWP_LOCK DWP_LOCK : 2;
   } bits;          // Bit-field struct (auto-filling reserved gaps)
   
-  uint32_t value;  // Full 32-bit register access
+  // Full 32-bit register value.
+  uint32_t value;
 
   GPR10() = delete;
-
-  static inline volatile GPR10 &Instance() {
-    return *reinterpret_cast<volatile GPR10*>(0x400E4028);
-  }
-
   inline void Reset() volatile { this->value = 0x00000000; }
+  static inline volatile GPR10 &Instance() { return *reinterpret_cast<volatile GPR10*>(0x400E4028); }
 };
 
 // GPR11 General Purpose Register
 //
 union GPR11 {
   
+  // Enum definitions.
   enum class eDWP : uint32_t {
       eforbid_none = 0, // Both cores are allowed
       eforbid_CM7 = 1, // CM7 is forbidden
       eforbid_CM4 = 2, // CM4 is forbidden
       eforbid_both = 3, // Both cores are forbidden
   };
-  
   enum class eDWP_LOCK : uint32_t {
       elock_none = 0, // Neither of DWP bits is locked
       elock_low = 1, // The lower DWP bit is locked
@@ -460,35 +427,32 @@ union GPR11 {
       elock_both = 3, // Both DWP bits are locked
   };
   
-
+  // Bit field definition.
   struct {
     uint32_t _reserved_0 : 28;
     eDWP DWP : 2;
     eDWP_LOCK DWP_LOCK : 2;
   } bits;          // Bit-field struct (auto-filling reserved gaps)
   
-  uint32_t value;  // Full 32-bit register access
+  // Full 32-bit register value.
+  uint32_t value;
 
   GPR11() = delete;
-
-  static inline volatile GPR11 &Instance() {
-    return *reinterpret_cast<volatile GPR11*>(0x400E402C);
-  }
-
   inline void Reset() volatile { this->value = 0x00000000; }
+  static inline volatile GPR11 &Instance() { return *reinterpret_cast<volatile GPR11*>(0x400E402C); }
 };
 
 // GPR12 General Purpose Register
 //
 union GPR12 {
   
+  // Enum definitions.
   enum class eDWP : uint32_t {
       eforbid_none = 0, // Both cores are allowed
       eforbid_CM7 = 1, // CM7 is forbidden
       eforbid_CM4 = 2, // CM4 is forbidden
       eforbid_both = 3, // Both cores are forbidden
   };
-  
   enum class eDWP_LOCK : uint32_t {
       elock_none = 0, // Neither of DWP bits is locked
       elock_low = 1, // The lower DWP bit is locked
@@ -496,7 +460,7 @@ union GPR12 {
       elock_both = 3, // Both DWP bits are locked
   };
   
-
+  // Bit field definition.
   struct {
     uint32_t QTIMER1_TMR_CNTS_FREEZE : 1;
     uint32_t _reserved_1 : 7;
@@ -509,28 +473,25 @@ union GPR12 {
     eDWP_LOCK DWP_LOCK : 2;
   } bits;          // Bit-field struct (auto-filling reserved gaps)
   
-  uint32_t value;  // Full 32-bit register access
+  // Full 32-bit register value.
+  uint32_t value;
 
   GPR12() = delete;
-
-  static inline volatile GPR12 &Instance() {
-    return *reinterpret_cast<volatile GPR12*>(0x400E4030);
-  }
-
   inline void Reset() volatile { this->value = 0x00000000; }
+  static inline volatile GPR12 &Instance() { return *reinterpret_cast<volatile GPR12*>(0x400E4030); }
 };
 
 // GPR13 General Purpose Register
 //
 union GPR13 {
   
+  // Enum definitions.
   enum class eDWP : uint32_t {
       eforbid_none = 0, // Both cores are allowed
       eforbid_CM7 = 1, // CM7 is forbidden
       eforbid_CM4 = 2, // CM4 is forbidden
       eforbid_both = 3, // Both cores are forbidden
   };
-  
   enum class eDWP_LOCK : uint32_t {
       elock_none = 0, // Neither of DWP bits is locked
       elock_low = 1, // The lower DWP bit is locked
@@ -538,7 +499,7 @@ union GPR13 {
       elock_both = 3, // Both DWP bits are locked
   };
   
-
+  // Bit field definition.
   struct {
     uint32_t QTIMER2_TMR_CNTS_FREEZE : 1;
     uint32_t _reserved_1 : 7;
@@ -551,28 +512,25 @@ union GPR13 {
     eDWP_LOCK DWP_LOCK : 2;
   } bits;          // Bit-field struct (auto-filling reserved gaps)
   
-  uint32_t value;  // Full 32-bit register access
+  // Full 32-bit register value.
+  uint32_t value;
 
   GPR13() = delete;
-
-  static inline volatile GPR13 &Instance() {
-    return *reinterpret_cast<volatile GPR13*>(0x400E4034);
-  }
-
   inline void Reset() volatile { this->value = 0x00000000; }
+  static inline volatile GPR13 &Instance() { return *reinterpret_cast<volatile GPR13*>(0x400E4034); }
 };
 
 // GPR14 General Purpose Register
 //
 union GPR14 {
   
+  // Enum definitions.
   enum class eDWP : uint32_t {
       eforbid_none = 0, // Both cores are allowed
       eforbid_CM7 = 1, // CM7 is forbidden
       eforbid_CM4 = 2, // CM4 is forbidden
       eforbid_both = 3, // Both cores are forbidden
   };
-  
   enum class eDWP_LOCK : uint32_t {
       elock_none = 0, // Neither of DWP bits is locked
       elock_low = 1, // The lower DWP bit is locked
@@ -580,7 +538,7 @@ union GPR14 {
       elock_both = 3, // Both DWP bits are locked
   };
   
-
+  // Bit field definition.
   struct {
     uint32_t QTIMER3_TMR_CNTS_FREEZE : 1;
     uint32_t _reserved_1 : 7;
@@ -593,28 +551,25 @@ union GPR14 {
     eDWP_LOCK DWP_LOCK : 2;
   } bits;          // Bit-field struct (auto-filling reserved gaps)
   
-  uint32_t value;  // Full 32-bit register access
+  // Full 32-bit register value.
+  uint32_t value;
 
   GPR14() = delete;
-
-  static inline volatile GPR14 &Instance() {
-    return *reinterpret_cast<volatile GPR14*>(0x400E4038);
-  }
-
   inline void Reset() volatile { this->value = 0x00000000; }
+  static inline volatile GPR14 &Instance() { return *reinterpret_cast<volatile GPR14*>(0x400E4038); }
 };
 
 // GPR15 General Purpose Register
 //
 union GPR15 {
   
+  // Enum definitions.
   enum class eDWP : uint32_t {
       eforbid_none = 0, // Both cores are allowed
       eforbid_CM7 = 1, // CM7 is forbidden
       eforbid_CM4 = 2, // CM4 is forbidden
       eforbid_both = 3, // Both cores are forbidden
   };
-  
   enum class eDWP_LOCK : uint32_t {
       elock_none = 0, // Neither of DWP bits is locked
       elock_low = 1, // The lower DWP bit is locked
@@ -622,7 +577,7 @@ union GPR15 {
       elock_both = 3, // Both DWP bits are locked
   };
   
-
+  // Bit field definition.
   struct {
     uint32_t QTIMER4_TMR_CNTS_FREEZE : 1;
     uint32_t _reserved_1 : 7;
@@ -635,28 +590,25 @@ union GPR15 {
     eDWP_LOCK DWP_LOCK : 2;
   } bits;          // Bit-field struct (auto-filling reserved gaps)
   
-  uint32_t value;  // Full 32-bit register access
+  // Full 32-bit register value.
+  uint32_t value;
 
   GPR15() = delete;
-
-  static inline volatile GPR15 &Instance() {
-    return *reinterpret_cast<volatile GPR15*>(0x400E403C);
-  }
-
   inline void Reset() volatile { this->value = 0x00000000; }
+  static inline volatile GPR15 &Instance() { return *reinterpret_cast<volatile GPR15*>(0x400E403C); }
 };
 
 // GPR16 General Purpose Register
 //
 union GPR16 {
   
+  // Enum definitions.
   enum class eDWP : uint32_t {
       eforbid_none = 0, // Both cores are allowed
       eforbid_CM7 = 1, // CM7 is forbidden
       eforbid_CM4 = 2, // CM4 is forbidden
       eforbid_both = 3, // Both cores are forbidden
   };
-  
   enum class eDWP_LOCK : uint32_t {
       elock_none = 0, // Neither of DWP bits is locked
       elock_low = 1, // The lower DWP bit is locked
@@ -664,7 +616,7 @@ union GPR16 {
       elock_both = 3, // Both DWP bits are locked
   };
   
-
+  // Bit field definition.
   struct {
     uint32_t _reserved_0 : 2;
     uint32_t FLEXRAM_BANK_CFG_SEL : 1;
@@ -676,28 +628,25 @@ union GPR16 {
     eDWP_LOCK DWP_LOCK : 2;
   } bits;          // Bit-field struct (auto-filling reserved gaps)
   
-  uint32_t value;  // Full 32-bit register access
+  // Full 32-bit register value.
+  uint32_t value;
 
   GPR16() = delete;
-
-  static inline volatile GPR16 &Instance() {
-    return *reinterpret_cast<volatile GPR16*>(0x400E4040);
-  }
-
   inline void Reset() volatile { this->value = 0x0000AA03; }
+  static inline volatile GPR16 &Instance() { return *reinterpret_cast<volatile GPR16*>(0x400E4040); }
 };
 
 // GPR17 General Purpose Register
 //
 union GPR17 {
   
+  // Enum definitions.
   enum class eDWP : uint32_t {
       eforbid_none = 0, // Both cores are allowed
       eforbid_CM7 = 1, // CM7 is forbidden
       eforbid_CM4 = 2, // CM4 is forbidden
       eforbid_both = 3, // Both cores are forbidden
   };
-  
   enum class eDWP_LOCK : uint32_t {
       elock_none = 0, // Neither of DWP bits is locked
       elock_low = 1, // The lower DWP bit is locked
@@ -705,7 +654,7 @@ union GPR17 {
       elock_both = 3, // Both DWP bits are locked
   };
   
-
+  // Bit field definition.
   struct {
     uint32_t FLEXRAM_BANK_CFG_LOW : 16;
     uint32_t _reserved_1 : 12;
@@ -713,28 +662,25 @@ union GPR17 {
     eDWP_LOCK DWP_LOCK : 2;
   } bits;          // Bit-field struct (auto-filling reserved gaps)
   
-  uint32_t value;  // Full 32-bit register access
+  // Full 32-bit register value.
+  uint32_t value;
 
   GPR17() = delete;
-
-  static inline volatile GPR17 &Instance() {
-    return *reinterpret_cast<volatile GPR17*>(0x400E4044);
-  }
-
   inline void Reset() volatile { this->value = 0x00000000; }
+  static inline volatile GPR17 &Instance() { return *reinterpret_cast<volatile GPR17*>(0x400E4044); }
 };
 
 // GPR18 General Purpose Register
 //
 union GPR18 {
   
+  // Enum definitions.
   enum class eDWP : uint32_t {
       eforbid_none = 0, // Both cores are allowed
       eforbid_CM7 = 1, // CM7 is forbidden
       eforbid_CM4 = 2, // CM4 is forbidden
       eforbid_both = 3, // Both cores are forbidden
   };
-  
   enum class eDWP_LOCK : uint32_t {
       elock_none = 0, // Neither of DWP bits is locked
       elock_low = 1, // The lower DWP bit is locked
@@ -742,7 +688,7 @@ union GPR18 {
       elock_both = 3, // Both DWP bits are locked
   };
   
-
+  // Bit field definition.
   struct {
     uint32_t FLEXRAM_BANK_CFG_HIGH : 16;
     uint32_t _reserved_1 : 12;
@@ -750,28 +696,25 @@ union GPR18 {
     eDWP_LOCK DWP_LOCK : 2;
   } bits;          // Bit-field struct (auto-filling reserved gaps)
   
-  uint32_t value;  // Full 32-bit register access
+  // Full 32-bit register value.
+  uint32_t value;
 
   GPR18() = delete;
-
-  static inline volatile GPR18 &Instance() {
-    return *reinterpret_cast<volatile GPR18*>(0x400E4048);
-  }
-
   inline void Reset() volatile { this->value = 0x00000000; }
+  static inline volatile GPR18 &Instance() { return *reinterpret_cast<volatile GPR18*>(0x400E4048); }
 };
 
 // GPR20 General Purpose Register
 //
 union GPR20 {
   
+  // Enum definitions.
   enum class eDWP : uint32_t {
       eforbid_none = 0, // Both cores are allowed
       eforbid_CM7 = 1, // CM7 is forbidden
       eforbid_CM4 = 2, // CM4 is forbidden
       eforbid_both = 3, // Both cores are forbidden
   };
-  
   enum class eDWP_LOCK : uint32_t {
       elock_none = 0, // Neither of DWP bits is locked
       elock_low = 1, // The lower DWP bit is locked
@@ -779,7 +722,7 @@ union GPR20 {
       elock_both = 3, // Both DWP bits are locked
   };
   
-
+  // Bit field definition.
   struct {
     uint32_t IOMUXC_XBAR_DIR_SEL_4 : 1;
     uint32_t IOMUXC_XBAR_DIR_SEL_5 : 1;
@@ -813,28 +756,25 @@ union GPR20 {
     eDWP_LOCK DWP_LOCK : 2;
   } bits;          // Bit-field struct (auto-filling reserved gaps)
   
-  uint32_t value;  // Full 32-bit register access
+  // Full 32-bit register value.
+  uint32_t value;
 
   GPR20() = delete;
-
-  static inline volatile GPR20 &Instance() {
-    return *reinterpret_cast<volatile GPR20*>(0x400E4050);
-  }
-
   inline void Reset() volatile { this->value = 0x00000000; }
+  static inline volatile GPR20 &Instance() { return *reinterpret_cast<volatile GPR20*>(0x400E4050); }
 };
 
 // GPR21 General Purpose Register
 //
 union GPR21 {
   
+  // Enum definitions.
   enum class eDWP : uint32_t {
       eforbid_none = 0, // Both cores are allowed
       eforbid_CM7 = 1, // CM7 is forbidden
       eforbid_CM4 = 2, // CM4 is forbidden
       eforbid_both = 3, // Both cores are forbidden
   };
-  
   enum class eDWP_LOCK : uint32_t {
       elock_none = 0, // Neither of DWP bits is locked
       elock_low = 1, // The lower DWP bit is locked
@@ -842,7 +782,7 @@ union GPR21 {
       elock_both = 3, // Both DWP bits are locked
   };
   
-
+  // Bit field definition.
   struct {
     uint32_t IOMUXC_XBAR_DIR_SEL_32 : 1;
     uint32_t IOMUXC_XBAR_DIR_SEL_33 : 1;
@@ -860,28 +800,25 @@ union GPR21 {
     eDWP_LOCK DWP_LOCK : 2;
   } bits;          // Bit-field struct (auto-filling reserved gaps)
   
-  uint32_t value;  // Full 32-bit register access
+  // Full 32-bit register value.
+  uint32_t value;
 
   GPR21() = delete;
-
-  static inline volatile GPR21 &Instance() {
-    return *reinterpret_cast<volatile GPR21*>(0x400E4054);
-  }
-
   inline void Reset() volatile { this->value = 0x00000000; }
+  static inline volatile GPR21 &Instance() { return *reinterpret_cast<volatile GPR21*>(0x400E4054); }
 };
 
 // GPR22 General Purpose Register
 //
 union GPR22 {
   
+  // Enum definitions.
   enum class eDWP : uint32_t {
       eforbid_none = 0, // Both cores are allowed
       eforbid_CM7 = 1, // CM7 is forbidden
       eforbid_CM4 = 2, // CM4 is forbidden
       eforbid_both = 3, // Both cores are forbidden
   };
-  
   enum class eDWP_LOCK : uint32_t {
       elock_none = 0, // Neither of DWP bits is locked
       elock_low = 1, // The lower DWP bit is locked
@@ -889,7 +826,7 @@ union GPR22 {
       elock_both = 3, // Both DWP bits are locked
   };
   
-
+  // Bit field definition.
   struct {
     uint32_t REF_1M_CLK_GPT1 : 1;
     uint32_t _reserved_1 : 27;
@@ -897,28 +834,25 @@ union GPR22 {
     eDWP_LOCK DWP_LOCK : 2;
   } bits;          // Bit-field struct (auto-filling reserved gaps)
   
-  uint32_t value;  // Full 32-bit register access
+  // Full 32-bit register value.
+  uint32_t value;
 
   GPR22() = delete;
-
-  static inline volatile GPR22 &Instance() {
-    return *reinterpret_cast<volatile GPR22*>(0x400E4058);
-  }
-
   inline void Reset() volatile { this->value = 0x00000000; }
+  static inline volatile GPR22 &Instance() { return *reinterpret_cast<volatile GPR22*>(0x400E4058); }
 };
 
 // GPR23 General Purpose Register
 //
 union GPR23 {
   
+  // Enum definitions.
   enum class eDWP : uint32_t {
       eforbid_none = 0, // Both cores are allowed
       eforbid_CM7 = 1, // CM7 is forbidden
       eforbid_CM4 = 2, // CM4 is forbidden
       eforbid_both = 3, // Both cores are forbidden
   };
-  
   enum class eDWP_LOCK : uint32_t {
       elock_none = 0, // Neither of DWP bits is locked
       elock_low = 1, // The lower DWP bit is locked
@@ -926,7 +860,7 @@ union GPR23 {
       elock_both = 3, // Both DWP bits are locked
   };
   
-
+  // Bit field definition.
   struct {
     uint32_t REF_1M_CLK_GPT2 : 1;
     uint32_t GPT2_CAPIN1_SEL : 1;
@@ -936,28 +870,25 @@ union GPR23 {
     eDWP_LOCK DWP_LOCK : 2;
   } bits;          // Bit-field struct (auto-filling reserved gaps)
   
-  uint32_t value;  // Full 32-bit register access
+  // Full 32-bit register value.
+  uint32_t value;
 
   GPR23() = delete;
-
-  static inline volatile GPR23 &Instance() {
-    return *reinterpret_cast<volatile GPR23*>(0x400E405C);
-  }
-
   inline void Reset() volatile { this->value = 0x00000000; }
+  static inline volatile GPR23 &Instance() { return *reinterpret_cast<volatile GPR23*>(0x400E405C); }
 };
 
 // GPR24 General Purpose Register
 //
 union GPR24 {
   
+  // Enum definitions.
   enum class eDWP : uint32_t {
       eforbid_none = 0, // Both cores are allowed
       eforbid_CM7 = 1, // CM7 is forbidden
       eforbid_CM4 = 2, // CM4 is forbidden
       eforbid_both = 3, // Both cores are forbidden
   };
-  
   enum class eDWP_LOCK : uint32_t {
       elock_none = 0, // Neither of DWP bits is locked
       elock_low = 1, // The lower DWP bit is locked
@@ -965,7 +896,7 @@ union GPR24 {
       elock_both = 3, // Both DWP bits are locked
   };
   
-
+  // Bit field definition.
   struct {
     uint32_t REF_1M_CLK_GPT3 : 1;
     uint32_t GPT3_CAPIN1_SEL : 1;
@@ -974,28 +905,25 @@ union GPR24 {
     eDWP_LOCK DWP_LOCK : 2;
   } bits;          // Bit-field struct (auto-filling reserved gaps)
   
-  uint32_t value;  // Full 32-bit register access
+  // Full 32-bit register value.
+  uint32_t value;
 
   GPR24() = delete;
-
-  static inline volatile GPR24 &Instance() {
-    return *reinterpret_cast<volatile GPR24*>(0x400E4060);
-  }
-
   inline void Reset() volatile { this->value = 0x00000000; }
+  static inline volatile GPR24 &Instance() { return *reinterpret_cast<volatile GPR24*>(0x400E4060); }
 };
 
 // GPR25 General Purpose Register
 //
 union GPR25 {
   
+  // Enum definitions.
   enum class eDWP : uint32_t {
       eforbid_none = 0, // Both cores are allowed
       eforbid_CM7 = 1, // CM7 is forbidden
       eforbid_CM4 = 2, // CM4 is forbidden
       eforbid_both = 3, // Both cores are forbidden
   };
-  
   enum class eDWP_LOCK : uint32_t {
       elock_none = 0, // Neither of DWP bits is locked
       elock_low = 1, // The lower DWP bit is locked
@@ -1003,7 +931,7 @@ union GPR25 {
       elock_both = 3, // Both DWP bits are locked
   };
   
-
+  // Bit field definition.
   struct {
     uint32_t REF_1M_CLK_GPT4 : 1;
     uint32_t _reserved_1 : 27;
@@ -1011,28 +939,25 @@ union GPR25 {
     eDWP_LOCK DWP_LOCK : 2;
   } bits;          // Bit-field struct (auto-filling reserved gaps)
   
-  uint32_t value;  // Full 32-bit register access
+  // Full 32-bit register value.
+  uint32_t value;
 
   GPR25() = delete;
-
-  static inline volatile GPR25 &Instance() {
-    return *reinterpret_cast<volatile GPR25*>(0x400E4064);
-  }
-
   inline void Reset() volatile { this->value = 0x00000000; }
+  static inline volatile GPR25 &Instance() { return *reinterpret_cast<volatile GPR25*>(0x400E4064); }
 };
 
 // GPR26 General Purpose Register
 //
 union GPR26 {
   
+  // Enum definitions.
   enum class eDWP : uint32_t {
       eforbid_none = 0, // Both cores are allowed
       eforbid_CM7 = 1, // CM7 is forbidden
       eforbid_CM4 = 2, // CM4 is forbidden
       eforbid_both = 3, // Both cores are forbidden
   };
-  
   enum class eDWP_LOCK : uint32_t {
       elock_none = 0, // Neither of DWP bits is locked
       elock_low = 1, // The lower DWP bit is locked
@@ -1040,7 +965,7 @@ union GPR26 {
       elock_both = 3, // Both DWP bits are locked
   };
   
-
+  // Bit field definition.
   struct {
     uint32_t REF_1M_CLK_GPT5 : 1;
     uint32_t _reserved_1 : 27;
@@ -1048,28 +973,25 @@ union GPR26 {
     eDWP_LOCK DWP_LOCK : 2;
   } bits;          // Bit-field struct (auto-filling reserved gaps)
   
-  uint32_t value;  // Full 32-bit register access
+  // Full 32-bit register value.
+  uint32_t value;
 
   GPR26() = delete;
-
-  static inline volatile GPR26 &Instance() {
-    return *reinterpret_cast<volatile GPR26*>(0x400E4068);
-  }
-
   inline void Reset() volatile { this->value = 0x00000000; }
+  static inline volatile GPR26 &Instance() { return *reinterpret_cast<volatile GPR26*>(0x400E4068); }
 };
 
 // GPR27 General Purpose Register
 //
 union GPR27 {
   
+  // Enum definitions.
   enum class eDWP : uint32_t {
       eforbid_none = 0, // Both cores are allowed
       eforbid_CM7 = 1, // CM7 is forbidden
       eforbid_CM4 = 2, // CM4 is forbidden
       eforbid_both = 3, // Both cores are forbidden
   };
-  
   enum class eDWP_LOCK : uint32_t {
       elock_none = 0, // Neither of DWP bits is locked
       elock_low = 1, // The lower DWP bit is locked
@@ -1077,7 +999,7 @@ union GPR27 {
       elock_both = 3, // Both DWP bits are locked
   };
   
-
+  // Bit field definition.
   struct {
     uint32_t REF_1M_CLK_GPT6 : 1;
     uint32_t _reserved_1 : 27;
@@ -1085,28 +1007,25 @@ union GPR27 {
     eDWP_LOCK DWP_LOCK : 2;
   } bits;          // Bit-field struct (auto-filling reserved gaps)
   
-  uint32_t value;  // Full 32-bit register access
+  // Full 32-bit register value.
+  uint32_t value;
 
   GPR27() = delete;
-
-  static inline volatile GPR27 &Instance() {
-    return *reinterpret_cast<volatile GPR27*>(0x400E406C);
-  }
-
   inline void Reset() volatile { this->value = 0x00000000; }
+  static inline volatile GPR27 &Instance() { return *reinterpret_cast<volatile GPR27*>(0x400E406C); }
 };
 
 // GPR28 General Purpose Register
 //
 union GPR28 {
   
+  // Enum definitions.
   enum class eDWP : uint32_t {
       eforbid_none = 0, // Both cores are allowed
       eforbid_CM7 = 1, // CM7 is forbidden
       eforbid_CM4 = 2, // CM4 is forbidden
       eforbid_both = 3, // Both cores are forbidden
   };
-  
   enum class eDWP_LOCK : uint32_t {
       elock_none = 0, // Neither of DWP bits is locked
       elock_low = 1, // The lower DWP bit is locked
@@ -1114,7 +1033,7 @@ union GPR28 {
       elock_both = 3, // Both DWP bits are locked
   };
   
-
+  // Bit field definition.
   struct {
     uint32_t ARCACHE_USDHC : 1;
     uint32_t AWCACHE_USDHC : 1;
@@ -1129,28 +1048,25 @@ union GPR28 {
     eDWP_LOCK DWP_LOCK : 2;
   } bits;          // Bit-field struct (auto-filling reserved gaps)
   
-  uint32_t value;  // Full 32-bit register access
+  // Full 32-bit register value.
+  uint32_t value;
 
   GPR28() = delete;
-
-  static inline volatile GPR28 &Instance() {
-    return *reinterpret_cast<volatile GPR28*>(0x400E4070);
-  }
-
   inline void Reset() volatile { this->value = 0x00000000; }
+  static inline volatile GPR28 &Instance() { return *reinterpret_cast<volatile GPR28*>(0x400E4070); }
 };
 
 // GPR29 General Purpose Register
 //
 union GPR29 {
   
+  // Enum definitions.
   enum class eDWP : uint32_t {
       eforbid_none = 0, // Both cores are allowed
       eforbid_CM7 = 1, // CM7 is forbidden
       eforbid_CM4 = 2, // CM4 is forbidden
       eforbid_both = 3, // Both cores are forbidden
   };
-  
   enum class eDWP_LOCK : uint32_t {
       elock_none = 0, // Neither of DWP bits is locked
       elock_low = 1, // The lower DWP bit is locked
@@ -1158,7 +1074,7 @@ union GPR29 {
       elock_both = 3, // Both DWP bits are locked
   };
   
-
+  // Bit field definition.
   struct {
     uint32_t USBPHY1_IPG_CLK_ACTIVE : 1;
     uint32_t _reserved_1 : 27;
@@ -1166,28 +1082,25 @@ union GPR29 {
     eDWP_LOCK DWP_LOCK : 2;
   } bits;          // Bit-field struct (auto-filling reserved gaps)
   
-  uint32_t value;  // Full 32-bit register access
+  // Full 32-bit register value.
+  uint32_t value;
 
   GPR29() = delete;
-
-  static inline volatile GPR29 &Instance() {
-    return *reinterpret_cast<volatile GPR29*>(0x400E4074);
-  }
-
   inline void Reset() volatile { this->value = 0x00000001; }
+  static inline volatile GPR29 &Instance() { return *reinterpret_cast<volatile GPR29*>(0x400E4074); }
 };
 
 // GPR30 General Purpose Register
 //
 union GPR30 {
   
+  // Enum definitions.
   enum class eDWP : uint32_t {
       eforbid_none = 0, // Both cores are allowed
       eforbid_CM7 = 1, // CM7 is forbidden
       eforbid_CM4 = 2, // CM4 is forbidden
       eforbid_both = 3, // Both cores are forbidden
   };
-  
   enum class eDWP_LOCK : uint32_t {
       elock_none = 0, // Neither of DWP bits is locked
       elock_low = 1, // The lower DWP bit is locked
@@ -1195,7 +1108,7 @@ union GPR30 {
       elock_both = 3, // Both DWP bits are locked
   };
   
-
+  // Bit field definition.
   struct {
     uint32_t USBPHY2_IPG_CLK_ACTIVE : 1;
     uint32_t _reserved_1 : 27;
@@ -1203,28 +1116,25 @@ union GPR30 {
     eDWP_LOCK DWP_LOCK : 2;
   } bits;          // Bit-field struct (auto-filling reserved gaps)
   
-  uint32_t value;  // Full 32-bit register access
+  // Full 32-bit register value.
+  uint32_t value;
 
   GPR30() = delete;
-
-  static inline volatile GPR30 &Instance() {
-    return *reinterpret_cast<volatile GPR30*>(0x400E4078);
-  }
-
   inline void Reset() volatile { this->value = 0x00000001; }
+  static inline volatile GPR30 &Instance() { return *reinterpret_cast<volatile GPR30*>(0x400E4078); }
 };
 
 // GPR31 General Purpose Register
 //
 union GPR31 {
   
+  // Enum definitions.
   enum class eDWP : uint32_t {
       eforbid_none = 0, // Both cores are allowed
       eforbid_CM7 = 1, // CM7 is forbidden
       eforbid_CM4 = 2, // CM4 is forbidden
       eforbid_both = 3, // Both cores are forbidden
   };
-  
   enum class eDWP_LOCK : uint32_t {
       elock_none = 0, // Neither of DWP bits is locked
       elock_low = 1, // The lower DWP bit is locked
@@ -1232,7 +1142,7 @@ union GPR31 {
       elock_both = 3, // Both DWP bits are locked
   };
   
-
+  // Bit field definition.
   struct {
     uint32_t RMW2_WAIT_BVALID_CPL : 1;
     uint32_t _reserved_1 : 1;
@@ -1242,28 +1152,25 @@ union GPR31 {
     eDWP_LOCK DWP_LOCK : 2;
   } bits;          // Bit-field struct (auto-filling reserved gaps)
   
-  uint32_t value;  // Full 32-bit register access
+  // Full 32-bit register value.
+  uint32_t value;
 
   GPR31() = delete;
-
-  static inline volatile GPR31 &Instance() {
-    return *reinterpret_cast<volatile GPR31*>(0x400E407C);
-  }
-
   inline void Reset() volatile { this->value = 0x00000012; }
+  static inline volatile GPR31 &Instance() { return *reinterpret_cast<volatile GPR31*>(0x400E407C); }
 };
 
 // GPR32 General Purpose Register
 //
 union GPR32 {
   
+  // Enum definitions.
   enum class eDWP : uint32_t {
       eforbid_none = 0, // Both cores are allowed
       eforbid_CM7 = 1, // CM7 is forbidden
       eforbid_CM4 = 2, // CM4 is forbidden
       eforbid_both = 3, // Both cores are forbidden
   };
-  
   enum class eDWP_LOCK : uint32_t {
       elock_none = 0, // Neither of DWP bits is locked
       elock_low = 1, // The lower DWP bit is locked
@@ -1271,7 +1178,7 @@ union GPR32 {
       elock_both = 3, // Both DWP bits are locked
   };
   
-
+  // Bit field definition.
   struct {
     uint32_t RMW1_WAIT_BVALID_CPL : 1;
     uint32_t _reserved_1 : 27;
@@ -1279,28 +1186,25 @@ union GPR32 {
     eDWP_LOCK DWP_LOCK : 2;
   } bits;          // Bit-field struct (auto-filling reserved gaps)
   
-  uint32_t value;  // Full 32-bit register access
+  // Full 32-bit register value.
+  uint32_t value;
 
   GPR32() = delete;
-
-  static inline volatile GPR32 &Instance() {
-    return *reinterpret_cast<volatile GPR32*>(0x400E4080);
-  }
-
   inline void Reset() volatile { this->value = 0x00000000; }
+  static inline volatile GPR32 &Instance() { return *reinterpret_cast<volatile GPR32*>(0x400E4080); }
 };
 
 // GPR33 General Purpose Register
 //
 union GPR33 {
   
+  // Enum definitions.
   enum class eDWP : uint32_t {
       eforbid_none = 0, // Both cores are allowed
       eforbid_CM7 = 1, // CM7 is forbidden
       eforbid_CM4 = 2, // CM4 is forbidden
       eforbid_both = 3, // Both cores are forbidden
   };
-  
   enum class eDWP_LOCK : uint32_t {
       elock_none = 0, // Neither of DWP bits is locked
       elock_low = 1, // The lower DWP bit is locked
@@ -1308,7 +1212,7 @@ union GPR33 {
       elock_both = 3, // Both DWP bits are locked
   };
   
-
+  // Bit field definition.
   struct {
     uint32_t RMW2_WAIT_BVALID_CPL : 1;
     uint32_t _reserved_1 : 27;
@@ -1316,28 +1220,25 @@ union GPR33 {
     eDWP_LOCK DWP_LOCK : 2;
   } bits;          // Bit-field struct (auto-filling reserved gaps)
   
-  uint32_t value;  // Full 32-bit register access
+  // Full 32-bit register value.
+  uint32_t value;
 
   GPR33() = delete;
-
-  static inline volatile GPR33 &Instance() {
-    return *reinterpret_cast<volatile GPR33*>(0x400E4084);
-  }
-
   inline void Reset() volatile { this->value = 0x00000000; }
+  static inline volatile GPR33 &Instance() { return *reinterpret_cast<volatile GPR33*>(0x400E4084); }
 };
 
 // GPR34 General Purpose Register
 //
 union GPR34 {
   
+  // Enum definitions.
   enum class eDWP : uint32_t {
       eforbid_none = 0, // Both cores are allowed
       eforbid_CM7 = 1, // CM7 is forbidden
       eforbid_CM4 = 2, // CM4 is forbidden
       eforbid_both = 3, // Both cores are forbidden
   };
-  
   enum class eDWP_LOCK : uint32_t {
       elock_none = 0, // Neither of DWP bits is locked
       elock_low = 1, // The lower DWP bit is locked
@@ -1345,7 +1246,7 @@ union GPR34 {
       elock_both = 3, // Both DWP bits are locked
   };
   
-
+  // Bit field definition.
   struct {
     uint32_t XECC_FLEXSPI1_WAIT_BVALID_CPL : 1;
     uint32_t FLEXSPI1_OTFAD_EN : 1;
@@ -1354,28 +1255,25 @@ union GPR34 {
     eDWP_LOCK DWP_LOCK : 2;
   } bits;          // Bit-field struct (auto-filling reserved gaps)
   
-  uint32_t value;  // Full 32-bit register access
+  // Full 32-bit register value.
+  uint32_t value;
 
   GPR34() = delete;
-
-  static inline volatile GPR34 &Instance() {
-    return *reinterpret_cast<volatile GPR34*>(0x400E4088);
-  }
-
   inline void Reset() volatile { this->value = 0x00000000; }
+  static inline volatile GPR34 &Instance() { return *reinterpret_cast<volatile GPR34*>(0x400E4088); }
 };
 
 // GPR35 General Purpose Register
 //
 union GPR35 {
   
+  // Enum definitions.
   enum class eDWP : uint32_t {
       eforbid_none = 0, // Both cores are allowed
       eforbid_CM7 = 1, // CM7 is forbidden
       eforbid_CM4 = 2, // CM4 is forbidden
       eforbid_both = 3, // Both cores are forbidden
   };
-  
   enum class eDWP_LOCK : uint32_t {
       elock_none = 0, // Neither of DWP bits is locked
       elock_low = 1, // The lower DWP bit is locked
@@ -1383,7 +1281,7 @@ union GPR35 {
       elock_both = 3, // Both DWP bits are locked
   };
   
-
+  // Bit field definition.
   struct {
     uint32_t XECC_FLEXSPI2_WAIT_BVALID_CPL : 1;
     uint32_t FLEXSPI2_OTFAD_EN : 1;
@@ -1392,28 +1290,25 @@ union GPR35 {
     eDWP_LOCK DWP_LOCK : 2;
   } bits;          // Bit-field struct (auto-filling reserved gaps)
   
-  uint32_t value;  // Full 32-bit register access
+  // Full 32-bit register value.
+  uint32_t value;
 
   GPR35() = delete;
-
-  static inline volatile GPR35 &Instance() {
-    return *reinterpret_cast<volatile GPR35*>(0x400E408C);
-  }
-
   inline void Reset() volatile { this->value = 0x00000000; }
+  static inline volatile GPR35 &Instance() { return *reinterpret_cast<volatile GPR35*>(0x400E408C); }
 };
 
 // GPR36 General Purpose Register
 //
 union GPR36 {
   
+  // Enum definitions.
   enum class eDWP : uint32_t {
       eforbid_none = 0, // Both cores are allowed
       eforbid_CM7 = 1, // CM7 is forbidden
       eforbid_CM4 = 2, // CM4 is forbidden
       eforbid_both = 3, // Both cores are forbidden
   };
-  
   enum class eDWP_LOCK : uint32_t {
       elock_none = 0, // Neither of DWP bits is locked
       elock_low = 1, // The lower DWP bit is locked
@@ -1421,7 +1316,7 @@ union GPR36 {
       elock_both = 3, // Both DWP bits are locked
   };
   
-
+  // Bit field definition.
   struct {
     uint32_t XECC_SEMC_WAIT_BVALID_CPL : 1;
     uint32_t _reserved_1 : 27;
@@ -1429,28 +1324,25 @@ union GPR36 {
     eDWP_LOCK DWP_LOCK : 2;
   } bits;          // Bit-field struct (auto-filling reserved gaps)
   
-  uint32_t value;  // Full 32-bit register access
+  // Full 32-bit register value.
+  uint32_t value;
 
   GPR36() = delete;
-
-  static inline volatile GPR36 &Instance() {
-    return *reinterpret_cast<volatile GPR36*>(0x400E4090);
-  }
-
   inline void Reset() volatile { this->value = 0x00000000; }
+  static inline volatile GPR36 &Instance() { return *reinterpret_cast<volatile GPR36*>(0x400E4090); }
 };
 
 // GPR37 General Purpose Register
 //
 union GPR37 {
   
+  // Enum definitions.
   enum class eDWP : uint32_t {
       eforbid_none = 0, // Both cores are allowed
       eforbid_CM7 = 1, // CM7 is forbidden
       eforbid_CM4 = 2, // CM4 is forbidden
       eforbid_both = 3, // Both cores are forbidden
   };
-  
   enum class eDWP_LOCK : uint32_t {
       elock_none = 0, // Neither of DWP bits is locked
       elock_low = 1, // The lower DWP bit is locked
@@ -1458,7 +1350,7 @@ union GPR37 {
       elock_both = 3, // Both DWP bits are locked
   };
   
-
+  // Bit field definition.
   struct {
     uint32_t NIDEN : 1;
     uint32_t DBG_EN : 1;
@@ -1472,28 +1364,25 @@ union GPR37 {
     eDWP_LOCK DWP_LOCK : 2;
   } bits;          // Bit-field struct (auto-filling reserved gaps)
   
-  uint32_t value;  // Full 32-bit register access
+  // Full 32-bit register value.
+  uint32_t value;
 
   GPR37() = delete;
-
-  static inline volatile GPR37 &Instance() {
-    return *reinterpret_cast<volatile GPR37*>(0x400E4094);
-  }
-
   inline void Reset() volatile { this->value = 0x00000017; }
+  static inline volatile GPR37 &Instance() { return *reinterpret_cast<volatile GPR37*>(0x400E4094); }
 };
 
 // GPR38 General Purpose Register
 //
 union GPR38 {
   
+  // Enum definitions.
   enum class eDWP : uint32_t {
       eforbid_none = 0, // Both cores are allowed
       eforbid_CM7 = 1, // CM7 is forbidden
       eforbid_CM4 = 2, // CM4 is forbidden
       eforbid_both = 3, // Both cores are forbidden
   };
-  
   enum class eDWP_LOCK : uint32_t {
       elock_none = 0, // Neither of DWP bits is locked
       elock_low = 1, // The lower DWP bit is locked
@@ -1501,35 +1390,32 @@ union GPR38 {
       elock_both = 3, // Both DWP bits are locked
   };
   
-
+  // Bit field definition.
   struct {
     uint32_t _reserved_0 : 28;
     eDWP DWP : 2;
     eDWP_LOCK DWP_LOCK : 2;
   } bits;          // Bit-field struct (auto-filling reserved gaps)
   
-  uint32_t value;  // Full 32-bit register access
+  // Full 32-bit register value.
+  uint32_t value;
 
   GPR38() = delete;
-
-  static inline volatile GPR38 &Instance() {
-    return *reinterpret_cast<volatile GPR38*>(0x400E4098);
-  }
-
   inline void Reset() volatile { this->value = 0x00000000; }
+  static inline volatile GPR38 &Instance() { return *reinterpret_cast<volatile GPR38*>(0x400E4098); }
 };
 
 // GPR39 General Purpose Register
 //
 union GPR39 {
   
+  // Enum definitions.
   enum class eDWP : uint32_t {
       eforbid_none = 0, // Both cores are allowed
       eforbid_CM7 = 1, // CM7 is forbidden
       eforbid_CM4 = 2, // CM4 is forbidden
       eforbid_both = 3, // Both cores are forbidden
   };
-  
   enum class eDWP_LOCK : uint32_t {
       elock_none = 0, // Neither of DWP bits is locked
       elock_low = 1, // The lower DWP bit is locked
@@ -1537,35 +1423,32 @@ union GPR39 {
       elock_both = 3, // Both DWP bits are locked
   };
   
-
+  // Bit field definition.
   struct {
     uint32_t _reserved_0 : 28;
     eDWP DWP : 2;
     eDWP_LOCK DWP_LOCK : 2;
   } bits;          // Bit-field struct (auto-filling reserved gaps)
   
-  uint32_t value;  // Full 32-bit register access
+  // Full 32-bit register value.
+  uint32_t value;
 
   GPR39() = delete;
-
-  static inline volatile GPR39 &Instance() {
-    return *reinterpret_cast<volatile GPR39*>(0x400E409C);
-  }
-
   inline void Reset() volatile { this->value = 0x00000000; }
+  static inline volatile GPR39 &Instance() { return *reinterpret_cast<volatile GPR39*>(0x400E409C); }
 };
 
 // GPR40 General Purpose Register
 //
 union GPR40 {
   
+  // Enum definitions.
   enum class eDWP : uint32_t {
       eforbid_none = 0, // Both cores are allowed
       eforbid_CM7 = 1, // CM7 is forbidden
       eforbid_CM4 = 2, // CM4 is forbidden
       eforbid_both = 3, // Both cores are forbidden
   };
-  
   enum class eDWP_LOCK : uint32_t {
       elock_none = 0, // Neither of DWP bits is locked
       elock_low = 1, // The lower DWP bit is locked
@@ -1573,7 +1456,7 @@ union GPR40 {
       elock_both = 3, // Both DWP bits are locked
   };
   
-
+  // Bit field definition.
   struct {
     uint32_t GPIO_MUX2_GPIO_SEL_LOW : 16;
     uint32_t _reserved_1 : 12;
@@ -1581,28 +1464,25 @@ union GPR40 {
     eDWP_LOCK DWP_LOCK : 2;
   } bits;          // Bit-field struct (auto-filling reserved gaps)
   
-  uint32_t value;  // Full 32-bit register access
+  // Full 32-bit register value.
+  uint32_t value;
 
   GPR40() = delete;
-
-  static inline volatile GPR40 &Instance() {
-    return *reinterpret_cast<volatile GPR40*>(0x400E40A0);
-  }
-
   inline void Reset() volatile { this->value = 0x00000000; }
+  static inline volatile GPR40 &Instance() { return *reinterpret_cast<volatile GPR40*>(0x400E40A0); }
 };
 
 // GPR41 General Purpose Register
 //
 union GPR41 {
   
+  // Enum definitions.
   enum class eDWP : uint32_t {
       eforbid_none = 0, // Both cores are allowed
       eforbid_CM7 = 1, // CM7 is forbidden
       eforbid_CM4 = 2, // CM4 is forbidden
       eforbid_both = 3, // Both cores are forbidden
   };
-  
   enum class eDWP_LOCK : uint32_t {
       elock_none = 0, // Neither of DWP bits is locked
       elock_low = 1, // The lower DWP bit is locked
@@ -1610,7 +1490,7 @@ union GPR41 {
       elock_both = 3, // Both DWP bits are locked
   };
   
-
+  // Bit field definition.
   struct {
     uint32_t GPIO_MUX2_GPIO_SEL_HIGH : 16;
     uint32_t _reserved_1 : 12;
@@ -1618,28 +1498,25 @@ union GPR41 {
     eDWP_LOCK DWP_LOCK : 2;
   } bits;          // Bit-field struct (auto-filling reserved gaps)
   
-  uint32_t value;  // Full 32-bit register access
+  // Full 32-bit register value.
+  uint32_t value;
 
   GPR41() = delete;
-
-  static inline volatile GPR41 &Instance() {
-    return *reinterpret_cast<volatile GPR41*>(0x400E40A4);
-  }
-
   inline void Reset() volatile { this->value = 0x00000000; }
+  static inline volatile GPR41 &Instance() { return *reinterpret_cast<volatile GPR41*>(0x400E40A4); }
 };
 
 // GPR42 General Purpose Register
 //
 union GPR42 {
   
+  // Enum definitions.
   enum class eDWP : uint32_t {
       eforbid_none = 0, // Both cores are allowed
       eforbid_CM7 = 1, // CM7 is forbidden
       eforbid_CM4 = 2, // CM4 is forbidden
       eforbid_both = 3, // Both cores are forbidden
   };
-  
   enum class eDWP_LOCK : uint32_t {
       elock_none = 0, // Neither of DWP bits is locked
       elock_low = 1, // The lower DWP bit is locked
@@ -1647,7 +1524,7 @@ union GPR42 {
       elock_both = 3, // Both DWP bits are locked
   };
   
-
+  // Bit field definition.
   struct {
     uint32_t GPIO_MUX3_GPIO_SEL_LOW : 16;
     uint32_t _reserved_1 : 12;
@@ -1655,28 +1532,25 @@ union GPR42 {
     eDWP_LOCK DWP_LOCK : 2;
   } bits;          // Bit-field struct (auto-filling reserved gaps)
   
-  uint32_t value;  // Full 32-bit register access
+  // Full 32-bit register value.
+  uint32_t value;
 
   GPR42() = delete;
-
-  static inline volatile GPR42 &Instance() {
-    return *reinterpret_cast<volatile GPR42*>(0x400E40A8);
-  }
-
   inline void Reset() volatile { this->value = 0x00000000; }
+  static inline volatile GPR42 &Instance() { return *reinterpret_cast<volatile GPR42*>(0x400E40A8); }
 };
 
 // GPR43 General Purpose Register
 //
 union GPR43 {
   
+  // Enum definitions.
   enum class eDWP : uint32_t {
       eforbid_none = 0, // Both cores are allowed
       eforbid_CM7 = 1, // CM7 is forbidden
       eforbid_CM4 = 2, // CM4 is forbidden
       eforbid_both = 3, // Both cores are forbidden
   };
-  
   enum class eDWP_LOCK : uint32_t {
       elock_none = 0, // Neither of DWP bits is locked
       elock_low = 1, // The lower DWP bit is locked
@@ -1684,7 +1558,7 @@ union GPR43 {
       elock_both = 3, // Both DWP bits are locked
   };
   
-
+  // Bit field definition.
   struct {
     uint32_t GPIO_MUX3_GPIO_SEL_HIGH : 16;
     uint32_t _reserved_1 : 12;
@@ -1692,28 +1566,25 @@ union GPR43 {
     eDWP_LOCK DWP_LOCK : 2;
   } bits;          // Bit-field struct (auto-filling reserved gaps)
   
-  uint32_t value;  // Full 32-bit register access
+  // Full 32-bit register value.
+  uint32_t value;
 
   GPR43() = delete;
-
-  static inline volatile GPR43 &Instance() {
-    return *reinterpret_cast<volatile GPR43*>(0x400E40AC);
-  }
-
   inline void Reset() volatile { this->value = 0x00000000; }
+  static inline volatile GPR43 &Instance() { return *reinterpret_cast<volatile GPR43*>(0x400E40AC); }
 };
 
 // GPR44 General Purpose Register
 //
 union GPR44 {
   
+  // Enum definitions.
   enum class eDWP : uint32_t {
       eforbid_none = 0, // Both cores are allowed
       eforbid_CM7 = 1, // CM7 is forbidden
       eforbid_CM4 = 2, // CM4 is forbidden
       eforbid_both = 3, // Both cores are forbidden
   };
-  
   enum class eDWP_LOCK : uint32_t {
       elock_none = 0, // Neither of DWP bits is locked
       elock_low = 1, // The lower DWP bit is locked
@@ -1721,35 +1592,32 @@ union GPR44 {
       elock_both = 3, // Both DWP bits are locked
   };
   
-
+  // Bit field definition.
   struct {
     uint32_t _reserved_0 : 28;
     eDWP DWP : 2;
     eDWP_LOCK DWP_LOCK : 2;
   } bits;          // Bit-field struct (auto-filling reserved gaps)
   
-  uint32_t value;  // Full 32-bit register access
+  // Full 32-bit register value.
+  uint32_t value;
 
   GPR44() = delete;
-
-  static inline volatile GPR44 &Instance() {
-    return *reinterpret_cast<volatile GPR44*>(0x400E40B0);
-  }
-
   inline void Reset() volatile { this->value = 0x00000000; }
+  static inline volatile GPR44 &Instance() { return *reinterpret_cast<volatile GPR44*>(0x400E40B0); }
 };
 
 // GPR45 General Purpose Register
 //
 union GPR45 {
   
+  // Enum definitions.
   enum class eDWP : uint32_t {
       eforbid_none = 0, // Both cores are allowed
       eforbid_CM7 = 1, // CM7 is forbidden
       eforbid_CM4 = 2, // CM4 is forbidden
       eforbid_both = 3, // Both cores are forbidden
   };
-  
   enum class eDWP_LOCK : uint32_t {
       elock_none = 0, // Neither of DWP bits is locked
       elock_low = 1, // The lower DWP bit is locked
@@ -1757,35 +1625,32 @@ union GPR45 {
       elock_both = 3, // Both DWP bits are locked
   };
   
-
+  // Bit field definition.
   struct {
     uint32_t _reserved_0 : 28;
     eDWP DWP : 2;
     eDWP_LOCK DWP_LOCK : 2;
   } bits;          // Bit-field struct (auto-filling reserved gaps)
   
-  uint32_t value;  // Full 32-bit register access
+  // Full 32-bit register value.
+  uint32_t value;
 
   GPR45() = delete;
-
-  static inline volatile GPR45 &Instance() {
-    return *reinterpret_cast<volatile GPR45*>(0x400E40B4);
-  }
-
   inline void Reset() volatile { this->value = 0x00000000; }
+  static inline volatile GPR45 &Instance() { return *reinterpret_cast<volatile GPR45*>(0x400E40B4); }
 };
 
 // GPR46 General Purpose Register
 //
 union GPR46 {
   
+  // Enum definitions.
   enum class eDWP : uint32_t {
       eforbid_none = 0, // Both cores are allowed
       eforbid_CM7 = 1, // CM7 is forbidden
       eforbid_CM4 = 2, // CM4 is forbidden
       eforbid_both = 3, // Both cores are forbidden
   };
-  
   enum class eDWP_LOCK : uint32_t {
       elock_none = 0, // Neither of DWP bits is locked
       elock_low = 1, // The lower DWP bit is locked
@@ -1793,35 +1658,32 @@ union GPR46 {
       elock_both = 3, // Both DWP bits are locked
   };
   
-
+  // Bit field definition.
   struct {
     uint32_t _reserved_0 : 28;
     eDWP DWP : 2;
     eDWP_LOCK DWP_LOCK : 2;
   } bits;          // Bit-field struct (auto-filling reserved gaps)
   
-  uint32_t value;  // Full 32-bit register access
+  // Full 32-bit register value.
+  uint32_t value;
 
   GPR46() = delete;
-
-  static inline volatile GPR46 &Instance() {
-    return *reinterpret_cast<volatile GPR46*>(0x400E40B8);
-  }
-
   inline void Reset() volatile { this->value = 0x00000000; }
+  static inline volatile GPR46 &Instance() { return *reinterpret_cast<volatile GPR46*>(0x400E40B8); }
 };
 
 // GPR47 General Purpose Register
 //
 union GPR47 {
   
+  // Enum definitions.
   enum class eDWP : uint32_t {
       eforbid_none = 0, // Both cores are allowed
       eforbid_CM7 = 1, // CM7 is forbidden
       eforbid_CM4 = 2, // CM4 is forbidden
       eforbid_both = 3, // Both cores are forbidden
   };
-  
   enum class eDWP_LOCK : uint32_t {
       elock_none = 0, // Neither of DWP bits is locked
       elock_low = 1, // The lower DWP bit is locked
@@ -1829,35 +1691,32 @@ union GPR47 {
       elock_both = 3, // Both DWP bits are locked
   };
   
-
+  // Bit field definition.
   struct {
     uint32_t _reserved_0 : 28;
     eDWP DWP : 2;
     eDWP_LOCK DWP_LOCK : 2;
   } bits;          // Bit-field struct (auto-filling reserved gaps)
   
-  uint32_t value;  // Full 32-bit register access
+  // Full 32-bit register value.
+  uint32_t value;
 
   GPR47() = delete;
-
-  static inline volatile GPR47 &Instance() {
-    return *reinterpret_cast<volatile GPR47*>(0x400E40BC);
-  }
-
   inline void Reset() volatile { this->value = 0x00000000; }
+  static inline volatile GPR47 &Instance() { return *reinterpret_cast<volatile GPR47*>(0x400E40BC); }
 };
 
 // GPR48 General Purpose Register
 //
 union GPR48 {
   
+  // Enum definitions.
   enum class eDWP : uint32_t {
       eforbid_none = 0, // Both cores are allowed
       eforbid_CM7 = 1, // CM7 is forbidden
       eforbid_CM4 = 2, // CM4 is forbidden
       eforbid_both = 3, // Both cores are forbidden
   };
-  
   enum class eDWP_LOCK : uint32_t {
       elock_none = 0, // Neither of DWP bits is locked
       elock_low = 1, // The lower DWP bit is locked
@@ -1865,35 +1724,32 @@ union GPR48 {
       elock_both = 3, // Both DWP bits are locked
   };
   
-
+  // Bit field definition.
   struct {
     uint32_t _reserved_0 : 28;
     eDWP DWP : 2;
     eDWP_LOCK DWP_LOCK : 2;
   } bits;          // Bit-field struct (auto-filling reserved gaps)
   
-  uint32_t value;  // Full 32-bit register access
+  // Full 32-bit register value.
+  uint32_t value;
 
   GPR48() = delete;
-
-  static inline volatile GPR48 &Instance() {
-    return *reinterpret_cast<volatile GPR48*>(0x400E40C0);
-  }
-
   inline void Reset() volatile { this->value = 0x00000000; }
+  static inline volatile GPR48 &Instance() { return *reinterpret_cast<volatile GPR48*>(0x400E40C0); }
 };
 
 // GPR49 General Purpose Register
 //
 union GPR49 {
   
+  // Enum definitions.
   enum class eDWP : uint32_t {
       eforbid_none = 0, // Both cores are allowed
       eforbid_CM7 = 1, // CM7 is forbidden
       eforbid_CM4 = 2, // CM4 is forbidden
       eforbid_both = 3, // Both cores are forbidden
   };
-  
   enum class eDWP_LOCK : uint32_t {
       elock_none = 0, // Neither of DWP bits is locked
       elock_low = 1, // The lower DWP bit is locked
@@ -1901,35 +1757,32 @@ union GPR49 {
       elock_both = 3, // Both DWP bits are locked
   };
   
-
+  // Bit field definition.
   struct {
     uint32_t _reserved_0 : 28;
     eDWP DWP : 2;
     eDWP_LOCK DWP_LOCK : 2;
   } bits;          // Bit-field struct (auto-filling reserved gaps)
   
-  uint32_t value;  // Full 32-bit register access
+  // Full 32-bit register value.
+  uint32_t value;
 
   GPR49() = delete;
-
-  static inline volatile GPR49 &Instance() {
-    return *reinterpret_cast<volatile GPR49*>(0x400E40C4);
-  }
-
   inline void Reset() volatile { this->value = 0x00000000; }
+  static inline volatile GPR49 &Instance() { return *reinterpret_cast<volatile GPR49*>(0x400E40C4); }
 };
 
 // GPR50 General Purpose Register
 //
 union GPR50 {
   
+  // Enum definitions.
   enum class eDWP : uint32_t {
       eforbid_none = 0, // Both cores are allowed
       eforbid_CM7 = 1, // CM7 is forbidden
       eforbid_CM4 = 2, // CM4 is forbidden
       eforbid_both = 3, // Both cores are forbidden
   };
-  
   enum class eDWP_LOCK : uint32_t {
       elock_none = 0, // Neither of DWP bits is locked
       elock_low = 1, // The lower DWP bit is locked
@@ -1937,7 +1790,7 @@ union GPR50 {
       elock_both = 3, // Both DWP bits are locked
   };
   
-
+  // Bit field definition.
   struct {
     uint32_t CAAM_IPS_MGR : 5;
     uint32_t _reserved_1 : 23;
@@ -1945,28 +1798,25 @@ union GPR50 {
     eDWP_LOCK DWP_LOCK : 2;
   } bits;          // Bit-field struct (auto-filling reserved gaps)
   
-  uint32_t value;  // Full 32-bit register access
+  // Full 32-bit register value.
+  uint32_t value;
 
   GPR50() = delete;
-
-  static inline volatile GPR50 &Instance() {
-    return *reinterpret_cast<volatile GPR50*>(0x400E40C8);
-  }
-
   inline void Reset() volatile { this->value = 0x00000000; }
+  static inline volatile GPR50 &Instance() { return *reinterpret_cast<volatile GPR50*>(0x400E40C8); }
 };
 
 // GPR51 General Purpose Register
 //
 union GPR51 {
   
+  // Enum definitions.
   enum class eDWP : uint32_t {
       eforbid_none = 0, // Both cores are allowed
       eforbid_CM7 = 1, // CM7 is forbidden
       eforbid_CM4 = 2, // CM4 is forbidden
       eforbid_both = 3, // Both cores are forbidden
   };
-  
   enum class eDWP_LOCK : uint32_t {
       elock_none = 0, // Neither of DWP bits is locked
       elock_low = 1, // The lower DWP bit is locked
@@ -1974,7 +1824,7 @@ union GPR51 {
       elock_both = 3, // Both DWP bits are locked
   };
   
-
+  // Bit field definition.
   struct {
     uint32_t M7_NMI_CLEAR : 1;
     uint32_t _reserved_1 : 27;
@@ -1982,28 +1832,25 @@ union GPR51 {
     eDWP_LOCK DWP_LOCK : 2;
   } bits;          // Bit-field struct (auto-filling reserved gaps)
   
-  uint32_t value;  // Full 32-bit register access
+  // Full 32-bit register value.
+  uint32_t value;
 
   GPR51() = delete;
-
-  static inline volatile GPR51 &Instance() {
-    return *reinterpret_cast<volatile GPR51*>(0x400E40CC);
-  }
-
   inline void Reset() volatile { this->value = 0x00000000; }
+  static inline volatile GPR51 &Instance() { return *reinterpret_cast<volatile GPR51*>(0x400E40CC); }
 };
 
 // GPR52 General Purpose Register
 //
 union GPR52 {
   
+  // Enum definitions.
   enum class eDWP : uint32_t {
       eforbid_none = 0, // Both cores are allowed
       eforbid_CM7 = 1, // CM7 is forbidden
       eforbid_CM4 = 2, // CM4 is forbidden
       eforbid_both = 3, // Both cores are forbidden
   };
-  
   enum class eDWP_LOCK : uint32_t {
       elock_none = 0, // Neither of DWP bits is locked
       elock_low = 1, // The lower DWP bit is locked
@@ -2011,35 +1858,32 @@ union GPR52 {
       elock_both = 3, // Both DWP bits are locked
   };
   
-
+  // Bit field definition.
   struct {
     uint32_t _reserved_0 : 28;
     eDWP DWP : 2;
     eDWP_LOCK DWP_LOCK : 2;
   } bits;          // Bit-field struct (auto-filling reserved gaps)
   
-  uint32_t value;  // Full 32-bit register access
+  // Full 32-bit register value.
+  uint32_t value;
 
   GPR52() = delete;
-
-  static inline volatile GPR52 &Instance() {
-    return *reinterpret_cast<volatile GPR52*>(0x400E40D0);
-  }
-
   inline void Reset() volatile { this->value = 0x00000000; }
+  static inline volatile GPR52 &Instance() { return *reinterpret_cast<volatile GPR52*>(0x400E40D0); }
 };
 
 // GPR53 General Purpose Register
 //
 union GPR53 {
   
+  // Enum definitions.
   enum class eDWP : uint32_t {
       eforbid_none = 0, // Both cores are allowed
       eforbid_CM7 = 1, // CM7 is forbidden
       eforbid_CM4 = 2, // CM4 is forbidden
       eforbid_both = 3, // Both cores are forbidden
   };
-  
   enum class eDWP_LOCK : uint32_t {
       elock_none = 0, // Neither of DWP bits is locked
       elock_low = 1, // The lower DWP bit is locked
@@ -2047,35 +1891,32 @@ union GPR53 {
       elock_both = 3, // Both DWP bits are locked
   };
   
-
+  // Bit field definition.
   struct {
     uint32_t _reserved_0 : 28;
     eDWP DWP : 2;
     eDWP_LOCK DWP_LOCK : 2;
   } bits;          // Bit-field struct (auto-filling reserved gaps)
   
-  uint32_t value;  // Full 32-bit register access
+  // Full 32-bit register value.
+  uint32_t value;
 
   GPR53() = delete;
-
-  static inline volatile GPR53 &Instance() {
-    return *reinterpret_cast<volatile GPR53*>(0x400E40D4);
-  }
-
   inline void Reset() volatile { this->value = 0x00000000; }
+  static inline volatile GPR53 &Instance() { return *reinterpret_cast<volatile GPR53*>(0x400E40D4); }
 };
 
 // GPR54 General Purpose Register
 //
 union GPR54 {
   
+  // Enum definitions.
   enum class eDWP : uint32_t {
       eforbid_none = 0, // Both cores are allowed
       eforbid_CM7 = 1, // CM7 is forbidden
       eforbid_CM4 = 2, // CM4 is forbidden
       eforbid_both = 3, // Both cores are forbidden
   };
-  
   enum class eDWP_LOCK : uint32_t {
       elock_none = 0, // Neither of DWP bits is locked
       elock_low = 1, // The lower DWP bit is locked
@@ -2083,35 +1924,32 @@ union GPR54 {
       elock_both = 3, // Both DWP bits are locked
   };
   
-
+  // Bit field definition.
   struct {
     uint32_t _reserved_0 : 28;
     eDWP DWP : 2;
     eDWP_LOCK DWP_LOCK : 2;
   } bits;          // Bit-field struct (auto-filling reserved gaps)
   
-  uint32_t value;  // Full 32-bit register access
+  // Full 32-bit register value.
+  uint32_t value;
 
   GPR54() = delete;
-
-  static inline volatile GPR54 &Instance() {
-    return *reinterpret_cast<volatile GPR54*>(0x400E40D8);
-  }
-
   inline void Reset() volatile { this->value = 0x00000000; }
+  static inline volatile GPR54 &Instance() { return *reinterpret_cast<volatile GPR54*>(0x400E40D8); }
 };
 
 // GPR55 General Purpose Register
 //
 union GPR55 {
   
+  // Enum definitions.
   enum class eDWP : uint32_t {
       eforbid_none = 0, // Both cores are allowed
       eforbid_CM7 = 1, // CM7 is forbidden
       eforbid_CM4 = 2, // CM4 is forbidden
       eforbid_both = 3, // Both cores are forbidden
   };
-  
   enum class eDWP_LOCK : uint32_t {
       elock_none = 0, // Neither of DWP bits is locked
       elock_low = 1, // The lower DWP bit is locked
@@ -2119,47 +1957,42 @@ union GPR55 {
       elock_both = 3, // Both DWP bits are locked
   };
   
-
+  // Bit field definition.
   struct {
     uint32_t _reserved_0 : 28;
     eDWP DWP : 2;
     eDWP_LOCK DWP_LOCK : 2;
   } bits;          // Bit-field struct (auto-filling reserved gaps)
   
-  uint32_t value;  // Full 32-bit register access
+  // Full 32-bit register value.
+  uint32_t value;
 
   GPR55() = delete;
-
-  static inline volatile GPR55 &Instance() {
-    return *reinterpret_cast<volatile GPR55*>(0x400E40DC);
-  }
-
   inline void Reset() volatile { this->value = 0x00000000; }
+  static inline volatile GPR55 &Instance() { return *reinterpret_cast<volatile GPR55*>(0x400E40DC); }
 };
 
 // GPR59 General Purpose Register
 //
 union GPR59 {
   
+  // Enum definitions.
   enum class eMIPI_CSI_SOFT_RST_N : uint32_t {
       eASSERT = 0, // Assert reset
       eDEAST = 1, // De-assert reset
   };
-  
   enum class eMIPI_CSI_RXCDRP : uint32_t {
       eVAL0 = 0, // 344mV
       eVAL01 = 1, // 325mV (Default)
       eVAL10 = 2, // 307mV
       eVAL11 = 3, // Invalid
   };
-  
   enum class eDWP : uint32_t {
       eforbid_none = 0, // Both cores are allowed
       eforbid_CM7 = 1, // CM7 is forbidden
       eforbid_CM4 = 2, // CM4 is forbidden
       eforbid_both = 3, // Both cores are forbidden
   };
-  
   enum class eDWP_LOCK : uint32_t {
       elock_none = 0, // Neither of DWP bits is locked
       elock_low = 1, // The lower DWP bit is locked
@@ -2167,7 +2000,7 @@ union GPR59 {
       elock_both = 3, // Both DWP bits are locked
   };
   
-
+  // Bit field definition.
   struct {
     uint32_t MIPI_CSI_AUTO_PD_EN : 1;
     eMIPI_CSI_SOFT_RST_N MIPI_CSI_SOFT_RST_N : 1;
@@ -2184,48 +2017,41 @@ union GPR59 {
     eDWP_LOCK DWP_LOCK : 2;
   } bits;          // Bit-field struct (auto-filling reserved gaps)
   
-  uint32_t value;  // Full 32-bit register access
+  // Full 32-bit register value.
+  uint32_t value;
 
   GPR59() = delete;
-
-  static inline volatile GPR59 &Instance() {
-    return *reinterpret_cast<volatile GPR59*>(0x400E40EC);
-  }
-
   inline void Reset() volatile { this->value = 0x00000550; }
+  static inline volatile GPR59 &Instance() { return *reinterpret_cast<volatile GPR59*>(0x400E40EC); }
 };
 
 // GPR62 General Purpose Register
 //
 union GPR62 {
   
+  // Enum definitions.
   enum class eMIPI_DSI_PCLK_SOFT_RESET_N : uint32_t {
       eASSERT = 0, // Assert reset
       eDEASSERT = 1, // De-assert reset
   };
-  
   enum class eMIPI_DSI_BYTE_SOFT_RESET_N : uint32_t {
       eASSERT = 0, // Assert reset
       eDEASSERT = 1, // De-assert reset
   };
-  
   enum class eMIPI_DSI_DPI_SOFT_RESET_N : uint32_t {
       eASSERT = 0, // Assert reset
       eDEASSERT = 1, // De-assert reset
   };
-  
   enum class eMIPI_DSI_ESC_SOFT_RESET_N : uint32_t {
       eASSERT = 0, // Assert reset
       eDEASSERT = 1, // De-assert reset
   };
-  
   enum class eDWP : uint32_t {
       eforbid_none = 0, // Both cores are allowed
       eforbid_CM7 = 1, // CM7 is forbidden
       eforbid_CM4 = 2, // CM4 is forbidden
       eforbid_both = 3, // Both cores are forbidden
   };
-  
   enum class eDWP_LOCK : uint32_t {
       elock_none = 0, // Neither of DWP bits is locked
       elock_low = 1, // The lower DWP bit is locked
@@ -2233,7 +2059,7 @@ union GPR62 {
       elock_both = 3, // Both DWP bits are locked
   };
   
-
+  // Bit field definition.
   struct {
     uint32_t MIPI_DSI_CLK_TM : 3;
     uint32_t MIPI_DSI_D0_TM : 3;
@@ -2250,49 +2076,45 @@ union GPR62 {
     eDWP_LOCK DWP_LOCK : 2;
   } bits;          // Bit-field struct (auto-filling reserved gaps)
   
-  uint32_t value;  // Full 32-bit register access
+  // Full 32-bit register value.
+  uint32_t value;
 
   GPR62() = delete;
-
-  static inline volatile GPR62 &Instance() {
-    return *reinterpret_cast<volatile GPR62*>(0x400E40F8);
-  }
-
   inline void Reset() volatile { this->value = 0x000002DB; }
+  static inline volatile GPR62 &Instance() { return *reinterpret_cast<volatile GPR62*>(0x400E40F8); }
 };
 
 // GPR63 General Purpose Register
 //
 union GPR63 {
   
-
+  // Enum definitions.
+  
+  // Bit field definition.
   struct {
     uint32_t MIPI_DSI_TX_ULPS_ACTIVE : 3;
     uint32_t _reserved_end : 29;
   } bits;          // Bit-field struct (auto-filling reserved gaps)
   
-  uint32_t value;  // Full 32-bit register access
+  // Full 32-bit register value.
+  uint32_t value;
 
   GPR63() = delete;
-
-  static inline volatile GPR63 &Instance() {
-    return *reinterpret_cast<volatile GPR63*>(0x400E40FC);
-  }
-
   inline void Reset() volatile { this->value = 0x00000000; }
+  static inline volatile GPR63 &Instance() { return *reinterpret_cast<volatile GPR63*>(0x400E40FC); }
 };
 
 // GPR64 General Purpose Register
 //
 union GPR64 {
   
+  // Enum definitions.
   enum class eDWP : uint32_t {
       eforbid_none = 0, // Both cores are allowed
       eforbid_CM7 = 1, // CM7 is forbidden
       eforbid_CM4 = 2, // CM4 is forbidden
       eforbid_both = 3, // Both cores are forbidden
   };
-  
   enum class eDWP_LOCK : uint32_t {
       elock_none = 0, // Neither of DWP bits is locked
       elock_low = 1, // The lower DWP bit is locked
@@ -2300,7 +2122,7 @@ union GPR64 {
       elock_both = 3, // Both DWP bits are locked
   };
   
-
+  // Bit field definition.
   struct {
     uint32_t GPIO_DISP1_FREEZE : 1;
     uint32_t GPIO_DISP1_COMPTQ : 1;
@@ -2319,28 +2141,25 @@ union GPR64 {
     eDWP_LOCK DWP_LOCK : 2;
   } bits;          // Bit-field struct (auto-filling reserved gaps)
   
-  uint32_t value;  // Full 32-bit register access
+  // Full 32-bit register value.
+  uint32_t value;
 
   GPR64() = delete;
-
-  static inline volatile GPR64 &Instance() {
-    return *reinterpret_cast<volatile GPR64*>(0x400E4100);
-  }
-
   inline void Reset() volatile { this->value = 0x00004000; }
+  static inline volatile GPR64 &Instance() { return *reinterpret_cast<volatile GPR64*>(0x400E4100); }
 };
 
 // GPR65 General Purpose Register
 //
 union GPR65 {
   
+  // Enum definitions.
   enum class eDWP : uint32_t {
       eforbid_none = 0, // Both cores are allowed
       eforbid_CM7 = 1, // CM7 is forbidden
       eforbid_CM4 = 2, // CM4 is forbidden
       eforbid_both = 3, // Both cores are forbidden
   };
-  
   enum class eDWP_LOCK : uint32_t {
       elock_none = 0, // Neither of DWP bits is locked
       elock_low = 1, // The lower DWP bit is locked
@@ -2348,7 +2167,7 @@ union GPR65 {
       elock_both = 3, // Both DWP bits are locked
   };
   
-
+  // Bit field definition.
   struct {
     uint32_t GPIO_EMC1_FREEZE : 1;
     uint32_t GPIO_EMC1_COMPTQ : 1;
@@ -2367,28 +2186,25 @@ union GPR65 {
     eDWP_LOCK DWP_LOCK : 2;
   } bits;          // Bit-field struct (auto-filling reserved gaps)
   
-  uint32_t value;  // Full 32-bit register access
+  // Full 32-bit register value.
+  uint32_t value;
 
   GPR65() = delete;
-
-  static inline volatile GPR65 &Instance() {
-    return *reinterpret_cast<volatile GPR65*>(0x400E4104);
-  }
-
   inline void Reset() volatile { this->value = 0x00004000; }
+  static inline volatile GPR65 &Instance() { return *reinterpret_cast<volatile GPR65*>(0x400E4104); }
 };
 
 // GPR66 General Purpose Register
 //
 union GPR66 {
   
+  // Enum definitions.
   enum class eDWP : uint32_t {
       eforbid_none = 0, // Both cores are allowed
       eforbid_CM7 = 1, // CM7 is forbidden
       eforbid_CM4 = 2, // CM4 is forbidden
       eforbid_both = 3, // Both cores are forbidden
   };
-  
   enum class eDWP_LOCK : uint32_t {
       elock_none = 0, // Neither of DWP bits is locked
       elock_low = 1, // The lower DWP bit is locked
@@ -2396,7 +2212,7 @@ union GPR66 {
       elock_both = 3, // Both DWP bits are locked
   };
   
-
+  // Bit field definition.
   struct {
     uint32_t GPIO_EMC2_FREEZE : 1;
     uint32_t GPIO_EMC2_COMPTQ : 1;
@@ -2415,28 +2231,25 @@ union GPR66 {
     eDWP_LOCK DWP_LOCK : 2;
   } bits;          // Bit-field struct (auto-filling reserved gaps)
   
-  uint32_t value;  // Full 32-bit register access
+  // Full 32-bit register value.
+  uint32_t value;
 
   GPR66() = delete;
-
-  static inline volatile GPR66 &Instance() {
-    return *reinterpret_cast<volatile GPR66*>(0x400E4108);
-  }
-
   inline void Reset() volatile { this->value = 0x00004000; }
+  static inline volatile GPR66 &Instance() { return *reinterpret_cast<volatile GPR66*>(0x400E4108); }
 };
 
 // GPR67 General Purpose Register
 //
 union GPR67 {
   
+  // Enum definitions.
   enum class eDWP : uint32_t {
       eforbid_none = 0, // Both cores are allowed
       eforbid_CM7 = 1, // CM7 is forbidden
       eforbid_CM4 = 2, // CM4 is forbidden
       eforbid_both = 3, // Both cores are forbidden
   };
-  
   enum class eDWP_LOCK : uint32_t {
       elock_none = 0, // Neither of DWP bits is locked
       elock_low = 1, // The lower DWP bit is locked
@@ -2444,7 +2257,7 @@ union GPR67 {
       elock_both = 3, // Both DWP bits are locked
   };
   
-
+  // Bit field definition.
   struct {
     uint32_t GPIO_SD1_FREEZE : 1;
     uint32_t GPIO_SD1_COMPTQ : 1;
@@ -2463,28 +2276,25 @@ union GPR67 {
     eDWP_LOCK DWP_LOCK : 2;
   } bits;          // Bit-field struct (auto-filling reserved gaps)
   
-  uint32_t value;  // Full 32-bit register access
+  // Full 32-bit register value.
+  uint32_t value;
 
   GPR67() = delete;
-
-  static inline volatile GPR67 &Instance() {
-    return *reinterpret_cast<volatile GPR67*>(0x400E410C);
-  }
-
   inline void Reset() volatile { this->value = 0x00004000; }
+  static inline volatile GPR67 &Instance() { return *reinterpret_cast<volatile GPR67*>(0x400E410C); }
 };
 
 // GPR68 General Purpose Register
 //
 union GPR68 {
   
+  // Enum definitions.
   enum class eDWP : uint32_t {
       eforbid_none = 0, // Both cores are allowed
       eforbid_CM7 = 1, // CM7 is forbidden
       eforbid_CM4 = 2, // CM4 is forbidden
       eforbid_both = 3, // Both cores are forbidden
   };
-  
   enum class eDWP_LOCK : uint32_t {
       elock_none = 0, // Neither of DWP bits is locked
       elock_low = 1, // The lower DWP bit is locked
@@ -2492,7 +2302,7 @@ union GPR68 {
       elock_both = 3, // Both DWP bits are locked
   };
   
-
+  // Bit field definition.
   struct {
     uint32_t GPIO_SD2_FREEZE : 1;
     uint32_t GPIO_SD2_COMPTQ : 1;
@@ -2511,28 +2321,25 @@ union GPR68 {
     eDWP_LOCK DWP_LOCK : 2;
   } bits;          // Bit-field struct (auto-filling reserved gaps)
   
-  uint32_t value;  // Full 32-bit register access
+  // Full 32-bit register value.
+  uint32_t value;
 
   GPR68() = delete;
-
-  static inline volatile GPR68 &Instance() {
-    return *reinterpret_cast<volatile GPR68*>(0x400E4110);
-  }
-
   inline void Reset() volatile { this->value = 0x00004000; }
+  static inline volatile GPR68 &Instance() { return *reinterpret_cast<volatile GPR68*>(0x400E4110); }
 };
 
 // GPR69 General Purpose Register
 //
 union GPR69 {
   
+  // Enum definitions.
   enum class eDWP : uint32_t {
       eforbid_none = 0, // Both cores are allowed
       eforbid_CM7 = 1, // CM7 is forbidden
       eforbid_CM4 = 2, // CM4 is forbidden
       eforbid_both = 3, // Both cores are forbidden
   };
-  
   enum class eDWP_LOCK : uint32_t {
       elock_none = 0, // Neither of DWP bits is locked
       elock_low = 1, // The lower DWP bit is locked
@@ -2540,7 +2347,7 @@ union GPR69 {
       elock_both = 3, // Both DWP bits are locked
   };
   
-
+  // Bit field definition.
   struct {
     uint32_t _reserved_0 : 1;
     uint32_t GPIO_DISP2_HIGH_RANGE : 1;
@@ -2561,38 +2368,33 @@ union GPR69 {
     eDWP_LOCK DWP_LOCK : 2;
   } bits;          // Bit-field struct (auto-filling reserved gaps)
   
-  uint32_t value;  // Full 32-bit register access
+  // Full 32-bit register value.
+  uint32_t value;
 
   GPR69() = delete;
-
-  static inline volatile GPR69 &Instance() {
-    return *reinterpret_cast<volatile GPR69*>(0x400E4114);
-  }
-
   inline void Reset() volatile { this->value = 0x00000000; }
+  static inline volatile GPR69 &Instance() { return *reinterpret_cast<volatile GPR69*>(0x400E4114); }
 };
 
 // GPR70 General Purpose Register
 //
 union GPR70 {
   
+  // Enum definitions.
   enum class eADC1_IPG_STOP_MODE : uint32_t {
       eFUNC = 0, // This module is functional in Stop Mode
       eNONFUNC = 1, // This module is not functional in Stop Mode and the corresponding x_STOP_REQ field is set to '1'.
   };
-  
   enum class eADC2_IPG_STOP_MODE : uint32_t {
       eFUNC = 0, // This module is functional in Stop Mode
       eNONFUNC = 1, // This module is not functional in Stop Mode and the corresponding x_STOP_REQ field is set to '1'.
   };
-  
   enum class eDWP : uint32_t {
       eforbid_none = 0, // Both cores are allowed
       eforbid_CM7 = 1, // CM7 is forbidden
       eforbid_CM4 = 2, // CM4 is forbidden
       eforbid_both = 3, // Both cores are forbidden
   };
-  
   enum class eDWP_LOCK : uint32_t {
       elock_none = 0, // Neither of DWP bits is locked
       elock_low = 1, // The lower DWP bit is locked
@@ -2600,7 +2402,7 @@ union GPR70 {
       elock_both = 3, // Both DWP bits are locked
   };
   
-
+  // Bit field definition.
   struct {
     uint32_t ADC1_IPG_DOZE : 1;
     uint32_t ADC1_STOP_REQ : 1;
@@ -2634,63 +2436,53 @@ union GPR70 {
     eDWP_LOCK DWP_LOCK : 2;
   } bits;          // Bit-field struct (auto-filling reserved gaps)
   
-  uint32_t value;  // Full 32-bit register access
+  // Full 32-bit register value.
+  uint32_t value;
 
   GPR70() = delete;
-
-  static inline volatile GPR70 &Instance() {
-    return *reinterpret_cast<volatile GPR70*>(0x400E4118);
-  }
-
   inline void Reset() volatile { this->value = 0x00000000; }
+  static inline volatile GPR70 &Instance() { return *reinterpret_cast<volatile GPR70*>(0x400E4118); }
 };
 
 // GPR71 General Purpose Register
 //
 union GPR71 {
   
+  // Enum definitions.
   enum class eLPI2C1_IPG_STOP_MODE : uint32_t {
       eFUNC = 0, // This module is functional in Stop Mode
       eNONFUNC = 1, // This module is not functional in Stop Mode and the corresponding x_STOP_REQ field is set to '1'.
   };
-  
   enum class eLPI2C2_IPG_STOP_MODE : uint32_t {
       eFUNC = 0, // This module is functional in Stop Mode
       eNONFUNC = 1, // This module is not functional in Stop Mode and the corresponding x_STOP_REQ field is set to '1'.
   };
-  
   enum class eLPI2C3_IPG_STOP_MODE : uint32_t {
       eFUNC = 0, // This module is functional in Stop Mode
       eNONFUNC = 1, // This module is not functional in Stop Mode and the corresponding x_STOP_REQ field is set to '1'.
   };
-  
   enum class eLPI2C4_IPG_STOP_MODE : uint32_t {
       eFUNC = 0, // This module is functional in Stop Mode
       eNONFUNC = 1, // This module is not functional in Stop Mode and the corresponding x_STOP_REQ field is set to '1'.
   };
-  
   enum class eLPI2C5_IPG_STOP_MODE : uint32_t {
       eFUNC = 0, // This module is functional in Stop Mode
       eNONFUNC = 1, // This module is not functional in Stop Mode and the corresponding x_STOP_REQ field is set to '1'.
   };
-  
   enum class eLPI2C6_IPG_STOP_MODE : uint32_t {
       eFUNC = 0, // This module is functional in Stop Mode
       eNONFUNC = 1, // This module is not functional in Stop Mode and the corresponding x_STOP_REQ field is set to '1'.
   };
-  
   enum class eLPSPI1_IPG_STOP_MODE : uint32_t {
       eFUNC = 0, // This module is functional in Stop Mode
       eNONFUNC = 1, // This module is not functional in Stop Mode and the corresponding x_STOP_REQ field is set to '1'.
   };
-  
   enum class eDWP : uint32_t {
       eforbid_none = 0, // Both cores are allowed
       eforbid_CM7 = 1, // CM7 is forbidden
       eforbid_CM4 = 2, // CM4 is forbidden
       eforbid_both = 3, // Both cores are forbidden
   };
-  
   enum class eDWP_LOCK : uint32_t {
       elock_none = 0, // Neither of DWP bits is locked
       elock_low = 1, // The lower DWP bit is locked
@@ -2698,7 +2490,7 @@ union GPR71 {
       elock_both = 3, // Both DWP bits are locked
   };
   
-
+  // Bit field definition.
   struct {
     uint32_t GPT1_IPG_DOZE : 1;
     uint32_t GPT2_IPG_DOZE : 1;
@@ -2732,73 +2524,61 @@ union GPR71 {
     eDWP_LOCK DWP_LOCK : 2;
   } bits;          // Bit-field struct (auto-filling reserved gaps)
   
-  uint32_t value;  // Full 32-bit register access
+  // Full 32-bit register value.
+  uint32_t value;
 
   GPR71() = delete;
-
-  static inline volatile GPR71 &Instance() {
-    return *reinterpret_cast<volatile GPR71*>(0x400E411C);
-  }
-
   inline void Reset() volatile { this->value = 0x00000000; }
+  static inline volatile GPR71 &Instance() { return *reinterpret_cast<volatile GPR71*>(0x400E411C); }
 };
 
 // GPR72 General Purpose Register
 //
 union GPR72 {
   
+  // Enum definitions.
   enum class eLPSPI2_IPG_STOP_MODE : uint32_t {
       eFUNC = 0, // This module is functional in Stop Mode
       eNONFUNC = 1, // This module is not functional in Stop Mode and the corresponding x_STOP_REQ field is set to '1'.
   };
-  
   enum class eLPSPI3_IPG_STOP_MODE : uint32_t {
       eFUNC = 0, // This module is functional in Stop Mode
       eNONFUNC = 1, // This module is not functional in Stop Mode and the corresponding x_STOP_REQ field is set to '1'.
   };
-  
   enum class eLPSPI4_IPG_STOP_MODE : uint32_t {
       eFUNC = 0, // This module is functional in Stop Mode
       eNONFUNC = 1, // This module is not functional in Stop Mode and the corresponding x_STOP_REQ field is set to '1'.
   };
-  
   enum class eLPSPI5_IPG_STOP_MODE : uint32_t {
       eFUNC = 0, // This module is functional in Stop Mode
       eNONFUNC = 1, // This module is not functional in Stop Mode and the corresponding x_STOP_REQ field is set to '1'.
   };
-  
   enum class eLPSPI6_IPG_STOP_MODE : uint32_t {
       eFUNC = 0, // This module is functional in Stop Mode
       eNONFUNC = 1, // This module is not functional in Stop Mode and the corresponding x_STOP_REQ field is set to '1'.
   };
-  
   enum class eLPUART1_IPG_STOP_MODE : uint32_t {
       eFUNC = 0, // This module is functional in Stop Mode
       eNONFUNC = 1, // This module is not functional in Stop Mode and the corresponding x_STOP_REQ field is set to '1'.
   };
-  
   enum class eLPUART2_IPG_STOP_MODE : uint32_t {
       eFUNC = 0, // This module is functional in Stop Mode
       eNONFUNC = 1, // This module is not functional in Stop Mode and the corresponding x_STOP_REQ field is set to '1'.
   };
-  
   enum class eLPUART3_IPG_STOP_MODE : uint32_t {
       eFUNC = 0, // This module is functional in Stop Mode
       eNONFUNC = 1, // This module is not functional in Stop Mode and the corresponding x_STOP_REQ field is set to '1'.
   };
-  
   enum class eLPUART4_IPG_STOP_MODE : uint32_t {
       eFUNC = 0, // This module is functional in Stop Mode
       eNONFUNC = 1, // This module is not functional in Stop Mode and the corresponding x_STOP_REQ field is set to '1'.
   };
-  
   enum class eDWP : uint32_t {
       eforbid_none = 0, // Both cores are allowed
       eforbid_CM7 = 1, // CM7 is forbidden
       eforbid_CM4 = 2, // CM4 is forbidden
       eforbid_both = 3, // Both cores are forbidden
   };
-  
   enum class eDWP_LOCK : uint32_t {
       elock_none = 0, // Neither of DWP bits is locked
       elock_low = 1, // The lower DWP bit is locked
@@ -2806,7 +2586,7 @@ union GPR72 {
       elock_both = 3, // Both DWP bits are locked
   };
   
-
+  // Bit field definition.
   struct {
     uint32_t LPSPI2_IPG_DOZE : 1;
     uint32_t LPSPI2_STOP_REQ : 1;
@@ -2840,73 +2620,61 @@ union GPR72 {
     eDWP_LOCK DWP_LOCK : 2;
   } bits;          // Bit-field struct (auto-filling reserved gaps)
   
-  uint32_t value;  // Full 32-bit register access
+  // Full 32-bit register value.
+  uint32_t value;
 
   GPR72() = delete;
-
-  static inline volatile GPR72 &Instance() {
-    return *reinterpret_cast<volatile GPR72*>(0x400E4120);
-  }
-
   inline void Reset() volatile { this->value = 0x00000000; }
+  static inline volatile GPR72 &Instance() { return *reinterpret_cast<volatile GPR72*>(0x400E4120); }
 };
 
 // GPR73 General Purpose Register
 //
 union GPR73 {
   
+  // Enum definitions.
   enum class eLPUART5_IPG_STOP_MODE : uint32_t {
       eFUNC = 0, // This module is functional in Stop Mode
       eNONFUNC = 1, // This module is not functional in Stop Mode and the corresponding x_STOP_REQ field is set to '1'.
   };
-  
   enum class eLPUART6_IPG_STOP_MODE : uint32_t {
       eFUNC = 0, // This module is functional in Stop Mode
       eNONFUNC = 1, // This module is not functional in Stop Mode and the corresponding x_STOP_REQ field is set to '1'.
   };
-  
   enum class eLPUART7_IPG_STOP_MODE : uint32_t {
       eFUNC = 0, // This module is functional in Stop Mode
       eNONFUNC = 1, // This module is not functional in Stop Mode and the corresponding x_STOP_REQ field is set to '1'.
   };
-  
   enum class eLPUART8_IPG_STOP_MODE : uint32_t {
       eFUNC = 0, // This module is functional in Stop Mode
       eNONFUNC = 1, // This module is not functional in Stop Mode and the corresponding x_STOP_REQ field is set to '1'.
   };
-  
   enum class eLPUART9_IPG_STOP_MODE : uint32_t {
       eFUNC = 0, // This module is functional in Stop Mode
       eNONFUNC = 1, // This module is not functional in Stop Mode and the corresponding x_STOP_REQ field is set to '1'.
   };
-  
   enum class eLPUART10_IPG_STOP_MODE : uint32_t {
       eFUNC = 0, // This module is functional in Stop Mode
       eNONFUNC = 1, // This module is not functional in Stop Mode and the corresponding x_STOP_REQ field is set to '1'.
   };
-  
   enum class eLPUART11_IPG_STOP_MODE : uint32_t {
       eFUNC = 0, // This module is functional in Stop Mode
       eNONFUNC = 1, // This module is not functional in Stop Mode and the corresponding x_STOP_REQ field is set to '1'.
   };
-  
   enum class eLPUART12_IPG_STOP_MODE : uint32_t {
       eFUNC = 0, // This module is functional in Stop Mode
       eNONFUNC = 1, // This module is not functional in Stop Mode and the corresponding x_STOP_REQ field is set to '1'.
   };
-  
   enum class eMIC_IPG_STOP_MODE : uint32_t {
       eFUNC = 0, // This module is functional in Stop Mode
       eNONFUNC = 1, // This module is not functional in Stop Mode and the corresponding x_STOP_REQ field is set to '1'.
   };
-  
   enum class eDWP : uint32_t {
       eforbid_none = 0, // Both cores are allowed
       eforbid_CM7 = 1, // CM7 is forbidden
       eforbid_CM4 = 2, // CM4 is forbidden
       eforbid_both = 3, // Both cores are forbidden
   };
-  
   enum class eDWP_LOCK : uint32_t {
       elock_none = 0, // Neither of DWP bits is locked
       elock_low = 1, // The lower DWP bit is locked
@@ -2914,7 +2682,7 @@ union GPR73 {
       elock_both = 3, // Both DWP bits are locked
   };
   
-
+  // Bit field definition.
   struct {
     uint32_t LPUART5_IPG_DOZE : 1;
     uint32_t LPUART5_STOP_REQ : 1;
@@ -2948,28 +2716,25 @@ union GPR73 {
     eDWP_LOCK DWP_LOCK : 2;
   } bits;          // Bit-field struct (auto-filling reserved gaps)
   
-  uint32_t value;  // Full 32-bit register access
+  // Full 32-bit register value.
+  uint32_t value;
 
   GPR73() = delete;
-
-  static inline volatile GPR73 &Instance() {
-    return *reinterpret_cast<volatile GPR73*>(0x400E4124);
-  }
-
   inline void Reset() volatile { this->value = 0x00000000; }
+  static inline volatile GPR73 &Instance() { return *reinterpret_cast<volatile GPR73*>(0x400E4124); }
 };
 
 // GPR74 General Purpose Register
 //
 union GPR74 {
   
+  // Enum definitions.
   enum class eDWP : uint32_t {
       eforbid_none = 0, // Both cores are allowed
       eforbid_CM7 = 1, // CM7 is forbidden
       eforbid_CM4 = 2, // CM4 is forbidden
       eforbid_both = 3, // Both cores are forbidden
   };
-  
   enum class eDWP_LOCK : uint32_t {
       elock_none = 0, // Neither of DWP bits is locked
       elock_low = 1, // The lower DWP bit is locked
@@ -2977,7 +2742,7 @@ union GPR74 {
       elock_both = 3, // Both DWP bits are locked
   };
   
-
+  // Bit field definition.
   struct {
     uint32_t _reserved_0 : 1;
     uint32_t PIT1_STOP_REQ : 1;
@@ -3002,22 +2767,21 @@ union GPR74 {
     eDWP_LOCK DWP_LOCK : 2;
   } bits;          // Bit-field struct (auto-filling reserved gaps)
   
-  uint32_t value;  // Full 32-bit register access
+  // Full 32-bit register value.
+  uint32_t value;
 
   GPR74() = delete;
-
-  static inline volatile GPR74 &Instance() {
-    return *reinterpret_cast<volatile GPR74*>(0x400E4128);
-  }
-
   inline void Reset() volatile { this->value = 0x00000000; }
+  static inline volatile GPR74 &Instance() { return *reinterpret_cast<volatile GPR74*>(0x400E4128); }
 };
 
 // GPR75 General Purpose Register
 //
 union GPR75 {
   
-
+  // Enum definitions.
+  
+  // Bit field definition.
   struct {
     uint32_t ADC1_STOP_ACK : 1;
     uint32_t ADC2_STOP_ACK : 1;
@@ -3053,22 +2817,21 @@ union GPR75 {
     uint32_t LPUART8_STOP_ACK : 1;
   } bits;          // Bit-field struct (auto-filling reserved gaps)
   
-  uint32_t value;  // Full 32-bit register access
+  // Full 32-bit register value.
+  uint32_t value;
 
   GPR75() = delete;
-
-  static inline volatile GPR75 &Instance() {
-    return *reinterpret_cast<volatile GPR75*>(0x400E412C);
-  }
-
   inline void Reset() volatile { this->value = 0x00000000; }
+  static inline volatile GPR75 &Instance() { return *reinterpret_cast<volatile GPR75*>(0x400E412C); }
 };
 
 // GPR76 General Purpose Register
 //
 union GPR76 {
   
-
+  // Enum definitions.
+  
+  // Bit field definition.
   struct {
     uint32_t LPUART9_STOP_ACK : 1;
     uint32_t LPUART10_STOP_ACK : 1;
@@ -3090,15 +2853,12 @@ union GPR76 {
     uint32_t _reserved_end : 15;
   } bits;          // Bit-field struct (auto-filling reserved gaps)
   
-  uint32_t value;  // Full 32-bit register access
+  // Full 32-bit register value.
+  uint32_t value;
 
   GPR76() = delete;
-
-  static inline volatile GPR76 &Instance() {
-    return *reinterpret_cast<volatile GPR76*>(0x400E4130);
-  }
-
   inline void Reset() volatile { this->value = 0x00000000; }
+  static inline volatile GPR76 &Instance() { return *reinterpret_cast<volatile GPR76*>(0x400E4130); }
 };
 
 } // namespace nIOMUXC_GPR

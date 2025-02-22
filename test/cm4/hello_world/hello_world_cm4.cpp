@@ -59,51 +59,11 @@ void SystemInitHook(void)
 }
 
 
-namespace n_IOMUXC
-{
-union SW_MUX_CTL_PAD_GPIO_AD_04 {
-    enum class eMUX_MODE : uint32_t {
-        eALT0_EMVSIM1_PD=0, // Select mux mode: ALT0 mux port: EMVSIM1_PD of instance: EMVSIM1
-        eALT1_lpuart8_CTS_B=1, // Select mux mode: ALT1 mux port: LPUART8_CTS_B of instance: LPUART8
-        eALT2_enet_1g_1588_EVENT3_IN=2, // Select mux mode: ALT2 mux port: ENET_1G_1588_EVENT3_IN of instance: ENET_1G
-        eALT3_gpt2_COMPARE3=3, // Select mux mode: ALT3 mux port: GPT2_COMPARE3 of instance: GPT2
-        eALT4_flexpwm1_PWMA2=4, // Select mux mode: ALT4 mux port: FLEXPWM1_PWM2_A of instance: FLEXPWM1
-        eALT5_gpio_mux3_IO3=5, // Select mux mode: ALT5 mux port: GPIO_MUX3_IO03 of instance: GPIO_MUX3
-        eALT6_WDOG1_B=6, // Select mux mode: ALT6 mux port: WDOG1_B of instance: WDOG1
-        eALT8_flexio2_FLEXIO4=8, // Select mux mode: ALT8 mux port: FLEXIO2_D04 of instance: FLEXIO2
-        eALT9_qtimer4_TIMER0=9, // Select mux mode: ALT9 mux port: TMR4_TIMER0 of instance: TMR4
-        eALT10_gpio9_IO3=10, // Select mux mode: ALT10 mux port: GPIO9_IO03 of instance: GPIO9
-    };
-
-    uint32_t value;  // Full 32-bit register access
-    struct {
-        eMUX_MODE MUX_MODE : 4;
-        uint32_t SION : 1;
-        uint32_t _reserved : 27;
-    } bits;  // Bit-field struct (automatically optimized)
-
-    // // Constructor initializes the reference to the real register
-    // SW_MUX_CTL_PAD_GPIO_AD_04() : value(*address) {}
-    SW_MUX_CTL_PAD_GPIO_AD_04() = delete;
-
-    static inline volatile SW_MUX_CTL_PAD_GPIO_AD_04 &Instance() {
-        return *reinterpret_cast<volatile SW_MUX_CTL_PAD_GPIO_AD_04*>(0x400E811C);
-    }
-
-    
-    inline void Reset() volatile { this->value = 0x00000005; }
-
-};
-}
-
 void BoardInitPins()
 {
     // IOMUXC_SetPinMux(
     //   IOMUXC_GPIO_AD_04_GPIO9_IO03,           /* GPIO_AD_04 is configured as GPIO9_IO03 */
     //   0U);
-
-    // nIOMUXC::SW_MUX_CTL_PAD_GPIO_AD_04_t iomuxc_sw_pad{};
-    // iomuxc_sw_pad.SetMUX_MODE(nIOMUXC::SW_MUX_CTL_PAD_GPIO_AD_04_t::eMUX_MODE::eALT10_gpio9_IO3);
 
     // Set GPIO9, pin3 mux.
     auto &reg = nIOMUXC::SW_MUX_CTL_PAD_GPIO_AD_04::Instance();
@@ -169,5 +129,8 @@ int main(void)
             (void)y;
         }
         LED_TOGGLE();
+        auto &reg = nIOMUXC::SW_MUX_CTL_PAD_GPIO_AD_04::Instance();
+        auto x = reg.bits.MUX_MODE;
+        (void)x;
     }
 }
