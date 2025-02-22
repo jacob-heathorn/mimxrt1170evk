@@ -47,8 +47,6 @@ def main():
   if args.debug_core_1:
     mimxrt1170evk.Core1Application(args.debug_core_1).debug()
 
-  # TODO: get mcux-sdk in nix.
-  #
   # Do generate core 0 (cm4) registers.
   if args.generate_core_0:
     file = os.path.join(MCUX_SOC_SVD_ROOT, 'MIMXRT1176', 'MIMXRT1176_cm4.xml')
