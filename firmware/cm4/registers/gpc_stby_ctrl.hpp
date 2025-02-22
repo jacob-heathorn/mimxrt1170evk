@@ -5,20 +5,16 @@
 #include <cstring>
 
 // GPC_STBY
-//
-// NOTE: This file was generated from the forge CMSIS-svd wrapper tool.
-
 namespace nGPC_STBY_CTRL {
 
 
 // Standby Authentication Control
-//
 union STBY_AUTHEN_CTRL {
   
   // Bit field definition.
   struct {
     uint32_t _reserved_0 : 20;
-    /// read-write - Configuration lock
+    // read-write - Configuration lock
     uint32_t LOCK_CFG : 1;
     uint32_t _reserved_1 : 11;
   } bits;
@@ -32,18 +28,17 @@ union STBY_AUTHEN_CTRL {
 };
 
 // STBY Misc
-//
 union STBY_MISC {
   
   // Bit field definition.
   struct {
-    /// read-write - Force CPU0 requesting standby mode
+    // read-write - Force CPU0 requesting standby mode
     uint32_t FORCE_CPU0_STBY : 1;
-    /// read-write - Force CPU0 requesting standby mode
+    // read-write - Force CPU0 requesting standby mode
     uint32_t FORCE_CPU1_STBY : 1;
-    /// read-write - Force CPU2 requesting standby mode
+    // read-write - Force CPU2 requesting standby mode
     uint32_t FORCE_CPU2_STBY : 1;
-    /// read-write - Force CPU3 requesting standby mode
+    // read-write - Force CPU3 requesting standby mode
     uint32_t FORCE_CPU3_STBY : 1;
     uint32_t _reserved_0 : 28;
   } bits;
@@ -57,25 +52,29 @@ union STBY_MISC {
 };
 
 // STBY lpcg_in control
-//
 union STBY_LPCG_IN_CTRL {
   
+  // Count mode
   enum class eCNT_MODE : uint32_t {
-    eb0 = 0, // Counter disable mode: not use step counter, step completes once receiving step_done
-    eb1 = 1, // Counter delay mode: delay after receiving step_done, delay cycle number is STEP_CNT
-    eb2 = 2, // Ignore step_done response, the counter starts to count once step begins, when counter reaches STEP_CNT value, the step completes
-    eb3 = 3, // Time out mode, the counter starts to count once step begins, the step completes when either step_done received or counting to STEP_CNT value
+    // Counter disable mode: not use step counter, step completes once receiving step_done
+    eb0 = 0,
+    // Counter delay mode: delay after receiving step_done, delay cycle number is STEP_CNT
+    eb1 = 1,
+    // Ignore step_done response, the counter starts to count once step begins, when counter reaches STEP_CNT value, the step completes
+    eb2 = 2,
+    // Time out mode, the counter starts to count once step begins, the step completes when either step_done received or counting to STEP_CNT value
+    eb3 = 3,
   };
   
   // Bit field definition.
   struct {
-    /// read-write - Step count, useage is depending on CNT_MODE
+    // read-write - Step count, useage is depending on CNT_MODE
     uint32_t STEP_CNT : 16;
     uint32_t _reserved_0 : 12;
-    /// read-write - Count mode
+    // read-write - Count mode
     eCNT_MODE CNT_MODE : 2;
     uint32_t _reserved_1 : 1;
-    /// read-write - Disable this step
+    // read-write - Disable this step
     uint32_t DISABLE : 1;
   } bits;
   
@@ -88,25 +87,29 @@ union STBY_LPCG_IN_CTRL {
 };
 
 // STBY pll_in control
-//
 union STBY_PLL_IN_CTRL {
   
+  // Count mode
   enum class eCNT_MODE : uint32_t {
-    eb0 = 0, // Counter disable mode: not use step counter, step completes once receiving step_done
-    eb1 = 1, // Counter delay mode: delay after receiving step_done, delay cycle number is STEP_CNT
-    eb2 = 2, // Ignore step_done response, the counter starts to count once step begins, when counter reaches STEP_CNT value, the step completes
-    eb3 = 3, // Time out mode, the counter starts to count once step begins, the step completes when either step_done received or counting to STEP_CNT value
+    // Counter disable mode: not use step counter, step completes once receiving step_done
+    eb0 = 0,
+    // Counter delay mode: delay after receiving step_done, delay cycle number is STEP_CNT
+    eb1 = 1,
+    // Ignore step_done response, the counter starts to count once step begins, when counter reaches STEP_CNT value, the step completes
+    eb2 = 2,
+    // Time out mode, the counter starts to count once step begins, the step completes when either step_done received or counting to STEP_CNT value
+    eb3 = 3,
   };
   
   // Bit field definition.
   struct {
-    /// read-write - Step count, useage is depending on CNT_MODE
+    // read-write - Step count, useage is depending on CNT_MODE
     uint32_t STEP_CNT : 16;
     uint32_t _reserved_0 : 12;
-    /// read-write - Count mode
+    // read-write - Count mode
     eCNT_MODE CNT_MODE : 2;
     uint32_t _reserved_1 : 1;
-    /// read-write - Disable this step
+    // read-write - Disable this step
     uint32_t DISABLE : 1;
   } bits;
   
@@ -119,25 +122,29 @@ union STBY_PLL_IN_CTRL {
 };
 
 // STBY bias_in control
-//
 union STBY_BIAS_IN_CTRL {
   
+  // Count mode
   enum class eCNT_MODE : uint32_t {
-    eb0 = 0, // Counter disable mode: not use step counter, step completes once receiving step_done
-    eb1 = 1, // Counter delay mode: delay after receiving step_done, delay cycle number is STEP_CNT
-    eb2 = 2, // Ignore step_done response, the counter starts to count once step begins, when counter reaches STEP_CNT value, the step completes
-    eb3 = 3, // Time out mode, the counter starts to count once step begins, the step completes when either step_done received or counting to STEP_CNT value
+    // Counter disable mode: not use step counter, step completes once receiving step_done
+    eb0 = 0,
+    // Counter delay mode: delay after receiving step_done, delay cycle number is STEP_CNT
+    eb1 = 1,
+    // Ignore step_done response, the counter starts to count once step begins, when counter reaches STEP_CNT value, the step completes
+    eb2 = 2,
+    // Time out mode, the counter starts to count once step begins, the step completes when either step_done received or counting to STEP_CNT value
+    eb3 = 3,
   };
   
   // Bit field definition.
   struct {
-    /// read-write - Step count, useage is depending on CNT_MODE
+    // read-write - Step count, useage is depending on CNT_MODE
     uint32_t STEP_CNT : 16;
     uint32_t _reserved_0 : 12;
-    /// read-write - Count mode
+    // read-write - Count mode
     eCNT_MODE CNT_MODE : 2;
     uint32_t _reserved_1 : 1;
-    /// read-write - Disable this step
+    // read-write - Disable this step
     uint32_t DISABLE : 1;
   } bits;
   
@@ -150,25 +157,29 @@ union STBY_BIAS_IN_CTRL {
 };
 
 // STBY pldo_in control
-//
 union STBY_PLDO_IN_CTRL {
   
+  // Count mode
   enum class eCNT_MODE : uint32_t {
-    eb0 = 0, // Counter disable mode: not use step counter, step completes once receiving step_done
-    eb1 = 1, // Counter delay mode: delay after receiving step_done, delay cycle number is STEP_CNT
-    eb2 = 2, // Ignore step_done response, the counter starts to count once step begins, when counter reaches STEP_CNT value, the step completes
-    eb3 = 3, // Time out mode, the counter starts to count once step begins, the step completes when either step_done received or counting to STEP_CNT value
+    // Counter disable mode: not use step counter, step completes once receiving step_done
+    eb0 = 0,
+    // Counter delay mode: delay after receiving step_done, delay cycle number is STEP_CNT
+    eb1 = 1,
+    // Ignore step_done response, the counter starts to count once step begins, when counter reaches STEP_CNT value, the step completes
+    eb2 = 2,
+    // Time out mode, the counter starts to count once step begins, the step completes when either step_done received or counting to STEP_CNT value
+    eb3 = 3,
   };
   
   // Bit field definition.
   struct {
-    /// read-write - Step count, useage is depending on CNT_MODE
+    // read-write - Step count, useage is depending on CNT_MODE
     uint32_t STEP_CNT : 16;
     uint32_t _reserved_0 : 12;
-    /// read-write - Count mode
+    // read-write - Count mode
     eCNT_MODE CNT_MODE : 2;
     uint32_t _reserved_1 : 1;
-    /// read-write - Disable this step
+    // read-write - Disable this step
     uint32_t DISABLE : 1;
   } bits;
   
@@ -181,25 +192,29 @@ union STBY_PLDO_IN_CTRL {
 };
 
 // STBY bandgap_in control
-//
 union STBY_BANDGAP_IN_CTRL {
   
+  // Count mode
   enum class eCNT_MODE : uint32_t {
-    eb0 = 0, // Counter disable mode: not use step counter, step completes once receiving step_done
-    eb1 = 1, // Counter delay mode: delay after receiving step_done, delay cycle number is STEP_CNT
-    eb2 = 2, // Ignore step_done response, the counter starts to count once step begins, when counter reaches STEP_CNT value, the step completes
-    eb3 = 3, // Time out mode, the counter starts to count once step begins, the step completes when either step_done received or counting to STEP_CNT value
+    // Counter disable mode: not use step counter, step completes once receiving step_done
+    eb0 = 0,
+    // Counter delay mode: delay after receiving step_done, delay cycle number is STEP_CNT
+    eb1 = 1,
+    // Ignore step_done response, the counter starts to count once step begins, when counter reaches STEP_CNT value, the step completes
+    eb2 = 2,
+    // Time out mode, the counter starts to count once step begins, the step completes when either step_done received or counting to STEP_CNT value
+    eb3 = 3,
   };
   
   // Bit field definition.
   struct {
-    /// read-write - Step count, useage is depending on CNT_MODE
+    // read-write - Step count, useage is depending on CNT_MODE
     uint32_t STEP_CNT : 16;
     uint32_t _reserved_0 : 12;
-    /// read-write - Count mode
+    // read-write - Count mode
     eCNT_MODE CNT_MODE : 2;
     uint32_t _reserved_1 : 1;
-    /// read-write - Disable this step
+    // read-write - Disable this step
     uint32_t DISABLE : 1;
   } bits;
   
@@ -212,25 +227,29 @@ union STBY_BANDGAP_IN_CTRL {
 };
 
 // STBY ldo_in control
-//
 union STBY_LDO_IN_CTRL {
   
+  // Count mode
   enum class eCNT_MODE : uint32_t {
-    eb0 = 0, // Counter disable mode: not use step counter, step completes once receiving step_done
-    eb1 = 1, // Counter delay mode: delay after receiving step_done, delay cycle number is STEP_CNT
-    eb2 = 2, // Ignore step_done response, the counter starts to count once step begins, when counter reaches STEP_CNT value, the step completes
-    eb3 = 3, // Time out mode, the counter starts to count once step begins, the step completes when either step_done received or counting to STEP_CNT value
+    // Counter disable mode: not use step counter, step completes once receiving step_done
+    eb0 = 0,
+    // Counter delay mode: delay after receiving step_done, delay cycle number is STEP_CNT
+    eb1 = 1,
+    // Ignore step_done response, the counter starts to count once step begins, when counter reaches STEP_CNT value, the step completes
+    eb2 = 2,
+    // Time out mode, the counter starts to count once step begins, the step completes when either step_done received or counting to STEP_CNT value
+    eb3 = 3,
   };
   
   // Bit field definition.
   struct {
-    /// read-write - Step count, useage is depending on CNT_MODE
+    // read-write - Step count, useage is depending on CNT_MODE
     uint32_t STEP_CNT : 16;
     uint32_t _reserved_0 : 12;
-    /// read-write - Count mode
+    // read-write - Count mode
     eCNT_MODE CNT_MODE : 2;
     uint32_t _reserved_1 : 1;
-    /// read-write - Disable this step
+    // read-write - Disable this step
     uint32_t DISABLE : 1;
   } bits;
   
@@ -243,25 +262,29 @@ union STBY_LDO_IN_CTRL {
 };
 
 // STBY dcdc_in control
-//
 union STBY_DCDC_IN_CTRL {
   
+  // Count mode
   enum class eCNT_MODE : uint32_t {
-    eb0 = 0, // Counter disable mode: not use step counter, step completes once receiving step_done
-    eb1 = 1, // Counter delay mode: delay after receiving step_done, delay cycle number is STEP_CNT
-    eb2 = 2, // Ignore step_done response, the counter starts to count once step begins, when counter reaches STEP_CNT value, the step completes
-    eb3 = 3, // Time out mode, the counter starts to count once step begins, the step completes when either step_done received or counting to STEP_CNT value
+    // Counter disable mode: not use step counter, step completes once receiving step_done
+    eb0 = 0,
+    // Counter delay mode: delay after receiving step_done, delay cycle number is STEP_CNT
+    eb1 = 1,
+    // Ignore step_done response, the counter starts to count once step begins, when counter reaches STEP_CNT value, the step completes
+    eb2 = 2,
+    // Time out mode, the counter starts to count once step begins, the step completes when either step_done received or counting to STEP_CNT value
+    eb3 = 3,
   };
   
   // Bit field definition.
   struct {
-    /// read-write - Step count, useage is depending on CNT_MODE
+    // read-write - Step count, useage is depending on CNT_MODE
     uint32_t STEP_CNT : 16;
     uint32_t _reserved_0 : 12;
-    /// read-write - Count mode
+    // read-write - Count mode
     eCNT_MODE CNT_MODE : 2;
     uint32_t _reserved_1 : 1;
-    /// read-write - Disable this step
+    // read-write - Disable this step
     uint32_t DISABLE : 1;
   } bits;
   
@@ -274,25 +297,29 @@ union STBY_DCDC_IN_CTRL {
 };
 
 // STBY PMIC in control
-//
 union STBY_PMIC_IN_CTRL {
   
+  // Count mode
   enum class eCNT_MODE : uint32_t {
-    eb0 = 0, // Counter disable mode: not use step counter, step completes once receiving step_done
-    eb1 = 1, // Counter delay mode: delay after receiving step_done, delay cycle number is STEP_CNT
-    eb2 = 2, // Ignore step_done response, the counter starts to count once step begins, when counter reaches STEP_CNT value, the step completes
-    eb3 = 3, // Time out mode, the counter starts to count once step begins, the step completes when either step_done received or counting to STEP_CNT value
+    // Counter disable mode: not use step counter, step completes once receiving step_done
+    eb0 = 0,
+    // Counter delay mode: delay after receiving step_done, delay cycle number is STEP_CNT
+    eb1 = 1,
+    // Ignore step_done response, the counter starts to count once step begins, when counter reaches STEP_CNT value, the step completes
+    eb2 = 2,
+    // Time out mode, the counter starts to count once step begins, the step completes when either step_done received or counting to STEP_CNT value
+    eb3 = 3,
   };
   
   // Bit field definition.
   struct {
-    /// read-write - Step count, useage is depending on CNT_MODE
+    // read-write - Step count, useage is depending on CNT_MODE
     uint32_t STEP_CNT : 16;
     uint32_t _reserved_0 : 12;
-    /// read-write - Count mode
+    // read-write - Count mode
     eCNT_MODE CNT_MODE : 2;
     uint32_t _reserved_1 : 1;
-    /// read-write - Disable this step
+    // read-write - Disable this step
     uint32_t DISABLE : 1;
   } bits;
   
@@ -305,25 +332,29 @@ union STBY_PMIC_IN_CTRL {
 };
 
 // STBY PMIC out control
-//
 union STBY_PMIC_OUT_CTRL {
   
+  // Count mode
   enum class eCNT_MODE : uint32_t {
-    eb0 = 0, // Counter disable mode: not use step counter, step completes once receiving step_done
-    eb1 = 1, // Counter delay mode: delay after receiving step_done, delay cycle number is STEP_CNT
-    eb2 = 2, // Ignore step_done response, the counter starts to count once step begins, when counter reaches STEP_CNT value, the step completes
-    eb3 = 3, // Time out mode, the counter starts to count once step begins, the step completes when either step_done received or counting to STEP_CNT value
+    // Counter disable mode: not use step counter, step completes once receiving step_done
+    eb0 = 0,
+    // Counter delay mode: delay after receiving step_done, delay cycle number is STEP_CNT
+    eb1 = 1,
+    // Ignore step_done response, the counter starts to count once step begins, when counter reaches STEP_CNT value, the step completes
+    eb2 = 2,
+    // Time out mode, the counter starts to count once step begins, the step completes when either step_done received or counting to STEP_CNT value
+    eb3 = 3,
   };
   
   // Bit field definition.
   struct {
-    /// read-write - Step count, useage is depending on CNT_MODE
+    // read-write - Step count, useage is depending on CNT_MODE
     uint32_t STEP_CNT : 16;
     uint32_t _reserved_0 : 12;
-    /// read-write - Count mode
+    // read-write - Count mode
     eCNT_MODE CNT_MODE : 2;
     uint32_t _reserved_1 : 1;
-    /// read-write - Disable this step
+    // read-write - Disable this step
     uint32_t DISABLE : 1;
   } bits;
   
@@ -336,25 +367,29 @@ union STBY_PMIC_OUT_CTRL {
 };
 
 // STBY DCDC out control
-//
 union STBY_DCDC_OUT_CTRL {
   
+  // Count mode
   enum class eCNT_MODE : uint32_t {
-    eb0 = 0, // Counter disable mode: not use step counter, step completes once receiving step_done
-    eb1 = 1, // Counter delay mode: delay after receiving step_done, delay cycle number is STEP_CNT
-    eb2 = 2, // Ignore step_done response, the counter starts to count once step begins, when counter reaches STEP_CNT value, the step completes
-    eb3 = 3, // Time out mode, the counter starts to count once step begins, the step completes when either step_done received or counting to STEP_CNT value
+    // Counter disable mode: not use step counter, step completes once receiving step_done
+    eb0 = 0,
+    // Counter delay mode: delay after receiving step_done, delay cycle number is STEP_CNT
+    eb1 = 1,
+    // Ignore step_done response, the counter starts to count once step begins, when counter reaches STEP_CNT value, the step completes
+    eb2 = 2,
+    // Time out mode, the counter starts to count once step begins, the step completes when either step_done received or counting to STEP_CNT value
+    eb3 = 3,
   };
   
   // Bit field definition.
   struct {
-    /// read-write - Step count, useage is depending on CNT_MODE
+    // read-write - Step count, useage is depending on CNT_MODE
     uint32_t STEP_CNT : 16;
     uint32_t _reserved_0 : 12;
-    /// read-write - Count mode
+    // read-write - Count mode
     eCNT_MODE CNT_MODE : 2;
     uint32_t _reserved_1 : 1;
-    /// read-write - Disable this step
+    // read-write - Disable this step
     uint32_t DISABLE : 1;
   } bits;
   
@@ -367,25 +402,29 @@ union STBY_DCDC_OUT_CTRL {
 };
 
 // STBY LDO out control
-//
 union STBY_LDO_OUT_CTRL {
   
+  // Count mode
   enum class eCNT_MODE : uint32_t {
-    eb0 = 0, // Counter disable mode: not use step counter, step completes once receiving step_done
-    eb1 = 1, // Counter delay mode: delay after receiving step_done, delay cycle number is STEP_CNT
-    eb2 = 2, // Ignore step_done response, the counter starts to count once step begins, when counter reaches STEP_CNT value, the step completes
-    eb3 = 3, // Time out mode, the counter starts to count once step begins, the step completes when either step_done received or counting to STEP_CNT value
+    // Counter disable mode: not use step counter, step completes once receiving step_done
+    eb0 = 0,
+    // Counter delay mode: delay after receiving step_done, delay cycle number is STEP_CNT
+    eb1 = 1,
+    // Ignore step_done response, the counter starts to count once step begins, when counter reaches STEP_CNT value, the step completes
+    eb2 = 2,
+    // Time out mode, the counter starts to count once step begins, the step completes when either step_done received or counting to STEP_CNT value
+    eb3 = 3,
   };
   
   // Bit field definition.
   struct {
-    /// read-write - Step count, useage is depending on CNT_MODE
+    // read-write - Step count, useage is depending on CNT_MODE
     uint32_t STEP_CNT : 16;
     uint32_t _reserved_0 : 12;
-    /// read-write - Count mode
+    // read-write - Count mode
     eCNT_MODE CNT_MODE : 2;
     uint32_t _reserved_1 : 1;
-    /// read-write - Disable this step
+    // read-write - Disable this step
     uint32_t DISABLE : 1;
   } bits;
   
@@ -398,25 +437,29 @@ union STBY_LDO_OUT_CTRL {
 };
 
 // STBY bandgap out control
-//
 union STBY_BANDGAP_OUT_CTRL {
   
+  // Count mode
   enum class eCNT_MODE : uint32_t {
-    eb0 = 0, // Counter disable mode: not use step counter, step completes once receiving step_done
-    eb1 = 1, // Counter delay mode: delay after receiving step_done, delay cycle number is STEP_CNT
-    eb2 = 2, // Ignore step_done response, the counter starts to count once step begins, when counter reaches STEP_CNT value, the step completes
-    eb3 = 3, // Time out mode, the counter starts to count once step begins, the step completes when either step_done received or counting to STEP_CNT value
+    // Counter disable mode: not use step counter, step completes once receiving step_done
+    eb0 = 0,
+    // Counter delay mode: delay after receiving step_done, delay cycle number is STEP_CNT
+    eb1 = 1,
+    // Ignore step_done response, the counter starts to count once step begins, when counter reaches STEP_CNT value, the step completes
+    eb2 = 2,
+    // Time out mode, the counter starts to count once step begins, the step completes when either step_done received or counting to STEP_CNT value
+    eb3 = 3,
   };
   
   // Bit field definition.
   struct {
-    /// read-write - Step count, useage is depending on CNT_MODE
+    // read-write - Step count, useage is depending on CNT_MODE
     uint32_t STEP_CNT : 16;
     uint32_t _reserved_0 : 12;
-    /// read-write - Count mode
+    // read-write - Count mode
     eCNT_MODE CNT_MODE : 2;
     uint32_t _reserved_1 : 1;
-    /// read-write - Disable this step
+    // read-write - Disable this step
     uint32_t DISABLE : 1;
   } bits;
   
@@ -429,25 +472,29 @@ union STBY_BANDGAP_OUT_CTRL {
 };
 
 // STBY pldo out control
-//
 union STBY_PLDO_OUT_CTRL {
   
+  // Count mode
   enum class eCNT_MODE : uint32_t {
-    eb0 = 0, // Counter disable mode: not use step counter, step completes once receiving step_done
-    eb1 = 1, // Counter delay mode: delay after receiving step_done, delay cycle number is STEP_CNT
-    eb2 = 2, // Ignore step_done response, the counter starts to count once step begins, when counter reaches STEP_CNT value, the step completes
-    eb3 = 3, // Time out mode, the counter starts to count once step begins, the step completes when either step_done received or counting to STEP_CNT value
+    // Counter disable mode: not use step counter, step completes once receiving step_done
+    eb0 = 0,
+    // Counter delay mode: delay after receiving step_done, delay cycle number is STEP_CNT
+    eb1 = 1,
+    // Ignore step_done response, the counter starts to count once step begins, when counter reaches STEP_CNT value, the step completes
+    eb2 = 2,
+    // Time out mode, the counter starts to count once step begins, the step completes when either step_done received or counting to STEP_CNT value
+    eb3 = 3,
   };
   
   // Bit field definition.
   struct {
-    /// read-write - Step count, useage is depending on CNT_MODE
+    // read-write - Step count, useage is depending on CNT_MODE
     uint32_t STEP_CNT : 16;
     uint32_t _reserved_0 : 12;
-    /// read-write - Count mode
+    // read-write - Count mode
     eCNT_MODE CNT_MODE : 2;
     uint32_t _reserved_1 : 1;
-    /// read-write - Disable this step
+    // read-write - Disable this step
     uint32_t DISABLE : 1;
   } bits;
   
@@ -460,25 +507,29 @@ union STBY_PLDO_OUT_CTRL {
 };
 
 // STBY bias out control
-//
 union STBY_BIAS_OUT_CTRL {
   
+  // Count mode
   enum class eCNT_MODE : uint32_t {
-    eb0 = 0, // Counter disable mode: not use step counter, step completes once receiving step_done
-    eb1 = 1, // Counter delay mode: delay after receiving step_done, delay cycle number is STEP_CNT
-    eb2 = 2, // Ignore step_done response, the counter starts to count once step begins, when counter reaches STEP_CNT value, the step completes
-    eb3 = 3, // Time out mode, the counter starts to count once step begins, the step completes when either step_done received or counting to STEP_CNT value
+    // Counter disable mode: not use step counter, step completes once receiving step_done
+    eb0 = 0,
+    // Counter delay mode: delay after receiving step_done, delay cycle number is STEP_CNT
+    eb1 = 1,
+    // Ignore step_done response, the counter starts to count once step begins, when counter reaches STEP_CNT value, the step completes
+    eb2 = 2,
+    // Time out mode, the counter starts to count once step begins, the step completes when either step_done received or counting to STEP_CNT value
+    eb3 = 3,
   };
   
   // Bit field definition.
   struct {
-    /// read-write - Step count, useage is depending on CNT_MODE
+    // read-write - Step count, useage is depending on CNT_MODE
     uint32_t STEP_CNT : 16;
     uint32_t _reserved_0 : 12;
-    /// read-write - Count mode
+    // read-write - Count mode
     eCNT_MODE CNT_MODE : 2;
     uint32_t _reserved_1 : 1;
-    /// read-write - Disable this step
+    // read-write - Disable this step
     uint32_t DISABLE : 1;
   } bits;
   
@@ -491,25 +542,29 @@ union STBY_BIAS_OUT_CTRL {
 };
 
 // STBY PLL out control
-//
 union STBY_PLL_OUT_CTRL {
   
+  // Count mode
   enum class eCNT_MODE : uint32_t {
-    eb0 = 0, // Counter disable mode: not use step counter, step completes once receiving step_done
-    eb1 = 1, // Counter delay mode: delay after receiving step_done, delay cycle number is STEP_CNT
-    eb2 = 2, // Ignore step_done response, the counter starts to count once step begins, when counter reaches STEP_CNT value, the step completes
-    eb3 = 3, // Time out mode, the counter starts to count once step begins, the step completes when either step_done received or counting to STEP_CNT value
+    // Counter disable mode: not use step counter, step completes once receiving step_done
+    eb0 = 0,
+    // Counter delay mode: delay after receiving step_done, delay cycle number is STEP_CNT
+    eb1 = 1,
+    // Ignore step_done response, the counter starts to count once step begins, when counter reaches STEP_CNT value, the step completes
+    eb2 = 2,
+    // Time out mode, the counter starts to count once step begins, the step completes when either step_done received or counting to STEP_CNT value
+    eb3 = 3,
   };
   
   // Bit field definition.
   struct {
-    /// read-write - Step count, useage is depending on CNT_MODE
+    // read-write - Step count, useage is depending on CNT_MODE
     uint32_t STEP_CNT : 16;
     uint32_t _reserved_0 : 12;
-    /// read-write - Count mode
+    // read-write - Count mode
     eCNT_MODE CNT_MODE : 2;
     uint32_t _reserved_1 : 1;
-    /// read-write - Disable this step
+    // read-write - Disable this step
     uint32_t DISABLE : 1;
   } bits;
   
@@ -522,25 +577,29 @@ union STBY_PLL_OUT_CTRL {
 };
 
 // STBY LPCG out control
-//
 union STBY_LPCG_OUT_CTRL {
   
+  // Count mode
   enum class eCNT_MODE : uint32_t {
-    eb0 = 0, // Counter disable mode: not use step counter, step completes once receiving step_done
-    eb1 = 1, // Counter delay mode: delay after receiving step_done, delay cycle number is STEP_CNT
-    eb2 = 2, // Ignore step_done response, the counter starts to count once step begins, when counter reaches STEP_CNT value, the step completes
-    eb3 = 3, // Time out mode, the counter starts to count once step begins, the step completes when either step_done received or counting to STEP_CNT value
+    // Counter disable mode: not use step counter, step completes once receiving step_done
+    eb0 = 0,
+    // Counter delay mode: delay after receiving step_done, delay cycle number is STEP_CNT
+    eb1 = 1,
+    // Ignore step_done response, the counter starts to count once step begins, when counter reaches STEP_CNT value, the step completes
+    eb2 = 2,
+    // Time out mode, the counter starts to count once step begins, the step completes when either step_done received or counting to STEP_CNT value
+    eb3 = 3,
   };
   
   // Bit field definition.
   struct {
-    /// read-write - Step count, useage is depending on CNT_MODE
+    // read-write - Step count, useage is depending on CNT_MODE
     uint32_t STEP_CNT : 16;
     uint32_t _reserved_0 : 12;
-    /// read-write - Count mode
+    // read-write - Count mode
     eCNT_MODE CNT_MODE : 2;
     uint32_t _reserved_1 : 1;
-    /// read-write - Disable this step
+    // read-write - Disable this step
     uint32_t DISABLE : 1;
   } bits;
   

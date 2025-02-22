@@ -5,32 +5,34 @@
 #include <cstring>
 
 // KEYMGR
-//
-// NOTE: This file was generated from the forge CMSIS-svd wrapper tool.
-
 namespace nKEY_MANAGER {
 
 
 // CSR Master Key Control Register
-//
 union MASTER_KEY_CTRL {
   
+  // Key select for SNVS OTPMK. Default value comes from FUSE_MASTER_KEY_SEL.
   enum class eSELECT : uint32_t {
-    eSELECT_FROM_UDF = 0, // select key from UDF
-    eSELECT_FROM_PUF = 1, // If LOCK = 1, select key from PUF, otherwise select key from fuse (bypass the fuse OTPMK to SNVS)
+    // select key from UDF
+    eSELECT_FROM_UDF = 0,
+    // If LOCK = 1, select key from PUF, otherwise select key from fuse (bypass the fuse OTPMK to SNVS)
+    eSELECT_FROM_PUF = 1,
   };
   
+  // lock this register, prevent from writing. Default value comes from FUSE_MASTER_KEY_SEL_LOCK.
   enum class eLOCK : uint32_t {
-    eUNLOCK = 0, // not locked
-    eLOCK = 1, // locked
+    // not locked
+    eUNLOCK = 0,
+    // locked
+    eLOCK = 1,
   };
   
   // Bit field definition.
   struct {
-    /// read-write - Key select for SNVS OTPMK. Default value comes from FUSE_MASTER_KEY_SEL.
+    // read-write - Key select for SNVS OTPMK. Default value comes from FUSE_MASTER_KEY_SEL.
     eSELECT SELECT : 1;
     uint32_t _reserved_0 : 15;
-    /// read-write - lock this register, prevent from writing. Default value comes from FUSE_MASTER_KEY_SEL_LOCK.
+    // read-write - lock this register, prevent from writing. Default value comes from FUSE_MASTER_KEY_SEL_LOCK.
     eLOCK LOCK : 1;
     uint32_t _reserved_1 : 15;
   } bits;
@@ -44,25 +46,30 @@ union MASTER_KEY_CTRL {
 };
 
 // CSR OTFAD-1 Key Control
-//
 union OTFAD1_KEY_CTRL {
   
+  // key select for OTFAD-1. Default value comes from FUSE_OTFAD1_KEY_SEL.
   enum class eSELECT : uint32_t {
-    eSELECT_FROM_USER_KEY5 = 0, // Select key from OCOTP USER_KEY5
-    eSELECT_FROM_PUF = 1, // If PUF_KEY_CTRL[LOCK] is 1, select key from PUF, otherwise select key from OCOTP USER_KEY5
+    // Select key from OCOTP USER_KEY5
+    eSELECT_FROM_USER_KEY5 = 0,
+    // If PUF_KEY_CTRL[LOCK] is 1, select key from PUF, otherwise select key from OCOTP USER_KEY5
+    eSELECT_FROM_PUF = 1,
   };
   
+  // lock this register, prevent from writing. Default value comes from FUSE_OTFAD1_KEY_SEL_LOCK.
   enum class eLOCK : uint32_t {
-    eUNLOCK = 0, // not locked
-    eLOCK = 1, // locked
+    // not locked
+    eUNLOCK = 0,
+    // locked
+    eLOCK = 1,
   };
   
   // Bit field definition.
   struct {
-    /// read-write - key select for OTFAD-1. Default value comes from FUSE_OTFAD1_KEY_SEL.
+    // read-write - key select for OTFAD-1. Default value comes from FUSE_OTFAD1_KEY_SEL.
     eSELECT SELECT : 1;
     uint32_t _reserved_0 : 15;
-    /// read-write - lock this register, prevent from writing. Default value comes from FUSE_OTFAD1_KEY_SEL_LOCK.
+    // read-write - lock this register, prevent from writing. Default value comes from FUSE_OTFAD1_KEY_SEL_LOCK.
     eLOCK LOCK : 1;
     uint32_t _reserved_1 : 15;
   } bits;
@@ -76,25 +83,30 @@ union OTFAD1_KEY_CTRL {
 };
 
 // CSR OTFAD-2 Key Control
-//
 union OTFAD2_KEY_CTRL {
   
+  // key select for OTFAD-2. Default value comes from FUSE_OTFAD1_KEY_SEL.
   enum class eSELECT : uint32_t {
-    eSELECT_FROM_USER_KEY5 = 0, // select key from OCOTP USER_KEY5
-    eSELECT_FROM_PUF = 1, // If PUF_KEY_CTRL[LOCK] is 1, select key from PUF, otherwise select key from OCOTP USER_KEY5
+    // select key from OCOTP USER_KEY5
+    eSELECT_FROM_USER_KEY5 = 0,
+    // If PUF_KEY_CTRL[LOCK] is 1, select key from PUF, otherwise select key from OCOTP USER_KEY5
+    eSELECT_FROM_PUF = 1,
   };
   
+  // lock this register, prevent from writing. Default value comes from FUSE_OTFAD2_KEY_SEL_LOCK.
   enum class eLOCK : uint32_t {
-    eUNLOCK = 0, // not locked
-    eLOCK = 1, // locked
+    // not locked
+    eUNLOCK = 0,
+    // locked
+    eLOCK = 1,
   };
   
   // Bit field definition.
   struct {
-    /// read-write - key select for OTFAD-2. Default value comes from FUSE_OTFAD1_KEY_SEL.
+    // read-write - key select for OTFAD-2. Default value comes from FUSE_OTFAD1_KEY_SEL.
     eSELECT SELECT : 1;
     uint32_t _reserved_0 : 15;
-    /// read-write - lock this register, prevent from writing. Default value comes from FUSE_OTFAD2_KEY_SEL_LOCK.
+    // read-write - lock this register, prevent from writing. Default value comes from FUSE_OTFAD2_KEY_SEL_LOCK.
     eLOCK LOCK : 1;
     uint32_t _reserved_1 : 15;
   } bits;
@@ -108,17 +120,19 @@ union OTFAD2_KEY_CTRL {
 };
 
 // CSR IEE Key Control
-//
 union IEE_KEY_CTRL {
   
+  // Restart load key signal for IEE
   enum class eRELOAD : uint32_t {
-    eIDLE = 0, // Do nothing
-    eRESTART = 1, // Restart IEE key load flow
+    // Do nothing
+    eIDLE = 0,
+    // Restart IEE key load flow
+    eRESTART = 1,
   };
   
   // Bit field definition.
   struct {
-    /// read-write - Restart load key signal for IEE
+    // read-write - Restart load key signal for IEE
     eRELOAD RELOAD : 1;
     uint32_t _reserved_0 : 31;
   } bits;
@@ -132,17 +146,19 @@ union IEE_KEY_CTRL {
 };
 
 // CSR PUF Key Control
-//
 union PUF_KEY_CTRL {
   
+  // Lock signal for key select
   enum class eLOCK : uint32_t {
-    eUNLOCK = 0, // Do not lock the key select
-    eLOCK = 1, // Lock the key select to select key from PUF, otherwise bypass key from OCOPT and do not lock. Once it has been set to 1, it cannot be reset manually. It will be set to 0 when the IEE key reload operation is done.
+    // Do not lock the key select
+    eUNLOCK = 0,
+    // Lock the key select to select key from PUF, otherwise bypass key from OCOPT and do not lock. Once it has been set to 1, it cannot be reset manually. It will be set to 0 when the IEE key reload operation is done.
+    eLOCK = 1,
   };
   
   // Bit field definition.
   struct {
-    /// read-write - Lock signal for key select
+    // read-write - Lock signal for key select
     eLOCK LOCK : 1;
     uint32_t _reserved_0 : 31;
   } bits;
@@ -156,42 +172,53 @@ union PUF_KEY_CTRL {
 };
 
 // Slot 0 Control
-//
 union SLOT0_CTRL {
   
+  // Lock whitelist
   enum class eLOCK_LIST : uint32_t {
-    eUNLOCK = 0, // Whitelist is not locked
-    eLOCK = 1, // Whitelist is locked
+    // Whitelist is not locked
+    eUNLOCK = 0,
+    // Whitelist is locked
+    eLOCK = 1,
   };
   
+  // Allow non-secure write access to this register and the slot it controls
   enum class eTZ_NS : uint32_t {
-    ePREVENT = 0, // Do not allow non-secure write access
-    eALLOW = 1, // Allow non-secure write access
+    // Do not allow non-secure write access
+    ePREVENT = 0,
+    // Allow non-secure write access
+    eALLOW = 1,
   };
   
+  // Allow user write access to this register and the slot it controls
   enum class eTZ_USER : uint32_t {
-    ePREVENT = 0, // Do not allow user write access
-    eALLOW = 1, // Allow user write access
+    // Do not allow user write access
+    ePREVENT = 0,
+    // Allow user write access
+    eALLOW = 1,
   };
   
+  // Lock control of this slot
   enum class eLOCK_CONTROL : uint32_t {
-    eUNLOCK = 0, // Do not lock the control register of this slot
-    eLOCK = 1, // Lock the control register of this slot
+    // Do not lock the control register of this slot
+    eUNLOCK = 0,
+    // Lock the control register of this slot
+    eLOCK = 1,
   };
   
   // Bit field definition.
   struct {
-    /// read-write - Whitelist
+    // read-write - Whitelist
     uint32_t WHITE_LIST : 4;
     uint32_t _reserved_0 : 11;
-    /// read-write - Lock whitelist
+    // read-write - Lock whitelist
     eLOCK_LIST LOCK_LIST : 1;
-    /// read-write - Allow non-secure write access to this register and the slot it controls
+    // read-write - Allow non-secure write access to this register and the slot it controls
     eTZ_NS TZ_NS : 1;
-    /// read-write - Allow user write access to this register and the slot it controls
+    // read-write - Allow user write access to this register and the slot it controls
     eTZ_USER TZ_USER : 1;
     uint32_t _reserved_1 : 13;
-    /// read-write - Lock control of this slot
+    // read-write - Lock control of this slot
     eLOCK_CONTROL LOCK_CONTROL : 1;
   } bits;
   
@@ -204,42 +231,53 @@ union SLOT0_CTRL {
 };
 
 // Slot1 Control
-//
 union SLOT1_CTRL {
   
+  // Lock whitelist
   enum class eLOCK_LIST : uint32_t {
-    eUNLOCK = 0, // Whitelist is not locked
-    eLOCK = 1, // Whitelist is locked
+    // Whitelist is not locked
+    eUNLOCK = 0,
+    // Whitelist is locked
+    eLOCK = 1,
   };
   
+  // Allow non-secure write access to this register and the slot it controls
   enum class eTZ_NS : uint32_t {
-    ePREVENT = 0, // Do not allow non-secure write access
-    eALLOW = 1, // Allow non-secure write access
+    // Do not allow non-secure write access
+    ePREVENT = 0,
+    // Allow non-secure write access
+    eALLOW = 1,
   };
   
+  // Allow user write access to this register and the slot it controls
   enum class eTZ_USER : uint32_t {
-    ePREVENT = 0, // Do not allow user write access
-    eALLOW = 1, // Allow user write access
+    // Do not allow user write access
+    ePREVENT = 0,
+    // Allow user write access
+    eALLOW = 1,
   };
   
+  // Lock control of this slot
   enum class eLOCK_CONTROL : uint32_t {
-    eUNLOCK = 0, // Do not lock the control register of this slot
-    eLOCK = 1, // Lock the control register of this slot
+    // Do not lock the control register of this slot
+    eUNLOCK = 0,
+    // Lock the control register of this slot
+    eLOCK = 1,
   };
   
   // Bit field definition.
   struct {
-    /// read-write - Whitelist
+    // read-write - Whitelist
     uint32_t WHITE_LIST : 4;
     uint32_t _reserved_0 : 11;
-    /// read-write - Lock whitelist
+    // read-write - Lock whitelist
     eLOCK_LIST LOCK_LIST : 1;
-    /// read-write - Allow non-secure write access to this register and the slot it controls
+    // read-write - Allow non-secure write access to this register and the slot it controls
     eTZ_NS TZ_NS : 1;
-    /// read-write - Allow user write access to this register and the slot it controls
+    // read-write - Allow user write access to this register and the slot it controls
     eTZ_USER TZ_USER : 1;
     uint32_t _reserved_1 : 13;
-    /// read-write - Lock control of this slot
+    // read-write - Lock control of this slot
     eLOCK_CONTROL LOCK_CONTROL : 1;
   } bits;
   
@@ -252,42 +290,53 @@ union SLOT1_CTRL {
 };
 
 // Slot2 Control
-//
 union SLOT2_CTRL {
   
+  // Lock whitelist
   enum class eLOCK_LIST : uint32_t {
-    eUNLOCK = 0, // Whitelist is not locked
-    eLOCK = 1, // Whitelist is locked
+    // Whitelist is not locked
+    eUNLOCK = 0,
+    // Whitelist is locked
+    eLOCK = 1,
   };
   
+  // Allow non-secure write access to this register and the slot it controls
   enum class eTZ_NS : uint32_t {
-    ePREVENT = 0, // Do not allow non-secure write access
-    eALLOW = 1, // Allow non-secure write access
+    // Do not allow non-secure write access
+    ePREVENT = 0,
+    // Allow non-secure write access
+    eALLOW = 1,
   };
   
+  // Allow user write access to this register and the slot it controls
   enum class eTZ_USER : uint32_t {
-    ePREVENT = 0, // Do not allow user write access
-    eALLOW = 1, // Allow user write access
+    // Do not allow user write access
+    ePREVENT = 0,
+    // Allow user write access
+    eALLOW = 1,
   };
   
+  // Lock control of this slot
   enum class eLOCK_CONTROL : uint32_t {
-    eUNLOCK = 0, // Do not lock the control register of this slot
-    eLOCK = 1, // Lock the control register of this slot
+    // Do not lock the control register of this slot
+    eUNLOCK = 0,
+    // Lock the control register of this slot
+    eLOCK = 1,
   };
   
   // Bit field definition.
   struct {
-    /// read-write - Whitelist
+    // read-write - Whitelist
     uint32_t WHITE_LIST : 4;
     uint32_t _reserved_0 : 11;
-    /// read-write - Lock whitelist
+    // read-write - Lock whitelist
     eLOCK_LIST LOCK_LIST : 1;
-    /// read-write - Allow non-secure write access to this register and the slot it controls
+    // read-write - Allow non-secure write access to this register and the slot it controls
     eTZ_NS TZ_NS : 1;
-    /// read-write - Allow user write access to this register and the slot it controls
+    // read-write - Allow user write access to this register and the slot it controls
     eTZ_USER TZ_USER : 1;
     uint32_t _reserved_1 : 13;
-    /// read-write - Lock control of this slot
+    // read-write - Lock control of this slot
     eLOCK_CONTROL LOCK_CONTROL : 1;
   } bits;
   
@@ -300,42 +349,53 @@ union SLOT2_CTRL {
 };
 
 // Slot3 Control
-//
 union SLOT3_CTRL {
   
+  // Lock whitelist
   enum class eLOCK_LIST : uint32_t {
-    eUNLOCK = 0, // Whitelist is not locked
-    eLOCK = 1, // Whitelist is locked
+    // Whitelist is not locked
+    eUNLOCK = 0,
+    // Whitelist is locked
+    eLOCK = 1,
   };
   
+  // Allow non-secure write access to this register and the slot it controls
   enum class eTZ_NS : uint32_t {
-    ePREVENT = 0, // Do not allow non-secure write access
-    eALLOW = 1, // Allow non-secure write access
+    // Do not allow non-secure write access
+    ePREVENT = 0,
+    // Allow non-secure write access
+    eALLOW = 1,
   };
   
+  // Allow user write access to this register and the slot it controls
   enum class eTZ_USER : uint32_t {
-    ePREVENT = 0, // Do not allow user write access
-    eALLOW = 1, // Allow user write access
+    // Do not allow user write access
+    ePREVENT = 0,
+    // Allow user write access
+    eALLOW = 1,
   };
   
+  // Lock control of this slot
   enum class eLOCK_CONTROL : uint32_t {
-    eUNLOCK = 0, // Do not lock the control register of this slot
-    eLOCK = 1, // Lock the control register of this slot
+    // Do not lock the control register of this slot
+    eUNLOCK = 0,
+    // Lock the control register of this slot
+    eLOCK = 1,
   };
   
   // Bit field definition.
   struct {
-    /// read-write - Whitelist
+    // read-write - Whitelist
     uint32_t WHITE_LIST : 4;
     uint32_t _reserved_0 : 11;
-    /// read-write - Lock whitelist
+    // read-write - Lock whitelist
     eLOCK_LIST LOCK_LIST : 1;
-    /// read-write - Allow non-secure write access to this register and the slot it controls
+    // read-write - Allow non-secure write access to this register and the slot it controls
     eTZ_NS TZ_NS : 1;
-    /// read-write - Allow user write access to this register and the slot it controls
+    // read-write - Allow user write access to this register and the slot it controls
     eTZ_USER TZ_USER : 1;
     uint32_t _reserved_1 : 13;
-    /// read-write - Lock control of this slot
+    // read-write - Lock control of this slot
     eLOCK_CONTROL LOCK_CONTROL : 1;
   } bits;
   
@@ -348,42 +408,53 @@ union SLOT3_CTRL {
 };
 
 // Slot 4 Control
-//
 union SLOT4_CTRL {
   
+  // Lock whitelist
   enum class eLOCK_LIST : uint32_t {
-    eUNLOCK = 0, // Whitelist is not locked
-    eLOCK = 1, // Whitelist is locked
+    // Whitelist is not locked
+    eUNLOCK = 0,
+    // Whitelist is locked
+    eLOCK = 1,
   };
   
+  // Allow non-secure write access to this register and the slot it controls
   enum class eTZ_NS : uint32_t {
-    ePREVENT = 0, // Do not allow non-secure write access
-    eALLOW = 1, // Allow non-secure write access
+    // Do not allow non-secure write access
+    ePREVENT = 0,
+    // Allow non-secure write access
+    eALLOW = 1,
   };
   
+  // Allow user write access to this register and the slot it controls
   enum class eTZ_USER : uint32_t {
-    ePREVENT = 0, // Do not allow user write access
-    eALLOW = 1, // Allow user write access
+    // Do not allow user write access
+    ePREVENT = 0,
+    // Allow user write access
+    eALLOW = 1,
   };
   
+  // Lock control of this slot
   enum class eLOCK_CONTROL : uint32_t {
-    eUNLOCK = 0, // Do not lock the control register of this slot
-    eLOCK = 1, // Lock the control register of this slot
+    // Do not lock the control register of this slot
+    eUNLOCK = 0,
+    // Lock the control register of this slot
+    eLOCK = 1,
   };
   
   // Bit field definition.
   struct {
-    /// read-write - Whitelist
+    // read-write - Whitelist
     uint32_t WHITE_LIST : 4;
     uint32_t _reserved_0 : 11;
-    /// read-write - Lock whitelist
+    // read-write - Lock whitelist
     eLOCK_LIST LOCK_LIST : 1;
-    /// read-write - Allow non-secure write access to this register and the slot it controls
+    // read-write - Allow non-secure write access to this register and the slot it controls
     eTZ_NS TZ_NS : 1;
-    /// read-write - Allow user write access to this register and the slot it controls
+    // read-write - Allow user write access to this register and the slot it controls
     eTZ_USER TZ_USER : 1;
     uint32_t _reserved_1 : 13;
-    /// read-write - Lock control of this slot
+    // read-write - Lock control of this slot
     eLOCK_CONTROL LOCK_CONTROL : 1;
   } bits;
   

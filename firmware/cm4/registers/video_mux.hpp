@@ -5,45 +5,53 @@
 #include <cstring>
 
 // VIDEO_MUX
-//
-// NOTE: This file was generated from the forge CMSIS-svd wrapper tool.
-
 namespace nVIDEO_MUX {
 
 
 // Video mux Control Register
-//
 union VID_MUX_CTRL {
   
+  // CSI sensor data input mux selector
   enum class eCSI_SEL : uint32_t {
-    ePARALLEL_CSI = 0, // CSI sensor data is from Parallel CSI
-    eMIPI_CSI = 1, // CSI sensor data is from MIPI CSI
+    // CSI sensor data is from Parallel CSI
+    ePARALLEL_CSI = 0,
+    // CSI sensor data is from MIPI CSI
+    eMIPI_CSI = 1,
   };
   
+  // LCDIF2 sensor data input mux selector
   enum class eLCDIF2_SEL : uint32_t {
-    ePARALLEL_CSI = 0, // LCDIFv2 sensor data is from Parallel CSI
-    eMIPI_CSI = 1, // LCDIFv2 sensor data is from MIPI CSI
+    // LCDIFv2 sensor data is from Parallel CSI
+    ePARALLEL_CSI = 0,
+    // LCDIFv2 sensor data is from MIPI CSI
+    eMIPI_CSI = 1,
   };
   
+  // MIPI DSI video data input mux selector
   enum class eMIPI_DSI_SEL : uint32_t {
-    ePARALLEL_CSI = 0, // MIPI DSI video data is from eLCDIF
-    eMIPI_CSI = 1, // MIPI DSI video data is from LCDIFv2
+    // MIPI DSI video data is from eLCDIF
+    ePARALLEL_CSI = 0,
+    // MIPI DSI video data is from LCDIFv2
+    eMIPI_CSI = 1,
   };
   
+  // Parallel LCDIF video data input mux selector
   enum class ePARA_LCD_SEL : uint32_t {
-    ePARALLEL_CSI = 0, // Parallel LCDIF video data is from eLCDIF
-    eMIPI_CSI = 1, // Parallel LCDIF video data is from LCDIFv2
+    // Parallel LCDIF video data is from eLCDIF
+    ePARALLEL_CSI = 0,
+    // Parallel LCDIF video data is from LCDIFv2
+    eMIPI_CSI = 1,
   };
   
   // Bit field definition.
   struct {
-    /// read-write - CSI sensor data input mux selector
+    // read-write - CSI sensor data input mux selector
     eCSI_SEL CSI_SEL : 1;
-    /// read-write - LCDIF2 sensor data input mux selector
+    // read-write - LCDIF2 sensor data input mux selector
     eLCDIF2_SEL LCDIF2_SEL : 1;
-    /// read-write - MIPI DSI video data input mux selector
+    // read-write - MIPI DSI video data input mux selector
     eMIPI_DSI_SEL MIPI_DSI_SEL : 1;
-    /// read-write - Parallel LCDIF video data input mux selector
+    // read-write - Parallel LCDIF video data input mux selector
     ePARA_LCD_SEL PARA_LCD_SEL : 1;
     uint32_t _reserved_0 : 28;
   } bits;
@@ -57,18 +65,17 @@ union VID_MUX_CTRL {
 };
 
 // Video mux Control Register
-//
 union VID_MUX_CTRL_SET {
   
   // Bit field definition.
   struct {
-    /// read-write - CSI sensor data input mux selector
+    // read-write - CSI sensor data input mux selector
     uint32_t CSI_SEL : 1;
-    /// read-write - LCDIF2 sensor data input mux selector
+    // read-write - LCDIF2 sensor data input mux selector
     uint32_t LCDIF2_SEL : 1;
-    /// read-write - MIPI DSI video data input mux selector
+    // read-write - MIPI DSI video data input mux selector
     uint32_t MIPI_DSI_SEL : 1;
-    /// read-write - Parallel LCDIF video data input mux selector
+    // read-write - Parallel LCDIF video data input mux selector
     uint32_t PARA_LCD_SEL : 1;
     uint32_t _reserved_0 : 28;
   } bits;
@@ -82,18 +89,17 @@ union VID_MUX_CTRL_SET {
 };
 
 // Video mux Control Register
-//
 union VID_MUX_CTRL_CLR {
   
   // Bit field definition.
   struct {
-    /// read-write - CSI sensor data input mux selector
+    // read-write - CSI sensor data input mux selector
     uint32_t CSI_SEL : 1;
-    /// read-write - LCDIF2 sensor data input mux selector
+    // read-write - LCDIF2 sensor data input mux selector
     uint32_t LCDIF2_SEL : 1;
-    /// read-write - MIPI DSI video data input mux selector
+    // read-write - MIPI DSI video data input mux selector
     uint32_t MIPI_DSI_SEL : 1;
-    /// read-write - Parallel LCDIF video data input mux selector
+    // read-write - Parallel LCDIF video data input mux selector
     uint32_t PARA_LCD_SEL : 1;
     uint32_t _reserved_0 : 28;
   } bits;
@@ -107,18 +113,17 @@ union VID_MUX_CTRL_CLR {
 };
 
 // Video mux Control Register
-//
 union VID_MUX_CTRL_TOG {
   
   // Bit field definition.
   struct {
-    /// read-write - CSI sensor data input mux selector
+    // read-write - CSI sensor data input mux selector
     uint32_t CSI_SEL : 1;
-    /// read-write - LCDIF2 sensor data input mux selector
+    // read-write - LCDIF2 sensor data input mux selector
     uint32_t LCDIF2_SEL : 1;
-    /// read-write - MIPI DSI video data input mux selector
+    // read-write - MIPI DSI video data input mux selector
     uint32_t MIPI_DSI_SEL : 1;
-    /// read-write - Parallel LCDIF video data input mux selector
+    // read-write - Parallel LCDIF video data input mux selector
     uint32_t PARA_LCD_SEL : 1;
     uint32_t _reserved_0 : 28;
   } bits;
@@ -132,45 +137,59 @@ union VID_MUX_CTRL_TOG {
 };
 
 // Pixel Link Master(PLM) Control Register
-//
 union PLM_CTRL {
   
+  // Enable the output of HYSNC and VSYNC
   enum class eENABLE : uint32_t {
-    eNO_ACTIVE = 0, // No active HSYNC and VSYNC output
-    eACTIVE = 1, // Active HSYNC and VSYNC output
+    // No active HSYNC and VSYNC output
+    eNO_ACTIVE = 0,
+    // Active HSYNC and VSYNC output
+    eACTIVE = 1,
   };
   
+  // VSYNC override
   enum class eVSYNC_OVERRIDE : uint32_t {
-    eDEASSERT = 0, // VSYNC is not asserted
-    eASSERT = 1, // VSYNC is asserted
+    // VSYNC is not asserted
+    eDEASSERT = 0,
+    // VSYNC is asserted
+    eASSERT = 1,
   };
   
+  // HSYNC override
   enum class eHSYNC_OVERRIDE : uint32_t {
-    eDEASSERT = 0, // HSYNC is not asserted
-    eASSERT = 1, // HSYNC is asserted
+    // HSYNC is not asserted
+    eDEASSERT = 0,
+    // HSYNC is asserted
+    eASSERT = 1,
   };
   
+  // Valid override
   enum class eVALID_OVERRIDE : uint32_t {
-    eASSERT = 0, // HSYNC and VSYNC is asserted
-    eDEASSERT = 1, // HSYNC and VSYNC is not asserted
+    // HSYNC and VSYNC is asserted
+    eASSERT = 0,
+    // HSYNC and VSYNC is not asserted
+    eDEASSERT = 1,
   };
   
+  // Polarity of HYSNC/VSYNC
   enum class ePOLARITY : uint32_t {
-    eKEEP = 0, // Keep the current polarity of HSYNC and VSYNC
-    eINVERT = 1, // Invert the polarity of HSYNC and VSYNC
+    // Keep the current polarity of HSYNC and VSYNC
+    eKEEP = 0,
+    // Invert the polarity of HSYNC and VSYNC
+    eINVERT = 1,
   };
   
   // Bit field definition.
   struct {
-    /// read-write - Enable the output of HYSNC and VSYNC
+    // read-write - Enable the output of HYSNC and VSYNC
     eENABLE ENABLE : 1;
-    /// read-write - VSYNC override
+    // read-write - VSYNC override
     eVSYNC_OVERRIDE VSYNC_OVERRIDE : 1;
-    /// read-write - HSYNC override
+    // read-write - HSYNC override
     eHSYNC_OVERRIDE HSYNC_OVERRIDE : 1;
-    /// read-write - Valid override
+    // read-write - Valid override
     eVALID_OVERRIDE VALID_OVERRIDE : 1;
-    /// read-write - Polarity of HYSNC/VSYNC
+    // read-write - Polarity of HYSNC/VSYNC
     ePOLARITY POLARITY : 1;
     uint32_t _reserved_0 : 27;
   } bits;
@@ -184,20 +203,19 @@ union PLM_CTRL {
 };
 
 // Pixel Link Master(PLM) Control Register
-//
 union PLM_CTRL_SET {
   
   // Bit field definition.
   struct {
-    /// read-write - Enable the output of HYSNC and VSYNC
+    // read-write - Enable the output of HYSNC and VSYNC
     uint32_t ENABLE : 1;
-    /// read-write - VSYNC override
+    // read-write - VSYNC override
     uint32_t VSYNC_OVERRIDE : 1;
-    /// read-write - HSYNC override
+    // read-write - HSYNC override
     uint32_t HSYNC_OVERRIDE : 1;
-    /// read-write - Valid override
+    // read-write - Valid override
     uint32_t VALID_OVERRIDE : 1;
-    /// read-write - Polarity of HYSNC/VSYNC
+    // read-write - Polarity of HYSNC/VSYNC
     uint32_t POLARITY : 1;
     uint32_t _reserved_0 : 27;
   } bits;
@@ -211,20 +229,19 @@ union PLM_CTRL_SET {
 };
 
 // Pixel Link Master(PLM) Control Register
-//
 union PLM_CTRL_CLR {
   
   // Bit field definition.
   struct {
-    /// read-write - Enable the output of HYSNC and VSYNC
+    // read-write - Enable the output of HYSNC and VSYNC
     uint32_t ENABLE : 1;
-    /// read-write - VSYNC override
+    // read-write - VSYNC override
     uint32_t VSYNC_OVERRIDE : 1;
-    /// read-write - HSYNC override
+    // read-write - HSYNC override
     uint32_t HSYNC_OVERRIDE : 1;
-    /// read-write - Valid override
+    // read-write - Valid override
     uint32_t VALID_OVERRIDE : 1;
-    /// read-write - Polarity of HYSNC/VSYNC
+    // read-write - Polarity of HYSNC/VSYNC
     uint32_t POLARITY : 1;
     uint32_t _reserved_0 : 27;
   } bits;
@@ -238,20 +255,19 @@ union PLM_CTRL_CLR {
 };
 
 // Pixel Link Master(PLM) Control Register
-//
 union PLM_CTRL_TOG {
   
   // Bit field definition.
   struct {
-    /// read-write - Enable the output of HYSNC and VSYNC
+    // read-write - Enable the output of HYSNC and VSYNC
     uint32_t ENABLE : 1;
-    /// read-write - VSYNC override
+    // read-write - VSYNC override
     uint32_t VSYNC_OVERRIDE : 1;
-    /// read-write - HSYNC override
+    // read-write - HSYNC override
     uint32_t HSYNC_OVERRIDE : 1;
-    /// read-write - Valid override
+    // read-write - Valid override
     uint32_t VALID_OVERRIDE : 1;
-    /// read-write - Polarity of HYSNC/VSYNC
+    // read-write - Polarity of HYSNC/VSYNC
     uint32_t POLARITY : 1;
     uint32_t _reserved_0 : 27;
   } bits;
@@ -265,17 +281,19 @@ union PLM_CTRL_TOG {
 };
 
 // YUV420 Control Register
-//
 union YUV420_CTRL {
   
+  // Data type of First Line
   enum class eFST_LN_DATA_TYPE : uint32_t {
-    eODD = 0, // Odd (default)
-    eEVEN = 1, // Even
+    // Odd (default)
+    eODD = 0,
+    // Even
+    eEVEN = 1,
   };
   
   // Bit field definition.
   struct {
-    /// read-write - Data type of First Line
+    // read-write - Data type of First Line
     eFST_LN_DATA_TYPE FST_LN_DATA_TYPE : 1;
     uint32_t _reserved_0 : 31;
   } bits;
@@ -289,12 +307,11 @@ union YUV420_CTRL {
 };
 
 // YUV420 Control Register
-//
 union YUV420_CTRL_SET {
   
   // Bit field definition.
   struct {
-    /// read-write - Data type of First Line
+    // read-write - Data type of First Line
     uint32_t FST_LN_DATA_TYPE : 1;
     uint32_t _reserved_0 : 31;
   } bits;
@@ -308,12 +325,11 @@ union YUV420_CTRL_SET {
 };
 
 // YUV420 Control Register
-//
 union YUV420_CTRL_CLR {
   
   // Bit field definition.
   struct {
-    /// read-write - Data type of First Line
+    // read-write - Data type of First Line
     uint32_t FST_LN_DATA_TYPE : 1;
     uint32_t _reserved_0 : 31;
   } bits;
@@ -327,12 +343,11 @@ union YUV420_CTRL_CLR {
 };
 
 // YUV420 Control Register
-//
 union YUV420_CTRL_TOG {
   
   // Bit field definition.
   struct {
-    /// read-write - Data type of First Line
+    // read-write - Data type of First Line
     uint32_t FST_LN_DATA_TYPE : 1;
     uint32_t _reserved_0 : 31;
   } bits;
@@ -346,12 +361,11 @@ union YUV420_CTRL_TOG {
 };
 
 // Data Disable Register
-//
 union CFG_DT_DISABLE {
   
   // Bit field definition.
   struct {
-    /// read-write - Data Type Disable
+    // read-write - Data Type Disable
     uint32_t CFG_DT_DISABLE : 24;
     uint32_t _reserved_0 : 8;
   } bits;
@@ -365,12 +379,11 @@ union CFG_DT_DISABLE {
 };
 
 // Data Disable Register
-//
 union CFG_DT_DISABLE_SET {
   
   // Bit field definition.
   struct {
-    /// read-write - Data Type Disable
+    // read-write - Data Type Disable
     uint32_t CFG_DT_DISABLE : 24;
     uint32_t _reserved_0 : 8;
   } bits;
@@ -384,12 +397,11 @@ union CFG_DT_DISABLE_SET {
 };
 
 // Data Disable Register
-//
 union CFG_DT_DISABLE_CLR {
   
   // Bit field definition.
   struct {
-    /// read-write - Data Type Disable
+    // read-write - Data Type Disable
     uint32_t CFG_DT_DISABLE : 24;
     uint32_t _reserved_0 : 8;
   } bits;
@@ -403,12 +415,11 @@ union CFG_DT_DISABLE_CLR {
 };
 
 // Data Disable Register
-//
 union CFG_DT_DISABLE_TOG {
   
   // Bit field definition.
   struct {
-    /// read-write - Data Type Disable
+    // read-write - Data Type Disable
     uint32_t CFG_DT_DISABLE : 24;
     uint32_t _reserved_0 : 8;
   } bits;
@@ -422,24 +433,29 @@ union CFG_DT_DISABLE_TOG {
 };
 
 // MIPI DSI Control Register
-//
 union MIPI_DSI_CTRL {
   
+  // Shut Down - Control to shutdown display (type 4 only)
   enum class eDPI_SD : uint32_t {
-    eNO = 0, // No effect
-    eSENDCMD = 1, // Send shutdown command
+    // No effect
+    eNO = 0,
+    // Send shutdown command
+    eSENDCMD = 1,
   };
   
+  // Color Mode control
   enum class eDPI_CM : uint32_t {
-    eNORMAL = 0, // Normal Mode
-    eLOWCLR = 1, // Low-color mode
+    // Normal Mode
+    eNORMAL = 0,
+    // Low-color mode
+    eLOWCLR = 1,
   };
   
   // Bit field definition.
   struct {
-    /// read-write - Shut Down - Control to shutdown display (type 4 only)
+    // read-write - Shut Down - Control to shutdown display (type 4 only)
     eDPI_SD DPI_SD : 1;
-    /// read-write - Color Mode control
+    // read-write - Color Mode control
     eDPI_CM DPI_CM : 1;
     uint32_t _reserved_0 : 30;
   } bits;
@@ -453,14 +469,13 @@ union MIPI_DSI_CTRL {
 };
 
 // MIPI DSI Control Register
-//
 union MIPI_DSI_CTRL_SET {
   
   // Bit field definition.
   struct {
-    /// read-write - Shut Down - Control to shutdown display (type 4 only)
+    // read-write - Shut Down - Control to shutdown display (type 4 only)
     uint32_t DPI_SD : 1;
-    /// read-write - Color Mode control
+    // read-write - Color Mode control
     uint32_t DPI_CM : 1;
     uint32_t _reserved_0 : 30;
   } bits;
@@ -474,14 +489,13 @@ union MIPI_DSI_CTRL_SET {
 };
 
 // MIPI DSI Control Register
-//
 union MIPI_DSI_CTRL_CLR {
   
   // Bit field definition.
   struct {
-    /// read-write - Shut Down - Control to shutdown display (type 4 only)
+    // read-write - Shut Down - Control to shutdown display (type 4 only)
     uint32_t DPI_SD : 1;
-    /// read-write - Color Mode control
+    // read-write - Color Mode control
     uint32_t DPI_CM : 1;
     uint32_t _reserved_0 : 30;
   } bits;
@@ -495,14 +509,13 @@ union MIPI_DSI_CTRL_CLR {
 };
 
 // MIPI DSI Control Register
-//
 union MIPI_DSI_CTRL_TOG {
   
   // Bit field definition.
   struct {
-    /// read-write - Shut Down - Control to shutdown display (type 4 only)
+    // read-write - Shut Down - Control to shutdown display (type 4 only)
     uint32_t DPI_SD : 1;
-    /// read-write - Color Mode control
+    // read-write - Color Mode control
     uint32_t DPI_CM : 1;
     uint32_t _reserved_0 : 30;
   } bits;

@@ -5,129 +5,173 @@
 #include <cstring>
 
 // QDC
-//
-// NOTE: This file was generated from the forge CMSIS-svd wrapper tool.
-
 namespace nENC1 {
 
 
 // Control Register
-//
 union CTRL {
   
+  // Compare Interrupt Enable
   enum class eCMPIE : uint32_t {
-    eCMPIE_0 = 0, // Disabled
-    eCMPIE_1 = 1, // Enabled
+    // Disabled
+    eCMPIE_0 = 0,
+    // Enabled
+    eCMPIE_1 = 1,
   };
   
+  // Compare Interrupt Request
   enum class eCMPIRQ : uint32_t {
-    eCMPIRQ_0 = 0, // No match has occurred (the counter does not match the COMP value)
-    eCMPIRQ_1 = 1, // COMP match has occurred (the counter matches the COMP value)
+    // No match has occurred (the counter does not match the COMP value)
+    eCMPIRQ_0 = 0,
+    // COMP match has occurred (the counter matches the COMP value)
+    eCMPIRQ_1 = 1,
   };
   
+  // Watchdog Enable
   enum class eWDE : uint32_t {
-    eWDE_0 = 0, // Disabled
-    eWDE_1 = 1, // Enabled
+    // Disabled
+    eWDE_0 = 0,
+    // Enabled
+    eWDE_1 = 1,
   };
   
+  // Watchdog Timeout Interrupt Enable
   enum class eDIE : uint32_t {
-    eDIE_0 = 0, // Disabled
-    eDIE_1 = 1, // Enabled
+    // Disabled
+    eDIE_0 = 0,
+    // Enabled
+    eDIE_1 = 1,
   };
   
+  // Watchdog Timeout Interrupt Request
   enum class eDIRQ : uint32_t {
-    eDIRQ_0 = 0, // No Watchdog timeout interrupt has occurred
-    eDIRQ_1 = 1, // Watchdog timeout interrupt has occurred
+    // No Watchdog timeout interrupt has occurred
+    eDIRQ_0 = 0,
+    // Watchdog timeout interrupt has occurred
+    eDIRQ_1 = 1,
   };
   
+  // Use Negative Edge of INDEX Pulse
   enum class eXNE : uint32_t {
-    eXNE_0 = 0, // Use positive edge of INDEX pulse
-    eXNE_1 = 1, // Use negative edge of INDEX pulse
+    // Use positive edge of INDEX pulse
+    eXNE_0 = 0,
+    // Use negative edge of INDEX pulse
+    eXNE_1 = 1,
   };
   
+  // INDEX Triggered Initialization of Position Counters UPOS and LPOS
   enum class eXIP : uint32_t {
-    eXIP_0 = 0, // INDEX pulse does not initialize the position counter
-    eXIP_1 = 1, // INDEX pulse initializes the position counter
+    // INDEX pulse does not initialize the position counter
+    eXIP_0 = 0,
+    // INDEX pulse initializes the position counter
+    eXIP_1 = 1,
   };
   
+  // INDEX Pulse Interrupt Enable
   enum class eXIE : uint32_t {
-    eXIE_0 = 0, // Disabled
-    eXIE_1 = 1, // Enabled
+    // Disabled
+    eXIE_0 = 0,
+    // Enabled
+    eXIE_1 = 1,
   };
   
+  // INDEX Pulse Interrupt Request
   enum class eXIRQ : uint32_t {
-    eXIRQ_0 = 0, // INDEX pulse has not occurred
-    eXIRQ_1 = 1, // INDEX pulse has occurred
+    // INDEX pulse has not occurred
+    eXIRQ_0 = 0,
+    // INDEX pulse has occurred
+    eXIRQ_1 = 1,
   };
   
+  // Enable Signal Phase Count Mode
   enum class ePH1 : uint32_t {
-    ePH1_0 = 0, // Use the standard quadrature decoder, where PHASEA and PHASEB represent a two-phase quadrature signal.
-    ePH1_1 = 1, // Bypass the quadrature decoder. A positive transition of the PHASEA input generates a count signal. The PHASEB input and the REV bit control the counter direction: If CTRL[REV] = 0, PHASEB = 0, then count up If CTRL[REV] = 1, PHASEB = 1, then count up If CTRL[REV] = 0, PHASEB = 1, then count down If CTRL[REV] = 1, PHASEB = 0, then count down
+    // Use the standard quadrature decoder, where PHASEA and PHASEB represent a two-phase quadrature signal.
+    ePH1_0 = 0,
+    // Bypass the quadrature decoder. A positive transition of the PHASEA input generates a count signal. The PHASEB input and the REV bit control the counter direction: If CTRL[REV] = 0, PHASEB = 0, then count up If CTRL[REV] = 1, PHASEB = 1, then count up If CTRL[REV] = 0, PHASEB = 1, then count down If CTRL[REV] = 1, PHASEB = 0, then count down
+    ePH1_1 = 1,
   };
   
+  // Enable Reverse Direction Counting
   enum class eREV : uint32_t {
-    eREV_0 = 0, // Count normally
-    eREV_1 = 1, // Count in the reverse direction
+    // Count normally
+    eREV_0 = 0,
+    // Count in the reverse direction
+    eREV_1 = 1,
   };
   
+  // Software-Triggered Initialization of Position Counters UPOS and LPOS
   enum class eSWIP : uint32_t {
-    eSWIP_0 = 0, // No action
-    eSWIP_1 = 1, // Initialize position counter (using upper and lower initialization registers, UINIT and LINIT)
+    // No action
+    eSWIP_0 = 0,
+    // Initialize position counter (using upper and lower initialization registers, UINIT and LINIT)
+    eSWIP_1 = 1,
   };
   
+  // Use Negative Edge of HOME Input
   enum class eHNE : uint32_t {
-    eHNE_0 = 0, // Use positive-going edge-to-trigger initialization of position counters UPOS and LPOS
-    eHNE_1 = 1, // Use negative-going edge-to-trigger initialization of position counters UPOS and LPOS
+    // Use positive-going edge-to-trigger initialization of position counters UPOS and LPOS
+    eHNE_0 = 0,
+    // Use negative-going edge-to-trigger initialization of position counters UPOS and LPOS
+    eHNE_1 = 1,
   };
   
+  // Enable HOME to Initialize Position Counters UPOS and LPOS
   enum class eHIP : uint32_t {
-    eHIP_0 = 0, // No action
-    eHIP_1 = 1, // HOME signal initializes the position counter
+    // No action
+    eHIP_0 = 0,
+    // HOME signal initializes the position counter
+    eHIP_1 = 1,
   };
   
+  // HOME Interrupt Enable
   enum class eHIE : uint32_t {
-    eHIE_0 = 0, // Disabled
-    eHIE_1 = 1, // Enabled
+    // Disabled
+    eHIE_0 = 0,
+    // Enabled
+    eHIE_1 = 1,
   };
   
+  // HOME Signal Transition Interrupt Request
   enum class eHIRQ : uint32_t {
-    eHIRQ_0 = 0, // No transition on the HOME signal has occurred
-    eHIRQ_1 = 1, // A transition on the HOME signal has occurred
+    // No transition on the HOME signal has occurred
+    eHIRQ_0 = 0,
+    // A transition on the HOME signal has occurred
+    eHIRQ_1 = 1,
   };
   
   // Bit field definition.
   struct {
-    /// read-write - Compare Interrupt Enable
+    // read-write - Compare Interrupt Enable
     eCMPIE CMPIE : 1;
-    /// read-write - Compare Interrupt Request
+    // read-write - Compare Interrupt Request
     eCMPIRQ CMPIRQ : 1;
-    /// read-write - Watchdog Enable
+    // read-write - Watchdog Enable
     eWDE WDE : 1;
-    /// read-write - Watchdog Timeout Interrupt Enable
+    // read-write - Watchdog Timeout Interrupt Enable
     eDIE DIE : 1;
-    /// read-write - Watchdog Timeout Interrupt Request
+    // read-write - Watchdog Timeout Interrupt Request
     eDIRQ DIRQ : 1;
-    /// read-write - Use Negative Edge of INDEX Pulse
+    // read-write - Use Negative Edge of INDEX Pulse
     eXNE XNE : 1;
-    /// read-write - INDEX Triggered Initialization of Position Counters UPOS and LPOS
+    // read-write - INDEX Triggered Initialization of Position Counters UPOS and LPOS
     eXIP XIP : 1;
-    /// read-write - INDEX Pulse Interrupt Enable
+    // read-write - INDEX Pulse Interrupt Enable
     eXIE XIE : 1;
-    /// read-write - INDEX Pulse Interrupt Request
+    // read-write - INDEX Pulse Interrupt Request
     eXIRQ XIRQ : 1;
-    /// read-write - Enable Signal Phase Count Mode
+    // read-write - Enable Signal Phase Count Mode
     ePH1 PH1 : 1;
-    /// read-write - Enable Reverse Direction Counting
+    // read-write - Enable Reverse Direction Counting
     eREV REV : 1;
-    /// read-write - Software-Triggered Initialization of Position Counters UPOS and LPOS
+    // read-write - Software-Triggered Initialization of Position Counters UPOS and LPOS
     eSWIP SWIP : 1;
-    /// read-write - Use Negative Edge of HOME Input
+    // read-write - Use Negative Edge of HOME Input
     eHNE HNE : 1;
-    /// read-write - Enable HOME to Initialize Position Counters UPOS and LPOS
+    // read-write - Enable HOME to Initialize Position Counters UPOS and LPOS
     eHIP HIP : 1;
-    /// read-write - HOME Interrupt Enable
+    // read-write - HOME Interrupt Enable
     eHIE HIE : 1;
-    /// read-write - HOME Signal Transition Interrupt Request
+    // read-write - HOME Signal Transition Interrupt Request
     eHIRQ HIRQ : 1;
     uint32_t _reserved_0 : 16;
   } bits;
@@ -141,14 +185,13 @@ union CTRL {
 };
 
 // Input Filter Register
-//
 union FILT {
   
   // Bit field definition.
   struct {
-    /// read-write - Input Filter Sample Period
+    // read-write - Input Filter Sample Period
     uint32_t FILT_PER : 8;
-    /// read-write - Input Filter Sample Count
+    // read-write - Input Filter Sample Count
     uint32_t FILT_CNT : 3;
     uint32_t _reserved_0 : 21;
   } bits;
@@ -162,12 +205,11 @@ union FILT {
 };
 
 // Watchdog Timeout Register
-//
 union WTR {
   
   // Bit field definition.
   struct {
-    /// read-write - WDOG
+    // read-write - WDOG
     uint32_t WDOG : 16;
     uint32_t _reserved_0 : 16;
   } bits;
@@ -181,12 +223,11 @@ union WTR {
 };
 
 // Position Difference Counter Register
-//
 union POSD {
   
   // Bit field definition.
   struct {
-    /// read-write - POSD
+    // read-write - POSD
     uint32_t POSD : 16;
     uint32_t _reserved_0 : 16;
   } bits;
@@ -200,12 +241,11 @@ union POSD {
 };
 
 // Position Difference Hold Register
-//
 union POSDH {
   
   // Bit field definition.
   struct {
-    /// read-only - POSDH
+    // read-only - POSDH
     uint32_t POSDH : 16;
     uint32_t _reserved_0 : 16;
   } bits;
@@ -219,12 +259,11 @@ union POSDH {
 };
 
 // Revolution Counter Register
-//
 union REV {
   
   // Bit field definition.
   struct {
-    /// read-write - REV
+    // read-write - REV
     uint32_t REV : 16;
     uint32_t _reserved_0 : 16;
   } bits;
@@ -238,12 +277,11 @@ union REV {
 };
 
 // Revolution Hold Register
-//
 union REVH {
   
   // Bit field definition.
   struct {
-    /// read-only - REVH
+    // read-only - REVH
     uint32_t REVH : 16;
     uint32_t _reserved_0 : 16;
   } bits;
@@ -257,12 +295,11 @@ union REVH {
 };
 
 // Upper Position Counter Register
-//
 union UPOS {
   
   // Bit field definition.
   struct {
-    /// read-write - POS
+    // read-write - POS
     uint32_t POS : 16;
     uint32_t _reserved_0 : 16;
   } bits;
@@ -276,12 +313,11 @@ union UPOS {
 };
 
 // Lower Position Counter Register
-//
 union LPOS {
   
   // Bit field definition.
   struct {
-    /// read-write - POS
+    // read-write - POS
     uint32_t POS : 16;
     uint32_t _reserved_0 : 16;
   } bits;
@@ -295,12 +331,11 @@ union LPOS {
 };
 
 // Upper Position Hold Register
-//
 union UPOSH {
   
   // Bit field definition.
   struct {
-    /// read-only - POSH
+    // read-only - POSH
     uint32_t POSH : 16;
     uint32_t _reserved_0 : 16;
   } bits;
@@ -314,12 +349,11 @@ union UPOSH {
 };
 
 // Lower Position Hold Register
-//
 union LPOSH {
   
   // Bit field definition.
   struct {
-    /// read-only - POSH
+    // read-only - POSH
     uint32_t POSH : 16;
     uint32_t _reserved_0 : 16;
   } bits;
@@ -333,12 +367,11 @@ union LPOSH {
 };
 
 // Upper Initialization Register
-//
 union UINIT {
   
   // Bit field definition.
   struct {
-    /// read-write - INIT
+    // read-write - INIT
     uint32_t INIT : 16;
     uint32_t _reserved_0 : 16;
   } bits;
@@ -352,12 +385,11 @@ union UINIT {
 };
 
 // Lower Initialization Register
-//
 union LINIT {
   
   // Bit field definition.
   struct {
-    /// read-write - INIT
+    // read-write - INIT
     uint32_t INIT : 16;
     uint32_t _reserved_0 : 16;
   } bits;
@@ -371,26 +403,25 @@ union LINIT {
 };
 
 // Input Monitor Register
-//
 union IMR {
   
   // Bit field definition.
   struct {
-    /// read-only - HOME
+    // read-only - HOME
     uint32_t HOME : 1;
-    /// read-only - INDEX
+    // read-only - INDEX
     uint32_t INDEX : 1;
-    /// read-only - PHB
+    // read-only - PHB
     uint32_t PHB : 1;
-    /// read-only - PHA
+    // read-only - PHA
     uint32_t PHA : 1;
-    /// read-only - FHOM
+    // read-only - FHOM
     uint32_t FHOM : 1;
-    /// read-only - FIND
+    // read-only - FIND
     uint32_t FIND : 1;
-    /// read-only - FPHB
+    // read-only - FPHB
     uint32_t FPHB : 1;
-    /// read-only - FPHA
+    // read-only - FPHA
     uint32_t FPHA : 1;
     uint32_t _reserved_0 : 24;
   } bits;
@@ -404,35 +435,43 @@ union IMR {
 };
 
 // Test Register
-//
 union TST {
   
+  // Quadrature Decoder Negative Signal
   enum class eQDN : uint32_t {
-    eQDN_0 = 0, // Generates a positive quadrature decoder signal
-    eQDN_1 = 1, // Generates a negative quadrature decoder signal
+    // Generates a positive quadrature decoder signal
+    eQDN_0 = 0,
+    // Generates a negative quadrature decoder signal
+    eQDN_1 = 1,
   };
   
+  // Test Counter Enable
   enum class eTCE : uint32_t {
-    eTCE_0 = 0, // Disabled
-    eTCE_1 = 1, // Enabled
+    // Disabled
+    eTCE_0 = 0,
+    // Enabled
+    eTCE_1 = 1,
   };
   
+  // Test Mode Enable
   enum class eTEN : uint32_t {
-    eTEN_0 = 0, // Disabled
-    eTEN_1 = 1, // Enabled
+    // Disabled
+    eTEN_0 = 0,
+    // Enabled
+    eTEN_1 = 1,
   };
   
   // Bit field definition.
   struct {
-    /// read-write - TEST_COUNT
+    // read-write - TEST_COUNT
     uint32_t TEST_COUNT : 8;
-    /// read-write - TEST_PERIOD
+    // read-write - TEST_PERIOD
     uint32_t TEST_PERIOD : 5;
-    /// read-write - Quadrature Decoder Negative Signal
+    // read-write - Quadrature Decoder Negative Signal
     eQDN QDN : 1;
-    /// read-write - Test Counter Enable
+    // read-write - Test Counter Enable
     eTCE TCE : 1;
-    /// read-write - Test Mode Enable
+    // read-write - Test Mode Enable
     eTEN TEN : 1;
     uint32_t _reserved_0 : 16;
   } bits;
@@ -446,94 +485,129 @@ union TST {
 };
 
 // Control 2 Register
-//
 union CTRL2 {
   
+  // Update Hold Registers
   enum class eUPDHLD : uint32_t {
-    eUPDHLD_0 = 0, // Disable updates of hold registers on the rising edge of TRIGGER input signal
-    eUPDHLD_1 = 1, // Enable updates of hold registers on the rising edge of TRIGGER input signal
+    // Disable updates of hold registers on the rising edge of TRIGGER input signal
+    eUPDHLD_0 = 0,
+    // Enable updates of hold registers on the rising edge of TRIGGER input signal
+    eUPDHLD_1 = 1,
   };
   
+  // Update Position Registers
   enum class eUPDPOS : uint32_t {
-    eUPDPOS_0 = 0, // No action for POSD, REV, UPOS and LPOS registers on rising edge of TRIGGER
-    eUPDPOS_1 = 1, // Clear POSD, REV, UPOS and LPOS registers on rising edge of TRIGGER
+    // No action for POSD, REV, UPOS and LPOS registers on rising edge of TRIGGER
+    eUPDPOS_0 = 0,
+    // Clear POSD, REV, UPOS and LPOS registers on rising edge of TRIGGER
+    eUPDPOS_1 = 1,
   };
   
+  // Enable Modulo Counting
   enum class eMOD : uint32_t {
-    eMOD_0 = 0, // Disable modulo counting
-    eMOD_1 = 1, // Enable modulo counting
+    // Disable modulo counting
+    eMOD_0 = 0,
+    // Enable modulo counting
+    eMOD_1 = 1,
   };
   
+  // Count Direction Flag
   enum class eDIR : uint32_t {
-    eDIR_0 = 0, // Last count was in the down direction
-    eDIR_1 = 1, // Last count was in the up direction
+    // Last count was in the down direction
+    eDIR_0 = 0,
+    // Last count was in the up direction
+    eDIR_1 = 1,
   };
   
+  // Roll-under Interrupt Enable
   enum class eRUIE : uint32_t {
-    eRUIE_0 = 0, // Disabled
-    eRUIE_1 = 1, // Enabled
+    // Disabled
+    eRUIE_0 = 0,
+    // Enabled
+    eRUIE_1 = 1,
   };
   
+  // Roll-under Interrupt Request
   enum class eRUIRQ : uint32_t {
-    eRUIRQ_0 = 0, // No roll-under has occurred
-    eRUIRQ_1 = 1, // Roll-under has occurred
+    // No roll-under has occurred
+    eRUIRQ_0 = 0,
+    // Roll-under has occurred
+    eRUIRQ_1 = 1,
   };
   
+  // Roll-over Interrupt Enable
   enum class eROIE : uint32_t {
-    eROIE_0 = 0, // Disabled
-    eROIE_1 = 1, // Enabled
+    // Disabled
+    eROIE_0 = 0,
+    // Enabled
+    eROIE_1 = 1,
   };
   
+  // Roll-over Interrupt Request
   enum class eROIRQ : uint32_t {
-    eROIRQ_0 = 0, // No roll-over has occurred
-    eROIRQ_1 = 1, // Roll-over has occurred
+    // No roll-over has occurred
+    eROIRQ_0 = 0,
+    // Roll-over has occurred
+    eROIRQ_1 = 1,
   };
   
+  // Revolution Counter Modulus Enable
   enum class eREVMOD : uint32_t {
-    eREVMOD_0 = 0, // Use INDEX pulse to increment/decrement revolution counter (REV)
-    eREVMOD_1 = 1, // Use modulus counting roll-over/under to increment/decrement revolution counter (REV)
+    // Use INDEX pulse to increment/decrement revolution counter (REV)
+    eREVMOD_0 = 0,
+    // Use modulus counting roll-over/under to increment/decrement revolution counter (REV)
+    eREVMOD_1 = 1,
   };
   
+  // Output Control
   enum class eOUTCTL : uint32_t {
-    eOUTCTL_0 = 0, // POSMATCH pulses when a match occurs between the position counters (POS) and the corresponding compare value (COMP )
-    eOUTCTL_1 = 1, // POSMATCH pulses when the UPOS, LPOS, REV, or POSD registers are read
+    // POSMATCH pulses when a match occurs between the position counters (POS) and the corresponding compare value (COMP )
+    eOUTCTL_0 = 0,
+    // POSMATCH pulses when the UPOS, LPOS, REV, or POSD registers are read
+    eOUTCTL_1 = 1,
   };
   
+  // Simultaneous PHASEA and PHASEB Change Interrupt Enable
   enum class eSABIE : uint32_t {
-    eSABIE_0 = 0, // Disabled
-    eSABIE_1 = 1, // Enabled
+    // Disabled
+    eSABIE_0 = 0,
+    // Enabled
+    eSABIE_1 = 1,
   };
   
+  // Simultaneous PHASEA and PHASEB Change Interrupt Request
   enum class eSABIRQ : uint32_t {
-    eSABIRQ_0 = 0, // No simultaneous change of PHASEA and PHASEB has occurred
-    eSABIRQ_1 = 1, // A simultaneous change of PHASEA and PHASEB has occurred
+    // No simultaneous change of PHASEA and PHASEB has occurred
+    eSABIRQ_0 = 0,
+    // A simultaneous change of PHASEA and PHASEB has occurred
+    eSABIRQ_1 = 1,
   };
   
   // Bit field definition.
   struct {
-    /// read-write - Update Hold Registers
+    // read-write - Update Hold Registers
     eUPDHLD UPDHLD : 1;
-    /// read-write - Update Position Registers
+    // read-write - Update Position Registers
     eUPDPOS UPDPOS : 1;
-    /// read-write - Enable Modulo Counting
+    // read-write - Enable Modulo Counting
     eMOD MOD : 1;
-    /// read-only - Count Direction Flag
+    // read-only - Count Direction Flag
     eDIR DIR : 1;
-    /// read-write - Roll-under Interrupt Enable
+    // read-write - Roll-under Interrupt Enable
     eRUIE RUIE : 1;
-    /// read-write - Roll-under Interrupt Request
+    // read-write - Roll-under Interrupt Request
     eRUIRQ RUIRQ : 1;
-    /// read-write - Roll-over Interrupt Enable
+    // read-write - Roll-over Interrupt Enable
     eROIE ROIE : 1;
-    /// read-write - Roll-over Interrupt Request
+    // read-write - Roll-over Interrupt Request
     eROIRQ ROIRQ : 1;
-    /// read-write - Revolution Counter Modulus Enable
+    // read-write - Revolution Counter Modulus Enable
     eREVMOD REVMOD : 1;
-    /// read-write - Output Control
+    // read-write - Output Control
     eOUTCTL OUTCTL : 1;
-    /// read-write - Simultaneous PHASEA and PHASEB Change Interrupt Enable
+    // read-write - Simultaneous PHASEA and PHASEB Change Interrupt Enable
     eSABIE SABIE : 1;
-    /// read-write - Simultaneous PHASEA and PHASEB Change Interrupt Request
+    // read-write - Simultaneous PHASEA and PHASEB Change Interrupt Request
     eSABIRQ SABIRQ : 1;
     uint32_t _reserved_0 : 20;
   } bits;
@@ -547,12 +621,11 @@ union CTRL2 {
 };
 
 // Upper Modulus Register
-//
 union UMOD {
   
   // Bit field definition.
   struct {
-    /// read-write - MOD
+    // read-write - MOD
     uint32_t MOD : 16;
     uint32_t _reserved_0 : 16;
   } bits;
@@ -566,12 +639,11 @@ union UMOD {
 };
 
 // Lower Modulus Register
-//
 union LMOD {
   
   // Bit field definition.
   struct {
-    /// read-write - MOD
+    // read-write - MOD
     uint32_t MOD : 16;
     uint32_t _reserved_0 : 16;
   } bits;
@@ -585,12 +657,11 @@ union LMOD {
 };
 
 // Upper Position Compare Register
-//
 union UCOMP {
   
   // Bit field definition.
   struct {
-    /// read-write - COMP
+    // read-write - COMP
     uint32_t COMP : 16;
     uint32_t _reserved_0 : 16;
   } bits;
@@ -604,12 +675,11 @@ union UCOMP {
 };
 
 // Lower Position Compare Register
-//
 union LCOMP {
   
   // Bit field definition.
   struct {
-    /// read-write - COMP
+    // read-write - COMP
     uint32_t COMP : 16;
     uint32_t _reserved_0 : 16;
   } bits;
@@ -623,12 +693,11 @@ union LCOMP {
 };
 
 // Last Edge Time Register
-//
 union LASTEDGE {
   
   // Bit field definition.
   struct {
-    /// read-only - Last Edge Time Counter
+    // read-only - Last Edge Time Counter
     uint32_t LASTEDGE : 16;
     uint32_t _reserved_0 : 16;
   } bits;
@@ -642,12 +711,11 @@ union LASTEDGE {
 };
 
 // Last Edge Time Hold Register
-//
 union LASTEDGEH {
   
   // Bit field definition.
   struct {
-    /// read-only - Last Edge Time Hold
+    // read-only - Last Edge Time Hold
     uint32_t LASTEDGEH : 16;
     uint32_t _reserved_0 : 16;
   } bits;
@@ -661,12 +729,11 @@ union LASTEDGEH {
 };
 
 // Position Difference Period Counter Register
-//
 union POSDPER {
   
   // Bit field definition.
   struct {
-    /// read-only - Position difference period
+    // read-only - Position difference period
     uint32_t POSDPER : 16;
     uint32_t _reserved_0 : 16;
   } bits;
@@ -680,12 +747,11 @@ union POSDPER {
 };
 
 // Position Difference Period Buffer Register
-//
 union POSDPERBFR {
   
   // Bit field definition.
   struct {
-    /// read-only - Position difference period buffer
+    // read-only - Position difference period buffer
     uint32_t POSDPERBFR : 16;
     uint32_t _reserved_0 : 16;
   } bits;
@@ -699,12 +765,11 @@ union POSDPERBFR {
 };
 
 // Position Difference Period Hold Register
-//
 union POSDPERH {
   
   // Bit field definition.
   struct {
-    /// read-only - Position difference period hold
+    // read-only - Position difference period hold
     uint32_t POSDPERH : 16;
     uint32_t _reserved_0 : 16;
   } bits;
@@ -718,20 +783,22 @@ union POSDPERH {
 };
 
 // Control 3 Register
-//
 union CTRL3 {
   
+  // Period measurement function enable
   enum class ePMEN : uint32_t {
-    ePMEN_0 = 0, // Period measurement functions are not used. POSD is loaded to POSDH and then cleared whenever POSD, UPOS, LPOS, or REV is read.
-    ePMEN_1 = 1, // Period measurement functions are used. POSD is loaded to POSDH and then cleared only when POSD is read.
+    // Period measurement functions are not used. POSD is loaded to POSDH and then cleared whenever POSD, UPOS, LPOS, or REV is read.
+    ePMEN_0 = 0,
+    // Period measurement functions are used. POSD is loaded to POSDH and then cleared only when POSD is read.
+    ePMEN_1 = 1,
   };
   
   // Bit field definition.
   struct {
-    /// read-write - Period measurement function enable
+    // read-write - Period measurement function enable
     ePMEN PMEN : 1;
     uint32_t _reserved_0 : 3;
-    /// read-write - Prescaler
+    // read-write - Prescaler
     uint32_t PRSC : 4;
     uint32_t _reserved_1 : 24;
   } bits;

@@ -5,24 +5,23 @@
 #include <cstring>
 
 // no description available
-//
-// NOTE: This file was generated from the forge CMSIS-svd wrapper tool.
-
 namespace nMIPI_CSI2RX {
 
 
 // Lane Configuration Register
-//
 union CFG_NUM_LANES {
   
+  // This field is used to set the number of active lanes for receiving data.
   enum class eCFG_NUM_LANES : uint32_t {
-    eONE_LANE = 0, // 1 Lane
-    eTWO_LANE = 1, // 2 Lane
+    // 1 Lane
+    eONE_LANE = 0,
+    // 2 Lane
+    eTWO_LANE = 1,
   };
   
   // Bit field definition.
   struct {
-    /// read-write - This field is used to set the number of active lanes for receiving data.
+    // read-write - This field is used to set the number of active lanes for receiving data.
     eCFG_NUM_LANES CFG_NUM_LANES : 2;
     uint32_t _reserved_0 : 30;
   } bits;
@@ -36,12 +35,11 @@ union CFG_NUM_LANES {
 };
 
 // Disable Data Lane Register
-//
 union CFG_DISABLE_DATA_LANES {
   
   // Bit field definition.
   struct {
-    /// read-write - Used to disable data lanes.
+    // read-write - Used to disable data lanes.
     uint32_t CFG_DISABLE_DATA_LANES : 4;
     uint32_t _reserved_0 : 28;
   } bits;
@@ -55,12 +53,11 @@ union CFG_DISABLE_DATA_LANES {
 };
 
 // ECC and CRC Error Status Register
-//
 union BIT_ERR {
   
   // Bit field definition.
   struct {
-    /// read-only - This field shows the error status of ECC and CRC
+    // read-only - This field shows the error status of ECC and CRC
     uint32_t BIT_ERR : 10;
     uint32_t _reserved_0 : 22;
   } bits;
@@ -74,12 +71,11 @@ union BIT_ERR {
 };
 
 // IRQ Status Register
-//
 union IRQ_STATUS {
   
   // Bit field definition.
   struct {
-    /// read-only - This field shows the IRQ status
+    // read-only - This field shows the IRQ status
     uint32_t IRQ_STATUS : 9;
     uint32_t _reserved_0 : 23;
   } bits;
@@ -93,12 +89,11 @@ union IRQ_STATUS {
 };
 
 // IRQ Mask Setting Register
-//
 union IRQ_MASK {
   
   // Bit field definition.
   struct {
-    /// read-write - This field shows the IRQ Mask setting
+    // read-write - This field shows the IRQ Mask setting
     uint32_t IRQ_MASK : 9;
     uint32_t _reserved_0 : 23;
   } bits;
@@ -112,12 +107,11 @@ union IRQ_MASK {
 };
 
 // Ultra Low Power State (ULPS) Status Register
-//
 union ULPS_STATUS {
   
   // Bit field definition.
   struct {
-    /// read-only - This field shows the status of Rx D-PHY ULPS state
+    // read-only - This field shows the status of Rx D-PHY ULPS state
     uint32_t STATUS : 10;
     uint32_t _reserved_0 : 22;
   } bits;
@@ -131,12 +125,11 @@ union ULPS_STATUS {
 };
 
 // ERRSotHS Status Register
-//
 union PPI_ERRSOT_HS {
   
   // Bit field definition.
   struct {
-    /// read-only - This field indicates PPI ErrSotHS captured status from D-PHY
+    // read-only - This field indicates PPI ErrSotHS captured status from D-PHY
     uint32_t STATUS : 4;
     uint32_t _reserved_0 : 28;
   } bits;
@@ -150,12 +143,11 @@ union PPI_ERRSOT_HS {
 };
 
 // ErrSotSync HS Status Register
-//
 union PPI_ERRSOTSYNC_HS {
   
   // Bit field definition.
   struct {
-    /// read-only - This field indicates PPI ErrSotSync_HS captured status from D-PHY
+    // read-only - This field indicates PPI ErrSotSync_HS captured status from D-PHY
     uint32_t STATUS : 4;
     uint32_t _reserved_0 : 28;
   } bits;
@@ -169,12 +161,11 @@ union PPI_ERRSOTSYNC_HS {
 };
 
 // ErrEsc Status Register
-//
 union PPI_ERRESC {
   
   // Bit field definition.
   struct {
-    /// read-only - This field indicates PPI ErrEsc captured status from D-PHY
+    // read-only - This field indicates PPI ErrEsc captured status from D-PHY
     uint32_t STATUS : 4;
     uint32_t _reserved_0 : 28;
   } bits;
@@ -188,12 +179,11 @@ union PPI_ERRESC {
 };
 
 // ErrSyncEsc Status Register
-//
 union PPI_ERRSYNCESC {
   
   // Bit field definition.
   struct {
-    /// read-only - This field indicates PPI ErrSyncEsc captured status from D-PHY
+    // read-only - This field indicates PPI ErrSyncEsc captured status from D-PHY
     uint32_t STATUS : 4;
     uint32_t _reserved_0 : 28;
   } bits;
@@ -207,12 +197,11 @@ union PPI_ERRSYNCESC {
 };
 
 // ErrControl Status Register
-//
 union PPI_ERRCONTROL {
   
   // Bit field definition.
   struct {
-    /// read-only - This field indicates PPI ErrControl captured status from D-PHY
+    // read-only - This field indicates PPI ErrControl captured status from D-PHY
     uint32_t STATUS : 4;
     uint32_t _reserved_0 : 28;
   } bits;
@@ -226,33 +215,32 @@ union PPI_ERRCONTROL {
 };
 
 // Disable Payload 0 Register
-//
 union CFG_DISABLE_PAYLOAD_0 {
   
   // Bit field definition.
   struct {
-    /// read-write - Null
+    // read-write - Null
     uint32_t DIS_PAYLOAD_NULL : 1;
-    /// read-write - Blank
+    // read-write - Blank
     uint32_t DIS_PAYLOAD_BLANK : 1;
-    /// read-write - Embedded
+    // read-write - Embedded
     uint32_t DIS_PAYLOAD_EMBEDDED : 1;
     uint32_t _reserved_0 : 7;
-    /// read-write - Legacy YUV 420 8 bit
+    // read-write - Legacy YUV 420 8 bit
     uint32_t DIS_PAYLOAD_YUV420 : 1;
     uint32_t _reserved_1 : 3;
-    /// read-write - YUV422 8 bit
+    // read-write - YUV422 8 bit
     uint32_t DIS_PAYLOAD_YUV422_8BIT : 1;
     uint32_t _reserved_2 : 1;
-    /// read-write - RGB444
+    // read-write - RGB444
     uint32_t DIS_PAYLOAD_RGB444 : 1;
-    /// read-write - RGB555
+    // read-write - RGB555
     uint32_t DIS_PAYLOAD_RGB555 : 1;
-    /// read-write - RGB565
+    // read-write - RGB565
     uint32_t DIS_PAYLOAD_RGB565 : 1;
-    /// read-write - RGB666
+    // read-write - RGB666
     uint32_t DIS_PAYLOAD_RGB666 : 1;
-    /// read-write - RGB888
+    // read-write - RGB888
     uint32_t DIS_PAYLOAD_RGB888 : 1;
     uint32_t _reserved_3 : 11;
   } bits;
@@ -266,29 +254,28 @@ union CFG_DISABLE_PAYLOAD_0 {
 };
 
 // Disable Payload 1 Register
-//
 union CFG_DISABLE_PAYLOAD_1 {
   
   // Bit field definition.
   struct {
-    /// read-write - User defined type 0x31
+    // read-write - User defined type 0x31
     uint32_t DIS_PAYLOAD_UDEF_30 : 1;
-    /// read-write - User defined type 0x32
+    // read-write - User defined type 0x32
     uint32_t DIS_PAYLOAD_UDEF_31 : 1;
-    /// read-write - User defined type 0x33
+    // read-write - User defined type 0x33
     uint32_t DIS_PAYLOAD_UDEF_32 : 1;
-    /// read-write - User defined type 0x34
+    // read-write - User defined type 0x34
     uint32_t DIS_PAYLOAD_UDEF_33 : 1;
-    /// read-write - User defined type 0x35
+    // read-write - User defined type 0x35
     uint32_t DIS_PAYLOAD_UDEF_34 : 1;
-    /// read-write - User defined type 0x35
+    // read-write - User defined type 0x35
     uint32_t DIS_PAYLOAD_UDEF_35 : 1;
-    /// read-write - User defined type 0x36
+    // read-write - User defined type 0x36
     uint32_t DIS_PAYLOAD_UDEF_36 : 1;
-    /// read-write - User defined type 0x37
+    // read-write - User defined type 0x37
     uint32_t DIS_PAYLOAD_UDEF_37 : 1;
     uint32_t _reserved_0 : 8;
-    /// read-write - Unsupported Data Types
+    // read-write - Unsupported Data Types
     uint32_t DIS_PAYLOAD_UNSUPPORTED : 1;
     uint32_t _reserved_1 : 15;
   } bits;

@@ -5,117 +5,155 @@
 #include <cstring>
 
 // ASRC
-//
-// NOTE: This file was generated from the forge CMSIS-svd wrapper tool.
-
 namespace nASRC {
 
 
 // ASRC Control Register
-//
 union ASRCTR {
   
+  // ASRCEN
   enum class eASRCEN : uint32_t {
-    edisabled = 0, // operation of ASRC disabled
-    eenabled = 1, // operation ASRC is enabled
+    // operation of ASRC disabled
+    edisabled = 0,
+    // operation ASRC is enabled
+    eenabled = 1,
   };
   
+  // ASREA
   enum class eASREA : uint32_t {
-    edisabled = 0, // operation of conversion A is disabled
-    eenabled = 1, // operation of conversion A is enabled
+    // operation of conversion A is disabled
+    edisabled = 0,
+    // operation of conversion A is enabled
+    eenabled = 1,
   };
   
+  // ASREB
   enum class eASREB : uint32_t {
-    edisabled = 0, // operation of conversion B is disabled
-    eenabled = 1, // operation of conversion B is enabled
+    // operation of conversion B is disabled
+    edisabled = 0,
+    // operation of conversion B is enabled
+    eenabled = 1,
   };
   
+  // ASREC
   enum class eASREC : uint32_t {
-    edisabled = 0, // operation of conversion C is disabled
-    eenabled = 1, // operation of conversion C is enabled
+    // operation of conversion C is disabled
+    edisabled = 0,
+    // operation of conversion C is enabled
+    eenabled = 1,
   };
   
+  // SRST
   enum class eSRST : uint32_t {
-    ecleared = 0, // ASRC Software reset cleared
-    ereset = 1, // ASRC Software reset generated. NOTE: This is a self-clear bit
+    // ASRC Software reset cleared
+    ecleared = 0,
+    // ASRC Software reset generated. NOTE: This is a self-clear bit
+    ereset = 1,
   };
   
+  // IDRA
   enum class eIDRA : uint32_t {
-    eidra_measured = 0, // ASRC internal measured ratio is used
-    eidra_ideal = 1, // Ideal ratio from the interface register ASRIDRHA, ASRIDRLA is used
+    // ASRC internal measured ratio is used
+    eidra_measured = 0,
+    // Ideal ratio from the interface register ASRIDRHA, ASRIDRLA is used
+    eidra_ideal = 1,
   };
   
+  // USRA
   enum class eUSRA : uint32_t {
-    euse_ratio_no = 0, // Do not use ratio as the input to ASRC for pair A
-    euse_ratio = 1, // Use ratio as the input to ASRC for pair A
+    // Do not use ratio as the input to ASRC for pair A
+    euse_ratio_no = 0,
+    // Use ratio as the input to ASRC for pair A
+    euse_ratio = 1,
   };
   
+  // IDRB
   enum class eIDRB : uint32_t {
-    eidra_measured = 0, // ASRC internal measured ratio is used
-    eidra_ideal = 1, // Ideal ratio from the interface register ASRIDRHB, ASRIDRLB is used
+    // ASRC internal measured ratio is used
+    eidra_measured = 0,
+    // Ideal ratio from the interface register ASRIDRHB, ASRIDRLB is used
+    eidra_ideal = 1,
   };
   
+  // USRB
   enum class eUSRB : uint32_t {
-    euse_ratio_no = 0, // Do not use ratio as the input to ASRC for pair B
-    euse_ratio = 1, // Use ratio as the input to ASRC for pair B
+    // Do not use ratio as the input to ASRC for pair B
+    euse_ratio_no = 0,
+    // Use ratio as the input to ASRC for pair B
+    euse_ratio = 1,
   };
   
+  // IDRC
   enum class eIDRC : uint32_t {
-    eidra_measured = 0, // ASRC internal measured ratio is used
-    eidra_ideal = 1, // Ideal ratio from the interface register ASRIDRHC, ASRIDRLC is used
+    // ASRC internal measured ratio is used
+    eidra_measured = 0,
+    // Ideal ratio from the interface register ASRIDRHC, ASRIDRLC is used
+    eidra_ideal = 1,
   };
   
+  // USRC
   enum class eUSRC : uint32_t {
-    euse_ratio_no = 0, // Do not use ratio as the input to ASRC for pair C
-    euse_ratio = 1, // Use ratio as the input to ASRC for pair C
+    // Do not use ratio as the input to ASRC for pair C
+    euse_ratio_no = 0,
+    // Use ratio as the input to ASRC for pair C
+    euse_ratio = 1,
   };
   
+  // ATSA
   enum class eATSA : uint32_t {
-    eno_auto_select = 0, // Pair A does not automatically update its pre-processing and post-processing options
-    eauto_select = 1, // Pair A automatically updates its pre-processing and post-processing options
+    // Pair A does not automatically update its pre-processing and post-processing options
+    eno_auto_select = 0,
+    // Pair A automatically updates its pre-processing and post-processing options
+    eauto_select = 1,
   };
   
+  // ATSB
   enum class eATSB : uint32_t {
-    eno_auto_select = 0, // Pair B does not automatically update its pre-processing and post-processing options
-    eauto_select = 1, // Pair B automatically updates its pre-processing and post-processing options
+    // Pair B does not automatically update its pre-processing and post-processing options
+    eno_auto_select = 0,
+    // Pair B automatically updates its pre-processing and post-processing options
+    eauto_select = 1,
   };
   
+  // ATSC
   enum class eATSC : uint32_t {
-    eno_auto_select = 0, // Pair C does not automatically update its pre-processing and post-processing options
-    eauto_select = 1, // Pair C automatically updates its pre-processing and post-processing options
+    // Pair C does not automatically update its pre-processing and post-processing options
+    eno_auto_select = 0,
+    // Pair C automatically updates its pre-processing and post-processing options
+    eauto_select = 1,
   };
   
   // Bit field definition.
   struct {
-    /// read-write - ASRCEN
+    // read-write - ASRCEN
     eASRCEN ASRCEN : 1;
-    /// read-write - ASREA
+    // read-write - ASREA
     eASREA ASREA : 1;
-    /// read-write - ASREB
+    // read-write - ASREB
     eASREB ASREB : 1;
-    /// read-write - ASREC
+    // read-write - ASREC
     eASREC ASREC : 1;
-    /// write-only - SRST
+    // write-only - SRST
     eSRST SRST : 1;
     uint32_t _reserved_0 : 8;
-    /// read-write - IDRA
+    // read-write - IDRA
     eIDRA IDRA : 1;
-    /// read-write - USRA
+    // read-write - USRA
     eUSRA USRA : 1;
-    /// read-write - IDRB
+    // read-write - IDRB
     eIDRB IDRB : 1;
-    /// read-write - USRB
+    // read-write - USRB
     eUSRB USRB : 1;
-    /// read-write - IDRC
+    // read-write - IDRC
     eIDRC IDRC : 1;
-    /// read-write - USRC
+    // read-write - USRC
     eUSRC USRC : 1;
     uint32_t _reserved_1 : 1;
-    /// read-write - ATSA
+    // read-write - ATSA
     eATSA ATSA : 1;
-    /// read-write - ATSB
+    // read-write - ATSB
     eATSB ATSB : 1;
-    /// read-write - ATSC
+    // read-write - ATSC
     eATSC ATSC : 1;
     uint32_t _reserved_2 : 9;
   } bits;
@@ -129,66 +167,89 @@ union ASRCTR {
 };
 
 // ASRC Interrupt Enable Register
-//
 union ASRIER {
   
+  // ADIEA
   enum class eADIEA : uint32_t {
-    edisabled = 0, // interrupt disabled
-    eenabled = 1, // interrupt enabled
+    // interrupt disabled
+    edisabled = 0,
+    // interrupt enabled
+    eenabled = 1,
   };
   
+  // ADIEB
   enum class eADIEB : uint32_t {
-    edisabled = 0, // interrupt disabled
-    eenabled = 1, // interrupt enabled
+    // interrupt disabled
+    edisabled = 0,
+    // interrupt enabled
+    eenabled = 1,
   };
   
+  // ADIEC
   enum class eADIEC : uint32_t {
-    edisabled = 0, // interrupt disabled
-    eenabled = 1, // interrupt enabled
+    // interrupt disabled
+    edisabled = 0,
+    // interrupt enabled
+    eenabled = 1,
   };
   
+  // ADOEA
   enum class eADOEA : uint32_t {
-    edisabled = 0, // interrupt disabled
-    eenabled = 1, // interrupt enabled
+    // interrupt disabled
+    edisabled = 0,
+    // interrupt enabled
+    eenabled = 1,
   };
   
+  // ADOEB
   enum class eADOEB : uint32_t {
-    edisabled = 0, // interrupt disabled
-    eenabled = 1, // interrupt enabled
+    // interrupt disabled
+    edisabled = 0,
+    // interrupt enabled
+    eenabled = 1,
   };
   
+  // ADOEC
   enum class eADOEC : uint32_t {
-    edisabled = 0, // interrupt disabled
-    eenabled = 1, // interrupt enabled
+    // interrupt disabled
+    edisabled = 0,
+    // interrupt enabled
+    eenabled = 1,
   };
   
+  // AOLIE
   enum class eAOLIE : uint32_t {
-    edisabled = 0, // interrupt disabled
-    eenabled = 1, // interrupt enabled
+    // interrupt disabled
+    edisabled = 0,
+    // interrupt enabled
+    eenabled = 1,
   };
   
+  // AFPWE
   enum class eAFPWE : uint32_t {
-    edisabled = 0, // interrupt disabled
-    eenabled = 1, // interrupt enabled
+    // interrupt disabled
+    edisabled = 0,
+    // interrupt enabled
+    eenabled = 1,
   };
   
   // Bit field definition.
   struct {
-    /// read-write - ADIEA
+    // read-write - ADIEA
     eADIEA ADIEA : 1;
-    /// read-write - ADIEB
+    // read-write - ADIEB
     eADIEB ADIEB : 1;
-    /// read-write - ADIEC
+    // read-write - ADIEC
     eADIEC ADIEC : 1;
-    /// read-write - ADOEA
+    // read-write - ADOEA
     eADOEA ADOEA : 1;
-    /// read-write - ADOEB
+    // read-write - ADOEB
     eADOEB ADOEB : 1;
-    /// read-write - ADOEC
+    // read-write - ADOEC
     eADOEC ADOEC : 1;
-    /// read-write - AOLIE
+    // read-write - AOLIE
     eAOLIE AOLIE : 1;
-    /// read-write - AFPWE
+    // read-write - AFPWE
     eAFPWE AFPWE : 1;
     uint32_t _reserved_0 : 24;
   } bits;
@@ -202,73 +263,123 @@ union ASRIER {
 };
 
 // ASRC Channel Number Configuration Register
-//
 union ASRCNCR {
   
+  // ANCA
   enum class eANCA : uint32_t {
-    ezero_chan = 0, // 0 channels in A (Pair A is disabled)
-    eone_chan = 1, // 1 channel in A
-    etwo_chan = 2, // 2 channels in A
-    ethree_chan = 3, // 3 channels in A
-    efour_chan = 4, // 4 channels in A
-    efive_chan = 5, // 5 channels in A
-    esix_chan = 6, // 6 channels in A
-    eseven_chan = 7, // 7 channels in A
-    eeight_chan = 8, // 8 channels in A
-    enine_chan = 9, // 9 channels in A
-    eten_chan = 10, // 10 channels in A
-    enot_used_11 = 11, // Should not be used.
-    enot_used_12 = 12, // Should not be used.
-    enot_used_13 = 13, // Should not be used.
-    enot_used_14 = 14, // Should not be used.
-    enot_used_15 = 15, // Should not be used.
+    // 0 channels in A (Pair A is disabled)
+    ezero_chan = 0,
+    // 1 channel in A
+    eone_chan = 1,
+    // 2 channels in A
+    etwo_chan = 2,
+    // 3 channels in A
+    ethree_chan = 3,
+    // 4 channels in A
+    efour_chan = 4,
+    // 5 channels in A
+    efive_chan = 5,
+    // 6 channels in A
+    esix_chan = 6,
+    // 7 channels in A
+    eseven_chan = 7,
+    // 8 channels in A
+    eeight_chan = 8,
+    // 9 channels in A
+    enine_chan = 9,
+    // 10 channels in A
+    eten_chan = 10,
+    // Should not be used.
+    enot_used_11 = 11,
+    // Should not be used.
+    enot_used_12 = 12,
+    // Should not be used.
+    enot_used_13 = 13,
+    // Should not be used.
+    enot_used_14 = 14,
+    // Should not be used.
+    enot_used_15 = 15,
   };
   
+  // ANCB
   enum class eANCB : uint32_t {
-    ezero_chan = 0, // 0 channels in B (Pair B is disabled)
-    eone_chan = 1, // 1 channel in B
-    etwo_chan = 2, // 2 channels in B
-    ethree_chan = 3, // 3 channels in B
-    efour_chan = 4, // 4 channels in B
-    efive_chan = 5, // 5 channels in B
-    esix_chan = 6, // 6 channels in B
-    eseven_chan = 7, // 7 channels in B
-    eeight_chan = 8, // 8 channels in B
-    enine_chan = 9, // 9 channels in B
-    eten_chan = 10, // 10 channels in B
-    enot_used_11 = 11, // Should not be used.
-    enot_used_12 = 12, // Should not be used.
-    enot_used_13 = 13, // Should not be used.
-    enot_used_14 = 14, // Should not be used.
-    enot_used_15 = 15, // Should not be used.
+    // 0 channels in B (Pair B is disabled)
+    ezero_chan = 0,
+    // 1 channel in B
+    eone_chan = 1,
+    // 2 channels in B
+    etwo_chan = 2,
+    // 3 channels in B
+    ethree_chan = 3,
+    // 4 channels in B
+    efour_chan = 4,
+    // 5 channels in B
+    efive_chan = 5,
+    // 6 channels in B
+    esix_chan = 6,
+    // 7 channels in B
+    eseven_chan = 7,
+    // 8 channels in B
+    eeight_chan = 8,
+    // 9 channels in B
+    enine_chan = 9,
+    // 10 channels in B
+    eten_chan = 10,
+    // Should not be used.
+    enot_used_11 = 11,
+    // Should not be used.
+    enot_used_12 = 12,
+    // Should not be used.
+    enot_used_13 = 13,
+    // Should not be used.
+    enot_used_14 = 14,
+    // Should not be used.
+    enot_used_15 = 15,
   };
   
+  // ANCC
   enum class eANCC : uint32_t {
-    ezero_chan = 0, // 0 channels in C (Pair C is disabled)
-    eone_chan = 1, // 1 channel in C
-    etwo_chan = 2, // 2 channels in C
-    ethree_chan = 3, // 3 channels in C
-    efour_chan = 4, // 4 channels in C
-    efive_chan = 5, // 5 channels in C
-    esix_chan = 6, // 6 channels in C
-    eseven_chan = 7, // 7 channels in C
-    eeight_chan = 8, // 8 channels in C
-    enine_chan = 9, // 9 channels in C
-    eten_chan = 10, // 10 channels in C
-    enot_used_11 = 11, // Should not be used.
-    enot_used_12 = 12, // Should not be used.
-    enot_used_13 = 13, // Should not be used.
-    enot_used_14 = 14, // Should not be used.
-    enot_used_15 = 15, // Should not be used.
+    // 0 channels in C (Pair C is disabled)
+    ezero_chan = 0,
+    // 1 channel in C
+    eone_chan = 1,
+    // 2 channels in C
+    etwo_chan = 2,
+    // 3 channels in C
+    ethree_chan = 3,
+    // 4 channels in C
+    efour_chan = 4,
+    // 5 channels in C
+    efive_chan = 5,
+    // 6 channels in C
+    esix_chan = 6,
+    // 7 channels in C
+    eseven_chan = 7,
+    // 8 channels in C
+    eeight_chan = 8,
+    // 9 channels in C
+    enine_chan = 9,
+    // 10 channels in C
+    eten_chan = 10,
+    // Should not be used.
+    enot_used_11 = 11,
+    // Should not be used.
+    enot_used_12 = 12,
+    // Should not be used.
+    enot_used_13 = 13,
+    // Should not be used.
+    enot_used_14 = 14,
+    // Should not be used.
+    enot_used_15 = 15,
   };
   
   // Bit field definition.
   struct {
-    /// read-write - ANCA
+    // read-write - ANCA
     eANCA ANCA : 4;
-    /// read-write - ANCB
+    // read-write - ANCB
     eANCB ANCB : 4;
-    /// read-write - ANCC
+    // read-write - ANCC
     eANCC ANCC : 4;
     uint32_t _reserved_0 : 20;
   } bits;
@@ -282,104 +393,148 @@ union ASRCNCR {
 };
 
 // ASRC Filter Configuration Status Register
-//
 union ASRCFG {
   
+  // PREMODA
   enum class ePREMODA : uint32_t {
-    eupsamp_2 = 0, // Select Upsampling-by-2
-    edirect_connect = 1, // Select Direct-Connection
-    edownsamp_2 = 2, // Select Downsampling-by-2
-    epassthru = 3, // Select passthrough mode. In this case, POSTMODA[1:0] have no use.
+    // Select Upsampling-by-2
+    eupsamp_2 = 0,
+    // Select Direct-Connection
+    edirect_connect = 1,
+    // Select Downsampling-by-2
+    edownsamp_2 = 2,
+    // Select passthrough mode. In this case, POSTMODA[1:0] have no use.
+    epassthru = 3,
   };
   
+  // POSTMODA
   enum class ePOSTMODA : uint32_t {
-    eupsamp_2 = 0, // Select Upsampling-by-2
-    edirect_connect = 1, // Select Direct-Connection
-    edownsamp_2 = 2, // Select Downsampling-by-2
+    // Select Upsampling-by-2
+    eupsamp_2 = 0,
+    // Select Direct-Connection
+    edirect_connect = 1,
+    // Select Downsampling-by-2
+    edownsamp_2 = 2,
   };
   
+  // PREMODB
   enum class ePREMODB : uint32_t {
-    eupsamp_2 = 0, // Select Upsampling-by-2
-    edirect_connect = 1, // Select Direct-Connection
-    edownsamp_2 = 2, // Select Downsampling-by-2
-    epassthru = 3, // Select passthrough mode. In this case, POSTMODB[1:0] have no use.
+    // Select Upsampling-by-2
+    eupsamp_2 = 0,
+    // Select Direct-Connection
+    edirect_connect = 1,
+    // Select Downsampling-by-2
+    edownsamp_2 = 2,
+    // Select passthrough mode. In this case, POSTMODB[1:0] have no use.
+    epassthru = 3,
   };
   
+  // POSTMODB
   enum class ePOSTMODB : uint32_t {
-    eupsamp_2 = 0, // Select Upsampling-by-2
-    edirect_connect = 1, // Select Direct-Connection
-    edownsamp_2 = 2, // Select Downsampling-by-2
+    // Select Upsampling-by-2
+    eupsamp_2 = 0,
+    // Select Direct-Connection
+    edirect_connect = 1,
+    // Select Downsampling-by-2
+    edownsamp_2 = 2,
   };
   
+  // PREMODC
   enum class ePREMODC : uint32_t {
-    eupsamp_2 = 0, // Select Upsampling-by-2
-    edirect_connect = 1, // Select Direct-Connection
-    edownsamp_2 = 2, // Select Downsampling-by-2
-    epassthru = 3, // Select passthrough mode. In this case, POSTMODC[1:0] have no use.
+    // Select Upsampling-by-2
+    eupsamp_2 = 0,
+    // Select Direct-Connection
+    edirect_connect = 1,
+    // Select Downsampling-by-2
+    edownsamp_2 = 2,
+    // Select passthrough mode. In this case, POSTMODC[1:0] have no use.
+    epassthru = 3,
   };
   
+  // POSTMODC
   enum class ePOSTMODC : uint32_t {
-    eupsamp_2 = 0, // Select Upsampling-by-2 as defined in Signal Processing Flow.
-    edirect_connect = 1, // Select Direct-Connection as defined in Signal Processing Flow.
-    edownsamp_2 = 2, // Select Downsampling-by-2 as defined in Signal Processing Flow.
+    // Select Upsampling-by-2 as defined in Signal Processing Flow.
+    eupsamp_2 = 0,
+    // Select Direct-Connection as defined in Signal Processing Flow.
+    edirect_connect = 1,
+    // Select Downsampling-by-2 as defined in Signal Processing Flow.
+    edownsamp_2 = 2,
   };
   
+  // NDPRA
   enum class eNDPRA : uint32_t {
-    euse_default = 0, // Use default parameters for RAM-stored parameters. Override any parameters already in RAM.
-    enot_default = 1, // Don't use default parameters for RAM-stored parameters. Use the parameters already stored in RAM.
+    // Use default parameters for RAM-stored parameters. Override any parameters already in RAM.
+    euse_default = 0,
+    // Don't use default parameters for RAM-stored parameters. Use the parameters already stored in RAM.
+    enot_default = 1,
   };
   
+  // NDPRB
   enum class eNDPRB : uint32_t {
-    euse_default = 0, // Use default parameters for RAM-stored parameters. Override any parameters already in RAM.
-    enot_default = 1, // Don't use default parameters for RAM-stored parameter. Use the parameters already stored in RAM.
+    // Use default parameters for RAM-stored parameters. Override any parameters already in RAM.
+    euse_default = 0,
+    // Don't use default parameters for RAM-stored parameter. Use the parameters already stored in RAM.
+    enot_default = 1,
   };
   
+  // NDPRC
   enum class eNDPRC : uint32_t {
-    euse_default = 0, // Use default parameters for RAM-stored parameters. Override any parameters already in RAM.
-    enot_default = 1, // Don't use default parameters for RAM-stored parameters. Use the parameters already stored in RAM.
+    // Use default parameters for RAM-stored parameters. Override any parameters already in RAM.
+    euse_default = 0,
+    // Don't use default parameters for RAM-stored parameters. Use the parameters already stored in RAM.
+    enot_default = 1,
   };
   
+  // INIRQA
   enum class eINIRQA : uint32_t {
-    einit_notserved = 0, // Initialization for Conversion Pair A not served
-    einit_served = 1, // Initialization for Conversion Pair A served
+    // Initialization for Conversion Pair A not served
+    einit_notserved = 0,
+    // Initialization for Conversion Pair A served
+    einit_served = 1,
   };
   
+  // INIRQB
   enum class eINIRQB : uint32_t {
-    einit_notserved = 0, // Initialization for Conversion Pair B not served
-    einit_served = 1, // Initialization for Conversion Pair B served
+    // Initialization for Conversion Pair B not served
+    einit_notserved = 0,
+    // Initialization for Conversion Pair B served
+    einit_served = 1,
   };
   
+  // INIRQC
   enum class eINIRQC : uint32_t {
-    einit_notserved = 0, // Initialization for Conversion Pair C not served
-    einit_served = 1, // Initialization for Conversion Pair C served
+    // Initialization for Conversion Pair C not served
+    einit_notserved = 0,
+    // Initialization for Conversion Pair C served
+    einit_served = 1,
   };
   
   // Bit field definition.
   struct {
     uint32_t _reserved_0 : 6;
-    /// read-write - PREMODA
+    // read-write - PREMODA
     ePREMODA PREMODA : 2;
-    /// read-write - POSTMODA
+    // read-write - POSTMODA
     ePOSTMODA POSTMODA : 2;
-    /// read-write - PREMODB
+    // read-write - PREMODB
     ePREMODB PREMODB : 2;
-    /// read-write - POSTMODB
+    // read-write - POSTMODB
     ePOSTMODB POSTMODB : 2;
-    /// read-write - PREMODC
+    // read-write - PREMODC
     ePREMODC PREMODC : 2;
-    /// read-write - POSTMODC
+    // read-write - POSTMODC
     ePOSTMODC POSTMODC : 2;
-    /// read-write - NDPRA
+    // read-write - NDPRA
     eNDPRA NDPRA : 1;
-    /// read-write - NDPRB
+    // read-write - NDPRB
     eNDPRB NDPRB : 1;
-    /// read-write - NDPRC
+    // read-write - NDPRC
     eNDPRC NDPRC : 1;
-    /// read-only - INIRQA
+    // read-only - INIRQA
     eINIRQA INIRQA : 1;
-    /// read-only - INIRQB
+    // read-only - INIRQB
     eINIRQB INIRQB : 1;
-    /// read-only - INIRQC
+    // read-only - INIRQC
     eINIRQC INIRQC : 1;
     uint32_t _reserved_1 : 8;
   } bits;
@@ -393,136 +548,237 @@ union ASRCFG {
 };
 
 // ASRC Clock Source Register
-//
 union ASRCSR {
   
+  // AICSA
   enum class eAICSA : uint32_t {
-    ebitclk0 = 0, // bit clock 0
-    ebitclk1 = 1, // bit clock 1
-    ebitclk2 = 2, // bit clock 2
-    ebitclk3 = 3, // bit clock 3
-    ebitclk4 = 4, // bit clock 4
-    ebitclk5 = 5, // bit clock 5
-    ebitclk6 = 6, // bit clock 6
-    ebitclk7 = 7, // bit clock 7
-    ebitclk8 = 8, // bit clock 8
-    ebitclk9 = 9, // bit clock 9
-    ebitclka = 10, // bit clock A
-    ebitclkb = 11, // bit clock B
-    ebitclkc = 12, // bit clock C
-    ebitclkd = 13, // bit clock D
-    ebitclke = 14, // bit clock E
-    eclk_disabled = 15, // clock disabled, connected to zero
+    // bit clock 0
+    ebitclk0 = 0,
+    // bit clock 1
+    ebitclk1 = 1,
+    // bit clock 2
+    ebitclk2 = 2,
+    // bit clock 3
+    ebitclk3 = 3,
+    // bit clock 4
+    ebitclk4 = 4,
+    // bit clock 5
+    ebitclk5 = 5,
+    // bit clock 6
+    ebitclk6 = 6,
+    // bit clock 7
+    ebitclk7 = 7,
+    // bit clock 8
+    ebitclk8 = 8,
+    // bit clock 9
+    ebitclk9 = 9,
+    // bit clock A
+    ebitclka = 10,
+    // bit clock B
+    ebitclkb = 11,
+    // bit clock C
+    ebitclkc = 12,
+    // bit clock D
+    ebitclkd = 13,
+    // bit clock E
+    ebitclke = 14,
+    // clock disabled, connected to zero
+    eclk_disabled = 15,
   };
   
+  // AICSB
   enum class eAICSB : uint32_t {
-    ebitclk0 = 0, // bit clock 0
-    ebitclk1 = 1, // bit clock 1
-    ebitclk2 = 2, // bit clock 2
-    ebitclk3 = 3, // bit clock 3
-    ebitclk4 = 4, // bit clock 4
-    ebitclk5 = 5, // bit clock 5
-    ebitclk6 = 6, // bit clock 6
-    ebitclk7 = 7, // bit clock 7
-    ebitclk8 = 8, // bit clock 8
-    ebitclk9 = 9, // bit clock 9
-    ebitclka = 10, // bit clock A
-    ebitclkb = 11, // bit clock B
-    ebitclkc = 12, // bit clock C
-    ebitclkd = 13, // bit clock D
-    ebitclke = 14, // bit clock E
-    eclk_disabled = 15, // clock disabled, connected to zero
+    // bit clock 0
+    ebitclk0 = 0,
+    // bit clock 1
+    ebitclk1 = 1,
+    // bit clock 2
+    ebitclk2 = 2,
+    // bit clock 3
+    ebitclk3 = 3,
+    // bit clock 4
+    ebitclk4 = 4,
+    // bit clock 5
+    ebitclk5 = 5,
+    // bit clock 6
+    ebitclk6 = 6,
+    // bit clock 7
+    ebitclk7 = 7,
+    // bit clock 8
+    ebitclk8 = 8,
+    // bit clock 9
+    ebitclk9 = 9,
+    // bit clock A
+    ebitclka = 10,
+    // bit clock B
+    ebitclkb = 11,
+    // bit clock C
+    ebitclkc = 12,
+    // bit clock D
+    ebitclkd = 13,
+    // bit clock E
+    ebitclke = 14,
+    // clock disabled, connected to zero
+    eclk_disabled = 15,
   };
   
+  // AICSC
   enum class eAICSC : uint32_t {
-    ebitclk0 = 0, // bit clock 0
-    ebitclk1 = 1, // bit clock 1
-    ebitclk2 = 2, // bit clock 2
-    ebitclk3 = 3, // bit clock 3
-    ebitclk4 = 4, // bit clock 4
-    ebitclk5 = 5, // bit clock 5
-    ebitclk6 = 6, // bit clock 6
-    ebitclk7 = 7, // bit clock 7
-    ebitclk8 = 8, // bit clock 8
-    ebitclk9 = 9, // bit clock 9
-    ebitclka = 10, // bit clock A
-    ebitclkb = 11, // bit clock B
-    ebitclkc = 12, // bit clock C
-    ebitclkd = 13, // bit clock D
-    ebitclke = 14, // bit clock E
-    eclk_disabled = 15, // clock disabled, connected to zero
+    // bit clock 0
+    ebitclk0 = 0,
+    // bit clock 1
+    ebitclk1 = 1,
+    // bit clock 2
+    ebitclk2 = 2,
+    // bit clock 3
+    ebitclk3 = 3,
+    // bit clock 4
+    ebitclk4 = 4,
+    // bit clock 5
+    ebitclk5 = 5,
+    // bit clock 6
+    ebitclk6 = 6,
+    // bit clock 7
+    ebitclk7 = 7,
+    // bit clock 8
+    ebitclk8 = 8,
+    // bit clock 9
+    ebitclk9 = 9,
+    // bit clock A
+    ebitclka = 10,
+    // bit clock B
+    ebitclkb = 11,
+    // bit clock C
+    ebitclkc = 12,
+    // bit clock D
+    ebitclkd = 13,
+    // bit clock E
+    ebitclke = 14,
+    // clock disabled, connected to zero
+    eclk_disabled = 15,
   };
   
+  // AOCSA
   enum class eAOCSA : uint32_t {
-    ebitclk0 = 0, // bit clock 0
-    ebitclk1 = 1, // bit clock 1
-    ebitclk2 = 2, // bit clock 2
-    ebitclk3 = 3, // bit clock 3
-    ebitclk4 = 4, // bit clock 4
-    ebitclk5 = 5, // bit clock 5
-    ebitclk6 = 6, // bit clock 6
-    ebitclk7 = 7, // bit clock 7
-    ebitclk8 = 8, // bit clock 8
-    ebitclk9 = 9, // bit clock 9
-    ebitclka = 10, // bit clock A
-    ebitclkb = 11, // bit clock B
-    ebitclkc = 12, // bit clock C
-    ebitclkd = 13, // bit clock D
-    ebitclke = 14, // bit clock E
-    eclk_disabled = 15, // clock disabled, connected to zero
+    // bit clock 0
+    ebitclk0 = 0,
+    // bit clock 1
+    ebitclk1 = 1,
+    // bit clock 2
+    ebitclk2 = 2,
+    // bit clock 3
+    ebitclk3 = 3,
+    // bit clock 4
+    ebitclk4 = 4,
+    // bit clock 5
+    ebitclk5 = 5,
+    // bit clock 6
+    ebitclk6 = 6,
+    // bit clock 7
+    ebitclk7 = 7,
+    // bit clock 8
+    ebitclk8 = 8,
+    // bit clock 9
+    ebitclk9 = 9,
+    // bit clock A
+    ebitclka = 10,
+    // bit clock B
+    ebitclkb = 11,
+    // bit clock C
+    ebitclkc = 12,
+    // bit clock D
+    ebitclkd = 13,
+    // bit clock E
+    ebitclke = 14,
+    // clock disabled, connected to zero
+    eclk_disabled = 15,
   };
   
+  // AOCSB
   enum class eAOCSB : uint32_t {
-    ebitclk0 = 0, // bit clock 0
-    ebitclk1 = 1, // bit clock 1
-    ebitclk2 = 2, // bit clock 2
-    ebitclk3 = 3, // bit clock 3
-    ebitclk4 = 4, // bit clock 4
-    ebitclk5 = 5, // bit clock 5
-    ebitclk6 = 6, // bit clock 6
-    ebitclk7 = 7, // bit clock 7
-    ebitclk8 = 8, // bit clock 8
-    ebitclk9 = 9, // bit clock 9
-    ebitclka = 10, // bit clock A
-    ebitclkb = 11, // bit clock B
-    ebitclkc = 12, // bit clock C
-    ebitclkd = 13, // bit clock D
-    ebitclke = 14, // bit clock E
-    eclk_disabled = 15, // clock disabled, connected to zero
+    // bit clock 0
+    ebitclk0 = 0,
+    // bit clock 1
+    ebitclk1 = 1,
+    // bit clock 2
+    ebitclk2 = 2,
+    // bit clock 3
+    ebitclk3 = 3,
+    // bit clock 4
+    ebitclk4 = 4,
+    // bit clock 5
+    ebitclk5 = 5,
+    // bit clock 6
+    ebitclk6 = 6,
+    // bit clock 7
+    ebitclk7 = 7,
+    // bit clock 8
+    ebitclk8 = 8,
+    // bit clock 9
+    ebitclk9 = 9,
+    // bit clock A
+    ebitclka = 10,
+    // bit clock B
+    ebitclkb = 11,
+    // bit clock C
+    ebitclkc = 12,
+    // bit clock D
+    ebitclkd = 13,
+    // bit clock E
+    ebitclke = 14,
+    // clock disabled, connected to zero
+    eclk_disabled = 15,
   };
   
+  // AOCSC
   enum class eAOCSC : uint32_t {
-    ebitclk0 = 0, // bit clock 0
-    ebitclk1 = 1, // bit clock 1
-    ebitclk2 = 2, // bit clock 2
-    ebitclk3 = 3, // bit clock 3
-    ebitclk4 = 4, // bit clock 4
-    ebitclk5 = 5, // bit clock 5
-    ebitclk6 = 6, // bit clock 6
-    ebitclk7 = 7, // bit clock 7
-    ebitclk8 = 8, // bit clock 8
-    ebitclk9 = 9, // bit clock 9
-    ebitclka = 10, // bit clock A
-    ebitclkb = 11, // bit clock B
-    ebitclkc = 12, // bit clock C
-    ebitclkd = 13, // bit clock D
-    ebitclke = 14, // bit clock E
-    eclk_disabled = 15, // clock disabled, connected to zero
+    // bit clock 0
+    ebitclk0 = 0,
+    // bit clock 1
+    ebitclk1 = 1,
+    // bit clock 2
+    ebitclk2 = 2,
+    // bit clock 3
+    ebitclk3 = 3,
+    // bit clock 4
+    ebitclk4 = 4,
+    // bit clock 5
+    ebitclk5 = 5,
+    // bit clock 6
+    ebitclk6 = 6,
+    // bit clock 7
+    ebitclk7 = 7,
+    // bit clock 8
+    ebitclk8 = 8,
+    // bit clock 9
+    ebitclk9 = 9,
+    // bit clock A
+    ebitclka = 10,
+    // bit clock B
+    ebitclkb = 11,
+    // bit clock C
+    ebitclkc = 12,
+    // bit clock D
+    ebitclkd = 13,
+    // bit clock E
+    ebitclke = 14,
+    // clock disabled, connected to zero
+    eclk_disabled = 15,
   };
   
   // Bit field definition.
   struct {
-    /// read-write - AICSA
+    // read-write - AICSA
     eAICSA AICSA : 4;
-    /// read-write - AICSB
+    // read-write - AICSB
     eAICSB AICSB : 4;
-    /// read-write - AICSC
+    // read-write - AICSC
     eAICSC AICSC : 4;
-    /// read-write - AOCSA
+    // read-write - AOCSA
     eAOCSA AOCSA : 4;
-    /// read-write - AOCSB
+    // read-write - AOCSB
     eAOCSB AOCSB : 4;
-    /// read-write - AOCSC
+    // read-write - AOCSC
     eAOCSC AOCSC : 4;
     uint32_t _reserved_0 : 8;
   } bits;
@@ -536,26 +792,25 @@ union ASRCSR {
 };
 
 // ASRC Clock Divider Register 1
-//
 union ASRCDR1 {
   
   // Bit field definition.
   struct {
-    /// read-write - AICPA
+    // read-write - AICPA
     uint32_t AICPA : 3;
-    /// read-write - AICDA
+    // read-write - AICDA
     uint32_t AICDA : 3;
-    /// read-write - AICPB
+    // read-write - AICPB
     uint32_t AICPB : 3;
-    /// read-write - AICDB
+    // read-write - AICDB
     uint32_t AICDB : 3;
-    /// read-write - AOCPA
+    // read-write - AOCPA
     uint32_t AOCPA : 3;
-    /// read-write - AOCDA
+    // read-write - AOCDA
     uint32_t AOCDA : 3;
-    /// read-write - AOCPB
+    // read-write - AOCPB
     uint32_t AOCPB : 3;
-    /// read-write - AOCDB
+    // read-write - AOCDB
     uint32_t AOCDB : 3;
     uint32_t _reserved_0 : 8;
   } bits;
@@ -569,18 +824,17 @@ union ASRCDR1 {
 };
 
 // ASRC Clock Divider Register 2
-//
 union ASRCDR2 {
   
   // Bit field definition.
   struct {
-    /// read-write - AICPC
+    // read-write - AICPC
     uint32_t AICPC : 3;
-    /// read-write - AICDC
+    // read-write - AICDC
     uint32_t AICDC : 3;
-    /// read-write - AOCPC
+    // read-write - AOCPC
     uint32_t AOCPC : 3;
-    /// read-write - AOCDC
+    // read-write - AOCDC
     uint32_t AOCDC : 3;
     uint32_t _reserved_0 : 20;
   } bits;
@@ -594,164 +848,229 @@ union ASRCDR2 {
 };
 
 // ASRC Status Register
-//
 union ASRSTR {
   
+  // AIDEA
   enum class eAIDEA : uint32_t {
-    ethresh_met = 0, // The threshold has been met and no data input A interrupt is generated
-    elessthan_thresh = 1, // When AIDEA is set, the ASRC generates data input A interrupt request to the processor if ASRIER[AIDEA] = 1
+    // The threshold has been met and no data input A interrupt is generated
+    ethresh_met = 0,
+    // When AIDEA is set, the ASRC generates data input A interrupt request to the processor if ASRIER[AIDEA] = 1
+    elessthan_thresh = 1,
   };
   
+  // AIDEB
   enum class eAIDEB : uint32_t {
-    ethresh_met = 0, // The threshold has been met and no data input B interrupt is generated
-    elessthan_thresh = 1, // When AIDEB is set, the ASRC generates data input B interrupt request to the processor if ASRIER[AIDEB] = 1
+    // The threshold has been met and no data input B interrupt is generated
+    ethresh_met = 0,
+    // When AIDEB is set, the ASRC generates data input B interrupt request to the processor if ASRIER[AIDEB] = 1
+    elessthan_thresh = 1,
   };
   
+  // AIDEC
   enum class eAIDEC : uint32_t {
-    ethresh_met = 0, // The threshold has been met and no data input C interrupt is generated
-    elessthan_thresh = 1, // When AIDEC is set, the ASRC generates data input C interrupt request to the processor if ASRIER[AIDEC] = 1
+    // The threshold has been met and no data input C interrupt is generated
+    ethresh_met = 0,
+    // When AIDEC is set, the ASRC generates data input C interrupt request to the processor if ASRIER[AIDEC] = 1
+    elessthan_thresh = 1,
   };
   
+  // AODFA
   enum class eAODFA : uint32_t {
-    ethresh_notmet = 0, // The threshold has not yet been met and no data output A interrupt is generated
-    egreaterthan_thresh = 1, // When AODFA is set, the ASRC generates data output A interrupt request to the processor if ASRIER[ADOEA] = 1
+    // The threshold has not yet been met and no data output A interrupt is generated
+    ethresh_notmet = 0,
+    // When AODFA is set, the ASRC generates data output A interrupt request to the processor if ASRIER[ADOEA] = 1
+    egreaterthan_thresh = 1,
   };
   
+  // AODFB
   enum class eAODFB : uint32_t {
-    ethresh_notmet = 0, // The threshold has not yet been met and no data output B interrupt is generated
-    egreaterthan_thresh = 1, // When AODFB is set, the ASRC generates data output B interrupt request to the processor if ASRIER[ADOEB] = 1
+    // The threshold has not yet been met and no data output B interrupt is generated
+    ethresh_notmet = 0,
+    // When AODFB is set, the ASRC generates data output B interrupt request to the processor if ASRIER[ADOEB] = 1
+    egreaterthan_thresh = 1,
   };
   
+  // AODFC
   enum class eAODFC : uint32_t {
-    ethresh_notmet = 0, // The threshold has not yet been met and no data output C interrupt is generated
-    egreaterthan_thresh = 1, // When AODFC is set, the ASRC generates data output C interrupt request to the processor if ASRIER[ADOEC] = 1
+    // The threshold has not yet been met and no data output C interrupt is generated
+    ethresh_notmet = 0,
+    // When AODFC is set, the ASRC generates data output C interrupt request to the processor if ASRIER[ADOEC] = 1
+    egreaterthan_thresh = 1,
   };
   
+  // AOLE
   enum class eAOLE : uint32_t {
-    etask_ok = 0, // No overload
-    etoo_high = 1, // Task rate is too high
+    // No overload
+    etask_ok = 0,
+    // Task rate is too high
+    etoo_high = 1,
   };
   
+  // FPWT
   enum class eFPWT : uint32_t {
-    eno_waitstate = 0, // ASRC is not in wait state
-    ewaitstate = 1, // ASRC is in wait state
+    // ASRC is not in wait state
+    eno_waitstate = 0,
+    // ASRC is in wait state
+    ewaitstate = 1,
   };
   
+  // AIDUA
   enum class eAIDUA : uint32_t {
-    eno_underflow = 0, // No Underflow in Input data buffer A
-    eunderflow = 1, // Underflow in Input data buffer A
+    // No Underflow in Input data buffer A
+    eno_underflow = 0,
+    // Underflow in Input data buffer A
+    eunderflow = 1,
   };
   
+  // AIDUB
   enum class eAIDUB : uint32_t {
-    eno_underflow = 0, // No Underflow in Input data buffer B
-    eunderflow = 1, // Underflow in Input data buffer B
+    // No Underflow in Input data buffer B
+    eno_underflow = 0,
+    // Underflow in Input data buffer B
+    eunderflow = 1,
   };
   
+  // AIDUC
   enum class eAIDUC : uint32_t {
-    eno_underflow = 0, // No Underflow in Input data buffer C
-    eunderflow = 1, // Underflow in Input data buffer C
+    // No Underflow in Input data buffer C
+    eno_underflow = 0,
+    // Underflow in Input data buffer C
+    eunderflow = 1,
   };
   
+  // AODOA
   enum class eAODOA : uint32_t {
-    eno_overflow = 0, // No Overflow in Output data buffer A
-    eoverflow = 1, // Overflow in Output data buffer A
+    // No Overflow in Output data buffer A
+    eno_overflow = 0,
+    // Overflow in Output data buffer A
+    eoverflow = 1,
   };
   
+  // AODOB
   enum class eAODOB : uint32_t {
-    eno_overflow = 0, // No Overflow in Output data buffer B
-    eoverflow = 1, // Overflow in Output data buffer B
+    // No Overflow in Output data buffer B
+    eno_overflow = 0,
+    // Overflow in Output data buffer B
+    eoverflow = 1,
   };
   
+  // AODOC
   enum class eAODOC : uint32_t {
-    eno_overflow = 0, // No Overflow in Output data buffer C
-    eoverflow = 1, // Overflow in Output data buffer C
+    // No Overflow in Output data buffer C
+    eno_overflow = 0,
+    // Overflow in Output data buffer C
+    eoverflow = 1,
   };
   
+  // AIOLA
   enum class eAIOLA : uint32_t {
-    eno_overload = 0, // Pair A input task is not oveloaded
-    eoverload = 1, // Pair A input task is oveloaded
+    // Pair A input task is not oveloaded
+    eno_overload = 0,
+    // Pair A input task is oveloaded
+    eoverload = 1,
   };
   
+  // AIOLB
   enum class eAIOLB : uint32_t {
-    eno_overload = 0, // Pair B input task is not oveloaded
-    eoverload = 1, // Pair B input task is oveloaded
+    // Pair B input task is not oveloaded
+    eno_overload = 0,
+    // Pair B input task is oveloaded
+    eoverload = 1,
   };
   
+  // AIOLC
   enum class eAIOLC : uint32_t {
-    eno_overload = 0, // Pair C input task is not oveloaded
-    eoverload = 1, // Pair C input task is oveloaded
+    // Pair C input task is not oveloaded
+    eno_overload = 0,
+    // Pair C input task is oveloaded
+    eoverload = 1,
   };
   
+  // AOOLA
   enum class eAOOLA : uint32_t {
-    eno_overload = 0, // Pair A output task is not oveloaded
-    eoverload = 1, // Pair A output task is oveloaded
+    // Pair A output task is not oveloaded
+    eno_overload = 0,
+    // Pair A output task is oveloaded
+    eoverload = 1,
   };
   
+  // AOOLB
   enum class eAOOLB : uint32_t {
-    eno_overload = 0, // Pair B output task is not oveloaded
-    eoverload = 1, // Pair B output task is oveloaded
+    // Pair B output task is not oveloaded
+    eno_overload = 0,
+    // Pair B output task is oveloaded
+    eoverload = 1,
   };
   
+  // AOOLC
   enum class eAOOLC : uint32_t {
-    eno_overload = 0, // Pair C output task is not oveloaded
-    eoverload = 1, // Pair C output task is oveloaded
+    // Pair C output task is not oveloaded
+    eno_overload = 0,
+    // Pair C output task is oveloaded
+    eoverload = 1,
   };
   
+  // ATQOL
   enum class eATQOL : uint32_t {
-    eno_overload = 0, // Task queue FIFO logic is not oveloaded
-    eoverload = 1, // Task queue FIFO logic is oveloaded
+    // Task queue FIFO logic is not oveloaded
+    eno_overload = 0,
+    // Task queue FIFO logic is oveloaded
+    eoverload = 1,
   };
   
+  // DSLCNT
   enum class eDSLCNT : uint32_t {
-    edslcnt_proc = 0, // New DSL counter information is in the process of storage into the internal ASRC FIFO
-    edslcnt_stored = 1, // New DSL counter information is stored in the internal ASRC FIFO
+    // New DSL counter information is in the process of storage into the internal ASRC FIFO
+    edslcnt_proc = 0,
+    // New DSL counter information is stored in the internal ASRC FIFO
+    edslcnt_stored = 1,
   };
   
   // Bit field definition.
   struct {
-    /// read-only - AIDEA
+    // read-only - AIDEA
     eAIDEA AIDEA : 1;
-    /// read-only - AIDEB
+    // read-only - AIDEB
     eAIDEB AIDEB : 1;
-    /// read-only - AIDEC
+    // read-only - AIDEC
     eAIDEC AIDEC : 1;
-    /// read-only - AODFA
+    // read-only - AODFA
     eAODFA AODFA : 1;
-    /// read-only - AODFB
+    // read-only - AODFB
     eAODFB AODFB : 1;
-    /// read-only - AODFC
+    // read-only - AODFC
     eAODFC AODFC : 1;
-    /// read-only - AOLE
+    // read-only - AOLE
     eAOLE AOLE : 1;
-    /// read-only - FPWT
+    // read-only - FPWT
     eFPWT FPWT : 1;
-    /// read-only - AIDUA
+    // read-only - AIDUA
     eAIDUA AIDUA : 1;
-    /// read-only - AIDUB
+    // read-only - AIDUB
     eAIDUB AIDUB : 1;
-    /// read-only - AIDUC
+    // read-only - AIDUC
     eAIDUC AIDUC : 1;
-    /// read-only - AODOA
+    // read-only - AODOA
     eAODOA AODOA : 1;
-    /// read-only - AODOB
+    // read-only - AODOB
     eAODOB AODOB : 1;
-    /// read-only - AODOC
+    // read-only - AODOC
     eAODOC AODOC : 1;
-    /// read-only - AIOLA
+    // read-only - AIOLA
     eAIOLA AIOLA : 1;
-    /// read-only - AIOLB
+    // read-only - AIOLB
     eAIOLB AIOLB : 1;
-    /// read-only - AIOLC
+    // read-only - AIOLC
     eAIOLC AIOLC : 1;
-    /// read-only - AOOLA
+    // read-only - AOOLA
     eAOOLA AOOLA : 1;
-    /// read-only - AOOLB
+    // read-only - AOOLB
     eAOOLB AOOLB : 1;
-    /// read-only - AOOLC
+    // read-only - AOOLC
     eAOOLC AOOLC : 1;
-    /// read-only - ATQOL
+    // read-only - ATQOL
     eATQOL ATQOL : 1;
-    /// read-only - DSLCNT
+    // read-only - DSLCNT
     eDSLCNT DSLCNT : 1;
     uint32_t _reserved_0 : 10;
   } bits;
@@ -765,12 +1084,11 @@ union ASRSTR {
 };
 
 // ASRC Parameter Register n
-//
 union ASRPM1 {
   
   // Bit field definition.
   struct {
-    /// read-write - PARAMETER_VALUE
+    // read-write - PARAMETER_VALUE
     uint32_t PARAMETER_VALUE : 24;
     uint32_t _reserved_0 : 8;
   } bits;
@@ -783,12 +1101,11 @@ union ASRPM1 {
   static inline volatile ASRPM1 &Instance() { return *reinterpret_cast<volatile ASRPM1*>(0x40414040); }
 };
 // ASRC Parameter Register n
-//
 union ASRPM2 {
   
   // Bit field definition.
   struct {
-    /// read-write - PARAMETER_VALUE
+    // read-write - PARAMETER_VALUE
     uint32_t PARAMETER_VALUE : 24;
     uint32_t _reserved_0 : 8;
   } bits;
@@ -801,12 +1118,11 @@ union ASRPM2 {
   static inline volatile ASRPM2 &Instance() { return *reinterpret_cast<volatile ASRPM2*>(0x40414044); }
 };
 // ASRC Parameter Register n
-//
 union ASRPM3 {
   
   // Bit field definition.
   struct {
-    /// read-write - PARAMETER_VALUE
+    // read-write - PARAMETER_VALUE
     uint32_t PARAMETER_VALUE : 24;
     uint32_t _reserved_0 : 8;
   } bits;
@@ -819,12 +1135,11 @@ union ASRPM3 {
   static inline volatile ASRPM3 &Instance() { return *reinterpret_cast<volatile ASRPM3*>(0x40414048); }
 };
 // ASRC Parameter Register n
-//
 union ASRPM4 {
   
   // Bit field definition.
   struct {
-    /// read-write - PARAMETER_VALUE
+    // read-write - PARAMETER_VALUE
     uint32_t PARAMETER_VALUE : 24;
     uint32_t _reserved_0 : 8;
   } bits;
@@ -837,12 +1152,11 @@ union ASRPM4 {
   static inline volatile ASRPM4 &Instance() { return *reinterpret_cast<volatile ASRPM4*>(0x4041404C); }
 };
 // ASRC Parameter Register n
-//
 union ASRPM5 {
   
   // Bit field definition.
   struct {
-    /// read-write - PARAMETER_VALUE
+    // read-write - PARAMETER_VALUE
     uint32_t PARAMETER_VALUE : 24;
     uint32_t _reserved_0 : 8;
   } bits;
@@ -856,15 +1170,14 @@ union ASRPM5 {
 };
 
 // ASRC Task Queue FIFO Register 1
-//
 union ASRTFR1 {
   
   // Bit field definition.
   struct {
     uint32_t _reserved_0 : 6;
-    /// read-write - TF_BASE
+    // read-write - TF_BASE
     uint32_t TF_BASE : 7;
-    /// read-only - TF_FILL
+    // read-only - TF_FILL
     uint32_t TF_FILL : 7;
     uint32_t _reserved_1 : 12;
   } bits;
@@ -878,22 +1191,21 @@ union ASRTFR1 {
 };
 
 // ASRC Channel Counter Register
-//
 union ASRCCR {
   
   // Bit field definition.
   struct {
-    /// read-write - ACIA
+    // read-write - ACIA
     uint32_t ACIA : 4;
-    /// read-write - ACIB
+    // read-write - ACIB
     uint32_t ACIB : 4;
-    /// read-write - ACIC
+    // read-write - ACIC
     uint32_t ACIC : 4;
-    /// read-write - ACOA
+    // read-write - ACOA
     uint32_t ACOA : 4;
-    /// read-write - ACOB
+    // read-write - ACOB
     uint32_t ACOB : 4;
-    /// read-write - ACOC
+    // read-write - ACOC
     uint32_t ACOC : 4;
     uint32_t _reserved_0 : 8;
   } bits;
@@ -907,12 +1219,11 @@ union ASRCCR {
 };
 
 // ASRC Data Input Register for Pair x
-//
 union ASRDIA {
   
   // Bit field definition.
   struct {
-    /// write-only - DATA
+    // write-only - DATA
     uint32_t DATA : 24;
     uint32_t _reserved_0 : 8;
   } bits;
@@ -926,12 +1237,11 @@ union ASRDIA {
 };
 
 // ASRC Data Output Register for Pair x
-//
 union ASRDOA {
   
   // Bit field definition.
   struct {
-    /// read-only - DATA
+    // read-only - DATA
     uint32_t DATA : 24;
     uint32_t _reserved_0 : 8;
   } bits;
@@ -945,12 +1255,11 @@ union ASRDOA {
 };
 
 // ASRC Data Input Register for Pair x
-//
 union ASRDIB {
   
   // Bit field definition.
   struct {
-    /// write-only - DATA
+    // write-only - DATA
     uint32_t DATA : 24;
     uint32_t _reserved_0 : 8;
   } bits;
@@ -964,12 +1273,11 @@ union ASRDIB {
 };
 
 // ASRC Data Output Register for Pair x
-//
 union ASRDOB {
   
   // Bit field definition.
   struct {
-    /// read-only - DATA
+    // read-only - DATA
     uint32_t DATA : 24;
     uint32_t _reserved_0 : 8;
   } bits;
@@ -983,12 +1291,11 @@ union ASRDOB {
 };
 
 // ASRC Data Input Register for Pair x
-//
 union ASRDIC {
   
   // Bit field definition.
   struct {
-    /// write-only - DATA
+    // write-only - DATA
     uint32_t DATA : 24;
     uint32_t _reserved_0 : 8;
   } bits;
@@ -1002,12 +1309,11 @@ union ASRDIC {
 };
 
 // ASRC Data Output Register for Pair x
-//
 union ASRDOC {
   
   // Bit field definition.
   struct {
-    /// read-only - DATA
+    // read-only - DATA
     uint32_t DATA : 24;
     uint32_t _reserved_0 : 8;
   } bits;
@@ -1021,12 +1327,11 @@ union ASRDOC {
 };
 
 // ASRC Ideal Ratio for Pair A-High Part
-//
 union ASRIDRHA {
   
   // Bit field definition.
   struct {
-    /// read-write - IDRATIOA_H
+    // read-write - IDRATIOA_H
     uint32_t IDRATIOA_H : 8;
     uint32_t _reserved_0 : 24;
   } bits;
@@ -1040,12 +1345,11 @@ union ASRIDRHA {
 };
 
 // ASRC Ideal Ratio for Pair A -Low Part
-//
 union ASRIDRLA {
   
   // Bit field definition.
   struct {
-    /// read-write - IDRATIOA_L
+    // read-write - IDRATIOA_L
     uint32_t IDRATIOA_L : 24;
     uint32_t _reserved_0 : 8;
   } bits;
@@ -1059,12 +1363,11 @@ union ASRIDRLA {
 };
 
 // ASRC Ideal Ratio for Pair B-High Part
-//
 union ASRIDRHB {
   
   // Bit field definition.
   struct {
-    /// read-write - IDRATIOB_H
+    // read-write - IDRATIOB_H
     uint32_t IDRATIOB_H : 8;
     uint32_t _reserved_0 : 24;
   } bits;
@@ -1078,12 +1381,11 @@ union ASRIDRHB {
 };
 
 // ASRC Ideal Ratio for Pair B-Low Part
-//
 union ASRIDRLB {
   
   // Bit field definition.
   struct {
-    /// read-write - IDRATIOB_L
+    // read-write - IDRATIOB_L
     uint32_t IDRATIOB_L : 24;
     uint32_t _reserved_0 : 8;
   } bits;
@@ -1097,12 +1399,11 @@ union ASRIDRLB {
 };
 
 // ASRC Ideal Ratio for Pair C-High Part
-//
 union ASRIDRHC {
   
   // Bit field definition.
   struct {
-    /// read-write - IDRATIOC_H
+    // read-write - IDRATIOC_H
     uint32_t IDRATIOC_H : 8;
     uint32_t _reserved_0 : 24;
   } bits;
@@ -1116,12 +1417,11 @@ union ASRIDRHC {
 };
 
 // ASRC Ideal Ratio for Pair C-Low Part
-//
 union ASRIDRLC {
   
   // Bit field definition.
   struct {
-    /// read-write - IDRATIOC_L
+    // read-write - IDRATIOC_L
     uint32_t IDRATIOC_L : 24;
     uint32_t _reserved_0 : 8;
   } bits;
@@ -1135,12 +1435,11 @@ union ASRIDRLC {
 };
 
 // ASRC 76 kHz Period in terms of ASRC processing clock
-//
 union ASR76K {
   
   // Bit field definition.
   struct {
-    /// read-write - ASR76K
+    // read-write - ASR76K
     uint32_t ASR76K : 17;
     uint32_t _reserved_0 : 15;
   } bits;
@@ -1154,12 +1453,11 @@ union ASR76K {
 };
 
 // ASRC 56 kHz Period in terms of ASRC processing clock
-//
 union ASR56K {
   
   // Bit field definition.
   struct {
-    /// read-write - ASR56K
+    // read-write - ASR56K
     uint32_t ASR56K : 17;
     uint32_t _reserved_0 : 15;
   } bits;
@@ -1173,58 +1471,75 @@ union ASR56K {
 };
 
 // ASRC Misc Control Register for Pair A
-//
 union ASRMCRA {
   
+  // RSYNOFA
   enum class eRSYNOFA : uint32_t {
-    eno_resync = 0, // Do not touch ASRCCR[ACOA]
-    eresync = 1, // Force ASRCCR[ACOA]=0
+    // Do not touch ASRCCR[ACOA]
+    eno_resync = 0,
+    // Force ASRCCR[ACOA]=0
+    eresync = 1,
   };
   
+  // RSYNIFA
   enum class eRSYNIFA : uint32_t {
-    eno_resync = 0, // Do not touch ASRCCR[ACIA]
-    eresync = 1, // Force ASRCCR[ACIA]=0
+    // Do not touch ASRCCR[ACIA]
+    eno_resync = 0,
+    // Force ASRCCR[ACIA]=0
+    eresync = 1,
   };
   
+  // BYPASSPOLYA
   enum class eBYPASSPOLYA : uint32_t {
-    eno_bypass = 0, // Don't bypass polyphase filtering.
-    ebypass = 1, // Bypass polyphase filtering.
+    // Don't bypass polyphase filtering.
+    eno_bypass = 0,
+    // Bypass polyphase filtering.
+    ebypass = 1,
   };
   
+  // BUFSTALLA
   enum class eBUFSTALLA : uint32_t {
-    eno_stall = 0, // Don't stall Pair A conversion even in case of near empty/full FIFO conditions.
-    estall = 1, // Stall Pair A conversion in case of near empty/full FIFO conditions.
+    // Don't stall Pair A conversion even in case of near empty/full FIFO conditions.
+    eno_stall = 0,
+    // Stall Pair A conversion in case of near empty/full FIFO conditions.
+    estall = 1,
   };
   
+  // EXTTHRSHA
   enum class eEXTTHRSHA : uint32_t {
-    euse_default_thresh = 0, // Use default thresholds.
-    euse_ext_thresh = 1, // Use external defined thresholds.
+    // Use default thresholds.
+    euse_default_thresh = 0,
+    // Use external defined thresholds.
+    euse_ext_thresh = 1,
   };
   
+  // ZEROBUFA
   enum class eZEROBUFA : uint32_t {
-    ezero_buf = 0, // Zeroize the buffer
-    edo_not_zero_buf = 1, // Don't zeroize the buffer
+    // Zeroize the buffer
+    ezero_buf = 0,
+    // Don't zeroize the buffer
+    edo_not_zero_buf = 1,
   };
   
   // Bit field definition.
   struct {
-    /// read-write - INFIFO_THRESHOLDA
+    // read-write - INFIFO_THRESHOLDA
     uint32_t INFIFO_THRESHOLDA : 6;
     uint32_t _reserved_0 : 4;
-    /// read-write - RSYNOFA
+    // read-write - RSYNOFA
     eRSYNOFA RSYNOFA : 1;
-    /// read-write - RSYNIFA
+    // read-write - RSYNIFA
     eRSYNIFA RSYNIFA : 1;
-    /// read-write - OUTFIFO_THRESHOLDA
+    // read-write - OUTFIFO_THRESHOLDA
     uint32_t OUTFIFO_THRESHOLDA : 6;
     uint32_t _reserved_1 : 2;
-    /// read-write - BYPASSPOLYA
+    // read-write - BYPASSPOLYA
     eBYPASSPOLYA BYPASSPOLYA : 1;
-    /// read-write - BUFSTALLA
+    // read-write - BUFSTALLA
     eBUFSTALLA BUFSTALLA : 1;
-    /// read-write - EXTTHRSHA
+    // read-write - EXTTHRSHA
     eEXTTHRSHA EXTTHRSHA : 1;
-    /// read-write - ZEROBUFA
+    // read-write - ZEROBUFA
     eZEROBUFA ZEROBUFA : 1;
     uint32_t _reserved_2 : 8;
   } bits;
@@ -1238,30 +1553,35 @@ union ASRMCRA {
 };
 
 // ASRC FIFO Status Register for Pair A
-//
 union ASRFSTA {
   
+  // IAEA
   enum class eIAEA : uint32_t {
-    enot_near_empty = 0, // Input FIFO is not near empty for Pair A
-    enear_empty = 1, // Input FIFO is near empty for Pair A
+    // Input FIFO is not near empty for Pair A
+    enot_near_empty = 0,
+    // Input FIFO is near empty for Pair A
+    enear_empty = 1,
   };
   
+  // OAFA
   enum class eOAFA : uint32_t {
-    enot_near_full = 0, // Output FIFO is not near full for Pair A
-    enear_full = 1, // Output FIFO is near full for Pair A
+    // Output FIFO is not near full for Pair A
+    enot_near_full = 0,
+    // Output FIFO is near full for Pair A
+    enear_full = 1,
   };
   
   // Bit field definition.
   struct {
-    /// read-only - INFIFO_FILLA
+    // read-only - INFIFO_FILLA
     uint32_t INFIFO_FILLA : 7;
     uint32_t _reserved_0 : 4;
-    /// read-only - IAEA
+    // read-only - IAEA
     eIAEA IAEA : 1;
-    /// read-only - OUTFIFO_FILLA
+    // read-only - OUTFIFO_FILLA
     uint32_t OUTFIFO_FILLA : 7;
     uint32_t _reserved_1 : 4;
-    /// read-only - OAFA
+    // read-only - OAFA
     eOAFA OAFA : 1;
     uint32_t _reserved_2 : 8;
   } bits;
@@ -1275,58 +1595,75 @@ union ASRFSTA {
 };
 
 // ASRC Misc Control Register for Pair B
-//
 union ASRMCRB {
   
+  // RSYNOFB
   enum class eRSYNOFB : uint32_t {
-    eno_resync = 0, // Do not touch ASRCCR[ACOB]
-    eresync = 1, // Force ASRCCR[ACOB]=0
+    // Do not touch ASRCCR[ACOB]
+    eno_resync = 0,
+    // Force ASRCCR[ACOB]=0
+    eresync = 1,
   };
   
+  // RSYNIFB
   enum class eRSYNIFB : uint32_t {
-    eno_resync = 0, // Do not touch ASRCCR[ACIB]
-    eresync = 1, // Force ASRCCR[ACIB]=0
+    // Do not touch ASRCCR[ACIB]
+    eno_resync = 0,
+    // Force ASRCCR[ACIB]=0
+    eresync = 1,
   };
   
+  // BYPASSPOLYB
   enum class eBYPASSPOLYB : uint32_t {
-    eno_bypass = 0, // Don't bypass polyphase filtering.
-    ebypass = 1, // Bypass polyphase filtering.
+    // Don't bypass polyphase filtering.
+    eno_bypass = 0,
+    // Bypass polyphase filtering.
+    ebypass = 1,
   };
   
+  // BUFSTALLB
   enum class eBUFSTALLB : uint32_t {
-    eno_stall = 0, // Don't stall Pair B conversion even in case of near empty/full FIFO conditions.
-    estall = 1, // Stall Pair B conversion in case of near empty/full FIFO conditions.
+    // Don't stall Pair B conversion even in case of near empty/full FIFO conditions.
+    eno_stall = 0,
+    // Stall Pair B conversion in case of near empty/full FIFO conditions.
+    estall = 1,
   };
   
+  // EXTTHRSHB
   enum class eEXTTHRSHB : uint32_t {
-    euse_default_thresh = 0, // Use default thresholds.
-    euse_ext_thresh = 1, // Use external defined thresholds.
+    // Use default thresholds.
+    euse_default_thresh = 0,
+    // Use external defined thresholds.
+    euse_ext_thresh = 1,
   };
   
+  // ZEROBUFB
   enum class eZEROBUFB : uint32_t {
-    ezero_buf = 0, // Zeroize the buffer
-    edo_not_zero_buf = 1, // Don't zeroize the buffer
+    // Zeroize the buffer
+    ezero_buf = 0,
+    // Don't zeroize the buffer
+    edo_not_zero_buf = 1,
   };
   
   // Bit field definition.
   struct {
-    /// read-write - INFIFO_THRESHOLDB
+    // read-write - INFIFO_THRESHOLDB
     uint32_t INFIFO_THRESHOLDB : 6;
     uint32_t _reserved_0 : 4;
-    /// read-write - RSYNOFB
+    // read-write - RSYNOFB
     eRSYNOFB RSYNOFB : 1;
-    /// read-write - RSYNIFB
+    // read-write - RSYNIFB
     eRSYNIFB RSYNIFB : 1;
-    /// read-write - OUTFIFO_THRESHOLDB
+    // read-write - OUTFIFO_THRESHOLDB
     uint32_t OUTFIFO_THRESHOLDB : 6;
     uint32_t _reserved_1 : 2;
-    /// read-write - BYPASSPOLYB
+    // read-write - BYPASSPOLYB
     eBYPASSPOLYB BYPASSPOLYB : 1;
-    /// read-write - BUFSTALLB
+    // read-write - BUFSTALLB
     eBUFSTALLB BUFSTALLB : 1;
-    /// read-write - EXTTHRSHB
+    // read-write - EXTTHRSHB
     eEXTTHRSHB EXTTHRSHB : 1;
-    /// read-write - ZEROBUFB
+    // read-write - ZEROBUFB
     eZEROBUFB ZEROBUFB : 1;
     uint32_t _reserved_2 : 8;
   } bits;
@@ -1340,30 +1677,35 @@ union ASRMCRB {
 };
 
 // ASRC FIFO Status Register for Pair B
-//
 union ASRFSTB {
   
+  // IAEB
   enum class eIAEB : uint32_t {
-    enot_near_empty = 0, // Input FIFO is not near empty for Pair B
-    enear_empty = 1, // Input FIFO is near empty for Pair B
+    // Input FIFO is not near empty for Pair B
+    enot_near_empty = 0,
+    // Input FIFO is near empty for Pair B
+    enear_empty = 1,
   };
   
+  // OAFB
   enum class eOAFB : uint32_t {
-    enot_near_full = 0, // Output FIFO is not near full for Pair B
-    enear_full = 1, // Output FIFO is near full for Pair B
+    // Output FIFO is not near full for Pair B
+    enot_near_full = 0,
+    // Output FIFO is near full for Pair B
+    enear_full = 1,
   };
   
   // Bit field definition.
   struct {
-    /// read-only - INFIFO_FILLB
+    // read-only - INFIFO_FILLB
     uint32_t INFIFO_FILLB : 7;
     uint32_t _reserved_0 : 4;
-    /// read-only - IAEB
+    // read-only - IAEB
     eIAEB IAEB : 1;
-    /// read-only - OUTFIFO_FILLB
+    // read-only - OUTFIFO_FILLB
     uint32_t OUTFIFO_FILLB : 7;
     uint32_t _reserved_1 : 4;
-    /// read-only - OAFB
+    // read-only - OAFB
     eOAFB OAFB : 1;
     uint32_t _reserved_2 : 8;
   } bits;
@@ -1377,58 +1719,75 @@ union ASRFSTB {
 };
 
 // ASRC Misc Control Register for Pair C
-//
 union ASRMCRC {
   
+  // RSYNOFC
   enum class eRSYNOFC : uint32_t {
-    eno_resync = 0, // Do not touch ASRCCR[ACOC]
-    eresync = 1, // Force ASRCCR[ACOC]=0
+    // Do not touch ASRCCR[ACOC]
+    eno_resync = 0,
+    // Force ASRCCR[ACOC]=0
+    eresync = 1,
   };
   
+  // RSYNIFC
   enum class eRSYNIFC : uint32_t {
-    eno_resync = 0, // Do not touch ASRCCR[ACIC]
-    eresync = 1, // Force ASRCCR[ACIC]=0
+    // Do not touch ASRCCR[ACIC]
+    eno_resync = 0,
+    // Force ASRCCR[ACIC]=0
+    eresync = 1,
   };
   
+  // BYPASSPOLYC
   enum class eBYPASSPOLYC : uint32_t {
-    eno_bypass = 0, // Don't bypass polyphase filtering.
-    ebypass = 1, // Bypass polyphase filtering.
+    // Don't bypass polyphase filtering.
+    eno_bypass = 0,
+    // Bypass polyphase filtering.
+    ebypass = 1,
   };
   
+  // BUFSTALLC
   enum class eBUFSTALLC : uint32_t {
-    eno_stall = 0, // Don't stall Pair C conversion even in case of near empty/full FIFO conditions.
-    estall = 1, // Stall Pair C conversion in case of near empty/full FIFO conditions.
+    // Don't stall Pair C conversion even in case of near empty/full FIFO conditions.
+    eno_stall = 0,
+    // Stall Pair C conversion in case of near empty/full FIFO conditions.
+    estall = 1,
   };
   
+  // EXTTHRSHC
   enum class eEXTTHRSHC : uint32_t {
-    euse_default_thresh = 0, // Use default thresholds.
-    euse_ext_thresh = 1, // Use external defined thresholds.
+    // Use default thresholds.
+    euse_default_thresh = 0,
+    // Use external defined thresholds.
+    euse_ext_thresh = 1,
   };
   
+  // ZEROBUFC
   enum class eZEROBUFC : uint32_t {
-    ezero_buf = 0, // Zeroize the buffer
-    edo_not_zero_buf = 1, // Don't zeroize the buffer
+    // Zeroize the buffer
+    ezero_buf = 0,
+    // Don't zeroize the buffer
+    edo_not_zero_buf = 1,
   };
   
   // Bit field definition.
   struct {
-    /// read-write - INFIFO_THRESHOLDC
+    // read-write - INFIFO_THRESHOLDC
     uint32_t INFIFO_THRESHOLDC : 6;
     uint32_t _reserved_0 : 4;
-    /// read-write - RSYNOFC
+    // read-write - RSYNOFC
     eRSYNOFC RSYNOFC : 1;
-    /// read-write - RSYNIFC
+    // read-write - RSYNIFC
     eRSYNIFC RSYNIFC : 1;
-    /// read-write - OUTFIFO_THRESHOLDC
+    // read-write - OUTFIFO_THRESHOLDC
     uint32_t OUTFIFO_THRESHOLDC : 6;
     uint32_t _reserved_1 : 2;
-    /// read-write - BYPASSPOLYC
+    // read-write - BYPASSPOLYC
     eBYPASSPOLYC BYPASSPOLYC : 1;
-    /// read-write - BUFSTALLC
+    // read-write - BUFSTALLC
     eBUFSTALLC BUFSTALLC : 1;
-    /// read-write - EXTTHRSHC
+    // read-write - EXTTHRSHC
     eEXTTHRSHC EXTTHRSHC : 1;
-    /// read-write - ZEROBUFC
+    // read-write - ZEROBUFC
     eZEROBUFC ZEROBUFC : 1;
     uint32_t _reserved_2 : 8;
   } bits;
@@ -1442,30 +1801,35 @@ union ASRMCRC {
 };
 
 // ASRC FIFO Status Register for Pair C
-//
 union ASRFSTC {
   
+  // IAEC
   enum class eIAEC : uint32_t {
-    enot_near_empty = 0, // Input FIFO is not near empty for Pair C
-    enear_empty = 1, // Input FIFO is near empty for Pair C
+    // Input FIFO is not near empty for Pair C
+    enot_near_empty = 0,
+    // Input FIFO is near empty for Pair C
+    enear_empty = 1,
   };
   
+  // OAFC
   enum class eOAFC : uint32_t {
-    enot_near_full = 0, // Output FIFO is not near full for Pair C
-    enear_full = 1, // Output FIFO is near full for Pair C
+    // Output FIFO is not near full for Pair C
+    enot_near_full = 0,
+    // Output FIFO is near full for Pair C
+    enear_full = 1,
   };
   
   // Bit field definition.
   struct {
-    /// read-only - INFIFO_FILLC
+    // read-only - INFIFO_FILLC
     uint32_t INFIFO_FILLC : 7;
     uint32_t _reserved_0 : 4;
-    /// read-only - IAEC
+    // read-only - IAEC
     eIAEC IAEC : 1;
-    /// read-only - OUTFIFO_FILLC
+    // read-only - OUTFIFO_FILLC
     uint32_t OUTFIFO_FILLC : 7;
     uint32_t _reserved_1 : 4;
-    /// read-only - OAFC
+    // read-only - OAFC
     eOAFC OAFC : 1;
     uint32_t _reserved_2 : 8;
   } bits;
@@ -1479,47 +1843,62 @@ union ASRFSTC {
 };
 
 // ASRC Misc Control Register 1 for Pair X
-//
 union ASRMCR1A {
   
+  // OW16
   enum class eOW16 : uint32_t {
-    eout_24bit = 0, // 24-bit output data.
-    eout_16bit = 1, // 16-bit output data
+    // 24-bit output data.
+    eout_24bit = 0,
+    // 16-bit output data
+    eout_16bit = 1,
   };
   
+  // OSGN
   enum class eOSGN : uint32_t {
-    eno_sign_ext = 0, // No sign extension.
-    esign_ext = 1, // Sign extension.
+    // No sign extension.
+    eno_sign_ext = 0,
+    // Sign extension.
+    esign_ext = 1,
   };
   
+  // OMSB
   enum class eOMSB : uint32_t {
-    elsb_aligned = 0, // LSB aligned.
-    emsb_aligned = 1, // MSB aligned.
+    // LSB aligned.
+    elsb_aligned = 0,
+    // MSB aligned.
+    emsb_aligned = 1,
   };
   
+  // IMSB
   enum class eIMSB : uint32_t {
-    elsb_aligned = 0, // LSB aligned.
-    emsb_aligned = 1, // MSB aligned.
+    // LSB aligned.
+    elsb_aligned = 0,
+    // MSB aligned.
+    emsb_aligned = 1,
   };
   
+  // IWD
   enum class eIWD : uint32_t {
-    eaudiodata_24bit = 0, // 24-bit audio data.
-    eaudiodata_16bit = 1, // 16-bit audio data.
-    eaudiodata_8bit = 2, // 8-bit audio data.
+    // 24-bit audio data.
+    eaudiodata_24bit = 0,
+    // 16-bit audio data.
+    eaudiodata_16bit = 1,
+    // 8-bit audio data.
+    eaudiodata_8bit = 2,
   };
   
   // Bit field definition.
   struct {
-    /// read-write - OW16
+    // read-write - OW16
     eOW16 OW16 : 1;
-    /// read-write - OSGN
+    // read-write - OSGN
     eOSGN OSGN : 1;
-    /// read-write - OMSB
+    // read-write - OMSB
     eOMSB OMSB : 1;
     uint32_t _reserved_0 : 5;
-    /// read-write - IMSB
+    // read-write - IMSB
     eIMSB IMSB : 1;
-    /// read-write - IWD
+    // read-write - IWD
     eIWD IWD : 2;
     uint32_t _reserved_1 : 21;
   } bits;
@@ -1532,47 +1911,62 @@ union ASRMCR1A {
   static inline volatile ASRMCR1A &Instance() { return *reinterpret_cast<volatile ASRMCR1A*>(0x404140C0); }
 };
 // ASRC Misc Control Register 1 for Pair X
-//
 union ASRMCR1B {
   
+  // OW16
   enum class eOW16 : uint32_t {
-    eout_24bit = 0, // 24-bit output data.
-    eout_16bit = 1, // 16-bit output data
+    // 24-bit output data.
+    eout_24bit = 0,
+    // 16-bit output data
+    eout_16bit = 1,
   };
   
+  // OSGN
   enum class eOSGN : uint32_t {
-    eno_sign_ext = 0, // No sign extension.
-    esign_ext = 1, // Sign extension.
+    // No sign extension.
+    eno_sign_ext = 0,
+    // Sign extension.
+    esign_ext = 1,
   };
   
+  // OMSB
   enum class eOMSB : uint32_t {
-    elsb_aligned = 0, // LSB aligned.
-    emsb_aligned = 1, // MSB aligned.
+    // LSB aligned.
+    elsb_aligned = 0,
+    // MSB aligned.
+    emsb_aligned = 1,
   };
   
+  // IMSB
   enum class eIMSB : uint32_t {
-    elsb_aligned = 0, // LSB aligned.
-    emsb_aligned = 1, // MSB aligned.
+    // LSB aligned.
+    elsb_aligned = 0,
+    // MSB aligned.
+    emsb_aligned = 1,
   };
   
+  // IWD
   enum class eIWD : uint32_t {
-    eaudiodata_24bit = 0, // 24-bit audio data.
-    eaudiodata_16bit = 1, // 16-bit audio data.
-    eaudiodata_8bit = 2, // 8-bit audio data.
+    // 24-bit audio data.
+    eaudiodata_24bit = 0,
+    // 16-bit audio data.
+    eaudiodata_16bit = 1,
+    // 8-bit audio data.
+    eaudiodata_8bit = 2,
   };
   
   // Bit field definition.
   struct {
-    /// read-write - OW16
+    // read-write - OW16
     eOW16 OW16 : 1;
-    /// read-write - OSGN
+    // read-write - OSGN
     eOSGN OSGN : 1;
-    /// read-write - OMSB
+    // read-write - OMSB
     eOMSB OMSB : 1;
     uint32_t _reserved_0 : 5;
-    /// read-write - IMSB
+    // read-write - IMSB
     eIMSB IMSB : 1;
-    /// read-write - IWD
+    // read-write - IWD
     eIWD IWD : 2;
     uint32_t _reserved_1 : 21;
   } bits;
@@ -1585,47 +1979,62 @@ union ASRMCR1B {
   static inline volatile ASRMCR1B &Instance() { return *reinterpret_cast<volatile ASRMCR1B*>(0x404140C4); }
 };
 // ASRC Misc Control Register 1 for Pair X
-//
 union ASRMCR1C {
   
+  // OW16
   enum class eOW16 : uint32_t {
-    eout_24bit = 0, // 24-bit output data.
-    eout_16bit = 1, // 16-bit output data
+    // 24-bit output data.
+    eout_24bit = 0,
+    // 16-bit output data
+    eout_16bit = 1,
   };
   
+  // OSGN
   enum class eOSGN : uint32_t {
-    eno_sign_ext = 0, // No sign extension.
-    esign_ext = 1, // Sign extension.
+    // No sign extension.
+    eno_sign_ext = 0,
+    // Sign extension.
+    esign_ext = 1,
   };
   
+  // OMSB
   enum class eOMSB : uint32_t {
-    elsb_aligned = 0, // LSB aligned.
-    emsb_aligned = 1, // MSB aligned.
+    // LSB aligned.
+    elsb_aligned = 0,
+    // MSB aligned.
+    emsb_aligned = 1,
   };
   
+  // IMSB
   enum class eIMSB : uint32_t {
-    elsb_aligned = 0, // LSB aligned.
-    emsb_aligned = 1, // MSB aligned.
+    // LSB aligned.
+    elsb_aligned = 0,
+    // MSB aligned.
+    emsb_aligned = 1,
   };
   
+  // IWD
   enum class eIWD : uint32_t {
-    eaudiodata_24bit = 0, // 24-bit audio data.
-    eaudiodata_16bit = 1, // 16-bit audio data.
-    eaudiodata_8bit = 2, // 8-bit audio data.
+    // 24-bit audio data.
+    eaudiodata_24bit = 0,
+    // 16-bit audio data.
+    eaudiodata_16bit = 1,
+    // 8-bit audio data.
+    eaudiodata_8bit = 2,
   };
   
   // Bit field definition.
   struct {
-    /// read-write - OW16
+    // read-write - OW16
     eOW16 OW16 : 1;
-    /// read-write - OSGN
+    // read-write - OSGN
     eOSGN OSGN : 1;
-    /// read-write - OMSB
+    // read-write - OMSB
     eOMSB OMSB : 1;
     uint32_t _reserved_0 : 5;
-    /// read-write - IMSB
+    // read-write - IMSB
     eIMSB IMSB : 1;
-    /// read-write - IWD
+    // read-write - IWD
     eIWD IWD : 2;
     uint32_t _reserved_1 : 21;
   } bits;

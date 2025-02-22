@@ -5,45 +5,53 @@
 #include <cstring>
 
 // XECC
-//
-// NOTE: This file was generated from the forge CMSIS-svd wrapper tool.
-
 namespace nXECC_FLEXSPI2 {
 
 
 // ECC Control Register
-//
 union ECC_CTRL {
   
+  // ECC Function Enable
   enum class eECC_EN : uint32_t {
-    eECC_EN_0 = 0, // Disable
-    eECC_EN_1 = 1, // Enable
+    // Disable
+    eECC_EN_0 = 0,
+    // Enable
+    eECC_EN_1 = 1,
   };
   
+  // Write ECC Encode Function Enable
   enum class eWECC_EN : uint32_t {
-    eWECC_EN_0 = 0, // Disable
-    eWECC_EN_1 = 1, // Enable
+    // Disable
+    eWECC_EN_0 = 0,
+    // Enable
+    eWECC_EN_1 = 1,
   };
   
+  // Read ECC Function Enable
   enum class eRECC_EN : uint32_t {
-    eRECC_EN_0 = 0, // Disable
-    eRECC_EN_1 = 1, // Enable
+    // Disable
+    eRECC_EN_0 = 0,
+    // Enable
+    eRECC_EN_1 = 1,
   };
   
+  // Swap Data Enable
   enum class eSWAP_EN : uint32_t {
-    eSWAP_EN_0 = 0, // Disable
-    eSWAP_EN_1 = 1, // Enable
+    // Disable
+    eSWAP_EN_0 = 0,
+    // Enable
+    eSWAP_EN_1 = 1,
   };
   
   // Bit field definition.
   struct {
-    /// read-write - ECC Function Enable
+    // read-write - ECC Function Enable
     eECC_EN ECC_EN : 1;
-    /// read-write - Write ECC Encode Function Enable
+    // read-write - Write ECC Encode Function Enable
     eWECC_EN WECC_EN : 1;
-    /// read-write - Read ECC Function Enable
+    // read-write - Read ECC Function Enable
     eRECC_EN RECC_EN : 1;
-    /// read-write - Swap Data Enable
+    // read-write - Swap Data Enable
     eSWAP_EN SWAP_EN : 1;
     uint32_t _reserved_0 : 28;
   } bits;
@@ -57,26 +65,31 @@ union ECC_CTRL {
 };
 
 // Error Interrupt Status Register
-//
 union ERR_STATUS {
   
+  // Single Bit Error
   enum class eSINGLE_ERR : uint32_t {
-    eSINGLE_ERR_0 = 0, // Single bit error does not happen.
-    eSINGLE_ERR_1 = 1, // Single bit error happens.
+    // Single bit error does not happen.
+    eSINGLE_ERR_0 = 0,
+    // Single bit error happens.
+    eSINGLE_ERR_1 = 1,
   };
   
+  // Multiple Bits Error
   enum class eMULTI_ERR : uint32_t {
-    eMULTI_ERR_0 = 0, // Multiple bits error does not happen.
-    eMULTI_ERR_1 = 1, // Multiple bits error happens.
+    // Multiple bits error does not happen.
+    eMULTI_ERR_0 = 0,
+    // Multiple bits error happens.
+    eMULTI_ERR_1 = 1,
   };
   
   // Bit field definition.
   struct {
-    /// read-write - Single Bit Error
+    // read-write - Single Bit Error
     eSINGLE_ERR SINGLE_ERR : 1;
-    /// read-write - Multiple Bits Error
+    // read-write - Multiple Bits Error
     eMULTI_ERR MULTI_ERR : 1;
-    /// read-only - Reserved
+    // read-only - Reserved
     uint32_t Reserved1 : 30;
   } bits;
   
@@ -89,26 +102,31 @@ union ERR_STATUS {
 };
 
 // Error Interrupt Status Enable Register
-//
 union ERR_STAT_EN {
   
+  // Single Bit Error Status Enable
   enum class eSINGLE_ERR_STAT_EN : uint32_t {
-    eSINGLE_ERR_STAT_EN_0 = 0, // Masked
-    eSINGLE_ERR_STAT_EN_1 = 1, // Enabled
+    // Masked
+    eSINGLE_ERR_STAT_EN_0 = 0,
+    // Enabled
+    eSINGLE_ERR_STAT_EN_1 = 1,
   };
   
+  // Multiple Bits Error Status Enable
   enum class eMULIT_ERR_STAT_EN : uint32_t {
-    eMULIT_ERR_STAT_EN_0 = 0, // Masked
-    eMULIT_ERR_STAT_EN_1 = 1, // Enabled
+    // Masked
+    eMULIT_ERR_STAT_EN_0 = 0,
+    // Enabled
+    eMULIT_ERR_STAT_EN_1 = 1,
   };
   
   // Bit field definition.
   struct {
-    /// read-write - Single Bit Error Status Enable
+    // read-write - Single Bit Error Status Enable
     eSINGLE_ERR_STAT_EN SINGLE_ERR_STAT_EN : 1;
-    /// read-write - Multiple Bits Error Status Enable
+    // read-write - Multiple Bits Error Status Enable
     eMULIT_ERR_STAT_EN MULIT_ERR_STAT_EN : 1;
-    /// read-only - Reserved
+    // read-only - Reserved
     uint32_t Reserved1 : 30;
   } bits;
   
@@ -121,26 +139,31 @@ union ERR_STAT_EN {
 };
 
 // Error Interrupt Enable Register
-//
 union ERR_SIG_EN {
   
+  // Single Bit Error Interrupt Enable
   enum class eSINGLE_ERR_SIG_EN : uint32_t {
-    eSINGLE_ERR_SIG_EN_0 = 0, // Masked
-    eSINGLE_ERR_SIG_EN_1 = 1, // Enabled
+    // Masked
+    eSINGLE_ERR_SIG_EN_0 = 0,
+    // Enabled
+    eSINGLE_ERR_SIG_EN_1 = 1,
   };
   
+  // Multiple Bits Error Interrupt Enable
   enum class eMULTI_ERR_SIG_EN : uint32_t {
-    eMULTI_ERR_SIG_EN_0 = 0, // Masked
-    eMULTI_ERR_SIG_EN_1 = 1, // Enabled
+    // Masked
+    eMULTI_ERR_SIG_EN_0 = 0,
+    // Enabled
+    eMULTI_ERR_SIG_EN_1 = 1,
   };
   
   // Bit field definition.
   struct {
-    /// read-write - Single Bit Error Interrupt Enable
+    // read-write - Single Bit Error Interrupt Enable
     eSINGLE_ERR_SIG_EN SINGLE_ERR_SIG_EN : 1;
-    /// read-write - Multiple Bits Error Interrupt Enable
+    // read-write - Multiple Bits Error Interrupt Enable
     eMULTI_ERR_SIG_EN MULTI_ERR_SIG_EN : 1;
-    /// read-only - Reserved
+    // read-only - Reserved
     uint32_t Reserved1 : 30;
   } bits;
   
@@ -153,12 +176,11 @@ union ERR_SIG_EN {
 };
 
 // Error Injection On Write Data
-//
 union ERR_DATA_INJ {
   
   // Bit field definition.
   struct {
-    /// read-write - Error Injection On Write Data
+    // read-write - Error Injection On Write Data
     uint32_t ERR_DATA_INJ : 32;
   } bits;
   
@@ -171,12 +193,11 @@ union ERR_DATA_INJ {
 };
 
 // Error Injection On ECC Code of Write Data
-//
 union ERR_ECC_INJ {
   
   // Bit field definition.
   struct {
-    /// read-write - Error Injection On ECC Code of Write Data
+    // read-write - Error Injection On ECC Code of Write Data
     uint32_t ERR_ECC_INJ : 32;
   } bits;
   
@@ -189,12 +210,11 @@ union ERR_ECC_INJ {
 };
 
 // Single Error Address
-//
 union SINGLE_ERR_ADDR {
   
   // Bit field definition.
   struct {
-    /// read-only - Single Error Address
+    // read-only - Single Error Address
     uint32_t SINGLE_ERR_ADDR : 32;
   } bits;
   
@@ -207,12 +227,11 @@ union SINGLE_ERR_ADDR {
 };
 
 // Single Error Read Data
-//
 union SINGLE_ERR_DATA {
   
   // Bit field definition.
   struct {
-    /// read-only - Single Error Read Data
+    // read-only - Single Error Read Data
     uint32_t SINGLE_ERR_DATA : 32;
   } bits;
   
@@ -225,12 +244,11 @@ union SINGLE_ERR_DATA {
 };
 
 // Single Error ECC Code
-//
 union SINGLE_ERR_ECC {
   
   // Bit field definition.
   struct {
-    /// read-only - Single Error ECC code
+    // read-only - Single Error ECC code
     uint32_t SINGLE_ERR_ECC : 32;
   } bits;
   
@@ -243,12 +261,11 @@ union SINGLE_ERR_ECC {
 };
 
 // Single Error Bit Position
-//
 union SINGLE_ERR_POS {
   
   // Bit field definition.
   struct {
-    /// read-only - Single Error bit Position
+    // read-only - Single Error bit Position
     uint32_t SINGLE_ERR_POS : 32;
   } bits;
   
@@ -261,14 +278,13 @@ union SINGLE_ERR_POS {
 };
 
 // Single Error Bit Field
-//
 union SINGLE_ERR_BIT_FIELD {
   
   // Bit field definition.
   struct {
-    /// read-only - Single Error Bit Field
+    // read-only - Single Error Bit Field
     uint32_t SINGLE_ERR_BIT_FIELD : 8;
-    /// read-only - Reserved
+    // read-only - Reserved
     uint32_t Reserved1 : 24;
   } bits;
   
@@ -281,12 +297,11 @@ union SINGLE_ERR_BIT_FIELD {
 };
 
 // Multiple Error Address
-//
 union MULTI_ERR_ADDR {
   
   // Bit field definition.
   struct {
-    /// read-only - Multiple Error Address
+    // read-only - Multiple Error Address
     uint32_t MULTI_ERR_ADDR : 32;
   } bits;
   
@@ -299,12 +314,11 @@ union MULTI_ERR_ADDR {
 };
 
 // Multiple Error Read Data
-//
 union MULTI_ERR_DATA {
   
   // Bit field definition.
   struct {
-    /// read-only - Multiple Error Read Data
+    // read-only - Multiple Error Read Data
     uint32_t MULTI_ERR_DATA : 32;
   } bits;
   
@@ -317,12 +331,11 @@ union MULTI_ERR_DATA {
 };
 
 // Multiple Error ECC code
-//
 union MULTI_ERR_ECC {
   
   // Bit field definition.
   struct {
-    /// read-only - Multiple Error ECC code
+    // read-only - Multiple Error ECC code
     uint32_t MULTI_ERR_ECC : 32;
   } bits;
   
@@ -335,14 +348,13 @@ union MULTI_ERR_ECC {
 };
 
 // Multiple Error Bit Field
-//
 union MULTI_ERR_BIT_FIELD {
   
   // Bit field definition.
   struct {
-    /// read-only - Multiple Error Bit Field
+    // read-only - Multiple Error Bit Field
     uint32_t MULTI_ERR_BIT_FIELD : 8;
-    /// read-only - Reserved
+    // read-only - Reserved
     uint32_t Reserved1 : 24;
   } bits;
   
@@ -355,12 +367,11 @@ union MULTI_ERR_BIT_FIELD {
 };
 
 // ECC Region 0 Base Address
-//
 union ECC_BASE_ADDR0 {
   
   // Bit field definition.
   struct {
-    /// read-write - ECC Region 0 Base Address
+    // read-write - ECC Region 0 Base Address
     uint32_t ECC_BASE_ADDR0 : 32;
   } bits;
   
@@ -373,12 +384,11 @@ union ECC_BASE_ADDR0 {
 };
 
 // ECC Region 0 End Address
-//
 union ECC_END_ADDR0 {
   
   // Bit field definition.
   struct {
-    /// read-write - ECC Region 0 End Address
+    // read-write - ECC Region 0 End Address
     uint32_t ECC_END_ADDR0 : 32;
   } bits;
   
@@ -391,12 +401,11 @@ union ECC_END_ADDR0 {
 };
 
 // ECC Region 1 Base Address
-//
 union ECC_BASE_ADDR1 {
   
   // Bit field definition.
   struct {
-    /// read-write - ECC Region 1 Base Address
+    // read-write - ECC Region 1 Base Address
     uint32_t ECC_BASE_ADDR1 : 32;
   } bits;
   
@@ -409,12 +418,11 @@ union ECC_BASE_ADDR1 {
 };
 
 // ECC Region 1 End Address
-//
 union ECC_END_ADDR1 {
   
   // Bit field definition.
   struct {
-    /// read-write - ECC Region 1 End Address
+    // read-write - ECC Region 1 End Address
     uint32_t ECC_END_ADDR1 : 32;
   } bits;
   
@@ -427,12 +435,11 @@ union ECC_END_ADDR1 {
 };
 
 // ECC Region 2 Base Address
-//
 union ECC_BASE_ADDR2 {
   
   // Bit field definition.
   struct {
-    /// read-write - ECC Region 2 Base Address
+    // read-write - ECC Region 2 Base Address
     uint32_t ECC_BASE_ADDR2 : 32;
   } bits;
   
@@ -445,12 +452,11 @@ union ECC_BASE_ADDR2 {
 };
 
 // ECC Region 2 End Address
-//
 union ECC_END_ADDR2 {
   
   // Bit field definition.
   struct {
-    /// read-write - ECC Region 2 End Address
+    // read-write - ECC Region 2 End Address
     uint32_t ECC_END_ADDR2 : 32;
   } bits;
   
@@ -463,12 +469,11 @@ union ECC_END_ADDR2 {
 };
 
 // ECC Region 3 Base Address
-//
 union ECC_BASE_ADDR3 {
   
   // Bit field definition.
   struct {
-    /// read-write - ECC Region 3 Base Address
+    // read-write - ECC Region 3 Base Address
     uint32_t ECC_BASE_ADDR3 : 32;
   } bits;
   
@@ -481,12 +486,11 @@ union ECC_BASE_ADDR3 {
 };
 
 // ECC Region 3 End Address
-//
 union ECC_END_ADDR3 {
   
   // Bit field definition.
   struct {
-    /// read-write - ECC Region 3 End Address
+    // read-write - ECC Region 3 End Address
     uint32_t ECC_END_ADDR3 : 32;
   } bits;
   

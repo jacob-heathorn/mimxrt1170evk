@@ -5,129 +5,173 @@
 #include <cstring>
 
 // MECC64
-//
-// NOTE: This file was generated from the forge CMSIS-svd wrapper tool.
-
 namespace nMECC1 {
 
 
 // Error Interrupt Status Register
-//
 union ERR_STATUS {
   
+  // Single Bit Error On OCRAM Bank0
   enum class eSINGLE_ERR0 : uint32_t {
-    eSINGLE_ERR0_0 = 0, // Single bit error does not happen on OCRAM bank0.
-    eSINGLE_ERR0_1 = 1, // Single bit error happens on OCRAM bank0.
+    // Single bit error does not happen on OCRAM bank0.
+    eSINGLE_ERR0_0 = 0,
+    // Single bit error happens on OCRAM bank0.
+    eSINGLE_ERR0_1 = 1,
   };
   
+  // Single Bit Error On OCRAM Bank1
   enum class eSINGLE_ERR1 : uint32_t {
-    eSINGLE_ERR1_0 = 0, // Single bit error does not happen on OCRAM bank1.
-    eSINGLE_ERR1_1 = 1, // Single bit error happens on OCRAM bank1.
+    // Single bit error does not happen on OCRAM bank1.
+    eSINGLE_ERR1_0 = 0,
+    // Single bit error happens on OCRAM bank1.
+    eSINGLE_ERR1_1 = 1,
   };
   
+  // Single Bit Error On OCRAM Bank2
   enum class eSINGLE_ERR2 : uint32_t {
-    eSINGLE_ERR2_0 = 0, // Single bit error does not happen on OCRAM bank2.
-    eSINGLE_ERR2_1 = 1, // Single bit error happens on OCRAM bank2.
+    // Single bit error does not happen on OCRAM bank2.
+    eSINGLE_ERR2_0 = 0,
+    // Single bit error happens on OCRAM bank2.
+    eSINGLE_ERR2_1 = 1,
   };
   
+  // Single Bit Error On OCRAM Bank3
   enum class eSINGLE_ERR3 : uint32_t {
-    eSINGLE_ERR3_0 = 0, // Single bit error does not happen on OCRAM bank3.
-    eSINGLE_ERR3_1 = 1, // Single bit error happens on OCRAM bank3.
+    // Single bit error does not happen on OCRAM bank3.
+    eSINGLE_ERR3_0 = 0,
+    // Single bit error happens on OCRAM bank3.
+    eSINGLE_ERR3_1 = 1,
   };
   
+  // Multiple Bits Error On OCRAM Bank0
   enum class eMULTI_ERR0 : uint32_t {
-    eMULTI_ERR0_0 = 0, // Multiple bits error does not happen on OCRAM bank0.
-    eMULTI_ERR0_1 = 1, // Multiple bits error happens on OCRAM bank0.
+    // Multiple bits error does not happen on OCRAM bank0.
+    eMULTI_ERR0_0 = 0,
+    // Multiple bits error happens on OCRAM bank0.
+    eMULTI_ERR0_1 = 1,
   };
   
+  // Multiple Bits Error On OCRAM Bank1
   enum class eMULTI_ERR1 : uint32_t {
-    eMULTI_ERR1_0 = 0, // Multiple bits error does not happen on OCRAM bank1.
-    eMULTI_ERR1_1 = 1, // Multiple bits error happens on OCRAM bank1.
+    // Multiple bits error does not happen on OCRAM bank1.
+    eMULTI_ERR1_0 = 0,
+    // Multiple bits error happens on OCRAM bank1.
+    eMULTI_ERR1_1 = 1,
   };
   
+  // Multiple Bits Error On OCRAM Bank2
   enum class eMULTI_ERR2 : uint32_t {
-    eMULTI_ERR2_0 = 0, // Multiple bits error does not happen on OCRAM bank2.
-    eMULTI_ERR2_1 = 1, // Multiple bits error happens on OCRAM bank2.
+    // Multiple bits error does not happen on OCRAM bank2.
+    eMULTI_ERR2_0 = 0,
+    // Multiple bits error happens on OCRAM bank2.
+    eMULTI_ERR2_1 = 1,
   };
   
+  // Multiple Bits Error On OCRAM Bank3
   enum class eMULTI_ERR3 : uint32_t {
-    eMULTI_ERR3_0 = 0, // Multiple bits error does not happen on OCRAM bank3.
-    eMULTI_ERR3_1 = 1, // Multiple bits error happens on OCRAM bank3.
+    // Multiple bits error does not happen on OCRAM bank3.
+    eMULTI_ERR3_0 = 0,
+    // Multiple bits error happens on OCRAM bank3.
+    eMULTI_ERR3_1 = 1,
   };
   
+  // AXI Strobe Error On OCRAM Bank0
   enum class eSTRB_ERR0 : uint32_t {
-    eSTRB_ERR0_0 = 0, // AXI strobe error does not happen on OCRAM bank0.
-    eSTRB_ERR0_1 = 1, // AXI strobe error happens on OCRAM bank0.
+    // AXI strobe error does not happen on OCRAM bank0.
+    eSTRB_ERR0_0 = 0,
+    // AXI strobe error happens on OCRAM bank0.
+    eSTRB_ERR0_1 = 1,
   };
   
+  // AXI Strobe Error On OCRAM Bank1
   enum class eSTRB_ERR1 : uint32_t {
-    eSTRB_ERR1_0 = 0, // AXI strobe error does not happen on OCRAM bank1.
-    eSTRB_ERR1_1 = 1, // AXI strobe error happens on OCRAM bank1.
+    // AXI strobe error does not happen on OCRAM bank1.
+    eSTRB_ERR1_0 = 0,
+    // AXI strobe error happens on OCRAM bank1.
+    eSTRB_ERR1_1 = 1,
   };
   
+  // AXI Strobe Error On OCRAM Bank2
   enum class eSTRB_ERR2 : uint32_t {
-    eSTRB_ERR2_0 = 0, // AXI strobe error does not happen on OCRAM bank2.
-    eSTRB_ERR2_1 = 1, // AXI strobe error happens on OCRAM bank2.
+    // AXI strobe error does not happen on OCRAM bank2.
+    eSTRB_ERR2_0 = 0,
+    // AXI strobe error happens on OCRAM bank2.
+    eSTRB_ERR2_1 = 1,
   };
   
+  // AXI Strobe Error On OCRAM Bank3
   enum class eSTRB_ERR3 : uint32_t {
-    eSTRB_ERR3_0 = 0, // AXI strobe error does not happen on OCRAM bank3.
-    eSTRB_ERR3_1 = 1, // AXI strobe error happens on OCRAM bank3.
+    // AXI strobe error does not happen on OCRAM bank3.
+    eSTRB_ERR3_0 = 0,
+    // AXI strobe error happens on OCRAM bank3.
+    eSTRB_ERR3_1 = 1,
   };
   
+  // OCRAM Access Error On Bank0
   enum class eADDR_ERR0 : uint32_t {
-    eADDR_ERR0_0 = 0, // OCRAM access error does not happen on OCRAM bank0.
-    eADDR_ERR0_1 = 1, // OCRAM access error happens on OCRAM bank0.
+    // OCRAM access error does not happen on OCRAM bank0.
+    eADDR_ERR0_0 = 0,
+    // OCRAM access error happens on OCRAM bank0.
+    eADDR_ERR0_1 = 1,
   };
   
+  // OCRAM Access Error On Bank1
   enum class eADDR_ERR1 : uint32_t {
-    eADDR_ERR1_0 = 0, // OCRAM access error does not happen on OCRAM bank1.
-    eADDR_ERR1_1 = 1, // OCRAM access error happens on OCRAM bank1.
+    // OCRAM access error does not happen on OCRAM bank1.
+    eADDR_ERR1_0 = 0,
+    // OCRAM access error happens on OCRAM bank1.
+    eADDR_ERR1_1 = 1,
   };
   
+  // OCRAM Access Error On Bank2
   enum class eADDR_ERR2 : uint32_t {
-    eADDR_ERR2_0 = 0, // OCRAM access error does not happen on OCRAM bank2.
-    eADDR_ERR2_1 = 1, // OCRAM access error happens on OCRAM bank2.
+    // OCRAM access error does not happen on OCRAM bank2.
+    eADDR_ERR2_0 = 0,
+    // OCRAM access error happens on OCRAM bank2.
+    eADDR_ERR2_1 = 1,
   };
   
+  // OCRAM Access Error On Bank3
   enum class eADDR_ERR3 : uint32_t {
-    eADDR_ERR3_0 = 0, // OCRAM access error does not happen on OCRAM bank3.
-    eADDR_ERR3_1 = 1, // OCRAM access error happens on OCRAM bank3.
+    // OCRAM access error does not happen on OCRAM bank3.
+    eADDR_ERR3_0 = 0,
+    // OCRAM access error happens on OCRAM bank3.
+    eADDR_ERR3_1 = 1,
   };
   
   // Bit field definition.
   struct {
-    /// read-write - Single Bit Error On OCRAM Bank0
+    // read-write - Single Bit Error On OCRAM Bank0
     eSINGLE_ERR0 SINGLE_ERR0 : 1;
-    /// read-write - Single Bit Error On OCRAM Bank1
+    // read-write - Single Bit Error On OCRAM Bank1
     eSINGLE_ERR1 SINGLE_ERR1 : 1;
-    /// read-write - Single Bit Error On OCRAM Bank2
+    // read-write - Single Bit Error On OCRAM Bank2
     eSINGLE_ERR2 SINGLE_ERR2 : 1;
-    /// read-write - Single Bit Error On OCRAM Bank3
+    // read-write - Single Bit Error On OCRAM Bank3
     eSINGLE_ERR3 SINGLE_ERR3 : 1;
-    /// read-write - Multiple Bits Error On OCRAM Bank0
+    // read-write - Multiple Bits Error On OCRAM Bank0
     eMULTI_ERR0 MULTI_ERR0 : 1;
-    /// read-write - Multiple Bits Error On OCRAM Bank1
+    // read-write - Multiple Bits Error On OCRAM Bank1
     eMULTI_ERR1 MULTI_ERR1 : 1;
-    /// read-write - Multiple Bits Error On OCRAM Bank2
+    // read-write - Multiple Bits Error On OCRAM Bank2
     eMULTI_ERR2 MULTI_ERR2 : 1;
-    /// read-write - Multiple Bits Error On OCRAM Bank3
+    // read-write - Multiple Bits Error On OCRAM Bank3
     eMULTI_ERR3 MULTI_ERR3 : 1;
-    /// read-write - AXI Strobe Error On OCRAM Bank0
+    // read-write - AXI Strobe Error On OCRAM Bank0
     eSTRB_ERR0 STRB_ERR0 : 1;
-    /// read-write - AXI Strobe Error On OCRAM Bank1
+    // read-write - AXI Strobe Error On OCRAM Bank1
     eSTRB_ERR1 STRB_ERR1 : 1;
-    /// read-write - AXI Strobe Error On OCRAM Bank2
+    // read-write - AXI Strobe Error On OCRAM Bank2
     eSTRB_ERR2 STRB_ERR2 : 1;
-    /// read-write - AXI Strobe Error On OCRAM Bank3
+    // read-write - AXI Strobe Error On OCRAM Bank3
     eSTRB_ERR3 STRB_ERR3 : 1;
-    /// read-write - OCRAM Access Error On Bank0
+    // read-write - OCRAM Access Error On Bank0
     eADDR_ERR0 ADDR_ERR0 : 1;
-    /// read-write - OCRAM Access Error On Bank1
+    // read-write - OCRAM Access Error On Bank1
     eADDR_ERR1 ADDR_ERR1 : 1;
-    /// read-write - OCRAM Access Error On Bank2
+    // read-write - OCRAM Access Error On Bank2
     eADDR_ERR2 ADDR_ERR2 : 1;
-    /// read-write - OCRAM Access Error On Bank3
+    // read-write - OCRAM Access Error On Bank3
     eADDR_ERR3 ADDR_ERR3 : 1;
     uint32_t _reserved_0 : 16;
   } bits;
@@ -141,122 +185,169 @@ union ERR_STATUS {
 };
 
 // Error Interrupt Status Enable Register
-//
 union ERR_STAT_EN {
   
+  // Single Bit Error Status Enable On OCRAM Bank0
   enum class eSINGLE_ERR0_STAT_EN : uint32_t {
-    eSINGLE_ERR0_STAT_EN_0 = 0, // Disabled
-    eSINGLE_ERR0_STAT_EN_1 = 1, // Enabled
+    // Disabled
+    eSINGLE_ERR0_STAT_EN_0 = 0,
+    // Enabled
+    eSINGLE_ERR0_STAT_EN_1 = 1,
   };
   
+  // Single Bit Error Status Enable On OCRAM Bank1
   enum class eSINGLE_ERR1_STAT_EN : uint32_t {
-    eSINGLE_ERR1_STAT_EN_0 = 0, // Disabled
-    eSINGLE_ERR1_STAT_EN_1 = 1, // Enabled
+    // Disabled
+    eSINGLE_ERR1_STAT_EN_0 = 0,
+    // Enabled
+    eSINGLE_ERR1_STAT_EN_1 = 1,
   };
   
+  // Single Bit Error Status Enable On OCRAM Bank2
   enum class eSINGLE_ERR2_STAT_EN : uint32_t {
-    eSINGLE_ERR2_STAT_EN_0 = 0, // Disabled
-    eSINGLE_ERR2_STAT_EN_1 = 1, // Enabled
+    // Disabled
+    eSINGLE_ERR2_STAT_EN_0 = 0,
+    // Enabled
+    eSINGLE_ERR2_STAT_EN_1 = 1,
   };
   
+  // Single Bit Error Status Enable On OCRAM Bank3
   enum class eSINGLE_ERR3_STAT_EN : uint32_t {
-    eSINGLE_ERR3_STAT_EN_0 = 0, // Disabled
-    eSINGLE_ERR3_STAT_EN_1 = 1, // Enabled
+    // Disabled
+    eSINGLE_ERR3_STAT_EN_0 = 0,
+    // Enabled
+    eSINGLE_ERR3_STAT_EN_1 = 1,
   };
   
+  // Multiple Bits Error Status Enable On OCRAM Bank0
   enum class eMULTI_ERR0_STAT_EN : uint32_t {
-    eMULTI_ERR0_STAT_EN_0 = 0, // Disabled
-    eMULTI_ERR0_STAT_EN_1 = 1, // Enabled
+    // Disabled
+    eMULTI_ERR0_STAT_EN_0 = 0,
+    // Enabled
+    eMULTI_ERR0_STAT_EN_1 = 1,
   };
   
+  // Multiple Bits Error Status Enable On OCRAM Bank1
   enum class eMULTI_ERR1_STAT_EN : uint32_t {
-    eMULTI_ERR1_STAT_EN_0 = 0, // Disabled
-    eMULTI_ERR1_STAT_EN_1 = 1, // Enabled
+    // Disabled
+    eMULTI_ERR1_STAT_EN_0 = 0,
+    // Enabled
+    eMULTI_ERR1_STAT_EN_1 = 1,
   };
   
+  // Multiple Bits Error Status Enable On OCRAM Bank2
   enum class eMULTI_ERR2_STAT_EN : uint32_t {
-    eMULTI_ERR2_STAT_EN_0 = 0, // Disabled
-    eMULTI_ERR2_STAT_EN_1 = 1, // Enabled
+    // Disabled
+    eMULTI_ERR2_STAT_EN_0 = 0,
+    // Enabled
+    eMULTI_ERR2_STAT_EN_1 = 1,
   };
   
+  // Multiple Bits Error Status Enable On OCRAM Bank3
   enum class eMULTI_ERR3_STAT_EN : uint32_t {
-    eMULTI_ERR3_STAT_EN_0 = 0, // Disabled
-    eMULTI_ERR3_STAT_EN_1 = 1, // Enabled
+    // Disabled
+    eMULTI_ERR3_STAT_EN_0 = 0,
+    // Enabled
+    eMULTI_ERR3_STAT_EN_1 = 1,
   };
   
+  // AXI Strobe Error Status Enable On OCRAM Bank0
   enum class eSTRB_ERR0_STAT_EN : uint32_t {
-    eSTRB_ERR0_STAT_EN_0 = 0, // Disabled
-    eSTRB_ERR0_STAT_EN_1 = 1, // Enabled
+    // Disabled
+    eSTRB_ERR0_STAT_EN_0 = 0,
+    // Enabled
+    eSTRB_ERR0_STAT_EN_1 = 1,
   };
   
+  // AXI Strobe Error Status Enable On OCRAM Bank1
   enum class eSTRB_ERR1_STAT_EN : uint32_t {
-    eSTRB_ERR1_STAT_EN_0 = 0, // Disabled
-    eSTRB_ERR1_STAT_EN_1 = 1, // Enabled
+    // Disabled
+    eSTRB_ERR1_STAT_EN_0 = 0,
+    // Enabled
+    eSTRB_ERR1_STAT_EN_1 = 1,
   };
   
+  // AXI Strobe Error Status Enable On OCRAM Bank2
   enum class eSTRB_ERR2_STAT_EN : uint32_t {
-    eSTRB_ERR2_STAT_EN_0 = 0, // Disabled
-    eSTRB_ERR2_STAT_EN_1 = 1, // Enabled
+    // Disabled
+    eSTRB_ERR2_STAT_EN_0 = 0,
+    // Enabled
+    eSTRB_ERR2_STAT_EN_1 = 1,
   };
   
+  // AXI Strobe Error Status Enable On OCRAM Bank3
   enum class eSTRB_ERR3_STAT_EN : uint32_t {
-    eSTRB_ERR3_STAT_EN_0 = 0, // Disabled
-    eSTRB_ERR3_STAT_EN_1 = 1, // Enabled
+    // Disabled
+    eSTRB_ERR3_STAT_EN_0 = 0,
+    // Enabled
+    eSTRB_ERR3_STAT_EN_1 = 1,
   };
   
+  // OCRAM Access Error Status Enable On Bank0
   enum class eADDR_ERR0_STAT_EN : uint32_t {
-    eADDR_ERR0_STAT_EN_0 = 0, // Disabled
-    eADDR_ERR0_STAT_EN_1 = 1, // Enabled
+    // Disabled
+    eADDR_ERR0_STAT_EN_0 = 0,
+    // Enabled
+    eADDR_ERR0_STAT_EN_1 = 1,
   };
   
+  // OCRAM Access Error Status Enable On Bank1
   enum class eADDR_ERR1_STAT_EN : uint32_t {
-    eADDR_ERR1_STAT_EN_0 = 0, // Disabled
-    eADDR_ERR1_STAT_EN_1 = 1, // Enabled
+    // Disabled
+    eADDR_ERR1_STAT_EN_0 = 0,
+    // Enabled
+    eADDR_ERR1_STAT_EN_1 = 1,
   };
   
+  // OCRAM Access Error Status Enable On Bank2
   enum class eADDR_ERR2_STAT_EN : uint32_t {
-    eADDR_ERR2_STAT_EN_0 = 0, // Disabled
-    eADDR_ERR2_STAT_EN_1 = 1, // Enabled
+    // Disabled
+    eADDR_ERR2_STAT_EN_0 = 0,
+    // Enabled
+    eADDR_ERR2_STAT_EN_1 = 1,
   };
   
+  // OCRAM Access Error Status Enable On Bank3
   enum class eADDR_ERR3_STAT_EN : uint32_t {
-    eADDR_ERR3_STAT_EN_0 = 0, // Disabled
-    eADDR_ERR3_STAT_EN_1 = 1, // Enabled
+    // Disabled
+    eADDR_ERR3_STAT_EN_0 = 0,
+    // Enabled
+    eADDR_ERR3_STAT_EN_1 = 1,
   };
   
   // Bit field definition.
   struct {
-    /// read-write - Single Bit Error Status Enable On OCRAM Bank0
+    // read-write - Single Bit Error Status Enable On OCRAM Bank0
     eSINGLE_ERR0_STAT_EN SINGLE_ERR0_STAT_EN : 1;
-    /// read-write - Single Bit Error Status Enable On OCRAM Bank1
+    // read-write - Single Bit Error Status Enable On OCRAM Bank1
     eSINGLE_ERR1_STAT_EN SINGLE_ERR1_STAT_EN : 1;
-    /// read-write - Single Bit Error Status Enable On OCRAM Bank2
+    // read-write - Single Bit Error Status Enable On OCRAM Bank2
     eSINGLE_ERR2_STAT_EN SINGLE_ERR2_STAT_EN : 1;
-    /// read-write - Single Bit Error Status Enable On OCRAM Bank3
+    // read-write - Single Bit Error Status Enable On OCRAM Bank3
     eSINGLE_ERR3_STAT_EN SINGLE_ERR3_STAT_EN : 1;
-    /// read-write - Multiple Bits Error Status Enable On OCRAM Bank0
+    // read-write - Multiple Bits Error Status Enable On OCRAM Bank0
     eMULTI_ERR0_STAT_EN MULTI_ERR0_STAT_EN : 1;
-    /// read-write - Multiple Bits Error Status Enable On OCRAM Bank1
+    // read-write - Multiple Bits Error Status Enable On OCRAM Bank1
     eMULTI_ERR1_STAT_EN MULTI_ERR1_STAT_EN : 1;
-    /// read-write - Multiple Bits Error Status Enable On OCRAM Bank2
+    // read-write - Multiple Bits Error Status Enable On OCRAM Bank2
     eMULTI_ERR2_STAT_EN MULTI_ERR2_STAT_EN : 1;
-    /// read-write - Multiple Bits Error Status Enable On OCRAM Bank3
+    // read-write - Multiple Bits Error Status Enable On OCRAM Bank3
     eMULTI_ERR3_STAT_EN MULTI_ERR3_STAT_EN : 1;
-    /// read-write - AXI Strobe Error Status Enable On OCRAM Bank0
+    // read-write - AXI Strobe Error Status Enable On OCRAM Bank0
     eSTRB_ERR0_STAT_EN STRB_ERR0_STAT_EN : 1;
-    /// read-write - AXI Strobe Error Status Enable On OCRAM Bank1
+    // read-write - AXI Strobe Error Status Enable On OCRAM Bank1
     eSTRB_ERR1_STAT_EN STRB_ERR1_STAT_EN : 1;
-    /// read-write - AXI Strobe Error Status Enable On OCRAM Bank2
+    // read-write - AXI Strobe Error Status Enable On OCRAM Bank2
     eSTRB_ERR2_STAT_EN STRB_ERR2_STAT_EN : 1;
-    /// read-write - AXI Strobe Error Status Enable On OCRAM Bank3
+    // read-write - AXI Strobe Error Status Enable On OCRAM Bank3
     eSTRB_ERR3_STAT_EN STRB_ERR3_STAT_EN : 1;
-    /// read-write - OCRAM Access Error Status Enable On Bank0
+    // read-write - OCRAM Access Error Status Enable On Bank0
     eADDR_ERR0_STAT_EN ADDR_ERR0_STAT_EN : 1;
-    /// read-write - OCRAM Access Error Status Enable On Bank1
+    // read-write - OCRAM Access Error Status Enable On Bank1
     eADDR_ERR1_STAT_EN ADDR_ERR1_STAT_EN : 1;
-    /// read-write - OCRAM Access Error Status Enable On Bank2
+    // read-write - OCRAM Access Error Status Enable On Bank2
     eADDR_ERR2_STAT_EN ADDR_ERR2_STAT_EN : 1;
-    /// read-write - OCRAM Access Error Status Enable On Bank3
+    // read-write - OCRAM Access Error Status Enable On Bank3
     eADDR_ERR3_STAT_EN ADDR_ERR3_STAT_EN : 1;
     uint32_t _reserved_0 : 16;
   } bits;
@@ -270,122 +361,169 @@ union ERR_STAT_EN {
 };
 
 // Error Interrupt Enable Register
-//
 union ERR_SIG_EN {
   
+  // Single Bit Error Interrupt Enable On OCRAM Bank0
   enum class eSINGLE_ERR0_SIG_EN : uint32_t {
-    eSINGLE_ERR0_SIG_EN_0 = 0, // Disabled
-    eSINGLE_ERR0_SIG_EN_1 = 1, // Enabled
+    // Disabled
+    eSINGLE_ERR0_SIG_EN_0 = 0,
+    // Enabled
+    eSINGLE_ERR0_SIG_EN_1 = 1,
   };
   
+  // Single Bit Error Interrupt Enable On OCRAM Bank1
   enum class eSINGLE_ERR1_SIG_EN : uint32_t {
-    eSINGLE_ERR1_SIG_EN_0 = 0, // Disabled
-    eSINGLE_ERR1_SIG_EN_1 = 1, // Enabled
+    // Disabled
+    eSINGLE_ERR1_SIG_EN_0 = 0,
+    // Enabled
+    eSINGLE_ERR1_SIG_EN_1 = 1,
   };
   
+  // Single Bit Error Interrupt Enable On OCRAM Bank2
   enum class eSINGLE_ERR2_SIG_EN : uint32_t {
-    eSINGLE_ERR2_SIG_EN_0 = 0, // Disabled
-    eSINGLE_ERR2_SIG_EN_1 = 1, // Enabled
+    // Disabled
+    eSINGLE_ERR2_SIG_EN_0 = 0,
+    // Enabled
+    eSINGLE_ERR2_SIG_EN_1 = 1,
   };
   
+  // Single Bit Error Interrupt Enable On OCRAM Bank3
   enum class eSINGLE_ERR3_SIG_EN : uint32_t {
-    eSINGLE_ERR3_SIG_EN_0 = 0, // Disabled
-    eSINGLE_ERR3_SIG_EN_1 = 1, // Enabled
+    // Disabled
+    eSINGLE_ERR3_SIG_EN_0 = 0,
+    // Enabled
+    eSINGLE_ERR3_SIG_EN_1 = 1,
   };
   
+  // Multiple Bits Error Interrupt Enable On OCRAM Bank0
   enum class eMULTI_ERR0_SIG_EN : uint32_t {
-    eMULTI_ERR0_SIG_EN_0 = 0, // Disabled
-    eMULTI_ERR0_SIG_EN_1 = 1, // Enabled
+    // Disabled
+    eMULTI_ERR0_SIG_EN_0 = 0,
+    // Enabled
+    eMULTI_ERR0_SIG_EN_1 = 1,
   };
   
+  // Multiple Bits Error Interrupt Enable On OCRAM Bank1
   enum class eMULTI_ERR1_SIG_EN : uint32_t {
-    eMULTI_ERR1_SIG_EN_0 = 0, // Disabled
-    eMULTI_ERR1_SIG_EN_1 = 1, // Enabled
+    // Disabled
+    eMULTI_ERR1_SIG_EN_0 = 0,
+    // Enabled
+    eMULTI_ERR1_SIG_EN_1 = 1,
   };
   
+  // Multiple Bits Error Interrupt Enable On OCRAM Bank2
   enum class eMULTI_ERR2_SIG_EN : uint32_t {
-    eMULTI_ERR2_SIG_EN_0 = 0, // Disabled
-    eMULTI_ERR2_SIG_EN_1 = 1, // Enabled
+    // Disabled
+    eMULTI_ERR2_SIG_EN_0 = 0,
+    // Enabled
+    eMULTI_ERR2_SIG_EN_1 = 1,
   };
   
+  // Multiple Bits Error Interrupt Enable On OCRAM Bank3
   enum class eMULTI_ERR3_SIG_EN : uint32_t {
-    eMULTI_ERR3_SIG_EN_0 = 0, // Disabled
-    eMULTI_ERR3_SIG_EN_1 = 1, // Enabled
+    // Disabled
+    eMULTI_ERR3_SIG_EN_0 = 0,
+    // Enabled
+    eMULTI_ERR3_SIG_EN_1 = 1,
   };
   
+  // AXI Strobe Error Interrupt Enable On OCRAM Bank0
   enum class eSTRB_ERR0_SIG_EN : uint32_t {
-    eSTRB_ERR0_SIG_EN_0 = 0, // Disabled
-    eSTRB_ERR0_SIG_EN_1 = 1, // Enabled
+    // Disabled
+    eSTRB_ERR0_SIG_EN_0 = 0,
+    // Enabled
+    eSTRB_ERR0_SIG_EN_1 = 1,
   };
   
+  // AXI Strobe Error Interrupt Enable On OCRAM Bank1
   enum class eSTRB_ERR1_SIG_EN : uint32_t {
-    eSTRB_ERR1_SIG_EN_0 = 0, // Disabled
-    eSTRB_ERR1_SIG_EN_1 = 1, // Enabled
+    // Disabled
+    eSTRB_ERR1_SIG_EN_0 = 0,
+    // Enabled
+    eSTRB_ERR1_SIG_EN_1 = 1,
   };
   
+  // AXI Strobe Error Interrupt Enable On OCRAM Bank2
   enum class eSTRB_ERR2_SIG_EN : uint32_t {
-    eSTRB_ERR2_SIG_EN_0 = 0, // Disabled
-    eSTRB_ERR2_SIG_EN_1 = 1, // Enabled
+    // Disabled
+    eSTRB_ERR2_SIG_EN_0 = 0,
+    // Enabled
+    eSTRB_ERR2_SIG_EN_1 = 1,
   };
   
+  // AXI Strobe Error Interrupt Enable On OCRAM Bank3
   enum class eSTRB_ERR3_SIG_EN : uint32_t {
-    eSTRB_ERR3_SIG_EN_0 = 0, // Disabled
-    eSTRB_ERR3_SIG_EN_1 = 1, // Enabled
+    // Disabled
+    eSTRB_ERR3_SIG_EN_0 = 0,
+    // Enabled
+    eSTRB_ERR3_SIG_EN_1 = 1,
   };
   
+  // OCRAM Access Error Interrupt Enable On Bank0
   enum class eADDR_ERR0_SIG_EN : uint32_t {
-    eADDR_ERR0_SIG_EN_0 = 0, // Disabled
-    eADDR_ERR0_SIG_EN_1 = 1, // Enabled
+    // Disabled
+    eADDR_ERR0_SIG_EN_0 = 0,
+    // Enabled
+    eADDR_ERR0_SIG_EN_1 = 1,
   };
   
+  // OCRAM Access Error Interrupt Enable On Bank1
   enum class eADDR_ERR1_SIG_EN : uint32_t {
-    eADDR_ERR1_SIG_EN_0 = 0, // Disabled
-    eADDR_ERR1_SIG_EN_1 = 1, // Enabled
+    // Disabled
+    eADDR_ERR1_SIG_EN_0 = 0,
+    // Enabled
+    eADDR_ERR1_SIG_EN_1 = 1,
   };
   
+  // OCRAM Access Error Interrupt Enable On Bank2
   enum class eADDR_ERR2_SIG_EN : uint32_t {
-    eADDR_ERR2_SIG_EN_0 = 0, // Disabled
-    eADDR_ERR2_SIG_EN_1 = 1, // Enabled
+    // Disabled
+    eADDR_ERR2_SIG_EN_0 = 0,
+    // Enabled
+    eADDR_ERR2_SIG_EN_1 = 1,
   };
   
+  // OCRAM Access Error Interrupt Enable On Bank3
   enum class eADDR_ERR3_SIG_EN : uint32_t {
-    eADDR_ERR3_SIG_EN_0 = 0, // Disabled
-    eADDR_ERR3_SIG_EN_1 = 1, // Enabled
+    // Disabled
+    eADDR_ERR3_SIG_EN_0 = 0,
+    // Enabled
+    eADDR_ERR3_SIG_EN_1 = 1,
   };
   
   // Bit field definition.
   struct {
-    /// read-write - Single Bit Error Interrupt Enable On OCRAM Bank0
+    // read-write - Single Bit Error Interrupt Enable On OCRAM Bank0
     eSINGLE_ERR0_SIG_EN SINGLE_ERR0_SIG_EN : 1;
-    /// read-write - Single Bit Error Interrupt Enable On OCRAM Bank1
+    // read-write - Single Bit Error Interrupt Enable On OCRAM Bank1
     eSINGLE_ERR1_SIG_EN SINGLE_ERR1_SIG_EN : 1;
-    /// read-write - Single Bit Error Interrupt Enable On OCRAM Bank2
+    // read-write - Single Bit Error Interrupt Enable On OCRAM Bank2
     eSINGLE_ERR2_SIG_EN SINGLE_ERR2_SIG_EN : 1;
-    /// read-write - Single Bit Error Interrupt Enable On OCRAM Bank3
+    // read-write - Single Bit Error Interrupt Enable On OCRAM Bank3
     eSINGLE_ERR3_SIG_EN SINGLE_ERR3_SIG_EN : 1;
-    /// read-write - Multiple Bits Error Interrupt Enable On OCRAM Bank0
+    // read-write - Multiple Bits Error Interrupt Enable On OCRAM Bank0
     eMULTI_ERR0_SIG_EN MULTI_ERR0_SIG_EN : 1;
-    /// read-write - Multiple Bits Error Interrupt Enable On OCRAM Bank1
+    // read-write - Multiple Bits Error Interrupt Enable On OCRAM Bank1
     eMULTI_ERR1_SIG_EN MULTI_ERR1_SIG_EN : 1;
-    /// read-write - Multiple Bits Error Interrupt Enable On OCRAM Bank2
+    // read-write - Multiple Bits Error Interrupt Enable On OCRAM Bank2
     eMULTI_ERR2_SIG_EN MULTI_ERR2_SIG_EN : 1;
-    /// read-write - Multiple Bits Error Interrupt Enable On OCRAM Bank3
+    // read-write - Multiple Bits Error Interrupt Enable On OCRAM Bank3
     eMULTI_ERR3_SIG_EN MULTI_ERR3_SIG_EN : 1;
-    /// read-write - AXI Strobe Error Interrupt Enable On OCRAM Bank0
+    // read-write - AXI Strobe Error Interrupt Enable On OCRAM Bank0
     eSTRB_ERR0_SIG_EN STRB_ERR0_SIG_EN : 1;
-    /// read-write - AXI Strobe Error Interrupt Enable On OCRAM Bank1
+    // read-write - AXI Strobe Error Interrupt Enable On OCRAM Bank1
     eSTRB_ERR1_SIG_EN STRB_ERR1_SIG_EN : 1;
-    /// read-write - AXI Strobe Error Interrupt Enable On OCRAM Bank2
+    // read-write - AXI Strobe Error Interrupt Enable On OCRAM Bank2
     eSTRB_ERR2_SIG_EN STRB_ERR2_SIG_EN : 1;
-    /// read-write - AXI Strobe Error Interrupt Enable On OCRAM Bank3
+    // read-write - AXI Strobe Error Interrupt Enable On OCRAM Bank3
     eSTRB_ERR3_SIG_EN STRB_ERR3_SIG_EN : 1;
-    /// read-write - OCRAM Access Error Interrupt Enable On Bank0
+    // read-write - OCRAM Access Error Interrupt Enable On Bank0
     eADDR_ERR0_SIG_EN ADDR_ERR0_SIG_EN : 1;
-    /// read-write - OCRAM Access Error Interrupt Enable On Bank1
+    // read-write - OCRAM Access Error Interrupt Enable On Bank1
     eADDR_ERR1_SIG_EN ADDR_ERR1_SIG_EN : 1;
-    /// read-write - OCRAM Access Error Interrupt Enable On Bank2
+    // read-write - OCRAM Access Error Interrupt Enable On Bank2
     eADDR_ERR2_SIG_EN ADDR_ERR2_SIG_EN : 1;
-    /// read-write - OCRAM Access Error Interrupt Enable On Bank3
+    // read-write - OCRAM Access Error Interrupt Enable On Bank3
     eADDR_ERR3_SIG_EN ADDR_ERR3_SIG_EN : 1;
     uint32_t _reserved_0 : 16;
   } bits;
@@ -399,12 +537,11 @@ union ERR_SIG_EN {
 };
 
 // Error Injection On LOW 32 bits Of OCRAM Bank0 Write Data
-//
 union ERR_DATA_INJ_LOW0 {
   
   // Bit field definition.
   struct {
-    /// read-write - Error Injection On LOW 32 bits Of OCRAM Bank0 Write Data
+    // read-write - Error Injection On LOW 32 bits Of OCRAM Bank0 Write Data
     uint32_t ERR_DATA_INJ : 32;
   } bits;
   
@@ -417,12 +554,11 @@ union ERR_DATA_INJ_LOW0 {
 };
 
 // Error Injection On HIGH 32 bits Of OCRAM Bank0 Write Data
-//
 union ERR_DATA_INJ_HIGH0 {
   
   // Bit field definition.
   struct {
-    /// read-write - Error Injection On HIGH 32 bits Of OCRAM Bank0 Write Data
+    // read-write - Error Injection On HIGH 32 bits Of OCRAM Bank0 Write Data
     uint32_t ERR_DATA_INJ : 32;
   } bits;
   
@@ -435,12 +571,11 @@ union ERR_DATA_INJ_HIGH0 {
 };
 
 // Error Injection On 8 bits ECC code Of OCRAM Bank0 Write Data
-//
 union ERR_ECC_INJ0 {
   
   // Bit field definition.
   struct {
-    /// read-write - Error Injection On 8 bits ECC code Of OCRAM Bank0 Write Data
+    // read-write - Error Injection On 8 bits ECC code Of OCRAM Bank0 Write Data
     uint32_t ERR_ECC_INJ : 8;
     uint32_t _reserved_0 : 24;
   } bits;
@@ -454,12 +589,11 @@ union ERR_ECC_INJ0 {
 };
 
 // Error Injection On LOW 32 bits Of OCRAM Bank1 Write Data
-//
 union ERR_DATA_INJ_LOW1 {
   
   // Bit field definition.
   struct {
-    /// read-write - Error Injection On LOW 32 bits Of OCRAM Bank1 Write Data
+    // read-write - Error Injection On LOW 32 bits Of OCRAM Bank1 Write Data
     uint32_t ERR_DATA_INJ : 32;
   } bits;
   
@@ -472,12 +606,11 @@ union ERR_DATA_INJ_LOW1 {
 };
 
 // Error Injection On HIGH 32 bits Of OCRAM Bank1 Write Data
-//
 union ERR_DATA_INJ_HIGH1 {
   
   // Bit field definition.
   struct {
-    /// read-write - Error Injection On HIGH 32 bits Of OCRAM Bank1 Write Data
+    // read-write - Error Injection On HIGH 32 bits Of OCRAM Bank1 Write Data
     uint32_t ERR_DATA_INJ : 32;
   } bits;
   
@@ -490,12 +623,11 @@ union ERR_DATA_INJ_HIGH1 {
 };
 
 // Error Injection On 8 bits ECC code Of OCRAM Bank1 Write Data
-//
 union ERR_ECC_INJ1 {
   
   // Bit field definition.
   struct {
-    /// read-write - Error Injection On 8 bits ECC code Of OCRAM Bank1 Write Data
+    // read-write - Error Injection On 8 bits ECC code Of OCRAM Bank1 Write Data
     uint32_t ERR_ECC_INJ : 8;
     uint32_t _reserved_0 : 24;
   } bits;
@@ -509,12 +641,11 @@ union ERR_ECC_INJ1 {
 };
 
 // Error Injection On LOW 32 bits Of OCRAM Bank2 Write Data
-//
 union ERR_DATA_INJ_LOW2 {
   
   // Bit field definition.
   struct {
-    /// read-write - Error Injection On LOW 32 bits Of OCRAM Bank2 Write Data
+    // read-write - Error Injection On LOW 32 bits Of OCRAM Bank2 Write Data
     uint32_t ERR_DATA_INJ : 32;
   } bits;
   
@@ -527,12 +658,11 @@ union ERR_DATA_INJ_LOW2 {
 };
 
 // Error Injection On HIGH 32 bits Of OCRAM Bank2 Write Data
-//
 union ERR_DATA_INJ_HIGH2 {
   
   // Bit field definition.
   struct {
-    /// read-write - Error Injection On HIGH 32 bits Of OCRAM Bank2 Write Data
+    // read-write - Error Injection On HIGH 32 bits Of OCRAM Bank2 Write Data
     uint32_t ERR_DATA_INJ : 32;
   } bits;
   
@@ -545,12 +675,11 @@ union ERR_DATA_INJ_HIGH2 {
 };
 
 // Error Injection On 8 bits ECC code Of OCRAM Bank2 Write Data
-//
 union ERR_ECC_INJ2 {
   
   // Bit field definition.
   struct {
-    /// read-write - Error Injection On 8 bits ECC code Of OCRAM Bank2 Write Data
+    // read-write - Error Injection On 8 bits ECC code Of OCRAM Bank2 Write Data
     uint32_t ERR_ECC_INJ : 8;
     uint32_t _reserved_0 : 24;
   } bits;
@@ -564,12 +693,11 @@ union ERR_ECC_INJ2 {
 };
 
 // Error Injection On LOW 32 bits Of OCRAM Bank3 Write Data
-//
 union ERR_DATA_INJ_LOW3 {
   
   // Bit field definition.
   struct {
-    /// read-write - Error Injection On LOW 32 bits Of OCRAM Bank3 Write Data
+    // read-write - Error Injection On LOW 32 bits Of OCRAM Bank3 Write Data
     uint32_t ERR_DATA_INJ : 32;
   } bits;
   
@@ -582,12 +710,11 @@ union ERR_DATA_INJ_LOW3 {
 };
 
 // Error Injection On HIGH 32 bits Of OCRAM Bank3 Write Data
-//
 union ERR_DATA_INJ_HIGH3 {
   
   // Bit field definition.
   struct {
-    /// read-write - Error Injection On HIGH 32 bits Of OCRAM Bank3 Write Data
+    // read-write - Error Injection On HIGH 32 bits Of OCRAM Bank3 Write Data
     uint32_t ERR_DATA_INJ : 32;
   } bits;
   
@@ -600,12 +727,11 @@ union ERR_DATA_INJ_HIGH3 {
 };
 
 // Error Injection On 8 bits ECC code Of OCRAM Bank3 Write Data
-//
 union ERR_ECC_INJ3 {
   
   // Bit field definition.
   struct {
-    /// read-write - Error Injection On 8 bits ECC code Of OCRAM Bank3 Write Data
+    // read-write - Error Injection On 8 bits ECC code Of OCRAM Bank3 Write Data
     uint32_t ERR_ECC_INJ : 8;
     uint32_t _reserved_0 : 24;
   } bits;
@@ -619,14 +745,13 @@ union ERR_ECC_INJ3 {
 };
 
 // Single Error Address And ECC code On OCRAM Bank0
-//
 union SINGLE_ERR_ADDR_ECC0 {
   
   // Bit field definition.
   struct {
-    /// read-only - Single Error ECC code On OCRAM Bank0
+    // read-only - Single Error ECC code On OCRAM Bank0
     uint32_t SINGLE_ERR_ECC : 8;
-    /// read-only - Single Error Address On OCRAM Bank0
+    // read-only - Single Error Address On OCRAM Bank0
     uint32_t SINGLE_ERR_ADDR : 19;
     uint32_t _reserved_0 : 5;
   } bits;
@@ -640,12 +765,11 @@ union SINGLE_ERR_ADDR_ECC0 {
 };
 
 // LOW 32 Bits Single Error Read Data On OCRAM Bank0
-//
 union SINGLE_ERR_DATA_LOW0 {
   
   // Bit field definition.
   struct {
-    /// read-only - LOW 32 Bits Single Error Read Data On OCRAM Bank0
+    // read-only - LOW 32 Bits Single Error Read Data On OCRAM Bank0
     uint32_t SINGLE_ERR_DATA : 32;
   } bits;
   
@@ -658,12 +782,11 @@ union SINGLE_ERR_DATA_LOW0 {
 };
 
 // HIGH 32 Bits Single Error Read Data On OCRAM Bank0
-//
 union SINGLE_ERR_DATA_HIGH0 {
   
   // Bit field definition.
   struct {
-    /// read-only - HIGH 32 Bits Single Error Read Data On OCRAM Bank0
+    // read-only - HIGH 32 Bits Single Error Read Data On OCRAM Bank0
     uint32_t SINGLE_ERR_DATA : 32;
   } bits;
   
@@ -676,12 +799,11 @@ union SINGLE_ERR_DATA_HIGH0 {
 };
 
 // LOW Single Error Bit Position On OCRAM Bank0
-//
 union SINGLE_ERR_POS_LOW0 {
   
   // Bit field definition.
   struct {
-    /// read-only - LOW Single Error Bit Position On OCRAM Bank0
+    // read-only - LOW Single Error Bit Position On OCRAM Bank0
     uint32_t SINGLE_ERR_POS : 32;
   } bits;
   
@@ -694,12 +816,11 @@ union SINGLE_ERR_POS_LOW0 {
 };
 
 // HIGH Single Error Bit Position On OCRAM Bank0
-//
 union SINGLE_ERR_POS_HIGH0 {
   
   // Bit field definition.
   struct {
-    /// read-only - HIGH Single Error Bit Position On OCRAM Bank0
+    // read-only - HIGH Single Error Bit Position On OCRAM Bank0
     uint32_t SINGLE_ERR_POS : 32;
   } bits;
   
@@ -712,14 +833,13 @@ union SINGLE_ERR_POS_HIGH0 {
 };
 
 // Single Error Address And ECC code On OCRAM Bank1
-//
 union SINGLE_ERR_ADDR_ECC1 {
   
   // Bit field definition.
   struct {
-    /// read-only - Single Error ECC code On OCRAM Bank1
+    // read-only - Single Error ECC code On OCRAM Bank1
     uint32_t SINGLE_ERR_ECC : 8;
-    /// read-only - Single Error Address On OCRAM Bank1
+    // read-only - Single Error Address On OCRAM Bank1
     uint32_t SINGLE_ERR_ADDR : 19;
     uint32_t _reserved_0 : 5;
   } bits;
@@ -733,12 +853,11 @@ union SINGLE_ERR_ADDR_ECC1 {
 };
 
 // LOW 32 Bits Single Error Read Data On OCRAM Bank1
-//
 union SINGLE_ERR_DATA_LOW1 {
   
   // Bit field definition.
   struct {
-    /// read-only - LOW 32 Bits Single Error Read Data On OCRAM Bank1
+    // read-only - LOW 32 Bits Single Error Read Data On OCRAM Bank1
     uint32_t SINGLE_ERR_DATA : 32;
   } bits;
   
@@ -751,12 +870,11 @@ union SINGLE_ERR_DATA_LOW1 {
 };
 
 // HIGH 32 Bits Single Error Read Data On OCRAM Bank1
-//
 union SINGLE_ERR_DATA_HIGH1 {
   
   // Bit field definition.
   struct {
-    /// read-only - HIGH 32 Bits Single Error Read Data On OCRAM Bank1
+    // read-only - HIGH 32 Bits Single Error Read Data On OCRAM Bank1
     uint32_t SINGLE_ERR_DATA : 32;
   } bits;
   
@@ -769,12 +887,11 @@ union SINGLE_ERR_DATA_HIGH1 {
 };
 
 // LOW Single Error Bit Position On OCRAM Bank1
-//
 union SINGLE_ERR_POS_LOW1 {
   
   // Bit field definition.
   struct {
-    /// read-only - LOW Single Error Bit Position On OCRAM Bank1
+    // read-only - LOW Single Error Bit Position On OCRAM Bank1
     uint32_t SINGLE_ERR_POS : 32;
   } bits;
   
@@ -787,12 +904,11 @@ union SINGLE_ERR_POS_LOW1 {
 };
 
 // HIGH Single Error Bit Position On OCRAM Bank1
-//
 union SINGLE_ERR_POS_HIGH1 {
   
   // Bit field definition.
   struct {
-    /// read-only - HIGH Single Error Bit Position On OCRAM Bank1
+    // read-only - HIGH Single Error Bit Position On OCRAM Bank1
     uint32_t SINGLE_ERR_POS : 32;
   } bits;
   
@@ -805,14 +921,13 @@ union SINGLE_ERR_POS_HIGH1 {
 };
 
 // Single Error Address And ECC code On OCRAM Bank2
-//
 union SINGLE_ERR_ADDR_ECC2 {
   
   // Bit field definition.
   struct {
-    /// read-only - Single Error ECC code On OCRAM Bank2
+    // read-only - Single Error ECC code On OCRAM Bank2
     uint32_t SINGLE_ERR_ECC : 8;
-    /// read-only - Single Error Address On OCRAM Bank2
+    // read-only - Single Error Address On OCRAM Bank2
     uint32_t SINGLE_ERR_ADDR : 19;
     uint32_t _reserved_0 : 5;
   } bits;
@@ -826,12 +941,11 @@ union SINGLE_ERR_ADDR_ECC2 {
 };
 
 // LOW 32 Bits Single Error Read Data On OCRAM Bank2
-//
 union SINGLE_ERR_DATA_LOW2 {
   
   // Bit field definition.
   struct {
-    /// read-only - LOW 32 Bits Single Error Read Data On OCRAM Bank2
+    // read-only - LOW 32 Bits Single Error Read Data On OCRAM Bank2
     uint32_t SINGLE_ERR_DATA : 32;
   } bits;
   
@@ -844,12 +958,11 @@ union SINGLE_ERR_DATA_LOW2 {
 };
 
 // HIGH 32 Bits Single Error Read Data On OCRAM Bank2
-//
 union SINGLE_ERR_DATA_HIGH2 {
   
   // Bit field definition.
   struct {
-    /// read-only - HIGH 32 Bits Single Error Read Data On OCRAM Bank2
+    // read-only - HIGH 32 Bits Single Error Read Data On OCRAM Bank2
     uint32_t SINGLE_ERR_DATA : 32;
   } bits;
   
@@ -862,12 +975,11 @@ union SINGLE_ERR_DATA_HIGH2 {
 };
 
 // LOW Single Error Bit Position On OCRAM Bank2
-//
 union SINGLE_ERR_POS_LOW2 {
   
   // Bit field definition.
   struct {
-    /// read-only - LOW Single Error Bit Position On OCRAM Bank2
+    // read-only - LOW Single Error Bit Position On OCRAM Bank2
     uint32_t SINGLE_ERR_POS : 32;
   } bits;
   
@@ -880,12 +992,11 @@ union SINGLE_ERR_POS_LOW2 {
 };
 
 // HIGH Single Error Bit Position On OCRAM Bank2
-//
 union SINGLE_ERR_POS_HIGH2 {
   
   // Bit field definition.
   struct {
-    /// read-only - HIGH Single Error Bit Position On OCRAM Bank2
+    // read-only - HIGH Single Error Bit Position On OCRAM Bank2
     uint32_t SINGLE_ERR_POS : 32;
   } bits;
   
@@ -898,14 +1009,13 @@ union SINGLE_ERR_POS_HIGH2 {
 };
 
 // Single Error Address And ECC code On OCRAM Bank3
-//
 union SINGLE_ERR_ADDR_ECC3 {
   
   // Bit field definition.
   struct {
-    /// read-only - Single Error ECC code On OCRAM Bank3
+    // read-only - Single Error ECC code On OCRAM Bank3
     uint32_t SINGLE_ERR_ECC : 8;
-    /// read-only - Single Error Address On OCRAM Bank3
+    // read-only - Single Error Address On OCRAM Bank3
     uint32_t SINGLE_ERR_ADDR : 19;
     uint32_t _reserved_0 : 5;
   } bits;
@@ -919,12 +1029,11 @@ union SINGLE_ERR_ADDR_ECC3 {
 };
 
 // LOW 32 Bits Single Error Read Data On OCRAM Bank3
-//
 union SINGLE_ERR_DATA_LOW3 {
   
   // Bit field definition.
   struct {
-    /// read-only - LOW 32 Bits Single Error Read Data On OCRAM Bank3
+    // read-only - LOW 32 Bits Single Error Read Data On OCRAM Bank3
     uint32_t SINGLE_ERR_DATA : 32;
   } bits;
   
@@ -937,12 +1046,11 @@ union SINGLE_ERR_DATA_LOW3 {
 };
 
 // HIGH 32 Bits Single Error Read Data On OCRAM Bank3
-//
 union SINGLE_ERR_DATA_HIGH3 {
   
   // Bit field definition.
   struct {
-    /// read-only - HIGH 32 Bits Single Error Read Data On OCRAM Bank3
+    // read-only - HIGH 32 Bits Single Error Read Data On OCRAM Bank3
     uint32_t SINGLE_ERR_DATA : 32;
   } bits;
   
@@ -955,12 +1063,11 @@ union SINGLE_ERR_DATA_HIGH3 {
 };
 
 // LOW Single Error Bit Position On OCRAM Bank3
-//
 union SINGLE_ERR_POS_LOW3 {
   
   // Bit field definition.
   struct {
-    /// read-only - LOW Single Error Bit Position On OCRAM Bank3
+    // read-only - LOW Single Error Bit Position On OCRAM Bank3
     uint32_t SINGLE_ERR_POS : 32;
   } bits;
   
@@ -973,12 +1080,11 @@ union SINGLE_ERR_POS_LOW3 {
 };
 
 // HIGH Single Error Bit Position On OCRAM Bank3
-//
 union SINGLE_ERR_POS_HIGH3 {
   
   // Bit field definition.
   struct {
-    /// read-only - HIGH Single Error Bit Position On OCRAM Bank3
+    // read-only - HIGH Single Error Bit Position On OCRAM Bank3
     uint32_t SINGLE_ERR_POS : 32;
   } bits;
   
@@ -991,14 +1097,13 @@ union SINGLE_ERR_POS_HIGH3 {
 };
 
 // Multiple Error Address And ECC code On OCRAM Bank0
-//
 union MULTI_ERR_ADDR_ECC0 {
   
   // Bit field definition.
   struct {
-    /// read-only - Multiple Error ECC code On OCRAM Bank0
+    // read-only - Multiple Error ECC code On OCRAM Bank0
     uint32_t MULTI_ERR_ECC : 8;
-    /// read-only - Multiple Error Address On OCRAM Bank0
+    // read-only - Multiple Error Address On OCRAM Bank0
     uint32_t MULTI_ERR_ADDR : 19;
     uint32_t _reserved_0 : 5;
   } bits;
@@ -1012,12 +1117,11 @@ union MULTI_ERR_ADDR_ECC0 {
 };
 
 // LOW 32 Bits Multiple Error Read Data On OCRAM Bank0
-//
 union MULTI_ERR_DATA_LOW0 {
   
   // Bit field definition.
   struct {
-    /// read-only - LOW 32 Bits Multiple Error Read Data On OCRAM Bank0
+    // read-only - LOW 32 Bits Multiple Error Read Data On OCRAM Bank0
     uint32_t MULTI_ERR_DATA : 32;
   } bits;
   
@@ -1030,12 +1134,11 @@ union MULTI_ERR_DATA_LOW0 {
 };
 
 // HIGH 32 Bits Multiple Error Read Data On OCRAM Bank0
-//
 union MULTI_ERR_DATA_HIGH0 {
   
   // Bit field definition.
   struct {
-    /// read-only - HIGH 32 Bits Multiple Error Read Data On OCRAM Bank0
+    // read-only - HIGH 32 Bits Multiple Error Read Data On OCRAM Bank0
     uint32_t MULTI_ERR_DATA : 32;
   } bits;
   
@@ -1048,14 +1151,13 @@ union MULTI_ERR_DATA_HIGH0 {
 };
 
 // Multiple Error Address And ECC code On OCRAM Bank1
-//
 union MULTI_ERR_ADDR_ECC1 {
   
   // Bit field definition.
   struct {
-    /// read-only - Multiple Error ECC code On OCRAM Bank1
+    // read-only - Multiple Error ECC code On OCRAM Bank1
     uint32_t MULTI_ERR_ECC : 8;
-    /// read-only - Multiple Error Address On OCRAM Bank1
+    // read-only - Multiple Error Address On OCRAM Bank1
     uint32_t MULTI_ERR_ADDR : 19;
     uint32_t _reserved_0 : 5;
   } bits;
@@ -1069,12 +1171,11 @@ union MULTI_ERR_ADDR_ECC1 {
 };
 
 // LOW 32 Bits Multiple Error Read Data On OCRAM Bank1
-//
 union MULTI_ERR_DATA_LOW1 {
   
   // Bit field definition.
   struct {
-    /// read-only - LOW 32 Bits Multiple Error Read Data On OCRAM Bank1
+    // read-only - LOW 32 Bits Multiple Error Read Data On OCRAM Bank1
     uint32_t MULTI_ERR_DATA : 32;
   } bits;
   
@@ -1087,12 +1188,11 @@ union MULTI_ERR_DATA_LOW1 {
 };
 
 // HIGH 32 Bits Multiple Error Read Data On OCRAM Bank1
-//
 union MULTI_ERR_DATA_HIGH1 {
   
   // Bit field definition.
   struct {
-    /// read-only - HIGH 32 Bits Multiple Error Read Data On OCRAM Bank1
+    // read-only - HIGH 32 Bits Multiple Error Read Data On OCRAM Bank1
     uint32_t MULTI_ERR_DATA : 32;
   } bits;
   
@@ -1105,14 +1205,13 @@ union MULTI_ERR_DATA_HIGH1 {
 };
 
 // Multiple Error Address And ECC code On OCRAM Bank2
-//
 union MULTI_ERR_ADDR_ECC2 {
   
   // Bit field definition.
   struct {
-    /// read-only - Multiple Error ECC code On OCRAM Bank2
+    // read-only - Multiple Error ECC code On OCRAM Bank2
     uint32_t MULTI_ERR_ECC : 8;
-    /// read-only - Multiple Error Address On OCRAM Bank2
+    // read-only - Multiple Error Address On OCRAM Bank2
     uint32_t MULTI_ERR_ADDR : 19;
     uint32_t _reserved_0 : 5;
   } bits;
@@ -1126,12 +1225,11 @@ union MULTI_ERR_ADDR_ECC2 {
 };
 
 // LOW 32 Bits Multiple Error Read Data On OCRAM Bank2
-//
 union MULTI_ERR_DATA_LOW2 {
   
   // Bit field definition.
   struct {
-    /// read-only - LOW 32 Bits Multiple Error Read Data On OCRAM Bank2
+    // read-only - LOW 32 Bits Multiple Error Read Data On OCRAM Bank2
     uint32_t MULTI_ERR_DATA : 32;
   } bits;
   
@@ -1144,12 +1242,11 @@ union MULTI_ERR_DATA_LOW2 {
 };
 
 // HIGH 32 Bits Multiple Error Read Data On OCRAM Bank2
-//
 union MULTI_ERR_DATA_HIGH2 {
   
   // Bit field definition.
   struct {
-    /// read-only - HIGH 32 Bits Multiple Error Read Data On OCRAM Bank2
+    // read-only - HIGH 32 Bits Multiple Error Read Data On OCRAM Bank2
     uint32_t MULTI_ERR_DATA : 32;
   } bits;
   
@@ -1162,14 +1259,13 @@ union MULTI_ERR_DATA_HIGH2 {
 };
 
 // Multiple Error Address And ECC code On OCRAM Bank3
-//
 union MULTI_ERR_ADDR_ECC3 {
   
   // Bit field definition.
   struct {
-    /// read-only - Multiple Error ECC code On OCRAM Bank3
+    // read-only - Multiple Error ECC code On OCRAM Bank3
     uint32_t MULTI_ERR_ECC : 8;
-    /// read-only - Multiple Error Address On OCRAM Bank3
+    // read-only - Multiple Error Address On OCRAM Bank3
     uint32_t MULTI_ERR_ADDR : 19;
     uint32_t _reserved_0 : 5;
   } bits;
@@ -1183,12 +1279,11 @@ union MULTI_ERR_ADDR_ECC3 {
 };
 
 // LOW 32 Bits Multiple Error Read Data On OCRAM Bank3
-//
 union MULTI_ERR_DATA_LOW3 {
   
   // Bit field definition.
   struct {
-    /// read-only - LOW 32 Bits Multiple Error Read Data On OCRAM Bank3
+    // read-only - LOW 32 Bits Multiple Error Read Data On OCRAM Bank3
     uint32_t MULTI_ERR_DATA : 32;
   } bits;
   
@@ -1201,12 +1296,11 @@ union MULTI_ERR_DATA_LOW3 {
 };
 
 // HIGH 32 Bits Multiple Error Read Data On OCRAM Bank3
-//
 union MULTI_ERR_DATA_HIGH3 {
   
   // Bit field definition.
   struct {
-    /// read-only - HIGH 32 Bits Multiple Error Read Data On OCRAM Bank3
+    // read-only - HIGH 32 Bits Multiple Error Read Data On OCRAM Bank3
     uint32_t MULTI_ERR_DATA : 32;
   } bits;
   
@@ -1219,45 +1313,59 @@ union MULTI_ERR_DATA_HIGH3 {
 };
 
 // OCRAM Pipeline And ECC Enable
-//
 union PIPE_ECC_EN {
   
+  // Read Data Wait Enable
   enum class eREAD_DATA_WAIT_EN : uint32_t {
-    eREAD_DATA_WAIT_EN_0 = 0, // Disable.
-    eREAD_DATA_WAIT_EN_1 = 1, // Enable.
+    // Disable.
+    eREAD_DATA_WAIT_EN_0 = 0,
+    // Enable.
+    eREAD_DATA_WAIT_EN_1 = 1,
   };
   
+  // Read Address Pipeline Enable
   enum class eREAD_ADDR_PIPE_EN : uint32_t {
-    eREAD_ADDR_PIPE_EN_0 = 0, // Disable.
-    eREAD_ADDR_PIPE_EN_1 = 1, // Enable.
+    // Disable.
+    eREAD_ADDR_PIPE_EN_0 = 0,
+    // Enable.
+    eREAD_ADDR_PIPE_EN_1 = 1,
   };
   
+  // Write Data Pipeline Enable
   enum class eWRITE_DATA_PIPE_EN : uint32_t {
-    eWRITE_DATA_PIPE_EN_0 = 0, // Disable.
-    eWRITE_DATA_PIPE_EN_1 = 1, // Enable.
+    // Disable.
+    eWRITE_DATA_PIPE_EN_0 = 0,
+    // Enable.
+    eWRITE_DATA_PIPE_EN_1 = 1,
   };
   
+  // Write Address Pipeline Enable
   enum class eWRITE_ADDR_PIPE_EN : uint32_t {
-    eWRITE_ADDR_PIPE_EN_0 = 0, // Disable.
-    eWRITE_ADDR_PIPE_EN_1 = 1, // Enable.
+    // Disable.
+    eWRITE_ADDR_PIPE_EN_0 = 0,
+    // Enable.
+    eWRITE_ADDR_PIPE_EN_1 = 1,
   };
   
+  // ECC Function Enable
   enum class eECC_EN : uint32_t {
-    eECC_EN_0 = 0, // Disable.
-    eECC_EN_1 = 1, // Enable.
+    // Disable.
+    eECC_EN_0 = 0,
+    // Enable.
+    eECC_EN_1 = 1,
   };
   
   // Bit field definition.
   struct {
-    /// read-write - Read Data Wait Enable
+    // read-write - Read Data Wait Enable
     eREAD_DATA_WAIT_EN READ_DATA_WAIT_EN : 1;
-    /// read-write - Read Address Pipeline Enable
+    // read-write - Read Address Pipeline Enable
     eREAD_ADDR_PIPE_EN READ_ADDR_PIPE_EN : 1;
-    /// read-write - Write Data Pipeline Enable
+    // read-write - Write Data Pipeline Enable
     eWRITE_DATA_PIPE_EN WRITE_DATA_PIPE_EN : 1;
-    /// read-write - Write Address Pipeline Enable
+    // read-write - Write Address Pipeline Enable
     eWRITE_ADDR_PIPE_EN WRITE_ADDR_PIPE_EN : 1;
-    /// read-write - ECC Function Enable
+    // read-write - ECC Function Enable
     eECC_EN ECC_EN : 1;
     uint32_t _reserved_0 : 27;
   } bits;
@@ -1271,38 +1379,49 @@ union PIPE_ECC_EN {
 };
 
 // Pending Status
-//
 union PENDING_STAT {
   
+  // Read Data Wait Pending
   enum class eREAD_DATA_WAIT_PENDING : uint32_t {
-    eREAD_DATA_WAIT_PENDING_0 = 0, // No update pending status for READ_DATA_WAIT_EN.
-    eREAD_DATA_WAIT_PENDING_1 = 1, // When READ_DATA_WAIT_EN register bit is changed, this register bit will be set until the new setup becomes valid in the controller.
+    // No update pending status for READ_DATA_WAIT_EN.
+    eREAD_DATA_WAIT_PENDING_0 = 0,
+    // When READ_DATA_WAIT_EN register bit is changed, this register bit will be set until the new setup becomes valid in the controller.
+    eREAD_DATA_WAIT_PENDING_1 = 1,
   };
   
+  // Read Address Pipeline Pending
   enum class eREAD_ADDR_PIPE_PENDING : uint32_t {
-    eREAD_ADDR_PIPE_PENDING_0 = 0, // No update pending status for READ_ADDR_PIPE_EN.
-    eREAD_ADDR_PIPE_PENDING_1 = 1, // When READ_ADDR_PIPE_EN register bit is changed, this register bit will be set until the new setup becomes valid in the controller.
+    // No update pending status for READ_ADDR_PIPE_EN.
+    eREAD_ADDR_PIPE_PENDING_0 = 0,
+    // When READ_ADDR_PIPE_EN register bit is changed, this register bit will be set until the new setup becomes valid in the controller.
+    eREAD_ADDR_PIPE_PENDING_1 = 1,
   };
   
+  // Write Data Pipeline Pending
   enum class eWRITE_DATA_PIPE_PENDING : uint32_t {
-    eWRITE_DATA_PIPE_PENDING_0 = 0, // No update pending status for WRITE_DATA_PIPE_EN.
-    eWRITE_DATA_PIPE_PENDING_1 = 1, // When WRITE_DATA_PIPE_EN register bit is changed, this register bit will be set until the new setup becomes valid in the controller.
+    // No update pending status for WRITE_DATA_PIPE_EN.
+    eWRITE_DATA_PIPE_PENDING_0 = 0,
+    // When WRITE_DATA_PIPE_EN register bit is changed, this register bit will be set until the new setup becomes valid in the controller.
+    eWRITE_DATA_PIPE_PENDING_1 = 1,
   };
   
+  // Write Address Pipeline Pending
   enum class eWRITE_ADDR_PIPE_PENDING : uint32_t {
-    eWRITE_ADDR_PIPE_PENDING_0 = 0, // No update pending status for WRITE_ADDR_PIPE_EN.
-    eWRITE_ADDR_PIPE_PENDING_1 = 1, // When WRITE_ADDR_PIPE_EN register bit is changed, this register bit will be set until the new setup becomes valid in the controller.
+    // No update pending status for WRITE_ADDR_PIPE_EN.
+    eWRITE_ADDR_PIPE_PENDING_0 = 0,
+    // When WRITE_ADDR_PIPE_EN register bit is changed, this register bit will be set until the new setup becomes valid in the controller.
+    eWRITE_ADDR_PIPE_PENDING_1 = 1,
   };
   
   // Bit field definition.
   struct {
-    /// read-only - Read Data Wait Pending
+    // read-only - Read Data Wait Pending
     eREAD_DATA_WAIT_PENDING READ_DATA_WAIT_PENDING : 1;
-    /// read-only - Read Address Pipeline Pending
+    // read-only - Read Address Pipeline Pending
     eREAD_ADDR_PIPE_PENDING READ_ADDR_PIPE_PENDING : 1;
-    /// read-only - Write Data Pipeline Pending
+    // read-only - Write Data Pipeline Pending
     eWRITE_DATA_PIPE_PENDING WRITE_DATA_PIPE_PENDING : 1;
-    /// read-only - Write Address Pipeline Pending
+    // read-only - Write Address Pipeline Pending
     eWRITE_ADDR_PIPE_PENDING WRITE_ADDR_PIPE_PENDING : 1;
     uint32_t _reserved_0 : 28;
   } bits;

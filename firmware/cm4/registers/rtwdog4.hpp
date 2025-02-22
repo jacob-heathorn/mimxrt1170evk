@@ -5,112 +5,149 @@
 #include <cstring>
 
 // WDOG
-//
-// NOTE: This file was generated from the forge CMSIS-svd wrapper tool.
-
 namespace nRTWDOG4 {
 
 
 // Watchdog Control and Status Register
-//
 union CS {
   
+  // Stop Enable
   enum class eSTOP : uint32_t {
-    eSTOP_0 = 0, // Watchdog disabled in chip stop mode.
-    eSTOP_1 = 1, // Watchdog enabled in chip stop mode.
+    // Watchdog disabled in chip stop mode.
+    eSTOP_0 = 0,
+    // Watchdog enabled in chip stop mode.
+    eSTOP_1 = 1,
   };
   
+  // Wait Enable
   enum class eWAIT : uint32_t {
-    eWAIT_0 = 0, // Watchdog disabled in chip wait mode.
-    eWAIT_1 = 1, // Watchdog enabled in chip wait mode.
+    // Watchdog disabled in chip wait mode.
+    eWAIT_0 = 0,
+    // Watchdog enabled in chip wait mode.
+    eWAIT_1 = 1,
   };
   
+  // Debug Enable
   enum class eDBG : uint32_t {
-    eDBG_0 = 0, // Watchdog disabled in chip debug mode.
-    eDBG_1 = 1, // Watchdog enabled in chip debug mode.
+    // Watchdog disabled in chip debug mode.
+    eDBG_0 = 0,
+    // Watchdog enabled in chip debug mode.
+    eDBG_1 = 1,
   };
   
+  // Watchdog Test
   enum class eTST : uint32_t {
-    eTST_0 = 0, // Watchdog test mode disabled.
-    eTST_1 = 1, // Watchdog user mode enabled. (Watchdog test mode disabled.) After testing the watchdog, software should use this setting to indicate that the watchdog is functioning normally in user mode.
-    eTST_2 = 2, // Watchdog test mode enabled, only the low byte is used. CNT[CNTLOW] is compared with TOVAL[TOVALLOW].
-    eTST_3 = 3, // Watchdog test mode enabled, only the high byte is used. CNT[CNTHIGH] is compared with TOVAL[TOVALHIGH].
+    // Watchdog test mode disabled.
+    eTST_0 = 0,
+    // Watchdog user mode enabled. (Watchdog test mode disabled.) After testing the watchdog, software should use this setting to indicate that the watchdog is functioning normally in user mode.
+    eTST_1 = 1,
+    // Watchdog test mode enabled, only the low byte is used. CNT[CNTLOW] is compared with TOVAL[TOVALLOW].
+    eTST_2 = 2,
+    // Watchdog test mode enabled, only the high byte is used. CNT[CNTHIGH] is compared with TOVAL[TOVALHIGH].
+    eTST_3 = 3,
   };
   
+  // Allow updates
   enum class eUPDATE : uint32_t {
-    eUPDATE_0 = 0, // Updates not allowed. After the initial configuration, the watchdog cannot be later modified without forcing a reset.
-    eUPDATE_1 = 1, // Updates allowed. Software can modify the watchdog configuration registers within 255 bus clocks after performing the unlock write sequence.
+    // Updates not allowed. After the initial configuration, the watchdog cannot be later modified without forcing a reset.
+    eUPDATE_0 = 0,
+    // Updates allowed. Software can modify the watchdog configuration registers within 255 bus clocks after performing the unlock write sequence.
+    eUPDATE_1 = 1,
   };
   
+  // Watchdog Interrupt
   enum class eINT : uint32_t {
-    eINT_0 = 0, // Watchdog interrupts are disabled. Watchdog resets are not delayed.
-    eINT_1 = 1, // Watchdog interrupts are enabled. Watchdog resets are delayed by 255 bus clocks from the interrupt vector fetch.
+    // Watchdog interrupts are disabled. Watchdog resets are not delayed.
+    eINT_0 = 0,
+    // Watchdog interrupts are enabled. Watchdog resets are delayed by 255 bus clocks from the interrupt vector fetch.
+    eINT_1 = 1,
   };
   
+  // Watchdog Enable
   enum class eEN : uint32_t {
-    eEN_0 = 0, // Watchdog disabled.
-    eEN_1 = 1, // Watchdog enabled.
+    // Watchdog disabled.
+    eEN_0 = 0,
+    // Watchdog enabled.
+    eEN_1 = 1,
   };
   
+  // Reconfiguration Success
   enum class eRCS : uint32_t {
-    eRCS_0 = 0, // Reconfiguring WDOG.
-    eRCS_1 = 1, // Reconfiguration is successful.
+    // Reconfiguring WDOG.
+    eRCS_0 = 0,
+    // Reconfiguration is successful.
+    eRCS_1 = 1,
   };
   
+  // Unlock status
   enum class eULK : uint32_t {
-    eULK_0 = 0, // WDOG is locked.
-    eULK_1 = 1, // WDOG is unlocked.
+    // WDOG is locked.
+    eULK_0 = 0,
+    // WDOG is unlocked.
+    eULK_1 = 1,
   };
   
+  // Watchdog prescaler
   enum class ePRES : uint32_t {
-    ePRES_0 = 0, // 256 prescaler disabled.
-    ePRES_1 = 1, // 256 prescaler enabled.
+    // 256 prescaler disabled.
+    ePRES_0 = 0,
+    // 256 prescaler enabled.
+    ePRES_1 = 1,
   };
   
+  // Enables or disables WDOG support for 32-bit (otherwise 16-bit or 8-bit) refresh/unlock command write words
   enum class eCMD32EN : uint32_t {
-    eCMD32EN_0 = 0, // Disables support for 32-bit refresh/unlock command write words. Only 16-bit or 8-bit is supported.
-    eCMD32EN_1 = 1, // Enables support for 32-bit refresh/unlock command write words. 16-bit or 8-bit is NOT supported.
+    // Disables support for 32-bit refresh/unlock command write words. Only 16-bit or 8-bit is supported.
+    eCMD32EN_0 = 0,
+    // Enables support for 32-bit refresh/unlock command write words. 16-bit or 8-bit is NOT supported.
+    eCMD32EN_1 = 1,
   };
   
+  // Watchdog Interrupt Flag
   enum class eFLG : uint32_t {
-    eFLG_0 = 0, // No interrupt occurred.
-    eFLG_1 = 1, // An interrupt occurred.
+    // No interrupt occurred.
+    eFLG_0 = 0,
+    // An interrupt occurred.
+    eFLG_1 = 1,
   };
   
+  // Watchdog Window
   enum class eWIN : uint32_t {
-    eWIN_0 = 0, // Window mode disabled.
-    eWIN_1 = 1, // Window mode enabled.
+    // Window mode disabled.
+    eWIN_0 = 0,
+    // Window mode enabled.
+    eWIN_1 = 1,
   };
   
   // Bit field definition.
   struct {
-    /// read-write - Stop Enable
+    // read-write - Stop Enable
     eSTOP STOP : 1;
-    /// read-write - Wait Enable
+    // read-write - Wait Enable
     eWAIT WAIT : 1;
-    /// read-write - Debug Enable
+    // read-write - Debug Enable
     eDBG DBG : 1;
-    /// read-write - Watchdog Test
+    // read-write - Watchdog Test
     eTST TST : 2;
-    /// read-write - Allow updates
+    // read-write - Allow updates
     eUPDATE UPDATE : 1;
-    /// read-write - Watchdog Interrupt
+    // read-write - Watchdog Interrupt
     eINT INT : 1;
-    /// read-write - Watchdog Enable
+    // read-write - Watchdog Enable
     eEN EN : 1;
-    /// read-write - Watchdog Clock
+    // read-write - Watchdog Clock
     uint32_t CLK : 2;
-    /// read-only - Reconfiguration Success
+    // read-only - Reconfiguration Success
     eRCS RCS : 1;
-    /// read-only - Unlock status
+    // read-only - Unlock status
     eULK ULK : 1;
-    /// read-write - Watchdog prescaler
+    // read-write - Watchdog prescaler
     ePRES PRES : 1;
-    /// read-write - Enables or disables WDOG support for 32-bit (otherwise 16-bit or 8-bit) refresh/unlock command write words
+    // read-write - Enables or disables WDOG support for 32-bit (otherwise 16-bit or 8-bit) refresh/unlock command write words
     eCMD32EN CMD32EN : 1;
-    /// read-write - Watchdog Interrupt Flag
+    // read-write - Watchdog Interrupt Flag
     eFLG FLG : 1;
-    /// read-write - Watchdog Window
+    // read-write - Watchdog Window
     eWIN WIN : 1;
     uint32_t _reserved_0 : 16;
   } bits;
@@ -124,14 +161,13 @@ union CS {
 };
 
 // Watchdog Counter Register
-//
 union CNT {
   
   // Bit field definition.
   struct {
-    /// read-write - Low byte of the Watchdog Counter
+    // read-write - Low byte of the Watchdog Counter
     uint32_t CNTLOW : 8;
-    /// read-write - High byte of the Watchdog Counter
+    // read-write - High byte of the Watchdog Counter
     uint32_t CNTHIGH : 8;
     uint32_t _reserved_0 : 16;
   } bits;
@@ -145,14 +181,13 @@ union CNT {
 };
 
 // Watchdog Timeout Value Register
-//
 union TOVAL {
   
   // Bit field definition.
   struct {
-    /// read-write - Low byte of the timeout value
+    // read-write - Low byte of the timeout value
     uint32_t TOVALLOW : 8;
-    /// read-write - High byte of the timeout value
+    // read-write - High byte of the timeout value
     uint32_t TOVALHIGH : 8;
     uint32_t _reserved_0 : 16;
   } bits;
@@ -166,14 +201,13 @@ union TOVAL {
 };
 
 // Watchdog Window Register
-//
 union WIN {
   
   // Bit field definition.
   struct {
-    /// read-write - Low byte of Watchdog Window
+    // read-write - Low byte of Watchdog Window
     uint32_t WINLOW : 8;
-    /// read-write - High byte of Watchdog Window
+    // read-write - High byte of Watchdog Window
     uint32_t WINHIGH : 8;
     uint32_t _reserved_0 : 16;
   } bits;

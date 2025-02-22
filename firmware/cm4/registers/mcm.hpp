@@ -5,19 +5,15 @@
 #include <cstring>
 
 // Core Platform Miscellaneous Control Module
-//
-// NOTE: This file was generated from the forge CMSIS-svd wrapper tool.
-
 namespace nMCM {
 
 
 // SoC-defined platform revision
-//
 union MCM_PLREV {
   
   // Bit field definition.
   struct {
-    /// read-only - The PLREV[15:0] field is specified by an platform input signal to define a software-visible revision number.
+    // read-only - The PLREV[15:0] field is specified by an platform input signal to define a software-visible revision number.
     uint32_t PLREV : 16;
     uint32_t _reserved_0 : 16;
   } bits;
@@ -31,16 +27,17 @@ union MCM_PLREV {
 };
 
 // Processor core type
-//
 union MCM_PCT {
   
+  // This MCM design supports the ARM Cortex M4 core. The following value identifies this core complex.
   enum class ePCT : uint32_t {
-    ePCT_44096 = 44096, // ARM Cortex M4
+    // ARM Cortex M4
+    ePCT_44096 = 44096,
   };
   
   // Bit field definition.
   struct {
-    /// read-only - This MCM design supports the ARM Cortex M4 core. The following value identifies this core complex.
+    // read-only - This MCM design supports the ARM Cortex M4 core. The following value identifies this core complex.
     ePCT PCT : 16;
     uint32_t _reserved_0 : 16;
   } bits;
@@ -54,16 +51,15 @@ union MCM_PCT {
 };
 
 // Memory configuration
-//
 union MCM_MEMCFG {
   
   // Bit field definition.
   struct {
     uint32_t _reserved_0 : 2;
-    /// read-only - TCRAMU size
+    // read-only - TCRAMU size
     uint32_t TCRAMUSZ : 4;
     uint32_t _reserved_1 : 2;
-    /// read-only - TCRAML size
+    // read-only - TCRAML size
     uint32_t TCRAMLSZ : 4;
     uint32_t _reserved_2 : 20;
   } bits;
@@ -77,17 +73,19 @@ union MCM_MEMCFG {
 };
 
 // Crossbar Switch (AXBS) Slave Configuration
-//
 union MCM_PLASC {
   
+  // Each bit in the ASC field indicates whether there is a corresponding connection to the crossbar switch's slave input port.
   enum class eASC : uint32_t {
-    eASC_0 = 0, // A bus slave connection to AXBS input port n is absent
-    eASC_1 = 1, // A bus slave connection to AXBS input port n is present
+    // A bus slave connection to AXBS input port n is absent
+    eASC_0 = 0,
+    // A bus slave connection to AXBS input port n is present
+    eASC_1 = 1,
   };
   
   // Bit field definition.
   struct {
-    /// read-only - Each bit in the ASC field indicates whether there is a corresponding connection to the crossbar switch's slave input port.
+    // read-only - Each bit in the ASC field indicates whether there is a corresponding connection to the crossbar switch's slave input port.
     eASC ASC : 8;
     uint32_t _reserved_0 : 24;
   } bits;
@@ -101,17 +99,19 @@ union MCM_PLASC {
 };
 
 // Crossbar Switch (AXBS) Master Configuration
-//
 union MCM_PLAMC {
   
+  // Each bit in the AMC field indicates whether there is a corresponding connection to the AXBS master input port.
   enum class eAMC : uint32_t {
-    eAMC_0 = 0, // A bus master connection to AXBS input port n is absent
-    eAMC_1 = 1, // A bus master connection to AXBS input port n is present
+    // A bus master connection to AXBS input port n is absent
+    eAMC_0 = 0,
+    // A bus master connection to AXBS input port n is present
+    eAMC_1 = 1,
   };
   
   // Bit field definition.
   struct {
-    /// read-only - Each bit in the AMC field indicates whether there is a corresponding connection to the AXBS master input port.
+    // read-only - Each bit in the AMC field indicates whether there is a corresponding connection to the AXBS master input port.
     eAMC AMC : 8;
     uint32_t _reserved_0 : 24;
   } bits;
@@ -125,43 +125,55 @@ union MCM_PLAMC {
 };
 
 // Control Register
-//
 union MCM_CR {
   
+  // Crossbar round-robin arbitration enable
   enum class eCBRR : uint32_t {
-    eCBRR_0 = 0, // Fixed-priority arbitration
-    eCBRR_1 = 1, // Round-robin arbitration
+    // Fixed-priority arbitration
+    eCBRR_0 = 0,
+    // Round-robin arbitration
+    eCBRR_1 = 1,
   };
   
+  // System TCM arbitration priority
   enum class eSTCMAP : uint32_t {
-    eSTCMAP_0 = 0, // Round robin
-    eSTCMAP_1 = 1, // Special round robin (favors TCM backoor accesses over the processor)
-    eSTCMAP_2 = 2, // Fixed priority. Processor has highest, backdoor has lowest
-    eSTCMAP_3 = 3, // Fixed priority. Backdoor has highest, processor has lowest
+    // Round robin
+    eSTCMAP_0 = 0,
+    // Special round robin (favors TCM backoor accesses over the processor)
+    eSTCMAP_1 = 1,
+    // Fixed priority. Processor has highest, backdoor has lowest
+    eSTCMAP_2 = 2,
+    // Fixed priority. Backdoor has highest, processor has lowest
+    eSTCMAP_3 = 3,
   };
   
+  // Code TCM arbitration priority
   enum class eCTCMAP : uint32_t {
-    eCTCMAP_0 = 0, // Round robin
-    eCTCMAP_1 = 1, // Special round robin (favors TCM backoor accesses over the processor)
-    eCTCMAP_2 = 2, // Fixed priority. Processor has highest, backdoor has lowest
-    eCTCMAP_3 = 3, // Fixed priority. Backdoor has highest, processor has lowest
+    // Round robin
+    eCTCMAP_0 = 0,
+    // Special round robin (favors TCM backoor accesses over the processor)
+    eCTCMAP_1 = 1,
+    // Fixed priority. Processor has highest, backdoor has lowest
+    eCTCMAP_2 = 2,
+    // Fixed priority. Backdoor has highest, processor has lowest
+    eCTCMAP_3 = 3,
   };
   
   // Bit field definition.
   struct {
-    /// read-only - Status bits
+    // read-only - Status bits
     uint32_t STATUS : 9;
-    /// read-write - Crossbar round-robin arbitration enable
+    // read-write - Crossbar round-robin arbitration enable
     eCBRR CBRR : 1;
     uint32_t _reserved_0 : 14;
-    /// read-write - System TCM arbitration priority
+    // read-write - System TCM arbitration priority
     eSTCMAP STCMAP : 2;
-    /// read-write - System TCM write protect
+    // read-write - System TCM write protect
     uint32_t STCMWP : 1;
     uint32_t _reserved_1 : 1;
-    /// read-write - Code TCM arbitration priority
+    // read-write - Code TCM arbitration priority
     eCTCMAP CTCMAP : 2;
-    /// read-write - Code TCM Write Protect
+    // read-write - Code TCM Write Protect
     uint32_t CTCMWP : 1;
     uint32_t _reserved_2 : 1;
   } bits;
@@ -175,114 +187,155 @@ union MCM_CR {
 };
 
 // Interrupt Status and Control Register
-//
 union MCM_ISCR {
   
+  // Cache write buffer error status
   enum class eCWBER : uint32_t {
-    eCWBER_0 = 0, // No error
-    eCWBER_1 = 1, // Error occurred
+    // No error
+    eCWBER_0 = 0,
+    // Error occurred
+    eCWBER_1 = 1,
   };
   
+  // FPU invalid operation interrupt status
   enum class eFIOC : uint32_t {
-    eFIOC_0 = 0, // No interrupt
-    eFIOC_1 = 1, // Interrupt occurred
+    // No interrupt
+    eFIOC_0 = 0,
+    // Interrupt occurred
+    eFIOC_1 = 1,
   };
   
+  // FPU divide-by-zero interrupt status
   enum class eFDZC : uint32_t {
-    eFDZC_0 = 0, // No interrupt
-    eFDZC_1 = 1, // Interrupt occurred
+    // No interrupt
+    eFDZC_0 = 0,
+    // Interrupt occurred
+    eFDZC_1 = 1,
   };
   
+  // FPU overflow interrupt status
   enum class eFOFC : uint32_t {
-    eFOFC_0 = 0, // No interrupt
-    eFOFC_1 = 1, // Interrupt occurred
+    // No interrupt
+    eFOFC_0 = 0,
+    // Interrupt occurred
+    eFOFC_1 = 1,
   };
   
+  // FPU underflow interrupt status
   enum class eFUFC : uint32_t {
-    eFUFC_0 = 0, // No interrupt
-    eFUFC_1 = 1, // Interrupt occurred
+    // No interrupt
+    eFUFC_0 = 0,
+    // Interrupt occurred
+    eFUFC_1 = 1,
   };
   
+  // FPU inexact interrupt status
   enum class eFIXC : uint32_t {
-    eFIXC_0 = 0, // No interrupt
-    eFIXC_1 = 1, // Interrupt occurred
+    // No interrupt
+    eFIXC_0 = 0,
+    // Interrupt occurred
+    eFIXC_1 = 1,
   };
   
+  // FPU input denormal interrupt status
   enum class eFIDC : uint32_t {
-    eFIDC_0 = 0, // No interrupt
-    eFIDC_1 = 1, // Interrupt occurred
+    // No interrupt
+    eFIDC_0 = 0,
+    // Interrupt occurred
+    eFIDC_1 = 1,
   };
   
+  // Cache write buffer error enable
   enum class eCWBEE : uint32_t {
-    eCWBEE_0 = 0, // Disable error interrupt
-    eCWBEE_1 = 1, // Enable error interrupt
+    // Disable error interrupt
+    eCWBEE_0 = 0,
+    // Enable error interrupt
+    eCWBEE_1 = 1,
   };
   
+  // FPU invalid operation interrupt enable
   enum class eFIOCE : uint32_t {
-    eFIOCE_0 = 0, // Disable interrupt
-    eFIOCE_1 = 1, // Enable interrupt
+    // Disable interrupt
+    eFIOCE_0 = 0,
+    // Enable interrupt
+    eFIOCE_1 = 1,
   };
   
+  // FPU divide-by-zero interrupt enable
   enum class eFDZCE : uint32_t {
-    eFDZCE_0 = 0, // Disable interrupt
-    eFDZCE_1 = 1, // Enable interrupt
+    // Disable interrupt
+    eFDZCE_0 = 0,
+    // Enable interrupt
+    eFDZCE_1 = 1,
   };
   
+  // FPU overflow interrupt enable
   enum class eFOFCE : uint32_t {
-    eFOFCE_0 = 0, // Disable interrupt
-    eFOFCE_1 = 1, // Enable interrupt
+    // Disable interrupt
+    eFOFCE_0 = 0,
+    // Enable interrupt
+    eFOFCE_1 = 1,
   };
   
+  // FPU underflow interrupt enable
   enum class eFUFCE : uint32_t {
-    eFUFCE_0 = 0, // Disable interrupt
-    eFUFCE_1 = 1, // Enable interrupt
+    // Disable interrupt
+    eFUFCE_0 = 0,
+    // Enable interrupt
+    eFUFCE_1 = 1,
   };
   
+  // FPU inexact interrupt enable
   enum class eFIXCE : uint32_t {
-    eFIXCE_0 = 0, // Disable interrupt
-    eFIXCE_1 = 1, // Enable interrupt
+    // Disable interrupt
+    eFIXCE_0 = 0,
+    // Enable interrupt
+    eFIXCE_1 = 1,
   };
   
+  // FPU input denormal interrupt enable
   enum class eFIDCE : uint32_t {
-    eFIDCE_0 = 0, // Disable interrupt
-    eFIDCE_1 = 1, // Enable interrupt
+    // Disable interrupt
+    eFIDCE_0 = 0,
+    // Enable interrupt
+    eFIDCE_1 = 1,
   };
   
   // Bit field definition.
   struct {
     uint32_t _reserved_0 : 4;
-    /// read-write - Cache write buffer error status
+    // read-write - Cache write buffer error status
     eCWBER CWBER : 1;
     uint32_t _reserved_1 : 3;
-    /// read-only - FPU invalid operation interrupt status
+    // read-only - FPU invalid operation interrupt status
     eFIOC FIOC : 1;
-    /// read-only - FPU divide-by-zero interrupt status
+    // read-only - FPU divide-by-zero interrupt status
     eFDZC FDZC : 1;
-    /// read-only - FPU overflow interrupt status
+    // read-only - FPU overflow interrupt status
     eFOFC FOFC : 1;
-    /// read-only - FPU underflow interrupt status
+    // read-only - FPU underflow interrupt status
     eFUFC FUFC : 1;
-    /// read-only - FPU inexact interrupt status
+    // read-only - FPU inexact interrupt status
     eFIXC FIXC : 1;
     uint32_t _reserved_2 : 2;
-    /// read-only - FPU input denormal interrupt status
+    // read-only - FPU input denormal interrupt status
     eFIDC FIDC : 1;
     uint32_t _reserved_3 : 4;
-    /// read-write - Cache write buffer error enable
+    // read-write - Cache write buffer error enable
     eCWBEE CWBEE : 1;
     uint32_t _reserved_4 : 3;
-    /// read-write - FPU invalid operation interrupt enable
+    // read-write - FPU invalid operation interrupt enable
     eFIOCE FIOCE : 1;
-    /// read-write - FPU divide-by-zero interrupt enable
+    // read-write - FPU divide-by-zero interrupt enable
     eFDZCE FDZCE : 1;
-    /// read-write - FPU overflow interrupt enable
+    // read-write - FPU overflow interrupt enable
     eFOFCE FOFCE : 1;
-    /// read-write - FPU underflow interrupt enable
+    // read-write - FPU underflow interrupt enable
     eFUFCE FUFCE : 1;
-    /// read-write - FPU inexact interrupt enable
+    // read-write - FPU inexact interrupt enable
     eFIXCE FIXCE : 1;
     uint32_t _reserved_5 : 2;
-    /// read-write - FPU input denormal interrupt enable
+    // read-write - FPU input denormal interrupt enable
     eFIDCE FIDCE : 1;
   } bits;
   
@@ -295,12 +348,11 @@ union MCM_ISCR {
 };
 
 // Fault address register
-//
 union MCM_FADR {
   
   // Bit field definition.
   struct {
-    /// read-only - Fault address
+    // read-only - Fault address
     uint32_t ADDRESS : 32;
   } bits;
   
@@ -313,51 +365,66 @@ union MCM_FADR {
 };
 
 // Fault attributes register
-//
 union MCM_FATR {
   
+  // Bus error access type
   enum class eBEDA : uint32_t {
-    eBEDA_0 = 0, // Instruction
-    eBEDA_1 = 1, // Data
+    // Instruction
+    eBEDA_0 = 0,
+    // Data
+    eBEDA_1 = 1,
   };
   
+  // Bus error privilege level
   enum class eBEMD : uint32_t {
-    eBEMD_0 = 0, // User mode
-    eBEMD_1 = 1, // Supervisor/privileged mode
+    // User mode
+    eBEMD_0 = 0,
+    // Supervisor/privileged mode
+    eBEMD_1 = 1,
   };
   
+  // Bus error size
   enum class eBESZ : uint32_t {
-    eBESZ_0 = 0, // 8-bit access
-    eBESZ_1 = 1, // 16-bit access
-    eBESZ_2 = 2, // 32-bit access
+    // 8-bit access
+    eBESZ_0 = 0,
+    // 16-bit access
+    eBESZ_1 = 1,
+    // 32-bit access
+    eBESZ_2 = 2,
   };
   
+  // Bus error write
   enum class eBEWT : uint32_t {
-    eBEWT_0 = 0, // Read access
-    eBEWT_1 = 1, // Write access
+    // Read access
+    eBEWT_0 = 0,
+    // Write access
+    eBEWT_1 = 1,
   };
   
+  // Bus error overrun
   enum class eBEOVR : uint32_t {
-    eBEOVR_0 = 0, // No bus error overrun
-    eBEOVR_1 = 1, // Bus error overrun occurred. The FADR and FDR registers and the other FATR bits are not updated to reflect this new bus error.
+    // No bus error overrun
+    eBEOVR_0 = 0,
+    // Bus error overrun occurred. The FADR and FDR registers and the other FATR bits are not updated to reflect this new bus error.
+    eBEOVR_1 = 1,
   };
   
   // Bit field definition.
   struct {
-    /// read-only - Bus error access type
+    // read-only - Bus error access type
     eBEDA BEDA : 1;
-    /// read-only - Bus error privilege level
+    // read-only - Bus error privilege level
     eBEMD BEMD : 1;
     uint32_t _reserved_0 : 2;
-    /// read-only - Bus error size
+    // read-only - Bus error size
     eBESZ BESZ : 2;
     uint32_t _reserved_1 : 1;
-    /// read-only - Bus error write
+    // read-only - Bus error write
     eBEWT BEWT : 1;
-    /// read-only - Bus error master number
+    // read-only - Bus error master number
     uint32_t BEMN : 4;
     uint32_t _reserved_2 : 19;
-    /// read-only - Bus error overrun
+    // read-only - Bus error overrun
     eBEOVR BEOVR : 1;
   } bits;
   
@@ -370,12 +437,11 @@ union MCM_FATR {
 };
 
 // Fault data register
-//
 union MCM_FDR {
   
   // Bit field definition.
   struct {
-    /// read-only - Fault data
+    // read-only - Fault data
     uint32_t DATA : 32;
   } bits;
   
@@ -388,82 +454,119 @@ union MCM_FDR {
 };
 
 // Local Memory Descriptor Register
-//
 union MCM_LMDR0 {
   
+  // Memory Type
   enum class eMT : uint32_t {
-    eMT_0 = 0, // code TCM
-    eMT_1 = 1, // system TCM
-    eMT_2 = 2, // PC Cache
-    eMT_3 = 3, // PS Cache
+    // code TCM
+    eMT_0 = 0,
+    // system TCM
+    eMT_1 = 1,
+    // PC Cache
+    eMT_2 = 2,
+    // PS Cache
+    eMT_3 = 3,
   };
   
+  // Read-Only
   enum class eRO : uint32_t {
-    eRO_0 = 0, // Writes to the LMDRn[7:0] are allowed.
-    eRO_1 = 1, // Writes to the LMDRn[7:0] are ignored.
+    // Writes to the LMDRn[7:0] are allowed.
+    eRO_0 = 0,
+    // Writes to the LMDRn[7:0] are ignored.
+    eRO_1 = 1,
   };
   
+  // LMEM Data Path Width. This read-only field defines the width of the local memory.
   enum class eDPW : uint32_t {
-    eDPW_2 = 2, // LMEMn 32-bits wide
-    eDPW_3 = 3, // LMEMn 64-bits wide
+    // LMEMn 32-bits wide
+    eDPW_2 = 2,
+    // LMEMn 64-bits wide
+    eDPW_3 = 3,
   };
   
+  // Level 1 Cache Ways
   enum class eWY : uint32_t {
-    eWY_0 = 0, // No Cache
-    eWY_2 = 2, // 2-Way Set Associative
-    eWY_4 = 4, // 4-Way Set Associative
+    // No Cache
+    eWY_0 = 0,
+    // 2-Way Set Associative
+    eWY_2 = 2,
+    // 4-Way Set Associative
+    eWY_4 = 4,
   };
   
+  // LMEM Size
   enum class eLMSZ : uint32_t {
-    eLMSZ_0 = 0, // no LMEMn (0 KB)
-    eLMSZ_1 = 1, // 1 KB LMEMn
-    eLMSZ_2 = 2, // 2 KB LMEMn
-    eLMSZ_3 = 3, // 4 KB LMEMn
-    eLMSZ_4 = 4, // 8 KB LMEMn
-    eLMSZ_5 = 5, // 16 KB LMEMn
-    eLMSZ_6 = 6, // 32 KB LMEMn
-    eLMSZ_7 = 7, // 64 KB LMEMn
-    eLMSZ_8 = 8, // 128 KB LMEMn
-    eLMSZ_9 = 9, // 256 KB LMEMn
-    eLMSZ_10 = 10, // 512 KB LMEMn
-    eLMSZ_11 = 11, // 1024 KB LMEMn
-    eLMSZ_12 = 12, // 2048 KB LMEMn
-    eLMSZ_13 = 13, // 4096 KB LMEMn
-    eLMSZ_14 = 14, // 8192 KB LMEMn
-    eLMSZ_15 = 15, // 16384 KB LMEMn
+    // no LMEMn (0 KB)
+    eLMSZ_0 = 0,
+    // 1 KB LMEMn
+    eLMSZ_1 = 1,
+    // 2 KB LMEMn
+    eLMSZ_2 = 2,
+    // 4 KB LMEMn
+    eLMSZ_3 = 3,
+    // 8 KB LMEMn
+    eLMSZ_4 = 4,
+    // 16 KB LMEMn
+    eLMSZ_5 = 5,
+    // 32 KB LMEMn
+    eLMSZ_6 = 6,
+    // 64 KB LMEMn
+    eLMSZ_7 = 7,
+    // 128 KB LMEMn
+    eLMSZ_8 = 8,
+    // 256 KB LMEMn
+    eLMSZ_9 = 9,
+    // 512 KB LMEMn
+    eLMSZ_10 = 10,
+    // 1024 KB LMEMn
+    eLMSZ_11 = 11,
+    // 2048 KB LMEMn
+    eLMSZ_12 = 12,
+    // 4096 KB LMEMn
+    eLMSZ_13 = 13,
+    // 8192 KB LMEMn
+    eLMSZ_14 = 14,
+    // 16384 KB LMEMn
+    eLMSZ_15 = 15,
   };
   
+  // LMEM Size "Hole"
   enum class eLMSZH : uint32_t {
-    eLMSZH_0 = 0, // LMEMn is a power-of-2 capacity.
-    eLMSZH_1 = 1, // LMEMn is not a power-of-2, with a capacity is 0.75 * LMSZ.
+    // LMEMn is a power-of-2 capacity.
+    eLMSZH_0 = 0,
+    // LMEMn is not a power-of-2, with a capacity is 0.75 * LMSZ.
+    eLMSZH_1 = 1,
   };
   
+  // Local memory Valid bit. This read-only field defines the validity (presence) of the local memory.
   enum class eV : uint32_t {
-    eV_0 = 0, // LMEMn is not present.
-    eV_1 = 1, // LMEMn is present.
+    // LMEMn is not present.
+    eV_0 = 0,
+    // LMEMn is present.
+    eV_1 = 1,
   };
   
   // Bit field definition.
   struct {
-    /// read-write - Control Field 0
+    // read-write - Control Field 0
     uint32_t CF0 : 4;
-    /// read-write - Control Field 1 - for Cache Parity control functions
+    // read-write - Control Field 1 - for Cache Parity control functions
     uint32_t CF1 : 4;
     uint32_t _reserved_0 : 5;
-    /// read-only - Memory Type
+    // read-only - Memory Type
     eMT MT : 3;
-    /// read-only - Read-Only
+    // read-only - Read-Only
     eRO RO : 1;
-    /// read-only - LMEM Data Path Width. This read-only field defines the width of the local memory.
+    // read-only - LMEM Data Path Width. This read-only field defines the width of the local memory.
     eDPW DPW : 3;
-    /// read-only - Level 1 Cache Ways
+    // read-only - Level 1 Cache Ways
     eWY WY : 4;
-    /// read-only - LMEM Size
+    // read-only - LMEM Size
     eLMSZ LMSZ : 4;
-    /// read-only - LMEM Size "Hole"
+    // read-only - LMEM Size "Hole"
     eLMSZH LMSZH : 1;
     uint32_t _reserved_1 : 2;
-    /// read-only - Local memory Valid bit. This read-only field defines the validity (presence) of the local memory.
+    // read-only - Local memory Valid bit. This read-only field defines the validity (presence) of the local memory.
     eV V : 1;
   } bits;
   
@@ -475,82 +578,119 @@ union MCM_LMDR0 {
   static inline volatile MCM_LMDR0 &Instance() { return *reinterpret_cast<volatile MCM_LMDR0*>(0xE0080400); }
 };
 // Local Memory Descriptor Register
-//
 union MCM_LMDR1 {
   
+  // Memory Type
   enum class eMT : uint32_t {
-    eMT_0 = 0, // code TCM
-    eMT_1 = 1, // system TCM
-    eMT_2 = 2, // PC Cache
-    eMT_3 = 3, // PS Cache
+    // code TCM
+    eMT_0 = 0,
+    // system TCM
+    eMT_1 = 1,
+    // PC Cache
+    eMT_2 = 2,
+    // PS Cache
+    eMT_3 = 3,
   };
   
+  // Read-Only
   enum class eRO : uint32_t {
-    eRO_0 = 0, // Writes to the LMDRn[7:0] are allowed.
-    eRO_1 = 1, // Writes to the LMDRn[7:0] are ignored.
+    // Writes to the LMDRn[7:0] are allowed.
+    eRO_0 = 0,
+    // Writes to the LMDRn[7:0] are ignored.
+    eRO_1 = 1,
   };
   
+  // LMEM Data Path Width. This read-only field defines the width of the local memory.
   enum class eDPW : uint32_t {
-    eDPW_2 = 2, // LMEMn 32-bits wide
-    eDPW_3 = 3, // LMEMn 64-bits wide
+    // LMEMn 32-bits wide
+    eDPW_2 = 2,
+    // LMEMn 64-bits wide
+    eDPW_3 = 3,
   };
   
+  // Level 1 Cache Ways
   enum class eWY : uint32_t {
-    eWY_0 = 0, // No Cache
-    eWY_2 = 2, // 2-Way Set Associative
-    eWY_4 = 4, // 4-Way Set Associative
+    // No Cache
+    eWY_0 = 0,
+    // 2-Way Set Associative
+    eWY_2 = 2,
+    // 4-Way Set Associative
+    eWY_4 = 4,
   };
   
+  // LMEM Size
   enum class eLMSZ : uint32_t {
-    eLMSZ_0 = 0, // no LMEMn (0 KB)
-    eLMSZ_1 = 1, // 1 KB LMEMn
-    eLMSZ_2 = 2, // 2 KB LMEMn
-    eLMSZ_3 = 3, // 4 KB LMEMn
-    eLMSZ_4 = 4, // 8 KB LMEMn
-    eLMSZ_5 = 5, // 16 KB LMEMn
-    eLMSZ_6 = 6, // 32 KB LMEMn
-    eLMSZ_7 = 7, // 64 KB LMEMn
-    eLMSZ_8 = 8, // 128 KB LMEMn
-    eLMSZ_9 = 9, // 256 KB LMEMn
-    eLMSZ_10 = 10, // 512 KB LMEMn
-    eLMSZ_11 = 11, // 1024 KB LMEMn
-    eLMSZ_12 = 12, // 2048 KB LMEMn
-    eLMSZ_13 = 13, // 4096 KB LMEMn
-    eLMSZ_14 = 14, // 8192 KB LMEMn
-    eLMSZ_15 = 15, // 16384 KB LMEMn
+    // no LMEMn (0 KB)
+    eLMSZ_0 = 0,
+    // 1 KB LMEMn
+    eLMSZ_1 = 1,
+    // 2 KB LMEMn
+    eLMSZ_2 = 2,
+    // 4 KB LMEMn
+    eLMSZ_3 = 3,
+    // 8 KB LMEMn
+    eLMSZ_4 = 4,
+    // 16 KB LMEMn
+    eLMSZ_5 = 5,
+    // 32 KB LMEMn
+    eLMSZ_6 = 6,
+    // 64 KB LMEMn
+    eLMSZ_7 = 7,
+    // 128 KB LMEMn
+    eLMSZ_8 = 8,
+    // 256 KB LMEMn
+    eLMSZ_9 = 9,
+    // 512 KB LMEMn
+    eLMSZ_10 = 10,
+    // 1024 KB LMEMn
+    eLMSZ_11 = 11,
+    // 2048 KB LMEMn
+    eLMSZ_12 = 12,
+    // 4096 KB LMEMn
+    eLMSZ_13 = 13,
+    // 8192 KB LMEMn
+    eLMSZ_14 = 14,
+    // 16384 KB LMEMn
+    eLMSZ_15 = 15,
   };
   
+  // LMEM Size "Hole"
   enum class eLMSZH : uint32_t {
-    eLMSZH_0 = 0, // LMEMn is a power-of-2 capacity.
-    eLMSZH_1 = 1, // LMEMn is not a power-of-2, with a capacity is 0.75 * LMSZ.
+    // LMEMn is a power-of-2 capacity.
+    eLMSZH_0 = 0,
+    // LMEMn is not a power-of-2, with a capacity is 0.75 * LMSZ.
+    eLMSZH_1 = 1,
   };
   
+  // Local memory Valid bit. This read-only field defines the validity (presence) of the local memory.
   enum class eV : uint32_t {
-    eV_0 = 0, // LMEMn is not present.
-    eV_1 = 1, // LMEMn is present.
+    // LMEMn is not present.
+    eV_0 = 0,
+    // LMEMn is present.
+    eV_1 = 1,
   };
   
   // Bit field definition.
   struct {
-    /// read-write - Control Field 0
+    // read-write - Control Field 0
     uint32_t CF0 : 4;
-    /// read-write - Control Field 1 - for Cache Parity control functions
+    // read-write - Control Field 1 - for Cache Parity control functions
     uint32_t CF1 : 4;
     uint32_t _reserved_0 : 5;
-    /// read-only - Memory Type
+    // read-only - Memory Type
     eMT MT : 3;
-    /// read-only - Read-Only
+    // read-only - Read-Only
     eRO RO : 1;
-    /// read-only - LMEM Data Path Width. This read-only field defines the width of the local memory.
+    // read-only - LMEM Data Path Width. This read-only field defines the width of the local memory.
     eDPW DPW : 3;
-    /// read-only - Level 1 Cache Ways
+    // read-only - Level 1 Cache Ways
     eWY WY : 4;
-    /// read-only - LMEM Size
+    // read-only - LMEM Size
     eLMSZ LMSZ : 4;
-    /// read-only - LMEM Size "Hole"
+    // read-only - LMEM Size "Hole"
     eLMSZH LMSZH : 1;
     uint32_t _reserved_1 : 2;
-    /// read-only - Local memory Valid bit. This read-only field defines the validity (presence) of the local memory.
+    // read-only - Local memory Valid bit. This read-only field defines the validity (presence) of the local memory.
     eV V : 1;
   } bits;
   
@@ -562,82 +702,119 @@ union MCM_LMDR1 {
   static inline volatile MCM_LMDR1 &Instance() { return *reinterpret_cast<volatile MCM_LMDR1*>(0xE0080404); }
 };
 // Local Memory Descriptor Register
-//
 union MCM_LMDR2 {
   
+  // Memory Type
   enum class eMT : uint32_t {
-    eMT_0 = 0, // code TCM
-    eMT_1 = 1, // system TCM
-    eMT_2 = 2, // PC Cache
-    eMT_3 = 3, // PS Cache
+    // code TCM
+    eMT_0 = 0,
+    // system TCM
+    eMT_1 = 1,
+    // PC Cache
+    eMT_2 = 2,
+    // PS Cache
+    eMT_3 = 3,
   };
   
+  // Read-Only
   enum class eRO : uint32_t {
-    eRO_0 = 0, // Writes to the LMDRn[7:0] are allowed.
-    eRO_1 = 1, // Writes to the LMDRn[7:0] are ignored.
+    // Writes to the LMDRn[7:0] are allowed.
+    eRO_0 = 0,
+    // Writes to the LMDRn[7:0] are ignored.
+    eRO_1 = 1,
   };
   
+  // LMEM Data Path Width. This read-only field defines the width of the local memory.
   enum class eDPW : uint32_t {
-    eDPW_2 = 2, // LMEMn 32-bits wide
-    eDPW_3 = 3, // LMEMn 64-bits wide
+    // LMEMn 32-bits wide
+    eDPW_2 = 2,
+    // LMEMn 64-bits wide
+    eDPW_3 = 3,
   };
   
+  // Level 1 Cache Ways
   enum class eWY : uint32_t {
-    eWY_0 = 0, // No Cache
-    eWY_2 = 2, // 2-Way Set Associative
-    eWY_4 = 4, // 4-Way Set Associative
+    // No Cache
+    eWY_0 = 0,
+    // 2-Way Set Associative
+    eWY_2 = 2,
+    // 4-Way Set Associative
+    eWY_4 = 4,
   };
   
+  // LMEM Size
   enum class eLMSZ : uint32_t {
-    eLMSZ_0 = 0, // no LMEMn (0 KB)
-    eLMSZ_1 = 1, // 1 KB LMEMn
-    eLMSZ_2 = 2, // 2 KB LMEMn
-    eLMSZ_3 = 3, // 4 KB LMEMn
-    eLMSZ_4 = 4, // 8 KB LMEMn
-    eLMSZ_5 = 5, // 16 KB LMEMn
-    eLMSZ_6 = 6, // 32 KB LMEMn
-    eLMSZ_7 = 7, // 64 KB LMEMn
-    eLMSZ_8 = 8, // 128 KB LMEMn
-    eLMSZ_9 = 9, // 256 KB LMEMn
-    eLMSZ_10 = 10, // 512 KB LMEMn
-    eLMSZ_11 = 11, // 1024 KB LMEMn
-    eLMSZ_12 = 12, // 2048 KB LMEMn
-    eLMSZ_13 = 13, // 4096 KB LMEMn
-    eLMSZ_14 = 14, // 8192 KB LMEMn
-    eLMSZ_15 = 15, // 16384 KB LMEMn
+    // no LMEMn (0 KB)
+    eLMSZ_0 = 0,
+    // 1 KB LMEMn
+    eLMSZ_1 = 1,
+    // 2 KB LMEMn
+    eLMSZ_2 = 2,
+    // 4 KB LMEMn
+    eLMSZ_3 = 3,
+    // 8 KB LMEMn
+    eLMSZ_4 = 4,
+    // 16 KB LMEMn
+    eLMSZ_5 = 5,
+    // 32 KB LMEMn
+    eLMSZ_6 = 6,
+    // 64 KB LMEMn
+    eLMSZ_7 = 7,
+    // 128 KB LMEMn
+    eLMSZ_8 = 8,
+    // 256 KB LMEMn
+    eLMSZ_9 = 9,
+    // 512 KB LMEMn
+    eLMSZ_10 = 10,
+    // 1024 KB LMEMn
+    eLMSZ_11 = 11,
+    // 2048 KB LMEMn
+    eLMSZ_12 = 12,
+    // 4096 KB LMEMn
+    eLMSZ_13 = 13,
+    // 8192 KB LMEMn
+    eLMSZ_14 = 14,
+    // 16384 KB LMEMn
+    eLMSZ_15 = 15,
   };
   
+  // LMEM Size "Hole"
   enum class eLMSZH : uint32_t {
-    eLMSZH_0 = 0, // LMEMn is a power-of-2 capacity.
-    eLMSZH_1 = 1, // LMEMn is not a power-of-2, with a capacity is 0.75 * LMSZ.
+    // LMEMn is a power-of-2 capacity.
+    eLMSZH_0 = 0,
+    // LMEMn is not a power-of-2, with a capacity is 0.75 * LMSZ.
+    eLMSZH_1 = 1,
   };
   
+  // Local memory Valid bit. This read-only field defines the validity (presence) of the local memory.
   enum class eV : uint32_t {
-    eV_0 = 0, // LMEMn is not present.
-    eV_1 = 1, // LMEMn is present.
+    // LMEMn is not present.
+    eV_0 = 0,
+    // LMEMn is present.
+    eV_1 = 1,
   };
   
   // Bit field definition.
   struct {
-    /// read-write - Control Field 0
+    // read-write - Control Field 0
     uint32_t CF0 : 4;
-    /// read-write - Control Field 1 - for Cache Parity control functions
+    // read-write - Control Field 1 - for Cache Parity control functions
     uint32_t CF1 : 4;
     uint32_t _reserved_0 : 5;
-    /// read-only - Memory Type
+    // read-only - Memory Type
     eMT MT : 3;
-    /// read-only - Read-Only
+    // read-only - Read-Only
     eRO RO : 1;
-    /// read-only - LMEM Data Path Width. This read-only field defines the width of the local memory.
+    // read-only - LMEM Data Path Width. This read-only field defines the width of the local memory.
     eDPW DPW : 3;
-    /// read-only - Level 1 Cache Ways
+    // read-only - Level 1 Cache Ways
     eWY WY : 4;
-    /// read-only - LMEM Size
+    // read-only - LMEM Size
     eLMSZ LMSZ : 4;
-    /// read-only - LMEM Size "Hole"
+    // read-only - LMEM Size "Hole"
     eLMSZH LMSZH : 1;
     uint32_t _reserved_1 : 2;
-    /// read-only - Local memory Valid bit. This read-only field defines the validity (presence) of the local memory.
+    // read-only - Local memory Valid bit. This read-only field defines the validity (presence) of the local memory.
     eV V : 1;
   } bits;
   
@@ -649,82 +826,119 @@ union MCM_LMDR2 {
   static inline volatile MCM_LMDR2 &Instance() { return *reinterpret_cast<volatile MCM_LMDR2*>(0xE0080408); }
 };
 // Local Memory Descriptor Register
-//
 union MCM_LMDR3 {
   
+  // Memory Type
   enum class eMT : uint32_t {
-    eMT_0 = 0, // code TCM
-    eMT_1 = 1, // system TCM
-    eMT_2 = 2, // PC Cache
-    eMT_3 = 3, // PS Cache
+    // code TCM
+    eMT_0 = 0,
+    // system TCM
+    eMT_1 = 1,
+    // PC Cache
+    eMT_2 = 2,
+    // PS Cache
+    eMT_3 = 3,
   };
   
+  // Read-Only
   enum class eRO : uint32_t {
-    eRO_0 = 0, // Writes to the LMDRn[7:0] are allowed.
-    eRO_1 = 1, // Writes to the LMDRn[7:0] are ignored.
+    // Writes to the LMDRn[7:0] are allowed.
+    eRO_0 = 0,
+    // Writes to the LMDRn[7:0] are ignored.
+    eRO_1 = 1,
   };
   
+  // LMEM Data Path Width. This read-only field defines the width of the local memory.
   enum class eDPW : uint32_t {
-    eDPW_2 = 2, // LMEMn 32-bits wide
-    eDPW_3 = 3, // LMEMn 64-bits wide
+    // LMEMn 32-bits wide
+    eDPW_2 = 2,
+    // LMEMn 64-bits wide
+    eDPW_3 = 3,
   };
   
+  // Level 1 Cache Ways
   enum class eWY : uint32_t {
-    eWY_0 = 0, // No Cache
-    eWY_2 = 2, // 2-Way Set Associative
-    eWY_4 = 4, // 4-Way Set Associative
+    // No Cache
+    eWY_0 = 0,
+    // 2-Way Set Associative
+    eWY_2 = 2,
+    // 4-Way Set Associative
+    eWY_4 = 4,
   };
   
+  // LMEM Size
   enum class eLMSZ : uint32_t {
-    eLMSZ_0 = 0, // no LMEMn (0 KB)
-    eLMSZ_1 = 1, // 1 KB LMEMn
-    eLMSZ_2 = 2, // 2 KB LMEMn
-    eLMSZ_3 = 3, // 4 KB LMEMn
-    eLMSZ_4 = 4, // 8 KB LMEMn
-    eLMSZ_5 = 5, // 16 KB LMEMn
-    eLMSZ_6 = 6, // 32 KB LMEMn
-    eLMSZ_7 = 7, // 64 KB LMEMn
-    eLMSZ_8 = 8, // 128 KB LMEMn
-    eLMSZ_9 = 9, // 256 KB LMEMn
-    eLMSZ_10 = 10, // 512 KB LMEMn
-    eLMSZ_11 = 11, // 1024 KB LMEMn
-    eLMSZ_12 = 12, // 2048 KB LMEMn
-    eLMSZ_13 = 13, // 4096 KB LMEMn
-    eLMSZ_14 = 14, // 8192 KB LMEMn
-    eLMSZ_15 = 15, // 16384 KB LMEMn
+    // no LMEMn (0 KB)
+    eLMSZ_0 = 0,
+    // 1 KB LMEMn
+    eLMSZ_1 = 1,
+    // 2 KB LMEMn
+    eLMSZ_2 = 2,
+    // 4 KB LMEMn
+    eLMSZ_3 = 3,
+    // 8 KB LMEMn
+    eLMSZ_4 = 4,
+    // 16 KB LMEMn
+    eLMSZ_5 = 5,
+    // 32 KB LMEMn
+    eLMSZ_6 = 6,
+    // 64 KB LMEMn
+    eLMSZ_7 = 7,
+    // 128 KB LMEMn
+    eLMSZ_8 = 8,
+    // 256 KB LMEMn
+    eLMSZ_9 = 9,
+    // 512 KB LMEMn
+    eLMSZ_10 = 10,
+    // 1024 KB LMEMn
+    eLMSZ_11 = 11,
+    // 2048 KB LMEMn
+    eLMSZ_12 = 12,
+    // 4096 KB LMEMn
+    eLMSZ_13 = 13,
+    // 8192 KB LMEMn
+    eLMSZ_14 = 14,
+    // 16384 KB LMEMn
+    eLMSZ_15 = 15,
   };
   
+  // LMEM Size "Hole"
   enum class eLMSZH : uint32_t {
-    eLMSZH_0 = 0, // LMEMn is a power-of-2 capacity.
-    eLMSZH_1 = 1, // LMEMn is not a power-of-2, with a capacity is 0.75 * LMSZ.
+    // LMEMn is a power-of-2 capacity.
+    eLMSZH_0 = 0,
+    // LMEMn is not a power-of-2, with a capacity is 0.75 * LMSZ.
+    eLMSZH_1 = 1,
   };
   
+  // Local memory Valid bit. This read-only field defines the validity (presence) of the local memory.
   enum class eV : uint32_t {
-    eV_0 = 0, // LMEMn is not present.
-    eV_1 = 1, // LMEMn is present.
+    // LMEMn is not present.
+    eV_0 = 0,
+    // LMEMn is present.
+    eV_1 = 1,
   };
   
   // Bit field definition.
   struct {
-    /// read-write - Control Field 0
+    // read-write - Control Field 0
     uint32_t CF0 : 4;
-    /// read-write - Control Field 1 - for Cache Parity control functions
+    // read-write - Control Field 1 - for Cache Parity control functions
     uint32_t CF1 : 4;
     uint32_t _reserved_0 : 5;
-    /// read-only - Memory Type
+    // read-only - Memory Type
     eMT MT : 3;
-    /// read-only - Read-Only
+    // read-only - Read-Only
     eRO RO : 1;
-    /// read-only - LMEM Data Path Width. This read-only field defines the width of the local memory.
+    // read-only - LMEM Data Path Width. This read-only field defines the width of the local memory.
     eDPW DPW : 3;
-    /// read-only - Level 1 Cache Ways
+    // read-only - Level 1 Cache Ways
     eWY WY : 4;
-    /// read-only - LMEM Size
+    // read-only - LMEM Size
     eLMSZ LMSZ : 4;
-    /// read-only - LMEM Size "Hole"
+    // read-only - LMEM Size "Hole"
     eLMSZH LMSZH : 1;
     uint32_t _reserved_1 : 2;
-    /// read-only - Local memory Valid bit. This read-only field defines the validity (presence) of the local memory.
+    // read-only - Local memory Valid bit. This read-only field defines the validity (presence) of the local memory.
     eV V : 1;
   } bits;
   
@@ -737,54 +951,71 @@ union MCM_LMDR3 {
 };
 
 // LMEM Parity & ECC Control Register
-//
 union MCM_LMPECR {
   
+  // Enable RAM ECC Non-correctable Reporting
   enum class eERNCR : uint32_t {
-    eERNCR_0 = 0, // reporting enabled
-    eERNCR_1 = 1, // reporting disabled
+    // reporting enabled
+    eERNCR_0 = 0,
+    // reporting disabled
+    eERNCR_1 = 1,
   };
   
+  // Enable RAM Non-correctable ECC Interrupt
   enum class eERNCI : uint32_t {
-    eERNCI_0 = 0, // Interrupt is disabled
-    eERNCI_1 = 1, // Interrupt is enabled
+    // Interrupt is disabled
+    eERNCI_0 = 0,
+    // Interrupt is enabled
+    eERNCI_1 = 1,
   };
   
+  // Enable RAM ECC 1-bit Reporting
   enum class eER1BR : uint32_t {
-    eER1BR_0 = 0, // reporting enabled
-    eER1BR_1 = 1, // reporting disabled
+    // reporting enabled
+    eER1BR_0 = 0,
+    // reporting disabled
+    eER1BR_1 = 1,
   };
   
+  // Enable RAM ECC 1-bit Interrupt
   enum class eER1BI : uint32_t {
-    eER1BI_0 = 0, // Interrupt is disabled
-    eER1BI_1 = 1, // Interrupt is enabled
+    // Interrupt is disabled
+    eER1BI_0 = 0,
+    // Interrupt is enabled
+    eER1BI_1 = 1,
   };
   
+  // Enable Cache Parity Reporting
   enum class eECPR : uint32_t {
-    eECPR_0 = 0, // reporting enabled
-    eECPR_1 = 1, // reporting disabled
+    // reporting enabled
+    eECPR_0 = 0,
+    // reporting disabled
+    eECPR_1 = 1,
   };
   
+  // Enable Cache Parity IRQ
   enum class eECPI : uint32_t {
-    eECPI_0 = 0, // enabled
-    eECPI_1 = 1, // disabled
+    // enabled
+    eECPI_0 = 0,
+    // disabled
+    eECPI_1 = 1,
   };
   
   // Bit field definition.
   struct {
-    /// read-write - Enable RAM ECC Non-correctable Reporting
+    // read-write - Enable RAM ECC Non-correctable Reporting
     eERNCR ERNCR : 1;
-    /// read-write - Enable RAM Non-correctable ECC Interrupt
+    // read-write - Enable RAM Non-correctable ECC Interrupt
     eERNCI ERNCI : 1;
     uint32_t _reserved_0 : 6;
-    /// read-write - Enable RAM ECC 1-bit Reporting
+    // read-write - Enable RAM ECC 1-bit Reporting
     eER1BR ER1BR : 1;
-    /// read-write - Enable RAM ECC 1-bit Interrupt
+    // read-write - Enable RAM ECC 1-bit Interrupt
     eER1BI ER1BI : 1;
     uint32_t _reserved_1 : 10;
-    /// read-write - Enable Cache Parity Reporting
+    // read-write - Enable Cache Parity Reporting
     eECPR ECPR : 1;
-    /// read-write - Enable Cache Parity IRQ
+    // read-write - Enable Cache Parity IRQ
     eECPI ECPI : 1;
     uint32_t _reserved_2 : 10;
   } bits;
@@ -798,21 +1029,20 @@ union MCM_LMPECR {
 };
 
 // LMEM Parity & ECC Interrupt Register
-//
 union MCM_LMPEIR {
   
   // Bit field definition.
   struct {
-    /// read-write - ENCn = ECC Non-correctable Error n
+    // read-write - ENCn = ECC Non-correctable Error n
     uint32_t ENC : 8;
-    /// read-write - E1Bn = ECC 1-bit Error n
+    // read-write - E1Bn = ECC 1-bit Error n
     uint32_t E1B : 8;
-    /// read-write - Parity Error
+    // read-write - Parity Error
     uint32_t PE : 8;
-    /// read-write - Parity or ECC Error Location
+    // read-write - Parity or ECC Error Location
     uint32_t PEELOC : 5;
     uint32_t _reserved_0 : 2;
-    /// read-only - Valid bit
+    // read-only - Valid bit
     uint32_t V : 1;
   } bits;
   
@@ -825,12 +1055,11 @@ union MCM_LMPEIR {
 };
 
 // LMEM Fault Address Register
-//
 union MCM_LMFAR {
   
   // Bit field definition.
   struct {
-    /// read-only - ECC Fault Address
+    // read-only - ECC Fault Address
     uint32_t EFADD : 32;
   } bits;
   
@@ -843,24 +1072,23 @@ union MCM_LMFAR {
 };
 
 // LMEM Fault Attribute Register
-//
 union MCM_LMFATR {
   
   // Bit field definition.
   struct {
-    /// read-write - Parity/ECC Fault Protection FATR[3] is Cacheable: 0=Non-cacheable, 1=Cacheable FATR[2] is Bufferable: 0=Non-bufferable, 1=Bufferable FATR[1] is Mode: 0=User mode, 1=Supervisor mode FATR[0] is Type: 0=I-Fetch, 1=Data
+    // read-write - Parity/ECC Fault Protection FATR[3] is Cacheable: 0=Non-cacheable, 1=Cacheable FATR[2] is Bufferable: 0=Non-bufferable, 1=Bufferable FATR[1] is Mode: 0=User mode, 1=Supervisor mode FATR[0] is Type: 0=I-Fetch, 1=Data
     uint32_t PEFPRT : 4;
-    /// read-write - Parity/ECC Fault Master Size 3'b000 = 8-bit access 3'b001 = 16-bit access 3'b010 = 32-bit access 3'b011 = 64-bit access 3'b1xx = Reserved
+    // read-write - Parity/ECC Fault Master Size 3'b000 = 8-bit access 3'b001 = 16-bit access 3'b010 = 32-bit access 3'b011 = 64-bit access 3'b1xx = Reserved
     uint32_t PEFSIZE : 3;
-    /// read-only - Parity/ECC Fault Write
+    // read-only - Parity/ECC Fault Write
     uint32_t PEFW : 1;
-    /// read-only - Parity/ECC Fault Master Number
+    // read-only - Parity/ECC Fault Master Number
     uint32_t PEFMST : 8;
     uint32_t _reserved_0 : 8;
-    /// read-only - ID of the word which has ECC error
+    // read-only - ID of the word which has ECC error
     uint32_t WORDID : 1;
     uint32_t _reserved_1 : 6;
-    /// read-only - Overrun
+    // read-only - Overrun
     uint32_t OVR : 1;
   } bits;
   
@@ -873,12 +1101,11 @@ union MCM_LMFATR {
 };
 
 // LMEM Fault Data High Register
-//
 union MCM_LMFDHR {
   
   // Bit field definition.
   struct {
-    /// read-only - Parity or ECC Fault Data High
+    // read-only - Parity or ECC Fault Data High
     uint32_t PEFDH : 32;
   } bits;
   
@@ -891,12 +1118,11 @@ union MCM_LMFDHR {
 };
 
 // LMEM Fault Data Low Register
-//
 union MCM_LMFDLR {
   
   // Bit field definition.
   struct {
-    /// read-only - Parity or ECC Fault Data Low
+    // read-only - Parity or ECC Fault Data Low
     uint32_t PEFDL : 32;
   } bits;
   

@@ -5,19 +5,15 @@
 #include <cstring>
 
 // MUA
-//
-// NOTE: This file was generated from the forge CMSIS-svd wrapper tool.
-
 namespace nMUA {
 
 
 // Processor A Transmit Register 0
-//
 union TR0 {
   
   // Bit field definition.
   struct {
-    /// read-write - TR0
+    // read-write - TR0
     uint32_t DATA : 32;
   } bits;
   
@@ -30,12 +26,11 @@ union TR0 {
 };
 
 // Processor A Transmit Register 1
-//
 union TR1 {
   
   // Bit field definition.
   struct {
-    /// read-write - TR1
+    // read-write - TR1
     uint32_t DATA : 32;
   } bits;
   
@@ -48,12 +43,11 @@ union TR1 {
 };
 
 // Processor A Transmit Register 2
-//
 union TR2 {
   
   // Bit field definition.
   struct {
-    /// read-write - TR2
+    // read-write - TR2
     uint32_t DATA : 32;
   } bits;
   
@@ -66,12 +60,11 @@ union TR2 {
 };
 
 // Processor A Transmit Register 3
-//
 union TR3 {
   
   // Bit field definition.
   struct {
-    /// read-write - TR3
+    // read-write - TR3
     uint32_t DATA : 32;
   } bits;
   
@@ -84,12 +77,11 @@ union TR3 {
 };
 
 // Processor A Receive Register 0
-//
 union RR0 {
   
   // Bit field definition.
   struct {
-    /// read-only - RR0
+    // read-only - RR0
     uint32_t DATA : 32;
   } bits;
   
@@ -102,12 +94,11 @@ union RR0 {
 };
 
 // Processor A Receive Register 1
-//
 union RR1 {
   
   // Bit field definition.
   struct {
-    /// read-only - RR1
+    // read-only - RR1
     uint32_t DATA : 32;
   } bits;
   
@@ -120,12 +111,11 @@ union RR1 {
 };
 
 // Processor A Receive Register 2
-//
 union RR2 {
   
   // Bit field definition.
   struct {
-    /// read-only - RR2
+    // read-only - RR2
     uint32_t DATA : 32;
   } bits;
   
@@ -138,12 +128,11 @@ union RR2 {
 };
 
 // Processor A Receive Register 3
-//
 union RR3 {
   
   // Bit field definition.
   struct {
-    /// read-only - RR3
+    // read-only - RR3
     uint32_t DATA : 32;
   } bits;
   
@@ -156,62 +145,82 @@ union RR3 {
 };
 
 // Processor A Status Register
-//
 union SR {
   
+  // Fn
   enum class eFn : uint32_t {
-    ezero = 0, // BAFn bit in MUB.CR register is written 0 (default).
-    eone = 1, // BAFn bit in MUB.CR register is written 1.
+    // BAFn bit in MUB.CR register is written 0 (default).
+    ezero = 0,
+    // BAFn bit in MUB.CR register is written 1.
+    eone = 1,
   };
   
+  // EP
   enum class eEP : uint32_t {
-    enot_pending = 0, // The Processor A-side event is not pending (default).
-    epending = 1, // The Processor A-side event is pending.
+    // The Processor A-side event is not pending (default).
+    enot_pending = 0,
+    // The Processor A-side event is pending.
+    epending = 1,
   };
   
+  // RS
   enum class eRS : uint32_t {
-    enot_reset = 0, // The Processor B-side of the MU is not in reset.
-    ereset = 1, // The Processor B-side of the MU is in reset.
+    // The Processor B-side of the MU is not in reset.
+    enot_reset = 0,
+    // The Processor B-side of the MU is in reset.
+    ereset = 1,
   };
   
+  // FUP
   enum class eFUP : uint32_t {
-    eno_update = 0, // No flags updated, initiated by the Processor A, in progress (default)
-    eupdate = 1, // Processor A initiated flags update, processing
+    // No flags updated, initiated by the Processor A, in progress (default)
+    eno_update = 0,
+    // Processor A initiated flags update, processing
+    eupdate = 1,
   };
   
+  // TEn
   enum class eTEn : uint32_t {
-    enot_empty = 0, // MUA.TRn register is not empty.
-    eempty = 1, // MUA.TRn register is empty (default).
+    // MUA.TRn register is not empty.
+    enot_empty = 0,
+    // MUA.TRn register is empty (default).
+    eempty = 1,
   };
   
+  // RFn
   enum class eRFn : uint32_t {
-    enot_full = 0, // MUA.RRn register is not full (default).
-    efull = 1, // MUA.RRn register has received data from MUB.TRn register and is ready to be read by the Processor A.
+    // MUA.RRn register is not full (default).
+    enot_full = 0,
+    // MUA.RRn register has received data from MUB.TRn register and is ready to be read by the Processor A.
+    efull = 1,
   };
   
+  // GIPn
   enum class eGIPn : uint32_t {
-    enot_pending = 0, // Processor A general purpose interrupt n is not pending. (default)
-    epending = 1, // Processor A general purpose interrupt n is pending.
+    // Processor A general purpose interrupt n is not pending. (default)
+    enot_pending = 0,
+    // Processor A general purpose interrupt n is pending.
+    epending = 1,
   };
   
   // Bit field definition.
   struct {
-    /// read-only - Fn
+    // read-only - Fn
     eFn Fn : 3;
     uint32_t _reserved_0 : 1;
-    /// read-only - EP
+    // read-only - EP
     eEP EP : 1;
     uint32_t _reserved_1 : 2;
-    /// read-only - RS
+    // read-only - RS
     eRS RS : 1;
-    /// read-only - FUP
+    // read-only - FUP
     eFUP FUP : 1;
     uint32_t _reserved_2 : 11;
-    /// read-only - TEn
+    // read-only - TEn
     eTEn TEn : 4;
-    /// read-only - RFn
+    // read-only - RFn
     eRFn RFn : 4;
-    /// read-write - GIPn
+    // read-write - GIPn
     eGIPn GIPn : 4;
   } bits;
   
@@ -224,54 +233,71 @@ union SR {
 };
 
 // Processor A Control Register
-//
 union CR {
   
+  // Fn
   enum class eFn : uint32_t {
-    enot_appl = 0, // N/A. Self clearing bit (default).
-    eassert_reset = 1, // Asserts the Processor A MU reset.
+    // N/A. Self clearing bit (default).
+    enot_appl = 0,
+    // Asserts the Processor A MU reset.
+    eassert_reset = 1,
   };
   
+  // MUR
   enum class eMUR : uint32_t {
-    enot_appl = 0, // N/A. Self clearing bit (default).
-    eassert_reset = 1, // Asserts the Processor A MU reset.
+    // N/A. Self clearing bit (default).
+    enot_appl = 0,
+    // Asserts the Processor A MU reset.
+    eassert_reset = 1,
   };
   
+  // GIRn
   enum class eGIRn : uint32_t {
-    enot_requested = 0, // Processor A General Interrupt n is not requested to the Processor B (default).
-    erequested = 1, // Processor A General Interrupt n is requested to the Processor B.
+    // Processor A General Interrupt n is not requested to the Processor B (default).
+    enot_requested = 0,
+    // Processor A General Interrupt n is requested to the Processor B.
+    erequested = 1,
   };
   
+  // TIEn
   enum class eTIEn : uint32_t {
-    edisable = 0, // Disables Processor A Transmit Interrupt n. (default)
-    eenable = 1, // Enables Processor A Transmit Interrupt n.
+    // Disables Processor A Transmit Interrupt n. (default)
+    edisable = 0,
+    // Enables Processor A Transmit Interrupt n.
+    eenable = 1,
   };
   
+  // RIEn
   enum class eRIEn : uint32_t {
-    edisable = 0, // Disables Processor A Receive Interrupt n. (default)
-    eenable = 1, // Enables Processor A Receive Interrupt n.
+    // Disables Processor A Receive Interrupt n. (default)
+    edisable = 0,
+    // Enables Processor A Receive Interrupt n.
+    eenable = 1,
   };
   
+  // GIEn
   enum class eGIEn : uint32_t {
-    edisable = 0, // Disables Processor A General Interrupt n. (default)
-    eenable = 1, // Enables Processor A General Interrupt n.
+    // Disables Processor A General Interrupt n. (default)
+    edisable = 0,
+    // Enables Processor A General Interrupt n.
+    eenable = 1,
   };
   
   // Bit field definition.
   struct {
-    /// read-write - Fn
+    // read-write - Fn
     eFn Fn : 3;
     uint32_t _reserved_0 : 2;
-    /// read-write - MUR
+    // read-write - MUR
     eMUR MUR : 1;
     uint32_t _reserved_1 : 10;
-    /// read-write - GIRn
+    // read-write - GIRn
     eGIRn GIRn : 4;
-    /// read-write - TIEn
+    // read-write - TIEn
     eTIEn TIEn : 4;
-    /// read-write - RIEn
+    // read-write - RIEn
     eRIEn RIEn : 4;
-    /// read-write - GIEn
+    // read-write - GIEn
     eGIEn GIEn : 4;
   } bits;
   

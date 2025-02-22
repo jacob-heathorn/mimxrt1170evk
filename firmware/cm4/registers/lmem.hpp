@@ -5,82 +5,105 @@
 #include <cstring>
 
 // LMEM
-//
-// NOTE: This file was generated from the forge CMSIS-svd wrapper tool.
-
 namespace nLMEM {
 
 
 // PC bus Cache control register
-//
 union PCCCR {
   
+  // Cache enable
   enum class eENCACHE : uint32_t {
-    edisabled = 0, // Cache disabled
-    eenabled = 1, // Cache enabled
+    // Cache disabled
+    edisabled = 0,
+    // Cache enabled
+    eenabled = 1,
   };
   
+  // Enable Write Buffer
   enum class eENWRBUF : uint32_t {
-    edisabled = 0, // Write buffer disabled
-    eenabled = 1, // Write buffer enabled
+    // Write buffer disabled
+    edisabled = 0,
+    // Write buffer enabled
+    eenabled = 1,
   };
   
+  // Forces all cacheable spaces to write through
   enum class ePCCR2 : uint32_t {
-    ePCCR2_0 = 0, // Does NOT force all cacheable spaces to write through
-    ePCCR2_1 = 1, // Forces all cacheable spaces to write through
+    // Does NOT force all cacheable spaces to write through
+    ePCCR2_0 = 0,
+    // Forces all cacheable spaces to write through
+    ePCCR2_1 = 1,
   };
   
+  // Forces no allocation on cache misses
   enum class ePCCR3 : uint32_t {
-    ePCCR3_0 = 0, // Allocation on cache misses
-    ePCCR3_1 = 1, // Forces no allocation on cache misses (must also have PCCR2 asserted)
+    // Allocation on cache misses
+    ePCCR3_0 = 0,
+    // Forces no allocation on cache misses (must also have PCCR2 asserted)
+    ePCCR3_1 = 1,
   };
   
+  // Invalidate Way 0
   enum class eINVW0 : uint32_t {
-    eno_operation = 0, // No operation
-    einvw0 = 1, // When setting the GO bit, invalidate all lines in way 0.
+    // No operation
+    eno_operation = 0,
+    // When setting the GO bit, invalidate all lines in way 0.
+    einvw0 = 1,
   };
   
+  // Push Way 0
   enum class ePUSHW0 : uint32_t {
-    eno_operation = 0, // No operation
-    epushw0 = 1, // When setting the GO bit, push all modified lines in way 0
+    // No operation
+    eno_operation = 0,
+    // When setting the GO bit, push all modified lines in way 0
+    epushw0 = 1,
   };
   
+  // Invalidate Way 1
   enum class eINVW1 : uint32_t {
-    eno_operation = 0, // No operation
-    einvw1 = 1, // When setting the GO bit, invalidate all lines in way 1
+    // No operation
+    eno_operation = 0,
+    // When setting the GO bit, invalidate all lines in way 1
+    einvw1 = 1,
   };
   
+  // Push Way 1
   enum class ePUSHW1 : uint32_t {
-    eno_operation = 0, // No operation
-    epushw1 = 1, // When setting the GO bit, push all modified lines in way 1
+    // No operation
+    eno_operation = 0,
+    // When setting the GO bit, push all modified lines in way 1
+    epushw1 = 1,
   };
   
+  // Initiate Cache Command
   enum class eGO : uint32_t {
-    eno_effect = 0, // Write: no effect. Read: no cache command active.
-    einit_cmd = 1, // Write: initiate command indicated by bits 27-24. Read: cache command active.
+    // Write: no effect. Read: no cache command active.
+    eno_effect = 0,
+    // Write: initiate command indicated by bits 27-24. Read: cache command active.
+    einit_cmd = 1,
   };
   
   // Bit field definition.
   struct {
-    /// read-write - Cache enable
+    // read-write - Cache enable
     eENCACHE ENCACHE : 1;
-    /// read-write - Enable Write Buffer
+    // read-write - Enable Write Buffer
     eENWRBUF ENWRBUF : 1;
-    /// read-write - Forces all cacheable spaces to write through
+    // read-write - Forces all cacheable spaces to write through
     ePCCR2 PCCR2 : 1;
-    /// read-write - Forces no allocation on cache misses
+    // read-write - Forces no allocation on cache misses
     ePCCR3 PCCR3 : 1;
     uint32_t _reserved_0 : 20;
-    /// read-write - Invalidate Way 0
+    // read-write - Invalidate Way 0
     eINVW0 INVW0 : 1;
-    /// read-write - Push Way 0
+    // read-write - Push Way 0
     ePUSHW0 PUSHW0 : 1;
-    /// read-write - Invalidate Way 1
+    // read-write - Invalidate Way 1
     eINVW1 INVW1 : 1;
-    /// read-write - Push Way 1
+    // read-write - Push Way 1
     ePUSHW1 PUSHW1 : 1;
     uint32_t _reserved_1 : 3;
-    /// read-write - Initiate Cache Command
+    // read-write - Initiate Cache Command
     eGO GO : 1;
   } bits;
   
@@ -93,66 +116,85 @@ union PCCCR {
 };
 
 // PC bus Cache line control register
-//
 union PCCLCR {
   
+  // Initiate Cache Line Command
   enum class eLGO : uint32_t {
-    eno_effect = 0, // Write: no effect. Read: no line command active.
-    einit_cmd = 1, // Write: initiate line command indicated by bits 27-24. Read: line command active.
+    // Write: no effect. Read: no line command active.
+    eno_effect = 0,
+    // Write: initiate line command indicated by bits 27-24. Read: line command active.
+    einit_cmd = 1,
   };
   
+  // Way select
   enum class eWSEL : uint32_t {
-    eway0 = 0, // Way 0
-    eway1 = 1, // Way 1
+    // Way 0
+    eway0 = 0,
+    // Way 1
+    eway1 = 1,
   };
   
+  // Tag/Data Select
   enum class eTDSEL : uint32_t {
-    edata = 0, // Data
-    etag = 1, // Tag
+    // Data
+    edata = 0,
+    // Tag
+    etag = 1,
   };
   
+  // Line Command
   enum class eLCMD : uint32_t {
-    esearch_rw = 0, // Search and read or write
-    einvalidate = 1, // Invalidate
-    epush = 2, // Push
-    eclear = 3, // Clear
+    // Search and read or write
+    esearch_rw = 0,
+    // Invalidate
+    einvalidate = 1,
+    // Push
+    epush = 2,
+    // Clear
+    eclear = 3,
   };
   
+  // Line Address Select
   enum class eLADSEL : uint32_t {
-    ecache_addr = 0, // Cache address
-    ephys_addr = 1, // Physical address
+    // Cache address
+    ecache_addr = 0,
+    // Physical address
+    ephys_addr = 1,
   };
   
+  // Line access type
   enum class eLACC : uint32_t {
-    eread = 0, // Read
-    ewrite = 1, // Write
+    // Read
+    eread = 0,
+    // Write
+    ewrite = 1,
   };
   
   // Bit field definition.
   struct {
-    /// read-write - Initiate Cache Line Command
+    // read-write - Initiate Cache Line Command
     eLGO LGO : 1;
     uint32_t _reserved_0 : 1;
-    /// read-write - Cache address
+    // read-write - Cache address
     uint32_t CACHEADDR : 12;
-    /// read-write - Way select
+    // read-write - Way select
     eWSEL WSEL : 1;
     uint32_t _reserved_1 : 1;
-    /// read-write - Tag/Data Select
+    // read-write - Tag/Data Select
     eTDSEL TDSEL : 1;
     uint32_t _reserved_2 : 3;
-    /// read-write - Line Command Initial Valid Bit
+    // read-write - Line Command Initial Valid Bit
     uint32_t LCIVB : 1;
-    /// read-write - Line Command Initial Modified Bit
+    // read-write - Line Command Initial Modified Bit
     uint32_t LCIMB : 1;
-    /// read-write - Line Command Way
+    // read-write - Line Command Way
     uint32_t LCWAY : 1;
     uint32_t _reserved_3 : 1;
-    /// read-write - Line Command
+    // read-write - Line Command
     eLCMD LCMD : 2;
-    /// read-write - Line Address Select
+    // read-write - Line Address Select
     eLADSEL LADSEL : 1;
-    /// read-write - Line access type
+    // read-write - Line access type
     eLACC LACC : 1;
     uint32_t _reserved_4 : 4;
   } bits;
@@ -166,19 +208,21 @@ union PCCLCR {
 };
 
 // PC bus Cache search address register
-//
 union PCCSAR {
   
+  // Initiate Cache Line Command
   enum class eLGO : uint32_t {
-    eno_effect = 0, // Write: no effect. Read: no line command active.
-    einit_cmd = 1, // Write: initiate line command indicated by bits CLCR[27:24]. Read: line command active.
+    // Write: no effect. Read: no line command active.
+    eno_effect = 0,
+    // Write: initiate line command indicated by bits CLCR[27:24]. Read: line command active.
+    einit_cmd = 1,
   };
   
   // Bit field definition.
   struct {
-    /// read-write - Initiate Cache Line Command
+    // read-write - Initiate Cache Line Command
     eLGO LGO : 1;
-    /// read-write - Physical Address
+    // read-write - Physical Address
     uint32_t PHYADDR : 31;
   } bits;
   
@@ -191,12 +235,11 @@ union PCCSAR {
 };
 
 // PC bus Cache read/write value register
-//
 union PCCCVR {
   
   // Bit field definition.
   struct {
-    /// read-write - Cache read/write Data
+    // read-write - Cache read/write Data
     uint32_t DATA : 32;
   } bits;
   
@@ -209,75 +252,101 @@ union PCCCVR {
 };
 
 // PS bus Cache control register
-//
 union PSCCR {
   
+  // Cache enable
   enum class eENCACHE : uint32_t {
-    edisabled = 0, // Cache disabled
-    eenabled = 1, // Cache enabled
+    // Cache disabled
+    edisabled = 0,
+    // Cache enabled
+    eenabled = 1,
   };
   
+  // Enable Write Buffer
   enum class eENWRBUF : uint32_t {
-    edisabled = 0, // Write buffer disabled
-    eenabled = 1, // Write buffer enabled
+    // Write buffer disabled
+    edisabled = 0,
+    // Write buffer enabled
+    eenabled = 1,
   };
   
+  // Forces all cacheable spaces to write through
   enum class ePSCR2 : uint32_t {
-    ePSCR2_0 = 0, // Does NOT force all cacheable spaces to write through
-    ePSCR2_1 = 1, // Forces all cacheable spaces to write through
+    // Does NOT force all cacheable spaces to write through
+    ePSCR2_0 = 0,
+    // Forces all cacheable spaces to write through
+    ePSCR2_1 = 1,
   };
   
+  // Forces no allocation on cache misses
   enum class ePSCR3 : uint32_t {
-    ePSCR3_0 = 0, // Allocation on cache misses
-    ePSCR3_1 = 1, // Forces no allocation on cache misses (must also have PSCR2 asserted)
+    // Allocation on cache misses
+    ePSCR3_0 = 0,
+    // Forces no allocation on cache misses (must also have PSCR2 asserted)
+    ePSCR3_1 = 1,
   };
   
+  // Invalidate Way 0
   enum class eINVW0 : uint32_t {
-    eno_operation = 0, // No operation
-    einvw0 = 1, // When setting the GO bit, invalidate all lines in way 0.
+    // No operation
+    eno_operation = 0,
+    // When setting the GO bit, invalidate all lines in way 0.
+    einvw0 = 1,
   };
   
+  // Push Way 0
   enum class ePUSHW0 : uint32_t {
-    eno_operation = 0, // No operation
-    epushw0 = 1, // When setting the GO bit, push all modified lines in way 0
+    // No operation
+    eno_operation = 0,
+    // When setting the GO bit, push all modified lines in way 0
+    epushw0 = 1,
   };
   
+  // Invalidate Way 1
   enum class eINVW1 : uint32_t {
-    eno_operation = 0, // No operation
-    einvw1 = 1, // When setting the GO bit, invalidate all lines in way 1
+    // No operation
+    eno_operation = 0,
+    // When setting the GO bit, invalidate all lines in way 1
+    einvw1 = 1,
   };
   
+  // Push Way 1
   enum class ePUSHW1 : uint32_t {
-    eno_operation = 0, // No operation
-    epushw1 = 1, // When setting the GO bit, push all modified lines in way 1
+    // No operation
+    eno_operation = 0,
+    // When setting the GO bit, push all modified lines in way 1
+    epushw1 = 1,
   };
   
+  // Initiate Cache Command
   enum class eGO : uint32_t {
-    eno_effect = 0, // Write: no effect. Read: no cache command active.
-    einit_cmd = 1, // Write: initiate command indicated by bits 27-24. Read: cache command active.
+    // Write: no effect. Read: no cache command active.
+    eno_effect = 0,
+    // Write: initiate command indicated by bits 27-24. Read: cache command active.
+    einit_cmd = 1,
   };
   
   // Bit field definition.
   struct {
-    /// read-write - Cache enable
+    // read-write - Cache enable
     eENCACHE ENCACHE : 1;
-    /// read-write - Enable Write Buffer
+    // read-write - Enable Write Buffer
     eENWRBUF ENWRBUF : 1;
-    /// read-write - Forces all cacheable spaces to write through
+    // read-write - Forces all cacheable spaces to write through
     ePSCR2 PSCR2 : 1;
-    /// read-write - Forces no allocation on cache misses
+    // read-write - Forces no allocation on cache misses
     ePSCR3 PSCR3 : 1;
     uint32_t _reserved_0 : 20;
-    /// read-write - Invalidate Way 0
+    // read-write - Invalidate Way 0
     eINVW0 INVW0 : 1;
-    /// read-write - Push Way 0
+    // read-write - Push Way 0
     ePUSHW0 PUSHW0 : 1;
-    /// read-write - Invalidate Way 1
+    // read-write - Invalidate Way 1
     eINVW1 INVW1 : 1;
-    /// read-write - Push Way 1
+    // read-write - Push Way 1
     ePUSHW1 PUSHW1 : 1;
     uint32_t _reserved_1 : 3;
-    /// read-write - Initiate Cache Command
+    // read-write - Initiate Cache Command
     eGO GO : 1;
   } bits;
   
@@ -290,66 +359,85 @@ union PSCCR {
 };
 
 // PS bus Cache line control register
-//
 union PSCLCR {
   
+  // Initiate Cache Line Command
   enum class eLGO : uint32_t {
-    eno_effect = 0, // Write: no effect. Read: no line command active.
-    einit_cmd = 1, // Write: initiate line command indicated by bits 27-24. Read: line command active.
+    // Write: no effect. Read: no line command active.
+    eno_effect = 0,
+    // Write: initiate line command indicated by bits 27-24. Read: line command active.
+    einit_cmd = 1,
   };
   
+  // Way select
   enum class eWSEL : uint32_t {
-    eway0 = 0, // Way 0
-    eway1 = 1, // Way 1
+    // Way 0
+    eway0 = 0,
+    // Way 1
+    eway1 = 1,
   };
   
+  // Tag/Data Select
   enum class eTDSEL : uint32_t {
-    edata = 0, // Data
-    etag = 1, // Tag
+    // Data
+    edata = 0,
+    // Tag
+    etag = 1,
   };
   
+  // Line Command
   enum class eLCMD : uint32_t {
-    esearch_rw = 0, // Search and read or write
-    einvalidate = 1, // Invalidate
-    epush = 2, // Push
-    eclear = 3, // Clear
+    // Search and read or write
+    esearch_rw = 0,
+    // Invalidate
+    einvalidate = 1,
+    // Push
+    epush = 2,
+    // Clear
+    eclear = 3,
   };
   
+  // Line Address Select
   enum class eLADSEL : uint32_t {
-    ecache_addr = 0, // Cache address
-    ephys_addr = 1, // Physical address
+    // Cache address
+    ecache_addr = 0,
+    // Physical address
+    ephys_addr = 1,
   };
   
+  // Line access type
   enum class eLACC : uint32_t {
-    eread = 0, // Read
-    ewrite = 1, // Write
+    // Read
+    eread = 0,
+    // Write
+    ewrite = 1,
   };
   
   // Bit field definition.
   struct {
-    /// read-write - Initiate Cache Line Command
+    // read-write - Initiate Cache Line Command
     eLGO LGO : 1;
     uint32_t _reserved_0 : 1;
-    /// read-write - Cache address
+    // read-write - Cache address
     uint32_t CACHEADDR : 12;
-    /// read-write - Way select
+    // read-write - Way select
     eWSEL WSEL : 1;
     uint32_t _reserved_1 : 1;
-    /// read-write - Tag/Data Select
+    // read-write - Tag/Data Select
     eTDSEL TDSEL : 1;
     uint32_t _reserved_2 : 3;
-    /// read-write - Line Command Initial Valid Bit
+    // read-write - Line Command Initial Valid Bit
     uint32_t LCIVB : 1;
-    /// read-write - Line Command Initial Modified Bit
+    // read-write - Line Command Initial Modified Bit
     uint32_t LCIMB : 1;
-    /// read-write - Line Command Way
+    // read-write - Line Command Way
     uint32_t LCWAY : 1;
     uint32_t _reserved_3 : 1;
-    /// read-write - Line Command
+    // read-write - Line Command
     eLCMD LCMD : 2;
-    /// read-write - Line Address Select
+    // read-write - Line Address Select
     eLADSEL LADSEL : 1;
-    /// read-write - Line access type
+    // read-write - Line access type
     eLACC LACC : 1;
     uint32_t _reserved_4 : 4;
   } bits;
@@ -363,19 +451,21 @@ union PSCLCR {
 };
 
 // PS bus Cache search address register
-//
 union PSCSAR {
   
+  // Initiate Cache Line Command
   enum class eLGO : uint32_t {
-    eno_effect = 0, // Write: no effect. Read: no line command active.
-    einit_cmd = 1, // Write: initiate line command indicated by bits CLCR[27:24]. Read: line command active.
+    // Write: no effect. Read: no line command active.
+    eno_effect = 0,
+    // Write: initiate line command indicated by bits CLCR[27:24]. Read: line command active.
+    einit_cmd = 1,
   };
   
   // Bit field definition.
   struct {
-    /// read-write - Initiate Cache Line Command
+    // read-write - Initiate Cache Line Command
     eLGO LGO : 1;
-    /// read-write - Physical Address
+    // read-write - Physical Address
     uint32_t PHYADDR : 31;
   } bits;
   
@@ -388,12 +478,11 @@ union PSCSAR {
 };
 
 // PS bus Cache read/write value register
-//
 union PSCCVR {
   
   // Bit field definition.
   struct {
-    /// read-write - Cache read/write Data
+    // read-write - Cache read/write Data
     uint32_t DATA : 32;
   } bits;
   

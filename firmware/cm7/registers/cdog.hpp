@@ -5,86 +5,114 @@
 #include <cstring>
 
 // CDOG
-//
-// NOTE: This file was generated from the forge CMSIS-svd wrapper tool.
-
 namespace nCDOG {
 
 
 // Control
-//
 union CONTROL {
   
+  // Lock control
   enum class eLOCK_CTRL : uint32_t {
-    eLOCKED = 1, // Locked
-    eUNLOCKED = 2, // Unlocked
+    // Locked
+    eLOCKED = 1,
+    // Unlocked
+    eUNLOCKED = 2,
   };
   
+  // TIMEOUT fault control
   enum class eTIMEOUT_CTRL : uint32_t {
-    eENABLE_RESET = 1, // Enable reset
-    eENABLE_INTERRUPT = 2, // Enable interrupt
-    eDISABLE_BOTH = 4, // Disable both reset and interrupt
+    // Enable reset
+    eENABLE_RESET = 1,
+    // Enable interrupt
+    eENABLE_INTERRUPT = 2,
+    // Disable both reset and interrupt
+    eDISABLE_BOTH = 4,
   };
   
+  // MISCOMPARE fault control
   enum class eMISCOMPARE_CTRL : uint32_t {
-    eENABLE_RESET = 1, // Enable reset
-    eENABLE_INTERRUPT = 2, // Enable interrupt
-    eDISABLE_BOTH = 4, // Disable both reset and interrupt
+    // Enable reset
+    eENABLE_RESET = 1,
+    // Enable interrupt
+    eENABLE_INTERRUPT = 2,
+    // Disable both reset and interrupt
+    eDISABLE_BOTH = 4,
   };
   
+  // SEQUENCE fault control
   enum class eSEQUENCE_CTRL : uint32_t {
-    eENABLE_RESET = 1, // Enable reset
-    eENABLE_INTERRUPT = 2, // Enable interrupt
-    eDISABLE_BOTH = 4, // Disable both reset and interrupt
+    // Enable reset
+    eENABLE_RESET = 1,
+    // Enable interrupt
+    eENABLE_INTERRUPT = 2,
+    // Disable both reset and interrupt
+    eDISABLE_BOTH = 4,
   };
   
+  // CONTROL fault control
   enum class eCONTROL_CTRL : uint32_t {
-    eENABLE_RESET = 1, // Enable reset
-    eDISABLE_BOTH = 4, // Disable reset
+    // Enable reset
+    eENABLE_RESET = 1,
+    // Disable reset
+    eDISABLE_BOTH = 4,
   };
   
+  // STATE fault control
   enum class eSTATE_CTRL : uint32_t {
-    eENABLE_RESET = 1, // Enable reset
-    eENABLE_INTERRUPT = 2, // Enable interrupt
-    eDISABLE_BOTH = 4, // Disable both reset and interrupt
+    // Enable reset
+    eENABLE_RESET = 1,
+    // Enable interrupt
+    eENABLE_INTERRUPT = 2,
+    // Disable both reset and interrupt
+    eDISABLE_BOTH = 4,
   };
   
+  // ADDRESS fault control
   enum class eADDRESS_CTRL : uint32_t {
-    eENABLE_RESET = 1, // Enable reset
-    eENABLE_INTERRUPT = 2, // Enable interrupt
-    eDISABLE_BOTH = 4, // Disable both reset and interrupt
+    // Enable reset
+    eENABLE_RESET = 1,
+    // Enable interrupt
+    eENABLE_INTERRUPT = 2,
+    // Disable both reset and interrupt
+    eDISABLE_BOTH = 4,
   };
   
+  // IRQ pause control
   enum class eIRQ_PAUSE : uint32_t {
-    eRUN_TIMER = 1, // Keep the timer running
-    ePAUSE_TIMER = 2, // Stop the timer
+    // Keep the timer running
+    eRUN_TIMER = 1,
+    // Stop the timer
+    ePAUSE_TIMER = 2,
   };
   
+  // DEBUG_HALT control
   enum class eDEBUG_HALT_CTRL : uint32_t {
-    eRUN_TIMER = 1, // Keep the timer running
-    ePAUSE_TIMER = 2, // Stop the timer
+    // Keep the timer running
+    eRUN_TIMER = 1,
+    // Stop the timer
+    ePAUSE_TIMER = 2,
   };
   
   // Bit field definition.
   struct {
-    /// read-write - Lock control
+    // read-write - Lock control
     eLOCK_CTRL LOCK_CTRL : 2;
-    /// read-write - TIMEOUT fault control
+    // read-write - TIMEOUT fault control
     eTIMEOUT_CTRL TIMEOUT_CTRL : 3;
-    /// read-write - MISCOMPARE fault control
+    // read-write - MISCOMPARE fault control
     eMISCOMPARE_CTRL MISCOMPARE_CTRL : 3;
-    /// read-write - SEQUENCE fault control
+    // read-write - SEQUENCE fault control
     eSEQUENCE_CTRL SEQUENCE_CTRL : 3;
-    /// read-write - CONTROL fault control
+    // read-write - CONTROL fault control
     eCONTROL_CTRL CONTROL_CTRL : 3;
-    /// read-write - STATE fault control
+    // read-write - STATE fault control
     eSTATE_CTRL STATE_CTRL : 3;
-    /// read-write - ADDRESS fault control
+    // read-write - ADDRESS fault control
     eADDRESS_CTRL ADDRESS_CTRL : 3;
     uint32_t _reserved_0 : 8;
-    /// read-write - IRQ pause control
+    // read-write - IRQ pause control
     eIRQ_PAUSE IRQ_PAUSE : 2;
-    /// read-write - DEBUG_HALT control
+    // read-write - DEBUG_HALT control
     eDEBUG_HALT_CTRL DEBUG_HALT_CTRL : 2;
   } bits;
   
@@ -97,12 +125,11 @@ union CONTROL {
 };
 
 // Instruction Timer reload
-//
 union RELOAD {
   
   // Bit field definition.
   struct {
-    /// read-write - Instruction Timer reload value
+    // read-write - Instruction Timer reload value
     uint32_t RLOAD : 32;
   } bits;
   
@@ -115,12 +142,11 @@ union RELOAD {
 };
 
 // Instruction Timer
-//
 union INSTRUCTION_TIMER {
   
   // Bit field definition.
   struct {
-    /// read-write - Current value of the Instruction Timer
+    // read-write - Current value of the Instruction Timer
     uint32_t INSTIM : 32;
   } bits;
   
@@ -133,12 +159,11 @@ union INSTRUCTION_TIMER {
 };
 
 // Secure Counter
-//
 union SECURE_COUNTER {
   
   // Bit field definition.
   struct {
-    /// write-only - Secure Counter
+    // write-only - Secure Counter
     uint32_t SECCNT : 32;
   } bits;
   
@@ -151,19 +176,18 @@ union SECURE_COUNTER {
 };
 
 // Status 1
-//
 union STATUS {
   
   // Bit field definition.
   struct {
-    /// read-only - Number of TIMEOUT faults since the last POR
+    // read-only - Number of TIMEOUT faults since the last POR
     uint32_t NUMTOF : 8;
-    /// read-only - Number of MISCOMPARE faults since the last POR
+    // read-only - Number of MISCOMPARE faults since the last POR
     uint32_t NUMMISCOMPF : 8;
-    /// read-only - Number of SEQUENCE faults since the last POR
+    // read-only - Number of SEQUENCE faults since the last POR
     uint32_t NUMILSEQF : 8;
     uint32_t _reserved_0 : 4;
-    /// read-only - Current State
+    // read-only - Current State
     uint32_t CURST : 4;
   } bits;
   
@@ -176,16 +200,15 @@ union STATUS {
 };
 
 // Status 2
-//
 union STATUS2 {
   
   // Bit field definition.
   struct {
-    /// read-only - Number of CONTROL faults since the last POR
+    // read-only - Number of CONTROL faults since the last POR
     uint32_t NUMCNTF : 8;
-    /// read-only - Number of STATE faults since the last POR
+    // read-only - Number of STATE faults since the last POR
     uint32_t NUMILLSTF : 8;
-    /// read-only - Number of ADDRESS faults since the last POR
+    // read-only - Number of ADDRESS faults since the last POR
     uint32_t NUMILLA : 8;
     uint32_t _reserved_0 : 8;
   } bits;
@@ -199,60 +222,80 @@ union STATUS2 {
 };
 
 // Flags
-//
 union FLAGS {
   
+  // TIMEOUT fault flag
   enum class eTO_FLAG : uint32_t {
-    eNO_FLAG = 0, // A TIMEOUT fault has not occurred
-    eFLAG = 1, // A TIMEOUT fault has occurred
+    // A TIMEOUT fault has not occurred
+    eNO_FLAG = 0,
+    // A TIMEOUT fault has occurred
+    eFLAG = 1,
   };
   
+  // MISCOMPARE fault flag
   enum class eMISCOM_FLAG : uint32_t {
-    eNO_FLAG = 0, // A MISCOMPARE fault has not occurred
-    eFLAG = 1, // A MISCOMPARE fault has occurred
+    // A MISCOMPARE fault has not occurred
+    eNO_FLAG = 0,
+    // A MISCOMPARE fault has occurred
+    eFLAG = 1,
   };
   
+  // SEQUENCE fault flag
   enum class eSEQ_FLAG : uint32_t {
-    eNO_FLAG = 0, // A SEQUENCE fault has not occurred
-    eFLAG = 1, // A SEQUENCE fault has occurred
+    // A SEQUENCE fault has not occurred
+    eNO_FLAG = 0,
+    // A SEQUENCE fault has occurred
+    eFLAG = 1,
   };
   
+  // CONTROL fault flag
   enum class eCNT_FLAG : uint32_t {
-    eNO_FLAG = 0, // A CONTROL fault has not occurred
-    eFLAG = 1, // A CONTROL fault has occurred
+    // A CONTROL fault has not occurred
+    eNO_FLAG = 0,
+    // A CONTROL fault has occurred
+    eFLAG = 1,
   };
   
+  // STATE fault flag
   enum class eSTATE_FLAG : uint32_t {
-    eNO_FLAG = 0, // A STATE fault has not occurred
-    eFLAG = 1, // A STATE fault has occurred
+    // A STATE fault has not occurred
+    eNO_FLAG = 0,
+    // A STATE fault has occurred
+    eFLAG = 1,
   };
   
+  // ADDRESS fault flag
   enum class eADDR_FLAG : uint32_t {
-    eNO_FLAG = 0, // An ADDRESS fault has not occurred
-    eFLAG = 1, // An ADDRESS fault has occurred
+    // An ADDRESS fault has not occurred
+    eNO_FLAG = 0,
+    // An ADDRESS fault has occurred
+    eFLAG = 1,
   };
   
+  // Power-on reset flag
   enum class ePOR_FLAG : uint32_t {
-    eNO_FLAG = 0, // A Power-on reset event has not occurred
-    eFLAG = 1, // A Power-on reset event has occurred
+    // A Power-on reset event has not occurred
+    eNO_FLAG = 0,
+    // A Power-on reset event has occurred
+    eFLAG = 1,
   };
   
   // Bit field definition.
   struct {
-    /// read-write - TIMEOUT fault flag
+    // read-write - TIMEOUT fault flag
     eTO_FLAG TO_FLAG : 1;
-    /// read-write - MISCOMPARE fault flag
+    // read-write - MISCOMPARE fault flag
     eMISCOM_FLAG MISCOM_FLAG : 1;
-    /// read-write - SEQUENCE fault flag
+    // read-write - SEQUENCE fault flag
     eSEQ_FLAG SEQ_FLAG : 1;
-    /// read-write - CONTROL fault flag
+    // read-write - CONTROL fault flag
     eCNT_FLAG CNT_FLAG : 1;
-    /// read-write - STATE fault flag
+    // read-write - STATE fault flag
     eSTATE_FLAG STATE_FLAG : 1;
-    /// read-write - ADDRESS fault flag
+    // read-write - ADDRESS fault flag
     eADDR_FLAG ADDR_FLAG : 1;
     uint32_t _reserved_0 : 10;
-    /// read-write - Power-on reset flag
+    // read-write - Power-on reset flag
     ePOR_FLAG POR_FLAG : 1;
     uint32_t _reserved_1 : 15;
   } bits;
@@ -266,12 +309,11 @@ union FLAGS {
 };
 
 // Persistent Data Storage
-//
 union PERSISTENT {
   
   // Bit field definition.
   struct {
-    /// read-write - Persistent Storage
+    // read-write - Persistent Storage
     uint32_t PERSIS : 32;
   } bits;
   
@@ -284,12 +326,11 @@ union PERSISTENT {
 };
 
 // START Command
-//
 union START {
   
   // Bit field definition.
   struct {
-    /// write-only - Start command
+    // write-only - Start command
     uint32_t STRT : 32;
   } bits;
   
@@ -302,12 +343,11 @@ union START {
 };
 
 // STOP Command
-//
 union STOP {
   
   // Bit field definition.
   struct {
-    /// write-only - Stop command
+    // write-only - Stop command
     uint32_t STP : 32;
   } bits;
   
@@ -320,12 +360,11 @@ union STOP {
 };
 
 // RESTART Command
-//
 union RESTART {
   
   // Bit field definition.
   struct {
-    /// write-only - Restart command
+    // write-only - Restart command
     uint32_t RSTRT : 32;
   } bits;
   
@@ -338,12 +377,11 @@ union RESTART {
 };
 
 // ADD Command
-//
 union ADD {
   
   // Bit field definition.
   struct {
-    /// write-only - ADD Write Value
+    // write-only - ADD Write Value
     uint32_t AD : 32;
   } bits;
   
@@ -356,12 +394,11 @@ union ADD {
 };
 
 // ADD1 Command
-//
 union ADD1 {
   
   // Bit field definition.
   struct {
-    /// write-only - ADD 1
+    // write-only - ADD 1
     uint32_t AD1 : 32;
   } bits;
   
@@ -374,12 +411,11 @@ union ADD1 {
 };
 
 // ADD16 Command
-//
 union ADD16 {
   
   // Bit field definition.
   struct {
-    /// write-only - ADD 16
+    // write-only - ADD 16
     uint32_t AD16 : 32;
   } bits;
   
@@ -392,12 +428,11 @@ union ADD16 {
 };
 
 // ADD256 Command
-//
 union ADD256 {
   
   // Bit field definition.
   struct {
-    /// write-only - ADD 256
+    // write-only - ADD 256
     uint32_t AD256 : 32;
   } bits;
   
@@ -410,12 +445,11 @@ union ADD256 {
 };
 
 // SUB Command
-//
 union SUB {
   
   // Bit field definition.
   struct {
-    /// write-only - Subtract Write Value
+    // write-only - Subtract Write Value
     uint32_t S0B : 32;
   } bits;
   
@@ -428,12 +462,11 @@ union SUB {
 };
 
 // SUB1 Command
-//
 union SUB1 {
   
   // Bit field definition.
   struct {
-    /// write-only - Subtract 1
+    // write-only - Subtract 1
     uint32_t S1B : 32;
   } bits;
   
@@ -446,12 +479,11 @@ union SUB1 {
 };
 
 // SUB16 Command
-//
 union SUB16 {
   
   // Bit field definition.
   struct {
-    /// write-only - Subtract 16
+    // write-only - Subtract 16
     uint32_t SB16 : 32;
   } bits;
   
@@ -464,12 +496,11 @@ union SUB16 {
 };
 
 // SUB256 Command
-//
 union SUB256 {
   
   // Bit field definition.
   struct {
-    /// write-only - Subtract 256
+    // write-only - Subtract 256
     uint32_t SB256 : 32;
   } bits;
   

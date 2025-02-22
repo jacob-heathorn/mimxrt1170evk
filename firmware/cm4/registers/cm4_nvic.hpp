@@ -5,19 +5,15 @@
 #include <cstring>
 
 // Nested Vectored Interrupt Controller
-//
-// NOTE: This file was generated from the forge CMSIS-svd wrapper tool.
-
 namespace nCM4_NVIC {
 
 
 // Interrupt Set Enable Register n
-//
 union NVICISER0 {
   
   // Bit field definition.
   struct {
-    /// read-write - Interrupt set enable bits
+    // read-write - Interrupt set enable bits
     uint32_t SETENA : 32;
   } bits;
   
@@ -30,12 +26,11 @@ union NVICISER0 {
 };
 
 // Interrupt Set Enable Register n
-//
 union NVICISER1 {
   
   // Bit field definition.
   struct {
-    /// read-write - Interrupt set enable bits
+    // read-write - Interrupt set enable bits
     uint32_t SETENA : 32;
   } bits;
   
@@ -48,12 +43,11 @@ union NVICISER1 {
 };
 
 // Interrupt Set Enable Register n
-//
 union NVICISER2 {
   
   // Bit field definition.
   struct {
-    /// read-write - Interrupt set enable bits
+    // read-write - Interrupt set enable bits
     uint32_t SETENA : 32;
   } bits;
   
@@ -66,12 +60,11 @@ union NVICISER2 {
 };
 
 // Interrupt Set Enable Register n
-//
 union NVICISER3 {
   
   // Bit field definition.
   struct {
-    /// read-write - Interrupt set enable bits
+    // read-write - Interrupt set enable bits
     uint32_t SETENA : 32;
   } bits;
   
@@ -84,12 +77,11 @@ union NVICISER3 {
 };
 
 // Interrupt Set Enable Register n
-//
 union NVICISER4 {
   
   // Bit field definition.
   struct {
-    /// read-write - Interrupt set enable bits
+    // read-write - Interrupt set enable bits
     uint32_t SETENA : 32;
   } bits;
   
@@ -102,12 +94,11 @@ union NVICISER4 {
 };
 
 // Interrupt Set Enable Register n
-//
 union NVICISER5 {
   
   // Bit field definition.
   struct {
-    /// read-write - Interrupt set enable bits
+    // read-write - Interrupt set enable bits
     uint32_t SETENA : 32;
   } bits;
   
@@ -120,12 +111,11 @@ union NVICISER5 {
 };
 
 // Interrupt Set Enable Register n
-//
 union NVICISER6 {
   
   // Bit field definition.
   struct {
-    /// read-write - Interrupt set enable bits
+    // read-write - Interrupt set enable bits
     uint32_t SETENA : 32;
   } bits;
   
@@ -138,12 +128,11 @@ union NVICISER6 {
 };
 
 // Interrupt Clear Enable Register n
-//
 union NVICICER0 {
   
   // Bit field definition.
   struct {
-    /// read-write - Interrupt clear-enable bits
+    // read-write - Interrupt clear-enable bits
     uint32_t CLRENA : 32;
   } bits;
   
@@ -156,12 +145,11 @@ union NVICICER0 {
 };
 
 // Interrupt Clear Enable Register n
-//
 union NVICICER1 {
   
   // Bit field definition.
   struct {
-    /// read-write - Interrupt clear-enable bits
+    // read-write - Interrupt clear-enable bits
     uint32_t CLRENA : 32;
   } bits;
   
@@ -174,12 +162,11 @@ union NVICICER1 {
 };
 
 // Interrupt Clear Enable Register n
-//
 union NVICICER2 {
   
   // Bit field definition.
   struct {
-    /// read-write - Interrupt clear-enable bits
+    // read-write - Interrupt clear-enable bits
     uint32_t CLRENA : 32;
   } bits;
   
@@ -192,12 +179,11 @@ union NVICICER2 {
 };
 
 // Interrupt Clear Enable Register n
-//
 union NVICICER3 {
   
   // Bit field definition.
   struct {
-    /// read-write - Interrupt clear-enable bits
+    // read-write - Interrupt clear-enable bits
     uint32_t CLRENA : 32;
   } bits;
   
@@ -210,12 +196,11 @@ union NVICICER3 {
 };
 
 // Interrupt Clear Enable Register n
-//
 union NVICICER4 {
   
   // Bit field definition.
   struct {
-    /// read-write - Interrupt clear-enable bits
+    // read-write - Interrupt clear-enable bits
     uint32_t CLRENA : 32;
   } bits;
   
@@ -228,12 +213,11 @@ union NVICICER4 {
 };
 
 // Interrupt Clear Enable Register n
-//
 union NVICICER5 {
   
   // Bit field definition.
   struct {
-    /// read-write - Interrupt clear-enable bits
+    // read-write - Interrupt clear-enable bits
     uint32_t CLRENA : 32;
   } bits;
   
@@ -246,12 +230,11 @@ union NVICICER5 {
 };
 
 // Interrupt Clear Enable Register n
-//
 union NVICICER6 {
   
   // Bit field definition.
   struct {
-    /// read-write - Interrupt clear-enable bits
+    // read-write - Interrupt clear-enable bits
     uint32_t CLRENA : 32;
   } bits;
   
@@ -264,12 +247,11 @@ union NVICICER6 {
 };
 
 // Interrupt Set Pending Register n
-//
 union NVICISPR0 {
   
   // Bit field definition.
   struct {
-    /// read-write - Interrupt set-pending bits
+    // read-write - Interrupt set-pending bits
     uint32_t SETPEND : 32;
   } bits;
   
@@ -282,12 +264,11 @@ union NVICISPR0 {
 };
 
 // Interrupt Set Pending Register n
-//
 union NVICISPR1 {
   
   // Bit field definition.
   struct {
-    /// read-write - Interrupt set-pending bits
+    // read-write - Interrupt set-pending bits
     uint32_t SETPEND : 32;
   } bits;
   
@@ -300,12 +281,11 @@ union NVICISPR1 {
 };
 
 // Interrupt Set Pending Register n
-//
 union NVICISPR2 {
   
   // Bit field definition.
   struct {
-    /// read-write - Interrupt set-pending bits
+    // read-write - Interrupt set-pending bits
     uint32_t SETPEND : 32;
   } bits;
   
@@ -318,12 +298,11 @@ union NVICISPR2 {
 };
 
 // Interrupt Set Pending Register n
-//
 union NVICISPR3 {
   
   // Bit field definition.
   struct {
-    /// read-write - Interrupt set-pending bits
+    // read-write - Interrupt set-pending bits
     uint32_t SETPEND : 32;
   } bits;
   
@@ -336,12 +315,11 @@ union NVICISPR3 {
 };
 
 // Interrupt Set Pending Register n
-//
 union NVICISPR4 {
   
   // Bit field definition.
   struct {
-    /// read-write - Interrupt set-pending bits
+    // read-write - Interrupt set-pending bits
     uint32_t SETPEND : 32;
   } bits;
   
@@ -354,12 +332,11 @@ union NVICISPR4 {
 };
 
 // Interrupt Set Pending Register n
-//
 union NVICISPR5 {
   
   // Bit field definition.
   struct {
-    /// read-write - Interrupt set-pending bits
+    // read-write - Interrupt set-pending bits
     uint32_t SETPEND : 32;
   } bits;
   
@@ -372,12 +349,11 @@ union NVICISPR5 {
 };
 
 // Interrupt Set Pending Register n
-//
 union NVICISPR6 {
   
   // Bit field definition.
   struct {
-    /// read-write - Interrupt set-pending bits
+    // read-write - Interrupt set-pending bits
     uint32_t SETPEND : 32;
   } bits;
   
@@ -390,12 +366,11 @@ union NVICISPR6 {
 };
 
 // Interrupt Clear Pending Register n
-//
 union NVICICPR0 {
   
   // Bit field definition.
   struct {
-    /// read-write - Interrupt clear-pending bits
+    // read-write - Interrupt clear-pending bits
     uint32_t CLRPEND : 32;
   } bits;
   
@@ -408,12 +383,11 @@ union NVICICPR0 {
 };
 
 // Interrupt Clear Pending Register n
-//
 union NVICICPR1 {
   
   // Bit field definition.
   struct {
-    /// read-write - Interrupt clear-pending bits
+    // read-write - Interrupt clear-pending bits
     uint32_t CLRPEND : 32;
   } bits;
   
@@ -426,12 +400,11 @@ union NVICICPR1 {
 };
 
 // Interrupt Clear Pending Register n
-//
 union NVICICPR2 {
   
   // Bit field definition.
   struct {
-    /// read-write - Interrupt clear-pending bits
+    // read-write - Interrupt clear-pending bits
     uint32_t CLRPEND : 32;
   } bits;
   
@@ -444,12 +417,11 @@ union NVICICPR2 {
 };
 
 // Interrupt Clear Pending Register n
-//
 union NVICICPR3 {
   
   // Bit field definition.
   struct {
-    /// read-write - Interrupt clear-pending bits
+    // read-write - Interrupt clear-pending bits
     uint32_t CLRPEND : 32;
   } bits;
   
@@ -462,12 +434,11 @@ union NVICICPR3 {
 };
 
 // Interrupt Clear Pending Register n
-//
 union NVICICPR4 {
   
   // Bit field definition.
   struct {
-    /// read-write - Interrupt clear-pending bits
+    // read-write - Interrupt clear-pending bits
     uint32_t CLRPEND : 32;
   } bits;
   
@@ -480,12 +451,11 @@ union NVICICPR4 {
 };
 
 // Interrupt Clear Pending Register n
-//
 union NVICICPR5 {
   
   // Bit field definition.
   struct {
-    /// read-write - Interrupt clear-pending bits
+    // read-write - Interrupt clear-pending bits
     uint32_t CLRPEND : 32;
   } bits;
   
@@ -498,12 +468,11 @@ union NVICICPR5 {
 };
 
 // Interrupt Clear Pending Register n
-//
 union NVICICPR6 {
   
   // Bit field definition.
   struct {
-    /// read-write - Interrupt clear-pending bits
+    // read-write - Interrupt clear-pending bits
     uint32_t CLRPEND : 32;
   } bits;
   
@@ -516,12 +485,11 @@ union NVICICPR6 {
 };
 
 // Interrupt Active bit Register n
-//
 union NVICIABR0 {
   
   // Bit field definition.
   struct {
-    /// read-write - Interrupt active flags
+    // read-write - Interrupt active flags
     uint32_t ACTIVE : 32;
   } bits;
   
@@ -534,12 +502,11 @@ union NVICIABR0 {
 };
 
 // Interrupt Active bit Register n
-//
 union NVICIABR1 {
   
   // Bit field definition.
   struct {
-    /// read-write - Interrupt active flags
+    // read-write - Interrupt active flags
     uint32_t ACTIVE : 32;
   } bits;
   
@@ -552,12 +519,11 @@ union NVICIABR1 {
 };
 
 // Interrupt Active bit Register n
-//
 union NVICIABR2 {
   
   // Bit field definition.
   struct {
-    /// read-write - Interrupt active flags
+    // read-write - Interrupt active flags
     uint32_t ACTIVE : 32;
   } bits;
   
@@ -570,12 +536,11 @@ union NVICIABR2 {
 };
 
 // Interrupt Active bit Register n
-//
 union NVICIABR3 {
   
   // Bit field definition.
   struct {
-    /// read-write - Interrupt active flags
+    // read-write - Interrupt active flags
     uint32_t ACTIVE : 32;
   } bits;
   
@@ -588,12 +553,11 @@ union NVICIABR3 {
 };
 
 // Interrupt Active bit Register n
-//
 union NVICIABR4 {
   
   // Bit field definition.
   struct {
-    /// read-write - Interrupt active flags
+    // read-write - Interrupt active flags
     uint32_t ACTIVE : 32;
   } bits;
   
@@ -606,12 +570,11 @@ union NVICIABR4 {
 };
 
 // Interrupt Active bit Register n
-//
 union NVICIABR5 {
   
   // Bit field definition.
   struct {
-    /// read-write - Interrupt active flags
+    // read-write - Interrupt active flags
     uint32_t ACTIVE : 32;
   } bits;
   
@@ -624,12 +587,11 @@ union NVICIABR5 {
 };
 
 // Interrupt Active bit Register n
-//
 union NVICIABR6 {
   
   // Bit field definition.
   struct {
-    /// read-write - Interrupt active flags
+    // read-write - Interrupt active flags
     uint32_t ACTIVE : 32;
   } bits;
   
@@ -642,13 +604,12 @@ union NVICIABR6 {
 };
 
 // Interrupt Priority Register 0
-//
 union NVICIP0 {
   
   // Bit field definition.
   struct {
     uint32_t _reserved_0 : 4;
-    /// read-write - Priority of interrupt 0
+    // read-write - Priority of interrupt 0
     uint32_t PRI0 : 4;
     uint32_t _reserved_1 : 24;
   } bits;
@@ -662,13 +623,12 @@ union NVICIP0 {
 };
 
 // Interrupt Priority Register 1
-//
 union NVICIP1 {
   
   // Bit field definition.
   struct {
     uint32_t _reserved_0 : 4;
-    /// read-write - Priority of interrupt 1
+    // read-write - Priority of interrupt 1
     uint32_t PRI1 : 4;
     uint32_t _reserved_1 : 24;
   } bits;
@@ -682,13 +642,12 @@ union NVICIP1 {
 };
 
 // Interrupt Priority Register 2
-//
 union NVICIP2 {
   
   // Bit field definition.
   struct {
     uint32_t _reserved_0 : 4;
-    /// read-write - Priority of interrupt 2
+    // read-write - Priority of interrupt 2
     uint32_t PRI2 : 4;
     uint32_t _reserved_1 : 24;
   } bits;
@@ -702,13 +661,12 @@ union NVICIP2 {
 };
 
 // Interrupt Priority Register 3
-//
 union NVICIP3 {
   
   // Bit field definition.
   struct {
     uint32_t _reserved_0 : 4;
-    /// read-write - Priority of interrupt 3
+    // read-write - Priority of interrupt 3
     uint32_t PRI3 : 4;
     uint32_t _reserved_1 : 24;
   } bits;
@@ -722,13 +680,12 @@ union NVICIP3 {
 };
 
 // Interrupt Priority Register 4
-//
 union NVICIP4 {
   
   // Bit field definition.
   struct {
     uint32_t _reserved_0 : 4;
-    /// read-write - Priority of interrupt 4
+    // read-write - Priority of interrupt 4
     uint32_t PRI4 : 4;
     uint32_t _reserved_1 : 24;
   } bits;
@@ -742,13 +699,12 @@ union NVICIP4 {
 };
 
 // Interrupt Priority Register 5
-//
 union NVICIP5 {
   
   // Bit field definition.
   struct {
     uint32_t _reserved_0 : 4;
-    /// read-write - Priority of interrupt 5
+    // read-write - Priority of interrupt 5
     uint32_t PRI5 : 4;
     uint32_t _reserved_1 : 24;
   } bits;
@@ -762,13 +718,12 @@ union NVICIP5 {
 };
 
 // Interrupt Priority Register 6
-//
 union NVICIP6 {
   
   // Bit field definition.
   struct {
     uint32_t _reserved_0 : 4;
-    /// read-write - Priority of interrupt 6
+    // read-write - Priority of interrupt 6
     uint32_t PRI6 : 4;
     uint32_t _reserved_1 : 24;
   } bits;
@@ -782,13 +737,12 @@ union NVICIP6 {
 };
 
 // Interrupt Priority Register 7
-//
 union NVICIP7 {
   
   // Bit field definition.
   struct {
     uint32_t _reserved_0 : 4;
-    /// read-write - Priority of interrupt 7
+    // read-write - Priority of interrupt 7
     uint32_t PRI7 : 4;
     uint32_t _reserved_1 : 24;
   } bits;
@@ -802,13 +756,12 @@ union NVICIP7 {
 };
 
 // Interrupt Priority Register 8
-//
 union NVICIP8 {
   
   // Bit field definition.
   struct {
     uint32_t _reserved_0 : 4;
-    /// read-write - Priority of interrupt 8
+    // read-write - Priority of interrupt 8
     uint32_t PRI8 : 4;
     uint32_t _reserved_1 : 24;
   } bits;
@@ -822,13 +775,12 @@ union NVICIP8 {
 };
 
 // Interrupt Priority Register 9
-//
 union NVICIP9 {
   
   // Bit field definition.
   struct {
     uint32_t _reserved_0 : 4;
-    /// read-write - Priority of interrupt 9
+    // read-write - Priority of interrupt 9
     uint32_t PRI9 : 4;
     uint32_t _reserved_1 : 24;
   } bits;
@@ -842,13 +794,12 @@ union NVICIP9 {
 };
 
 // Interrupt Priority Register 10
-//
 union NVICIP10 {
   
   // Bit field definition.
   struct {
     uint32_t _reserved_0 : 4;
-    /// read-write - Priority of interrupt 10
+    // read-write - Priority of interrupt 10
     uint32_t PRI10 : 4;
     uint32_t _reserved_1 : 24;
   } bits;
@@ -862,13 +813,12 @@ union NVICIP10 {
 };
 
 // Interrupt Priority Register 11
-//
 union NVICIP11 {
   
   // Bit field definition.
   struct {
     uint32_t _reserved_0 : 4;
-    /// read-write - Priority of interrupt 11
+    // read-write - Priority of interrupt 11
     uint32_t PRI11 : 4;
     uint32_t _reserved_1 : 24;
   } bits;
@@ -882,13 +832,12 @@ union NVICIP11 {
 };
 
 // Interrupt Priority Register 12
-//
 union NVICIP12 {
   
   // Bit field definition.
   struct {
     uint32_t _reserved_0 : 4;
-    /// read-write - Priority of interrupt 12
+    // read-write - Priority of interrupt 12
     uint32_t PRI12 : 4;
     uint32_t _reserved_1 : 24;
   } bits;
@@ -902,13 +851,12 @@ union NVICIP12 {
 };
 
 // Interrupt Priority Register 13
-//
 union NVICIP13 {
   
   // Bit field definition.
   struct {
     uint32_t _reserved_0 : 4;
-    /// read-write - Priority of interrupt 13
+    // read-write - Priority of interrupt 13
     uint32_t PRI13 : 4;
     uint32_t _reserved_1 : 24;
   } bits;
@@ -922,13 +870,12 @@ union NVICIP13 {
 };
 
 // Interrupt Priority Register 14
-//
 union NVICIP14 {
   
   // Bit field definition.
   struct {
     uint32_t _reserved_0 : 4;
-    /// read-write - Priority of interrupt 14
+    // read-write - Priority of interrupt 14
     uint32_t PRI14 : 4;
     uint32_t _reserved_1 : 24;
   } bits;
@@ -942,13 +889,12 @@ union NVICIP14 {
 };
 
 // Interrupt Priority Register 15
-//
 union NVICIP15 {
   
   // Bit field definition.
   struct {
     uint32_t _reserved_0 : 4;
-    /// read-write - Priority of interrupt 15
+    // read-write - Priority of interrupt 15
     uint32_t PRI15 : 4;
     uint32_t _reserved_1 : 24;
   } bits;
@@ -962,13 +908,12 @@ union NVICIP15 {
 };
 
 // Interrupt Priority Register 16
-//
 union NVICIP16 {
   
   // Bit field definition.
   struct {
     uint32_t _reserved_0 : 4;
-    /// read-write - Priority of interrupt 16
+    // read-write - Priority of interrupt 16
     uint32_t PRI16 : 4;
     uint32_t _reserved_1 : 24;
   } bits;
@@ -982,13 +927,12 @@ union NVICIP16 {
 };
 
 // Interrupt Priority Register 17
-//
 union NVICIP17 {
   
   // Bit field definition.
   struct {
     uint32_t _reserved_0 : 4;
-    /// read-write - Priority of interrupt 17
+    // read-write - Priority of interrupt 17
     uint32_t PRI17 : 4;
     uint32_t _reserved_1 : 24;
   } bits;
@@ -1002,13 +946,12 @@ union NVICIP17 {
 };
 
 // Interrupt Priority Register 18
-//
 union NVICIP18 {
   
   // Bit field definition.
   struct {
     uint32_t _reserved_0 : 4;
-    /// read-write - Priority of interrupt 18
+    // read-write - Priority of interrupt 18
     uint32_t PRI18 : 4;
     uint32_t _reserved_1 : 24;
   } bits;
@@ -1022,13 +965,12 @@ union NVICIP18 {
 };
 
 // Interrupt Priority Register 19
-//
 union NVICIP19 {
   
   // Bit field definition.
   struct {
     uint32_t _reserved_0 : 4;
-    /// read-write - Priority of interrupt 19
+    // read-write - Priority of interrupt 19
     uint32_t PRI19 : 4;
     uint32_t _reserved_1 : 24;
   } bits;
@@ -1042,13 +984,12 @@ union NVICIP19 {
 };
 
 // Interrupt Priority Register 20
-//
 union NVICIP20 {
   
   // Bit field definition.
   struct {
     uint32_t _reserved_0 : 4;
-    /// read-write - Priority of interrupt 20
+    // read-write - Priority of interrupt 20
     uint32_t PRI20 : 4;
     uint32_t _reserved_1 : 24;
   } bits;
@@ -1062,13 +1003,12 @@ union NVICIP20 {
 };
 
 // Interrupt Priority Register 21
-//
 union NVICIP21 {
   
   // Bit field definition.
   struct {
     uint32_t _reserved_0 : 4;
-    /// read-write - Priority of interrupt 21
+    // read-write - Priority of interrupt 21
     uint32_t PRI21 : 4;
     uint32_t _reserved_1 : 24;
   } bits;
@@ -1082,13 +1022,12 @@ union NVICIP21 {
 };
 
 // Interrupt Priority Register 22
-//
 union NVICIP22 {
   
   // Bit field definition.
   struct {
     uint32_t _reserved_0 : 4;
-    /// read-write - Priority of interrupt 22
+    // read-write - Priority of interrupt 22
     uint32_t PRI22 : 4;
     uint32_t _reserved_1 : 24;
   } bits;
@@ -1102,13 +1041,12 @@ union NVICIP22 {
 };
 
 // Interrupt Priority Register 23
-//
 union NVICIP23 {
   
   // Bit field definition.
   struct {
     uint32_t _reserved_0 : 4;
-    /// read-write - Priority of interrupt 23
+    // read-write - Priority of interrupt 23
     uint32_t PRI23 : 4;
     uint32_t _reserved_1 : 24;
   } bits;
@@ -1122,13 +1060,12 @@ union NVICIP23 {
 };
 
 // Interrupt Priority Register 24
-//
 union NVICIP24 {
   
   // Bit field definition.
   struct {
     uint32_t _reserved_0 : 4;
-    /// read-write - Priority of interrupt 24
+    // read-write - Priority of interrupt 24
     uint32_t PRI24 : 4;
     uint32_t _reserved_1 : 24;
   } bits;
@@ -1142,13 +1079,12 @@ union NVICIP24 {
 };
 
 // Interrupt Priority Register 25
-//
 union NVICIP25 {
   
   // Bit field definition.
   struct {
     uint32_t _reserved_0 : 4;
-    /// read-write - Priority of interrupt 25
+    // read-write - Priority of interrupt 25
     uint32_t PRI25 : 4;
     uint32_t _reserved_1 : 24;
   } bits;
@@ -1162,13 +1098,12 @@ union NVICIP25 {
 };
 
 // Interrupt Priority Register 26
-//
 union NVICIP26 {
   
   // Bit field definition.
   struct {
     uint32_t _reserved_0 : 4;
-    /// read-write - Priority of interrupt 26
+    // read-write - Priority of interrupt 26
     uint32_t PRI26 : 4;
     uint32_t _reserved_1 : 24;
   } bits;
@@ -1182,13 +1117,12 @@ union NVICIP26 {
 };
 
 // Interrupt Priority Register 27
-//
 union NVICIP27 {
   
   // Bit field definition.
   struct {
     uint32_t _reserved_0 : 4;
-    /// read-write - Priority of interrupt 27
+    // read-write - Priority of interrupt 27
     uint32_t PRI27 : 4;
     uint32_t _reserved_1 : 24;
   } bits;
@@ -1202,13 +1136,12 @@ union NVICIP27 {
 };
 
 // Interrupt Priority Register 28
-//
 union NVICIP28 {
   
   // Bit field definition.
   struct {
     uint32_t _reserved_0 : 4;
-    /// read-write - Priority of interrupt 28
+    // read-write - Priority of interrupt 28
     uint32_t PRI28 : 4;
     uint32_t _reserved_1 : 24;
   } bits;
@@ -1222,13 +1155,12 @@ union NVICIP28 {
 };
 
 // Interrupt Priority Register 29
-//
 union NVICIP29 {
   
   // Bit field definition.
   struct {
     uint32_t _reserved_0 : 4;
-    /// read-write - Priority of interrupt 29
+    // read-write - Priority of interrupt 29
     uint32_t PRI29 : 4;
     uint32_t _reserved_1 : 24;
   } bits;
@@ -1242,13 +1174,12 @@ union NVICIP29 {
 };
 
 // Interrupt Priority Register 30
-//
 union NVICIP30 {
   
   // Bit field definition.
   struct {
     uint32_t _reserved_0 : 4;
-    /// read-write - Priority of interrupt 30
+    // read-write - Priority of interrupt 30
     uint32_t PRI30 : 4;
     uint32_t _reserved_1 : 24;
   } bits;
@@ -1262,13 +1193,12 @@ union NVICIP30 {
 };
 
 // Interrupt Priority Register 31
-//
 union NVICIP31 {
   
   // Bit field definition.
   struct {
     uint32_t _reserved_0 : 4;
-    /// read-write - Priority of interrupt 31
+    // read-write - Priority of interrupt 31
     uint32_t PRI31 : 4;
     uint32_t _reserved_1 : 24;
   } bits;
@@ -1282,13 +1212,12 @@ union NVICIP31 {
 };
 
 // Interrupt Priority Register 32
-//
 union NVICIP32 {
   
   // Bit field definition.
   struct {
     uint32_t _reserved_0 : 4;
-    /// read-write - Priority of interrupt 32
+    // read-write - Priority of interrupt 32
     uint32_t PRI32 : 4;
     uint32_t _reserved_1 : 24;
   } bits;
@@ -1302,13 +1231,12 @@ union NVICIP32 {
 };
 
 // Interrupt Priority Register 33
-//
 union NVICIP33 {
   
   // Bit field definition.
   struct {
     uint32_t _reserved_0 : 4;
-    /// read-write - Priority of interrupt 33
+    // read-write - Priority of interrupt 33
     uint32_t PRI33 : 4;
     uint32_t _reserved_1 : 24;
   } bits;
@@ -1322,13 +1250,12 @@ union NVICIP33 {
 };
 
 // Interrupt Priority Register 34
-//
 union NVICIP34 {
   
   // Bit field definition.
   struct {
     uint32_t _reserved_0 : 4;
-    /// read-write - Priority of interrupt 34
+    // read-write - Priority of interrupt 34
     uint32_t PRI34 : 4;
     uint32_t _reserved_1 : 24;
   } bits;
@@ -1342,13 +1269,12 @@ union NVICIP34 {
 };
 
 // Interrupt Priority Register 35
-//
 union NVICIP35 {
   
   // Bit field definition.
   struct {
     uint32_t _reserved_0 : 4;
-    /// read-write - Priority of interrupt 35
+    // read-write - Priority of interrupt 35
     uint32_t PRI35 : 4;
     uint32_t _reserved_1 : 24;
   } bits;
@@ -1362,13 +1288,12 @@ union NVICIP35 {
 };
 
 // Interrupt Priority Register 36
-//
 union NVICIP36 {
   
   // Bit field definition.
   struct {
     uint32_t _reserved_0 : 4;
-    /// read-write - Priority of interrupt 36
+    // read-write - Priority of interrupt 36
     uint32_t PRI36 : 4;
     uint32_t _reserved_1 : 24;
   } bits;
@@ -1382,13 +1307,12 @@ union NVICIP36 {
 };
 
 // Interrupt Priority Register 37
-//
 union NVICIP37 {
   
   // Bit field definition.
   struct {
     uint32_t _reserved_0 : 4;
-    /// read-write - Priority of interrupt 37
+    // read-write - Priority of interrupt 37
     uint32_t PRI37 : 4;
     uint32_t _reserved_1 : 24;
   } bits;
@@ -1402,13 +1326,12 @@ union NVICIP37 {
 };
 
 // Interrupt Priority Register 38
-//
 union NVICIP38 {
   
   // Bit field definition.
   struct {
     uint32_t _reserved_0 : 4;
-    /// read-write - Priority of interrupt 38
+    // read-write - Priority of interrupt 38
     uint32_t PRI38 : 4;
     uint32_t _reserved_1 : 24;
   } bits;
@@ -1422,13 +1345,12 @@ union NVICIP38 {
 };
 
 // Interrupt Priority Register 39
-//
 union NVICIP39 {
   
   // Bit field definition.
   struct {
     uint32_t _reserved_0 : 4;
-    /// read-write - Priority of interrupt 39
+    // read-write - Priority of interrupt 39
     uint32_t PRI39 : 4;
     uint32_t _reserved_1 : 24;
   } bits;
@@ -1442,13 +1364,12 @@ union NVICIP39 {
 };
 
 // Interrupt Priority Register 40
-//
 union NVICIP40 {
   
   // Bit field definition.
   struct {
     uint32_t _reserved_0 : 4;
-    /// read-write - Priority of interrupt 40
+    // read-write - Priority of interrupt 40
     uint32_t PRI40 : 4;
     uint32_t _reserved_1 : 24;
   } bits;
@@ -1462,13 +1383,12 @@ union NVICIP40 {
 };
 
 // Interrupt Priority Register 41
-//
 union NVICIP41 {
   
   // Bit field definition.
   struct {
     uint32_t _reserved_0 : 4;
-    /// read-write - Priority of interrupt 41
+    // read-write - Priority of interrupt 41
     uint32_t PRI41 : 4;
     uint32_t _reserved_1 : 24;
   } bits;
@@ -1482,13 +1402,12 @@ union NVICIP41 {
 };
 
 // Interrupt Priority Register 42
-//
 union NVICIP42 {
   
   // Bit field definition.
   struct {
     uint32_t _reserved_0 : 4;
-    /// read-write - Priority of interrupt 42
+    // read-write - Priority of interrupt 42
     uint32_t PRI42 : 4;
     uint32_t _reserved_1 : 24;
   } bits;
@@ -1502,13 +1421,12 @@ union NVICIP42 {
 };
 
 // Interrupt Priority Register 43
-//
 union NVICIP43 {
   
   // Bit field definition.
   struct {
     uint32_t _reserved_0 : 4;
-    /// read-write - Priority of interrupt 43
+    // read-write - Priority of interrupt 43
     uint32_t PRI43 : 4;
     uint32_t _reserved_1 : 24;
   } bits;
@@ -1522,13 +1440,12 @@ union NVICIP43 {
 };
 
 // Interrupt Priority Register 44
-//
 union NVICIP44 {
   
   // Bit field definition.
   struct {
     uint32_t _reserved_0 : 4;
-    /// read-write - Priority of interrupt 44
+    // read-write - Priority of interrupt 44
     uint32_t PRI44 : 4;
     uint32_t _reserved_1 : 24;
   } bits;
@@ -1542,13 +1459,12 @@ union NVICIP44 {
 };
 
 // Interrupt Priority Register 45
-//
 union NVICIP45 {
   
   // Bit field definition.
   struct {
     uint32_t _reserved_0 : 4;
-    /// read-write - Priority of interrupt 45
+    // read-write - Priority of interrupt 45
     uint32_t PRI45 : 4;
     uint32_t _reserved_1 : 24;
   } bits;
@@ -1562,13 +1478,12 @@ union NVICIP45 {
 };
 
 // Interrupt Priority Register 46
-//
 union NVICIP46 {
   
   // Bit field definition.
   struct {
     uint32_t _reserved_0 : 4;
-    /// read-write - Priority of interrupt 46
+    // read-write - Priority of interrupt 46
     uint32_t PRI46 : 4;
     uint32_t _reserved_1 : 24;
   } bits;
@@ -1582,13 +1497,12 @@ union NVICIP46 {
 };
 
 // Interrupt Priority Register 47
-//
 union NVICIP47 {
   
   // Bit field definition.
   struct {
     uint32_t _reserved_0 : 4;
-    /// read-write - Priority of interrupt 47
+    // read-write - Priority of interrupt 47
     uint32_t PRI47 : 4;
     uint32_t _reserved_1 : 24;
   } bits;
@@ -1602,13 +1516,12 @@ union NVICIP47 {
 };
 
 // Interrupt Priority Register 48
-//
 union NVICIP48 {
   
   // Bit field definition.
   struct {
     uint32_t _reserved_0 : 4;
-    /// read-write - Priority of interrupt 48
+    // read-write - Priority of interrupt 48
     uint32_t PRI48 : 4;
     uint32_t _reserved_1 : 24;
   } bits;
@@ -1622,13 +1535,12 @@ union NVICIP48 {
 };
 
 // Interrupt Priority Register 49
-//
 union NVICIP49 {
   
   // Bit field definition.
   struct {
     uint32_t _reserved_0 : 4;
-    /// read-write - Priority of interrupt 49
+    // read-write - Priority of interrupt 49
     uint32_t PRI49 : 4;
     uint32_t _reserved_1 : 24;
   } bits;
@@ -1642,13 +1554,12 @@ union NVICIP49 {
 };
 
 // Interrupt Priority Register 50
-//
 union NVICIP50 {
   
   // Bit field definition.
   struct {
     uint32_t _reserved_0 : 4;
-    /// read-write - Priority of interrupt 50
+    // read-write - Priority of interrupt 50
     uint32_t PRI50 : 4;
     uint32_t _reserved_1 : 24;
   } bits;
@@ -1662,13 +1573,12 @@ union NVICIP50 {
 };
 
 // Interrupt Priority Register 51
-//
 union NVICIP51 {
   
   // Bit field definition.
   struct {
     uint32_t _reserved_0 : 4;
-    /// read-write - Priority of interrupt 51
+    // read-write - Priority of interrupt 51
     uint32_t PRI51 : 4;
     uint32_t _reserved_1 : 24;
   } bits;
@@ -1682,13 +1592,12 @@ union NVICIP51 {
 };
 
 // Interrupt Priority Register 52
-//
 union NVICIP52 {
   
   // Bit field definition.
   struct {
     uint32_t _reserved_0 : 4;
-    /// read-write - Priority of interrupt 52
+    // read-write - Priority of interrupt 52
     uint32_t PRI52 : 4;
     uint32_t _reserved_1 : 24;
   } bits;
@@ -1702,13 +1611,12 @@ union NVICIP52 {
 };
 
 // Interrupt Priority Register 53
-//
 union NVICIP53 {
   
   // Bit field definition.
   struct {
     uint32_t _reserved_0 : 4;
-    /// read-write - Priority of interrupt 53
+    // read-write - Priority of interrupt 53
     uint32_t PRI53 : 4;
     uint32_t _reserved_1 : 24;
   } bits;
@@ -1722,13 +1630,12 @@ union NVICIP53 {
 };
 
 // Interrupt Priority Register 54
-//
 union NVICIP54 {
   
   // Bit field definition.
   struct {
     uint32_t _reserved_0 : 4;
-    /// read-write - Priority of interrupt 54
+    // read-write - Priority of interrupt 54
     uint32_t PRI54 : 4;
     uint32_t _reserved_1 : 24;
   } bits;
@@ -1742,13 +1649,12 @@ union NVICIP54 {
 };
 
 // Interrupt Priority Register 55
-//
 union NVICIP55 {
   
   // Bit field definition.
   struct {
     uint32_t _reserved_0 : 4;
-    /// read-write - Priority of interrupt 55
+    // read-write - Priority of interrupt 55
     uint32_t PRI55 : 4;
     uint32_t _reserved_1 : 24;
   } bits;
@@ -1762,13 +1668,12 @@ union NVICIP55 {
 };
 
 // Interrupt Priority Register 56
-//
 union NVICIP56 {
   
   // Bit field definition.
   struct {
     uint32_t _reserved_0 : 4;
-    /// read-write - Priority of interrupt 56
+    // read-write - Priority of interrupt 56
     uint32_t PRI56 : 4;
     uint32_t _reserved_1 : 24;
   } bits;
@@ -1782,13 +1687,12 @@ union NVICIP56 {
 };
 
 // Interrupt Priority Register 57
-//
 union NVICIP57 {
   
   // Bit field definition.
   struct {
     uint32_t _reserved_0 : 4;
-    /// read-write - Priority of interrupt 57
+    // read-write - Priority of interrupt 57
     uint32_t PRI57 : 4;
     uint32_t _reserved_1 : 24;
   } bits;
@@ -1802,13 +1706,12 @@ union NVICIP57 {
 };
 
 // Interrupt Priority Register 58
-//
 union NVICIP58 {
   
   // Bit field definition.
   struct {
     uint32_t _reserved_0 : 4;
-    /// read-write - Priority of interrupt 58
+    // read-write - Priority of interrupt 58
     uint32_t PRI58 : 4;
     uint32_t _reserved_1 : 24;
   } bits;
@@ -1822,13 +1725,12 @@ union NVICIP58 {
 };
 
 // Interrupt Priority Register 59
-//
 union NVICIP59 {
   
   // Bit field definition.
   struct {
     uint32_t _reserved_0 : 4;
-    /// read-write - Priority of interrupt 59
+    // read-write - Priority of interrupt 59
     uint32_t PRI59 : 4;
     uint32_t _reserved_1 : 24;
   } bits;
@@ -1842,13 +1744,12 @@ union NVICIP59 {
 };
 
 // Interrupt Priority Register 60
-//
 union NVICIP60 {
   
   // Bit field definition.
   struct {
     uint32_t _reserved_0 : 4;
-    /// read-write - Priority of interrupt 60
+    // read-write - Priority of interrupt 60
     uint32_t PRI60 : 4;
     uint32_t _reserved_1 : 24;
   } bits;
@@ -1862,13 +1763,12 @@ union NVICIP60 {
 };
 
 // Interrupt Priority Register 61
-//
 union NVICIP61 {
   
   // Bit field definition.
   struct {
     uint32_t _reserved_0 : 4;
-    /// read-write - Priority of interrupt 61
+    // read-write - Priority of interrupt 61
     uint32_t PRI61 : 4;
     uint32_t _reserved_1 : 24;
   } bits;
@@ -1882,13 +1782,12 @@ union NVICIP61 {
 };
 
 // Interrupt Priority Register 62
-//
 union NVICIP62 {
   
   // Bit field definition.
   struct {
     uint32_t _reserved_0 : 4;
-    /// read-write - Priority of interrupt 62
+    // read-write - Priority of interrupt 62
     uint32_t PRI62 : 4;
     uint32_t _reserved_1 : 24;
   } bits;
@@ -1902,13 +1801,12 @@ union NVICIP62 {
 };
 
 // Interrupt Priority Register 63
-//
 union NVICIP63 {
   
   // Bit field definition.
   struct {
     uint32_t _reserved_0 : 4;
-    /// read-write - Priority of interrupt 63
+    // read-write - Priority of interrupt 63
     uint32_t PRI63 : 4;
     uint32_t _reserved_1 : 24;
   } bits;
@@ -1922,13 +1820,12 @@ union NVICIP63 {
 };
 
 // Interrupt Priority Register 64
-//
 union NVICIP64 {
   
   // Bit field definition.
   struct {
     uint32_t _reserved_0 : 4;
-    /// read-write - Priority of interrupt 64
+    // read-write - Priority of interrupt 64
     uint32_t PRI64 : 4;
     uint32_t _reserved_1 : 24;
   } bits;
@@ -1942,13 +1839,12 @@ union NVICIP64 {
 };
 
 // Interrupt Priority Register 65
-//
 union NVICIP65 {
   
   // Bit field definition.
   struct {
     uint32_t _reserved_0 : 4;
-    /// read-write - Priority of interrupt 65
+    // read-write - Priority of interrupt 65
     uint32_t PRI65 : 4;
     uint32_t _reserved_1 : 24;
   } bits;
@@ -1962,13 +1858,12 @@ union NVICIP65 {
 };
 
 // Interrupt Priority Register 66
-//
 union NVICIP66 {
   
   // Bit field definition.
   struct {
     uint32_t _reserved_0 : 4;
-    /// read-write - Priority of interrupt 66
+    // read-write - Priority of interrupt 66
     uint32_t PRI66 : 4;
     uint32_t _reserved_1 : 24;
   } bits;
@@ -1982,13 +1877,12 @@ union NVICIP66 {
 };
 
 // Interrupt Priority Register 67
-//
 union NVICIP67 {
   
   // Bit field definition.
   struct {
     uint32_t _reserved_0 : 4;
-    /// read-write - Priority of interrupt 67
+    // read-write - Priority of interrupt 67
     uint32_t PRI67 : 4;
     uint32_t _reserved_1 : 24;
   } bits;
@@ -2002,13 +1896,12 @@ union NVICIP67 {
 };
 
 // Interrupt Priority Register 68
-//
 union NVICIP68 {
   
   // Bit field definition.
   struct {
     uint32_t _reserved_0 : 4;
-    /// read-write - Priority of interrupt 68
+    // read-write - Priority of interrupt 68
     uint32_t PRI68 : 4;
     uint32_t _reserved_1 : 24;
   } bits;
@@ -2022,13 +1915,12 @@ union NVICIP68 {
 };
 
 // Interrupt Priority Register 69
-//
 union NVICIP69 {
   
   // Bit field definition.
   struct {
     uint32_t _reserved_0 : 4;
-    /// read-write - Priority of interrupt 69
+    // read-write - Priority of interrupt 69
     uint32_t PRI69 : 4;
     uint32_t _reserved_1 : 24;
   } bits;
@@ -2042,13 +1934,12 @@ union NVICIP69 {
 };
 
 // Interrupt Priority Register 70
-//
 union NVICIP70 {
   
   // Bit field definition.
   struct {
     uint32_t _reserved_0 : 4;
-    /// read-write - Priority of interrupt 70
+    // read-write - Priority of interrupt 70
     uint32_t PRI70 : 4;
     uint32_t _reserved_1 : 24;
   } bits;
@@ -2062,13 +1953,12 @@ union NVICIP70 {
 };
 
 // Interrupt Priority Register 71
-//
 union NVICIP71 {
   
   // Bit field definition.
   struct {
     uint32_t _reserved_0 : 4;
-    /// read-write - Priority of interrupt 71
+    // read-write - Priority of interrupt 71
     uint32_t PRI71 : 4;
     uint32_t _reserved_1 : 24;
   } bits;
@@ -2082,13 +1972,12 @@ union NVICIP71 {
 };
 
 // Interrupt Priority Register 72
-//
 union NVICIP72 {
   
   // Bit field definition.
   struct {
     uint32_t _reserved_0 : 4;
-    /// read-write - Priority of interrupt 72
+    // read-write - Priority of interrupt 72
     uint32_t PRI72 : 4;
     uint32_t _reserved_1 : 24;
   } bits;
@@ -2102,13 +1991,12 @@ union NVICIP72 {
 };
 
 // Interrupt Priority Register 73
-//
 union NVICIP73 {
   
   // Bit field definition.
   struct {
     uint32_t _reserved_0 : 4;
-    /// read-write - Priority of interrupt 73
+    // read-write - Priority of interrupt 73
     uint32_t PRI73 : 4;
     uint32_t _reserved_1 : 24;
   } bits;
@@ -2122,13 +2010,12 @@ union NVICIP73 {
 };
 
 // Interrupt Priority Register 74
-//
 union NVICIP74 {
   
   // Bit field definition.
   struct {
     uint32_t _reserved_0 : 4;
-    /// read-write - Priority of interrupt 74
+    // read-write - Priority of interrupt 74
     uint32_t PRI74 : 4;
     uint32_t _reserved_1 : 24;
   } bits;
@@ -2142,13 +2029,12 @@ union NVICIP74 {
 };
 
 // Interrupt Priority Register 75
-//
 union NVICIP75 {
   
   // Bit field definition.
   struct {
     uint32_t _reserved_0 : 4;
-    /// read-write - Priority of interrupt 75
+    // read-write - Priority of interrupt 75
     uint32_t PRI75 : 4;
     uint32_t _reserved_1 : 24;
   } bits;
@@ -2162,13 +2048,12 @@ union NVICIP75 {
 };
 
 // Interrupt Priority Register 76
-//
 union NVICIP76 {
   
   // Bit field definition.
   struct {
     uint32_t _reserved_0 : 4;
-    /// read-write - Priority of interrupt 76
+    // read-write - Priority of interrupt 76
     uint32_t PRI76 : 4;
     uint32_t _reserved_1 : 24;
   } bits;
@@ -2182,13 +2067,12 @@ union NVICIP76 {
 };
 
 // Interrupt Priority Register 77
-//
 union NVICIP77 {
   
   // Bit field definition.
   struct {
     uint32_t _reserved_0 : 4;
-    /// read-write - Priority of interrupt 77
+    // read-write - Priority of interrupt 77
     uint32_t PRI77 : 4;
     uint32_t _reserved_1 : 24;
   } bits;
@@ -2202,13 +2086,12 @@ union NVICIP77 {
 };
 
 // Interrupt Priority Register 78
-//
 union NVICIP78 {
   
   // Bit field definition.
   struct {
     uint32_t _reserved_0 : 4;
-    /// read-write - Priority of interrupt 78
+    // read-write - Priority of interrupt 78
     uint32_t PRI78 : 4;
     uint32_t _reserved_1 : 24;
   } bits;
@@ -2222,13 +2105,12 @@ union NVICIP78 {
 };
 
 // Interrupt Priority Register 79
-//
 union NVICIP79 {
   
   // Bit field definition.
   struct {
     uint32_t _reserved_0 : 4;
-    /// read-write - Priority of interrupt 79
+    // read-write - Priority of interrupt 79
     uint32_t PRI79 : 4;
     uint32_t _reserved_1 : 24;
   } bits;
@@ -2242,13 +2124,12 @@ union NVICIP79 {
 };
 
 // Interrupt Priority Register 80
-//
 union NVICIP80 {
   
   // Bit field definition.
   struct {
     uint32_t _reserved_0 : 4;
-    /// read-write - Priority of interrupt 80
+    // read-write - Priority of interrupt 80
     uint32_t PRI80 : 4;
     uint32_t _reserved_1 : 24;
   } bits;
@@ -2262,13 +2143,12 @@ union NVICIP80 {
 };
 
 // Interrupt Priority Register 81
-//
 union NVICIP81 {
   
   // Bit field definition.
   struct {
     uint32_t _reserved_0 : 4;
-    /// read-write - Priority of interrupt 81
+    // read-write - Priority of interrupt 81
     uint32_t PRI81 : 4;
     uint32_t _reserved_1 : 24;
   } bits;
@@ -2282,13 +2162,12 @@ union NVICIP81 {
 };
 
 // Interrupt Priority Register 82
-//
 union NVICIP82 {
   
   // Bit field definition.
   struct {
     uint32_t _reserved_0 : 4;
-    /// read-write - Priority of interrupt 82
+    // read-write - Priority of interrupt 82
     uint32_t PRI82 : 4;
     uint32_t _reserved_1 : 24;
   } bits;
@@ -2302,13 +2181,12 @@ union NVICIP82 {
 };
 
 // Interrupt Priority Register 83
-//
 union NVICIP83 {
   
   // Bit field definition.
   struct {
     uint32_t _reserved_0 : 4;
-    /// read-write - Priority of interrupt 83
+    // read-write - Priority of interrupt 83
     uint32_t PRI83 : 4;
     uint32_t _reserved_1 : 24;
   } bits;
@@ -2322,13 +2200,12 @@ union NVICIP83 {
 };
 
 // Interrupt Priority Register 84
-//
 union NVICIP84 {
   
   // Bit field definition.
   struct {
     uint32_t _reserved_0 : 4;
-    /// read-write - Priority of interrupt 84
+    // read-write - Priority of interrupt 84
     uint32_t PRI84 : 4;
     uint32_t _reserved_1 : 24;
   } bits;
@@ -2342,13 +2219,12 @@ union NVICIP84 {
 };
 
 // Interrupt Priority Register 85
-//
 union NVICIP85 {
   
   // Bit field definition.
   struct {
     uint32_t _reserved_0 : 4;
-    /// read-write - Priority of interrupt 85
+    // read-write - Priority of interrupt 85
     uint32_t PRI85 : 4;
     uint32_t _reserved_1 : 24;
   } bits;
@@ -2362,13 +2238,12 @@ union NVICIP85 {
 };
 
 // Interrupt Priority Register 86
-//
 union NVICIP86 {
   
   // Bit field definition.
   struct {
     uint32_t _reserved_0 : 4;
-    /// read-write - Priority of interrupt 86
+    // read-write - Priority of interrupt 86
     uint32_t PRI86 : 4;
     uint32_t _reserved_1 : 24;
   } bits;
@@ -2382,13 +2257,12 @@ union NVICIP86 {
 };
 
 // Interrupt Priority Register 87
-//
 union NVICIP87 {
   
   // Bit field definition.
   struct {
     uint32_t _reserved_0 : 4;
-    /// read-write - Priority of interrupt 87
+    // read-write - Priority of interrupt 87
     uint32_t PRI87 : 4;
     uint32_t _reserved_1 : 24;
   } bits;
@@ -2402,13 +2276,12 @@ union NVICIP87 {
 };
 
 // Interrupt Priority Register 88
-//
 union NVICIP88 {
   
   // Bit field definition.
   struct {
     uint32_t _reserved_0 : 4;
-    /// read-write - Priority of interrupt 88
+    // read-write - Priority of interrupt 88
     uint32_t PRI88 : 4;
     uint32_t _reserved_1 : 24;
   } bits;
@@ -2422,13 +2295,12 @@ union NVICIP88 {
 };
 
 // Interrupt Priority Register 89
-//
 union NVICIP89 {
   
   // Bit field definition.
   struct {
     uint32_t _reserved_0 : 4;
-    /// read-write - Priority of interrupt 89
+    // read-write - Priority of interrupt 89
     uint32_t PRI89 : 4;
     uint32_t _reserved_1 : 24;
   } bits;
@@ -2442,13 +2314,12 @@ union NVICIP89 {
 };
 
 // Interrupt Priority Register 90
-//
 union NVICIP90 {
   
   // Bit field definition.
   struct {
     uint32_t _reserved_0 : 4;
-    /// read-write - Priority of interrupt 90
+    // read-write - Priority of interrupt 90
     uint32_t PRI90 : 4;
     uint32_t _reserved_1 : 24;
   } bits;
@@ -2462,13 +2333,12 @@ union NVICIP90 {
 };
 
 // Interrupt Priority Register 91
-//
 union NVICIP91 {
   
   // Bit field definition.
   struct {
     uint32_t _reserved_0 : 4;
-    /// read-write - Priority of interrupt 91
+    // read-write - Priority of interrupt 91
     uint32_t PRI91 : 4;
     uint32_t _reserved_1 : 24;
   } bits;
@@ -2482,13 +2352,12 @@ union NVICIP91 {
 };
 
 // Interrupt Priority Register 92
-//
 union NVICIP92 {
   
   // Bit field definition.
   struct {
     uint32_t _reserved_0 : 4;
-    /// read-write - Priority of interrupt 92
+    // read-write - Priority of interrupt 92
     uint32_t PRI92 : 4;
     uint32_t _reserved_1 : 24;
   } bits;
@@ -2502,13 +2371,12 @@ union NVICIP92 {
 };
 
 // Interrupt Priority Register 93
-//
 union NVICIP93 {
   
   // Bit field definition.
   struct {
     uint32_t _reserved_0 : 4;
-    /// read-write - Priority of interrupt 93
+    // read-write - Priority of interrupt 93
     uint32_t PRI93 : 4;
     uint32_t _reserved_1 : 24;
   } bits;
@@ -2522,13 +2390,12 @@ union NVICIP93 {
 };
 
 // Interrupt Priority Register 94
-//
 union NVICIP94 {
   
   // Bit field definition.
   struct {
     uint32_t _reserved_0 : 4;
-    /// read-write - Priority of interrupt 94
+    // read-write - Priority of interrupt 94
     uint32_t PRI94 : 4;
     uint32_t _reserved_1 : 24;
   } bits;
@@ -2542,13 +2409,12 @@ union NVICIP94 {
 };
 
 // Interrupt Priority Register 95
-//
 union NVICIP95 {
   
   // Bit field definition.
   struct {
     uint32_t _reserved_0 : 4;
-    /// read-write - Priority of interrupt 95
+    // read-write - Priority of interrupt 95
     uint32_t PRI95 : 4;
     uint32_t _reserved_1 : 24;
   } bits;
@@ -2562,13 +2428,12 @@ union NVICIP95 {
 };
 
 // Interrupt Priority Register 96
-//
 union NVICIP96 {
   
   // Bit field definition.
   struct {
     uint32_t _reserved_0 : 4;
-    /// read-write - Priority of interrupt 96
+    // read-write - Priority of interrupt 96
     uint32_t PRI96 : 4;
     uint32_t _reserved_1 : 24;
   } bits;
@@ -2582,13 +2447,12 @@ union NVICIP96 {
 };
 
 // Interrupt Priority Register 97
-//
 union NVICIP97 {
   
   // Bit field definition.
   struct {
     uint32_t _reserved_0 : 4;
-    /// read-write - Priority of interrupt 97
+    // read-write - Priority of interrupt 97
     uint32_t PRI97 : 4;
     uint32_t _reserved_1 : 24;
   } bits;
@@ -2602,13 +2466,12 @@ union NVICIP97 {
 };
 
 // Interrupt Priority Register 98
-//
 union NVICIP98 {
   
   // Bit field definition.
   struct {
     uint32_t _reserved_0 : 4;
-    /// read-write - Priority of interrupt 98
+    // read-write - Priority of interrupt 98
     uint32_t PRI98 : 4;
     uint32_t _reserved_1 : 24;
   } bits;
@@ -2622,13 +2485,12 @@ union NVICIP98 {
 };
 
 // Interrupt Priority Register 99
-//
 union NVICIP99 {
   
   // Bit field definition.
   struct {
     uint32_t _reserved_0 : 4;
-    /// read-write - Priority of interrupt 99
+    // read-write - Priority of interrupt 99
     uint32_t PRI99 : 4;
     uint32_t _reserved_1 : 24;
   } bits;
@@ -2642,13 +2504,12 @@ union NVICIP99 {
 };
 
 // Interrupt Priority Register 100
-//
 union NVICIP100 {
   
   // Bit field definition.
   struct {
     uint32_t _reserved_0 : 4;
-    /// read-write - Priority of interrupt 100
+    // read-write - Priority of interrupt 100
     uint32_t PRI100 : 4;
     uint32_t _reserved_1 : 24;
   } bits;
@@ -2662,13 +2523,12 @@ union NVICIP100 {
 };
 
 // Interrupt Priority Register 101
-//
 union NVICIP101 {
   
   // Bit field definition.
   struct {
     uint32_t _reserved_0 : 4;
-    /// read-write - Priority of interrupt 101
+    // read-write - Priority of interrupt 101
     uint32_t PRI101 : 4;
     uint32_t _reserved_1 : 24;
   } bits;
@@ -2682,13 +2542,12 @@ union NVICIP101 {
 };
 
 // Interrupt Priority Register 102
-//
 union NVICIP102 {
   
   // Bit field definition.
   struct {
     uint32_t _reserved_0 : 4;
-    /// read-write - Priority of interrupt 102
+    // read-write - Priority of interrupt 102
     uint32_t PRI102 : 4;
     uint32_t _reserved_1 : 24;
   } bits;
@@ -2702,13 +2561,12 @@ union NVICIP102 {
 };
 
 // Interrupt Priority Register 103
-//
 union NVICIP103 {
   
   // Bit field definition.
   struct {
     uint32_t _reserved_0 : 4;
-    /// read-write - Priority of interrupt 103
+    // read-write - Priority of interrupt 103
     uint32_t PRI103 : 4;
     uint32_t _reserved_1 : 24;
   } bits;
@@ -2722,13 +2580,12 @@ union NVICIP103 {
 };
 
 // Interrupt Priority Register 104
-//
 union NVICIP104 {
   
   // Bit field definition.
   struct {
     uint32_t _reserved_0 : 4;
-    /// read-write - Priority of interrupt 104
+    // read-write - Priority of interrupt 104
     uint32_t PRI104 : 4;
     uint32_t _reserved_1 : 24;
   } bits;
@@ -2742,13 +2599,12 @@ union NVICIP104 {
 };
 
 // Interrupt Priority Register 105
-//
 union NVICIP105 {
   
   // Bit field definition.
   struct {
     uint32_t _reserved_0 : 4;
-    /// read-write - Priority of interrupt 105
+    // read-write - Priority of interrupt 105
     uint32_t PRI105 : 4;
     uint32_t _reserved_1 : 24;
   } bits;
@@ -2762,13 +2618,12 @@ union NVICIP105 {
 };
 
 // Interrupt Priority Register 106
-//
 union NVICIP106 {
   
   // Bit field definition.
   struct {
     uint32_t _reserved_0 : 4;
-    /// read-write - Priority of interrupt 106
+    // read-write - Priority of interrupt 106
     uint32_t PRI106 : 4;
     uint32_t _reserved_1 : 24;
   } bits;
@@ -2782,13 +2637,12 @@ union NVICIP106 {
 };
 
 // Interrupt Priority Register 107
-//
 union NVICIP107 {
   
   // Bit field definition.
   struct {
     uint32_t _reserved_0 : 4;
-    /// read-write - Priority of interrupt 107
+    // read-write - Priority of interrupt 107
     uint32_t PRI107 : 4;
     uint32_t _reserved_1 : 24;
   } bits;
@@ -2802,13 +2656,12 @@ union NVICIP107 {
 };
 
 // Interrupt Priority Register 108
-//
 union NVICIP108 {
   
   // Bit field definition.
   struct {
     uint32_t _reserved_0 : 4;
-    /// read-write - Priority of interrupt 108
+    // read-write - Priority of interrupt 108
     uint32_t PRI108 : 4;
     uint32_t _reserved_1 : 24;
   } bits;
@@ -2822,13 +2675,12 @@ union NVICIP108 {
 };
 
 // Interrupt Priority Register 109
-//
 union NVICIP109 {
   
   // Bit field definition.
   struct {
     uint32_t _reserved_0 : 4;
-    /// read-write - Priority of interrupt 109
+    // read-write - Priority of interrupt 109
     uint32_t PRI109 : 4;
     uint32_t _reserved_1 : 24;
   } bits;
@@ -2842,13 +2694,12 @@ union NVICIP109 {
 };
 
 // Interrupt Priority Register 110
-//
 union NVICIP110 {
   
   // Bit field definition.
   struct {
     uint32_t _reserved_0 : 4;
-    /// read-write - Priority of interrupt 110
+    // read-write - Priority of interrupt 110
     uint32_t PRI110 : 4;
     uint32_t _reserved_1 : 24;
   } bits;
@@ -2862,13 +2713,12 @@ union NVICIP110 {
 };
 
 // Interrupt Priority Register 111
-//
 union NVICIP111 {
   
   // Bit field definition.
   struct {
     uint32_t _reserved_0 : 4;
-    /// read-write - Priority of interrupt 111
+    // read-write - Priority of interrupt 111
     uint32_t PRI111 : 4;
     uint32_t _reserved_1 : 24;
   } bits;
@@ -2882,13 +2732,12 @@ union NVICIP111 {
 };
 
 // Interrupt Priority Register 112
-//
 union NVICIP112 {
   
   // Bit field definition.
   struct {
     uint32_t _reserved_0 : 4;
-    /// read-write - Priority of interrupt 112
+    // read-write - Priority of interrupt 112
     uint32_t PRI112 : 4;
     uint32_t _reserved_1 : 24;
   } bits;
@@ -2902,13 +2751,12 @@ union NVICIP112 {
 };
 
 // Interrupt Priority Register 113
-//
 union NVICIP113 {
   
   // Bit field definition.
   struct {
     uint32_t _reserved_0 : 4;
-    /// read-write - Priority of interrupt 113
+    // read-write - Priority of interrupt 113
     uint32_t PRI113 : 4;
     uint32_t _reserved_1 : 24;
   } bits;
@@ -2922,13 +2770,12 @@ union NVICIP113 {
 };
 
 // Interrupt Priority Register 114
-//
 union NVICIP114 {
   
   // Bit field definition.
   struct {
     uint32_t _reserved_0 : 4;
-    /// read-write - Priority of interrupt 114
+    // read-write - Priority of interrupt 114
     uint32_t PRI114 : 4;
     uint32_t _reserved_1 : 24;
   } bits;
@@ -2942,13 +2789,12 @@ union NVICIP114 {
 };
 
 // Interrupt Priority Register 115
-//
 union NVICIP115 {
   
   // Bit field definition.
   struct {
     uint32_t _reserved_0 : 4;
-    /// read-write - Priority of interrupt 115
+    // read-write - Priority of interrupt 115
     uint32_t PRI115 : 4;
     uint32_t _reserved_1 : 24;
   } bits;
@@ -2962,13 +2808,12 @@ union NVICIP115 {
 };
 
 // Interrupt Priority Register 116
-//
 union NVICIP116 {
   
   // Bit field definition.
   struct {
     uint32_t _reserved_0 : 4;
-    /// read-write - Priority of interrupt 116
+    // read-write - Priority of interrupt 116
     uint32_t PRI116 : 4;
     uint32_t _reserved_1 : 24;
   } bits;
@@ -2982,13 +2827,12 @@ union NVICIP116 {
 };
 
 // Interrupt Priority Register 117
-//
 union NVICIP117 {
   
   // Bit field definition.
   struct {
     uint32_t _reserved_0 : 4;
-    /// read-write - Priority of interrupt 117
+    // read-write - Priority of interrupt 117
     uint32_t PRI117 : 4;
     uint32_t _reserved_1 : 24;
   } bits;
@@ -3002,13 +2846,12 @@ union NVICIP117 {
 };
 
 // Interrupt Priority Register 118
-//
 union NVICIP118 {
   
   // Bit field definition.
   struct {
     uint32_t _reserved_0 : 4;
-    /// read-write - Priority of interrupt 118
+    // read-write - Priority of interrupt 118
     uint32_t PRI118 : 4;
     uint32_t _reserved_1 : 24;
   } bits;
@@ -3022,13 +2865,12 @@ union NVICIP118 {
 };
 
 // Interrupt Priority Register 119
-//
 union NVICIP119 {
   
   // Bit field definition.
   struct {
     uint32_t _reserved_0 : 4;
-    /// read-write - Priority of interrupt 119
+    // read-write - Priority of interrupt 119
     uint32_t PRI119 : 4;
     uint32_t _reserved_1 : 24;
   } bits;
@@ -3042,13 +2884,12 @@ union NVICIP119 {
 };
 
 // Interrupt Priority Register 120
-//
 union NVICIP120 {
   
   // Bit field definition.
   struct {
     uint32_t _reserved_0 : 4;
-    /// read-write - Priority of interrupt 120
+    // read-write - Priority of interrupt 120
     uint32_t PRI120 : 4;
     uint32_t _reserved_1 : 24;
   } bits;
@@ -3062,13 +2903,12 @@ union NVICIP120 {
 };
 
 // Interrupt Priority Register 121
-//
 union NVICIP121 {
   
   // Bit field definition.
   struct {
     uint32_t _reserved_0 : 4;
-    /// read-write - Priority of interrupt 121
+    // read-write - Priority of interrupt 121
     uint32_t PRI121 : 4;
     uint32_t _reserved_1 : 24;
   } bits;
@@ -3082,13 +2922,12 @@ union NVICIP121 {
 };
 
 // Interrupt Priority Register 122
-//
 union NVICIP122 {
   
   // Bit field definition.
   struct {
     uint32_t _reserved_0 : 4;
-    /// read-write - Priority of interrupt 122
+    // read-write - Priority of interrupt 122
     uint32_t PRI122 : 4;
     uint32_t _reserved_1 : 24;
   } bits;
@@ -3102,13 +2941,12 @@ union NVICIP122 {
 };
 
 // Interrupt Priority Register 123
-//
 union NVICIP123 {
   
   // Bit field definition.
   struct {
     uint32_t _reserved_0 : 4;
-    /// read-write - Priority of interrupt 123
+    // read-write - Priority of interrupt 123
     uint32_t PRI123 : 4;
     uint32_t _reserved_1 : 24;
   } bits;
@@ -3122,13 +2960,12 @@ union NVICIP123 {
 };
 
 // Interrupt Priority Register 124
-//
 union NVICIP124 {
   
   // Bit field definition.
   struct {
     uint32_t _reserved_0 : 4;
-    /// read-write - Priority of interrupt 124
+    // read-write - Priority of interrupt 124
     uint32_t PRI124 : 4;
     uint32_t _reserved_1 : 24;
   } bits;
@@ -3142,13 +2979,12 @@ union NVICIP124 {
 };
 
 // Interrupt Priority Register 125
-//
 union NVICIP125 {
   
   // Bit field definition.
   struct {
     uint32_t _reserved_0 : 4;
-    /// read-write - Priority of interrupt 125
+    // read-write - Priority of interrupt 125
     uint32_t PRI125 : 4;
     uint32_t _reserved_1 : 24;
   } bits;
@@ -3162,13 +2998,12 @@ union NVICIP125 {
 };
 
 // Interrupt Priority Register 126
-//
 union NVICIP126 {
   
   // Bit field definition.
   struct {
     uint32_t _reserved_0 : 4;
-    /// read-write - Priority of interrupt 126
+    // read-write - Priority of interrupt 126
     uint32_t PRI126 : 4;
     uint32_t _reserved_1 : 24;
   } bits;
@@ -3182,13 +3017,12 @@ union NVICIP126 {
 };
 
 // Interrupt Priority Register 127
-//
 union NVICIP127 {
   
   // Bit field definition.
   struct {
     uint32_t _reserved_0 : 4;
-    /// read-write - Priority of interrupt 127
+    // read-write - Priority of interrupt 127
     uint32_t PRI127 : 4;
     uint32_t _reserved_1 : 24;
   } bits;
@@ -3202,13 +3036,12 @@ union NVICIP127 {
 };
 
 // Interrupt Priority Register 128
-//
 union NVICIP128 {
   
   // Bit field definition.
   struct {
     uint32_t _reserved_0 : 4;
-    /// read-write - Priority of interrupt 128
+    // read-write - Priority of interrupt 128
     uint32_t PRI128 : 4;
     uint32_t _reserved_1 : 24;
   } bits;
@@ -3222,13 +3055,12 @@ union NVICIP128 {
 };
 
 // Interrupt Priority Register 129
-//
 union NVICIP129 {
   
   // Bit field definition.
   struct {
     uint32_t _reserved_0 : 4;
-    /// read-write - Priority of interrupt 129
+    // read-write - Priority of interrupt 129
     uint32_t PRI129 : 4;
     uint32_t _reserved_1 : 24;
   } bits;
@@ -3242,13 +3074,12 @@ union NVICIP129 {
 };
 
 // Interrupt Priority Register 130
-//
 union NVICIP130 {
   
   // Bit field definition.
   struct {
     uint32_t _reserved_0 : 4;
-    /// read-write - Priority of interrupt 130
+    // read-write - Priority of interrupt 130
     uint32_t PRI130 : 4;
     uint32_t _reserved_1 : 24;
   } bits;
@@ -3262,13 +3093,12 @@ union NVICIP130 {
 };
 
 // Interrupt Priority Register 131
-//
 union NVICIP131 {
   
   // Bit field definition.
   struct {
     uint32_t _reserved_0 : 4;
-    /// read-write - Priority of interrupt 131
+    // read-write - Priority of interrupt 131
     uint32_t PRI131 : 4;
     uint32_t _reserved_1 : 24;
   } bits;
@@ -3282,13 +3112,12 @@ union NVICIP131 {
 };
 
 // Interrupt Priority Register 132
-//
 union NVICIP132 {
   
   // Bit field definition.
   struct {
     uint32_t _reserved_0 : 4;
-    /// read-write - Priority of interrupt 132
+    // read-write - Priority of interrupt 132
     uint32_t PRI132 : 4;
     uint32_t _reserved_1 : 24;
   } bits;
@@ -3302,13 +3131,12 @@ union NVICIP132 {
 };
 
 // Interrupt Priority Register 133
-//
 union NVICIP133 {
   
   // Bit field definition.
   struct {
     uint32_t _reserved_0 : 4;
-    /// read-write - Priority of interrupt 133
+    // read-write - Priority of interrupt 133
     uint32_t PRI133 : 4;
     uint32_t _reserved_1 : 24;
   } bits;
@@ -3322,13 +3150,12 @@ union NVICIP133 {
 };
 
 // Interrupt Priority Register 134
-//
 union NVICIP134 {
   
   // Bit field definition.
   struct {
     uint32_t _reserved_0 : 4;
-    /// read-write - Priority of interrupt 134
+    // read-write - Priority of interrupt 134
     uint32_t PRI134 : 4;
     uint32_t _reserved_1 : 24;
   } bits;
@@ -3342,13 +3169,12 @@ union NVICIP134 {
 };
 
 // Interrupt Priority Register 135
-//
 union NVICIP135 {
   
   // Bit field definition.
   struct {
     uint32_t _reserved_0 : 4;
-    /// read-write - Priority of interrupt 135
+    // read-write - Priority of interrupt 135
     uint32_t PRI135 : 4;
     uint32_t _reserved_1 : 24;
   } bits;
@@ -3362,13 +3188,12 @@ union NVICIP135 {
 };
 
 // Interrupt Priority Register 136
-//
 union NVICIP136 {
   
   // Bit field definition.
   struct {
     uint32_t _reserved_0 : 4;
-    /// read-write - Priority of interrupt 136
+    // read-write - Priority of interrupt 136
     uint32_t PRI136 : 4;
     uint32_t _reserved_1 : 24;
   } bits;
@@ -3382,13 +3207,12 @@ union NVICIP136 {
 };
 
 // Interrupt Priority Register 137
-//
 union NVICIP137 {
   
   // Bit field definition.
   struct {
     uint32_t _reserved_0 : 4;
-    /// read-write - Priority of interrupt 137
+    // read-write - Priority of interrupt 137
     uint32_t PRI137 : 4;
     uint32_t _reserved_1 : 24;
   } bits;
@@ -3402,13 +3226,12 @@ union NVICIP137 {
 };
 
 // Interrupt Priority Register 138
-//
 union NVICIP138 {
   
   // Bit field definition.
   struct {
     uint32_t _reserved_0 : 4;
-    /// read-write - Priority of interrupt 138
+    // read-write - Priority of interrupt 138
     uint32_t PRI138 : 4;
     uint32_t _reserved_1 : 24;
   } bits;
@@ -3422,13 +3245,12 @@ union NVICIP138 {
 };
 
 // Interrupt Priority Register 139
-//
 union NVICIP139 {
   
   // Bit field definition.
   struct {
     uint32_t _reserved_0 : 4;
-    /// read-write - Priority of interrupt 139
+    // read-write - Priority of interrupt 139
     uint32_t PRI139 : 4;
     uint32_t _reserved_1 : 24;
   } bits;
@@ -3442,13 +3264,12 @@ union NVICIP139 {
 };
 
 // Interrupt Priority Register 140
-//
 union NVICIP140 {
   
   // Bit field definition.
   struct {
     uint32_t _reserved_0 : 4;
-    /// read-write - Priority of interrupt 140
+    // read-write - Priority of interrupt 140
     uint32_t PRI140 : 4;
     uint32_t _reserved_1 : 24;
   } bits;
@@ -3462,13 +3283,12 @@ union NVICIP140 {
 };
 
 // Interrupt Priority Register 141
-//
 union NVICIP141 {
   
   // Bit field definition.
   struct {
     uint32_t _reserved_0 : 4;
-    /// read-write - Priority of interrupt 141
+    // read-write - Priority of interrupt 141
     uint32_t PRI141 : 4;
     uint32_t _reserved_1 : 24;
   } bits;
@@ -3482,13 +3302,12 @@ union NVICIP141 {
 };
 
 // Interrupt Priority Register 142
-//
 union NVICIP142 {
   
   // Bit field definition.
   struct {
     uint32_t _reserved_0 : 4;
-    /// read-write - Priority of interrupt 142
+    // read-write - Priority of interrupt 142
     uint32_t PRI142 : 4;
     uint32_t _reserved_1 : 24;
   } bits;
@@ -3502,13 +3321,12 @@ union NVICIP142 {
 };
 
 // Interrupt Priority Register 143
-//
 union NVICIP143 {
   
   // Bit field definition.
   struct {
     uint32_t _reserved_0 : 4;
-    /// read-write - Priority of interrupt 143
+    // read-write - Priority of interrupt 143
     uint32_t PRI143 : 4;
     uint32_t _reserved_1 : 24;
   } bits;
@@ -3522,13 +3340,12 @@ union NVICIP143 {
 };
 
 // Interrupt Priority Register 144
-//
 union NVICIP144 {
   
   // Bit field definition.
   struct {
     uint32_t _reserved_0 : 4;
-    /// read-write - Priority of interrupt 144
+    // read-write - Priority of interrupt 144
     uint32_t PRI144 : 4;
     uint32_t _reserved_1 : 24;
   } bits;
@@ -3542,13 +3359,12 @@ union NVICIP144 {
 };
 
 // Interrupt Priority Register 145
-//
 union NVICIP145 {
   
   // Bit field definition.
   struct {
     uint32_t _reserved_0 : 4;
-    /// read-write - Priority of interrupt 145
+    // read-write - Priority of interrupt 145
     uint32_t PRI145 : 4;
     uint32_t _reserved_1 : 24;
   } bits;
@@ -3562,13 +3378,12 @@ union NVICIP145 {
 };
 
 // Interrupt Priority Register 146
-//
 union NVICIP146 {
   
   // Bit field definition.
   struct {
     uint32_t _reserved_0 : 4;
-    /// read-write - Priority of interrupt 146
+    // read-write - Priority of interrupt 146
     uint32_t PRI146 : 4;
     uint32_t _reserved_1 : 24;
   } bits;
@@ -3582,13 +3397,12 @@ union NVICIP146 {
 };
 
 // Interrupt Priority Register 147
-//
 union NVICIP147 {
   
   // Bit field definition.
   struct {
     uint32_t _reserved_0 : 4;
-    /// read-write - Priority of interrupt 147
+    // read-write - Priority of interrupt 147
     uint32_t PRI147 : 4;
     uint32_t _reserved_1 : 24;
   } bits;
@@ -3602,13 +3416,12 @@ union NVICIP147 {
 };
 
 // Interrupt Priority Register 148
-//
 union NVICIP148 {
   
   // Bit field definition.
   struct {
     uint32_t _reserved_0 : 4;
-    /// read-write - Priority of interrupt 148
+    // read-write - Priority of interrupt 148
     uint32_t PRI148 : 4;
     uint32_t _reserved_1 : 24;
   } bits;
@@ -3622,13 +3435,12 @@ union NVICIP148 {
 };
 
 // Interrupt Priority Register 149
-//
 union NVICIP149 {
   
   // Bit field definition.
   struct {
     uint32_t _reserved_0 : 4;
-    /// read-write - Priority of interrupt 149
+    // read-write - Priority of interrupt 149
     uint32_t PRI149 : 4;
     uint32_t _reserved_1 : 24;
   } bits;
@@ -3642,13 +3454,12 @@ union NVICIP149 {
 };
 
 // Interrupt Priority Register 150
-//
 union NVICIP150 {
   
   // Bit field definition.
   struct {
     uint32_t _reserved_0 : 4;
-    /// read-write - Priority of interrupt 150
+    // read-write - Priority of interrupt 150
     uint32_t PRI150 : 4;
     uint32_t _reserved_1 : 24;
   } bits;
@@ -3662,13 +3473,12 @@ union NVICIP150 {
 };
 
 // Interrupt Priority Register 151
-//
 union NVICIP151 {
   
   // Bit field definition.
   struct {
     uint32_t _reserved_0 : 4;
-    /// read-write - Priority of interrupt 151
+    // read-write - Priority of interrupt 151
     uint32_t PRI151 : 4;
     uint32_t _reserved_1 : 24;
   } bits;
@@ -3682,13 +3492,12 @@ union NVICIP151 {
 };
 
 // Interrupt Priority Register 152
-//
 union NVICIP152 {
   
   // Bit field definition.
   struct {
     uint32_t _reserved_0 : 4;
-    /// read-write - Priority of interrupt 152
+    // read-write - Priority of interrupt 152
     uint32_t PRI152 : 4;
     uint32_t _reserved_1 : 24;
   } bits;
@@ -3702,13 +3511,12 @@ union NVICIP152 {
 };
 
 // Interrupt Priority Register 153
-//
 union NVICIP153 {
   
   // Bit field definition.
   struct {
     uint32_t _reserved_0 : 4;
-    /// read-write - Priority of interrupt 153
+    // read-write - Priority of interrupt 153
     uint32_t PRI153 : 4;
     uint32_t _reserved_1 : 24;
   } bits;
@@ -3722,13 +3530,12 @@ union NVICIP153 {
 };
 
 // Interrupt Priority Register 154
-//
 union NVICIP154 {
   
   // Bit field definition.
   struct {
     uint32_t _reserved_0 : 4;
-    /// read-write - Priority of interrupt 154
+    // read-write - Priority of interrupt 154
     uint32_t PRI154 : 4;
     uint32_t _reserved_1 : 24;
   } bits;
@@ -3742,13 +3549,12 @@ union NVICIP154 {
 };
 
 // Interrupt Priority Register 155
-//
 union NVICIP155 {
   
   // Bit field definition.
   struct {
     uint32_t _reserved_0 : 4;
-    /// read-write - Priority of interrupt 155
+    // read-write - Priority of interrupt 155
     uint32_t PRI155 : 4;
     uint32_t _reserved_1 : 24;
   } bits;
@@ -3762,13 +3568,12 @@ union NVICIP155 {
 };
 
 // Interrupt Priority Register 156
-//
 union NVICIP156 {
   
   // Bit field definition.
   struct {
     uint32_t _reserved_0 : 4;
-    /// read-write - Priority of interrupt 156
+    // read-write - Priority of interrupt 156
     uint32_t PRI156 : 4;
     uint32_t _reserved_1 : 24;
   } bits;
@@ -3782,13 +3587,12 @@ union NVICIP156 {
 };
 
 // Interrupt Priority Register 157
-//
 union NVICIP157 {
   
   // Bit field definition.
   struct {
     uint32_t _reserved_0 : 4;
-    /// read-write - Priority of interrupt 157
+    // read-write - Priority of interrupt 157
     uint32_t PRI157 : 4;
     uint32_t _reserved_1 : 24;
   } bits;
@@ -3802,13 +3606,12 @@ union NVICIP157 {
 };
 
 // Interrupt Priority Register 158
-//
 union NVICIP158 {
   
   // Bit field definition.
   struct {
     uint32_t _reserved_0 : 4;
-    /// read-write - Priority of interrupt 158
+    // read-write - Priority of interrupt 158
     uint32_t PRI158 : 4;
     uint32_t _reserved_1 : 24;
   } bits;
@@ -3822,13 +3625,12 @@ union NVICIP158 {
 };
 
 // Interrupt Priority Register 159
-//
 union NVICIP159 {
   
   // Bit field definition.
   struct {
     uint32_t _reserved_0 : 4;
-    /// read-write - Priority of interrupt 159
+    // read-write - Priority of interrupt 159
     uint32_t PRI159 : 4;
     uint32_t _reserved_1 : 24;
   } bits;
@@ -3842,13 +3644,12 @@ union NVICIP159 {
 };
 
 // Interrupt Priority Register 160
-//
 union NVICIP160 {
   
   // Bit field definition.
   struct {
     uint32_t _reserved_0 : 4;
-    /// read-write - Priority of interrupt 160
+    // read-write - Priority of interrupt 160
     uint32_t PRI160 : 4;
     uint32_t _reserved_1 : 24;
   } bits;
@@ -3862,13 +3663,12 @@ union NVICIP160 {
 };
 
 // Interrupt Priority Register 161
-//
 union NVICIP161 {
   
   // Bit field definition.
   struct {
     uint32_t _reserved_0 : 4;
-    /// read-write - Priority of interrupt 161
+    // read-write - Priority of interrupt 161
     uint32_t PRI161 : 4;
     uint32_t _reserved_1 : 24;
   } bits;
@@ -3882,13 +3682,12 @@ union NVICIP161 {
 };
 
 // Interrupt Priority Register 162
-//
 union NVICIP162 {
   
   // Bit field definition.
   struct {
     uint32_t _reserved_0 : 4;
-    /// read-write - Priority of interrupt 162
+    // read-write - Priority of interrupt 162
     uint32_t PRI162 : 4;
     uint32_t _reserved_1 : 24;
   } bits;
@@ -3902,13 +3701,12 @@ union NVICIP162 {
 };
 
 // Interrupt Priority Register 163
-//
 union NVICIP163 {
   
   // Bit field definition.
   struct {
     uint32_t _reserved_0 : 4;
-    /// read-write - Priority of interrupt 163
+    // read-write - Priority of interrupt 163
     uint32_t PRI163 : 4;
     uint32_t _reserved_1 : 24;
   } bits;
@@ -3922,13 +3720,12 @@ union NVICIP163 {
 };
 
 // Interrupt Priority Register 164
-//
 union NVICIP164 {
   
   // Bit field definition.
   struct {
     uint32_t _reserved_0 : 4;
-    /// read-write - Priority of interrupt 164
+    // read-write - Priority of interrupt 164
     uint32_t PRI164 : 4;
     uint32_t _reserved_1 : 24;
   } bits;
@@ -3942,13 +3739,12 @@ union NVICIP164 {
 };
 
 // Interrupt Priority Register 165
-//
 union NVICIP165 {
   
   // Bit field definition.
   struct {
     uint32_t _reserved_0 : 4;
-    /// read-write - Priority of interrupt 165
+    // read-write - Priority of interrupt 165
     uint32_t PRI165 : 4;
     uint32_t _reserved_1 : 24;
   } bits;
@@ -3962,13 +3758,12 @@ union NVICIP165 {
 };
 
 // Interrupt Priority Register 166
-//
 union NVICIP166 {
   
   // Bit field definition.
   struct {
     uint32_t _reserved_0 : 4;
-    /// read-write - Priority of interrupt 166
+    // read-write - Priority of interrupt 166
     uint32_t PRI166 : 4;
     uint32_t _reserved_1 : 24;
   } bits;
@@ -3982,13 +3777,12 @@ union NVICIP166 {
 };
 
 // Interrupt Priority Register 167
-//
 union NVICIP167 {
   
   // Bit field definition.
   struct {
     uint32_t _reserved_0 : 4;
-    /// read-write - Priority of interrupt 167
+    // read-write - Priority of interrupt 167
     uint32_t PRI167 : 4;
     uint32_t _reserved_1 : 24;
   } bits;
@@ -4002,13 +3796,12 @@ union NVICIP167 {
 };
 
 // Interrupt Priority Register 168
-//
 union NVICIP168 {
   
   // Bit field definition.
   struct {
     uint32_t _reserved_0 : 4;
-    /// read-write - Priority of interrupt 168
+    // read-write - Priority of interrupt 168
     uint32_t PRI168 : 4;
     uint32_t _reserved_1 : 24;
   } bits;
@@ -4022,13 +3815,12 @@ union NVICIP168 {
 };
 
 // Interrupt Priority Register 169
-//
 union NVICIP169 {
   
   // Bit field definition.
   struct {
     uint32_t _reserved_0 : 4;
-    /// read-write - Priority of interrupt 169
+    // read-write - Priority of interrupt 169
     uint32_t PRI169 : 4;
     uint32_t _reserved_1 : 24;
   } bits;
@@ -4042,13 +3834,12 @@ union NVICIP169 {
 };
 
 // Interrupt Priority Register 170
-//
 union NVICIP170 {
   
   // Bit field definition.
   struct {
     uint32_t _reserved_0 : 4;
-    /// read-write - Priority of interrupt 170
+    // read-write - Priority of interrupt 170
     uint32_t PRI170 : 4;
     uint32_t _reserved_1 : 24;
   } bits;
@@ -4062,13 +3853,12 @@ union NVICIP170 {
 };
 
 // Interrupt Priority Register 171
-//
 union NVICIP171 {
   
   // Bit field definition.
   struct {
     uint32_t _reserved_0 : 4;
-    /// read-write - Priority of interrupt 171
+    // read-write - Priority of interrupt 171
     uint32_t PRI171 : 4;
     uint32_t _reserved_1 : 24;
   } bits;
@@ -4082,13 +3872,12 @@ union NVICIP171 {
 };
 
 // Interrupt Priority Register 172
-//
 union NVICIP172 {
   
   // Bit field definition.
   struct {
     uint32_t _reserved_0 : 4;
-    /// read-write - Priority of interrupt 172
+    // read-write - Priority of interrupt 172
     uint32_t PRI172 : 4;
     uint32_t _reserved_1 : 24;
   } bits;
@@ -4102,13 +3891,12 @@ union NVICIP172 {
 };
 
 // Interrupt Priority Register 173
-//
 union NVICIP173 {
   
   // Bit field definition.
   struct {
     uint32_t _reserved_0 : 4;
-    /// read-write - Priority of interrupt 173
+    // read-write - Priority of interrupt 173
     uint32_t PRI173 : 4;
     uint32_t _reserved_1 : 24;
   } bits;
@@ -4122,13 +3910,12 @@ union NVICIP173 {
 };
 
 // Interrupt Priority Register 174
-//
 union NVICIP174 {
   
   // Bit field definition.
   struct {
     uint32_t _reserved_0 : 4;
-    /// read-write - Priority of interrupt 174
+    // read-write - Priority of interrupt 174
     uint32_t PRI174 : 4;
     uint32_t _reserved_1 : 24;
   } bits;
@@ -4142,13 +3929,12 @@ union NVICIP174 {
 };
 
 // Interrupt Priority Register 175
-//
 union NVICIP175 {
   
   // Bit field definition.
   struct {
     uint32_t _reserved_0 : 4;
-    /// read-write - Priority of interrupt 175
+    // read-write - Priority of interrupt 175
     uint32_t PRI175 : 4;
     uint32_t _reserved_1 : 24;
   } bits;
@@ -4162,13 +3948,12 @@ union NVICIP175 {
 };
 
 // Interrupt Priority Register 176
-//
 union NVICIP176 {
   
   // Bit field definition.
   struct {
     uint32_t _reserved_0 : 4;
-    /// read-write - Priority of interrupt 176
+    // read-write - Priority of interrupt 176
     uint32_t PRI176 : 4;
     uint32_t _reserved_1 : 24;
   } bits;
@@ -4182,13 +3967,12 @@ union NVICIP176 {
 };
 
 // Interrupt Priority Register 177
-//
 union NVICIP177 {
   
   // Bit field definition.
   struct {
     uint32_t _reserved_0 : 4;
-    /// read-write - Priority of interrupt 177
+    // read-write - Priority of interrupt 177
     uint32_t PRI177 : 4;
     uint32_t _reserved_1 : 24;
   } bits;
@@ -4202,13 +3986,12 @@ union NVICIP177 {
 };
 
 // Interrupt Priority Register 178
-//
 union NVICIP178 {
   
   // Bit field definition.
   struct {
     uint32_t _reserved_0 : 4;
-    /// read-write - Priority of interrupt 178
+    // read-write - Priority of interrupt 178
     uint32_t PRI178 : 4;
     uint32_t _reserved_1 : 24;
   } bits;
@@ -4222,13 +4005,12 @@ union NVICIP178 {
 };
 
 // Interrupt Priority Register 179
-//
 union NVICIP179 {
   
   // Bit field definition.
   struct {
     uint32_t _reserved_0 : 4;
-    /// read-write - Priority of interrupt 179
+    // read-write - Priority of interrupt 179
     uint32_t PRI179 : 4;
     uint32_t _reserved_1 : 24;
   } bits;
@@ -4242,13 +4024,12 @@ union NVICIP179 {
 };
 
 // Interrupt Priority Register 180
-//
 union NVICIP180 {
   
   // Bit field definition.
   struct {
     uint32_t _reserved_0 : 4;
-    /// read-write - Priority of interrupt 180
+    // read-write - Priority of interrupt 180
     uint32_t PRI180 : 4;
     uint32_t _reserved_1 : 24;
   } bits;
@@ -4262,13 +4043,12 @@ union NVICIP180 {
 };
 
 // Interrupt Priority Register 181
-//
 union NVICIP181 {
   
   // Bit field definition.
   struct {
     uint32_t _reserved_0 : 4;
-    /// read-write - Priority of interrupt 181
+    // read-write - Priority of interrupt 181
     uint32_t PRI181 : 4;
     uint32_t _reserved_1 : 24;
   } bits;
@@ -4282,13 +4062,12 @@ union NVICIP181 {
 };
 
 // Interrupt Priority Register 182
-//
 union NVICIP182 {
   
   // Bit field definition.
   struct {
     uint32_t _reserved_0 : 4;
-    /// read-write - Priority of interrupt 182
+    // read-write - Priority of interrupt 182
     uint32_t PRI182 : 4;
     uint32_t _reserved_1 : 24;
   } bits;
@@ -4302,13 +4081,12 @@ union NVICIP182 {
 };
 
 // Interrupt Priority Register 183
-//
 union NVICIP183 {
   
   // Bit field definition.
   struct {
     uint32_t _reserved_0 : 4;
-    /// read-write - Priority of interrupt 183
+    // read-write - Priority of interrupt 183
     uint32_t PRI183 : 4;
     uint32_t _reserved_1 : 24;
   } bits;
@@ -4322,13 +4100,12 @@ union NVICIP183 {
 };
 
 // Interrupt Priority Register 184
-//
 union NVICIP184 {
   
   // Bit field definition.
   struct {
     uint32_t _reserved_0 : 4;
-    /// read-write - Priority of interrupt 184
+    // read-write - Priority of interrupt 184
     uint32_t PRI184 : 4;
     uint32_t _reserved_1 : 24;
   } bits;
@@ -4342,13 +4119,12 @@ union NVICIP184 {
 };
 
 // Interrupt Priority Register 185
-//
 union NVICIP185 {
   
   // Bit field definition.
   struct {
     uint32_t _reserved_0 : 4;
-    /// read-write - Priority of interrupt 185
+    // read-write - Priority of interrupt 185
     uint32_t PRI185 : 4;
     uint32_t _reserved_1 : 24;
   } bits;
@@ -4362,13 +4138,12 @@ union NVICIP185 {
 };
 
 // Interrupt Priority Register 186
-//
 union NVICIP186 {
   
   // Bit field definition.
   struct {
     uint32_t _reserved_0 : 4;
-    /// read-write - Priority of interrupt 186
+    // read-write - Priority of interrupt 186
     uint32_t PRI186 : 4;
     uint32_t _reserved_1 : 24;
   } bits;
@@ -4382,13 +4157,12 @@ union NVICIP186 {
 };
 
 // Interrupt Priority Register 187
-//
 union NVICIP187 {
   
   // Bit field definition.
   struct {
     uint32_t _reserved_0 : 4;
-    /// read-write - Priority of interrupt 187
+    // read-write - Priority of interrupt 187
     uint32_t PRI187 : 4;
     uint32_t _reserved_1 : 24;
   } bits;
@@ -4402,13 +4176,12 @@ union NVICIP187 {
 };
 
 // Interrupt Priority Register 188
-//
 union NVICIP188 {
   
   // Bit field definition.
   struct {
     uint32_t _reserved_0 : 4;
-    /// read-write - Priority of interrupt 188
+    // read-write - Priority of interrupt 188
     uint32_t PRI188 : 4;
     uint32_t _reserved_1 : 24;
   } bits;
@@ -4422,13 +4195,12 @@ union NVICIP188 {
 };
 
 // Interrupt Priority Register 189
-//
 union NVICIP189 {
   
   // Bit field definition.
   struct {
     uint32_t _reserved_0 : 4;
-    /// read-write - Priority of interrupt 189
+    // read-write - Priority of interrupt 189
     uint32_t PRI189 : 4;
     uint32_t _reserved_1 : 24;
   } bits;
@@ -4442,13 +4214,12 @@ union NVICIP189 {
 };
 
 // Interrupt Priority Register 190
-//
 union NVICIP190 {
   
   // Bit field definition.
   struct {
     uint32_t _reserved_0 : 4;
-    /// read-write - Priority of interrupt 190
+    // read-write - Priority of interrupt 190
     uint32_t PRI190 : 4;
     uint32_t _reserved_1 : 24;
   } bits;
@@ -4462,13 +4233,12 @@ union NVICIP190 {
 };
 
 // Interrupt Priority Register 191
-//
 union NVICIP191 {
   
   // Bit field definition.
   struct {
     uint32_t _reserved_0 : 4;
-    /// read-write - Priority of interrupt 191
+    // read-write - Priority of interrupt 191
     uint32_t PRI191 : 4;
     uint32_t _reserved_1 : 24;
   } bits;
@@ -4482,13 +4252,12 @@ union NVICIP191 {
 };
 
 // Interrupt Priority Register 192
-//
 union NVICIP192 {
   
   // Bit field definition.
   struct {
     uint32_t _reserved_0 : 4;
-    /// read-write - Priority of interrupt 192
+    // read-write - Priority of interrupt 192
     uint32_t PRI192 : 4;
     uint32_t _reserved_1 : 24;
   } bits;
@@ -4502,13 +4271,12 @@ union NVICIP192 {
 };
 
 // Interrupt Priority Register 193
-//
 union NVICIP193 {
   
   // Bit field definition.
   struct {
     uint32_t _reserved_0 : 4;
-    /// read-write - Priority of interrupt 193
+    // read-write - Priority of interrupt 193
     uint32_t PRI193 : 4;
     uint32_t _reserved_1 : 24;
   } bits;
@@ -4522,13 +4290,12 @@ union NVICIP193 {
 };
 
 // Interrupt Priority Register 194
-//
 union NVICIP194 {
   
   // Bit field definition.
   struct {
     uint32_t _reserved_0 : 4;
-    /// read-write - Priority of interrupt 194
+    // read-write - Priority of interrupt 194
     uint32_t PRI194 : 4;
     uint32_t _reserved_1 : 24;
   } bits;
@@ -4542,13 +4309,12 @@ union NVICIP194 {
 };
 
 // Interrupt Priority Register 195
-//
 union NVICIP195 {
   
   // Bit field definition.
   struct {
     uint32_t _reserved_0 : 4;
-    /// read-write - Priority of interrupt 195
+    // read-write - Priority of interrupt 195
     uint32_t PRI195 : 4;
     uint32_t _reserved_1 : 24;
   } bits;
@@ -4562,13 +4328,12 @@ union NVICIP195 {
 };
 
 // Interrupt Priority Register 196
-//
 union NVICIP196 {
   
   // Bit field definition.
   struct {
     uint32_t _reserved_0 : 4;
-    /// read-write - Priority of interrupt 196
+    // read-write - Priority of interrupt 196
     uint32_t PRI196 : 4;
     uint32_t _reserved_1 : 24;
   } bits;
@@ -4582,13 +4347,12 @@ union NVICIP196 {
 };
 
 // Interrupt Priority Register 197
-//
 union NVICIP197 {
   
   // Bit field definition.
   struct {
     uint32_t _reserved_0 : 4;
-    /// read-write - Priority of interrupt 197
+    // read-write - Priority of interrupt 197
     uint32_t PRI197 : 4;
     uint32_t _reserved_1 : 24;
   } bits;
@@ -4602,13 +4366,12 @@ union NVICIP197 {
 };
 
 // Interrupt Priority Register 198
-//
 union NVICIP198 {
   
   // Bit field definition.
   struct {
     uint32_t _reserved_0 : 4;
-    /// read-write - Priority of interrupt 198
+    // read-write - Priority of interrupt 198
     uint32_t PRI198 : 4;
     uint32_t _reserved_1 : 24;
   } bits;
@@ -4622,13 +4385,12 @@ union NVICIP198 {
 };
 
 // Interrupt Priority Register 199
-//
 union NVICIP199 {
   
   // Bit field definition.
   struct {
     uint32_t _reserved_0 : 4;
-    /// read-write - Priority of interrupt 199
+    // read-write - Priority of interrupt 199
     uint32_t PRI199 : 4;
     uint32_t _reserved_1 : 24;
   } bits;
@@ -4642,13 +4404,12 @@ union NVICIP199 {
 };
 
 // Interrupt Priority Register 200
-//
 union NVICIP200 {
   
   // Bit field definition.
   struct {
     uint32_t _reserved_0 : 4;
-    /// read-write - Priority of interrupt 200
+    // read-write - Priority of interrupt 200
     uint32_t PRI200 : 4;
     uint32_t _reserved_1 : 24;
   } bits;
@@ -4662,13 +4423,12 @@ union NVICIP200 {
 };
 
 // Interrupt Priority Register 201
-//
 union NVICIP201 {
   
   // Bit field definition.
   struct {
     uint32_t _reserved_0 : 4;
-    /// read-write - Priority of interrupt 201
+    // read-write - Priority of interrupt 201
     uint32_t PRI201 : 4;
     uint32_t _reserved_1 : 24;
   } bits;
@@ -4682,13 +4442,12 @@ union NVICIP201 {
 };
 
 // Interrupt Priority Register 202
-//
 union NVICIP202 {
   
   // Bit field definition.
   struct {
     uint32_t _reserved_0 : 4;
-    /// read-write - Priority of interrupt 202
+    // read-write - Priority of interrupt 202
     uint32_t PRI202 : 4;
     uint32_t _reserved_1 : 24;
   } bits;
@@ -4702,13 +4461,12 @@ union NVICIP202 {
 };
 
 // Interrupt Priority Register 203
-//
 union NVICIP203 {
   
   // Bit field definition.
   struct {
     uint32_t _reserved_0 : 4;
-    /// read-write - Priority of interrupt 203
+    // read-write - Priority of interrupt 203
     uint32_t PRI203 : 4;
     uint32_t _reserved_1 : 24;
   } bits;
@@ -4722,13 +4480,12 @@ union NVICIP203 {
 };
 
 // Interrupt Priority Register 204
-//
 union NVICIP204 {
   
   // Bit field definition.
   struct {
     uint32_t _reserved_0 : 4;
-    /// read-write - Priority of interrupt 204
+    // read-write - Priority of interrupt 204
     uint32_t PRI204 : 4;
     uint32_t _reserved_1 : 24;
   } bits;
@@ -4742,13 +4499,12 @@ union NVICIP204 {
 };
 
 // Interrupt Priority Register 205
-//
 union NVICIP205 {
   
   // Bit field definition.
   struct {
     uint32_t _reserved_0 : 4;
-    /// read-write - Priority of interrupt 205
+    // read-write - Priority of interrupt 205
     uint32_t PRI205 : 4;
     uint32_t _reserved_1 : 24;
   } bits;
@@ -4762,13 +4518,12 @@ union NVICIP205 {
 };
 
 // Interrupt Priority Register 206
-//
 union NVICIP206 {
   
   // Bit field definition.
   struct {
     uint32_t _reserved_0 : 4;
-    /// read-write - Priority of interrupt 206
+    // read-write - Priority of interrupt 206
     uint32_t PRI206 : 4;
     uint32_t _reserved_1 : 24;
   } bits;
@@ -4782,13 +4537,12 @@ union NVICIP206 {
 };
 
 // Interrupt Priority Register 207
-//
 union NVICIP207 {
   
   // Bit field definition.
   struct {
     uint32_t _reserved_0 : 4;
-    /// read-write - Priority of interrupt 207
+    // read-write - Priority of interrupt 207
     uint32_t PRI207 : 4;
     uint32_t _reserved_1 : 24;
   } bits;
@@ -4802,13 +4556,12 @@ union NVICIP207 {
 };
 
 // Interrupt Priority Register 208
-//
 union NVICIP208 {
   
   // Bit field definition.
   struct {
     uint32_t _reserved_0 : 4;
-    /// read-write - Priority of interrupt 208
+    // read-write - Priority of interrupt 208
     uint32_t PRI208 : 4;
     uint32_t _reserved_1 : 24;
   } bits;
@@ -4822,13 +4575,12 @@ union NVICIP208 {
 };
 
 // Interrupt Priority Register 209
-//
 union NVICIP209 {
   
   // Bit field definition.
   struct {
     uint32_t _reserved_0 : 4;
-    /// read-write - Priority of interrupt 209
+    // read-write - Priority of interrupt 209
     uint32_t PRI209 : 4;
     uint32_t _reserved_1 : 24;
   } bits;
@@ -4842,13 +4594,12 @@ union NVICIP209 {
 };
 
 // Interrupt Priority Register 210
-//
 union NVICIP210 {
   
   // Bit field definition.
   struct {
     uint32_t _reserved_0 : 4;
-    /// read-write - Priority of interrupt 210
+    // read-write - Priority of interrupt 210
     uint32_t PRI210 : 4;
     uint32_t _reserved_1 : 24;
   } bits;
@@ -4862,13 +4613,12 @@ union NVICIP210 {
 };
 
 // Interrupt Priority Register 211
-//
 union NVICIP211 {
   
   // Bit field definition.
   struct {
     uint32_t _reserved_0 : 4;
-    /// read-write - Priority of interrupt 211
+    // read-write - Priority of interrupt 211
     uint32_t PRI211 : 4;
     uint32_t _reserved_1 : 24;
   } bits;
@@ -4882,13 +4632,12 @@ union NVICIP211 {
 };
 
 // Interrupt Priority Register 212
-//
 union NVICIP212 {
   
   // Bit field definition.
   struct {
     uint32_t _reserved_0 : 4;
-    /// read-write - Priority of interrupt 212
+    // read-write - Priority of interrupt 212
     uint32_t PRI212 : 4;
     uint32_t _reserved_1 : 24;
   } bits;
@@ -4902,13 +4651,12 @@ union NVICIP212 {
 };
 
 // Interrupt Priority Register 213
-//
 union NVICIP213 {
   
   // Bit field definition.
   struct {
     uint32_t _reserved_0 : 4;
-    /// read-write - Priority of interrupt 213
+    // read-write - Priority of interrupt 213
     uint32_t PRI213 : 4;
     uint32_t _reserved_1 : 24;
   } bits;
@@ -4922,13 +4670,12 @@ union NVICIP213 {
 };
 
 // Interrupt Priority Register 214
-//
 union NVICIP214 {
   
   // Bit field definition.
   struct {
     uint32_t _reserved_0 : 4;
-    /// read-write - Priority of interrupt 214
+    // read-write - Priority of interrupt 214
     uint32_t PRI214 : 4;
     uint32_t _reserved_1 : 24;
   } bits;
@@ -4942,13 +4689,12 @@ union NVICIP214 {
 };
 
 // Interrupt Priority Register 215
-//
 union NVICIP215 {
   
   // Bit field definition.
   struct {
     uint32_t _reserved_0 : 4;
-    /// read-write - Priority of interrupt 215
+    // read-write - Priority of interrupt 215
     uint32_t PRI215 : 4;
     uint32_t _reserved_1 : 24;
   } bits;
@@ -4962,13 +4708,12 @@ union NVICIP215 {
 };
 
 // Interrupt Priority Register 216
-//
 union NVICIP216 {
   
   // Bit field definition.
   struct {
     uint32_t _reserved_0 : 4;
-    /// read-write - Priority of interrupt 216
+    // read-write - Priority of interrupt 216
     uint32_t PRI216 : 4;
     uint32_t _reserved_1 : 24;
   } bits;
@@ -4982,13 +4727,12 @@ union NVICIP216 {
 };
 
 // Interrupt Priority Register 217
-//
 union NVICIP217 {
   
   // Bit field definition.
   struct {
     uint32_t _reserved_0 : 4;
-    /// read-write - Priority of interrupt 217
+    // read-write - Priority of interrupt 217
     uint32_t PRI217 : 4;
     uint32_t _reserved_1 : 24;
   } bits;
@@ -5002,12 +4746,11 @@ union NVICIP217 {
 };
 
 // Software Trigger Interrupt Register
-//
 union NVICSTIR {
   
   // Bit field definition.
   struct {
-    /// read-write - Interrupt ID of the interrupt to trigger, in the range 0-239. For example, a value of 0x03 specifies interrupt IRQ3.
+    // read-write - Interrupt ID of the interrupt to trigger, in the range 0-239. For example, a value of 0x03 specifies interrupt IRQ3.
     uint32_t INTID : 9;
     uint32_t _reserved_0 : 23;
   } bits;

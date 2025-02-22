@@ -5,20 +5,16 @@
 #include <cstring>
 
 // no description available
-//
-// NOTE: This file was generated from the forge CMSIS-svd wrapper tool.
-
 namespace nOSC_RC_400M {
 
 
 // Control Register 0
-//
 union CTRL0 {
   
   // Bit field definition.
   struct {
     uint32_t _reserved_0 : 24;
-    /// read-write - Divide value for ref_clk to generate slow_clk (used inside this IP)
+    // read-write - Divide value for ref_clk to generate slow_clk (used inside this IP)
     uint32_t REF_CLK_DIV : 6;
     uint32_t _reserved_1 : 2;
   } bits;
@@ -32,13 +28,12 @@ union CTRL0 {
 };
 
 // Control Register 0
-//
 union CTRL0_SET {
   
   // Bit field definition.
   struct {
     uint32_t _reserved_0 : 24;
-    /// read-write - Divide value for ref_clk to generate slow_clk (used inside this IP)
+    // read-write - Divide value for ref_clk to generate slow_clk (used inside this IP)
     uint32_t REF_CLK_DIV : 6;
     uint32_t _reserved_1 : 2;
   } bits;
@@ -52,13 +47,12 @@ union CTRL0_SET {
 };
 
 // Control Register 0
-//
 union CTRL0_CLR {
   
   // Bit field definition.
   struct {
     uint32_t _reserved_0 : 24;
-    /// read-write - Divide value for ref_clk to generate slow_clk (used inside this IP)
+    // read-write - Divide value for ref_clk to generate slow_clk (used inside this IP)
     uint32_t REF_CLK_DIV : 6;
     uint32_t _reserved_1 : 2;
   } bits;
@@ -72,13 +66,12 @@ union CTRL0_CLR {
 };
 
 // Control Register 0
-//
 union CTRL0_TOG {
   
   // Bit field definition.
   struct {
     uint32_t _reserved_0 : 24;
-    /// read-write - Divide value for ref_clk to generate slow_clk (used inside this IP)
+    // read-write - Divide value for ref_clk to generate slow_clk (used inside this IP)
     uint32_t REF_CLK_DIV : 6;
     uint32_t _reserved_1 : 2;
   } bits;
@@ -92,18 +85,17 @@ union CTRL0_TOG {
 };
 
 // Control Register 1
-//
 union CTRL1 {
   
   // Bit field definition.
   struct {
-    /// read-write - Negative hysteresis value for the tuned clock
+    // read-write - Negative hysteresis value for the tuned clock
     uint32_t HYST_MINUS : 4;
     uint32_t _reserved_0 : 4;
-    /// read-write - Positive hysteresis value for the tuned clock
+    // read-write - Positive hysteresis value for the tuned clock
     uint32_t HYST_PLUS : 4;
     uint32_t _reserved_1 : 4;
-    /// read-write - Target count for the fast clock
+    // read-write - Target count for the fast clock
     uint32_t TARGET_COUNT : 16;
   } bits;
   
@@ -116,18 +108,17 @@ union CTRL1 {
 };
 
 // Control Register 1
-//
 union CTRL1_SET {
   
   // Bit field definition.
   struct {
-    /// read-write - Negative hysteresis value for the tuned clock
+    // read-write - Negative hysteresis value for the tuned clock
     uint32_t HYST_MINUS : 4;
     uint32_t _reserved_0 : 4;
-    /// read-write - Positive hysteresis value for the tuned clock
+    // read-write - Positive hysteresis value for the tuned clock
     uint32_t HYST_PLUS : 4;
     uint32_t _reserved_1 : 4;
-    /// read-write - Target count for the fast clock
+    // read-write - Target count for the fast clock
     uint32_t TARGET_COUNT : 16;
   } bits;
   
@@ -140,18 +131,17 @@ union CTRL1_SET {
 };
 
 // Control Register 1
-//
 union CTRL1_CLR {
   
   // Bit field definition.
   struct {
-    /// read-write - Negative hysteresis value for the tuned clock
+    // read-write - Negative hysteresis value for the tuned clock
     uint32_t HYST_MINUS : 4;
     uint32_t _reserved_0 : 4;
-    /// read-write - Positive hysteresis value for the tuned clock
+    // read-write - Positive hysteresis value for the tuned clock
     uint32_t HYST_PLUS : 4;
     uint32_t _reserved_1 : 4;
-    /// read-write - Target count for the fast clock
+    // read-write - Target count for the fast clock
     uint32_t TARGET_COUNT : 16;
   } bits;
   
@@ -164,18 +154,17 @@ union CTRL1_CLR {
 };
 
 // Control Register 1
-//
 union CTRL1_TOG {
   
   // Bit field definition.
   struct {
-    /// read-write - Negative hysteresis value for the tuned clock
+    // read-write - Negative hysteresis value for the tuned clock
     uint32_t HYST_MINUS : 4;
     uint32_t _reserved_0 : 4;
-    /// read-write - Positive hysteresis value for the tuned clock
+    // read-write - Positive hysteresis value for the tuned clock
     uint32_t HYST_PLUS : 4;
     uint32_t _reserved_1 : 4;
-    /// read-write - Target count for the fast clock
+    // read-write - Target count for the fast clock
     uint32_t TARGET_COUNT : 16;
   } bits;
   
@@ -188,37 +177,45 @@ union CTRL1_TOG {
 };
 
 // Control Register 2
-//
 union CTRL2 {
   
+  // Bypass the tuning logic
   enum class eTUNE_BYP : uint32_t {
-    eTUNE_BYP_0 = 0, // Use the output of tuning logic to run the oscillator
-    eTUNE_BYP_1 = 1, // Bypass the tuning logic and use the programmed OSC_TUNE_VAL to run the oscillator
+    // Use the output of tuning logic to run the oscillator
+    eTUNE_BYP_0 = 0,
+    // Bypass the tuning logic and use the programmed OSC_TUNE_VAL to run the oscillator
+    eTUNE_BYP_1 = 1,
   };
   
+  // Freeze/Unfreeze the tuning value
   enum class eTUNE_EN : uint32_t {
-    eTUNE_EN_0 = 0, // Freezes the tuning at the current tuned value. Oscillator runs at the frozen tuning value
-    eTUNE_EN_1 = 1, // Unfreezes and continues the tuning operation
+    // Freezes the tuning at the current tuned value. Oscillator runs at the frozen tuning value
+    eTUNE_EN_0 = 0,
+    // Unfreezes and continues the tuning operation
+    eTUNE_EN_1 = 1,
   };
   
+  // Start/Stop tuning
   enum class eTUNE_START : uint32_t {
-    eTUNE_START_0 = 0, // Stop tuning and reset the tuning logic. Oscillator runs using programmed OSC_TUNE_VAL
-    eTUNE_START_1 = 1, // Start tuning
+    // Stop tuning and reset the tuning logic. Oscillator runs using programmed OSC_TUNE_VAL
+    eTUNE_START_0 = 0,
+    // Start tuning
+    eTUNE_START_1 = 1,
   };
   
   // Bit field definition.
   struct {
     uint32_t _reserved_0 : 10;
-    /// read-write - Bypass the tuning logic
+    // read-write - Bypass the tuning logic
     eTUNE_BYP TUNE_BYP : 1;
     uint32_t _reserved_1 : 1;
-    /// read-write - Freeze/Unfreeze the tuning value
+    // read-write - Freeze/Unfreeze the tuning value
     eTUNE_EN TUNE_EN : 1;
     uint32_t _reserved_2 : 1;
-    /// read-write - Start/Stop tuning
+    // read-write - Start/Stop tuning
     eTUNE_START TUNE_START : 1;
     uint32_t _reserved_3 : 9;
-    /// read-write - Program the oscillator frequency
+    // read-write - Program the oscillator frequency
     uint32_t OSC_TUNE_VAL : 8;
   } bits;
   
@@ -231,22 +228,21 @@ union CTRL2 {
 };
 
 // Control Register 2
-//
 union CTRL2_SET {
   
   // Bit field definition.
   struct {
     uint32_t _reserved_0 : 10;
-    /// read-write - Bypass the tuning logic
+    // read-write - Bypass the tuning logic
     uint32_t TUNE_BYP : 1;
     uint32_t _reserved_1 : 1;
-    /// read-write - Freeze/Unfreeze the tuning value
+    // read-write - Freeze/Unfreeze the tuning value
     uint32_t TUNE_EN : 1;
     uint32_t _reserved_2 : 1;
-    /// read-write - Start/Stop tuning
+    // read-write - Start/Stop tuning
     uint32_t TUNE_START : 1;
     uint32_t _reserved_3 : 9;
-    /// read-write - Program the oscillator frequency
+    // read-write - Program the oscillator frequency
     uint32_t OSC_TUNE_VAL : 8;
   } bits;
   
@@ -259,22 +255,21 @@ union CTRL2_SET {
 };
 
 // Control Register 2
-//
 union CTRL2_CLR {
   
   // Bit field definition.
   struct {
     uint32_t _reserved_0 : 10;
-    /// read-write - Bypass the tuning logic
+    // read-write - Bypass the tuning logic
     uint32_t TUNE_BYP : 1;
     uint32_t _reserved_1 : 1;
-    /// read-write - Freeze/Unfreeze the tuning value
+    // read-write - Freeze/Unfreeze the tuning value
     uint32_t TUNE_EN : 1;
     uint32_t _reserved_2 : 1;
-    /// read-write - Start/Stop tuning
+    // read-write - Start/Stop tuning
     uint32_t TUNE_START : 1;
     uint32_t _reserved_3 : 9;
-    /// read-write - Program the oscillator frequency
+    // read-write - Program the oscillator frequency
     uint32_t OSC_TUNE_VAL : 8;
   } bits;
   
@@ -287,22 +282,21 @@ union CTRL2_CLR {
 };
 
 // Control Register 2
-//
 union CTRL2_TOG {
   
   // Bit field definition.
   struct {
     uint32_t _reserved_0 : 10;
-    /// read-write - Bypass the tuning logic
+    // read-write - Bypass the tuning logic
     uint32_t TUNE_BYP : 1;
     uint32_t _reserved_1 : 1;
-    /// read-write - Freeze/Unfreeze the tuning value
+    // read-write - Freeze/Unfreeze the tuning value
     uint32_t TUNE_EN : 1;
     uint32_t _reserved_2 : 1;
-    /// read-write - Start/Stop tuning
+    // read-write - Start/Stop tuning
     uint32_t TUNE_START : 1;
     uint32_t _reserved_3 : 9;
-    /// read-write - Program the oscillator frequency
+    // read-write - Program the oscillator frequency
     uint32_t OSC_TUNE_VAL : 8;
   } bits;
   
@@ -315,36 +309,44 @@ union CTRL2_TOG {
 };
 
 // Control Register 3
-//
 union CTRL3 {
   
+  // Clear the error flag CLK1M_ERR
   enum class eCLR_ERR : uint32_t {
-    eCLR_ERR_0 = 0, // No effect
-    eCLR_ERR_1 = 1, // Clears the error flag CLK1M_ERR in status register STAT0
+    // No effect
+    eCLR_ERR_0 = 0,
+    // Clears the error flag CLK1M_ERR in status register STAT0
+    eCLR_ERR_1 = 1,
   };
   
+  // Enable 1MHz output Clock
   enum class eEN_1M_CLK : uint32_t {
-    eEN_1M_CLK_0 = 0, // Enable the output (clk_1m_out)
-    eEN_1M_CLK_1 = 1, // Disable the output (clk_1m_out)
+    // Enable the output (clk_1m_out)
+    eEN_1M_CLK_0 = 0,
+    // Disable the output (clk_1m_out)
+    eEN_1M_CLK_1 = 1,
   };
   
+  // Select free/locked 1MHz output
   enum class eMUX_1M_CLK : uint32_t {
-    eMUX_1M_CLK_0 = 0, // Select free-running 1MHz to be put out on clk_1m_out
-    eMUX_1M_CLK_1 = 1, // Select locked 1MHz to be put out on clk_1m_out
+    // Select free-running 1MHz to be put out on clk_1m_out
+    eMUX_1M_CLK_0 = 0,
+    // Select locked 1MHz to be put out on clk_1m_out
+    eMUX_1M_CLK_1 = 1,
   };
   
   // Bit field definition.
   struct {
-    /// read-write - Clear the error flag CLK1M_ERR
+    // read-write - Clear the error flag CLK1M_ERR
     eCLR_ERR CLR_ERR : 1;
     uint32_t _reserved_0 : 7;
-    /// read-write - Enable 1MHz output Clock
+    // read-write - Enable 1MHz output Clock
     eEN_1M_CLK EN_1M_CLK : 1;
     uint32_t _reserved_1 : 1;
-    /// read-write - Select free/locked 1MHz output
+    // read-write - Select free/locked 1MHz output
     eMUX_1M_CLK MUX_1M_CLK : 1;
     uint32_t _reserved_2 : 5;
-    /// read-write - Count for the locked clk_1m_out
+    // read-write - Count for the locked clk_1m_out
     uint32_t COUNT_1M_CLK : 16;
   } bits;
   
@@ -357,21 +359,20 @@ union CTRL3 {
 };
 
 // Control Register 3
-//
 union CTRL3_SET {
   
   // Bit field definition.
   struct {
-    /// read-write - Clear the error flag CLK1M_ERR
+    // read-write - Clear the error flag CLK1M_ERR
     uint32_t CLR_ERR : 1;
     uint32_t _reserved_0 : 7;
-    /// read-write - Enable 1MHz output Clock
+    // read-write - Enable 1MHz output Clock
     uint32_t EN_1M_CLK : 1;
     uint32_t _reserved_1 : 1;
-    /// read-write - Select free/locked 1MHz output
+    // read-write - Select free/locked 1MHz output
     uint32_t MUX_1M_CLK : 1;
     uint32_t _reserved_2 : 5;
-    /// read-write - Count for the locked clk_1m_out
+    // read-write - Count for the locked clk_1m_out
     uint32_t COUNT_1M_CLK : 16;
   } bits;
   
@@ -384,21 +385,20 @@ union CTRL3_SET {
 };
 
 // Control Register 3
-//
 union CTRL3_CLR {
   
   // Bit field definition.
   struct {
-    /// read-write - Clear the error flag CLK1M_ERR
+    // read-write - Clear the error flag CLK1M_ERR
     uint32_t CLR_ERR : 1;
     uint32_t _reserved_0 : 7;
-    /// read-write - Enable 1MHz output Clock
+    // read-write - Enable 1MHz output Clock
     uint32_t EN_1M_CLK : 1;
     uint32_t _reserved_1 : 1;
-    /// read-write - Select free/locked 1MHz output
+    // read-write - Select free/locked 1MHz output
     uint32_t MUX_1M_CLK : 1;
     uint32_t _reserved_2 : 5;
-    /// read-write - Count for the locked clk_1m_out
+    // read-write - Count for the locked clk_1m_out
     uint32_t COUNT_1M_CLK : 16;
   } bits;
   
@@ -411,21 +411,20 @@ union CTRL3_CLR {
 };
 
 // Control Register 3
-//
 union CTRL3_TOG {
   
   // Bit field definition.
   struct {
-    /// read-write - Clear the error flag CLK1M_ERR
+    // read-write - Clear the error flag CLK1M_ERR
     uint32_t CLR_ERR : 1;
     uint32_t _reserved_0 : 7;
-    /// read-write - Enable 1MHz output Clock
+    // read-write - Enable 1MHz output Clock
     uint32_t EN_1M_CLK : 1;
     uint32_t _reserved_1 : 1;
-    /// read-write - Select free/locked 1MHz output
+    // read-write - Select free/locked 1MHz output
     uint32_t MUX_1M_CLK : 1;
     uint32_t _reserved_2 : 5;
-    /// read-write - Count for the locked clk_1m_out
+    // read-write - Count for the locked clk_1m_out
     uint32_t COUNT_1M_CLK : 16;
   } bits;
   
@@ -438,17 +437,19 @@ union CTRL3_TOG {
 };
 
 // Status Register 0
-//
 union STAT0 {
   
+  // Error flag for clk_1m_locked
   enum class eCLK1M_ERR : uint32_t {
-    eCLK1M_ERR_0 = 0, // No effect
-    eCLK1M_ERR_1 = 1, // The count value has been reached within one divided ref_clk period
+    // No effect
+    eCLK1M_ERR_0 = 0,
+    // The count value has been reached within one divided ref_clk period
+    eCLK1M_ERR_1 = 1,
   };
   
   // Bit field definition.
   struct {
-    /// read-only - Error flag for clk_1m_locked
+    // read-only - Error flag for clk_1m_locked
     eCLK1M_ERR CLK1M_ERR : 1;
     uint32_t _reserved_0 : 31;
   } bits;
@@ -462,12 +463,11 @@ union STAT0 {
 };
 
 // Status Register 0
-//
 union STAT0_SET {
   
   // Bit field definition.
   struct {
-    /// read-only - Error flag for clk_1m_locked
+    // read-only - Error flag for clk_1m_locked
     uint32_t CLK1M_ERR : 1;
     uint32_t _reserved_0 : 31;
   } bits;
@@ -481,12 +481,11 @@ union STAT0_SET {
 };
 
 // Status Register 0
-//
 union STAT0_CLR {
   
   // Bit field definition.
   struct {
-    /// read-only - Error flag for clk_1m_locked
+    // read-only - Error flag for clk_1m_locked
     uint32_t CLK1M_ERR : 1;
     uint32_t _reserved_0 : 31;
   } bits;
@@ -500,12 +499,11 @@ union STAT0_CLR {
 };
 
 // Status Register 0
-//
 union STAT0_TOG {
   
   // Bit field definition.
   struct {
-    /// read-only - Error flag for clk_1m_locked
+    // read-only - Error flag for clk_1m_locked
     uint32_t CLK1M_ERR : 1;
     uint32_t _reserved_0 : 31;
   } bits;
@@ -519,13 +517,12 @@ union STAT0_TOG {
 };
 
 // Status Register 1
-//
 union STAT1 {
   
   // Bit field definition.
   struct {
     uint32_t _reserved_0 : 16;
-    /// read-only - Current count for the fast clock
+    // read-only - Current count for the fast clock
     uint32_t CURR_COUNT_VAL : 16;
   } bits;
   
@@ -538,13 +535,12 @@ union STAT1 {
 };
 
 // Status Register 1
-//
 union STAT1_SET {
   
   // Bit field definition.
   struct {
     uint32_t _reserved_0 : 16;
-    /// read-only - Current count for the fast clock
+    // read-only - Current count for the fast clock
     uint32_t CURR_COUNT_VAL : 16;
   } bits;
   
@@ -557,13 +553,12 @@ union STAT1_SET {
 };
 
 // Status Register 1
-//
 union STAT1_CLR {
   
   // Bit field definition.
   struct {
     uint32_t _reserved_0 : 16;
-    /// read-only - Current count for the fast clock
+    // read-only - Current count for the fast clock
     uint32_t CURR_COUNT_VAL : 16;
   } bits;
   
@@ -576,13 +571,12 @@ union STAT1_CLR {
 };
 
 // Status Register 1
-//
 union STAT1_TOG {
   
   // Bit field definition.
   struct {
     uint32_t _reserved_0 : 16;
-    /// read-only - Current count for the fast clock
+    // read-only - Current count for the fast clock
     uint32_t CURR_COUNT_VAL : 16;
   } bits;
   
@@ -595,13 +589,12 @@ union STAT1_TOG {
 };
 
 // Status Register 2
-//
 union STAT2 {
   
   // Bit field definition.
   struct {
     uint32_t _reserved_0 : 24;
-    /// read-only - Current tuning value used by oscillator
+    // read-only - Current tuning value used by oscillator
     uint32_t CURR_OSC_TUNE_VAL : 8;
   } bits;
   
@@ -614,13 +607,12 @@ union STAT2 {
 };
 
 // Status Register 2
-//
 union STAT2_SET {
   
   // Bit field definition.
   struct {
     uint32_t _reserved_0 : 24;
-    /// read-only - Current tuning value used by oscillator
+    // read-only - Current tuning value used by oscillator
     uint32_t CURR_OSC_TUNE_VAL : 8;
   } bits;
   
@@ -633,13 +625,12 @@ union STAT2_SET {
 };
 
 // Status Register 2
-//
 union STAT2_CLR {
   
   // Bit field definition.
   struct {
     uint32_t _reserved_0 : 24;
-    /// read-only - Current tuning value used by oscillator
+    // read-only - Current tuning value used by oscillator
     uint32_t CURR_OSC_TUNE_VAL : 8;
   } bits;
   
@@ -652,13 +643,12 @@ union STAT2_CLR {
 };
 
 // Status Register 2
-//
 union STAT2_TOG {
   
   // Bit field definition.
   struct {
     uint32_t _reserved_0 : 24;
-    /// read-only - Current tuning value used by oscillator
+    // read-only - Current tuning value used by oscillator
     uint32_t CURR_OSC_TUNE_VAL : 8;
   } bits;
   

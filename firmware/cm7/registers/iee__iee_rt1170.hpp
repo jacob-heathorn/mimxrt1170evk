@@ -5,119 +5,157 @@
 #include <cstring>
 
 // IEE
-//
-// NOTE: This file was generated from the forge CMSIS-svd wrapper tool.
-
 namespace nIEE__IEE_RT1170 {
 
 
 // IEE Global Configuration
-//
 union GCFG {
   
+  // Region lock 0 bit
   enum class eRL0 : uint32_t {
-    eRL0_0 = 0, // Unlocked.
-    eRL0_1 = 1, // Key, Offset and Attribute registers are locked.
+    // Unlocked.
+    eRL0_0 = 0,
+    // Key, Offset and Attribute registers are locked.
+    eRL0_1 = 1,
   };
   
+  // Region lock 1 bit
   enum class eRL1 : uint32_t {
-    eRL1_0 = 0, // Unlocked.
-    eRL1_1 = 1, // Key, Offset and Attribute registers are locked.
+    // Unlocked.
+    eRL1_0 = 0,
+    // Key, Offset and Attribute registers are locked.
+    eRL1_1 = 1,
   };
   
+  // Region lock 2 bit
   enum class eRL2 : uint32_t {
-    eRL2_0 = 0, // Unlocked.
-    eRL2_1 = 1, // Key, Offset and Attribute registers are locked.
+    // Unlocked.
+    eRL2_0 = 0,
+    // Key, Offset and Attribute registers are locked.
+    eRL2_1 = 1,
   };
   
+  // Region lock 3 bit
   enum class eRL3 : uint32_t {
-    eRL3_0 = 0, // Unlocked.
-    eRL3_1 = 1, // Key, Offset and Attribute registers are locked.
+    // Unlocked.
+    eRL3_0 = 0,
+    // Key, Offset and Attribute registers are locked.
+    eRL3_1 = 1,
   };
   
+  // Region lock 4 bit
   enum class eRL4 : uint32_t {
-    eRL4_0 = 0, // Unlocked.
-    eRL4_1 = 1, // Key, Offset and Attribute registers are locked.
+    // Unlocked.
+    eRL4_0 = 0,
+    // Key, Offset and Attribute registers are locked.
+    eRL4_1 = 1,
   };
   
+  // Region lock 5 bit
   enum class eRL5 : uint32_t {
-    eRL5_0 = 0, // Unlocked.
-    eRL5_1 = 1, // Key, Offset and Attribute registers are locked.
+    // Unlocked.
+    eRL5_0 = 0,
+    // Key, Offset and Attribute registers are locked.
+    eRL5_1 = 1,
   };
   
+  // Region lock 6 bit
   enum class eRL6 : uint32_t {
-    eRL6_0 = 0, // Unlocked.
-    eRL6_1 = 1, // Key, Offset and Attribute registers are locked.
+    // Unlocked.
+    eRL6_0 = 0,
+    // Key, Offset and Attribute registers are locked.
+    eRL6_1 = 1,
   };
   
+  // Region lock 7 bit
   enum class eRL7 : uint32_t {
-    eRL7_0 = 0, // Unlocked.
-    eRL7_1 = 1, // Key, Offset and Attribute registers are locked.
+    // Unlocked.
+    eRL7_0 = 0,
+    // Key, Offset and Attribute registers are locked.
+    eRL7_1 = 1,
   };
   
+  // Test mode enable bit
   enum class eTME : uint32_t {
-    eTME_0 = 0, // Disabled.
-    eTME_1 = 1, // Enabled.
+    // Disabled.
+    eTME_0 = 0,
+    // Enabled.
+    eTME_1 = 1,
   };
   
+  // Test mode disable bit
   enum class eTMD : uint32_t {
-    eTMD_0 = 0, // Test mode is usable.
-    eTMD_1 = 1, // Test mode is disabled.
+    // Test mode is usable.
+    eTMD_0 = 0,
+    // Test mode is disabled.
+    eTMD_1 = 1,
   };
   
+  // Key read disable bit
   enum class eKEY_RD_DIS : uint32_t {
-    eKEY_RD_DIS_0 = 0, // Key read enabled. Reading the key registers is allowed.
-    eKEY_RD_DIS_1 = 1, // Key read disabled. Reading the key registers is disabled.
+    // Key read enabled. Reading the key registers is allowed.
+    eKEY_RD_DIS_0 = 0,
+    // Key read disabled. Reading the key registers is disabled.
+    eKEY_RD_DIS_1 = 1,
   };
   
+  // Monitor enable bit
   enum class eMON_EN : uint32_t {
-    eMON_EN_0 = 0, // Performance monitoring disabled. Writing of the performance counter registers is enabled.
-    eMON_EN_1 = 1, // Performance monitoring enabled. Writing of the performance counter registers is disabled.
+    // Performance monitoring disabled. Writing of the performance counter registers is enabled.
+    eMON_EN_0 = 0,
+    // Performance monitoring enabled. Writing of the performance counter registers is disabled.
+    eMON_EN_1 = 1,
   };
   
+  // Clear monitor bit
   enum class eCLR_MON : uint32_t {
-    eCLR_MON_0 = 0, // Do not reset.
-    eCLR_MON_1 = 1, // Reset performance counters.
+    // Do not reset.
+    eCLR_MON_0 = 0,
+    // Reset performance counters.
+    eCLR_MON_1 = 1,
   };
   
+  // Reset bit
   enum class eRST : uint32_t {
-    eRST_0 = 0, // Do Not Reset.
-    eRST_1 = 1, // Reset IEE.
+    // Do Not Reset.
+    eRST_0 = 0,
+    // Reset IEE.
+    eRST_1 = 1,
   };
   
   // Bit field definition.
   struct {
-    /// read-write - Region lock 0 bit
+    // read-write - Region lock 0 bit
     eRL0 RL0 : 1;
-    /// read-write - Region lock 1 bit
+    // read-write - Region lock 1 bit
     eRL1 RL1 : 1;
-    /// read-write - Region lock 2 bit
+    // read-write - Region lock 2 bit
     eRL2 RL2 : 1;
-    /// read-write - Region lock 3 bit
+    // read-write - Region lock 3 bit
     eRL3 RL3 : 1;
-    /// read-write - Region lock 4 bit
+    // read-write - Region lock 4 bit
     eRL4 RL4 : 1;
-    /// read-write - Region lock 5 bit
+    // read-write - Region lock 5 bit
     eRL5 RL5 : 1;
-    /// read-write - Region lock 6 bit
+    // read-write - Region lock 6 bit
     eRL6 RL6 : 1;
-    /// read-write - Region lock 7 bit
+    // read-write - Region lock 7 bit
     eRL7 RL7 : 1;
     uint32_t _reserved_0 : 8;
-    /// read-write - Test mode enable bit
+    // read-write - Test mode enable bit
     eTME TME : 1;
-    /// read-write - Test mode disable bit
+    // read-write - Test mode disable bit
     eTMD TMD : 1;
     uint32_t _reserved_1 : 7;
-    /// read-write - Key read disable bit
+    // read-write - Key read disable bit
     eKEY_RD_DIS KEY_RD_DIS : 1;
     uint32_t _reserved_2 : 2;
-    /// read-write - Monitor enable bit
+    // read-write - Monitor enable bit
     eMON_EN MON_EN : 1;
-    /// write-only - Clear monitor bit
+    // write-only - Clear monitor bit
     eCLR_MON CLR_MON : 1;
     uint32_t _reserved_3 : 1;
-    /// write-only - Reset bit
+    // write-only - Reset bit
     eRST RST : 1;
   } bits;
   
@@ -130,25 +168,30 @@ union GCFG {
 };
 
 // IEE Status
-//
 union STA {
   
+  // DPA seed request bit
   enum class eDSR : uint32_t {
-    eDSR_0 = 0, // No seed request present
-    eDSR_1 = 1, // Seed request present
+    // No seed request present
+    eDSR_0 = 0,
+    // Seed request present
+    eDSR_1 = 1,
   };
   
+  // AES fault detected bit
   enum class eAFD : uint32_t {
-    eAFD_0 = 0, // No fault detected
-    eAFD_1 = 1, // Fault detected
+    // No fault detected
+    eAFD_0 = 0,
+    // Fault detected
+    eAFD_1 = 1,
   };
   
   // Bit field definition.
   struct {
-    /// read-only - DPA seed request bit
+    // read-only - DPA seed request bit
     eDSR DSR : 1;
     uint32_t _reserved_0 : 3;
-    /// read-only - AES fault detected bit
+    // read-only - AES fault detected bit
     eAFD AFD : 1;
     uint32_t _reserved_1 : 27;
   } bits;
@@ -162,48 +205,62 @@ union STA {
 };
 
 // IEE Test Mode Register
-//
 union TSTMD {
   
+  // Test mode ready bit. All AXI transactions have stopped and test can begin.
   enum class eTMRDY : uint32_t {
-    eTMRDY_0 = 0, // Not Ready.
-    eTMRDY_1 = 1, // Ready.
+    // Not Ready.
+    eTMRDY_0 = 0,
+    // Ready.
+    eTMRDY_1 = 1,
   };
   
+  // Test mode run bit
   enum class eTMR : uint32_t {
-    eTMR_0 = 0, // Not running. May be written if IEE_GCFG[TME] = 1
-    eTMR_1 = 1, // Run AES Test until TMDONE is indicated.
+    // Not running. May be written if IEE_GCFG[TME] = 1
+    eTMR_0 = 0,
+    // Run AES Test until TMDONE is indicated.
+    eTMR_1 = 1,
   };
   
+  // Test mode encrypt/decrypt bit.
   enum class eTMENCR : uint32_t {
-    eTMENCR_0 = 0, // AES Test mode will do decryption.
-    eTMENCR_1 = 1, // AES Test mode will do encryption.
+    // AES Test mode will do decryption.
+    eTMENCR_0 = 0,
+    // AES Test mode will do encryption.
+    eTMENCR_1 = 1,
   };
   
+  // Test mode continue bit. Set to indicate that operation will be followed by more data.
   enum class eTMCONT : uint32_t {
-    eTMCONT_0 = 0, // Do not continue. This is the last block of data for AES.
-    eTMCONT_1 = 1, // Continue. Do not initialize AES after this block.
+    // Do not continue. This is the last block of data for AES.
+    eTMCONT_0 = 0,
+    // Continue. Do not initialize AES after this block.
+    eTMCONT_1 = 1,
   };
   
+  // Test mode done bit
   enum class eTMDONE : uint32_t {
-    eTMDONE_0 = 0, // Not Done.
-    eTMDONE_1 = 1, // Test Done.
+    // Not Done.
+    eTMDONE_0 = 0,
+    // Test Done.
+    eTMDONE_1 = 1,
   };
   
   // Bit field definition.
   struct {
-    /// read-only - Test mode ready bit. All AXI transactions have stopped and test can begin.
+    // read-only - Test mode ready bit. All AXI transactions have stopped and test can begin.
     eTMRDY TMRDY : 1;
-    /// read-write - Test mode run bit
+    // read-write - Test mode run bit
     eTMR TMR : 1;
-    /// read-write - Test mode encrypt/decrypt bit.
+    // read-write - Test mode encrypt/decrypt bit.
     eTMENCR TMENCR : 1;
-    /// read-write - Test mode continue bit. Set to indicate that operation will be followed by more data.
+    // read-write - Test mode continue bit. Set to indicate that operation will be followed by more data.
     eTMCONT TMCONT : 1;
-    /// read-only - Test mode done bit
+    // read-only - Test mode done bit
     eTMDONE TMDONE : 1;
     uint32_t _reserved_0 : 3;
-    /// read-write - Test mode length field
+    // read-write - Test mode length field
     uint32_t TMLEN : 4;
     uint32_t _reserved_1 : 20;
   } bits;
@@ -217,12 +274,11 @@ union TSTMD {
 };
 
 // AES Mask Generation Seed
-//
 union DPAMS {
   
   // Bit field definition.
   struct {
-    /// write-only - DPA mask seed
+    // write-only - DPA mask seed
     uint32_t DPAMS : 32;
   } bits;
   
@@ -235,14 +291,13 @@ union DPAMS {
 };
 
 // Performance Counter, AES Slave Latency Threshold Value
-//
 union PC_S_LT {
   
   // Bit field definition.
   struct {
-    /// read-write - Slave write latency threshold in AXI clock cycles.
+    // read-write - Slave write latency threshold in AXI clock cycles.
     uint32_t SW_LT : 16;
-    /// read-write - Slave read latency threshold in AXI clock cycles.
+    // read-write - Slave read latency threshold in AXI clock cycles.
     uint32_t SR_LT : 16;
   } bits;
   
@@ -255,15 +310,14 @@ union PC_S_LT {
 };
 
 // Performance Counter, AES Master Latency Threshold
-//
 union PC_M_LT {
   
   // Bit field definition.
   struct {
-    /// read-write - Master write latency threshold in AXI clock cycles.
+    // read-write - Master write latency threshold in AXI clock cycles.
     uint32_t MW_LT : 12;
     uint32_t _reserved_0 : 4;
-    /// read-write - Master read latency threshold in AXI clock cycles.
+    // read-write - Master read latency threshold in AXI clock cycles.
     uint32_t MR_LT : 12;
     uint32_t _reserved_1 : 4;
   } bits;
@@ -277,12 +331,11 @@ union PC_M_LT {
 };
 
 // Performance Counter, Number of AES Block Encryptions
-//
 union PC_BLK_ENC {
   
   // Bit field definition.
   struct {
-    /// read-write - Number of AES block encryptions. Does not roll over if value maxes out.
+    // read-write - Number of AES block encryptions. Does not roll over if value maxes out.
     uint32_t BLK_ENC : 32;
   } bits;
   
@@ -295,12 +348,11 @@ union PC_BLK_ENC {
 };
 
 // Performance Counter, Number of AES Block Decryptions
-//
 union PC_BLK_DEC {
   
   // Bit field definition.
   struct {
-    /// read-write - Number of AES block decryptions. Does not roll over if value maxes out.
+    // read-write - Number of AES block decryptions. Does not roll over if value maxes out.
     uint32_t BLK_DEC : 32;
   } bits;
   
@@ -313,12 +365,11 @@ union PC_BLK_DEC {
 };
 
 // Performance Counter, Number of AXI Slave Read Transactions
-//
 union PC_SR_TRANS {
   
   // Bit field definition.
   struct {
-    /// read-write - Number of slave read transactions.
+    // read-write - Number of slave read transactions.
     uint32_t SR_TRANS : 32;
   } bits;
   
@@ -331,12 +382,11 @@ union PC_SR_TRANS {
 };
 
 // Performance Counter, Number of AXI Slave Write Transactions
-//
 union PC_SW_TRANS {
   
   // Bit field definition.
   struct {
-    /// read-write - Number of slave write transactions.
+    // read-write - Number of slave write transactions.
     uint32_t SW_TRANS : 32;
   } bits;
   
@@ -349,12 +399,11 @@ union PC_SW_TRANS {
 };
 
 // Performance Counter, Number of AXI Master Read Transactions
-//
 union PC_MR_TRANS {
   
   // Bit field definition.
   struct {
-    /// read-write - Number of master read transactions.
+    // read-write - Number of master read transactions.
     uint32_t MR_TRANS : 32;
   } bits;
   
@@ -367,12 +416,11 @@ union PC_MR_TRANS {
 };
 
 // Performance Counter, Number of AXI Master Write Transactions
-//
 union PC_MW_TRANS {
   
   // Bit field definition.
   struct {
-    /// read-write - Number of master write transactions.
+    // read-write - Number of master write transactions.
     uint32_t MW_TRANS : 32;
   } bits;
   
@@ -385,12 +433,11 @@ union PC_MW_TRANS {
 };
 
 // Performance Counter, Number of AXI Master Merge Buffer Read Transactions
-//
 union PC_M_MBR {
   
   // Bit field definition.
   struct {
-    /// read-write - Number of master merge buffer read transactions.
+    // read-write - Number of master merge buffer read transactions.
     uint32_t M_MBR : 32;
   } bits;
   
@@ -403,12 +450,11 @@ union PC_M_MBR {
 };
 
 // Performance Counter, Upper Slave Read Transactions Byte Count
-//
 union PC_SR_TBC_U {
   
   // Bit field definition.
   struct {
-    /// read-write - Number of bytes in slave read transactions. Upper 16 bits of SR_TBC[47:0].
+    // read-write - Number of bytes in slave read transactions. Upper 16 bits of SR_TBC[47:0].
     uint32_t SR_TBC : 16;
     uint32_t _reserved_0 : 16;
   } bits;
@@ -422,12 +468,11 @@ union PC_SR_TBC_U {
 };
 
 // Performance Counter, Lower Slave Read Transactions Byte Count
-//
 union PC_SR_TBC_L {
   
   // Bit field definition.
   struct {
-    /// read-write - Number of bytes in slave read transactions. Lower 32 bits of SR_TBC[47:0].
+    // read-write - Number of bytes in slave read transactions. Lower 32 bits of SR_TBC[47:0].
     uint32_t SR_TBC : 32;
   } bits;
   
@@ -440,12 +485,11 @@ union PC_SR_TBC_L {
 };
 
 // Performance Counter, Upper Slave Write Transactions Byte Count
-//
 union PC_SW_TBC_U {
   
   // Bit field definition.
   struct {
-    /// read-write - Number of bytes in slave write transactions. Upper 16 bits of SW_TBC[47:0].
+    // read-write - Number of bytes in slave write transactions. Upper 16 bits of SW_TBC[47:0].
     uint32_t SW_TBC : 16;
     uint32_t _reserved_0 : 16;
   } bits;
@@ -459,12 +503,11 @@ union PC_SW_TBC_U {
 };
 
 // Performance Counter, Lower Slave Write Transactions Byte Count
-//
 union PC_SW_TBC_L {
   
   // Bit field definition.
   struct {
-    /// read-write - Number of bytes in slave write transactions. Lower 32 bits of SW_TBC[47:0].
+    // read-write - Number of bytes in slave write transactions. Lower 32 bits of SW_TBC[47:0].
     uint32_t SW_TBC : 32;
   } bits;
   
@@ -477,12 +520,11 @@ union PC_SW_TBC_L {
 };
 
 // Performance Counter, Upper Master Read Transactions Byte Count
-//
 union PC_MR_TBC_U {
   
   // Bit field definition.
   struct {
-    /// read-write - Number of bytes in master read transactions. 44 MSBs. Upper 16 bits of MR_TBC[43:0].
+    // read-write - Number of bytes in master read transactions. 44 MSBs. Upper 16 bits of MR_TBC[43:0].
     uint32_t MR_TBC : 16;
     uint32_t _reserved_0 : 16;
   } bits;
@@ -496,14 +538,13 @@ union PC_MR_TBC_U {
 };
 
 // Performance Counter, Lower Master Read Transactions Byte Count
-//
 union PC_MR_TBC_L {
   
   // Bit field definition.
   struct {
-    /// read-only - Number of bytes in master read transactions. 4 LSBs, always 0.
+    // read-only - Number of bytes in master read transactions. 4 LSBs, always 0.
     uint32_t MR_TBC_LSB : 4;
-    /// read-write - Number of bytes in master read transactions. 44 MSBs. Lower 28 bits of MR_TBC[43:0].
+    // read-write - Number of bytes in master read transactions. 44 MSBs. Lower 28 bits of MR_TBC[43:0].
     uint32_t MR_TBC : 28;
   } bits;
   
@@ -516,12 +557,11 @@ union PC_MR_TBC_L {
 };
 
 // Performance Counter, Upper Master Write Transactions Byte Count
-//
 union PC_MW_TBC_U {
   
   // Bit field definition.
   struct {
-    /// read-write - Number of bytes in master write transactions. 44 MSBs. Upper 16 bits of MW_TBC[43:0].
+    // read-write - Number of bytes in master write transactions. 44 MSBs. Upper 16 bits of MW_TBC[43:0].
     uint32_t MW_TBC : 16;
     uint32_t _reserved_0 : 16;
   } bits;
@@ -535,14 +575,13 @@ union PC_MW_TBC_U {
 };
 
 // Performance Counter, Lower Master Write Transactions Byte Count
-//
 union PC_MW_TBC_L {
   
   // Bit field definition.
   struct {
-    /// read-only - Number of bytes in master write transactions. 4 LSBs, always 0.
+    // read-only - Number of bytes in master write transactions. 4 LSBs, always 0.
     uint32_t MW_TBC_LSB : 4;
-    /// read-write - Number of bytes in master write transactions. 44 MSBs. Lower 28 bits of MR_TBC[43:0].
+    // read-write - Number of bytes in master write transactions. 44 MSBs. Lower 28 bits of MR_TBC[43:0].
     uint32_t MW_TBC : 28;
   } bits;
   
@@ -556,12 +595,11 @@ union PC_MW_TBC_L {
 
 // Performance Counter, Number of AXI Slave Read Transactions with Latency Greater than the
 // Threshold
-//
 union PC_SR_TLGTT {
   
   // Bit field definition.
   struct {
-    /// read-write - Number of slave read transactions with latency greater than the threshold.
+    // read-write - Number of slave read transactions with latency greater than the threshold.
     uint32_t SR_TLGTT : 32;
   } bits;
   
@@ -575,12 +613,11 @@ union PC_SR_TLGTT {
 
 // Performance Counter, Number of AXI Slave Write Transactions with Latency Greater than the
 // Threshold
-//
 union PC_SW_TLGTT {
   
   // Bit field definition.
   struct {
-    /// read-write - Number of slave write transactions with latency greater than the threshold.
+    // read-write - Number of slave write transactions with latency greater than the threshold.
     uint32_t SW_TLGTT : 32;
   } bits;
   
@@ -594,12 +631,11 @@ union PC_SW_TLGTT {
 
 // Performance Counter, Number of AXI Master Read Transactions with Latency Greater than the
 // Threshold
-//
 union PC_MR_TLGTT {
   
   // Bit field definition.
   struct {
-    /// read-write - Number of master read transactions with latency greater than the threshold.
+    // read-write - Number of master read transactions with latency greater than the threshold.
     uint32_t MR_TLGTT : 32;
   } bits;
   
@@ -613,12 +649,11 @@ union PC_MR_TLGTT {
 
 // Performance Counter, Number of AXI Master Write Transactions with Latency Greater than the
 // Threshold
-//
 union PC_MW_TLGTT {
   
   // Bit field definition.
   struct {
-    /// read-write - Number of master write transactions with latency greater than the threshold.
+    // read-write - Number of master write transactions with latency greater than the threshold.
     uint32_t MW_TGTT : 32;
   } bits;
   
@@ -631,12 +666,11 @@ union PC_MW_TLGTT {
 };
 
 // Performance Counter, Upper Slave Read Latency Count
-//
 union PC_SR_TLAT_U {
   
   // Bit field definition.
   struct {
-    /// read-write - Total slave read latency in AXI clock cycles. Upper 16 bits of SR_TLAT[47:0].
+    // read-write - Total slave read latency in AXI clock cycles. Upper 16 bits of SR_TLAT[47:0].
     uint32_t SR_TLAT : 16;
     uint32_t _reserved_0 : 16;
   } bits;
@@ -650,12 +684,11 @@ union PC_SR_TLAT_U {
 };
 
 // Performance Counter, Lower Slave Read Latency Count
-//
 union PC_SR_TLAT_L {
   
   // Bit field definition.
   struct {
-    /// read-write - Total slave read latency in AXI clock cycles. Lower 32 bits of SR_TLAT[47:0].
+    // read-write - Total slave read latency in AXI clock cycles. Lower 32 bits of SR_TLAT[47:0].
     uint32_t SR_TLAT : 32;
   } bits;
   
@@ -668,12 +701,11 @@ union PC_SR_TLAT_L {
 };
 
 // Performance Counter, Upper Slave Write Latency Count
-//
 union PC_SW_TLAT_U {
   
   // Bit field definition.
   struct {
-    /// read-write - Total slave write latency in AXI clock cycles. Upper 16 bits of SW_TLAT[47:0].
+    // read-write - Total slave write latency in AXI clock cycles. Upper 16 bits of SW_TLAT[47:0].
     uint32_t SW_TLAT : 16;
     uint32_t _reserved_0 : 16;
   } bits;
@@ -687,12 +719,11 @@ union PC_SW_TLAT_U {
 };
 
 // Performance Counter, Lower Slave Write Latency Count
-//
 union PC_SW_TLAT_L {
   
   // Bit field definition.
   struct {
-    /// read-write - Total slave write latency in AXI clock cycles. Lower 32 bits of SW_TLAT[47:0].
+    // read-write - Total slave write latency in AXI clock cycles. Lower 32 bits of SW_TLAT[47:0].
     uint32_t SW_TLAT : 32;
   } bits;
   
@@ -705,12 +736,11 @@ union PC_SW_TLAT_L {
 };
 
 // Performance Counter, Upper Master Read Latency Count
-//
 union PC_MR_TLAT_U {
   
   // Bit field definition.
   struct {
-    /// read-write - Total master read latency in AXI clock cycles. Upper 16 bits of MR_TLAT[47:0].
+    // read-write - Total master read latency in AXI clock cycles. Upper 16 bits of MR_TLAT[47:0].
     uint32_t MR_TLAT : 16;
     uint32_t _reserved_0 : 16;
   } bits;
@@ -724,12 +754,11 @@ union PC_MR_TLAT_U {
 };
 
 // Performance Counter, Lower Master Read Latency Count
-//
 union PC_MR_TLAT_L {
   
   // Bit field definition.
   struct {
-    /// read-write - Total master read latency in AXI clock cycles. Lower 32 bits of MR_TLAT[47:0].
+    // read-write - Total master read latency in AXI clock cycles. Lower 32 bits of MR_TLAT[47:0].
     uint32_t MR_TLAT : 32;
   } bits;
   
@@ -742,12 +771,11 @@ union PC_MR_TLAT_L {
 };
 
 // Performance Counter, Upper Master Write Latency Count
-//
 union PC_MW_TLAT_U {
   
   // Bit field definition.
   struct {
-    /// read-write - Total master write latency in AXI clock cycles. Upper 16 bits of MW_TLAT[47:0].
+    // read-write - Total master write latency in AXI clock cycles. Upper 16 bits of MW_TLAT[47:0].
     uint32_t MW_TLAT : 16;
     uint32_t _reserved_0 : 16;
   } bits;
@@ -761,12 +789,11 @@ union PC_MW_TLAT_U {
 };
 
 // Performance Counter, Lower Master Write Latency Count
-//
 union PC_MW_TLAT_L {
   
   // Bit field definition.
   struct {
-    /// read-write - Total master write latency in AXI clock cycles. Lower 32 bits of MW_TLAT[47:0].
+    // read-write - Total master write latency in AXI clock cycles. Lower 32 bits of MW_TLAT[47:0].
     uint32_t MW_TLAT : 32;
   } bits;
   
@@ -779,12 +806,11 @@ union PC_MW_TLAT_L {
 };
 
 // Performance Counter, Upper Slave Read Total Non-Responding Time
-//
 union PC_SR_TNRT_U {
   
   // Bit field definition.
   struct {
-    /// read-write - Total slave read non-responding time in AXI clock cycles. Upper 16 bits of SR_TNRT[47:0].
+    // read-write - Total slave read non-responding time in AXI clock cycles. Upper 16 bits of SR_TNRT[47:0].
     uint32_t SR_TNRT : 16;
     uint32_t _reserved_0 : 16;
   } bits;
@@ -798,12 +824,11 @@ union PC_SR_TNRT_U {
 };
 
 // Performance Counter, Lower Slave Read Total Non-Responding Time
-//
 union PC_SR_TNRT_L {
   
   // Bit field definition.
   struct {
-    /// read-write - Total slave read non-responding time in AXI clock cycles. Lower 32 bits of SR_TNRT[47:0].
+    // read-write - Total slave read non-responding time in AXI clock cycles. Lower 32 bits of SR_TNRT[47:0].
     uint32_t SR_TNRT : 32;
   } bits;
   
@@ -816,12 +841,11 @@ union PC_SR_TNRT_L {
 };
 
 // Performance Counter, Upper Slave Write Total Non-Responding Time
-//
 union PC_SW_TNRT_U {
   
   // Bit field definition.
   struct {
-    /// read-write - Total slave write non-responding time in AXI clock cycles. Upper 16 bits of SW_TNRT[47:0].
+    // read-write - Total slave write non-responding time in AXI clock cycles. Upper 16 bits of SW_TNRT[47:0].
     uint32_t SW_TNRT : 16;
     uint32_t _reserved_0 : 16;
   } bits;
@@ -835,12 +859,11 @@ union PC_SW_TNRT_U {
 };
 
 // Performance Counter, Lower Slave Write Total Non-Responding Time
-//
 union PC_SW_TNRT_L {
   
   // Bit field definition.
   struct {
-    /// read-write - Total slave write non-responding time in AXI clock cycles. Lower 32 bits of SW_TNRT[47:0].
+    // read-write - Total slave write non-responding time in AXI clock cycles. Lower 32 bits of SW_TNRT[47:0].
     uint32_t SW_TNRT : 32;
   } bits;
   
@@ -853,16 +876,15 @@ union PC_SW_TNRT_L {
 };
 
 // IEE Version ID Register 1
-//
 union VIDR1 {
   
   // Bit field definition.
   struct {
-    /// read-only - Minor revision number for IEE.
+    // read-only - Minor revision number for IEE.
     uint32_t MIN_REV : 8;
-    /// read-only - Major revision number for IEE.
+    // read-only - Major revision number for IEE.
     uint32_t MAJ_REV : 8;
-    /// read-only - ID for IEE.
+    // read-only - ID for IEE.
     uint32_t IP_ID : 16;
   } bits;
   
@@ -875,14 +897,13 @@ union VIDR1 {
 };
 
 // IEE AES Version ID Register
-//
 union AESVID {
   
   // Bit field definition.
   struct {
-    /// read-only - AES revision number.
+    // read-only - AES revision number.
     uint32_t AESRN : 4;
-    /// read-only - AES version ID.
+    // read-only - AES version ID.
     uint32_t AESVID : 4;
     uint32_t _reserved_0 : 24;
   } bits;
@@ -896,12 +917,11 @@ union AESVID {
 };
 
 // IEE AES Test Mode Data Buffer
-//
 union AES_TST_DB[0] {
   
   // Bit field definition.
   struct {
-    /// read-write - AES test mode data buffer.
+    // read-write - AES test mode data buffer.
     uint32_t AES_TST_DB0 : 32;
   } bits;
   
@@ -913,12 +933,11 @@ union AES_TST_DB[0] {
   static inline volatile AES_TST_DB[0] &Instance() { return *reinterpret_cast<volatile AES_TST_DB[0]*>(0x4006CF00); }
 };
 // IEE AES Test Mode Data Buffer
-//
 union AES_TST_DB[1] {
   
   // Bit field definition.
   struct {
-    /// read-write - AES test mode data buffer.
+    // read-write - AES test mode data buffer.
     uint32_t AES_TST_DB0 : 32;
   } bits;
   
@@ -930,12 +949,11 @@ union AES_TST_DB[1] {
   static inline volatile AES_TST_DB[1] &Instance() { return *reinterpret_cast<volatile AES_TST_DB[1]*>(0x4006CF04); }
 };
 // IEE AES Test Mode Data Buffer
-//
 union AES_TST_DB[2] {
   
   // Bit field definition.
   struct {
-    /// read-write - AES test mode data buffer.
+    // read-write - AES test mode data buffer.
     uint32_t AES_TST_DB0 : 32;
   } bits;
   
@@ -947,12 +965,11 @@ union AES_TST_DB[2] {
   static inline volatile AES_TST_DB[2] &Instance() { return *reinterpret_cast<volatile AES_TST_DB[2]*>(0x4006CF08); }
 };
 // IEE AES Test Mode Data Buffer
-//
 union AES_TST_DB[3] {
   
   // Bit field definition.
   struct {
-    /// read-write - AES test mode data buffer.
+    // read-write - AES test mode data buffer.
     uint32_t AES_TST_DB0 : 32;
   } bits;
   
@@ -964,12 +981,11 @@ union AES_TST_DB[3] {
   static inline volatile AES_TST_DB[3] &Instance() { return *reinterpret_cast<volatile AES_TST_DB[3]*>(0x4006CF0C); }
 };
 // IEE AES Test Mode Data Buffer
-//
 union AES_TST_DB[4] {
   
   // Bit field definition.
   struct {
-    /// read-write - AES test mode data buffer.
+    // read-write - AES test mode data buffer.
     uint32_t AES_TST_DB0 : 32;
   } bits;
   
@@ -981,12 +997,11 @@ union AES_TST_DB[4] {
   static inline volatile AES_TST_DB[4] &Instance() { return *reinterpret_cast<volatile AES_TST_DB[4]*>(0x4006CF10); }
 };
 // IEE AES Test Mode Data Buffer
-//
 union AES_TST_DB[5] {
   
   // Bit field definition.
   struct {
-    /// read-write - AES test mode data buffer.
+    // read-write - AES test mode data buffer.
     uint32_t AES_TST_DB0 : 32;
   } bits;
   
@@ -998,12 +1013,11 @@ union AES_TST_DB[5] {
   static inline volatile AES_TST_DB[5] &Instance() { return *reinterpret_cast<volatile AES_TST_DB[5]*>(0x4006CF14); }
 };
 // IEE AES Test Mode Data Buffer
-//
 union AES_TST_DB[6] {
   
   // Bit field definition.
   struct {
-    /// read-write - AES test mode data buffer.
+    // read-write - AES test mode data buffer.
     uint32_t AES_TST_DB0 : 32;
   } bits;
   
@@ -1015,12 +1029,11 @@ union AES_TST_DB[6] {
   static inline volatile AES_TST_DB[6] &Instance() { return *reinterpret_cast<volatile AES_TST_DB[6]*>(0x4006CF18); }
 };
 // IEE AES Test Mode Data Buffer
-//
 union AES_TST_DB[7] {
   
   // Bit field definition.
   struct {
-    /// read-write - AES test mode data buffer.
+    // read-write - AES test mode data buffer.
     uint32_t AES_TST_DB0 : 32;
   } bits;
   
@@ -1032,12 +1045,11 @@ union AES_TST_DB[7] {
   static inline volatile AES_TST_DB[7] &Instance() { return *reinterpret_cast<volatile AES_TST_DB[7]*>(0x4006CF1C); }
 };
 // IEE AES Test Mode Data Buffer
-//
 union AES_TST_DB[8] {
   
   // Bit field definition.
   struct {
-    /// read-write - AES test mode data buffer.
+    // read-write - AES test mode data buffer.
     uint32_t AES_TST_DB0 : 32;
   } bits;
   
@@ -1049,12 +1061,11 @@ union AES_TST_DB[8] {
   static inline volatile AES_TST_DB[8] &Instance() { return *reinterpret_cast<volatile AES_TST_DB[8]*>(0x4006CF20); }
 };
 // IEE AES Test Mode Data Buffer
-//
 union AES_TST_DB[9] {
   
   // Bit field definition.
   struct {
-    /// read-write - AES test mode data buffer.
+    // read-write - AES test mode data buffer.
     uint32_t AES_TST_DB0 : 32;
   } bits;
   
@@ -1066,12 +1077,11 @@ union AES_TST_DB[9] {
   static inline volatile AES_TST_DB[9] &Instance() { return *reinterpret_cast<volatile AES_TST_DB[9]*>(0x4006CF24); }
 };
 // IEE AES Test Mode Data Buffer
-//
 union AES_TST_DB[10] {
   
   // Bit field definition.
   struct {
-    /// read-write - AES test mode data buffer.
+    // read-write - AES test mode data buffer.
     uint32_t AES_TST_DB0 : 32;
   } bits;
   
@@ -1083,12 +1093,11 @@ union AES_TST_DB[10] {
   static inline volatile AES_TST_DB[10] &Instance() { return *reinterpret_cast<volatile AES_TST_DB[10]*>(0x4006CF28); }
 };
 // IEE AES Test Mode Data Buffer
-//
 union AES_TST_DB[11] {
   
   // Bit field definition.
   struct {
-    /// read-write - AES test mode data buffer.
+    // read-write - AES test mode data buffer.
     uint32_t AES_TST_DB0 : 32;
   } bits;
   
@@ -1100,12 +1109,11 @@ union AES_TST_DB[11] {
   static inline volatile AES_TST_DB[11] &Instance() { return *reinterpret_cast<volatile AES_TST_DB[11]*>(0x4006CF2C); }
 };
 // IEE AES Test Mode Data Buffer
-//
 union AES_TST_DB[12] {
   
   // Bit field definition.
   struct {
-    /// read-write - AES test mode data buffer.
+    // read-write - AES test mode data buffer.
     uint32_t AES_TST_DB0 : 32;
   } bits;
   
@@ -1117,12 +1125,11 @@ union AES_TST_DB[12] {
   static inline volatile AES_TST_DB[12] &Instance() { return *reinterpret_cast<volatile AES_TST_DB[12]*>(0x4006CF30); }
 };
 // IEE AES Test Mode Data Buffer
-//
 union AES_TST_DB[13] {
   
   // Bit field definition.
   struct {
-    /// read-write - AES test mode data buffer.
+    // read-write - AES test mode data buffer.
     uint32_t AES_TST_DB0 : 32;
   } bits;
   
@@ -1134,12 +1141,11 @@ union AES_TST_DB[13] {
   static inline volatile AES_TST_DB[13] &Instance() { return *reinterpret_cast<volatile AES_TST_DB[13]*>(0x4006CF34); }
 };
 // IEE AES Test Mode Data Buffer
-//
 union AES_TST_DB[14] {
   
   // Bit field definition.
   struct {
-    /// read-write - AES test mode data buffer.
+    // read-write - AES test mode data buffer.
     uint32_t AES_TST_DB0 : 32;
   } bits;
   
@@ -1151,12 +1157,11 @@ union AES_TST_DB[14] {
   static inline volatile AES_TST_DB[14] &Instance() { return *reinterpret_cast<volatile AES_TST_DB[14]*>(0x4006CF38); }
 };
 // IEE AES Test Mode Data Buffer
-//
 union AES_TST_DB[15] {
   
   // Bit field definition.
   struct {
-    /// read-write - AES test mode data buffer.
+    // read-write - AES test mode data buffer.
     uint32_t AES_TST_DB0 : 32;
   } bits;
   
@@ -1168,12 +1173,11 @@ union AES_TST_DB[15] {
   static inline volatile AES_TST_DB[15] &Instance() { return *reinterpret_cast<volatile AES_TST_DB[15]*>(0x4006CF3C); }
 };
 // IEE AES Test Mode Data Buffer
-//
 union AES_TST_DB[16] {
   
   // Bit field definition.
   struct {
-    /// read-write - AES test mode data buffer.
+    // read-write - AES test mode data buffer.
     uint32_t AES_TST_DB0 : 32;
   } bits;
   
@@ -1185,12 +1189,11 @@ union AES_TST_DB[16] {
   static inline volatile AES_TST_DB[16] &Instance() { return *reinterpret_cast<volatile AES_TST_DB[16]*>(0x4006CF40); }
 };
 // IEE AES Test Mode Data Buffer
-//
 union AES_TST_DB[17] {
   
   // Bit field definition.
   struct {
-    /// read-write - AES test mode data buffer.
+    // read-write - AES test mode data buffer.
     uint32_t AES_TST_DB0 : 32;
   } bits;
   
@@ -1202,12 +1205,11 @@ union AES_TST_DB[17] {
   static inline volatile AES_TST_DB[17] &Instance() { return *reinterpret_cast<volatile AES_TST_DB[17]*>(0x4006CF44); }
 };
 // IEE AES Test Mode Data Buffer
-//
 union AES_TST_DB[18] {
   
   // Bit field definition.
   struct {
-    /// read-write - AES test mode data buffer.
+    // read-write - AES test mode data buffer.
     uint32_t AES_TST_DB0 : 32;
   } bits;
   
@@ -1219,12 +1221,11 @@ union AES_TST_DB[18] {
   static inline volatile AES_TST_DB[18] &Instance() { return *reinterpret_cast<volatile AES_TST_DB[18]*>(0x4006CF48); }
 };
 // IEE AES Test Mode Data Buffer
-//
 union AES_TST_DB[19] {
   
   // Bit field definition.
   struct {
-    /// read-write - AES test mode data buffer.
+    // read-write - AES test mode data buffer.
     uint32_t AES_TST_DB0 : 32;
   } bits;
   
@@ -1236,12 +1237,11 @@ union AES_TST_DB[19] {
   static inline volatile AES_TST_DB[19] &Instance() { return *reinterpret_cast<volatile AES_TST_DB[19]*>(0x4006CF4C); }
 };
 // IEE AES Test Mode Data Buffer
-//
 union AES_TST_DB[20] {
   
   // Bit field definition.
   struct {
-    /// read-write - AES test mode data buffer.
+    // read-write - AES test mode data buffer.
     uint32_t AES_TST_DB0 : 32;
   } bits;
   
@@ -1253,12 +1253,11 @@ union AES_TST_DB[20] {
   static inline volatile AES_TST_DB[20] &Instance() { return *reinterpret_cast<volatile AES_TST_DB[20]*>(0x4006CF50); }
 };
 // IEE AES Test Mode Data Buffer
-//
 union AES_TST_DB[21] {
   
   // Bit field definition.
   struct {
-    /// read-write - AES test mode data buffer.
+    // read-write - AES test mode data buffer.
     uint32_t AES_TST_DB0 : 32;
   } bits;
   
@@ -1270,12 +1269,11 @@ union AES_TST_DB[21] {
   static inline volatile AES_TST_DB[21] &Instance() { return *reinterpret_cast<volatile AES_TST_DB[21]*>(0x4006CF54); }
 };
 // IEE AES Test Mode Data Buffer
-//
 union AES_TST_DB[22] {
   
   // Bit field definition.
   struct {
-    /// read-write - AES test mode data buffer.
+    // read-write - AES test mode data buffer.
     uint32_t AES_TST_DB0 : 32;
   } bits;
   
@@ -1287,12 +1285,11 @@ union AES_TST_DB[22] {
   static inline volatile AES_TST_DB[22] &Instance() { return *reinterpret_cast<volatile AES_TST_DB[22]*>(0x4006CF58); }
 };
 // IEE AES Test Mode Data Buffer
-//
 union AES_TST_DB[23] {
   
   // Bit field definition.
   struct {
-    /// read-write - AES test mode data buffer.
+    // read-write - AES test mode data buffer.
     uint32_t AES_TST_DB0 : 32;
   } bits;
   
@@ -1304,12 +1301,11 @@ union AES_TST_DB[23] {
   static inline volatile AES_TST_DB[23] &Instance() { return *reinterpret_cast<volatile AES_TST_DB[23]*>(0x4006CF5C); }
 };
 // IEE AES Test Mode Data Buffer
-//
 union AES_TST_DB[24] {
   
   // Bit field definition.
   struct {
-    /// read-write - AES test mode data buffer.
+    // read-write - AES test mode data buffer.
     uint32_t AES_TST_DB0 : 32;
   } bits;
   
@@ -1321,12 +1317,11 @@ union AES_TST_DB[24] {
   static inline volatile AES_TST_DB[24] &Instance() { return *reinterpret_cast<volatile AES_TST_DB[24]*>(0x4006CF60); }
 };
 // IEE AES Test Mode Data Buffer
-//
 union AES_TST_DB[25] {
   
   // Bit field definition.
   struct {
-    /// read-write - AES test mode data buffer.
+    // read-write - AES test mode data buffer.
     uint32_t AES_TST_DB0 : 32;
   } bits;
   
@@ -1338,12 +1333,11 @@ union AES_TST_DB[25] {
   static inline volatile AES_TST_DB[25] &Instance() { return *reinterpret_cast<volatile AES_TST_DB[25]*>(0x4006CF64); }
 };
 // IEE AES Test Mode Data Buffer
-//
 union AES_TST_DB[26] {
   
   // Bit field definition.
   struct {
-    /// read-write - AES test mode data buffer.
+    // read-write - AES test mode data buffer.
     uint32_t AES_TST_DB0 : 32;
   } bits;
   
@@ -1355,12 +1349,11 @@ union AES_TST_DB[26] {
   static inline volatile AES_TST_DB[26] &Instance() { return *reinterpret_cast<volatile AES_TST_DB[26]*>(0x4006CF68); }
 };
 // IEE AES Test Mode Data Buffer
-//
 union AES_TST_DB[27] {
   
   // Bit field definition.
   struct {
-    /// read-write - AES test mode data buffer.
+    // read-write - AES test mode data buffer.
     uint32_t AES_TST_DB0 : 32;
   } bits;
   
@@ -1372,12 +1365,11 @@ union AES_TST_DB[27] {
   static inline volatile AES_TST_DB[27] &Instance() { return *reinterpret_cast<volatile AES_TST_DB[27]*>(0x4006CF6C); }
 };
 // IEE AES Test Mode Data Buffer
-//
 union AES_TST_DB[28] {
   
   // Bit field definition.
   struct {
-    /// read-write - AES test mode data buffer.
+    // read-write - AES test mode data buffer.
     uint32_t AES_TST_DB0 : 32;
   } bits;
   
@@ -1389,12 +1381,11 @@ union AES_TST_DB[28] {
   static inline volatile AES_TST_DB[28] &Instance() { return *reinterpret_cast<volatile AES_TST_DB[28]*>(0x4006CF70); }
 };
 // IEE AES Test Mode Data Buffer
-//
 union AES_TST_DB[29] {
   
   // Bit field definition.
   struct {
-    /// read-write - AES test mode data buffer.
+    // read-write - AES test mode data buffer.
     uint32_t AES_TST_DB0 : 32;
   } bits;
   
@@ -1406,12 +1397,11 @@ union AES_TST_DB[29] {
   static inline volatile AES_TST_DB[29] &Instance() { return *reinterpret_cast<volatile AES_TST_DB[29]*>(0x4006CF74); }
 };
 // IEE AES Test Mode Data Buffer
-//
 union AES_TST_DB[30] {
   
   // Bit field definition.
   struct {
-    /// read-write - AES test mode data buffer.
+    // read-write - AES test mode data buffer.
     uint32_t AES_TST_DB0 : 32;
   } bits;
   
@@ -1423,12 +1413,11 @@ union AES_TST_DB[30] {
   static inline volatile AES_TST_DB[30] &Instance() { return *reinterpret_cast<volatile AES_TST_DB[30]*>(0x4006CF78); }
 };
 // IEE AES Test Mode Data Buffer
-//
 union AES_TST_DB[31] {
   
   // Bit field definition.
   struct {
-    /// read-write - AES test mode data buffer.
+    // read-write - AES test mode data buffer.
     uint32_t AES_TST_DB0 : 32;
   } bits;
   

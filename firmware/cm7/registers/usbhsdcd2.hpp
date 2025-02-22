@@ -5,62 +5,76 @@
 #include <cstring>
 
 // USBDCD
-//
-// NOTE: This file was generated from the forge CMSIS-svd wrapper tool.
-
 namespace nUSBHSDCD2 {
 
 
 // Control register
-//
 union CONTROL {
   
+  // Interrupt Acknowledge
   enum class eIACK : uint32_t {
-    eINT_NOCLEAR = 0, // Do not clear the interrupt.
-    eINT_CLEAR = 1, // Clear the IF bit (interrupt flag).
+    // Do not clear the interrupt.
+    eINT_NOCLEAR = 0,
+    // Clear the IF bit (interrupt flag).
+    eINT_CLEAR = 1,
   };
   
+  // Interrupt Flag
   enum class eIF : uint32_t {
-    eINT_PEND = 0, // No interrupt is pending.
-    eINT_NOPEND = 1, // An interrupt is pending.
+    // No interrupt is pending.
+    eINT_PEND = 0,
+    // An interrupt is pending.
+    eINT_NOPEND = 1,
   };
   
+  // Interrupt Enable
   enum class eIE : uint32_t {
-    eDIS_INT = 0, // Disable interrupts to the system.
-    eEN_INT = 1, // Enable interrupts to the system.
+    // Disable interrupts to the system.
+    eDIS_INT = 0,
+    // Enable interrupts to the system.
+    eEN_INT = 1,
   };
   
+  // BC12
   enum class eBC12 : uint32_t {
-    eBC11 = 0, // Compatible with BC1.1 (default)
-    eBC12 = 1, // Compatible with BC1.2
+    // Compatible with BC1.1 (default)
+    eBC11 = 0,
+    // Compatible with BC1.2
+    eBC12 = 1,
   };
   
+  // Start Change Detection Sequence
   enum class eSTART : uint32_t {
-    eNO_START = 0, // Do not start the sequence. Writes of this value have no effect.
-    eSTART = 1, // Initiate the charger detection sequence. If the sequence is already running, writes of this value have no effect.
+    // Do not start the sequence. Writes of this value have no effect.
+    eNO_START = 0,
+    // Initiate the charger detection sequence. If the sequence is already running, writes of this value have no effect.
+    eSTART = 1,
   };
   
+  // Software Reset
   enum class eSR : uint32_t {
-    eNO_RESET = 0, // Do not perform a software reset.
-    eSW_RESET = 1, // Perform a software reset.
+    // Do not perform a software reset.
+    eNO_RESET = 0,
+    // Perform a software reset.
+    eSW_RESET = 1,
   };
   
   // Bit field definition.
   struct {
-    /// read-write - Interrupt Acknowledge
+    // read-write - Interrupt Acknowledge
     eIACK IACK : 1;
     uint32_t _reserved_0 : 7;
-    /// read-only - Interrupt Flag
+    // read-only - Interrupt Flag
     eIF IF : 1;
     uint32_t _reserved_1 : 7;
-    /// read-write - Interrupt Enable
+    // read-write - Interrupt Enable
     eIE IE : 1;
-    /// read-write - BC12
+    // read-write - BC12
     eBC12 BC12 : 1;
     uint32_t _reserved_2 : 6;
-    /// read-write - Start Change Detection Sequence
+    // read-write - Start Change Detection Sequence
     eSTART START : 1;
-    /// read-write - Software Reset
+    // read-write - Software Reset
     eSR SR : 1;
     uint32_t _reserved_3 : 6;
   } bits;
@@ -74,20 +88,22 @@ union CONTROL {
 };
 
 // Clock register
-//
 union CLOCK {
   
+  // Unit of Measurement Encoding for Clock Speed
   enum class eCLOCK_UNIT : uint32_t {
-    eKHZ_CLK = 0, // kHz Speed (between 1 kHz and 1023 kHz)
-    eMHZ_CLK = 1, // MHz Speed (between 1 MHz and 1023 MHz)
+    // kHz Speed (between 1 kHz and 1023 kHz)
+    eKHZ_CLK = 0,
+    // MHz Speed (between 1 MHz and 1023 MHz)
+    eMHZ_CLK = 1,
   };
   
   // Bit field definition.
   struct {
-    /// read-write - Unit of Measurement Encoding for Clock Speed
+    // read-write - Unit of Measurement Encoding for Clock Speed
     eCLOCK_UNIT CLOCK_UNIT : 1;
     uint32_t _reserved_0 : 1;
-    /// read-write - Numerical Value of Clock Speed in Binary
+    // read-write - Numerical Value of Clock Speed in Binary
     uint32_t CLOCK_SPEED : 10;
     uint32_t _reserved_1 : 20;
   } bits;
@@ -101,50 +117,68 @@ union CLOCK {
 };
 
 // Status register
-//
 union STATUS {
   
+  // Charger Detection Sequence Results
   enum class eSEQ_RES : uint32_t {
-    eNO_RESULT = 0, // No results to report.
-    eCONN_SDP = 1, // Attached to an SDP. Must comply with USB 2.0 by drawing only 2.5 mA (max) until connected.
-    eCONN_CP = 2, // Attached to a charging port. The exact meaning depends on bit 18 (value 0: Attached to either a CDP or a DCP. The charger type detection has not completed. value 1: Attached to a CDP. The charger type detection has completed.)
-    eCONN_DCP = 3, // Attached to a DCP.
+    // No results to report.
+    eNO_RESULT = 0,
+    // Attached to an SDP. Must comply with USB 2.0 by drawing only 2.5 mA (max) until connected.
+    eCONN_SDP = 1,
+    // Attached to a charging port. The exact meaning depends on bit 18 (value 0: Attached to either a CDP or a DCP. The charger type detection has not completed. value 1: Attached to a CDP. The charger type detection has completed.)
+    eCONN_CP = 2,
+    // Attached to a DCP.
+    eCONN_DCP = 3,
   };
   
+  // Charger Detection Sequence Status
   enum class eSEQ_STAT : uint32_t {
-    eNO_DATA_PIN_CONN = 0, // The module is either not enabled, or the module is enabled but the data pins have not yet been detected.
-    eDATA_PIN_CONN = 1, // Data pin contact detection is complete.
-    eCP_DET_DONE = 2, // Charging port detection is complete.
-    eCT_DET_DONE = 3, // Charger type detection is complete.
+    // The module is either not enabled, or the module is enabled but the data pins have not yet been detected.
+    eNO_DATA_PIN_CONN = 0,
+    // Data pin contact detection is complete.
+    eDATA_PIN_CONN = 1,
+    // Charging port detection is complete.
+    eCP_DET_DONE = 2,
+    // Charger type detection is complete.
+    eCT_DET_DONE = 3,
   };
   
+  // Error Flag
   enum class eERR : uint32_t {
-    eNO_SEQ_ERR = 0, // No sequence errors.
-    eSEQ_ERR = 1, // Error in the detection sequence. See the SEQ_STAT field to determine the phase in which the error occurred.
+    // No sequence errors.
+    eNO_SEQ_ERR = 0,
+    // Error in the detection sequence. See the SEQ_STAT field to determine the phase in which the error occurred.
+    eSEQ_ERR = 1,
   };
   
+  // Timeout Flag
   enum class eTO : uint32_t {
-    eNO_TIMEOUT = 0, // The detection sequence has not been running for over 1s.
-    eTIMEOUT = 1, // It has been over 1 s since the data pin contact was detected and debounced.
+    // The detection sequence has not been running for over 1s.
+    eNO_TIMEOUT = 0,
+    // It has been over 1 s since the data pin contact was detected and debounced.
+    eTIMEOUT = 1,
   };
   
+  // Active Status Indicator
   enum class eACTIVE : uint32_t {
-    eSEQ_NOT_RUNNING = 0, // The sequence is not running.
-    eSEQ_RUNNING = 1, // The sequence is running.
+    // The sequence is not running.
+    eSEQ_NOT_RUNNING = 0,
+    // The sequence is running.
+    eSEQ_RUNNING = 1,
   };
   
   // Bit field definition.
   struct {
     uint32_t _reserved_0 : 16;
-    /// read-only - Charger Detection Sequence Results
+    // read-only - Charger Detection Sequence Results
     eSEQ_RES SEQ_RES : 2;
-    /// read-only - Charger Detection Sequence Status
+    // read-only - Charger Detection Sequence Status
     eSEQ_STAT SEQ_STAT : 2;
-    /// read-only - Error Flag
+    // read-only - Error Flag
     eERR ERR : 1;
-    /// read-only - Timeout Flag
+    // read-only - Timeout Flag
     eTO TO : 1;
-    /// read-only - Active Status Indicator
+    // read-only - Active Status Indicator
     eACTIVE ACTIVE : 1;
     uint32_t _reserved_1 : 9;
   } bits;
@@ -158,17 +192,19 @@ union STATUS {
 };
 
 // Signal Override Register
-//
 union SIGNAL_OVERRIDE {
   
+  // Phase Selection
   enum class ePS : uint32_t {
-    eNO_OVERRIDE = 0, // No overrides. Bit field must remain at this value during normal USB data communication to prevent unexpected conditions on USB_DP and USB_DM pins. (Default)
-    ePRI_DET_OVERRIDE = 2, // Enables VDP_SRC voltage source for the USB_DP pin and IDM_SINK current source for the USB_DM pin.
+    // No overrides. Bit field must remain at this value during normal USB data communication to prevent unexpected conditions on USB_DP and USB_DM pins. (Default)
+    eNO_OVERRIDE = 0,
+    // Enables VDP_SRC voltage source for the USB_DP pin and IDM_SINK current source for the USB_DM pin.
+    ePRI_DET_OVERRIDE = 2,
   };
   
   // Bit field definition.
   struct {
-    /// read-write - Phase Selection
+    // read-write - Phase Selection
     ePS PS : 2;
     uint32_t _reserved_0 : 30;
   } bits;
@@ -182,28 +218,38 @@ union SIGNAL_OVERRIDE {
 };
 
 // TIMER0 register
-//
 union TIMER0 {
   
+  // Sequence Initiation Time
   enum class eTSEQ_INIT : uint32_t {
-    eMS_0 = 0, // 0ms - 1023ms
-    eMS_1 = 1, // 0ms - 1023ms
-    eMS_2 = 2, // 0ms - 1023ms
-    eMS_3 = 3, // 0ms - 1023ms
-    eMS_4 = 4, // 0ms - 1023ms
-    eMS_5 = 5, // 0ms - 1023ms
-    eMS_6 = 6, // 0ms - 1023ms
-    eMS_7 = 7, // 0ms - 1023ms
-    eMS_8 = 8, // 0ms - 1023ms
-    eMS_9 = 9, // 0ms - 1023ms
+    // 0ms - 1023ms
+    eMS_0 = 0,
+    // 0ms - 1023ms
+    eMS_1 = 1,
+    // 0ms - 1023ms
+    eMS_2 = 2,
+    // 0ms - 1023ms
+    eMS_3 = 3,
+    // 0ms - 1023ms
+    eMS_4 = 4,
+    // 0ms - 1023ms
+    eMS_5 = 5,
+    // 0ms - 1023ms
+    eMS_6 = 6,
+    // 0ms - 1023ms
+    eMS_7 = 7,
+    // 0ms - 1023ms
+    eMS_8 = 8,
+    // 0ms - 1023ms
+    eMS_9 = 9,
   };
   
   // Bit field definition.
   struct {
-    /// read-only - Unit Connection Timer Elapse (in ms)
+    // read-only - Unit Connection Timer Elapse (in ms)
     uint32_t TUNITCON : 12;
     uint32_t _reserved_0 : 4;
-    /// read-write - Sequence Initiation Time
+    // read-write - Sequence Initiation Time
     eTSEQ_INIT TSEQ_INIT : 10;
     uint32_t _reserved_1 : 6;
   } bits;
@@ -217,41 +263,62 @@ union TIMER0 {
 };
 
 // TIMER1 register
-//
 union TIMER1 {
   
+  // Time Period Comparator Enabled
   enum class eTVDPSRC_ON : uint32_t {
-    eMS_1 = 1, // 1ms - 1023ms
-    eMS_2 = 2, // 1ms - 1023ms
-    eMS_3 = 3, // 1ms - 1023ms
-    eMS_4 = 4, // 1ms - 1023ms
-    eMS_5 = 5, // 1ms - 1023ms
-    eMS_6 = 6, // 1ms - 1023ms
-    eMS_7 = 7, // 1ms - 1023ms
-    eMS_8 = 8, // 1ms - 1023ms
-    eMS_9 = 9, // 1ms - 1023ms
-    eMS_10 = 10, // 1ms - 1023ms
+    // 1ms - 1023ms
+    eMS_1 = 1,
+    // 1ms - 1023ms
+    eMS_2 = 2,
+    // 1ms - 1023ms
+    eMS_3 = 3,
+    // 1ms - 1023ms
+    eMS_4 = 4,
+    // 1ms - 1023ms
+    eMS_5 = 5,
+    // 1ms - 1023ms
+    eMS_6 = 6,
+    // 1ms - 1023ms
+    eMS_7 = 7,
+    // 1ms - 1023ms
+    eMS_8 = 8,
+    // 1ms - 1023ms
+    eMS_9 = 9,
+    // 1ms - 1023ms
+    eMS_10 = 10,
   };
   
+  // Time Period to Debounce D+ Signal
   enum class eTDCD_DBNC : uint32_t {
-    eMS_1 = 1, // 1ms - 1023ms
-    eMS_2 = 2, // 1ms - 1023ms
-    eMS_3 = 3, // 1ms - 1023ms
-    eMS_4 = 4, // 1ms - 1023ms
-    eMS_5 = 5, // 1ms - 1023ms
-    eMS_6 = 6, // 1ms - 1023ms
-    eMS_7 = 7, // 1ms - 1023ms
-    eMS_8 = 8, // 1ms - 1023ms
-    eMS_9 = 9, // 1ms - 1023ms
-    eMS_10 = 10, // 1ms - 1023ms
+    // 1ms - 1023ms
+    eMS_1 = 1,
+    // 1ms - 1023ms
+    eMS_2 = 2,
+    // 1ms - 1023ms
+    eMS_3 = 3,
+    // 1ms - 1023ms
+    eMS_4 = 4,
+    // 1ms - 1023ms
+    eMS_5 = 5,
+    // 1ms - 1023ms
+    eMS_6 = 6,
+    // 1ms - 1023ms
+    eMS_7 = 7,
+    // 1ms - 1023ms
+    eMS_8 = 8,
+    // 1ms - 1023ms
+    eMS_9 = 9,
+    // 1ms - 1023ms
+    eMS_10 = 10,
   };
   
   // Bit field definition.
   struct {
-    /// read-write - Time Period Comparator Enabled
+    // read-write - Time Period Comparator Enabled
     eTVDPSRC_ON TVDPSRC_ON : 10;
     uint32_t _reserved_0 : 6;
-    /// read-write - Time Period to Debounce D+ Signal
+    // read-write - Time Period to Debounce D+ Signal
     eTDCD_DBNC TDCD_DBNC : 10;
     uint32_t _reserved_1 : 6;
   } bits;
@@ -265,41 +332,62 @@ union TIMER1 {
 };
 
 // TIMER2_BC11 register
-//
 union TIMER2_BC11 {
   
+  // Time Before Check of D- Line
   enum class eCHECK_DM : uint32_t {
-    eMS_1 = 1, // 1ms - 15ms
-    eMS_2 = 2, // 1ms - 15ms
-    eMS_3 = 3, // 1ms - 15ms
-    eMS_4 = 4, // 1ms - 15ms
-    eMS_5 = 5, // 1ms - 15ms
-    eMS_6 = 6, // 1ms - 15ms
-    eMS_7 = 7, // 1ms - 15ms
-    eMS_8 = 8, // 1ms - 15ms
-    eMS_9 = 9, // 1ms - 15ms
-    eMS_10 = 10, // 1ms - 15ms
+    // 1ms - 15ms
+    eMS_1 = 1,
+    // 1ms - 15ms
+    eMS_2 = 2,
+    // 1ms - 15ms
+    eMS_3 = 3,
+    // 1ms - 15ms
+    eMS_4 = 4,
+    // 1ms - 15ms
+    eMS_5 = 5,
+    // 1ms - 15ms
+    eMS_6 = 6,
+    // 1ms - 15ms
+    eMS_7 = 7,
+    // 1ms - 15ms
+    eMS_8 = 8,
+    // 1ms - 15ms
+    eMS_9 = 9,
+    // 1ms - 15ms
+    eMS_10 = 10,
   };
   
+  // Time Period Before Enabling D+ Pullup
   enum class eTVDPSRC_CON : uint32_t {
-    eMS_1 = 1, // 1ms - 1023ms
-    eMS_2 = 2, // 1ms - 1023ms
-    eMS_3 = 3, // 1ms - 1023ms
-    eMS_4 = 4, // 1ms - 1023ms
-    eMS_5 = 5, // 1ms - 1023ms
-    eMS_6 = 6, // 1ms - 1023ms
-    eMS_7 = 7, // 1ms - 1023ms
-    eMS_8 = 8, // 1ms - 1023ms
-    eMS_9 = 9, // 1ms - 1023ms
-    eMS_10 = 10, // 1ms - 1023ms
+    // 1ms - 1023ms
+    eMS_1 = 1,
+    // 1ms - 1023ms
+    eMS_2 = 2,
+    // 1ms - 1023ms
+    eMS_3 = 3,
+    // 1ms - 1023ms
+    eMS_4 = 4,
+    // 1ms - 1023ms
+    eMS_5 = 5,
+    // 1ms - 1023ms
+    eMS_6 = 6,
+    // 1ms - 1023ms
+    eMS_7 = 7,
+    // 1ms - 1023ms
+    eMS_8 = 8,
+    // 1ms - 1023ms
+    eMS_9 = 9,
+    // 1ms - 1023ms
+    eMS_10 = 10,
   };
   
   // Bit field definition.
   struct {
-    /// read-write - Time Before Check of D- Line
+    // read-write - Time Before Check of D- Line
     eCHECK_DM CHECK_DM : 4;
     uint32_t _reserved_0 : 12;
-    /// read-write - Time Period Before Enabling D+ Pullup
+    // read-write - Time Period Before Enabling D+ Pullup
     eTVDPSRC_CON TVDPSRC_CON : 10;
     uint32_t _reserved_1 : 6;
   } bits;
@@ -313,41 +401,62 @@ union TIMER2_BC11 {
 };
 
 // TIMER2_BC12 register
-//
 union TIMER2_BC12 {
   
+  // TVDMSRC_ON
   enum class eTVDMSRC_ON : uint32_t {
-    eMS_0 = 0, // 0ms - 40ms
-    eMS_1 = 1, // 0ms - 40ms
-    eMS_2 = 2, // 0ms - 40ms
-    eMS_3 = 3, // 0ms - 40ms
-    eMS_4 = 4, // 0ms - 40ms
-    eMS_5 = 5, // 0ms - 40ms
-    eMS_6 = 6, // 0ms - 40ms
-    eMS_7 = 7, // 0ms - 40ms
-    eMS_8 = 8, // 0ms - 40ms
-    eMS_9 = 9, // 0ms - 40ms
+    // 0ms - 40ms
+    eMS_0 = 0,
+    // 0ms - 40ms
+    eMS_1 = 1,
+    // 0ms - 40ms
+    eMS_2 = 2,
+    // 0ms - 40ms
+    eMS_3 = 3,
+    // 0ms - 40ms
+    eMS_4 = 4,
+    // 0ms - 40ms
+    eMS_5 = 5,
+    // 0ms - 40ms
+    eMS_6 = 6,
+    // 0ms - 40ms
+    eMS_7 = 7,
+    // 0ms - 40ms
+    eMS_8 = 8,
+    // 0ms - 40ms
+    eMS_9 = 9,
   };
   
+  // TWAIT_AFTER_PRD
   enum class eTWAIT_AFTER_PRD : uint32_t {
-    eMS_1 = 1, // 1ms - 1023ms
-    eMS_2 = 2, // 1ms - 1023ms
-    eMS_3 = 3, // 1ms - 1023ms
-    eMS_4 = 4, // 1ms - 1023ms
-    eMS_5 = 5, // 1ms - 1023ms
-    eMS_6 = 6, // 1ms - 1023ms
-    eMS_7 = 7, // 1ms - 1023ms
-    eMS_8 = 8, // 1ms - 1023ms
-    eMS_9 = 9, // 1ms - 1023ms
-    eMS_10 = 10, // 1ms - 1023ms
+    // 1ms - 1023ms
+    eMS_1 = 1,
+    // 1ms - 1023ms
+    eMS_2 = 2,
+    // 1ms - 1023ms
+    eMS_3 = 3,
+    // 1ms - 1023ms
+    eMS_4 = 4,
+    // 1ms - 1023ms
+    eMS_5 = 5,
+    // 1ms - 1023ms
+    eMS_6 = 6,
+    // 1ms - 1023ms
+    eMS_7 = 7,
+    // 1ms - 1023ms
+    eMS_8 = 8,
+    // 1ms - 1023ms
+    eMS_9 = 9,
+    // 1ms - 1023ms
+    eMS_10 = 10,
   };
   
   // Bit field definition.
   struct {
-    /// read-write - TVDMSRC_ON
+    // read-write - TVDMSRC_ON
     eTVDMSRC_ON TVDMSRC_ON : 10;
     uint32_t _reserved_0 : 6;
-    /// read-write - TWAIT_AFTER_PRD
+    // read-write - TWAIT_AFTER_PRD
     eTWAIT_AFTER_PRD TWAIT_AFTER_PRD : 10;
     uint32_t _reserved_1 : 6;
   } bits;

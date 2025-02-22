@@ -5,24 +5,23 @@
 #include <cstring>
 
 // DSI HOST DPHY INTFC
-//
-// NOTE: This file was generated from the forge CMSIS-svd wrapper tool.
-
 namespace nDSI_HOST_DPHY_INTFC {
 
 
 // PD_TX
-//
 union PD_TX {
   
+  // Power Down input for D-PHY
   enum class ePD_TX : uint32_t {
-    ePD_TX_0 = 0, // Power Up
-    ePD_TX_1 = 1, // Power Down
+    // Power Up
+    ePD_TX_0 = 0,
+    // Power Down
+    ePD_TX_1 = 1,
   };
   
   // Bit field definition.
   struct {
-    /// read-write - Power Down input for D-PHY
+    // read-write - Power Down input for D-PHY
     ePD_TX PD_TX : 1;
     uint32_t _reserved_0 : 31;
   } bits;
@@ -36,12 +35,11 @@ union PD_TX {
 };
 
 // M_PRG_HS_PREPARE
-//
 union M_PRG_HS_PREPARE {
   
   // Bit field definition.
   struct {
-    /// read-write - DPHY m_PRG_HS_PREPARE input
+    // read-write - DPHY m_PRG_HS_PREPARE input
     uint32_t M_PRG_HS_PREPARE : 2;
     uint32_t _reserved_0 : 30;
   } bits;
@@ -55,12 +53,11 @@ union M_PRG_HS_PREPARE {
 };
 
 // MC_PRG_HS_PREPARE
-//
 union MC_PRG_HS_PREPARE {
   
   // Bit field definition.
   struct {
-    /// read-write - DPHY mc_PRG_HS_PREPARE input
+    // read-write - DPHY mc_PRG_HS_PREPARE input
     uint32_t MC_PRG_HS_PREPARE : 1;
     uint32_t _reserved_0 : 31;
   } bits;
@@ -74,12 +71,11 @@ union MC_PRG_HS_PREPARE {
 };
 
 // M_PRG_HS_ZERO
-//
 union M_PRG_HS_ZERO {
   
   // Bit field definition.
   struct {
-    /// read-write - DPHY m_PRG_HS_ZERO input
+    // read-write - DPHY m_PRG_HS_ZERO input
     uint32_t M_PRG_HS_ZERO : 5;
     uint32_t _reserved_0 : 27;
   } bits;
@@ -93,12 +89,11 @@ union M_PRG_HS_ZERO {
 };
 
 // MC_PRG_HS_ZERO
-//
 union MC_PRG_HS_ZERO {
   
   // Bit field definition.
   struct {
-    /// read-write - DPHY mc_PRG_HS_ZERO input
+    // read-write - DPHY mc_PRG_HS_ZERO input
     uint32_t MC_PRG_HS_ZERO : 6;
     uint32_t _reserved_0 : 26;
   } bits;
@@ -112,12 +107,11 @@ union MC_PRG_HS_ZERO {
 };
 
 // M_PRG_HS_TRAIL
-//
 union M_PRG_HS_TRAIL {
   
   // Bit field definition.
   struct {
-    /// read-write - DPHY m_PRG_HS_TRAIL input
+    // read-write - DPHY m_PRG_HS_TRAIL input
     uint32_t M_PRG_HS_TRAIL : 4;
     uint32_t _reserved_0 : 28;
   } bits;
@@ -131,12 +125,11 @@ union M_PRG_HS_TRAIL {
 };
 
 // MC_PRG_HS_TRAIL
-//
 union MC_PRG_HS_TRAIL {
   
   // Bit field definition.
   struct {
-    /// read-write - DPHY mc_PRG_HS_TRAIL input
+    // read-write - DPHY mc_PRG_HS_TRAIL input
     uint32_t MC_PRG_HS_TRAIL : 4;
     uint32_t _reserved_0 : 28;
   } bits;
@@ -150,17 +143,19 @@ union MC_PRG_HS_TRAIL {
 };
 
 // PD_PLL
-//
 union PD_PLL {
   
+  // Power-down signal
   enum class ePD_PLL : uint32_t {
-    ePD_PLL_0 = 0, // Power up PLL
-    ePD_PLL_1 = 1, // Power down PLL
+    // Power up PLL
+    ePD_PLL_0 = 0,
+    // Power down PLL
+    ePD_PLL_1 = 1,
   };
   
   // Bit field definition.
   struct {
-    /// read-write - Power-down signal
+    // read-write - Power-down signal
     ePD_PLL PD_PLL : 1;
     uint32_t _reserved_0 : 31;
   } bits;
@@ -174,12 +169,11 @@ union PD_PLL {
 };
 
 // TST
-//
 union TST {
   
   // Bit field definition.
   struct {
-    /// read-write - Test
+    // read-write - Test
     uint32_t TST : 6;
     uint32_t _reserved_0 : 26;
   } bits;
@@ -193,12 +187,11 @@ union TST {
 };
 
 // CN
-//
 union CN {
   
   // Bit field definition.
   struct {
-    /// read-write - Control N divider
+    // read-write - Control N divider
     uint32_t CN : 5;
     uint32_t _reserved_0 : 27;
   } bits;
@@ -212,12 +205,11 @@ union CN {
 };
 
 // CM
-//
 union CM {
   
   // Bit field definition.
   struct {
-    /// read-write - Control M divider
+    // read-write - Control M divider
     uint32_t CM : 8;
     uint32_t _reserved_0 : 24;
   } bits;
@@ -231,19 +223,23 @@ union CM {
 };
 
 // CO
-//
 union CO {
   
+  // Control O divider
   enum class eCO : uint32_t {
-    eCO_0 = 0, // Divide by 1
-    eCO_1 = 1, // Divide by 2
-    eCO_2 = 2, // Divide by 4
-    eCO_3 = 3, // Divide by 8
+    // Divide by 1
+    eCO_0 = 0,
+    // Divide by 2
+    eCO_1 = 1,
+    // Divide by 4
+    eCO_2 = 2,
+    // Divide by 8
+    eCO_3 = 3,
   };
   
   // Bit field definition.
   struct {
-    /// read-write - Control O divider
+    // read-write - Control O divider
     eCO CO : 2;
     uint32_t _reserved_0 : 30;
   } bits;
@@ -257,17 +253,19 @@ union CO {
 };
 
 // LOCK
-//
 union LOCK {
   
+  // Lock Detect output
   enum class eLOCK : uint32_t {
-    eLOCK_0 = 0, // PLL not locked
-    eLOCK_1 = 1, // PLL has achieved frequency lock
+    // PLL not locked
+    eLOCK_0 = 0,
+    // PLL has achieved frequency lock
+    eLOCK_1 = 1,
   };
   
   // Bit field definition.
   struct {
-    /// read-only - Lock Detect output
+    // read-only - Lock Detect output
     eLOCK LOCK : 1;
     uint32_t _reserved_0 : 31;
   } bits;
@@ -281,17 +279,19 @@ union LOCK {
 };
 
 // LOCK_BYP
-//
 union LOCK_BYP {
   
+  // DPHY LOCK_BYP input
   enum class eLOCK_BYP : uint32_t {
-    eGATE = 0, // PLL LOCK signal will gate TxByteClkHS clock
-    eNOGATE = 1, // PLL LOCK signal will not gate TxByteClkHS clock, CIL based counter will be used to gate the TxByteClkHS
+    // PLL LOCK signal will gate TxByteClkHS clock
+    eGATE = 0,
+    // PLL LOCK signal will not gate TxByteClkHS clock, CIL based counter will be used to gate the TxByteClkHS
+    eNOGATE = 1,
   };
   
   // Bit field definition.
   struct {
-    /// read-write - DPHY LOCK_BYP input
+    // read-write - DPHY LOCK_BYP input
     eLOCK_BYP LOCK_BYP : 1;
     uint32_t _reserved_0 : 31;
   } bits;
@@ -305,19 +305,23 @@ union LOCK_BYP {
 };
 
 // TX_RCAL
-//
 union TX_RCAL {
   
+  // On-chip termination control bits for manual calibration of HS-TX
   enum class eTX_RCAL : uint32_t {
-    eTX_RCAL_0 = 0, // 20% higher than mid-range. Highest impedance setting
-    eTX_RCAL_1 = 1, // Mid-range impedance setting (default)
-    eTX_RCAL_2 = 2, // 15% lower than mid-range
-    eTX_RCAL_3 = 3, // 25% lower than mid-range. Lowest impedance setting
+    // 20% higher than mid-range. Highest impedance setting
+    eTX_RCAL_0 = 0,
+    // Mid-range impedance setting (default)
+    eTX_RCAL_1 = 1,
+    // 15% lower than mid-range
+    eTX_RCAL_2 = 2,
+    // 25% lower than mid-range. Lowest impedance setting
+    eTX_RCAL_3 = 3,
   };
   
   // Bit field definition.
   struct {
-    /// read-write - On-chip termination control bits for manual calibration of HS-TX
+    // read-write - On-chip termination control bits for manual calibration of HS-TX
     eTX_RCAL TX_RCAL : 2;
     uint32_t _reserved_0 : 30;
   } bits;
@@ -331,17 +335,19 @@ union TX_RCAL {
 };
 
 // AUTO_PD_EN
-//
 union AUTO_PD_EN {
   
+  // DPHY AUTO_PD_EN input
   enum class eAUTO_PD_EN : uint32_t {
-    ePWR_UP = 0, // Inactive lanes are powered up and driving LP11
-    ePWR_DWN = 1, // inactive lanes are powered down
+    // Inactive lanes are powered up and driving LP11
+    ePWR_UP = 0,
+    // inactive lanes are powered down
+    ePWR_DWN = 1,
   };
   
   // Bit field definition.
   struct {
-    /// read-write - DPHY AUTO_PD_EN input
+    // read-write - DPHY AUTO_PD_EN input
     eAUTO_PD_EN AUTO_PD_EN : 1;
     uint32_t _reserved_0 : 31;
   } bits;
@@ -355,12 +361,11 @@ union AUTO_PD_EN {
 };
 
 // RXLPRP
-//
 union RXLPRP {
   
   // Bit field definition.
   struct {
-    /// read-write - DPHY RXLPRP input
+    // read-write - DPHY RXLPRP input
     uint32_t RXLPRP : 2;
     uint32_t _reserved_0 : 30;
   } bits;
@@ -374,19 +379,23 @@ union RXLPRP {
 };
 
 // RXCDRP
-//
 union RXCDRP {
   
+  // DPHY RXCDRP input
   enum class eRXCDRP : uint32_t {
-    eRXCDRP_0 = 0, // 344mV
-    eRXCDRP_1 = 1, // 325mV (Default)
-    eRXCDRP_2 = 2, // 307mV
-    eRXCDRP_3 = 3, // Invalid
+    // 344mV
+    eRXCDRP_0 = 0,
+    // 325mV (Default)
+    eRXCDRP_1 = 1,
+    // 307mV
+    eRXCDRP_2 = 2,
+    // Invalid
+    eRXCDRP_3 = 3,
   };
   
   // Bit field definition.
   struct {
-    /// read-write - DPHY RXCDRP input
+    // read-write - DPHY RXCDRP input
     eRXCDRP RXCDRP : 2;
     uint32_t _reserved_0 : 30;
   } bits;

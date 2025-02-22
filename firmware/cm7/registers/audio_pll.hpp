@@ -5,88 +5,112 @@
 #include <cstring>
 
 // Fractional PLL
-//
-// NOTE: This file was generated from the forge CMSIS-svd wrapper tool.
-
 namespace nAUDIO_PLL {
 
 
 // Fractional PLL Control Register
-//
 union CTRL0 {
   
+  // ENABLE_ALT
   enum class eENABLE_ALT : uint32_t {
-    eDISABLE = 0, // Disable the alternate clock output
-    eENABLE = 1, // Enable the alternate clock output which is the output of the post_divider, and cannot be bypassed
+    // Disable the alternate clock output
+    eDISABLE = 0,
+    // Enable the alternate clock output which is the output of the post_divider, and cannot be bypassed
+    eENABLE = 1,
   };
   
+  // PLL Start up initialization
   enum class eHOLD_RING_OFF : uint32_t {
-    eNORMAL = 0, // Normal operation
-    eENABLE = 1, // Initialize PLL start up
+    // Normal operation
+    eNORMAL = 0,
+    // Initialize PLL start up
+    eENABLE = 1,
   };
   
+  // POWERUP
   enum class ePOWERUP : uint32_t {
-    ePDOWN = 0, // Power down the PLL
-    ePUP = 1, // Power Up the PLL
+    // Power down the PLL
+    ePDOWN = 0,
+    // Power Up the PLL
+    ePUP = 1,
   };
   
+  // ENABLE
   enum class eENABLE : uint32_t {
-    eDISABLE = 0, // Disable the clock output
-    eENABLE = 1, // Enable the clock output
+    // Disable the clock output
+    eDISABLE = 0,
+    // Enable the clock output
+    eENABLE = 1,
   };
   
+  // BYPASS
   enum class eBYPASS : uint32_t {
-    eNOBYPASS = 0, // No Bypass
-    eBYPASS = 1, // Bypass the PLL
+    // No Bypass
+    eNOBYPASS = 0,
+    // Bypass the PLL
+    eBYPASS = 1,
   };
   
+  // DITHER_EN
   enum class eDITHER_EN : uint32_t {
-    eDISABLE = 0, // Disable Dither
-    eENABLE = 1, // Enable Dither
+    // Disable Dither
+    eDISABLE = 0,
+    // Enable Dither
+    eENABLE = 1,
   };
   
+  // Post Divide Select
   enum class ePOST_DIV_SEL : uint32_t {
-    eDIVIDE1 = 0, // Divide by 1
-    eDIVIDE2 = 1, // Divide by 2
-    eDIVIDE4 = 2, // Divide by 4
-    eDIVIDE8 = 3, // Divide by 8
-    eDIVIDE16 = 4, // Divide by 16
-    eDIVIDE32 = 5, // Divide by 32
+    // Divide by 1
+    eDIVIDE1 = 0,
+    // Divide by 2
+    eDIVIDE2 = 1,
+    // Divide by 4
+    eDIVIDE4 = 2,
+    // Divide by 8
+    eDIVIDE8 = 3,
+    // Divide by 16
+    eDIVIDE16 = 4,
+    // Divide by 32
+    eDIVIDE32 = 5,
   };
   
+  // BIAS_SELECT
   enum class eBIAS_SELECT : uint32_t {
-    eBAIS10 = 0, // Used in SoCs with a bias current of 10uA
-    eBAIS2 = 1, // Used in SoCs with a bias current of 2uA
+    // Used in SoCs with a bias current of 10uA
+    eBAIS10 = 0,
+    // Used in SoCs with a bias current of 2uA
+    eBAIS2 = 1,
   };
   
   // Bit field definition.
   struct {
-    /// read-write - DIV_SELECT
+    // read-write - DIV_SELECT
     uint32_t DIV_SELECT : 7;
     uint32_t _reserved_0 : 1;
-    /// read-write - ENABLE_ALT
+    // read-write - ENABLE_ALT
     eENABLE_ALT ENABLE_ALT : 1;
     uint32_t _reserved_1 : 4;
-    /// read-write - PLL Start up initialization
+    // read-write - PLL Start up initialization
     eHOLD_RING_OFF HOLD_RING_OFF : 1;
-    /// read-write - POWERUP
+    // read-write - POWERUP
     ePOWERUP POWERUP : 1;
-    /// read-write - ENABLE
+    // read-write - ENABLE
     eENABLE ENABLE : 1;
-    /// read-write - BYPASS
+    // read-write - BYPASS
     eBYPASS BYPASS : 1;
-    /// read-write - DITHER_EN
+    // read-write - DITHER_EN
     eDITHER_EN DITHER_EN : 1;
     uint32_t _reserved_2 : 1;
-    /// read-write - BIAS_TRIM
+    // read-write - BIAS_TRIM
     uint32_t BIAS_TRIM : 3;
-    /// read-write - PLL_REG_EN
+    // read-write - PLL_REG_EN
     uint32_t PLL_REG_EN : 1;
     uint32_t _reserved_3 : 2;
-    /// read-write - Post Divide Select
+    // read-write - Post Divide Select
     ePOST_DIV_SEL POST_DIV_SEL : 3;
     uint32_t _reserved_4 : 1;
-    /// read-write - BIAS_SELECT
+    // read-write - BIAS_SELECT
     eBIAS_SELECT BIAS_SELECT : 1;
     uint32_t _reserved_5 : 2;
   } bits;
@@ -100,37 +124,36 @@ union CTRL0 {
 };
 
 // Fractional PLL Control Register
-//
 union CTRL0_SET {
   
   // Bit field definition.
   struct {
-    /// read-write - DIV_SELECT
+    // read-write - DIV_SELECT
     uint32_t DIV_SELECT : 7;
     uint32_t _reserved_0 : 1;
-    /// read-write - ENABLE_ALT
+    // read-write - ENABLE_ALT
     uint32_t ENABLE_ALT : 1;
     uint32_t _reserved_1 : 4;
-    /// read-write - PLL Start up initialization
+    // read-write - PLL Start up initialization
     uint32_t HOLD_RING_OFF : 1;
-    /// read-write - POWERUP
+    // read-write - POWERUP
     uint32_t POWERUP : 1;
-    /// read-write - ENABLE
+    // read-write - ENABLE
     uint32_t ENABLE : 1;
-    /// read-write - BYPASS
+    // read-write - BYPASS
     uint32_t BYPASS : 1;
-    /// read-write - DITHER_EN
+    // read-write - DITHER_EN
     uint32_t DITHER_EN : 1;
     uint32_t _reserved_2 : 1;
-    /// read-write - BIAS_TRIM
+    // read-write - BIAS_TRIM
     uint32_t BIAS_TRIM : 3;
-    /// read-write - PLL_REG_EN
+    // read-write - PLL_REG_EN
     uint32_t PLL_REG_EN : 1;
     uint32_t _reserved_3 : 2;
-    /// read-write - Post Divide Select
+    // read-write - Post Divide Select
     uint32_t POST_DIV_SEL : 3;
     uint32_t _reserved_4 : 1;
-    /// read-write - BIAS_SELECT
+    // read-write - BIAS_SELECT
     uint32_t BIAS_SELECT : 1;
     uint32_t _reserved_5 : 2;
   } bits;
@@ -144,37 +167,36 @@ union CTRL0_SET {
 };
 
 // Fractional PLL Control Register
-//
 union CTRL0_CLR {
   
   // Bit field definition.
   struct {
-    /// read-write - DIV_SELECT
+    // read-write - DIV_SELECT
     uint32_t DIV_SELECT : 7;
     uint32_t _reserved_0 : 1;
-    /// read-write - ENABLE_ALT
+    // read-write - ENABLE_ALT
     uint32_t ENABLE_ALT : 1;
     uint32_t _reserved_1 : 4;
-    /// read-write - PLL Start up initialization
+    // read-write - PLL Start up initialization
     uint32_t HOLD_RING_OFF : 1;
-    /// read-write - POWERUP
+    // read-write - POWERUP
     uint32_t POWERUP : 1;
-    /// read-write - ENABLE
+    // read-write - ENABLE
     uint32_t ENABLE : 1;
-    /// read-write - BYPASS
+    // read-write - BYPASS
     uint32_t BYPASS : 1;
-    /// read-write - DITHER_EN
+    // read-write - DITHER_EN
     uint32_t DITHER_EN : 1;
     uint32_t _reserved_2 : 1;
-    /// read-write - BIAS_TRIM
+    // read-write - BIAS_TRIM
     uint32_t BIAS_TRIM : 3;
-    /// read-write - PLL_REG_EN
+    // read-write - PLL_REG_EN
     uint32_t PLL_REG_EN : 1;
     uint32_t _reserved_3 : 2;
-    /// read-write - Post Divide Select
+    // read-write - Post Divide Select
     uint32_t POST_DIV_SEL : 3;
     uint32_t _reserved_4 : 1;
-    /// read-write - BIAS_SELECT
+    // read-write - BIAS_SELECT
     uint32_t BIAS_SELECT : 1;
     uint32_t _reserved_5 : 2;
   } bits;
@@ -188,37 +210,36 @@ union CTRL0_CLR {
 };
 
 // Fractional PLL Control Register
-//
 union CTRL0_TOG {
   
   // Bit field definition.
   struct {
-    /// read-write - DIV_SELECT
+    // read-write - DIV_SELECT
     uint32_t DIV_SELECT : 7;
     uint32_t _reserved_0 : 1;
-    /// read-write - ENABLE_ALT
+    // read-write - ENABLE_ALT
     uint32_t ENABLE_ALT : 1;
     uint32_t _reserved_1 : 4;
-    /// read-write - PLL Start up initialization
+    // read-write - PLL Start up initialization
     uint32_t HOLD_RING_OFF : 1;
-    /// read-write - POWERUP
+    // read-write - POWERUP
     uint32_t POWERUP : 1;
-    /// read-write - ENABLE
+    // read-write - ENABLE
     uint32_t ENABLE : 1;
-    /// read-write - BYPASS
+    // read-write - BYPASS
     uint32_t BYPASS : 1;
-    /// read-write - DITHER_EN
+    // read-write - DITHER_EN
     uint32_t DITHER_EN : 1;
     uint32_t _reserved_2 : 1;
-    /// read-write - BIAS_TRIM
+    // read-write - BIAS_TRIM
     uint32_t BIAS_TRIM : 3;
-    /// read-write - PLL_REG_EN
+    // read-write - PLL_REG_EN
     uint32_t PLL_REG_EN : 1;
     uint32_t _reserved_3 : 2;
-    /// read-write - Post Divide Select
+    // read-write - Post Divide Select
     uint32_t POST_DIV_SEL : 3;
     uint32_t _reserved_4 : 1;
-    /// read-write - BIAS_SELECT
+    // read-write - BIAS_SELECT
     uint32_t BIAS_SELECT : 1;
     uint32_t _reserved_5 : 2;
   } bits;
@@ -232,16 +253,15 @@ union CTRL0_TOG {
 };
 
 // Fractional PLL Spread Spectrum Control Register
-//
 union SPREAD_SPECTRUM {
   
   // Bit field definition.
   struct {
-    /// read-write - Step
+    // read-write - Step
     uint32_t STEP : 15;
-    /// read-write - Enable
+    // read-write - Enable
     uint32_t ENABLE : 1;
-    /// read-write - Stop
+    // read-write - Stop
     uint32_t STOP : 16;
   } bits;
   
@@ -254,16 +274,15 @@ union SPREAD_SPECTRUM {
 };
 
 // Fractional PLL Spread Spectrum Control Register
-//
 union SPREAD_SPECTRUM_SET {
   
   // Bit field definition.
   struct {
-    /// read-write - Step
+    // read-write - Step
     uint32_t STEP : 15;
-    /// read-write - Enable
+    // read-write - Enable
     uint32_t ENABLE : 1;
-    /// read-write - Stop
+    // read-write - Stop
     uint32_t STOP : 16;
   } bits;
   
@@ -276,16 +295,15 @@ union SPREAD_SPECTRUM_SET {
 };
 
 // Fractional PLL Spread Spectrum Control Register
-//
 union SPREAD_SPECTRUM_CLR {
   
   // Bit field definition.
   struct {
-    /// read-write - Step
+    // read-write - Step
     uint32_t STEP : 15;
-    /// read-write - Enable
+    // read-write - Enable
     uint32_t ENABLE : 1;
-    /// read-write - Stop
+    // read-write - Stop
     uint32_t STOP : 16;
   } bits;
   
@@ -298,16 +316,15 @@ union SPREAD_SPECTRUM_CLR {
 };
 
 // Fractional PLL Spread Spectrum Control Register
-//
 union SPREAD_SPECTRUM_TOG {
   
   // Bit field definition.
   struct {
-    /// read-write - Step
+    // read-write - Step
     uint32_t STEP : 15;
-    /// read-write - Enable
+    // read-write - Enable
     uint32_t ENABLE : 1;
-    /// read-write - Stop
+    // read-write - Stop
     uint32_t STOP : 16;
   } bits;
   
@@ -320,12 +337,11 @@ union SPREAD_SPECTRUM_TOG {
 };
 
 // Fractional PLL Numerator Control Register
-//
 union NUMERATOR {
   
   // Bit field definition.
   struct {
-    /// read-write - Numerator
+    // read-write - Numerator
     uint32_t NUM : 30;
     uint32_t _reserved_0 : 2;
   } bits;
@@ -339,12 +355,11 @@ union NUMERATOR {
 };
 
 // Fractional PLL Numerator Control Register
-//
 union NUMERATOR_SET {
   
   // Bit field definition.
   struct {
-    /// read-write - Numerator
+    // read-write - Numerator
     uint32_t NUM : 30;
     uint32_t _reserved_0 : 2;
   } bits;
@@ -358,12 +373,11 @@ union NUMERATOR_SET {
 };
 
 // Fractional PLL Numerator Control Register
-//
 union NUMERATOR_CLR {
   
   // Bit field definition.
   struct {
-    /// read-write - Numerator
+    // read-write - Numerator
     uint32_t NUM : 30;
     uint32_t _reserved_0 : 2;
   } bits;
@@ -377,12 +391,11 @@ union NUMERATOR_CLR {
 };
 
 // Fractional PLL Numerator Control Register
-//
 union NUMERATOR_TOG {
   
   // Bit field definition.
   struct {
-    /// read-write - Numerator
+    // read-write - Numerator
     uint32_t NUM : 30;
     uint32_t _reserved_0 : 2;
   } bits;
@@ -396,12 +409,11 @@ union NUMERATOR_TOG {
 };
 
 // Fractional PLL Denominator Control Register
-//
 union DENOMINATOR {
   
   // Bit field definition.
   struct {
-    /// read-write - Denominator
+    // read-write - Denominator
     uint32_t DENOM : 30;
     uint32_t _reserved_0 : 2;
   } bits;
@@ -415,12 +427,11 @@ union DENOMINATOR {
 };
 
 // Fractional PLL Denominator Control Register
-//
 union DENOMINATOR_SET {
   
   // Bit field definition.
   struct {
-    /// read-write - Denominator
+    // read-write - Denominator
     uint32_t DENOM : 30;
     uint32_t _reserved_0 : 2;
   } bits;
@@ -434,12 +445,11 @@ union DENOMINATOR_SET {
 };
 
 // Fractional PLL Denominator Control Register
-//
 union DENOMINATOR_CLR {
   
   // Bit field definition.
   struct {
-    /// read-write - Denominator
+    // read-write - Denominator
     uint32_t DENOM : 30;
     uint32_t _reserved_0 : 2;
   } bits;
@@ -453,12 +463,11 @@ union DENOMINATOR_CLR {
 };
 
 // Fractional PLL Denominator Control Register
-//
 union DENOMINATOR_TOG {
   
   // Bit field definition.
   struct {
-    /// read-write - Denominator
+    // read-write - Denominator
     uint32_t DENOM : 30;
     uint32_t _reserved_0 : 2;
   } bits;

@@ -5,19 +5,15 @@
 #include <cstring>
 
 // IEE_APC
-//
-// NOTE: This file was generated from the forge CMSIS-svd wrapper tool.
-
 namespace nIEE_APC {
 
 
 // End address of IEE region (n)
-//
 union REGION0_TOP_ADDR {
   
   // Bit field definition.
   struct {
-    /// read-write - End address of IEE region
+    // read-write - End address of IEE region
     uint32_t TOP_ADDR : 29;
     uint32_t _reserved_0 : 3;
   } bits;
@@ -31,12 +27,11 @@ union REGION0_TOP_ADDR {
 };
 
 // Start address of IEE region (n)
-//
 union REGION0_BOT_ADDR {
   
   // Bit field definition.
   struct {
-    /// read-write - Start address of IEE region
+    // read-write - Start address of IEE region
     uint32_t BOT_ADDR : 29;
     uint32_t _reserved_0 : 3;
   } bits;
@@ -50,24 +45,29 @@ union REGION0_BOT_ADDR {
 };
 
 // Region control of core domain 0 for region (n)
-//
 union REGION0_RDC_D0 {
   
+  // Write disable of core domain 1
   enum class eRDC_D0_WRITE_DIS : uint32_t {
-    eENABLE = 0, // Write to TOP_ADDR and BOT_ADDR of this region enabled
-    eDISABLE = 1, // Write to TOP_ADDR and BOT_ADDR of this region disabled
+    // Write to TOP_ADDR and BOT_ADDR of this region enabled
+    eENABLE = 0,
+    // Write to TOP_ADDR and BOT_ADDR of this region disabled
+    eDISABLE = 1,
   };
   
+  // Lock bit for bit 0
   enum class eRDC_D0_LOCK : uint32_t {
-    eUNLOCK = 0, // Bit 0 is unlocked
-    eLOCK = 1, // Bit 0 is locked
+    // Bit 0 is unlocked
+    eUNLOCK = 0,
+    // Bit 0 is locked
+    eLOCK = 1,
   };
   
   // Bit field definition.
   struct {
-    /// read-write - Write disable of core domain 1
+    // read-write - Write disable of core domain 1
     eRDC_D0_WRITE_DIS RDC_D0_WRITE_DIS : 1;
-    /// read-writeOnce - Lock bit for bit 0
+    // read-writeOnce - Lock bit for bit 0
     eRDC_D0_LOCK RDC_D0_LOCK : 1;
     uint32_t _reserved_0 : 30;
   } bits;
@@ -81,24 +81,29 @@ union REGION0_RDC_D0 {
 };
 
 // Region control of core domain 1 for region (n)
-//
 union REGION0_RDC_D1 {
   
+  // Write disable of core domain 1
   enum class eRDC_D1_WRITE_DIS : uint32_t {
-    eENABLE = 0, // Write to TOP_ADDR and BOT_ADDR of this region enabled
-    eDISABLE = 1, // Write to TOP_ADDR and BOT_ADDR of this region disabled
+    // Write to TOP_ADDR and BOT_ADDR of this region enabled
+    eENABLE = 0,
+    // Write to TOP_ADDR and BOT_ADDR of this region disabled
+    eDISABLE = 1,
   };
   
+  // Lock bit for bit 0
   enum class eRDC_D1_LOCK : uint32_t {
-    eUNLOCK = 0, // Bit 0 is unlocked
-    eLOCK = 1, // Bit 0 is locked
+    // Bit 0 is unlocked
+    eUNLOCK = 0,
+    // Bit 0 is locked
+    eLOCK = 1,
   };
   
   // Bit field definition.
   struct {
-    /// read-write - Write disable of core domain 1
+    // read-write - Write disable of core domain 1
     eRDC_D1_WRITE_DIS RDC_D1_WRITE_DIS : 1;
-    /// read-writeOnce - Lock bit for bit 0
+    // read-writeOnce - Lock bit for bit 0
     eRDC_D1_LOCK RDC_D1_LOCK : 1;
     uint32_t _reserved_0 : 30;
   } bits;
@@ -112,12 +117,11 @@ union REGION0_RDC_D1 {
 };
 
 // End address of IEE region (n)
-//
 union REGION1_TOP_ADDR {
   
   // Bit field definition.
   struct {
-    /// read-write - End address of IEE region
+    // read-write - End address of IEE region
     uint32_t TOP_ADDR : 29;
     uint32_t _reserved_0 : 3;
   } bits;
@@ -131,12 +135,11 @@ union REGION1_TOP_ADDR {
 };
 
 // Start address of IEE region (n)
-//
 union REGION1_BOT_ADDR {
   
   // Bit field definition.
   struct {
-    /// read-write - Start address of IEE region
+    // read-write - Start address of IEE region
     uint32_t BOT_ADDR : 29;
     uint32_t _reserved_0 : 3;
   } bits;
@@ -150,24 +153,29 @@ union REGION1_BOT_ADDR {
 };
 
 // Region control of core domain 0 for region (n)
-//
 union REGION1_RDC_D0 {
   
+  // Write disable of core domain 1
   enum class eRDC_D0_WRITE_DIS : uint32_t {
-    eENABLE = 0, // Write to TOP_ADDR and BOT_ADDR of this region enabled
-    eDISABLE = 1, // Write to TOP_ADDR and BOT_ADDR of this region disabled
+    // Write to TOP_ADDR and BOT_ADDR of this region enabled
+    eENABLE = 0,
+    // Write to TOP_ADDR and BOT_ADDR of this region disabled
+    eDISABLE = 1,
   };
   
+  // Lock bit for bit 0
   enum class eRDC_D0_LOCK : uint32_t {
-    eUNLOCK = 0, // Bit 0 is unlocked
-    eLOCK = 1, // Bit 0 is locked
+    // Bit 0 is unlocked
+    eUNLOCK = 0,
+    // Bit 0 is locked
+    eLOCK = 1,
   };
   
   // Bit field definition.
   struct {
-    /// read-write - Write disable of core domain 1
+    // read-write - Write disable of core domain 1
     eRDC_D0_WRITE_DIS RDC_D0_WRITE_DIS : 1;
-    /// read-writeOnce - Lock bit for bit 0
+    // read-writeOnce - Lock bit for bit 0
     eRDC_D0_LOCK RDC_D0_LOCK : 1;
     uint32_t _reserved_0 : 30;
   } bits;
@@ -181,24 +189,29 @@ union REGION1_RDC_D0 {
 };
 
 // Region control of core domain 1 for region (n)
-//
 union REGION1_RDC_D1 {
   
+  // Write disable of core domain 1
   enum class eRDC_D1_WRITE_DIS : uint32_t {
-    eENABLE = 0, // Write to TOP_ADDR and BOT_ADDR of this region enabled
-    eDISABLE = 1, // Write to TOP_ADDR and BOT_ADDR of this region disabled
+    // Write to TOP_ADDR and BOT_ADDR of this region enabled
+    eENABLE = 0,
+    // Write to TOP_ADDR and BOT_ADDR of this region disabled
+    eDISABLE = 1,
   };
   
+  // Lock bit for bit 0
   enum class eRDC_D1_LOCK : uint32_t {
-    eUNLOCK = 0, // Bit 0 is unlocked
-    eLOCK = 1, // Bit 0 is locked
+    // Bit 0 is unlocked
+    eUNLOCK = 0,
+    // Bit 0 is locked
+    eLOCK = 1,
   };
   
   // Bit field definition.
   struct {
-    /// read-write - Write disable of core domain 1
+    // read-write - Write disable of core domain 1
     eRDC_D1_WRITE_DIS RDC_D1_WRITE_DIS : 1;
-    /// read-writeOnce - Lock bit for bit 0
+    // read-writeOnce - Lock bit for bit 0
     eRDC_D1_LOCK RDC_D1_LOCK : 1;
     uint32_t _reserved_0 : 30;
   } bits;
@@ -212,12 +225,11 @@ union REGION1_RDC_D1 {
 };
 
 // End address of IEE region (n)
-//
 union REGION2_TOP_ADDR {
   
   // Bit field definition.
   struct {
-    /// read-write - End address of IEE region
+    // read-write - End address of IEE region
     uint32_t TOP_ADDR : 29;
     uint32_t _reserved_0 : 3;
   } bits;
@@ -231,12 +243,11 @@ union REGION2_TOP_ADDR {
 };
 
 // Start address of IEE region (n)
-//
 union REGION2_BOT_ADDR {
   
   // Bit field definition.
   struct {
-    /// read-write - Start address of IEE region
+    // read-write - Start address of IEE region
     uint32_t BOT_ADDR : 29;
     uint32_t _reserved_0 : 3;
   } bits;
@@ -250,24 +261,29 @@ union REGION2_BOT_ADDR {
 };
 
 // Region control of core domain 0 for region (n)
-//
 union REGION2_RDC_D0 {
   
+  // Write disable of core domain 1
   enum class eRDC_D0_WRITE_DIS : uint32_t {
-    eENABLE = 0, // Write to TOP_ADDR and BOT_ADDR of this region enabled
-    eDISABLE = 1, // Write to TOP_ADDR and BOT_ADDR of this region disabled
+    // Write to TOP_ADDR and BOT_ADDR of this region enabled
+    eENABLE = 0,
+    // Write to TOP_ADDR and BOT_ADDR of this region disabled
+    eDISABLE = 1,
   };
   
+  // Lock bit for bit 0
   enum class eRDC_D0_LOCK : uint32_t {
-    eUNLOCK = 0, // Bit 0 is unlocked
-    eLOCK = 1, // Bit 0 is locked
+    // Bit 0 is unlocked
+    eUNLOCK = 0,
+    // Bit 0 is locked
+    eLOCK = 1,
   };
   
   // Bit field definition.
   struct {
-    /// read-write - Write disable of core domain 1
+    // read-write - Write disable of core domain 1
     eRDC_D0_WRITE_DIS RDC_D0_WRITE_DIS : 1;
-    /// read-writeOnce - Lock bit for bit 0
+    // read-writeOnce - Lock bit for bit 0
     eRDC_D0_LOCK RDC_D0_LOCK : 1;
     uint32_t _reserved_0 : 30;
   } bits;
@@ -281,24 +297,29 @@ union REGION2_RDC_D0 {
 };
 
 // Region control of core domain 1 for region (n)
-//
 union REGION2_RDC_D1 {
   
+  // Write disable of core domain 1
   enum class eRDC_D1_WRITE_DIS : uint32_t {
-    eENABLE = 0, // Write to TOP_ADDR and BOT_ADDR of this region enabled
-    eDISABLE = 1, // Write to TOP_ADDR and BOT_ADDR of this region disabled
+    // Write to TOP_ADDR and BOT_ADDR of this region enabled
+    eENABLE = 0,
+    // Write to TOP_ADDR and BOT_ADDR of this region disabled
+    eDISABLE = 1,
   };
   
+  // Lock bit for bit 0
   enum class eRDC_D1_LOCK : uint32_t {
-    eUNLOCK = 0, // Bit 0 is unlocked
-    eLOCK = 1, // Bit 0 is locked
+    // Bit 0 is unlocked
+    eUNLOCK = 0,
+    // Bit 0 is locked
+    eLOCK = 1,
   };
   
   // Bit field definition.
   struct {
-    /// read-write - Write disable of core domain 1
+    // read-write - Write disable of core domain 1
     eRDC_D1_WRITE_DIS RDC_D1_WRITE_DIS : 1;
-    /// read-writeOnce - Lock bit for bit 0
+    // read-writeOnce - Lock bit for bit 0
     eRDC_D1_LOCK RDC_D1_LOCK : 1;
     uint32_t _reserved_0 : 30;
   } bits;
@@ -312,12 +333,11 @@ union REGION2_RDC_D1 {
 };
 
 // End address of IEE region (n)
-//
 union REGION3_TOP_ADDR {
   
   // Bit field definition.
   struct {
-    /// read-write - End address of IEE region
+    // read-write - End address of IEE region
     uint32_t TOP_ADDR : 29;
     uint32_t _reserved_0 : 3;
   } bits;
@@ -331,12 +351,11 @@ union REGION3_TOP_ADDR {
 };
 
 // Start address of IEE region (n)
-//
 union REGION3_BOT_ADDR {
   
   // Bit field definition.
   struct {
-    /// read-write - Start address of IEE region
+    // read-write - Start address of IEE region
     uint32_t BOT_ADDR : 29;
     uint32_t _reserved_0 : 3;
   } bits;
@@ -350,24 +369,29 @@ union REGION3_BOT_ADDR {
 };
 
 // Region control of core domain 0 for region (n)
-//
 union REGION3_RDC_D0 {
   
+  // Write disable of core domain 1
   enum class eRDC_D0_WRITE_DIS : uint32_t {
-    eENABLE = 0, // Write to TOP_ADDR and BOT_ADDR of this region enabled
-    eDISABLE = 1, // Write to TOP_ADDR and BOT_ADDR of this region disabled
+    // Write to TOP_ADDR and BOT_ADDR of this region enabled
+    eENABLE = 0,
+    // Write to TOP_ADDR and BOT_ADDR of this region disabled
+    eDISABLE = 1,
   };
   
+  // Lock bit for bit 0
   enum class eRDC_D0_LOCK : uint32_t {
-    eUNLOCK = 0, // Bit 0 is unlocked
-    eLOCK = 1, // Bit 0 is locked
+    // Bit 0 is unlocked
+    eUNLOCK = 0,
+    // Bit 0 is locked
+    eLOCK = 1,
   };
   
   // Bit field definition.
   struct {
-    /// read-write - Write disable of core domain 1
+    // read-write - Write disable of core domain 1
     eRDC_D0_WRITE_DIS RDC_D0_WRITE_DIS : 1;
-    /// read-writeOnce - Lock bit for bit 0
+    // read-writeOnce - Lock bit for bit 0
     eRDC_D0_LOCK RDC_D0_LOCK : 1;
     uint32_t _reserved_0 : 30;
   } bits;
@@ -381,24 +405,29 @@ union REGION3_RDC_D0 {
 };
 
 // Region control of core domain 1 for region (n)
-//
 union REGION3_RDC_D1 {
   
+  // Write disable of core domain 1
   enum class eRDC_D1_WRITE_DIS : uint32_t {
-    eENABLE = 0, // Write to TOP_ADDR and BOT_ADDR of this region enabled
-    eDISABLE = 1, // Write to TOP_ADDR and BOT_ADDR of this region disabled
+    // Write to TOP_ADDR and BOT_ADDR of this region enabled
+    eENABLE = 0,
+    // Write to TOP_ADDR and BOT_ADDR of this region disabled
+    eDISABLE = 1,
   };
   
+  // Lock bit for bit 0
   enum class eRDC_D1_LOCK : uint32_t {
-    eUNLOCK = 0, // Bit 0 is unlocked
-    eLOCK = 1, // Bit 0 is locked
+    // Bit 0 is unlocked
+    eUNLOCK = 0,
+    // Bit 0 is locked
+    eLOCK = 1,
   };
   
   // Bit field definition.
   struct {
-    /// read-write - Write disable of core domain 1
+    // read-write - Write disable of core domain 1
     eRDC_D1_WRITE_DIS RDC_D1_WRITE_DIS : 1;
-    /// read-writeOnce - Lock bit for bit 0
+    // read-writeOnce - Lock bit for bit 0
     eRDC_D1_LOCK RDC_D1_LOCK : 1;
     uint32_t _reserved_0 : 30;
   } bits;
@@ -412,12 +441,11 @@ union REGION3_RDC_D1 {
 };
 
 // End address of IEE region (n)
-//
 union REGION4_TOP_ADDR {
   
   // Bit field definition.
   struct {
-    /// read-write - End address of IEE region
+    // read-write - End address of IEE region
     uint32_t TOP_ADDR : 29;
     uint32_t _reserved_0 : 3;
   } bits;
@@ -431,12 +459,11 @@ union REGION4_TOP_ADDR {
 };
 
 // Start address of IEE region (n)
-//
 union REGION4_BOT_ADDR {
   
   // Bit field definition.
   struct {
-    /// read-write - Start address of IEE region
+    // read-write - Start address of IEE region
     uint32_t BOT_ADDR : 29;
     uint32_t _reserved_0 : 3;
   } bits;
@@ -450,24 +477,29 @@ union REGION4_BOT_ADDR {
 };
 
 // Region control of core domain 0 for region (n)
-//
 union REGION4_RDC_D0 {
   
+  // Write disable of core domain 1
   enum class eRDC_D0_WRITE_DIS : uint32_t {
-    eENABLE = 0, // Write to TOP_ADDR and BOT_ADDR of this region enabled
-    eDISABLE = 1, // Write to TOP_ADDR and BOT_ADDR of this region disabled
+    // Write to TOP_ADDR and BOT_ADDR of this region enabled
+    eENABLE = 0,
+    // Write to TOP_ADDR and BOT_ADDR of this region disabled
+    eDISABLE = 1,
   };
   
+  // Lock bit for bit 0
   enum class eRDC_D0_LOCK : uint32_t {
-    eUNLOCK = 0, // Bit 0 is unlocked
-    eLOCK = 1, // Bit 0 is locked
+    // Bit 0 is unlocked
+    eUNLOCK = 0,
+    // Bit 0 is locked
+    eLOCK = 1,
   };
   
   // Bit field definition.
   struct {
-    /// read-write - Write disable of core domain 1
+    // read-write - Write disable of core domain 1
     eRDC_D0_WRITE_DIS RDC_D0_WRITE_DIS : 1;
-    /// read-writeOnce - Lock bit for bit 0
+    // read-writeOnce - Lock bit for bit 0
     eRDC_D0_LOCK RDC_D0_LOCK : 1;
     uint32_t _reserved_0 : 30;
   } bits;
@@ -481,24 +513,29 @@ union REGION4_RDC_D0 {
 };
 
 // Region control of core domain 1 for region (n)
-//
 union REGION4_RDC_D1 {
   
+  // Write disable of core domain 1
   enum class eRDC_D1_WRITE_DIS : uint32_t {
-    eENABLE = 0, // Write to TOP_ADDR and BOT_ADDR of this region enabled
-    eDISABLE = 1, // Write to TOP_ADDR and BOT_ADDR of this region disabled
+    // Write to TOP_ADDR and BOT_ADDR of this region enabled
+    eENABLE = 0,
+    // Write to TOP_ADDR and BOT_ADDR of this region disabled
+    eDISABLE = 1,
   };
   
+  // Lock bit for bit 0
   enum class eRDC_D1_LOCK : uint32_t {
-    eUNLOCK = 0, // Bit 0 is unlocked
-    eLOCK = 1, // Bit 0 is locked
+    // Bit 0 is unlocked
+    eUNLOCK = 0,
+    // Bit 0 is locked
+    eLOCK = 1,
   };
   
   // Bit field definition.
   struct {
-    /// read-write - Write disable of core domain 1
+    // read-write - Write disable of core domain 1
     eRDC_D1_WRITE_DIS RDC_D1_WRITE_DIS : 1;
-    /// read-writeOnce - Lock bit for bit 0
+    // read-writeOnce - Lock bit for bit 0
     eRDC_D1_LOCK RDC_D1_LOCK : 1;
     uint32_t _reserved_0 : 30;
   } bits;
@@ -512,12 +549,11 @@ union REGION4_RDC_D1 {
 };
 
 // End address of IEE region (n)
-//
 union REGION5_TOP_ADDR {
   
   // Bit field definition.
   struct {
-    /// read-write - End address of IEE region
+    // read-write - End address of IEE region
     uint32_t TOP_ADDR : 29;
     uint32_t _reserved_0 : 3;
   } bits;
@@ -531,12 +567,11 @@ union REGION5_TOP_ADDR {
 };
 
 // Start address of IEE region (n)
-//
 union REGION5_BOT_ADDR {
   
   // Bit field definition.
   struct {
-    /// read-write - Start address of IEE region
+    // read-write - Start address of IEE region
     uint32_t BOT_ADDR : 29;
     uint32_t _reserved_0 : 3;
   } bits;
@@ -550,24 +585,29 @@ union REGION5_BOT_ADDR {
 };
 
 // Region control of core domain 0 for region (n)
-//
 union REGION5_RDC_D0 {
   
+  // Write disable of core domain 1
   enum class eRDC_D0_WRITE_DIS : uint32_t {
-    eENABLE = 0, // Write to TOP_ADDR and BOT_ADDR of this region enabled
-    eDISABLE = 1, // Write to TOP_ADDR and BOT_ADDR of this region disabled
+    // Write to TOP_ADDR and BOT_ADDR of this region enabled
+    eENABLE = 0,
+    // Write to TOP_ADDR and BOT_ADDR of this region disabled
+    eDISABLE = 1,
   };
   
+  // Lock bit for bit 0
   enum class eRDC_D0_LOCK : uint32_t {
-    eUNLOCK = 0, // Bit 0 is unlocked
-    eLOCK = 1, // Bit 0 is locked
+    // Bit 0 is unlocked
+    eUNLOCK = 0,
+    // Bit 0 is locked
+    eLOCK = 1,
   };
   
   // Bit field definition.
   struct {
-    /// read-write - Write disable of core domain 1
+    // read-write - Write disable of core domain 1
     eRDC_D0_WRITE_DIS RDC_D0_WRITE_DIS : 1;
-    /// read-writeOnce - Lock bit for bit 0
+    // read-writeOnce - Lock bit for bit 0
     eRDC_D0_LOCK RDC_D0_LOCK : 1;
     uint32_t _reserved_0 : 30;
   } bits;
@@ -581,24 +621,29 @@ union REGION5_RDC_D0 {
 };
 
 // Region control of core domain 1 for region (n)
-//
 union REGION5_RDC_D1 {
   
+  // Write disable of core domain 1
   enum class eRDC_D1_WRITE_DIS : uint32_t {
-    eENABLE = 0, // Write to TOP_ADDR and BOT_ADDR of this region enabled
-    eDISABLE = 1, // Write to TOP_ADDR and BOT_ADDR of this region disabled
+    // Write to TOP_ADDR and BOT_ADDR of this region enabled
+    eENABLE = 0,
+    // Write to TOP_ADDR and BOT_ADDR of this region disabled
+    eDISABLE = 1,
   };
   
+  // Lock bit for bit 0
   enum class eRDC_D1_LOCK : uint32_t {
-    eUNLOCK = 0, // Bit 0 is unlocked
-    eLOCK = 1, // Bit 0 is locked
+    // Bit 0 is unlocked
+    eUNLOCK = 0,
+    // Bit 0 is locked
+    eLOCK = 1,
   };
   
   // Bit field definition.
   struct {
-    /// read-write - Write disable of core domain 1
+    // read-write - Write disable of core domain 1
     eRDC_D1_WRITE_DIS RDC_D1_WRITE_DIS : 1;
-    /// read-writeOnce - Lock bit for bit 0
+    // read-writeOnce - Lock bit for bit 0
     eRDC_D1_LOCK RDC_D1_LOCK : 1;
     uint32_t _reserved_0 : 30;
   } bits;
@@ -612,12 +657,11 @@ union REGION5_RDC_D1 {
 };
 
 // End address of IEE region (n)
-//
 union REGION6_TOP_ADDR {
   
   // Bit field definition.
   struct {
-    /// read-write - End address of IEE region
+    // read-write - End address of IEE region
     uint32_t TOP_ADDR : 29;
     uint32_t _reserved_0 : 3;
   } bits;
@@ -631,12 +675,11 @@ union REGION6_TOP_ADDR {
 };
 
 // Start address of IEE region (n)
-//
 union REGION6_BOT_ADDR {
   
   // Bit field definition.
   struct {
-    /// read-write - Start address of IEE region
+    // read-write - Start address of IEE region
     uint32_t BOT_ADDR : 29;
     uint32_t _reserved_0 : 3;
   } bits;
@@ -650,24 +693,29 @@ union REGION6_BOT_ADDR {
 };
 
 // Region control of core domain 0 for region (n)
-//
 union REGION6_RDC_D0 {
   
+  // Write disable of core domain 1
   enum class eRDC_D0_WRITE_DIS : uint32_t {
-    eENABLE = 0, // Write to TOP_ADDR and BOT_ADDR of this region enabled
-    eDISABLE = 1, // Write to TOP_ADDR and BOT_ADDR of this region disabled
+    // Write to TOP_ADDR and BOT_ADDR of this region enabled
+    eENABLE = 0,
+    // Write to TOP_ADDR and BOT_ADDR of this region disabled
+    eDISABLE = 1,
   };
   
+  // Lock bit for bit 0
   enum class eRDC_D0_LOCK : uint32_t {
-    eUNLOCK = 0, // Bit 0 is unlocked
-    eLOCK = 1, // Bit 0 is locked
+    // Bit 0 is unlocked
+    eUNLOCK = 0,
+    // Bit 0 is locked
+    eLOCK = 1,
   };
   
   // Bit field definition.
   struct {
-    /// read-write - Write disable of core domain 1
+    // read-write - Write disable of core domain 1
     eRDC_D0_WRITE_DIS RDC_D0_WRITE_DIS : 1;
-    /// read-writeOnce - Lock bit for bit 0
+    // read-writeOnce - Lock bit for bit 0
     eRDC_D0_LOCK RDC_D0_LOCK : 1;
     uint32_t _reserved_0 : 30;
   } bits;
@@ -681,24 +729,29 @@ union REGION6_RDC_D0 {
 };
 
 // Region control of core domain 1 for region (n)
-//
 union REGION6_RDC_D1 {
   
+  // Write disable of core domain 1
   enum class eRDC_D1_WRITE_DIS : uint32_t {
-    eENABLE = 0, // Write to TOP_ADDR and BOT_ADDR of this region enabled
-    eDISABLE = 1, // Write to TOP_ADDR and BOT_ADDR of this region disabled
+    // Write to TOP_ADDR and BOT_ADDR of this region enabled
+    eENABLE = 0,
+    // Write to TOP_ADDR and BOT_ADDR of this region disabled
+    eDISABLE = 1,
   };
   
+  // Lock bit for bit 0
   enum class eRDC_D1_LOCK : uint32_t {
-    eUNLOCK = 0, // Bit 0 is unlocked
-    eLOCK = 1, // Bit 0 is locked
+    // Bit 0 is unlocked
+    eUNLOCK = 0,
+    // Bit 0 is locked
+    eLOCK = 1,
   };
   
   // Bit field definition.
   struct {
-    /// read-write - Write disable of core domain 1
+    // read-write - Write disable of core domain 1
     eRDC_D1_WRITE_DIS RDC_D1_WRITE_DIS : 1;
-    /// read-writeOnce - Lock bit for bit 0
+    // read-writeOnce - Lock bit for bit 0
     eRDC_D1_LOCK RDC_D1_LOCK : 1;
     uint32_t _reserved_0 : 30;
   } bits;
@@ -712,12 +765,11 @@ union REGION6_RDC_D1 {
 };
 
 // End address of IEE region (n)
-//
 union REGION7_TOP_ADDR {
   
   // Bit field definition.
   struct {
-    /// read-write - End address of IEE region
+    // read-write - End address of IEE region
     uint32_t TOP_ADDR : 29;
     uint32_t _reserved_0 : 3;
   } bits;
@@ -731,12 +783,11 @@ union REGION7_TOP_ADDR {
 };
 
 // Start address of IEE region (n)
-//
 union REGION7_BOT_ADDR {
   
   // Bit field definition.
   struct {
-    /// read-write - Start address of IEE region
+    // read-write - Start address of IEE region
     uint32_t BOT_ADDR : 29;
     uint32_t _reserved_0 : 3;
   } bits;
@@ -750,24 +801,29 @@ union REGION7_BOT_ADDR {
 };
 
 // Region control of core domain 0 for region (n)
-//
 union REGION7_RDC_D0 {
   
+  // Write disable of core domain 1
   enum class eRDC_D0_WRITE_DIS : uint32_t {
-    eENABLE = 0, // Write to TOP_ADDR and BOT_ADDR of this region enabled
-    eDISABLE = 1, // Write to TOP_ADDR and BOT_ADDR of this region disabled
+    // Write to TOP_ADDR and BOT_ADDR of this region enabled
+    eENABLE = 0,
+    // Write to TOP_ADDR and BOT_ADDR of this region disabled
+    eDISABLE = 1,
   };
   
+  // Lock bit for bit 0
   enum class eRDC_D0_LOCK : uint32_t {
-    eUNLOCK = 0, // Bit 0 is unlocked
-    eLOCK = 1, // Bit 0 is locked
+    // Bit 0 is unlocked
+    eUNLOCK = 0,
+    // Bit 0 is locked
+    eLOCK = 1,
   };
   
   // Bit field definition.
   struct {
-    /// read-write - Write disable of core domain 1
+    // read-write - Write disable of core domain 1
     eRDC_D0_WRITE_DIS RDC_D0_WRITE_DIS : 1;
-    /// read-writeOnce - Lock bit for bit 0
+    // read-writeOnce - Lock bit for bit 0
     eRDC_D0_LOCK RDC_D0_LOCK : 1;
     uint32_t _reserved_0 : 30;
   } bits;
@@ -781,24 +837,29 @@ union REGION7_RDC_D0 {
 };
 
 // Region control of core domain 1 for region (n)
-//
 union REGION7_RDC_D1 {
   
+  // Write disable of core domain 1
   enum class eRDC_D1_WRITE_DIS : uint32_t {
-    eENABLE = 0, // Write to TOP_ADDR and BOT_ADDR of this region enabled
-    eDISABLE = 1, // Write to TOP_ADDR and BOT_ADDR of this region disabled
+    // Write to TOP_ADDR and BOT_ADDR of this region enabled
+    eENABLE = 0,
+    // Write to TOP_ADDR and BOT_ADDR of this region disabled
+    eDISABLE = 1,
   };
   
+  // Lock bit for bit 0
   enum class eRDC_D1_LOCK : uint32_t {
-    eUNLOCK = 0, // Bit 0 is unlocked
-    eLOCK = 1, // Bit 0 is locked
+    // Bit 0 is unlocked
+    eUNLOCK = 0,
+    // Bit 0 is locked
+    eLOCK = 1,
   };
   
   // Bit field definition.
   struct {
-    /// read-write - Write disable of core domain 1
+    // read-write - Write disable of core domain 1
     eRDC_D1_WRITE_DIS RDC_D1_WRITE_DIS : 1;
-    /// read-writeOnce - Lock bit for bit 0
+    // read-writeOnce - Lock bit for bit 0
     eRDC_D1_LOCK RDC_D1_LOCK : 1;
     uint32_t _reserved_0 : 30;
   } bits;

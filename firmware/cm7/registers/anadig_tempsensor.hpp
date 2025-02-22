@@ -5,22 +5,18 @@
 #include <cstring>
 
 // MX6RT_ANADIG_REGISTER
-//
-// NOTE: This file was generated from the forge CMSIS-svd wrapper tool.
-
 namespace nANADIG_TEMPSENSOR {
 
 
 // Tempsensor Register
-//
 union TEMPSENSOR {
   
   // Bit field definition.
   struct {
     uint32_t _reserved_0 : 15;
-    /// read-write - AI toggle
+    // read-write - AI toggle
     uint32_t TEMPSNS_AI_TOGGLE : 1;
-    /// read-only - AI Busy monitor
+    // read-only - AI Busy monitor
     uint32_t TEMPSNS_AI_BUSY : 1;
     uint32_t _reserved_1 : 15;
   } bits;
@@ -34,13 +30,12 @@ union TEMPSENSOR {
 };
 
 // TEMPSNS_OTP_TRIM_VALUE_REGISTER
-//
 union TEMPSNS_OTP_TRIM_VALUE {
   
   // Bit field definition.
   struct {
     uint32_t _reserved_0 : 10;
-    /// read-only - Temperature Value at 25C
+    // read-only - Temperature Value at 25C
     uint32_t TEMPSNS_TEMP_VAL : 12;
     uint32_t _reserved_1 : 10;
   } bits;

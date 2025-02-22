@@ -5,91 +5,117 @@
 #include <cstring>
 
 // USBNC
-//
-// NOTE: This file was generated from the forge CMSIS-svd wrapper tool.
-
 namespace nUSBNC_OTG2 {
 
 
 // USB OTG Control 1 Register
-//
 union CTRL1 {
   
+  // OVER_CUR_DIS
   enum class eOVER_CUR_DIS : uint32_t {
-    eOVRCRNT_DETCT_EN = 0, // Enables overcurrent detection
-    eOVRCRNT_DETCT_DIS = 1, // Disables overcurrent detection
+    // Enables overcurrent detection
+    eOVRCRNT_DETCT_EN = 0,
+    // Disables overcurrent detection
+    eOVRCRNT_DETCT_DIS = 1,
   };
   
+  // OVER_CUR_POL
   enum class eOVER_CUR_POL : uint32_t {
-    eACTIVE_HI_OVRCRNT = 0, // High active (high on this signal represents an overcurrent condition)
-    eACTIVE_LOW_OVRCRNT = 1, // Low active (low on this signal represents an overcurrent condition)
+    // High active (high on this signal represents an overcurrent condition)
+    eACTIVE_HI_OVRCRNT = 0,
+    // Low active (low on this signal represents an overcurrent condition)
+    eACTIVE_LOW_OVRCRNT = 1,
   };
   
+  // PWR_POL
   enum class ePWR_POL : uint32_t {
-    eACTIVE_LO_PMIC = 0, // PMIC Power Pin is Low active.
-    eACTIVE_HI_PMIC = 1, // PMIC Power Pin is High active.
+    // PMIC Power Pin is Low active.
+    eACTIVE_LO_PMIC = 0,
+    // PMIC Power Pin is High active.
+    eACTIVE_HI_PMIC = 1,
   };
   
+  // WIE
   enum class eWIE : uint32_t {
-    eINT_DIS = 0, // Interrupt Disabled
-    eINT_EN = 1, // Interrupt Enabled
+    // Interrupt Disabled
+    eINT_DIS = 0,
+    // Interrupt Enabled
+    eINT_EN = 1,
   };
   
+  // WKUP_SW_EN
   enum class eWKUP_SW_EN : uint32_t {
-    eSW_WKUP_DIS = 0, // Disable
-    eSW_WKUP_EN = 1, // Enable
+    // Disable
+    eSW_WKUP_DIS = 0,
+    // Enable
+    eSW_WKUP_EN = 1,
   };
   
+  // WKUP_SW
   enum class eWKUP_SW : uint32_t {
-    eINACTIVE = 0, // Inactive
-    eFORCE_WKUP = 1, // Force wake-up
+    // Inactive
+    eINACTIVE = 0,
+    // Force wake-up
+    eFORCE_WKUP = 1,
   };
   
+  // WKUP_ID_EN
   enum class eWKUP_ID_EN : uint32_t {
-    eWKUP_ID_DIS = 0, // Disable
-    eWKUP_ID_EN = 1, // Enable
+    // Disable
+    eWKUP_ID_DIS = 0,
+    // Enable
+    eWKUP_ID_EN = 1,
   };
   
+  // WKUP_VBUS_EN
   enum class eWKUP_VBUS_EN : uint32_t {
-    eWKUP_VBUS_DIS = 0, // Disable
-    eWKUP_VBUS_EN = 1, // Enable
+    // Disable
+    eWKUP_VBUS_DIS = 0,
+    // Enable
+    eWKUP_VBUS_EN = 1,
   };
   
+  // Wake-up on DPDM change enable
   enum class eWKUP_DPDM_EN : uint32_t {
-    eDPDM_WKUP_DIS = 0, // DPDM changes wake-up to be disabled only when VBUS is 0.
-    eDPDM_WKUP_EN = 1, // (Default) DPDM changes wake-up to be enabled, it is for device only.
+    // DPDM changes wake-up to be disabled only when VBUS is 0.
+    eDPDM_WKUP_DIS = 0,
+    // (Default) DPDM changes wake-up to be enabled, it is for device only.
+    eDPDM_WKUP_EN = 1,
   };
   
+  // WIR
   enum class eWIR : uint32_t {
-    eNO_WKUP_REQ = 0, // No wake-up interrupt request received
-    eWKUP_REQ = 1, // Wake-up Interrupt Request received
+    // No wake-up interrupt request received
+    eNO_WKUP_REQ = 0,
+    // Wake-up Interrupt Request received
+    eWKUP_REQ = 1,
   };
   
   // Bit field definition.
   struct {
     uint32_t _reserved_0 : 7;
-    /// read-write - OVER_CUR_DIS
+    // read-write - OVER_CUR_DIS
     eOVER_CUR_DIS OVER_CUR_DIS : 1;
-    /// read-write - OVER_CUR_POL
+    // read-write - OVER_CUR_POL
     eOVER_CUR_POL OVER_CUR_POL : 1;
-    /// read-write - PWR_POL
+    // read-write - PWR_POL
     ePWR_POL PWR_POL : 1;
-    /// read-write - WIE
+    // read-write - WIE
     eWIE WIE : 1;
     uint32_t _reserved_1 : 3;
-    /// read-write - WKUP_SW_EN
+    // read-write - WKUP_SW_EN
     eWKUP_SW_EN WKUP_SW_EN : 1;
-    /// read-write - WKUP_SW
+    // read-write - WKUP_SW
     eWKUP_SW WKUP_SW : 1;
-    /// read-write - WKUP_ID_EN
+    // read-write - WKUP_ID_EN
     eWKUP_ID_EN WKUP_ID_EN : 1;
-    /// read-write - WKUP_VBUS_EN
+    // read-write - WKUP_VBUS_EN
     eWKUP_VBUS_EN WKUP_VBUS_EN : 1;
     uint32_t _reserved_2 : 11;
-    /// read-write - Wake-up on DPDM change enable
+    // read-write - Wake-up on DPDM change enable
     eWKUP_DPDM_EN WKUP_DPDM_EN : 1;
     uint32_t _reserved_3 : 1;
-    /// read-only - WIR
+    // read-only - WIR
     eWIR WIR : 1;
   } bits;
   
@@ -102,38 +128,48 @@ union CTRL1 {
 };
 
 // USB OTG Control 2 Register
-//
 union CTRL2 {
   
+  // VBUS_SOURCE_SEL
   enum class eVBUS_SOURCE_SEL : uint32_t {
-    eVBUS_VALID = 0, // vbus_valid
-    eSESS_VALID_1 = 1, // sess_valid
-    eSESS_VALID_2 = 2, // sess_valid
-    eSESS_VALID_3 = 3, // sess_valid
+    // vbus_valid
+    eVBUS_VALID = 0,
+    // sess_valid
+    eSESS_VALID_1 = 1,
+    // sess_valid
+    eSESS_VALID_2 = 2,
+    // sess_valid
+    eSESS_VALID_3 = 3,
   };
   
+  // Auto Resume Enable
   enum class eAUTURESUME_EN : uint32_t {
-    eDEFAULT = 0, // Default
+    // Default
+    eDEFAULT = 0,
   };
   
+  // LOWSPEED_EN
   enum class eLOWSPEED_EN : uint32_t {
-    eDEFAULT = 0, // Default
+    // Default
+    eDEFAULT = 0,
   };
   
+  // UTMI_CLK_VLD
   enum class eUTMI_CLK_VLD : uint32_t {
-    eDEFAULT = 0, // Default
+    // Default
+    eDEFAULT = 0,
   };
   
   // Bit field definition.
   struct {
-    /// read-write - VBUS_SOURCE_SEL
+    // read-write - VBUS_SOURCE_SEL
     eVBUS_SOURCE_SEL VBUS_SOURCE_SEL : 2;
-    /// read-write - Auto Resume Enable
+    // read-write - Auto Resume Enable
     eAUTURESUME_EN AUTURESUME_EN : 1;
-    /// read-write - LOWSPEED_EN
+    // read-write - LOWSPEED_EN
     eLOWSPEED_EN LOWSPEED_EN : 1;
     uint32_t _reserved_0 : 27;
-    /// read-write - UTMI_CLK_VLD
+    // read-write - UTMI_CLK_VLD
     eUTMI_CLK_VLD UTMI_CLK_VLD : 1;
   } bits;
   
@@ -146,33 +182,41 @@ union CTRL2 {
 };
 
 // USB Host HSIC Control Register
-//
 union HSIC_CTRL {
   
+  // HSIC_CLK_ON
   enum class eHSIC_CLK_ON : uint32_t {
-    eINACTIVE = 0, // Inactive
-    eACTIVE = 1, // Active
+    // Inactive
+    eINACTIVE = 0,
+    // Active
+    eACTIVE = 1,
   };
   
+  // HSIC_EN
   enum class eHSIC_EN : uint32_t {
-    eDISABLE = 0, // Disabled
-    eENABLE = 1, // Enabled
+    // Disabled
+    eDISABLE = 0,
+    // Enabled
+    eENABLE = 1,
   };
   
+  // CLK_VLD
   enum class eCLK_VLD : uint32_t {
-    eINVALID = 0, // Invalid
-    eVALID = 1, // Valid
+    // Invalid
+    eINVALID = 0,
+    // Valid
+    eVALID = 1,
   };
   
   // Bit field definition.
   struct {
     uint32_t _reserved_0 : 11;
-    /// read-write - HSIC_CLK_ON
+    // read-write - HSIC_CLK_ON
     eHSIC_CLK_ON HSIC_CLK_ON : 1;
-    /// read-write - HSIC_EN
+    // read-write - HSIC_EN
     eHSIC_EN HSIC_EN : 1;
     uint32_t _reserved_1 : 18;
-    /// read-only - CLK_VLD
+    // read-only - CLK_VLD
     eCLK_VLD CLK_VLD : 1;
   } bits;
   

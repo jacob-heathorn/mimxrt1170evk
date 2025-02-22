@@ -5,119 +5,160 @@
 #include <cstring>
 
 // SPDIF
-//
-// NOTE: This file was generated from the forge CMSIS-svd wrapper tool.
-
 namespace nSPDIF {
 
 
 // SPDIF Configuration Register
-//
 union SCR {
   
+  // USrc_Sel
   enum class eUSrc_Sel : uint32_t {
-    enone = 0, // No embedded U channel
-    espdif_rxblock = 1, // U channel from SPDIF receive block (CD mode)
-    echip_transmit = 3, // U channel from on chip transmitter
+    // No embedded U channel
+    enone = 0,
+    // U channel from SPDIF receive block (CD mode)
+    espdif_rxblock = 1,
+    // U channel from on chip transmitter
+    echip_transmit = 3,
   };
   
+  // TxSel
   enum class eTxSel : uint32_t {
-    eoff_out0 = 0, // Off and output 0
-    efeedthru = 1, // Feed-through SPDIFIN
-    enormal_op = 5, // Tx Normal operation
+    // Off and output 0
+    eoff_out0 = 0,
+    // Feed-through SPDIFIN
+    efeedthru = 1,
+    // Tx Normal operation
+    enormal_op = 5,
   };
   
+  // ValCtrl
   enum class eValCtrl : uint32_t {
-    ealways_set = 0, // Outgoing Validity always set
-    ealways_clear = 1, // Outgoing Validity always clear
+    // Outgoing Validity always set
+    ealways_set = 0,
+    // Outgoing Validity always clear
+    ealways_clear = 1,
   };
   
+  // InputSrcSel
   enum class eInputSrcSel : uint32_t {
-    espdif_in = 0, // SPDIF_IN
-    enone_sel_1 = 1, // None
-    enone_sel_2 = 2, // None
-    enone_sel_3 = 3, // None
+    // SPDIF_IN
+    espdif_in = 0,
+    // None
+    enone_sel_1 = 1,
+    // None
+    enone_sel_2 = 2,
+    // None
+    enone_sel_3 = 3,
   };
   
+  // TxFIFO_Ctrl
   enum class eTxFIFO_Ctrl : uint32_t {
-    esend_zero = 0, // Send out digital zero on SPDIF Tx
-    enormal = 1, // Tx Normal operation
-    ereset_one = 2, // Reset to 1 sample remaining
+    // Send out digital zero on SPDIF Tx
+    esend_zero = 0,
+    // Tx Normal operation
+    enormal = 1,
+    // Reset to 1 sample remaining
+    ereset_one = 2,
   };
   
+  // TxFIFOEmpty_Sel
   enum class eTxFIFOEmpty_Sel : uint32_t {
-    eempty_int_0 = 0, // Empty interrupt if 0 sample in Tx left and right FIFOs
-    eempty_int_4 = 1, // Empty interrupt if at most 4 sample in Tx left and right FIFOs
-    eempty_int_8 = 2, // Empty interrupt if at most 8 sample in Tx left and right FIFOs
-    eempty_int_12 = 3, // Empty interrupt if at most 12 sample in Tx left and right FIFOs
+    // Empty interrupt if 0 sample in Tx left and right FIFOs
+    eempty_int_0 = 0,
+    // Empty interrupt if at most 4 sample in Tx left and right FIFOs
+    eempty_int_4 = 1,
+    // Empty interrupt if at most 8 sample in Tx left and right FIFOs
+    eempty_int_8 = 2,
+    // Empty interrupt if at most 12 sample in Tx left and right FIFOs
+    eempty_int_12 = 3,
   };
   
+  // TxAutoSync
   enum class eTxAutoSync : uint32_t {
-    eoff = 0, // Tx FIFO auto sync off
-    eon = 1, // Tx FIFO auto sync on
+    // Tx FIFO auto sync off
+    eoff = 0,
+    // Tx FIFO auto sync on
+    eon = 1,
   };
   
+  // RxAutoSync
   enum class eRxAutoSync : uint32_t {
-    eoff = 0, // Rx FIFO auto sync off
-    eon = 1, // RxFIFO auto sync on
+    // Rx FIFO auto sync off
+    eoff = 0,
+    // RxFIFO auto sync on
+    eon = 1,
   };
   
+  // RxFIFOFull_Sel
   enum class eRxFIFOFull_Sel : uint32_t {
-    efull_int_1 = 0, // Full interrupt if at least 1 sample in Rx left and right FIFOs
-    efull_int_4 = 1, // Full interrupt if at least 4 sample in Rx left and right FIFOs
-    efull_int_8 = 2, // Full interrupt if at least 8 sample in Rx left and right FIFOs
-    efull_int_16 = 3, // Full interrupt if at least 16 sample in Rx left and right FIFO
+    // Full interrupt if at least 1 sample in Rx left and right FIFOs
+    efull_int_1 = 0,
+    // Full interrupt if at least 4 sample in Rx left and right FIFOs
+    efull_int_4 = 1,
+    // Full interrupt if at least 8 sample in Rx left and right FIFOs
+    efull_int_8 = 2,
+    // Full interrupt if at least 16 sample in Rx left and right FIFO
+    efull_int_16 = 3,
   };
   
+  // RxFIFO_Rst
   enum class eRxFIFO_Rst : uint32_t {
-    enormal = 0, // Normal operation
-    ereset_one = 1, // Reset register to 1 sample remaining
+    // Normal operation
+    enormal = 0,
+    // Reset register to 1 sample remaining
+    ereset_one = 1,
   };
   
+  // RxFIFO_Off_On
   enum class eRxFIFO_Off_On : uint32_t {
-    eon_0 = 0, // SPDIF Rx FIFO is on
-    eoff_1 = 1, // SPDIF Rx FIFO is off. Does not accept data from interface
+    // SPDIF Rx FIFO is on
+    eon_0 = 0,
+    // SPDIF Rx FIFO is off. Does not accept data from interface
+    eoff_1 = 1,
   };
   
+  // RxFIFO_Ctrl
   enum class eRxFIFO_Ctrl : uint32_t {
-    enormal = 0, // Normal operation
-    ealways_zero = 1, // Always read zero from Rx data register
+    // Normal operation
+    enormal = 0,
+    // Always read zero from Rx data register
+    ealways_zero = 1,
   };
   
   // Bit field definition.
   struct {
-    /// read-write - USrc_Sel
+    // read-write - USrc_Sel
     eUSrc_Sel USrc_Sel : 2;
-    /// read-write - TxSel
+    // read-write - TxSel
     eTxSel TxSel : 3;
-    /// read-write - ValCtrl
+    // read-write - ValCtrl
     eValCtrl ValCtrl : 1;
-    /// read-write - InputSrcSel
+    // read-write - InputSrcSel
     eInputSrcSel InputSrcSel : 2;
-    /// read-write - DMA_TX_En
+    // read-write - DMA_TX_En
     uint32_t DMA_TX_En : 1;
-    /// read-write - DMA_Rx_En
+    // read-write - DMA_Rx_En
     uint32_t DMA_Rx_En : 1;
-    /// read-write - TxFIFO_Ctrl
+    // read-write - TxFIFO_Ctrl
     eTxFIFO_Ctrl TxFIFO_Ctrl : 2;
-    /// read-write - soft_reset
+    // read-write - soft_reset
     uint32_t soft_reset : 1;
-    /// read-write - LOW_POWER
+    // read-write - LOW_POWER
     uint32_t LOW_POWER : 1;
     uint32_t _reserved_0 : 1;
-    /// read-write - TxFIFOEmpty_Sel
+    // read-write - TxFIFOEmpty_Sel
     eTxFIFOEmpty_Sel TxFIFOEmpty_Sel : 2;
-    /// read-write - TxAutoSync
+    // read-write - TxAutoSync
     eTxAutoSync TxAutoSync : 1;
-    /// read-write - RxAutoSync
+    // read-write - RxAutoSync
     eRxAutoSync RxAutoSync : 1;
-    /// read-write - RxFIFOFull_Sel
+    // read-write - RxFIFOFull_Sel
     eRxFIFOFull_Sel RxFIFOFull_Sel : 2;
-    /// read-write - RxFIFO_Rst
+    // read-write - RxFIFO_Rst
     eRxFIFO_Rst RxFIFO_Rst : 1;
-    /// read-write - RxFIFO_Off_On
+    // read-write - RxFIFO_Off_On
     eRxFIFO_Off_On RxFIFO_Off_On : 1;
-    /// read-write - RxFIFO_Ctrl
+    // read-write - RxFIFO_Ctrl
     eRxFIFO_Ctrl RxFIFO_Ctrl : 1;
     uint32_t _reserved_1 : 8;
   } bits;
@@ -131,18 +172,20 @@ union SCR {
 };
 
 // CDText Control Register
-//
 union SRCD {
   
+  // USyncMode
   enum class eUSyncMode : uint32_t {
-    enon_cddata = 0, // Non-CD data
-    ecduser_chsubcode = 1, // CD user channel subcode
+    // Non-CD data
+    enon_cddata = 0,
+    // CD user channel subcode
+    ecduser_chsubcode = 1,
   };
   
   // Bit field definition.
   struct {
     uint32_t _reserved_0 : 1;
-    /// read-write - USyncMode
+    // read-write - USyncMode
     eUSyncMode USyncMode : 1;
     uint32_t _reserved_1 : 30;
   } bits;
@@ -156,36 +199,50 @@ union SRCD {
 };
 
 // PhaseConfig Register
-//
 union SRPC {
   
+  // GainSel
   enum class eGainSel : uint32_t {
-    egainsel_0b000 = 0, // 24*(2**10)
-    egainsel_0b001 = 1, // 16*(2**10)
-    egainsel_0b010 = 2, // 12*(2**10)
-    egainsel_0b011 = 3, // 8*(2**10)
-    egainsel_0b100 = 4, // 6*(2**10)
-    egainsel_0b101 = 5, // 4*(2**10)
-    egainsel_0b110 = 6, // 3*(2**10)
+    // 24*(2**10)
+    egainsel_0b000 = 0,
+    // 16*(2**10)
+    egainsel_0b001 = 1,
+    // 12*(2**10)
+    egainsel_0b010 = 2,
+    // 8*(2**10)
+    egainsel_0b011 = 3,
+    // 6*(2**10)
+    egainsel_0b100 = 4,
+    // 4*(2**10)
+    egainsel_0b101 = 5,
+    // 3*(2**10)
+    egainsel_0b110 = 6,
   };
   
+  // ClkSrc_Sel
   enum class eClkSrc_Sel : uint32_t {
-    eclksrc_0b0000 = 0, // if (DPLL Locked) SPDIF_RxClk else REF_CLK_32K (XTALOSC)
-    eclksrc_0b0001 = 1, // if (DPLL Locked) SPDIF_RxClk else tx_clk (SPDIF0_CLK_ROOT)
-    eclksrc_0b0011 = 3, // if (DPLL Locked) SPDIF_RxClk else SPDIF_EXT_CLK
-    eclksrc_0b0101 = 5, // REF_CLK_32K (XTALOSC)
-    eclksrc_0b0110 = 6, // tx_clk (SPDIF0_CLK_ROOT)
-    eclksrc_0b1000 = 8, // SPDIF_EXT_CLK
+    // if (DPLL Locked) SPDIF_RxClk else REF_CLK_32K (XTALOSC)
+    eclksrc_0b0000 = 0,
+    // if (DPLL Locked) SPDIF_RxClk else tx_clk (SPDIF0_CLK_ROOT)
+    eclksrc_0b0001 = 1,
+    // if (DPLL Locked) SPDIF_RxClk else SPDIF_EXT_CLK
+    eclksrc_0b0011 = 3,
+    // REF_CLK_32K (XTALOSC)
+    eclksrc_0b0101 = 5,
+    // tx_clk (SPDIF0_CLK_ROOT)
+    eclksrc_0b0110 = 6,
+    // SPDIF_EXT_CLK
+    eclksrc_0b1000 = 8,
   };
   
   // Bit field definition.
   struct {
     uint32_t _reserved_0 : 3;
-    /// read-write - GainSel
+    // read-write - GainSel
     eGainSel GainSel : 3;
-    /// read-only - LOCK
+    // read-only - LOCK
     uint32_t LOCK : 1;
-    /// read-write - ClkSrc_Sel
+    // read-write - ClkSrc_Sel
     eClkSrc_Sel ClkSrc_Sel : 4;
     uint32_t _reserved_1 : 21;
   } bits;
@@ -199,47 +256,46 @@ union SRPC {
 };
 
 // InterruptEn Register
-//
 union SIE {
   
   // Bit field definition.
   struct {
-    /// read-write - RxFIFOFul
+    // read-write - RxFIFOFul
     uint32_t RxFIFOFul : 1;
-    /// read-write - TxEm
+    // read-write - TxEm
     uint32_t TxEm : 1;
-    /// read-write - LockLoss
+    // read-write - LockLoss
     uint32_t LockLoss : 1;
-    /// read-write - RxFIFOResyn
+    // read-write - RxFIFOResyn
     uint32_t RxFIFOResyn : 1;
-    /// read-write - RxFIFOUnOv
+    // read-write - RxFIFOUnOv
     uint32_t RxFIFOUnOv : 1;
-    /// read-write - UQErr
+    // read-write - UQErr
     uint32_t UQErr : 1;
-    /// read-write - UQSync
+    // read-write - UQSync
     uint32_t UQSync : 1;
-    /// read-write - QRxOv
+    // read-write - QRxOv
     uint32_t QRxOv : 1;
-    /// read-write - QRxFul
+    // read-write - QRxFul
     uint32_t QRxFul : 1;
-    /// read-write - URxOv
+    // read-write - URxOv
     uint32_t URxOv : 1;
-    /// read-write - URxFul
+    // read-write - URxFul
     uint32_t URxFul : 1;
     uint32_t _reserved_0 : 3;
-    /// read-write - BitErr
+    // read-write - BitErr
     uint32_t BitErr : 1;
-    /// read-write - SymErr
+    // read-write - SymErr
     uint32_t SymErr : 1;
-    /// read-write - ValNoGood
+    // read-write - ValNoGood
     uint32_t ValNoGood : 1;
-    /// read-write - CNew
+    // read-write - CNew
     uint32_t CNew : 1;
-    /// read-write - TxResyn
+    // read-write - TxResyn
     uint32_t TxResyn : 1;
-    /// read-write - TxUnOv
+    // read-write - TxUnOv
     uint32_t TxUnOv : 1;
-    /// read-write - Lock
+    // read-write - Lock
     uint32_t Lock : 1;
     uint32_t _reserved_1 : 11;
   } bits;
@@ -253,41 +309,40 @@ union SIE {
 };
 
 // InterruptClear Register
-//
 union SIC {
   
   // Bit field definition.
   struct {
     uint32_t _reserved_0 : 2;
-    /// write-only - LockLoss
+    // write-only - LockLoss
     uint32_t LockLoss : 1;
-    /// write-only - RxFIFOResyn
+    // write-only - RxFIFOResyn
     uint32_t RxFIFOResyn : 1;
-    /// write-only - RxFIFOUnOv
+    // write-only - RxFIFOUnOv
     uint32_t RxFIFOUnOv : 1;
-    /// write-only - UQErr
+    // write-only - UQErr
     uint32_t UQErr : 1;
-    /// write-only - UQSync
+    // write-only - UQSync
     uint32_t UQSync : 1;
-    /// write-only - QRxOv
+    // write-only - QRxOv
     uint32_t QRxOv : 1;
     uint32_t _reserved_1 : 1;
-    /// write-only - URxOv
+    // write-only - URxOv
     uint32_t URxOv : 1;
     uint32_t _reserved_2 : 4;
-    /// write-only - BitErr
+    // write-only - BitErr
     uint32_t BitErr : 1;
-    /// write-only - SymErr
+    // write-only - SymErr
     uint32_t SymErr : 1;
-    /// write-only - ValNoGood
+    // write-only - ValNoGood
     uint32_t ValNoGood : 1;
-    /// write-only - CNew
+    // write-only - CNew
     uint32_t CNew : 1;
-    /// write-only - TxResyn
+    // write-only - TxResyn
     uint32_t TxResyn : 1;
-    /// write-only - TxUnOv
+    // write-only - TxUnOv
     uint32_t TxUnOv : 1;
-    /// write-only - Lock
+    // write-only - Lock
     uint32_t Lock : 1;
     uint32_t _reserved_3 : 11;
   } bits;
@@ -301,47 +356,46 @@ union SIC {
 };
 
 // InterruptStat Register
-//
 union SIS {
   
   // Bit field definition.
   struct {
-    /// read-only - RxFIFOFul
+    // read-only - RxFIFOFul
     uint32_t RxFIFOFul : 1;
-    /// read-only - TxEm
+    // read-only - TxEm
     uint32_t TxEm : 1;
-    /// read-only - LockLoss
+    // read-only - LockLoss
     uint32_t LockLoss : 1;
-    /// read-only - RxFIFOResyn
+    // read-only - RxFIFOResyn
     uint32_t RxFIFOResyn : 1;
-    /// read-only - RxFIFOUnOv
+    // read-only - RxFIFOUnOv
     uint32_t RxFIFOUnOv : 1;
-    /// read-only - UQErr
+    // read-only - UQErr
     uint32_t UQErr : 1;
-    /// read-only - UQSync
+    // read-only - UQSync
     uint32_t UQSync : 1;
-    /// read-only - QRxOv
+    // read-only - QRxOv
     uint32_t QRxOv : 1;
-    /// read-only - QRxFul
+    // read-only - QRxFul
     uint32_t QRxFul : 1;
-    /// read-only - URxOv
+    // read-only - URxOv
     uint32_t URxOv : 1;
-    /// read-only - URxFul
+    // read-only - URxFul
     uint32_t URxFul : 1;
     uint32_t _reserved_0 : 3;
-    /// read-only - BitErr
+    // read-only - BitErr
     uint32_t BitErr : 1;
-    /// read-only - SymErr
+    // read-only - SymErr
     uint32_t SymErr : 1;
-    /// read-only - ValNoGood
+    // read-only - ValNoGood
     uint32_t ValNoGood : 1;
-    /// read-only - CNew
+    // read-only - CNew
     uint32_t CNew : 1;
-    /// read-only - TxResyn
+    // read-only - TxResyn
     uint32_t TxResyn : 1;
-    /// read-only - TxUnOv
+    // read-only - TxUnOv
     uint32_t TxUnOv : 1;
-    /// read-only - Lock
+    // read-only - Lock
     uint32_t Lock : 1;
     uint32_t _reserved_1 : 11;
   } bits;
@@ -355,12 +409,11 @@ union SIS {
 };
 
 // SPDIFRxLeft Register
-//
 union SRL {
   
   // Bit field definition.
   struct {
-    /// read-only - RxDataLeft
+    // read-only - RxDataLeft
     uint32_t RxDataLeft : 24;
     uint32_t _reserved_0 : 8;
   } bits;
@@ -374,12 +427,11 @@ union SRL {
 };
 
 // SPDIFRxRight Register
-//
 union SRR {
   
   // Bit field definition.
   struct {
-    /// read-only - RxDataRight
+    // read-only - RxDataRight
     uint32_t RxDataRight : 24;
     uint32_t _reserved_0 : 8;
   } bits;
@@ -393,12 +445,11 @@ union SRR {
 };
 
 // SPDIFRxCChannel_h Register
-//
 union SRCSH {
   
   // Bit field definition.
   struct {
-    /// read-only - RxCChannel_h
+    // read-only - RxCChannel_h
     uint32_t RxCChannel_h : 24;
     uint32_t _reserved_0 : 8;
   } bits;
@@ -412,12 +463,11 @@ union SRCSH {
 };
 
 // SPDIFRxCChannel_l Register
-//
 union SRCSL {
   
   // Bit field definition.
   struct {
-    /// read-only - RxCChannel_l
+    // read-only - RxCChannel_l
     uint32_t RxCChannel_l : 24;
     uint32_t _reserved_0 : 8;
   } bits;
@@ -431,12 +481,11 @@ union SRCSL {
 };
 
 // UchannelRx Register
-//
 union SRU {
   
   // Bit field definition.
   struct {
-    /// read-only - RxUChannel
+    // read-only - RxUChannel
     uint32_t RxUChannel : 24;
     uint32_t _reserved_0 : 8;
   } bits;
@@ -450,12 +499,11 @@ union SRU {
 };
 
 // QchannelRx Register
-//
 union SRQ {
   
   // Bit field definition.
   struct {
-    /// read-only - RxQChannel
+    // read-only - RxQChannel
     uint32_t RxQChannel : 24;
     uint32_t _reserved_0 : 8;
   } bits;
@@ -469,12 +517,11 @@ union SRQ {
 };
 
 // SPDIFTxLeft Register
-//
 union STL {
   
   // Bit field definition.
   struct {
-    /// write-only - TxDataLeft
+    // write-only - TxDataLeft
     uint32_t TxDataLeft : 24;
     uint32_t _reserved_0 : 8;
   } bits;
@@ -488,12 +535,11 @@ union STL {
 };
 
 // SPDIFTxRight Register
-//
 union STR {
   
   // Bit field definition.
   struct {
-    /// write-only - TxDataRight
+    // write-only - TxDataRight
     uint32_t TxDataRight : 24;
     uint32_t _reserved_0 : 8;
   } bits;
@@ -507,12 +553,11 @@ union STR {
 };
 
 // SPDIFTxCChannelCons_h Register
-//
 union STCSCH {
   
   // Bit field definition.
   struct {
-    /// read-write - TxCChannelCons_h
+    // read-write - TxCChannelCons_h
     uint32_t TxCChannelCons_h : 24;
     uint32_t _reserved_0 : 8;
   } bits;
@@ -526,12 +571,11 @@ union STCSCH {
 };
 
 // SPDIFTxCChannelCons_l Register
-//
 union STCSCL {
   
   // Bit field definition.
   struct {
-    /// read-write - TxCChannelCons_l
+    // read-write - TxCChannelCons_l
     uint32_t TxCChannelCons_l : 24;
     uint32_t _reserved_0 : 8;
   } bits;
@@ -545,12 +589,11 @@ union STCSCL {
 };
 
 // FreqMeas Register
-//
 union SRFM {
   
   // Bit field definition.
   struct {
-    /// read-only - FreqMeas
+    // read-only - FreqMeas
     uint32_t FreqMeas : 24;
     uint32_t _reserved_0 : 8;
   } bits;
@@ -564,42 +607,57 @@ union SRFM {
 };
 
 // SPDIFTxClk Register
-//
 union STC {
   
+  // TxClk_DF
   enum class eTxClk_DF : uint32_t {
-    ediv1 = 0, // divider factor is 1
-    ediv2 = 1, // divider factor is 2
-    ediv128 = 127, // divider factor is 128
+    // divider factor is 1
+    ediv1 = 0,
+    // divider factor is 2
+    ediv2 = 1,
+    // divider factor is 128
+    ediv128 = 127,
   };
   
+  // tx_all_clk_en
   enum class etx_all_clk_en : uint32_t {
-    edisable = 0, // disable transfer clock.
-    eenable = 1, // enable transfer clock.
+    // disable transfer clock.
+    edisable = 0,
+    // enable transfer clock.
+    eenable = 1,
   };
   
+  // TxClk_Source
   enum class eTxClk_Source : uint32_t {
-    etxclk_src_0b000 = 0, // REF_CLK_32K input (XTALOSC 32 kHz clock)
-    etxclk_src_0b001 = 1, // tx_clk input (from SPDIF0_CLK_ROOT. See clock control block for more information.)
-    etxclk_src_0b011 = 3, // SPDIF_EXT_CLK, from pads
-    etxclk_src_0b101 = 5, // ipg_clk input (frequency divided)
+    // REF_CLK_32K input (XTALOSC 32 kHz clock)
+    etxclk_src_0b000 = 0,
+    // tx_clk input (from SPDIF0_CLK_ROOT. See clock control block for more information.)
+    etxclk_src_0b001 = 1,
+    // SPDIF_EXT_CLK, from pads
+    etxclk_src_0b011 = 3,
+    // ipg_clk input (frequency divided)
+    etxclk_src_0b101 = 5,
   };
   
+  // SYSCLK_DF
   enum class eSYSCLK_DF : uint32_t {
-    eno_clk = 0, // no clock signal
-    ediv2 = 1, // divider factor is 2
-    ediv512 = 511, // divider factor is 512
+    // no clock signal
+    eno_clk = 0,
+    // divider factor is 2
+    ediv2 = 1,
+    // divider factor is 512
+    ediv512 = 511,
   };
   
   // Bit field definition.
   struct {
-    /// read-write - TxClk_DF
+    // read-write - TxClk_DF
     eTxClk_DF TxClk_DF : 7;
-    /// read-write - tx_all_clk_en
+    // read-write - tx_all_clk_en
     etx_all_clk_en tx_all_clk_en : 1;
-    /// read-write - TxClk_Source
+    // read-write - TxClk_Source
     eTxClk_Source TxClk_Source : 3;
-    /// read-write - SYSCLK_DF
+    // read-write - SYSCLK_DF
     eSYSCLK_DF SYSCLK_DF : 9;
     uint32_t _reserved_0 : 12;
   } bits;

@@ -5,20 +5,16 @@
 #include <cstring>
 
 // PGMC_MIF
-//
-// NOTE: This file was generated from the forge CMSIS-svd wrapper tool.
-
 namespace nPGMC_CPC0_MIF1 {
 
 
 // MIF Authentication Control
-//
 union MIF_AUTHEN_CTRL {
   
   // Bit field definition.
   struct {
     uint32_t _reserved_0 : 20;
-    /// read-write - Configuration lock
+    // read-write - Configuration lock
     uint32_t LOCK_CFG : 1;
     uint32_t _reserved_1 : 11;
   } bits;
@@ -32,12 +28,11 @@ union MIF_AUTHEN_CTRL {
 };
 
 // MIF MLPL control of SLEEP
-//
 union MIF_MLPL_SLEEP {
   
   // Bit field definition.
   struct {
-    /// read-write - Signal behavior at each MLPL
+    // read-write - Signal behavior at each MLPL
     uint32_t MLPL_CTRL : 16;
     uint32_t _reserved_0 : 16;
   } bits;
@@ -51,12 +46,11 @@ union MIF_MLPL_SLEEP {
 };
 
 // MIF MLPL control of IG
-//
 union MIF_MLPL_IG {
   
   // Bit field definition.
   struct {
-    /// read-write - Signal behavior at each MLPL
+    // read-write - Signal behavior at each MLPL
     uint32_t MLPL_CTRL : 16;
     uint32_t _reserved_0 : 16;
   } bits;
@@ -70,12 +64,11 @@ union MIF_MLPL_IG {
 };
 
 // MIF MLPL control of LS
-//
 union MIF_MLPL_LS {
   
   // Bit field definition.
   struct {
-    /// read-write - Signal behavior at each MLPL
+    // read-write - Signal behavior at each MLPL
     uint32_t MLPL_CTRL : 16;
     uint32_t _reserved_0 : 16;
   } bits;
@@ -89,12 +82,11 @@ union MIF_MLPL_LS {
 };
 
 // MIF MLPL control of HS
-//
 union MIF_MLPL_HS {
   
   // Bit field definition.
   struct {
-    /// read-write - Signal behavior at each MLPL
+    // read-write - Signal behavior at each MLPL
     uint32_t MLPL_CTRL : 16;
     uint32_t _reserved_0 : 16;
   } bits;
@@ -108,12 +100,11 @@ union MIF_MLPL_HS {
 };
 
 // MIF MLPL control of STDBY
-//
 union MIF_MLPL_STDBY {
   
   // Bit field definition.
   struct {
-    /// read-write - Signal behavior at each MLPL
+    // read-write - Signal behavior at each MLPL
     uint32_t MLPL_CTRL : 16;
     uint32_t _reserved_0 : 16;
   } bits;
@@ -127,12 +118,11 @@ union MIF_MLPL_STDBY {
 };
 
 // MIF MLPL control of array power down
-//
 union MIF_MLPL_ARR_PDN {
   
   // Bit field definition.
   struct {
-    /// read-write - Signal behavior at each MLPL
+    // read-write - Signal behavior at each MLPL
     uint32_t MLPL_CTRL : 16;
     uint32_t _reserved_0 : 16;
   } bits;
@@ -146,12 +136,11 @@ union MIF_MLPL_ARR_PDN {
 };
 
 // MIF MLPL control of peripheral power down
-//
 union MIF_MLPL_PER_PDN {
   
   // Bit field definition.
   struct {
-    /// read-write - Signal behavior at each MLPL
+    // read-write - Signal behavior at each MLPL
     uint32_t MLPL_CTRL : 16;
     uint32_t _reserved_0 : 16;
   } bits;
@@ -165,15 +154,14 @@ union MIF_MLPL_PER_PDN {
 };
 
 // MIF MLPL control of INITN
-//
 union MIF_MLPL_INITN {
   
   // Bit field definition.
   struct {
-    /// read-write - Signal behavior at each MLPL
+    // read-write - Signal behavior at each MLPL
     uint32_t MLPL_CTRL : 16;
     uint32_t _reserved_0 : 15;
-    /// read-write - Bypass vdd_ok. This field is locked by AUTHEN_CTRL[LOCK_CFG] field.
+    // read-write - Bypass vdd_ok. This field is locked by AUTHEN_CTRL[LOCK_CFG] field.
     uint32_t BYPASS_VDD_OK : 1;
   } bits;
   
@@ -186,12 +174,11 @@ union MIF_MLPL_INITN {
 };
 
 // MIF MLPL control of isolation enable
-//
 union MIF_MLPL_ISO {
   
   // Bit field definition.
   struct {
-    /// read-write - Signal behavior at each MLPL
+    // read-write - Signal behavior at each MLPL
     uint32_t MLPL_CTRL : 16;
     uint32_t _reserved_0 : 16;
   } bits;

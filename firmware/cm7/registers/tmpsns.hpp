@@ -5,29 +5,27 @@
 #include <cstring>
 
 // Temperature Sensor Memory Map
-//
-// NOTE: This file was generated from the forge CMSIS-svd wrapper tool.
-
 namespace nTMPSNS {
 
 
 // Temperature Sensor Control Register 0
-//
 union CTRL0 {
   
+  // Voltage Select
   enum class eV_SEL : uint32_t {
-    eV_SEL_0 = 0, // Normal temperature measuring mode
+    // Normal temperature measuring mode
+    eV_SEL_0 = 0,
   };
   
   // Bit field definition.
   struct {
-    /// read-write - Ramp slope calibration control
+    // read-write - Ramp slope calibration control
     uint32_t SLOPE_CAL : 6;
     uint32_t _reserved_0 : 2;
-    /// read-write - Voltage Select
+    // read-write - Voltage Select
     eV_SEL V_SEL : 2;
     uint32_t _reserved_1 : 2;
-    /// read-write - Current bias trim value
+    // read-write - Current bias trim value
     uint32_t IBIAS_TRIM : 4;
     uint32_t _reserved_2 : 16;
   } bits;
@@ -41,18 +39,17 @@ union CTRL0 {
 };
 
 // Temperature Sensor Control Register 0
-//
 union CTRL0_SET {
   
   // Bit field definition.
   struct {
-    /// read-write - Ramp slope calibration control
+    // read-write - Ramp slope calibration control
     uint32_t SLOPE_CAL : 6;
     uint32_t _reserved_0 : 2;
-    /// read-write - Voltage Select
+    // read-write - Voltage Select
     uint32_t V_SEL : 2;
     uint32_t _reserved_1 : 2;
-    /// read-write - Current bias trim value
+    // read-write - Current bias trim value
     uint32_t IBIAS_TRIM : 4;
     uint32_t _reserved_2 : 16;
   } bits;
@@ -66,18 +63,17 @@ union CTRL0_SET {
 };
 
 // Temperature Sensor Control Register 0
-//
 union CTRL0_CLR {
   
   // Bit field definition.
   struct {
-    /// read-write - Ramp slope calibration control
+    // read-write - Ramp slope calibration control
     uint32_t SLOPE_CAL : 6;
     uint32_t _reserved_0 : 2;
-    /// read-write - Voltage Select
+    // read-write - Voltage Select
     uint32_t V_SEL : 2;
     uint32_t _reserved_1 : 2;
-    /// read-write - Current bias trim value
+    // read-write - Current bias trim value
     uint32_t IBIAS_TRIM : 4;
     uint32_t _reserved_2 : 16;
   } bits;
@@ -91,18 +87,17 @@ union CTRL0_CLR {
 };
 
 // Temperature Sensor Control Register 0
-//
 union CTRL0_TOG {
   
   // Bit field definition.
   struct {
-    /// read-write - Ramp slope calibration control
+    // read-write - Ramp slope calibration control
     uint32_t SLOPE_CAL : 6;
     uint32_t _reserved_0 : 2;
-    /// read-write - Voltage Select
+    // read-write - Voltage Select
     uint32_t V_SEL : 2;
     uint32_t _reserved_1 : 2;
-    /// read-write - Current bias trim value
+    // read-write - Current bias trim value
     uint32_t IBIAS_TRIM : 4;
     uint32_t _reserved_2 : 16;
   } bits;
@@ -116,77 +111,108 @@ union CTRL0_TOG {
 };
 
 // Temperature Sensor Control Register 1
-//
 union CTRL1 {
   
+  // Temperature Measurement Frequency
   enum class eFREQ : uint32_t {
-    eFREQ_0 = 0, // Single Reading Mode. New reading available every time CTRL1[START] bit is set to 1 from 0.
-    eFREQ_1 = 1, // Continuous Reading Mode. Next temperature reading taken after programmed number of cycles after current reading is complete.
-    eFREQ_2 = 2, // Continuous Reading Mode. Next temperature reading taken after programmed number of cycles after current reading is complete.
-    eFREQ_3 = 3, // Continuous Reading Mode. Next temperature reading taken after programmed number of cycles after current reading is complete.
-    eFREQ_4 = 4, // Continuous Reading Mode. Next temperature reading taken after programmed number of cycles after current reading is complete.
-    eFREQ_5 = 5, // Continuous Reading Mode. Next temperature reading taken after programmed number of cycles after current reading is complete.
-    eFREQ_6 = 6, // Continuous Reading Mode. Next temperature reading taken after programmed number of cycles after current reading is complete.
-    eFREQ_7 = 7, // Continuous Reading Mode. Next temperature reading taken after programmed number of cycles after current reading is complete.
-    eFREQ_8 = 8, // Continuous Reading Mode. Next temperature reading taken after programmed number of cycles after current reading is complete.
-    eFREQ_9 = 9, // Continuous Reading Mode. Next temperature reading taken after programmed number of cycles after current reading is complete.
+    // Single Reading Mode. New reading available every time CTRL1[START] bit is set to 1 from 0.
+    eFREQ_0 = 0,
+    // Continuous Reading Mode. Next temperature reading taken after programmed number of cycles after current reading is complete.
+    eFREQ_1 = 1,
+    // Continuous Reading Mode. Next temperature reading taken after programmed number of cycles after current reading is complete.
+    eFREQ_2 = 2,
+    // Continuous Reading Mode. Next temperature reading taken after programmed number of cycles after current reading is complete.
+    eFREQ_3 = 3,
+    // Continuous Reading Mode. Next temperature reading taken after programmed number of cycles after current reading is complete.
+    eFREQ_4 = 4,
+    // Continuous Reading Mode. Next temperature reading taken after programmed number of cycles after current reading is complete.
+    eFREQ_5 = 5,
+    // Continuous Reading Mode. Next temperature reading taken after programmed number of cycles after current reading is complete.
+    eFREQ_6 = 6,
+    // Continuous Reading Mode. Next temperature reading taken after programmed number of cycles after current reading is complete.
+    eFREQ_7 = 7,
+    // Continuous Reading Mode. Next temperature reading taken after programmed number of cycles after current reading is complete.
+    eFREQ_8 = 8,
+    // Continuous Reading Mode. Next temperature reading taken after programmed number of cycles after current reading is complete.
+    eFREQ_9 = 9,
   };
   
+  // Measurement finished interrupt enable
   enum class eFINISH_IE : uint32_t {
-    eFINISH_IE_0 = 0, // Interrupt is disabled
-    eFINISH_IE_1 = 1, // Interrupt is enabled
+    // Interrupt is disabled
+    eFINISH_IE_0 = 0,
+    // Interrupt is enabled
+    eFINISH_IE_1 = 1,
   };
   
+  // Low temperature interrupt enable
   enum class eLOW_TEMP_IE : uint32_t {
-    eLOW_TEMP_IE_0 = 0, // Interrupt is disabled
-    eLOW_TEMP_IE_1 = 1, // Interrupt is enabled
+    // Interrupt is disabled
+    eLOW_TEMP_IE_0 = 0,
+    // Interrupt is enabled
+    eLOW_TEMP_IE_1 = 1,
   };
   
+  // High temperature interrupt enable
   enum class eHIGH_TEMP_IE : uint32_t {
-    eHIGH_TEMP_IE_0 = 0, // Interrupt is disabled
-    eHIGH_TEMP_IE_1 = 1, // Interrupt is enabled
+    // Interrupt is disabled
+    eHIGH_TEMP_IE_0 = 0,
+    // Interrupt is enabled
+    eHIGH_TEMP_IE_1 = 1,
   };
   
+  // Panic temperature interrupt enable
   enum class ePANIC_TEMP_IE : uint32_t {
-    ePANIC_TEMP_IE_0 = 0, // Interrupt is disabled
-    ePANIC_TEMP_IE_1 = 1, // Interrupt is enabled
+    // Interrupt is disabled
+    ePANIC_TEMP_IE_0 = 0,
+    // Interrupt is enabled
+    ePANIC_TEMP_IE_1 = 1,
   };
   
+  // Start Temperature Measurement
   enum class eSTART : uint32_t {
-    eSTART_0 = 0, // No new temperature reading taken
-    eSTART_1 = 1, // Initiate a new temperature reading
+    // No new temperature reading taken
+    eSTART_0 = 0,
+    // Initiate a new temperature reading
+    eSTART_1 = 1,
   };
   
+  // Temperature Sensor Power Down
   enum class ePWD : uint32_t {
-    ePWD_0 = 0, // Sensor is active
-    ePWD_1 = 1, // Sensor is powered down
+    // Sensor is active
+    ePWD_0 = 0,
+    // Sensor is powered down
+    ePWD_1 = 1,
   };
   
+  // Temperature Sensor Full Power Down
   enum class ePWD_FULL : uint32_t {
-    ePWD_FULL_0 = 0, // Sensor is active
-    ePWD_FULL_1 = 1, // Sensor is powered down
+    // Sensor is active
+    ePWD_FULL_0 = 0,
+    // Sensor is powered down
+    ePWD_FULL_1 = 1,
   };
   
   // Bit field definition.
   struct {
-    /// read-write - Temperature Measurement Frequency
+    // read-write - Temperature Measurement Frequency
     eFREQ FREQ : 16;
-    /// read-write - Measurement finished interrupt enable
+    // read-write - Measurement finished interrupt enable
     eFINISH_IE FINISH_IE : 1;
-    /// read-write - Low temperature interrupt enable
+    // read-write - Low temperature interrupt enable
     eLOW_TEMP_IE LOW_TEMP_IE : 1;
-    /// read-write - High temperature interrupt enable
+    // read-write - High temperature interrupt enable
     eHIGH_TEMP_IE HIGH_TEMP_IE : 1;
-    /// read-write - Panic temperature interrupt enable
+    // read-write - Panic temperature interrupt enable
     ePANIC_TEMP_IE PANIC_TEMP_IE : 1;
     uint32_t _reserved_0 : 2;
-    /// read-write - Start Temperature Measurement
+    // read-write - Start Temperature Measurement
     eSTART START : 1;
-    /// read-write - Temperature Sensor Power Down
+    // read-write - Temperature Sensor Power Down
     ePWD PWD : 1;
-    /// read-write - Read/Writeable field. Reserved for future use
+    // read-write - Read/Writeable field. Reserved for future use
     uint32_t RFU : 7;
-    /// read-write - Temperature Sensor Full Power Down
+    // read-write - Temperature Sensor Full Power Down
     ePWD_FULL PWD_FULL : 1;
   } bits;
   
@@ -199,29 +225,28 @@ union CTRL1 {
 };
 
 // Temperature Sensor Control Register 1
-//
 union CTRL1_SET {
   
   // Bit field definition.
   struct {
-    /// read-write - Temperature Measurement Frequency
+    // read-write - Temperature Measurement Frequency
     uint32_t FREQ : 16;
-    /// read-write - Measurement finished interrupt enable
+    // read-write - Measurement finished interrupt enable
     uint32_t FINISH_IE : 1;
-    /// read-write - Low temperature interrupt enable
+    // read-write - Low temperature interrupt enable
     uint32_t LOW_TEMP_IE : 1;
-    /// read-write - High temperature interrupt enable
+    // read-write - High temperature interrupt enable
     uint32_t HIGH_TEMP_IE : 1;
-    /// read-write - Panic temperature interrupt enable
+    // read-write - Panic temperature interrupt enable
     uint32_t PANIC_TEMP_IE : 1;
     uint32_t _reserved_0 : 2;
-    /// read-write - Start Temperature Measurement
+    // read-write - Start Temperature Measurement
     uint32_t START : 1;
-    /// read-write - Temperature Sensor Power Down
+    // read-write - Temperature Sensor Power Down
     uint32_t PWD : 1;
-    /// read-write - Read/Writeable field. Reserved for future use
+    // read-write - Read/Writeable field. Reserved for future use
     uint32_t RFU : 7;
-    /// read-write - Temperature Sensor Full Power Down
+    // read-write - Temperature Sensor Full Power Down
     uint32_t PWD_FULL : 1;
   } bits;
   
@@ -234,29 +259,28 @@ union CTRL1_SET {
 };
 
 // Temperature Sensor Control Register 1
-//
 union CTRL1_CLR {
   
   // Bit field definition.
   struct {
-    /// read-write - Temperature Measurement Frequency
+    // read-write - Temperature Measurement Frequency
     uint32_t FREQ : 16;
-    /// read-write - Measurement finished interrupt enable
+    // read-write - Measurement finished interrupt enable
     uint32_t FINISH_IE : 1;
-    /// read-write - Low temperature interrupt enable
+    // read-write - Low temperature interrupt enable
     uint32_t LOW_TEMP_IE : 1;
-    /// read-write - High temperature interrupt enable
+    // read-write - High temperature interrupt enable
     uint32_t HIGH_TEMP_IE : 1;
-    /// read-write - Panic temperature interrupt enable
+    // read-write - Panic temperature interrupt enable
     uint32_t PANIC_TEMP_IE : 1;
     uint32_t _reserved_0 : 2;
-    /// read-write - Start Temperature Measurement
+    // read-write - Start Temperature Measurement
     uint32_t START : 1;
-    /// read-write - Temperature Sensor Power Down
+    // read-write - Temperature Sensor Power Down
     uint32_t PWD : 1;
-    /// read-write - Read/Writeable field. Reserved for future use
+    // read-write - Read/Writeable field. Reserved for future use
     uint32_t RFU : 7;
-    /// read-write - Temperature Sensor Full Power Down
+    // read-write - Temperature Sensor Full Power Down
     uint32_t PWD_FULL : 1;
   } bits;
   
@@ -269,29 +293,28 @@ union CTRL1_CLR {
 };
 
 // Temperature Sensor Control Register 1
-//
 union CTRL1_TOG {
   
   // Bit field definition.
   struct {
-    /// read-write - Temperature Measurement Frequency
+    // read-write - Temperature Measurement Frequency
     uint32_t FREQ : 16;
-    /// read-write - Measurement finished interrupt enable
+    // read-write - Measurement finished interrupt enable
     uint32_t FINISH_IE : 1;
-    /// read-write - Low temperature interrupt enable
+    // read-write - Low temperature interrupt enable
     uint32_t LOW_TEMP_IE : 1;
-    /// read-write - High temperature interrupt enable
+    // read-write - High temperature interrupt enable
     uint32_t HIGH_TEMP_IE : 1;
-    /// read-write - Panic temperature interrupt enable
+    // read-write - Panic temperature interrupt enable
     uint32_t PANIC_TEMP_IE : 1;
     uint32_t _reserved_0 : 2;
-    /// read-write - Start Temperature Measurement
+    // read-write - Start Temperature Measurement
     uint32_t START : 1;
-    /// read-write - Temperature Sensor Power Down
+    // read-write - Temperature Sensor Power Down
     uint32_t PWD : 1;
-    /// read-write - Read/Writeable field. Reserved for future use
+    // read-write - Read/Writeable field. Reserved for future use
     uint32_t RFU : 7;
-    /// read-write - Temperature Sensor Full Power Down
+    // read-write - Temperature Sensor Full Power Down
     uint32_t PWD_FULL : 1;
   } bits;
   
@@ -304,15 +327,14 @@ union CTRL1_TOG {
 };
 
 // Temperature Sensor Range Register 0
-//
 union RANGE0 {
   
   // Bit field definition.
   struct {
-    /// read-write - Low temperature threshold value
+    // read-write - Low temperature threshold value
     uint32_t LOW_TEMP_VAL : 12;
     uint32_t _reserved_0 : 4;
-    /// read-write - High temperature threshold value
+    // read-write - High temperature threshold value
     uint32_t HIGH_TEMP_VAL : 12;
     uint32_t _reserved_1 : 4;
   } bits;
@@ -326,15 +348,14 @@ union RANGE0 {
 };
 
 // Temperature Sensor Range Register 0
-//
 union RANGE0_SET {
   
   // Bit field definition.
   struct {
-    /// read-write - Low temperature threshold value
+    // read-write - Low temperature threshold value
     uint32_t LOW_TEMP_VAL : 12;
     uint32_t _reserved_0 : 4;
-    /// read-write - High temperature threshold value
+    // read-write - High temperature threshold value
     uint32_t HIGH_TEMP_VAL : 12;
     uint32_t _reserved_1 : 4;
   } bits;
@@ -348,15 +369,14 @@ union RANGE0_SET {
 };
 
 // Temperature Sensor Range Register 0
-//
 union RANGE0_CLR {
   
   // Bit field definition.
   struct {
-    /// read-write - Low temperature threshold value
+    // read-write - Low temperature threshold value
     uint32_t LOW_TEMP_VAL : 12;
     uint32_t _reserved_0 : 4;
-    /// read-write - High temperature threshold value
+    // read-write - High temperature threshold value
     uint32_t HIGH_TEMP_VAL : 12;
     uint32_t _reserved_1 : 4;
   } bits;
@@ -370,15 +390,14 @@ union RANGE0_CLR {
 };
 
 // Temperature Sensor Range Register 0
-//
 union RANGE0_TOG {
   
   // Bit field definition.
   struct {
-    /// read-write - Low temperature threshold value
+    // read-write - Low temperature threshold value
     uint32_t LOW_TEMP_VAL : 12;
     uint32_t _reserved_0 : 4;
-    /// read-write - High temperature threshold value
+    // read-write - High temperature threshold value
     uint32_t HIGH_TEMP_VAL : 12;
     uint32_t _reserved_1 : 4;
   } bits;
@@ -392,12 +411,11 @@ union RANGE0_TOG {
 };
 
 // Temperature Sensor Range Register 1
-//
 union RANGE1 {
   
   // Bit field definition.
   struct {
-    /// read-write - Panic temperature threshold value
+    // read-write - Panic temperature threshold value
     uint32_t PANIC_TEMP_VAL : 12;
     uint32_t _reserved_0 : 20;
   } bits;
@@ -411,12 +429,11 @@ union RANGE1 {
 };
 
 // Temperature Sensor Range Register 1
-//
 union RANGE1_SET {
   
   // Bit field definition.
   struct {
-    /// read-write - Panic temperature threshold value
+    // read-write - Panic temperature threshold value
     uint32_t PANIC_TEMP_VAL : 12;
     uint32_t _reserved_0 : 20;
   } bits;
@@ -430,12 +447,11 @@ union RANGE1_SET {
 };
 
 // Temperature Sensor Range Register 1
-//
 union RANGE1_CLR {
   
   // Bit field definition.
   struct {
-    /// read-write - Panic temperature threshold value
+    // read-write - Panic temperature threshold value
     uint32_t PANIC_TEMP_VAL : 12;
     uint32_t _reserved_0 : 20;
   } bits;
@@ -449,12 +465,11 @@ union RANGE1_CLR {
 };
 
 // Temperature Sensor Range Register 1
-//
 union RANGE1_TOG {
   
   // Bit field definition.
   struct {
-    /// read-write - Panic temperature threshold value
+    // read-write - Panic temperature threshold value
     uint32_t PANIC_TEMP_VAL : 12;
     uint32_t _reserved_0 : 20;
   } bits;
@@ -468,41 +483,52 @@ union RANGE1_TOG {
 };
 
 // Temperature Sensor Status Register 0
-//
 union STATUS0 {
   
+  // Temperature measurement complete
   enum class eFINISH : uint32_t {
-    eFINISH_0 = 0, // Temperature sensor is busy (if CTRL1[START] = 1)or no new reading has been initiated (if CTRL1[START] = 0)
-    eFINISH_1 = 1, // Temperature reading is complete and new temperature value available for reading
+    // Temperature sensor is busy (if CTRL1[START] = 1)or no new reading has been initiated (if CTRL1[START] = 0)
+    eFINISH_0 = 0,
+    // Temperature reading is complete and new temperature value available for reading
+    eFINISH_1 = 1,
   };
   
+  // Low temperature alarm bit
   enum class eLOW_TEMP : uint32_t {
-    eLOW_TEMP_0 = 0, // No Low temperature alert
-    eLOW_TEMP_1 = 1, // Low temperature alert
+    // No Low temperature alert
+    eLOW_TEMP_0 = 0,
+    // Low temperature alert
+    eLOW_TEMP_1 = 1,
   };
   
+  // High temperature alarm bit
   enum class eHIGH_TEMP : uint32_t {
-    eHIGH_TEMP_0 = 0, // No High temperature alert
-    eHIGH_TEMP_1 = 1, // High temperature alert
+    // No High temperature alert
+    eHIGH_TEMP_0 = 0,
+    // High temperature alert
+    eHIGH_TEMP_1 = 1,
   };
   
+  // Panic temperature alarm bit
   enum class ePANIC_TEMP : uint32_t {
-    ePANIC_TEMP_0 = 0, // No Panic temperature alert
-    ePANIC_TEMP_1 = 1, // Panic temperature alert
+    // No Panic temperature alert
+    ePANIC_TEMP_0 = 0,
+    // Panic temperature alert
+    ePANIC_TEMP_1 = 1,
   };
   
   // Bit field definition.
   struct {
-    /// read-only - Measured temperature value
+    // read-only - Measured temperature value
     uint32_t TEMP_VAL : 12;
     uint32_t _reserved_0 : 4;
-    /// read-write - Temperature measurement complete
+    // read-write - Temperature measurement complete
     eFINISH FINISH : 1;
-    /// read-write - Low temperature alarm bit
+    // read-write - Low temperature alarm bit
     eLOW_TEMP LOW_TEMP : 1;
-    /// read-write - High temperature alarm bit
+    // read-write - High temperature alarm bit
     eHIGH_TEMP HIGH_TEMP : 1;
-    /// read-write - Panic temperature alarm bit
+    // read-write - Panic temperature alarm bit
     ePANIC_TEMP PANIC_TEMP : 1;
     uint32_t _reserved_1 : 12;
   } bits;

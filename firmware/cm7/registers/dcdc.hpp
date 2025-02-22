@@ -5,73 +5,90 @@
 #include <cstring>
 
 // DCDC
-//
-// NOTE: This file was generated from the forge CMSIS-svd wrapper tool.
-
 namespace nDCDC {
 
 
 // DCDC Control Register 0
-//
 union CTRL0 {
   
+  // DCDC Enable
   enum class eENABLE : uint32_t {
-    edisable = 0, // Disable (Bypass)
-    eenable = 1, // Enable
+    // Disable (Bypass)
+    edisable = 0,
+    // Enable
+    eenable = 1,
   };
   
+  // Enable the DCDC_DIG switching converter output
   enum class eDIG_EN : uint32_t {
-    eenable = 1, // Enable
+    // Enable
+    eenable = 1,
   };
   
+  // DCDC standby mode enable
   enum class eSTBY_EN : uint32_t {
-    eenable = 1, // Enter into standby mode
+    // Enter into standby mode
+    eenable = 1,
   };
   
+  // DCDC low-power (LP) mode enable DCDC can't start up directly into LP mode
   enum class eLP_MODE_EN : uint32_t {
-    eenable = 1, // Enter into low-power mode
+    // Enter into low-power mode
+    eenable = 1,
   };
   
+  // DCDC low-power mode enable by GPC standby request
   enum class eSTBY_LP_MODE_EN : uint32_t {
-    edisable = 0, // Disable DCDC entry into low-power mode from a GPC standby request
-    eenable = 1, // Enable DCDC to enter into low-power mode from a GPC standby request
+    // Disable DCDC entry into low-power mode from a GPC standby request
+    edisable = 0,
+    // Enable DCDC to enter into low-power mode from a GPC standby request
+    eenable = 1,
   };
   
+  // Enable internal count for DCDC_OK timeout
   enum class eENABLE_DCDC_CNT : uint32_t {
-    ewait = 0, // Wait DCDC_OK for ACK
-    eenable_count = 1, // Enable internal count for DCDC_OK timeout
+    // Wait DCDC_OK for ACK
+    ewait = 0,
+    // Enable internal count for DCDC_OK timeout
+    eenable_count = 1,
   };
   
+  // Hold trim input
   enum class eTRIM_HOLD : uint32_t {
-    esample = 0, // Sample trim input
-    ehold = 1, // Hold trim input
+    // Sample trim input
+    esample = 0,
+    // Hold trim input
+    ehold = 1,
   };
   
+  // Control mode
   enum class eCONTROL_MODE : uint32_t {
-    eswctrl = 0, // Software control mode
-    egpc = 1, // Hardware control mode (controlled by GPC Setpoints)
+    // Software control mode
+    eswctrl = 0,
+    // Hardware control mode (controlled by GPC Setpoints)
+    egpc = 1,
   };
   
   // Bit field definition.
   struct {
-    /// read-write - DCDC Enable
+    // read-write - DCDC Enable
     eENABLE ENABLE : 1;
-    /// read-write - Enable the DCDC_DIG switching converter output
+    // read-write - Enable the DCDC_DIG switching converter output
     eDIG_EN DIG_EN : 1;
-    /// read-write - DCDC standby mode enable
+    // read-write - DCDC standby mode enable
     eSTBY_EN STBY_EN : 1;
-    /// read-write - DCDC low-power (LP) mode enable DCDC can't start up directly into LP mode
+    // read-write - DCDC low-power (LP) mode enable DCDC can't start up directly into LP mode
     eLP_MODE_EN LP_MODE_EN : 1;
-    /// read-write - DCDC low-power mode enable by GPC standby request
+    // read-write - DCDC low-power mode enable by GPC standby request
     eSTBY_LP_MODE_EN STBY_LP_MODE_EN : 1;
-    /// read-write - Enable internal count for DCDC_OK timeout
+    // read-write - Enable internal count for DCDC_OK timeout
     eENABLE_DCDC_CNT ENABLE_DCDC_CNT : 1;
-    /// read-write - Hold trim input
+    // read-write - Hold trim input
     eTRIM_HOLD TRIM_HOLD : 1;
     uint32_t _reserved_0 : 12;
-    /// read-write - DEBUG_BITS[11:0]
+    // read-write - DEBUG_BITS[11:0]
     uint32_t DEBUG_BITS : 12;
-    /// read-write - Control mode
+    // read-write - Control mode
     eCONTROL_MODE CONTROL_MODE : 1;
   } bits;
   
@@ -84,45 +101,60 @@ union CTRL0 {
 };
 
 // DCDC Control Register 1
-//
 union CTRL1 {
   
+  // Target value of VDD1P8 in buck mode, 25mV each step from 0x00 to 0x1F:
   enum class eVDD1P8CTRL_TRG : uint32_t {
-    ev1p5 = 0, // 1.5V
-    ev1p8 = 12, // 1.8V
-    ev2p275 = 31, // 2.275V
+    // 1.5V
+    ev1p5 = 0,
+    // 1.8V
+    ev1p8 = 12,
+    // 2.275V
+    ev2p275 = 31,
   };
   
+  // Target value of VDD1P0 in buck mode, 25mV each step from 0x00 to 0x1F:
   enum class eVDD1P0CTRL_TRG : uint32_t {
-    ev0p6 = 0, // 0.6V
-    ev1p0 = 16, // 1.0V
-    ev1p375 = 31, // 1.375V
+    // 0.6V
+    ev0p6 = 0,
+    // 1.0V
+    ev1p0 = 16,
+    // 1.375V
+    ev1p375 = 31,
   };
   
+  // Target value of VDD1P8 in standby mode, 25mV each step from 0x00 to 0x1F:
   enum class eVDD1P8CTRL_STBY_TRG : uint32_t {
-    ev1p525 = 0, // 1.525V
-    ev1p8 = 11, // 1.8V
-    ev2p4 = 31, // 2.3V
+    // 1.525V
+    ev1p525 = 0,
+    // 1.8V
+    ev1p8 = 11,
+    // 2.3V
+    ev2p4 = 31,
   };
   
+  // Target value of VDD1P0 in standby mode, 25mV each step from 0x00 to 0x1F:
   enum class eVDD1P0CTRL_STBY_TRG : uint32_t {
-    ev0p625 = 0, // 0.625V
-    ev1p0 = 15, // 1.0V
-    ev1p4 = 31, // 1.4V
+    // 0.625V
+    ev0p625 = 0,
+    // 1.0V
+    ev1p0 = 15,
+    // 1.4V
+    ev1p4 = 31,
   };
   
   // Bit field definition.
   struct {
-    /// read-write - Target value of VDD1P8 in buck mode, 25mV each step from 0x00 to 0x1F:
+    // read-write - Target value of VDD1P8 in buck mode, 25mV each step from 0x00 to 0x1F:
     eVDD1P8CTRL_TRG VDD1P8CTRL_TRG : 5;
     uint32_t _reserved_0 : 3;
-    /// read-write - Target value of VDD1P0 in buck mode, 25mV each step from 0x00 to 0x1F:
+    // read-write - Target value of VDD1P0 in buck mode, 25mV each step from 0x00 to 0x1F:
     eVDD1P0CTRL_TRG VDD1P0CTRL_TRG : 5;
     uint32_t _reserved_1 : 3;
-    /// read-write - Target value of VDD1P8 in standby mode, 25mV each step from 0x00 to 0x1F:
+    // read-write - Target value of VDD1P8 in standby mode, 25mV each step from 0x00 to 0x1F:
     eVDD1P8CTRL_STBY_TRG VDD1P8CTRL_STBY_TRG : 5;
     uint32_t _reserved_2 : 3;
-    /// read-write - Target value of VDD1P0 in standby mode, 25mV each step from 0x00 to 0x1F:
+    // read-write - Target value of VDD1P0 in standby mode, 25mV each step from 0x00 to 0x1F:
     eVDD1P0CTRL_STBY_TRG VDD1P0CTRL_STBY_TRG : 5;
     uint32_t _reserved_3 : 3;
   } bits;
@@ -136,116 +168,157 @@ union CTRL1 {
 };
 
 // DCDC Register 0
-//
 union REG0 {
   
+  // Power Down Zero Cross Detection
   enum class ePWD_ZCD : uint32_t {
-    epowered_up = 0, // Zero cross detetion function powered up
-    epowered_down = 1, // Zero cross detetion function powered down
+    // Zero cross detetion function powered up
+    epowered_up = 0,
+    // Zero cross detetion function powered down
+    epowered_down = 1,
   };
   
+  // Disable Auto Clock Switch
   enum class eDISABLE_AUTO_CLK_SWITCH : uint32_t {
-    extal_clk = 0, // If DISABLE_AUTO_CLK_SWITCH is set to 0 and 24M xtal is OK, the clock source will switch from internal ring oscillator to 24M xtal automatically
-    esel_clk = 1, // If DISABLE_AUTO_CLK_SWITCH is set to 1, SEL_CLK will determine which clock source the DCDC uses
+    // If DISABLE_AUTO_CLK_SWITCH is set to 0 and 24M xtal is OK, the clock source will switch from internal ring oscillator to 24M xtal automatically
+    extal_clk = 0,
+    // If DISABLE_AUTO_CLK_SWITCH is set to 1, SEL_CLK will determine which clock source the DCDC uses
+    esel_clk = 1,
   };
   
+  // Select Clock
   enum class eSEL_CLK : uint32_t {
-    eint_rng_osc = 0, // DCDC uses internal ring oscillator
-    extal_24M = 1, // DCDC uses 24M xtal
+    // DCDC uses internal ring oscillator
+    eint_rng_osc = 0,
+    // DCDC uses 24M xtal
+    extal_24M = 1,
   };
   
+  // Power down internal ring oscillator
   enum class ePWD_OSC_INT : uint32_t {
-    epowered_up = 0, // Internal ring oscillator powered up
-    epowered_down = 1, // Internal ring oscillator powered down
+    // Internal ring oscillator powered up
+    epowered_up = 0,
+    // Internal ring oscillator powered down
+    epowered_down = 1,
   };
   
+  // Power down signal of the current detector
   enum class ePWD_CUR_SNS_CMP : uint32_t {
-    epowered_up = 0, // Current Detector powered up
-    epowered_down = 1, // Current Detector powered down
+    // Current Detector powered up
+    epowered_up = 0,
+    // Current Detector powered down
+    epowered_down = 1,
   };
   
+  // Power down overcurrent detection comparator
   enum class ePWD_OVERCUR_DET : uint32_t {
-    eenabled = 0, // Overcurrent detection comparator is enabled
-    edisabled = 1, // Overcurrent detection comparator is disabled
+    // Overcurrent detection comparator is enabled
+    eenabled = 0,
+    // Overcurrent detection comparator is disabled
+    edisabled = 1,
   };
   
+  // Set to "1" to power down the low voltage detection comparator
   enum class ePWD_CMP_DCDC_IN_DET : uint32_t {
-    eenabled = 0, // Low voltage detection comparator is enabled
-    edisabled = 1, // Low voltage detection comparator is disabled
+    // Low voltage detection comparator is enabled
+    eenabled = 0,
+    // Low voltage detection comparator is disabled
+    edisabled = 1,
   };
   
+  // Power Down High Voltage Detection for VDD1P8
   enum class ePWD_HIGH_VDD1P8_DET : uint32_t {
-    eenabled = 0, // Overvoltage detection comparator for the VDD1P8 output is enabled
-    edisabled = 1, // Overvoltage detection comparator for the VDD1P8 output is disabled
+    // Overvoltage detection comparator for the VDD1P8 output is enabled
+    eenabled = 0,
+    // Overvoltage detection comparator for the VDD1P8 output is disabled
+    edisabled = 1,
   };
   
+  // Power Down High Voltage Detection for VDD1P0
   enum class ePWD_HIGH_VDD1P0_DET : uint32_t {
-    eenabled = 0, // Overvoltage detection comparator for the VDD1P0 output is enabled
-    edisabled = 1, // Overvoltage detection comparator for the VDD1P0 output is disabled
+    // Overvoltage detection comparator for the VDD1P0 output is enabled
+    eenabled = 0,
+    // Overvoltage detection comparator for the VDD1P0 output is disabled
+    edisabled = 1,
   };
   
+  // Low Power High Hysteric Value
   enum class eLP_HIGH_HYS : uint32_t {
-    elp_12p5mV = 0, // Adjust hysteretic value in low power to 12.5mV
-    elp_25mV = 1, // Adjust hysteretic value in low power to 25mV
+    // Adjust hysteretic value in low power to 12.5mV
+    elp_12p5mV = 0,
+    // Adjust hysteretic value in low power to 25mV
+    elp_25mV = 1,
   };
   
+  // power down the out-of-range detection comparator
   enum class ePWD_CMP_OFFSET : uint32_t {
-    epowered_up = 0, // Out-of-range comparator powered up
-    epowered_down = 1, // Out-of-range comparator powered down
+    // Out-of-range comparator powered up
+    epowered_up = 0,
+    // Out-of-range comparator powered down
+    epowered_down = 1,
   };
   
+  // Disable xtalok detection circuit
   enum class eXTALOK_DISABLE : uint32_t {
-    eenabled = 0, // Enable xtalok detection circuit
-    edisabled = 1, // Disable xtalok detection circuit and always outputs OK signal "1"
+    // Enable xtalok detection circuit
+    eenabled = 0,
+    // Disable xtalok detection circuit and always outputs OK signal "1"
+    edisabled = 1,
   };
   
+  // 24M XTAL OK
   enum class eXTAL_24M_OK : uint32_t {
-    eint_rng_osc = 0, // DCDC uses internal ring oscillator
-    extal_24M = 1, // DCDC uses xtal 24M
+    // DCDC uses internal ring oscillator
+    eint_rng_osc = 0,
+    // DCDC uses xtal 24M
+    extal_24M = 1,
   };
   
+  // DCDC Output OK
   enum class eSTS_DC_OK : uint32_t {
-    enot_settled = 0, // DCDC is settling
-    esettled = 1, // DCDC already settled
+    // DCDC is settling
+    enot_settled = 0,
+    // DCDC already settled
+    esettled = 1,
   };
   
   // Bit field definition.
   struct {
-    /// read-write - Power Down Zero Cross Detection
+    // read-write - Power Down Zero Cross Detection
     ePWD_ZCD PWD_ZCD : 1;
-    /// read-write - Disable Auto Clock Switch
+    // read-write - Disable Auto Clock Switch
     eDISABLE_AUTO_CLK_SWITCH DISABLE_AUTO_CLK_SWITCH : 1;
-    /// read-write - Select Clock
+    // read-write - Select Clock
     eSEL_CLK SEL_CLK : 1;
-    /// read-write - Power down internal ring oscillator
+    // read-write - Power down internal ring oscillator
     ePWD_OSC_INT PWD_OSC_INT : 1;
-    /// read-write - Power down signal of the current detector
+    // read-write - Power down signal of the current detector
     ePWD_CUR_SNS_CMP PWD_CUR_SNS_CMP : 1;
-    /// read-write - Current Sense (detector) Threshold
+    // read-write - Current Sense (detector) Threshold
     uint32_t CUR_SNS_THRSH : 3;
-    /// read-write - Power down overcurrent detection comparator
+    // read-write - Power down overcurrent detection comparator
     ePWD_OVERCUR_DET PWD_OVERCUR_DET : 1;
     uint32_t _reserved_0 : 2;
-    /// read-write - Set to "1" to power down the low voltage detection comparator
+    // read-write - Set to "1" to power down the low voltage detection comparator
     ePWD_CMP_DCDC_IN_DET PWD_CMP_DCDC_IN_DET : 1;
     uint32_t _reserved_1 : 4;
-    /// read-write - Power Down High Voltage Detection for VDD1P8
+    // read-write - Power Down High Voltage Detection for VDD1P8
     ePWD_HIGH_VDD1P8_DET PWD_HIGH_VDD1P8_DET : 1;
-    /// read-write - Power Down High Voltage Detection for VDD1P0
+    // read-write - Power Down High Voltage Detection for VDD1P0
     ePWD_HIGH_VDD1P0_DET PWD_HIGH_VDD1P0_DET : 1;
     uint32_t _reserved_2 : 3;
-    /// read-write - Low Power High Hysteric Value
+    // read-write - Low Power High Hysteric Value
     eLP_HIGH_HYS LP_HIGH_HYS : 1;
     uint32_t _reserved_3 : 4;
-    /// read-write - power down the out-of-range detection comparator
+    // read-write - power down the out-of-range detection comparator
     ePWD_CMP_OFFSET PWD_CMP_OFFSET : 1;
-    /// read-write - Disable xtalok detection circuit
+    // read-write - Disable xtalok detection circuit
     eXTALOK_DISABLE XTALOK_DISABLE : 1;
     uint32_t _reserved_4 : 1;
-    /// read-write - 24M XTAL OK
+    // read-write - 24M XTAL OK
     eXTAL_24M_OK XTAL_24M_OK : 1;
     uint32_t _reserved_5 : 1;
-    /// read-only - DCDC Output OK
+    // read-only - DCDC Output OK
     eSTS_DC_OK STS_DC_OK : 1;
   } bits;
   
@@ -258,62 +331,82 @@ union REG0 {
 };
 
 // DCDC Register 1
-//
 union REG1 {
   
+  // DM Control
   enum class eDM_CTRL : uint32_t {
-    eDM_CTRL_0 = 0, // No change to ripple when the discontinuous current is present in DCM.
-    eDM_CTRL_1 = 1, // Improves ripple when the inductor current goes to zero in DCM.
+    // No change to ripple when the discontinuous current is present in DCM.
+    eDM_CTRL_0 = 0,
+    // Improves ripple when the inductor current goes to zero in DCM.
+    eDM_CTRL_1 = 1,
   };
   
+  // Load Resistor Enable
   enum class eRLOAD_REG_EN_LPSR : uint32_t {
-    eloadR_disconnect = 0, // Disconnect load resistor
-    eloadR_connect = 1, // Connect load resistor
+    // Disconnect load resistor
+    eloadR_disconnect = 0,
+    // Connect load resistor
+    eloadR_connect = 1,
   };
   
+  // Trim Bandgap Voltage
   enum class eVBG_TRIM : uint32_t {
-    eminvolt = 0, // 0.452V
-    edefault = 16, // 0.5V
-    emaxvolt = 31, // 0.545V
+    // 0.452V
+    eminvolt = 0,
+    // 0.5V
+    edefault = 16,
+    // 0.545V
+    emaxvolt = 31,
   };
   
+  // Low Power Comparator Current Bias
   enum class eLP_CMP_ISRC_SEL : uint32_t {
-    esel0 = 0, // 50nA
-    esel1 = 1, // 100nA
-    esel2 = 2, // 200nA
-    esel3 = 3, // 400nA
+    // 50nA
+    esel0 = 0,
+    // 100nA
+    esel1 = 1,
+    // 200nA
+    esel2 = 2,
+    // 400nA
+    esel3 = 3,
   };
   
+  // Enable hysteresis in switching converter common mode analog comparators
   enum class eLOOPCTRL_EN_CM_HYST : uint32_t {
-    edisable = 0, // Disable hysteresis in switching converter common mode analog comparators
-    eenable = 1, // Enable hysteresis in switching converter common mode analog comparators
+    // Disable hysteresis in switching converter common mode analog comparators
+    edisable = 0,
+    // Enable hysteresis in switching converter common mode analog comparators
+    eenable = 1,
   };
   
+  // Enable hysteresis in switching converter differential mode analog comparators
   enum class eLOOPCTRL_EN_DF_HYST : uint32_t {
-    edisable = 0, // Disable hysteresis in switching converter differential mode analog comparators
-    eenable = 1, // Enable hysteresis in switching converter differential mode analog comparators
+    // Disable hysteresis in switching converter differential mode analog comparators
+    edisable = 0,
+    // Enable hysteresis in switching converter differential mode analog comparators
+    eenable = 1,
   };
   
   // Bit field definition.
   struct {
     uint32_t _reserved_0 : 3;
-    /// read-write - DM Control
+    // read-write - DM Control
     eDM_CTRL DM_CTRL : 1;
-    /// read-write - Load Resistor Enable
+    // read-write - Load Resistor Enable
     eRLOAD_REG_EN_LPSR RLOAD_REG_EN_LPSR : 1;
     uint32_t _reserved_1 : 1;
-    /// read-write - Trim Bandgap Voltage
+    // read-write - Trim Bandgap Voltage
     eVBG_TRIM VBG_TRIM : 5;
-    /// read-write - Low Power Comparator Current Bias
+    // read-write - Low Power Comparator Current Bias
     eLP_CMP_ISRC_SEL LP_CMP_ISRC_SEL : 2;
     uint32_t _reserved_2 : 14;
-    /// read-write - Increase Threshold Detection
+    // read-write - Increase Threshold Detection
     uint32_t LOOPCTRL_CM_HST_THRESH : 1;
-    /// read-write - Increase Threshold Detection
+    // read-write - Increase Threshold Detection
     uint32_t LOOPCTRL_DF_HST_THRESH : 1;
-    /// read-write - Enable hysteresis in switching converter common mode analog comparators
+    // read-write - Enable hysteresis in switching converter common mode analog comparators
     eLOOPCTRL_EN_CM_HYST LOOPCTRL_EN_CM_HYST : 1;
-    /// read-write - Enable hysteresis in switching converter differential mode analog comparators
+    // read-write - Enable hysteresis in switching converter differential mode analog comparators
     eLOOPCTRL_EN_DF_HYST LOOPCTRL_EN_DF_HYST : 1;
     uint32_t _reserved_3 : 1;
   } bits;
@@ -327,33 +420,32 @@ union REG1 {
 };
 
 // DCDC Register 2
-//
 union REG2 {
   
   // Bit field definition.
   struct {
-    /// read-write - Ratio of integral control parameter to proportional control parameter in the switching DCDC converter, and can be used to optimize efficiency and loop response
+    // read-write - Ratio of integral control parameter to proportional control parameter in the switching DCDC converter, and can be used to optimize efficiency and loop response
     uint32_t LOOPCTRL_DC_C : 2;
-    /// read-write - Magnitude of proportional control parameter in the switching DCDC converter control loop.
+    // read-write - Magnitude of proportional control parameter in the switching DCDC converter control loop.
     uint32_t LOOPCTRL_DC_R : 4;
-    /// read-write - Two's complement feed forward step in duty cycle in the switching DCDC converter
+    // read-write - Two's complement feed forward step in duty cycle in the switching DCDC converter
     uint32_t LOOPCTRL_DC_FF : 3;
-    /// read-write - Enable RC Scale
+    // read-write - Enable RC Scale
     uint32_t LOOPCTRL_EN_RCSCALE : 3;
-    /// read-write - Increase the threshold detection for RC scale circuit.
+    // read-write - Increase the threshold detection for RC scale circuit.
     uint32_t LOOPCTRL_RCSCALE_THRSH : 1;
-    /// read-write - Invert the sign of the hysteresis in DCDC analog comparators.
+    // read-write - Invert the sign of the hysteresis in DCDC analog comparators.
     uint32_t LOOPCTRL_HYST_SIGN : 1;
     uint32_t _reserved_0 : 1;
-    /// read-write - This bit enables the DCDC to improve efficiency and minimize ripple using the information from the BATT_VAL field
+    // read-write - This bit enables the DCDC to improve efficiency and minimize ripple using the information from the BATT_VAL field
     uint32_t BATTMONITOR_EN_BATADJ : 1;
-    /// read-write - Software should be configured to place the battery voltage in this register measured with an 8-mV LSB resolution through the ADC
+    // read-write - Software should be configured to place the battery voltage in this register measured with an 8-mV LSB resolution through the ADC
     uint32_t BATTMONITOR_BATT_VAL : 10;
     uint32_t _reserved_1 : 2;
-    /// read-write - DCM Set Control
+    // read-write - DCM Set Control
     uint32_t DCM_SET_CTRL : 1;
     uint32_t _reserved_2 : 1;
-    /// read-write - Set high to enable supply stepping to change only after the differential control loop has toggled as well
+    // read-write - Set high to enable supply stepping to change only after the differential control loop has toggled as well
     uint32_t LOOPCTRL_TOGGLE_DIF : 1;
     uint32_t _reserved_3 : 1;
   } bits;
@@ -367,88 +459,112 @@ union REG2 {
 };
 
 // DCDC Register 3
-//
 union REG3 {
   
+  // signal "1" when the voltage on DCDC_IN is lower than 2.6V
   enum class eIN_BROWNOUT : uint32_t {
-    ebrownout = 1, // DCDC_IN is lower than 2.6V
+    // DCDC_IN is lower than 2.6V
+    ebrownout = 1,
   };
   
+  // signal "1" when overvoltage on the VDD1P8 output happens
   enum class eOVERVOLT_VDD1P8_DET_OUT : uint32_t {
-    eovervoltage_1p8 = 1, // VDD1P8 Overvoltage
+    // VDD1P8 Overvoltage
+    eovervoltage_1p8 = 1,
   };
   
+  // signal "1" when overvoltage on the VDD1P0 output happens
   enum class eOVERVOLT_VDD1P0_DET_OUT : uint32_t {
-    eovervoltage_1p0 = 1, // VDD1P0 Overvoltage
+    // VDD1P0 Overvoltage
+    eovervoltage_1p0 = 1,
   };
   
+  // signal "1" when overcurrent happens.
   enum class eOVERCUR_DETECT_OUT : uint32_t {
-    eovercurrent_signal = 1, // Overcurrent
+    // Overcurrent
+    eovercurrent_signal = 1,
   };
   
+  // no description available
   enum class eENABLE_FF : uint32_t {
-    eenable_ff = 1, // Enable feed-forward (FF) function that can speed up transient settling.
+    // Enable feed-forward (FF) function that can speed up transient settling.
+    eenable_ff = 1,
   };
   
+  // Disable Pulse Skip
   enum class eDISABLE_PULSE_SKIP : uint32_t {
-    estopcharge = 0, // Stop charging if the duty cycle is lower than what is set by NEGLIMIT_IN
+    // Stop charging if the duty cycle is lower than what is set by NEGLIMIT_IN
+    estopcharge = 0,
   };
   
+  // no description available
   enum class eDISABLE_IDLE_SKIP : uint32_t {
-    eenable = 0, // Enable the idle skip function. The DCDC will be idle when out-of-range comparator detects the output voltage is higher than the target by 25mV. This function requires the out-of-range comparator to be enabled (PWD_CMP_OFFSET=0).
+    // Enable the idle skip function. The DCDC will be idle when out-of-range comparator detects the output voltage is higher than the target by 25mV. This function requires the out-of-range comparator to be enabled (PWD_CMP_OFFSET=0).
+    eenable = 0,
   };
   
+  // no description available
   enum class eDOUBLE_IBIAS_CMP_LP_LPSR : uint32_t {
-    edoublebias = 1, // Double the bias current of the comparator for low-voltage detector in LP (low-power) mode
+    // Double the bias current of the comparator for low-voltage detector in LP (low-power) mode
+    edoublebias = 1,
   };
   
+  // Set DCDC clock to half freqeuncy for continuous mode.
   enum class eMINPWR_DC_HALFCLK : uint32_t {
-    efullfreq = 0, // DCDC clock remains at full frequency for continuous mode
-    ehalffreq = 1, // DCDC clock set to half frequency for continuous mode
+    // DCDC clock remains at full frequency for continuous mode
+    efullfreq = 0,
+    // DCDC clock set to half frequency for continuous mode
+    ehalffreq = 1,
   };
   
+  // Disable Step for VDD1P0
   enum class eVDD1P0CTRL_DISABLE_STEP : uint32_t {
-    eenable = 0, // Enable stepping for VDD1P0
-    edisable = 1, // Disable stepping for VDD1P0
+    // Enable stepping for VDD1P0
+    eenable = 0,
+    // Disable stepping for VDD1P0
+    edisable = 1,
   };
   
+  // Disable Step for VDD1P8
   enum class eVDD1P8CTRL_DISABLE_STEP : uint32_t {
-    eenable = 0, // Enable stepping for VDD1P8
-    edisable = 1, // Disable stepping for VDD1P8
+    // Enable stepping for VDD1P8
+    eenable = 0,
+    // Disable stepping for VDD1P8
+    edisable = 1,
   };
   
   // Bit field definition.
   struct {
     uint32_t _reserved_0 : 14;
-    /// read-only - signal "1" when the voltage on DCDC_IN is lower than 2.6V
+    // read-only - signal "1" when the voltage on DCDC_IN is lower than 2.6V
     eIN_BROWNOUT IN_BROWNOUT : 1;
-    /// read-only - signal "1" when overvoltage on the VDD1P8 output happens
+    // read-only - signal "1" when overvoltage on the VDD1P8 output happens
     eOVERVOLT_VDD1P8_DET_OUT OVERVOLT_VDD1P8_DET_OUT : 1;
-    /// read-only - signal "1" when overvoltage on the VDD1P0 output happens
+    // read-only - signal "1" when overvoltage on the VDD1P0 output happens
     eOVERVOLT_VDD1P0_DET_OUT OVERVOLT_VDD1P0_DET_OUT : 1;
-    /// read-only - signal "1" when overcurrent happens.
+    // read-only - signal "1" when overcurrent happens.
     eOVERCUR_DETECT_OUT OVERCUR_DETECT_OUT : 1;
-    /// read-write - no description available
+    // read-write - no description available
     eENABLE_FF ENABLE_FF : 1;
-    /// read-write - Disable Pulse Skip
+    // read-write - Disable Pulse Skip
     eDISABLE_PULSE_SKIP DISABLE_PULSE_SKIP : 1;
-    /// read-write - no description available
+    // read-write - no description available
     eDISABLE_IDLE_SKIP DISABLE_IDLE_SKIP : 1;
-    /// read-write - no description available
+    // read-write - no description available
     eDOUBLE_IBIAS_CMP_LP_LPSR DOUBLE_IBIAS_CMP_LP_LPSR : 1;
-    /// read-write - Select the feedback point of the internal regulator
+    // read-write - Select the feedback point of the internal regulator
     uint32_t REG_FBK_SEL : 2;
-    /// read-write - Set DCDC clock to half freqeuncy for continuous mode.
+    // read-write - Set DCDC clock to half freqeuncy for continuous mode.
     eMINPWR_DC_HALFCLK MINPWR_DC_HALFCLK : 1;
     uint32_t _reserved_1 : 1;
-    /// read-write - Use half switch FET
+    // read-write - Use half switch FET
     uint32_t MINPWR_HALF_FETS : 1;
-    /// read-write - Miscellaneous Delay Timing
+    // read-write - Miscellaneous Delay Timing
     uint32_t MISC_DELAY_TIMING : 1;
     uint32_t _reserved_2 : 1;
-    /// read-write - Disable Step for VDD1P0
+    // read-write - Disable Step for VDD1P0
     eVDD1P0CTRL_DISABLE_STEP VDD1P0CTRL_DISABLE_STEP : 1;
-    /// read-write - Disable Step for VDD1P8
+    // read-write - Disable Step for VDD1P8
     eVDD1P8CTRL_DISABLE_STEP VDD1P8CTRL_DISABLE_STEP : 1;
     uint32_t _reserved_3 : 1;
   } bits;
@@ -462,12 +578,11 @@ union REG3 {
 };
 
 // DCDC Register 4
-//
 union REG4 {
   
   // Bit field definition.
   struct {
-    /// read-write - Configures CTRL0[ENABLE] (DCDC Enable) for Setpoints 0-15
+    // read-write - Configures CTRL0[ENABLE] (DCDC Enable) for Setpoints 0-15
     uint32_t ENABLE_SP : 16;
     uint32_t _reserved_0 : 16;
   } bits;
@@ -481,12 +596,11 @@ union REG4 {
 };
 
 // DCDC Register 5
-//
 union REG5 {
   
   // Bit field definition.
   struct {
-    /// read-write - Configures CTRL0[DIG_EN] (DCDC_DIG Enable) for Setpoints 0-15. Always set these bits to 1.
+    // read-write - Configures CTRL0[DIG_EN] (DCDC_DIG Enable) for Setpoints 0-15. Always set these bits to 1.
     uint32_t DIG_EN_SP : 16;
     uint32_t _reserved_0 : 16;
   } bits;
@@ -500,12 +614,11 @@ union REG5 {
 };
 
 // DCDC Register 6
-//
 union REG6 {
   
   // Bit field definition.
   struct {
-    /// read-write - Configures CTRL0[LP_MODE_EN] (LP Mode Enable) for Setpoints 0-15
+    // read-write - Configures CTRL0[LP_MODE_EN] (LP Mode Enable) for Setpoints 0-15
     uint32_t LP_MODE_SP : 16;
     uint32_t _reserved_0 : 16;
   } bits;
@@ -519,12 +632,11 @@ union REG6 {
 };
 
 // DCDC Register 7
-//
 union REG7 {
   
   // Bit field definition.
   struct {
-    /// read-write - Configures CTRL0[STBY_EN] (Standby Enable) for Setpoints 0-15
+    // read-write - Configures CTRL0[STBY_EN] (Standby Enable) for Setpoints 0-15
     uint32_t STBY_EN_SP : 16;
     uint32_t _reserved_0 : 16;
   } bits;
@@ -538,12 +650,11 @@ union REG7 {
 };
 
 // DCDC Register 7 plus
-//
 union REG7P {
   
   // Bit field definition.
   struct {
-    /// read-write - Configures CTRL0[STBY_LP_MODE_EN] (LP Mode via GPC Enable) for Setpoints 0-15
+    // read-write - Configures CTRL0[STBY_LP_MODE_EN] (LP Mode via GPC Enable) for Setpoints 0-15
     uint32_t STBY_LP_MODE_SP : 16;
     uint32_t _reserved_0 : 16;
   } bits;
@@ -557,12 +668,11 @@ union REG7P {
 };
 
 // DCDC Register 8
-//
 union REG8 {
   
   // Bit field definition.
   struct {
-    /// read-write - Configures CTRL1[VDD1P8CTRL_TRG] FOR Setpoints 0-3
+    // read-write - Configures CTRL1[VDD1P8CTRL_TRG] FOR Setpoints 0-3
     uint32_t ANA_TRG_SP0 : 32;
   } bits;
   
@@ -575,12 +685,11 @@ union REG8 {
 };
 
 // DCDC Register 9
-//
 union REG9 {
   
   // Bit field definition.
   struct {
-    /// read-write - Configures CTRL1[VDD1P8CTRL_TRG] FOR Setpoints 4-7
+    // read-write - Configures CTRL1[VDD1P8CTRL_TRG] FOR Setpoints 4-7
     uint32_t ANA_TRG_SP1 : 32;
   } bits;
   
@@ -593,12 +702,11 @@ union REG9 {
 };
 
 // DCDC Register 10
-//
 union REG10 {
   
   // Bit field definition.
   struct {
-    /// read-write - Configures CTRL1[VDD1P8CTRL_TRG] FOR Setpoints 8-11
+    // read-write - Configures CTRL1[VDD1P8CTRL_TRG] FOR Setpoints 8-11
     uint32_t ANA_TRG_SP2 : 32;
   } bits;
   
@@ -611,12 +719,11 @@ union REG10 {
 };
 
 // DCDC Register 11
-//
 union REG11 {
   
   // Bit field definition.
   struct {
-    /// read-write - Configures CTRL1[VDD1P8CTRL_TRG] FOR Setpoints 12-15
+    // read-write - Configures CTRL1[VDD1P8CTRL_TRG] FOR Setpoints 12-15
     uint32_t ANA_TRG_SP3 : 32;
   } bits;
   
@@ -629,12 +736,11 @@ union REG11 {
 };
 
 // DCDC Register 12
-//
 union REG12 {
   
   // Bit field definition.
   struct {
-    /// read-write - Configures CTRL1[VDD1P0CTRL_TRG] FOR Setpoints 0-3
+    // read-write - Configures CTRL1[VDD1P0CTRL_TRG] FOR Setpoints 0-3
     uint32_t DIG_TRG_SP0 : 32;
   } bits;
   
@@ -647,12 +753,11 @@ union REG12 {
 };
 
 // DCDC Register 13
-//
 union REG13 {
   
   // Bit field definition.
   struct {
-    /// read-write - Configures CTRL1[VDD1P0CTRL_TRG] FOR Setpoints 4-7
+    // read-write - Configures CTRL1[VDD1P0CTRL_TRG] FOR Setpoints 4-7
     uint32_t DIG_TRG_SP1 : 32;
   } bits;
   
@@ -665,12 +770,11 @@ union REG13 {
 };
 
 // DCDC Register 14
-//
 union REG14 {
   
   // Bit field definition.
   struct {
-    /// read-write - Configures CTRL1[VDD1P0CTRL_TRG] FOR Setpoints 8-11
+    // read-write - Configures CTRL1[VDD1P0CTRL_TRG] FOR Setpoints 8-11
     uint32_t DIG_TRG_SP2 : 32;
   } bits;
   
@@ -683,12 +787,11 @@ union REG14 {
 };
 
 // DCDC Register 15
-//
 union REG15 {
   
   // Bit field definition.
   struct {
-    /// read-write - Configures CTRL1[VDD1P0CTRL_TRG] FOR Setpoints 12-15
+    // read-write - Configures CTRL1[VDD1P0CTRL_TRG] FOR Setpoints 12-15
     uint32_t DIG_TRG_SP3 : 32;
   } bits;
   
@@ -701,12 +804,11 @@ union REG15 {
 };
 
 // DCDC Register 16
-//
 union REG16 {
   
   // Bit field definition.
   struct {
-    /// read-write - Configures CTRL1[VDD1P8CTRL_STBY_TRG] FOR Setpoints 0-3
+    // read-write - Configures CTRL1[VDD1P8CTRL_STBY_TRG] FOR Setpoints 0-3
     uint32_t ANA_STBY_TRG_SP0 : 32;
   } bits;
   
@@ -719,12 +821,11 @@ union REG16 {
 };
 
 // DCDC Register 17
-//
 union REG17 {
   
   // Bit field definition.
   struct {
-    /// read-write - Configures CTRL1[VDD1P8CTRL_STBY_TRG] FOR Setpoints 4-7
+    // read-write - Configures CTRL1[VDD1P8CTRL_STBY_TRG] FOR Setpoints 4-7
     uint32_t ANA_STBY_TRG_SP1 : 32;
   } bits;
   
@@ -737,12 +838,11 @@ union REG17 {
 };
 
 // DCDC Register 18
-//
 union REG18 {
   
   // Bit field definition.
   struct {
-    /// read-write - Configures CTRL1[VDD1P8CTRL_STBY_TRG] FOR Setpoints 8-11
+    // read-write - Configures CTRL1[VDD1P8CTRL_STBY_TRG] FOR Setpoints 8-11
     uint32_t ANA_STBY_TRG_SP2 : 32;
   } bits;
   
@@ -755,12 +855,11 @@ union REG18 {
 };
 
 // DCDC Register 19
-//
 union REG19 {
   
   // Bit field definition.
   struct {
-    /// read-write - Configures CTRL1[VDD1P8CTRL_STBY_TRG] FOR Setpoints 12-15
+    // read-write - Configures CTRL1[VDD1P8CTRL_STBY_TRG] FOR Setpoints 12-15
     uint32_t ANA_STBY_TRG_SP3 : 32;
   } bits;
   
@@ -773,12 +872,11 @@ union REG19 {
 };
 
 // DCDC Register 20
-//
 union REG20 {
   
   // Bit field definition.
   struct {
-    /// read-write - Configures CTRL1[VDD1P0CTRL_STBY_TRG] FOR Setpoints 0-3
+    // read-write - Configures CTRL1[VDD1P0CTRL_STBY_TRG] FOR Setpoints 0-3
     uint32_t DIG_STBY_TRG_SP0 : 32;
   } bits;
   
@@ -791,12 +889,11 @@ union REG20 {
 };
 
 // DCDC Register 21
-//
 union REG21 {
   
   // Bit field definition.
   struct {
-    /// read-write - Configures CTRL1[VDD1P0CTRL_STBY_TRG] FOR Setpoints 4-7
+    // read-write - Configures CTRL1[VDD1P0CTRL_STBY_TRG] FOR Setpoints 4-7
     uint32_t DIG_STBY_TRG_SP1 : 32;
   } bits;
   
@@ -809,12 +906,11 @@ union REG21 {
 };
 
 // DCDC Register 22
-//
 union REG22 {
   
   // Bit field definition.
   struct {
-    /// read-write - Configures CTRL1[VDD1P0CTRL_STBY_TRG] FOR Setpoints 8-11
+    // read-write - Configures CTRL1[VDD1P0CTRL_STBY_TRG] FOR Setpoints 8-11
     uint32_t DIG_STBY_TRG_SP2 : 32;
   } bits;
   
@@ -827,12 +923,11 @@ union REG22 {
 };
 
 // DCDC Register 23
-//
 union REG23 {
   
   // Bit field definition.
   struct {
-    /// read-write - Configures CTRL1[VDD1P0CTRL_STBY_TRG] FOR Setpoints 12-15
+    // read-write - Configures CTRL1[VDD1P0CTRL_STBY_TRG] FOR Setpoints 12-15
     uint32_t DIG_STBY_TRG_SP3 : 32;
   } bits;
   
@@ -845,12 +940,11 @@ union REG23 {
 };
 
 // DCDC Register 24
-//
 union REG24 {
   
   // Bit field definition.
   struct {
-    /// read-write - Internal count for dcdc_ok timeout
+    // read-write - Internal count for dcdc_ok timeout
     uint32_t OK_COUNT : 32;
   } bits;
   

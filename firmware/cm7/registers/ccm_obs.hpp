@@ -5,9 +5,6 @@
 #include <cstring>
 
 // CCM_OBS
-//
-// NOTE: This file was generated from the forge CMSIS-svd wrapper tool.
-
 namespace nCCM_OBS {
 
 

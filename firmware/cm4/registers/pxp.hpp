@@ -5,98 +5,126 @@
 #include <cstring>
 
 // PXP v2.0 Register Reference Index
-//
-// NOTE: This file was generated from the forge CMSIS-svd wrapper tool.
-
 namespace nPXP {
 
 
 // Control Register 0
-//
 union PXP_CTRL {
   
+  // Enables PXP operation with specified parameters
   enum class eENABLE : uint32_t {
-    eDisabled = 0, // PXP is disabled
-    eEnabled = 1, // PXP is enabled
+    // PXP is disabled
+    eDisabled = 0,
+    // PXP is enabled
+    eEnabled = 1,
   };
   
+  // Interrupt enable When using the PXP_NEXT functionality to reprogram the PXP, the new value of this bit will be used and may therefore enable or disable an interrupt unintentionally
   enum class eIRQ_ENABLE : uint32_t {
-    eDisabled = 0, // PXP interrupt is disabled
-    eEnabled = 1, // PXP interrupt is enabled
+    // PXP interrupt is disabled
+    eDisabled = 0,
+    // PXP interrupt is enabled
+    eEnabled = 1,
   };
   
+  // Next command interrupt enable
   enum class eNEXT_IRQ_ENABLE : uint32_t {
-    eDisabled = 0, // Disabled
-    eEnabled = 1, // Enabled
+    // Disabled
+    eDisabled = 0,
+    // Enabled
+    eEnabled = 1,
   };
   
+  // Indicates the clockwise rotation to be applied at the output buffer
   enum class eROTATE : uint32_t {
-    eROT_0 = 0, // ROT_0
-    eROT_90 = 1, // ROT_90
-    eROT_180 = 2, // ROT_180
-    eROT_270 = 3, // ROT_270
+    // ROT_0
+    eROT_0 = 0,
+    // ROT_90
+    eROT_90 = 1,
+    // ROT_180
+    eROT_180 = 2,
+    // ROT_270
+    eROT_270 = 3,
   };
   
+  // Indicates that the output buffer should be flipped horizontally (effect applied before rotation).
   enum class eHFLIP : uint32_t {
-    eDisabled = 0, // Horizontal Flip is disabled
-    eEnabled = 1, // Horizontal Flip is enabled
+    // Horizontal Flip is disabled
+    eDisabled = 0,
+    // Horizontal Flip is enabled
+    eEnabled = 1,
   };
   
+  // Indicates that the output buffer should be flipped vertically (effect applied before rotation).
   enum class eVFLIP : uint32_t {
-    eDisabled = 0, // Vertical Flip is disabled
-    eEnabled = 1, // Vertical Flip is enabled
+    // Vertical Flip is disabled
+    eDisabled = 0,
+    // Vertical Flip is enabled
+    eEnabled = 1,
   };
   
+  // Select the block size to process.
   enum class eBLOCK_SIZE : uint32_t {
-    e8X8 = 0, // Process 8x8 pixel blocks.
-    e16X16 = 1, // Process 16x16 pixel blocks.
+    // Process 8x8 pixel blocks.
+    e8X8 = 0,
+    // Process 16x16 pixel blocks.
+    e16X16 = 1,
   };
   
+  // Enable the PXP to run continuously
   enum class eEN_REPEAT : uint32_t {
-    eComplete = 0, // PXP will complete the process and enter the idle state ready to accept the next frame to be processed
-    eRepeat = 1, // PXP will repeat based on the current configuration register settings
+    // PXP will complete the process and enter the idle state ready to accept the next frame to be processed
+    eComplete = 0,
+    // PXP will repeat based on the current configuration register settings
+    eRepeat = 1,
   };
   
+  // This bit must be set to zero for normal operation
   enum class eCLKGATE : uint32_t {
-    eNormal = 0, // Normal operation
-    eGated = 1, // All clocks to PXP is gated-off
+    // Normal operation
+    eNormal = 0,
+    // All clocks to PXP is gated-off
+    eGated = 1,
   };
   
+  // This bit can be turned on and then off to reset the PXP block to its default state.
   enum class eSFTRST : uint32_t {
-    eEnabled = 0, // Normal PXP operation is enabled
-    eDisabled = 1, // Clocking with PXP is disabled and held in its reset (lowest power) state. This is the default value.
+    // Normal PXP operation is enabled
+    eEnabled = 0,
+    // Clocking with PXP is disabled and held in its reset (lowest power) state. This is the default value.
+    eDisabled = 1,
   };
   
   // Bit field definition.
   struct {
-    /// read-write - Enables PXP operation with specified parameters
+    // read-write - Enables PXP operation with specified parameters
     eENABLE ENABLE : 1;
-    /// read-write - Interrupt enable When using the PXP_NEXT functionality to reprogram the PXP, the new value of this bit will be used and may therefore enable or disable an interrupt unintentionally
+    // read-write - Interrupt enable When using the PXP_NEXT functionality to reprogram the PXP, the new value of this bit will be used and may therefore enable or disable an interrupt unintentionally
     eIRQ_ENABLE IRQ_ENABLE : 1;
-    /// read-write - Next command interrupt enable
+    // read-write - Next command interrupt enable
     eNEXT_IRQ_ENABLE NEXT_IRQ_ENABLE : 1;
     uint32_t _reserved_0 : 1;
-    /// read-write - Enable handshake with LCD controller
+    // read-write - Enable handshake with LCD controller
     uint32_t ENABLE_LCD_HANDSHAKE : 1;
     uint32_t _reserved_1 : 3;
-    /// read-write - Indicates the clockwise rotation to be applied at the output buffer
+    // read-write - Indicates the clockwise rotation to be applied at the output buffer
     eROTATE ROTATE : 2;
-    /// read-write - Indicates that the output buffer should be flipped horizontally (effect applied before rotation).
+    // read-write - Indicates that the output buffer should be flipped horizontally (effect applied before rotation).
     eHFLIP HFLIP : 1;
-    /// read-write - Indicates that the output buffer should be flipped vertically (effect applied before rotation).
+    // read-write - Indicates that the output buffer should be flipped vertically (effect applied before rotation).
     eVFLIP VFLIP : 1;
     uint32_t _reserved_2 : 10;
-    /// read-write - This bit controls where rotation will occur in the PXP datapath
+    // read-write - This bit controls where rotation will occur in the PXP datapath
     uint32_t ROT_POS : 1;
-    /// read-write - Select the block size to process.
+    // read-write - Select the block size to process.
     eBLOCK_SIZE BLOCK_SIZE : 1;
     uint32_t _reserved_3 : 4;
-    /// read-write - Enable the PXP to run continuously
+    // read-write - Enable the PXP to run continuously
     eEN_REPEAT EN_REPEAT : 1;
     uint32_t _reserved_4 : 1;
-    /// read-write - This bit must be set to zero for normal operation
+    // read-write - This bit must be set to zero for normal operation
     eCLKGATE CLKGATE : 1;
-    /// read-write - This bit can be turned on and then off to reset the PXP block to its default state.
+    // read-write - This bit can be turned on and then off to reset the PXP block to its default state.
     eSFTRST SFTRST : 1;
   } bits;
   
@@ -109,91 +137,122 @@ union PXP_CTRL {
 };
 
 // Control Register 0
-//
 union PXP_CTRL_SET {
   
+  // Enables PXP operation with specified parameters
   enum class eENABLE : uint32_t {
-    eDisabled = 0, // PXP is disabled
-    eEnabled = 1, // PXP is enabled
+    // PXP is disabled
+    eDisabled = 0,
+    // PXP is enabled
+    eEnabled = 1,
   };
   
+  // Interrupt enable When using the PXP_NEXT functionality to reprogram the PXP, the new value of this bit will be used and may therefore enable or disable an interrupt unintentionally
   enum class eIRQ_ENABLE : uint32_t {
-    eDisabled = 0, // PXP interrupt is disabled
-    eEnabled = 1, // PXP interrupt is enabled
+    // PXP interrupt is disabled
+    eDisabled = 0,
+    // PXP interrupt is enabled
+    eEnabled = 1,
   };
   
+  // Next command interrupt enable
   enum class eNEXT_IRQ_ENABLE : uint32_t {
-    eDisabled = 0, // Disabled
-    eEnabled = 1, // Enabled
+    // Disabled
+    eDisabled = 0,
+    // Enabled
+    eEnabled = 1,
   };
   
+  // Indicates the clockwise rotation to be applied at the output buffer
   enum class eROTATE : uint32_t {
-    eROT_0 = 0, // ROT_0
-    eROT_90 = 1, // ROT_90
-    eROT_180 = 2, // ROT_180
-    eROT_270 = 3, // ROT_270
+    // ROT_0
+    eROT_0 = 0,
+    // ROT_90
+    eROT_90 = 1,
+    // ROT_180
+    eROT_180 = 2,
+    // ROT_270
+    eROT_270 = 3,
   };
   
+  // Indicates that the output buffer should be flipped horizontally (effect applied before rotation).
   enum class eHFLIP : uint32_t {
-    eDisabled = 0, // Horizontal Flip is disabled
-    eEnabled = 1, // Horizontal Flip is enabled
+    // Horizontal Flip is disabled
+    eDisabled = 0,
+    // Horizontal Flip is enabled
+    eEnabled = 1,
   };
   
+  // Indicates that the output buffer should be flipped vertically (effect applied before rotation).
   enum class eVFLIP : uint32_t {
-    eDisabled = 0, // Vertical Flip is disabled
-    eEnabled = 1, // Vertical Flip is enabled
+    // Vertical Flip is disabled
+    eDisabled = 0,
+    // Vertical Flip is enabled
+    eEnabled = 1,
   };
   
+  // Select the block size to process.
   enum class eBLOCK_SIZE : uint32_t {
-    e8X8 = 0, // Process 8x8 pixel blocks.
-    e16X16 = 1, // Process 16x16 pixel blocks.
+    // Process 8x8 pixel blocks.
+    e8X8 = 0,
+    // Process 16x16 pixel blocks.
+    e16X16 = 1,
   };
   
+  // Enable the PXP to run continuously
   enum class eEN_REPEAT : uint32_t {
-    eComplete = 0, // PXP will complete the process and enter the idle state ready to accept the next frame to be processed
-    eRepeat = 1, // PXP will repeat based on the current configuration register settings
+    // PXP will complete the process and enter the idle state ready to accept the next frame to be processed
+    eComplete = 0,
+    // PXP will repeat based on the current configuration register settings
+    eRepeat = 1,
   };
   
+  // This bit must be set to zero for normal operation
   enum class eCLKGATE : uint32_t {
-    eNormal = 0, // Normal operation
-    eGated = 1, // All clocks to PXP is gated-off
+    // Normal operation
+    eNormal = 0,
+    // All clocks to PXP is gated-off
+    eGated = 1,
   };
   
+  // This bit can be turned on and then off to reset the PXP block to its default state.
   enum class eSFTRST : uint32_t {
-    eEnabled = 0, // Normal PXP operation is enabled
-    eDisabled = 1, // Clocking with PXP is disabled and held in its reset (lowest power) state. This is the default value.
+    // Normal PXP operation is enabled
+    eEnabled = 0,
+    // Clocking with PXP is disabled and held in its reset (lowest power) state. This is the default value.
+    eDisabled = 1,
   };
   
   // Bit field definition.
   struct {
-    /// read-write - Enables PXP operation with specified parameters
+    // read-write - Enables PXP operation with specified parameters
     eENABLE ENABLE : 1;
-    /// read-write - Interrupt enable When using the PXP_NEXT functionality to reprogram the PXP, the new value of this bit will be used and may therefore enable or disable an interrupt unintentionally
+    // read-write - Interrupt enable When using the PXP_NEXT functionality to reprogram the PXP, the new value of this bit will be used and may therefore enable or disable an interrupt unintentionally
     eIRQ_ENABLE IRQ_ENABLE : 1;
-    /// read-write - Next command interrupt enable
+    // read-write - Next command interrupt enable
     eNEXT_IRQ_ENABLE NEXT_IRQ_ENABLE : 1;
     uint32_t _reserved_0 : 1;
-    /// read-write - Enable handshake with LCD controller
+    // read-write - Enable handshake with LCD controller
     uint32_t ENABLE_LCD_HANDSHAKE : 1;
     uint32_t _reserved_1 : 3;
-    /// read-write - Indicates the clockwise rotation to be applied at the output buffer
+    // read-write - Indicates the clockwise rotation to be applied at the output buffer
     eROTATE ROTATE : 2;
-    /// read-write - Indicates that the output buffer should be flipped horizontally (effect applied before rotation).
+    // read-write - Indicates that the output buffer should be flipped horizontally (effect applied before rotation).
     eHFLIP HFLIP : 1;
-    /// read-write - Indicates that the output buffer should be flipped vertically (effect applied before rotation).
+    // read-write - Indicates that the output buffer should be flipped vertically (effect applied before rotation).
     eVFLIP VFLIP : 1;
     uint32_t _reserved_2 : 10;
-    /// read-write - This bit controls where rotation will occur in the PXP datapath
+    // read-write - This bit controls where rotation will occur in the PXP datapath
     uint32_t ROT_POS : 1;
-    /// read-write - Select the block size to process.
+    // read-write - Select the block size to process.
     eBLOCK_SIZE BLOCK_SIZE : 1;
     uint32_t _reserved_3 : 4;
-    /// read-write - Enable the PXP to run continuously
+    // read-write - Enable the PXP to run continuously
     eEN_REPEAT EN_REPEAT : 1;
     uint32_t _reserved_4 : 1;
-    /// read-write - This bit must be set to zero for normal operation
+    // read-write - This bit must be set to zero for normal operation
     eCLKGATE CLKGATE : 1;
-    /// read-write - This bit can be turned on and then off to reset the PXP block to its default state.
+    // read-write - This bit can be turned on and then off to reset the PXP block to its default state.
     eSFTRST SFTRST : 1;
   } bits;
   
@@ -206,91 +265,122 @@ union PXP_CTRL_SET {
 };
 
 // Control Register 0
-//
 union PXP_CTRL_CLR {
   
+  // Enables PXP operation with specified parameters
   enum class eENABLE : uint32_t {
-    eDisabled = 0, // PXP is disabled
-    eEnabled = 1, // PXP is enabled
+    // PXP is disabled
+    eDisabled = 0,
+    // PXP is enabled
+    eEnabled = 1,
   };
   
+  // Interrupt enable When using the PXP_NEXT functionality to reprogram the PXP, the new value of this bit will be used and may therefore enable or disable an interrupt unintentionally
   enum class eIRQ_ENABLE : uint32_t {
-    eDisabled = 0, // PXP interrupt is disabled
-    eEnabled = 1, // PXP interrupt is enabled
+    // PXP interrupt is disabled
+    eDisabled = 0,
+    // PXP interrupt is enabled
+    eEnabled = 1,
   };
   
+  // Next command interrupt enable
   enum class eNEXT_IRQ_ENABLE : uint32_t {
-    eDisabled = 0, // Disabled
-    eEnabled = 1, // Enabled
+    // Disabled
+    eDisabled = 0,
+    // Enabled
+    eEnabled = 1,
   };
   
+  // Indicates the clockwise rotation to be applied at the output buffer
   enum class eROTATE : uint32_t {
-    eROT_0 = 0, // ROT_0
-    eROT_90 = 1, // ROT_90
-    eROT_180 = 2, // ROT_180
-    eROT_270 = 3, // ROT_270
+    // ROT_0
+    eROT_0 = 0,
+    // ROT_90
+    eROT_90 = 1,
+    // ROT_180
+    eROT_180 = 2,
+    // ROT_270
+    eROT_270 = 3,
   };
   
+  // Indicates that the output buffer should be flipped horizontally (effect applied before rotation).
   enum class eHFLIP : uint32_t {
-    eDisabled = 0, // Horizontal Flip is disabled
-    eEnabled = 1, // Horizontal Flip is enabled
+    // Horizontal Flip is disabled
+    eDisabled = 0,
+    // Horizontal Flip is enabled
+    eEnabled = 1,
   };
   
+  // Indicates that the output buffer should be flipped vertically (effect applied before rotation).
   enum class eVFLIP : uint32_t {
-    eDisabled = 0, // Vertical Flip is disabled
-    eEnabled = 1, // Vertical Flip is enabled
+    // Vertical Flip is disabled
+    eDisabled = 0,
+    // Vertical Flip is enabled
+    eEnabled = 1,
   };
   
+  // Select the block size to process.
   enum class eBLOCK_SIZE : uint32_t {
-    e8X8 = 0, // Process 8x8 pixel blocks.
-    e16X16 = 1, // Process 16x16 pixel blocks.
+    // Process 8x8 pixel blocks.
+    e8X8 = 0,
+    // Process 16x16 pixel blocks.
+    e16X16 = 1,
   };
   
+  // Enable the PXP to run continuously
   enum class eEN_REPEAT : uint32_t {
-    eComplete = 0, // PXP will complete the process and enter the idle state ready to accept the next frame to be processed
-    eRepeat = 1, // PXP will repeat based on the current configuration register settings
+    // PXP will complete the process and enter the idle state ready to accept the next frame to be processed
+    eComplete = 0,
+    // PXP will repeat based on the current configuration register settings
+    eRepeat = 1,
   };
   
+  // This bit must be set to zero for normal operation
   enum class eCLKGATE : uint32_t {
-    eNormal = 0, // Normal operation
-    eGated = 1, // All clocks to PXP is gated-off
+    // Normal operation
+    eNormal = 0,
+    // All clocks to PXP is gated-off
+    eGated = 1,
   };
   
+  // This bit can be turned on and then off to reset the PXP block to its default state.
   enum class eSFTRST : uint32_t {
-    eEnabled = 0, // Normal PXP operation is enabled
-    eDisabled = 1, // Clocking with PXP is disabled and held in its reset (lowest power) state. This is the default value.
+    // Normal PXP operation is enabled
+    eEnabled = 0,
+    // Clocking with PXP is disabled and held in its reset (lowest power) state. This is the default value.
+    eDisabled = 1,
   };
   
   // Bit field definition.
   struct {
-    /// read-write - Enables PXP operation with specified parameters
+    // read-write - Enables PXP operation with specified parameters
     eENABLE ENABLE : 1;
-    /// read-write - Interrupt enable When using the PXP_NEXT functionality to reprogram the PXP, the new value of this bit will be used and may therefore enable or disable an interrupt unintentionally
+    // read-write - Interrupt enable When using the PXP_NEXT functionality to reprogram the PXP, the new value of this bit will be used and may therefore enable or disable an interrupt unintentionally
     eIRQ_ENABLE IRQ_ENABLE : 1;
-    /// read-write - Next command interrupt enable
+    // read-write - Next command interrupt enable
     eNEXT_IRQ_ENABLE NEXT_IRQ_ENABLE : 1;
     uint32_t _reserved_0 : 1;
-    /// read-write - Enable handshake with LCD controller
+    // read-write - Enable handshake with LCD controller
     uint32_t ENABLE_LCD_HANDSHAKE : 1;
     uint32_t _reserved_1 : 3;
-    /// read-write - Indicates the clockwise rotation to be applied at the output buffer
+    // read-write - Indicates the clockwise rotation to be applied at the output buffer
     eROTATE ROTATE : 2;
-    /// read-write - Indicates that the output buffer should be flipped horizontally (effect applied before rotation).
+    // read-write - Indicates that the output buffer should be flipped horizontally (effect applied before rotation).
     eHFLIP HFLIP : 1;
-    /// read-write - Indicates that the output buffer should be flipped vertically (effect applied before rotation).
+    // read-write - Indicates that the output buffer should be flipped vertically (effect applied before rotation).
     eVFLIP VFLIP : 1;
     uint32_t _reserved_2 : 10;
-    /// read-write - This bit controls where rotation will occur in the PXP datapath
+    // read-write - This bit controls where rotation will occur in the PXP datapath
     uint32_t ROT_POS : 1;
-    /// read-write - Select the block size to process.
+    // read-write - Select the block size to process.
     eBLOCK_SIZE BLOCK_SIZE : 1;
     uint32_t _reserved_3 : 4;
-    /// read-write - Enable the PXP to run continuously
+    // read-write - Enable the PXP to run continuously
     eEN_REPEAT EN_REPEAT : 1;
     uint32_t _reserved_4 : 1;
-    /// read-write - This bit must be set to zero for normal operation
+    // read-write - This bit must be set to zero for normal operation
     eCLKGATE CLKGATE : 1;
-    /// read-write - This bit can be turned on and then off to reset the PXP block to its default state.
+    // read-write - This bit can be turned on and then off to reset the PXP block to its default state.
     eSFTRST SFTRST : 1;
   } bits;
   
@@ -303,91 +393,122 @@ union PXP_CTRL_CLR {
 };
 
 // Control Register 0
-//
 union PXP_CTRL_TOG {
   
+  // Enables PXP operation with specified parameters
   enum class eENABLE : uint32_t {
-    eDisabled = 0, // PXP is disabled
-    eEnabled = 1, // PXP is enabled
+    // PXP is disabled
+    eDisabled = 0,
+    // PXP is enabled
+    eEnabled = 1,
   };
   
+  // Interrupt enable When using the PXP_NEXT functionality to reprogram the PXP, the new value of this bit will be used and may therefore enable or disable an interrupt unintentionally
   enum class eIRQ_ENABLE : uint32_t {
-    eDisabled = 0, // PXP interrupt is disabled
-    eEnabled = 1, // PXP interrupt is enabled
+    // PXP interrupt is disabled
+    eDisabled = 0,
+    // PXP interrupt is enabled
+    eEnabled = 1,
   };
   
+  // Next command interrupt enable
   enum class eNEXT_IRQ_ENABLE : uint32_t {
-    eDisabled = 0, // Disabled
-    eEnabled = 1, // Enabled
+    // Disabled
+    eDisabled = 0,
+    // Enabled
+    eEnabled = 1,
   };
   
+  // Indicates the clockwise rotation to be applied at the output buffer
   enum class eROTATE : uint32_t {
-    eROT_0 = 0, // ROT_0
-    eROT_90 = 1, // ROT_90
-    eROT_180 = 2, // ROT_180
-    eROT_270 = 3, // ROT_270
+    // ROT_0
+    eROT_0 = 0,
+    // ROT_90
+    eROT_90 = 1,
+    // ROT_180
+    eROT_180 = 2,
+    // ROT_270
+    eROT_270 = 3,
   };
   
+  // Indicates that the output buffer should be flipped horizontally (effect applied before rotation).
   enum class eHFLIP : uint32_t {
-    eDisabled = 0, // Horizontal Flip is disabled
-    eEnabled = 1, // Horizontal Flip is enabled
+    // Horizontal Flip is disabled
+    eDisabled = 0,
+    // Horizontal Flip is enabled
+    eEnabled = 1,
   };
   
+  // Indicates that the output buffer should be flipped vertically (effect applied before rotation).
   enum class eVFLIP : uint32_t {
-    eDisabled = 0, // Vertical Flip is disabled
-    eEnabled = 1, // Vertical Flip is enabled
+    // Vertical Flip is disabled
+    eDisabled = 0,
+    // Vertical Flip is enabled
+    eEnabled = 1,
   };
   
+  // Select the block size to process.
   enum class eBLOCK_SIZE : uint32_t {
-    e8X8 = 0, // Process 8x8 pixel blocks.
-    e16X16 = 1, // Process 16x16 pixel blocks.
+    // Process 8x8 pixel blocks.
+    e8X8 = 0,
+    // Process 16x16 pixel blocks.
+    e16X16 = 1,
   };
   
+  // Enable the PXP to run continuously
   enum class eEN_REPEAT : uint32_t {
-    eComplete = 0, // PXP will complete the process and enter the idle state ready to accept the next frame to be processed
-    eRepeat = 1, // PXP will repeat based on the current configuration register settings
+    // PXP will complete the process and enter the idle state ready to accept the next frame to be processed
+    eComplete = 0,
+    // PXP will repeat based on the current configuration register settings
+    eRepeat = 1,
   };
   
+  // This bit must be set to zero for normal operation
   enum class eCLKGATE : uint32_t {
-    eNormal = 0, // Normal operation
-    eGated = 1, // All clocks to PXP is gated-off
+    // Normal operation
+    eNormal = 0,
+    // All clocks to PXP is gated-off
+    eGated = 1,
   };
   
+  // This bit can be turned on and then off to reset the PXP block to its default state.
   enum class eSFTRST : uint32_t {
-    eEnabled = 0, // Normal PXP operation is enabled
-    eDisabled = 1, // Clocking with PXP is disabled and held in its reset (lowest power) state. This is the default value.
+    // Normal PXP operation is enabled
+    eEnabled = 0,
+    // Clocking with PXP is disabled and held in its reset (lowest power) state. This is the default value.
+    eDisabled = 1,
   };
   
   // Bit field definition.
   struct {
-    /// read-write - Enables PXP operation with specified parameters
+    // read-write - Enables PXP operation with specified parameters
     eENABLE ENABLE : 1;
-    /// read-write - Interrupt enable When using the PXP_NEXT functionality to reprogram the PXP, the new value of this bit will be used and may therefore enable or disable an interrupt unintentionally
+    // read-write - Interrupt enable When using the PXP_NEXT functionality to reprogram the PXP, the new value of this bit will be used and may therefore enable or disable an interrupt unintentionally
     eIRQ_ENABLE IRQ_ENABLE : 1;
-    /// read-write - Next command interrupt enable
+    // read-write - Next command interrupt enable
     eNEXT_IRQ_ENABLE NEXT_IRQ_ENABLE : 1;
     uint32_t _reserved_0 : 1;
-    /// read-write - Enable handshake with LCD controller
+    // read-write - Enable handshake with LCD controller
     uint32_t ENABLE_LCD_HANDSHAKE : 1;
     uint32_t _reserved_1 : 3;
-    /// read-write - Indicates the clockwise rotation to be applied at the output buffer
+    // read-write - Indicates the clockwise rotation to be applied at the output buffer
     eROTATE ROTATE : 2;
-    /// read-write - Indicates that the output buffer should be flipped horizontally (effect applied before rotation).
+    // read-write - Indicates that the output buffer should be flipped horizontally (effect applied before rotation).
     eHFLIP HFLIP : 1;
-    /// read-write - Indicates that the output buffer should be flipped vertically (effect applied before rotation).
+    // read-write - Indicates that the output buffer should be flipped vertically (effect applied before rotation).
     eVFLIP VFLIP : 1;
     uint32_t _reserved_2 : 10;
-    /// read-write - This bit controls where rotation will occur in the PXP datapath
+    // read-write - This bit controls where rotation will occur in the PXP datapath
     uint32_t ROT_POS : 1;
-    /// read-write - Select the block size to process.
+    // read-write - Select the block size to process.
     eBLOCK_SIZE BLOCK_SIZE : 1;
     uint32_t _reserved_3 : 4;
-    /// read-write - Enable the PXP to run continuously
+    // read-write - Enable the PXP to run continuously
     eEN_REPEAT EN_REPEAT : 1;
     uint32_t _reserved_4 : 1;
-    /// read-write - This bit must be set to zero for normal operation
+    // read-write - This bit must be set to zero for normal operation
     eCLKGATE CLKGATE : 1;
-    /// read-write - This bit can be turned on and then off to reset the PXP block to its default state.
+    // read-write - This bit can be turned on and then off to reset the PXP block to its default state.
     eSFTRST SFTRST : 1;
   } bits;
   
@@ -400,47 +521,58 @@ union PXP_CTRL_TOG {
 };
 
 // Status Register
-//
 union PXP_STAT {
   
+  // Indicates current PXP interrupt status
   enum class eIRQ : uint32_t {
-    eIRQ_0 = 0, // No interrupt
-    eIRQ_1 = 1, // Interrupt generated
+    // No interrupt
+    eIRQ_0 = 0,
+    // Interrupt generated
+    eIRQ_1 = 1,
   };
   
+  // Indicates PXP encountered an AXI write error and processing has been terminated.
   enum class eAXI_WRITE_ERROR : uint32_t {
-    eNormal = 0, // AXI write is normal
-    eError = 1, // AXI write error has occurred
+    // AXI write is normal
+    eNormal = 0,
+    // AXI write error has occurred
+    eError = 1,
   };
   
+  // Indicates PXP encountered an AXI read error and processing has been terminated.
   enum class eAXI_READ_ERROR : uint32_t {
-    eNormal = 0, // AXI read is normal
-    eError = 1, // AXI read error has occurred
+    // AXI read is normal
+    eNormal = 0,
+    // AXI read error has occurred
+    eError = 1,
   };
   
+  // Indicates that the LUT DMA transfer has completed.
   enum class eLUT_DMA_LOAD_DONE_IRQ : uint32_t {
-    eActive = 0, // LUT DMA LOAD transfer is active
-    eComplete = 1, // LUT DMA LOAD transfer is complete
+    // LUT DMA LOAD transfer is active
+    eActive = 0,
+    // LUT DMA LOAD transfer is complete
+    eComplete = 1,
   };
   
   // Bit field definition.
   struct {
-    /// read-write - Indicates current PXP interrupt status
+    // read-write - Indicates current PXP interrupt status
     eIRQ IRQ : 1;
-    /// read-write - Indicates PXP encountered an AXI write error and processing has been terminated.
+    // read-write - Indicates PXP encountered an AXI write error and processing has been terminated.
     eAXI_WRITE_ERROR AXI_WRITE_ERROR : 1;
-    /// read-write - Indicates PXP encountered an AXI read error and processing has been terminated.
+    // read-write - Indicates PXP encountered an AXI read error and processing has been terminated.
     eAXI_READ_ERROR AXI_READ_ERROR : 1;
-    /// read-write - Indicates that a command issued with the "Next Command" functionality has been issued and that a new command may be initiated with a write to the PXP_NEXT register
+    // read-write - Indicates that a command issued with the "Next Command" functionality has been issued and that a new command may be initiated with a write to the PXP_NEXT register
     uint32_t NEXT_IRQ : 1;
-    /// read-only - Indicates the AXI ID of the failing bus operation.
+    // read-only - Indicates the AXI ID of the failing bus operation.
     uint32_t AXI_ERROR_ID : 4;
-    /// read-write - Indicates that the LUT DMA transfer has completed.
+    // read-write - Indicates that the LUT DMA transfer has completed.
     eLUT_DMA_LOAD_DONE_IRQ LUT_DMA_LOAD_DONE_IRQ : 1;
     uint32_t _reserved_0 : 7;
-    /// read-only - Indicates the X coordinate of the block currently being rendered.
+    // read-only - Indicates the X coordinate of the block currently being rendered.
     uint32_t BLOCKY : 8;
-    /// read-only - Indicates the X coordinate of the block currently being rendered.
+    // read-only - Indicates the X coordinate of the block currently being rendered.
     uint32_t BLOCKX : 8;
   } bits;
   
@@ -453,47 +585,58 @@ union PXP_STAT {
 };
 
 // Status Register
-//
 union PXP_STAT_SET {
   
+  // Indicates current PXP interrupt status
   enum class eIRQ : uint32_t {
-    eIRQ_0 = 0, // No interrupt
-    eIRQ_1 = 1, // Interrupt generated
+    // No interrupt
+    eIRQ_0 = 0,
+    // Interrupt generated
+    eIRQ_1 = 1,
   };
   
+  // Indicates PXP encountered an AXI write error and processing has been terminated.
   enum class eAXI_WRITE_ERROR : uint32_t {
-    eNormal = 0, // AXI write is normal
-    eError = 1, // AXI write error has occurred
+    // AXI write is normal
+    eNormal = 0,
+    // AXI write error has occurred
+    eError = 1,
   };
   
+  // Indicates PXP encountered an AXI read error and processing has been terminated.
   enum class eAXI_READ_ERROR : uint32_t {
-    eNormal = 0, // AXI read is normal
-    eError = 1, // AXI read error has occurred
+    // AXI read is normal
+    eNormal = 0,
+    // AXI read error has occurred
+    eError = 1,
   };
   
+  // Indicates that the LUT DMA transfer has completed.
   enum class eLUT_DMA_LOAD_DONE_IRQ : uint32_t {
-    eActive = 0, // LUT DMA LOAD transfer is active
-    eComplete = 1, // LUT DMA LOAD transfer is complete
+    // LUT DMA LOAD transfer is active
+    eActive = 0,
+    // LUT DMA LOAD transfer is complete
+    eComplete = 1,
   };
   
   // Bit field definition.
   struct {
-    /// read-write - Indicates current PXP interrupt status
+    // read-write - Indicates current PXP interrupt status
     eIRQ IRQ : 1;
-    /// read-write - Indicates PXP encountered an AXI write error and processing has been terminated.
+    // read-write - Indicates PXP encountered an AXI write error and processing has been terminated.
     eAXI_WRITE_ERROR AXI_WRITE_ERROR : 1;
-    /// read-write - Indicates PXP encountered an AXI read error and processing has been terminated.
+    // read-write - Indicates PXP encountered an AXI read error and processing has been terminated.
     eAXI_READ_ERROR AXI_READ_ERROR : 1;
-    /// read-write - Indicates that a command issued with the "Next Command" functionality has been issued and that a new command may be initiated with a write to the PXP_NEXT register
+    // read-write - Indicates that a command issued with the "Next Command" functionality has been issued and that a new command may be initiated with a write to the PXP_NEXT register
     uint32_t NEXT_IRQ : 1;
-    /// read-only - Indicates the AXI ID of the failing bus operation.
+    // read-only - Indicates the AXI ID of the failing bus operation.
     uint32_t AXI_ERROR_ID : 4;
-    /// read-write - Indicates that the LUT DMA transfer has completed.
+    // read-write - Indicates that the LUT DMA transfer has completed.
     eLUT_DMA_LOAD_DONE_IRQ LUT_DMA_LOAD_DONE_IRQ : 1;
     uint32_t _reserved_0 : 7;
-    /// read-only - Indicates the X coordinate of the block currently being rendered.
+    // read-only - Indicates the X coordinate of the block currently being rendered.
     uint32_t BLOCKY : 8;
-    /// read-only - Indicates the X coordinate of the block currently being rendered.
+    // read-only - Indicates the X coordinate of the block currently being rendered.
     uint32_t BLOCKX : 8;
   } bits;
   
@@ -506,47 +649,58 @@ union PXP_STAT_SET {
 };
 
 // Status Register
-//
 union PXP_STAT_CLR {
   
+  // Indicates current PXP interrupt status
   enum class eIRQ : uint32_t {
-    eIRQ_0 = 0, // No interrupt
-    eIRQ_1 = 1, // Interrupt generated
+    // No interrupt
+    eIRQ_0 = 0,
+    // Interrupt generated
+    eIRQ_1 = 1,
   };
   
+  // Indicates PXP encountered an AXI write error and processing has been terminated.
   enum class eAXI_WRITE_ERROR : uint32_t {
-    eNormal = 0, // AXI write is normal
-    eError = 1, // AXI write error has occurred
+    // AXI write is normal
+    eNormal = 0,
+    // AXI write error has occurred
+    eError = 1,
   };
   
+  // Indicates PXP encountered an AXI read error and processing has been terminated.
   enum class eAXI_READ_ERROR : uint32_t {
-    eNormal = 0, // AXI read is normal
-    eError = 1, // AXI read error has occurred
+    // AXI read is normal
+    eNormal = 0,
+    // AXI read error has occurred
+    eError = 1,
   };
   
+  // Indicates that the LUT DMA transfer has completed.
   enum class eLUT_DMA_LOAD_DONE_IRQ : uint32_t {
-    eActive = 0, // LUT DMA LOAD transfer is active
-    eComplete = 1, // LUT DMA LOAD transfer is complete
+    // LUT DMA LOAD transfer is active
+    eActive = 0,
+    // LUT DMA LOAD transfer is complete
+    eComplete = 1,
   };
   
   // Bit field definition.
   struct {
-    /// read-write - Indicates current PXP interrupt status
+    // read-write - Indicates current PXP interrupt status
     eIRQ IRQ : 1;
-    /// read-write - Indicates PXP encountered an AXI write error and processing has been terminated.
+    // read-write - Indicates PXP encountered an AXI write error and processing has been terminated.
     eAXI_WRITE_ERROR AXI_WRITE_ERROR : 1;
-    /// read-write - Indicates PXP encountered an AXI read error and processing has been terminated.
+    // read-write - Indicates PXP encountered an AXI read error and processing has been terminated.
     eAXI_READ_ERROR AXI_READ_ERROR : 1;
-    /// read-write - Indicates that a command issued with the "Next Command" functionality has been issued and that a new command may be initiated with a write to the PXP_NEXT register
+    // read-write - Indicates that a command issued with the "Next Command" functionality has been issued and that a new command may be initiated with a write to the PXP_NEXT register
     uint32_t NEXT_IRQ : 1;
-    /// read-only - Indicates the AXI ID of the failing bus operation.
+    // read-only - Indicates the AXI ID of the failing bus operation.
     uint32_t AXI_ERROR_ID : 4;
-    /// read-write - Indicates that the LUT DMA transfer has completed.
+    // read-write - Indicates that the LUT DMA transfer has completed.
     eLUT_DMA_LOAD_DONE_IRQ LUT_DMA_LOAD_DONE_IRQ : 1;
     uint32_t _reserved_0 : 7;
-    /// read-only - Indicates the X coordinate of the block currently being rendered.
+    // read-only - Indicates the X coordinate of the block currently being rendered.
     uint32_t BLOCKY : 8;
-    /// read-only - Indicates the X coordinate of the block currently being rendered.
+    // read-only - Indicates the X coordinate of the block currently being rendered.
     uint32_t BLOCKX : 8;
   } bits;
   
@@ -559,47 +713,58 @@ union PXP_STAT_CLR {
 };
 
 // Status Register
-//
 union PXP_STAT_TOG {
   
+  // Indicates current PXP interrupt status
   enum class eIRQ : uint32_t {
-    eIRQ_0 = 0, // No interrupt
-    eIRQ_1 = 1, // Interrupt generated
+    // No interrupt
+    eIRQ_0 = 0,
+    // Interrupt generated
+    eIRQ_1 = 1,
   };
   
+  // Indicates PXP encountered an AXI write error and processing has been terminated.
   enum class eAXI_WRITE_ERROR : uint32_t {
-    eNormal = 0, // AXI write is normal
-    eError = 1, // AXI write error has occurred
+    // AXI write is normal
+    eNormal = 0,
+    // AXI write error has occurred
+    eError = 1,
   };
   
+  // Indicates PXP encountered an AXI read error and processing has been terminated.
   enum class eAXI_READ_ERROR : uint32_t {
-    eNormal = 0, // AXI read is normal
-    eError = 1, // AXI read error has occurred
+    // AXI read is normal
+    eNormal = 0,
+    // AXI read error has occurred
+    eError = 1,
   };
   
+  // Indicates that the LUT DMA transfer has completed.
   enum class eLUT_DMA_LOAD_DONE_IRQ : uint32_t {
-    eActive = 0, // LUT DMA LOAD transfer is active
-    eComplete = 1, // LUT DMA LOAD transfer is complete
+    // LUT DMA LOAD transfer is active
+    eActive = 0,
+    // LUT DMA LOAD transfer is complete
+    eComplete = 1,
   };
   
   // Bit field definition.
   struct {
-    /// read-write - Indicates current PXP interrupt status
+    // read-write - Indicates current PXP interrupt status
     eIRQ IRQ : 1;
-    /// read-write - Indicates PXP encountered an AXI write error and processing has been terminated.
+    // read-write - Indicates PXP encountered an AXI write error and processing has been terminated.
     eAXI_WRITE_ERROR AXI_WRITE_ERROR : 1;
-    /// read-write - Indicates PXP encountered an AXI read error and processing has been terminated.
+    // read-write - Indicates PXP encountered an AXI read error and processing has been terminated.
     eAXI_READ_ERROR AXI_READ_ERROR : 1;
-    /// read-write - Indicates that a command issued with the "Next Command" functionality has been issued and that a new command may be initiated with a write to the PXP_NEXT register
+    // read-write - Indicates that a command issued with the "Next Command" functionality has been issued and that a new command may be initiated with a write to the PXP_NEXT register
     uint32_t NEXT_IRQ : 1;
-    /// read-only - Indicates the AXI ID of the failing bus operation.
+    // read-only - Indicates the AXI ID of the failing bus operation.
     uint32_t AXI_ERROR_ID : 4;
-    /// read-write - Indicates that the LUT DMA transfer has completed.
+    // read-write - Indicates that the LUT DMA transfer has completed.
     eLUT_DMA_LOAD_DONE_IRQ LUT_DMA_LOAD_DONE_IRQ : 1;
     uint32_t _reserved_0 : 7;
-    /// read-only - Indicates the X coordinate of the block currently being rendered.
+    // read-only - Indicates the X coordinate of the block currently being rendered.
     uint32_t BLOCKY : 8;
-    /// read-only - Indicates the X coordinate of the block currently being rendered.
+    // read-only - Indicates the X coordinate of the block currently being rendered.
     uint32_t BLOCKX : 8;
   } bits;
   
@@ -612,52 +777,77 @@ union PXP_STAT_TOG {
 };
 
 // Output Buffer Control Register
-//
 union PXP_OUT_CTRL {
   
+  // Output framebuffer format
   enum class eFORMAT : uint32_t {
-    eARGB8888 = 0, // 32-bit pixels
-    eRGB888 = 4, // 32-bit pixels (unpacked 24-bit pixel in 32 bit DWORD.)
-    eRGB888P = 5, // 24-bit pixels (packed 24-bit format)
-    eARGB1555 = 8, // 16-bit pixels
-    eARGB4444 = 9, // 16-bit pixels
-    eRGB555 = 12, // 16-bit pixels
-    eRGB444 = 13, // 16-bit pixels
-    eRGB565 = 14, // 16-bit pixels
-    eYUV1P444 = 16, // 32-bit pixels (1-plane XYUV unpacked)
-    eUYVY1P422 = 18, // 16-bit pixels (1-plane U0,Y0,V0,Y1 interleaved bytes)
-    eVYUY1P422 = 19, // 16-bit pixels (1-plane V0,Y0,U0,Y1 interleaved bytes)
-    eY8 = 20, // 8-bit monochrome pixels (1-plane Y luma output)
-    eY4 = 21, // 4-bit monochrome pixels (1-plane Y luma, 4 bit truncation)
-    eYUV2P422 = 24, // 16-bit pixels (2-plane UV interleaved bytes)
-    eYUV2P420 = 25, // 16-bit pixels (2-plane UV)
-    eYVU2P422 = 26, // 16-bit pixels (2-plane VU interleaved bytes)
-    eYVU2P420 = 27, // 16-bit pixels (2-plane VU)
+    // 32-bit pixels
+    eARGB8888 = 0,
+    // 32-bit pixels (unpacked 24-bit pixel in 32 bit DWORD.)
+    eRGB888 = 4,
+    // 24-bit pixels (packed 24-bit format)
+    eRGB888P = 5,
+    // 16-bit pixels
+    eARGB1555 = 8,
+    // 16-bit pixels
+    eARGB4444 = 9,
+    // 16-bit pixels
+    eRGB555 = 12,
+    // 16-bit pixels
+    eRGB444 = 13,
+    // 16-bit pixels
+    eRGB565 = 14,
+    // 32-bit pixels (1-plane XYUV unpacked)
+    eYUV1P444 = 16,
+    // 16-bit pixels (1-plane U0,Y0,V0,Y1 interleaved bytes)
+    eUYVY1P422 = 18,
+    // 16-bit pixels (1-plane V0,Y0,U0,Y1 interleaved bytes)
+    eVYUY1P422 = 19,
+    // 8-bit monochrome pixels (1-plane Y luma output)
+    eY8 = 20,
+    // 4-bit monochrome pixels (1-plane Y luma, 4 bit truncation)
+    eY4 = 21,
+    // 16-bit pixels (2-plane UV interleaved bytes)
+    eYUV2P422 = 24,
+    // 16-bit pixels (2-plane UV)
+    eYUV2P420 = 25,
+    // 16-bit pixels (2-plane VU interleaved bytes)
+    eYVU2P422 = 26,
+    // 16-bit pixels (2-plane VU)
+    eYVU2P420 = 27,
   };
   
+  // Determines how the PXP writes it's output data
   enum class eINTERLACED_OUTPUT : uint32_t {
-    ePROGRESSIVE = 0, // All data written in progressive format to the OUTBUF Pointer.
-    eFIELD0 = 1, // Interlaced output: only data for field 0 is written to the OUTBUF Pointer.
-    eFIELD1 = 2, // Interlaced output: only data for field 1 is written to the OUTBUF2 Pointer.
-    eINTERLACED = 3, // Interlaced output: data for field 0 is written to OUTBUF and data for field 1 is written to OUTBUF2.
+    // All data written in progressive format to the OUTBUF Pointer.
+    ePROGRESSIVE = 0,
+    // Interlaced output: only data for field 0 is written to the OUTBUF Pointer.
+    eFIELD0 = 1,
+    // Interlaced output: only data for field 1 is written to the OUTBUF2 Pointer.
+    eFIELD1 = 2,
+    // Interlaced output: data for field 0 is written to OUTBUF and data for field 1 is written to OUTBUF2.
+    eINTERLACED = 3,
   };
   
+  // Indicates that alpha component in output buffer pixels should be overwritten by PXP_OUT_CTRL[ALPHA]
   enum class eALPHA_OUTPUT : uint32_t {
-    eRetain = 0, // Retain
-    eOverwritten = 1, // Overwritten
+    // Retain
+    eRetain = 0,
+    // Overwritten
+    eOverwritten = 1,
   };
   
   // Bit field definition.
   struct {
-    /// read-write - Output framebuffer format
+    // read-write - Output framebuffer format
     eFORMAT FORMAT : 5;
     uint32_t _reserved_0 : 3;
-    /// read-write - Determines how the PXP writes it's output data
+    // read-write - Determines how the PXP writes it's output data
     eINTERLACED_OUTPUT INTERLACED_OUTPUT : 2;
     uint32_t _reserved_1 : 13;
-    /// read-write - Indicates that alpha component in output buffer pixels should be overwritten by PXP_OUT_CTRL[ALPHA]
+    // read-write - Indicates that alpha component in output buffer pixels should be overwritten by PXP_OUT_CTRL[ALPHA]
     eALPHA_OUTPUT ALPHA_OUTPUT : 1;
-    /// read-write - When generating an output buffer with an alpha component, the value in this field will be used when enabled to override the alpha passed through the pixel data pipeline
+    // read-write - When generating an output buffer with an alpha component, the value in this field will be used when enabled to override the alpha passed through the pixel data pipeline
     uint32_t ALPHA : 8;
   } bits;
   
@@ -670,52 +860,77 @@ union PXP_OUT_CTRL {
 };
 
 // Output Buffer Control Register
-//
 union PXP_OUT_CTRL_SET {
   
+  // Output framebuffer format
   enum class eFORMAT : uint32_t {
-    eARGB8888 = 0, // 32-bit pixels
-    eRGB888 = 4, // 32-bit pixels (unpacked 24-bit pixel in 32 bit DWORD.)
-    eRGB888P = 5, // 24-bit pixels (packed 24-bit format)
-    eARGB1555 = 8, // 16-bit pixels
-    eARGB4444 = 9, // 16-bit pixels
-    eRGB555 = 12, // 16-bit pixels
-    eRGB444 = 13, // 16-bit pixels
-    eRGB565 = 14, // 16-bit pixels
-    eYUV1P444 = 16, // 32-bit pixels (1-plane XYUV unpacked)
-    eUYVY1P422 = 18, // 16-bit pixels (1-plane U0,Y0,V0,Y1 interleaved bytes)
-    eVYUY1P422 = 19, // 16-bit pixels (1-plane V0,Y0,U0,Y1 interleaved bytes)
-    eY8 = 20, // 8-bit monochrome pixels (1-plane Y luma output)
-    eY4 = 21, // 4-bit monochrome pixels (1-plane Y luma, 4 bit truncation)
-    eYUV2P422 = 24, // 16-bit pixels (2-plane UV interleaved bytes)
-    eYUV2P420 = 25, // 16-bit pixels (2-plane UV)
-    eYVU2P422 = 26, // 16-bit pixels (2-plane VU interleaved bytes)
-    eYVU2P420 = 27, // 16-bit pixels (2-plane VU)
+    // 32-bit pixels
+    eARGB8888 = 0,
+    // 32-bit pixels (unpacked 24-bit pixel in 32 bit DWORD.)
+    eRGB888 = 4,
+    // 24-bit pixels (packed 24-bit format)
+    eRGB888P = 5,
+    // 16-bit pixels
+    eARGB1555 = 8,
+    // 16-bit pixels
+    eARGB4444 = 9,
+    // 16-bit pixels
+    eRGB555 = 12,
+    // 16-bit pixels
+    eRGB444 = 13,
+    // 16-bit pixels
+    eRGB565 = 14,
+    // 32-bit pixels (1-plane XYUV unpacked)
+    eYUV1P444 = 16,
+    // 16-bit pixels (1-plane U0,Y0,V0,Y1 interleaved bytes)
+    eUYVY1P422 = 18,
+    // 16-bit pixels (1-plane V0,Y0,U0,Y1 interleaved bytes)
+    eVYUY1P422 = 19,
+    // 8-bit monochrome pixels (1-plane Y luma output)
+    eY8 = 20,
+    // 4-bit monochrome pixels (1-plane Y luma, 4 bit truncation)
+    eY4 = 21,
+    // 16-bit pixels (2-plane UV interleaved bytes)
+    eYUV2P422 = 24,
+    // 16-bit pixels (2-plane UV)
+    eYUV2P420 = 25,
+    // 16-bit pixels (2-plane VU interleaved bytes)
+    eYVU2P422 = 26,
+    // 16-bit pixels (2-plane VU)
+    eYVU2P420 = 27,
   };
   
+  // Determines how the PXP writes it's output data
   enum class eINTERLACED_OUTPUT : uint32_t {
-    ePROGRESSIVE = 0, // All data written in progressive format to the OUTBUF Pointer.
-    eFIELD0 = 1, // Interlaced output: only data for field 0 is written to the OUTBUF Pointer.
-    eFIELD1 = 2, // Interlaced output: only data for field 1 is written to the OUTBUF2 Pointer.
-    eINTERLACED = 3, // Interlaced output: data for field 0 is written to OUTBUF and data for field 1 is written to OUTBUF2.
+    // All data written in progressive format to the OUTBUF Pointer.
+    ePROGRESSIVE = 0,
+    // Interlaced output: only data for field 0 is written to the OUTBUF Pointer.
+    eFIELD0 = 1,
+    // Interlaced output: only data for field 1 is written to the OUTBUF2 Pointer.
+    eFIELD1 = 2,
+    // Interlaced output: data for field 0 is written to OUTBUF and data for field 1 is written to OUTBUF2.
+    eINTERLACED = 3,
   };
   
+  // Indicates that alpha component in output buffer pixels should be overwritten by PXP_OUT_CTRL[ALPHA]
   enum class eALPHA_OUTPUT : uint32_t {
-    eRetain = 0, // Retain
-    eOverwritten = 1, // Overwritten
+    // Retain
+    eRetain = 0,
+    // Overwritten
+    eOverwritten = 1,
   };
   
   // Bit field definition.
   struct {
-    /// read-write - Output framebuffer format
+    // read-write - Output framebuffer format
     eFORMAT FORMAT : 5;
     uint32_t _reserved_0 : 3;
-    /// read-write - Determines how the PXP writes it's output data
+    // read-write - Determines how the PXP writes it's output data
     eINTERLACED_OUTPUT INTERLACED_OUTPUT : 2;
     uint32_t _reserved_1 : 13;
-    /// read-write - Indicates that alpha component in output buffer pixels should be overwritten by PXP_OUT_CTRL[ALPHA]
+    // read-write - Indicates that alpha component in output buffer pixels should be overwritten by PXP_OUT_CTRL[ALPHA]
     eALPHA_OUTPUT ALPHA_OUTPUT : 1;
-    /// read-write - When generating an output buffer with an alpha component, the value in this field will be used when enabled to override the alpha passed through the pixel data pipeline
+    // read-write - When generating an output buffer with an alpha component, the value in this field will be used when enabled to override the alpha passed through the pixel data pipeline
     uint32_t ALPHA : 8;
   } bits;
   
@@ -728,52 +943,77 @@ union PXP_OUT_CTRL_SET {
 };
 
 // Output Buffer Control Register
-//
 union PXP_OUT_CTRL_CLR {
   
+  // Output framebuffer format
   enum class eFORMAT : uint32_t {
-    eARGB8888 = 0, // 32-bit pixels
-    eRGB888 = 4, // 32-bit pixels (unpacked 24-bit pixel in 32 bit DWORD.)
-    eRGB888P = 5, // 24-bit pixels (packed 24-bit format)
-    eARGB1555 = 8, // 16-bit pixels
-    eARGB4444 = 9, // 16-bit pixels
-    eRGB555 = 12, // 16-bit pixels
-    eRGB444 = 13, // 16-bit pixels
-    eRGB565 = 14, // 16-bit pixels
-    eYUV1P444 = 16, // 32-bit pixels (1-plane XYUV unpacked)
-    eUYVY1P422 = 18, // 16-bit pixels (1-plane U0,Y0,V0,Y1 interleaved bytes)
-    eVYUY1P422 = 19, // 16-bit pixels (1-plane V0,Y0,U0,Y1 interleaved bytes)
-    eY8 = 20, // 8-bit monochrome pixels (1-plane Y luma output)
-    eY4 = 21, // 4-bit monochrome pixels (1-plane Y luma, 4 bit truncation)
-    eYUV2P422 = 24, // 16-bit pixels (2-plane UV interleaved bytes)
-    eYUV2P420 = 25, // 16-bit pixels (2-plane UV)
-    eYVU2P422 = 26, // 16-bit pixels (2-plane VU interleaved bytes)
-    eYVU2P420 = 27, // 16-bit pixels (2-plane VU)
+    // 32-bit pixels
+    eARGB8888 = 0,
+    // 32-bit pixels (unpacked 24-bit pixel in 32 bit DWORD.)
+    eRGB888 = 4,
+    // 24-bit pixels (packed 24-bit format)
+    eRGB888P = 5,
+    // 16-bit pixels
+    eARGB1555 = 8,
+    // 16-bit pixels
+    eARGB4444 = 9,
+    // 16-bit pixels
+    eRGB555 = 12,
+    // 16-bit pixels
+    eRGB444 = 13,
+    // 16-bit pixels
+    eRGB565 = 14,
+    // 32-bit pixels (1-plane XYUV unpacked)
+    eYUV1P444 = 16,
+    // 16-bit pixels (1-plane U0,Y0,V0,Y1 interleaved bytes)
+    eUYVY1P422 = 18,
+    // 16-bit pixels (1-plane V0,Y0,U0,Y1 interleaved bytes)
+    eVYUY1P422 = 19,
+    // 8-bit monochrome pixels (1-plane Y luma output)
+    eY8 = 20,
+    // 4-bit monochrome pixels (1-plane Y luma, 4 bit truncation)
+    eY4 = 21,
+    // 16-bit pixels (2-plane UV interleaved bytes)
+    eYUV2P422 = 24,
+    // 16-bit pixels (2-plane UV)
+    eYUV2P420 = 25,
+    // 16-bit pixels (2-plane VU interleaved bytes)
+    eYVU2P422 = 26,
+    // 16-bit pixels (2-plane VU)
+    eYVU2P420 = 27,
   };
   
+  // Determines how the PXP writes it's output data
   enum class eINTERLACED_OUTPUT : uint32_t {
-    ePROGRESSIVE = 0, // All data written in progressive format to the OUTBUF Pointer.
-    eFIELD0 = 1, // Interlaced output: only data for field 0 is written to the OUTBUF Pointer.
-    eFIELD1 = 2, // Interlaced output: only data for field 1 is written to the OUTBUF2 Pointer.
-    eINTERLACED = 3, // Interlaced output: data for field 0 is written to OUTBUF and data for field 1 is written to OUTBUF2.
+    // All data written in progressive format to the OUTBUF Pointer.
+    ePROGRESSIVE = 0,
+    // Interlaced output: only data for field 0 is written to the OUTBUF Pointer.
+    eFIELD0 = 1,
+    // Interlaced output: only data for field 1 is written to the OUTBUF2 Pointer.
+    eFIELD1 = 2,
+    // Interlaced output: data for field 0 is written to OUTBUF and data for field 1 is written to OUTBUF2.
+    eINTERLACED = 3,
   };
   
+  // Indicates that alpha component in output buffer pixels should be overwritten by PXP_OUT_CTRL[ALPHA]
   enum class eALPHA_OUTPUT : uint32_t {
-    eRetain = 0, // Retain
-    eOverwritten = 1, // Overwritten
+    // Retain
+    eRetain = 0,
+    // Overwritten
+    eOverwritten = 1,
   };
   
   // Bit field definition.
   struct {
-    /// read-write - Output framebuffer format
+    // read-write - Output framebuffer format
     eFORMAT FORMAT : 5;
     uint32_t _reserved_0 : 3;
-    /// read-write - Determines how the PXP writes it's output data
+    // read-write - Determines how the PXP writes it's output data
     eINTERLACED_OUTPUT INTERLACED_OUTPUT : 2;
     uint32_t _reserved_1 : 13;
-    /// read-write - Indicates that alpha component in output buffer pixels should be overwritten by PXP_OUT_CTRL[ALPHA]
+    // read-write - Indicates that alpha component in output buffer pixels should be overwritten by PXP_OUT_CTRL[ALPHA]
     eALPHA_OUTPUT ALPHA_OUTPUT : 1;
-    /// read-write - When generating an output buffer with an alpha component, the value in this field will be used when enabled to override the alpha passed through the pixel data pipeline
+    // read-write - When generating an output buffer with an alpha component, the value in this field will be used when enabled to override the alpha passed through the pixel data pipeline
     uint32_t ALPHA : 8;
   } bits;
   
@@ -786,52 +1026,77 @@ union PXP_OUT_CTRL_CLR {
 };
 
 // Output Buffer Control Register
-//
 union PXP_OUT_CTRL_TOG {
   
+  // Output framebuffer format
   enum class eFORMAT : uint32_t {
-    eARGB8888 = 0, // 32-bit pixels
-    eRGB888 = 4, // 32-bit pixels (unpacked 24-bit pixel in 32 bit DWORD.)
-    eRGB888P = 5, // 24-bit pixels (packed 24-bit format)
-    eARGB1555 = 8, // 16-bit pixels
-    eARGB4444 = 9, // 16-bit pixels
-    eRGB555 = 12, // 16-bit pixels
-    eRGB444 = 13, // 16-bit pixels
-    eRGB565 = 14, // 16-bit pixels
-    eYUV1P444 = 16, // 32-bit pixels (1-plane XYUV unpacked)
-    eUYVY1P422 = 18, // 16-bit pixels (1-plane U0,Y0,V0,Y1 interleaved bytes)
-    eVYUY1P422 = 19, // 16-bit pixels (1-plane V0,Y0,U0,Y1 interleaved bytes)
-    eY8 = 20, // 8-bit monochrome pixels (1-plane Y luma output)
-    eY4 = 21, // 4-bit monochrome pixels (1-plane Y luma, 4 bit truncation)
-    eYUV2P422 = 24, // 16-bit pixels (2-plane UV interleaved bytes)
-    eYUV2P420 = 25, // 16-bit pixels (2-plane UV)
-    eYVU2P422 = 26, // 16-bit pixels (2-plane VU interleaved bytes)
-    eYVU2P420 = 27, // 16-bit pixels (2-plane VU)
+    // 32-bit pixels
+    eARGB8888 = 0,
+    // 32-bit pixels (unpacked 24-bit pixel in 32 bit DWORD.)
+    eRGB888 = 4,
+    // 24-bit pixels (packed 24-bit format)
+    eRGB888P = 5,
+    // 16-bit pixels
+    eARGB1555 = 8,
+    // 16-bit pixels
+    eARGB4444 = 9,
+    // 16-bit pixels
+    eRGB555 = 12,
+    // 16-bit pixels
+    eRGB444 = 13,
+    // 16-bit pixels
+    eRGB565 = 14,
+    // 32-bit pixels (1-plane XYUV unpacked)
+    eYUV1P444 = 16,
+    // 16-bit pixels (1-plane U0,Y0,V0,Y1 interleaved bytes)
+    eUYVY1P422 = 18,
+    // 16-bit pixels (1-plane V0,Y0,U0,Y1 interleaved bytes)
+    eVYUY1P422 = 19,
+    // 8-bit monochrome pixels (1-plane Y luma output)
+    eY8 = 20,
+    // 4-bit monochrome pixels (1-plane Y luma, 4 bit truncation)
+    eY4 = 21,
+    // 16-bit pixels (2-plane UV interleaved bytes)
+    eYUV2P422 = 24,
+    // 16-bit pixels (2-plane UV)
+    eYUV2P420 = 25,
+    // 16-bit pixels (2-plane VU interleaved bytes)
+    eYVU2P422 = 26,
+    // 16-bit pixels (2-plane VU)
+    eYVU2P420 = 27,
   };
   
+  // Determines how the PXP writes it's output data
   enum class eINTERLACED_OUTPUT : uint32_t {
-    ePROGRESSIVE = 0, // All data written in progressive format to the OUTBUF Pointer.
-    eFIELD0 = 1, // Interlaced output: only data for field 0 is written to the OUTBUF Pointer.
-    eFIELD1 = 2, // Interlaced output: only data for field 1 is written to the OUTBUF2 Pointer.
-    eINTERLACED = 3, // Interlaced output: data for field 0 is written to OUTBUF and data for field 1 is written to OUTBUF2.
+    // All data written in progressive format to the OUTBUF Pointer.
+    ePROGRESSIVE = 0,
+    // Interlaced output: only data for field 0 is written to the OUTBUF Pointer.
+    eFIELD0 = 1,
+    // Interlaced output: only data for field 1 is written to the OUTBUF2 Pointer.
+    eFIELD1 = 2,
+    // Interlaced output: data for field 0 is written to OUTBUF and data for field 1 is written to OUTBUF2.
+    eINTERLACED = 3,
   };
   
+  // Indicates that alpha component in output buffer pixels should be overwritten by PXP_OUT_CTRL[ALPHA]
   enum class eALPHA_OUTPUT : uint32_t {
-    eRetain = 0, // Retain
-    eOverwritten = 1, // Overwritten
+    // Retain
+    eRetain = 0,
+    // Overwritten
+    eOverwritten = 1,
   };
   
   // Bit field definition.
   struct {
-    /// read-write - Output framebuffer format
+    // read-write - Output framebuffer format
     eFORMAT FORMAT : 5;
     uint32_t _reserved_0 : 3;
-    /// read-write - Determines how the PXP writes it's output data
+    // read-write - Determines how the PXP writes it's output data
     eINTERLACED_OUTPUT INTERLACED_OUTPUT : 2;
     uint32_t _reserved_1 : 13;
-    /// read-write - Indicates that alpha component in output buffer pixels should be overwritten by PXP_OUT_CTRL[ALPHA]
+    // read-write - Indicates that alpha component in output buffer pixels should be overwritten by PXP_OUT_CTRL[ALPHA]
     eALPHA_OUTPUT ALPHA_OUTPUT : 1;
-    /// read-write - When generating an output buffer with an alpha component, the value in this field will be used when enabled to override the alpha passed through the pixel data pipeline
+    // read-write - When generating an output buffer with an alpha component, the value in this field will be used when enabled to override the alpha passed through the pixel data pipeline
     uint32_t ALPHA : 8;
   } bits;
   
@@ -844,12 +1109,11 @@ union PXP_OUT_CTRL_TOG {
 };
 
 // Output Frame Buffer Pointer
-//
 union PXP_OUT_BUF {
   
   // Bit field definition.
   struct {
-    /// read-write - Current address pointer for the output frame buffer
+    // read-write - Current address pointer for the output frame buffer
     uint32_t ADDR : 32;
   } bits;
   
@@ -862,12 +1126,11 @@ union PXP_OUT_BUF {
 };
 
 // Output Frame Buffer Pointer #2
-//
 union PXP_OUT_BUF2 {
   
   // Bit field definition.
   struct {
-    /// read-write - Current address pointer for the output frame buffer
+    // read-write - Current address pointer for the output frame buffer
     uint32_t ADDR : 32;
   } bits;
   
@@ -880,12 +1143,11 @@ union PXP_OUT_BUF2 {
 };
 
 // Output Buffer Pitch
-//
 union PXP_OUT_PITCH {
   
   // Bit field definition.
   struct {
-    /// read-write - Indicates the number of bytes in memory between two vertically adjacent pixels.
+    // read-write - Indicates the number of bytes in memory between two vertically adjacent pixels.
     uint32_t PITCH : 16;
     uint32_t _reserved_0 : 16;
   } bits;
@@ -899,15 +1161,14 @@ union PXP_OUT_PITCH {
 };
 
 // Output Surface Lower Right Coordinate
-//
 union PXP_OUT_LRC {
   
   // Bit field definition.
   struct {
-    /// read-write - Indicates the number of vertical PIXELS in the output surface (non-rotated)
+    // read-write - Indicates the number of vertical PIXELS in the output surface (non-rotated)
     uint32_t Y : 14;
     uint32_t _reserved_0 : 2;
-    /// read-write - Indicates number of horizontal PIXELS in the output surface (non-rotated)
+    // read-write - Indicates number of horizontal PIXELS in the output surface (non-rotated)
     uint32_t X : 14;
     uint32_t _reserved_1 : 2;
   } bits;
@@ -921,15 +1182,14 @@ union PXP_OUT_LRC {
 };
 
 // Processed Surface Upper Left Coordinate
-//
 union PXP_OUT_PS_ULC {
   
   // Bit field definition.
   struct {
-    /// read-write - This field indicates the upper left Y-coordinate (in pixels) of the processed surface in the output buffer
+    // read-write - This field indicates the upper left Y-coordinate (in pixels) of the processed surface in the output buffer
     uint32_t Y : 14;
     uint32_t _reserved_0 : 2;
-    /// read-write - This field indicates the upper left X-coordinate (in pixels) of the processed surface (PS) in the output buffer
+    // read-write - This field indicates the upper left X-coordinate (in pixels) of the processed surface (PS) in the output buffer
     uint32_t X : 14;
     uint32_t _reserved_1 : 2;
   } bits;
@@ -943,15 +1203,14 @@ union PXP_OUT_PS_ULC {
 };
 
 // Processed Surface Lower Right Coordinate
-//
 union PXP_OUT_PS_LRC {
   
   // Bit field definition.
   struct {
-    /// read-write - This field indicates the lower right Y-coordinate (in pixels) of the processed surface in the output frame buffer
+    // read-write - This field indicates the lower right Y-coordinate (in pixels) of the processed surface in the output frame buffer
     uint32_t Y : 14;
     uint32_t _reserved_0 : 2;
-    /// read-write - This field indicates the lower right X-coordinate (in pixels) of the processed surface (PS) in the output frame buffer
+    // read-write - This field indicates the lower right X-coordinate (in pixels) of the processed surface (PS) in the output frame buffer
     uint32_t X : 14;
     uint32_t _reserved_1 : 2;
   } bits;
@@ -965,15 +1224,14 @@ union PXP_OUT_PS_LRC {
 };
 
 // Alpha Surface Upper Left Coordinate
-//
 union PXP_OUT_AS_ULC {
   
   // Bit field definition.
   struct {
-    /// read-write - This field indicates the upper left Y-coordinate (in pixels) of the alpha surface in the output frame buffer
+    // read-write - This field indicates the upper left Y-coordinate (in pixels) of the alpha surface in the output frame buffer
     uint32_t Y : 14;
     uint32_t _reserved_0 : 2;
-    /// read-write - This field indicates the upper left X-coordinate (in pixels) of the alpha surface (AS) in the output frame buffer
+    // read-write - This field indicates the upper left X-coordinate (in pixels) of the alpha surface (AS) in the output frame buffer
     uint32_t X : 14;
     uint32_t _reserved_1 : 2;
   } bits;
@@ -987,15 +1245,14 @@ union PXP_OUT_AS_ULC {
 };
 
 // Alpha Surface Lower Right Coordinate
-//
 union PXP_OUT_AS_LRC {
   
   // Bit field definition.
   struct {
-    /// read-write - This field indicates the lower right Y-coordinate (in pixels) of the alpha surface in the output frame buffer
+    // read-write - This field indicates the lower right Y-coordinate (in pixels) of the alpha surface in the output frame buffer
     uint32_t Y : 14;
     uint32_t _reserved_0 : 2;
-    /// read-write - This field indicates the lower right X-coordinate (in pixels) of the alpha surface (AS) in the output frame buffer
+    // read-write - This field indicates the lower right X-coordinate (in pixels) of the alpha surface (AS) in the output frame buffer
     uint32_t X : 14;
     uint32_t _reserved_1 : 2;
   } bits;
@@ -1009,59 +1266,90 @@ union PXP_OUT_AS_LRC {
 };
 
 // Processed Surface (PS) Control Register
-//
 union PXP_PS_CTRL {
   
+  // PS buffer format. To select between YUV and YCbCr formats, see bit 31 of the CSC1_COEF0 register.
   enum class eFORMAT : uint32_t {
-    eRGB888_ARGB8888 = 4, // 32-bit pixels (unpacked 24-bit format with/without alpha at high 8bits)
-    eRGB555_ARGB1555 = 12, // 16-bit pixels with/without alpha at high 1bit
-    eRGB444_ARGB4444 = 13, // 16-bit pixels with/without alpha at high 4 bits
-    eRGB565 = 14, // 16-bit pixels
-    eYUV1P444 = 16, // 32-bit pixels (1-plane XYUV unpacked)
-    eUYVY1P422 = 18, // 16-bit pixels (1-plane U0,Y0,V0,Y1 interleaved bytes)
-    eVYUY1P422 = 19, // 16-bit pixels (1-plane V0,Y0,U0,Y1 interleaved bytes)
-    eY8 = 20, // 8-bit monochrome pixels (1-plane Y luma output)
-    eY4 = 21, // 4-bit monochrome pixels (1-plane Y luma, 4 bit truncation)
-    eYUV2P422 = 24, // 16-bit pixels (2-plane UV interleaved bytes)
-    eYUV2P420 = 25, // 16-bit pixels (2-plane UV)
-    eYVU2P422 = 26, // 16-bit pixels (2-plane VU interleaved bytes)
-    eYVU2P420 = 27, // 16-bit pixels (2-plane VU)
-    eYUV422 = 30, // 16-bit pixels (3-plane format)
-    eYUV420 = 31, // 16-bit pixels (3-plane format)
-    eRGBA8888 = 36, // 2-bit pixels with alpha at the low 8 bits
-    eRGBA5551 = 44, // 16-bit pixels with alpha at the low 1bits
-    eRGBA4444 = 45, // 16-bit pixels with alpha at the low 4 bits
+    // 32-bit pixels (unpacked 24-bit format with/without alpha at high 8bits)
+    eRGB888_ARGB8888 = 4,
+    // 16-bit pixels with/without alpha at high 1bit
+    eRGB555_ARGB1555 = 12,
+    // 16-bit pixels with/without alpha at high 4 bits
+    eRGB444_ARGB4444 = 13,
+    // 16-bit pixels
+    eRGB565 = 14,
+    // 32-bit pixels (1-plane XYUV unpacked)
+    eYUV1P444 = 16,
+    // 16-bit pixels (1-plane U0,Y0,V0,Y1 interleaved bytes)
+    eUYVY1P422 = 18,
+    // 16-bit pixels (1-plane V0,Y0,U0,Y1 interleaved bytes)
+    eVYUY1P422 = 19,
+    // 8-bit monochrome pixels (1-plane Y luma output)
+    eY8 = 20,
+    // 4-bit monochrome pixels (1-plane Y luma, 4 bit truncation)
+    eY4 = 21,
+    // 16-bit pixels (2-plane UV interleaved bytes)
+    eYUV2P422 = 24,
+    // 16-bit pixels (2-plane UV)
+    eYUV2P420 = 25,
+    // 16-bit pixels (2-plane VU interleaved bytes)
+    eYVU2P422 = 26,
+    // 16-bit pixels (2-plane VU)
+    eYVU2P420 = 27,
+    // 16-bit pixels (3-plane format)
+    eYUV422 = 30,
+    // 16-bit pixels (3-plane format)
+    eYUV420 = 31,
+    // 2-bit pixels with alpha at the low 8 bits
+    eRGBA8888 = 36,
+    // 16-bit pixels with alpha at the low 1bits
+    eRGBA5551 = 44,
+    // 16-bit pixels with alpha at the low 4 bits
+    eRGBA4444 = 45,
   };
   
+  // Swap bytes in words. For each 16 bit word, the two bytes will be swapped.
   enum class eWB_SWAP : uint32_t {
-    eDisabled = 0, // Byte swap is disabled
-    eEnabled = 1, // Byte swap is enabled
+    // Byte swap is disabled
+    eDisabled = 0,
+    // Byte swap is enabled
+    eEnabled = 1,
   };
   
+  // Verticle pre decimation filter control.
   enum class eDECY : uint32_t {
-    eDISABLE = 0, // Disable pre-decimation filter.
-    eDECY2 = 1, // Decimate PS by 2.
-    eDECY4 = 2, // Decimate PS by 4.
-    eDECY8 = 3, // Decimate PS by 8.
+    // Disable pre-decimation filter.
+    eDISABLE = 0,
+    // Decimate PS by 2.
+    eDECY2 = 1,
+    // Decimate PS by 4.
+    eDECY4 = 2,
+    // Decimate PS by 8.
+    eDECY8 = 3,
   };
   
+  // Horizontal pre decimation filter control.
   enum class eDECX : uint32_t {
-    eDISABLE = 0, // Disable pre-decimation filter.
-    eDECX2 = 1, // Decimate PS by 2.
-    eDECX4 = 2, // Decimate PS by 4.
-    eDECX8 = 3, // Decimate PS by 8.
+    // Disable pre-decimation filter.
+    eDISABLE = 0,
+    // Decimate PS by 2.
+    eDECX2 = 1,
+    // Decimate PS by 4.
+    eDECX4 = 2,
+    // Decimate PS by 8.
+    eDECX8 = 3,
   };
   
   // Bit field definition.
   struct {
-    /// read-write - PS buffer format. To select between YUV and YCbCr formats, see bit 31 of the CSC1_COEF0 register.
+    // read-write - PS buffer format. To select between YUV and YCbCr formats, see bit 31 of the CSC1_COEF0 register.
     eFORMAT FORMAT : 6;
-    /// read-write - Swap bytes in words. For each 16 bit word, the two bytes will be swapped.
+    // read-write - Swap bytes in words. For each 16 bit word, the two bytes will be swapped.
     eWB_SWAP WB_SWAP : 1;
     uint32_t _reserved_0 : 1;
-    /// read-write - Verticle pre decimation filter control.
+    // read-write - Verticle pre decimation filter control.
     eDECY DECY : 2;
-    /// read-write - Horizontal pre decimation filter control.
+    // read-write - Horizontal pre decimation filter control.
     eDECX DECX : 2;
     uint32_t _reserved_1 : 20;
   } bits;
@@ -1075,59 +1363,90 @@ union PXP_PS_CTRL {
 };
 
 // Processed Surface (PS) Control Register
-//
 union PXP_PS_CTRL_SET {
   
+  // PS buffer format. To select between YUV and YCbCr formats, see bit 31 of the CSC1_COEF0 register.
   enum class eFORMAT : uint32_t {
-    eRGB888_ARGB8888 = 4, // 32-bit pixels (unpacked 24-bit format with/without alpha at high 8bits)
-    eRGB555_ARGB1555 = 12, // 16-bit pixels with/without alpha at high 1bit
-    eRGB444_ARGB4444 = 13, // 16-bit pixels with/without alpha at high 4 bits
-    eRGB565 = 14, // 16-bit pixels
-    eYUV1P444 = 16, // 32-bit pixels (1-plane XYUV unpacked)
-    eUYVY1P422 = 18, // 16-bit pixels (1-plane U0,Y0,V0,Y1 interleaved bytes)
-    eVYUY1P422 = 19, // 16-bit pixels (1-plane V0,Y0,U0,Y1 interleaved bytes)
-    eY8 = 20, // 8-bit monochrome pixels (1-plane Y luma output)
-    eY4 = 21, // 4-bit monochrome pixels (1-plane Y luma, 4 bit truncation)
-    eYUV2P422 = 24, // 16-bit pixels (2-plane UV interleaved bytes)
-    eYUV2P420 = 25, // 16-bit pixels (2-plane UV)
-    eYVU2P422 = 26, // 16-bit pixels (2-plane VU interleaved bytes)
-    eYVU2P420 = 27, // 16-bit pixels (2-plane VU)
-    eYUV422 = 30, // 16-bit pixels (3-plane format)
-    eYUV420 = 31, // 16-bit pixels (3-plane format)
-    eRGBA8888 = 36, // 2-bit pixels with alpha at the low 8 bits
-    eRGBA5551 = 44, // 16-bit pixels with alpha at the low 1bits
-    eRGBA4444 = 45, // 16-bit pixels with alpha at the low 4 bits
+    // 32-bit pixels (unpacked 24-bit format with/without alpha at high 8bits)
+    eRGB888_ARGB8888 = 4,
+    // 16-bit pixels with/without alpha at high 1bit
+    eRGB555_ARGB1555 = 12,
+    // 16-bit pixels with/without alpha at high 4 bits
+    eRGB444_ARGB4444 = 13,
+    // 16-bit pixels
+    eRGB565 = 14,
+    // 32-bit pixels (1-plane XYUV unpacked)
+    eYUV1P444 = 16,
+    // 16-bit pixels (1-plane U0,Y0,V0,Y1 interleaved bytes)
+    eUYVY1P422 = 18,
+    // 16-bit pixels (1-plane V0,Y0,U0,Y1 interleaved bytes)
+    eVYUY1P422 = 19,
+    // 8-bit monochrome pixels (1-plane Y luma output)
+    eY8 = 20,
+    // 4-bit monochrome pixels (1-plane Y luma, 4 bit truncation)
+    eY4 = 21,
+    // 16-bit pixels (2-plane UV interleaved bytes)
+    eYUV2P422 = 24,
+    // 16-bit pixels (2-plane UV)
+    eYUV2P420 = 25,
+    // 16-bit pixels (2-plane VU interleaved bytes)
+    eYVU2P422 = 26,
+    // 16-bit pixels (2-plane VU)
+    eYVU2P420 = 27,
+    // 16-bit pixels (3-plane format)
+    eYUV422 = 30,
+    // 16-bit pixels (3-plane format)
+    eYUV420 = 31,
+    // 2-bit pixels with alpha at the low 8 bits
+    eRGBA8888 = 36,
+    // 16-bit pixels with alpha at the low 1bits
+    eRGBA5551 = 44,
+    // 16-bit pixels with alpha at the low 4 bits
+    eRGBA4444 = 45,
   };
   
+  // Swap bytes in words. For each 16 bit word, the two bytes will be swapped.
   enum class eWB_SWAP : uint32_t {
-    eDisabled = 0, // Byte swap is disabled
-    eEnabled = 1, // Byte swap is enabled
+    // Byte swap is disabled
+    eDisabled = 0,
+    // Byte swap is enabled
+    eEnabled = 1,
   };
   
+  // Verticle pre decimation filter control.
   enum class eDECY : uint32_t {
-    eDISABLE = 0, // Disable pre-decimation filter.
-    eDECY2 = 1, // Decimate PS by 2.
-    eDECY4 = 2, // Decimate PS by 4.
-    eDECY8 = 3, // Decimate PS by 8.
+    // Disable pre-decimation filter.
+    eDISABLE = 0,
+    // Decimate PS by 2.
+    eDECY2 = 1,
+    // Decimate PS by 4.
+    eDECY4 = 2,
+    // Decimate PS by 8.
+    eDECY8 = 3,
   };
   
+  // Horizontal pre decimation filter control.
   enum class eDECX : uint32_t {
-    eDISABLE = 0, // Disable pre-decimation filter.
-    eDECX2 = 1, // Decimate PS by 2.
-    eDECX4 = 2, // Decimate PS by 4.
-    eDECX8 = 3, // Decimate PS by 8.
+    // Disable pre-decimation filter.
+    eDISABLE = 0,
+    // Decimate PS by 2.
+    eDECX2 = 1,
+    // Decimate PS by 4.
+    eDECX4 = 2,
+    // Decimate PS by 8.
+    eDECX8 = 3,
   };
   
   // Bit field definition.
   struct {
-    /// read-write - PS buffer format. To select between YUV and YCbCr formats, see bit 31 of the CSC1_COEF0 register.
+    // read-write - PS buffer format. To select between YUV and YCbCr formats, see bit 31 of the CSC1_COEF0 register.
     eFORMAT FORMAT : 6;
-    /// read-write - Swap bytes in words. For each 16 bit word, the two bytes will be swapped.
+    // read-write - Swap bytes in words. For each 16 bit word, the two bytes will be swapped.
     eWB_SWAP WB_SWAP : 1;
     uint32_t _reserved_0 : 1;
-    /// read-write - Verticle pre decimation filter control.
+    // read-write - Verticle pre decimation filter control.
     eDECY DECY : 2;
-    /// read-write - Horizontal pre decimation filter control.
+    // read-write - Horizontal pre decimation filter control.
     eDECX DECX : 2;
     uint32_t _reserved_1 : 20;
   } bits;
@@ -1141,59 +1460,90 @@ union PXP_PS_CTRL_SET {
 };
 
 // Processed Surface (PS) Control Register
-//
 union PXP_PS_CTRL_CLR {
   
+  // PS buffer format. To select between YUV and YCbCr formats, see bit 31 of the CSC1_COEF0 register.
   enum class eFORMAT : uint32_t {
-    eRGB888_ARGB8888 = 4, // 32-bit pixels (unpacked 24-bit format with/without alpha at high 8bits)
-    eRGB555_ARGB1555 = 12, // 16-bit pixels with/without alpha at high 1bit
-    eRGB444_ARGB4444 = 13, // 16-bit pixels with/without alpha at high 4 bits
-    eRGB565 = 14, // 16-bit pixels
-    eYUV1P444 = 16, // 32-bit pixels (1-plane XYUV unpacked)
-    eUYVY1P422 = 18, // 16-bit pixels (1-plane U0,Y0,V0,Y1 interleaved bytes)
-    eVYUY1P422 = 19, // 16-bit pixels (1-plane V0,Y0,U0,Y1 interleaved bytes)
-    eY8 = 20, // 8-bit monochrome pixels (1-plane Y luma output)
-    eY4 = 21, // 4-bit monochrome pixels (1-plane Y luma, 4 bit truncation)
-    eYUV2P422 = 24, // 16-bit pixels (2-plane UV interleaved bytes)
-    eYUV2P420 = 25, // 16-bit pixels (2-plane UV)
-    eYVU2P422 = 26, // 16-bit pixels (2-plane VU interleaved bytes)
-    eYVU2P420 = 27, // 16-bit pixels (2-plane VU)
-    eYUV422 = 30, // 16-bit pixels (3-plane format)
-    eYUV420 = 31, // 16-bit pixels (3-plane format)
-    eRGBA8888 = 36, // 2-bit pixels with alpha at the low 8 bits
-    eRGBA5551 = 44, // 16-bit pixels with alpha at the low 1bits
-    eRGBA4444 = 45, // 16-bit pixels with alpha at the low 4 bits
+    // 32-bit pixels (unpacked 24-bit format with/without alpha at high 8bits)
+    eRGB888_ARGB8888 = 4,
+    // 16-bit pixels with/without alpha at high 1bit
+    eRGB555_ARGB1555 = 12,
+    // 16-bit pixels with/without alpha at high 4 bits
+    eRGB444_ARGB4444 = 13,
+    // 16-bit pixels
+    eRGB565 = 14,
+    // 32-bit pixels (1-plane XYUV unpacked)
+    eYUV1P444 = 16,
+    // 16-bit pixels (1-plane U0,Y0,V0,Y1 interleaved bytes)
+    eUYVY1P422 = 18,
+    // 16-bit pixels (1-plane V0,Y0,U0,Y1 interleaved bytes)
+    eVYUY1P422 = 19,
+    // 8-bit monochrome pixels (1-plane Y luma output)
+    eY8 = 20,
+    // 4-bit monochrome pixels (1-plane Y luma, 4 bit truncation)
+    eY4 = 21,
+    // 16-bit pixels (2-plane UV interleaved bytes)
+    eYUV2P422 = 24,
+    // 16-bit pixels (2-plane UV)
+    eYUV2P420 = 25,
+    // 16-bit pixels (2-plane VU interleaved bytes)
+    eYVU2P422 = 26,
+    // 16-bit pixels (2-plane VU)
+    eYVU2P420 = 27,
+    // 16-bit pixels (3-plane format)
+    eYUV422 = 30,
+    // 16-bit pixels (3-plane format)
+    eYUV420 = 31,
+    // 2-bit pixels with alpha at the low 8 bits
+    eRGBA8888 = 36,
+    // 16-bit pixels with alpha at the low 1bits
+    eRGBA5551 = 44,
+    // 16-bit pixels with alpha at the low 4 bits
+    eRGBA4444 = 45,
   };
   
+  // Swap bytes in words. For each 16 bit word, the two bytes will be swapped.
   enum class eWB_SWAP : uint32_t {
-    eDisabled = 0, // Byte swap is disabled
-    eEnabled = 1, // Byte swap is enabled
+    // Byte swap is disabled
+    eDisabled = 0,
+    // Byte swap is enabled
+    eEnabled = 1,
   };
   
+  // Verticle pre decimation filter control.
   enum class eDECY : uint32_t {
-    eDISABLE = 0, // Disable pre-decimation filter.
-    eDECY2 = 1, // Decimate PS by 2.
-    eDECY4 = 2, // Decimate PS by 4.
-    eDECY8 = 3, // Decimate PS by 8.
+    // Disable pre-decimation filter.
+    eDISABLE = 0,
+    // Decimate PS by 2.
+    eDECY2 = 1,
+    // Decimate PS by 4.
+    eDECY4 = 2,
+    // Decimate PS by 8.
+    eDECY8 = 3,
   };
   
+  // Horizontal pre decimation filter control.
   enum class eDECX : uint32_t {
-    eDISABLE = 0, // Disable pre-decimation filter.
-    eDECX2 = 1, // Decimate PS by 2.
-    eDECX4 = 2, // Decimate PS by 4.
-    eDECX8 = 3, // Decimate PS by 8.
+    // Disable pre-decimation filter.
+    eDISABLE = 0,
+    // Decimate PS by 2.
+    eDECX2 = 1,
+    // Decimate PS by 4.
+    eDECX4 = 2,
+    // Decimate PS by 8.
+    eDECX8 = 3,
   };
   
   // Bit field definition.
   struct {
-    /// read-write - PS buffer format. To select between YUV and YCbCr formats, see bit 31 of the CSC1_COEF0 register.
+    // read-write - PS buffer format. To select between YUV and YCbCr formats, see bit 31 of the CSC1_COEF0 register.
     eFORMAT FORMAT : 6;
-    /// read-write - Swap bytes in words. For each 16 bit word, the two bytes will be swapped.
+    // read-write - Swap bytes in words. For each 16 bit word, the two bytes will be swapped.
     eWB_SWAP WB_SWAP : 1;
     uint32_t _reserved_0 : 1;
-    /// read-write - Verticle pre decimation filter control.
+    // read-write - Verticle pre decimation filter control.
     eDECY DECY : 2;
-    /// read-write - Horizontal pre decimation filter control.
+    // read-write - Horizontal pre decimation filter control.
     eDECX DECX : 2;
     uint32_t _reserved_1 : 20;
   } bits;
@@ -1207,59 +1557,90 @@ union PXP_PS_CTRL_CLR {
 };
 
 // Processed Surface (PS) Control Register
-//
 union PXP_PS_CTRL_TOG {
   
+  // PS buffer format. To select between YUV and YCbCr formats, see bit 31 of the CSC1_COEF0 register.
   enum class eFORMAT : uint32_t {
-    eRGB888_ARGB8888 = 4, // 32-bit pixels (unpacked 24-bit format with/without alpha at high 8bits)
-    eRGB555_ARGB1555 = 12, // 16-bit pixels with/without alpha at high 1bit
-    eRGB444_ARGB4444 = 13, // 16-bit pixels with/without alpha at high 4 bits
-    eRGB565 = 14, // 16-bit pixels
-    eYUV1P444 = 16, // 32-bit pixels (1-plane XYUV unpacked)
-    eUYVY1P422 = 18, // 16-bit pixels (1-plane U0,Y0,V0,Y1 interleaved bytes)
-    eVYUY1P422 = 19, // 16-bit pixels (1-plane V0,Y0,U0,Y1 interleaved bytes)
-    eY8 = 20, // 8-bit monochrome pixels (1-plane Y luma output)
-    eY4 = 21, // 4-bit monochrome pixels (1-plane Y luma, 4 bit truncation)
-    eYUV2P422 = 24, // 16-bit pixels (2-plane UV interleaved bytes)
-    eYUV2P420 = 25, // 16-bit pixels (2-plane UV)
-    eYVU2P422 = 26, // 16-bit pixels (2-plane VU interleaved bytes)
-    eYVU2P420 = 27, // 16-bit pixels (2-plane VU)
-    eYUV422 = 30, // 16-bit pixels (3-plane format)
-    eYUV420 = 31, // 16-bit pixels (3-plane format)
-    eRGBA8888 = 36, // 2-bit pixels with alpha at the low 8 bits
-    eRGBA5551 = 44, // 16-bit pixels with alpha at the low 1bits
-    eRGBA4444 = 45, // 16-bit pixels with alpha at the low 4 bits
+    // 32-bit pixels (unpacked 24-bit format with/without alpha at high 8bits)
+    eRGB888_ARGB8888 = 4,
+    // 16-bit pixels with/without alpha at high 1bit
+    eRGB555_ARGB1555 = 12,
+    // 16-bit pixels with/without alpha at high 4 bits
+    eRGB444_ARGB4444 = 13,
+    // 16-bit pixels
+    eRGB565 = 14,
+    // 32-bit pixels (1-plane XYUV unpacked)
+    eYUV1P444 = 16,
+    // 16-bit pixels (1-plane U0,Y0,V0,Y1 interleaved bytes)
+    eUYVY1P422 = 18,
+    // 16-bit pixels (1-plane V0,Y0,U0,Y1 interleaved bytes)
+    eVYUY1P422 = 19,
+    // 8-bit monochrome pixels (1-plane Y luma output)
+    eY8 = 20,
+    // 4-bit monochrome pixels (1-plane Y luma, 4 bit truncation)
+    eY4 = 21,
+    // 16-bit pixels (2-plane UV interleaved bytes)
+    eYUV2P422 = 24,
+    // 16-bit pixels (2-plane UV)
+    eYUV2P420 = 25,
+    // 16-bit pixels (2-plane VU interleaved bytes)
+    eYVU2P422 = 26,
+    // 16-bit pixels (2-plane VU)
+    eYVU2P420 = 27,
+    // 16-bit pixels (3-plane format)
+    eYUV422 = 30,
+    // 16-bit pixels (3-plane format)
+    eYUV420 = 31,
+    // 2-bit pixels with alpha at the low 8 bits
+    eRGBA8888 = 36,
+    // 16-bit pixels with alpha at the low 1bits
+    eRGBA5551 = 44,
+    // 16-bit pixels with alpha at the low 4 bits
+    eRGBA4444 = 45,
   };
   
+  // Swap bytes in words. For each 16 bit word, the two bytes will be swapped.
   enum class eWB_SWAP : uint32_t {
-    eDisabled = 0, // Byte swap is disabled
-    eEnabled = 1, // Byte swap is enabled
+    // Byte swap is disabled
+    eDisabled = 0,
+    // Byte swap is enabled
+    eEnabled = 1,
   };
   
+  // Verticle pre decimation filter control.
   enum class eDECY : uint32_t {
-    eDISABLE = 0, // Disable pre-decimation filter.
-    eDECY2 = 1, // Decimate PS by 2.
-    eDECY4 = 2, // Decimate PS by 4.
-    eDECY8 = 3, // Decimate PS by 8.
+    // Disable pre-decimation filter.
+    eDISABLE = 0,
+    // Decimate PS by 2.
+    eDECY2 = 1,
+    // Decimate PS by 4.
+    eDECY4 = 2,
+    // Decimate PS by 8.
+    eDECY8 = 3,
   };
   
+  // Horizontal pre decimation filter control.
   enum class eDECX : uint32_t {
-    eDISABLE = 0, // Disable pre-decimation filter.
-    eDECX2 = 1, // Decimate PS by 2.
-    eDECX4 = 2, // Decimate PS by 4.
-    eDECX8 = 3, // Decimate PS by 8.
+    // Disable pre-decimation filter.
+    eDISABLE = 0,
+    // Decimate PS by 2.
+    eDECX2 = 1,
+    // Decimate PS by 4.
+    eDECX4 = 2,
+    // Decimate PS by 8.
+    eDECX8 = 3,
   };
   
   // Bit field definition.
   struct {
-    /// read-write - PS buffer format. To select between YUV and YCbCr formats, see bit 31 of the CSC1_COEF0 register.
+    // read-write - PS buffer format. To select between YUV and YCbCr formats, see bit 31 of the CSC1_COEF0 register.
     eFORMAT FORMAT : 6;
-    /// read-write - Swap bytes in words. For each 16 bit word, the two bytes will be swapped.
+    // read-write - Swap bytes in words. For each 16 bit word, the two bytes will be swapped.
     eWB_SWAP WB_SWAP : 1;
     uint32_t _reserved_0 : 1;
-    /// read-write - Verticle pre decimation filter control.
+    // read-write - Verticle pre decimation filter control.
     eDECY DECY : 2;
-    /// read-write - Horizontal pre decimation filter control.
+    // read-write - Horizontal pre decimation filter control.
     eDECX DECX : 2;
     uint32_t _reserved_1 : 20;
   } bits;
@@ -1273,12 +1654,11 @@ union PXP_PS_CTRL_TOG {
 };
 
 // PS Input Buffer Address
-//
 union PXP_PS_BUF {
   
   // Bit field definition.
   struct {
-    /// read-write - Address pointer for the PS RGB or Y (luma) input buffer.
+    // read-write - Address pointer for the PS RGB or Y (luma) input buffer.
     uint32_t ADDR : 32;
   } bits;
   
@@ -1291,12 +1671,11 @@ union PXP_PS_BUF {
 };
 
 // PS U/Cb or 2 Plane UV Input Buffer Address
-//
 union PXP_PS_UBUF {
   
   // Bit field definition.
   struct {
-    /// read-write - Address pointer for the PS U/Cb or 2 plane UV Chroma input buffer.
+    // read-write - Address pointer for the PS U/Cb or 2 plane UV Chroma input buffer.
     uint32_t ADDR : 32;
   } bits;
   
@@ -1309,12 +1688,11 @@ union PXP_PS_UBUF {
 };
 
 // PS V/Cr Input Buffer Address
-//
 union PXP_PS_VBUF {
   
   // Bit field definition.
   struct {
-    /// read-write - Address pointer for the PS V/Cr Chroma input buffer.
+    // read-write - Address pointer for the PS V/Cr Chroma input buffer.
     uint32_t ADDR : 32;
   } bits;
   
@@ -1327,12 +1705,11 @@ union PXP_PS_VBUF {
 };
 
 // Processed Surface Pitch
-//
 union PXP_PS_PITCH {
   
   // Bit field definition.
   struct {
-    /// read-write - Indicates the number of bytes in memory between two vertically adjacent pixels.
+    // read-write - Indicates the number of bytes in memory between two vertically adjacent pixels.
     uint32_t PITCH : 16;
     uint32_t _reserved_0 : 16;
   } bits;
@@ -1346,12 +1723,11 @@ union PXP_PS_PITCH {
 };
 
 // PS Background Color
-//
 union PXP_PS_BACKGROUND {
   
   // Bit field definition.
   struct {
-    /// read-write - Background color (in 24bpp format) for any pixels not within the buffer range specified by the PS ULC/LRC
+    // read-write - Background color (in 24bpp format) for any pixels not within the buffer range specified by the PS ULC/LRC
     uint32_t COLOR : 24;
     uint32_t _reserved_0 : 8;
   } bits;
@@ -1365,15 +1741,14 @@ union PXP_PS_BACKGROUND {
 };
 
 // PS Scale Factor Register
-//
 union PXP_PS_SCALE {
   
   // Bit field definition.
   struct {
-    /// read-write - This is a two bit integer and 12 bit fractional representation (##
+    // read-write - This is a two bit integer and 12 bit fractional representation (##
     uint32_t XSCALE : 15;
     uint32_t _reserved_0 : 1;
-    /// read-write - This is a two bit integer and 12 bit fractional representation (##
+    // read-write - This is a two bit integer and 12 bit fractional representation (##
     uint32_t YSCALE : 15;
     uint32_t _reserved_1 : 1;
   } bits;
@@ -1387,15 +1762,14 @@ union PXP_PS_SCALE {
 };
 
 // PS Scale Offset Register
-//
 union PXP_PS_OFFSET {
   
   // Bit field definition.
   struct {
-    /// read-write - This is a 12 bit fractional representation (0
+    // read-write - This is a 12 bit fractional representation (0
     uint32_t XOFFSET : 12;
     uint32_t _reserved_0 : 4;
-    /// read-write - This is a 12 bit fractional representation (0
+    // read-write - This is a 12 bit fractional representation (0
     uint32_t YOFFSET : 12;
     uint32_t _reserved_1 : 4;
   } bits;
@@ -1409,12 +1783,11 @@ union PXP_PS_OFFSET {
 };
 
 // PS Color Key Low
-//
 union PXP_PS_CLRKEYLOW {
   
   // Bit field definition.
   struct {
-    /// read-write - Low range of color key applied to PS buffer
+    // read-write - Low range of color key applied to PS buffer
     uint32_t PIXEL : 24;
     uint32_t _reserved_0 : 8;
   } bits;
@@ -1428,12 +1801,11 @@ union PXP_PS_CLRKEYLOW {
 };
 
 // PS Color Key High
-//
 union PXP_PS_CLRKEYHIGH {
   
   // Bit field definition.
   struct {
-    /// read-write - High range of color key applied to PS buffer
+    // read-write - High range of color key applied to PS buffer
     uint32_t PIXEL : 24;
     uint32_t _reserved_0 : 8;
   } bits;
@@ -1447,68 +1819,102 @@ union PXP_PS_CLRKEYHIGH {
 };
 
 // Alpha Surface Control
-//
 union PXP_AS_CTRL {
   
+  // Determines how the alpha value is constructed for this alpha surface
   enum class eALPHA_CTRL : uint32_t {
-    eEmbedded = 0, // Indicates that the AS pixel alpha value will be used to blend the AS with PS. The ALPHA field is ignored.
-    eOverride = 1, // Indicates that the value in the ALPHA field should be used instead of the alpha values present in the input pixels.
-    eMultiply = 2, // Indicates that the value in the ALPHA field should be used to scale all pixel alpha values. Each pixel alpha is multiplied by the value in the ALPHA field.
-    eROPs = 3, // Enable ROPs. The ROP field indicates an operation to be performed on the alpha surface and PS pixels.
+    // Indicates that the AS pixel alpha value will be used to blend the AS with PS. The ALPHA field is ignored.
+    eEmbedded = 0,
+    // Indicates that the value in the ALPHA field should be used instead of the alpha values present in the input pixels.
+    eOverride = 1,
+    // Indicates that the value in the ALPHA field should be used to scale all pixel alpha values. Each pixel alpha is multiplied by the value in the ALPHA field.
+    eMultiply = 2,
+    // Enable ROPs. The ROP field indicates an operation to be performed on the alpha surface and PS pixels.
+    eROPs = 3,
   };
   
+  // Indicates that colorkey functionality is enabled for this alpha surface
   enum class eENABLE_COLORKEY : uint32_t {
-    eDisabled = 0, // Disabled
-    eEnabled = 1, // Enabled
+    // Disabled
+    eDisabled = 0,
+    // Enabled
+    eEnabled = 1,
   };
   
+  // Indicates the input buffer format for AS.
   enum class eFORMAT : uint32_t {
-    eARGB8888 = 0, // 32-bit pixels with alpha
-    eRGBA888 = 1, // 2-bit pixel with alpha at low 8 bits
-    eRGB888 = 4, // 32-bit pixels without alpha (unpacked 24-bit format)
-    eARGB1555 = 8, // 16-bit pixels with alpha
-    eARGB4444 = 9, // 16-bit pixels with alpha
-    eRGBA5551 = 10, // 16-bit pixel with alpha at low 1 bit
-    eRGBA4444 = 11, // 16-bit pixel with alpha at low 4 bits
-    eRGB555 = 12, // 16-bit pixels without alpha
-    eRGB444 = 13, // 16-bit pixels without alpha
-    eRGB565 = 14, // 16-bit pixels without alpha
+    // 32-bit pixels with alpha
+    eARGB8888 = 0,
+    // 2-bit pixel with alpha at low 8 bits
+    eRGBA888 = 1,
+    // 32-bit pixels without alpha (unpacked 24-bit format)
+    eRGB888 = 4,
+    // 16-bit pixels with alpha
+    eARGB1555 = 8,
+    // 16-bit pixels with alpha
+    eARGB4444 = 9,
+    // 16-bit pixel with alpha at low 1 bit
+    eRGBA5551 = 10,
+    // 16-bit pixel with alpha at low 4 bits
+    eRGBA4444 = 11,
+    // 16-bit pixels without alpha
+    eRGB555 = 12,
+    // 16-bit pixels without alpha
+    eRGB444 = 13,
+    // 16-bit pixels without alpha
+    eRGB565 = 14,
   };
   
+  // Indicates a raster operation to perform when enabled
   enum class eROP : uint32_t {
-    eMASKAS = 0, // AS AND PS
-    eMASKNOTAS = 1, // nAS AND PS
-    eMASKASNOT = 2, // AS AND nPS
-    eMERGEAS = 3, // AS OR PS
-    eMERGENOTAS = 4, // nAS OR PS
-    eMERGEASNOT = 5, // AS OR nPS
-    eNOTCOPYAS = 6, // nAS
-    eNOT = 7, // nPS
-    eNOTMASKAS = 8, // AS NAND PS
-    eNOTMERGEAS = 9, // AS NOR PS
-    eXORAS = 10, // AS XOR PS
-    eNOTXORAS = 11, // AS XNOR PS
+    // AS AND PS
+    eMASKAS = 0,
+    // nAS AND PS
+    eMASKNOTAS = 1,
+    // AS AND nPS
+    eMASKASNOT = 2,
+    // AS OR PS
+    eMERGEAS = 3,
+    // nAS OR PS
+    eMERGENOTAS = 4,
+    // AS OR nPS
+    eMERGEASNOT = 5,
+    // nAS
+    eNOTCOPYAS = 6,
+    // nPS
+    eNOT = 7,
+    // AS NAND PS
+    eNOTMASKAS = 8,
+    // AS NOR PS
+    eNOTMERGEAS = 9,
+    // AS XOR PS
+    eXORAS = 10,
+    // AS XNOR PS
+    eNOTXORAS = 11,
   };
   
+  // Setting this bit to logic 0 will not alter the alpha value
   enum class eALPHA_INVERT : uint32_t {
-    eALPHA_INVERT_0 = 0, // Not inverted
-    eInverted = 1, // Inverted
+    // Not inverted
+    eALPHA_INVERT_0 = 0,
+    // Inverted
+    eInverted = 1,
   };
   
   // Bit field definition.
   struct {
     uint32_t _reserved_0 : 1;
-    /// read-write - Determines how the alpha value is constructed for this alpha surface
+    // read-write - Determines how the alpha value is constructed for this alpha surface
     eALPHA_CTRL ALPHA_CTRL : 2;
-    /// read-write - Indicates that colorkey functionality is enabled for this alpha surface
+    // read-write - Indicates that colorkey functionality is enabled for this alpha surface
     eENABLE_COLORKEY ENABLE_COLORKEY : 1;
-    /// read-write - Indicates the input buffer format for AS.
+    // read-write - Indicates the input buffer format for AS.
     eFORMAT FORMAT : 4;
-    /// read-write - Alpha modifier used when the ALPHA_MULTIPLY or ALPHA_OVERRIDE values are programmed in PXP_AS_CTRL[ALPHA_CTRL]
+    // read-write - Alpha modifier used when the ALPHA_MULTIPLY or ALPHA_OVERRIDE values are programmed in PXP_AS_CTRL[ALPHA_CTRL]
     uint32_t ALPHA : 8;
-    /// read-write - Indicates a raster operation to perform when enabled
+    // read-write - Indicates a raster operation to perform when enabled
     eROP ROP : 4;
-    /// read-write - Setting this bit to logic 0 will not alter the alpha value
+    // read-write - Setting this bit to logic 0 will not alter the alpha value
     eALPHA_INVERT ALPHA_INVERT : 1;
     uint32_t _reserved_1 : 11;
   } bits;
@@ -1522,12 +1928,11 @@ union PXP_AS_CTRL {
 };
 
 // Alpha Surface Buffer Pointer
-//
 union PXP_AS_BUF {
   
   // Bit field definition.
   struct {
-    /// read-write - Address pointer for the alpha surface 0 buffer.
+    // read-write - Address pointer for the alpha surface 0 buffer.
     uint32_t ADDR : 32;
   } bits;
   
@@ -1540,12 +1945,11 @@ union PXP_AS_BUF {
 };
 
 // Alpha Surface Pitch
-//
 union PXP_AS_PITCH {
   
   // Bit field definition.
   struct {
-    /// read-write - Indicates the number of bytes in memory between two vertically adjacent pixels.
+    // read-write - Indicates the number of bytes in memory between two vertically adjacent pixels.
     uint32_t PITCH : 16;
     uint32_t _reserved_0 : 16;
   } bits;
@@ -1559,12 +1963,11 @@ union PXP_AS_PITCH {
 };
 
 // Overlay Color Key Low
-//
 union PXP_AS_CLRKEYLOW {
   
   // Bit field definition.
   struct {
-    /// read-write - Low range of RGB color key applied to AS buffer. Each overlay has an independent colorkey enable.
+    // read-write - Low range of RGB color key applied to AS buffer. Each overlay has an independent colorkey enable.
     uint32_t PIXEL : 24;
     uint32_t _reserved_0 : 8;
   } bits;
@@ -1578,12 +1981,11 @@ union PXP_AS_CLRKEYLOW {
 };
 
 // Overlay Color Key High
-//
 union PXP_AS_CLRKEYHIGH {
   
   // Bit field definition.
   struct {
-    /// read-write - High range of RGB color key applied to AS buffer. Each overlay has an independent colorkey enable.
+    // read-write - High range of RGB color key applied to AS buffer. Each overlay has an independent colorkey enable.
     uint32_t PIXEL : 24;
     uint32_t _reserved_0 : 8;
   } bits;
@@ -1597,26 +1999,28 @@ union PXP_AS_CLRKEYHIGH {
 };
 
 // Color Space Conversion Coefficient Register 0
-//
 union PXP_CSC1_COEF0 {
   
+  // Set to 1 when performing YCbCr conversion to RGB
   enum class eYCBCR_MODE : uint32_t {
-    eYCBCR_MODE_0 = 0, // YUV to RGB
-    eYCBCR_MODE_1 = 1, // YCbCr to RGB
+    // YUV to RGB
+    eYCBCR_MODE_0 = 0,
+    // YCbCr to RGB
+    eYCBCR_MODE_1 = 1,
   };
   
   // Bit field definition.
   struct {
-    /// read-write - Two's compliment amplitude offset implicit in the Y data
+    // read-write - Two's compliment amplitude offset implicit in the Y data
     uint32_t Y_OFFSET : 9;
-    /// read-write - Two's compliment phase offset implicit for CbCr data
+    // read-write - Two's compliment phase offset implicit for CbCr data
     uint32_t UV_OFFSET : 9;
-    /// read-write - Two's compliment Y multiplier coefficient. YUV=0x100 (1.000) YCbCr=0x12A (1.164)
+    // read-write - Two's compliment Y multiplier coefficient. YUV=0x100 (1.000) YCbCr=0x12A (1.164)
     uint32_t C0 : 11;
     uint32_t _reserved_0 : 1;
-    /// read-write - Bypass the CSC unit in the scaling engine
+    // read-write - Bypass the CSC unit in the scaling engine
     uint32_t BYPASS : 1;
-    /// read-write - Set to 1 when performing YCbCr conversion to RGB
+    // read-write - Set to 1 when performing YCbCr conversion to RGB
     eYCBCR_MODE YCBCR_MODE : 1;
   } bits;
   
@@ -1629,15 +2033,14 @@ union PXP_CSC1_COEF0 {
 };
 
 // Color Space Conversion Coefficient Register 1
-//
 union PXP_CSC1_COEF1 {
   
   // Bit field definition.
   struct {
-    /// read-write - Two's compliment Blue U/Cb multiplier coefficient. YUV=0x208 (2.032) YCbCr=0x204 (2.017)
+    // read-write - Two's compliment Blue U/Cb multiplier coefficient. YUV=0x208 (2.032) YCbCr=0x204 (2.017)
     uint32_t C4 : 11;
     uint32_t _reserved_0 : 5;
-    /// read-write - Two's compliment Red V/Cr multiplier coefficient. YUV=0x123 (1.140) YCbCr=0x198 (1.596)
+    // read-write - Two's compliment Red V/Cr multiplier coefficient. YUV=0x123 (1.140) YCbCr=0x198 (1.596)
     uint32_t C1 : 11;
     uint32_t _reserved_1 : 5;
   } bits;
@@ -1651,15 +2054,14 @@ union PXP_CSC1_COEF1 {
 };
 
 // Color Space Conversion Coefficient Register 2
-//
 union PXP_CSC1_COEF2 {
   
   // Bit field definition.
   struct {
-    /// read-write - Two's complement Green U/Cb multiplier coefficient. YUV=0x79C (-0.394) YCbCr=0x79C (-0.392)
+    // read-write - Two's complement Green U/Cb multiplier coefficient. YUV=0x79C (-0.394) YCbCr=0x79C (-0.392)
     uint32_t C3 : 11;
     uint32_t _reserved_0 : 5;
-    /// read-write - Two's complement Green V/Cr multiplier coefficient. YUV=0x76B (-0.581) YCbCr=0x730 (-0.813)
+    // read-write - Two's complement Green V/Cr multiplier coefficient. YUV=0x76B (-0.581) YCbCr=0x730 (-0.813)
     uint32_t C2 : 11;
     uint32_t _reserved_1 : 5;
   } bits;
@@ -1673,20 +2075,24 @@ union PXP_CSC1_COEF2 {
 };
 
 // PXP Power Control Register
-//
 union PXP_POWER {
   
+  // Select the low power state of the Rotation (ROT) memory.
   enum class eROT_MEM_LP_STATE : uint32_t {
-    eNONE = 0, // Memory is not in low power state.
-    eLS = 1, // Light Sleep Mode. Low leakage mode, maintain memory contents.
-    eDS = 2, // Deep Sleep Mode. Low leakage mode, maintain memory contents.
-    eSD = 4, // Shut Down Mode. Shut Down periphery and core, no memory retention.
+    // Memory is not in low power state.
+    eNONE = 0,
+    // Light Sleep Mode. Low leakage mode, maintain memory contents.
+    eLS = 1,
+    // Deep Sleep Mode. Low leakage mode, maintain memory contents.
+    eDS = 2,
+    // Shut Down Mode. Shut Down periphery and core, no memory retention.
+    eSD = 4,
   };
   
   // Bit field definition.
   struct {
     uint32_t _reserved_0 : 9;
-    /// read-write - Select the low power state of the Rotation (ROT) memory.
+    // read-write - Select the low power state of the Rotation (ROT) memory.
     eROT_MEM_LP_STATE ROT_MEM_LP_STATE : 3;
     uint32_t _reserved_1 : 20;
   } bits;
@@ -1700,15 +2106,14 @@ union PXP_POWER {
 };
 
 // Next Frame Pointer
-//
 union PXP_NEXT {
   
   // Bit field definition.
   struct {
-    /// read-only - Indicates that the "next frame" functionality has been enabled
+    // read-only - Indicates that the "next frame" functionality has been enabled
     uint32_t ENABLED : 1;
     uint32_t _reserved_0 : 1;
-    /// read-write - A pointer to a data structure containing register values to be used when processing the next frame
+    // read-write - A pointer to a data structure containing register values to be used when processing the next frame
     uint32_t POINTER : 30;
   } bits;
   
@@ -1721,87 +2126,121 @@ union PXP_NEXT {
 };
 
 // PXP Alpha Engine A Control Register.
-//
 union PXP_PORTER_DUFF_CTRL {
   
+  // Porter-Duff Enable
   enum class ePORTER_DUFF_ENABLE : uint32_t {
-    eDisabled = 0, // Disabled
-    eEnabled = 1, // Enabled
+    // Disabled
+    eDisabled = 0,
+    // Enabled
+    eEnabled = 1,
   };
   
+  // s0 to s1 factor mode
   enum class eS0_S1_FACTOR_MODE : uint32_t {
-    eS0_S1_FACTOR_MODE_0 = 0, // 1
-    eS0_S1_FACTOR_MODE_1 = 1, // 0
-    eS0_S1_FACTOR_MODE_2 = 2, // Straight alpha
-    eS0_S1_FACTOR_MODE_3 = 3, // Inverse alpha
+    // 1
+    eS0_S1_FACTOR_MODE_0 = 0,
+    // 0
+    eS0_S1_FACTOR_MODE_1 = 1,
+    // Straight alpha
+    eS0_S1_FACTOR_MODE_2 = 2,
+    // Inverse alpha
+    eS0_S1_FACTOR_MODE_3 = 3,
   };
   
+  // s0 global alpha mode
   enum class eS0_GLOBAL_ALPHA_MODE : uint32_t {
-    eS0_GLOBAL_ALPHA_MODE_0 = 0, // Global alpha
-    eS0_GLOBAL_ALPHA_MODE_1 = 1, // Local alpha
-    eS0_GLOBAL_ALPHA_MODE_2 = 2, // Scaled alpha
-    eS0_GLOBAL_ALPHA_MODE_3 = 3, // Scaled alpha
+    // Global alpha
+    eS0_GLOBAL_ALPHA_MODE_0 = 0,
+    // Local alpha
+    eS0_GLOBAL_ALPHA_MODE_1 = 1,
+    // Scaled alpha
+    eS0_GLOBAL_ALPHA_MODE_2 = 2,
+    // Scaled alpha
+    eS0_GLOBAL_ALPHA_MODE_3 = 3,
   };
   
+  // s0 alpha mode (Porter-Duff alpha mode)
   enum class eS0_ALPHA_MODE : uint32_t {
-    eS0_ALPHA_MODE_0 = 0, // Straight mode
-    eS0_ALPHA_MODE_1 = 1, // Inverted mode
+    // Straight mode
+    eS0_ALPHA_MODE_0 = 0,
+    // Inverted mode
+    eS0_ALPHA_MODE_1 = 1,
   };
   
+  // s0 color mode (Porter-Duff color mode)
   enum class eS0_COLOR_MODE : uint32_t {
-    eS0_COLOR_MODE_0 = 0, // Original pixel
-    eS0_COLOR_MODE_1 = 1, // Scaled pixel
+    // Original pixel
+    eS0_COLOR_MODE_0 = 0,
+    // Scaled pixel
+    eS0_COLOR_MODE_1 = 1,
   };
   
+  // s1 to s0 factor mode (Porter-Duff factor mode)
   enum class eS1_S0_FACTOR_MODE : uint32_t {
-    eS1_S0_FACTOR_MODE_0 = 0, // 1
-    eS1_S0_FACTOR_MODE_1 = 1, // 0
-    eS1_S0_FACTOR_MODE_2 = 2, // Straight alpha
-    eS1_S0_FACTOR_MODE_3 = 3, // Inverse alpha
+    // 1
+    eS1_S0_FACTOR_MODE_0 = 0,
+    // 0
+    eS1_S0_FACTOR_MODE_1 = 1,
+    // Straight alpha
+    eS1_S0_FACTOR_MODE_2 = 2,
+    // Inverse alpha
+    eS1_S0_FACTOR_MODE_3 = 3,
   };
   
+  // s1 global alpha mode (Porter-Duff Global Alpha mode)
   enum class eS1_GLOBAL_ALPHA_MODE : uint32_t {
-    eS1_GLOBAL_ALPHA_MODE_0 = 0, // Global alpha
-    eS1_GLOBAL_ALPHA_MODE_1 = 1, // Local alpha
-    eS1_GLOBAL_ALPHA_MODE_2 = 2, // Scaled alpha
-    eS1_GLOBAL_ALPHA_MODE_3 = 3, // Scaled alpha
+    // Global alpha
+    eS1_GLOBAL_ALPHA_MODE_0 = 0,
+    // Local alpha
+    eS1_GLOBAL_ALPHA_MODE_1 = 1,
+    // Scaled alpha
+    eS1_GLOBAL_ALPHA_MODE_2 = 2,
+    // Scaled alpha
+    eS1_GLOBAL_ALPHA_MODE_3 = 3,
   };
   
+  // s1 alpha mode (Porter-Duff Alpha mode)
   enum class eS1_ALPHA_MODE : uint32_t {
-    eS1_ALPHA_MODE_0 = 0, // Straight mode
-    eS1_ALPHA_MODE_1 = 1, // Inverted mode
+    // Straight mode
+    eS1_ALPHA_MODE_0 = 0,
+    // Inverted mode
+    eS1_ALPHA_MODE_1 = 1,
   };
   
+  // s1 color mode
   enum class eS1_COLOR_MODE : uint32_t {
-    eS1_COLOR_MODE_0 = 0, // Original pixel
-    eS1_COLOR_MODE_1 = 1, // Scaled pixel
+    // Original pixel
+    eS1_COLOR_MODE_0 = 0,
+    // Scaled pixel
+    eS1_COLOR_MODE_1 = 1,
   };
   
   // Bit field definition.
   struct {
-    /// read-write - Porter-Duff Enable
+    // read-write - Porter-Duff Enable
     ePORTER_DUFF_ENABLE PORTER_DUFF_ENABLE : 1;
-    /// read-write - s0 to s1 factor mode
+    // read-write - s0 to s1 factor mode
     eS0_S1_FACTOR_MODE S0_S1_FACTOR_MODE : 2;
-    /// read-write - s0 global alpha mode
+    // read-write - s0 global alpha mode
     eS0_GLOBAL_ALPHA_MODE S0_GLOBAL_ALPHA_MODE : 2;
-    /// read-write - s0 alpha mode (Porter-Duff alpha mode)
+    // read-write - s0 alpha mode (Porter-Duff alpha mode)
     eS0_ALPHA_MODE S0_ALPHA_MODE : 1;
-    /// read-write - s0 color mode (Porter-Duff color mode)
+    // read-write - s0 color mode (Porter-Duff color mode)
     eS0_COLOR_MODE S0_COLOR_MODE : 1;
     uint32_t _reserved_0 : 1;
-    /// read-write - s1 to s0 factor mode (Porter-Duff factor mode)
+    // read-write - s1 to s0 factor mode (Porter-Duff factor mode)
     eS1_S0_FACTOR_MODE S1_S0_FACTOR_MODE : 2;
-    /// read-write - s1 global alpha mode (Porter-Duff Global Alpha mode)
+    // read-write - s1 global alpha mode (Porter-Duff Global Alpha mode)
     eS1_GLOBAL_ALPHA_MODE S1_GLOBAL_ALPHA_MODE : 2;
-    /// read-write - s1 alpha mode (Porter-Duff Alpha mode)
+    // read-write - s1 alpha mode (Porter-Duff Alpha mode)
     eS1_ALPHA_MODE S1_ALPHA_MODE : 1;
-    /// read-write - s1 color mode
+    // read-write - s1 color mode
     eS1_COLOR_MODE S1_COLOR_MODE : 1;
     uint32_t _reserved_1 : 2;
-    /// read-write - s0 global alpha
+    // read-write - s0 global alpha
     uint32_t S0_GLOBAL_ALPHA : 8;
-    /// read-write - s1 global alpha
+    // read-write - s1 global alpha
     uint32_t S1_GLOBAL_ALPHA : 8;
   } bits;
   

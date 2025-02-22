@@ -5,31 +5,33 @@
 #include <cstring>
 
 // PIT
-//
-// NOTE: This file was generated from the forge CMSIS-svd wrapper tool.
-
 namespace nPIT1 {
 
 
 // PIT Module Control Register
-//
 union MCR {
   
+  // Freeze
   enum class eFRZ : uint32_t {
-    et000001 = 0, // Timers continue to run in Debug mode.
-    et0000011 = 1, // Timers are stopped in Debug mode.
+    // Timers continue to run in Debug mode.
+    et000001 = 0,
+    // Timers are stopped in Debug mode.
+    et0000011 = 1,
   };
   
+  // Module Disable for PIT
   enum class eMDIS : uint32_t {
-    et0301 = 0, // Clock for standard PIT timers is enabled.
-    et00000111 = 1, // Clock for standard PIT timers is disabled.
+    // Clock for standard PIT timers is enabled.
+    et0301 = 0,
+    // Clock for standard PIT timers is disabled.
+    et00000111 = 1,
   };
   
   // Bit field definition.
   struct {
-    /// read-write - Freeze
+    // read-write - Freeze
     eFRZ FRZ : 1;
-    /// read-write - Module Disable for PIT
+    // read-write - Module Disable for PIT
     eMDIS MDIS : 1;
     uint32_t _reserved_0 : 30;
   } bits;
@@ -43,12 +45,11 @@ union MCR {
 };
 
 // PIT Upper Lifetime Timer Register
-//
 union LTMR64H {
   
   // Bit field definition.
   struct {
-    /// read-only - Life Timer value
+    // read-only - Life Timer value
     uint32_t LTH : 32;
   } bits;
   
@@ -61,12 +62,11 @@ union LTMR64H {
 };
 
 // PIT Lower Lifetime Timer Register
-//
 union LTMR64L {
   
   // Bit field definition.
   struct {
-    /// read-only - Life Timer value
+    // read-only - Life Timer value
     uint32_t LTL : 32;
   } bits;
   

@@ -5,27 +5,23 @@
 #include <cstring>
 
 // no description available
-//
-// NOTE: This file was generated from the forge CMSIS-svd wrapper tool.
-
 namespace nVMBANDGAP {
 
 
 // Analog Control Register CTRL0
-//
 union CTRL0 {
   
   // Bit field definition.
   struct {
-    /// read-write - Master power-down for bandgap module
+    // read-write - Master power-down for bandgap module
     uint32_t REFTOP_PWD : 1;
-    /// read-write - Power-down for bandgap voltage-reference buffer
+    // read-write - Power-down for bandgap voltage-reference buffer
     uint32_t REFTOP_LINREGREF_PWD : 1;
-    /// read-write - Power-down VBGUP detector in bandgap
+    // read-write - Power-down VBGUP detector in bandgap
     uint32_t REFTOP_PWDVBGUP : 1;
-    /// read-write - Low-power control bit
+    // read-write - Low-power control bit
     uint32_t REFTOP_LOWPOWER : 1;
-    /// read-write - bandgap self-bias control bit
+    // read-write - bandgap self-bias control bit
     uint32_t REFTOP_SELFBIASOFF : 1;
     uint32_t _reserved_0 : 27;
   } bits;
@@ -39,20 +35,19 @@ union CTRL0 {
 };
 
 // Analog Control Register CTRL0
-//
 union CTRL0_SET {
   
   // Bit field definition.
   struct {
-    /// read-write - Master power-down for bandgap module
+    // read-write - Master power-down for bandgap module
     uint32_t REFTOP_PWD : 1;
-    /// read-write - Power-down for bandgap voltage-reference buffer
+    // read-write - Power-down for bandgap voltage-reference buffer
     uint32_t REFTOP_LINREGREF_PWD : 1;
-    /// read-write - Power-down VBGUP detector in bandgap
+    // read-write - Power-down VBGUP detector in bandgap
     uint32_t REFTOP_PWDVBGUP : 1;
-    /// read-write - Low-power control bit
+    // read-write - Low-power control bit
     uint32_t REFTOP_LOWPOWER : 1;
-    /// read-write - bandgap self-bias control bit
+    // read-write - bandgap self-bias control bit
     uint32_t REFTOP_SELFBIASOFF : 1;
     uint32_t _reserved_0 : 27;
   } bits;
@@ -66,20 +61,19 @@ union CTRL0_SET {
 };
 
 // Analog Control Register CTRL0
-//
 union CTRL0_CLR {
   
   // Bit field definition.
   struct {
-    /// read-write - Master power-down for bandgap module
+    // read-write - Master power-down for bandgap module
     uint32_t REFTOP_PWD : 1;
-    /// read-write - Power-down for bandgap voltage-reference buffer
+    // read-write - Power-down for bandgap voltage-reference buffer
     uint32_t REFTOP_LINREGREF_PWD : 1;
-    /// read-write - Power-down VBGUP detector in bandgap
+    // read-write - Power-down VBGUP detector in bandgap
     uint32_t REFTOP_PWDVBGUP : 1;
-    /// read-write - Low-power control bit
+    // read-write - Low-power control bit
     uint32_t REFTOP_LOWPOWER : 1;
-    /// read-write - bandgap self-bias control bit
+    // read-write - bandgap self-bias control bit
     uint32_t REFTOP_SELFBIASOFF : 1;
     uint32_t _reserved_0 : 27;
   } bits;
@@ -93,20 +87,19 @@ union CTRL0_CLR {
 };
 
 // Analog Control Register CTRL0
-//
 union CTRL0_TOG {
   
   // Bit field definition.
   struct {
-    /// read-write - Master power-down for bandgap module
+    // read-write - Master power-down for bandgap module
     uint32_t REFTOP_PWD : 1;
-    /// read-write - Power-down for bandgap voltage-reference buffer
+    // read-write - Power-down for bandgap voltage-reference buffer
     uint32_t REFTOP_LINREGREF_PWD : 1;
-    /// read-write - Power-down VBGUP detector in bandgap
+    // read-write - Power-down VBGUP detector in bandgap
     uint32_t REFTOP_PWDVBGUP : 1;
-    /// read-write - Low-power control bit
+    // read-write - Low-power control bit
     uint32_t REFTOP_LOWPOWER : 1;
-    /// read-write - bandgap self-bias control bit
+    // read-write - bandgap self-bias control bit
     uint32_t REFTOP_SELFBIASOFF : 1;
     uint32_t _reserved_0 : 27;
   } bits;
@@ -120,18 +113,17 @@ union CTRL0_TOG {
 };
 
 // Analog Status Register STAT0
-//
 union STAT0 {
   
   // Bit field definition.
   struct {
-    /// read-only - Brief description here
+    // read-only - Brief description here
     uint32_t REFTOP_VBGUP : 1;
-    /// read-only - Brief description here
+    // read-only - Brief description here
     uint32_t VDD1_PORB : 1;
-    /// read-only - Brief description here
+    // read-only - Brief description here
     uint32_t VDD2_PORB : 1;
-    /// read-only - Brief description here
+    // read-only - Brief description here
     uint32_t VDD3_PORB : 1;
     uint32_t _reserved_0 : 28;
   } bits;
@@ -145,18 +137,17 @@ union STAT0 {
 };
 
 // Analog Status Register STAT0
-//
 union STAT0_SET {
   
   // Bit field definition.
   struct {
-    /// read-only - Brief description here
+    // read-only - Brief description here
     uint32_t REFTOP_VBGUP : 1;
-    /// read-only - Brief description here
+    // read-only - Brief description here
     uint32_t VDD1_PORB : 1;
-    /// read-only - Brief description here
+    // read-only - Brief description here
     uint32_t VDD2_PORB : 1;
-    /// read-only - Brief description here
+    // read-only - Brief description here
     uint32_t VDD3_PORB : 1;
     uint32_t _reserved_0 : 28;
   } bits;
@@ -170,18 +161,17 @@ union STAT0_SET {
 };
 
 // Analog Status Register STAT0
-//
 union STAT0_CLR {
   
   // Bit field definition.
   struct {
-    /// read-only - Brief description here
+    // read-only - Brief description here
     uint32_t REFTOP_VBGUP : 1;
-    /// read-only - Brief description here
+    // read-only - Brief description here
     uint32_t VDD1_PORB : 1;
-    /// read-only - Brief description here
+    // read-only - Brief description here
     uint32_t VDD2_PORB : 1;
-    /// read-only - Brief description here
+    // read-only - Brief description here
     uint32_t VDD3_PORB : 1;
     uint32_t _reserved_0 : 28;
   } bits;
@@ -195,18 +185,17 @@ union STAT0_CLR {
 };
 
 // Analog Status Register STAT0
-//
 union STAT0_TOG {
   
   // Bit field definition.
   struct {
-    /// read-only - Brief description here
+    // read-only - Brief description here
     uint32_t REFTOP_VBGUP : 1;
-    /// read-only - Brief description here
+    // read-only - Brief description here
     uint32_t VDD1_PORB : 1;
-    /// read-only - Brief description here
+    // read-only - Brief description here
     uint32_t VDD2_PORB : 1;
-    /// read-only - Brief description here
+    // read-only - Brief description here
     uint32_t VDD3_PORB : 1;
     uint32_t _reserved_0 : 28;
   } bits;

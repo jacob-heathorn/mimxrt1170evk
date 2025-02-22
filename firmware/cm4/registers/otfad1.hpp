@@ -5,70 +5,87 @@
 #include <cstring>
 
 // OTFAD
-//
-// NOTE: This file was generated from the forge CMSIS-svd wrapper tool.
-
 namespace nOTFAD1 {
 
 
 // Control Register
-//
 union CR {
   
+  // Force Error
   enum class eFERR : uint32_t {
-    eNO_EFFECT = 0, // No effect on the SR[KBERE] indicator.
-    eFORCE_ERROR = 1, // SR[KBERR] is immediately set after a write with this data bit set.
+    // No effect on the SR[KBERE] indicator.
+    eNO_EFFECT = 0,
+    // SR[KBERR] is immediately set after a write with this data bit set.
+    eFORCE_ERROR = 1,
   };
   
+  // Force Logically Disabled Mode
   enum class eFLDM : uint32_t {
-    eNO_EFFECT = 0, // No effect on the operating mode.
-    eFORCE_LDM = 1, // Force entry into LDM after a write with this data bit set. SR[MODE] signals the operating mode.
+    // No effect on the operating mode.
+    eNO_EFFECT = 0,
+    // Force entry into LDM after a write with this data bit set. SR[MODE] signals the operating mode.
+    eFORCE_LDM = 1,
   };
   
+  // Key Blob Scramble Enable
   enum class eKBSE : uint32_t {
-    eDISABLE = 0, // Key blob KEK scrambling is disabled.
-    eENABLE = 1, // Key blob KEK scrambling is enabled.
+    // Key blob KEK scrambling is disabled.
+    eDISABLE = 0,
+    // Key blob KEK scrambling is enabled.
+    eENABLE = 1,
   };
   
+  // Key Blob Processing Enable
   enum class eKBPE : uint32_t {
-    eDISABLE = 0, // Key blob processing is disabled.
-    eENABLE = 1, // Key blob processing is enabled.
+    // Key blob processing is disabled.
+    eDISABLE = 0,
+    // Key blob processing is enabled.
+    eENABLE = 1,
   };
   
+  // Restricted Register Access Enable
   enum class eRRAE : uint32_t {
-    eNORMAL = 0, // Register access is fully enabled. The OTFAD programming model registers can be accessed "normally".
-    eRESTRICT = 1, // Register access is restricted and only the CR, SR and optional MDPC registers can be accessed; others are treated as RAZ/WI.
+    // Register access is fully enabled. The OTFAD programming model registers can be accessed "normally".
+    eNORMAL = 0,
+    // Register access is restricted and only the CR, SR and optional MDPC registers can be accessed; others are treated as RAZ/WI.
+    eRESTRICT = 1,
   };
   
+  // Start key blob processing
   enum class eSKBP : uint32_t {
-    eNO_EFFECT = 0, // Key blob processing is not initiated.
-    eINIT_KB = 1, // Properly-enabled key blob processing is initiated.
+    // Key blob processing is not initiated.
+    eNO_EFFECT = 0,
+    // Properly-enabled key blob processing is initiated.
+    eINIT_KB = 1,
   };
   
+  // Global OTFAD Enable
   enum class eGE : uint32_t {
-    eDISABLE = 0, // OTFAD has decryption disabled. All data fetched by the FlexSPI bypasses OTFAD processing.
-    eENABLE = 1, // OTFAD has decryption enabled, and processes data fetched by the FlexSPI as defined by the hardware configuration.
+    // OTFAD has decryption disabled. All data fetched by the FlexSPI bypasses OTFAD processing.
+    eDISABLE = 0,
+    // OTFAD has decryption enabled, and processes data fetched by the FlexSPI as defined by the hardware configuration.
+    eENABLE = 1,
   };
   
   // Bit field definition.
   struct {
     uint32_t _reserved_0 : 1;
-    /// read-write - Force Error
+    // read-write - Force Error
     eFERR FERR : 1;
     uint32_t _reserved_1 : 1;
-    /// read-write - Force Logically Disabled Mode
+    // read-write - Force Logically Disabled Mode
     eFLDM FLDM : 1;
-    /// read-write - Key Blob Scramble Enable
+    // read-write - Key Blob Scramble Enable
     eKBSE KBSE : 1;
-    /// read-write - Key Blob Processing Enable
+    // read-write - Key Blob Processing Enable
     eKBPE KBPE : 1;
     uint32_t _reserved_2 : 1;
-    /// read-write - Restricted Register Access Enable
+    // read-write - Restricted Register Access Enable
     eRRAE RRAE : 1;
     uint32_t _reserved_3 : 22;
-    /// read-write - Start key blob processing
+    // read-write - Start key blob processing
     eSKBP SKBP : 1;
-    /// read-write - Global OTFAD Enable
+    // read-write - Global OTFAD Enable
     eGE GE : 1;
   } bits;
   
@@ -81,118 +98,161 @@ union CR {
 };
 
 // Status Register
-//
 union SR {
   
+  // Key Blob Error
   enum class eKBERR : uint32_t {
-    eNO_KB_ERR = 0, // No key blob error detected.
-    eKB_ERR = 1, // One or more key blob errors has been detected.
+    // No key blob error detected.
+    eNO_KB_ERR = 0,
+    // One or more key blob errors has been detected.
+    eKB_ERR = 1,
   };
   
+  // Operating Mode
   enum class eMODE : uint32_t {
-    eNORMAL = 0, // Operating in Normal mode (NRM)
-    eRES_01 = 1, // Unused (reserved)
-    eRES_10_SVM = 2, // Unused (reserved)
-    eLDM = 3, // Operating in Logically Disabled Mode (LDM)
+    // Operating in Normal mode (NRM)
+    eNORMAL = 0,
+    // Unused (reserved)
+    eRES_01 = 1,
+    // Unused (reserved)
+    eRES_10_SVM = 2,
+    // Operating in Logically Disabled Mode (LDM)
+    eLDM = 3,
   };
   
+  // Context Error
   enum class eCTXER0 : uint32_t {
-    eNOERROR = 0, // No key blob error was detected for context "n".
-    eERROR = 1, // A key blob integrity error might have been detected in context "n".
+    // No key blob error was detected for context "n".
+    eNOERROR = 0,
+    // A key blob integrity error might have been detected in context "n".
+    eERROR = 1,
   };
   
+  // Context Error
   enum class eCTXER1 : uint32_t {
-    eNOERROR = 0, // No key blob error was detected for context "n".
-    eERROR = 1, // A key blob integrity error might have been detected in context "n".
+    // No key blob error was detected for context "n".
+    eNOERROR = 0,
+    // A key blob integrity error might have been detected in context "n".
+    eERROR = 1,
   };
   
+  // Context Error
   enum class eCTXER2 : uint32_t {
-    eNOERROR = 0, // No key blob error was detected for context "n".
-    eERROR = 1, // A key blob integrity error might have been detected in context "n".
+    // No key blob error was detected for context "n".
+    eNOERROR = 0,
+    // A key blob integrity error might have been detected in context "n".
+    eERROR = 1,
   };
   
+  // Context Error
   enum class eCTXER3 : uint32_t {
-    eNOERROR = 0, // No key blob error was detected for context "n".
-    eERROR = 1, // A key blob integrity error might have been detected in context "n".
+    // No key blob error was detected for context "n".
+    eNOERROR = 0,
+    // A key blob integrity error might have been detected in context "n".
+    eERROR = 1,
   };
   
+  // Context Integrity Error
   enum class eCTXIE0 : uint32_t {
-    eNOINTEGRITYERR = 0, // No key blob integrity error was detected for context "n".
-    eINTEGRITYERR = 1, // A key blob integrity error was detected in context "n".
+    // No key blob integrity error was detected for context "n".
+    eNOINTEGRITYERR = 0,
+    // A key blob integrity error was detected in context "n".
+    eINTEGRITYERR = 1,
   };
   
+  // Context Integrity Error
   enum class eCTXIE1 : uint32_t {
-    eNOINTEGRITYERR = 0, // No key blob integrity error was detected for context "n".
-    eINTEGRITYERR = 1, // A key blob integrity error was detected in context "n".
+    // No key blob integrity error was detected for context "n".
+    eNOINTEGRITYERR = 0,
+    // A key blob integrity error was detected in context "n".
+    eINTEGRITYERR = 1,
   };
   
+  // Context Integrity Error
   enum class eCTXIE2 : uint32_t {
-    eNOINTEGRITYERR = 0, // No key blob integrity error was detected for context "n".
-    eINTEGRITYERR = 1, // A key blob integrity error was detected in context "n".
+    // No key blob integrity error was detected for context "n".
+    eNOINTEGRITYERR = 0,
+    // A key blob integrity error was detected in context "n".
+    eINTEGRITYERR = 1,
   };
   
+  // Context Integrity Error
   enum class eCTXIE3 : uint32_t {
-    eNOINTEGRITYERR = 0, // No key blob integrity error was detected for context "n".
-    eINTEGRITYERR = 1, // A key blob integrity error was detected in context "n".
+    // No key blob integrity error was detected for context "n".
+    eNOINTEGRITYERR = 0,
+    // A key blob integrity error was detected in context "n".
+    eINTEGRITYERR = 1,
   };
   
+  // Restricted Register Access Mode
   enum class eRRAM : uint32_t {
-    eNORMAL = 0, // Register access is fully enabled. The OTFAD programming model registers can be accessed "normally".
-    eRESTRICTED = 1, // Register access is restricted and only the CR, SR and optional MDPC registers can be accessed; others are treated as RAZ/WI.
+    // Register access is fully enabled. The OTFAD programming model registers can be accessed "normally".
+    eNORMAL = 0,
+    // Register access is restricted and only the CR, SR and optional MDPC registers can be accessed; others are treated as RAZ/WI.
+    eRESTRICTED = 1,
   };
   
+  // Global Enable Mode
   enum class eGEM : uint32_t {
-    eDISABLED = 0, // OTFAD is disabled. All data fetched by the FlexSPI bypasses OTFAD processing.
-    eENABLED = 1, // OTFAD is enabled, and processes data fetched by the FlexSPI as defined by the hardware configuration.
+    // OTFAD is disabled. All data fetched by the FlexSPI bypasses OTFAD processing.
+    eDISABLED = 0,
+    // OTFAD is enabled, and processes data fetched by the FlexSPI as defined by the hardware configuration.
+    eENABLED = 1,
   };
   
+  // Key Blob Processing Enable
   enum class eKBPE : uint32_t {
-    eDISABLED = 0, // Key blob processing is not enabled.
-    eENABLED = 1, // Key blob processing is enabled.
+    // Key blob processing is not enabled.
+    eDISABLED = 0,
+    // Key blob processing is enabled.
+    eENABLED = 1,
   };
   
+  // Key Blob Processing Done
   enum class eKBD : uint32_t {
-    eNOT_DONE = 0, // Key blob processing was not enabled, or is not complete.
-    eDONE = 1, // Key blob processing was enabled and is complete.
+    // Key blob processing was not enabled, or is not complete.
+    eNOT_DONE = 0,
+    // Key blob processing was enabled and is complete.
+    eDONE = 1,
   };
   
   // Bit field definition.
   struct {
-    /// read-write - Key Blob Error
+    // read-write - Key Blob Error
     eKBERR KBERR : 1;
-    /// read-only - MDPC Present
+    // read-only - MDPC Present
     uint32_t MDPCP : 1;
-    /// read-only - Operating Mode
+    // read-only - Operating Mode
     eMODE MODE : 2;
-    /// read-only - Number of Contexts
+    // read-only - Number of Contexts
     uint32_t NCTX : 4;
-    /// read-only - Context Error
+    // read-only - Context Error
     eCTXER0 CTXER0 : 1;
-    /// read-only - Context Error
+    // read-only - Context Error
     eCTXER1 CTXER1 : 1;
-    /// read-only - Context Error
+    // read-only - Context Error
     eCTXER2 CTXER2 : 1;
-    /// read-only - Context Error
+    // read-only - Context Error
     eCTXER3 CTXER3 : 1;
     uint32_t _reserved_0 : 4;
-    /// read-only - Context Integrity Error
+    // read-only - Context Integrity Error
     eCTXIE0 CTXIE0 : 1;
-    /// read-only - Context Integrity Error
+    // read-only - Context Integrity Error
     eCTXIE1 CTXIE1 : 1;
-    /// read-only - Context Integrity Error
+    // read-only - Context Integrity Error
     eCTXIE2 CTXIE2 : 1;
-    /// read-only - Context Integrity Error
+    // read-only - Context Integrity Error
     eCTXIE3 CTXIE3 : 1;
     uint32_t _reserved_1 : 4;
-    /// read-only - Hardware Revision Level
+    // read-only - Hardware Revision Level
     uint32_t HRL : 4;
-    /// read-only - Restricted Register Access Mode
+    // read-only - Restricted Register Access Mode
     eRRAM RRAM : 1;
-    /// read-only - Global Enable Mode
+    // read-only - Global Enable Mode
     eGEM GEM : 1;
-    /// read-only - Key Blob Processing Enable
+    // read-only - Key Blob Processing Enable
     eKBPE KBPE : 1;
-    /// read-only - Key Blob Processing Done
+    // read-only - Key Blob Processing Done
     eKBD KBD : 1;
   } bits;
   

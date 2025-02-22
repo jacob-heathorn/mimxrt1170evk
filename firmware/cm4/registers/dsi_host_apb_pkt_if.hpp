@@ -5,19 +5,15 @@
 #include <cstring>
 
 // DSI HOST APB PKT Interface
-//
-// NOTE: This file was generated from the forge CMSIS-svd wrapper tool.
-
 namespace nDSI_HOST_APB_PKT_IF {
 
 
 // TX_PAYLOAD
-//
 union TX_PAYLOAD {
   
   // Bit field definition.
   struct {
-    /// read-write - Tx Payload data write register. Write to this register loads the payload FIFO with 32 bit values.
+    // read-write - Tx Payload data write register. Write to this register loads the payload FIFO with 32 bit values.
     uint32_t PAYLOAD : 32;
   } bits;
   
@@ -30,12 +26,11 @@ union TX_PAYLOAD {
 };
 
 // PKT_CONTROL
-//
 union PKT_CONTROL {
   
   // Bit field definition.
   struct {
-    /// read-write - Tx packet control
+    // read-write - Tx packet control
     uint32_t CTRL : 27;
     uint32_t _reserved_0 : 5;
   } bits;
@@ -49,17 +44,19 @@ union PKT_CONTROL {
 };
 
 // SEND_PACKET
-//
 union SEND_PACKET {
   
+  // Tx send packet, writing to this register causes the packet described in dsi_host_pkt_control to be sent.
   enum class eTX_SEND : uint32_t {
-    eTX_SEND_0 = 0, // Packet not sent
-    eTX_SEND_1 = 1, // Packet is sent
+    // Packet not sent
+    eTX_SEND_0 = 0,
+    // Packet is sent
+    eTX_SEND_1 = 1,
   };
   
   // Bit field definition.
   struct {
-    /// read-write - Tx send packet, writing to this register causes the packet described in dsi_host_pkt_control to be sent.
+    // read-write - Tx send packet, writing to this register causes the packet described in dsi_host_pkt_control to be sent.
     eTX_SEND TX_SEND : 1;
     uint32_t _reserved_0 : 31;
   } bits;
@@ -73,12 +70,11 @@ union SEND_PACKET {
 };
 
 // PKT_STATUS
-//
 union PKT_STATUS {
   
   // Bit field definition.
   struct {
-    /// read-only - Status of APB to packet interface.
+    // read-only - Status of APB to packet interface.
     uint32_t STATUS : 9;
     uint32_t _reserved_0 : 23;
   } bits;
@@ -92,12 +88,11 @@ union PKT_STATUS {
 };
 
 // PKT_FIFO_WR_LEVEL
-//
 union PKT_FIFO_WR_LEVEL {
   
   // Bit field definition.
   struct {
-    /// read-only - Write level of APB to pkt interface FIFO
+    // read-only - Write level of APB to pkt interface FIFO
     uint32_t WR : 16;
     uint32_t _reserved_0 : 16;
   } bits;
@@ -111,12 +106,11 @@ union PKT_FIFO_WR_LEVEL {
 };
 
 // PKT_FIFO_RD_LEVEL
-//
 union PKT_FIFO_RD_LEVEL {
   
   // Bit field definition.
   struct {
-    /// read-only - Read level of APB to pkt interface FIFO
+    // read-only - Read level of APB to pkt interface FIFO
     uint32_t RD : 16;
     uint32_t _reserved_0 : 16;
   } bits;
@@ -130,12 +124,11 @@ union PKT_FIFO_RD_LEVEL {
 };
 
 // PKT_RX_PAYLOAD
-//
 union PKT_RX_PAYLOAD {
   
   // Bit field definition.
   struct {
-    /// read-only - APB to pkt interface Rx payload read
+    // read-only - APB to pkt interface Rx payload read
     uint32_t PAYLOAD : 32;
   } bits;
   
@@ -148,12 +141,11 @@ union PKT_RX_PAYLOAD {
 };
 
 // PKT_RX_PKT_HEADER
-//
 union PKT_RX_PKT_HEADER {
   
   // Bit field definition.
   struct {
-    /// read-only - APB to pkt interface Rx packet header
+    // read-only - APB to pkt interface Rx packet header
     uint32_t HEADER : 24;
     uint32_t _reserved_0 : 8;
   } bits;
@@ -167,12 +159,11 @@ union PKT_RX_PKT_HEADER {
 };
 
 // IRQ_STATUS
-//
 union IRQ_STATUS {
   
   // Bit field definition.
   struct {
-    /// read-only - Status of APB to packet interface.
+    // read-only - Status of APB to packet interface.
     uint32_t STATUS : 32;
   } bits;
   
@@ -185,12 +176,11 @@ union IRQ_STATUS {
 };
 
 // IRQ_STATUS2
-//
 union IRQ_STATUS2 {
   
   // Bit field definition.
   struct {
-    /// read-only - Status of APB to packet interface part 2, read part 2 first then dsi_host_irq_status. Reading dsi_host_irq_status will clear both status and status2.
+    // read-only - Status of APB to packet interface part 2, read part 2 first then dsi_host_irq_status. Reading dsi_host_irq_status will clear both status and status2.
     uint32_t STATUS2 : 3;
     uint32_t _reserved_0 : 29;
   } bits;
@@ -204,12 +194,11 @@ union IRQ_STATUS2 {
 };
 
 // IRQ_MASK
-//
 union IRQ_MASK {
   
   // Bit field definition.
   struct {
-    /// read-write - IRQ Mask
+    // read-write - IRQ Mask
     uint32_t MASK : 32;
   } bits;
   
@@ -222,12 +211,11 @@ union IRQ_MASK {
 };
 
 // IRQ_MASK2
-//
 union IRQ_MASK2 {
   
   // Bit field definition.
   struct {
-    /// read-write - IRQ mask 2
+    // read-write - IRQ mask 2
     uint32_t MASK2 : 3;
     uint32_t _reserved_0 : 29;
   } bits;

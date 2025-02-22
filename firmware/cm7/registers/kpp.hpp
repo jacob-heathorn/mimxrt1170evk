@@ -5,31 +5,33 @@
 #include <cstring>
 
 // KPP
-//
-// NOTE: This file was generated from the forge CMSIS-svd wrapper tool.
-
 namespace nKPP {
 
 
 // Keypad Control Register
-//
 union KPCR {
   
+  // KRE
   enum class eKRE : uint32_t {
-    eKRE_0 = 0, // Row is not included in the keypad key press detect.
-    eKRE_1 = 1, // Row is included in the keypad key press detect.
+    // Row is not included in the keypad key press detect.
+    eKRE_0 = 0,
+    // Row is included in the keypad key press detect.
+    eKRE_1 = 1,
   };
   
+  // KCO
   enum class eKCO : uint32_t {
-    eTOTEM_POLE = 0, // Column strobe output is totem pole drive.
-    eOPEN_DRAIN = 1, // Column strobe output is open drain.
+    // Column strobe output is totem pole drive.
+    eTOTEM_POLE = 0,
+    // Column strobe output is open drain.
+    eOPEN_DRAIN = 1,
   };
   
   // Bit field definition.
   struct {
-    /// read-write - KRE
+    // read-write - KRE
     eKRE KRE : 8;
-    /// read-write - KCO
+    // read-write - KCO
     eKCO KCO : 8;
     uint32_t _reserved_0 : 16;
   } bits;
@@ -43,53 +45,70 @@ union KPCR {
 };
 
 // Keypad Status Register
-//
 union KPSR {
   
+  // KPKD
   enum class eKPKD : uint32_t {
-    eKPKD_0 = 0, // No key presses detected
-    eKPKD_1 = 1, // A key has been depressed
+    // No key presses detected
+    eKPKD_0 = 0,
+    // A key has been depressed
+    eKPKD_1 = 1,
   };
   
+  // KPKR
   enum class eKPKR : uint32_t {
-    eKPKR_0 = 0, // No key release detected
-    eKPKR_1 = 1, // All keys have been released
+    // No key release detected
+    eKPKR_0 = 0,
+    // All keys have been released
+    eKPKR_1 = 1,
   };
   
+  // KDSC
   enum class eKDSC : uint32_t {
-    eKDSC_0 = 0, // No effect
-    eKDSC_1 = 1, // Set bits that clear the keypad depress synchronizer chain
+    // No effect
+    eKDSC_0 = 0,
+    // Set bits that clear the keypad depress synchronizer chain
+    eKDSC_1 = 1,
   };
   
+  // KRSS
   enum class eKRSS : uint32_t {
-    eKRSS_0 = 0, // No effect
-    eKRSS_1 = 1, // Set bits which sets keypad release synchronizer chain
+    // No effect
+    eKRSS_0 = 0,
+    // Set bits which sets keypad release synchronizer chain
+    eKRSS_1 = 1,
   };
   
+  // KDIE
   enum class eKDIE : uint32_t {
-    eKDIE_0 = 0, // No interrupt request is generated when KPKD is set.
-    eKDIE_1 = 1, // An interrupt request is generated when KPKD is set.
+    // No interrupt request is generated when KPKD is set.
+    eKDIE_0 = 0,
+    // An interrupt request is generated when KPKD is set.
+    eKDIE_1 = 1,
   };
   
+  // KRIE
   enum class eKRIE : uint32_t {
-    eKRIE_0 = 0, // No interrupt request is generated when KPKR is set.
-    eKRIE_1 = 1, // An interrupt request is generated when KPKR is set.
+    // No interrupt request is generated when KPKR is set.
+    eKRIE_0 = 0,
+    // An interrupt request is generated when KPKR is set.
+    eKRIE_1 = 1,
   };
   
   // Bit field definition.
   struct {
-    /// read-write - KPKD
+    // read-write - KPKD
     eKPKD KPKD : 1;
-    /// read-write - KPKR
+    // read-write - KPKR
     eKPKR KPKR : 1;
-    /// read-write - KDSC
+    // read-write - KDSC
     eKDSC KDSC : 1;
-    /// read-write - KRSS
+    // read-write - KRSS
     eKRSS KRSS : 1;
     uint32_t _reserved_0 : 4;
-    /// read-write - KDIE
+    // read-write - KDIE
     eKDIE KDIE : 1;
-    /// read-write - KRIE
+    // read-write - KRIE
     eKRIE KRIE : 1;
     uint32_t _reserved_1 : 22;
   } bits;
@@ -103,24 +122,29 @@ union KPSR {
 };
 
 // Keypad Data Direction Register
-//
 union KDDR {
   
+  // KRDD
   enum class eKRDD : uint32_t {
-    eINPUT = 0, // ROWn pin configured as an input.
-    eOUTPUT = 1, // ROWn pin configured as an output.
+    // ROWn pin configured as an input.
+    eINPUT = 0,
+    // ROWn pin configured as an output.
+    eOUTPUT = 1,
   };
   
+  // KCDD
   enum class eKCDD : uint32_t {
-    eINPUT = 0, // COLn pin is configured as an input.
-    eOUTPUT = 1, // COLn pin is configured as an output.
+    // COLn pin is configured as an input.
+    eINPUT = 0,
+    // COLn pin is configured as an output.
+    eOUTPUT = 1,
   };
   
   // Bit field definition.
   struct {
-    /// read-write - KRDD
+    // read-write - KRDD
     eKRDD KRDD : 8;
-    /// read-write - KCDD
+    // read-write - KCDD
     eKCDD KCDD : 8;
     uint32_t _reserved_0 : 16;
   } bits;
@@ -134,14 +158,13 @@ union KDDR {
 };
 
 // Keypad Data Register
-//
 union KPDR {
   
   // Bit field definition.
   struct {
-    /// read-write - KRD
+    // read-write - KRD
     uint32_t KRD : 8;
-    /// read-write - KCD
+    // read-write - KCD
     uint32_t KCD : 8;
     uint32_t _reserved_0 : 16;
   } bits;

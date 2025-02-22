@@ -5,25 +5,21 @@
 #include <cstring>
 
 // USB
-//
-// NOTE: This file was generated from the forge CMSIS-svd wrapper tool.
-
 namespace nUSB_OTG2 {
 
 
 // Identification register
-//
 union ID {
   
   // Bit field definition.
   struct {
-    /// read-only - ID
+    // read-only - ID
     uint32_t ID : 6;
     uint32_t _reserved_0 : 2;
-    /// read-only - NID
+    // read-only - NID
     uint32_t NID : 6;
     uint32_t _reserved_1 : 2;
-    /// read-only - REVISION
+    // read-only - REVISION
     uint32_t REVISION : 8;
     uint32_t _reserved_2 : 8;
   } bits;
@@ -37,42 +33,60 @@ union ID {
 };
 
 // Hardware General
-//
 union HWGENERAL {
   
+  // PHYW
   enum class ePHYW : uint32_t {
-    eDATA_BUS_8 = 0, // 8 bit wide data bus (Software non-programmable)
-    eDATA_BUS_16 = 1, // 16 bit wide data bus (Software non-programmable)
-    eSW_RST_8 = 2, // Reset to 8 bit wide data bus (Software programmable)
-    eSW_RST_16 = 3, // Reset to 16 bit wide data bus (Software programmable)
+    // 8 bit wide data bus (Software non-programmable)
+    eDATA_BUS_8 = 0,
+    // 16 bit wide data bus (Software non-programmable)
+    eDATA_BUS_16 = 1,
+    // Reset to 8 bit wide data bus (Software programmable)
+    eSW_RST_8 = 2,
+    // Reset to 16 bit wide data bus (Software programmable)
+    eSW_RST_16 = 3,
   };
   
+  // PHYM
   enum class ePHYM : uint32_t {
-    eUTMI = 0, // UTMI/UMTI+
-    eULPI_DDR = 1, // ULPI DDR
-    eULPI = 2, // ULPI
-    eSERIAL = 3, // Serial Only
-    eSW_RST_UTMI = 4, // Software programmable - reset to UTMI/UTMI+
-    eSW_RST_ULPI_DDR = 5, // Software programmable - reset to ULPI DDR
-    eSW_RST_ULPI = 6, // Software programmable - reset to ULPI
-    eSW_RST_SERIAL = 7, // Software programmable - reset to Serial
+    // UTMI/UMTI+
+    eUTMI = 0,
+    // ULPI DDR
+    eULPI_DDR = 1,
+    // ULPI
+    eULPI = 2,
+    // Serial Only
+    eSERIAL = 3,
+    // Software programmable - reset to UTMI/UTMI+
+    eSW_RST_UTMI = 4,
+    // Software programmable - reset to ULPI DDR
+    eSW_RST_ULPI_DDR = 5,
+    // Software programmable - reset to ULPI
+    eSW_RST_ULPI = 6,
+    // Software programmable - reset to Serial
+    eSW_RST_SERIAL = 7,
   };
   
+  // SM
   enum class eSM : uint32_t {
-    eSERIAL_ENGINE_NO = 0, // No Serial Engine, always use parallel signalling.
-    eSERIAL_ENGINE_EN = 1, // Serial Engine present, always use serial signalling for FS/LS.
-    eSW_RST_PARALLEL = 2, // Software programmable - Reset to use parallel signalling for FS/LS
-    eSW_RST_SERIAL_ENG = 3, // Software programmable - Reset to use serial signalling for FS/LS
+    // No Serial Engine, always use parallel signalling.
+    eSERIAL_ENGINE_NO = 0,
+    // Serial Engine present, always use serial signalling for FS/LS.
+    eSERIAL_ENGINE_EN = 1,
+    // Software programmable - Reset to use parallel signalling for FS/LS
+    eSW_RST_PARALLEL = 2,
+    // Software programmable - Reset to use serial signalling for FS/LS
+    eSW_RST_SERIAL_ENG = 3,
   };
   
   // Bit field definition.
   struct {
     uint32_t _reserved_0 : 4;
-    /// read-only - PHYW
+    // read-only - PHYW
     ePHYW PHYW : 2;
-    /// read-only - PHYM
+    // read-only - PHYM
     ePHYM PHYM : 3;
-    /// read-only - SM
+    // read-only - SM
     eSM SM : 2;
     uint32_t _reserved_1 : 21;
   } bits;
@@ -86,19 +100,21 @@ union HWGENERAL {
 };
 
 // Host Hardware Parameters
-//
 union HWHOST {
   
+  // HC
   enum class eHC : uint32_t {
-    eHOST_OP_DIS = 0, // Not supported
-    eHOST_OP_EN = 1, // Supported
+    // Not supported
+    eHOST_OP_DIS = 0,
+    // Supported
+    eHOST_OP_EN = 1,
   };
   
   // Bit field definition.
   struct {
-    /// read-only - HC
+    // read-only - HC
     eHC HC : 1;
-    /// read-only - NPORT
+    // read-only - NPORT
     uint32_t NPORT : 3;
     uint32_t _reserved_0 : 28;
   } bits;
@@ -112,19 +128,21 @@ union HWHOST {
 };
 
 // Device Hardware Parameters
-//
 union HWDEVICE {
   
+  // DC
   enum class eDC : uint32_t {
-    eDEVICE_OP_DIS = 0, // Not supported
-    eDEVICE_OP_EN = 1, // Supported
+    // Not supported
+    eDEVICE_OP_DIS = 0,
+    // Supported
+    eDEVICE_OP_EN = 1,
   };
   
   // Bit field definition.
   struct {
-    /// read-only - DC
+    // read-only - DC
     eDC DC : 1;
-    /// read-only - DEVEP
+    // read-only - DEVEP
     uint32_t DEVEP : 5;
     uint32_t _reserved_0 : 26;
   } bits;
@@ -138,15 +156,14 @@ union HWDEVICE {
 };
 
 // TX Buffer Hardware Parameters
-//
 union HWTXBUF {
   
   // Bit field definition.
   struct {
-    /// read-only - TXBURST
+    // read-only - TXBURST
     uint32_t TXBURST : 8;
     uint32_t _reserved_0 : 8;
-    /// read-only - TXCHANADD
+    // read-only - TXCHANADD
     uint32_t TXCHANADD : 8;
     uint32_t _reserved_1 : 8;
   } bits;
@@ -160,14 +177,13 @@ union HWTXBUF {
 };
 
 // RX Buffer Hardware Parameters
-//
 union HWRXBUF {
   
   // Bit field definition.
   struct {
-    /// read-only - RXBURST
+    // read-only - RXBURST
     uint32_t RXBURST : 8;
-    /// read-only - RXADD
+    // read-only - RXADD
     uint32_t RXADD : 8;
     uint32_t _reserved_0 : 16;
   } bits;
@@ -181,12 +197,11 @@ union HWRXBUF {
 };
 
 // General Purpose Timer #0 Load
-//
 union GPTIMER0LD {
   
   // Bit field definition.
   struct {
-    /// read-write - GPTLD
+    // read-write - GPTLD
     uint32_t GPTLD : 24;
     uint32_t _reserved_0 : 8;
   } bits;
@@ -200,34 +215,42 @@ union GPTIMER0LD {
 };
 
 // General Purpose Timer #0 Controller
-//
 union GPTIMER0CTRL {
   
+  // GPTMODE
   enum class eGPTMODE : uint32_t {
-    eONE_SHOT = 0, // One Shot Mode
-    eREPEAT = 1, // Repeat Mode
+    // One Shot Mode
+    eONE_SHOT = 0,
+    // Repeat Mode
+    eREPEAT = 1,
   };
   
+  // GPTRST
   enum class eGPTRST : uint32_t {
-    eNO_ACTION = 0, // No action
-    eLOAD_CNTR = 1, // Load counter value from GPTLD bits in n_GPTIMER0LD
+    // No action
+    eNO_ACTION = 0,
+    // Load counter value from GPTLD bits in n_GPTIMER0LD
+    eLOAD_CNTR = 1,
   };
   
+  // GPTRUN
   enum class eGPTRUN : uint32_t {
-    eSTOP_CNTR = 0, // Stop counting
-    eRUN = 1, // Run
+    // Stop counting
+    eSTOP_CNTR = 0,
+    // Run
+    eRUN = 1,
   };
   
   // Bit field definition.
   struct {
-    /// read-write - GPTCNT
+    // read-write - GPTCNT
     uint32_t GPTCNT : 24;
-    /// read-write - GPTMODE
+    // read-write - GPTMODE
     eGPTMODE GPTMODE : 1;
     uint32_t _reserved_0 : 5;
-    /// read-write - GPTRST
+    // read-write - GPTRST
     eGPTRST GPTRST : 1;
-    /// read-write - GPTRUN
+    // read-write - GPTRUN
     eGPTRUN GPTRUN : 1;
   } bits;
   
@@ -240,12 +263,11 @@ union GPTIMER0CTRL {
 };
 
 // General Purpose Timer #1 Load
-//
 union GPTIMER1LD {
   
   // Bit field definition.
   struct {
-    /// read-write - GPTLD
+    // read-write - GPTLD
     uint32_t GPTLD : 24;
     uint32_t _reserved_0 : 8;
   } bits;
@@ -259,34 +281,42 @@ union GPTIMER1LD {
 };
 
 // General Purpose Timer #1 Controller
-//
 union GPTIMER1CTRL {
   
+  // GPTMODE
   enum class eGPTMODE : uint32_t {
-    eONE_SHOT = 0, // One Shot Mode
-    eREPEAT = 1, // Repeat Mode
+    // One Shot Mode
+    eONE_SHOT = 0,
+    // Repeat Mode
+    eREPEAT = 1,
   };
   
+  // GPTRST
   enum class eGPTRST : uint32_t {
-    eNO_ACTION = 0, // No action
-    eLOAD_CNTR = 1, // Load counter value from GPTLD bits in USB_n_GPTIMER0LD
+    // No action
+    eNO_ACTION = 0,
+    // Load counter value from GPTLD bits in USB_n_GPTIMER0LD
+    eLOAD_CNTR = 1,
   };
   
+  // GPTRUN
   enum class eGPTRUN : uint32_t {
-    eSTOP_CNTR = 0, // Stop counting
-    eRUN = 1, // Run
+    // Stop counting
+    eSTOP_CNTR = 0,
+    // Run
+    eRUN = 1,
   };
   
   // Bit field definition.
   struct {
-    /// read-write - GPTCNT
+    // read-write - GPTCNT
     uint32_t GPTCNT : 24;
-    /// read-write - GPTMODE
+    // read-write - GPTMODE
     eGPTMODE GPTMODE : 1;
     uint32_t _reserved_0 : 5;
-    /// read-write - GPTRST
+    // read-write - GPTRST
     eGPTRST GPTRST : 1;
-    /// read-write - GPTRUN
+    // read-write - GPTRUN
     eGPTRUN GPTRUN : 1;
   } bits;
   
@@ -299,22 +329,29 @@ union GPTIMER1CTRL {
 };
 
 // System Bus Config
-//
 union SBUSCFG {
   
+  // AHBBRST
   enum class eAHBBRST : uint32_t {
-    eINCR_BURST = 0, // Incremental burst of unspecified length only
-    eINCR4_BURST = 1, // INCR4 burst, then single transfer
-    eINCR8_BURST = 2, // INCR8 burst, INCR4 burst, then single transfer
-    eINCR16_BURST = 3, // INCR16 burst, INCR8 burst, INCR4 burst, then single transfer
-    eINCR4_UNSPEC = 5, // INCR4 burst, then incremental burst of unspecified length
-    eINCR8_4_UNSPEC = 6, // INCR8 burst, INCR4 burst, then incremental burst of unspecified length
-    eINCR16_8_4_UNSPEC = 7, // INCR16 burst, INCR8 burst, INCR4 burst, then incremental burst of unspecified length
+    // Incremental burst of unspecified length only
+    eINCR_BURST = 0,
+    // INCR4 burst, then single transfer
+    eINCR4_BURST = 1,
+    // INCR8 burst, INCR4 burst, then single transfer
+    eINCR8_BURST = 2,
+    // INCR16 burst, INCR8 burst, INCR4 burst, then single transfer
+    eINCR16_BURST = 3,
+    // INCR4 burst, then incremental burst of unspecified length
+    eINCR4_UNSPEC = 5,
+    // INCR8 burst, INCR4 burst, then incremental burst of unspecified length
+    eINCR8_4_UNSPEC = 6,
+    // INCR16 burst, INCR8 burst, INCR4 burst, then incremental burst of unspecified length
+    eINCR16_8_4_UNSPEC = 7,
   };
   
   // Bit field definition.
   struct {
-    /// read-write - AHBBRST
+    // read-write - AHBBRST
     eAHBBRST AHBBRST : 3;
     uint32_t _reserved_0 : 29;
   } bits;
@@ -328,12 +365,11 @@ union SBUSCFG {
 };
 
 // Capability Registers Length
-//
 union CAPLENGTH {
   
   // Bit field definition.
   struct {
-    /// read-only - CAPLENGTH
+    // read-only - CAPLENGTH
     uint32_t CAPLENGTH : 8;
     uint32_t _reserved_0 : 24;
   } bits;
@@ -347,12 +383,11 @@ union CAPLENGTH {
 };
 
 // Host Controller Interface Version
-//
 union HCIVERSION {
   
   // Bit field definition.
   struct {
-    /// read-only - HCIVERSION
+    // read-only - HCIVERSION
     uint32_t HCIVERSION : 16;
     uint32_t _reserved_0 : 16;
   } bits;
@@ -366,31 +401,33 @@ union HCIVERSION {
 };
 
 // Host Controller Structural Parameters
-//
 union HCSPARAMS {
   
+  // N_CC
   enum class eN_CC : uint32_t {
-    eNO_COMP_CONTROLLER = 0, // There is no internal Companion Controller and port-ownership hand-off is not supported.
-    eCOMP_CONTROLLER = 1, // There are internal companion controller(s) and port-ownership hand-offs is supported.
+    // There is no internal Companion Controller and port-ownership hand-off is not supported.
+    eNO_COMP_CONTROLLER = 0,
+    // There are internal companion controller(s) and port-ownership hand-offs is supported.
+    eCOMP_CONTROLLER = 1,
   };
   
   // Bit field definition.
   struct {
-    /// read-only - N_PORTS
+    // read-only - N_PORTS
     uint32_t N_PORTS : 4;
-    /// read-only - PPC
+    // read-only - PPC
     uint32_t PPC : 1;
     uint32_t _reserved_0 : 3;
-    /// read-only - N_PCC
+    // read-only - N_PCC
     uint32_t N_PCC : 4;
-    /// read-only - N_CC
+    // read-only - N_CC
     eN_CC N_CC : 4;
-    /// read-only - PI
+    // read-only - PI
     uint32_t PI : 1;
     uint32_t _reserved_1 : 3;
-    /// read-only - N_PTT
+    // read-only - N_PTT
     uint32_t N_PTT : 4;
-    /// read-only - N_TT
+    // read-only - N_TT
     uint32_t N_TT : 4;
     uint32_t _reserved_2 : 4;
   } bits;
@@ -404,21 +441,20 @@ union HCSPARAMS {
 };
 
 // Host Controller Capability Parameters
-//
 union HCCPARAMS {
   
   // Bit field definition.
   struct {
-    /// read-only - ADC
+    // read-only - ADC
     uint32_t ADC : 1;
-    /// read-only - PFL
+    // read-only - PFL
     uint32_t PFL : 1;
-    /// read-only - ASP
+    // read-only - ASP
     uint32_t ASP : 1;
     uint32_t _reserved_0 : 1;
-    /// read-only - IST
+    // read-only - IST
     uint32_t IST : 4;
-    /// read-only - EECP
+    // read-only - EECP
     uint32_t EECP : 8;
     uint32_t _reserved_1 : 16;
   } bits;
@@ -432,12 +468,11 @@ union HCCPARAMS {
 };
 
 // Device Controller Interface Version
-//
 union DCIVERSION {
   
   // Bit field definition.
   struct {
-    /// read-only - DCIVERSION
+    // read-only - DCIVERSION
     uint32_t DCIVERSION : 16;
     uint32_t _reserved_0 : 16;
   } bits;
@@ -451,17 +486,16 @@ union DCIVERSION {
 };
 
 // Device Controller Capability Parameters
-//
 union DCCPARAMS {
   
   // Bit field definition.
   struct {
-    /// read-only - DEN
+    // read-only - DEN
     uint32_t DEN : 5;
     uint32_t _reserved_0 : 2;
-    /// read-only - DC
+    // read-only - DC
     uint32_t DC : 1;
-    /// read-only - HC
+    // read-only - HC
     uint32_t HC : 1;
     uint32_t _reserved_1 : 23;
   } bits;
@@ -475,58 +509,72 @@ union DCCPARAMS {
 };
 
 // USB Command Register
-//
 union USBCMD {
   
+  // PSE
   enum class ePSE : uint32_t {
-    eDONT_PROCESS_PT = 0, // Do not process the Periodic Schedule
-    ePROCESS_PT_PERIODICLISTBASE = 1, // Use the PERIODICLISTBASE register to access the Periodic Schedule.
+    // Do not process the Periodic Schedule
+    eDONT_PROCESS_PT = 0,
+    // Use the PERIODICLISTBASE register to access the Periodic Schedule.
+    ePROCESS_PT_PERIODICLISTBASE = 1,
   };
   
+  // ASE
   enum class eASE : uint32_t {
-    eDONT_PROCESS_ASYNC = 0, // Do not process the Asynchronous Schedule.
-    eACCESS_ASYNC = 1, // Use the ASYNCLISTADDR register to access the Asynchronous Schedule.
+    // Do not process the Asynchronous Schedule.
+    eDONT_PROCESS_ASYNC = 0,
+    // Use the ASYNCLISTADDR register to access the Asynchronous Schedule.
+    eACCESS_ASYNC = 1,
   };
   
+  // ITC
   enum class eITC : uint32_t {
-    eIMMEDIATE = 0, // Immediate (no threshold)
-    eMICROFRAME_1 = 1, // 1 micro-frame
-    eMICROFRAME_2 = 2, // 2 micro-frames
-    eMICROFRAME_4 = 4, // 4 micro-frames
-    eMICROFRAME_8 = 8, // 8 micro-frames
-    eMICROFRAME_16 = 16, // 16 micro-frames
-    eMICROFRAME_32 = 32, // 32 micro-frames
-    eMICROFRAME_64 = 64, // 64 micro-frames
+    // Immediate (no threshold)
+    eIMMEDIATE = 0,
+    // 1 micro-frame
+    eMICROFRAME_1 = 1,
+    // 2 micro-frames
+    eMICROFRAME_2 = 2,
+    // 4 micro-frames
+    eMICROFRAME_4 = 4,
+    // 8 micro-frames
+    eMICROFRAME_8 = 8,
+    // 16 micro-frames
+    eMICROFRAME_16 = 16,
+    // 32 micro-frames
+    eMICROFRAME_32 = 32,
+    // 64 micro-frames
+    eMICROFRAME_64 = 64,
   };
   
   // Bit field definition.
   struct {
-    /// read-write - RS
+    // read-write - RS
     uint32_t RS : 1;
-    /// read-write - RST
+    // read-write - RST
     uint32_t RST : 1;
-    /// read-write - FS_1
+    // read-write - FS_1
     uint32_t FS_1 : 2;
-    /// read-write - PSE
+    // read-write - PSE
     ePSE PSE : 1;
-    /// read-write - ASE
+    // read-write - ASE
     eASE ASE : 1;
-    /// read-write - IAA
+    // read-write - IAA
     uint32_t IAA : 1;
     uint32_t _reserved_0 : 1;
-    /// read-write - ASP
+    // read-write - ASP
     uint32_t ASP : 2;
     uint32_t _reserved_1 : 1;
-    /// read-write - ASPE
+    // read-write - ASPE
     uint32_t ASPE : 1;
     uint32_t _reserved_2 : 1;
-    /// read-write - SUTW
+    // read-write - SUTW
     uint32_t SUTW : 1;
-    /// read-write - ATDTW
+    // read-write - ATDTW
     uint32_t ATDTW : 1;
-    /// read-write - FS_2
+    // read-write - FS_2
     uint32_t FS_2 : 1;
-    /// read-write - ITC
+    // read-write - ITC
     eITC ITC : 8;
     uint32_t _reserved_3 : 8;
   } bits;
@@ -540,47 +588,46 @@ union USBCMD {
 };
 
 // USB Status Register
-//
 union USBSTS {
   
   // Bit field definition.
   struct {
-    /// read-write - UI
+    // read-write - UI
     uint32_t UI : 1;
-    /// read-write - UEI
+    // read-write - UEI
     uint32_t UEI : 1;
-    /// read-write - PCI
+    // read-write - PCI
     uint32_t PCI : 1;
-    /// read-write - FRI
+    // read-write - FRI
     uint32_t FRI : 1;
-    /// read-write - SEI
+    // read-write - SEI
     uint32_t SEI : 1;
-    /// read-write - AAI
+    // read-write - AAI
     uint32_t AAI : 1;
-    /// read-write - URI
+    // read-write - URI
     uint32_t URI : 1;
-    /// read-write - SRI
+    // read-write - SRI
     uint32_t SRI : 1;
-    /// read-write - SLI
+    // read-write - SLI
     uint32_t SLI : 1;
     uint32_t _reserved_0 : 1;
-    /// read-write - ULPII
+    // read-write - ULPII
     uint32_t ULPII : 1;
     uint32_t _reserved_1 : 1;
-    /// read-write - HCH
+    // read-write - HCH
     uint32_t HCH : 1;
-    /// read-write - RCL
+    // read-write - RCL
     uint32_t RCL : 1;
-    /// read-write - PS
+    // read-write - PS
     uint32_t PS : 1;
-    /// read-write - AS
+    // read-write - AS
     uint32_t AS : 1;
-    /// read-only - NAKI
+    // read-only - NAKI
     uint32_t NAKI : 1;
     uint32_t _reserved_2 : 7;
-    /// read-write - TI0
+    // read-write - TI0
     uint32_t TI0 : 1;
-    /// read-write - TI1
+    // read-write - TI1
     uint32_t TI1 : 1;
     uint32_t _reserved_3 : 6;
   } bits;
@@ -594,44 +641,43 @@ union USBSTS {
 };
 
 // Interrupt Enable Register
-//
 union USBINTR {
   
   // Bit field definition.
   struct {
-    /// read-write - UE
+    // read-write - UE
     uint32_t UE : 1;
-    /// read-write - UEE
+    // read-write - UEE
     uint32_t UEE : 1;
-    /// read-write - PCE
+    // read-write - PCE
     uint32_t PCE : 1;
-    /// read-write - FRE
+    // read-write - FRE
     uint32_t FRE : 1;
-    /// read-write - SEE
+    // read-write - SEE
     uint32_t SEE : 1;
-    /// read-write - AAE
+    // read-write - AAE
     uint32_t AAE : 1;
-    /// read-write - URE
+    // read-write - URE
     uint32_t URE : 1;
-    /// read-write - SRE
+    // read-write - SRE
     uint32_t SRE : 1;
-    /// read-write - SLE
+    // read-write - SLE
     uint32_t SLE : 1;
     uint32_t _reserved_0 : 1;
-    /// read-write - ULPIE
+    // read-write - ULPIE
     uint32_t ULPIE : 1;
     uint32_t _reserved_1 : 5;
-    /// read-write - NAKE
+    // read-write - NAKE
     uint32_t NAKE : 1;
     uint32_t _reserved_2 : 1;
-    /// read-write - UAIE
+    // read-write - UAIE
     uint32_t UAIE : 1;
-    /// read-write - UPIE
+    // read-write - UPIE
     uint32_t UPIE : 1;
     uint32_t _reserved_3 : 4;
-    /// read-write - TIE0
+    // read-write - TIE0
     uint32_t TIE0 : 1;
-    /// read-write - TIE1
+    // read-write - TIE1
     uint32_t TIE1 : 1;
     uint32_t _reserved_4 : 6;
   } bits;
@@ -645,23 +691,31 @@ union USBINTR {
 };
 
 // USB Frame Index
-//
 union FRINDEX {
   
+  // FRINDEX
   enum class eFRINDEX : uint32_t {
-    eFRINDEX_1024 = 0, // (1024) 12
-    eFRINDEX_512 = 1, // (512) 11
-    eFRINDEX_256 = 2, // (256) 10
-    eFRINDEX_128 = 3, // (128) 9
-    eFRINDEX_64 = 4, // (64) 8
-    eFRINDEX_32 = 5, // (32) 7
-    eFRINDEX_16 = 6, // (16) 6
-    eFRINDEX_8 = 7, // (8) 5
+    // (1024) 12
+    eFRINDEX_1024 = 0,
+    // (512) 11
+    eFRINDEX_512 = 1,
+    // (256) 10
+    eFRINDEX_256 = 2,
+    // (128) 9
+    eFRINDEX_128 = 3,
+    // (64) 8
+    eFRINDEX_64 = 4,
+    // (32) 7
+    eFRINDEX_32 = 5,
+    // (16) 6
+    eFRINDEX_16 = 6,
+    // (8) 5
+    eFRINDEX_8 = 7,
   };
   
   // Bit field definition.
   struct {
-    /// read-write - FRINDEX
+    // read-write - FRINDEX
     eFRINDEX FRINDEX : 14;
     uint32_t _reserved_0 : 18;
   } bits;
@@ -675,15 +729,14 @@ union FRINDEX {
 };
 
 // Device Address
-//
 union DEVICEADDR {
   
   // Bit field definition.
   struct {
     uint32_t _reserved_0 : 24;
-    /// read-write - USBADRA
+    // read-write - USBADRA
     uint32_t USBADRA : 1;
-    /// read-write - USBADR
+    // read-write - USBADR
     uint32_t USBADR : 7;
   } bits;
   
@@ -696,13 +749,12 @@ union DEVICEADDR {
 };
 
 // Frame List Base Address
-//
 union PERIODICLISTBASE {
   
   // Bit field definition.
   struct {
     uint32_t _reserved_0 : 12;
-    /// read-write - BASEADR
+    // read-write - BASEADR
     uint32_t BASEADR : 20;
   } bits;
   
@@ -715,13 +767,12 @@ union PERIODICLISTBASE {
 };
 
 // Next Asynch. Address
-//
 union ASYNCLISTADDR {
   
   // Bit field definition.
   struct {
     uint32_t _reserved_0 : 5;
-    /// read-write - ASYBASE
+    // read-write - ASYBASE
     uint32_t ASYBASE : 27;
   } bits;
   
@@ -734,13 +785,12 @@ union ASYNCLISTADDR {
 };
 
 // Endpoint List Address
-//
 union ENDPTLISTADDR {
   
   // Bit field definition.
   struct {
     uint32_t _reserved_0 : 11;
-    /// read-write - EPBASE
+    // read-write - EPBASE
     uint32_t EPBASE : 21;
   } bits;
   
@@ -753,14 +803,13 @@ union ENDPTLISTADDR {
 };
 
 // Programmable Burst Size
-//
 union BURSTSIZE {
   
   // Bit field definition.
   struct {
-    /// read-write - RXPBURST
+    // read-write - RXPBURST
     uint32_t RXPBURST : 8;
-    /// read-write - TXPBURST
+    // read-write - TXPBURST
     uint32_t TXPBURST : 9;
     uint32_t _reserved_0 : 15;
   } bits;
@@ -774,17 +823,16 @@ union BURSTSIZE {
 };
 
 // TX FIFO Fill Tuning
-//
 union TXFILLTUNING {
   
   // Bit field definition.
   struct {
-    /// read-write - TXSCHOH
+    // read-write - TXSCHOH
     uint32_t TXSCHOH : 8;
-    /// read-write - TXSCHHEALTH
+    // read-write - TXSCHHEALTH
     uint32_t TXSCHHEALTH : 5;
     uint32_t _reserved_0 : 3;
-    /// read-write - TXFIFOTHRES
+    // read-write - TXFIFOTHRES
     uint32_t TXFIFOTHRES : 6;
     uint32_t _reserved_1 : 10;
   } bits;
@@ -798,15 +846,14 @@ union TXFILLTUNING {
 };
 
 // Endpoint NAK
-//
 union ENDPTNAK {
   
   // Bit field definition.
   struct {
-    /// read-write - EPRN
+    // read-write - EPRN
     uint32_t EPRN : 8;
     uint32_t _reserved_0 : 8;
-    /// read-write - EPTN
+    // read-write - EPTN
     uint32_t EPTN : 8;
     uint32_t _reserved_1 : 8;
   } bits;
@@ -820,15 +867,14 @@ union ENDPTNAK {
 };
 
 // Endpoint NAK Enable
-//
 union ENDPTNAKEN {
   
   // Bit field definition.
   struct {
-    /// read-write - EPRNE
+    // read-write - EPRNE
     uint32_t EPRNE : 8;
     uint32_t _reserved_0 : 8;
-    /// read-write - EPTNE
+    // read-write - EPTNE
     uint32_t EPTNE : 8;
     uint32_t _reserved_1 : 8;
   } bits;
@@ -842,17 +888,19 @@ union ENDPTNAKEN {
 };
 
 // Configure Flag Register
-//
 union CONFIGFLAG {
   
+  // CF
   enum class eCF : uint32_t {
-    ePORT_ROUTING_CLASSIC_HOST = 0, // Port routing control logic default-routes each port to an implementation dependent classic host controller.
-    ePORT_ROUTING_HOST = 1, // Port routing control logic default-routes all ports to this host controller.
+    // Port routing control logic default-routes each port to an implementation dependent classic host controller.
+    ePORT_ROUTING_CLASSIC_HOST = 0,
+    // Port routing control logic default-routes all ports to this host controller.
+    ePORT_ROUTING_HOST = 1,
   };
   
   // Bit field definition.
   struct {
-    /// read-only - CF
+    // read-only - CF
     eCF CF : 1;
     uint32_t _reserved_0 : 31;
   } bits;
@@ -866,112 +914,147 @@ union CONFIGFLAG {
 };
 
 // Port Status & Control
-//
 union PORTSC1 {
   
+  // OCA
   enum class eOCA : uint32_t {
-    eNO_OVERCURRENT = 0, // This port does not have an over-current condition.
-    eOVERCURRENT = 1, // This port currently has an over-current condition
+    // This port does not have an over-current condition.
+    eNO_OVERCURRENT = 0,
+    // This port currently has an over-current condition
+    eOVERCURRENT = 1,
   };
   
+  // LS
   enum class eLS : uint32_t {
-    eSE0 = 0, // SE0
-    eK_STATE = 1, // K-state
-    eJ_STATE = 2, // J-state
-    eUNDEFINED = 3, // Undefined
+    // SE0
+    eSE0 = 0,
+    // K-state
+    eK_STATE = 1,
+    // J-state
+    eJ_STATE = 2,
+    // Undefined
+    eUNDEFINED = 3,
   };
   
+  // PIC
   enum class ePIC : uint32_t {
-    ePORT_INDICATOR_OFF = 0, // Port indicators are off
-    ePORT_IND_AMBER = 1, // Amber
-    ePORT_IND_GREEN = 2, // Green
-    eUNDEFINED = 3, // Undefined
+    // Port indicators are off
+    ePORT_INDICATOR_OFF = 0,
+    // Amber
+    ePORT_IND_AMBER = 1,
+    // Green
+    ePORT_IND_GREEN = 2,
+    // Undefined
+    eUNDEFINED = 3,
   };
   
+  // PTC
   enum class ePTC : uint32_t {
-    eTST_MODE_DIS = 0, // TEST_MODE_DISABLE
-    eJ_STATE = 1, // J_STATE
-    eK_STATE = 2, // K_STATE
-    eSE0 = 3, // SE0 (host) / NAK (device)
-    ePCKT = 4, // Packet
-    eHS = 5, // FORCE_ENABLE_HS
-    eFS = 6, // FORCE_ENABLE_FS
-    eLS = 7, // FORCE_ENABLE_LS
+    // TEST_MODE_DISABLE
+    eTST_MODE_DIS = 0,
+    // J_STATE
+    eJ_STATE = 1,
+    // K_STATE
+    eK_STATE = 2,
+    // SE0 (host) / NAK (device)
+    eSE0 = 3,
+    // Packet
+    ePCKT = 4,
+    // FORCE_ENABLE_HS
+    eHS = 5,
+    // FORCE_ENABLE_FS
+    eFS = 6,
+    // FORCE_ENABLE_LS
+    eLS = 7,
   };
   
+  // PHCD
   enum class ePHCD : uint32_t {
-    ePHY_CLK_EN = 0, // Enable PHY clock
-    ePHY_CLK_DIS = 1, // Disable PHY clock
+    // Enable PHY clock
+    ePHY_CLK_EN = 0,
+    // Disable PHY clock
+    ePHY_CLK_DIS = 1,
   };
   
+  // PFSC
   enum class ePFSC : uint32_t {
-    eNORMAL = 0, // Normal operation
-    eFULL_SPEED = 1, // Forced to full speed
+    // Normal operation
+    eNORMAL = 0,
+    // Forced to full speed
+    eFULL_SPEED = 1,
   };
   
+  // PSPD
   enum class ePSPD : uint32_t {
-    eFS = 0, // Full Speed
-    eLS = 1, // Low Speed
-    eHS = 2, // High Speed
-    eUNDEFINED = 3, // Undefined
+    // Full Speed
+    eFS = 0,
+    // Low Speed
+    eLS = 1,
+    // High Speed
+    eHS = 2,
+    // Undefined
+    eUNDEFINED = 3,
   };
   
+  // PTW
   enum class ePTW : uint32_t {
-    eUTMI_8 = 0, // Select the 8-bit UTMI interface [60MHz]
-    eUTMI_16 = 1, // Select the 16-bit UTMI interface [30MHz]
+    // Select the 8-bit UTMI interface [60MHz]
+    eUTMI_8 = 0,
+    // Select the 16-bit UTMI interface [30MHz]
+    eUTMI_16 = 1,
   };
   
   // Bit field definition.
   struct {
-    /// read-only - CCS
+    // read-only - CCS
     uint32_t CCS : 1;
-    /// read-write - CSC
+    // read-write - CSC
     uint32_t CSC : 1;
-    /// read-write - PE
+    // read-write - PE
     uint32_t PE : 1;
-    /// read-write - PEC
+    // read-write - PEC
     uint32_t PEC : 1;
-    /// read-only - OCA
+    // read-only - OCA
     eOCA OCA : 1;
-    /// read-write - OCC
+    // read-write - OCC
     uint32_t OCC : 1;
-    /// read-write - FPR
+    // read-write - FPR
     uint32_t FPR : 1;
-    /// read-write - SUSP
+    // read-write - SUSP
     uint32_t SUSP : 1;
-    /// read-write - PR
+    // read-write - PR
     uint32_t PR : 1;
-    /// read-only - HSP
+    // read-only - HSP
     uint32_t HSP : 1;
-    /// read-write - LS
+    // read-write - LS
     eLS LS : 2;
-    /// read-write - PP
+    // read-write - PP
     uint32_t PP : 1;
-    /// read-write - PO
+    // read-write - PO
     uint32_t PO : 1;
-    /// read-write - PIC
+    // read-write - PIC
     ePIC PIC : 2;
-    /// read-write - PTC
+    // read-write - PTC
     ePTC PTC : 4;
-    /// read-write - WKCN
+    // read-write - WKCN
     uint32_t WKCN : 1;
-    /// read-write - WKDC
+    // read-write - WKDC
     uint32_t WKDC : 1;
-    /// read-write - WKOC
+    // read-write - WKOC
     uint32_t WKOC : 1;
-    /// read-write - PHCD
+    // read-write - PHCD
     ePHCD PHCD : 1;
-    /// read-write - PFSC
+    // read-write - PFSC
     ePFSC PFSC : 1;
-    /// read-write - PTS_2
+    // read-write - PTS_2
     uint32_t PTS_2 : 1;
-    /// read-write - PSPD
+    // read-write - PSPD
     ePSPD PSPD : 2;
-    /// read-write - PTW
+    // read-write - PTW
     ePTW PTW : 1;
-    /// read-write - STS
+    // read-write - STS
     uint32_t STS : 1;
-    /// read-write - PTS_1
+    // read-write - PTS_1
     uint32_t PTS_1 : 2;
   } bits;
   
@@ -984,66 +1067,65 @@ union PORTSC1 {
 };
 
 // On-The-Go Status & control
-//
 union OTGSC {
   
   // Bit field definition.
   struct {
-    /// read-write - VD
+    // read-write - VD
     uint32_t VD : 1;
-    /// read-write - VC
+    // read-write - VC
     uint32_t VC : 1;
     uint32_t _reserved_0 : 1;
-    /// read-write - OT
+    // read-write - OT
     uint32_t OT : 1;
-    /// read-write - DP
+    // read-write - DP
     uint32_t DP : 1;
-    /// read-write - IDPU
+    // read-write - IDPU
     uint32_t IDPU : 1;
     uint32_t _reserved_1 : 2;
-    /// read-only - ID
+    // read-only - ID
     uint32_t ID : 1;
-    /// read-only - AVV
+    // read-only - AVV
     uint32_t AVV : 1;
-    /// read-only - ASV
+    // read-only - ASV
     uint32_t ASV : 1;
-    /// read-only - BSV
+    // read-only - BSV
     uint32_t BSV : 1;
-    /// read-only - BSE
+    // read-only - BSE
     uint32_t BSE : 1;
-    /// read-only - TOG_1MS
+    // read-only - TOG_1MS
     uint32_t TOG_1MS : 1;
-    /// read-only - DPS
+    // read-only - DPS
     uint32_t DPS : 1;
     uint32_t _reserved_2 : 1;
-    /// read-write - IDIS
+    // read-write - IDIS
     uint32_t IDIS : 1;
-    /// read-write - AVVIS
+    // read-write - AVVIS
     uint32_t AVVIS : 1;
-    /// read-write - ASVIS
+    // read-write - ASVIS
     uint32_t ASVIS : 1;
-    /// read-write - BSVIS
+    // read-write - BSVIS
     uint32_t BSVIS : 1;
-    /// read-write - BSEIS
+    // read-write - BSEIS
     uint32_t BSEIS : 1;
-    /// read-write - STATUS_1MS
+    // read-write - STATUS_1MS
     uint32_t STATUS_1MS : 1;
-    /// read-write - DPIS
+    // read-write - DPIS
     uint32_t DPIS : 1;
     uint32_t _reserved_3 : 1;
-    /// read-write - IDIE
+    // read-write - IDIE
     uint32_t IDIE : 1;
-    /// read-write - AVVIE
+    // read-write - AVVIE
     uint32_t AVVIE : 1;
-    /// read-write - ASVIE
+    // read-write - ASVIE
     uint32_t ASVIE : 1;
-    /// read-write - BSVIE
+    // read-write - BSVIE
     uint32_t BSVIE : 1;
-    /// read-write - BSEIE
+    // read-write - BSEIE
     uint32_t BSEIE : 1;
-    /// read-write - EN_1MS
+    // read-write - EN_1MS
     uint32_t EN_1MS : 1;
-    /// read-write - DPIE
+    // read-write - DPIE
     uint32_t DPIE : 1;
     uint32_t _reserved_4 : 1;
   } bits;
@@ -1057,34 +1139,43 @@ union OTGSC {
 };
 
 // USB Device Mode
-//
 union USBMODE {
   
+  // CM
   enum class eCM : uint32_t {
-    eIDL = 0, // Idle [Default for combination host/device]
-    eDEVICE_CONTR = 2, // Device Controller [Default for device only controller]
-    eHOST_CONTR = 3, // Host Controller [Default for host only controller]
+    // Idle [Default for combination host/device]
+    eIDL = 0,
+    // Device Controller [Default for device only controller]
+    eDEVICE_CONTR = 2,
+    // Host Controller [Default for host only controller]
+    eHOST_CONTR = 3,
   };
   
+  // ES
   enum class eES : uint32_t {
-    eLITTLE_ENDIAN = 0, // Little Endian [Default]
-    eBIG_ENDIAN = 1, // Big Endian
+    // Little Endian [Default]
+    eLITTLE_ENDIAN = 0,
+    // Big Endian
+    eBIG_ENDIAN = 1,
   };
   
+  // SLOM
   enum class eSLOM : uint32_t {
-    eLOCKOUT_ON = 0, // Setup Lockouts On (default);
-    eLOCKOUT_OFF = 1, // Setup Lockouts Off
+    // Setup Lockouts On (default);
+    eLOCKOUT_ON = 0,
+    // Setup Lockouts Off
+    eLOCKOUT_OFF = 1,
   };
   
   // Bit field definition.
   struct {
-    /// read-write - CM
+    // read-write - CM
     eCM CM : 2;
-    /// read-write - ES
+    // read-write - ES
     eES ES : 1;
-    /// read-write - SLOM
+    // read-write - SLOM
     eSLOM SLOM : 1;
-    /// read-write - SDIS
+    // read-write - SDIS
     uint32_t SDIS : 1;
     uint32_t _reserved_0 : 27;
   } bits;
@@ -1098,12 +1189,11 @@ union USBMODE {
 };
 
 // Endpoint Setup Status
-//
 union ENDPTSETUPSTAT {
   
   // Bit field definition.
   struct {
-    /// read-write - ENDPTSETUPSTAT
+    // read-write - ENDPTSETUPSTAT
     uint32_t ENDPTSETUPSTAT : 16;
     uint32_t _reserved_0 : 16;
   } bits;
@@ -1117,15 +1207,14 @@ union ENDPTSETUPSTAT {
 };
 
 // Endpoint Prime
-//
 union ENDPTPRIME {
   
   // Bit field definition.
   struct {
-    /// read-write - PERB
+    // read-write - PERB
     uint32_t PERB : 8;
     uint32_t _reserved_0 : 8;
-    /// read-write - PETB
+    // read-write - PETB
     uint32_t PETB : 8;
     uint32_t _reserved_1 : 8;
   } bits;
@@ -1139,15 +1228,14 @@ union ENDPTPRIME {
 };
 
 // Endpoint Flush
-//
 union ENDPTFLUSH {
   
   // Bit field definition.
   struct {
-    /// read-write - FERB
+    // read-write - FERB
     uint32_t FERB : 8;
     uint32_t _reserved_0 : 8;
-    /// read-write - FETB
+    // read-write - FETB
     uint32_t FETB : 8;
     uint32_t _reserved_1 : 8;
   } bits;
@@ -1161,15 +1249,14 @@ union ENDPTFLUSH {
 };
 
 // Endpoint Status
-//
 union ENDPTSTAT {
   
   // Bit field definition.
   struct {
-    /// read-only - ERBR
+    // read-only - ERBR
     uint32_t ERBR : 8;
     uint32_t _reserved_0 : 8;
-    /// read-only - ETBR
+    // read-only - ETBR
     uint32_t ETBR : 8;
     uint32_t _reserved_1 : 8;
   } bits;
@@ -1183,15 +1270,14 @@ union ENDPTSTAT {
 };
 
 // Endpoint Complete
-//
 union ENDPTCOMPLETE {
   
   // Bit field definition.
   struct {
-    /// read-write - ERCE
+    // read-write - ERCE
     uint32_t ERCE : 8;
     uint32_t _reserved_0 : 8;
-    /// read-write - ETCE
+    // read-write - ETCE
     uint32_t ETCE : 8;
     uint32_t _reserved_1 : 8;
   } bits;
@@ -1205,27 +1291,26 @@ union ENDPTCOMPLETE {
 };
 
 // Endpoint Control0
-//
 union ENDPTCTRL0 {
   
   // Bit field definition.
   struct {
-    /// read-write - RXS
+    // read-write - RXS
     uint32_t RXS : 1;
     uint32_t _reserved_0 : 1;
-    /// read-write - RXT
+    // read-write - RXT
     uint32_t RXT : 2;
     uint32_t _reserved_1 : 3;
-    /// read-write - RXE
+    // read-write - RXE
     uint32_t RXE : 1;
     uint32_t _reserved_2 : 8;
-    /// read-write - TXS
+    // read-write - TXS
     uint32_t TXS : 1;
     uint32_t _reserved_3 : 1;
-    /// read-write - TXT
+    // read-write - TXT
     uint32_t TXT : 2;
     uint32_t _reserved_4 : 3;
-    /// read-write - TXE
+    // read-write - TXE
     uint32_t TXE : 1;
     uint32_t _reserved_5 : 8;
   } bits;
@@ -1239,37 +1324,36 @@ union ENDPTCTRL0 {
 };
 
 // Endpoint Control 1
-//
 union ENDPTCTRL1 {
   
   // Bit field definition.
   struct {
-    /// read-write - RXS
+    // read-write - RXS
     uint32_t RXS : 1;
-    /// read-write - RXD
+    // read-write - RXD
     uint32_t RXD : 1;
-    /// read-write - RXT
+    // read-write - RXT
     uint32_t RXT : 2;
     uint32_t _reserved_0 : 1;
-    /// read-write - RXI
+    // read-write - RXI
     uint32_t RXI : 1;
-    /// read-write - RXR
+    // read-write - RXR
     uint32_t RXR : 1;
-    /// read-write - RXE
+    // read-write - RXE
     uint32_t RXE : 1;
     uint32_t _reserved_1 : 8;
-    /// read-write - TXS
+    // read-write - TXS
     uint32_t TXS : 1;
-    /// read-write - TXD
+    // read-write - TXD
     uint32_t TXD : 1;
-    /// read-write - TXT
+    // read-write - TXT
     uint32_t TXT : 2;
     uint32_t _reserved_2 : 1;
-    /// read-write - TXI
+    // read-write - TXI
     uint32_t TXI : 1;
-    /// read-write - TXR
+    // read-write - TXR
     uint32_t TXR : 1;
-    /// read-write - TXE
+    // read-write - TXE
     uint32_t TXE : 1;
     uint32_t _reserved_3 : 8;
   } bits;
@@ -1283,37 +1367,36 @@ union ENDPTCTRL1 {
 };
 
 // Endpoint Control 2
-//
 union ENDPTCTRL2 {
   
   // Bit field definition.
   struct {
-    /// read-write - RXS
+    // read-write - RXS
     uint32_t RXS : 1;
-    /// read-write - RXD
+    // read-write - RXD
     uint32_t RXD : 1;
-    /// read-write - RXT
+    // read-write - RXT
     uint32_t RXT : 2;
     uint32_t _reserved_0 : 1;
-    /// read-write - RXI
+    // read-write - RXI
     uint32_t RXI : 1;
-    /// read-write - RXR
+    // read-write - RXR
     uint32_t RXR : 1;
-    /// read-write - RXE
+    // read-write - RXE
     uint32_t RXE : 1;
     uint32_t _reserved_1 : 8;
-    /// read-write - TXS
+    // read-write - TXS
     uint32_t TXS : 1;
-    /// read-write - TXD
+    // read-write - TXD
     uint32_t TXD : 1;
-    /// read-write - TXT
+    // read-write - TXT
     uint32_t TXT : 2;
     uint32_t _reserved_2 : 1;
-    /// read-write - TXI
+    // read-write - TXI
     uint32_t TXI : 1;
-    /// read-write - TXR
+    // read-write - TXR
     uint32_t TXR : 1;
-    /// read-write - TXE
+    // read-write - TXE
     uint32_t TXE : 1;
     uint32_t _reserved_3 : 8;
   } bits;
@@ -1327,37 +1410,36 @@ union ENDPTCTRL2 {
 };
 
 // Endpoint Control 3
-//
 union ENDPTCTRL3 {
   
   // Bit field definition.
   struct {
-    /// read-write - RXS
+    // read-write - RXS
     uint32_t RXS : 1;
-    /// read-write - RXD
+    // read-write - RXD
     uint32_t RXD : 1;
-    /// read-write - RXT
+    // read-write - RXT
     uint32_t RXT : 2;
     uint32_t _reserved_0 : 1;
-    /// read-write - RXI
+    // read-write - RXI
     uint32_t RXI : 1;
-    /// read-write - RXR
+    // read-write - RXR
     uint32_t RXR : 1;
-    /// read-write - RXE
+    // read-write - RXE
     uint32_t RXE : 1;
     uint32_t _reserved_1 : 8;
-    /// read-write - TXS
+    // read-write - TXS
     uint32_t TXS : 1;
-    /// read-write - TXD
+    // read-write - TXD
     uint32_t TXD : 1;
-    /// read-write - TXT
+    // read-write - TXT
     uint32_t TXT : 2;
     uint32_t _reserved_2 : 1;
-    /// read-write - TXI
+    // read-write - TXI
     uint32_t TXI : 1;
-    /// read-write - TXR
+    // read-write - TXR
     uint32_t TXR : 1;
-    /// read-write - TXE
+    // read-write - TXE
     uint32_t TXE : 1;
     uint32_t _reserved_3 : 8;
   } bits;
@@ -1371,37 +1453,36 @@ union ENDPTCTRL3 {
 };
 
 // Endpoint Control 4
-//
 union ENDPTCTRL4 {
   
   // Bit field definition.
   struct {
-    /// read-write - RXS
+    // read-write - RXS
     uint32_t RXS : 1;
-    /// read-write - RXD
+    // read-write - RXD
     uint32_t RXD : 1;
-    /// read-write - RXT
+    // read-write - RXT
     uint32_t RXT : 2;
     uint32_t _reserved_0 : 1;
-    /// read-write - RXI
+    // read-write - RXI
     uint32_t RXI : 1;
-    /// read-write - RXR
+    // read-write - RXR
     uint32_t RXR : 1;
-    /// read-write - RXE
+    // read-write - RXE
     uint32_t RXE : 1;
     uint32_t _reserved_1 : 8;
-    /// read-write - TXS
+    // read-write - TXS
     uint32_t TXS : 1;
-    /// read-write - TXD
+    // read-write - TXD
     uint32_t TXD : 1;
-    /// read-write - TXT
+    // read-write - TXT
     uint32_t TXT : 2;
     uint32_t _reserved_2 : 1;
-    /// read-write - TXI
+    // read-write - TXI
     uint32_t TXI : 1;
-    /// read-write - TXR
+    // read-write - TXR
     uint32_t TXR : 1;
-    /// read-write - TXE
+    // read-write - TXE
     uint32_t TXE : 1;
     uint32_t _reserved_3 : 8;
   } bits;
@@ -1415,37 +1496,36 @@ union ENDPTCTRL4 {
 };
 
 // Endpoint Control 5
-//
 union ENDPTCTRL5 {
   
   // Bit field definition.
   struct {
-    /// read-write - RXS
+    // read-write - RXS
     uint32_t RXS : 1;
-    /// read-write - RXD
+    // read-write - RXD
     uint32_t RXD : 1;
-    /// read-write - RXT
+    // read-write - RXT
     uint32_t RXT : 2;
     uint32_t _reserved_0 : 1;
-    /// read-write - RXI
+    // read-write - RXI
     uint32_t RXI : 1;
-    /// read-write - RXR
+    // read-write - RXR
     uint32_t RXR : 1;
-    /// read-write - RXE
+    // read-write - RXE
     uint32_t RXE : 1;
     uint32_t _reserved_1 : 8;
-    /// read-write - TXS
+    // read-write - TXS
     uint32_t TXS : 1;
-    /// read-write - TXD
+    // read-write - TXD
     uint32_t TXD : 1;
-    /// read-write - TXT
+    // read-write - TXT
     uint32_t TXT : 2;
     uint32_t _reserved_2 : 1;
-    /// read-write - TXI
+    // read-write - TXI
     uint32_t TXI : 1;
-    /// read-write - TXR
+    // read-write - TXR
     uint32_t TXR : 1;
-    /// read-write - TXE
+    // read-write - TXE
     uint32_t TXE : 1;
     uint32_t _reserved_3 : 8;
   } bits;
@@ -1459,37 +1539,36 @@ union ENDPTCTRL5 {
 };
 
 // Endpoint Control 6
-//
 union ENDPTCTRL6 {
   
   // Bit field definition.
   struct {
-    /// read-write - RXS
+    // read-write - RXS
     uint32_t RXS : 1;
-    /// read-write - RXD
+    // read-write - RXD
     uint32_t RXD : 1;
-    /// read-write - RXT
+    // read-write - RXT
     uint32_t RXT : 2;
     uint32_t _reserved_0 : 1;
-    /// read-write - RXI
+    // read-write - RXI
     uint32_t RXI : 1;
-    /// read-write - RXR
+    // read-write - RXR
     uint32_t RXR : 1;
-    /// read-write - RXE
+    // read-write - RXE
     uint32_t RXE : 1;
     uint32_t _reserved_1 : 8;
-    /// read-write - TXS
+    // read-write - TXS
     uint32_t TXS : 1;
-    /// read-write - TXD
+    // read-write - TXD
     uint32_t TXD : 1;
-    /// read-write - TXT
+    // read-write - TXT
     uint32_t TXT : 2;
     uint32_t _reserved_2 : 1;
-    /// read-write - TXI
+    // read-write - TXI
     uint32_t TXI : 1;
-    /// read-write - TXR
+    // read-write - TXR
     uint32_t TXR : 1;
-    /// read-write - TXE
+    // read-write - TXE
     uint32_t TXE : 1;
     uint32_t _reserved_3 : 8;
   } bits;
@@ -1503,37 +1582,36 @@ union ENDPTCTRL6 {
 };
 
 // Endpoint Control 7
-//
 union ENDPTCTRL7 {
   
   // Bit field definition.
   struct {
-    /// read-write - RXS
+    // read-write - RXS
     uint32_t RXS : 1;
-    /// read-write - RXD
+    // read-write - RXD
     uint32_t RXD : 1;
-    /// read-write - RXT
+    // read-write - RXT
     uint32_t RXT : 2;
     uint32_t _reserved_0 : 1;
-    /// read-write - RXI
+    // read-write - RXI
     uint32_t RXI : 1;
-    /// read-write - RXR
+    // read-write - RXR
     uint32_t RXR : 1;
-    /// read-write - RXE
+    // read-write - RXE
     uint32_t RXE : 1;
     uint32_t _reserved_1 : 8;
-    /// read-write - TXS
+    // read-write - TXS
     uint32_t TXS : 1;
-    /// read-write - TXD
+    // read-write - TXD
     uint32_t TXD : 1;
-    /// read-write - TXT
+    // read-write - TXT
     uint32_t TXT : 2;
     uint32_t _reserved_2 : 1;
-    /// read-write - TXI
+    // read-write - TXI
     uint32_t TXI : 1;
-    /// read-write - TXR
+    // read-write - TXR
     uint32_t TXR : 1;
-    /// read-write - TXE
+    // read-write - TXE
     uint32_t TXE : 1;
     uint32_t _reserved_3 : 8;
   } bits;

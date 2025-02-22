@@ -5,83 +5,109 @@
 #include <cstring>
 
 // WDOG
-//
-// NOTE: This file was generated from the forge CMSIS-svd wrapper tool.
-
 namespace nWDOG2 {
 
 
 // Watchdog Control Register
-//
 union WCR {
   
+  // WDZST
   enum class eWDZST : uint32_t {
-    eWDZST_0 = 0, // Continue timer operation (Default).
-    eWDZST_1 = 1, // Suspend the watchdog timer.
+    // Continue timer operation (Default).
+    eWDZST_0 = 0,
+    // Suspend the watchdog timer.
+    eWDZST_1 = 1,
   };
   
+  // WDBG
   enum class eWDBG : uint32_t {
-    eWDBG_0 = 0, // Continue WDOG timer operation (Default).
-    eWDBG_1 = 1, // Suspend the watchdog timer.
+    // Continue WDOG timer operation (Default).
+    eWDBG_0 = 0,
+    // Suspend the watchdog timer.
+    eWDBG_1 = 1,
   };
   
+  // WDE
   enum class eWDE : uint32_t {
-    eWDE_0 = 0, // Disable the Watchdog (Default).
-    eWDE_1 = 1, // Enable the Watchdog.
+    // Disable the Watchdog (Default).
+    eWDE_0 = 0,
+    // Enable the Watchdog.
+    eWDE_1 = 1,
   };
   
+  // WDT
   enum class eWDT : uint32_t {
-    eWDT_0 = 0, // No effect on WDOG_B (Default).
-    eWDT_1 = 1, // Assert WDOG_B upon a Watchdog Time-out event.
+    // No effect on WDOG_B (Default).
+    eWDT_0 = 0,
+    // Assert WDOG_B upon a Watchdog Time-out event.
+    eWDT_1 = 1,
   };
   
+  // SRS
   enum class eSRS : uint32_t {
-    eSRS_0 = 0, // Assert system reset signal.
-    eSRS_1 = 1, // No effect on the system (Default).
+    // Assert system reset signal.
+    eSRS_0 = 0,
+    // No effect on the system (Default).
+    eSRS_1 = 1,
   };
   
+  // WDA
   enum class eWDA : uint32_t {
-    eWDA_0 = 0, // Assert WDOG_B output.
-    eWDA_1 = 1, // No effect on system (Default).
+    // Assert WDOG_B output.
+    eWDA_0 = 0,
+    // No effect on system (Default).
+    eWDA_1 = 1,
   };
   
+  // Software Reset Extension, an optional way to generate software reset
   enum class eSRE : uint32_t {
-    eSRE_0 = 0, // using original way to generate software reset (default)
-    eSRE_1 = 1, // using new way to generate software reset.
+    // using original way to generate software reset (default)
+    eSRE_0 = 0,
+    // using new way to generate software reset.
+    eSRE_1 = 1,
   };
   
+  // WDW
   enum class eWDW : uint32_t {
-    eWDW_0 = 0, // Continue WDOG timer operation (Default).
-    eWDW_1 = 1, // Suspend WDOG timer operation.
+    // Continue WDOG timer operation (Default).
+    eWDW_0 = 0,
+    // Suspend WDOG timer operation.
+    eWDW_1 = 1,
   };
   
+  // WT
   enum class eWT : uint32_t {
-    eWT_0 = 0, // - 0.5 Seconds (Default).
-    eWT_1 = 1, // - 1.0 Seconds.
-    eWT_2 = 2, // - 1.5 Seconds.
-    eWT_3 = 3, // - 2.0 Seconds.
-    eWT_255 = 255, // - 128 Seconds.
+    // - 0.5 Seconds (Default).
+    eWT_0 = 0,
+    // - 1.0 Seconds.
+    eWT_1 = 1,
+    // - 1.5 Seconds.
+    eWT_2 = 2,
+    // - 2.0 Seconds.
+    eWT_3 = 3,
+    // - 128 Seconds.
+    eWT_255 = 255,
   };
   
   // Bit field definition.
   struct {
-    /// read-write - WDZST
+    // read-write - WDZST
     eWDZST WDZST : 1;
-    /// read-write - WDBG
+    // read-write - WDBG
     eWDBG WDBG : 1;
-    /// read-write - WDE
+    // read-write - WDE
     eWDE WDE : 1;
-    /// read-write - WDT
+    // read-write - WDT
     eWDT WDT : 1;
-    /// read-write - SRS
+    // read-write - SRS
     eSRS SRS : 1;
-    /// read-write - WDA
+    // read-write - WDA
     eWDA WDA : 1;
-    /// read-write - Software Reset Extension, an optional way to generate software reset
+    // read-write - Software Reset Extension, an optional way to generate software reset
     eSRE SRE : 1;
-    /// read-write - WDW
+    // read-write - WDW
     eWDW WDW : 1;
-    /// read-write - WT
+    // read-write - WT
     eWT WT : 8;
     uint32_t _reserved_0 : 16;
   } bits;
@@ -95,17 +121,19 @@ union WCR {
 };
 
 // Watchdog Service Register
-//
 union WSR {
   
+  // WSR
   enum class eWSR : uint32_t {
-    eWSR_21845 = 21845, // Write to the Watchdog Service Register (WDOG_WSR).
-    eWSR_43690 = 43690, // Write to the Watchdog Service Register (WDOG_WSR).
+    // Write to the Watchdog Service Register (WDOG_WSR).
+    eWSR_21845 = 21845,
+    // Write to the Watchdog Service Register (WDOG_WSR).
+    eWSR_43690 = 43690,
   };
   
   // Bit field definition.
   struct {
-    /// read-write - WSR
+    // read-write - WSR
     eWSR WSR : 16;
     uint32_t _reserved_0 : 16;
   } bits;
@@ -119,32 +147,40 @@ union WSR {
 };
 
 // Watchdog Reset Status Register
-//
 union WRSR {
   
+  // SFTW
   enum class eSFTW : uint32_t {
-    eSFTW_0 = 0, // Reset is not the result of a software reset.
-    eSFTW_1 = 1, // Reset is the result of a software reset.
+    // Reset is not the result of a software reset.
+    eSFTW_0 = 0,
+    // Reset is the result of a software reset.
+    eSFTW_1 = 1,
   };
   
+  // TOUT
   enum class eTOUT : uint32_t {
-    eTOUT_0 = 0, // Reset is not the result of a WDOG timeout.
-    eTOUT_1 = 1, // Reset is the result of a WDOG timeout.
+    // Reset is not the result of a WDOG timeout.
+    eTOUT_0 = 0,
+    // Reset is the result of a WDOG timeout.
+    eTOUT_1 = 1,
   };
   
+  // POR
   enum class ePOR : uint32_t {
-    ePOR_0 = 0, // Reset is not the result of a power on reset.
-    ePOR_1 = 1, // Reset is the result of a power on reset.
+    // Reset is not the result of a power on reset.
+    ePOR_0 = 0,
+    // Reset is the result of a power on reset.
+    ePOR_1 = 1,
   };
   
   // Bit field definition.
   struct {
-    /// read-only - SFTW
+    // read-only - SFTW
     eSFTW SFTW : 1;
-    /// read-only - TOUT
+    // read-only - TOUT
     eTOUT TOUT : 1;
     uint32_t _reserved_0 : 2;
-    /// read-only - POR
+    // read-only - POR
     ePOR POR : 1;
     uint32_t _reserved_1 : 27;
   } bits;
@@ -158,34 +194,44 @@ union WRSR {
 };
 
 // Watchdog Interrupt Control Register
-//
 union WICR {
   
+  // WICT
   enum class eWICT : uint32_t {
-    eWICT_0 = 0, // WICT[7:0] = Time duration between interrupt and time-out is 0 seconds.
-    eWICT_1 = 1, // WICT[7:0] = Time duration between interrupt and time-out is 0.5 seconds.
-    eWICT_4 = 4, // WICT[7:0] = Time duration between interrupt and time-out is 2 seconds (Default).
-    eWICT_255 = 255, // WICT[7:0] = Time duration between interrupt and time-out is 127.5 seconds.
+    // WICT[7:0] = Time duration between interrupt and time-out is 0 seconds.
+    eWICT_0 = 0,
+    // WICT[7:0] = Time duration between interrupt and time-out is 0.5 seconds.
+    eWICT_1 = 1,
+    // WICT[7:0] = Time duration between interrupt and time-out is 2 seconds (Default).
+    eWICT_4 = 4,
+    // WICT[7:0] = Time duration between interrupt and time-out is 127.5 seconds.
+    eWICT_255 = 255,
   };
   
+  // WTIS
   enum class eWTIS : uint32_t {
-    eWTIS_0 = 0, // No interrupt has occurred (Default).
-    eWTIS_1 = 1, // Interrupt has occurred
+    // No interrupt has occurred (Default).
+    eWTIS_0 = 0,
+    // Interrupt has occurred
+    eWTIS_1 = 1,
   };
   
+  // WIE
   enum class eWIE : uint32_t {
-    eWIE_0 = 0, // Disable Interrupt (Default).
-    eWIE_1 = 1, // Enable Interrupt.
+    // Disable Interrupt (Default).
+    eWIE_0 = 0,
+    // Enable Interrupt.
+    eWIE_1 = 1,
   };
   
   // Bit field definition.
   struct {
-    /// read-write - WICT
+    // read-write - WICT
     eWICT WICT : 8;
     uint32_t _reserved_0 : 6;
-    /// read-write - WTIS
+    // read-write - WTIS
     eWTIS WTIS : 1;
-    /// read-write - WIE
+    // read-write - WIE
     eWIE WIE : 1;
     uint32_t _reserved_1 : 16;
   } bits;
@@ -199,17 +245,19 @@ union WICR {
 };
 
 // Watchdog Miscellaneous Control Register
-//
 union WMCR {
   
+  // PDE
   enum class ePDE : uint32_t {
-    ePDE_0 = 0, // Power Down Counter of WDOG is disabled.
-    ePDE_1 = 1, // Power Down Counter of WDOG is enabled (Default).
+    // Power Down Counter of WDOG is disabled.
+    ePDE_0 = 0,
+    // Power Down Counter of WDOG is enabled (Default).
+    ePDE_1 = 1,
   };
   
   // Bit field definition.
   struct {
-    /// read-write - PDE
+    // read-write - PDE
     ePDE PDE : 1;
     uint32_t _reserved_0 : 31;
   } bits;

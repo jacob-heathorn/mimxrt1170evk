@@ -5,45 +5,53 @@
 #include <cstring>
 
 // EWM
-//
-// NOTE: This file was generated from the forge CMSIS-svd wrapper tool.
-
 namespace nEWM {
 
 
 // Control Register
-//
 union CTRL {
   
+  // EWM enable.
   enum class eEWMEN : uint32_t {
-    eDISABLE = 0, // EWM module is disabled.
-    eENABLE = 1, // EWM module is enabled.
+    // EWM module is disabled.
+    eDISABLE = 0,
+    // EWM module is enabled.
+    eENABLE = 1,
   };
   
+  // EWM_in's Assertion State Select.
   enum class eASSIN : uint32_t {
-    eDISABLE = 0, // Default assert state of the EWM_in signal.
-    eENABLE = 1, // Inverts the assert state of EWM_in signal.
+    // Default assert state of the EWM_in signal.
+    eDISABLE = 0,
+    // Inverts the assert state of EWM_in signal.
+    eENABLE = 1,
   };
   
+  // Input Enable.
   enum class eINEN : uint32_t {
-    eDISABLE = 0, // EWM_in port is disabled.
-    eENABLE = 1, // EWM_in port is enabled.
+    // EWM_in port is disabled.
+    eDISABLE = 0,
+    // EWM_in port is enabled.
+    eENABLE = 1,
   };
   
+  // Interrupt Enable.
   enum class eINTEN : uint32_t {
-    eZERO = 0, // Deasserts the interrupt request.
-    eINT_REQ = 1, // Generates an interrupt request, when EWM_OUT_b is asserted.
+    // Deasserts the interrupt request.
+    eZERO = 0,
+    // Generates an interrupt request, when EWM_OUT_b is asserted.
+    eINT_REQ = 1,
   };
   
   // Bit field definition.
   struct {
-    /// read-writeOnce - EWM enable.
+    // read-writeOnce - EWM enable.
     eEWMEN EWMEN : 1;
-    /// read-writeOnce - EWM_in's Assertion State Select.
+    // read-writeOnce - EWM_in's Assertion State Select.
     eASSIN ASSIN : 1;
-    /// read-writeOnce - Input Enable.
+    // read-writeOnce - Input Enable.
     eINEN INEN : 1;
-    /// read-write - Interrupt Enable.
+    // read-write - Interrupt Enable.
     eINTEN INTEN : 1;
     uint32_t _reserved_0 : 28;
   } bits;
@@ -57,12 +65,11 @@ union CTRL {
 };
 
 // Service Register
-//
 union SERV {
   
   // Bit field definition.
   struct {
-    /// read-write - SERVICE
+    // read-write - SERVICE
     uint32_t SERVICE : 8;
     uint32_t _reserved_0 : 24;
   } bits;
@@ -76,12 +83,11 @@ union SERV {
 };
 
 // Compare Low Register
-//
 union CMPL {
   
   // Bit field definition.
   struct {
-    /// read-writeOnce - COMPAREL
+    // read-writeOnce - COMPAREL
     uint32_t COMPAREL : 8;
     uint32_t _reserved_0 : 24;
   } bits;
@@ -95,12 +101,11 @@ union CMPL {
 };
 
 // Compare High Register
-//
 union CMPH {
   
   // Bit field definition.
   struct {
-    /// read-writeOnce - COMPAREH
+    // read-writeOnce - COMPAREH
     uint32_t COMPAREH : 8;
     uint32_t _reserved_0 : 24;
   } bits;
@@ -114,12 +119,11 @@ union CMPH {
 };
 
 // Clock Control Register
-//
 union CLKCTRL {
   
   // Bit field definition.
   struct {
-    /// read-writeOnce - CLKSEL
+    // read-writeOnce - CLKSEL
     uint32_t CLKSEL : 2;
     uint32_t _reserved_0 : 30;
   } bits;
@@ -133,12 +137,11 @@ union CLKCTRL {
 };
 
 // Clock Prescaler Register
-//
 union CLKPRESCALER {
   
   // Bit field definition.
   struct {
-    /// read-writeOnce - CLK_DIV
+    // read-writeOnce - CLK_DIV
     uint32_t CLK_DIV : 8;
     uint32_t _reserved_0 : 24;
   } bits;

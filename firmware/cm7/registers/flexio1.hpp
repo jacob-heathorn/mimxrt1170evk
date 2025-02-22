@@ -5,30 +5,31 @@
 #include <cstring>
 
 // FLEXIO
-//
-// NOTE: This file was generated from the forge CMSIS-svd wrapper tool.
-
 namespace nFLEXIO1 {
 
 
 // Version ID Register
-//
 union VERID {
   
+  // Feature Specification Number
   enum class eFEATURE : uint32_t {
-    estandard = 0, // Standard features implemented.
-    estate_logic_parallel = 1, // Supports state, logic and parallel modes.
-    epinctrl = 2, // Supports pin control registers.
-    estate_logic_parallel_pinctrl = 3, // Supports state, logic and parallel modes; plus pin control registers.
+    // Standard features implemented.
+    estandard = 0,
+    // Supports state, logic and parallel modes.
+    estate_logic_parallel = 1,
+    // Supports pin control registers.
+    epinctrl = 2,
+    // Supports state, logic and parallel modes; plus pin control registers.
+    estate_logic_parallel_pinctrl = 3,
   };
   
   // Bit field definition.
   struct {
-    /// read-only - Feature Specification Number
+    // read-only - Feature Specification Number
     eFEATURE FEATURE : 16;
-    /// read-only - Minor Version Number
+    // read-only - Minor Version Number
     uint32_t MINOR : 8;
-    /// read-only - Major Version Number
+    // read-only - Major Version Number
     uint32_t MAJOR : 8;
   } bits;
   
@@ -41,18 +42,17 @@ union VERID {
 };
 
 // Parameter Register
-//
 union PARAM {
   
   // Bit field definition.
   struct {
-    /// read-only - Shifter Number
+    // read-only - Shifter Number
     uint32_t SHIFTER : 8;
-    /// read-only - Timer Number
+    // read-only - Timer Number
     uint32_t TIMER : 8;
-    /// read-only - Pin Number
+    // read-only - Pin Number
     uint32_t PIN : 8;
-    /// read-only - Trigger Number
+    // read-only - Trigger Number
     uint32_t TRIGGER : 8;
   } bits;
   
@@ -65,46 +65,60 @@ union PARAM {
 };
 
 // FlexIO Control Register
-//
 union CTRL {
   
+  // FlexIO Enable
   enum class eFLEXEN : uint32_t {
-    edisable = 0, // FlexIO module is disabled.
-    eenable = 1, // FlexIO module is enabled.
+    // FlexIO module is disabled.
+    edisable = 0,
+    // FlexIO module is enabled.
+    eenable = 1,
   };
   
+  // Software Reset
   enum class eSWRST : uint32_t {
-    edisable = 0, // Software reset is disabled
-    eenable = 1, // Software reset is enabled, all FlexIO registers except the Control Register are reset.
+    // Software reset is disabled
+    edisable = 0,
+    // Software reset is enabled, all FlexIO registers except the Control Register are reset.
+    eenable = 1,
   };
   
+  // Fast Access
   enum class eFASTACC : uint32_t {
-    enormal = 0, // Configures for normal register accesses to FlexIO
-    efast = 1, // Configures for fast register accesses to FlexIO
+    // Configures for normal register accesses to FlexIO
+    enormal = 0,
+    // Configures for fast register accesses to FlexIO
+    efast = 1,
   };
   
+  // Debug Enable
   enum class eDBGE : uint32_t {
-    edisable = 0, // FlexIO is disabled in debug modes.
-    eemable = 1, // FlexIO is enabled in debug modes
+    // FlexIO is disabled in debug modes.
+    edisable = 0,
+    // FlexIO is enabled in debug modes
+    eemable = 1,
   };
   
+  // Doze Enable
   enum class eDOZEN : uint32_t {
-    eenable = 0, // FlexIO enabled in Doze modes.
-    edisable = 1, // FlexIO disabled in Doze modes.
+    // FlexIO enabled in Doze modes.
+    eenable = 0,
+    // FlexIO disabled in Doze modes.
+    edisable = 1,
   };
   
   // Bit field definition.
   struct {
-    /// read-write - FlexIO Enable
+    // read-write - FlexIO Enable
     eFLEXEN FLEXEN : 1;
-    /// read-write - Software Reset
+    // read-write - Software Reset
     eSWRST SWRST : 1;
-    /// read-write - Fast Access
+    // read-write - Fast Access
     eFASTACC FASTACC : 1;
     uint32_t _reserved_0 : 27;
-    /// read-write - Debug Enable
+    // read-write - Debug Enable
     eDBGE DBGE : 1;
-    /// read-write - Doze Enable
+    // read-write - Doze Enable
     eDOZEN DOZEN : 1;
   } bits;
   
@@ -117,12 +131,11 @@ union CTRL {
 };
 
 // Pin State Register
-//
 union PIN {
   
   // Bit field definition.
   struct {
-    /// read-only - Pin Data Input
+    // read-only - Pin Data Input
     uint32_t PDI : 32;
   } bits;
   
@@ -135,12 +148,11 @@ union PIN {
 };
 
 // Shifter Status Register
-//
 union SHIFTSTAT {
   
   // Bit field definition.
   struct {
-    /// read-write - Shifter Status Flag
+    // read-write - Shifter Status Flag
     uint32_t SSF : 8;
     uint32_t _reserved_0 : 24;
   } bits;
@@ -154,12 +166,11 @@ union SHIFTSTAT {
 };
 
 // Shifter Error Register
-//
 union SHIFTERR {
   
   // Bit field definition.
   struct {
-    /// read-write - Shifter Error Flags
+    // read-write - Shifter Error Flags
     uint32_t SEF : 8;
     uint32_t _reserved_0 : 24;
   } bits;
@@ -173,12 +184,11 @@ union SHIFTERR {
 };
 
 // Timer Status Register
-//
 union TIMSTAT {
   
   // Bit field definition.
   struct {
-    /// read-write - Timer Status Flags
+    // read-write - Timer Status Flags
     uint32_t TSF : 8;
     uint32_t _reserved_0 : 24;
   } bits;
@@ -192,12 +202,11 @@ union TIMSTAT {
 };
 
 // Shifter Status Interrupt Enable
-//
 union SHIFTSIEN {
   
   // Bit field definition.
   struct {
-    /// read-write - Shifter Status Interrupt Enable
+    // read-write - Shifter Status Interrupt Enable
     uint32_t SSIE : 8;
     uint32_t _reserved_0 : 24;
   } bits;
@@ -211,12 +220,11 @@ union SHIFTSIEN {
 };
 
 // Shifter Error Interrupt Enable
-//
 union SHIFTEIEN {
   
   // Bit field definition.
   struct {
-    /// read-write - Shifter Error Interrupt Enable
+    // read-write - Shifter Error Interrupt Enable
     uint32_t SEIE : 8;
     uint32_t _reserved_0 : 24;
   } bits;
@@ -230,12 +238,11 @@ union SHIFTEIEN {
 };
 
 // Timer Interrupt Enable Register
-//
 union TIMIEN {
   
   // Bit field definition.
   struct {
-    /// read-write - Timer Status Interrupt Enable
+    // read-write - Timer Status Interrupt Enable
     uint32_t TEIE : 8;
     uint32_t _reserved_0 : 24;
   } bits;
@@ -249,12 +256,11 @@ union TIMIEN {
 };
 
 // Shifter Status DMA Enable
-//
 union SHIFTSDEN {
   
   // Bit field definition.
   struct {
-    /// read-write - Shifter Status DMA Enable
+    // read-write - Shifter Status DMA Enable
     uint32_t SSDE : 8;
     uint32_t _reserved_0 : 24;
   } bits;
@@ -268,12 +274,11 @@ union SHIFTSDEN {
 };
 
 // Timer Status DMA Enable
-//
 union TIMERSDEN {
   
   // Bit field definition.
   struct {
-    /// read-write - Timer Status DMA Enable
+    // read-write - Timer Status DMA Enable
     uint32_t TSDE : 8;
     uint32_t _reserved_0 : 24;
   } bits;
@@ -287,12 +292,11 @@ union TIMERSDEN {
 };
 
 // Shifter State Register
-//
 union SHIFTSTATE {
   
   // Bit field definition.
   struct {
-    /// read-write - Current State Pointer
+    // read-write - Current State Pointer
     uint32_t STATE : 3;
     uint32_t _reserved_0 : 29;
   } bits;
@@ -306,52 +310,70 @@ union SHIFTSTATE {
 };
 
 // Shifter Control N Register
-//
 union SHIFTCTL[0] {
   
+  // Shifter Mode
   enum class eSMOD : uint32_t {
-    edisable = 0, // Disabled.
-    ereceive = 1, // Receive mode. Captures the current Shifter content into the SHIFTBUF on expiration of the Timer.
-    etransmit = 2, // Transmit mode. Load SHIFTBUF contents into the Shifter on expiration of the Timer.
-    ematchstore = 4, // Match Store mode. Shifter data is compared to SHIFTBUF content on expiration of the Timer.
-    ematchcont = 5, // Match Continuous mode. Shifter data is continuously compared to SHIFTBUF contents.
-    estate = 6, // State mode. SHIFTBUF contents are used for storing programmable state attributes.
-    elogic = 7, // Logic mode. SHIFTBUF contents are used for implementing programmable logic look up table.
+    // Disabled.
+    edisable = 0,
+    // Receive mode. Captures the current Shifter content into the SHIFTBUF on expiration of the Timer.
+    ereceive = 1,
+    // Transmit mode. Load SHIFTBUF contents into the Shifter on expiration of the Timer.
+    etransmit = 2,
+    // Match Store mode. Shifter data is compared to SHIFTBUF content on expiration of the Timer.
+    ematchstore = 4,
+    // Match Continuous mode. Shifter data is continuously compared to SHIFTBUF contents.
+    ematchcont = 5,
+    // State mode. SHIFTBUF contents are used for storing programmable state attributes.
+    estate = 6,
+    // Logic mode. SHIFTBUF contents are used for implementing programmable logic look up table.
+    elogic = 7,
   };
   
+  // Shifter Pin Polarity
   enum class ePINPOL : uint32_t {
-    eactive_high = 0, // Pin is active high
-    eactive_low = 1, // Pin is active low
+    // Pin is active high
+    eactive_high = 0,
+    // Pin is active low
+    eactive_low = 1,
   };
   
+  // Shifter Pin Configuration
   enum class ePINCFG : uint32_t {
-    edisable = 0, // Shifter pin output disabled
-    eopend_bidirouten = 1, // Shifter pin open drain or bidirectional output enable
-    ebidir_outdata = 2, // Shifter pin bidirectional output data
-    eoutput = 3, // Shifter pin output
+    // Shifter pin output disabled
+    edisable = 0,
+    // Shifter pin open drain or bidirectional output enable
+    eopend_bidirouten = 1,
+    // Shifter pin bidirectional output data
+    ebidir_outdata = 2,
+    // Shifter pin output
+    eoutput = 3,
   };
   
+  // Timer Polarity
   enum class eTIMPOL : uint32_t {
-    eposedge = 0, // Shift on posedge of Shift clock
-    enegedge = 1, // Shift on negedge of Shift clock
+    // Shift on posedge of Shift clock
+    eposedge = 0,
+    // Shift on negedge of Shift clock
+    enegedge = 1,
   };
   
   // Bit field definition.
   struct {
-    /// read-write - Shifter Mode
+    // read-write - Shifter Mode
     eSMOD SMOD : 3;
     uint32_t _reserved_0 : 4;
-    /// read-write - Shifter Pin Polarity
+    // read-write - Shifter Pin Polarity
     ePINPOL PINPOL : 1;
-    /// read-write - Shifter Pin Select
+    // read-write - Shifter Pin Select
     uint32_t PINSEL : 5;
     uint32_t _reserved_1 : 3;
-    /// read-write - Shifter Pin Configuration
+    // read-write - Shifter Pin Configuration
     ePINCFG PINCFG : 2;
     uint32_t _reserved_2 : 5;
-    /// read-write - Timer Polarity
+    // read-write - Timer Polarity
     eTIMPOL TIMPOL : 1;
-    /// read-write - Timer Select
+    // read-write - Timer Select
     uint32_t TIMSEL : 3;
     uint32_t _reserved_3 : 5;
   } bits;
@@ -364,52 +386,70 @@ union SHIFTCTL[0] {
   static inline volatile SHIFTCTL[0] &Instance() { return *reinterpret_cast<volatile SHIFTCTL[0]*>(0x400AC080); }
 };
 // Shifter Control N Register
-//
 union SHIFTCTL[1] {
   
+  // Shifter Mode
   enum class eSMOD : uint32_t {
-    edisable = 0, // Disabled.
-    ereceive = 1, // Receive mode. Captures the current Shifter content into the SHIFTBUF on expiration of the Timer.
-    etransmit = 2, // Transmit mode. Load SHIFTBUF contents into the Shifter on expiration of the Timer.
-    ematchstore = 4, // Match Store mode. Shifter data is compared to SHIFTBUF content on expiration of the Timer.
-    ematchcont = 5, // Match Continuous mode. Shifter data is continuously compared to SHIFTBUF contents.
-    estate = 6, // State mode. SHIFTBUF contents are used for storing programmable state attributes.
-    elogic = 7, // Logic mode. SHIFTBUF contents are used for implementing programmable logic look up table.
+    // Disabled.
+    edisable = 0,
+    // Receive mode. Captures the current Shifter content into the SHIFTBUF on expiration of the Timer.
+    ereceive = 1,
+    // Transmit mode. Load SHIFTBUF contents into the Shifter on expiration of the Timer.
+    etransmit = 2,
+    // Match Store mode. Shifter data is compared to SHIFTBUF content on expiration of the Timer.
+    ematchstore = 4,
+    // Match Continuous mode. Shifter data is continuously compared to SHIFTBUF contents.
+    ematchcont = 5,
+    // State mode. SHIFTBUF contents are used for storing programmable state attributes.
+    estate = 6,
+    // Logic mode. SHIFTBUF contents are used for implementing programmable logic look up table.
+    elogic = 7,
   };
   
+  // Shifter Pin Polarity
   enum class ePINPOL : uint32_t {
-    eactive_high = 0, // Pin is active high
-    eactive_low = 1, // Pin is active low
+    // Pin is active high
+    eactive_high = 0,
+    // Pin is active low
+    eactive_low = 1,
   };
   
+  // Shifter Pin Configuration
   enum class ePINCFG : uint32_t {
-    edisable = 0, // Shifter pin output disabled
-    eopend_bidirouten = 1, // Shifter pin open drain or bidirectional output enable
-    ebidir_outdata = 2, // Shifter pin bidirectional output data
-    eoutput = 3, // Shifter pin output
+    // Shifter pin output disabled
+    edisable = 0,
+    // Shifter pin open drain or bidirectional output enable
+    eopend_bidirouten = 1,
+    // Shifter pin bidirectional output data
+    ebidir_outdata = 2,
+    // Shifter pin output
+    eoutput = 3,
   };
   
+  // Timer Polarity
   enum class eTIMPOL : uint32_t {
-    eposedge = 0, // Shift on posedge of Shift clock
-    enegedge = 1, // Shift on negedge of Shift clock
+    // Shift on posedge of Shift clock
+    eposedge = 0,
+    // Shift on negedge of Shift clock
+    enegedge = 1,
   };
   
   // Bit field definition.
   struct {
-    /// read-write - Shifter Mode
+    // read-write - Shifter Mode
     eSMOD SMOD : 3;
     uint32_t _reserved_0 : 4;
-    /// read-write - Shifter Pin Polarity
+    // read-write - Shifter Pin Polarity
     ePINPOL PINPOL : 1;
-    /// read-write - Shifter Pin Select
+    // read-write - Shifter Pin Select
     uint32_t PINSEL : 5;
     uint32_t _reserved_1 : 3;
-    /// read-write - Shifter Pin Configuration
+    // read-write - Shifter Pin Configuration
     ePINCFG PINCFG : 2;
     uint32_t _reserved_2 : 5;
-    /// read-write - Timer Polarity
+    // read-write - Timer Polarity
     eTIMPOL TIMPOL : 1;
-    /// read-write - Timer Select
+    // read-write - Timer Select
     uint32_t TIMSEL : 3;
     uint32_t _reserved_3 : 5;
   } bits;
@@ -422,52 +462,70 @@ union SHIFTCTL[1] {
   static inline volatile SHIFTCTL[1] &Instance() { return *reinterpret_cast<volatile SHIFTCTL[1]*>(0x400AC084); }
 };
 // Shifter Control N Register
-//
 union SHIFTCTL[2] {
   
+  // Shifter Mode
   enum class eSMOD : uint32_t {
-    edisable = 0, // Disabled.
-    ereceive = 1, // Receive mode. Captures the current Shifter content into the SHIFTBUF on expiration of the Timer.
-    etransmit = 2, // Transmit mode. Load SHIFTBUF contents into the Shifter on expiration of the Timer.
-    ematchstore = 4, // Match Store mode. Shifter data is compared to SHIFTBUF content on expiration of the Timer.
-    ematchcont = 5, // Match Continuous mode. Shifter data is continuously compared to SHIFTBUF contents.
-    estate = 6, // State mode. SHIFTBUF contents are used for storing programmable state attributes.
-    elogic = 7, // Logic mode. SHIFTBUF contents are used for implementing programmable logic look up table.
+    // Disabled.
+    edisable = 0,
+    // Receive mode. Captures the current Shifter content into the SHIFTBUF on expiration of the Timer.
+    ereceive = 1,
+    // Transmit mode. Load SHIFTBUF contents into the Shifter on expiration of the Timer.
+    etransmit = 2,
+    // Match Store mode. Shifter data is compared to SHIFTBUF content on expiration of the Timer.
+    ematchstore = 4,
+    // Match Continuous mode. Shifter data is continuously compared to SHIFTBUF contents.
+    ematchcont = 5,
+    // State mode. SHIFTBUF contents are used for storing programmable state attributes.
+    estate = 6,
+    // Logic mode. SHIFTBUF contents are used for implementing programmable logic look up table.
+    elogic = 7,
   };
   
+  // Shifter Pin Polarity
   enum class ePINPOL : uint32_t {
-    eactive_high = 0, // Pin is active high
-    eactive_low = 1, // Pin is active low
+    // Pin is active high
+    eactive_high = 0,
+    // Pin is active low
+    eactive_low = 1,
   };
   
+  // Shifter Pin Configuration
   enum class ePINCFG : uint32_t {
-    edisable = 0, // Shifter pin output disabled
-    eopend_bidirouten = 1, // Shifter pin open drain or bidirectional output enable
-    ebidir_outdata = 2, // Shifter pin bidirectional output data
-    eoutput = 3, // Shifter pin output
+    // Shifter pin output disabled
+    edisable = 0,
+    // Shifter pin open drain or bidirectional output enable
+    eopend_bidirouten = 1,
+    // Shifter pin bidirectional output data
+    ebidir_outdata = 2,
+    // Shifter pin output
+    eoutput = 3,
   };
   
+  // Timer Polarity
   enum class eTIMPOL : uint32_t {
-    eposedge = 0, // Shift on posedge of Shift clock
-    enegedge = 1, // Shift on negedge of Shift clock
+    // Shift on posedge of Shift clock
+    eposedge = 0,
+    // Shift on negedge of Shift clock
+    enegedge = 1,
   };
   
   // Bit field definition.
   struct {
-    /// read-write - Shifter Mode
+    // read-write - Shifter Mode
     eSMOD SMOD : 3;
     uint32_t _reserved_0 : 4;
-    /// read-write - Shifter Pin Polarity
+    // read-write - Shifter Pin Polarity
     ePINPOL PINPOL : 1;
-    /// read-write - Shifter Pin Select
+    // read-write - Shifter Pin Select
     uint32_t PINSEL : 5;
     uint32_t _reserved_1 : 3;
-    /// read-write - Shifter Pin Configuration
+    // read-write - Shifter Pin Configuration
     ePINCFG PINCFG : 2;
     uint32_t _reserved_2 : 5;
-    /// read-write - Timer Polarity
+    // read-write - Timer Polarity
     eTIMPOL TIMPOL : 1;
-    /// read-write - Timer Select
+    // read-write - Timer Select
     uint32_t TIMSEL : 3;
     uint32_t _reserved_3 : 5;
   } bits;
@@ -480,52 +538,70 @@ union SHIFTCTL[2] {
   static inline volatile SHIFTCTL[2] &Instance() { return *reinterpret_cast<volatile SHIFTCTL[2]*>(0x400AC088); }
 };
 // Shifter Control N Register
-//
 union SHIFTCTL[3] {
   
+  // Shifter Mode
   enum class eSMOD : uint32_t {
-    edisable = 0, // Disabled.
-    ereceive = 1, // Receive mode. Captures the current Shifter content into the SHIFTBUF on expiration of the Timer.
-    etransmit = 2, // Transmit mode. Load SHIFTBUF contents into the Shifter on expiration of the Timer.
-    ematchstore = 4, // Match Store mode. Shifter data is compared to SHIFTBUF content on expiration of the Timer.
-    ematchcont = 5, // Match Continuous mode. Shifter data is continuously compared to SHIFTBUF contents.
-    estate = 6, // State mode. SHIFTBUF contents are used for storing programmable state attributes.
-    elogic = 7, // Logic mode. SHIFTBUF contents are used for implementing programmable logic look up table.
+    // Disabled.
+    edisable = 0,
+    // Receive mode. Captures the current Shifter content into the SHIFTBUF on expiration of the Timer.
+    ereceive = 1,
+    // Transmit mode. Load SHIFTBUF contents into the Shifter on expiration of the Timer.
+    etransmit = 2,
+    // Match Store mode. Shifter data is compared to SHIFTBUF content on expiration of the Timer.
+    ematchstore = 4,
+    // Match Continuous mode. Shifter data is continuously compared to SHIFTBUF contents.
+    ematchcont = 5,
+    // State mode. SHIFTBUF contents are used for storing programmable state attributes.
+    estate = 6,
+    // Logic mode. SHIFTBUF contents are used for implementing programmable logic look up table.
+    elogic = 7,
   };
   
+  // Shifter Pin Polarity
   enum class ePINPOL : uint32_t {
-    eactive_high = 0, // Pin is active high
-    eactive_low = 1, // Pin is active low
+    // Pin is active high
+    eactive_high = 0,
+    // Pin is active low
+    eactive_low = 1,
   };
   
+  // Shifter Pin Configuration
   enum class ePINCFG : uint32_t {
-    edisable = 0, // Shifter pin output disabled
-    eopend_bidirouten = 1, // Shifter pin open drain or bidirectional output enable
-    ebidir_outdata = 2, // Shifter pin bidirectional output data
-    eoutput = 3, // Shifter pin output
+    // Shifter pin output disabled
+    edisable = 0,
+    // Shifter pin open drain or bidirectional output enable
+    eopend_bidirouten = 1,
+    // Shifter pin bidirectional output data
+    ebidir_outdata = 2,
+    // Shifter pin output
+    eoutput = 3,
   };
   
+  // Timer Polarity
   enum class eTIMPOL : uint32_t {
-    eposedge = 0, // Shift on posedge of Shift clock
-    enegedge = 1, // Shift on negedge of Shift clock
+    // Shift on posedge of Shift clock
+    eposedge = 0,
+    // Shift on negedge of Shift clock
+    enegedge = 1,
   };
   
   // Bit field definition.
   struct {
-    /// read-write - Shifter Mode
+    // read-write - Shifter Mode
     eSMOD SMOD : 3;
     uint32_t _reserved_0 : 4;
-    /// read-write - Shifter Pin Polarity
+    // read-write - Shifter Pin Polarity
     ePINPOL PINPOL : 1;
-    /// read-write - Shifter Pin Select
+    // read-write - Shifter Pin Select
     uint32_t PINSEL : 5;
     uint32_t _reserved_1 : 3;
-    /// read-write - Shifter Pin Configuration
+    // read-write - Shifter Pin Configuration
     ePINCFG PINCFG : 2;
     uint32_t _reserved_2 : 5;
-    /// read-write - Timer Polarity
+    // read-write - Timer Polarity
     eTIMPOL TIMPOL : 1;
-    /// read-write - Timer Select
+    // read-write - Timer Select
     uint32_t TIMSEL : 3;
     uint32_t _reserved_3 : 5;
   } bits;
@@ -538,52 +614,70 @@ union SHIFTCTL[3] {
   static inline volatile SHIFTCTL[3] &Instance() { return *reinterpret_cast<volatile SHIFTCTL[3]*>(0x400AC08C); }
 };
 // Shifter Control N Register
-//
 union SHIFTCTL[4] {
   
+  // Shifter Mode
   enum class eSMOD : uint32_t {
-    edisable = 0, // Disabled.
-    ereceive = 1, // Receive mode. Captures the current Shifter content into the SHIFTBUF on expiration of the Timer.
-    etransmit = 2, // Transmit mode. Load SHIFTBUF contents into the Shifter on expiration of the Timer.
-    ematchstore = 4, // Match Store mode. Shifter data is compared to SHIFTBUF content on expiration of the Timer.
-    ematchcont = 5, // Match Continuous mode. Shifter data is continuously compared to SHIFTBUF contents.
-    estate = 6, // State mode. SHIFTBUF contents are used for storing programmable state attributes.
-    elogic = 7, // Logic mode. SHIFTBUF contents are used for implementing programmable logic look up table.
+    // Disabled.
+    edisable = 0,
+    // Receive mode. Captures the current Shifter content into the SHIFTBUF on expiration of the Timer.
+    ereceive = 1,
+    // Transmit mode. Load SHIFTBUF contents into the Shifter on expiration of the Timer.
+    etransmit = 2,
+    // Match Store mode. Shifter data is compared to SHIFTBUF content on expiration of the Timer.
+    ematchstore = 4,
+    // Match Continuous mode. Shifter data is continuously compared to SHIFTBUF contents.
+    ematchcont = 5,
+    // State mode. SHIFTBUF contents are used for storing programmable state attributes.
+    estate = 6,
+    // Logic mode. SHIFTBUF contents are used for implementing programmable logic look up table.
+    elogic = 7,
   };
   
+  // Shifter Pin Polarity
   enum class ePINPOL : uint32_t {
-    eactive_high = 0, // Pin is active high
-    eactive_low = 1, // Pin is active low
+    // Pin is active high
+    eactive_high = 0,
+    // Pin is active low
+    eactive_low = 1,
   };
   
+  // Shifter Pin Configuration
   enum class ePINCFG : uint32_t {
-    edisable = 0, // Shifter pin output disabled
-    eopend_bidirouten = 1, // Shifter pin open drain or bidirectional output enable
-    ebidir_outdata = 2, // Shifter pin bidirectional output data
-    eoutput = 3, // Shifter pin output
+    // Shifter pin output disabled
+    edisable = 0,
+    // Shifter pin open drain or bidirectional output enable
+    eopend_bidirouten = 1,
+    // Shifter pin bidirectional output data
+    ebidir_outdata = 2,
+    // Shifter pin output
+    eoutput = 3,
   };
   
+  // Timer Polarity
   enum class eTIMPOL : uint32_t {
-    eposedge = 0, // Shift on posedge of Shift clock
-    enegedge = 1, // Shift on negedge of Shift clock
+    // Shift on posedge of Shift clock
+    eposedge = 0,
+    // Shift on negedge of Shift clock
+    enegedge = 1,
   };
   
   // Bit field definition.
   struct {
-    /// read-write - Shifter Mode
+    // read-write - Shifter Mode
     eSMOD SMOD : 3;
     uint32_t _reserved_0 : 4;
-    /// read-write - Shifter Pin Polarity
+    // read-write - Shifter Pin Polarity
     ePINPOL PINPOL : 1;
-    /// read-write - Shifter Pin Select
+    // read-write - Shifter Pin Select
     uint32_t PINSEL : 5;
     uint32_t _reserved_1 : 3;
-    /// read-write - Shifter Pin Configuration
+    // read-write - Shifter Pin Configuration
     ePINCFG PINCFG : 2;
     uint32_t _reserved_2 : 5;
-    /// read-write - Timer Polarity
+    // read-write - Timer Polarity
     eTIMPOL TIMPOL : 1;
-    /// read-write - Timer Select
+    // read-write - Timer Select
     uint32_t TIMSEL : 3;
     uint32_t _reserved_3 : 5;
   } bits;
@@ -596,52 +690,70 @@ union SHIFTCTL[4] {
   static inline volatile SHIFTCTL[4] &Instance() { return *reinterpret_cast<volatile SHIFTCTL[4]*>(0x400AC090); }
 };
 // Shifter Control N Register
-//
 union SHIFTCTL[5] {
   
+  // Shifter Mode
   enum class eSMOD : uint32_t {
-    edisable = 0, // Disabled.
-    ereceive = 1, // Receive mode. Captures the current Shifter content into the SHIFTBUF on expiration of the Timer.
-    etransmit = 2, // Transmit mode. Load SHIFTBUF contents into the Shifter on expiration of the Timer.
-    ematchstore = 4, // Match Store mode. Shifter data is compared to SHIFTBUF content on expiration of the Timer.
-    ematchcont = 5, // Match Continuous mode. Shifter data is continuously compared to SHIFTBUF contents.
-    estate = 6, // State mode. SHIFTBUF contents are used for storing programmable state attributes.
-    elogic = 7, // Logic mode. SHIFTBUF contents are used for implementing programmable logic look up table.
+    // Disabled.
+    edisable = 0,
+    // Receive mode. Captures the current Shifter content into the SHIFTBUF on expiration of the Timer.
+    ereceive = 1,
+    // Transmit mode. Load SHIFTBUF contents into the Shifter on expiration of the Timer.
+    etransmit = 2,
+    // Match Store mode. Shifter data is compared to SHIFTBUF content on expiration of the Timer.
+    ematchstore = 4,
+    // Match Continuous mode. Shifter data is continuously compared to SHIFTBUF contents.
+    ematchcont = 5,
+    // State mode. SHIFTBUF contents are used for storing programmable state attributes.
+    estate = 6,
+    // Logic mode. SHIFTBUF contents are used for implementing programmable logic look up table.
+    elogic = 7,
   };
   
+  // Shifter Pin Polarity
   enum class ePINPOL : uint32_t {
-    eactive_high = 0, // Pin is active high
-    eactive_low = 1, // Pin is active low
+    // Pin is active high
+    eactive_high = 0,
+    // Pin is active low
+    eactive_low = 1,
   };
   
+  // Shifter Pin Configuration
   enum class ePINCFG : uint32_t {
-    edisable = 0, // Shifter pin output disabled
-    eopend_bidirouten = 1, // Shifter pin open drain or bidirectional output enable
-    ebidir_outdata = 2, // Shifter pin bidirectional output data
-    eoutput = 3, // Shifter pin output
+    // Shifter pin output disabled
+    edisable = 0,
+    // Shifter pin open drain or bidirectional output enable
+    eopend_bidirouten = 1,
+    // Shifter pin bidirectional output data
+    ebidir_outdata = 2,
+    // Shifter pin output
+    eoutput = 3,
   };
   
+  // Timer Polarity
   enum class eTIMPOL : uint32_t {
-    eposedge = 0, // Shift on posedge of Shift clock
-    enegedge = 1, // Shift on negedge of Shift clock
+    // Shift on posedge of Shift clock
+    eposedge = 0,
+    // Shift on negedge of Shift clock
+    enegedge = 1,
   };
   
   // Bit field definition.
   struct {
-    /// read-write - Shifter Mode
+    // read-write - Shifter Mode
     eSMOD SMOD : 3;
     uint32_t _reserved_0 : 4;
-    /// read-write - Shifter Pin Polarity
+    // read-write - Shifter Pin Polarity
     ePINPOL PINPOL : 1;
-    /// read-write - Shifter Pin Select
+    // read-write - Shifter Pin Select
     uint32_t PINSEL : 5;
     uint32_t _reserved_1 : 3;
-    /// read-write - Shifter Pin Configuration
+    // read-write - Shifter Pin Configuration
     ePINCFG PINCFG : 2;
     uint32_t _reserved_2 : 5;
-    /// read-write - Timer Polarity
+    // read-write - Timer Polarity
     eTIMPOL TIMPOL : 1;
-    /// read-write - Timer Select
+    // read-write - Timer Select
     uint32_t TIMSEL : 3;
     uint32_t _reserved_3 : 5;
   } bits;
@@ -654,52 +766,70 @@ union SHIFTCTL[5] {
   static inline volatile SHIFTCTL[5] &Instance() { return *reinterpret_cast<volatile SHIFTCTL[5]*>(0x400AC094); }
 };
 // Shifter Control N Register
-//
 union SHIFTCTL[6] {
   
+  // Shifter Mode
   enum class eSMOD : uint32_t {
-    edisable = 0, // Disabled.
-    ereceive = 1, // Receive mode. Captures the current Shifter content into the SHIFTBUF on expiration of the Timer.
-    etransmit = 2, // Transmit mode. Load SHIFTBUF contents into the Shifter on expiration of the Timer.
-    ematchstore = 4, // Match Store mode. Shifter data is compared to SHIFTBUF content on expiration of the Timer.
-    ematchcont = 5, // Match Continuous mode. Shifter data is continuously compared to SHIFTBUF contents.
-    estate = 6, // State mode. SHIFTBUF contents are used for storing programmable state attributes.
-    elogic = 7, // Logic mode. SHIFTBUF contents are used for implementing programmable logic look up table.
+    // Disabled.
+    edisable = 0,
+    // Receive mode. Captures the current Shifter content into the SHIFTBUF on expiration of the Timer.
+    ereceive = 1,
+    // Transmit mode. Load SHIFTBUF contents into the Shifter on expiration of the Timer.
+    etransmit = 2,
+    // Match Store mode. Shifter data is compared to SHIFTBUF content on expiration of the Timer.
+    ematchstore = 4,
+    // Match Continuous mode. Shifter data is continuously compared to SHIFTBUF contents.
+    ematchcont = 5,
+    // State mode. SHIFTBUF contents are used for storing programmable state attributes.
+    estate = 6,
+    // Logic mode. SHIFTBUF contents are used for implementing programmable logic look up table.
+    elogic = 7,
   };
   
+  // Shifter Pin Polarity
   enum class ePINPOL : uint32_t {
-    eactive_high = 0, // Pin is active high
-    eactive_low = 1, // Pin is active low
+    // Pin is active high
+    eactive_high = 0,
+    // Pin is active low
+    eactive_low = 1,
   };
   
+  // Shifter Pin Configuration
   enum class ePINCFG : uint32_t {
-    edisable = 0, // Shifter pin output disabled
-    eopend_bidirouten = 1, // Shifter pin open drain or bidirectional output enable
-    ebidir_outdata = 2, // Shifter pin bidirectional output data
-    eoutput = 3, // Shifter pin output
+    // Shifter pin output disabled
+    edisable = 0,
+    // Shifter pin open drain or bidirectional output enable
+    eopend_bidirouten = 1,
+    // Shifter pin bidirectional output data
+    ebidir_outdata = 2,
+    // Shifter pin output
+    eoutput = 3,
   };
   
+  // Timer Polarity
   enum class eTIMPOL : uint32_t {
-    eposedge = 0, // Shift on posedge of Shift clock
-    enegedge = 1, // Shift on negedge of Shift clock
+    // Shift on posedge of Shift clock
+    eposedge = 0,
+    // Shift on negedge of Shift clock
+    enegedge = 1,
   };
   
   // Bit field definition.
   struct {
-    /// read-write - Shifter Mode
+    // read-write - Shifter Mode
     eSMOD SMOD : 3;
     uint32_t _reserved_0 : 4;
-    /// read-write - Shifter Pin Polarity
+    // read-write - Shifter Pin Polarity
     ePINPOL PINPOL : 1;
-    /// read-write - Shifter Pin Select
+    // read-write - Shifter Pin Select
     uint32_t PINSEL : 5;
     uint32_t _reserved_1 : 3;
-    /// read-write - Shifter Pin Configuration
+    // read-write - Shifter Pin Configuration
     ePINCFG PINCFG : 2;
     uint32_t _reserved_2 : 5;
-    /// read-write - Timer Polarity
+    // read-write - Timer Polarity
     eTIMPOL TIMPOL : 1;
-    /// read-write - Timer Select
+    // read-write - Timer Select
     uint32_t TIMSEL : 3;
     uint32_t _reserved_3 : 5;
   } bits;
@@ -712,52 +842,70 @@ union SHIFTCTL[6] {
   static inline volatile SHIFTCTL[6] &Instance() { return *reinterpret_cast<volatile SHIFTCTL[6]*>(0x400AC098); }
 };
 // Shifter Control N Register
-//
 union SHIFTCTL[7] {
   
+  // Shifter Mode
   enum class eSMOD : uint32_t {
-    edisable = 0, // Disabled.
-    ereceive = 1, // Receive mode. Captures the current Shifter content into the SHIFTBUF on expiration of the Timer.
-    etransmit = 2, // Transmit mode. Load SHIFTBUF contents into the Shifter on expiration of the Timer.
-    ematchstore = 4, // Match Store mode. Shifter data is compared to SHIFTBUF content on expiration of the Timer.
-    ematchcont = 5, // Match Continuous mode. Shifter data is continuously compared to SHIFTBUF contents.
-    estate = 6, // State mode. SHIFTBUF contents are used for storing programmable state attributes.
-    elogic = 7, // Logic mode. SHIFTBUF contents are used for implementing programmable logic look up table.
+    // Disabled.
+    edisable = 0,
+    // Receive mode. Captures the current Shifter content into the SHIFTBUF on expiration of the Timer.
+    ereceive = 1,
+    // Transmit mode. Load SHIFTBUF contents into the Shifter on expiration of the Timer.
+    etransmit = 2,
+    // Match Store mode. Shifter data is compared to SHIFTBUF content on expiration of the Timer.
+    ematchstore = 4,
+    // Match Continuous mode. Shifter data is continuously compared to SHIFTBUF contents.
+    ematchcont = 5,
+    // State mode. SHIFTBUF contents are used for storing programmable state attributes.
+    estate = 6,
+    // Logic mode. SHIFTBUF contents are used for implementing programmable logic look up table.
+    elogic = 7,
   };
   
+  // Shifter Pin Polarity
   enum class ePINPOL : uint32_t {
-    eactive_high = 0, // Pin is active high
-    eactive_low = 1, // Pin is active low
+    // Pin is active high
+    eactive_high = 0,
+    // Pin is active low
+    eactive_low = 1,
   };
   
+  // Shifter Pin Configuration
   enum class ePINCFG : uint32_t {
-    edisable = 0, // Shifter pin output disabled
-    eopend_bidirouten = 1, // Shifter pin open drain or bidirectional output enable
-    ebidir_outdata = 2, // Shifter pin bidirectional output data
-    eoutput = 3, // Shifter pin output
+    // Shifter pin output disabled
+    edisable = 0,
+    // Shifter pin open drain or bidirectional output enable
+    eopend_bidirouten = 1,
+    // Shifter pin bidirectional output data
+    ebidir_outdata = 2,
+    // Shifter pin output
+    eoutput = 3,
   };
   
+  // Timer Polarity
   enum class eTIMPOL : uint32_t {
-    eposedge = 0, // Shift on posedge of Shift clock
-    enegedge = 1, // Shift on negedge of Shift clock
+    // Shift on posedge of Shift clock
+    eposedge = 0,
+    // Shift on negedge of Shift clock
+    enegedge = 1,
   };
   
   // Bit field definition.
   struct {
-    /// read-write - Shifter Mode
+    // read-write - Shifter Mode
     eSMOD SMOD : 3;
     uint32_t _reserved_0 : 4;
-    /// read-write - Shifter Pin Polarity
+    // read-write - Shifter Pin Polarity
     ePINPOL PINPOL : 1;
-    /// read-write - Shifter Pin Select
+    // read-write - Shifter Pin Select
     uint32_t PINSEL : 5;
     uint32_t _reserved_1 : 3;
-    /// read-write - Shifter Pin Configuration
+    // read-write - Shifter Pin Configuration
     ePINCFG PINCFG : 2;
     uint32_t _reserved_2 : 5;
-    /// read-write - Timer Polarity
+    // read-write - Timer Polarity
     eTIMPOL TIMPOL : 1;
-    /// read-write - Timer Select
+    // read-write - Timer Select
     uint32_t TIMSEL : 3;
     uint32_t _reserved_3 : 5;
   } bits;
@@ -771,46 +919,60 @@ union SHIFTCTL[7] {
 };
 
 // Shifter Configuration N Register
-//
 union SHIFTCFG[0] {
   
+  // Shifter Start bit
   enum class eSSTART : uint32_t {
-    evalue00 = 0, // Start bit disabled for transmitter/receiver/match store, transmitter loads data on enable
-    evalue01 = 1, // Start bit disabled for transmitter/receiver/match store, transmitter loads data on first shift
-    evalue10 = 2, // Transmitter outputs start bit value 0 before loading data on first shift, receiver/match store sets error flag if start bit is not 0
-    evalue11 = 3, // Transmitter outputs start bit value 1 before loading data on first shift, receiver/match store sets error flag if start bit is not 1
+    // Start bit disabled for transmitter/receiver/match store, transmitter loads data on enable
+    evalue00 = 0,
+    // Start bit disabled for transmitter/receiver/match store, transmitter loads data on first shift
+    evalue01 = 1,
+    // Transmitter outputs start bit value 0 before loading data on first shift, receiver/match store sets error flag if start bit is not 0
+    evalue10 = 2,
+    // Transmitter outputs start bit value 1 before loading data on first shift, receiver/match store sets error flag if start bit is not 1
+    evalue11 = 3,
   };
   
+  // Shifter Stop bit
   enum class eSSTOP : uint32_t {
-    evalue00 = 0, // Stop bit disabled for transmitter/receiver/match store
-    evalue10 = 2, // Transmitter outputs stop bit value 0 on store, receiver/match store sets error flag if stop bit is not 0
-    evalue11 = 3, // Transmitter outputs stop bit value 1 on store, receiver/match store sets error flag if stop bit is not 1
+    // Stop bit disabled for transmitter/receiver/match store
+    evalue00 = 0,
+    // Transmitter outputs stop bit value 0 on store, receiver/match store sets error flag if stop bit is not 0
+    evalue10 = 2,
+    // Transmitter outputs stop bit value 1 on store, receiver/match store sets error flag if stop bit is not 1
+    evalue11 = 3,
   };
   
+  // Input Source
   enum class eINSRC : uint32_t {
-    epin = 0, // Pin
-    eshifter_nplus1 = 1, // Shifter N+1 Output
+    // Pin
+    epin = 0,
+    // Shifter N+1 Output
+    eshifter_nplus1 = 1,
   };
   
+  // Late Store
   enum class eLATST : uint32_t {
-    epreshift = 0, // Shift register stores the pre-shift register state.
-    epostshift = 1, // Shift register stores the post-shift register state.
+    // Shift register stores the pre-shift register state.
+    epreshift = 0,
+    // Shift register stores the post-shift register state.
+    epostshift = 1,
   };
   
   // Bit field definition.
   struct {
-    /// read-write - Shifter Start bit
+    // read-write - Shifter Start bit
     eSSTART SSTART : 2;
     uint32_t _reserved_0 : 2;
-    /// read-write - Shifter Stop bit
+    // read-write - Shifter Stop bit
     eSSTOP SSTOP : 2;
     uint32_t _reserved_1 : 2;
-    /// read-write - Input Source
+    // read-write - Input Source
     eINSRC INSRC : 1;
-    /// read-write - Late Store
+    // read-write - Late Store
     eLATST LATST : 1;
     uint32_t _reserved_2 : 6;
-    /// read-write - Parallel Width
+    // read-write - Parallel Width
     uint32_t PWIDTH : 5;
     uint32_t _reserved_3 : 11;
   } bits;
@@ -823,46 +985,60 @@ union SHIFTCFG[0] {
   static inline volatile SHIFTCFG[0] &Instance() { return *reinterpret_cast<volatile SHIFTCFG[0]*>(0x400AC100); }
 };
 // Shifter Configuration N Register
-//
 union SHIFTCFG[1] {
   
+  // Shifter Start bit
   enum class eSSTART : uint32_t {
-    evalue00 = 0, // Start bit disabled for transmitter/receiver/match store, transmitter loads data on enable
-    evalue01 = 1, // Start bit disabled for transmitter/receiver/match store, transmitter loads data on first shift
-    evalue10 = 2, // Transmitter outputs start bit value 0 before loading data on first shift, receiver/match store sets error flag if start bit is not 0
-    evalue11 = 3, // Transmitter outputs start bit value 1 before loading data on first shift, receiver/match store sets error flag if start bit is not 1
+    // Start bit disabled for transmitter/receiver/match store, transmitter loads data on enable
+    evalue00 = 0,
+    // Start bit disabled for transmitter/receiver/match store, transmitter loads data on first shift
+    evalue01 = 1,
+    // Transmitter outputs start bit value 0 before loading data on first shift, receiver/match store sets error flag if start bit is not 0
+    evalue10 = 2,
+    // Transmitter outputs start bit value 1 before loading data on first shift, receiver/match store sets error flag if start bit is not 1
+    evalue11 = 3,
   };
   
+  // Shifter Stop bit
   enum class eSSTOP : uint32_t {
-    evalue00 = 0, // Stop bit disabled for transmitter/receiver/match store
-    evalue10 = 2, // Transmitter outputs stop bit value 0 on store, receiver/match store sets error flag if stop bit is not 0
-    evalue11 = 3, // Transmitter outputs stop bit value 1 on store, receiver/match store sets error flag if stop bit is not 1
+    // Stop bit disabled for transmitter/receiver/match store
+    evalue00 = 0,
+    // Transmitter outputs stop bit value 0 on store, receiver/match store sets error flag if stop bit is not 0
+    evalue10 = 2,
+    // Transmitter outputs stop bit value 1 on store, receiver/match store sets error flag if stop bit is not 1
+    evalue11 = 3,
   };
   
+  // Input Source
   enum class eINSRC : uint32_t {
-    epin = 0, // Pin
-    eshifter_nplus1 = 1, // Shifter N+1 Output
+    // Pin
+    epin = 0,
+    // Shifter N+1 Output
+    eshifter_nplus1 = 1,
   };
   
+  // Late Store
   enum class eLATST : uint32_t {
-    epreshift = 0, // Shift register stores the pre-shift register state.
-    epostshift = 1, // Shift register stores the post-shift register state.
+    // Shift register stores the pre-shift register state.
+    epreshift = 0,
+    // Shift register stores the post-shift register state.
+    epostshift = 1,
   };
   
   // Bit field definition.
   struct {
-    /// read-write - Shifter Start bit
+    // read-write - Shifter Start bit
     eSSTART SSTART : 2;
     uint32_t _reserved_0 : 2;
-    /// read-write - Shifter Stop bit
+    // read-write - Shifter Stop bit
     eSSTOP SSTOP : 2;
     uint32_t _reserved_1 : 2;
-    /// read-write - Input Source
+    // read-write - Input Source
     eINSRC INSRC : 1;
-    /// read-write - Late Store
+    // read-write - Late Store
     eLATST LATST : 1;
     uint32_t _reserved_2 : 6;
-    /// read-write - Parallel Width
+    // read-write - Parallel Width
     uint32_t PWIDTH : 5;
     uint32_t _reserved_3 : 11;
   } bits;
@@ -875,46 +1051,60 @@ union SHIFTCFG[1] {
   static inline volatile SHIFTCFG[1] &Instance() { return *reinterpret_cast<volatile SHIFTCFG[1]*>(0x400AC104); }
 };
 // Shifter Configuration N Register
-//
 union SHIFTCFG[2] {
   
+  // Shifter Start bit
   enum class eSSTART : uint32_t {
-    evalue00 = 0, // Start bit disabled for transmitter/receiver/match store, transmitter loads data on enable
-    evalue01 = 1, // Start bit disabled for transmitter/receiver/match store, transmitter loads data on first shift
-    evalue10 = 2, // Transmitter outputs start bit value 0 before loading data on first shift, receiver/match store sets error flag if start bit is not 0
-    evalue11 = 3, // Transmitter outputs start bit value 1 before loading data on first shift, receiver/match store sets error flag if start bit is not 1
+    // Start bit disabled for transmitter/receiver/match store, transmitter loads data on enable
+    evalue00 = 0,
+    // Start bit disabled for transmitter/receiver/match store, transmitter loads data on first shift
+    evalue01 = 1,
+    // Transmitter outputs start bit value 0 before loading data on first shift, receiver/match store sets error flag if start bit is not 0
+    evalue10 = 2,
+    // Transmitter outputs start bit value 1 before loading data on first shift, receiver/match store sets error flag if start bit is not 1
+    evalue11 = 3,
   };
   
+  // Shifter Stop bit
   enum class eSSTOP : uint32_t {
-    evalue00 = 0, // Stop bit disabled for transmitter/receiver/match store
-    evalue10 = 2, // Transmitter outputs stop bit value 0 on store, receiver/match store sets error flag if stop bit is not 0
-    evalue11 = 3, // Transmitter outputs stop bit value 1 on store, receiver/match store sets error flag if stop bit is not 1
+    // Stop bit disabled for transmitter/receiver/match store
+    evalue00 = 0,
+    // Transmitter outputs stop bit value 0 on store, receiver/match store sets error flag if stop bit is not 0
+    evalue10 = 2,
+    // Transmitter outputs stop bit value 1 on store, receiver/match store sets error flag if stop bit is not 1
+    evalue11 = 3,
   };
   
+  // Input Source
   enum class eINSRC : uint32_t {
-    epin = 0, // Pin
-    eshifter_nplus1 = 1, // Shifter N+1 Output
+    // Pin
+    epin = 0,
+    // Shifter N+1 Output
+    eshifter_nplus1 = 1,
   };
   
+  // Late Store
   enum class eLATST : uint32_t {
-    epreshift = 0, // Shift register stores the pre-shift register state.
-    epostshift = 1, // Shift register stores the post-shift register state.
+    // Shift register stores the pre-shift register state.
+    epreshift = 0,
+    // Shift register stores the post-shift register state.
+    epostshift = 1,
   };
   
   // Bit field definition.
   struct {
-    /// read-write - Shifter Start bit
+    // read-write - Shifter Start bit
     eSSTART SSTART : 2;
     uint32_t _reserved_0 : 2;
-    /// read-write - Shifter Stop bit
+    // read-write - Shifter Stop bit
     eSSTOP SSTOP : 2;
     uint32_t _reserved_1 : 2;
-    /// read-write - Input Source
+    // read-write - Input Source
     eINSRC INSRC : 1;
-    /// read-write - Late Store
+    // read-write - Late Store
     eLATST LATST : 1;
     uint32_t _reserved_2 : 6;
-    /// read-write - Parallel Width
+    // read-write - Parallel Width
     uint32_t PWIDTH : 5;
     uint32_t _reserved_3 : 11;
   } bits;
@@ -927,46 +1117,60 @@ union SHIFTCFG[2] {
   static inline volatile SHIFTCFG[2] &Instance() { return *reinterpret_cast<volatile SHIFTCFG[2]*>(0x400AC108); }
 };
 // Shifter Configuration N Register
-//
 union SHIFTCFG[3] {
   
+  // Shifter Start bit
   enum class eSSTART : uint32_t {
-    evalue00 = 0, // Start bit disabled for transmitter/receiver/match store, transmitter loads data on enable
-    evalue01 = 1, // Start bit disabled for transmitter/receiver/match store, transmitter loads data on first shift
-    evalue10 = 2, // Transmitter outputs start bit value 0 before loading data on first shift, receiver/match store sets error flag if start bit is not 0
-    evalue11 = 3, // Transmitter outputs start bit value 1 before loading data on first shift, receiver/match store sets error flag if start bit is not 1
+    // Start bit disabled for transmitter/receiver/match store, transmitter loads data on enable
+    evalue00 = 0,
+    // Start bit disabled for transmitter/receiver/match store, transmitter loads data on first shift
+    evalue01 = 1,
+    // Transmitter outputs start bit value 0 before loading data on first shift, receiver/match store sets error flag if start bit is not 0
+    evalue10 = 2,
+    // Transmitter outputs start bit value 1 before loading data on first shift, receiver/match store sets error flag if start bit is not 1
+    evalue11 = 3,
   };
   
+  // Shifter Stop bit
   enum class eSSTOP : uint32_t {
-    evalue00 = 0, // Stop bit disabled for transmitter/receiver/match store
-    evalue10 = 2, // Transmitter outputs stop bit value 0 on store, receiver/match store sets error flag if stop bit is not 0
-    evalue11 = 3, // Transmitter outputs stop bit value 1 on store, receiver/match store sets error flag if stop bit is not 1
+    // Stop bit disabled for transmitter/receiver/match store
+    evalue00 = 0,
+    // Transmitter outputs stop bit value 0 on store, receiver/match store sets error flag if stop bit is not 0
+    evalue10 = 2,
+    // Transmitter outputs stop bit value 1 on store, receiver/match store sets error flag if stop bit is not 1
+    evalue11 = 3,
   };
   
+  // Input Source
   enum class eINSRC : uint32_t {
-    epin = 0, // Pin
-    eshifter_nplus1 = 1, // Shifter N+1 Output
+    // Pin
+    epin = 0,
+    // Shifter N+1 Output
+    eshifter_nplus1 = 1,
   };
   
+  // Late Store
   enum class eLATST : uint32_t {
-    epreshift = 0, // Shift register stores the pre-shift register state.
-    epostshift = 1, // Shift register stores the post-shift register state.
+    // Shift register stores the pre-shift register state.
+    epreshift = 0,
+    // Shift register stores the post-shift register state.
+    epostshift = 1,
   };
   
   // Bit field definition.
   struct {
-    /// read-write - Shifter Start bit
+    // read-write - Shifter Start bit
     eSSTART SSTART : 2;
     uint32_t _reserved_0 : 2;
-    /// read-write - Shifter Stop bit
+    // read-write - Shifter Stop bit
     eSSTOP SSTOP : 2;
     uint32_t _reserved_1 : 2;
-    /// read-write - Input Source
+    // read-write - Input Source
     eINSRC INSRC : 1;
-    /// read-write - Late Store
+    // read-write - Late Store
     eLATST LATST : 1;
     uint32_t _reserved_2 : 6;
-    /// read-write - Parallel Width
+    // read-write - Parallel Width
     uint32_t PWIDTH : 5;
     uint32_t _reserved_3 : 11;
   } bits;
@@ -979,46 +1183,60 @@ union SHIFTCFG[3] {
   static inline volatile SHIFTCFG[3] &Instance() { return *reinterpret_cast<volatile SHIFTCFG[3]*>(0x400AC10C); }
 };
 // Shifter Configuration N Register
-//
 union SHIFTCFG[4] {
   
+  // Shifter Start bit
   enum class eSSTART : uint32_t {
-    evalue00 = 0, // Start bit disabled for transmitter/receiver/match store, transmitter loads data on enable
-    evalue01 = 1, // Start bit disabled for transmitter/receiver/match store, transmitter loads data on first shift
-    evalue10 = 2, // Transmitter outputs start bit value 0 before loading data on first shift, receiver/match store sets error flag if start bit is not 0
-    evalue11 = 3, // Transmitter outputs start bit value 1 before loading data on first shift, receiver/match store sets error flag if start bit is not 1
+    // Start bit disabled for transmitter/receiver/match store, transmitter loads data on enable
+    evalue00 = 0,
+    // Start bit disabled for transmitter/receiver/match store, transmitter loads data on first shift
+    evalue01 = 1,
+    // Transmitter outputs start bit value 0 before loading data on first shift, receiver/match store sets error flag if start bit is not 0
+    evalue10 = 2,
+    // Transmitter outputs start bit value 1 before loading data on first shift, receiver/match store sets error flag if start bit is not 1
+    evalue11 = 3,
   };
   
+  // Shifter Stop bit
   enum class eSSTOP : uint32_t {
-    evalue00 = 0, // Stop bit disabled for transmitter/receiver/match store
-    evalue10 = 2, // Transmitter outputs stop bit value 0 on store, receiver/match store sets error flag if stop bit is not 0
-    evalue11 = 3, // Transmitter outputs stop bit value 1 on store, receiver/match store sets error flag if stop bit is not 1
+    // Stop bit disabled for transmitter/receiver/match store
+    evalue00 = 0,
+    // Transmitter outputs stop bit value 0 on store, receiver/match store sets error flag if stop bit is not 0
+    evalue10 = 2,
+    // Transmitter outputs stop bit value 1 on store, receiver/match store sets error flag if stop bit is not 1
+    evalue11 = 3,
   };
   
+  // Input Source
   enum class eINSRC : uint32_t {
-    epin = 0, // Pin
-    eshifter_nplus1 = 1, // Shifter N+1 Output
+    // Pin
+    epin = 0,
+    // Shifter N+1 Output
+    eshifter_nplus1 = 1,
   };
   
+  // Late Store
   enum class eLATST : uint32_t {
-    epreshift = 0, // Shift register stores the pre-shift register state.
-    epostshift = 1, // Shift register stores the post-shift register state.
+    // Shift register stores the pre-shift register state.
+    epreshift = 0,
+    // Shift register stores the post-shift register state.
+    epostshift = 1,
   };
   
   // Bit field definition.
   struct {
-    /// read-write - Shifter Start bit
+    // read-write - Shifter Start bit
     eSSTART SSTART : 2;
     uint32_t _reserved_0 : 2;
-    /// read-write - Shifter Stop bit
+    // read-write - Shifter Stop bit
     eSSTOP SSTOP : 2;
     uint32_t _reserved_1 : 2;
-    /// read-write - Input Source
+    // read-write - Input Source
     eINSRC INSRC : 1;
-    /// read-write - Late Store
+    // read-write - Late Store
     eLATST LATST : 1;
     uint32_t _reserved_2 : 6;
-    /// read-write - Parallel Width
+    // read-write - Parallel Width
     uint32_t PWIDTH : 5;
     uint32_t _reserved_3 : 11;
   } bits;
@@ -1031,46 +1249,60 @@ union SHIFTCFG[4] {
   static inline volatile SHIFTCFG[4] &Instance() { return *reinterpret_cast<volatile SHIFTCFG[4]*>(0x400AC110); }
 };
 // Shifter Configuration N Register
-//
 union SHIFTCFG[5] {
   
+  // Shifter Start bit
   enum class eSSTART : uint32_t {
-    evalue00 = 0, // Start bit disabled for transmitter/receiver/match store, transmitter loads data on enable
-    evalue01 = 1, // Start bit disabled for transmitter/receiver/match store, transmitter loads data on first shift
-    evalue10 = 2, // Transmitter outputs start bit value 0 before loading data on first shift, receiver/match store sets error flag if start bit is not 0
-    evalue11 = 3, // Transmitter outputs start bit value 1 before loading data on first shift, receiver/match store sets error flag if start bit is not 1
+    // Start bit disabled for transmitter/receiver/match store, transmitter loads data on enable
+    evalue00 = 0,
+    // Start bit disabled for transmitter/receiver/match store, transmitter loads data on first shift
+    evalue01 = 1,
+    // Transmitter outputs start bit value 0 before loading data on first shift, receiver/match store sets error flag if start bit is not 0
+    evalue10 = 2,
+    // Transmitter outputs start bit value 1 before loading data on first shift, receiver/match store sets error flag if start bit is not 1
+    evalue11 = 3,
   };
   
+  // Shifter Stop bit
   enum class eSSTOP : uint32_t {
-    evalue00 = 0, // Stop bit disabled for transmitter/receiver/match store
-    evalue10 = 2, // Transmitter outputs stop bit value 0 on store, receiver/match store sets error flag if stop bit is not 0
-    evalue11 = 3, // Transmitter outputs stop bit value 1 on store, receiver/match store sets error flag if stop bit is not 1
+    // Stop bit disabled for transmitter/receiver/match store
+    evalue00 = 0,
+    // Transmitter outputs stop bit value 0 on store, receiver/match store sets error flag if stop bit is not 0
+    evalue10 = 2,
+    // Transmitter outputs stop bit value 1 on store, receiver/match store sets error flag if stop bit is not 1
+    evalue11 = 3,
   };
   
+  // Input Source
   enum class eINSRC : uint32_t {
-    epin = 0, // Pin
-    eshifter_nplus1 = 1, // Shifter N+1 Output
+    // Pin
+    epin = 0,
+    // Shifter N+1 Output
+    eshifter_nplus1 = 1,
   };
   
+  // Late Store
   enum class eLATST : uint32_t {
-    epreshift = 0, // Shift register stores the pre-shift register state.
-    epostshift = 1, // Shift register stores the post-shift register state.
+    // Shift register stores the pre-shift register state.
+    epreshift = 0,
+    // Shift register stores the post-shift register state.
+    epostshift = 1,
   };
   
   // Bit field definition.
   struct {
-    /// read-write - Shifter Start bit
+    // read-write - Shifter Start bit
     eSSTART SSTART : 2;
     uint32_t _reserved_0 : 2;
-    /// read-write - Shifter Stop bit
+    // read-write - Shifter Stop bit
     eSSTOP SSTOP : 2;
     uint32_t _reserved_1 : 2;
-    /// read-write - Input Source
+    // read-write - Input Source
     eINSRC INSRC : 1;
-    /// read-write - Late Store
+    // read-write - Late Store
     eLATST LATST : 1;
     uint32_t _reserved_2 : 6;
-    /// read-write - Parallel Width
+    // read-write - Parallel Width
     uint32_t PWIDTH : 5;
     uint32_t _reserved_3 : 11;
   } bits;
@@ -1083,46 +1315,60 @@ union SHIFTCFG[5] {
   static inline volatile SHIFTCFG[5] &Instance() { return *reinterpret_cast<volatile SHIFTCFG[5]*>(0x400AC114); }
 };
 // Shifter Configuration N Register
-//
 union SHIFTCFG[6] {
   
+  // Shifter Start bit
   enum class eSSTART : uint32_t {
-    evalue00 = 0, // Start bit disabled for transmitter/receiver/match store, transmitter loads data on enable
-    evalue01 = 1, // Start bit disabled for transmitter/receiver/match store, transmitter loads data on first shift
-    evalue10 = 2, // Transmitter outputs start bit value 0 before loading data on first shift, receiver/match store sets error flag if start bit is not 0
-    evalue11 = 3, // Transmitter outputs start bit value 1 before loading data on first shift, receiver/match store sets error flag if start bit is not 1
+    // Start bit disabled for transmitter/receiver/match store, transmitter loads data on enable
+    evalue00 = 0,
+    // Start bit disabled for transmitter/receiver/match store, transmitter loads data on first shift
+    evalue01 = 1,
+    // Transmitter outputs start bit value 0 before loading data on first shift, receiver/match store sets error flag if start bit is not 0
+    evalue10 = 2,
+    // Transmitter outputs start bit value 1 before loading data on first shift, receiver/match store sets error flag if start bit is not 1
+    evalue11 = 3,
   };
   
+  // Shifter Stop bit
   enum class eSSTOP : uint32_t {
-    evalue00 = 0, // Stop bit disabled for transmitter/receiver/match store
-    evalue10 = 2, // Transmitter outputs stop bit value 0 on store, receiver/match store sets error flag if stop bit is not 0
-    evalue11 = 3, // Transmitter outputs stop bit value 1 on store, receiver/match store sets error flag if stop bit is not 1
+    // Stop bit disabled for transmitter/receiver/match store
+    evalue00 = 0,
+    // Transmitter outputs stop bit value 0 on store, receiver/match store sets error flag if stop bit is not 0
+    evalue10 = 2,
+    // Transmitter outputs stop bit value 1 on store, receiver/match store sets error flag if stop bit is not 1
+    evalue11 = 3,
   };
   
+  // Input Source
   enum class eINSRC : uint32_t {
-    epin = 0, // Pin
-    eshifter_nplus1 = 1, // Shifter N+1 Output
+    // Pin
+    epin = 0,
+    // Shifter N+1 Output
+    eshifter_nplus1 = 1,
   };
   
+  // Late Store
   enum class eLATST : uint32_t {
-    epreshift = 0, // Shift register stores the pre-shift register state.
-    epostshift = 1, // Shift register stores the post-shift register state.
+    // Shift register stores the pre-shift register state.
+    epreshift = 0,
+    // Shift register stores the post-shift register state.
+    epostshift = 1,
   };
   
   // Bit field definition.
   struct {
-    /// read-write - Shifter Start bit
+    // read-write - Shifter Start bit
     eSSTART SSTART : 2;
     uint32_t _reserved_0 : 2;
-    /// read-write - Shifter Stop bit
+    // read-write - Shifter Stop bit
     eSSTOP SSTOP : 2;
     uint32_t _reserved_1 : 2;
-    /// read-write - Input Source
+    // read-write - Input Source
     eINSRC INSRC : 1;
-    /// read-write - Late Store
+    // read-write - Late Store
     eLATST LATST : 1;
     uint32_t _reserved_2 : 6;
-    /// read-write - Parallel Width
+    // read-write - Parallel Width
     uint32_t PWIDTH : 5;
     uint32_t _reserved_3 : 11;
   } bits;
@@ -1135,46 +1381,60 @@ union SHIFTCFG[6] {
   static inline volatile SHIFTCFG[6] &Instance() { return *reinterpret_cast<volatile SHIFTCFG[6]*>(0x400AC118); }
 };
 // Shifter Configuration N Register
-//
 union SHIFTCFG[7] {
   
+  // Shifter Start bit
   enum class eSSTART : uint32_t {
-    evalue00 = 0, // Start bit disabled for transmitter/receiver/match store, transmitter loads data on enable
-    evalue01 = 1, // Start bit disabled for transmitter/receiver/match store, transmitter loads data on first shift
-    evalue10 = 2, // Transmitter outputs start bit value 0 before loading data on first shift, receiver/match store sets error flag if start bit is not 0
-    evalue11 = 3, // Transmitter outputs start bit value 1 before loading data on first shift, receiver/match store sets error flag if start bit is not 1
+    // Start bit disabled for transmitter/receiver/match store, transmitter loads data on enable
+    evalue00 = 0,
+    // Start bit disabled for transmitter/receiver/match store, transmitter loads data on first shift
+    evalue01 = 1,
+    // Transmitter outputs start bit value 0 before loading data on first shift, receiver/match store sets error flag if start bit is not 0
+    evalue10 = 2,
+    // Transmitter outputs start bit value 1 before loading data on first shift, receiver/match store sets error flag if start bit is not 1
+    evalue11 = 3,
   };
   
+  // Shifter Stop bit
   enum class eSSTOP : uint32_t {
-    evalue00 = 0, // Stop bit disabled for transmitter/receiver/match store
-    evalue10 = 2, // Transmitter outputs stop bit value 0 on store, receiver/match store sets error flag if stop bit is not 0
-    evalue11 = 3, // Transmitter outputs stop bit value 1 on store, receiver/match store sets error flag if stop bit is not 1
+    // Stop bit disabled for transmitter/receiver/match store
+    evalue00 = 0,
+    // Transmitter outputs stop bit value 0 on store, receiver/match store sets error flag if stop bit is not 0
+    evalue10 = 2,
+    // Transmitter outputs stop bit value 1 on store, receiver/match store sets error flag if stop bit is not 1
+    evalue11 = 3,
   };
   
+  // Input Source
   enum class eINSRC : uint32_t {
-    epin = 0, // Pin
-    eshifter_nplus1 = 1, // Shifter N+1 Output
+    // Pin
+    epin = 0,
+    // Shifter N+1 Output
+    eshifter_nplus1 = 1,
   };
   
+  // Late Store
   enum class eLATST : uint32_t {
-    epreshift = 0, // Shift register stores the pre-shift register state.
-    epostshift = 1, // Shift register stores the post-shift register state.
+    // Shift register stores the pre-shift register state.
+    epreshift = 0,
+    // Shift register stores the post-shift register state.
+    epostshift = 1,
   };
   
   // Bit field definition.
   struct {
-    /// read-write - Shifter Start bit
+    // read-write - Shifter Start bit
     eSSTART SSTART : 2;
     uint32_t _reserved_0 : 2;
-    /// read-write - Shifter Stop bit
+    // read-write - Shifter Stop bit
     eSSTOP SSTOP : 2;
     uint32_t _reserved_1 : 2;
-    /// read-write - Input Source
+    // read-write - Input Source
     eINSRC INSRC : 1;
-    /// read-write - Late Store
+    // read-write - Late Store
     eLATST LATST : 1;
     uint32_t _reserved_2 : 6;
-    /// read-write - Parallel Width
+    // read-write - Parallel Width
     uint32_t PWIDTH : 5;
     uint32_t _reserved_3 : 11;
   } bits;
@@ -1188,12 +1448,11 @@ union SHIFTCFG[7] {
 };
 
 // Shifter Buffer N Register
-//
 union SHIFTBUF[0] {
   
   // Bit field definition.
   struct {
-    /// read-write - Shift Buffer
+    // read-write - Shift Buffer
     uint32_t SHIFTBUF : 32;
   } bits;
   
@@ -1205,12 +1464,11 @@ union SHIFTBUF[0] {
   static inline volatile SHIFTBUF[0] &Instance() { return *reinterpret_cast<volatile SHIFTBUF[0]*>(0x400AC200); }
 };
 // Shifter Buffer N Register
-//
 union SHIFTBUF[1] {
   
   // Bit field definition.
   struct {
-    /// read-write - Shift Buffer
+    // read-write - Shift Buffer
     uint32_t SHIFTBUF : 32;
   } bits;
   
@@ -1222,12 +1480,11 @@ union SHIFTBUF[1] {
   static inline volatile SHIFTBUF[1] &Instance() { return *reinterpret_cast<volatile SHIFTBUF[1]*>(0x400AC204); }
 };
 // Shifter Buffer N Register
-//
 union SHIFTBUF[2] {
   
   // Bit field definition.
   struct {
-    /// read-write - Shift Buffer
+    // read-write - Shift Buffer
     uint32_t SHIFTBUF : 32;
   } bits;
   
@@ -1239,12 +1496,11 @@ union SHIFTBUF[2] {
   static inline volatile SHIFTBUF[2] &Instance() { return *reinterpret_cast<volatile SHIFTBUF[2]*>(0x400AC208); }
 };
 // Shifter Buffer N Register
-//
 union SHIFTBUF[3] {
   
   // Bit field definition.
   struct {
-    /// read-write - Shift Buffer
+    // read-write - Shift Buffer
     uint32_t SHIFTBUF : 32;
   } bits;
   
@@ -1256,12 +1512,11 @@ union SHIFTBUF[3] {
   static inline volatile SHIFTBUF[3] &Instance() { return *reinterpret_cast<volatile SHIFTBUF[3]*>(0x400AC20C); }
 };
 // Shifter Buffer N Register
-//
 union SHIFTBUF[4] {
   
   // Bit field definition.
   struct {
-    /// read-write - Shift Buffer
+    // read-write - Shift Buffer
     uint32_t SHIFTBUF : 32;
   } bits;
   
@@ -1273,12 +1528,11 @@ union SHIFTBUF[4] {
   static inline volatile SHIFTBUF[4] &Instance() { return *reinterpret_cast<volatile SHIFTBUF[4]*>(0x400AC210); }
 };
 // Shifter Buffer N Register
-//
 union SHIFTBUF[5] {
   
   // Bit field definition.
   struct {
-    /// read-write - Shift Buffer
+    // read-write - Shift Buffer
     uint32_t SHIFTBUF : 32;
   } bits;
   
@@ -1290,12 +1544,11 @@ union SHIFTBUF[5] {
   static inline volatile SHIFTBUF[5] &Instance() { return *reinterpret_cast<volatile SHIFTBUF[5]*>(0x400AC214); }
 };
 // Shifter Buffer N Register
-//
 union SHIFTBUF[6] {
   
   // Bit field definition.
   struct {
-    /// read-write - Shift Buffer
+    // read-write - Shift Buffer
     uint32_t SHIFTBUF : 32;
   } bits;
   
@@ -1307,12 +1560,11 @@ union SHIFTBUF[6] {
   static inline volatile SHIFTBUF[6] &Instance() { return *reinterpret_cast<volatile SHIFTBUF[6]*>(0x400AC218); }
 };
 // Shifter Buffer N Register
-//
 union SHIFTBUF[7] {
   
   // Bit field definition.
   struct {
-    /// read-write - Shift Buffer
+    // read-write - Shift Buffer
     uint32_t SHIFTBUF : 32;
   } bits;
   
@@ -1325,12 +1577,11 @@ union SHIFTBUF[7] {
 };
 
 // Shifter Buffer N Bit Swapped Register
-//
 union SHIFTBUFBIS[0] {
   
   // Bit field definition.
   struct {
-    /// read-write - Shift Buffer
+    // read-write - Shift Buffer
     uint32_t SHIFTBUFBIS : 32;
   } bits;
   
@@ -1342,12 +1593,11 @@ union SHIFTBUFBIS[0] {
   static inline volatile SHIFTBUFBIS[0] &Instance() { return *reinterpret_cast<volatile SHIFTBUFBIS[0]*>(0x400AC280); }
 };
 // Shifter Buffer N Bit Swapped Register
-//
 union SHIFTBUFBIS[1] {
   
   // Bit field definition.
   struct {
-    /// read-write - Shift Buffer
+    // read-write - Shift Buffer
     uint32_t SHIFTBUFBIS : 32;
   } bits;
   
@@ -1359,12 +1609,11 @@ union SHIFTBUFBIS[1] {
   static inline volatile SHIFTBUFBIS[1] &Instance() { return *reinterpret_cast<volatile SHIFTBUFBIS[1]*>(0x400AC284); }
 };
 // Shifter Buffer N Bit Swapped Register
-//
 union SHIFTBUFBIS[2] {
   
   // Bit field definition.
   struct {
-    /// read-write - Shift Buffer
+    // read-write - Shift Buffer
     uint32_t SHIFTBUFBIS : 32;
   } bits;
   
@@ -1376,12 +1625,11 @@ union SHIFTBUFBIS[2] {
   static inline volatile SHIFTBUFBIS[2] &Instance() { return *reinterpret_cast<volatile SHIFTBUFBIS[2]*>(0x400AC288); }
 };
 // Shifter Buffer N Bit Swapped Register
-//
 union SHIFTBUFBIS[3] {
   
   // Bit field definition.
   struct {
-    /// read-write - Shift Buffer
+    // read-write - Shift Buffer
     uint32_t SHIFTBUFBIS : 32;
   } bits;
   
@@ -1393,12 +1641,11 @@ union SHIFTBUFBIS[3] {
   static inline volatile SHIFTBUFBIS[3] &Instance() { return *reinterpret_cast<volatile SHIFTBUFBIS[3]*>(0x400AC28C); }
 };
 // Shifter Buffer N Bit Swapped Register
-//
 union SHIFTBUFBIS[4] {
   
   // Bit field definition.
   struct {
-    /// read-write - Shift Buffer
+    // read-write - Shift Buffer
     uint32_t SHIFTBUFBIS : 32;
   } bits;
   
@@ -1410,12 +1657,11 @@ union SHIFTBUFBIS[4] {
   static inline volatile SHIFTBUFBIS[4] &Instance() { return *reinterpret_cast<volatile SHIFTBUFBIS[4]*>(0x400AC290); }
 };
 // Shifter Buffer N Bit Swapped Register
-//
 union SHIFTBUFBIS[5] {
   
   // Bit field definition.
   struct {
-    /// read-write - Shift Buffer
+    // read-write - Shift Buffer
     uint32_t SHIFTBUFBIS : 32;
   } bits;
   
@@ -1427,12 +1673,11 @@ union SHIFTBUFBIS[5] {
   static inline volatile SHIFTBUFBIS[5] &Instance() { return *reinterpret_cast<volatile SHIFTBUFBIS[5]*>(0x400AC294); }
 };
 // Shifter Buffer N Bit Swapped Register
-//
 union SHIFTBUFBIS[6] {
   
   // Bit field definition.
   struct {
-    /// read-write - Shift Buffer
+    // read-write - Shift Buffer
     uint32_t SHIFTBUFBIS : 32;
   } bits;
   
@@ -1444,12 +1689,11 @@ union SHIFTBUFBIS[6] {
   static inline volatile SHIFTBUFBIS[6] &Instance() { return *reinterpret_cast<volatile SHIFTBUFBIS[6]*>(0x400AC298); }
 };
 // Shifter Buffer N Bit Swapped Register
-//
 union SHIFTBUFBIS[7] {
   
   // Bit field definition.
   struct {
-    /// read-write - Shift Buffer
+    // read-write - Shift Buffer
     uint32_t SHIFTBUFBIS : 32;
   } bits;
   
@@ -1462,12 +1706,11 @@ union SHIFTBUFBIS[7] {
 };
 
 // Shifter Buffer N Byte Swapped Register
-//
 union SHIFTBUFBYS[0] {
   
   // Bit field definition.
   struct {
-    /// read-write - Shift Buffer
+    // read-write - Shift Buffer
     uint32_t SHIFTBUFBYS : 32;
   } bits;
   
@@ -1479,12 +1722,11 @@ union SHIFTBUFBYS[0] {
   static inline volatile SHIFTBUFBYS[0] &Instance() { return *reinterpret_cast<volatile SHIFTBUFBYS[0]*>(0x400AC300); }
 };
 // Shifter Buffer N Byte Swapped Register
-//
 union SHIFTBUFBYS[1] {
   
   // Bit field definition.
   struct {
-    /// read-write - Shift Buffer
+    // read-write - Shift Buffer
     uint32_t SHIFTBUFBYS : 32;
   } bits;
   
@@ -1496,12 +1738,11 @@ union SHIFTBUFBYS[1] {
   static inline volatile SHIFTBUFBYS[1] &Instance() { return *reinterpret_cast<volatile SHIFTBUFBYS[1]*>(0x400AC304); }
 };
 // Shifter Buffer N Byte Swapped Register
-//
 union SHIFTBUFBYS[2] {
   
   // Bit field definition.
   struct {
-    /// read-write - Shift Buffer
+    // read-write - Shift Buffer
     uint32_t SHIFTBUFBYS : 32;
   } bits;
   
@@ -1513,12 +1754,11 @@ union SHIFTBUFBYS[2] {
   static inline volatile SHIFTBUFBYS[2] &Instance() { return *reinterpret_cast<volatile SHIFTBUFBYS[2]*>(0x400AC308); }
 };
 // Shifter Buffer N Byte Swapped Register
-//
 union SHIFTBUFBYS[3] {
   
   // Bit field definition.
   struct {
-    /// read-write - Shift Buffer
+    // read-write - Shift Buffer
     uint32_t SHIFTBUFBYS : 32;
   } bits;
   
@@ -1530,12 +1770,11 @@ union SHIFTBUFBYS[3] {
   static inline volatile SHIFTBUFBYS[3] &Instance() { return *reinterpret_cast<volatile SHIFTBUFBYS[3]*>(0x400AC30C); }
 };
 // Shifter Buffer N Byte Swapped Register
-//
 union SHIFTBUFBYS[4] {
   
   // Bit field definition.
   struct {
-    /// read-write - Shift Buffer
+    // read-write - Shift Buffer
     uint32_t SHIFTBUFBYS : 32;
   } bits;
   
@@ -1547,12 +1786,11 @@ union SHIFTBUFBYS[4] {
   static inline volatile SHIFTBUFBYS[4] &Instance() { return *reinterpret_cast<volatile SHIFTBUFBYS[4]*>(0x400AC310); }
 };
 // Shifter Buffer N Byte Swapped Register
-//
 union SHIFTBUFBYS[5] {
   
   // Bit field definition.
   struct {
-    /// read-write - Shift Buffer
+    // read-write - Shift Buffer
     uint32_t SHIFTBUFBYS : 32;
   } bits;
   
@@ -1564,12 +1802,11 @@ union SHIFTBUFBYS[5] {
   static inline volatile SHIFTBUFBYS[5] &Instance() { return *reinterpret_cast<volatile SHIFTBUFBYS[5]*>(0x400AC314); }
 };
 // Shifter Buffer N Byte Swapped Register
-//
 union SHIFTBUFBYS[6] {
   
   // Bit field definition.
   struct {
-    /// read-write - Shift Buffer
+    // read-write - Shift Buffer
     uint32_t SHIFTBUFBYS : 32;
   } bits;
   
@@ -1581,12 +1818,11 @@ union SHIFTBUFBYS[6] {
   static inline volatile SHIFTBUFBYS[6] &Instance() { return *reinterpret_cast<volatile SHIFTBUFBYS[6]*>(0x400AC318); }
 };
 // Shifter Buffer N Byte Swapped Register
-//
 union SHIFTBUFBYS[7] {
   
   // Bit field definition.
   struct {
-    /// read-write - Shift Buffer
+    // read-write - Shift Buffer
     uint32_t SHIFTBUFBYS : 32;
   } bits;
   
@@ -1599,12 +1835,11 @@ union SHIFTBUFBYS[7] {
 };
 
 // Shifter Buffer N Bit Byte Swapped Register
-//
 union SHIFTBUFBBS[0] {
   
   // Bit field definition.
   struct {
-    /// read-write - Shift Buffer
+    // read-write - Shift Buffer
     uint32_t SHIFTBUFBBS : 32;
   } bits;
   
@@ -1616,12 +1851,11 @@ union SHIFTBUFBBS[0] {
   static inline volatile SHIFTBUFBBS[0] &Instance() { return *reinterpret_cast<volatile SHIFTBUFBBS[0]*>(0x400AC380); }
 };
 // Shifter Buffer N Bit Byte Swapped Register
-//
 union SHIFTBUFBBS[1] {
   
   // Bit field definition.
   struct {
-    /// read-write - Shift Buffer
+    // read-write - Shift Buffer
     uint32_t SHIFTBUFBBS : 32;
   } bits;
   
@@ -1633,12 +1867,11 @@ union SHIFTBUFBBS[1] {
   static inline volatile SHIFTBUFBBS[1] &Instance() { return *reinterpret_cast<volatile SHIFTBUFBBS[1]*>(0x400AC384); }
 };
 // Shifter Buffer N Bit Byte Swapped Register
-//
 union SHIFTBUFBBS[2] {
   
   // Bit field definition.
   struct {
-    /// read-write - Shift Buffer
+    // read-write - Shift Buffer
     uint32_t SHIFTBUFBBS : 32;
   } bits;
   
@@ -1650,12 +1883,11 @@ union SHIFTBUFBBS[2] {
   static inline volatile SHIFTBUFBBS[2] &Instance() { return *reinterpret_cast<volatile SHIFTBUFBBS[2]*>(0x400AC388); }
 };
 // Shifter Buffer N Bit Byte Swapped Register
-//
 union SHIFTBUFBBS[3] {
   
   // Bit field definition.
   struct {
-    /// read-write - Shift Buffer
+    // read-write - Shift Buffer
     uint32_t SHIFTBUFBBS : 32;
   } bits;
   
@@ -1667,12 +1899,11 @@ union SHIFTBUFBBS[3] {
   static inline volatile SHIFTBUFBBS[3] &Instance() { return *reinterpret_cast<volatile SHIFTBUFBBS[3]*>(0x400AC38C); }
 };
 // Shifter Buffer N Bit Byte Swapped Register
-//
 union SHIFTBUFBBS[4] {
   
   // Bit field definition.
   struct {
-    /// read-write - Shift Buffer
+    // read-write - Shift Buffer
     uint32_t SHIFTBUFBBS : 32;
   } bits;
   
@@ -1684,12 +1915,11 @@ union SHIFTBUFBBS[4] {
   static inline volatile SHIFTBUFBBS[4] &Instance() { return *reinterpret_cast<volatile SHIFTBUFBBS[4]*>(0x400AC390); }
 };
 // Shifter Buffer N Bit Byte Swapped Register
-//
 union SHIFTBUFBBS[5] {
   
   // Bit field definition.
   struct {
-    /// read-write - Shift Buffer
+    // read-write - Shift Buffer
     uint32_t SHIFTBUFBBS : 32;
   } bits;
   
@@ -1701,12 +1931,11 @@ union SHIFTBUFBBS[5] {
   static inline volatile SHIFTBUFBBS[5] &Instance() { return *reinterpret_cast<volatile SHIFTBUFBBS[5]*>(0x400AC394); }
 };
 // Shifter Buffer N Bit Byte Swapped Register
-//
 union SHIFTBUFBBS[6] {
   
   // Bit field definition.
   struct {
-    /// read-write - Shift Buffer
+    // read-write - Shift Buffer
     uint32_t SHIFTBUFBBS : 32;
   } bits;
   
@@ -1718,12 +1947,11 @@ union SHIFTBUFBBS[6] {
   static inline volatile SHIFTBUFBBS[6] &Instance() { return *reinterpret_cast<volatile SHIFTBUFBBS[6]*>(0x400AC398); }
 };
 // Shifter Buffer N Bit Byte Swapped Register
-//
 union SHIFTBUFBBS[7] {
   
   // Bit field definition.
   struct {
-    /// read-write - Shift Buffer
+    // read-write - Shift Buffer
     uint32_t SHIFTBUFBBS : 32;
   } bits;
   
@@ -1736,74 +1964,102 @@ union SHIFTBUFBBS[7] {
 };
 
 // Timer Control N Register
-//
 union TIMCTL[0] {
   
+  // Timer Mode
   enum class eTIMOD : uint32_t {
-    edisable = 0, // Timer Disabled.
-    edual8bit_baud = 1, // Dual 8-bit counters baud mode.
-    edual8bit_pwm_h = 2, // Dual 8-bit counters PWM high mode.
-    esingle16bit = 3, // Single 16-bit counter mode.
-    esingle16bit_disable = 4, // Single 16-bit counter disable mode.
-    edual8bit_word = 5, // Dual 8-bit counters word mode.
-    edual8bit_pwm_l = 6, // Dual 8-bit counters PWM low mode.
-    esingle16bit_in_capture = 7, // Single 16-bit input capture mode.
+    // Timer Disabled.
+    edisable = 0,
+    // Dual 8-bit counters baud mode.
+    edual8bit_baud = 1,
+    // Dual 8-bit counters PWM high mode.
+    edual8bit_pwm_h = 2,
+    // Single 16-bit counter mode.
+    esingle16bit = 3,
+    // Single 16-bit counter disable mode.
+    esingle16bit_disable = 4,
+    // Dual 8-bit counters word mode.
+    edual8bit_word = 5,
+    // Dual 8-bit counters PWM low mode.
+    edual8bit_pwm_l = 6,
+    // Single 16-bit input capture mode.
+    esingle16bit_in_capture = 7,
   };
   
+  // Timer One Time Operation
   enum class eONETIM : uint32_t {
-    enot_blocked = 0, // The timer enable event is generated as normal.
-    eblocked = 1, // The timer enable event is blocked unless timer status flag is clear.
+    // The timer enable event is generated as normal.
+    enot_blocked = 0,
+    // The timer enable event is blocked unless timer status flag is clear.
+    eblocked = 1,
   };
   
+  // Timer Pin Input Select
   enum class ePININS : uint32_t {
-    epinsel = 0, // Timer pin input and output are selected by PINSEL.
-    epinselplus1 = 1, // Timer pin input is selected by PINSEL+1, timer pin output remains selected by PINSEL.
+    // Timer pin input and output are selected by PINSEL.
+    epinsel = 0,
+    // Timer pin input is selected by PINSEL+1, timer pin output remains selected by PINSEL.
+    epinselplus1 = 1,
   };
   
+  // Timer Pin Polarity
   enum class ePINPOL : uint32_t {
-    eactive_high = 0, // Pin is active high
-    eactive_low = 1, // Pin is active low
+    // Pin is active high
+    eactive_high = 0,
+    // Pin is active low
+    eactive_low = 1,
   };
   
+  // Timer Pin Configuration
   enum class ePINCFG : uint32_t {
-    eoutdisable = 0, // Timer pin output disabled
-    eopend_bidirouten = 1, // Timer pin open drain or bidirectional output enable
-    ebidir_outdata = 2, // Timer pin bidirectional output data
-    eoutput = 3, // Timer pin output
+    // Timer pin output disabled
+    eoutdisable = 0,
+    // Timer pin open drain or bidirectional output enable
+    eopend_bidirouten = 1,
+    // Timer pin bidirectional output data
+    ebidir_outdata = 2,
+    // Timer pin output
+    eoutput = 3,
   };
   
+  // Trigger Source
   enum class eTRGSRC : uint32_t {
-    eext_trig = 0, // External trigger selected
-    einternal_trig = 1, // Internal trigger selected
+    // External trigger selected
+    eext_trig = 0,
+    // Internal trigger selected
+    einternal_trig = 1,
   };
   
+  // Trigger Polarity
   enum class eTRGPOL : uint32_t {
-    eactive_high = 0, // Trigger active high
-    eactive_low = 1, // Trigger active low
+    // Trigger active high
+    eactive_high = 0,
+    // Trigger active low
+    eactive_low = 1,
   };
   
   // Bit field definition.
   struct {
-    /// read-write - Timer Mode
+    // read-write - Timer Mode
     eTIMOD TIMOD : 3;
     uint32_t _reserved_0 : 2;
-    /// read-write - Timer One Time Operation
+    // read-write - Timer One Time Operation
     eONETIM ONETIM : 1;
-    /// read-write - Timer Pin Input Select
+    // read-write - Timer Pin Input Select
     ePININS PININS : 1;
-    /// read-write - Timer Pin Polarity
+    // read-write - Timer Pin Polarity
     ePINPOL PINPOL : 1;
-    /// read-write - Timer Pin Select
+    // read-write - Timer Pin Select
     uint32_t PINSEL : 5;
     uint32_t _reserved_1 : 3;
-    /// read-write - Timer Pin Configuration
+    // read-write - Timer Pin Configuration
     ePINCFG PINCFG : 2;
     uint32_t _reserved_2 : 4;
-    /// read-write - Trigger Source
+    // read-write - Trigger Source
     eTRGSRC TRGSRC : 1;
-    /// read-write - Trigger Polarity
+    // read-write - Trigger Polarity
     eTRGPOL TRGPOL : 1;
-    /// read-write - Trigger Select
+    // read-write - Trigger Select
     uint32_t TRGSEL : 6;
     uint32_t _reserved_3 : 2;
   } bits;
@@ -1816,74 +2072,102 @@ union TIMCTL[0] {
   static inline volatile TIMCTL[0] &Instance() { return *reinterpret_cast<volatile TIMCTL[0]*>(0x400AC400); }
 };
 // Timer Control N Register
-//
 union TIMCTL[1] {
   
+  // Timer Mode
   enum class eTIMOD : uint32_t {
-    edisable = 0, // Timer Disabled.
-    edual8bit_baud = 1, // Dual 8-bit counters baud mode.
-    edual8bit_pwm_h = 2, // Dual 8-bit counters PWM high mode.
-    esingle16bit = 3, // Single 16-bit counter mode.
-    esingle16bit_disable = 4, // Single 16-bit counter disable mode.
-    edual8bit_word = 5, // Dual 8-bit counters word mode.
-    edual8bit_pwm_l = 6, // Dual 8-bit counters PWM low mode.
-    esingle16bit_in_capture = 7, // Single 16-bit input capture mode.
+    // Timer Disabled.
+    edisable = 0,
+    // Dual 8-bit counters baud mode.
+    edual8bit_baud = 1,
+    // Dual 8-bit counters PWM high mode.
+    edual8bit_pwm_h = 2,
+    // Single 16-bit counter mode.
+    esingle16bit = 3,
+    // Single 16-bit counter disable mode.
+    esingle16bit_disable = 4,
+    // Dual 8-bit counters word mode.
+    edual8bit_word = 5,
+    // Dual 8-bit counters PWM low mode.
+    edual8bit_pwm_l = 6,
+    // Single 16-bit input capture mode.
+    esingle16bit_in_capture = 7,
   };
   
+  // Timer One Time Operation
   enum class eONETIM : uint32_t {
-    enot_blocked = 0, // The timer enable event is generated as normal.
-    eblocked = 1, // The timer enable event is blocked unless timer status flag is clear.
+    // The timer enable event is generated as normal.
+    enot_blocked = 0,
+    // The timer enable event is blocked unless timer status flag is clear.
+    eblocked = 1,
   };
   
+  // Timer Pin Input Select
   enum class ePININS : uint32_t {
-    epinsel = 0, // Timer pin input and output are selected by PINSEL.
-    epinselplus1 = 1, // Timer pin input is selected by PINSEL+1, timer pin output remains selected by PINSEL.
+    // Timer pin input and output are selected by PINSEL.
+    epinsel = 0,
+    // Timer pin input is selected by PINSEL+1, timer pin output remains selected by PINSEL.
+    epinselplus1 = 1,
   };
   
+  // Timer Pin Polarity
   enum class ePINPOL : uint32_t {
-    eactive_high = 0, // Pin is active high
-    eactive_low = 1, // Pin is active low
+    // Pin is active high
+    eactive_high = 0,
+    // Pin is active low
+    eactive_low = 1,
   };
   
+  // Timer Pin Configuration
   enum class ePINCFG : uint32_t {
-    eoutdisable = 0, // Timer pin output disabled
-    eopend_bidirouten = 1, // Timer pin open drain or bidirectional output enable
-    ebidir_outdata = 2, // Timer pin bidirectional output data
-    eoutput = 3, // Timer pin output
+    // Timer pin output disabled
+    eoutdisable = 0,
+    // Timer pin open drain or bidirectional output enable
+    eopend_bidirouten = 1,
+    // Timer pin bidirectional output data
+    ebidir_outdata = 2,
+    // Timer pin output
+    eoutput = 3,
   };
   
+  // Trigger Source
   enum class eTRGSRC : uint32_t {
-    eext_trig = 0, // External trigger selected
-    einternal_trig = 1, // Internal trigger selected
+    // External trigger selected
+    eext_trig = 0,
+    // Internal trigger selected
+    einternal_trig = 1,
   };
   
+  // Trigger Polarity
   enum class eTRGPOL : uint32_t {
-    eactive_high = 0, // Trigger active high
-    eactive_low = 1, // Trigger active low
+    // Trigger active high
+    eactive_high = 0,
+    // Trigger active low
+    eactive_low = 1,
   };
   
   // Bit field definition.
   struct {
-    /// read-write - Timer Mode
+    // read-write - Timer Mode
     eTIMOD TIMOD : 3;
     uint32_t _reserved_0 : 2;
-    /// read-write - Timer One Time Operation
+    // read-write - Timer One Time Operation
     eONETIM ONETIM : 1;
-    /// read-write - Timer Pin Input Select
+    // read-write - Timer Pin Input Select
     ePININS PININS : 1;
-    /// read-write - Timer Pin Polarity
+    // read-write - Timer Pin Polarity
     ePINPOL PINPOL : 1;
-    /// read-write - Timer Pin Select
+    // read-write - Timer Pin Select
     uint32_t PINSEL : 5;
     uint32_t _reserved_1 : 3;
-    /// read-write - Timer Pin Configuration
+    // read-write - Timer Pin Configuration
     ePINCFG PINCFG : 2;
     uint32_t _reserved_2 : 4;
-    /// read-write - Trigger Source
+    // read-write - Trigger Source
     eTRGSRC TRGSRC : 1;
-    /// read-write - Trigger Polarity
+    // read-write - Trigger Polarity
     eTRGPOL TRGPOL : 1;
-    /// read-write - Trigger Select
+    // read-write - Trigger Select
     uint32_t TRGSEL : 6;
     uint32_t _reserved_3 : 2;
   } bits;
@@ -1896,74 +2180,102 @@ union TIMCTL[1] {
   static inline volatile TIMCTL[1] &Instance() { return *reinterpret_cast<volatile TIMCTL[1]*>(0x400AC404); }
 };
 // Timer Control N Register
-//
 union TIMCTL[2] {
   
+  // Timer Mode
   enum class eTIMOD : uint32_t {
-    edisable = 0, // Timer Disabled.
-    edual8bit_baud = 1, // Dual 8-bit counters baud mode.
-    edual8bit_pwm_h = 2, // Dual 8-bit counters PWM high mode.
-    esingle16bit = 3, // Single 16-bit counter mode.
-    esingle16bit_disable = 4, // Single 16-bit counter disable mode.
-    edual8bit_word = 5, // Dual 8-bit counters word mode.
-    edual8bit_pwm_l = 6, // Dual 8-bit counters PWM low mode.
-    esingle16bit_in_capture = 7, // Single 16-bit input capture mode.
+    // Timer Disabled.
+    edisable = 0,
+    // Dual 8-bit counters baud mode.
+    edual8bit_baud = 1,
+    // Dual 8-bit counters PWM high mode.
+    edual8bit_pwm_h = 2,
+    // Single 16-bit counter mode.
+    esingle16bit = 3,
+    // Single 16-bit counter disable mode.
+    esingle16bit_disable = 4,
+    // Dual 8-bit counters word mode.
+    edual8bit_word = 5,
+    // Dual 8-bit counters PWM low mode.
+    edual8bit_pwm_l = 6,
+    // Single 16-bit input capture mode.
+    esingle16bit_in_capture = 7,
   };
   
+  // Timer One Time Operation
   enum class eONETIM : uint32_t {
-    enot_blocked = 0, // The timer enable event is generated as normal.
-    eblocked = 1, // The timer enable event is blocked unless timer status flag is clear.
+    // The timer enable event is generated as normal.
+    enot_blocked = 0,
+    // The timer enable event is blocked unless timer status flag is clear.
+    eblocked = 1,
   };
   
+  // Timer Pin Input Select
   enum class ePININS : uint32_t {
-    epinsel = 0, // Timer pin input and output are selected by PINSEL.
-    epinselplus1 = 1, // Timer pin input is selected by PINSEL+1, timer pin output remains selected by PINSEL.
+    // Timer pin input and output are selected by PINSEL.
+    epinsel = 0,
+    // Timer pin input is selected by PINSEL+1, timer pin output remains selected by PINSEL.
+    epinselplus1 = 1,
   };
   
+  // Timer Pin Polarity
   enum class ePINPOL : uint32_t {
-    eactive_high = 0, // Pin is active high
-    eactive_low = 1, // Pin is active low
+    // Pin is active high
+    eactive_high = 0,
+    // Pin is active low
+    eactive_low = 1,
   };
   
+  // Timer Pin Configuration
   enum class ePINCFG : uint32_t {
-    eoutdisable = 0, // Timer pin output disabled
-    eopend_bidirouten = 1, // Timer pin open drain or bidirectional output enable
-    ebidir_outdata = 2, // Timer pin bidirectional output data
-    eoutput = 3, // Timer pin output
+    // Timer pin output disabled
+    eoutdisable = 0,
+    // Timer pin open drain or bidirectional output enable
+    eopend_bidirouten = 1,
+    // Timer pin bidirectional output data
+    ebidir_outdata = 2,
+    // Timer pin output
+    eoutput = 3,
   };
   
+  // Trigger Source
   enum class eTRGSRC : uint32_t {
-    eext_trig = 0, // External trigger selected
-    einternal_trig = 1, // Internal trigger selected
+    // External trigger selected
+    eext_trig = 0,
+    // Internal trigger selected
+    einternal_trig = 1,
   };
   
+  // Trigger Polarity
   enum class eTRGPOL : uint32_t {
-    eactive_high = 0, // Trigger active high
-    eactive_low = 1, // Trigger active low
+    // Trigger active high
+    eactive_high = 0,
+    // Trigger active low
+    eactive_low = 1,
   };
   
   // Bit field definition.
   struct {
-    /// read-write - Timer Mode
+    // read-write - Timer Mode
     eTIMOD TIMOD : 3;
     uint32_t _reserved_0 : 2;
-    /// read-write - Timer One Time Operation
+    // read-write - Timer One Time Operation
     eONETIM ONETIM : 1;
-    /// read-write - Timer Pin Input Select
+    // read-write - Timer Pin Input Select
     ePININS PININS : 1;
-    /// read-write - Timer Pin Polarity
+    // read-write - Timer Pin Polarity
     ePINPOL PINPOL : 1;
-    /// read-write - Timer Pin Select
+    // read-write - Timer Pin Select
     uint32_t PINSEL : 5;
     uint32_t _reserved_1 : 3;
-    /// read-write - Timer Pin Configuration
+    // read-write - Timer Pin Configuration
     ePINCFG PINCFG : 2;
     uint32_t _reserved_2 : 4;
-    /// read-write - Trigger Source
+    // read-write - Trigger Source
     eTRGSRC TRGSRC : 1;
-    /// read-write - Trigger Polarity
+    // read-write - Trigger Polarity
     eTRGPOL TRGPOL : 1;
-    /// read-write - Trigger Select
+    // read-write - Trigger Select
     uint32_t TRGSEL : 6;
     uint32_t _reserved_3 : 2;
   } bits;
@@ -1976,74 +2288,102 @@ union TIMCTL[2] {
   static inline volatile TIMCTL[2] &Instance() { return *reinterpret_cast<volatile TIMCTL[2]*>(0x400AC408); }
 };
 // Timer Control N Register
-//
 union TIMCTL[3] {
   
+  // Timer Mode
   enum class eTIMOD : uint32_t {
-    edisable = 0, // Timer Disabled.
-    edual8bit_baud = 1, // Dual 8-bit counters baud mode.
-    edual8bit_pwm_h = 2, // Dual 8-bit counters PWM high mode.
-    esingle16bit = 3, // Single 16-bit counter mode.
-    esingle16bit_disable = 4, // Single 16-bit counter disable mode.
-    edual8bit_word = 5, // Dual 8-bit counters word mode.
-    edual8bit_pwm_l = 6, // Dual 8-bit counters PWM low mode.
-    esingle16bit_in_capture = 7, // Single 16-bit input capture mode.
+    // Timer Disabled.
+    edisable = 0,
+    // Dual 8-bit counters baud mode.
+    edual8bit_baud = 1,
+    // Dual 8-bit counters PWM high mode.
+    edual8bit_pwm_h = 2,
+    // Single 16-bit counter mode.
+    esingle16bit = 3,
+    // Single 16-bit counter disable mode.
+    esingle16bit_disable = 4,
+    // Dual 8-bit counters word mode.
+    edual8bit_word = 5,
+    // Dual 8-bit counters PWM low mode.
+    edual8bit_pwm_l = 6,
+    // Single 16-bit input capture mode.
+    esingle16bit_in_capture = 7,
   };
   
+  // Timer One Time Operation
   enum class eONETIM : uint32_t {
-    enot_blocked = 0, // The timer enable event is generated as normal.
-    eblocked = 1, // The timer enable event is blocked unless timer status flag is clear.
+    // The timer enable event is generated as normal.
+    enot_blocked = 0,
+    // The timer enable event is blocked unless timer status flag is clear.
+    eblocked = 1,
   };
   
+  // Timer Pin Input Select
   enum class ePININS : uint32_t {
-    epinsel = 0, // Timer pin input and output are selected by PINSEL.
-    epinselplus1 = 1, // Timer pin input is selected by PINSEL+1, timer pin output remains selected by PINSEL.
+    // Timer pin input and output are selected by PINSEL.
+    epinsel = 0,
+    // Timer pin input is selected by PINSEL+1, timer pin output remains selected by PINSEL.
+    epinselplus1 = 1,
   };
   
+  // Timer Pin Polarity
   enum class ePINPOL : uint32_t {
-    eactive_high = 0, // Pin is active high
-    eactive_low = 1, // Pin is active low
+    // Pin is active high
+    eactive_high = 0,
+    // Pin is active low
+    eactive_low = 1,
   };
   
+  // Timer Pin Configuration
   enum class ePINCFG : uint32_t {
-    eoutdisable = 0, // Timer pin output disabled
-    eopend_bidirouten = 1, // Timer pin open drain or bidirectional output enable
-    ebidir_outdata = 2, // Timer pin bidirectional output data
-    eoutput = 3, // Timer pin output
+    // Timer pin output disabled
+    eoutdisable = 0,
+    // Timer pin open drain or bidirectional output enable
+    eopend_bidirouten = 1,
+    // Timer pin bidirectional output data
+    ebidir_outdata = 2,
+    // Timer pin output
+    eoutput = 3,
   };
   
+  // Trigger Source
   enum class eTRGSRC : uint32_t {
-    eext_trig = 0, // External trigger selected
-    einternal_trig = 1, // Internal trigger selected
+    // External trigger selected
+    eext_trig = 0,
+    // Internal trigger selected
+    einternal_trig = 1,
   };
   
+  // Trigger Polarity
   enum class eTRGPOL : uint32_t {
-    eactive_high = 0, // Trigger active high
-    eactive_low = 1, // Trigger active low
+    // Trigger active high
+    eactive_high = 0,
+    // Trigger active low
+    eactive_low = 1,
   };
   
   // Bit field definition.
   struct {
-    /// read-write - Timer Mode
+    // read-write - Timer Mode
     eTIMOD TIMOD : 3;
     uint32_t _reserved_0 : 2;
-    /// read-write - Timer One Time Operation
+    // read-write - Timer One Time Operation
     eONETIM ONETIM : 1;
-    /// read-write - Timer Pin Input Select
+    // read-write - Timer Pin Input Select
     ePININS PININS : 1;
-    /// read-write - Timer Pin Polarity
+    // read-write - Timer Pin Polarity
     ePINPOL PINPOL : 1;
-    /// read-write - Timer Pin Select
+    // read-write - Timer Pin Select
     uint32_t PINSEL : 5;
     uint32_t _reserved_1 : 3;
-    /// read-write - Timer Pin Configuration
+    // read-write - Timer Pin Configuration
     ePINCFG PINCFG : 2;
     uint32_t _reserved_2 : 4;
-    /// read-write - Trigger Source
+    // read-write - Trigger Source
     eTRGSRC TRGSRC : 1;
-    /// read-write - Trigger Polarity
+    // read-write - Trigger Polarity
     eTRGPOL TRGPOL : 1;
-    /// read-write - Trigger Select
+    // read-write - Trigger Select
     uint32_t TRGSEL : 6;
     uint32_t _reserved_3 : 2;
   } bits;
@@ -2056,74 +2396,102 @@ union TIMCTL[3] {
   static inline volatile TIMCTL[3] &Instance() { return *reinterpret_cast<volatile TIMCTL[3]*>(0x400AC40C); }
 };
 // Timer Control N Register
-//
 union TIMCTL[4] {
   
+  // Timer Mode
   enum class eTIMOD : uint32_t {
-    edisable = 0, // Timer Disabled.
-    edual8bit_baud = 1, // Dual 8-bit counters baud mode.
-    edual8bit_pwm_h = 2, // Dual 8-bit counters PWM high mode.
-    esingle16bit = 3, // Single 16-bit counter mode.
-    esingle16bit_disable = 4, // Single 16-bit counter disable mode.
-    edual8bit_word = 5, // Dual 8-bit counters word mode.
-    edual8bit_pwm_l = 6, // Dual 8-bit counters PWM low mode.
-    esingle16bit_in_capture = 7, // Single 16-bit input capture mode.
+    // Timer Disabled.
+    edisable = 0,
+    // Dual 8-bit counters baud mode.
+    edual8bit_baud = 1,
+    // Dual 8-bit counters PWM high mode.
+    edual8bit_pwm_h = 2,
+    // Single 16-bit counter mode.
+    esingle16bit = 3,
+    // Single 16-bit counter disable mode.
+    esingle16bit_disable = 4,
+    // Dual 8-bit counters word mode.
+    edual8bit_word = 5,
+    // Dual 8-bit counters PWM low mode.
+    edual8bit_pwm_l = 6,
+    // Single 16-bit input capture mode.
+    esingle16bit_in_capture = 7,
   };
   
+  // Timer One Time Operation
   enum class eONETIM : uint32_t {
-    enot_blocked = 0, // The timer enable event is generated as normal.
-    eblocked = 1, // The timer enable event is blocked unless timer status flag is clear.
+    // The timer enable event is generated as normal.
+    enot_blocked = 0,
+    // The timer enable event is blocked unless timer status flag is clear.
+    eblocked = 1,
   };
   
+  // Timer Pin Input Select
   enum class ePININS : uint32_t {
-    epinsel = 0, // Timer pin input and output are selected by PINSEL.
-    epinselplus1 = 1, // Timer pin input is selected by PINSEL+1, timer pin output remains selected by PINSEL.
+    // Timer pin input and output are selected by PINSEL.
+    epinsel = 0,
+    // Timer pin input is selected by PINSEL+1, timer pin output remains selected by PINSEL.
+    epinselplus1 = 1,
   };
   
+  // Timer Pin Polarity
   enum class ePINPOL : uint32_t {
-    eactive_high = 0, // Pin is active high
-    eactive_low = 1, // Pin is active low
+    // Pin is active high
+    eactive_high = 0,
+    // Pin is active low
+    eactive_low = 1,
   };
   
+  // Timer Pin Configuration
   enum class ePINCFG : uint32_t {
-    eoutdisable = 0, // Timer pin output disabled
-    eopend_bidirouten = 1, // Timer pin open drain or bidirectional output enable
-    ebidir_outdata = 2, // Timer pin bidirectional output data
-    eoutput = 3, // Timer pin output
+    // Timer pin output disabled
+    eoutdisable = 0,
+    // Timer pin open drain or bidirectional output enable
+    eopend_bidirouten = 1,
+    // Timer pin bidirectional output data
+    ebidir_outdata = 2,
+    // Timer pin output
+    eoutput = 3,
   };
   
+  // Trigger Source
   enum class eTRGSRC : uint32_t {
-    eext_trig = 0, // External trigger selected
-    einternal_trig = 1, // Internal trigger selected
+    // External trigger selected
+    eext_trig = 0,
+    // Internal trigger selected
+    einternal_trig = 1,
   };
   
+  // Trigger Polarity
   enum class eTRGPOL : uint32_t {
-    eactive_high = 0, // Trigger active high
-    eactive_low = 1, // Trigger active low
+    // Trigger active high
+    eactive_high = 0,
+    // Trigger active low
+    eactive_low = 1,
   };
   
   // Bit field definition.
   struct {
-    /// read-write - Timer Mode
+    // read-write - Timer Mode
     eTIMOD TIMOD : 3;
     uint32_t _reserved_0 : 2;
-    /// read-write - Timer One Time Operation
+    // read-write - Timer One Time Operation
     eONETIM ONETIM : 1;
-    /// read-write - Timer Pin Input Select
+    // read-write - Timer Pin Input Select
     ePININS PININS : 1;
-    /// read-write - Timer Pin Polarity
+    // read-write - Timer Pin Polarity
     ePINPOL PINPOL : 1;
-    /// read-write - Timer Pin Select
+    // read-write - Timer Pin Select
     uint32_t PINSEL : 5;
     uint32_t _reserved_1 : 3;
-    /// read-write - Timer Pin Configuration
+    // read-write - Timer Pin Configuration
     ePINCFG PINCFG : 2;
     uint32_t _reserved_2 : 4;
-    /// read-write - Trigger Source
+    // read-write - Trigger Source
     eTRGSRC TRGSRC : 1;
-    /// read-write - Trigger Polarity
+    // read-write - Trigger Polarity
     eTRGPOL TRGPOL : 1;
-    /// read-write - Trigger Select
+    // read-write - Trigger Select
     uint32_t TRGSEL : 6;
     uint32_t _reserved_3 : 2;
   } bits;
@@ -2136,74 +2504,102 @@ union TIMCTL[4] {
   static inline volatile TIMCTL[4] &Instance() { return *reinterpret_cast<volatile TIMCTL[4]*>(0x400AC410); }
 };
 // Timer Control N Register
-//
 union TIMCTL[5] {
   
+  // Timer Mode
   enum class eTIMOD : uint32_t {
-    edisable = 0, // Timer Disabled.
-    edual8bit_baud = 1, // Dual 8-bit counters baud mode.
-    edual8bit_pwm_h = 2, // Dual 8-bit counters PWM high mode.
-    esingle16bit = 3, // Single 16-bit counter mode.
-    esingle16bit_disable = 4, // Single 16-bit counter disable mode.
-    edual8bit_word = 5, // Dual 8-bit counters word mode.
-    edual8bit_pwm_l = 6, // Dual 8-bit counters PWM low mode.
-    esingle16bit_in_capture = 7, // Single 16-bit input capture mode.
+    // Timer Disabled.
+    edisable = 0,
+    // Dual 8-bit counters baud mode.
+    edual8bit_baud = 1,
+    // Dual 8-bit counters PWM high mode.
+    edual8bit_pwm_h = 2,
+    // Single 16-bit counter mode.
+    esingle16bit = 3,
+    // Single 16-bit counter disable mode.
+    esingle16bit_disable = 4,
+    // Dual 8-bit counters word mode.
+    edual8bit_word = 5,
+    // Dual 8-bit counters PWM low mode.
+    edual8bit_pwm_l = 6,
+    // Single 16-bit input capture mode.
+    esingle16bit_in_capture = 7,
   };
   
+  // Timer One Time Operation
   enum class eONETIM : uint32_t {
-    enot_blocked = 0, // The timer enable event is generated as normal.
-    eblocked = 1, // The timer enable event is blocked unless timer status flag is clear.
+    // The timer enable event is generated as normal.
+    enot_blocked = 0,
+    // The timer enable event is blocked unless timer status flag is clear.
+    eblocked = 1,
   };
   
+  // Timer Pin Input Select
   enum class ePININS : uint32_t {
-    epinsel = 0, // Timer pin input and output are selected by PINSEL.
-    epinselplus1 = 1, // Timer pin input is selected by PINSEL+1, timer pin output remains selected by PINSEL.
+    // Timer pin input and output are selected by PINSEL.
+    epinsel = 0,
+    // Timer pin input is selected by PINSEL+1, timer pin output remains selected by PINSEL.
+    epinselplus1 = 1,
   };
   
+  // Timer Pin Polarity
   enum class ePINPOL : uint32_t {
-    eactive_high = 0, // Pin is active high
-    eactive_low = 1, // Pin is active low
+    // Pin is active high
+    eactive_high = 0,
+    // Pin is active low
+    eactive_low = 1,
   };
   
+  // Timer Pin Configuration
   enum class ePINCFG : uint32_t {
-    eoutdisable = 0, // Timer pin output disabled
-    eopend_bidirouten = 1, // Timer pin open drain or bidirectional output enable
-    ebidir_outdata = 2, // Timer pin bidirectional output data
-    eoutput = 3, // Timer pin output
+    // Timer pin output disabled
+    eoutdisable = 0,
+    // Timer pin open drain or bidirectional output enable
+    eopend_bidirouten = 1,
+    // Timer pin bidirectional output data
+    ebidir_outdata = 2,
+    // Timer pin output
+    eoutput = 3,
   };
   
+  // Trigger Source
   enum class eTRGSRC : uint32_t {
-    eext_trig = 0, // External trigger selected
-    einternal_trig = 1, // Internal trigger selected
+    // External trigger selected
+    eext_trig = 0,
+    // Internal trigger selected
+    einternal_trig = 1,
   };
   
+  // Trigger Polarity
   enum class eTRGPOL : uint32_t {
-    eactive_high = 0, // Trigger active high
-    eactive_low = 1, // Trigger active low
+    // Trigger active high
+    eactive_high = 0,
+    // Trigger active low
+    eactive_low = 1,
   };
   
   // Bit field definition.
   struct {
-    /// read-write - Timer Mode
+    // read-write - Timer Mode
     eTIMOD TIMOD : 3;
     uint32_t _reserved_0 : 2;
-    /// read-write - Timer One Time Operation
+    // read-write - Timer One Time Operation
     eONETIM ONETIM : 1;
-    /// read-write - Timer Pin Input Select
+    // read-write - Timer Pin Input Select
     ePININS PININS : 1;
-    /// read-write - Timer Pin Polarity
+    // read-write - Timer Pin Polarity
     ePINPOL PINPOL : 1;
-    /// read-write - Timer Pin Select
+    // read-write - Timer Pin Select
     uint32_t PINSEL : 5;
     uint32_t _reserved_1 : 3;
-    /// read-write - Timer Pin Configuration
+    // read-write - Timer Pin Configuration
     ePINCFG PINCFG : 2;
     uint32_t _reserved_2 : 4;
-    /// read-write - Trigger Source
+    // read-write - Trigger Source
     eTRGSRC TRGSRC : 1;
-    /// read-write - Trigger Polarity
+    // read-write - Trigger Polarity
     eTRGPOL TRGPOL : 1;
-    /// read-write - Trigger Select
+    // read-write - Trigger Select
     uint32_t TRGSEL : 6;
     uint32_t _reserved_3 : 2;
   } bits;
@@ -2216,74 +2612,102 @@ union TIMCTL[5] {
   static inline volatile TIMCTL[5] &Instance() { return *reinterpret_cast<volatile TIMCTL[5]*>(0x400AC414); }
 };
 // Timer Control N Register
-//
 union TIMCTL[6] {
   
+  // Timer Mode
   enum class eTIMOD : uint32_t {
-    edisable = 0, // Timer Disabled.
-    edual8bit_baud = 1, // Dual 8-bit counters baud mode.
-    edual8bit_pwm_h = 2, // Dual 8-bit counters PWM high mode.
-    esingle16bit = 3, // Single 16-bit counter mode.
-    esingle16bit_disable = 4, // Single 16-bit counter disable mode.
-    edual8bit_word = 5, // Dual 8-bit counters word mode.
-    edual8bit_pwm_l = 6, // Dual 8-bit counters PWM low mode.
-    esingle16bit_in_capture = 7, // Single 16-bit input capture mode.
+    // Timer Disabled.
+    edisable = 0,
+    // Dual 8-bit counters baud mode.
+    edual8bit_baud = 1,
+    // Dual 8-bit counters PWM high mode.
+    edual8bit_pwm_h = 2,
+    // Single 16-bit counter mode.
+    esingle16bit = 3,
+    // Single 16-bit counter disable mode.
+    esingle16bit_disable = 4,
+    // Dual 8-bit counters word mode.
+    edual8bit_word = 5,
+    // Dual 8-bit counters PWM low mode.
+    edual8bit_pwm_l = 6,
+    // Single 16-bit input capture mode.
+    esingle16bit_in_capture = 7,
   };
   
+  // Timer One Time Operation
   enum class eONETIM : uint32_t {
-    enot_blocked = 0, // The timer enable event is generated as normal.
-    eblocked = 1, // The timer enable event is blocked unless timer status flag is clear.
+    // The timer enable event is generated as normal.
+    enot_blocked = 0,
+    // The timer enable event is blocked unless timer status flag is clear.
+    eblocked = 1,
   };
   
+  // Timer Pin Input Select
   enum class ePININS : uint32_t {
-    epinsel = 0, // Timer pin input and output are selected by PINSEL.
-    epinselplus1 = 1, // Timer pin input is selected by PINSEL+1, timer pin output remains selected by PINSEL.
+    // Timer pin input and output are selected by PINSEL.
+    epinsel = 0,
+    // Timer pin input is selected by PINSEL+1, timer pin output remains selected by PINSEL.
+    epinselplus1 = 1,
   };
   
+  // Timer Pin Polarity
   enum class ePINPOL : uint32_t {
-    eactive_high = 0, // Pin is active high
-    eactive_low = 1, // Pin is active low
+    // Pin is active high
+    eactive_high = 0,
+    // Pin is active low
+    eactive_low = 1,
   };
   
+  // Timer Pin Configuration
   enum class ePINCFG : uint32_t {
-    eoutdisable = 0, // Timer pin output disabled
-    eopend_bidirouten = 1, // Timer pin open drain or bidirectional output enable
-    ebidir_outdata = 2, // Timer pin bidirectional output data
-    eoutput = 3, // Timer pin output
+    // Timer pin output disabled
+    eoutdisable = 0,
+    // Timer pin open drain or bidirectional output enable
+    eopend_bidirouten = 1,
+    // Timer pin bidirectional output data
+    ebidir_outdata = 2,
+    // Timer pin output
+    eoutput = 3,
   };
   
+  // Trigger Source
   enum class eTRGSRC : uint32_t {
-    eext_trig = 0, // External trigger selected
-    einternal_trig = 1, // Internal trigger selected
+    // External trigger selected
+    eext_trig = 0,
+    // Internal trigger selected
+    einternal_trig = 1,
   };
   
+  // Trigger Polarity
   enum class eTRGPOL : uint32_t {
-    eactive_high = 0, // Trigger active high
-    eactive_low = 1, // Trigger active low
+    // Trigger active high
+    eactive_high = 0,
+    // Trigger active low
+    eactive_low = 1,
   };
   
   // Bit field definition.
   struct {
-    /// read-write - Timer Mode
+    // read-write - Timer Mode
     eTIMOD TIMOD : 3;
     uint32_t _reserved_0 : 2;
-    /// read-write - Timer One Time Operation
+    // read-write - Timer One Time Operation
     eONETIM ONETIM : 1;
-    /// read-write - Timer Pin Input Select
+    // read-write - Timer Pin Input Select
     ePININS PININS : 1;
-    /// read-write - Timer Pin Polarity
+    // read-write - Timer Pin Polarity
     ePINPOL PINPOL : 1;
-    /// read-write - Timer Pin Select
+    // read-write - Timer Pin Select
     uint32_t PINSEL : 5;
     uint32_t _reserved_1 : 3;
-    /// read-write - Timer Pin Configuration
+    // read-write - Timer Pin Configuration
     ePINCFG PINCFG : 2;
     uint32_t _reserved_2 : 4;
-    /// read-write - Trigger Source
+    // read-write - Trigger Source
     eTRGSRC TRGSRC : 1;
-    /// read-write - Trigger Polarity
+    // read-write - Trigger Polarity
     eTRGPOL TRGPOL : 1;
-    /// read-write - Trigger Select
+    // read-write - Trigger Select
     uint32_t TRGSEL : 6;
     uint32_t _reserved_3 : 2;
   } bits;
@@ -2296,74 +2720,102 @@ union TIMCTL[6] {
   static inline volatile TIMCTL[6] &Instance() { return *reinterpret_cast<volatile TIMCTL[6]*>(0x400AC418); }
 };
 // Timer Control N Register
-//
 union TIMCTL[7] {
   
+  // Timer Mode
   enum class eTIMOD : uint32_t {
-    edisable = 0, // Timer Disabled.
-    edual8bit_baud = 1, // Dual 8-bit counters baud mode.
-    edual8bit_pwm_h = 2, // Dual 8-bit counters PWM high mode.
-    esingle16bit = 3, // Single 16-bit counter mode.
-    esingle16bit_disable = 4, // Single 16-bit counter disable mode.
-    edual8bit_word = 5, // Dual 8-bit counters word mode.
-    edual8bit_pwm_l = 6, // Dual 8-bit counters PWM low mode.
-    esingle16bit_in_capture = 7, // Single 16-bit input capture mode.
+    // Timer Disabled.
+    edisable = 0,
+    // Dual 8-bit counters baud mode.
+    edual8bit_baud = 1,
+    // Dual 8-bit counters PWM high mode.
+    edual8bit_pwm_h = 2,
+    // Single 16-bit counter mode.
+    esingle16bit = 3,
+    // Single 16-bit counter disable mode.
+    esingle16bit_disable = 4,
+    // Dual 8-bit counters word mode.
+    edual8bit_word = 5,
+    // Dual 8-bit counters PWM low mode.
+    edual8bit_pwm_l = 6,
+    // Single 16-bit input capture mode.
+    esingle16bit_in_capture = 7,
   };
   
+  // Timer One Time Operation
   enum class eONETIM : uint32_t {
-    enot_blocked = 0, // The timer enable event is generated as normal.
-    eblocked = 1, // The timer enable event is blocked unless timer status flag is clear.
+    // The timer enable event is generated as normal.
+    enot_blocked = 0,
+    // The timer enable event is blocked unless timer status flag is clear.
+    eblocked = 1,
   };
   
+  // Timer Pin Input Select
   enum class ePININS : uint32_t {
-    epinsel = 0, // Timer pin input and output are selected by PINSEL.
-    epinselplus1 = 1, // Timer pin input is selected by PINSEL+1, timer pin output remains selected by PINSEL.
+    // Timer pin input and output are selected by PINSEL.
+    epinsel = 0,
+    // Timer pin input is selected by PINSEL+1, timer pin output remains selected by PINSEL.
+    epinselplus1 = 1,
   };
   
+  // Timer Pin Polarity
   enum class ePINPOL : uint32_t {
-    eactive_high = 0, // Pin is active high
-    eactive_low = 1, // Pin is active low
+    // Pin is active high
+    eactive_high = 0,
+    // Pin is active low
+    eactive_low = 1,
   };
   
+  // Timer Pin Configuration
   enum class ePINCFG : uint32_t {
-    eoutdisable = 0, // Timer pin output disabled
-    eopend_bidirouten = 1, // Timer pin open drain or bidirectional output enable
-    ebidir_outdata = 2, // Timer pin bidirectional output data
-    eoutput = 3, // Timer pin output
+    // Timer pin output disabled
+    eoutdisable = 0,
+    // Timer pin open drain or bidirectional output enable
+    eopend_bidirouten = 1,
+    // Timer pin bidirectional output data
+    ebidir_outdata = 2,
+    // Timer pin output
+    eoutput = 3,
   };
   
+  // Trigger Source
   enum class eTRGSRC : uint32_t {
-    eext_trig = 0, // External trigger selected
-    einternal_trig = 1, // Internal trigger selected
+    // External trigger selected
+    eext_trig = 0,
+    // Internal trigger selected
+    einternal_trig = 1,
   };
   
+  // Trigger Polarity
   enum class eTRGPOL : uint32_t {
-    eactive_high = 0, // Trigger active high
-    eactive_low = 1, // Trigger active low
+    // Trigger active high
+    eactive_high = 0,
+    // Trigger active low
+    eactive_low = 1,
   };
   
   // Bit field definition.
   struct {
-    /// read-write - Timer Mode
+    // read-write - Timer Mode
     eTIMOD TIMOD : 3;
     uint32_t _reserved_0 : 2;
-    /// read-write - Timer One Time Operation
+    // read-write - Timer One Time Operation
     eONETIM ONETIM : 1;
-    /// read-write - Timer Pin Input Select
+    // read-write - Timer Pin Input Select
     ePININS PININS : 1;
-    /// read-write - Timer Pin Polarity
+    // read-write - Timer Pin Polarity
     ePINPOL PINPOL : 1;
-    /// read-write - Timer Pin Select
+    // read-write - Timer Pin Select
     uint32_t PINSEL : 5;
     uint32_t _reserved_1 : 3;
-    /// read-write - Timer Pin Configuration
+    // read-write - Timer Pin Configuration
     ePINCFG PINCFG : 2;
     uint32_t _reserved_2 : 4;
-    /// read-write - Trigger Source
+    // read-write - Trigger Source
     eTRGSRC TRGSRC : 1;
-    /// read-write - Trigger Polarity
+    // read-write - Trigger Polarity
     eTRGPOL TRGPOL : 1;
-    /// read-write - Trigger Select
+    // read-write - Trigger Select
     uint32_t TRGSEL : 6;
     uint32_t _reserved_3 : 2;
   } bits;
@@ -2377,92 +2829,138 @@ union TIMCTL[7] {
 };
 
 // Timer Configuration N Register
-//
 union TIMCFG[0] {
   
+  // Timer Start Bit
   enum class eTSTART : uint32_t {
-    edisable = 0, // Start bit disabled
-    eenable = 1, // Start bit enabled
+    // Start bit disabled
+    edisable = 0,
+    // Start bit enabled
+    eenable = 1,
   };
   
+  // Timer Stop Bit
   enum class eTSTOP : uint32_t {
-    estop_disable = 0, // Stop bit disabled
-    eenable_tmrcmp = 1, // Stop bit is enabled on timer compare
-    eenable_tmrdisable = 2, // Stop bit is enabled on timer disable
-    eenable_tmr_cmp_dis = 3, // Stop bit is enabled on timer compare and timer disable
+    // Stop bit disabled
+    estop_disable = 0,
+    // Stop bit is enabled on timer compare
+    eenable_tmrcmp = 1,
+    // Stop bit is enabled on timer disable
+    eenable_tmrdisable = 2,
+    // Stop bit is enabled on timer compare and timer disable
+    eenable_tmr_cmp_dis = 3,
   };
   
+  // Timer Enable
   enum class eTIMENA : uint32_t {
-    eenable = 0, // Timer always enabled
-    etmr_nminus1_en = 1, // Timer enabled on Timer N-1 enable
-    etmr_trighi_en = 2, // Timer enabled on Trigger high
-    etmr_trig_pin_hi_en = 3, // Timer enabled on Trigger high and Pin high
-    etmr_pinrise_en = 4, // Timer enabled on Pin rising edge
-    etmr_pinrise_trighi_en = 5, // Timer enabled on Pin rising edge and Trigger high
-    etmr_trigrise_en = 6, // Timer enabled on Trigger rising edge
-    etmr_trigedge_en = 7, // Timer enabled on Trigger rising or falling edge
+    // Timer always enabled
+    eenable = 0,
+    // Timer enabled on Timer N-1 enable
+    etmr_nminus1_en = 1,
+    // Timer enabled on Trigger high
+    etmr_trighi_en = 2,
+    // Timer enabled on Trigger high and Pin high
+    etmr_trig_pin_hi_en = 3,
+    // Timer enabled on Pin rising edge
+    etmr_pinrise_en = 4,
+    // Timer enabled on Pin rising edge and Trigger high
+    etmr_pinrise_trighi_en = 5,
+    // Timer enabled on Trigger rising edge
+    etmr_trigrise_en = 6,
+    // Timer enabled on Trigger rising or falling edge
+    etmr_trigedge_en = 7,
   };
   
+  // Timer Disable
   enum class eTIMDIS : uint32_t {
-    enever = 0, // Timer never disabled
-    etmr_nminus1 = 1, // Timer disabled on Timer N-1 disable
-    etmr_cmp = 2, // Timer disabled on Timer compare (upper 8-bits match and decrement)
-    etmr_cmp_triglow = 3, // Timer disabled on Timer compare (upper 8-bits match and decrement) and Trigger Low
-    epin_edge = 4, // Timer disabled on Pin rising or falling edge
-    epin_edge_trighi = 5, // Timer disabled on Pin rising or falling edge provided Trigger is high
-    etrig_falledge = 6, // Timer disabled on Trigger falling edge
+    // Timer never disabled
+    enever = 0,
+    // Timer disabled on Timer N-1 disable
+    etmr_nminus1 = 1,
+    // Timer disabled on Timer compare (upper 8-bits match and decrement)
+    etmr_cmp = 2,
+    // Timer disabled on Timer compare (upper 8-bits match and decrement) and Trigger Low
+    etmr_cmp_triglow = 3,
+    // Timer disabled on Pin rising or falling edge
+    epin_edge = 4,
+    // Timer disabled on Pin rising or falling edge provided Trigger is high
+    epin_edge_trighi = 5,
+    // Timer disabled on Trigger falling edge
+    etrig_falledge = 6,
   };
   
+  // Timer Reset
   enum class eTIMRST : uint32_t {
-    enever = 0, // Timer never reset
-    etmr_out_hi = 1, // Timer reset on Timer Output high.
-    epin_eq_tmr_out = 2, // Timer reset on Timer Pin equal to Timer Output
-    etrig_eq_tmr_out = 3, // Timer reset on Timer Trigger equal to Timer Output
-    epin_rise_edge = 4, // Timer reset on Timer Pin rising edge
-    etrig_rise_edge = 6, // Timer reset on Trigger rising edge
-    etrig_edge = 7, // Timer reset on Trigger rising or falling edge
+    // Timer never reset
+    enever = 0,
+    // Timer reset on Timer Output high.
+    etmr_out_hi = 1,
+    // Timer reset on Timer Pin equal to Timer Output
+    epin_eq_tmr_out = 2,
+    // Timer reset on Timer Trigger equal to Timer Output
+    etrig_eq_tmr_out = 3,
+    // Timer reset on Timer Pin rising edge
+    epin_rise_edge = 4,
+    // Timer reset on Trigger rising edge
+    etrig_rise_edge = 6,
+    // Timer reset on Trigger rising or falling edge
+    etrig_edge = 7,
   };
   
+  // Timer Decrement
   enum class eTIMDEC : uint32_t {
-    eflexio_clk_shiftclk_tmr_out = 0, // Decrement counter on FlexIO clock, Shift clock equals Timer output.
-    etrig_edge_shiftclk_tmr_out = 1, // Decrement counter on Trigger input (both edges), Shift clock equals Timer output.
-    epin_edge_shiftclk_tmr_out = 2, // Decrement counter on Pin input (both edges), Shift clock equals Pin input.
-    etrig_edge_shiftclk_trig_in = 3, // Decrement counter on Trigger input (both edges), Shift clock equals Trigger input.
-    eflexio_clk_div16_shiftclk_tmr_out = 4, // Decrement counter on FlexIO clock divided by 16, Shift clock equals Timer output.
-    eflexio_clk_div256_shiftclk_tmr_out = 5, // Decrement counter on FlexIO clock divided by 256, Shift clock equals Timer output.
-    epin_rise_shiftclk_pin_in = 6, // Decrement counter on Pin input (rising edge), Shift clock equals Pin input.
-    etrig_rise_shiftclk_trig_in = 7, // Decrement counter on Trigger input (rising edge), Shift clock equals Trigger input.
+    // Decrement counter on FlexIO clock, Shift clock equals Timer output.
+    eflexio_clk_shiftclk_tmr_out = 0,
+    // Decrement counter on Trigger input (both edges), Shift clock equals Timer output.
+    etrig_edge_shiftclk_tmr_out = 1,
+    // Decrement counter on Pin input (both edges), Shift clock equals Pin input.
+    epin_edge_shiftclk_tmr_out = 2,
+    // Decrement counter on Trigger input (both edges), Shift clock equals Trigger input.
+    etrig_edge_shiftclk_trig_in = 3,
+    // Decrement counter on FlexIO clock divided by 16, Shift clock equals Timer output.
+    eflexio_clk_div16_shiftclk_tmr_out = 4,
+    // Decrement counter on FlexIO clock divided by 256, Shift clock equals Timer output.
+    eflexio_clk_div256_shiftclk_tmr_out = 5,
+    // Decrement counter on Pin input (rising edge), Shift clock equals Pin input.
+    epin_rise_shiftclk_pin_in = 6,
+    // Decrement counter on Trigger input (rising edge), Shift clock equals Trigger input.
+    etrig_rise_shiftclk_trig_in = 7,
   };
   
+  // Timer Output
   enum class eTIMOUT : uint32_t {
-    eone = 0, // Timer output is logic one when enabled and is not affected by timer reset
-    ezero = 1, // Timer output is logic zero when enabled and is not affected by timer reset
-    eone_tmrreset = 2, // Timer output is logic one when enabled and on timer reset
-    ezero_tmrreset = 3, // Timer output is logic zero when enabled and on timer reset
+    // Timer output is logic one when enabled and is not affected by timer reset
+    eone = 0,
+    // Timer output is logic zero when enabled and is not affected by timer reset
+    ezero = 1,
+    // Timer output is logic one when enabled and on timer reset
+    eone_tmrreset = 2,
+    // Timer output is logic zero when enabled and on timer reset
+    ezero_tmrreset = 3,
   };
   
   // Bit field definition.
   struct {
     uint32_t _reserved_0 : 1;
-    /// read-write - Timer Start Bit
+    // read-write - Timer Start Bit
     eTSTART TSTART : 1;
     uint32_t _reserved_1 : 2;
-    /// read-write - Timer Stop Bit
+    // read-write - Timer Stop Bit
     eTSTOP TSTOP : 2;
     uint32_t _reserved_2 : 2;
-    /// read-write - Timer Enable
+    // read-write - Timer Enable
     eTIMENA TIMENA : 3;
     uint32_t _reserved_3 : 1;
-    /// read-write - Timer Disable
+    // read-write - Timer Disable
     eTIMDIS TIMDIS : 3;
     uint32_t _reserved_4 : 1;
-    /// read-write - Timer Reset
+    // read-write - Timer Reset
     eTIMRST TIMRST : 3;
     uint32_t _reserved_5 : 1;
-    /// read-write - Timer Decrement
+    // read-write - Timer Decrement
     eTIMDEC TIMDEC : 3;
     uint32_t _reserved_6 : 1;
-    /// read-write - Timer Output
+    // read-write - Timer Output
     eTIMOUT TIMOUT : 2;
     uint32_t _reserved_7 : 6;
   } bits;
@@ -2475,92 +2973,138 @@ union TIMCFG[0] {
   static inline volatile TIMCFG[0] &Instance() { return *reinterpret_cast<volatile TIMCFG[0]*>(0x400AC480); }
 };
 // Timer Configuration N Register
-//
 union TIMCFG[1] {
   
+  // Timer Start Bit
   enum class eTSTART : uint32_t {
-    edisable = 0, // Start bit disabled
-    eenable = 1, // Start bit enabled
+    // Start bit disabled
+    edisable = 0,
+    // Start bit enabled
+    eenable = 1,
   };
   
+  // Timer Stop Bit
   enum class eTSTOP : uint32_t {
-    estop_disable = 0, // Stop bit disabled
-    eenable_tmrcmp = 1, // Stop bit is enabled on timer compare
-    eenable_tmrdisable = 2, // Stop bit is enabled on timer disable
-    eenable_tmr_cmp_dis = 3, // Stop bit is enabled on timer compare and timer disable
+    // Stop bit disabled
+    estop_disable = 0,
+    // Stop bit is enabled on timer compare
+    eenable_tmrcmp = 1,
+    // Stop bit is enabled on timer disable
+    eenable_tmrdisable = 2,
+    // Stop bit is enabled on timer compare and timer disable
+    eenable_tmr_cmp_dis = 3,
   };
   
+  // Timer Enable
   enum class eTIMENA : uint32_t {
-    eenable = 0, // Timer always enabled
-    etmr_nminus1_en = 1, // Timer enabled on Timer N-1 enable
-    etmr_trighi_en = 2, // Timer enabled on Trigger high
-    etmr_trig_pin_hi_en = 3, // Timer enabled on Trigger high and Pin high
-    etmr_pinrise_en = 4, // Timer enabled on Pin rising edge
-    etmr_pinrise_trighi_en = 5, // Timer enabled on Pin rising edge and Trigger high
-    etmr_trigrise_en = 6, // Timer enabled on Trigger rising edge
-    etmr_trigedge_en = 7, // Timer enabled on Trigger rising or falling edge
+    // Timer always enabled
+    eenable = 0,
+    // Timer enabled on Timer N-1 enable
+    etmr_nminus1_en = 1,
+    // Timer enabled on Trigger high
+    etmr_trighi_en = 2,
+    // Timer enabled on Trigger high and Pin high
+    etmr_trig_pin_hi_en = 3,
+    // Timer enabled on Pin rising edge
+    etmr_pinrise_en = 4,
+    // Timer enabled on Pin rising edge and Trigger high
+    etmr_pinrise_trighi_en = 5,
+    // Timer enabled on Trigger rising edge
+    etmr_trigrise_en = 6,
+    // Timer enabled on Trigger rising or falling edge
+    etmr_trigedge_en = 7,
   };
   
+  // Timer Disable
   enum class eTIMDIS : uint32_t {
-    enever = 0, // Timer never disabled
-    etmr_nminus1 = 1, // Timer disabled on Timer N-1 disable
-    etmr_cmp = 2, // Timer disabled on Timer compare (upper 8-bits match and decrement)
-    etmr_cmp_triglow = 3, // Timer disabled on Timer compare (upper 8-bits match and decrement) and Trigger Low
-    epin_edge = 4, // Timer disabled on Pin rising or falling edge
-    epin_edge_trighi = 5, // Timer disabled on Pin rising or falling edge provided Trigger is high
-    etrig_falledge = 6, // Timer disabled on Trigger falling edge
+    // Timer never disabled
+    enever = 0,
+    // Timer disabled on Timer N-1 disable
+    etmr_nminus1 = 1,
+    // Timer disabled on Timer compare (upper 8-bits match and decrement)
+    etmr_cmp = 2,
+    // Timer disabled on Timer compare (upper 8-bits match and decrement) and Trigger Low
+    etmr_cmp_triglow = 3,
+    // Timer disabled on Pin rising or falling edge
+    epin_edge = 4,
+    // Timer disabled on Pin rising or falling edge provided Trigger is high
+    epin_edge_trighi = 5,
+    // Timer disabled on Trigger falling edge
+    etrig_falledge = 6,
   };
   
+  // Timer Reset
   enum class eTIMRST : uint32_t {
-    enever = 0, // Timer never reset
-    etmr_out_hi = 1, // Timer reset on Timer Output high.
-    epin_eq_tmr_out = 2, // Timer reset on Timer Pin equal to Timer Output
-    etrig_eq_tmr_out = 3, // Timer reset on Timer Trigger equal to Timer Output
-    epin_rise_edge = 4, // Timer reset on Timer Pin rising edge
-    etrig_rise_edge = 6, // Timer reset on Trigger rising edge
-    etrig_edge = 7, // Timer reset on Trigger rising or falling edge
+    // Timer never reset
+    enever = 0,
+    // Timer reset on Timer Output high.
+    etmr_out_hi = 1,
+    // Timer reset on Timer Pin equal to Timer Output
+    epin_eq_tmr_out = 2,
+    // Timer reset on Timer Trigger equal to Timer Output
+    etrig_eq_tmr_out = 3,
+    // Timer reset on Timer Pin rising edge
+    epin_rise_edge = 4,
+    // Timer reset on Trigger rising edge
+    etrig_rise_edge = 6,
+    // Timer reset on Trigger rising or falling edge
+    etrig_edge = 7,
   };
   
+  // Timer Decrement
   enum class eTIMDEC : uint32_t {
-    eflexio_clk_shiftclk_tmr_out = 0, // Decrement counter on FlexIO clock, Shift clock equals Timer output.
-    etrig_edge_shiftclk_tmr_out = 1, // Decrement counter on Trigger input (both edges), Shift clock equals Timer output.
-    epin_edge_shiftclk_tmr_out = 2, // Decrement counter on Pin input (both edges), Shift clock equals Pin input.
-    etrig_edge_shiftclk_trig_in = 3, // Decrement counter on Trigger input (both edges), Shift clock equals Trigger input.
-    eflexio_clk_div16_shiftclk_tmr_out = 4, // Decrement counter on FlexIO clock divided by 16, Shift clock equals Timer output.
-    eflexio_clk_div256_shiftclk_tmr_out = 5, // Decrement counter on FlexIO clock divided by 256, Shift clock equals Timer output.
-    epin_rise_shiftclk_pin_in = 6, // Decrement counter on Pin input (rising edge), Shift clock equals Pin input.
-    etrig_rise_shiftclk_trig_in = 7, // Decrement counter on Trigger input (rising edge), Shift clock equals Trigger input.
+    // Decrement counter on FlexIO clock, Shift clock equals Timer output.
+    eflexio_clk_shiftclk_tmr_out = 0,
+    // Decrement counter on Trigger input (both edges), Shift clock equals Timer output.
+    etrig_edge_shiftclk_tmr_out = 1,
+    // Decrement counter on Pin input (both edges), Shift clock equals Pin input.
+    epin_edge_shiftclk_tmr_out = 2,
+    // Decrement counter on Trigger input (both edges), Shift clock equals Trigger input.
+    etrig_edge_shiftclk_trig_in = 3,
+    // Decrement counter on FlexIO clock divided by 16, Shift clock equals Timer output.
+    eflexio_clk_div16_shiftclk_tmr_out = 4,
+    // Decrement counter on FlexIO clock divided by 256, Shift clock equals Timer output.
+    eflexio_clk_div256_shiftclk_tmr_out = 5,
+    // Decrement counter on Pin input (rising edge), Shift clock equals Pin input.
+    epin_rise_shiftclk_pin_in = 6,
+    // Decrement counter on Trigger input (rising edge), Shift clock equals Trigger input.
+    etrig_rise_shiftclk_trig_in = 7,
   };
   
+  // Timer Output
   enum class eTIMOUT : uint32_t {
-    eone = 0, // Timer output is logic one when enabled and is not affected by timer reset
-    ezero = 1, // Timer output is logic zero when enabled and is not affected by timer reset
-    eone_tmrreset = 2, // Timer output is logic one when enabled and on timer reset
-    ezero_tmrreset = 3, // Timer output is logic zero when enabled and on timer reset
+    // Timer output is logic one when enabled and is not affected by timer reset
+    eone = 0,
+    // Timer output is logic zero when enabled and is not affected by timer reset
+    ezero = 1,
+    // Timer output is logic one when enabled and on timer reset
+    eone_tmrreset = 2,
+    // Timer output is logic zero when enabled and on timer reset
+    ezero_tmrreset = 3,
   };
   
   // Bit field definition.
   struct {
     uint32_t _reserved_0 : 1;
-    /// read-write - Timer Start Bit
+    // read-write - Timer Start Bit
     eTSTART TSTART : 1;
     uint32_t _reserved_1 : 2;
-    /// read-write - Timer Stop Bit
+    // read-write - Timer Stop Bit
     eTSTOP TSTOP : 2;
     uint32_t _reserved_2 : 2;
-    /// read-write - Timer Enable
+    // read-write - Timer Enable
     eTIMENA TIMENA : 3;
     uint32_t _reserved_3 : 1;
-    /// read-write - Timer Disable
+    // read-write - Timer Disable
     eTIMDIS TIMDIS : 3;
     uint32_t _reserved_4 : 1;
-    /// read-write - Timer Reset
+    // read-write - Timer Reset
     eTIMRST TIMRST : 3;
     uint32_t _reserved_5 : 1;
-    /// read-write - Timer Decrement
+    // read-write - Timer Decrement
     eTIMDEC TIMDEC : 3;
     uint32_t _reserved_6 : 1;
-    /// read-write - Timer Output
+    // read-write - Timer Output
     eTIMOUT TIMOUT : 2;
     uint32_t _reserved_7 : 6;
   } bits;
@@ -2573,92 +3117,138 @@ union TIMCFG[1] {
   static inline volatile TIMCFG[1] &Instance() { return *reinterpret_cast<volatile TIMCFG[1]*>(0x400AC484); }
 };
 // Timer Configuration N Register
-//
 union TIMCFG[2] {
   
+  // Timer Start Bit
   enum class eTSTART : uint32_t {
-    edisable = 0, // Start bit disabled
-    eenable = 1, // Start bit enabled
+    // Start bit disabled
+    edisable = 0,
+    // Start bit enabled
+    eenable = 1,
   };
   
+  // Timer Stop Bit
   enum class eTSTOP : uint32_t {
-    estop_disable = 0, // Stop bit disabled
-    eenable_tmrcmp = 1, // Stop bit is enabled on timer compare
-    eenable_tmrdisable = 2, // Stop bit is enabled on timer disable
-    eenable_tmr_cmp_dis = 3, // Stop bit is enabled on timer compare and timer disable
+    // Stop bit disabled
+    estop_disable = 0,
+    // Stop bit is enabled on timer compare
+    eenable_tmrcmp = 1,
+    // Stop bit is enabled on timer disable
+    eenable_tmrdisable = 2,
+    // Stop bit is enabled on timer compare and timer disable
+    eenable_tmr_cmp_dis = 3,
   };
   
+  // Timer Enable
   enum class eTIMENA : uint32_t {
-    eenable = 0, // Timer always enabled
-    etmr_nminus1_en = 1, // Timer enabled on Timer N-1 enable
-    etmr_trighi_en = 2, // Timer enabled on Trigger high
-    etmr_trig_pin_hi_en = 3, // Timer enabled on Trigger high and Pin high
-    etmr_pinrise_en = 4, // Timer enabled on Pin rising edge
-    etmr_pinrise_trighi_en = 5, // Timer enabled on Pin rising edge and Trigger high
-    etmr_trigrise_en = 6, // Timer enabled on Trigger rising edge
-    etmr_trigedge_en = 7, // Timer enabled on Trigger rising or falling edge
+    // Timer always enabled
+    eenable = 0,
+    // Timer enabled on Timer N-1 enable
+    etmr_nminus1_en = 1,
+    // Timer enabled on Trigger high
+    etmr_trighi_en = 2,
+    // Timer enabled on Trigger high and Pin high
+    etmr_trig_pin_hi_en = 3,
+    // Timer enabled on Pin rising edge
+    etmr_pinrise_en = 4,
+    // Timer enabled on Pin rising edge and Trigger high
+    etmr_pinrise_trighi_en = 5,
+    // Timer enabled on Trigger rising edge
+    etmr_trigrise_en = 6,
+    // Timer enabled on Trigger rising or falling edge
+    etmr_trigedge_en = 7,
   };
   
+  // Timer Disable
   enum class eTIMDIS : uint32_t {
-    enever = 0, // Timer never disabled
-    etmr_nminus1 = 1, // Timer disabled on Timer N-1 disable
-    etmr_cmp = 2, // Timer disabled on Timer compare (upper 8-bits match and decrement)
-    etmr_cmp_triglow = 3, // Timer disabled on Timer compare (upper 8-bits match and decrement) and Trigger Low
-    epin_edge = 4, // Timer disabled on Pin rising or falling edge
-    epin_edge_trighi = 5, // Timer disabled on Pin rising or falling edge provided Trigger is high
-    etrig_falledge = 6, // Timer disabled on Trigger falling edge
+    // Timer never disabled
+    enever = 0,
+    // Timer disabled on Timer N-1 disable
+    etmr_nminus1 = 1,
+    // Timer disabled on Timer compare (upper 8-bits match and decrement)
+    etmr_cmp = 2,
+    // Timer disabled on Timer compare (upper 8-bits match and decrement) and Trigger Low
+    etmr_cmp_triglow = 3,
+    // Timer disabled on Pin rising or falling edge
+    epin_edge = 4,
+    // Timer disabled on Pin rising or falling edge provided Trigger is high
+    epin_edge_trighi = 5,
+    // Timer disabled on Trigger falling edge
+    etrig_falledge = 6,
   };
   
+  // Timer Reset
   enum class eTIMRST : uint32_t {
-    enever = 0, // Timer never reset
-    etmr_out_hi = 1, // Timer reset on Timer Output high.
-    epin_eq_tmr_out = 2, // Timer reset on Timer Pin equal to Timer Output
-    etrig_eq_tmr_out = 3, // Timer reset on Timer Trigger equal to Timer Output
-    epin_rise_edge = 4, // Timer reset on Timer Pin rising edge
-    etrig_rise_edge = 6, // Timer reset on Trigger rising edge
-    etrig_edge = 7, // Timer reset on Trigger rising or falling edge
+    // Timer never reset
+    enever = 0,
+    // Timer reset on Timer Output high.
+    etmr_out_hi = 1,
+    // Timer reset on Timer Pin equal to Timer Output
+    epin_eq_tmr_out = 2,
+    // Timer reset on Timer Trigger equal to Timer Output
+    etrig_eq_tmr_out = 3,
+    // Timer reset on Timer Pin rising edge
+    epin_rise_edge = 4,
+    // Timer reset on Trigger rising edge
+    etrig_rise_edge = 6,
+    // Timer reset on Trigger rising or falling edge
+    etrig_edge = 7,
   };
   
+  // Timer Decrement
   enum class eTIMDEC : uint32_t {
-    eflexio_clk_shiftclk_tmr_out = 0, // Decrement counter on FlexIO clock, Shift clock equals Timer output.
-    etrig_edge_shiftclk_tmr_out = 1, // Decrement counter on Trigger input (both edges), Shift clock equals Timer output.
-    epin_edge_shiftclk_tmr_out = 2, // Decrement counter on Pin input (both edges), Shift clock equals Pin input.
-    etrig_edge_shiftclk_trig_in = 3, // Decrement counter on Trigger input (both edges), Shift clock equals Trigger input.
-    eflexio_clk_div16_shiftclk_tmr_out = 4, // Decrement counter on FlexIO clock divided by 16, Shift clock equals Timer output.
-    eflexio_clk_div256_shiftclk_tmr_out = 5, // Decrement counter on FlexIO clock divided by 256, Shift clock equals Timer output.
-    epin_rise_shiftclk_pin_in = 6, // Decrement counter on Pin input (rising edge), Shift clock equals Pin input.
-    etrig_rise_shiftclk_trig_in = 7, // Decrement counter on Trigger input (rising edge), Shift clock equals Trigger input.
+    // Decrement counter on FlexIO clock, Shift clock equals Timer output.
+    eflexio_clk_shiftclk_tmr_out = 0,
+    // Decrement counter on Trigger input (both edges), Shift clock equals Timer output.
+    etrig_edge_shiftclk_tmr_out = 1,
+    // Decrement counter on Pin input (both edges), Shift clock equals Pin input.
+    epin_edge_shiftclk_tmr_out = 2,
+    // Decrement counter on Trigger input (both edges), Shift clock equals Trigger input.
+    etrig_edge_shiftclk_trig_in = 3,
+    // Decrement counter on FlexIO clock divided by 16, Shift clock equals Timer output.
+    eflexio_clk_div16_shiftclk_tmr_out = 4,
+    // Decrement counter on FlexIO clock divided by 256, Shift clock equals Timer output.
+    eflexio_clk_div256_shiftclk_tmr_out = 5,
+    // Decrement counter on Pin input (rising edge), Shift clock equals Pin input.
+    epin_rise_shiftclk_pin_in = 6,
+    // Decrement counter on Trigger input (rising edge), Shift clock equals Trigger input.
+    etrig_rise_shiftclk_trig_in = 7,
   };
   
+  // Timer Output
   enum class eTIMOUT : uint32_t {
-    eone = 0, // Timer output is logic one when enabled and is not affected by timer reset
-    ezero = 1, // Timer output is logic zero when enabled and is not affected by timer reset
-    eone_tmrreset = 2, // Timer output is logic one when enabled and on timer reset
-    ezero_tmrreset = 3, // Timer output is logic zero when enabled and on timer reset
+    // Timer output is logic one when enabled and is not affected by timer reset
+    eone = 0,
+    // Timer output is logic zero when enabled and is not affected by timer reset
+    ezero = 1,
+    // Timer output is logic one when enabled and on timer reset
+    eone_tmrreset = 2,
+    // Timer output is logic zero when enabled and on timer reset
+    ezero_tmrreset = 3,
   };
   
   // Bit field definition.
   struct {
     uint32_t _reserved_0 : 1;
-    /// read-write - Timer Start Bit
+    // read-write - Timer Start Bit
     eTSTART TSTART : 1;
     uint32_t _reserved_1 : 2;
-    /// read-write - Timer Stop Bit
+    // read-write - Timer Stop Bit
     eTSTOP TSTOP : 2;
     uint32_t _reserved_2 : 2;
-    /// read-write - Timer Enable
+    // read-write - Timer Enable
     eTIMENA TIMENA : 3;
     uint32_t _reserved_3 : 1;
-    /// read-write - Timer Disable
+    // read-write - Timer Disable
     eTIMDIS TIMDIS : 3;
     uint32_t _reserved_4 : 1;
-    /// read-write - Timer Reset
+    // read-write - Timer Reset
     eTIMRST TIMRST : 3;
     uint32_t _reserved_5 : 1;
-    /// read-write - Timer Decrement
+    // read-write - Timer Decrement
     eTIMDEC TIMDEC : 3;
     uint32_t _reserved_6 : 1;
-    /// read-write - Timer Output
+    // read-write - Timer Output
     eTIMOUT TIMOUT : 2;
     uint32_t _reserved_7 : 6;
   } bits;
@@ -2671,92 +3261,138 @@ union TIMCFG[2] {
   static inline volatile TIMCFG[2] &Instance() { return *reinterpret_cast<volatile TIMCFG[2]*>(0x400AC488); }
 };
 // Timer Configuration N Register
-//
 union TIMCFG[3] {
   
+  // Timer Start Bit
   enum class eTSTART : uint32_t {
-    edisable = 0, // Start bit disabled
-    eenable = 1, // Start bit enabled
+    // Start bit disabled
+    edisable = 0,
+    // Start bit enabled
+    eenable = 1,
   };
   
+  // Timer Stop Bit
   enum class eTSTOP : uint32_t {
-    estop_disable = 0, // Stop bit disabled
-    eenable_tmrcmp = 1, // Stop bit is enabled on timer compare
-    eenable_tmrdisable = 2, // Stop bit is enabled on timer disable
-    eenable_tmr_cmp_dis = 3, // Stop bit is enabled on timer compare and timer disable
+    // Stop bit disabled
+    estop_disable = 0,
+    // Stop bit is enabled on timer compare
+    eenable_tmrcmp = 1,
+    // Stop bit is enabled on timer disable
+    eenable_tmrdisable = 2,
+    // Stop bit is enabled on timer compare and timer disable
+    eenable_tmr_cmp_dis = 3,
   };
   
+  // Timer Enable
   enum class eTIMENA : uint32_t {
-    eenable = 0, // Timer always enabled
-    etmr_nminus1_en = 1, // Timer enabled on Timer N-1 enable
-    etmr_trighi_en = 2, // Timer enabled on Trigger high
-    etmr_trig_pin_hi_en = 3, // Timer enabled on Trigger high and Pin high
-    etmr_pinrise_en = 4, // Timer enabled on Pin rising edge
-    etmr_pinrise_trighi_en = 5, // Timer enabled on Pin rising edge and Trigger high
-    etmr_trigrise_en = 6, // Timer enabled on Trigger rising edge
-    etmr_trigedge_en = 7, // Timer enabled on Trigger rising or falling edge
+    // Timer always enabled
+    eenable = 0,
+    // Timer enabled on Timer N-1 enable
+    etmr_nminus1_en = 1,
+    // Timer enabled on Trigger high
+    etmr_trighi_en = 2,
+    // Timer enabled on Trigger high and Pin high
+    etmr_trig_pin_hi_en = 3,
+    // Timer enabled on Pin rising edge
+    etmr_pinrise_en = 4,
+    // Timer enabled on Pin rising edge and Trigger high
+    etmr_pinrise_trighi_en = 5,
+    // Timer enabled on Trigger rising edge
+    etmr_trigrise_en = 6,
+    // Timer enabled on Trigger rising or falling edge
+    etmr_trigedge_en = 7,
   };
   
+  // Timer Disable
   enum class eTIMDIS : uint32_t {
-    enever = 0, // Timer never disabled
-    etmr_nminus1 = 1, // Timer disabled on Timer N-1 disable
-    etmr_cmp = 2, // Timer disabled on Timer compare (upper 8-bits match and decrement)
-    etmr_cmp_triglow = 3, // Timer disabled on Timer compare (upper 8-bits match and decrement) and Trigger Low
-    epin_edge = 4, // Timer disabled on Pin rising or falling edge
-    epin_edge_trighi = 5, // Timer disabled on Pin rising or falling edge provided Trigger is high
-    etrig_falledge = 6, // Timer disabled on Trigger falling edge
+    // Timer never disabled
+    enever = 0,
+    // Timer disabled on Timer N-1 disable
+    etmr_nminus1 = 1,
+    // Timer disabled on Timer compare (upper 8-bits match and decrement)
+    etmr_cmp = 2,
+    // Timer disabled on Timer compare (upper 8-bits match and decrement) and Trigger Low
+    etmr_cmp_triglow = 3,
+    // Timer disabled on Pin rising or falling edge
+    epin_edge = 4,
+    // Timer disabled on Pin rising or falling edge provided Trigger is high
+    epin_edge_trighi = 5,
+    // Timer disabled on Trigger falling edge
+    etrig_falledge = 6,
   };
   
+  // Timer Reset
   enum class eTIMRST : uint32_t {
-    enever = 0, // Timer never reset
-    etmr_out_hi = 1, // Timer reset on Timer Output high.
-    epin_eq_tmr_out = 2, // Timer reset on Timer Pin equal to Timer Output
-    etrig_eq_tmr_out = 3, // Timer reset on Timer Trigger equal to Timer Output
-    epin_rise_edge = 4, // Timer reset on Timer Pin rising edge
-    etrig_rise_edge = 6, // Timer reset on Trigger rising edge
-    etrig_edge = 7, // Timer reset on Trigger rising or falling edge
+    // Timer never reset
+    enever = 0,
+    // Timer reset on Timer Output high.
+    etmr_out_hi = 1,
+    // Timer reset on Timer Pin equal to Timer Output
+    epin_eq_tmr_out = 2,
+    // Timer reset on Timer Trigger equal to Timer Output
+    etrig_eq_tmr_out = 3,
+    // Timer reset on Timer Pin rising edge
+    epin_rise_edge = 4,
+    // Timer reset on Trigger rising edge
+    etrig_rise_edge = 6,
+    // Timer reset on Trigger rising or falling edge
+    etrig_edge = 7,
   };
   
+  // Timer Decrement
   enum class eTIMDEC : uint32_t {
-    eflexio_clk_shiftclk_tmr_out = 0, // Decrement counter on FlexIO clock, Shift clock equals Timer output.
-    etrig_edge_shiftclk_tmr_out = 1, // Decrement counter on Trigger input (both edges), Shift clock equals Timer output.
-    epin_edge_shiftclk_tmr_out = 2, // Decrement counter on Pin input (both edges), Shift clock equals Pin input.
-    etrig_edge_shiftclk_trig_in = 3, // Decrement counter on Trigger input (both edges), Shift clock equals Trigger input.
-    eflexio_clk_div16_shiftclk_tmr_out = 4, // Decrement counter on FlexIO clock divided by 16, Shift clock equals Timer output.
-    eflexio_clk_div256_shiftclk_tmr_out = 5, // Decrement counter on FlexIO clock divided by 256, Shift clock equals Timer output.
-    epin_rise_shiftclk_pin_in = 6, // Decrement counter on Pin input (rising edge), Shift clock equals Pin input.
-    etrig_rise_shiftclk_trig_in = 7, // Decrement counter on Trigger input (rising edge), Shift clock equals Trigger input.
+    // Decrement counter on FlexIO clock, Shift clock equals Timer output.
+    eflexio_clk_shiftclk_tmr_out = 0,
+    // Decrement counter on Trigger input (both edges), Shift clock equals Timer output.
+    etrig_edge_shiftclk_tmr_out = 1,
+    // Decrement counter on Pin input (both edges), Shift clock equals Pin input.
+    epin_edge_shiftclk_tmr_out = 2,
+    // Decrement counter on Trigger input (both edges), Shift clock equals Trigger input.
+    etrig_edge_shiftclk_trig_in = 3,
+    // Decrement counter on FlexIO clock divided by 16, Shift clock equals Timer output.
+    eflexio_clk_div16_shiftclk_tmr_out = 4,
+    // Decrement counter on FlexIO clock divided by 256, Shift clock equals Timer output.
+    eflexio_clk_div256_shiftclk_tmr_out = 5,
+    // Decrement counter on Pin input (rising edge), Shift clock equals Pin input.
+    epin_rise_shiftclk_pin_in = 6,
+    // Decrement counter on Trigger input (rising edge), Shift clock equals Trigger input.
+    etrig_rise_shiftclk_trig_in = 7,
   };
   
+  // Timer Output
   enum class eTIMOUT : uint32_t {
-    eone = 0, // Timer output is logic one when enabled and is not affected by timer reset
-    ezero = 1, // Timer output is logic zero when enabled and is not affected by timer reset
-    eone_tmrreset = 2, // Timer output is logic one when enabled and on timer reset
-    ezero_tmrreset = 3, // Timer output is logic zero when enabled and on timer reset
+    // Timer output is logic one when enabled and is not affected by timer reset
+    eone = 0,
+    // Timer output is logic zero when enabled and is not affected by timer reset
+    ezero = 1,
+    // Timer output is logic one when enabled and on timer reset
+    eone_tmrreset = 2,
+    // Timer output is logic zero when enabled and on timer reset
+    ezero_tmrreset = 3,
   };
   
   // Bit field definition.
   struct {
     uint32_t _reserved_0 : 1;
-    /// read-write - Timer Start Bit
+    // read-write - Timer Start Bit
     eTSTART TSTART : 1;
     uint32_t _reserved_1 : 2;
-    /// read-write - Timer Stop Bit
+    // read-write - Timer Stop Bit
     eTSTOP TSTOP : 2;
     uint32_t _reserved_2 : 2;
-    /// read-write - Timer Enable
+    // read-write - Timer Enable
     eTIMENA TIMENA : 3;
     uint32_t _reserved_3 : 1;
-    /// read-write - Timer Disable
+    // read-write - Timer Disable
     eTIMDIS TIMDIS : 3;
     uint32_t _reserved_4 : 1;
-    /// read-write - Timer Reset
+    // read-write - Timer Reset
     eTIMRST TIMRST : 3;
     uint32_t _reserved_5 : 1;
-    /// read-write - Timer Decrement
+    // read-write - Timer Decrement
     eTIMDEC TIMDEC : 3;
     uint32_t _reserved_6 : 1;
-    /// read-write - Timer Output
+    // read-write - Timer Output
     eTIMOUT TIMOUT : 2;
     uint32_t _reserved_7 : 6;
   } bits;
@@ -2769,92 +3405,138 @@ union TIMCFG[3] {
   static inline volatile TIMCFG[3] &Instance() { return *reinterpret_cast<volatile TIMCFG[3]*>(0x400AC48C); }
 };
 // Timer Configuration N Register
-//
 union TIMCFG[4] {
   
+  // Timer Start Bit
   enum class eTSTART : uint32_t {
-    edisable = 0, // Start bit disabled
-    eenable = 1, // Start bit enabled
+    // Start bit disabled
+    edisable = 0,
+    // Start bit enabled
+    eenable = 1,
   };
   
+  // Timer Stop Bit
   enum class eTSTOP : uint32_t {
-    estop_disable = 0, // Stop bit disabled
-    eenable_tmrcmp = 1, // Stop bit is enabled on timer compare
-    eenable_tmrdisable = 2, // Stop bit is enabled on timer disable
-    eenable_tmr_cmp_dis = 3, // Stop bit is enabled on timer compare and timer disable
+    // Stop bit disabled
+    estop_disable = 0,
+    // Stop bit is enabled on timer compare
+    eenable_tmrcmp = 1,
+    // Stop bit is enabled on timer disable
+    eenable_tmrdisable = 2,
+    // Stop bit is enabled on timer compare and timer disable
+    eenable_tmr_cmp_dis = 3,
   };
   
+  // Timer Enable
   enum class eTIMENA : uint32_t {
-    eenable = 0, // Timer always enabled
-    etmr_nminus1_en = 1, // Timer enabled on Timer N-1 enable
-    etmr_trighi_en = 2, // Timer enabled on Trigger high
-    etmr_trig_pin_hi_en = 3, // Timer enabled on Trigger high and Pin high
-    etmr_pinrise_en = 4, // Timer enabled on Pin rising edge
-    etmr_pinrise_trighi_en = 5, // Timer enabled on Pin rising edge and Trigger high
-    etmr_trigrise_en = 6, // Timer enabled on Trigger rising edge
-    etmr_trigedge_en = 7, // Timer enabled on Trigger rising or falling edge
+    // Timer always enabled
+    eenable = 0,
+    // Timer enabled on Timer N-1 enable
+    etmr_nminus1_en = 1,
+    // Timer enabled on Trigger high
+    etmr_trighi_en = 2,
+    // Timer enabled on Trigger high and Pin high
+    etmr_trig_pin_hi_en = 3,
+    // Timer enabled on Pin rising edge
+    etmr_pinrise_en = 4,
+    // Timer enabled on Pin rising edge and Trigger high
+    etmr_pinrise_trighi_en = 5,
+    // Timer enabled on Trigger rising edge
+    etmr_trigrise_en = 6,
+    // Timer enabled on Trigger rising or falling edge
+    etmr_trigedge_en = 7,
   };
   
+  // Timer Disable
   enum class eTIMDIS : uint32_t {
-    enever = 0, // Timer never disabled
-    etmr_nminus1 = 1, // Timer disabled on Timer N-1 disable
-    etmr_cmp = 2, // Timer disabled on Timer compare (upper 8-bits match and decrement)
-    etmr_cmp_triglow = 3, // Timer disabled on Timer compare (upper 8-bits match and decrement) and Trigger Low
-    epin_edge = 4, // Timer disabled on Pin rising or falling edge
-    epin_edge_trighi = 5, // Timer disabled on Pin rising or falling edge provided Trigger is high
-    etrig_falledge = 6, // Timer disabled on Trigger falling edge
+    // Timer never disabled
+    enever = 0,
+    // Timer disabled on Timer N-1 disable
+    etmr_nminus1 = 1,
+    // Timer disabled on Timer compare (upper 8-bits match and decrement)
+    etmr_cmp = 2,
+    // Timer disabled on Timer compare (upper 8-bits match and decrement) and Trigger Low
+    etmr_cmp_triglow = 3,
+    // Timer disabled on Pin rising or falling edge
+    epin_edge = 4,
+    // Timer disabled on Pin rising or falling edge provided Trigger is high
+    epin_edge_trighi = 5,
+    // Timer disabled on Trigger falling edge
+    etrig_falledge = 6,
   };
   
+  // Timer Reset
   enum class eTIMRST : uint32_t {
-    enever = 0, // Timer never reset
-    etmr_out_hi = 1, // Timer reset on Timer Output high.
-    epin_eq_tmr_out = 2, // Timer reset on Timer Pin equal to Timer Output
-    etrig_eq_tmr_out = 3, // Timer reset on Timer Trigger equal to Timer Output
-    epin_rise_edge = 4, // Timer reset on Timer Pin rising edge
-    etrig_rise_edge = 6, // Timer reset on Trigger rising edge
-    etrig_edge = 7, // Timer reset on Trigger rising or falling edge
+    // Timer never reset
+    enever = 0,
+    // Timer reset on Timer Output high.
+    etmr_out_hi = 1,
+    // Timer reset on Timer Pin equal to Timer Output
+    epin_eq_tmr_out = 2,
+    // Timer reset on Timer Trigger equal to Timer Output
+    etrig_eq_tmr_out = 3,
+    // Timer reset on Timer Pin rising edge
+    epin_rise_edge = 4,
+    // Timer reset on Trigger rising edge
+    etrig_rise_edge = 6,
+    // Timer reset on Trigger rising or falling edge
+    etrig_edge = 7,
   };
   
+  // Timer Decrement
   enum class eTIMDEC : uint32_t {
-    eflexio_clk_shiftclk_tmr_out = 0, // Decrement counter on FlexIO clock, Shift clock equals Timer output.
-    etrig_edge_shiftclk_tmr_out = 1, // Decrement counter on Trigger input (both edges), Shift clock equals Timer output.
-    epin_edge_shiftclk_tmr_out = 2, // Decrement counter on Pin input (both edges), Shift clock equals Pin input.
-    etrig_edge_shiftclk_trig_in = 3, // Decrement counter on Trigger input (both edges), Shift clock equals Trigger input.
-    eflexio_clk_div16_shiftclk_tmr_out = 4, // Decrement counter on FlexIO clock divided by 16, Shift clock equals Timer output.
-    eflexio_clk_div256_shiftclk_tmr_out = 5, // Decrement counter on FlexIO clock divided by 256, Shift clock equals Timer output.
-    epin_rise_shiftclk_pin_in = 6, // Decrement counter on Pin input (rising edge), Shift clock equals Pin input.
-    etrig_rise_shiftclk_trig_in = 7, // Decrement counter on Trigger input (rising edge), Shift clock equals Trigger input.
+    // Decrement counter on FlexIO clock, Shift clock equals Timer output.
+    eflexio_clk_shiftclk_tmr_out = 0,
+    // Decrement counter on Trigger input (both edges), Shift clock equals Timer output.
+    etrig_edge_shiftclk_tmr_out = 1,
+    // Decrement counter on Pin input (both edges), Shift clock equals Pin input.
+    epin_edge_shiftclk_tmr_out = 2,
+    // Decrement counter on Trigger input (both edges), Shift clock equals Trigger input.
+    etrig_edge_shiftclk_trig_in = 3,
+    // Decrement counter on FlexIO clock divided by 16, Shift clock equals Timer output.
+    eflexio_clk_div16_shiftclk_tmr_out = 4,
+    // Decrement counter on FlexIO clock divided by 256, Shift clock equals Timer output.
+    eflexio_clk_div256_shiftclk_tmr_out = 5,
+    // Decrement counter on Pin input (rising edge), Shift clock equals Pin input.
+    epin_rise_shiftclk_pin_in = 6,
+    // Decrement counter on Trigger input (rising edge), Shift clock equals Trigger input.
+    etrig_rise_shiftclk_trig_in = 7,
   };
   
+  // Timer Output
   enum class eTIMOUT : uint32_t {
-    eone = 0, // Timer output is logic one when enabled and is not affected by timer reset
-    ezero = 1, // Timer output is logic zero when enabled and is not affected by timer reset
-    eone_tmrreset = 2, // Timer output is logic one when enabled and on timer reset
-    ezero_tmrreset = 3, // Timer output is logic zero when enabled and on timer reset
+    // Timer output is logic one when enabled and is not affected by timer reset
+    eone = 0,
+    // Timer output is logic zero when enabled and is not affected by timer reset
+    ezero = 1,
+    // Timer output is logic one when enabled and on timer reset
+    eone_tmrreset = 2,
+    // Timer output is logic zero when enabled and on timer reset
+    ezero_tmrreset = 3,
   };
   
   // Bit field definition.
   struct {
     uint32_t _reserved_0 : 1;
-    /// read-write - Timer Start Bit
+    // read-write - Timer Start Bit
     eTSTART TSTART : 1;
     uint32_t _reserved_1 : 2;
-    /// read-write - Timer Stop Bit
+    // read-write - Timer Stop Bit
     eTSTOP TSTOP : 2;
     uint32_t _reserved_2 : 2;
-    /// read-write - Timer Enable
+    // read-write - Timer Enable
     eTIMENA TIMENA : 3;
     uint32_t _reserved_3 : 1;
-    /// read-write - Timer Disable
+    // read-write - Timer Disable
     eTIMDIS TIMDIS : 3;
     uint32_t _reserved_4 : 1;
-    /// read-write - Timer Reset
+    // read-write - Timer Reset
     eTIMRST TIMRST : 3;
     uint32_t _reserved_5 : 1;
-    /// read-write - Timer Decrement
+    // read-write - Timer Decrement
     eTIMDEC TIMDEC : 3;
     uint32_t _reserved_6 : 1;
-    /// read-write - Timer Output
+    // read-write - Timer Output
     eTIMOUT TIMOUT : 2;
     uint32_t _reserved_7 : 6;
   } bits;
@@ -2867,92 +3549,138 @@ union TIMCFG[4] {
   static inline volatile TIMCFG[4] &Instance() { return *reinterpret_cast<volatile TIMCFG[4]*>(0x400AC490); }
 };
 // Timer Configuration N Register
-//
 union TIMCFG[5] {
   
+  // Timer Start Bit
   enum class eTSTART : uint32_t {
-    edisable = 0, // Start bit disabled
-    eenable = 1, // Start bit enabled
+    // Start bit disabled
+    edisable = 0,
+    // Start bit enabled
+    eenable = 1,
   };
   
+  // Timer Stop Bit
   enum class eTSTOP : uint32_t {
-    estop_disable = 0, // Stop bit disabled
-    eenable_tmrcmp = 1, // Stop bit is enabled on timer compare
-    eenable_tmrdisable = 2, // Stop bit is enabled on timer disable
-    eenable_tmr_cmp_dis = 3, // Stop bit is enabled on timer compare and timer disable
+    // Stop bit disabled
+    estop_disable = 0,
+    // Stop bit is enabled on timer compare
+    eenable_tmrcmp = 1,
+    // Stop bit is enabled on timer disable
+    eenable_tmrdisable = 2,
+    // Stop bit is enabled on timer compare and timer disable
+    eenable_tmr_cmp_dis = 3,
   };
   
+  // Timer Enable
   enum class eTIMENA : uint32_t {
-    eenable = 0, // Timer always enabled
-    etmr_nminus1_en = 1, // Timer enabled on Timer N-1 enable
-    etmr_trighi_en = 2, // Timer enabled on Trigger high
-    etmr_trig_pin_hi_en = 3, // Timer enabled on Trigger high and Pin high
-    etmr_pinrise_en = 4, // Timer enabled on Pin rising edge
-    etmr_pinrise_trighi_en = 5, // Timer enabled on Pin rising edge and Trigger high
-    etmr_trigrise_en = 6, // Timer enabled on Trigger rising edge
-    etmr_trigedge_en = 7, // Timer enabled on Trigger rising or falling edge
+    // Timer always enabled
+    eenable = 0,
+    // Timer enabled on Timer N-1 enable
+    etmr_nminus1_en = 1,
+    // Timer enabled on Trigger high
+    etmr_trighi_en = 2,
+    // Timer enabled on Trigger high and Pin high
+    etmr_trig_pin_hi_en = 3,
+    // Timer enabled on Pin rising edge
+    etmr_pinrise_en = 4,
+    // Timer enabled on Pin rising edge and Trigger high
+    etmr_pinrise_trighi_en = 5,
+    // Timer enabled on Trigger rising edge
+    etmr_trigrise_en = 6,
+    // Timer enabled on Trigger rising or falling edge
+    etmr_trigedge_en = 7,
   };
   
+  // Timer Disable
   enum class eTIMDIS : uint32_t {
-    enever = 0, // Timer never disabled
-    etmr_nminus1 = 1, // Timer disabled on Timer N-1 disable
-    etmr_cmp = 2, // Timer disabled on Timer compare (upper 8-bits match and decrement)
-    etmr_cmp_triglow = 3, // Timer disabled on Timer compare (upper 8-bits match and decrement) and Trigger Low
-    epin_edge = 4, // Timer disabled on Pin rising or falling edge
-    epin_edge_trighi = 5, // Timer disabled on Pin rising or falling edge provided Trigger is high
-    etrig_falledge = 6, // Timer disabled on Trigger falling edge
+    // Timer never disabled
+    enever = 0,
+    // Timer disabled on Timer N-1 disable
+    etmr_nminus1 = 1,
+    // Timer disabled on Timer compare (upper 8-bits match and decrement)
+    etmr_cmp = 2,
+    // Timer disabled on Timer compare (upper 8-bits match and decrement) and Trigger Low
+    etmr_cmp_triglow = 3,
+    // Timer disabled on Pin rising or falling edge
+    epin_edge = 4,
+    // Timer disabled on Pin rising or falling edge provided Trigger is high
+    epin_edge_trighi = 5,
+    // Timer disabled on Trigger falling edge
+    etrig_falledge = 6,
   };
   
+  // Timer Reset
   enum class eTIMRST : uint32_t {
-    enever = 0, // Timer never reset
-    etmr_out_hi = 1, // Timer reset on Timer Output high.
-    epin_eq_tmr_out = 2, // Timer reset on Timer Pin equal to Timer Output
-    etrig_eq_tmr_out = 3, // Timer reset on Timer Trigger equal to Timer Output
-    epin_rise_edge = 4, // Timer reset on Timer Pin rising edge
-    etrig_rise_edge = 6, // Timer reset on Trigger rising edge
-    etrig_edge = 7, // Timer reset on Trigger rising or falling edge
+    // Timer never reset
+    enever = 0,
+    // Timer reset on Timer Output high.
+    etmr_out_hi = 1,
+    // Timer reset on Timer Pin equal to Timer Output
+    epin_eq_tmr_out = 2,
+    // Timer reset on Timer Trigger equal to Timer Output
+    etrig_eq_tmr_out = 3,
+    // Timer reset on Timer Pin rising edge
+    epin_rise_edge = 4,
+    // Timer reset on Trigger rising edge
+    etrig_rise_edge = 6,
+    // Timer reset on Trigger rising or falling edge
+    etrig_edge = 7,
   };
   
+  // Timer Decrement
   enum class eTIMDEC : uint32_t {
-    eflexio_clk_shiftclk_tmr_out = 0, // Decrement counter on FlexIO clock, Shift clock equals Timer output.
-    etrig_edge_shiftclk_tmr_out = 1, // Decrement counter on Trigger input (both edges), Shift clock equals Timer output.
-    epin_edge_shiftclk_tmr_out = 2, // Decrement counter on Pin input (both edges), Shift clock equals Pin input.
-    etrig_edge_shiftclk_trig_in = 3, // Decrement counter on Trigger input (both edges), Shift clock equals Trigger input.
-    eflexio_clk_div16_shiftclk_tmr_out = 4, // Decrement counter on FlexIO clock divided by 16, Shift clock equals Timer output.
-    eflexio_clk_div256_shiftclk_tmr_out = 5, // Decrement counter on FlexIO clock divided by 256, Shift clock equals Timer output.
-    epin_rise_shiftclk_pin_in = 6, // Decrement counter on Pin input (rising edge), Shift clock equals Pin input.
-    etrig_rise_shiftclk_trig_in = 7, // Decrement counter on Trigger input (rising edge), Shift clock equals Trigger input.
+    // Decrement counter on FlexIO clock, Shift clock equals Timer output.
+    eflexio_clk_shiftclk_tmr_out = 0,
+    // Decrement counter on Trigger input (both edges), Shift clock equals Timer output.
+    etrig_edge_shiftclk_tmr_out = 1,
+    // Decrement counter on Pin input (both edges), Shift clock equals Pin input.
+    epin_edge_shiftclk_tmr_out = 2,
+    // Decrement counter on Trigger input (both edges), Shift clock equals Trigger input.
+    etrig_edge_shiftclk_trig_in = 3,
+    // Decrement counter on FlexIO clock divided by 16, Shift clock equals Timer output.
+    eflexio_clk_div16_shiftclk_tmr_out = 4,
+    // Decrement counter on FlexIO clock divided by 256, Shift clock equals Timer output.
+    eflexio_clk_div256_shiftclk_tmr_out = 5,
+    // Decrement counter on Pin input (rising edge), Shift clock equals Pin input.
+    epin_rise_shiftclk_pin_in = 6,
+    // Decrement counter on Trigger input (rising edge), Shift clock equals Trigger input.
+    etrig_rise_shiftclk_trig_in = 7,
   };
   
+  // Timer Output
   enum class eTIMOUT : uint32_t {
-    eone = 0, // Timer output is logic one when enabled and is not affected by timer reset
-    ezero = 1, // Timer output is logic zero when enabled and is not affected by timer reset
-    eone_tmrreset = 2, // Timer output is logic one when enabled and on timer reset
-    ezero_tmrreset = 3, // Timer output is logic zero when enabled and on timer reset
+    // Timer output is logic one when enabled and is not affected by timer reset
+    eone = 0,
+    // Timer output is logic zero when enabled and is not affected by timer reset
+    ezero = 1,
+    // Timer output is logic one when enabled and on timer reset
+    eone_tmrreset = 2,
+    // Timer output is logic zero when enabled and on timer reset
+    ezero_tmrreset = 3,
   };
   
   // Bit field definition.
   struct {
     uint32_t _reserved_0 : 1;
-    /// read-write - Timer Start Bit
+    // read-write - Timer Start Bit
     eTSTART TSTART : 1;
     uint32_t _reserved_1 : 2;
-    /// read-write - Timer Stop Bit
+    // read-write - Timer Stop Bit
     eTSTOP TSTOP : 2;
     uint32_t _reserved_2 : 2;
-    /// read-write - Timer Enable
+    // read-write - Timer Enable
     eTIMENA TIMENA : 3;
     uint32_t _reserved_3 : 1;
-    /// read-write - Timer Disable
+    // read-write - Timer Disable
     eTIMDIS TIMDIS : 3;
     uint32_t _reserved_4 : 1;
-    /// read-write - Timer Reset
+    // read-write - Timer Reset
     eTIMRST TIMRST : 3;
     uint32_t _reserved_5 : 1;
-    /// read-write - Timer Decrement
+    // read-write - Timer Decrement
     eTIMDEC TIMDEC : 3;
     uint32_t _reserved_6 : 1;
-    /// read-write - Timer Output
+    // read-write - Timer Output
     eTIMOUT TIMOUT : 2;
     uint32_t _reserved_7 : 6;
   } bits;
@@ -2965,92 +3693,138 @@ union TIMCFG[5] {
   static inline volatile TIMCFG[5] &Instance() { return *reinterpret_cast<volatile TIMCFG[5]*>(0x400AC494); }
 };
 // Timer Configuration N Register
-//
 union TIMCFG[6] {
   
+  // Timer Start Bit
   enum class eTSTART : uint32_t {
-    edisable = 0, // Start bit disabled
-    eenable = 1, // Start bit enabled
+    // Start bit disabled
+    edisable = 0,
+    // Start bit enabled
+    eenable = 1,
   };
   
+  // Timer Stop Bit
   enum class eTSTOP : uint32_t {
-    estop_disable = 0, // Stop bit disabled
-    eenable_tmrcmp = 1, // Stop bit is enabled on timer compare
-    eenable_tmrdisable = 2, // Stop bit is enabled on timer disable
-    eenable_tmr_cmp_dis = 3, // Stop bit is enabled on timer compare and timer disable
+    // Stop bit disabled
+    estop_disable = 0,
+    // Stop bit is enabled on timer compare
+    eenable_tmrcmp = 1,
+    // Stop bit is enabled on timer disable
+    eenable_tmrdisable = 2,
+    // Stop bit is enabled on timer compare and timer disable
+    eenable_tmr_cmp_dis = 3,
   };
   
+  // Timer Enable
   enum class eTIMENA : uint32_t {
-    eenable = 0, // Timer always enabled
-    etmr_nminus1_en = 1, // Timer enabled on Timer N-1 enable
-    etmr_trighi_en = 2, // Timer enabled on Trigger high
-    etmr_trig_pin_hi_en = 3, // Timer enabled on Trigger high and Pin high
-    etmr_pinrise_en = 4, // Timer enabled on Pin rising edge
-    etmr_pinrise_trighi_en = 5, // Timer enabled on Pin rising edge and Trigger high
-    etmr_trigrise_en = 6, // Timer enabled on Trigger rising edge
-    etmr_trigedge_en = 7, // Timer enabled on Trigger rising or falling edge
+    // Timer always enabled
+    eenable = 0,
+    // Timer enabled on Timer N-1 enable
+    etmr_nminus1_en = 1,
+    // Timer enabled on Trigger high
+    etmr_trighi_en = 2,
+    // Timer enabled on Trigger high and Pin high
+    etmr_trig_pin_hi_en = 3,
+    // Timer enabled on Pin rising edge
+    etmr_pinrise_en = 4,
+    // Timer enabled on Pin rising edge and Trigger high
+    etmr_pinrise_trighi_en = 5,
+    // Timer enabled on Trigger rising edge
+    etmr_trigrise_en = 6,
+    // Timer enabled on Trigger rising or falling edge
+    etmr_trigedge_en = 7,
   };
   
+  // Timer Disable
   enum class eTIMDIS : uint32_t {
-    enever = 0, // Timer never disabled
-    etmr_nminus1 = 1, // Timer disabled on Timer N-1 disable
-    etmr_cmp = 2, // Timer disabled on Timer compare (upper 8-bits match and decrement)
-    etmr_cmp_triglow = 3, // Timer disabled on Timer compare (upper 8-bits match and decrement) and Trigger Low
-    epin_edge = 4, // Timer disabled on Pin rising or falling edge
-    epin_edge_trighi = 5, // Timer disabled on Pin rising or falling edge provided Trigger is high
-    etrig_falledge = 6, // Timer disabled on Trigger falling edge
+    // Timer never disabled
+    enever = 0,
+    // Timer disabled on Timer N-1 disable
+    etmr_nminus1 = 1,
+    // Timer disabled on Timer compare (upper 8-bits match and decrement)
+    etmr_cmp = 2,
+    // Timer disabled on Timer compare (upper 8-bits match and decrement) and Trigger Low
+    etmr_cmp_triglow = 3,
+    // Timer disabled on Pin rising or falling edge
+    epin_edge = 4,
+    // Timer disabled on Pin rising or falling edge provided Trigger is high
+    epin_edge_trighi = 5,
+    // Timer disabled on Trigger falling edge
+    etrig_falledge = 6,
   };
   
+  // Timer Reset
   enum class eTIMRST : uint32_t {
-    enever = 0, // Timer never reset
-    etmr_out_hi = 1, // Timer reset on Timer Output high.
-    epin_eq_tmr_out = 2, // Timer reset on Timer Pin equal to Timer Output
-    etrig_eq_tmr_out = 3, // Timer reset on Timer Trigger equal to Timer Output
-    epin_rise_edge = 4, // Timer reset on Timer Pin rising edge
-    etrig_rise_edge = 6, // Timer reset on Trigger rising edge
-    etrig_edge = 7, // Timer reset on Trigger rising or falling edge
+    // Timer never reset
+    enever = 0,
+    // Timer reset on Timer Output high.
+    etmr_out_hi = 1,
+    // Timer reset on Timer Pin equal to Timer Output
+    epin_eq_tmr_out = 2,
+    // Timer reset on Timer Trigger equal to Timer Output
+    etrig_eq_tmr_out = 3,
+    // Timer reset on Timer Pin rising edge
+    epin_rise_edge = 4,
+    // Timer reset on Trigger rising edge
+    etrig_rise_edge = 6,
+    // Timer reset on Trigger rising or falling edge
+    etrig_edge = 7,
   };
   
+  // Timer Decrement
   enum class eTIMDEC : uint32_t {
-    eflexio_clk_shiftclk_tmr_out = 0, // Decrement counter on FlexIO clock, Shift clock equals Timer output.
-    etrig_edge_shiftclk_tmr_out = 1, // Decrement counter on Trigger input (both edges), Shift clock equals Timer output.
-    epin_edge_shiftclk_tmr_out = 2, // Decrement counter on Pin input (both edges), Shift clock equals Pin input.
-    etrig_edge_shiftclk_trig_in = 3, // Decrement counter on Trigger input (both edges), Shift clock equals Trigger input.
-    eflexio_clk_div16_shiftclk_tmr_out = 4, // Decrement counter on FlexIO clock divided by 16, Shift clock equals Timer output.
-    eflexio_clk_div256_shiftclk_tmr_out = 5, // Decrement counter on FlexIO clock divided by 256, Shift clock equals Timer output.
-    epin_rise_shiftclk_pin_in = 6, // Decrement counter on Pin input (rising edge), Shift clock equals Pin input.
-    etrig_rise_shiftclk_trig_in = 7, // Decrement counter on Trigger input (rising edge), Shift clock equals Trigger input.
+    // Decrement counter on FlexIO clock, Shift clock equals Timer output.
+    eflexio_clk_shiftclk_tmr_out = 0,
+    // Decrement counter on Trigger input (both edges), Shift clock equals Timer output.
+    etrig_edge_shiftclk_tmr_out = 1,
+    // Decrement counter on Pin input (both edges), Shift clock equals Pin input.
+    epin_edge_shiftclk_tmr_out = 2,
+    // Decrement counter on Trigger input (both edges), Shift clock equals Trigger input.
+    etrig_edge_shiftclk_trig_in = 3,
+    // Decrement counter on FlexIO clock divided by 16, Shift clock equals Timer output.
+    eflexio_clk_div16_shiftclk_tmr_out = 4,
+    // Decrement counter on FlexIO clock divided by 256, Shift clock equals Timer output.
+    eflexio_clk_div256_shiftclk_tmr_out = 5,
+    // Decrement counter on Pin input (rising edge), Shift clock equals Pin input.
+    epin_rise_shiftclk_pin_in = 6,
+    // Decrement counter on Trigger input (rising edge), Shift clock equals Trigger input.
+    etrig_rise_shiftclk_trig_in = 7,
   };
   
+  // Timer Output
   enum class eTIMOUT : uint32_t {
-    eone = 0, // Timer output is logic one when enabled and is not affected by timer reset
-    ezero = 1, // Timer output is logic zero when enabled and is not affected by timer reset
-    eone_tmrreset = 2, // Timer output is logic one when enabled and on timer reset
-    ezero_tmrreset = 3, // Timer output is logic zero when enabled and on timer reset
+    // Timer output is logic one when enabled and is not affected by timer reset
+    eone = 0,
+    // Timer output is logic zero when enabled and is not affected by timer reset
+    ezero = 1,
+    // Timer output is logic one when enabled and on timer reset
+    eone_tmrreset = 2,
+    // Timer output is logic zero when enabled and on timer reset
+    ezero_tmrreset = 3,
   };
   
   // Bit field definition.
   struct {
     uint32_t _reserved_0 : 1;
-    /// read-write - Timer Start Bit
+    // read-write - Timer Start Bit
     eTSTART TSTART : 1;
     uint32_t _reserved_1 : 2;
-    /// read-write - Timer Stop Bit
+    // read-write - Timer Stop Bit
     eTSTOP TSTOP : 2;
     uint32_t _reserved_2 : 2;
-    /// read-write - Timer Enable
+    // read-write - Timer Enable
     eTIMENA TIMENA : 3;
     uint32_t _reserved_3 : 1;
-    /// read-write - Timer Disable
+    // read-write - Timer Disable
     eTIMDIS TIMDIS : 3;
     uint32_t _reserved_4 : 1;
-    /// read-write - Timer Reset
+    // read-write - Timer Reset
     eTIMRST TIMRST : 3;
     uint32_t _reserved_5 : 1;
-    /// read-write - Timer Decrement
+    // read-write - Timer Decrement
     eTIMDEC TIMDEC : 3;
     uint32_t _reserved_6 : 1;
-    /// read-write - Timer Output
+    // read-write - Timer Output
     eTIMOUT TIMOUT : 2;
     uint32_t _reserved_7 : 6;
   } bits;
@@ -3063,92 +3837,138 @@ union TIMCFG[6] {
   static inline volatile TIMCFG[6] &Instance() { return *reinterpret_cast<volatile TIMCFG[6]*>(0x400AC498); }
 };
 // Timer Configuration N Register
-//
 union TIMCFG[7] {
   
+  // Timer Start Bit
   enum class eTSTART : uint32_t {
-    edisable = 0, // Start bit disabled
-    eenable = 1, // Start bit enabled
+    // Start bit disabled
+    edisable = 0,
+    // Start bit enabled
+    eenable = 1,
   };
   
+  // Timer Stop Bit
   enum class eTSTOP : uint32_t {
-    estop_disable = 0, // Stop bit disabled
-    eenable_tmrcmp = 1, // Stop bit is enabled on timer compare
-    eenable_tmrdisable = 2, // Stop bit is enabled on timer disable
-    eenable_tmr_cmp_dis = 3, // Stop bit is enabled on timer compare and timer disable
+    // Stop bit disabled
+    estop_disable = 0,
+    // Stop bit is enabled on timer compare
+    eenable_tmrcmp = 1,
+    // Stop bit is enabled on timer disable
+    eenable_tmrdisable = 2,
+    // Stop bit is enabled on timer compare and timer disable
+    eenable_tmr_cmp_dis = 3,
   };
   
+  // Timer Enable
   enum class eTIMENA : uint32_t {
-    eenable = 0, // Timer always enabled
-    etmr_nminus1_en = 1, // Timer enabled on Timer N-1 enable
-    etmr_trighi_en = 2, // Timer enabled on Trigger high
-    etmr_trig_pin_hi_en = 3, // Timer enabled on Trigger high and Pin high
-    etmr_pinrise_en = 4, // Timer enabled on Pin rising edge
-    etmr_pinrise_trighi_en = 5, // Timer enabled on Pin rising edge and Trigger high
-    etmr_trigrise_en = 6, // Timer enabled on Trigger rising edge
-    etmr_trigedge_en = 7, // Timer enabled on Trigger rising or falling edge
+    // Timer always enabled
+    eenable = 0,
+    // Timer enabled on Timer N-1 enable
+    etmr_nminus1_en = 1,
+    // Timer enabled on Trigger high
+    etmr_trighi_en = 2,
+    // Timer enabled on Trigger high and Pin high
+    etmr_trig_pin_hi_en = 3,
+    // Timer enabled on Pin rising edge
+    etmr_pinrise_en = 4,
+    // Timer enabled on Pin rising edge and Trigger high
+    etmr_pinrise_trighi_en = 5,
+    // Timer enabled on Trigger rising edge
+    etmr_trigrise_en = 6,
+    // Timer enabled on Trigger rising or falling edge
+    etmr_trigedge_en = 7,
   };
   
+  // Timer Disable
   enum class eTIMDIS : uint32_t {
-    enever = 0, // Timer never disabled
-    etmr_nminus1 = 1, // Timer disabled on Timer N-1 disable
-    etmr_cmp = 2, // Timer disabled on Timer compare (upper 8-bits match and decrement)
-    etmr_cmp_triglow = 3, // Timer disabled on Timer compare (upper 8-bits match and decrement) and Trigger Low
-    epin_edge = 4, // Timer disabled on Pin rising or falling edge
-    epin_edge_trighi = 5, // Timer disabled on Pin rising or falling edge provided Trigger is high
-    etrig_falledge = 6, // Timer disabled on Trigger falling edge
+    // Timer never disabled
+    enever = 0,
+    // Timer disabled on Timer N-1 disable
+    etmr_nminus1 = 1,
+    // Timer disabled on Timer compare (upper 8-bits match and decrement)
+    etmr_cmp = 2,
+    // Timer disabled on Timer compare (upper 8-bits match and decrement) and Trigger Low
+    etmr_cmp_triglow = 3,
+    // Timer disabled on Pin rising or falling edge
+    epin_edge = 4,
+    // Timer disabled on Pin rising or falling edge provided Trigger is high
+    epin_edge_trighi = 5,
+    // Timer disabled on Trigger falling edge
+    etrig_falledge = 6,
   };
   
+  // Timer Reset
   enum class eTIMRST : uint32_t {
-    enever = 0, // Timer never reset
-    etmr_out_hi = 1, // Timer reset on Timer Output high.
-    epin_eq_tmr_out = 2, // Timer reset on Timer Pin equal to Timer Output
-    etrig_eq_tmr_out = 3, // Timer reset on Timer Trigger equal to Timer Output
-    epin_rise_edge = 4, // Timer reset on Timer Pin rising edge
-    etrig_rise_edge = 6, // Timer reset on Trigger rising edge
-    etrig_edge = 7, // Timer reset on Trigger rising or falling edge
+    // Timer never reset
+    enever = 0,
+    // Timer reset on Timer Output high.
+    etmr_out_hi = 1,
+    // Timer reset on Timer Pin equal to Timer Output
+    epin_eq_tmr_out = 2,
+    // Timer reset on Timer Trigger equal to Timer Output
+    etrig_eq_tmr_out = 3,
+    // Timer reset on Timer Pin rising edge
+    epin_rise_edge = 4,
+    // Timer reset on Trigger rising edge
+    etrig_rise_edge = 6,
+    // Timer reset on Trigger rising or falling edge
+    etrig_edge = 7,
   };
   
+  // Timer Decrement
   enum class eTIMDEC : uint32_t {
-    eflexio_clk_shiftclk_tmr_out = 0, // Decrement counter on FlexIO clock, Shift clock equals Timer output.
-    etrig_edge_shiftclk_tmr_out = 1, // Decrement counter on Trigger input (both edges), Shift clock equals Timer output.
-    epin_edge_shiftclk_tmr_out = 2, // Decrement counter on Pin input (both edges), Shift clock equals Pin input.
-    etrig_edge_shiftclk_trig_in = 3, // Decrement counter on Trigger input (both edges), Shift clock equals Trigger input.
-    eflexio_clk_div16_shiftclk_tmr_out = 4, // Decrement counter on FlexIO clock divided by 16, Shift clock equals Timer output.
-    eflexio_clk_div256_shiftclk_tmr_out = 5, // Decrement counter on FlexIO clock divided by 256, Shift clock equals Timer output.
-    epin_rise_shiftclk_pin_in = 6, // Decrement counter on Pin input (rising edge), Shift clock equals Pin input.
-    etrig_rise_shiftclk_trig_in = 7, // Decrement counter on Trigger input (rising edge), Shift clock equals Trigger input.
+    // Decrement counter on FlexIO clock, Shift clock equals Timer output.
+    eflexio_clk_shiftclk_tmr_out = 0,
+    // Decrement counter on Trigger input (both edges), Shift clock equals Timer output.
+    etrig_edge_shiftclk_tmr_out = 1,
+    // Decrement counter on Pin input (both edges), Shift clock equals Pin input.
+    epin_edge_shiftclk_tmr_out = 2,
+    // Decrement counter on Trigger input (both edges), Shift clock equals Trigger input.
+    etrig_edge_shiftclk_trig_in = 3,
+    // Decrement counter on FlexIO clock divided by 16, Shift clock equals Timer output.
+    eflexio_clk_div16_shiftclk_tmr_out = 4,
+    // Decrement counter on FlexIO clock divided by 256, Shift clock equals Timer output.
+    eflexio_clk_div256_shiftclk_tmr_out = 5,
+    // Decrement counter on Pin input (rising edge), Shift clock equals Pin input.
+    epin_rise_shiftclk_pin_in = 6,
+    // Decrement counter on Trigger input (rising edge), Shift clock equals Trigger input.
+    etrig_rise_shiftclk_trig_in = 7,
   };
   
+  // Timer Output
   enum class eTIMOUT : uint32_t {
-    eone = 0, // Timer output is logic one when enabled and is not affected by timer reset
-    ezero = 1, // Timer output is logic zero when enabled and is not affected by timer reset
-    eone_tmrreset = 2, // Timer output is logic one when enabled and on timer reset
-    ezero_tmrreset = 3, // Timer output is logic zero when enabled and on timer reset
+    // Timer output is logic one when enabled and is not affected by timer reset
+    eone = 0,
+    // Timer output is logic zero when enabled and is not affected by timer reset
+    ezero = 1,
+    // Timer output is logic one when enabled and on timer reset
+    eone_tmrreset = 2,
+    // Timer output is logic zero when enabled and on timer reset
+    ezero_tmrreset = 3,
   };
   
   // Bit field definition.
   struct {
     uint32_t _reserved_0 : 1;
-    /// read-write - Timer Start Bit
+    // read-write - Timer Start Bit
     eTSTART TSTART : 1;
     uint32_t _reserved_1 : 2;
-    /// read-write - Timer Stop Bit
+    // read-write - Timer Stop Bit
     eTSTOP TSTOP : 2;
     uint32_t _reserved_2 : 2;
-    /// read-write - Timer Enable
+    // read-write - Timer Enable
     eTIMENA TIMENA : 3;
     uint32_t _reserved_3 : 1;
-    /// read-write - Timer Disable
+    // read-write - Timer Disable
     eTIMDIS TIMDIS : 3;
     uint32_t _reserved_4 : 1;
-    /// read-write - Timer Reset
+    // read-write - Timer Reset
     eTIMRST TIMRST : 3;
     uint32_t _reserved_5 : 1;
-    /// read-write - Timer Decrement
+    // read-write - Timer Decrement
     eTIMDEC TIMDEC : 3;
     uint32_t _reserved_6 : 1;
-    /// read-write - Timer Output
+    // read-write - Timer Output
     eTIMOUT TIMOUT : 2;
     uint32_t _reserved_7 : 6;
   } bits;
@@ -3162,12 +3982,11 @@ union TIMCFG[7] {
 };
 
 // Timer Compare N Register
-//
 union TIMCMP[0] {
   
   // Bit field definition.
   struct {
-    /// read-write - Timer Compare Value
+    // read-write - Timer Compare Value
     uint32_t CMP : 16;
     uint32_t _reserved_0 : 16;
   } bits;
@@ -3180,12 +3999,11 @@ union TIMCMP[0] {
   static inline volatile TIMCMP[0] &Instance() { return *reinterpret_cast<volatile TIMCMP[0]*>(0x400AC500); }
 };
 // Timer Compare N Register
-//
 union TIMCMP[1] {
   
   // Bit field definition.
   struct {
-    /// read-write - Timer Compare Value
+    // read-write - Timer Compare Value
     uint32_t CMP : 16;
     uint32_t _reserved_0 : 16;
   } bits;
@@ -3198,12 +4016,11 @@ union TIMCMP[1] {
   static inline volatile TIMCMP[1] &Instance() { return *reinterpret_cast<volatile TIMCMP[1]*>(0x400AC504); }
 };
 // Timer Compare N Register
-//
 union TIMCMP[2] {
   
   // Bit field definition.
   struct {
-    /// read-write - Timer Compare Value
+    // read-write - Timer Compare Value
     uint32_t CMP : 16;
     uint32_t _reserved_0 : 16;
   } bits;
@@ -3216,12 +4033,11 @@ union TIMCMP[2] {
   static inline volatile TIMCMP[2] &Instance() { return *reinterpret_cast<volatile TIMCMP[2]*>(0x400AC508); }
 };
 // Timer Compare N Register
-//
 union TIMCMP[3] {
   
   // Bit field definition.
   struct {
-    /// read-write - Timer Compare Value
+    // read-write - Timer Compare Value
     uint32_t CMP : 16;
     uint32_t _reserved_0 : 16;
   } bits;
@@ -3234,12 +4050,11 @@ union TIMCMP[3] {
   static inline volatile TIMCMP[3] &Instance() { return *reinterpret_cast<volatile TIMCMP[3]*>(0x400AC50C); }
 };
 // Timer Compare N Register
-//
 union TIMCMP[4] {
   
   // Bit field definition.
   struct {
-    /// read-write - Timer Compare Value
+    // read-write - Timer Compare Value
     uint32_t CMP : 16;
     uint32_t _reserved_0 : 16;
   } bits;
@@ -3252,12 +4067,11 @@ union TIMCMP[4] {
   static inline volatile TIMCMP[4] &Instance() { return *reinterpret_cast<volatile TIMCMP[4]*>(0x400AC510); }
 };
 // Timer Compare N Register
-//
 union TIMCMP[5] {
   
   // Bit field definition.
   struct {
-    /// read-write - Timer Compare Value
+    // read-write - Timer Compare Value
     uint32_t CMP : 16;
     uint32_t _reserved_0 : 16;
   } bits;
@@ -3270,12 +4084,11 @@ union TIMCMP[5] {
   static inline volatile TIMCMP[5] &Instance() { return *reinterpret_cast<volatile TIMCMP[5]*>(0x400AC514); }
 };
 // Timer Compare N Register
-//
 union TIMCMP[6] {
   
   // Bit field definition.
   struct {
-    /// read-write - Timer Compare Value
+    // read-write - Timer Compare Value
     uint32_t CMP : 16;
     uint32_t _reserved_0 : 16;
   } bits;
@@ -3288,12 +4101,11 @@ union TIMCMP[6] {
   static inline volatile TIMCMP[6] &Instance() { return *reinterpret_cast<volatile TIMCMP[6]*>(0x400AC518); }
 };
 // Timer Compare N Register
-//
 union TIMCMP[7] {
   
   // Bit field definition.
   struct {
-    /// read-write - Timer Compare Value
+    // read-write - Timer Compare Value
     uint32_t CMP : 16;
     uint32_t _reserved_0 : 16;
   } bits;
@@ -3307,12 +4119,11 @@ union TIMCMP[7] {
 };
 
 // Shifter Buffer N Nibble Byte Swapped Register
-//
 union SHIFTBUFNBS[0] {
   
   // Bit field definition.
   struct {
-    /// read-write - Shift Buffer
+    // read-write - Shift Buffer
     uint32_t SHIFTBUFNBS : 32;
   } bits;
   
@@ -3324,12 +4135,11 @@ union SHIFTBUFNBS[0] {
   static inline volatile SHIFTBUFNBS[0] &Instance() { return *reinterpret_cast<volatile SHIFTBUFNBS[0]*>(0x400AC680); }
 };
 // Shifter Buffer N Nibble Byte Swapped Register
-//
 union SHIFTBUFNBS[1] {
   
   // Bit field definition.
   struct {
-    /// read-write - Shift Buffer
+    // read-write - Shift Buffer
     uint32_t SHIFTBUFNBS : 32;
   } bits;
   
@@ -3341,12 +4151,11 @@ union SHIFTBUFNBS[1] {
   static inline volatile SHIFTBUFNBS[1] &Instance() { return *reinterpret_cast<volatile SHIFTBUFNBS[1]*>(0x400AC684); }
 };
 // Shifter Buffer N Nibble Byte Swapped Register
-//
 union SHIFTBUFNBS[2] {
   
   // Bit field definition.
   struct {
-    /// read-write - Shift Buffer
+    // read-write - Shift Buffer
     uint32_t SHIFTBUFNBS : 32;
   } bits;
   
@@ -3358,12 +4167,11 @@ union SHIFTBUFNBS[2] {
   static inline volatile SHIFTBUFNBS[2] &Instance() { return *reinterpret_cast<volatile SHIFTBUFNBS[2]*>(0x400AC688); }
 };
 // Shifter Buffer N Nibble Byte Swapped Register
-//
 union SHIFTBUFNBS[3] {
   
   // Bit field definition.
   struct {
-    /// read-write - Shift Buffer
+    // read-write - Shift Buffer
     uint32_t SHIFTBUFNBS : 32;
   } bits;
   
@@ -3375,12 +4183,11 @@ union SHIFTBUFNBS[3] {
   static inline volatile SHIFTBUFNBS[3] &Instance() { return *reinterpret_cast<volatile SHIFTBUFNBS[3]*>(0x400AC68C); }
 };
 // Shifter Buffer N Nibble Byte Swapped Register
-//
 union SHIFTBUFNBS[4] {
   
   // Bit field definition.
   struct {
-    /// read-write - Shift Buffer
+    // read-write - Shift Buffer
     uint32_t SHIFTBUFNBS : 32;
   } bits;
   
@@ -3392,12 +4199,11 @@ union SHIFTBUFNBS[4] {
   static inline volatile SHIFTBUFNBS[4] &Instance() { return *reinterpret_cast<volatile SHIFTBUFNBS[4]*>(0x400AC690); }
 };
 // Shifter Buffer N Nibble Byte Swapped Register
-//
 union SHIFTBUFNBS[5] {
   
   // Bit field definition.
   struct {
-    /// read-write - Shift Buffer
+    // read-write - Shift Buffer
     uint32_t SHIFTBUFNBS : 32;
   } bits;
   
@@ -3409,12 +4215,11 @@ union SHIFTBUFNBS[5] {
   static inline volatile SHIFTBUFNBS[5] &Instance() { return *reinterpret_cast<volatile SHIFTBUFNBS[5]*>(0x400AC694); }
 };
 // Shifter Buffer N Nibble Byte Swapped Register
-//
 union SHIFTBUFNBS[6] {
   
   // Bit field definition.
   struct {
-    /// read-write - Shift Buffer
+    // read-write - Shift Buffer
     uint32_t SHIFTBUFNBS : 32;
   } bits;
   
@@ -3426,12 +4231,11 @@ union SHIFTBUFNBS[6] {
   static inline volatile SHIFTBUFNBS[6] &Instance() { return *reinterpret_cast<volatile SHIFTBUFNBS[6]*>(0x400AC698); }
 };
 // Shifter Buffer N Nibble Byte Swapped Register
-//
 union SHIFTBUFNBS[7] {
   
   // Bit field definition.
   struct {
-    /// read-write - Shift Buffer
+    // read-write - Shift Buffer
     uint32_t SHIFTBUFNBS : 32;
   } bits;
   
@@ -3444,12 +4248,11 @@ union SHIFTBUFNBS[7] {
 };
 
 // Shifter Buffer N Half Word Swapped Register
-//
 union SHIFTBUFHWS[0] {
   
   // Bit field definition.
   struct {
-    /// read-write - Shift Buffer
+    // read-write - Shift Buffer
     uint32_t SHIFTBUFHWS : 32;
   } bits;
   
@@ -3461,12 +4264,11 @@ union SHIFTBUFHWS[0] {
   static inline volatile SHIFTBUFHWS[0] &Instance() { return *reinterpret_cast<volatile SHIFTBUFHWS[0]*>(0x400AC700); }
 };
 // Shifter Buffer N Half Word Swapped Register
-//
 union SHIFTBUFHWS[1] {
   
   // Bit field definition.
   struct {
-    /// read-write - Shift Buffer
+    // read-write - Shift Buffer
     uint32_t SHIFTBUFHWS : 32;
   } bits;
   
@@ -3478,12 +4280,11 @@ union SHIFTBUFHWS[1] {
   static inline volatile SHIFTBUFHWS[1] &Instance() { return *reinterpret_cast<volatile SHIFTBUFHWS[1]*>(0x400AC704); }
 };
 // Shifter Buffer N Half Word Swapped Register
-//
 union SHIFTBUFHWS[2] {
   
   // Bit field definition.
   struct {
-    /// read-write - Shift Buffer
+    // read-write - Shift Buffer
     uint32_t SHIFTBUFHWS : 32;
   } bits;
   
@@ -3495,12 +4296,11 @@ union SHIFTBUFHWS[2] {
   static inline volatile SHIFTBUFHWS[2] &Instance() { return *reinterpret_cast<volatile SHIFTBUFHWS[2]*>(0x400AC708); }
 };
 // Shifter Buffer N Half Word Swapped Register
-//
 union SHIFTBUFHWS[3] {
   
   // Bit field definition.
   struct {
-    /// read-write - Shift Buffer
+    // read-write - Shift Buffer
     uint32_t SHIFTBUFHWS : 32;
   } bits;
   
@@ -3512,12 +4312,11 @@ union SHIFTBUFHWS[3] {
   static inline volatile SHIFTBUFHWS[3] &Instance() { return *reinterpret_cast<volatile SHIFTBUFHWS[3]*>(0x400AC70C); }
 };
 // Shifter Buffer N Half Word Swapped Register
-//
 union SHIFTBUFHWS[4] {
   
   // Bit field definition.
   struct {
-    /// read-write - Shift Buffer
+    // read-write - Shift Buffer
     uint32_t SHIFTBUFHWS : 32;
   } bits;
   
@@ -3529,12 +4328,11 @@ union SHIFTBUFHWS[4] {
   static inline volatile SHIFTBUFHWS[4] &Instance() { return *reinterpret_cast<volatile SHIFTBUFHWS[4]*>(0x400AC710); }
 };
 // Shifter Buffer N Half Word Swapped Register
-//
 union SHIFTBUFHWS[5] {
   
   // Bit field definition.
   struct {
-    /// read-write - Shift Buffer
+    // read-write - Shift Buffer
     uint32_t SHIFTBUFHWS : 32;
   } bits;
   
@@ -3546,12 +4344,11 @@ union SHIFTBUFHWS[5] {
   static inline volatile SHIFTBUFHWS[5] &Instance() { return *reinterpret_cast<volatile SHIFTBUFHWS[5]*>(0x400AC714); }
 };
 // Shifter Buffer N Half Word Swapped Register
-//
 union SHIFTBUFHWS[6] {
   
   // Bit field definition.
   struct {
-    /// read-write - Shift Buffer
+    // read-write - Shift Buffer
     uint32_t SHIFTBUFHWS : 32;
   } bits;
   
@@ -3563,12 +4360,11 @@ union SHIFTBUFHWS[6] {
   static inline volatile SHIFTBUFHWS[6] &Instance() { return *reinterpret_cast<volatile SHIFTBUFHWS[6]*>(0x400AC718); }
 };
 // Shifter Buffer N Half Word Swapped Register
-//
 union SHIFTBUFHWS[7] {
   
   // Bit field definition.
   struct {
-    /// read-write - Shift Buffer
+    // read-write - Shift Buffer
     uint32_t SHIFTBUFHWS : 32;
   } bits;
   
@@ -3581,12 +4377,11 @@ union SHIFTBUFHWS[7] {
 };
 
 // Shifter Buffer N Nibble Swapped Register
-//
 union SHIFTBUFNIS[0] {
   
   // Bit field definition.
   struct {
-    /// read-write - Shift Buffer
+    // read-write - Shift Buffer
     uint32_t SHIFTBUFNIS : 32;
   } bits;
   
@@ -3598,12 +4393,11 @@ union SHIFTBUFNIS[0] {
   static inline volatile SHIFTBUFNIS[0] &Instance() { return *reinterpret_cast<volatile SHIFTBUFNIS[0]*>(0x400AC780); }
 };
 // Shifter Buffer N Nibble Swapped Register
-//
 union SHIFTBUFNIS[1] {
   
   // Bit field definition.
   struct {
-    /// read-write - Shift Buffer
+    // read-write - Shift Buffer
     uint32_t SHIFTBUFNIS : 32;
   } bits;
   
@@ -3615,12 +4409,11 @@ union SHIFTBUFNIS[1] {
   static inline volatile SHIFTBUFNIS[1] &Instance() { return *reinterpret_cast<volatile SHIFTBUFNIS[1]*>(0x400AC784); }
 };
 // Shifter Buffer N Nibble Swapped Register
-//
 union SHIFTBUFNIS[2] {
   
   // Bit field definition.
   struct {
-    /// read-write - Shift Buffer
+    // read-write - Shift Buffer
     uint32_t SHIFTBUFNIS : 32;
   } bits;
   
@@ -3632,12 +4425,11 @@ union SHIFTBUFNIS[2] {
   static inline volatile SHIFTBUFNIS[2] &Instance() { return *reinterpret_cast<volatile SHIFTBUFNIS[2]*>(0x400AC788); }
 };
 // Shifter Buffer N Nibble Swapped Register
-//
 union SHIFTBUFNIS[3] {
   
   // Bit field definition.
   struct {
-    /// read-write - Shift Buffer
+    // read-write - Shift Buffer
     uint32_t SHIFTBUFNIS : 32;
   } bits;
   
@@ -3649,12 +4441,11 @@ union SHIFTBUFNIS[3] {
   static inline volatile SHIFTBUFNIS[3] &Instance() { return *reinterpret_cast<volatile SHIFTBUFNIS[3]*>(0x400AC78C); }
 };
 // Shifter Buffer N Nibble Swapped Register
-//
 union SHIFTBUFNIS[4] {
   
   // Bit field definition.
   struct {
-    /// read-write - Shift Buffer
+    // read-write - Shift Buffer
     uint32_t SHIFTBUFNIS : 32;
   } bits;
   
@@ -3666,12 +4457,11 @@ union SHIFTBUFNIS[4] {
   static inline volatile SHIFTBUFNIS[4] &Instance() { return *reinterpret_cast<volatile SHIFTBUFNIS[4]*>(0x400AC790); }
 };
 // Shifter Buffer N Nibble Swapped Register
-//
 union SHIFTBUFNIS[5] {
   
   // Bit field definition.
   struct {
-    /// read-write - Shift Buffer
+    // read-write - Shift Buffer
     uint32_t SHIFTBUFNIS : 32;
   } bits;
   
@@ -3683,12 +4473,11 @@ union SHIFTBUFNIS[5] {
   static inline volatile SHIFTBUFNIS[5] &Instance() { return *reinterpret_cast<volatile SHIFTBUFNIS[5]*>(0x400AC794); }
 };
 // Shifter Buffer N Nibble Swapped Register
-//
 union SHIFTBUFNIS[6] {
   
   // Bit field definition.
   struct {
-    /// read-write - Shift Buffer
+    // read-write - Shift Buffer
     uint32_t SHIFTBUFNIS : 32;
   } bits;
   
@@ -3700,12 +4489,11 @@ union SHIFTBUFNIS[6] {
   static inline volatile SHIFTBUFNIS[6] &Instance() { return *reinterpret_cast<volatile SHIFTBUFNIS[6]*>(0x400AC798); }
 };
 // Shifter Buffer N Nibble Swapped Register
-//
 union SHIFTBUFNIS[7] {
   
   // Bit field definition.
   struct {
-    /// read-write - Shift Buffer
+    // read-write - Shift Buffer
     uint32_t SHIFTBUFNIS : 32;
   } bits;
   
@@ -3718,12 +4506,11 @@ union SHIFTBUFNIS[7] {
 };
 
 // Shifter Buffer N Odd Even Swapped Register
-//
 union SHIFTBUFOES[0] {
   
   // Bit field definition.
   struct {
-    /// read-write - Shift Buffer
+    // read-write - Shift Buffer
     uint32_t SHIFTBUFOES : 32;
   } bits;
   
@@ -3735,12 +4522,11 @@ union SHIFTBUFOES[0] {
   static inline volatile SHIFTBUFOES[0] &Instance() { return *reinterpret_cast<volatile SHIFTBUFOES[0]*>(0x400AC800); }
 };
 // Shifter Buffer N Odd Even Swapped Register
-//
 union SHIFTBUFOES[1] {
   
   // Bit field definition.
   struct {
-    /// read-write - Shift Buffer
+    // read-write - Shift Buffer
     uint32_t SHIFTBUFOES : 32;
   } bits;
   
@@ -3752,12 +4538,11 @@ union SHIFTBUFOES[1] {
   static inline volatile SHIFTBUFOES[1] &Instance() { return *reinterpret_cast<volatile SHIFTBUFOES[1]*>(0x400AC804); }
 };
 // Shifter Buffer N Odd Even Swapped Register
-//
 union SHIFTBUFOES[2] {
   
   // Bit field definition.
   struct {
-    /// read-write - Shift Buffer
+    // read-write - Shift Buffer
     uint32_t SHIFTBUFOES : 32;
   } bits;
   
@@ -3769,12 +4554,11 @@ union SHIFTBUFOES[2] {
   static inline volatile SHIFTBUFOES[2] &Instance() { return *reinterpret_cast<volatile SHIFTBUFOES[2]*>(0x400AC808); }
 };
 // Shifter Buffer N Odd Even Swapped Register
-//
 union SHIFTBUFOES[3] {
   
   // Bit field definition.
   struct {
-    /// read-write - Shift Buffer
+    // read-write - Shift Buffer
     uint32_t SHIFTBUFOES : 32;
   } bits;
   
@@ -3786,12 +4570,11 @@ union SHIFTBUFOES[3] {
   static inline volatile SHIFTBUFOES[3] &Instance() { return *reinterpret_cast<volatile SHIFTBUFOES[3]*>(0x400AC80C); }
 };
 // Shifter Buffer N Odd Even Swapped Register
-//
 union SHIFTBUFOES[4] {
   
   // Bit field definition.
   struct {
-    /// read-write - Shift Buffer
+    // read-write - Shift Buffer
     uint32_t SHIFTBUFOES : 32;
   } bits;
   
@@ -3803,12 +4586,11 @@ union SHIFTBUFOES[4] {
   static inline volatile SHIFTBUFOES[4] &Instance() { return *reinterpret_cast<volatile SHIFTBUFOES[4]*>(0x400AC810); }
 };
 // Shifter Buffer N Odd Even Swapped Register
-//
 union SHIFTBUFOES[5] {
   
   // Bit field definition.
   struct {
-    /// read-write - Shift Buffer
+    // read-write - Shift Buffer
     uint32_t SHIFTBUFOES : 32;
   } bits;
   
@@ -3820,12 +4602,11 @@ union SHIFTBUFOES[5] {
   static inline volatile SHIFTBUFOES[5] &Instance() { return *reinterpret_cast<volatile SHIFTBUFOES[5]*>(0x400AC814); }
 };
 // Shifter Buffer N Odd Even Swapped Register
-//
 union SHIFTBUFOES[6] {
   
   // Bit field definition.
   struct {
-    /// read-write - Shift Buffer
+    // read-write - Shift Buffer
     uint32_t SHIFTBUFOES : 32;
   } bits;
   
@@ -3837,12 +4618,11 @@ union SHIFTBUFOES[6] {
   static inline volatile SHIFTBUFOES[6] &Instance() { return *reinterpret_cast<volatile SHIFTBUFOES[6]*>(0x400AC818); }
 };
 // Shifter Buffer N Odd Even Swapped Register
-//
 union SHIFTBUFOES[7] {
   
   // Bit field definition.
   struct {
-    /// read-write - Shift Buffer
+    // read-write - Shift Buffer
     uint32_t SHIFTBUFOES : 32;
   } bits;
   
@@ -3855,12 +4635,11 @@ union SHIFTBUFOES[7] {
 };
 
 // Shifter Buffer N Even Odd Swapped Register
-//
 union SHIFTBUFEOS[0] {
   
   // Bit field definition.
   struct {
-    /// read-write - Shift Buffer
+    // read-write - Shift Buffer
     uint32_t SHIFTBUFEOS : 32;
   } bits;
   
@@ -3872,12 +4651,11 @@ union SHIFTBUFEOS[0] {
   static inline volatile SHIFTBUFEOS[0] &Instance() { return *reinterpret_cast<volatile SHIFTBUFEOS[0]*>(0x400AC880); }
 };
 // Shifter Buffer N Even Odd Swapped Register
-//
 union SHIFTBUFEOS[1] {
   
   // Bit field definition.
   struct {
-    /// read-write - Shift Buffer
+    // read-write - Shift Buffer
     uint32_t SHIFTBUFEOS : 32;
   } bits;
   
@@ -3889,12 +4667,11 @@ union SHIFTBUFEOS[1] {
   static inline volatile SHIFTBUFEOS[1] &Instance() { return *reinterpret_cast<volatile SHIFTBUFEOS[1]*>(0x400AC884); }
 };
 // Shifter Buffer N Even Odd Swapped Register
-//
 union SHIFTBUFEOS[2] {
   
   // Bit field definition.
   struct {
-    /// read-write - Shift Buffer
+    // read-write - Shift Buffer
     uint32_t SHIFTBUFEOS : 32;
   } bits;
   
@@ -3906,12 +4683,11 @@ union SHIFTBUFEOS[2] {
   static inline volatile SHIFTBUFEOS[2] &Instance() { return *reinterpret_cast<volatile SHIFTBUFEOS[2]*>(0x400AC888); }
 };
 // Shifter Buffer N Even Odd Swapped Register
-//
 union SHIFTBUFEOS[3] {
   
   // Bit field definition.
   struct {
-    /// read-write - Shift Buffer
+    // read-write - Shift Buffer
     uint32_t SHIFTBUFEOS : 32;
   } bits;
   
@@ -3923,12 +4699,11 @@ union SHIFTBUFEOS[3] {
   static inline volatile SHIFTBUFEOS[3] &Instance() { return *reinterpret_cast<volatile SHIFTBUFEOS[3]*>(0x400AC88C); }
 };
 // Shifter Buffer N Even Odd Swapped Register
-//
 union SHIFTBUFEOS[4] {
   
   // Bit field definition.
   struct {
-    /// read-write - Shift Buffer
+    // read-write - Shift Buffer
     uint32_t SHIFTBUFEOS : 32;
   } bits;
   
@@ -3940,12 +4715,11 @@ union SHIFTBUFEOS[4] {
   static inline volatile SHIFTBUFEOS[4] &Instance() { return *reinterpret_cast<volatile SHIFTBUFEOS[4]*>(0x400AC890); }
 };
 // Shifter Buffer N Even Odd Swapped Register
-//
 union SHIFTBUFEOS[5] {
   
   // Bit field definition.
   struct {
-    /// read-write - Shift Buffer
+    // read-write - Shift Buffer
     uint32_t SHIFTBUFEOS : 32;
   } bits;
   
@@ -3957,12 +4731,11 @@ union SHIFTBUFEOS[5] {
   static inline volatile SHIFTBUFEOS[5] &Instance() { return *reinterpret_cast<volatile SHIFTBUFEOS[5]*>(0x400AC894); }
 };
 // Shifter Buffer N Even Odd Swapped Register
-//
 union SHIFTBUFEOS[6] {
   
   // Bit field definition.
   struct {
-    /// read-write - Shift Buffer
+    // read-write - Shift Buffer
     uint32_t SHIFTBUFEOS : 32;
   } bits;
   
@@ -3974,12 +4747,11 @@ union SHIFTBUFEOS[6] {
   static inline volatile SHIFTBUFEOS[6] &Instance() { return *reinterpret_cast<volatile SHIFTBUFEOS[6]*>(0x400AC898); }
 };
 // Shifter Buffer N Even Odd Swapped Register
-//
 union SHIFTBUFEOS[7] {
   
   // Bit field definition.
   struct {
-    /// read-write - Shift Buffer
+    // read-write - Shift Buffer
     uint32_t SHIFTBUFEOS : 32;
   } bits;
   

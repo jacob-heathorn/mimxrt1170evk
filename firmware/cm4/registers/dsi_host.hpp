@@ -5,24 +5,23 @@
 #include <cstring>
 
 // DSI HOST
-//
-// NOTE: This file was generated from the forge CMSIS-svd wrapper tool.
-
 namespace nDSI_HOST {
 
 
 // CFG_NUM_LANES
-//
 union CFG_NUM_LANES {
   
+  // Sets the number of active lanes that are to be used for transmitting data.
   enum class eNUM_LANES : uint32_t {
-    eNUM_LANES_0 = 0, // 1 lane
-    eNUM_LANES_1 = 1, // 2 lanes
+    // 1 lane
+    eNUM_LANES_0 = 0,
+    // 2 lanes
+    eNUM_LANES_1 = 1,
   };
   
   // Bit field definition.
   struct {
-    /// read-write - Sets the number of active lanes that are to be used for transmitting data.
+    // read-write - Sets the number of active lanes that are to be used for transmitting data.
     eNUM_LANES NUM_LANES : 2;
     uint32_t _reserved_0 : 30;
   } bits;
@@ -36,17 +35,19 @@ union CFG_NUM_LANES {
 };
 
 // CFG_NONCONTINUOUS_CLK
-//
 union CFG_NONCONTINUOUS_CLK {
   
+  // Sets the Host Controller into non-continuous MIPI clock mode. When in non-continuous clock mode, the high speed clock will transition into low power mode between transmissions.
   enum class eCLK_MODE : uint32_t {
-    eCLK_MODE_0 = 0, // Continuous high speed clock
-    eCLK_MODE_1 = 1, // Non-Continuous high speed clock
+    // Continuous high speed clock
+    eCLK_MODE_0 = 0,
+    // Non-Continuous high speed clock
+    eCLK_MODE_1 = 1,
   };
   
   // Bit field definition.
   struct {
-    /// read-write - Sets the Host Controller into non-continuous MIPI clock mode. When in non-continuous clock mode, the high speed clock will transition into low power mode between transmissions.
+    // read-write - Sets the Host Controller into non-continuous MIPI clock mode. When in non-continuous clock mode, the high speed clock will transition into low power mode between transmissions.
     eCLK_MODE CLK_MODE : 1;
     uint32_t _reserved_0 : 31;
   } bits;
@@ -60,12 +61,11 @@ union CFG_NONCONTINUOUS_CLK {
 };
 
 // CFG_T_PRE
-//
 union CFG_T_PRE {
   
   // Bit field definition.
   struct {
-    /// read-write - Sets the number of byte clock periods ('clk_byte' input) that the controller will wait after enabling the clock lane for HS operation before enabling the data lanes for HS operation. This setting represents the TCLK-PRE DPHY timing parameter. The minimum value for this port is 1.
+    // read-write - Sets the number of byte clock periods ('clk_byte' input) that the controller will wait after enabling the clock lane for HS operation before enabling the data lanes for HS operation. This setting represents the TCLK-PRE DPHY timing parameter. The minimum value for this port is 1.
     uint32_t NUM_PERIODS : 8;
     uint32_t _reserved_0 : 24;
   } bits;
@@ -79,12 +79,11 @@ union CFG_T_PRE {
 };
 
 // CFG_T_POST
-//
 union CFG_T_POST {
   
   // Bit field definition.
   struct {
-    /// read-write - Sets the number of byte clock periods ('clk_byte' input) to wait before putting the clock lane into LP mode after the data lanes have been detected to be in Stop State. This setting represents the DPHY timing parameters TLPX + TCLK-PREPARE + TCLK-ZERO + TCLK-PRE requirement for the clock lane before the data lane is allowed to change from LP11 to start a high speed transmission. The minimum value for this port is 1.
+    // read-write - Sets the number of byte clock periods ('clk_byte' input) to wait before putting the clock lane into LP mode after the data lanes have been detected to be in Stop State. This setting represents the DPHY timing parameters TLPX + TCLK-PREPARE + TCLK-ZERO + TCLK-PRE requirement for the clock lane before the data lane is allowed to change from LP11 to start a high speed transmission. The minimum value for this port is 1.
     uint32_t NUM_PERIODS : 8;
     uint32_t _reserved_0 : 24;
   } bits;
@@ -98,12 +97,11 @@ union CFG_T_POST {
 };
 
 // CFG_TX_GAP
-//
 union CFG_TX_GAP {
   
   // Bit field definition.
   struct {
-    /// read-write - Sets the number of byte clock periods ('clk_byte' input) that the controller will wait after the clock lane has been put into LP mode before enabling the clock lane for HS mode again. This setting represents the THS-EXIT DPHY timing parameter. The minimum value for this port is 1.
+    // read-write - Sets the number of byte clock periods ('clk_byte' input) that the controller will wait after the clock lane has been put into LP mode before enabling the clock lane for HS mode again. This setting represents the THS-EXIT DPHY timing parameter. The minimum value for this port is 1.
     uint32_t NUM_PERIODS : 8;
     uint32_t _reserved_0 : 24;
   } bits;
@@ -117,17 +115,19 @@ union CFG_TX_GAP {
 };
 
 // CFG_AUTOINSERT_EOTP
-//
 union CFG_AUTOINSERT_EOTP {
   
+  // Enables the Host Controller to automatically insert an EoTp short packet when switching from HS to LP mode.
   enum class eAUTOINSERT : uint32_t {
-    eNOT_AUTO = 0, // EoTp is not automatically inserted
-    eAUTO = 1, // EoTp is automatically inserted
+    // EoTp is not automatically inserted
+    eNOT_AUTO = 0,
+    // EoTp is automatically inserted
+    eAUTO = 1,
   };
   
   // Bit field definition.
   struct {
-    /// read-write - Enables the Host Controller to automatically insert an EoTp short packet when switching from HS to LP mode.
+    // read-write - Enables the Host Controller to automatically insert an EoTp short packet when switching from HS to LP mode.
     eAUTOINSERT AUTOINSERT : 1;
     uint32_t _reserved_0 : 31;
   } bits;
@@ -141,12 +141,11 @@ union CFG_AUTOINSERT_EOTP {
 };
 
 // CFG_EXTRA_CMDS_AFTER_EOTP
-//
 union CFG_EXTRA_CMDS_AFTER_EOTP {
   
   // Bit field definition.
   struct {
-    /// read-write - Configures the DSI Host Controller to send extra End Of Transmission Packets after the end of a packet. The value is the number of extra EOTP packets sent.
+    // read-write - Configures the DSI Host Controller to send extra End Of Transmission Packets after the end of a packet. The value is the number of extra EOTP packets sent.
     uint32_t EXTRA_EOTP : 8;
     uint32_t _reserved_0 : 24;
   } bits;
@@ -160,12 +159,11 @@ union CFG_EXTRA_CMDS_AFTER_EOTP {
 };
 
 // CFG_HTX_TO_COUNT
-//
 union CFG_HTX_TO_COUNT {
   
   // Bit field definition.
   struct {
-    /// read-write - Sets the value of the DSI Host High Speed TX timeout count in clk_byte clock periods that once reached will initiate a timeout error and follow the recovery procedure documented in the DSI specification.
+    // read-write - Sets the value of the DSI Host High Speed TX timeout count in clk_byte clock periods that once reached will initiate a timeout error and follow the recovery procedure documented in the DSI specification.
     uint32_t COUNT : 24;
     uint32_t _reserved_0 : 8;
   } bits;
@@ -179,12 +177,11 @@ union CFG_HTX_TO_COUNT {
 };
 
 // CFG_LRX_H_TO_COUNT
-//
 union CFG_LRX_H_TO_COUNT {
   
   // Bit field definition.
   struct {
-    /// read-write - Sets the value of the DSI Host low power RX timeout count in clk_byte clock periods that once reached will initiate a timeout error and follow the recovery procedure documented in the DSI specification.
+    // read-write - Sets the value of the DSI Host low power RX timeout count in clk_byte clock periods that once reached will initiate a timeout error and follow the recovery procedure documented in the DSI specification.
     uint32_t COUNT : 24;
     uint32_t _reserved_0 : 8;
   } bits;
@@ -198,12 +195,11 @@ union CFG_LRX_H_TO_COUNT {
 };
 
 // CFG_BTA_H_TO_COUNT
-//
 union CFG_BTA_H_TO_COUNT {
   
   // Bit field definition.
   struct {
-    /// read-write - Sets the value of the DSI Host Bus Turn Around (BTA) timeout in clk_byte clock periods that once reached will initiate a timeout error.
+    // read-write - Sets the value of the DSI Host Bus Turn Around (BTA) timeout in clk_byte clock periods that once reached will initiate a timeout error.
     uint32_t COUNT : 24;
     uint32_t _reserved_0 : 8;
   } bits;
@@ -217,12 +213,11 @@ union CFG_BTA_H_TO_COUNT {
 };
 
 // CFG_TWAKEUP
-//
 union CFG_TWAKEUP {
   
   // Bit field definition.
   struct {
-    /// read-write - DPHY Twakeup timing parameter. Sets the number of clk_esc clock periods to keep a clock or data lane in Mark-1 state after exiting ULPS. The MIPI DPHY spec requires a minimum of 1ms in Mark-1 state after leaving ULPS.
+    // read-write - DPHY Twakeup timing parameter. Sets the number of clk_esc clock periods to keep a clock or data lane in Mark-1 state after exiting ULPS. The MIPI DPHY spec requires a minimum of 1ms in Mark-1 state after leaving ULPS.
     uint32_t NUM_PERIODS : 19;
     uint32_t _reserved_0 : 13;
   } bits;
@@ -236,12 +231,11 @@ union CFG_TWAKEUP {
 };
 
 // CFG_STATUS_OUT
-//
 union CFG_STATUS_OUT {
   
   // Bit field definition.
   struct {
-    /// read-only - Status Register
+    // read-only - Status Register
     uint32_t STATUS : 32;
   } bits;
   
@@ -254,12 +248,11 @@ union CFG_STATUS_OUT {
 };
 
 // RX_ERROR_STATUS
-//
 union RX_ERROR_STATUS {
   
   // Bit field definition.
   struct {
-    /// read-only - Status Register for Host receive error detection, ECC errors, CRC errors and for timeout indicators
+    // read-only - Status Register for Host receive error detection, ECC errors, CRC errors and for timeout indicators
     uint32_t STATUS : 11;
     uint32_t _reserved_0 : 21;
   } bits;

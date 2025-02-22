@@ -5,23 +5,19 @@
 #include <cstring>
 
 // MX6RT_ANADIG_REGISTER
-//
-// NOTE: This file was generated from the forge CMSIS-svd wrapper tool.
-
 namespace nANADIG_LDO_SNVS_DIG {
 
 
 // PMU_LDO_SNVS_DIG_REGISTER
-//
 union PMU_LDO_SNVS_DIG {
   
   // Bit field definition.
   struct {
-    /// read-write - REG_LP_EN
+    // read-write - REG_LP_EN
     uint32_t REG_LP_EN : 1;
-    /// read-write - test_override
+    // read-write - test_override
     uint32_t TEST_OVERRIDE : 1;
-    /// read-write - REG_EN
+    // read-write - REG_EN
     uint32_t REG_EN : 1;
     uint32_t _reserved_0 : 29;
   } bits;
