@@ -4,9 +4,9 @@
 #include <stdint.h>
 #include <cstring>
 
-/// CCM
-///
-/// NOTE: This file was generated from the forge CMSIS-svd wrapper tool.
+// CCM
+//
+// NOTE: This file was generated from the forge CMSIS-svd wrapper tool.
 namespace nCCM {
 
 

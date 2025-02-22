@@ -19,6 +19,10 @@
   ],
   "editor.tabSize": 2,
   "editor.wordWrapColumn": 100,
+
+  "C_Cpp.intelliSenseEngine": "default",
+  "C_Cpp.intelliSenseCacheSize": 1024,
+
   "files.associations": {
     "array": "cpp",
     "atomic": "cpp",
