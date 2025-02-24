@@ -5,7 +5,6 @@
  * SPDX-License-Identifier: BSD-3-Clause
  */
 
-#include "pin_mux.h"
 #include "clock_config.h"
 #include "board.h"
 #include "mcmgr.h"
@@ -81,7 +80,6 @@ int main(void)
 
     /* Init board hardware.*/
     BOARD_ConfigMPU();
-    BOARD_InitPins();
     BoardInitPins();
     SystemCoreClock = CLOCK_GetRootClockFreq(kCLOCK_Root_M4);
 
