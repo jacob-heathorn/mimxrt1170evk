@@ -24,18 +24,6 @@ volatile bool g_pinSet = false;
     };                               \
     GPIO_PinInit(BOARD_USER_LED_GPIO, BOARD_USER_LED_GPIO_PIN, &led_config);
 
-//#define LED_TOGGLE() GPIO_PortToggle(BOARD_USER_LED_GPIO, 1u << BOARD_USER_LED_GPIO_PIN);
-#define LED_TOGGLE()                                                     \
-    if (g_pinSet)                                                        \
-    {                                                                    \
-        GPIO_PinWrite(BOARD_USER_LED_GPIO, BOARD_USER_LED_GPIO_PIN, 0U); \
-        g_pinSet = false;                                                \
-    }                                                                    \
-    else                                                                 \
-    {                                                                    \
-        GPIO_PinWrite(BOARD_USER_LED_GPIO, BOARD_USER_LED_GPIO_PIN, 1U); \
-        g_pinSet = true;                                                 \
-    }
 
 /*******************************************************************************
  * Prototypes
@@ -67,6 +55,16 @@ void BoardInitPins()
     // Set GPIO9, pin3 mux, for LED.
     nIOMUXC::SW_MUX_CTL_PAD_GPIO_AD_04::Instance().bits.MUX_MODE = 
         nIOMUXC::SW_MUX_CTL_PAD_GPIO_AD_04::eMUX_MODE::eALT10_gpio9_IO3;
+}
+
+void UserLedGpioInit()
+{
+    nCCM::LPCG51_DIRECT::Instance().bits.ON = nCCM::LPCG51_DIRECT::eON::eON_1;
+    
+    // auto &gdir = nGPIO9::GDIR::Instance();
+    // auto & edge_sel = nGPIO9::EDGE_SEL::Instance();
+    // auto & icr1 = nGPIO9::ICR1::Instance();
+    // auto & icr2 = nGPIO9::ICR2::Instance();
 }
 
 
@@ -103,6 +101,11 @@ int main(void)
     LED_INIT();
     auto &lpcg49_direct = nCCM::LPCG49_DIRECT::Instance();
 
+    // auto &gdir = nGPIO9::GDIR::Instance();
+    // auto & edge_sel = nGPIO9::EDGE_SEL::Instance();
+    // auto & icr1 = nGPIO9::ICR1::Instance();
+    // auto & icr2 = nGPIO9::ICR2::Instance();
+
     for (int j = 0; j < 20; ++j)
     {
         //SDK_DelayAtLeastUs(500000U, SDK_DEVICE_MAXIMUM_CPU_CLOCK_FREQUENCY);
@@ -112,7 +115,7 @@ int main(void)
             int y = i * 3 / 2;
             (void)y;
         }
-        LED_TOGGLE();
+        nGPIO9::DR_TOGGLE::Instance().bits.DR_TOGGLE = 8;
     }
 
     for (;;)
@@ -124,9 +127,6 @@ int main(void)
             int y = i * 3 / 2;
             (void)y;
         }
-        LED_TOGGLE();
-        auto &reg = nIOMUXC::SW_MUX_CTL_PAD_GPIO_AD_04::Instance();
-        auto x = reg.bits.MUX_MODE;
-        (void)x;
+        nGPIO9::DR_TOGGLE::Instance().bits.DR_TOGGLE = 8;
     }
 }
