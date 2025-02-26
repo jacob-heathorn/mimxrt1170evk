@@ -1,4 +1,5 @@
 add_subdirectory(registers)
+add_subdirectory(platform)
 
 # add_subdirectory(library)
 add_subdirectory(startup)

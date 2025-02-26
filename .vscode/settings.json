@@ -75,7 +75,8 @@
     "any": "cpp",
     "ratio": "cpp",
     "variant": "cpp",
-    "gpio9.hpp": "c"
+    "gpio9.hpp": "c",
+    "board.h": "c"
   },
   "cortex-debug.variableUseNaturalFormat": true
 }

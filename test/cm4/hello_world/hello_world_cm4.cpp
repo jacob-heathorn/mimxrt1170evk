@@ -12,6 +12,7 @@
 #include "registers/iomuxc.hpp"
 #include "registers/ccm.hpp"
 #include "drivers_new/gpio.hpp"
+#include "platform/mpu.hpp"
 
 volatile bool g_pinSet = false;
 
@@ -42,6 +43,7 @@ int main(void)
 
     /* Init board hardware.*/
     BOARD_ConfigMPU();
+    ConfigMpu();
     BoardInitPins();
     SystemCoreClock = CLOCK_GetRootClockFreq(kCLOCK_Root_M4);
 
