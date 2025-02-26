@@ -62,9 +62,9 @@ int main(void)
     }
 
     /* Configure LED */
-    Gpio led(9, 3);
-    led.configure(Gpio::Direction::eOutput);
-    led.write(Gpio::State::LOW);
+    Gpio<9> led(3);
+    led.configure(Direction::eOutput);
+    led.write(false);
 
     for (int j = 0; j < 20; ++j)
     {

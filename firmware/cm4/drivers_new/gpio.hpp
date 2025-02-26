@@ -1,50 +1,76 @@
+#include "registers/gpio1.hpp"
+#include "registers/gpio2.hpp"
+#include "registers/gpio3.hpp"
+#include "registers/gpio4.hpp"
+#include "registers/gpio5.hpp"
+#include "registers/gpio6.hpp"
+#include "registers/gpio7.hpp"
+#include "registers/gpio8.hpp"
 #include "registers/gpio9.hpp"
+#include "registers/gpio10.hpp"
+#include "registers/gpio11.hpp"
+#include "registers/gpio12.hpp"
+#include "registers/gpio13.hpp"
 
-class Gpio {
-public:
-    enum class Direction : uint32_t {
-        eInput,
-        eOutput
-    };
 
-    enum Pull {
-        NO_PULL,
-        PULL_UP,
-        PULL_DOWN
-    };
-
-    enum State {
-        LOW = 0,
-        HIGH = 1
-    };
-
-    Gpio(uint32_t port, uint32_t pin);
-    void configure(Direction dir, Pull pull = NO_PULL);
-    void write(State state);
-    State read();
-    void toggle();
-
-private:
-    uint32_t port_;  // GPIO Port
-    uint32_t pin_;   // GPIO Pin
-
-    void configurePinMux();
+// TODO enum class
+// TODO Gpio_
+enum class Direction : uint32_t {
+  eInput,
+  eOutput
 };
 
-// Constructor: Assigns port and pin
-Gpio::Gpio(uint32_t port, uint32_t pin) : port_(port), pin_(pin) {}
+enum Pull {
+    NO_PULL,
+    PULL_UP,
+    PULL_DOWN
+};
+
+template  <uint32_t GPIO_NUM>
+class Gpio {
+public:
+
+  Gpio(uint32_t pin) : pin_(pin) {}
+  void configure(Direction dir, Pull pull = NO_PULL);
+  void write(bool state);
+  bool read();
+  void toggle();
+
+private:
+  uint32_t pin_;
+  void configurePinMux();
+};
+
+// // Template to map GPIO number to the correct namespace
+// template <uint32_t GPIO_NUM>
+// struct GPIO_Instance;
+
+// template <> struct GPIO_Instance<1> { using DR = nGPIO1::DR; };
+// template <> struct GPIO_Instance<2> { using DR = nGPIO2::DR; };
+// template <> struct GPIO_Instance<3> { using DR = nGPIO3::DR; };
+// template <> struct GPIO_Instance<4> { using DR = nGPIO4::DR; };
+// template <> struct GPIO_Instance<5> { using DR = nGPIO5::DR; };
+// template <> struct GPIO_Instance<6> { using DR = nGPIO6::DR; };
+// template <> struct GPIO_Instance<7> { using DR = nGPIO7::DR; };
+// template <> struct GPIO_Instance<8> { using DR = nGPIO8::DR; };
+// template <> struct GPIO_Instance<9> { using DR = nGPIO9::DR; };
+
 
 // Configure GPIO pin direction and pull-up/down settings
-void Gpio::configure(Direction dir, Pull pull) {
+template <uint32_t GPIO_NUM>
+void Gpio<GPIO_NUM>::configure(Direction dir, Pull pull) {
     // Enable th GPIO0 clock. TODO which GPIO?
     nCCM::LPCG51_DIRECT::Instance().bits.ON = nCCM::LPCG51_DIRECT::eON::eON_1;
     while (nCCM::LPCG51_STATUS0::Instance().bits.ON != nCCM::LPCG51_STATUS0::eON::eON_1) {}
     
     // Configure the pin in IOMUXC for GPIO use.
+    //
+    // TODO Could I do some kind of static code thing that would fail if you try to configure
+    // multiple functions fo the same pin?
     configurePinMux();
 
     // Configure direction
-    if (dir == Gpio::Direction::eOutput) {
+    if (dir == Direction::eOutput) {
       // TODO templatize?
       nGPIO9::IMR::Instance().bits.IMR &= ~(1UL << pin_);
       nGPIO9::DR::Instance().bits.DR &= ~(1UL << pin_);
@@ -65,29 +91,32 @@ void Gpio::configure(Direction dir, Pull pull) {
 }
 
 // Write HIGH or LOW to the GPIO pin
-void Gpio::write(State state) {
-    if (state == HIGH) {
+template <uint32_t GPIO_NUM>
+void Gpio<GPIO_NUM>::write(bool state) {
+    if (state == true) {
       nGPIO9::DR::Instance().bits.DR |= (1 << pin_);
-        
     } else {
       nGPIO9::DR::Instance().bits.DR &= ~(1UL << 3);
     }
 }
 
 // Read the current state of the GPIO pin
-Gpio::State Gpio::read() {
+template <uint32_t GPIO_NUM>
+bool Gpio<GPIO_NUM>::read() {
     // Example: return (GPIOx->DR & (1 << pin_)) ? HIGH : LOW;
-    return LOW;  // Placeholder
+    return false;  // Placeholder
 }
 
 // Toggle the state of the GPIO pin
-void Gpio::toggle() {
+template <uint32_t GPIO_NUM>
+void Gpio<GPIO_NUM>::toggle() {
     // Example: GPIOx->DR ^= (1 << pin_);
     nGPIO9::DR_TOGGLE::Instance().bits.DR_TOGGLE ^= (1 << pin_);
 }
 
 // Configure Pin MUX for GPIO (specific to i.MX RT1170)
-void Gpio::configurePinMux() {
+template <uint32_t GPIO_NUM>
+void Gpio<GPIO_NUM>::configurePinMux() {
   // Set GPIO9, pin3 mux, for LED.
   nIOMUXC::SW_MUX_CTL_PAD_GPIO_AD_04::Instance().bits.MUX_MODE = 
       nIOMUXC::SW_MUX_CTL_PAD_GPIO_AD_04::eMUX_MODE::eALT10_gpio9_IO3;
