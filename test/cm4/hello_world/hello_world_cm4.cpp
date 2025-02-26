@@ -11,6 +11,7 @@
 #include "registers/gpio9.hpp"
 #include "registers/iomuxc.hpp"
 #include "registers/ccm.hpp"
+#include "drivers_new/gpio.hpp"
 
 volatile bool g_pinSet = false;
 
@@ -38,24 +39,24 @@ void SystemInitHook(void)
 
 void BoardInitPins()
 {
-    // Enable the IOMUXC clock and wait for it.
-    nCCM::LPCG49_DIRECT::Instance().bits.ON = nCCM::LPCG49_DIRECT::eON::eON_1;
-    while (nCCM::LPCG49_STATUS0::Instance().bits.ON != nCCM::LPCG49_STATUS0::eON::eON_1) {}
+    // // Enable the IOMUXC clock and wait for it.
+    // nCCM::LPCG49_DIRECT::Instance().bits.ON = nCCM::LPCG49_DIRECT::eON::eON_1;
+    // while (nCCM::LPCG49_STATUS0::Instance().bits.ON != nCCM::LPCG49_STATUS0::eON::eON_1) {}
     
-    // Set GPIO9, pin3 mux, for LED.
-    nIOMUXC::SW_MUX_CTL_PAD_GPIO_AD_04::Instance().bits.MUX_MODE = 
-        nIOMUXC::SW_MUX_CTL_PAD_GPIO_AD_04::eMUX_MODE::eALT10_gpio9_IO3;
+    // // Set GPIO9, pin3 mux, for LED.
+    // nIOMUXC::SW_MUX_CTL_PAD_GPIO_AD_04::Instance().bits.MUX_MODE = 
+    //     nIOMUXC::SW_MUX_CTL_PAD_GPIO_AD_04::eMUX_MODE::eALT10_gpio9_IO3;
 }
 
 void UserLedGpioInit()
 {
-    // Enable th GPIO0 clock.
-    nCCM::LPCG51_DIRECT::Instance().bits.ON = nCCM::LPCG51_DIRECT::eON::eON_1;
-    while (nCCM::LPCG51_STATUS0::Instance().bits.ON != nCCM::LPCG51_STATUS0::eON::eON_1) {}
+    // // Enable th GPIO0 clock.
+    // nCCM::LPCG51_DIRECT::Instance().bits.ON = nCCM::LPCG51_DIRECT::eON::eON_1;
+    // while (nCCM::LPCG51_STATUS0::Instance().bits.ON != nCCM::LPCG51_STATUS0::eON::eON_1) {}
 
-    nGPIO9::IMR::Instance().bits.IMR &= ~(1UL << 3);
-    nGPIO9::DR::Instance().bits.DR &= ~(1UL << 3);
-    nGPIO9::GDIR::Instance().bits.GDIR |= (1UL << 3);
+    // nGPIO9::IMR::Instance().bits.IMR &= ~(1UL << 3);
+    // nGPIO9::DR::Instance().bits.DR &= ~(1UL << 3);
+    // nGPIO9::GDIR::Instance().bits.GDIR |= (1UL << 3);
     // nGPIO9::ICR1::Instance().bits.ICR3
 
     // auto &gdir = nGPIO9::GDIR::Instance();
@@ -95,7 +96,11 @@ int main(void)
     }
 
     /* Configure LED */
-    UserLedGpioInit();
+    Gpio led(9, 3);
+    led.configure(Gpio::Direction::eOutput);
+    led.write(Gpio::State::LOW);
+
+    // UserLedGpioInit();
     auto &lpcg49_direct = nCCM::LPCG49_DIRECT::Instance();
 
     // auto &gdir = nGPIO9::GDIR::Instance();
@@ -112,7 +117,8 @@ int main(void)
             int y = i * 3 / 2;
             (void)y;
         }
-        nGPIO9::DR_TOGGLE::Instance().bits.DR_TOGGLE = 8;
+        // nGPIO9::DR_TOGGLE::Instance().bits.DR_TOGGLE = 8;
+        led.toggle();
     }
 
     for (;;)
@@ -124,6 +130,7 @@ int main(void)
             int y = i * 3 / 2;
             (void)y;
         }
-        nGPIO9::DR_TOGGLE::Instance().bits.DR_TOGGLE = 8;
+        // nGPIO9::DR_TOGGLE::Instance().bits.DR_TOGGLE = 8;
+        led.toggle();
     }
 }
