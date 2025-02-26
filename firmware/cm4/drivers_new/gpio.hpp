@@ -41,19 +41,66 @@ private:
   void configurePinMux();
 };
 
-// // Template to map GPIO number to the correct namespace
-// template <uint32_t GPIO_NUM>
-// struct GPIO_Instance;
 
-// template <> struct GPIO_Instance<1> { using DR = nGPIO1::DR; };
-// template <> struct GPIO_Instance<2> { using DR = nGPIO2::DR; };
-// template <> struct GPIO_Instance<3> { using DR = nGPIO3::DR; };
-// template <> struct GPIO_Instance<4> { using DR = nGPIO4::DR; };
-// template <> struct GPIO_Instance<5> { using DR = nGPIO5::DR; };
-// template <> struct GPIO_Instance<6> { using DR = nGPIO6::DR; };
-// template <> struct GPIO_Instance<7> { using DR = nGPIO7::DR; };
-// template <> struct GPIO_Instance<8> { using DR = nGPIO8::DR; };
-// template <> struct GPIO_Instance<9> { using DR = nGPIO9::DR; };
+// Template to map GPIO number to the correct namespace
+namespace Registers
+{
+template <uint32_t GPIO_NUM>
+struct Gpio;
+
+template <> struct Gpio<1> {
+  using DR = nGPIO1::DR; 
+  using DR_TOGGLE = nGPIO1::DR_TOGGLE; 
+};
+template <> struct Gpio<2> {
+  using DR = nGPIO2::DR; 
+  using DR_TOGGLE = nGPIO2::DR_TOGGLE; 
+};
+template <> struct Gpio<3> {
+  using DR = nGPIO3::DR; 
+  using DR_TOGGLE = nGPIO3::DR_TOGGLE; 
+};
+template <> struct Gpio<4> {
+  using DR = nGPIO4::DR; 
+  using DR_TOGGLE = nGPIO4::DR_TOGGLE; 
+};
+template <> struct Gpio<5> {
+  using DR = nGPIO5::DR; 
+  using DR_TOGGLE = nGPIO5::DR_TOGGLE; 
+};
+template <> struct Gpio<6> {
+  using DR = nGPIO6::DR; 
+  using DR_TOGGLE = nGPIO6::DR_TOGGLE; 
+};
+template <> struct Gpio<7> {
+  using DR = nGPIO7::DR; 
+  using DR_TOGGLE = nGPIO7::DR_TOGGLE; 
+};
+template <> struct Gpio<8> {
+  using DR = nGPIO8::DR; 
+  using DR_TOGGLE = nGPIO8::DR_TOGGLE; 
+};
+template <> struct Gpio<9> {
+  using DR = nGPIO9::DR; 
+  using DR_TOGGLE = nGPIO9::DR_TOGGLE; 
+};
+template <> struct Gpio<10> {
+  using DR = nGPIO10::DR; 
+  using DR_TOGGLE = nGPIO10::DR_TOGGLE; 
+};
+template <> struct Gpio<11> {
+  using DR = nGPIO11::DR; 
+  using DR_TOGGLE = nGPIO11::DR_TOGGLE; 
+};
+template <> struct Gpio<12> {
+  using DR = nGPIO12::DR; 
+  using DR_TOGGLE = nGPIO12::DR_TOGGLE; 
+};
+template <> struct Gpio<13> {
+  using DR = nGPIO13::DR; 
+  using DR_TOGGLE = nGPIO13::DR_TOGGLE; 
+};
+}
 
 
 // Configure GPIO pin direction and pull-up/down settings
@@ -94,9 +141,9 @@ void Gpio<GPIO_NUM>::configure(Direction dir, Pull pull) {
 template <uint32_t GPIO_NUM>
 void Gpio<GPIO_NUM>::write(bool state) {
     if (state == true) {
-      nGPIO9::DR::Instance().bits.DR |= (1 << pin_);
+       Registers::Gpio<GPIO_NUM>::DR::Instance().bits.DR |= (1 << pin_);
     } else {
-      nGPIO9::DR::Instance().bits.DR &= ~(1UL << 3);
+       Registers::Gpio<GPIO_NUM>::DR::Instance().bits.DR &= ~(1UL << 3);
     }
 }
 
@@ -111,7 +158,8 @@ bool Gpio<GPIO_NUM>::read() {
 template <uint32_t GPIO_NUM>
 void Gpio<GPIO_NUM>::toggle() {
     // Example: GPIOx->DR ^= (1 << pin_);
-    nGPIO9::DR_TOGGLE::Instance().bits.DR_TOGGLE ^= (1 << pin_);
+    // nGPIO9::DR_TOGGLE::Instance().bits.DR_TOGGLE ^= (1 << pin_);
+    Registers::Gpio<GPIO_NUM>::DR_TOGGLE::Instance().bits.DR_TOGGLE ^= (1 << pin_);
 }
 
 // Configure Pin MUX for GPIO (specific to i.MX RT1170)
