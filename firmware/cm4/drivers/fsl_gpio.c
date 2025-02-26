@@ -85,8 +85,8 @@ void GPIO_PinInit(GPIO_Type *base, uint32_t pin, const gpio_pin_config_t *Config
     }
 #endif /* FSL_SDK_DISABLE_DRIVER_CLOCK_CONTROL */
 
-    /* Register reset to default value */
-    base->IMR &= ~(1UL << pin);
+    // /* Register reset to default value */
+    // base->IMR &= ~(1UL << pin);
 
     /* Configure GPIO pin direction */
     if (Config->direction == kGPIO_DigitalInput)

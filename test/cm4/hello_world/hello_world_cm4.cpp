@@ -12,17 +12,7 @@
 #include "registers/iomuxc.hpp"
 #include "registers/ccm.hpp"
 
-#include "fsl_gpio.h"
 volatile bool g_pinSet = false;
-/*******************************************************************************
- * Definitions
- ******************************************************************************/
-#define LED_INIT()                   \
-    gpio_pin_config_t led_config = { \
-        kGPIO_DigitalOutput,         \
-        0,                           \
-    };                               \
-    GPIO_PinInit(BOARD_USER_LED_GPIO, BOARD_USER_LED_GPIO_PIN, &led_config);
 
 
 /*******************************************************************************
@@ -59,8 +49,15 @@ void BoardInitPins()
 
 void UserLedGpioInit()
 {
+    // Enable th GPIO0 clock.
     nCCM::LPCG51_DIRECT::Instance().bits.ON = nCCM::LPCG51_DIRECT::eON::eON_1;
-    
+    while (nCCM::LPCG51_STATUS0::Instance().bits.ON != nCCM::LPCG51_STATUS0::eON::eON_1) {}
+
+    nGPIO9::IMR::Instance().bits.IMR &= ~(1UL << 3);
+    nGPIO9::DR::Instance().bits.DR &= ~(1UL << 3);
+    nGPIO9::GDIR::Instance().bits.GDIR |= (1UL << 3);
+    // nGPIO9::ICR1::Instance().bits.ICR3
+
     // auto &gdir = nGPIO9::GDIR::Instance();
     // auto & edge_sel = nGPIO9::EDGE_SEL::Instance();
     // auto & icr1 = nGPIO9::ICR1::Instance();
@@ -98,7 +95,7 @@ int main(void)
     }
 
     /* Configure LED */
-    LED_INIT();
+    UserLedGpioInit();
     auto &lpcg49_direct = nCCM::LPCG49_DIRECT::Instance();
 
     // auto &gdir = nGPIO9::GDIR::Instance();
