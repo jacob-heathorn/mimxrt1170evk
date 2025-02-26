@@ -101,39 +101,47 @@ template <> struct Gpio<13> {
 };
 }
 
+// Non-templated code.
+namespace
+{
+  void EnableGpioClock()
+  {
+    nCCM::LPCG51_DIRECT::Instance().bits.ON = nCCM::LPCG51_DIRECT::eON::eON_1;
+    while (nCCM::LPCG51_STATUS0::Instance().bits.ON != nCCM::LPCG51_STATUS0::eON::eON_1) {}
+  }
+}
 
 // Configure GPIO pin direction and pull-up/down settings
 template <uint32_t GPIO_NUM>
 void Gpio<GPIO_NUM>::configure(GpioDirection dir, GpioPull pull) {
-    // Enable th GPIO0 clock. TODO which GPIO?
-    nCCM::LPCG51_DIRECT::Instance().bits.ON = nCCM::LPCG51_DIRECT::eON::eON_1;
-    while (nCCM::LPCG51_STATUS0::Instance().bits.ON != nCCM::LPCG51_STATUS0::eON::eON_1) {}
+  // Enable the Gpio Clock.
+  EnableGpioClock();
     
-    // Configure the pin in IOMUXC for GPIO use.
-    //
-    // TODO Could I do some kind of static code thing that would fail if you try to configure
-    // multiple functions fo the same pin?
-    configurePinMux();
+  // Configure the pin in IOMUXC for GPIO use.
+  //
+  // TODO Could I do some kind of static code thing that would fail if you try to configure
+  // multiple functions fo the same pin?
+  configurePinMux();
 
-    // Configure direction
-    if (dir == GpioDirection::eOutput) {
-      // TODO templatize?
-      nGPIO9::IMR::Instance().bits.IMR &= ~(1UL << pin_);
-      nGPIO9::DR::Instance().bits.DR &= ~(1UL << pin_);
-      nGPIO9::GDIR::Instance().bits.GDIR |= (1UL << pin_);
-    } else {
-        // Set pin as input
-        // GPIOx->GDIR &= ~(1 << pin_);
-    }
+  // Configure direction
+  if (dir == GpioDirection::eOutput) {
+    // TODO templatize?
+    nGPIO9::IMR::Instance().bits.IMR &= ~(1UL << pin_);
+    nGPIO9::DR::Instance().bits.DR &= ~(1UL << pin_);
+    nGPIO9::GDIR::Instance().bits.GDIR |= (1UL << pin_);
+  } else {
+      // Set pin as input
+      // GPIOx->GDIR &= ~(1 << pin_);
+  }
 
-    // Configure pull-up/down resistors
-    if (pull == GpioPull::ePullUp) {
-        // Enable pull-up resistor
-        // GPIOx->PULL |= (1 << pin_);
-    } else if (pull == GpioPull::ePullDown) {
-        // Enable pull-down resistor
-        // GPIOx->PULL &= ~(1 << pin_);
-    }
+  // Configure pull-up/down resistors
+  if (pull == GpioPull::ePullUp) {
+      // Enable pull-up resistor
+      // GPIOx->PULL |= (1 << pin_);
+  } else if (pull == GpioPull::ePullDown) {
+      // Enable pull-down resistor
+      // GPIOx->PULL &= ~(1 << pin_);
+  }
 }
 
 // Write HIGH or LOW to the GPIO pin
