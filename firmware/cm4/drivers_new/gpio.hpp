@@ -13,17 +13,15 @@
 #include "registers/gpio13.hpp"
 
 
-// TODO enum class
-// TODO Gpio_
-enum class Direction : uint32_t {
+enum class GpioDirection : uint32_t {
   eInput,
   eOutput
 };
 
-enum Pull {
-    NO_PULL,
-    PULL_UP,
-    PULL_DOWN
+enum class GpioPull : uint32_t {
+    eNoPull,
+    ePullUp,
+    ePullDown
 };
 
 template  <uint32_t GPIO_NUM>
@@ -31,7 +29,7 @@ class Gpio {
 public:
 
   Gpio(uint32_t pin) : pin_(pin) {}
-  void configure(Direction dir, Pull pull = NO_PULL);
+  void configure(GpioDirection dir, GpioPull pull = GpioPull::eNoPull);
   void write(bool state);
   bool read();
   void toggle();
@@ -42,7 +40,8 @@ private:
 };
 
 
-// Template to map GPIO number to the correct namespace
+// Template to map GPIO number to the correct register namespace
+//
 namespace Registers
 {
 template <uint32_t GPIO_NUM>
@@ -105,7 +104,7 @@ template <> struct Gpio<13> {
 
 // Configure GPIO pin direction and pull-up/down settings
 template <uint32_t GPIO_NUM>
-void Gpio<GPIO_NUM>::configure(Direction dir, Pull pull) {
+void Gpio<GPIO_NUM>::configure(GpioDirection dir, GpioPull pull) {
     // Enable th GPIO0 clock. TODO which GPIO?
     nCCM::LPCG51_DIRECT::Instance().bits.ON = nCCM::LPCG51_DIRECT::eON::eON_1;
     while (nCCM::LPCG51_STATUS0::Instance().bits.ON != nCCM::LPCG51_STATUS0::eON::eON_1) {}
@@ -117,7 +116,7 @@ void Gpio<GPIO_NUM>::configure(Direction dir, Pull pull) {
     configurePinMux();
 
     // Configure direction
-    if (dir == Direction::eOutput) {
+    if (dir == GpioDirection::eOutput) {
       // TODO templatize?
       nGPIO9::IMR::Instance().bits.IMR &= ~(1UL << pin_);
       nGPIO9::DR::Instance().bits.DR &= ~(1UL << pin_);
@@ -128,10 +127,10 @@ void Gpio<GPIO_NUM>::configure(Direction dir, Pull pull) {
     }
 
     // Configure pull-up/down resistors
-    if (pull == PULL_UP) {
+    if (pull == GpioPull::ePullUp) {
         // Enable pull-up resistor
         // GPIOx->PULL |= (1 << pin_);
-    } else if (pull == PULL_DOWN) {
+    } else if (pull == GpioPull::ePullDown) {
         // Enable pull-down resistor
         // GPIOx->PULL &= ~(1 << pin_);
     }
