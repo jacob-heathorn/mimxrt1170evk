@@ -15,15 +15,6 @@
 
 volatile bool g_pinSet = false;
 
-
-/*******************************************************************************
- * Prototypes
- ******************************************************************************/
-
-/*******************************************************************************
- * Code
- ******************************************************************************/
-
 /*!
  * @brief Application-specific implementation of the SystemInitHook() weak function.
  */
@@ -39,32 +30,7 @@ void SystemInitHook(void)
 
 void BoardInitPins()
 {
-    // // Enable the IOMUXC clock and wait for it.
-    // nCCM::LPCG49_DIRECT::Instance().bits.ON = nCCM::LPCG49_DIRECT::eON::eON_1;
-    // while (nCCM::LPCG49_STATUS0::Instance().bits.ON != nCCM::LPCG49_STATUS0::eON::eON_1) {}
-    
-    // // Set GPIO9, pin3 mux, for LED.
-    // nIOMUXC::SW_MUX_CTL_PAD_GPIO_AD_04::Instance().bits.MUX_MODE = 
-    //     nIOMUXC::SW_MUX_CTL_PAD_GPIO_AD_04::eMUX_MODE::eALT10_gpio9_IO3;
 }
-
-void UserLedGpioInit()
-{
-    // // Enable th GPIO0 clock.
-    // nCCM::LPCG51_DIRECT::Instance().bits.ON = nCCM::LPCG51_DIRECT::eON::eON_1;
-    // while (nCCM::LPCG51_STATUS0::Instance().bits.ON != nCCM::LPCG51_STATUS0::eON::eON_1) {}
-
-    // nGPIO9::IMR::Instance().bits.IMR &= ~(1UL << 3);
-    // nGPIO9::DR::Instance().bits.DR &= ~(1UL << 3);
-    // nGPIO9::GDIR::Instance().bits.GDIR |= (1UL << 3);
-    // nGPIO9::ICR1::Instance().bits.ICR3
-
-    // auto &gdir = nGPIO9::GDIR::Instance();
-    // auto & edge_sel = nGPIO9::EDGE_SEL::Instance();
-    // auto & icr1 = nGPIO9::ICR1::Instance();
-    // auto & icr2 = nGPIO9::ICR2::Instance();
-}
-
 
 /*!
  * @brief Main function
@@ -100,14 +66,6 @@ int main(void)
     led.configure(Gpio::Direction::eOutput);
     led.write(Gpio::State::LOW);
 
-    // UserLedGpioInit();
-    auto &lpcg49_direct = nCCM::LPCG49_DIRECT::Instance();
-
-    // auto &gdir = nGPIO9::GDIR::Instance();
-    // auto & edge_sel = nGPIO9::EDGE_SEL::Instance();
-    // auto & icr1 = nGPIO9::ICR1::Instance();
-    // auto & icr2 = nGPIO9::ICR2::Instance();
-
     for (int j = 0; j < 20; ++j)
     {
         //SDK_DelayAtLeastUs(500000U, SDK_DEVICE_MAXIMUM_CPU_CLOCK_FREQUENCY);
@@ -117,7 +75,6 @@ int main(void)
             int y = i * 3 / 2;
             (void)y;
         }
-        // nGPIO9::DR_TOGGLE::Instance().bits.DR_TOGGLE = 8;
         led.toggle();
     }
 
@@ -130,7 +87,6 @@ int main(void)
             int y = i * 3 / 2;
             (void)y;
         }
-        // nGPIO9::DR_TOGGLE::Instance().bits.DR_TOGGLE = 8;
         led.toggle();
     }
 }
