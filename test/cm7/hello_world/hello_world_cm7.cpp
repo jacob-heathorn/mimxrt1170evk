@@ -11,6 +11,7 @@
 #include "mcmgr.h"
 #include "registers/iomuxc.hpp"
 #include "registers/ccm.hpp"
+#include "cachel1_armv7.h"
 
 /*******************************************************************************
  * Definitions
@@ -104,6 +105,7 @@ int main(void)
         L1CACHE_CleanInvalidateSystemCacheByRange((uint32_t)CORE1_BOOT_ADDRESS, core1_image_size);
     }
 #endif /* APP_INVALIDATE_CACHE_FOR_SECONDARY_CORE_IMAGE_MEMORY*/
+    SCB_CleanInvalidateDCache_by_Addr((void *)CORE1_BOOT_ADDRESS, core1_image_size);
 
     /* Boot Secondary core application */
     (void)PRINTF("Starting Secondary core.\r\n");
