@@ -13,6 +13,7 @@
 #include "registers/ccm.hpp"
 #include "core_cm7.h"
 #include "cachel1_armv7.h"
+#include <cstdio>
 
 /*******************************************************************************
  * Definitions
@@ -94,72 +95,92 @@ void check_mpu_settings(uint32_t addr) {
     (void)PRINTF("❌ Address 0x%08X is NOT COVERED by any MPU region.\n\r", addr);
 }
 
-#define TEST_ADDRESS  ((volatile uint32_t *)0x20200000)  // Some RAM location
-#define TEST_SIZE     (sizeof(uint32_t))
+// // Define a test memory address in SRAM (must align with region size for MPU).
+// #define TEST_ADDR    ((uint32_t*)0x20200000)
+// // #define REGION_SIZE  MPU_REGION_SIZE_32B     // Using a 32-byte MPU region for test
 
-void test_cache_clean_invalidate() {
-    MPU->CTRL |= 1;
-    MPU->RBAR = ARM_MPU_RBAR(6, 0x20200000U);
-    MPU->RASR = ARM_MPU_RASR(0, ARM_MPU_AP_FULL, 0, 0, 1, 0, 0, ARM_MPU_REGION_SIZE_1MB);
-    __DSB();
-    __ISB();
-    PRINTF("MPU->CTRL = 0x%08X\n\r", MPU->CTRL);
-    check_mpu_settings(0x20200000);
+// void CacheWriteBackTest(void) {
+//     // // Step 1: Configure the MPU for write-back cacheable memory at TEST_ADDR
+//     // MPU_Region_InitTypeDef MPU_InitStruct;
+//     // ARM_MPU_Disable();  // Disable MPU to configure regions
 
-    if ((SCB->CCR & SCB_CCR_DC_Msk) == 0) {
-        (void)PRINTF("❌ D-Cache is DISABLED, Step 2 is not valid.\n\r");
-    } else {
-        (void)PRINTF("✅ D-Cache is ENABLED.\n\r");
-    }
-    
-    volatile uint32_t *ram_addr = TEST_ADDRESS;
-    
-    // 1️⃣ Step 1: Initialize RAM with a known value
-    *ram_addr = 0x12345678;  
-    __DSB(); __ISB();  // Ensure store is completed
+//     // MPU_InitStruct.Enable           = MPU_REGION_ENABLE;
+//     // MPU_InitStruct.BaseAddress      = (uint32_t)TEST_ADDR;
+//     // MPU_InitStruct.Size             = REGION_SIZE;
+//     // MPU_InitStruct.AccessPermission = MPU_REGION_FULL_ACCESS;
+//     // MPU_InitStruct.IsBufferable     = MPU_ACCESS_NOT_BUFFERABLE;
+//     // MPU_InitStruct.IsCacheable      = MPU_ACCESS_CACHEABLE;     // Enable caching
+//     // MPU_InitStruct.IsShareable      = MPU_ACCESS_NOT_SHAREABLE; // Non-shareable (allows D-cache use)
+//     // MPU_InitStruct.TypeExtField     = MPU_TEX_LEVEL1;  // TEX level for write-back (WBWA inner policy)
+//     // MPU_InitStruct.SubRegionDisable = 0x00;
+//     // MPU_InitStruct.DisableExec      = MPU_INSTRUCTION_ACCESS_DISABLE; // Data only region
 
-    // 2️⃣ Step 2: Write a new value (this may stay in cache)
-    *ram_addr = 0xDEADBEEF;
+//     // ARM_MPU_ConfigRegion(&MPU_InitStruct);
+//     // ARM_MPU_Enable(MPU_PRIVILEGED_DEFAULT);  // Enable MPU (privileged access uses default map for other regions)
 
-    // 3️⃣ Step 3: Read back RAM content directly using a non-cached pointer
-    uint32_t ram_value_before_clean = *(volatile uint32_t *)TEST_ADDRESS;
+//     // Enable D-Cache if not already enabled
+//     SCB_EnableDCache();
 
-    // 4️⃣ Step 4: Verify if the cached value differs from the RAM-stored value
-    if (ram_value_before_clean == 0x12345678) {
-        (void)PRINTF("✅ Cache contains new value, but RAM still holds old value.\n\r");
-    } else {
-        (void)PRINTF("❌ Cache did not retain new value; test might be invalid.\n\r");
-        return;
-    }
+//     // printf("MPU configured 0x%08X size %u as write-back cacheable. D-Cache enabled.\n", 
+//     //        (unsigned)TEST_ADDR, 1 << (REGION_SIZE + 1));
 
-    // // 5️⃣ Step 5: Clean and Invalidate the Cache
-    // SCB_CleanInvalidateDCache_by_Addr((void *)ram_addr, TEST_SIZE);
-    // __DSB(); __ISB();  // Ensure completion
+//     // Step 2: Write a new value to the memory location (update stays in cache)
+//     volatile uint32_t *ptr = TEST_ADDR;
+//     uint32_t old_value = *ptr;               // Read the initial value from RAM (likely loads into cache)
+//     uint32_t new_value = ~old_value;         // Invert bits of old value to get a distinct new value
 
-    // // 6️⃣ Step 6: Read RAM content again
-    // uint32_t ram_value_after_clean = *(volatile uint32_t *)TEST_ADDRESS;
+//     *ptr = new_value;  // Write new value - goes to D-cache (write-back mode keeps it in cache, not RAM)
+//     __DMB();           // Data memory barrier to ensure write completes to cache
 
-    // // 7️⃣ Step 7: Verify if the RAM now has the new value
-    // if (ram_value_after_clean == 0xDEADBEEF) {
-    //     printf("✅ Cache cleaning successful, RAM now has the correct value.\n");
-    // } else {
-    //     printf("❌ Cache cleaning failed, RAM does not have updated value.\n");
-    // }
+//     // (Optional) Verify CPU can read the new value from cache
+//     uint32_t cached_val = *ptr;
+//     if (cached_val == new_value) {
+//         printf("Step 2: Wrote new value 0x%08lX to *ptr (cache updated, RAM not yet updated).\n", cached_val);
+//     } else {
+//         printf("Step 2: FAIL - Write to cache did not stick (read back 0x%08lX, expected 0x%08lX).\n", 
+//                cached_val, new_value);
+//     }
 
-    // // 8️⃣ Step 8: Modify RAM directly and verify cache invalidation
-    // *(volatile uint32_t *)TEST_ADDRESS = 0xCAFEBABE;  // Write to RAM (bypass cache)
-    // SCB_InvalidateDCache_by_Addr((void *)ram_addr, TEST_SIZE);
-    // __DSB(); __ISB();  // Ensure completion
+//     // Step 3: Read the memory location directly from RAM to confirm old value is still there
+//     uint32_t ram_read_val = 0;
+//     // Use DMA to read the value from RAM, bypassing the CPU cache
+//     // (Configure a DMA channel for memory-to-memory transfer: source=ptr, dest=&ram_read_val)
+//     // Pseudocode for DMA setup and transfer (implementation depends on platform):
+//     // DMA_Init(...source = ptr, dest = &ram_read_val, length = sizeof(ram_read_val)...);
+//     // DMA_Start();
+//     // DMA_WaitForCompletion();
+//     // For simplicity in this pseudo-test, we'll assume a function DMA_ReadWord(src, dest) that does this:
+//     extern void DMA_ReadWord(volatile uint32_t *src, uint32_t *dest);  // (User-provided DMA function)
+//     DMA_ReadWord(ptr, &ram_read_val);
 
-    // uint32_t cache_reload_value = *ram_addr;  // Read from potentially reloaded cache
+//     printf("Step 3: RAM content before cache clean = 0x%08lX (expected old value 0x%08lX)\n",
+//            ram_read_val, old_value);
+//     if (ram_read_val == old_value) {
+//         printf("        SUCCESS - Memory still has old value (cache write not flushed yet).\n");
+//     } else {
+//         printf("        FAIL - Memory value changed (0x%08lX), expected old 0x%08lX.\n", ram_read_val, old_value);
+//     }
 
-    // if (cache_reload_value == 0xCAFEBABE) {
-    //     printf("✅ Cache invalidation successful, reloaded correct RAM value.\n");
-    // } else {
-    //     printf("❌ Cache invalidation failed, old cache value was used.\n");
-    // }
-}
+//     // Step 4: Clean the D-Cache to write back the updated value to RAM
+//     SCB_CleanDCache_by_Addr((uint32_t*)ptr, sizeof(*ptr));  // Flush cache line for our address to RAM
+//     __DSB();  // Data sync barrier to ensure cache clean completes
 
+//     printf("Step 4: D-Cache cleaned for address 0x%08X (cache flush to RAM done).\n", (unsigned)ptr);
+
+//     // Step 5: Read RAM again to verify it now contains the updated value
+//     uint32_t ram_read_val_after = 0;
+//     DMA_ReadWord(ptr, &ram_read_val_after);  // Read from RAM via DMA again
+
+//     printf("Step 5: RAM content after cache clean = 0x%08lX (expected new value 0x%08lX)\n",
+//            ram_read_val_after, new_value);
+//     if (ram_read_val_after == new_value) {
+//         printf("        SUCCESS - Memory updated with new value after cache clean.\n");
+//     } else {
+//         printf("        FAIL - Memory still has old value 0x%08lX (cache clean did not work!).\n", ram_read_val_after);
+//     }
+
+//     // (Step 6: Debug output has been provided at each step above)
+// }
 /*!
  * @brief Main function
  */
@@ -180,7 +201,8 @@ int main(void)
 
     /* Print the initial banner from Primary core */
     (void)PRINTF("\r\nHello World from the Primary Core!\r\n\n");
-    test_cache_clean_invalidate();
+    // test_cache_clean_invalidate();
+    // CacheWriteBackTest();
 
     /* This section ensures the secondary core image is copied from flash location to the target RAM memory.
        It consists of several steps: image size calculation, image copying and cache invalidation (optional for some
