@@ -5,7 +5,6 @@
  * SPDX-License-Identifier: BSD-3-Clause
  */
 
-#include "fsl_debug_console.h"
 #include "clock_config.h"
 #include "board.h"
 #include "mcmgr.h"
@@ -71,7 +70,7 @@ int main(void)
     BOARD_InitDebugConsole();
 
     /* Print the initial banner from Primary core */
-    (void)PRINTF("\r\nHello World from the Primary Core!\r\n\n");
+    std::printf("\r\nHello World from the Primary Core!\r\n\n");
 
     /* This section ensures the secondary core image is copied from flash location to the target RAM memory.
        It consists of several steps: image size calculation, image copying and cache invalidation (optional for some
@@ -79,8 +78,7 @@ int main(void)
        target memory during startup automatically. */
     uint32_t core1_image_size;
     core1_image_size = hello_world_cm4_bin_len;
-    (void)PRINTF("Copy Secondary core image to address: 0x%x, size: %d\r\n", (void *)(char *)CORE1_BOOT_ADDRESS,
-                 core1_image_size);
+    std::printf("Copy Secondary core image to address: 0x%x, size: %d\r\n", (unsigned int)CORE1_BOOT_ADDRESS, (int)core1_image_size);
 
     /* Copy Secondary core application from FLASH to the target memory. */
     (void)memcpy((void *)(char *)CORE1_BOOT_ADDRESS, (void *)CORE1_IMAGE_START, core1_image_size);
@@ -95,9 +93,9 @@ int main(void)
     SCB_CleanInvalidateDCache_by_Addr((void *)CORE1_BOOT_ADDRESS, core1_image_size);
 
     /* Boot Secondary core application */
-    (void)PRINTF("Starting Secondary core.\r\n");
+    std::printf("Starting Secondary core.\r\n");
     (void)MCMGR_StartCore(kMCMGR_Core1, (void *)(char *)CORE1_BOOT_ADDRESS, 2, kMCMGR_Start_Synchronous);
-    (void)PRINTF("The secondary core application has been started.\r\n");
+    std::printf("The secondary core application has been started.\r\n");
 
     for (;;)
     {
