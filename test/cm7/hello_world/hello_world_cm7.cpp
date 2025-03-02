@@ -70,7 +70,7 @@ int main(void)
     BOARD_InitDebugConsole();
 
     /* Print the initial banner from Primary core */
-    std::printf("\r\nHello World from the Primary Core!\r\n\n");
+    printf("\r\nHello World from the Primary Core!\r\n\n");
 
     /* This section ensures the secondary core image is copied from flash location to the target RAM memory.
        It consists of several steps: image size calculation, image copying and cache invalidation (optional for some
