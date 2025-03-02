@@ -44,6 +44,7 @@ function(add_platform_flags target)
     -Wl,--undefined=_sbrk # Keep fsl_sbrk.c implementation
     # --specs=nosys.specs
     #-Wl,--undefined=_sbrk -Wl,--start-group -lm -lc -lgcc -lnosys -Wl,--end-group
+    -Wl,-Map=output.map
   )
   
   # Compiler flags
