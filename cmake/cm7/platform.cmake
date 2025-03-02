@@ -11,12 +11,13 @@ function(platformify target)
   add_platform_flags(${target})
   # target_link_libraries(${target} PUBLIC rt1170-platform)
   # target_link_libraries(${target} PUBLIC cm7-platform)
+  target_link_libraries(${target} PUBLIC utilities cm7-platform)
 
   # Executables get special treatment :)
   get_target_property(_type ${target} TYPE)
   if(_type STREQUAL "EXECUTABLE")
     # TODO handle cm7 and cm4
-    target_link_libraries(${target} PRIVATE rt1170-startup-cm7 cm7-platform)
+    target_link_libraries(${target} PRIVATE rt1170-startup-cm7)
     # Add .elf suffix
     set_target_properties(${target} PROPERTIES OUTPUT_NAME "${target}.elf")
   endif()
@@ -43,8 +44,9 @@ function(add_platform_flags target)
     # -Wl,--gc-sections                # Enables garbage collection of unused input sections
 
     --specs=nano.specs
-    --specs=nosys.specs
-    -Wl,--start-group  -lm -lc -lgcc -lnosys  -Wl,--end-group
+    -Wl,--undefined=_sbrk # Keep fsl_sbrk.c implementation
+    # --specs=nosys.specs
+    #-Wl,--undefined=_sbrk -Wl,--start-group -lm -lc -lgcc -lnosys -Wl,--end-group
   )
   
   # Compiler flags

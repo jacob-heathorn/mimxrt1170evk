@@ -28,7 +28,7 @@
  * Definitions
  ******************************************************************************/
 #ifndef SDK_USE_SYSCALL_STUB
-#define SDK_USE_SYSCALL_STUB 1
+#define SDK_USE_SYSCALL_STUB 0
 #endif
 
 /*******************************************************************************
