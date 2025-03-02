@@ -11,7 +11,7 @@ function(platformify target)
   add_platform_flags(${target})
   # target_link_libraries(${target} PUBLIC rt1170-platform)
   # target_link_libraries(${target} PUBLIC cm7-platform)
-  target_link_libraries(${target} PUBLIC utilities cm7-platform)
+  target_link_libraries(${target} PRIVATE cm7-platform)
 
   # Executables get special treatment :)
   get_target_property(_type ${target} TYPE)

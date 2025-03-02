@@ -16,7 +16,7 @@ file(GLOB private_sources
 target_sources(utilities
   PUBLIC
     ${public_headers}
-  # PRIVATE
+  PRIVATE
     ${private_sources}
 )
 
