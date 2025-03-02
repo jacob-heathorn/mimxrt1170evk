@@ -3,7 +3,7 @@ repositories:
     tag: 5.4.0
     url: https://github.com/ARM-software/CMSIS_5.git
   forge:
-    tag: 885b374f23095f7bbbfabb039e896f478ab8c538
+    tag: 0c1fb53b0fe4750a21fa75bda1db96fff373e18a
     url: https://github.com/jacob-heathorn/forge.git
   mcux-soc-svd:
     tag: MCUX_2.16.100

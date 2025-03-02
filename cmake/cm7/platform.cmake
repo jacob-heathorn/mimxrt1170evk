@@ -15,7 +15,7 @@ function(platformify target)
   get_target_property(_type ${target} TYPE)
   if(_type STREQUAL "EXECUTABLE")
     # TODO handle cm7 and cm4
-    target_link_libraries(${target} PRIVATE rt1170-startup-cm7)
+    target_link_libraries(${target} PRIVATE rt1170-startup-cm7 cm7-platform)
     # Add .elf suffix
     set_target_properties(${target} PROPERTIES OUTPUT_NAME "${target}.elf")
   endif()
