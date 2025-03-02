@@ -76,7 +76,22 @@
     "ratio": "cpp",
     "variant": "cpp",
     "gpio9.hpp": "c",
-    "board.h": "c"
+    "board.h": "c",
+    "condition_variable": "cpp",
+    "ctime": "cpp",
+    "map": "cpp",
+    "set": "cpp",
+    "optional": "cpp",
+    "fstream": "cpp",
+    "iostream": "cpp",
+    "istream": "cpp",
+    "mutex": "cpp",
+    "semaphore": "cpp",
+    "span": "cpp",
+    "sstream": "cpp",
+    "stop_token": "cpp",
+    "thread": "cpp",
+    "cinttypes": "cpp"
   },
   "cortex-debug.variableUseNaturalFormat": true
 }

@@ -72,8 +72,6 @@ int main(void)
 
     /* Print the initial banner from Primary core */
     (void)PRINTF("\r\nHello World from the Primary Core!\r\n\n");
-    // test_cache_clean_invalidate();
-    // CacheWriteBackTest();
 
     /* This section ensures the secondary core image is copied from flash location to the target RAM memory.
        It consists of several steps: image size calculation, image copying and cache invalidation (optional for some
