@@ -9,14 +9,11 @@ include($ENV{FORGE_ROOT}/cmake/common/platform.cmake)
 function(platformify target)
   add_common_c_cxx_flags(${target})
   add_platform_flags(${target})
-  # target_link_libraries(${target} PUBLIC rt1170-platform)
-  # target_link_libraries(${target} PUBLIC cm7-platform)
   target_link_libraries(${target} PRIVATE cm7-platform)
 
   # Executables get special treatment :)
   get_target_property(_type ${target} TYPE)
   if(_type STREQUAL "EXECUTABLE")
-    # TODO handle cm7 and cm4
     target_link_libraries(${target} PRIVATE rt1170-startup-cm7)
     # Add .elf suffix
     set_target_properties(${target} PROPERTIES OUTPUT_NAME "${target}.elf")
