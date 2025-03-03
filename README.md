@@ -27,8 +27,6 @@
 8) Run the setup script `setup`
 9) Connect mimxrt1170evk to power, and USB to your computer.
 
-# Repository tests
-`tox`
 
 # Build
 `cmake --workflow --preset cm4-debug && cmake --workflow --preset cm7-debug`
@@ -43,12 +41,15 @@
 `cd .bin/cm7-debug`
 `ctest -V`
 
-# Full test
+# Hello World Test
 ```
 cmake --workflow --preset cm4-debug && cmake --workflow --preset cm7-debug && \
 rip -f0 cm7-debug:hello-world-cm7 && \
 rip -d0 cm7-debug:hello-world-cm7 -d1 cm4-debug:hello-world-cm4
 ```
+
+# Full Repository test suite
+`tox`
 
 # Serial Terminal
 device: `/dev/ttyACM0`
