@@ -25,6 +25,7 @@
   * Pylance
   * Python
 8) Run the setup script `setup`
+9) Connect mimxrt1170evk to power, and USB to your computer.
 
 # Repository tests
 `tox`
