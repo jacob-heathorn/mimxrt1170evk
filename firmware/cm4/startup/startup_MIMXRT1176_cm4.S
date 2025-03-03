@@ -416,9 +416,7 @@ Reset_Handler:
 #endif /* __STARTUP_CLEAR_BSS */
 
     cpsie   i               /* Unmask interrupts */
-#ifndef __START
-#define __START _start
-#endif
+
     # Call C++ static constructors
     ldr   r0,=__libc_init_array
     blx   r0
