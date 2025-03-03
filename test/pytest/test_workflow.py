@@ -33,7 +33,7 @@ def test_build_cm4_debug():
             'mimxrt1170evk',
             'test',
             'hello_world',
-            'hello-world-cm4.bin.c'))
+            'hello-world-cm4.bin.cpp'))
 
 
 def test_build_cm4_release():
@@ -51,7 +51,7 @@ def test_build_cm4_release():
             'mimxrt1170evk',
             'test',
             'hello_world',
-            'hello-world-cm4.bin.c'))
+            'hello-world-cm4.bin.cpp'))
 
 
 def test_build_cm7_debug():
@@ -98,3 +98,14 @@ def test_debug():
   mimxrt1170evk.Core1Application("cm4-debug:hello-world-cm4").debug()
   assert os.path.exists(os.path.join(PROJECT_ROOT, '.vscode', 'launch.json'))
   assert os.path.exists(os.path.join(PROJECT_ROOT, '.vscode', 'tasks.json'))
+
+
+def test_ctest():
+  """
+  Uses ctest to verify pigweed unit tests.
+  """
+  with forge.pushd(os.path.join(PROJECT_ROOT, '.bin', 'cm7-debug')):
+    result = subprocess.run('ctest -V', shell=True, capture_output=True, text=True)
+    print(result.stdout)
+    assert "100% tests passed" in result.stdout
+    assert not result.stderr
