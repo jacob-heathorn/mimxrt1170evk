@@ -1,8 +1,8 @@
 import serial
 import os
 import re
-import sys
 import mimxrt1170evk
+import forge
 
 # Pull in environment variables
 SERIAL_DEVICE = os.environ.get("SERIAL_DEVICE")
@@ -39,6 +39,6 @@ def do(test_application: mimxrt1170evk.Core0Application):
     match = re.match(pattern, line)
     if match:
       if suite_passed:
-        sys.exit(0)
+        return
       else:
-        sys.exit(1)
+        forge.error("Unit tests failed.")
