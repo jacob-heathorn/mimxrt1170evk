@@ -4,8 +4,13 @@
 # Include the common platform cmake.
 include($ENV{FORGE_ROOT}/cmake/common/platform.cmake)
 
-# Adds a unit test executable that can be executed with ctest.
+# Defers to add_pw_test()
 function(add_platform_test)
+  add_pw_test(${ARGV})
+endfunction()
+
+# Adds a pigweed unit test executable, which can be executed with ctest.
+function(add_pw_test)
   add_executable(${ARGV})
   platformify(${ARGV0})
   target_link_libraries(${ARGV0} PRIVATE pw_unit_test)
@@ -15,7 +20,6 @@ function(add_platform_test)
       pw_ctest -f0 cm7-debug:${ARGV0}
   )
 endfunction()
-
 
 # Adds platform-specific libraries and options to the target.
 function(platformify target)
