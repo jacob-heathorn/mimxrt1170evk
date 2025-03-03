@@ -12,6 +12,7 @@ target_sources(system_init
     ${public_headers}
   PRIVATE
     system_MIMXRT1176_cm7.c
+    system_init_hook.cpp
 )
 platformify(system_init)
 target_compile_options(system_init PRIVATE 

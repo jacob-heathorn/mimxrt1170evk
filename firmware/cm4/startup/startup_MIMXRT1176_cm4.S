@@ -419,15 +419,13 @@ Reset_Handler:
 #ifndef __START
 #define __START _start
 #endif
-#ifndef __ATOLLIC__
-    ldr   r0,=__START
-    blx   r0
-#else
+    # Call C++ static constructors
     ldr   r0,=__libc_init_array
     blx   r0
+
+    # Load and call main()
     ldr   r0,=main
     bx    r0
-#endif
     .pool
     .size Reset_Handler, . - Reset_Handler
 
