@@ -1,0 +1,5 @@
+#!/bin/bash
+set -e
+
+poetry --directory $PROJECT_ROOT/scripts/package \
+  run python $PROJECT_ROOT/scripts/package/pw_ctest.py "$@"
