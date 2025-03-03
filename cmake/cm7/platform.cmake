@@ -11,13 +11,24 @@ endfunction()
 
 # Adds a pigweed unit test executable, which can be executed with ctest.
 function(add_pw_test)
+  # Create the executable.
   add_executable(${ARGV})
   platformify(${ARGV0})
+  
+  # Get the preset name.
   target_link_libraries(${ARGV0} PRIVATE pw_unit_test)
+  if("${CMAKE_BUILD_TYPE}" STREQUAL "Debug")
+    set(PRESET_NAME "cm7-debug")
+  elseif("${CMAKE_BUILD_TYPE}" STREQUAL "Release")
+    set(PRESET_NAME "cm7-release")
+  else()
+    message(FATAL_ERROR "Unsupported build type: ${CMAKE_BUILD_TYPE}")
+  endif()
+  
+  # Add the ctest command.
   add_test(NAME ${ARGV0} 
     COMMAND
-      # TODO resove preset.
-      pw_ctest -f0 cm7-debug:${ARGV0}
+      pw_ctest -f0 ${PRESET_NAME}:${ARGV0}
   )
 endfunction()
 
