@@ -15,6 +15,7 @@ MCUX_SOC_SVD_ROOT = os.environ.get("MCUX_SOC_SVD_ROOT", "")
 
 def main():
   parser = argparse.ArgumentParser(description="Process mimxrt1170evk args.")
+  parser.add_argument('-t', '--ctest', type=str, help='Run ctest with <preset:application>')
   parser.add_argument('-f0', '--flash_core_0', type=str, help='Flash core 0 <preset:application>')
   parser.add_argument('-d0', '--debug_core_0', type=str, help='Debug core 0 <preset:application>')
   parser.add_argument('-d1', '--debug_core_1', type=str, help='Debug core 1 <preset:application>')
@@ -37,9 +38,13 @@ def main():
     forge.remove_file(os.path.join(PROJECT_ROOT, '.vscode', 'launch.json'))
     forge.remove_file(os.path.join(PROJECT_ROOT, '.vscode', 'tasks.json'))
 
-  # Do flash
+  # Do flash (Core 0 only)
   if args.flash_core_0:
     mimxrt1170evk.Core0Application(args.flash_core_0).flash()
+
+  # Do ctest (Core 0 only)
+  if args.ctest:
+    mimxrt1170evk.ctest.do(mimxrt1170evk.Core0Application(args.ctest))
 
   # Do debug
   if args.debug_core_0:

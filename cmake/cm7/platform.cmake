@@ -28,7 +28,7 @@ function(add_pw_test)
   # Add the ctest command.
   add_test(NAME ${ARGV0} 
     COMMAND
-      pw_ctest -f0 ${PRESET_NAME}:${ARGV0}
+      rip --ctest ${PRESET_NAME}:${ARGV0}
   )
 endfunction()
 
