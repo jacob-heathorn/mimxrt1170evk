@@ -140,28 +140,26 @@ endfunction()
 # =================================================================================================
 # Other utilities
 
-# TODO: use fore find_application python code instead of cmake?
-#
 # Finds a file in the cortex-m4 debug build directory
-function(FIND_CM4_DEBUG result_var input_filename)
+function(find_cm4_debug result_var input_filename)
   find_file_in_directory(FILE_PATH "$ENV{PROJECT_ROOT}/.bin/cm4-debug" "${input_filename}")
   set(${result_var} ${FILE_PATH} PARENT_SCOPE)
   message(STATUS "cortex-m4 debug build file found found: ${FILE_PATH}")
 endfunction()
 
 # Finds a file in the cortex-m4 release build directory
-function(FIND_CM4_RELEASE result_var input_filename)
+function(find_cm4_release result_var input_filename)
   find_file_in_directory(FILE_PATH "$ENV{PROJECT_ROOT}/.bin/cm4-release" "${input_filename}")
   set(${result_var} ${FILE_PATH} PARENT_SCOPE)
   message(STATUS "cortex-m4 release build file found: ${FILE_PATH}")
 endfunction()
 
 # Finds a file in either the release or debug build of cortex-m4 depending on the local build type.
-function(FIND_CM4 result_var input_filename)
+function(find_cm4 result_var input_filename)
   if("${CMAKE_BUILD_TYPE}" STREQUAL "Debug")
-    FIND_CM4_DEBUG(CORE0 "${input_filename}")
+    find_cm4_debug(CORE0 "${input_filename}")
   elseif("${CMAKE_BUILD_TYPE}" STREQUAL "Release")
-    FIND_CM4_RELEASE(CORE0 "${input_filename}")
+    find_cm4_release(CORE0 "${input_filename}")
   else()
     message(FATAL_ERROR "Unsupported build type: ${CMAKE_BUILD_TYPE}")
   endif()

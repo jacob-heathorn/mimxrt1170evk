@@ -1,4 +1,4 @@
-FIND_CM4(CORE0 "hello-world-cm4.bin.cpp")
+find_cm4(CORE0 "hello-world-cm4.bin.cpp")
 
 add_executable(hello-world-cm7
   hello_world_cm7.cpp
