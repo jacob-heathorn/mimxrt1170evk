@@ -36,7 +36,7 @@ def main():
 
   # Do serial terminal.
   if args.serial:
-    serial_terminal = mimxrt1170evk.SerialTerminal(SERIAL_DEVICE, 115200)
+    serial_terminal = forge.SerialTerminal(SERIAL_DEVICE, 115200)
     serial_terminal.read_background()
 
   # Do clean

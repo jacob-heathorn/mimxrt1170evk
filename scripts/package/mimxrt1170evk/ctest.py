@@ -10,7 +10,7 @@ SERIAL_DEVICE = os.environ.get("SERIAL_DEVICE")
 
 def do(test_application: mimxrt1170evk.Core0Application):
 
-  if not mimxrt1170evk.SerialTerminal.is_serial_device_available(SERIAL_DEVICE):
+  if not forge.SerialTerminal.is_serial_device_available(SERIAL_DEVICE):
     forge.error(f"Serial device {SERIAL_DEVICE} is already in use!")
 
   # Initialize serial port.
