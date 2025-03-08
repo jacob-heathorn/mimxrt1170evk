@@ -49,6 +49,13 @@ rip -d0 cm7-debug:hello-world-cm7 -d1 cm4-debug:hello-world-cm4 && \
 rip -f0 cm7-debug:hello-world-cm7 -s
 ```
 
+# Echo test
+```
+cmake --workflow --preset cm7-debug && \
+rip -d0 cm7-debug:echo && \
+rip -f0 cm7-debug:echo
+```
+
 # Full Repository test suite
 `tox`
 

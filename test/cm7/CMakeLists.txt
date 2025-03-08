@@ -12,3 +12,7 @@ target_compile_definitions(hello-world-cm7 PRIVATE
   -DCORE1_IMAGE_COPY_TO_RAM
 )
 target_compile_options(hello-world-cm7 PRIVATE -Wno-shadow)
+
+# Echo.
+add_executable(echo echo.cpp )
+platformify(echo)
