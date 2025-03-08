@@ -23,6 +23,23 @@
   "C_Cpp.intelliSenseEngine": "default",
   "C_Cpp.intelliSenseCacheSize": 1024,
 
+  "editor.tokenColorCustomizations": {
+      "textMateRules": [
+        {
+            "scope": "command-identifier.cmake",
+            "settings": {
+                "foreground": "#DCDCAA"
+            }
+        },
+        {
+            "scope": "expression.group.cmake",
+            "settings": {
+                "foreground": "#9CDCFE"
+            }
+        }
+      ]
+  },
+
   "files.associations": {
     "array": "cpp",
     "atomic": "cpp",

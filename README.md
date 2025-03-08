@@ -19,6 +19,7 @@
   * autopep8
   * Better Jinja
   * C/C++
+  * CMake Language Support
   * Cortext-Debug
   * Flake8
   * Nix
