@@ -10,6 +10,9 @@ SERIAL_DEVICE = os.environ.get("SERIAL_DEVICE")
 
 def do(test_application: mimxrt1170evk.Core0Application):
 
+  if not mimxrt1170evk.SerialTerminal.is_serial_device_available(SERIAL_DEVICE):
+    forge.error(f"Serial device {SERIAL_DEVICE} is already in use!")
+
   # Initialize serial port.
   ser = serial.Serial(SERIAL_DEVICE, 115200)
 
@@ -19,6 +22,7 @@ def do(test_application: mimxrt1170evk.Core0Application):
   # Analyze test output
   suite_passed = True
   while True:
+
     # Read next line form UART output
     line = ser.readline().decode('utf-8').strip('\r\n')
 
