@@ -68,7 +68,6 @@ def test_build_cm7_debug():
             'cm7-debug',
             'mimxrt1170evk',
             'test',
-            'hello_world',
             'hello-world-cm7.elf'))
 
 
@@ -86,7 +85,6 @@ def test_build_cm7_release():
             'cm7-release',
             'mimxrt1170evk',
             'test',
-            'hello_world',
             'hello-world-cm7.elf'))
 
 
