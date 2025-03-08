@@ -1,4 +1,3 @@
-import serial
 import os
 import re
 import mimxrt1170evk
