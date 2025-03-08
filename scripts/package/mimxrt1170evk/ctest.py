@@ -10,11 +10,8 @@ SERIAL_DEVICE = os.environ.get("SERIAL_DEVICE")
 
 def do(test_application: mimxrt1170evk.Core0Application):
 
-  if not forge.SerialTerminal.is_serial_device_available(SERIAL_DEVICE):
-    forge.error(f"Serial device {SERIAL_DEVICE} is already in use!")
-
-  # Initialize serial port.
-  ser = serial.Serial(SERIAL_DEVICE, 115200)
+  # Create the serial terminal.
+  serial_terminal = forge.SerialTerminal(SERIAL_DEVICE, 115200)
 
   # Flash the test application.
   test_application.flash()
@@ -24,7 +21,7 @@ def do(test_application: mimxrt1170evk.Core0Application):
   while True:
 
     # Read next line form UART output
-    line = ser.readline().decode('utf-8').strip('\r\n')
+    line = serial_terminal.readline()
 
     # Print the line so it is available in ctest output.
     print(line)
