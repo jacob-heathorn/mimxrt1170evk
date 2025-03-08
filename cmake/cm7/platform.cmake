@@ -140,41 +140,18 @@ endfunction()
 # =================================================================================================
 # Other utilities
 
-# TODO move to forge
-# Finds a file recursively in a given directory
-function(FIND_FILE_IN_DIRECTORY result_var input_directory input_filename)
-  # Use GLOB_RECURSE to search for the file recursively
-  file(GLOB_RECURSE found_files
-    RELATIVE "${input_directory}"
-    "${input_directory}/${input_filename}")
-
-  # Check the number of files found
-  list(LENGTH found_files num_files)
-  if(num_files EQUAL 1)
-    list(GET found_files 0 first_file_path)
-    # Construct the full path
-    set(full_path "${input_directory}/${first_file_path}")
-    set("${result_var}" "${full_path}" PARENT_SCOPE)
-    message(STATUS "File found: ${full_path}")
-  elseif(num_files GREATER 1)
-    message(FATAL_ERROR "Error: Multiple instances of '${input_filename}' found in directory '${input_directory}'.")
-  else()
-    message(FATAL_ERROR "Error: The file '${input_filename}' not found in directory '${input_directory}'")
-  endif()
-endfunction()
-
 # TODO: use fore find_application python code instead of cmake?
 #
 # Finds a file in the cortex-m4 debug build directory
 function(FIND_CM4_DEBUG result_var input_filename)
-  FIND_FILE_IN_DIRECTORY(FILE_PATH "$ENV{PROJECT_ROOT}/.bin/cm4-debug" "${input_filename}")
+  find_file_in_directory(FILE_PATH "$ENV{PROJECT_ROOT}/.bin/cm4-debug" "${input_filename}")
   set(${result_var} ${FILE_PATH} PARENT_SCOPE)
   message(STATUS "cortex-m4 debug build file found found: ${FILE_PATH}")
 endfunction()
 
 # Finds a file in the cortex-m4 release build directory
 function(FIND_CM4_RELEASE result_var input_filename)
-  FIND_FILE_IN_DIRECTORY(FILE_PATH "$ENV{PROJECT_ROOT}/.bin/cm4-release" "${input_filename}")
+  find_file_in_directory(FILE_PATH "$ENV{PROJECT_ROOT}/.bin/cm4-release" "${input_filename}")
   set(${result_var} ${FILE_PATH} PARENT_SCOPE)
   message(STATUS "cortex-m4 release build file found: ${FILE_PATH}")
 endfunction()
