@@ -11,6 +11,7 @@ import forge
 
 PROJECT_ROOT = os.environ.get("PROJECT_ROOT", "")
 MCUX_SOC_SVD_ROOT = os.environ.get("MCUX_SOC_SVD_ROOT", "")
+SERIAL_DEVICE = os.environ.get("SERIAL_DEVICE", "")
 
 
 def main():
@@ -20,6 +21,7 @@ def main():
   parser.add_argument('-d0', '--debug_core_0', type=str, help='Debug core 0 <preset:application>')
   parser.add_argument('-d1', '--debug_core_1', type=str, help='Debug core 1 <preset:application>')
   parser.add_argument('-c', '--clean', action='store_true', help='Clean bin/ directories')
+  parser.add_argument('-s', '--serial', action='store_true', help='Launch serial terminal')
   parser.add_argument(
       '-g0',
       '--generate_core_0',
@@ -31,6 +33,11 @@ def main():
       action='store_true',
       help='Generate core 1 (cm7) svd register')
   args = parser.parse_args()
+
+  # Do serial terminal.
+  if args.serial:
+    serial_terminal = mimxrt1170evk.SerialTerminal(SERIAL_DEVICE, 115200)
+    serial_terminal.read_background()
 
   # Do clean
   if args.clean:

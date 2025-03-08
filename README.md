@@ -45,8 +45,8 @@
 # Hello World Test
 ```
 cmake --workflow --preset cm4-debug && cmake --workflow --preset cm7-debug && \
-rip -f0 cm7-debug:hello-world-cm7 && \
-rip -d0 cm7-debug:hello-world-cm7 -d1 cm4-debug:hello-world-cm4
+rip -d0 cm7-debug:hello-world-cm7 -d1 cm4-debug:hello-world-cm4 && \
+rip -f0 cm7-debug:hello-world-cm7 -s
 ```
 
 # Full Repository test suite
