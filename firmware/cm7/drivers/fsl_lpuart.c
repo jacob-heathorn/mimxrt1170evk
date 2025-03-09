@@ -365,10 +365,11 @@ status_t LPUART_Init(LPUART_Type *base, const lpuart_config_t *config, uint32_t 
         uint32_t instance = LPUART_GetInstance(base);
 
         /* Enable lpuart clock */
-        (void)CLOCK_EnableClock(s_lpuartClock[instance]);
-#if defined(LPUART_PERIPH_CLOCKS)
-        (void)CLOCK_EnableClock(s_lpuartPeriphClocks[instance]);
-#endif
+        (void)instance;
+//         (void)CLOCK_EnableClock(s_lpuartClock[instance]);
+// #if defined(LPUART_PERIPH_CLOCKS)
+//         (void)CLOCK_EnableClock(s_lpuartPeriphClocks[instance]);
+// #endif
 
 #endif /* FSL_SDK_DISABLE_DRIVER_CLOCK_CONTROL */
 

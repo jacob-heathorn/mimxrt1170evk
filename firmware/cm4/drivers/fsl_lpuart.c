@@ -374,7 +374,8 @@ status_t LPUART_Init(LPUART_Type *base, const lpuart_config_t *config, uint32_t 
         uint32_t instance = LPUART_GetInstance(base);
 
         /* Enable lpuart clock */
-        (void)CLOCK_EnableClock(s_lpuartClock[instance]);
+        // TODO Jacob Debugging.
+        // (void)CLOCK_EnableClock(s_lpuartClock[instance]);
 #if defined(LPUART_PERIPH_CLOCKS)
         (void)CLOCK_EnableClock(s_lpuartPeriphClocks[instance]);
 #endif

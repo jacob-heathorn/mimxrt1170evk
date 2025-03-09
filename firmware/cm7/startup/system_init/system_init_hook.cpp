@@ -44,7 +44,7 @@ void __pre_main_init()
   BOARD_ConfigMPU();
   BoardInitPins();
   BOARD_BootClockRUN();
-  BOARD_InitDebugConsole();
+//   BOARD_InitDebugConsole();
 }
 
 }
