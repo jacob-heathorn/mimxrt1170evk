@@ -32,6 +32,10 @@ void InitLPUART1()
         lpuart_clk_direct.bits.ON = nCCM::LPCG86_DIRECT::eON::eON_1;
         while (lpuart_clk_status.bits.ON != nCCM::LPCG86_STATUS0::eON::eON_1) {}
     }
+
+    // Software reset lpuart1. 
+    nLPUART1::GLOBAL::Instance().bits.RST = nLPUART1::GLOBAL::eRST::eRESET;
+    nLPUART1::GLOBAL::Instance().bits.RST = nLPUART1::GLOBAL::eRST::eNO_EFFECT;
 }
 
 
@@ -47,8 +51,8 @@ void InitLPUART1()
 
 int main(void) {
     // char input_buffer[50];
-    BOARD_InitDebugConsole();
     InitLPUART1();
+    BOARD_InitDebugConsole();
     
     DbgConsole_Putchar('H');
 

@@ -362,10 +362,9 @@ status_t LPUART_Init(LPUART_Type *base, const lpuart_config_t *config, uint32_t 
     {
 #if !(defined(FSL_SDK_DISABLE_DRIVER_CLOCK_CONTROL) && FSL_SDK_DISABLE_DRIVER_CLOCK_CONTROL)
 
-        uint32_t instance = LPUART_GetInstance(base);
+        // uint32_t instance = LPUART_GetInstance(base);
 
         /* Enable lpuart clock */
-        (void)instance;
 //         (void)CLOCK_EnableClock(s_lpuartClock[instance]);
 // #if defined(LPUART_PERIPH_CLOCKS)
 //         (void)CLOCK_EnableClock(s_lpuartPeriphClocks[instance]);
@@ -373,13 +372,13 @@ status_t LPUART_Init(LPUART_Type *base, const lpuart_config_t *config, uint32_t 
 
 #endif /* FSL_SDK_DISABLE_DRIVER_CLOCK_CONTROL */
 
-#if defined(FSL_FEATURE_LPUART_HAS_GLOBAL) && FSL_FEATURE_LPUART_HAS_GLOBAL
-        /*Reset all internal logic and registers, except the Global Register */
-        LPUART_SoftwareReset(base);
-#else
-        /* Disable LPUART TX RX before setting. */
-        base->CTRL &= ~(LPUART_CTRL_TE_MASK | LPUART_CTRL_RE_MASK);
-#endif
+// #if defined(FSL_FEATURE_LPUART_HAS_GLOBAL) && FSL_FEATURE_LPUART_HAS_GLOBAL
+//         /*Reset all internal logic and registers, except the Global Register */
+//         LPUART_SoftwareReset(base);
+// #else
+//         /* Disable LPUART TX RX before setting. */
+//         base->CTRL &= ~(LPUART_CTRL_TE_MASK | LPUART_CTRL_RE_MASK);
+// #endif
 
         temp = base->BAUD;
 
