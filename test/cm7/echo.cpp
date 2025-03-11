@@ -56,19 +56,55 @@ void InitLPUART1()
     baud.bits.MAEN1 = nLPUART1::BAUD::eMAEN1::eDISABLED;
 
     // Set FIFO
-    nLPUART1::FIFO::Instance().value = 12648601;
+    auto &fifo = nLPUART1::FIFO::Instance();
+    //fifo.value = 12648601;
+    fifo.bits.RXFIFOSIZE = nLPUART1::FIFO::eRXFIFOSIZE::eFIFO_4;
+    fifo.bits.RXFE = nLPUART1::FIFO::eRXFE::eENABLED;
+    fifo.bits.TXFIFOSIZE = nLPUART1::FIFO::eTXFIFOSIZE::eFIFO_4;
+    fifo.bits.TXFE = nLPUART1::FIFO::eTXFE::eENABLED;
+    fifo.bits.RXUFE = nLPUART1::FIFO::eRXUFE::eDISABLED;
+    fifo.bits.TXOFE = nLPUART1::FIFO::eTXOFE::eDISABLED;
+    fifo.bits.RXIDEN = nLPUART1::FIFO::eRXIDEN::eDISABLED;
+    fifo.bits.RXFLUSH = nLPUART1::FIFO::eRXFLUSH::eNO_EFFECT;
+    fifo.bits.TXFLUSH = nLPUART1::FIFO::eTXFLUSH::eNO_EFFECT;
+    fifo.bits.RXUF = nLPUART1::FIFO::eRXUF::eNO_UNDERFLOW;
+    fifo.bits.TXOF = nLPUART1::FIFO::eTXOF::eNO_OVERFLOW;
+    fifo.bits.RXEMPT = nLPUART1::FIFO::eRXEMPT::eEMPTY;
+    fifo.bits.TXEMPT = nLPUART1::FIFO::eTXEMPT::eEMPTY;
 
-    // TODO set water
+    // Set Watermark
+    auto &water = nLPUART1::WATER::Instance();
+    water.Reset();
 
     // Set MODIR
-    nLPUART1::MODIR::Instance().value = 0;
+    auto &modir = nLPUART1::MODIR::Instance();
+    modir.Reset();
 
     // Set STAT. Not msb
-    nLPUART1::STAT::Instance().value = 12582912;
+    auto &stat = nLPUART1::STAT::Instance();
+    // stat.value = 12582912;
+    stat.bits.MA2F = nLPUART1::STAT::eMA2F::eNOMATCH;
+    stat.bits.MA1F = nLPUART1::STAT::eMA1F::eNOMATCH;
+    stat.bits.PF = nLPUART1::STAT::ePF::eNOPARITY;
+    stat.bits.FE = nLPUART1::STAT::eFE::eNOERROR;
+    stat.bits.NF = nLPUART1::STAT::eNF::eNONOISE;
+    stat.bits.OR = nLPUART1::STAT::eOR::eNO_OVERRUN;
+    stat.bits.IDLE = nLPUART1::STAT::eIDLE::eNOIDLE;
+    stat.bits.RDRF = nLPUART1::STAT::eRDRF::eNO_RXDATA;
+    stat.bits.TC = nLPUART1::STAT::eTC::eCOMPLETE;
+    stat.bits.TDRE = nLPUART1::STAT::eTDRE::eNO_TXDATA;
+    stat.bits.RAF = nLPUART1::STAT::eRAF::eIDLE;
+    stat.bits.LBKDE = nLPUART1::STAT::eLBKDE::eDISABLED;
+    stat.bits.BRK13 = nLPUART1::STAT::eBRK13::eSHORT;
+    stat.bits.RWUID = nLPUART1::STAT::eRWUID::eIDLE_NOTSET;
+    stat.bits.RXINV = nLPUART1::STAT::eRXINV::eNOT_INVERTED;
+    stat.bits.MSBF = nLPUART1::STAT::eMSBF::eLSB_FIRST;
+    stat.bits.RXEDGIF = nLPUART1::STAT::eRXEDGIF::eNO_EDGE;
+    stat.bits.LBKDIF = nLPUART1::STAT::eLBKDIF::eNOT_DETECTED;
 
     // Set CTRL
-    // ctrl.value = 786692;
     auto &ctrl = nLPUART1::CTRL::Instance();
+    // ctrl.value = 786692;
     ctrl.bits.PT = nLPUART1::CTRL::ePT::eEVEN;
     ctrl.bits.PE = nLPUART1::CTRL::ePE::eDISABLED;
     ctrl.bits.ILT = nLPUART1::CTRL::eILT::eFROM_STOP;
