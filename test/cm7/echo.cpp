@@ -55,9 +55,6 @@ void InitLPUART1()
     baud.bits.MAEN2 = nLPUART1::BAUD::eMAEN2::eDISABLED;
     baud.bits.MAEN1 = nLPUART1::BAUD::eMAEN1::eDISABLED;
 
-    // Set CTRL
-    nLPUART1::CTRL::Instance().value = 260;
-
     // Set FIFO
     nLPUART1::FIFO::Instance().value = 12648601;
 
@@ -69,8 +66,25 @@ void InitLPUART1()
     // Set STAT. Not msb
     nLPUART1::STAT::Instance().value = 12582912;
 
-    // Set CTRL.
-    nLPUART1::CTRL::Instance().value = 786692;
+    // Set CTRL
+    // ctrl.value = 786692;
+    auto &ctrl = nLPUART1::CTRL::Instance();
+    ctrl.bits.PT = nLPUART1::CTRL::ePT::eEVEN;
+    ctrl.bits.PE = nLPUART1::CTRL::ePE::eDISABLED;
+    ctrl.bits.ILT = nLPUART1::CTRL::eILT::eFROM_STOP;
+    ctrl.bits.WAKE = nLPUART1::CTRL::eWAKE::eIDLE;
+    ctrl.bits.M = nLPUART1::CTRL::eM::eDATA8;
+    ctrl.bits.RSRC = nLPUART1::CTRL::eRSRC::eNO_EFFECT;
+    ctrl.bits.DOZEEN = nLPUART1::CTRL::eDOZEEN::eENABLED;
+    ctrl.bits.LOOPS = nLPUART1::CTRL::eLOOPS::eNOFFECT;
+    ctrl.bits.IDLECFG = nLPUART1::CTRL::eIDLECFG::eIDLE_2;
+    ctrl.bits.M7 = nLPUART1::CTRL::eM7::eNO_EFFECT;
+    ctrl.bits.MA2IE = nLPUART1::CTRL::eMA2IE::eDISABLED;
+    ctrl.bits.MA1IE = nLPUART1::CTRL::eMA1IE::eDISABLED;
+    ctrl.bits.SBK = nLPUART1::CTRL::eSBK::eNO_EFFECT;
+    ctrl.bits.RWU = nLPUART1::CTRL::eRWU::eNO_EFFECT;
+    ctrl.bits.RE = nLPUART1::CTRL::eRE::eENABLED;
+    ctrl.bits.TE = nLPUART1::CTRL::eTE::eENABLED;
 }
 
 
