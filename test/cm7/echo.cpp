@@ -5,18 +5,24 @@
  * SPDX-License-Identifier: BSD-3-Clause
  */
 
-#include "clock_config.h"
-#include "board.h"
-#include "mcmgr.h"
+ #include <cassert>
+// #include "clock_config.h"
+// #include "board.h"
+// #include "mcmgr.h"
 #include "registers/iomuxc.hpp"
 #include "registers/ccm.hpp"
-#include "core_cm7.h"
-#include "cachel1_armv7.h"
+// #include "core_cm7.h"
+// #include "cachel1_armv7.h"
 #include <cstdio>
-#include "fsl_debug_console.h"
+// #include "fsl_debug_console.h"
 #include "registers/lpuart1.hpp"
+#include "registers/dma0.hpp"
 
-// TODO 
+uint8_t txBuffer[] = "Hello, eDMA UART!";
+uint32_t bufferSize = sizeof(txBuffer) - 1; // Exclude null terminator
+
+#define DMA0 ((volatile uint32_t*)0x40070000)
+volatile uint32_t* DMA0_TCD0_SADDR = reinterpret_cast<volatile uint32_t*>((DMA0 + 0x1000 + 0x20*0));
 
 void InitLPUART1()
 {
@@ -50,7 +56,8 @@ void InitLPUART1()
     baud.bits.BOTHEDGE = nLPUART1::BAUD::eBOTHEDGE::eDISABLED;
     baud.bits.MATCFG = nLPUART1::BAUD::eMATCFG::eADDR_MATCH;
     baud.bits.RDMAE = nLPUART1::BAUD::eRDMAE::eDISABLED;
-    baud.bits.TDMAE = nLPUART1::BAUD::eTDMAE::eDISABLED;
+    // Enable DMA for transmitter.
+    baud.bits.TDMAE = nLPUART1::BAUD::eTDMAE::eENABLED;
     baud.bits.M10 = nLPUART1::BAUD::eM10::eDISABLED;
     baud.bits.MAEN2 = nLPUART1::BAUD::eMAEN2::eDISABLED;
     baud.bits.MAEN1 = nLPUART1::BAUD::eMAEN1::eDISABLED;
@@ -121,6 +128,11 @@ void InitLPUART1()
     ctrl.bits.RWU = nLPUART1::CTRL::eRWU::eNO_EFFECT;
     ctrl.bits.RE = nLPUART1::CTRL::eRE::eENABLED;
     ctrl.bits.TE = nLPUART1::CTRL::eTE::eENABLED;
+
+    // Configure eDMA TCD for LPUART1 TX.
+    *DMA0_TCD0_SADDR = (uint32_t)txBuffer;  // Source address (RAM buffer)
+    // DMA_TCD0_DADDR = (uint32_t)&LPUART1_DATA; // Destination (LPUART1 DATA register)
+    // DMA_TCD0_NBYTES = 1;  // Transfer 1 byte per minor loop (UART is byte-based)
 }
 
 
