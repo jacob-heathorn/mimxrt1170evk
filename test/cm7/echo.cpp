@@ -124,17 +124,6 @@ void InitLPUART1()
 }
 
 
-// void uart_read_string(char *buffer, size_t max_length) {
-//     size_t i = 0;
-//     while (i < max_length - 1) {
-//         char c = DbgConsole_Getchar();
-//         if (c == '\r' || c == '\n') break;  // Stop on Enter key
-//         buffer[i++] = c;
-//     }
-//     buffer[i] = '\0';  // Null-terminate string
-// }
-
-
 bool lpuart1_write_blocking(const uint8_t* buffer, size_t length) {
     assert(buffer != nullptr);
 
@@ -160,22 +149,46 @@ bool lpuart1_write_blocking(const uint8_t* buffer, size_t length) {
     return true;
 }
 
+int lpuart1_read_blocking(uint8_t *buffer, size_t max_length)
+{
+    assert(buffer != nullptr);
+
+    size_t i = 0;
+    uint8_t* data_address = buffer;
+    auto &stat = nLPUART1::STAT::Instance();
+    auto &data = nLPUART1::DATA::Instance();
+
+    // TODO look for read errors.
+
+    while (i < max_length - 1)
+    {
+        while (stat.bits.RDRF == nLPUART1::STAT::eRDRF::eNO_RXDATA) {}
+        uint8_t c = (uint8_t)(data.value & 0xFF);
+        data_address[i++] = c;
+
+        if (c == '\r' || c == '\n') break;  // Stop on Enter key
+    }
+    buffer[i++] = '\0';  // Null-terminate string
+    return i;
+}
+
 
 int main(void) {
-    const char* message = "Xello";
+    // TODO use printf and readf?
 
     InitLPUART1();
-    BOARD_InitDebugConsole();
-    DbgConsole_Putchar('H');
+    char input_buffer[100];
+    const char* message = "MIMXRT1170 UART String Echo Test\r\n";
     lpuart1_write_blocking(reinterpret_cast<const uint8_t*>(message), std::strlen(message));
-    DbgConsole_Putchar('Y');
 
-    // TODO: Restore.
-    // printf("MIMXRT1170 UART String Echo Test\r\n");
-
-    // while (1) {
-    //     printf("Type something: ");
-    //     uart_read_string(input_buffer, sizeof(input_buffer));
-    //     printf("\r\nYou typed: %s\r\n", input_buffer);
-    // }
+    while (1) {
+        const char* message2 = "Type something: ";
+        lpuart1_write_blocking(reinterpret_cast<const uint8_t*>(message2), std::strlen(message2));
+        lpuart1_read_blocking(reinterpret_cast<uint8_t*>(input_buffer), sizeof(input_buffer));
+        
+        lpuart1_write_blocking(reinterpret_cast<const uint8_t*>("\r\n"), std::strlen("\r\n"));
+        lpuart1_write_blocking(reinterpret_cast<const uint8_t*>("You typed: "), std::strlen("You typed: "));
+        lpuart1_write_blocking(reinterpret_cast<uint8_t*>(input_buffer), std::strlen(input_buffer));
+        lpuart1_write_blocking(reinterpret_cast<const uint8_t*>("\r\n"), std::strlen("\r\n"));
+    }
 }
