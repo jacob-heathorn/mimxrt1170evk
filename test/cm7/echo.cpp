@@ -134,113 +134,28 @@ void InitLPUART1()
 //     buffer[i] = '\0';  // Null-terminate string
 // }
 
-// status_t lpuart1_write_blocking(const uint8_t *data, size_t length)
-// {
-//     data = nLPUART1::DATA::Instance();
-//     data.bits
-//     assert(NULL != data);
-
-//     const uint8_t *dataAddress = data;
-//     size_t transferSize        = length;
-
-// #if UART_RETRY_TIMES
-//     uint32_t waitTimes;
-// #endif
-
-//     while (0U != transferSize)
-//     {
-// #if UART_RETRY_TIMES
-//         waitTimes = UART_RETRY_TIMES;
-//         while ((0U == (base->STAT & LPUART_STAT_TDRE_MASK)) && (0U != --waitTimes))
-// #else
-//         while (0U == (base->STAT & LPUART_STAT_TDRE_MASK))
-// #endif
-//         {
-//         }
-// #if UART_RETRY_TIMES
-//         if (0U == waitTimes)
-//         {
-//             return kStatus_LPUART_Timeout;
-//         }
-// #endif
-//         base->DATA = *(dataAddress);
-//         dataAddress++;
-//         transferSize--;
-//     }
-//     /* Ensure all the data in the transmit buffer are sent out to bus. */
-// #if UART_RETRY_TIMES
-//     waitTimes = UART_RETRY_TIMES;
-//     while ((0U == (base->STAT & LPUART_STAT_TC_MASK)) && (0U != --waitTimes))
-// #else
-//     while (0U == (base->STAT & LPUART_STAT_TC_MASK))
-// #endif
-//     {
-//     }
-// #if UART_RETRY_TIMES
-//     if (0U == waitTimes)
-//     {
-//         return kStatus_LPUART_Timeout;
-//     }
-// #endif
-//     return kStatus_Success;
-// }
-
 
 bool lpuart1_write_blocking(const uint8_t* buffer, size_t length) {
     assert(buffer != nullptr);
 
     const uint8_t* data_address = buffer;
     size_t transfer_size = length;
-    // uint32_t retryCount;
 
     auto &stat = nLPUART1::STAT::Instance();
     auto &data = nLPUART1::DATA::Instance();
 
     while (transfer_size > 0)
-    {
-        while ((stat.bits.TDRE == nLPUART1::STAT::eTDRE::eTXDATA)) {
-          // Optionally include a small delay here if necessary
+    {   
+        while (stat.bits.TDRE == nLPUART1::STAT::eTDRE::eTXDATA) {
+          // TODO: Add wait time, and fail if necessary.
         }
         data.value = static_cast<uint32_t>(*data_address);
         transfer_size--;
         data_address++;
     }
-
-    // while (transferSize > 0) {
-    //     retryCount = 3; // Retry 3 times
-    //     while ((stat.bits.TDRE == nLPUART1::STAT::eTDRE::eNO_TXDATA) && (retryCount-- != 0)) {
-    //       // Optionally include a small delay here if necessary
-    //     }
-
-    //     if (retryCount == 0) {
-    //         return false;
-    //     }
-
-    //     // Prepare the data word for transmission. TODO just set the value.
-    //     // data.value = 0; // Clear the register
-    //     // data.bits.R0T0 = *dataAddress & 0x01;
-    //     // data.bits.R1T1 = *dataAddress & 0x02;
-    //     // data.bits.R2T2 = *dataAddress & 0x04;
-    //     // data.bits.R3T3 = *dataAddress & 0x08;
-    //     // data.bits.R4T4 = *dataAddress & 0x10;
-    //     // data.bits.R5T5 = *dataAddress & 0x20;
-    //     // data.bits.R6T6 = *dataAddress & 0x40;
-    //     // data.bits.R7T7 = *dataAddress & 0x80;
-    //     data.value &= static_cast<uint32_t>(*dataAddress);
-
-    //     dataAddress++;
-    //     transferSize--;
-    // }
-
-    // // Wait for all data to be sent
-    // retryCount = 3; // Retry 3 times
-    // while ((stat.bits.TC == nLPUART1::STAT::eTC::eACTIVE) && (retryCount-- != 0)) {
-    //     // Optionally include a small delay here if necessary
-    // }
-
-    // if (retryCount == 0) {
-    //     return false;
-    // }
+    while (stat.bits.TC == nLPUART1::STAT::eTC::eACTIVE) {
+      // TODO: Add wait time, and fail if necessary.
+    }
 
     return true;
 }
