@@ -36,6 +36,41 @@ void InitLPUART1()
     // Software reset lpuart1. 
     nLPUART1::GLOBAL::Instance().bits.RST = nLPUART1::GLOBAL::eRST::eRESET;
     nLPUART1::GLOBAL::Instance().bits.RST = nLPUART1::GLOBAL::eRST::eNO_EFFECT;
+
+    // Set BAUD register.
+    auto &baud = nLPUART1::BAUD::Instance();
+    // BaudRate = LPUART Clock Frequency / ((OSR+1) * SBR)
+    // TODO assert uartClkSrcFreq = 24'000'000;
+    baud.bits.SBR = 8;
+    baud.bits.OSR = nLPUART1::BAUD::eOSR::eOSR_25;
+    baud.bits.SBNS = nLPUART1::BAUD::eSBNS::eONE;
+    baud.bits.RXEDGIE = nLPUART1::BAUD::eRXEDGIE::eDISABLE;
+    baud.bits.LBKDIE = nLPUART1::BAUD::eLBKDIE::eDISABLE;
+    baud.bits.RESYNCDIS = nLPUART1::BAUD::eRESYNCDIS::eRESYNC;
+    baud.bits.BOTHEDGE = nLPUART1::BAUD::eBOTHEDGE::eDISABLED;
+    baud.bits.MATCFG = nLPUART1::BAUD::eMATCFG::eADDR_MATCH;
+    baud.bits.RDMAE = nLPUART1::BAUD::eRDMAE::eDISABLED;
+    baud.bits.TDMAE = nLPUART1::BAUD::eTDMAE::eDISABLED;
+    baud.bits.M10 = nLPUART1::BAUD::eM10::eDISABLED;
+    baud.bits.MAEN2 = nLPUART1::BAUD::eMAEN2::eDISABLED;
+    baud.bits.MAEN1 = nLPUART1::BAUD::eMAEN1::eDISABLED;
+
+    // Set CTRL
+    nLPUART1::CTRL::Instance().value = 260;
+
+    // Set FIFO
+    nLPUART1::FIFO::Instance().value = 12648601;
+
+    // TODO set water
+
+    // Set MODIR
+    nLPUART1::MODIR::Instance().value = 0;
+
+    // Set STAT. Not msb
+    nLPUART1::STAT::Instance().value = 12582912;
+
+    // Set CTRL.
+    nLPUART1::CTRL::Instance().value = 786692;
 }
 
 
