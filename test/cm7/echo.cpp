@@ -247,16 +247,12 @@ bool lpuart1_write_blocking(const uint8_t* buffer, size_t length) {
 
 
 int main(void) {
-    uint8_t input_buffer[50];
-    input_buffer[0] = '8';
-    input_buffer[1] = '9';
+    const char* message = "Xello";
 
     InitLPUART1();
     BOARD_InitDebugConsole();
-    // uint8_t x = 'X';
-    // lpuart1_write_blocking(&x, 1);
     DbgConsole_Putchar('H');
-    lpuart1_write_blocking(input_buffer, 2);
+    lpuart1_write_blocking(reinterpret_cast<const uint8_t*>(message), std::strlen(message));
     DbgConsole_Putchar('Y');
 
     // TODO: Restore.
