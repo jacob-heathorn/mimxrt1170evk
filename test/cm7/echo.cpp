@@ -17,6 +17,7 @@
 // #include "fsl_debug_console.h"
 #include "registers/lpuart1.hpp"
 #include "registers/dma0.hpp"
+#include "registers/dmamux0.hpp"
 
 uint8_t txBuffer[] = "Hello, eDMA UART!";
 uint32_t bufferSize = sizeof(txBuffer) - 1; // Exclude null terminator
@@ -36,6 +37,19 @@ void InitLPUART1()
     // TODO get this clock frequency from clock driver.
     //uint32_t uartClkSrcFreq = 24'000'000;
     // nLPUART1::
+
+    // Enable dma clock.
+    auto &dma0_clk_direct = nCCM::LPCG22_DIRECT::Instance();
+    auto &dma0_clk_status = nCCM::LPCG22_STATUS0::Instance();
+    if (dma0_clk_status.bits.ON != nCCM::LPCG22_STATUS0::eON::eON_1)
+    {
+        dma0_clk_direct.bits.ON = nCCM::LPCG22_DIRECT::eON::eON_1;
+        while (dma0_clk_status.bits.ON != nCCM::LPCG22_STATUS0::eON::eON_1) {}
+    }
+
+    // Configure the DMAMUX to Link LPUART1 TX with eDMA Channel 0
+    nDMAMUX0::CHCFG_0::Instance().bits.SOURCE = 8; // TODO confirm
+    nDMAMUX0::CHCFG_0::Instance().bits.ENBL = nDMAMUX0::CHCFG_0::eENBL::eENBL_1;
 
     // Enable LPUART1 clock.
     auto &lpuart_clk_direct = nCCM::LPCG86_DIRECT::Instance();
@@ -152,11 +166,14 @@ void InitLPUART1()
     // Step 4: Configure DMA Channel Control Register
     *DMA0_TCD0_CSR &= (1 << 1);  // Set `INTMAJOR` bit to trigger interrupt when done
 
-    // Step 5: Enable DMA Channel 0 (LPUART1 TX)
-    nDMA0::SERQ::Instance().bits.SERQ = DMA_LPUART1_TX_CHANNEL;
+    // // Enable dma request channel 0. TODO why wasnt this mentioned before.
+    // nDMA0::ERQ::Instance().bits.ERQ0 = nDMA0::ERQ::eERQ0::eENABLE;
 
-    // Step 6: Start Transfer
-    nDMA0::SSRT::Instance().bits.SSRT = DMA_LPUART1_TX_CHANNEL;
+    // // Step 5: Enable DMA Channel 0 (LPUART1 TX)
+    // nDMA0::SERQ::Instance().bits.SERQ = 8;
+
+    // // Step 6: Start Transfer
+    // nDMA0::SSRT::Instance().bits.SSRT = 8;
 }
 
 
@@ -213,18 +230,18 @@ int main(void) {
     // TODO use printf and readf?
 
     InitLPUART1();
-    // char input_buffer[100];
-    // const char* message = "MIMXRT1170 UART String Echo Test\r\n";
-    // lpuart1_write_blocking(reinterpret_cast<const uint8_t*>(message), std::strlen(message));
+    char input_buffer[100];
+    const char* message = "MIMXRT1170 UART String Echo Test\r\n";
+    lpuart1_write_blocking(reinterpret_cast<const uint8_t*>(message), std::strlen(message));
 
-    // while (1) {
-    //     const char* message2 = "Type something: ";
-    //     lpuart1_write_blocking(reinterpret_cast<const uint8_t*>(message2), std::strlen(message2));
-    //     lpuart1_read_blocking(reinterpret_cast<uint8_t*>(input_buffer), sizeof(input_buffer));
+    while (1) {
+        const char* message2 = "Type something: ";
+        lpuart1_write_blocking(reinterpret_cast<const uint8_t*>(message2), std::strlen(message2));
+        lpuart1_read_blocking(reinterpret_cast<uint8_t*>(input_buffer), sizeof(input_buffer));
         
-    //     lpuart1_write_blocking(reinterpret_cast<const uint8_t*>("\r\n"), std::strlen("\r\n"));
-    //     lpuart1_write_blocking(reinterpret_cast<const uint8_t*>("You typed: "), std::strlen("You typed: "));
-    //     lpuart1_write_blocking(reinterpret_cast<uint8_t*>(input_buffer), std::strlen(input_buffer));
-    //     lpuart1_write_blocking(reinterpret_cast<const uint8_t*>("\r\n"), std::strlen("\r\n"));
-    // }
+        lpuart1_write_blocking(reinterpret_cast<const uint8_t*>("\r\n"), std::strlen("\r\n"));
+        lpuart1_write_blocking(reinterpret_cast<const uint8_t*>("You typed: "), std::strlen("You typed: "));
+        lpuart1_write_blocking(reinterpret_cast<uint8_t*>(input_buffer), std::strlen(input_buffer));
+        lpuart1_write_blocking(reinterpret_cast<const uint8_t*>("\r\n"), std::strlen("\r\n"));
+    }
 }
