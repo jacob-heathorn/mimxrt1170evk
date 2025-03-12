@@ -19,18 +19,18 @@
 #include "registers/dma0.hpp"
 #include "registers/dmamux0.hpp"
 
-uint8_t txBuffer[] = "Hello, eDMA UART!";
+uint8_t txBuffer[] = "Yello, eDMA UART!";
 uint32_t bufferSize = sizeof(txBuffer) - 1; // Exclude null terminator
 
-#define DMA0 ((volatile uint32_t*)0x40070000)
-volatile uint32_t* DMA0_TCD0_SADDR = reinterpret_cast<volatile uint32_t*>((DMA0 + 0x1000 + 0x20*0));
-volatile uint32_t* DMA0_TCD0_DADDR = reinterpret_cast<volatile uint32_t*>((DMA0 + 0x1010 + 0x20*0));
-volatile uint32_t* DMA0_TCD0_NBYTES_MLNO = reinterpret_cast<volatile uint32_t*>((DMA0 + 0x1008 + 0x20*0));
-volatile uint32_t* DMA0_TCD0_ATTR  = reinterpret_cast<volatile uint32_t*>((DMA0 + 0x1006 + 0x20*0));
-volatile uint32_t* DMA0_TCD0_CITER_ELINKNO  = reinterpret_cast<volatile uint32_t*>((DMA0 + 0x1016 + 0x20*0));
-volatile uint32_t* DMA0_TCD0_BITER_ELINKNO  = reinterpret_cast<volatile uint32_t*>((DMA0 + 0x101E + 0x20*0));
-volatile uint32_t* DMA0_TCD0_CSR  = reinterpret_cast<volatile uint32_t*>((DMA0 + 0x101C + 0x20*0));
-#define DMA_LPUART1_TX_CHANNEL 0 // eDMA Channel for LPUART1 TX
+#define DMA0_BASE 0x40070000
+#define DMA0_TCD0_SADDR  (*(volatile uint32_t*)(DMA0_BASE + 0x1000))
+#define DMA0_TCD0_DADDR  (*(volatile uint32_t*)(DMA0_BASE + 0x1010))
+#define DMA0_TCD0_NBYTES_MLNO  (*(volatile uint32_t*)(DMA0_BASE + 0x1008))
+#define DMA0_TCD0_ATTR  (*(volatile uint16_t*)(DMA0_BASE + 0x1006))
+#define DMA0_TCD0_CITER_ELINKNO  (*(volatile uint16_t*)(DMA0_BASE + 0x1016))
+#define DMA0_TCD0_BITER_ELINKNO  (*(volatile uint16_t*)(DMA0_BASE + 0x101E))
+#define DMA0_TCD0_CSR  (*(volatile uint16_t*)(DMA0_BASE + 0x101C))
+#define DMA0_LPUART1_TX_CHANNEL 0 // eDMA Channel for LPUART1 TX
 
 void InitLPUART1()
 {
@@ -48,7 +48,9 @@ void InitLPUART1()
     }
 
     // Configure the DMAMUX to Link LPUART1 TX with eDMA Channel 0
-    nDMAMUX0::CHCFG_0::Instance().bits.SOURCE = 8; // TODO confirm
+    //
+    // TODO: LPUART1 TX DMA request number is usually 2 (from reference manuals).
+    nDMAMUX0::CHCFG_0::Instance().bits.SOURCE = 8;
     nDMAMUX0::CHCFG_0::Instance().bits.ENBL = nDMAMUX0::CHCFG_0::eENBL::eENBL_1;
 
     // Enable LPUART1 clock.
@@ -149,31 +151,42 @@ void InitLPUART1()
     ctrl.bits.RWU = nLPUART1::CTRL::eRWU::eNO_EFFECT;
     ctrl.bits.RE = nLPUART1::CTRL::eRE::eENABLED;
     ctrl.bits.TE = nLPUART1::CTRL::eTE::eENABLED;
-
+    #define DMA0_BASE 0x40070000
+    #define DMA_TCD0_SADDR  (*(volatile uint32_t*)(DMA0_BASE + 0x1000))
+    #define DMA_TCD0_DADDR  (*(volatile uint32_t*)(DMA0_BASE + 0x1010))
+    #define DMA_TCD0_NBYTES_MLNO  (*(volatile uint32_t*)(DMA0_BASE + 0x1008))
+    #define DMA_TCD0_ATTR  (*(volatile uint16_t*)(DMA0_BASE + 0x1006))
+    #define DMA_TCD0_CITER_ELINKNO  (*(volatile uint16_t*)(DMA0_BASE + 0x1016))
+    #define DMA_TCD0_BITER_ELINKNO  (*(volatile uint16_t*)(DMA0_BASE + 0x101E))
+    #define DMA_TCD0_CSR  (*(volatile uint16_t*)(DMA0_BASE + 0x101C))
     // Configure eDMA TCD for LPUART1 TX.
     auto &lpuart_data = nLPUART1::DATA::Instance();
-    *DMA0_TCD0_SADDR = (uint32_t)txBuffer;  // Source address (RAM buffer)
-    *DMA0_TCD0_DADDR = (uint32_t)&lpuart_data.value; // Destination (LPUART1 DATA register)
-    *DMA0_TCD0_NBYTES_MLNO = 1;  // Transfer 1 byte per minor loop (UART is byte-based)
+    DMA0_TCD0_SADDR = (uint32_t)txBuffer;  // Source address (RAM buffer)
+    DMA0_TCD0_DADDR = (uint32_t)&lpuart_data.value; // Destination (LPUART1 DATA register)
+    DMA0_TCD0_NBYTES_MLNO = 1;  // Transfer 1 byte per minor loop (UART is byte-based)
 
     // Configure source & destination size: 8-bit transfer
-    *DMA0_TCD0_ATTR = (0 << 8) | (0 << 0); // 8-bit transfers (0 = 8-bit, 1 = 16-bit, 2 = 32-bit)
+    DMA0_TCD0_ATTR = (0 << 8) | (0 << 0); // 8-bit transfers (0 = 8-bit, 1 = 16-bit, 2 = 32-bit)
 
     // Step 3: Configure Loop Counters (Major Loop)
-    *DMA0_TCD0_CITER_ELINKNO = bufferSize; // Number of minor loops (bytes to send)
-    *DMA0_TCD0_BITER_ELINKNO = bufferSize; // Total number of iterations
+    DMA0_TCD0_CITER_ELINKNO = bufferSize; // Number of minor loops (bytes to send)
+    DMA0_TCD0_BITER_ELINKNO = bufferSize; // Total number of iterations
 
     // Step 4: Configure DMA Channel Control Register
-    *DMA0_TCD0_CSR &= (1 << 1);  // Set `INTMAJOR` bit to trigger interrupt when done
+    DMA0_TCD0_CSR |= (1 << 1);  // Enable interrupt on completion
 
-    // // Enable dma request channel 0. TODO why wasnt this mentioned before.
-    // nDMA0::ERQ::Instance().bits.ERQ0 = nDMA0::ERQ::eERQ0::eENABLE;
+    while (!(nLPUART1::STAT::Instance().bits.TDRE == nLPUART1::STAT::eTDRE::eNO_TXDATA)) {
+        // Wait for UART TX buffer to be empty
+    }
 
-    // // Step 5: Enable DMA Channel 0 (LPUART1 TX)
-    // nDMA0::SERQ::Instance().bits.SERQ = 8;
+    // Enable dma request channel 0. TODO why wasnt this mentioned before.
+    nDMA0::ERQ::Instance().bits.ERQ0 = nDMA0::ERQ::eERQ0::eENABLE;
 
-    // // Step 6: Start Transfer
-    // nDMA0::SSRT::Instance().bits.SSRT = 8;
+    // Step 5: Enable DMA Channel 0 (LPUART1 TX).
+    nDMA0::SERQ::Instance().bits.SERQ = 0;
+
+    // Step 6: Start Transfer.
+    nDMA0::SSRT::Instance().bits.SSRT = 0;
 }
 
 
@@ -230,18 +243,18 @@ int main(void) {
     // TODO use printf and readf?
 
     InitLPUART1();
-    char input_buffer[100];
-    const char* message = "MIMXRT1170 UART String Echo Test\r\n";
-    lpuart1_write_blocking(reinterpret_cast<const uint8_t*>(message), std::strlen(message));
+    // char input_buffer[100];
+    // const char* message = "MIMXRT1170 UART String Echo Test\r\n";
+    // lpuart1_write_blocking(reinterpret_cast<const uint8_t*>(message), std::strlen(message));
 
-    while (1) {
-        const char* message2 = "Type something: ";
-        lpuart1_write_blocking(reinterpret_cast<const uint8_t*>(message2), std::strlen(message2));
-        lpuart1_read_blocking(reinterpret_cast<uint8_t*>(input_buffer), sizeof(input_buffer));
+    // while (1) {
+    //     const char* message2 = "Type something: ";
+    //     lpuart1_write_blocking(reinterpret_cast<const uint8_t*>(message2), std::strlen(message2));
+    //     lpuart1_read_blocking(reinterpret_cast<uint8_t*>(input_buffer), sizeof(input_buffer));
         
-        lpuart1_write_blocking(reinterpret_cast<const uint8_t*>("\r\n"), std::strlen("\r\n"));
-        lpuart1_write_blocking(reinterpret_cast<const uint8_t*>("You typed: "), std::strlen("You typed: "));
-        lpuart1_write_blocking(reinterpret_cast<uint8_t*>(input_buffer), std::strlen(input_buffer));
-        lpuart1_write_blocking(reinterpret_cast<const uint8_t*>("\r\n"), std::strlen("\r\n"));
-    }
+    //     lpuart1_write_blocking(reinterpret_cast<const uint8_t*>("\r\n"), std::strlen("\r\n"));
+    //     lpuart1_write_blocking(reinterpret_cast<const uint8_t*>("You typed: "), std::strlen("You typed: "));
+    //     lpuart1_write_blocking(reinterpret_cast<uint8_t*>(input_buffer), std::strlen(input_buffer));
+    //     lpuart1_write_blocking(reinterpret_cast<const uint8_t*>("\r\n"), std::strlen("\r\n"));
+    // }
 }
