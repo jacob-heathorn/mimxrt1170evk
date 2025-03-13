@@ -72,9 +72,8 @@ public:
         auto &fifo = nLPUART1::FIFO::Instance();
         fifo.bits.RXFIFOSIZE = nLPUART1::FIFO::eRXFIFOSIZE::eFIFO_4;
         fifo.bits.RXFE = nLPUART1::FIFO::eRXFE::eENABLED;
-        fifo.bits.TXFIFOSIZE = nLPUART1::FIFO::eTXFIFOSIZE::eFIFO_1;
-        // TODO reconsider fifo.
-        fifo.bits.TXFE = nLPUART1::FIFO::eTXFE::eDISABLED;
+        fifo.bits.TXFIFOSIZE = nLPUART1::FIFO::eTXFIFOSIZE::eFIFO_4;
+        fifo.bits.TXFE = nLPUART1::FIFO::eTXFE::eENABLED;
         fifo.bits.RXUFE = nLPUART1::FIFO::eRXUFE::eDISABLED;
         fifo.bits.TXOFE = nLPUART1::FIFO::eTXOFE::eDISABLED;
         fifo.bits.RXIDEN = nLPUART1::FIFO::eRXIDEN::eDISABLED;
