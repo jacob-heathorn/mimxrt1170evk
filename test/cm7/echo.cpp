@@ -11,28 +11,30 @@
 // #include "mcmgr.h"
 #include "registers/iomuxc.hpp"
 #include "registers/ccm.hpp"
-// #include "core_cm7.h"
-// #include "cachel1_armv7.h"
+//#include "core_cm7.h"
+//#include "cachel1_armv7.h"
 #include <cstdio>
 // #include "fsl_debug_console.h"
 #include "registers/lpuart1.hpp"
 #include "registers/dma0.hpp"
 #include "registers/dmamux0.hpp"
 
-uint8_t txBuffer[] = "Yello, eDMA UART!";
-uint32_t bufferSize = sizeof(txBuffer) - 1; // Exclude null terminator
 
 #define DMA0_BASE 0x40070000
 #define DMA0_TCD0_SADDR  (*(volatile uint32_t*)(DMA0_BASE + 0x1000))
 #define DMA0_TCD0_DADDR  (*(volatile uint32_t*)(DMA0_BASE + 0x1010))
-#define DMA0_TCD0_NBYTES_MLNO  (*(volatile uint32_t*)(DMA0_BASE + 0x1008))
+#define DMA0_TCD0_NBYTES_MLOFFNO  (*(volatile uint32_t*)(DMA0_BASE + 0x1008))
 #define DMA0_TCD0_ATTR  (*(volatile uint16_t*)(DMA0_BASE + 0x1006))
 #define DMA0_TCD0_CITER_ELINKNO  (*(volatile uint16_t*)(DMA0_BASE + 0x1016))
 #define DMA0_TCD0_BITER_ELINKNO  (*(volatile uint16_t*)(DMA0_BASE + 0x101E))
 #define DMA0_TCD0_CSR  (*(volatile uint16_t*)(DMA0_BASE + 0x101C))
+#define DMA0_TCD0_DOFF (*(volatile uint16_t*)(DMA0_BASE + 0x1014))
+#define DMA0_TCD0_SOFF (*(volatile int16_t*)(DMA0_BASE + 0x1004))
+#define DMA0_SERQ (*(volatile uint8_t*)(DMA0_BASE + 0x1B)) // 8-bit register
+#define DMA0_SSRT (*(volatile uint8_t*)(DMA0_BASE + 0x1D)) // 8-bit register
 #define DMA0_LPUART1_TX_CHANNEL 0 // eDMA Channel for LPUART1 TX
 
-void InitLPUART1()
+void InitLPUART1(uint8_t *txBuffer, uint16_t bufferSize)
 {
     // TODO get this clock frequency from clock driver.
     //uint32_t uartClkSrcFreq = 24'000'000;
@@ -46,12 +48,6 @@ void InitLPUART1()
         dma0_clk_direct.bits.ON = nCCM::LPCG22_DIRECT::eON::eON_1;
         while (dma0_clk_status.bits.ON != nCCM::LPCG22_STATUS0::eON::eON_1) {}
     }
-
-    // Configure the DMAMUX to Link LPUART1 TX with eDMA Channel 0
-    //
-    // TODO: LPUART1 TX DMA request number is usually 2 (from reference manuals).
-    nDMAMUX0::CHCFG_0::Instance().bits.SOURCE = 8;
-    nDMAMUX0::CHCFG_0::Instance().bits.ENBL = nDMAMUX0::CHCFG_0::eENBL::eENBL_1;
 
     // Enable LPUART1 clock.
     auto &lpuart_clk_direct = nCCM::LPCG86_DIRECT::Instance();
@@ -79,8 +75,8 @@ void InitLPUART1()
     baud.bits.BOTHEDGE = nLPUART1::BAUD::eBOTHEDGE::eDISABLED;
     baud.bits.MATCFG = nLPUART1::BAUD::eMATCFG::eADDR_MATCH;
     baud.bits.RDMAE = nLPUART1::BAUD::eRDMAE::eDISABLED;
-    // Enable DMA for transmitter.
-    baud.bits.TDMAE = nLPUART1::BAUD::eTDMAE::eENABLED;
+    // Disable DMA for transmitter.
+    baud.bits.TDMAE = nLPUART1::BAUD::eTDMAE::eDISABLED;
     baud.bits.M10 = nLPUART1::BAUD::eM10::eDISABLED;
     baud.bits.MAEN2 = nLPUART1::BAUD::eMAEN2::eDISABLED;
     baud.bits.MAEN1 = nLPUART1::BAUD::eMAEN1::eDISABLED;
@@ -151,19 +147,14 @@ void InitLPUART1()
     ctrl.bits.RWU = nLPUART1::CTRL::eRWU::eNO_EFFECT;
     ctrl.bits.RE = nLPUART1::CTRL::eRE::eENABLED;
     ctrl.bits.TE = nLPUART1::CTRL::eTE::eENABLED;
-    #define DMA0_BASE 0x40070000
-    #define DMA_TCD0_SADDR  (*(volatile uint32_t*)(DMA0_BASE + 0x1000))
-    #define DMA_TCD0_DADDR  (*(volatile uint32_t*)(DMA0_BASE + 0x1010))
-    #define DMA_TCD0_NBYTES_MLNO  (*(volatile uint32_t*)(DMA0_BASE + 0x1008))
-    #define DMA_TCD0_ATTR  (*(volatile uint16_t*)(DMA0_BASE + 0x1006))
-    #define DMA_TCD0_CITER_ELINKNO  (*(volatile uint16_t*)(DMA0_BASE + 0x1016))
-    #define DMA_TCD0_BITER_ELINKNO  (*(volatile uint16_t*)(DMA0_BASE + 0x101E))
-    #define DMA_TCD0_CSR  (*(volatile uint16_t*)(DMA0_BASE + 0x101C))
+
     // Configure eDMA TCD for LPUART1 TX.
     auto &lpuart_data = nLPUART1::DATA::Instance();
     DMA0_TCD0_SADDR = (uint32_t)txBuffer;  // Source address (RAM buffer)
     DMA0_TCD0_DADDR = (uint32_t)&lpuart_data.value; // Destination (LPUART1 DATA register)
-    DMA0_TCD0_NBYTES_MLNO = 1;  // Transfer 1 byte per minor loop (UART is byte-based)
+    //DMA0_TCD0_NBYTES_MLNO = 1 | (1 << 31);  // Minor loop = 1 byte, enable SADDR increment
+    //DMA0_TCD0_NBYTES_MLNO = 1;  // Transfer 1 byte per minor loop (UART is byte-based)
+    DMA0_TCD0_NBYTES_MLOFFNO = 1;
 
     // Configure source & destination size: 8-bit transfer
     DMA0_TCD0_ATTR = (0 << 8) | (0 << 0); // 8-bit transfers (0 = 8-bit, 1 = 16-bit, 2 = 32-bit)
@@ -175,18 +166,53 @@ void InitLPUART1()
     // Step 4: Configure DMA Channel Control Register
     DMA0_TCD0_CSR |= (1 << 1);  // Enable interrupt on completion
 
+    auto x = DMA0_TCD0_DOFF;
+    auto y = DMA0_TCD0_SOFF;
+    DMA0_TCD0_DOFF = 0;
+    DMA0_TCD0_SOFF = 1;
+    x = DMA0_TCD0_DOFF;
+    y = DMA0_TCD0_SOFF;
+    (void)x;
+    (void)y;
+
+
+    nLPUART1::FIFO::Instance().bits.TXFLUSH = nLPUART1::FIFO::eTXFLUSH::eTXFIFO_RST;
     while (!(nLPUART1::STAT::Instance().bits.TDRE == nLPUART1::STAT::eTDRE::eNO_TXDATA)) {
         // Wait for UART TX buffer to be empty
     }
+    while (nLPUART1::STAT::Instance().bits.TC != nLPUART1::STAT::eTC::eCOMPLETE) {}
+
+    auto &es = nDMA0::ES::Instance();
+    es.Reset();
+
+    // Configure the DMAMUX to Link LPUART1 TX with eDMA Channel 0
+    //
+    // Reference manual: Table 4-3: DMA Mux Mapping.
+    auto &chcfg0 = nDMAMUX0::CHCFG_0::Instance();
+    chcfg0.bits.SOURCE = 8;
+
+    // Step 5: Enable DMA Channel 0 (LPUART1 TX).
+    // nDMA0::SERQ::Instance().bits.SERQ = 0;
+    DMA0_SERQ = 0;
 
     // Enable dma request channel 0. TODO why wasnt this mentioned before.
     nDMA0::ERQ::Instance().bits.ERQ0 = nDMA0::ERQ::eERQ0::eENABLE;
 
-    // Step 5: Enable DMA Channel 0 (LPUART1 TX).
-    nDMA0::SERQ::Instance().bits.SERQ = 0;
-
+    // Enable the dma mux channel.
+    chcfg0.bits.ENBL = nDMAMUX0::CHCFG_0::eENBL::eENBL_1;
+    
     // Step 6: Start Transfer.
-    nDMA0::SSRT::Instance().bits.SSRT = 0;
+    // nDMA0::SSRT::Instance().bits.SSRT = 0;
+    DMA0_SSRT = 0;
+
+    // Enable DMA for transmitter.
+    baud.bits.TDMAE = nLPUART1::BAUD::eTDMAE::eENABLED;
+
+    while (!(nLPUART1::STAT::Instance().bits.TDRE == nLPUART1::STAT::eTDRE::eNO_TXDATA)) {
+        // Wait for UART TX buffer to be empty
+    }
+
+
 }
 
 
@@ -238,11 +264,34 @@ int lpuart1_read_blocking(uint8_t *buffer, size_t max_length)
     return i;
 }
 
+// __attribute__((section(".data"), aligned(4))) uint8_t txBuffer[] = "Yello, eDMA UART!";
+// __attribute__((section(".ocram_data"), aligned(4))) uint8_t txBuffer[] = "Yello, eDMA UART!";
 
 int main(void) {
-    // TODO use printf and readf?
+    uint8_t txBuffer[20];
+    strcpy((char*)txBuffer, "aaaaaaaaaaaaaaaaaaaaaaa");
+    strcpy((char*)txBuffer, "bbbbbbbbbbbbbb\0");
 
-    InitLPUART1();
+    uint16_t bufferSize = strlen(reinterpret_cast<char*>(txBuffer)); // Exclude null terminator
+    //SCB_CleanDCache_by_Addr((uint32_t*)txBuffer, bufferSize);
+    InitLPUART1(txBuffer, bufferSize);
+
+    // // // Format the address of txBuffer as a hexadecimal string
+    // char message_address[50]; // Buffer to store formatted string
+    // sprintf(message_address, "txBuffer address: 0x%08lX", (unsigned long)txBuffer);
+    // lpuart1_write_blocking(reinterpret_cast<const uint8_t*>(message_address), std::strlen(message_address));
+
+    // // TODO use printf and readf?
+    // volatile uint8_t test_read = txBuffer[0]; // Should not crash
+    // (void)test_read;
+    
+    // if ((uint32_t)txBuffer % 1 != 0) {
+    //     // printf("Error: txBuffer is not byte-aligned!\n");
+    // }
+    // else {
+    //     InitLPUART1(txBuffer, bufferSize);
+    // }
+    
     // char input_buffer[100];
     // const char* message = "MIMXRT1170 UART String Echo Test\r\n";
     // lpuart1_write_blocking(reinterpret_cast<const uint8_t*>(message), std::strlen(message));
