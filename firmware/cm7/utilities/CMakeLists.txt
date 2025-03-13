@@ -3,7 +3,6 @@ add_library(utilities STATIC)
 target_link_libraries(utilities PUBLIC
   drivers
   device
-  uart
   cm7-platform
 )
 

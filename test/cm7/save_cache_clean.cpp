@@ -1,4 +1,3 @@
-#include "fsl_debug_console.h"
 #include "clock_config.h"
 #include "board.h"
 #include "mcmgr.h"

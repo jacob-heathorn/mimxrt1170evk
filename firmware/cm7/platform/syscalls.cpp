@@ -1,6 +1,5 @@
 #include <sys/stat.h>
 #include <errno.h>
-// #include "fsl_debug_console.h"
 #include "platform/lpuart.hpp"
 
 Lpuart1 lpuart;
